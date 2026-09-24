@@ -1,4 +1,4 @@
-# build-wesales.md — o que só dá para montar na tela
+﻿# build-wesales.md — o que só dá para montar na tela
 
 Especificação nó a nó do que o MCP **não** cria: pipeline, workflows,
 calendário, formulário e listas inteligentes. Campos e tags saem por API
@@ -11,6 +11,10 @@ Convenções deste documento:
   manutenção depende deles; não invente um quarto prefixo sem atualizar
   `rotina-limpar-tarefas.md`.
 - Fuso: o da subconta (confirme que é `America/Sao_Paulo`).
+- G-03: promoção agendada para 29/09/2026 às 08:00
+  (`America/Sao_Paulo`) pelo runner idempotente; a limpeza de tarefas é
+  apenas relatório, pois a API pública não oferece endpoint normal de
+  atualização/conclusão de tarefas.
 
 ## Ordem de montagem
 
@@ -33,9 +37,7 @@ Monte nesta ordem, senão os nós não encontram o que referenciar.
 6. Trigger Link "Agendar com o closer" (seção 2.9) — precisa da URL do
    calendário do passo 5
 7. Workflow "Mestre de saída" (seção 3)
-8. Workflow "Pós-ligação" (seção 4) — retoque desta rodada (R-18): já
-   publicado com 6 ramos; acrescente a opção `Desqualificado` em `Resultado
-   da tentativa` (passo 1) e o 7º ramo (D1-D7) antes de montar do zero
+8. Workflow "Pós-ligação" (seção 4)
 9. Workflow "Pós-agendamento" (seção 5)
 10. Workflow "Loop do closer" (seção 5.1) — usa os campos do closer criados
     no passo 1
@@ -58,10 +60,7 @@ Monte nesta ordem, senão os nós não encontram o que referenciar.
     distribuição de leads (R-10, seção 2.14) desde o início — defina a lista
     de round robin no nó 0.7b mesmo com um único SDR hoje — e o portão
     0.0/0.0b de higiene de telefone (R-13, seção 2.3) na frente de tudo,
-    antes do 0.1. Os quatro nós `Send WhatsApp` (M1-a, M1-b, M2-v1, M3-v1)
-    já levam a guarda de janela de 24h (G-05, seção 2.6.2) desde a primeira
-    montagem — sem ela, a mensagem livre é recusada pela API assim que o
-    lead estiver fora da janela, o caso comum desta operação
+    antes do 0.1
 15. Workflow "Cadência Inbound" (seção 2.10) — depois da 12x30 porque o
     handoff do fim da cadência inbound entra nela por Add to Workflow (seção
     2.10, último nó); precisa da 12x30 já montada para apontar para algo.
@@ -131,22 +130,6 @@ Monte nesta ordem, senão os nós não encontram o que referenciar.
     nó 4 do Mestre de saída (passo 7), os dois atualizados nesta rodada, já
     saem junto se você montar as duas peças a partir desta versão do
     documento
-30. Workflow "Qualidade da Conexão" (seção 2.27, F-06) — por último de
-    todos, condicionado a uma confirmação que ainda não existe: **as
-    ligações desta operação saem por LC Phone?** (mesma pendência sem
-    resposta do F-08/F-09). Se sim, ligue transcrição em Configurações →
-    Telefone antes de montar — sem ela o gatilho `Transcript Generated`
-    nunca dispara. Depende dos campos `Duração da ligação`/`Conexão real`
-    (passo 1). Corrige só a métrica de conexão; não bloqueia nenhum passo
-    anterior desta lista, e nenhum passo anterior depende dele
-31. Workflow "Resgate por E-mail — Sem Telefone" (seção 2.30, F-15) — não
-    depende de nenhum passo anterior além dos campos/tags do passo 1 (todos
-    já existentes); monte a qualquer momento depois do R-08 (passo 18)
-    estar publicado, porque os dois escutam o mesmo gatilho (`Contact Tag
-    Added: nutricao-90d`) e a leitura fica mais fácil comparando os dois
-    lado a lado. Confirme antes de montar: a subconta tem domínio de
-    e-mail verificado para envio transacional (não checável por este
-    conector)
 
 ---
 
@@ -168,7 +151,7 @@ feito.
 |---|---|---|---|
 | 0 | `NOVO LEAD` | 30% | `#2563EB` |
 | 1 | `CONECTAR` | 40% | `#8B5CF6` |
-| 2 | `REUNIÃO DE DIAGNÓSTICO` (renomeada de `AGENDAR` em 23/09/2026, mesmo `id`) | 50% | `#2DD4BF` |
+| 2 | `AGENDAR` | 50% | `#2DD4BF` |
 | 3 | `NEGOCIAR` | 60% | `#D97706` |
 | 4 | `FORMALIZAR` | 70% | `#059669` |
 
@@ -192,37 +175,12 @@ etapa antigo que aparecer nela se traduz por esta tabela:
 |---|---|---|
 | `Novo lead` | `NOVO LEAD` | Mesma etapa, só o nome mudou |
 | `Em cadência` | `CONECTAR` | Mesma etapa — é aqui que o portão de toda tentativa (nó 3, seção 2.4) passa a checar |
-| `Conectado` | `REUNIÃO DE DIAGNÓSTICO` (nome na tela até 22/09/2026: `AGENDAR`, mesmo `id` — ver nota abaixo) | Mesma etapa |
+| `Conectado` | `AGENDAR` | Mesma etapa |
 | `Retorno agendado` | **continua em `CONECTAR`** | Deixou de ser etapa própria — "pediu retorno" não move a oportunidade, só grava `Resultado da tentativa = Pediu retorno`. Todo gatilho `Opportunity Stage Changed → Retorno agendado` vira **sem gatilho de etapa nenhum**: o lead nunca sai de `CONECTAR`, e a lista `Retornos` (8.4) filtra só pelo campo |
 | `Reunião agendada` | `NEGOCIAR` | Absorve também a negociação do closer (proposta, condições), que no plano de 7 ficava fora do pipeline — agora está dentro, porque o dono optou por 1 pipeline só |
 | `Nutrição` | **status da oportunidade = `abandoned`**, etapa fica como estava | Todo gatilho `Opportunity Stage Changed → Nutrição` vira **`Contact Tag Added → nutricao-90d`** (gatilho nativo já usado em outro lugar do projeto) — a tag continua sendo o sinal de quem está nutrição, o status só formaliza isso no campo nativo do GHL |
 | `Descartado` | **status da oportunidade = `lost`**, etapa fica como estava | Todo gatilho `Opportunity Stage Changed → Descartado` vira uma ação `Update Opportunity` mudando o `status`, não a etapa |
 | *(não existia)* | `FORMALIZAR` | Etapa nova, fechamento/contrato — equivale a `status = won`. Fora do escopo dos workflows de SDR deste documento (é o closer fechando), citada aqui só para a tabela ficar completa |
-
-> **Segunda renomeação, 23/09/2026 — `AGENDAR` também já não é o nome na
-> tela.** Fora do plano de 7 desta tabela: o dono decidiu, em
-> `wesales/PLANO-MULTICANAL.md` (D1/E2), renomear a etapa `AGENDAR` para
-> `REUNIÃO DE DIAGNÓSTICO` — **mesmo `id`**
-> (`3d26fcd1-220d-49ed-8325-705dfe9055b1`), confirmado por
-> `opportunities_get-pipelines` de novo em 23/09/2026, sessão seguinte
-> (`dateUpdated` ainda 2026-09-23T00:59Z, sem mudança). Todo workflow
-> publicado que decide por `pipelineStageId` (não por nome) continua
-> funcionando sem tocar em nada — é o caso de todos os já montados. O que
-> fica desatualizado é só texto. **Atualização desta rodada:** o código já
-> não está mais desatualizado — `wesales/tools/ghl_api.py` (`STAGES`) já
-> tem as duas chaves, `"AGENDAR"` e `"REUNIÃO DE DIAGNÓSTICO"`, apontando
-> para o mesmo `id`, com comentário explicando o apelido — feito por fora
-> desta sessão, entre a rodada que escreveu este parágrafo e esta. Migração
-> de **texto puro**, promovida a item próprio em
-> `ROADMAP-SALES-ENGAGEMENT.md`, G-12, **está completa desde 23/09/2026
-> (peça 2):** a tabela desta seção (1) e a linha `Conectado` da tabela acima
-> saíram na peça 1; as seções 2 em diante deste documento e todo
-> `ROADMAP-SALES-ENGAGEMENT.md` saíram na peça 2 — nenhuma delas trata mais
-> `AGENDAR` como etapa corrente. Nomes próprios publicados na tela com "AGENDAR" no texto (o
-> workflow `AGENDAR Estagnado`, a lista `Saúde — AGENDAR Estagnado`) **não**
-> entram nesta migração — são o nome real do objeto, trocar o texto aqui
-> sem renomear o objeto na tela criaria uma divergência nova, pior que a
-> atual. Detalhe da régua (o que migra, o que fica) em G-12.
 
 **Por que isso é simplificação, não perda:** `CONECTAR` continua etapa
 própria porque é o único estado que um portão de workflow *precisa*
@@ -253,7 +211,7 @@ agora **vivem dentro** deste mesmo pipeline, nas etapas `NEGOCIAR` e
 | Framework de mercado | Nossa etapa/estado correspondente | Por que a granularidade difere |
 |---|---|---|
 | Topo do funil — Prospecção / Não contatado | `NOVO LEAD` | Igual — é o mesmo conceito |
-| Meio do funil — Qualificação (pré-venda) / Contato-Abordagem | `CONECTAR` (inclui quem pediu retorno) e `REUNIÃO DE DIAGNÓSTICO` (`AGENDAR` até 22/09/2026) | O genérico trata como 1-2 fases; aqui seguem 2 estados **porque cada um é o que um workflow consulta** (seção 2.4, nó 3) — "tentando conectar (ou cumprindo retorno combinado)" e "conectado, ainda sem reunião marcada" precisam de portão próprio, senão a régua de 12 tentativas não sabe quando parar |
+| Meio do funil — Qualificação (pré-venda) / Contato-Abordagem | `CONECTAR` (inclui quem pediu retorno) e `AGENDAR` | O genérico trata como 1-2 fases; aqui seguem 2 estados **porque cada um é o que um workflow consulta** (seção 2.4, nó 3) — "tentando conectar (ou cumprindo retorno combinado)" e "conectado, ainda sem reunião marcada" precisam de portão próprio, senão a régua de 12 tentativas não sabe quando parar |
 | Fundo do funil — Apresentação/Demonstração | `NEGOCIAR` (metade "comparecimento e veredito") | É o ponto de handoff: o SDR agenda, o **closer** apresenta |
 | Fundo do funil — Proposta, Negociação, Ganho/Perdido | `NEGOCIAR` (metade "negociação") → `FORMALIZAR` (`status = won`) ou saída com `status = lost` | Agora dentro deste pipeline (ver "Mudança relevante" acima) — administrado pelo closer, mas sem pipeline separado para administrar |
 | — (nenhum framework genérico tem isto) | Status `abandoned` (tag `nutricao-90d`), etapa como estava | É onde o Sales Model Canvas simplifica demais: o binário "Ganho ou Perdido" não tem espaço para "sem fit **agora**, mas com fit daqui a 90 dias". A reativação automática (R-08) trata isso como terceiro estado — nenhuma das fontes citadas pelo dono documenta isso como etapa própria, só como "relatório de nutrição vencida" manual |
@@ -294,39 +252,29 @@ L-07 já registrada, só que agora com o efeito colateral dela em cima de
 uma métrica que achávamos fechada (R-02). Registrado aqui para quem for
 priorizar L-07 saber que ela também é a métrica de estagnação desta etapa.
 
-#### Etapa 1 — `CONECTAR` (absorve o antigo `Retorno agendado` **e**, desde 23/09/2026, a fase "fechar horário" — ver aviso abaixo, G-13)
-
-> **Correção de 23/09/2026 (G-13):** as linhas "Validação de passagem" e
-> "Motivos de perda" abaixo diziam que `Atendeu` move a oportunidade para
-> `REUNIÃO DE DIAGNÓSTICO`. Isso valia até a D3 do `PLANO-MULTICANAL.md`
-> (22/09/2026, publicada em 23/09): hoje `Atendeu` **fica** em `CONECTAR`,
-> numa fase própria ("fechar horário": tag `fechar-horario`, workflow
-> `Fechar Horário`, até 3 dias reengajando por mensagem antes de cair em
-> nutrição). Só o agendamento de fato (`Pós-agendamento v2`) move a
-> oportunidade para `REUNIÃO DE DIAGNÓSTICO`. Detalhe em `build-wesales.md`
-> seção 4 (ramo `Atendeu`) e `ROADMAP-SALES-ENGAGEMENT.md`, G-13.
+#### Etapa 1 — `CONECTAR` (absorve o antigo `Retorno agendado`)
 
 | Bloco | Conteúdo |
 |---|---|
-| Objetivo | Conseguir uma conexão real (`Atendeu`) dentro das 12 tentativas em 30 dias, **e então** fechar o horário da reunião de diagnóstico — inclui quem já foi contatado e pediu para ligar depois: esse lead não sai da etapa, só muda o que `Resultado da tentativa` guarda |
-| Validação de passagem | `Resultado da tentativa` = `Atendeu` **não** muda mais etapa (nó A6 do ramo `Atendeu`, seção 4) — o lead fica em `CONECTAR`, fase "fechar horário". Só sai para `REUNIÃO DE DIAGNÓSTICO` quando a reunião é de fato marcada no calendário (`Pós-agendamento v2`, seção 5, nó 1). `Pediu retorno` também **não muda etapa**: o lead fica em `CONECTAR`, e a lista `Retornos` (8.4) filtra só pelo valor do campo, sem OR com etapa nenhuma |
-| Ferramentas | Workflows Cadência 12x30/Inbound/Reengajamento, listas `Fila Telefone Hoje`/`Fila WhatsApp Hoje` (8.2/8.3), lista `Retornos` (8.4), `script-de-ligacao.md`; **fase "fechar horário":** tag `fechar-horario`, tarefa `[FECHAR HORÁRIO] Qualificar e agendar a reunião de diagnóstico`, workflow `Fechar Horário` (mensagens `MFH1-v1`/`MFH2-v1`) |
-| Tempo de estagnação | Já coberto: F-05 (roadmap, peça 3 — seção 2.22) monitora `CONECTAR` sem avanço na fase de tentativa; a 1ª tentativa tem relógio próprio (Alerta de Speed-to-lead, seção 2.11). A fase "fechar horário" tem o próprio relógio dentro do workflow `Fechar Horário` (3 dias até nutrição) — não tem alerta ao gestor ainda, pendência aberta no G-13. O antigo gap "retorno vencido sem nova ligação" (S-01, `Data de retorno`/`Hora do retorno`, na tela desde 21/09/2026) continua valendo aqui dentro |
-| Motivos de perda | `Número errado` (→ `telefone-invalido`), `Não ligar` (→ opt-out, DND) — saem da etapa via `Update Opportunity` para `status = lost`; 12 tentativas esgotadas sem conexão → `status = abandoned` **+** tag `nutricao-90d`, **sem sair de `CONECTAR`**; conectado e sem fechar horário em 3 dias → mesmo destino (`abandoned` + `nutricao-90d`), pelo `Fechar Horário` — todas sem movimento de etapa (era "→ `Nutrição`" no plano de 7) |
-| Taxa de conversão esperada | ~35% conectam ou saem antes das 12 tentativas (L-05, `briefing-sdr.md`) — mesma hipótese que já dimensiona o volume de entrada; taxa de quem conecta e **fecha horário** dentro dos 3 dias ainda não medida (canal novo, G-13) |
+| Objetivo | Conseguir uma conexão real (`Atendeu`) dentro das 12 tentativas em 30 dias — inclui quem já foi contatado e pediu para ligar depois: esse lead não sai da etapa, só muda o que `Resultado da tentativa` guarda |
+| Validação de passagem | `Resultado da tentativa` = `Atendeu` (→ `AGENDAR`) — nó 10 do bloco padrão, seção 2.4. `Pediu retorno` **não muda mais etapa**: o lead fica em `CONECTAR`, e a lista `Retornos` (8.4) filtra só pelo valor do campo, sem OR com etapa nenhuma |
+| Ferramentas | Workflows Cadência 12x30/Inbound/Reengajamento, listas `Fila Telefone Hoje`/`Fila WhatsApp Hoje` (8.2/8.3), lista `Retornos` (8.4), `script-de-ligacao.md` |
+| Tempo de estagnação | Já coberto: F-05 (roadmap, peça 3 — seção 2.22) monitora `CONECTAR` sem avanço; a 1ª tentativa tem relógio próprio (Alerta de Speed-to-lead, seção 2.11). O antigo gap "retorno vencido sem nova ligação" (que dependia de S-01, `Data do retorno`/`Hora do retorno` — o primeiro já existe como campo, o segundo não, ver `GUIA-MONTAGEM.md`) continua valendo aqui dentro, não em etapa separada |
+| Motivos de perda | `Número errado` (→ `telefone-invalido`), `Não ligar` (→ opt-out, DND) — saem da etapa via `Update Opportunity` para `status = lost`; 12 tentativas esgotadas sem conexão → `status = abandoned` **+** tag `nutricao-90d`, **sem sair de `CONECTAR`** (era "→ `Nutrição`" no plano de 7; agora é status, não movimento de etapa) — os três ramos do Pós-ligação, seção 4 |
+| Taxa de conversão esperada | ~35% conectam ou saem antes das 12 tentativas (L-05, `briefing-sdr.md`) — mesma hipótese que já dimensiona o volume de entrada |
 | Meta de avanço | 100 ligações/dia é a meta do SDR (briefing); quantos *leads* avançam por dia é `Total de conexões` (C-07) somado, lido na lista `Conexão por Tentativa` (8.6, R-01) |
 
-#### Etapa 2 — `REUNIÃO DE DIAGNÓSTICO` (nome na tela até 22/09/2026: `AGENDAR`, mesmo `id`) — **entrada mudou em 23/09/2026, ver aviso na Etapa 1 (G-13)**
+#### Etapa 2 — `AGENDAR`
 
 | Bloco | Conteúdo |
 |---|---|
-| Objetivo | Reunião marcada; qualificação (formulário do closer) e fechamento de horário já aconteceram **antes** de entrar aqui, dentro de `CONECTAR` (D2 do `PLANO-MULTICANAL.md`) — esta etapa é a espera até a reunião acontecer e o veredito do closer |
-| Validação de passagem | Agendamento no calendário `Reunião com closer`, feito pelo SDR ainda em `CONECTAR` — dispara o `Pós-agendamento v2` (seção 5), que move para cá |
-| Ferramentas | Calendário + confirmação/lembretes (`Pós-agendamento v2`, seção 5) |
-| Tempo de estagnação | **Não coberto mais por monitor nenhum** (peça 5 do F-05/W17d foi despublicada, premissa impossível — `build-wesales.md` seção 2.23, G-13). Como a entrada aqui já exige reunião marcada, o relógio relevante é o `No-show`/`SLA do Closer` (seção 5.3/5.4), não um "ficou parado" genérico |
-| Motivos de perda | O ramo `Desqualificado` do Pós-ligação (R-18, seção 4) já tira a maioria dos "sem fit na ligação" **antes** de chegar aqui, ainda em `CONECTAR`. O que chega em `REUNIÃO DE DIAGNÓSTICO` tem reunião marcada; perda a partir daqui é veredito do closer (Loop do closer, seção 5.1) ou no-show |
-| Taxa de conversão esperada | Reunião realizada vs. agendada (no-show) — não é mais "sem fit", que sai antes |
-| Meta de avanço | Ligado à meta de conexões que fecham horário (etapa anterior) — sem meta própria adicional |
+| Objetivo | Qualificar e agendar com o closer na mesma ligação (briefing-sdr.md, "A máquina") |
+| Validação de passagem | Formulário `Qualificação SDR` preenchido + agendamento no calendário `Reunião com closer` (dispara o Pós-agendamento, seção 5) |
+| Ferramentas | Calendário + formulário (seção 7), tarefa `[CONECTADO] Qualificar e agendar` |
+| Tempo de estagnação | **Gap encontrado ao preencher este bloco, sem monitor ainda:** nenhum relógio hoje mede "atendeu e não agendou em X horas". Registrado como adição ao F-05 (roadmap, ainda no bloco 6 — sem volume não vale construir agora): 24h sem sair de `AGENDAR` |
+| Motivos de perda | **Segundo gap encontrado:** hoje não existe caminho de desqualificação instantânea nesta etapa — o Pós-ligação sempre cria a tarefa de agendar, mesmo quando a conversa já mostrou que não há fit. Registrado como lacuna nova, **L-08** (`briefing-sdr.md`) |
+| Taxa de conversão esperada | Depende do L-08 ser resolvido para medir separado de "não conseguiu horário"; hoje mistura os dois motivos numa métrica só |
+| Meta de avanço | Ligado à meta de conexões da etapa anterior — sem meta própria adicional |
 
 #### Etapa 3 — `NEGOCIAR` (absorve `Reunião agendada` + a negociação do closer)
 
@@ -335,10 +283,10 @@ priorizar L-07 saber que ela também é a métrica de estagnação desta etapa.
 | Objetivo | Comparecimento + veredito de qualificação real do closer, e a negociação em si (proposta, condições) até a decisão de compra — a metade "negociação" não existia no plano de 7 etapas, que a mandava para fora do pipeline |
 | Validação de passagem | `Reunião foi qualificada` preenchida pelo closer (Loop do closer, seção 5.1) para a metade "comparecimento"; para a metade "negociação", decisão do closer registrada como `status = won` (→ `FORMALIZAR`) ou `status = lost` (permanece em `NEGOCIAR` com o status marcado, não some da tela) |
 | Ferramentas | Calendário, Registro de Comparecimento (5.2), Loop do closer (5.1), SLA do Closer — No-show (5.4, R-12); a negociação em si (proposta/condições) é conduzida pelo closer fora dos workflows deste documento |
-| Tempo de estagnação | A metade "comparecimento" já está coberta — é literalmente o R-12: SLA do closer com escalonamento ao gestor (seção 5.4). A metade "negociação" (depois do `Reunião foi qualificada = Sim`) ficou sem monitor até 22/09/2026: F-05 fechou com seis peças sem incorporar este gap, apesar de citado aqui como candidato desde a etapa ser escrita. Fechado como item próprio, F-13 (roadmap), seção 2.28 abaixo |
+| Tempo de estagnação | A metade "comparecimento" já está coberta — é literalmente o R-12: SLA do closer com escalonamento ao gestor (seção 5.4). A metade "negociação" (depois do `Reunião foi qualificada = Sim`) **não tem monitor ainda** — gap novo, mesma classe dos dois já registrados nas etapas anteriores; candidato a entrar no F-05 quando ele for construído |
 | Motivos de perda | No-show 2x seguido (R-12: `status = lost` mantendo a oportunidade em `NEGOCIAR`, não um "mover para `Descartado`" — migrado nas seções 5.3 e 5.4 em 19/09/2026; este parágrafo dizia "ainda usa a redação antiga e entra na fila" até 21/09, quando a fila já não existia), `Reunião foi qualificada` = `Não` (→ roteamento da seção 5.1, mesma troca de "mover etapa" por "mudar status") |
 | Taxa de conversão esperada | "nota ≥ 70 acerta X%" é exatamente o que a lista `Calibração da Régua` (8.7, F-03) mede |
-| Meta de avanço | Função da nota de qualificação (seção 9.1) e do volume que chega de `REUNIÃO DE DIAGNÓSTICO` |
+| Meta de avanço | Função da nota de qualificação (seção 9.1) e do volume que chega de `AGENDAR` |
 
 #### Etapa 4 — `FORMALIZAR` (novo, não existia no plano de 7)
 
@@ -465,187 +413,39 @@ primeira não).
 
 ---
 
-### 1.4 Workflow "Reentrada por Formulário" — F-11
+### 1.4 G-03 — promoção imediata escolhida pelo dono em 24/09/2026
 
-**Por quê:** um lead que já saiu do funil (`status` `abandoned` ou `lost` —
-12 tentativas esgotadas, número errado, desqualificado) e depois **preenche
-de novo** o mesmo formulário de um anúncio do Meta é o sinal de reengajamento
-mais forte que existe: dinheiro pago de novo, de propósito, pela mesma
-pessoa. Hoje esse sinal é invisível para a máquina inteira. A Porta de
-Entrada (G-01, seção 1.3) só reage a `Contact Created`, e a HighLevel
-deduplica contato por e-mail/telefone — uma resubmissão de um contato que
-já existe **atualiza** o registro, não recria, então `Contact Created` nunca
-dispara de novo (pesquisado: comportamento de deduplicação nativo,
-confirmado por página oficial da HighLevel citada em duas buscas com termos
-diferentes — mesmo padrão de confiança já usado no G-05). O único caminho de
-volta hoje é o Reengajamento 90 dias (R-08, seção 2.12), que só cobre quem
-saiu **pela via `nutricao-90d`** e só reage **90 dias depois**, não no
-instante em que o lead literalmente acabou de levantar a mão de novo. É
-exatamente o tipo de dívida que o F-01 já descreveu para outro sinal ("sinal
-ignorado é dívida que não se paga retroativamente") — aqui o sinal nem chega
-a ser ignorado, ele nunca é lido. E é o tipo de vantagem que "faça melhor,
-não igual" pede: Reev, Meetime, Outreach e Salesloft não enxergam a
-resubmissão de um anúncio — só recebem o que alguém empurra para eles via
-integração, uma vez. Aqui o CRM **é** a plataforma de anúncio, então o dado
-já está disponível nativamente; nenhuma das quatro plataformas de sales
-engagement tem como copiar isso olhando só a tela delas.
+**Decisão:** opção 2 — promoção imediata, sem espera. O gatilho é
+Opportunity Stage Changed entrando em NOVO LEAD; a ação única é
+Create/Update Opportunity, com status open e etapa CONECTAR. O
+builder é offline (	ools/build_g03.py): ele apenas gera o rascunho JSON
+e não chama g.client() nem escreve no CRM.
 
-**Como:** workflow novo e pequeno, símile do G-05/R-08 ("não dá para caber
-dentro do workflow que já existe, um workflow curto e próprio resolve sem
-tocar em nada publicado").
+A ordem é obrigatória: publicar e testar a Cadência 12x30, publicar este
+workflow, promover o estoque existente e conferir o T1. O evento não
+reprocessa oportunidades existentes; por isso o backfill do estoque é uma
+ação manual separada. O workflow também não deve ser publicado nem o
+estoque promovido enquanto a Cadência não estiver publicada e testada.
 
-**Gatilho: `Facebook Lead Form Submitted`**, sem filtro de formulário
-específico — pesquisado: diferente do que motivou o G-01 a **rejeitar** este
-gatilho para a entrada nova ("só cobre a origem Meta", o oposto de "toda
-origem" que aquele caso pedia), aqui a origem já é conhecida de propósito —
-é reentrada de quem **já** veio do Meta, e não da entrada genérica que a
-Porta de Entrada cobre. A documentação e guias de terceiros confirmam que o
-gatilho aceita filtro por página + formulário específico, mas não deixam
-claro se "sem filtro" cobre todos os formulários conectados de uma vez —
-**confiança média**, não testado nesta subconta. Se a tela exigir escolher
-um formulário por vez, a saída é a mesma do G-04 (Opção A): uma cópia deste
-workflow por formulário — hoje são 8 (`ROADMAP-SALES-ENGAGEMENT.md`, G-04) —,
-registrada aqui como pendência explícita, não como bloqueio: o primeiro
-formulário já vale a pena montado sozinho.
+**Execução real em 24/09/2026:** a Cadência 12x30 foi confirmada como
+`published` antes da ação e o backfill oficial do estoque foi executado:
+41 oportunidades `open` em `NOVO LEAD` foram promovidas para `CONECTAR`;
+9 permaneceram em `NOVO LEAD` por status fechado (8 `abandoned`, 1 `lost`).
+Nenhuma oportunidade `closed` foi alterada; a verificação final de
+`CONECTAR` totalizou 45 (38 `open`, 7 `lost`).
 
-**Configurações do workflow**
+**Automação futura pendente:** o workflow **Promover NOVO LEAD para
+CONECTAR** ainda não foi criado/publicado, porque a criação de workflow pela
+API oficial não foi estabelecida. O backfill acima não substitui essa
+automação para novas oportunidades.
 
-| Configuração | Valor | Por que |
-|---|---|---|
-| Allow Re-entry | **Ligado** | Cada resubmissão do formulário é um evento novo e genuíno — mesmo raciocínio já usado no R-08 (seção 2.12) para a tag `nutricao-90d`: sem reentrada ligada, o lead só reativaria uma vez na vida e a segunda resubmissão cairia no vazio |
-| Janela de envio / Stop on Response | Não se aplica | O único trabalho aqui é reabrir a oportunidade e (no ramo de exceção) avisar o gestor — nenhuma mensagem sai deste workflow, mesmo raciocínio da Porta de Entrada (seção 1.3) |
-| Contatos em múltiplos workflows | Permitido | O contato pode estar (raramente) noutra régua ao mesmo tempo; este workflow só mexe na etapa/status da oportunidade, não compete por tarefa ou tag de fila |
-
-### Nós
-
-| # | Nó | Ação | Configuração |
-|---|---|---|---|
-| 1 | **Portão de estado** | If/Else | `status` da oportunidade no `FUNIL DE VENDAS` **é** `abandoned` **ou** `lost` → nó 2. Senão (nenhuma oportunidade ainda, ou já `open`) → **Remove from Workflow: este** |
-| 2 | **Portão de consentimento** | If/Else | tag `nao-perturbe` presente → nó 2b. Senão → nó 3 |
-| 2b | Ramo do opt-out | Internal Notification para o gestor: `{{contact.name}} reenviou um formulário do Meta, mas está marcado nao-perturbe — decisão manual sobre reabrir a oportunidade` → **Remove from Workflow: este** | Mesmo padrão do nó 0.0b (seção 2.3): achado ambíguo não se resolve sozinho, vai para o gestor decidir |
-| 3 | Reabertura | Update Opportunity | Etapa → `NOVO LEAD` · `status` → `open` |
-| 4 | Limpeza de estado antigo | Remove Contact Tag | `nutricao-90d` (idempotente, mesmo se ausente — mesma linguagem já usada no nó 4 do R-08, seção 2.12) |
-| 5 | Registro | Add Note | `Oportunidade reaberta em {{right_now}} — lead reenviou o formulário do Meta. Reentrada automática (F-11), etapa reiniciada em NOVO LEAD para nova triagem do SDR.` |
-
-**Por que volta para `NOVO LEAD` e não direto para `CONECTAR` (ao contrário
-do R-08, que reativa direto em `CONECTAR`):** o R-08 sabe que o lead já
-passou pela triagem uma vez (12 tentativas completas). Aqui não — o motivo
-da saída pode ter sido `Número errado` ou uma desqualificação por falta de
-fit, e mandar direto para `CONECTAR` puxaria a cadência de novo sem
-ninguém olhar. `NOVO LEAD` é o mesmo ponto de entrada que todo lead
-genuinamente novo usa (G-01) — reaproveita a mesma decisão manual do SDR
-(L-07/G-03) em vez de abrir uma terceira porta com regra própria.
-
-**Por que o nó 1 não precisa distinguir "nenhuma oportunidade" de
-"oportunidade já `open`":** nos dois casos a ação certa é a mesma — não
-fazer nada. Contato realmente novo já está coberto pela Porta de Entrada
-(que dispara por `Contact Created`, evento diferente, sem corrida entre os
-dois: este workflow só age quando encontra `abandoned`/`lost`, condição que
-um contato novíssimo nunca tem). Lead já `open` está correndo alguma
-cadência agora — reabrir de novo duplicaria régua, o mesmo erro que o
-`Allow Re-entry` desligado da 12x30 (D-06) já existe para evitar.
-
-**Por que checar `nao-perturbe` e não o DND nativo direto:** todo outro
-portão deste documento (nó 3 da seção 2.4, nó 2 do R-08, nó 0.0b) usa a tag
-como fonte da verdade para "não procurar este lead", nunca o DND nativo
-isolado — e o ramo `Não ligar` do Pós-ligação (seção 4) sempre aplica os
-dois juntos, então checar a tag cobre o mesmo caso sem inventar uma segunda
-fonte de verdade só para este workflow.
-
-**Interação com o R-08 (Reengajamento 90 dias) — verificada, não montada às
-cegas:** o nó 2 do R-08 (seção 2.12) já checa `status` **ao vivo** ("Status
-da oportunidade é `abandoned`") antes de reativar, com exatamente esta nota
-no próprio item: "não reativa quem já mudou de estado por conta própria".
-Se este workflow reabrir o lead antes do relógio de 90 dias do R-08 vencer,
-quando o `Wait` dele terminar o portão vai encontrar `status = open` (não
-mais `abandoned`) e sair pelo ramo 2b, um no-op limpo — nenhuma tentativa
-duplicada, nenhuma mudança necessária no R-08. É o mesmo tipo de garantia
-que a migração do G-02 já deixou espalhada pelo documento (checar estado ao
-vivo, não confiar em quando um evento aconteceu).
-
-#### Conferência do F-11, 22/09/2026 (mesma rodada): falta o reset que o R-08 tem, e a tag que ninguém remove
-
-O desenho está certo onde importa — o portão do nó 1 resolve a corrida com a
-Porta de Entrada sem precisar distinguir "sem oportunidade" de "já `open`", e a
-interação com o R-08 foi conferida contra o portão real dele, não suposta. Três
-acréscimos.
-
-**1. A dúvida do "sem filtro" se resolve, e a favor de um workflow só.** A
-ressalva de confiança média sobre `Facebook Lead Form Submitted` cobrir todos os
-formulários de uma vez tem resposta na própria recomendação de boas práticas que
-a pesquisa desta rodada trouxe: *evite um gatilho que aceite todo formulário do
-Facebook de toda oferta **a menos que todos pertençam ao mesmo pipeline e
-etapa***. Isso (a) implica que o gatilho **aceita** ficar sem filtro, senão não
-haveria o que evitar, e (b) descreve a exceção que é exatamente este caso — os
-oito formulários desta subconta alimentam **o mesmo** pipeline (`FUNIL DE
-VENDAS`) e **a mesma** etapa (`NOVO LEAD`). Então a pendência das "8 cópias"
-provavelmente não existe: monte **um** workflow sem filtro de formulário. Se a
-tela exigir escolher um, aí sim as cópias — mas não planeje para isso.
-
-**2. Falta o reset de rodada, e o R-08 já tem o nó pronto para copiar.** O nó 3
-reabre a oportunidade e o nó 4 tira `nutricao-90d`, mas **nenhum campo de
-contador é zerado.** O lead volta para `NOVO LEAD` carregando o estado do fim da
-régua anterior:
-
-| Campo, como fica | Efeito quando o SDR promover para `CONECTAR` |
-|---|---|
-| `Tentativa nº` = 12 | A cadência pode encerrar na entrada — a régua tem 12 tentativas, e ele já está na 12ª |
-| `WA não atendidas seguidas` ≥ 2 | O seletor de canal (nó 4 da 2.4) manda direto para telefone, **do primeiro toque**, porque o contador ainda está estourado |
-| `Resultado da tentativa` = valor antigo (`Não atendeu`, `Número errado`…) | O nó 10 decide pelo valor velho; e o Pós-ligação pode não disparar na primeira classificação nova, se o SDR escolher o **mesmo** valor que já está lá (gatilho é *mudança* de campo) |
-| `Prioridade` = 1 ou 2 (rebaixada no fim da régua) | O lead que acabou de levantar a mão entra no fim da fila |
-
-Ou seja: **o lead que deu o sinal mais forte que existe recebe o pior tratamento
-da máquina.** O R-08, que faz a mesma coisa (reativar um lead que saiu), já
-resolve isso no nó 3 dele (seção 2.12) — copie literalmente:
-
-| # | Nó | Ação | Configuração |
-|---|---|---|---|
-| 3b | Reset de rodada | Update Contact Field | `Tentativa nº` = 0 · `WA não atendidas seguidas` = 0 · `Resultado da tentativa` = vazio · `Prioridade` = 3 · `Entrada em` = `{{right_now}}` · `1ª tentativa em` = vazio |
-
-Mesmos seis campos, mesmo motivo, e entra **entre** os nós 3 e 4 — antes de o
-lead ficar visível na fila do SDR.
-
-**3. `telefone-invalido` é aplicada em dois lugares e removida em nenhum — e
-esta é a resubmissão mais provável de todas.** `grep` confirma: a tag nasce no
-nó 0.0b da 2.4 e da 2.10, e **nenhum** nó do documento a remove. Agora junte com
-o caso de uso: **por que um lead reenviaria o formulário?** O motivo número um é
-que o telefone estava errado e ele corrigiu. A resubmissão traz telefone novo,
-que a HighLevel escreve no contato existente — e no mesmo instante a tag
-`telefone-invalido` passa a ser **factualmente falsa**, num contato que ela
-ainda marca, alimentando a lista de higiene do R-13.
-
-O nó 4 é o único lugar do projeto que pode limpá-la:
-
-| # | Nó | Ação |
-|---|---|---|
-| 4 | Limpeza de estado antigo | Remove Contact Tag: `nutricao-90d` **e `telefone-invalido`** |
-
-**O trade-off, declarado em vez de escondido:** se o telefone reenviado for o
-mesmo número errado, remover a tag perde a informação. Recomendo remover de todo
-jeito, porque o sistema se autocorrige — a próxima tentativa classificada como
-`Número errado` reaplica a tag pelo caminho normal — enquanto uma tag "inválido"
-grudada num contato cujo telefone acabou de ser atualizado não se corrige nunca e
-contamina a higiene. É uma escolha, não um fato; se o dono preferir o contrário,
-é uma linha a menos.
-
-**`nao-perturbe` continua fora dessa limpeza, de propósito** — é o portão de
-consentimento do nó 2, e apagá-la aqui transformaria uma resubmissão de
-formulário em revogação automática de opt-out, que não é o que um clique em
-anúncio significa.
-
-**Zero campo, zero tag novos:** reaproveita `status`, etapa, `nao-perturbe`
-e `nutricao-90d`, todos já existentes. Não depende de `APROVADO.md` para a
-especificação; a montagem na tela (workflow não sai por API) segue a mesma
-fila manual dos demais.
-
-**Pronto quando:** todo lead com oportunidade `abandoned`/`lost` que
-reenviar um formulário do Meta sem estar marcado `nao-perturbe` volta para
-`NOVO LEAD`/`open` sozinho, pronto para nova triagem do SDR — sem esperar o
-relógio de 90 dias do R-08 nem depender de alguém abrir uma lista para
-notar que o lead voltou.
-
----
-
+**Runner operacional:** o script `wesales/tools/promote_g03_scheduled.py`
+também é executado pelo workflow de repositório
+`.github/workflows/wesales-g03.yml`, diariamente às 08:00
+(`America/Sao_Paulo`). Configure o segredo de repositório `GHL_PIT` antes de
+habilitar a execução. Isso remove a dependência do PC: o script continua
+time-gated e só faz mutações na janela de 29/09/2026, não deve ser publicado
+nem executado agora.
 ## 2. Workflow "Cadência 12x30"
 
 ### 2.1 Gatilho — migrado para as 5 etapas reais em 18/09/2026
@@ -713,7 +513,7 @@ acidente nem por um segundo lugar decidindo a mesma coisa.
 | 0.3 | Update Contact Field | `Resultado da tentativa` = vazio |
 | 0.4 | If/Else | `Permissão WhatsApp` está vazio → Update: `Não solicitado` |
 | 0.5 | Update Contact Field | `Prioridade` = 3 (padrão; a seção 9 recalcula) |
-| 0.6 | Update Contact Field | `Entrada em` = `{{right_now.date}} {{right_now.time}}` (`{{right_now}}` puro grava `[object Object]` — medido em 22/09/2026) (R-02 — carimbo de speed-to-lead) |
+| 0.6 | Update Contact Field | `Entrada em` = `{{right_now}}` (R-02 — carimbo de speed-to-lead) |
 | 0.7 | If/Else (R-10) | campo nativo `Assigned User` está vazio → segue para 0.7b. Senão → pula 0.7b (contato já tem dono; ver seção 2.14) |
 | 0.7b | Assign to User → modo `Round Robin` | Lista de SDRs ativos, configurada na tela do nó (seção 2.14) |
 
@@ -757,30 +557,8 @@ o número da tentativa.
 | 7 | **Criar tarefa** | Add Task | Título: `[CADENCIA] T{n} · Ligar (telefone)` ou `[CADENCIA] T{n} · Ligar (WhatsApp)` · Vence: hoje no horário da tentativa · Atribuir: `Contact Owner` (dinâmico — segue o `Assigned User` do nó 0.7b, R-10, seção 2.14) · Depois: Add Contact Tag `toque` (F-04, seção 2.19 — cada tarefa criada é um toque, alimenta o Contador) |
 | 8 | **Aguardar resultado** | Wait → Condition, com tempo limite | Condição: `Resultado da tentativa` **não está vazio**. Tempo limite: até **18:30 do mesmo dia**. Se a sua versão não tiver Wait por condição, use Wait → Until 18:30 e um If/Else checando o campo — mesmo efeito |
 | 9 | **Remover tag de fila** | Remove Contact Tag | `fila-tel` e `fila-wa` (remova as duas, sempre — barato e evita tag presa) |
-| 10 | **Condição por resultado** | If/Else | `Atendeu` ou `Pediu retorno` → **Remove from Workflow: este** (quem move etapa é o Pós-ligação, seção 4) · `Número errado`, `Não ligar` ou `Desqualificado` (R-18) → **Remove from Workflow: este** · qualquer outro / tempo limite → segue para a próxima tentativa. **Só `Caixa Postal` e `Não atendeu` continuam a régua** — a lista é fechada de propósito, ver nota abaixo |
+| 10 | **Condição por resultado** | If/Else | `Atendeu` ou `Pediu retorno` → **Remove from Workflow: este** (quem move etapa é o Pós-ligação, seção 4) · `Número errado` ou `Não ligar` → **Remove from Workflow: este** · qualquer outro / tempo limite → segue para a próxima tentativa |
 | 10b | Ramo do tempo limite | Update Contact Field | `Resultado da tentativa` = `Não atendeu` · Add Contact Tag `limpar-tarefas` (a tarefa do dia não foi feita; a rotina horária fecha) |
-
-**Por que o nó 10 lista os resultados que encerram, em vez de listar os que
-continuam (e por que `Desqualificado` entrou nele em 21/09/2026):** o nó
-manda para a próxima tentativa tudo que não reconhece — "qualquer outro".
-Isso faz dele um portão que **erra para o lado de insistir**: toda opção nova
-em `Resultado da tentativa` nasce, por omissão, significando "continue
-ligando". O R-18 criou a opção `Desqualificado`, e sem esta linha um lead que
-o SDR acabou de desqualificar na conversa receberia a tentativa seguinte no
-dia seguinte — exatamente o contrário do que o item foi desenhado para
-resolver. O Mestre de saída (seção 3) acabaria removendo o contato, porque o
-ramo novo muda `status`, mas só depois da janela assíncrona de sempre, e o
-texto do nó continuaria dizendo a coisa errada para quem monta na tela.
-
-**Regra para a próxima opção nova:** hoje só `Caixa Postal` e `Não atendeu`
-continuam a régua. Ao acrescentar uma sétima, oitava opção em `Resultado da
-tentativa`, decida explicitamente em qual dos dois lados ela cai **antes** de
-criá-la na tela — e, se o padrão "qualquer outro → insiste" ficar arriscado
-demais, inverta o nó: liste `Caixa Postal` e `Não atendeu` como os únicos que
-seguem, e mande todo o resto encerrar. A inversão é mais segura por
-construção; ficou como opção registrada, não aplicada, porque mexer num nó
-de uma régua que ainda não foi publicada é barato, mas mudar a forma do
-portão sem necessidade não é.
 
 Detalhe que costuma passar batido: o nó 5 **limpa** `Resultado da tentativa`
 antes de criar a tarefa. Sem isso, o nó 8 vê o resultado da tentativa anterior
@@ -814,7 +592,7 @@ lead retoma sem ninguém precisar lembrar de destravar nada.
 
 | # | Nó | Ação | Configuração |
 |---|---|---|---|
-| 5c | Carimbo | Update Contact Field | `1ª tentativa em` = `{{right_now.date}} {{right_now.time}}` (`{{right_now}}` puro grava `[object Object]` — medido em 22/09/2026) |
+| 5c | Carimbo | Update Contact Field | `1ª tentativa em` = `{{right_now}}` |
 | 5d | Limpeza preventiva | Remove Contact Tag | `atraso-1a-tentativa` (barato mesmo se ausente — ver seção 2.11) |
 
 Não repita 5c/5d nas tentativas 2 a 12: T1 é sempre a primeira do molde (delta
@@ -826,36 +604,6 @@ zera é o Pós-ligação (seção 4), que é o único lugar que sabe qual foi o 
 e o resultado. Um contador com dois donos sempre diverge.
 
 ### 2.5 As 12 tentativas
-
-> **Decisão do dono em 22/09/2026 — as réguas são 100% telefone.** O canal
-> "Ligação WhatsApp" saiu do jogo. As quatro réguas foram remontadas e
-> publicadas assim (commit `d52e61d`): **12x30 com 12 toques de telefone**,
-> **Inbound com 5**, **Reengajamento com 4**, **No-show com 3** (esta já era).
-> Medido no payload publicado, não deduzido do commit: a `Cadência 12x30` tem
-> 12 nós `add_contact_tag` com `fila-tel` e **nenhum** nó que adicione
-> `fila-wa` — a tag só sobrevive em 24 nós `remove_contact_tag`, como limpeza
-> defensiva de quem carregava a tag da versão anterior.
->
-> **A tabela abaixo é o registro histórico da régua alternada e não descreve
-> mais o que está no ar.** Onde ela diz `Ligação WhatsApp` / `fila-wa`, leia
-> `Telefone` / `fila-tel`. A contagem de toques não mudou: continuam 12 em 30
-> dias. O que desapareceu foram os nós de mensagem (M1/M2/M3) — numa operação
-> só de ligação eles não existem, e é por isso que as réguas deixaram de estar
-> incompletas.
->
-> **Consequência que não está nas tabelas:** `fila-wa` virou uma tag que nada
-> mais aplica. Toda lista, widget ou gatilho deste documento que dependa dela
-> passou a ser letra morta — os pontos onde isso é carregante estão corrigidos
-> no lugar (métrica `Estouro da Fila`, seções 2.15 e 2.17; gatilhos do F-05
-> peça 2, seção 2.21). Se aparecer outro, é bug de propagação desta decisão,
-> não regra nova.
->
-> **Efeito colateral a considerar, não medido:** com o WhatsApp fora, o volume
-> de ligações por lead aproximadamente dobra. Os critérios do Despacho
-> Decisório nº 82/2026 (volume, proporção de chamadas muito curtas, duração
-> média, taxa de completamento) passam a ser avaliados sobre esse volume
-> maior. Não é motivo para voltar atrás; é motivo para a aplicação ao
-> `Origem Verificada` subir de prioridade.
 
 Tentativa = ação do SDR (decisão D-01). As mensagens automáticas são nós de
 envio no meio do fluxo e não contam como tentativa.
@@ -896,9 +644,7 @@ ninguém está olhando. WhatsApp fora do ar não vira SMS: vira
 canal que não depende de provedor de texto), posicionados no fluxo conforme a
 tabela 2.5. Cada um precedido do
 mesmo **portão** do nó 3 (sem a checagem de `telefone-invalido`) e com a
-condição extra `nao-perturbe` ausente, **e do portão de janela de 24h da
-seção 2.6.2 (G-05) — sem ele, a mensagem livre é recusada pelo WhatsApp
-Business API na maioria dos envios**, e seguido de dois nós **Update Contact
+condição extra `nao-perturbe` ausente, e seguido de dois nós **Update Contact
 Field** `Template usado` = o código da mensagem (R-04 — sem esse carimbo não
 dá para saber depois qual abertura gerou a resposta) e **Add Contact Tag**
 `toque` (F-04, seção 2.19 — mensagem automática também é toque; M2 e M3 não
@@ -960,9 +706,9 @@ atribuída a uma causa só. Textos completos em `biblioteca-mensagens.md`.
 |---|---|---|
 | M1.1 | **Portão** | Mesmo portão do nó 3 (seção 2.4), sem a checagem de `telefone-invalido`, com `nao-perturbe` ausente |
 | M1.2 | **Split — Teste A/B abertura** | Ação nativa Split, sorteio aleatório: Caminho A 50% · Caminho B 50% |
-| M1.3a (Caminho A) | **Guarda de janela (seção 2.6.2, G-05)** → Send WhatsApp | Dentro da janela: texto livre `M1-a` · Fora da janela: Template Meta `M1-a`, `biblioteca-mensagens.md` |
+| M1.3a (Caminho A) | Send WhatsApp | Texto `M1-a`, `biblioteca-mensagens.md` |
 | M1.4a (Caminho A) | Update Contact Field → Add Contact Tag | `Template usado` = `M1-a` → `toque` (F-04, seção 2.19) |
-| M1.3b (Caminho B) | **Guarda de janela (seção 2.6.2, G-05)** → Send WhatsApp | Dentro da janela: texto livre `M1-b` · Fora da janela: Template Meta `M1-b`, `biblioteca-mensagens.md` |
+| M1.3b (Caminho B) | Send WhatsApp | Texto `M1-b`, `biblioteca-mensagens.md` |
 | M1.4b (Caminho B) | Update Contact Field → Add Contact Tag | `Template usado` = `M1-b` → `toque` (F-04, seção 2.19) |
 
 Depois de M1.4a e M1.4b, **conecte os dois caminhos ao mesmo nó seguinte**
@@ -988,99 +734,6 @@ lista inteligente" — cumprido. M1-a e M1-b rodam ao mesmo tempo pelo Split, e
 `Resposta por Template` (8.13) já cruza `Sinal recebido` com `Template
 usado`, sem lista nova.
 
-### 2.6.2 Guarda de janela de atendimento (24h) antes de cada mensagem livre — G-05
-
-**Por quê:** o WhatsApp Business API só aceita mensagem de **texto livre**
-quando o contato está dentro da **janela de atendimento de 24h** — que abre
-quando o **cliente** manda mensagem primeiro, não quando a operação inicia o
-contato, e fecha 24h depois do último toque dele. Fora dela, só um
-**Template** pré-aprovado pela Meta pode ser enviado. Nenhum lead desta base
-jamais escreveu no WhatsApp da subconta antes de M1 (vêm de Meta Lead Ads e
-formulário) — a primeira mensagem de todo lead já nasce fora da janela por
-definição, e M2 (D10) e M3 (D30) quase sempre também, porque a maioria dos
-leads nunca responde nada entre uma mensagem e a próxima. Sem esta guarda, o
-texto livre de `M1-a`/`M1-b`/`M2-v1`/`M3-v1` seria recusado pela API na
-maioria dos envios assim que a `Cadência 12x30` publicar — silenciosamente,
-do mesmo jeito que motivou o F-05 (roadmap).
-
-**Como (pesquisado via `WebSearch`, confiança média — página de suporte
-oficial da HighLevel confirmada por citação direta e idêntica em duas
-buscas com termos diferentes, não testada nesta subconta, domínio bloqueado
-pelo proxy deste ambiente):** o GHL tem a ação nativa
-**`WhatsApp: Customer Service Window Check`**, que confere se o contato
-está dentro da janela, e a ação **`Send WhatsApp`** aceita um modo
-**Template** (em vez de "None – Manual Text") que envia uma mensagem
-pré-aprovada pela Meta — funciona dentro **e** fora da janela, diferente do
-texto livre, que só funciona dentro.
-
-| Nó | Ação | Configuração |
-|---|---|---|
-| G.1 | **`WhatsApp: Customer Service Window Check`** | Confere o contato disparando o envio |
-| G.2 (dentro da janela) | segue | para o nó `Send WhatsApp` já especificado, texto livre, sem mudar nada |
-| G.3 (fora da janela) | `Send WhatsApp`, modo **Template** | Template Meta equivalente ao texto livre (tabela abaixo) |
-
-Insira `G.1` imediatamente antes de cada nó `Send WhatsApp` de texto livre já
-especificado neste documento, e ligue o ramo "fora da janela" ao mesmo
-destino que o texto livre segue hoje (ex.: `M1.4a`) — a guarda não muda o
-resto do fluxo, só decide qual dos dois envios sai.
-
-| Código (texto livre) | Template Meta equivalente | Status |
-|---|---|---|
-| `M1-a` | `m1_a` (nome sugerido, a confirmar na submissão) | A submeter pelo dono no Meta Business Manager |
-| `M1-b` | `m1_b` | A submeter pelo dono no Meta Business Manager |
-| `M2-v1` | `m2_v1` | A submeter pelo dono no Meta Business Manager |
-| `M3-v1` | `m3_v1` | A submeter pelo dono no Meta Business Manager |
-
-Os merge fields do texto livre (`{{contact.first_name}}`,
-`{{contact.segmento}}`, `{{user.first_name}}`, `{{location.name}}`) viram
-variáveis posicionadas do Template na submissão à Meta — mapeamento exato a
-confirmar na tela do Business Manager, não sai por API. O Trigger Link
-`[Agendar com o closer]` (citado em `M2-v1`/`M3-v1`) provavelmente precisa
-virar um botão CTA de URL do Template em vez de texto inline — Template tem
-formatação mais restrita que mensagem livre; a confirmar na tela antes de
-submeter.
-
-**Limite documentado, não escondido:** aprovação de Template pela Meta leva
-até 48h e é decisão/ação do dono (Business Manager, fora deste conector) —
-esta guarda não desbloqueia sozinha, só evita que o texto livre seja
-recusado enquanto o Template não existe (o ramo "fora da janela" fica sem
-efeito até o Template ser aprovado e configurado no nó `G.3`).
-
-**Cobertura, conferida em 22/09/2026 — o G-05 está fechado:** esta peça
-cobriu os quatro envios da Cadência 12x30 (M1-a, M1-b, M2-v1, M3-v1); a
-peça 2 cobriu `MI-0`/`MI-F` (Cadência Inbound, 2.10), `RE-1`/`RE-2`
-(Reengajamento, 2.12), `NS-1`/`NS-2` (Recuperação de No-show, 5.3) e a
-confirmação mais os três lembretes do Pós-agendamento (seção 5, nós 7-10,
-que ganharam código e texto naquela rodada porque não tinham); o G-06 cobriu
-a entrada da Qualificação por IA (6.0) e as 8 perguntas do Caminho B.
-Verificado nó a nó: **todo `Send WhatsApp` de texto livre deste documento
-tem guarda de janela antes dele.** O parágrafo anterior aqui dizia o
-contrário e ficou desatualizado por duas rodadas — corrigido.
-
-**Como conferir de novo, e o cuidado que essa conferência exige:** a guarda
-aparece escrita de **três formas diferentes** ao longo do documento —
-`WhatsApp: Customer Service Window Check` (o nome da ação), `Guarda de
-janela (seção 2.6.2, G-05)` (a referência curta) e `Send WhatsApp, modo
-Template` (só o ramo de fora). Procurar apenas pelo nome da ação encontra 5
-lugares e dá a impressão de que o resto está descoberto; é preciso procurar
-as três. O jeito que não erra é listar os envios e olhar as linhas
-anteriores a cada um:
-
-```
-python3 - <<'EOF'
-L=open('wesales/build-wesales.md').read().split('\n')
-for i,l in enumerate(L):
-    if 'Send WhatsApp' in l and ('exto livre' in l or 'pergunta' in l):
-        ctx='\n'.join(L[max(0,i-7):i+1])
-        ok = ('uarda de janela' in ctx) or ('Window Check' in ctx) or ('modo Template' in ctx)
-        print('OK ' if ok else 'SEM', i+1, l[:80])
-EOF
-```
-
-**Pronto quando (desta peça):** M1.3a/M1.3b/M2.2/M3.2 (`IMPLEMENTACAO-WORKFLOWS.md`)
-têm o `Customer Service Window Check` antes deles e os dois ramos
-especificados.
-
 ### 2.7 Entrada na qualificação por IA
 
 Logo após o nó 10 da **tentativa 4** (D2, fim do dia), insira:
@@ -1094,30 +747,6 @@ O briefing diz "entra após 2 tentativas sem atendimento". Coloquei no fim do
 D2 (que é a T4) porque aí já houve 4 tentativas reais em 2 dias — o lead teve
 chance de atender antes de a IA entrar. Se preferir literalmente após a T2,
 mova o par de nós para o fim do bloco da T2.
-
-**A assimetria de `Permissão WhatsApp` entre este portão e o nó 4 da seção
-2.4 é deliberada — conferida e documentada em 22/09/2026 para ninguém
-"consertar" um dos dois lados sem querer:**
-
-| Onde | Condição | Efeito |
-|---|---|---|
-| Nó 4 do bloco padrão (2.4) — **tentativa por ligação de WhatsApp** | `Permissão WhatsApp` **é** `Sim` | lista de permissão: só quem autorizou expressamente |
-| Nó `a` aqui — **mensagem de texto da IA** | `Permissão WhatsApp` **≠** `Não` | lista de recusa: entra também quem está em `Não solicitado` |
-
-Não é descuido de um dos dois: **ligação de WhatsApp toca o telefone da
-pessoa**, e o `Sim` é justamente o que o SDR pede numa ligação anterior
-(seção 6, roteiro); **mensagem de texto é a fricção mais baixa que existe**,
-e o convite `QI-1` da guarda 6.0 é literalmente o pedido de consentimento —
-exigir consentimento para poder pedir consentimento fecharia o caminho em si
-mesmo. Um lead vindo de Meta Lead Ads nasce `Não solicitado` e deu o telefone
-num formulário: pode receber mensagem, não pode receber chamada.
-
-**O que continua valendo para os dois:** `Não` bloqueia tudo, e a tag
-`nao-perturbe` bloqueia tudo por um caminho independente (o nó 3 do Mestre de
-saída remove o contato deste workflow, seção 3). Se o dono quiser a régua
-mais estrita — só `Sim` também para mensagem —, o lugar é este nó `a`, e o
-custo é que a IA nunca alcança lead nenhum que não tenha atendido uma ligação
-antes, o que esvazia o item.
 
 ### 2.8 Alternativa que eu recomendo avaliar (Opção B)
 
@@ -1181,76 +810,30 @@ link do calendário"; não vê que o link virou sensor.
 workflow — o If/Else não enxerga a categoria "Opportunities" até existir uma
 ação `Find opportunity` antes dele (o GHL mostra um aviso pedindo isso). E o
 GHL não expõe "data/hora atual" como valor inserível num campo de contato de
-texto pelo seletor da tela (só Custom Values fixos e outros campos) — por
-isso `Data e hora do sinal` **chegou a sair** da lista de nós naquele dia
-(**revertido em 22/09/2026, ver nota logo abaixo — o nó 5b da tabela volta a
-gravá-lo**). Tarefa e Nota continuam carimbando a própria data de criação
-nativamente, o que já cobria parte da mesma necessidade de auditoria mesmo
-sem o campo. A tabela abaixo é a sequência real, não a original.
+texto (só Custom Values fixos e outros campos) — por isso `Data e hora do
+sinal` saiu da lista de nós; Tarefa e Nota já carimbam a própria data de
+criação nativamente, o que cobre a mesma necessidade de auditoria sem
+duplicar em campo. A tabela abaixo é a sequência real, não a original.
 
-**Consequência que parecia grande em 19/09/2026, e por que não travou nada —
-achado revendo o item em 22/09/2026:** esta seção chegou a descartar
-`Data e hora do sinal` (C-14) da lista de nós porque, montando ao vivo na
-tela naquele dia, o seletor de valor de `Update Contact Field` não parecia
-oferecer "data/hora atual" para um campo `TEXT`. A dúvida ficou registrada
-como aberta (`APRENDIZADOS-CRM.md`, "Pesquisa que corrobora (não fecha) o
-`{{right_now}}`") porque só quem tem a tela aberta fecharia — e ninguém tinha
-motivo para reabrir, já que nenhum destes dois workflows tinha sido publicado.
+**Consequência ainda não resolvida, e ela é grande:** se "data/hora atual" não
+entra em campo de texto, `{{right_now}}` — usado em **17 nós** deste documento
+para carimbar `Entrada em` (C-18), `1ª tentativa em` (C-19) e o reset da
+reativação — não existe também, e aí o R-02 (speed-to-lead) e o relógio da
+reativação do R-08 não se montam como estão escritos. Ou o achado acima é mais
+estreito do que parece (o seletor pode oferecer data/hora atual em campo do tipo
+`DATE`, ou sob outro nome que não "Custom Value"), ou esses 17 nós estão
+errados. **Confira na tela antes de montar a seção 2.3:** abra
+`Update Contact Field` → campo `Entrada em` → veja se o seletor de valor
+oferece algo como "Right Now"/"Current date and time".
 
-O motivo de reabrir agora: a montagem deste projeto **deixou de ser só clique
-manual** depois de 19/09/2026 — passou a sair também pela API interna
-(`wesales/tools/`, `GUIA-MONTAGEM.md`, "Estado da montagem em 21/09/2026"),
-que grava o valor do campo direto no payload, sem depender do que o seletor
-visual oferece na tela. E essa mesma API **já provou, rodando de verdade**,
-que `{{right_now}}` escreve num campo `TEXT` de contato: `Entrada em` (C-18,
-mesmo tipo `TEXT` de C-14) foi carimbado com sucesso ao promover um contato de
-teste para `CONECTAR` (`GUIA-MONTAGEM.md`, "Testado de ponta a ponta, com
-rastro lido pela API"). A limitação de 19/09 era do **seletor clicável**, não
-do campo nem do token — e o caminho de montagem que a operação usa hoje não
-passa mais por aquele seletor. Os 17 nós que já contavam com
-`{{right_now}}` em campo `TEXT` (inclusive `Entrada em`/`1ª tentativa em`, R-02)
-estavam certos o tempo todo; **`Data e hora do sinal` é quem estava descartado
-sem precisar** — restaurado abaixo, nó 5b.
-
-~~A fallback "marca, não carimbo" (gravar `sim` em vez da hora) que esta seção
-chegou a desenhar como plano B nunca foi necessária e não é mais o caminho:
-nenhum nó deste documento usa esse formato hoje, `Entrada em`/`1ª tentativa
-em` gravam `{{right_now}}` completo desde a primeira versão (seção 2.3, nó
-0.6, e os resets da seção 2.4/2.10), e é isso que está publicado e testado.~~
-
-> **Medido em 22/09/2026, 18:30 UTC, e é o contrário disto.** Li os campos
-> pela API nos contatos que os têm preenchidos:
->
-> | Contato | `Entrada em` (C-18, TEXT) | `1ª tentativa em` (C-19, TEXT) |
-> |---|---|---|
-> | `Teste Número Errado` (`qkHSdIMPJTB2JK5ECGrY`) | `"sim"` | `"sim"` |
-> | `Teste Retorno` (`vrwdERfR24ax6GylG6No`) | `"sim"` | `"sim"` |
-> | todos os demais, inclusive `Carlos Andrade` | vazio | vazio |
->
-> **Nenhum contato da base tem hora nesses campos.** Os dois únicos que têm
-> qualquer coisa têm a string literal `sim` — exatamente o formato "marca,
-> não carimbo" que o parágrafo riscado diz que nunca foi usado. A frase "e é
-> isso que está publicado e testado" descreve o inverso do que está no CRM.
->
-> **O que isso derruba e o que não derruba.** Não derruba o nó 5b, e **não
-> apaguei o nó**: apagar agora repetiria o erro ao contrário — decidir sem
-> medir. Derruba a **justificativa**: não existe, em lugar nenhum desta base,
-> evidência de que `{{right_now}}` renderize em campo `TEXT`. A prova citada
-> para restaurar o nó é de um carimbo que não está lá.
->
-> **Consequência maior que o C-14, e é por isso que esta nota está aqui e não
-> num rodapé:** o R-02 (speed-to-lead) e toda comparação de "`Entrada em` há
-> mais de 1h" (seção 2.3 e a lista da seção 8) dependem desses dois campos
-> terem hora. Se o que a régua publicada grava for `sim`, essas medições não
-> estão erradas por pouco — **não estão medindo nada**, e nunca dão erro.
->
-> **O teste que fecha isso custa um minuto e só se faz na tela** (a API
-> pública não lê nó de workflow): abrir o nó 0.6 da Cadência 12x30 e ver o
-> que está no campo — `{{right_now}}` ou `sim`. Alternativa sem abrir o
-> builder: promover um lead de teste e reler `Entrada em` pela API. Enquanto
-> não for feito, tratar o formato de C-18/C-19 como **desconhecido**, e o
-> "formato igual ao de C-18/C-19" do nó 5b abaixo como o que é: uma
-> referência a um formato que ninguém confirmou.
+Se não oferecer, o caminho desenhado é este, e ele não perde o que importa: o
+Alerta de Speed-to-lead (seção 2.11) nunca precisou da hora exata — ele é um
+relógio que espera 1h e pergunta se `1ª tentativa em` continua vazio. Então
+`1ª tentativa em` e `Entrada em` viram **marca**, não carimbo: grave um valor
+fixo (`sim`) em vez de data/hora, e a hora exata fica onde o GHL já carimba de
+graça — a criação da tarefa e da nota. Perde-se o "quantos minutos", mantém-se
+o "furou 1h ou não", que é a pergunta que a operação responde. Os nomes dos
+campos continuam valendo; só o que se escreve neles muda.
 
 | # | Nó | Ação | Configuração |
 |---|---|---|---|
@@ -1260,7 +843,6 @@ em` gravam `{{right_now}}` completo desde a primeira versão (seção 2.3, nó
 | 3c | Portão de frequência (F-04) | If/Else | `Toques na semana` **≥** 6 → ramo verdadeiro: pula direto para o nó 9 · ramo falso: segue para o nó 4 |
 | 4 | Prioridade | Update Contact Field | `Prioridade` = 5 |
 | 5 | Registro do sinal | Update Contact Field | `Sinal recebido` = `Clique em link` |
-| 5b | Carimbo do sinal | Update Contact Field | `Data e hora do sinal` = `{{right_now}}` — restaurado em 22/09/2026, ver nota acima; formato igual ao de C-18/C-19 |
 | 6 | Fila | Add Contact Tag | `fila-quente` |
 | 7 | Tarefa | Add Task | Título: `[CADENCIA] Sinal: clicou no link — ligar agora` · Vence: agora · Atribuir: `Contact Owner` (dinâmico, R-10 — o sinal fura a fila, mas continua com o mesmo dono do lead) → Depois: Add Contact Tag `toque` (F-04, seção 2.19) |
 | 8 | Aviso | Internal Notification | Para o SDR: `{{contact.first_name}} clicou no link de agendar agora. Prioridade 5.` |
@@ -1303,24 +885,11 @@ gera o "dobro de toques" que o roadmap descrevia de forma mais genérica.
 Idêntico ao 2.9.2, trocando o gatilho, o filtro do gatilho e os dois textos
 marcados.
 
-**Gatilho:** `Customer Replied` — Canal: **WhatsApp e SMS**. Decisão ao vivo
-do dono, 19/09/2026: SMS nunca foi canal real da cadência (só telefone,
-ligação por WhatsApp e mensagem de WhatsApp — `briefing-sdr.md`), e o dono
-confirmou que não usa SMS em nenhum canal de contato com lead. O plano
-original media "WhatsApp e SMS" errado, como se fossem os dois canais de
-texto — não eram, e isso continua valendo: SMS não é canal de contato deste
-projeto. **O SMS entrou de volta no filtro por um motivo técnico, não
-estratégico (G-09, 23/09/2026):** o único WhatsApp conectado nesta subconta
-é a integração não-oficial Stevo (QR), que entrega mensagem como
-`TYPE_CUSTOM_SMS` por baixo do capô (confirmado por API — a conversa do
-contato de teste `Francisca` traz esse tipo, não `TYPE_WHATSAPP`), com um
-script que só troca o rótulo "SMS" por "WhatsApp QR" na tela. Se o filtro
-"Canal: WhatsApp" reconhece só o tipo nativo, nenhuma resposta pela Stevo
-dispara este gatilho — o canal que o filtro precisa escutar de verdade é
-esse, mesmo chamando "WhatsApp" na intenção do projeto. Filtro aditivo
-(WhatsApp **e** SMS, não WhatsApp trocado por SMS) para cobrir os dois
-cenários sem depender de qual rótulo a tela confirmar — detalhe e fontes no
-G-09.
+**Gatilho:** `Customer Replied` — Canal: **WhatsApp**. Decisão ao vivo do
+dono, 19/09/2026: SMS nunca foi canal real da cadência (só telefone, ligação
+por WhatsApp e mensagem de WhatsApp — `briefing-sdr.md`), e o dono confirmou
+que não usa SMS em nenhum canal de contato com lead. O plano original media
+"WhatsApp e SMS" errado, como se fossem os dois canais de texto — não eram.
 
 **Filtro do gatilho, acrescentado em 21/09/2026 (R-17 — ver 2.9.5):** uma
 linha `Doesn't Contain` por frase da lista canônica do 2.9.5 — `pare de`, `pare com`, `para de mandar`, `para de me mandar`, `não quero mais mensagem`, `não quero mais contato`, `não quero receber mensagem`, `não quero receber mais`, `remove meu contato`, `tira meu número`, `descadastr`, `cancelar inscri`, `não me liga mais`, `não me mande mais`, `sai da lista`, `me tira da lista`, `unsubscribe` —, combinadas em E (a lista
@@ -1401,10 +970,7 @@ porque nenhuma delas roda cadência de **ligação por WhatsApp** — só mensag
 
 **Como:**
 
-**Gatilho:** `Customer Replied` — Canal: **WhatsApp e SMS** (o SMS entrou
-pelo mesmo motivo técnico do 2.9.3, não por decisão de canal — a Stevo
-entrega o único WhatsApp desta subconta como `TYPE_CUSTOM_SMS`; detalhe e
-fontes no G-09) — `Contains Phrase`,
+**Gatilho:** `Customer Replied` — Canal: **WhatsApp** — `Contains Phrase`,
 esta lista (**a lista canônica do projeto — o filtro do 2.9.3 tem que ser
 idêntica a ela, palavra por palavra**):
 
@@ -1508,102 +1074,6 @@ no WhatsApp sai de toda cadência automática e fica com DND ligado no mesmo
 minuto — nunca mais chega a gerar a tarefa "ligar agora" que o 2.9.3
 geraria antes deste item.
 
-### 2.9.6 Workflow "Opt-out por Palavra-chave — E-mail" — G-07
-
-**Por quê:** o 2.9.5 (acima) só escuta `Customer Replied` no canal WhatsApp
-— o único canal de texto que existia no projeto quando o R-17 foi escrito
-(21/09/2026). O F-15 (seção 2.30, mesmo dia 22/09/2026) abriu o primeiro
-canal novo desde então, e-mail, e o único ponto que manda e-mail
-(`Resgate por E-mail — Sem Telefone`) trata **toda** resposta do mesmo jeito
-que o 2.9.3 tratava toda resposta de WhatsApp antes do R-17: o nó 4/7
-daquele workflow (`Wait → Contact Replied`, canal e-mail) não olha o
-conteúdo — uma resposta "pare de me mandar e-mail" cai no mesmo ramo que uma
-resposta "tenho interesse, me liga": `Internal Notification` ao gestor
-pedindo decisão manual, sem tag `nao-perturbe` nem DND aplicados sozinhos.
-Não é o mesmo bug do R-17 (nenhuma tarefa "ligar agora" nasce daqui — o ramo
-já é cauteloso, só notifica), mas é a mesma classe de defeito que o R-17
-documentou como inaceitável para WhatsApp: **"o único jeito de um opt-out
-virar DND é alguém ler a mensagem e lembrar de desligar tudo na mão"** —
-aqui, literalmente a mesma frase, trocando SDR por gestor e WhatsApp por
-e-mail. Achado ao reler o 2.30 depois de ler o R-17 com atenção: o próprio
-"Como" do R-17 já dizia que Reev/Meetime/Outreach/Salesloft tratam opt-out
-"como estado de contato/lista (unsubscribe...)" porque o canal principal
-deles é e-mail — e justamente por isso é o canal onde o projeto tem menos
-desculpa para deixar a mesma lacuna aberta.
-**O que já está protegido, e não precisa de nada novo (pesquisado antes de
-desenhar, `WebSearch`):** todo e-mail enviado pela plataforma nativa do GHL
-já sai com um link de descadastro automático (`{{unsubscribe}}`, inserido no
-rodapé mesmo sem configuração extra) — clicar nele já aplica opt-out sem
-depender de workflow nenhum, o mesmo papel que o link de Trigger cumpre para
-recurso mais avançado. Isso cobre LGPD (art. 18, direito de revogar
-consentimento a qualquer momento — o descadastro por clique já entrega isso)
-e cobre quem simplesmente clica em vez de responder por escrito. **O que não
-está protegido é a resposta por texto** — o mesmo ponto cego que o WhatsApp
-tinha antes do R-17, porque nem todo lead usa o link; alguns respondem o
-e-mail como se fosse uma conversa, do mesmo jeito que respondem WhatsApp.
-**Como:** mesmo padrão do 2.9.5, canal trocado — workflow novo, separado do
-`Resgate por E-mail — Sem Telefone` (mesma razão já registrada em
-`APRENDIZADOS-CRM.md` para não empilhar duas responsabilidades num workflow
-só: este é um listener global por conteúdo, aquele é uma régua de 2 e-mails
-com relógio próprio; a convivência dos dois no mesmo contato, quando ambos
-reagem à mesma resposta, é tratada abaixo).
-
-**Gatilho:** `Customer Replied` — Canal: **E-mail** — `Contains Phrase`, a
-mesma lista canônica do 2.9.5/2.9.3 (`pare de`, `pare com`, `para de mandar`,
-`para de me mandar`, `não quero mais mensagem`, `não quero mais contato`,
-`não quero receber mensagem`, `não quero receber mais`, `remove meu
-contato`, `tira meu número`, `descadastr`, `cancelar inscri`, `não me liga
-mais`, `não me mande mais`, `sai da lista`, `me tira da lista`,
-`unsubscribe`) — reaproveitada sem alteração, de propósito: ao contrário do
-par 2.9.3/2.9.5 (que **precisam** ser idênticas porque escutam o mesmo canal
-e concorrem pelo mesmo evento), este workflow escuta um canal diferente e
-não tem esse risco — reaproveitar a lista existente só evita manter uma
-terceira versão do mesmo texto sem necessidade. `pare`/`stop`/`não quero
-mais` soltos continuam de fora pelo mesmo motivo do 2.9.5 (`Contains` casa
-pedaço de palavra — "parece ótimo" também vale em e-mail).
-
-| Configuração | Valor |
-|---|---|
-| Janela de envio | Sem restrição, 24/7 — mesmo motivo do 2.9.5: nenhum nó manda mensagem, DND atrasado é o oposto do que o item existe para evitar |
-| Allow Re-entry | Ligado — mesmo motivo do 2.9.5 |
-| Stop on Response | Desligado |
-
-| # | Nó | Ação | Configuração |
-|---|---|---|---|
-| 1 | Buscar oportunidade | Find opportunity | Pipeline: `FUNIL DE VENDAS` · "Most recently created opportunity" — os dois ramos seguem, mesmo motivo do 2.9.5 |
-| 2 | Silêncio | Add Contact Tag | `nao-perturbe` |
-| 3 | DND | Set Contact DND = ligado, todos os canais | Mesmo nó do 2.9.5 — já medido nesta subconta que grava a flag dos seis canais (inclusive canais não integrados), seção 8.26 |
-| 4 | Sair das filas | Remove Contact Tag | `fila-tel`, `fila-wa`, `fila-quente` |
-| 5 | Sair das réguas | Remove Workflows | `All Except Current Workflow` — inclui o `Resgate por E-mail — Sem Telefone`, então o nó 4/7 daquele workflow deixa de esperar (ver nota abaixo sobre o aviso duplicado) |
-| 6 | Fechar o negócio, com cautela | If/Else | Achou oportunidade **E** etapa é `CONECTAR` **E** `status` é `open` → Update Opportunity `status` = `lost`. Senão → Internal Notification ao `Contact Owner`, mesmo texto do 2.9.5 trocando "WhatsApp" por "e-mail" |
-| 6b | Aviso, sempre | Internal Notification | Mesmo texto do 2.9.5, mesma troca de canal |
-| 7 | Registro | Add Note | `Opt-out por palavra-chave (e-mail) detectado em {{right_now}} · DND ligado · removido de todas as réguas automáticas` |
-
-**Redundância aceita, não escondida:** quando a resposta de opt-out chega
-enquanto o lead está dentro do `Resgate por E-mail — Sem Telefone` (esperando
-no nó 4 ou 7), os dois workflows reagem ao mesmo evento — este aplica DND e
-remove o lead de todas as réguas (nó 5, que inclui o próprio Resgate), e o
-nó 4b/7b do Resgate dispara em paralelo com sua notificação genérica
-("respondeu, decisão manual"). O gestor recebe dois avisos do mesmo evento
-em vez de um. Diferente do 2.9.3/2.9.5 (onde o filtro cruzado é
-obrigatório porque um dos dois manda uma tarefa **errada** — "ligar agora"
-para quem pediu silêncio), aqui os dois avisos dizem coisas compatíveis
-(um diz "DND aplicado", o outro diz "revisar manualmente") — nenhum dos
-dois instrui uma ação incorreta. Corrigir a duplicação exigiria o mesmo
-filtro cruzado do 2.9.3 dentro do nó 4/7 do 2.30, que é um `Wait`, não um
-gatilho — **não confirmado na tela** se o nó `Wait → Contact Replied`
-aceita o mesmo filtro de conteúdo que a trigger `Customer Replied` aceita;
-registrado como retoque de segunda ordem, não bloqueia este item.
-
-**Zero campo e zero tag novos:** reaproveita `nao-perturbe` (T-06) e o DND
-nativo, mesmos do 2.9.5. Falta só a criação manual do workflow — não sai
-por API; não depende de `APROVADO.md`.
-
-**Pronto quando:** um lead que responde pedindo para parar de receber
-e-mail sai de toda cadência automática e fica com DND ligado no mesmo
-minuto, sem depender de o gestor ler a notificação genérica do 2.30 e agir
-na tela — mesmo padrão que o R-17 já garante para WhatsApp.
-
 ---
 
 ## 2.10 Workflow "Cadência Inbound" — R-07 — migrado para as 5 etapas reais em 19/09/2026
@@ -1686,22 +1156,19 @@ no outbound):
 | 0.3 | Update Contact Field | `Resultado da tentativa` = vazio |
 | 0.4 | If/Else | `Permissão WhatsApp` está vazio → Update: `Não solicitado` |
 | 0.5 | Update Contact Field | `Prioridade` = 5 (não 3: todo lead inbound nasce no topo da fila — é a resposta rápida que a régua de degraus só cumpre se o SDR também priorizar certo) |
-| 0.6 | Update Contact Field | `Entrada em` = `{{right_now.date}} {{right_now.time}}` (`{{right_now}}` puro grava `[object Object]` — medido em 22/09/2026) (mesmo campo do R-02 — a métrica de speed-to-lead nasceu para o outbound e serve de graça aqui, sem custo nenhum) |
+| 0.6 | Update Contact Field | `Entrada em` = `{{right_now}}` (mesmo campo do R-02 — a métrica de speed-to-lead nasceu para o outbound e serve de graça aqui, sem custo nenhum) |
 | 0.7 | Add Contact Tag | `fila-quente` (assim o lead aparece na lista `Fila Quente`, 8.1, sem lista nova) |
 | 0.8 | If/Else (R-10) | campo nativo `Assigned User` está vazio → segue para 0.8b. Senão → pula 0.8b |
 | 0.8b | Assign to User → modo `Round Robin` | Mesma lista de SDRs do nó 0.7b da Cadência 12x30 (seção 2.3) — um único grupo de round robin para toda a operação, não um por cadência, senão o mesmo SDR poderia ganhar dois leads simultâneos por entrar em réguas diferentes na mesma rodada da roleta |
 
 ### MI-0 — mensagem automática imediata
 
-Antes da T1, sem esperar nada: **Guarda de janela de atendimento (seção
-2.6.2, G-05)** → dentro da janela, Send WhatsApp texto livre `MI-0`
-(`biblioteca-mensagens.md`) · fora da janela (o caso de praticamente todo
-lead, que nunca escreveu no WhatsApp da subconta antes), Send WhatsApp modo
-**Template** `MI-0` (a submeter — `biblioteca-mensagens.md`) — confirmando o
-recebimento e avisando que a ligação vem em minutos — o equivalente ao
-"notificar o SDR independente de onde ele esteja" que o Meetime documenta,
-só que do lado do lead: ele sabe que foi ouvido antes mesmo do telefone
-tocar. Os dois ramos convergem no mesmo Update `Template usado` = `MI-0`.
+Antes da T1, sem esperar nada: Send WhatsApp, texto `MI-0`
+(`biblioteca-mensagens.md`) confirmando o recebimento e avisando que a
+ligação vem em minutos — o equivalente ao "notificar o SDR independente de
+onde ele esteja" que o Meetime documenta, só que do lado do lead: ele sabe
+que foi ouvido antes mesmo do telefone tocar. Seguido de Update `Template
+usado` = `MI-0`.
 
 ### O bloco padrão de uma tentativa inbound (mirror de 2.4, com espera relativa)
 
@@ -1719,7 +1186,7 @@ tocar. Os dois ramos convergem no mesmo Update `Template usado` = `MI-0`.
 | 7 | Aviso | Internal Notification | Para o SDR: `Lead inbound {{contact.name}} aguardando retorno — TI{n}.` Diferencial sobre o bloco padrão outbound (2.4): lá a fila espera ser vista; aqui o SDR é avisado na hora, o mesmo padrão do F-01 (seção 2.9) e do que o Meetime chama de notificação "independente de onde o SDR esteja" |
 | 8 | Aguardar resultado | Wait → Condition, tempo limite | Condição: `Resultado da tentativa` **não está vazio**. Tempo limite: o delta até a tentativa seguinte da tabela abaixo — não 18:30 fixo, porque numa régua de minutos "esperar até o fim do dia" descaracterizaria a velocidade |
 | 9 | Remover tag de fila | Remove Contact Tag | `fila-tel` e `fila-wa` |
-| 10 | Condição por resultado | If/Else | `Atendeu` ou `Pediu retorno` → **Remove from Workflow: este** (o Pós-ligação, seção 4, cuida do resto — é canal-agnóstico, já reaproveitado sem alteração) · `Número errado`, `Não ligar` ou `Desqualificado` (R-18) → **Remove from Workflow: este** · qualquer outro / tempo limite → próxima tentativa (ou handoff, na TI5) |
+| 10 | Condição por resultado | If/Else | `Atendeu` ou `Pediu retorno` → **Remove from Workflow: este** (o Pós-ligação, seção 4, cuida do resto — é canal-agnóstico, já reaproveitado sem alteração) · `Número errado` ou `Não ligar` → **Remove from Workflow: este** · qualquer outro / tempo limite → próxima tentativa (ou handoff, na TI5) |
 | 10b | Ramo do tempo limite | Update Contact Field | `Resultado da tentativa` = `Não atendeu` · Add Contact Tag `limpar-tarefas` |
 
 Só na T1 (aqui, TI1), repita o par 5c/5d da seção 2.4 (`1ª tentativa em` =
@@ -1759,10 +1226,8 @@ esgotados sem conexão), em vez de "próxima tentativa" (não há):
 
 | # | Ação | Configuração |
 |---|---|---|
-| 0 | Guarda de janela de atendimento (seção 2.6.2, G-05) | Dentro da janela → 1 · Fora da janela → 1T |
-| 1 | Send WhatsApp | Texto livre `MI-F`, `biblioteca-mensagens.md` — avisa que a tentativa continua, agora na régua normal → 2 |
-| 1T | Send WhatsApp, modo Template | Template Meta `MI-F` (a submeter — `biblioteca-mensagens.md`) → 2 |
-| 2 | Update Contact Field | `Template usado` = `MI-F` (os dois ramos acima convergem aqui) |
+| 1 | Send WhatsApp | Texto `MI-F`, `biblioteca-mensagens.md` — avisa que a tentativa continua, agora na régua normal |
+| 2 | Update Contact Field | `Template usado` = `MI-F` |
 | 3 | Add to Workflow | `Cadência 12x30` |
 | 4 | Remove from Workflow | Este (`Cadência Inbound`) |
 
@@ -1927,56 +1392,13 @@ ainda.
 | # | Nó | Ação | Configuração |
 |---|---|---|---|
 | 1 | Aguardar | Wait → Time Delay | 90 dias corridos |
-| 2 | Portão | If/Else — condições **E** | Status da oportunidade **é** `abandoned` · tag `nutricao-90d` presente · tag `nao-perturbe` ausente · tag `telefone-invalido` ausente (G-08, 22/09/2026 — ver nota abaixo) |
-| 2b | Ramo falso do portão | **Remove from Workflow: este** | Três motivos possíveis, nenhum reativa: o lead já saiu do estado de nutrição por outro caminho (voltou a `CONECTAR` na mão e converteu — `status` deixou de ser `abandoned` —, ou foi descartado, `status = lost`); pediu para não ser mais procurado; ou nunca teve telefone válido (`telefone-invalido`, aplicada no nó 6 da Cadência 12x30/nó 0.0b da Cadência Inbound) — reativar sem telefone só queima mais 90 dias sem produzir nenhuma tentativa real, porque a operação é 100% telefone (`d52e61d`) e nenhuma régua automática deste workflow fala outro canal. Nada para limpar aqui: nenhuma tag de fila foi tocada ainda |
-| 3 | Reset de rodada | Update Contact Field | `Tentativa nº` = 0 · `WA não atendidas seguidas` = 0 · `Resultado da tentativa` = vazio · `Prioridade` = 3 · `Entrada em` = `{{right_now.date}} {{right_now.time}}` (`{{right_now}}` puro grava `[object Object]` — medido em 22/09/2026, mesma correção já aplicada nas seções 2.3/2.10) · `1ª tentativa em` = vazio |
+| 2 | Portão | If/Else — condições **E** | Status da oportunidade **é** `abandoned` · tag `nutricao-90d` presente · tag `nao-perturbe` ausente |
+| 2b | Ramo falso do portão | **Remove from Workflow: este** | O lead já saiu do estado de nutrição por outro caminho (voltou a `CONECTAR` na mão e converteu — `status` deixou de ser `abandoned` —, ou foi descartado, `status = lost`) ou pediu para não ser mais procurado — não reativa quem já mudou de estado por conta própria. Nada para limpar aqui: nenhuma tag de fila foi tocada ainda |
+| 3 | Reset de rodada | Update Contact Field | `Tentativa nº` = 0 · `WA não atendidas seguidas` = 0 · `Resultado da tentativa` = vazio · `Prioridade` = 3 · `Entrada em` = `{{right_now}}` · `1ª tentativa em` = vazio |
 | 4 | Troca de origem | Remove Contact Tag `nutricao-90d` → Remove Contact Tag `cad-inbound` (idempotente, mesmo se ausente) → Add Contact Tag `cad-outbound` → Add Contact Tag `reengajamento-ativo` | Ver "A troca de origem" abaixo |
 | 5 | Reentrada no funil | Update Opportunity — Etapa → `CONECTAR` **e** `status` → `open` | O reset explícito de `status` é achado desta migração: o desenho original não tinha campo `status` separado de etapa, então "mover para `Em cadência`" bastava. Hoje, sem zerar `status`, o lead chegaria a `CONECTAR` ainda com `status = abandoned` da rodada anterior, e o portão do Mestre de saída (seção 3, nó 1: "`CONECTAR` **e** `open`") ficaria falso — a chegada seria lida como saída, e a limpeza (tirar das filas, apagar tag de fila) rodaria no instante em que o lead está *entrando* de novo na cadência, não saindo. Com o reset, dispara o Mestre de saída em no-op de verdade (nó 1 encerra sem limpar) e o Alerta de Speed-to-lead (seção 2.11) com relógio novo, porque `1ª tentativa em` acabou de ser esvaziado no nó 3 — a reativação ganha sua própria medição de speed-to-lead de graça, sem campo novo |
-| 6 | Guarda de janela de atendimento (seção 2.6.2, G-05) | If/Else nativo | Dentro da janela → 6b · Fora da janela → 6c |
-| 6b | Mensagem de reabertura | Send WhatsApp | Texto livre `RE-1` (`biblioteca-mensagens.md`) → 6d |
-| 6c | Mensagem de reabertura (fora da janela) | Send WhatsApp, modo Template | Template Meta `RE-1` (a submeter — `biblioteca-mensagens.md`) → 6d |
-| 6d | Carimbo | Update Contact Field | `Template usado` = `RE-1` (os dois ramos acima convergem aqui) |
+| 6 | Mensagem de reabertura | Send WhatsApp | Texto `RE-1` (`biblioteca-mensagens.md`) → Update `Template usado` = `RE-1` |
 | 7 | Aguardar resposta | Wait → Contact Replied | Tempo limite 2h — mesmo padrão do pós-M1 (seção 2.6): se respondeu, `Stop on Response` tira da régua |
-
-> **G-08, 22/09/2026 — o nó 2 reativaria para sempre um lead sem telefone
-> válido, sem nunca produzir uma tentativa real.** Achado ao aprofundar o
-> F-15 (seção 2.30): o texto daquela seção já tinha identificado o problema
-> ("o nó 1 do R-08 precisa distinguir por que o lead virou `abandoned`") mas
-> nunca virou mudança neste nó — ficou registrado e não aplicado, o mesmo
-> padrão de "achado em rodapé nunca promovido" que este projeto já viveu
-> antes (F-12, F-13). Reconferido por API nesta rodada, e a conta mudou: **a
-> base tem 0 oportunidades `abandoned` agora** (53 oportunidades reais, 48
-> `NOVO LEAD` + 2 `CONECTAR` `lost` + 2 `NEGOCIAR` `open` + 1 `NEGOCIAR`
-> `lost`) — os 5 leads reais do Instagram sem telefone que o F-15 mediu
-> continuam em `NOVO LEAD`, sem nenhum campo de cadência preenchido, porque
-> ainda não foram promovidos para `CONECTAR` (G-03, aguardando o dono) e
-> portanto nunca passaram pelo portão 0.0b que aplicaria `telefone-invalido`
-> e `nutricao-90d`. **O ciclo ainda não é um estrago ativo hoje — é uma
-> armadilha armada, não disparada:** no instante em que G-03 for decidido e
-> esses leads (ou qualquer lead futuro sem telefone) entrarem em `CONECTAR`,
-> o portão 0.0b (seções 2.3/2.10) os manda para `abandoned` + `nutricao-90d`
-> depois de esgotar o que a cadência sem telefone conseguir tentar, e sem
-> este nó 2 corrigido o Reengajamento 90 dias os reativaria de volta para
-> `CONECTAR` a cada 90 dias, correndo o bloco TR1-TR4 (que hoje é só
-> WhatsApp/telefone — a operação não fala mais WhatsApp desde `d52e61d`, e
-> quem chegou sem telefone continua sem telefone) até voltar para
-> `abandoned` + `nutricao-90d` de novo, reabrindo o relógio sozinho, sem
-> fim. A tag `telefone-invalido` já existe (T-09, R-13) e já é aplicada por
-> quem detecta a falta de telefone — o nó 2 só precisava lê-la antes de
-> reativar, e agora lê. **Não é o mesmo problema do F-15** (que resolve quem
-> tem e-mail, canal que os 5 do Instagram não têm) — é o problema mais
-> barato de fechar: parar de agendar uma tentativa que a própria régua sabe
-> de antemão que não vai acontecer. Zero campo, zero tag novos — reaproveita
-> `telefone-invalido`, que já existe na base desde a R-13. Zero escrita no
-> CRM nesta rodada: item de especificação pura, não depende de
-> `APROVADO.md` (nenhuma tag ou campo novo nasce). **O que isto não
-> resolve:** é correção de spec, não de dado — precisa ser aplicada como
-> retoque no workflow `Reengajamento 90 dias`, já **publicado** na tela
-> (`GUIA-MONTAGEM.md`, "Estado final em 22/09/2026"), o mesmo tipo de patch
-> cirúrgico já usado para o relógio (`APRENDIZADOS-CRM.md`,
-> `tools/patch_relogio_cadencias.py`) — não sai por este conector (sem
-> endpoint de workflow) nem pela API interna desta sessão (sem bearer local).
-> Detalhe completo: `ROADMAP-SALES-ENGAGEMENT.md`, G-08.
 
 ### O bloco padrão de uma tentativa de reengajamento (TR1 a TR4)
 
@@ -2014,7 +1436,7 @@ Reaproveitar o nó 10 do bloco padrão (2.4) sem alteração significa que
 contato deste workflow e entregam para o Pós-ligação (seção 4, que é
 canal-agnóstico e não precisa saber que a tentativa veio do reengajamento)
 exatamente como fariam na régua original — inclusive movendo etapa para
-`REUNIÃO DE DIAGNÓSTICO` (antiga `AGENDAR`) ou mudando `status` para `abandoned`/`lost` sem sair de
+`AGENDAR` ou mudando `status` para `abandoned`/`lost` sem sair de
 `CONECTAR` (tabela 1.0). `reengajamento-ativo` sai sozinho nesse caminho: é
 o Mestre de saída (seção 3, nó 4) que limpa, porque qualquer um desses
 resultados tira a oportunidade da condição `CONECTAR` **e** `open`.
@@ -2026,10 +1448,8 @@ tentativas esgotaram sem conexão), em vez de "próxima tentativa":
 
 | # | Ação | Configuração |
 |---|---|---|
-| 0 | Guarda de janela de atendimento (seção 2.6.2, G-05) | Dentro da janela → 1 · Fora da janela → 1T |
-| 1 | Send WhatsApp | Texto livre `RE-2` (`biblioteca-mensagens.md`) → 2 |
-| 1T | Send WhatsApp, modo Template | Template Meta `RE-2` (a submeter — `biblioteca-mensagens.md`) → 2 |
-| 2 | Update Contact Field | `Template usado` = `RE-2` (os dois ramos acima convergem aqui) |
+| 1 | Send WhatsApp | Texto `RE-2` (`biblioteca-mensagens.md`) |
+| 2 | Update Contact Field | `Template usado` = `RE-2` |
 | 3 | Update Contact Field | `Resultado da tentativa` = vazio |
 | 4 | Add Contact Tag | `nutricao-90d` |
 | 5 | Update Opportunity | `status` = `abandoned` (etapa fica onde estava, `CONECTAR` — tabela 1.0; não é mais "mover para `Nutrição`", que não existe como etapa) |
@@ -2424,9 +1844,7 @@ obrigar o gestor a fazer a conta contra a meta toda vez que olhar.
 
 Reporting → Custom Metrics → Nova métrica → fórmula:
 
-`(Contagem de contatos com tag "fila-tel") − 100`
-
-> Corrigido em 22/09/2026: a fórmula somava `fila-tel` **OU** `fila-wa`. Com a decisão de 100% telefone (seção 2.5) nada mais aplica `fila-wa`, e o termo a mais não é inofensivo — ele continua contando quem carrega a tag antiga por resíduo, inflando a fila e podendo disparar o alarme de capacidade sem fila nenhuma. Antes: ~~`OU "fila-wa"`~~.
+`(Contagem de contatos com tag "fila-tel" OU "fila-wa") − 100`
 
 O "− 100" é de propósito, não decoração: em vez da contagem crua — que
 obriga o gestor a lembrar a meta do briefing toda vez que olha —, a métrica
@@ -2547,7 +1965,7 @@ qualquer momento do ciclo de vida do contato, não só na entrada).
 | # | Ação |
 |---|---|
 | 1 | Add Contact Tag `telefone-invalido` |
-| 2 | If/Else: etapa da oportunidade **é uma de** `NOVO LEAD`, `CONECTAR` **e** `status` **é** `open` → segue. Senão (já `REUNIÃO DE DIAGNÓSTICO` (antiga `AGENDAR`), `NEGOCIAR`, ou `status` já `abandoned`/`lost`) → só marca a tag e avisa (nó 4), sem mexer na etapa — um contato que já avançou por trabalho humano não retrocede por uma validação automática chegando atrasada |
+| 2 | If/Else: etapa da oportunidade **é uma de** `NOVO LEAD`, `CONECTAR` **e** `status` **é** `open` → segue. Senão (já `AGENDAR`, `NEGOCIAR`, ou `status` já `abandoned`/`lost`) → só marca a tag e avisa (nó 4), sem mexer na etapa — um contato que já avançou por trabalho humano não retrocede por uma validação automática chegando atrasada |
 | 3 | (só se o nó 2 seguiu) If/Else: `Site` ou `Instagram` preenchido → Update Opportunity `status` = `abandoned` + Add Contact Tag `nutricao-90d`. Senão → Update Opportunity `status` = `lost` |
 | 4 | Internal Notification para o gestor: `Telefone inválido (validação automática): {{contact.name}} — revisar a fonte da lista` |
 
@@ -2670,64 +2088,18 @@ o número exato.
 
 | Métrica | Fórmula | O que cobre do "Como" do roadmap |
 |---|---|---|
-| `Estouro da Fila` (já existe, R-11 — seção 2.15) | `(Contagem de contatos com tag "fila-tel") − 100` | Fila em atraso — capacidade |
+| `Estouro da Fila` (já existe, R-11 — seção 2.15) | `(Contagem de contatos com tag "fila-tel" OU "fila-wa") − 100` | Fila em atraso — capacidade |
 | `Atrasos de Speed-to-lead` (nova) | `Contagem de contatos com tag "atraso-1a-tentativa"` | Fila em atraso — SLA da 1ª tentativa (a mesma tag que a lista 8.8 já filtra) |
 | `Taxa de Conexão — Telefone` (nova) | `(Soma de "Conexões telefone" ÷ Soma de "Tentativas telefone") × 100` | Taxa por tentativa — telefone, acumulada |
 | `Taxa de Conexão — WhatsApp` (nova) | `(Soma de "Conexões WhatsApp" ÷ Soma de "Tentativas WhatsApp") × 100` | Taxa por tentativa — WhatsApp, acumulada |
-| `Taxa de Conexão Real — Telefone` (nova, F-06, peça 2) | `(Soma de "Conexões reais telefone" ÷ Soma de "Ligações com transcrição") × 100` | **Das chamadas que dá para medir**, quantas duraram mais de 60s — sem depender do julgamento do SDR. O denominador **não** é `Tentativas telefone`: os dois lados precisam da mesma população, ver "Conferência da peça 2" na seção 2.27 |
-| `Leads novos hoje` (nova, F-10) | `Contagem de contatos com "Date Created" = hoje` | **Entrada do dia** — o único indicador que piora quando a operação para de receber lead, e o único que nenhum monitor do F-05 cobre. Zero às 12h já é sinal. Usa a contagem de contatos por filtro (achado 2 desta seção), que aqui é a unidade certa |
-| `Leads novos — 7 dias` (nova, F-10) | `Contagem de contatos com "Date Created" nos últimos 7 dias` | Tendência de entrada: separa "dia fraco" de "parou". **Leia contra o maior intervalo já observado** (15h06 nesta base) e não contra um total de horas — hora absoluta não se calibra, e foi por isso que a abertura do F-10 publicou um número errado que "soava plausível". O tempo sem lead novo só sobe a cada rodada (última leitura em `ROADMAP-SALES-ENGAGEMENT.md`, F-10 — número fixo só lá, para não desatualizar aqui) e nenhum alerta existia para dizer isso |
-| `Cobertura da Medição — Telefone` (nova, F-06, peça 2) | `(Soma de "Ligações com transcrição" ÷ Soma de "Tentativas telefone") × 100` | Quanto da operação de telefone está instrumentada (LC Phone + transcrição ligada). Abaixo de ~90%, a linha acima merece ressalva; abaixo de ~50%, o F-06 está medindo outra operação |
 
-A quinta linha é a que fecha o "Pronto quando" do F-06 no dashboard: por
-que não reaproveita `Conexão real` direto na fórmula, e por que precisou
-de um campo novo (`Conexões reais telefone`, C-31, `NUMERICAL`) em vez de
-só trocar o nome do campo na conta acima, está registrado em
-`build-wesales.md`, seção 2.27 ("Peça 2") e `campos-e-tags.md` (C-31) —
-resumo: Custom Metrics só soma `NUMERICAL`/`MONETARY`, `Conexão real` é
-`SINGLE_OPTIONS`, e contar contatos no estado atual misturaria unidade
-diferente da de `Tentativas telefone` (soma cumulativa de tentativas, não
-de contatos). Convive com a linha `Taxa de Conexão — Telefone` acima —
-nenhuma substitui a outra, cada uma responde uma pergunta diferente
-(conectou vs. conversou).
-
-Nenhuma das cinco é campo ou tag nova além do já registrado: as três
-"Taxa" reaproveitam C-09/C-10 (Tentativas) e C-11/C-12/C-31 (Conexões,
-incluindo a nova C-31 do F-06) — o mesmo raciocínio de "não duplicar o
-que o projeto já expõe" que fechou o R-10 e o R-13 em `campos-e-tags.md`.
-Se o plano da subconta não incluir Custom Metrics, as duas primeiras
-linhas continuam cobertas pela lista 8.16 e 8.8 (sem entrar no dashboard)
-e as três últimas pela lista 8.6, que já ganhou a coluna `Conexão real`
-na mesma peça — o dashboard perde a tela única, não perde o dado. As duas
-últimas linhas (F-10) têm o mesmo fallback: as **duas** listas da seção
-8.25 (`Entrada — últimas 24h` e `Entrada — últimos 7 dias`), que fazem a
-mesma pergunta por filtro de data **relativo** sem depender do plano pago —
-só perdem o total pronto, que sem Custom Metrics vira contar linha na tela.
-São duas listas salvas de propósito: trocar o filtro de uma só muda a view
-para todo mundo que a usa.
-
-**5. Seção "Compliance" (nova, R-14):** referência às duas listas da
-seção 8.26/8.27 (`Auditoria — tag sem DND nativo` e `Auditoria — DND sem
-tag`) — não widget de Custom Metric por padrão, porque a métrica de
-"contagem de contatos com tag" descrita na pesquisa desta seção (achado 2
-acima) filtra por tag/pipeline/owner/metric-level, sem citar DND; combinar
-tag **e** filtro de DND numa única fórmula não está confirmado como
-possível. Se a tela confirmar que dá, as duas viram Custom Metric (`Sem
-DND — Contagem` / `Sem tag — Contagem`, meta zero); se não, as duas Smart
-Lists sozinhas já cumprem o "relatório que prova" do R-14 sem depender de
-plano pago — mesmo raciocínio de fallback das outras quatro peças desta
-seção.
-
-**6. Reporting → Pipeline (nativo, F-12, 22/09/2026):** a pergunta "por que
-estamos perdendo" não tinha widget nem lista aqui — Custom Metrics não
-agrega por valor de `SINGLE_OPTIONS` (achado 2 desta seção), então
-`Motivo da desqualificação` (C-16) nunca teve para onde ir. Não é mais
-lacuna: o relatório nativo de Pipeline do GHL já quebra oportunidades
-perdidas por `Lost Reason`, o campo nativo de oportunidade que a seção 4.1
-passou a alimentar com o mesmo valor de C-16. Não é widget deste dashboard
-— é uma tela própria do Reporting nativo — mas fecha a pergunta sem
-depender de Custom Metrics nem de plano pago. Detalhe completo, incluindo o
-que ainda não está confirmado na tela, em `build-wesales.md`, seção 4.1.
+Nenhuma das quatro é campo ou tag nova: as três novas reaproveitam C-09 a
+C-12 (R-01) e a tag `atraso-1a-tentativa` (T-12, R-02) — o mesmo
+raciocínio de "não duplicar o que o projeto já expõe" que fechou o R-10 e
+o R-13 em `campos-e-tags.md`. Se o plano da subconta não incluir Custom
+Metrics, as duas primeiras linhas continuam cobertas pela lista 8.16 e
+8.8 (sem entrar no dashboard) e as duas últimas pela lista 8.6 — o
+dashboard perde a tela única, não perde o dado.
 
 ### Limite conhecido
 
@@ -3124,7 +2496,7 @@ sobrescreveriam o campo uma da outra antes da comparação final).
 
 ### Gatilhos
 1. **Contact Tag Added** — `fila-tel`
-2. ~~**Contact Tag Added** — `fila-wa`~~ — **removido em 22/09/2026.** Nada mais adiciona `fila-wa` (seção 2.5), então este gatilho nunca dispararia. Fica riscado porque a justificativa do OR logo abaixo foi escrita para dois gatilhos: com um só, o recurso de multi-gatilho deixa de ser **necessário aqui** — não deixa de existir, e não é a regra que mudou.
+2. **Contact Tag Added** — `fila-wa`
 
 (dois gatilhos no mesmo workflow, em OR — o mesmo recurso já usado e
 confirmado no Mestre de saída, seção 3: "GHL aceita mais de um gatilho no
@@ -3333,58 +2705,19 @@ silencioso que o G-03 só foi achado porque alguém olhou o dado direto.
 
 ---
 
-## 2.23 Monitor de Saúde da Operação — F-05 (peça 5 de 6: `REUNIÃO DE DIAGNÓSTICO` (antiga `AGENDAR`) sem fechar o loop) — F-05 fechado, **premissa superada em 23/09/2026 (G-13)**
+## 2.23 Monitor de Saúde da Operação — F-05 (peça 5 de 6: `AGENDAR` sem fechar o loop) — F-05 fechado
 
-> **Este desenho parou de poder acontecer.** A premissa do gatilho abaixo é
-> que `REUNIÃO DE DIAGNÓSTICO` é alcançada por uma conexão (`Atendeu`) que
-> ainda não fechou horário. Com a D3 do `PLANO-MULTICANAL.md` (23/09/2026),
-> `Atendeu` deixou de mover a oportunidade — ela **só** entra em `REUNIÃO DE
-> DIAGNÓSTICO` quando a reunião é marcada (`Pós-agendamento v2`, D4). Não há
-> mais como estar nessa etapa **sem** reunião marcada, então o portão do nó 2
-> (`etapa é REUNIÃO DE DIAGNÓSTICO E status é open`) nunca mais vê o caso que
-> o alerta existia para pegar. O dono já tinha chegado à mesma conclusão por
-> outro caminho e despublicado o workflow desta seção (`W17d`,
-> `PLANO-MULTICANAL.md` E8, 23/09/2026) antes de qualquer documento registrar
-> o motivo.
->
-> **O que substitui esta peça, e o que ela não cobre.** `Fechar Horário`
-> (`tools/build_fechar_horario.py`, publicado) monitora a fase nova —
-> conectado, ainda em `CONECTAR`, tag `fechar-horario` — com um relógio de 3
-> dias: dia 1 tarefa + mensagem automática `MFH1-v1`, dia 2 tarefa + `MFH2-v1`,
-> dia 3 sem reunião → `abandoned` + `nutricao-90d`. Sai sozinho quando a
-> reunião é marcada. **A diferença real com esta peça 5:** o novo workflow
-> reengaja o lead por mensagem, mas **não avisa o gestor** em nenhum passo —
-> o `Internal Notification` do nó 4 abaixo não tem equivalente em
-> `Fechar Horário`. Se a visibilidade do gestor sobre "conectou e não fechou
-> horário" ainda é necessária, é decisão de desenho nova (somar um aviso ao
-> `Fechar Horário`, não ressuscitar esta peça — a etapa que ela vigiava não
-> aceita mais o estado que ela procurava).
->
-> **Consequência para T-19 (`agendar-estagnado`, `campos-e-tags.md`):**
-> continua `[ ]` em `APROVADO.md`, nunca criada — e não deveria ser aprovada
-> como está especificada aqui, porque o workflow que a aplicaria (nó 3 abaixo)
-> foi despublicado. Detalhe completo, e o que fica em aberto, em
-> `ROADMAP-SALES-ENGAGEMENT.md`, G-13. O texto abaixo fica como registro do
-> desenho original — não é para montar.
->
-> **Pronto quando:** decisão do dono sobre se `Fechar Horário` precisa de um
-> aviso ao gestor equivalente ao nó 4 abaixo; se sim, especificar o nó novo
-> nesta seção; se não, marcar esta peça como retirada (mesmo tratamento que a
-> seção 2.32 já deu ao F-17) e considerar T-19 encerrada sem criação.
-
-**Por quê (desenho original, 18/09/2026 — não monte, ver aviso acima):** a invariante que a "Adição de 18/09/2026" do roadmap
+**Por quê:** a invariante que a "Adição de 18/09/2026" do roadmap
 acrescentou ao F-05 original, ao aplicar o tempo de estagnação do Sales
-Model Canvas etapa a etapa: `Conectado` (hoje `REUNIÃO DE DIAGNÓSTICO`, tabela 1.0) sem
+Model Canvas etapa a etapa: `Conectado` (hoje `AGENDAR`, tabela 1.0) sem
 avançar para `Reunião agendada` (`NEGOCIAR`) em mais de 24h — o SDR atendeu
 o lead, ganhou a tarefa `[CONECTADO] Qualificar e agendar` (seção 4, ramo
 `Atendeu`, nó 8), e nunca fechou o loop: não agendou, não descartou. É a
 mesma classe de estrago silencioso das peças 1-3 (nada avisa sozinho), aqui
 na etapa em que L-08 (`briefing-sdr.md`) já tinha achado que falta caminho
-de saída para "sem fit" — este monitor não fecha essa lacuna sozinho (quem
-fechou foi o ramo `Desqualificado` do Pós-ligação, R-18, 21/09/2026, que
-tira a maioria dos "sem fit" **antes** de chegar aqui), só garante que quem
-ainda assim ficar parado em `REUNIÃO DE DIAGNÓSTICO` (fit real, sem horário fechado, ou
-desqualificado na mão já dentro da etapa) não fica sem ninguém saber.
+de saída para "sem fit" — este monitor não fecha essa lacuna (segue exigindo
+decisão do dono, L-08 continua aberta), só garante que ninguém fica parado
+ali sem ninguém saber.
 
 Mesma pesquisa de mercado das peças 1-3: nenhuma das quatro plataformas do
 enunciado do projeto (Reev, Meetime, Outreach, Salesloft) expõe alarme
@@ -3393,7 +2726,7 @@ engenharia interna, não recurso de sales engagement.
 
 **Desenho:** mesmo padrão de relógio por evento já validado em R-02 e na
 peça 1 (seção 2.20) — gatilho de chegada, `Wait` de 24h, portão que confere
-se o lead ainda está preso antes de avisar. `REUNIÃO DE DIAGNÓSTICO` só é alcançada uma vez
+se o lead ainda está preso antes de avisar. `AGENDAR` só é alcançada uma vez
 por ciclo (o Pós-ligação, seção 4, ramo `Atendeu`, nó 6, é o único nó que
 move uma oportunidade para lá), então não tem o risco de eventos repetidos
 em menos de 24h que motivou o relógio ancorado por horário fixo da peça 2 —
@@ -3401,12 +2734,12 @@ o `Wait` relativo de 24h, o mesmo mecanismo da peça 1, basta.
 
 ### Gatilho
 **Opportunity Stage Changed** — Pipeline `FUNIL DE VENDAS` · Para a etapa:
-`REUNIÃO DE DIAGNÓSTICO`
+`AGENDAR`
 
 ### Configurações
 | Configuração | Valor | Por que |
 |---|---|---|
-| Allow Re-entry | **Ligado** | Cada entrada em `REUNIÃO DE DIAGNÓSTICO` merece seu próprio relógio, mesmo raciocínio da peça 1 |
+| Allow Re-entry | **Ligado** | Cada entrada em `AGENDAR` merece seu próprio relógio, mesmo raciocínio da peça 1 |
 | Janela de envio | Sem janela, 24/7 | Aviso interno ao gestor, não mensagem ao lead |
 | Stop on Response | Desligado | Não há mensagem ao lead aqui |
 
@@ -3414,20 +2747,20 @@ o `Wait` relativo de 24h, o mesmo mecanismo da peça 1, basta.
 | # | Nó | Ação | Configuração |
 |---|---|---|---|
 | 1 | Aguardar | Wait → Time Delay | 24 horas corridas |
-| 2 | Portão | If/Else | Etapa da oportunidade **ainda é** `REUNIÃO DE DIAGNÓSTICO` **E** `status` **é** `open` → segue (24h depois de atender, ninguém fechou o loop). Senão → **encerra** (agendou, foi descartado na mão, ou saiu por outro caminho — nada a avisar) |
+| 2 | Portão | If/Else | Etapa da oportunidade **ainda é** `AGENDAR` **E** `status` **é** `open` → segue (24h depois de atender, ninguém fechou o loop). Senão → **encerra** (agendou, foi descartado na mão, ou saiu por outro caminho — nada a avisar) |
 | 3 | Fila | Add Contact Tag | `agendar-estagnado` |
-| 4 | Aviso | Internal Notification | Para o gestor: `{{contact.name}} atendeu e está há mais de 24h em REUNIÃO DE DIAGNÓSTICO sem reunião marcada nem desqualificação. Conectado em: {{contact.data_conectado}}.` |
-| 5 | Registro | Add Note | `Alerta de saúde: REUNIÃO DE DIAGNÓSTICO sem fechar o loop em 24h · {{right_now}}` |
+| 4 | Aviso | Internal Notification | Para o gestor: `{{contact.name}} atendeu e está há mais de 24h em AGENDAR sem reunião marcada nem desqualificação. Conectado em: {{contact.data_conectado}}.` |
+| 5 | Registro | Add Note | `Alerta de saúde: AGENDAR sem fechar o loop em 24h · {{right_now}}` |
 
 **Limpeza da tag — por que entra no nó 0 do Mestre de saída (incondicional),
 não só na lista nomeada do nó 4 (achado ao desenhar):** o caminho normal de
-saída de `REUNIÃO DE DIAGNÓSTICO` (o Pós-agendamento move para `NEGOCIAR`, seção 5, nó 1)
+saída de `AGENDAR` (o Pós-agendamento move para `NEGOCIAR`, seção 5, nó 1)
 já aciona o nó 4 do Mestre de saída pela via comum — `NEGOCIAR` não está na
 lista de no-op do nó 1 ("`status` é `open` **e** etapa é uma de `NOVO LEAD`,
 `CONECTAR`"), então bastaria somar a tag à lista existente, como
 `fila-travada` e `conectar-estagnado` já fazem. Mas L-08 (`briefing-sdr.md`)
 registra que hoje não existe caminho formal de desqualificação a partir de
-`REUNIÃO DE DIAGNÓSTICO` — se algum dia alguém arrastar a oportunidade de volta para
+`AGENDAR` — se algum dia alguém arrastar a oportunidade de volta para
 `CONECTAR` na mão (o único jeito manual de "desistir" sem esse caminho), a
 condição do nó 1 volta a ser verdadeira (`CONECTAR`/`open`) e o Mestre de
 saída trataria essa transição como no-op, a mesma classe de bug que já
@@ -3437,7 +2770,7 @@ caminhos de uma vez, sem custo: `Remove Contact Tag` de quem não tem a tag
 não faz nada, e o Mestre de saída já roda a cada mudança de etapa ou status.
 
 **Pronto quando (peça 5 do F-05):** um lead atendido que fica mais de 24h em
-`REUNIÃO DE DIAGNÓSTICO` sem virar reunião marcada nem sair por outro caminho gera aviso ao
+`AGENDAR` sem virar reunião marcada nem sair por outro caminho gera aviso ao
 gestor sozinho.
 
 ---
@@ -3501,29 +2834,12 @@ proteger.
 | # | Nó | Ação | Configuração |
 |---|---|---|---|
 | 1 | Checkpoint | Update Contact Field | `Checkpoint — Data de retorno` = `{{contact.data_de_retorno}}` (o valor no instante do gatilho) |
-| 2 | Aguardar | Wait → Until specific time, **Dynamic** | Data = `{{contact.checkpoint__data_de_retorno}}` (**dois** underscores — o campo foi criado na tela em 21/09/2026 23:33 e o travessão do nome virou nada, deixando os dois espaços como dois underscores; ver nota abaixo) · horário `19:00` (mesma folga de 30 min depois do fim do expediente, 18:30, já usada na peça 2 — dá o dia inteiro para o SDR ligar antes do alerta) |
+| 2 | Aguardar | Wait → Until specific time, **Dynamic** | Data = `{{contact.checkpoint_data_de_retorno}}` · horário `19:00` (mesma folga de 30 min depois do fim do expediente, 18:30, já usada na peça 2 — dá o dia inteiro para o SDR ligar antes do alerta) |
 | 3 | Portão — a promessa ainda é a mesma? | If/Else | `Data de retorno` (valor atual) **é igual a** `Checkpoint — Data de retorno` → segue (ninguém renovou a promessa desde que este relógio começou). Senão → **encerra** (o gatilho já disparou de novo com a data nova — outra instância está vigiando o valor certo) |
 | 4 | Portão — ainda pendente? | If/Else | `Resultado da tentativa` **é** `Pediu retorno` **E** etapa **é** `CONECTAR` **E** `status` **é** `open` → segue (a data passou sem reclassificação). Senão → **encerra** (o SDR já ligou de volta e classificou por outro caminho, ou o lead saiu de cadência) |
 | 5 | Fila | Add Contact Tag | `retorno-vencido` |
 | 6 | Aviso | Internal Notification | Para o gestor: `{{contact.name}} tinha retorno prometido para {{contact.data_de_retorno}} e ainda não foi reclassificado.` |
 | 7 | Registro | Add Note | `Alerta de saúde: retorno vencido sem nova classificação · {{right_now}}` |
-
-**Chave real dos dois campos Checkpoint, lida do CRM em 22/09/2026 — não
-adivinhe pelo nome:**
-
-| Nome na tela | `fieldKey` real |
-|---|---|
-| `Checkpoint — Tentativa nº` | `contact.checkpoint__tentativa_n` |
-| `Checkpoint — Data de retorno` | `contact.checkpoint__data_de_retorno` |
-
-O GHL **remove** o travessão (`—`) em vez de transliterar, e os dois espaços
-que o cercavam sobram como **dois underscores seguidos**. É a mesma mecânica
-que já tinha comido os acentos (`conexão` → `conexo`, `anúncios` → `anncios`
-— `APRENDIZADOS-CRM.md`), agora com pontuação. Esta seção nasceu com
-`checkpoint_data_de_retorno`, um underscore, escrita antes de o campo existir
-na tela; corrigido em 22/09 pela auditoria de merge field órfão. **Nome com
-travessão, dois pontos ou parêntese: crie na tela primeiro, leia o
-`fieldKey` por API, e só então escreva o merge field no documento.**
 
 **Por que o Checkpoint compara valor, não usa o campo vivo direto no
 portão do nó 3 (mesma lição da peça 3, `Checkpoint — Tentativa nº`):** entre
@@ -3584,7 +2900,7 @@ do "Como" do F-05 (mais as duas adições de 18/09/2026), todas têm tratamento
 agora: `fila-tel`/`fila-wa` presa (peça 2), `CONECTAR` sem avanço em 14 dias
 (peça 3), tarefa vencida sem resultado (descartada — já coberta pelo nó 10b
 da seção 2.4), `nao-perturbe` em workflow ativo (peça 4, por prevenção em vez
-de detecção), `REUNIÃO DE DIAGNÓSTICO` (antiga `AGENDAR`) sem fechar o loop em 24h (peça 5) e retorno vencido
+de detecção), `AGENDAR` sem fechar o loop em 24h (peça 5) e retorno vencido
 sem reclassificação (esta peça). Mais `NOVO LEAD` esquecido (peça 1, achada
 fora da lista original via G-03). Não sobra invariante do F-05 sem
 workflow — o item fica fechado como bloco, não só peça a peça.
@@ -3592,1977 +2908,6 @@ workflow — o item fica fechado como bloco, não só peça a peça.
 **Pronto quando (peça 6 do F-05, e do F-05 inteiro):** um retorno prometido
 que vence sem o SDR ligar de volta gera aviso ao gestor sozinho, sem
 depender de alguém abrir a lista `Retornos` (8.4) no dia certo.
-
----
-
-## 2.25 Proteção de reputação do número de WhatsApp — F-07
-
-**Por quê:** todo o desenho de mensagem desta operação (G-05, G-06)
-protege a **entrega** de cada mensagem — janela de 24h, Template aprovado.
-Nenhum item protege o **número** que envia. A Meta atribui a todo número do
-WhatsApp Business API uma **Quality Rating** (Verde/Amarela/Vermelha,
-calculada sobre bloqueios, denúncias de spam e baixo engajamento dos
-últimos 30 dias) e um **Tier de mensagens** (teto de clientes únicos
-contactados por uma janela rolante de 24h — número novo nasce no Tier 1,
-250 clientes únicos, e só sobe consumindo metade do teto atual dentro de 7
-dias com qualidade aceitável). Uma rajada de bloqueios ou denúncias derruba
-a nota para Amarela/Vermelha, trava a subida de Tier e pode **throttlar ou
-recusar** mensagens mesmo dentro da janela de 24h e mesmo com Template
-aprovado — o mesmo "estrago silencioso" que motivou o F-05 e o G-05/G-06,
-aqui na camada mais funda: se o número perder reputação, toda a
-especificação de mensagem do projeto (M1-a/M1-b/M2/M3, MI-0/MI-F, RE-1/
-RE-2, NS-1/NS-2, os quatro lembretes do Pós-agendamento, QI-1 e o
-Caminho B da Qualificação por IA) para de entregar ao mesmo tempo, sem
-nenhum erro visível numa tela de workflow — o nó roda, "envia", e a Meta
-descarta ou atrasa do outro lado. É o equivalente, para WhatsApp, do que
-"aquecimento de domínio"/monitoramento de spam score é para e-mail em
-Outreach/Salesloft — nenhuma das duas ferramentas de sales engagement
-citadas neste projeto lida com WhatsApp Business API como canal principal,
-então aqui o risco é maior do que a paridade com elas sugere, não menor.
-**Pesquisado (`WebSearch`, confiança média-alta — mecânica confirmada por
-múltiplas fontes de terceiros e pela documentação de suporte da própria
-HighLevel, cujo domínio segue bloqueado pelo proxy deste ambiente, citada
-por resultado de busca, não lida direto):** o artigo "WhatsApp Quality
-Rating, Status Changes, and Messaging Limits" do HighLevel Support Portal
-confirma que a mecânica de Meta se aplica sem alteração dentro do GHL —
-não é um risco só de quem usa a API da Meta direto.
-
-**O que este item NÃO é, para não duplicar outro:** não é o teto de fadiga
-do F-04 (`Toques na semana`), que protege o **lead** de receber toque
-demais — um número pode ter reputação perfeita e ainda assim cansar um
-lead, e um número pode respeitar o teto de F-04 lead a lead e ainda
-acumular denúncia suficiente para cair de nota, porque a Quality Rating
-soma bloqueios de **todos** os leads, não de um só. Também não é a higiene
-de telefone do R-13 (`telefone-invalido`), que filtra número que não existe
-— aqui o número do **lead** está certo, o risco é a reação dele à
-mensagem. É uma peça nova, na mesma família do F-05 (monitor de saúde),
-mas de infraestrutura do canal, não de lead individual.
-
-**Como — e por que não é um workflow:** pesquisado explicitamente se existe
-gatilho, ação ou Custom Value nativo do GHL que leia Quality Rating ou Tier
-em tempo de execução (para um workflow reagir sozinho, no espírito do F-05)
-— **não encontrado**. A tela nativa (`Settings → WhatsApp → Manage` no
-número conectado, "Quality rating" dos últimos 30 dias, com os motivos de
-bloqueio ao passar o mouse quando a nota cai) é a única superfície, e o
-conector `GHL CRM` desta sessão não a expõe (sem ferramenta de leitura de
-canal/número — confirmado pela lista de ferramentas disponíveis). Isto não
-é lacuna deste item, é limite de plataforma/conector como qualquer outro
-já registrado no projeto (campo e workflow por API, por exemplo) — a saída
-correta não é inventar um workflow que a tela não sustenta, é registrar a
-checagem como rotina manual do gestor, com gatilho por evento (quando
-olhar) em vez de por calendário fixo:
-
-| Quando olhar | Por quê |
-|---|---|
-| **Antes de publicar os 4 nós de envio da Cadência 12x30 pela primeira vez com volume real** (G-05, passo 4 da tabela da seção G-05 no roadmap) | É o salto de volume mais brusco da operação — de zero para o regime diário de uma hora para a outra; se a nota já não é Verde antes disso, o salto piora rápido |
-| **Semanalmente enquanto o volume crescer** (10-13 leads novos/dia entrando, mais Reengajamento 90 dias, mais Cadência Inbound) | O teto de Tier 1 (250 clientes únicos/24h) tem folga larga no volume atual do projeto — o risco não é estourar o teto, é a nota cair antes de precisar subir de Tier |
-| **Depois de qualquer pico visível na lista `Opt-out por Palavra-chave` (R-17, seção 2.9.5)** | Quem digita "pare" na conversa é o mesmo tipo de reação que gera denúncia/bloqueio no WhatsApp — um pico na lista de opt-out por texto é sinal antecedente barato de checar a nota antes que ela caia sozinha |
-
-**O risco concreto que este projeto tem hoje, e que os três gatilhos acima
-não pegam (achado em 22/09/2026, ao cruzar este item com o G-03):** o estoque
-do G-03 são **47 leads parados**, e a opção 3 daquele item é promovê-los **de
-uma vez**. Some isso a um número de WhatsApp recém-ativado e ao primeiro dia
-da `Cadência 12x30` no ar: a M1 sairia como Template para ~47 pessoas que
-nunca escreveram para este número, **todas no mesmo dia, sem nenhum
-histórico de conversa no número**. Não é problema de Tier (47 cabe folgado no
-teto inicial); é o pior começo possível de **Quality Rating** — burst frio de
-mensagem business-initiated é exatamente o padrão que gera bloqueio e
-denúncia, e bloqueio nos primeiros dias pesa mais, porque a nota é calculada
-sobre os últimos 30 dias e não há volume bom para diluir.
-
-**A correção é de graça e já está no briefing:** o regime normal da operação
-é **~10-13 leads novos por dia** (`briefing-sdr.md`, entrada e L-05). Promover
-o estoque em lotes desse tamanho — em vez de 47 de uma vez — espalha o
-primeiro volume de Template por 4 dias, é o mesmo ritmo que o SDR vai ter
-quando a régua estabilizar, e não exige mecanismo nenhum: é a ordem em que o
-dono clica. Quem promover os 47 de uma vez ganha um dia de fila cheia e
-arrisca o canal inteiro pelas 4 semanas seguintes.
-
-**Se a nota cair para Amarela/Vermelha (mitigação com o que o projeto já
-tem, sem desenho novo):** (1) parar de promover leads novos para a
-Cadência 12x30 até a nota normalizar não é necessário — os quatro nós de
-envio já têm a guarda de janela (G-05/G-06): a maioria dos envios já sai
-como Template, que a Meta trata com mais tolerância que texto livre; (2)
-revisar os motivos de bloqueio que a tela mostra por cima da nota — se
-apontarem para um Template específico (ex.: `M1-b`, a variante do R-05/
-teste A/B), pausar só aquela variante no Split em vez do canal inteiro;
-(3) conferir se o pico de opt-out (gatilho da linha acima) aponta para um
-segmento ou origem específica, e se sim, tratar a causa (ex.: formulário do
-Meta mal configurado, G-04) em vez de só a reputação, porque a nota volta a
-cair de novo enquanto a causa não for corrigida.
-
-**Zero campo, zero tag, zero workflow, zero escrita no CRM:** item de
-documentação e rotina manual pura — não depende de `APROVADO.md`. Não
-entra na "Ordem de montagem" (não há nó para montar) nem no checklist de
-teste da seção 10 (não há objeto de CRM para simular reputação de número
-com contato fictício).
-
-**Pronto quando:** o gestor sabe, sem perguntar a ninguém, os três
-momentos em que precisa olhar `Settings → WhatsApp → Manage` antes que a
-nota caia em silêncio — e o que fazer, com as peças que o projeto já tem,
-se ela cair.
-
----
-
-## 2.26 Proteção de reputação do número de telefone — F-08
-
-**Por quê:** o F-07 fechou a proteção de infraestrutura para o WhatsApp
-(Quality Rating da Meta); o canal **majoritário** da cadência — ligação por
-telefone, tabela 2.5, que carrega 8 dos 12 toques e é o único canal que o
-SDR controla direto — segue sem proteção nenhuma de reputação de número. E
-o risco deixou de ser hipótese exatamente na semana em que esta rodada
-roda: desde agosto/2026 a Anatel obriga toda operadora brasileira a
-oferecer, **grátis e ativado por padrão** para todo cliente, um sistema
-próprio de bloqueio de chamadas "abusivas" — cada operadora escolhe a
-tecnologia, mas o critério que a norma manda considerar é **quantidade e
-duração das chamadas** (`WebSearch`, confiança média-alta: a mesma
-descrição — "quantidade e duração", "gratuito e ativado por padrão" —
-apareceu em várias matérias independentes cobrindo a mesma normativa de
-agosto/2026, sinal de que estão citando o texto oficial da Anatel, não
-parafraseando cada uma à sua maneira; domínio `gov.br/anatel` não testado
-direto neste ambiente, mesma limitação de proxy já registrada para
-`help.gohighlevel.com`). **Meta do SDR: 100 ligações/dia** (`briefing-sdr.md`,
-"A máquina") de um número que, quando não atende, gera uma tentativa curta
-e sem duração — exatamente o par "muita quantidade, pouca duração" que o
-próprio critério da norma aponta como sinal de abuso, não a exceção.
-
-**Por que este item não é "aplicar a mesma solução do F-07 num canal
-diferente" — achado ao pesquisar antes de desenhar, como o próprio roadmap
-manda:** a saída óbvia, copiada de mercado americano (Reev/Meetime não
-cobrem isso — nenhuma das quatro plataformas de referência deste projeto
-trata reputação de número de voz como funcionalidade própria, mesma lacuna
-de repertório já registrada para o F-07), seria o recurso nativo do
-HighLevel para isto, **Voice Integrity** (`Settings → Phone Numbers →
-Trust Center`), que registra o número junto a empresas de análise de
-identificador de chamada (First Orion, Hiya, TNS) para remover rótulo de
-"Spam Likely". **Ele não serve aqui:** a própria documentação de suporte da
-HighLevel e cobertura de terceiros são explícitas — "Voice Integrity
-(Labs, **US only**)", e o pré-requisito é registro **SHAKEN/STIR**, um
-framework da FCC americana com EIN, que não existe para número brasileiro.
-Copiar a receita americana sem checar a letra miúda teria produzido uma
-especificação que nunca funcionaria para esta subconta — o mesmo tipo de
-erro que motivou registrar, em `APRENDIZADOS-CRM.md`, a regra de nunca
-supor rótulo ou campo sem confirmar contra a fonte certa.
-
-**Um segundo caminho pesquisado e também descartado, para não ser
-retentado à toa numa rodada futura:** o "Não Me Perturbe" da Anatel (a
-plataforma nacional de opt-out por CNPJ) **não se aplica a este negócio**.
-Fontes independentes convergem: a obrigatoriedade de adesão, inclusive a
-ampliação de agosto/2025–2026, alcança **só prestadoras de serviço de
-telecomunicações** — cerca de 32% das ligações indesejadas do país; os
-outros dois terços, de outros setores econômicos (o desta operação
-incluído, uma agência vendendo serviço de marketing), ficam fora do
-alcance daquela plataforma especificamente. Não confundir com o
-`nao-perturbe` interno do projeto (tag e campo `Permissão WhatsApp`, DND
-por contato, R-14/R-17) — são mecanismos diferentes, o interno continua
-valendo e não muda com este achado.
-
-**Como — e por que também não é um workflow, mesmo motivo do F-07:**
-nenhuma API pública de operadora brasileira nem do GHL expõe "este número
-foi rotulado/bloqueado por algum cliente" para um workflow ler — o
-bloqueio acontece no aparelho ou na rede do lead, não em nada que a
-subconta enxergue. Vira checklist do gestor, não automação:
-
-| Ação | Por quê |
-|---|---|
-| **Cadastrar o(s) número(s) usado(s) para ligar no portal gratuito "Qual Empresa Me Ligou?" da Anatel** (`qualempresameligou.com.br`, associa o número ao CNPJ) | Equivalente brasileiro real do Branded Caller ID/CNAM — quando o lead pesquisa o número desconhecido antes de decidir atender, encontra o nome e o CNPJ da empresa em vez de nada, reduzindo a chance de ele ignorar ou denunciar por puro desconhecimento |
-| **Antes de escalar volume** (promover o estoque do G-03, ou ao entrar o 2º SDR do R-10) — **distribuir as ligações entre mais de um número**, em vez de concentrar 100/dia num só | A norma não publica um limiar numérico próprio ainda (cada operadora escolhe a tecnologia); a referência de mercado (fora do Brasil, adaptada com cautela) fica em torno de 50-75 chamadas/dia por número antes do risco de rótulo subir — a meta desta operação, sozinha, já está no teto ou acima dele |
-| **Seguir a rampa de aquecimento por semana** (seção 2.29/F-14) em vez de partir direto para 100/dia — o número desta operação nunca discou de verdade (zero registro de chamada, `APRENDIZADOS-CRM.md`), então é "novo" para efeito de reputação mesmo já existindo na subconta | "Distribuir entre números" (linha acima) não diz quanto por dia em qual semana; a rampa escreve o teto que falta |
-| **Se a taxa de atendimento de um número cair de forma abrupta e sem explicação de horário/segmento** (o mesmo tipo de sinal que o F-06, quando destravar, vai medir por duração de chamada) | É o sintoma prático de bloqueio silencioso — a norma de agosto/2026 não obriga a operadora a avisar o autor da ligação, só o destinatário |
-| **Usar o canal de contestação que a norma de agosto/2026 passa a exigir de toda operadora** ("procedimento específico para usuários que tiveram chamadas bloqueadas solicitarem revisão") | Existe agora um caminho formal para reverter um bloqueio de número legítimo — antes de agosto/2026 isso dependia só de boa vontade da operadora |
-
-**Pendência que este item não resolve, registrada em vez de inventada:**
-não há confirmação em nenhum documento do projeto se as 100 ligações/dia
-saem por **LC Phone** (telefonia nativa do GHL, back-end Twilio) ou pela
-linha própria do SDR — `grep` por `LC Phone`/`Twilio`/`discador` em todo o
-`wesales/` só encontra uma menção lateral (seção 2.17, sobre call tracking
-do F-06), nunca uma afirmação do canal real. A mitigação muda: número
-provisionado pelo GHL é o dono técnico registrar; linha própria do SDR
-exige registro pelo próprio SDR ou pela operadora dele. Confirmar isso é
-pré-requisito prático do primeiro item da tabela acima, não deste item
-inteiro — o achado da norma e a exclusão do "Não Me Perturbe" valem
-independente da resposta. **Evidência indireta reavaliada em 22/09/2026, mesma data — o CRM não
-responde esta pergunta:** `locations_get-location` mostra
-`saasSettings.twilioRebilling = { enabled: true, markup: 20 }`, mas o markup
-do rebilling é definido **global na agência** (SaaS Configurator), com
-override opcional por subconta — o valor lido aqui é compatível com o global
-herdado, igual em subconta que nunca ligou, então **não é sinal de número
-provisionado nesta**. E a evidência direta, lida na mesma rodada, aponta para
-o outro lado: **zero registro de chamada** nas 50 conversas da subconta
-(41 atividade de CRM, 9 DM de Instagram, nenhum `TYPE_CALL`) — o contato de
-teste com `Tentativas telefone` = 24 tem **uma** mensagem, "Opportunity
-created". Os 24 são escritas de campo por classificação manual, não ligações.
-A ausência não desempata (pode não haver número, ou haver e nunca ter sido
-usado), mas **elimina o CRM como fonte**: é pergunta para o dono, e nenhuma
-rodada deve gastar mais tempo procurando por API. Detalhe em
-`APRENDIZADOS-CRM.md`, "O CRM não pode responder a pergunta do LC Phone".
-
-**Zero campo, zero tag, zero workflow, zero escrita no CRM:** item de
-documentação e rotina manual pura — não depende de `APROVADO.md`. Não
-entra na "Ordem de montagem" (não há nó para montar) nem no checklist de
-teste da seção 10 (não há objeto de CRM para simular bloqueio de operadora
-com contato fictício) — mesmo tratamento do F-07.
-
-**Pronto quando:** o(s) número(s) reais da operação estão cadastrados no
-"Qual Empresa Me Ligou?"; o gestor sabe que não pode copiar o Voice
-Integrity da HighLevel (US only) nem contar com o "Não Me Perturbe" (não
-alcança este setor) como proteção; e sabe, antes de escalar volume, que
-concentrar 100 ligações/dia num único número é o próprio risco que a norma
-de agosto/2026 existe para pegar.
-
-### Correção do F-08, 22/09/2026 (mesma rodada, verificação): SHAKEN/STIR **existe** no Brasil, e a asfixia do canal está dentro da própria cadência
-
-Três coisas mudaram depois de conferir as fontes uma a uma. A conclusão
-prática do F-08 ("o telefone não tem proteção de reputação neste projeto")
-continua certa; duas das premissas, não.
-
-**1. A premissa "SHAKEN/STIR não existe para número brasileiro" está
-errada.** Existe, e em produção: chama-se **`Origem Verificada`**, é a
-implementação brasileira de STIR/SHAKEN + RCD, gerida pela ABR Telecom pelo
-**Portal AIA** (Autoridade de Identificação e Autenticação), com **52+
-prestadoras** aderidas (Vivo, Claro, Oi, TIM entre elas) e cerca de **6
-bilhões de chamadas autenticadas por mês em agosto/2026 — ~30% do tráfego
-nacional**. O que ela faz é exatamente o que o F-08 disse não existir por
-aqui: mostra **nome, logo e motivo da chamada** na tela de quem recebe, com
-selo de autenticidade.
-
-O erro de conclusão que isso causou: o F-08 apresenta o portal **"Qual
-Empresa Me Ligou?"** como "equivalente brasileiro real do Branded Caller
-ID". Não é o equivalente — é o plano B. Ele depende de o lead **procurar** o
-número desconhecido antes de decidir; a `Origem Verificada` entrega a
-identificação **antes** da decisão, na própria tela da chamada. Os dois
-continuam valendo, em ordem invertida: a `Origem Verificada` é o alvo, o
-"Qual Empresa Me Ligou?" é o que dá para fazer hoje de graça.
-
-| O que é | Vale para esta operação? |
-|---|---|
-| **Obrigatória** para quem origina **mais de 500 mil chamadas/mês** (bancos, call centers, recuperação de crédito, grande varejo) | **Não.** 100 ligações/dia ≈ **2.200/mês** — três ordens de grandeza abaixo |
-| Obrigação geral para todos, com prazo de três anos | Alvo em torno de **outubro/2028**: dá tempo, mas a data existe |
-| Contratação: pelo site `origemverificada.com.br`, assinando os Termos de Acesso e o pedido de acesso ao Portal AIA; informa CNPJ, dados cadastrais, representantes legais e faturamento; documentos (cartão CNPJ, inscrição estadual, termo de acesso); **ABR Telecom responde em 5 dias úteis** | O caminho é documentado e a papelada é de porte pequeno |
-| **Ressalva medida:** nesta fase inicial a contratação é descrita como aberta a **empresas de grande volume de chamadas** | **Pode ser recusada por volume.** Vale pedir de todo jeito — é um formulário e 5 dias úteis, e um "não" hoje já dá a data para voltar |
-
-`Voice Integrity` da HighLevel segue descartada, e pelo motivo certo: ela
-registra em First Orion/Hiya/TNS com SHAKEN/STIR **americano** (EIN, FCC),
-e é `US only` na própria documentação. O que não vale é a generalização —
-"não há SHAKEN/STIR para o Brasil" — que vinha embutida.
-
-**2. O critério da norma é mais largo que "quantidade e duração", e é aí que
-a cadência deste projeto se encaixa mal.** O ato é o **Despacho Decisório nº
-82/2026/RCTS/SRC, de 17/08/2026**. Além de volume e duração, ele autoriza a
-prestadora a considerar:
-
-| Critério da norma | O que a cadência 12x30 produz |
-|---|---|
-| **Proporção de chamadas de curtíssima duração** | `Não atendeu` e `Caixa Postal` são, por definição, chamadas curtíssimas — e são os **dois únicos** resultados que o nó 10 (seções 2.4 e 2.10) manda **insistir** |
-| **Duração média das chamadas** | Puxada para baixo pelo mesmo motivo, em toda tentativa que não conecta |
-| **Taxa de completamento** | 8 toques de telefone por lead numa base fria derrubam esta taxa por desenho |
-| **CNAE de quem origina** | Agência vendendo serviço de marketing. Nada a fazer, mas é entrada do cálculo — vale saber |
-| Volume de chamadas | O que o F-08 já tratou (a linha dos 50-75/dia por número) |
-
-Ou seja: a norma não mede só **quantas** ligações saem, mede **como elas
-terminam**. E o "como terminam" é decisão de cadência, não de infraestrutura.
-
-**3. O achado que fecha o item — a proteção já existe neste projeto, só não
-para o telefone.** O seletor de canal (nó 4 da seção 2.4; nó 3 da 2.10) tem
-esta condição:
-
-> Ramo WA: `Permissão WhatsApp` é `Sim` **E** `WA não atendidas seguidas` **< 2**
-
-Isto é uma proteção de canal: duas mensagens de WhatsApp seguidas sem
-resposta e o lead **sai** daquele canal. **Não existe gêmeo de telefone.**
-Conferido por `grep` em todo o `wesales/`: `WA não atendidas seguidas` é o
-único contador de "seguidas" do projeto, e nenhum campo, nó ou portão conta
-ligações não atendidas consecutivas. O resultado é a assimetria exata ao
-contrário do risco:
-
-| Canal | Toques na régua | Protege-se depois de… |
-|---|---|---|
-| WhatsApp | 4 dos 12 | **2** sem resposta seguidas |
-| Telefone | **8** dos 12 | nada — `Caixa Postal`/`Não atendeu` insistem até o fim |
-
-O canal com o dobro dos toques, o único com regulador olhando, e o único
-sem freio. E o remédio não é novo: é o **mesmo padrão já provado no outro
-canal** — um contador de não atendidas seguidas no telefone, e um portão
-que desvie para WhatsApp (ou encerre a régua mais cedo) ao estourar. Isso
-melhora justamente as três razões que a norma cita — proporção de curtas,
-duração média, taxa de completamento — e de graça, sem número novo, sem
-cadastro e sem esperar a `Origem Verificada` aceitar a subconta.
-
-**Não especifico o nó aqui, de propósito.** Criar o contador exige campo
-novo (`Tel não atendidas seguidas`, NUMERICAL) e mexer no seletor de canal
-e no nó 10 das duas cadências — decisão de régua, que muda quantas
-ligações/dia a operação faz de verdade e por isso conversa direto com a
-meta de 100/dia do `briefing-sdr.md`. É pergunta para o dono, registrada
-como **F-09** no roadmap, não escolha de rodada automática. O que esta
-correção fecha é o diagnóstico: o F-08 procurou a proteção fora do CRM e
-ela também faltava dentro.
-
-**4. O prefixo `0303`, que o F-08 não mencionou.** Obrigatório para
-telemarketing ativo de junho/2022 até **agosto/2025**, quando a Anatel o
-tornou **facultativo**. O MPF recomendou em seguida que a obrigatoriedade
-volte, justamente porque a `Origem Verificada` ainda não alcança toda a
-população. Para esta operação: **não adote por conta própria** — o motivo
-declarado da revogação é que o `0303` virou estigma e passou a ser rejeitado
-automaticamente, o que bate de frente com a taxa de atendimento que esta
-operação persegue. Mas é item de vigilância: se voltar a ser obrigatório,
-alcança venda ativa por telefone, que é exatamente isto aqui.
-
-**Confiança das fontes:** média-alta. Tudo acima vem de busca — `gov.br` e
-`teletime.com.br` estão **bloqueados pelo proxy deste ambiente** (testados
-nesta rodada, `EGRESS_BLOCKED`), mesma limitação já registrada para
-`help.gohighlevel.com`. O número do despacho, a lista de critérios, o
-limiar de 500 mil chamadas/mês, o prazo de 2028, os 5 dias úteis da ABR
-Telecom e as datas do `0303` apareceram de forma convergente em fontes
-independentes, que é o teste que este projeto usa quando a fonte primária
-não abre. Nada aqui foi escrito por dedução.
-
-### Terceiro caminho pesquisado e descartado, 23/09/2026 — Presença Local (DDD): recurso nativo é US/Canada only, mas o equivalente manual já dá para fazer hoje, de graça
-
-Pesquisado seguindo o mesmo mandato do roadmap (checar o que Reev, Meetime,
-Outreach e Salesloft fazem antes de desenhar): as quatro plataformas de
-outbound americanas tratam **Local Presence Dialing** — mostrar ao lead um
-número com o mesmo DDD/área dele, prática documentada por aumentar taxa de
-atendimento — como recurso central (Outreach, Salesloft, Kixie, Aircall
-têm isso nativo). Vale checar se o HighLevel tem o mesmo antes de propor
-algo próprio.
-
-**Tem, nativo — e não serve para este número.** `WebSearch` confirma:
-`Local Presence Dialing` do HighLevel escolhe automaticamente, a cada
-ligação de saída, o número da própria subconta com o DDD mais próximo do
-contato (hierarquia: DDD exato → região → padrão), configurado em
-`Settings → Phone Numbers → Voice → Other Settings → Outbound Call →
-Default Phone Number for Outbound Calls`. A própria documentação de
-suporte da HighLevel e cobertura de terceiros convergem: **suportado só
-para números dos EUA e Canadá** — não compra número novo sozinho (exige já
-possuir números nos DDDs alvo) e não há confirmação de expansão para
-número brasileiro. Mesmo formato de descarte do Voice Integrity (item 1
-acima): recurso real, documentado, e **US only** — não copiar a receita
-americana sem checar a letra miúda de novo.
-
-**O que não é US only, e resolve a mesma fatia do problema sem automação:**
-o **Web App Softphone** do HighLevel deixa o usuário escolher manualmente,
-num dropdown "Calling From", qual dos números da subconta usar antes de
-discar — recurso confirmado por documentação de suporte e por terceiros,
-sem restrição de país citada em lugar nenhum. **Não precisa de item de
-roadmap próprio nem de nó novo:** é a mesma tabela deste F-08 já em vigor
-— "distribuir as ligações entre mais de um número" (linha 2 da tabela
-acima) já manda comprar mais de um número antes de escalar volume; o único
-acréscimo é **qual** número escolher no dropdown a cada ligação — o de DDD
-igual ou mais próximo do lead, quando a subconta tiver mais de um. Zero
-custo adicional (mesmos números que o F-08 já recomenda comprar por
-reputação), zero engenharia (escolha manual, sem workflow): é rotina de
-SDR, não configuração de tela — acrescentada em `GUIA-SDR.md`.
-
-**Por que isto é o tipo de vantagem que a instrução deste roadmap pede**
-("escolha o que um concorrente não consegue copiar olhando a tela de
-fora"): qualquer concorrente que abra esta subconta vê os mesmos números
-comprados por reputação (F-08) — não vê a disciplina de **qual** número o
-SDR escolhe em cada ligação, porque isso não é configuração, é hábito
-registrado só aqui e no guia do SDR.
-
-**Confiança das fontes:** média — os mesmos domínios oficiais
-(`help.gohighlevel.com`) seguem bloqueados pelo proxy deste ambiente
-(`EGRESS_BLOCKED`, mesma limitação já registrada acima); a descrição do
-comportamento (hierarquia DDD → região → padrão, caminho de configuração,
-restrição US/Canada, dropdown "Calling From" no softphone) apareceu
-convergente em busca por ângulos diferentes, sem fonte única. Não muda o
-"Pronto quando" do F-08 (já cumprido) — é acréscimo à mesma tabela, não
-item novo.
-
----
-
-## 2.27 Qualidade da Conexão — F-06 (fechado em 22/09/2026, duas peças)
-
-Destrava o item errado como "esperando volume" desde a primeira versão do
-roadmap: `Atendeu` empacota, na mesma célula do relatório, a ligação de 8
-segundos e a de 8 minutos, e os contadores de conexão (`Conexões
-telefone`/`Conexões WhatsApp`/`Total de conexões`, seção 4) vêm do
-julgamento do SDR no calor da discagem, não de conversa de verdade.
-
-**O achado que destrava, e por que a rodada de 21/09/2026 não o tinha
-achado:** aquela rodada perguntou "existe duração de chamada nativa no
-GHL" e concluiu que não — sem entrada própria em `APRENDIZADOS-CRM.md`,
-sinal de busca rasa, a mesma classe de premissa negativa que o F-08 já
-cometeu duas vezes na mesma semana (`APRENDIZADOS-CRM.md`, "Premissa
-negativa..."). Três buscas desta rodada, com termos diferentes, convergem
-numa resposta que aquela pergunta não achou: o gatilho de workflow
-**`Transcript Generated`** dispara quando a transcrição de uma chamada fica
-pronta e carrega duração, direção e horário como dado do próprio evento —
-funciona para chamadas de **Voice AI, IVR e LC Phone** (a telefonia nativa
-do GHL, back-end Twilio). Este projeto não usa Voice AI nem IVR (seção 6 é
-WhatsApp, não voz), então toda ocorrência do gatilho nesta subconta só pode
-vir de LC Phone. Pré-requisito citado pela fonte: transcrição precisa
-estar **ligada em Configurações → Telefone** para chamadas LC Phone (em
-Voice AI já vem ligada por padrão) — ação de tela, não de API, mesma classe
-de pendência que o Number Validation (seção 2.16) já tem.
-
-**A mesma pendência que o F-08/F-09 já registraram, herdada aqui sem
-solução nova:** nenhum documento do projeto confirma se as 100 ligações/dia
-da operação saem por LC Phone ou por linha própria do SDR (`grep` por `LC
-Phone`/`Twilio`/`discador` em todo o `wesales/` confirma: a seção 2.26 já
-registrou a mesma lacuna). Se for LC Phone, este item funciona como
-especificado abaixo; se for linha própria, `Transcript Generated` nunca
-dispara para essas chamadas e o item volta a depender de call tracking
-externo, do zero. Uma resposta só resolve as três pendências (F-06, F-08,
-F-09) ao mesmo tempo. **Evidência indireta reavaliada em 22/09/2026, mesma data — o CRM não
-responde esta pergunta:** `locations_get-location` mostra
-`saasSettings.twilioRebilling = { enabled: true, markup: 20 }`, mas o markup
-do rebilling é definido **global na agência** (SaaS Configurator), com
-override opcional por subconta — o valor lido aqui é compatível com o global
-herdado, igual em subconta que nunca ligou, então **não é sinal de número
-provisionado nesta**. E a evidência direta, lida na mesma rodada, aponta para
-o outro lado: **zero registro de chamada** nas 50 conversas da subconta
-(41 atividade de CRM, 9 DM de Instagram, nenhum `TYPE_CALL`) — o contato de
-teste com `Tentativas telefone` = 24 tem **uma** mensagem, "Opportunity
-created". Os 24 são escritas de campo por classificação manual, não ligações.
-A ausência não desempata (pode não haver número, ou haver e nunca ter sido
-usado), mas **elimina o CRM como fonte**: é pergunta para o dono, e nenhuma
-rodada deve gastar mais tempo procurando por API. Detalhe em
-`APRENDIZADOS-CRM.md`, "O CRM não pode responder a pergunta do LC Phone".
-
-**Confiança:** média — a descrição do gatilho ("duration... direction...
-across Voice AI, IVR, and LC Phone calls") apareceu de forma consistente em
-buscas diferentes, mas `help.gohighlevel.com` segue bloqueado pelo proxy
-deste ambiente (lido só por citação de busca) e nada foi testado nesta
-subconta. Um filtro de duração **no próprio gatilho** apareceu numa busca;
-outra busca, sobre um gatilho diferente (`Call Status`), afirma que filtro
-nativo de duração ainda não existe na plataforma — sem fonte que resolvesse
-a contradição para o `Transcript Generated` especificamente, o desenho
-abaixo **não depende dela**: lê a duração como dado do próprio gatilho e
-decide no `If/Else`, caminho que funciona com ou sem filtro nativo de
-duração no gatilho.
-
-### Gatilho
-**`Transcript Generated`**, filtro Direção = `Outbound` se o gatilho
-oferecer (senão o nó 1 abaixo faz o mesmo por `If/Else` — não é redundância
-inútil, é rede de segurança caso o filtro nativo não exista, mesmo
-raciocínio do parágrafo de confiança acima).
-
-### Configurações
-| Configuração | Valor |
-|---|---|
-| Allow Re-entry | **Ligado** (uma chamada pode gerar uma transcrição por vez, mas o mesmo lead liga de novo em tentativas futuras) |
-| Janela de envio | Sem janela |
-
-### Nós
-| # | Ação | Configuração |
-|---|---|---|
-| 1 | If/Else | Direção da chamada é `Outbound` → 2 · Senão → FIM (chamada recebida não é tentativa da cadência) |
-| 2 | Update Contact Field | `Duração da ligação` = duração da chamada (merge field exato do gatilho — **confirmar na tela**, nome não testado nesta subconta) |
-| 3 | If/Else | `Duração da ligação` **é maior ou igual a** `60` → 4 · Senão → 5 |
-| 4 | Update Contact Field | `Conexão real` = `Sim` → 6 |
-| 5 | Update Contact Field | `Conexão real` = `Não` → fim |
-| 6 | Math | `Conexões reais telefone` (C-31) + 1 → fim |
-
-Não toca nos contadores existentes (`Conexões telefone`/`Conexões
-WhatsApp`/`Total de conexões`, escritos pelo Pós-ligação a partir do
-julgamento do SDR, seção 4) — os dois convivem, e a diferença entre eles é
-o próprio dado que expõe quando o SDR marca `Atendeu` numa ligação curta
-demais para ser conversa.
-
-**Peça 2, fechada no mesmo dia — por que a lista e o dashboard não apontam
-direto para `Conexão real`:** o plano original da peça 1 ("apontar os dois
-para `Conexão real = Sim`") não sobrevive à leitura dos dois destinos.
-
-- **Lista `Conexão por Tentativa` (8.6, R-01):** pode sim filtrar/mostrar
-  `Conexão real` direto — Smart List aceita igualdade sobre qualquer tipo
-  de campo. Resolvido na própria seção 8.6, abaixo.
-- **Widgets de Taxa de Conexão do Dashboard (2.17, R-15):** não podem. O
-  achado 2 daquela seção já registra que o Formula Editor de Custom
-  Metrics só agrega **Soma/Mín/Máx/Média sobre campo `NUMERICAL`/
-  `MONETARY`** (ou contagem de contatos por filtro) — `Conexão real` é
-  `SINGLE_OPTIONS`, não é campo que a fórmula some. Contar contatos com
-  `Conexão real = Sim` (o recurso mais novo de filtro por metric-level,
-  pesquisado nesta rodada) também não serve: devolveria quantos contatos
-  estão **agora** nesse estado, não quantas chamadas bateram o limiar ao
-  longo do tempo — unidade diferente da que o outro lado da razão
-  (`Tentativas telefone`, uma soma cumulativa) usa. E `Conexão real` tem o
-  próprio estado vencido já registrado abaixo (um `Sim` da T3 sobrevive a
-  T4-T8 sem transcrição): usá-lo num widget acumulado herdaria esse
-  defeito para o relatório.
-
-A saída é o nó 6 acima: `Conexões reais telefone` (C-31, `NUMERICAL`),
-incrementado uma vez por chamada que bate o limiar, nunca sobrescrito —
-mesmo padrão de `Conexões telefone`/`Conexões WhatsApp`/`Total de conexões`
-(C-06/C-07/C-11/C-12) e pelo mesmo motivo que eles existem: uma razão
-cumulativa pede dois lados cumulativos. Detalhe da comparação em
-`campos-e-tags.md` (C-31).
-
-**Pronto quando (cumprido):** todo `Send Call`/discagem feita por LC Phone
-grava duração real e `Conexão real` sem depender do julgamento do SDR no
-calor da ligação, e "taxa de conexão" tem uma versão no relatório (lista
-8.6, nova coluna) e no dashboard (2.17, novo widget) que só conta chamada
-que durou mais de 60s — o SDR não consegue mais inflar esse número
-desligando rápido. O relatório antigo (`Atendeu`) continua existindo, sem
-ser substituído — os dois convivem, cada um respondendo uma pergunta
-diferente.
-
-**Zero escrita no CRM:** os três campos (`Duração da ligação`, `Conexão
-real`, `Conexões reais telefone`) nascem propostos em `campos-e-tags.md`
-(C-29, C-30, C-31) e `[ ]` em `APROVADO.md` — campo personalizado não sai
-por API, mesma regra de sempre.
-
-#### Conferência da peça 2, 22/09/2026 (mesma rodada): os dois lados da razão são cumulativos, mas não são da mesma população
-
-O raciocínio de unidade está certo — contador cumulativo de um lado exige
-contador cumulativo do outro, e é por isso que C-31 precisou existir. Falta a
-pergunta seguinte, que é sobre **quem** cada lado conta:
-
-| Lado da razão | Conta o quê | Escrito por |
-|---|---|---|
-| `Conexões reais telefone` (C-31) | chamadas **de LC Phone** que **geraram transcrição** e bateram 60s | o workflow desta seção, no nó 6 |
-| `Tentativas telefone` (C-09) | **toda** tentativa de telefone que o SDR classificou | o Pós-ligação (seção 4), a partir de `Resultado da tentativa` |
-
-Os dois somam, os dois são cumulativos, e ainda assim a razão entre eles não
-é uma taxa — é uma comparação entre dois conjuntos diferentes. Três caminhos
-levam ao mesmo erro, e nenhum deles é um bug, é o desenho:
-
-1. **Ligação por linha própria do SDR.** A pendência aberta de LC Phone
-   (mesma do F-08/F-09) não é binária na prática: uma operação pode discar
-   por LC Phone e o SDR ligar do celular quando está fora. Toda chamada
-   assim entra no denominador (o SDR classifica) e **não pode** entrar no
-   numerador (sem LC Phone não há transcrição).
-2. **Transcrição desligada, ou ligada depois.** Tudo que foi discado antes de
-   alguém marcar a caixa em Configurações → Sistema de Telefonia conta no
-   denominador e não no numerador — para sempre, porque os dois campos são
-   acumulados e ninguém volta atrás.
-3. **Chamada sem transcrição a gerar.** Ring que ninguém atendeu pode não
-   produzir transcrição nenhuma (o mesmo fato que criou o estado vencido do
-   `Conexão real`, registrado acima). Entra no denominador, nunca no
-   numerador.
-
-**Por que isto é pior do que ruído:** a razão não fica imprecisa, fica
-**enviesada para baixo de forma sistemática**, e o widget vai se chamar "Taxa
-de Conexão Real". Quem olhar um número baixo vai ler "o SDR não está
-conversando com ninguém" — quando a explicação pode ser inteiramente "metade
-das ligações não é medida". É exatamente a métrica que o F-06 existe para
-consertar (`Atendeu` inflado pelo julgamento do SDR) trocada por outra
-enganosa na direção oposta. E a mais difícil de pegar depois, porque o
-número **parece** certo: não dá erro, não fica vazio, só mente.
-
-**A correção é um nó no caminho que já existe.** O nó 2 roda para **toda**
-transcrição, antes do teste dos 60s — é o ponto exato onde "esta chamada é
-medível" fica conhecido:
-
-| # | Ação | Configuração |
-|---|---|---|
-| 2b | Math | `Ligações com transcrição` (C-32, NUMERICAL) **+ 1** → segue para o nó 3 |
-
-E a fórmula do widget (seção 2.17) passa a dividir populações iguais:
-
-> `Taxa de Conexão Real — Telefone` = (Soma de `Conexões reais telefone` ÷
-> Soma de **`Ligações com transcrição`**) × 100
-
-Lê-se: **das chamadas que dá para medir, quantas foram conversa.** Não é uma
-taxa menos ambiciosa que a anterior — é a única das duas que responde a
-pergunta do F-06 sem depender de quanto da operação está instrumentada.
-
-**Brinde, e não é pequeno:** `Ligações com transcrição` ÷ `Tentativas
-telefone` passa a ser um **medidor de cobertura da medição**. Se der 95%, o
-número de cima é confiável; se der 40%, o dono descobre — sem abrir a tela de
-telefonia — que a maior parte da operação está fora do LC Phone ou sem
-transcrição. É o mesmo método de "contador vizinho" que este projeto já usou
-para achar nó silencioso (`APRENDIZADOS-CRM.md`): duas somas que deveriam
-andar juntas, e a distância entre elas é o diagnóstico. Sem C-32 essa
-distância existe, mas fica invisível — misturada dentro da taxa, indistinguível
-de desempenho ruim do SDR.
-
-**Sugestão de widget, junto com o outro:**
-
-| Widget | Fórmula | O que responde |
-|---|---|---|
-| `Cobertura da Medição — Telefone` | `(Soma de "Ligações com transcrição" ÷ Soma de "Tentativas telefone") × 100` | Quanto da operação de telefone está instrumentada. Abaixo de ~90%, a taxa acima merece ressalva; abaixo de ~50%, o F-06 está medindo outra operação |
-
-**Não altero o nó nem a fórmula, pelo mesmo motivo de sempre:** C-32 é campo
-novo, nasce `[ ]` em `APROVADO.md`, e campo personalizado não sai por API.
-Enquanto os quatro campos do F-06 não existirem na tela, a seção 2.17 pode
-manter a linha antiga — que **ainda não está montada** em nenhum widget, então
-não há número errado circulando hoje. O que esta conferência garante é que a
-primeira versão montada já nasça com os dois lados da mesma população, em vez
-de ser corrigida depois de alguém tomar uma decisão com ela.
-
-### Conferência do F-06, 22/09/2026 (mesma rodada): o gatilho existe, mas só existe para chamada **gravada** — e isso traz um custo, uma obrigação legal e um campo que nunca se apaga
-
-A descoberta do `Transcript Generated` confere, e a ressalva de confiança
-acima estava bem colocada. Três coisas que a especificação ainda não diz, e
-que mudam o que precisa acontecer antes do primeiro lead passar.
-
-**1. Transcrição não é um item de configuração — é gravação de chamada.** A
-dependência não pára em "ligar a transcrição em Configurações → Telefone": a
-transcrição **exige gravação de chamada habilitada** para o número. Sem
-gravação não há transcrição, e sem transcrição **este workflow nunca
-dispara** — o gatilho não tem outro caminho de entrada. A frase correta do
-pré-requisito é, então, mais forte do que a que está escrita acima:
-
-> Para o F-06 funcionar, **toda ligação de saída da operação passa a ser
-> gravada**.
-
-Isso não é detalhe de implementação. É uma decisão sobre a operação, e ela
-nunca foi tomada: `grep -rn "gravaç\|LGPD\|consentimento"` em todo o
-`wesales/` não encontra **uma única** menção a gravação de chamada, aviso de
-gravação ou base legal. O `script-de-ligacao.md` abre direto na abordagem,
-sem aviso de gravação em nenhuma das versões.
-
-**2. Consequência legal, do mesmo tipo que a janela de 24h do WhatsApp
-(G-05) — uma regra externa que não deixa rastro até o primeiro evento
-real.** Gravar ligação com lead no Brasil, numa operação de venda ativa
-B2B, é tratamento de dado pessoal sob a LGPD e pede, no mínimo, **aviso ao
-interlocutor no início da chamada** e uma base legal declarada. O padrão de
-mercado é uma frase fixa nos primeiros segundos ("esta ligação está sendo
-gravada para fins de qualidade"). Duas observações que fazem isso valer a
-pena escrever agora e não depois:
-
-- O aviso entra exatamente no ponto do script onde hoje começa a abordagem
-  — e **muda a abordagem**, porque consome os primeiros segundos, que são o
-  ativo mais escasso de uma ligação fria. É decisão de script, não de
-  workflow: pertence ao `script-de-ligacao.md`, não a esta seção.
-- É o mesmo padrão já aprendido no G-05 e registrado em
-  `APRENDIZADOS-CRM.md`: regra de plataforma (ou de lei) que ainda não foi
-  testada nenhuma vez **não deixa rastro nenhum** para uma auditoria de
-  dados achar. Tem de ser lida contra a regra, antes do primeiro envio — ou,
-  aqui, antes da primeira gravação.
-
-**Não sou a fonte jurídica disto e não escrevo a frase do aviso por
-dedução** — a redação e a base legal (legítimo interesse vs. consentimento)
-são do dono ou de quem o assessora. O que esta conferência entrega é que a
-pergunta existe e está no caminho crítico do F-06, não depois dele.
-
-**3. Custo, nunca calculado em nenhum documento do projeto.** A transcrição
-é um add-on pago de **Voice Intelligence**, a **US$ 0,024 por minuto
-gravado**, cobrado **por cima** da tarifa de gravação de chamada (e do
-armazenamento das gravações, que o HighLevel cobra separadamente). Com a
-meta de 100 ligações/dia:
-
-| Premissa (declarada, não medida) | Conta |
-|---|---|
-| ~20% conectam, ~3 min cada | 60 min/dia |
-| ~80% morrem curtas, ~20 s cada | ~27 min/dia |
-| Total | **~87 min/dia ≈ 1.900 min/mês** |
-| Só a transcrição | **≈ US$ 45/mês**, mais gravação e armazenamento |
-
-Ordem de grandeza modesta, e vale dizer: **não é argumento contra o item.**
-Mas tem uma ironia que o dono deveria ver antes de ligar a chave — paga-se
-para transcrever principalmente os ~80% de chamadas que **não** são
-conversa, só para descobrir que não eram. Se o custo incomodar, existe saída
-barata sem abandonar o F-06: o `Resultado da tentativa` do SDR já separa
-`Atendeu` do resto, e gravar/transcrever **só** o que ele marcou como
-`Atendeu` cortaria a maior parte do volume — ao preço de perder exatamente a
-medição que o F-06 existe para fazer (pegar o `Atendeu` que durou 8
-segundos). É um trade-off para o dono, não uma escolha de rodada automática.
-
-**4. O `Conexão real` nunca é apagado — e um lead pode carregar um `Sim`
-vencido por várias tentativas.** Este é um defeito de desenho, não de
-pesquisa. Os nós 4 e 5 escrevem `Sim` ou `Não`; nada, em lugar nenhum,
-devolve o campo ao vazio. Combine isso com o item 1 e aparece o caso ruim:
-
-> Uma chamada que **ninguém atendeu** pode não gerar transcrição nenhuma —
-> não há o que transcrever. Então o workflow **não roda**, e o campo fica
-> com o valor da tentativa **anterior**.
-
-Lead que conversou de verdade na T3 (`Conexão real = Sim`) e depois teve
-T4, T5, T6 e T7 no vazio continua lendo `Sim` na ficha e em qualquer lista
-que filtre por ele. O campo deixa de significar "esta tentativa foi
-conversa" e passa a significar "alguma tentativa, em algum momento, foi
-conversa" — que é outra métrica, e não a que o F-06 pede. É a mesma classe
-de estado vencido que este projeto já catalogou três vezes
-(`APRENDIZADOS-CRM.md`: o contador que não zera, a tag que não sai, o portão
-que lê etapa sem `status`).
-
-**Onde o reset pertence, e por que não é no Pós-ligação:** a transcrição
-chega **minutos depois** da chamada, enquanto o SDR classifica na hora.
-Zerar o campo no Pós-ligação (gatilho `Resultado da tentativa` alterado)
-disputaria com a escrita desta seção — o clássico "campo com dois donos" já
-registrado. O ponto sem ambiguidade é **antes** da ligação existir: o nó de
-cada tentativa que cria a tarefa de ligação (seções 2.4 e 2.10) acrescenta
-`Update Contact Field: Conexão real = vazio`. A ordem passa a ser sempre
-tarefa criada (limpa) → ligação → SDR classifica → transcrição escreve, sem
-dois nós disputando o mesmo campo no mesmo instante.
-
-**Não altero o nó aqui:** mexer nas seções 2.4/2.10 é mexer na régua das
-duas cadências, e os dois campos ainda nascem `[ ]` em `APROVADO.md` —
-enquanto não existirem na tela, não há o que zerar. Fica registrado como
-pré-requisito do "Pronto quando" desta seção, junto com a gravação e o
-aviso: **o F-06 não está pronto com os nós 1-6 sozinhos.**
-
-**Confiança das fontes:** média-alta para os fatos de plataforma
-(transcrição exige gravação; add-on Voice Intelligence a US$ 0,024/min
-gravado; caminho Configurações → Sistema de Telefonia → Voz → Transcrição
-de Chamadas) — convergentes em fontes independentes, com
-`help.gohighlevel.com` ainda bloqueado pelo proxy, lido só por citação. A
-conta de custo é **minha, com as premissas declaradas na tabela**, não uma
-medição. O ponto 4 não depende de fonte externa nenhuma: sai da leitura dos
-próprios nós.
-
----
-
-## 2.28 Monitor de Saúde da Operação — extensão à negociação — F-13
-
-> **Publicado em 23/09/2026 com um desenho diferente do especificado
-> abaixo — o texto original fica como registro do raciocínio, não como
-> retrato do que está no ar.** O dono construiu e testou os dois alertas
-> pelo próprio caminho (`tools/build_estagnacao.py`, `PLANO-MULTICANAL.md`
-> item A5, ids `53334baa`/`14fdf9fa`) antes de qualquer sessão cruzar
-> `GUIA-CLOSER.md` contra este documento (G-23, `ROADMAP-SALES-
-> ENGAGEMENT.md`). Três diferenças do real para o desenho abaixo:
->
-> 1. **`Negociação Estagnada` usa 5 dias, não 3** — o dono ajustou o prazo
->    na hora de montar.
-> 2. **O gatilho real é `Opportunity Stage Changed → NEGOCIAR`**, não
->    `Contact Changed` em `Reunião foi qualificada` — dispara na entrada em
->    `NEGOCIAR`, não na resposta do closer.
-> 3. **Existe um segundo workflow, "Proposta Pendente"** (tag
->    `proposta-pendente`, T-22 em `campos-e-tags.md`), cobrindo exatamente o
->    buraco que o nó 3 abaixo deixava: closer marca `Sim` e nunca move a
->    oportunidade para `NEGOCIAR`. Gatilho `Contact Changed` em `Reunião foi
->    qualificada`, 3 dias, condiciona pela tag `etapa-reuniao` (Espelho de
->    Etapa) em vez de ler a etapa da oportunidade direto — mesmo motivo já
->    registrado no G-08 (condição `Pipeline stage is …` lê vazio num
->    workflow cujo gatilho não é de oportunidade).
->
-> Fonte primária: `wesales/tools/build_estagnacao.py` (no repo, lido nó a
-> nó) — mais confiável que reconstruir de memória. Detalhe completo,
-> inclusive o que isso muda em `campos-e-tags.md`/`APROVADO.md`/
-> `IMPLEMENTACAO-WORKFLOWS.md`, em G-23.
-
-**Por quê (desenho original, 22/09/2026 — mantido como registro do
-raciocínio que levou ao alerta; ver publicado real acima):** achado ao
-conferir a Etapa 3 (`NEGOCIAR`) deste documento, seção
-1.1 acima — a linha "Tempo de estagnação" registrava, desde antes de F-05
-existir, que a metade "comparecimento" tem monitor (R-12, SLA do closer) mas
-a metade "negociação" não. F-05 fechou em 21/09/2026 com seis peças
-(`NOVO LEAD`, `fila-tel`/`fila-wa`, `CONECTAR`, `nao-perturbe` em workflow
-ativo, `REUNIÃO DE DIAGNÓSTICO` (antiga `AGENDAR`), retorno vencido) e nunca chegou a incorporar esta — o
-"candidato a entrar no F-05" nunca virou peça. O buraco é o mesmo tipo dos
-outros seis: o Loop do closer (seção 5.1,
-ramo `Sim`) registra o veredito e **não move etapa nem status** — "é o
-closer, fora deste workflow, que leva a `FORMALIZAR` quando fechar" (seção
-5.1, ramos do nó 4). Um lead qualificado que o closer nunca mais toca fica
-parado em `NEGOCIAR`/`open` para sempre, sem que nada avise: mesma classe de
-"estrago silencioso" que abriu as seis peças do F-05, aqui na única
-transição da operação (comparecimento → decisão) que sobrou sem relógio.
-
-Mesma pesquisa das peças anteriores: nenhuma das quatro plataformas do
-enunciado (Reev, Meetime, Outreach, Salesloft) expõe alarme proativo para
-"reunião qualificada sem decisão do closer" — todas tratam isso como
-relatório de pipeline (dias em estágio, olhado por quem abre o dashboard),
-não como notificação disparada pelo tempo. Continua sendo engenharia
-interna, não recurso de sales engagement de prateleira.
-
-**Prazo escolhido, e por quê 3 dias e não 24h como a peça 5:** as peças 1, 3
-e 5 usam 24h porque medem passos que dependem só do SDR (revisar fila,
-insistir, fechar horário) — o mesmo dia deveria bastar. Aqui quem decide é o
-**closer**, sobre uma proposta que o próprio lead também precisa avaliar; a
-régua de No-show (seção 5.3) já reconhece esse ritmo mais lento ao dar 4
-tentativas em 4 dias corridos para uma reunião remarcar, e a maioria dos
-leads desta base marca `Urgência` = `Pra ontem` (G-04), o que pesa a favor de
-um prazo curto, não longo. 3 dias corridos fica entre os dois: mais que o
-ciclo de um único dia de trabalho do SDR, menos que o horizonte de 4 dias já
-aceito pela régua mais lenta do projeto. É escolha desta rodada, não medição
-— ajustável na tela sem redesenho (é um único `Wait`), e de baixo risco por
-ser aviso interno ao gestor, não mensagem ao lead (a mesma razão que já
-deixou as peças 1, 3 e 5 decidirem sozinhas, sem esperar o dono, diferente de
-G-03/G-04/F-09, que mudam comportamento visível para o lead ou o volume de
-ligação).
-
-### Workflow "Negociação Estagnada"
-
-#### Gatilho
-**Contact Changed** — filtro: Custom Field `Reunião foi qualificada`
-**alterado**. Mesmo gatilho do Loop do closer (seção 5.1) — os dois reagem
-ao mesmo evento, um registra e roteia na hora, o outro só liga um relógio.
-
-#### Configurações
-| Configuração | Valor | Por que |
-|---|---|---|
-| Allow Re-entry | **Ligado** | O closer pode corrigir o veredito mais de uma vez; cada alteração para `Sim` merece seu próprio relógio, mesmo motivo do 5.1 |
-| Janela de envio | Sem janela, 24/7 | Aviso interno ao gestor, não mensagem ao lead |
-| Stop on Response | Desligado | Não há mensagem ao lead aqui |
-
-#### Nós
-| # | Nó | Ação | Configuração |
-|---|---|---|---|
-| 1 | Portão — vale a pena vigiar? | If/Else | `Reunião foi qualificada` **é** `Sim` → segue. Senão (vazio, `Não`, `Parcial`) → **encerra** (os outros três vereditos já saem de `open` na hora, seção 5.1 — nada a esperar) |
-| 2 | Aguardar | Wait → Time Delay | 3 dias corridos |
-| 3 | Portão — ainda pendente? | If/Else | Etapa da oportunidade **é** `NEGOCIAR` **E** `status` **é** `open` **E** `Reunião foi qualificada` **é** `Sim` → segue (3 dias depois do "Sim", o closer não fechou nem descartou, e o veredito não mudou). Senão → **encerra** (fechou `won`, saiu por `lost`/`abandoned`, ou o veredito foi corrigido — os três já passam pelo Mestre de saída, seção 3) |
-| 3b | **Portão de aviso único** | If/Else | tag `negociacao-estagnada` **ausente** → segue para o nó 4 (é o primeiro alerta desta parada). **Presente** → **encerra** (outro relógio já avisou). Acrescentado na conferência de 22/09 — ver nota abaixo |
-| 4 | Fila | Add Contact Tag | `negociacao-estagnada` |
-| 5 | Aviso | Internal Notification | Para o gestor: `{{contact.name}} foi qualificado pelo closer (Sim) há mais de 3 dias e segue em NEGOCIAR sem fechar nem perder. Veredito em: {{contact.data_do_veredito_do_closer}}.` |
-| 6 | Registro | Add Note | `Alerta de saúde: NEGOCIAR sem decisão do closer em 3 dias · {{right_now}}` |
-
-#### Por que o nó 3b existe — conferência de 22/09/2026
-
-`Allow Re-entry` **ligado** (decisão certa: o closer pode corrigir o veredito)
-mais um gatilho que dispara a **cada alteração** do campo produzem instâncias
-simultâneas, e o nó 3 não olha a tag. O caminho:
-
-| Momento | O que acontece |
-|---|---|
-| T0 | closer marca `Sim` → **instância A** começa o `Wait` de 3 dias |
-| T0+1h | closer corrige para `Parcial` → instância B nasce e **morre no nó 1** (não é `Sim`) ✔ |
-| T0+2h | closer volta para `Sim` → **instância C** começa o próprio `Wait` |
-| T0+3d | nó 3 da A: `NEGOCIAR` + `open` + `Sim` → tag + **aviso nº 1** |
-| T0+3d+2h | nó 3 da C: **mesmo estado** → **aviso nº 2, do mesmo lead** |
-
-A tag do nó 4 é idempotente; a **notificação do nó 5 não é**. Dois avisos para
-a mesma parada é como um canal de alerta começa a ser ignorado — e este
-projeto já resolveu exatamente isso, com exatamente este nó: a seção 2.22 tem
-um "**Portão de aviso único**" (nó 6) que checa a tag ausente antes de alertar,
-pelo mesmo motivo, só que lá a repetição vem do laço em vez da reentrada.
-Mesmo sintoma, mesmo remédio, e assim as duas peças ficam consistentes.
-
-**Diferença de desenho em relação ao 2.22, de propósito:** lá o portão
-**desvia** para o fim do laço (o workflow continua vigiando); aqui ele
-**encerra**, porque não há laço — a instância A já está de olho, e quem mantém
-o lead na lista 8.28 é a tag, não a instância.
-
-**Por que não precisa de tratamento incondicional no Mestre de saída, ao
-contrário de `novo-lead-estagnado`/`agendar-estagnado` (peças 1 e 5):**
-aquelas duas tags marcam estagnação numa etapa que o nó 1 do Mestre de saída
-trata como no-op (`NOVO LEAD`/`CONECTAR`, junto com `status = open`) — a
-transição normal de saída delas nunca alcança o nó 4. `NEGOCIAR` não está
-nessa lista: toda saída real (fechar `won` → `FORMALIZAR`, mudar `status`
-para `lost`/`abandoned` sem sair da etapa, ou o próprio veredito sendo
-corrigido de `Sim` para outra coisa, que também muda `status` pela seção
-5.1) já é uma transição que o Mestre de saída enxerga pela via normal — basta
-somar a tag à lista já existente do nó 4 (seção 3, abaixo), mesmo tratamento
-de `fila-travada`/`conectar-estagnado`/`retorno-vencido`.
-
-**Limite conhecido:** se o closer corrigir o veredito de `Sim` para `Não`
-sem que isso mude `status` nem etapa — não deveria acontecer, os três ramos
-do nó 4 da seção 5.1 sempre mudam `status` — a tag sobreviveria até a
-próxima saída real. Mesma classe de limite que `retorno-vencido` já aceitou
-(rede de segurança, não garantia absoluta) para uma coincidência tão rara
-quanto essa.
-
-**Pronto quando (F-13):** uma reunião qualificada pelo closer (`Sim`) que
-passa 3 dias em `NEGOCIAR`/`open` sem virar `won` nem `lost` gera aviso ao
-gestor sozinho — a única linha "Tempo de estagnação" da seção 1.1 (etapas
-`NOVO LEAD` a `FORMALIZAR`) que ainda dizia "sem monitor" agora tem um.
-**Cumprido, pelo desenho publicado (5 dias, `Opportunity Stage Changed`),
-não pelo desenho acima — ver o aviso no topo desta seção.**
-
-**Pronto quando (G-23):** uma reunião qualificada pelo closer (`Sim`) que
-passa 3 dias em `REUNIÃO DE DIAGNÓSTICO`/`open` sem ser movida para
-`NEGOCIAR` também gera aviso ao gestor sozinho. **Já cumprido** pelo
-workflow "Proposta Pendente" (tag `proposta-pendente`), publicado no mesmo
-pacote da T-21 — o buraco que motivou G-23 já estava fechado antes de a
-sessão que abriu o item saber disso; o trabalho de G-23 foi achar e
-documentar, não desenhar.
-
----
-
-## 2.29 Rampa de aquecimento do número de telefone — F-14
-
-> **Decidido por ação em 23/09 (commit `9020079`), e a decisão foi a que concentra
-> a segunda.** O dono aplicou a janela seg-sex em 4 workflows de tarefa
-> (`Pós-ligação v2`, as duas `Interceptação de Sinal` e o `Monitor de
-> Capacidade`) **mantendo a régua em dias corridos** — ou seja, a combinação
-> exata cuja aritmética está medida abaixo: em regime, a segunda carrega ~3/7 da
-> semana em vez de 1/5, e com o lote conservador de 6/dia bate 120 ligações
-> contra a meta de 100/dia.
->
-> No mesmo commit veio o `Monitor de Capacidade` (publicado), e ele é **1 nó,
-> `internal_notification`** — avisa o gestor. ⚠️ **Eu usei isso para dizer que a
-> regra de capacidade não é aplicada, e estava errado** (correção na §2.33.6): o
-> Monitor nunca foi o ponto de aplicação. Quem aplica é a `faxina_tarefas.py`
-> (linhas 197-213), que liga a tag `sdr-lotado` por SDR, e a `Cadência 12x30`
-> parte 1 e parte 2, que têm **6 nós cada** condicionando nessa tag — o laço de
-> espera de 1 h. A capacidade **é** represada na 12x30. O que **não** tem portão é
-> a `Cadência Inbound` (0 nós), que é por onde os leads entram hoje — e esse é o
-> achado de verdade, na §2.33.6.
->
-> Então a aritmética abaixo continua valendo inteira, e a pergunta que sobra não
-> é mais "dias úteis ou corridos" — é **se o lote de entrada vai ser calibrado
-> pela segunda-feira em vez de pela média**. Com lote 6/dia a segunda já passa da
-> capacidade; com 12/dia são 240. Nada disso está acontecendo hoje: zero lead em
-> cadência.
-
-> **Conta nova de 23/09/2026 — a regra D13 ("nenhuma tarefa nasce no fim de
-> semana") concentra a segunda-feira em +82%, e é a segunda que vira o teto.**
->
-> A regra está certa e o comportamento também: a janela seg–sex **segura** a
-> tarefa até a janela abrir, não a descarta. O efeito colateral é de
-> distribuição, não de perda — e é exatamente o tipo de coisa que só aparece
-> multiplicando.
->
-> Modelo: entrada de lote todo dia útil, régua de 12 toques nos dias corridos
-> D1·D1·D2·D2·D4·D7·D7·D10·D14·D20·D30·D30, todo toque que cai em sábado ou
-> domingo adiado para a segunda seguinte. Regime (janelas já sobrepostas):
->
-> | Lote/dia útil | Terça a sexta | **Segunda** | Pico sem a regra |
-> |---|---|---|---|
-> | **6** | 48 a 66 | **120** | 66 |
-> | **12** | 96 a 132 | **240** | 132 |
->
-> Some 360 toques/semana nos dois casos (6 × 5 × 12), então **o total não
-> muda** — muda quem carrega. A segunda absorve os dois dias parados e fica
-> com ~3/7 do volume da semana em vez de 1/5.
->
-> **Por que isso decide o lote:** a meta de capacidade do SDR é **100
-> ligações/dia** (`briefing-sdr.md`, e a própria D14 do plano do dono
-> repete). Com o lote conservador de 6/dia, **a segunda já bate 120** — 20%
-> acima da capacidade, em regime, sem nenhum imprevisto. O lote de 12/dia põe
-> 240 numa segunda, que é 2,4× a capacidade.
->
-> **Estado, para não confundir armadilha com incêndio:** isto é aritmética
-> sobre parâmetros declarados, não medição do sistema rodando — hoje há **zero
-> lead em cadência**, então nada disso está acontecendo. É conta de projeto, e
-> por isso dá para consertar antes de doer.
->
-> **Quatro saídas, em ordem de elegância:**
->
-> | Saída | O que muda | Custo |
-> |---|---|---|
-> | **Régua em dias úteis** em vez de dias corridos (D1, D2, D4… contados em dia útil) | nenhum toque cai em fim de semana, por construção | a régua de 30 dias vira ~42 dias corridos |
-> | **Espalhar o represado** entre segunda e terça | segunda cai para ~93 | um nó a mais decidindo o destino |
-> | **Adiar para sexta** em vez de segunda (antecipar) | sexta sobe de 48 para ~102, segunda fica em 42 | toque chega antes, não depois |
-> | **Baixar o lote** | segunda proporcional | mais tempo para escoar o estoque |
->
-> A primeira é a que as plataformas de sales engagement usam, e some com o
-> problema em vez de administrá-lo.
-> **Conferido em 22/09/2026, 23:35 UTC — a proposta multicanal (caminho B)
-> não alivia esta rampa, e é fácil supor que alivia.**
->
-> Os textos de WhatsApp/e-mail do caminho B (`biblioteca-mensagens.md`) são
-> **aditivos**, não substitutivos: MT1 diz "acabei de tentar te ligar", MT4 diz
-> "tentei te ligar de novo agora", MT11 diz "última tentativa de te pegar por
-> telefone". Cada mensagem acompanha um toque de telefone que continua
-> existindo. **Os 12 toques de telefone continuam 12.**
->
-> Então a conta desta seção **não muda**: lote de ~12/dia continua levando o
-> pico a 58 ligações/dia, 2,3× o teto da semana 1; lote de ~6/dia continua
-> sendo o que cabe.
->
-> **O efeito de segunda ordem existe, mas no lugar errado para ajudar aqui.**
-> Mais canais aumentam a chance de conexão por lead, e lead que responde sai
-> da régua — menos discagem ao longo dos 30 dias. Só que a rampa não é
-> limitada pelo **total**, é limitada pelo **pico**, e o pico acontece nos
-> dias 1 e 2, quando ninguém ainda teve tempo de responder e todo mundo segue
-> na régua. Multicanal ajuda a cauda, não o pico.
->
-> Dito de outro jeito: se alguém adotar o caminho B esperando que ele resolva
-> o conflito F-14 × G-03, vai descobrir no dia 2 que não resolveu.
-> **Conferência de 22/09/2026, 16:30 UTC — a rampa foi calibrada para uma
-> régua que não existe mais, e o lote do G-03 passou a estourá-la.**
->
-> O F-14 (`93ad877`) foi escrito antes de a sessão incorporar a decisão de
-> 100% telefone (`d52e61d`). Ele diz, com todas as letras, que o telefone
-> carrega "**8 de 12**" toques. Não carrega mais: carrega **12 de 12**. Os
-> toques por dia de régua dobraram exatamente onde a rampa é mais apertada —
-> D1 passou de 1 para 2 ligações, D2 de 1 para 2, D7 de 1 para 2.
->
-> | Dia de régua | D1 | D2 | D4 | D7 | D10 | D14 | D20 | D30 |
-> |---|---|---|---|---|---|---|---|---|
-> | Ligações — régua alternada | 1 | 1 | 0 | 1 | 1 | 0 | 1 | 1 |
-> | Ligações — 100% telefone | **2** | **2** | **1** | **2** | 1 | **1** | 1 | **2** |
->
-> **O efeito sobre o plano do G-03** (47 leads parados, lotes de ~12/dia por
-> 4 dias, que é o plano real e finito — não um lote por dia para sempre):
->
-> | Dia | Ligações na régua alternada | Ligações hoje | Teto da semana 1 |
-> |---|---|---|---|
-> | 1 | 12 | 24 | ~20-25 |
-> | 2 | 24 | **48** | ~20-25 — estoura |
-> | 3 | 24 | **48** | ~20-25 — estoura |
-> | 4 | 23 | **58** | ~20-25 — estoura |
-> | 5 | 11 | **34** | ~20-25 — estoura |
->
-> Com a régua alternada, a rampa do F-14 e o lote do G-03 **cabiam um no
-> outro** — 12, 24, 24, 23, 11 encosta no teto e não passa. Com o telefone
-> sozinho, o pico vai a 58, **2,3× o teto da própria semana 1**, e no dia 2,
-> não no fim da rampa. Nenhum dos dois itens está errado isolado: eles foram
-> escritos com meio dia de diferença e a decisão de canal passou entre os
-> dois.
->
-> **Isto é decisão do dono, não conserto automático**, porque os dois lados
-> são metas dele: o lote de 10-13/dia veio do Quality Rating do WhatsApp
-> (F-07), e o teto da semana 1 veio da faixa de aquecimento do mercado. As
-> saídas que a aritmética permite:
->
-> | Saída | O que custa |
-> |---|---|
-> | **Lote de ~6/dia** em vez de 10-13 | devolve a curva exata da coluna "régua alternada" acima. O estoque de 47 leva ~8 dias em vez de 4 |
-> | Manter 10-13 e **aceitar a semana 1 em ~50/dia** | é a faixa "agressiva" que as fontes citam (75-150/dia), não fora do mundo — mas joga fora a margem que a rampa existia para ter, num número que nunca discou |
-> | Segurar a fila quando bater o teto | já está no checklist do gestor abaixo; a diferença é que agora isso vai acontecer **todo dia da semana 1**, não como exceção |
->
-> A tabela de tetos por semana mais abaixo **continua válida** — ela vem das
-> fontes de mercado, não da régua. O que venceu foi a coluna "como se atinge
-> com os lotes do G-03", e a frase de que "10-13 ligações no dia 1 já está
-> dentro da faixa conservadora": no dia 1 agora são 24.
-**Por quê:** o F-08 (seção 2.26) protegeu a reputação do número de telefone
-com um checklist — cadastro no "Qual Empresa Me Ligou?", `Origem Verificada`,
-vigiar queda de atendimento — mas o único item sobre **volume** ficou como
-"distribuir entre mais de um número **antes de escalar**", sem nunca escrever
-quanto por dia em qual semana. É a mesma lacuna que o F-07 já tinha fechado
-para o WhatsApp com um objeto próprio: número novo nasce **Tier 1** (250
-contatos únicos), só sobe "consumindo metade do teto atual dentro de 7 dias
-com qualidade aceitável" (seção 2.25). O telefone nunca ganhou o equivalente,
-apesar de carregar o dobro dos toques (8 de 12, contra 4 de 12 do WhatsApp) e
-de já estar, pela própria conta do F-08, **acima** da referência internacional
-de segurança (50-75/dia) na meta de regime (100/dia).
-
-**E o canal está, hoje, tecnicamente "novo" mesmo sem ser recente na
-subconta:** `APRENDIZADOS-CRM.md` ("O CRM não pode responder a pergunta do
-LC Phone") mediu **zero registro de chamada** nas 50 conversas da subconta —
-nenhuma tocou ainda. Para efeito de reputação de operadora, um número que
-nunca discou e um número criado ontem são a mesma coisa: sem histórico de uso
-legítimo, o primeiro dia de volume alto é o que os provedores de identificação
-de chamada usam para decidir se marcam "Spam Likely". `WebSearch` (Kixie,
-Tendril, PhoneBurner, Salesloft, Aircall, SalesHive — convergência de fontes
-de mercado independentes, nenhuma vendendo o mesmo produto): o padrão do
-setor é aquecer **2 semanas antes de qualquer campanha de volume**, com teto
-diário explícito por número no início (as fontes variam entre 20-50/dia numa
-janela conservadora e 75-150/dia numa mais agressiva, sempre **crescente**, e
-nunca a meta plena no primeiro dia) — e o mesmo veredito do F-08 aparece nas
-fontes de mercado sobre o produto americano equivalente: o "Voice Integrity"
-do **Outreach** também é descrito como valendo só para número comprado nos
-EUA, o mesmo limite que já descartou o "Voice Integrity" da HighLevel — sinal
-de que a plataforma de origem não é o motivo do limite, é o próprio recurso.
-
-**A conexão que faltava, e que é o motivo deste item não ser genérico:** o
-G-03 (Bloco 0) já decidiu, no cruzamento com o F-07, promover o estoque de 47
-leads parados em **lotes de 10-13/dia** — mas só para proteger o Quality
-Rating do WhatsApp. Nenhuma das três opções do G-03 nem aquele cruzamento
-menciona telefone. Só que o mesmo lote que protege o WhatsApp também é,
-por construção, quem determina o volume de telefone do primeiro dia (cada
-lead promovido gera uma tentativa de telefone em D1, tabela 2.5) — a notícia
-boa é que 10-13 ligações no dia 1 já está dentro da faixa conservadora de
-aquecimento; a notícia que falta escrever é que isso só vale enquanto os
-lotes não se **empilham**: a partir da segunda semana, cada dia soma o lote
-novo às reentradas D2/D4/D7 dos lotes anteriores (tabela 2.5), e sem um teto
-explícito o volume cresce mais rápido que a rampa do setor recomenda —
-exatamente o tipo de "queima silenciosa" que o F-07 já preveniu para o
-WhatsApp e que aqui não tinha nenhum guarda-corpo escrito.
-
-**Como:** rampa de referência, calibrada com os dois lados (a faixa do
-mercado e o teto de regime já decidido de 100/dia por número, `briefing-sdr.md`):
-
-| Semana | Teto de ligações/dia (por número) | Como se atinge com os lotes do G-03 |
-|---|---|---|
-| 1 | ~20-25 | 1 lote/dia (10-13 leads × ~1-2 toques de telefone/dia no início da régua) |
-| 2 | ~40-50 | lotes seguem entrando, e as reentradas D2/D4/D7 do lote 1 já somam — é aqui que o teto pode estourar sem aviso |
-| 3 | ~75 | ainda abaixo da meta de regime |
-| 4+ | 100 (meta de regime, `briefing-sdr.md`) | volume pleno, só depois do número ter 3 semanas de uso real |
-
-Sem gatilho nativo para ler "quantas ligações este número já fez hoje" (mesmo
-limite de plataforma do F-06/F-07/F-08 — nenhum objeto do GHL soma tentativa
-por dia por número, só `Tentativas telefone`, que é cumulativo desde sempre e
-por contato, não por dia nem por número) — vira checklist do gestor, mesmo
-tratamento do F-07/F-08, não um nó novo:
-
-| Ação | Por quê |
-|---|---|
-| Nas primeiras 3 semanas após o primeiro dia de ligação real, conferir o teto da tabela acima **antes** de liberar o lote seguinte do G-03 | O lote controla quem entra; só o gestor sabe, olhando a fila do dia (`fila-tel`), se o total já bateu o teto da semana |
-| Se o teto for atingido antes do fim do dia, **segurar** o restante da fila `fila-tel` para o dia seguinte em vez de discar tudo | É a mesma folga que a cadência já assume em outros pontos (Wait Dynamic do F-05, janela de 24h do G-05) — atrasar um dia custa menos que queimar o número |
-| Se a operação escalar para 2º número antes da rampa terminar (R-10, novo SDR) | O número novo começa a própria rampa do zero — a experiência do primeiro número não "empresta" reputação para o segundo |
-| Vigiar queda abrupta de atendimento (mesmo sintoma do F-08) com atenção redobrada nas 3 primeiras semanas | É a janela em que o número está mais vulnerável a rótulo, pela própria natureza da rampa |
-
-**Por que não é um workflow, mesmo motivo do F-07/F-08:** a pergunta que o
-gatilho precisaria responder — "quantas ligações este número específico já
-discou hoje" — não existe como evento nem como contador nativo no GHL, e
-`Tentativas telefone` (C-09) mistura os dois números do dia que a operação
-tiver, além de nunca zerar por dia. Inventar esse contador exigiria um campo
-novo por número e um reset diário, engenharia desproporcional ao problema
-quando a operação ainda tem **um** número e o gestor já olha a fila todo dia
-(mesma folga que o F-10 aceitou não ter alarme automático de ausência de
-lead, por proporção parecida de custo × benefício).
-
-**Pendência que este item não resolve, e por quê:** a mesma de sempre —
-confirmar se as ligações saem por LC Phone ou linha própria do SDR muda quem
-executa o cadastro do F-08, mas não muda a rampa em si: os provedores de
-identificação de chamada (que decidem "Spam Likely") observam o número que
-discou, não o sistema que o discou.
-
-**Zero campo, zero tag, zero workflow, zero escrita no CRM:** item de
-documentação e rotina manual pura, mesmo tratamento do F-07/F-08 — não
-depende de `APROVADO.md`, não entra na "Ordem de montagem" nem no checklist
-de teste da seção 10 (não há objeto de CRM para simular volume de discagem
-com contato fictício).
-
-**Pronto quando:** a rampa de 4 semanas está escrita com teto por semana; o
-checklist do F-08 (seção 2.26) referencia esta seção; e o G-03
-(`ROADMAP-SALES-ENGAGEMENT.md`) ganha uma nota dizendo que o mesmo cuidado de
-lote que protege o WhatsApp (cruzamento com o F-07) também é, por
-construção, quem paga a rampa de telefone — e que isso só segura até os
-lotes começarem a se empilhar na segunda semana.
-
----
-
-## 2.30 Resgate por E-mail — Sem Telefone (F-15)
-
-> **Medido em 22/09/2026, 21:25 UTC — o ciclo é real, e o e-mail não o fecha.**
->
-> Conferi o payload publicado e o ciclo existe exatamente como descrito: nó 3
-> da `Cadência 12x30` (`contact_detail / phone / has_no_value`) → nó 10
-> (`status = abandoned`) → nó 11 (tag `nutricao-90d`); e o nó 1 do
-> `Reengajamento 90 dias` recicla em `opportunities / status == abandoned`.
-> Quem não tem telefone volta, bate no mesmo portão e volta ao mesmo lugar.
-> **O diagnóstico está certo.**
->
-> **A solução é que não alcança ninguém.** O "78% da base tem e-mail" é
-> verdade sobre a base **inteira** — e a base inteira tem telefone. Cruzando
-> as duas populações, contato por contato:
->
-> | | |
-> |---|---|
-> | Contatos sem telefone | 9 |
-> | Desses, **com** e-mail | **1** — e é `<test lead: dummy data…>`, lead de teste do Meta |
-> | Desses, **sem** e-mail | **8** |
-> | Leads reais do Instagram sem telefone **e** sem e-mail | **5** |
->
-> O `F-15` resgataria **zero lead real**. E não é azar: é estrutural. O
-> formulário do Meta coleta telefone **e** e-mail juntos, então quem veio por
-> ali tem os dois; quem não tem telefone veio por **DM de Instagram**, que não
-> coleta nenhum dos dois. As duas populações são quase disjuntas por
-> construção do canal de origem.
->
-> **O que fica valendo, separado em duas coisas que estavam juntas:**
->
-> 1. **Fechar o ciclo** continua necessário e não depende de e-mail. O nó 1 do
->    R-08 precisa distinguir **por que** o lead virou `abandoned`: se foi o
->    portão de telefone (tag `telefone-invalido`, aplicada no nó 6 da 12x30),
->    reciclar não produz tentativa — é só queimar 90 dias e repetir. Portão
->    novo no R-08, antes de reativar: `telefone-invalido` **presente** →
->    encerra sem reciclar, pela saída limpa do nó 3b.
-> 2. **E-mail continua uma boa ideia — para outro público.** Os 39 contatos
->    **com** e-mail são justamente os que têm telefone: ali o e-mail é canal
->    **adicional** (toque barato que não consome o teto da rampa F-14), não
->    resgate. Vale manter `EM-1`/`EM-2`, mudando o público-alvo declarado.
-> 3. **Quem realmente precisa de rota são os 5 do Instagram**, e o único canal
->    que os alcança é o **DM do Instagram** — conectado e vivo na subconta
->    (página `O Próximo Cliente`). Isso é decisão de operação (quem responde e
->    em quanto tempo), não workflow de e-mail.
-
-**Por quê:** o portão 0.0/0.0b (seções 2.3 e 2.10) manda quem não tem
-telefone, mas tem `Site` ou `Instagram` preenchido, para `status = abandoned`
-+ tag `nutricao-90d` — a mesma saída branda que qualquer lead com telefone
-recebe depois de 12 tentativas esgotadas. A diferença é que o Reengajamento
-90 dias (R-08, seção 2.12) reativa **todos** eles de volta para `CONECTAR`
-sem distinguir os dois casos — e um lead sem telefone bate no mesmo portão
-0.0/0.0b de novo, sem telefone ainda, e volta para `abandoned`+`nutricao-90d`
-no mesmo instante. O resultado, medido em `ESTADO-E-PLANO.md` (22/09/2026):
-**9 dos 50 contatos reais não têm telefone**, e numa operação 100% telefone
-(decisão registrada no topo deste roadmap) eles reciclam de 90 em 90 dias
-para sempre sem jamais receber uma tentativa de contato de verdade — nenhuma
-ligação (não têm número), nenhuma mensagem (`grep -c "Send Email"
-build-wesales.md` = 0, nenhuma régua deste projeto usa e-mail). Não é o
-mesmo problema do G-03 (ninguém entra na régua): aqui o lead entra, é
-avaliado e sai decidido, ciclicamente, sem nunca ser procurado. `E-mail`
-está preenchido em 39 dos 50 contatos (78%, `ESTADO-E-PLANO.md`, seção 2) —
-o canal existe, nunca foi usado, e é o único dos três (telefone, WhatsApp,
-e-mail) que não disputa a rampa de aquecimento do F-14 nem a janela de 24h
-do G-05/G-06 (e-mail transacional do GHL não tem essa restrição de
-WhatsApp Business API).
-
-**Pesquisado antes de desenhar** (`WebSearch`, sem acesso a
-`help.gohighlevel.com`, bloqueado pelo proxy deste ambiente — mesma
-limitação já registrada no G-05): a literatura de sales engagement
-(Zendesk, Highspot, Salesforce) converge que cadência multicanal supera
-cadência de canal único, e cita ganho de resposta ao somar e-mail a uma
-régua de ligação; nenhuma das quatro plataformas do enunciado (Reev,
-Meetime, Outreach, Salesloft) documenta publicamente uma rota de resgate
-automática **especificamente** para o subconjunto "sem telefone" de uma
-cadência phone-first — o que existe na literatura é o **breakup e-mail**
-genérico (`myphoner.com`): mensagem de encerramento sem pressão, medida em
-30–40% de reabertura de negócios "mortos" em alguns contextos. O nó 5
-abaixo usa esse padrão. `WebSearch` também confirma (confiança média, via
-página de suporte oficial citada por terceiros, não acessada direto) que o
-gatilho nativo **Customer Replied** do GHL aceita restringir por canal,
-incluindo e-mail — a mesma capacidade que a seção 2.12 (R-08) já usa para
-WhatsApp via `Wait → Contact Replied`; **não confirmado na tela** se o nó
-`Wait` (em vez do gatilho de workflow) aceita o mesmo filtro de canal —
-registrar ao montar.
-
-**Por que não é dentro do R-08:** o nó 6 do Reengajamento 90 dias (guarda
-de janela de WhatsApp, G-05) já ramifica por canal, mas as duas saídas são
-WhatsApp (livre ou Template) — não há onde encaixar "manda e-mail em vez
-disso" sem reescrever a régua toda para quem tem telefone também. Um
-workflow pequeno e separado, do mesmo jeito que a Cadência Inbound (seção
-2.10) e o Reengajamento (seção 2.12) já são workflows próprios em vez de um
-`If` dentro da 12x30, resolve sem tocar em nada que já funciona.
-
-**Campo novo:** nenhum — reaproveita `Phone`, `Email` (nativos) e `Template
-usado` (C-23, já existente, `campos-e-tags.md`). **Tag nova:** nenhuma —
-reaproveita `nutricao-90d` e `nao-perturbe`. **Zero escrita no CRM nesta
-rodada:** item de especificação pura.
-
-### Workflow novo — "Resgate por E-mail — Sem Telefone"
-
-| Configuração | Valor | Por quê |
-|---|---|---|
-| Gatilho | `Contact Tag Added` — Tag: `nutricao-90d` | Mesmo gatilho do R-08 (seção 2.12) — os dois workflows rodam em paralelo, cada um cuidando do canal que sabe atender |
-| Allow Re-entry | **Ligado** | Toda reaplicação de `nutricao-90d` (inclusive a cada ciclo de 90 dias que o R-08 reabre e fecha de novo para quem segue sem telefone) é uma rodada nova e legítima — mesmo raciocínio do R-08 |
-| Janela de envio | 08:30 às 18:30, segunda a sexta, fuso da subconta | Mesma cortesia usada em toda mensagem ao lead deste projeto — e-mail não tem a restrição de API do WhatsApp (G-05), mas não é motivo para mandar de madrugada |
-| Stop on Response | Ligado | Respondeu por e-mail em qualquer ponto da régua, sai — mesmo padrão do R-08 |
-
-| # | Nó | Ação | Configuração |
-|---|---|---|---|
-| 1 | Portão de elegibilidade | If/Else — condições **E** | Status da oportunidade **é** `abandoned` · `Phone` vazio · `Email` preenchido · tag `nao-perturbe` ausente |
-| 1b | Ramo falso | **Remove from Workflow: este** | A maioria de quem ganha `nutricao-90d` tem telefone (12 tentativas esgotadas, nota baixa, timing errado, no-show — grep confirma 6 origens diferentes da tag) — esses o R-08 já atende sozinho por telefone/WhatsApp. Este workflow existe só para o subconjunto sem telefone nenhum (nó 0.0b) |
-| 2 | 1º resgate | Send Email — Template `EM-1` | Texto em `biblioteca-mensagens.md` |
-| 3 | Carimbo | Update Contact Field | `Template usado` = `EM-1` |
-| 4 | Aguardar resposta | Wait → Contact Replied — canal E-mail (a confirmar na tela, ver pesquisa acima) | Tempo limite 5 dias corridos |
-| 4b | Ramo respondeu | Internal Notification para o gestor: `{{contact.name}} respondeu ao resgate por e-mail (sem telefone) — pedir telefone/WhatsApp ou seguir por e-mail/Instagram, decisão manual` → **Remove from Workflow: este** | O lead voltou a dar sinal; não há régua automática pronta para um canal que a operação nunca usou, decisão fica com o SDR |
-| 5 | 2º resgate ("breakup") | Send Email — Template `EM-2` | Só se o nó 4 não recebeu resposta no prazo |
-| 6 | Carimbo | Update Contact Field | `Template usado` = `EM-2` |
-| 7 | Aguardar resposta | Wait → Contact Replied — canal E-mail | Tempo limite 5 dias corridos |
-| 7b | Ramo respondeu | Internal Notification (mesmo texto do nó 4b) → **Remove from Workflow: este** | |
-| 8 | Fim natural | — | Sem resposta em nenhum dos dois e-mails, o contato segue `abandoned`+`nutricao-90d` exatamente como hoje — o R-08 recicla em 90 dias e este workflow dispara de novo nesse ciclo (`Allow Re-entry` ligado), tentando de novo em vez de nunca mais tentar |
-
-### O que este item não resolve
-
-**Retroativo aos 9 contatos de hoje.** Publicar o workflow cobre quem entrar
-em `nutricao-90d` sem telefone **a partir de agora**; os 9 já parados
-precisam do mesmo backfill manual que o G-01 e o F-05 já usaram (`Add to
-Workflow` em massa pela lista filtrada) — ação em massa em dado de
-produção, regra 2 do briefing pede listar e confirmar antes, então não
-executa sozinha.
-
-**Domínio de e-mail verificado.** Não há ferramenta neste conector para
-conferir se a subconta tem remetente/domínio configurado para envio
-transacional — pendência a checar na tela antes de publicar, mesma classe
-de "confirmar na tela" já registrada para Number Validation (R-13) e
-Voice Intelligence (F-06).
-
-**Resposta de opt-out por texto não vira DND sozinha.** O nó 4b/7b acima
-trata toda resposta como "decisão manual" — inclusive uma pedindo para
-parar. Fechado como item próprio, G-07 (`ROADMAP-SALES-ENGAGEMENT.md`,
-seção 2.9.6 acima): workflow separado, mesmo padrão do R-17 aplicado ao
-canal e-mail.
-
-**Checklist do gestor — reputação e compliance do canal e-mail (G-07),
-antes do primeiro envio real:** nenhum item do projeto tinha protegido a
-reputação do canal e-mail até aqui (F-07 protege o número de WhatsApp,
-F-08 o de telefone) — checklist, não workflow, mesmo motivo do F-07/F-08:
-não existe gatilho nativo para ler taxa de rejeição, denúncia de spam ou
-status de autenticação de domínio por workflow.
-
-| Conferir | Por quê |
-|---|---|
-| Domínio de envio tem SPF, DKIM e DMARC configurados (Configurações → E-mail) | Sem os três, provedores como Gmail/Outlook classificam o e-mail como spam ou rejeitam — e um domínio que nunca mandou e-mail em volume é "novo" para reputação, mesmo raciocínio que já fundamentou o F-14 (rampa de aquecimento do telefone) para outro canal |
-| O template criado por `emails_create-template` manteve o link `{{unsubscribe}}` (ou o link de descadastro nativo do GHL) no rodapé | A API deste conector grava o HTML exatamente como enviado — se o texto de `biblioteca-mensagens.md` for colado sem o merge field, o e-mail sai sem descadastro de um clique, o mínimo exigido pela LGPD (art. 18) e o que evita denúncia de spam que derruba reputação de domínio mais rápido que qualquer outro fator |
-| Volume dos dois primeiros dias de `EM-1`/`EM-2` fica pequeno (mesma lógica do lote de 10-13/dia do G-03/F-14, mesmo sem rampa formal desenhada para e-mail) | Um domínio novo mandando dezenas de e-mails no mesmo dia é o padrão que provedores associam a spam — o volume real aqui é baixo por natureza (F-15 mede zero lead real resgatável hoje), então o risco é menor que o do WhatsApp/telefone, mas não é zero se o backfill dos 9 contatos (acima) sair de uma vez |
-
-**Pronto quando:** todo contato que cai em `abandoned`+`nutricao-90d` sem
-telefone e com e-mail recebe ao menos uma tentativa de contato real pelo
-canal que ele de fato tem, em vez de reciclar indefinidamente sem nunca ser
-procurado; os dois templates (`EM-1`, `EM-2`) existem em
-`biblioteca-mensagens.md` (feito nesta rodada) e o workflow está publicado
-na tela.
-
----
-
-## 2.31 "Atendeu fica em CONECTAR" transformou `conectado-hoje` em mudo permanente — F-16
-
-Achado desta rodada, conferindo o commit `1d04af2` que chegou do PC do dono
-(mudança de etapa aplicada ao vivo em 5 workflows). A mudança está certa no
-que ela quer fazer. O problema nasce do encontro dela com uma contradição
-antiga que, até hoje, era inofensiva.
-
-**A cadeia, elo por elo:**
-
-| # | Fato | Onde conferi |
-|---|---|---|
-| 1 | `conectado-hoje` é aplicada pelo `Pós-ligação v2` em **5 ramos** (nós 13, 26, 77, 86, 97), todos `add_contact_tag` | dump ao vivo, `status: published`, versão 4 |
-| 2 | **Nenhum** dos 29 dumps tem `remove_contact_tag` com `conectado-hoje`. Nenhum documento de `wesales/` especifica reset diário, de 24h ou de fim de dia | varredura dos 29 dumps + `grep` em `wesales/`. Refeita **depois** da reescrita multicanal da 12x30 (`23db864`): a régua nova também não removeu. Três dumps estão pré-patch (seção 2.31.3), mas aquele patch só edita listas `workflow_id` de nós `remove_from_workflow` — não há como uma remoção de tag estar escondida neles |
-| 3 | A função declarada da tag é "tira o lead das filas **do dia** após conexão" | `campos-e-tags.md`, T-05 |
-| 4 | A classificação declarada da mesma tag é família **Estado** — "sobrevive à saída de cadência" | `IMPLEMENTACAO-WORKFLOWS.md`, seção da tabela das três famílias |
-| 5 | (3) e (4) se contradizem: "do dia" é pulso, "sobrevive" é estado. A conta ao vivo implementa a versão permanente | consequência de (2) |
-| 6 | Até 22/09 a contradição não doía: o ramo `Atendeu` movia a oportunidade **para fora** de `CONECTAR` (ia para `3d26fcd1`), e as duas filas do SDR também exigem `etapa = CONECTAR`. Quem excluía o lead da fila era a cláusula de etapa; `conectado-hoje` era redundante | `_antes-patch-funil/Pós-ligação v2.json` vs. filtros 8.2/8.3 |
-| 7 | `1d04af2` faz o `Atendeu` **ficar** em `CONECTAR` (`deb60542`). A cláusula de etapa para de excluir, e `conectado-hoje` — que nunca sai — fica sendo a única cláusula de pé | diff do dump, nós do ramo `Atendeu` |
-
-**O que isso produz:** um lead que o SDR alcança uma vez e que **não** fecha
-horário na mesma ligação sai de `Fila Telefone Hoje` e `Fila WhatsApp Hoje`
-**para sempre** — enquanto a oportunidade continua aberta em `CONECTAR` e a
-cadência continua criando tarefa para ele. O trabalho não desaparece: ele
-some das duas listas de onde o SDR trabalha e reaparece só na lista de
-tarefas cruas. É o pior formato de vazamento: silencioso e com a
-oportunidade parecendo saudável no funil.
-
-Os dois filtros afetados, literais:
-
-| Lista | Filtro hoje | O que a cláusula de etapa fazia até 22/09 |
-|---|---|---|
-| 8.2 `Fila Telefone Hoje` | `fila-tel` **E** não `nao-perturbe` **E** não `telefone-invalido` **E** não `conectado-hoje` **E** etapa = `CONECTAR` | excluía o lead que atendeu, porque ele saía de `CONECTAR` |
-| 8.3 `Fila WhatsApp Hoje` | `fila-wa` **E** não `nao-perturbe` **E** não `conectado-hoje` **E** `Permissão WhatsApp` = `Sim` **E** etapa = `CONECTAR` | idem |
-
-**Estado declarado, para não confundir armadilha com incêndio:** medi a conta
-nesta rodada. `conectado-hoje` está em **2 contatos**, os dois do próprio
-projeto (`teste atendeu` e `ZZ TESTE ESTRUTURA`). **Zero lead real.** Não está
-acontecendo com ninguém — dá para consertar antes de doer. O que torna isso
-urgente não é o dano de hoje, é que o primeiro lote que entrar em cadência
-começa a produzir o vazamento a partir da primeira conexão.
-
-**Quatro saídas, e a recomendação:**
-
-| # | Saída | Custo | Efeito colateral |
-|---|---|---|---|
-| A | Dar à tag o reset que o nome dela promete: dentro do `Pós-ligação v2`, depois de cada `Add Tag`, um `Wait 24h` → `Remove Tag conectado-hoje` | edição em 5 ramos de **um** workflow que já está sendo editado | nenhum workflow novo; o nome da tag passa a ser verdade |
-| B | Trocar a cláusula das filas: em vez de não `conectado-hoje`, usar não `fechar-horario` (o estado novo "conectado, fechando horário") | edição de 2 listas inteligentes | depende do `Fechar Horário` publicado; `conectado-hoje` fica sem função e deve sair da família Estado |
-| C | Um workflow recorrente de meia-noite que remove `conectado-hoje` de todo mundo | workflow novo + o MCP não cria workflow | mais uma peça para manter |
-| D | Aceitar a tag como permanente e tirar a cláusula das duas filas | edição de 2 listas | perde o efeito "já falei com ele hoje" — o SDR volta a ver na fila quem ele acabou de ligar |
-
-> **Atualização de 23/09 04:40 — o dono executou, e com uma variante melhor que a
-> minha em dois pontos.** Ele fez a saída A **em workflow à parte** (`tag adicionada
-> → espera 1 dia → remove`, `build_limpa_conectado.py`, `allowMultiple: true`) em
-> vez de dentro do `Pós-ligação v2`, que era o que eu recomendei. Melhor: não
-> acrescenta cinco ramos de `Wait` num workflow de 130 nós, e a re-entrada fica
-> explícita. A cópia `ZZ TESTE Limpa conectado-hoje (24 h)` (espera 2 min) foi
-> testada e **conferi por medição que a tag saiu** — `conectado-hoje` em 2 contatos,
-> os dois de 01:55, nenhum é o 9940.
->
-> **E ele achou uma saída que eu não tinha visto, que é melhor que a A para o
-> filtro:** `Fila Telefone Hoje = fila-tel + etapa-conectar`, **dispensando
-> `conectado-hoje` na lista** — porque a 12x30 põe e tira `fila-tel` a cada toque
-> (conferido: `Cadência 12x30` adiciona nos nós 48/108/161/214/274/327 e remove nos
-> 64/117/170/230/283/336). Se `fila-tel` só existe enquanto a tentativa está
-> liberada, ele já carrega a informação que a cláusula `não conectado-hoje` tentava
-> **Estado confirmado em 23/09 04:55:** a real `Limpa conectado-hoje (24 h)`
-> (`e3c012bf`) está **no ar** com `startAfter: {"type":"days","value":1}`, e a cópia
-> `ZZ TESTE` (espera 2 min) fica em **rascunho** — o dono mediu o teste antes de mim
-> (tag posta no 9940 às 04:32:29, saiu às 04:34:31) e minha leitura foi confirmação
-> independente, não a resposta a um item aberto. Ele registrou também o detalhe de
-> gatilho que vale reter: **contatos que já carregavam a tag não disparam** o
-> removedor, porque gatilho de tag dispara na aplicação e a tag já estava lá — hoje
-> são só os de teste, e saem na limpeza do A9. É a mesma mecânica do
-> `fechar-horario` (§2.31.1), aplicada certo.
->
-> dar. Minha saída A trata o sintoma (a tag não expirava); a dele tira a cláusula da
-> equação. **As duas juntas são o certo:** a tag passa a expirar (higiene do estado)
-> e a lista deixa de depender dela (o filtro fica com uma cláusula em vez de duas —
-> e cláusula que não existe não pode virar dependência escondida, que é a lição do
-> F-16).
-
-**Recomendo A.** ⚠️ **A saída B caiu** — eu a tinha escrito como alternativa
-limpa e ela não sobrevive à conferência: a seção 2.31.2 mostra que o
-removedor de `fechar-horario` mora dentro do `Fechar Horário` e **não é
-alcançado pelo caminho de quem agenda** (o `Pós-agendamento v2` arranca o
-contato do workflow no nó 4, e as saídas dele não rodam). B trocaria uma
-exclusão permanente por outra. B só volta a valer se o nó 4 do
-`Pós-agendamento v2` também remover a tag. Nenhuma das saídas é aplicável por
-este MCP (edição de workflow e de lista inteligente não têm ferramenta) — é
-tela ou `wesales/tools/`.
-
-### 2.31.1 A tag `fechar-horario` nasceu com o consumidor em rascunho — janela fechada limpa em 23/09
-
-Quando abri este achado, `Pós-ligação v2` (publicado) já aplicava
-`fechar-horario` e o único que a remove, o `Fechar Horário`, estava em
-**rascunho** — com gatilho na própria tag. Gatilho de tag dispara no *evento*
-de aplicação, e aplicar tag já presente não gera evento: todo lead que
-conectasse na janela ficaria invisível ao workflow para sempre.
-
-**Fechado no `23db864`, do PC do dono, ainda nesta rodada:** o `Fechar Horário`
-foi publicado (v4, `status: published`). Remedi depois da publicação:
-`fechar-horario` em **0 contatos**. A janela fechou sem nenhum lead dentro
-dela. Não há nada a corrigir e nada a limpar.
-
-**A regra fica, porque o caso vai repetir:** sempre que um workflow novo é
-gatilhado por tag, conferir se quem *aplica* a tag já está publicado antes
-dele. Par "aplicador no ar + consumidor em rascunho" numa tag que ninguém
-remove produz exclusão permanente e silenciosa. A ordem certa é publicar o
-consumidor primeiro, ou o aplicador por último.
-
-### 2.31.2 `remove_from_workflow` pula os nós de saída — e isso derruba uma das minhas quatro saídas
-
-Conferindo como `fechar-horario` sai do contato, achei que a remoção dela mora
-**dentro** do `Fechar Horário`, nos 4 nós de saída dele (36, 38, 39, 40, os
-quatro `Remove Tag`). Só que o caminho mais importante não passa por esses nós:
-
-| Caminho | Quem conduz | Passa pelos nós 36/38/39/40? |
-|---|---|---|
-| lead desiste / vira nutrição | o próprio `Fechar Horário` | sim — a tag sai |
-| **lead agenda a reunião** | `Pós-agendamento v2`, nó 4, `remove_from_workflow` → `Fechar Horário` | **não** — o contato é arrancado do workflow e as saídas dele não rodam |
-
-`remove_from_workflow` cancela os passos pendentes do contato no workflow
-alvo; os nós de limpeza do alvo não são executados. Logo **todo lead que
-agenda fica com `fechar-horario` para sempre** — e é justamente o lead que a
-`Recuperação de No-show` pode devolver ao trabalho ativo (ela reaplica
-`fila-tel` nos nós 12, 19 e 26).
-
-**Consequência direta para a decisão da seção 2.31:** a saída **B** (trocar a
-cláusula das filas de `não conectado-hoje` para `não fechar-horario`) **não
-serve como está escrita.** Ela troca uma exclusão permanente por outra: parece
-limpa porque `fechar-horario` tem removedor, mas o removedor não é alcançado
-pelo caminho de quem agenda. B só passa a valer se o nó 4 do
-`Pós-agendamento v2` também remover a tag, ao lado do `remove_from_workflow`.
-Recomendação revisada, em uma frase: **quem arranca o contato de um workflow
-precisa limpar, no mesmo nó, as tags que as saídas daquele workflow
-limpariam.** No caso concreto é um `Remove Tag fechar-horario` no nó 4 do
-`Pós-agendamento v2` — uma peça, um workflow.
-
-**Exposição geral desta classe, medida nos 29 dumps.** Descontando as
-auto-remoções (workflow que se remove no fim do próprio ramo, onde a limpeza
-roda antes e está correta), sobram 5 alvos arrancados por terceiros com
-limpeza de tag nos próprios nós:
-
-| Alvo (publicado) | Tags que ele limpa nas saídas | Arrancado por |
-|---|---|---|
-| `Cadência 12x30` | `atraso-1a-tentativa`, `fila-quente`, `fila-tel`, `fila-wa` | `Fechar Horário` (nó 0), `Pós-agendamento v2` (nó 4), `Pós-ligação v2` (nós 54 e 127) |
-| `Cadência Inbound` | `atraso-1a-tentativa`, `cad-inbound`, `fila-quente`, `fila-tel`, `fila-wa` | `Fechar Horário` (nó 0), `Pós-agendamento v2` (nó 4) |
-| `Reengajamento 90 dias` | `atraso-1a-tentativa`, `cad-inbound`, `fila-tel`, `fila-wa`, `nutricao-90d`, `reengajamento-ativo` | `Fechar Horário` (nó 0), `Pós-agendamento v2` (nó 4) |
-| `Fechar Horário` | `fechar-horario` | `Pós-agendamento v2` (nó 4) |
-| `Recuperação de No-show` | `fila-tel` | `Pós-agendamento v2` (nó 4) |
-
-Nem toda linha é bug: várias dessas tags são limpas **também** pelo Mestre de
-saída, que é justamente a rede de segurança para este caso, e as de fila são
-reaplicadas na tentativa seguinte. O que a tabela diz é onde olhar — e
-`fechar-horario` é a única da lista que **não** tem segunda rede: quem limpa
-ela é só o `Fechar Horário`. Conferir tag por tag contra o Mestre de saída
-antes de mexer em qualquer outra linha.
-
-### 2.31.3 O dump de 3 workflows ficou descrevendo a conta pré-patch — corrigido na ferramenta
-
-Enquanto conferia a parte 2 da 12x30, li nos dumps que as listas de
-`remove_from_workflow` **não** citam a `Cadência 12x30 — parte 2` — nem no
-`Fechar Horário` (nó 0), nem no `Pós-agendamento v2` (nó 4), nem no
-`Pós-ligação v2` (nós 54 e 127). Ia registrar isso como achado grave: lead que
-agenda sairia da parte 1 e continuaria recebendo toque automático da parte 2.
-
-**Não registro, porque o dump não pode responder isso.** Comparei os três
-arquivos com os backups `_antes-patch-parte2/` e eles são idênticos em
-`version` e `updatedAt`. A causa está na ferramenta:
-
-| Script | Exporta o backup | Aplica | **Re-exporta o estado novo** |
-|---|---|---|---|
-| `patch_funil_reuniao.py` | linha 137 | linha 138 | **sim**, linha 150 |
-| `patch_remove_parte2.py` | linha 26 | linha 27 | **não existia** |
-
-Por isso os 5 workflows do patch de funil têm dump fresco e correto, e os 3 do
-patch da parte 2 têm dump congelado no estado de antes. O `workflows-json/`
-passou a descrever uma conta que a conta já deixou — e de um jeito silencioso,
-porque `version` e `updatedAt` também são do arquivo antigo, então nenhuma
-checagem de frescor pega.
-
-**Corrigido nesta rodada, na ferramenta e não no arquivo:**
-`patch_remove_parte2.py` ganhou o `g.export` depois do `put`, espelhando a
-linha 150 do script irmão, e os dois caminhos de export passaram a ser
-relativos ao script (`DUMPS`) em vez de ao diretório de execução — o backup
-antes só caía no lugar certo se o script fosse rodado de dentro de
-`wesales/tools/`. Nada disso toca a conta; é o repositório voltando a contar a
-verdade na próxima execução.
-
-**O que continua em aberto, e o tamanho certo dele.** Depois de escrever o
-parágrafo acima fui ler o assunto do commit `23db864` e ele diz, na própria
-linha de título: *"parte 2 nas remoções"*. Ou seja, **há evidência de que o
-dono rodou o script com `--aplicar`** — o que falta não é o conserto, é a
-confirmação de quantos nós ele pegou. Deixo o item registrado nesse tamanho, e
-não maior: não é um defeito provável, é uma confirmação pendente.
-
-Por que ainda vale confirmar: o script só acrescenta a parte 2 aos nós que já
-citam a parte 1, e varre apenas os **publicados** — um workflow que estivesse
-em rascunho na hora da execução ficou de fora. E a consequência, se algum nó
-tiver ficado para trás, é a pior possível numa máquina de pré-venda: o lead que
-agenda continua recebendo toque **automático** da segunda metade da régua.
-
-Nem o dump nem o MCP respondem isso — o dump é o pré-patch (acima) e o
-`GHL CRM` não tem ferramenta de workflow. Resolve em um comando, no PC, que não
-escreve nada: `python patch_remove_parte2.py` **sem** `--aplicar`. Ele lista
-quantos nós ainda faltam por workflow; **zero nó listado = confirmado, nada a
-fazer**.
-
----
-
-## 2.32 Eu errei este achado: o Espelho de Etapa já estava publicado — F-17, **retirado**
-
-Achado conferindo o `61eb167`, do PC do dono. O achado **dele** é excelente e
-maior que o meu: num workflow cujo gatilho **não é oportunidade** (tag, contato,
-resposta, link, agendamento), a condição `Pipeline stage is …` lê **valor vazio**
-e dá falso — sem erro nenhum, o lead só segue pelo "não". Ele mediu isso no
-registro de execução da `ZZ TESTE 12X30` e achou **11 workflows publicados**
-testando etapa às cegas. A solução dele é certa: um workflow `Espelho de Etapa`,
-esse sim com gatilho de oportunidade, que mantém no contato exatamente uma tag de
-estado (`etapa-novo-lead`, `etapa-conectar`, `etapa-reuniao`, `etapa-negociar`,
-`etapa-formalizar`, `status-nutricao`, `status-perdido`, `status-ganho`), e os
-outros passam a testar a **tag**, que funciona com qualquer gatilho.
-
-### Correção, escrita minutos depois de eu ter publicado o achado
-
-**O achado abaixo está errado e eu o retiro.** Escrevi que o `Espelho de Etapa`
-estava em rascunho com 8 consumidores publicados. Medi isso lendo
-`workflows-json/Espelho de Etapa.json`, que dizia `status: draft`, v3,
-`updatedAt` **01:53:09**. A conta tinha o workflow **publicado** (v4) às
-**01:53:13** — quatro segundos depois daquele export. O dump que li já nascia
-velho; o defeito nunca existiu na conta, só na fotografia.
-
-Pior: eu tinha acabado de escrever, na seção 2.31.3 e no `APRENDIZADOS-CRM.md`,
-a regra de comparar o dump com o backup irmão antes de afirmar qualquer coisa —
-e não a apliquei. A regra, do jeito que eu a escrevi, também não teria salvado:
-o `Espelho de Etapa` é **novo**, não tem backup irmão em `_antes-*/`, e eu tratei
-ausência de backup como sinal de frescor. **Segunda perna da regra, que faltava:
-dump sem backup irmão não é por isso recente.** Para um `status: draft`
-especialmente, o valor é "no momento do export", nunca "agora" — e `draft` é o
-estado natural de um workflow nos segundos entre montar e publicar, que é
-exatamente a janela em que os scripts de `wesales/tools/` exportam.
-
-**Como conferir de verdade, da próxima vez:** `status: draft` num dump só vira
-achado depois de (a) comparar o `updatedAt` do dump com o horário do commit que
-o trouxe, e (b) confirmar o estado por uma fonte que não seja o arquivo — a tela,
-ou uma medição ao vivo do efeito (contatos com a tag, por exemplo). Sem isso, o
-que existe é uma pergunta, não um defeito.
-
-**O que sobrevive, e é o motivo de eu não apagar a seção:** a regra de ordem
-(produtor antes de consumidor) continua certa e tem um caso real, medido ao
-vivo, na §2.31.1 — a `fechar-horario`. O que não sobrevive é esta instância. E
-sobrevive também o registro das 8 tags novas em `campos-e-tags.md`, que é fato
-independente do erro.
-
-**Estado real, conferido depois da correção:** `Espelho de Etapa` publicado (v4,
-36 nós), aplicando as tags; os 11 consumidores publicados. A ordem está certa.
-Fica valendo a pergunta de tela que a §2.32.1 já levantava e que nenhum dump
-responde: **o gatilho de oportunidade etiqueta o acervo ou só mudança futura?**
-Se for só futura, as 45 oportunidades paradas em `NOVO LEAD` não recebem
-`etapa-novo-lead` e seguem invisíveis às condições. Isso continua aberto.
-
----
-
-O texto original do achado fica abaixo, riscado pelo parágrafo acima, para a
-rodada seguinte ver o erro e não repeti-lo.
-
-**~~O problema é a ordem de publicação, e é a terceira vez nesta mesma noite:~~**
-
-| Papel | Peça | Estado ao vivo |
-|---|---|---|
-| **produtor** — único que aplica as 8 tags (16 nós) | `Espelho de Etapa` | **`draft`**, v3, 36 nós |
-| **consumidores** — já testam as tags | `CONECTAR Estagnado`, `Fechar Horário`, `Interceptação de Sinal — Clique v2`, `Interceptação de Sinal — Resposta v2`, `Opt-out por Palavra-chave`, `Recuperação de No-show`, `Reengajamento 90 dias`, `Retorno Vencido`, `SLA do Closer — No-show` | **`published`**, os 8 (9 peças, `Reengajamento` conta uma vez) |
-| consumidor ainda em rascunho | `Cadência 12x30 — parte 2` | `draft` |
-
-Enquanto o Espelho estiver em rascunho, os 8 publicados testam uma tag que
-**ninguém aplica**. A condição lê tag ausente e vai pelo "não" — que é
-exatamente o mesmo desvio silencioso que o patch foi feito para consertar. Antes
-lia etapa vazia e ia pelo "não"; agora lê tag ausente e vai pelo "não". **O
-comportamento não mudou; só mudou o motivo.** O conserto está escrito e não está
-no ar.
-
-Uma exceção parcial, para a tabela não exagerar: o `Reengajamento 90 dias`
-(publicado) aplica `etapa-conectar` no nó 6 e remove `status-nutricao` no nó 5 por
-conta própria. É um aplicador local de um ramo, não o espelho — não cobre os
-outros 7 nem os outros estados.
-
-**Medido ao vivo, para separar armadilha de incêndio:** `etapa-conectar` está em
-**1 contato** — `teste não atende`, o contato de teste do dono (carrega
-`teste-12x30`, `dateUpdated` 23/09 02:00), e chegou lá pelo nó 6 do
-`Reengajamento`, não pelo espelho. **Zero lead real.** Como nas outras duas,
-armadilha e não incêndio — e a janela fecha com um clique.
-
-**O que fazer, e é ordem e não decisão:** publicar o `Espelho de Etapa` **antes**
-de ligar a esteira, e de preferência antes de qualquer teste novo nos 8. Como o
-espelho tem gatilho de oportunidade e re-entrada ligada, publicá-lo com as 50
-oportunidades já existentes deve etiquetar o acervo — conferir isso ao publicar,
-porque se o gatilho só pegar mudança futura de etapa, as 45 oportunidades paradas
-em `NOVO LEAD` nunca recebem `etapa-novo-lead` e continuam invisíveis às
-condições. **Essa é a pergunta a fazer na tela**, e é a única parte que o dump não
-responde (gatilho não entra nesta exportação — seção 6 do `ESTADO-E-PLANO.md`).
-
-**As 8 tags novas estão fora do `APROVADO.md`.** Entraram por ação do dono, no
-próprio commit — não são criação minha e não estou desfazendo nada. Ficam
-registradas em `campos-e-tags.md` e sinalizadas no `APROVADO.md`, na mesma
-convenção do `teste-regua` e do `fechar-horario`, só para a contagem do gate parar
-de divergir da conta. Com elas, a conta tem mais tags que as 21 do projeto —
-contagem exata (e a correção de 23/09/2026, G-20, que achou esta mesma soma
-errada aqui) em `campos-e-tags.md`, Etapa 3.
-
-### 2.32.1 A regra que já custou três achados na mesma noite
-
-| Ordem | Produtor | Consumidor | Resultado |
-|---|---|---|---|
-| errada | rascunho | publicado | consumidor testa/espera algo que ninguém produz, e vai pelo ramo errado **sem erro** |
-| certa | publicado | publicado ou rascunho | consumidor que entra depois já encontra o estado montado |
-
-Uma instância real em uma noite: `fechar-horario` (§2.31.1, fechada pelo dono no
-mesmo dia), mais a família vizinha da tag cuja limpeza mora dentro de um
-workflow (§2.31.2). A instância das 8 tags do espelho **não conta** — foi erro
-meu de leitura de dump, corrigido no topo desta seção.
-
-**Checagem barata, para entrar em toda rodada:** para cada tag que apareça em
-condição de workflow publicado, procurar quem a aplica e conferir o `status` de
-quem aplica. Se o aplicador está em `draft` e o consumidor em `published`, é
-defeito ativo e silencioso. O comando que achou este caso está no
-`APRENDIZADOS-CRM.md`, na entrada desta data.
-
----
-
-## 2.33 `auditoria_tags.py` — as duas perguntas que acharam defeito hoje viraram auditoria, e a terceira apareceu sozinha
-
-As checagens de tag que fiz à mão nesta noite acharam coisa real duas vezes.
-Viraram `wesales/tools/auditoria_tags.py` (somente leitura, sai com 1 na
-pergunta 1), para não depender de eu lembrar de rodar o heredoc certo. Ela
-responde três perguntas, e a terceira nasceu da própria varredura.
-
-**Pergunta 1 — a limpeza da tag é alcançada?** `remove_from_workflow` cancela os
-passos pendentes do contato no alvo: os nós de saída do alvo não rodam. Tag cuja
-limpeza mora dentro de um workflow é permanente para quem sai por remoção
-externa. O relatório só acusa quando **nenhum** removedor está livre de ser
-arrancado — se algum está, a tag tem por onde sair. Isso é o que separa alarme de
-achado: o `toque`, por exemplo, é limpo pelo `Contador de Toques`, que ninguém
-arranca, e por isso **não** entra na lista.
-
-Três tags entram, e as três são reais:
-
-| Tag | Limpa só em | Arrancado por | O que sobra no contato |
-|---|---|---|---|
-| `fechar-horario` | `Fechar Horário` | `Pós-agendamento v2` (nó 4) | quem **agenda** fica marcado como "fechando horário" para sempre (§2.31.2) |
-| `nutricao-90d` | `Reengajamento 90 dias` | `Fechar Horário` (nó 0), `Pós-agendamento v2` (nó 4) | lead reativado que agenda ou volta a fechar horário continua marcado como nutrição |
-| `cadencia-12x30-p2` | `Cadência 12x30 — parte 2` | `Fechar Horário`, `Pós-agendamento v2`, `Pós-ligação v2` | lead fica marcado como "está na parte 2" para sempre — e a parte 1 passou a ter **portão por tag** (`9020079`), então isso pode barrar a reentrada dele |
-
-As três têm a mesma correção, a mesma da §2.31.2: **quem arranca o contato limpa,
-no mesmo nó, as tags que as saídas do alvo limpariam.** Três `Remove Tag` em dois
-workflows resolvem as três.
-
-**Pergunta 2 — o aplicador está no ar antes de quem testa?** Hoje: nenhuma
-pergunta aberta. Esta pergunta nunca muda o código de saída, de propósito — foi
-lendo `status: draft` num dump exportado 4 segundos antes da publicação que eu
-registrei o F-17 errado (§2.32). No script está escrito por quê.
-
-**Pergunta 3 — tag só removida, nunca aplicada.** Não é defeito de workflow: é
-peça do desenho antigo que sobrou, e cada linha é uma decisão sua.
-
-| Tag | Situação | Leitura |
-|---|---|---|
-| `fila-wa` | removida em **75 nós**, em 8 workflows; aplicada em **nenhum** | a `Fila WhatsApp Hoje` (lista 8.3) **nunca pode encher**. E não é bug: o `PLANO-MULTICANAL.md` (D5/D6) fez o WhatsApp virar parte do próprio toque — ligação Stevo e mensagem automática — em vez de fila separada do SDR. A tag ficou sem produtor **por decisão**, e os 75 nós são no-op. O que está desatualizado é a lista 8.3, não a cadência |
-| `fila-linkedin` | removida em 1 nó; aplicada em nenhum | já era conhecida e deliberada — T-04, "reserva, hoje sem canal na cadência" (lacuna L-03). Fica |
-
-Decisão que falta para o `fila-wa`: **apagar a lista 8.3 e tirar os 75 nós**, ou
-**devolver ao WhatsApp uma fila própria**. Recomendo a primeira: o plano novo já
-resolveu o canal de outro jeito, e manter 75 nós que não fazem nada é custo de
-leitura em todo patch futuro. Nenhuma das duas sai por este MCP.
-
-Rodar junto com as outras duas, toda rodada:
-
-```
-python3 wesales/tools/auditoria_refs.py     # referência para workflow arquivado
-python3 wesales/tools/auditoria_tags.py     # ciclo de vida das tags de estado
-```
-
-Limite que vale para as duas: leem os dumps, e dump pode estar defasado da conta.
-Comparar com o backup irmão em `_antes-*/` antes de concluir — e, para `draft`,
-não concluir nada sem confirmar fora do arquivo.
-
-### 2.33.3 Três dos cinco achados desta auditoria já estavam resolvidos quando eu os reportei
-
-Correção do registro, e é a mais séria da noite porque eu levei dado velho ao dono
-duas vezes. Datas medidas:
-
-| Quando | O que |
-|---|---|
-| 22/09 16:27 | `updatedAt` do dump de `Mestre de saída v2` que eu estava auditando |
-| 23/09 03:24 | `Triagem da Nutrição` **publicada** — ela remove `cad-inbound` e `nutricao-90d` |
-| 23/09 04:35 e 04:55 | **eu reportei os 5 achados como abertos** |
-| 23/09 05:05 | o dono re-exportou os dumps; meu `auditoria_tags.py` foi a **0** |
-
-Ou seja: das 5 linhas, **3** (`cad-inbound` em dois lugares e `nutricao-90d`) já
-estavam resolvidas na conta **uma hora antes** de eu reportá-las — o dump dizia
-`draft` na `Triagem` porque foi exportado antes da publicação. As outras 2
-(`fechar-horario`, `cadencia-12x30-p2`) o `Mestre de saída v2` já limpava no backup
-`_antes-patch-mestre`, mas o dump que eu tinha era de 22/09 16:27 e não as
-continha; **não consigo datar o momento em que entraram**, então não afirmo que
-estavam abertas nem que estavam fechadas quando eu as reportei.
-
-**O que isso custou:** as pendências 9a e 9b do `ESTADO-E-PLANO.md`, apresentadas
-ao dono como trabalho a fazer, eram trabalho já feito. Nenhuma escrita errada no
-CRM — só ruído na fila dele, que é exatamente o que uma auditoria deveria reduzir.
-
-**Conserto na ferramenta, não no texto.** O `auditoria_tags.py` ganhou uma
-**guarda de frescor**: para cada dump, compara o `updatedAt` dele com o do backup
-`_antes-*` mais novo do mesmo workflow. Se o backup for mais novo, o arquivo
-principal não foi re-exportado depois de um patch, e a auditoria imprime um aviso
-em bloco dizendo que qualquer achado envolvendo aquele workflow pode já estar
-resolvido. Hoje o aviso não aparece — os dumps estão frescos — mas teria aparecido
-ontem à noite e eu não teria reportado nada como aberto.
-
-As três auditorias ganharam também guarda de `BrokenPipeError`, pelo mesmo motivo
-da §2.34: `... | head` morria com traceback e `exit=1`, que parece falha de
-auditoria.
-
-**A regra, agora com três instâncias:** esta família de auditoria lê fotografia, e
-fotografia deste repositório fica velha em minutos quando alguém está trabalhando
-na conta. Achado tirado de dump só vira item para o dono depois de confirmação ao
-vivo — e a confirmação ao vivo, neste projeto, é a `auditoria_final.py` (que lê a
-API) ou uma medição de efeito pelo MCP. Da nuvem eu tenho a segunda; a primeira
-precisa do PC.
-
-### 2.33.4 A guarda de frescor não pegava dump sem irmão — e havia um `published` velho de 28 h
-
-A guarda que eu pus na §2.33.3 compara cada dump com o backup `_antes-*` do
-mesmo workflow. Boa, e **cega para dump que não tem irmão** — que é a maioria.
-Achei o caso concreto conferindo o G-13 do dono:
-
-| Fonte | Diz |
-|---|---|
-| `workflows-json/AGENDAR Estagnado.json`, `updatedAt` **22/09 00:45** | `status: published` |
-| commit `23db864` do dono, 23/09 ~01:47, no assunto | "**W17d despublicado**" |
-
-O dump está **28 h atrás da conta** e afirma `published` sobre um workflow que o
-dono já tinha despublicado. Não tem backup `_antes-*`, então a guarda imprimiu 0.
-Se eu tivesse tirado um achado dali, seria o quarto dado velho levado ao dono.
-
-**Segunda guarda, heurística e declarada como tal:** o `auditoria_tags.py` agora
-compara o `updatedAt` de cada dump com o **mais novo da pasta** e lista os que
-estão 12 h ou mais atrás. Não prova defasagem — a pasta pode ter workflow que
-ninguém tocou há dias, e é isso mesmo. O que ela faz é nomear o que **precisa de
-confirmação ao vivo antes de virar item**. Hoje lista 7:
-
-```
-ZZ TESTE API                31 h     Contador de Toques            28 h
-ZZ TESTE W6                 29 h     Lead Esquecido em NOVO LEAD   28 h
-AGENDAR Estagnado           28 h     Fila Travada                  27 h
-Alerta de Speed-to-lead     28 h
-```
-
-Quatro deles são os monitores do F-05 (`Alerta de Speed-to-lead`, `Contador de
-Toques`, `Lead Esquecido em NOVO LEAD`, `Fila Travada`) — ou seja, **exatamente a
-parte da máquina sobre a qual eu tenho menos informação fresca**. Qualquer coisa
-que eu disser sobre os monitores a partir de dump, daqui pra frente, sai com esse
-rótulo.
-
-E um bug meu no caminho, pego porque rodei com `| head` e vi o traceback: as duas
-guardas usavam `nome` como variável de laço, sombreando a lambda `nome()` que
-resolve id → nome do workflow. A auditoria morria com `'str' object is not
-callable` **depois** de imprimir os avisos — ou seja, falhava exatamente na parte
-que importa, e o cabeçalho bonito dava a impressão de que tinha rodado.
-Corrigido; lição pequena e velha: em script de relatório, nome de variável de
-laço não pode colidir com nome de função auxiliar.
-
-### 2.33.5 Auditei os quatro monitores do F-05 — o candidato não virou achado, e o que sobrou foi uma lacuna no `patch_condicoes_etapa.py`
-
-Fui olhar os quatro monitores justamente porque são os dumps mais velhos que eu
-tenho (28 h, §2.33.4) — onde o cuidado tem de ser maior, não menor. Dois deles
-testam **etapa de oportunidade**, que é exatamente o que o G-13 mostrou que lê
-vazio quando o gatilho não é de oportunidade:
-
-| Monitor | Nó | Testa |
-|---|---|---|
-| `Alerta de Speed-to-lead` | 6, "Ainda sem 1ª tentativa?" | etapa = `CONECTAR`, `conditionType: opportunities` |
-| `Lead Esquecido em NOVO LEAD` | 1, "Ainda em NOVO LEAD e aberta?" | etapa = `NOVO LEAD`, `conditionType: opportunities` |
-
-E nenhum dos dois está em `_antes-patch-condicoes/`, ou seja, o patch não passou
-por eles.
-
-**Não registro isso como defeito, e o motivo é a regra da §2.33.3 funcionando.**
-Se esses dois tivessem condição de oportunidade com gatilho que não é de
-oportunidade, a `auditoria_final.py` do dono — que lê **a API, inclusive o
-gatilho** — teria acusado, e ela reportou **0 problemas**. Fonte ao vivo vence
-dump de 28 h. A leitura mais provável é que os dois têm gatilho de oportunidade
-(faz sentido: "lead esquecido em NOVO LEAD" nasce de oportunidade criada), e aí a
-condição funciona e não havia o que patchear. **Candidato, não item.**
-
-**O que sobra é certo, porque está no código e não depende do estado ao vivo — e
-são duas lacunas do `patch_condicoes_etapa.py`:**
-
-1. **`ALVOS` é lista fixa de 10 nomes.** Quem não está na lista nunca foi
-   examinado — inclusive os dois monitores acima. Ou seja, a cobertura do patch é
-   uma **lista**, não uma varredura. Quem varre é a `auditoria_final.py`; é ela
-   que precisa continuar rodando, e é ela que pega o que a lista não viu.
-2. **O tradutor cobre 3 dos 5 estados.** `traduz()` mapeia só
-   `CONECTAR → etapa-conectar`, `REUNIÃO DE DIAGNÓSTICO → etapa-reuniao` e
-   `abandoned → status-nutricao`. **Não há entrada para `NOVO LEAD`, `NEGOCIAR`
-   nem `FORMALIZAR`**, embora o Espelho de Etapa produza `etapa-novo-lead`,
-   `etapa-negociar` e `etapa-formalizar`. Então, se a varredura um dia apontar um
-   workflow que testa essas três etapas com gatilho que não é de oportunidade, o
-   patch devolve `None` e **deixa a condição como estava, em silêncio**.
-
-Hoje nenhuma das duas dói: os dois monitores têm gatilho compatível (pela
-evidência acima) e nenhum workflow publicado testa `NEGOCIAR`/`FORMALIZAR` com
-gatilho de tag. A (2) é a que vai morder primeiro — o `Lead Esquecido em NOVO
-LEAD` é o candidato natural a ganhar gatilho de tag algum dia, e nesse dia o
-patch não vai saber traduzir a etapa dele.
-
-**Correção sugerida, pequena:** acrescentar as três entradas que faltam em
-`traduz()` (uma linha cada) e trocar `ALVOS` por "todos os publicados, menos a
-`Cadência 12x30` parte 1", que é a única exceção que o próprio docstring
-justifica. Não faço porque o script escreve na conta e roda no PC — é edição do
-dono.
-
-### 2.33.6 A `Cadência Inbound` não tem o portão de capacidade — e eu havia lido o `Monitor de Capacidade` errado
-
-Fui conferir se os guias (`GUIA-SDR.md`, escritos às 01:19) envelheceram com o
-que entrou no ar depois. Envelheceram menos do que eu esperava, e o que apareceu
-foi outra coisa.
-
-**Primeiro, a correção de uma leitura minha.** Eu escrevi, na §2.29 e em várias
-rodadas de check-in, que o `Monitor de Capacidade` "avisa, **não represa**" — e
-usei isso para dizer que a regra de capacidade da D14 não é aplicada. O fato é
-verdadeiro (o Monitor é 1 nó de `internal_notification`) e **a implicação era
-falsa**: o Monitor nunca foi o ponto de aplicação. A regra é aplicada em dois
-lugares que eu não tinha olhado:
-
-| Peça | Papel |
-|---|---|
-| `faxina_tarefas.py` (linhas 197-213) | conta, **por SDR**, vencidas abertas e toques de hoje; liga e desliga a tag `sdr-lotado` nos leads em `CONECTAR` daquele SDR |
-| `Cadência 12x30` parte 1 e parte 2 | **6 nós cada** condicionando em `sdr-lotado` — é o laço de espera de 1 h que represa o toque |
-
-Ou seja: a capacidade **é** represada, e o guia está certo quando promete isso ao
-SDR. Eu tinha um fato certo e tirei dele uma conclusão errada, por não ter
-procurado o mecanismo fora do workflow que tem "Capacidade" no nome.
-
-**Segundo, o achado que isso destravou:**
-
-| Cadência | Nós condicionando em `sdr-lotado` |
-|---|---|
-| `Cadência 12x30` | **6** |
-| `Cadência 12x30 — parte 2` | **6** |
-| **`Cadência Inbound`** (272 nós, publicada) | **0** |
-
-**A `Cadência Inbound` não tem portão de capacidade nenhum.** E ela é justamente
-a cadência que carrega os leads agora: o "só inbound" do `bff2514` marcou **49
-leads** com `cad-inbound`, e o nó 0 da Inbound é o portão que os admite. Então a
-D14 — "com 50 ou mais tarefas vencidas, nenhuma tarefa nova de cadência é criada
-para ele" — vale para a 12x30 e **não vale para o caminho por onde os leads
-entram hoje**.
-
-Pior detalhe: a Faxina **põe** a tag nos leads em `CONECTAR` do SDR lotado,
-inclusive nos inbound. A tag é aplicada e a Inbound **não a lê**. O freio existe,
-está engatado, e a roda que gira não está ligada nele.
-
-**Consequência prática, e é a que o guia promete ao SDR:** o `GUIA-SDR.md` diz,
-sem ressalva, "se você passar de 100 toques no dia ou tiver 50 ou mais tarefas
-vencidas, o sistema segura os toques novos". Para um lead que entrou pela Inbound,
-não segura. Com a régua concentrando a segunda-feira em +82% (§2.29), é
-exatamente aí que o teto deveria valer.
-
-**Correção sugerida:** portar os 6 nós de portão da 12x30 para a `Cadência
-Inbound` — mesmo padrão, mesma tag, mesmo laço de 1 h. É edição de workflow
-(tela ou `wesales/tools/`), não sai por este MCP. Enquanto não for, o guia
-precisaria dizer "vale para a cadência outbound" — mas a correção certa é o
-portão, não a ressalva.
-
-### 2.33.7 `Canal que conectou` é campo de preenchimento manual — minha §2.34 leu a D10 errado
-
-Na §2.34 eu escrevi que `Canal que conectou` "existe e ninguém escreve nele", e
-que por isso "a pergunta que o multicanal existe para responder nunca vai ter
-resposta". A primeira metade é verdadeira para **workflow**; a segunda é falsa, e
-o `GUIA-SDR.md` mostra por quê:
-
-> **Canal que conectou** (quando atendeu): Ligação WhatsApp, Ligação normal ou
-> Mensagem. É assim que a gente descobre qual canal funciona melhor.
-
-Ele está na mesma família de `Resultado da tentativa`: **o SDR preenche na tela**.
-A D10 diz "marcado junto com o resultado" — e quem marca o resultado é o humano,
-não o workflow. Logo "junto com o resultado" significa *o SDR marca os dois*, que
-é o que o guia instrui. Minha leitura de que a D10 pedia escrita automática foi
-invenção minha.
-
-**O que isso muda na pendência 9c:** deixa de ser lacuna e volta a ser **decisão**
-— manual (como está documentado e instruído) ou automático (um
-`update_contact_field` por ramo no `Pós-ligação v2`, que tiraria uma marcação da
-mão do SDR e garantiria o dado). Há argumento para os dois: manual capta o que só
-o humano sabe (ele ligou pelo WhatsApp e a pessoa respondeu por texto); automático
-não depende de disciplina. Recomendo **automático onde o ramo já sabe** (o nó que
-trata "atendeu no WhatsApp" pode gravar `Ligação WhatsApp` sozinho) e manual só
-onde o ramo não sabe. Mas é escolha do dono, e o estado atual não é defeito.
-
-### 2.33.1 A `auditoria_final.py` do dono diz "0 problemas" e isso não cobre estes achados
-
-O `beebd23` trouxe `wesales/tools/auditoria_final.py` com o resultado "26
-publicados, 0 problemas". As duas auditorias não se contradizem: **fazem
-perguntas diferentes.** Registro o cruzamento para ninguém ler "0 problemas"
-como "nada a corrigir".
-
-| Pergunta | Onde está |
-|---|---|
-| condição de oportunidade em workflow sem gatilho de oportunidade | `auditoria_final.py` (1) |
-| nó apontando para workflow inexistente ou desligado | `auditoria_final.py` (2) e `auditoria_refs.py` |
-| relógio errado (`sim` ou `{{right_now}}` puro) nos campos de data | `auditoria_final.py` (3) |
-| tarefa com prefixo que a Faxina não reconhece | `auditoria_final.py` (4) |
-| workflow que cria tarefa sem janela; mensagem sem janela | `auditoria_final.py` (5, 6) |
-| **limpeza de tag pulada por `remove_from_workflow`** | **`auditoria_tags.py` (1) — só aqui** |
-| **tag só removida, nunca aplicada** | **`auditoria_tags.py` (3) — só aqui** |
-
-**E a dele tem uma vantagem que a minha não tem:** lê **ao vivo pela API**
-(`GET /workflow/...` e `GET /workflow/.../trigger`), não os dumps. Ou seja, ela
-não sofre da defasagem que me fez errar o F-17, **e vê o gatilho** — que é
-exatamente o dado que falta para fechar a pergunta 1 do `auditoria_tags.py` com
-certeza. Caminho de melhoria, quando alguém estiver no PC: mover as duas
-perguntas do `auditoria_tags.py` para dentro do `auditoria_final.py`, ou dar ao
-`auditoria_tags.py` a mesma fonte. Da nuvem eu não consigo — não há ferramenta de
-workflow no MCP.
-
-### 2.33.2 Dois consertos na minha própria auditoria, e o segundo era um defeito de verdade
-
-**1. O `cad-inbound` mudou de papel, e meu julgamento sobre ele venceu.** Eu o
-havia excluído da pergunta 1 raciocinando "marcador de origem que persiste não é
-defeito". No `bff2514` o **nó 0 da `Cadência Inbound` passou a ser um `if_else`
-que testa `cad-inbound`**: a tag virou o **portão** da cadência, e o nó 254 a
-remove na saída. Remoção de portão pulada não é inofensiva — um lead que sai pelo
-`Fechar Horário` ou pelo `Pós-agendamento v2` fica com o portão aberto. É o F-16
-outra vez: **quando o papel de uma tag muda, todo julgamento antigo sobre ela
-vence.** Tirei da lista de exceções.
-
-**2. O script contava workflow em `draft` como rede de segurança.** Foi assim que
-ele deixou de acusar `nutricao-90d` e `cad-inbound`: quem as limpa livre de
-arranco é a `Triagem da Nutrição`, que está em **rascunho**. Rede que não está
-publicada não salva ninguém, e o efeito foi a auditoria ficar **permissiva** — o
-pior jeito de errar, porque silencia em vez de gritar. Corrigido: a rede tem de
-estar `published`, e o relatório agora diz qual rascunho viraria rede.
-
-Nota sobre `draft` nas duas correções: aqui ele **não** serve para acusar (essa é
-a armadilha do F-17), só para **não creditar** uma rede. Direção segura.
-
-**O relatório depois dos dois consertos — 5 achados, e 3 saem com um clique:**
-
-| Tag | Limpa em | Resolve com |
-|---|---|---|
-| `nutricao-90d` | `Reengajamento 90 dias` | **publicar a `Triagem da Nutrição`** |
-| `cad-inbound` | `Reengajamento 90 dias` e `Cadência Inbound` | **publicar a `Triagem da Nutrição`** |
-| `fechar-horario` | `Fechar Horário` | `Remove Tag` no nó 4 do `Pós-agendamento v2` |
-| `cadencia-12x30-p2` | `Cadência 12x30 — parte 2` | `Remove Tag` nos três que arrancam |
-
-Ou seja: **publicar a `Triagem da Nutrição` fecha 3 dos 5**, e sobram os dois
-`Remove Tag` que a §2.31.2 já pedia.
-
----
-
-
-## 2.34 `auditoria_campos.py` — mapa de quem escreve e quem lê cada campo, e a lacuna que ele achou
-
-Nasceu do `d880870`, onde o dono achou **à mão** "4 campos de data que nunca
-gravavam". A pergunta generaliza, então virou script:
-`wesales/tools/auditoria_campos.py`, somente leitura, **sai sempre com 0 de
-propósito**. Ele não é alarme, é mapa — e a razão de não ser alarme é a regra
-que este projeto aprendeu hoje: auditoria que grita sobre o que é intencional
-treina a gente a ignorar auditoria. Aqui a maior parte do resultado é
-intencional:
-
-| Coluna | Quantos | Como ler |
-|---|---|---|
-| **só lido**, ninguém escreve | 23 | é o **normal** dos campos de qualificação: quem preenche `Budget`, `Decisor`, `Dor principal`, `Segmento`, `Urgência`, `Motivo da desqualificação`, `Reunião foi qualificada` é o SDR ou o closer na tela. Workflow lê o que o humano classificou |
-| **só escrito**, ninguém lê | 13 | quase sempre significa **"a lista que leria ainda não existe"**. `Prioridade`, `Tentativas telefone`, `Conexões telefone` existem para ordenar e mostrar nas listas inteligentes (seções 8.x), e **lista inteligente não aparece em nenhum dump** — o script não vê listas, logo não pode chamar isso de órfão. É, aliás, a checklist do que o **A7** vai precisar consumir |
-| **nem escrito nem lido** | **4** | é a coluna que vale olhar |
-
-Os quatro, cruzados um por um com `campos-e-tags.md` — e só o primeiro é
-lacuna:
-
-| Campo | O que o documento diz | Veredito |
-|---|---|---|
-| **`Canal que conectou`** | D10 do `PLANO-MULTICANAL.md`: "campo novo, **marcado junto com o resultado**" | ⚠️ **lacuna real.** Quem marca o resultado é o `Pós-ligação v2`, publicado — e ele **não escreve** este campo. O id `TxJmoWdkA8rTqC1uEsMW` não aparece em **nenhum** dos 33 dumps. Ou seja: a pergunta que o multicanal existe para responder — *qual canal conectou?* — nunca vai ter resposta, porque ninguém grava a resposta |
-| `Hora da conexão` | C-25, preenchido por "Workflow (F-02)" | especificado, não montado. Consistente |
-| `Hora do retorno` | S-01/L-01: existe na tela, fiação especificada, "falta só a montagem manual" | especificado, não montado. Consistente |
-| `Necessidade` | veio do formulário e "segue duplicando `Dor principal`" | duplicata declarada de desenho antigo. Não é lacuna |
-
-**A correção do `Canal que conectou` é pequena e cabe onde o dono já está
-mexendo:** no `Pós-ligação v2`, nos mesmos nós que gravam `Resultado da
-tentativa`, acrescentar um `update_contact_field` com `Canal que conectou` =
-`Ligação WhatsApp` / `Ligação normal` / `Mensagem`, conforme o ramo. Sem isso, a
-decisão D6 ("WhatsApp primeiro, ligação normal como segunda tentativa; com 3
-ligações de WhatsApp não atendidas o lead passa a ter a ligação normal primeiro")
-fica sem dado para ser avaliada depois — o projeto vai poder dizer que trocou de
-canal, mas não qual canal funcionou.
-
-> **Atualização de 23/09/2026 (G-21):** esta sugestão ficou incompleta depois
-> que a §2.33.7 corrigiu a leitura da D10 (o campo é preenchimento manual do
-> SDR, não lacuna de workflow) e o dono decidiu a pendência 9c. **Não aplicar
-> este parágrafo ao pé da letra** — a versão atual, com o patch já escrito e
-> a razão de ele não tocar o `Pós-ligação v2` ainda (sequenciamento com o
-> `patch_remove_atendeu.py`/G-18, que mexe nos mesmos ramos `Atendeu`), está
-> na §2.41. "Pronto quando" e acompanhamento: `ROADMAP-SALES-ENGAGEMENT.md`,
-> G-21.
-
-Rodar as três juntas:
-
-```
-python3 wesales/tools/auditoria_refs.py     # referência para workflow arquivado  (falha em achado)
-python3 wesales/tools/auditoria_tags.py     # ciclo de vida das tags de estado    (falha em achado)
-python3 wesales/tools/auditoria_campos.py   # mapa de escrita/leitura de campo    (nunca falha)
-```
 
 ---
 
@@ -5574,7 +2919,7 @@ O guarda-costas da operação: garante que sair de `CONECTAR` limpa tudo.
 etapas, toda saída de cadência (conectou, número errado, não ligar, 12
 tentativas esgotadas) era um movimento de etapa — um `Opportunity Stage
 Changed` cobria os quatro casos. Na tela real, só o primeiro continua sendo
-movimento de etapa (`CONECTAR` → `REUNIÃO DE DIAGNÓSTICO` (antiga `AGENDAR`)); os outros três viraram `status`
+movimento de etapa (`CONECTAR` → `AGENDAR`); os outros três viraram `status`
 da oportunidade (`abandoned`/`lost`) **sem sair de `CONECTAR`** (tabela 1.0).
 Um gatilho só de `Opportunity Stage Changed` deixaria de disparar para eles —
 a limpeza nunca aconteceria para o caminho mais comum de saída (12
@@ -5607,18 +2952,9 @@ condição que cobre os dois:
 | 2b | Remove from Workflow | `Cadência Inbound` (seção 2.10, quando existir) |
 | 2c | Remove from Workflow | `Reengajamento 90 dias` (seção 2.12, quando existir) |
 | 3 | Remove from Workflow | `Qualificação por IA no WhatsApp` |
-| 4 | Remove Contact Tag | `fila-quente`, `fila-tel`, `fila-wa`, `fila-linkedin`, `atraso-1a-tentativa` (R-02), `reengajamento-ativo` (R-08), `pausado` (R-09), `fila-travada` (F-05, seção 2.21), `conectar-estagnado` (F-05, seção 2.22), `retorno-vencido` (F-05, seção 2.24 — rede de segurança; a limpeza normal roda no nó 3c do Pós-ligação, seção 4), `negociacao-estagnada` (F-13, seção 2.28), `proposta-pendente` (G-23, seção 2.28) |
+| 4 | Remove Contact Tag | `fila-quente`, `fila-tel`, `fila-wa`, `fila-linkedin`, `atraso-1a-tentativa` (R-02), `reengajamento-ativo` (R-08), `pausado` (R-09), `fila-travada` (F-05, seção 2.21), `conectar-estagnado` (F-05, seção 2.22), `retorno-vencido` (F-05, seção 2.24 — rede de segurança; a limpeza normal roda no nó 3c do Pós-ligação, seção 4) |
 | 5 | Add Contact Tag | `limpar-tarefas` |
 | 6 | Add Note | `Saída de cadência · etapa: {{opportunity.pipeline_stage}} · status: {{opportunity.status}} · tentativa {{contact.tentativa_n}} · resultado {{contact.resultado_da_tentativa}}` |
-
-**Nó 4, divergência conhecida do publicado (G-23, 23/09/2026):** o `Mestre
-de saída v2` (`tools/patch_mestre_tags.py`, `PLANO-MULTICANAL.md` item A8)
-já está no ar com uma lista maior que a linha acima — soma também
-`cad-outbound`, `cadencia-12x30-p2`, `fechar-horario` e `toque`. Reconciliar
-a lista inteira desta seção com o que está publicado é trabalho maior que
-o achado de G-23 (que só cobria os dois alertas do closer); fica registrado
-aqui para a próxima varredura de coerência que passar por este nó não
-precisar redescobrir.
 
 **Por que o nó 0 é incondicional, e não mais uma linha do nó 4 (achado de
 21/09/2026, F-05, seção 2.20):** `novo-lead-estagnado` marca um lead parado
@@ -5632,10 +2968,10 @@ raciocínio já usado para `Remove from Workflow` nos nós seguintes.
 
 **F-05, peça 5 (21/09/2026) — `agendar-estagnado` entrou no mesmo nó 0, por
 precaução, não porque o caminho normal precise dele:** a saída comum de
-`REUNIÃO DE DIAGNÓSTICO` (Pós-agendamento move para `NEGOCIAR`) já cai fora da lista de
+`AGENDAR` (Pós-agendamento move para `NEGOCIAR`) já cai fora da lista de
 no-op do nó 1 e alcançaria o nó 4 sozinha, como `fila-travada`/
 `conectar-estagnado`. Mas L-08 (`briefing-sdr.md`) registra que hoje não
-existe caminho formal de desqualificar a partir de `REUNIÃO DE DIAGNÓSTICO` — se um dia
+existe caminho formal de desqualificar a partir de `AGENDAR` — se um dia
 alguém arrastar a oportunidade de volta para `CONECTAR` na mão (o único
 "desistir" manual possível sem esse caminho), a condição do nó 1 volta a
 ser verdadeira e trataria essa transição como no-op, repetindo a classe de
@@ -5664,7 +3000,7 @@ documento:
 | Quem dispara | O que ainda faltava rodar nele | O que `All Except Current` mataria |
 |---|---|---|
 | Pós-agendamento, nó 1 (`move para NEGOCIAR`) | nós 4 a 10: a `Nota de qualificação`, a confirmação no WhatsApp e os **três lembretes** (24h, 3h, 30min antes da reunião) | os lembretes de **toda reunião agendada** — o ativo mais caro do funil |
-| ~~Pós-ligação, ramo `Atendeu`, nó 6 (`move para REUNIÃO DE DIAGNÓSTICO`)~~ — **exemplo retirado em 23/09/2026 (G-13):** desde a D3 do `PLANO-MULTICANAL.md`, o ramo `Atendeu` não move mais etapa (seção 4) — deixou de existir este segundo caso. A linha acima (Pós-agendamento) já sustenta sozinha a decisão de manter a lista nomeada em vez de `All Except Current Workflow` | — | — |
+| Pós-ligação, ramo `Atendeu`, nó 6 (`move para AGENDAR`) | nós 7 a 9: `Data conectado`, `Hora da conexão` (C-25), a tarefa `[CONECTADO] Qualificar e agendar` e a nota | a **próxima tarefa do SDR** depois de uma conexão — o lead atende e desaparece da fila |
 
 E como o Mestre roda como workflow separado, o corte chegaria em momentos
 diferentes a cada vez: às vezes depois do lembrete, às vezes antes. Bug não
@@ -5770,8 +3106,8 @@ nascimento, o mesmo raciocínio do nó 1 original). 12 tentativas esgotadas,
 número errado, não ligar ou o portão de higiene do nó 0.0b mudam o `status`
 para `abandoned`/`lost` **sem sair de `CONECTAR`** — `status` deixa de ser
 `open`, a condição fica falsa, e a limpeza roda mesmo com a etapa igual.
-Atendeu move para `REUNIÃO DE DIAGNÓSTICO` — etapa deixa de ser `CONECTAR`, a condição já
-fica falsa por esse lado sozinho. Progressões seguintes (`REUNIÃO DE DIAGNÓSTICO` →
+Atendeu move para `AGENDAR` — etapa deixa de ser `CONECTAR`, a condição já
+fica falsa por esse lado sozinho. Progressões seguintes (`AGENDAR` →
 `NEGOCIAR` → `FORMALIZAR`) também disparam o gatilho 1 e reexecutam a
 limpeza — redundante (as tags já não estão mais lá, as ações são
 idempotentes) mas inofensivo, e já era assim no desenho original com
@@ -5827,7 +3163,7 @@ crie 6 links de gatilho, um por resultado. O primeiro caminho é o limpo.)
 | 3 | Math Operation | `Total de ligações` = `Total de ligações` + 1 |
 | 3b | Remove Contact Tag | `fila-quente` — **incondicional, e depois do nó 2 de propósito** (o nó 2 lê `fila-wa` para decidir o contador; tag de fila só pode sair depois dessa leitura). Ver nota abaixo |
 | 3c | Remove Contact Tag | `retorno-vencido` (F-05, seção 2.24) — **incondicional, qualquer resultado novo**. Ver nota abaixo |
-| 4 | If/Else múltiplo | Ramifica por todos os valores de `Resultado da tentativa` (campos-e-tags.md, C-02), abaixo — inclui `Desqualificado`, novo nesta rodada (R-18) |
+| 4 | If/Else múltiplo | Ramifica pelos 6 resultados, abaixo |
 
 O nó 2 repete de propósito a mesma checagem de canal que já existe no ramo
 `Caixa Postal`/`Não atendeu`, em vez de calcular uma vez só e guardar num
@@ -5869,96 +3205,20 @@ agiu sobre o lead"; um `Remove Contact Tag` incondicional aqui, antes da
 ramificação do nó 4, fecha o caminho de recuperação sem depender de etapa
 mudar. Detalhe completo na seção 2.24.
 
-#### Ramo `Atendeu` — reescrito em 23/09/2026 (G-13): a D3 do `PLANO-MULTICANAL.md` mudou o que este ramo faz, e esta seção nunca tinha acompanhado
-
-> **O que havia aqui até 23/09/2026** dizia que o nó 6 movia a oportunidade
-> para `REUNIÃO DE DIAGNÓSTICO` (antiga `AGENDAR`). Isso descrevia o desenho
-> de 18/09/2026, anterior à decisão D3 do dono (`PLANO-MULTICANAL.md`,
-> 22/09/2026: *"`Atendeu` não move mais de etapa. O lead fica em `CONECTAR`
-> na fase 'fechar horário'... até agendar"*), executada e publicada em
-> 23/09/2026 (E5-E7). A própria seção 2.31/F-16 deste arquivo já tinha
-> auditado o comportamento novo por dump ao vivo (`Pós-ligação v2`, nós
-> 13/26/77/86/97) e registrado a tag `fechar-horario` — só esta tabela
-> continuava descrevendo o nó antigo. Contradição dentro do mesmo documento:
-> quem lesse só esta seção montaria o ramo errado. Fonte da correção: a
-> auditoria da seção 2.31 (dump `status: published`, versão 4) e
-> `PLANO-MULTICANAL.md` E5-E7.
-
+#### Ramo `Atendeu`
 | # | Ação |
 |---|---|
 | 1 | If/Else | A tentativa foi de WhatsApp? (mesma checagem do nó 2) → Math: `Conexões WhatsApp` + 1. Senão → Math: `Conexões telefone` + 1 |
 | 2 | Math: `Total de conexões` + 1 |
 | 3 | Update: `WA não atendidas seguidas` = 0 |
 | 4 | Add Contact Tag `conectado-hoje` |
-| 5 | Add Contact Tag `fechar-horario` (estado "conectou, fechando o horário da reunião de diagnóstico" — seção 2.31/T-05 do `campos-e-tags.md`) |
-| 6 | Remove Contact Tag `fila-tel`, `fila-wa` |
-| 7 | Update/Create Opportunity → etapa **permanece** `CONECTAR` (sem mudança de etapa — é o que a D3 pede; confirmado no dump como `create_opportunity ... etapa:CONECTAR`, não como movimento para `REUNIÃO DE DIAGNÓSTICO`) |
-| 8 | Update Contact Field `Data conectado` = `{{right_now}}` (R-03 — só marca; não repete se já preenchido, mas escrever de novo é barato e não quebra nada) |
-| 8b | Date/Time Formatter | Entrada `{{right_now}}` · "To Format" = `HH` (só a hora, 00–23) — mecanismo de horário aprendido por segmento, seção 2.18, F-02 |
-| 8c | Update Contact Field | `Hora da conexão` = saída do nó 8b |
-| 9 | Add Task `[FECHAR HORÁRIO] Qualificar e agendar a reunião de diagnóstico` · vence hoje · Atribuir: `Contact Owner` (dinâmico, R-10) — título trocado do antigo `[CONECTADO] Qualificar e agendar`, confirmado no dump ao vivo |
-| 10 | Add Note `Atendeu na T{{contact.tentativa_n}}` |
-
-**O que este ramo não faz mais, e por quê:** não dispara mais o Mestre de
-saída por mudança de etapa (§3, gatilho 1) — porque não há mudança de etapa.
-A oportunidade só entra em `REUNIÃO DE DIAGNÓSTICO` pelo `Pós-agendamento v2`
-quando a reunião é de fato marcada (D4). **Era pendência em aberto, não
-resolvida por esta correção — precisada e fechada em G-18
-(`ROADMAP-SALES-ENGAGEMENT.md`):** a `Cadência 12x30` já se auto-remove no
-caso comum (nó 10 do próprio molde, `remove_from_workflow: este`, enquanto o
-`Aguardar resultado` daquela tentativa ainda está ativo) — o que faltava era
-a segunda linha de defesa que o ramo `Não ligar` já tem no `Pós-ligação v2`
-(o dump não mostrava `remove_from_workflow` no ramo `Atendeu`), para o caso
-em que a classificação chega fora da janela da tentativa ativa. Patch
-escrito e validado por dump (não aplica sozinho — edição de workflow
-publicado não sai por este conector): `wesales/tools/patch_remove_atendeu.py`,
-`--dump` → `exit 0`. Falta só o dono rodar `--aplicar` ou aplicar pela
-tela; detalhe completo em G-18.
-
-O nó 9 (task) nasce para **toda** ligação atendida, sem olhar se a conversa
-já mostrou que não há fit — é a lacuna **L-08** (`briefing-sdr.md`), fechada
-pelo ramo `Desqualificado` abaixo (R-18): quem atende e claramente não serve
-não deveria abrir tarefa de fechamento de horário nenhuma.
-
-#### Ramo `Desqualificado` — novo nesta rodada, fecha L-08 (R-18)
-
-O SDR atendeu a ligação (é uma conexão real, conta como tal), mas a própria
-conversa já descartou o lead — sem fit, sem budget, é concorrente, já é
-cliente, não fala com decisor. Hoje o único caminho para esse resultado é
-classificar como `Atendeu` mesmo assim, o que cria a tarefa `[CONECTADO]
-Qualificar e agendar` e empurra o lead para `REUNIÃO DE DIAGNÓSTICO` — o SDR então tem que
-desfazer isso na mão (não agendar, e sair explicando por fora por que a
-oportunidade não avança), ou pior, força uma reunião sem fit só para a
-tarefa fechar, poluindo a agenda do closer. Nenhum dos dois é registrado
-como perda em lugar nenhum — a nota de qualificação (seção 9) nunca vê esse
-lead, e o funil (R-03) mostra "conectou" sem nunca mostrar "descartado".
-
-| # | Ação |
-|---|---|
-| D1 | If/Else | A tentativa foi de WhatsApp? (mesma checagem do nó 2) → Math: `Conexões WhatsApp` + 1. Senão → Math: `Conexões telefone` + 1 — **é conexão real, conta igual ao ramo `Atendeu`** |
-| D2 | Math: `Total de conexões` + 1 |
-| D3 | Update: `WA não atendidas seguidas` = 0 |
-| D4 | Add Contact Tag `conectado-hoje` |
-| D5 | Remove Contact Tag `fila-tel`, `fila-wa` |
-| D6 | If/Else múltiplo (Condition) | por `Motivo da desqualificação` — ver a tabela completa de ramos na seção 4.1 (F-12): `Timing errado` sai por `abandoned`+`nutricao-90d` como antes; os outros cinco valores saem por `lost` **e** agora também gravam o `Lost Reason` nativo da oportunidade com o mesmo valor |
-| D7 | Add Note `Desqualificado na T{{contact.tentativa_n}} — motivo: {{contact.motivo_da_desqualificao}}` |
-
-Sem nó de mudança de etapa: a oportunidade **fica em `CONECTAR`** (mesmo
-padrão do ramo `Número errado`, que também sai só por `status`) — o Mestre
-de saída (seção 3) já dispara pelo `Opportunity Status Changed` para
-`lost`/`abandoned` e limpa o resto. O critério do D6 é o mesmo já usado pelo
-Loop do closer (seção 5.1, ramos `Parcial`/`Não, Timing errado` vs. `Não`,
-qualquer outro motivo) — reaproveitado de propósito, para o SDR e o closer
-nunca decidirem "isso é reciclável" por réguas diferentes. `Motivo da
-desqualificação` (C-16) é o mesmo campo do F-03, escrito pelo SDR aqui
-**antes** da reunião existir — não há conflito porque só um dos dois
-(SDR ou closer) preenche por oportunidade nesta passagem pela cadência: quem
-vira `Desqualificado` aqui nunca chega ao Loop do closer, e quem chega ao
-Loop do closer nunca passou por este ramo na mesma tentativa.
-
-**Pronto quando:** um "atendeu, mas claramente não serve" vira `status`
-`lost`/`abandoned` na hora, sem gerar `[CONECTADO] Qualificar e agendar` e
-sem abrir horário na agenda do closer.
+| 5 | Remove Contact Tag `fila-tel`, `fila-wa` |
+| 6 | Mover oportunidade → `AGENDAR` (dispara o Mestre de saída pelo gatilho de etapa, que faz a limpeza) |
+| 7 | Update Contact Field `Data conectado` = `{{right_now}}` (R-03 — só marca; não repete se já preenchido, mas escrever de novo é barato e não quebra nada) |
+| 7b | Date/Time Formatter | Entrada `{{right_now}}` · "To Format" = `HH` (só a hora, 00–23) — mecanismo de horário aprendido por segmento, seção 2.18, F-02 |
+| 7c | Update Contact Field | `Hora da conexão` = saída do nó 7b |
+| 8 | Add Task `[CONECTADO] Qualificar e agendar` · vence hoje · Atribuir: `Contact Owner` (dinâmico, R-10) |
+| 9 | Add Note `Atendeu na T{{contact.tentativa_n}}` |
 
 #### Ramo `Caixa Postal` e ramo `Não atendeu` (idênticos)
 | # | Ação |
@@ -5991,20 +3251,10 @@ de etapa.
 | 1 | Update: `Prioridade` = 5 |
 | 2 | Remove Contact Tag `fila-tel`, `fila-wa` |
 | 3 | Add Contact Tag `fila-quente` |
-| 4 | Add Task `[RETORNO] Ligar de volta` · vence: `Data de retorno` (S-01, `DATE`, **já existe na tela** — `contact.data_de_retorno`) ou hoje+1 se vazio · Atribuir: `Contact Owner` (dinâmico, R-10) |
-| 4b | No corpo da tarefa, incluir `Horário combinado: {{contact.hora_do_retorno}}` — o par `TEXT` de S-01 existe desde 21/09/2026 23:18 (placeholder `HH:MM`) |
+| 4 | Add Task `[RETORNO] Ligar de volta` · vence: `Data do retorno` (campo S-01) ou hoje+1 se vazio · Atribuir: `Contact Owner` (dinâmico, R-10) |
 
-**A lacuna L-01 deixou de ser falta de campo — atualizado em 22/09/2026.** Os
-dois campos de S-01 existem na tela: `Data de retorno` (`DATE`) desde 18/09 e
-`Hora do retorno` (`TEXT`, placeholder `HH:MM`) desde 21/09 23:18. O que
-sobrou é fiação, e uma pergunta de tela: o seletor de vencimento do `Add
-Task` aceita a **data** de um campo personalizado, mas **não está verificado**
-se aceita hora vinda de um `TEXT`. Por isso o nó 4b põe o horário no corpo da
-tarefa, que funciona sempre — o SDR lê `Horário combinado: 15:30` ao abrir a
-tarefa mesmo que o vencimento fique no dia. Se a tela aceitar hora dinâmica,
-o 4b passa a ser redundante e pode sair; até alguém conferir, ele é o
-caminho garantido. A lista "Retornos" (8.4) ordena o dia por
-`Hora do retorno` de qualquer jeito, que era a outra metade da L-01. Não há
+Sem o campo `Data do retorno` (lacuna L-01) este ramo funciona, mas a tarefa
+vence sempre em hoje+1 e a lista "Retornos" não sabe o que é de hoje. Não há
 mais nó de mudança de etapa aqui: `Retorno agendado` deixou de ser etapa
 própria (tabela 1.0) — o lead **fica em `CONECTAR`**, e a lista `Retornos`
 (8.4) filtra só pelo valor de `Resultado da tentativa`, sem OR de etapa. Por
@@ -6049,159 +3299,6 @@ documenta como limite conhecido, não deste nó).
 
 ---
 
-## 4.1 Motivo de perda — espelhando no `Lost Reason` nativo da oportunidade (F-12)
-
-**Por quê:** `Motivo da desqualificação` (C-16) existe desde 18/09/2026 e é
-preenchido por SDR e closer (R-18, F-03), mas nada no projeto agrega esse
-valor — a seção 9.1 e a lista 8.5 do Loop do closer só o exibem coluna a
-coluna, contato por contato. O Dashboard do Gestor (seção 2.17, R-15) já
-tinha documentado por quê: Custom Metrics só agrega por **tag** ou por soma
-de campo `NUMERICAL`/`MONETARY` — nunca por valor de um `SINGLE_OPTIONS`.
-Resultado: a pergunta que todo gestor de pré-vendas faz ("por que estamos
-perdendo, na maioria das vezes?") não tem resposta sem abrir oportunidade
-por oportunidade e contar na mão — o mesmo problema que R-01/R-03/F-06 já
-resolveram para outras perguntas, nunca para esta.
-
-Pesquisado antes de desenhar (o mesmo hábito que já achou o `Transcript
-Generated` do F-06 e o `Customer Service Window Check` do G-05): o GHL **já
-tem** um objeto nativo para isto, **em nível de oportunidade**, chamado
-`Lost Reason` — configurado em Settings → Custom Fields → `Lost Reason` →
-Bulk Actions → Edit (é um campo reservado da plataforma, por isso não
-aparece na listagem de `locations_get-custom-fields`, que só traz os 51
-campos de verdade personalizados). Confirmado por convergência de fontes
-independentes (`WebSearch`, domínios de suporte da HighLevel bloqueados
-pelo proxy deste ambiente como sempre — achado por citação, confiança
-média, não testado nesta subconta): a plataforma expõe, de graça, o que
-este projeto reinventou parcialmente sem o alcance completo —
-
-1. **Relatório nativo** de quebra por motivo de perda (Reporting → Pipeline)
-   e **coluna própria na exportação** de oportunidades — a agregação que a
-   seção 2.17 já tinha descartado por falta de recurso nativo existia, só
-   não no lugar que o projeto tinha olhado (Custom Metrics, não Pipeline
-   Report).
-2. **Filtro de gatilho** — `Lost Reason` está disponível como condição em
-   `Opportunity Created/Changed`, `Opportunity Status Changed`,
-   `Stale Opportunities` e `Pipeline Stage Changed`, e como valor de
-   `If/Else`. Nenhuma automação deste projeto usa isso hoje — é capacidade
-   nova, não uma peça faltando (ver "O que isto abre" abaixo).
-3. **Ação nativa** — a ação de workflow `Create/Update Opportunity` aceita
-   gravar `Lost Reason` no mesmo nó que muda `status`, o mesmo padrão já
-   usado neste documento para `status`/etapa juntos.
-
-**Por que não é substituir `Motivo da desqualificação` por `Lost Reason`, e
-sim espelhar os dois:** `Motivo da desqualificação` é campo de **contato**,
-lido pelo script de ligação (`script-de-ligacao.md`) e pela nota do D7/do
-nó 3 da seção 5.1 — e regra 1 do projeto proíbe excluir campo já em uso.
-`Lost Reason` é de **oportunidade**, existe só para desbloquear relatório e
-gatilho nativos. Os dois convivem: o SDR/closer continua preenchendo um
-campo só (`Motivo da desqualificação`), e o workflow, no mesmo nó que já
-muda `status` para `lost`, espelha o valor no `Lost Reason` — zero campo
-extra para quem opera, zero decisão dupla.
-
-**Como (a tabela completa de ramos que a seção 4 e a seção 5.1 referenciam):**
-
-| `Motivo da desqualificação` | Ação |
-|---|---|
-| `Timing errado` | Update Opportunity `status` = `abandoned` + Add Contact Tag `nutricao-90d` — **sem** `Lost Reason`: a oportunidade nunca chega a `lost` por este ramo, e o campo nativo é da plataforma para "perdido", não para "nutrição" |
-| `Sem fit` | Update Opportunity `status` = `lost` **+ Lost Reason** = `Sem fit` |
-| `Sem budget` | Update Opportunity `status` = `lost` **+ Lost Reason** = `Sem budget` |
-| `Não é decisor` | Update Opportunity `status` = `lost` **+ Lost Reason** = `Não é decisor` |
-| `Concorrente` | Update Opportunity `status` = `lost` **+ Lost Reason** = `Concorrente` |
-| `Duplicado ou já cliente` | Update Opportunity `status` = `lost` **+ Lost Reason** = `Duplicado ou já cliente` |
-| (vazio) | Update Opportunity `status` = `lost`, sem `Lost Reason` — nada para espelhar; mesmo comportamento de hoje |
-
-Esta é a tabela que o D6 (seção 4, ramo `Desqualificado` do Pós-ligação) e o
-ramo `Não`/qualquer motivo do nó 4 (seção 5.1, Loop do closer) usam — cinco
-valores, não os seis do campo, porque `Timing errado` nunca chega a `lost`
-(tabela acima). **Pré-requisito de tela, fora de qualquer API:** os cinco
-valores precisam existir em Settings → Custom Fields → `Lost Reason` antes
-de montar os nós — mesma classe de trabalho manual que criar opção em
-campo personalizado (nunca sai por API, `APROVADO.md` não se aplica porque
-não é escrita neste conector).
-
-**A confirmar na tela, honestamente não testado nesta subconta:** (a) se o
-seletor de `Lost Reason` dentro da ação `Update Opportunity` aceita ser
-preenchido por um valor fixo por ramo (o desenho acima assume isso, do
-mesmo jeito que `Pipeline Stage` já exige seleção fixa em vez de merge
-field neste projeto) — se a tela expuser um jeito de ler o valor
-dinamicamente de `Motivo da desqualificação` em vez de um ramo por valor, o
-desenho colapsa para um único nó, mais simples que o daqui; (b) se
-`Lost Reason` é gravável quando o `status` do mesmo nó é `abandoned` — a
-tabela acima assume que não (é recurso de "perdido", não de "nutrição") e
-por isso não tenta.
-
-#### Conferência do F-12, 22/09/2026 (mesma rodada): a dúvida (a) é mais séria do que "a confirmar", e há dois fatos novos
-
-**1. Existe fonte contrária à premissa central, e ela precisa estar escrita
-aqui.** A pesquisa desta conferência achou, no próprio canal de ideias da
-HighLevel, um pedido aberto de usuários para **poder referenciar `Lost Reason`
-em automações e usá-lo como gatilho**, com a observação de que isso **não está
-disponível**. Isso não refuta o desenho — pedidos envelhecem, e outra fonte da
-mesma busca menciona um recurso já entregue de *editar* `Lost Reason` em
-Settings → Custom Fields —, mas muda o peso da dúvida (a): a possibilidade de o
-seletor de `Lost Reason` **não existir de jeito nenhum** dentro da ação
-`Update Opportunity` deixa de ser remota. Consequência prática: **escreva o
-plano B como caminho de verdade, não como nota de pé de página.**
-
-| Se a tela… | Então |
-|---|---|
-| oferecer `Lost Reason` com valor **fixo** na ação | o desenho acima vale como está (cinco ramos) |
-| oferecer com valor **dinâmico** | colapsa para um nó só, melhor |
-| **não oferecer** `Lost Reason` na ação | **plano B:** o `Lost Reason` passa a ser escolha **manual** de quem marca `lost` na tela — SDR no Pós-ligação, closer no Loop —, e o par `Motivo da desqualificação` (campo de contato, gravado pela régua) + `Lost Reason` (objeto de oportunidade, escolhido na mão) convivem. O relatório de quebra por motivo continua funcionando; o que se perde é a garantia de que os dois sempre batem, e aí a auditoria do item 3 abaixo passa a ser obrigatória, não opcional |
-
-Esta terceira linha também desmente, por precaução, a afirmação de que
-`Lost Reason` está "disponível como condição em quatro gatilhos de workflow":
-não encontrei confirmação disso, e encontrei o oposto no pedido acima. Tratar
-como **não confirmado** até alguém abrir a tela — e o item "o que isto abre"
-abaixo (diferenciar o Reengajamento por motivo) depende justamente desse filtro
-de gatilho, então ele é mais especulativo do que parecia.
-
-**2. `Lost Reason` criado nunca pode ser apagado.** A mesma pesquisa: *once a
-Lost Reason is created, it cannot be deleted and will remain in the dropdown
-list forever.* Consequência direta para o pré-requisito de tela: os cinco
-valores têm de nascer **com o texto exato** de `Motivo da desqualificação`
-(C-16) na primeira vez — `Sem fit`, `Sem budget`, `Não é decisor`,
-`Concorrente`, `Duplicado ou já cliente`. Errar o rótulo aqui não se corrige,
-só se abandona, e o dropdown fica com o errado e o certo lado a lado para
-sempre. É a regra 1 do briefing ("nunca exclua") imposta pela própria
-plataforma, e vale escrever antes de alguém digitar às pressas.
-
-**3. Assimetria de API medida agora, e ela torna o item auditável sem tela.**
-O `lostReasonId` **vem** na resposta de `opportunities_search-opportunity` (já
-apareceu, como `null`, nas leituras de oportunidade desta sessão). E o schema de
-`opportunities_update-opportunity` **não tem** nenhum parâmetro de `lostReason`
-(conferido campo a campo: `name`, `pipelineId`, `pipelineStageId`, `status`,
-`monetaryValue`, `assignedTo`, `customFields`). Ou seja:
-
-> **legível por API, não gravável por este conector.**
-
-A metade "não gravável" confirma o que o item já dizia. A metade **legível** é
-nova e útil: o "Pronto quando" desta seção depende hoje de olhar
-Reporting → Pipeline na tela, e passa a ter uma verificação automática —
-`opportunities_search-opportunity` filtrando `status = lost` e conferindo que
-**todo** resultado tem `lostReasonId` preenchido. Uma oportunidade `lost` com
-`lostReasonId: null` é exatamente a divergência que o item existe para impedir,
-e agora dá para achá-la de fora, em qualquer rodada, sem depender de ninguém
-abrir a tela. Vale ainda mais no plano B acima, onde o preenchimento é manual e
-portanto esquecível.
-
-**O que isto abre, sem construir agora (registrado para não se perder, não
-é parte do "Pronto quando" desta rodada):** com `Lost Reason` alimentado, o
-Reengajamento 90 dias (seção 2.12) poderia um dia diferenciar a régua por
-motivo — um lead perdido por `Concorrente` provavelmente não vale
-reativação automática de conteúdo, um perdido por `Sem budget` talvez valha
-um ciclo mais longo — usando o filtro nativo de `Lost Reason` no gatilho em
-vez de reler o campo de contato. Não desenhado: é otimização sobre uma
-régua que já existe e funciona, não lacuna aberta.
-
-**Pronto quando:** todo lead que sai por `lost` com `Motivo da
-desqualificação` preenchido (D6 da seção 4, nó 4 da seção 5.1) também tem o
-`Lost Reason` nativo da oportunidade gravado com o mesmo valor, e o
-Reporting → Pipeline do GHL mostra a quebra por motivo sem precisar abrir
-oportunidade por oportunidade.
-
----
-
 ## 5. Workflow "Pós-agendamento" — migrado para as 5 etapas reais em 19/09/2026
 
 ### Gatilho
@@ -6216,28 +3313,16 @@ ficaria muda.
 ### Nós
 | # | Ação | Configuração |
 |---|---|---|
-| 1 | Mover oportunidade → `NEGOCIAR` | Aciona o Mestre de saída (a etapa muda de `CONECTAR`/`REUNIÃO DE DIAGNÓSTICO` (antiga `AGENDAR`) para `NEGOCIAR` — tabela 1.0) |
+| 1 | Mover oportunidade → `NEGOCIAR` | Aciona o Mestre de saída (a etapa muda de `CONECTAR`/`AGENDAR` para `NEGOCIAR` — tabela 1.0) |
 | 2 | Update Contact Field | `Data agendado` = `{{right_now}}` (R-03 — marca o instante em que o SDR agendou, não o horário da reunião) |
 | 3 | **Remove Workflows** — opção **All Except Current Workflow** (F-05, achado de 21/09/2026 — mesma troca da seção 3; substitui a lista antiga de seis nomes, incluindo `Recuperação de No-show`/`SLA do Closer — No-show`, R-12: este gatilho também dispara num **reagendamento** depois de um no-show, e sem remover os dois workflows de no-show daqui uma recuperação em curso continuaria mandando NS2/NS3 para um lead que já remarcou — a opção `All Except Current` cobre os dois sem precisar sabê-los pelo nome) |
 | 4 | Math Operations em série | Calcula `Nota de qualificação` (seção 9.1) |
 | 5 | Update Contact Field | `Prioridade` = 5 |
 | 6 | Add Note | Resumo da qualificação (modelo abaixo) |
-| 7 | Guarda de janela (G-05) → Send WhatsApp | Confirmação imediata ao lead — dentro da janela: texto livre `PA-CONF` · fora da janela: Template Meta `PA-CONF` (`biblioteca-mensagens.md`) → Update `Template usado` = `PA-CONF` |
-| 8 | Wait até 24h antes → Guarda de janela (G-05) → Send WhatsApp | Lembrete — dentro da janela: texto livre `PA-R24` · fora da janela: Template Meta `PA-R24` → Update `Template usado` = `PA-R24` |
-| 9 | Wait até 3h antes → Guarda de janela (G-05) → Send WhatsApp | Lembrete — dentro da janela: texto livre `PA-R3H` · fora da janela: Template Meta `PA-R3H` → Update `Template usado` = `PA-R3H` |
-| 10 | Wait até 30min antes → Guarda de janela (G-05) → Send WhatsApp | Lembrete curto — dentro da janela: texto livre `PA-R30` · fora da janela: Template Meta `PA-R30` → Update `Template usado` = `PA-R30` |
-
-**Guarda de janela nos nós 7-10 (G-05, peça 2):** mesmo mecanismo da seção
-2.6.2 — `WhatsApp: Customer Service Window Check` antes de cada envio, ramo
-dentro da janela segue com o texto livre já especificado, ramo fora da
-janela usa `Send WhatsApp` modo Template. Diferença destes quatro para os
-pontos de envio já cobertos: nenhum dos quatro tinha código nem texto
-versionado em `biblioteca-mensagens.md` antes desta rodada — a confirmação
-(nó 7) já tinha texto solto no modelo abaixo, sem código; os três lembretes
-(nós 8-10) não tinham texto nenhum. Os quatro ganharam código (`PA-CONF`,
-`PA-R24`, `PA-R3H`, `PA-R30`) e texto nesta rodada, porque não dá para
-montar o ramo Template de uma guarda sem saber qual texto livre ele
-substitui fora da janela.
+| 7 | Send WhatsApp | Confirmação imediata ao lead |
+| 8 | Wait até 24h antes | → Send WhatsApp lembrete |
+| 9 | Wait até 3h antes | → Send WhatsApp lembrete |
+| 10 | Wait até 30min antes | → Send WhatsApp lembrete curto |
 
 **Por que o nó 3 existe, e por que virou `Remove Workflows` em vez de lista
 (19/09/2026, atualizado 21/09/2026):** o nó 1 move a etapa para `NEGOCIAR` e
@@ -6291,23 +3376,10 @@ Preenchido por: {{contact.qualificao}}
 Histórico: {{contact.total_de_ligaes}} ligações, {{contact.total_de_conexes}} conexões, atendeu na T{{contact.tentativa_n}}
 ```
 
-**Mensagens dos nós 7-10 — `PA-CONF`/`PA-R24`/`PA-R3H`/`PA-R30`:** texto,
-código e histórico de versão moram em `biblioteca-mensagens.md` (mesma regra
-da seção 2.6, "texto duplicado em dois documentos diverge na primeira
-edição") — não repetidos aqui.
-
-**Limite conhecido, não escondido (achado nesta rodada, G-05 peça 2):**
-`PA-CONF` promete "vou te mandar o link aqui mesmo 30 min antes", mas este
-documento não especifica nenhum merge field nem nó que grave ou leia um
-link de reunião — nem `{{appointment}}` nem os campos personalizados da
-seção 0.3 (`IMPLEMENTACAO-WORKFLOWS.md`) têm um. `PA-R30` (nó 10, o "30 min
-antes" que a promessa cita) por isso não afirma anexar link nenhum no
-texto — só confirma o horário. A entrega do link em si continua dependendo
-do e-mail de confirmação automática do calendário (seção 7.1, "Confirmação
-automática: Ligada") ou de o SDR/closer mandar manualmente; nenhum dos dois
-é workflow, então nenhum sai por API. Lacuna pré-existente a este item, não
-criada por ele — registrada aqui por ter sido notada só agora, ao escrever
-o texto de verdade para os quatro nós.
+**Mensagem de confirmação (nó 7)**
+> {{contact.first_name}}, reunião confirmada para
+> {{appointment.start_time}}. Vou te mandar o link aqui mesmo 30 min antes. Se
+> precisar remarcar, responde esta mensagem.
 
 ---
 
@@ -6356,7 +3428,7 @@ faixas A/B da seção 9.1. Reaproveitar evita uma segunda régua para a régua.
 | `Sim` | Nenhuma mudança de etapa **nem de status**. A oportunidade segue `open` em `NEGOCIAR` — é o closer, fora deste workflow, que a leva a `FORMALIZAR` quando fechar |
 | `Parcial` | Update Opportunity `status` = `abandoned` (sem sair de `NEGOCIAR` — tabela 1.0, `Nutrição` não é etapa própria) + Add Contact Tag `nutricao-90d` |
 | `Não`, motivo = `Timing errado` | Mesma ação da linha `Parcial`: `status` = `abandoned` + tag `nutricao-90d` (sem fit **agora** não é sem fit nunca) |
-| `Não`, qualquer outro motivo | Update Opportunity `status` = `lost` (sem sair de `NEGOCIAR` — tabela 1.0, `Descartado` não é etapa própria) **+ Lost Reason** = mesmo valor de `Motivo da desqualificação`, mesmo mapeamento da tabela da seção 4.1 (F-12) — SDR (D6, seção 4) e closer decidem por réguas diferentes quando é `lost`, mas o motivo nativo grava pelo mesmo critério nos dois lugares |
+| `Não`, qualquer outro motivo | Update Opportunity `status` = `lost` (sem sair de `NEGOCIAR` — tabela 1.0, `Descartado` não é etapa própria) |
 
 **Achado desta migração:** nenhum destes três ramos move a oportunidade
 para fora de `NEGOCIAR` — só o `status` muda. Isso é diferente da maioria
@@ -6508,10 +3580,8 @@ gatilho.
 
 | # | Ação | Configuração |
 |---|---|---|
-| 0 | Guarda de janela de atendimento (seção 2.6.2, G-05) | Dentro da janela → 1 · Fora da janela → 1T |
-| 1 | Send WhatsApp | Texto livre `NS-1` (`biblioteca-mensagens.md`) → 2 |
-| 1T | Send WhatsApp, modo Template | Template Meta `NS-1` (a submeter — `biblioteca-mensagens.md`) → 2 |
-| 2 | Update Contact Field | `Template usado` = `NS-1` (os dois ramos acima convergem aqui) |
+| 1 | Send WhatsApp | Texto `NS-1` (`biblioteca-mensagens.md`) |
+| 2 | Update Contact Field | `Template usado` = `NS-1` |
 | 3 | Add Contact Tag | `fila-tel` |
 | 4 | Add Task | `[CADENCIA] NS1 · Ligar (telefone) — Recuperação de no-show` · vence hoje · Atribuir: `Contact Owner` (dinâmico, R-10) |
 | 5 | Aguardar | Wait → Until specific time · D1 10:00 |
@@ -6524,10 +3594,8 @@ gatilho.
 | 12 | Add Task | `[CADENCIA] NS3 · Ligar (telefone) — Recuperação de no-show` · vence hoje · Atribuir: `Contact Owner` |
 | 13 | Aguardar | Wait → Time Delay 1 dia (folga para o SDR classificar a NS3) |
 | 14 | Portão | If/Else — etapa ainda `NEGOCIAR` **E** `status` ainda `open` → segue (ninguém reagendou nem descartou). Senão → **Remove from Workflow: este** |
-| 14b | Guarda de janela de atendimento (seção 2.6.2, G-05) | Dentro da janela → 15 · Fora da janela → 15T |
-| 15 | Send WhatsApp | Texto livre `NS-2` → 16 |
-| 15T | Send WhatsApp, modo Template | Template Meta `NS-2` (a submeter — `biblioteca-mensagens.md`) → 16 |
-| 16 | Update Contact Field | `Template usado` = `NS-2` (os dois ramos acima convergem aqui) |
+| 15 | Send WhatsApp | Texto `NS-2` |
+| 16 | Update Contact Field | `Template usado` = `NS-2` |
 | 17 | Update Contact Field | `Resultado da tentativa` = vazio |
 | 18 | Remove Contact Tag | `fila-tel` |
 | 19 | Add Contact Tag | `nutricao-90d` |
@@ -6603,45 +3671,6 @@ veredito pós-reunião.
 
 ---
 
-## 5.5 Deduplicação entre canais (G-15) — por que isto **não** é um workflow
-
-O Meta Lead Ads grava telefone; a `Qualificação por IA no WhatsApp`/Instagram
-(seção 6) não tem telefone nem e-mail no perfil do contato. Um lead que
-preencheu o formulário há meses, esfriou (`nutricao-90d`) e volta pelo
-Instagram vira um **segundo contato**, com uma **segunda cadência**, sem
-ninguém perceber que é a mesma pessoa — a fusão automática nativa (R-13, seção
-1.3) só age na criação de um contato novo, nunca revisitando dois que já
-existem separados.
-
-**Por que não dá para resolver com um nó de workflow:** o GHL tem uma ação
-nativa, `Merge Contact`, que funde duplicatas por Telefone, E-mail ou os dois
-— mas o único gatilho do projeto que reage a mudança de campo, `Contact
-Changed` (usado em 2.4/2.9/4.1/5.1), filtra hoje só por Usuário atribuído,
-DND, Tag, Custom Field, Endereço e Website. **Telefone e e-mail não estão na
-lista de campos filtráveis** — pedido em aberto no board de ideias da própria
-HighLevel, sem previsão (`ideas.gohighlevel.com`, achado por citação repetida
-em buscas com termos diferentes, mesmo padrão de confiança do G-05/R-14). Sem
-esse gatilho, nada dispara o `Merge Contact` no momento em que um contato do
-Instagram ganha telefone (ou vice-versa) — não é falta de desenho, é limite
-de plataforma. Não tente resenhar isto como workflow numa próxima rodada.
-
-**O que fazer em vez disso** (ferramenta nativa + rotina humana, mesmo padrão
-de R-11/R-14 para o que workflow não alcança):
-1. Tela → Configurações → Contatos → **Duplicate Management & Merge Tool**:
-   agrupa por Nome, Telefone ou E-mail, funde até 10 de uma vez. Para um
-   contato sem telefone nem e-mail (todo lead que só existe via Instagram), o
-   único critério que serve é **Nome** — passível de falso-positivo (dois
-   donos de negócio homônimos), então a fusão por Nome é revisada, nunca em
-   lote automático.
-2. SDR (`GUIA-SDR.md`): antes de tratar um handoff vindo do Instagram como
-   "lead novo", buscar o nome/empresa na busca de contatos.
-3. Gestor: rodar a Duplicate Management & Merge Tool por Nome uma vez por
-   semana.
-
-Zero campo, zero tag, zero workflow — item de rotina manual, não sai por API.
-
----
-
 ## 6. Workflow "Qualificação por IA no WhatsApp"
 
 ### Entrada
@@ -6655,76 +3684,10 @@ assim você nunca tem IA conversando com lead que não passou pelo portão.
 | Stop on Response | **Desligado** (aqui a resposta é o objetivo, não a saída) |
 | Allow Re-entry | Desligado |
 
-### 6.0 Guarda de janela na entrada — G-06
-
-**Por quê:** a entrada deste workflow (seção 2.7) dispara pelo resultado de
-uma tentativa de **ligação** (`Tentativa nº` ≥ 2 e `Resultado da tentativa`
-≠ `Atendeu`), não por uma mensagem do lead no WhatsApp — nada garante que a
-janela de atendimento de 24h (G-05, seção 2.6.2) já esteja aberta quando a
-IA entra em cena. O G-05 fechou a guarda em todo `Send WhatsApp` de texto
-livre da operação, mas a varredura que fechou aquele item nunca chegou
-aqui: os textos deste workflow nunca entraram em `biblioteca-mensagens.md`
-(o R-04 que criou aquele documento é de 18/09/2026, dois dias antes de o
-G-05 existir), e sem linha na tabela de templates não havia o que a
-varredura pudesse conferir — o mesmo padrão de "achado por ausência" que já
-fechou outras lacunas deste projeto.
-
-O Caminho A (recomendado, abaixo) é o caso mais exposto, não o mais seguro:
-`Conversation AI` também entrega por WhatsApp Business API — pesquisado via
-`WebSearch` (confiança média, mesma limitação de proxy contra domínios de
-suporte da HighLevel já registrada no G-05): a ação nativa manda "a single
-AI-generated message to a contact" ao ser usada em workflow, e nenhuma fonte
-lida sugere que ela seja isenta da janela — mas, diferente de `M1-a` ou
-`MI-0`, o texto que a IA manda é **gerado no momento da conversa**, então
-não existe um texto fixo para pré-aprovar como Template Meta (que exige
-conteúdo estático). Sem guarda, a primeira mensagem da IA cairia fora da
-janela na maioria dos casos e a Meta recusaria em silêncio — nem o lead
-recebe nada, nem o SDR fica sabendo, porque essa falha não gera tarefa nem
-aviso nenhum.
-
-**Como:** a mesma guarda do G-05 (`WhatsApp: Customer Service Window
-Check`), com uma saída diferente por não existir texto livre para
-pré-aprovar aqui: em vez de um "Template equivalente ao texto de M1", a
-guarda manda um convite fixo e curto (`QI-1`, novo, `biblioteca-mensagens.md`)
-pedindo para o lead responder por ali — a resposta **reabre a janela** (é o
-cliente escrevendo primeiro) e só então a IA assume a conversa:
-
-| Nó | Ação | Configuração |
-|---|---|---|
-| G.1 | `WhatsApp: Customer Service Window Check` | Confere o contato ao entrar no workflow |
-| G.2 (dentro da janela) | segue | direto para o nó 1 (Conversation AI), sem mudar nada |
-| G.3 (fora da janela) | `Send WhatsApp`, modo **Template** → `Update Contact Field` | Template Meta `qi_1` (`QI-1`, `biblioteca-mensagens.md`) → `Template usado` = `QI-1` |
-| G.4 | `Wait → Contact Replied`, tempo limite 24h | Respondeu: segue para o nó 1 (Conversation AI, agora dentro da janela que a própria resposta reabriu) |
-| G.5 (sem resposta no prazo) | `Add Note` | `IA de qualificação: sem resposta ao convite de reabertura — segue só pela cadência de ligação` → fim do workflow. Não remove de nenhum outro workflow: a Cadência 12x30 principal não passa por aqui, continua sozinha |
-
-Fora do escopo desta guarda, de propósito: marcar `QI-1` como um `toque`
-(F-04, seção 2.19) — aquela seção já trata Cadência Inbound, Reengajamento e
-Recuperação de No-show como pendência deferida pelo mesmo motivo (nenhuma
-delas chega perto do teto sozinha); QI-1 entra na mesma fila, não é lacuna
-nova desta rodada.
-
-**Caminho B, fechado nesta rodada (peça 2):** tinha o mesmo problema em
-**cada uma** das 8 perguntas, não só na primeira — o desenho original
-assumia que, sem resposta em 24h, a pergunta seguinte saía de qualquer
-forma (`pula para a pergunta seguinte`), e essa tentativa cairia fora da
-janela de novo se a anterior nunca tivesse reaberto. Das duas saídas
-cogitadas (Template por pergunta — 8 novos, inviável para um fluxo pensado
-como conversa — ou reestruturar para só avançar depois de resposta de
-verdade), a segunda venceu: cada bloco agora encerra o workflow em vez de
-insistir sem garantia de janela. Detalhe nó a nó na seção "B — Sem
-Conversation AI" abaixo.
-
-**Pronto quando (cumprido):** todo envio de WhatsApp deste workflow —
-Caminho A e Caminho B — tem guarda de janela, do mesmo jeito que o G-05 já
-garante para o resto da operação.
-
 ### Estrutura
-Duas formas de montar. Recomendo a **A**, agora precedida pela guarda 6.0.
+Duas formas de montar. Recomendo a **A**.
 
 **A — Conversation AI (Bot nativo), modo perguntas + agendamento**
-
-Depois da guarda 6.0 (nós G.1-G.5), o nó 1 abaixo é o destino de G.2 e de
-G.4 quando o lead responde:
 
 Um nó `Conversation AI` com:
 - Canal: WhatsApp
@@ -6776,40 +3739,13 @@ caso de cliente. Se o lead perguntar preço, diga que depende do diagnóstico e
 que é exatamente o assunto da reunião.
 ```
 
-**B — Sem Conversation AI (só nós) — guarda de janela fechada (G-06)**
+**B — Sem Conversation AI (só nós)**
 
 Corrente de 8 blocos: `Send WhatsApp (pergunta)` → `Wait → Contact Replied,
-tempo limite 24h` → `Update Contact Field` (com a resposta) → próxima
-pergunta. Funciona sem Conversation AI contratado, mas não interpreta
-resposta livre — você acaba tendo que ler as conversas na mão.
-
-**No tempo limite (sem resposta), o bloco encerra o workflow — nunca "pula
-para a pergunta seguinte".** Era essa a metade do G-06 que ficou pendente
-na peça 1 (guarda 6.0 acima cobre só a entrada). O motivo é o mesmo em
-cada uma das 8 perguntas, não só na primeira: a guarda 6.0 garante que a
-**pergunta 1** parte de dentro da janela (direto, ou reaberta pela resposta
-ao convite `QI-1`) — mas cada pergunta seguinte só herda essa garantia
-porque a pergunta anterior **recebeu resposta**, e é a resposta do lead
-(não o envio nosso) que reabre a janela de 24h. "Pular para a próxima
-pergunta" sem resposta manda texto livre com a janela já fechada, exatamente
-o defeito que a peça 1 corrigiu na entrada — só que oito vezes, uma por
-pergunta, e sem Template equivalente para nenhuma delas (8 Templates novos
-para um fluxo pensado como conversa foi avaliado e descartado desde a
-primeira redação deste item). Terminar em silêncio, em vez de insistir sem
-garantia de janela, é o mesmo "lado barato de errar" que a lição do R-18 já
-registrou para outro portão do projeto — o lead segue coberto pela
-Cadência 12x30 principal (ligação), que não passa por aqui.
-
-| # | Ação | Configuração exata |
-|---|---|---|
-| B.1 | Send WhatsApp | texto livre, pergunta 1 (prompt da seção 6, item 1) |
-| B.2 | Wait → Contact Replied | tempo limite 24h |
-| B.2 (respondeu) | Update Contact Field | grava a resposta no campo da pergunta 1 → segue para B.3 (pergunta 2), dentro da janela que a própria resposta reabriu |
-| B.2 (sem resposta) | Add Note | `IA de qualificação (Caminho B): sem resposta na pergunta 1 — encerra, segue só pela cadência de ligação` → fim do workflow |
-
-Repita o par (`Send WhatsApp` → `Wait → Contact Replied` com o mesmo
-desvio "respondeu segue / sem resposta encerra") para as 7 perguntas
-restantes, cada uma citando seu próprio número na nota de saída.
+tempo limite 24h` → `Update Contact Field` (com a resposta) → próxima. No
+tempo limite, pula para a pergunta seguinte ou encerra. Funciona sem
+Conversation AI contratado, mas não interpreta resposta livre — você acaba
+tendo que ler as conversas na mão.
 
 ### Saída
 | # | Ação |
@@ -6914,14 +3850,14 @@ a fila e ver empresa em branco em todas as listas de uma vez.
 ### 8.1 `Fila Quente` — migrado para as 5 etapas reais em 18/09/2026
 | Item | Configuração |
 |---|---|
-| Filtros | tag `fila-quente` presente **E** tag `nao-perturbe` ausente **E** etapa da oportunidade em (`CONECTAR`, `REUNIÃO DE DIAGNÓSTICO` (antiga `AGENDAR`)) — `Retorno agendado` some da lista de etapas porque não é mais etapa própria (tabela 1.0): quem pediu retorno já está em `CONECTAR`, coberto |
+| Filtros | tag `fila-quente` presente **E** tag `nao-perturbe` ausente **E** etapa da oportunidade em (`CONECTAR`, `AGENDAR`) — `Retorno agendado` some da lista de etapas porque não é mais etapa própria (tabela 1.0): quem pediu retorno já está em `CONECTAR`, coberto |
 | Colunas | Nome · `Empresa` · Telefone · `Prioridade` · `Tentativa nº` · `Resultado da tentativa` · `Nota de qualificação` · Última atividade |
 | Ordenação | `Prioridade` desc, depois `Tentativa nº` asc |
 
 ### 8.2 `Fila Telefone Hoje` — migrado para as 5 etapas reais em 18/09/2026
 | Item | Configuração |
 |---|---|
-| Filtros | tag `fila-tel` presente **E** `nao-perturbe` ausente **E** `telefone-invalido` ausente **E** `conectado-hoje` ausente **E** etapa = `CONECTAR` ⚠️ **F-16 (seção 2.31): `conectado-hoje` nunca é removida e o `Atendeu` agora fica em `CONECTAR` — esta cláusula virou exclusão permanente. Não construir com o filtro como está.** |
+| Filtros | tag `fila-tel` presente **E** `nao-perturbe` ausente **E** `telefone-invalido` ausente **E** `conectado-hoje` ausente **E** etapa = `CONECTAR` |
 | Colunas | Nome · `Empresa` · Telefone · `Tentativa nº` · `Prioridade` · `Resultado da tentativa` · Tarefas abertas |
 | Ordenação | `Prioridade` desc, depois `Tentativa nº` asc |
 
@@ -6931,66 +3867,16 @@ chance de atender do que o da T11. A fila devolve primeiro o que converte.
 ### 8.3 `Fila WhatsApp Hoje` — migrado para as 5 etapas reais em 18/09/2026
 | Item | Configuração |
 |---|---|
-| Filtros | tag `fila-wa` presente **E** `nao-perturbe` ausente **E** `conectado-hoje` ausente **E** `Permissão WhatsApp` = `Sim` **E** etapa = `CONECTAR` ⚠️ **Mesmo problema da 8.2 — F-16, seção 2.31.** |
+| Filtros | tag `fila-wa` presente **E** `nao-perturbe` ausente **E** `conectado-hoje` ausente **E** `Permissão WhatsApp` = `Sim` **E** etapa = `CONECTAR` |
 | Colunas | Nome · `Empresa` · Telefone · `Tentativa nº` · `WA não atendidas seguidas` · `Prioridade` |
 | Ordenação | `Prioridade` desc, depois `WA não atendidas seguidas` asc |
 
-### 8.4 `Retornos` — migrado para as 5 etapas reais em 18/09/2026, ordenação fechada em 22/09/2026
+### 8.4 `Retornos` — migrado para as 5 etapas reais em 18/09/2026
 | Item | Configuração |
 |---|---|
 | Filtros | `Resultado da tentativa` = `Pediu retorno` **E** `nao-perturbe` ausente |
-| Colunas | Nome · `Empresa` · Telefone · `Data de retorno` · `Hora do retorno` · `Prioridade` · `Nota de qualificação` · Tarefas abertas |
-| Ordenação | `Data de retorno` asc, depois `Hora do retorno` asc (mesmo padrão de dois níveis de 8.1/8.2/8.3) |
-
-Os dois campos de S-01 (`Data de retorno`, `Hora do retorno`) existem na tela
-desde 21/09/2026 23:18 — a versão anterior desta seção ainda descrevia o
-estado de antes deles existirem ("sem o campo S-01: Última atividade asc —
-pior, mas funciona"), contradizendo a nota do ramo `Pediu retorno` (acima,
-nó 4/4b) que já dava a lista como atualizada. Fechado agora: quem venceu há
-mais tempo aparece primeiro, e dentro do mesmo dia o SDR vê o horário
-combinado pela coluna.
-
-#### ⚠️ Duas ressalvas sobre esta ordenação, levantadas em 22/09/2026 — e a primeira vale para **sete** listas, não para esta
-
-**1. "Mesmo padrão de 8.1/8.2/8.3" não é verificação, é repetição.** A
-justificativa da ordenação de dois níveis aqui foi que as outras listas já
-fazem assim. Mas nenhuma delas foi testada na tela: `grep "^| Ordenação | .*,
-depois "` acha **sete** listas com dois níveis (8.1, 8.2, 8.3, 8.4, 8.16,
-8.18, 8.19). Se a Smart List do GHL **não** aceitar ordenação secundária, o
-desenho está errado em sete lugares de uma vez — e a consistência entre eles
-esconde isso, em vez de denunciar. Pesquisa desta rodada: a documentação
-descreve ordenação e gestão de colunas como recursos da Smart List, mas **não
-achei confirmação de ordenação por mais de uma coluna** (e há pedido aberto de
-usuários sobre limitação de ordenação em lista de contato). **Não afirmo que
-não existe** — afirmo que ninguém verificou, e que a justificativa usada não
-verifica nada.
-
-**Regra:** "já fazemos assim em outros N lugares" é consistência, não
-evidência. Quando a capacidade da plataforma nunca foi testada, repetir o
-padrão multiplica o risco em vez de reduzi-lo — e o número de lugares afetados
-é exatamente o que o `grep` devolve.
-
-**Plano B, se a tela só aceitar uma coluna** (uma linha por lista, sem
-redesenho):
-
-| Lista | Ordenar por | O que o segundo nível vira |
-|---|---|---|
-| 8.4 `Retornos` | `Data de retorno` asc | `Hora do retorno` já é **coluna** — o SDR lê o horário sem ordenar por ele |
-| 8.1 / 8.2 / 8.3 / 8.16 | `Prioridade` desc | o desempate (`Tentativa nº` / `WA não atendidas seguidas`) vira coluna visível |
-| 8.18 | `Nº de no-shows` desc | idem |
-| 8.19 | `Segmento` asc | idem |
-
-Em todas, o primeiro nível é o que importa para a decisão; o segundo é
-refinamento que a coluna entrega de graça.
-
-**2. `Hora do retorno` é `TEXT`, e `TEXT` ordena por letra, não por hora.** Com
-`HH:MM` zero-padded (`09:30`, `14:00`) a ordem alfabética coincide com a
-cronológica — é por isso que o placeholder do campo é `HH:MM` e não `H:MM`.
-Mas nada impede o SDR de digitar `9:30`, e aí a linha vai parar **depois** de
-`14:00` na lista, porque `'9'` > `'1'`. Não é defeito de desenho, é
-característica do tipo: a única defesa é o placeholder (que já está certo na
-tela, conferido por API) e o SDR saber disso. Vale uma linha no
-`script-de-ligacao.md`, seção 2 — quem anota o horário é quem digita.
+| Colunas | Nome · `Empresa` · Telefone · `Data do retorno` · `Prioridade` · `Nota de qualificação` · Tarefas abertas |
+| Ordenação | `Data do retorno` asc (sem o campo S-01: "Última atividade" asc — pior, mas funciona) |
 
 ### 8.5 Sugerida por mim: `Sem resultado ontem`
 | Item | Configuração |
@@ -6998,11 +3884,11 @@ tela, conferido por API) e o SDR saber disso. Vale uma linha no
 | Filtros | tag `limpar-tarefas` presente **E** tag `fila-tel`/`fila-wa` ausentes |
 | Para quê | É o buraco de gestão: tentativas que venceram sem o SDR classificar. Se esta lista cresce, a operação está mentindo nos números |
 
-### 8.6 `Conexão por Tentativa` — R-01, coluna de qualidade acrescentada pelo F-06 (peça 2, 22/09/2026)
+### 8.6 `Conexão por Tentativa` — R-01
 | Item | Configuração |
 |---|---|
 | Filtros | `Total de conexões` ≥ 1 |
-| Colunas | Nome · `Tentativa nº` · `Total de ligações` · `Total de conexões` · `Tentativas telefone` · `Conexões telefone` · `Tentativas WhatsApp` · `Conexões WhatsApp` · `Conexão real` (nova) |
+| Colunas | Nome · `Tentativa nº` · `Total de ligações` · `Total de conexões` · `Tentativas telefone` · `Conexões telefone` · `Tentativas WhatsApp` · `Conexões WhatsApp` |
 | Ordenação | `Tentativa nº` asc |
 
 Funciona sem um campo extra de "tentativa em que conectou": ao registrar
@@ -7011,18 +3897,6 @@ Funciona sem um campo extra de "tentativa em que conectou": ao registrar
 por quem já conectou e ordenar por essa tentativa responde "qual tentativa
 conecta mais" olhando a lista ordenada, sem planilha — é o "Pronto quando" do
 R-01 do roadmap.
-
-**Coluna `Conexão real` (F-06):** não troca o filtro — continua mostrando
-todo `Atendeu`, de propósito, porque é a lista que compara os dois números,
-não a que escolhe um. Olhando a coluna nova ao lado de `Conexões telefone`,
-o gestor vê direto quais dessas conexões marcadas pelo SDR duraram menos de
-60s (`Conexão real = Não` ou vazio — sem gravação habilitada, ou chamada
-ainda sem transcrição) — a mesma pergunta do "Pronto quando" do F-06 ("o SDR
-não consegue inflar o número desligando rápido"), respondida linha a linha
-em vez de por uma taxa só. Filtro extra opcional para quem quiser isolar só
-as reais: `Conexão real = Sim` — funciona aqui porque é leitura pontual por
-contato, sem somar nada (diferente do widget de dashboard, seção 2.17, que
-precisa de campo cumulativo — ver C-31 em `campos-e-tags.md`).
 
 ### 8.7 `Calibração da Régua` — F-03
 | Item | Configuração |
@@ -7270,263 +4144,6 @@ até depois do horário combinado e conferiu de novo, comparando contra o
 aplicá-la — mesma garantia de "não é palpite" que as outras quatro listas de
 saúde (8.20-8.23) já seguem.
 
-### 8.28 `Saúde — Negociação Estagnada` — F-13
-| Item | Configuração |
-|---|---|
-| Filtros | tag `negociacao-estagnada` presente |
-| Colunas | Nome · `Empresa` · `Nota de qualificação` · `Data do veredito do closer` |
-| Ordenação | `Data do veredito do closer` asc (quem foi qualificado há mais tempo sem decisão aparece primeiro) |
-
-A tag só existe porque o workflow da seção 2.28 (F-13) já esperou 3 dias
-corridos desde o veredito `Sim` e conferiu de novo (etapa, `status` e o
-próprio veredito) antes de aplicá-la — mesma garantia de "não é palpite" que
-as listas de saúde 8.20-8.24 já seguem. **Divergência conhecida do publicado
-(G-23):** o workflow real espera 5 dias, não 3 — ver o aviso no topo da
-seção 2.28. Esta lista ainda não foi montada na tela (só o workflow e a
-tag saíram do papel, `PLANO-MULTICANAL.md` A5).
-
-### 8.29 `Saúde — Proposta Pendente` — G-23
-| Item | Configuração |
-|---|---|
-| Filtros | tag `proposta-pendente` presente |
-| Colunas | Nome · `Empresa` · `Nota de qualificação` · `Data do veredito do closer` |
-| Ordenação | `Data do veredito do closer` asc (quem foi qualificado há mais tempo sem ser movido para NEGOCIAR aparece primeiro) |
-
-Espelho da 8.28: esta lista pega quem o closer qualificou (`Sim`) e não
-moveu para `NEGOCIAR` em 3 dias; a 8.28 pega quem já está em `NEGOCIAR` e
-não fecha. A tag só existe porque o workflow "Proposta Pendente"
-(`tools/build_estagnacao.py`, seção 2.28) já esperou 3 dias e conferiu de
-novo (tag `etapa-reuniao`, veredito) antes de aplicá-la. Ainda não montada
-na tela — mesma pendência da 8.28.
-
-### 8.25 `Entrada do Dia` — F-10
-
-**Conferido na tela conceitual em 22/09/2026 (pesquisa, `help.gohighlevel.com`
-bloqueado pelo proxy — lido por citação):** Smart List do GHL **tem** filtro de
-data **relativa** (`Is` → `In the Last`, com janela em dias) e a lista é
-dinâmica de verdade — reavalia em tempo real e o contato entra e sai sozinho.
-Então esta lista funciona. Mas o filtro precisa ser escrito como **relativo**,
-e não como igualdade contra uma data: se quem monta escolher `Data de criação`
-`is` e então **picar um dia no calendário**, a lista congela naquela data e
-para de atualizar amanhã, em silêncio — o mesmo tipo de armadilha do rótulo de
-etapa que nunca casa. **É o detalhe que faz a lista servir ou não servir.**
-
-**São duas listas salvas, não uma com o filtro trocado.** Smart List é uma
-view salva; alternar o filtro de 1 para 7 dias e de volta muda a view **para
-todo mundo** que a usa, e é o tipo de edição que alguém esquece desfeita.
-Duas listas custam o mesmo e não disputam:
-
-| Lista | Filtro | Colunas | Ordenação |
-|---|---|---|---|
-| **`Entrada — últimas 24h`** | `Data de criação` **`In the Last`** `1 dia` (relativo, **não** igualdade a uma data) | Nome · Telefone · Origem (`source`) · Data de criação | Data de criação desc |
-| **`Entrada — últimos 7 dias`** | `Data de criação` **`In the Last`** `7 dias` | idem | idem |
-
-**Estas duas são as únicas listas do documento que dá para montar hoje, sem
-esperar decisão nenhuma — e são a mais urgente da casa.** Acrescentado em
-22/09/2026, por dois motivos que se somam:
-
-1. **Não dependem da Tabela J.** A coluna `Empresa` saiu da definição acima (a
-   versão anterior a trazia por hábito): ela está vazia para 100% da base e o
-   trabalho destas listas é **contar chegada**, não qualificar lead. Sem
-   `Empresa`, não há o que decidir — as outras sete listas esperam a Tabela J
-   porque nelas a coluna morta atrapalha a leitura do SDR; aqui não existe.
-2. **Respondem, de graça, a pergunta de ordenação que trava as outras sete.**
-   A ordenação destas duas é de **um nível só** (`Data de criação` desc), então
-   elas se montam inteiras de qualquer jeito — mas quem as montar está com a
-   tela de Smart List aberta e pode olhar, em dez segundos, se o construtor
-   oferece um segundo critério (`, depois`). **É a primeira oportunidade real
-   de responder aquilo**, e ela chega antes da Fase 6.
-
-**Ordem sugerida, portanto:** monte a `Entrada — últimas 24h` primeiro, de
-todas as listas do projeto. Ela é o único monitor de entrada que existe
-(F-10 — e o silêncio de entrada já passa, por uma margem grande e crescente
-a cada rodada, o maior intervalo que esta base já teve; número exato só na
-leitura mais recente do F-10 em `ROADMAP-SALES-ENGAGEMENT.md`, para não
-desatualizar aqui), não espera ninguém, e responde de lambuja a dúvida que
-decide o desenho das outras sete. Anote o resultado da ordenação em
-`APRENDIZADOS-CRM.md` — é a verificação que nenhuma pesquisa deste projeto
-conseguiu fazer.
-
-**"Últimas 24h" não é "hoje", e a diferença importa na leitura:** `In the
-Last 1 dia` é janela **rolante** (conta para trás a partir de agora); "hoje" é
-desde a meia-noite. Para o F-10 a rolante é a **melhor** das duas — é
-literalmente a mesma grandeza do gap que mede a anormalidade (o maior
-intervalo já observado nesta base é 15h06, `ROADMAP-SALES-ENGAGEMENT.md`,
-F-10), então "zero linha nas últimas 24h" já significa "passamos do pior caso
-histórico". Mas não chame de "hoje" no nome nem na conversa: às 09h da manhã a
-lista mostra o que entrou desde as 09h de ontem, e quem ler "hoje" vai
-interpretar errado.
-
-**Nome exato do campo: confirmar na tela.** A documentação usa `Created On` /
-`Date Added` em inglês; a tela em português desta subconta pode trazer `Data de
-criação` ou `Data de adição`. Este projeto já perdeu tempo com `Data de
-retorno` vs `Data do retorno` — escolha pelo seletor, não pelo que está escrito
-aqui.
-
-Equivalente, para quem não tem Custom Metrics no plano, dos dois widgets
-`Leads novos hoje`/`Leads novos — 7 dias` da seção 2.17 (ROADMAP-SALES-
-ENGAGEMENT.md, F-10) — mesmo padrão de fallback que 8.6/8.8/8.16 já cobrem
-para as outras métricas do dashboard: o gestor perde a tela única, não
-perde o dado. Diferente das outras listas de saúde (8.20-8.24), que
-esperam alguém estar parado, esta é a única que vigia o lado oposto —
-**nenhuma linha nova entrando**: as seis peças do Monitor de Saúde (F-05)
-ficam todas verdes justamente quando a entrada para (achado que abriu o
-F-10, `APRENDIZADOS-CRM.md`), então zero linha com `Data de criação = hoje`
-antes do meio-dia já é sinal de olhar, mesmo com a lista vazia — o oposto
-de toda outra lista deste documento, onde vazia é o estado bom. Para o
-número de 7 dias (tendência), a mesma lista trocando o filtro para
-"últimos 7 dias" e contando as linhas na tela é o substituto manual do
-segundo widget — sem Custom Metrics não há cálculo automático de
-tendência, e essa é a mesma limitação já registrada no "Limite conhecido"
-da seção 2.17.
-
-Esta é a peça que faltava para o F-10 fechar a especificação por inteiro:
-a seção 2.17 já tinha os dois widgets (`Leads novos hoje`/`Leads novos — 7
-dias`), mas a Smart List equivalente, citada só em prosa no roadmap
-("Smart List `Entrada do dia`, filtro `Date Created` = hoje, ordenada por
-criação"), nunca tinha ganhado uma entrada própria aqui — a fonte que a
-Fase 6 do `GUIA-MONTAGEM.md` realmente consulta. Fechado nesta rodada
-(22/09/2026), documentação pura, zero campo e zero tag novos.
-
-### 8.26 `Auditoria — tag sem DND nativo` — R-14
-
-| Item | Configuração |
-|---|---|
-| Filtros | tag `nao-perturbe` presente **E** (`Calls & Voicemails DND` = Disabled **OU** `WhatsApp DND` = Disabled **OU** `Email DND` = Disabled) |
-| Colunas | Nome · Telefone · Tags · `Resultado da tentativa` · Etapa/status da oportunidade |
-| Ordenação | Data de criação do contato, desc (o mais recente primeiro — é o mais provável de ainda estar "quente" numa régua) |
-
-**`Email DND` acrescentado em 22/09/2026 (G-07):** até aqui a lista só
-cobria os dois canais que existiam quando o R-14 foi escrito — o e-mail só
-virou canal real no F-15, no mesmo dia, e ninguém tinha voltado para
-atualizar esta lista até agora. Mesmo raciocínio da correção de `E`→`OU`
-abaixo: um contato com a tag e `Email DND` desligado (mas `Calls`/`WhatsApp`
-ligados) é exatamente quem já foi protegido nos outros canais e continua
-exposto no mais novo — o mesmo padrão "protegido num canal, exposto no
-vizinho" que o G-06 e o F-14 já registraram para outras combinações.
-
-Lista de exceção, não de volume: o alvo é sempre zero linha. Existe porque
-`Set Contact DND` e `Add Contact Tag: nao-perturbe` nascem no mesmo nó em
-quatro lugares diferentes do documento (2.9.5 — opt-out por palavra-chave no
-WhatsApp, R-17; 2.9.6 — o mesmo para e-mail, G-07; seção 4 ramo `Não ligar`;
-seção 6 nó 3 — a lista dizia "quatro" antes desta rodada citando "opt-out
-por palavra-chave do R-17" como item **separado** do 2.9.5, quando são o
-mesmo lugar; corrigido ao contar de novo para acrescentar o 2.9.6 de
-verdade) — um deles aplicando só a
-tag sem o DND nativo é o caso que realmente arrisca reincomodar o lead,
-porque a tag sozinha não bloqueia nada na plataforma; é convenção interna
-lida por filtro de lista, o DND é quem impede o próximo envio de sair.
-Uma linha aqui é bug a corrigir na hora (falta de `Set Contact DND` num nó
-que já tem a tag), não estatística a acompanhar.
-
-**Correção de lógica, 22/09/2026 — o filtro nasceu com `E` onde precisa de
-`OU`.** Estava escrito `tag presente E Calls DND = Disabled E WhatsApp DND =
-Disabled`, que só pega quem está desprotegido **nos dois** canais. Um contato
-com a tag, `Calls DND` ligado e `WhatsApp DND` **desligado** escapava da
-lista — e é exatamente um lead que pediu para não ser procurado e ainda pode
-receber WhatsApp. Pior: **proteção parcial é o defeito mais provável** dos
-dois, porque basta um nó chamar `Set Contact DND` num canal só. Com `E`, "zero
-linha" não provava o que o R-14 diz provar. Note que a 8.27 já usava `OU`
-corretamente — as duas são espelhos, e espelho de "algum canal ligado" é
-"algum canal desligado", não "todos desligados".
-
-#### ⚠️ O filtro `WhatsApp DND` pode não existir nesta subconta hoje — e isso é mais que um detalhe de montagem
-
-Pesquisa desta rodada, na mesma fonte que confirmou os nomes dos filtros: as
-preferências de DND de **WhatsApp, Facebook Messenger e GMB só aparecem depois
-que o app correspondente está integrado à subconta.** Esta subconta **não
-tinha WhatsApp integrado até 21/09/2026** (era a razão pela qual o R-14
-esperava "volume real de mensagem" e pela qual não existia uma única
-mensagem de WhatsApp aqui). **Desde 22/09/2026 tem** — a integração
-não-oficial Stevo (QR), que o dono conectou e já gerou tráfego de teste real
-(`APRENDIZADOS-CRM.md`; G-09 no roadmap). Se essa conexão faz o app
-"WhatsApp" da subconta aparecer como integrado para o GHL (e portanto libera
-o filtro `WhatsApp DND` na Smart List) é a mesma pendência de tela do item 1
-abaixo — a Stevo não é o app nativo de WhatsApp do GHL, então não é certo
-que conte. Duas consequências, e a segunda é de compliance, não de
-montagem:
-
-1. **Hoje as duas listas se montam só pela metade** — com `Calls & Voicemails
-   DND`. A cláusula de WhatsApp entra quando o canal for integrado. Monte
-   assim mesmo: meia auditoria já pega o caso de tag sem nenhum bloqueio.
-2. ~~O `Set Contact DND` "todos os canais" não pode estar ligando DND de um
-   canal que não existe na subconta.~~ **MEDIDO E REFUTADO no mesmo dia, ~1h
-   depois — a suposição era minha e estava errada.** Leitura de
-   `contacts_get-contact` em `Teste Atendeu` (`Lj96CIFYaGKPiC0opzbc`):
-
-   ```
-   dndSettings: {
-     Call:     { status: "active", message: "Updated from workflow_cf6fa19d-…" }
-     Email:    { status: "active", … }   SMS: { status: "active", … }
-     FB:       { status: "active", … }   GMB: { status: "active", … }
-     WhatsApp: { status: "active", message: "Updated from workflow_cf6fa19d-…" }
-   }
-   ```
-
-   **`WhatsApp` está lá, `active`, escrito por um workflow**, numa subconta que
-   não tem WhatsApp integrado. Então o `Set Contact DND` grava a flag dos seis
-   canais independentemente de integração, quem pede silêncio **fica** protegido
-   em WhatsApp, e não existe problema de retroatividade nenhum.
-
-   **Onde eu errei, e é uma distinção que vale guardar:** a fonte diz que as
-   *preferências* de DND de WhatsApp/Messenger/GMB "só aparecem depois que o app
-   está integrado". Isso é sobre **o que a tela mostra e o que o filtro
-   oferece** — ou seja, sobre **ler**. Eu li como se fosse sobre **escrever**, e
-   concluí que a proteção não era aplicada. São coisas diferentes: a flag é
-   gravável por workflow mesmo quando a interface não a expõe.
-
-**O que sobra da ressalva, agora no tamanho certo:** só a metade de
-*auditabilidade*. Se o filtro `WhatsApp DND` não aparecer na Smart List desta
-subconta enquanto o canal não estiver integrado, as listas 8.26/8.27 se montam
-apenas com a cláusula de ligação — a **proteção** está inteira, a **conferência
-dela** é que fica parcial. Uma conferência, não duas, e sem prazo de véspera:
-
-| Conferir | Por quê |
-|---|---|
-| O filtro `WhatsApp DND` aparece na Smart List hoje? | Se sim, montar as duas listas completas já. Se não, montar só com `Calls & Voicemails DND`/`Email DND` e completar a cláusula de WhatsApp no dia da integração |
-| O filtro `Email DND` aparece na Smart List hoje? (acrescentado em 22/09/2026, G-07) | A mesma fonte que restringiu WhatsApp/Messenger/GMB a "depois da integração" não lista e-mail entre os três — é canal nativo do GHL, não um app conectável à parte, então o filtro deveria estar disponível desde sempre. **Não confirmado na tela** (mesma classe de "a fonte fala de outra plataforma, a palavra certa é da tela" já registrada no F-10/8.25) — se não aparecer, montar as duas listas só com `Calls`/`WhatsApp` e completar quando confirmado |
-
-**Brinde da mesma leitura, e é uma ferramenta nova de diagnóstico:**
-`dndSettings[canal].message` carrega **o id do workflow que ligou aquele DND**
-(`Updated from workflow_cf6fa19d-6af8-4fcb-b0dd-6fcfcefde0cc`). Dá para
-descobrir *quem* silenciou um contato sem abrir a tela — útil exatamente para a
-8.27 (`DND sem tag`), cujo propósito é achar o caminho não documentado que
-ligou DND. Se o `message` disser `workflow_…`, foi régua; se disser outra
-coisa, foi clique ou API.
-
-### 8.27 `Auditoria — DND sem tag` — R-14
-
-| Item | Configuração |
-|---|---|
-| Filtros | (`Calls & Voicemails DND` = Enabled **OU** `WhatsApp DND` = Enabled **OU** `Email DND` = Enabled) **E** tag `nao-perturbe` ausente |
-| Colunas | Nome · Telefone · Tags · Etapa/status da oportunidade |
-| Ordenação | Data de criação do contato, desc |
-
-Espelho da 8.26, risco menor: o DND nativo já bloqueia o canal, então o
-lead está protegido — mas a divergência ainda importa, porque aponta um
-caminho que ligou DND sem passar pelo registro do projeto (ação manual na
-tela, ou um nó de opt-out que este documento ainda não cobre). Uma linha
-aqui não é emergência como na 8.26, é pista para achar o nó ou o clique
-que a especificação atual não previu. **`Email DND` acrescentado em
-22/09/2026 (G-07)**, mesmo motivo da 8.26: um lead que clicou no link de
-descadastro nativo do GHL (o `{{unsubscribe}}` que todo e-mail da
-plataforma já carrega) liga `Email DND` sem passar por nenhum workflow
-deste projeto — exatamente o "caminho não documentado" que esta lista
-existe para achar, e que a versão anterior (só Calls/WhatsApp) não tinha
-como ver.
-
-**As duas juntas são o "relatório que prova que ninguém foi incomodado
-indevidamente" do R-14** (`ROADMAP-SALES-ENGAGEMENT.md`): zero linha na
-8.26 é a prova em si, a 8.27 é a rede de segurança que pega o que a 8.26
-sozinha não veria. Nomes exatos dos dois filtros de DND a confirmar na
-tela — a documentação consultada (`WebSearch`, `help.gohighlevel.com`/
-`consultevo.com`/`growthable.io`) está em inglês, a tela desta subconta é
-em português; mesma ressalva já registrada para outros filtros nativos do
-projeto (F-10, seção 8.25). Zero campo e zero tag novos: reaproveita
-`nao-perturbe` (T-06) e os filtros de DND nativos do contato — não depende
-de `APROVADO.md`. Referenciadas na seção 2.17 (Painel do Gestor), seção
-"Compliance".
-
 ---
 
 ## 9. Nota de qualificação e Prioridade
@@ -7572,7 +4189,7 @@ original, então a pontuação de cada degrau **não mudou**, só o texto que o
 |---|---|---|
 | Investe em anúncios | Sim / Já investiu e parou / Nunca | 13 / 9 / 4 |
 | Investimento mensal | Acima de 10k / 5k a 10k / 1k a 5k / Até 1k | 12 / 10 / 6 / 2 |
-| ⚠ *(atualizado em 22/09/2026)* | *`Prazo` chega vazio do Meta — a resposta cai em `Urgência` — mas isso **não bloqueia mais o nó 4**: o Pós-agendamento v2 (montado no PC do dono, `dec3a20`) ganhou um bloco de reserva que lê `Urgência` com a mesma tabela de pontos sempre que `Prazo` vier vazio, e está publicado e provado rodando (`GUIA-MONTAGEM.md`, "93 por `Prazo`, 15 pelo bloco de reserva `Urgência`"). O que **segue** bloqueado, e é a metade real do G-04 que falta: `Investimento mensal em anúncios` recebe do Meta `Acima de 10k` / `Abaixo de 5k` / `Até R$ 1.000` / `Não invisto nada ainda` — só o primeiro é opção da tela, e os outros três nunca casam num `If/Else`, essa linha da tabela acima ainda soma 0 para 3 de cada 4 leads do Meta. Decisão do dono continua em aberto só para esta linha (`ROADMAP-SALES-ENGAGEMENT.md`, G-04; opções em `CONFERENCIA-CAMPOS.md`, Tabela H)* | — |
+| ⚠ *(21/09/2026)* | *Os valores que o Meta Lead Ads **grava** neste campo são `Acima de 10k` / `Abaixo de 5k` / `Até R$ 1.000` / `Não invisto nada ainda` — só o primeiro é opção da tela; os outros três nunca casam num `If/Else`. E `Prazo` chega vazio do Meta: a resposta cai em `Urgência`. Não monte o nó 4 do Pós-agendamento contra esta tabela antes de o dono decidir o G-04 (`ROADMAP-SALES-ENGAGEMENT.md`; opções em `CONFERENCIA-CAMPOS.md`, Tabela H)* | — |
 
 **Bloco C — BANT (45 pontos)**
 | Campo | Valor | Pontos |
@@ -7643,7 +4260,7 @@ para minutos; **volte os valores reais antes de publicar**.
 ### Contatos
 | # | Nome | Cenário | Caminho esperado |
 |---|---|---|---|
-| 1 | Teste Atendeu | Atende na T1 | `Atendeu` → etapa `REUNIÃO DE DIAGNÓSTICO` (antiga `AGENDAR`) → agenda → etapa `NEGOCIAR` |
+| 1 | Teste Atendeu | Atende na T1 | `Atendeu` → etapa `AGENDAR` → agenda → etapa `NEGOCIAR` |
 | 2 | Teste Não Atende | Nunca atende, vai até o fim | 12 tentativas → `status` `abandoned` (etapa fica em `CONECTAR` — tabela 1.0) + `nutricao-90d` |
 | 3 | Teste Retorno | Pede retorno na T3 | `Pediu retorno` → permanece em `CONECTAR` (não é etapa própria — tabela 1.0), Prioridade 5 |
 | 4 | Teste Número Errado | Número errado na T1 | `telefone-invalido` → `status` `abandoned` ou `lost` (etapa fica onde estava) |
@@ -7653,11 +4270,11 @@ para minutos; **volte os valores reais antes de publicar**.
 | # | O que testar | Como | Passou? |
 |---|---|---|---|
 | 1 | Entrada na cadência | Mover para `CONECTAR` cria tag `fila-tel` e tarefa `[CADENCIA] T1` | |
-| 2 | Portão de etapa | Mover para `REUNIÃO DE DIAGNÓSTICO` no meio da espera: a tentativa seguinte **não** dispara | |
+| 2 | Portão de etapa | Mover para `AGENDAR` no meio da espera: a tentativa seguinte **não** dispara | |
 | 3 | Portão `nao-perturbe` | Aplicar a tag na mão: próxima tentativa não dispara | |
 | 4 | Portão `telefone-invalido` | Aplicar a tag: tentativa de telefone não dispara, de WhatsApp sim | |
 | 5 | Limpeza do resultado | Na T2, `Resultado da tentativa` chega vazio (não herda o da T1) | |
-| 6 | `Atendeu` | Registrar: conexões +1, `conectado-hoje` aplicada, etapa `REUNIÃO DE DIAGNÓSTICO`, tarefa `[CONECTADO]` criada, saiu da cadência | |
+| 6 | `Atendeu` | Registrar: conexões +1, `conectado-hoje` aplicada, etapa `AGENDAR`, tarefa `[CONECTADO]` criada, saiu da cadência | |
 | 7 | `Caixa Postal` em WhatsApp | `WA não atendidas seguidas` vai a 1; repetir vai a 2 | |
 | 8 | Regra das 2 seguidas | Com o contador em 2, a próxima tentativa de WhatsApp sai como **telefone** | |
 | 9 | Reset do contador | Uma tentativa de telefone não atendida zera `WA não atendidas seguidas` | |
@@ -7676,7 +4293,7 @@ para minutos; **volte os valores reais antes de publicar**.
 | 22 | Rotina de manutenção | Rodar `rotina-limpar-tarefas.md`: tarefas fora do prefixo são **concluídas**, nunca excluídas, e a tag sai | |
 | 23 | Volume | Simular 10 leads/dia por 5 dias e contar as tarefas geradas por dia (lacuna L-05) | |
 | 24 | Loop do closer | No Teste Atendeu já em `NEGOCIAR`, simular `Nota de qualificação` ≥ 70 e preencher `Reunião foi qualificada` = `Não` com um motivo diferente de `Timing errado`: `status` vira `lost` (permanece em `NEGOCIAR` — seção 5.1), `Data do veredito do closer` grava e o gestor recebe o alerta de calibração alta (seção 5.1, nó 5) | |
-| 25 | Funil por marco | No Teste Atendeu: `Data conectado` grava ao entrar em `REUNIÃO DE DIAGNÓSTICO`, `Data agendado` grava ao agendar, e marcar o agendamento como `Showed` grava `Data compareceu` — os três aparecem nas listas 8.10 a 8.12 no mês corrente | |
+| 25 | Funil por marco | No Teste Atendeu: `Data conectado` grava ao entrar em `AGENDAR`, `Data agendado` grava ao agendar, e marcar o agendamento como `Showed` grava `Data compareceu` — os três aparecem nas listas 8.10 a 8.12 no mês corrente | |
 | 26 | Cadência Inbound (R-07) | Aplique `cad-inbound` num dos 5 contatos de teste antes de mover para `CONECTAR` de novo (rodada manual, decisão D-06): a Cadência Inbound dispara, **não** a 12x30 (confira que nenhuma tarefa `[CADENCIA] T1` da régua de dias nasce); `Prioridade` vira 5 e a tag `fila-quente` é aplicada na entrada; a tarefa `[CADENCIA] TI1` nasce após o Wait reduzido de teste; a mensagem `MI-0` sai antes da TI1. Deixando sem resposta até a TI5, confira o handoff: mensagem `MI-F` sai e a Cadência 12x30 assume (a tarefa `[CADENCIA] T1` da régua de dias nasce só agora) | |
 | 27 | Reengajamento 90 dias (R-08) | Reduza o Wait do nó 1 (seção 2.12) para o teste. No Teste Não Atende, já com `nutricao-90d` aplicada e `status` `abandoned` em `CONECTAR` (fim natural do teste 2), aguarde o Wait reduzido: `cad-outbound` aparece, `cad-inbound` some (se esse contato tiver as duas na memória de um teste anterior), `nutricao-90d` some, `reengajamento-ativo` aparece, etapa/`status` voltam para `CONECTAR`/`open`, mensagem `RE-1` sai, e a tarefa `[CADENCIA] TR1 · … — Reengajamento` nasce depois do Wait de 2h (também reduzido) sem resposta. Confirme que a Cadência 12x30 (seção 2.1) **não** dispara uma segunda vez (nenhuma tarefa `[CADENCIA] T1` nova) — é o filtro `reengajamento-ativo` ausente fazendo o trabalho. Deixando sem resposta até a TR4, confira: mensagem `RE-2` sai, `reengajamento-ativo` some, `nutricao-90d` volta, `status` volta a `abandoned` (etapa permanece `CONECTAR`), e o próprio workflow dispara de novo (Allow Re-entry ligado) — inicia outro Wait de 90 dias sozinho | |
 | 28 | Distribuição de leads (R-10) | Com pelo menos 2 usuários cadastrados na subconta de teste: mova o Teste Atendeu para `CONECTAR` e confira que o nó 0.7 sorteia um `Assigned User` (seção 2.3); mova o Teste Não Atende também e confira que o sorteio alternou para o outro usuário (round robin de verdade, não o mesmo sempre); confira que a tarefa `[CADENCIA] T1` de cada um nasce atribuída ao respectivo dono, não a quem criou o teste — é aqui que se confirma se `Add Task` aceita `Contact Owner` como destino dinâmico ou se é preciso o valor personalizado (seção 2.14); repita a entrada de um dos dois num segundo teste (rodada manual, decisão D-06) e confirme que o nó 0.7 **não** sorteia de novo (Assigned User já não está vazio) | |
@@ -7687,48 +4304,10 @@ para minutos; **volte os valores reais antes de publicar**.
 | 33 | Horário aprendido por segmento (F-02) | No Teste Atendeu, preencha `Segmento` antes de mover para `CONECTAR` e deixe atender na T1: confira que `Hora da conexão` (C-25) grava só a hora, formato `HH`, no mesmo instante em que `Data conectado` grava; confirme que a lista `Conexão por Segmento e Horário` (8.19) mostra a linha, ordenada por `Segmento` e depois por `Hora da conexão`. Repita com um segundo contato de teste em segmento diferente e confirme que as duas linhas não se confundem na lista | |
 | 34 | Porta de Entrada (L-09/L-09b) | Crie um 6º contato de teste, fora dos 5 fictícios, só com nome e telefone (sem passar por `Add Contact` de dentro de um workflow): confirme que uma oportunidade nasce sozinha em `FUNIL DE VENDAS` → `NOVO LEAD` em segundos, sem precisar mover etapa na mão; edite qualquer campo desse mesmo contato e confirme que **não** nasce uma segunda oportunidade (Allow Duplicate Opportunities desligado). Rode o backfill manual (seção 1.3) sobre os 5 contatos fictícios existentes e confirme que os 5 ganham oportunidade em `NOVO LEAD` sem duplicar nada | |
 | 35 | Teto de toques por semana (F-04) | Reduza o Wait de 7 dias do "Contador de Toques" (seção 2.19) para minutos, no ambiente de teste. Force `Toques na semana` para 5 no Teste Atendeu (Update Contact Field manual) e deixe a T1 disparar: o nó 7 aplica `toque`, o Contador soma 1 (campo chega a 6) e agenda o desconto; confirme que a T2 seguinte cai no portão 2.5c/2.5d e fica represada, sem consumir `Tentativa nº` nem criar tarefa nova, até o Wait reduzido do Contador descontar e o campo cair abaixo de 6. Repita clicando o Trigger Link do Teste Retorno 3 vezes seguidas com o campo já em 6: confirme que a 3ª Interceptação de Sinal pula direto para a nota (nó 3c → 9) sem criar tarefa nem aviso ao SDR, mas a nota `Sinal: clique em link (teto...)` aparece no contato | |
-| 36 | Desqualificação instantânea (R-18) | Num 7º contato de teste em `CONECTAR`, classifique `Resultado da tentativa` = `Desqualificado` + `Motivo da desqualificação` = `Sem fit`: confirme `Conexões telefone`/`Total de conexões` subindo (é conexão real), `conectado-hoje` aplicada, `fila-tel`/`fila-wa` removidas, `status` indo para `lost` **sem** a oportunidade sair de `CONECTAR` (não vai para `REUNIÃO DE DIAGNÓSTICO`) e **nenhuma** tarefa `[CONECTADO] Qualificar e agendar` nascendo. Repita com `Motivo da desqualificação` = `Timing errado`: confirme `status` `abandoned` + tag `nutricao-90d` em vez de `lost` | |
 
 Depois do teste, **marque as 5 oportunidades como `status = lost` e desative
 os 5 contatos** (nunca excluir contato nem oportunidade — regra 1 do
 projeto) e restaure os Waits e a janela de envio.
-
-### O que este checklist **não** testa, medido em 22/09/2026
-
-Todo item acima exercita o CRM do mesmo jeito: escrevendo campo (quase sempre
-`Resultado da tentativa`) e vendo o workflow reagir. Isso cobre tudo o que é
-disparado por mudança de campo, tag ou etapa — e **não cobre nada que dependa
-de um evento de telefonia real.** A diferença nunca esteve escrita, e ela
-importa porque o telefone é o canal majoritário da régua (8 dos 12 toques).
-
-Medido nesta data: as **50 conversas** da subconta não têm **um único**
-registro de chamada (41 são atividade de CRM, 9 são DM de Instagram; nenhum
-`TYPE_CALL` nem `TYPE_VOICEMAIL`). O contato `ZZ TESTE ESTRUTURA`, com
-`Tentativas telefone` = 24, tem **uma** mensagem na conversa: "Opportunity
-created". Os 24 são escritas de campo por classificação manual — o
-Pós-ligação rodou 24 vezes e **o telefone nunca tocou nesta subconta.** Como
-teste de workflow está correto; como evidência de telefonia, é zero.
-
-| Item | Testável por mudança de campo? | Por quê |
-|---|---|---|
-| Tudo de 1 a 36 acima | **Sim** | Gatilho é campo, tag ou etapa |
-| **F-06 / seção 2.27** (`Duração da ligação`, `Conexão real`, C-31, C-32) | **Não** | O gatilho é `Transcript Generated`: exige chamada **discada e gravada**. Não existe campo que simule uma transcrição |
-| **F-08 / seção 2.26** (reputação do número) | **Não** | Bloqueio de operadora acontece na rede ou no aparelho do lead; não há objeto de CRM para simular |
-| **F-09** (freio de telefone, quando o dono escolher o limiar) | **Parcial** | O contador e o portão se testam por campo; a duração real das chamadas que alimentam a decisão, não |
-
-**Consequência prática, que é uma dependência nova:** o F-06 só pode ser
-testado depois de existir uma ligação real por LC Phone, com gravação e
-transcrição ligadas. Isso encadeia três pendências que os documentos tratavam
-como independentes — a confirmação de canal (LC Phone vs. linha própria), a
-decisão de gravar (aviso LGPD + custo) e a criação dos campos C-29 a C-32 —
-e coloca a confirmação de canal como **primeira** delas, não como detalhe
-lateral. Nenhuma pode ser marcada `[x]` por leitura de CRM: todas passam pela
-tela e pelo dono. **Duas das três já resolveram (22/09/2026):** o dono
-confirmou ao vivo que as ligações saem por LC Phone (`APRENDIZADOS-CRM.md`,
-"Resposta do dono à pré-condição do W20"), e os quatro campos já existem na
-tela (`APRENDIZADOS-CRM.md`, "Os 4 campos do W20"). **Só a decisão de
-gravar segue sem `[x]`** — é ela, sozinha, que trava o teste deste item e a
-montagem do W20 agora.
 
 ---
 
@@ -7768,813 +4347,3 @@ acesso") ou de pedir para quem administra este conector adicionar as duas
 ferramentas que faltam (`locations_create-custom-field`,
 `calendars_create-calendar`, nomeação hipotética). Detalhe completo,
 endpoint por endpoint, com todas as fontes: `APRENDIZADOS-CRM.md`.
-
----
-
-## 2.35 `_frescor.py` — a guarda de dump velho estava em uma das três auditorias, e as três leem os mesmos dumps
-
-Em 23/09/2026 a `auditoria_tags.py` ganhou duas guardas de frescor, depois de
-ela ter reportado 5 achados lendo um dump de 22/09 16:27 — e 3 deles já
-estavam resolvidos na conta havia uma hora. A correção funcionou, mas ficou
-onde o erro tinha acontecido, e não onde ele pode acontecer:
-
-| auditoria | lê dumps de `wesales/workflows-json/` | avisava de dump velho |
-|---|---|---|
-| `auditoria_tags.py` | sim | sim |
-| `auditoria_refs.py` | sim | **não** |
-| `auditoria_campos.py` | sim | **não** |
-
-As três respondem perguntas diferentes sobre exatamente o mesmo material. Um
-dump 28 h atrasado engana a `refs` ("este workflow aponta para um arquivado")
-e engana a `campos` ("ninguém escreve neste campo") do mesmo jeito que enganou
-a `tags`. Quem rodasse só uma das duas sem aviso não tinha como saber.
-
-As duas funções saíram da `auditoria_tags.py` para o módulo
-`wesales/tools/_frescor.py`, e as três auditorias passaram a chamar
-`aviso(DUMPS)` como primeira linha do `main()`:
-
-1. **`backup_mais_novo`** — prova direta: existe backup irmão em `_antes-*/`
-   com `updatedAt` mais novo que o arquivo principal? Então alguém aplicou
-   patch na conta e não re-exportou. Só enxerga workflow que tem backup irmão.
-2. **`muito_atras`** — heurística: o arquivo está 12 h ou mais atrás do mais
-   novo da pasta? Não prova nada (workflow que ninguém toca há dias aparece
-   aqui, e é correto que apareça), mas pega o caso que a (1) não vê. Foi assim
-   que apareceu o `AGENDAR Estagnado`, dizendo `published` com dump de 28 h
-   antes, depois de o dono já tê-lo despublicado.
-
-Saída de hoje, idêntica nas três: 7 dumps possivelmente defasados (`ZZ TESTE
-API` 31 h, `ZZ TESTE W6` 29 h, `AGENDAR Estagnado`, `Alerta de Speed-to-lead`,
-`Contador de Toques` e `Lead Esquecido em NOVO LEAD` 28 h, `Fila Travada`
-27 h), e 0 com backup irmão mais novo.
-
-Nenhum resultado de auditoria mudou com a refatoração: `tags` continua sem tag
-de limpeza pulada sem segunda rede, `refs` sem referência para arquivado, e
-`campos` com os mesmos 4 campos nem escritos nem lidos (`Canal que conectou`,
-`Hora da conexão`, `Hora do retorno`, `Necessidade`). As três continuam
-saindo com código 0.
-
-A lição que o módulo carrega no próprio docstring, para não se perder de novo:
-**achado tirado de dump é CANDIDATO, não item** — só vira item depois de
-confirmação ao vivo, pela API ou medindo o efeito.
-
----
-
-## 2.36 A pendência 9d estava superestimada: os 10 alvos já estavam consertados, e o que faltava era o guarda
-
-A pendência que eu vinha reportando como "3 linhas no `traduz()` e trocar o
-`ALVOS` fixo por varredura" sugeria defeito vivo. Fui medir antes de mexer, e
-não havia:
-
-| o que eu afirmava | o que a medição mostra |
-|---|---|
-| a lista fixa de 10 pode estar escondendo workflow com o defeito | os 10 já estão consertados: **49 condições em 28 segmentos**, zero restantes, provado pelos backups de `_antes-patch-condicoes/` |
-| a tabela de tradução incompleta é um bug | ela **nunca traduziu errado**: padrão desconhecido cai em `falhas`, e `falhas` bloqueia o `PUT` — era limite para o futuro |
-| a varredura acharia coisa hoje | acha **um**: `ZZ TESTE 12X30`, rascunho, a cópia de teste que existe justamente para exibir o defeito |
-
-Os 7 workflows publicados que ainda testam condição de oportunidade têm
-gatilho `pipeline_stage_updated` ou `opportunity_status_changed` — ali a
-condição funciona e está certo estar ali.
-
-### O que era problema de verdade
-
-Não o passado, o futuro. Workflow criado amanhã, com gatilho de tag e
-condição de etapa, nasce com o mesmo defeito **silencioso** — o ramo nunca
-roda, não dá erro, não aparece em lugar nenhum — e uma lista de 10 nomes
-escrita ontem não o vê. Faltava o guarda, não o conserto.
-
-### `auditoria_condicoes.py` — a quarta auditoria
-
-Somente leitura, roda sem API e sem PC, pelos dumps. Classifica cada workflow
-que testa condição de oportunidade em `if_else`:
-
-| classe | critério | código de saída |
-|---|---|---|
-| **defeito** | `published`, não-`ZZ TESTE`, com algum gatilho que não carrega oportunidade | **1** |
-| aviso | mesmo padrão em `draft` ou `ZZ TESTE*` | 0 |
-| correto | todos os gatilhos carregam oportunidade | 0 |
-
-Isto desfaz uma afirmação errada que eu havia registrado: **os dumps carregam
-os gatilhos**. O `g.export` grava `{"workflow": ..., "triggers": ...}`, e eu
-tinha anotado `triggers: []` em todo dump. A classificação de gatilho desta
-auditoria não é chute — é leitura.
-
-Saída de hoje: 38 dumps, 9 testam condição de oportunidade, **0 defeitos em
-publicado**, 1 aviso (`ZZ TESTE 12X30`, rascunho, 6 segmentos), 8 corretos.
-
-### `patch_condicoes_etapa.py` — varredura no lugar da lista
-
-`ALVOS` saiu. O alvo passa a ser varrido ao vivo: workflow publicado com
-algum gatilho sem oportunidade e ao menos uma condição de oportunidade em
-`if_else`. `--incluir-teste` traz rascunho e `ZZ TESTE*`; `--alvo NOME`
-restringe a um; sem `--aplicar` só imprime.
-
-A `Cadência 12x30` (parte 1) ficou num conjunto `NUNCA` explícito, com o
-motivo registrado: gatilho de etapa, a condição funciona e a troca criaria
-corrida com o Espelho no instante da entrada. A varredura imprime que a
-pulou — decisão tomada não se reverte calada.
-
-A tabela de tradução passou de 3 para 8 padrões:
-
-| condição | tag do Espelho |
-|---|---|
-| etapa == `NOVO LEAD` (+ status open) | `etapa-novo-lead` |
-| etapa == `CONECTAR` | `etapa-conectar` |
-| etapa == `REUNIÃO DE DIAGNÓSTICO` | `etapa-reuniao` |
-| etapa == `NEGOCIAR` | `etapa-negociar` |
-| etapa == `FORMALIZAR` | `etapa-formalizar` |
-| status == `abandoned` | `status-nutricao` |
-| status == `lost` | `status-perdido` |
-| status == `won` | `status-ganho` |
-
-**Nenhuma tag nova.** As oito já existem e estão publicadas — o dono as criou
-no `61eb167`, e o `Espelho de Etapa` (publicado, v4) é quem as mantém. Por
-isso esta mudança não precisa de linha no `APROVADO.md`: o script sabe
-traduzir para mais coisas, e não cria nada.
-
-### Regressão medida, não deduzida
-
-Rodei a tabela nova contra os 10 backups pré-patch, offline:
-
-| | resultado |
-|---|---|
-| trocas | 28 segmentos, 49 condições — idêntico ao patch original |
-| falhas | 0 |
-| condições de oportunidade restantes | 0 em todos os 10 |
-| segmento com duas etapas | devolve `None`, cai em `falhas`, não troca |
-
-Zero escrita na conta: o patch não foi executado, e sem `--aplicar` ele não
-escreve. O que vai para a conta continua sendo decisão do dono.
-
----
-
-## 2.37 O portão de capacidade da `Cadência Inbound` — patch escrito e validado, esperando o dono (9e / F-05)
-
-O `GUIA-SDR.md`, linhas 74–76, promete ao SDR **sem ressalva**: "se você
-passar de 100 toques no dia ou tiver 50 ou mais tarefas vencidas, o sistema
-segura os toques novos". Na `Cadência 12x30` isso é verdade. Na `Cadência
-Inbound` é falso — e lead de anúncio é justamente quem mais entra.
-
-### Contado nó a nó, não estimado
-
-| portão | 12x30 p1 | 12x30 p2 | Inbound |
-|---|---|---|---|
-| `Teto de toques da semana?` (campo `c1xuCuLyJheHOQoJ3grH` ≥ 6) | 6 | 6 | **0** |
-| `SDR lotado?` (tag `sdr-lotado`) | 6 | 6 | **0** |
-
-Os 5 toques da Inbound (TI1–TI5) têm `Lead pausado?` e `Ainda vale ligar?`,
-mas **nada que olhe capacidade**. A `faxina_tarefas.py` (197-213) aplica
-`sdr-lotado` e a Inbound nunca lê a tag.
-
-**Correção de um número meu:** eu vinha dizendo "portar os 6 nós". Errado. São
-2 portões × 5 toques = **10 portões lógicos**, e cada portão lógico são **5
-nós** (`if_else` + `Branch` + `None` + `wait` + `goto`, o `goto` voltando ao
-próprio portão — é o `wait`+`goto` que *segura* o toque). São **50 nós**, de
-272 para 322. Por isso isto é script, não clique.
-
-### `patch_portao_inbound.py`
-
-Não monta nó à mão: **clona** o grupo de 5 nós que já existe e já funciona na
-`Cadência 12x30 — parte 2`, remapeando todo uuid que aparece dentro do grupo
-(`id`, `next`, `parent`, `parentKey`, `branches[].id`, `__segmentId`,
-`__conditionId`, `goto.targetNodeId`). Os atributos vão byte a byte iguais ao
-que o GHL já aceitou — nenhum `nestedDropdownTypes` inventado, nenhum campo
-faltando. É a lição do `build_*` aplicada ao contrário: em vez de reproduzir a
-especificação, copiar o que a plataforma já validou.
-
-Ordem resultante em cada toque, igual à do 12x30:
-
-```
-Lead pausado?  ->  Teto de toques da semana?  ->  SDR lotado?  ->  Ainda vale ligar?
-```
-
-### Validado antes de existir aprovação
-
-O modo `--dump` roda em qualquer máquina, **sem token e sem rede**: lê
-`wesales/workflows-json/`, monta o resultado em memória e passa pelas mesmas
-conferências do caminho ao vivo. Medido em 23/09/2026:
-
-| conferência | resultado |
-|---|---|
-| nós | 272 → 322 (+50, exatamente 10 por toque) |
-| ids repetidos | nenhum |
-| `parentKey` órfão | nenhum |
-| `goto` apontando para nó inexistente | nenhum |
-| cada portão aparece | 5× |
-| cadeia por toque | a ordem acima, nos 5 toques |
-| condição dos clones vs. doador | idêntica nos 10 |
-| uuid do doador vazado para o alvo | nenhum |
-
-### A única escolha de desenho, que é sua
-
-Os parâmetros foram copiados do 12x30: teto semanal `≥ 6` esperando **1 dia**,
-`sdr-lotado` esperando **1 hora**. O `Lead pausado?` da Inbound espera 30 min
-— a Inbound é mais apertada de propósito, e não mexi nele. Copiei o tempo do
-12x30 nos dois portões novos porque o que eles esperam é o mesmo: um contador
-de semana e uma sobrecarga de dia. Se a Inbound deve ter teto próprio (mais
-folgado, porque lead que acabou de levantar a mão esfria mais rápido), é aí
-que muda.
-
-### Não precisa de `APROVADO.md`, mas precisa de você
-
-Nenhuma tag nova, nenhum campo novo — `sdr-lotado` e `c1xuCuLyJheHOQoJ3grH` já
-existem e o 12x30 já os lê. Mas isto **altera um workflow publicado que toca
-lead real**, então `--aplicar` só roda depois de você ver o plano. E **não sai
-por MCP**: o conector não cria nem edita workflow. São dois caminhos:
-
-**Caminho A, o script (recomendado).** Do seu PC, na pasta `wesales/tools/`:
-
-```
-python patch_portao_inbound.py --dump      # confere sem rede, deve dar 272 -> 322
-python patch_portao_inbound.py             # mesmo plano, agora contra a conta ao vivo
-python patch_portao_inbound.py --aplicar   # grava, com backup em _antes-portao-inbound/
-```
-
-O `--aplicar` faz backup antes, grava, relê da API e imprime status, contagem
-de nós, gatilhos ativos e quantas vezes cada portão aparece ao vivo. Se
-qualquer conferência falhar, ele não grava.
-
-**Caminho B, na tela.** Possível, mas são 50 nós — 10 repetições de cinco
-cliques. Para cada toque TI1…TI5, no ramo **Não** (`None`) do `TI{n} · Lead
-pausado?`, antes do `TI{n} · Ainda vale ligar?`:
-
-1. **Condição** `TI{n} · Teto de toques da semana?` → campo personalizado
-   `Toques na semana` **maior ou igual a** `6`.
-2. No ramo **Sim** dela: **Esperar** `1 dia` → **Ir para** essa mesma condição.
-3. No ramo **Não** dela: **Condição** `TI{n} · SDR lotado?` → tag
-   `sdr-lotado` **está presente**.
-4. No ramo **Sim** dela: **Esperar** `1 hora` → **Ir para** essa mesma condição.
-5. O ramo **Não** dela segue para o `TI{n} · Ainda vale ligar?` que já existia.
-
-Repetido 5 vezes. O `Ir para` apontando para o próprio portão é o que segura o
-lead sem perdê-lo — sem ele, o toque é descartado em vez de adiado.
-
-Zero escrita na conta nesta seção: o patch não foi executado, e sem
-`--aplicar` ele não escreve.
-
----
-
-## 2.38 O 9e não era um caso, eram três — e o pior deles ignora a pausa do próprio SDR
-
-Escrevi o patch do §2.37 e então fiz a pergunta que devia ter vindo antes:
-**achei o 9e à mão, então o que mais está lá que eu não olhei?** A resposta são
-duas cadências além da Inbound.
-
-### A invariante, não a comparação
-
-A tentação era comparar cadência com cadência ("a Inbound tem menos portões que
-a 12x30"). Isso daria alarme falso em cada diferença legítima de desenho. A
-pergunta certa é uma invariante:
-
-> **Se um toque coloca o lead na fila (`fila-tel` / `fila-wa`) ou conta `toque`,
-> ele consome capacidade do SDR — logo a cadência tem de ler os três portões.**
-
-| portão | lê |
-|---|---|
-| `Lead pausado?` | tag `pausado` |
-| `SDR lotado?` | tag `sdr-lotado` |
-| `Teto de toques da semana?` | campo `c1xuCuLyJheHOQoJ3grH` |
-
-### O que a invariante achou
-
-| cadência | toques | marca | `pausado` | `sdr-lotado` | teto semanal |
-|---|---|---|---|---|---|
-| `Cadência 12x30` | 6 | fila-tel, fila-wa, toque | 6/6 | 6/6 | 6/6 |
-| `Cadência 12x30 — parte 2` | 6 | fila-tel, fila-wa, toque | 6/6 | 6/6 | 6/6 |
-| **`Cadência Inbound`** | 5 | fila-tel, fila-wa, toque | 5/5 | **0** | **0** |
-| **`Recuperação de No-show`** | 3 | fila-tel, toque | ok¹ | **0** | **0** |
-| **`Reengajamento 90 dias`** | 4 | fila-tel, fila-wa, toque | **0** | **0** | **0** |
-| `Nutrição — WhatsApp 15 dias` | 6 | — não consome | — | — | — |
-| `Fechar Horário` | 2 | — não consome | — | — | — |
-
-¹ lê `pausado` dentro do `NS{n} · Ainda vale recuperar?`, nos 3 toques. Ler é o
-que importa; o nome do nó é rótulo.
-
-O `Reengajamento 90 dias` é o pior: publicado, 105 nós, e as strings `pausado`,
-`sdr-lotado` e `c1xuCuLyJheHOQoJ3grH` aparecem **0 vezes em todo o workflow** —
-nem por toque, nem no portão de entrada (que checa `status-nutricao`,
-`nutricao-90d` e `nao-perturbe`). Seus 4 toques fazem
-`add_contact_tag ['fila-tel']` e `add_contact_tag ['toque']`.
-
-Duas consequências, e a segunda é mais feia que a primeira:
-
-1. **O `pausado` do SDR não vale ali.** É a pausa que o SDR aplica à mão; a
-   cadência que mais mexe com lead frio é a única que não a lê.
-2. **Enche o contador que trava os outros.** Cada toque marca `toque`, que
-   alimenta o `c1xuCuLyJheHOQoJ3grH` que os portões da 12x30 leem. O
-   Reengajamento **gasta** a cota semanal sem nunca **respeitá-la** — ele
-   aperta o freio dos outros e passa livre.
-
-### `auditoria_portoes.py`
-
-Somente leitura, roda sem API, verifica a invariante. Detecção por **conteúdo**,
-não por nome de nó — foi o que evitou acusar o `Recuperação de No-show`
-injustamente. Cobertura por toque entra como informação; portão em 0 de N é o
-que falha. `published` e não-`ZZ` falha com código 1; rascunho e teste são
-aviso. Hoje: **3 cadências publicadas em falha**, exit 1.
-
-A primeira versão dava um alarme falso próprio — imprimia "portão em 0/3
-toques" para o `Recuperação de No-show`, que lê `pausado` sob outro nome.
-Consertado antes de virar item: auditoria que grita sobre o que está certo
-treina a gente a ignorar auditoria, e isso valia para ela mesma.
-
-### O que isto muda no que está pendente
-
-A pendência 9e cresceu e mudou de forma. Não é "portar 2 portões para 1
-cadência", é **decidir a regra** e aplicá-la a três:
-
-| cadência | o que falta |
-|---|---|
-| `Cadência Inbound` | `sdr-lotado` + teto — patch pronto e validado, §2.37 |
-| `Recuperação de No-show` | `sdr-lotado` + teto (o `pausado` já está) |
-| `Reengajamento 90 dias` | os três |
-
-E há uma pergunta de desenho que é sua, porque as duas respostas são
-defensáveis: **no-show e reengajamento devem respeitar o teto semanal, ou são
-prioritários sobre lead novo?** Quem marcou reunião e não apareceu é mais
-quente que lead de anúncio — pode fazer sentido que furem a fila de propósito.
-Se for isso, o conserto não é portar portão: é **tirar o `add_contact_tag
-['toque']`** dessas cadências, para elas não gastarem uma cota que não
-respeitam. São desenhos opostos e eu não escolho por você.
-
-`patch_portao_inbound.py` cobre só a Inbound. Estendê-lo para as outras duas é
-mecânico depois de a regra estar decidida — os `TOQUES` e o `ALVO` são
-parâmetro.
-
-Nada foi escrito na conta: as duas auditorias são somente leitura e o patch não
-foi executado. Achado tirado de dump é **candidato**: confirma-se lendo os três
-workflows ao vivo, ou medindo — contato com `pausado` que ainda recebe
-`fila-tel`.
-
----
-
-## 2.39 `auditoria_tudo.py` — o alarme falso tem um gêmeo, e ele também treina a ignorar
-
-São cinco auditorias, cada uma com seu comando, e nenhuma sabe das outras.
-Duas dores, e a segunda é a que importa.
-
-**Rodar 3 de 5.** Rodada que esquece uma auditoria não percebe que esqueceu.
-
-**Repetir o que já foi dito.** Em 23/09 eu reportei 5 achados de tag como
-trabalho novo e 3 já estavam resolvidos havia uma hora — o `_frescor.py`
-consertou esse lado. Mas existe o lado oposto, e ele é igualmente corrosivo:
-**achado real, já reportado, já na fila do dono, reapresentado a cada rodada
-como se fosse novidade.** Isso treina o dono a ignorar o relatório tão bem
-quanto o alarme falso treina. As cinco auditorias, rodadas de hora em hora,
-iam reimprimir os mesmos 4 campos e as mesmas 3 cadências para sempre.
-
-### A linha de base
-
-`auditoria-base.json` guarda, por auditoria, **quantos achados existem hoje e
-por quê**. O relatório compara:
-
-| comparação | leitura |
-|---|---|
-| contagem `==` base | conhecido, já na fila do dono — não é novidade |
-| contagem `>` base | **NOVO** — o único caso que pede atenção, exit 1 |
-| contagem `<` base | **CONSERTADO** — notícia boa, exit 2, e manda atualizar a base |
-
-A base é commitada de propósito. Quando o dono decide e alguém conserta, a
-base muda **no mesmo commit do conserto**, e quem lê o diff vê as duas coisas
-juntas. Base que ninguém atualiza vira mentira — por isso o exit 2 quando a
-contagem cai: o script cobra a atualização em vez de aceitar silenciosamente.
-
-O campo `porque` é o que transforma um número em informação. Hoje:
-
-| auditoria | achados | por quê |
-|---|---|---|
-| `refs` | 0 | — |
-| `tags` | 0 | — |
-| `campos` | 4 | `Canal que conectou` (é a 9c), `Hora da conexão`, `Hora do retorno`, `Necessidade` — os três últimos o SDR preenche na tela |
-| `condicoes` | 0 | — |
-| `portoes` | 3 | as três cadências do §2.38, aguardando **uma** decisão do dono |
-
-### Verificado nos três caminhos
-
-Não confiei em ler o código: mexi na base e conferi o comportamento.
-
-| cenário | resultado |
-|---|---|
-| base `portoes=1`, real 3 | `*** NOVO: 2 a mais que a base ***`, exit **1** |
-| base `portoes=5`, real 3 | `CONSERTADO: 2 a menos`, manda gravar base, exit **2** |
-| base igual ao real | `conhecido, já na fila do dono`, exit **0** |
-
-O aviso de frescor também foi consolidado: em vez de repetir o bloco cinco
-vezes, o relatório resume numa linha (hoje: 7 dumps possivelmente defasados, 0
-com backup irmão mais novo), porque o `_frescor.py` imprime o mesmo nas cinco.
-
-### Consequência prática
-
-O check-in horário passa a rodar **um** comando em vez de listar auditorias que
-podem ficar desatualizadas na lista:
-
-```
-python3 wesales/tools/auditoria_tudo.py
-```
-
-Exit 0 significa literalmente "nada novo desde a última vez que o dono foi
-informado". Exit 1 é a única coisa que merece interromper alguém.
-
----
-
-## 2.40 Um terço do meu achado do §2.38 era sobre um workflow morto — e a falha que deixou passar não é a que o `_frescor.py` pega
-
-O dono decidiu o G-17 na **opção (A)**: no-show e reengajamento respeitam o
-teto semanal. E na mesma rodada apareceu que **o `Reengajamento 90 dias` não
-existe mais** — foi substituído pela Nutrição em 22/09, e o dump foi para
-`_arquivo/` no commit `5659ac2`.
-
-Então o pior dos três casos que eu reportei no §2.38 era sobre um workflow que
-não roda. Eu escrevi que "a cadência publicada que mais mexe com lead frio é a
-única que não lê a pausa do SDR". **Os números estavam certos e a conclusão
-estava errada:** as três strings realmente apareciam 0 vezes naqueles 105 nós,
-mas nenhum lead passava por lá.
-
-### Por que o guarda de frescor não pegou
-
-Esta é a parte que vale guardar, porque é uma classe nova. O
-`_frescor.py` compara **datas**: dump velho contra backup irmão, dump velho
-contra o mais novo da pasta. O `Reengajamento 90 dias` **não estava velho** —
-estava aposentado. Um workflow substituído não envelhece o arquivo dele.
-
-| o que o dump dizia | o que era verdade |
-|---|---|
-| `status: published` | o workflow foi trocado pela Nutrição em 22/09 |
-| `updatedAt` recente | o arquivo não era antigo; o workflow é que morreu |
-| estava em `workflows-json/` | ninguém tinha movido para `_arquivo/` ainda |
-
-**A regra que faltava:** as auditorias tratam "arquivo na pasta viva" como
-"workflow vivo". A única marca do projeto para o contrário é a pasta
-`_arquivo/`, e ela depende de alguém mover o arquivo na hora em que
-desativa o workflow — o que é justamente o passo que se esquece.
-
-A `auditoria_refs.py` já sabia disso (ela existe para achar referência a
-workflow arquivado). As outras quatro não sabiam. Depois que o `5659ac2` moveu
-o arquivo, a `auditoria_portoes.py` parou de reportá-lo sozinha, porque ela
-varre `workflows-json/*.json` e não desce em `_arquivo/`. O conserto de fundo,
-que exige API e não sai daqui, é cruzar a lista de dumps com a lista de
-workflows da conta: dump que diz `published` e não aparece na conta é dump
-aposentado, e nenhuma data revela isso.
-
-### O que a linha de base fez
-
-Ela funcionou como desenhada, e vale registrar porque foi o primeiro uso real:
-a contagem de `portoes` caiu de 3 para 2, e o `auditoria_tudo.py` **não aceitou
-em silêncio** — saiu com código 2, imprimiu `CONSERTADO: 1 a menos que a base`
-e cobrou `--gravar-base` no mesmo commit. Sem isso, a base ficaria dizendo 3
-para sempre e a próxima queda real passaria como "conhecido".
-
-Base atualizada neste commit: `portoes` 3 → **2**.
-
-### O que sobrou do §2.38, medido de novo
-
-| cadência | situação |
-|---|---|
-| `Cadência Inbound` | falta `sdr-lotado` + teto — `patch_portao_inbound.py`, validado, espera `--aplicar` |
-| `Recuperação de No-show` | falta `sdr-lotado` + teto — `patch_portao_noshow.py` (escrito pela sessão paralela), validado, espera `--aplicar` |
-| ~~`Reengajamento 90 dias`~~ | **morto desde 22/09**, arquivado; não é achado |
-
-A invariante do §2.38 segue válida e os outros dois casos seguem reais. O que
-muda é o tamanho: **dois**, não três, e os dois já têm patch pronto.
-
-### E o 9c saiu decidido junto
-
-**Automático onde o ramo já sabe, manual no resto.** Falta o patch no
-`Pós-ligação v2` e nos ramos de resposta do WhatsApp. Até ele entrar, o
-`Canal que conectou` continua aparecendo na `auditoria_campos.py` — o que está
-certo, e agora está escrito no `porque` da base para ninguém reportar como
-novidade.
-
----
-
-## 2.41 `patch_canal_conectou.py` — a metade automática do 9c, e por que ela para antes do `Pós-ligação v2`
-
-Você decidiu o 9c: **automático onde o ramo já sabe, manual no resto.** Este é
-o patch da parte automática que não depende de mais nada.
-
-O campo `Canal que conectou` (`TxJmoWdkA8rTqC1uEsMW`, `SINGLE_OPTIONS`:
-`Ligação WhatsApp` / `Ligação normal` / `Mensagem`) existe desde 23/09 01:06 e
-**nenhum workflow escreve nele** — é por isso que ele aparece na
-`auditoria_campos.py` como "nem escrito nem lido".
-
-### Onde grava, e só aqui
-
-| workflow | ramo | grava |
-|---|---|---|
-| `Interceptação de Sinal — Resposta v2` | sinal quente | `Mensagem` |
-| `Triagem da Nutrição` | `Quer conversar?` ("1") | `Mensagem` |
-
-### O que fica fora, de propósito
-
-Isto é a parte que importa, porque a tentação é gravar em tudo que tem gatilho
-de resposta:
-
-- **`Opt-out por Palavra-chave`** também é `customer_reply`, mas "pare de me
-  mandar mensagem" **não é conexão comercial**. Contar isso encheria justamente
-  a métrica que o campo existe para responder.
-- **`Triagem`, ramos "2 agora não" e "3 sem interesse"**: são respostas, não
-  conexões que levam a conversa. O "3" já liga o DND. Somar os três inflaria a
-  conta pelo mesmo motivo do opt-out.
-
-### E o `Pós-ligação v2`, que sabe o canal e ficou de fora
-
-Ele **entra** na parte automática — o ramo sabe: testa `fila-wa` logo depois do
-`Resultado da tentativa`, e presente significa ligação por WhatsApp, ausente
-ligação normal. Mas ficou para depois **por sequenciamento, não por dúvida**:
-
-> a sessão paralela tem o `patch_remove_atendeu.py` ainda sem `--aplicar`,
-> inserindo nos **mesmos ramos `Atendeu`**. Dois patches montados a partir de
-> leituras diferentes se atropelam — um sobrescreve o outro.
-
-Ordem correta: aplicar o `patch_remove_atendeu.py`, re-exportar o dump, depois
-estender este patch. Registrado no docstring para quem pegar isto depois.
-
-### Por que quase não cria nó
-
-30 nós deste projeto já gravam **vários** campos num único
-`update_contact_field` (a `Cadência 12x30 — parte 2` grava três de uma vez),
-logo a forma é aceita pelo GHL. Onde o ramo já tem um `update_contact_field`,
-o patch **só acrescenta o campo ao array `fields` que existe**: zero nó novo,
-zero religação de cadeia, zero risco de quebrar o fluxo. Só cria nó onde o ramo
-não tem nenhum — hoje, um caso.
-
-| workflow | como | nós |
-|---|---|---|
-| `Resposta v2` | campo acrescentado ao nó `003eb01e`, que já gravava `Sinal recebido` | 18 → **18** |
-| `Triagem da Nutrição` | nó novo depois do `add_contact_tag` do `reengajado` | 37 → **38** |
-
-### Medido, incluindo o que eu afirmei sobre ele
-
-| conferência | resultado |
-|---|---|
-| `--dump` nos dois | conferência ok, exit 0 |
-| campo gravado por workflow | exatamente **1x** |
-| `next` quebrado / `parentKey` órfão | nenhum / nenhum |
-| **idempotência** (aplicar 2x) | 2ª passada não faz nada: mesmos nós, campo 1x |
-| forma do campo | `{"field": "TxJmoWdkA8rTqC1uEsMW", "value": "Mensagem", "title": "Canal que conectou", "type": "select", "date": ""}` |
-
-A idempotência não ficou só afirmada no docstring — rodei duas vezes e conferi
-que a segunda não duplica nem mexe na contagem de nós. Importa porque edição de
-workflow publicado costuma ser rodada mais de uma vez, entre tentativas.
-
-Zero escrita na conta: sem `--aplicar` o patch não escreve, e ele não foi
-executado. O campo continua contando na `auditoria_campos.py` até você rodar.
-
-## 2.42 O L-07 medido lead por lead: os 48 nunca entraram na cadência, e a tag `cad-inbound` diz o contrário
-
-**Isto não é achado novo.** A lacuna já tem nome desde o `briefing-sdr.md`
-(**L-07**, "não existe gatilho que promova `NOVO LEAD` → `CONECTAR`") e item
-próprio no `ROADMAP-SALES-ENGAGEMENT.md` (**G-03**, 47 leads medidos em
-22/09/2026, *aguardando decisão do dono*). O que esta seção acrescenta é
-medição ao vivo pela API — não mais leitura de dump — e uma correção de
-mecanismo: o que eu e os documentos dizíamos estava certo no efeito e **errado
-no motivo**.
-
-### O que eu media antes, e o que medi agora
-
-| antes (22/09, dump + contagem) | agora (23/09 21:29 UTC, API) |
-|---|---|
-| "47 leads parados em `NOVO LEAD`, envelhecendo" | **49** — entraram 2 depois (nenhum de anúncio) |
-| "ainda não em cadência" | **nunca entraram na cadência**, e a razão é o gatilho, não o portão |
-| nada dito sobre o que aconteceu com cada um | **zero tarefa, zero mensagem** nos 3 conferidos um por um |
-
-### O mecanismo, exato
-
-O gatilho da `Cadência Inbound` (`jecAUagw3f4V4Lujd4rG`, ativo) não é "lead de
-inbound chegou". É:
-
-```
-type: pipeline_stage_updated
-  opportunity.pipelineId      == 0Fo2xbeayE4EP6yuSUtq   (FUNIL DE VENDAS)
-  opportunity.pipelineStageId == deb60542-…              ("Movido para o estágio" = CONECTAR)
-```
-
-E a `Porta de Entrada` cria a oportunidade em `NOVO LEAD`:
-
-```
-create_opportunity  pipeline_stage_id: 7ae9c950-…  (NOVO LEAD)  status: open
-```
-
-Varri os 38 dumps procurando quem move oportunidade de etapa: os únicos
-`create_opportunity` da `Cadência Inbound` que apontam para `CONECTAR` são as
-**saídas** dela (`status: abandoned` → nutrição, `status: lost`). **Nenhum
-workflow da subconta move `NOVO LEAD` → `CONECTAR` com `status: open`.**
-
-Consequência: o lead que entra pela porta fica numa etapa que nenhum gatilho
-escuta. Não é que a cadência o pegou e o portão o barrou — **a cadência nunca
-foi acionada para ele.** Os cinco `TIn · Ainda vale ligar?` também exigem
-`pipelineStageId == CONECTAR` (segmento com `operator: and`, primeira condição),
-mas isso é *coerente* com o gatilho, não um segundo defeito.
-
-### A tag que mente
-
-Os 48 carregam `cad-inbound`. O nome se lê como "está na Cadência Inbound"; o
-que ela significa é "entrou pela porta de inbound" — ela é aplicada pela `Porta
-de Entrada` e **lida** pelo primeiro `if_else` da cadência (`É lead de
-inbound?`). Um lead com `cad-inbound` e sem toque nenhum não é contradição: é o
-estado normal enquanto a L-07 estiver aberta. Foi por isso que a contagem de
-tags não delatou o problema antes — `fila-tel`, `fila-wa` e `fila-quente`
-aparecem **1x cada** entre os 49, e eu poderia ter lido isso como "filas
-consumidas normalmente".
-
-### Medido, contato por contato
-
-| contato | entrou | tags | tarefas | mensagens | parado há |
-|---|---|---|---|---|---|
-| `Andre` (Facebook, form "O PROXIMO CLIENTE FORMS v1") | 19/09 02:18 | `etapa-novo-lead`, `cad-inbound` | **0** | **0** | **4d 19h** |
-| `Neid` (Facebook) | 19/09 02:18 | idem | — | **0** | **4d 19h** |
-| `Carlos Andrade` (Facebook, o último do anúncio) | 21/09 09:17 | + `limpar-tarefas` | **0** | **0** | **2d 12h** |
-
-"Mensagens 0" quer dizer: a única entrada no histórico da conversa é a
-atividade de sistema `Opportunity created` (`type: 28`,
-`TYPE_ACTIVITY_OPPORTUNITY`). Nenhuma mensagem de saída, nunca.
-
-O `Andre` respondeu no formulário do anúncio, em três campos: urgência **"Pra
-ontem"**, "Já faço anúncios e quero melhorar meus resultados", "Não invisto nada
-ainda". Está esperando há **4 dias e 19 horas**. É o custo da L-07 em uma linha,
-e é a única coisa nesta seção que o dono não podia saber antes: o item G-03
-dizia *quantos*, não o que estava dentro de um deles.
-
-### A entrada, agora medida na conta e não inferida
-
-| | |
-|---|---|
-| oportunidades com `source = Facebook` | 37 de 49 |
-| a mais nova delas | `Carlos Andrade`, **21/09 09:17:26** |
-| desde então | **60 h sem um único lead de anúncio** |
-| criadas em 22/09 e 23/09 | 4, todas sem `source` (manuais/teste: `Francisca`, `O Próximo Cliente`, `Sem Nome`, um número) + 1 `ZZ Teste` |
-
-Isto é o **F-10** deixando de ser suspeita: a porta está fechada há 60 h, e a
-conta confirma. Os 49 não estão crescendo — estão só envelhecendo, como o G-03
-já dizia em 22/09.
-
-### Limite honesto
-
-Conferi **3 dos 48** um por um (tarefas + histórico de conversa + campos do
-contato). A afirmação sobre os outros 45 não vem de medição individual, vem da
-estrutura: eles estão todos em `NOVO LEAD`, e o gatilho da cadência só escuta
-`CONECTAR`. A estrutura cobre os 48; as 3 amostras servem para confirmar que a
-estrutura se comporta como se lê. O MCP não expõe o registro de execução de
-workflow, então "nunca foi acionada" é inferência do gatilho + ausência de
-qualquer rastro (tarefa, mensagem, `Tentativa nº`, `1ª tentativa em`), não
-leitura de log.
-
-### O que isto muda na fila
-
-**Nada para aplicar.** A L-07/G-03 é decisão do dono e continua sendo: promover
-automaticamente (e sob qual regra) é escolha de operação, não de código. O que
-mudou é o peso do item — e que quando a decisão vier, quem for montar já sabe
-que o elo que falta é **uma ação** (`create_opportunity` → `CONECTAR`,
-`status: open`), não um workflow novo, e que ela cai dentro da própria `Porta de
-Entrada` ou num promotor separado, conforme a regra que o dono escolher.
-
-## 2.43 Os portões entraram no ar — e o que o `--aplicar` mostrou sobre a minha conferência
-
-Em 23/09/2026, entre 21:40 e 21:46 UTC, o dono rodou os quatro `--aplicar` que
-estavam na fila (commit `5904feb`). Medido nos dumps re-exportados pelo próprio
-patch, 2 a 6 minutos depois da escrita:
-
-| workflow | antes | depois | o quê |
-|---|---|---|---|
-| `Cadência Inbound` | 272 | **322** | G-17 (A): 2 portões × 5 toques × 5 nós |
-| `Recuperação de No-show` | 41 | **61** | G-17 (A) |
-| `Pós-ligação v2` | 142 | **146** | G-18 |
-| `Canal que conectou` | 0 pontos | **5 pontos** | 9c completo: `Resposta v2` (1), `Pós-ligação v2` (3), `Triagem` (1) |
-
-`auditoria_portoes.py` agora lê `sdr-lotado` e o teto `c1xuCuLyJheHOQoJ3grH` em
-**todos** os toques das duas cadências. Base atualizada no mesmo commit desta
-seção: **`portoes` 2 → 0**, **`campos` 4 → 3**.
-
-### O bug era meu, e a minha conferência não podia pegá-lo
-
-O `patch_portao_inbound.py` religava `parent`/`parentKey` dos nós clonados e
-**nunca acertava os `next`**. O GHL valida `next`. A conta respondeu **400** — e
-o script seguiu adiante e imprimiu resumo de sucesso, porque o `put()`
-compartilhado **devolvia a resposta e ninguém a lia**.
-
-Duas falhas, e a segunda é a grave:
-
-1. A `confere()` checava ids únicos, pais inexistentes, `goto` quebrado e
-   vazamento de uuid. Não checava encadeamento de `next` — logo **não tinha como
-   falhar exatamente no que estava errado.** Conferência que eu mesmo escrevo só
-   pega o defeito que eu imaginei.
-2. O `--aplicar` não tinha como distinguir sucesso de recusa. O §2.37 desta
-   página diz que o patch estava "validado"; era verdade sobre as invariantes que
-   eu escrevi e **mudo** sobre a única resposta que não se engana: a da conta.
-
-### O conserto ficou na fonte, não em cada chamador
-
-`put()` (em `patch_funil_reuniao.py`, importado por nove scripts) agora
-**levanta `RuntimeError`** quando a conta recusa:
-
-```
-PUT RECUSADO pela conta em 'Cadência Inbound' (322 nos enviados): {"_error": true, …}
-```
-
-Contei: dos 17 pontos de chamada de `put`, **9 não conferiam o retorno**
-(`patch_campos_data`, `patch_canal_conectou`, `patch_closer_tarefa`,
-`patch_condicoes_etapa`, `patch_mestre_tags`, `patch_noshow_ns1`,
-`patch_remove_atendeu`, `patch_remove_parte2`, `patch_textos_marca`). Consertar
-um por um seria esquecer de novo no próximo patch — e quem esquece não vê.
-Testado nos três caminhos: recusa 400 → levanta; resposta vazia → levanta;
-sucesso → passa e devolve.
-
-### E a minha auditoria deu alarme falso no mesmo minuto
-
-Com os portões no ar, `auditoria_portoes.py` passou a imprimir
-`PARCIAL: 'SDR lotado?' em 2 de 3 toques` na `Recuperação de No-show`. Fui
-conferir o `NS3` antes de reportar: o ramo dele limpa `Resultado da tentativa`,
-**remove** `fila-tel`, aplica `nutricao-90d` e move a oportunidade. **`NS3` não
-é um toque — é a saída da cadência.** Portão de capacidade ali adiaria a *saída*
-de um lead porque o SDR está cheio.
-
-O achado era da auditoria, não da cadência. A invariante no docstring sempre
-falou de **toque que consome**; a implementação contava toque por prefixo de
-nome. Agora `toque_consome()` desce a árvore do toque (parando quando entra no
-território de outro) e só exige portão de quem **adiciona** `fila-tel` /
-`fila-wa` / `toque` — remover não conta. O conserto não é um caso especial do
-`NS3`: a `Cadência 12x30 — parte 2` também tem 6 toques dos quais 5 gastam fila,
-e teria produzido o mesmo alarme falso no dia em que faltasse um portão nela.
-
-Depois do conserto: **nenhum `PARCIAL` em nenhuma cadência**, nenhuma grave,
-`auditoria_tudo.py` exit 0.
-
-### O que isto não resolve
-
-Os três portões agora protegem uma cadência que **nenhum lead alcança**. O
-gatilho da `Cadência Inbound` só escuta `CONECTAR`, e os 49 leads continuam em
-`NOVO LEAD` — §2.42. O G-17 no ar cumpre a promessa do `GUIA-SDR.md` linhas
-74-76 e a precondição do **lote de 6/dia**; não cumpre nem substitui a L-07.
-
-## 2.44 O G-16 previu e aconteceu 4h45 depois — e a causa raiz pode ser mais larga do que ele escreveu
-
-O G-16 (`ROADMAP-SALES-ENGAGEMENT.md`, **FEITO em 23/09/2026**) resgatou a
-`Francisca` e escreveu a previsão: *"Qualquer outra pessoa da vida pessoal do dono
-que mandar mensagem para esse número recebe o mesmo tratamento: vira oportunidade
-em `NOVO LEAD`, ganha `cad-inbound`."*
-
-Às **21:54:22 UTC de 23/09** — 4 h 45 min depois de a `Francisca` ter sido posta em
-`abandoned` — apareceu o segundo caso. Medido por API no check-in das 21:54:
-
-| | |
-|---|---|
-| oportunidade | `JudIT5DF7JinFbBqcwYU`, `NOVO LEAD`/`open`, criada **21:54:22** |
-| contato | `d0ZJyFlxl1GZNDUiICnt`, nome = o próprio número (`554791548812`) |
-| tags | `cad-inbound`, `etapa-novo-lead` |
-| `assignedTo` | `JdvhvOTEBTvUyRi0BXU8` — o mesmo do `O Próximo Cliente` |
-| fio | 6 mensagens pela Stevo (`type 20`), 21:54:20 a 21:54:59 |
-
-O conteúdo do fio não é de lead: *"Não estou tendo certo, sucesso com o suporte.
-Pode me ajudar?"*, *"Comprei o número telefônico"*, *"E também sobre 20 dias a mais
-do teste, não habilitou"*, *"Se poder checar"*, mais uma imagem. É o dono falando
-com **suporte/fornecedor**, não alguém perguntando sobre anúncios.
-
-`NOVO LEAD` foi de 49 para **50**. Nada foi escrito por mim: nenhuma linha
-disto está `[x]` no `APROVADO.md`.
-
-### O que isto muda no G-16
-
-Duas coisas, e a segunda é candidata, não item:
-
-1. **O G-16 está `FEITO` e a classe não está.** O que fechou foi o resgate da
-   `Francisca` e o passo preventivo no `GUIA-SDR.md` (ler o fio antes de tratar a
-   `TI1` como prospect). O filtro estrutural o próprio G-16 declarou impossível
-   para um workflow decidir sozinho. Então um segundo caso **não é achado novo** —
-   é a previsão do G-16 se cumprindo, e a medida que sobra é aquele passo do guia
-   funcionar. Quem ler "FEITO" sem ler o corpo vai achar que a porta foi
-   consertada.
-2. **CANDIDATO, a confirmar na tela:** o G-16 diz que o gatilho dispara "para
-   qualquer primeira mensagem **recebida**". Neste fio, as 6 mensagens que a API
-   devolve são **todas `outbound`** (`from: Pablo Santos's Account`), e a mais
-   antiga é 2 s anterior à criação da oportunidade, com `nextPage: false`. Se a
-   porta também dispara em conversa que o **dono inicia**, o alcance é maior do
-   que o G-16 escreveu: todo fornecedor e todo suporte que o dono contatar por
-   aquele aparelho entra como lead. Não afirmo: mensagem inbound pode não estar
-   sincronizada ou pode não vir nesse endpoint. Confirma-se lendo o fio na tela,
-   ou vendo se existe mensagem inbound antes de 21:54:20.
-
-### O que segura o dano hoje, e por que isso não é consolo
-
-Nenhuma mensagem automática vai para esse contato — porque a `Cadência Inbound`
-só escuta `CONECTAR` e ele está em `NOVO LEAD` (§2.42), e a `Triagem da Nutrição`
-exige `status-nutricao`, que só chega no fim da cadência. **É o funil quebrado
-protegendo o contato.** No dia em que a L-07 for resolvida, esta proteção
-acidental cai junto — e aí o passo do `GUIA-SDR.md` é a única rede.
-
-### Confirmado às 22:07: é a suporte da própria WeSales, e a limpeza A9 não a tirou
-
-O contato ganhou nome às 22:07:33 — **`Rafaela de Paula - We Sales`**. Não é
-"fornecedor" genérico: é a atendente da plataforma em que este CRM roda. O dono
-pedindo ajuda ao suporte da WeSales entrou no funil de vendas dele como lead
-atribuído.
-
-E ela **continua lá depois da faxina**. A `A9` (commit `994c97e`, 22:0x) limpou a
-fila de `NOVO LEAD` de 7 contatos de casa/teste; medido às 22:1x, `NOVO LEAD` tem
-**42 oportunidades `open`** e a mais nova de todas ainda é a
-`JudIT5DF7JinFbBqcwYU`, com `cad-inbound` + `etapa-novo-lead` e `assignedTo`. A
-faxina pegou o que era obviamente de teste e não tinha como pegar esta: o nome
-só apareceu depois, e antes dele o contato era um número solto — indistinguível
-de um lead de WhatsApp.
-
-Continua valendo o que a seção diz: **eu não escrevo nada** sem `[x]`. A decisão
-é de uma linha — resgatar como a `Francisca` (tirar as duas tags, oportunidade
-para `abandoned`) ou deixar e confiar no passo do `GUIA-SDR.md`.
