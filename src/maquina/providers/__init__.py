@@ -198,6 +198,14 @@ def obter_imagem(cfg: Config) -> GeradorImagem:
             return ImagemPollinations()
         if cfg.image_provider == "openai":
             return ImagemOpenAI(cfg.image_model)
+        if cfg.image_provider == "muapi":
+            # Muapi.ai: o motor do Open Higgsfield AI (ferramentas/open-higgsfield-ai).
+            # MAQ_IMAGE_MODEL escolhe entre os 51 modelos texto->imagem do
+            # catalogo (config/muapi_modelos.json); vazio ou de outro provider
+            # cai no flux-schnell.
+            from .muapi import ImagemMuapi
+
+            return ImagemMuapi(cfg.image_model if cfg.image_model != "gpt-image-1" else "")
         raise ErroProvider(f"image_provider desconhecido: {cfg.image_provider}")
     except ErroProvider as e:
         return _fallback(cfg.image_provider, e, ImagemStub())

@@ -117,6 +117,10 @@ LAYOUTS = {
     "lista":  "kicker, itens[]. Ate cinco itens, cada um um SINTAGMA curto.",
     "barras": "kicker, itens[], alturas[]. itens sao ROTULOS DE EIXO, nunca frases.",
     "cta":    "kicker, sub. So no fim.",
+    "arte":   ("kicker, sub, arte_prompt. Imagem gerada por IA (Open Higgsfield AI / "
+               "Muapi) atras de um cartao. arte_prompt em ingles, sem pedir texto na "
+               "imagem. Use em abertura de capitulo e em cena de ambiente; no maximo "
+               "uma a cada quatro cenas, e nunca em short."),
 }
 
 
