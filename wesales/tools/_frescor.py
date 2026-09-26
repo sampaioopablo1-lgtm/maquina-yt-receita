@@ -29,12 +29,27 @@ _FMT = "%Y-%m-%dT%H:%M:%S"
 
 
 def _updated(caminho):
+    """`updatedAt` do dump, ou "" se o arquivo nao for dump de workflow.
+
+    A pasta `workflows-json/` nao tem so workflow: em 24/09/2026 entrou o
+    `_campos.json`, que e uma LISTA de campos personalizados. O `.get()` direto
+    quebrava com `AttributeError`, a `auditoria_campos.py` morria antes de
+    imprimir, e o `auditoria_tudo.py` — que conta achado pela SAIDA — leu a
+    saida vazia como "zero achados" e anunciou conserto. Auditoria que morre
+    tem de gritar, nunca passar por limpa; por isso aqui filtra por tipo e o
+    `auditoria_tudo.py` passou a olhar o codigo de saida.
+    """
     try:
         with open(caminho, encoding="utf-8") as fh:
             dado = json.load(fh)
     except (ValueError, OSError):
         return ""
-    return ((dado.get("workflow") or dado) or {}).get("updatedAt") or ""
+    if not isinstance(dado, dict):
+        return ""
+    wf = dado.get("workflow")
+    if not isinstance(wf, dict):
+        wf = dado
+    return wf.get("updatedAt") or ""
 
 
 def backup_mais_novo(dumps):

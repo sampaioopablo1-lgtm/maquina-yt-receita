@@ -73,7 +73,13 @@ def varre(campos):
                 dado = json.load(fh)
         except (ValueError, OSError):
             continue
-        wf = dado.get("workflow") or dado
+        # `workflows-json/` tambem guarda o que nao e workflow (o `_campos.json`,
+        # que e uma lista). Sem este filtro o `.get()` quebra — ver `_frescor.py`.
+        if not isinstance(dado, dict):
+            continue
+        wf = dado.get("workflow")
+        if not isinstance(wf, dict):
+            wf = dado
         if wf.get("status") != "published":
             continue
         publicados += 1

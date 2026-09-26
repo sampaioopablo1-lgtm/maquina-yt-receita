@@ -30,6 +30,7 @@ Uso:  python3 wesales/tools/auditoria_tudo.py
       python3 wesales/tools/auditoria_tudo.py --gravar-base   # depois de conserto
 
 Codigo de saida:  0 = nada novo   1 = achado novo   2 = base desatualizada
+                  3 = alguma auditoria QUEBROU (nao mediu nada)
 """
 import json
 import os
@@ -97,12 +98,20 @@ def main():
         print("SEM LINHA DE BASE (%s nao existe ou nao le)." % os.path.basename(BASE))
         print("Rode com --gravar-base para congelar o estado de hoje como base.\n")
 
-    resultado, novos, consertados = {}, [], []
+    resultado, novos, consertados, quebradas = {}, [], [], []
     velhos = atrasados = 0
     for nome, script, rotulo in AUDITORIAS:
         saida, codigo = roda(script)
-        n = CONTA[nome](saida)
-        resultado[nome] = {"achados": n, "rotulo": rotulo, "saida": codigo}
+        # Auditoria que MORRE nao tem zero achado — tem zero saida. Em
+        # 26/09/2026 a `auditoria_campos.py` quebrou num `AttributeError` (o
+        # `_campos.json` entrou em `workflows-json/` e nao e workflow), a
+        # contagem pela saida leu 0, e este relatorio anunciou "campos 3 -> 0,
+        # CONSERTADO". Traceback na saida, ou codigo de saida que nenhuma das
+        # cinco usa (elas saem 0 ou 1 de proposito), e QUEBRA, nunca conserto.
+        quebrou = codigo not in (0, 1) or "Traceback (most recent call last)" in saida
+        n = None if quebrou else CONTA[nome](saida)
+        resultado[nome] = {"achados": n, "rotulo": rotulo, "saida": codigo,
+                           "quebrou": quebrou}
         if not velhos and not atrasados:
             # o aviso do `_frescor` e igual nas cinco; basta ler de uma
             velhos = len(HORAS.findall(saida))
@@ -120,6 +129,11 @@ def main():
     for nome, _, rotulo in AUDITORIAS:
         n = resultado[nome]["achados"]
         b = (base.get(nome) or {}).get("achados")
+        if resultado[nome]["quebrou"]:
+            print("%-11s %8s %8s  %s" % (nome, "QUEBROU", "-" if b is None else b,
+                                         "*** a auditoria MORREU — saida %s ***" % resultado[nome]["saida"]))
+            quebradas.append(nome)
+            continue
         if b is None:
             sit = "sem base"
         elif n > b:
@@ -136,9 +150,10 @@ def main():
     for nome, _, rotulo in AUDITORIAS:
         n = resultado[nome]["achados"]
         porque = (base.get(nome) or {}).get("porque")
-        if n and porque:
+        if n and porque and not resultado[nome]["quebrou"]:
             print("  %s (%d): %s" % (nome, n, porque))
-    if any(resultado[n]["achados"] for n, _, _ in AUDITORIAS):
+    if any(resultado[n]["achados"] for n, _, _ in AUDITORIAS
+           if not resultado[n]["quebrou"]):
         print()
 
     if novos:
@@ -153,6 +168,14 @@ def main():
         print("Consertado desde a base: %s" %
               ", ".join("%s (%d->%d)" % x for x in consertados))
         print("Atualize a base no MESMO commit do conserto: --gravar-base")
+
+    if quebradas:
+        print("!" * 72)
+        print("AUDITORIA QUEBRADA — %s" % ", ".join(quebradas))
+        print("   Conserte antes de ler o resto: auditoria que morre nao mede nada,")
+        print("   e contagem que some NAO e conserto. A base nao sera gravada.")
+        print("!" * 72)
+        return 3
 
     if gravar:
         novo = {nome: {"achados": resultado[nome]["achados"],

@@ -90,6 +90,10 @@ def carrega():
                 dado = json.load(fh)
         except (ValueError, OSError):
             continue
+        # `workflows-json/` guarda tambem o que nao e workflow (o `_campos.json`,
+        # lista, entrou em 24/09/2026). Sem este filtro o `.get()` quebra.
+        if not isinstance(dado, dict):
+            continue
         wf = dado.get("workflow") or dado
         wid = wf.get("id")
         if not wid:

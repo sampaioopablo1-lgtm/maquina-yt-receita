@@ -4,6 +4,20 @@ Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
 
 
+## Runner G-03 no Windows precisa de fallback para tzdata ausente — 25/09/2026
+
+O runner usa `zoneinfo.ZoneInfo("America/Sao_Paulo")`. No Python 3.14
+instalado no Windows, o módulo `zoneinfo` existe, mas os dados IANA não
+estavam instalados; o `except ImportError` original não cobria
+`ZoneInfoNotFoundError`, e o script encerrava antes de chegar à trava da
+janela de execução.
+
+Corrigido `tools/promote_g03_scheduled.py` para usar UTC−03 como fallback
+quando os dados IANA não estiverem disponíveis. O teste em 25/09/2026
+retornou `outside scheduled window; no CRM writes`; nessa saída o runner não
+lê o token nem chama a API. O workflow segue limitado à janela de
+29–30/09/2026.
+
 ## Espera "até X antes da reunião" com a reunião perto demais: os lembretes empilham — simular antes de testar — 23/09/2026
 
 A simulação (`simular_lembretes.py`, grafo real + condições + relógio) achou

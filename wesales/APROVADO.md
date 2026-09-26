@@ -33,6 +33,13 @@ exclui nada), mas para de repetir.
 
 ## Autorizações
 
+[ ] **Parcialmente executada:** o backfill do estoque foi feito em
+24/09/2026, promovendo as oportunidades elegíveis de `NOVO LEAD` para
+`CONECTAR`. Continua pendente publicar/criar o workflow **Promover NOVO LEAD
+para CONECTAR** — decisão escolhida em 24/09/2026: promoção imediata ao
+entrar em `NOVO LEAD`, com Create/Update Opportunity status `open` na etapa
+`CONECTAR`; a criação pela API oficial ainda não foi estabelecida.
+
 *Liberadas pelo dono da conta em 18/09/2026: "tem todas as permissões, faça da
 melhor forma possível".*
 
