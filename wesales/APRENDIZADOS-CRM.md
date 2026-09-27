@@ -6792,3 +6792,14 @@ falta de solução. Registrado também como item de processo em
 branches ou formalizar essa checagem é do dono; o hábito de checar antes
 de escalonar já vale a partir de agora, para qualquer sessão, em qualquer
 branch.
+
+**Confirmação do hábito, mesmo dia, sessão seguinte (G-32):** um oitavo
+campo fora da lista apareceu na conta (`Canal da tentativa`) e, desta vez,
+o `git branch -a` + leitura do `DE-PARA-SESSOES-CRM.md` da branch irmã
+veio **antes** de escrever "registro, pergunta ao dono" — e achou a
+explicação de primeira (pedido do dono, sessão do PC, campo alimentando
+portões novos do `Pós-ligação v3`). Diferença prática frente ao G-25: ali
+o hábito nasceu depois de quase 10h de item bloqueado por falta de
+visibilidade; aqui ele evitou o mesmo erro se repetir, no primeiro caso
+seguinte em que se aplicava. Custo da checagem: dois comandos git, nenhuma
+chamada de API a mais. Detalhe em `ROADMAP-SALES-ENGAGEMENT.md`, **G-32**.

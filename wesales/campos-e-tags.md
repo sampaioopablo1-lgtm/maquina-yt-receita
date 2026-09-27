@@ -416,6 +416,27 @@ tendo ativado esse recurso nesta subconta. Sem consumidor (workflow, lista
 ou documento) hoje. Registro, não aprovação — mesmo motivo dos campos
 acima. Achado e "Pronto quando" em `ROADMAP-SALES-ENGAGEMENT.md`, **G-30**.
 
+**Um oitavo campo fora desta lista, e desta vez com explicação encontrada,
+não perdida:** `Canal da tentativa` — `contact.canal_da_tentativa`, id
+`AsZMGmsKVu1xEp36hyLb`, `SINGLE_OPTIONS` (`Telefone`, `WhatsApp`), posição
+595, grupo de qualificação (`parentId` `zHU4yGXKHdxBHnGxUmai`), confirmado
+por `locations_get-custom-fields` nesta rodada (`dateAdded`
+2026-09-27T21:30:52Z). Diferente dos quatro campos acima: antes de escrever
+mais um "registro, pergunta ao dono", a checagem de branches irmãs que o
+G-31 tornou hábito (`git branch -a` + ler o `DE-PARA` da branch candidata)
+achou a explicação de primeira. `wesales/DE-PARA-SESSOES-CRM.md`, na branch
+`abertura-operacao-dnd-n7dnjv` (não esta), registra que o campo nasceu de
+pedido explícito do dono numa sessão do PC (27/09/2026) para alimentar 3
+portões novos no workflow `Pós-ligação v3` (`fila-wa` → `Canal da tentativa
+== WhatsApp`, canal limpo no fim de 10 ramos), publicado v6 → v7 e testado
+no contato de teste daquela branch. Não é órfão nem duplicata: é peça de um
+redesenho do seletor de canal — o mesmo ponto que o F-09 discute — que
+aquela branch está construindo ao vivo, fora deste conector. Esta sessão
+verificou por conta própria só a existência e o formato do campo (API); a
+fiação do workflow é relato da outra branch, dado, não confirmado nó a nó
+por aqui. Detalhe e "Pronto quando" (cumprido, é reconciliação, não decisão
+pendente) em `ROADMAP-SALES-ENGAGEMENT.md`, **G-32**.
+
 ## Etapa 3 — Tags (23 numeradas, seis pendentes de aprovação — e 12 na conta fora da numeração)
 
 > **Onde mora a contagem das tags fora da numeração.** Só este título e a

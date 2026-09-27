@@ -5023,11 +5023,24 @@ opções não a responde, só reduz o campo a um único SDR possível, o que
 teoricamente favorece a leitura "registro de quem qualificou" enquanto
 houver só uma pessoa qualificando. Até a resposta, os dois campos ficam sem
 consumidor (nenhum workflow, lista ou documento lê ou escreve neles hoje,
-confirmado nesta rodada). G-03, G-04 (peça 2), F-09, F-10, G-11 (item 1) e
-G-19 continuam sendo as seis decisões sem prazo fixo que esperam o dono,
-sem novidade nesta sessão; G-25 continua sendo o item de maior prioridade
+confirmado nesta rodada). G-04 (peça 2), F-09, F-10, G-11 (item 1),
+G-19, G-27/G-28 (qual intenção é a certa para `SDR responsável`) e agora
+G-29 (`B · Quanto pode investir` é duplicata ou pergunta nova) continuam
+sendo as decisões sem prazo fixo que esperam o dono, sem novidade além do
+achado desta sessão; G-25 continua sendo o item de maior prioridade
 do roadmap enquanto a janela de 28/09 08:30 `America/Sao_Paulo` não passar
 sem disparo.
+
+> **Correção de coerência, sessão do G-32 (27/09/2026):** este parágrafo
+> ainda citava `G-03` (decidido e agendado desde a reconciliação de
+> 27/09/2026, tirado da lista em quatro outros parágrafos naquela sessão,
+> mas não neste) e, junto com o do G-30 logo abaixo, tinha parado de
+> carregar G-27/G-28/G-29 na lista de decisões pendentes assim que o G-30
+> nasceu — a mesma classe de erro que o G-20 já corrigiu para números fixos
+> e a reconciliação de 27/09 corrigiu para o `G-03` nos outros quatro
+> parágrafos (copiar o parágrafo anterior sem checar se a lista que estava
+> sendo copiada ainda era a correta). Corrigido aqui e no G-30; detalhe em
+> `APRENDIZADOS-CRM.md`, achado do G-32.
 
 ### G-30 · Um sétimo campo fora da lista nasceu na conta, e este não é da tela — é o rastro de um recurso nativo que ninguém documentou ligar (27/09/2026)
 
@@ -5104,11 +5117,12 @@ dos seis anteriores) e este item.
 subconta de propósito e, se estiver, qual é a intenção (substituir um nó
 existente da cadência, rodar como canal extra, ou foi ativado sem querer
 num teste). Até a resposta, o campo fica sem consumidor (nenhum workflow,
-lista ou documento lê ou escreve nele hoje, confirmado nesta rodada). G-03,
-G-04 (peça 2), F-09, F-10, G-11 (item 1), G-19 e agora a pergunta do Voice
-AI (G-30) continuam sendo as decisões sem prazo fixo que esperam o dono,
-sem novidade nesta sessão; G-25 continua sendo o item de maior prioridade
-do roadmap enquanto a janela de 28/09 08:30 `America/Sao_Paulo` não passar
+lista ou documento lê ou escreve nele hoje, confirmado nesta rodada).
+G-04 (peça 2), F-09, F-10, G-11 (item 1), G-19, G-27/G-28, G-29 e agora a
+pergunta do Voice AI (G-30) continuam sendo as decisões sem prazo fixo que
+esperam o dono, sem novidade nesta sessão; G-25 continua sendo o item de
+maior prioridade do roadmap enquanto a janela de 28/09 08:30
+`America/Sao_Paulo` não passar
 sem disparo.
 
 ### G-31 · Quatro branches diferentes escrevem na mesma subconta sem se cruzarem — o G-25 ficou "item de maior prioridade" por ~10h depois de já estar resolvido do outro lado (27/09/2026)
@@ -5171,6 +5185,52 @@ equivalente das outras antes de escalonar qualquer item como bloqueado.
 Até a escolha, o mitigador é o registrado acima: checar branches irmãs
 virou passo obrigatório antes de declarar algo "esperando o dono" neste
 roadmap.
+
+### G-32 · Um oitavo campo fora da lista nasceu na conta — e desta vez o hábito que o G-31 deixou achou a explicação de primeira, em vez de mais um mistério para o dono (27/09/2026) — **FEITO em 27/09/2026 (reconciliação)**
+
+**Por quê:** reconferência de rotina depois do G-25/G-31 — antes de
+qualquer trabalho novo, `contacts_get-contact` em `Carlos Andrade`
+(`7ECnj1bSeEIm5P58Ifd9`) reconfirma `dnd: false` e `Prioridade = 4` (G-25
+segue resolvido, sem regressão) e `opportunities_search-opportunity`
+(`meta.total`, não a contagem de itens da página — nota de ferramenta do
+G-30) confirma **64 oportunidades**, sem mudança de volume.
+`locations_get-custom-fields` (model `contact`) mostra um campo que nenhum
+documento desta branch cita: `Canal da tentativa`
+(`contact.canal_da_tentativa`, id `AsZMGmsKVu1xEp36hyLb`, `SINGLE_OPTIONS`
+`Telefone`/`WhatsApp`, posição 595, grupo de qualificação, `dateAdded`
+2026-09-27T21:30:52Z) — mesma classe de achado que G-27/G-29/G-30 (campo
+fora da lista). Mas desta vez, antes de escrever mais um "registro, pergunta
+ao dono", a lição do G-31 (checar `git branch -a`/`git cat-file` e ler o
+`DE-PARA` da branch candidata antes de tratar campo sem explicação como
+mistério) foi aplicada pela primeira vez desde que virou hábito registrado.
+
+**Como:** `git branch -a` + `git show
+origin/claude/abertura-operacao-dnd-n7dnjv:wesales/DE-PARA-SESSOES-CRM.md`
+(a mesma branch A que já tinha resolvido o G-25) explicou o campo sem
+precisar perguntar nada ao dono: pedido explícito dele, numa sessão do PC
+em 27/09/2026 (tabela "Itens 1–4", linha "pedido anterior"), campo criado
+para alimentar 3 portões novos no workflow `Pós-ligação v3` (`fila-wa` →
+`Canal da tentativa == WhatsApp`, com o canal limpo no fim de 10 ramos),
+publicado v6 → v7 e testado no contato de teste daquela branch. Não é
+órfão nem duplicata: é peça de um redesenho do seletor de canal — o mesmo
+ponto que o F-09 discute — que a branch A está construindo ao vivo, fora
+deste conector. Esta sessão verificou por conta própria só a existência e
+o formato do campo, por API; a fiação do workflow é relato da outra
+branch — registrado como dado, não confirmado nó a nó por aqui. Zero
+campo, zero tag, zero escrita no CRM: reconciliação de documentação, não
+depende de `APROVADO.md`. Detalhe em `campos-e-tags.md`, Etapa 2 ("oitavo
+campo fora da lista").
+
+**Pronto quando:** cumprido nesta rodada — diferente de G-27/G-28/G-29/
+G-30, este não é decisão pendente do dono, é lacuna de documentação já
+fechada: a explicação já existe e está registrada aqui e em
+`campos-e-tags.md`, para nenhuma sessão futura desta branch redescobrir a
+mesma pergunta. G-04 (peça 2), F-09, F-10, G-11 (item 1), G-19, G-27/G-28/
+G-29 (qual das duas intenções é a certa para `SDR responsável`, e se
+`B · Quanto pode investir` duplica `Investimento mensal em anúncios`),
+G-30 (Voice AI ativado de propósito?) e G-31 (consolidar branches ou
+formalizar a checagem) continuam sendo as decisões sem prazo fixo que
+esperam o dono, sem novidade além desta reconciliação.
 
 ## Ordem sugerida
 
@@ -6896,10 +6956,10 @@ qualificação, é o rastro de um recurso nativo (Voice AI/AI Employee do
 HighLevel) que nenhum documento registra ter sido ligado nesta subconta.
 Fechado como **G-30** (acima, entre G-29 e "Ordem sugerida"): registro do
 achado, sem decisão — mesmo padrão do G-27/G-29, campo do dono, não meu.
-G-04 (peça 2), F-09, F-10, G-11 (item 1), G-19 e G-30 continuam sendo as
-decisões sem prazo fixo que esperam o dono, sem novidade além do achado
-nesta sessão; G-25 segue como item de maior prioridade do roadmap enquanto
-a janela não passar sem disparo.
+G-04 (peça 2), F-09, F-10, G-11 (item 1), G-19, G-27/G-28, G-29 e G-30
+continuam sendo as decisões sem prazo fixo que esperam o dono, sem
+novidade além do achado nesta sessão; G-25 segue como item de maior
+prioridade do roadmap enquanto a janela não passar sem disparo.
 
 **Achado de coerência na mesma sessão, antes de fechar: `G-03` tinha
 voltado à lista de decisões pendentes em cinco parágrafos depois de ter
@@ -6944,8 +7004,8 @@ escrevendo na mesma subconta sem se cruzarem, ~10h de G-25 "prioritário"
 depois de já resolvido do outro lado) estão no próprio G-25 e no novo
 **G-31**, ambos acima. Pronto quando cumprido: a decisão do dono
 (verificada por leitura independente, não suposta) responde ao critério
-original. G-04 (peça 2), F-09, F-10, G-11 (item 1), G-19 e G-30 continuam
-sendo as decisões sem prazo fixo que esperam o dono; G-31 (branches
-paralelas) também espera decisão do dono, sem prazo fixo. Nenhum item
-"salta a fila" agora — a sessão seguinte volta à varredura de coerência ou
-à pesquisa de concorrência normais.
+original. G-04 (peça 2), F-09, F-10, G-11 (item 1), G-19, G-27/G-28, G-29 e
+G-30 continuam sendo as decisões sem prazo fixo que esperam o dono; G-31
+(branches paralelas) também espera decisão do dono, sem prazo fixo. Nenhum
+item "salta a fila" agora — a sessão seguinte volta à varredura de
+coerência ou à pesquisa de concorrência normais.
