@@ -469,18 +469,56 @@ decide se a operação está perdendo o retorno mais fácil do funil.
 mesmo Call Center que ninguém examinou. `Gatilhos` em especial pode mudar o
 desenho de novo — vale abrir antes de fechar qualquer decisão.
 
-## 4. Quatro pastas de campo, em vez de uma de 53
+## 4. Cinco pastas de campo, em vez de uma de 53
 
 Reagrupar os campos que já existem. Nenhum criado, nenhum apagado.
 
+**Esta seção foi refeita em 27/09** e o motivo importa mais que o resultado. A versão
+anterior tinha quatro pastas, e uma delas se chamava `4 · VEIO DO ANÚNCIO` com **20
+campos** — todo o BANT (`Budget`, `Decisor`, `Prazo`, `Tem time comercial`…). O dono
+corrigiu o entendimento: **são dois formulários diferentes.** O do Meta Ads traz o
+lead; o de qualificação é preenchido **pela SDR** para marcar a reunião com o closer,
+e os campos entram no lead ao longo do processo até o fechamento.
+
+Em vez de supor qual campo vem de onde, medi. Contagem de preenchimento nos 64
+contatos da conta, versionada em `wesales/dados/campos-27-09.json`:
+
+| campo | preenchidos | leitura |
+|---|---|---|
+| `Urgência` | **40 / 64** | vem do anúncio |
+| `Necessidade` | **34 / 64** | vem do anúncio |
+| `Investimento mensal em anúncios` | **32 / 64** | vem do anúncio |
+| `Dor principal` | 6 / 64 | a SDR preenche |
+| `Budget`, `Decisor`, `Prazo`, `Tem time comercial` | 3 / 64 | a SDR preenche |
+| `Segmento`, `Site`, `Instagram`, `Usa CRM`, `Empresa` | **0 / 64** | ninguém preencheu ainda |
+
+A separação é limpa: **três campos** chegam com o lead; os outros 17 do bloco antigo
+ficam entre 0 e 6. Se viessem do formulário do anúncio, os 64 teriam.
+
+**Por que isso não é cosmético:** chamar de "veio do anúncio" um campo que a SDR precisa
+preencher esconde trabalho dela na tela. O campo vazio pareceria dado que o anúncio não
+mandou, em vez de pergunta que falta fazer — que é exatamente o erro da §1.2 do
+`LICOES-DO-PROJETO.md` ("campo vazio pode ser 'ainda não', não 'faltou'").
+
 | pasta | o que vai dentro | quem vê |
 |---|---|---|
-| **`1 · SDR PREENCHE`** | `Resultado da tentativa`, `Data de retorno`, `Hora do retorno`, `Motivo da desqualificação` | SDR |
-| **`2 · NÃO MEXER — a máquina escreve`** | `Prioridade`, `Tentativa nº`, `Entrada em`, `1ª tentativa em`, os dois `Checkpoint`, `Toques na semana`, todos os contadores de ligação/conexão, `Template usado`, `Nota de qualificação` | ninguém edita |
-| **`3 · CLOSER PREENCHE`** | `Reunião foi qualificada`, `Motivo da desqualificação`, `Data do veredito do closer` | closer |
-| **`4 · VEIO DO ANÚNCIO`** | `Urgência`, `Necessidade`, `Dor principal`, `Prazo`, `Investimento mensal`, `Investe em anúncios`, `Budget`, `Decisor`, `Tem time comercial`, `Clientes novos por mês`, `Quem atende os leads`, `Canal principal de venda`, `Usa CRM`, `Já teve agência?`, `Segmento`, `Site`, `Instagram`, `Empresa` | SDR lê antes de ligar |
+| **`1 · SDR PREENCHE A CADA TENTATIVA`** | `Resultado da tentativa`, `Data de retorno`, `Hora do retorno` | SDR, a cada ligação |
+| **`2 · SDR PREENCHE NA QUALIFICAÇÃO`** | `Budget`, `Decisor`, `Prazo`, `Dor principal`, `Tem time comercial`, `Clientes novos por mês`, `Quem atende os leads`, `Canal principal de venda`, `Usa CRM`, `Investe em anúncios`, `Plataformas de anúncio`, `Já teve agência?`, `Experiência com agência`, `Segmento`, `Site`, `Instagram`, `Empresa` | SDR, para marcar com o closer |
+| **`3 · VEIO DO ANÚNCIO`** | `Urgência`, `Necessidade`, `Investimento mensal em anúncios` | SDR lê antes de ligar |
+| **`4 · CLOSER PREENCHE`** | `Reunião foi qualificada`, `Motivo da desqualificação`, `Data do veredito do closer` | closer |
+| **`5 · NÃO MEXER — a máquina escreve`** | `Prioridade`, `Tentativa nº`, `Entrada em`, `1ª tentativa em`, os dois `Checkpoint`, `Toques na semana`, todos os contadores de ligação/conexão, `Template usado`, `Nota de qualificação`, `Permissão WhatsApp`, e os campos de data do fluxo — 30 no total | ninguém edita |
 
-O nome da pasta 2 é metade do valor: **`NÃO MEXER`** é a instrução que a §3.1
+O `Motivo da desqualificação` aparecia nas pastas 1 e 3 da versão antiga, nas duas. É do
+closer, pela picklist (`Sem fit`, `Sem budget`, `Timing errado`…) e pelo par com
+`Data do veredito do closer`. Ficou só na pasta do closer.
+
+O mapa está no código, não só aqui: `wesales/tools/pastas_de_campo.py`. O modo `--plano`
+**confere** o mapa contra o snapshot da conta e falha se algum campo sobrar, faltar ou
+aparecer em duas pastas — os 56 fecham. Isso roda na Action sem segredo nenhum, antes de
+qualquer escrita, porque mapa escrito à mão erra em silêncio: campo com nome trocado
+nunca apareceria no arrasto.
+
+O nome da pasta 5 é metade do valor: **`NÃO MEXER`** é a instrução que a §3.1
 tenta dar por documento ("quem 'ajuda' a automação à mão quebra a contagem e o
 roteamento sem ver erro nenhum") e que a tela pode dar sozinha.
 
@@ -492,7 +530,7 @@ porque os domínios do GHL são negados pelo proxy) e a resposta é dividida:
 
 | o que | rota | dá? |
 |---|---|---|
-| criar as 4 pastas | `POST /custom-fields/folder` | **sim** |
+| criar as 5 pastas | `POST /custom-fields/folder` | **sim** |
 | renomear pasta | `PUT /custom-fields/folder/{id}` | **sim** |
 | campo **novo** já nascer em pasta | `POST /custom-fields/` (aceita `parentId`) | **sim** |
 | **mover campo existente** para uma pasta | `PUT /custom-fields/{id}` | **NÃO** — o corpo não tem `parentId` |
@@ -502,6 +540,15 @@ rotas eu anunciei ao dono que o reagrupamento dos 53 campos estava destravado po
 API. Fui escrever o script, li o `requestBody` do `PUT`, e não tem `parentId`. O único
 caminho por API seria criar campo novo em pasta e apagar o antigo — e apagar campo é
 proibido pela regra 1 e destruiria o dado de todos os contatos.
+
+**Um segundo erro, achado antes de rodar:** a primeira versão do script leu só a lista
+`fields` da resposta do `GET /custom-fields/object-key/{objectKey}` e procurou pasta lá
+dentro, para não recriar o que já existe. O spec mostra que a resposta tem **duas**
+listas, `fields` e `folders` — então a checagem nunca acharia nada e o script criaria as
+cinco pastas de novo a cada execução. O que escondeu isso: o conector MCP também
+devolve só `fields`, e a conta já tem três pastas em uso (`gabsbU3jsUN7oIXCnYab` com 53
+campos, `zHU4yGXKHdxBHnGxUmai` com `Urgência` e `Empresa`, `vCqedGd185RiQKNlU870` com
+`Conexões WhatsApp`) que nenhuma das duas leituras mostrou.
 
 **Então isto segue trabalho de tela**, e segue valendo: é a origem da queixa do dono
 ("meio completo e confuso"), com 53 de 56 campos numa pasta só. A lição virou entrada

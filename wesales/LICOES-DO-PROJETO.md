@@ -251,7 +251,48 @@ campo existente, não** — só campo novo nasce em pasta. Voltou a ser trabalho
 **Verificação:** endpoint existir não é capacidade. Ler `requestBody.properties` e
 confirmar que o campo que você precisa mexer está lá.
 
-## 2.13 Duas trilhas de execução que não se enxergam
+## 2.13 Agrupar campo por nome do campo, em vez de por quem o preenche
+
+**Forma:** montar a tela em cima do que o campo *parece ser*, sem medir quem escreve
+nele. O erro não aparece como erro: aparece como uma pasta com nome plausível.
+
+**Caso, de hoje:** a §4 do `USABILIDADE.md` tinha uma pasta `VEIO DO ANÚNCIO` com 20
+campos, porque `Budget`, `Decisor`, `Prazo` e `Urgência` *soam* como coisa que o
+formulário do Meta Ads coleta. O dono corrigiu (§1.2: são dois formulários), e a medição
+fechou o caso — preenchimento nos 64 contatos: `Urgência` 40, `Necessidade` 34,
+`Investimento mensal` 32; e então um degrau seco para `Dor principal` 6, `Budget` 3,
+`Segmento` 0. **Três** campos vêm do anúncio; os outros 17 a SDR preenche depois.
+
+**Por que custava caro:** o dano não era a pasta feia. Um campo vazio dentro de
+`VEIO DO ANÚNCIO` lê como "o anúncio não mandou" — quando é "a SDR ainda não perguntou".
+A pasta teria escondido o trabalho dela da própria tela dela. É a §1.2 outra vez, agora
+no lugar onde ela dói.
+
+**Verificação:** antes de agrupar campo por função, contar em quantos registros ele está
+preenchido. Campo que chega com o lead aparece em quase todos; campo de etapa posterior
+aparece em poucos. O degrau na contagem é onde fica a fronteira, e é observável.
+Snapshot versionado em `wesales/dados/campos-27-09.json`, conferido pelo próprio script
+(`--plano` falha se sobrar ou faltar campo).
+
+## 2.14 Ler uma lista da resposta e supor que é a resposta inteira
+
+**Forma:** a rota devolve várias coleções; o código lê uma e conclui pela ausência.
+
+**Caso, de hoje:** para não recriar pasta que já existe, o script leu `fields` da
+resposta do `GET /custom-fields/object-key/{objectKey}` e procurou pasta ali. O spec tem
+**duas** listas: `fields` e `folders`. A checagem nunca acharia nada, e o script criaria
+as cinco pastas de novo a cada execução — idempotência que parecia existir. Achado ao
+ler o schema da resposta, antes de rodar.
+
+**O que escondeu:** o conector MCP `locations_get-custom-fields` também devolve só
+`fields`, nas duas variantes (`model=contact` e `model=all`). Duas leituras concordando
+não são confirmação quando as duas são a mesma leitura. E a conta já tinha **três**
+pastas em uso, que nenhuma das duas mostrou.
+
+**Verificação:** ao consultar existência antes de criar, ler o schema da resposta e
+conferir em qual coleção a coisa mora. Idempotência não testada é idempotência suposta.
+
+## 2.15 Duas trilhas de execução que não se enxergam
 
 **Forma:** sessão na nuvem e sessão no PC produzindo estado e documento que o outro
 lado não lê.

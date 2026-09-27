@@ -275,15 +275,36 @@ custo aparece quando o volume chegar, que é o cenário dos 10 leads/dia.
 0. ~~`Add to Workflow` em lote~~ — **RETIRADO em 12:20.** Partia de hipótese
    refutada (os leads já estão inscritos); executar duplicaria execução. Ver a
    §0-BIS do `USABILIDADE.md`.
-1. **Janela em `days: [2]`** — ver §2: se não acontecer, não é desastre. Perdeu
-   a primeira posição para o item 0, e por um motivo: a janela protege contra a
-   máquina agir cedo; o item 0 é a máquina não agir.
+1. ~~**Janela em `days: [2]`**~~ — **CANCELADO em 27/09, por medição.** Era o
+   único item com prazo (segunda 08:30) e o único que exigia a API interna. Medi
+   a exposição real em vez de estimá-la: busquei as oportunidades abertas em
+   `CONECTAR` e apliquei as condições do portão MI-0 em cima delas. **Passam
+   exatamente 5 leads** — Gerson De Souza Pia (`+5521990518798`), Ana Ruth
+   (`+5521969489937`), Ricardo (`+5521968889876`), Andreia (`+5521997355174`),
+   Andre (`+5521980417915`). São o lote 1 da rampa.
+
+   Então a janela protegeria contra 5 mensagens para 5 pessoas que preencheram
+   formulário pedindo contato, um dia antes da abertura. Isso não é a máquina
+   agindo cedo: é a operação começando. Com o item 0 aplicado (40 contatos com
+   `nao-perturbe` **e** `dnd=true`, listas 8.26/8.27 em zero), ninguém fora
+   desses 5 recebe nada.
+
+   **O que isso fecha:** não há mais item com prazo antes de segunda, e o pedido
+   de liberar `backend.leadconnectorhq.com` deixa de ser urgente — segue útil
+   para os consertos de `fila-wa` e `sdr-lotado`, que não têm data.
 2. **`[x]` no `APROVADO.md`** para escrita de `Prioridade`, se quiser que o
    runner diário aplique sozinho. Hoje ele só lê.
 3. **G-04, A ou B.** Recomendação: **B** (a §9.1 lendo `Urgência`/`Necessidade`
    por `Contains`), porque são **oito formulários** de Lead Ads e a A é trabalho
    de tela oito vezes, com todo formulário novo nascendo errado. Sob a B, apagar
    o `patch_picklist_investimento.py`.
+
+   **A medição de 27/09 reforça a B, sem que eu tenha ido buscar isso:** ao contar
+   preenchimento de campo para refazer as pastas (§4 do `USABILIDADE.md`), os três
+   únicos campos que chegam com o lead são exatamente `Urgência` (40/64),
+   `Necessidade` (34/64) e `Investimento mensal em anúncios` (32/64). A opção B lê
+   os dois primeiros por `Contains`, e eles são os campos mais preenchidos da conta
+   depois dos que a máquina inicializa. A B não está apostando num campo frágil.
 4. **Texto da tarefa T1** — hoje manda clicar em "Ligar via WhatsApp", botão que
    não existe nesta conta (ver `CANAIS.md`). Telefone tem de ser o passo 1.
 5. **Distribuição de dono (R-10)** — lead novo nasce com `assignedTo: null`.
