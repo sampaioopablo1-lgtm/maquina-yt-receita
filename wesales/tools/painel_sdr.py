@@ -101,7 +101,13 @@ def token_no_painel() -> bool:
     linha `ghl_pit` na tabela `config` do Supabase (projeto cscczluzpblzhvojxanp)
     ou autoriza a regra de permissao; aqui so se PERGUNTA ao painel se ja tem.
     """
-    st, r = http("GET", PAINEL + "/api/saude", tolerar=(400, 401, 403, 404, 500, 502, 503))
+    st, r = http("GET", PAINEL + "/api/saude", tolerar=(400, 401, 402, 403, 404, 500, 502, 503))
+    if st == 402:
+        # Restricao de cota da ORGANIZACAO Supabase (run 36334772280: o projeto
+        # cscczluzpblzhvojxanp tambem devolve 402). Nao e do painel; e da conta.
+        print("  1. painel inalcancavel: Supabase em restricao de cota (HTTP 402) — o dono")
+        print("     precisa liberar a conta (spend cap / storage). O resto do passo segue.")
+        return False
     tem = st == 200 and isinstance(r, dict) and bool(r.get("token_guardado"))
     print("  1. token do GHL no painel: %s" % ("SIM" if tem else "NAO — ver docstring de token_no_painel()"))
     return tem
@@ -157,7 +163,7 @@ def sondar() -> None:
 
 
 def saude() -> bool:
-    st, r = http("GET", PAINEL + "/api/saude", tolerar=(400, 401, 403, 404, 500, 502, 503))
+    st, r = http("GET", PAINEL + "/api/saude", tolerar=(400, 401, 402, 403, 404, 500, 502, 503))
     print("  4. painel /api/saude -> HTTP %s %s" % (st, json.dumps(r, ensure_ascii=False)[:300]))
     return st == 200 and isinstance(r, dict) and bool(r.get("ok"))
 
