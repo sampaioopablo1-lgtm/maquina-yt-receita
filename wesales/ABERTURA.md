@@ -116,3 +116,14 @@ abertura e medir, em vez de descobrir com 30.
 > do dono seguem sem resposta. Sem notificação nova nesta rodada — a sessão
 > anterior já avisou o dono por push; reenviar a cada hora sem fato novo
 > desgasta o sinal em vez de ajudar.
+
+> **Reconferido em 27/09/2026 ~14:05 UTC, sessão automática seguinte —
+> faltam ~21h25min para a janela abrir.** `opportunities_search-opportunity`
+> segue em 64, mesma composição; `Carlos Andrade` (`7ECnj1bSeEIm5P58Ifd9`)
+> segue `dnd: true`, tag `atraso-1a-tentativa` presente — protegido. `git
+> fetch` limpo. Nada mudou desde a leitura anterior (~12:05 UTC): nenhuma
+> correção aplicada, nenhum disparo, as duas decisões do dono seguem sem
+> resposta. Sem notificação nova nesta rodada, mesmo motivo da anterior —
+> a sessão usou o tempo para achar e especificar o **F-22**
+> (`ROADMAP-SALES-ENGAGEMENT.md`), proteção de reputação do domínio de
+> e-mail, sem mexer em nada deste risco.

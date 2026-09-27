@@ -4404,6 +4404,102 @@ mensagem` para economizar essa edição, em `build-wesales.md`, seção 2.50.
 com instrução que já leva em conta se o lead tem telefone — nunca "ligar
 agora" para quem, por definição, não tem número.
 
+### F-22 · O e-mail ganhou disparo real (F-15/F-19/F-20/F-21) e nenhum documento fechou a proteção de reputação do canal — o par que falta ao lado do F-07/F-08/F-14 — **FEITO em 27/09/2026 (documentação, mesmo padrão do F-07)**
+
+**Por quê:** aplicando aos seis pilares do bloco 6 a mesma pergunta que o
+F-19/F-20/F-21 já aplicaram às guardas de texto — "esta peça cobre todo
+canal que a operação usa, ou só o canal que a motivou?" —, desta vez à
+peça de infraestrutura, não à de conteúdo. F-07 protege a reputação do
+número de WhatsApp, F-08/F-14 protegem a do número de telefone; nenhum
+item protege o e-mail, canal que o F-15 abriu e que F-19/F-20/F-21/G-07 já
+constroem lógica em cima — hoje só existe o checklist de G-07 (seção 2.30),
+e ele confirma SPF/DKIM/DMARC **uma vez, antes do primeiro disparo real**:
+autenticação, não capacidade de envio. É o mesmo ponto cego que o F-07
+descreveu para o WhatsApp antes de existir, agora no canal mais novo do
+projeto — e, ao contrário de opt-out/ausência/sinal (que herdam o recorte
+de canal de uma guarda vizinha já existente), este não tinha nenhuma guarda
+vizinha para herdar de errado: simplesmente nunca foi perguntado.
+
+**Pesquisado antes de desenhar (`WebSearch`, confiança média — a
+documentação da HighLevel segue bloqueada pelo proxy deste ambiente,
+citada por resultado de busca e por artigos de terceiros, não lida direto,
+mesma classe de confiança que o F-07 já registrou para o mesmo motivo):**
+Outreach e Salesloft não têm rampa automática — os dois recomendam um
+processo **manual**: começar em 15-20 e-mails/dia num domínio novo e dobrar
+por semana ao longo de 3-6 semanas, autenticar (SPF/DKIM/DMARC) antes de
+começar, e ficar de olho em taxa de resposta/abertura para acelerar ou
+desacelerar a rampa à mão. O GHL nativo (LC Email) resolve isso **sozinho**
+desde 27/04/2026 para domínio compartilhado: todo sub-account novo entra
+automaticamente num sistema de graduação por 8 estágios — começa num teto
+conservador, sobe sozinho com envio limpo (sem denúncia, sem bounce alto)
+até 15.000/dia no estágio 8, e **desce** sozinho se um estágio registrar
+pico de bounce, denúncia de spam ou violação de política, ficando marcado
+"Stage declined" no histórico. Esta subconta nasceu em 17/09/2026 — depois
+da data de corte — e se qualifica para o sistema automaticamente. **Isto
+já bate a paridade com Outreach/Salesloft sem precisar de nada novo: a
+plataforma faz sozinha a rampa que as duas exigem manual do usuário.** O
+que falta não é construir uma rampa (como o F-14 teve que fazer para o
+telefone, que não tem equivalente nativo) — é não estragar a que já existe
+e saber o que fazer se ela regredir, exatamente a mesma lacuna documental
+que o F-07 fechou para o WhatsApp.
+
+**Duas bifurcações que mudam o comportamento, e nenhum documento deste
+projeto registrou nenhuma das duas:**
+1. **Domínio compartilhado** (o padrão, se ninguém configurou domínio
+   próprio para o envio) — rampa automática acima, zero ação do gestor.
+2. **Domínio dedicado** (se o envio de `EM-1`/`EM-2` for configurado para
+   sair de um domínio próprio, ex. um subdomínio da agência) — o warmup
+   **não** é automático para domínio já existente, só para domínio novo
+   recém-verificado; precisa de um clique manual (`Configurações da
+   Agência → Email Services → SMTP Service → Dedicated Domain and IP →
+   domínio → Start Warmup`). Conectar um domínio dedicado sem dar esse
+   clique deixa o e-mail **sem proteção nenhuma** — pior que o domínio
+   compartilhado, não igual, porque ninguém está olhando o teto subir
+   sozinho.
+
+**Achado extra, mesma classe do "estrago silencioso" que motivou o F-05 e
+o F-07:** e-mail de campanha/workflow que passa do teto diário **falha e
+não é reenfileirado** — diferente de e-mail 1-para-1 do próprio sistema
+(confirmação de agendamento, notificação), que continua entregando normal.
+Não confirmado com certeza pela pesquisa (mesma classe de dúvida em aberto
+que o 2.30 já registra para o próprio `Wait → Contact Replied`) se um
+envio disparado por workflow como o `EM-1`/`EM-2` conta como "campanha" ou
+como "1-para-1" para este efeito — registrado como pergunta em aberto, não
+resolvida aqui. O risco por **volume** é baixo agora (o F-15 atende hoje
+uma fração pequena da base, muito abaixo do teto do primeiro estágio); o
+risco real é a nota cair por **qualidade** (bounce alto numa lista nunca
+limpa, poucas respostas) antes do volume crescer — mesmo padrão que o F-07
+já descreveu para o WhatsApp (o teto não é o risco, a nota cair antes de
+precisar do teto é).
+
+**Como — e por que não é workflow, mesmo motivo do F-07:** pesquisado se
+existe gatilho, ação ou Custom Value nativo que leia o estágio atual ou uma
+queda de estágio em tempo de execução — não encontrado (mesmo limite do
+F-07: a única superfície é a tela, `Email Services`, com o banner de "Rate
+Limited" quando o teto aperta). Não é lacuna deste item, é limite de
+plataforma/conector como qualquer outro já registrado — a saída correta é
+registrar a checagem como rotina manual do gestor, com gatilho por evento
+em vez de calendário fixo, mesmo padrão do F-07:
+
+| Quando olhar | Por quê |
+|---|---|
+| **Antes do primeiro disparo real de `EM-1`/`EM-2`** | Confirmar qual das duas bifurcações acima se aplica — domínio compartilhado (nada a fazer) ou dedicado (confirmar que o Warmup já foi iniciado) — antes que o primeiro lote saia sem proteção nenhuma |
+| **Semanalmente enquanto a base sem telefone crescer** (F-15 recicla a cada 90 dias, R-08 pode devolver mais contatos a essa fila) | O volume de hoje tem folga larga no teto inicial; o risco não é estourar o teto, é a nota cair antes de precisar subir de estágio |
+| **Depois de qualquer pico visível de bounce/opt-out no canal e-mail** (mesmo gatilho que o F-07 já usa para o pico de opt-out por texto no WhatsApp) | Bounce alto e denúncia são os dois motivos documentados de "Stage declined" — pico aqui é sinal antecedente barato de checar `Email Services` antes que o estágio caia sozinho |
+
+**Zero campo, zero tag, zero workflow, zero escrita no CRM:** item de
+documentação e rotina manual pura, mesmo padrão do F-07 — não depende de
+`APROVADO.md`. Não entra na "Ordem de montagem" (não há nó para montar)
+nem no checklist de teste da seção 10 (não há objeto de CRM para simular
+reputação de domínio com contato fictício).
+
+**Pronto quando:** o gestor sabe, sem perguntar a ninguém, se o e-mail
+desta subconta está em domínio compartilhado ou dedicado, se o warmup
+dedicado (quando aplicável) já foi iniciado, e os três momentos em que
+precisa olhar `Email Services` antes que o teto caia em silêncio — mesmo
+padrão de "Pronto quando" do F-07. Detalhe completo em `build-wesales.md`,
+seção 2.51.
+
 ### G-25 · A janela nativa das cadências vai disparar 36-37 mensagens juntas, um dia antes da abertura combinada — nenhuma sessão automática consegue fechar a janela sozinha (27/09/2026)
 
 **Por quê:** seguindo a própria instrução deste roadmap ("reler os itens
@@ -6164,3 +6260,33 @@ já documentada para criação de campo. `GUIA-MONTAGEM.md` e
 `IMPLEMENTACAO-WORKFLOWS.md` (W27) atualizados no mesmo commit. G-03, G-04
 (peça 2), F-09, F-10, G-11 (item 1) e G-19 continuam sendo as seis
 decisões sem prazo fixo que esperam o dono, sem novidade nesta sessão.
+
+**Reconferido em 27/09/2026 ~14:05 UTC, sessão automática seguinte —
+faltam ~21h25min para a janela abrir (segunda 28/09 08:30
+`America/Sao_Paulo` = 11:30 UTC).** `git fetch` limpo (nenhum commit novo
+na janela desta leitura). `opportunities_search-opportunity` (status
+`all`) confirma 64 oportunidades, composição idêntica à leitura anterior
+(13 `NOVO LEAD`, 47 `CONECTAR`, 3 `NEGOCIAR`, 1 `REUNIÃO DE DIAGNÓSTICO`;
+43 `open`, 11 `lost`, 10 `abandoned`); `Carlos Andrade`
+(`7ECnj1bSeEIm5P58Ifd9`) segue `dnd: true`, tag `atraso-1a-tentativa`
+presente — protegido, nenhum disparo aconteceu. Com o risco reconferido e
+sem novidade, a sessão seguiu a rotina obrigatória de todo item novo deste
+roadmap (pesquisa de concorrência antes de declarar o bloco 6 esgotado),
+mas mudou o alvo da pergunta: em vez de reaplicá-la às guardas de texto
+(F-19/F-20/F-21 já esgotaram opt-out/ausência/sinal nos três canais), a
+pergunta foi aos seis pilares do bloco 6 — e achou que a proteção de
+infraestrutura de canal (F-07 WhatsApp, F-08/F-14 telefone) nunca ganhou
+par para o e-mail, o canal que o F-15 abriu e que F-19/F-20/F-21/G-07 já
+usam. Fechado como **F-22** (acima, entre F-21 e G-25): o GHL nativo tem,
+desde 27/04/2026, rampa automática por 8 estágios para domínio
+compartilhado — melhor que a rampa manual que Outreach/Salesloft exigem do
+usuário, e esta subconta (criada 17/09/2026) se qualifica sozinha. O item
+não constrói nada (a plataforma já rampa sozinha); documenta as duas
+bifurcações que ninguém tinha registrado (domínio compartilhado vs.
+dedicado, warmup manual só no segundo caso) e estende a tabela "Quando
+olhar" do F-07 para o canal novo. Zero campo, zero tag, zero workflow,
+zero escrita no CRM: item de documentação e pesquisa, não depende de
+`APROVADO.md`. Detalhe nó a nó — na verdade sem nó, é rotina manual — em
+`build-wesales.md`, seção 2.51. G-03, G-04 (peça 2), F-09, F-10, G-11
+(item 1) e G-19 continuam sendo as seis decisões sem prazo fixo que
+esperam o dono, sem novidade nesta sessão.

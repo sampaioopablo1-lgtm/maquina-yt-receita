@@ -9148,3 +9148,116 @@ frase de opt-out nem de ausência) reabre a oportunidade em `CONECTAR`,
 grava `Sinal recebido`/`Data e hora do sinal` e avisa o gestor com uma
 instrução que já leva em conta se o lead tem telefone ou não — nunca com
 "ligar agora" para quem, por definição, não tem número.
+
+## 2.51 Proteção de reputação do domínio de e-mail — F-22
+
+**Por quê:** o F-07 (seção 2.25) e o F-08/F-14 (seção 2.26 e seguinte)
+protegem a reputação de infraestrutura do WhatsApp e do telefone — os dois
+canais que a cadência principal usa. O e-mail (F-15, seção 2.30) nunca
+ganhou o mesmo tratamento, e desde o F-19/F-20/F-21 já é canal com lógica
+de resposta construída em cima — só a proteção de **envio** nunca foi
+perguntada. O checklist do gestor que o G-07 acrescentou à seção 2.30
+(SPF/DKIM/DMARC) resolve **autenticação**, uma vez, antes do primeiro
+disparo — não resolve **capacidade de envio**, que é o que este item
+cobre, no mesmo espírito do F-07 para o Quality Rating do WhatsApp.
+
+**O que é diferente aqui, e por que este item é mais barato que o F-14:**
+o F-14 teve que escrever a rampa de aquecimento do telefone do zero,
+porque não existe rampa nativa para número de voz. O e-mail nativo do GHL
+(LC Email) **já tem** rampa automática: desde 27/04/2026, todo sub-account
+novo em domínio compartilhado entra sozinho num sistema de graduação por
+8 estágios — começa num teto conservador e sobe automaticamente com envio
+limpo (sem bounce alto, sem denúncia de spam, sem violação de política),
+até 15.000 e-mails/dia no estágio 8; um estágio também **desce**
+sozinho se detectar pico de bounce, denúncia ou violação, registrado como
+"Stage declined" no histórico do domínio. Esta subconta nasceu em
+17/09/2026, depois da data de corte, e se qualifica automaticamente.
+
+**Pesquisado antes de desenhar (`WebSearch`, confiança média — a
+documentação oficial da HighLevel segue bloqueada pelo proxy deste
+ambiente, citada por resultado de busca e por artigos de terceiros que a
+reproduzem, não lida direto — mesma ressalva de confiança que o F-07 já
+registrou pelo mesmo motivo):** o processo recomendado por Outreach e por
+Salesloft para um domínio de e-mail novo é **manual**: autenticar
+(SPF/DKIM/DMARC) primeiro, começar em 15-20 e-mails/dia, dobrar o volume
+a cada semana ao longo de 3-6 semanas, e o próprio usuário acompanhar taxa
+de abertura/resposta para decidir se acelera ou desacelera a rampa.
+Nenhuma das duas tem staging automático nativo — a rampa é playbook, não
+produto. **O GHL faz isso sozinho, sem o gestor precisar operar a régua
+manual que as duas exigem do usuário — isto já bate a paridade sem
+desenho novo**, e o risco de errar essa paridade some sozinho não é
+"faltar rampa", é o gestor fazer alguma coisa que estraga a que já existe
+sem saber que ela existe.
+
+**Duas bifurcações que mudam o comportamento, e nenhum documento deste
+projeto tinha registrado nenhuma das duas antes deste item:**
+
+1. **Domínio compartilhado** (o padrão, se ninguém configurou domínio
+   próprio para o envio de `EM-1`/`EM-2`) — a rampa automática acima
+   cobre sozinha, zero ação do gestor.
+2. **Domínio dedicado** (se o envio for configurado para sair de um
+   domínio próprio da agência) — o warmup **não** é automático para um
+   domínio já existente, só para domínio novo recém-verificado. Precisa
+   de um passo manual: `Configurações da Agência → Email Services → SMTP
+   Service → Dedicated Domain and IP → selecionar o domínio → Start
+   Warmup`. Conectar um domínio dedicado sem dar esse clique deixa o
+   e-mail **sem proteção nenhuma** — pior que ficar no domínio
+   compartilhado, porque ninguém está olhando o teto subir sozinho.
+
+**Achado extra, mesma classe do "estrago silencioso" que motivou o F-05 e
+o F-07 (a Meta descarta a mensagem sem erro visível na tela do workflow):**
+e-mail de campanha/workflow que passa do teto diário do estágio atual
+**falha e não é reenfileirado** — diferente de e-mail 1-para-1 do próprio
+sistema (confirmação de agendamento, notificação de senha), que continua
+entregando normalmente mesmo acima do teto. A pesquisa não confirma com
+certeza se um envio disparado por workflow, como `EM-1`/`EM-2` (seção
+2.30), conta para este efeito como "campanha" ou como "1-para-1" — mesma
+classe de dúvida em aberto que a seção 2.30 já registra para o próprio
+`Wait → Contact Replied` daquele workflow, não resolvida aqui pelo mesmo
+motivo que não foi resolvida lá. **O risco por volume é baixo agora:** o
+F-15 atende hoje uma fatia pequena da base (os contatos sem telefone),
+ordens de grandeza abaixo do teto do primeiro estágio. **O risco real é a
+nota cair por qualidade** (lista nunca limpa, bounce alto, poucas
+respostas) antes de o volume crescer o bastante para importar — mesmo
+padrão que o F-07 já descreveu para o WhatsApp: o teto não é o risco, a
+nota cair antes de precisar do teto é.
+
+**Como — e por que não é workflow, mesmo motivo do F-07:** pesquisado se
+existe gatilho, ação ou Custom Value nativo do GHL que leia o estágio
+atual ou uma queda de estágio em tempo de execução, para um workflow
+reagir sozinho — não encontrado, mesmo limite do F-07 (a única superfície
+é a tela, `Email Services`, com um banner de "Rate Limited" quando o teto
+aperta, e o conector `GHL CRM` desta sessão não expõe leitura de domínio
+de envio). Não é lacuna deste item, é limite de plataforma/conector como
+qualquer outro já registrado no projeto — a saída correta não é inventar
+um workflow que a tela não sustenta, é registrar a checagem como rotina
+manual do gestor, com gatilho por evento (quando olhar) em vez de por
+calendário fixo, mesmo padrão do F-07:
+
+| Quando olhar | Por quê |
+|---|---|
+| **Antes do primeiro disparo real de `EM-1`/`EM-2`** | Confirmar qual das duas bifurcações acima se aplica — domínio compartilhado (nada a fazer) ou dedicado (confirmar que o Warmup já foi iniciado) — antes que o primeiro lote saia sem proteção nenhuma |
+| **Semanalmente enquanto a base sem telefone crescer** (o F-15 recicla a cada 90 dias, e o R-08 pode devolver mais contatos a essa fila) | O volume de hoje tem folga larga no teto do primeiro estágio; o risco não é estourar o teto, é a nota cair antes de precisar subir de estágio |
+| **Depois de qualquer pico visível de bounce ou opt-out no canal e-mail** (mesmo gatilho que o F-07 já usa para o pico de opt-out por texto no WhatsApp) | Bounce alto e denúncia são os dois motivos documentados de "Stage declined" — um pico aqui é sinal antecedente barato de checar `Email Services` antes que o estágio caia sozinho |
+
+**Mitigação se o estágio cair (com o que o projeto já tem, sem desenho
+novo, mesmo padrão do F-07):** (1) reduzir ou pausar o disparo de
+`EM-1`/`EM-2` até o estágio normalizar; (2) revisar na tela os motivos
+de bounce/denúncia — se apontarem para uma lista específica (ex.: contatos
+antigos nunca validados), tratar a higiene da lista em vez de só esperar a
+nota subir sozinha; (3) conferir se o pico de opt-out (gatilho da linha
+acima) aponta para uma origem específica, e se sim, tratar a causa em vez
+de só a reputação, porque a nota volta a cair enquanto a causa não for
+corrigida.
+
+**Zero campo, zero tag, zero workflow, zero escrita no CRM:** item de
+documentação e rotina manual pura — não depende de `APROVADO.md`. Não
+entra na "Ordem de montagem" (não há nó para montar) nem no checklist de
+teste da seção 10 (não há objeto de CRM para simular reputação de domínio
+com contato fictício).
+
+**Pronto quando:** o gestor sabe, sem perguntar a ninguém, se o e-mail
+desta subconta está em domínio compartilhado ou dedicado, se o warmup
+dedicado (quando aplicável) já foi iniciado, e os três momentos em que
+precisa olhar `Email Services` antes que o teto caia em silêncio — mesmo
+padrão de "Pronto quando" do F-07 (seção 2.25).

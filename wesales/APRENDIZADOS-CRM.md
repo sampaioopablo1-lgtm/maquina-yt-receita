@@ -6707,3 +6707,41 @@ horas: conectar o Composio também depende de o dono abrir um link de OAuth
 tela, só com um passo a mais. Antes de propor "conectar um toolkit novo"
 como contorno de algo que só o dono pode destravar, vale perguntar se o
 próprio contorno também depende do dono; se sim, não é contorno.
+
+## O GHL nativo já tem rampa automática de e-mail por domínio compartilhado — não redescubra isso do zero (F-22, 27/09/2026, sessão automática)
+
+Procurando o par de "proteção de reputação de canal" que faltava para o
+e-mail (F-07/F-08/F-14 já cobrem WhatsApp/telefone), achado por
+`WebSearch` (não confirmável direto — `help.gohighlevel.com` está
+bloqueado pelo proxy deste contêiner, mesma barreira já registrada em
+`ABERTURA.md` para os domínios do GHL; a informação vem de resultado de
+busca e de artigos de terceiro que citam o Support Portal e o Changelog
+da HighLevel, confiança média): a LC Email (e-mail nativo do GHL) tem,
+desde **27/04/2026**, um sistema automático de graduação por **8
+estágios** para sub-account em **domínio compartilhado** — começa
+conservador, sobe sozinho até 15.000/dia com envio limpo, desce sozinho
+("Stage declined") se bounce/denúncia/violação de política passarem do
+limiar. **Não existe gatilho, ação ou Custom Value nativo para um workflow
+ler o estágio atual ou uma queda de estágio** — mesmo limite já registrado
+para o Quality Rating do WhatsApp (F-07) — só a tela (`Email Services`)
+expõe isso.
+
+**A pegadinha, se algum dia este projeto configurar domínio dedicado para
+o e-mail (hoje não configura):** domínio dedicado **recém-verificado**
+entra em warmup sozinho, mas um domínio dedicado **já existente** não —
+precisa de um clique manual em `Configurações da Agência → Email Services
+→ SMTP Service → Dedicated Domain and IP → domínio → Start Warmup`.
+Conectar um domínio dedicado sem esse clique é pior que ficar no domínio
+compartilhado (que rampa sozinho): fica sem proteção nenhuma, e ninguém
+percebe porque não há erro na tela do workflow, só entrega silenciosamente
+pior.
+
+**Por que vale registrar antes de qualquer sessão futura pesquisar de
+novo:** o instinto óbvio, vindo do F-14 (rampa de telefone, que teve que
+ser escrita do zero porque não existe rampa nativa de voz), é achar que
+o e-mail também precisa de uma rampa desenhada à mão — **não precisa**,
+o GHL já resolve isso sozinho para domínio compartilhado, e reescrever
+essa rampa manualmente (como Outreach/Salesloft exigem do usuário deles)
+seria pior que a paridade que a plataforma já dá de graça. O trabalho real
+aqui é documentação + checklist de "quando olhar", não construção
+(`ROADMAP-SALES-ENGAGEMENT.md`, F-22; `build-wesales.md`, seção 2.51).
