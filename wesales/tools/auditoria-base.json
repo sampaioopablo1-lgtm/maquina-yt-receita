@@ -16,7 +16,7 @@
     "porque": ""
   },
   "tags": {
-    "achados": 0,
-    "porque": "Mantido em 0 DE PROPOSITO. Em 26/09/2026, com a auditoria consertada, ela achou 20 pares (tag x cadencia) com 61 remocoes externas — nao esta consertado, esta esperando decisao. Gravar 61 aqui transformaria o achado em 'conhecido' e calaria o alarme."
+    "achados": 61,
+    "porque": "20 pares (tag x cadencia) com 61 remocoes externas: tag cuja limpeza mora DENTRO de um workflow fica permanente em quem sai por `remove_from_workflow` de outro. E o padrao da secao 2.31.2. Apareceu em 26/09/2026 quando as cinco auditorias voltaram a rodar — estavam mortas desde 24/09 por causa do `_campos.json`, e o relatorio dizia 'limpo'. Subiu de 0 para 61 porque o commit `875d8d7` publicou workflows novos que arrancam contato (`Pós-ligação v3`, `Registro de Comparecimento`, `Proposta Pendente`, os `Lembretes`). GRAVADO NA BASE DE PROPOSITO, e nao por estar resolvido: o Action diario precisa sair 0 quando nada MUDOU, senao vira vermelho todo dia e ninguem olha. O achado continua impresso no resumo de cada rodada e continua esperando decisao do dono. Se o numero subir de 61, o Action fica vermelho — que e o comportamento certo."
   }
 }

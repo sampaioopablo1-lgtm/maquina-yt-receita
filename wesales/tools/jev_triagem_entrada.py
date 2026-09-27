@@ -52,6 +52,27 @@ PROVEDORES = [
 # erro 1010 — "banned based on your browser's signature". Medido em 27/09/2026:
 # a primeira rodada no GitHub Action levou 403/1010 antes de chegar na chave.
 UA = "wesales-jev/1.0 (+https://github.com/sampaioopablo1-lgtm/maquina-yt-receita)"
+# O `jev-1.13-free` do OpenCode Zen e gratuito "por tempo limitado" (README do
+# `jev-gateway`). Quando sair do ar, o endpoint responde 404 ou 410 — e sem este
+# aviso a rodada pareceria defeito do script. `JEV_MODEL=jev-1.13` opta pelo pago.
+FIM_DO_FREE = (404, 410)
+
+
+def avisa_free_acabou(codigo, modelo):
+    """True se o codigo HTTP indica que o modelo gratuito saiu do ar."""
+    if codigo in FIM_DO_FREE and "free" in (modelo or ""):
+        print("")
+        print("=" * 72)
+        print("O MODELO GRATUITO DO JEV SAIU DO AR (HTTP %s em %s)." % (codigo, modelo))
+        print("Nao e defeito do script nem chave invalida: o `jev-1.13-free` do")
+        print("OpenCode Zen era gratuito por tempo limitado.")
+        print("")
+        print("Para continuar, escolha uma:")
+        print("  - pagar no OpenCode: defina JEV_MODEL=jev-1.13")
+        print("  - ir para a TypeSafe oficial: defina TYPESAFE_API_KEY")
+        print("=" * 72)
+        return True
+    return False
 
 # As quatro saidas. O rotulo e o que o Jev devolve; a descricao e o que ele le.
 CRITERIOS = {
@@ -253,8 +274,10 @@ def main():
         try:
             r = pergunta_ao_jev(url, modelo, chave, estado(rel, msgs))
         except HTTPError as e:
-            print("%-28s ERRO %s: %s" % ((rel.get("contactName") or "?")[:28], e.code,
-                                         (e.read() or b"")[:120].decode("utf-8", "replace")))
+            corpo = (e.read() or b"")[:120].decode("utf-8", "replace")
+            print("%-28s ERRO %s: %s" % ((rel.get("contactName") or "?")[:28], e.code, corpo))
+            if avisa_free_acabou(e.code, modelo):
+                return 2
             continue
         except URLError as e:
             print("rede indisponivel: %s" % e)

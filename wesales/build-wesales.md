@@ -4347,3 +4347,78 @@ acesso") ou de pedir para quem administra este conector adicionar as duas
 ferramentas que faltam (`locations_create-custom-field`,
 `calendars_create-calendar`, nomeação hipotética). Detalhe completo,
 endpoint por endpoint, com todas as fontes: `APRENDIZADOS-CRM.md`.
+
+## 2.45 O que estava acordando o Claude sem precisar — e a escada que resolve
+
+Pedido do dono em 27/09/2026: "usar menos tokens possíveis do claude, nos
+contextos, rotinas, prompts". Medi antes de propor, e o desperdício não estava
+onde eu vinha olhando.
+
+### Os dois casos medidos
+
+| rotina | o que fazia | custo |
+|---|---|---|
+| `WeSales - auditoria diária do CRM` | abria uma **sessão do Claude** para executar `python3 wesales/tools/auditoria_tudo.py` | 1 sessão/dia |
+| `WeSales — construção contínua do CRM` | cron de hora em hora, **sessão NOVA a cada disparo** | **24 sessões/dia** |
+
+A primeira é indefensável: um modelo de raciocínio para rodar um script que lê
+arquivos locais e não usa LLM nenhum. A segunda é o padrão caro — **polling com
+LLM**: acordar para *ver se* mudou algo. Nas duas últimas noites de operação ela
+produziu principalmente auditoria de documentação sobre si mesma, enquanto 42
+leads envelheciam intocados e a entrada de anúncio estava parada há 60 h.
+
+As 20 rotinas estão `enabled=False` com `suspension_reason` e `ended_reason`
+vazios — pausa manual do dono, não limite de assinatura. **Essa foi a maior
+economia do projeto, e ela precede o Jev.**
+
+### A inversão: Action empurra, Claude puxa
+
+```
+Action roda de graça no cron
+  ├─ exit 0   nada mudou frente à base   -> ninguém é acordado
+  └─ exit !=0 achado novo / quebra       -> aí sim vale uma sessão
+```
+
+O código de saída do `auditoria_tudo.py` é a campainha. De 24 sessões/dia para
+talvez duas por semana.
+
+### A escada, e por que o Jev entra no meio dela
+
+| nível | ferramenta | custo Claude | o que pertence |
+|---|---|---|---|
+| 1 | Python em Action | **zero** | auditoria, relatório, contagem, exportar dump, mover etapa |
+| 2 | **Jev** | centavos | classificar, pontuar, sim/não sobre texto |
+| 3 | OpenCode | grátis/barato | edição de código rotineira |
+| 4 | Claude | caro | diagnóstico, arquitetura, decisão sobre achado novo |
+
+Uma correção de expectativa que eu devia ter feito antes: **o Jev não reduz o
+consumo do Claude substituindo-o dentro de uma sessão.** Ele absorve decisão
+repetitiva que hoje *acorda* o Claude. Confundir as duas coisas leva a esperar
+economia que não vem — e eu deixei essa confusão de pé por três respostas antes
+de medir.
+
+### O que entrou no ar
+
+| arquivo | o quê |
+|---|---|
+| `.github/workflows/wesales-auditoria.yml` | auditoria diária, **0 crédito**, sem chave e sem rede. Substitui a rotina de sessão/dia |
+| `.github/workflows/wesales-g03.yml` | o promotor sai da Tarefa do Windows. **Sem cron de propósito** — ele escreve no CRM e a linha do backfill está `[ ]` no `APROVADO.md` |
+| `.claude/skills/economia-de-token/SKILL.md` | a escada, para a próxima automação não nascer no nível 4 |
+| `.claude/skills/steward/SKILL.md` | as três armadilhas de PR deste repositório, todas aprendidas errando em 27/09 |
+
+### A base ganhou os 61 de `tags`, e isto merece explicação
+
+Eu havia deixado `tags` em 0 de propósito, para o achado continuar gritando. Com
+um Action diário isso vira o oposto do que eu queria: **alarme que dispara todo
+dia é alarme ignorado.** Então os 61 foram para a base com um `porque` que diz,
+em letras, que não estão resolvidos — e continuam impressos no resumo de cada
+rodada. Vermelho passa a significar **mudou**, que é a única coisa que merece
+acordar alguém.
+
+### O aviso que faltava no Jev gratuito
+
+O `jev-1.13-free` do OpenCode Zen é gratuito "por tempo limitado". Quando sair do
+ar responde 404/410, e sem tratamento isso se confunde com defeito do script —
+exatamente o tipo de erro que me custou três diagnósticos errados neste dia. Os
+dois scripts ganharam `avisa_free_acabou()`, que diz o que é e quais são as duas
+saídas (`JEV_MODEL=jev-1.13` pago, ou `TYPESAFE_API_KEY`).

@@ -1,0 +1,53 @@
+# Promotor NOVO LEAD -> CONECTAR (G-03 / L-07) — tira o runner da Tarefa do Windows.
+#
+# POR QUE SAIR DO PC: hoje o `promote_g03_scheduled.py` roda por Tarefa Agendada
+# no Windows do dono, com janela 29-30/09/2026. Isso depende da máquina ligada.
+# Aqui roda no runner do GitHub, sem PC e por 0 crédito de Claude.
+#
+# POR QUE **NÃO** TEM CRON: este é o único script desta série que ESCREVE no CRM
+# (move oportunidade de etapa). A regra 2 do projeto é literal — "nada entra no
+# CRM que não esteja `[x]` no APROVADO.md" — e a linha do backfill está `[ ]`:
+#
+#   [ ] **Parcialmente executada:** o backfill do estoque foi feito em
+#       24/09/2026 ... Continua pendente publicar/criar o workflow
+#       **Promover NOVO LEAD para CONECTAR**
+#
+# Enquanto for `[ ]`, este workflow só roda quando o dono clica. Para virar
+# automático: troque para `[x]` no APROVADO.md e descomente o `schedule` abaixo.
+#
+# O próprio script tem duas travas que continuam valendo aqui: a janela de datas
+# (fora dela imprime "outside scheduled window; no CRM writes" e não lê o token)
+# e a idempotência.
+name: WeSales — promover NOVO LEAD → CONECTAR (G-03)
+
+on:
+  workflow_dispatch:
+  # schedule:
+  #   - cron: "0 11 * * *"   # 08:00 em São Paulo — SÓ descomente com [x] no APROVADO.md
+
+jobs:
+  promover:
+    name: Runner do G-03 (escreve no CRM)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Rodar o promotor
+        env:
+          GHL_PIT: ${{ secrets.GHL_PIT }}
+        run: |
+          set -o pipefail
+          python3 wesales/tools/promote_g03_scheduled.py | tee /tmp/g03.txt
+
+      - name: Resumo
+        if: always()
+        run: |
+          {
+            echo '## G-03 — promoção NOVO LEAD → CONECTAR'
+            echo ''
+            echo '```'
+            cat /tmp/g03.txt 2>/dev/null || echo 'sem saída'
+            echo '```'
+            echo ''
+            echo '_Disparo manual por decisão: a linha do backfill está `[ ]` no `APROVADO.md`._'
+          } >> "$GITHUB_STEP_SUMMARY"

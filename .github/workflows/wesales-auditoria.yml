@@ -1,0 +1,63 @@
+# Auditoria diária do CRM WeSales — SEM Claude, SEM chave, SEM rede.
+#
+# POR QUE ISTO EXISTE: até 23/09/2026 havia uma rotina "WeSales - auditoria
+# diária do CRM" que abria uma SESSÃO DO CLAUDE por dia para executar
+# `python3 wesales/tools/auditoria_tudo.py`. Um modelo de raciocínio para rodar
+# um script que lê arquivos locais e não usa LLM nenhum. Este workflow faz o
+# mesmo trabalho por 0 crédito de Claude.
+#
+# A INVERSÃO: o loop antigo era polling com LLM — acordar para VER SE mudou algo.
+# Aqui o Action roda de graça e só vale acordar alguém quando ele fica vermelho:
+#
+#   exit 0  nada mudou frente à base        -> ninguém é chamado
+#   exit 1  achado NOVO                     -> aí sim vale uma sessão
+#   exit 2  algo foi consertado             -> atualizar a base
+#   exit 3  alguma auditoria QUEBROU        -> conserto antes de ler o resto
+#
+# Os achados conhecidos aparecem no resumo TODO dia mesmo com exit 0, para não
+# desaparecerem de vista só por estarem na base.
+name: WeSales — auditoria diária
+
+on:
+  schedule:
+    - cron: "20 10 * * *"   # 07:20 em São Paulo (UTC-3)
+  workflow_dispatch:
+  push:
+    branches:
+      - claude/amazing-johnson-mclksg
+    paths:
+      - "wesales/tools/auditoria_*.py"
+      - "wesales/tools/_frescor.py"
+      - "wesales/tools/auditoria-base.json"
+      - ".github/workflows/wesales-auditoria.yml"
+
+jobs:
+  auditar:
+    name: Cinco auditorias somente-leitura
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Rodar auditoria_tudo.py
+        id: audit
+        run: |
+          set -o pipefail
+          python3 wesales/tools/auditoria_tudo.py | tee /tmp/auditoria.txt
+
+      - name: Resumo
+        if: always()
+        run: |
+          {
+            echo '## WeSales — auditoria diária'
+            echo ''
+            echo '```'
+            cat /tmp/auditoria.txt 2>/dev/null || echo 'sem saída'
+            echo '```'
+            echo ''
+            if [ "${{ steps.audit.outcome }}" = "success" ]; then
+              echo '✅ **Nada mudou.** Nenhuma sessão do Claude é necessária.'
+            else
+              echo '⚠️ **Mudou algo.** Vale abrir uma sessão para decidir — é a única'
+              echo 'condição em que isto acontece.'
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"

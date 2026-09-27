@@ -84,6 +84,17 @@ NEGOCIAR   cbcf0229-5e19-4fdb-8c50-6c641b78b3bb
 FORMALIZAR b8485ec0-98e8-459f-b990-f40a5e3bd25b
 ```
 
+## Antes de automatizar qualquer coisa
+
+Leia a skill **`economia-de-token`**. Resumo de uma linha: desça a escada
+Python → Jev → OpenCode → Claude e pare no primeiro nível que resolve; nunca
+ponha um agente num cron para "verificar" algo — ponha um script, e deixe o
+código de saída chamar o agente.
+
+Para cuidar de PR, leia a skill **`steward`**: o branch padrão deste repositório
+não é `main`, `workflow_dispatch` não aparece fora dele, e as 12 falhas de
+`tests/test_narracao_das_specs.py` são pré-existentes.
+
 ## Convenção de escrita
 
 `build-wesales.md`: **só acrescente no fim**, em seção `## 2.x` nova. Sessões
