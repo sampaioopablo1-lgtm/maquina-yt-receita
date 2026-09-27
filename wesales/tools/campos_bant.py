@@ -84,6 +84,57 @@ BANT = [
 ]
 POS_SDR = 590  # `SDR responsavel` entra logo antes do fechamento
 
+# Campos que a ficha precisa e que a conta nao tinha. A criacao e idempotente:
+# procura por NOME antes de criar, entao rodar duas vezes nao duplica.
+#
+# `Quanto pode investir` existe porque a conta media so o gasto de HOJE
+# (`B · Investimento mensal em anuncios`, que vem do anuncio) e a tri-estado
+# `B · Budget` (Tem / Precisa aprovar / Nao tem). Nenhum dos dois diz QUANTO o
+# lead pode passar a investir, que e o que separa quem gasta 1k no teto de quem
+# gasta 1k e pode 10k. As faixas espelham as do gasto atual de proposito: lado a
+# lado na ficha, a comparacao e direta e nao exige conversao de cabeca.
+A_CRIAR = [
+    {"name": "B · Quanto pode investir",
+     "dataType": "SINGLE_OPTIONS",
+     "options": ["Até 1k", "1k a 5k", "5k a 10k", "Acima de 10k"],
+     "position": 405},
+]
+
+
+def _garantir(cat: dict) -> tuple[dict, int]:
+    """Cria o que falta de A_CRIAR. Devolve (catalogo relido, criados)."""
+    criados = 0
+    for spec in A_CRIAR:
+        if any(c.get("name") == spec["name"] for c in cat.values()):
+            continue
+        st, r = ghl("POST", "/locations/%s/customFields" % LOC,
+                    {"name": spec["name"], "dataType": spec["dataType"], "model": "contact",
+                     "options": spec["options"], "position": spec["position"],
+                     "parentId": PASTA_FICHA}, tolerar=(400, 422))
+        if st in (400, 422):
+            print("  !! campo `%s` nao criado: HTTP %s %s" % (spec["name"], st, r))
+            continue
+        novo = (r.get("customField") or r).get("id")
+        print("  campo `%s` criado: %s · opcoes %s · pos %s"
+              % (spec["name"], novo, spec["options"], spec["position"]))
+        criados += 1
+    return (catalogo() if criados else cat), criados
+
+
+def _ordem(cat: dict) -> list:
+    """BANT (ids fixos) mais os campos de A_CRIAR, resolvidos por nome.
+
+    Os de A_CRIAR nao podem entrar em BANT com id fixo porque o id so existe
+    depois da criacao; resolver por nome mantem a ordem e a verificacao sobre
+    eles sem precisar de um segundo commit so para anotar o id.
+    """
+    fora = list(BANT)
+    for spec in A_CRIAR:
+        achado = next((c for c in cat.values() if c.get("name") == spec["name"]), None)
+        if achado:
+            fora.append((achado["id"], spec["name"], spec["position"]))
+    return fora
+
 # Pasta da FICHA: a que o dono ja usava para `Urgencia` e `Empresa`. A sonda do run
 # 36335476750 provou que `parentId` muda por PUT (o schema nao o lista, a API
 # aceita). Pasta nova nao sai por API (400), entao a ficha do SDR vai para esta;
@@ -237,8 +288,11 @@ def aplicar() -> int:
     if faltam:
         raise SystemExit("  campos do mapa que nao existem na conta: %s — parando." % faltam)
 
-    escritas = 0
-    for cid, nome, pos in BANT:
+    cat, criados = _garantir(cat)
+    ordem = _ordem(cat)
+
+    escritas = criados
+    for cid, nome, pos in ordem:
         c = cat[cid]
         if c.get("name") == nome and int(c.get("position") or -1) == pos and c.get("parentId") == PASTA_FICHA:
             continue
@@ -277,13 +331,13 @@ def aplicar() -> int:
     print("\n  escritas: %d — relendo a conta..." % escritas)
     cat2 = catalogo()
     erros = [(cid, nome, pos, cat2[cid].get("name"), cat2[cid].get("position"), cat2[cid].get("parentId"))
-             for cid, nome, pos in BANT
+             for cid, nome, pos in ordem
              if cat2[cid].get("name") != nome or int(cat2[cid].get("position") or -1) != pos
              or cat2[cid].get("parentId") != PASTA_FICHA]
     for e in erros:
         print("  NAO convergiu: %s esperado (%r, %s, pasta ficha) lido (%r, %s, %s)" % e)
     na_ficha = sum(1 for c in cat2.values() if c.get("parentId") == PASTA_FICHA)
-    print("  campos na pasta da ficha: %d (esperado %d)" % (na_ficha, len(BANT) + 1))
+    print("  campos na pasta da ficha: %d (esperado %d)" % (na_ficha, len(ordem) + 1))
     tem_lista = any(c.get("name") == NOME_SDR and c.get("dataType") == "SINGLE_OPTIONS" for c in cat2.values())
     print("  `%s` como lista: %s" % (NOME_SDR, "SIM" if tem_lista else "NAO"))
     print("  veredito: %s" % ("CONVERGIU" if not erros else "NAO convergiu"))

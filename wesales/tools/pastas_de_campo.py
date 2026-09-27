@@ -157,7 +157,7 @@ MAPA = {
     # O formulario de qualificacao — o que a SDR pergunta para marcar com o closer.
     # Preenchimento medido: 0 a 6 de 64. Nao vem do anuncio.
     "2 · SDR PREENCHE NA QUALIFICACAO": [
-        "Budget", "Decisor", "Prazo", "Dor principal",
+        "Budget", "Quanto pode investir", "Decisor", "Prazo", "Dor principal",
         "Tem time comercial", "Clientes novos por mês", "Quem atende os leads",
         "Canal principal de venda", "Usa CRM", "Investe em anúncios",
         "Plataformas de anúncio", "Já teve agência?", "Experiência com agência",
