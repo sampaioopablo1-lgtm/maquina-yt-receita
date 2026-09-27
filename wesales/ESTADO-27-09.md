@@ -510,3 +510,30 @@ A ficha do Gerson traz `formName: "O PROXIMO CLIENTE FORMS v3--AGENDA-copy"`
 junto do `formId` 28266780626312413. O 4-BIS mapeia os formulários por id; o
 nome vem no `attributionSource` e torna a conferência na tela muito mais rápida,
 porque é o nome que aparece na integração de Lead Ads.
+
+## 9. 18:35 — `B · Quanto pode investir` criado, faixas espelhadas
+
+`GVlTZmL4I4MmpTtN1DY8` · `SINGLE_OPTIONS` · pasta da ficha · posição 405, logo
+depois de `B · Investimento mensal em anúncios` (400).
+
+Opções, espelhando as do gasto atual por decisão do dono: `Até 1k`, `1k a 5k`,
+`5k a 10k`, `Acima de 10k`. Lado a lado na ficha, a leitura de gasto contra
+capacidade é direta — é o que separa quem gasta 1k no teto de quem gasta 1k e
+pode 10k. Antes a conta media só o gasto de hoje e a tri-estado `B · Budget`.
+
+Run 36341485515 (`pastas`): `campos na pasta da ficha: 30 (esperado 30)` ·
+`veredito: CONVERGIU`. Snapshot dos campos foi para 57 e o MAPA do
+`pastas_de_campo` põe o campo na pasta de qualificação, ao lado de `Budget` —
+quem preenche é o SDR na ligação, não o anúncio.
+
+### O que quebrou no meio, e virou lição 2.25
+
+A primeira tentativa (run 36341042910) criou o campo na posição **770** em vez
+de 405, apesar de pedir 405 no POST e no PUT. As duas chamadas devolveram 200.
+Causa: `parentId` no corpo do PUT faz o GHL tratar a escrita como movimento de
+pasta e recalcular a posição, anexando ao fim. Conserto: dois PUTs — pasta
+primeiro, se divergir, e depois nome e posição com o corpo sem `parentId`.
+
+Isso ficou escondido porque os 28 campos do BANT já estavam na pasta e na
+posição certas, então o laço os saltava e nenhum PUT com `parentId` saía. O
+campo novo foi o primeiro a exercitar o caminho.
