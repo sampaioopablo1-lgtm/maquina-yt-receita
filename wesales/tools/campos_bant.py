@@ -84,6 +84,12 @@ BANT = [
 ]
 POS_SDR = 590  # `SDR responsavel` entra logo antes do fechamento
 
+# Pasta da FICHA: a que o dono ja usava para `Urgencia` e `Empresa`. A sonda do run
+# 36335476750 provou que `parentId` muda por PUT (o schema nao o lista, a API
+# aceita). Pasta nova nao sai por API (400), entao a ficha do SDR vai para esta;
+# os 30 campos da maquina ficam na grande. O nome da pasta so a tela mostra.
+PASTA_FICHA = "zHU4yGXKHdxBHnGxUmai"
+
 
 def env(nome: str) -> str:
     v = (os.environ.get(nome) or "").strip()
@@ -212,9 +218,10 @@ def aplicar() -> int:
     escritas = 0
     for cid, nome, pos in BANT:
         c = cat[cid]
-        if c.get("name") == nome and int(c.get("position") or -1) == pos:
+        if c.get("name") == nome and int(c.get("position") or -1) == pos and c.get("parentId") == PASTA_FICHA:
             continue
-        ghl("PUT", "/locations/%s/customFields/%s" % (LOC, cid), {"name": nome, "position": pos, "model": "contact"})
+        ghl("PUT", "/locations/%s/customFields/%s" % (LOC, cid),
+            {"name": nome, "position": pos, "parentId": PASTA_FICHA, "model": "contact"})
         escritas += 1
         print("  %-22s -> %-48s pos %s" % (cid, nome, pos))
 
@@ -224,7 +231,7 @@ def aplicar() -> int:
     if lista is None:
         st, r = ghl("POST", "/locations/%s/customFields" % LOC,
                     {"name": NOME_SDR, "dataType": "SINGLE_OPTIONS", "model": "contact",
-                     "options": nomes, "position": POS_SDR}, tolerar=(400, 422))
+                     "options": nomes, "position": POS_SDR, "parentId": PASTA_FICHA}, tolerar=(400, 422))
         if st in (400, 422):
             print("  !! lista `%s` nao criada: HTTP %s %s — fica o campo TEXTO" % (NOME_SDR, st, r))
         else:
@@ -238,17 +245,20 @@ def aplicar() -> int:
     else:
         if sorted(lista.get("picklistOptions") or []) != sorted(nomes):
             st, r = ghl("PUT", "/locations/%s/customFields/%s" % (LOC, lista["id"]),
-                        {"name": NOME_SDR, "options": nomes, "position": POS_SDR, "model": "contact"}, tolerar=(400, 422))
+                        {"name": NOME_SDR, "options": nomes, "position": POS_SDR, "parentId": PASTA_FICHA, "model": "contact"}, tolerar=(400, 422))
             print("  opcoes de `%s` -> %s (HTTP %s)" % (NOME_SDR, nomes, st))
             escritas += 1
 
     print("\n  escritas: %d — relendo a conta..." % escritas)
     cat2 = catalogo()
-    erros = [(cid, nome, pos, cat2[cid].get("name"), cat2[cid].get("position"))
+    erros = [(cid, nome, pos, cat2[cid].get("name"), cat2[cid].get("position"), cat2[cid].get("parentId"))
              for cid, nome, pos in BANT
-             if cat2[cid].get("name") != nome or int(cat2[cid].get("position") or -1) != pos]
+             if cat2[cid].get("name") != nome or int(cat2[cid].get("position") or -1) != pos
+             or cat2[cid].get("parentId") != PASTA_FICHA]
     for e in erros:
-        print("  NAO convergiu: %s esperado (%r, %s) lido (%r, %s)" % e)
+        print("  NAO convergiu: %s esperado (%r, %s, pasta ficha) lido (%r, %s, %s)" % e)
+    na_ficha = sum(1 for c in cat2.values() if c.get("parentId") == PASTA_FICHA)
+    print("  campos na pasta da ficha: %d (esperado %d)" % (na_ficha, len(BANT) + 1))
     tem_lista = any(c.get("name") == NOME_SDR and c.get("dataType") == "SINGLE_OPTIONS" for c in cat2.values())
     print("  `%s` como lista: %s" % (NOME_SDR, "SIM" if tem_lista else "NAO"))
     print("  veredito: %s" % ("CONVERGIU" if not erros else "NAO convergiu"))

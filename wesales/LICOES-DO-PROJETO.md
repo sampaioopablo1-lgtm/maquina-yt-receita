@@ -521,3 +521,22 @@ de storage: o gateway devolve 402 em PostgREST — o mesmo episódio de 25/08. A
 publica, mas não lê a própria tabela. Antes de pendurar algo novo num projeto, uma
 chamada de saúde ao gateway; se 402, outro projeto. Mudei para o
 `cscczluzpblzhvojxanp` e a tabela `config` foi criada lá.
+
+## 2.24 O schema não lista, a API aceita — e a sonda num campo de teste é o que decide
+
+Três vezes neste projeto eu escrevi sobre pasta de campo, e as três estavam
+incompletas. A última verdade, medida no run 36335476750 num campo de teste
+próprio (`zz-sonda-bant`, criado e apagado): `PUT /locations/{id}/customFields/{id}`
+com `parentId` **move o campo de pasta** (HTTP 200, relido), embora `parentId` não
+esteja no schema de atualização. Criar pasta continua 400. Então "56 arrastos na
+tela" vira "zero arrastos, três pastas existentes" — e a promessa que eu tinha
+enterrado volta, menor e provada.
+
+Também medido no mesmo run: renomear preserva o `fieldKey` (os merge fields dos
+workflows não quebram), `position` é respeitada, e `options` funciona na criação e
+na atualização de lista.
+
+Regra: quando o schema não lista um campo, a resposta não é "não dá"; é uma sonda
+num objeto de teste próprio, com releitura, e só depois a frase. E a sonda tem de
+ser sobre o **objeto certo** — a mesma pergunta em `/custom-fields/` (400) e em
+`/locations/{id}/customFields` (200) deu respostas opostas.
