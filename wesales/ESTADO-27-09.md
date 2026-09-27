@@ -1,0 +1,114 @@
+# Estado em 27/09/2026 04:10 UTC — leia isto primeiro
+
+Handoff escrito porque o dono saiu do computador e a operação abre terça 29/09.
+Se você é a próxima sessão, **leia este arquivo antes de qualquer coisa** e não
+refaça o que está aqui.
+
+Complementa o `ABERTURA.md` do branch `claude/amazing-johnson-mclksg`, que
+continua valendo para a lista dos 30 por ID e o mecanismo da janela.
+
+---
+
+## 1. O que eu escrevi no CRM hoje (trilha de auditoria)
+
+Tudo na subconta `1D53YTI9C7oIMBavcQxV`. Nada excluído em nenhum momento.
+Autorizado pelo dono ao vivo em chat, que é o mecanismo que o `APROVADO.md`
+registra como válido.
+
+| o quê | quantos | por quê |
+|---|---|---|
+| `dnd = true` | 30 contatos | travar a rampa de 6/dia; lista por ID no `ABERTURA.md` |
+| `dnd` + `nao-perturbe` + `grupo-whatsapp-nao-e-lead` + oportunidade `abandoned` | 2 | eram **IDs de grupo do WhatsApp** entrando como lead (`+120363…`, 18 dígitos) |
+| `Prioridade` = 0 | 34 | tirar da fila do SDR quem está em DND ou `nao-perturbe` |
+| `Prioridade` = 4 | 5 | lote 1, regra 5 da §9.2 (`Tentativa nº` = 0) |
+| `Nota de qualificação` = 93 | 2 | `Daniel` e `genilson \| Bombeiro`, faixa A, calculada pela §9.1 |
+| contato de teste criado | 1 | `ZZ TESTE ABERTURA 27-09` (`lF8IdciftoNdPaLTLgE6`), protegido, telefone inválido |
+
+**Uma escrita fora do `APROVADO.md`, declarada:** a tag
+`grupo-whatsapp-nao-e-lead` não existe naquele arquivo. Eu a apliquei para
+impedir venda dentro de grupo de WhatsApp. Excluir tag está em "Nunca
+autorizado", então não há como desfazer — fica para o dono ratificar.
+
+**O que eu deliberadamente NÃO fiz:** aplicar `fila-quente` no Daniel e no
+Genilson, que a faixa A também manda. Os dois estão em `NEGOCIAR`, com o closer,
+e `fila-quente` alimenta a fila do **SDR** — aplicá-la quebraria a separação de
+papéis da §3.1.
+
+## 2. O risco de segunda 08:30 — reavaliado, e menor do que eu disse antes
+
+A janela das duas cadências segue `days: [1,2,3,4,5]` 08:30–18:30, e fechá-la em
+`days: [2]` exige a API interna (bearer de sessão logada) — não sai de contêiner
+nem de Action. **Continua sendo do dono.**
+
+Mas o quadro mudou com o DND aplicado. Se a janela abrir na segunda:
+
+- **34 dos 39** leads de `CONECTAR` estão em DND ou `nao-perturbe` → o canal
+  está bloqueado. A incógnita que sobra é se a execução **para** ou **pula**
+  (queimando a MI-0 em silêncio). Nenhum deles recebe mensagem.
+- **5 leads** (o lote 1: Gerson, Ana Ruth, Ricardo, Andreia, Andre) estão livres
+  e **recebem a MI-0** — que é exatamente o lote da rampa de 6/dia, um dia antes.
+
+**Decisão que eu tomei, e o raciocínio:** deixei os 5 livres. DND neles zeraria
+o disparo de segunda, mas criaria a dependência de alguém lembrar de desligar 5
+DNDs antes de terça — e "alguém lembrar" é justamente o que falha quando não há
+ninguém no computador. Cinco mensagens para leads que preencheram formulário
+pedindo contato não é falha: é a operação começando um dia antes, com a rampa
+certa. O cenário catastrófico que eu descrevi ontem (37 mensagens) **não existe
+mais**.
+
+## 3. Decisões que esperam o dono
+
+1. **Janela em `days: [2]`** — o único item com prazo (segunda 08:30). Ver §2:
+   se não acontecer, não é desastre.
+2. **`[x]` no `APROVADO.md`** para escrita de `Prioridade`, se quiser que o
+   runner diário aplique sozinho. Hoje ele só lê.
+3. **G-04, A ou B.** Recomendação: **B** (a §9.1 lendo `Urgência`/`Necessidade`
+   por `Contains`), porque são **oito formulários** de Lead Ads e a A é trabalho
+   de tela oito vezes, com todo formulário novo nascendo errado. Sob a B, apagar
+   o `patch_picklist_investimento.py`.
+4. **Texto da tarefa T1** — hoje manda clicar em "Ligar via WhatsApp", botão que
+   não existe nesta conta (ver `CANAIS.md`). Telefone tem de ser o passo 1.
+5. **Distribuição de dono (R-10)** — lead novo nasce com `assignedTo: null`.
+6. **Ratificar (ou não)** a tag `grupo-whatsapp-nao-e-lead`.
+7. **`fila-quente` no Daniel e no Genilson?** Ver §1.
+
+## 4. Os dois leads que valem mais que qualquer configuração
+
+`Daniel` (`+5521968390582`) e `genilson | Bombeiro` (`+5521972023213`), em
+`NEGOCIAR`, agendados em **19/09**, **oito dias sem nenhum toque**. `Budget` =
+`Tem`, `Prazo` = `Pra ontem`, `Investimento mensal` = `Acima de 10k`, `Decisor` =
+`Sim`. Nota 93, faixa A.
+
+Se alguém só puder fazer uma coisa nesta operação, é **ligar para esses dois**.
+
+## 5. Oportunidades de usar 100% do CRM — do inventário real da conta
+
+Lido do bloco `permissions` de `locations_get-location`: habilitado e **ocioso**.
+Ordenado por dinheiro, não por facilidade. **A IA de WhatsApp está fora de
+propósito** — o dono usa outro mecanismo, e `botServiceEnabled` já é `false`.
+
+| # | capacidade | por que vale, nesta operação | próximo passo exato |
+|---|---|---|---|
+| 1 | `attributionsReportingEnabled` + `facebookAdsReportingEnabled` | Cada contato já carrega `campaignId`, `adSetId`, `adId` e `utmContent`. Cruzar isso com o **desfecho** (`won`/`lost`) diz qual criativo traz **cliente**, não lead. Para uma agência que vende geração de lead, é a métrica que decide o orçamento | O Facebook MCP alcança ~50 contas. Falta achar a que tem `campaignId 120247320350570766` (campanha `LEADS I FORM I FS1`): paginar `ads_get_ad_accounts` e cruzar com `ads_get_ad_entities`. Depois: script que junta gasto por `adSetId` com oportunidades por `adSetId` |
+| 2 | `proposalsEnabled` + `invoiceEnabled` + `textToPayEnabled` | Fecha o caminho de `NEGOCIAR` até o dinheiro dentro do mesmo sistema. O workflow `Proposta Pendente` **já existe** nos dumps e a tag `proposta-pendente` está `[ ]` no `APROVADO.md` — meio caminho andado | Ratificar a tag, montar a proposta na tela, ligar o `Proposta Pendente` |
+| 3 | `reviewsEnabled` | Pedido de avaliação depois de `won` → prova social que alimenta o próprio anúncio que gera os leads. Composto | Workflow disparado por `status = won` |
+| 4 | `dashboardStatsEnabled` + `reportingEnabled` | É a Fase 10 do `GUIA-MONTAGEM.md`, ainda `[ ]`. O gestor da §3.3 precisa do `Estouro da Fila` para segurar entrada acima de 100 tarefas | Montar na tela |
+| 5 | `webChatEnabled` | Outro canal de entrada para a mesma máquina, sem custo de anúncio | Widget no site + `cad-inbound` na entrada |
+| 6 | `surveysEnabled` | Pesquisa pós-reunião alimenta `Reunião foi qualificada` sem depender de o closer lembrar | Survey ligada ao calendário |
+| 7 | `membershipEnabled` + `communitiesEnabled` + `certificatesEnabled` | Produto de entrada barato para o lead que tem `Prazo` mas não tem `Budget` — hoje esses vão para nutrição e morrem | Decisão de negócio, não de CRM |
+
+## 6. O que roda sozinho enquanto ninguém olha
+
+| rotina | quando | o que faz | custo Claude |
+|---|---|---|---|
+| `wesales-vigia.yml` | de hora em hora | varre, compara com `vigia-base.json`, **só grita quando muda** | **zero** |
+| `wesales-valores.yml` | diária 07:30 SP | auditoria de valor contra definição de campo | **zero** |
+| `wesales-prioridade.yml` | diária 08:00 SP | **só lê** e imprime a tabela; escrever exige acionamento manual | **zero** |
+| `wesales-g03.yml` | diária 08:00 SP | promove `NOVO LEAD` → `CONECTAR`, mas só muta na janela de 29/09 | **zero** |
+| `faxina-tarefas.yml` | a cada 10 min | limpa tarefa automática fora de contexto | **zero** |
+
+**Todas dependem do merge**, porque `schedule` do GitHub Actions só dispara no
+branch padrão. Enquanto o PR #101 não entrar, nenhuma delas roda.
+
+Nenhuma escreve no CRM sozinha, de propósito: o `APROVADO.md` proíbe a rotina se
+autorizar, e o código de saída é a campainha — `exit 0` não acorda ninguém.
