@@ -106,3 +106,13 @@ abertura e medir, em vez de descobrir com 30.
 > extra. Notificação enviada ao dono nesta sessão (push, fora do chat) com
 > o resumo do risco e o prazo. Nenhuma ação nova a tomar até a próxima
 > conferência, exceto se a janela mudar, fechar ou abrir antes disso.
+
+> **Reconferido em 27/09/2026 ~12:05 UTC, sessão automática seguinte —
+> faltam ~23h25min para a janela abrir.** `opportunities_search-opportunity`
+> segue em 64, mesma composição; `Carlos Andrade` (`7ECnj1bSeEIm5P58Ifd9`)
+> segue `dnd: true`, tag `atraso-1a-tentativa` presente, campo `Tentativa nº`
+> = 0 — protegido. `git fetch` limpo. Nada mudou desde a leitura anterior
+> (~11:05 UTC): nenhuma correção aplicada, nenhum disparo, as duas decisões
+> do dono seguem sem resposta. Sem notificação nova nesta rodada — a sessão
+> anterior já avisou o dono por push; reenviar a cada hora sem fato novo
+> desgasta o sinal em vez de ajudar.

@@ -4453,6 +4453,13 @@ no texto deste roadmap: **esta sessão enviou um aviso direto ao dono**
 apenas aqui não garante que alguém leia antes da janela abrir. `ABERTURA.md`
 carrega o mesmo registro. Nenhuma mudança na lista de decisões pendentes.
 
+**Reconferido em 27/09/2026 ~12:05 UTC, sessão automática seguinte.**
+`opportunities_search-opportunity` segue em 64, mesma composição;
+`Carlos Andrade` segue `dnd: true`, protegido. `git fetch` limpo, nenhuma
+sessão aplicou a correção. Faltam ~23h25min para a janela abrir. Nada de
+novo a registrar — mesmo estado da leitura anterior (~11:05 UTC); sem
+notificação nova por não haver fato novo. Detalhe em `ABERTURA.md`.
+
 ---
 
 ## Ordem sugerida
