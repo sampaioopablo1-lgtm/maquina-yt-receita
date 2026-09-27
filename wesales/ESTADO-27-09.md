@@ -263,6 +263,18 @@ rotina do gestor da §3.3, onde não está); e corrigir o texto de qualquer jeit
 **Nota de escopo:** isto não afeta a terça, porque o portão sempre passa hoje — o
 custo aparece quando o volume chegar, que é o cenário dos 10 leads/dia.
 
+## 2-BIS. A lista única do que falta
+
+`wesales/FALTA-PARA-SER-MAQUINA.md` — nome sem data de propósito, para ser atualizado no
+lugar. Consolida o que falta para o CRM virar máquina de vendas, medido em 27/09, e
+separa o que é do dono do que é meu. Dois itens novos que não estavam em nenhuma fila:
+
+- **36 das 39 oportunidades em `CONECTAR` sem `assignedTo`**, inclusive os cinco do lote
+  1 que a máquina toca na terça. Tarefa sem destinatário não aparece na fila de ninguém
+  (R-10, agora com número).
+- **`Reunião Cancelada` está completo, 10 nós, em `draft`.** Se o lead cancelar hoje, os
+  lembretes continuam e ninguém remarca. O buraco mais barato de fechar da lista.
+
 ## 3. Decisões que esperam o dono
 
 0b. **As duas proteções sempre juntas (DND + tag `nao-perturbe`)?** Decisão
