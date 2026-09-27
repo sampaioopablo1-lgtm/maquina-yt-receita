@@ -146,6 +146,12 @@
   .beats li.now{background:rgba(253,122,32,.08)}
   .note{font-size:12.5px;color:var(--muted);line-height:1.55;border-left:2px solid var(--laranja);padding-left:12px}
 
+  body.render{padding:0;background:#000}
+  body.render .wrap{display:block;max-width:none}
+  body.render .col-stage{width:100vw;gap:0}
+  body.render .stage{width:100vw;height:100vh;aspect-ratio:auto;border-radius:0;box-shadow:none}
+  body.render .controls, body.render .info-col, body.render .overlay{display:none}
+
   @media (prefers-reduced-motion: reduce){
     .glow.warm.on,.cta.in,.ringing .avatar::after{animation:none}
     .stage.shake{animation:none}
@@ -290,7 +296,7 @@
   }catch(e){}
 
   /* ---------- áudio (Web Audio) ---------- */
-  const A = {ctx:null, out:null, muted:false, nb:null};
+  const A = {ctx:null, out:null, muted:false, nb:null, base:0};
   function ac(){
     if(!A.ctx){
       const C = window.AudioContext || window.webkitAudioContext; if(!C) return null;
@@ -303,7 +309,7 @@
   }
   function tone(type, f0, f1, dur, peak, delay=0, attack=.005){
     const c = ac(); if(!c) return;
-    const t = c.currentTime + delay, o = c.createOscillator(), g = c.createGain();
+    const t = c.currentTime + delay + A.base, o = c.createOscillator(), g = c.createGain();
     o.type = type; o.frequency.setValueAtTime(f0, t);
     if(f1 !== f0) o.frequency.exponentialRampToValueAtTime(f1, t + dur);
     g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(peak, t + attack);
@@ -313,7 +319,7 @@
   function noise(dur, ftype, f0, f1, peak, q=1, delay=0, attack=.01){
     const c = ac(); if(!c) return;
     if(!A.nb){ A.nb = c.createBuffer(1, c.sampleRate*2, c.sampleRate); const d = A.nb.getChannelData(0); for(let i=0;i<d.length;i++) d[i] = Math.random()*2-1; }
-    const t = c.currentTime + delay, s = c.createBufferSource(), f = c.createBiquadFilter(), g = c.createGain();
+    const t = c.currentTime + delay + A.base, s = c.createBufferSource(), f = c.createBiquadFilter(), g = c.createGain();
     s.buffer = A.nb; f.type = ftype; f.Q.value = q;
     f.frequency.setValueAtTime(f0, t); f.frequency.exponentialRampToValueAtTime(f1, t + dur);
     g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(peak, t + attack);
@@ -465,7 +471,37 @@
     e.currentTarget.setAttribute('aria-pressed', String(A.muted));
   });
 
+  /* modo de renderização para exportar MP4 (#render): palco em tela cheia,
+     sem controles; o áudio é renderizado à parte num OfflineAudioContext */
+  if(location.hash === '#render'){
+    document.body.classList.add('render');
+    window.__play = play;
+    window.__renderAudio = async function(){
+      const SR = 44100, off = new OfflineAudioContext(2, SR*DUR, SR);
+      A.ctx = off; A.nb = null; A.out = off.createGain(); A.out.gain.value = .9;
+      const comp = off.createDynamicsCompressor(); comp.threshold.value = -14; comp.ratio.value = 4;
+      A.out.connect(comp); comp.connect(off.destination);
+      EVENTS.forEach(([t, fn])=>{ A.base = t; fn(); });
+      lastBeat = -1; lastHeart = -1;
+      for(let t = 0; t < DUR; t += 1/240){ A.base = t; continuous(t); }
+      A.base = 0;
+      const buf = await off.startRendering();
+      const n = buf.length, L = buf.getChannelData(0), R = buf.getChannelData(1);
+      const out = new DataView(new ArrayBuffer(44 + n*4));
+      const w = (o,str)=>{ for(let i=0;i<str.length;i++) out.setUint8(o+i, str.charCodeAt(i)); };
+      w(0,'RIFF'); out.setUint32(4, 36+n*4, true); w(8,'WAVE'); w(12,'fmt ');
+      out.setUint32(16,16,true); out.setUint16(20,1,true); out.setUint16(22,2,true);
+      out.setUint32(24,SR,true); out.setUint32(28,SR*4,true); out.setUint16(32,4,true); out.setUint16(34,16,true);
+      w(36,'data'); out.setUint32(40, n*4, true);
+      for(let i=0;i<n;i++){ out.setInt16(44+i*4, Math.max(-1,Math.min(1,L[i]))*32767, true); out.setInt16(46+i*4, Math.max(-1,Math.min(1,R[i]))*32767, true); }
+      const bytes = new Uint8Array(out.buffer); let bin = '';
+      for(let i=0;i<bytes.length;i+=32768) bin += String.fromCharCode.apply(null, bytes.subarray(i,i+32768));
+      A.ctx = null; A.out = null; A.nb = null;
+      return btoa(bin);
+    };
+  }
+
   /* quadro de capa: gancho visível antes do play */
-  scene('s1'); reveal('#s1');
+  if(location.hash !== '#render'){ scene('s1'); reveal('#s1'); }
 })();
 </script>
