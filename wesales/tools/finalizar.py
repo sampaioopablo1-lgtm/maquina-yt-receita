@@ -290,6 +290,14 @@ def pastas() -> int:
         print("  + %-42s criada (%s)" % (nome, novo))
     print("\n  Mover os campos para dentro NAO sai por API (PUT /custom-fields/{id} nao")
     print("  tem parentId). Fica para a API interna, nao para o dono.")
+    # Rele a conta: o que a resposta do POST disse nao e o que a conta tem.
+    depois = pastas_da_conta()
+    faltam = [n for n in PASTAS if n not in depois]
+    print("\n  conferido relendo a conta: %d de %d pastas presentes"
+          % (len(PASTAS) - len(faltam), len(PASTAS)))
+    if faltam:
+        print("  FALTAM: %s" % faltam)
+        return 1
     return 0
 
 
@@ -360,9 +368,14 @@ def verificar() -> int:
     dentro = sum(1 for c in campos
                  if c.get("parentId") == ps.get(PASTA_MAQUINA, PASTA_GRANDE))
     print("  campos na pasta da maquina: %d (esperado 29 antes de mover nada)" % dentro)
-    print("\n  veredito: %s" % ("TUDO NO LUGAR" if not faltam and not sem
-                                else "falta o que esta listado acima"))
-    return 0
+    # Sai diferente de zero quando algo NAO esta no lugar. E de proposito: o log
+    # de um job que passou nao e legivel pela API sem o id do job, e o de um que
+    # falhou e. Entao "passou" ja e a confirmacao, e "falhou" me entrega o motivo.
+    # Verificacao que so imprime e verificacao que ninguem le.
+    ok = not faltam and not sem
+    print("\n  veredito: %s" % ("TUDO NO LUGAR" if ok
+                                else "FALTA o que esta listado acima"))
+    return 0 if ok else 1
 
 
 def main() -> int:
