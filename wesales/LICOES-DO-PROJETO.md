@@ -540,3 +540,29 @@ Regra: quando o schema não lista um campo, a resposta não é "não dá"; é um
 num objeto de teste próprio, com releitura, e só depois a frase. E a sonda tem de
 ser sobre o **objeto certo** — a mesma pergunta em `/custom-fields/` (400) e em
 `/locations/{id}/customFields` (200) deu respostas opostas.
+
+## 2.25 No GHL, `parentId` no corpo do PUT recalcula a `position` — e devolve 200
+
+Medido em 27/09 (run 36341042910). `B · Quanto pode investir` foi criado com
+`position: 405` e o `parentId` da pasta da ficha, e leu **770** — o fim da pasta.
+Um PUT depois, também com `position: 405` e `parentId`, leu 770 de novo. As duas
+chamadas devolveram **200**.
+
+A sonda do run 36338941011 já tinha provado, no mesmo endpoint, que posição sai
+por PUT: `position=42 -> lido 42 · OK`. A diferença é que ali o corpo **não
+levava `parentId`**. Com `parentId`, o servidor trata a escrita como movimento de
+pasta e recalcula a posição, anexando ao fim.
+
+**Consequência para código:** quem precisa de pasta E posição manda DOIS PUTs —
+primeiro a pasta, só se ela divergir, e depois nome e posição com o corpo sem
+`parentId`. Um PUT único perde a posição em silêncio.
+
+**Por que ficou escondido tanto tempo:** os 28 campos do BANT já estavam na pasta
+e na posição certas, então o laço do `campos_bant --aplicar` os saltava e nenhum
+PUT com `parentId` era emitido. O primeiro campo criado depois foi o primeiro a
+exercitar o caminho.
+
+Regra: a 2.24 diz que o schema não listar não significa que a API recusa. Esta é
+o outro lado — **a API aceitar não significa que guardou o que se pediu**. A
+verificação que pega é reler e comparar os três (nome, posição, pasta), nunca
+confiar no 200. Foi o que apanhou este defeito.
