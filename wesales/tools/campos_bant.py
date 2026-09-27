@@ -229,19 +229,22 @@ def aplicar() -> int:
     nomes = usuarios()
     lista = next((c for c in cat.values() if c.get("name") == NOME_SDR and c.get("dataType") == "SINGLE_OPTIONS"), None)
     if lista is None:
+        # O fieldKey e derivado do nome: enquanto o TEXTO `SDR responsavel` existir, o
+        # POST da lista devolve 400 "contact.sdr_responsvel already exists" (run
+        # 36335610418). Entao o TEXTO — meu, de 16:53, vazio — sai ANTES.
+        antigo = cat.get(SDR_TEXTO_ANTIGO)
+        if antigo and antigo.get("dataType") == "TEXT" and antigo.get("name") == NOME_SDR:
+            ghl("DELETE", "/locations/%s/customFields/%s" % (LOC, SDR_TEXTO_ANTIGO))
+            print("  campo TEXTO provisorio %s apagado (era meu, vazio) para liberar o fieldKey" % SDR_TEXTO_ANTIGO)
         st, r = ghl("POST", "/locations/%s/customFields" % LOC,
                     {"name": NOME_SDR, "dataType": "SINGLE_OPTIONS", "model": "contact",
                      "options": nomes, "position": POS_SDR, "parentId": PASTA_FICHA}, tolerar=(400, 422))
         if st in (400, 422):
-            print("  !! lista `%s` nao criada: HTTP %s %s — fica o campo TEXTO" % (NOME_SDR, st, r))
+            print("  !! lista `%s` nao criada: HTTP %s %s" % (NOME_SDR, st, r))
         else:
             novo = (r.get("customField") or r).get("id")
             print("  lista `%s` criada: %s · opcoes %s" % (NOME_SDR, novo, nomes))
             escritas += 1
-            antigo = cat.get(SDR_TEXTO_ANTIGO)
-            if antigo and antigo.get("dataType") == "TEXT" and antigo.get("name") == NOME_SDR:
-                ghl("DELETE", "/locations/%s/customFields/%s" % (LOC, SDR_TEXTO_ANTIGO))
-                print("  campo TEXTO provisorio %s apagado (era meu, vazio)" % SDR_TEXTO_ANTIGO)
     else:
         if sorted(lista.get("picklistOptions") or []) != sorted(nomes):
             st, r = ghl("PUT", "/locations/%s/customFields/%s" % (LOC, lista["id"]),
