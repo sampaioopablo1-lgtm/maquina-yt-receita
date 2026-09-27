@@ -14,7 +14,7 @@ calculada e o formulário preenchido.
 | Na hora da reunião | Marcar o agendamento como **Compareceu (Showed)** ou **Não compareceu (No Show)**. Não deixe em "Confirmado". | Compareceu → registra a data. No Show → abre a recuperação (tarefas NS1–NS3 para o SDR) e o prazo de 2 h para você decidir. |
 | Até o fim do dia | Preencher **Reunião foi qualificada** (Sim / Não / Parcial) e, se Não, o **Motivo da desqualificação** | **Não** → perdido (se o motivo for **Timing errado**, vai para a nutrição de 15 em 15 dias). **Parcial** → nutrição. **Sim** → segue com você. |
 | Apresentou a proposta | **Mover o lead para NEGOCIAR** (é você quem move) | As tarefas da etapa anterior saem sozinhas. |
-| Fechou | Mover para **FORMALIZAR** e marcar a oportunidade como **Ganho** | — |
+| Fechou | Mover para **FORMALIZAR**, marcar a oportunidade como **Ganho** e trocar o **Valor** da oportunidade pelo valor real do contrato (ela nasce com um número padrão, `5000`, que não é o que o cliente pagou) | — |
 | Perdeu | Marcar a oportunidade como **Perdido** (com motivo) | O lead sai de todas as cadências. |
 
 ## Regras

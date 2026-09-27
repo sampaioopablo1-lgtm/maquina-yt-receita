@@ -4,6 +4,35 @@ Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
 
 
+## Inventário dos 36 módulos do conector `GHL CRM` — três checados e descartados, um achado real sem precisar de módulo novo (F-07) — 27/09/2026
+
+Pedido do dono: mapear módulos/tabelas/funções do CRM ainda não tocados.
+Resultado ao vivo, para a próxima rodada não reabrir:
+
+- **`blogs_*`** — `blogs_get-blogs` devolve 0 sites na subconta. Nada para
+  construir; não é lacuna, é módulo sem uso possível aqui.
+- **`social-media-posting_*`** — 1 conta ligada (Facebook Page "O Próximo
+  Cliente"), 0 seguidores, 2 posts e 983 impressões nos últimos 7 dias
+  (`social-media-posting_get-social-media-statistics`). Página orgânica
+  dormente; os leads pagos vêm do Meta Lead Ads, canal separado. Não é fonte
+  de lead, não vale automação.
+- **`payments_*`** — `payments_list-transactions` devolve 0 transações (a
+  agência fatura fora do GHL). O módulo em si não tem o que ler ainda, mas a
+  pergunta que ele levantou ("de onde vem o valor real do negócio?") achou um
+  problema de verdade sem precisar dele: toda oportunidade nasce com
+  `monetaryValue = 5000` fixo (valor padrão da Porta de Entrada) e nada troca
+  esse número pelo valor real do contrato quando o closer marca Ganho.
+  `ESTADO-E-PLANO.md` já tinha essa leitura anotada como observação solta em
+  20/09/2026 e nunca virou item — promovido a **F-07**
+  (`ROADMAP-SALES-ENGAGEMENT.md`), com uma linha nova em `GUIA-CLOSER.md`
+  pedindo o valor real no momento de marcar Ganho. Detalhe em
+  `build-wesales.md` §2.47.
+
+**Regra prática:** um módulo do conector sem dado na conta (`blogs`,
+`payments`) não é automaticamente "nada a fazer" — vale perguntar que
+problema ele resolveria, porque a resposta pode já estar quebrada por outro
+caminho (aqui, `monetaryValue`) mesmo sem o módulo estar em uso.
+
 ## Runner G-03 no Windows precisa de fallback para tzdata ausente — 25/09/2026
 
 O runner usa `zoneinfo.ZoneInfo("America/Sao_Paulo")`. No Python 3.14

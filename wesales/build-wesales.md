@@ -4471,3 +4471,49 @@ Nota lateral, não medida a fundo: o `Carlos Andrade` recebeu `dnd: true` em 23/
 como proteção de um caso só. Se o DND faz a execução parada **falhar e parar** ou
 **pular e seguir** não foi medido — e é a diferença entre proteger e queimar a
 MI-0 em silêncio. Por isso não estendi DND aos 37.
+
+## 2.47 Inventário dos módulos do conector GHL CRM — o que está ligado e nunca foi usado, e o que já é usado mas com número falso
+
+Pedido do dono em 27/09/2026: "módulos que ainda não tenhamos tocado, tabelas,
+funções e recursos do CRM — inclua na rotina". As 36 ferramentas do conector
+`GHL CRM` cobrem 8 times: `contacts`, `conversations`, `opportunities`,
+`locations`, `calendars`, `emails`, `blogs` e `social-media-posting`. Os
+primeiros cinco são o esqueleto da máquina inteira (contato, cadência,
+oportunidade, campo, agenda do closer) — sem achado novo aqui. Os três
+últimos ficaram de fora de todo o projeto até hoje. Medido ao vivo, não
+deduzido:
+
+| Módulo | Estado medido em 27/09/2026 | Vale construir agora? |
+|---|---|---|
+| `blogs_*` (6 ferramentas) | `blogs_get-blogs` devolve **0 sites** na subconta | **Não** — não existe onde publicar. Sem uso para uma operação de pré-vendas B2B; registrado para não ser reaberto |
+| `payments_*` (2 ferramentas) | `payments_list-transactions` devolve **0 transações**; a agência fatura fora do GHL | **Ainda não como módulo** — mas o sintoma que ele existiria para resolver já é real, ver abaixo |
+| `social-media-posting_*` (6 ferramentas) | 1 conta ligada (`O Próximo Cliente`, Facebook Page), **0 seguidores**, 2 posts, 983 impressões e 3 curtidas nos últimos 7 dias | **Não** — página orgânica dormente; os leads pagos vêm do Meta Lead Ads, canal separado que não passa por aqui. Confirmado, não suposto: dado real da própria API, não estimativa |
+
+**O achado que vale a pena, sem precisar do módulo `payments`:** toda
+oportunidade nasce com `monetaryValue = 5000` (valor padrão da Porta de
+Entrada, não estimativa) — `ESTADO-E-PLANO.md` já tinha essa leitura anotada
+como observação em 20/09/2026, nunca virou item. Reconfirmado ao vivo hoje: as
+oportunidades em `CONECTAR` seguem em `{5000, 0}`. Zero oportunidade chegou a
+`won` ainda, então o número falso não distorceu relatório nenhum até agora —
+mas nada no fluxo publicado troca o `5000` pelo valor real do contrato quando
+o closer fecha, e `GUIA-CLOSER.md` (linha 17) instrui "mover para
+`FORMALIZAR` e marcar como Ganho" sem mencionar o valor. No dia em que o
+primeiro negócio fechar, o dashboard do gestor (R-15, `Custom Metrics` soma
+`MONETARY`) vai somar `5000` fixo por negócio, não receita real — o mesmo
+tipo de erro silencioso que o F-06 já descreveu para "taxa de conexão": o
+número existe, parece receita, e mede a contagem de negócios fechados
+multiplicada por uma constante.
+
+**Como fechar, sem automação nova:** `opportunities_update-opportunity`
+aceita `body_monetaryValue` — a escrita é trivial por API ou pela tela; o que
+falta é o closer saber que precisa fazer. Acrescentada uma linha em
+`GUIA-CLOSER.md` (abaixo) pedindo o valor real do contrato no mesmo passo em
+que já marca Ganho — não é automação (o valor do contrato não existe em
+nenhum campo hoje, só na cabeça do closer ou no contrato assinado fora do
+GHL), é instrução. Se no futuro a agência passar a faturar pelo GHL (Payments
+ligado, checkout ou fatura pela plataforma), o valor passaria a vir de lá
+sozinho — registrado aqui para essa condição não precisar ser redescoberta.
+
+**Pronto quando:** o primeiro `won` desta operação carrega um `monetaryValue`
+diferente de `5000`, e o dashboard do gestor soma receita real, não contagem
+de negócios.

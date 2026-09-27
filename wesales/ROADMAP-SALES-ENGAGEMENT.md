@@ -1,5 +1,38 @@
 ﻿# O que falta para virar Reev/Meetime de verdade
 
+> ## ⚠️ Alerta de integridade — 27/09/2026, aguardando decisão do dono
+>
+> **Este arquivo perdeu ~4.260 linhas por acidente em 24/09/2026 e ninguém
+> notou até agora.** Três commits com o mesmo título ("Add GitHub Action for
+> WeSales G03" — `c2dadb5`, `6821497`, `33b4ae3`, 24/09 15:25) sobrescreveram
+> este arquivo (e também `build-wesales.md`, que perdeu ~4.230 linhas do
+> mesmo jeito) com uma cópia velha, de antes do G-05. O commit anterior
+> (`2c45fd9`, 23/09 20:29) tinha **5.619 linhas** aqui — G-05 a G-24 inteiros,
+> F-07 a F-16 — e o commit seguinte já chegou com **1.357**. Confirmado
+> lendo os blobs de cada commit (`git show <hash>:wesales/ROADMAP-SALES-
+> ENGAGEMENT.md | wc -l`), não suposto.
+>
+> **Complica uma reconciliação simples:** pelo menos uma sessão continuou
+> editando esta versão curta *depois* da perda, sem saber que faltava
+> conteúdo — a decisão do G-03 ("promoção imediata escolhida em 24/09/2026",
+> abaixo) não existe na versão de 23/09 20:29, é trabalho novo e real feito
+> em cima do arquivo já truncado. Restaurar às cegas a partir de `2c45fd9`
+> perderia essa decisão; manter a versão curta como está perde G-05 a G-24 e
+> F-07 a F-16 para sempre (nenhuma exclusão é permitida por regra 1 — isto
+> foi acidente, não decisão).
+>
+> **Efeito colateral já pego nesta sessão:** o item **F-07** abaixo (achado
+> de 27/09, `monetaryValue` falso) reusa um número que já foi de outro item
+> real (proteção de Quality Rating do WhatsApp, 22/09/2026 — ainda citado em
+> `APRENDIZADOS-CRM.md`, mas fora deste arquivo hoje). Fica com este número
+> só até a reconciliação decidir a numeração certa — não é definitivo.
+>
+> **Não restaurei nada sozinho** — é uma reconciliação de três fontes
+> (a versão de 23/09 20:29, a versão curta com o trabalho novo de 24/09 em
+> diante, e o mesmo problema em `build-wesales.md`) grande demais para uma
+> sessão decidir sem o dono saber que está fazendo. Quem tratar este alerta:
+> apague-o daqui quando a reconciliação terminar.
+
 O alvo do projeto não é "ter uma cadência no GHL". Os blocos 1 a 5 são a
 distância até a **paridade** com Reev e Meetime — e paridade é o **piso**, não
 a chegada. O bloco 6 é o que faz a operação ficar fora da curva: coisas que a
@@ -1240,6 +1273,32 @@ atendeu **e** durou mais de 60s. A taxa de conexão do relatório passa a usar
 esse campo.
 **Pronto quando:** "taxa de conexão" no relatório significa conversa, e o SDR
 não consegue inflar o número desligando rápido.
+
+### F-07 · `monetaryValue` nasce com um número falso e nada troca pelo valor real quando o negócio fecha — inventário dos módulos do CRM (27/09/2026)
+**Número provisório** — ver alerta de integridade no topo deste arquivo: `F-07` já foi usado por outro item antes de uma perda acidental de conteúdo; renumerar quando a reconciliação decidir a numeração definitiva.
+**Por quê:** pedido do dono ("módulos que ainda não tenhamos tocado, tabelas,
+funções e recursos do CRM"). Inventariadas as 36 ferramentas do conector `GHL
+CRM` ao vivo: `blogs_*` (0 sites na subconta) e `social-media-posting_*` (1
+página do Facebook dormente, 0 seguidores, sem relação com os leads pagos do
+Meta Lead Ads) não têm nada para construir — checados e descartados, para não
+serem reabertos por outra rodada. `payments_*` também está vazio (0
+transações, a agência fatura fora do GHL), mas o sintoma que esse módulo
+resolveria já é real sem ele: toda oportunidade nasce com `monetaryValue =
+5000` (valor padrão da Porta de Entrada) e nada no fluxo publicado troca esse
+número pelo valor real do contrato quando o closer marca **Ganho**. Zero
+negócio chegou a `won` ainda — a distorção não aconteceu, mas o primeiro
+fechamento real vai somar `5000` fixo no dashboard do gestor (R-15) em vez de
+receita real, mesma classe de erro silencioso que o F-06 já descreveu para
+"taxa de conexão".
+**Como:** sem automação nova — o valor do contrato não existe em campo
+nenhum hoje, só na cabeça do closer. `GUIA-CLOSER.md` ganhou uma linha: ao
+marcar Ganho, trocar o `Valor` da oportunidade pelo valor real
+(`opportunities_update-opportunity` aceita `body_monetaryValue`, escrita
+trivial pela tela ou por API). Detalhe completo, e os três módulos
+verificados um a um, em `build-wesales.md` §2.47.
+**Pronto quando:** o primeiro `won` desta operação carrega um `monetaryValue`
+diferente de `5000`, e o dashboard do gestor soma receita real, não
+contagem de negócios fechados.
 
 ---
 
