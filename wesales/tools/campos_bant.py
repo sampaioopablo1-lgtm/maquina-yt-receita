@@ -135,8 +135,30 @@ def campo(cid: str) -> dict:
 
 
 def usuarios() -> list:
+    """Os SDRs da conta — nao todos os usuarios.
+
+    A versao anterior devolvia TODO usuario da subconta, e por isso a picklist
+    `SDR responsavel` nasceu com `Pablo Santos` dentro. Pablo e closer, gestor e
+    administrador do sistema; SDR e a Andreyna. Como esta funcao alimenta a
+    picklist E a reconciliacao (o --aplicar reescreve as opcoes quando elas
+    divergem), corrigir a lista na tela nao durava: o run seguinte recolocava o
+    admin, calado. O filtro tem de ser aqui.
+
+    O sinal e `roles.role`: quem foi criado como `user` entra, `admin` nao. Foi
+    por isso que o SDR foi cadastrado como `user` em 27/09. Nao ha campo de
+    funcao no GHL, e este e o unico sinal que a API devolve.
+    """
     st, r = ghl("GET", "/users/?locationId=%s" % LOC)
-    return [(u.get("name") or "").strip() for u in (r.get("users") or []) if u.get("name")]
+    sdrs, fora = [], []
+    for u in (r.get("users") or []):
+        nome = (u.get("name") or "").strip()
+        if not nome:
+            continue
+        papel = ((u.get("roles") or {}).get("role") or "").lower()
+        (sdrs if papel != "admin" else fora).append("%s (%s)" % (nome, papel or "sem papel"))
+    if fora:
+        print("  fora da lista de SDR, por serem admin: %s" % ", ".join(fora))
+    return [n.rsplit(" (", 1)[0] for n in sdrs]
 
 
 # ---------------------------------------------------------------- sondar

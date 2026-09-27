@@ -28,6 +28,8 @@ ORDEM, e por que ela e essa
                   passa pelo conector MCP — so pela API publica.
     --pastas      cria as 5 pastas e renomeia a grande. Idempotente.
     --donos       atribui dono nas oportunidades e contatos sem dono.
+    --transferir  passa leads, oportunidades de etapa de SDR e tarefas ao SDR
+                  (--user <id>). Sem --aplicar e DRY: calcula e nao escreve.
     --verificar   rele a conta e prova o que mudou.
 
 NUNCA APAGA NADA
@@ -344,6 +346,121 @@ def donos(user_id: str | None) -> int:
     return 0
 
 
+# ---------------------------------------------------------------- transferir
+
+# A fronteira entre as duas funcoes, lida do funil em 27/09: `NOVO LEAD` e
+# `CONECTAR` sao trabalho de SDR; `REUNIAO DE DIAGNOSTICO`, `NEGOCIAR` e
+# `FORMALIZAR` sao do closer. Transferir tudo para o SDR tiraria negociacao
+# aberta do closer, que e o contrario do que a decisao de 27/09 diz (o dono
+# pediu o SDR nos leads e manteve para si closer, gestao e administracao).
+ETAPAS_DO_SDR = {"NOVO LEAD", "CONECTAR"}
+
+
+def _etapas() -> dict:
+    """id da etapa -> nome, para o funil desta conta."""
+    r = pedir("GET", "/opportunities/pipelines?locationId=%s" % LOC)
+    for pl in (r.get("pipelines") or []):
+        if pl.get("id") == PIPELINE:
+            return {s["id"]: (s.get("name") or "") for s in (pl.get("stages") or [])}
+    return {}
+
+
+def _id_do_contato(op: dict) -> str | None:
+    c = op.get("contact") or {}
+    return op.get("contactId") or c.get("id")
+
+
+def _tarefas(cid: str) -> list:
+    r = pedir("GET", "/contacts/%s/tasks" % cid, tolerar=(400, 404, 422))
+    if "_erro" in r:
+        return []
+    return r.get("tasks") or []
+
+
+def transferir(destino: str | None, aplicar: bool) -> int:
+    """Passa leads, oportunidades de etapa de SDR e tarefas para o SDR.
+
+    Sem `--aplicar` isto NAO escreve: calcula, imprime o que mudaria e sai 0.
+    Nunca apaga nada — so troca `assignedTo`, que e reversivel relendo o antes.
+    """
+    print("=" * 74)
+    print("TRANSFERIR para o SDR — %s" % ("APLICA" if aplicar else "DRY, escreve nada"))
+    print("=" * 74)
+    if not destino:
+        print("  !! falta --user <id do SDR>. Rode --recon para ver os ids.")
+        return 1
+
+    etapas = _etapas()
+    ops = oportunidades()
+    ct = contatos()
+
+    # Oportunidade de etapa de SDR vai; de etapa de closer fica.
+    move_op, fica_op = [], []
+    for o in ops:
+        nome = etapas.get(o.get("pipelineStageId") or "", "(etapa desconhecida)")
+        (move_op if nome in ETAPAS_DO_SDR else fica_op).append((o, nome))
+
+    # O contato segue o dono da oportunidade dele: contato preso a etapa de
+    # closer fica com o closer, senao o dono do contato e o da oportunidade
+    # divergiriam na mesma ficha.
+    do_closer = {_id_do_contato(o) for o, _ in fica_op}
+    do_closer.discard(None)
+    move_ct = [c for c in ct if c.get("id") not in do_closer]
+    fica_ct = [c for c in ct if c.get("id") in do_closer]
+
+    print("\n  OPORTUNIDADES abertas: %d" % len(ops))
+    for nome in sorted({n for _, n in move_op}):
+        print("    -> SDR    %-28s %d" % (nome, sum(1 for _, n in move_op if n == nome)))
+    for nome in sorted({n for _, n in fica_op}):
+        print("    fica     %-28s %d  (etapa de closer)" % (nome, sum(1 for _, n in fica_op if n == nome)))
+    print("\n  CONTATOS: %d  -> SDR %d  fica %d" % (len(ct), len(move_ct), len(fica_ct)))
+
+    tarefas = [(c["id"], t) for c in move_ct for t in _tarefas(c["id"])
+               if t.get("assignedTo") and t.get("assignedTo") != destino]
+    print("  TAREFAS a reatribuir: %d" % len(tarefas))
+
+    if not aplicar:
+        print("\n  DRY: nada foi escrito. Rode o modo `transferir-aplicar` para valer.")
+        return 0
+
+    n = 0
+    for o, _ in move_op:
+        if o.get("assignedTo") != destino:
+            pedir("PUT", "/opportunities/%s" % o["id"], {"assignedTo": destino})
+            n += 1
+    print("\n  oportunidades reatribuidas: %d" % n)
+
+    m = 0
+    for c in move_ct:
+        if c.get("assignedTo") != destino:
+            pedir("PUT", "/contacts/%s" % c["id"], {"assignedTo": destino})
+            m += 1
+    print("  contatos reatribuidos: %d" % m)
+
+    k = 0
+    for cid, t in tarefas:
+        pedir("PUT", "/contacts/%s/tasks/%s" % (cid, t["id"]),
+              {"assignedTo": destino}, tolerar=(400, 422))
+        k += 1
+    print("  tarefas reatribuidas: %d" % k)
+
+    # Rele e prova, em vez de confiar no retorno do PUT.
+    print("\n  relendo a conta para provar...")
+    ops2 = oportunidades()
+    err = [o["id"] for o in ops2
+           if etapas.get(o.get("pipelineStageId") or "", "") in ETAPAS_DO_SDR
+           and o.get("assignedTo") != destino]
+    ct2 = contatos()
+    errc = [c["id"] for c in ct2 if c.get("id") not in do_closer and c.get("assignedTo") != destino]
+    if err or errc:
+        print("  !! nao convergiu: %d oportunidades e %d contatos fora do SDR" % (len(err), len(errc)))
+        for x in (err + errc)[:10]:
+            print("     %s" % x)
+        return 1
+    print("  convergiu: toda etapa de SDR e todo contato de SDR pertencem a %s" % destino)
+    return 0
+
+
 # ---------------------------------------------------------------- verificar
 
 def verificar() -> int:
@@ -459,6 +576,8 @@ def main() -> int:
         return pastas()
     if "--donos" in a:
         return donos(user)
+    if "--transferir" in a:
+        return transferir(user, "--aplicar" in a)
     if "--verificar" in a:
         return verificar()
     if "--formulario" in a:

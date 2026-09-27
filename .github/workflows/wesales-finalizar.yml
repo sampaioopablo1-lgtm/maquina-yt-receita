@@ -30,8 +30,10 @@ on:
           - filas
           - filas-aplicar
           - formulario
+          - transferir
+          - transferir-aplicar
       user_id:
-        description: "So para modo=donos: id do usuario que recebe os leads"
+        description: "Para modo=donos e transferir*: id do usuario que recebe os leads"
         type: string
         required: false
 
@@ -105,6 +107,20 @@ jobs:
         env:
           GHL_PIT: ${{ secrets.GHL_PIT }}
         run: python wesales/tools/campos_bant.py --sondar
+
+      # Transferencia de carteira para o SDR. O DRY nao escreve: imprime o que
+      # mudaria, separando etapa de SDR de etapa de closer.
+      - name: Transferir carteira ao SDR (DRY — calcula e imprime, escreve nada)
+        if: ${{ inputs.modo == 'transferir' }}
+        env:
+          GHL_PIT: ${{ secrets.GHL_PIT }}
+        run: python wesales/tools/finalizar.py --transferir --user "${{ inputs.user_id }}"
+
+      - name: Transferir carteira ao SDR (APLICA)
+        if: ${{ inputs.modo == 'transferir-aplicar' }}
+        env:
+          GHL_PIT: ${{ secrets.GHL_PIT }}
+        run: python wesales/tools/finalizar.py --transferir --aplicar --user "${{ inputs.user_id }}"
 
       - name: Verificacao (rele a conta e prova)
         if: ${{ inputs.modo == 'verificar' }}
