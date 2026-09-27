@@ -438,3 +438,93 @@ e quem mede é quem tem a tela.
   fica escondido em pasta, não excluído.
 - **Não mexer na IA de WhatsApp.** O dono usa outro mecanismo, e
   `botServiceEnabled` já é `false`.
+
+## 7. As dez listas que faltavam, medidas contra a conta (27/09 09:00)
+
+Mesmo método da §0: ler o filtro declarado na §1.7 da `IMPLEMENTACAO-WORKFLOWS.md`
+e contar quantas linhas ele devolve **de verdade**. Uma chamada
+(`contacts_get-contacts`, 64 contatos, que ao contrário da busca de oportunidade
+traz `dnd`, `dndSettings`, tags e campos personalizados). Leitura pura.
+
+| lista | filtro | linhas hoje | veredito |
+|---|---|---|---|
+| 8.26 `Auditoria — tag sem DND nativo` | tag `nao-perturbe` **E** DND desligado | **9** | acende, e por motivo real |
+| 8.27 `Auditoria — DND sem tag` | DND ligado **E** sem tag `nao-perturbe` | **31** | acende, **e a causa fui eu** |
+| 8.18 `Higiene — Sem Telefone Válido` | sem telefone **OU** `telefone-invalido` | **12** (7 de teste, 5 reais) | funciona, mostra sujeira de verdade |
+| 8.25a `Entrada — últimas 24h` | criado há < 1 dia | 2 | funciona |
+| 8.25b `Entrada — últimos 7 dias` | criado há < 7 dias | 21 | funciona |
+| 8.14 `Reengajamento em Curso` | tag `reengajamento-ativo` | 1 (o fixture) | vazia na prática |
+| 8.16 `Fila do Dia — Total` | `fila-tel` **OU** `fila-wa`, sem `nao-perturbe` | **0** | vazia pelo motivo da §0 |
+| 8.6 `Conexão por Tentativa` | `Total de conexões` ≥ 1 | **1**, e é contato de teste | sem insumo real |
+| 8.7 `Calibração da Régua` | `Reunião foi qualificada` não vazio | **2**: `Pablo Sampaio` e `Teste Atendeu` | sem insumo real |
+| 8.13 `Resposta por Template` | `Sinal recebido` não vazio | **1** (`Rafaela de Paula`) | um sinal na conta inteira |
+| 8.17 `Recuperação de No-show` | `Nº de no-shows` ≥ 1 | **0** | nunca teve insumo |
+
+Três grupos, e cada um quer coisa diferente:
+
+- **8.26 e 8.27 acendem por defeito real** — abaixo, é o achado da rodada.
+- **8.18, 8.25a e 8.25b funcionam.** A 8.18 aponta cinco leads reais sem telefone
+  usável (`TINTIM`, `Dkw.oficial`, `Nathalia.ggss`, `Carla X. Sampaio`,
+  `Thiagoreis`), todos já `lost` em `CONECTAR`. É a única lista de gestor que hoje
+  entrega trabalho legítimo.
+- **8.6, 8.7, 8.13, 8.17 e 8.14 estão vazias porque o funil nunca produziu o
+  insumo** — não porque o filtro esteja errado. Não há no-show porque não houve
+  reunião; não há calibração porque não houve veredito de closer real; há **um**
+  `Sinal recebido` na conta inteira. Isso não é defeito para consertar, é o
+  retrato de uma máquina que ainda não rodou. Vale saber para não sair "arrumando"
+  filtro que está correto.
+
+### O achado: DND e a tag `nao-perturbe` NÃO são a mesma proteção — e 40 registros discordam
+
+**31 contatos têm DND ligado e não têm a tag `nao-perturbe`. Outros 9 têm a tag e
+não têm DND.** Quarenta registros onde as duas proteções discordam, nos dois
+sentidos.
+
+E os 31 **são consequência direta de escrita minha**: em 27/09 eu liguei
+`dnd = true` em 30 contatos para travar a rampa (`ESTADO-27-09.md` §1) e **não**
+apliquei a tag. Os 31 são esses 30 mais o `Carlos Andrade`, que já estava em DND
+desde 23/09. A lista 8.27 existe exatamente para pegar essa inconsistência, e vai
+abrir com 31 linhas na terça por causa do que eu fiz.
+
+**Por que isso é funcional e não cosmético**, e é a parte que muda o entendimento
+do projeto: as duas proteções agem em camadas diferentes.
+
+- **DND** é bloqueio de canal, imposto pela camada de mensagem. Impede o envio.
+- **`nao-perturbe`** é o que a **lógica de workflow lê**. O W13 nó 3 é
+  `Tags inclui nao-perturbe → FIM`; o W14 aplica a tag; as listas excluem por ela.
+
+Então, para os 31: o DND impede a mensagem sair, mas **o workflow não para**.
+Ele segue criando tarefa, mexendo em etapa, incrementando contador e escrevendo
+`Prioridade` — porque o portão que ele consulta é a tag, e a tag não está lá.
+
+Isso **explica o experimento** que o `AUDITORIA-27-09.md` registrou como
+incógnita: o contato de teste recebeu `Prioridade` 5 e `atraso-1a-tentativa`
+"com as duas proteções ligadas". Com esta leitura, a frase fica mais precisa —
+o que estava ligado era o canal, não o portão.
+
+E corrige, por consequência, a §2 do `ESTADO-27-09.md`, que diz "34 dos 39 estão
+em DND ou `nao-perturbe` → o canal está bloqueado". O canal está; **a régua,
+não**. Para 31 deles a máquina continua andando por dentro, em silêncio, gastando
+tentativa da régua sem nunca falar com ninguém — que é o pior dos dois mundos,
+porque queima a cadência sem produzir contato.
+
+**Os 9 do outro lado** são o espelho: a tag está lá, então o workflow para, mas
+**não há DND nenhum** — nem `dnd`, nem canal em `dndSettings`. Mensagem manual,
+ou uma discagem pelo Call Center (que não lê tag), passa. Entre eles há três
+registros que não são de teste: `francisca`, `o próximo cliente` e um `sem nome`.
+
+### O que fazer, e o que não dá para fazer daqui
+
+O conserto é reconciliar as duas proteções, e tem forma de script — o mesmo
+padrão do `recalcula_prioridade.py`: onde `dnd` está ligado, aplicar
+`nao-perturbe`; onde a tag está e o DND não, ligar o DND. **Escrever depende de
+`[x]` novo no `APROVADO.md`** — a rotina não se autoriza, e nem vou propor que se
+autorize.
+
+O que dá para fazer antes disso é a decisão, que é do dono e é curta: **as duas
+proteções sempre juntas?** Se sim, sai um script e um par de listas que devem
+ficar vazias para sempre (é justamente o desenho que a 8.26/8.27 já tinha em
+mente). Se não, então a §2 do `ESTADO` precisa dizer que travar o canal **não**
+trava a régua, e a janela em `days: [2]` volta a ser a única alavanca de verdade
+— porque é a única que para o motor, em vez de calar a boca dele.
+

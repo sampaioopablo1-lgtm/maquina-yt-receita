@@ -43,8 +43,18 @@ nem de Action. **Continua sendo do dono.**
 Mas o quadro mudou com o DND aplicado. Se a janela abrir na segunda:
 
 - **34 dos 39** leads de `CONECTAR` estão em DND ou `nao-perturbe` → o canal
-  está bloqueado. A incógnita que sobra é se a execução **para** ou **pula**
-  (queimando a MI-0 em silêncio). Nenhum deles recebe mensagem.
+  está bloqueado. Nenhum deles recebe mensagem.
+
+  **CORREÇÃO DE 27/09 09:00, e é importante:** "canal bloqueado" **não** é
+  "máquina parada". A varredura das listas 8.26/8.27 (ver §7 do `USABILIDADE.md`)
+  mostrou que **31 desses têm DND e NÃO têm a tag `nao-perturbe`** — porque fui eu
+  que liguei o DND sem aplicar a tag. E as duas proteções agem em camadas
+  diferentes: o DND é bloqueio de canal, imposto na hora de enviar; a tag é o que
+  a **lógica de workflow lê** (o W13 nó 3 é `Tags inclui nao-perturbe → FIM`).
+  Para esses 31 a régua **continua andando** — cria tarefa, mexe em etapa, soma
+  contador — só não fala com ninguém. Ou seja: a incógnita "para ou pula" já tem
+  resposta para eles, e é **pula**. Queima tentativa em silêncio, que é o pior dos
+  dois mundos.
 - **5 leads** (o lote 1: Gerson, Ana Ruth, Ricardo, Andreia, Andre) estão livres
   e **recebem a MI-0** — que é exatamente o lote da rampa de 6/dia, um dia antes.
 
@@ -117,6 +127,13 @@ W13 — que a §3.1 chama de único motivo para o SDR interromper o bloco.
 
 ## 3. Decisões que esperam o dono
 
+0b. **As duas proteções sempre juntas (DND + tag `nao-perturbe`)?** Decisão
+   curta e com consequência grande. Hoje 40 registros discordam: 31 com DND sem a
+   tag (escrita minha de 27/09) e 9 com a tag sem DND. Se a resposta for "sempre
+   juntas", sai um script de reconciliação e as listas 8.26/8.27 devem ficar
+   vazias para sempre. Se não, a janela em `days: [2]` volta a ser a única
+   alavanca real, porque é a única que para o motor em vez de calar a boca dele.
+   Escrever depende de `[x]` novo no `APROVADO.md`. Ver §7 do `USABILIDADE.md`.
 0. **`Add to Workflow` → `Cadência Inbound` em lote nos leads de `CONECTAR`** —
    passou a ser o item nº 1 da lista. Ver §2.1. Sem isso a terça abre com fila
    vazia, e resolve o item 5 de brinde.
