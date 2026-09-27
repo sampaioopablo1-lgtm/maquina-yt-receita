@@ -19,6 +19,32 @@ opções nunca casa para os outros 19 — e não falha em lugar nenhum, só deix
 acontecer. É a mesma classe de bug silencioso que a §2.33 e a lista 8.17 já
 pegaram sete vezes neste projeto, agora no dado em vez do nome da etapa.
 
+NÃO RODE ISTO AINDA — DEPENDE DO G-04, QUE AGUARDA O DONO
+--------------------------------------------------------
+Descoberto em 27/09/2026, relendo a documentação: este defeito **já estava
+catalogado desde 21/09** em `CONFERENCIA-CAMPOS.md` (Tabela H) e no
+`ROADMAP-SALES-ENGAGEMENT.md` como **G-04 — aguarda decisão do dono**, com os
+mesmos quatro valores. Eu o reachei sem saber e escrevi este patch como se
+fosse novo. O que a auditoria de valor acrescentou foram só as contagens de
+hoje (24 de 27) e a deteção automática; o diagnóstico é de seis dias antes.
+
+E o G-04 tem duas opções, das quais este arquivo implementa **metade da A**:
+
+  A) apontar os oito formulários do Meta para `Prazo`/`Dor principal` e trocar
+     as opções de `Investimento mensal` pelos textos exatos do anúncio.
+  B) a 9.1 passa a ler `Urgência`/`Necessidade` por `Contains`.
+
+A medição de 21/09 que eu não tinha: `attributions[].mediumId` mostra **oito
+formulários de Lead Ads distintos** na conta (42/16/14/2/1/1/1/1 atribuições).
+Então a Opção A é trabalho de tela **oito vezes**, e todo formulário novo nasce
+errado até alguém lembrar; a Opção B se aplica uma vez e cobre os oito. Sob a
+Opção B este arquivo fica **desnecessário**, porque o `Contains` compara o texto
+que estiver lá e a picklist deixa de importar.
+
+**Portanto: não rodar antes de o dono escolher A ou B.** Se escolher B, apagar
+este arquivo. Se escolher A, ele faz metade do trabalho e a outra metade é na
+tela dos oito formulários.
+
 POR QUE ACRESCENTAR, E NÃO REMAPEAR
 -----------------------------------
 São dois consertos possíveis e eles não são equivalentes:
