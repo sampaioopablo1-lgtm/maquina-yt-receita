@@ -1770,6 +1770,50 @@ nota registrada, aviso ao `Contact Owner` — e **nenhuma** tarefa `[CADENCIA]
 Sinal: respondeu mensagem — ligar agora` nascendo (depende do retoque no
 W13 já estar aplicado).
 
+## W26 · Resposta Automática — Ausência — E-mail — `build-wesales.md` 2.49 (F-20, especificado em 27/09/2026)
+
+**Gatilho:** `Customer Replied` → Canal `E-mail` · corpo `Contains Phrase` —
+mesma lista canônica de ausência/auto-resposta do W25, reaproveitada sem
+alteração (mesmo padrão que o W24 já usou para reaproveitar a lista de
+opt-out do W14 em vez de manter uma terceira versão do texto).
+
+| Configuração | Valor |
+|---|---|
+| Janela | Sem restrição, 24/7 |
+| Allow Re-entry | Ligado |
+| Stop on Response | Desligado |
+
+| # | Ação | Configuração exata | Vai para |
+|---|---|---|---|
+| 1 | Find opportunity | Pipeline `FUNIL DE VENDAS` · "Most recently created" — os dois ramos seguem | 2 |
+| 2 | Add Contact Tag | `resposta-automatica` (T-23) — **mesma tag do W25, não uma nova** | 3 |
+| 3 | Update Contact Field (Math +1) | `Respostas automáticas` (C-33) — **mesmo campo do W25** | 4 |
+| 4 | Add Note | `Resposta automática de ausência detectada por e-mail em {{right_now}} — provável autorresponder, não interesse real; cruzar com a notificação do nó 4b/7b do W23 antes de agir` | 5 |
+| 5 | Internal Notification | ao `Contact Owner`: `Resposta automática (e-mail): {{contact.name}} respondeu ao resgate por e-mail com mensagem de ausência/auto-resposta, não interesse real. Se você já recebeu o aviso genérico do "Resgate por E-mail" pedindo decisão manual sobre este contato, é provavelmente o mesmo evento — não é preciso ligar nem escrever de volta.` | fim |
+
+**Pré-requisito:** nenhum novo — reaproveita a tag `resposta-automatica`
+(T-23) e o campo `Respostas automáticas` (C-33) do W25, ambos `[ ]` em
+`APROVADO.md` (mesma linha, não uma segunda).
+
+**Redundância aceita, mesmo padrão do W24:** se a resposta chegar enquanto
+o lead está dentro do W23 (nó 4/7), o W23 também dispara sua notificação
+genérica de "respondeu, decisão manual" — o gestor vê dois avisos do mesmo
+evento, mas, diferente do par W13/W25 (onde o filtro cruzado no W13 é
+obrigatório porque, sem ele, a mesma ausência dispara ambos — o alarme
+quente e este), aqui os dois avisos dizem coisas compatíveis: um pede
+decisão manual, o outro esclarece que é provável autorresponder. Corrigir a
+duplicação em vez de só mitigá-la exigiria o mesmo filtro cruzado que o
+W24 já deixou como retoque de segunda ordem: se o nó `Wait → Contact
+Replied` do W23 aceita `Doesn't Contain` como a trigger `Customer Replied`
+aceita — não confirmado na tela, não resolvido aqui pelo mesmo motivo que
+não foi resolvido no W24.
+
+**Teste:** num contato fictício com e-mail e sem telefone, dispare uma
+resposta contendo "estou de férias até dia 30" (ou outra frase da lista) e
+confira: tag `resposta-automatica` aplicada, `Respostas automáticas`
+incrementado em 1, nota registrada, aviso ao `Contact Owner` distinguindo
+de uma resposta real.
+
 ---
 
 # PARTE 3 — OPERAÇÃO (a dinâmica de alta produtividade)

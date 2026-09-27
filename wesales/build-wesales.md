@@ -8872,3 +8872,131 @@ acrescenta não é autorização.
 (a) não gera `Prioridade` = 5 nem tarefa de sinal quente na 2.9.3, e (b) fica
 registrada (tag + contador + aviso ao gestor) em vez de desaparecer em
 silêncio quando o `Stop on Response` nativo tirar o contato da cadência.
+
+---
+
+## 2.49 Workflow "Resposta Automática — Ausência — E-mail" — F-20: o próprio F-19 repetiu, no canal que mais precisava dele, a lacuna que o G-07 já tinha fechado para o opt-out
+
+**Achado, pesquisando Reev/Meetime/Outreach/Salesloft antes de fechar o
+bloco 6 (rotina obrigatória de todo item novo) na rodada seguinte ao
+F-19.** O F-19 (seção 2.48, acima) deu à Interceptação de Sinal um filtro
+de dezenove frases de ausência/auto-resposta — mas escreveu o gatilho como
+`Customer Replied — Canal: WhatsApp e SMS`, o mesmo recorte do 2.9.3 que
+ele estava corrigindo, e nunca chegou ao e-mail. O e-mail é exatamente o
+canal onde este problema é **mais** comum, não menos: um "fora do
+escritório" automático é recurso padrão de qualquer caixa de e-mail
+profissional (e a pesquisa do próprio F-19 já registrou que é assim que
+Outreach detecta OOO — por algoritmo sobre e-mail, o canal principal
+deles), enquanto a resposta automática de ausência do WhatsApp Business
+depende de configuração que nem todo lead liga. O único ponto que manda
+e-mail (`Resgate por E-mail — Sem Telefone`, seção 2.30, F-15) trata toda
+resposta da mesma forma no nó 4/7 (`Wait → Contact Replied`): `Internal
+Notification` ao gestor pedindo decisão manual, sem distinguir "estou de
+férias até 10/10" de "tenho interesse, me liga". **É a mesma classe de
+lacuna que o G-07 (seção 2.9.6) já tinha fechado neste projeto** — ali para
+opt-out, aqui para ausência — e a mesma frase que motivou o G-06/G-07 volta
+a valer: o canal mais novo de uma operação tende a herdar menos proteção
+que os outros, porque as guardas foram escritas antes dele existir. A
+diferença desta vez é que a guarda (F-19) já existia havia dias quando o
+canal mais novo (e-mail, F-15) nasceu — só ninguém tinha voltado para
+estendê-la, o mesmo tipo de achado que os G-16/G-17/G-19/G-21 já
+registraram para decisão represada, agora aplicado a filtro represado.
+
+**Por que isto importa mais aqui do que pareceria à primeira vista:** a
+população que o `Resgate por E-mail` atende (leads sem telefone, hoje os 5
+reais do Instagram, F-15) já é o segmento com menos atenção da operação —
+não entra em nenhuma fila de ligação, não soma toque na rampa do F-14, e o
+único jeito de alguém olhar para ele é o gestor abrir a notificação
+genérica do nó 4b/7b. Gastar essa atenção escassa perseguindo um
+autorresponder de férias é o pior lugar possível para desperdiçá-la — pior
+do que o mesmo erro em WhatsApp, onde ao menos existe fila do SDR e volume
+suficiente para um erro se diluir.
+
+**O que este item não repete do F-19 (evitar redundância desnecessária):**
+o F-19 também documentou um segundo efeito, mais caro, sobre o `Stop on
+Response` da 12x30/Inbound encerrando a régua inteira em silêncio. O
+`Resgate por E-mail` não tem um `Stop on Response` global equivalente — o
+nó 4/7 já é um `Wait` dedicado dentro da própria régua de 2 e-mails, e uma
+resposta (falsa ou real) só encerra **este** ciclo de 2 toques, não uma
+cadência de 12 tentativas; o `Allow Re-entry` ligado do workflow (seção
+2.30) já garante que o próximo ciclo de `nutricao-90d` (R-08, a cada 90
+dias) tenta de novo. O dano aqui é menor em escala, mas não é zero: o
+autorresponder ainda passa como "respondeu, decisão manual" (gastando a
+atenção do gestor) e ainda pula o segundo e-mail (`EM-2`, o "breakup") por
+um motivo que não existe.
+
+**Como — filtro:** a mesma lista canônica de dezenove frases do F-19
+(seção 2.48), reaproveitada sem alteração — mesmo raciocínio que o 2.9.6
+já usou para reaproveitar a lista de opt-out do 2.9.5 em vez de escrever
+uma terceira versão: este workflow não concorre pelo mesmo evento que o
+2.48 (canais diferentes), então não entra na regra de manutenção "as duas
+listas têm que continuar idênticas" que vale para 2.9.3/2.9.5 — mas se
+uma frase for adicionada ou removida da lista do F-19 por ela deixar de
+fazer sentido em WhatsApp, vale conferir se ainda faz sentido em e-mail
+antes de copiar a mudança cega.
+
+`mensagem automática`, `resposta automática`, `esta é uma resposta automática`, `fora do horário de atendimento`, `fora do horário de funcionamento`, `horário de atendimento:`, `retornaremos seu contato`, `retornaremos em breve`, `em breve retornaremos`, `estamos fora do escritório`, `de férias até`, `estou de férias`, `voltarei em`, `volto em breve`, `não verifico esta caixa`, `ausência temporária`, `ausente até`, `no momento estamos fora`, `no momento estou fora`
+
+**Como — workflow novo "Resposta Automática — Ausência — E-mail":**
+
+| Configuração | Valor |
+|---|---|
+| Gatilho | `Customer Replied` — Canal: **E-mail** — `Contains Phrase`, lista acima, combinada em OU |
+| Janela de envio | Sem restrição, 24/7 — nenhum nó manda mensagem, mesmo motivo do 2.48/2.9.6 |
+| Allow Re-entry | Ligado — cada auto-resposta nova é um evento novo e genuíno, mesmo raciocínio do 2.48 |
+| Stop on Response | Desligado |
+
+| # | Nó | Ação | Configuração |
+|---|---|---|---|
+| 1 | Buscar oportunidade | Find opportunity | Pipeline `FUNIL DE VENDAS` · "Most recently created opportunity". Ramo **Opportunity Not Found**: segue mesmo assim para o nó 2, mesmo tratamento do 2.48 |
+| 2 | Marcar | Add Contact Tag | `resposta-automatica` (T-23) — **mesma tag do F-19, não uma nova**: o evento é semanticamente idêntico (auto-resposta de ausência), só muda o canal, e a régua de auditoria (F-05) já ensinou este projeto a não duplicar contador por canal quando o que se quer medir é "quantas vezes isso aconteceu na base", não "quantas vezes em cada canal" |
+| 3 | Contar | Update Contact Field (Math +1) | `Respostas automáticas` (C-33) — mesmo campo do F-19, mesmo motivo do nó 2 |
+| 4 | Registro | Add Note | `Resposta automática de ausência detectada por e-mail em {{right_now}} — provável autorresponder, não interesse real; cruzar com a notificação do nó 4b/7b do "Resgate por E-mail" antes de agir` |
+| 5 | Aviso, sempre | Internal Notification | Para `Contact Owner`: `Resposta automática (e-mail): {{contact.name}} respondeu ao resgate por e-mail com mensagem de ausência/auto-resposta, não interesse real. Se você já recebeu o aviso genérico do "Resgate por E-mail" pedindo decisão manual sobre este contato, é provavelmente o mesmo evento — não é preciso ligar nem escrever de volta.` |
+
+**Redundância aceita, do mesmo jeito que o 2.9.6 já registrou para
+opt-out:** quando a auto-resposta chega enquanto o lead está no nó 4 ou 7
+do `Resgate por E-mail`, os dois workflows reagem ao mesmo `Customer
+Replied` — este tagueia/conta/avisa "é auto-resposta", o nó 4b/7b daquele
+dispara em paralelo com "respondeu, decisão manual" e remove o contato do
+workflow. O gestor recebe dois avisos do mesmo evento, mas, diferente do
+par 2.9.3/2.9.5 (onde um dos dois manda instrução **errada** — "ligar
+agora" para quem pediu silêncio), aqui o segundo aviso deste item existe
+exatamente para corrigir a leitura do primeiro, não para competir com ele.
+Corrigir a duplicação em vez de só mitigá-la exigiria o mesmo filtro
+cruzado que o 2.9.6 já deixou como "retoque de segunda ordem, não
+confirmado na tela": se o nó `Wait → Contact Replied` do 2.30 aceita
+`Doesn't Contain` como a trigger `Customer Replied` aceita. Não resolvido
+aqui pelo mesmo motivo que não foi resolvido lá.
+
+**Zero campo e zero tag novos:** reaproveita `resposta-automatica` (T-23)
+e `Respostas automáticas` (C-33), nascidos no F-19 — este item estende
+para onde essas duas peças apontam (agora "auto-resposta em qualquer
+canal de texto da operação", não só WhatsApp/SMS), não cria uma segunda
+versão de nenhuma delas. Continuam `[ ]` em `APROVADO.md`, mesma linha do
+F-19 — este item não pede aprovação nova, só amplia o motivo de aprovar a
+que já existe. Falta só a criação manual do workflow — não sai por API;
+zero escrita no CRM nesta rodada.
+
+**Pesquisado antes de desenhar:** a mesma pesquisa do F-19 já respondia
+esta lacuna sem precisar de busca nova — Outreach detecta OOO por
+algoritmo sobre e-mail porque e-mail é o canal onde essa detecção nasceu
+(o canal principal deles, desde sempre); a ironia é que este projeto tinha
+construído o equivalente para o canal onde o problema é historicamente
+**menos** documentado (WhatsApp) e deixado de fora o canal onde ele é
+mais documentado e mais comum (e-mail).
+
+**Limite conhecido, documentado em vez de escondido:** este item não
+resolve a redundância de aviso (parágrafo acima) nem confirma se o `Wait`
+do 2.30 aceita filtro de conteúdo — os dois seguem exatamente como o G-07
+já os deixou. O que ele resolve é o único ponto realmente novo: sem ele,
+uma auto-resposta por e-mail não deixava rastro nenhum de auditoria (zero
+tag, zero contador) e a única leitura disponível para o gestor era a
+notificação genérica, sem nenhuma pista de que podia ser falsa.
+
+**Pronto quando:** uma resposta ao `Resgate por E-mail` que contém frase
+de ausência/auto-resposta soma em `Respostas automáticas` (C-33) e ganha
+`resposta-automatica` (T-23) do mesmo jeito que já acontece em
+WhatsApp/SMS (F-19), e o aviso que o gestor recebe para este contato deixa
+claro que é provável autorresponder antes de qualquer SDR gastar tempo
+tentando reabrir contato com quem só está fora do escritório.

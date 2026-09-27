@@ -310,14 +310,16 @@ manual (não sai por API para ninguém, nem ler nem escrever pipeline além do
       2.48). Nasce `[ ]` de propósito, mesma regra desde o incidente da tag
       `toque`/T-15 em 19/09/2026: linha que a própria rotina acrescenta não
       é autorização, vira `[x]` quando o dono trocar, num commit que não é
-      o meu.
+      o meu. **F-20** (`build-wesales.md`, seção 2.49) estendeu o uso desta
+      mesma tag ao canal e-mail — não é uma tag nova, não muda esta linha.
 
 - [ ] Criar o campo `Respostas automáticas` (NUMERICAL) — nasceu junto com a
       T-23, mesmo item (F-19), especificado em `campos-e-tags.md` (C-33) e
       `build-wesales.md` (seção 2.48): contador cumulativo de quantas vezes
-      o workflow novo detectou auto-resposta/ausência na base. Campo
-      personalizado não sai por API neste conector (é criação na tela).
-      Nasce `[ ]`.
+      um workflow de auto-resposta/ausência detectou o padrão na base.
+      Campo personalizado não sai por API neste conector (é criação na
+      tela). Nasce `[ ]`. **F-20** estendeu o mesmo contador ao canal
+      e-mail — mesmo campo, não um novo.
 
 ### Contatos de teste
 

@@ -4283,6 +4283,58 @@ C-33); ambos nascem `[ ]` em `APROVADO.md`.
 
 ---
 
+### F-20 · O próprio F-19 deixou o e-mail de fora do filtro de ausência — o canal onde autorresponder de férias é mais comum, não menos (27/09/2026)
+
+**Por quê:** pesquisando Reev/Meetime/Outreach/Salesloft na sessão automática
+seguinte ao F-19 (mesma rotina obrigatória), achado dentro do próprio item
+que tinha acabado de fechar: o F-19 escreveu o gatilho do filtro de ausência
+como `Customer Replied — Canal: WhatsApp e SMS`, herdando o recorte de canal
+da Interceptação de Sinal (2.9.3) que ele estava corrigindo, e nunca chegou
+ao e-mail — o único canal de texto que o F-15 abriu depois do R-17/G-06.
+**É a mesma classe de lacuna que o G-06/G-07 já fecharam neste projeto**
+(a guarda mais nova nunca alcança o canal mais novo), com uma inversão que
+piora o caso: aqui a guarda (F-19) já existia havia uma sessão quando
+ninguém voltou para estendê-la, e o canal que ficou desprotegido é
+justamente aquele em que "fora do escritório" automático é recurso padrão
+de qualquer caixa de e-mail — mais comum, não menos comum, que a
+auto-resposta de ausência do WhatsApp Business. O `Resgate por E-mail —
+Sem Telefone` (seção 2.30, F-15) trata toda resposta do nó 4/7 como
+"respondeu, decisão manual", sem filtro de conteúdo — e o segmento que essa
+régua atende (leads sem telefone, hoje os 5 reais do Instagram) já é o que
+recebe menos atenção da operação: gastar essa atenção escassa perseguindo
+um autorresponder de férias é o pior lugar possível para o mesmo erro que
+o F-19 encontrou em WhatsApp.
+**Como:** workflow-irmão "Resposta Automática — Ausência — E-mail", mesmo
+gatilho `Customer Replied` filtrado pela mesma lista de 19 frases do F-19
+(reaproveitada sem alteração, mesmo padrão que o 2.9.6/G-07 já usou para
+reaproveitar a lista de opt-out em vez de manter uma terceira versão),
+trocando só o canal para E-mail. Reaproveita a **mesma** tag
+`resposta-automatica` (T-23) e o **mesmo** contador `Respostas automáticas`
+(C-33) do F-19 — não cria par novo de campo/tag, porque o evento que se
+quer medir ("auto-resposta na base") é o mesmo, só o canal muda. Registra a
+mesma redundância aceita que o G-07 já documentou para o par opt-out/2.30
+(o nó 4b/7b do `Resgate por E-mail` ainda dispara seu próprio aviso
+genérico em paralelo) e a mesma pergunta em aberto (se o `Wait → Contact
+Replied` do 2.30 aceita filtro de conteúdo) — não resolvidas aqui pelo
+mesmo motivo que não foram resolvidas lá.
+**Pesquisado antes de desenhar:** a mesma pesquisa do F-19 já respondia
+esta lacuna — Outreach detecta OOO por algoritmo sobre e-mail porque
+e-mail é o canal principal deles desde sempre; a ironia é que este projeto
+tinha construído a defesa equivalente para o canal onde o problema é
+historicamente menos documentado (WhatsApp) e deixado de fora o canal onde
+ele é mais documentado e mais comum.
+**Pronto quando:** uma resposta ao `Resgate por E-mail` com frase de
+ausência/auto-resposta soma em `Respostas automáticas` (C-33) e ganha
+`resposta-automatica` (T-23) do mesmo jeito que já acontece em WhatsApp/SMS
+(F-19), e o aviso que o gestor recebe para aquele contato deixa claro que é
+provável autorresponder antes de qualquer SDR gastar tempo tentando reabrir
+contato com quem só está fora do escritório. Detalhe nó a nó em
+`build-wesales.md`, seção 2.49. Zero campo, zero tag novos: T-23/C-33
+continuam `[ ]` em `APROVADO.md`, mesma linha do F-19 — este item amplia o
+motivo de aprovar, não pede aprovação nova.
+
+---
+
 ## Ordem sugerida
 
 **Bloco 0 (G-01) fechado em 19/09/2026, antes de tudo o resto desta seção:**
@@ -5806,3 +5858,44 @@ e para a abertura da operação, `ABERTURA.md`), então o item reduz o dano
 Outreach/Salesloft nisto. Com isto, o bloco 6 fica em F-01 a F-06 e F-11 a
 F-19 `FEITO`/especificado, F-07/F-08 `FEITO`, e só F-09/F-10 aguardando o
 dono — sem mudança na lista de decisões pendentes.
+
+**F-20 aberto e especificado em 27/09/2026, sessão automática seguinte —
+`git fetch` limpo (nenhum commit novo na janela desta leitura), CRM
+reconfirmado por API: 64 oportunidades e 56 campos de contato, sem mudança
+frente à leitura do F-19 — G-04 (peça 2), F-09, F-10, G-11 (item 1) e G-19
+continuam sendo as cinco decisões que esperam o dono, sem novidade.** A
+auditoria de cinco auditorias somente-leitura (`auditoria_tudo.py`) também
+veio limpa (exit 0), então a lacuna não veio de conferir a conta: veio de
+aplicar a própria pergunta do F-19 ("o que Reev/Meetime/Outreach/Salesloft
+cobrem que este item ainda não cobre") **ao próprio F-19**, um passo que
+nenhuma sessão anterior tinha dado — até aqui a pergunta sempre mirava os
+seis itens fechados do bloco 6 (F-01 a F-06), nunca o item que tinha acabado
+de nascer na sessão imediatamente anterior. O F-19 escreveu seu filtro de
+ausência com o mesmo recorte de canal (WhatsApp e SMS) da Interceptação de
+Sinal que ele estava corrigindo, e nunca chegou ao e-mail — o único canal de
+texto que o F-15 tinha aberto dias antes, e justamente aquele em que
+"fora do escritório" automático é recurso padrão, não configuração rara
+como no WhatsApp Business. Mesma classe de achado que o G-06/G-07 já
+registraram (a guarda mais nova nunca alcança o canal mais novo), agora
+com o intervalo mais curto já visto neste roadmap entre a guarda nascer e
+a lacuna dela ser encontrada: uma sessão, não dias. Fechado como **F-20**:
+workflow-irmão especificado nó a nó (`build-wesales.md`, seção 2.49),
+reaproveitando **sem criar par novo** a tag `resposta-automatica` (T-23) e
+o campo `Respostas automáticas` (C-33) que o F-19 já tinha especificado —
+o evento que se mede ("auto-resposta na base") é o mesmo, só o canal muda.
+Zero campo, zero tag, zero escrita no CRM nesta rodada; `campos-e-tags.md`
+e `APROVADO.md` atualizados para registrar que T-23/C-33 agora cobrem dois
+workflows, não pedindo aprovação nova — a mesma linha `[ ]` do F-19 passa a
+valer para os dois. **Achado extra na mesma varredura:** o próprio F-19
+(W25) nunca tinha ganhado linha na "Ordem de montagem" do
+`GUIA-MONTAGEM.md` — o checklist manual parou em G-09 e pulou o item mais
+recente antes deste. Corrigido no mesmo commit: W25 e o novo W26 (F-20)
+ganharam linha própria ali, cada um citando o retoque pendente que só
+existe na tela (o `Doesn't Contain` na Interceptação de Sinal, para o W25).
+**Regra prática, generalizável, que estende o "quem
+mais fala disso?" dos G-10/G-14/G-16/G-17/G-20 de nomes e números para
+cobertura de canal:** todo item que fecha uma guarda por `Customer
+Replied`/canal específico ganha, na sessão seguinte, a pergunta "essa
+guarda existe em todo canal de texto que a operação usa, ou só no canal
+que motivou o achado original?" — antes de declarar o bloco 6 esgotado de
+novo.
