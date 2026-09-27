@@ -116,7 +116,7 @@ nunca a transliteração.
 | `Tentativas telefone` / `Tentativas WhatsApp` | `tentativas_telefone` / `tentativas_whatsapp` | NUMERICAL | — |
 | `Conexões telefone` / `Conexões WhatsApp` | `conexes_telefone` / `conexes_whatsapp` | NUMERICAL | — |
 | `Total de ligações` / `Total de conexões` | `total_de_ligaes` / `total_de_conexes` | NUMERICAL | — |
-| `Sinal recebido` | `sinal_recebido` | SINGLE_OPTIONS | `Clique em link` · `Resposta de mensagem` |
+| `Sinal recebido` | `sinal_recebido` | SINGLE_OPTIONS | `Clique em link` · `Resposta de mensagem` · `Resposta de e-mail` (F-21, opção nova — adicionar na tela antes de montar o W27) |
 | `Data e hora do sinal` | `data_e_hora_do_sinal` | TEXT | `{{right_now}}`, restaurado em 22/09/2026 (`build-wesales.md`, seção 2.9.2, nó 5b) — o descarte de 19/09 supunha que o seletor da tela não oferecia data/hora atual em campo `TEXT`; a montagem por API prova o contrário |
 | `Nota de qualificação` | `nota_de_qualificao` | NUMERICAL | 0–100 |
 | `Reunião foi qualificada` | `reunio_foi_qualificada` | SINGLE_OPTIONS | `Sim` · `Não` · `Parcial` |
@@ -1813,6 +1813,68 @@ resposta contendo "estou de férias até dia 30" (ou outra frase da lista) e
 confira: tag `resposta-automatica` aplicada, `Respostas automáticas`
 incrementado em 1, nota registrada, aviso ao `Contact Owner` distinguindo
 de uma resposta real.
+
+## W27 · Interceptação de Sinal — E-mail — `build-wesales.md` 2.50 (F-21, especificado em 27/09/2026)
+
+**Pré-requisito, antes de montar qualquer nó:** adicionar a opção
+`Resposta de e-mail` ao campo `Sinal recebido` (C-13, `SINGLE_OPTIONS`,
+hoje só `Clique em link`/`Resposta de mensagem`) — o nó 7 não tem valor
+para gravar sem ela. `[ ]` em `APROVADO.md`, linha própria (não sai por
+API, mesma classe da criação de campo).
+
+**Gatilho:** `Customer Replied` → Canal `E-mail` · `Doesn't Contain` as
+duas listas já usadas no W24 (opt-out, 17 frases) e no W25/W26 (ausência/
+auto-resposta, 19 frases), todas combinadas em E — nenhuma frase nova,
+reaproveitadas por inteiro.
+
+| Configuração | Valor |
+|---|---|
+| Janela | Sem restrição, 24/7 |
+| Allow Re-entry | Ligado |
+| Stop on Response | Desligado |
+
+| # | Ação | Configuração exata | Vai para |
+|---|---|---|---|
+| 1 | Find opportunity | Pipeline `FUNIL DE VENDAS` · "Most recently created" — ramo **Not Found**: encerra (vazio) | 2 |
+| 2 | If/Else | Tags inclui `nao-perturbe` → encerra · senão segue | 3 |
+| 3 | If/Else | `status` da oportunidade é `abandoned` → 4A · senão (`open`/`won`/`lost`) → 6, sem reabrir | 4A ou 6 |
+| 4A | Update Opportunity | `status` = `open`, `Pipeline stage` = `[FUNIL DE VENDAS] - CONECTAR` | 5A |
+| 5A | Remove Contact Tag | `nutricao-90d` | 6 |
+| 6 | If/Else | `Phone` não vazio → 6a · `Phone` vazio → 6b | 6a ou 6b |
+| 6a | Add Contact Tag + Update Contact Field | `fila-quente` + `Prioridade` = 5 | 7 |
+| 6b | (nenhuma ação) | — | 7 |
+| 7 | Update Contact Field | `Sinal recebido` = `Resposta de e-mail` | 8 |
+| 8 | Update Contact Field | `Data e hora do sinal` = `{{right_now}}` (C-14) | 9 |
+| 9 | Internal Notification | ao `Contact Owner` — texto varia por 6a/6b, ver `build-wesales.md` §2.50 | 10 |
+| 10 | Add Note | Ramo A: "oportunidade reaberta em CONECTAR" · Ramo B: "sem reabertura automática" | fim |
+
+**Por que não é o W13 com o canal trocado:** o W13 (`Interceptação de
+Sinal — Resposta`) aplica `fila-quente`/`Prioridade` = 5 e uma tarefa
+"ligar agora" incondicionalmente — correto para quem está em `CONECTAR`
+com telefone. A população que hoje responde por e-mail (`Resgate por
+E-mail`, W23, F-15) está em `abandoned` e majoritariamente **sem**
+telefone: copiar o W13 taguearia `fila-quente` num contato que a lista
+`Fila Quente` (8.1, filtrada por etapa `CONECTAR`/`REUNIÃO DE
+DIAGNÓSTICO`) nunca mostra, e mandaria "ligar agora" para quem não tem
+número. Por isso os nós 3/4A/5A (reabrir só quando `abandoned`) e 6/6a/6b
+(só enfileirar quando há telefone) não têm equivalente no W13.
+
+**Redundância aceita com o W23, mesmo padrão do W24/W26:** quando a
+resposta chega enquanto o lead está no nó 4/7 do W23, os dois reagem ao
+mesmo `Customer Replied` — este reabre e avisa com instrução específica, o
+W23 dispara em paralelo sua notificação genérica. Os dois avisos são
+compatíveis, mesma classe do W20/W26 (não a classe perigosa do
+W13/W14, onde um dos dois instruía errado).
+
+**Teste:** num contato fictício em `abandoned`+`nutricao-90d`, sem
+telefone, com e-mail, dispare uma resposta "sim, tenho interesse, pode me
+ligar" (nenhuma frase das duas listas de exclusão) e confira: oportunidade
+volta a `open`/`CONECTAR`, tag `nutricao-90d` removida, `Sinal recebido` =
+`Resposta de e-mail`, `Data e hora do sinal` carimbada, aviso ao
+`Contact Owner` mencionando a ausência de telefone — e **nenhuma** tag
+`fila-quente` aplicada (o contato de teste não tem telefone). Repita com
+um segundo contato de teste com telefone preenchido e confirme que, desta
+vez, `fila-quente` e `Prioridade` = 5 aparecem.
 
 ---
 

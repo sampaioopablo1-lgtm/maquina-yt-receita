@@ -321,6 +321,18 @@ manual (não sai por API para ninguém, nem ler nem escrever pipeline além do
       tela). Nasce `[ ]`. **F-20** estendeu o mesmo contador ao canal
       e-mail — mesmo campo, não um novo.
 
+- [ ] Adicionar a opção `Resposta de e-mail` ao campo já existente `Sinal
+      recebido` (C-13, `SINGLE_OPTIONS`) — nasceu no F-21
+      (`ROADMAP-SALES-ENGAGEMENT.md`), especificada em `campos-e-tags.md`
+      (C-13) e `build-wesales.md` (seção 2.50): sem esta opção, o workflow
+      "Interceptação de Sinal — E-mail" não tem valor próprio para gravar
+      quando um lead responde por e-mail com sinal de interesse real, e
+      reaproveitar `Resposta de mensagem` confundiria quem lê o campo
+      (esse valor hoje implica "tem telefone, está na Fila Quente"). Não é
+      criação de campo novo, é edição de campo existente — mas adicionar
+      opção a um `SINGLE_OPTIONS` também não sai por API neste conector,
+      mesma classe de limite. Nasce `[ ]` pela regra de sempre.
+
 ### Contatos de teste
 
 - [x] Criar os 5 contatos fictícios do checklist da seção 10 do

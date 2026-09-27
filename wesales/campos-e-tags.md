@@ -29,7 +29,7 @@ Todos no objeto **contato**. Tipo é o `dataType` da API do GHL.
 | C-10 | Tentativas WhatsApp | NUMERICAL | — | Workflow (R-01) |
 | C-11 | Conexões telefone | NUMERICAL | — | Workflow (R-01) |
 | C-12 | Conexões WhatsApp | NUMERICAL | — | Workflow (R-01) |
-| C-13 | Sinal recebido | SINGLE_OPTIONS | Clique em link, Resposta de mensagem | Workflow (F-01) |
+| C-13 | Sinal recebido | SINGLE_OPTIONS | Clique em link, Resposta de mensagem, ~~Resposta de e-mail~~ (F-21, opção nova ainda não criada na tela) | Workflow (F-01, F-21) |
 | C-14 | Data e hora do sinal | TEXT | `AAAA-MM-DD HH:MM` | Workflow (F-01) |
 | C-15 | Reunião foi qualificada | SINGLE_OPTIONS | Sim, Não, Parcial | Closer (F-03) |
 | C-16 | Motivo da desqualificação | SINGLE_OPTIONS | Sem fit, Sem budget, Timing errado, Não é decisor, Concorrente, Duplicado ou já cliente | Closer (F-03) — **e SDR (R-18)**, reaproveitado pré-reunião quando `Resultado da tentativa = Desqualificado` |
@@ -67,6 +67,16 @@ DateTime para campo de contato. Por isso `Data e hora do sinal` (C-14) é
 `TEXT` no formato `AAAA-MM-DD HH:MM`, e `Data de retorno` (S-01, nome real
 da tela) virou par: `DATE` para filtrar e vencer tarefa, `TEXT` para a hora
 combinada.
+
+**C-13 ganha uma 3ª opção em 27/09/2026 (F-21):** `Resposta de e-mail`, para
+a "Interceptação de Sinal — E-mail" (`build-wesales.md`, seção 2.50) — não
+reaproveita `Resposta de mensagem` de propósito, porque esse valor hoje
+implica "tem telefone, está na Fila Quente/Fila Telefone Hoje", e a maioria
+de quem responde pelo canal e-mail (população do F-15, sem telefone) não
+está em nenhuma das duas. Adicionar opção a campo `SINGLE_OPTIONS` já
+existente não sai por API neste conector — mesma classe de limite da
+criação de campo — e por isso ganhou linha própria em `APROVADO.md`, nasce
+`[ ]`.
 
 C-15 e C-16 fecham o loop do closer (`build-wesales.md`, seção 5.1, F-03 do
 roadmap): o closer registra se a reunião que o SDR agendou tinha fit de

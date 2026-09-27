@@ -9000,3 +9000,151 @@ de ausência/auto-resposta soma em `Respostas automáticas` (C-33) e ganha
 WhatsApp/SMS (F-19), e o aviso que o gestor recebe para este contato deixa
 claro que é provável autorresponder antes de qualquer SDR gastar tempo
 tentando reabrir contato com quem só está fora do escritório.
+
+---
+
+## 2.50 Workflow "Interceptação de Sinal — E-mail" — F-21: o próprio sinal quente nunca ganhou canal e-mail, e copiar o desenho do WhatsApp cegamente quebraria em silêncio
+
+**Achado, aplicando a pergunta que o F-20 deixou pronta ("essa guarda existe
+em todo canal de texto que a operação usa, ou só no que motivou o achado
+original?") a um alvo que o F-19/F-20 ainda não tinham testado.** F-19/F-20
+já levaram o filtro de ausência/auto-resposta e o G-07/2.9.6 já levaram o
+opt-out para o e-mail — mas a peça original da família, a própria
+Interceptação de Sinal (F-01, 2.9.3, "sinal quente" — `Prioridade` = 5 +
+`fila-quente` + tarefa `ligar agora`), nunca ganhou versão e-mail. Uma
+resposta de interesse real ("sim, quero saber mais") de um lead do
+`Resgate por E-mail — Sem Telefone` (2.30, F-15) hoje só aciona a
+notificação genérica do nó 4b/7b daquele workflow — nenhuma prioridade,
+nenhuma fila, nenhum jeito de o gestor distinguir "esfriou" de "esquentou
+de novo" sem abrir e ler cada aviso um a um.
+
+**Por que este item não é "copiar o 2.9.3 trocando o canal" (a lição que os
+dois ciclos de correção anteriores, R-17→F-19 e F-19→F-20, já ensinaram
+este projeto a aplicar de saída, não depois):**
+
+1. **Excluir opt-out e ausência desde o nó 1, não em duas rodadas de
+   remendo.** O 2.9.3 nasceu só com o filtro de opt-out (R-17) e precisou do
+   F-19 para não tratar "estou de férias" como sinal quente — dois ciclos
+   de correção, o segundo dos quais (F-20) só fechou dias depois no canal
+   e-mail. Este item nasce com as duas listas (`Doesn't Contain`) desde a
+   primeira versão: a de opt-out (2.9.5/2.9.6, 17 frases) e a de
+   ausência/auto-resposta (F-19/F-20, 19 frases, seção 2.48) — nenhuma
+   lacuna nova para uma sessão futura redescobrir.
+2. **`fila-quente` é lista filtrada por etapa `CONECTAR`/`REUNIÃO DE
+   DIAGNÓSTICO` (seção 8.1) — a população que hoje recebe e-mail
+   (`abandoned` + `nutricao-90d`, sem telefone, F-15) não está em nenhuma
+   das duas.** Aplicar a tag do mesmo jeito que o 2.9.3 aplicaria taguearia
+   um contato que a única lista que lê `fila-quente` nunca mostra —
+   tag e `Prioridade` = 5 gravados, sinal invisível para o SDR, o mesmo
+   tipo de "instrumentado e ainda assim cego" que o F-06 já descreveu para
+   `Canal que conectou`. **E mesmo que aparecesse:** `Fila Telefone Hoje`
+   e a tarefa `ligar agora` pressupõem telefone, e a população deste canal
+   é definida por **não ter** telefone (F-15). Copiar o texto "ligar agora"
+   do 2.9.3 instruiria o SDR a fazer a única coisa que o lead, por
+   definição, não pode receber.
+3. **Reabrir a oportunidade é a ação que faz sentido aqui, e o R-08
+   (Reengajamento 90 dias, seção 2.12) já estabeleceu o destino:**
+   `status = open` + etapa `CONECTAR`, o mesmo lugar para onde a reativação
+   natural de 90 dias já manda o lead. Um sinal de interesse por e-mail é o
+   mesmo evento que o R-08 tenta capturar no relógio de 90 dias, só que
+   chegando fora da hora — não um evento novo que precisa de um destino
+   novo.
+
+**Pesquisado antes de desenhar:** a mesma pesquisa do F-19 já cobre este
+caso sem busca nova — nenhuma das quatro plataformas (Reev, Meetime,
+Outreach, Salesloft) precisa resolver "sinal quente de um lead sem
+telefone", porque nenhuma delas roda cadência de ligação como canal
+principal; a peça mais próxima é o roteamento de reply de e-mail para o
+dono do lead, que todas fazem — mas nenhuma lida com a ausência do canal
+de retomada óbvio (telefone) que este projeto tem de propósito.
+
+**Como — filtro do gatilho, as duas listas já existentes, combinadas em
+E (nenhuma frase nova):**
+
+Opt-out (2.9.5/2.9.6): `pare de`, `pare com`, `para de mandar`, `para de me
+mandar`, `não quero mais mensagem`, `não quero mais contato`, `não quero
+receber mensagem`, `não quero receber mais`, `remove meu contato`, `tira
+meu número`, `descadastr`, `cancelar inscri`, `não me liga mais`, `não me
+mande mais`, `sai da lista`, `me tira da lista`, `unsubscribe`.
+
+Ausência/auto-resposta (F-19/F-20): `mensagem automática`, `resposta
+automática`, `esta é uma resposta automática`, `fora do horário de
+atendimento`, `fora do horário de funcionamento`, `horário de
+atendimento:`, `retornaremos seu contato`, `retornaremos em breve`, `em
+breve retornaremos`, `estamos fora do escritório`, `de férias até`, `estou
+de férias`, `voltarei em`, `volto em breve`, `não verifico esta caixa`,
+`ausência temporária`, `ausente até`, `no momento estamos fora`, `no
+momento estou fora`.
+
+**Como — workflow novo "Interceptação de Sinal — E-mail":**
+
+| Configuração | Valor |
+|---|---|
+| Gatilho | `Customer Replied` — Canal: **E-mail** — `Doesn't Contain` as duas listas acima, todas combinadas em E |
+| Janela de envio | Sem restrição, 24/7 — mesmo motivo do 2.9.2/2.9.3/2.9.6: nenhum nó manda mensagem ao lead |
+| Allow Re-entry | Ligado — cada resposta é um evento novo, mesmo raciocínio do 2.9.2 |
+| Stop on Response | Desligado |
+
+| # | Nó | Ação | Configuração |
+|---|---|---|---|
+| 1 | Buscar oportunidade | Find opportunity | Pipeline `FUNIL DE VENDAS` · "Most recently created opportunity" → ramo **Opportunity Not Found**: encerra (vazio) — mesmo tratamento do 2.9.2/2.9.3: sem oportunidade não há o que reabrir · ramo **Found**: segue |
+| 2 | Portão de silêncio | If/Else | Tags inclui `nao-perturbe` → encerra · senão segue |
+| 3 | Portão de status | If/Else | `status` da oportunidade é `abandoned` → ramo A (reabrir, abaixo) · senão (`open`, `won`, `lost`) → pula direto para o nó 6 (só registra, não reabre — reabrir um negócio `lost` ou já `open` é decisão de negócio que este item não toma sozinho, mesmo raciocínio do nó 2 do 2.9.2 sobre `lost`) |
+| 4A | Reabrir | Update Opportunity | `status` = `open`, `Pipeline stage` = `[FUNIL DE VENDAS] - CONECTAR` — mesmo destino do nó 3 do R-08 (seção 2.12): um sinal de interesse por e-mail é o mesmo evento que a reativação de 90 dias já move para lá, só chegando fora do relógio |
+| 5A | Limpeza | Remove Contact Tag | `nutricao-90d` — idempotente mesmo se ausente, mesma linguagem do nó 4 do R-08 |
+| 6 | Portão de telefone | If/Else | `Phone` não vazio → ramo com telefone (6a) · `Phone` vazio (o caso mais comum desta população, F-15) → ramo sem telefone (6b) |
+| 6a | Fila, só quando dá para ligar | Add Contact Tag + Update Contact Field | `fila-quente` + `Prioridade` = 5 — só entra na `Fila Quente` (8.1) porque o nó 4A já moveu a etapa para `CONECTAR`; sem o nó 4A rodar (ramo B do nó 3), aplicar `fila-quente` aqui repetiria o erro do item 2 acima |
+| 6b | Sem fila automática | (nenhuma ação — segue para o nó 7) | Não existe lista nem tarefa nativa para "sinal quente sem telefone"; o aviso do nó 9 é o único canal, de propósito |
+| 7 | Registro do sinal | Update Contact Field | `Sinal recebido` = `Resposta de e-mail` (terceira opção do campo C-13 — **precisa existir na tela antes de este nó rodar**, ver "Pré-requisito" abaixo) |
+| 8 | Carimbo | Update Contact Field | `Data e hora do sinal` = `{{right_now}}` — mesmo campo (C-14) e mesma ressalva de formato não confirmado do 2.9.2 |
+| 9 | Aviso, sempre | Internal Notification | Para `Contact Owner` — texto varia pelo ramo do nó 6: **com telefone** (6a): `{{contact.name}} respondeu ao e-mail de resgate com sinal de interesse real e tem telefone cadastrado — oportunidade reaberta em CONECTAR, apareceu na Fila Quente, ligar hoje.` · **sem telefone** (6b): `{{contact.name}} respondeu ao e-mail de resgate com sinal de interesse real, mas não tem telefone cadastrado — oportunidade reaberta em CONECTAR, sem fila automática (Fila Quente é lista de ligação). Decida o canal de retomada: responder o e-mail, ou Instagram DM se foi essa a origem do lead (F-15, nota 3).` |
+| 10 | Registro | Add Note | Ramo A: `Sinal: resposta de e-mail com interesse real — oportunidade reaberta em CONECTAR` · Ramo B (nó 3): `Sinal: resposta de e-mail com interesse real — oportunidade já estava em {{opportunity.status}}, sem reabertura automática` |
+
+**Pré-requisito, e é o único ajuste em objeto já existente que este item
+pede:** `Sinal recebido` (C-13, `SINGLE_OPTIONS`) tem hoje só `Clique em
+link` e `Resposta de mensagem` (`campos-e-tags.md`). Este item precisa de
+uma terceira opção, `Resposta de e-mail` — adicionar opção a campo existente
+é edição de tela, mesma classe de limite já registrada para criação de
+campo (não sai por API, nenhum dos dois). Zero tag nova, zero campo novo:
+é a primeira vez neste projeto que o ajuste pedido é "opção nova em campo
+existente" em vez de "campo novo" — registrado como linha própria em
+`APROVADO.md`, nasce `[ ]` pela mesma regra de sempre.
+
+**Por que não reaproveitar `Resposta de mensagem` para o e-mail e evitar
+até essa edição de tela:** perderia a distinção que o gestor mais precisa
+aqui — `Resposta de mensagem` (WhatsApp/SMS) chega de quem **tem** telefone
+e cai na `Fila Quente`/`Fila Telefone Hoje`; `Resposta de e-mail` chega,
+maioria das vezes, de quem **não tem** (nó 6b) e não cai em fila nenhuma. Um
+gestor lendo `Sinal recebido` = `Resposta de mensagem` num contato sem
+telefone (o que o nó 6b geraria, se reaproveitasse o valor) investigaria uma
+inconsistência que não existe — o mesmo tipo de leitura errada que motivou
+C-31/C-32 a nascerem separados de C-09 no F-06.
+
+**Redundância aceita com o `Resgate por E-mail` (2.30), mesmo padrão já
+registrado para o 2.9.6 e o F-20:** quando a resposta chega enquanto o lead
+está no nó 4/7 daquele workflow, os dois reagem ao mesmo `Customer Replied`
+— este reabre a oportunidade e avisa com instrução clara, o 2.30 dispara em
+paralelo sua notificação genérica "respondeu, decisão manual". Os dois
+avisos são compatíveis (nenhum instrui algo errado), mesma classe de
+redundância aceita do F-20, não a classe perigosa do 2.9.3/2.9.5 (onde um
+dos dois instruía "ligar agora" para quem pedia silêncio).
+
+**Fora de escopo, de propósito:** a lista `Resposta por Template` (8.13,
+R-04) filtra só `Sinal recebido` = `Resposta de mensagem` — ela mede qual
+gancho de WhatsApp gerou mais resposta (`Template usado`, seção 2.6, um
+conceito que não existe para e-mail). `Resposta de e-mail` não aparecer ali
+não é lacuna deste item, é a lista certa para a pergunta certa; registrado
+aqui para que uma sessão futura não "conserte" a 8.13 sem necessidade.
+
+**Zero tag nova, zero campo novo — uma opção nova num campo que já existe:**
+reaproveita `nao-perturbe`, `nutricao-90d`, `fila-quente`, `Prioridade`
+(C-04), `Sinal recebido` (C-13, +1 opção), `Data e hora do sinal` (C-14) e
+`Phone` nativo. Falta só a criação manual do workflow (não sai por API) e a
+opção nova em C-13 (idem) — nenhum dos dois depende de escrita neste
+conector; zero escrita no CRM nesta rodada.
+
+**Pronto quando:** uma resposta de e-mail com sinal de interesse real (sem
+frase de opt-out nem de ausência) reabre a oportunidade em `CONECTAR`,
+grava `Sinal recebido`/`Data e hora do sinal` e avisa o gestor com uma
+instrução que já leva em conta se o lead tem telefone ou não — nunca com
+"ligar agora" para quem, por definição, não tem número.

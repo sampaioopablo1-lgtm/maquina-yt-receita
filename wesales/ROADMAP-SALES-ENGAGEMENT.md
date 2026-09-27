@@ -4351,6 +4351,59 @@ contato com quem só está fora do escritório. Detalhe nó a nó em
 continuam `[ ]` em `APROVADO.md`, mesma linha do F-19 — este item amplia o
 motivo de aprovar, não pede aprovação nova.
 
+### F-21 · A própria Interceptação de Sinal nunca ganhou canal e-mail — e copiar o desenho do WhatsApp cegamente aplicaria `fila-quente` a quem a lista que a lê nunca mostra (27/09/2026)
+
+**Por quê:** aplicando a pergunta que o F-20 deixou pronta ("essa guarda
+existe em todo canal de texto que a operação usa, ou só no canal que
+motivou o achado original?") a um alvo que F-19/F-20 ainda não tinham
+testado — a própria Interceptação de Sinal (F-01, 2.9.3), não uma guarda
+vizinha dela. G-07/2.9.6 levou o opt-out ao e-mail; F-19/F-20 levaram o
+filtro de ausência ao e-mail; a peça original, que aplica `Prioridade` = 5
+e a tarefa "ligar agora" quando um lead demonstra interesse real, nunca
+ganhou versão e-mail. Hoje uma resposta de interesse ("sim, quero saber
+mais") de um lead do `Resgate por E-mail — Sem Telefone` (2.30, F-15) só
+aciona a notificação genérica do 2.30 — sem prioridade, sem fila, sem
+distinguir de "esfriou" para quem lê os avisos um a um.
+
+**Por que não é só copiar o 2.9.3 trocando o canal — três diferenças que a
+cópia cega quebraria em silêncio:** (1) o 2.9.3 levou dois ciclos de
+correção (R-17 e depois F-19/F-20) para excluir opt-out e ausência; este
+item nasce com as duas listas desde a primeira versão, sem esperar uma
+terceira rodada descobrir a mesma lacuna num canal novo; (2) `fila-quente`
+é lida só pela lista `Fila Quente` (8.1), filtrada por etapa `CONECTAR`/
+`REUNIÃO DE DIAGNÓSTICO` — a população que hoje recebe e-mail (`abandoned`
++ `nutricao-90d`, sem telefone, F-15) não está em nenhuma das duas; aplicar
+a tag do jeito do 2.9.3 taguearia um contato que a única lista que a lê
+nunca mostra, e a tarefa "ligar agora" instruiria o SDR a fazer a única
+coisa que esse lead, por definição, não pode receber (não tem telefone);
+(3) o destino correto de um sinal de interesse por e-mail já existe — é o
+mesmo que o R-08 (Reengajamento 90 dias, seção 2.12) usa: reabrir a
+oportunidade em `CONECTAR`. Fechado como **F-21**: workflow novo
+"Interceptação de Sinal — E-mail", especificado nó a nó em
+`build-wesales.md`, seção 2.50 — reabre a oportunidade só quando ela está
+`abandoned` (não decide sozinho sobre `lost`/`open`), só aplica
+`fila-quente`/`Prioridade` quando há telefone (senão avisa o gestor com
+instrução que já leva isso em conta), e exclui as duas listas de frases
+(opt-out e ausência) desde o nó 1.
+
+**Pesquisado antes de desenhar:** a pesquisa do F-19 já cobre este caso —
+nenhuma das quatro plataformas (Reev, Meetime, Outreach, Salesloft)
+precisa resolver "sinal quente de lead sem telefone", porque nenhuma roda
+cadência de ligação como canal principal.
+
+**O único ajuste em objeto existente que este item pede:** `Sinal
+recebido` (C-13) precisa de uma terceira opção, `Resposta de e-mail` — não
+sai por API (edição de tela, mesma classe da criação de campo), linha
+própria em `APROVADO.md`, nasce `[ ]`. Zero tag nova, zero campo novo.
+Detalhe completo, inclusive por que não reaproveitar `Resposta de
+mensagem` para economizar essa edição, em `build-wesales.md`, seção 2.50.
+
+**Pronto quando:** uma resposta de e-mail com sinal de interesse real
+(sem frase de opt-out nem de ausência) reabre a oportunidade em
+`CONECTAR`, grava `Sinal recebido`/`Data e hora do sinal` e avisa o gestor
+com instrução que já leva em conta se o lead tem telefone — nunca "ligar
+agora" para quem, por definição, não tem número.
+
 ### G-25 · A janela nativa das cadências vai disparar 36-37 mensagens juntas, um dia antes da abertura combinada — nenhuma sessão automática consegue fechar a janela sozinha (27/09/2026)
 
 **Por quê:** seguindo a própria instrução deste roadmap ("reler os itens
@@ -6083,3 +6136,31 @@ dono recebeu um aviso direto (push), não só o registro neste arquivo, dado
 que faltam menos de 25h para a janela abrir. G-03, G-04 (peça 2), F-09,
 F-10, G-11 (item 1) e G-19 continuam sendo as seis decisões sem prazo fixo
 que esperam o dono, sem novidade nesta sessão.
+
+**Reconferido em 27/09/2026 ~13:05 UTC, sessão automática seguinte —
+faltam ~22h25min para a janela abrir, nada mudou.** `git fetch` limpo.
+`opportunities_search-opportunity` (status `all`) confirma 64 oportunidades,
+mesma composição (13 `NOVO LEAD`, 47 `CONECTAR`, 3 `NEGOCIAR`, 1 `REUNIÃO
+DE DIAGNÓSTICO`; 43 `open`, 11 `lost`, 10 `abandoned`); `Carlos Andrade`
+(`7ECnj1bSeEIm5P58Ifd9`) segue `dnd: true`, tag `atraso-1a-tentativa`
+presente, campo `Tentativa nº` = 0 — protegido. Com o risco reconferido e
+sem novidade, a sessão seguiu para a varredura de canal que o próprio F-20
+deixou pronta ("essa guarda existe em todo canal de texto que a operação
+usa, ou só no que motivou o achado original?") — aplicada desta vez à
+própria Interceptação de Sinal (F-01, 2.9.3), não a uma guarda vizinha, e
+achou o mesmo tipo de lacuna: nunca ganhou versão e-mail. Fechado como
+**F-21** (acima, entre F-20 e G-25): workflow "Interceptação de Sinal —
+E-mail" especificado nó a nó (`build-wesales.md`, seção 2.50), desenhado
+para não repetir os dois erros que o 2.9.3 só corrigiu depois de publicado
+(opt-out e ausência tratados como sinal quente) e para não aplicar
+`fila-quente`/"ligar agora" a uma população que, por definição, não tem
+telefone — reabre a oportunidade em `CONECTAR` (mesmo destino do R-08) e só
+enfileira para ligação quando há telefone; senão, avisa o gestor com
+instrução que já leva isso em conta. Zero campo, zero tag: uma opção nova
+(`Resposta de e-mail`) no campo já existente `Sinal recebido` (C-13),
+registrada em `campos-e-tags.md` e como linha própria `[ ]` em
+`APROVADO.md` — mesma classe de limite (edição de tela, não sai por API)
+já documentada para criação de campo. `GUIA-MONTAGEM.md` e
+`IMPLEMENTACAO-WORKFLOWS.md` (W27) atualizados no mesmo commit. G-03, G-04
+(peça 2), F-09, F-10, G-11 (item 1) e G-19 continuam sendo as seis
+decisões sem prazo fixo que esperam o dono, sem novidade nesta sessão.
