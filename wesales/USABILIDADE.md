@@ -60,44 +60,80 @@ Para o closer, duas listas e nada mais:
 | **`1 · AGENDA DE HOJE`** | agendamento hoje, status `Confirmed` |
 | **`2 · VEREDITO PENDENTE`** | compareceu e `Reunião foi qualificada` vazio |
 
-## 3. A fila do dia e o Power Dialer — RESOLVIDO em 27/09
+## 3. A fila do dia e o discador — CORRIGIDO com a tela real (27/09)
 
-Pesquisado e fechado: **o Power Dialer do GHL não recebe lista inteligente
-direto.** Ele é alimentado por um **workflow com passo `Manual Action: Call`**, e
-o SDR o roda em `Conversas → Ações Manuais → escolher o workflow → Start`. O
-dialer abre cada contato, disca, espera a classificação e vai para o próximo.
-Sequencial, não preditivo. Há pedido aberto na base de ideias da HighLevel para o
-dialer aceitar smart list — o que confirma que hoje não aceita.
+**Atenção: a versão anterior desta seção estava errada.** Eu pesquisei o Power
+Dialer *nativo* do GHL (alimentado por workflow com `Manual Action: Call`, rodado
+em Conversas → Ações Manuais). **Não é essa a ferramenta desta conta.** O dono
+mandou a tela: é um **"Call Center" próprio do WeSales CRM** (white-label, em
+`app.wesalescrm.com`), com mecânica diferente. A pesquisa sobre o dialer nativo
+não se aplica e foi descartada.
 
-Duas formas de popular a fila:
+### O que a tela realmente tem
 
-1. **Manual, zero coisa nova:** abrir `3 · FILA DO DIA`, selecionar todos,
-   `Adicionar ao Workflow` → o workflow do dialer. Um clique a mais por dia e
-   **não cria nada**. É o caminho para começar amanhã.
-2. **Automático, por gatilho `Tag Added`:** uma tag só, **`fila-do-dia`**,
-   aplicada pelo runner diário. O workflow do dialer tem gatilho
-   `Tag Added: fila-do-dia` e um único nó, `Manual Action: Call`. O SDR abre
-   Ações Manuais e aperta Start — nada para escolher, nada para filtrar.
+Menu: `Call center` · **`Fila de ligações`** · `Disparo` · `Gatilhos` ·
+`Mensagens rápidas` · `Dashboard`.
 
-**A opção 2 justifica a tag que este documento antes evitava**, e por um motivo
-diferente do que eu supunha: a tag **não é a lista**, é o **gatilho de entrada no
-dialer**. Sem ela não há como o lead entrar na fila sozinho.
+Na `Fila de ligações`, o bloco **"PUXAR DO CRM"** com exatamente dois modos:
 
-**Detalhes de desenho que não são opcionais, se for a opção 2:**
+| modo | o que oferece |
+|---|---|
+| **Pipeline** | escolher um pipeline + um estágio (ou `Todos os estágios`) → `Puxar leads deste pipeline` |
+| **Tag** | escolher uma tag → `Puxar contatos desta tag` |
 
-- O runner (`recalcula_prioridade.py`) põe `fila-do-dia` em quem tem
-  `Prioridade` >= 3 e **remove** de quem caiu abaixo. Remover importa: tag que
-  fica é lead discado sem motivo.
-- O workflow do dialer precisa de **`Allow Re-entry` LIGADO**, senão o lead
-  re-etiquetado amanhã não reentra e desaparece da fila para sempre.
-- Precisa de linha `[x]` no `APROVADO.md` antes — é tag nova e a rotina não se
-  autoriza.
-- A `Prioridade` continua sendo a ordem dentro da fila; a tag é só o portão de
-  entrada. As duas coisas têm papéis diferentes e nenhuma substitui a outra.
+O resultado cai numa **caixa de texto editável** (`número, nome`, uma por linha),
+que o SDR pode colar ou corrigir à mão. Abaixo: `TOQUE MÁX. (S)` = 30,
+`PAUSA ENTRE LIGAÇÕES (S)` = 3, e o botão **`Iniciar discagem`**.
 
-**Recomendação:** começar pela opção 1 (manual, nada a criar, funciona amanhã) e
-migrar para a 2 quando o volume incomodar. Trocar um clique diário por uma tag
-nova só se paga quando o clique diário estiver realmente pesando.
+No topo: **`NÚMERO ATIVO: O Próximo Cliente · 5512982381407`** — confirma que há
+número configurado, e é o mesmo do campo `phone` da subconta. Isso fecha uma
+pergunta que a API não respondia.
+
+### A consequência ruim, e é a mais importante deste documento
+
+**A `Prioridade` não chega ao discador.** Ele puxa por pipeline+estágio ou por
+tag e entrega uma **lista plana**. Toda a reconciliação de `Prioridade` feita em
+27/09 ordena a **lista inteligente**, que é outra tela. O discador ignora.
+
+E o risco concreto: se o SDR puxar por `Pipeline → FUNIL DE VENDAS → CONECTAR`,
+ele provavelmente traz **os 39**, incluindo os **34 em DND**. A `Prioridade` = 0
+não protege aqui, porque o discador não lê esse campo.
+
+Isso promove a tag de "otimização" para **única forma segura de alimentar o
+discador**.
+
+### O teste que decide, e leva 10 segundos na tela
+
+`Fila de ligações → Pipeline → FUNIL DE VENDAS → CONECTAR → Puxar leads deste
+pipeline`, e **contar os nomes na caixa**:
+
+- **5 nomes** → o "puxar" respeita DND. A tag vira conveniência, não necessidade.
+- **39 nomes** → o "puxar" **ignora DND**. Discar por pipeline liga para quem
+  está travado, e a tag `fila-do-dia` passa a ser **obrigatória antes de terça**.
+
+Enquanto esse teste não for feito, a regra segura é: **não puxar por pipeline.**
+
+### O desenho, dado o que a tela permite
+
+**`fila-do-dia`** — uma tag, mantida pelo `recalcula_prioridade.py`: entra quem
+tem `Prioridade` >= 3, sai quem caiu abaixo. O SDR abre `Fila de ligações → Tag →
+fila-do-dia → Puxar contatos desta tag → Iniciar discagem`. Três cliques, sem
+escolher nada, sem risco de trazer lead travado.
+
+Detalhes que não são opcionais:
+
+- **Remover a tag importa tanto quanto pôr.** Tag que fica é lead discado sem
+  motivo — e aqui o discador liga de verdade, não é uma lista para olhar.
+- **A ordem dentro da fila se perde.** Se a ordem importar, o caminho é a tag
+  por faixa (`fila-5`, `fila-4`…) e o SDR puxa a de cima primeiro. Mais tags,
+  mais manutenção — só fazer se o volume justificar.
+- Precisa de `[x]` no `APROVADO.md`: é tag nova e a rotina não se autoriza.
+
+### O que ainda não foi olhado nessa ferramenta
+
+`Disparo`, `Gatilhos`, `Mensagens rápidas` e `Dashboard` são quatro telas do
+mesmo Call Center que ninguém examinou. `Gatilhos` em especial pode mudar o
+desenho de novo — vale abrir antes de fechar qualquer decisão.
 
 ## 4. Quatro pastas de campo, em vez de uma de 53
 
