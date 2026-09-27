@@ -218,23 +218,30 @@ contato), e a WhatsApp Business Calling API exige a oficial.
 Telefone tem de ser o passo 1 do texto. Conserto de texto, sem risco — mas mexe em
 workflow publicado, então precisa da API interna ou da tela.
 
-## 6. Dois portões leem tag que ninguém escreve
+## 6. `sdr-lotado` e `fila-wa` — investigados a fundo, e NÃO implementados de propósito
 
-| tag | quem lê | quem escreve |
-|---|---|---|
-| `fila-wa` | 3 workflows, num portão | **ninguém** |
-| `sdr-lotado` | 4 workflows, num portão | **ninguém** |
+Eu ia resolver os dois com o atuador externo. Fui ler os dumps dos workflows publicados
+antes de escrever, e os dois casos são piores do que a estimativa:
 
-O `sdr-lotado` é o **freio de capacidade**: quatro portões consultam se o SDR está
-lotado, e a resposta é sempre "não", porque nada nunca aplica a tag. O freio não existe.
+**`sdr-lotado`** é lido como `conditionType: contact_detail`, `conditionSubType: tags`,
+`conditionOperator: index-of-true` — em **15 portões** das `Cadência 12x30`, `12x30 parte 2`
+e `Inbound`. É tag **por contato**. Então o freio de capacidade exigiria marcar e desmarcar
+**~47 leads pagos a cada ciclo do cron**. Churn de tag em massa sobre lead pago, por um
+freio que hoje não dói (5 leads na operação). O custo é certo, o benefício é futuro.
 
-**Não afeta a terça** — o portão sempre passa hoje, com 5 leads. O custo aparece no
-cenário de 10 leads/dia, quando a fila estourar e o freio não fechar.
+**`fila-wa`** é **removida** pelas cadências publicadas em **dezenas de nós**
+`remove_contact_tag`. Um atuador que a aplicasse em cron brigaria com o workflow: o cron
+põe, o próximo toque tira, a tag pisca — e um portão que a leia passa a depender de quem
+escreveu por último. Antes de aplicar é preciso ler o portão que a **lê** e decidir de quem
+é a autoridade.
 
-**Tem alternativa que não depende de liberar host nenhum:** o workflow só precisa **ler**
-a tag, e nada diz que quem escreve tem de ser um workflow. Um atuador externo (Action
-contando tarefa vencida) aplica e remove a tag por fora, e o freio passa a existir.
-Limites honestos e o desenho em `TRAVAS-E-ALTERNATIVAS.md`.
+**O que ficou implementado, porque é seguro:** `fila-sdr` e `fila-closer`. Nenhum workflow
+as toca — foram criadas em 27/09 justamente para ficarem fora do caminho da máquina. Por
+isso o cron pode aplicar sem pedir nada: não tem como brigar com a cadência.
+
+Isto não é preguiça, é escopo. Um atuador que briga com um workflow publicado produz
+comportamento que depende de ordem de execução — o tipo de defeito que não aparece em
+teste e aparece na operação.
 
 ## 7. R-14, auditoria de compliance — espera volume, não trabalho
 

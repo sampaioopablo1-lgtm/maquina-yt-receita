@@ -141,10 +141,26 @@ sai    de fila-closer : saiu dessas etapas, ou virou won/lost/abandoned
 **Remover importa tanto quanto pôr.** Tag que fica é lead discado sem motivo — e aqui o
 discador **liga de verdade**, não é lista para olhar.
 
-Hoje as duas tags foram aplicadas **por mim, à mão**, via conector. Para se manterem sozinhas
-falta o atuador externo: uma Action que roda a regra acima e aplica/remove. É o mesmo padrão
-de `TRAVAS-E-ALTERNATIVAS.md` — o workflow só precisa **ler** a tag, nada diz que quem
-escreve tem de ser um workflow.
+**O atuador existe e rodou.** `wesales/tools/atuador_filas.py`, na Action
+`wesales-finalizar.yml` (modo `filas-aplicar`) e no `wesales-filas.yml` com cron às
+**11:10 UTC de segunda a sexta** — 08:10 em São Paulo, antes do expediente, para o SDR
+abrir o discador com a fila do dia pronta.
+
+Como foi validado, em duas camadas:
+
+1. **Offline, antes de tocar no CRM:** rodei a regra contra o snapshot real da conta e ela
+   **reproduziu exatamente** a decisão que eu havia tomado à mão — `fila-sdr` 5,
+   `fila-closer` 2, nada a pôr, nada a tirar.
+2. **Ao vivo, na Action:** rodou contra a conta, releu depois de escrever e **convergiu**.
+   O script sai diferente de zero se não convergir, então "passou" é a prova, não o print.
+
+Detalhe de desenho que vale dizer: o `pablo sampaio`, que tem `Prioridade` 5, ficou fora da
+fila **pelo mecanismo, não pela heurística de nome** — a oportunidade dele está `lost`,
+então não tem etapa aberta. Regra que depende de estado real erra menos que regra que
+depende de lista de exceções.
+
+O cron só vale depois do merge, porque agendamento roda a versão do branch padrão e o
+script vive no branch de trabalho. Até lá, o modo `filas-aplicar` faz o mesmo.
 
 ### Se a ordem passar a importar
 
