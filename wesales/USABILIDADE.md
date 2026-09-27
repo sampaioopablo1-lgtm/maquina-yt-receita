@@ -34,15 +34,24 @@ cada contato:
 | **`fila-wa`** | **0** |
 | **`fila-quente`** | **0** |
 
-E as tarefas, lidas contato por contato numa amostra de 6 (Gerson, Ana Ruth,
-Ricardo, Andreia, Carlos Andrade, `Teste Não Atende`):
+E as tarefas. A primeira leitura foi por amostra de 6 contatos; refiz com
+`getTasks` no pipeline inteiro, que é exato e custa uma chamada:
 
-- **cinco leads reais: zero tarefa.**
-- **uma tarefa no total**, e ela está no contato de **teste**:
-  `[CADENCIA] T1 · WhatsApp → Ligar`, vencida em **22/09** (cinco dias),
-  atribuída ao dono, e o corpo dela manda *"Ligar pelo WhatsApp (botão **Ligar
-  via WhatsApp** na conversa)"* — o botão que o `CANAIS.md` provou não existir
-  nesta conta.
+**64 oportunidades no `FUNIL DE VENDAS`. Duas tarefas.** As duas em contato de
+**teste**, as duas vencidas em **22/09** (cinco dias), as duas ainda abertas:
+
+| tarefa | contato | vence |
+|---|---|---|
+| `[CADENCIA] T1 · WhatsApp → Ligar` | `Teste Não Atende` | 22/09 |
+| `[TESTE] tarefa variante A` | `Teste Retorno` | 22/09 |
+
+O corpo da primeira manda *"Ligar pelo WhatsApp (botão **Ligar via WhatsApp** na
+conversa)"* — o botão que o `CANAIS.md` provou não existir nesta conta.
+
+**Nenhum lead real do funil tem uma única tarefa.** E as tags `fila-*` do
+inventário pertencem todas a **um** contato: `ZZ TESTE ESTRUTURA`, abandonado em
+`NOVO LEAD`, que carrega as 20 tags do projeto de uma vez — é o fixture de
+criação de tag, não um lead.
 
 ### O que isso faz com a tela do SDR na terça
 
@@ -116,6 +125,54 @@ sem workflow:
 Cinco linhas colam à mão sem esforço. Isso também **contorna o risco do
 "puxar por pipeline"** descrito na §3 (que traria os 39, incluindo os 34 em
 DND) sem precisar esperar o teste de 10 segundos.
+
+### O efeito colateral que ninguém procurou: a lista do gestor também quebrou
+
+A lista **8.5 `Sem resultado ontem`** — a que a §3.3 manda o gestor abrir todo
+dia às 08:15 como *"tentativa que o SDR não fez"* — filtra tag
+`limpar-tarefas` **E não** `fila-tel` **E não** `fila-wa`.
+
+`limpar-tarefas` está em **19** contatos. Como só o `ZZ TESTE ESTRUTURA` tem tag
+`fila-*`, as duas cláusulas de exclusão **não excluem ninguém**, e a lista
+devolve **18 linhas**. Dessas, **11 são `lost` ou `abandoned`**, uma é o
+`Pablo Sampaio` (o próprio dono) e duas são o `Daniel` e o `Genilson` — os dois
+melhores leads da conta, que estão com o **closer** em `NEGOCIAR` e não têm nada
+a ver com tentativa de SDR.
+
+Ou seja: a mesma causa esvazia as quatro listas do SDR **e** enche a do gestor
+de lixo. Um alarme que aponta 18 nomes errados todo dia às 08:15 deixa de ser
+lido na primeira semana.
+
+Dois consertos, de tamanhos diferentes:
+
+- a inscrição em lote devolve as tags `fila-*` e as exclusões voltam a excluir;
+- e a 8.5 precisa de uma cláusula que o documento nunca teve: **status `open`**
+  (e, se o gestor quiser, etapa = `CONECTAR`). Sem ela, lead descartado continua
+  aparecendo para sempre, porque `limpar-tarefas` não sai no descarte. Isso é
+  edição de lista, não workflow — cabe na tela em um minuto.
+
+### Três coisas menores, achadas na mesma leitura
+
+**1. Dois leads abertos em `NOVO LEAD` não têm nome.** Um vem com o nome
+literalmente vazio, o outro com `Sem Nome` (`+5521969613820` e
+`+5511951285383`), os dois com `cad-inbound` e `novo-lead-estagnado`. Os 38 de
+`CONECTAR` têm nome, então o mapeamento de nome do formulário funciona em geral —
+estes dois entraram por um caminho que não trouxe o campo. É a mesma família do
+G-04 (resposta de formulário que não casa com o campo de destino), e o efeito é
+concreto: o SDR abre a ligação sem ter como chamar a pessoa. Vale conferir de
+qual formulário vieram antes de reativar a campanha a 10 leads/dia, senão
+entram assim aos dez por dia.
+
+**2. A única oportunidade aberta em `REUNIÃO DE DIAGNÓSTICO` é o próprio dono**
+(`Pablo Sampaio`, `+5521987429940`) — o teste do calendário. Não é lead. Enquanto
+estiver lá, as contagens mensais de funil (listas 8.9–8.12) e o widget de
+agendamentos do painel contam o dono como reunião realizada. Descartar com
+status `lost` (nunca excluir, regra 1) limpa isso.
+
+**3. `FORMALIZAR` está vazia e não existe um `won` nas 64 oportunidades.** Já
+sabido, mas agora com o número fechado do pipeline inteiro: a máquina nunca
+levou ninguém até o fim. Não é defeito de configuração — é a razão de a abertura
+existir.
 
 ### O segundo achado da mesma varredura: 42 de 47 leads não têm dono
 

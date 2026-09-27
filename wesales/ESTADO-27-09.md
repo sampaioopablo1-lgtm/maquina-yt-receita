@@ -58,10 +58,12 @@ mais**.
 
 ## 2.1 ACHADO NOVO (27/09 05:20) — e ele passa na frente da janela
 
-Medido em leitura pura: **nenhum dos 39 leads abertos em `CONECTAR` tem tag
-`fila-tel`, `fila-wa` ou `fila-quente`** (zero de 39), e numa amostra de cinco
-leads reais **não há uma única tarefa**. A única tarefa da amostra está no
-contato de teste, vencida desde 22/09.
+Medido em leitura pura, agora no **pipeline inteiro** (uma chamada com
+`getTasks`, não amostra): **64 oportunidades no `FUNIL DE VENDAS`, duas
+tarefas** — as duas em contato de teste, as duas vencidas desde 22/09. E
+**nenhum dos 39 leads abertos em `CONECTAR` tem tag `fila-tel`, `fila-wa` ou
+`fila-quente`**; todas as tags `fila-*` do inventário estão num único contato,
+o `ZZ TESTE ESTRUTURA`, que é o fixture de criação de tag.
 
 Consequência direta: as **quatro listas favoritas do SDR abrem vazias** na
 terça, e a fila de tarefas também. O alvo que o dono chamou de crítico — "pelo
@@ -89,6 +91,21 @@ tag de fila e cria a tarefa.
 que existe: lista com filtro `Prioridade` ≥ 3 (devolve os 5 do lote 1) →
 copiar as linhas `telefone, nome` → colar na caixa editável do Call Center →
 `Iniciar discagem`. Detalhe na §0 do `USABILIDADE.md`.
+
+**Efeito colateral que ninguém procurou:** a lista **8.5 `Sem resultado ontem`**,
+que a §3.3 manda o gestor abrir às 08:15, exclui por `não fila-tel` e `não
+fila-wa`. Sem essas tags, as exclusões não excluem: a lista devolve **18
+linhas**, das quais **11 são `lost`/`abandoned`**, uma é o próprio dono e duas
+são o Daniel e o Genilson (que estão com o closer). Além da inscrição em lote,
+essa lista precisa de uma cláusula que o documento nunca teve: **status
+`open`**. É edição de lista, um minuto de tela.
+
+**Três achados menores da mesma leitura:** (a) dois leads abertos em `NOVO LEAD`
+**sem nome** (`+5521969613820` e `+5511951285383`) — conferir o formulário de
+origem antes de reativar a campanha a 10 leads/dia; (b) a única oportunidade
+aberta em `REUNIÃO DE DIAGNÓSTICO` é o **próprio dono** (`Pablo Sampaio`), o
+teste do calendário, e ele conta nas métricas mensais de funil até ser descartado
+como `lost`; (c) `FORMALIZAR` vazia e **zero `won`** em 64 oportunidades.
 
 Na mesma varredura: **`assignedTo` nulo em 42 das 47** oportunidades de
 `CONECTAR`; os 5 com dono são os 3 de teste mais `Carlos Andrade` e
