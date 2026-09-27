@@ -4,7 +4,7 @@ Memória entre rodadas. Antes de investigar de novo, procure aqui.
 
 
 
-## Inventário dos 36 módulos do conector `GHL CRM` — três checados e descartados, um achado real sem precisar de módulo novo (F-07) — 27/09/2026
+## Inventário dos 36 módulos do conector `GHL CRM` — três checados e descartados, um achado real sem precisar de módulo novo (F-18) — 27/09/2026
 
 Pedido do dono: mapear módulos/tabelas/funções do CRM ainda não tocados.
 Resultado ao vivo, para a próxima rodada não reabrir:
@@ -23,10 +23,12 @@ Resultado ao vivo, para a próxima rodada não reabrir:
   `monetaryValue = 5000` fixo (valor padrão da Porta de Entrada) e nada troca
   esse número pelo valor real do contrato quando o closer marca Ganho.
   `ESTADO-E-PLANO.md` já tinha essa leitura anotada como observação solta em
-  20/09/2026 e nunca virou item — promovido a **F-07**
-  (`ROADMAP-SALES-ENGAGEMENT.md`), com uma linha nova em `GUIA-CLOSER.md`
-  pedindo o valor real no momento de marcar Ganho. Detalhe em
-  `build-wesales.md` §2.47.
+  20/09/2026 e nunca virou item — promovido a **F-18** (nasceu como "F-07"
+  nesta mesma sessão, sem saber que o número já era de outro item; renumerado
+  na reconciliação do roadmap logo depois — ver alerta de integridade no
+  topo de `ROADMAP-SALES-ENGAGEMENT.md`), com uma linha nova em
+  `GUIA-CLOSER.md` pedindo o valor real no momento de marcar Ganho. Detalhe
+  em `build-wesales.md` §2.47.
 
 **Regra prática:** um módulo do conector sem dado na conta (`blogs`,
 `payments`) não é automaticamente "nada a fazer" — vale perguntar que
