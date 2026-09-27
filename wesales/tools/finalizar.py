@@ -71,7 +71,7 @@ ETAPAS = {
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, AQUI)
-from pastas_de_campo import PASTAS, PASTA_GRANDE, PASTA_MAQUINA, MAPA  # noqa: E402
+from pastas_de_campo import PASTAS, PASTA_GRANDE, PASTA_MAQUINA, MAPA, SNAPSHOT  # noqa: E402
 
 
 def token() -> str:

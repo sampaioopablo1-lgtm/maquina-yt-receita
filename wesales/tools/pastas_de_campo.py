@@ -311,8 +311,9 @@ def plano(pastas: dict | None = None) -> None:
     print("=" * 74)
     print("MAPA DE ARRASTO — o que a tela ainda precisa fazer")
     print("=" * 74)
-    print("O `PUT /custom-fields/{id}` NAO aceita parentId, entao mover campo")
-    print("existente nao sai por API. O numero ao lado de cada campo e quantos")
+    print("Pasta de campo de contato NAO sai por API nenhuma (400 em objectKey=contact,")
+    print("medido em 27/09). Criar as 5 pastas e mover os 56 campos e tela. O numero")
+    print("ao lado de cada campo e quantos")
     print("dos 64 contatos o tem preenchido — foi o que separou o que vem do")
     print("anuncio do que a SDR ainda precisa perguntar.")
     print()
@@ -322,22 +323,17 @@ def plano(pastas: dict | None = None) -> None:
     for i, nome in enumerate(PASTAS, 1):
         campos = MAPA.get(nome) or []
         alvo = (" -> id %s" % pastas[nome]) if pastas and pastas.get(nome) else ""
-        # Na pasta da maquina, campo que ja esta na pasta grande nao se arrasta:
-        # a pasta grande E essa pasta, renomeada.
-        mover = [c for c in campos
-                 if not (nome == PASTA_MAQUINA and onde.get(c) == PASTA_GRANDE)]
+        # O truque de renomear a pasta grande morreu com o resto (PUT de renome e
+        # do mesmo grupo recusado). Todo campo se arrasta.
+        mover = list(campos)
         total += len(mover)
         print()
         print("%d) %s  (%d campos, %d a arrastar)%s"
               % (i, nome, len(campos), len(mover), alvo))
-        if nome == PASTA_MAQUINA:
-            print("      esta pasta É a pasta grande renomeada: %d dos %d campos"
-                  % (len(campos) - len(mover), len(campos)))
-            print("      já estão dentro dela e NÃO se arrastam.")
         for c in mover:
             print("      %3d/64  %s" % (cheios.get(c, 0), c))
     print()
-    print("total a arrastar: %d   (seriam 56 sem renomear a pasta grande)" % total)
+    print("total a arrastar: %d, mais criar as 5 pastas — tudo na tela" % total)
 
 
 def main() -> int:
