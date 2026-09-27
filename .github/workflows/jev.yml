@@ -1,0 +1,67 @@
+# Jev (TypeSafe System One) no WeSales — roda no GitHub, sem PC e sem Claude.
+#
+# Por que aqui e nao numa sessao do Claude: cada rodada custa algumas chamadas ao
+# Jev (centavos) e ZERO credito do Claude. A decisao repetitiva "este fio e lead,
+# pessoal ou suporte?" nao precisa de modelo de raciocinio — precisa de um
+# classificador rapido. O Claude entra so quando ha o que decidir.
+#
+# Secrets necessarios (Settings > Secrets and variables > Actions):
+#   OPENCODE_API_KEY  chave do Jev via OpenCode Zen (jev-1.13-free)   — teste e triagem
+#   GHL_PIT           token da subconta WeSales                        — so a triagem
+#
+# Ambos os jobs sao SOMENTE LEITURA: nao escrevem tag, etapa nem campo no CRM.
+name: Jev — WeSales
+
+on:
+  workflow_dispatch:
+    inputs:
+      limite:
+        description: "Quantas oportunidades de NOVO LEAD triar"
+        required: false
+        default: "20"
+
+jobs:
+  teste:
+    name: Teste mínimo (3 fios conhecidos, sem CRM)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Perguntar ao Jev
+        id: jev
+        env:
+          OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
+        run: |
+          python3 wesales/tools/jev_teste_minimo.py | tee /tmp/saida.txt
+      - name: Resumo
+        if: always()
+        run: |
+          {
+            echo '## Jev — teste mínimo'
+            echo '```'
+            cat /tmp/saida.txt 2>/dev/null || echo 'sem saída'
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  triagem:
+    name: Triagem da entrada (lê o CRM, não escreve)
+    runs-on: ubuntu-latest
+    needs: teste
+    steps:
+      - uses: actions/checkout@v4
+      - name: Classificar a fila de NOVO LEAD
+        env:
+          OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
+          GHL_PIT: ${{ secrets.GHL_PIT }}
+        run: |
+          python3 wesales/tools/jev_triagem_entrada.py --limite "${{ inputs.limite || 20 }}" \
+            | tee /tmp/triagem.txt
+      - name: Resumo
+        if: always()
+        run: |
+          {
+            echo '## Jev — triagem da entrada'
+            echo '```'
+            cat /tmp/triagem.txt 2>/dev/null || echo 'sem saída'
+            echo '```'
+            echo '_Modo relatório: nada foi escrito no CRM._'
+          } >> "$GITHUB_STEP_SUMMARY"
