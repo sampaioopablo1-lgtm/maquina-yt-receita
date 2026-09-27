@@ -81,6 +81,42 @@ mais**.
 
 Se alguém só puder fazer uma coisa nesta operação, é **ligar para esses dois**.
 
+## 4.1 BLOQUEIO NOVO (27/09 04:10): a conta de anúncio está `UNSETTLED`
+
+Procurando a conta que alimenta o CRM, achei: **"O Próximo Cliente"**,
+`ad_account_id` **1695865631502778**, business `sxeducacao`, moeda BRL. O que a
+API devolve:
+
+```
+account_status:        "UNSETTLED"
+is_queryable:          false
+not_queryable_reason:  "Unknown error"
+is_ads_mcp_enabled:    true
+has_payment_method:    true
+```
+
+`UNSETTLED` na Meta normalmente significa **saldo em aberto que não foi
+cobrado**, e conta nesse estado **não entrega anúncio**.
+
+**Por que isso importa mais que qualquer configuração de CRM:** o dono disse que
+vai reativar a campanha a **10 leads/dia**, e é essa entrada que sustenta a conta
+das 100 tarefas (100 tarefas abertas pedem ~100 leads em cadência; 100/dia pedem
+~250 em regime). Com a conta `UNSETTLED`, **a reativação não começa** — e explica
+por que não entra lead novo desde 21/09.
+
+**Não é investigável daqui:** a API marca a conta `is_queryable: false`, então
+`ads_get_ad_entities` está fechado. É verificação de cobrança no Gerenciador de
+Anúncios, do lado do dono.
+
+**Consequência para o item 1 da §5 (o laço de atribuição):** fica bloqueado na
+origem até a conta voltar a `ACTIVE`. O trabalho do lado do CRM (agrupar
+oportunidades por `adSetId`/`adId`) pode ser feito antes; o gasto, não.
+
+**Nota de contexto:** outras contas do portfólio também aparecem `UNSETTLED`
+(Nova Design, Eliane Oliveira, SuperGeeks, Upper Sales, Pinheiro's, Moriart), o
+que pode indicar um problema de meio de pagamento mais amplo e não específico
+desta operação. Não investiguei — está fora do escopo do WeSales.
+
 ## 5. Oportunidades de usar 100% do CRM — do inventário real da conta
 
 Lido do bloco `permissions` de `locations_get-location`: habilitado e **ocioso**.
