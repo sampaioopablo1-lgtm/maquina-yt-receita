@@ -43,6 +43,9 @@ jobs:
         env:
           OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
         run: |
+          # pipefail: sem ele o codigo de saida e o do `tee`, e a falha do
+          # script passa por sucesso — foi o que aconteceu na rodada 1.
+          set -o pipefail
           python3 wesales/tools/jev_teste_minimo.py | tee /tmp/saida.txt
       - name: Resumo
         if: always()
@@ -69,6 +72,7 @@ jobs:
           OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
           GHL_PIT: ${{ secrets.GHL_PIT }}
         run: |
+          set -o pipefail
           python3 wesales/tools/jev_triagem_entrada.py --limite "${{ inputs.limite || 20 }}" \
             | tee /tmp/triagem.txt
       - name: Resumo

@@ -42,6 +42,11 @@ PROVEDORES = [
     ("AI_GATEWAY_API_KEY", "https://ai-gateway.vercel.sh/typesafe/v1/systemone", "typesafe-ai/jev"),
 ]
 
+# Cloudflare recusa o User-Agent padrao do `urllib` ("Python-urllib/3.x") com
+# erro 1010 — "banned based on your browser's signature". Medido em 27/09/2026:
+# a primeira rodada no GitHub Action levou 403/1010 antes de chegar na chave.
+UA = "wesales-jev/1.0 (+https://github.com/sampaioopablo1-lgtm/maquina-yt-receita)"
+
 # As quatro saidas. O rotulo e o que o Jev devolve; a descricao e o que ele le.
 CRITERIOS = {
     "lead_comercial": (
@@ -136,6 +141,7 @@ def pergunta_ao_jev(url, modelo, chave, st):
     corpo = {"model": modelo, "state": st, "questions": PERGUNTAS}
     return pede(url, {"Authorization": "Bearer " + chave, "Content-Type": "application/json",
                       "http-referer": "https://github.com/sampaioopablo1-lgtm/maquina-yt-receita",
+                      "user-agent": UA,
                       "x-title": "wesales-triagem-entrada"}, corpo, "POST")
 
 

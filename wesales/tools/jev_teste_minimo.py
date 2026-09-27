@@ -27,6 +27,11 @@ PROVEDORES = [
     ("AI_GATEWAY_API_KEY", "https://ai-gateway.vercel.sh/typesafe/v1/systemone", "typesafe-ai/jev"),
 ]
 
+# Cloudflare recusa o User-Agent padrao do `urllib` ("Python-urllib/3.x") com
+# erro 1010 — "banned based on your browser's signature". Medido em 27/09/2026:
+# a primeira rodada no GitHub Action levou 403/1010 antes de chegar na chave.
+UA = "wesales-jev/1.0 (+https://github.com/sampaioopablo1-lgtm/maquina-yt-receita)"
+
 # Tres fios reais da subconta, com o que se espera de cada um. O terceiro e um
 # lead de verdade, para o teste nao medir so o lado negativo.
 CASOS = [
@@ -79,6 +84,7 @@ def pergunta(url, modelo, chave, nome, mensagens):
                   headers={"Authorization": "Bearer " + chave,
                            "Content-Type": "application/json",
                            "http-referer": "https://github.com/sampaioopablo1-lgtm/maquina-yt-receita",
+                           "user-agent": UA,
                            "x-title": "wesales-jev-teste"}, method="POST")
     with urlopen(req, timeout=40) as r:
         return json.loads(r.read().decode() or "{}")
