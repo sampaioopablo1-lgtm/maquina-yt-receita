@@ -86,6 +86,30 @@ com `lost`). Eu teria descartado lead pago. A nota pertence ao **Pós-agendament
 4**, depois do formulário do SDR. Retirada da fila; este parágrafo fica para ninguém
 repor por engano.
 
+**Módulo 5 — revisão do `telefone-invalido`: nada a remover, e pela razão certa
+(13:15).** A tag está em 8 contatos, e **todos os 8 estão sem telefone nenhum**. Ou
+seja, a tag não está velha em nenhum caso: está correta nos 8. Nenhuma escrita.
+
+Registro porque um no-op medido vale como resultado: a suspeita era que a tag, nunca
+removida por workflow (§9 do `USABILIDADE.md`), estivesse rebaixando lead já
+corrigido. Não está. O defeito "só entra e nunca sai" segue real como risco futuro —
+o dia em que alguém corrigir um número, a tag fica — mas hoje não há vítima.
+
+**Achado lateral, e é sobre a integração de WhatsApp de novo.** Dos 8, **5 são leads
+reais**: `TINTIM`, `Dkw.oficial`, `Nathalia.ggss`, `Carla X. Sampaio`, `Thiagoreis`.
+Eles não têm **telefone nem e-mail**, e não têm `attributionSource`. São os mesmos 5
+que aparecem na lista 8.18 e os mesmos que sobraram em `country: US` depois do módulo
+4. Já estão com `status-perdido`, o que é o desfecho correto — não há canal por onde
+falar com eles.
+
+Consequência prática: o **W23 (`Resgate por E-mail — Sem Telefone`)** não os salvaria,
+porque e-mail também não existe. E os nomes parecem identificador de Instagram
+(`dkw.oficial`, `nathalia.ggss`, `thiagoreis`), o que os põe na mesma família dos JID
+de grupo e dos `Sem nome`: **registro criado sem canal de contato**. Se for a mesma
+integração, é a terceira classe de defeito dela — e aí vale contar essa perda ao
+avaliar o custo por lead, porque são cliques pagos que nasceram inalcançáveis. Uma
+olhada na tela em quem criou esses 5 fecharia a questão.
+
 **O que continua fora do meu alcance, com autorização ou sem** — e por isso segue
 na §3 como trabalho de tela: editar workflow (exige a API interna com bearer de
 sessão logada), criar ou editar lista inteligente, criar pasta de campo, e
