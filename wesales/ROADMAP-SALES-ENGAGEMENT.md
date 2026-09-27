@@ -4609,7 +4609,65 @@ sessão aplicou a correção. Faltam ~23h25min para a janela abrir. Nada de
 novo a registrar — mesmo estado da leitura anterior (~11:05 UTC); sem
 notificação nova por não haver fato novo. Detalhe em `ABERTURA.md`.
 
+**Reconferido em 27/09/2026 ~15:05 UTC, sessão automática seguinte —
+seguindo de novo a própria instrução do item ("a próxima sessão confere
+primeiro se a janela mudou... antes de qualquer outro trabalho").**
+`git fetch` limpo (`HEAD` em `9b79c37`, o mesmo commit que fechou o F-22);
+`opportunities_search-opportunity` (`status: all`) confirma 64
+oportunidades, mesma composição das duas últimas leituras (43 `open`, 11
+`lost`, 10 `abandoned`) — inclui a `ZZ TESTE ABERTURA 27-09`
+(`1ChWCVzv34ixvIOHtldS`), um teste ponta a ponta que o próprio dono correu
+às 01:54 UTC de hoje (contato com `nao-perturbe` desde a criação, tag
+`zz-teste-abertura`, fora da numeração deste projeto — mesma classe de
+"tag do dono na tela" que `teste-regua`/`fechar-horario` já registram, não
+achado novo). `contacts_get-contact` em `Carlos Andrade`
+(`7ECnj1bSeEIm5P58Ifd9`) confirma `dnd: true` e a tag `atraso-1a-tentativa`
+ainda presente — protegido, igual às quatro leituras anteriores. Faltam
+~20h25min para a janela abrir (segunda 28/09 11:30 UTC); nada mudou, sem
+disparo, nenhuma correção aplicada por ninguém com o bearer. Sem fato novo
+para notificar de novo (mesma regra da reconfirmação anterior). G-25
+continua sendo o item de maior prioridade do roadmap enquanto não estiver
+`FEITO`.
+
+Com o risco reconferido e sem novidade, a sessão seguiu a varredura de
+coerência entre documentos que a própria "Ordem sugerida" (abaixo) indica
+como próximo passo quando não há tela nem decisão nova disponível —
+achado registrado como **G-26**, logo abaixo.
+
 ---
+
+### G-26 · O gate de contagem de tags voltou a divergir da conta sozinho — a correção do G-20 trocou o número errado por outro número, que também vence (27/09/2026) — **FEITO em 27/09/2026**
+
+**Por quê:** a varredura de coerência desta sessão (`grep -rn` pelos nomes e
+números tocados nas últimas rodadas — F-19 a F-22, T-23, G-25 — em todo o
+`wesales/`, exigida antes de qualquer commit) achou que `build-wesales.md`,
+seção 2.32, ainda dizia "a conta tem mais tags que **as 21 do projeto**" —
+um número fixo, escrito em 23/09/2026 quando T-01 a T-21 já existiam. A
+T-22 (23/09) e a T-23 (27/09, F-19) elevaram a contagem "do projeto" para
+23 sem que ninguém voltasse a esta frase — exatamente o mesmo defeito que
+o **G-20** já tinha corrigido nesta mesma linha em 23/09/2026, só que a
+correção de então trocou "25" por "21" (um valor, ainda fixo) em vez de
+tirar o número — e um valor fixo copiado para fora da fonte sempre vence
+assim que a fonte muda de novo. `campos-e-tags.md`, Etapa 3 (a fonte, pela
+própria regra "número fixo só na fonte" que este roadmap segue desde o
+G-20), já estava correto: "23 numeradas... Total na conta hoje: 29",
+contando a T-23 desde que o F-19 a especificou.
+
+**Como:** removido o número fixo da linha de `build-wesales.md` §2.32 —
+"as 21 do projeto" virou "as do projeto", a mesma redação sem número que
+`campos-e-tags.md` já usa para se referir a si mesmo ("tem mais tags que
+as do projeto", linha 365 daquele arquivo) — e registrado, na própria
+frase, por que ela voltou a divergir depois do G-20, para a próxima
+correção não repetir o mesmo erro de trocar um número fixo por outro.
+Nenhum outro arquivo do projeto tinha o mesmo padrão de contagem total de
+tags/campos fora de `campos-e-tags.md` (conferido: as demais ocorrências de
+"N tags do projeto" em `APROVADO.md` e `APRENDIZADOS-CRM.md` são registro
+histórico datado — "as 11 tags do projeto" em 18/09/2026, por exemplo — não
+uma contagem viva, e não precisam de correção). Zero campo, zero tag, zero
+escrita no CRM: coerência de documentação, não depende de `APROVADO.md`.
+
+**Pronto quando:** `grep -rn "tags que as [0-9]" wesales/*.md` não devolve
+nada fora de entrada histórica datada — cumprido nesta mesma rodada.
 
 ## Ordem sugerida
 
