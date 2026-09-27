@@ -26,20 +26,41 @@
 > cabeçalho `### G-`/`R-`/`F-\d+` deste arquivo aparece uma única vez, sem
 > duplicata.
 >
-> **Ainda não reconciliado: `build-wesales.md`.** Não é só as seções inteiras
-> que faltam (§2.25 a §2.44 — as specs de F-06 a F-17, dos scripts de
+> **Atualização de 27/09/2026, sessão seguinte — peça 1 de `build-wesales.md`
+> reconciliada; peça 2 continua aberta.** As seções inteiras que tinham
+> desaparecido (§2.25 a §2.44 — as specs de F-06 a F-17, dos scripts de
 > auditoria e de nove achados técnicos sem número de roadmap próprio, tipo
-> `patch_canal_conectou.py` e o alarme falso do portão de capacidade).
-> Comparado seção por seção contra o commit `875d8d7` (última
-> versão íntegra, 8.580 linhas): **toda seção que sobreviveu à truncagem
-> também perdeu conteúdo interno**, de quase intacta (seção 11, ~99% do
-> texto original) a mais da metade perdida (seção 6, ~39%). Não dá para
-> reconciliar por colagem de seção inteira como este arquivo — precisa de
-> diff parágrafo a parágrafo em cerca de trinta seções, grande demais para
-> uma execução. Quem pegar este item: `875d8d7` é a base íntegra; o HEAD do
-> momento (`7ba708d` nesta sessão, ou o que vier depois) tem trabalho real
-> por cima (§2.45 a §2.47) que precisa sobreviver ao merge — não restaurar
-> às cegas por cima dele.
+> `patch_canal_conectou.py` e o alarme falso do portão de capacidade — mais
+> §4.1 e §5.5, que a leitura anterior não tinha listado por nome) foram
+> coladas de volta a partir do commit `875d8d7` (última versão íntegra) para
+> as posições exatas onde ficavam antes da truncagem, e conferidas
+> byte-a-byte contra a base depois de coladas — nenhuma delas tinha edição
+> real por cima na cópia truncada (`git log 875d8d7..HEAD -- wesales/
+> build-wesales.md` só mostra §2.45/§2.46/§2.47 sendo tocadas, todas depois
+> do fim de §2.44), então colar de volta aqui não arriscava apagar trabalho
+> novo. §2.45 a §2.47 permanecem intactas, no fim do arquivo, como já
+> estavam.
+>
+> **Peça 2, ainda aberta e maior do que parecia:** as seções que "sobreviveram"
+> à truncagem (1, 2, 2.9 a 2.24, 3, 4, 5, 5.1 a 5.4, 6, 7, 8, 9, 10, 11)
+> continuam com conteúdo interno perdido, de quase intacta (seção 11, ~99% do
+> texto original) a mais da metade perdida (seção 6, ~39%) — e **não é um
+> corte limpo**: pelo menos uma dessas seções (1.4) tem uma colisão de
+> verdade, não só perda. A base (`875d8d7`) tem "### 1.4 Workflow "Reentrada
+> por Formulário" — F-11" (fechado em 22/09/2026); a cópia truncada, editada
+> depois do acidente, tem "### 1.4 G-03 — promoção imediata escolhida pelo
+> dono em 24/09/2026" no mesmo número — uma sessão que não sabia que 1.4 já
+> existia (porque a cópia truncada não o tinha) reusou o número para um
+> trabalho real e diferente. Colar a seção 1 inteira da base por cima, como
+> fiz com os blocos acima, apagaria o G-03. Por isso esta peça continua
+> exigindo diff parágrafo a parágrafo, seção por seção — não colagem —, e
+> continua grande demais para uma execução: cerca de dezoito seções, cada
+> uma podendo esconder o mesmo tipo de colisão que a 1.4 acabou de mostrar.
+> Quem pegar: `875d8d7` é a base íntegra; o HEAD do momento tem `build-
+> wesales.md` já com §2.25-§2.44/§4.1/§5.5 restauradas — não repetir esse
+> trabalho —, e a seção 1.4 da cópia atual (G-03) precisa sobreviver ao
+> merge com o nome renumerado, o mesmo tratamento que este roadmap já deu ao
+> F-07→F-18 quando achou a mesma classe de colisão de número aqui.
 
 > **Aviso de 22/09/2026 — o canal WhatsApp saiu do projeto.** Decisão do dono:
 > as quatro réguas são 100% telefone, remontadas e publicadas em `d52e61d`.
