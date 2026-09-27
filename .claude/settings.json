@@ -1,0 +1,5 @@
+{
+  "permissions": {
+    "allow": ["Bash", "Read", "Edit", "Write", "mcp__Composio", "mcp__GHL_CRM", "mcp__github"]
+  }
+}
