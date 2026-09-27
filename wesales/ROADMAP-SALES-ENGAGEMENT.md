@@ -1,6 +1,6 @@
 ﻿# O que falta para virar Reev/Meetime de verdade
 
-> ## ⚠️ Alerta de integridade — 27/09/2026, ROADMAP reconciliado; `build-wesales.md` em reconciliação (§2.25-2.44/§4.1/§5.5/§1 feitas, resto aberto)
+> ## ⚠️ Alerta de integridade — 27/09/2026, ROADMAP e `build-wesales.md` reconciliados por inteiro (histórico abaixo, mantido para quem chegar depois)
 >
 > **O que aconteceu:** três commits com o mesmo título ("Add GitHub Action for
 > WeSales G03", 24/09/2026 15:22–15:25 BRT) sobrescreveram este arquivo e
@@ -65,13 +65,37 @@
 > mesmo commit. Mesmo tratamento que este roadmap já deu ao F-07→F-18 quando
 > achou a mesma classe de colisão de número aqui.
 >
-> **Ainda aberto:** as demais seções que "sobreviveram" à truncagem (2,
-> 2.9 a 2.24, 3, 4, 5, 5.1 a 5.4, 6, 7, 8, 9, 10, 11) continuam por
-> reconciliar — mesmo método (diff parágrafo a parágrafo contra `875d8d7`,
-> checando colisão de número antes de colar), grande demais para uma
-> execução só. Quem pegar: `875d8d7` é a base íntegra; o HEAD do momento tem
-> `build-wesales.md` já com §1 e §2.25-§2.44/§4.1/§5.5 restauradas — não
-> repetir esse trabalho.
+> **Peça 3, fechada em 27/09/2026, sessão seguinte — as 13 seções/grupos que
+> ainda "sobreviviam" à truncagem (2, 2.9 a 2.24, 3, 4, 5, 5.1 a 5.4, 6, 7, 8,
+> 9, 10, 11) foram reconciliadas por inteiro.** Método: split automático de
+> `875d8d7` (base íntegra) e do HEAD por cabeçalho `## `, comparação campo a
+> campo (não só contagem de linha) para não repetir o erro que a peça 2 quase
+> cometeu — quatro seções (2.16, 2.21, 5.1, 9) tinham a **mesma contagem de
+> linhas** nas duas versões e ainda assim conteúdo diferente: a cópia truncada
+> carregava texto mais antigo que o próprio `875d8d7` (ex.: seção 2.16 ainda
+> chamava a etapa de `AGENDAR`, não `REUNIÃO DE DIAGNÓSTICO`), confirmando que
+> o acidente de 24/09 não cortou só o final do arquivo — substituiu por uma
+> cópia local que já estava desatualizada antes da truncagem. As 29 seções
+> divergentes foram coladas inteiras a partir da base; nenhuma tinha edição
+> real por cima na cópia truncada (`git log 875d8d7..HEAD -- wesales/
+> build-wesales.md` mostra só `ab83d6c`/`145262d`/`7ba708d`/`5fe7110`/
+> `2d880c3` tocando este arquivo, e nenhum hunk cai dentro do intervalo de
+> linhas destas 13 seções — todos ficam nas seções já reconciliadas ou no
+> final do arquivo). Nenhuma colisão de número de subseção nova apareceu
+> (`### ` conferido do início ao fim). `build-wesales.md` volta a **8.764
+> linhas** (era 8.580 na base, mais o trabalho real de §2.45-§2.47 já
+> presente). Sweep de coerência: as referências cruzadas a estas seções em
+> `campos-e-tags.md`, `ROADMAP-SALES-ENGAGEMENT.md`, `GUIA-MONTAGEM.md`,
+> `CONFERENCIA-CAMPOS.md`, `IMPLEMENTACAO-WORKFLOWS.md`, `briefing-sdr.md`,
+> `script-de-ligacao.md`, `AGENTE-IA-CONEXAO.md` e `APRENDIZADOS-CRM.md`
+> citam só o número da seção (2.16, 2.21, 5.1, 9/9.1) — nenhuma cola texto
+> antigo, então nenhuma ficou inconsistente; a restauração as torna mais
+> corretas, não menos, porque agora apontam para conteúdo completo em vez de
+> truncado. Zero campo, zero tag, zero escrita no CRM. Com isto, os dois
+> documentos que o acidente de 24/09 atingiu (`ROADMAP-SALES-ENGAGEMENT.md`,
+> fechado na atualização anterior, e `build-wesales.md`, fechado agora) estão
+> reconciliados por inteiro — não sobra trabalho de restauração represado
+> desta família.
 
 > **Aviso de 22/09/2026 — o canal WhatsApp saiu do projeto.** Decisão do dono:
 > as quatro réguas são 100% telefone, remontadas e publicadas em `d52e61d`.
