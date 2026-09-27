@@ -397,7 +397,7 @@ def sondar() -> int:
     print("=" * 74)
     print("  tentando POST /custom-fields/folder com objectKey=contact")
     r = pedir("POST", "/custom-fields/folder",
-              {"objectKey": OBJECT_KEY, "name": nome, "locationId": LOC},
+              {"objectKey": "contact", "name": nome, "locationId": LOC},
               tolerar=(400, 401, 403, 404, 422))
     print("  resposta bruta: %s" % json.dumps(r, ensure_ascii=False)[:600])
     if "_erro" in r:
