@@ -4500,6 +4500,85 @@ precisa olhar `Email Services` antes que o teto caia em silêncio — mesmo
 padrão de "Pronto quando" do F-07. Detalhe completo em `build-wesales.md`,
 seção 2.51.
 
+### F-23 · O próprio F-21 reproduziu o par `Allow Re-entry` + "ligar hoje" que motivou o F-04, e não herdou o teto que o F-04 criou para esse par — **FEITO em 27/09/2026 (especificação)**
+
+**Por quê:** reconferido o CRM antes de desenhar — `opportunities_search-
+opportunity` (status `all`) sobe de 64 para **65 oportunidades** (14 `NOVO
+LEAD` [3 open + 10 abandoned + 1 lost], 47 `CONECTAR` [39 open + 8 lost], 3
+`NEGOCIAR` [2 open + 1 lost], 1 `REUNIÃO DE DIAGNÓSTICO` lost — 1 lead novo
+frente à leitura anterior, sem sinal de disparo em massa) e
+`locations_get-custom-fields` confirma 56 campos de contato, sem mudança;
+`Carlos Andrade` (`7ECnj1bSeEIm5P58Ifd9`) segue `dnd: true`, tag
+`atraso-1a-tentativa` presente — G-25 continua sem novidade (detalhe no
+próprio G-25, abaixo). Sweep de coerência (`grep -rn` pelos números/nomes
+tocados nas últimas rodadas — F-19 a F-22, T-23, G-25/G-26 — em todo o
+`wesales/`) não achou nada novo em texto. A lacuna veio de uma pergunta que
+ainda não tinha sido feita: não "esta guarda existe em todo canal?"
+(F-19→F-20→F-21 já esgotaram essa pergunta para opt-out/ausência/sinal
+quente), mas "todo workflow que herdou o motivo original de uma guarda
+também herdou a guarda?" — aplicada ao F-21 (2.50), o mais recente dos três
+que rodam `Allow Re-entry` ligado sobre uma reação a `Customer Replied`.
+
+A própria seção 2.50 já registrava, no nó do `Allow Re-entry`, "cada
+resposta é um evento novo, mesmo raciocínio do 2.9.2" — mas parou nessa
+metade da frase. O raciocínio completo, no 2.9.2/2.9.3, tem uma segunda
+parte: é exatamente esse par (`Allow Re-entry` ligado + um nó que empurra
+compromisso de ligação para o SDR: lá, `Add Task` "ligar agora"; aqui,
+`fila-quente`/`Prioridade` = 5 + `Internal Notification` "ligar hoje") que
+gera o risco descrito na própria seção 2.19 do `build-wesales.md`, F-04 —
+"pode empilhar tarefa+aviso sem limite a cada clique ou resposta do mesmo
+lead" — e que motivou o teto de toques por semana em primeiro lugar. O F-21
+copiou a causa (`Allow Re-entry` ligado sobre reação a resposta) sem copiar
+o remédio (o portão que checa `Toques na semana` antes de empurrar a fila).
+Um lead que responde ao `Resgate por E-mail` várias vezes no mesmo dia —
+comum quando alguém está negociando por e-mail — geraria `fila-quente` +
+aviso "ligar hoje" a cada resposta, sem limite, o mesmo "dobro de toques"
+que o F-04 já corrigiu para clique e resposta de WhatsApp/SMS. E mesmo uma
+única passagem sem repetição já é um ponto cego: o "Pronto quando" do F-04
+promete "nenhum lead recebe mais que N toques por semana, venha de onde
+vier" — antes deste item, "vier por e-mail" não estava incluído em "onde
+vier".
+
+**Pesquisado antes de desenhar:** a mesma pesquisa do F-07/F-19 já cobre a
+pergunta "como as quatro plataformas resolvem fadiga entre canais" (nenhuma
+delas soma toque de canais diferentes contra o mesmo teto — Outreach usa
+`Sequence Exclusivity`, uma trava de admissão, não um contador cross-canal,
+achado já registrado no próprio F-04). Não havia pesquisa nova a fazer: o
+achado deste item não é "que solução existe lá fora", é "esta operação já
+tinha a solução certa e não a aplicou onde o próprio desenho novo recriou o
+problema que ela resolve" — o mesmo tipo de lacuna que o G-06 (peça 1) já
+registrou para o `Send WhatsApp` da `Qualificação por IA`, achada a mesma
+forma: perguntar não "existe uma guarda?" mas "este ponto novo tem a mesma
+forma do ponto que fez a guarda nascer?".
+
+**Como:** `build-wesales.md`, seção 2.50, e `IMPLEMENTACAO-WORKFLOWS.md`,
+W27, ganham o nó **6c** (Portão de frequência, F-04: `Toques na semana`
+(C-26) ≥ 6 → ramo **6d**, senão → ramo **6a**) inserido entre o portão de
+telefone (nó 6) e a fila (agora 6a, só alcançada com telefone **e** teto
+livre); 6a ganha, depois de aplicar `fila-quente`/`Prioridade`, o mesmo
+`Add Contact Tag: toque` que o nó 7 da 2.9.2 já aplica. O ramo **6d** (teto
+batido, com telefone) segue direto para o registro (nós 7-10) sem
+fila/aviso, mesmo tratamento que o nó 3c da 2.9.2 já dá ao teto batido — a
+nota é barata, empilhar fila/tarefa/aviso sem limite é que custa caro. O
+aviso do nó 9 e a nota do nó 10 ganham uma terceira variante de texto
+(6a/6b/6d) para o gestor distinguir "sem telefone" de "tem telefone, mas o
+teto da semana já foi atingido" — os dois merecem decisão diferente.
+`campos-e-tags.md` (T-15, C-26) e `GUIA-MONTAGEM.md` (linha da
+`Interceptação de Sinal — E-mail`) atualizados para citar o novo nó; o
+"Teste" do W27 em `IMPLEMENTACAO-WORKFLOWS.md` ganhou um terceiro caso
+(teto já em 6, confirma que 6a não dispara).
+
+**Zero campo, zero tag, zero workflow novo, zero escrita no CRM:** reaproveita
+a tag `toque` (T-15) e o campo `Toques na semana` (C-26) que já existem —
+correção de spec pré-publicação (o W27 ainda não foi montado na tela,
+`GUIA-MONTAGEM.md`), não depende de `APROVADO.md`.
+
+**Pronto quando (cumprido):** `grep -n "6a\|6c\|6d" wesales/build-wesales.md`
+(seção 2.50) e a tabela do W27 em `IMPLEMENTACAO-WORKFLOWS.md` mostram o
+portão de frequência e a tag `toque` no mesmo lugar onde a 2.9.2/2.9.3 já
+os têm — nenhum ponto de envio/fila que roda `Allow Re-entry` sobre reação
+a `Customer Replied` fica de fora do teto de toques por semana.
+
 ### G-25 · A janela nativa das cadências vai disparar 36-37 mensagens juntas, um dia antes da abertura combinada — nenhuma sessão automática consegue fechar a janela sozinha (27/09/2026)
 
 **Por quê:** seguindo a própria instrução deste roadmap ("reler os itens
@@ -6348,3 +6427,31 @@ zero escrita no CRM: item de documentação e pesquisa, não depende de
 `build-wesales.md`, seção 2.51. G-03, G-04 (peça 2), F-09, F-10, G-11
 (item 1) e G-19 continuam sendo as seis decisões sem prazo fixo que
 esperam o dono, sem novidade nesta sessão.
+
+**Reconferido em 27/09/2026 ~16:05 UTC, sessão automática seguinte —
+faltam ~19h25min para a janela abrir (segunda 28/09 08:30
+`America/Sao_Paulo` = 11:30 UTC).** `opportunities_search-opportunity`
+(status `all`) sobe de 64 para **65 oportunidades** (14 `NOVO LEAD` [3 open
++ 10 abandoned + 1 lost], 47 `CONECTAR` [39 open + 8 lost], 3 `NEGOCIAR` [2
+open + 1 lost], 1 `REUNIÃO DE DIAGNÓSTICO` lost) — 1 lead novo frente à
+última leitura, sem qualquer sinal do disparo em massa do G-25;
+`locations_get-custom-fields` confirma 56 campos de contato, sem mudança;
+`Carlos Andrade` (`7ECnj1bSeEIm5P58Ifd9`) segue `dnd: true`, tag
+`atraso-1a-tentativa` presente — G-25 continua sem novidade, protegido.
+Sweep de coerência de sempre (números/nomes tocados nas últimas rodadas —
+F-19 a F-22, T-23, G-25/G-26 — em todo o `wesales/`) não achou nada novo em
+texto; a correção do G-26 (número fixo tirado de `build-wesales.md`
+§2.32) segue de pé, sem regressão. A sessão seguiu para a pergunta que
+ainda não tinha sido feita depois do G-26: não "esta guarda de canal
+existe em todo lugar?" (já esgotada por F-19-F-21), mas "todo workflow que
+nasceu do mesmo motivo que criou uma guarda também herdou a guarda?" —
+achou que o F-21 (2.50) reproduz o par `Allow Re-entry` + compromisso de
+ligação que motivou o F-04, sem o teto que o F-04 criou para esse par
+exato. Fechado como **F-23** (acima, entre F-22 e G-25): nó de portão de
+frequência (6c/6d) e a tag `toque` acrescentados ao nó 6a da 2.50/W27,
+mesmo tratamento que a 2.9.2/2.9.3 já dão ao teto batido. Zero campo, zero
+tag, zero workflow novo, zero escrita no CRM: reaproveita `toque` (T-15) e
+`Toques na semana` (C-26), correção de spec antes da publicação — não
+depende de `APROVADO.md`. G-03, G-04 (peça 2), F-09, F-10, G-11 (item 1) e
+G-19 continuam sendo as seis decisões sem prazo fixo que esperam o dono,
+sem novidade nesta sessão.

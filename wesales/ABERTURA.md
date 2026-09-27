@@ -127,3 +127,17 @@ abertura e medir, em vez de descobrir com 30.
 > a sessão usou o tempo para achar e especificar o **F-22**
 > (`ROADMAP-SALES-ENGAGEMENT.md`), proteção de reputação do domínio de
 > e-mail, sem mexer em nada deste risco.
+
+> **Reconferido em 27/09/2026 ~16:05 UTC, sessão automática seguinte —
+> faltam ~19h25min para a janela abrir.** `opportunities_search-opportunity`
+> sobe de 64 para **65** (1 lead novo, entrada legítima — sem qualquer
+> relação com o G-25, que é sobre a Cadência Inbound presa no nó 24, não
+> sobre volume de oportunidade); `Carlos Andrade` (`7ECnj1bSeEIm5P58Ifd9`)
+> segue `dnd: true`, tag `atraso-1a-tentativa` presente — protegido. `git
+> fetch` limpo. Nada mudou desde a leitura anterior (~14:05 UTC): nenhuma
+> correção aplicada, nenhum disparo, as duas decisões do dono seguem sem
+> resposta. Sem notificação nova nesta rodada, mesmo motivo das duas
+> anteriores — a sessão usou o tempo para achar e fechar o **F-23**
+> (`ROADMAP-SALES-ENGAGEMENT.md`), teto de toques por semana (F-04)
+> estendido à `Interceptação de Sinal — E-mail` (F-21), sem mexer em nada
+> deste risco.

@@ -9096,13 +9096,31 @@ momento estou fora`.
 | 3 | Portão de status | If/Else | `status` da oportunidade é `abandoned` → ramo A (reabrir, abaixo) · senão (`open`, `won`, `lost`) → pula direto para o nó 6 (só registra, não reabre — reabrir um negócio `lost` ou já `open` é decisão de negócio que este item não toma sozinho, mesmo raciocínio do nó 2 do 2.9.2 sobre `lost`) |
 | 4A | Reabrir | Update Opportunity | `status` = `open`, `Pipeline stage` = `[FUNIL DE VENDAS] - CONECTAR` — mesmo destino do nó 3 do R-08 (seção 2.12): um sinal de interesse por e-mail é o mesmo evento que a reativação de 90 dias já move para lá, só chegando fora do relógio |
 | 5A | Limpeza | Remove Contact Tag | `nutricao-90d` — idempotente mesmo se ausente, mesma linguagem do nó 4 do R-08 |
-| 6 | Portão de telefone | If/Else | `Phone` não vazio → ramo com telefone (6a) · `Phone` vazio (o caso mais comum desta população, F-15) → ramo sem telefone (6b) |
-| 6a | Fila, só quando dá para ligar | Add Contact Tag + Update Contact Field | `fila-quente` + `Prioridade` = 5 — só entra na `Fila Quente` (8.1) porque o nó 4A já moveu a etapa para `CONECTAR`; sem o nó 4A rodar (ramo B do nó 3), aplicar `fila-quente` aqui repetiria o erro do item 2 acima |
-| 6b | Sem fila automática | (nenhuma ação — segue para o nó 7) | Não existe lista nem tarefa nativa para "sinal quente sem telefone"; o aviso do nó 9 é o único canal, de propósito |
+| 6 | Portão de telefone | If/Else | `Phone` não vazio → ramo com telefone (6c) · `Phone` vazio (o caso mais comum desta população, F-15) → ramo sem telefone (6b) |
+| 6c | Portão de frequência (F-04) — **acrescentado em 27/09/2026, F-23** | If/Else | `Toques na semana` (C-26) **≥** 6 → ramo teto batido (6d) · senão → ramo com fila (6a) |
+| 6a | Fila, só quando dá para ligar e o teto permite | Add Contact Tag + Update Contact Field | `fila-quente` + `Prioridade` = 5 — só entra na `Fila Quente` (8.1) porque o nó 4A já moveu a etapa para `CONECTAR`; sem o nó 4A rodar (ramo B do nó 3), aplicar `fila-quente` aqui repetiria o erro do item 2 acima → **Depois: Add Contact Tag `toque` (F-04, seção 2.19) — acrescentado em 27/09/2026, F-23** |
+| 6b | Sem fila automática — sem telefone | (nenhuma ação — segue para o nó 7) | Não existe lista nem tarefa nativa para "sinal quente sem telefone"; o aviso do nó 9 é o único canal, de propósito |
+| 6d | Sem fila automática — teto batido — **acrescentado em 27/09/2026, F-23** | (nenhuma ação — segue para o nó 7) | O lead tem telefone e daria fila normalmente, mas a semana já esgotou os toques; a nota do nó 10 é o único registro, de propósito — mesmo tratamento que o nó 3c da 2.9.2 já dá ao teto batido (a nota é barata, empilhar fila/aviso sem limite é que custa caro) |
 | 7 | Registro do sinal | Update Contact Field | `Sinal recebido` = `Resposta de e-mail` (terceira opção do campo C-13 — **precisa existir na tela antes de este nó rodar**, ver "Pré-requisito" abaixo) |
 | 8 | Carimbo | Update Contact Field | `Data e hora do sinal` = `{{right_now}}` — mesmo campo (C-14) e mesma ressalva de formato não confirmado do 2.9.2 |
-| 9 | Aviso, sempre | Internal Notification | Para `Contact Owner` — texto varia pelo ramo do nó 6: **com telefone** (6a): `{{contact.name}} respondeu ao e-mail de resgate com sinal de interesse real e tem telefone cadastrado — oportunidade reaberta em CONECTAR, apareceu na Fila Quente, ligar hoje.` · **sem telefone** (6b): `{{contact.name}} respondeu ao e-mail de resgate com sinal de interesse real, mas não tem telefone cadastrado — oportunidade reaberta em CONECTAR, sem fila automática (Fila Quente é lista de ligação). Decida o canal de retomada: responder o e-mail, ou Instagram DM se foi essa a origem do lead (F-15, nota 3).` |
-| 10 | Registro | Add Note | Ramo A: `Sinal: resposta de e-mail com interesse real — oportunidade reaberta em CONECTAR` · Ramo B (nó 3): `Sinal: resposta de e-mail com interesse real — oportunidade já estava em {{opportunity.status}}, sem reabertura automática` |
+| 9 | Aviso, sempre | Internal Notification | Para `Contact Owner` — texto varia pelo ramo de origem: **6a** (com telefone, teto livre): `{{contact.name}} respondeu ao e-mail de resgate com sinal de interesse real e tem telefone cadastrado — oportunidade reaberta em CONECTAR, apareceu na Fila Quente, ligar hoje.` · **6b** (sem telefone): `{{contact.name}} respondeu ao e-mail de resgate com sinal de interesse real, mas não tem telefone cadastrado — oportunidade reaberta em CONECTAR, sem fila automática (Fila Quente é lista de ligação). Decida o canal de retomada: responder o e-mail, ou Instagram DM se foi essa a origem do lead (F-15, nota 3).` · **6d** (com telefone, teto batido — **acrescentado em 27/09/2026, F-23**): `{{contact.name}} respondeu ao e-mail de resgate com sinal de interesse real e tem telefone cadastrado, mas o teto de toques da semana já foi atingido — oportunidade reaberta em CONECTAR, sem fila automática. Decida se abre exceção manual (ver Toques na semana).` |
+| 10 | Registro | Add Note | Ramo A, origem 6a/6d: `Sinal: resposta de e-mail com interesse real — oportunidade reaberta em CONECTAR` (origem 6d some o texto "(teto de toques da semana batido — sem fila automática, ver Toques na semana)", mesmo padrão do nó 9 da 2.9.2) · Ramo B (nó 3): `Sinal: resposta de e-mail com interesse real — oportunidade já estava em {{opportunity.status}}, sem reabertura automática` |
+
+> **F-23, 27/09/2026 — por que o nó 6c/6d e a tag `toque` no 6a foram
+> acrescentados depois de o F-21 já estar especificado, não desde o
+> início.** A própria seção diz, no nó 6a original, que `Allow Re-entry`
+> fica ligado "porque cada resposta é um evento novo, mesmo raciocínio do
+> 2.9.2" — mas o 2.9.2/2.9.3 tiraram uma segunda consequência do mesmo
+> raciocínio que este item não tinha copiado: é exatamente o par
+> `Allow Re-entry` ligado + ação que empurra uma ligação para o SDR
+> ("ligar hoje") que motivou o F-04 (`campos-e-tags.md`, T-15: "todo nó que
+> cria [um compromisso de] ligação... aplica esta tag") — um lead que
+> responde ao `Resgate por E-mail` várias vezes no mesmo dia geraria
+> `fila-quente`/`Prioridade` = 5 e um aviso "ligar hoje" a cada resposta,
+> sem limite, o mesmo empilhamento sem teto que o F-04 já corrigiu para
+> clique e resposta de WhatsApp/SMS. Sem o nó 6c, o teto de toques que o
+> F-04 promete "venha de onde vier" (seção 2.19, "Pronto quando") tinha um
+> canal fora do alcance dele.
 
 **Pré-requisito, e é o único ajuste em objeto já existente que este item
 pede:** `Sinal recebido` (C-13, `SINGLE_OPTIONS`) tem hoje só `Clique em
@@ -9142,16 +9160,21 @@ aqui para que uma sessão futura não "conserte" a 8.13 sem necessidade.
 
 **Zero tag nova, zero campo novo — uma opção nova num campo que já existe:**
 reaproveita `nao-perturbe`, `nutricao-90d`, `fila-quente`, `Prioridade`
-(C-04), `Sinal recebido` (C-13, +1 opção), `Data e hora do sinal` (C-14) e
-`Phone` nativo. Falta só a criação manual do workflow (não sai por API) e a
-opção nova em C-13 (idem) — nenhum dos dois depende de escrita neste
-conector; zero escrita no CRM nesta rodada.
+(C-04), `Sinal recebido` (C-13, +1 opção), `Data e hora do sinal` (C-14),
+`toque` (T-15) e `Toques na semana` (C-26, F-23) e `Phone` nativo. Falta só
+a criação manual do workflow (não sai por API) e a opção nova em C-13
+(idem) — nenhum dos dois depende de escrita neste conector; zero escrita
+no CRM nesta rodada.
 
 **Pronto quando:** uma resposta de e-mail com sinal de interesse real (sem
 frase de opt-out nem de ausência) reabre a oportunidade em `CONECTAR`,
 grava `Sinal recebido`/`Data e hora do sinal` e avisa o gestor com uma
 instrução que já leva em conta se o lead tem telefone ou não — nunca com
-"ligar agora" para quem, por definição, não tem número.
+"ligar agora" para quem, por definição, não tem número — **e nunca deixa
+de contar contra o teto semanal de toques nem de respeitá-lo (F-23):**
+uma segunda resposta no mesmo dia com o teto já batido gera nota, não fila
+nova nem aviso novo, o mesmo comportamento que a 2.9.2/2.9.3 já garantem
+para clique e resposta de WhatsApp/SMS.
 
 ## 2.51 Proteção de reputação do domínio de e-mail — F-22
 

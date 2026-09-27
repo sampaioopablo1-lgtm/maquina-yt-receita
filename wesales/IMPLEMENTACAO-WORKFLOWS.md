@@ -1840,13 +1840,15 @@ reaproveitadas por inteiro.
 | 3 | If/Else | `status` da oportunidade é `abandoned` → 4A · senão (`open`/`won`/`lost`) → 6, sem reabrir | 4A ou 6 |
 | 4A | Update Opportunity | `status` = `open`, `Pipeline stage` = `[FUNIL DE VENDAS] - CONECTAR` | 5A |
 | 5A | Remove Contact Tag | `nutricao-90d` | 6 |
-| 6 | If/Else | `Phone` não vazio → 6a · `Phone` vazio → 6b | 6a ou 6b |
-| 6a | Add Contact Tag + Update Contact Field | `fila-quente` + `Prioridade` = 5 | 7 |
-| 6b | (nenhuma ação) | — | 7 |
+| 6 | If/Else | `Phone` não vazio → 6c · `Phone` vazio → 6b | 6c ou 6b |
+| 6c | If/Else — Portão de frequência (F-04, **acrescentado em 27/09/2026, F-23**) | `Toques na semana` (C-26) ≥ 6 → 6d · senão → 6a | 6a ou 6d |
+| 6a | Add Contact Tag + Update Contact Field | `fila-quente` + `Prioridade` = 5 → depois: Add Contact Tag `toque` (F-04, **F-23**) | 7 |
+| 6b | (nenhuma ação — sem telefone) | — | 7 |
+| 6d | (nenhuma ação — teto batido, **F-23**) | — | 7 |
 | 7 | Update Contact Field | `Sinal recebido` = `Resposta de e-mail` | 8 |
 | 8 | Update Contact Field | `Data e hora do sinal` = `{{right_now}}` (C-14) | 9 |
-| 9 | Internal Notification | ao `Contact Owner` — texto varia por 6a/6b, ver `build-wesales.md` §2.50 | 10 |
-| 10 | Add Note | Ramo A: "oportunidade reaberta em CONECTAR" · Ramo B: "sem reabertura automática" | fim |
+| 9 | Internal Notification | ao `Contact Owner` — texto varia por 6a/6b/6d, ver `build-wesales.md` §2.50 | 10 |
+| 10 | Add Note | Ramo A (6a/6d, texto muda se veio de 6d): "oportunidade reaberta em CONECTAR" · Ramo B: "sem reabertura automática" | fim |
 
 **Por que não é o W13 com o canal trocado:** o W13 (`Interceptação de
 Sinal — Resposta`) aplica `fila-quente`/`Prioridade` = 5 e uma tarefa
@@ -1874,7 +1876,12 @@ volta a `open`/`CONECTAR`, tag `nutricao-90d` removida, `Sinal recebido` =
 `Contact Owner` mencionando a ausência de telefone — e **nenhuma** tag
 `fila-quente` aplicada (o contato de teste não tem telefone). Repita com
 um segundo contato de teste com telefone preenchido e confirme que, desta
-vez, `fila-quente` e `Prioridade` = 5 aparecem.
+vez, `fila-quente`, `Prioridade` = 5 e a tag `toque` aparecem. **Terceiro
+caso, F-23:** repita com um contato de teste com telefone preenchido e
+`Toques na semana` já em 6 (ou acima) — confirme que desta vez **não**
+aparece `fila-quente` nem `Prioridade` = 5, o aviso ao `Contact Owner` é a
+variante "teto batido" e a nota do nó 10 registra o motivo, sem tag `toque`
+nova (nada foi enfileirado).
 
 ---
 
