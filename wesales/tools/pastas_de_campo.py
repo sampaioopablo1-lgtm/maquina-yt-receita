@@ -333,7 +333,8 @@ def plano(pastas: dict | None = None) -> None:
         for c in mover:
             print("      %3d/64  %s" % (cheios.get(c, 0), c))
     print()
-    print("total a arrastar: %d, mais criar as 5 pastas — tudo na tela" % total)
+    print("mapa: %d campos. RETIFICADO 27/09 17:05: campo MUDA de pasta por PUT parentId" % total)
+    print("(run 36335476750); so pasta NOVA e tela. campos_bant.py ja moveu a ficha do SDR.")
 
 
 def main() -> int:
