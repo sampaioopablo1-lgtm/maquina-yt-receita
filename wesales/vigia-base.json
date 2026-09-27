@@ -1,0 +1,19 @@
+{
+  "escopo": "Semeada em 27/09/2026 a partir de uma varredura restrita a etapa CONECTAR (38 contatos). Os achados campo-morto FORAM DEIXADOS DE FORA de proposito: aquele achado depende do escopo, e a primeira rodada desescopada do Action vai estabelece-lo. Espere a primeira rodada vermelha e ratifique com --gravar depois de ler.",
+  "conhecidos": [
+    "valores: [campos-gemeos] Necessidade x Dor principal — valores em comum: Falta de novos clientes, Quero aprender a gerar meus próprios leads para o WhatsApp, Quero contratar alguém para gerar meus leads (Agência).",
+    "valores: [campos-gemeos] Urgência x Investimento mensal em anúncios — valores em comum: Abaixo de 5k, Acima de 10k",
+    "valores: [fora-da-picklist] Investimento mensal em anúncios — 'Abaixo de 5k' — opções: Até 1k, 1k a 5k, 5k a 10k, Acima de 10k",
+    "valores: [fora-da-picklist] Investimento mensal em anúncios — 'Até R$ 1.000' — opções: Até 1k, 1k a 5k, 5k a 10k, Acima de 10k",
+    "valores: [fora-da-picklist] Investimento mensal em anúncios — 'Não invisto nada ainda' — opções: Até 1k, 1k a 5k, 5k a 10k, Acima de 10k",
+    "valores: [telefone-improvavel] phone — prefixo 120363: é ID de grupo do WhatsApp, não telefone"
+  ],
+  "porque": {
+    "valores: [fora-da-picklist] Investimento mensal em anúncios — 'Não invisto nada ainda' — opções: Até 1k, 1k a 5k, 5k a 10k, Acima de 10k": "G-04, a metade que resta: as opcoes de Investimento mensal. Aguarda o dono escolher A ou B. A metade Prazo/Urgencia foi resolvida em 22/09 (IMPLEMENTACAO-WORKFLOWS.md, 3.3).",
+    "valores: [fora-da-picklist] Investimento mensal em anúncios — 'Abaixo de 5k' — opções: Até 1k, 1k a 5k, 5k a 10k, Acima de 10k": "Mesmo G-04.",
+    "valores: [fora-da-picklist] Investimento mensal em anúncios — 'Até R$ 1.000' — opções: Até 1k, 1k a 5k, 5k a 10k, Acima de 10k": "Mesmo G-04.",
+    "valores: [campos-gemeos] Necessidade x Dor principal — valores em comum: Falta de novos clientes, Quero aprender a gerar meus próprios leads para o WhatsApp, Quero contratar alguém para gerar meus leads (Agência).": "Esperado durante a transicao: o mapeamento trocou no meio da base, e a regua precisa ler os dois em OU. Nao e regressao.",
+    "valores: [campos-gemeos] Urgência x Investimento mensal em anúncios — valores em comum: Abaixo de 5k, Acima de 10k": "Residuo dos leads que entraram ANTES do conserto de 22/09. Lead novo nao deve mais cair aqui — se cair, e regressao de verdade.",
+    "valores: [telefone-improvavel] phone — prefixo 120363: é ID de grupo do WhatsApp, não telefone": "Os dois tratados em 27/09 (dnd + nao-perturbe + grupo-whatsapp-nao-e-lead + abandoned). Vai repetir enquanto a ponte nao oficial estiver no ar e nao houver portao por numero de digitos."
+  }
+}

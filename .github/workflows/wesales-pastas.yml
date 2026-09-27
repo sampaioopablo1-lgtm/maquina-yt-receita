@@ -1,0 +1,49 @@
+name: WeSales - pastas de campo
+
+# Por que existe: 53 dos 56 campos personalizados estao numa pasta unica, e e a
+# origem literal da queixa do dono ("meio completo e confuso"). Criar pasta sai
+# por API publica (POST /custom-fields/folder), mas o proxy do conteiner onde o
+# script foi escrito nega services.leadconnectorhq.com. Aqui sai: o runner tem
+# rede e o secret GHL_PIT.
+#
+# Sem cron e sem push de proposito: isto ESCREVE na estrutura do CRM. Roda so
+# quando alguem aperta o botao, e por padrao em modo plano (nao chama a conta).
+#
+# NAO move campo: o PUT /custom-fields/{id} nao aceita parentId. O arrasto fica
+# na tela, e o job imprime o mapa na ordem de maior alivio primeiro.
+#
+# O passo do mapa roda sempre e sem segredo: ele confere o MAPA do script contra
+# wesales/dados/campos-27-09.json e falha se sobrar ou faltar campo, antes de
+# qualquer escrita.
+
+on:
+  workflow_dispatch:
+    inputs:
+      criar:
+        description: "Criar as 5 pastas de verdade (false = so imprime o mapa)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  pastas:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Mapa de arrasto (sempre, offline)
+        run: python wesales/tools/pastas_de_campo.py --plano
+
+      - name: Criar as pastas
+        if: ${{ inputs.criar }}
+        env:
+          GHL_PIT: ${{ secrets.GHL_PIT }}
+        run: python wesales/tools/pastas_de_campo.py --criar

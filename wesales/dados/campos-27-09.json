@@ -1,0 +1,352 @@
+{
+  "medido_em": "2026-09-27",
+  "locationId": "1D53YTI9C7oIMBavcQxV",
+  "fonte": "locations_get-custom-fields (nomes/pastas) + contacts_get-contacts (preenchimento)",
+  "contatos_na_amostra": 64,
+  "total_de_campos": 57,
+  "campos": [
+    {
+      "id": "chuJMRlKzY0Uq1f0lSkX",
+      "nome": "Prioridade",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 45
+    },
+    {
+      "id": "FnphiGDVkijSNDEP53c3",
+      "nome": "WA não atendidas seguidas",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 44
+    },
+    {
+      "id": "BRcN6IGXtDr0u52QtfiF",
+      "nome": "Checkpoint — Tentativa nº",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 42
+    },
+    {
+      "id": "uWUGz5gVGAFmNuk5GXbX",
+      "nome": "Entrada em",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 42
+    },
+    {
+      "id": "kdKnJecyZtssILfPPigl",
+      "nome": "Permissão WhatsApp",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 42
+    },
+    {
+      "id": "qHJGJKZBccASOKkKP8ge",
+      "nome": "Tentativa nº",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 42
+    },
+    {
+      "id": "2LnUD4KYSGkIBwiUdzl3",
+      "nome": "Urgência",
+      "pastaAtual": "zHU4yGXKHdxBHnGxUmai",
+      "preenchidos": 40
+    },
+    {
+      "id": "OJQEsl5dV37pfVY2sIaB",
+      "nome": "Necessidade",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 34
+    },
+    {
+      "id": "bQithNwReQIBGlZBaNlI",
+      "nome": "Investimento mensal em anúncios",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 32
+    },
+    {
+      "id": "JUBhmz0DGQMvjLCxSNrk",
+      "nome": "Total de ligações",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 7
+    },
+    {
+      "id": "qmIKSSDVYNLl5E8vnr3f",
+      "nome": "Dor principal",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 6
+    },
+    {
+      "id": "wCzdqF7uLQwtrZ1JyZRn",
+      "nome": "Tentativas telefone",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 6
+    },
+    {
+      "id": "FHoXQnLYA8LW5mFzfdIq",
+      "nome": "Nota de qualificação",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 5
+    },
+    {
+      "id": "aY5cwLe9y13CEyv8ecwv",
+      "nome": "Data agendado",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 4
+    },
+    {
+      "id": "x5JUx0YCWaZmH3Q85psI",
+      "nome": "Investe em anúncios",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 4
+    },
+    {
+      "id": "xjEcIFfdt2h29wBaKMQO",
+      "nome": "Quem atende os leads",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 4
+    },
+    {
+      "id": "nPafc9c0JdSSptdPhUlF",
+      "nome": "Resultado da tentativa",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 4
+    },
+    {
+      "id": "c1xuCuLyJheHOQoJ3grH",
+      "nome": "Toques na semana",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 4
+    },
+    {
+      "id": "PKzNljzDoU77O14nHLrV",
+      "nome": "1ª tentativa em",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 3
+    },
+    {
+      "id": "SZVgh0Y5HRcWWZG4fO9V",
+      "nome": "Budget",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 3
+    },
+    {
+      "id": "TxJmoWdkA8rTqC1uEsMW",
+      "nome": "Canal que conectou",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 3
+    },
+    {
+      "id": "wmod0p91VuukwWDwKCgi",
+      "nome": "Clientes novos por mês",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 3
+    },
+    {
+      "id": "LB11ao0AdSI1QSHyZBOP",
+      "nome": "Conexões telefone",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 3
+    },
+    {
+      "id": "uJnePU1Tl1Zr1fTxYKIz",
+      "nome": "Data conectado",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 3
+    },
+    {
+      "id": "3dphGCPCoFcYXEQC2jeB",
+      "nome": "Decisor",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 3
+    },
+    {
+      "id": "lAqbaJE9K4LDkq3t2zzc",
+      "nome": "Prazo",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 3
+    },
+    {
+      "id": "sJY6q3X7deZ5yGbjiORT",
+      "nome": "Tem time comercial",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 3
+    },
+    {
+      "id": "7wtFfDDxOpYCfHzBsZXP",
+      "nome": "Conexão real",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 2
+    },
+    {
+      "id": "ffIpN8kTlhncr7K00Xzy",
+      "nome": "Data do veredito do closer",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 2
+    },
+    {
+      "id": "PLjkuvnoDk7Hvt4qv0a8",
+      "nome": "Duração da ligação",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 2
+    },
+    {
+      "id": "JejovPl6Vf0SBtAiVIpw",
+      "nome": "Ligações com transcrição",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 2
+    },
+    {
+      "id": "c470gqXWCkwqE9yVrcEi",
+      "nome": "Reunião foi qualificada",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 2
+    },
+    {
+      "id": "StguwRaz0AVlQqzaAoFh",
+      "nome": "Template usado",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 2
+    },
+    {
+      "id": "EsisfhEZWFLcnEYEzx3k",
+      "nome": "Data compareceu",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 1
+    },
+    {
+      "id": "uXf6nG2tKQ7EtGCbHkfy",
+      "nome": "Data e hora do sinal",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 1
+    },
+    {
+      "id": "5L0RMR1HZVQ7IevyjOQX",
+      "nome": "Motivo da desqualificação",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 1
+    },
+    {
+      "id": "jfQgrZFnxhbn1qmCeFDC",
+      "nome": "Sinal recebido",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 1
+    },
+    {
+      "id": "tQ7Fzo6cWeBDmEoaTBIZ",
+      "nome": "Total de conexões",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 1
+    },
+    {
+      "id": "qxJhMydTz6DcM4td4F08",
+      "nome": "Canal principal de venda",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 0
+    },
+    {
+      "id": "el7xNMvPE8ZiyfysRff9",
+      "nome": "Checkpoint — Data de retorno",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 0
+    },
+    {
+      "id": "Og1CkI9x9OztsV242nIM",
+      "nome": "Conexões WhatsApp",
+      "pastaAtual": "vCqedGd185RiQKNlU870",
+      "preenchidos": 0
+    },
+    {
+      "id": "2BSLMqty4LEwdoyNTdU8",
+      "nome": "Conexões reais telefone",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 0
+    },
+    {
+      "id": "IBOMNQecWtIUruHpNAs1",
+      "nome": "Data de retorno",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 0
+    },
+    {
+      "id": "zs7KhkmfUMyuXWQlyUv7",
+      "nome": "Empresa",
+      "pastaAtual": "zHU4yGXKHdxBHnGxUmai",
+      "preenchidos": 0
+    },
+    {
+      "id": "QyEDg0qFlQ3gra5qZsJF",
+      "nome": "Experiência com agência",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 0
+    },
+    {
+      "id": "5hU72B0HuoMApZvO1Qk7",
+      "nome": "Hora da conexão",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 0
+    },
+    {
+      "id": "IHXNFnguTPyNj5Q59ea2",
+      "nome": "Hora do retorno",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 0
+    },
+    {
+      "id": "2tLo2m4KLTcP6fTEq3LG",
+      "nome": "Instagram",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 0
+    },
+    {
+      "id": "O500dbTabWUJwnBKwuUl",
+      "nome": "Já teve agência?",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 0
+    },
+    {
+      "id": "ONBBDPg4LPIoRhv09Nf3",
+      "nome": "Nº de no-shows",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 0
+    },
+    {
+      "id": "f5bd9nBObV1cGgejAzdv",
+      "nome": "Plataformas de anúncio",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 0
+    },
+    {
+      "id": "mJv4YcFBH4NsPfbh5Q3G",
+      "nome": "Qualificação",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 0
+    },
+    {
+      "id": "Z7qwvDlagOLEhoCz5G5v",
+      "nome": "Segmento",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 0
+    },
+    {
+      "id": "f1jNltRYjcrgKUZlxo8z",
+      "nome": "Site",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 0
+    },
+    {
+      "id": "5j9SerJeZ6ngfZCPb2Wg",
+      "nome": "Tentativas WhatsApp",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 0
+    },
+    {
+      "id": "dYKivcXqdw4MToQLwoA9",
+      "nome": "Usa CRM",
+      "pastaAtual": "gabsbU3jsUN7oIXCnYab",
+      "preenchidos": 0
+    },
+    {
+      "id": "GVlTZmL4I4MmpTtN1DY8",
+      "nome": "Quanto pode investir",
+      "pastaAtual": "zHU4yGXKHdxBHnGxUmai",
+      "preenchidos": 0,
+      "nota": "criado em 27/09 18:32 pelo campos_bant (A_CRIAR); run 36341042910"
+    }
+  ]
+}

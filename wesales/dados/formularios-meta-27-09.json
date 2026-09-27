@@ -1,0 +1,97 @@
+{
+ "medido_em": "2026-09-27",
+ "locationId": "1D53YTI9C7oIMBavcQxV",
+ "ad_account_id": "1695865631502778",
+ "page_id": "1117439194786453",
+ "page_leadgen_tos_accepted": false,
+ "account_status": "UNSETTLED",
+ "is_queryable": false,
+ "como_foi_medido": "mediumId da attribution do contato = id do formulario de Lead Ads; cruzado com os customFields preenchidos",
+ "o_que_nao_deu": "a definicao do formulario (as perguntas) exige ads_get_ad_entities, que a conta UNSETTLED nao permite",
+ "formularios": [
+  {
+   "form_id": "2412763482587375",
+   "contatos": 21,
+   "conjuntos": [
+    "LEADS I NICHO ADVOCACIA BR I FASE 3",
+    "LEADS I NICHO CONTABILIDADE BR I FASE 3"
+   ],
+   "campos_de_anuncio_preenchidos": [
+    "Investimento mensal em anúncios",
+    "Necessidade",
+    "Urgência"
+   ],
+   "mapeia_algo": true
+  },
+  {
+   "form_id": "1026163897118958",
+   "contatos": 8,
+   "conjuntos": [],
+   "campos_de_anuncio_preenchidos": [
+    "Necessidade",
+    "Urgência"
+   ],
+   "mapeia_algo": true
+  },
+  {
+   "form_id": "28266780626312413",
+   "contatos": 7,
+   "conjuntos": [
+    "LEADS I INTERESSE BR I FASE 3",
+    "LEADS I PERSONALIZADO CNAE BR I FASE 3"
+   ],
+   "campos_de_anuncio_preenchidos": [
+    "Investimento mensal em anúncios",
+    "Necessidade",
+    "Urgência"
+   ],
+   "mapeia_algo": true
+  },
+  {
+   "form_id": "1625438192440294",
+   "contatos": 3,
+   "conjuntos": [],
+   "campos_de_anuncio_preenchidos": [
+    "Investimento mensal em anúncios",
+    "Necessidade",
+    "Urgência"
+   ],
+   "mapeia_algo": true
+  },
+  {
+   "form_id": "1751104652676702",
+   "contatos": 1,
+   "conjuntos": [],
+   "campos_de_anuncio_preenchidos": [],
+   "mapeia_algo": false
+  },
+  {
+   "form_id": "1065515179587826",
+   "contatos": 1,
+   "conjuntos": [],
+   "campos_de_anuncio_preenchidos": [],
+   "mapeia_algo": false
+  },
+  {
+   "form_id": "1471351778171903",
+   "contatos": 1,
+   "conjuntos": [],
+   "campos_de_anuncio_preenchidos": [],
+   "mapeia_algo": false
+  },
+  {
+   "form_id": "1606774301099773",
+   "contatos": 1,
+   "conjuntos": [],
+   "campos_de_anuncio_preenchidos": [],
+   "mapeia_algo": false
+  },
+  {
+   "form_id": "1054520230548260",
+   "contatos": 1,
+   "conjuntos": [],
+   "campos_de_anuncio_preenchidos": [],
+   "mapeia_algo": false
+  }
+ ]
+}
