@@ -1,0 +1,84 @@
+name: WeSales - finalizar configuracao
+
+# Por que existe: o conteiner onde esta configuracao e escrita nao alcanca o GHL
+# (services. e backend.leadconnectorhq.com respondem 000 pelo proxy de egresso,
+# medido em 27/09). O runner do GitHub alcanca, e tem o segredo GHL_PIT. Este e
+# o unico arquivo que faz a finalizacao — de proposito separado de
+# wesales-g03.yml, que tem cron de producao e nao deve carregar outra funcao.
+#
+# Sem cron: isto ESCREVE na estrutura e nos registros do CRM. Roda so por botao.
+# O padrao e `recon`, que le e nao escreve, entao apertar sem pensar nao muda nada.
+#
+# NOTA DE ALCANCE: um workflow_dispatch pela API do GitHub so resolve o workflow
+# se o arquivo existir no BRANCH PADRAO — testado, um arquivo que existe apenas
+# no branch de trabalho devolve 404. Por isso este arquivo esta aqui. Os scripts
+# que ele chama vivem no branch de trabalho, entao o dispatch tem de passar
+# `ref` apontando para la ate o PR ser mesclado.
+
+on:
+  workflow_dispatch:
+    inputs:
+      modo:
+        description: "recon le e nao escreve. Os outros escrevem no CRM."
+        type: choice
+        default: recon
+        options:
+          - recon
+          - pastas
+          - donos
+          - verificar
+      user_id:
+        description: "So para modo=donos: id do usuario que recebe os leads"
+        type: string
+        required: false
+
+permissions:
+  contents: read
+
+jobs:
+  finalizar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Confere o mapa campo->pasta contra o snapshot versionado. Offline, sem
+      # segredo, sempre. Falha se sobrar, faltar ou repetir campo — antes de
+      # qualquer escrita.
+      - name: Conferir o mapa de campos
+        run: python wesales/tools/pastas_de_campo.py --plano
+
+      - name: Reconhecimento (le a conta, escreve nada)
+        if: ${{ inputs.modo == 'recon' }}
+        env:
+          GHL_PIT: ${{ secrets.GHL_PIT }}
+          GHL_STORAGE_STATE: ${{ secrets.GHL_STORAGE_STATE }}
+        run: python wesales/tools/finalizar.py --recon
+
+      - name: Pastas de campo (renomeia a grande, cria as outras quatro)
+        if: ${{ inputs.modo == 'pastas' }}
+        env:
+          GHL_PIT: ${{ secrets.GHL_PIT }}
+        run: python wesales/tools/finalizar.py --pastas
+
+      - name: Dono do lead
+        if: ${{ inputs.modo == 'donos' }}
+        env:
+          GHL_PIT: ${{ secrets.GHL_PIT }}
+        run: |
+          if [ -n "${{ inputs.user_id }}" ]; then
+            python wesales/tools/finalizar.py --donos --user "${{ inputs.user_id }}"
+          else
+            python wesales/tools/finalizar.py --donos
+          fi
+
+      - name: Verificacao (rele a conta e prova)
+        if: ${{ inputs.modo == 'verificar' }}
+        env:
+          GHL_PIT: ${{ secrets.GHL_PIT }}
+        run: python wesales/tools/finalizar.py --verificar
