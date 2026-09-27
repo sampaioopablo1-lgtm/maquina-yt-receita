@@ -244,7 +244,7 @@ apaga contato, oportunidade ou lead.
 | Edge Function publicada no Supabase (`cscczluzpblzhvojxanp`) | **no ar**, versão 1 |
 | tabela `config` + PIN | criados |
 | **token do GHL dentro do painel** | **NÃO** — ver abaixo |
-| campo `SDR responsável` no CRM | criado pela Action no mesmo passo do token → **pendente** |
+| campo `SDR responsável` no CRM | **criado pela API** (run 36334862059): `LoSi8PQCbBRjmkMC8CH8`, HTTP 201, relido depois |
 
 **Por que o token não entrou.** Primeira tentativa: gravar por PostgREST no projeto
 `maquina-yt-dark` → **HTTP 402** *"restricted due to exceed_storage_size_quota"* (run
@@ -286,6 +286,15 @@ Se a conta Supabase não for liberada até terça, o plano B é hospedar a mesma
 outro lugar (Netlify Functions — há conector; o código é Deno/TS puro e porta em
 minutos). Não fiz porque a hospedagem alternativa também precisaria do token, e o
 token esbarra no mesmo ponto 2.
+
+### O que a sonda do run 36334862059 mediu (vale para o painel e para a rotina)
+
+| | medido |
+|---|---|
+| usuários no CRM (a lista do seletor de SDR) | **1** — `Pablo Santos` (`JdvhvOTEBTvUyRi0BXU8`). **O SDR precisa de um usuário próprio no CRM** (Configurações → Equipe) para aparecer na lista e para o `SDR responsável` ter o nome certo. Criar usuário por API é escopo de agência; é tela do dono, 1 minuto |
+| calendário `Reunião com closer` | ativo, slot de **1 hora**, equipe = o dono. O painel passa `assignedUserId` = dono, porque a equipe tem um só membro |
+| horários livres, próximos 7 dias | **35** (5 por dia, sáb 27/09 a sex 03/10) — a agenda do closer aparece no painel com esses |
+| menu lateral no WeSales por API (`/custom-menus/`) | **401** com este token — é escopo de agência. O painel fica em favorito do navegador, não na barra lateral |
 
 ### O formulário nativo `Qualificação SDR`
 
