@@ -153,15 +153,11 @@ Dois consertos, de tamanhos diferentes:
 
 ### Três coisas menores, achadas na mesma leitura
 
-**1. Dois leads abertos em `NOVO LEAD` não têm nome.** Um vem com o nome
-literalmente vazio, o outro com `Sem Nome` (`+5521969613820` e
-`+5511951285383`), os dois com `cad-inbound` e `novo-lead-estagnado`. Os 38 de
-`CONECTAR` têm nome, então o mapeamento de nome do formulário funciona em geral —
-estes dois entraram por um caminho que não trouxe o campo. É a mesma família do
-G-04 (resposta de formulário que não casa com o campo de destino), e o efeito é
-concreto: o SDR abre a ligação sem ter como chamar a pessoa. Vale conferir de
-qual formulário vieram antes de reativar a campanha a 10 leads/dia, senão
-entram assim aos dez por dia.
+**1. Dois leads abertos em `NOVO LEAD` aparecem sem nome utilizável**
+(`+5521969613820` e `+5511951285383`). **A causa que eu atribuí primeiro — o
+formulário do Meta — estava errada**; ver a correção logo abaixo, que é mais
+útil: um é o app de WhatsApp gravando `Sem nome`, o outro é uma oportunidade em
+branco de um contato que tem nome.
 
 **2. A única oportunidade aberta em `REUNIÃO DE DIAGNÓSTICO` é o próprio dono**
 (`Pablo Sampaio`, `+5521987429940`) — o teste do calendário. Não é lead. Enquanto
@@ -173,6 +169,53 @@ status `lost` (nunca excluir, regra 1) limpa isso.
 sabido, mas agora com o número fechado do pipeline inteiro: a máquina nunca
 levou ninguém até o fim. Não é defeito de configuração — é a razão de a abertura
 existir.
+
+### CORREÇÃO (27/09 07:50) — os "leads sem nome" não vêm do formulário
+
+Na rodada anterior eu escrevi que dois leads abertos em `NOVO LEAD` chegaram sem
+nome e que valia conferir o formulário do Meta antes de reativar a campanha.
+**A causa estava errada.** Fui ler os cinco registros um por um; nenhum veio de
+Lead Ads.
+
+| registro | criado | `createdBy.source` | o que é de verdade |
+|---|---|---|---|
+| `+120363294985523330` | 24/09 | `INTEGRATION`/OAUTH `…mawx7is9` | JID de grupo do WhatsApp (18 dígitos) — já tratado |
+| `+120363226349138496` | 26/09 | idem | JID de grupo do WhatsApp — já tratado |
+| `+5511951285383` | 24/09 | idem — o **app de WhatsApp** | **pessoa real**, 13 dígitos, tem foto de perfil do WhatsApp. Aberto em `NOVO LEAD` |
+| `+552123915933` | 22/09 | — | fixo do Rio (12 dígitos), `abandoned` |
+| `+5521969613820` | 25/09 | **`lc-phone-api`** | **`Carla Sampaio`** — o contato TEM nome; é a **oportunidade** que está em branco |
+
+Duas coisas diferentes, e as duas mais úteis do que "formulário errado":
+
+**1. O app de WhatsApp grava `Sem nome` como nome do contato.** `+5511951285383`
+é gente de verdade — tem foto de perfil — e o CRM chama a pessoa de `Sem nome`,
+porque é isso que o app põe quando o WhatsApp não expõe nome de exibição. É o
+**mesmo `sourceId` (`…mawx7is9`) que traz os JID de grupo**: uma integração só
+responde pelos dois defeitos. Consequência na tela: o SDR abre a ligação sem ter
+como chamar a pessoa. O conserto não é no formulário — é decidir o que fazer
+quando o app manda `Sem nome` (usar o telefone como rótulo já seria melhor, e é
+o que o `554791548812` de `CONECTAR` mostra que acontece por outro caminho).
+
+**2. A oportunidade da Carla está sem nome, e o contato não.** No quadro de
+Oportunidades e numa puxada por pipeline no Call Center (que devolve
+`número, nome`), essa linha aparece **em branco**. É defeito de exibição do
+nó que cria a oportunidade, não de captação.
+
+### O que o `lc-phone-api` revela sobre o `Receber` — resposta parcial, e é a primeira evidência do caminho de entrada
+
+A `Carla Sampaio` foi criada em **25/09 por `lc-phone-api`**, ou seja **por uma
+ligação recebida**, e carrega `Duração da ligação` = **40** e `Conexão real` =
+`Não` (coerente com a regra do F-06, que só conta acima de 60 s).
+
+Isso é a **primeira evidência em todo o projeto de que o caminho de entrada
+produz dado**: chamada de entrada chega neste número, gera contato e é medida.
+
+**O que isso NÃO prova**, e não vou esticar: os 40 segundos podem ser tempo de
+toque em vez de conversa, e a leitura é de **25/09** — anterior à tela em que eu
+vi o `Receber` em `Desativado`. Então a pergunta da §3 continua valendo, só
+deixou de ser no escuro: já existe um registro de entrada atendido o bastante
+para virar contato e número. O teste de ligar do celular para `5512982381407`
+segue sendo o que decide.
 
 ### O segundo achado da mesma varredura: 42 de 47 leads não têm dono
 

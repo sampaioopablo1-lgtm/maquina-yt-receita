@@ -101,8 +101,11 @@ essa lista precisa de uma cláusula que o documento nunca teve: **status
 `open`**. É edição de lista, um minuto de tela.
 
 **Três achados menores da mesma leitura:** (a) dois leads abertos em `NOVO LEAD`
-**sem nome** (`+5521969613820` e `+5511951285383`) — conferir o formulário de
-origem antes de reativar a campanha a 10 leads/dia; (b) a única oportunidade
+**sem nome utilizável** (`+5521969613820` e `+5511951285383`) — **não é o
+formulário do Meta**, ao contrário do que eu disse primeiro: um é o app de
+WhatsApp gravando `Sem nome` num contato real, o outro é uma oportunidade em
+branco de um contato que tem nome (`Carla Sampaio`). Detalhe e tabela das cinco
+origens na correção de 07:50 do `USABILIDADE.md`; (b) a única oportunidade
 aberta em `REUNIÃO DE DIAGNÓSTICO` é o **próprio dono** (`Pablo Sampaio`), o
 teste do calendário, e ele conta nas métricas mensais de funil até ser descartado
 como `lost`; (c) `FORMALIZAR` vazia e **zero `won`** em 64 oportunidades.
@@ -157,6 +160,14 @@ has_payment_method:    true
 
 `UNSETTLED` na Meta normalmente significa **saldo em aberto que não foi
 cobrado**, e conta nesse estado **não entrega anúncio**.
+
+**Correção de 27/09 07:50 a esta seção:** a frase "explica por que não entra
+lead novo desde 21/09" está errada por excesso. Entrou registro novo em 22, 24,
+25 e 26/09 — só **não por Lead Ads**: dois JID de grupo e um contato pelo app de
+WhatsApp, e uma `Carla Sampaio` por `lc-phone-api` (ligação recebida). O
+`UNSETTLED` explica a ausência de lead **de anúncio**; não que a conta parou de
+receber gente. Isso importa porque o plano de 10 leads/dia se apoiava nessa
+leitura.
 
 **Por que isso importa mais que qualquer configuração de CRM:** o dono disse que
 vai reativar a campanha a **10 leads/dia**, e é essa entrada que sustenta a conta
