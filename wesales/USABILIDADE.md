@@ -129,6 +129,26 @@ Detalhes que não são opcionais:
   mais manutenção — só fazer se o volume justificar.
 - Precisa de `[x]` no `APROVADO.md`: é tag nova e a rotina não se autoriza.
 
+### ACHADO NA PRÓPRIA TELA: `Receber` está **Desativado**
+
+No topo do Call Center, ao lado do número ativo, há um interruptor **`Receber`**
+com o rótulo **`Desativado`** abaixo — e o botão aparece desligado.
+
+**Por que isso importa mais do que parece:** a operação vai discar dezenas de
+vezes por dia com `TOQUE MÁX.` de 30 segundos. Lead que não atende e vê a chamada
+perdida **liga de volta** — é o retorno mais barato que existe, porque o lead já
+está com o telefone na mão e a intenção fresca. Com `Receber` desligado, essa
+ligação não é atendida aqui.
+
+**O que eu não sei, e não vou afirmar:** se `Desativado` significa que o número
+rejeita a chamada de entrada, que ela cai em caixa postal, ou apenas que **esta
+aba do navegador** não toca (o padrão em softphone). As três consequências são
+diferentes, e só quem tem a tela distingue.
+
+**Como conferir, e é rápido:** ligar do celular para `5512982381407` e ver o que
+acontece — toca na tela, cai em algum lugar, ou dá ocupado. Cinco minutos, e
+decide se a operação está perdendo o retorno mais fácil do funil.
+
 ### O que ainda não foi olhado nessa ferramenta
 
 `Disparo`, `Gatilhos`, `Mensagens rápidas` e `Dashboard` são quatro telas do
