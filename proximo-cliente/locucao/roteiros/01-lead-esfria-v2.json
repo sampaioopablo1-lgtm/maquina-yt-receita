@@ -3,5 +3,6 @@
   "criativo": "proximo-cliente/criativos/01-lead-esfria-5-minutos.html",
   "texto": "\"Ah, eu já resolvi.\" Essa frase custou uma venda. Volta vinte e quatro horas. O lead preencheu o seu formulário. Celular na mão, carteira aberta. Cinco minutos depois, já esfriou. Seu vendedor ligou no dia seguinte. Perdeu a venda na espera, não na ligação. Na O Próximo Cliente, a gente atende o seu lead em até cinco minutos, qualifica, e devolve com a reunião marcada na agenda do seu vendedor. Duvida? Preencha o formulário e cronometre. A gente te liga em até cinco minutos.",
   "modelo": "eleven_multilingual_v2",
-  "vozes": []
+  "vozes": [],
+  "observacao": "Vozes vazias: o gerador escolhe 3 vozes brasileiras para comparar."
 }
