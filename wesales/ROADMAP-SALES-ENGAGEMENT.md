@@ -136,23 +136,22 @@
 > próprio publicado na tela (o workflow `AGENDAR Estagnado`, a lista
 > `Saúde — AGENDAR Estagnado`).
 
-> ## ⚠️ G-25 — risco de disparo em massa na abertura, ainda sem solução aplicada (27/09/2026)
+> ## ✅ G-25 — risco de disparo em massa na abertura, resolvido pelo dono ao vivo (27/09/2026, ver detalhe abaixo)
 >
-> **36-37 execuções da `Cadência Inbound` estão paradas no nó 24 (`WhatsApp ·
-> MI-0`) e disparam juntas quando a janela do workflow abrir — próxima
-> abertura segunda 28/09 08:30 `America/Sao_Paulo` (11:30 UTC).** Isso
-> contraria a rampa de 6/dia que o dono decidiu (`ESTADO-E-PLANO.md`, linha
-> 93). Detalhe completo, as duas decisões do dono ainda pendentes e por que a
-> janela é a única alavanca que não exige tocar em contato: `ABERTURA.md`.
-> Item novo, especificado abaixo (G-25) — **isto salta a fila**, na mesma
-> classe do F-04/F-05: mensagem que sai não volta, e o prazo é fixo, não
-> flexível como "esperar volume" (R-14/F-06) ou "esperar decisão sem pressa"
-> (G-04/F-09/F-10/G-11/G-19). **Nenhuma sessão automática consegue aplicar a
-> correção** (precisa de bearer de sessão logada só disponível no PC do dono,
-> ou de um clique na tela) — o trabalho de uma sessão sem essa tela é
-> reconferir que o risco segue vivo e não deixar o roadmap voltar a rotina
-> normal (varredura de canal, coerência entre documentos) enquanto isto não
-> estiver marcado `FEITO` aqui.
+> **36-37 execuções da `Cadência Inbound` estavam paradas no nó 24 (`WhatsApp ·
+> MI-0`) e disparariam juntas quando a janela do workflow abrisse — próxima
+> abertura segunda 28/09 08:30 `America/Sao_Paulo` (11:30 UTC).** O dono
+> resolveu ao vivo, entre 27/09 ~20h e ~21h UTC, por uma sessão com acesso a
+> navegador logado (branch `abertura-operacao-dnd-n7dnjv`, fora deste
+> histórico de sessões automáticas): não pela janela do workflow, e sim
+> liberando os 31 contatos protegidos (`dnd` para `false`) e recalculando a
+> `Prioridade` deles para 4, o que o governador de envio (fila por
+> prioridade, mesmo campo do C-05) já respeita — a mesma proteção de volume
+> por outro mecanismo. Confirmado por leitura independente desta sessão
+> (`contacts_get-contact` em 14 dos 31 contatos, todos com `dnd: false` e
+> `Prioridade: 4`, `dateUpdated` entre 21:04:39 e 21:04:50 UTC de 27/09).
+> Detalhe completo, inclusive a descoberta de que outras três sessões/branches
+> trabalham a mesma subconta em paralelo: **G-25**, abaixo.
 
 O alvo do projeto não é "ter uma cadência no GHL". Os blocos 1 a 5 são a
 distância até a **paridade** com Reev e Meetime — e paridade é o **piso**, não
@@ -4585,7 +4584,7 @@ portão de frequência e a tag `toque` no mesmo lugar onde a 2.9.2/2.9.3 já
 os têm — nenhum ponto de envio/fila que roda `Allow Re-entry` sobre reação
 a `Customer Replied` fica de fora do teto de toques por semana.
 
-### G-25 · A janela nativa das cadências vai disparar 36-37 mensagens juntas, um dia antes da abertura combinada — nenhuma sessão automática consegue fechar a janela sozinha (27/09/2026)
+### G-25 · A janela nativa das cadências vai disparar 36-37 mensagens juntas, um dia antes da abertura combinada — nenhuma sessão automática consegue fechar a janela sozinha (27/09/2026) — **FEITO em 27/09/2026 (resolvido pelo dono, ver fechamento no fim desta seção)**
 
 **Por quê:** seguindo a própria instrução deste roadmap ("reler os itens
 represados por informação que pode ter vencido" antes de procurar lacuna
@@ -4718,6 +4717,70 @@ Com o risco reconferido e sem novidade, a sessão seguiu a varredura de
 coerência entre documentos que a própria "Ordem sugerida" (abaixo) indica
 como próximo passo quando não há tela nem decisão nova disponível —
 achado registrado como **G-26**, logo abaixo.
+
+**Fechado em 27/09/2026 ~21:05 UTC, sessão automática seguinte — seguindo a
+própria instrução deste item ("a próxima sessão confere primeiro se a
+janela mudou... antes de qualquer outro trabalho"), e a conferência achou o
+risco resolvido, não vivo.** `contacts_get-contact` em `Carlos Andrade`
+(`7ECnj1bSeEIm5P58Ifd9`) — a mesma leitura que confirmou "protegido" em
+cada rodada anterior — voltou `dnd: false` (era `true`), `Prioridade`
+(C-05) `= 4` (era ausente/0) e `dateUpdated` `2026-09-27T21:04:39.258Z`,
+28 segundos antes desta leitura. Não presumido: amostrado mais 13 dos 30
+contatos da lista "Recebe DND" de `ABERTURA.md` (`lqxkp4EdUdBRPr83JYhn`,
+`9RLeKfPDe6yE49RLOO7u`, `SxX69gKO2G5AWyVAPOjh`, `YlPqam7AalWJqEpL6emi`,
+`0l6KtdWoSpOIMn1CeeAw`, `ossJg7kUN0rrKF59sx0m`, `GhMa7O5TZfIG3CORZNdE`,
+`gtufwlEa5yNgrzgu4IKm`, `zN97QTlkYwSMllJYxkCQ`, `OfHQEWxgxjUC1cIurwzO`,
+`tNDkZGkMtEDYcw8qxxQW`, `wZabWXgjVzW7AjRYnZ8L`, `3ufCFsY8ASh3BbwRb5Ld`) —
+todos com o mesmo par `dnd: false` + `Prioridade: 4`, todos com
+`dateUpdated` entre `21:04:39` e `21:04:50` UTC (11 segundos de faixa: uma
+escrita em lote, não 14 ações manuais separadas). Os 5 contatos do "Lote 1"
+(livre para disparar) que já carregavam `fila-sdr` desde as 18:22 não foram
+tocados nesta janela — coerente com já estarem fora de qualquer bloqueio.
+
+**Quem fez, e por quê isto não apareceu em nenhuma leitura anterior deste
+roadmap:** existe uma quarta branch neste mesmo repositório,
+`claude/abertura-operacao-dnd-n7dnjv`, com sessão de navegador logado (o
+bearer que este roadmap registrou repetidamente como "só existe no PC do
+dono") — ativa desde 27/09 01:27 UTC, 48h+ de commits, nunca cruzada com
+este branch até agora. O próprio arquivo dela,
+`wesales/DE-PARA-SESSOES-CRM.md` (lido nesta sessão, não copiado para
+aqui — pertence à outra branch), reconcilia quatro sessões trabalhando a
+mesma subconta em paralelo e registra, na tabela de recomendações: **"G-25,
+G-26, G-28, G-30 — nada a fazer: resolvidos pela sua decisão das
+20:10–20:23"**. A decisão do dono, ao vivo, respondeu as duas perguntas que
+este item deixou em aberto: (1) a data é **segunda 28/09** (não terça — o
+MI-0 já foi regravado com o texto novo para sair segunda 08:30, confirmado
+pela mesma sessão); (2) a rampa de 6/dia não se resolve fechando a janela
+`days` do workflow (o `patch_janela_abertura.py` que este item preparou
+nunca foi executado, e não precisou ser) — resolve-se soltando os 31 leads
+protegidos de uma vez (`dnd = false`) e deixando a `Prioridade` (recalculada
+para 4 por `recalcula_prioridade.py --aplicar`, script daquela branch)
+governar o ritmo de envio pelos portões que o G-04 já usa — um desenho mais
+fino do que a correção binária "fecha a janela" que este item chegou a
+escrever, porque throttling por prioridade sobrevive à próxima abertura de
+janela sem precisar de reabrir/fechar `days` de novo.
+
+**O que isto expõe, e que nenhuma leitura anterior deste roadmap tinha
+achado porque nunca olhou fora do próprio branch:** quatro sessões Claude
+Code diferentes escreveram nesta mesma subconta nas últimas 48h, cada uma
+com seu próprio ROADMAP/APROVADO/documentação, sem nenhum mecanismo que
+avise uma sessão que outra já resolveu o que ela está prestes a escalonar
+como bloqueado. Este item ficou marcado "item de maior prioridade do
+roadmap inteiro" por ~10 horas (das ~11:05 às ~21:05 UTC) depois de já
+estar resolvido do lado de quem tinha o bearer — não por lentidão desta
+sessão, e sim porque nenhum dos dois lados sabia olhar o outro. Registrado
+como lição em `APRENDIZADOS-CRM.md` e como item novo, **G-31**, ao lado dos
+demais G deste roadmap — o problema estrutural (quatro fontes de verdade
+sem reconciliação) é maior do que este item específico e continuaria
+produzindo o mesmo falso bloqueio na próxima vez.
+
+**Pronto quando (cumprido nesta sessão):** a janela das duas cadências
+segue `days: [1,2,3,4,5]` (não foi fechada, e não precisou ser) — o "outro
+lado" do critério original ("ou o dono confirmar por outra via que quer
+manter `[1,2,3,4,5]` e assumir o disparo de segunda") se cumpriu por ação
+direta do dono, verificada por leitura independente desta sessão, não por
+suposição. Zero campo, zero tag, zero escrita no CRM nesta sessão: item de
+escalonamento que se resolveu por leitura, sem precisar de `APROVADO.md`.
 
 ---
 
@@ -5047,6 +5110,67 @@ AI (G-30) continuam sendo as decisões sem prazo fixo que esperam o dono,
 sem novidade nesta sessão; G-25 continua sendo o item de maior prioridade
 do roadmap enquanto a janela de 28/09 08:30 `America/Sao_Paulo` não passar
 sem disparo.
+
+### G-31 · Quatro branches diferentes escrevem na mesma subconta sem se cruzarem — o G-25 ficou "item de maior prioridade" por ~10h depois de já estar resolvido do outro lado (27/09/2026)
+
+**Por quê:** fechando o G-25 nesta sessão (acima), a conferência de rotina
+("a janela mudou?") achou o risco já resolvido — mas não por nenhuma
+correção que este roadmap ou `ABERTURA.md` tivesse registrado. Investigando
+o porquê (`contacts_get-contact` mostrando `dnd: false` e `Prioridade: 4`
+em 14 contatos que todas as leituras anteriores confirmavam `dnd: true`,
+todos com `dateUpdated` na mesma janela de 11 segundos, 21:04:39–21:04:50
+UTC), a causa não estava em nenhum script deste branch (`faxina_tarefas.py`
+lido por completo: só conclui/exclui tarefa e liga/desliga `sdr-lotado`,
+nunca toca `dnd` — descartado por leitura do código, não por suposição) nem
+em nenhum workflow nativo documentado. A causa é externa a este branch:
+`git branch -a` e `git cat-file -e <branch>:<arquivo>` (não `git grep` — o
+mesmo erro de método que `rotina-limpar-tarefas.md` já registrou para o
+`faxina-tarefas.yml`, "o grep vê só a branch local") acharam **quatro**
+branches deste mesmo repositório com trabalho de WeSales nas últimas 48h,
+cada uma com sua própria árvore de documentos e nenhuma delas citando as
+outras três antes de hoje:
+
+| Branch | Janela de atividade | Escreveu no CRM? | Documentação própria |
+|---|---|---|---|
+| `amazing-johnson-mclksg` (esta, "B") | 26/09 23:52 – em curso | não — a própria B só audita e especifica | `ROADMAP-SALES-ENGAGEMENT.md` (este arquivo), `APROVADO.md`, `build-wesales.md`, `APRENDIZADOS-CRM.md`, `campos-e-tags.md` |
+| `abertura-operacao-dnd-n7dnjv` ("A") | 27/09 01:27 – em curso, sessão de navegador logado (tem o bearer que B registra repetidamente como "só no PC do dono") | **sim**, conferido pela própria sessão contato a contato | `ESTADO-27-09.md`, `AUDITORIA-27-09.md`, `DE-PARA-SESSOES-CRM.md`, `COPY-WHATSAPP.md`, entre outros — nenhum arquivo em comum de nome com B |
+| `laughing-bohr-ki6ah8` ("C", PC do dono) | 27/09 20:40 – em curso no momento deste fechamento | ainda não, por leitura própria da sessão A | não inspecionado por B nesta sessão |
+| `abertura-operacao-dnd-ib6xaz` ("D") | 27/09 17:47–17:58 | não | registrou funções (SDR/closer) e um conserto de Action |
+
+A própria sessão A já tinha notado o problema e criado
+`DE-PARA-SESSOES-CRM.md` para reconciliar as quatro — mas essa reconciliação
+vive só na branch A; nada nela avisou a branch B (nem o inverso: o G-25, as
+descobertas F-19 a F-23 e G-26 a G-30 desta branch não aparecem em nenhum
+documento de A antes de hoje, e o próprio `DE-PARA-SESSOES-CRM.md` registra
+isso como pendência: "revisar antes: a própria sessão B marca vários como
+'decisão do dono'"). O efeito prático, medido, não hipotético: o G-25 ficou
+escrito como "item de maior prioridade do roadmap inteiro" desde ~11:05 UTC
+até esta sessão (~21:05 UTC) — **quase 10 horas** depois de o dono já ter
+resolvido o risco do lado da branch A (decisão dele, entre ~20:10 e ~20:23
+no relógio daquela sessão). Nenhuma das duas sessões agiu errado; nenhuma
+tinha visibilidade da outra.
+
+**Como (o que esta sessão fez, e o que fica para o dono decidir):**
+registrado o achado aqui e em `APRENDIZADOS-CRM.md`, para toda sessão futura
+de qualquer uma das quatro branches — antes de escalonar um item como
+"esperando o dono" ou "bloqueado, precisa de tela/bearer" — checar primeiro
+se outra branch já resolveu, com `git branch -a` seguido de
+`git cat-file -e <branch>:<caminho>` para arquivos específicos (nunca
+`git grep` sozinho, que só vê o checkout local) e, se existir, ler o
+equivalente a `DE-PARA-SESSOES-CRM.md` daquela branch antes de qualquer
+outro trabalho. Isto não é uma correção que uma sessão sem acesso a merge
+possa aplicar sozinha (decidir qual branch é a fonte de verdade, ou se as
+quatro devem convergir para uma, é decisão do dono — o mesmo tipo de escolha
+que este roadmap nunca toma por conta própria). Zero campo, zero tag, zero
+escrita no CRM: item de processo, não depende de `APROVADO.md`.
+
+**Pronto quando:** o dono escolher uma de duas saídas — (a) consolidar as
+branches ativas em uma só antes da próxima rodada de trabalho real, ou (b)
+manter branches paralelas mas exigir que toda sessão leia o `DE-PARA`/
+equivalente das outras antes de escalonar qualquer item como bloqueado.
+Até a escolha, o mitigador é o registrado acima: checar branches irmãs
+virou passo obrigatório antes de declarar algo "esperando o dono" neste
+roadmap.
 
 ## Ordem sugerida
 
@@ -6799,3 +6923,29 @@ número fixo (`grep -rn "seis decisões\|cinco decisões" wesales/*.md`
 aponta só para este arquivo, todas as ocorrências fora da faixa 27/09
 sendo histórico de datas anteriores, legítimo). Zero campo, zero tag, zero
 escrita no CRM: coerência de documentação.
+
+**G-25 fechado em 27/09/2026 ~21:05 UTC, sessão automática seguinte —
+seguindo a própria instrução deste roadmap ("a próxima sessão confere
+primeiro se a janela mudou... antes de qualquer outro trabalho").**
+`contacts_get-contact` em `Carlos Andrade` (`7ECnj1bSeEIm5P58Ifd9`) — a
+mesma leitura que confirmava "protegido" em toda rodada desde a abertura do
+item — voltou `dnd: false` (era `true`) e `Prioridade` `= 4`,
+`dateUpdated` `21:04:39Z`. Amostrados mais 13 dos 30 contatos da lista
+"Recebe DND" de `ABERTURA.md`: todos com o mesmo par, todos com
+`dateUpdated` entre 21:04:39 e 21:04:50 UTC — uma escrita em lote. A causa
+não é deste branch (lido `faxina_tarefas.py` por completo: nunca toca
+`dnd`) — é a branch `abertura-operacao-dnd-n7dnjv`, com sessão de navegador
+logado ativa desde 27/09 01:27 UTC, que o dono usou para decidir, ao vivo,
+soltar os 31 contatos protegidos (`dnd = false`) e deixar a `Prioridade`
+(recalculada para 4) governar o ritmo — não fechar a janela `days` do
+workflow como este item previa. Detalhe completo, a citação do
+`DE-PARA-SESSOES-CRM.md` daquela branch e o achado maior (quatro branches
+escrevendo na mesma subconta sem se cruzarem, ~10h de G-25 "prioritário"
+depois de já resolvido do outro lado) estão no próprio G-25 e no novo
+**G-31**, ambos acima. Pronto quando cumprido: a decisão do dono
+(verificada por leitura independente, não suposta) responde ao critério
+original. G-04 (peça 2), F-09, F-10, G-11 (item 1), G-19 e G-30 continuam
+sendo as decisões sem prazo fixo que esperam o dono; G-31 (branches
+paralelas) também espera decisão do dono, sem prazo fixo. Nenhum item
+"salta a fila" agora — a sessão seguinte volta à varredura de coerência ou
+à pesquisa de concorrência normais.

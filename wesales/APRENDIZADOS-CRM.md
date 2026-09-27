@@ -6745,3 +6745,50 @@ essa rampa manualmente (como Outreach/Salesloft exigem do usuário deles)
 seria pior que a paridade que a plataforma já dá de graça. O trabalho real
 aqui é documentação + checklist de "quando olhar", não construção
 (`ROADMAP-SALES-ENGAGEMENT.md`, F-22; `build-wesales.md`, seção 2.51).
+
+## Antes de escalonar algo como "só o dono resolve", cheque se outra branch já resolveu — quatro branches escrevem na mesma subconta sem se cruzarem (G-25/G-31, 27/09/2026)
+
+O G-25 (`ROADMAP-SALES-ENGAGEMENT.md`) ficou marcado "item de maior
+prioridade do roadmap inteiro" por quase 10 horas (das ~11:05 às ~21:05
+UTC de 27/09) depois de o dono já ter resolvido o risco ao vivo, numa
+sessão de navegador logado rodando numa **branch completamente diferente**
+deste repositório (`abertura-operacao-dnd-n7dnjv`). Toda leitura horária
+desta branch (B) confirmava "protegido, nenhuma correção aplicada" porque
+só olhava para o próprio histórico de commits e para o CRM — nunca para
+`git branch -a`.
+
+**O sintoma que deveria ter disparado a suspeita antes:** um campo ou tag
+mudando de valor sem nenhum commit desta branch explicando por quê (aqui:
+`dnd` de 14+ contatos virando `false` e `Prioridade` virando `4`, num lote
+de 11 segundos, sem nenhum script deste branch tocar `dnd` — conferido lendo
+`faxina_tarefas.py` por completo antes de suspeitar de outra coisa). Este
+projeto já tinha essa lição pela metade, só nunca generalizada: G-27/G-28/
+G-29/G-30 e a nota de 23/09 em `APROVADO.md` sobre `fechar-horario`/
+`toque`/Espelho de Etapa já registravam "campo ou tag na tela sem `[x]`
+aqui é o dono decidindo direto, não a rotina se autorizando" — mas todos
+assumiam que a mudança vinha da **tela**. Nunca se perguntou se vinha de
+**outra sessão automática**, rodando numa branch diferente com um bearer
+que esta branch não tem.
+
+**Como confirmar de verdade, sem supor:** `git branch -a` lista as branches
+remotas; `git fetch origin <branch>` traz o histórico; `git cat-file -e
+<branch>:<caminho>` confirma se um arquivo existe numa branch **sem**
+fazer checkout (mais barato que clonar) — nunca `git grep`, que só vê o
+checkout local (o mesmo erro de método que `rotina-limpar-tarefas.md` já
+registrou para achar o `faxina-tarefas.yml`: "o grep vê só a branch em que
+você está"). Se a branch candidata tiver um arquivo tipo
+`DE-PARA-SESSOES-CRM.md` ou `ESTADO-*.md` recente, ler antes de qualquer
+outro trabalho — foi assim que esta sessão achou a resolução real do G-25
+em `wesales/DE-PARA-SESSOES-CRM.md` da branch A, sem precisar adivinhar.
+
+**Antes de gastar uma rodada inteira reconfirmando um risco "sem novidade"
+pela quinta ou sexta vez:** se o item já passou de duas ou três
+reconferências idênticas ("nada mudou, mesma composição"), vale a pena
+checar branches irmãs uma vez — o custo de checar é um `git branch -a` e
+um `git fetch`; o custo de não checar é o que aconteceu aqui, quase 10
+horas de um item bloqueando o roadmap por falta de visibilidade, não por
+falta de solução. Registrado também como item de processo em
+`ROADMAP-SALES-ENGAGEMENT.md`, **G-31** — a decisão de consolidar as
+branches ou formalizar essa checagem é do dono; o hábito de checar antes
+de escalonar já vale a partir de agora, para qualquer sessão, em qualquer
+branch.

@@ -156,3 +156,27 @@ abertura e medir, em vez de descobrir com 30.
 > (`ROADMAP-SALES-ENGAGEMENT.md`), um sétimo campo fora da lista que é
 > rastro de um recurso nativo (Voice AI/AI Employee) ligado sem documento
 > nenhum saber, sem mexer em nada deste risco.
+
+> **Resolvido em 27/09/2026 ~21:05 UTC, sessão automática seguinte —
+> `Carlos Andrade` (`7ECnj1bSeEIm5P58Ifd9`) voltou `dnd: false` (era
+> `true`), `Prioridade` `= 4`, `dateUpdated` `21:04:39Z`.** As duas decisões
+> pendentes acima foram respondidas ao vivo pelo dono, não por este branch:
+> a data é **segunda 28/09** (o MI-0 já foi regravado com texto novo para
+> sair segunda 08:30) e a rampa de 6/dia não se resolveu fechando a janela
+> `days` — resolveu-se soltando os 31 contatos protegidos (`dnd = false`) e
+> deixando a `Prioridade` recalculada (0 → 4) governar o ritmo pelos
+> portões que o G-04 já usa. Quem fez: a branch
+> `claude/abertura-operacao-dnd-n7dnjv`, com sessão de navegador logado
+> ativa desde 27/09 01:27 UTC — o bearer que este documento registrou
+> repetidamente como "só existe no PC do dono". Verificado por esta sessão,
+> não suposto: `contacts_get-contact` em 14 dos 31 contatos da lista acima
+> (Carlos + 13 da lista "Recebe DND"), todos com o mesmo par `dnd: false` +
+> `Prioridade: 4`, todos com `dateUpdated` entre 21:04:39 e 21:04:50 UTC —
+> uma escrita em lote daquela sessão, não 14 ações manuais. Detalhe
+> completo, inclusive a descoberta de que quatro branches deste repositório
+> escrevem na mesma subconta sem se cruzarem, em
+> `ROADMAP-SALES-ENGAGEMENT.md` — item **G-25** (fechado) e o novo **G-31**.
+> Este documento (`ABERTURA.md`) fica como registro de como o risco foi
+> avaliado enquanto este branch não tinha visibilidade da branch A — o
+> risco em si não volta a abrir, salvo se uma releitura futura achar o
+> contrário do que está registrado aqui.
