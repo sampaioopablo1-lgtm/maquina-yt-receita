@@ -90,3 +90,34 @@ em nenhum commit deste repositorio, e `wesales/tools/` nao tem `login-capture.js
 chamados por `.github/workflows/wesales-finalizar.yml`, que portanto falha hoje no
 primeiro step. O texto da tarefa T1 (item 6) e a opcao B do G-04 (item 7) estao
 descritos apenas nesses documentos ausentes; nao os inventei.
+
+## 6. Funcoes decididas em 27/09
+
+| Pessoa | Funcao no processo | Papel no GHL |
+|---|---|---|
+| Andreyna | SDR | `user` (nao admin) |
+| Pablo Santos | Closer, e tambem gestor e administrador do sistema | admin (usuario atual) |
+
+O usuario da Andreyna **nao foi criado**. Duas razoes, as duas reais:
+
+1. O MCP do GHL disponivel nesta sessao nao expoe criacao de usuario. As familias
+   presentes sao contatos, conversas, calendarios, oportunidades, blogs, e-mails,
+   pagamentos, redes sociais e leitura de `locations` (campos e dados da subconta).
+   Nao existe `users_create` nem equivalente. A criacao vive em
+   Configuracoes -> Equipe na tela, ou em `POST /users/` da API v2 com um token de
+   escopo `users.write` — que aqui nao esta acessivel.
+2. Falta o **e-mail da Andreyna**. O GHL usa o e-mail como identidade do usuario e
+   manda o convite de acesso para ele; sem e-mail nao ha usuario a criar.
+
+Depois de criar o usuario na tela, a picklist de `SDR responsavel`
+(`e1n7As703nqjAOpzREHc`) precisa receber `Andreyna` — hoje tem so `Pablo Santos`.
+Isso tambem nao sai por esta sessao: nao ha ferramenta de escrita em campo
+customizado no MCP. Sai pela Action `wesales-finalizar` em modo `pastas`, como o
+plano previa, **desde que** `wesales/tools/finalizar.py` volte para o repositorio —
+hoje o arquivo nao existe e o workflow falha antes disso.
+
+Observacao sobre acumulo de funcao: com Pablo como closer, gestor e admin, e Andreyna
+como unica SDR, a picklist `SDR responsavel` vai precisar continuar com as duas
+opcoes, nao so `Andreyna` — leads trabalhados pelo Pablo antes da abertura ja apontam
+para `Pablo Santos`, e trocar a opcao por outra em vez de acrescentar apagaria esse
+historico nas fichas.
