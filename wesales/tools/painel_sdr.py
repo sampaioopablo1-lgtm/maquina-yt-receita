@@ -59,7 +59,10 @@ def env(nome: str) -> str:
 def http(metodo: str, url: str, corpo=None, cabecalhos=None, tolerar=()):
     dados = None if corpo is None else json.dumps(corpo).encode("utf-8")
     req = urllib.request.Request(url, data=dados, method=metodo)
-    req.add_header("User-Agent", UA)
+    # UA de navegador SO para o GHL (Cloudflare 1010). O Supabase faz o inverso:
+    # recusa a chave secreta quando o User-Agent parece navegador ("Forbidden use
+    # of secret API key in browser", medido no run 36333353072). Um UA para cada.
+    req.add_header("User-Agent", UA if url.startswith(GHL) else "wesales-painel-sdr/1 (GitHub Actions)")
     req.add_header("Accept", "application/json")
     if dados is not None:
         req.add_header("Content-Type", "application/json")
