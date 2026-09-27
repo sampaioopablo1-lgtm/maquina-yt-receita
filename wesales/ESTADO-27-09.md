@@ -56,10 +56,53 @@ pedindo contato não é falha: é a operação começando um dia antes, com a ra
 certa. O cenário catastrófico que eu descrevi ontem (37 mensagens) **não existe
 mais**.
 
+## 2.1 ACHADO NOVO (27/09 05:20) — e ele passa na frente da janela
+
+Medido em leitura pura: **nenhum dos 39 leads abertos em `CONECTAR` tem tag
+`fila-tel`, `fila-wa` ou `fila-quente`** (zero de 39), e numa amostra de cinco
+leads reais **não há uma única tarefa**. A única tarefa da amostra está no
+contato de teste, vencida desde 22/09.
+
+Consequência direta: as **quatro listas favoritas do SDR abrem vazias** na
+terça, e a fila de tarefas também. O alvo que o dono chamou de crítico — "pelo
+menos 100 tarefas" — hoje vale **zero**. A única lista cheia é o alarme do
+gestor (`Atraso na 1ª Tentativa`, 38 linhas).
+
+E o que torna isso urgente: os gatilhos das duas cadências são `Opportunity
+Stage Changed → CONECTAR` com **`Allow Re-entry` desligado**, e os 38 **já
+estão** em `CONECTAR`. Se não foram inscritos, **nada os inscreve depois**.
+
+**Isto reordena a §3.** Fechar a janela em `days: [2]` protegia contra a
+máquina agir cedo demais. Este achado é a máquina **não agir** — e é pior,
+porque é silencioso. Janela controla *quando* a régua dispara, não *se* o
+contato entrou nela.
+
+**Conferir (2 min, tela):** Automação → `Cadência Inbound` → contatos
+inscritos. Abaixo de 38 confirma.
+
+**Consertar (tela, não sai por API):** selecionar os leads de `CONECTAR` →
+**`Add to Workflow` → `Cadência Inbound`** em lote. Entra pelo nó 0, que
+atribui dono (resolve o R-10 do item 5 de uma vez), grava `Entrada em`, põe a
+tag de fila e cria a tarefa.
+
+**Se não der tempo antes de terça**, há um caminho de três passos que usa só o
+que existe: lista com filtro `Prioridade` ≥ 3 (devolve os 5 do lote 1) →
+copiar as linhas `telefone, nome` → colar na caixa editável do Call Center →
+`Iniciar discagem`. Detalhe na §0 do `USABILIDADE.md`.
+
+Na mesma varredura: **`assignedTo` nulo em 42 das 47** oportunidades de
+`CONECTAR`; os 5 com dono são os 3 de teste mais `Carlos Andrade` e
+`554791548812`. Isso deixa sem destinatário a notificação "respondeu agora" do
+W13 — que a §3.1 chama de único motivo para o SDR interromper o bloco.
+
 ## 3. Decisões que esperam o dono
 
-1. **Janela em `days: [2]`** — o único item com prazo (segunda 08:30). Ver §2:
-   se não acontecer, não é desastre.
+0. **`Add to Workflow` → `Cadência Inbound` em lote nos leads de `CONECTAR`** —
+   passou a ser o item nº 1 da lista. Ver §2.1. Sem isso a terça abre com fila
+   vazia, e resolve o item 5 de brinde.
+1. **Janela em `days: [2]`** — ver §2: se não acontecer, não é desastre. Perdeu
+   a primeira posição para o item 0, e por um motivo: a janela protege contra a
+   máquina agir cedo; o item 0 é a máquina não agir.
 2. **`[x]` no `APROVADO.md`** para escrita de `Prioridade`, se quiser que o
    runner diário aplique sozinho. Hoje ele só lê.
 3. **G-04, A ou B.** Recomendação: **B** (a §9.1 lendo `Urgência`/`Necessidade`

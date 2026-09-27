@@ -11,6 +11,148 @@ condicional, na §3). Só renomear, agrupar e escolher o que fica visível.
 
 ---
 
+## 0. O achado que vem antes de tudo: a fila do SDR não existe como dado
+
+Medido em 27/09/2026, leitura pura pelo conector `GHL CRM`, nenhuma escrita.
+Isto foi procurado porque o pedido do dono era claro — *"importante e crítico
+é o SDR, ao filtrar, ter pelo menos 100 tarefas, de forma clara e
+organizada"*. Fui conferir quantas tarefas ele tem hoje.
+
+### O que a conta devolve
+
+Varrendo as **39 oportunidades abertas** em `CONECTAR` e contando as tags de
+cada contato:
+
+| tag | em quantos dos 39 |
+|---|---|
+| `etapa-conectar` | 39 |
+| `cad-inbound` | 38 |
+| `atraso-1a-tentativa` | 38 |
+| `limpar-tarefas` | 5 |
+| `nao-perturbe` | 3 |
+| **`fila-tel`** | **0** |
+| **`fila-wa`** | **0** |
+| **`fila-quente`** | **0** |
+
+E as tarefas, lidas contato por contato numa amostra de 6 (Gerson, Ana Ruth,
+Ricardo, Andreia, Carlos Andrade, `Teste Não Atende`):
+
+- **cinco leads reais: zero tarefa.**
+- **uma tarefa no total**, e ela está no contato de **teste**:
+  `[CADENCIA] T1 · WhatsApp → Ligar`, vencida em **22/09** (cinco dias),
+  atribuída ao dono, e o corpo dela manda *"Ligar pelo WhatsApp (botão **Ligar
+  via WhatsApp** na conversa)"* — o botão que o `CANAIS.md` provou não existir
+  nesta conta.
+
+### O que isso faz com a tela do SDR na terça
+
+As quatro listas favoritas dele (§1.7 da `IMPLEMENTACAO-WORKFLOWS.md`)
+filtram assim:
+
+| lista | filtro principal | linhas hoje |
+|---|---|---|
+| 8.1 `Fila Quente` | tag `fila-quente` | **0** |
+| 8.2 `Fila Telefone Hoje` | tag `fila-tel` | **0** |
+| 8.3 `Fila WhatsApp Hoje` | tag `fila-wa` | **0** |
+| 8.4 `Retornos` | `Resultado da tentativa` = `Pediu retorno` | **0** (o campo está vazio em 38 de 38) |
+
+**As quatro listas do SDR abrem vazias, e a fila de tarefas também.** O alvo
+do dono era 100 tarefas; o número é zero.
+
+A única lista que enche é a do **gestor**: 8.8 `Atraso na 1ª Tentativa`, com
+**38 linhas** — a tag `atraso-1a-tentativa` está em 38 dos 39. A conta hoje
+mostra o alarme e esconde o trabalho.
+
+### Por que, e o que separa hipótese de fato
+
+O que é **fato**: as tags `fila-*` e a tarefa `[CADENCIA]` são escritas pelo
+bloco de tentativa das cadências (nós 6 e 0.7 do W11/W12). Nenhum artefato de
+cadência aparece nos 38 — sem tag de fila, sem tarefa, `Template usado`
+vazio, `Tentativa nº` = 0. Ao mesmo tempo, `atraso-1a-tentativa` está em 38
+deles, e esse alerta é o **W15, que roda sem janela**.
+
+O que é **hipótese**: que as duas cadências não inscreveram os 38, enquanto o
+alerta sem janela rodou. O padrão aponta para lá, mas a leitura por API **não
+enxerga inscrição em workflow** — não há endpoint para isso. Quem distingue é
+a contagem de *contatos inscritos* na tela de cada cadência, e leva dez
+segundos.
+
+### A consequência que torna isso urgente, e não só feio
+
+Os dois gatilhos são `Opportunity Stage Changed → CONECTAR`, e **`Allow
+Re-entry` está desligado nas duas** (§W11/W12). Os 38 **já estão** em
+`CONECTAR`. Então, se eles nunca foram inscritos, **nada os inscreve depois** —
+nem terça, nem nunca. Fechar a janela em `days: [2]`, que era o item com
+prazo, não resolve isto: janela controla *quando* a régua dispara, não *se* o
+contato entrou nela.
+
+Dito ao contrário: o risco que eu vinha tratando como o principal (mensagem
+saindo cedo demais na segunda) é o risco de a máquina **agir**. Este é o risco
+de ela **não agir** — e ele é maior, porque não faz barulho.
+
+**Como conferir, na tela, em dois minutos:** Automação → `Cadência Inbound` →
+aba de contatos inscritos. Se der 0 ou algo bem abaixo de 38, está confirmado.
+
+**Como consertar, e é trabalho de tela (não sai por API):** selecionar os
+leads em `CONECTAR` e usar **`Add to Workflow` → `Cadência Inbound`** em lote.
+Isso entra pela porta certa: o nó 0 atribui dono, grava `Entrada em`, põe a
+tag de fila e cria a tarefa. Mover para outra etapa e trazer de volta também
+funciona, mas mexe no funil e suja o histórico de etapa — pior caminho.
+
+### Uma terça que funciona sem depender de nada disso
+
+Se a inscrição em lote não acontecer antes de 29/09, ainda há um caminho de
+três passos que usa **só o que já existe**, sem tag nova, sem campo novo e
+sem workflow:
+
+1. Lista inteligente nova com um filtro só: **`Prioridade` ≥ 3**. Hoje isso
+   devolve exatamente os **5 do lote 1** — a rampa de 6/dia, que é a meta da
+   semana de abertura. Os 34 travados ficam de fora sozinhos, porque estão em
+   `Prioridade` 0.
+2. Copiar dali as 5 linhas `telefone, nome`.
+3. Call Center → `Fila de ligações` → colar na **caixa de texto editável** →
+   `Iniciar discagem`.
+
+Cinco linhas colam à mão sem esforço. Isso também **contorna o risco do
+"puxar por pipeline"** descrito na §3 (que traria os 39, incluindo os 34 em
+DND) sem precisar esperar o teste de 10 segundos.
+
+### O segundo achado da mesma varredura: 42 de 47 leads não têm dono
+
+`assignedTo` está **nulo em 42 das 47 oportunidades** de `CONECTAR`. Os cinco
+que têm dono são os **três contatos de teste** mais `Carlos Andrade` e
+`554791548812` — ou seja, exatamente os que passaram pela máquina. O registro
+de contato do Gerson não traz campo de dono nenhum.
+
+Isso é o **R-10** da §3 do `ESTADO-27-09.md`, e a varredura mostra por que ele
+não é cosmético:
+
+- W13 nó 7 entrega a tarefa "ligar agora" ao **`Contact Owner`**. Sem dono, a
+  tarefa nasce sem ninguém.
+- W13 nó 8 e W14 nós 6/6b mandam `Internal Notification` ao **`Contact Owner`**.
+  Sem dono, o aviso não tem destinatário.
+- A §3.1 diz que a notificação "respondeu agora" é **o único caso em que o SDR
+  interrompe o bloco**, com SLA de 10 minutos. É justamente esse aviso que não
+  chega.
+
+Com **um** SDR isso passa despercebido nas listas (elas não filtram por dono —
+a §1.7 registra que o GHL não tem "usuário atual" em lista). Mas passa a doer
+em dois lugares hoje: na tarefa sem responsável e no aviso sem destinatário.
+
+O `Add to Workflow` em lote do item acima **resolve os dois de uma vez**,
+porque o nó 0.8b é o round robin que atribui o dono. É outra razão para ele ser
+a primeira coisa a fazer na tela.
+
+### O que isso muda neste documento
+
+A §2 (renomear listas) e a §4 (quatro pastas de campo) continuam válidas e
+valem pouco **agora**: são apresentação em cima de uma fila vazia. Lista
+renomeada que devolve zero linha não fica menos confusa — fica mais, porque o
+nome promete trabalho que não está lá. **A ordem certa é: inscrever os leads,
+depois arrumar a vitrine.**
+
+---
+
 ## 1. Por que está confuso — medido, não opinado
 
 Contando os `parentId` das 56 definições que `locations_get-custom-fields`
@@ -179,13 +321,14 @@ Sentar na cadeira de cada função e cronometrar:
 
 | função | tarefa | hoje | alvo |
 |---|---|---|---|
-| SDR | do login até a primeira discagem | ? | < 30 s, sem escolher nada |
+| SDR | do login até a primeira discagem | **não tem como medir: as quatro listas devolvem zero linha (§0)** | < 30 s, sem escolher nada |
 | SDR | registrar o resultado de uma ligação | ? | < 15 s, um campo |
 | closer | do aviso de agendamento até ver a nota e o BANT | ? | < 20 s, uma tela |
 | gestor | saber se a fila estourou hoje | ? | < 10 s, um número |
 
-Nenhum desses números foi medido. **Medir é o próximo passo real** — e quem mede
-é quem tem a tela.
+Dos quatro, o primeiro já tem resposta e ela é a da §0: **não há o que
+cronometrar enquanto a fila estiver vazia**. Os outros três seguem sem medição,
+e quem mede é quem tem a tela.
 
 ## 6. O que fica fora, de propósito
 
