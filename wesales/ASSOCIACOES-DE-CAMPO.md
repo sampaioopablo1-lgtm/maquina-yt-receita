@@ -148,159 +148,75 @@ pessoa.
 
 ---
 
-## 4. O formulário virou o **Painel SDR** — e por quê (27/09 16:50)
+## 4. O formulário é a FICHA DO CONTATO — tudo dentro do CRM (27/09 17:30)
 
-O dono pediu, em 27/09 às 16:00: pré-preencher com o que veio do anúncio (o SDR só
-confirma), ordem BANT (Necessidade, Tempo, Investimento, Autoridade), agenda do closer
-na mesma tela com a disponibilidade real, closer recebendo tudo no card e na descrição
-do evento, seletor do SDR puxado da lista de usuários do CRM. E: *"estude a fundo a API,
-para que eu não precise fazer nada manual"*.
+Decisão do dono às 17:20: *"use outro meio, não o Supabase; tudo pelo CRM, não sair
+dele, nenhum sistema ou front-end para os usuários."* O Painel SDR externo (16:00-17:00)
+foi **retirado** — código fora do repositório, funções no Supabase inertes (não têm o
+token). O que fica é o que cabe dentro do CRM.
 
-**Estudei o repositório oficial da API (`GoHighLevel/highlevel-api-docs`, clonado).** O
-resultado é binário:
+### O que a API pública faz e não faz, lido do spec oficial
 
-| o formulário nativo (`DNz54AK2ryRSW7uCuznP`) | pela API |
+| | pela API |
 |---|---|
-| editar campos, ordem, grupos | **não existe rota** — `forms.json` tem só `GET /forms/`, `GET /forms/submissions`, `POST /forms/upload-custom-files` |
-| ler o contato ao abrir e pré-preencher | o widget não lê contato; abre vazio |
-| mostrar a agenda do closer | o formulário não tem elemento de calendário |
-| listar usuários do CRM num campo | não tem |
+| editar o formulário nativo `Qualificação SDR` (campos, ordem, grupos) | **não** — `forms.json` tem só 3 rotas, todas de leitura |
+| editar o `Pós-agendamento v2` (pôr o BANT na descrição do evento) | **não** pela pública; **sim** pela interna, que exige `GHL_STORAGE_STATE` |
+| **nome** e **posição** de um campo do contato | **sim** — `PUT /locations/{id}/customFields/{id}` |
+| criar campo do contato | **sim** — `POST /locations/{id}/customFields`, `model=contact` (feito às 16:53: `SDR responsável`) |
+| pasta do campo | **não** no schema; sondado num campo de teste (ver run) |
+| lista de usuários do CRM | **sim** — `GET /users/` (hoje 1 usuário: o dono) |
+| agenda do closer com disponibilidade | **nativa**: na ficha do contato, aba de compromissos → agendar no calendário `Reunião com closer` (35 horários livres nos próximos 7 dias, medido) |
 
-| o que o dono pediu | rota da API que faz | conferida no spec |
-|---|---|---|
-| ler o contato com os campos do anúncio | `GET /contacts/{id}` | sim |
-| lista de usuários para o seletor de SDR | `GET /users/?locationId=` | sim |
-| horários livres do closer | `GET /calendars/{id}/free-slots?startDate&endDate&timezone` | sim (janela ≤ 31 dias) |
-| criar a reunião já confirmada, com tudo na descrição | `POST /calendars/events/appointments` com `description`, `appointmentStatus=confirmed`, `toNotify=true` | sim |
-| gravar os campos BANT no contato | `PUT /contacts/{id}` `customFields[{id, field_value}]` | sim |
-| tudo no card do closer | `POST /contacts/{id}/notes` | sim |
-| campo novo `SDR responsável` | `POST /locations/{id}/customFields` com `model=contact` | sim — **a rota antiga aceita contato**; a nova (`/custom-fields/`) recusa (lição 2.19). Corrijo o que escrevi na §4-BIS: campo de contato **pode** ser criado por API; **pasta** continua não |
+### A ficha do contato como formulário BANT
 
-Então a resposta honesta ao pedido é: **o formulário nativo não chega lá por nenhum
-caminho; uma página sobre a API chega em todos.** Construí a página.
+A ficha **já é** o formulário que o dono descreveu: mostra todos os campos, **já vem
+preenchida** com o que o anúncio trouxe (o SDR confirma, não pergunta), grava direto no
+contato (que é o card que o closer abre) e agenda no calendário do closer sem sair da
+tela. O que faltava era **ordem e grupo**. `wesales/tools/campos_bant.py` faz isso pela
+API — o grupo entra no **nome** do campo e a ordem na **posição**:
 
-### O Painel SDR — o que é
-
-`supabase/functions/painel-sdr/` (Edge Function, Deno; `painel.html` é a tela). Endereço:
-
-```
-https://cscczluzpblzhvojxanp.supabase.co/functions/v1/painel-sdr
-```
-
-Entra-se com um **PIN** (o token do GHL fica no servidor; nunca vai ao navegador). O SDR
-escolhe o próprio nome no topo — **lista viva de `GET /users/`**, não uma lista digitada.
-
-**Tela, da esquerda para a direita:**
-
-1. **Contato** — busca por nome/telefone/e-mail, ou o botão **Minha fila de hoje**, que
-   puxa a tag `fila-sdr` (a mesma que o discador puxa: uma fila, dois lugares).
-2. **Resultado da ligação (sem atendimento)** — um botão por opção do vocabulário de
-   `Resultado da tentativa` (`Não atendeu`, `Caixa Postal`, `Pediu retorno` com data/hora,
-   `Número errado`, `Não ligar`, `Desqualificado`). Um clique grava o campo, o
-   `Pós-ligação v3` dispara, e o painel abre o próximo da fila. **É o elo fraco da rotina
-   do discador, fechado.**
-3. **O formulário, em grupos BANT** — natureza de cada pergunta identificada:
-
-| grupo | campo | natureza | origem |
+| posição | campo (nome novo) | natureza | quem responde |
 |---|---|---|---|
-| **N · Necessidade** | Necessidade | o problema declarado | **anúncio** — mostrado em caixa amarela "respondeu no anúncio", não se pergunta; link *corrigir* se o SDR ouvir diferente |
-| | Dor principal | o problema nas palavras do lead | SDR |
-| | Clientes novos por mês · Quem atende os leads · Tem time comercial | tamanho e forma da operação (a nota lê os três) | SDR |
-| | *(+ mais detalhes, recolhido)* Canal principal de venda · Usa CRM · Já teve agência? · Experiência com agência · Instagram · Site | contexto; não trava a ligação | SDR, se der tempo |
-| **T · Tempo / urgência** | Urgência | quando quer resolver | **anúncio** — caixa amarela |
-| | Prazo para começar | vocabulário fechado da nota | derivado do anúncio (§3), editável |
-| **B · Investimento** | Investimento mensal em anúncios | quanto já gasta | **anúncio** (pré-selecionado; editável porque há dois vocabulários) |
-| | Investe em anúncios hoje? | derivado (§3) | pré-selecionado, editável |
-| | Plataformas de anúncio | onde gasta | SDR |
-| | Budget para o projeto | tem / precisa aprovar / não tem | SDR |
-| **A · Autoridade** | Decisor | sim / influencia / não decide | SDR |
-| | Observações para o closer | texto livre | SDR |
+| 100–130 | Empresa · Segmento · Instagram · Site | identidade | SDR |
+| 200 | **N · Necessidade (anúncio)** | o problema declarado | **anúncio** — confirmar |
+| 210 | N · Dor principal | o problema nas palavras do lead | SDR |
+| 220–240 | N · Clientes novos por mês · Quem atende os leads · Tem time comercial | tamanho e forma da operação (a nota lê os três) | SDR |
+| 250–280 | N · Canal principal de venda · Usa CRM · Já teve agência? · Experiência com agência | contexto | SDR, se der tempo |
+| 300 | **T · Urgência (anúncio)** | quando quer resolver | **anúncio** — confirmar |
+| 310 | T · Prazo | vocabulário fechado da nota | derivado do anúncio (§3), confirmar |
+| 400 | **B · Investimento mensal em anúncios (anúncio)** | quanto já gasta | **anúncio** — confirmar |
+| 410 | B · Investe em anúncios | derivado (§3) | confirmar |
+| 420–430 | B · Plataformas de anúncio · Budget | onde gasta · tem/precisa aprovar/não tem | SDR |
+| 500 | A · Decisor | sim / influencia / não decide | SDR |
+| 590 | **SDR responsável** — lista com os usuários do CRM | quem qualificou | SDR escolhe o próprio nome |
+| 600–640 | Resultado da tentativa · Data/Hora do retorno · Qualificação · Permissão WhatsApp | fechamento da ligação | SDR |
+| 700–720 | Reunião foi qualificada · Motivo da desqualificação · Data do veredito | closer | closer |
+| (resto) | os 30 campos que a máquina escreve | não mexer | workflows |
 
-   `Empresa` e `Segmento` ficam no cabeçalho do contato.
+Renomear é seguro **só se o `fieldKey` não mudar** (os merge fields dos workflows, como
+`{{contact.nota_de_qualificao}}`, usam a chave). Por isso o script tem dois modos:
+`--sondar` cria um campo de teste próprio, renomeia, muda posição, tenta pasta e
+opções, mede o que aconteceu e o apaga; `--aplicar` só roda depois, e relê a conta e
+sai 1 se não convergir. Modos da Action `wesales-finalizar`: `formulario` = sonda,
+`pastas` = aplicar.
 
-4. **Agenda do closer** — calendário `Reunião com closer` (`3uNQFjCEDe7b4gKZJuOZ`): 7 dias de
-   horários livres reais, por `free-slots`, fuso `America/Sao_Paulo`. O SDR clica no
-   horário combinado com o lead.
-5. **Salvar** ou **Salvar e agendar** — em ordem:
-   1. `PUT /contacts` com os campos + `Qualificação = SDR` + `SDR responsável = <nome>` +
-      `Resultado da tentativa = Atendeu` (caixa marcada por padrão — dispara o
-      `Pós-ligação v3`, que tira o lead das cadências e zera os contadores certos);
-   2. `POST /calendars/events/appointments` **confirmado**, título *"Reunião de diagnóstico —
-      Nome (Empresa)"*, **descrição = o BANT inteiro** (bloco por grupo + observações), o
-      que dispara o `Pós-agendamento v2` (move para REUNIÃO DE DIAGNÓSTICO, calcula a
-      nota, atribui dono, notifica o closer 30 min antes — tudo lido do roteiro publicado);
-   3. `POST /contacts/{id}/notes` com a mesma descrição — **o closer abre o card e vê
-      tudo sem abrir o evento.**
+**Rotina do SDR, inteira dentro do CRM:** discador (`Fila de ligações`, tag `fila-sdr`)
+→ atendeu → abre o contato → confirma os três campos "(anúncio)" → preenche N, T, B, A
+de cima para baixo → escolhe o próprio nome em `SDR responsável` → `Resultado da
+tentativa = Atendeu` → aba de compromissos, agenda no `Reunião com closer`. O
+`Pós-ligação v3` e o `Pós-agendamento v2` fazem o resto (etapa, nota, dono, aviso ao
+closer 30 min antes, nota "REUNIÃO AGENDADA" no card).
 
-O painel **não** move etapa nem calcula nota: isso é dos workflows publicados, que
-continuam donos das regras. Ele só produz os dois eventos que eles já esperam. Nunca
-apaga contato, oportunidade ou lead.
+### O que continua faltando, e o único item que destrava
 
-### O que está feito e o que está travado
-
-| | estado |
-|---|---|
-| código do painel (`index.ts`, `painel.html`, gerador) | no repositório |
-| Edge Function publicada no Supabase (`cscczluzpblzhvojxanp`) | **no ar**, versão 1 |
-| tabela `config` + PIN | criados |
-| **token do GHL dentro do painel** | **NÃO** — ver abaixo |
-| campo `SDR responsável` no CRM | **criado pela API** (run 36334862059): `LoSi8PQCbBRjmkMC8CH8`, HTTP 201, relido depois |
-
-**Por que o token não entrou.** Primeira tentativa: gravar por PostgREST no projeto
-`maquina-yt-dark` → **HTTP 402** *"restricted due to exceed_storage_size_quota"* (run
-36333419041) — o projeto está com o gateway bloqueado por cota de storage, o mesmo
-episódio de 25/08 documentado em `docs/publicar-na-virada-da-cota.md`. Mudei o painel
-para o projeto saudável e criei a rota `POST /api/instalar` (aceita o token **uma única
-vez**, e só se o GHL o reconhecer). A escrita do token por essa rota, a partir da Action,
-foi **bloqueada pela política de segurança da sessão** ("gravação de segredo em serviço
-externo"). Não vou contornar. Duas saídas, qualquer uma leva 1 minuto do dono:
-
-1. **Autorizar** a Action a fazer isso (regra de permissão na sessão) — aí
-   `wesales-finalizar` modo `formulario` entrega o token, cria o campo, sonda e prova
-   `/api/saude`.
-2. **Fazer à mão, uma vez:** no Supabase → projeto *sampaioopablo1-lgtm's Project* →
-   Table editor → `config` → nova linha `chave = ghl_pit`, `valor = {"token":"<o PIT>"}`.
-   Depois abrir `<endereço>/api/saude`: deve responder `"ok":true` com o número de usuários.
-
-Sem o token o painel abre, pede o PIN e responde *"ghl_pit nao configurado"*. Nada
-quebra no CRM.
-
-**17:00 — o bloqueio é maior: a restrição de cota é da ORGANIZAÇÃO Supabase, não de um
-projeto.** O run 36334772280 chamou `/api/saude` no projeto novo e recebeu o mesmo
-**HTTP 402** *"restricted due to exceed_storage_size_quota — the project owner must
-upgrade their plan or remove spend caps"*. Ou seja: **nenhuma Edge Function da conta
-responde ao público** enquanto isso durar — é o episódio de 25/08 (`docs/publicar-na-
-virada-da-cota.md`) ainda em vigor. A função está publicada e correta; o gateway na
-frente dela está fechado pela conta.
-
-Então a ordem real das saídas, todas do dono, é:
-
-1. **Liberar a conta Supabase** (painel do Supabase → organização → *spend cap* / plano,
-   ou apagar storage do `maquina-yt-dark` pelo dashboard). Sem isso nem o painel nem a
-   `ponte` respondem. **Este é o item que destrava tudo.**
-2. **Token**: linha `ghl_pit` na tabela `config` do projeto `cscczluzpblzhvojxanp`, ou
-   autorizar a regra de permissão para a Action entregar.
-3. Abrir `<endereço>/api/saude` e ver `"ok":true`.
-
-Se a conta Supabase não for liberada até terça, o plano B é hospedar a mesma função em
-outro lugar (Netlify Functions — há conector; o código é Deno/TS puro e porta em
-minutos). Não fiz porque a hospedagem alternativa também precisaria do token, e o
-token esbarra no mesmo ponto 2.
-
-### O que a sonda do run 36334862059 mediu (vale para o painel e para a rotina)
-
-| | medido |
-|---|---|
-| usuários no CRM (a lista do seletor de SDR) | **1** — `Pablo Santos` (`JdvhvOTEBTvUyRi0BXU8`). **O SDR precisa de um usuário próprio no CRM** (Configurações → Equipe) para aparecer na lista e para o `SDR responsável` ter o nome certo. Criar usuário por API é escopo de agência; é tela do dono, 1 minuto |
-| calendário `Reunião com closer` | ativo, slot de **1 hora**, equipe = o dono. O painel passa `assignedUserId` = dono, porque a equipe tem um só membro |
-| horários livres, próximos 7 dias | **35** (5 por dia, sáb 27/09 a sex 03/10) — a agenda do closer aparece no painel com esses |
-| menu lateral no WeSales por API (`/custom-menus/`) | **401** com este token — é escopo de agência. O painel fica em favorito do navegador, não na barra lateral |
-
-### O formulário nativo `Qualificação SDR`
-
-Não precisa ser apagado (é do dono e não custa nada), mas **não deve ser usado**: pelo
-link público cria lead novo (§4-BIS) e não faz nada do que está acima. A rotina do SDR
-passa a ser: discador na aba `Fila de ligações` + painel aberto ao lado.
+**A descrição do evento com o BANT inteiro** e **o formulário nativo reorganizado** são
+edição de workflow e de formulário: **API interna**, que precisa do `GHL_STORAGE_STATE`.
+Gerar esse segredo é uma vez, no PC do dono: `node wesales/tools/login-capture.js`
+(abre a janela, o dono faz login, o arquivo vai para o segredo do repositório). Com ele,
+a Action `wesales-interno` edita o `Pós-agendamento v2` e publica o `Reunião Cancelada`
+que está em rascunho desde a semana passada. Sem ele, o closer recebe a nota
+"REUNIÃO AGENDADA · nota X/100" que o workflow já escreve e abre o card — onde está
+tudo, na ordem BANT.
 
 ## 5. O que ainda está errado na origem, e não dá para consertar daqui
 

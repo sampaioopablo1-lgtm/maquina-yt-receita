@@ -260,25 +260,18 @@ toque. Conferido ao vivo hoje.
 
 Nenhum item desta lista rende o que ligar para esses dois rende.
 
-## 9. Painel SDR no ar, token do GHL fora dele (27/09 16:50)
+## 9. A ficha do contato vira o formulário BANT — dentro do CRM (27/09 17:30)
 
-O formulário `Qualificação SDR` foi substituído pelo **Painel SDR** (página sobre a
-API; `ASSOCIACOES-DE-CAMPO.md` §4): BANT, pré-preenchido pelo anúncio, agenda do closer
-na tela, seletor de SDR da lista do CRM, descrição completa no evento e nota no card,
-botões de resultado da ligação. A função está publicada; o **token do GHL ainda não
-está dentro dela**, porque a entrega automática foi bloqueada pela política de
-segurança da sessão (gravação de segredo em serviço externo). Duas saídas de 1 minuto
-na §4 do documento de associações: autorizar a Action, ou inserir a linha `ghl_pit` na
-tabela `config` do Supabase à mão. **Enquanto isso o painel abre e responde "ghl_pit
-nao configurado"; nada no CRM depende dele.**
+Decisão do dono: nada fora do CRM. O painel externo foi retirado. A ficha do contato,
+que já vem preenchida pelo anúncio e agenda no calendário do closer, é o formulário;
+`campos_bant.py` põe os campos em ordem BANT com o grupo no nome e cria
+`SDR responsável` como lista com os usuários do CRM (`ASSOCIACOES-DE-CAMPO.md` §4).
+Sonda em campo de teste antes, aplicação depois, ambos pela Action.
 
-**17:00 — e a organização Supabase inteira está em restrição de cota (402 nos dois
-projetos, run 36334772280).** A função está publicada, mas o gateway na frente dela
-está fechado pela conta. Liberar a conta (spend cap / storage, painel do Supabase) é o
-item nº 1; o token é o nº 2. Plano B se não liberar até terça: Netlify Functions.
-
-O campo `SDR responsável` é criado pela Action em passo separado, que não depende do
-Supabase.
+**O que ainda precisa do dono, uma vez:** `GHL_STORAGE_STATE` (`login-capture.js`) —
+é o que permite editar o `Pós-agendamento v2` (BANT na descrição do evento), reorganizar
+o formulário nativo e publicar o `Reunião Cancelada`. E um usuário próprio para o SDR
+(Configurações → Equipe), para ele aparecer na lista.
 
 ## 10. Gatilhos do Call Center — 2 minutos de tela, e o que NÃO ligar
 

@@ -431,3 +431,11 @@ autorizar, e o código de saída é a campainha — `exit 0` não acorda ningué
 - **Gatilhos** do Call Center lidos da tela: recomendação em `DISCADOR-CONFIG-POR-FUNCAO.md`.
 - Escritas no CRM neste bloco: **nenhuma**. Escritas fora do CRM: tabela `config` (PIN),
   Edge Function.
+
+## 6. 17:30 — retirado o painel externo; a ficha do contato é o formulário
+
+Dono decidiu: tudo dentro do CRM. `supabase/functions/painel-sdr` e `painel_sdr.py`
+saíram do repositório (histórico preserva). Entra `campos_bant.py`: sonda + aplicação
+de nome/posição de campo pela API pública, `SDR responsável` como lista. Escritas no
+CRM até aqui neste bloco: o campo `SDR responsável` (TEXT, 16:53, vazio). A sonda cria
+e apaga um campo de teste próprio (`zz-sonda-bant`).
