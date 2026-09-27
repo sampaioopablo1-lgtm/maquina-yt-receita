@@ -28,6 +28,8 @@ on:
           - donos
           - verificar
           - sondar
+          - filas
+          - filas-aplicar
       user_id:
         description: "So para modo=donos: id do usuario que recebe os leads"
         type: string
@@ -83,6 +85,18 @@ jobs:
         env:
           GHL_PIT: ${{ secrets.GHL_PIT }}
         run: python wesales/tools/finalizar.py --sondar
+
+      - name: Filas do discador (DRY — calcula e imprime, escreve nada)
+        if: ${{ inputs.modo == 'filas' }}
+        env:
+          GHL_PIT: ${{ secrets.GHL_PIT }}
+        run: python wesales/tools/atuador_filas.py
+
+      - name: Filas do discador (APLICA)
+        if: ${{ inputs.modo == 'filas-aplicar' }}
+        env:
+          GHL_PIT: ${{ secrets.GHL_PIT }}
+        run: python wesales/tools/atuador_filas.py --aplicar
 
       - name: Verificacao (rele a conta e prova)
         if: ${{ inputs.modo == 'verificar' }}
