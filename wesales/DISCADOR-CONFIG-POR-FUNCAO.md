@@ -265,3 +265,42 @@ roteiro publicado, não suposto.
    **`fila-sdr`**, mantida pelo atuador. A caixa de contatos já está com os 5 certos
    (Gerson, Ana Ruth, Ricardo, Andreia…), então o `Puxar` da `fila-sdr` funcionou; só não
    digitar `fila-tel` de novo amanhã.
+
+---
+
+## Retificação de 27/09 19:30 — `fila-tel` É a fila desenhada; `fila-sdr` é o reservatório
+
+Pente fino nos 33 roteiros publicados (dumps em `auditoria-roteiros`, cruzando quem
+põe e quem lê cada tag) mostrou o que eu não tinha visto ao criar a `fila-sdr`:
+
+- **As cadências põem `fila-tel` a cada toque** (Cadência 12x30 em 6 nós, parte 2 em 6,
+  Inbound também), junto com a tarefa "[CADENCIA] Tn · Ligar…".
+- **O `Pós-ligação v3` tira `fila-tel` em todo ramo** (Atendeu, Não atendeu, Caixa
+  Postal, Pediu retorno, Número errado, Não ligar, Desqualificado — 6 nós `-TAG`).
+- **O `Fila Travada` vigia `fila-tel`**: se a tag ficar 8 h sem resultado, avisa o
+  gestor e põe `fila-travada`.
+
+Ou seja: **`fila-tel` = "leads com toque de ligação pendente agora"**, mantida pelos
+próprios workflows, no ritmo da cadência 12x30. É exatamente o que o discador deve
+puxar — e é o que o dono digitou na tela (estava com 0 porque a T1 do lote 1 ainda
+não disparou; dispara quando o lead entra em CONECTAR ou ganha `cad-outbound`, e as
+cadências põem `Prioridade = 3` sozinhas).
+
+**Corrijo a instrução da rotina:** o SDR puxa **`fila-tel`**. Se vier vazia (nenhum
+toque vencido naquela hora), aí puxa **`fila-sdr`**, que é o reservatório de discáveis
+(CONECTAR, Prioridade ≥ 3, sem DND) mantido pelo atuador — útil no primeiro dia e em
+dia de fila curta, mas fora do ritmo da cadência. O adendo das 16:40 dizia "tag
+`fila-sdr`, não `fila-tel`"; estava errado, e a razão é a lição 2.16: eu não tinha lido
+o roteiro que executa. `fila-closer` continua valendo (nenhum workflow a toca).
+
+### Outros achados do cruzamento (nenhum é defeito, todos ficam registrados)
+
+| tag/campo | situação | leitura |
+|---|---|---|
+| `pausado` | lida por 4 workflows, nunca posta por workflow | tag **manual** de pausa do gestor; `Mestre de saída` a tira. Por desenho |
+| `reengajamento-ativo` | lida como guarda em Cadência 12x30, nunca posta | guarda sobressalente; `cad-inbound` cobre o caso real |
+| `fila-wa` | lida e removida, nunca posta | fila de ligação por WhatsApp, indisponível nesta conta (CANAIS.md) |
+| `fila-quente` | posta por Inbound e pelas Interceptações de Sinal, tirada pelo Pós-ligação | funciona |
+| `limpar-tarefas` | posta pelas cadências, lida por ninguém | higiene manual (`rotina-limpar-tarefas.md`); não bloqueia nada |
+| `Toques na semana` | escrita só pelo `Contador de Toques` (gatilho: tag `toque`) | teto de 6/semana funciona |
+| valores de `Investimento mensal` nas condições | `Até 1k / 1k a 5k / 5k a 10k / Acima de 10k` | o Meta grava `Abaixo de 5k`, `Até R$ 1.000`, `Não invisto nada ainda` → nota 0 nesse bloco para lead do anúncio (G-04, decisão do dono pendente) |
