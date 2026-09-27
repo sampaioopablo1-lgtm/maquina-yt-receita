@@ -120,3 +120,12 @@ mandar User-Agent de navegador (sem ele o Cloudflare responde 1010).
 | teste | ZZ TESTE MENSAGEM devolvido a rascunho, idêntico ao original | workflow de teste | v11 → v12 draft | sim | |
 | listas SDR | "Fila do dia — SDR" (`w1trBx1OSrGoh6bs8klb`, 36 contatos) e "Ligar pelo WhatsApp" (`a1CX9wVdSIbTHngFK4L9`): filtros no formato da tela, ordenadas por Prioridade, colunas Nome/Telefone/Tentativas telefone/Última atividade/Prioridade, **compartilhadas com a Andreyna**, abas fixadas | Contatos | — | sim, na tela e pela API | aprendido: a tela usa outro formato de filtro (`custom_fields.<id>`, etapa sem `status`, sem `range`); compartilhar é `POST api.leadconnectorhq.com/smartlist/share_with_select`. Uma lista que eu criei quebrou a tela (compartilhamento gravado como texto) e foi **excluída**; tela conferida depois |
 | Canal da tentativa | teste no contato de teste | Pós-ligação v3 v7 | — | sim | Tentativas WhatsApp 0→1, telefone ficou 4, canal limpo no fim |
+
+### Terceira rodada (27/09 20:30–21:30)
+
+| Item | O que foi gravado | Onde | Versão antes → depois | Relido | Observação |
+|---|---|---|---|---|---|
+| governador | PR #104 mergeado pela sessão (autorizado pelo dono); Action manual `aplicar=false` rodou verde ("fim de semana: nada a liberar") | branch padrão / GitHub Actions | — | sim | o agendamento vale a partir de seg 08:30, a cada 30 min, sem depender do PC |
+| telefone | número toca para Pablo **e** Andreyna (`linkedRingAllUsers`); caixa postal após 20 s; gravação de ligações mantida | +55 11 5026-6034 | — | sim (API pública) | rota do app: `POST backend/phone-system/twilio-accounts` (`assignedUsers`, `voicemail`). "Número dedicado" do usuário deixado vazio de propósito |
+| dono do lead novo | "Assign user" das cadências passa de Pablo para a Andreyna (só atua em lead sem dono); tarefa `[WHATSAPP MANUAL] MI-0` vai direto para a Andreyna (na MI-0 o lead novo ainda não tem dono) | Cadência Inbound / Cadência 12x30 | v23→v24 / v38→v39 | sim, nó a nó | antes, todo lead novo ia para o Pablo e as tarefas da SDR iriam para ele |
+| permissões SDR | ligados só contatos, conversas, oportunidades, agenda, ligações, tags, painel/relatórios, mídias; configurações, pagamentos, workflows, marketing e IA desligados | usuário Andreyna | — | sim | feito pelo dono na tela (a API pública devolveu 200 sem gravar). **"Só dados atribuídos" ainda falso na releitura** |
