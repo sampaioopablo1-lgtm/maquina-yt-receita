@@ -537,3 +537,61 @@ primeiro, se divergir, e depois nome e posição com o corpo sem `parentId`.
 Isso ficou escondido porque os 28 campos do BANT já estavam na pasta e na
 posição certas, então o laço os saltava e nenhum PUT com `parentId` saía. O
 campo novo foi o primeiro a exercitar o caminho.
+
+## 10. 19:35 — pente fino ao vivo no contato de teste (itens 2, 5, 8 fechados)
+
+Tudo no contato de teste `pablo sampaio` (rdaijzR0ZVCmXLAJ6jT2, número do dono),
+nenhum lead real tocado, nada excluído, nenhuma IA ligada. A oportunidade de teste
+terminou de novo em `lost`.
+
+**Itens do prompt de tela**
+
+| Item | Resultado |
+|---|---|
+| 2 · Gatilhos + fila do Call Center | aplicado e relido após recarregar |
+| 5 · Reunião Cancelada | já estava `published` (API, run 36343495189) |
+| 8 · Ficha do Gerson | na tela: Necessidade vazio; Investimento `Abaixo de 5k`; `B · Quanto pode investir` existe, entre o investimento do anúncio e `Investe em anúncios`; Proprietário = Andreyna |
+| 4 e 6 · textos de workflow | **bloqueados**: o construtor não abre no navegador na nuvem (fica em "Initializing…"). Caminho: GHL_STORAGE_STATE + `ghl_interno.py put`, ou a sessão local |
+
+**Simulação — o que disparou e o que fez**
+
+| Ação no teste | Workflow | Resultado |
+|---|---|---|
+| reabrir em CONECTAR | Espelho de Etapa | OK: `status-perdido` sai, `etapa-conectar` entra |
+| Resultado = Não atendeu | Pós-ligação v3 | OK: Total de ligações e Tentativas telefone +1; `fila-tel` removida |
+| Resultado = Pediu retorno (sem data) | Pós-ligação v3 | OK: tarefa `[RETORNO] Preencher Data e Hora` para a Andreyna |
+| Resultado = Atendeu | Pós-ligação v3 | OK: Conexões +1, Data conectado = hoje, `conectado-hoje` + `fechar-horario`, tarefa `[FECHAR HORÁRIO]`, nota |
+| marcar reunião (modo `simular-reuniao`) | Pós-agendamento v2 + Lembretes v3 + Mestre de saída | OK: etapa → REUNIÃO DE DIAGNÓSTICO, dono → Pablo (closer), `lr-conf-agora`, `fechar-horario` sai, nota REUNIÃO AGENDADA |
+| cancelar a reunião | Reunião Cancelada | `lr-conf-agora` sai na hora; WhatsApp + tarefa `[NO-SHOW]` ficam para a janela (seg 08:30) |
+| marcar `lost` | Espelho + Mestre de saída | limpeza das tags de fila |
+
+**Achados (nenhum bloqueia a abertura)**
+
+1. Nota REUNIÃO AGENDADA: `Qualificado por: {{contact.qualificao}}` lê o campo
+   `Qualificação`, preenchido em 0 de 64 contatos — sai vazio em toda reunião.
+   Entra na mesma edição do item 4 (nó 67dba2f3): trocar por `{{contact.sdr_responsvel}}`
+   e preencher `SDR responsável` na qualificação.
+2. Tarefa `[FECHAR HORÁRIO]` manda "preencha o formulário de qualificação" — o
+   formulário agora é a ficha do contato (§6). Texto no nó a6815ce6 do Pós-ligação v3.
+3. `[RETORNO] Preencher Data e Hora` continua aberta quando o lead depois atende —
+   fica para a faxina de `limpar-tarefas`.
+4. Pós-agendamento v2 grava Prioridade = 6 e, no nó seguinte, Prioridade = 5. O 6
+   nunca vale. Inofensivo; limpar quando o construtor abrir.
+5. Fechar Horário: com `Pediu retorno` o lead fica num laço de espera de 1 h sem
+   limite até o resultado mudar. Funciona, mas um lead esquecido em "Pediu retorno"
+   fica no laço para sempre; o Retorno Vencido é quem avisa.
+6. Cadência Inbound tem reentrada desligada (D-06) e a 12x30 pula `cad-inbound`:
+   um inbound que volta para CONECTAR (ex.: número corrigido) não ganha cadência.
+   Decisão registrada, não alterada.
+7. Pós-ligação v2 tem o mesmo gatilho da v3 e está `draft` — sem disparo duplo.
+   Não publicar a v2.
+
+**Conserto aplicado:** `--verificar` caía logo após o cabeçalho porque lia pastas por
+`/custom-fields/object-key/contact` (400 para contato). Agora conta a ficha pelo
+catálogo da localização; run 36344339847 verde (ficha completa, 0 oportunidades
+sem dono).
+
+**Efeito colateral a esperar na segunda 08:30:** o número do dono recebe o WhatsApp
+"reunião foi cancelada" e o Pablo recebe a tarefa `[NO-SHOW]` no contato de teste.
+As duas tarefas de teste (`[RETORNO]`, `[FECHAR HORÁRIO]`) estão na lista da Andreyna
+até a faxina; podem ser concluídas à mão.
