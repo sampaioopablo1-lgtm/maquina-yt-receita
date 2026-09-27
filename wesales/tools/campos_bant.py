@@ -296,8 +296,18 @@ def aplicar() -> int:
         c = cat[cid]
         if c.get("name") == nome and int(c.get("position") or -1) == pos and c.get("parentId") == PASTA_FICHA:
             continue
+        # PUT com `parentId` faz o GHL RECALCULAR a posicao: medido no run
+        # 36341042910, onde `B · Quanto pode investir` pediu 405 (no POST e no
+        # PUT, os dois com parentId) e voltou 770 — o fim da pasta. A sonda do
+        # run 36338941011 provou que `position` sai por PUT quando o corpo NAO
+        # leva parentId (`position=42 -> lido 42`). Entao sao dois PUTs: mover
+        # de pasta, se precisar, e DEPOIS fixar nome e posicao sem parentId.
+        # Um PUT unico perde a posicao em silencio: a chamada devolve 200.
+        if c.get("parentId") != PASTA_FICHA:
+            ghl("PUT", "/locations/%s/customFields/%s" % (LOC, cid),
+                {"parentId": PASTA_FICHA, "model": "contact"})
         ghl("PUT", "/locations/%s/customFields/%s" % (LOC, cid),
-            {"name": nome, "position": pos, "parentId": PASTA_FICHA, "model": "contact"})
+            {"name": nome, "position": pos, "model": "contact"})
         escritas += 1
         print("  %-22s -> %-48s pos %s" % (cid, nome, pos))
 
