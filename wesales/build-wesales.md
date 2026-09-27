@@ -4422,3 +4422,52 @@ ar responde 404/410, e sem tratamento isso se confunde com defeito do script —
 exatamente o tipo de erro que me custou três diagnósticos errados neste dia. Os
 dois scripts ganharam `avisa_free_acabou()`, que diz o que é e quais são as duas
 saídas (`JEV_MODEL=jev-1.13` pago, ou `TYPESAFE_API_KEY`).
+
+## 2.46 Mover o lead de volta não desarma a MI-0 — a prova está na ordem dos nós
+
+Pergunta do dono em 27/09/2026: "se precisar, mova os leads para etapa anterior,
+pra não gerar conflito". Medi antes de mover, e a resposta é **não mova** — por
+duas razões, as duas verificáveis.
+
+### 1. A trava roda ANTES do ponto onde a execução para
+
+Sequência real da `Cadência Inbound` (dump de 354 nós):
+
+| nó | tipo | nome |
+|---|---|---|
+| 20 | `update_contact_field` | |
+| **21** | `if_else` | **`MI-0 · Ainda vale mandar?`** ← a trava |
+| 22/23 | `if_else` | Branch / None |
+| **24** | **`sms`** | **`WhatsApp · MI-0`** ← onde a execução espera a janela |
+
+`if_else` avalia na hora; só o nó de mensagem espera a janela. A execução entrou
+em 24/09 00:53 (backfill do G-03), **passou pela trava naquele instante** — o lead
+estava em `CONECTAR`, aberto, sem DND — e parou no nó 24.
+
+Mover para `NOVO LEAD` agora não faz o nó 21 ser reavaliado. A execução parada no
+nó 24 dispara quando a janela abrir. É exatamente o limite que o
+`patch_guarda_mi0.py` já declarava: *"quem já está parado na MI-0 não passa pela
+trava nova"*.
+
+### 2. Mover e devolver na terça CRIA a duplicidade que se queria evitar
+
+| cadência | `allowMultiple` | efeito de reinscrever |
+|---|---|---|
+| `Cadência Inbound` | **false** | segunda inscrição **bloqueada** enquanto a atual está viva |
+| `Cadência 12x30` | **true** | segunda inscrição **acontece** |
+
+Então tirar de `CONECTAR` e devolver na terça daria: Inbound sem reinscrever
+(bloqueada, a execução antiga é que vale) e **12x30 inscrita duas vezes**. O
+movimento que parecia proteger é o que produz o conflito.
+
+### O que sobra, e por que é a janela
+
+A janela é a única coisa que alcança execução **já parada** sem tocar em contato
+nenhum: `days: [2]` nas duas cadências segura tudo até terça, e abre sozinha às
+08:30. `patch_janela_abertura.py --fechar`, ou dois cliques por cadência na tela
+(`Execution window`, deixar só Ter).
+
+Nota lateral, não medida a fundo: o `Carlos Andrade` recebeu `dnd: true` em 23/09
+como proteção de um caso só. Se o DND faz a execução parada **falhar e parar** ou
+**pular e seguir** não foi medido — e é a diferença entre proteger e queimar a
+MI-0 em silêncio. Por isso não estendi DND aos 37.
