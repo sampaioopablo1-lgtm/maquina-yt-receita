@@ -577,20 +577,52 @@ tarefa**. É o freio que segura a fila quando o SDR passa da capacidade.
 **A tag `sdr-lotado` não está em nenhum dos 64 contatos da conta.** Nem no fixture
 `ZZ TESTE ESTRUTURA`, que carrega as outras 20.
 
-As duas leituras possíveis, e as duas incomodam:
+### E fechando a pergunta: ninguém escreve essa tag, e a notificação promete que alguém escreve
 
-- **Ninguém aplica a tag.** Então o portão sempre passa, o freio é **inerte**, e a
-  meta da §3.5 "tarefas abertas/dia ≤ 100" não tem mecanismo. Quando a fila
-  estourar de verdade — que é o cenário dos 10 leads/dia — nada segura.
-- **O `Monitor de Capacidade` (W18) aplicaria a tag**, mas a `IMPLEMENTACAO-WORKFLOWS.md`
-  descreve o W18 como quem **avisa o gestor às 11:00 e 15:00**, não como quem
-  marca contato. Se for esse o desenho, o portão espera uma tag que o desenho
-  nunca produz.
+Varri os **43 dumps ativos** procurando `sdr-lotado`, separando quem **lê** (num
+`if_else`) de quem **escreve** (num `add_contact_tag`):
 
-Em qualquer das duas, é o mesmo padrão da §7: peça existe, está publicada, e não
-recebe insumo. E aqui o custo aparece **exatamente quando a operação der certo** —
-o freio falta na hora do volume, não agora.
+| dump | lê | escreve |
+|---|---|---|
+| `Cadência Inbound` | sim | **não** |
+| `Cadência 12x30` | sim | **não** |
+| `Cadência 12x30 — parte 2` | sim | **não** |
+| `Recuperação de No-show` | sim | **não** |
+| `ZZ TESTE 12X30` | sim | **não** |
+| `Monitor de Capacidade` | — | **não** — aparece só no texto da notificação |
 
-**O que decide, e é leitura, não tela:** abrir o dump do `Monitor de Capacidade`
-(`wesales/workflows-json/Monitor de Capacidade.json`, no mesmo branch) e ver se
-ele tem um `add_contact_tag` com `sdr-lotado`. Fica para a próxima rodada.
+**Cinco workflows leem a tag num portão. Nenhum a escreve.** Quatro deles são de
+produção.
+
+E o texto que o `Monitor de Capacidade` manda ao gestor, transcrito do dump:
+
+> *"Capacidade do SDR: no máximo 100 ligações (toques) por dia. Com 50 ou mais
+> tarefas vencidas, **o sistema segura sozinho** os toques novos da cadência (tag
+> `sdr-lotado`) até as vencidas caírem abaixo de 50. Confira em Contatos → Smart
+> Lists → 'Fila do Dia — Total' e zere as vencidas antes do fim do expediente."*
+
+A mensagem afirma que **o sistema segura sozinho**. Não segura: nada aplica a tag.
+O gestor lê que existe um freio automático, deixa de se preocupar com o teto, e o
+freio não existe — está publicado, lido por quatro workflows, e sem atuador.
+
+Pior: a conferência manual que a própria mensagem sugere aponta para a lista
+**`Fila do Dia — Total`**, que a §7 mediu em **0 linhas**. Quem seguir a instrução
+ao pé da letra vê uma lista vazia e conclui que está tudo bem.
+
+**O que consertar, e são duas coisas independentes:**
+
+1. **Decidir se o freio é automático ou manual.** Se automático, falta um
+   `add_contact_tag sdr-lotado` em algum lugar que conte tarefa vencida — e isso é
+   edição de workflow, que exige a API interna e não sai daqui. Se manual, o texto
+   tem de dizer *"aplique a tag `sdr-lotado`"* em vez de *"o sistema segura
+   sozinho"*, e a ação precisa entrar na rotina do gestor (§3.3), onde hoje não
+   está.
+2. **Corrigir o texto de qualquer jeito**, porque hoje ele é uma promessa falsa
+   sobre uma proteção — é o tipo de frase que faz a operação confiar no que não
+   há. Editar texto de notificação também é tela/API interna, então entra na lista
+   do dono.
+
+Isto é o mesmo padrão da §7 levado ao limite: a peça existe, está publicada, está
+ligada a quatro workflows — e não recebe insumo. A diferença é que o custo aparece
+**exatamente quando a operação der certo**: o freio falta na hora do volume, não
+agora.

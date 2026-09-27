@@ -125,6 +125,30 @@ Na mesma varredura: **`assignedTo` nulo em 42 das 47** oportunidades de
 `554791548812`. Isso deixa sem destinatário a notificação "respondeu agora" do
 W13 — que a §3.1 chama de único motivo para o SDR interromper o bloco.
 
+## 2.2 ACHADO DE 10:15 — o freio de capacidade não tem atuador, e a notificação diz que tem
+
+Nos 43 dumps ativos de workflow: a tag **`sdr-lotado`** é **lida** num portão por
+cinco workflows (`Cadência Inbound`, `Cadência 12x30`, `12x30 — parte 2`,
+`Recuperação de No-show`, `ZZ TESTE 12X30`) e **escrita por nenhum**. Ela não está
+em nenhum dos 64 contatos.
+
+O `Monitor de Capacidade` (publicado) manda ao gestor: *"Com 50 ou mais tarefas
+vencidas, **o sistema segura sozinho** os toques novos da cadência (tag
+`sdr-lotado`)…"*. Não segura. É promessa falsa sobre uma proteção, e o gestor que
+acreditar para de olhar o teto de 100 tarefas da §3.5.
+
+A conferência manual que a mensagem sugere aponta para `Fila do Dia — Total`, lista
+que hoje devolve **0 linhas** (§7 do `USABILIDADE.md`) — então quem seguir a
+instrução vê vazio e conclui que está tudo bem.
+
+Dois consertos, os dois de tela/API interna (não saem daqui): decidir se o freio é
+automático (falta um `add_contact_tag sdr-lotado` em algum lugar que conte tarefa
+vencida) ou manual (e então o texto tem de mandar aplicar a tag, e a ação entra na
+rotina do gestor da §3.3, onde não está); e corrigir o texto de qualquer jeito.
+
+**Nota de escopo:** isto não afeta a terça, porque o portão sempre passa hoje — o
+custo aparece quando o volume chegar, que é o cenário dos 10 leads/dia.
+
 ## 3. Decisões que esperam o dono
 
 0b. **As duas proteções sempre juntas (DND + tag `nao-perturbe`)?** Decisão
