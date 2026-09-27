@@ -4,6 +4,24 @@ Escrito em 27/09/2026 01:15 UTC (sáb 26/09 22:15 São Paulo) para a próxima
 sessão não redescobrir. **Leia só isto para a abertura**; o resto está no
 `build-wesales.md` §2.42 a §2.46.
 
+> **Reconfirmado em 27/09/2026 ~10:10 UTC, sessão automática (~9h depois do
+> texto abaixo, dez commits de distância — `c98add1` a `ce2a7ce` — nenhum
+> deles tocou isto).** Nada mudou: `git fetch` limpo, CRM reconfirmado por
+> API (64 oportunidades, mesma composição; 56 campos de contato).
+> `Carlos Andrade` (`7ECnj1bSeEIm5P58Ifd9`) segue com `dnd: true`, tag
+> `atraso-1a-tentativa` presente e `Tentativa nº` = 0 — protegido, exatamente
+> como descrito abaixo. As duas decisões do dono (data, DND nos 30) seguem
+> sem resposta. Faltam **menos de 26h** para a janela abrir (segunda 28/09
+> 08:30 `America/Sao_Paulo` = 11:30 UTC). Este risco virou item de roadmap —
+> `ROADMAP-SALES-ENGAGEMENT.md`, **G-25** (topo do arquivo e corpo, logo após
+> o F-20) — para nenhuma sessão automática seguinte voltar à rotina normal
+> (coerência entre documentos, pesquisa de concorrência) sem primeiro
+> conferir se isto foi resolvido. O dono foi notificado diretamente nesta
+> sessão: é o único que decide a data e o único que tem o bearer para
+> aplicar `patch_janela_abertura.py --fechar --aplicar` (ou o equivalente na
+> tela). Nenhuma sessão automática consegue aplicar a correção sozinha —
+> ver G-25 para o porquê, já diagnosticado, não uma tentativa nova.
+
 ## O risco, em uma frase
 
 **36 execuções da `Cadência Inbound` estão paradas no nó 24 (`WhatsApp · MI-0`)

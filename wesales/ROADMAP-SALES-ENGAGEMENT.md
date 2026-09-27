@@ -136,6 +136,24 @@
 > próprio publicado na tela (o workflow `AGENDAR Estagnado`, a lista
 > `Saúde — AGENDAR Estagnado`).
 
+> ## ⚠️ G-25 — risco de disparo em massa na abertura, ainda sem solução aplicada (27/09/2026)
+>
+> **36-37 execuções da `Cadência Inbound` estão paradas no nó 24 (`WhatsApp ·
+> MI-0`) e disparam juntas quando a janela do workflow abrir — próxima
+> abertura segunda 28/09 08:30 `America/Sao_Paulo` (11:30 UTC).** Isso
+> contraria a rampa de 6/dia que o dono decidiu (`ESTADO-E-PLANO.md`, linha
+> 93). Detalhe completo, as duas decisões do dono ainda pendentes e por que a
+> janela é a única alavanca que não exige tocar em contato: `ABERTURA.md`.
+> Item novo, especificado abaixo (G-25) — **isto salta a fila**, na mesma
+> classe do F-04/F-05: mensagem que sai não volta, e o prazo é fixo, não
+> flexível como "esperar volume" (R-14/F-06) ou "esperar decisão sem pressa"
+> (G-04/F-09/F-10/G-11/G-19). **Nenhuma sessão automática consegue aplicar a
+> correção** (precisa de bearer de sessão logada só disponível no PC do dono,
+> ou de um clique na tela) — o trabalho de uma sessão sem essa tela é
+> reconferir que o risco segue vivo e não deixar o roadmap voltar a rotina
+> normal (varredura de canal, coerência entre documentos) enquanto isto não
+> estiver marcado `FEITO` aqui.
+
 O alvo do projeto não é "ter uma cadência no GHL". Os blocos 1 a 5 são a
 distância até a **paridade** com Reev e Meetime — e paridade é o **piso**, não
 a chegada. O bloco 6 é o que faz a operação ficar fora da curva: coisas que a
@@ -4333,6 +4351,90 @@ contato com quem só está fora do escritório. Detalhe nó a nó em
 continuam `[ ]` em `APROVADO.md`, mesma linha do F-19 — este item amplia o
 motivo de aprovar, não pede aprovação nova.
 
+### G-25 · A janela nativa das cadências vai disparar 36-37 mensagens juntas, um dia antes da abertura combinada — nenhuma sessão automática consegue fechar a janela sozinha (27/09/2026)
+
+**Por quê:** seguindo a própria instrução deste roadmap ("reler os itens
+represados por informação que pode ter vencido" antes de procurar lacuna
+nova), a releitura desta rodada não foi de um G/F antigo — foi do handoff
+mais recente do próprio projeto, `wesales/ABERTURA.md` (commits `eaaf007`,
+`145262d`, `844f555`, todos de 27/09/2026 madrugada), que nenhuma das dez
+sessões seguintes (`c98add1` a `ce2a7ce`, ~9h de trabalho em F-07 a F-20 e
+reconciliação de documentos) tinha voltado a conferir. O achado: o backfill
+do G-03 (24/09/2026) já moveu 41 oportunidades para `CONECTAR`, e a
+`Cadência Inbound` já entrou para 36-37 delas — a execução está **parada**
+no nó 24 (`WhatsApp · MI-0`), não fora da cadência, porque a janela do
+workflow é `days: [1,2,3,4,5]`, 08:30-18:30 `America/Sao_Paulo`, e a próxima
+abertura dessa janela é **segunda 28/09 08:30** (11:30 UTC). Quando ela
+abrir, as 36-37 execuções disparam **juntas** — 6x o lote de 6/dia que o
+dono decidiu (`ESTADO-E-PLANO.md`, linha 93, "decisão do dono, 23/09
+19:00"), um dia antes da própria data de abertura que essa mesma linha
+registra ("segunda 28/09/2026"), sem SDR na mesa para atender quem
+responder. **Duas decisões do dono seguem sem resposta, e não é omissão —
+são duas falas dele em datas diferentes que se contradizem:**
+`ESTADO-E-PLANO.md` (23/09, ao vivo) fixa a abertura em segunda 28/09 com
+lote de 6; `ABERTURA.md` (27/09, ao vivo) registra que ele disse "terça" no
+chat, sem que nenhuma sessão tenha confirmado se isso troca a data ou é só
+sobre outro ponto do plano. Nenhum documento deste projeto pode decidir
+sozinho qual das duas falas vale.
+
+**Verificado nesta sessão, não presumido:** `opportunities_search-
+opportunity` (`status: all`) segue em 64, mesma composição da última
+leitura (39 `CONECTAR` open); `locations_get-custom-fields` segue em 56
+campos — nada mudou na conta desde o F-20. O contato-prova que o `ABERTURA.md`
+cita (`Carlos Andrade`, `7ECnj1bSeEIm5P58Ifd9`) segue exatamente como o
+handoff descreveu: `dnd: true`, tag `atraso-1a-tentativa` presente,
+`Tentativa nº` = 0 — protegido, mas isso não muda para os outros 35-36 sem
+essa proteção. `git fetch` limpo: nenhuma sessão aplicou a correção entre o
+handoff e esta leitura.
+
+**Por que nenhuma sessão automática resolve isto sozinha (bloqueio real,
+não preguiça de tentar) — três caminhos conferidos, os três batem na mesma
+parede:** (1) o MCP `GHL CRM` não edita configuração de workflow (armadilha
+já registrada em `CLAUDE.md`); (2) o script que fecharia a janela em uma
+linha (`tools/patch_janela_abertura.py --fechar --aplicar`) precisa de um
+bearer de sessão logada (`../.local/_ghl_bearer.txt`, renovado por navegador
+headless) que só existe no PC do dono — não existe neste contêiner, e os
+domínios do GHL estão bloqueados pelo proxy (testado nesta sessão: sem o
+arquivo, o próprio script recusa rodar); (3) o `--dump` do mesmo script só
+lê fotografia local (`workflows-json/`), não a conta ao vivo — confirma o
+desenho, não confirma se a janela já foi fechada. **Como:** o próprio
+`ABERTURA.md` já desenhou a correção seguindo o mesmo raciocínio que este
+roadmap usa para F-04/F-05 (limitar o dano, não fingir que a plataforma
+oferece o que não oferece): `--fechar` deixa `days: [2]` (só terça) nas
+duas cadências (`Cadência Inbound`, `Cadência 12x30`) — **seguro para as
+duas leituras da data**, porque se a resposta certa for "segunda", fechar
+para terça só atrasa um dia (sem disparo em massa sem SDR); se for "terça",
+já é a data certa. `--abrir` devolve `[1,2,3,4,5]` depois. Equivalente pela
+tela: `Automation → cadência → engrenagem → Execution window`, 2 cliques por
+cadência.
+
+**O que esta sessão fez, dado o bloqueio:** reconferiu que o risco segue
+vivo e sem mudança desde o handoff (parágrafo "Verificado" acima), abriu
+este item para o roadmap parar de tratar F-19/F-20/coerência como a rotina
+normal enquanto uma mensagem que não pode ser desfeita está a menos de 26h
+de sair errada, e notificou o dono diretamente — é o único que pode escolher
+segunda ou terça e o único que tem o bearer para aplicar a correção. Não é
+contorno de bloqueio: é a mesma escolha que o próprio `ABERTURA.md` já tinha
+registrado ("me diga qual..." é o padrão deste projeto para pendência que só
+falta informação, `APROVADO.md`, seção Mensagens) aplicada a um prazo fixo
+em vez de um prazo flexível.
+
+**Zero campo, zero tag, zero escrita no CRM: item de escalonamento, não
+depende de `APROVADO.md`** — a correção em si (`patch_janela_abertura.py`)
+já está escrita e validada em modo `--dump`; falta só quem tem o bearer
+rodar `--aplicar`, ou o dono clicar na tela.
+
+**Pronto quando:** a janela das duas cadências estiver confirmada como
+`days: [2]` (ou o dono confirmar por outra via que quer manter `[1,2,3,4,5]`
+e assumir o disparo de segunda) — o que vier primeiro, confirmado por
+releitura do `window` na tela ou por quem tiver o bearer — e este item
+puder ser marcado `FEITO` com a data e o resultado. **Enquanto isso não
+acontecer, este é o item de maior prioridade do roadmap inteiro**, à frente
+de qualquer G/F do Bloco 6: a próxima sessão confere primeiro se a janela
+mudou (ou se a data de abertura já passou) antes de voltar à varredura de
+coerência ou à pesquisa de concorrência que a "Ordem sugerida" abaixo
+descreve como próximo passo padrão.
+
 ---
 
 ## Ordem sugerida
@@ -5899,3 +6001,48 @@ Replied`/canal específico ganha, na sessão seguinte, a pergunta "essa
 guarda existe em todo canal de texto que a operação usa, ou só no canal
 que motivou o achado original?" — antes de declarar o bloco 6 esgotado de
 novo.
+
+**G-25 aberto em 27/09/2026, sessão automática seguinte — não veio da
+pergunta acima (a cobertura de canal do F-19/F-20 segue completa, WhatsApp/
+SMS e e-mail, sem lacuna nova ali). Veio de reler `ABERTURA.md`, o handoff
+mais recente do projeto, que nenhuma das dez sessões entre `c98add1` e
+`ce2a7ce` tinha voltado a conferir enquanto trabalhava F-07 a F-20 e a
+reconciliação dos dois documentos truncados.** `git fetch` limpo; CRM
+reconfirmado por API: 64 oportunidades (mesma composição de sempre) e 56
+campos de contato, sem mudança — mas o achado desta rodada não é sobre
+contagem, é sobre um risco com prazo fixo que nenhuma releitura anterior
+tinha promovido a item de roadmap. **36-37 execuções da `Cadência Inbound`
+estão paradas no nó 24 (`WhatsApp · MI-0`) e disparam juntas na próxima
+abertura da janela nativa do workflow — segunda 28/09 08:30
+`America/Sao_Paulo`, menos de 26h a partir desta sessão** — 6x o lote de
+6/dia que o dono decidiu, um dia antes da data de abertura que ele mesmo
+fixou (`ESTADO-E-PLANO.md`, 23/09) e que uma fala posterior dele (27/09,
+"terça", citada em `ABERTURA.md`) pode ou não ter substituído; nenhum
+documento deste projeto pode arbitrar sozinho qual das duas falas vale.
+Verificado por amostra, não presumido: `Carlos Andrade`
+(`7ECnj1bSeEIm5P58Ifd9`) segue com `dnd: true` e `Tentativa nº` = 0,
+exatamente como o handoff descreveu — protegido, mas os outros 35-36 sem
+essa proteção não. Fechado como **G-25**: a correção (`patch_janela_
+abertura.py --fechar --aplicar`, ou o equivalente de 2 cliques na tela) já
+está escrita e validada em `--dump` desde `eaaf007` — o que falta é
+execução, e nenhuma sessão automática tem o bearer de sessão logada que
+essa execução exige (confirmado, não suposto: o arquivo não existe neste
+contêiner, e os domínios do GHL seguem bloqueados pelo proxy). Notificado o
+dono diretamente, porque só ele decide a data e só ele tem o bearer.
+**Diferente de todo G/F represado por "tela ou PC" que a lista abaixo já
+cita (F-11 a F-22, G-07/G-08/G-11/G-17/G-18/G-21 a G-24): aqueles esperam
+sem prazo, este tem prazo fixo e a mensagem que sair não volta** — por
+isso entra à frente de todos eles, não atrás. Zero campo, zero tag, zero
+escrita no CRM: item de escalonamento, não depende de `APROVADO.md`.
+
+Com isso, **G-25 é o item de maior prioridade do roadmap inteiro enquanto
+não estiver `FEITO`** — à frente de G-03, G-04 (peça 2), F-09, F-10, G-11
+(item 1) e G-19, que continuam sendo as seis decisões que esperam o dono
+sem prazo fixo. A próxima sessão confere primeiro se a janela das duas
+cadências mudou (ou se segunda 28/09 08:30 `America/Sao_Paulo` já passou)
+antes de qualquer outro trabalho — inclusive antes da varredura de
+coerência ou da pesquisa de concorrência que esta seção normalmente indica
+como próximo passo. Se o risco já tiver se concretizado (mensagens
+disparadas) ou a janela já tiver sido fechada por alguém com acesso à
+tela, este parágrafo e o próprio G-25 acima são atualizados com o
+resultado antes de qualquer outra linha de trabalho.
