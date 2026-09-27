@@ -58,6 +58,8 @@ import urllib.parse
 import urllib.request
 
 BASE = "https://services.leadconnectorhq.com"
+UA = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) "
+      "Chrome/131.0.0.0 Safari/537.36")
 LOC = "1D53YTI9C7oIMBavcQxV"
 VERSION = "2021-07-28"
 PIPELINE = "0Fo2xbeayE4EP6yuSUtq"
@@ -85,6 +87,12 @@ def pedir(metodo: str, caminho: str, corpo: dict | None = None, tolerar=()):
     req.add_header("Authorization", "Bearer " + token())
     req.add_header("Version", VERSION)
     req.add_header("Accept", "application/json")
+    # Sem isto a API devolve 403 Cloudflare 1010 "browser_signature_banned":
+    # o padrao do urllib e User-Agent "Python-urllib/3.x", que o Cloudflare do
+    # GHL barra por regra de bot. Medido na Action em 27/09 — nao era escopo de
+    # token, e o erro nao diz isso em lugar nenhum. O token continua sendo o
+    # controle de acesso; isto so faz a requisicao parecer com o que ela e.
+    req.add_header("User-Agent", UA)
     if dados is not None:
         req.add_header("Content-Type", "application/json")
     try:
@@ -165,6 +173,24 @@ def contatos() -> list:
 
 # ---------------------------------------------------------------- recon
 
+def bloco(titulo, fn):
+    """Roda uma etapa do recon e segue mesmo se ela falhar.
+
+    A primeira versao morria no primeiro erro: o 403 em /custom-fields matou o
+    reconhecimento antes de imprimir pastas, campos, oportunidades e contatos —
+    e reconhecimento que para na primeira pedra nao serve para reconhecer.
+    """
+    print()
+    print(titulo)
+    try:
+        fn()
+    except SystemExit as e:
+        print("  !! esta etapa falhou e o recon seguiu: %s" % e)
+    except Exception as e:
+        print("  !! esta etapa falhou e o recon seguiu: %s: %s"
+              % (type(e).__name__, e))
+
+
 def recon() -> int:
     print("=" * 74)
     print("RECONHECIMENTO — le tudo, escreve nada")
@@ -178,52 +204,56 @@ def recon() -> int:
     print("  (GHL_STORAGE_STATE e o que decide se a API interna abre: mover campo e")
     print("   publicar workflow dependem so dela.)")
 
-    print("\n[2] USUARIOS da subconta — quem pode ser dono de lead")
-    us = usuarios()
-    if us:
+    def _usuarios():
+        us = usuarios()
         for u in us:
             print("  %s | %s %s | %s | roles=%s" % (
                 u.get("id"), u.get("firstName") or "", u.get("lastName") or "",
-                u.get("email"), json.dumps(u.get("roles") or {}, ensure_ascii=False)[:120]))
-    else:
-        print("  (nenhum devolvido — ver aviso acima)")
+                u.get("email"),
+                json.dumps(u.get("roles") or {}, ensure_ascii=False)[:120]))
+        if not us:
+            print("  (nenhum devolvido)")
 
-    print("\n[3] PASTAS de campo hoje")
-    ps = pastas_da_conta()
-    for n, i in sorted(ps.items()):
-        marca = "  <-- a pasta grande" if i == PASTA_GRANDE else ""
-        print("  %-42s %s%s" % (n, i, marca))
-    print("  faltam criar: %s" % [n for n in PASTAS if n not in ps and n != PASTA_MAQUINA])
-    print("  a grande já se chama PASTA_MAQUINA? %s"
-          % ({v: k for k, v in ps.items()}.get(PASTA_GRANDE) == PASTA_MAQUINA))
+    def _pastas():
+        ps = pastas_da_conta()
+        for n, i in sorted(ps.items()):
+            marca = "  <-- a pasta grande" if i == PASTA_GRANDE else ""
+            print("  %-42s %s%s" % (n, i, marca))
+        if not ps:
+            print("  (nenhuma pasta devolvida)")
+        print("  faltam criar: %s"
+              % [n for n in PASTAS if n not in ps and n != PASTA_MAQUINA])
+        print("  a grande já se chama PASTA_MAQUINA? %s"
+              % ({v: k for k, v in ps.items()}.get(PASTA_GRANDE) == PASTA_MAQUINA))
 
-    print("\n[4] CAMPOS por pasta")
-    cs = campos_da_conta()
-    porpasta = {}
-    for c in cs:
-        porpasta.setdefault(c.get("parentId"), []).append(c.get("name"))
-    for pid, nomes in sorted(porpasta.items(), key=lambda kv: -len(kv[1])):
-        print("  %-26s %d campos" % (pid, len(nomes)))
-    print("  total de campos: %d" % len(cs))
+    def _campos():
+        cs = campos_da_conta()
+        porpasta = {}
+        for c in cs:
+            porpasta.setdefault(c.get("parentId"), []).append(c.get("name"))
+        for pid, nomes in sorted(porpasta.items(), key=lambda kv: -len(kv[1])):
+            print("  %-26s %d campos" % (pid, len(nomes)))
+        print("  total de campos: %d" % len(cs))
 
-    print("\n[5] OPORTUNIDADES abertas e dono")
-    ops = oportunidades()
-    print("  abertas: %d" % len(ops))
-    for pref, nome in ETAPAS.items():
-        na = [o for o in ops if (o.get("pipelineStageId") or "").startswith(pref)]
-        if na:
-            print("    %-24s %2d  sem dono: %d"
-                  % (nome, len(na), sum(1 for o in na if not o.get("assignedTo"))))
-    donos = {}
-    for o in ops:
-        donos[o.get("assignedTo") or "(sem dono)"] = donos.get(o.get("assignedTo") or "(sem dono)", 0) + 1
-    print("  por dono: %s" % donos)
+    def _ops():
+        ops = oportunidades()
+        print("  abertas: %d" % len(ops))
+        for pref, nome in ETAPAS.items():
+            na = [o for o in ops if (o.get("pipelineStageId") or "").startswith(pref)]
+            if na:
+                print("    %-24s %2d  sem dono: %d"
+                      % (nome, len(na), sum(1 for o in na if not o.get("assignedTo"))))
 
-    print("\n[6] CONTATOS e dono")
-    ct = contatos()
-    if ct:
+    def _contatos():
+        ct = contatos()
         print("  contatos: %d | sem dono: %d"
               % (len(ct), sum(1 for c in ct if not c.get("assignedTo"))))
+
+    bloco("[2] USUARIOS da subconta — quem pode ser dono de lead", _usuarios)
+    bloco("[3] PASTAS de campo hoje", _pastas)
+    bloco("[4] CAMPOS por pasta", _campos)
+    bloco("[5] OPORTUNIDADES abertas e dono", _ops)
+    bloco("[6] CONTATOS e dono", _contatos)
 
     print("\n" + "=" * 74)
     print("DECISAO que este recon habilita: com a lista de usuarios acima eu escolho o")
