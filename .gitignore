@@ -10,6 +10,16 @@ client_secret*.json
 token*.json
 *.pem
 
+# Estado de sessao do GHL. Conferido em 27/09/2026: `wesales/tools/renew.js` e
+# `login-capture.js` afirmam no comentario que gravam em ".local/ (gitignored)",
+# mas .local NAO estava coberto aqui — e este repositorio e PUBLICO. Um `git add -A`
+# depois de renovar o bearer publicaria a sessao logada do CRM. Nada de .local/ foi
+# comitado ate agora (conferido no historico); esta linha impede que seja.
+.local/
+**/.local/
+storage-state.json
+_ghl_bearer.txt
+
 # Artefatos de producao (videos, audios, imagens, banco de jobs)
 out/
 data/
