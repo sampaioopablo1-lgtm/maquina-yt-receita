@@ -32,6 +32,7 @@ on:
           - formulario
           - transferir
           - transferir-aplicar
+          - simular-reuniao
       user_id:
         description: "Para modo=donos e transferir*: id do usuario que recebe os leads"
         type: string
@@ -127,3 +128,11 @@ jobs:
         env:
           GHL_PIT: ${{ secrets.GHL_PIT }}
         run: python wesales/tools/finalizar.py --verificar
+
+      # Marca e cancela uma reuniao SO no contato de teste (fixo no script) e
+      # imprime o que os workflows de reuniao fizeram. Nao exclui nada.
+      - name: Simular reuniao no contato de teste
+        if: ${{ inputs.modo == 'simular-reuniao' }}
+        env:
+          GHL_PIT: ${{ secrets.GHL_PIT }}
+        run: python wesales/tools/simular_reuniao.py
