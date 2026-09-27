@@ -27,6 +27,7 @@ on:
           - pastas
           - donos
           - verificar
+          - sondar
       user_id:
         description: "So para modo=donos: id do usuario que recebe os leads"
         type: string
@@ -76,6 +77,12 @@ jobs:
           else
             python wesales/tools/finalizar.py --donos
           fi
+
+      - name: Sonda (uma criacao de pasta, para saber se a API aceita contact)
+        if: ${{ inputs.modo == 'sondar' }}
+        env:
+          GHL_PIT: ${{ secrets.GHL_PIT }}
+        run: python wesales/tools/finalizar.py --sondar
 
       - name: Verificacao (rele a conta e prova)
         if: ${{ inputs.modo == 'verificar' }}

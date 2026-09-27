@@ -378,6 +378,43 @@ def verificar() -> int:
     return 0 if ok else 1
 
 
+def sondar() -> int:
+    """UMA chamada de criacao de pasta, para saber se objectKey=contact e aceito.
+
+    Existe porque o `GET /custom-fields/object-key/contact` devolveu
+    HTTP 400 "Api does not support objectKey of type contact or opportunity" —
+    ou seja, o grupo /custom-fields/ da v2 e para OBJETO PERSONALIZADO, nao para
+    os campos do contato. Se o POST recusar igual, pasta de campo de contato nao
+    sai por API nenhuma, e a §4 do USABILIDADE.md esta errada.
+
+    Uma chamada so, com um nome de sonda reconhecivel, porque sem o GET eu nao
+    tenho como conferir existencia — e criar em lote sem poder reler duplicaria
+    pasta a cada execucao.
+    """
+    nome = "ZZ SONDA API 27-09 (apagar)"
+    print("=" * 74)
+    print("SONDA — uma criacao de pasta, para saber se a API aceita contact")
+    print("=" * 74)
+    print("  tentando POST /custom-fields/folder com objectKey=contact")
+    r = pedir("POST", "/custom-fields/folder",
+              {"objectKey": OBJECT_KEY, "name": nome, "locationId": LOC},
+              tolerar=(400, 401, 403, 404, 422))
+    print("  resposta bruta: %s" % json.dumps(r, ensure_ascii=False)[:600])
+    if "_erro" in r:
+        print()
+        print("  VEREDITO: a API publica NAO cria pasta de campo de contato.")
+        print("  Entao criar pasta e trabalho de tela, e o pastas_de_campo.py")
+        print("  precisa dizer isso em vez de prometer.")
+    else:
+        print()
+        print("  VEREDITO: a API ACEITA. Pasta criada com nome de sonda.")
+        print("  Sem o GET de listagem nao ha como conferir existencia, entao a")
+        print("  criacao das 5 tem de ser feita UMA vez e registrada, nunca em")
+        print("  rotina — repetir duplicaria.")
+    # Sai 1 sempre: e o unico jeito de eu ler este log pela API do GitHub.
+    return 1
+
+
 def main() -> int:
     a = sys.argv[1:]
     user = None
@@ -391,6 +428,8 @@ def main() -> int:
         return donos(user)
     if "--verificar" in a:
         return verificar()
+    if "--sondar" in a:
+        return sondar()
     print(__doc__)
     return 0
 
