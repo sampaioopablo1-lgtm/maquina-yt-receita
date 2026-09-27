@@ -55,3 +55,51 @@ número.
 Pronto para gravar pela sessão logada do navegador, pelo mesmo caminho da §11 do
 `ESTADO-27-09.md` (ensaio, gravação preservando `status`, releitura). Em 27/09 20:30 a
 gravação de workflow estava bloqueada pela proteção da sessão em modo automático.
+
+---
+
+## Lembretes da Reunião v3 — revisão (pedido do dono, 27/09 20:40)
+
+**Por que parece duplicado.** O workflow tem 4 trilhas (PROCESSO, ATENDIMENTO, DEMANDA,
+GERAL), escolhidas por `Investe em anúncios` e `Quem atende os leads`. Cada lead percorre
+**uma** trilha só. Mas dentro das 4 trilhas, 3 dos 4 momentos têm o **mesmo texto**
+copiado, e cada momento tem WhatsApp **e** e-mail com o mesmo conteúdo. No construtor isso
+aparece como 25 envios; o lead recebe 5 WhatsApp e 3 e-mails.
+
+**O que o lead recebe hoje, e o problema de cada um:**
+
+| Momento | Problema |
+|---|---|
+| Confirmação | ok, só longa |
+| 3 dias antes (varia por trilha) | textos longos, sem pergunta no fim |
+| 1 dia antes (igual nas 4) | repete data e hora que já estão na confirmação; frase longa |
+| 3 h antes, sem dor preenchida (igual nas 4) | diz "daqui a pouco" 3 horas antes; vira propaganda ("Além de gerar demanda, a O Próximo Cliente também pode…"); na trilha DEMANDA repete "gerar demanda" duas vezes na mesma mensagem |
+| 3 h antes, com dor preenchida | ok, só rígido |
+| 10 min antes | ok |
+
+**Textos novos** (mesmo texto no WhatsApp e no e-mail do mesmo momento; assunto dos e-mails
+não muda):
+
+| Momento · nós | Texto novo |
+|---|---|
+| Confirmação · `b01ea94e` (WA), `82a997ab` (e-mail) | Reunião confirmada ✅ {{appointment.only_start_date}} às {{appointment.only_start_time}}.<br>Link: {{appointment.meeting_location}}<br><br>Você sai dela sabendo onde seus clientes se perdem, do anúncio até a venda. Se precisar mudar o horário, responde aqui. |
+| 3 dias · PROCESSO · `795abe36` | {{contact.first_name}}, adiantando nossa conversa: depois que o lead chega, três coisas decidem a venda — velocidade da primeira resposta, número de tentativas e o que fica registrado. Qual delas mais falha aí hoje? |
+| 3 dias · ATENDIMENTO · `8df54d1d` | {{contact.first_name}}, lead de anúncio esfria em minutos. Quanto do que você investe hoje se perde antes do primeiro contato? É isso que a gente vai medir na reunião. |
+| 3 dias · DEMANDA · `1e09f108` | {{contact.first_name}}, muito anúncio que "não funcionou" gerou contato, sim. O problema foi o que aconteceu depois do clique. Na reunião eu te mostro onde isso acontece no seu caso. |
+| 3 dias · GERAL · `6137d10b` | {{contact.first_name}}, na maioria das empresas o problema não é falta de contato, é o que acontece depois que ele chega. É por aí que a gente começa na reunião. |
+| 1 dia (4 trilhas) · `c3588d10` `3cce8505` `ba7131c5` `4cc095fa` (WA), `82e509f2` `a7c110e8` `266ce968` `d0bd4bc3` (e-mail) | Amanhã às {{appointment.only_start_time}}. Traz dois números do último mês: quantos contatos chegaram e quantos viraram venda. Com eles a gente já enxerga onde tem dinheiro parado.<br>Link: {{appointment.meeting_location}} |
+| 3 h, com dor (4 trilhas) · `db1826db` `16bbd274` `29bf8e07` `66734cf2` | {{contact.first_name}}, hoje às {{appointment.only_start_time}}. Você contou que o desafio é "{{contact.dor_principal}}". A gente começa por aí. |
+| 3 h, sem dor (4 trilhas) · `d6b42f3a` `2d34bd48` `ab16456c` `b94fcca3` | {{contact.first_name}}, hoje às {{appointment.only_start_time}}. Vamos olhar como seus contatos chegam e quem responde quando chegam.<br>Link: {{appointment.meeting_location}} |
+| 10 min · 4 WA + 4 e-mail | sem mudança: "Começamos em 10 minutos. Link: {{appointment.meeting_location}}" |
+
+**"Amanhã" é seguro:** o envio de 1 dia só sai quando o lead está esperando no nó de 24 h;
+reunião marcada com menos de 1 dia pula esse envio (o portão exige que a marca de
+confirmação `lr-conf-agora` já tenha caído).
+
+**Não mexido, e por quê:** portões, esperas e trilhas. E os e-mails duplicados dos
+WhatsApp ficam — tirar exigiria apagar nós, que é mudança de estrutura, não de texto.
+Se quiser, o próximo passo é desligar os e-mails de 10 min (ninguém lê e-mail 10 min
+antes).
+
+Total a gravar no Lembretes: 21 nós de texto (13 WhatsApp + 5 e-mails + 3 sem mudança
+ficam fora).
