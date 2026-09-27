@@ -595,3 +595,7 @@ sem dono).
 "reunião foi cancelada" e o Pablo recebe a tarefa `[NO-SHOW]` no contato de teste.
 As duas tarefas de teste (`[RETORNO]`, `[FECHAR HORÁRIO]`) estão na lista da Andreyna
 até a faxina; podem ser concluídas à mão.
+
+**19:37 — e-mail da SDR corrigido pelo dono** (Configurações → Equipe). Relido pela API
+no run 36344996509 (recon): Andreyna Siqueira `ML69c5kAJ93cliAGgBj6` agora com
+`sampaioopablo1@gmail.com` (o `.com` faltando foi corrigido). Papel `user`, subconta certa.
