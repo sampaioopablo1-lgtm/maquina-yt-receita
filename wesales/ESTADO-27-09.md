@@ -439,3 +439,13 @@ saíram do repositório (histórico preserva). Entra `campos_bant.py`: sonda + a
 de nome/posição de campo pela API pública, `SDR responsável` como lista. Escritas no
 CRM até aqui neste bloco: o campo `SDR responsável` (TEXT, 16:53, vazio). A sonda cria
 e apaga um campo de teste próprio (`zz-sonda-bant`).
+
+## 7. 17:07 — ficha do contato em ordem BANT, aplicada e verificada
+
+Runs 36335476750 (sonda), 36335610418 e 36335689596 (aplicação). 28 campos renomeados
+com o grupo no nome, reposicionados e movidos para a pasta `zHU4yGXKHdxBHnGxUmai`
+(29 campos nela, contando a lista nova). `SDR responsável` recriado como lista
+(`e1n7As703nqjAOpzREHc`, opções = usuários do CRM); o TEXTO provisório de 16:53 foi
+apagado (era meu, vazio). fieldKeys preservados, conferido pelo conector GHL_CRM.
+Escritas no CRM neste bloco: 29 campos (estrutura, não dados de lead). Nenhum lead,
+contato ou oportunidade tocado.

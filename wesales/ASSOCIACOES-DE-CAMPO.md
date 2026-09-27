@@ -188,10 +188,14 @@ API — o grupo entra no **nome** do campo e a ordem na **posição**:
 | 410 | B · Investe em anúncios | derivado (§3) | confirmar |
 | 420–430 | B · Plataformas de anúncio · Budget | onde gasta · tem/precisa aprovar/não tem | SDR |
 | 500 | A · Decisor | sim / influencia / não decide | SDR |
-| 590 | **SDR responsável** — lista com os usuários do CRM | quem qualificou | SDR escolhe o próprio nome |
+| 590 | **SDR responsável** (`e1n7As703nqjAOpzREHc`) — lista com os usuários do CRM | quem qualificou | SDR escolhe o próprio nome |
 | 600–640 | Resultado da tentativa · Data/Hora do retorno · Qualificação · Permissão WhatsApp | fechamento da ligação | SDR |
 | 700–720 | Reunião foi qualificada · Motivo da desqualificação · Data do veredito | closer | closer |
 | (resto) | os 30 campos que a máquina escreve | não mexer | workflows |
+
+**Aplicado e verificado em 27/09 17:07** (runs 36335610418 e 36335689596, relido pelo
+conector): 28 campos com nome, posição e pasta novos; 29 campos na pasta da ficha;
+lista `SDR responsável` criada. Os 30 campos da máquina ficaram na pasta grande.
 
 Renomear é seguro **só se o `fieldKey` não mudar** (os merge fields dos workflows, como
 `{{contact.nota_de_qualificao}}`, usam a chave). Por isso o script tem dois modos:
