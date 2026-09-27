@@ -33,6 +33,12 @@ VERSION = "2021-07-28"
 LOCATION_ID = "1D53YTI9C7oIMBavcQxV"
 PIPELINE_ID = "0Fo2xbeayE4EP6yuSUtq"
 NOVO_LEAD = "7ae9c950-9bcf-4e60-8bc5-cb7388c87b7d"
+CONECTAR = "deb60542-a5cd-43ae-b875-b467b120a72c"
+
+# As duas etapas onde um lead novo pode estar. `CONECTAR` entrou em 27/09/2026:
+# o backfill do G-03 promoveu 38 de `NOVO LEAD` para la, e e em `CONECTAR` que a
+# `Cadência Inbound` toca o lead — varrer so `NOVO LEAD` olharia a fila vazia.
+ETAPAS = [("NOVO LEAD", NOVO_LEAD), ("CONECTAR", CONECTAR)]
 
 # Onde o Jev atende. Mesma tabela do `jev-gateway` (src/providers.json).
 PROVEDORES = [
@@ -151,10 +157,22 @@ def pergunta_ao_jev(url, modelo, chave, st):
 
 
 def resposta(r, chave_pergunta):
-    """(escolha, confianca) tolerando variacao de envelope entre provedores."""
+    """(valor, confianca) para `choice` e para `noul`.
+
+    O `noul` NAO vem em `choice` nem em `value`: vem no campo `noul`, como
+    probabilidade 0..1 (o `jev-gateway` le exatamente assim — `needs.noul >= 0.5`).
+    Medido em 27/09/2026: era por isso que a coluna `abordar?` saia `None` na
+    primeira triagem, com a classe respondida corretamente ao lado.
+    """
     for caminho in (r.get("answers"), r.get("results"), r):
         if isinstance(caminho, dict) and chave_pergunta in caminho:
             a = caminho[chave_pergunta] or {}
+            if a.get("type") == "noul" or isinstance(a.get("noul"), (int, float)):
+                n = a.get("noul")
+                if not isinstance(n, (int, float)):
+                    return None, None
+                # confianca de um noul e a distancia da duvida: 0.9 -> 0.9, 0.1 -> 0.9
+                return ("sim" if n >= 0.5 else "nao"), max(n, 1 - n)
             return (a.get("choice") if a.get("choice") is not None else a.get("value"),
                     a.get("confidence"))
     return None, None
@@ -185,10 +203,17 @@ def main():
         limite = int(sys.argv[sys.argv.index("--limite") + 1])
 
     print("Jev via %s (%s), modelo %s" % (var, url, modelo))
-    busca = ("/opportunities/search?location_id=%s&pipeline_id=%s&pipeline_stage_id=%s"
-             "&status=open&limit=%d" % (LOCATION_ID, PIPELINE_ID, NOVO_LEAD, limite))
+    ops = []
     try:
-        ops = (ghl(busca, token).get("opportunities")) or []
+        for rotulo, etapa in ETAPAS:
+            busca = ("/opportunities/search?location_id=%s&pipeline_id=%s"
+                     "&pipeline_stage_id=%s&status=open&limit=%d"
+                     % (LOCATION_ID, PIPELINE_ID, etapa, limite))
+            desta = (ghl(busca, token).get("opportunities")) or []
+            print("  %-10s %d oportunidade(s) open" % (rotulo, len(desta)))
+            for o in desta:
+                o["_etapa"] = rotulo
+            ops += desta
     except HTTPError as e:
         # 403 aqui e o GHL recusando o PIT, nao defeito do script. Medido em
         # 27/09/2026: o Jev respondeu 3 de 3 e esta busca levou 403 na mesma
@@ -212,23 +237,23 @@ def main():
     except URLError as e:
         print("rede indisponivel ao falar com o GHL: %s" % e.reason)
         return 1
-    print("%d oportunidade(s) em NOVO LEAD/open\n" % len(ops))
-    print("%-30s %-22s %5s  %s" % ("contato", "classe", "conf", "abordar?"))
-    print("-" * 78)
+    print("\n%d oportunidade(s) no total\n" % len(ops))
+    print("%-28s %-10s %-22s %5s  %s" % ("contato", "etapa", "classe", "conf", "abordar?"))
+    print("-" * 88)
 
     contagem = {}
     for o in ops:
         rel = (o.get("relations") or [{}])[0]
         msgs = fio(token, o.get("contactId"))
         if not msgs:
-            print("%-30s %-22s %5s  %s" % ((rel.get("contactName") or "?")[:30],
-                                           "(sem mensagem)", "-", "-"))
+            print("%-28s %-10s %-22s %5s  %s" % ((rel.get("contactName") or "?")[:28],
+                                                 o.get("_etapa", "?"), "(sem mensagem)", "-", "-"))
             contagem["(sem mensagem)"] = contagem.get("(sem mensagem)", 0) + 1
             continue
         try:
             r = pergunta_ao_jev(url, modelo, chave, estado(rel, msgs))
         except HTTPError as e:
-            print("%-30s ERRO %s: %s" % ((rel.get("contactName") or "?")[:30], e.code,
+            print("%-28s ERRO %s: %s" % ((rel.get("contactName") or "?")[:28], e.code,
                                          (e.read() or b"")[:120].decode("utf-8", "replace")))
             continue
         except URLError as e:
@@ -237,9 +262,10 @@ def main():
         classe, conf = resposta(r, "classe")
         abordar, _ = resposta(r, "vale_abordar")
         contagem[classe] = contagem.get(classe, 0) + 1
-        print("%-30s %-22s %5s  %s" % ((rel.get("contactName") or "?")[:30], classe,
-                                       ("%.2f" % conf) if isinstance(conf, (int, float)) else "-",
-                                       abordar))
+        print("%-28s %-10s %-22s %5s  %s" % (
+            (rel.get("contactName") or "?")[:28], o.get("_etapa", "?"), classe,
+            ("%.2f" % conf) if isinstance(conf, (int, float)) else "-",
+            abordar if abordar is not None else "-"))
 
     print("\nresumo: " + ", ".join("%s=%d" % x for x in sorted(contagem.items())))
     print("\nMODO RELATORIO: nada foi escrito no CRM. Para virar tag, precisa de `[x]`")
