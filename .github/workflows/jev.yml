@@ -12,7 +12,19 @@
 # Ambos os jobs sao SOMENTE LEITURA: nao escrevem tag, etapa nem campo no CRM.
 name: Jev — WeSales
 
+# `push` e o gatilho que importa aqui: `workflow_dispatch` so aparece na tela
+# quando o arquivo esta no branch PADRAO do repositorio, e o padrao deste repo e
+# outro branch (`claude/youtube-publication-next-steps-v7o4el`), que nunca forkou
+# deste. Com `push` restrito aos arquivos do Jev, a rodada acontece a partir
+# DESTE branch, sem merge nenhum — e o botao "Re-run jobs" da aba Actions serve
+# para repetir depois de criar o secret.
 on:
+  push:
+    branches:
+      - claude/amazing-johnson-mclksg
+    paths:
+      - ".github/workflows/jev.yml"
+      - "wesales/tools/jev_*.py"
   workflow_dispatch:
     inputs:
       limite:
@@ -46,6 +58,10 @@ jobs:
     name: Triagem da entrada (lê o CRM, não escreve)
     runs-on: ubuntu-latest
     needs: teste
+    # Só roda se o token do CRM existir. Sem isto, a ausência de GHL_PIT
+    # derrubaria o job e esconderia o resultado do teste, que é o que importa
+    # na primeira rodada.
+    if: needs.teste.result == 'success'
     steps:
       - uses: actions/checkout@v4
       - name: Classificar a fila de NOVO LEAD
