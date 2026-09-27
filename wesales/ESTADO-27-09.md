@@ -645,3 +645,29 @@ T1 (os dois ramos) agora: "1. 📞 Ligar pelo telefone · 2. 💬 MT1-v1 sai soz
 "1. 📞 Ligar pelo telefone · 2. 💬 MFH sai sozinha". Itens 4 e 6 do prompt de tela: FEITOS.
 Cópia anterior de cada workflow no localStorage da sessão antiga do navegador (expirada);
 para desfazer, o texto antigo está nesta seção e no §11.
+
+## 12. 20:23 — trava da rampa retirada por decisão do dono
+
+Dono, 20:15: *"a tag nao-perturbe não deveria estar em nenhum lead no momento. Nenhum
+deles recebeu uma ligação real."* Pelo conector GHL_CRM, em **31 contatos** de CONECTAR:
+`-tag nao-perturbe` e `dnd = false`, cada um relido na resposta (tags sem a trava,
+`dnd: false`). Inclui o Carlos Andrade (DND desde 23/09; conversa só com um registro de
+no-show de teste, nenhum pedido de opt-out).
+
+**Mantidos com a trava (não são leads):** `ZZ TESTE ABERTURA 27-09`, `Teste Não Atende`,
+`Rafaela de Paula - We Sales` (atendente da plataforma).
+
+**Efeito esperado:** os 38 inscritos na Cadência Inbound estão parados no primeiro Wait
+da janela seg–sex 08:30. Na **segunda 28/09 08:30** o portão MI-0 passa para os 31 + os
+5 do lote 1: WhatsApp MI-0 ("vamos te ligar em breve") e entrada em `fila-tel`. Terça a
+Andreyna começa com ~36 primeiras ligações mais os leads novos. `Prioridade` desses 31
+continua 0 até a cadência regravar.
+
+**Voice AI:** `GET /voice-ai/agents` pela sessão logada → `agents: []`, 0 agentes. Nada a
+desligar.
+
+**G-04 (opção B, decisão do dono 20:10):** script pronto e conferido (5 portões do
+Pós-agendamento v2 ganham os valores exatos do Meta: `Abaixo de 5k`→6, `Até R$ 1.000`→2,
+`Posso esperar…`→Sem prazo, Investimento pago→Investe=Sim 13, `Não invisto…`→Nunca),
+**NÃO gravado**: a gravação de workflow foi bloqueada pela proteção de segurança da sessão
+em modo automático. Nada mudou no workflow (o ensaio foi interrompido antes de responder).
