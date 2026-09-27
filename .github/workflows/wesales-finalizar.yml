@@ -33,6 +33,7 @@ on:
           - transferir
           - transferir-aplicar
           - simular-reuniao
+          - inventario
       user_id:
         description: "Para modo=donos e transferir*: id do usuario que recebe os leads"
         type: string
@@ -136,3 +137,10 @@ jobs:
         env:
           GHL_PIT: ${{ secrets.GHL_PIT }}
         run: python wesales/tools/simular_reuniao.py
+
+      # Inventario de modulos do GHL na subconta. Leitura pura.
+      - name: Inventario de modulos (le, escreve nada)
+        if: ${{ inputs.modo == 'inventario' }}
+        env:
+          GHL_PIT: ${{ secrets.GHL_PIT }}
+        run: python wesales/tools/inventario_ghl.py
