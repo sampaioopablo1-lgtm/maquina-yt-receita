@@ -63,11 +63,15 @@ jobs:
           GHL_STORAGE_STATE: ${{ secrets.GHL_STORAGE_STATE }}
         run: python wesales/tools/finalizar.py --recon
 
-      - name: Pastas de campo (renomeia a grande, cria as outras quatro)
+      # `pastas` foi reaproveitado: pasta nao sai por API (400), mas NOME e POSICAO
+      # de campo saem. Este passo poe a ficha do contato em ordem BANT e cria
+      # `SDR responsavel` como lista com os usuarios do CRM. Rode `formulario`
+      # (a sonda) antes; ela prova num campo de teste o que a API aceita.
+      - name: Ficha do contato em ordem BANT (APLICA)
         if: ${{ inputs.modo == 'pastas' }}
         env:
           GHL_PIT: ${{ secrets.GHL_PIT }}
-        run: python wesales/tools/finalizar.py --pastas
+        run: python wesales/tools/campos_bant.py --aplicar
 
       - name: Dono do lead
         if: ${{ inputs.modo == 'donos' }}
@@ -92,15 +96,15 @@ jobs:
           GHL_PIT: ${{ secrets.GHL_PIT }}
         run: python wesales/tools/atuador_filas.py --aplicar
 
-      # O formulario nativo (DNz54AK2ryRSW7uCuznP) foi substituido pelo Painel SDR
-      # (supabase/functions/painel-sdr): a API nao edita formulario, e o painel faz
-      # o que o dono pediu. Este modo entrega o token ao painel, cria o campo
-      # `SDR responsavel` uma vez, sonda o que o painel usa e prova /api/saude.
-      - name: Painel SDR (cria o campo, sonda e prova; o token e do dono)
+      # O formulario nativo nao e editavel por API; a ficha do contato e o
+      # formulario (decisao do dono em 27/09: tudo dentro do CRM). Este modo e a
+      # SONDA: cria um campo de teste proprio, prova renomear/posicao/pasta/opcoes
+      # e o apaga. Nao toca em campo real.
+      - name: Sonda da estrutura de campos (campo de teste proprio)
         if: ${{ inputs.modo == 'formulario' }}
         env:
           GHL_PIT: ${{ secrets.GHL_PIT }}
-        run: python wesales/tools/painel_sdr.py --instalar
+        run: python wesales/tools/campos_bant.py --sondar
 
       - name: Verificacao (rele a conta e prova)
         if: ${{ inputs.modo == 'verificar' }}
