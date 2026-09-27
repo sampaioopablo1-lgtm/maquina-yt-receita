@@ -31,8 +31,8 @@ MODULOS = [
     ("Pesquisas (surveys)", "/surveys/?locationId=%s&limit=50" % LOC, "surveys"),
     ("Funis e sites", "/funnels/funnel/list?locationId=%s&limit=50" % LOC, "funnels"),
     ("Produtos", "/products/?locationId=%s&limit=50" % LOC, "products"),
-    ("Propostas/contratos", "/proposals/document?locationId=%s&limit=50" % LOC, "documents"),
-    ("Modelos de proposta", "/proposals/templates?locationId=%s&limit=50" % LOC, "data"),
+    ("Propostas/contratos", "/proposals/document?locationId=%s&limit=20" % LOC, "documents"),
+    ("Modelos de proposta", "/proposals/templates?locationId=%s&limit=20" % LOC, "data"),
     ("Faturas", "/invoices/?%s&limit=20&offset=0" % A, "invoices"),
     ("Pedidos (pagamentos)", "/payments/orders?%s&limit=20" % A, "data"),
     ("Assinaturas", "/payments/subscriptions?%s&limit=20" % A, "data"),
@@ -41,7 +41,7 @@ MODULOS = [
     ("Pipelines", "/opportunities/pipelines?locationId=%s" % LOC, "pipelines"),
     ("Redes sociais (contas)", "/social-media-posting/%s/accounts" % LOC, None),
     ("Blogs", "/blogs/site/all?locationId=%s&skip=0&limit=20" % LOC, "data"),
-    ("Mídias", "/medias/files?%s&sortBy=createdAt&sortOrder=desc&limit=20" % A, "files"),
+    ("Mídias", "/medias/files?%s&sortBy=createdAt&sortOrder=desc&limit=20&type=file" % A, "files"),
     ("Objetos personalizados", "/objects/?locationId=%s" % LOC, "objects"),
     ("Associações", "/associations/?locationId=%s&skip=0&limit=50" % LOC, "associations"),
     ("Empresas (businesses)", "/businesses/?locationId=%s" % LOC, "businesses"),
@@ -88,7 +88,45 @@ def main() -> int:
                 resumo["settings"] = loc.get("settings")
                 resumo["social"] = loc.get("social")
             print("\n## %s\n   %s" % (rot, json.dumps(resumo, ensure_ascii=False)[:900]))
+    detalhe()
     return 0
+
+
+def detalhe() -> None:
+    """Detalhe dos módulos que o resumo não mostra."""
+    print("\n\n==================== DETALHE ====================")
+    st, r = ghl("GET", "/calendars/?locationId=%s&showDrafted=true" % LOC, tolerar=(400, 401, 403, 404, 422))
+    for c in (r.get("calendars") or []) if isinstance(r, dict) else []:
+        cid = c.get("id")
+        st2, d = ghl("GET", "/calendars/%s" % cid, tolerar=(400, 401, 403, 404, 422))
+        cal = (d.get("calendar") if isinstance(d, dict) else None) or c
+        campos = ["name", "calendarType", "slug", "widgetSlug", "isActive", "slotDuration", "slotInterval",
+                  "slotBuffer", "preBuffer", "appoinmentPerSlot", "appoinmentPerDay", "allowBookingAfter",
+                  "allowBookingFor", "allowReschedule", "allowCancellation", "autoConfirm", "googleInvitationEmails",
+                  "shouldAssignContactToTeamMember", "shouldSkipAssigningContactForExisting", "enableRecurring",
+                  "notifications", "locationConfigurations", "teamMembers", "formId", "stickyContact",
+                  "guestType", "consentLabel", "calendarCoverImage", "widgetType", "eventTitle", "eventColor"]
+        print("\n## Calendário %s" % cid)
+        for k in campos:
+            if k in cal:
+                print("   %s = %s" % (k, json.dumps(cal[k], ensure_ascii=False)[:400]))
+    st, r = ghl("GET", "/links/?locationId=%s" % LOC, tolerar=(400, 401, 403, 404, 422))
+    for l in (r.get("links") or []) if isinstance(r, dict) else []:
+        print("\n## Link de gatilho %s | %s | %s" % (l.get("id"), l.get("name"), l.get("redirectTo")))
+    st, r = ghl("GET", "/social-media-posting/%s/accounts" % LOC, tolerar=(400, 401, 403, 404, 422))
+    res = (r.get("results") or {}) if isinstance(r, dict) else {}
+    for a in (res.get("accounts") or []):
+        print("\n## Rede social: %s | %s | %s | expirado=%s" % (a.get("platform"), a.get("name"), a.get("type"), a.get("isExpired")))
+    for g in (res.get("groups") or []):
+        print("   grupo: %s" % g.get("name"))
+    st, r = ghl("GET", "/objects/?locationId=%s" % LOC, tolerar=(400, 401, 403, 404, 422))
+    for o in (r.get("objects") or []) if isinstance(r, dict) else []:
+        print("\n## Objeto: %s | %s | %s" % (o.get("key"), (o.get("labels") or {}).get("plural"), o.get("type")))
+    st, r = ghl("GET", "/phone-system/numbers/location/%s" % LOC, tolerar=(400, 401, 403, 404, 422))
+    for n in (r.get("numbers") or []) if isinstance(r, dict) else []:
+        print("\n## Número: %s" % json.dumps({k: n.get(k) for k in ("phoneNumber", "friendlyName", "type", "capabilities", "isDefaultNumber", "forwardingNumber", "inboundCallService")}, ensure_ascii=False)[:500])
+    st, r = ghl("GET", "/knowledge-bases/?locationId=%s" % LOC, tolerar=(400, 401, 403, 404, 422))
+    print("\n## Base de conhecimento: %s" % json.dumps(r, ensure_ascii=False)[:400])
 
 
 if __name__ == "__main__":
