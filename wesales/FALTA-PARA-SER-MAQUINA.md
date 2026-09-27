@@ -116,16 +116,26 @@ trabalho já está feito, falta publicar.
 Os outros dois `draft` (`Lembretes da Reunião` e `v2`) **não são lacuna**: foram
 substituídos pelo `v3`, que está publicado. Corretamente parados.
 
-## 3. Pastas de campo — o botão está pronto, sobram 27 arrastos
+## 3. Pastas de campo — 100% tela, e eu havia dito o contrário
 
-Action `wesales-pastas.yml`, `Run workflow` com `criar: true`. Ela renomeia a pasta
-grande para `5 · NÃO MEXER — a máquina escreve` (29 dos 30 campos da máquina já estão
-lá, então não se arrastam) e cria as outras quatro. Depois são **27 arrastos** na tela,
-na ordem que o próprio job imprime.
+**Retratação de 27/09 15:16.** Eu prometi aqui "o botão está pronto, sobram 27 arrastos".
+Errado. Rodei contra a conta, com PIT válido:
 
-A pasta 1 tem **3 campos** e já limpa o dia da SDR. Se parar nela, valeu.
+```
+GET  /custom-fields/object-key/contact        -> HTTP 400
+POST /custom-fields/folder objectKey=contact  -> HTTP 400
+{"message":"Api does not support objectKey of type contact or opportunity"}
+```
 
-Detalhe em §4 do `USABILIDADE.md`, com a medição que refez o mapa.
+O grupo `/custom-fields/` da API v2 é para objeto personalizado, não para campos de
+contato. Então **criar as 5 pastas é tela, e os 56 campos são arrasto de tela** — o truque
+de renomear a pasta grande morreu com o resto, porque o `PUT` de renome é do mesmo grupo.
+
+`wesales/tools/pastas_de_campo.py --plano` segue valendo como **especificação do arrasto**:
+os 56 campos agrupados, conferidos contra o snapshot, na ordem que mais reduz confusão por
+movimento. A pasta 1 tem 3 campos e já limpa o dia da SDR.
+
+Lição 2.19. Prometer economia que não existe é pior que não achar a economia.
 
 ## 4. G-04 — a nota de qualificação nasce zerada no Bloco B para todo lead do Meta
 
@@ -250,6 +260,7 @@ Nenhum item desta lista rende o que ligar para esses dois rende.
 | conta de anúncio `UNSETTLED` | **você**, no Gerenciador | manda em tudo |
 | ligar para Daniel e Genilson | **você** ou o closer | 8 dias parados |
 | ~~distribuir dono nos 36 leads~~ | **FEITO em 27/09**, verificado | — |
+| criar 5 pastas + arrastar 56 campos | **você**, na tela — não sai por API (medido) | não |
 | ~~dizer quem é o SDR~~ | resolvido por medição: um único `assignedTo` existia na conta | — |
 | G-04 A ou B | **você** (recomendo B) | não |
 | mapeamento dos 9 formulários do Meta | **você** na tela do GHL, ou eu com o passo a passo | não, mas cada lead novo entra cego |

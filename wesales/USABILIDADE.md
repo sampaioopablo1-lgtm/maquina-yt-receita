@@ -586,7 +586,31 @@ O nome da pasta 5 é metade do valor: **`NÃO MEXER`** é a instrução que a §
 tenta dar por documento ("quem 'ajuda' a automação à mão quebra a contagem e o
 roteamento sem ver erro nenhum") e que a tela pode dar sozinha.
 
-### Por qual caminho isso sai — conferido no spec oficial em 27/09
+### RETRATAÇÃO de 27/09 15:16 — não sai por API nenhuma, e eu afirmei que saía
+
+**Executei contra a conta, com o PIT válido, na Action. A resposta:**
+
+```
+GET  /custom-fields/object-key/contact        -> HTTP 400
+POST /custom-fields/folder objectKey=contact  -> HTTP 400
+{"message":"Api does not support objectKey of type contact or opportunity"}
+```
+
+O grupo `/custom-fields/` da API v2 é para **objeto personalizado**, não para os
+campos do contato. Então **criar, renomear e listar pasta de campo de contato não
+sai por API pública** — e o truque de renomear a pasta grande para economizar 29
+arrastos morreu com o resto, porque o `PUT` de renome é do mesmo grupo.
+
+**O arrasto voltou a ser 56, e criar as 5 pastas também é tela.** A tabela de
+"27 arrastos" que estava aqui estava errada.
+
+Terceira correção minha neste mesmo assunto, e a mais funda. A primeira foi
+anunciar antes de ler o `requestBody`. A segunda foi ler só a lista `fields` da
+resposta. Esta é: **rota existir e corpo ter o campo ainda não é capacidade — o
+servidor tem de aceitar o `objectKey`**, e o spec não diz quais valores de enum
+ele honra. Virou lição 2.19.
+
+### O que o spec dizia, e por que não bastou
 
 O conector `GHL CRM` só **lê** campo personalizado, então por ele não sai. Fui ao
 spec oficial da API pública (`GoHighLevel/highlevel-api-docs`, clonado do GitHub
@@ -594,8 +618,8 @@ porque os domínios do GHL são negados pelo proxy) e a resposta é dividida:
 
 | o que | rota | dá? |
 |---|---|---|
-| criar as 5 pastas | `POST /custom-fields/folder` | **sim** |
-| renomear pasta | `PUT /custom-fields/folder/{id}` | **sim** |
+| criar as 5 pastas | `POST /custom-fields/folder` | ~~sim~~ **NÃO — 400 em `contact`** |
+| renomear pasta | `PUT /custom-fields/folder/{id}` | ~~sim~~ **NÃO — mesmo grupo** |
 | campo **novo** já nascer em pasta | `POST /custom-fields/` (aceita `parentId`) | **sim** |
 | **mover campo existente** para uma pasta | `PUT /custom-fields/{id}` | **NÃO** — o corpo não tem `parentId` |
 

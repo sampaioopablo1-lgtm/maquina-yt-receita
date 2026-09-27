@@ -8,13 +8,36 @@ SDR abre o contato e ve tudo em bloco, quando ele preenche **um** campo por tent
 (`Resultado da tentativa`). E a origem literal da queixa do dono: "meio completo e
 confuso".
 
-O QUE DA E O QUE NAO DA, conferido no spec oficial (GoHighLevel/highlevel-api-docs)
------------------------------------------------------------------------------------
-    POST /custom-fields/folder      criar pasta          -> SIM
-    PUT  /custom-fields/folder/{id} renomear pasta       -> SIM
-    POST /custom-fields/            campo NOVO em pasta  -> SIM (aceita parentId)
-    PUT  /custom-fields/{id}        MOVER campo existente-> **NAO**: o corpo nao tem
-                                                            parentId
+RETRATACAO DE 27/09 15:16 — NADA DISTO SAI POR API. MEDIDO, NAO SUPOSTO.
+------------------------------------------------------------------------
+Este arquivo nasceu prometendo que criar pasta saia por API publica, porque as
+ROTAS existem no spec oficial. Rodei na Action, com o PIT valido, e a conta
+respondeu:
+
+    GET  /custom-fields/object-key/contact   -> HTTP 400
+    POST /custom-fields/folder objectKey=contact -> HTTP 400
+    {"message":"Api does not support objectKey of type contact or opportunity"}
+
+O grupo `/custom-fields/` da API v2 e para **objeto personalizado**, nao para os
+campos do contato. Entao pasta de campo de contato **nao se cria, nao se renomeia
+e nao se lista** por API publica. O truque de renomear a pasta grande para
+economizar 29 arrastos morreu com o resto: o PUT de renome e do mesmo grupo.
+
+    POST /custom-fields/folder      criar pasta          -> NAO (400 em contact)
+    PUT  /custom-fields/folder/{id} renomear pasta       -> NAO (mesmo grupo)
+    PUT  /custom-fields/{id}        MOVER campo existente-> NAO (corpo sem parentId)
+
+**Terceira correcao minha no mesmo assunto, e a mais funda.** A primeira foi
+anunciar antes de ler o `requestBody` (licao 2.12). Esta e: rota existir e corpo
+ter o campo ainda nao e capacidade — **o servidor tem de aceitar o objectKey**, e
+o spec nao diz quais valores de enum ele honra. Licao 2.19.
+
+O QUE SOBRA DESTE ARQUIVO
+-------------------------
+So o mapa. `--plano` segue valendo como **especificacao do arrasto na tela**: os
+56 campos agrupados, conferidos contra o snapshot da conta, na ordem que mais
+reduz confusao por movimento. Criar as 5 pastas e arrastar os 56 campos e tela,
+inteiro, sem atalho.
 
 Ou seja: este script faz a parte automatizavel (as pastas) e **nao consegue mover os
 campos** — nao por falta de permissao, e porque o endpoint nao existe. Mover fica na
@@ -328,8 +351,13 @@ def main() -> int:
         plano()
         return 0
     if "--criar" in sys.argv:
-        plano(criar_pastas())
-        return 0
+        print("--criar RETIRADO em 27/09. A API publica recusa objectKey=contact:")
+        print('  {"message":"Api does not support objectKey of type contact or')
+        print('   opportunity","error":"Bad Request","statusCode":400}')
+        print("Medido na Action com PIT valido, no GET e no POST. Criar pasta de")
+        print("campo de contato e tela. O mapa abaixo e a especificacao do arrasto.")
+        plano()
+        return 2
     print(__doc__)
     return 0
 

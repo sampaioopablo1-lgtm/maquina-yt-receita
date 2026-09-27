@@ -381,7 +381,43 @@ aplicar e o contato `<test lead>` da Meta apareceu na lista recebendo
 conhecida não deriva nada e vira exceção reportada, não um `Sim` silencioso. O relatório
 de ignorados é parte do resultado, não ruído.
 
-## 2.19 Duas trilhas de execução que não se enxergam
+## 2.19 Rota existir não é capacidade: o servidor tem de aceitar o `objectKey`
+
+**Forma:** confirmar no spec que a rota existe, confirmar que o `requestBody` tem o campo
+que interessa — e ainda assim errar, porque o servidor recusa o **valor** que importa.
+
+**Caso, de hoje, e é a terceira correção minha no mesmo assunto:** eu escrevi, na §4 do
+`USABILIDADE.md` e no docstring do `pastas_de_campo.py`, que criar pasta de campo saía por
+API pública. Rodei na Action, com PIT válido:
+
+```
+GET  /custom-fields/object-key/contact        -> HTTP 400
+POST /custom-fields/folder objectKey=contact  -> HTTP 400
+{"message":"Api does not support objectKey of type contact or opportunity"}
+```
+
+O grupo `/custom-fields/` da v2 é para **objeto personalizado**. Os campos do contato não
+estão nele. E o truque de renomear a pasta grande para poupar 29 arrastos morreu junto,
+porque o `PUT` de renome é do mesmo grupo.
+
+**A escada de enganos, porque ela é instrutiva:**
+
+| o que eu conferi | o que faltava |
+|---|---|
+| a rota existe no spec | ler o `requestBody` (lição 2.12) |
+| o corpo tem o campo | ler qual **coleção** a resposta traz (lição 2.14) |
+| a rota e o corpo servem | o servidor aceitar o **`objectKey`** — esta |
+
+**Verificação:** spec descreve a forma, não a permissão nem o domínio. Antes de escrever
+documento afirmando que algo sai por API, **fazer uma chamada de sonda** — uma, com nome
+reconhecível, e ler a resposta bruta. Custa um dispatch. Documento errado custa uma
+decisão errada do dono.
+
+**E o corolário que dói:** eu prometi ao dono "27 arrastos em vez de 56" com base nessa
+suposição. O número certo é 56, mais criar as 5 pastas. Prometer economia que não existe é
+pior que não achar a economia.
+
+## 2.20 Duas trilhas de execução que não se enxergam
 
 **Forma:** sessão na nuvem e sessão no PC produzindo estado e documento que o outro
 lado não lê.
