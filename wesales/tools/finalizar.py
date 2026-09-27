@@ -480,16 +480,24 @@ def listar_workflows() -> None:
         print("     %-10s %s  %s" % (w.get("status"), w.get("id"), w.get("name")))
 
 
+PASTA_FICHA = "zHU4yGXKHdxBHnGxUmai"   # mesma de campos_bant.PASTA_FICHA
+FICHA_ESPERADOS = 30                    # campos voltados ao SDR (BANT + SDR responsavel)
+
+
 def verificar() -> int:
     listar_workflows()
     print("=" * 74)
     print("VERIFICACAO — rele a conta depois da escrita")
     print("=" * 74)
-    ps = pastas_da_conta()
-    faltam = [n for n in PASTAS if n not in ps]
-    print("\n  pastas presentes: %d de %d" % (len(PASTAS) - len(faltam), len(PASTAS)))
-    if faltam:
-        print("  FALTAM: %s" % faltam)
+    # A leitura de pastas por /custom-fields/object-key/contact devolve 400 para
+    # contato ("Api does not support objectKey of type contact") e derrubava a
+    # verificacao inteira (run 36343495189). Le-se pelo catalogo da localizacao,
+    # que devolve parentId de cada campo; pasta em si e gerida na tela.
+    cat = pedir("GET", "/locations/%s/customFields?model=contact" % LOC).get("customFields") or []
+    na_ficha = [c for c in cat if c.get("parentId") == PASTA_FICHA]
+    print("\n  campos na ficha do SDR (%s): %d (esperado %d)"
+          % (PASTA_FICHA, len(na_ficha), FICHA_ESPERADOS))
+    faltam = [] if len(na_ficha) >= FICHA_ESPERADOS else ["ficha BANT incompleta"]
     ops = oportunidades()
     sem = [o for o in ops if not o.get("assignedTo")]
     print("  oportunidades abertas: %d | ainda sem dono: %d" % (len(ops), len(sem)))
@@ -499,10 +507,6 @@ def verificar() -> int:
     if ct:
         semc = [c for c in ct if not c.get("assignedTo")]
         print("  contatos: %d | ainda sem dono: %d" % (len(ct), len(semc)))
-    campos = campos_da_conta()
-    dentro = sum(1 for c in campos
-                 if c.get("parentId") == ps.get(PASTA_MAQUINA, PASTA_GRANDE))
-    print("  campos na pasta da maquina: %d (esperado 29 antes de mover nada)" % dentro)
     # Sai diferente de zero quando algo NAO esta no lugar. E de proposito: o log
     # de um job que passou nao e legivel pela API sem o id do job, e o de um que
     # falhou e. Entao "passou" ja e a confirmacao, e "falhou" me entrega o motivo.
