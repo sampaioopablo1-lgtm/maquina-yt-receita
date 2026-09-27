@@ -11,7 +11,8 @@ da máquina — e nada da máquina deve importar daqui.
   (`cscczluzpblzhvojxanp`), aplicadas via MCP. Feed VRSync, captação,
   geocode, vigias, tours, descrições.
 - `supabase/functions/` — Edge Functions da Jazz (visita virtual, tour 360,
-  gerador de XML smart-feed-nativo, fábricas de mídia token-gated).
+  geradores de XML dos portais — `smart-feed-nativo` (VRSync/Grupo OLX) e
+  `chavesnamao-feed` (padrão Chaves na Mão) —, fábricas de mídia token-gated).
 - `scripts/` — scripts das fábricas que rodam no runner do Actions.
 - `tour-virtual/` — página antiga do piloto de slideshow (histórico).
 - Workflows: `.github/workflows/jazz-*.yml` (prefixo obrigatório).
