@@ -92,9 +92,17 @@ jobs:
           GHL_PIT: ${{ secrets.GHL_PIT }}
         run: python wesales/tools/atuador_filas.py --aplicar
 
-      - name: Formulario de qualificacao (confere os 5 campos do anuncio)
+      # O formulario nativo (DNz54AK2ryRSW7uCuznP) foi substituido pelo Painel SDR
+      # (supabase/functions/painel-sdr): a API nao edita formulario, e o painel faz
+      # o que o dono pediu. Este modo entrega o token ao painel, cria o campo
+      # `SDR responsavel` uma vez, sonda o que o painel usa e prova /api/saude.
+      - name: Painel SDR (entrega o token, cria o campo, sonda e prova)
         if: ${{ inputs.modo == 'formulario' }}
-        run: python wesales/tools/finalizar.py --formulario
+        env:
+          GHL_PIT: ${{ secrets.GHL_PIT }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: python wesales/tools/painel_sdr.py --instalar
 
       - name: Verificacao (rele a conta e prova)
         if: ${{ inputs.modo == 'verificar' }}
