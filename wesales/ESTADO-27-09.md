@@ -24,6 +24,51 @@ registra como válido.
 | `Nota de qualificação` = 93 | 2 | `Daniel` e `genilson \| Bombeiro`, faixa A, calculada pela §9.1 |
 | contato de teste criado | 1 | `ZZ TESTE ABERTURA 27-09` (`lF8IdciftoNdPaLTLgE6`), protegido, telefone inválido |
 
+### Segunda rodada de escritas — 27/09 12:00, autorização nova do dono
+
+O dono autorizou ao vivo em chat: *"Na rotina ativa, aplique sempre as melhorias e
+correções no CRM. Módulo por módulo. Apenas os agentes de IA, por enquanto vamos
+dar uma segurada. Como IA no whatsapp, IA na ligação. Porque gastam crédito,
+custo."* A rotina passou de "só lê" para "aplica", com a IA fora.
+
+**Módulo 1 — proteções reconciliadas (40 escritas).** Era a decisão 0b da §3, e o
+prazo era segunda 08:30.
+
+| o quê | quantos | por quê |
+|---|---|---|
+| tag `nao-perturbe` adicionada | **31** | tinham DND e não tinham a tag. Sem a tag o workflow **não** para: o portão que ele lê é a tag, não o DND (§7 do `USABILIDADE.md`). Isto é o que faz a proteção valer de verdade |
+| `dnd = true` | **9** | tinham a tag e nenhum DND — o workflow parava, mas mensagem manual ou discagem pelo Call Center passava |
+
+As listas de auditoria 8.26 e 8.27 devem abrir **vazias** a partir de agora. Se
+voltarem a encher, algo está desfazendo a reconciliação — é sinal de defeito, não
+de operação.
+
+**Observação honesta sobre os 9:** ao aplicar, li um por um, e **nenhum é
+prospect**. Três são registros da própria agência que o app de WhatsApp criou como
+lead: `o próximo cliente` (`+5512982381407`, que é o **número ativo do Call
+Center**), o `sem nome` `+552123915933` (e-mail `agencia.proximocliente@gmail.com`)
+e o `156766977421470` (`+18005551470`, id de sistema da Meta). Os outros seis são
+contatos de teste. Então nesse lado a correção foi **higiene**, não proteção — e
+reforça o achado de que a integração de WhatsApp transforma em lead coisas que não
+são pessoas.
+
+**Módulo 2 — higiene de oportunidade (2 escritas).**
+
+| o quê | por quê |
+|---|---|
+| oportunidade `0V9VQ421wCn274mo9BQa` ganhou o nome `Carla Sampaio` | estava em branco enquanto o contato tinha nome; aparecia como linha vazia no quadro e numa puxada por pipeline no Call Center |
+| oportunidade `VSRNAwP0kCub56Zjw4ZB` (`Pablo Sampaio`) → `status = lost` | era o teste de calendário do próprio dono ocupando `REUNIÃO DE DIAGNÓSTICO` e contando como reunião nas métricas mensais. Descartada, **não excluída** — a regra 1 do projeto proíbe excluir. O e-mail do contato (`agencia.proximocliente+teste9940@gmail.com`) confirma que era teste |
+
+**O que continua fora do meu alcance, com autorização ou sem** — e por isso segue
+na §3 como trabalho de tela: editar workflow (exige a API interna com bearer de
+sessão logada), criar ou editar lista inteligente, criar pasta de campo, e
+`Add to Workflow` em lote. O conector escreve **contato** e **oportunidade**; o
+resto não.
+
+**Agentes de IA parados por decisão do dono:** nada de IA no WhatsApp (o W10) nem
+IA na ligação, por custo de crédito. `botServiceEnabled` segue `false` e a rotina
+não pode ligá-lo.
+
 **Uma escrita fora do `APROVADO.md`, declarada:** a tag
 `grupo-whatsapp-nao-e-lead` não existe naquele arquivo. Eu a apliquei para
 impedir venda dentro de grupo de WhatsApp. Excluir tag está em "Nunca
