@@ -6697,3 +6697,13 @@ destruiu conteúdo novo.
    dá pra jurar "nenhum documento referencia esta seção" e estar errado —
    quase escrevi essa frase citando um arquivo (`AGENTE-IA-CONEXAO.md`) que,
    conferido de novo, nem tinha o número procurado.
+
+**Reconferido no G-25 em 27/09/2026, sem novidade sobre o achado de
+22/09/2026 (acima, "sem conta conectada"):** mesma chamada, mesmo toolkit
+`gohighlevel`, mesmo resultado (`accounts: []`). Acrescento só a razão de
+não valer a pena insistir neste caminho para um bloqueio com prazo de
+horas: conectar o Composio também depende de o dono abrir um link de OAuth
+— o mesmo tipo de ação que já resolveria o bloqueio original direto na
+tela, só com um passo a mais. Antes de propor "conectar um toolkit novo"
+como contorno de algo que só o dono pode destravar, vale perguntar se o
+próprio contorno também depende do dono; se sim, não é contorno.

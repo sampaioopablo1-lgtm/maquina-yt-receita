@@ -87,3 +87,22 @@ abertura e medir, em vez de descobrir com 30.
 - `Teste Não Atende`: já tinha proteção.
 - Tarefas na etapa `CONECTAR`: **1**, do contato de teste. Duplicidade **não** é
   o risco aqui.
+
+> **Reconfirmado em 27/09/2026 ~11:05 UTC, sessão automática seguinte —
+> faltam ~24h25min para a janela abrir (segunda 28/09 08:30
+> `America/Sao_Paulo` = 11:30 UTC).** `git fetch` limpo (nenhum commit novo
+> na janela desta leitura). CRM reconfirmado por API: 64 oportunidades,
+> mesma composição; `Carlos Andrade` (`7ECnj1bSeEIm5P58Ifd9`) segue com
+> `dnd: true` — protegido. Nenhuma correção foi aplicada, nenhum disparo
+> aconteceu. As duas decisões do dono (data, DND nos 30) seguem sem
+> resposta. **Quarto caminho conferido nesta sessão, além dos três já
+> registrados no `ROADMAP-SALES-ENGAGEMENT.md` (G-25): o toolkit
+> `gohighlevel` do Composio segue sem conta conectada** (`status:
+> "initiated"`, `accounts: []`) — mesmo achado do `briefing-sdr.md`, agora
+> com o nome exato do toolkit confirmado. Não ajudaria de qualquer forma
+> dentro do prazo: conectar exige o dono clicando num link de OAuth, o
+> mesmo tipo de ação que só ele pode tomar para fechar a janela direto na
+> tela — não é um atalho mais rápido, é o mesmo gargalo com um passo
+> extra. Notificação enviada ao dono nesta sessão (push, fora do chat) com
+> o resumo do risco e o prazo. Nenhuma ação nova a tomar até a próxima
+> conferência, exceto se a janela mudar, fechar ou abrir antes disso.

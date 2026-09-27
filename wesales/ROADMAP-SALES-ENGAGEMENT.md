@@ -4435,6 +4435,24 @@ mudou (ou se a data de abertura já passou) antes de voltar à varredura de
 coerência ou à pesquisa de concorrência que a "Ordem sugerida" abaixo
 descreve como próximo passo padrão.
 
+**Reconferido em 27/09/2026 ~11:05 UTC, sessão automática seguinte —
+seguindo a própria instrução do parágrafo acima ("a próxima sessão confere
+primeiro se a janela mudou... antes de qualquer outro trabalho").**
+`git fetch` limpo; CRM reconfirmado por API: 64 oportunidades, mesma
+composição da leitura anterior; `Carlos Andrade` segue `dnd: true`,
+protegido. **Nada mudou** — nenhuma correção foi aplicada, nenhum disparo
+aconteceu, as duas decisões do dono seguem sem resposta. Faltam ~24h25min
+para a janela abrir. Testado um quarto caminho, além dos três já fechados
+acima: o toolkit `gohighlevel` do Composio segue sem conta conectada
+(`status: "initiated"`, `accounts: []`) — não abriria um atalho mesmo se
+conectado agora, porque conectar também depende de o dono clicar num link
+de OAuth, o mesmo tipo de ação que fecha a janela direto na tela, só com um
+passo a mais. Diferente da sessão anterior, que só registrou a notificação
+no texto deste roadmap: **esta sessão enviou um aviso direto ao dono**
+(push, fora do chat), com o resumo do risco e o prazo, porque escrever
+apenas aqui não garante que alguém leia antes da janela abrir. `ABERTURA.md`
+carrega o mesmo registro. Nenhuma mudança na lista de decisões pendentes.
+
 ---
 
 ## Ordem sugerida
@@ -6046,3 +6064,15 @@ como próximo passo. Se o risco já tiver se concretizado (mensagens
 disparadas) ou a janela já tiver sido fechada por alguém com acesso à
 tela, este parágrafo e o próprio G-25 acima são atualizados com o
 resultado antes de qualquer outra linha de trabalho.
+
+**Reconferido em 27/09/2026 ~11:05 UTC, sessão automática seguinte — a
+janela não mudou, não abriu antes do previsto, e nenhum disparo aconteceu
+(detalhe no próprio G-25, acima).** G-25 continua sendo o item de maior
+prioridade do roadmap enquanto não estiver `FEITO`. Único fato novo: um
+quarto caminho de correção automática foi conferido e também bate na mesma
+parede (Composio/`gohighlevel` sem conta conectada, e conectar dependeria
+do mesmo clique do dono que já resolveria o problema direto na tela) — e o
+dono recebeu um aviso direto (push), não só o registro neste arquivo, dado
+que faltam menos de 25h para a janela abrir. G-03, G-04 (peça 2), F-09,
+F-10, G-11 (item 1) e G-19 continuam sendo as seis decisões sem prazo fixo
+que esperam o dono, sem novidade nesta sessão.
