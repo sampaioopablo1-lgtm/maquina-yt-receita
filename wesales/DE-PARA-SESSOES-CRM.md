@@ -94,3 +94,16 @@ mandar User-Agent de navegador (sem ele o Cloudflare responde 1010).
 | G-27/G-29: `SDR responsável` e `B · Quanto pode investir` sem nenhum workflow lendo | definir que a SDR preenche os dois na ligação e que a nota de qualificação lê `Quanto pode investir`; hoje nada lê |
 | Pente fino 6: inbound que volta para CONECTAR não ganha cadência | manter como está até ter caso real; o Retorno Vencido cobre |
 | G-25, G-26, G-28, G-30 | nada a fazer: resolvidos pela sua decisão das 20:10–20:23 ou só registro (Voice AI com 0 agentes) |
+
+## Itens 1–4 (28/09) — sessão do PC, 27/09 18:00–18:50
+
+| Item | O que foi gravado | Workflow ou registro | Versão antes → depois | Relido | Observação |
+|---|---|---|---|---|---|
+| 1A trava | **nada gravado nos 17 envios** | — | — | — | o pedido exige o nó nativo "esperar condição com tempo limite", e nenhum dos 70 workflows da conta o tem (varridos: só esperas de tempo, agendamento e resposta). O Chrome segue desconectado, e o construtor não desenha no navegador sem tela. **36 contatos** (CONECTAR aberto, `cad-inbound`, sem `nao-perturbe`) receberiam a MI-0 juntos seg 08:30 |
+| 1A alternativa testada | laço com nós já usados na conta (tag → "tem wa-liberado?" → senão, espera 15 min e volta), `tools/gravar_portao_wa.py` | ZZ TESTE MENSAGEM (era rascunho) | v6 → v11, agora **publicado** | sim | teste no contato de teste: parou em `wa-aguardando`, o governador (`--so`) liberou, e seguiu o fluxo. Aprendido: o GHL valida ao publicar que o `parentKey` de cada nó é o id do nó anterior. Não aplicado em workflow real, porque não é o desenho pedido |
+| 1B agendamento | PR com os 3 arquivos para o branch padrão | PR #104 | — | — | aguarda merge do dono. A tarefa local do Agendador do Windows foi criada e depois **desativada** para não rodar em dobro |
+| 1B governador | modo de teste `--so <contactId>` | `tools/wa_governador.py` | — | ensaio ok | contrato original mantido |
+| 4 calendário | consent em português; antecedência de 2 h (`allowBookingAfter` 2 `hours`); aviso por e-mail ao closer para remarcada e cancelada | Reunião com closer | — | sim | **o PUT público reiniciou a duração para 30 min**; restaurada na hora para 1 h (igual ao backup, relido). O aviso de marcada ao closer já existia. **O aviso ao contato está LIGADO** (e-mail de marcada), diferente do que o pedido supunha; não mexi |
+| pedido anterior | campo `Canal da tentativa` (Telefone/WhatsApp), id `AsZMGmsKVu1xEp36hyLb`, posição 595, pasta da ficha | campo de contato | criado | sim | pedido explícito do dono antes da regra "não criar campo" |
+| pedido anterior | 3 portões `fila-wa` → `Canal da tentativa == WhatsApp`; limpeza do canal no fim de 10 ramos (não no "Resultado vazio?") | Pós-ligação v3 | v6 → v7 | sim | teste no contato de teste: Tentativas WhatsApp vazio → 1, Tentativas telefone ficou em 4, canal limpo no fim |
+| pedido anterior | listas inteligentes "Ligar pelo WhatsApp" (`a1CX9wVdSIbTHngFK4L9`) e "Fila do dia — SDR" (`3w5btTbp8ccrZ1tLa5BV`) | Contatos | criadas | filtros relidos | a conta tinha **0** listas. Falta: colunas, compartilhar com a Andreyna e fixar |

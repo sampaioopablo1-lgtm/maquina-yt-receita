@@ -76,6 +76,19 @@ def main() -> int:
     aplicar = "--aplicar" in sys.argv
     agora = dt.datetime.now(BRT)
     hoje = agora.date()
+    so = sys.argv[sys.argv.index("--so") + 1] if "--so" in sys.argv else None
+    if so:
+        # teste de um contato só (27/09): ignora dia e janela e libera só esse contato
+        cs = [c for c in contatos() if c["id"] == so and AGUARDA in (c.get("tags") or [])]
+        for c in cs:
+            if aplicar:
+                ghl("DELETE", "/contacts/%s/tags" % c["id"], {"tags": [AGUARDA]})
+                ghl("POST", "/contacts/%s/tags" % c["id"],
+                    {"tags": [LIBERADO, "wa-lib-" + hoje.isoformat()]})
+            print("teste --so: %s %s" % ("liberado" if aplicar else "liberaria", c["id"]))
+        if not cs:
+            print("teste --so: contato não está em %s" % AGUARDA)
+        return 0
     if hoje.weekday() >= 5:
         print("fim de semana: nada a liberar")
         return 0
