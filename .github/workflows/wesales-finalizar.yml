@@ -33,6 +33,8 @@ on:
           - transferir
           - transferir-aplicar
           - simular-reuniao
+          - copy-g04-sondar
+          - copy-g04-aplicar
       user_id:
         description: "Para modo=donos e transferir*: id do usuario que recebe os leads"
         type: string
@@ -136,3 +138,36 @@ jobs:
         env:
           GHL_PIT: ${{ secrets.GHL_PIT }}
         run: python wesales/tools/simular_reuniao.py
+
+      # COPY-WHATSAPP.md + G-04 (opcao B) pela API interna. Precisa do bearer de
+      # sessao, que sai do segredo GHL_STORAGE_STATE via Playwright.
+      - name: Node + Playwright (so para os modos copy-g04)
+        if: ${{ startsWith(inputs.modo, 'copy-g04') }}
+        run: |
+          npm install --no-save playwright@1
+          npx playwright install --with-deps chromium
+
+      - name: Renovar o bearer (copy-g04)
+        if: ${{ startsWith(inputs.modo, 'copy-g04') }}
+        env:
+          GHL_STORAGE_STATE: ${{ secrets.GHL_STORAGE_STATE }}
+        run: |
+          node wesales/tools/renovar_bearer.js
+          python3 wesales/tools/ghl_interno.py --token
+
+      - name: COPY + G-04 — sonda (le, escreve nada)
+        if: ${{ inputs.modo == 'copy-g04-sondar' }}
+        run: python3 wesales/tools/copy_g04.py --sondar
+
+      - name: COPY + G-04 — APLICA
+        if: ${{ inputs.modo == 'copy-g04-aplicar' }}
+        run: python3 wesales/tools/copy_g04.py --aplicar
+
+      - name: Guardar os dumps lidos
+        if: ${{ always() && startsWith(inputs.modo, 'copy-g04') }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: dumps-${{ inputs.modo }}
+          path: wesales/.local/dumps/
+          if-no-files-found: ignore
+          retention-days: 1
