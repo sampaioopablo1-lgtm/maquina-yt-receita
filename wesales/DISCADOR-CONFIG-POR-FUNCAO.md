@@ -304,3 +304,14 @@ o roteiro que executa. `fila-closer` continua valendo (nenhum workflow a toca).
 | `limpar-tarefas` | posta pelas cadências, lida por ninguém | higiene manual (`rotina-limpar-tarefas.md`); não bloqueia nada |
 | `Toques na semana` | escrita só pelo `Contador de Toques` (gatilho: tag `toque`) | teto de 6/semana funciona |
 | valores de `Investimento mensal` nas condições | `Até 1k / 1k a 5k / 5k a 10k / Acima de 10k` | o Meta grava `Abaixo de 5k`, `Até R$ 1.000`, `Não invisto nada ainda` → nota 0 nesse bloco para lead do anúncio (G-04, decisão do dono pendente) |
+
+## Decisão do dono, 27/09 21:30 — só `fila-tel`, puxada em horários fixos
+
+A SDR **não usa `fila-sdr`**. No Power (`Fila de ligações`, nunca `Disparo`) ela puxa
+sempre `fila-tel`, que as cadências põem quando o toque vence e o `Pós-ligação v3` tira
+quando o resultado é marcado — por isso ela junta atrasados e atuais e respeita a 12x30.
+Puxadas: **08:40, 11:00, 14:00, 16:30**. Lead novo não espera puxada: o Speed-to-lead
+avisa e a SDR liga pela ficha. `fila-sdr` continua existindo (nada apagado), fora da rotina.
+
+**Só na terça 29/09:** a `fila-tel` vem vazia até ~10:05, porque o primeiro toque da
+Cadência Inbound vence 1 dia + ~1 h35 depois da MI-0 de segunda 08:30.
