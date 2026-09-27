@@ -383,6 +383,25 @@ não aprovação — regra 1 nunca se aplicaria aqui mesmo se quisesse (o campo
 é do dono, não meu). Achado, pergunta ao dono e "Pronto quando" em
 `ROADMAP-SALES-ENGAGEMENT.md`, **G-27**/**G-28**.
 
+**Atualização em G-29 (27/09/2026), sem mudar o parágrafo acima:** o mesmo
+campo (`e1n7As703nqjAOpzREHc`, id inalterado) perdeu a opção `Pablo Santos`
+— só `Andreyna Siqueira` continua na lista. A pergunta do G-27/G-28 (qual
+das duas intenções é a certa) segue sem resposta; detalhe em
+`ROADMAP-SALES-ENGAGEMENT.md`, **G-29**.
+
+**Um sexto campo fora desta lista, criado direto na tela em 27/09/2026:**
+`B · Quanto pode investir` — `contact.b__quanto_pode_investir`, id
+`GVlTZmL4I4MmpTtN1DY8`, `SINGLE_OPTIONS`, opções `Até 1k`/`1k a 5k`/`5k a
+10k`/`Acima de 10k` — **idênticas** às de `Investimento mensal em anúncios`
+(Q-06, `bQithNwReQIBGlZBaNlI`), o campo vizinho de posição na tela.
+`dateAdded` 2026-09-27T18:32:49Z. Sem linha em nenhum documento deste
+projeto antes desta — pode ser duplicata do Q-06 ou pergunta nova de
+qualificação ("capacidade de investir" vs. "gasto atual"); nenhum dos dois
+tem consumidor (workflow, lista ou documento) hoje. Registro, não
+aprovação — mesmo motivo do quarto e do quinto campo desta lista. Achado,
+as duas leituras possíveis e "Pronto quando" em
+`ROADMAP-SALES-ENGAGEMENT.md`, **G-29**.
+
 ## Etapa 3 — Tags (23 numeradas, seis pendentes de aprovação — e 12 na conta fora da numeração)
 
 > **Onde mora a contagem das tags fora da numeração.** Só este título e a

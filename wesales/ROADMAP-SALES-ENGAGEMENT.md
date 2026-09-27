@@ -4884,6 +4884,88 @@ seis decisões sem prazo fixo que esperam o dono, sem novidade nesta sessão;
 G-25 continua sendo o item de maior prioridade do roadmap enquanto a janela
 de 28/09 08:30 `America/Sao_Paulo` não passar sem disparo.
 
+---
+
+### G-29 · Um sexto campo fora da lista nasceu ao lado do quinto — `B · Quanto pode investir` chegou com as mesmas opções de `Investimento mensal em anúncios`, e o próprio `SDR responsável` perdeu uma opção sem nenhum documento ter registrado quando (27/09/2026)
+
+**Por quê:** reconferência de rotina do G-25 (a primeira tarefa de toda
+sessão enquanto ele não fechar) — `contacts_get-contact` em `Carlos Andrade`
+(`7ECnj1bSeEIm5P58Ifd9`) confirma `dnd: true` e a tag `atraso-1a-tentativa`,
+protegido, nenhum disparo; a janela de 28/09 08:30 `America/Sao_Paulo` segue
+a ~16h20min de distância desta sessão. `opportunities_search-opportunity`
+(status `all`) mostra **64 oportunidades** (13 `NOVO LEAD` [2 open + 10
+abandoned + 1 lost], 47 `CONECTAR` [39 open + 8 lost], 3 `NEGOCIAR` [2 open +
+1 lost], 1 `REUNIÃO DE DIAGNÓSTICO` lost) — uma a menos que a última leitura
+(G-28, 65: 14 `NOVO LEAD` [**3** open + 10 abandoned + 1 lost]), diferença
+inteira num único `open` de `NOVO LEAD` que não reapareceu em nenhuma outra
+contagem (`CONECTAR` e os demais recortes de `NOVO LEAD` não mudaram). Não
+investigado além disso: esta rotina não tem como distinguir merge de contato
+duplicado, remoção feita na tela (fora do alcance desta auditoria — regra 1
+é sobre o que **eu** faço, não sobre o que o dono faz) ou artefato de
+paginação da própria API — registro do fato, não uma causa.
+
+Sem novidade no risco de prazo fixo, a sessão foi à varredura de coerência
+de sempre — e, ao reconferir o próprio achado do G-27/G-28 antes de assumir
+que a página de campos estava estável, `locations_get-custom-fields` (model
+`contact`) subiu de **57 para 58 campos**. O novo é `B · Quanto pode
+investir` (id `GVlTZmL4I4MmpTtN1DY8`, `SINGLE_OPTIONS`, opções `Até 1k`/`1k
+a 5k`/`5k a 10k`/`Acima de 10k`, posição 405, mesmo `parentId` — grupo de
+tela — de `B · Investimento mensal em anúncios (anúncio)` [posição 400] e
+`B · Budget` [posição 430], `dateAdded` 2026-09-27T18:32:49Z, ~32 minutos
+antes desta leitura). Nenhum documento deste projeto cita este campo
+(`grep -rn "Quanto pode investir\|GVlTZmL4I4MmpTtN1DY8" wesales/*.md` vazio)
+— mesmo padrão órfão do G-27, e desta vez com um detalhe que aponta para
+duplicação real, não só nome parecido: as quatro opções são **idênticas**,
+palavra por palavra, às de `Investimento mensal em anúncios` (Q-06,
+`bQithNwReQIBGlZBaNlI`), o campo vizinho de posição. Duas leituras
+possíveis, nenhuma decidida por mim: (a) o dono está recriando o mesmo
+campo com nome diferente, terceiro caso desta classe depois de `Canal que
+conectou` (G-21) e `SDR responsável` (G-27/G-28); ou (b) "quanto pode
+investir" é pergunta de qualificação genuinamente distinta de "quanto
+investe hoje" (capacidade vs. gasto atual, par que o BANT tradicional
+separa) e vai complementar Q-06 no script — `script-de-ligacao.md` (linha
+148, pergunta 10, e o bloco de objeções da linha 196) hoje só cobre
+orçamento (`Budget`, Q-14) e gasto atual (Q-06), nunca "capacidade de
+investir" como pergunta própria.
+
+O mesmo `locations_get-custom-fields` também mostra que `SDR responsável`
+(`e1n7As703nqjAOpzREHc`, o objeto `SINGLE_OPTIONS` que o G-28 leu com duas
+opções fechadas) segue com o **mesmo id**, mas agora só uma opção:
+`["Andreyna Siqueira"]` — `Pablo Santos` não está mais na lista. Id
+inalterado (diferente da troca `TEXT`→`SINGLE_OPTIONS` do G-27→G-28, que
+trocou o id): editar as opções de um `SINGLE_OPTIONS` já existente preserva
+o id, só trocar o `dataType` recria o campo — fato novo sobre o
+comportamento da plataforma, útil da próxima vez que este roadmap precisar
+decidir se uma mudança de campo é edição ou recriação. Sem `dateUpdated` no
+retorno deste endpoint, não há como cravar quando a opção saiu; só que já
+não está lá.
+
+**Como:** nada sai por API nos dois casos — os dois campos já existem na
+subconta, criados/editados fora deste conector. Regra 1 (nunca excluir) e a
+regra "Como autorizar" do `APROVADO.md` não se aplicam: são campos do dono,
+não meus. O trabalho desta rodada é o mesmo tipo de ponte que o G-27 já fez
+— registrar o achado nos documentos que contam campo, para a próxima sessão
+não redescobrir a mesma pesquisa: `campos-e-tags.md` (Etapa 2, sexto campo
+"fora da lista", mesmo formato do quinto, com a correção do estado do
+quinto embutida) e `build-wesales.md` (seção 2.53). Zero campo, zero tag,
+zero escrita no CRM.
+
+**Pronto quando:** o dono disser, para `B · Quanto pode investir`, se é
+duplicata de `Investimento mensal em anúncios` (aí a recomendação é a mesma
+do R-10/G-27: decidir qual campo fica e não escrever nos dois) ou pergunta
+nova (aí falta decidir onde ela entra no script e na régua de nota); e,
+para `SDR responsável`, a mesma pergunta que o G-27/G-28 já fizeram (qual
+das duas intenções é a certa) segue de pé — a saída de `Pablo Santos` das
+opções não a responde, só reduz o campo a um único SDR possível, o que
+teoricamente favorece a leitura "registro de quem qualificou" enquanto
+houver só uma pessoa qualificando. Até a resposta, os dois campos ficam sem
+consumidor (nenhum workflow, lista ou documento lê ou escreve neles hoje,
+confirmado nesta rodada). G-03, G-04 (peça 2), F-09, F-10, G-11 (item 1) e
+G-19 continuam sendo as seis decisões sem prazo fixo que esperam o dono,
+sem novidade nesta sessão; G-25 continua sendo o item de maior prioridade
+do roadmap enquanto a janela de 28/09 08:30 `America/Sao_Paulo` não passar
+sem disparo.
+
 ## Ordem sugerida
 
 **Bloco 0 (G-01) fechado em 19/09/2026, antes de tudo o resto desta seção:**

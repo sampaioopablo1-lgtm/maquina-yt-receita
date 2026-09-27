@@ -9314,3 +9314,26 @@ o estado novo. A seção 2.14 acima não foi editada para não colidir com
 sessão paralela — quem for atualizá-la troca `TEXT`/`LoSi8PQCbBRjmkMC8CH8`
 pelo estado corrente citado aqui. Zero campo, zero tag, zero escrita no
 CRM.
+
+---
+
+## 2.53 Um sexto campo fora da lista, e o quinto perdeu uma opção — G-29
+
+Reconferência de rotina do G-25 (janela de 28/09 08:30 `America/Sao_Paulo`
+segue sem disparo, `Carlos Andrade` protegido) achou dois fatos novos em
+`locations_get-custom-fields`. Primeiro: o campo `SDR responsável`
+(`e1n7As703nqjAOpzREHc`, o mesmo objeto `SINGLE_OPTIONS` que o G-28
+registrou com as opções `Andreyna Siqueira`/`Pablo Santos`) segue com o
+mesmo id, mas `Pablo Santos` não está mais na lista de opções — editar as
+opções de um `SINGLE_OPTIONS` preserva o id, diferente da troca de
+`dataType` do G-27→G-28, que recriou o campo. Segundo: um sexto campo fora
+desta lista nasceu ao lado — `B · Quanto pode investir`
+(`GVlTZmL4I4MmpTtN1DY8`, `SINGLE_OPTIONS`, opções idênticas às de
+`Investimento mensal em anúncios`, `dateAdded` 2026-09-27T18:32:49Z), sem
+linha em nenhum documento antes desta sessão. Nada sai por API nos dois
+casos — campos do dono, editados/criados fora deste conector. Detalhe
+completo, as duas leituras possíveis para o campo novo (duplicata do Q-06
+ou pergunta de qualificação distinta) e "Pronto quando":
+`ROADMAP-SALES-ENGAGEMENT.md`, **G-29**; `campos-e-tags.md`, Etapa 2, quinto
+campo (correção) e sexto campo (novo). Zero campo, zero tag, zero escrita
+no CRM.
