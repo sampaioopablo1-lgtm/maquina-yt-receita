@@ -1,0 +1,39 @@
+name: WeSales - auditoria de valor dos campos
+
+# Diferente das cinco auditorias que ja existem: elas partem do dump ou da
+# definicao e conferem estrutura. Esta pergunta se o VALOR gravado num campo e
+# um valor que aquele campo aceita — onde estavam os seis defeitos de 27/09.
+#
+# SO LE. Nenhum PUT, nenhum POST. Por isso pode rodar em cron sem linha no
+# APROVADO.md: aquele arquivo governa escrita, e aqui nao ha nenhuma.
+#
+# O codigo de saida e a campainha: 0 nao acorda ninguem, 1 tem achado, 2 falhou
+# a leitura. Vermelho passa a significar MUDOU.
+#
+# 10:30 UTC = 07:30 America/Sao_Paulo, antes de a janela das cadencias abrir.
+# `schedule` so dispara no branch padrao (ver .claude/skills/steward).
+
+on:
+  schedule:
+    - cron: "30 10 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  valores:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Auditar valor contra definicao
+        env:
+          GHL_PIT: ${{ secrets.GHL_PIT }}
+        run: python wesales/tools/auditoria_valores.py
