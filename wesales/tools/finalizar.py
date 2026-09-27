@@ -463,7 +463,25 @@ def transferir(destino: str | None, aplicar: bool) -> int:
 
 # ---------------------------------------------------------------- verificar
 
+def listar_workflows() -> None:
+    """Lista os workflows da conta pela API publica (GET /workflows/): nome, status, id.
+
+    Leitura pura. Serve para saber se um workflow existe e se esta publicado sem
+    depender da tela (a lista da tela e um iframe que o agente de navegador nao
+    consegue pesquisar com confianca — medido em 27/09 19:10).
+    """
+    r = pedir("GET", "/workflows/?locationId=%s" % LOC, tolerar=(401, 403, 404, 422))
+    if "_erro" in r:
+        print("  !! GET /workflows/ -> HTTP %s %s" % (r["_erro"], r["_detalhe"]))
+        return
+    ws = r.get("workflows") or []
+    print("\n  WORKFLOWS na conta: %d" % len(ws))
+    for w in sorted(ws, key=lambda x: (x.get("status") or "", x.get("name") or "")):
+        print("     %-10s %s  %s" % (w.get("status"), w.get("id"), w.get("name")))
+
+
 def verificar() -> int:
+    listar_workflows()
     print("=" * 74)
     print("VERIFICACAO — rele a conta depois da escrita")
     print("=" * 74)
