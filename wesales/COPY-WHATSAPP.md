@@ -101,5 +101,5 @@ WhatsApp ficam — tirar exigiria apagar nós, que é mudança de estrutura, nã
 Se quiser, o próximo passo é desligar os e-mails de 10 min (ninguém lê e-mail 10 min
 antes).
 
-Total a gravar no Lembretes: 21 nós de texto (13 WhatsApp + 5 e-mails + 3 sem mudança
-ficam fora).
+Total a gravar no Lembretes: 22 nós de texto (17 WhatsApp + 5 e-mails). Os 8 envios de
+10 min ficam como estão.
