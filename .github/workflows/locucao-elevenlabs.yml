@@ -43,7 +43,10 @@ jobs:
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
         run: python proximo-cliente/tools/locucao.py
 
+      # always(): mesmo quando uma voz falha, o catalogo de vozes (VOZES.md) e os
+      # audios que deram certo sao commitados.
       - name: Commitar audios
+        if: always()
         env:
           BRANCH: ${{ github.ref_name }}
         run: |

@@ -52,6 +52,10 @@ AJUSTES_PADRAO = {"stability": 0.45, "similarity_boost": 0.8, "style": 0.15, "us
 VOZES_AUTOMATICAS = 3
 
 
+class ErroApi(Exception):
+    pass
+
+
 def chamar(metodo: str, caminho: str, chave: str, corpo: dict | None = None) -> dict:
     dados = json.dumps(corpo).encode() if corpo is not None else None
     req = urllib.request.Request(API + caminho, data=dados, method=metodo)
@@ -68,8 +72,8 @@ def chamar(metodo: str, caminho: str, chave: str, corpo: dict | None = None) -> 
             if erro.code in (429, 500, 502, 503) and tentativa < 2:
                 time.sleep(5 * (tentativa + 1))
                 continue
-            raise SystemExit(f"ElevenLabs {metodo} {caminho} -> HTTP {erro.code}: {detalhe}")
-    raise SystemExit(f"ElevenLabs {metodo} {caminho}: sem resposta")
+            raise ErroApi(f"ElevenLabs {metodo} {caminho} -> HTTP {erro.code}: {detalhe}")
+    raise ErroApi(f"ElevenLabs {metodo} {caminho}: sem resposta")
 
 
 def slug(texto: str) -> str:
@@ -96,10 +100,14 @@ def escrever_catalogo(conta: list[dict], publicas: list[dict]) -> None:
         "",
         "## Na conta",
         "",
+        "`cloned` e voz gravada pelo dono da conta; `premade` sao as padrao do ElevenLabs;",
+        "`professional`/`generated` vieram da biblioteca ou do Voice Design. No plano gratuito,",
+        "a API recusa vozes da biblioteca.",
+        "",
         "| Nome | Categoria | voice_id | Previa |",
         "| --- | --- | --- | --- |",
     ]
-    for v in conta:
+    for v in sorted(conta, key=lambda v: v.get("category") != "cloned"):
         linhas.append(f"| {v.get('name')} | {v.get('category')} | `{v.get('voice_id')}` | [ouvir]({v.get('preview_url')}) |")
     linhas += [
         "",
@@ -200,9 +208,16 @@ def main() -> int:
     AUDIO.mkdir(parents=True, exist_ok=True)
 
     conta = vozes_da_conta(chave)
-    publicas = vozes_em_portugues(chave)
+    try:
+        publicas = vozes_em_portugues(chave)
+    except ErroApi as erro:
+        print(f"::warning::biblioteca publica indisponivel: {erro}")
+        publicas = []
     escrever_catalogo(conta, publicas)
     print(f"catalogo: {len(conta)} vozes na conta, {len(publicas)} publicas em portugues")
+    for v in conta:
+        print(f"  conta: {v.get('name')} [{v.get('category')}] {v.get('voice_id')}")
+    erros: list[str] = []
 
     conta_ids = {v["voice_id"] for v in conta}
     nomes = {v["voice_id"]: v.get("name", v["voice_id"]) for v in conta + publicas}
@@ -217,12 +232,18 @@ def main() -> int:
             or [v["voice_id"] for v in escolher_automatico(publicas)]
         )
         for voice_id in escolhidas:
-            if voice_id in por_id:
-                voice_id_conta = garantir_na_conta(chave, por_id[voice_id], conta_ids)
-            else:
-                voice_id_conta = voice_id
-            gerar(chave, roteiro, voice_id_conta, nomes.get(voice_id, voice_id))
-    return 0
+            try:
+                if voice_id in por_id:
+                    voice_id_conta = garantir_na_conta(chave, por_id[voice_id], conta_ids)
+                else:
+                    voice_id_conta = voice_id
+                gerar(chave, roteiro, voice_id_conta, nomes.get(voice_id, voice_id))
+            except ErroApi as erro:
+                print(f"::error::{roteiro['id']} / {nomes.get(voice_id, voice_id)}: {erro}")
+                erros.append(str(erro))
+    # O catalogo ja foi escrito e segue para o commit mesmo com erro: e por ele
+    # que se escolhe a proxima voz.
+    return 1 if erros else 0
 
 
 if __name__ == "__main__":
