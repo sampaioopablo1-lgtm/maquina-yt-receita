@@ -84,6 +84,12 @@ NEGOCIAR   cbcf0229-5e19-4fdb-8c50-6c641b78b3bb
 FORMALIZAR b8485ec0-98e8-459f-b990-f40a5e3bd25b
 ```
 
+## Abertura da operação (28 ou 29/09/2026)
+
+Se a conversa for sobre a abertura, os leads em `CONECTAR` ou o disparo da MI-0,
+**leia `wesales/ABERTURA.md` e mais nada** — ele tem o risco, a única alavanca
+que funciona, as duas decisões pendentes do dono e a lista pronta por ID.
+
 ## Antes de automatizar qualquer coisa
 
 Leia a skill **`economia-de-token`**. Resumo de uma linha: desça a escada
