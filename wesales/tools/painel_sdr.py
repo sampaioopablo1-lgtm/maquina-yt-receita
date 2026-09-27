@@ -10,9 +10,9 @@ contato, nao mostra a agenda do closer e nao lista usuarios.
 
 O QUE ESTE SCRIPT FAZ (`--instalar`)
 ------------------------------------
-1. Entrega o token do GHL ao painel: grava `config.ghl_pit` no Supabase por
-   PostgREST com a SERVICE_ROLE. O conteiner de desenvolvimento nao tem o
-   token; a Action tem (segredo GHL_PIT). O token nunca passa pelo navegador.
+1. Pergunta ao painel se o token do GHL ja esta guardado. NAO o entrega: a
+   entrega automatica foi barrada pela politica de seguranca da sessao; e o
+   dono quem poe a linha `ghl_pit` na tabela `config` (ver token_no_painel).
 2. Cria o campo `SDR responsavel` (texto, contato) se nao existir — e o campo
    que guarda QUEM qualificou, escolhido da lista de usuarios do CRM.
    `Qualificacao` ja existe mas e o canal (SDR / IA / Vendedor), nao a pessoa.
@@ -46,7 +46,7 @@ LOC = "1D53YTI9C7oIMBavcQxV"
 CALENDARIO = "3uNQFjCEDe7b4gKZJuOZ"
 FUSO = "America/Sao_Paulo"
 CAMPO_SDR = "SDR responsável"
-PAINEL = "/functions/v1/painel-sdr"
+PAINEL = "https://cscczluzpblzhvojxanp.supabase.co/functions/v1/painel-sdr"
 
 
 def env(nome: str) -> str:
@@ -92,13 +92,19 @@ def ghl(metodo: str, rota: str, corpo=None, tolerar=()):
 
 # ---------------------------------------------------------------- passos
 
-def entregar_token() -> None:
-    sb, chave = env("SUPABASE_URL").rstrip("/"), env("SUPABASE_SERVICE_ROLE_KEY")
-    st, _ = http("POST", sb + "/rest/v1/config",
-                 {"chave": "ghl_pit", "valor": {"token": env("GHL_PIT")}},
-                 {"apikey": chave, "Authorization": "Bearer " + chave,
-                  "Prefer": "resolution=merge-duplicates,return=minimal"})
-    print("  1. token entregue ao painel (config.ghl_pit): HTTP %s" % st)
+def token_no_painel() -> bool:
+    """O token do GHL dentro do painel e responsabilidade do DONO, nao deste script.
+
+    A entrega automatica (a Action mandar o segredo GHL_PIT para o painel) foi
+    barrada duas vezes pela politica de seguranca da sessao em 27/09 — gravacao
+    de segredo em servico externo. Fica registrado e nao contornado. O dono poe a
+    linha `ghl_pit` na tabela `config` do Supabase (projeto cscczluzpblzhvojxanp)
+    ou autoriza a regra de permissao; aqui so se PERGUNTA ao painel se ja tem.
+    """
+    st, r = http("GET", PAINEL + "/api/saude", tolerar=(400, 401, 403, 404, 500, 502, 503))
+    tem = st == 200 and isinstance(r, dict) and bool(r.get("token_guardado"))
+    print("  1. token do GHL no painel: %s" % ("SIM" if tem else "NAO — ver docstring de token_no_painel()"))
+    return tem
 
 
 def campo_sdr() -> str:
@@ -151,8 +157,7 @@ def sondar() -> None:
 
 
 def saude() -> bool:
-    sb = env("SUPABASE_URL").rstrip("/")
-    st, r = http("GET", sb + PAINEL + "/api/saude", tolerar=(400, 401, 403, 404, 500, 502, 503))
+    st, r = http("GET", PAINEL + "/api/saude", tolerar=(400, 401, 403, 404, 500, 502, 503))
     print("  4. painel /api/saude -> HTTP %s %s" % (st, json.dumps(r, ensure_ascii=False)[:300]))
     return st == 200 and isinstance(r, dict) and bool(r.get("ok"))
 
@@ -161,12 +166,11 @@ def instalar() -> int:
     print("=" * 74)
     print("PAINEL SDR — instalar e provar")
     print("=" * 74)
-    entregar_token()
+    token_no_painel()
     campo_sdr()
     sondar()
     ok = saude()
-    sb = env("SUPABASE_URL").rstrip("/")
-    print("\n  endereco do painel: %s%s" % (sb, PAINEL))
+    print("\n  endereco do painel: %s" % PAINEL)
     print("  veredito: %s" % ("PAINEL NO AR" if ok else "PAINEL NAO RESPONDEU OK"))
     return 0 if ok else 1
 

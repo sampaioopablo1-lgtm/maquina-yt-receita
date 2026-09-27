@@ -96,12 +96,10 @@ jobs:
       # (supabase/functions/painel-sdr): a API nao edita formulario, e o painel faz
       # o que o dono pediu. Este modo entrega o token ao painel, cria o campo
       # `SDR responsavel` uma vez, sonda o que o painel usa e prova /api/saude.
-      - name: Painel SDR (entrega o token, cria o campo, sonda e prova)
+      - name: Painel SDR (cria o campo, sonda e prova; o token e do dono)
         if: ${{ inputs.modo == 'formulario' }}
         env:
           GHL_PIT: ${{ secrets.GHL_PIT }}
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: python wesales/tools/painel_sdr.py --instalar
 
       - name: Verificacao (rele a conta e prova)
