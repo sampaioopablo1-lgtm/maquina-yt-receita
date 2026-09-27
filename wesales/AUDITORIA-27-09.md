@@ -232,3 +232,45 @@ campo por campo**, o que pode indicar preenchimento de teste do formulário
 `Qualificação SDR` em 19/09 e não duas conversas reais. Se for teste, o 93 não é
 confiável. Não dá para distinguir pela API — precisa de quem estava na operação
 naquele dia. Nada foi escrito nesses dois contatos à espera dessa resposta.
+
+---
+
+## O funil inteiro, etapa por etapa (27/09/2026, 04:05 UTC)
+
+Primeira vez que as cinco etapas foram lidas na mesma passada.
+
+| etapa | oportunidades | leads reais | de teste / casa |
+|---|---|---|---|
+| `NOVO LEAD` | 4 `open` | **2** | 2 grupos de WhatsApp, postos em `abandoned` em 27/09 |
+| `CONECTAR` | 39 `open` | **36** | Rafaela (atendente da plataforma), `Teste Não Atende`, `ZZ TESTE ABERTURA` |
+| `REUNIÃO DE DIAGNÓSTICO` | 1 | 0 | `Pablo Sampaio` (o contato 9940 do dono) |
+| `NEGOCIAR` | 3 | **2** | `Teste Atendeu`, já `lost` |
+| `FORMALIZAR` | 0 | 0 | — |
+
+**Leitura de negócio, sem adjetivo:** a operação tem **38 leads reais** no funil.
+36 estão em `CONECTAR` sem nenhuma tentativa registrada (`Resultado da tentativa`
+vazio em todos). 2 estão em `NEGOCIAR` com agendamento de 19/09 e oito dias sem
+toque. Nenhum fechou. Vinte e tantos workflows publicados produziram, até agora,
+**dois agendamentos que ninguém seguiu**.
+
+Não é defeito de máquina: a máquina está parada pela janela, de propósito, à
+espera da abertura. O que este quadro mostra é o que a abertura precisa resolver
+em ordem de dinheiro: os 2 de `NEGOCIAR` primeiro (têm `Budget` = `Tem` e
+`Prazo` = `Pra ontem`), depois o lote 1 dos 36.
+
+**Um lead real esquecido em `NOVO LEAD`:** `N3vKAPG3JkDJM6TfDjqj`
+(`+5511951285383`), com `novo-lead-estagnado` desde 24/09. A corrida do G-03 na
+terça o promove — mas ele já perdeu três dias.
+
+### `Nota de qualificação` escrita em 27/09
+
+`Daniel` e `genilson | Bombeiro` receberam **93** (faixa A), calculado pela
+tabela da §9.1 bloco a bloco: fit 23 + mídia 25 + BANT 45. O corte independente
+(`Budget` = `Não tem` **e** `Prazo` = `Sem prazo`) não se aplica. Autorizado pelo
+dono em chat, depois de ele confirmar que os dois são leads reais.
+
+**Não foi aplicada a tag `fila-quente`**, que a faixa A também manda: os dois
+estão em `NEGOCIAR`, com o closer, e `fila-quente` alimenta a fila do **SDR** —
+aplicá-la jogaria lead de closer na tela do SDR e quebraria a separação de papéis
+da §3.1. Fica como decisão do dono.
+
