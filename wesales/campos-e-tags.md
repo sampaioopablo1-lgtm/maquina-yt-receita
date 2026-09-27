@@ -359,21 +359,29 @@ por `--dump` e **APLICADO em 23/09/2026 ~18:45 BRT** (mais `patch_canal_posligac
 existe na tela, criado por fora deste conector. Acompanhamento e "Pronto
 quando" em `ROADMAP-SALES-ENGAGEMENT.md`, **G-21**.
 
-**Um quinto campo fora desta lista, criado direto na tela em 27/09/2026
-~16:53 UTC:** `SDR responsável` (`TEXT`, placeholder "nome do SDR que
-qualificou (preenchido pelo painel)" — `contact.sdr_responsvel`, id
-`LoSi8PQCbBRjmkMC8CH8`, confirmado por `locations_get-custom-fields` nesta
-rodada). Diferente do quarto campo (`Canal que conectou`, que veio com
-decisão e patch já escritos), este não tem nenhum documento explicando o
-porquê — e o nome bate, palavra por palavra, com o campo que o **R-10**
-(18/09/2026) pesquisou e decidiu **não** criar, pelo risco de "campo com
-dois donos" divergindo de `Assigned User` na primeira reatribuição manual.
-O placeholder ("quem qualificou", registro de uma vez, não dono atual)
-sugere um uso diferente do que o R-10 avaliou, mas nenhum documento deste
-projeto pode decidir isso sozinho. Registro, não aprovação — regra 1 nunca
-se aplicaria aqui mesmo se quisesse (o campo é do dono, não meu). Achado,
-pergunta ao dono e "Pronto quando" em `ROADMAP-SALES-ENGAGEMENT.md`,
-**G-27**.
+**Um quinto campo fora desta lista, criado direto na tela em 27/09/2026 e
+recriado 13 minutos depois, sozinho:** `SDR responsável` —
+`contact.sdr_responsvel`, confirmado por `locations_get-custom-fields`.
+**Estado atual (verificado em 27/09/2026 ~18:05 UTC):** `SINGLE_OPTIONS`,
+opções `Andreyna Siqueira`/`Pablo Santos`, sem placeholder, id
+`e1n7As703nqjAOpzREHc`, `dateAdded` 17:06:31 UTC. **Não é o mesmo objeto que
+o G-27 registrou primeiro:** naquela leitura (~16:53 UTC) o campo era
+`TEXT`, com o placeholder "nome do SDR que qualificou (preenchido pelo
+painel)" e id `LoSi8PQCbBRjmkMC8CH8` — id diferente do atual, não só tipo
+diferente, então o dono não editou o campo original, recriou-o (o GHL troca
+o id quando o `dataType` muda). Diferente do quarto campo (`Canal que
+conectou`, que veio com decisão e patch já escritos), este não tem nenhum
+documento explicando o porquê — e o nome bate, palavra por palavra, com o
+campo que o **R-10** (18/09/2026) pesquisou e decidiu **não** criar, pelo
+risco de "campo com dois donos" divergindo de `Assigned User` na primeira
+reatribuição manual. A troca para `SINGLE_OPTIONS` com as duas pessoas reais
+da operação como opção fechada é fato novo a favor da leitura "registro de
+quem qualificou" (mesmo padrão seguro de C-15/C-16, um papel escreve uma
+vez) e contra um substituto solto de `Assigned User` — mas nenhum documento
+deste projeto decide isso sozinho, é o dono quem sabe a intenção. Registro,
+não aprovação — regra 1 nunca se aplicaria aqui mesmo se quisesse (o campo
+é do dono, não meu). Achado, pergunta ao dono e "Pronto quando" em
+`ROADMAP-SALES-ENGAGEMENT.md`, **G-27**/**G-28**.
 
 ## Etapa 3 — Tags (23 numeradas, seis pendentes de aprovação — e 12 na conta fora da numeração)
 

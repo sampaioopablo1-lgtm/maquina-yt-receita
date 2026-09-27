@@ -4826,6 +4826,64 @@ o dono, sem novidade nesta sessão; G-25 continua sendo o item de maior
 prioridade do roadmap enquanto a janela de 28/09 08:30 `America/Sao_Paulo`
 não passar sem disparo.
 
+---
+
+### G-28 · O campo do G-27 já mudou de novo — o dono trocou `SDR responsável` de `TEXT` livre para `SINGLE_OPTIONS` fechado 13 minutos depois, sem que nenhum documento tivesse chegado a registrar o primeiro estado (27/09/2026)
+
+**Por quê:** reconferência de rotina do G-25 (a primeira tarefa de toda
+sessão enquanto ele não fechar) — `opportunities_search-opportunity`
+(status `all`) confirma **65 oportunidades**, mesma composição da última
+leitura (14 `NOVO LEAD`, 47 `CONECTAR`, 3 `NEGOCIAR`, 1 `REUNIÃO DE
+DIAGNÓSTICO`); `contacts_get-contact` em `Carlos Andrade`
+(`7ECnj1bSeEIm5P58Ifd9`) confirma `dnd: true` e a tag `atraso-1a-tentativa`
+— protegido, nenhum disparo, `git fetch` limpo (`HEAD` segue em `25e5590`,
+o commit do próprio G-27). Sem novidade no risco de prazo fixo, a sessão foi
+à varredura de coerência que a "Ordem sugerida" pede quando não há tela nem
+decisão nova — e a primeira checagem, no próprio achado da sessão anterior
+(G-27), já achou fato novo: `locations_get-custom-fields` (model `contact`)
+segue em **57 campos** (nenhum campo a mais), mas o `SDR responsável` que o
+G-27 leu às ~16:53 UTC (`TEXT`, placeholder "nome do SDR que qualificou
+(preenchido pelo painel)", id `LoSi8PQCbBRjmkMC8CH8`) **não é mais esse
+objeto**: às 17:06:31 UTC — 13 minutos depois, antes de o G-27 sequer ser
+commitado — o campo virou `SINGLE_OPTIONS` com opções fechadas `Andreyna
+Siqueira`/`Pablo Santos`, sem placeholder, e com **id novo**
+(`e1n7As703nqjAOpzREHc`). Id diferente, não só tipo diferente: o GHL não
+edita um campo existente trocando o `dataType` de `TEXT` para
+`SINGLE_OPTIONS` — ele recria o campo (mesmo `fieldKey`
+`contact.sdr_responsvel`, novo `id`). O dono não ajustou o campo que o G-27
+descreveu; substituiu por outro, na mesma janela de tempo em que a
+descrição estava sendo escrita.
+
+**O que isso muda, e o que não muda:** não resolve a pergunta do G-27 (qual
+das duas intenções é a real), mas desloca o peso da evidência. Um
+`SINGLE_OPTIONS` com as duas pessoas reais desta operação como opção
+fechada é o mesmo desenho que C-15/C-16 já usam com segurança — um papel
+registra um fato uma vez, sem risco de divergir de nada porque não há
+"nativo" concorrente para esse fato divergir. Um campo pensado para
+espelhar `Assigned User` ao vivo (a leitura que o R-10 rejeitou) normalmente
+nasceria `TEXT` livre ou ligado a atualização automática, não um dropdown
+fechado com exatamente os dois nomes do time — fechar as opções é o
+oposto do que faria sentido para um campo que precisa acompanhar
+reatribuição futura sem exigir nova opção cadastrada a cada SDR novo. Isto
+não é uma decisão tomada em nome do dono — é o mesmo achado, com uma dúvida
+a menos: a versão atual do campo já não corre o risco de virar texto livre
+divergente que preocupava o R-10, seja qual for a intenção final.
+
+**Como:** nada sai por API — campo já existe, editado fora deste conector.
+Corrigido nos dois lugares que citavam o id/tipo antigos como fato atual:
+`campos-e-tags.md` (Etapa 2, quinto campo "fora da lista") e este item.
+`CONFERENCIA-CAMPOS.md` e `IMPLEMENTACAO-WORKFLOWS.md` já apontavam para o
+G-27 sem repetir id/tipo — nada para corrigir ali. Zero campo, zero tag,
+zero escrita no CRM.
+
+**Pronto quando:** o mesmo do G-27 — o dono disser qual das duas intenções
+é a certa. Isto não é peça 2 do G-27, é o mesmo item ganhando um fato novo
+antes de qualquer resposta chegar; as duas entradas devem ser lidas juntas.
+G-03, G-04 (peça 2), F-09, F-10, G-11 (item 1) e G-19 continuam sendo as
+seis decisões sem prazo fixo que esperam o dono, sem novidade nesta sessão;
+G-25 continua sendo o item de maior prioridade do roadmap enquanto a janela
+de 28/09 08:30 `America/Sao_Paulo` não passar sem disparo.
+
 ## Ordem sugerida
 
 **Bloco 0 (G-01) fechado em 19/09/2026, antes de tudo o resto desta seção:**

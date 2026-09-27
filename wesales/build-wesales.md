@@ -9296,3 +9296,21 @@ desta subconta está em domínio compartilhado ou dedicado, se o warmup
 dedicado (quando aplicável) já foi iniciado, e os três momentos em que
 precisa olhar `Email Services` antes que o teto caia em silêncio — mesmo
 padrão de "Pronto quando" do F-07 (seção 2.25).
+
+---
+
+## 2.52 `SDR responsável` (nota da seção 2.14) já não é o campo que a nota registrou — G-28
+
+A nota de 27/09/2026 na seção 2.14 (acima) descreve o campo `SDR
+responsável` como `TEXT` com o id `LoSi8PQCbBRjmkMC8CH8` — verdadeiro no
+momento em que foi escrita, não mais agora. O dono recriou o campo 13
+minutos depois (mesmo `fieldKey`, `dataType` novo `SINGLE_OPTIONS` com
+opções fechadas `Andreyna Siqueira`/`Pablo Santos`, id novo
+`e1n7As703nqjAOpzREHc`) antes que a nota chegasse a ser commitada. Detalhe
+completo, o que essa troca de tipo sugere sobre a intenção do dono e o
+estado atual do campo: `ROADMAP-SALES-ENGAGEMENT.md`, **G-28**;
+`campos-e-tags.md`, Etapa 2, quinto campo "fora da lista", já corrigido com
+o estado novo. A seção 2.14 acima não foi editada para não colidir com
+sessão paralela — quem for atualizá-la troca `TEXT`/`LoSi8PQCbBRjmkMC8CH8`
+pelo estado corrente citado aqui. Zero campo, zero tag, zero escrita no
+CRM.
