@@ -51,6 +51,19 @@ jobs:
           set -o pipefail
           python3 wesales/tools/auditoria_tudo.py | tee /tmp/auditoria.txt
 
+      # Cruza a CONTA AO VIVO com os dumps — o unico achado que as cinco
+      # auditorias de dump nao conseguem ver. Usa o token publico (`GHL_PIT`).
+      # `continue-on-error`: divergencia de conta nao deve derrubar a auditoria
+      # de dump, que e a parte que roda sem chave nenhuma.
+      - name: Cruzar com a conta ao vivo
+        id: conta
+        continue-on-error: true
+        env:
+          GHL_PIT: ${{ secrets.GHL_PIT }}
+        run: |
+          set -o pipefail
+          python3 wesales/tools/auditoria_conta.py | tee /tmp/conta.txt
+
       - name: Resumo
         if: always()
         run: |
@@ -62,9 +75,19 @@ jobs:
             echo '```'
             echo ''
             if [ "${{ steps.audit.outcome }}" = "success" ]; then
-              echo '✅ **Nada mudou.** Nenhuma sessão do Claude é necessária.'
+              echo '✅ **Auditoria de dump: nada mudou.**'
             else
-              echo '⚠️ **Mudou algo.** Vale abrir uma sessão para decidir — é a única'
-              echo 'condição em que isto acontece.'
+              echo '⚠️ **Auditoria de dump: mudou algo.** Vale abrir uma sessão.'
+            fi
+            echo ''
+            echo '### Conta ao vivo × dumps'
+            echo ''
+            echo '```'
+            cat /tmp/conta.txt 2>/dev/null || echo 'não rodou (sem GHL_PIT?)'
+            echo '```'
+            if [ "${{ steps.conta.outcome }}" != "success" ]; then
+              echo ''
+              echo '⚠️ **Divergência entre a conta e os dumps** — é o único achado que'
+              echo 'nenhuma auditoria de dump consegue ver.'
             fi
           } >> "$GITHUB_STEP_SUMMARY"
