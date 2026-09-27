@@ -1,0 +1,59 @@
+name: Locucao ElevenLabs (O Proximo Cliente)
+
+# Gera a locucao dos criativos da O Proximo Cliente. A sessao de nuvem que monta
+# os criativos nao alcanca api.elevenlabs.io; o runner alcanca. A interface e o
+# repositorio: um roteiro em proximo-cliente/locucao/roteiros/ entra por push, o
+# job gera .mp3 + .tempos.json e commita em proximo-cliente/locucao/audio/.
+#
+# Gatilho por push (e nao so workflow_dispatch) porque dispatch so resolve o
+# workflow se o arquivo existir no branch padrao; push roda em qualquer branch.
+#
+# Custo: caracteres do plano ElevenLabs. O script pula audio cujo texto, voz,
+# modelo e ajustes nao mudaram (arquivo .sha), entao repetir o push nao gasta.
+# Sem o secret ELEVENLABS_API_KEY, encerra verde com aviso.
+
+on:
+  push:
+    paths:
+      - "proximo-cliente/locucao/roteiros/**"
+      - "proximo-cliente/tools/locucao.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: locucao-${{ github.ref_name }}
+  cancel-in-progress: false
+
+jobs:
+  gerar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Gerar locucao
+        env:
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+        run: python proximo-cliente/tools/locucao.py
+
+      - name: Commitar audios
+        env:
+          BRANCH: ${{ github.ref_name }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add proximo-cliente/locucao
+          if git diff --cached --quiet; then
+            echo "Nada novo para commitar."
+            exit 0
+          fi
+          git commit -m "locucao: audios gerados pelo ElevenLabs [skip ci]"
+          git pull --rebase origin "$BRANCH"
+          git push origin "HEAD:$BRANCH"
