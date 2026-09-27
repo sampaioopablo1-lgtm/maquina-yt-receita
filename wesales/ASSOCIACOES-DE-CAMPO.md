@@ -194,6 +194,56 @@ legíveis — e depende da API interna, não do dono.
 
 ---
 
+## 4-BIS. O formulário existe — `DNz54AK2ryRSW7uCuznP` — e o que a leitura dele mostrou
+
+**Correção minha:** eu escrevi na §4 que o formulário "ainda não existe como formulário".
+Errei sobre o estado, não sobre a rota: continua não saindo por API, mas o dono já o
+montou na tela. Li de duas formas em 27/09 15:50 — o widget baixado pelo runner da Action
+(19 campos do CRM presentes) e **uma submissão de teste real** do dono, que mostra o que o
+formulário efetivamente escreve.
+
+### O que o formulário escreve (17 campos, pela submissão)
+
+`Decisor` · `Já teve agência?` · `Experiência com agência` · `Budget` · `Segmento` ·
+`Investimento mensal em anúncios` · `Usa CRM` · `Plataformas de anúncio` · `Prazo` ·
+`Qualificação` · `Dor principal` · `Canal principal de venda` · `Tem time comercial` ·
+`Clientes novos por mês` · `Investe em anúncios` · `Quem atende os leads` · `Empresa`
+(+ `Site`, `Instagram` presentes no widget, vazios no teste).
+
+`Qualificação = SDR` é gravado pelo próprio formulário — bom: marca a origem.
+
+### Três problemas, do mais grave ao menor
+
+**1. Preenchido pelo link público, ele CRIA LEAD NOVO — e o lead entra na cadência.**
+A submissão de teste gerou o contato `i6AqBJAZeMS2Rg5xhYpI`: `source: Qualificação SDR`,
+tags **`cad-inbound` + `etapa-novo-lead`**, telefone diferente, sem dono. Ou seja: a Porta
+de Entrada tratou a qualificação como lead de anúncio. Se a SDR preencher assim durante a
+ligação, cada qualificação vira um **lead duplicado, órfão, e em cadência** — a máquina
+passaria a ligar de volta para quem a SDR acabou de atender.
+
+**Regra operacional, sem exceção:** o formulário é aberto **de dentro do contato** (aba
+Formulários/ação no registro), nunca pelo link público. Aberto no contexto do contato, o
+GHL preenche e **atualiza o mesmo registro**. O link público é para teste, e só.
+
+**Cobertura do teste:** o contato `i6AqBJAZeMS2Rg5xhYpI` recebeu `dnd=true` +
+`nao-perturbe` + `zz-teste-formulario` às 15:50, para a máquina não discar o dono. Não
+foi excluído (regra 1).
+
+**2. Pergunta de novo três coisas que o anúncio já respondeu.** `Investimento mensal`,
+`Prazo` e `Investe em anúncios` estão no formulário como perguntas — e são exatamente os
+três que a §3 diz para **não** perguntar. Faltam `Urgência` e `Necessidade`, que são as
+respostas do anúncio que a SDR deveria **ver**. O formulário hoje faz o inverso do pedido.
+
+**Conserto (tela, no editor do formulário):** adicionar `Urgência` e `Necessidade` no
+topo, como campos **somente leitura**; mover `Investimento mensal`, `Prazo` e `Investe em
+anúncios` para o mesmo bloco, pré-preenchidos e editáveis. Aberto de dentro do contato,
+esses 5 já chegam preenchidos.
+
+**3. Dois vocabulários no mesmo campo.** O formulário grava `Investimento mensal` com a
+picklist do CRM (`1k a 5k`); o anúncio grava texto livre (`Abaixo de 5k`,
+`Não invisto nada ainda`). O campo passa a ter dois dialetos conforme a origem — mais um
+motivo para a §9.1 ler por `Contains` (opção B do G-04), que aceita os dois.
+
 ## 5. O que ainda está errado na origem, e não dá para consertar daqui
 
 | problema | escala | onde conserta |
