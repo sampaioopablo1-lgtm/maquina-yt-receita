@@ -630,3 +630,18 @@ por isso "Qualificado por" sai vazio; com a linha SDR acrescentada a nota passa 
 pasta da máquina) no mesmo minuto em que a página de agentes de Voice AI estava aberta
 no navegador na nuvem. Nenhuma tarefa minha abriu essa tela. Não foi apagado (regra).
 Conferir em IA → Voice AI que nenhum agente está ativo.
+
+**20:05 — edições da §11 APLICADAS** pelo navegador logado (sessão nova, dono logou),
+com ensaio antes e releitura depois. Todos seguem `published`, nº de nós igual.
+
+| Workflow | versão | nós editados | releitura |
+|---|---|---|---|
+| Pós-agendamento v2 | 16 → 17 | 67dba2f3, ade7fb03 | CONFIRMADO |
+| Cadência 12x30 | 35 → 36 | 789d0018, e790a8c3 | CONFIRMADO |
+| Fechar Horário | 9 → 10 | 423c11ba, b1f5ada5 | CONFIRMADO |
+| Pós-ligação v3 | 5 → 6 | a6815ce6 | CONFIRMADO |
+
+T1 (os dois ramos) agora: "1. 📞 Ligar pelo telefone · 2. 💬 MT1-v1 sai sozinha". FH2/FH3:
+"1. 📞 Ligar pelo telefone · 2. 💬 MFH sai sozinha". Itens 4 e 6 do prompt de tela: FEITOS.
+Cópia anterior de cada workflow no localStorage da sessão antiga do navegador (expirada);
+para desfazer, o texto antigo está nesta seção e no §11.
