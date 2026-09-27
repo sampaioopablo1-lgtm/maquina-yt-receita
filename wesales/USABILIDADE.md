@@ -484,8 +484,29 @@ O nome da pasta 2 é metade do valor: **`NÃO MEXER`** é a instrução que a §
 tenta dar por documento ("quem 'ajuda' a automação à mão quebra a contagem e o
 roteamento sem ver erro nenhum") e que a tela pode dar sozinha.
 
-Criar e reatribuir pasta de campo **não sai pelo conector `GHL CRM`** (ele só lê
-campo personalizado) — é trabalho de tela.
+### Por qual caminho isso sai — conferido no spec oficial em 27/09
+
+O conector `GHL CRM` só **lê** campo personalizado, então por ele não sai. Fui ao
+spec oficial da API pública (`GoHighLevel/highlevel-api-docs`, clonado do GitHub
+porque os domínios do GHL são negados pelo proxy) e a resposta é dividida:
+
+| o que | rota | dá? |
+|---|---|---|
+| criar as 4 pastas | `POST /custom-fields/folder` | **sim** |
+| renomear pasta | `PUT /custom-fields/folder/{id}` | **sim** |
+| campo **novo** já nascer em pasta | `POST /custom-fields/` (aceita `parentId`) | **sim** |
+| **mover campo existente** para uma pasta | `PUT /custom-fields/{id}` | **NÃO** — o corpo não tem `parentId` |
+
+**Registro de um erro meu, porque ele quase virou script:** ao ver as duas primeiras
+rotas eu anunciei ao dono que o reagrupamento dos 53 campos estava destravado por
+API. Fui escrever o script, li o `requestBody` do `PUT`, e não tem `parentId`. O único
+caminho por API seria criar campo novo em pasta e apagar o antigo — e apagar campo é
+proibido pela regra 1 e destruiria o dado de todos os contatos.
+
+**Então isto segue trabalho de tela**, e segue valendo: é a origem da queixa do dono
+("meio completo e confuso"), com 53 de 56 campos numa pasta só. A lição virou entrada
+2.12 do `LICOES-DO-PROJETO.md`: endpoint existir não é capacidade — ler
+`requestBody.properties` antes de anunciar.
 
 ## 5. O teste de usabilidade, que é o único jeito de saber
 

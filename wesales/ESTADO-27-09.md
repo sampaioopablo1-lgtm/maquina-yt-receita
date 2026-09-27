@@ -59,6 +59,33 @@ são pessoas.
 | oportunidade `0V9VQ421wCn274mo9BQa` ganhou o nome `Carla Sampaio` | estava em branco enquanto o contato tinha nome; aparecia como linha vazia no quadro e numa puxada por pipeline no Call Center |
 | oportunidade `VSRNAwP0kCub56Zjw4ZB` (`Pablo Sampaio`) → `status = lost` | era o teste de calendário do próprio dono ocupando `REUNIÃO DE DIAGNÓSTICO` e contando como reunião nas métricas mensais. Descartada, **não excluída** — a regra 1 do projeto proíbe excluir. O e-mail do contato (`agencia.proximocliente+teste9940@gmail.com`) confirma que era teste |
 
+**Módulo 4 — `country` corrigido (41 escritas, 12:50).** 41 contatos tinham
+`country: "US"` com telefone `+55`, incluindo os 38 leads reais — herança da
+integração, que nasce no padrão americano. Todos para `BR`. Conferido depois: **0**
+com `US` + `+55`, e 56 dos 64 agora em `BR`. Os **8 que seguem `US` não têm telefone
+nenhum** (`TINTIM`, `Dkw.oficial`, `Nathalia.ggss`, `Carla X. Sampaio`, `Thiagoreis` e
+três de teste): sem telefone não há sinal de país, e eu não adivinho.
+
+Na mesma leitura, conferência do módulo 1: **8.26 = 0 e 8.27 = 0**. As duas listas de
+auditoria de DND seguem vazias.
+
+**Módulo 3 — `Nota de qualificação` RETIRADO da fila.** Medido antes de escrever: só
+**3** dos 64 contatos têm Bloco A completo mais `Budget` e `Decisor` — e os três já
+têm nota. `Clientes novos por mês`, `Tem time comercial`, `Budget`, `Decisor` e
+`Prazo` existem em 3 ou 4 registros.
+
+E o motivo de fundo, esclarecido pelo dono em 27/09: **são dois formulários**. O do
+Meta Ads traz contato, `Urgência`, `Necessidade`, `Dor principal` e atribuição; o de
+**qualificação é preenchido pelo SDR na ligação**, ao marcar com o closer, e é ele que
+traz o BANT. Os campos personalizados vão sendo acrescentados ao mesmo lead **ao longo
+do processo até o fechamento**. Então campo vazio aqui é "ainda não", não "faltou".
+
+Calcular nota para os outros 60 pontuaria ausência de dado como ausência de fit — e a
+§9.1 dá consequência automática à faixa (25–44 nutrição com `abandoned`, 0–24 descarte
+com `lost`). Eu teria descartado lead pago. A nota pertence ao **Pós-agendamento nó
+4**, depois do formulário do SDR. Retirada da fila; este parágrafo fica para ninguém
+repor por engano.
+
 **O que continua fora do meu alcance, com autorização ou sem** — e por isso segue
 na §3 como trabalho de tela: editar workflow (exige a API interna com bearer de
 sessão logada), criar ou editar lista inteligente, criar pasta de campo, e
