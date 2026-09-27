@@ -13,3 +13,4 @@ token*.json
 # Artefatos de producao (videos, audios, imagens, banco de jobs)
 out/
 data/
+.claude/settings.local.json
