@@ -449,3 +449,64 @@ com o grupo no nome, reposicionados e movidos para a pasta `zHU4yGXKHdxBHnGxUmai
 apagado (era meu, vazio). fieldKeys preservados, conferido pelo conector GHL_CRM.
 Escritas no CRM neste bloco: 29 campos (estrutura, não dados de lead). Nenhum lead,
 contato ou oportunidade tocado.
+
+## 8. 18:25 — SDR criado, carteira transferida, `SDR responsável` só com o SDR
+
+Executado pela Action (não pela tela), disparada por `workflow_dispatch` com
+`ref=claude/abertura-operacao-dnd-n7dnjv`. Cada escrita foi provada relendo a
+conta, não pelo retorno do PUT.
+
+### As duas funções, como o dono definiu em 27/09
+
+| pessoa | função no processo | papel no GHL | id |
+|---|---|---|---|
+| Andreyna Siqueira | SDR (pré-vendas) | `user` | `ML69c5kAJ93cliAGgBj6` |
+| Pablo Santos | closer, gestor e administrador | `admin` | `JdvhvOTEBTvUyRi0BXU8` |
+
+### O que foi escrito
+
+**Carteira transferida ao SDR** (run 36340344181, modo `transferir-aplicar`,
+depois do DRY no run 36340271352):
+
+- 42 oportunidades abertas → Andreyna (`CONECTAR` 39, `NOVO LEAD` 3)
+- 63 contatos → Andreyna
+- 2 tarefas → Andreyna
+- **2 oportunidades em `NEGOCIAR` ficaram com o Pablo**, e os 2 contatos delas.
+  `NEGOCIAR` é etapa de closer; passá-las ao SDR tiraria negociação aberta de
+  quem fecha. O contato segue o dono da oportunidade dele, senão a mesma ficha
+  teria dono de contato e dono de oportunidade divergentes.
+- Veredito do script após reler: `convergiu`.
+
+**`SDR responsável` corrigido** (run 36340538434, modo `pastas`):
+`picklistOptions` = `['Andreyna Siqueira']`. Antes tinha `Pablo Santos` também.
+Log: `fora da lista de SDR, por serem admin: Pablo Santos (admin)`.
+`campos na pasta da ficha: 29 (esperado 29)` · veredito `CONVERGIU`.
+
+A causa não era o dado, era a regra: `usuarios()` devolvia TODO usuário da
+subconta, e o `--aplicar` reconcilia — então corrigir a picklist na tela seria
+revertido calado pelo run seguinte. O filtro entrou na função (`roles.role`:
+`user` entra, `admin` não). Medido antes de mexer: o campo estava preenchido em
+0 de 65 contatos, então tirar o admin não orfanou valor em ficha nenhuma.
+
+### DOIS BLOQUEIOS PARA A ABERTURA, os dois de tela
+
+**1. O e-mail do SDR está errado, e por isso ela não entra no CRM.** O recon
+(run 36339998058) leu `sampaioopablo1@gmai.com`: falta o `l` de `gmail`, e o
+endereço é o do dono, não o da SDR. O convite de acesso do GHL vai para o
+e-mail; com este, não chega. Conserta em Configurações → Equipe. É o bloqueio
+mais urgente da abertura — sem ele a SDR não tem login em 29/09.
+
+**2. `GHL_STORAGE_STATE` está AUSENTE no runner** (confirmado pelo mesmo recon).
+É ele que abre a API interna, e só ela move campo e publica workflow. Portanto
+os itens 5 e 4 da `FALTA-PARA-SER-MAQUINA` (texto da tarefa T1; opção B do
+G-04) continuam sem caminho automatizado. Agravante: `wesales/tools/
+login-capture.js`, que geraria o arquivo, **não existe em nenhum branch** —
+o que existe é `renovar_bearer.js`. Enquanto isso não se resolver, 4 e 5 são
+trabalho manual de tela.
+
+### Achado lateral, útil para o 4-BIS
+
+A ficha do Gerson traz `formName: "O PROXIMO CLIENTE FORMS v3--AGENDA-copy"`
+junto do `formId` 28266780626312413. O 4-BIS mapeia os formulários por id; o
+nome vem no `attributionSource` e torna a conferência na tela muito mais rápida,
+porque é o nome que aparece na integração de Lead Ads.
