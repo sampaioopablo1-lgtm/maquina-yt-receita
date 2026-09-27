@@ -1,0 +1,91 @@
+{
+  "_leia": "Pacote para subir o criativo 01 na conta Meta 'O Proximo Cliente'. Criar 1 anuncio por conjunto ativo com mcp__Facebook_MCP__ads_create_ad (modo rascunho), usando 'creative' abaixo como JSON string. Ultima tentativa (27/09/2026) passou na validacao de formato e parou em 'Terms of Service Not Accepted': a Pagina ja aceitou os termos; falta a conexao do Facebook no Claude ter pages_manage_ads para a Pagina.",
+  "ad_account_id": "1695865631502778",
+  "page_id": "1117439194786453",
+  "instagram_user_id": "17841480745368398",
+  "lead_gen_form_id": "2412763482587375",
+  "video_id": "2491771824667489",
+  "conjuntos_ativos": {
+    "LEADS I INTERESSE BR I FASE 3": "120247356527930766",
+    "LEADS I PERSONALIZADO CNAE BR I FASE 3": "120247356496360766",
+    "LEADS I NICHO IMOBILIARIA BR I FASE 3": "120247487374980766",
+    "LEADS I NICHO CONTABILIDADE BR I FASE 3": "120247487377260766",
+    "LEADS I NICHO ADVOCACIA BR I FASE 3": "120247487376720766",
+    "LEADS I NICHO HARMONIZACAO BR I FASE 3": "120247470141000766"
+  },
+  "ad_name": "PC01 VIDEO — lead esfria em 5 min (5 textos)",
+  "creative": {
+    "object_story_spec": {
+      "page_id": "1117439194786453",
+      "instagram_user_id": "17841480745368398",
+      "video_data": {
+        "video_id": "2491771824667489",
+        "image_url": "https://raw.githubusercontent.com/sampaioopablo1-lgtm/maquina-yt-receita/claude/magical-brown-ovi1hp/proximo-cliente/criativos/export/01-lead-esfria-5-minutos-capa.jpg",
+        "message": "Seu lead tem prazo de validade: 5 minutos. Depois disso ele tá no trânsito, no trabalho, no grupo da família. A gente atende na hora, qualifica e devolve com a reunião marcada na agenda do seu vendedor. Preencha e agende seu diagnóstico gratuito.",
+        "title": "Seu lead esfria em 5 minutos",
+        "link_description": "Para empresas com time comercial",
+        "call_to_action": {
+          "type": "SIGN_UP",
+          "value": {
+            "link": "http://fb.me/",
+            "lead_gen_form_id": "2412763482587375"
+          }
+        }
+      }
+    },
+    "asset_feed_spec": {
+      "bodies": [
+        {
+          "text": "Seu lead tem prazo de validade: 5 minutos. Depois disso ele tá no trânsito, no trabalho, no grupo da família. A gente atende na hora, qualifica e devolve com a reunião marcada na agenda do seu vendedor. Preencha e agende seu diagnóstico gratuito."
+        },
+        {
+          "text": "Faz um teste: dos seus últimos 20 leads, quantos receberam uma ligação? Não mensagem. Ligação. Se você não sabe responder de cabeça, já é a resposta. A gente liga, qualifica e entrega a reunião marcada. Preencha o formulário e vamos olhar os seus números juntos."
+        },
+        {
+          "text": "Não é falta de lead. É falta de atendimento. Investir mais em anúncio sem atender melhor só aumenta o desperdício. A gente cuida do meio do funil: ligação rápida, qualificação e reunião na agenda. Toque em Saiba mais e agende o diagnóstico."
+        },
+        {
+          "text": "R$ 2 mil em anúncio. 100 leads. 30 atendidos. 3 reuniões. 1 venda. Você não pagou por 100 leads, pagou por 1 cliente. O dinheiro não morre no anúncio, morre depois dele. No diagnóstico gratuito a gente faz essa conta com os seus números."
+        },
+        {
+          "text": "Duvida que dá pra atender um lead em 5 minutos? Preencha o formulário e cronometre quanto tempo a gente leva pra te chamar. É isso que fazemos com os seus leads: atendimento na hora, qualificação e reunião marcada com quem decide."
+        }
+      ],
+      "titles": [
+        {
+          "text": "Seu lead esfria em 5 minutos"
+        },
+        {
+          "text": "Diagnóstico gratuito do seu funil"
+        },
+        {
+          "text": "Reunião marcada, não planilha de lead"
+        },
+        {
+          "text": "Nenhum lead sem resposta"
+        },
+        {
+          "text": "Seu próximo cliente na agenda"
+        }
+      ],
+      "descriptions": [
+        {
+          "text": "Para empresas com time comercial"
+        },
+        {
+          "text": "Atendimento em até 5 minutos"
+        },
+        {
+          "text": "Anúncio + pré-vendas + reunião"
+        },
+        {
+          "text": "Diagnóstico gratuito em 20 minutos"
+        },
+        {
+          "text": "Método OPC · O Próximo Cliente"
+        }
+      ],
+      "optimization_type": "DEGREES_OF_FREEDOM"
+    }
+  }
+}
