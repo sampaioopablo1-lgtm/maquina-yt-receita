@@ -349,7 +349,39 @@ fila de ninguém — a correção teria parecido feita e não teria efeito.
 (o dump do workflow, não o documento) de qual campo ele lê. Uma busca por `assignedTo`
 nos 36 dumps custa menos que uma abertura de operação com a fila vazia.
 
-## 2.17 Duas trilhas de execução que não se enxergam
+## 2.17 A própria plataforma deixa a resposta na conta, e eu ia pedir acesso
+
+**Forma:** concluir que um dado só existe do outro lado de uma API fechada, sem procurar
+o que essa API já escreveu na base.
+
+**Caso, de hoje:** eu precisava saber **quais perguntas** o formulário do Meta faz, e
+escrevi que não dava — `ads_get_ad_entities` exige a conta `is_queryable`, e ela está
+`UNSETTLED`. A resposta estava na própria subconta: a Meta injeta um contato de teste
+cujos valores são literalmente `<test lead: dummy data for quando_você_pretende_
+resolver_isso?>`. **O nome da pergunta, dentro do valor do campo.** Três campos, três
+perguntas, mapeamento completo — sem nenhum acesso novo.
+
+**Verificação:** antes de declarar que um dado exige acesso que não se tem, procurar o que
+a integração já gravou. Registro de teste, log de webhook e campo de atribuição costumam
+carregar metadado que a API só entregaria autenticada. Foi a atribuição (`mediumId`) que
+deu os ids dos 9 formulários, e foi o contato de teste que deu as perguntas.
+
+## 2.18 Regra de derivação com o lado "senão" aberto
+
+**Forma:** escrever a regra pelo caso interessante e deixar o resto cair num `else`, que
+então aceita qualquer lixo.
+
+**Caso, de hoje:** para derivar `Investe em anúncios` de `Investimento mensal`, escrevi
+*"`Não invisto nada ainda` → `Nunca`; qualquer outro → `Sim`"*. Rodei em seco antes de
+aplicar e o contato `<test lead>` da Meta apareceu na lista recebendo
+`Investe em anúncios = Sim` — derivado de uma **string de teste**. O `else` não distingue
+"investe 10k" de "isto não é uma resposta".
+
+**Verificação:** derivação usa **vocabulário fechado** nos dois lados. Valor fora da lista
+conhecida não deriva nada e vira exceção reportada, não um `Sim` silencioso. O relatório
+de ignorados é parte do resultado, não ruído.
+
+## 2.19 Duas trilhas de execução que não se enxergam
 
 **Forma:** sessão na nuvem e sessão no PC produzindo estado e documento que o outro
 lado não lê.
