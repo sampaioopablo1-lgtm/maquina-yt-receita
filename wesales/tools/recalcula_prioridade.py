@@ -117,6 +117,12 @@ CAMPO_TOTAL_CONEXOES = "tQ7Fzo6cWeBDmEoaTBIZ"
 TAGS_FORA_DA_FILA = ("nao-perturbe", "pausado", "grupo-whatsapp-nao-e-lead")
 # Regra 8 da 9.2, que só casa se nenhuma anterior casar.
 TAGS_REGRA_8 = ("nutricao-90d", "telefone-invalido")
+# AVISO medido em 27/09: nenhum workflow REMOVE `telefone-invalido` — quatro
+# aplicam (Cadência 12x30, Cadência Inbound, Pós-ligação v2 e v3) e nenhum apaga
+# (§9 do USABILIDADE.md). Então a regra 8 rebaixa para Prioridade 1 de forma
+# PERMANENTE: número corrigido na mão continua rebaixado até alguém tirar a tag
+# na tela. Não é defeito desta ferramenta — ela só aplica a §9.2 — mas quem lê o
+# dump precisa saber por que um lead consertado não volta para a fila.
 # Extensão 2: valor de agendado (Pós-agendamento v2). Nunca sobrescrever.
 PRIORIDADE_AGENDADO = 6
 
