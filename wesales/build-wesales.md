@@ -2393,6 +2393,14 @@ depende de `APROVADO.md` nem de criação manual de campo — só de
 configuração dos nós novos e, quando houver segundo SDR, da duplicação de
 listas descrita acima.
 
+**Nota de 27/09/2026 (G-27, `ROADMAP-SALES-ENGAGEMENT.md`):** um campo
+`SDR responsável` (`TEXT`) apareceu na tela em 27/09/2026, criado fora
+deste conector — exatamente o nome que este parágrafo descreve como
+descartado. Registro, não reabertura: o G-27 detalha por que o
+placeholder do campo ("nome do SDR que qualificou") pode ser uma pergunta
+diferente da que este item respondeu, e por que só o dono sabe qual das
+duas é a intenção real.
+
 **Pronto quando (do roadmap):** dois SDRs trabalham sem colidir — cada lead
 tem um dono sorteado uma vez na entrada, toda tarefa da cadência nasce para
 esse dono, e a filas do dia (8.1-8.3), quando duplicadas por SDR, mostram a

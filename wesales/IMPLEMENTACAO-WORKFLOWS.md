@@ -1969,7 +1969,10 @@ no nó 2.5c/3c), segundo SDR (1.10).
    Editar fora do expediente e conferir `Toques na semana` depois.
 4. **Não usar "Construir com IA"** para nó com campo personalizado.
 5. **Não criar campo paralelo** para a mesma informação (`SDR responsável`,
-   "canal desta tentativa"…) — campo com dois donos diverge.
+   "canal desta tentativa"…) — campo com dois donos diverge. **`SDR
+   responsável` já foi criado na tela em 27/09/2026** — não é mais só
+   exemplo hipotético; ver `ROADMAP-SALES-ENGAGEMENT.md`, G-27, antes de
+   qualquer nó novo apontar para ele.
 6. **Não mandar mensagem manual** para lead com `nao-perturbe`/DND, nem
    para lead em cadência sem gravar `Template usado`.
 7. **Testar em contato fictício** (seção 0.5), nunca em lead real; espaçar

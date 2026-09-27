@@ -105,6 +105,13 @@ regra 1 do briefing. É o mesmo raciocínio que o R-10 já aplicou ao reaproveit
 `Assigned User` em vez de criar `SDR responsável`: campo com dois donos diverge
 na primeira edição feita direto na tela.
 
+**Nota de 27/09/2026:** `SDR responsável` deixou de ser só o nome que o R-10
+descartou — o campo foi criado na tela nessa data, fora deste conector.
+Achado, dúvida ao dono e "Pronto quando" em `ROADMAP-SALES-ENGAGEMENT.md`,
+G-27; este parágrafo continua descrevendo por que o R-10 não o quis para o
+uso que ele avaliou (espelhar `Assigned User`) — o G-27 registra que o
+propósito real pode ser outro.
+
 **Resolvido em 19/09, e a minha recomendação estava errada num ponto:** eu
 sugeri apontar o formulário para o `Company Name` nativo. O construtor de
 formulário do GHL **não oferece campo nativo** nesse seletor (confirmado na

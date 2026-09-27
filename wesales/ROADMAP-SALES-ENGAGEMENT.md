@@ -2511,6 +2511,12 @@ via `locations_get-custom-fields`/`contacts_get-contacts`/
 `opportunities_get-pipelines`: 0 campos, 0 contatos, só o `FUNIL DE VENDAS`
 pré-existente — nada mudou desde a auditoria.
 
+**Nota de 27/09/2026 (G-27, abaixo):** um campo `SDR responsável` apareceu
+na tela — exatamente o nome que este item pesquisou e decidiu não criar.
+Não é uma reabertura desta decisão (a pesquisa e o motivo continuam
+válidos): é um achado de coerência entre a decisão e a conta, com "Pronto
+quando" e a pergunta ao dono no G-27.
+
 ### R-11 · Alerta de capacidade (lacuna L-05) — **FEITO em 18/09/2026**
 **Por quê:** 10 leads/dia × 12 tentativas dá ~120 tarefas/dia em regime, acima
 da meta de 100. A fila estoura silenciosamente.
@@ -4747,6 +4753,78 @@ escrita no CRM: coerência de documentação, não depende de `APROVADO.md`.
 
 **Pronto quando:** `grep -rn "tags que as [0-9]" wesales/*.md` não devolve
 nada fora de entrada histórica datada — cumprido nesta mesma rodada.
+
+### G-27 · Um campo `SDR responsável` nasceu na tela — exatamente o campo que o R-10 pesquisou e decidiu não criar, sem nenhum documento saber por quê ele voltou (27/09/2026) — **FEITO em 27/09/2026 (registro + achado)**
+
+**Por quê:** reconferência de rotina do G-25 (`opportunities_search-opportunity`,
+status `all`): 65 oportunidades, composição idêntica à última leitura (14
+`NOVO LEAD` [3 open + 10 abandoned + 1 lost], 47 `CONECTAR` [39 open + 8
+lost], 1 `REUNIÃO DE DIAGNÓSTICO` lost, 3 `NEGOCIAR` [2 open + 1 lost]) —
+`Carlos Andrade` (`7ECnj1bSeEIm5P58Ifd9`) segue `dnd: true`, tag
+`atraso-1a-tentativa` presente, sem novidade no risco do G-25.
+`locations_get-custom-fields` (model `contact`), a mesma chamada de sempre,
+subiu de 56 para **57 campos** — o único novo é `SDR responsável` (id
+`LoSi8PQCbBRjmkMC8CH8`, `TEXT`, placeholder "nome do SDR que qualificou
+(preenchido pelo painel)", `dateAdded` 2026-09-27T16:53:01Z, ~11 minutos
+antes desta sessão). Varredura de coerência (os outros 56 nomes contra
+`campos-e-tags.md`: as 32 `C-`, as 18 `Q-`, o par `S-01` e os quatro "fora
+da lista" — `Urgência`, `Necessidade`, `Empresa`, `Canal que conectou`) não
+achou nenhum outro campo órfão; `SDR responsável` é o único sem linha em
+documento nenhum. E não é um nome qualquer: é **literalmente** o campo que
+o **R-10** (18/09/2026, `FEITO`) pesquisou e decidiu não criar — três
+documentos (`ROADMAP-SALES-ENGAGEMENT.md` acima, `build-wesales.md` §2.14,
+`CONFERENCIA-CAMPOS.md`, seção F) registram a mesma razão: reaproveitar o
+nativo `Assigned User` para não ter "campo com dois donos", que diverge na
+primeira reatribuição feita direto na tela. Alguém — só pode ter sido o
+dono, campo personalizado não sai por este conector — criou o campo que a
+própria pesquisa já tinha desaconselhado, sem nenhum commit ou conversa
+deste projeto explicando o porquê.
+
+**O que o placeholder muda, e o que não resolve:** "nome do SDR que
+qualificou (preenchido pelo painel)" não é a mesma pergunta que o R-10
+respondeu. R-10 rejeitou um campo espelhando **o dono atual do contato**
+(`Assigned User`, que muda a cada reatribuição — é aí que "dois donos"
+diverge). O placeholder descreve outra coisa: um registro de **quem
+qualificou**, no passado, uma vez — o mesmo padrão de C-15/C-16 (`Reunião
+foi qualificada`, `Motivo da desqualificação`), que este documento já
+trata como seguro porque só um papel escreve, uma vez, sem disputa. Se for
+isso, o campo não repete o erro que R-10 evitou; se for um substituto para
+o mesmo uso que `Assigned User` já cobre (por exemplo, para a Fase 4 de
+`R-10`/round robin ainda sem segundo SDR), repete exatamente o risco
+documentado. **Nenhum documento deste projeto decide isso — só o dono sabe
+qual das duas intenções é a dele**, e "preenchido pelo painel" cita um
+"painel" que não corresponde a nenhum workflow, script ou documento
+existente aqui (`grep -rni "painel" wesales/*.md` só encontra o termo
+genérico "painel de automação" da interface do GHL, nunca uma ferramenta
+própria deste projeto) — pode ser um painel externo ao GHL, fora do
+alcance deste conector e desta auditoria.
+
+**Como:** nada sai por API — campo já existe, criado fora deste conector, e
+regra 1 (nunca excluir) e regra "Como autorizar" (`APROVADO.md`) não se
+aplicam a um campo que o dono criou direto na tela, mesmo tratamento já
+dado a `Canal que conectou` (G-21), `fechar-horario` e ao Espelho de Etapa:
+registro, não aprovação. O trabalho desta rodada é a ponte de coerência —
+apontar os três documentos que registram a decisão do R-10 para este
+achado, para a próxima sessão não precisar redescobrir a mesma pesquisa
+achando um campo que "não devia existir". Feito nos mesmos três lugares:
+`campos-e-tags.md` (Etapa 2, quinto campo "fora da lista", mesmo formato
+do quarto), `ROADMAP-SALES-ENGAGEMENT.md` (R-10, acima) e
+`CONFERENCIA-CAMPOS.md` (seção F). Zero campo, zero tag, zero escrita no
+CRM.
+
+**Pronto quando:** o dono disser qual das duas intenções é a certa — e,
+com a resposta, este item ganha peça 2: se for "quem qualificou" (uso
+seguro), só falta decidir quem escreve (SDR? closer? o "painel" externo?) e
+onde a régua de nota ou o dashboard passam a lê-lo; se for substituto de
+`Assigned User`, o item se junta ao mesmo risco que R-10 já documentou, e a
+recomendação é reverter para o nativo antes que uma reatribuição manual
+faça os dois campos discordarem. Até a resposta, o campo fica vazio e sem
+consumidor — nenhum workflow, nenhuma lista, nenhum documento lê ou escreve
+nele hoje, confirmado nesta rodada. G-03, G-04 (peça 2), F-09, F-10, G-11
+(item 1) e G-19 continuam sendo as seis decisões sem prazo fixo que esperam
+o dono, sem novidade nesta sessão; G-25 continua sendo o item de maior
+prioridade do roadmap enquanto a janela de 28/09 08:30 `America/Sao_Paulo`
+não passar sem disparo.
 
 ## Ordem sugerida
 

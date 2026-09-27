@@ -359,6 +359,22 @@ por `--dump` e **APLICADO em 23/09/2026 ~18:45 BRT** (mais `patch_canal_posligac
 existe na tela, criado por fora deste conector. Acompanhamento e "Pronto
 quando" em `ROADMAP-SALES-ENGAGEMENT.md`, **G-21**.
 
+**Um quinto campo fora desta lista, criado direto na tela em 27/09/2026
+~16:53 UTC:** `SDR responsável` (`TEXT`, placeholder "nome do SDR que
+qualificou (preenchido pelo painel)" — `contact.sdr_responsvel`, id
+`LoSi8PQCbBRjmkMC8CH8`, confirmado por `locations_get-custom-fields` nesta
+rodada). Diferente do quarto campo (`Canal que conectou`, que veio com
+decisão e patch já escritos), este não tem nenhum documento explicando o
+porquê — e o nome bate, palavra por palavra, com o campo que o **R-10**
+(18/09/2026) pesquisou e decidiu **não** criar, pelo risco de "campo com
+dois donos" divergindo de `Assigned User` na primeira reatribuição manual.
+O placeholder ("quem qualificou", registro de uma vez, não dono atual)
+sugere um uso diferente do que o R-10 avaliou, mas nenhum documento deste
+projeto pode decidir isso sozinho. Registro, não aprovação — regra 1 nunca
+se aplicaria aqui mesmo se quisesse (o campo é do dono, não meu). Achado,
+pergunta ao dono e "Pronto quando" em `ROADMAP-SALES-ENGAGEMENT.md`,
+**G-27**.
+
 ## Etapa 3 — Tags (23 numeradas, seis pendentes de aprovação — e 12 na conta fora da numeração)
 
 > **Onde mora a contagem das tags fora da numeração.** Só este título e a
