@@ -265,6 +265,28 @@ externo"). Não vou contornar. Duas saídas, qualquer uma leva 1 minuto do dono:
 Sem o token o painel abre, pede o PIN e responde *"ghl_pit nao configurado"*. Nada
 quebra no CRM.
 
+**17:00 — o bloqueio é maior: a restrição de cota é da ORGANIZAÇÃO Supabase, não de um
+projeto.** O run 36334772280 chamou `/api/saude` no projeto novo e recebeu o mesmo
+**HTTP 402** *"restricted due to exceed_storage_size_quota — the project owner must
+upgrade their plan or remove spend caps"*. Ou seja: **nenhuma Edge Function da conta
+responde ao público** enquanto isso durar — é o episódio de 25/08 (`docs/publicar-na-
+virada-da-cota.md`) ainda em vigor. A função está publicada e correta; o gateway na
+frente dela está fechado pela conta.
+
+Então a ordem real das saídas, todas do dono, é:
+
+1. **Liberar a conta Supabase** (painel do Supabase → organização → *spend cap* / plano,
+   ou apagar storage do `maquina-yt-dark` pelo dashboard). Sem isso nem o painel nem a
+   `ponte` respondem. **Este é o item que destrava tudo.**
+2. **Token**: linha `ghl_pit` na tabela `config` do projeto `cscczluzpblzhvojxanp`, ou
+   autorizar a regra de permissão para a Action entregar.
+3. Abrir `<endereço>/api/saude` e ver `"ok":true`.
+
+Se a conta Supabase não for liberada até terça, o plano B é hospedar a mesma função em
+outro lugar (Netlify Functions — há conector; o código é Deno/TS puro e porta em
+minutos). Não fiz porque a hospedagem alternativa também precisaria do token, e o
+token esbarra no mesmo ponto 2.
+
 ### O formulário nativo `Qualificação SDR`
 
 Não precisa ser apagado (é do dono e não custa nada), mas **não deve ser usado**: pelo

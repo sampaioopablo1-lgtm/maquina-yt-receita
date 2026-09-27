@@ -272,7 +272,13 @@ na §4 do documento de associações: autorizar a Action, ou inserir a linha `gh
 tabela `config` do Supabase à mão. **Enquanto isso o painel abre e responde "ghl_pit
 nao configurado"; nada no CRM depende dele.**
 
-O campo `SDR responsável` é criado pela Action no mesmo passo — então também espera.
+**17:00 — e a organização Supabase inteira está em restrição de cota (402 nos dois
+projetos, run 36334772280).** A função está publicada, mas o gateway na frente dela
+está fechado pela conta. Liberar a conta (spend cap / storage, painel do Supabase) é o
+item nº 1; o token é o nº 2. Plano B se não liberar até terça: Netlify Functions.
+
+O campo `SDR responsável` é criado pela Action em passo separado, que não depende do
+Supabase.
 
 ## 10. Gatilhos do Call Center — 2 minutos de tela, e o que NÃO ligar
 
