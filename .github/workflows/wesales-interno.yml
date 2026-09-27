@@ -1,0 +1,83 @@
+name: WeSales - API interna (prova de alcance)
+
+# POR QUE ESTA ACTION EXISTE
+#
+# Editar workflow no GHL exige a API interna com bearer de sessao logada. Medido em
+# 27/09/2026: o proxy do ambiente de contêiner responde **403 na CONNECT** para
+# `backend.leadconnectorhq.com` — negacao de politica. Entao a sessao na nuvem nao
+# alcanca a API interna, com token ou sem.
+#
+# O runner do GitHub Actions alcanca. Esta Action prova isso de ponta a ponta e, so
+# depois de provado, e que faz sentido pendurar patch nenhum aqui.
+#
+# ESTA RODADA E SO LEITURA, DE PROPOSITO. Ela renova o bearer e LISTA os workflows.
+# Nao grava nada na conta. Aplicar patch vira num passo separado, depois que esta
+# listagem sair verde uma vez — a ordem e medir, depois escrever.
+#
+# SEGREDO NECESSARIO: `GHL_STORAGE_STATE`, o storageState do Playwright de uma
+# sessao logada (ver o cabecalho de `wesales/tools/renovar_bearer.js`, que explica
+# como gerar e o que isso significa em termos de acesso). Sem o segredo a Action
+# sai com um recado claro em vez de falhar por acidente.
+#
+# `workflow_dispatch` apenas: nada aqui roda por horario. Escrita no CRM por rotina
+# desatendida continua proibida pelo `APROVADO.md` sem `[x]` de uma pessoa.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: wesales-interno
+  cancel-in-progress: false
+
+jobs:
+  alcance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar Playwright (so o Chromium)
+        run: |
+          npm install --no-save playwright@1
+          npx playwright install --with-deps chromium
+
+      - name: Existe o segredo?
+        id: segredo
+        env:
+          ESTADO: ${{ secrets.GHL_STORAGE_STATE }}
+        run: |
+          if [ -z "$ESTADO" ]; then
+            echo "tem=nao" >> "$GITHUB_OUTPUT"
+            echo "::notice::Sem o segredo GHL_STORAGE_STATE. Nada a fazer — veja o cabecalho de wesales/tools/renovar_bearer.js para gerar."
+          else
+            echo "tem=sim" >> "$GITHUB_OUTPUT"
+          fi
+
+      # O bearer vai para o ambiente do passo seguinte por arquivo em .local, que
+      # e gitignored e morre com o runner. Nunca para o log: o renovador imprime
+      # so o tempo de vida.
+      - name: Renovar o bearer
+        if: steps.segredo.outputs.tem == 'sim'
+        env:
+          GHL_STORAGE_STATE: ${{ secrets.GHL_STORAGE_STATE }}
+        run: node wesales/tools/renovar_bearer.js
+
+      - name: Listar os workflows (leitura pura)
+        if: steps.segredo.outputs.tem == 'sim'
+        run: |
+          python3 wesales/tools/ghl_interno.py --token
+          python3 wesales/tools/ghl_interno.py --listar

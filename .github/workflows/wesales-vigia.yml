@@ -1,0 +1,56 @@
+name: WeSales - vigia (de hora em hora)
+
+# Pedido do dono em 27/09/2026: uma rotina que rode a cada hora, 24h, sem prompt
+# novo, revisando e testando. Isto e essa rotina — no nivel 1 da escada do skill
+# `economia-de-token`: Python em Action, custo de Claude ZERO por rodada.
+#
+# O QUE NAO ESTA AQUI, E POR QUE:
+#   - agente no cron. O skill proibe com medicao: "Ate 23/09/2026 havia uma
+#     rotina de hora em hora que criava uma sessao nova do Claude a cada disparo
+#     — 24 por dia — para ver se algo mudou. Nas duas ultimas noites ela produziu
+#     principalmente auditoria de documentacao sobre si mesma." Pausar aquilo foi
+#     a maior economia do projeto. Aqui o codigo de saida e a campainha.
+#   - escrita no CRM. O APROVADO.md proibe a rotina se autorizar.
+#   - edicao de workflow. Exige a API interna com bearer de sessao logada; nao sai
+#     de Action nem de conteiner, em nenhuma hipotese.
+#
+# `schedule` so dispara no branch padrao (ver .claude/skills/steward), entao este
+# cron comeca a valer no merge.
+#
+# CUSTO DE API, medido: a auditoria de valor faz 1 leitura de definicoes + 1 por
+# contato. Com os 38 de hoje sao 39 leituras/hora (936/dia), folgado no limite da
+# HighLevel. Quando a base passar de ~300 leads sao ~7.200/dia: aí trocar este
+# cron para cada 4 horas, ou passar --etapa para escopar. Numero, nao chute.
+
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: wesales-vigia
+  cancel-in-progress: false
+
+jobs:
+  vigia:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Um unico passo, de proposito: o vigia orquestra as varreduras e o codigo
+      # de saida dele e o resultado da rodada. exit 0 nao acorda ninguem, exit 1
+      # mudou algo, exit 2 a ferramenta quebrou.
+      - name: Varrer e comparar com a linha de base
+        env:
+          GHL_PIT: ${{ secrets.GHL_PIT }}
+        run: python wesales/tools/vigia.py

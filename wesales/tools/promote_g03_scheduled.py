@@ -1,4 +1,29 @@
-"""Idempotent, time-gated G-03 promotion runner for the official GHL API."""
+"""Idempotent, time-gated G-03 promotion runner for the official GHL API.
+
+Tres limites lidos neste arquivo em 27/09/2026, na vespera da abertura. Nenhum
+deles e motivo para adiar; os tres sao motivo para nao se surpreender.
+
+1. O MARCADOR DE IDEMPOTENCIA NAO SOBREVIVE AO CI. `MARKER_FILE` aponta para
+   `wesales/.local/g03-run.json`, escrito no checkout efemero do GitHub
+   Actions. A protecao "ja rodou" so vale na execucao local do PC; no CI cada
+   corrida comeca sem marcador.
+
+2. A BORDA DE 30/09 E SORTE, NAO DESENHO. `WINDOW_END` e 30/09 as 08:00 e a
+   comparacao abaixo e inclusiva (`WINDOW_START <= now <= WINDOW_END`), entao a
+   corrida de 30/09 cai exatamente na borda: com o atraso normal do scheduler
+   do GitHub ela provavelmente fica de fora, mas isso nao esta garantido. O
+   efeito de uma segunda execucao e idempotente (`PUT` para `CONECTAR` no que
+   ainda estiver em `NOVO LEAD`), entao nao e perda — e ruido fora de controle.
+
+3. A LIMPEZA DE TAREFAS E SO RELATORIO (`count_overdue_tasks`), porque a API
+   publica nao oferece endpoint normal de atualizacao/conclusao de tarefa. A
+   higiene de tarefas segue manual — ver `rotina-limpar-tarefas.md`.
+
+Medido na conta em 27/09/2026, e muda o que esperar da corrida de terca: o
+backfill de 24/09 ja moveu o estoque, e `NOVO LEAD` tem 4 oportunidades `open`,
+nao 47. Os 38 leads reais estao em `CONECTAR` desde entao, ja dentro da
+`Cadencia Inbound` — este runner nao os toca, porque busca apenas `NOVO LEAD`.
+"""
 
 from datetime import datetime, timedelta, timezone
 import json

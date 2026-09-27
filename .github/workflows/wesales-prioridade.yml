@@ -1,0 +1,54 @@
+name: WeSales - recalcula a Prioridade (fila do SDR)
+
+# A varredura que nenhum workflow do GHL faz: prioridade por TEMPO (retorno que
+# vence hoje, lead parado, fim da régua) é operação sobre conjunto, e workflow do
+# GHL é orientado a evento. Action empurra, Claude puxa — o mesmo padrão que o
+# wesales-auditoria.yml já usa, e por isso nao acorda sessao nenhuma.
+#
+# Roda antes de a janela das cadências abrir (08:30 America/Sao_Paulo), para o
+# SDR encontrar a fila já ordenada quando senta.
+#
+# 11:00 UTC = 08:00 America/Sao_Paulo. `schedule` só dispara no branch padrão
+# (aprendido errando, ver .claude/skills/steward) — num branch de trabalho este
+# cron não roda, e isso é esperado até o merge.
+
+on:
+  schedule:
+    - cron: "0 11 * * 1-5"
+  workflow_dispatch:
+    inputs:
+      aplicar:
+        description: "Escrever a Prioridade recalculada (false = só a tabela)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  prioridade:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # A corrida agendada SÓ LÊ. Escrever `Prioridade` em lead real precisa de
+      # linha `[x]` do dono no APROVADO.md, e um cron que escreve sozinho é a
+      # rotina se autorizando — o que aquele arquivo proíbe por escrito. Então o
+      # agendado entrega a tabela do dia no log, e mais nada.
+      - name: Tabela do dia (nunca escreve)
+        env:
+          GHL_PIT: ${{ secrets.GHL_PIT }}
+        run: python wesales/tools/recalcula_prioridade.py --dump
+
+      # Escreve só por acionamento manual, com a caixa marcada por uma pessoa.
+      - name: Aplicar
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.aplicar }}
+        env:
+          GHL_PIT: ${{ secrets.GHL_PIT }}
+        run: python wesales/tools/recalcula_prioridade.py --aplicar
