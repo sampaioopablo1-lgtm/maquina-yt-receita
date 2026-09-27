@@ -52,6 +52,11 @@ def codigo(nome: str) -> str:
     return re.sub(r"-v\d+$", "", c)
 
 
+def snippet(cod: str) -> str:
+    """Nome do snippet de texto da SDR para este envio (item 2)."""
+    return "WA MI-0 abertura inbound" if cod == "MI-0" else "WA " + cod
+
+
 def cond_tag(tag: str) -> dict:
     return {
         "conditionType": "contact_detail", "conditionSubType": "tags",
@@ -133,10 +138,11 @@ def inserir(t: list, sms: dict) -> list:
     g2s["next"] = r2["id"]
     texto = (sms["attributes"].get("body") or "").replace("\n", "<br>")
     tarefa = acao("task-notification", "Add Task", {
-        "title": "[WHATSAPP MANUAL] %s" % cod,
+        "title": "[WHATSAPP MANUAL] %s — {{contact.first_name}}" % cod,
         "body": ('<p style="margin:0px; padding-left: 0px!important;">O limite diário de '
-                 'WhatsApp automático foi atingido. Envie hoje, pela conversa do contato, '
-                 'exatamente este texto:<br><br>%s</p>' % texto),
+                 'WhatsApp automático foi atingido. Envie agora pela conversa do contato: '
+                 'digite <b>/%s</b> e escolha o snippet <b>%s</b>. O texto é este:<br><br>%s</p>'
+                 % (snippet(cod), snippet(cod), texto)),
         "assignedTo": "contact.assigned_user", "type": "task_notification",
         "dueDate": {"duration": 0, "unit": "days", "time": 1789851600000,
                     "skipWeekends": True},

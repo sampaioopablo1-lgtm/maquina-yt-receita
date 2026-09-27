@@ -34,7 +34,16 @@ import sys
 sys.path.insert(0, __import__("os").path.dirname(__file__))
 from campos_bant import ghl, LOC  # noqa: E402
 
-AGUARDA, LIBERADO = "wa-aguardando", "wa-liberado"
+AGUARDA, LIBERADO, MANUAL = "wa-aguardando", "wa-liberado", "wa-manual"
+# FIM DA ESPERA (27/09): a conta não tem nó de "esperar condição com tempo limite" para
+# copiar, e a trava nos workflows é um laço (tem wa-liberado? tem wa-manual? senão espera
+# 15 min). Quem encerra a espera é este script, aplicando `wa-manual` (o workflow então
+# cria a tarefa [WHATSAPP MANUAL]):
+#   - as vagas que restam no dia (meta - já liberados) ficam reservadas para os primeiros
+#     da fila, que saem espalhados até 18:30;
+#   - quem passa das vagas vira manual NA HORA (a SDR manda cedo, em vez de esperar);
+#   - às 18:30, o que ainda estiver esperando vira manual.
+# Simulado para 36 entradas às 08:30: 14 automáticos espalhados + 22 manuais às 08:30.
 META_MIN, META_MAX = 11, 15
 INICIO, FIM = (8, 30), (18, 30)          # horário de Brasília
 POR_RODADA = 2
@@ -95,9 +104,29 @@ def main() -> int:
     tag_dia = "wa-lib-" + hoje.isoformat()
     meta = meta_do_dia(hoje)
     cs = contatos()
-    ja = [c for c in cs if tag_dia in (c.get("tags") or [])]
-    fila = sorted([c for c in cs if AGUARDA in (c.get("tags") or [])],
+    ini = agora.replace(hour=INICIO[0], minute=INICIO[1], second=0, microsecond=0)
+    fim = agora.replace(hour=FIM[0], minute=FIM[1], second=0, microsecond=0)
+    if agora < ini:
+        print("antes das 08:30: nada a fazer")
+        return 0
+
+    def tags(c):
+        return c.get("tags") or []
+
+    ja = [c for c in cs if tag_dia in tags(c)]
+    fila = sorted([c for c in cs if AGUARDA in tags(c) and MANUAL not in tags(c)],
                   key=lambda c: c.get("dateUpdated") or "")
+    vagas = 0 if agora >= fim else max(0, meta - len(ja))
+    for c in fila[vagas:]:
+        nome = c.get("firstName") or c.get("contactName") or c["id"]
+        if aplicar:
+            ghl("POST", "/contacts/%s/tags" % c["id"], {"tags": [MANUAL]})
+        print("  %s %s (%s): sem vaga automática hoje, vira WhatsApp manual"
+              % ("manual" if aplicar else "iria para manual", nome, c["id"]))
+    fila = fila[:vagas]
+    if agora >= fim:
+        print("depois das 18:30: nada mais a liberar hoje")
+        return 0
     devido = round(meta * fracao_do_dia(agora))
     soltar = max(0, min(POR_RODADA, devido - len(ja), meta - len(ja), len(fila)))
     print("hoje %s | meta %d | ja liberados %d | devido ate agora %d | na fila %d | libera agora %d"
