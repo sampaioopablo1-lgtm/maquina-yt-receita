@@ -269,10 +269,35 @@ A pasta teria escondido o trabalho dela da própria tela dela. É a §1.2 outra 
 no lugar onde ela dói.
 
 **Verificação:** antes de agrupar campo por função, contar em quantos registros ele está
-preenchido. Campo que chega com o lead aparece em quase todos; campo de etapa posterior
-aparece em poucos. O degrau na contagem é onde fica a fronteira, e é observável.
-Snapshot versionado em `wesales/dados/campos-27-09.json`, conferido pelo próprio script
-(`--plano` falha se sobrar ou faltar campo).
+preenchido. Snapshot versionado em `wesales/dados/campos-27-09.json`, conferido pelo
+próprio script (`--plano` falha se sobrar ou faltar campo).
+
+### CORREÇÃO, no mesmo dia, e ela é o miolo da lição
+
+Eu havia escrito aqui: *"campo que chega com o lead aparece em quase todos; campo de
+etapa posterior aparece em poucos. O degrau na contagem é onde fica a fronteira, e é
+observável."* **Isso está errado, e o dono apontou o porquê:** *"tem campos, pelo
+formulário nativo da Meta associado ao CRM, que podem correlacionar com o CRM."*
+
+O degrau na contagem marca a fronteira do **mapeamento**, não a do processo. Uma
+pergunta que o formulário do Meta faz mas que ninguém mapeou para o campo do CRM lê
+como `0/64` — **idêntico** a um campo que ninguém nunca preenche. Os dois casos têm a
+mesma aparência no dado e significados opostos:
+
+- "a SDR ainda precisa perguntar isso" → trabalho legítimo dela
+- "o lead **já respondeu** e a resposta foi descartada na porta" → dado pago no lixo
+
+Medi a diferença e ela existe nesta conta (`wesales/dados/formularios-meta-27-09.json`):
+**9 formulários** de Lead Ads distintos, e o mapeamento é por formulário e inconsistente
+— 4 mapeiam 2 ou 3 campos, um deles não mapeia `Investimento mensal em anúncios` que os
+outros mapeiam, e **5 formulários não mapeiam nada**. Cinco leads pagos entraram só com
+nome e telefone.
+
+**O que fica como verificação, então:** contagem de preenchimento separa "campo que a
+conta usa" de "campo que a conta não usa" — e **nada mais**. Para saber se um `0/64` é
+"ninguém pergunta" ou "a resposta é descartada", tem de olhar a definição do formulário
+de origem, não o CRM. Enquanto essa leitura não existir, todo agrupamento por origem é
+**provisório**, e tem de estar escrito que é.
 
 ## 2.14 Ler uma lista da resposta e supor que é a resposta inteira
 

@@ -104,6 +104,56 @@ inicializa. A B não aposta em campo frágil.
 
 Sob a B, o `patch_picklist_investimento.py` deixa de existir.
 
+## 4-BIS. O mapeamento dos formulários do Meta está incompleto — e é dado pago sendo descartado
+
+**Levantado pelo dono**, e medido depois: *"tem campos, pelo formulário nativo da Meta
+associado ao CRM, que podem correlacionar com o CRM."*
+
+Cruzei o `mediumId` da atribuição de cada contato (que **é** o id do formulário de Lead
+Ads) com os campos que cada um encheu. `wesales/dados/formularios-meta-27-09.json`:
+
+| formulário | leads | campos de anúncio que ele enche |
+|---|---|---|
+| `2412763482587375` | 21 | `Urgência`, `Necessidade`, `Investimento mensal` |
+| `1026163897118958` | 8 | `Urgência`, `Necessidade` — **falta `Investimento mensal`** |
+| `28266780626312413` | 7 | os três |
+| `1625438192440294` | 3 | os três |
+| outros **cinco** | 1 cada | **nenhum** |
+
+- **São 9 formulários, não 8.** O roadmap dimensionava a opção A do G-04 por 8.
+- **O mapeamento é por formulário e inconsistente** — um dos quatro deixa de fora um
+  campo que os outros três trazem.
+- **Cinco formulários não mapeiam nada.** Cinco leads pagos entraram só com nome e
+  telefone.
+- **A resposta não mapeada não vai para outro lugar: desaparece.** Conferido — nenhum
+  `customField` fora dos 56 aparece nos contatos, e `companyName`, `website`, `city`,
+  `state`, `postalCode` estão todos em **0/64**.
+
+**Isto é um defeito separado do G-04**, e nem a opção A nem a B o resolvem: o G-04 é sobre
+a picklist de **um** campo; este é sobre campos que nem chegam. Entra na lista como item
+próprio.
+
+**O que não deu para medir daqui, e é honesto dizer:** quais perguntas cada formulário
+faz. Exige `ads_get_ad_entities`, e a conta está `UNSETTLED` com `is_queryable: false`
+(reconferido em leitura fresca hoje). **Então eu sei que o mapeamento está incompleto; não
+sei ainda quanto dado está sendo descartado.** Quando a conta voltar a `ACTIVE`, isso é a
+primeira coisa a ler — e aí o mapa de pastas da §4 do `USABILIDADE.md` pode mudar, porque
+campo que passar a chegar com o lead troca de pasta.
+
+**Onde se conserta:** na tela do GHL, no mapeamento da integração de Lead Ads, formulário
+por formulário. Não sai por API pública.
+
+### E um achado de conferência que precisa da sua checagem
+
+`ads_get_ad_account_pages` devolveu, para a página **"O Próximo Cliente"**
+(`1117439194786453`): **`leadgen_tos_accepted: false`**.
+
+Os Termos de Lead Generation da página não estão aceitos. Isso **impede criar novo
+conjunto de anúncios de Lead Ads**. Não afirmo que explica o passado — leads de Lead Ads
+entraram, então ou o termo foi aceito e caiu, ou a flag não cobre o histórico. Mas para a
+reativação a 10 leads/dia isso é um bloqueio a conferir, junto com o `UNSETTLED`. Aceita-se
+em https://www.facebook.com/legal/leadgen/tos
+
 ## 5. O texto da tarefa T1 manda clicar num botão que não existe
 
 A tarefa diz para clicar em "Ligar via WhatsApp". **Esta conta não tem esse botão** — o
@@ -157,6 +207,8 @@ Nenhum item desta lista rende o que ligar para esses dois rende.
 | ligar para Daniel e Genilson | **você** ou o closer | 8 dias parados |
 | dizer quem é o SDR | **você** (uma frase) | antes de terça |
 | G-04 A ou B | **você** (recomendo B) | não |
+| mapeamento dos 9 formulários do Meta | **você** na tela do GHL, ou eu com o passo a passo | não, mas cada lead novo entra cego |
+| `leadgen_tos_accepted: false` na página | **você**, conferir | trava campanha nova |
 | apertar o botão das pastas + 27 arrastos | **você** | não |
 | distribuir dono nos 36 leads | minha, depois da sua frase | antes de terça |
 | publicar `Reunião Cancelada` | minha, com API interna ou tela | não |

@@ -495,6 +495,49 @@ contatos da conta, versionada em `wesales/dados/campos-27-09.json`:
 A separação é limpa: **três campos** chegam com o lead; os outros 17 do bloco antigo
 ficam entre 0 e 6. Se viessem do formulário do anúncio, os 64 teriam.
 
+### RESSALVA que o dono levantou, e que torna este mapa provisório
+
+O dono lembrou: *"tem campos, pelo formulário nativo da Meta associado ao CRM, que podem
+correlacionar com o CRM."* Está certo, e isso limita o que a contagem acima prova.
+
+**Um `0/64` tem duas causas possíveis e indistinguíveis no dado do CRM:** ninguém
+pergunta, ou o lead respondeu e a resposta foi descartada por falta de mapeamento. Medi
+qual é o caso aqui, cruzando o `mediumId` da atribuição de cada contato (que **é** o id
+do formulário de Lead Ads) com os campos que cada um encheu —
+`wesales/dados/formularios-meta-27-09.json`:
+
+| formulário | leads | campos de anúncio que ele enche |
+|---|---|---|
+| `2412763482587375` | 21 | `Urgência`, `Necessidade`, `Investimento mensal` |
+| `1026163897118958` | 8 | `Urgência`, `Necessidade` — **falta `Investimento mensal`** |
+| `28266780626312413` | 7 | `Urgência`, `Necessidade`, `Investimento mensal` |
+| `1625438192440294` | 3 | `Urgência`, `Necessidade`, `Investimento mensal` |
+| outros **cinco** | 1 cada | **nenhum** |
+
+Três achados:
+
+1. **São 9 formulários, não 8** — o número que o roadmap usava para dimensionar a opção A
+   do G-04.
+2. **O mapeamento é por formulário e inconsistente.** Um dos quatro que mapeiam deixa de
+   fora um campo que os outros três trazem. Não é desenho, é descuido replicado.
+3. **Cinco formulários não mapeiam nada.** Cinco leads pagos entraram só com nome e
+   telefone.
+
+E conferi que o dado não está caindo em outro lugar: **nenhum** `customField` fora dos 56
+aparece nos contatos, e `companyName`, `website`, `city`, `state`, `postalCode` estão
+todos em **0/64**. Resposta não mapeada não vai para campo padrão — **desaparece.**
+
+**O que não deu para medir daqui:** as perguntas que cada formulário faz. Isso exige
+`ads_get_ad_entities`, e a conta `1695865631502778` está `UNSETTLED` com
+`is_queryable: false` (reconferido em leitura fresca). Então eu sei que o mapeamento está
+incompleto; **não** sei ainda quanto dado está sendo descartado.
+
+**Consequência para este mapa:** a pasta `2 · SDR PREENCHE NA QUALIFICAÇÃO` descreve
+quem preenche **hoje**, e é boa para hoje. Mas se o mapeamento for consertado, campos
+como `Segmento`, `Site` e `Empresa` podem passar a chegar com o lead e mudar de pasta.
+**O mapa é provisório nesse ponto, e está escrito que é** — em vez de eu apresentar como
+fronteira de processo o que é fronteira de configuração.
+
 **Por que isso não é cosmético:** chamar de "veio do anúncio" um campo que a SDR precisa
 preencher esconde trabalho dela na tela. O campo vazio pareceria dado que o anúncio não
 mandou, em vez de pergunta que falta fazer — que é exatamente o erro da §1.2 do
