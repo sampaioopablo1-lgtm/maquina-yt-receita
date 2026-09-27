@@ -87,9 +87,14 @@ def pede(url, headers, body=None, metodo="GET"):
 
 
 def ghl(caminho, token, body=None, metodo="GET"):
+    # O `user-agent` vale aqui tambem, nao so no Jev: o `services.leadconnectorhq.com`
+    # esta atras do mesmo Cloudflare e recusa `Python-urllib/3.x` com erro 1010.
+    # Medido em 27/09/2026 — o primeiro conserto pos UA so nas chamadas do Jev, e
+    # esta busca continuou levando 403/1010, que eu li errado como problema de token.
     return pede(GHL + caminho,
                 {"Authorization": "Bearer " + token, "Version": VERSION,
-                 "Accept": "application/json", "Content-Type": "application/json"},
+                 "Accept": "application/json", "Content-Type": "application/json",
+                 "user-agent": UA},
                 body, metodo)
 
 
@@ -190,6 +195,11 @@ def main():
         # rodada, o que localiza o problema no token e nao na integracao.
         corpo = (e.read() or b"")[:200].decode("utf-8", "replace")
         print("O GHL recusou a leitura: HTTP %s %s" % (e.code, corpo))
+        if "1010" in corpo or "cloudflare" in corpo.lower():
+            print("\nErro 1010 e do CLOUDFLARE, nao do seu token: ele barra o cliente")
+            print("pela assinatura antes de olhar a chave. O `user-agent` deste script")
+            print("deveria resolver; se persistir, o IP do runner esta na lista.")
+            return 2
         if e.code in (401, 403):
             print("\nIsto e o `GHL_PIT`, nao o Jev. Confira, nesta ordem:")
             print("  1. o token do secret `GHL_PIT` ainda e valido (nao foi rotacionado);")
