@@ -6803,3 +6803,19 @@ o hábito nasceu depois de quase 10h de item bloqueado por falta de
 visibilidade; aqui ele evitou o mesmo erro se repetir, no primeiro caso
 seguinte em que se aplicava. Custo da checagem: dois comandos git, nenhuma
 chamada de API a mais. Detalhe em `ROADMAP-SALES-ENGAGEMENT.md`, **G-32**.
+
+**O mesmo hábito, aplicado à lista em vez de a um campo (G-33, mesmo
+dia):** até aqui o `git branch -a` + `DE-PARA-SESSOES-CRM.md` sempre
+respondia "o que é este campo novo?". Nesta rodada, sem campo novo para
+explicar, a pergunta virou "algum item da própria lista de decisões
+pendentes deste roadmap já foi resolvido do outro lado, sem eu saber?" — e
+a resposta foi sim, duas vezes: G-04 (peça 2) publicado e relido
+(`Pós-agendamento v2` v17→v18) e G-30 respondido por um fato já lido (zero
+agentes de Voice AI ativos), nenhum dos dois por recomendação ainda em
+aberto. **A generalização que fica:** o hábito de checar branch irmã não
+serve só para explicar achado novo (campo, tag) — serve para qualquer
+linha que este roadmap rotule "esperando o dono", porque "esperando" é uma
+afirmação sobre o que **esta** branch sabe, não sobre o que já aconteceu.
+Uma lista que só cresce e nunca é reconferida contra as branches irmãs
+acumula falso bloqueio do mesmo jeito que o G-25 acumulou falsa prioridade
+por quase 10h. Detalhe em `ROADMAP-SALES-ENGAGEMENT.md`, **G-33**.

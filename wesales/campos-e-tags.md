@@ -400,7 +400,11 @@ qualificação ("capacidade de investir" vs. "gasto atual"); nenhum dos dois
 tem consumidor (workflow, lista ou documento) hoje. Registro, não
 aprovação — mesmo motivo do quarto e do quinto campo desta lista. Achado,
 as duas leituras possíveis e "Pronto quando" em
-`ROADMAP-SALES-ENGAGEMENT.md`, **G-29**.
+`ROADMAP-SALES-ENGAGEMENT.md`, **G-29**. **Recomendação registrada em
+27/09/2026 (G-33), ainda sem confirmação do dono:** a SDR preenche
+`SDR responsável` e `B · Quanto pode investir` na ligação, e a nota de
+qualificação passa a ler `B · Quanto pode investir` (hoje nada lê nenhum
+dos dois) — não fecha G-27/G-28/G-29, é recomendação, não decisão.
 
 **Um sétimo campo fora desta lista, e desta vez não veio da tela de
 qualificação — veio de um recurso nativo, em 27/09/2026:** `Voice AI Reason
@@ -413,8 +417,11 @@ do HighLevel captura durante uma chamada (pesquisa em
 `help.gohighlevel.com`, artigos de Voice AI Custom Actions/Custom Values) —
 não é pergunta de qualificação desenhada por alguém, é rastro de alguém
 tendo ativado esse recurso nesta subconta. Sem consumidor (workflow, lista
-ou documento) hoje. Registro, não aprovação — mesmo motivo dos campos
-acima. Achado e "Pronto quando" em `ROADMAP-SALES-ENGAGEMENT.md`, **G-30**.
+ou documento) hoje. **Fechado em 27/09/2026 (G-33):** a checagem de branch
+irmã (mesmo hábito do G-32) achou que a sessão A já tinha lido **zero
+agentes de Voice AI ativos** na conta — o campo fica (regra 1), inerte, sem
+decisão de negócio pendente. Achado original e fechamento em
+`ROADMAP-SALES-ENGAGEMENT.md`, **G-30**/**G-33**.
 
 **Um oitavo campo fora desta lista, e desta vez com explicação encontrada,
 não perdida:** `Canal da tentativa` — `contact.canal_da_tentativa`, id

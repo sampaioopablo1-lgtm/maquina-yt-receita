@@ -5232,6 +5232,86 @@ G-30 (Voice AI ativado de propósito?) e G-31 (consolidar branches ou
 formalizar a checagem) continuam sendo as decisões sem prazo fixo que
 esperam o dono, sem novidade além desta reconciliação.
 
+### G-33 · O próprio hábito que o G-31 deixou e o G-32 usou uma vez fechou dois itens que este roadmap ainda tratava como "esperando o dono" — G-04 (peça 2) e G-30 já estavam resolvidos do outro lado (27/09/2026) — **FEITO em 27/09/2026 (reconciliação)**
+
+**Por quê:** reconferência de rotina, sem novidade — `contacts_get-contact`
+em `Carlos Andrade` (`7ECnj1bSeEIm5P58Ifd9`) confirma `dnd: false` e
+`Prioridade = 4` (G-25 segue resolvido); `opportunities_search-opportunity`
+(`meta.total`) confirma **64 oportunidades**, sem mudança;
+`locations_get-custom-fields` (model `contact`) confirma **60 campos**, os
+mesmos do fechamento do G-32 (nenhum nono campo órfão apareceu). Sem
+achado na varredura de coerência de sempre, esta sessão aplicou de novo o
+mitigador que o G-31 registrou e o G-32 usou uma única vez — checar
+`git branch -a` e ler o `DE-PARA-SESSOES-CRM.md` da branch candidata antes
+de tratar qualquer coisa como "esperando o dono" — mas desta vez não para
+um campo novo, para a própria lista de decisões pendentes que este roadmap
+vinha carregando adiante a cada parágrafo. `git branch -a` mostra a mesma
+branch `abertura-operacao-dnd-n7dnjv` ("A", do G-31/G-32) ainda como a mais
+recente com trabalho em `wesales/` fora desta; o `DE-PARA-SESSOES-CRM.md`
+dela (atualizado 27/09 20:50, depois da leitura que fechou o G-32) tem duas
+tabelas que respondem, sem precisar de resposta nova do dono:
+
+1. **Tabela "Gravado pela sessão do PC em 27-28/09" (já publicado e relido
+   pela própria sessão A, não recomendação):** a linha `G-04: 5 portões,
+   igualdade exata, pontos iguais` — `Pós-agendamento v2`, v17 → v18 — fecha
+   a peça 2 do G-04. Em vez de escolher a Opção A ou B da Tabela H
+   (`CONFERENCIA-CAMPOS.md`) como o item previa, a régua ganhou ramos extras
+   por igualdade exata com o texto literal que o Meta grava fora da lista de
+   opções: campo `Investimento mensal em anúncios` — `Abaixo de 5k` pontua
+   como `1k a 5k` (+6), `Até R$ 1.000` como `Até 1k` (+2); campo `Investe em
+   anúncios` — os três valores pagos do Meta pontuam como `Sim` (+13),
+   `Não invisto nada ainda` como `Nunca` (+4); campo `Urgência` (o bloco de
+   reserva que a peça 1 já tinha fechado) — `Posso esperar e ver oque
+   acontece` pontua como `Sem prazo` (+2). Resolve exatamente o "Pronto
+   quando" do item: um lead novo do Meta pontua o Bloco B sem depender de
+   qual dos quatro textos o anúncio grava, sem precisar remapear os 8
+   formulários (Opção A) nem trocar a régua inteira para `Contains`
+   (Opção B) — uma terceira saída que nenhuma das duas sessões tinha
+   escrito antes de o dono aplicá-la direto na tela.
+2. **Tabela "Para o dono decidir" (aqui sim, recomendação — mas com uma
+   linha que já é fato, não pedido):** a linha `G-25, G-26, G-28, G-30` diz
+   "nada a fazer: resolvidos pela sua decisão das 20:10–20:23 ou só registro
+   (Voice AI com 0 agentes)". G-25/G-26/G-28 já estavam `FEITO`/sem ação
+   pendente neste documento; **G-30 não estava** — a pergunta "o Voice AI
+   está ativo nesta subconta de propósito?" segue no próprio G-30. Resposta
+   pela leitura da sessão A (20:15, campo de agentes de Voice AI ativos):
+   **zero**. Não é "ativado de propósito e substituindo um nó" nem "ativado
+   sem querer com efeito colateral" — é um recurso sem nenhum agente
+   configurado, então o campo `Voice AI Reason for Call` fica (regra 1,
+   nunca excluir) inerte, sem nada disparando nele nem cobrando por ele.
+   Fecha o G-30 por completo, não só regista o achado.
+
+**Diferença que importa frente ao G-27/G-28/G-29, para não fechar por
+engano:** a mesma tabela "Para o dono decidir" traz uma terceira linha —
+`G-27/G-29: SDR responsável e B · Quanto pode investir sem nenhum workflow
+lendo | definir que a SDR preenche os dois na ligação e que a nota de
+qualificação lê Quanto pode investir; hoje nada lê`. Diferente das duas
+linhas acima (que citam uma decisão **já tomada**, `20:10-20:23`, ou um fato
+**já lido**, `0 agentes`), esta é recomendação da própria sessão A ainda sem
+confirmação do dono — a mesma classe de "registro, não decisão" que este
+roadmap já usa para G-27/G-28/G-29. Não fecho os três por isto: registro a
+recomendação (aqui e em `campos-e-tags.md`) para quando o dono responder,
+sem tratá-la como resposta.
+
+**Ressalva de método, igual à do G-32:** esta sessão confirmou por conta
+própria, via API, só o que é diretamente verificável por ela — os campos
+`Carlos Andrade`/oportunidades/`locations_get-custom-fields` acima. A versão
+publicada do `Pós-agendamento v2` e a contagem de agentes de Voice AI são
+relato da sessão A (documento dela, não node a node por este conector);
+tratado como dado, não como confirmação própria, mesmo padrão do G-32 para
+o `Canal da tentativa`.
+
+**Como:** nada sai por API — os dois fechamentos são reconciliação de
+documentação, não escrita no CRM. Atualizados nesta rodada:
+`IMPLEMENTACAO-WORKFLOWS.md` (checklist de go-live, a régua BANT e a
+"Ordem de montagem" — as três citavam o G-04 como aberto). Zero campo,
+zero tag, zero escrita no CRM: não depende de `APROVADO.md`.
+
+**Pronto quando:** cumprido para os dois — G-04 (peça 2) e G-30 saem da
+lista de decisões sem prazo fixo que esperam o dono. G-27/G-28/G-29 (agora
+com a recomendação da sessão A registrada, ainda sem confirmação), F-09,
+F-10, G-11 (item 1), G-19 e G-31 continuam sendo essas decisões.
+
 ## Ordem sugerida
 
 **Bloco 0 (G-01) fechado em 19/09/2026, antes de tudo o resto desta seção:**
@@ -7009,3 +7089,29 @@ G-30 continuam sendo as decisões sem prazo fixo que esperam o dono; G-31
 (branches paralelas) também espera decisão do dono, sem prazo fixo. Nenhum
 item "salta a fila" agora — a sessão seguinte volta à varredura de
 coerência ou à pesquisa de concorrência normais.
+
+**G-33 fechado em 27/09/2026, sessão automática seguinte — aplicando o
+próprio aviso do parágrafo acima ("volta à varredura de coerência") ao
+alvo que o G-31/G-32 já tinham mostrado ser produtivo: a lista de decisões
+pendentes deste roadmap, não um campo novo.** `git branch -a` +
+`DE-PARA-SESSOES-CRM.md` da branch `abertura-operacao-dnd-n7dnjv`
+(atualizado 27/09 20:50, depois da leitura que fechou o G-32) mostram que
+dois dos itens desta lista já estavam resolvidos do outro lado, um deles
+publicado e relido, o outro por um fato já lido (não por recomendação
+ainda em aberto): **G-04 (peça 2)** fechou porque `Pós-agendamento v2`
+(v17→v18) ganhou ramos por igualdade exata para os valores que o Meta
+grava fora da lista de opções — uma terceira saída, nem a Opção A nem a B
+que o item previa; **G-30** fechou porque a sessão A confirmou **zero
+agentes de Voice AI ativos** na conta, então o campo fica inerte, sem
+decisão de negócio pendente. Detalhe completo, a ressalva de método (só o
+que é verificável por API nesta sessão foi confirmado por conta própria; o
+resto é relato da outra branch, mesmo padrão do G-32) e a recomendação
+ainda sem confirmação do dono para G-27/G-29 (diferente das duas linhas
+fechadas: aquela é pedido, não fato) estão no próprio **G-33**, acima. CRM
+reconfirmado sem mudança (64 oportunidades, 60 campos de contato — os
+mesmos do fechamento do G-32). Com isso, **F-09, F-10, G-11 (item 1), G-19,
+G-27/G-28, G-29 e G-31 são as decisões sem prazo fixo que esperam o dono**
+— sete, duas menos que antes deste fechamento, e G-27/G-29 com uma
+recomendação registrada que ainda não é resposta. Nenhum item "salta a
+fila": a sessão seguinte volta à varredura de coerência ou à pesquisa de
+concorrência normais, como o parágrafo do G-31 já previa.

@@ -516,7 +516,7 @@ SDR: adicioná-lo nos dois nós e duplicar as listas 8.1–8.3 (1.7).
 | 2 | Porta de Entrada | **publicado, funciona** | — |
 | 3 | Mestre de saída | **publicado, 4 retoques** | — |
 | 4 | Pós-ligação | **publicado, 1 retoque** | — |
-| 5 | Pós-agendamento | ~~publicado, nó 4 não grava~~ — **refeito e publicado como `Pós-agendamento v2` em 22/09/2026** (`GUIA-MONTAGEM.md`) | Bloco B (`Investimento mensal`) ainda depende da decisão G-04; o resto da nota já grava e está provado rodando |
+| 5 | Pós-agendamento | ~~publicado, nó 4 não grava~~ — **refeito e publicado como `Pós-agendamento v2` em 22/09/2026, e com o Bloco B do G-04 fechado em 27/09/2026 (v17→v18, outra branch)** (`GUIA-MONTAGEM.md`) | — |
 | 6 | Loop do closer | rascunho, montado pela IA com campos errados — **refazer** | — |
 | 7 | Registro de Comparecimento | não existe | — |
 | 8 | Recuperação de No-show | rascunho | — |
@@ -793,16 +793,19 @@ Bloco A
   If Quem atende os leads = "Ninguém fixo" → +10 · "Dono" → +7 · "Vendedor" → +5 · "SDR" → +3
 Bloco B
   If Investe em anúncios = "Sim" → +13 · "Já investiu e parou" → +9 · "Nunca" → +4
+     G-04 fechado em 27/09/2026 (outra branch, Pós-agendamento v2 v17→v18): ramo extra por igualdade exata com o
+       texto literal do Meta — os três valores pagos do Meta pontuam como "Sim" (+13), "Não invisto nada ainda"
+       pontua como "Nunca" (+4)
   If Investimento mensal em anúncios = "Acima de 10k" → +12 · "5k a 10k" → +10 · "1k a 5k" → +6 · "Até 1k" → +2
-     ⚠ G-04 (ainda aberto): o Meta grava "Abaixo de 5k", "Até R$ 1.000", "Não invisto nada ainda" — só monte este
-       If/Else depois de o dono decidir a Tabela H de CONFERENCIA-CAMPOS.md
+     Mesmo fechamento do G-04: "Abaixo de 5k" pontua como "1k a 5k" (+6), "Até R$ 1.000" como "Até 1k" (+2)
 Bloco C
   If Budget = "Tem" → +15 · "Precisa aprovar" → +9 · "Não tem" → +0
   If Decisor = "Sim" → +15 · "Influencia" → +8 · "Não decide" → +2
   If Prazo = "Pra ontem" → +15 · "Espera 30 dias" → +11 · "Este ano" → +6 · "Sem prazo" → +2
      (G-04, metade resolvida em 22/09/2026: o Meta grava a resposta em Urgência — o Pós-agendamento
        v2 já tem um bloco de reserva lendo Urgência com a mesma tabela quando Prazo vem vazio,
-       publicado e no ar; ver build-wesales.md 9.1, Bloco C)
+       publicado e no ar; ver build-wesales.md 9.1, Bloco C. Fechamento de 27/09/2026 soma um ramo por
+       igualdade exata: "Posso esperar e ver oque acontece" pontua como "Sem prazo" (+2))
 Corte: If Budget = "Não tem" E Prazo = "Sem prazo" → Add Tag nutricao-90d + Update Opportunity status = abandoned
 ```
 
@@ -1949,9 +1952,9 @@ Reengajamento, 90 dias depois de `nutricao-90d`); apagar `nao-perturbe`/DND.
 | a cada 10 min, seg-sex 08-20h (automático) | Faxina de Tarefas (`tools/faxina_tarefas.py`, D12 `PLANO-MULTICANAL.md`, GitHub Actions) **exclui** tarefa automática que perdeu o contexto (nota fica no contato) — substituiu `rotina-limpar-tarefas.md` (que concluía em vez de excluir; ver aviso de 23/09/2026 no topo dele) | se parar de rodar (variável `FAXINA_APLICAR` apagada), tarefas fora de contexto se acumulam na tela do SDR |
 
 **Decisões que só o gestor/dono toma** (nada disso sai por API nem por
-rotina): G-03 (promoção `NOVO LEAD` → `CONECTAR`), G-04 (só a parte que
-resta: opções de `Investimento mensal` — a parte `Prazo`/`Urgência` já
-resolveu sem decisão, 22/09/2026), `[x]` das tags `novo-lead-estagnado` e
+rotina): G-03 (promoção `NOVO LEAD` → `CONECTAR`, já decidido e agendado —
+ver `ROADMAP-SALES-ENGAGEMENT.md`, G-03), G-04 (fechado em 27/09/2026,
+`ROADMAP-SALES-ENGAGEMENT.md`), `[x]` das tags `novo-lead-estagnado` e
 `fila-travada` em `APROVADO.md`, número de teste para WhatsApp, pausas de
 feriado/férias (1.9), vencedor do A/B, teto de toques (6/semana — editar
 no nó 2.5c/3c), segundo SDR (1.10).
@@ -1998,18 +2001,14 @@ no nó 2.5c/3c), segundo SDR (1.10).
 
 ## 3.6 Checklist de go-live (na ordem)
 
-1. **Decisões do dono:** G-03, G-04 (peça 2), F-09, F-10, G-11 (item 1),
-   G-16 (contato `Francisca`, retirar da régua), G-17 (portão de capacidade
-   em `Recuperação de No-show` e `Reengajamento 90 dias`: portar ou tirar a
-   tag `toque`),
-   coluna `Empresa` das listas (Tabela J), `{{right_now}}` (testar na tela),
-   número de teste para WhatsApp (`APROVADO.md`), `[x]` das tags do Monitor
-   de Saúde (F-05) e da Negociação Estagnada (F-13) que ainda aguardam em
-   `APROVADO.md` (lista completa lá, não repetida aqui para não desatualizar
-   de novo).
+1. **Decisões do dono:** as decisões sem prazo fixo listadas em
+   `ROADMAP-SALES-ENGAGEMENT.md`, seção "Ordem sugerida" (a lista muda de
+   tamanho a cada rodada — não repetida aqui para não desatualizar de novo;
+   G-03 e G-04 já saíram dela), `[x]` das tags do Monitor de Saúde (F-05) e
+   da Negociação Estagnada (F-13) que ainda aguardam em `APROVADO.md`
+   (lista completa lá).
 2. **Estrutura:** criar os 5 campos (1.2); corrigir `Plataformas de anúncio`;
-   aplicar a decisão G-04 nos campos e nos 8 formulários do Meta; criar as
-   5 tags (por API, depois do `[x]`).
+   criar as 5 tags (por API, depois do `[x]`).
 3. **Retoques nos publicados** (tabela do `GUIA-MONTAGEM.md`): Mestre de
    saída (nó 1 `NOVO LEAD`, nó 0, nó 4 `fila-travada`, token da nota),
    Pós-ligação (A2, 3b, 3c), Pós-agendamento (nó 4 nota, merge fields do nó 6),
