@@ -1,0 +1,45 @@
+name: WeSales - picklist do Investimento mensal
+
+# Por que existe: todos os dominios do GHL respondem 000 pelo proxy do conteiner
+# onde este conserto foi escrito, entao o PUT nao sai de lá. Aqui sai: o runner
+# do GitHub tem rede e o secret GHL_PIT.
+#
+# Sem cron e sem push de proposito: isto ESCREVE na estrutura do CRM. Roda so
+# quando alguem aperta o botao, e mesmo assim em modo relatorio por padrao.
+#
+# O botao "Run workflow" so aparece para workflow presente no branch padrao
+# (aprendido errando, ver .claude/skills/steward). Depois do merge ele aparece.
+
+on:
+  workflow_dispatch:
+    inputs:
+      aplicar:
+        description: "Escrever de verdade na picklist (deixe false para so ver o PUT)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  picklist:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Conferir o que sairia (sempre)
+        env:
+          GHL_PIT: ${{ secrets.GHL_PIT }}
+        run: python wesales/tools/patch_picklist_investimento.py --dump
+
+      - name: Aplicar
+        if: ${{ inputs.aplicar }}
+        env:
+          GHL_PIT: ${{ secrets.GHL_PIT }}
+        run: python wesales/tools/patch_picklist_investimento.py --aplicar
