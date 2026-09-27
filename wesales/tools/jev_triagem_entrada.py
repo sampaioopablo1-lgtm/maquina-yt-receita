@@ -182,7 +182,26 @@ def main():
     print("Jev via %s (%s), modelo %s" % (var, url, modelo))
     busca = ("/opportunities/search?location_id=%s&pipeline_id=%s&pipeline_stage_id=%s"
              "&status=open&limit=%d" % (LOCATION_ID, PIPELINE_ID, NOVO_LEAD, limite))
-    ops = (ghl(busca, token).get("opportunities")) or []
+    try:
+        ops = (ghl(busca, token).get("opportunities")) or []
+    except HTTPError as e:
+        # 403 aqui e o GHL recusando o PIT, nao defeito do script. Medido em
+        # 27/09/2026: o Jev respondeu 3 de 3 e esta busca levou 403 na mesma
+        # rodada, o que localiza o problema no token e nao na integracao.
+        corpo = (e.read() or b"")[:200].decode("utf-8", "replace")
+        print("O GHL recusou a leitura: HTTP %s %s" % (e.code, corpo))
+        if e.code in (401, 403):
+            print("\nIsto e o `GHL_PIT`, nao o Jev. Confira, nesta ordem:")
+            print("  1. o token do secret `GHL_PIT` ainda e valido (nao foi rotacionado);")
+            print("  2. ele e da subconta %s;" % LOCATION_ID)
+            print("  3. tem os escopos de LEITURA: opportunities.readonly,")
+            print("     contacts.readonly e conversations.readonly.")
+            print("\nO teste minimo (`jev_teste_minimo.py`) nao usa o GHL — se ele")
+            print("passa e este falha, o Jev esta certo e o token nao.")
+        return 2
+    except URLError as e:
+        print("rede indisponivel ao falar com o GHL: %s" % e.reason)
+        return 1
     print("%d oportunidade(s) em NOVO LEAD/open\n" % len(ops))
     print("%-30s %-22s %5s  %s" % ("contato", "classe", "conf", "abordar?"))
     print("-" * 78)
