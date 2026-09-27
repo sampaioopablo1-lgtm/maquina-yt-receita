@@ -626,3 +626,96 @@ Isto é o mesmo padrão da §7 levado ao limite: a peça existe, está publicada
 ligada a quatro workflows — e não recebe insumo. A diferença é que o custo aparece
 **exatamente quando a operação der certo**: o freio falta na hora do volume, não
 agora.
+
+## 9. Varredura lê-vs-escreve em 28 tags, nos 36 dumps de produção (27/09 11:35)
+
+Método: para cada tag do inventário, contar em quantos workflows ela aparece num
+`if_else` (**lê**), num `add_contact_tag` (**escreve**) e num `remove_contact_tag`
+(**apaga**). Portão que lê o que ninguém escreve é peça morta; tag que só entra e
+nunca sai é lixo acumulando. Os 36 dumps de produção do branch
+`claude/amazing-johnson-mclksg`, ignorando os `ZZ TESTE` e as pastas `_antes-*`.
+
+| tag | lê | add | rem | leitura |
+|---|---|---|---|---|
+| `fila-wa` | 3 | **0** | 7 | **defeito** — ver abaixo, é o mais grave |
+| `sdr-lotado` | 4 | **0** | 0 | defeito, já na §8 |
+| `reengajamento-ativo` | 1 | **0** | 3 | **defeito** — ver abaixo |
+| `pausado` | 5 | 0 | 1 | **correto por desenho** — ver abaixo |
+| `telefone-invalido` | 4 | 4 | **0** | **defeito** — só entra |
+| `limpar-tarefas` | 0 | 7 | **0** | **defeito** — só entra; é a causa da 8.5 com 18 linhas |
+| `nao-perturbe` | 12 | 4 | **0** | correto por desenho (opt-out é definitivo) |
+| `agendar-estagnado` | 0 | 1 | 0 | moot: o `AGENDAR Estagnado` foi despublicado em 23/09 (G-13) |
+| `fila-quente` | 0 | 4 | 7 | simétrico, ok |
+| `fila-tel` | 1 | 4 | 8 | simétrico, ok |
+
+### O mais grave: `fila-wa` é apagada em 90 lugares e criada em nenhum
+
+`fila-wa` aparece **mais de noventa vezes** nos dumps de produção. Conferi uma por
+uma: **todas** são `remove_contact_tag` ou condição de `if_else`. As duas cadências
+removem a tag uma vez por bloco de tentativa (10 vezes na Inbound, 13 na 12x30 —
+o par "Remove Tag / Add Tag" de cada toque), e o que elas **adicionam** é sempre
+`fila-tel`. Nunca `fila-wa`.
+
+Consequência direta, e independente da §0: a lista **8.3 `Fila WhatsApp Hoje`
+nunca pode ter uma linha**, porque o filtro dela é a tag. E o bloco de WhatsApp da
+§3.1 — **14:00 às 17:30, metade do dia do SDR** — não tem fila por construção.
+
+Isto **soma** com o que já se sabia (`Permissão WhatsApp` = `Não solicitado` em 38
+de 38), mas é mais fundo: mesmo que todo mundo dê permissão amanhã, e mesmo que a
+inscrição da §0 seja consertada, a tag continua não sendo aplicada e a lista
+continua vazia. São dois motivos independentes, e só um deles estava catalogado.
+
+O conserto é edição de workflow — precisa da API interna, não sai daqui. O que sai
+daqui é a medida: o par simétrico existe para `fila-tel` nos mesmos nós, então o
+desenho previa os dois e um ficou pelo caminho.
+
+### `reengajamento-ativo`: três workflows apagam, nenhum cria — e o workflow que criaria não tem dump
+
+A tag é lida pela `Cadência 12x30` e apagada por três (`Mestre de saída v2`,
+`Nutrição — WhatsApp a cada 15 dias`, `Triagem da Nutrição`). Nenhum dump de
+produção a adiciona.
+
+E a explicação provável está na lista de arquivos: **não existe
+`Reengajamento 90 dias.json` entre os 36 dumps ativos** — ele só aparece dentro de
+`_antes-12x30-multicanal/`, que é backup. Duas leituras, e não consigo separar
+daqui:
+
+- o workflow **existe na conta** e nunca foi re-dumpado depois de 23/09; ou
+- ele **não existe**, e a meta da §3.5 *"Nutrição: 90 dias, depois reativa
+  sozinho"* não tem motor.
+
+O dado da conta é compatível com as duas: a lista 8.14 tem **1 linha**, e é o
+fixture. Nenhum lead real jamais entrou em reengajamento. **Um olhar na tela
+(Automação → procurar `Reengajamento 90 dias`) decide**, e vale entrar na lista de
+perguntas.
+
+### `pausado`: parece morta e NÃO é — é manual de propósito
+
+Cinco workflows leem `pausado` num portão e nenhum a escreve. Pela regra mecânica
+seria peça morta, mas a §3.1 da `IMPLEMENTACAO-WORKFLOWS.md` diz explicitamente:
+
+> *"lead pediu 'me liga mês que vem' (sem opt-out) → Aplicar a tag **`pausado`** à
+> mão; retirar quando voltar."*
+
+É manual por desenho, e está documentado. O único `remove` é no `Mestre de saída
+v2`, que roda quando o lead deixa o funil — tirar a pausa ali é correto, não é a
+máquina despausando alguém por conta própria. **Nada a consertar**, e registro
+porque a varredura mecânica marcaria como defeito.
+
+É exatamente a diferença que separa este caso do `sdr-lotado`: ali a notificação
+**afirma** que o sistema aplica sozinho. Aqui o documento manda a pessoa aplicar.
+
+### Duas tags que só entram
+
+**`telefone-invalido`** — quatro workflows aplicam (`Cadência 12x30`, `Cadência
+Inbound`, `Pós-ligação v2` e `v3`) e **nenhum remove**. Se o número for corrigido,
+a tag fica para sempre: o lead segue na lista 8.18 e — isto é responsabilidade do
+meu próprio código — a regra 8 da §9.2 no `recalcula_prioridade.py` o rebaixa para
+`Prioridade` 1 **permanentemente**. Vale uma linha no docstring da ferramenta
+avisando que a tag não tem volta automática.
+
+**`limpar-tarefas`** — sete workflows aplicam, nenhum remove, e nenhum workflow a
+lê (quem lê é a faxina em Python, fora do CRM). Isto **fecha o mecanismo** do
+achado da §0: a lista 8.5 mostra 18 linhas porque a tag entra em todo lead que
+passa pela máquina e nunca sai. Não é só a falta de `fila-*` nas exclusões; é
+também que o lado positivo do filtro cresce para sempre.
