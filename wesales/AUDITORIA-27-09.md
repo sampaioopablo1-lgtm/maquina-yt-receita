@@ -13,6 +13,28 @@ personalizado** da subconta `1D53YTI9C7oIMBavcQxV`, lidos um a um pela API.
 > `telefone-improvavel` não são afetados, porque dependem do valor e não do
 > escopo. A varredura do `vigia` roda **sem escopo** e vai estabelecer o número
 > real de campos mortos na primeira rodada com rede.
+>
+> **Dez dos 45 já estão desmentidos por leitura direta** (27/09, escrevendo a
+> `Prioridade` lead por lead), e vale listar para ninguém repetir o erro:
+>
+> | campo | vivo em | valor |
+> |---|---|---|
+> | `Duração da ligação` | Carla Sampaio | 40 |
+> | `Ligações com transcrição` | Carla Sampaio | 0 |
+> | `Conexão real` | Carla Sampaio | `Não` |
+> | `Canal que conectou` | Rafaela de Paula | `Mensagem` |
+> | `Sinal recebido` | Rafaela de Paula | `Resposta de mensagem` |
+> | `Nota de qualificação` | Teste Não Atende | **15** |
+> | `Toques na semana` | Teste Não Atende | 1 |
+> | `Total de ligações` | Teste Não Atende | 2 |
+> | `Tentativas telefone` | Teste Não Atende | 2 |
+> | `1ª tentativa em` | Teste Não Atende | `22/09/2026 22:57` |
+>
+> A causa do erro foi dupla: escopo restrito a `CONECTAR` **e** um fixture
+> montado só com os contatos que eu havia lido — a Rafaela e o `Teste Não
+> Atende` estão em `CONECTAR` e entraram como se tivessem campo nenhum. Lição:
+> auditoria de valor precisa ler **todos** os contatos do escopo, não os que
+> calharam de estar à mão.
 
 Não é auditoria de estrutura — as cinco que já existem fazem isso. Esta pergunta
 uma coisa só: *o valor gravado neste campo é um valor que este campo aceita?*
@@ -112,6 +134,25 @@ prefixo `120363`, de JID de grupo. Tratados em 27/09 com `dnd`, `nao-perturbe`,
 `grupo-whatsapp-nao-e-lead` e oportunidade `abandoned` — nada excluído.
 
 ---
+
+## Prioridade reconciliada em 27/09 — a fila existe agora
+
+Escrito na conta lead por lead, com a régua da §9.2 mais as duas extensões:
+
+| prioridade | quantos | quem |
+|---|---|---|
+| **4** | 5 | Gerson, Ana Ruth, Ricardo, Andreia, Andre — `Tentativa nº` = 0, regra 5 |
+| **0** | 34 | os 30 travados para a rampa e o Carlos (DND), a Rafaela e os dois contatos de teste (`nao-perturbe`) |
+
+Antes: **5 em todos os 39**, ou seja nenhuma ordem. Depois: a fila do SDR mostra
+exatamente os **5 leads do lote 1** — a rampa de 6/dia se aplicando sozinha, sem
+tag nova e sem lista nova.
+
+Conferido antes de escrever: **nenhum workflow lê `Prioridade` numa condição**
+(as 9 referências nos dumps são o descritor do campo dentro das ações de
+escrita), então o 0 — que estende a escala documentada de 1–5 — não desvia
+nenhum ramo. E o formato de escrita foi testado primeiro no contato de teste:
+`Prioridade` mudou e os outros campos do contato sobreviveram.
 
 ## Sobre as 100 tarefas para o SDR
 
