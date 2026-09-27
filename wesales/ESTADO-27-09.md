@@ -292,6 +292,13 @@ custo aparece quando o volume chegar, que é o cenário dos 10 leads/dia.
    **O que isso fecha:** não há mais item com prazo antes de segunda, e o pedido
    de liberar `backend.leadconnectorhq.com` deixa de ser urgente — segue útil
    para os consertos de `fila-wa` e `sdr-lotado`, que não têm data.
+1-BIS. **Pastas de campo — o botão está pronto, o arrasto caiu de 56 para 27.**
+   A Action `wesales-pastas.yml` (dispatch, `criar: true`) renomeia a pasta grande
+   para `5 · NÃO MEXER — a máquina escreve` e cria as outras quatro. A renomeação
+   é o truque: 29 dos 30 campos da máquina já estão nessa pasta, então eles não
+   se arrastam. Sobram 27 arrastos, na ordem que o próprio job imprime — e a
+   pasta 1 tem 3 campos e já limpa o dia da SDR, se você parar nela.
+   O job roda o mapa antes, sem segredo, e falha se o mapa não fechar com a conta.
 2. **`[x]` no `APROVADO.md`** para escrita de `Prioridade`, se quiser que o
    runner diário aplique sozinho. Hoje ele só lê.
 3. **G-04, A ou B.** Recomendação: **B** (a §9.1 lendo `Urgência`/`Necessidade`

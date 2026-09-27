@@ -52,6 +52,25 @@ Isso nao e cosmetico. Chamar de "veio do anuncio" um campo que a SDR precisa pre
 esconde trabalho dela na tela — o campo vazio pareceria dado que o anuncio nao mandou,
 em vez de pergunta que falta fazer.
 
+METADE DO ARRASTO SAI DE GRACA — RENOMEANDO, NAO MOVENDO
+--------------------------------------------------------
+Mover campo nao sai por API, mas **renomear pasta sai** (`PUT /custom-fields/folder/{id}`,
+corpo `{name, locationId}` — conferido no spec, nao suposto).
+
+E a pasta unica `gabsbU3jsUN7oIXCnYab` ja contem **29 dos 30 campos que a maquina
+escreve**. Entao a pasta 5 nao precisa ser criada e povoada: ela **e** essa pasta, com
+outro nome. Os 29 campos ficam exatamente onde estao, e zero arrasto.
+
+    sem renomear: 56 arrastos
+    renomeando:   27 arrastos   <- 3 + 17 + 3 + 3, mais `Conexoes WhatsApp` sozinho
+
+O unico campo da maquina fora dela e `Conexoes WhatsApp` (`vCqedGd185RiQKNlU870`).
+
+Este script **nao apaga pasta nenhuma**, inclusive as duas pequenas que sobram
+(`zHU4yGXKHdxBHnGxUmai` com `Urgencia` e `Empresa`, e a do `Conexoes WhatsApp`): elas
+ficam vazias depois do arrasto, e pasta vazia nao machuca ninguem. Apagar exigiria o
+verbo que a regra 1 proibe.
+
 NUNCA APAGA NADA
 ----------------
 O grupo `/custom-fields/` tem `DELETE` de campo e de pasta. **Este arquivo nao contem
@@ -87,8 +106,14 @@ OBJECT_KEY = "contact"
 AQUI = os.path.dirname(os.path.abspath(__file__))
 SNAPSHOT = os.path.join(AQUI, "..", "dados", "campos-27-09.json")
 
+# A pasta unica onde moram 53 dos 56 campos — a causa do "meio completo e confuso".
+PASTA_GRANDE = "gabsbU3jsUN7oIXCnYab"
+
 # A ordem e a de quem abre o contato: o que a SDR faz agora primeiro, o que a maquina
 # escreve por ultimo. O numero no nome fixa a ordem na tela do GHL.
+# A pasta 5 nao e criada: e a PASTA_GRANDE renomeada. Ver METADE DO ARRASTO, acima.
+PASTA_MAQUINA = "5 · NAO MEXER — a maquina escreve"
+
 PASTAS = [
     "1 · SDR PREENCHE A CADA TENTATIVA",
     "2 · SDR PREENCHE NA QUALIFICACAO",
@@ -217,10 +242,32 @@ def pastas_existentes() -> dict:
 
 
 def criar_pastas() -> dict:
-    """Cria as pastas que faltam. Idempotente: compara por nome antes."""
+    """Renomeia a pasta grande e cria as outras quatro. Idempotente.
+
+    Idempotente de duas formas, porque sao duas operacoes diferentes: as quatro novas
+    sao comparadas por nome antes de criar, e o rename so acontece se a pasta grande
+    ainda nao se chamar PASTA_MAQUINA.
+    """
     existentes = pastas_existentes()
     print("pastas que já existem: %s" % (sorted(existentes) or "nenhuma"))
+
+    # 1) A pasta 5 e a grande renomeada — 29 dos 30 campos da maquina ja estao nela.
+    atual = {v: k for k, v in existentes.items()}.get(PASTA_GRANDE)
+    if atual == PASTA_MAQUINA:
+        print("  = %-38s já é a pasta grande (%s)" % (PASTA_MAQUINA, PASTA_GRANDE))
+    else:
+        pedir("PUT", "/custom-fields/folder/%s" % PASTA_GRANDE,
+              {"name": PASTA_MAQUINA, "locationId": LOC})
+        print("  ~ pasta grande %s renomeada" % PASTA_GRANDE)
+        print("      de:   %s" % (atual if atual else "(nome anterior não lido)"))
+        print("      para: %s" % PASTA_MAQUINA)
+        print("      29 campos da máquina ficaram onde estão — zero arrasto.")
+        existentes[PASTA_MAQUINA] = PASTA_GRANDE
+
+    # 2) As outras quatro nascem vazias e o arrasto as enche.
     for nome in PASTAS:
+        if nome == PASTA_MAQUINA:
+            continue
         if nome in existentes:
             print("  = %-38s já existe (%s)" % (nome, existentes[nome]))
             continue
@@ -234,7 +281,9 @@ def criar_pastas() -> dict:
 
 def plano(pastas: dict | None = None) -> None:
     """Imprime o mapa de arrasto, agrupado e na ordem de maior alívio primeiro."""
-    cheios = {c["nome"]: c["preenchidos"] for c in snapshot()["campos"]}
+    campos_snap = snapshot()["campos"]
+    cheios = {c["nome"]: c["preenchidos"] for c in campos_snap}
+    onde = {c["nome"]: c["pastaAtual"] for c in campos_snap}
     print()
     print("=" * 74)
     print("MAPA DE ARRASTO — o que a tela ainda precisa fazer")
@@ -246,15 +295,26 @@ def plano(pastas: dict | None = None) -> None:
     print()
     print("Comece pela pasta 1: sao 3 campos e e o que a SDR toca a cada ligacao.")
     print("Se parar depois dela, o dia da SDR ja fica limpo.")
+    total = 0
     for i, nome in enumerate(PASTAS, 1):
         campos = MAPA.get(nome) or []
         alvo = (" -> id %s" % pastas[nome]) if pastas and pastas.get(nome) else ""
+        # Na pasta da maquina, campo que ja esta na pasta grande nao se arrasta:
+        # a pasta grande E essa pasta, renomeada.
+        mover = [c for c in campos
+                 if not (nome == PASTA_MAQUINA and onde.get(c) == PASTA_GRANDE)]
+        total += len(mover)
         print()
-        print("%d) %s  (%d campos)%s" % (i, nome, len(campos), alvo))
-        for c in campos:
+        print("%d) %s  (%d campos, %d a arrastar)%s"
+              % (i, nome, len(campos), len(mover), alvo))
+        if nome == PASTA_MAQUINA:
+            print("      esta pasta É a pasta grande renomeada: %d dos %d campos"
+                  % (len(campos) - len(mover), len(campos)))
+            print("      já estão dentro dela e NÃO se arrastam.")
+        for c in mover:
             print("      %3d/64  %s" % (cheios.get(c, 0), c))
     print()
-    print("total de campos a mover: %d" % sum(len(v) for v in MAPA.values()))
+    print("total a arrastar: %d   (seriam 56 sem renomear a pasta grande)" % total)
 
 
 def main() -> int:

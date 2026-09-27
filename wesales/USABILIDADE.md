@@ -512,6 +512,27 @@ O `Motivo da desqualificação` aparecia nas pastas 1 e 3 da versão antiga, nas
 closer, pela picklist (`Sem fit`, `Sem budget`, `Timing errado`…) e pelo par com
 `Data do veredito do closer`. Ficou só na pasta do closer.
 
+### Metade do arrasto sai de graça — renomeando, não movendo
+
+Mover campo não sai por API, mas **renomear pasta sai**: `PUT /custom-fields/folder/{id}`,
+corpo `{name, locationId}` — conferido no spec, não suposto (a §2.12 existe por eu ter
+suposto uma vez).
+
+E a pasta única `gabsbU3jsUN7oIXCnYab` já contém **29 dos 30 campos que a máquina
+escreve**. Então a pasta 5 não precisa ser criada e povoada: ela **é** essa pasta, com
+outro nome. Os 29 campos ficam exatamente onde estão.
+
+| | arrastos na tela |
+|---|---|
+| criar 5 pastas vazias e mover tudo | **56** |
+| renomear a grande e criar 4 | **27** |
+
+Os 27 são 3 + 17 + 3 + 3, mais `Conexões WhatsApp` sozinho — o único campo da máquina
+que mora fora da pasta grande (`vCqedGd185RiQKNlU870`).
+
+As duas pastas pequenas ficam vazias depois do arrasto e **não são apagadas**: pasta
+vazia não machuca ninguém, e apagar exigiria o verbo que a regra 1 proíbe.
+
 O mapa está no código, não só aqui: `wesales/tools/pastas_de_campo.py`. O modo `--plano`
 **confere** o mapa contra o snapshot da conta e falha se algum campo sobrar, faltar ou
 aparecer em duas pastas — os 56 fecham. Isso roda na Action sem segredo nenhum, antes de
