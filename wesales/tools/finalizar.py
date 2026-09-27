@@ -393,6 +393,61 @@ def verificar() -> int:
 # Ferramenta de diagnostico que sobrevive ao diagnostico passa a mentir sobre o estado.
 
 
+FORM_ID = "DNz54AK2ryRSW7uCuznP"
+# Os cinco campos que o SDR NAO deve perguntar de novo (ASSOCIACOES-DE-CAMPO.md §3):
+# os tres que o anuncio responde e os dois derivados deles.
+FORM_ESPERADOS = {
+    "2LnUD4KYSGkIBwiUdzl3": "Urgência",
+    "OJQEsl5dV37pfVY2sIaB": "Necessidade",
+    "bQithNwReQIBGlZBaNlI": "Investimento mensal em anúncios",
+    "lAqbaJE9K4LDkq3t2zzc": "Prazo",
+    "x5JUx0YCWaZmH3Q85psI": "Investe em anúncios",
+}
+
+
+def formulario() -> int:
+    """Le o formulario de qualificacao que o dono criou e confere os 5 campos.
+
+    A API publica nao expoe campo de formulario (FormsParams e so id/name). Mas o
+    widget publico embute o schema no HTML, e o runner alcanca o dominio que o
+    conteiner nao alcanca. Entao: baixa o widget, procura os ids dos 56 campos e
+    imprime os que aparecem.
+
+    Sai 1 se faltar algum dos 5 que o SDR nao deve perguntar de novo. Sucesso e a
+    confirmacao; falha me entrega o que falta. Mesmo padrao do --verificar.
+    """
+    import re as _re
+    url = "https://api.leadconnectorhq.com/widget/form/" + FORM_ID
+    print("=" * 74)
+    print("FORMULARIO DE QUALIFICACAO — %s" % FORM_ID)
+    print("=" * 74)
+    req = urllib.request.Request(url, method="GET")
+    req.add_header("User-Agent", UA)
+    with urllib.request.urlopen(req, timeout=60) as r:
+        html = r.read().decode("utf-8", errors="replace")
+    print("  widget baixado: %d bytes" % len(html))
+    with open(SNAPSHOT, encoding="utf-8") as fh:
+        campos = json.load(fh)["campos"]
+    presentes = [(c["id"], c["nome"]) for c in campos if c["id"] in html]
+    print("\n  campos personalizados do CRM encontrados no formulario: %d" % len(presentes))
+    for i, n in presentes:
+        marca = "  <-- ja respondido pelo anuncio/derivado" if i in FORM_ESPERADOS else ""
+        print("     %s  %s%s" % (i, n, marca))
+    # rotulos visiveis, para conferir a ordem e o texto que o SDR le
+    rotulos = _re.findall(r'"label"\s*:\s*"([^"]{2,80})"', html)
+    if rotulos:
+        print("\n  rotulos na ordem em que aparecem (%d):" % len(rotulos))
+        for r_ in rotulos[:60]:
+            print("     - %s" % r_)
+    faltam = [n for i, n in FORM_ESPERADOS.items() if i not in html]
+    print("\n  dos 5 que o SDR nao deve perguntar de novo, FALTAM no formulario: %s"
+          % (faltam or "nenhum"))
+    if faltam:
+        print("  Sem eles no formulario, o SDR nao ve a resposta do anuncio na hora")
+        print("  da ligacao — e pergunta de novo o que o lead ja respondeu.")
+    return 1 if faltam else 0
+
+
 def main() -> int:
     a = sys.argv[1:]
     user = None
@@ -406,6 +461,8 @@ def main() -> int:
         return donos(user)
     if "--verificar" in a:
         return verificar()
+    if "--formulario" in a:
+        return formulario()
     print(__doc__)
     return 0
 

@@ -29,6 +29,7 @@ on:
           - verificar
           - filas
           - filas-aplicar
+          - formulario
       user_id:
         description: "So para modo=donos: id do usuario que recebe os leads"
         type: string
@@ -90,6 +91,10 @@ jobs:
         env:
           GHL_PIT: ${{ secrets.GHL_PIT }}
         run: python wesales/tools/atuador_filas.py --aplicar
+
+      - name: Formulario de qualificacao (confere os 5 campos do anuncio)
+        if: ${{ inputs.modo == 'formulario' }}
+        run: python wesales/tools/finalizar.py --formulario
 
       - name: Verificacao (rele a conta e prova)
         if: ${{ inputs.modo == 'verificar' }}
