@@ -60,26 +60,44 @@ Para o closer, duas listas e nada mais:
 | **`1 · AGENDA DE HOJE`** | agendamento hoje, status `Confirmed` |
 | **`2 · VEREDITO PENDENTE`** | compareceu e `Reunião foi qualificada` vazio |
 
-## 3. A fila do dia e o Power Dialer
+## 3. A fila do dia e o Power Dialer — RESOLVIDO em 27/09
 
-**O que eu não sei, e não vou fingir que sei:** não alcanço a tela do Power
-Dialer, então não sei se ele recebe **lista inteligente** ou exige **tag**. Os
-dois desenhos, para quem estiver na tela escolher:
+Pesquisado e fechado: **o Power Dialer do GHL não recebe lista inteligente
+direto.** Ele é alimentado por um **workflow com passo `Manual Action: Call`**, e
+o SDR o roda em `Conversas → Ações Manuais → escolher o workflow → Start`. O
+dialer abre cada contato, disca, espera a classificação e vai para o próximo.
+Sequencial, não preditivo. Há pedido aberto na base de ideias da HighLevel para o
+dialer aceitar smart list — o que confirma que hoje não aceita.
 
-**Se aceita lista inteligente** (o esperado): a entrada é `3 · FILA DO DIA`,
-filtrando `Prioridade` > 0 e ordenando desc. **Nada a criar** — o
-`recalcula_prioridade.py` já mantém a `Prioridade` correta, e o 0 já tira da fila
-quem está em DND, `pausado` ou `nao-perturbe`.
+Duas formas de popular a fila:
 
-**Se exige tag:** uma tag só, **`fila-do-dia`**, mantida pelo mesmo runner —
-`Prioridade` >= 3 põe, o resto tira. Idempotente, uma escrita por lead que
-mudou. É a única coisa neste documento que cria algo, é condicional, e precisa de
-linha `[x]` no `APROVADO.md`.
+1. **Manual, zero coisa nova:** abrir `3 · FILA DO DIA`, selecionar todos,
+   `Adicionar ao Workflow` → o workflow do dialer. Um clique a mais por dia e
+   **não cria nada**. É o caminho para começar amanhã.
+2. **Automático, por gatilho `Tag Added`:** uma tag só, **`fila-do-dia`**,
+   aplicada pelo runner diário. O workflow do dialer tem gatilho
+   `Tag Added: fila-do-dia` e um único nó, `Manual Action: Call`. O SDR abre
+   Ações Manuais e aperta Start — nada para escolher, nada para filtrar.
 
-**O que NÃO fazer:** tag diária por lead sem o campo numérico atrás. Em 300 leads
-são ~600 escritas/dia, e todo lead cuja remoção falha fica com a tag de ontem —
-o SDR liga para quem não devia e para de confiar na lista. Esse apodrecimento já
-tem nome no projeto (`rotina-limpar-tarefas.md`).
+**A opção 2 justifica a tag que este documento antes evitava**, e por um motivo
+diferente do que eu supunha: a tag **não é a lista**, é o **gatilho de entrada no
+dialer**. Sem ela não há como o lead entrar na fila sozinho.
+
+**Detalhes de desenho que não são opcionais, se for a opção 2:**
+
+- O runner (`recalcula_prioridade.py`) põe `fila-do-dia` em quem tem
+  `Prioridade` >= 3 e **remove** de quem caiu abaixo. Remover importa: tag que
+  fica é lead discado sem motivo.
+- O workflow do dialer precisa de **`Allow Re-entry` LIGADO**, senão o lead
+  re-etiquetado amanhã não reentra e desaparece da fila para sempre.
+- Precisa de linha `[x]` no `APROVADO.md` antes — é tag nova e a rotina não se
+  autoriza.
+- A `Prioridade` continua sendo a ordem dentro da fila; a tag é só o portão de
+  entrada. As duas coisas têm papéis diferentes e nenhuma substitui a outra.
+
+**Recomendação:** começar pela opção 1 (manual, nada a criar, funciona amanhã) e
+migrar para a 2 quando o volume incomodar. Trocar um clique diário por uma tag
+nova só se paga quando o clique diário estiver realmente pesando.
 
 ## 4. Quatro pastas de campo, em vez de uma de 53
 
