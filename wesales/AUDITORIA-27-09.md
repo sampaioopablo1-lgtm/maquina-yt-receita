@@ -14,7 +14,7 @@ personalizado** da subconta `1D53YTI9C7oIMBavcQxV`, lidos um a um pela API.
 > escopo. A varredura do `vigia` roda **sem escopo** e vai estabelecer o número
 > real de campos mortos na primeira rodada com rede.
 >
-> **Dez dos 45 já estão desmentidos por leitura direta** (27/09, escrevendo a
+> **Dezoito dos 45 já estão desmentidos por leitura direta** (27/09, escrevendo a
 > `Prioridade` lead por lead), e vale listar para ninguém repetir o erro:
 >
 > | campo | vivo em | valor |
@@ -29,12 +29,26 @@ personalizado** da subconta `1D53YTI9C7oIMBavcQxV`, lidos um a um pela API.
 > | `Total de ligações` | Teste Não Atende | 2 |
 > | `Tentativas telefone` | Teste Não Atende | 2 |
 > | `1ª tentativa em` | Teste Não Atende | `22/09/2026 22:57` |
+| `Prazo` | Daniel e Genilson | `Pra ontem` |
+| `Decisor` | Daniel e Genilson | `Sim` |
+| `Budget` | Daniel e Genilson | `Tem` |
+| `Tem time comercial` | Daniel e Genilson | `+10` |
+| `Clientes novos por mês` | Daniel e Genilson | `+101` |
+| `Investe em anúncios` | Daniel e Genilson | `Sim` |
+| `Quem atende os leads` | Daniel e Genilson | `SDR` |
+| `Data agendado` | Daniel e Genilson | `2026-09-19` |
 >
 > A causa do erro foi dupla: escopo restrito a `CONECTAR` **e** um fixture
 > montado só com os contatos que eu havia lido — a Rafaela e o `Teste Não
 > Atende` estão em `CONECTAR` e entraram como se tivessem campo nenhum. Lição:
 > auditoria de valor precisa ler **todos** os contatos do escopo, não os que
 > calharam de estar à mão.
+>
+> **O número "45 campos mortos" estava errado e não deve ser citado.** Com 18
+> desmentidos, o real é no máximo 27 — e como os 18 apareceram só porque eu li
+> contatos de outras etapas por outro motivo, é razoável esperar que mais caiam
+> quando a varredura rodar sobre a base inteira. O que fica de verdade deste
+> achado é o método, não o número.
 
 Não é auditoria de estrutura — as cinco que já existem fazem isso. Esta pergunta
 uma coisa só: *o valor gravado neste campo é um valor que este campo aceita?*
@@ -183,3 +197,38 @@ para ~70/dia e cabe; com 9, dá 90 e fica no limite.
 tarefa.** Enquanto `Resultado da tentativa` estiver vazio em 38 de 38, não
 existe fila, não existe roteamento e não existe nota de qualificação para
 ordenar nada.
+
+---
+
+## Achado de 27/09 (madrugada): dois leads reais parados 8 dias em `NEGOCIAR`
+
+`Daniel` (`c0uQwq5EqYM0vA8SGA0W`) e `genilson | Bombeiro`
+(`R4BT0nzgkmTVxD1Mu6Qe`), os dois leads reais do Facebook, os dois com
+`Data agendado` = **19/09**, `Prioridade` 5, tag `etapa-negociar` — e **nenhum
+toque desde 19/09** (`updatedAt` da oportunidade às 09:41 e 09:53 daquele dia).
+
+Os dois têm o conjunto BANT e de fit completo, que pela tabela da §9.1 soma:
+
+| campo | valor | pontos |
+|---|---|---|
+| `Decisor` | Sim | 15 |
+| `Budget` | Tem | 15 |
+| `Prazo` | Pra ontem | 15 |
+| `Tem time comercial` | +10 | 10 |
+| `Clientes novos por mês` | +101 | 10 |
+| `Investe em anúncios` | Sim | 13 |
+| `Investimento mensal` | Acima de 10k | 12 |
+| `Quem atende os leads` | SDR | 3 |
+| | **total** | **93 — faixa A** |
+
+Faixa A manda `Prioridade` 5, tag `fila-quente` e aviso ao closer sênior.
+**`Nota de qualificação` está ausente nos dois** — o defeito que a Tabela I
+diagnosticou em 21/09 ("Math com campo não selecionado: o fluxo passou pelo nó 4
+e não escreveu"). Os dois melhores leads da base ficaram oito dias sem nota, sem
+`fila-quente` e sem alerta.
+
+**Ressalva registrada:** as respostas de qualificação dos dois são **idênticas
+campo por campo**, o que pode indicar preenchimento de teste do formulário
+`Qualificação SDR` em 19/09 e não duas conversas reais. Se for teste, o 93 não é
+confiável. Não dá para distinguir pela API — precisa de quem estava na operação
+naquele dia. Nada foi escrito nesses dois contatos à espera dessa resposta.
