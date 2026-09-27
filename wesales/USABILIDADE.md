@@ -528,3 +528,69 @@ mente). Se não, então a §2 do `ESTADO` precisa dizer que travar o canal **nã
 trava a régua, e a janela em `days: [2]` volta a ser a única alavanca de verdade
 — porque é a única que para o motor, em vez de calar a boca dele.
 
+
+## 8. O que os dumps publicados dizem — e o freio de capacidade que não freia (27/09 10:05)
+
+Os 128 dumps de workflow do branch `claude/amazing-johnson-mclksg` (último commit
+`875d8d7`, auditoria de 23/09) carregam `status` e `version`. Ler isso é offline,
+barato, e testa a hipótese da §0 sem depender de tela.
+
+### Duas coisas que a §0 supunha e que agora estão eliminadas
+
+| suposição | o que o dump diz | efeito na §0 |
+|---|---|---|
+| a cadência estaria em rascunho | `Cadência 12x30`: **`status: published`, version 35** · `Cadência Inbound`: **`published`, version 21** | eliminada. Em 23/09 as duas já escutavam; os 38 foram promovidos em **24/09**, depois disso |
+| faltariam nós (tag, dono, tarefa) | o dump da Inbound tem `add_contact_tag` com `fila-quente`/`fila-tel`/`fila-wa`/`toque`, um `assign_user` atrás do portão `Sem dono?`, e nós `task-notification` | eliminada. A máquina publicada contém tudo o que o documento promete |
+
+O cabeçalho da `IMPLEMENTACAO-WORKFLOWS.md` ainda diz "W11 · Cadência 12x30 —
+**rascunho, 0 inscritos**". Contra o dump de 23/09, esse cabeçalho está
+**desatualizado** — vale corrigir na fonte quando alguém mexer nela.
+
+**A §0 fica mais estreita e continua aberta.** Não é "não publicado" nem "nó
+faltando". O que sobra: ou a inscrição não aconteceu na mudança de etapa em lote,
+ou a execução morreu num portão que o dump não deixa rastrear (as ramificações
+`if_else` guardam a continuação fora do `next`, então o grafo não se percorre de
+fora). Quem distingue continua sendo **a contagem de contatos inscritos na tela da
+`Cadência Inbound`** — segue sendo a pergunta nº 1, e eu não vou fingir que
+respondi.
+
+Vale registrar que o próprio projeto já documentou este modo de falha: o item 6 do
+checklist de go-live (§3.6) diz *"Só então promover o estoque de `NOVO LEAD` para
+`CONECTAR` — promover antes de publicar a 12x30 manda os leads para um evento que
+ninguém escuta"*, citando o `APRENDIZADOS-CRM.md` de 21/09. Já aconteceu uma vez,
+e por isso a ordem está escrita. Não afirmo que é a causa **desta** vez — os dumps
+dizem que em 23/09 havia quem escutasse.
+
+### ACHADO NOVO: o freio de capacidade está pendurado numa tag que ninguém aplica
+
+Dentro da `Cadência Inbound` publicada, o portão **`TI1 · SDR lotado?`** testa uma
+condição exata:
+
+```
+conditionType: contact_detail · conditionSubType: tags
+conditionOperator: index-of-true · conditionValue: ["sdr-lotado"]
+```
+
+Se a tag estiver presente, o fluxo cai num laço de `Wait 1 Hours` e **não cria a
+tarefa**. É o freio que segura a fila quando o SDR passa da capacidade.
+
+**A tag `sdr-lotado` não está em nenhum dos 64 contatos da conta.** Nem no fixture
+`ZZ TESTE ESTRUTURA`, que carrega as outras 20.
+
+As duas leituras possíveis, e as duas incomodam:
+
+- **Ninguém aplica a tag.** Então o portão sempre passa, o freio é **inerte**, e a
+  meta da §3.5 "tarefas abertas/dia ≤ 100" não tem mecanismo. Quando a fila
+  estourar de verdade — que é o cenário dos 10 leads/dia — nada segura.
+- **O `Monitor de Capacidade` (W18) aplicaria a tag**, mas a `IMPLEMENTACAO-WORKFLOWS.md`
+  descreve o W18 como quem **avisa o gestor às 11:00 e 15:00**, não como quem
+  marca contato. Se for esse o desenho, o portão espera uma tag que o desenho
+  nunca produz.
+
+Em qualquer das duas, é o mesmo padrão da §7: peça existe, está publicada, e não
+recebe insumo. E aqui o custo aparece **exatamente quando a operação der certo** —
+o freio falta na hora do volume, não agora.
+
+**O que decide, e é leitura, não tela:** abrir o dump do `Monitor de Capacidade`
+(`wesales/workflows-json/Monitor de Capacidade.json`, no mesmo branch) e ver se
+ele tem um `add_contact_tag` com `sdr-lotado`. Fica para a próxima rodada.
