@@ -148,101 +148,128 @@ pessoa.
 
 ---
 
-## 4. O formulário de qualificação e agendamento, como ele deve ser
+## 4. O formulário virou o **Painel SDR** — e por quê (27/09 16:50)
 
-Ordem e comportamento. O que está em **cinza** a SDR lê, não digita.
+O dono pediu, em 27/09 às 16:00: pré-preencher com o que veio do anúncio (o SDR só
+confirma), ordem BANT (Necessidade, Tempo, Investimento, Autoridade), agenda do closer
+na mesma tela com a disponibilidade real, closer recebendo tudo no card e na descrição
+do evento, seletor do SDR puxado da lista de usuários do CRM. E: *"estude a fundo a API,
+para que eu não precise fazer nada manual"*.
+
+**Estudei o repositório oficial da API (`GoHighLevel/highlevel-api-docs`, clonado).** O
+resultado é binário:
+
+| o formulário nativo (`DNz54AK2ryRSW7uCuznP`) | pela API |
+|---|---|
+| editar campos, ordem, grupos | **não existe rota** — `forms.json` tem só `GET /forms/`, `GET /forms/submissions`, `POST /forms/upload-custom-files` |
+| ler o contato ao abrir e pré-preencher | o widget não lê contato; abre vazio |
+| mostrar a agenda do closer | o formulário não tem elemento de calendário |
+| listar usuários do CRM num campo | não tem |
+
+| o que o dono pediu | rota da API que faz | conferida no spec |
+|---|---|---|
+| ler o contato com os campos do anúncio | `GET /contacts/{id}` | sim |
+| lista de usuários para o seletor de SDR | `GET /users/?locationId=` | sim |
+| horários livres do closer | `GET /calendars/{id}/free-slots?startDate&endDate&timezone` | sim (janela ≤ 31 dias) |
+| criar a reunião já confirmada, com tudo na descrição | `POST /calendars/events/appointments` com `description`, `appointmentStatus=confirmed`, `toNotify=true` | sim |
+| gravar os campos BANT no contato | `PUT /contacts/{id}` `customFields[{id, field_value}]` | sim |
+| tudo no card do closer | `POST /contacts/{id}/notes` | sim |
+| campo novo `SDR responsável` | `POST /locations/{id}/customFields` com `model=contact` | sim — **a rota antiga aceita contato**; a nova (`/custom-fields/`) recusa (lição 2.19). Corrijo o que escrevi na §4-BIS: campo de contato **pode** ser criado por API; **pasta** continua não |
+
+Então a resposta honesta ao pedido é: **o formulário nativo não chega lá por nenhum
+caminho; uma página sobre a API chega em todos.** Construí a página.
+
+### O Painel SDR — o que é
+
+`supabase/functions/painel-sdr/` (Edge Function, Deno; `painel.html` é a tela). Endereço:
 
 ```
-┌─ JÁ RESPONDIDO PELO LEAD NO ANÚNCIO — confira, não pergunte ──────────┐
-│  Urgência                          (cinza, leitura)                   │
-│  Necessidade                       (cinza, leitura)                    │
-│  Investimento mensal em anúncios   (cinza, leitura)                    │
-└───────────────────────────────────────────────────────────────────────┘
-┌─ DERIVADO DO ANÚNCIO — corrija só se o lead disser outra coisa ───────┐
-│  Prazo                             (pré-preenchido, editável)          │
-│  Investe em anúncios               (pré-preenchido, editável)          │
-└───────────────────────────────────────────────────────────────────────┘
-┌─ PERGUNTE AGORA — é o que decide a reunião ──────────────────────────┐
-│  Budget                                                                │
-│  Decisor                                                               │
-│  Dor principal          (a Necessidade acima é o gancho da pergunta)   │
-│  Tem time comercial                                                    │
-│  Clientes novos por mês                                                │
-│  Quem atende os leads                                                  │
-│  Canal principal de venda                                              │
-│  Usa CRM                                                               │
-│  Já teve agência?                                                      │
-│  Plataformas de anúncio   (só aparece se Investe em anúncios ≠ Nunca)  │
-│  Segmento · Site · Instagram · Empresa                                 │
-└───────────────────────────────────────────────────────────────────────┘
+https://cscczluzpblzhvojxanp.supabase.co/functions/v1/painel-sdr
 ```
 
-**Por que a ordem é essa:** a SDR abre o formulário já sabendo o que o lead quer, quando
-quer e quanto gasta. Ela entra na ligação com contexto em vez de começar por perguntas que
-a pessoa já respondeu para o anúncio — que é a forma mais rápida de queimar a paciência de
-um lead que pagou clique para ser atendido.
+Entra-se com um **PIN** (o token do GHL fica no servidor; nunca vai ao navegador). O SDR
+escolhe o próprio nome no topo — **lista viva de `GET /users/`**, não uma lista digitada.
 
-**O que falta para isso existir na tela:** o formulário em si. `apps/forms.json` do spec
-oficial tem apenas `GET /forms/`, `GET /forms/submissions` e
-`POST /forms/upload-custom-files` — **não existe rota para criar ou editar formulário**.
-Então a montagem é tela, e esta seção é a especificação exata dela.
+**Tela, da esquerda para a direita:**
 
-O que **já está feito** e faz metade do trabalho sem formulário nenhum: os 3 campos do
-anúncio e os 2 derivados estão preenchidos no contato, então a SDR que abrir o registro já
-vê tudo. O agrupamento em pastas (§4 do `USABILIDADE.md`) é o que coloca isso em blocos
-legíveis — e depende da API interna, não do dono.
+1. **Contato** — busca por nome/telefone/e-mail, ou o botão **Minha fila de hoje**, que
+   puxa a tag `fila-sdr` (a mesma que o discador puxa: uma fila, dois lugares).
+2. **Resultado da ligação (sem atendimento)** — um botão por opção do vocabulário de
+   `Resultado da tentativa` (`Não atendeu`, `Caixa Postal`, `Pediu retorno` com data/hora,
+   `Número errado`, `Não ligar`, `Desqualificado`). Um clique grava o campo, o
+   `Pós-ligação v3` dispara, e o painel abre o próximo da fila. **É o elo fraco da rotina
+   do discador, fechado.**
+3. **O formulário, em grupos BANT** — natureza de cada pergunta identificada:
 
----
+| grupo | campo | natureza | origem |
+|---|---|---|---|
+| **N · Necessidade** | Necessidade | o problema declarado | **anúncio** — mostrado em caixa amarela "respondeu no anúncio", não se pergunta; link *corrigir* se o SDR ouvir diferente |
+| | Dor principal | o problema nas palavras do lead | SDR |
+| | Clientes novos por mês · Quem atende os leads · Tem time comercial | tamanho e forma da operação (a nota lê os três) | SDR |
+| | *(+ mais detalhes, recolhido)* Canal principal de venda · Usa CRM · Já teve agência? · Experiência com agência · Instagram · Site | contexto; não trava a ligação | SDR, se der tempo |
+| **T · Tempo / urgência** | Urgência | quando quer resolver | **anúncio** — caixa amarela |
+| | Prazo para começar | vocabulário fechado da nota | derivado do anúncio (§3), editável |
+| **B · Investimento** | Investimento mensal em anúncios | quanto já gasta | **anúncio** (pré-selecionado; editável porque há dois vocabulários) |
+| | Investe em anúncios hoje? | derivado (§3) | pré-selecionado, editável |
+| | Plataformas de anúncio | onde gasta | SDR |
+| | Budget para o projeto | tem / precisa aprovar / não tem | SDR |
+| **A · Autoridade** | Decisor | sim / influencia / não decide | SDR |
+| | Observações para o closer | texto livre | SDR |
 
-## 4-BIS. O formulário existe — `DNz54AK2ryRSW7uCuznP` — e o que a leitura dele mostrou
+   `Empresa` e `Segmento` ficam no cabeçalho do contato.
 
-**Correção minha:** eu escrevi na §4 que o formulário "ainda não existe como formulário".
-Errei sobre o estado, não sobre a rota: continua não saindo por API, mas o dono já o
-montou na tela. Li de duas formas em 27/09 15:50 — o widget baixado pelo runner da Action
-(19 campos do CRM presentes) e **uma submissão de teste real** do dono, que mostra o que o
-formulário efetivamente escreve.
+4. **Agenda do closer** — calendário `Reunião com closer` (`3uNQFjCEDe7b4gKZJuOZ`): 7 dias de
+   horários livres reais, por `free-slots`, fuso `America/Sao_Paulo`. O SDR clica no
+   horário combinado com o lead.
+5. **Salvar** ou **Salvar e agendar** — em ordem:
+   1. `PUT /contacts` com os campos + `Qualificação = SDR` + `SDR responsável = <nome>` +
+      `Resultado da tentativa = Atendeu` (caixa marcada por padrão — dispara o
+      `Pós-ligação v3`, que tira o lead das cadências e zera os contadores certos);
+   2. `POST /calendars/events/appointments` **confirmado**, título *"Reunião de diagnóstico —
+      Nome (Empresa)"*, **descrição = o BANT inteiro** (bloco por grupo + observações), o
+      que dispara o `Pós-agendamento v2` (move para REUNIÃO DE DIAGNÓSTICO, calcula a
+      nota, atribui dono, notifica o closer 30 min antes — tudo lido do roteiro publicado);
+   3. `POST /contacts/{id}/notes` com a mesma descrição — **o closer abre o card e vê
+      tudo sem abrir o evento.**
 
-### O que o formulário escreve (17 campos, pela submissão)
+O painel **não** move etapa nem calcula nota: isso é dos workflows publicados, que
+continuam donos das regras. Ele só produz os dois eventos que eles já esperam. Nunca
+apaga contato, oportunidade ou lead.
 
-`Decisor` · `Já teve agência?` · `Experiência com agência` · `Budget` · `Segmento` ·
-`Investimento mensal em anúncios` · `Usa CRM` · `Plataformas de anúncio` · `Prazo` ·
-`Qualificação` · `Dor principal` · `Canal principal de venda` · `Tem time comercial` ·
-`Clientes novos por mês` · `Investe em anúncios` · `Quem atende os leads` · `Empresa`
-(+ `Site`, `Instagram` presentes no widget, vazios no teste).
+### O que está feito e o que está travado
 
-`Qualificação = SDR` é gravado pelo próprio formulário — bom: marca a origem.
+| | estado |
+|---|---|
+| código do painel (`index.ts`, `painel.html`, gerador) | no repositório |
+| Edge Function publicada no Supabase (`cscczluzpblzhvojxanp`) | **no ar**, versão 1 |
+| tabela `config` + PIN | criados |
+| **token do GHL dentro do painel** | **NÃO** — ver abaixo |
+| campo `SDR responsável` no CRM | criado pela Action no mesmo passo do token → **pendente** |
 
-### Três problemas, do mais grave ao menor
+**Por que o token não entrou.** Primeira tentativa: gravar por PostgREST no projeto
+`maquina-yt-dark` → **HTTP 402** *"restricted due to exceed_storage_size_quota"* (run
+36333419041) — o projeto está com o gateway bloqueado por cota de storage, o mesmo
+episódio de 25/08 documentado em `docs/publicar-na-virada-da-cota.md`. Mudei o painel
+para o projeto saudável e criei a rota `POST /api/instalar` (aceita o token **uma única
+vez**, e só se o GHL o reconhecer). A escrita do token por essa rota, a partir da Action,
+foi **bloqueada pela política de segurança da sessão** ("gravação de segredo em serviço
+externo"). Não vou contornar. Duas saídas, qualquer uma leva 1 minuto do dono:
 
-**1. Preenchido pelo link público, ele CRIA LEAD NOVO — e o lead entra na cadência.**
-A submissão de teste gerou o contato `i6AqBJAZeMS2Rg5xhYpI`: `source: Qualificação SDR`,
-tags **`cad-inbound` + `etapa-novo-lead`**, telefone diferente, sem dono. Ou seja: a Porta
-de Entrada tratou a qualificação como lead de anúncio. Se a SDR preencher assim durante a
-ligação, cada qualificação vira um **lead duplicado, órfão, e em cadência** — a máquina
-passaria a ligar de volta para quem a SDR acabou de atender.
+1. **Autorizar** a Action a fazer isso (regra de permissão na sessão) — aí
+   `wesales-finalizar` modo `formulario` entrega o token, cria o campo, sonda e prova
+   `/api/saude`.
+2. **Fazer à mão, uma vez:** no Supabase → projeto *sampaioopablo1-lgtm's Project* →
+   Table editor → `config` → nova linha `chave = ghl_pit`, `valor = {"token":"<o PIT>"}`.
+   Depois abrir `<endereço>/api/saude`: deve responder `"ok":true` com o número de usuários.
 
-**Regra operacional, sem exceção:** o formulário é aberto **de dentro do contato** (aba
-Formulários/ação no registro), nunca pelo link público. Aberto no contexto do contato, o
-GHL preenche e **atualiza o mesmo registro**. O link público é para teste, e só.
+Sem o token o painel abre, pede o PIN e responde *"ghl_pit nao configurado"*. Nada
+quebra no CRM.
 
-**Cobertura do teste:** o contato `i6AqBJAZeMS2Rg5xhYpI` recebeu `dnd=true` +
-`nao-perturbe` + `zz-teste-formulario` às 15:50, para a máquina não discar o dono. Não
-foi excluído (regra 1).
+### O formulário nativo `Qualificação SDR`
 
-**2. Pergunta de novo três coisas que o anúncio já respondeu.** `Investimento mensal`,
-`Prazo` e `Investe em anúncios` estão no formulário como perguntas — e são exatamente os
-três que a §3 diz para **não** perguntar. Faltam `Urgência` e `Necessidade`, que são as
-respostas do anúncio que a SDR deveria **ver**. O formulário hoje faz o inverso do pedido.
-
-**Conserto (tela, no editor do formulário):** adicionar `Urgência` e `Necessidade` no
-topo, como campos **somente leitura**; mover `Investimento mensal`, `Prazo` e `Investe em
-anúncios` para o mesmo bloco, pré-preenchidos e editáveis. Aberto de dentro do contato,
-esses 5 já chegam preenchidos.
-
-**3. Dois vocabulários no mesmo campo.** O formulário grava `Investimento mensal` com a
-picklist do CRM (`1k a 5k`); o anúncio grava texto livre (`Abaixo de 5k`,
-`Não invisto nada ainda`). O campo passa a ter dois dialetos conforme a origem — mais um
-motivo para a §9.1 ler por `Contains` (opção B do G-04), que aceita os dois.
+Não precisa ser apagado (é do dono e não custa nada), mas **não deve ser usado**: pelo
+link público cria lead novo (§4-BIS) e não faz nada do que está acima. A rotina do SDR
+passa a ser: discador na aba `Fila de ligações` + painel aberto ao lado.
 
 ## 5. O que ainda está errado na origem, e não dá para consertar daqui
 

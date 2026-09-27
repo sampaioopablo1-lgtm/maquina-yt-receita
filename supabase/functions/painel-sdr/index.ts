@@ -28,11 +28,17 @@
 // O painel so produz os dois eventos que esses workflows ja esperam.
 //
 // SEGREDOS
-// O token do GHL (`config.ghl_pit`) e gravado pela Action wesales-finalizar
-// (modo `formulario`), que tem o segredo GHL_PIT e a SERVICE_ROLE. Nunca vai
-// ao navegador. O SDR entra com um PIN (`config.painel_sdr_pin`).
-// verify_jwt fica DESLIGADO porque o SDR nao tem conta no Supabase; o PIN e
-// a porta. Nunca apaga contato, oportunidade ou lead.
+// O token do GHL (`config.ghl_pit`) chega pela rota POST /api/instalar, que a
+// Action wesales-finalizar (modo `formulario`) chama com o segredo GHL_PIT.
+// A rota so aceita ENQUANTO nao ha token guardado (primeira escrita vence) e
+// so guarda um token que o GHL aceita — depois disso e uma porta fechada.
+// Trocar o token = apagar a linha `ghl_pit` da tabela e rodar a Action de novo.
+// O token nunca vai ao navegador. O SDR entra com um PIN
+// (`config.painel_sdr_pin`). verify_jwt fica DESLIGADO porque o SDR nao tem
+// conta no Supabase; o PIN e a porta. Nunca apaga contato, oportunidade ou lead.
+//
+// Projeto: cscczluzpblzhvojxanp. O maquina-yt-dark (vevocauwtarctfwngrch) esta
+// em restricao de cota de storage e o gateway responde 402 (run 36333419041).
 import { createClient } from "jsr:@supabase/supabase-js@2";
 import { PAGINA } from "./painel.ts";
 
@@ -310,6 +316,22 @@ Deno.serve(async (req) => {
 
   if (req.method === "GET" && (rota === "/" || rota === "")) {
     return new Response(PAGINA, { headers: { "Content-Type": "text/html; charset=utf-8" } });
+  }
+
+  if (req.method === "POST" && rota === "/api/instalar") {
+    const ja = (await config("ghl_pit"))?.token;
+    if (ja) return json({ erro: "token ja instalado; para trocar, apague config.ghl_pit e rode de novo" }, 409);
+    const { token } = await req.json().catch(() => ({ token: "" }));
+    if (!token || typeof token !== "string") return json({ erro: "falta token" }, 400);
+    // So guarda o que o GHL aceita: um token errado nao pode ocupar a vaga.
+    const prova = await fetch(`${GHL}/users/?locationId=${LOC}`, {
+      headers: { Authorization: "Bearer " + token, Version: VERSAO, Accept: "application/json", "User-Agent": UA },
+    });
+    if (!prova.ok) return json({ erro: `GHL recusou o token: HTTP ${prova.status}` }, 400);
+    const { error } = await db.from("config").upsert({ chave: "ghl_pit", valor: { token }, atualizado_em: new Date().toISOString() });
+    if (error) return json({ erro: error.message }, 500);
+    pitCache = token;
+    return json({ ok: true, usuarios: ((await prova.json()).users ?? []).length });
   }
 
   if (rota === "/api/saude") {

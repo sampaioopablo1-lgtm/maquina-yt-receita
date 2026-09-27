@@ -217,3 +217,51 @@ de 5 segundos — um robô, não uma fila para o SDR conversar. Duas consequênc
 
 A aba **`Gatilhos`** está a um clique dessa tela. É a que pode automatizar o pós-ligação e
 tirar do SDR o dever de marcar `Resultado da tentativa` à mão. Vale mandar essa tela.
+
+---
+
+## Adendo de 27/09 16:40 — `Gatilhos` recebida, e dois ajustes na `Fila de ligações`
+
+O dono mandou a aba `Gatilhos` e a `Fila de ligações` com a `fila-sdr` puxada.
+
+### O que `Gatilhos` faz — e o que NÃO faz
+
+Três eventos, cada um com `Ativar workflow` + `Aplicar tag(s)`:
+
+| evento | quando dispara |
+|---|---|
+| `Ligação feita` | **você liga e o lead atende** |
+| `Ligação recebida` | o lead liga e você atende |
+| `Ligação perdida` | o lead liga e ninguém atende |
+
+**Não existe evento para "liguei e não atendeu"** — que é ~80% das discagens. Então o
+gatilho não substitui `Resultado da tentativa` para o caso mais comum. O elo fraco
+desta resposta (o SDR marcar o resultado à mão) foi fechado por outro caminho: o
+**Painel SDR** tem os botões `Não atendeu / Caixa Postal / Pediu retorno / Número errado /
+Não ligar / Desqualificado`, um clique cada, e ao salvar a qualificação marca `Atendeu`
+sozinho. Ver `ASSOCIACOES-DE-CAMPO.md` §4.
+
+**O que vale configurar em `Gatilhos` (2 minutos, tela do WeSales — a API não chega aqui):**
+
+| evento | `Aplicar tag(s)` | por quê |
+|---|---|---|
+| `Ligação feita` | `conectado-hoje` | é a tag que as cadências leem para **não** mandar mais toque no mesmo dia; o `Limpa conectado-hoje (24 h)` tira depois. Se o SDR esquecer de marcar `Atendeu`, a cadência ao menos não atropela o lead que acabou de atender |
+| `Ligação recebida` | `conectado-hoje` | mesmo motivo: retorno do lead é conexão |
+| `Ligação perdida` | *(nada)* | nenhum workflow publicado lê uma tag de "perdida"; tag sem leitor é ruído |
+
+`Ativar workflow`: **deixar vazio nos três.** O `Pós-ligação v3` não serve aqui — ele é
+disparado por **mudança do campo** `Resultado da tentativa`, e entrar por gatilho com o
+campo vazio cai no ramo `Resultado vazio? → SIM`, que não faz nada. Isto foi lido no
+roteiro publicado, não suposto.
+
+### Dois ajustes na tela `Fila de ligações` (a que o SDR usa)
+
+1. **`TOQUE MÁX. (s)` está em 5.** A recomendação continua **30**: com 5 s a maioria dos
+   leads nem vê o celular tocar, e a chamada perdida — o retorno mais barato do funil —
+   não acontece. Os 5 s são o padrão da aba `Disparo` (robô), não da fila humana.
+2. **O campo de tag mostra `fila-tel`** (0 contatos com telefone, 1 sem). `fila-tel` é uma
+   tag que os workflows publicados **removem** (`Pós-ligação v3`, nó `-TAG fila-tel,
+   fila-wa, fila-quente`), não uma que alguém aplica — por isso está vazia. A fila do SDR é
+   **`fila-sdr`**, mantida pelo atuador. A caixa de contatos já está com os 5 certos
+   (Gerson, Ana Ruth, Ricardo, Andreia…), então o `Puxar` da `fila-sdr` funcionou; só não
+   digitar `fila-tel` de novo amanhã.

@@ -487,3 +487,37 @@ já mudou, e que merecem ser reabertas em vez de ficarem herdadas como "decidido
 7. **Ação premium de workflow** (webhook, Google Sheets, Slack) custa ~US$ 0,01 por
    execução na carteira da agência. Hoje nenhum dos 36 workflows usa. Não estragar
    isso sem decisão.
+
+## 2.21 "A API não faz" só vale depois de ler o spec inteiro — e a rota antiga
+
+Em 27/09 escrevi que campo de contato não podia ser criado por API, porque
+`POST /custom-fields/` recusa `objectKey=contact` (2.19). Faltou olhar o **outro**
+grupo: `POST /locations/{id}/customFields` aceita `model: contact` — está no
+`locations.json` do repositório oficial. A conclusão certa era "a rota nova recusa;
+a antiga aceita". Generalizei de uma rota para a plataforma.
+
+O que fiz de diferente na mesma tarde: clonei `GoHighLevel/highlevel-api-docs` e
+listei **todas** as rotas dos grupos relevantes antes de responder "dá ou não dá".
+Formulário: não dá (três rotas, todas de leitura). Tudo o que o dono queria do
+formulário: dá, por sete rotas — e por isso a resposta foi construir a página, não
+retratar de novo.
+
+Regra: antes de dizer que uma plataforma não faz X, listar as rotas do spec e
+procurar X pelo **substantivo** (customFields, appointments, free-slots), não pelo
+grupo onde eu esperava encontrá-lo.
+
+## 2.22 Dois serviços, duas regras opostas para o mesmo cabeçalho
+
+O GHL exige `User-Agent` de navegador (senão Cloudflare 1010). O Supabase **recusa a
+chave secreta** quando o `User-Agent` parece navegador ("Forbidden use of secret API
+key in browser", run 36333353072). O mesmo cabeçalho, copiado de um cliente para o
+outro, virou um 401 que não dizia nada sobre a chave. Um cliente HTTP por serviço,
+cada um com o cabeçalho que aquele serviço espera — não "o que funcionou no anterior".
+
+## 2.23 Um projeto em restrição contamina tudo que se pendura nele
+
+O painel foi publicado primeiro no `maquina-yt-dark`, que está em restrição de cota
+de storage: o gateway devolve 402 em PostgREST — o mesmo episódio de 25/08. A função
+publica, mas não lê a própria tabela. Antes de pendurar algo novo num projeto, uma
+chamada de saúde ao gateway; se 402, outro projeto. Mudei para o
+`cscczluzpblzhvojxanp` e a tabela `config` foi criada lá.

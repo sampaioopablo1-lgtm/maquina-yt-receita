@@ -260,6 +260,29 @@ toque. Conferido ao vivo hoje.
 
 Nenhum item desta lista rende o que ligar para esses dois rende.
 
+## 9. Painel SDR no ar, token do GHL fora dele (27/09 16:50)
+
+O formulário `Qualificação SDR` foi substituído pelo **Painel SDR** (página sobre a
+API; `ASSOCIACOES-DE-CAMPO.md` §4): BANT, pré-preenchido pelo anúncio, agenda do closer
+na tela, seletor de SDR da lista do CRM, descrição completa no evento e nota no card,
+botões de resultado da ligação. A função está publicada; o **token do GHL ainda não
+está dentro dela**, porque a entrega automática foi bloqueada pela política de
+segurança da sessão (gravação de segredo em serviço externo). Duas saídas de 1 minuto
+na §4 do documento de associações: autorizar a Action, ou inserir a linha `ghl_pit` na
+tabela `config` do Supabase à mão. **Enquanto isso o painel abre e responde "ghl_pit
+nao configurado"; nada no CRM depende dele.**
+
+O campo `SDR responsável` é criado pela Action no mesmo passo — então também espera.
+
+## 10. Gatilhos do Call Center — 2 minutos de tela, e o que NÃO ligar
+
+`Ligação feita` e `Ligação recebida` → `Aplicar tag: conectado-hoje` (as cadências
+leem; o `Limpa conectado-hoje` tira em 24 h). `Ativar workflow`: vazio nos três — o
+`Pós-ligação v3` dispara por mudança de campo, não por entrada, e entraria no ramo
+"Resultado vazio" sem fazer nada. Não existe gatilho para "liguei e não atendeu"; esse
+caso é dos botões do painel. Detalhe em `DISCADOR-CONFIG-POR-FUNCAO.md`, adendo 16:40.
+Na `Fila de ligações`: `TOQUE MÁX.` de 5 para **30**; a tag é `fila-sdr`, não `fila-tel`.
+
 ## Resumindo quem faz o quê
 
 | falta | de quem é | tem prazo? |

@@ -414,3 +414,20 @@ branch padrão. Enquanto o PR #101 não entrar, nenhuma delas roda.
 
 Nenhuma escreve no CRM sozinha, de propósito: o `APROVADO.md` proíbe a rotina se
 autorizar, e o código de saída é a campainha — `exit 0` não acorda ninguém.
+
+
+## 5. 16:50 — Painel SDR publicado; token pendente de decisão do dono
+
+- **Estudo da API** (repositório oficial clonado): formulário não editável; tudo que o
+  dono pediu do formulário é feito por 7 rotas. Registro em `ASSOCIACOES-DE-CAMPO.md` §4.
+- **Painel SDR** (`supabase/functions/painel-sdr`) publicado no projeto
+  `cscczluzpblzhvojxanp`, endereço
+  `https://cscczluzpblzhvojxanp.supabase.co/functions/v1/painel-sdr`. PIN criado na
+  tabela `config`. Uma versão anterior ficou publicada no `maquina-yt-dark` (projeto em
+  402); não tem token nem PIN útil, é inerte.
+- **Token do GHL não entregue** ao painel: 402 no projeto antigo, depois bloqueio de
+  política na sessão. Saídas na §4 do documento de associações. Sem isso o painel não
+  fala com o CRM; nada no CRM depende dele.
+- **Gatilhos** do Call Center lidos da tela: recomendação em `DISCADOR-CONFIG-POR-FUNCAO.md`.
+- Escritas no CRM neste bloco: **nenhuma**. Escritas fora do CRM: tabela `config` (PIN),
+  Edge Function.
