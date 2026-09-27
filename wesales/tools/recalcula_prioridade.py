@@ -145,6 +145,9 @@ def request(method, path, token, body=None):
         "Version": VERSION,
         "Content-Type": "application/json",
         "Accept": "application/json",
+        # Sem User-Agent de navegador o Cloudflare responde 1010 (lição 2.22).
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                      "(KHTML, like Gecko) Chrome/140.0 Safari/537.36",
     }
     try:
         with urlopen(Request(BASE_URL + path, data=payload, headers=headers,

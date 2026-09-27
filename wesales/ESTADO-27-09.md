@@ -671,3 +671,12 @@ Pós-agendamento v2 ganham os valores exatos do Meta: `Abaixo de 5k`→6, `Até 
 `Posso esperar…`→Sem prazo, Investimento pago→Investe=Sim 13, `Não invisto…`→Nunca),
 **NÃO gravado**: a gravação de workflow foi bloqueada pela proteção de segurança da sessão
 em modo automático. Nada mudou no workflow (o ensaio foi interrompido antes de responder).
+
+## 13. 27/09 noite — COPY-WHATSAPP, G-04, Prioridade 6 e Prioridade dos 31 gravados (sessão do PC)
+
+Tabela completa, com versão antes/depois de cada workflow, em `DE-PARA-SESSOES-CRM.md`,
+seção "Gravado pela sessão do PC em 27-28/09". Resumo: 42 textos em 9 workflows (Inbound
+v22, 12x30 v37, parte 2 v12, Fechar Horário v11, Triagem v22, Nutrição v33, No-show v24,
+Reunião Cancelada v5, Lembretes v3 v5), G-04 no Pós-agendamento v2 (v18) e Prioridade=6
+retirada do nó 6a5f65bb (v19). Todos seguem `published`, com o mesmo nº de nós, relidos nó a nó.
+Prioridade dos 31 liberados: 0 → 4. A MI-0 de segunda 08:30 já sai com o texto novo.

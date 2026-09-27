@@ -118,6 +118,11 @@ def pedir(metodo: str, caminho: str, corpo: dict | None = None, timeout: int = 6
     req.add_header("channel", "APP")
     req.add_header("source", "WEB_USER")
     req.add_header("version", "2021-07-28")
+    # Sem isto o Cloudflare responde 403 "Error 1010 browser_signature_banned" ao
+    # User-Agent padrao do urllib (medido em 27/09/2026).
+    req.add_header("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                   "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0 Safari/537.36")
+    req.add_header("origin", "https://app.wesalescrm.com")
     if dados is not None:
         req.add_header("content-type", "application/json")
     try:
