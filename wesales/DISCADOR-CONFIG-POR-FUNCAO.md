@@ -184,3 +184,36 @@ discar dezenas de vezes com toque de 30 s; lead que vê chamada perdida **liga d
 Não vou afirmar o que `Desativado` significa — se rejeita, cai em caixa postal, ou só não
 toca **nesta aba** (o padrão em softphone). As três consequências são diferentes. Conferir
 custa uma ligação do celular para `5512982381407`.
+
+
+---
+
+## Adendo de 27/09 15:52 — tela real recebida, três fatos novos
+
+O dono mandou a tela do Call Center com `fila-sdr` puxada. Três coisas que a leitura
+anterior não tinha:
+
+**1. `fila-sdr` funciona na ferramenta.** `Puxar contatos desta tag` devolveu
+**"5 contato(s) com telefone · 5 novo(s) adicionado(s)"** — Ana Ruth, Ricardo, Andreia,
+Andre e Gerson na caixa. A tag mantida pelo atuador é lida pelo discador exatamente como
+desenhado. Verificado na tela, não só na API.
+
+**2. `Receber` está LIGADO** ("Recebendo"). O dono ativou. A pergunta aberta sobre chamada
+de retorno está fechada: o número `5512982381407` atende retorno nesta aba.
+
+**3. A tela é a aba `Disparo`, não `Fila de ligações` — e são ferramentas diferentes.**
+`Disparo` tem `Escolher áudio`, `INTERVALO (s)` = 5, `TOQUE MÁX. (s)` = 5 e
+**`SIMULTÂNEAS` = 5**. Isso é **disparo de áudio em massa, 5 linhas em paralelo**, com toque
+de 5 segundos — um robô, não uma fila para o SDR conversar. Duas consequências:
+
+- **Para a rotina do SDR, a aba é `Fila de ligações`** (sequencial, o SDR fala). Puxar a
+  `fila-sdr` em `Disparo` e apertar o botão laranja ligaria para os 5 ao mesmo tempo com
+  toque de 5 s — sem áudio selecionado, o comportamento é incerto; com áudio, é robocall
+  para lead pago. **Não apertar em `Disparo`** sem saber o que ele faz sem áudio.
+- **Corrijo o que escrevi sobre o teto da ferramenta:** eu disse "sequencial, uma linha".
+  `Fila de ligações` é; `Disparo` tem `SIMULTÂNEAS`, então a ferramenta **tem** paralelismo
+  — só que para áudio, não para conversa. O teto de ~150/dia do SDR humano continua; o
+  de disparo de áudio é outro assunto e outra decisão.
+
+A aba **`Gatilhos`** está a um clique dessa tela. É a que pode automatizar o pós-ligação e
+tirar do SDR o dever de marcar `Resultado da tentativa` à mão. Vale mandar essa tela.
