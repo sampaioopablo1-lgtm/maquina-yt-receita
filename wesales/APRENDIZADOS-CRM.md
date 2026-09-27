@@ -6648,3 +6648,52 @@ mas não único"). Zero campo, zero tag novos (as 6 tags do portão já
 existem); zero escrita no CRM: item de pesquisa e especificação, não
 depende de `APROVADO.md` — os dois workflows novos não saem por API (mesma
 limitação de sempre), ficam para a montagem manual.
+
+## Reconciliar seção "sobrevivente" de um documento truncado não é colar — é diferenciar parágrafo a parágrafo procurando colisão de número antes de colar qualquer coisa — 27/09/2026, sessão automática
+
+O acidente de 24/09/2026 (`c2dadb5`) truncou `build-wesales.md` de duas
+formas diferentes, e confundir uma com a outra quase causou dois erros
+opostos. **Seções inteiras desaparecidas** (§2.25-§2.44, §4.1, §5.5) são
+seguras de colar de volta inteiras a partir da base íntegra (`875d8d7`):
+`git log 875d8d7..HEAD -- wesales/build-wesales.md` provou que nenhuma
+delas tinha edição real por cima na cópia truncada, então colar não
+arriscava apagar nada. **Seções que "sobreviveram"** (o cabeçalho continuou
+existindo) são o caso perigoso: a cópia truncada não sabe que perdeu
+conteúdo, então uma sessão que editou por cima dela depois do acidente pode
+ter reusado um número de subseção que já pertencia a outra coisa na base —
+foi exatamente o que aconteceu na seção 1: a cópia truncada tinha
+`### 1.4 G-03` (trabalho real, decidido em 24/09/2026, só existe na cópia
+truncada); a base íntegra tinha `### 1.4 Workflow "Reentrada por
+Formulário" — F-11` (trabalho real, fechado em 22/09/2026, só existe na
+base). **Colar a seção 1 inteira da base por cima, do mesmo jeito que
+funcionou para as seções desaparecidas, teria apagado o G-03 em silêncio**
+— nenhum erro, nenhum aviso, só um `git diff` que qualquer um revisando por
+alto teria lido como "restaurou conteúdo perdido" quando na verdade também
+destruiu conteúdo novo.
+
+**Método que funcionou, generalizável para as treze seções que ainda faltam
+(2, 2.9 a 2.24, 3, 4, 5, 5.1 a 5.4, 6, 7, 8, 9, 10, 11):**
+1. Recorte a seção da base e a mesma seção do HEAD para arquivos separados
+   (`sed -n '<início>,<fim>p'`, usando `grep -n '^## \|^### '` nos dois para
+   achar os limites certos em cada versão — eles **não** são a mesma linha,
+   porque um dos dois está truncado).
+2. `diff -u` entre os dois recortes. Se o diff só adiciona/edita parágrafo
+   dentro do mesmo cabeçalho numerado, é perda simples: aceite a versão da
+   base para esse trecho.
+3. **Antes de aceitar qualquer cabeçalho `### N.M` da base como substituto
+   do mesmo número no HEAD, confira se o título depois do número é o
+   mesmo.** Se não for, é colisão, não perda — o HEAD tem trabalho real que
+   a base nunca viu (nasceu depois dela). Não escolha um dos dois: preserve
+   os dois, renumerando o que colidiu para o próximo número livre da mesma
+   seção (mesmo tratamento que este roadmap já deu à colisão F-07→F-18) —
+   confira com `grep -n '^### N\.' <arquivo>` que o número novo está livre
+   nos dois arquivos antes de usá-lo.
+4. Depois de montar, confira byte a byte (script Python comparando as duas
+   listas de linhas) que o trecho copiado da base bate 100% — não "parece
+   bater".
+5. `grep -rn "seção N.M"` em todo `wesales/` **antes** de mexer, guardando o
+   resultado — depois de renumerar, releia esse mesmo grep e confirme que
+   nenhuma ocorrência precisava mudar (ou mude as que precisavam). Sem isso
+   dá pra jurar "nenhum documento referencia esta seção" e estar errado —
+   quase escrevi essa frase citando um arquivo (`AGENTE-IA-CONEXAO.md`) que,
+   conferido de novo, nem tinha o número procurado.

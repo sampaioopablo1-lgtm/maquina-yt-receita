@@ -1,6 +1,6 @@
 ﻿# O que falta para virar Reev/Meetime de verdade
 
-> ## ⚠️ Alerta de integridade — 27/09/2026, ROADMAP reconciliado; `build-wesales.md` ainda não
+> ## ⚠️ Alerta de integridade — 27/09/2026, ROADMAP reconciliado; `build-wesales.md` em reconciliação (§2.25-2.44/§4.1/§5.5/§1 feitas, resto aberto)
 >
 > **O que aconteceu:** três commits com o mesmo título ("Add GitHub Action for
 > WeSales G03", 24/09/2026 15:22–15:25 BRT) sobrescreveram este arquivo e
@@ -41,26 +41,37 @@
 > novo. §2.45 a §2.47 permanecem intactas, no fim do arquivo, como já
 > estavam.
 >
-> **Peça 2, ainda aberta e maior do que parecia:** as seções que "sobreviveram"
-> à truncagem (1, 2, 2.9 a 2.24, 3, 4, 5, 5.1 a 5.4, 6, 7, 8, 9, 10, 11)
-> continuam com conteúdo interno perdido, de quase intacta (seção 11, ~99% do
-> texto original) a mais da metade perdida (seção 6, ~39%) — e **não é um
-> corte limpo**: pelo menos uma dessas seções (1.4) tem uma colisão de
-> verdade, não só perda. A base (`875d8d7`) tem "### 1.4 Workflow "Reentrada
-> por Formulário" — F-11" (fechado em 22/09/2026); a cópia truncada, editada
-> depois do acidente, tem "### 1.4 G-03 — promoção imediata escolhida pelo
-> dono em 24/09/2026" no mesmo número — uma sessão que não sabia que 1.4 já
-> existia (porque a cópia truncada não o tinha) reusou o número para um
-> trabalho real e diferente. Colar a seção 1 inteira da base por cima, como
-> fiz com os blocos acima, apagaria o G-03. Por isso esta peça continua
-> exigindo diff parágrafo a parágrafo, seção por seção — não colagem —, e
-> continua grande demais para uma execução: cerca de dezoito seções, cada
-> uma podendo esconder o mesmo tipo de colisão que a 1.4 acabou de mostrar.
-> Quem pegar: `875d8d7` é a base íntegra; o HEAD do momento tem `build-
-> wesales.md` já com §2.25-§2.44/§4.1/§5.5 restauradas — não repetir esse
-> trabalho —, e a seção 1.4 da cópia atual (G-03) precisa sobreviver ao
-> merge com o nome renumerado, o mesmo tratamento que este roadmap já deu ao
-> F-07→F-18 quando achou a mesma classe de colisão de número aqui.
+> **Peça 2, maior do que parecia (achado original, seção 1 já reconciliada
+> abaixo):** as seções que "sobreviveram" à truncagem (1, 2, 2.9 a 2.24, 3,
+> 4, 5, 5.1 a 5.4, 6, 7, 8, 9, 10, 11) tinham conteúdo interno perdido, de
+> quase intacta (seção 11, ~99% do texto original) a mais da metade perdida
+> (seção 6, ~39%) — e **não é um corte limpo**: a seção 1 tinha uma colisão
+> de verdade, não só perda — a
+> base (`875d8d7`) tem "### 1.4 Workflow "Reentrada por Formulário" — F-11"
+> (fechado em 22/09/2026); a cópia truncada, editada depois do acidente,
+> tinha "### 1.4 G-03 — promoção imediata escolhida pelo dono em 24/09/2026"
+> no mesmo número — uma sessão que não sabia que 1.4 já existia (porque a
+> cópia truncada não o tinha) reusou o número para um trabalho real e
+> diferente.
+>
+> **Seção 1 reconciliada em 27/09/2026, sessão seguinte.** Diff parágrafo a
+> parágrafo (não colagem, por causa da colisão): a seção 1 da base foi colada
+> por inteiro — conferido byte a byte, 495 linhas idênticas — e o G-03 (que
+> teria sido apagado por uma colagem direta) foi preservado como `### 1.5`,
+> logo depois do F-11 restaurado em `1.4`. Nenhum outro documento cita a
+> seção 1.4 de `build-wesales.md` referindo-se ao G-03 (conferido por
+> `grep -rn "seção 1.4" wesales/` — as duas ocorrências fora deste arquivo já
+> apontavam para o F-11); só este alerta precisava de correção, feita no
+> mesmo commit. Mesmo tratamento que este roadmap já deu ao F-07→F-18 quando
+> achou a mesma classe de colisão de número aqui.
+>
+> **Ainda aberto:** as demais seções que "sobreviveram" à truncagem (2,
+> 2.9 a 2.24, 3, 4, 5, 5.1 a 5.4, 6, 7, 8, 9, 10, 11) continuam por
+> reconciliar — mesmo método (diff parágrafo a parágrafo contra `875d8d7`,
+> checando colisão de número antes de colar), grande demais para uma
+> execução só. Quem pegar: `875d8d7` é a base íntegra; o HEAD do momento tem
+> `build-wesales.md` já com §1 e §2.25-§2.44/§4.1/§5.5 restauradas — não
+> repetir esse trabalho.
 
 > **Aviso de 22/09/2026 — o canal WhatsApp saiu do projeto.** Decisão do dono:
 > as quatro réguas são 100% telefone, remontadas e publicadas em `d52e61d`.
@@ -5657,3 +5668,44 @@ como este arquivo — precisa de diff parágrafo a parágrafo em cerca de
 trinta seções, grande demais para esta execução. Quem pegar: `875d8d7` é a
 base íntegra; o HEAD do momento tem trabalho real por cima (§2.45 a §2.47,
 mais o que vier depois) que precisa sobreviver ao merge.
+
+**Sessão automática seguinte, 27/09/2026 — as seções inteiras que faltavam
+em `build-wesales.md` (§2.25 a §2.44, mais §4.1 e §5.5) foram coladas de
+volta a partir de `875d8d7`, conferidas byte a byte.** Nenhuma tinha edição
+real por cima na cópia truncada, então colar não arriscou apagar trabalho
+novo. Isso reduz a peça 2 (diff parágrafo a parágrafo das seções que
+"sobreviveram" à truncagem) de "cerca de trinta seções" para as que
+realmente sobreviveram: 1, 2, 2.9 a 2.24, 3, 4, 5, 5.1 a 5.4, 6, 7, 8, 9,
+10, 11 — e achou, ao chegar na seção 1, a mesma classe de colisão de número
+que o F-07→F-18 já tinha mostrado neste arquivo: a cópia truncada reusara
+`### 1.4` (que na base é o F-11, fechado em 22/09/2026) para o G-03,
+decidido só depois do acidente. Detalhe completo no alerta do topo deste
+arquivo. Zero campo, zero tag, zero escrita no CRM: reconciliação de
+documentação, não depende de `APROVADO.md`.
+
+**Mesma sessão, peça seguinte — seção 1 de `build-wesales.md` reconciliada
+por inteiro.** Diff parágrafo a parágrafo (não colagem direta, por causa da
+colisão do parágrafo acima): a seção 1 da base (`875d8d7`, 495 linhas,
+incluindo a segunda renomeação de etapa do G-12 e a correção do G-13 que a
+cópia truncada nunca chegou a ter) foi colada por inteiro, e o G-03 — que
+uma colagem direta teria apagado — foi preservado como `### 1.5`, logo
+depois do F-11 restaurado em `1.4`. Conferido byte a byte contra a base
+(495/495 linhas idênticas) e por `grep -rn "seção 1.4" wesales/` que nenhum
+outro documento cita esta seção referindo-se ao G-03 (as duas ocorrências
+fora deste arquivo já apontavam para o F-11 desde sempre) — só o alerta
+deste roadmap precisava da correção, feita no mesmo commit. Restam 13
+seções/grupos da lista acima (2, 2.9 a 2.24, 3, 4, 5, 5.1 a 5.4, 6, 7, 8, 9,
+10, 11) — cada uma pode esconder o mesmo tipo de colisão que a 1.4 acabou
+de mostrar duas vezes neste projeto (F-07/F-18 e agora F-11/G-03), então
+quem pegar a próxima confere número de seção contra o roadmap antes de
+colar, não só o texto. Zero campo, zero tag, zero escrita no CRM. **G-04
+(peça 2), F-09, F-10, G-11 (item 1) e G-19** continuam sendo as cinco
+decisões que esperam o dono (G-03 já saiu desta lista — decidido e
+agendado para 29/09/2026, parágrafo acima), sem novidade nesta sessão. CRM
+reconfirmado por API: 56 campos de contato, sem mudança; **64 oportunidades
+(39 `CONECTAR` open + 10 `NOVO LEAD` abandoned + 8 `CONECTAR` lost + 2
+`NOVO LEAD` open + 2 `NEGOCIAR` open + 1 `NOVO LEAD` lost + 1 `NEGOCIAR`
+lost + 1 `REUNIÃO DE DIAGNÓSTICO` open), 8 a mais que a última leitura
+registrada (56) — composição consistente com o backfill do G-03 já
+executado (seção 1.5 acima: 41 promovidas de `NOVO LEAD` para `CONECTAR`
+em 24/09/2026), não investigada além disso nesta sessão.

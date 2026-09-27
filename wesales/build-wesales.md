@@ -156,7 +156,7 @@ feito.
 |---|---|---|---|
 | 0 | `NOVO LEAD` | 30% | `#2563EB` |
 | 1 | `CONECTAR` | 40% | `#8B5CF6` |
-| 2 | `AGENDAR` | 50% | `#2DD4BF` |
+| 2 | `REUNIÃO DE DIAGNÓSTICO` (renomeada de `AGENDAR` em 23/09/2026, mesmo `id`) | 50% | `#2DD4BF` |
 | 3 | `NEGOCIAR` | 60% | `#D97706` |
 | 4 | `FORMALIZAR` | 70% | `#059669` |
 
@@ -180,12 +180,37 @@ etapa antigo que aparecer nela se traduz por esta tabela:
 |---|---|---|
 | `Novo lead` | `NOVO LEAD` | Mesma etapa, só o nome mudou |
 | `Em cadência` | `CONECTAR` | Mesma etapa — é aqui que o portão de toda tentativa (nó 3, seção 2.4) passa a checar |
-| `Conectado` | `AGENDAR` | Mesma etapa |
+| `Conectado` | `REUNIÃO DE DIAGNÓSTICO` (nome na tela até 22/09/2026: `AGENDAR`, mesmo `id` — ver nota abaixo) | Mesma etapa |
 | `Retorno agendado` | **continua em `CONECTAR`** | Deixou de ser etapa própria — "pediu retorno" não move a oportunidade, só grava `Resultado da tentativa = Pediu retorno`. Todo gatilho `Opportunity Stage Changed → Retorno agendado` vira **sem gatilho de etapa nenhum**: o lead nunca sai de `CONECTAR`, e a lista `Retornos` (8.4) filtra só pelo campo |
 | `Reunião agendada` | `NEGOCIAR` | Absorve também a negociação do closer (proposta, condições), que no plano de 7 ficava fora do pipeline — agora está dentro, porque o dono optou por 1 pipeline só |
 | `Nutrição` | **status da oportunidade = `abandoned`**, etapa fica como estava | Todo gatilho `Opportunity Stage Changed → Nutrição` vira **`Contact Tag Added → nutricao-90d`** (gatilho nativo já usado em outro lugar do projeto) — a tag continua sendo o sinal de quem está nutrição, o status só formaliza isso no campo nativo do GHL |
 | `Descartado` | **status da oportunidade = `lost`**, etapa fica como estava | Todo gatilho `Opportunity Stage Changed → Descartado` vira uma ação `Update Opportunity` mudando o `status`, não a etapa |
 | *(não existia)* | `FORMALIZAR` | Etapa nova, fechamento/contrato — equivale a `status = won`. Fora do escopo dos workflows de SDR deste documento (é o closer fechando), citada aqui só para a tabela ficar completa |
+
+> **Segunda renomeação, 23/09/2026 — `AGENDAR` também já não é o nome na
+> tela.** Fora do plano de 7 desta tabela: o dono decidiu, em
+> `wesales/PLANO-MULTICANAL.md` (D1/E2), renomear a etapa `AGENDAR` para
+> `REUNIÃO DE DIAGNÓSTICO` — **mesmo `id`**
+> (`3d26fcd1-220d-49ed-8325-705dfe9055b1`), confirmado por
+> `opportunities_get-pipelines` de novo em 23/09/2026, sessão seguinte
+> (`dateUpdated` ainda 2026-09-23T00:59Z, sem mudança). Todo workflow
+> publicado que decide por `pipelineStageId` (não por nome) continua
+> funcionando sem tocar em nada — é o caso de todos os já montados. O que
+> fica desatualizado é só texto. **Atualização desta rodada:** o código já
+> não está mais desatualizado — `wesales/tools/ghl_api.py` (`STAGES`) já
+> tem as duas chaves, `"AGENDAR"` e `"REUNIÃO DE DIAGNÓSTICO"`, apontando
+> para o mesmo `id`, com comentário explicando o apelido — feito por fora
+> desta sessão, entre a rodada que escreveu este parágrafo e esta. Migração
+> de **texto puro**, promovida a item próprio em
+> `ROADMAP-SALES-ENGAGEMENT.md`, G-12, **está completa desde 23/09/2026
+> (peça 2):** a tabela desta seção (1) e a linha `Conectado` da tabela acima
+> saíram na peça 1; as seções 2 em diante deste documento e todo
+> `ROADMAP-SALES-ENGAGEMENT.md` saíram na peça 2 — nenhuma delas trata mais
+> `AGENDAR` como etapa corrente. Nomes próprios publicados na tela com "AGENDAR" no texto (o
+> workflow `AGENDAR Estagnado`, a lista `Saúde — AGENDAR Estagnado`) **não**
+> entram nesta migração — são o nome real do objeto, trocar o texto aqui
+> sem renomear o objeto na tela criaria uma divergência nova, pior que a
+> atual. Detalhe da régua (o que migra, o que fica) em G-12.
 
 **Por que isso é simplificação, não perda:** `CONECTAR` continua etapa
 própria porque é o único estado que um portão de workflow *precisa*
@@ -216,7 +241,7 @@ agora **vivem dentro** deste mesmo pipeline, nas etapas `NEGOCIAR` e
 | Framework de mercado | Nossa etapa/estado correspondente | Por que a granularidade difere |
 |---|---|---|
 | Topo do funil — Prospecção / Não contatado | `NOVO LEAD` | Igual — é o mesmo conceito |
-| Meio do funil — Qualificação (pré-venda) / Contato-Abordagem | `CONECTAR` (inclui quem pediu retorno) e `AGENDAR` | O genérico trata como 1-2 fases; aqui seguem 2 estados **porque cada um é o que um workflow consulta** (seção 2.4, nó 3) — "tentando conectar (ou cumprindo retorno combinado)" e "conectado, ainda sem reunião marcada" precisam de portão próprio, senão a régua de 12 tentativas não sabe quando parar |
+| Meio do funil — Qualificação (pré-venda) / Contato-Abordagem | `CONECTAR` (inclui quem pediu retorno) e `REUNIÃO DE DIAGNÓSTICO` (`AGENDAR` até 22/09/2026) | O genérico trata como 1-2 fases; aqui seguem 2 estados **porque cada um é o que um workflow consulta** (seção 2.4, nó 3) — "tentando conectar (ou cumprindo retorno combinado)" e "conectado, ainda sem reunião marcada" precisam de portão próprio, senão a régua de 12 tentativas não sabe quando parar |
 | Fundo do funil — Apresentação/Demonstração | `NEGOCIAR` (metade "comparecimento e veredito") | É o ponto de handoff: o SDR agenda, o **closer** apresenta |
 | Fundo do funil — Proposta, Negociação, Ganho/Perdido | `NEGOCIAR` (metade "negociação") → `FORMALIZAR` (`status = won`) ou saída com `status = lost` | Agora dentro deste pipeline (ver "Mudança relevante" acima) — administrado pelo closer, mas sem pipeline separado para administrar |
 | — (nenhum framework genérico tem isto) | Status `abandoned` (tag `nutricao-90d`), etapa como estava | É onde o Sales Model Canvas simplifica demais: o binário "Ganho ou Perdido" não tem espaço para "sem fit **agora**, mas com fit daqui a 90 dias". A reativação automática (R-08) trata isso como terceiro estado — nenhuma das fontes citadas pelo dono documenta isso como etapa própria, só como "relatório de nutrição vencida" manual |
@@ -257,29 +282,39 @@ L-07 já registrada, só que agora com o efeito colateral dela em cima de
 uma métrica que achávamos fechada (R-02). Registrado aqui para quem for
 priorizar L-07 saber que ela também é a métrica de estagnação desta etapa.
 
-#### Etapa 1 — `CONECTAR` (absorve o antigo `Retorno agendado`)
+#### Etapa 1 — `CONECTAR` (absorve o antigo `Retorno agendado` **e**, desde 23/09/2026, a fase "fechar horário" — ver aviso abaixo, G-13)
+
+> **Correção de 23/09/2026 (G-13):** as linhas "Validação de passagem" e
+> "Motivos de perda" abaixo diziam que `Atendeu` move a oportunidade para
+> `REUNIÃO DE DIAGNÓSTICO`. Isso valia até a D3 do `PLANO-MULTICANAL.md`
+> (22/09/2026, publicada em 23/09): hoje `Atendeu` **fica** em `CONECTAR`,
+> numa fase própria ("fechar horário": tag `fechar-horario`, workflow
+> `Fechar Horário`, até 3 dias reengajando por mensagem antes de cair em
+> nutrição). Só o agendamento de fato (`Pós-agendamento v2`) move a
+> oportunidade para `REUNIÃO DE DIAGNÓSTICO`. Detalhe em `build-wesales.md`
+> seção 4 (ramo `Atendeu`) e `ROADMAP-SALES-ENGAGEMENT.md`, G-13.
 
 | Bloco | Conteúdo |
 |---|---|
-| Objetivo | Conseguir uma conexão real (`Atendeu`) dentro das 12 tentativas em 30 dias — inclui quem já foi contatado e pediu para ligar depois: esse lead não sai da etapa, só muda o que `Resultado da tentativa` guarda |
-| Validação de passagem | `Resultado da tentativa` = `Atendeu` (→ `AGENDAR`) — nó 10 do bloco padrão, seção 2.4. `Pediu retorno` **não muda mais etapa**: o lead fica em `CONECTAR`, e a lista `Retornos` (8.4) filtra só pelo valor do campo, sem OR com etapa nenhuma |
-| Ferramentas | Workflows Cadência 12x30/Inbound/Reengajamento, listas `Fila Telefone Hoje`/`Fila WhatsApp Hoje` (8.2/8.3), lista `Retornos` (8.4), `script-de-ligacao.md` |
-| Tempo de estagnação | Já coberto: F-05 (roadmap, peça 3 — seção 2.22) monitora `CONECTAR` sem avanço; a 1ª tentativa tem relógio próprio (Alerta de Speed-to-lead, seção 2.11). O antigo gap "retorno vencido sem nova ligação" (que dependia de S-01, `Data do retorno`/`Hora do retorno` — o primeiro já existe como campo, o segundo não, ver `GUIA-MONTAGEM.md`) continua valendo aqui dentro, não em etapa separada |
-| Motivos de perda | `Número errado` (→ `telefone-invalido`), `Não ligar` (→ opt-out, DND) — saem da etapa via `Update Opportunity` para `status = lost`; 12 tentativas esgotadas sem conexão → `status = abandoned` **+** tag `nutricao-90d`, **sem sair de `CONECTAR`** (era "→ `Nutrição`" no plano de 7; agora é status, não movimento de etapa) — os três ramos do Pós-ligação, seção 4 |
-| Taxa de conversão esperada | ~35% conectam ou saem antes das 12 tentativas (L-05, `briefing-sdr.md`) — mesma hipótese que já dimensiona o volume de entrada |
+| Objetivo | Conseguir uma conexão real (`Atendeu`) dentro das 12 tentativas em 30 dias, **e então** fechar o horário da reunião de diagnóstico — inclui quem já foi contatado e pediu para ligar depois: esse lead não sai da etapa, só muda o que `Resultado da tentativa` guarda |
+| Validação de passagem | `Resultado da tentativa` = `Atendeu` **não** muda mais etapa (nó A6 do ramo `Atendeu`, seção 4) — o lead fica em `CONECTAR`, fase "fechar horário". Só sai para `REUNIÃO DE DIAGNÓSTICO` quando a reunião é de fato marcada no calendário (`Pós-agendamento v2`, seção 5, nó 1). `Pediu retorno` também **não muda etapa**: o lead fica em `CONECTAR`, e a lista `Retornos` (8.4) filtra só pelo valor do campo, sem OR com etapa nenhuma |
+| Ferramentas | Workflows Cadência 12x30/Inbound/Reengajamento, listas `Fila Telefone Hoje`/`Fila WhatsApp Hoje` (8.2/8.3), lista `Retornos` (8.4), `script-de-ligacao.md`; **fase "fechar horário":** tag `fechar-horario`, tarefa `[FECHAR HORÁRIO] Qualificar e agendar a reunião de diagnóstico`, workflow `Fechar Horário` (mensagens `MFH1-v1`/`MFH2-v1`) |
+| Tempo de estagnação | Já coberto: F-05 (roadmap, peça 3 — seção 2.22) monitora `CONECTAR` sem avanço na fase de tentativa; a 1ª tentativa tem relógio próprio (Alerta de Speed-to-lead, seção 2.11). A fase "fechar horário" tem o próprio relógio dentro do workflow `Fechar Horário` (3 dias até nutrição) — não tem alerta ao gestor ainda, pendência aberta no G-13. O antigo gap "retorno vencido sem nova ligação" (S-01, `Data de retorno`/`Hora do retorno`, na tela desde 21/09/2026) continua valendo aqui dentro |
+| Motivos de perda | `Número errado` (→ `telefone-invalido`), `Não ligar` (→ opt-out, DND) — saem da etapa via `Update Opportunity` para `status = lost`; 12 tentativas esgotadas sem conexão → `status = abandoned` **+** tag `nutricao-90d`, **sem sair de `CONECTAR`**; conectado e sem fechar horário em 3 dias → mesmo destino (`abandoned` + `nutricao-90d`), pelo `Fechar Horário` — todas sem movimento de etapa (era "→ `Nutrição`" no plano de 7) |
+| Taxa de conversão esperada | ~35% conectam ou saem antes das 12 tentativas (L-05, `briefing-sdr.md`) — mesma hipótese que já dimensiona o volume de entrada; taxa de quem conecta e **fecha horário** dentro dos 3 dias ainda não medida (canal novo, G-13) |
 | Meta de avanço | 100 ligações/dia é a meta do SDR (briefing); quantos *leads* avançam por dia é `Total de conexões` (C-07) somado, lido na lista `Conexão por Tentativa` (8.6, R-01) |
 
-#### Etapa 2 — `AGENDAR`
+#### Etapa 2 — `REUNIÃO DE DIAGNÓSTICO` (nome na tela até 22/09/2026: `AGENDAR`, mesmo `id`) — **entrada mudou em 23/09/2026, ver aviso na Etapa 1 (G-13)**
 
 | Bloco | Conteúdo |
 |---|---|
-| Objetivo | Qualificar e agendar com o closer na mesma ligação (briefing-sdr.md, "A máquina") |
-| Validação de passagem | Formulário `Qualificação SDR` preenchido + agendamento no calendário `Reunião com closer` (dispara o Pós-agendamento, seção 5) |
-| Ferramentas | Calendário + formulário (seção 7), tarefa `[CONECTADO] Qualificar e agendar` |
-| Tempo de estagnação | **Gap encontrado ao preencher este bloco, sem monitor ainda:** nenhum relógio hoje mede "atendeu e não agendou em X horas". Registrado como adição ao F-05 (roadmap, ainda no bloco 6 — sem volume não vale construir agora): 24h sem sair de `AGENDAR` |
-| Motivos de perda | **Segundo gap encontrado:** hoje não existe caminho de desqualificação instantânea nesta etapa — o Pós-ligação sempre cria a tarefa de agendar, mesmo quando a conversa já mostrou que não há fit. Registrado como lacuna nova, **L-08** (`briefing-sdr.md`) |
-| Taxa de conversão esperada | Depende do L-08 ser resolvido para medir separado de "não conseguiu horário"; hoje mistura os dois motivos numa métrica só |
-| Meta de avanço | Ligado à meta de conexões da etapa anterior — sem meta própria adicional |
+| Objetivo | Reunião marcada; qualificação (formulário do closer) e fechamento de horário já aconteceram **antes** de entrar aqui, dentro de `CONECTAR` (D2 do `PLANO-MULTICANAL.md`) — esta etapa é a espera até a reunião acontecer e o veredito do closer |
+| Validação de passagem | Agendamento no calendário `Reunião com closer`, feito pelo SDR ainda em `CONECTAR` — dispara o `Pós-agendamento v2` (seção 5), que move para cá |
+| Ferramentas | Calendário + confirmação/lembretes (`Pós-agendamento v2`, seção 5) |
+| Tempo de estagnação | **Não coberto mais por monitor nenhum** (peça 5 do F-05/W17d foi despublicada, premissa impossível — `build-wesales.md` seção 2.23, G-13). Como a entrada aqui já exige reunião marcada, o relógio relevante é o `No-show`/`SLA do Closer` (seção 5.3/5.4), não um "ficou parado" genérico |
+| Motivos de perda | O ramo `Desqualificado` do Pós-ligação (R-18, seção 4) já tira a maioria dos "sem fit na ligação" **antes** de chegar aqui, ainda em `CONECTAR`. O que chega em `REUNIÃO DE DIAGNÓSTICO` tem reunião marcada; perda a partir daqui é veredito do closer (Loop do closer, seção 5.1) ou no-show |
+| Taxa de conversão esperada | Reunião realizada vs. agendada (no-show) — não é mais "sem fit", que sai antes |
+| Meta de avanço | Ligado à meta de conexões que fecham horário (etapa anterior) — sem meta própria adicional |
 
 #### Etapa 3 — `NEGOCIAR` (absorve `Reunião agendada` + a negociação do closer)
 
@@ -288,10 +323,10 @@ priorizar L-07 saber que ela também é a métrica de estagnação desta etapa.
 | Objetivo | Comparecimento + veredito de qualificação real do closer, e a negociação em si (proposta, condições) até a decisão de compra — a metade "negociação" não existia no plano de 7 etapas, que a mandava para fora do pipeline |
 | Validação de passagem | `Reunião foi qualificada` preenchida pelo closer (Loop do closer, seção 5.1) para a metade "comparecimento"; para a metade "negociação", decisão do closer registrada como `status = won` (→ `FORMALIZAR`) ou `status = lost` (permanece em `NEGOCIAR` com o status marcado, não some da tela) |
 | Ferramentas | Calendário, Registro de Comparecimento (5.2), Loop do closer (5.1), SLA do Closer — No-show (5.4, R-12); a negociação em si (proposta/condições) é conduzida pelo closer fora dos workflows deste documento |
-| Tempo de estagnação | A metade "comparecimento" já está coberta — é literalmente o R-12: SLA do closer com escalonamento ao gestor (seção 5.4). A metade "negociação" (depois do `Reunião foi qualificada = Sim`) **não tem monitor ainda** — gap novo, mesma classe dos dois já registrados nas etapas anteriores; candidato a entrar no F-05 quando ele for construído |
+| Tempo de estagnação | A metade "comparecimento" já está coberta — é literalmente o R-12: SLA do closer com escalonamento ao gestor (seção 5.4). A metade "negociação" (depois do `Reunião foi qualificada = Sim`) ficou sem monitor até 22/09/2026: F-05 fechou com seis peças sem incorporar este gap, apesar de citado aqui como candidato desde a etapa ser escrita. Fechado como item próprio, F-13 (roadmap), seção 2.28 abaixo |
 | Motivos de perda | No-show 2x seguido (R-12: `status = lost` mantendo a oportunidade em `NEGOCIAR`, não um "mover para `Descartado`" — migrado nas seções 5.3 e 5.4 em 19/09/2026; este parágrafo dizia "ainda usa a redação antiga e entra na fila" até 21/09, quando a fila já não existia), `Reunião foi qualificada` = `Não` (→ roteamento da seção 5.1, mesma troca de "mover etapa" por "mudar status") |
 | Taxa de conversão esperada | "nota ≥ 70 acerta X%" é exatamente o que a lista `Calibração da Régua` (8.7, F-03) mede |
-| Meta de avanço | Função da nota de qualificação (seção 9.1) e do volume que chega de `AGENDAR` |
+| Meta de avanço | Função da nota de qualificação (seção 9.1) e do volume que chega de `REUNIÃO DE DIAGNÓSTICO` |
 
 #### Etapa 4 — `FORMALIZAR` (novo, não existia no plano de 7)
 
@@ -418,12 +453,193 @@ primeira não).
 
 ---
 
-### 1.4 G-03 — promoção imediata escolhida pelo dono em 24/09/2026
+### 1.4 Workflow "Reentrada por Formulário" — F-11
+
+**Por quê:** um lead que já saiu do funil (`status` `abandoned` ou `lost` —
+12 tentativas esgotadas, número errado, desqualificado) e depois **preenche
+de novo** o mesmo formulário de um anúncio do Meta é o sinal de reengajamento
+mais forte que existe: dinheiro pago de novo, de propósito, pela mesma
+pessoa. Hoje esse sinal é invisível para a máquina inteira. A Porta de
+Entrada (G-01, seção 1.3) só reage a `Contact Created`, e a HighLevel
+deduplica contato por e-mail/telefone — uma resubmissão de um contato que
+já existe **atualiza** o registro, não recria, então `Contact Created` nunca
+dispara de novo (pesquisado: comportamento de deduplicação nativo,
+confirmado por página oficial da HighLevel citada em duas buscas com termos
+diferentes — mesmo padrão de confiança já usado no G-05). O único caminho de
+volta hoje é o Reengajamento 90 dias (R-08, seção 2.12), que só cobre quem
+saiu **pela via `nutricao-90d`** e só reage **90 dias depois**, não no
+instante em que o lead literalmente acabou de levantar a mão de novo. É
+exatamente o tipo de dívida que o F-01 já descreveu para outro sinal ("sinal
+ignorado é dívida que não se paga retroativamente") — aqui o sinal nem chega
+a ser ignorado, ele nunca é lido. E é o tipo de vantagem que "faça melhor,
+não igual" pede: Reev, Meetime, Outreach e Salesloft não enxergam a
+resubmissão de um anúncio — só recebem o que alguém empurra para eles via
+integração, uma vez. Aqui o CRM **é** a plataforma de anúncio, então o dado
+já está disponível nativamente; nenhuma das quatro plataformas de sales
+engagement tem como copiar isso olhando só a tela delas.
+
+**Como:** workflow novo e pequeno, símile do G-05/R-08 ("não dá para caber
+dentro do workflow que já existe, um workflow curto e próprio resolve sem
+tocar em nada publicado").
+
+**Gatilho: `Facebook Lead Form Submitted`**, sem filtro de formulário
+específico — pesquisado: diferente do que motivou o G-01 a **rejeitar** este
+gatilho para a entrada nova ("só cobre a origem Meta", o oposto de "toda
+origem" que aquele caso pedia), aqui a origem já é conhecida de propósito —
+é reentrada de quem **já** veio do Meta, e não da entrada genérica que a
+Porta de Entrada cobre. A documentação e guias de terceiros confirmam que o
+gatilho aceita filtro por página + formulário específico, mas não deixam
+claro se "sem filtro" cobre todos os formulários conectados de uma vez —
+**confiança média**, não testado nesta subconta. Se a tela exigir escolher
+um formulário por vez, a saída é a mesma do G-04 (Opção A): uma cópia deste
+workflow por formulário — hoje são 8 (`ROADMAP-SALES-ENGAGEMENT.md`, G-04) —,
+registrada aqui como pendência explícita, não como bloqueio: o primeiro
+formulário já vale a pena montado sozinho.
+
+**Configurações do workflow**
+
+| Configuração | Valor | Por que |
+|---|---|---|
+| Allow Re-entry | **Ligado** | Cada resubmissão do formulário é um evento novo e genuíno — mesmo raciocínio já usado no R-08 (seção 2.12) para a tag `nutricao-90d`: sem reentrada ligada, o lead só reativaria uma vez na vida e a segunda resubmissão cairia no vazio |
+| Janela de envio / Stop on Response | Não se aplica | O único trabalho aqui é reabrir a oportunidade e (no ramo de exceção) avisar o gestor — nenhuma mensagem sai deste workflow, mesmo raciocínio da Porta de Entrada (seção 1.3) |
+| Contatos em múltiplos workflows | Permitido | O contato pode estar (raramente) noutra régua ao mesmo tempo; este workflow só mexe na etapa/status da oportunidade, não compete por tarefa ou tag de fila |
+
+### Nós
+
+| # | Nó | Ação | Configuração |
+|---|---|---|---|
+| 1 | **Portão de estado** | If/Else | `status` da oportunidade no `FUNIL DE VENDAS` **é** `abandoned` **ou** `lost` → nó 2. Senão (nenhuma oportunidade ainda, ou já `open`) → **Remove from Workflow: este** |
+| 2 | **Portão de consentimento** | If/Else | tag `nao-perturbe` presente → nó 2b. Senão → nó 3 |
+| 2b | Ramo do opt-out | Internal Notification para o gestor: `{{contact.name}} reenviou um formulário do Meta, mas está marcado nao-perturbe — decisão manual sobre reabrir a oportunidade` → **Remove from Workflow: este** | Mesmo padrão do nó 0.0b (seção 2.3): achado ambíguo não se resolve sozinho, vai para o gestor decidir |
+| 3 | Reabertura | Update Opportunity | Etapa → `NOVO LEAD` · `status` → `open` |
+| 4 | Limpeza de estado antigo | Remove Contact Tag | `nutricao-90d` (idempotente, mesmo se ausente — mesma linguagem já usada no nó 4 do R-08, seção 2.12) |
+| 5 | Registro | Add Note | `Oportunidade reaberta em {{right_now}} — lead reenviou o formulário do Meta. Reentrada automática (F-11), etapa reiniciada em NOVO LEAD para nova triagem do SDR.` |
+
+**Por que volta para `NOVO LEAD` e não direto para `CONECTAR` (ao contrário
+do R-08, que reativa direto em `CONECTAR`):** o R-08 sabe que o lead já
+passou pela triagem uma vez (12 tentativas completas). Aqui não — o motivo
+da saída pode ter sido `Número errado` ou uma desqualificação por falta de
+fit, e mandar direto para `CONECTAR` puxaria a cadência de novo sem
+ninguém olhar. `NOVO LEAD` é o mesmo ponto de entrada que todo lead
+genuinamente novo usa (G-01) — reaproveita a mesma decisão manual do SDR
+(L-07/G-03) em vez de abrir uma terceira porta com regra própria.
+
+**Por que o nó 1 não precisa distinguir "nenhuma oportunidade" de
+"oportunidade já `open`":** nos dois casos a ação certa é a mesma — não
+fazer nada. Contato realmente novo já está coberto pela Porta de Entrada
+(que dispara por `Contact Created`, evento diferente, sem corrida entre os
+dois: este workflow só age quando encontra `abandoned`/`lost`, condição que
+um contato novíssimo nunca tem). Lead já `open` está correndo alguma
+cadência agora — reabrir de novo duplicaria régua, o mesmo erro que o
+`Allow Re-entry` desligado da 12x30 (D-06) já existe para evitar.
+
+**Por que checar `nao-perturbe` e não o DND nativo direto:** todo outro
+portão deste documento (nó 3 da seção 2.4, nó 2 do R-08, nó 0.0b) usa a tag
+como fonte da verdade para "não procurar este lead", nunca o DND nativo
+isolado — e o ramo `Não ligar` do Pós-ligação (seção 4) sempre aplica os
+dois juntos, então checar a tag cobre o mesmo caso sem inventar uma segunda
+fonte de verdade só para este workflow.
+
+**Interação com o R-08 (Reengajamento 90 dias) — verificada, não montada às
+cegas:** o nó 2 do R-08 (seção 2.12) já checa `status` **ao vivo** ("Status
+da oportunidade é `abandoned`") antes de reativar, com exatamente esta nota
+no próprio item: "não reativa quem já mudou de estado por conta própria".
+Se este workflow reabrir o lead antes do relógio de 90 dias do R-08 vencer,
+quando o `Wait` dele terminar o portão vai encontrar `status = open` (não
+mais `abandoned`) e sair pelo ramo 2b, um no-op limpo — nenhuma tentativa
+duplicada, nenhuma mudança necessária no R-08. É o mesmo tipo de garantia
+que a migração do G-02 já deixou espalhada pelo documento (checar estado ao
+vivo, não confiar em quando um evento aconteceu).
+
+#### Conferência do F-11, 22/09/2026 (mesma rodada): falta o reset que o R-08 tem, e a tag que ninguém remove
+
+O desenho está certo onde importa — o portão do nó 1 resolve a corrida com a
+Porta de Entrada sem precisar distinguir "sem oportunidade" de "já `open`", e a
+interação com o R-08 foi conferida contra o portão real dele, não suposta. Três
+acréscimos.
+
+**1. A dúvida do "sem filtro" se resolve, e a favor de um workflow só.** A
+ressalva de confiança média sobre `Facebook Lead Form Submitted` cobrir todos os
+formulários de uma vez tem resposta na própria recomendação de boas práticas que
+a pesquisa desta rodada trouxe: *evite um gatilho que aceite todo formulário do
+Facebook de toda oferta **a menos que todos pertençam ao mesmo pipeline e
+etapa***. Isso (a) implica que o gatilho **aceita** ficar sem filtro, senão não
+haveria o que evitar, e (b) descreve a exceção que é exatamente este caso — os
+oito formulários desta subconta alimentam **o mesmo** pipeline (`FUNIL DE
+VENDAS`) e **a mesma** etapa (`NOVO LEAD`). Então a pendência das "8 cópias"
+provavelmente não existe: monte **um** workflow sem filtro de formulário. Se a
+tela exigir escolher um, aí sim as cópias — mas não planeje para isso.
+
+**2. Falta o reset de rodada, e o R-08 já tem o nó pronto para copiar.** O nó 3
+reabre a oportunidade e o nó 4 tira `nutricao-90d`, mas **nenhum campo de
+contador é zerado.** O lead volta para `NOVO LEAD` carregando o estado do fim da
+régua anterior:
+
+| Campo, como fica | Efeito quando o SDR promover para `CONECTAR` |
+|---|---|
+| `Tentativa nº` = 12 | A cadência pode encerrar na entrada — a régua tem 12 tentativas, e ele já está na 12ª |
+| `WA não atendidas seguidas` ≥ 2 | O seletor de canal (nó 4 da 2.4) manda direto para telefone, **do primeiro toque**, porque o contador ainda está estourado |
+| `Resultado da tentativa` = valor antigo (`Não atendeu`, `Número errado`…) | O nó 10 decide pelo valor velho; e o Pós-ligação pode não disparar na primeira classificação nova, se o SDR escolher o **mesmo** valor que já está lá (gatilho é *mudança* de campo) |
+| `Prioridade` = 1 ou 2 (rebaixada no fim da régua) | O lead que acabou de levantar a mão entra no fim da fila |
+
+Ou seja: **o lead que deu o sinal mais forte que existe recebe o pior tratamento
+da máquina.** O R-08, que faz a mesma coisa (reativar um lead que saiu), já
+resolve isso no nó 3 dele (seção 2.12) — copie literalmente:
+
+| # | Nó | Ação | Configuração |
+|---|---|---|---|
+| 3b | Reset de rodada | Update Contact Field | `Tentativa nº` = 0 · `WA não atendidas seguidas` = 0 · `Resultado da tentativa` = vazio · `Prioridade` = 3 · `Entrada em` = `{{right_now}}` · `1ª tentativa em` = vazio |
+
+Mesmos seis campos, mesmo motivo, e entra **entre** os nós 3 e 4 — antes de o
+lead ficar visível na fila do SDR.
+
+**3. `telefone-invalido` é aplicada em dois lugares e removida em nenhum — e
+esta é a resubmissão mais provável de todas.** `grep` confirma: a tag nasce no
+nó 0.0b da 2.4 e da 2.10, e **nenhum** nó do documento a remove. Agora junte com
+o caso de uso: **por que um lead reenviaria o formulário?** O motivo número um é
+que o telefone estava errado e ele corrigiu. A resubmissão traz telefone novo,
+que a HighLevel escreve no contato existente — e no mesmo instante a tag
+`telefone-invalido` passa a ser **factualmente falsa**, num contato que ela
+ainda marca, alimentando a lista de higiene do R-13.
+
+O nó 4 é o único lugar do projeto que pode limpá-la:
+
+| # | Nó | Ação |
+|---|---|---|
+| 4 | Limpeza de estado antigo | Remove Contact Tag: `nutricao-90d` **e `telefone-invalido`** |
+
+**O trade-off, declarado em vez de escondido:** se o telefone reenviado for o
+mesmo número errado, remover a tag perde a informação. Recomendo remover de todo
+jeito, porque o sistema se autocorrige — a próxima tentativa classificada como
+`Número errado` reaplica a tag pelo caminho normal — enquanto uma tag "inválido"
+grudada num contato cujo telefone acabou de ser atualizado não se corrige nunca e
+contamina a higiene. É uma escolha, não um fato; se o dono preferir o contrário,
+é uma linha a menos.
+
+**`nao-perturbe` continua fora dessa limpeza, de propósito** — é o portão de
+consentimento do nó 2, e apagá-la aqui transformaria uma resubmissão de
+formulário em revogação automática de opt-out, que não é o que um clique em
+anúncio significa.
+
+**Zero campo, zero tag novos:** reaproveita `status`, etapa, `nao-perturbe`
+e `nutricao-90d`, todos já existentes. Não depende de `APROVADO.md` para a
+especificação; a montagem na tela (workflow não sai por API) segue a mesma
+fila manual dos demais.
+
+**Pronto quando:** todo lead com oportunidade `abandoned`/`lost` que
+reenviar um formulário do Meta sem estar marcado `nao-perturbe` volta para
+`NOVO LEAD`/`open` sozinho, pronto para nova triagem do SDR — sem esperar o
+relógio de 90 dias do R-08 nem depender de alguém abrir uma lista para
+notar que o lead voltou.
+
+---
+
+### 1.5 G-03 — promoção imediata escolhida pelo dono em 24/09/2026
 
 **Decisão:** opção 2 — promoção imediata, sem espera. O gatilho é
 Opportunity Stage Changed entrando em NOVO LEAD; a ação única é
 Create/Update Opportunity, com status open e etapa CONECTAR. O
-builder é offline (	ools/build_g03.py): ele apenas gera o rascunho JSON
+builder é offline (`tools/build_g03.py`): ele apenas gera o rascunho JSON
 e não chama g.client() nem escreve no CRM.
 
 A ordem é obrigatória: publicar e testar a Cadência 12x30, publicar este
@@ -451,6 +667,22 @@ também é executado pelo workflow de repositório
 habilitar a execução. Isso remove a dependência do PC: o script continua
 time-gated e só faz mutações na janela de 29/09/2026, não deve ser publicado
 nem executado agora.
+
+**Nota de reconciliação, 27/09/2026:** esta seção nasceu `### 1.4` na cópia
+truncada de `build-wesales.md` (commit `c2dadb5`), reusando um número que já
+pertencia a "Workflow 'Reentrada por Formulário' — F-11" (fechado em
+22/09/2026) na base íntegra (`875d8d7`) — a sessão que escreveu isto não
+sabia que 1.4 já existia, porque a cópia truncada não o tinha. Renumerada
+para 1.5 ao restaurar o F-11 acima, mesmo tratamento que este documento e o
+`ROADMAP-SALES-ENGAGEMENT.md` já deram à colisão F-07→F-18. Conferido por
+`grep -rn "seção 1.4" wesales/`: as ocorrências fora deste arquivo, todas em
+`ROADMAP-SALES-ENGAGEMENT.md`, já apontavam para o F-11, não para este
+G-03 — nenhuma precisa mudar. Só o próprio alerta de integridade no topo do
+`ROADMAP-SALES-ENGAGEMENT.md` citava esta seção pelo número antigo, e foi
+corrigido no mesmo commit desta reconciliação.
+
+---
+
 ## 2. Workflow "Cadência 12x30"
 
 ### 2.1 Gatilho — migrado para as 5 etapas reais em 18/09/2026
