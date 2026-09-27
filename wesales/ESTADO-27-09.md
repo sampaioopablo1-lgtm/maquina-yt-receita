@@ -599,3 +599,34 @@ até a faxina; podem ser concluídas à mão.
 **19:37 — e-mail da SDR corrigido pelo dono** (Configurações → Equipe). Relido pela API
 no run 36344996509 (recon): Andreyna Siqueira `ML69c5kAJ93cliAGgBj6` agora com
 `sampaioopablo1@gmail.com` (o `.com` faltando foi corrigido). Papel `user`, subconta certa.
+
+## 11. 19:45 — caminho na nuvem para editar workflow, e as edições prontas
+
+**Achado:** o navegador na nuvem (Composio Browser Tool, sessão já logada pelo dono)
+lê workflow pela API interna **de dentro da própria página**, com a sessão do app.
+Leitura provada com HTTP 200 em Pós-agendamento v2 (v16, 179 nós), Cadência 12x30
+(v35, 381), Pós-ligação v3 (v5, 80) e Fechar Horário (v9, 41). Cópia integral de cada
+um ficou no localStorage da página (`bkp_<id>`). Nenhum conector (GHL_CRM, Composio
+highlevel/highlevel_mcp) edita workflow: a API pública só lista.
+
+**Escrita ainda NÃO feita.** Usa a sessão logada do dono; fica para a decisão dele.
+
+Edições prontas (só texto, nenhuma condição/contador/fórmula muda; `status` preservado):
+
+| Workflow · nó | Hoje | Proposta |
+|---|---|---|
+| Pós-agendamento v2 · 67dba2f3 (NOTA) | já tem Budget, Decisor, Prazo, Clientes/mês, Investe, Investimento, Time, Atende leads, Dor | acrescentar só o que falta: Necessidade `{{contact.necessidade}}`, Urgência `{{contact.urgncia}}`, Quanto pode investir `{{contact.b__quanto_pode_investir}}`, SDR `{{contact.sdr_responsvel}}` |
+| Pós-agendamento v2 · ade7fb03 (AVISO 30 min) | tem Investe, Investimento, Atende, Decisor, Budget, Prazo, Dor | acrescentar Necessidade, Urgência, Clientes/mês `{{contact.clientes_novos_por_ms}}`, Time `{{contact.tem_time_comercial}}`, Quanto pode investir, SDR |
+| Cadência 12x30 · 789d0018 (T1 Ligar→WhatsApp) | passo 2 manda botão **Ligar via WhatsApp** | passo 2 vira "💬 Se não atender, mandar mensagem no WhatsApp pela conversa" |
+| Cadência 12x30 · e790a8c3 (T1 WhatsApp→Ligar) | passo 1 = botão Ligar via WhatsApp | trocar a ordem: 1 = telefone, 2 = mensagem no WhatsApp |
+| Fechar Horário · 423c11ba (FH2) e b1f5ada5 (FH3) | **mesmo botão inexistente** no passo 1 (achado novo) | 1 = telefone; 2 = mensagem no WhatsApp |
+| Pós-ligação v3 · a6815ce6 | "preencha o formulário de qualificação" | "preencha a ficha do contato (campos N · T · B · A e SDR responsável)" |
+
+Chaves conferidas no catálogo (`locations/customFields`), não digitadas de memória.
+`Qualificação` (`contact.qualificao`) é lista SDR/IA Whatsapp/Vendedor, 0 de 64 preenchidos:
+por isso "Qualificado por" sai vazio; com a linha SDR acrescentada a nota passa a dizer quem.
+
+**ALERTA (19:29):** apareceu o campo `Voice AI Reason for Call` (pVjiDY9Z2f1nmatwDz9U,
+pasta da máquina) no mesmo minuto em que a página de agentes de Voice AI estava aberta
+no navegador na nuvem. Nenhuma tarefa minha abriu essa tela. Não foi apagado (regra).
+Conferir em IA → Voice AI que nenhum agente está ativo.
