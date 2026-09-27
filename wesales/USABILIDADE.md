@@ -11,6 +11,78 @@ condicional, na §3). Só renomear, agrupar e escolher o que fica visível.
 
 ---
 
+## 0-BIS. CORREÇÃO DA §0 (27/09 12:20) — os leads ESTÃO inscritos, e parados na janela
+
+A §0 abaixo está preservada como foi escrita, porque o raciocínio dela ainda
+explica o que o SDR vê. Mas **a hipótese central estava errada**, e a prova estava
+no próprio repositório — no docstring do `wesales/tools/patch_janela_abertura.py`
+(branch `claude/amazing-johnson-mclksg`), escrito hoje mais cedo:
+
+> *"Pior: a cadência JÁ ENTROU e está parada. Prova nos campos do `Carlos Andrade`:
+> `Tentativa nº` = 0 e `Permissão WhatsApp` = 'Não solicitado' (os nós de campo
+> rodaram), e `atraso-1a-tentativa` ainda presente (a 1ª tentativa NÃO rodou).
+> Campo e tag rodam fora do horário; **só a mensagem espera a janela.**"*
+
+E os mesmos carimbos estão nos leads que eu li. No `Gerson`: `Tentativa nº` = 0,
+`Permissão WhatsApp` = `Não solicitado`, `WA não atendidas seguidas` = 0,
+`Checkpoint — Tentativa nº` = 0. **São exatamente as escritas de inicialização do
+nó 0.** Eu li isso como "nada rodou". É o contrário: rodou o nó 0 e **parou no
+primeiro `Wait`**, porque o que vem depois é o nó de mensagem, e esse espera a
+janela de execução.
+
+**A ordem no fluxo publicado explica o resto.** A tag de fila e a tarefa ficam
+**depois** do nó de mensagem. Então a ausência delas não é defeito: é a fila do
+dia que **ainda não começou**. Quando a janela abrir — segunda 28/09 08:30 — as
+execuções paradas retomam, a MI-0 sai, e aí a tag e a tarefa aparecem.
+
+### O que isso muda, item por item
+
+| o que eu disse na §0 | o que é, corrigido |
+|---|---|
+| "as cadências não inscreveram os 38" | **inscreveram**; estão parados antes do primeiro toque |
+| "`Allow Re-entry` desligado ⇒ nada os inscreve depois" | irrelevante — já estão dentro |
+| "a terça abre com fila vazia" | a fila se enche sozinha quando a janela abrir |
+| "risco de a máquina NÃO agir" | **não existe.** O risco real é o original: ela agir **segunda**, um dia antes |
+| `Add to Workflow` em lote é o conserto | **não é conserto, é dano**: inscreveria de novo quem já está inscrito |
+
+**Retiro o `Add to Workflow` em lote da lista de ações.** Era a recomendação
+errada, derivada da hipótese errada, e executá-la duplicaria execução.
+
+### O que sobrevive da §0, e continua valendo
+
+- **A `fila-wa` nunca é aplicada por workflow nenhum** (§9). Esse achado é
+  independente e não é resolvido pela janela: a lista 8.3 e o bloco de WhatsApp da
+  §3.1 seguem sem fila.
+- **A lista 8.5 do gestor** segue com 18 linhas e precisa da cláusula `status open`.
+- **O `sdr-lotado`** segue lido por quatro workflows e escrito por nenhum (§8).
+- **A pergunta de tela continua útil**, só mudou de motivo: a contagem de inscritos
+  na `Cadência Inbound` agora serve para **confirmar** que são ~38 parados, não
+  para descobrir se alguém entrou.
+
+### E o que a correção diz sobre a escrita do módulo 1
+
+Conferi os portões da cadência publicada antes de concluir. Os dois que decidem
+toque e mensagem exigem a tag **ausente**:
+
+```
+MI-0 · Ainda vale mandar?   →  contact_detail · tags · index-of-false · ['nao-perturbe']
+TI1 · Ainda vale ligar?      →  contact_detail · tags · index-of-false · ['nao-perturbe']
+```
+
+Então a tag que eu apliquei nos 31 é exatamente o que a cadência consulta antes de
+mandar a MI-0. Com ela presente, o ramo de envio não é tomado. **A escrita está
+certa e é proteção real**, não cosmética.
+
+Com uma ressalva honesta, que o `patch_janela_abertura.py` já havia levantado: não
+consigo provar pelo dump se o ramo alternativo **encerra** o fluxo ou **pula e
+segue** para a tentativa seguinte. Se pular, a régua avança sem falar com ninguém —
+custo de posição na cadência, não de reputação nem de gasto. Por isso a tag **não
+substitui** fechar a janela em `days: [2]`: a janela segura toda execução parada e
+se desfaz numa linha. A tag garante que nenhuma mensagem sai; a janela garante que
+nem o avanço acontece. As duas juntas é o certo, e a janela continua sendo sua.
+
+---
+
 ## 0. O achado que vem antes de tudo: a fila do SDR não existe como dado
 
 Medido em 27/09/2026, leitura pura pelo conector `GHL CRM`, nenhuma escrita.

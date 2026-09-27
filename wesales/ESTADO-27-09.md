@@ -111,7 +111,25 @@ pedindo contato não é falha: é a operação começando um dia antes, com a ra
 certa. O cenário catastrófico que eu descrevi ontem (37 mensagens) **não existe
 mais**.
 
-## 2.1 ACHADO NOVO (27/09 05:20) — e ele passa na frente da janela
+## 2.1 CORRIGIDO EM 12:20 — a §2.1 abaixo partia de hipótese errada
+
+**Leia a §0-BIS do `USABILIDADE.md` antes desta seção.** Os 38 leads **estão
+inscritos** na cadência e parados no primeiro `Wait`, esperando a janela de
+execução — a prova são as escritas de inicialização do nó 0 nos campos
+(`Tentativa nº` = 0, `Permissão WhatsApp` = `Não solicitado`), que eu li como
+"nada rodou". A tag de fila e a tarefa vêm **depois** do nó de mensagem, e por
+isso ainda não existem.
+
+Consequência: **o risco de "a máquina não agir" não existe**, e o
+`Add to Workflow` em lote sai da lista de ações — inscreveria de novo quem já está
+inscrito. O risco real volta a ser o original e único: **segunda 28/09 08:30 a
+janela abre** e as execuções paradas retomam. Fechar em `days: [2]` segue sendo a
+única alavanca que segura isso, e segue sendo trabalho de tela.
+
+O texto original fica abaixo, sem edição, porque a medição das listas continua
+válida — só a causa estava errada.
+
+## 2.1 (texto original de 05:20, hipótese refutada) — e ele passa na frente da janela
 
 Medido em leitura pura, agora no **pipeline inteiro** (uma chamada com
 `getTasks`, não amostra): **64 oportunidades no `FUNIL DE VENDAS`, duas
@@ -203,9 +221,9 @@ custo aparece quando o volume chegar, que é o cenário dos 10 leads/dia.
    vazias para sempre. Se não, a janela em `days: [2]` volta a ser a única
    alavanca real, porque é a única que para o motor em vez de calar a boca dele.
    Escrever depende de `[x]` novo no `APROVADO.md`. Ver §7 do `USABILIDADE.md`.
-0. **`Add to Workflow` → `Cadência Inbound` em lote nos leads de `CONECTAR`** —
-   passou a ser o item nº 1 da lista. Ver §2.1. Sem isso a terça abre com fila
-   vazia, e resolve o item 5 de brinde.
+0. ~~`Add to Workflow` em lote~~ — **RETIRADO em 12:20.** Partia de hipótese
+   refutada (os leads já estão inscritos); executar duplicaria execução. Ver a
+   §0-BIS do `USABILIDADE.md`.
 1. **Janela em `days: [2]`** — ver §2: se não acontecer, não é desastre. Perdeu
    a primeira posição para o item 0, e por um motivo: a janela protege contra a
    máquina agir cedo; o item 0 é a máquina não agir.
