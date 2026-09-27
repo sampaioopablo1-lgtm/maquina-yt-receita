@@ -317,7 +317,39 @@ pastas em uso, que nenhuma das duas mostrou.
 **Verificação:** ao consultar existência antes de criar, ler o schema da resposta e
 conferir em qual coleção a coisa mora. Idempotência não testada é idempotência suposta.
 
-## 2.15 Duas trilhas de execução que não se enxergam
+## 2.15 Confiar na lista quando a pergunta é sobre o registro
+
+**Forma:** verificar uma escrita relendo o endpoint de **lista**, que serve um índice de
+busca, e não o registro.
+
+**Caso, de hoje:** depois de escrever `assignedTo` em 48 contatos — todas as 48 respostas
+`200` com o `assignedTo` novo no corpo — o `contacts_get-contacts` ainda devolvia **2 sem
+dono**. Lidos um a um com `contacts_get-contact`, os dois **tinham** o campo. O índice da
+lista atrasa.
+
+**O que eu quase fiz:** reescrever os dois, e relatar "62 de 64" ao dono. Duas escritas à
+toa e um número errado, os dois por ler a fonte errada.
+
+**Verificação:** a lista serve para achar; o registro serve para confirmar. Quando a
+lista discorda do que a escrita respondeu, ler o registro antes de concluir qualquer
+coisa — inclusive antes de repetir a escrita.
+
+## 2.16 Parar na metade da mecânica por não ter lido a configuração
+
+**Forma:** aplicar a correção na entidade errada, ou só em parte dela, porque não se leu
+onde o mecanismo de fato pendura o comportamento.
+
+**Caso, de hoje:** atribuí dono nas 43 oportunidades e ia parar ali, dizendo ao dono que
+não sabia se os 48 contatos precisavam do mesmo. Fui ler o dump da `Cadência 12x30`:
+**todo nó de tarefa traz `"assignedTo": "contact.assigned_user"`**. A fila do SDR se monta
+pelo dono do **contato**. As 43 oportunidades, sozinhas, não colocariam uma única tarefa na
+fila de ninguém — a correção teria parecido feita e não teria efeito.
+
+**Verificação:** antes de declarar uma correção completa, achar no artefato que executa
+(o dump do workflow, não o documento) de qual campo ele lê. Uma busca por `assignedTo`
+nos 36 dumps custa menos que uma abertura de operação com a fila vazia.
+
+## 2.17 Duas trilhas de execução que não se enxergam
 
 **Forma:** sessão na nuvem e sessão no PC produzindo estado e documento que o outro
 lado não lê.

@@ -53,10 +53,24 @@ combina com o que já estava lá, e é reversível numa chamada. Testei o id num
 antes de fazer as 36: id inválido a API recusa, id válido já é o resultado desejado — então
 o teste não gastou um registro de mentira.
 
-**O que fica em aberto neste item:** 48 **contatos** seguem sem dono (os 36 do funil mais
-12 sem oportunidade). Não escrevi neles porque não confirmei se as tarefas dos workflows
-são atribuídas ao dono do contato ou a um usuário fixo — e 48 escritas por suposição é
-pior que 48 escritas depois de ler um dump de workflow.
+**E os contatos também — que eram o que realmente importava.** Eu ia parar nas
+oportunidades, dizendo que não sabia se a tarefa segue o dono do contato. Fui ler o dump
+da `Cadência 12x30` em vez de supor, e **todo nó de tarefa traz
+`"assignedTo": "contact.assigned_user"`**. Ou seja: a fila do SDR se monta pelo dono do
+**contato**, e as 43 oportunidades sozinhas não resolveriam nada. Escrevi nos 48.
+
+**Estado final, verificado:**
+
+| | com dono |
+|---|---|
+| oportunidades abertas | **43 / 43** |
+| contatos | **64 / 64** |
+
+**Uma pegadinha de verificação, que vale como método:** depois das 48 escritas, o
+`contacts_get-contacts` (lista) ainda devolvia **2 sem dono** — `teste não ligar` e
+`zz teste estrutura`. Lido individualmente com `contacts_get-contact`, os dois **tinham**
+`assignedTo`. A lista serve um índice que atrasa; o registro é a fonte. Se eu tivesse
+confiado na lista, teria reescrito dois registros à toa e relatado um número errado.
 
 ### O texto original do item, para contexto
 
