@@ -11,7 +11,7 @@ Cada roteiro tem:
       "id": "01-lead-esfria-v2",
       "texto": "...",
       "modelo": "eleven_multilingual_v2",          # opcional
-      "vozes": ["<voice_id>", ...],                # vazio = escolhe no catalogo
+      "vozes": ["<voice_id>", ...],                # vazio = voz clonada da conta
       "ajustes": {"stability": 0.45, ...}          # opcional
     }
 
@@ -117,6 +117,15 @@ def escrever_catalogo(conta: list[dict], publicas: list[dict]) -> None:
     CATALOGO.write_text("\n".join(linhas) + "\n", encoding="utf-8")
 
 
+def vozes_proprias(conta: list[dict]) -> list[dict]:
+    """A voz do fundador, clonada na conta, vem antes de qualquer voz de biblioteca.
+
+    `premade` sao as vozes padrao do ElevenLabs e `professional` inclui as
+    adicionadas da biblioteca publica; so `cloned` e a voz gravada pelo dono.
+    """
+    return [v for v in conta if v.get("category") == "cloned"]
+
+
 def escolher_automatico(publicas: list[dict]) -> list[dict]:
     """Duas vozes brasileiras masculinas e uma feminina, as mais usadas."""
     brasileiras = [v for v in publicas if "brazil" in (v.get("accent") or "").lower()] or publicas
@@ -202,7 +211,11 @@ def main() -> int:
     for arquivo in sorted(ROTEIROS.glob("*.json")):
         roteiro = json.loads(arquivo.read_text(encoding="utf-8"))
         print(f"roteiro {roteiro['id']}")
-        escolhidas = roteiro.get("vozes") or [v["voice_id"] for v in escolher_automatico(publicas)]
+        escolhidas = (
+            roteiro.get("vozes")
+            or [v["voice_id"] for v in vozes_proprias(conta)]
+            or [v["voice_id"] for v in escolher_automatico(publicas)]
+        )
         for voice_id in escolhidas:
             if voice_id in por_id:
                 voice_id_conta = garantir_na_conta(chave, por_id[voice_id], conta_ids)
