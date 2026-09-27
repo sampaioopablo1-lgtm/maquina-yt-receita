@@ -4237,6 +4237,50 @@ verificados um a um, em `build-wesales.md` §2.47.
 diferente de `5000`, e o dashboard do gestor soma receita real, não
 contagem de negócios fechados.
 
+### F-19 · A Interceptação de Sinal trata "estou de férias" como "tenho interesse" — e o Stop on Response encerra a cadência do lead no mesmo segundo, em silêncio (27/09/2026)
+
+**Por quê:** pesquisando Reev/Meetime/Outreach/Salesloft antes de considerar
+o bloco 6 esgotado (rotina obrigatória de todo item novo deste roadmap),
+achado que nenhum dos seis exemplos já fechados (F-01 a F-06) cobre: a
+Interceptação de Sinal — Resposta (seção 2.9.3) só filtra opt-out
+(2.9.5/R-17); uma resposta automática de ausência (auto-reply do WhatsApp
+Business do lead, "fora do horário de atendimento", "estou de férias")
+dispara `Prioridade` = 5, `fila-quente` e a tarefa "ligar agora" do mesmo
+jeito que um "sim, tenho interesse". Mais caro que o alarme falso: a
+Cadência 12x30 e a Inbound têm `Stop on Response` ligado sem filtro de
+conteúdo possível (limite nativo, pesquisado) — a mesma auto-resposta
+encerra as tentativas restantes do lead pago no mesmo segundo, sem que
+ninguém tenha decidido isso. Nem F-05 (vigia lead **parado**) nem G-19
+(outro limite de plataforma, na Faxina) cobrem este caso.
+**Como:** workflow novo "Resposta Automática — Ausência", gatilho
+`Customer Replied` filtrado por uma lista de 19 frases de
+ausência/auto-resposta testada frase a frase (não substring, mesma lição do
+`pare`/`parece` do 2.9.5); marca a tag de auditoria `resposta-automatica`
+(T-23), soma o contador `Respostas automáticas` (C-33) e avisa o gestor —
+não tenta reinscrever a cadência sozinho, porque `Allow Re-entry` está
+desligado na 12x30/Inbound por decisão D-06 (evitar tentativa duplicada) e a
+plataforma não expõe "pausar e retomar" por dentro do próprio workflow, a
+mesma classe de limite que a Faxina (G-19) e a abertura da operação
+(`ABERTURA.md`) já documentaram. Patch pendente, registrado mas não
+aplicado nesta rodada: acrescentar a mesma lista de frases como
+`Doesn't Contain` no filtro já publicado da 2.9.3 (mesma mecânica do
+2.9.5/R-17) — mecânico, não decisão, próximo passo de quem tiver a tela ou
+os scripts `tools/patch_*.py`.
+**Pesquisado antes de desenhar:** Outreach detecta OOO por algoritmo sobre
+e-mail e pausa o Prospect sem contar como reply; Salesloft lê a data de
+retorno e reagenda para "retorno + 1". As duas soluções vivem dentro do
+motor de sequência deles — o GHL não expõe equivalente (`Customer Replied`
+filtra por `Contains Phrase`/`Exact Match`/tag/`Intent Type`/canal;
+`Intent Type` distingue positivo/negativo/reclamação/pergunta, nenhuma
+categoria de ausência). Este item não replica os dois — limita o dano com a
+peça nativa que o próprio R-17 já usa, e troca silêncio por aviso.
+**Pronto quando:** uma resposta com frase de ausência/auto-resposta não gera
+`Prioridade` = 5 nem tarefa de sinal quente na 2.9.3, e fica registrada
+(tag + contador + aviso ao gestor) em vez de desaparecer sem rastro quando o
+`Stop on Response` nativo tirar o contato da cadência. Detalhe nó a nó em
+`build-wesales.md`, seção 2.48; tag e campo em `campos-e-tags.md` (T-23,
+C-33); ambos nascem `[ ]` em `APROVADO.md`.
+
 ---
 
 ## Ordem sugerida
@@ -5733,3 +5777,32 @@ lost + 1 `REUNIÃO DE DIAGNÓSTICO` open), 8 a mais que a última leitura
 registrada (56) — composição consistente com o backfill do G-03 já
 executado (seção 1.5 acima: 41 promovidas de `NOVO LEAD` para `CONECTAR`
 em 24/09/2026), não investigada além disso nesta sessão.
+
+**F-19 aberto e especificado em 27/09/2026, sessão automática seguinte — os
+dois documentos que o acidente de 24/09 atingiu já estavam reconciliados
+por inteiro (fecho anterior, acima); com nada represado por decisão do dono
+nem por premissa técnica não testada, o passo honesto era a pesquisa de
+concorrência que este roadmap sempre exige antes de declarar o bloco 6
+esgotado.** CRM reconfirmado por API antes de desenhar: 64 oportunidades e
+56 campos de contato, sem mudança frente à leitura anterior — G-04 (peça 2),
+F-09, F-10, G-11 (item 1) e G-19 continuam sendo as cinco decisões que
+esperam o dono, sem novidade. A lacuna veio de perguntar, para cada um dos
+seis itens já fechados do bloco 6 (F-01 a F-06), "o que Outreach/Salesloft
+fazem aqui que este projeto ainda não tem" — e achar que a Interceptação de
+Sinal (F-01) nunca ganhou o filtro que o R-17 deu ao opt-out: uma
+auto-resposta de ausência (comum em WhatsApp Business de lead B2B) passa
+pelo mesmo `Customer Replied` sem nenhuma das 17 frases de opt-out, gera
+sinal quente falso e, pior, é apagada da cadência em silêncio pelo
+`Stop on Response` nativo (sem filtro de conteúdo possível, confirmado por
+pesquisa, não suposto). Fechado como **F-19**: workflow novo especificado
+nó a nó (`build-wesales.md`, seção 2.48), tag `resposta-automatica` (T-23) e
+campo `Respostas automáticas` (C-33) especificados em `campos-e-tags.md`,
+ambos nascendo `[ ]` em `APROVADO.md` pela regra de sempre. Zero campo, zero
+tag, zero escrita no CRM nesta rodada — e um limite documentado em vez de
+escondido: a plataforma não expõe "pausar e retomar" cadência por dentro do
+próprio workflow (mesma classe de limite já registrada para a Faxina, G-19,
+e para a abertura da operação, `ABERTURA.md`), então o item reduz o dano
+(alarme falso, silêncio) em vez de prometer paridade completa com
+Outreach/Salesloft nisto. Com isto, o bloco 6 fica em F-01 a F-06 e F-11 a
+F-19 `FEITO`/especificado, F-07/F-08 `FEITO`, e só F-09/F-10 aguardando o
+dono — sem mudança na lista de decisões pendentes.

@@ -8762,3 +8762,113 @@ sozinho — registrado aqui para essa condição não precisar ser redescoberta.
 **Pronto quando:** o primeiro `won` desta operação carrega um `monetaryValue`
 diferente de `5000`, e o dashboard do gestor soma receita real, não contagem
 de negócios.
+
+## 2.48 Workflow "Resposta Automática — Ausência" — F-19: a Interceptação de Sinal não distingue "tenho interesse" de "estou de férias"
+
+**Achado, pesquisando Reev/Meetime/Outreach/Salesloft antes de fechar o
+bloco 6 (rotina obrigatória de todo item novo).** A 2.9.3 (Interceptação de
+Sinal — Resposta) escuta `Customer Replied` e só tem **um** filtro de
+exclusão, o do 2.9.5 (opt-out por palavra-chave). Uma resposta automática de
+ausência — mensagem de "fora do horário de atendimento" do WhatsApp Business
+do lead, ou um "estou de férias" digitado por engano no número errado — não
+contém nenhuma das 17 frases de opt-out, então passa direto: `Prioridade` =
+5, tag `fila-quente`, tarefa `[CADENCIA] Sinal: respondeu mensagem — ligar
+agora`. O SDR liga "agora" para alguém que nunca leu a mensagem.
+
+**O segundo efeito é mais caro que o primeiro, e nenhuma automação hoje o
+enxerga:** a Cadência 12x30 e a Cadência Inbound têm `Stop on Response`
+**ligado** (seção 2.2 e 2.10) — "respondeu em qualquer canal, sai da
+cadência", sem filtro de conteúdo, porque esse gatilho nativo não aceita um.
+Uma auto-resposta de ausência dispara o mesmo `Customer Replied` que a 2.9.3
+escuta **e** encerra a régua de 12 tentativas para aquele lead, no mesmo
+segundo — sem que ninguém tenha decidido isso. O lead paga (dinheiro de
+anúncio já gasto) some da cadência com zero tentativas reais restantes,
+disfarçado de "respondeu, tudo certo". Nenhum item deste roadmap cobre este
+caso: F-05 (Monitor de Saúde) vigia lead **parado**, não lead que saiu por
+engano; G-19 documenta um limite de plataforma parecido (Faxina de Tarefas),
+não este.
+
+**Pesquisado antes de desenhar (não suposto):** Outreach detecta OOO por
+algoritmo sobre assunto/corpo do e-mail e marca o Prospect como pausado, sem
+contar a resposta como reply de verdade; Salesloft vai além — lê a data de
+retorno na mensagem e reagenda a cadência para "retorno + 1 dia"
+automaticamente. As duas soluções vivem **dentro do motor de sequência**
+deles, que decide sozinho quando pausar e quando retomar. O GHL não expõe
+isso: `Stop on Response` é uma trava nativa do próprio workflow, sem filtro
+de conteúdo (`Customer Replied` só filtra por `Contains Phrase`/`Exact
+Match`/tag/`Intent Type`/canal — `Intent Type` distingue positivo, negativo,
+reclamação e pergunta, nenhuma categoria de ausência/auto-resposta;
+pesquisado ao vivo, não é suposição), e nenhum outro gatilho vê a execução
+já em andamento de outro workflow para poder "esperar e retomar" por dentro.
+**Este item não replica Outreach/Salesloft — não dá.** O que ele faz é limitar
+o dano com a mesma peça nativa que o R-17 já usa (`Contains Phrase`): impedir
+o alarme falso de sinal quente, e trocar "o lead some em silêncio" por "o
+gestor é avisado e decide se reativa manualmente" — mesma filosofia do nó 6b
+do 2.9.5 (aviso sempre, em vez de confiar que alguém vai notar sozinho).
+
+**Como — filtro:** lista canônica de frases de auto-resposta/ausência,
+testada uma a uma contra a mesma pergunta que já salvou o `pare`/`parece`
+do 2.9.5 ("a frase aparece dentro de alguma palavra ou resposta espontânea
+comum de um lead interessado?" — não, nenhuma das dezenove aparece em
+elogio, dúvida ou objeção real):
+
+`mensagem automática`, `resposta automática`, `esta é uma resposta automática`, `fora do horário de atendimento`, `fora do horário de funcionamento`, `horário de atendimento:`, `retornaremos seu contato`, `retornaremos em breve`, `em breve retornaremos`, `estamos fora do escritório`, `de férias até`, `estou de férias`, `voltarei em`, `volto em breve`, `não verifico esta caixa`, `ausência temporária`, `ausente até`, `no momento estamos fora`, `no momento estou fora`
+
+**Como — workflow novo "Resposta Automática — Ausência":**
+
+| Configuração | Valor |
+|---|---|
+| Gatilho | `Customer Replied` — Canal: WhatsApp e SMS (mesmo motivo técnico do 2.9.3/G-09 — a Stevo entrega o WhatsApp desta subconta como `TYPE_CUSTOM_SMS`) — `Contains Phrase`, lista acima, combinada em OU |
+| Janela de envio | Sem restrição, 24/7 — nenhuma mensagem sai deste workflow |
+| Allow Re-entry | Ligado — cada auto-resposta nova é um evento novo e genuíno, mesmo raciocínio do 2.9.5 |
+| Stop on Response | Desligado |
+
+| # | Nó | Ação | Configuração |
+|---|---|---|---|
+| 1 | Buscar oportunidade | Find opportunity | Pipeline `FUNIL DE VENDAS` · "Most recently created opportunity". Ramo **Opportunity Not Found**: segue mesmo assim para o nó 2 (auditoria é do contato, não da oportunidade) |
+| 2 | Marcar | Add Contact Tag | `resposta-automatica` (T-23, pulso de auditoria — mesma ideia da `toque`/T-15: registra o evento, nunca vira estado permanente) |
+| 3 | Contar | Update Contact Field (Math +1) | `Respostas automáticas` (C-33, `NUMERICAL`) — mesmo padrão cumulativo de C-06/C-07/C-11/C-12/C-31: sem contador, "quantas vezes isso aconteceu na base" nunca aparece em lugar nenhum, mesma lição do F-06 |
+| 4 | Registro | Add Note | `Resposta automática de ausência detectada em {{right_now}} — revisar histórico antes de reativar` |
+| 5 | Aviso, sempre | Internal Notification | Para `Contact Owner`: `Resposta automática: {{contact.name}} respondeu com mensagem de ausência/auto-resposta, não interesse real. A cadência que ele estava rodando já parou (Stop on Response nativo não distingue o motivo) — decida se reativa. Mover a etapa de volta NÃO reinscreve; reativação limpa exige Add to Workflow manual ou a régua natural de Reengajamento 90 dias, se aplicável.` |
+
+**Patch pendente nos dois workflows já publicados, não editado aqui por
+causa da convenção deste documento (só acrescentar no fim):** a 2.9.3
+(`Interceptação de Sinal — Resposta v2`, publicado) precisa ganhar uma linha
+`Doesn't Contain` com a mesma lista de dezenove frases acima, mesma mecânica
+exata que o 2.9.5/R-17 já usa contra a lista de opt-out — sem isso, a
+auto-resposta dispara os dois workflows ao mesmo tempo (`ligar agora,
+prioridade 5` **e** a tag de auditoria deste item). A 2.9.2 (`— Clique`) não
+precisa do patch: o gatilho dela é `Trigger Link Clicked`, não lê corpo de
+mensagem, uma auto-resposta nunca a alcança. Mesma ferramenta que já aplicou
+`patch_canal_conectou.py`/`patch_portao_inbound.py` serve aqui
+(`--dump` para validar, `--aplicar` para publicar) — não escrito nesta
+rodada, registrado como o próximo passo mecânico.
+
+**Limite conhecido, documentado em vez de escondido:** este item não impede
+a cadência principal de parar — impede é o alarme falso (sinal quente) e o
+silêncio (lead some sem aviso). O `Stop on Response` continua tirando o
+contato da 12x30/Inbound no mesmo instante em que a auto-resposta chega,
+porque essa trava nativa dispara pelo mesmo evento que este workflow escuta,
+em paralelo, sem ordem garantida entre os dois — não existe gatilho no GHL
+que rode "antes" do `Stop on Response` para impedi-lo. Reinscrever
+automaticamente (o que Salesloft faz) não é possível com as peças nativas
+disponíveis: a 12x30 e a Inbound têm `Allow Re-entry` **desligado** (decisão
+D-06, seções 2.2/2.10) exatamente para não duplicar tentativa — um `Add to
+Workflow` depois do aviso não reinscreveria o contato enquanto essa trava
+estiver ligada, e ligá-la para permitir reentrada abriria a porta para
+duplicar tentativa em qualquer resposta real, o problema que o D-06 existe
+para evitar. Mesma classe de limite que a Faxina (G-19) e a abertura da
+operação (`ABERTURA.md`) já documentaram para este projeto: quando a
+plataforma não expõe "pausar e retomar" por dentro do próprio workflow, a
+saída é tornar visível para um humano decidir, não fabricar uma automação
+que a ferramenta não sustenta.
+
+**Zero campo, zero tag, zero escrita no CRM nesta rodada:** especificação
+pura. `Respostas automáticas` (C-33) e `resposta-automatica` (T-23) nascem
+`[ ]` em `APROVADO.md` — regra de sempre, linha que a própria rotina
+acrescenta não é autorização.
+
+**Pronto quando:** uma resposta que contém frase de ausência/auto-resposta
+(a) não gera `Prioridade` = 5 nem tarefa de sinal quente na 2.9.3, e (b) fica
+registrada (tag + contador + aviso ao gestor) em vez de desaparecer em
+silêncio quando o `Stop on Response` nativo tirar o contato da cadência.

@@ -4,7 +4,7 @@
 da sua confirmação, item por item. A auditoria pode cortar linhas desta lista
 (campo que já existe é reaproveitado, nunca duplicado).
 
-## Etapa 2 — Campos personalizados (50 + 1 sugerido)
+## Etapa 2 — Campos personalizados (51 + 1 sugerido)
 
 > **Onde mora a contagem.** Só este título conta campos, e só ele. Os títulos
 > de seção perderam o número de propósito: eram quatro lugares para errar cada
@@ -49,6 +49,7 @@ Todos no objeto **contato**. Tipo é o `dataType` da API do GHL.
 | C-30 | Conexão real | SINGLE_OPTIONS | Sim, Não | Workflow (F-06) |
 | C-31 | Conexões reais telefone | NUMERICAL | — | Workflow (F-06) |
 | C-32 | Ligações com transcrição | NUMERICAL | — | Workflow (F-06) |
+| C-33 | Respostas automáticas | NUMERICAL | — | Workflow (F-19) |
 
 C-09 a C-12 abrem `Total de ligações`/`Total de conexões` (C-06/C-07) por
 canal — sem eles não dá para responder "a T7 do telefone conecta mais que a
@@ -227,6 +228,14 @@ workflow novo, já que a transcrição chega minutos depois e o SDR classifica n
 hora. Com o reset nesse ponto não há "dois donos"; sem ele, há estado
 vencido.
 
+C-33 fecha o F-19 (`ROADMAP-SALES-ENGAGEMENT.md`, `build-wesales.md` seção
+2.48): conta, cumulativamente, quantas vezes o workflow novo "Resposta
+Automática — Ausência" detectou uma resposta de auto-resposta/ausência na
+base — mesmo padrão de contador de evento que C-06/C-07/C-11/C-12/C-31,
+incrementado por `Math +1`, nunca sobrescrito. Sem ele, não existe onde ver
+"quantas vezes isso aconteceu" — mesma lição de sempre (F-06): métrica que
+ninguém grava não existe.
+
 C-25 fecha o horário aprendido por segmento (`build-wesales.md`, seção 2.18,
 F-02 do roadmap): grava só a **hora** (não o carimbo completo) em que o lead
 `Atendeu`, para cruzar com `Segmento` (Q-01) numa lista e enxergar se um
@@ -335,7 +344,7 @@ por `--dump` e **APLICADO em 23/09/2026 ~18:45 BRT** (mais `patch_canal_posligac
 existe na tela, criado por fora deste conector. Acompanhamento e "Pronto
 quando" em `ROADMAP-SALES-ENGAGEMENT.md`, **G-21**.
 
-## Etapa 3 — Tags (22 numeradas, cinco pendentes de aprovação — e 12 na conta fora da numeração)
+## Etapa 3 — Tags (23 numeradas, seis pendentes de aprovação — e 12 na conta fora da numeração)
 
 > **Onde mora a contagem das tags fora da numeração.** Só este título e a
 > linha abaixo contam; qualquer outro documento que precisar dizer "a conta
@@ -348,8 +357,8 @@ quando" em `ROADMAP-SALES-ENGAGEMENT.md`, **G-21**.
 > e o "25" (na verdade 27) para `build-wesales.md` §2.32; os dois corrigidos
 > junto — detalhe em `ROADMAP-SALES-ENGAGEMENT.md`, G-20.
 
-As 22 são as tags **deste projeto**: T-01 a T-15 e T-21/T-22 criadas, T-16 a
-T-20 esperando `[x]` no `APROVADO.md`. **T-21 e T-22 não seguiram a fila do
+As 23 são as tags **deste projeto**: T-01 a T-15 e T-21/T-22 criadas, T-16 a
+T-20 e T-23 esperando `[x]` no `APROVADO.md`. **T-21 e T-22 não seguiram a fila do
 `[x]`** — o dono criou as duas direto pelo próprio caminho (`tools/
 build_estagnacao.py`, PC dele, 23/09/2026, depois do horário em que a T-21
 foi especificada aqui) junto com os dois workflows que as aplicam; ver as
@@ -390,6 +399,7 @@ diferentes; quem for conferir na tela vê 29.
 | T-20 | `retorno-vencido` | **Aguardando aprovação em `APROVADO.md` — não criada ainda.** Monitor de Saúde da Operação (F-05, seção 2.24 do `build-wesales.md`): aplicada pelo workflow "Retorno Vencido" quando `Data de retorno` (S-01) passa sem o SDR reclassificar `Resultado da tentativa`; limpa pelo nó 3c novo do Pós-ligação (seção 4, incondicional, a cada resultado novo) e, como rede de segurança, pelo nó 4 do Mestre de saída (seção 3); filtra a lista 8.24 |
 | T-21 | `negociacao-estagnada` | **Já criada e publicada — pelo dono, não por este `[x]`.** O workflow que a aplica saiu do papel em 23/09/2026 (`tools/build_estagnacao.py`, id `53334baa`, testado com o contato 9940), com desenho **diferente** do que a especificação original do F-13 (`build-wesales.md`, seção 2.28) previa: gatilho `Opportunity Stage Changed → NEGOCIAR` (não `Contact Changed` em `Reunião foi qualificada`) e **5 dias** de espera (não 3) — o dono ajustou os dois na hora de montar. Aplicada quando a oportunidade fica 5 dias em `NEGOCIAR`/`open` sem virar `won` nem `lost`; a entrada do workflow já remove `proposta-pendente`/`negociacao-estagnada` de rodadas anteriores, e o `Mestre de saída v2` (`tools/patch_mestre_tags.py`) também limpa as duas. G-23 (`ROADMAP-SALES-ENGAGEMENT.md`) registra a divergência entre a especificação e o publicado |
 | T-22 | `proposta-pendente` | **Já criada e publicada — pelo dono, não por este `[x]`.** Segundo alerta do mesmo pacote da T-21 (`tools/build_estagnacao.py`, id `14fdf9fa`, 23/09/2026, testado com o 9940): o closer marca `Reunião foi qualificada` = `Sim` e 3 dias depois a tag `etapa-reuniao` (Espelho de Etapa) ainda está presente — ou seja, ninguém moveu a oportunidade para `NEGOCIAR`. É o buraco que a especificação da T-21 nunca cobriu (o gatilho dela só olhava `NEGOCIAR`) e que nenhum documento deste projeto tinha especificado antes do próprio dono construir. Gatilho `Contact Changed` em `Reunião foi qualificada`, portão de aviso único pela própria tag. Limpa pelo `Mestre de saída v2` e pela entrada do workflow da T-21 (acima). G-23 (`ROADMAP-SALES-ENGAGEMENT.md`) tem o detalhe completo |
+| T-23 | `resposta-automatica` | **Aguardando aprovação em `APROVADO.md` — não criada ainda.** Auto-resposta/ausência não vira sinal quente sem aviso (F-19, `build-wesales.md` seção 2.48): pulso de auditoria, aplicado pelo workflow novo "Resposta Automática — Ausência" a cada `Customer Replied` que casar com a lista de frases de ausência; nunca vira estado permanente (mesma ideia da `toque`/T-15), soma em `Respostas automáticas` (C-33) e não precisa de limpeza própria |
 
 Todas em minúsculas com hífen. O GHL normaliza tags para minúsculas, então
 `Fila-Quente` e `fila-quente` são a mesma tag — o que ajuda a não duplicar.
@@ -414,7 +424,9 @@ nascida do F-05 peça 6) idem — nenhuma das três saiu por API ainda.** T-21
 motivo diferente dos dois incidentes acima: não foi esta rotina que escreveu
 o próprio `[x]`, foi o **dono**, pelo caminho de sempre (`tools/`, fora
 deste conector) — mesmo tratamento que `fechar-horario`/Espelho de Etapa já
-recebem. Ver as duas linhas da tabela acima.
+recebem. Ver as duas linhas da tabela acima. **T-23 (`resposta-automatica`,
+nascida do F-19 em 27/09/2026) segue a mesma regra dos monitores do F-05** —
+nasce `[ ]`, não `[x]`, e ainda não saiu por API.
 
 ## O que eu preciso de você para executar
 

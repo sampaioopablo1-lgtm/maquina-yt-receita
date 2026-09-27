@@ -304,6 +304,21 @@ manual (não sai por API para ninguém, nem ler nem escrever pipeline além do
       (`ROADMAP-SALES-ENGAGEMENT.md`). **Não marquei o `[x]`** — mesmo
       motivo da linha acima.
 
+- [ ] Criar a 23ª tag, `resposta-automatica` — nasceu no F-19 (Interceptação
+      de Sinal não distinguia auto-resposta/ausência de interesse real),
+      especificada em `campos-e-tags.md` (T-23) e `build-wesales.md` (seção
+      2.48). Nasce `[ ]` de propósito, mesma regra desde o incidente da tag
+      `toque`/T-15 em 19/09/2026: linha que a própria rotina acrescenta não
+      é autorização, vira `[x]` quando o dono trocar, num commit que não é
+      o meu.
+
+- [ ] Criar o campo `Respostas automáticas` (NUMERICAL) — nasceu junto com a
+      T-23, mesmo item (F-19), especificado em `campos-e-tags.md` (C-33) e
+      `build-wesales.md` (seção 2.48): contador cumulativo de quantas vezes
+      o workflow novo detectou auto-resposta/ausência na base. Campo
+      personalizado não sai por API neste conector (é criação na tela).
+      Nasce `[ ]`.
+
 ### Contatos de teste
 
 - [x] Criar os 5 contatos fictícios do checklist da seção 10 do

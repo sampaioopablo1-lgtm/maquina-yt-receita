@@ -1715,6 +1715,61 @@ obrigatório); registrado como retoque de segunda ordem em
 aplicada, `dndSettings` do contato com todos os canais `active`
 (`contacts_get-contact`), nota registrada.
 
+## W25 · Resposta Automática — Ausência — `build-wesales.md` 2.48 (F-19, especificado em 27/09/2026)
+
+**Gatilho:** `Customer Replied` → Canal `WhatsApp e SMS` (mesmo motivo
+técnico do W13, Stevo entrega WhatsApp como `TYPE_CUSTOM_SMS`) · corpo
+`Contains Phrase` — lista canônica de ausência/auto-resposta, nova, sem
+sobreposição com a do opt-out (W14): `mensagem automática` · `resposta
+automática` · `esta é uma resposta automática` · `fora do horário de
+atendimento` · `fora do horário de funcionamento` · `horário de
+atendimento:` · `retornaremos seu contato` · `retornaremos em breve` · `em
+breve retornaremos` · `estamos fora do escritório` · `de férias até` ·
+`estou de férias` · `voltarei em` · `volto em breve` · `não verifico esta
+caixa` · `ausência temporária` · `ausente até` · `no momento estamos fora`
+· `no momento estou fora`.
+
+| Configuração | Valor |
+|---|---|
+| Janela | Sem restrição, 24/7 |
+| Allow Re-entry | Ligado |
+| Stop on Response | Desligado |
+
+| # | Ação | Configuração exata | Vai para |
+|---|---|---|---|
+| 1 | Find opportunity | Pipeline `FUNIL DE VENDAS` · "Most recently created" — os dois ramos seguem | 2 |
+| 2 | Add Contact Tag | `resposta-automatica` (T-23) | 3 |
+| 3 | Update Contact Field (Math +1) | `Respostas automáticas` (C-33) | 4 |
+| 4 | Add Note | `Resposta automática de ausência detectada em {{right_now}} — revisar histórico antes de reativar` | 5 |
+| 5 | Internal Notification | ao `Contact Owner`: `Resposta automática: {{contact.name}} respondeu com mensagem de ausência/auto-resposta, não interesse real. A cadência que ele estava rodando já parou (Stop on Response nativo não distingue o motivo) — decida se reativa. Mover a etapa de volta NÃO reinscreve; reativação limpa exige Add to Workflow manual ou a régua natural de Reengajamento 90 dias, se aplicável.` | fim |
+
+**Pré-requisito:** tag `resposta-automatica` (T-23) e campo `Respostas
+automáticas` (C-33) — os dois `[ ]` em `APROVADO.md`.
+
+**Retoque obrigatório no W13 (`Interceptação de Sinal — Resposta`, já
+publicado):** acrescentar a mesma lista acima como `Doesn't Contain` no
+filtro do gatilho, mesma mecânica do par W13/W14 para o opt-out — sem isso,
+uma resposta de ausência dispara os dois workflows ao mesmo tempo (`ligar
+agora, prioridade 5` **e** este). Diferente do par W13/W14, aqui o filtro
+só precisa ir num sentido: este workflow não precisa excluir a lista de
+opt-out, porque as duas listas testadas contra as mesmas frases nunca se
+sobrepõem (conferido frase a frase).
+
+**Limite aceito, não escondido:** este workflow não reinscreve a cadência
+sozinho. `Allow Re-entry` está desligado no W11/W12 (decisão D-06) para não
+duplicar tentativa — `Add to Workflow` não teria efeito enquanto a trava
+estiver ligada, e ligá-la abriria a porta para duplicar tentativa em
+qualquer resposta real. O item troca "lead some em silêncio" por "gestor
+avisado decide", não replica o auto-resume de Outreach/Salesloft (motor de
+sequência deles decide isso por dentro; o GHL não expõe equivalente).
+
+**Teste:** num contato fictício com WhatsApp, dispare uma resposta contendo
+"estou de férias até dia 30" (ou outra frase da lista) e confira: tag
+`resposta-automatica` aplicada, `Respostas automáticas` incrementado em 1,
+nota registrada, aviso ao `Contact Owner` — e **nenhuma** tarefa `[CADENCIA]
+Sinal: respondeu mensagem — ligar agora` nascendo (depende do retoque no
+W13 já estar aplicado).
+
 ---
 
 # PARTE 3 — OPERAÇÃO (a dinâmica de alta produtividade)
