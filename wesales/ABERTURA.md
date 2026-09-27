@@ -141,3 +141,18 @@ abertura e medir, em vez de descobrir com 30.
 > (`ROADMAP-SALES-ENGAGEMENT.md`), teto de toques por semana (F-04)
 > estendido à `Interceptação de Sinal — E-mail` (F-21), sem mexer em nada
 > deste risco.
+
+> **Reconferido em 27/09/2026 ~20:05 UTC, sessão automática seguinte —
+> faltam ~15h25min para a janela abrir.** `opportunities_search-opportunity`
+> volta a **64** (lido do campo `meta.total` do retorno — o payload cheio
+> com `status=all` estourou o limite de tokens da ferramenta e caiu no
+> arquivo salvo em disco pelo próprio erro), mesma composição da leitura do
+> G-29 (13 `NOVO LEAD`, 47 `CONECTAR`, 3 `NEGOCIAR`, 1 `REUNIÃO DE
+> DIAGNÓSTICO`); `Carlos Andrade` (`7ECnj1bSeEIm5P58Ifd9`) segue `dnd:
+> true`, tag `atraso-1a-tentativa` presente — protegido. `git fetch` limpo.
+> Nenhuma correção aplicada, nenhum disparo, as duas decisões do dono
+> seguem sem resposta. Sem notificação nova nesta rodada — a sessão usou o
+> tempo para achar e registrar o **G-30**
+> (`ROADMAP-SALES-ENGAGEMENT.md`), um sétimo campo fora da lista que é
+> rastro de um recurso nativo (Voice AI/AI Employee) ligado sem documento
+> nenhum saber, sem mexer em nada deste risco.

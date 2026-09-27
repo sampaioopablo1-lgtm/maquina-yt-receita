@@ -4966,6 +4966,88 @@ sem novidade nesta sessão; G-25 continua sendo o item de maior prioridade
 do roadmap enquanto a janela de 28/09 08:30 `America/Sao_Paulo` não passar
 sem disparo.
 
+### G-30 · Um sétimo campo fora da lista nasceu na conta, e este não é da tela — é o rastro de um recurso nativo que ninguém documentou ligar (27/09/2026)
+
+**Por quê:** reconferência de rotina do G-25 (a primeira tarefa de toda
+sessão enquanto ele não fechar) — `contacts_get-contact` em `Carlos Andrade`
+(`7ECnj1bSeEIm5P58Ifd9`) confirma `dnd: true` e a tag `atraso-1a-tentativa`,
+protegido, nenhum disparo; faltam ~15h25min para a janela de 28/09 08:30
+`America/Sao_Paulo` (11:30 UTC) a partir desta sessão (~20:05 UTC).
+`opportunities_search-opportunity` (`status=all`, lido pelo campo `meta.total`
+do retorno, não pela contagem de itens da página — ver nota de ferramenta
+abaixo) confirma **64 oportunidades**, composição idêntica à última leitura
+(G-29: 13 `NOVO LEAD` [2 open + 10 abandoned + 1 lost], 47 `CONECTAR` [39
+open + 8 lost], 3 `NEGOCIAR` [2 open + 1 lost], 1 `REUNIÃO DE DIAGNÓSTICO`
+lost) — sem novidade no risco de prazo fixo nem no volume.
+
+**Nota de ferramenta, para não redescobrir:** `opportunities_search-
+opportunity` com `status=all` numa conta com 64+ oportunidades e sem
+`query_limit` baixo devolve um payload grande demais (159.449 caracteres,
+65 mil tokens) porque cada item vem com `contact`, `relations` e
+`customFields` embutidos — a chamada falhou por estourar o limite de
+tokens da ferramenta. Resposta não é reduzir `query_limit` e paginar (mais
+chamadas, mesmo custo agregado): o próprio corpo do erro salva a saída
+completa num arquivo local e ensina a ler com `offset`/`limit`/`jq` — mais
+barato parsear o JSON salvo uma vez (`python3 -c "import json; ...
+d['data']['meta']['total']"` para o total, `Counter` por
+`(pipelineStageId, status)` para a composição) do que pedir de novo à
+ferramenta. Registrado aqui, não em `APRENDIZADOS-CRM.md`, porque é
+comportamento do host de ferramentas desta sessão (arquivo de saída +
+instrução de leitura), não do MCP GHL em si — mas quem usar
+`opportunities_search-opportunity` de novo com a base neste tamanho cai na
+mesma mensagem.
+
+Sem novidade no risco de prazo fixo, a sessão foi à varredura de coerência
+de sempre — e, na mesma reconferência de campos que fechou o G-27/G-28/G-29
+(nunca presumir que a página de campos ficou parada desde a última leitura),
+`locations_get-custom-fields` (`model: contact`) subiu de **58 para 59
+campos**. O novo é `Voice AI Reason for Call` (id `pVjiDY9Z2f1nmatwDz9U`,
+`LARGE_TEXT`, posição 2750, `parentId` `gabsbU3jsUN7oIXCnYab` — o grupo de
+tela dos campos que os workflows escrevem, não o grupo de qualificação
+`zHU4yGXKHdxBHnGxUmai` dos três campos das linhas G-27/G-28/G-29), `dateAdded`
+2026-09-27T19:29:18Z, ~36 minutos antes desta leitura. `grep -rn "Voice AI
+Reason for Call\|pVjiDY9Z2f1nmatwDz9U" wesales/*.md` vazio — nenhum documento
+deste projeto cita este campo.
+
+**Diferença que separa este achado dos três anteriores (`Canal que
+conectou`, `SDR responsável`, `B · Quanto pode investir`):** aqueles três
+têm nome e formato de campo criado à mão na tela de "Custom Fields" (posição
+no grupo de qualificação, opções escolhidas por alguém). Este tem nome e
+formato de campo **gerado pela plataforma** — `WebSearch` confirma que
+"reason for calling" é um dos dados que o recurso nativo **Voice AI / AI
+Employee** do HighLevel captura e expõe por Custom Value durante uma
+chamada (`help.gohighlevel.com`, artigos de Voice AI Custom Actions e
+Custom Values), e o nome do campo bate exatamente com esse rótulo interno
+— não é uma pergunta de qualificação que alguém desenhou, é o rastro de
+alguém (o dono, ou um teste) tendo ativado o Voice AI/AI Employee nesta
+subconta. Isso muda a pergunta que este item faz ao dono: não é "qual das
+duas leituras é a certa" (G-27/G-29), é "o Voice AI está ligado nesta
+subconta de propósito, e se estiver, ele substitui algum nó da `Cadência
+12x30`/`Qualificação por IA no WhatsApp` ou roda em paralelo sem que
+nenhum documento saiba?" — pergunta que nenhum item deste roadmap fez
+ainda, porque nenhum outro achado até aqui apontava para um recurso nativo
+ligado por fora da spec.
+
+**Como:** nada sai por API — o campo já existe na subconta, criado pela
+plataforma ao ativar um recurso nativo, não por este conector. Regra 1 e a
+regra "Como autorizar" do `APROVADO.md` não se aplicam: não é um campo meu
+para criar nem para decidir. O trabalho desta rodada é o mesmo tipo de
+ponte que o G-27/G-29 já fizeram — registrar o achado nos documentos que
+contam campo, para a próxima sessão não redescobrir a mesma pesquisa:
+`campos-e-tags.md` (Etapa 2, sétimo campo "fora da lista", mesmo formato
+dos seis anteriores) e este item.
+
+**Pronto quando:** o dono disser se o Voice AI/AI Employee está ativo nesta
+subconta de propósito e, se estiver, qual é a intenção (substituir um nó
+existente da cadência, rodar como canal extra, ou foi ativado sem querer
+num teste). Até a resposta, o campo fica sem consumidor (nenhum workflow,
+lista ou documento lê ou escreve nele hoje, confirmado nesta rodada). G-03,
+G-04 (peça 2), F-09, F-10, G-11 (item 1), G-19 e agora a pergunta do Voice
+AI (G-30) continuam sendo as decisões sem prazo fixo que esperam o dono,
+sem novidade nesta sessão; G-25 continua sendo o item de maior prioridade
+do roadmap enquanto a janela de 28/09 08:30 `America/Sao_Paulo` não passar
+sem disparo.
+
 ## Ordem sugerida
 
 **Bloco 0 (G-01) fechado em 19/09/2026, antes de tudo o resto desta seção:**
@@ -6565,9 +6647,11 @@ isso entra à frente de todos eles, não atrás. Zero campo, zero tag, zero
 escrita no CRM: item de escalonamento, não depende de `APROVADO.md`.
 
 Com isso, **G-25 é o item de maior prioridade do roadmap inteiro enquanto
-não estiver `FEITO`** — à frente de G-03, G-04 (peça 2), F-09, F-10, G-11
-(item 1) e G-19, que continuam sendo as seis decisões que esperam o dono
-sem prazo fixo. A próxima sessão confere primeiro se a janela das duas
+não estiver `FEITO`** — à frente de G-04 (peça 2), F-09, F-10, G-11
+(item 1) e G-19, que continuam sendo as decisões que esperam o dono
+sem prazo fixo (G-03 não entra mais nesta lista — decidido e agendado
+para 29/09/2026, ver reconciliação acima). A próxima sessão confere
+primeiro se a janela das duas
 cadências mudou (ou se segunda 28/09 08:30 `America/Sao_Paulo` já passou)
 antes de qualquer outro trabalho — inclusive antes da varredura de
 coerência ou da pesquisa de concorrência que esta seção normalmente indica
@@ -6584,8 +6668,8 @@ quarto caminho de correção automática foi conferido e também bate na mesma
 parede (Composio/`gohighlevel` sem conta conectada, e conectar dependeria
 do mesmo clique do dono que já resolveria o problema direto na tela) — e o
 dono recebeu um aviso direto (push), não só o registro neste arquivo, dado
-que faltam menos de 25h para a janela abrir. G-03, G-04 (peça 2), F-09,
-F-10, G-11 (item 1) e G-19 continuam sendo as seis decisões sem prazo fixo
+que faltam menos de 25h para a janela abrir. G-04 (peça 2), F-09,
+F-10, G-11 (item 1) e G-19 continuam sendo as decisões sem prazo fixo
 que esperam o dono, sem novidade nesta sessão.
 
 **Reconferido em 27/09/2026 ~13:05 UTC, sessão automática seguinte —
@@ -6612,8 +6696,8 @@ instrução que já leva isso em conta. Zero campo, zero tag: uma opção nova
 registrada em `campos-e-tags.md` e como linha própria `[ ]` em
 `APROVADO.md` — mesma classe de limite (edição de tela, não sai por API)
 já documentada para criação de campo. `GUIA-MONTAGEM.md` e
-`IMPLEMENTACAO-WORKFLOWS.md` (W27) atualizados no mesmo commit. G-03, G-04
-(peça 2), F-09, F-10, G-11 (item 1) e G-19 continuam sendo as seis
+`IMPLEMENTACAO-WORKFLOWS.md` (W27) atualizados no mesmo commit. G-04
+(peça 2), F-09, F-10, G-11 (item 1) e G-19 continuam sendo as
 decisões sem prazo fixo que esperam o dono, sem novidade nesta sessão.
 
 **Reconferido em 27/09/2026 ~14:05 UTC, sessão automática seguinte —
@@ -6642,8 +6726,8 @@ dedicado, warmup manual só no segundo caso) e estende a tabela "Quando
 olhar" do F-07 para o canal novo. Zero campo, zero tag, zero workflow,
 zero escrita no CRM: item de documentação e pesquisa, não depende de
 `APROVADO.md`. Detalhe nó a nó — na verdade sem nó, é rotina manual — em
-`build-wesales.md`, seção 2.51. G-03, G-04 (peça 2), F-09, F-10, G-11
-(item 1) e G-19 continuam sendo as seis decisões sem prazo fixo que
+`build-wesales.md`, seção 2.51. G-04 (peça 2), F-09, F-10, G-11
+(item 1) e G-19 continuam sendo as decisões sem prazo fixo que
 esperam o dono, sem novidade nesta sessão.
 
 **Reconferido em 27/09/2026 ~16:05 UTC, sessão automática seguinte —
@@ -6670,6 +6754,48 @@ frequência (6c/6d) e a tag `toque` acrescentados ao nó 6a da 2.50/W27,
 mesmo tratamento que a 2.9.2/2.9.3 já dão ao teto batido. Zero campo, zero
 tag, zero workflow novo, zero escrita no CRM: reaproveita `toque` (T-15) e
 `Toques na semana` (C-26), correção de spec antes da publicação — não
-depende de `APROVADO.md`. G-03, G-04 (peça 2), F-09, F-10, G-11 (item 1) e
-G-19 continuam sendo as seis decisões sem prazo fixo que esperam o dono,
+depende de `APROVADO.md`. G-04 (peça 2), F-09, F-10, G-11 (item 1) e
+G-19 continuam sendo as decisões sem prazo fixo que esperam o dono,
 sem novidade nesta sessão.
+
+**Reconferido em 27/09/2026 ~20:05 UTC, sessão automática seguinte — faltam
+~15h25min para a janela abrir (segunda 28/09 08:30 `America/Sao_Paulo` =
+11:30 UTC).** `git fetch` limpo. `Carlos Andrade` (`7ECnj1bSeEIm5P58Ifd9`)
+segue `dnd: true`, tag `atraso-1a-tentativa` presente — protegido, nenhum
+disparo. `opportunities_search-opportunity` confirma **64 oportunidades**,
+mesma composição da leitura do G-29 (13 `NOVO LEAD`, 47 `CONECTAR`, 3
+`NEGOCIAR`, 1 `REUNIÃO DE DIAGNÓSTICO`) — sem novidade no risco de prazo
+fixo. Com o risco reconferido, a mesma reconferência de campos que fechou
+G-27/G-28/G-29 achou um sétimo campo fora da lista, e desta vez fora do
+padrão dos seis anteriores: não é campo criado à mão na tela de
+qualificação, é o rastro de um recurso nativo (Voice AI/AI Employee do
+HighLevel) que nenhum documento registra ter sido ligado nesta subconta.
+Fechado como **G-30** (acima, entre G-29 e "Ordem sugerida"): registro do
+achado, sem decisão — mesmo padrão do G-27/G-29, campo do dono, não meu.
+G-04 (peça 2), F-09, F-10, G-11 (item 1), G-19 e G-30 continuam sendo as
+decisões sem prazo fixo que esperam o dono, sem novidade além do achado
+nesta sessão; G-25 segue como item de maior prioridade do roadmap enquanto
+a janela não passar sem disparo.
+
+**Achado de coerência na mesma sessão, antes de fechar: `G-03` tinha
+voltado à lista de decisões pendentes em cinco parágrafos depois de ter
+saído dela.** A reconciliação de 27/09/2026 (acima, "G-03 já saiu desta
+lista — decidido e agendado para 29/09/2026") tirou o G-03 corretamente
+nos parágrafos do F-19/F-20 ("cinco decisões"), mas os parágrafos
+seguintes — F-21, F-22, F-23 e a frase de prioridade do G-25 — reintroduziram
+`G-03, ` no início da mesma lista e voltaram a contar "seis", sem nenhuma
+decisão nova do dono sobre ele: cópia do parágrafo anterior sem checar se
+a lista que estava sendo copiada ainda era a correta, a mesma classe de
+erro que motivou o G-20 (número fixo fora da fonte vence de novo quando a
+fonte muda) — aqui a fonte não é um número, é a própria lista, e ela tinha
+mudado sem que o padrão de "copiar o parágrafo anterior e trocar o item
+novo" percebesse. Corrigido nos quatro parágrafos (a frase de prioridade do
+G-25 e F-21/F-22/F-23): `G-03` removido, e o número fixo (`seis`/`cinco`)
+trocado por "as decisões sem prazo fixo", sem contagem — a mesma escolha
+já usada no parágrafo de reconciliação e nesta entrada do G-30, para o
+mesmo tipo de erro não se repetir sozinho na próxima vez que a lista mudar
+de tamanho. Nenhum outro documento deste projeto cita essa lista com
+número fixo (`grep -rn "seis decisões\|cinco decisões" wesales/*.md`
+aponta só para este arquivo, todas as ocorrências fora da faixa 27/09
+sendo histórico de datas anteriores, legítimo). Zero campo, zero tag, zero
+escrita no CRM: coerência de documentação.

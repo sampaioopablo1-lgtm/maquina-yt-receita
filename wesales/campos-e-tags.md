@@ -402,6 +402,20 @@ aprovação — mesmo motivo do quarto e do quinto campo desta lista. Achado,
 as duas leituras possíveis e "Pronto quando" em
 `ROADMAP-SALES-ENGAGEMENT.md`, **G-29**.
 
+**Um sétimo campo fora desta lista, e desta vez não veio da tela de
+qualificação — veio de um recurso nativo, em 27/09/2026:** `Voice AI Reason
+for Call` — `contact.voice_ai_reason_for_call`, id `pVjiDY9Z2f1nmatwDz9U`,
+`LARGE_TEXT`, `dateAdded` 2026-09-27T19:29:18Z, no grupo de tela dos campos
+que os workflows escrevem (`parentId` `gabsbU3jsUN7oIXCnYab`), não no grupo
+de qualificação dos seis campos acima. Diferente dos seis: o nome e o
+formato batem com um dado que o recurso nativo **Voice AI / AI Employee**
+do HighLevel captura durante uma chamada (pesquisa em
+`help.gohighlevel.com`, artigos de Voice AI Custom Actions/Custom Values) —
+não é pergunta de qualificação desenhada por alguém, é rastro de alguém
+tendo ativado esse recurso nesta subconta. Sem consumidor (workflow, lista
+ou documento) hoje. Registro, não aprovação — mesmo motivo dos campos
+acima. Achado e "Pronto quando" em `ROADMAP-SALES-ENGAGEMENT.md`, **G-30**.
+
 ## Etapa 3 — Tags (23 numeradas, seis pendentes de aprovação — e 12 na conta fora da numeração)
 
 > **Onde mora a contagem das tags fora da numeração.** Só este título e a
