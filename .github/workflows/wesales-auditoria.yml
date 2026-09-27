@@ -18,9 +18,16 @@
 # desaparecerem de vista só por estarem na base.
 name: WeSales — auditoria diária
 
+# ATENÇÃO, limitação do GitHub medida em 27/09/2026: `schedule` **só dispara no
+# branch padrão** do repositório, e este trabalho vive em `claude/amazing-johnson-mclksg`.
+# Enquanto este arquivo não estiver no branch padrão, o cron abaixo NÃO roda — quem
+# faz a rodada acontecer é o `push`. O cron fica declarado porque passa a valer no
+# minuto em que o arquivo chegar ao branch padrão, e não custa nada estar aqui.
+# `workflow_dispatch` tem a mesma limitação: o botão "Run workflow" só aparece
+# para workflow presente no branch padrão.
 on:
   schedule:
-    - cron: "20 10 * * *"   # 07:20 em São Paulo (UTC-3)
+    - cron: "20 10 * * *"   # 07:20 em São Paulo (UTC-3) — só vale no branch padrão
   workflow_dispatch:
   push:
     branches:

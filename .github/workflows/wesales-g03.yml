@@ -20,6 +20,11 @@
 # e a idempotência.
 name: WeSales — promover NOVO LEAD → CONECTAR (G-03)
 
+# Duas limitações do GitHub valem aqui (medidas em 27/09/2026): `schedule` e
+# `workflow_dispatch` **só funcionam no branch padrão** do repositório. Enquanto
+# este arquivo estiver só em `claude/amazing-johnson-mclksg`, nem o botão aparece
+# nem o cron roda — e isto é DESEJÁVEL neste caso, porque este é o único workflow
+# da série que escreve no CRM e a linha do backfill está `[ ]` no `APROVADO.md`.
 on:
   workflow_dispatch:
   # schedule:

@@ -27,6 +27,17 @@ Se o lado direito passar de ~20 commits, o PR está errado: ou a base está erra
 
 O botão "Run workflow" só existe para workflow presente no branch padrão. Num branch de trabalho, use `on: push` restrito ao branch e aos `paths` que interessam — a rodada acontece a partir dali, sem merge nenhum. Foi assim que o `jev.yml` passou a rodar.
 
+## 2b. `schedule` também só roda no branch padrão
+
+Medido em 27/09/2026, depois de eu entregar dois workflows com cron que nunca
+iriam disparar: **`schedule` e `workflow_dispatch` só funcionam no branch padrão.**
+Num branch de trabalho, o único gatilho que funciona é `push`.
+
+Se a automação precisa de horário, ela precisa estar no branch padrão — ou o
+desenho precisa não depender de cron. Exemplo do segundo caminho: em vez de um
+cron que reabre a janela da cadência na terça, deixar a janela como `days: [2]`,
+que abre na terça sozinha.
+
 ## 3. As 12 falhas de `tests/test_narracao_das_specs.py` são pré-existentes
 
 Linha de base estável desde 18/09/2026:
