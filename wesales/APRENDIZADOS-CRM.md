@@ -6843,3 +6843,30 @@ esperava por ele), mas é a mesma classe de "lista que não é reconferida"
 que o G-32/G-33 já tinham generalizado para branch, agora aplicada a uma
 única tabela lida na própria sessão que a citou. Detalhe em
 `ROADMAP-SALES-ENGAGEMENT.md`, **G-34**.
+
+## Citar um PR por número é citar um estado que expira sozinho — nenhuma reconfirmação de rotina olhava para o GitHub (G-35, 28/09/2026)
+
+Toda reconfirmação de rotina deste projeto reconfere duas fontes: o CRM
+(API do GHL) e a branch (`git fetch`/`git log`). Nenhuma reconferia uma
+terceira: o estado de um **Pull Request** no GitHub — que muda por ação
+humana (fechar um, abrir outro para a mesma branch) sem deixar rastro nem
+no CRM nem no `git log` da branch em si. `ROADMAP-SALES-ENGAGEMENT.md`
+citava "PR #93" três vezes em `G-19` como o PR cujo merge dispararia um
+risco (branch apagada quebra o `checkout` pinado do `faxina-tarefas.yml`),
+e uma instrução de "próxima rodada" mandava "conferir se o dono já mesclou
+o PR #93". O PR #93 **fechou sem merge em 24/09/2026** — um dia depois de
+essa instrução ter sido escrita — e um novo PR (#102) abriu para a mesma
+branch em 27/09/2026. Nenhuma das dezenas de rodadas entre 24/09 e 28/09
+notou, porque nenhuma delas chamava `pull_request_read`/
+`search_pull_requests`: todas confiavam no número já escrito, presumindo
+que "PR" é um fato tão estável quanto "quantas oportunidades existem" —
+não é. **A checagem que teria evitado isto: quando um documento cita um
+PR por número como gatilho de um risco *futuro* (não como registro
+histórico datado, que não expira), esse número entra no sweep de
+coerência de sempre junto com `git fetch` — porque ele pode ter fechado e
+sido substituído sem qualquer commit ou escrita de CRM avisar.** A forma
+que não expira sozinha: citar "o PR aberto desta branch" e verificar por
+API quando o risco importar de novo, nunca um número fixo. Custo do erro:
+uma instrução de verificação ficou de pé por 4 dias apontando para um
+evento (o #93 mesclar) que já não podia mais acontecer. Detalhe em
+`ROADMAP-SALES-ENGAGEMENT.md`, **G-35**.

@@ -1771,8 +1771,11 @@ padrão.** O mesmo arquivo tem:
     ref: claude/amazing-johnson-mclksg
 ```
 
-— a branch deste próprio PR (#93). Confirmado nesta rodada: o PR segue
-`open`/`draft`, sem merge. Quando ele mesclar e a branch for apagada (fluxo
+— a branch deste próprio PR. **Correção de 28/09/2026 (G-35): o PR citado
+aqui como referência, #93, fechou sem merge em 24/09/2026 — o PR aberto de
+verdade para esta branch é outro, e o número muda toda vez que um fecha e
+outro abre; ver G-35 para a verificação por API do GitHub.** O risco não
+muda: quando o PR aberto desta branch mesclar e a branch for apagada (fluxo
 padrão de merge do GitHub), o primeiro `checkout` de toda execução seguinte
 falha — a Faxina para de rodar, de madrugada, sem ninguém olhando, e as
 tarefas automáticas órfãs voltam a se acumular sem a única rede que hoje as
@@ -1794,8 +1797,9 @@ duas correções escritas, prontas para quem tiver escopo de repo-root:
    cadência de 10 minutos de verdade, e a carência de 5 minutos contra
    corrida é revista para caber num intervalo menor (por exemplo, subir a
    carência ou reduzir a frequência fora da janela comercial).
-2. Branch (mecânico, não decisão — fazer no mesmo movimento do merge deste
-   PR #93): trocar `ref: claude/amazing-johnson-mclksg` pela branch padrão
+2. Branch (mecânico, não decisão — fazer no mesmo movimento do merge do PR
+   aberto desta branch **hoje** — não o #93, ver G-35): trocar
+   `ref: claude/amazing-johnson-mclksg` pela branch padrão
    do repositório (`claude/youtube-publication-next-steps-v7o4el`, medida
    por API do GitHub nesta rodada) ou remover o `ref:` para herdar o
    default do `checkout@v4`.
@@ -5381,6 +5385,79 @@ continuam sendo essas decisões — seis, uma a menos que a lista do G-33.
 G-25 segue fechado; a janela da MI-0 (segunda 28/09 08:30
 `America/Sao_Paulo`) não passou ainda nesta sessão.
 
+### G-35 · G-19 aponta o risco do branch para "o PR #93 mesclar" — mas o #93 fechou sem merge há 4 dias, e nenhuma rodada tinha conferido o GitHub para notar (28/09/2026) — **FEITO**
+
+**Por quê:** reconferência de rotina do G-25 antes de qualquer outra
+coisa — já fechado, sem novidade (janela da MI-0 abre 11:30 UTC hoje,
+~10h15min a esta sessão; `Carlos Andrade` e a amostra dos 31 contatos
+seguem `dnd: false` + `Prioridade: 4`, `conversations_search-conversation`
+não mostra nenhuma mensagem automática nova para os 6 do lote livre —
+nenhum disparo ainda). CRM reconfirmado por API sem mudança desde o G-34
+(56 campos de contato). Com o risco de prazo fixo sem novidade e o sweep de
+nomes/campos de sempre limpo, esta rodada mudou o alvo de "quem mais fala
+disso" de novo: não um campo ou tag, mas uma referência a **estado externo
+ao repositório que não é CRM nem `git log`** — o único tipo de fato que as
+reconfirmações de rotina deste projeto nunca tinham checado de novo depois
+de escrito, porque nem o `git fetch` (só vê branch) nem a API do GHL (só vê
+a subconta) enxergam o estado de um Pull Request.
+
+`G-19` (aberto, decisão do dono) cita "PR #93" três vezes como o PR cujo
+merge dispara o risco do `checkout` pinado em `.github/workflows/
+faxina-tarefas.yml`, e a instrução de "próxima rodada" logo depois do
+fecho do G-19 (acima, nesta seção) mandava "conferir se o dono já mesclou
+o PR #93". Conferido nesta rodada por `pull_request_read` (GitHub, não
+presumido): PR #93 está **`closed`, `merged: false`** — fechado em
+24/09/2026 18:18 UTC, **um dia depois** de a instrução acima ter sido
+escrita, e nunca chegou a mesclar. Nenhuma das dezenas de rodadas entre
+24/09 e hoje (G-20 a G-34, F-18 a F-23, toda a reconciliação dos dois
+documentos truncados) voltou a olhar o GitHub para o próprio PR — todas
+olharam CRM, `git fetch` de branch, ou texto de `wesales/`, nunca a API de
+Pull Request. `search_pull_requests` (`head:claude/amazing-johnson-mclksg`)
+mostra o PR que está de fato aberto hoje para esta branch: **#102**
+("restaura as 20 seções de `build-wesales.md` perdidas no acidente de
+24/09"), criado 27/09/2026, ainda `open`, mesmo par base/head
+(`claude/youtube-publication-next-steps-v7o4el` ← `claude/amazing-johnson-
+mclksg`) que o #93 tinha.
+
+**O que isso muda, e o que não muda:** o risco em si — `checkout` pinado
+numa branch de PR, que quebra se ela sumir — continua exatamente como o
+G-19 descreveu; só o número do PR que o dispararia estava errado, e citar
+um número fixo nunca teria funcionado como instrução de verificação,
+porque o #93 já tinha fechado sem mesclar: esperar por ele mesclar é
+esperar por um evento que não vai acontecer. Mesma classe de descuido que
+o G-20/G-26 já corrigiram para contagem fixa fora da fonte e o G-32/G-33/
+G-34 para lista de pendências não reconferida contra a fonte que a gerou —
+aqui aplicada, pela primeira vez neste roadmap, a estado do GitHub em vez
+de CRM ou texto interno.
+
+**Como:** nada sai por API do CRM. `pull_request_read`/
+`search_pull_requests` (GitHub) confirmaram os dois estados nesta sessão.
+Correção nos três trechos de `ROADMAP-SALES-ENGAGEMENT.md` que citavam
+"PR #93" como referência corrente (não como registro histórico datado, que
+fica intacto): a menção no corpo do G-19 (Defeito 2), a instrução do "Como"
+item 2, e uma nota acrescentada logo após a instrução de "próxima rodada"
+que o fecho do G-19 tinha deixado. Nenhuma delas vira número fixo de novo —
+passam a apontar para "o PR aberto desta branch", verificável a qualquer
+momento por `search_pull_requests`, em vez de um número que expira sozinho.
+Zero campo, zero tag, zero escrita no CRM: item de coerência entre este
+roadmap e o estado real do GitHub, não depende de `APROVADO.md`.
+
+**Pronto quando:** cumprido — as três citações correntes a "PR #93" foram
+corrigidas para não fixar número de PR. **Regra prática, generalizável:**
+número de PR muda toda vez que um fecha e outro abre para a mesma branch;
+citar um PR específico como "o que decide" um risco futuro é o mesmo erro
+de número fixo fora da fonte que motivou o G-20/G-26 para contagem — aqui
+a fonte é o próprio GitHub, não um documento deste repositório, e por isso
+nenhum `grep` em `wesales/` a alcançava. A forma que não expira sozinha é
+apontar para "o PR aberto desta branch" e verificar por
+`pull_request_read`/`search_pull_requests` quando o risco importar de
+novo, não repetir um número visto uma vez. G-19 continua aberto (decisão
+do dono + fora do escopo `wesales/`, sem mudança); F-09, F-10, G-11
+(item 1), G-27/G-29 (recomendação ainda sem confirmação) e G-31 continuam
+sendo as decisões sem prazo fixo que esperam o dono — sem mudança de
+estado nesta rodada. G-25 segue fechado; a janela da MI-0 não passou ainda
+nesta sessão.
+
 ## Ordem sugerida
 
 **Bloco 0 (G-01) fechado em 19/09/2026, antes de tudo o resto desta seção:**
@@ -6586,6 +6663,11 @@ D1-D14, também a "Fila autônoma" no fim) na varredura de coerência, e
 conferindo se o dono já mesclou o PR #93 (o que fecharia sozinho a metade
 "branch" do G-19, restando só a cadência).
 
+> **Nota de 28/09/2026 (G-35): esta instrução nunca foi cumprida como
+> escrita, e não podia ser — o PR #93 fechou sem merge em 24/09/2026, um
+> dia depois deste parágrafo, e nenhuma rodada entre 24/09 e 28/09 voltou a
+> checar o GitHub para notar. Detalhe e correção em G-35.**
+
 **G-20 aberto e fechado em 23/09/2026, sessão automática seguinte — CRM
 reconfirmado sem mudança (56 oportunidades, mesma composição da leitura do
 G-19; 56 campos de contato) e PR #93 ainda `open`/`draft`: as oito decisões
@@ -7184,3 +7266,40 @@ G-27/G-28, G-29 e G-31 são as decisões sem prazo fixo que esperam o dono**
 recomendação registrada que ainda não é resposta. Nenhum item "salta a
 fila": a sessão seguinte volta à varredura de coerência ou à pesquisa de
 concorrência normais, como o parágrafo do G-31 já previa.
+
+**G-34 fechado em 28/09/2026, sessão automática seguinte — sem parágrafo
+próprio nesta seção até agora (lacuna desta mesma lista, não deste
+fechamento).** Relendo o `DE-PARA-SESSOES-CRM.md` da sessão A linha a
+linha, o G-33 tinha juntado três números (`G-27/G-28/G-29`) numa frase só
+de "recomendação, ainda sem confirmação" — mas a fonte separava dois
+grupos: `G-25/G-26/G-28/G-30` já resolvidos pela decisão ao vivo do dono, e
+só `G-27/G-29` de fato pendentes. Corrigido: G-28 sai da lista de decisões
+sem prazo fixo. Detalhe completo no próprio **G-34**, acima. Com isso,
+**F-09, F-10, G-11 (item 1), G-19, G-27/G-29 (recomendação ainda sem
+confirmação) e G-31** são as decisões sem prazo fixo que esperam o dono —
+seis, uma a menos que a lista do G-33.
+
+**G-35 fechado em 28/09/2026, sessão automática seguinte — CRM
+reconfirmado sem mudança (56 campos de contato); `Carlos Andrade` e a
+amostra dos 31 contatos do G-25 seguem `dnd: false` + `Prioridade: 4`,
+nenhuma mensagem automática nova saiu ainda (janela da MI-0 abre 11:30 UTC
+hoje, ~10h15min a esta sessão) — sem novidade no risco de prazo fixo, que
+segue fechado.** A varredura de coerência desta vez não mirou nome de
+campo, tag ou número somado — mirou uma citação a **estado do GitHub**
+(não CRM, não `git log`), o único tipo de fato que nenhuma reconfirmação
+de rotina deste projeto tinha voltado a checar depois de escrito. `G-19`
+citava "PR #93" três vezes como o PR cujo merge dispararia o risco do
+`checkout` pinado no `faxina-tarefas.yml` — `pull_request_read` (GitHub)
+mostra que o #93 fechou **sem merge** em 24/09/2026, um dia depois de a
+instrução ter sido escrita, e nunca vai mesclar; nenhuma rodada entre
+24/09 e hoje notou. O PR de fato aberto para esta branch hoje é o
+**#102** (`search_pull_requests`, criado 27/09/2026, ainda `open`, mesmo
+par base/head do #93). Corrigidas as três citações correntes em `G-19` e
+na instrução de "próxima rodada" logo após seu fecho, para não fixarem
+número de PR de novo — apontam para "o PR aberto desta branch",
+verificável a qualquer momento. Detalhe completo no próprio **G-35**,
+acima. G-19 continua aberto (decisão do dono + fora de `wesales/`); F-09,
+F-10, G-11 (item 1), G-27/G-29 e G-31 continuam sendo as decisões sem
+prazo fixo que esperam o dono, sem mudança nesta rodada. Nenhum item
+"salta a fila": a sessão seguinte volta à varredura de coerência ou à
+pesquisa de concorrência normais.
