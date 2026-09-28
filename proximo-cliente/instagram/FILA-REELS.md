@@ -7,7 +7,7 @@ Ao publicar: preencher Data e Permalink na tabela, commit e push neste branch.
 
 | Ordem | Vídeo | Capa | Data | Permalink |
 | --- | --- | --- | --- | --- |
-| 1 | 06-meta-2026.mp4 | 06-meta-2026-capa.jpg | | |
+| 1 | 06-meta-2026.mp4 | 06-meta-2026-capa.jpg | 28/09/2026 | https://www.instagram.com/reel/Dd0YhwYCQ5M/ |
 | 2 | 05-cem-ligacoes.mp4 | 05-cem-ligacoes-capa.jpg | | |
 | 3 | 04-lead-de-sabado.mp4 | 04-lead-de-sabado-capa.jpg | | |
 | 4 | 03-lead-curioso.mp4 | 03-lead-curioso-capa.jpg | | |
