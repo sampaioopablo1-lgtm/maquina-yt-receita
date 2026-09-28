@@ -1,8 +1,9 @@
-<title>A Conta do Lead</title>
+<title>O Lead de Sábado</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Playfair+Display:ital,wght@1,600;1,700;1,800&display=swap">
 <style>
+
 
   :root{
     color-scheme: dark;
@@ -121,8 +122,7 @@
 
   /* formato quadrado 1080x1080 (#render-square): coluna 3:4 no centro, fundo contínuo */
   body.render.square .col-stage{width:100vw;height:100vh;display:grid;place-items:center;background:var(--grafite)}
-  body.render.square{background:var(--grafite)}
-  body.render.square .stage{width:75vh;height:100vh;overflow:visible;background:transparent}
+  body.render.square .stage{width:75vh;height:100vh;overflow:visible}
   body.render.square .grain, body.render.square .vignette{display:none}
   body.render.square::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;background:radial-gradient(120% 90% at 50% 45%, transparent 55%, rgba(0,0,0,.55))}
   body.render.square .scene{padding:12cqw 7cqw 9cqw}
@@ -134,34 +134,7 @@
     .stage.shake{animation:none}
   }
 
-  /* criativo 02: a conta */
   .selo{align-self:flex-start;font-weight:800;font-size:2.8cqw;letter-spacing:.12em;text-transform:uppercase;color:var(--off);border:.35cqw solid rgba(241,240,235,.35);border-radius:10cqw;padding:1.6cqw 3.4cqw}
-  .money{font-family:var(--serif);font-style:italic;font-weight:800;color:var(--laranja);font-size:22cqw;line-height:.95;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
-  #s2{justify-content:flex-start;padding-top:20cqw;gap:3.2cqw}
-  .funnel{display:flex;flex-direction:column;gap:3.4cqw;margin-top:2cqw}
-  .frow{display:flex;flex-direction:column;gap:1.4cqw}
-  .frow .top{display:flex;align-items:baseline;justify-content:space-between;gap:3cqw}
-  .frow .n{font-weight:900;font-size:9cqw;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
-  .frow .lab{font-weight:600;font-size:3.6cqw;color:var(--muted);text-align:right}
-  .frow .track{height:3cqw;border-radius:2cqw;background:rgba(241,240,235,.08);overflow:hidden}
-  .frow .fill{height:100%;border-radius:inherit;background:var(--laranja);width:0;transition:width .7s cubic-bezier(.3,.8,.2,1)}
-  .frow.lost .n{color:rgba(241,240,235,.55)}
-  .frow.lost .fill{background:rgba(253,122,32,.55)}
-  .frow.win .n{color:var(--laranja)}
-  .frow.win .fill{box-shadow:0 0 3cqw rgba(253,122,32,.8)}
-  .strike{text-decoration-line:none;text-decoration-color:var(--laranja);text-decoration-thickness:1.1cqw;transition:opacity .3s}
-  .strike.cut{text-decoration-line:line-through;opacity:.55}
-  .dash{align-self:stretch;border:1px solid var(--line);background:rgba(22,28,39,.8);border-radius:4cqw;padding:5cqw;display:grid;grid-template-columns:1fr 1fr;gap:4cqw;position:relative;overflow:hidden}
-  .dash .k{font-size:2.7cqw;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-  .dash .v{font-weight:900;font-size:8cqw;line-height:1.05;font-variant-numeric:tabular-nums}
-  .dash .ok{color:#7FD4A0;font-size:3.2cqw;font-weight:800}
-  .dash .crack{position:absolute;inset:0;opacity:0;transition:opacity .2s;background:
-     linear-gradient(115deg, transparent 48.6%, var(--laranja) 49%, var(--laranja) 49.4%, transparent 49.8%),
-     linear-gradient(60deg, transparent 58.6%, var(--laranja) 59%, var(--laranja) 59.3%, transparent 59.7%)}
-  .dash.broken .crack{opacity:1}
-  .dash.broken{border-color:var(--laranja)}
-  .arrow-down{font-size:12cqw;color:var(--laranja);line-height:1;align-self:center;animation:bob 1s ease-in-out infinite}
-  @keyframes bob{50%{transform:translateY(2cqw)}}
   .strip{position:absolute;z-index:6;left:6cqw;right:6cqw;bottom:21cqw;display:flex;align-items:center;justify-content:center;gap:2cqw;background:rgba(15,16,20,.82);border:.35cqw solid var(--laranja);border-radius:3cqw;padding:2.6cqw 3cqw;font-weight:800;font-size:3.4cqw;letter-spacing:.06em;text-transform:uppercase;opacity:0;transform:translateY(4cqw);transition:opacity .4s, transform .5s cubic-bezier(.2,.8,.2,1)}
   .strip.in{opacity:1;transform:none}
   .strip b{color:var(--laranja)}
@@ -169,80 +142,169 @@
   .raio .ic{width:12cqw;height:12cqw;flex:none;border-radius:50%;border:.5cqw solid var(--laranja);display:grid;place-items:center;font-size:6cqw}
   .raio b{display:block;font-weight:900;font-size:5cqw}
   .raio span{display:block;font-weight:600;font-size:3.3cqw;color:var(--muted);line-height:1.35;margin-top:.8cqw}
+
+
+  /* criativo 04: o lead que chega sábado */
+  #s2{justify-content:flex-start;padding-top:19cqw;gap:3cqw}
+  .cap4{min-height:14cqw;font-weight:700;font-size:5.8cqw;line-height:1.2;transition:opacity .16s}
+  .cap4 em{font-family:var(--serif);color:var(--laranja)}
+  .week{display:grid;grid-template-columns:repeat(7,1fr);gap:1.4cqw;height:78cqw}
+  .day{position:relative;border-radius:2.4cqw;background:rgba(241,240,235,.05);border:1px solid var(--line);overflow:hidden;display:flex;flex-direction:column}
+  .day .dn{font-weight:800;font-size:3cqw;letter-spacing:.08em;text-align:center;padding:1.6cqw 0;color:var(--muted)}
+  .day.we .dn{color:var(--laranja)}
+  .day .open{position:absolute;left:0;right:0;top:24%;height:40%;background:rgba(241,240,235,.07);border-top:1px dashed rgba(241,240,235,.18);border-bottom:1px dashed rgba(241,240,235,.18)}
+  .day.we .open{display:none}
+  .day.we{background:rgba(253,122,32,.05)}
+  .lead{position:absolute;left:50%;width:5cqw;height:5cqw;margin-left:-2.5cqw;border-radius:50%;background:var(--laranja);box-shadow:0 0 2cqw rgba(253,122,32,.7);opacity:0;transform:translateY(-12cqw) scale(.6);transition:opacity .3s, transform .5s cubic-bezier(.3,1.5,.5,1)}
+  .lead.in{opacity:1;transform:none}
+  .legend{display:flex;justify-content:space-between;align-items:center;font-size:3cqw;font-weight:600;color:var(--muted)}
+  .legend b{font-size:7cqw;font-weight:900;color:var(--off);font-variant-numeric:tabular-nums;margin-right:1.6cqw}
+  .legend .sw{display:inline-block;width:6cqw;height:3cqw;border-radius:1cqw;background:rgba(241,240,235,.12);border:1px dashed rgba(241,240,235,.3);vertical-align:middle;margin-right:1.4cqw}
+  /* fila de segunda */
+  .clockline{display:flex;align-items:center;gap:3cqw}
+  .alarm{width:16cqw;height:16cqw;border-radius:50%;border:1cqw solid var(--off);position:relative;flex:none}
+  .alarm::before,.alarm::after{content:"";position:absolute;left:50%;bottom:50%;width:.9cqw;background:var(--off);border-radius:1cqw;transform-origin:bottom center}
+  .alarm::before{height:5.4cqw;transform:translateX(-50%) rotate(0deg)}
+  .alarm::after{height:4cqw;transform:translateX(-50%) rotate(-90deg);background:var(--laranja)}
+  .alarm.ring{animation:ringshake .09s linear 8}
+  @keyframes ringshake{50%{transform:rotate(9deg)}}
+  .queue{display:flex;flex-direction:column;gap:1.4cqw}
+  .q{display:grid;grid-template-columns:9cqw 1fr auto;align-items:center;gap:2.6cqw;padding:2cqw 3cqw;border-radius:2.4cqw;background:rgba(241,240,235,.06);font-weight:700;font-size:3.6cqw;transition:opacity .4s, filter .4s}
+  .q .no{font-weight:900;color:var(--laranja);font-variant-numeric:tabular-nums}
+  .q .w{font-size:3cqw;color:var(--muted);font-weight:600}
+  .q.gone{opacity:.28;filter:grayscale(1)}
+  .q.gone .w{color:var(--laranja)}
+  .qmore{font-weight:700;font-size:3.4cqw;color:var(--muted);text-align:center}
+  /* atendido na hora */
+  .times{display:flex;flex-direction:column;gap:2.4cqw}
+  .tline{display:grid;grid-template-columns:1fr 6cqw 1fr;align-items:center;gap:2cqw;padding:2.6cqw 3.4cqw;border-radius:3cqw;border:1px solid var(--line);background:rgba(22,28,39,.7)}
+  .tline .a{font-weight:700;font-size:3.6cqw}
+  .tline .a small{display:block;font-size:2.7cqw;color:var(--muted);font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+  .tline .arr{color:var(--laranja);font-weight:900;font-size:5cqw;text-align:center}
+  .tline .b{font-weight:800;font-size:3.6cqw;color:var(--laranja);text-align:right}
+  .tline .b small{display:block;font-size:2.7cqw;color:var(--muted);font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+  /* agenda de segunda */
+  .agenda{display:flex;flex-direction:column;gap:2cqw}
+  .ag{display:grid;grid-template-columns:15cqw 1fr;border-radius:3cqw;overflow:hidden;background:var(--off);color:var(--grafite)}
+  .ag .h{background:var(--laranja);color:#fff;font-weight:900;font-size:4.4cqw;display:grid;place-items:center}
+  .ag .i{padding:2.6cqw 3.4cqw}
+  .ag .i b{display:block;font-weight:800;font-size:3.8cqw}
+  .ag .i span{display:block;font-weight:600;font-size:2.9cqw;color:#4a4d56}
+  body.render.square #s2{padding-top:11cqw}
+  body.render.square .week{height:56cqw}
+  body.render.square .q{padding:1.4cqw 3cqw}
+  .day .body{position:relative;flex:1}
+  .day .open{top:33.3%;height:41.7%}
+  .sky{position:absolute;inset:0;opacity:0;transition:opacity .6s;background:linear-gradient(180deg, rgb(var(--sky-r,30),var(--sky-g,60),var(--sky-b,110)) 0%, transparent 70%)}
+  .sky.on{opacity:.55}
+  .stars{position:absolute;inset:0 0 40% 0;opacity:var(--night,0);background-image:
+     radial-gradient(circle at 12% 18%, #fff 0 .25cqw, transparent .35cqw),radial-gradient(circle at 34% 8%, #fff 0 .2cqw, transparent .3cqw),
+     radial-gradient(circle at 58% 22%, #fff 0 .3cqw, transparent .4cqw),radial-gradient(circle at 78% 12%, #fff 0 .22cqw, transparent .32cqw),
+     radial-gradient(circle at 90% 30%, #fff 0 .18cqw, transparent .28cqw),radial-gradient(circle at 22% 34%, #fff 0 .18cqw, transparent .28cqw),
+     radial-gradient(circle at 47% 40%, #fff 0 .22cqw, transparent .32cqw),radial-gradient(circle at 68% 45%, #fff 0 .16cqw, transparent .26cqw)}
+  .blackout{position:absolute;inset:0;z-index:6;background:#000;opacity:0;pointer-events:none;transition:opacity .25s}
+  .blackout.on{opacity:1}
+  .kin span span{display:inline-block;opacity:0;transform:translateY(45%) rotate(10deg);transition:opacity .35s, transform .6s cubic-bezier(.2,1.4,.4,1);transition-delay:calc(var(--i) * 38ms)}
+  .kin.in span span{opacity:1;transform:none}
+  .vclock{font-weight:900;font-size:9cqw;letter-spacing:.02em;font-variant-numeric:tabular-nums;line-height:1}
+  .vsub{font-weight:700;font-size:3.2cqw;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:1cqw}
+  .vsub.closed{color:var(--laranja)}
+  .bigclock{font-weight:900;font-size:7cqw;letter-spacing:.1em;color:var(--muted)}
+  .bigclock b{display:block;font-size:22cqw;letter-spacing:0;color:var(--off);line-height:.95;font-variant-numeric:tabular-nums;text-shadow:0 0 6cqw rgba(253,122,32,.55)}
+  .agenda{perspective:120cqw}
+  .ag{opacity:0;transform:rotateX(75deg) translateY(18cqw) scale(.9);transform-origin:50% 100%;transition:opacity .4s, transform .8s cubic-bezier(.2,1.2,.3,1)}
+  .ag.in{opacity:1;transform:none}
+  #s3{gap:2.4cqw}
+  body.render.square .bigclock b{font-size:15cqw}
+  body.render.square #s3 .q{font-size:3.2cqw}
 </style>
 
 <div class="wrap">
   <div class="col-stage">
-    <div class="stage" id="stage" aria-label="Criativo animado: faça a conta do seu lead">
+    <div class="stage" id="stage" aria-label="Criativo animado: o lead que chega sábado">
       <div class="bg">
         <div class="glow warm on" id="gWarm"></div>
         <div class="glow cold" id="gCold"></div>
         <div class="glow wine" id="gWine"></div>
+        <div class="sky" id="sky"><div class="stars" id="stars"></div></div>
       </div>
       <div class="vignette"></div>
       <div class="grain" id="grain"></div>
       <div class="flash" id="flash"></div>
+      <div class="blackout" id="blackout"></div>
 
       <div class="brand"><span class="mark">P</span>O Próximo Cliente</div>
 
       <!-- 1. Gancho -->
       <section class="scene" id="s1">
         <div class="selo rv">Para empresas com time comercial</div>
-        <div class="sans-xl rv">Empresário, faça a conta.</div>
-        <div class="money rv pop" id="money">R$ 0</div>
+        <div class="sans-xl rv">Empresário, seu cliente não pesquisa em</div>
+        <div class="serif-hero kin" id="kin">horário comercial.</div>
         <div class="rule rv"></div>
-        <div class="sub rv">em anúncio, este mês.</div>
+        <div class="sub rv">Ele pesquisa quando finalmente senta pra resolver.</div>
       </section>
 
-      <!-- 2. O funil -->
+      <!-- 2. A semana em time-lapse -->
       <section class="scene" id="s2">
-        <div class="eyebrow rv">Para onde foi o seu dinheiro</div>
-        <div class="funnel">
-          <div class="frow rv" data-n="100" data-p="0"><div class="top"><span class="n">0</span><span class="lab">leads chegaram</span></div><div class="track"><div class="fill"></div></div></div>
-          <div class="frow rv lost" data-n="30" data-p="100"><div class="top"><span class="n">100</span><span class="lab">foram atendidos</span></div><div class="track"><div class="fill"></div></div></div>
-          <div class="frow rv lost" data-n="10" data-p="30"><div class="top"><span class="n">30</span><span class="lab">responderam</span></div><div class="track"><div class="fill"></div></div></div>
-          <div class="frow rv lost" data-n="3" data-p="10"><div class="top"><span class="n">10</span><span class="lab">marcaram reunião</span></div><div class="track"><div class="fill"></div></div></div>
-          <div class="frow rv win" data-n="1" data-p="3"><div class="top"><span class="n">3</span><span class="lab">fechou</span></div><div class="track"><div class="fill"></div></div></div>
+        <div class="clockline rv">
+          <div class="alarm" id="dial"></div>
+          <div><div class="vclock" id="vclock">SEG 08:00</div><div class="vsub" id="vsub">empresa aberta</div></div>
         </div>
+        <div class="cap4 rv" id="cap4">Sua empresa fecha às <em>18h.</em></div>
+        <div class="week rv" id="week">
+          <div class="day"><div class="dn">SEG</div><div class="body"><div class="open"></div></div></div>
+          <div class="day"><div class="dn">TER</div><div class="body"><div class="open"></div></div></div>
+          <div class="day"><div class="dn">QUA</div><div class="body"><div class="open"></div></div></div>
+          <div class="day"><div class="dn">QUI</div><div class="body"><div class="open"></div></div></div>
+          <div class="day"><div class="dn">SEX</div><div class="body"><div class="open"></div></div></div>
+          <div class="day we"><div class="dn">SÁB</div><div class="body"><div class="open"></div></div></div>
+          <div class="day we"><div class="dn">DOM</div><div class="body"><div class="open"></div></div></div>
+        </div>
+        <div class="legend rv"><span><span class="sw"></span>horário comercial</span><span><b id="cnt">0</b>leads com a empresa fechada</span></div>
       </section>
 
-      <!-- 3. A virada da conta -->
+      <!-- 3. Segunda, 9h -->
       <section class="scene" id="s3">
-        <div class="sans-l rv">Você não pagou</div>
-        <div class="sans-xl rv"><span class="strike" id="strike">R$ 2.000 por 100 leads.</span></div>
-        <div class="rule rv"></div>
-        <div class="sans-l rv">Pagou R$ 2.000 por</div>
-        <div class="serif-hero rv pop">1 cliente.</div>
-      </section>
-
-      <!-- 4. O relatório bonito -->
-      <section class="scene" id="s4">
-        <div class="eyebrow rv">O relatório do anúncio</div>
-        <div class="dash rv" id="dash">
-          <div><div class="k">Custo por lead</div><div class="v">R$ 20</div><div class="ok">▲ barato</div></div>
-          <div><div class="k">Leads no mês</div><div class="v">100</div><div class="ok">▲ recorde</div></div>
-          <div class="crack"></div>
+        <div class="bigclock rv" id="bigclock">SEG <b>09:00</b></div>
+        <div class="sans-l rv">O vendedor abre a lista.</div>
+        <div class="queue">
+          <div class="q rv"><span class="no">#1</span><span>Lead de sábado, 07:50</span><span class="w" data-g="fechou com outro">esperou 49h</span></div>
+          <div class="q rv"><span class="no">#2</span><span>Lead de sábado, 09:14</span><span class="w" data-g="fechou com outro">esperou 48h</span></div>
+          <div class="q rv"><span class="no">#3</span><span>Lead de sábado, 15:20</span><span class="w" data-g="não atende mais">esperou 42h</span></div>
+          <div class="q rv"><span class="no">#4</span><span>Lead de domingo, 10:10</span><span class="w">esperou 23h</span></div>
+          <div class="q rv"><span class="no">#5</span><span>Lead de domingo, 21:40</span><span class="w">esperou 11h</span></div>
+          <div class="qmore rv">+ 13 na fila</div>
         </div>
-        <div class="sans-l rv">Tá tudo lindo. O buraco começa <em style="font-family:var(--serif);color:var(--laranja)">depois</em> dele.</div>
-        <div class="arrow-down rv">↓</div>
-        <div class="sub rv" style="align-self:center;text-align:center">no atendimento do seu comercial</div>
+        <div class="sans-l rv">Metade já falou com o seu <em style="font-family:var(--serif);color:var(--laranja)">concorrente.</em></div>
       </section>
 
-      <!-- 5. Solução -->
-      <section class="scene" id="s5">
+      <!-- 4. Atendido na hora -->
+      <section class="scene" id="s4">
         <div class="eyebrow rv">Método OPC</div>
-        <div class="sans-xl rv">A gente cuida do pedaço que ninguém cuida.</div>
-        <div class="checks">
-          <div class="check rv"><div class="dot">✓</div><div><b>Liga em até 5 minutos</b><small>Cada lead, na hora em que chega</small></div></div>
-          <div class="check rv"><div class="dot">✓</div><div><b>Qualifica de verdade</b><small>Orçamento · decisor · prazo</small></div></div>
-          <div class="check rv"><div class="dot">✓</div><div><b>Marca a reunião</b><small>Direto na agenda do seu vendedor</small></div></div>
+        <div class="sans-xl rv">Aqui, o lead é atendido quando chega.</div>
+        <div class="times">
+          <div class="tline rv"><div class="a"><small>Chegou</small>Sáb 09:14</div><div class="arr">→</div><div class="b"><small>Atendido</small>09:17</div></div>
+          <div class="tline rv"><div class="a"><small>Chegou</small>Dom 21:40</div><div class="arr">→</div><div class="b"><small>Atendido</small>21:43</div></div>
+          <div class="tline rv"><div class="a"><small>Chegou</small>Qua 19:02</div><div class="arr">→</div><div class="b"><small>Atendido</small>19:05</div></div>
+        </div>
+        <div class="sub rv">Não é problema de esforço do seu time. É de estrutura.</div>
+      </section>
+
+      <!-- 5. Agenda, não fila -->
+      <section class="scene" id="s5">
+        <div class="sans-l rv">E na segunda, o seu vendedor recebe</div>
+        <div class="serif-big rv pop">agenda, não fila.</div>
+        <div class="agenda">
+          <div class="ag rv"><div class="h">10:00</div><div class="i"><b>Reunião com Marina</b><span>Decisora confirmada</span></div></div>
+          <div class="ag rv"><div class="h">11:30</div><div class="i"><b>Reunião com Paulo</b><span>Orçamento aprovado</span></div></div>
+          <div class="ag rv"><div class="h">14:00</div><div class="i"><b>Visita com Renata</b><span>Quer resolver em 30 dias</span></div></div>
         </div>
       </section>
 
       <!-- 6. CTA -->
       <section class="scene" id="s6">
-        <div class="sans-xl rv">Quer ver essa conta com os seus números?</div>
-        <div class="raio rv pop"><div class="ic">⌕</div><div><b>Raio-X do Lead grátis</b><span>Em 20 minutos, a gente mostra onde o seu dinheiro morre.</span></div></div>
+        <div class="sans-xl rv">Quantos leads seus chegam fora do horário?</div>
+        <div class="raio rv pop"><div class="ic">⌕</div><div><b>Raio-X do Lead grátis</b><span>Em 20 minutos, a gente mostra quantos leads chegam com a sua empresa fechada.</span></div></div>
         <div class="cta rv">Quero meu Raio-X →</div>
         <div class="fine rv">Toque em "Saiba mais" e preencha o formulário.</div>
       </section>
@@ -263,29 +325,30 @@
   </div>
 
   <aside class="info-col">
-    <div class="eyebrow" style="font-size:11px">Criativo 02 · para aprovação</div>
-    <h1>Faça a <em>conta</em></h1>
-    <p>Vídeo animado sem rosto, feito a partir do texto 06 ("Onde o seu dinheiro morre"). Já traz as melhorias de retenção: abertura com número em movimento, faixa de CTA fixa a partir da metade e oferta concreta no final.</p>
+    <div class="eyebrow" style="font-size:11px">Criativo 04 · para aprovação</div>
+    <h1>O lead que chega <em>sábado</em></h1>
+    <p>Vídeo animado sem rosto, feito a partir do texto 08. A semana corre em time-lapse, com dia e noite no fundo, e os leads caem exatamente no dia e na hora em que chegam.</p>
     <dl class="spec">
-      <dt>Gancho</dt><dd>D · "Empresário, faça a conta"</dd>
-      <dt>Texto base</dt><dd>06 · Onde o seu dinheiro morre</dd>
+      <dt>Gancho</dt><dd>"Empresário, seu cliente não pesquisa em horário comercial"</dd>
+      <dt>Texto base</dt><dd>08 · O lead que chega sábado</dd>
       <dt>Duração</dt><dd>30 s · 6 cenas</dd>
-      <dt>Formato</dt><dd>9:16 (1080 × 1920)</dd>
-      <dt>Oferta</dt><dd>Raio-X do Lead grátis (20 min)</dd>
+      <dt>Formatos</dt><dd>9:16 (1080 × 1920) e 1:1 (1080 × 1080)</dd>
+      <dt>Sons</dt><dd>Kit próprio: folha virando, esferas pousando, grilos, despertador, dispensador de senha, campainha, piano</dd>
     </dl>
     <ol class="beats" id="beats">
-      <li data-t="0"><b>0 s</b><span>"Empresário, faça a conta." R$ 2.000 subindo com som de moedas e caixa registradora.</span></li>
-      <li data-t="3.4"><b>3 s</b><span>Funil animado: 100 leads → 30 atendidos → 10 responderam → 3 reuniões → 1 venda. Som de queda a cada etapa.</span></li>
-      <li data-t="12"><b>12 s</b><span>"Você não pagou R$ 2.000 por 100 leads. Pagou por 1 cliente." Faixa de CTA fixa entra.</span></li>
-      <li data-t="15.8"><b>16 s</b><span>Relatório bonito (CPL barato, recorde de leads) racha: o buraco está depois do anúncio.</span></li>
-      <li data-t="20.2"><b>20 s</b><span>Método OPC: liga em 5 min, qualifica, marca a reunião.</span></li>
-      <li data-t="25"><b>25 s</b><span>Oferta: Raio-X do Lead grátis, com acorde final.</span></li>
+      <li data-t="0"><b>0 s</b><span>"Seu cliente não pesquisa em horário comercial." Letras entram uma a uma.</span></li>
+      <li data-t="3.4"><b>3 s</b><span>Semana em time-lapse: relógio correndo, céu de dia e de noite, 18 leads caindo fora do horário comercial.</span></li>
+      <li data-t="11"><b>11 s</b><span>Tela escura, despertador: segunda, 9h. Fila de 18 leads; os primeiros já fecharam com outro.</span></li>
+      <li data-t="15.6"><b>16 s</b><span>Método OPC: chegou sábado 9h14, atendido 9h17.</span></li>
+      <li data-t="20.6"><b>21 s</b><span>"Agenda, não fila." Cards de reunião voando em 3D.</span></li>
+      <li data-t="25"><b>25 s</b><span>Raio-X do Lead grátis, com acorde de piano e campainha.</span></li>
     </ol>
-    <p class="note">Os números do funil são o exemplo do texto 06, apresentados como "faça a conta", não como resultado de cliente.</p>
+    <p class="note">Nomes e horários são ilustrativos.</p>
   </aside>
 </div>
 
 <script>
+
 
 (function(){
   const $ = (s, r=document) => r.querySelector(s);
@@ -356,98 +419,114 @@
   function reveal(sel, i){ const els = $$(sel + ' .rv'); if(i===undefined) els.forEach(e=>e.classList.add('in')); else if(els[i]) els[i].classList.add('in'); }
   function glow(name){ ['Warm','Cold','Wine'].forEach(n=>$('#g'+n).classList.toggle('on', n.toLowerCase()===name)); }
 
-  /* ---------- kit de sons exclusivo do criativo 02: dinheiro e escritório ---------- */
-  const coin = ()=>tone('square',1900,2300,.03,.04);
-  const chaching = ()=>{ tone('triangle',1318,1318,.14,.22); tone('triangle',1760,1760,.4,.22,.09); noise(.25,'highpass',5000,9000,.12,1,.05); };
-  const drop = (k)=>{ tone('sine',560-k*70,160,.4,.32); tone('sine',90,45,.18,.4,.05); };
-  const M = {
-    slam(){ noise(.22,'lowpass',1800,120,.55,.7); tone('square',68,40,.22,.3); noise(.6,'bandpass',2400,2300,.16,22,.02); },
-    flick(){ noise(.1,'bandpass',4200,6800,.28,2); noise(.08,'bandpass',3000,5200,.18,2,.07); },
-    beep(i=0){ tone('square',2300+i*260,2300+i*260,.07,.06); tone('square',2300+i*260,2300+i*260,.05,.04,.1); },
-    click(){ tone('triangle',900,560,.04,.24); noise(.03,'highpass',3000,3000,.18); },
-    printer(){ for(let i=0;i<9;i++) noise(.028,'bandpass',1500+(i%2)*300,1500+(i%2)*300,.16,4,i*.045); },
-    crack(){ for(let i=0;i<7;i++) noise(.04+(i%3)*.02,'highpass',2800,6500,.3,1,i*.033); tone('sine',180,60,.3,.28); },
-    spin(dur){ let d=0, gap=.14; for(let i=0;i<22 && d<dur;i++){ tone('square',1700+i*45,1700+i*45,.02,.035,d); d+=gap; gap*=.9; } },
-    register(){ tone('sine',2637,2637,1.3,.18); tone('sine',3951,3951,.8,.07,.01); [261.63,329.63,392,523.25].forEach((f,i)=>tone('triangle',f,f,1.1,.09,.05+i*.02)); }
+  /* ---------- kit de sons exclusivo do criativo 04: tempo e calendário ---------- */
+  const PENT = [392, 440, 523.25, 587.33, 659.25, 783.99, 880];
+  const T = {
+    flip(){ noise(.16,'bandpass',900,2600,.22,1.2,0,.03); noise(.08,'highpass',3000,6000,.08,1,.06); },
+    land(i){ const f = PENT[i % PENT.length]; tone('triangle',f,f*.985,.22,.13); noise(.05,'lowpass',520,200,.12); },
+    thud(){ tone('triangle',78,46,.4,.55); noise(.14,'lowpass',420,80,.28); },
+    cricket(){ for(let j=0;j<3;j++) tone('sine',4400,4400,.012,.018,j*.032); },
+    alarm(){ for(let i=0;i<12;i++){ tone('triangle',i%2?2100:1600,i%2?2100:1600,.045,.09,i*.085); } },
+    ticket(i){ tone('sawtooth',540+i*28,540+i*28,.045,.03); },
+    chime(f,d=0){ tone('triangle',f,f,.7,.12,d,.008); tone('triangle',f*3,f*3,.2,.03,d); },
+    dingdong(d=0){ tone('triangle',659.25,659.25,.8,.2,d); tone('triangle',523.25,523.25,1.3,.2,d+.42); },
+    pad(notes, d=0, len=1.8){ notes.forEach((f,i)=>tone('triangle',f,f,len,.07,d+i*.02,.28)); },
+    tape(dur){ noise(dur,'lowpass',260,3200,.2,4,0,dur*.85); tone('triangle',110,330,dur,.05,0,dur*.8); },
+    switchOn(){ tone('square',120,60,.05,.25); noise(.04,'highpass',2000,2000,.2); }
   };
+
+  /* ---------- letras do gancho ---------- */
+  (function(){ const k = $('#kin'); const txt = k.textContent; k.textContent = '';
+    let i = 0; txt.split(' ').forEach((word,wi)=>{ const w = document.createElement('span'); w.style.whiteSpace = 'nowrap'; w.style.display = 'inline-block';
+      [...word].forEach(ch=>{ const c = document.createElement('span'); c.textContent = ch; c.style.setProperty('--i', i++); w.appendChild(c); });
+      if(wi) k.appendChild(document.createTextNode(' ')); k.appendChild(w); }); })();
+
+  /* ---------- a semana: 18 leads fora do horário comercial ---------- */
+  const WEEK_T0 = 3.9, WEEK_T1 = 10.3, HOURS = 168;
+  const LEADS = [[0,19.7],[0,6.8],[1,22.2],[2,19.0],[2,6.5],[3,23.5],[4,20.3],[4,6.7],
+                 [5,7.8],[5,9.2],[5,11.5],[5,15.3],[5,20.1],[6,10.2],[6,13.8],[6,16.5],[6,19.0],[6,21.7]];
+  const bodies = $$('#week .body');
+  const leadEls = LEADS.map(([d,h])=>{ const e = document.createElement('div'); e.className = 'lead'; e.style.top = 'calc(' + (h/24*100) + '% - 2.5cqw)'; bodies[d].appendChild(e); return e; });
+  const leadT = LEADS.map(([d,h])=> WEEK_T0 + Math.max(.3, d*24 + h - 8) / HOURS * (WEEK_T1 - WEEK_T0));
+  const order = leadT.map((t,i)=>[t,i]).sort((a,b)=>a[0]-b[0]).map(x=>x[1]);
+  const DAYS = ['SEG','TER','QUA','QUI','SEX','SÁB','DOM'];
+  const pad2 = n => String(Math.floor(n)).padStart(2,'0');
+  let capState = '';
+  function setCap(key, html){ if(capState === key) return; capState = key; const c = $('#cap4'); c.style.opacity = 0; setTimeout(()=>{ c.innerHTML = html; c.style.opacity = 1; }, 150); }
+
   /* ---------- roteiro ---------- */
-  const rows = $$('.frow');
-  const ROWT = [4.0, 5.6, 7.0, 8.4, 9.8];
-  function showRow(i){
-    const r = rows[i], f = r.querySelector('.fill');
-    r.classList.add('in');
-    f.style.transition = 'none'; f.style.width = Math.max(2, +r.dataset.p) + '%';
-    void f.offsetWidth; f.style.transition = '';
-    setTimeout(()=>{ f.style.width = Math.max(2, +r.dataset.n) + '%'; }, 40);
-  }
+  const qs = $$('#s3 .q');
   const EVENTS = [
-    [0.00, ()=>{ scene('s1'); glow('warm'); M.slam(); flash(); }],
-    [0.20, ()=>reveal('#s1',0)],
+    [0.00, ()=>{ scene('s1'); glow('warm'); T.thud(); flash(); }],
+    [0.20, ()=>{ reveal('#s1',0); T.flip(); }],
     [0.45, ()=>reveal('#s1',1)],
-    [0.85, ()=>{ reveal('#s1',2); M.flick(); }],
-    [2.25, ()=>{ chaching(); shake(); }],
-    [2.45, ()=>reveal('#s1',3)],
-    [2.65, ()=>reveal('#s1',4)],
+    [0.95, ()=>{ $('#kin').classList.add('in'); T.pad([261.63,329.63,392,493.88]); }],
+    [1.90, ()=>{ T.thud(); shake(); }],
+    [2.10, ()=>reveal('#s1',2)],
+    [2.40, ()=>reveal('#s1',3)],
 
-    [3.40, ()=>{ scene('s2'); M.flick(); }],
-    [3.55, ()=>reveal('#s2',0)],
-    [ROWT[0], ()=>{ showRow(0); M.beep(3); }],
-    [ROWT[1], ()=>{ showRow(1); drop(1); }],
-    [ROWT[2], ()=>{ showRow(2); drop(2); }],
-    [ROWT[3], ()=>{ showRow(3); drop(3); }],
-    [ROWT[4], ()=>{ showRow(4); drop(4); }],
-    [10.5,  ()=>{ M.slam(); shake(); }],
+    [3.40, ()=>{ scene('s2'); glow('cold'); $('#sky').classList.add('on'); T.flip(); }],
+    [3.50, ()=>reveal('#s2',0)],
+    [3.60, ()=>reveal('#s2',1)],
+    [3.70, ()=>reveal('#s2',2)],
+    [3.80, ()=>reveal('#s2',3)],
+    ...order.map((i,k)=>[leadT[i], ()=>{ leadEls[i].classList.add('in'); T.land(k); $('#cnt').textContent = k+1; }]),
+    [10.4, ()=>{ T.thud(); shake(); }],
 
-    [12.0, ()=>{ scene('s3'); glow('cold'); M.flick(); }],
-    [12.2, ()=>{ reveal('#s3',0); $('#strip').classList.add('in'); M.click(); }],
-    [12.6, ()=>reveal('#s3',1)],
-    [13.3, ()=>{ $('#strike').classList.add('cut'); M.flick(); }],
-    [13.9, ()=>reveal('#s3',2)],
-    [14.1, ()=>reveal('#s3',3)],
-    [14.6, ()=>{ reveal('#s3',4); M.slam(); flash(); }],
+    [11.0, ()=>{ scene('s3'); $('#sky').classList.remove('on'); $('#blackout').classList.add('on'); $('#strip').classList.add('in'); }],
+    [11.45, ()=>{ $('#blackout').classList.remove('on'); T.switchOn(); flash(); reveal('#s3',0); T.alarm(); shake(); }],
+    [12.30, ()=>reveal('#s3',1)],
+    ...[0,1,2,3,4].map(i=>[12.6 + i*.16, ()=>{ reveal('#s3', 2+i); T.ticket(i); }]),
+    [13.45, ()=>reveal('#s3',7)],
+    [13.8, ()=>{ qs.slice(0,3).forEach(q=>{ q.classList.add('gone'); const w = q.querySelector('.w'); w.textContent = w.dataset.g; }); T.thud(); }],
+    [14.4, ()=>reveal('#s3',8)],
 
-    [15.8, ()=>{ scene('s4'); M.flick(); }],
-    [16.0, ()=>reveal('#s4',0)],
-    [16.3, ()=>{ reveal('#s4',1); M.printer(); }],
-    [17.1, ()=>reveal('#s4',2)],
-    [18.2, ()=>{ $('#dash').classList.add('broken'); M.crack(); shake(); }],
-    [18.7, ()=>reveal('#s4',3)],
-    [19.0, ()=>reveal('#s4',4)],
+    [15.6, ()=>{ scene('s4'); glow('warm'); T.flip(); }],
+    [15.8, ()=>reveal('#s4',0)],
+    [16.1, ()=>reveal('#s4',1)],
+    [17.0, ()=>{ reveal('#s4',2); T.chime(783.99); }],
+    [17.7, ()=>{ reveal('#s4',3); T.chime(987.77); }],
+    [18.4, ()=>{ reveal('#s4',4); T.chime(1174.66); }],
+    [19.3, ()=>reveal('#s4',5)],
 
-    [20.2, ()=>{ scene('s5'); glow('warm'); M.flick(); }],
-    [20.4, ()=>reveal('#s5',0)],
-    [20.7, ()=>reveal('#s5',1)],
-    [21.6, ()=>{ reveal('#s5',2); M.beep(0); }],
-    [22.4, ()=>{ reveal('#s5',3); M.beep(1); }],
-    [23.2, ()=>{ reveal('#s5',4); M.beep(2); }],
-    [24.2, ()=>M.spin(.8)],
+    [20.6, ()=>{ scene('s5'); T.flip(); }],
+    [20.8, ()=>reveal('#s5',0)],
+    [21.4, ()=>{ reveal('#s5',1); T.pad([293.66,369.99,440,554.37],0,1.4); }],
+    [22.2, ()=>{ reveal('#s5',2); T.chime(1318.5); }],
+    [22.6, ()=>{ reveal('#s5',3); T.chime(1567.98); }],
+    [23.0, ()=>{ reveal('#s5',4); T.dingdong(); }],
+    [24.2, ()=>T.tape(.8)],
 
-    [25.0, ()=>{ scene('s6'); glow('wine'); $('#strip').classList.remove('in'); M.slam(); flash(); }],
+    [25.0, ()=>{ scene('s6'); glow('wine'); $('#strip').classList.remove('in'); T.thud(); flash(); }],
     [25.3, ()=>reveal('#s6',0)],
-    [26.0, ()=>{ reveal('#s6',1); M.click(); }],
-    [26.8, ()=>{ reveal('#s6',2); M.register(); }],
+    [26.0, ()=>{ reveal('#s6',1); T.flip(); }],
+    [26.8, ()=>{ reveal('#s6',2); T.pad([261.63,329.63,392,493.88,587.33],0,2.4); T.dingdong(.35); }],
     [27.5, ()=>reveal('#s6',3)]
-  ];
+  ].sort((a,b)=>a[0]-b[0]);
 
-  /* ---------- contadores (dinheiro e funil) ---------- */
+  /* ---------- relógio da semana, céu e grilos ---------- */
   const lerp = (a,b,k)=>a+(b-a)*Math.max(0,Math.min(1,k));
-  const fmt = v => 'R$ ' + Math.round(v).toLocaleString('pt-BR');
-  let lastCoin = -1;
+  let lastCricket = -1;
   function continuous(t){
-    if(t >= 0.85 && t <= 2.4){
-      const v = lerp(0, 2000, (t-0.85)/1.35);
-      const m = $('#money'), txt = fmt(Math.round(v/50)*50);
-      if(m.textContent !== txt) m.textContent = txt;
-      const k = Math.floor((t-0.85)/0.09);
-      if(k !== lastCoin && t < 2.2){ lastCoin = k; coin(); }
-    }
-    rows.forEach((r,i)=>{
-      const t0r = ROWT[i];
-      if(t >= t0r && t <= t0r + 0.9){
-        const v = Math.round(lerp(+r.dataset.p, +r.dataset.n, (t-t0r)/0.7));
-        const n = r.querySelector('.n'); if(n.textContent !== String(v)) n.textContent = v;
-      }
-    });
+    if(t < WEEK_T0 - .1 || t > WEEK_T1 + .6) return;
+    const hw = Math.max(0, Math.min(HOURS - .01, (t - WEEK_T0) / (WEEK_T1 - WEEK_T0) * HOURS + 8));
+    const d = Math.min(6, Math.floor(hw / 24)), h = hw % 24;
+    const txt = DAYS[d] + ' ' + pad2(h) + ':' + pad2((h % 1) * 60);
+    const vc = $('#vclock'); if(vc.textContent !== txt) vc.textContent = txt;
+    const open = d < 5 && h >= 8 && h < 18;
+    const vs = $('#vsub'); const st = open ? 'empresa aberta' : 'empresa fechada';
+    if(vs.textContent !== st){ vs.textContent = st; vs.classList.toggle('closed', !open); }
+    $('#dial').style.transform = 'rotate(' + (h / 12 * 360) + 'deg)';
+    /* céu: claro ao meio-dia, escuro à noite */
+    const light = Math.max(0, Math.cos((h - 13) / 24 * 2 * Math.PI));
+    const sky = $('#sky'); sky.style.setProperty('--sky-r', Math.round(lerp(10, 70, light)));
+    sky.style.setProperty('--sky-g', Math.round(lerp(18, 110, light))); sky.style.setProperty('--sky-b', Math.round(lerp(45, 170, light)));
+    $('#stars').style.setProperty('--night', (1 - light).toFixed(2));
+    if(d >= 5) setCap(d === 5 ? 'sab' : 'dom', d === 5 ? 'Sábado de manhã. <em>Empresa fechada.</em>' : 'Domingo à noite. <em>Ninguém atende.</em>');
+    else if(!open && d >= 1) setCap('noite', 'Terça, quarta, 19h, 22h. <em>Fechado.</em>');
+    else if(d === 0 && !open) setCap('seg', 'Segunda, 19h40. <em>Primeiro lead.</em>');
+    /* grilos quando é noite */
+    if(light < .15 && t < WEEK_T1){ const k = Math.floor(t / .22); if(k !== lastCricket){ lastCricket = k; T.cricket(); } }
   }
 
   /* ---------- player ---------- */
@@ -456,11 +535,14 @@
 
   function resetDom(){
     $$('.rv').forEach(e=>e.classList.remove('in'));
-    $('#strike').classList.remove('cut'); $('#dash').classList.remove('broken'); $('#strip').classList.remove('in');
-    $('#money').textContent = 'R$ 0';
-    rows.forEach(r=>{ r.querySelector('.n').textContent = r.dataset.p; r.querySelector('.fill').style.width = '0'; });
+    $('#kin').classList.remove('in'); $('#strip').classList.remove('in'); $('#sky').classList.remove('on'); $('#blackout').classList.remove('on');
+    leadEls.forEach(e=>e.classList.remove('in')); $('#cnt').textContent = '0';
+    qs.forEach(q=>{ q.classList.remove('gone'); });
+    const ws = ['esperou 49h','esperou 48h','esperou 42h']; qs.slice(0,3).forEach((q,i)=>{ q.querySelector('.w').textContent = ws[i]; });
+    capState = ''; $('#cap4').innerHTML = 'Sua empresa fecha às <em>18h.</em>';
+    $('#vclock').textContent = 'SEG 08:00'; $('#vsub').textContent = 'empresa aberta'; $('#vsub').classList.remove('closed');
     $$('.scene').forEach(s=>s.classList.remove('on'));
-    lastCoin = -1;
+    lastCricket = -1;
   }
   function frame(now){
     const t = (now - t0) / 1000;
@@ -501,7 +583,7 @@
       const comp = off.createDynamicsCompressor(); comp.threshold.value = -14; comp.ratio.value = 4;
       A.out.connect(comp); comp.connect(off.destination);
       EVENTS.forEach(([t, fn])=>{ A.base = t; fn(); });
-      lastCoin = -1;
+      lastCricket = -1;
       for(let t = 0; t < DUR; t += 1/240){ A.base = t; continuous(t); }
       A.base = 0;
       const buf = await off.startRendering();
@@ -521,6 +603,6 @@
   }
 
   /* quadro de capa: gancho visível antes do play */
-  if(!location.hash.startsWith('#render')){ scene('s1'); reveal('#s1'); $('#money').textContent = 'R$ 2.000'; }
+  if(!location.hash.startsWith('#render')){ scene('s1'); reveal('#s1'); $('#kin').classList.add('in'); }
 })();
 </script>
