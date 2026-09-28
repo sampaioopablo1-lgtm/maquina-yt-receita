@@ -155,3 +155,12 @@ mandar User-Agent de navegador (sem ele o Cloudflare responde 1010).
 | Tags `sdr-lotado` e `fila-wa` (lidas, nunca aplicadas) | `fila-wa` ficou obsoleta com o Canal da tentativa; `sdr-lotado` só faz sentido com mais de uma SDR — manter sem uso por ora |
 | Limite de horas no "Pediu retorno" do Fechar Horário | exigiria campo contador novo; hoje o lead sai do laço ao deixar CONECTAR e o Retorno Vencido avisa |
 | Resposta automática também parar a cadência | limite do GHL (`Stop on Response` não filtra texto); reativar à mão quando acontecer |
+
+### Quinta rodada (27/09 22:40–23:30)
+
+| Item | O que foi gravado | Onde | Versão antes → depois | Relido | Observação |
+|---|---|---|---|---|---|
+| Pediu retorno: prazo 3 dias | workflow novo "Retorno — prazo de 3 dias" (`892d424e`): Resultado = Pediu retorno → espera 3 dias → ainda Pediu retorno e em CONECTAR → oportunidade **Abandonada** + `nutricao-90d` + nota | workflow novo | v2, publicado | sim | "perdido e nutrido" = Abandonado: a Nutrição só envia com `status-nutricao`, que o Espelho aplica em Abandonado; "Perdido" pararia a nutrição |
+| FORMALIZAR: prazo 7 dias | workflow novo "Formalização Parada" (`14a76a7d`): entra em FORMALIZAR → espera 7 dias → ainda aberta → aviso + tarefa "[CLOSER] Marcar a oportunidade como ganha ou perdida" | workflow novo | v2 → v3 (3 → 7 dias) | sim | decisão do dono: depois de FORMALIZAR o closer marca ganha ou perdida |
+| fila do discador | atuador das filas no branch padrão (PR #106 e #107), cron a cada 30 min seg–sex 08:00–18:59; aplicado agora: `fila-sdr` 5 → 36 | GitHub Actions + tag `fila-sdr` | — | sim, 36/36 | antes o cron nunca tinha rodado (arquivo fora do branch padrão): lead novo não entrava na fila do Power Dialer |
+| painel "Decisão — Operação SDR/Closer" | painel criado (`6ab9b477ea8a8a09aee49d8b`), **ainda sem widgets** | Relatórios | — | — | gravar widget pela API esbarra em "versão desatualizada do painel"; falta o formato que a tela usa |

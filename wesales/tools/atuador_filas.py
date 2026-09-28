@@ -242,11 +242,18 @@ def main() -> int:
         pedir(metodo, "/contacts/%s/tags" % cid, {"tags": [tag]})
         print("  %s %s %s -> ok" % (metodo, tag, cid))
 
-    # Rele a conta: a resposta da escrita nao e o estado (licao 2.15).
+    # Rele a conta: a resposta da escrita nao e o estado (licao 2.15). A busca do GHL
+    # indexa a tag com atraso (27/09: releitura imediata viu 24 de 36; minutos depois,
+    # 36 de 36) — por isso espera e tenta de novo antes de declarar que nao convergiu.
+    import time
     print("\n  conferindo relendo a conta...")
-    cs2 = contatos()
-    d2_sdr, d2_clo, a2_sdr, a2_clo, _ = decidir(cs2, etapa_por_contato())
-    ok = (d2_sdr == a2_sdr) and (d2_clo == a2_clo)
+    for espera in (0, 30, 60):
+        time.sleep(espera)
+        cs2 = contatos()
+        d2_sdr, d2_clo, a2_sdr, a2_clo, _ = decidir(cs2, etapa_por_contato())
+        ok = (d2_sdr == a2_sdr) and (d2_clo == a2_clo)
+        if ok:
+            break
     print("  fila-sdr    desejado=%d atual=%d" % (len(d2_sdr), len(a2_sdr)))
     print("  fila-closer desejado=%d atual=%d" % (len(d2_clo), len(a2_clo)))
     print("  veredito: %s" % ("CONVERGIU" if ok else "NAO convergiu"))
