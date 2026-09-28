@@ -34,9 +34,13 @@ alimentar a régua sem esforço extra do SDR.
 
 ## 1. Antes de discar
 
-- Confira `Segmento`, `Site` e `Instagram` do contato — normalmente já vêm
-  preenchidos da origem do lead. Se estiverem vazios, pergunte só o que
-  faltar durante a ligação; não interrompa a abertura para isso.
+- Confira `Segmento`, `Site` e `Instagram` do contato. `Site`/`Instagram`
+  só vêm da origem quando o lead preencheu; `Segmento` só vem preenchido
+  quando a campanha do anúncio tem nicho no nome (F-32,
+  `build-wesales.md` seção 2.62) — e mesmo aí é palpite da campanha, não
+  fato confirmado (ex.: campanha mirou "contabilidade" e o negócio real
+  era outro). Confirme o que já veio e pergunte o que faltar durante a
+  ligação; não interrompa a abertura para isso.
 - Tenha a tela de `Resultado da tentativa` (`campos-e-tags.md`, C-02) aberta
   para classificar assim que a ligação terminar — é o campo que dispara o
   Pós-ligação (`build-wesales.md`, seção 4).

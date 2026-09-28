@@ -6138,6 +6138,101 @@ decisões sem prazo fixo que esperam o dono, sem mudança nesta rodada.
 
 ---
 
+### F-32 · O F-02 espera conexão real para aprender horário por segmento, mas o próprio `Segmento` nunca teve como nascer preenchido — a campanha já carrega o nicho no nome, e nada lê isso (28/09/2026) — **FEITO em 28/09/2026 (especificação)**
+
+**Por quê:** os seis itens de prazo fixo (F-09, F-10, G-11, G-19, G-27/G-29,
+G-31) seguem sem novidade — `git fetch` nas duas branches irmãs não achou
+resposta nova, e a reconciliação de sempre (`opportunities_search-
+opportunity`/`locations_get-custom-fields`, direto por API nesta sessão,
+sem `GHL_TOKEN` neste ambiente, mesmo caminho do F-28) confirma **66
+oportunidades** (subiu de 64 — 2 leads novos de verdade entraram durante
+esta própria sessão, incluindo `Daniele` às 12:05:29 UTC) e os mesmos 60
+campos de contato, sem campo órfão novo além dos já registrados (`B ·
+Quanto pode investir`, `SDR responsável`). Sem achado de reconciliação, a
+sessão foi ler o próprio F-02 antes de ir à pesquisa de concorrência de
+sempre — ele nunca fechou por inteiro: o "Como" promete gravar `Hora da
+conexão` e cruzar com `Segmento` assim que houver conexão real, mas o
+mecanismo (`If/Else` por segmento, seção 2.18) ficou explicitamente
+represado esperando volume. Antes de aceitar "falta volume" como a causa
+completa, a sessão conferiu **por dado, não por suposição**, se o outro
+lado da conta — `Segmento` chegar preenchido — de fato acontece: **17
+contatos reais** (amostra de leads com `source: Facebook`, excluindo os de
+teste, cobrindo entradas de 19/09 a 28/09) lidos via `contacts_get-contact`
+nesta sessão, **0 com `Segmento` preenchido**. O próprio
+`script-de-ligacao.md` (seção 1) diz "Confira `Segmento`... normalmente já
+vêm preenchidos da origem do lead" — a frase nunca tinha sido checada
+contra a subconta real, e não se confirma: nenhum dos 8 formulários do
+Meta que o G-04 já mapeou grava em `Segmento`, e a `Porta de Entrada` (seção
+1.3) de propósito não faz nada além de criar a oportunidade.
+
+**A lacuna nova, achada olhando o dado que a API já trazia para outro fim:**
+`attributionSource`/`lastAttributionSource` de cada contato carrega
+`utmMedium` — e para as campanhas mais novas ("Fase 3"), esse texto já
+**nomeia o nicho da campanha**, lido ao vivo nesta sessão: `Ricardo` e
+`Andreia` — "LEADS I NICHO ADVOCACIA BR I FASE 3"; `Ana Ruth` — "LEADS I
+NICHO CONTABILIDADE BR I FASE 3" (aqui o rótulo da campanha diverge do
+negócio real dela, "Especialista em Cabelos" — registrado abaixo como
+limite, não escondido). Campanhas mais antigas ou de segmentação ampla
+trazem `utmMedium` genérico ("LEADS I INTERESSE BR I FASE 3", "LEADS I
+PERSONALIZADO CNAE BR I FASE 3", ou simplesmente `"social"` nas primeiras
+campanhas, sem nicho) — não haveria nicho para extrair mesmo se alguém
+lesse o campo. Nenhum documento deste projeto cita `utmMedium` ou "NICHO"
+antes desta sessão (`grep -rn "utmMedium\|NICHO" wesales/*.md`, vazio).
+
+**Por que isto é mais barato que esperar o SDR perguntar (a saída que
+`script-de-ligacao.md` já previa para quando o campo vem vazio) e mais
+barato que qualquer coisa que Reev/Meetime/Outreach/Salesloft oferecem:**
+as quatro plataformas de referência não têm como ler a campanha de anúncio
+de terceiro — quem compra mídia paga é o próprio dono, e o nicho já está
+escrito no nome da campanha que ele mesmo criou, de graça, antes de
+qualquer ligação acontecer. Aproveitar isso fecha `Segmento` no instante em
+que o lead entra na cadência, não depois da Nª conexão — a metade do F-02
+que dependia de volume continua dependendo (a hora da conexão só existe
+depois de atender), mas a metade do segmento deixa de depender de nada.
+
+**Pesquisado antes de desenhar (`WebSearch`, confiança média — igual
+ressalva do F-06/F-08/F-29/F-30: `gohighlevel.com` bloqueado pelo proxy
+deste contêiner, três buscas independentes convergindo em fontes de
+terceiro e num changelog oficial indexado):** o `If/Else` nativo do GHL
+aceita UTM Source/Medium/Campaign/Term/Content/Referrer tanto de "First"
+quanto de "Latest Attribution" como campo de condição, com operador
+`Contains`/`Doesn't Contain` — o changelog oficial cita explicitamente uma
+correção de bug em "if/else branching for UTM Campaign (Last
+Attribution)", prova de que o campo existe como condição de verdade, não
+só como merge field de texto. **Não confirmado ao vivo nesta subconta:** o
+nome exato do campo como aparece no seletor da tela (a busca não decidiu
+entre "UTM Medium (First Attribution)" batendo exatamente esse rótulo ou
+uma variação) — conferir na montagem manual antes de publicar, mesma
+disciplina do F-06 com o Voice Intelligence.
+
+**Como — nó novo 0.8/0.8b dentro do nó de inicialização já existente da
+`Cadência 12x30` (seção 2.3, `build-wesales.md`), não um workflow
+separado:** é o mesmo lugar que a seção 2.3 já reserva para "qualquer coisa
+a mais" que a Porta de Entrada de propósito não faz. Detalhe nó a nó,
+lista de nichos conhecidos e os dois limites (campanha ampla não tem nicho
+para extrair; rótulo da campanha é candidato, não verdade — o SDR
+confirma e corrige na ligação, o campo continua editável) na seção **2.62**
+do `build-wesales.md`.
+
+**Zero campo novo, zero tag nova:** reaproveita `Segmento` (Q-01), que já
+existe na tela desde 18/09/2026. Não depende de `APROVADO.md`. `campos-e-
+tags.md` (Q-01) e `script-de-ligacao.md` (seção 1, a frase que a auditoria
+mostrou incompleta) atualizados no mesmo commit; `IMPLEMENTACAO-
+WORKFLOWS.md` (W11, nó 0) e `GUIA-MONTAGEM.md` também.
+
+**Pronto quando:** os nós 0.8/0.8b estiverem montados na tela dentro da
+`Cadência 12x30` já publicada (430 nós, `GUIA-MONTAGEM.md`); um lead novo
+de campanha com "NICHO" no `utmMedium` entrar em `CONECTAR` com `Segmento`
+já preenchido, sem o SDR perguntar; e, só então, o próprio F-02 (o
+`If/Else` por horário da seção 2.18) deixar de esperar só volume — passa a
+esperar volume **e** ter segmento para cruzar, que agora nasce no dia 1 em
+vez de nunca.
+
+F-09, F-10, G-11 (item 1), G-19, G-27/G-29 e G-31 continuam sendo as
+decisões sem prazo fixo que esperam o dono, sem mudança nesta rodada.
+
+---
+
 ## Ordem sugerida
 
 **Bloco 0 (G-01) fechado em 19/09/2026, antes de tudo o resto desta seção:**
@@ -8226,3 +8321,38 @@ campos de contato). Zero campo, zero tag, zero escrita no CRM. Sem item de
 (`APROVADO.md`) segue igual à da última leitura. F-09, F-10, G-11 (item 1),
 G-19, G-27/G-29 e G-31 continuam sendo as decisões sem prazo fixo que
 esperam o dono, sem mudança nesta rodada.
+
+**F-32 aberto e fechado (especificação) em 28/09/2026, sessão automática
+seguinte — reconciliação de sempre antes de desenhar (hábito do
+G-31/G-32/G-33/F-26 em diante): `git fetch` nas duas branches irmãs sem
+resposta nova para F-09, F-10, G-11 (item 1), G-19, G-27/G-29 ou G-31. CRM
+reconfirmado por API direto nesta sessão (sem `GHL_TOKEN` neste ambiente,
+mesmo caminho do F-28): `opportunities_search-opportunity` sobe de 64 para
+**66** (2 leads novos de verdade, incluindo um durante a própria sessão);
+`locations_get-custom-fields` segue em 60 campos de contato, sem
+novidade.** Em vez de ir direto à pesquisa de concorrência, a sessão
+releu o próprio F-02 (por que ele nunca fechou por inteiro) e conferiu por
+dado, não por suposição, se a premissa "`Segmento` normalmente já vem
+preenchido" (`script-de-ligacao.md`) se sustenta: 17 contatos reais lidos
+por `contacts_get-contact`, 0 com `Segmento` preenchido — e nenhum dos 8
+formulários do Meta que o G-04 já mapeou grava nesse campo. A lacuna veio
+de olhar o `attributionSource.utmMedium` que a própria API já trazia: as
+campanhas mais novas ("Fase 3") nomeiam o nicho no próprio texto ("LEADS I
+NICHO ADVOCACIA BR I FASE 3", "... CONTABILIDADE ..."), e nada neste
+projeto lê isso. Fechado como **F-32**: nós 0.8/0.8b especificados dentro
+do nó de inicialização já existente da `Cadência 12x30` (seção 2.3/2.62 do
+`build-wesales.md`, não um workflow novo), usando o `If/Else` nativo do
+GHL sobre UTM Medium (First Attribution) com `Contains` — pesquisado
+(`WebSearch`, confiança média, mesma ressalva de proxy bloqueado do
+F-06/F-08/F-29/F-30) e confirmado por changelog oficial indexado que o
+campo existe como condição de verdade, não só merge field. Dois limites
+registrados, não escondidos: campanha de segmentação ampla não tem nicho
+para extrair (comportamento esperado, não falha), e o rótulo da campanha é
+candidato — o caso `Ana Ruth`/"NICHO CONTABILIDADE" já mostrou que o
+anúncio pode mirar errado; o campo continua editável pelo SDR na ligação.
+Zero campo novo, zero tag nova: reaproveita `Segmento` (Q-01), existente
+desde 18/09/2026 — não depende de `APROVADO.md`. `campos-e-tags.md` (Q-01),
+`script-de-ligacao.md` (seção 1) e `IMPLEMENTACAO-WORKFLOWS.md` (W11)
+atualizados no mesmo commit. F-09, F-10, G-11 (item 1), G-19, G-27/G-29 e
+G-31 continuam sendo as decisões sem prazo fixo que esperam o dono, sem
+mudança nesta rodada.

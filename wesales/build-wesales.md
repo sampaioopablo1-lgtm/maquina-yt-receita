@@ -730,6 +730,8 @@ acidente nem por um segundo lugar decidindo a mesma coisa.
 | 0.6 | Update Contact Field | `Entrada em` = `{{right_now.date}} {{right_now.time}}` (`{{right_now}}` puro grava `[object Object]` — medido em 22/09/2026) (R-02 — carimbo de speed-to-lead) |
 | 0.7 | If/Else (R-10) | campo nativo `Assigned User` está vazio → segue para 0.7b. Senão → pula 0.7b (contato já tem dono; ver seção 2.14) |
 | 0.7b | Assign to User → modo `Round Robin` | Lista de SDRs ativos, configurada na tela do nó (seção 2.14) |
+| 0.8 | If/Else (F-32) | `Segmento` está vazio → segue para 0.8b. Senão → pula para M1 (já preenchido — manual ou de uma rodada anterior deste mesmo nó — nunca sobrescreve) |
+| 0.8b | If/Else em cascata (F-32) — detalhe na seção 2.62 | `UTM Medium (First Attribution)` `Contains` "NICHO ADVOCACIA" → `Segmento` = `Advocacia` · `Contains` "NICHO CONTABILIDADE" → `Segmento` = `Contabilidade` · nenhum dos dois → segue vazio (campanha sem nicho, ou nicho ainda não cadastrado nesta lista) |
 
 **Por que o portão de higiene (0.0/0.0b) vem antes de qualquer outro nó, e
 não dentro do portão da tentativa (nó 3, seção 2.4) — R-13:** o bloqueio
@@ -10165,3 +10167,107 @@ Business Manager sabe que a Meta pode reclassificar depois da aprovação
 (não é decisão definitiva) e sabe distinguir, na tela de Estatísticas do
 WhatsApp por workflow, `Failed` por teto de frequência (esperado em
 código `Marketing`) de `Failed` por reputação (F-07).
+
+## 2.62 Segmento por Campanha (nós 0.8/0.8b) — F-32: o F-02 espera conexão real, mas `Segmento` nunca teve como nascer preenchido sozinho
+
+**Por quê:** o F-02 ("Melhor horário aprendido, por segmento", seção 2.18)
+ficou represado esperando volume de conexão real — premissa correta pela
+metade. A outra metade da conta, `Segmento` chegar preenchido, nunca foi
+checada contra a subconta real. Conferido nesta rodada: **17 contatos
+reais** (amostra de leads de `source: Facebook` lidos via `contacts_get-
+contact`, entradas de 19/09 a 28/09/2026, excluindo contato de teste),
+**0 com `Segmento` (Q-01) preenchido**. `script-de-ligacao.md` (seção 1)
+diz "Confira `Segmento`... normalmente já vêm preenchidos da origem do
+lead" — nunca verificado contra dado real, e não se sustenta: dos 8
+formulários do Meta que o G-04 (`ROADMAP-SALES-ENGAGEMENT.md`) já mapeou,
+nenhum grava em `Segmento`, e a `Porta de Entrada` (seção 1.3) de
+propósito só cria a oportunidade, nada mais.
+
+**A lacuna:** a resposta já está na conta, só que num campo que ninguém
+lia com esse propósito. `attributionSource`/`lastAttributionSource` de
+cada contato carrega `utmMedium` — texto livre que quem sobe a campanha no
+Meta Ads Manager escreve. Lido ao vivo nesta sessão, três padrões:
+
+| Contato (real) | `utmMedium` | Nicho extraível? |
+|---|---|---|
+| Ricardo, Andreia | `LEADS I NICHO ADVOCACIA BR I FASE 3` | Sim — `Advocacia` |
+| Ana Ruth (`/ Especialista em Cabelos`) | `LEADS I NICHO CONTABILIDADE BR I FASE 3` | Sim, mas **o negócio dela não é contabilidade** — ver limite 2 abaixo |
+| Fátima, Gerson | `LEADS I INTERESSE BR I FASE 3` | Não — campanha de interesse amplo, sem nicho |
+| Daniele, Carlos Andrade | `LEADS I PERSONALIZADO CNAE BR I FASE 3` | Não — segmentação por CNAE, ampla |
+| Wesley, Francisco, Edson, Rebecca, Daniel, Andre, CM Construções, Zenilson, Decoratta | `social` (`utmCampaign` vazio) | Não — campanhas mais antigas, sem UTM estruturado |
+
+Nenhum documento deste projeto cita `utmMedium` ou "NICHO" antes desta
+sessão (`grep -rn "utmMedium\|NICHO" wesales/*.md`, vazio antes deste
+commit).
+
+**Por que vale mais que esperar o SDR perguntar:** é a saída que o próprio
+`script-de-ligacao.md` já previa para campo vazio, e continua sendo a
+saída para as campanhas sem nicho (tabela acima). Mas para as campanhas
+"Fase 3" com nicho no nome, o dado já existe antes de qualquer ligação —
+não custa pergunta a mais no roteiro nem espera de volume. Nenhuma das
+quatro plataformas de referência (Reev, Meetime, Outreach, Salesloft) lê
+campanha de mídia paga de terceiro — o dado só existe porque o próprio
+dono nomeou a campanha assim; aproveitar isso é mais barato que qualquer
+integração que uma dessas plataformas venderia.
+
+**Pesquisado antes de desenhar (confiança média — `gohighlevel.com`
+bloqueado pelo proxy deste contêiner, mesma ressalva do F-06/F-08/F-29/
+F-30; três buscas externas convergentes):** o `If/Else` nativo do GHL
+aceita UTM Source/Medium/Campaign/Term/Content/Referrer, tanto de "First"
+quanto de "Latest Attribution", como campo de condição — com operadores
+`is`/`is not`/`contains`/`does not contain`. O changelog oficial (indexado
+por terceiro, não lido direto) cita uma correção de bug em "if/else
+branching for UTM Campaign (Last Attribution)" — prova de que o campo
+existe como condição real de workflow, não só como merge field de texto
+dentro de uma mensagem. **Não confirmado ao vivo nesta subconta:** o rótulo
+exato do campo no seletor da tela do `If/Else` (a pesquisa não decidiu
+entre variações de nome) — conferir na montagem manual antes de publicar,
+mesma disciplina do F-06 com o Voice Intelligence e do F-30 com o preço do
+filtro.
+
+**Por que First Attribution, não Latest:** `Segmento` deveria refletir a
+campanha que **trouxe** o lead, não a última que ele talvez tenha clicado
+depois. Nos 17 contatos lidos nesta sessão, as duas coincidem sempre (lead
+de anúncio é, até aqui, sempre toque único) — a escolha só importa no dia
+em que um lead antigo clicar um segundo anúncio, e nesse dia First
+Attribution é a leitura que não muda debaixo do pé de quem já foi
+qualificado por um nicho.
+
+**Como — nós 0.8/0.8b, dentro do nó de inicialização já existente da
+`Cadência 12x30` (seção 2.3), não um workflow novo:**
+
+| # | Nó | Ação | Configuração |
+|---|---|---|---|
+| 0.8 | If/Else | `Segmento` **está vazio** → 0.8b · Senão → M1 (nunca sobrescreve um valor já presente, manual ou de uma rodada anterior) |
+| 0.8b | If/Else em cascata | `UTM Medium (First Attribution)` `Contains` `NICHO ADVOCACIA` → Update Contact Field `Segmento` = `Advocacia` → M1 · `Contains` `NICHO CONTABILIDADE` → Update Contact Field `Segmento` = `Contabilidade` → M1 · nenhum dos dois → M1, `Segmento` continua vazio |
+
+Cascata deliberadamente curta e nomeada por texto exato (mesmo padrão do
+F-30/F-31: lista que cresce por commit, não regra genérica) — só os dois
+nichos que a pesquisa desta rodada confirmou em campanha ativa. **Toda vez
+que uma campanha nova nascer com "NICHO X" no nome, esta cascata ganha um
+ramo novo** — o mesmo tipo de manutenção que a lista de frases do F-19/R-17
+já pede, registrado aqui para não ser redescoberto como incidente.
+
+**Dois limites, registrados, não escondidos:**
+
+1. **Campanha de segmentação ampla não tem nicho para extrair** ("INTERESSE",
+   "PERSONALIZADO CNAE", `social`) — comportamento esperado, não falha do
+   mecanismo. `Segmento` continua vazio para esses leads, exatamente como
+   hoje, e o SDR pergunta na ligação (`script-de-ligacao.md`, sem mudança
+   para este caso).
+2. **O rótulo da campanha é candidato, não verdade** — `Ana Ruth` prova o
+   caso: a campanha mirou "contabilidade", o negócio dela é cabelo. O nó
+   0.8b grava um palpite melhor que nada, nunca uma certeza; o campo
+   continua `TEXT` livre e editável — o SDR corrige na ligação se o
+   anúncio mirou errado, sem nenhum portão impedindo a correção manual.
+
+**Zero campo novo, zero tag nova:** reaproveita `Segmento` (Q-01), na tela
+desde 18/09/2026 (`campos-e-tags.md`). Não depende de `APROVADO.md` —
+nenhuma escrita por API nesta rodada, só especificação e leitura.
+
+**Pronto quando:** os nós 0.8/0.8b estiverem montados na tela, dentro da
+`Cadência 12x30` já publicada (430 nós, `GUIA-MONTAGEM.md`); um lead novo
+de campanha "NICHO X" entrar em `CONECTAR` com `Segmento` já preenchido
+sem o SDR perguntar; e o próprio F-02 deixar de esperar só volume — passa
+a esperar volume **e** ter segmento para cruzar, que agora nasce no dia 1
+em vez de nunca.

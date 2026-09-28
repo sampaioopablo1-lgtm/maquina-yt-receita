@@ -341,7 +341,7 @@ segundo estado.
 
 | # | Nome | Tipo | Opções |
 |---|---|---|---|
-| Q-01 | Segmento | TEXT | livre — **resolve a L-02**: a tela criou como texto livre em vez de esperar a lista fechada de segmentos |
+| Q-01 | Segmento | TEXT | livre — **resolve a L-02**: a tela criou como texto livre em vez de esperar a lista fechada de segmentos. **F-32** (`ROADMAP-SALES-ENGAGEMENT.md`, `build-wesales.md` seção 2.62): amostra de leads reais conferida, nenhum com este campo preenchido — a suposição de que "vem preenchido da origem" não se sustentava; nós 0.8/0.8b (seção 2.3) passam a gravar um candidato a partir do `utmMedium` da campanha, quando ela nomeia o nicho, sem travar a edição manual do SDR |
 | Q-02 | Site | TEXT (URL) | — |
 | Q-03 | Instagram | TEXT | — |
 | Q-04 | Clientes novos por mês | SINGLE_OPTIONS | 10, 11-30, 31-100, +101 |
