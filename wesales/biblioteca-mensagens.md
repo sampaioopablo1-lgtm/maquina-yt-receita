@@ -496,6 +496,27 @@ nó de envio correspondente em `build-wesales.md`, seção 2.6, para o novo
 código.
 
 
+## VM-1 — voicemail automático (Voicemail Automático — F-26)
+
+Especificado em `build-wesales.md`, seção 4 (nós 5-9 do ramo `Caixa
+Postal`/`Não atendeu`). Áudio pré-gravado para o `Ringless Voicemail
+(Voicemail Drop)` nativo — dispara uma única vez por lead na régua,
+quando o telefone (nunca o WhatsApp) cai em caixa postal ou não atende
+pela primeira vez. Curto de propósito: quem ouve uma voicemail automática
+desliga rápido se ela enrolar, e o objetivo aqui é só uma abertura + um
+motivo de retorno, não fechar nada por voz.
+
+> Oi, aqui é o {{user.first_name}} da {{location.name}}. Tentei falar com
+> você sobre {{contact.segmento}} e captação de clientes — vou continuar
+> tentando por telefone e também te mando uma mensagem por WhatsApp, mas se
+> quiser adiantar, é só me responder por lá. Obrigado!
+
+**Antes de gravar de verdade:** este texto é proposta, não roteiro final —
+o dono grava (ou aprova gravação por voz sintética) e ajusta o tom antes de
+qualquer ativação. Não montar o nó nem gravar o áudio antes de o F-09
+(`ROADMAP-SALES-ENGAGEMENT.md`) ter decisão do dono — ver `build-wesales.md`,
+seção 4.
+
 ## Lembretes da Reunião v2 (23/09/2026) — `tools/build_lembretes_reuniao_v2.py`
 
 Substituem PA-CONF/R24/R3H/R30 (que nunca chegaram a ser ligados). Pedido do

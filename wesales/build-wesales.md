@@ -5993,9 +5993,22 @@ sem abrir horário na agenda do closer.
 | 2 | Remove Contact Tag `fila-tel`, `fila-wa` |
 | 3 | Add Contact Tag `limpar-tarefas` |
 | 4 | **Nada de mudança de etapa** — o lead continua em cadência |
+| 5 | If/Else: a tentativa foi de telefone (mesma checagem do nó 1, ramo "senão") **e** a tag `voicemail-enviado` **não** está presente → segue para o nó 6. Qualquer outro caso (foi WhatsApp, ou telefone mas a tag já está lá) → **FIM**, nada mais (nós 1-4 já cobriram) |
+| 6 | Ringless Voicemail (Voicemail Drop): áudio pré-gravado `VM-1` (texto/roteiro em `biblioteca-mensagens.md`) — deixa mensagem na caixa postal do lead sem tocar o telefone dele (F-26) |
+| 7 | Add Contact Tag `voicemail-enviado` (T-26, nova) — impede repetir o drop nas próximas tentativas de telefone da mesma passagem pela régua |
+| 8 | Update Contact Field (Math +1) `Voicemails automáticos` (C-36, novo) |
+| 9 | Add Note `Voicemail automático deixado na T{{contact.tentativa_n}}` |
 
 O reset no ramo "senão" é o que faz a regra "2 seguidas vira telefone" se
 comportar como *seguidas* e não como *acumuladas no total*.
+
+**Nós 5-9 são o F-26 (`ROADMAP-SALES-ENGAGEMENT.md`; seção 2.57 abaixo tem
+o raciocínio completo, o risco medido e o "Pronto quando"):** voicemail
+automático via `Ringless Voicemail (Voicemail Drop)` nativo, uma única vez
+por lead na régua (guardado pela tag `voicemail-enviado`/T-26), só no
+canal telefone. **Não montar na tela antes de o F-09 ter decisão do
+dono** — o mecanismo soma chamada extra no mesmo canal que F-08/F-14 já
+mediram perto do limite seguro.
 
 #### Ramo `Número errado`
 | # | Ação |
@@ -7741,6 +7754,7 @@ teste de workflow está correto; como evidência de telefonia, é zero.
 | **F-06 / seção 2.27** (`Duração da ligação`, `Conexão real`, C-31, C-32) | **Não** | O gatilho é `Transcript Generated`: exige chamada **discada e gravada**. Não existe campo que simule uma transcrição |
 | **F-08 / seção 2.26** (reputação do número) | **Não** | Bloqueio de operadora acontece na rede ou no aparelho do lead; não há objeto de CRM para simular |
 | **F-09** (freio de telefone, quando o dono escolher o limiar) | **Parcial** | O contador e o portão se testam por campo; a duração real das chamadas que alimentam a decisão, não |
+| **F-26 / seção 4** (Voicemail automático) | **Não** | A ação é `Ringless Voicemail (Voicemail Drop)`, evento real de telefonia (a chamada silenciosa do "truque de operadora"); não existe campo que simule isso — só a tag/campo de resultado (`voicemail-enviado`, `Voicemails automáticos`) são testáveis por campo |
 
 **Consequência prática, que é uma dependência nova:** o F-06 só pode ser
 testado depois de existir uma ligação real por LC Phone, com gravação e
@@ -9617,4 +9631,68 @@ contato não repete o aviso, só soma o contador. Falta a criação manual do
 campo/tag e a montagem do workflow na tela (não sai por API neste
 conector); `campos-e-tags.md` (C-35, T-25) e `APROVADO.md` (duas linhas
 novas, ambas `[ ]`) documentam o pré-requisito. Zero campo, zero tag, zero
+escrita no CRM nesta rodada: item de especificação pura.
+
+## 2.57 Voicemail Automático — F-26
+
+**Por quê:** Reev e Meetime não têm telefonia própria (abrem para o
+discador que o usuário já tem), então nenhum dos dois cobre isto. O GHL já
+tem nativo o **Ringless Voicemail (Voicemail Drop)**, ação de workflow
+disponível com LC Phone/Twilio ativo (pesquisa via `WebSearch`;
+`help.gohighlevel.com`, `ideas.gohighlevel.com`, `consultevo.com` e
+`n8n.io` bloqueados pelo proxy deste contêiner — mesma barreira já
+registrada em `ABERTURA.md`/`APRENDIZADOS-CRM.md` para outros domínios do
+GHL, então **confiança média**, várias fontes secundárias convergindo no
+mesmo mecanismo, sem confirmar na documentação oficial). Funciona por um
+"truque de operadora": liga, desliga, liga de novo enquanto o aparelho do
+lead está offline por um instante — a segunda chamada cai direto na caixa
+postal, sem tocar o telefone dele, e deixa um áudio pré-gravado (mp3/wav).
+Funciona **~70% das vezes** (não é garantido) e depende da mesma base de
+consentimento que já cobre o resto desta régua (opt-in do formulário do
+Meta). Hoje, cair em `Caixa Postal` ou `Não atendeu` (seção 4, ramo
+idêntico) só incrementa contador e devolve o lead à fila — nenhuma
+mensagem sai, porque isso depende de o SDR ter falado ao vivo na chamada,
+o que a régua não garante nem mede.
+
+**Como:** nós 5-9 do ramo `Caixa Postal`/`Não atendeu` (seção 4, acima).
+Dois cuidados de desenho, não default óbvio:
+
+1. **Só uma vez por lead na régua, não uma vez por toque.** O ramo roda
+   até 6 vezes em 30 dias (T2, T7, T20 e as reentradas de telefone) —
+   deixar o mesmo áudio a cada miss soaria repetitivo e barato para o
+   lead. O nó 5 guarda por `voicemail-enviado` (T-26): dispara na primeira
+   vez que o telefone cai em caixa postal/não atende, nunca de novo na
+   mesma passagem pela régua.
+2. **Só no canal telefone, nunca na ligação por WhatsApp.** O "truque de
+   operadora" é mecanismo de rede de telefonia celular (SS7/carrier), não
+   existe equivalente para chamada de WhatsApp — tentar aplicá-lo ali seria
+   copiar um desenho para um canal que não o suporta.
+
+**O que este item não resolve, e por que nasce sem `[x]`:** o mesmo
+"truque de operadora" soma **pelo menos uma chamada extra** por voicemail
+deixado (a ligação que desliga sozinha + a que cai na caixa postal; até 3
+se a primeira tentativa falhar dentro dos ~70%) — exatamente no canal que
+F-08 e F-14 já mediram perto ou acima da referência internacional segura
+(50-75 chamadas/dia) e sob risco do bloqueio automático de "chamada
+abusiva" que toda operadora brasileira passou a oferecer, ligado por
+padrão, desde agosto/2026. Com ~10-13 leads novos/dia e um drop por lead,
+isso soma **~20-40 chamadas curtíssimas extras por dia** no mesmo número —
+um acréscimo real, não hipotético, sobre um canal já perto do teto. F-09
+(freio de telefone, aguardando o dono escolher a opção A/B/C) existe
+exatamente para conter esse tipo de acréscimo — ativar o voicemail drop
+antes de o F-09 fechar multiplicaria o risco que aquele item existe para
+conter. Este item nasce **especificado, não ativado**: monte na tela
+depois que o F-09 tiver resposta, não antes.
+
+**Campo novo:** `Voicemails automáticos` (C-36, `NUMERICAL`, cumulativo).
+**Tag nova:** `voicemail-enviado` (T-26, marcador permanente). Nenhum dos
+dois sai por API neste conector (campo é criação de tela; tag nasce `[ ]`
+em `APROVADO.md` pela regra de sempre). Zero escrita no CRM nesta rodada.
+
+**Pronto quando:** tag `voicemail-enviado` e campo `Voicemails
+automáticos` criados na tela, áudio `VM-1` (`biblioteca-mensagens.md`)
+gravado e aprovado pelo dono, nós 5-9 montados no `Pós-ligação`
+publicado — e o F-09 já com decisão tomada. `campos-e-tags.md` (C-36,
+T-26) e `APROVADO.md` (duas linhas novas, ambas `[ ]`, com a dependência
+do F-09 anotada) documentam o pré-requisito. Zero campo, zero tag, zero
 escrita no CRM nesta rodada: item de especificação pura.

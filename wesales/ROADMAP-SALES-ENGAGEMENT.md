@@ -5511,6 +5511,47 @@ contato sem `email-engajado` sobe `Prioridade` para 4 e avisa o gestor uma
 T-24); ambos nascem `[ ]` em `APROVADO.md`. Zero escrita no CRM nesta
 rodada: item de especificação pura.
 
+### F-26 · Toda ligação que cai na caixa postal só soma contador — nenhuma mensagem sai, e o recurso nativo que resolveria isso sem gastar tempo do SDR nunca foi olhado, mas ativá-lo cedo demais empilha sobre um canal que dois itens já mediram perto do limite (28/09/2026)
+
+**Resumo:** Reev/Meetime não têm telefonia própria (abrem para o discador
+do usuário) e não cobrem isto; o GHL já tem nativo o **Ringless Voicemail
+(Voicemail Drop)** — chamada silenciosa (o "truque de operadora": liga,
+desliga, liga de novo enquanto o aparelho está offline, a segunda cai
+direto na caixa postal, ~70% de acerto) que deixa um áudio pré-gravado sem
+tocar o telefone do lead. Pesquisa via `WebSearch` (`help.gohighlevel.com`,
+`ideas.gohighlevel.com`, `consultevo.com` e `n8n.io` bloqueados pelo proxy
+deste contêiner, mesma barreira já registrada para outros domínios do GHL
+— confiança média, várias fontes convergentes, sem confirmar na
+documentação oficial). Hoje, cair em `Caixa Postal`/`Não atendeu`
+(`build-wesales.md`, seção 4) só incrementa contador e devolve o lead à
+fila — nenhuma mensagem sai, porque isso depende de o SDR ter falado ao
+vivo na chamada, o que a régua não garante nem mede.
+
+Especificados os nós 5-9 do ramo `Caixa Postal`/`Não atendeu`
+(`build-wesales.md`, seção 4), campo `Voicemails automáticos` (C-36) e tag
+`voicemail-enviado` (T-26, dispara uma única vez por lead na régua, não a
+cada toque perdido) em `campos-e-tags.md`, áudio proposto `VM-1` em
+`biblioteca-mensagens.md`, ambos nascendo `[ ]` em `APROVADO.md` pela regra
+de sempre; `IMPLEMENTACAO-WORKFLOWS.md` (W4, C4-C8) e `GUIA-MONTAGEM.md`
+atualizados no mesmo commit.
+
+**O que o item não resolve, de propósito:** o mesmo "truque de operadora"
+soma pelo menos uma chamada extra por voicemail deixado — exatamente no
+canal que F-08 e F-14 já mediram perto ou acima da referência
+internacional segura (50-75 chamadas/dia) e sob risco do bloqueio
+automático de "chamada abusiva" que toda operadora brasileira oferece,
+ligado por padrão, desde agosto/2026. Com ~10-13 leads novos/dia, um drop
+por lead soma **~20-40 chamadas curtíssimas extras por dia** no mesmo
+número. F-09 (freio de telefone) existe exatamente para conter esse tipo
+de acréscimo — por isso este item nasce **especificado, não ativado**: a
+montagem na tela espera o F-09 ter decisão do dono, registrado como
+dependência explícita em `APROVADO.md`, `campos-e-tags.md`,
+`build-wesales.md`, `IMPLEMENTACAO-WORKFLOWS.md` e `GUIA-MONTAGEM.md`.
+
+**Pronto quando:** tag e campo criados na tela, áudio `VM-1` gravado e
+aprovado pelo dono, nós 5-9 montados no `Pós-ligação` publicado — e o F-09
+já com decisão tomada. Zero escrita no CRM nesta rodada.
+
 ### F-25 · Nenhum item marca e-mail que bateu (bounce) como inválido — a cadência de e-mail continua tentando o mesmo endereço morto, e cada tentativa é o próprio risco que o F-22 já mediu (28/09/2026)
 
 **Por quê:** mesma pergunta do R-13 ("a base suja infla métrica e queima
@@ -7485,3 +7526,30 @@ a própria fonte da receita nativa desaconselha ("nem todo bounce é
 permanente") — por isso o item avisa o gestor em vez de decidir sozinho
 que o endereço morreu para sempre. Zero campo, zero tag, zero escrita no
 CRM nesta rodada.
+
+**F-26 aberto e fechado (especificação) em 28/09/2026, sessão automática
+seguinte — antes de desenhar, reconferido se algum item "aguardando o
+dono" já tinha resposta do outro lado (hábito do G-31/G-32/G-33): `git
+fetch` nas branches irmãs (`abertura-operacao-dnd-n7dnjv`,
+`abertura-operacao-dnd-ib6xaz`) e leitura do `DE-PARA-SESSOES-CRM.md` da
+primeira (até 28/09 00:54) não achou resposta nova para F-09, F-10, G-11
+(item 1), G-19 ou G-31 — só reforçou o G-29 (recomendação registrada,
+ainda sem confirmação). CRM reconfirmado por API sem mudança: 64
+oportunidades, 60 campos de contato (`SDR responsável` ainda só com
+`Andreyna Siqueira`, `B · Quanto pode investir` sem consumidor — mesmo
+estado do G-29/G-34).** Sem achado de reconciliação, a sessão foi à
+pesquisa de concorrência de sempre (mesma pergunta do F-07/F-08/F-14: "o
+que Reev/Meetime/Outreach/Salesloft protegem ou automatizam que este
+projeto ainda não cobre") — achou que `Caixa Postal`/`Não atendeu`
+(ramo idêntico, seção 4) nunca deixa mensagem nenhuma, e o GHL já tem
+`Ringless Voicemail (Voicemail Drop)` nativo para isso. Fechado como
+**F-26**: nós 5-9 do ramo, tag `voicemail-enviado` (T-26) e campo
+`Voicemails automáticos` (C-36), ambos `[ ]` em `APROVADO.md`. Diferente
+dos F-anteriores, este nasce com uma trava própria: o mesmo mecanismo soma
+chamada extra no canal que F-08/F-14 já mediram perto do limite seguro, e
+o item registra essa conta (~20-40 chamadas extras/dia) em vez de
+recomendar ativação imediata — dependência explícita do F-09 em cinco
+documentos (`APROVADO.md`, `campos-e-tags.md`, `build-wesales.md`,
+`IMPLEMENTACAO-WORKFLOWS.md`, `GUIA-MONTAGEM.md`). F-09, F-10, G-11 (item
+1), G-19, G-27/G-29 e G-31 continuam sendo as decisões sem prazo fixo que
+esperam o dono, sem mudança nesta rodada.

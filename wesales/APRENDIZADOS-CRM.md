@@ -6844,6 +6844,27 @@ que o G-32/G-33 já tinham generalizado para branch, agora aplicada a uma
 única tabela lida na própria sessão que a citou. Detalhe em
 `ROADMAP-SALES-ENGAGEMENT.md`, **G-34**.
 
+## Mais domínios do GHL bloqueados pelo proxy — `ideas.gohighlevel.com`, `consultevo.com`, `n8n.io` (F-26, 28/09/2026)
+
+Pesquisando o F-26 (Voicemail Drop nativo), três domínios adicionais
+devolveram `EGRESS_BLOCKED` no `WebFetch`, ampliando a lista que
+`ABERTURA.md` já tinha para `help.gohighlevel.com`: **`ideas.gohighlevel.com`**
+(fórum de ideias/changelog da HighLevel — é onde ficam os pedidos de
+recurso e os changelogs curtos, fonte que teria resolvido a dúvida sobre
+merge field de transcrição direto), **`consultevo.com`** (blog de terceiro
+sobre GHL, citado com frequência nos resultados de `WebSearch`) e
+**`n8n.io`** (templates de automação, úteis para ver payload exato de
+webhook/trigger). Nos três casos o `WebSearch` (que roda fora do
+`WebFetch`) ainda devolve resumo do conteúdo indexado — por isso a
+pesquisa não trava, só perde a chance de confirmar o dado na fonte
+primária e cai para "confiança média". **Prática que já vale, generalizada
+pelo G-08/F-08 e agora reforçada:** ao pesquisar algo do GHL, tentar
+`WebFetch` numa fonte só para descobrir se está bloqueada custa uma
+chamada; se estiver, não insistir em mais fontes do mesmo domínio — seguir
+com `WebSearch` e registrar a confiança como média, não fingir que é alta.
+Não vale a pena teimar tentando fontes diferentes do mesmo domínio já
+bloqueado — o bloqueio é do domínio, não da página.
+
 ## Citar um PR por número é citar um estado que expira sozinho — nenhuma reconfirmação de rotina olhava para o GitHub (G-35, 28/09/2026)
 
 Toda reconfirmação de rotina deste projeto reconfere duas fontes: o CRM

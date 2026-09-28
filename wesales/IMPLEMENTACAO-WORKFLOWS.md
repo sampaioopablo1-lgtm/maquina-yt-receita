@@ -714,6 +714,17 @@ Mestre de saída limpa pelo `status`.
 | C1 | If/Else | `Tags` inclui `fila-wa` → Math `WA não atendidas seguidas` + 1 · None → Update `WA não atendidas seguidas` = `0` |
 | C2 | Remove Contact Tag | `fila-tel`, `fila-wa` |
 | C3 | Add Contact Tag | `limpar-tarefas` |
+| C4 | If/Else | Foi telefone (mesma checagem do C1, ramo `None`) **e** `Tags` não inclui `voicemail-enviado` → segue · Qualquer outro caso → **FIM** (F-26, `build-wesales.md` seção 4 — **não montar antes de o F-09 ter decisão do dono**, ver nota abaixo) |
+| C5 | Ringless Voicemail (Voicemail Drop) | Áudio `VM-1` (`biblioteca-mensagens.md`) |
+| C6 | Add Contact Tag | `voicemail-enviado` (T-26, novo) |
+| C7 | Math | `Voicemails automáticos` (C-36, novo) + 1 |
+| C8 | Add Note | `Voicemail automático deixado na T{{contact.tentativa_n}}` |
+
+**C4-C8 são o F-26 (`ROADMAP-SALES-ENGAGEMENT.md`), especificado em
+28/09/2026 e nascido `[ ]` em `APROVADO.md` — não montar na tela antes de o
+F-09 (freio de telefone) ter decisão do dono: o "truque de operadora" do
+Voicemail Drop soma chamada extra no mesmo canal que F-08/F-14 já mediram
+perto do limite seguro.**
 
 **Ramo `Número errado`**
 

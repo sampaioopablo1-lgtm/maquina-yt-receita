@@ -4,7 +4,7 @@
 da sua confirmação, item por item. A auditoria pode cortar linhas desta lista
 (campo que já existe é reaproveitado, nunca duplicado).
 
-## Etapa 2 — Campos personalizados (53 + 1 sugerido)
+## Etapa 2 — Campos personalizados (54 + 1 sugerido)
 
 > **Onde mora a contagem.** Só este título conta campos, e só ele. Os títulos
 > de seção perderam o número de propósito: eram quatro lugares para errar cada
@@ -52,6 +52,7 @@ Todos no objeto **contato**. Tipo é o `dataType` da API do GHL.
 | C-33 | Respostas automáticas | NUMERICAL | — | Workflow (F-19) |
 | C-34 | Pontos de engajamento e-mail | NUMERICAL | — | Workflow (F-24) |
 | C-35 | Bounces de e-mail | NUMERICAL | — | Workflow (F-25) |
+| C-36 | Voicemails automáticos | NUMERICAL | — | Workflow (F-26) |
 
 C-09 a C-12 abrem `Total de ligações`/`Total de conexões` (C-06/C-07) por
 canal — sem eles não dá para responder "a T7 do telefone conecta mais que a
@@ -275,6 +276,16 @@ raciocínio é o mesmo: sem contador, o gestor só descobre que um endereço
 está morto olhando a tela de `Email Services` depois que a rampa nativa já
 regrediu).
 
+C-36 fecha o F-26 (`ROADMAP-SALES-ENGAGEMENT.md`, `build-wesales.md`,
+seção 4, nós 5-9 do ramo `Caixa Postal`/`Não atendeu`): conta,
+cumulativamente, quantos voicemails automáticos (`Ringless Voicemail`
+nativo) a operação deixou — mesmo padrão de contador de evento que
+C-06/C-07/C-11/C-12/C-26/C-31 a C-35, incrementado por `Math +1`, nunca
+sobrescrito. Escrito uma única vez por lead por passagem na régua (o nó 5
+guarda por `voicemail-enviado`/T-26 antes de chegar aqui), então também
+serve como "quantos leads distintos receberam voicemail", não só "quantos
+voicemails saíram".
+
 C-25 fecha o horário aprendido por segmento (`build-wesales.md`, seção 2.18,
 F-02 do roadmap): grava só a **hora** (não o carimbo completo) em que o lead
 `Atendeu`, para cruzar com `Segmento` (Q-01) numa lista e enxergar se um
@@ -481,7 +492,7 @@ fiação do workflow é relato da outra branch, dado, não confirmado nó a nó
 por aqui. Detalhe e "Pronto quando" (cumprido, é reconciliação, não decisão
 pendente) em `ROADMAP-SALES-ENGAGEMENT.md`, **G-32**.
 
-## Etapa 3 — Tags (25 numeradas, oito pendentes de aprovação — e 12 na conta fora da numeração)
+## Etapa 3 — Tags (26 numeradas, nove pendentes de aprovação — e 12 na conta fora da numeração)
 
 > **Onde mora a contagem das tags fora da numeração.** Só este título e a
 > linha abaixo contam; qualquer outro documento que precisar dizer "a conta
@@ -494,8 +505,8 @@ pendente) em `ROADMAP-SALES-ENGAGEMENT.md`, **G-32**.
 > e o "25" (na verdade 27) para `build-wesales.md` §2.32; os dois corrigidos
 > junto — detalhe em `ROADMAP-SALES-ENGAGEMENT.md`, G-20.
 
-As 25 são as tags **deste projeto**: T-01 a T-15 e T-21/T-22 criadas, T-16 a
-T-20, T-23, T-24 e T-25 esperando `[x]` no `APROVADO.md`. **T-21 e T-22 não seguiram a fila do
+As 26 são as tags **deste projeto**: T-01 a T-15 e T-21/T-22 criadas, T-16 a
+T-20 e T-23 a T-26 esperando `[x]` no `APROVADO.md`. **T-21 e T-22 não seguiram a fila do
 `[x]`** — o dono criou as duas direto pelo próprio caminho (`tools/
 build_estagnacao.py`, PC dele, 23/09/2026, depois do horário em que a T-21
 foi especificada aqui) junto com os dois workflows que as aplicam; ver as
@@ -539,6 +550,7 @@ diferentes; quem for conferir na tela vê 29.
 | T-23 | `resposta-automatica` | **Aguardando aprovação em `APROVADO.md` — não criada ainda.** Auto-resposta/ausência não vira sinal quente sem aviso (F-19, `build-wesales.md` seção 2.48): pulso de auditoria, aplicado a cada `Customer Replied` que casar com a lista de frases de ausência; nunca vira estado permanente (mesma ideia da `toque`/T-15), soma em `Respostas automáticas` (C-33) e não precisa de limpeza própria. **Desde o F-20** (seção 2.49): a mesma tag também é aplicada pelo workflow-irmão "Resposta Automática — Ausência — E-mail", que estende o filtro ao canal que o F-19 tinha deixado de fora |
 | T-24 | `email-engajado` | **Aguardando aprovação em `APROVADO.md` — não criada ainda.** Sinal de Engajamento por E-mail (F-24, `build-wesales.md` seção 2.55): aplicada pelo workflow "Sinal de E-mail — Clique" no **primeiro** clique de um contato, junto com `Prioridade` = 4 — marcador permanente (não removida, diferente do pulso `toque`/T-15), para o mesmo workflow não escalonar de novo a cada clique seguinte do mesmo contato |
 | T-25 | `email-invalido` | **Aguardando aprovação em `APROVADO.md` — não criada ainda.** Higiene de E-mail — Bounce (F-25, `build-wesales.md` seção 2.56): aplicada pelo workflow "Higiene de E-mail — Bounce" quando um envio da operação bate (`Email Events`/`Bounced`) — marcador permanente, mirror de `telefone-invalido`/T-09 para o canal e-mail, **não** a mesma tag que `nao-perturbe`/T-06 (bounce é falha de entrega, não pedido de silêncio) |
+| T-26 | `voicemail-enviado` | **Aguardando aprovação em `APROVADO.md` — não criada ainda.** Voicemail Automático (F-26, `build-wesales.md` seção 4, nós 5-9 do ramo `Caixa Postal`/`Não atendeu`): aplicada pelo `Pós-ligação` na primeira vez que o telefone (nunca o WhatsApp) cai em caixa postal/não atende, para o `Ringless Voicemail (Voicemail Drop)` nativo disparar **uma única vez por lead** na régua, não a cada toque perdido; marcador permanente, sem limpeza própria (dura a vida do lead na régua, mesmo padrão de `email-invalido`/T-25 e `email-engajado`/T-24) |
 
 Todas em minúsculas com hífen. O GHL normaliza tags para minúsculas, então
 `Fila-Quente` e `fila-quente` são a mesma tag — o que ajuda a não duplicar.
@@ -568,7 +580,10 @@ nascida do F-19 em 27/09/2026) segue a mesma regra dos monitores do F-05** —
 nasce `[ ]`, não `[x]`, e ainda não saiu por API. **T-24 (`email-engajado`,
 nascida do F-24 em 28/09/2026) segue a mesma regra** — nasce `[ ]`, ainda
 não saiu por API. **T-25 (`email-invalido`, nascida do F-25 em 28/09/2026)
-segue a mesma regra** — nasce `[ ]`, ainda não saiu por API.
+segue a mesma regra** — nasce `[ ]`, ainda não saiu por API. **T-26
+(`voicemail-enviado`, nascida do F-26 em 28/09/2026) segue a mesma regra**
+— nasce `[ ]`, ainda não saiu por API, e não monta na tela antes de o F-09
+ter decisão do dono (`build-wesales.md`, seção 4).
 
 ## O que eu preciso de você para executar
 

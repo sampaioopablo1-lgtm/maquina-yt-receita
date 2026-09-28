@@ -344,6 +344,23 @@ manual (não sai por API para ninguém, nem ler nem escrever pipeline além do
       e-mail da operação bateu (bounce) num contato. Campo personalizado
       não sai por API neste conector (é criação na tela). Nasce `[ ]`.
 
+- [ ] Criar a 26ª tag, `voicemail-enviado` — nasceu no F-26 (Voicemail
+      Automático), especificada em `campos-e-tags.md` (T-26) e
+      `build-wesales.md` (seção 4, nós 5-9 do ramo `Caixa Postal`/`Não
+      atendeu`). Nasce `[ ]` de propósito, mesma regra desde o incidente da
+      tag `toque`/T-15 em 19/09/2026: linha que a própria rotina acrescenta
+      não é autorização, vira `[x]` quando o dono trocar, num commit que não
+      é o meu. **Mesmo com o `[x]`, não montar os nós na tela antes de o
+      F-09 (freio de telefone) ter decisão do dono** — o "truque de
+      operadora" do Ringless Voicemail soma chamada extra no canal que
+      F-08/F-14 já mediram perto do limite seguro.
+
+- [ ] Criar o campo `Voicemails automáticos` (NUMERICAL) — nasceu junto com
+      a T-26, mesmo item (F-26): contador cumulativo de quantos voicemails
+      automáticos a operação deixou. Campo personalizado não sai por API
+      neste conector (é criação na tela). Nasce `[ ]`, mesma dependência do
+      F-09 registrada na linha acima.
+
 - [ ] Adicionar a opção `Resposta de e-mail` ao campo já existente `Sinal
       recebido` (C-13, `SINGLE_OPTIONS`) — nasceu no F-21
       (`ROADMAP-SALES-ENGAGEMENT.md`), especificada em `campos-e-tags.md`
