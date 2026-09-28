@@ -1,9 +1,9 @@
 name: WeSales - analises semanais da operacao
 
-# Toda segunda 07:00 em Sao Paulo (10:00 UTC): tentativas ate agendar e ate qualificar,
-# velocidade da 1a ligacao, conexao por tentativa/horario/canal e resultado por origem.
-# Le os dados com GHL_PIT. Se o segredo GHL_STORAGE_STATE existir (sessao logada), tambem
-# atualiza a nota fixa no painel "Decisao — Operacao SDR/Closer"; sem ele, so imprime.
+# Toda segunda 07:00 em Sao Paulo (10:00 UTC): funil real por marco do lead, tentativas ate
+# agendar e ate qualificar, velocidade da 1a ligacao, conexao por tentativa/horario/canal e
+# resultado por origem. Entrega como TAREFA "Analise da semana" para o dono dentro do CRM.
+# So usa GHL_PIT (chave publica, nao vence): nenhuma sessao, nenhuma acao manual.
 on:
   schedule:
     - cron: "0 10 * * 1"
@@ -11,7 +11,6 @@ on:
 
 permissions:
   contents: read
-  issues: write
 
 jobs:
   analises:
@@ -24,21 +23,4 @@ jobs:
       - name: Analises
         env:
           GHL_PIT: ${{ secrets.GHL_PIT }}
-          GHL_STORAGE_STATE: ${{ secrets.GHL_STORAGE_STATE }}
-        run: |
-          if [ -n "$GHL_STORAGE_STATE" ]; then
-            npm install --no-save playwright >/dev/null 2>&1 && npx playwright install --with-deps chromium >/dev/null 2>&1
-            node wesales/tools/renovar_bearer.js && python wesales/tools/analises_semanais.py --nota
-          else
-            echo "sem GHL_STORAGE_STATE: so imprime (a nota do painel nao e atualizada)"
-            python wesales/tools/analises_semanais.py
-          fi
-      - name: Aviso de vencimento da sessao
-        if: always()
-        env:
-          GHL_STORAGE_STATE: ${{ secrets.GHL_STORAGE_STATE }}
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          if ! python wesales/tools/vigia_sessao.py; then
-            gh issue list --state open --search "Renovar sessao do WeSales" --json number -q '.[].number' | grep -q . ||             gh issue create --title "Renovar sessao do WeSales (vence em ate 10 dias)" --body "A sessao usada pelas automacoes vence em ate 10 dias. Para renovar: no PC, rode 'node wesales/tools/login-capture.js', faca login e depois peca ao Claude para regravar o segredo GHL_STORAGE_STATE (versao sem os caches statsig). Enquanto nao renovar, so a nota do painel deixa de atualizar; governador, filas e analises continuam."
-          fi
+        run: python wesales/tools/analises_semanais.py --tarefa
