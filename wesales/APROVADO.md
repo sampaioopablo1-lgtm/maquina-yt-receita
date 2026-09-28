@@ -549,3 +549,7 @@ Estas linhas existem para deixar explícito e não têm caixa para marcar:
 - Excluir contato, campo, tag, workflow, pipeline ou oportunidade
 - Escrever em qualquer subconta que não seja `1D53YTI9C7oIMBavcQxV`
 - Enviar mensagem para contato que não seja de teste
+
+### Publicado por outra sessão (local, com o dono) — não recriar
+
+- **F-27 publicado em 28/09/2026** em versão enxuta, a pedido do dono ("veja melhorias e publique se achar necessário"): workflow "Retorno de chamada perdida (F-27)" `21206cc9-c01e-4845-9b62-ebbd06d14fc9` — Call Status entrada não atendida → oportunidade aberta e sem `nao-perturbe` → Prioridade 5, `fila-quente`, tarefa `[LIGAR AGORA] Retornar ligação perdida`. Fora: MRC-1 e a opção "Retornou ligação" em Sinal recebido. Estado vivo da operação (fila única `fila-tel`, listas "Minha fila — SDR"/"Minha agenda — Closer", trava `falou-hoje`, turnos em `wesales/equipe.json`) está em `wesales/DE-PARA-SESSOES-CRM.md` da branch `claude/abertura-operacao-dnd-n7dnjv`; confira lá antes de especificar algo que já exista.
