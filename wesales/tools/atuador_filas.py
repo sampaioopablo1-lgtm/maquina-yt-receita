@@ -303,6 +303,32 @@ def dono_por_turno(cs, etapas, aplicar):
     print("  turnos: %d lead(s) novo(s) passado(s) para SDR em turno" % len(novos))
 
 
+def filas_por_sdr(cs, aplicar):
+    """Duas SDRs no mesmo horário não podem puxar a mesma `fila-tel` (ligariam para os mesmos
+    leads). Com 2+ SDRs com usuário em equipe.json, mantém para cada uma a tag `tag_fila` =
+    contatos com `fila-tel` cujo dono é ela. Com uma SDR só, não faz nada (ela puxa fila-tel)."""
+    try:
+        from turnos import equipe
+        sdrs = [p for p in equipe()["sdrs"] if p.get("userId") and p.get("tag_fila")]
+    except Exception as e:
+        print("  filas por SDR: equipe.json indisponível (%s)" % e)
+        return
+    if len(sdrs) < 2:
+        print("  filas por SDR: %d SDR com usuário: todas puxam fila-tel" % len(sdrs))
+        return
+    for p in sdrs:
+        tag = p["tag_fila"]
+        quer = {c["id"] for c in cs if "fila-tel" in (c.get("tags") or []) and c.get("assignedTo") == p["userId"]}
+        tem = {c["id"] for c in cs if tag in (c.get("tags") or [])}
+        print("  %s: %d desejados, %d com a tag" % (tag, len(quer), len(tem)))
+        if not aplicar:
+            continue
+        for cid in quer - tem:
+            pedir("POST", "/contacts/%s/tags" % cid, {"tags": [tag]})
+        for cid in tem - quer:
+            pedir("DELETE", "/contacts/%s/tags" % cid, {"tags": [tag]})
+
+
 def main() -> int:
     aplicar = "--aplicar" in sys.argv
     print("=" * 74)
@@ -317,6 +343,7 @@ def main() -> int:
 
     rede_trava(cs, etapas, aplicar)
     dono_por_turno(cs, etapas, aplicar)
+    filas_por_sdr(cs, aplicar)
     d_sdr, d_clo, a_sdr, a_clo, excl = decidir(cs, etapas)
     nome = {c["id"]: (c.get("contactName") or "?") for c in cs}
 
