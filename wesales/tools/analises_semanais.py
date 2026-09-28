@@ -30,9 +30,12 @@ from campos_bant import ghl, LOC
 
 F = {"tel": "wCzdqF7uLQwtrZ1JyZRn", "wa": "5j9SerJeZ6ngfZCPb2Wg", "con_tel": "LB11ao0AdSI1QSHyZBOP",
      "con_wa": "Og1CkI9x9OztsV242nIM", "agendado": "aY5cwLe9y13CEyv8ecwv", "compareceu": "EsisfhEZWFLcnEYEzx3k",
-     "budget": "SZVgh0Y5HRcWWZG4fO9V", "decisor": "3dphGCPCoFcYXEQC2jeB"}
+     "budget": "SZVgh0Y5HRcWWZG4fO9V", "decisor": "3dphGCPCoFcYXEQC2jeB",
+     "total_lig": "JUBhmz0DGQMvjLCxSNrk", "conexoes": "tQ7Fzo6cWeBDmEoaTBIZ", "conectado": "uJnePU1Tl1Zr1fTxYKIz"}
 PAINEL = "6ab9b477ea8a8a09aee49d8b"
 BRT = dt.timezone(dt.timedelta(hours=-3))
+ETAPAS = ["1 Entrou", "2 Tentado (ligação/WhatsApp da SDR)", "3 Conectou (conversou)", "4 Qualificou (Budget + Decisor)",
+          "5 Agendou reunião", "6 Compareceu", "7 Ganhou"]
 TESTE = ("teste", "zz ", "sem nome")
 
 
@@ -98,6 +101,7 @@ def main():
     tent_ord = collections.defaultdict(lambda: [0, 0])
     por_hora = collections.defaultdict(lambda: [0, 0])
     tel_t = tel_c = wa_t = wa_c = 0
+    funil = collections.Counter()
     for c in cs:
         v = {f["id"]: f.get("value") for f in c.get("customFields", [])}
         tent = num(v.get(F["tel"])) + num(v.get(F["wa"]))
@@ -107,6 +111,16 @@ def main():
             ate_agendar.append(tent)
         if qualif and tent:
             ate_qualif.append(tent)
+        # FUNIL REAL (28/09): por marco do lead, não por etapa do pipeline — NOVO LEAD -> CONECTAR
+        # é automático e daria 100% sempre.
+        # FUNIL REAL (28/09): por marco do lead, não por etapa do pipeline (NOVO LEAD -> CONECTAR
+        # é automático e daria 100% sempre).
+        tentado = (num(v.get(F["total_lig"])) + num(v.get(F["tel"])) + num(v.get(F["wa"]))) > 0
+        conectou = bool(v.get(F["conectado"])) or num(v.get(F["conexoes"])) > 0
+        marcos = [True, tentado, conectou, qualif, agendado, bool(v.get(F["compareceu"])), c["id"] in won]
+        nivel = max(i for i, m in enumerate(marcos) if m)   # cumulativo: quem chegou mais longe
+        for i, nome in enumerate(ETAPAS):                     # conta em todas as etapas anteriores
+            funil[nome] += i <= nivel
         tel_t += num(v.get(F["tel"])); wa_t += num(v.get(F["wa"]))
         tel_c += num(v.get(F["con_tel"])); wa_c += num(v.get(F["con_wa"]))
         o = por_origem[origem(c)]
@@ -130,6 +144,14 @@ def main():
     hoje = dt.datetime.now(BRT).strftime("%d/%m/%Y %H:%M")
     linhas.append("ANÁLISES DA OPERAÇÃO — atualizado em %s (%d leads, sem contatos de teste)" % (hoje, len(cs)))
     linhas.append("")
+    linhas.append("FUNIL REAL (por marco do lead; % sobre a etapa anterior · % sobre quem entrou):")
+    etapas = [(e, funil[e]) for e in ETAPAS]; ant = None; total = funil["1 Entrou"]
+    for nome, n in etapas:
+        linhas.append("   %-38s %4d   %5s · %5s" % (nome[2:], n, pct(n, ant) if ant is not None else "—", pct(n, total)))
+        ant = n
+    linhas.append("   Cumulativo: quem agendou pelo link sozinho conta também nas etapas anteriores. O funil de")
+    linhas.append("   etapas do GHL mostra NOVO LEAD -> CONECTAR = 100% porque essa passagem é automática.")
+    linhas.append("")
     linhas.append("1. Tentativas até AGENDAR: " + resumo(ate_agendar))
     linhas.append("2. Tentativas até QUALIFICAR (ficha BANT): " + resumo(ate_qualif))
     linhas.append("")
@@ -152,6 +174,15 @@ def main():
                                                          o["compareceram"], o["ganhos"]))
     texto = "\n".join(linhas)
     print(texto)
+    if "--tarefa" in sys.argv:
+        # Tarefa semanal para o dono, dentro do CRM, só com a chave pública (não vence).
+        dono, contato = "JdvhvOTEBTvUyRi0BXU8", "rdaijzR0ZVCmXLAJ6jT2"
+        agora = dt.datetime.now(dt.timezone.utc)
+        st, r = ghl("POST", "/contacts/%s/tasks" % contato, {
+            "title": "📊 Análise da semana — %s" % dt.datetime.now(BRT).strftime("%d/%m"),
+            "body": texto[:10000], "dueDate": agora.strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "completed": False, "assignedTo": dono})
+        print("\n[tarefa criada: HTTP %s]" % st)
     if "--nota" in sys.argv:
         import ghl_interno as g
         url = "/reporting/dashboards/%s/sticky-notes" % PAINEL
