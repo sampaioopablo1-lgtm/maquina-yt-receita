@@ -5,7 +5,7 @@ name: WeSales - governador do WhatsApp (max ~15/dia)
 # O agendamento so vale quando este arquivo estiver no branch padrao do repositorio.
 on:
   schedule:
-    - cron: "*/30 11-21 * * 1-5"   # 08:00-18:59 America/Sao_Paulo; o script ignora fora de 08:30-18:30
+    - cron: "*/30 11-23 * * 1-5"   # 08:00-20:59 America/Sao_Paulo; a janela do dia vem dos turnos (wesales/equipe.json)
   workflow_dispatch:
     inputs:
       aplicar:
