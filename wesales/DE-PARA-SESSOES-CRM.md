@@ -330,3 +330,22 @@ Tentativas até agendar e até qualificar ainda sem dado real (4 agendados e 3 q
 | crons antigos | removidos de `wesales-filas.yml` e `wesales-wa-governador.yml` (ficam só manuais) para não rodar em dobro |
 | custo | repositório público: minutos de Actions grátis. Descartados: Custom Webhook do CRM (ação premium, cobrada por execução) e Supabase (dono prefere GitHub) |
 | ligado | 14:10, run 36455806642 em andamento |
+
+## 28/09 noite — lead novo entra na hora com prioridade; diagnóstico da Cadência Inbound
+
+| O quê | Antes | Depois | Onde | Conferido |
+|---|---|---|---|---|
+| Promover NOVO LEAD para CONECTAR (22a9cd89) | tag wa-liberado → oportunidade em CONECTAR | wa-liberado → **Prioridade 5** → tags `fila-quente` + `fila-tel` → **dono SDR (só se não tiver)** → **aviso na tela da SDR** "🔥 Lead novo — ligar agora" → oportunidade em CONECTAR | v4 → v5, publicado | sim, leitura do workflow após o PUT |
+| Leads de hoje (Robson, Viviane, Suzana) | sem dono / dono Pablo, sem fila | dono Andreyna, Prioridade 5, `fila-quente`, `fila-tel` (já estavam em CONECTAR; a tag `etapa-novo-lead` é resíduo) | API pública | sim |
+
+**Diagnóstico da Cadência Inbound (não aplicado).**
+- **O envio funciona.** O nó `sms` sai pelo Stevo (TYPE_CUSTOM_SMS, source workflow, entregue), conferido nos testes de 27/09.
+- **O que falha é o laço do portão do governador.** O caminho é: `wa-aguardando` → "WA · MI-0 liberado?" → senão, espera 15 min e volta (Go To).
+- O governador troca `wa-aguardando` por `wa-liberado`. Mesmo assim, os leads ficam horas com `wa-liberado` e nada sai. Suzana ficou 2h30 assim.
+- Ou seja, o laço não volta a checar nos leads reais. No ZZ TESTE MENSAGEM funcionou porque a liberação veio em minutos.
+- O log de execução não é acessível pela API (404) e a tela do workflow não carrega no navegador headless desta máquina.
+
+**Correção proposta, bloqueada pela permissão desta sessão:**
+- ligar o ramo "MI-0 · Ainda vale mandar? = sim" direto em "WA · limpar marcas" → envio, apagando os 12 nós do laço;
+- lead novo chega espaçado pelo próprio anúncio, então o MI-0 não precisa do governador;
+- o mesmo laço existe no MIF-v2 (9452af51) e nos outros 6 workflows com a trava.
