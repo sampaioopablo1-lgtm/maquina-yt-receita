@@ -680,3 +680,21 @@ v22, 12x30 v37, parte 2 v12, Fechar Horário v11, Triagem v22, Nutrição v33, N
 Reunião Cancelada v5, Lembretes v3 v5), G-04 no Pós-agendamento v2 (v18) e Prioridade=6
 retirada do nó 6a5f65bb (v19). Todos seguem `published`, com o mesmo nº de nós, relidos nó a nó.
 Prioridade dos 31 liberados: 0 → 4. A MI-0 de segunda 08:30 já sai com o texto novo.
+
+### CORREÇÃO à §8 (28/09) — o `GHL_STORAGE_STATE` não é pendência, é decisão
+
+A §8 acima trata o segredo ausente como bloqueio a resolver ("enquanto isso não se
+resolver"). **Isso deixou de valer.** O commit `6e4a734` registra em
+`DE-PARA-SESSOES-CRM.md` que o dono autorizou a sessão, ela foi usada, e depois o
+segredo foi **apagado de propósito**: o relatório semanal passou a chegar como
+tarefa via `GHL_PIT`, e a meta é que *nada nas automações dependa de login do dono*
+— o token de renovação vencia em 25/10/2026 e não desliza com o uso.
+
+Então a conclusão da §8 continua certa (itens 4 e 5 da `FALTA` são tela), mas a
+razão muda: não é que falte gravar o segredo. É que **não se quer** gravá-lo. Pedir
+para regravá-lo seria desfazer uma decisão tomada e documentada.
+
+Caminho válido para os itens 6 e 7 da abertura: a tela, com o roteiro em
+`wesales/PROMPT-TELA-ABERTURA.md`. E o item 7 segue precisando dos dois números do
+Bloco B da §9.1 (quanto vale `Abaixo de 5k` e `Não invisto nada ainda`) antes de
+qualquer aplicação, porque a régua grava `status = lost` sozinha.
