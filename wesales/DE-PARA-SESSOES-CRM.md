@@ -183,3 +183,11 @@ Tentativas até agendar e até qualificar ainda sem dado real (4 agendados e 3 q
 | agendamento | Action `wesales-analises.yml` no branch padrão (PR #108), toda segunda 07:00; rodada manual verde | GitHub | sim | sem `GHL_STORAGE_STATE` ela só imprime no log; a nota do painel exige sessão (a chave pública dá 401) |
 | sessão na nuvem | segredo `GHL_STORAGE_STATE` (sessão sem os caches `statsig`, 10 KB; a completa tinha 111 KB e o limite é 48 KB), autorizado pelo dono | GitHub | sim: Action atualizou a nota do painel sem o PC | o token de renovação **não desliza com o uso** (mesma validade antes e depois): vence em **25/10/2026** |
 | aviso de vencimento | `tools/vigia_sessao.py` na Action semanal (PR #109): com ≤ 10 dias abre issue no GitHub (chega por e-mail) com o passo a passo | GitHub | sim ("vence em 27 dias") | só a nota do painel depende da sessão; governador, filas e análises usam `GHL_PIT` |
+
+### Sem ação manual (28/09) — a sessão saiu do GitHub
+
+| Item | O que foi feito | Onde | Relido | Observação |
+|---|---|---|---|---|
+| funil real | o relatório abre com funil **por marco do lead**, cumulativo (entrou → tentado → conectou → qualificou → agendou → compareceu → ganhou), taxa sobre a etapa anterior e sobre o total | `tools/analises_semanais.py` | sim | o "Funil de oportunidades" por etapa dá NOVO LEAD → CONECTAR = 100% (passagem automática); o funil real corrige o conceito |
+| entrega sem sessão | relatório semanal vira **tarefa "📊 Análise da semana"** para o Pablo (API pública); Action só com `GHL_PIT` (PR #110) | GitHub + Tarefas | sim, Action na nuvem criou a tarefa | nenhuma credencial que vença |
+| sessão removida | segredo `GHL_STORAGE_STATE` **apagado** do GitHub; aviso de vencimento retirado da Action; nota do painel virou aviso de onde o relatório chega | GitHub / painel | sim | nada nas automações depende de login do dono |
