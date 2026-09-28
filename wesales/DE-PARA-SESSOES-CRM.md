@@ -319,3 +319,5 @@ Tentativas até agendar e até qualificar ainda sem dado real (4 agendados e 3 q
 | a busca de Conversas só indexa **13 conversas** (as com mensagem real); os 36 leads antigos têm só atividade do sistema → a visão mostra 0 mesmo com 14 leads em `fila-wa` | a ligação de WhatsApp passa a ser feita pela lista de Contatos |
 | lista "Ligar pelo WhatsApp" (`1b41aFUhh6DYi8SAX0tC`) reapontada: tag `fila-wa`, sem perdido/não perturbe, colunas Nome/Telefone/Tentativas tel/Tentativas WA/Prioridade | 14 na tela; compartilhada com a Andreyna (cópia `Mi7PnwSFAXkophfcYekT`) |
 | "Minha fila — SDR" foi recriada fora desta sessão: id novo `jB9TeEuL9X7mupxwJqde` (filtros iguais) | links do playbook corrigidos |
+
+| playbook (28/09 10:45) | "Regras da máquina" ganhou "A cadência, dia a dia" (12 toques × canal × mensagem, regras do toque) e "O que cada workflow faz" (os 41 publicados em linguagem simples, por momento do lead, com o que muda para a SDR) | rev 80 |
