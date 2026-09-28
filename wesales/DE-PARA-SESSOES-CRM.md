@@ -272,3 +272,14 @@ Tentativas até agendar e até qualificar ainda sem dado real (4 agendados e 3 q
 | lista do closer | "Minha agenda — Closer" mostrava 54 (a tela descartou o OU de etapas; "qualquer uma das tags" deu 0). Agora filtra só pela tag `closer-ativo`, mantida pelo atuador (oportunidade aberta em REUNIÃO/NEGOCIAR/FORMALIZAR) | sim, 2 na tela | PR #115 (atuador) mergeado |
 | F-27 | workflow "Retorno de chamada perdida (F-27)" (`21206cc9-c01e-4845-9b62-ebbd06d14fc9`): Call Status entrada não atendida (no-answer/busy/canceled/voicemail) → se oportunidade aberta e sem `nao-perturbe`: Prioridade 5, `fila-quente`, tarefa `[LIGAR AGORA] Retornar ligação perdida` para o dono do lead. Sem janela, reentrada ligada | publicado v3, gatilho ativo | versão enxuta do F-27 da rotina "construção contínua" (PR #102): sem a mensagem MRC-1 (template Meta) e sem opção nova em Sinal recebido. **Não testado com chamada real** |
 | F-24, F-25, F-26 | não publicados | — | e-mail não é canal da operação hoje (F-24/F-25); F-26 a própria rotina marcou travado no F-09 |
+
+### PENDENTES-CRM (nuvem → local), 28/09 manhã
+
+| Item | O que foi feito | Observação |
+|---|---|---|
+| 2 `fila-wa` | nenhum workflow publicado punha a tag; o atuador passou a manter (PR #116): CONECTAR, 1+ tentativa tel sem conexão, sem `falou-hoje`/`wa-feito-hoje`/`nao-perturbe` | 0 elegíveis hoje (contadores começam agora) |
+| workflow novo | "WhatsApp tentado hoje" (`1c247efc-7f6f-4028-b328-6ab51103c3da`): Canal da tentativa = WhatsApp → `wa-feito-hoje` 12 h + tira `fila-wa` | 1 ligação de WhatsApp por lead por dia |
+| 3 | Pós-ligação v3 já tira `fila-wa` (6 nós) | conferido |
+| 1 visão em Conversas | **manual do dono** (admin cria e compartilha); passos no playbook | API não cria visão |
+| playbook | Passo 3 da sessão da nuvem mantido; corrigidas 3 frases que diziam que a cadência põe `fila-wa` | rev 76 |
+| ciclo /loop 1h | cancelado (job 74f7640a) por decisão do dono: melhorias discutidas na nuvem, aplicadas aqui 1–3×/dia | |
