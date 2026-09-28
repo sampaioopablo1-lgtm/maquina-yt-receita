@@ -433,23 +433,23 @@ Meta no Business Manager (decisão e ação do dono, fora do alcance deste
 conector; aprovação leva até 48h), para o portão de `build-wesales.md`
 seção 2.6.2 ter o que enviar no ramo "fora da janela".
 
-| Código | Template Meta | Status |
-|---|---|---|
-| `M1-a` | — | A submeter (peça 1 do G-05, feita) |
-| `M1-b` | — | A submeter (peça 1 do G-05, feita) |
-| `M2-v1` | — | A submeter (peça 1 do G-05, feita) |
-| `M3-v1` | — | A submeter (peça 1 do G-05, feita) |
-| `MI-0` | — | A submeter (peça 2 do G-05, feita) |
-| `MI-F` | — | A submeter (peça 2 do G-05, feita) |
-| `RE-1` | — | A submeter (peça 2 do G-05, feita) |
-| `RE-2` | — | A submeter (peça 2 do G-05, feita) |
-| `NS-1` | — | A submeter (peça 2 do G-05, feita) |
-| `NS-2` | — | A submeter (peça 2 do G-05, feita) |
-| `PA-CONF` | — | A submeter (peça 2 do G-05, feita) |
-| `PA-R24` | — | A submeter (peça 2 do G-05, feita) |
-| `PA-R3H` | — | A submeter (peça 2 do G-05, feita) |
-| `PA-R30` | — | A submeter (peça 2 do G-05, feita) |
-| `QI-1` | — | A submeter — item separado, G-06, não G-05 (ver nota abaixo) |
+| Código | Template Meta | Status | Categoria sugerida (F-31) |
+|---|---|---|---|
+| `M1-a` | — | A submeter (peça 1 do G-05, feita) | Marketing (alta) |
+| `M1-b` | — | A submeter (peça 1 do G-05, feita) | Marketing (alta) |
+| `M2-v1` | — | A submeter (peça 1 do G-05, feita) | Marketing (alta) |
+| `M3-v1` | — | A submeter (peça 1 do G-05, feita) | Marketing (alta) |
+| `MI-0` | — | A submeter (peça 2 do G-05, feita) | Utility (média-alta) |
+| `MI-F` | — | A submeter (peça 2 do G-05, feita) | Marketing (média) |
+| `RE-1` | — | A submeter (peça 2 do G-05, feita) | Marketing (alta) |
+| `RE-2` | — | A submeter (peça 2 do G-05, feita) | Marketing (média-alta) |
+| `NS-1` | — | A submeter (peça 2 do G-05, feita) | Incerta — ver F-31 (baixa) |
+| `NS-2` | — | A submeter (peça 2 do G-05, feita) | Marketing (média) |
+| `PA-CONF` | — | A submeter (peça 2 do G-05, feita) | Utility (alta) |
+| `PA-R24` | — | A submeter (peça 2 do G-05, feita) | Utility (alta) |
+| `PA-R3H` | — | A submeter (peça 2 do G-05, feita) | Utility (alta) |
+| `PA-R30` | — | A submeter (peça 2 do G-05, feita) | Utility (alta) |
+| `QI-1` | — | A submeter — item separado, G-06, não G-05 (ver nota abaixo) | Marketing (média-alta) |
 
 "A submeter" cobre só a guarda de janela em si (`build-wesales.md`, seções
 2.6.2, 2.10, 2.12, 5 e 5.3, e os nós correspondentes de
@@ -461,6 +461,16 @@ rodada, todo código ativo da tabela "Templates ativos" acima (o `M1-v1`
 substituído não conta) tem guarda de janela especificada — a lista de
 pendências que o G-05 registrou em 21/09/2026 (`ROADMAP-SALES-ENGAGEMENT.md`)
 está zerada.
+
+**Coluna "Categoria sugerida" (F-31, 28/09/2026):** ao submeter cada
+código acima no Meta Business Manager, a Meta pede a categoria do
+Template (`Utility`/`Marketing`/`Authentication`) — escolha errada custa
+mais por mensagem e expõe o envio a um teto de frequência que não existe
+para `Utility`. Razão de cada classificação, nível de confiança e o caso
+mais incerto (`NS-1`) em `build-wesales.md`, seção 2.61. `MRC-1`
+(retorno de chamada perdida, F-27) tem a mesma pendência mas não entra
+nesta tabela — mesmo motivo do `QI-1`, nasceu de item que não é o G-05;
+categoria candidata também na seção 2.61.
 
 **`QI-1` entrou nesta tabela por conveniência de tela (é o mesmo tipo de
 pendência — Template a submeter), mas nasceu de um item diferente:** o G-05

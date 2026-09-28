@@ -5984,6 +5984,95 @@ esperam o dono, sem mudança nesta rodada.
 
 ---
 
+### F-31 · A tabela do G-05 manda submeter 16 Templates à Meta e nenhum documento diz em qual categoria — a escolha vale 6× de preço e um teto de frequência que nem o F-07 mede (28/09/2026) — **FEITO em 28/09/2026 (especificação)**
+
+**Por quê:** reconciliação de sempre antes de desenhar (hábito do
+G-31/G-32/G-33/F-26 a F-30): `git fetch` nas duas branches irmãs
+(`abertura-operacao-dnd-n7dnjv`, sem commit novo desde o já lido pelo
+F-29/F-30; `abertura-operacao-dnd-ib6xaz`, sem commit novo em `wesales/`)
+não achou resposta nova para F-09, F-10, G-11 (item 1), G-19, G-27/G-29 ou
+G-31. CRM reconfirmado por API antes de desenhar: `opportunities_search-
+opportunity` (status `all`) segue em **64 oportunidades**, mesma
+composição (47 `CONECTAR`, 13 `NOVO LEAD`, 3 `NEGOCIAR`, 1 `REUNIÃO DE
+DIAGNÓSTICO`); `locations_get-custom-fields` segue em **60 campos de
+contato**, sem novidade (`Sinal recebido` ainda só com as duas opções de
+sempre — nenhuma das pendências do F-21/F-27/F-30 apareceu na tela ainda).
+Sem achado de reconciliação, a sessão foi à pesquisa de concorrência de
+sempre — mas desta vez não mirou um sinal, uma guarda de canal ou uma
+lacuna de conteúdo (F-19 a F-30 já esgotaram essas três frentes): mirou a
+única tabela deste projeto que lista uma ação pendente do dono sem
+explicar **como** executá-la — a tabela "Template Meta" do G-05
+(`biblioteca-mensagens.md`), 15 códigos "A submeter" mais `MRC-1` (F-27,
+16 no total), nenhum com a categoria que a Meta exige na submissão.
+
+**A lacuna, e por que não é o F-07:** o F-07 (seção 2.25) protege a
+Quality Rating do nosso número — risco que só existe se **nosso** volume
+gerar bloqueio ou denúncia. A categoria do Template (`Utility` ×
+`Marketing` × `Authentication`) é um eixo diferente, decidido na
+submissão, não em tempo de execução: ela muda o preço por mensagem (achado
+de mercado dos EUA, só para ilustrar a proporção: `Utility` ≈ US$ 0,004,
+`Marketing` ≈ US$ 0,025, 6×) e expõe o envio a um teto de frequência por
+**destinatário** que a Meta aplica somando **todas** as empresas que
+escrevem para aquele número (~2 mensagens `Marketing`/dia, dinâmico) —
+código de descarte `131049`, do qual `Utility`/`Authentication` são
+isentos. Um número com Quality Rating perfeita (F-07 em dia) pode ter uma
+mensagem descartada porque o lead já recebeu duas mensagens `Marketing` de
+**outros** aplicativos hoje — nada que o checklist do F-07 meça ou
+explique, mesma relação de "mesma família, mecanismo novo" que o F-22 já
+tem com o F-07/F-08.
+
+**Pesquisado (`WebSearch`, confiança média — `developers.facebook.com` e
+`business.whatsapp.com` bloqueados pelo proxy deste contêiner, mesma
+barreira do `gohighlevel.com` já registrada no F-08/F-30; convergência de
+fontes independentes — `wati.io`, `wanotifier.com`, `chatarmin.com`,
+`watease.com`, `customer.io`, `gupshup.ai` — mais um resultado de busca
+citando o próprio `developers.facebook.com/.../per-user-limits/`, não lido
+direto, e o título de um artigo do `help.gohighlevel.com` confirmando que
+o mesmo erro aparece surfaceado dentro do GHL):** `Utility` cobre
+atualização ligada a uma transação que a pessoa já iniciou (pedido,
+agendamento); `Marketing` cobre conteúdo promocional ou de reengajamento
+— mesmo em tom educado, se a mensagem persuade ou cobra algo que a pessoa
+não pediu, a Meta trata como `Marketing`. E a categoria **não é decisão
+definitiva de quem submete**: a revisão automática da Meta pode
+reclassificar um Template aprovado como `Utility` de volta para
+`Marketing` se a linguagem ler como promocional depois — achado ao notar
+múltiplos guias de terceiros dedicados só a "como evitar que a Meta
+reclassifique seu Template".
+
+**Como:** os 16 códigos classificados com categoria candidata, nível de
+confiança e razão — usando o **texto** de cada Template em
+`biblioteca-mensagens.md` como evidência, não o nome do código. Os quatro
+lembretes do Pós-agendamento (`PA-CONF`/`PA-R24`/`PA-R3H`/`PA-R30`) são o
+caso de alta confiança em `Utility` (o próprio exemplo canônico da
+literatura pesquisada é "lembrete de compromisso"); a cadência fria
+(`M1-a`/`M1-b`/`M2-v1`/`M3-v1`) e o reengajamento (`RE-1`/`QI-1`) são
+`Marketing` de alta confiança. O caso mais incerto é `NS-1`: atualiza uma
+reunião que já existe (argumento a favor de `Utility`) mas convida
+ativamente a remarcar com link (argumento a favor de `Marketing`) —
+nenhuma fonte desta pesquisa resolveu um formato assim com segurança,
+registrado como incerto em vez de forçar uma resposta. Tabela completa,
+por código, em `build-wesales.md`, seção 2.61 — reaproveitada como coluna
+nova na própria tabela "Template Meta" do G-05 em
+`biblioteca-mensagens.md`. Estende a rotina manual do F-07 (três momentos
+de checar `Settings → WhatsApp → Manage`) com um quarto hábito: na tela
+nativa de Estatísticas por ação `Send WhatsApp` de cada workflow (`Sent`/
+`Pending`/`Delivered`/`Read`/`Failed`, GHL), separar `Failed` por queda de
+reputação (F-07) de `Failed` por teto de frequência do destinatário (esta
+seção) — o segundo é esperado e dinâmico em código `Marketing`, não é
+sintoma de nada quebrado.
+
+**Pronto quando (cumprido):** os 16 códigos têm categoria candidata e
+razão registradas; quem submeter no Meta Business Manager sabe que a
+categoria pode ser reclassificada depois e sabe distinguir, na tela de
+Estatísticas do WhatsApp, os dois motivos de `Failed`. Zero campo, zero
+tag, zero workflow, zero escrita no CRM — item de documentação pura,
+mesmo padrão do F-07/F-08: não depende de `APROVADO.md` (a submissão já
+era ação do dono desde o G-05; esta seção só diz qual categoria escolher).
+F-09, F-10, G-11 (item 1), G-19, G-27/G-29 e G-31 continuam sendo as
+decisões sem prazo fixo que esperam o dono, sem mudança nesta rodada.
+
+---
+
 ## Ordem sugerida
 
 **Bloco 0 (G-01) fechado em 19/09/2026, antes de tudo o resto desta seção:**
@@ -8017,5 +8106,32 @@ bloqueado pelo proxy deste contêiner para verificação ao vivo (mesmo
 achado que `ABERTURA.md` já tinha registrado em 27/09/2026 para outro
 fim). `IMPLEMENTACAO-WORKFLOWS.md` (W33) e `GUIA-MONTAGEM.md` atualizados
 no mesmo commit. Zero campo, zero tag, zero escrita no CRM nesta rodada.
+F-09, F-10, G-11 (item 1), G-19, G-27/G-29 e G-31 continuam sendo as
+decisões sem prazo fixo que esperam o dono, sem mudança nesta rodada.
+
+**F-31 aberto e fechado (especificação) em 28/09/2026, sessão automática
+seguinte — reconciliação de sempre antes de desenhar, seguindo a regra do
+G-36 (o parágrafo de fechamento vale para qualquer prefixo):** `git fetch`
+nas duas branches irmãs não achou resposta nova para F-09, F-10, G-11
+(item 1), G-19, G-27/G-29 ou G-31. CRM reconfirmado por API antes de
+desenhar: `opportunities_search-opportunity` segue em 64 oportunidades,
+mesma composição; `locations_get-custom-fields` segue em 60 campos de
+contato, sem novidade. Sem achado de reconciliação, a sessão foi à
+pesquisa de concorrência de sempre — desta vez não a um sinal, canal ou
+conteúdo (esgotados por F-19 a F-30), mas à única lacuna de **execução**
+que sobrava: a tabela do G-05 manda submeter 16 Templates ao Meta Business
+Manager e nenhum documento dizia em qual categoria, escolha que vale 6× de
+preço (referência de mercado) e expõe a um teto de frequência por
+destinatário (`131049`) que nem o checklist de reputação do F-07 mede — um
+número com Quality Rating perfeita ainda pode ter mensagem `Marketing`
+descartada por saturação do **destinatário**, não da conta. Fechado como
+**F-31**: os 16 códigos com categoria candidata, confiança e razão
+(`build-wesales.md`, seção 2.61; coluna nova na tabela "Template Meta" de
+`biblioteca-mensagens.md`), o caso mais incerto (`NS-1`) registrado como
+incerto em vez de forçado, e o checklist do F-07 estendido com um quarto
+hábito (distinguir, na tela nativa de Estatísticas do WhatsApp por
+workflow, `Failed` por reputação de `Failed` por teto de frequência).
+Zero campo, zero tag, zero workflow, zero escrita no CRM: item de
+documentação pura, mesmo padrão do F-07/F-08, não depende de `APROVADO.md`.
 F-09, F-10, G-11 (item 1), G-19, G-27/G-29 e G-31 continuam sendo as
 decisões sem prazo fixo que esperam o dono, sem mudança nesta rodada.

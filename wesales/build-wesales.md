@@ -10057,3 +10057,111 @@ aviso ao gestor) em vez de virar uma ligação indesejada — e o primeiro
 caso real confirma as duas pendências que este item regista em vez de
 supor: se `Intent Type` classifica tráfego `TYPE_CUSTOM_SMS` da Stevo, e
 quanto custa por execução.
+
+## 2.61 Categoria do Template (Utility/Marketing) na submissão à Meta — F-31
+
+**Por quê:** a tabela "Template Meta para envio fora da janela de 24h"
+(`biblioteca-mensagens.md`, seção do G-05) lista 15 códigos como "A
+submeter" no Meta Business Manager, mais `MRC-1` (F-27, mesma pendência,
+fora daquela tabela por ter nascido depois) — 16 no total. Nenhuma linha
+diz **em qual categoria** submeter. A escolha não é cosmética: a Meta
+divide todo Template aprovado em `Utility`, `Marketing` ou
+`Authentication`, e a categoria decide duas coisas que nenhum item deste
+projeto ainda mede — (a) o preço por mensagem (referência de mercado dos
+EUA, achada na pesquisa desta rodada: `Utility` ≈ US$ 0,004, `Marketing` ≈
+US$ 0,025 — 6× mais caro; a proporção, não o valor em si, é o que importa
+aqui, o preço no Brasil não foi pesquisado) e (b) exposição a um **teto de
+frequência por destinatário** que a Meta aplica globalmente — cerca de 2
+mensagens `Marketing` por dia, **somadas entre todas as empresas que
+escrevem para aquele número**, dinâmico conforme o engajamento recente da
+pessoa. Estourar o teto não é erro nosso nem reputação caindo: a mensagem
+é descartada com o código `131049` ("this message was not delivered to
+maintain healthy ecosystem engagement"), e `Utility`/`Authentication`
+**não entram nessa conta**.
+
+**Por que não duplica o F-07 (seção 2.25):** o F-07 protege a **Quality
+Rating do nosso número** — cai quando o **nosso** volume gera bloqueio ou
+denúncia, e a correção é nossa (pausar variante, tratar origem do
+opt-out). O risco desta seção não depende do nosso comportamento: um
+número com reputação perfeita pode ter uma mensagem `Marketing` descartada
+porque o **lead** já recebeu duas mensagens `Marketing` de **outros**
+aplicativos hoje — nada que o F-07 meça ou explique. É a mesma relação que
+o F-22 tem com o F-07/F-08 (mesma família de risco, canal ou mecanismo
+diferente, item novo em vez de remendo).
+
+**Pesquisado (`WebSearch`, confiança média — `developers.facebook.com` e
+`business.whatsapp.com` bloqueados pelo proxy deste contêiner, mesma
+barreira já registrada para `gohighlevel.com` no F-08/F-30; fontes
+convergentes: `wati.io`, `wanotifier.com`, `chatarmin.com`, `watease.com`,
+`customer.io`, `gupshup.ai`, mais um resultado de busca citando o próprio
+caminho oficial `developers.facebook.com` (`.../marketing-templates/per-user-limits/`, não lido direto, domínio bloqueado), e um
+artigo do `help.gohighlevel.com` — "WhatsApp Error- Message blocked to
+maintain quality standards" — cujo **título** já confirma que este erro
+aparece surfaceado dentro do próprio GHL, mesma barreira de proxy, não
+lido além do título):**
+
+1. **Definição de categoria.** `Utility` = atualização ligada a uma
+   transação ou serviço que a pessoa **já iniciou** (pedido, pagamento,
+   agendamento) — exemplo canônico citado por várias fontes: lembrete de
+   compromisso ("Reminder: your appointment is scheduled for...").
+   `Marketing` = conteúdo promocional ou de reengajamento — mesmo que o
+   tom seja educado, se a mensagem **persuade, cobra algo que a pessoa não
+   pediu, ou tenta reabrir contato**, a Meta trata como `Marketing`.
+2. **A categoria não é 100% escolha de quem submete.** A revisão
+   automática da Meta pode reclassificar um Template aprovado como
+   `Utility` para `Marketing` depois, se a linguagem ler como promocional
+   — achado ao ver múltiplos guias de terceiros dedicados só a "como evitar
+   que a Meta reclassifique seu Template" (confiança média, prática
+   documentada por ferramentas de mensageria, não pela Meta diretamente).
+   A classificação abaixo é **candidata**, não garantia.
+
+**Categoria candidata para os 16 códigos**, com o texto de cada um em
+`biblioteca-mensagens.md` como evidência (não o nome do código):
+
+| Código | Categoria candidata | Confiança | Por quê |
+|---|---|---|---|
+| `M1-a` | Marketing | Alta | Primeiro contato frio, pergunta de diagnóstico, sem transação existente |
+| `M1-b` | Marketing | Alta | Mesmo caso do `M1-a`, só o gancho muda |
+| `M2-v1` | Marketing | Alta | Reforço do primeiro contato, com Trigger Link (CTA) |
+| `M3-v1` | Marketing | Alta | Encerramento da cadência fria, com Trigger Link |
+| `MI-0` | Utility | Média-alta | Confirmação em resposta imediata à ação do **próprio** lead (acabou de entrar por inbound); sem CTA, sem pedido |
+| `MI-F` | Marketing | Média | Handoff da régua rápida para a cadência fria, já com Trigger Link e convite a agir |
+| `RE-1` | Marketing | Alta | Reengajamento depois de 90 dias — o exemplo de manual mais citado pelas fontes desta pesquisa |
+| `RE-2` | Marketing | Média-alta | Handoff de volta à nutrição, com Trigger Link |
+| `NS-1` | **Incerta — o caso mais difícil da tabela** | Baixa | É atualização de uma reunião **já existente** (argumento a favor de `Utility`), mas o texto convida ativamente a remarcar com link (argumento a favor de `Marketing`); nenhuma fonte desta pesquisa resolveu um caso deste formato com segurança |
+| `NS-2` | Marketing | Média | Mesmo padrão do `RE-2`, mesmo contexto de no-show |
+| `PA-CONF` | Utility | Alta | Confirmação pura de um agendamento que o lead já fez, sem persuasão |
+| `PA-R24` | Utility | Alta | Lembrete de compromisso — o exemplo canônico da própria documentação de categoria |
+| `PA-R3H` | Utility | Alta | Mesmo caso do `PA-R24` |
+| `PA-R30` | Utility | Alta | Mesmo caso, só confirma o horário |
+| `QI-1` | Marketing | Média-alta | Convite a reabrir contato depois de ligações sem sucesso, pede resposta ativa |
+| `MRC-1` (F-27) | Utility | Média | Resposta imediata a uma ação do **próprio** lead (ligou de volta), mas o texto oferece horário (CTA leve) — mesma tensão do `MI-0`, um degrau mais incerta |
+
+**Como:** nenhum nó novo — a categoria é escolhida na tela do Meta
+Business Manager, no mesmo passo em que G-05 já registra cada código como
+"A submeter" (`biblioteca-mensagens.md`). Acrescentada a coluna "Categoria
+sugerida" àquela tabela, apontando para esta seção. Estende a rotina
+manual do F-07 (seção 2.25, três momentos de checar `Settings → WhatsApp →
+Manage`) com um quarto hábito, sem duplicar os três: ao revisar a tela
+nativa de Estatísticas por ação `Send WhatsApp` de um workflow (`Sent`/
+`Pending`/`Delivered`/`Read`/`Failed`, pesquisada nesta mesma rodada —
+`help.gohighlevel.com`, bloqueado, citado por múltiplos resultados de
+busca convergentes), separar **dois motivos diferentes** de `Failed`: nota
+de reputação caindo (F-07 já cobre) versus **teto de frequência do
+destinatário** (esta seção) — o segundo é esperado e dinâmico para códigos
+`Marketing`, não é sintoma de nada quebrado, e confundir os dois faz o
+gestor perseguir uma queda de reputação que não existe.
+
+**Zero campo, zero tag, zero workflow, zero escrita no CRM:** item de
+documentação pura, não depende de `APROVADO.md` (mesmo padrão do F-07/
+F-08) — a submissão em si já era ação do dono, registrada desde o G-05;
+esta seção só documenta **qual** categoria escolher e **por quê**, e
+qual `Failed` na tela nativa é esperado versus qual merece o checklist do
+F-07.
+
+**Pronto quando:** os 16 códigos têm categoria candidata e razão
+registradas nesta tabela (cumprido nesta rodada); quem submeter ao Meta
+Business Manager sabe que a Meta pode reclassificar depois da aprovação
+(não é decisão definitiva) e sabe distinguir, na tela de Estatísticas do
+WhatsApp por workflow, `Failed` por teto de frequência (esperado em
+código `Marketing`) de `Failed` por reputação (F-07).
