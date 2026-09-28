@@ -292,3 +292,10 @@ Tentativas até agendar e até qualificar ainda sem dado real (4 agendados e 3 q
 | botão | o botão verde **"Ligar"** do cabeçalho da conversa é **"Ligar via WhatsApp"** (aria-label), da integração do WhatsApp (Stevo) | conferido na tela, sem ligar |
 | visão | os leads têm conversa (amostra de 12 dos `sem-cadencia`: todos com conversa TYPE_PHONE) → aparecem na visão por tag | a visão ainda precisa ser criada/compartilhada pelo dono |
 | registro | a ligação por WhatsApp **não deixa registro** no CRM (mensagens Stevo chegam como TYPE_CUSTOM_SMS; nenhuma chamada WhatsApp) | a medição de 40% depende da SDR marcar Canal = WhatsApp |
+
+### Robôs nunca rodaram por agendamento (28/09 09:20)
+
+| Achado | Correção |
+|---|---|
+| filas do discador, governador do WhatsApp e análises semanais **nunca rodaram por cron** (só manual); outros workflows do repo, em minutos quebrados, rodam | PR #117: filas `7,37 11-23 * * 1-5`, governador `13,43 11-23 * * 1-5`, análises `19 10 * * 1` (GitHub atrasa e descarta crons em :00/:30). Rodados à mão às 09:16: filas (CONVERGIU; `fila-wa` 0 — nenhuma ligação feita hoje ainda), governador e análises |
+| visão "Ligar pelo WhatsApp" criada pelo dono em Conversas | fica vazia até a SDR ligar pelo discador e o lead não atender (regra: 1+ tentativa tel sem conexão) |
