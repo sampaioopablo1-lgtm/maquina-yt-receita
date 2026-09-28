@@ -9696,3 +9696,96 @@ publicado — e o F-09 já com decisão tomada. `campos-e-tags.md` (C-36,
 T-26) e `APROVADO.md` (duas linhas novas, ambas `[ ]`, com a dependência
 do F-09 anotada) documentam o pré-requisito. Zero campo, zero tag, zero
 escrita no CRM nesta rodada: item de especificação pura.
+
+## 2.58 Retorno de Chamada Perdida — F-27
+
+**Por quê:** o nó 1 da seção 2.27 (Qualidade da Conexão, F-06) descarta toda
+chamada de direção `Inbound` com uma frase só — "chamada recebida não é
+tentativa da cadência" — e `grep -n "Call Status\|chamada recebida\|Inbound
+Call" wesales/build-wesales.md` confirma que nenhum outro nó deste projeto
+inteiro volta a tocar nesse evento. A operação roda Power Dialer outbound
+(discador ligando o dia inteiro, meta de 100 ligações/dia por SDR) — o
+cenário mais comum para uma chamada `Inbound` nesta subconta não é um
+desconhecido ligando para vender algo, é o **próprio lead retornando** uma
+das 8 tentativas de telefone da régua enquanto o SDR está ao telefone com
+outra pessoa, sem ninguém disponível para atender ao vivo. Pesquisa de
+concorrência feita antes de desenhar (mesma pergunta de sempre — "o que a
+plataforma já resolve de graça e nem Reev nem Meetime cobrem, porque
+telefonia não é o core de nenhum dos dois"): o próprio GHL descreve o
+"Missed Call Text-Back" como a automação nativa de maior ROI da
+plataforma — recupera lead que iria para o concorrente, sem gastar mais
+anúncio, respondendo em segundos enquanto quem ligou ainda está olhando
+para o telefone (`help.gohighlevel.com`, `ideas.gohighlevel.com` e vários
+blogs especializados em GHL convergindo no mesmo mecanismo; Salesloft/
+Outreach não apareceram em nenhuma fonte cobrindo o caso — os dois
+integram discador de terceiro, não são a própria operadora). Uma ligação de
+volta é, no mínimo, tão quente quanto o clique em link que o F-01 já trata
+como sinal máximo — hoje ela não vira tag, não vira tarefa, não vira
+mensagem: é invisível.
+
+### Gatilho
+**`Call Status`** (mesmo gatilho já citado na seção 2.27, ali só para
+descartar), filtros: **Direção da chamada** = `Inbound`, **Status da
+chamada** = `No Answer`/`Não atendida` (nome exato do valor a confirmar na
+tela — pesquisado via `WebSearch`, `help.gohighlevel.com` confirma o
+trigger `Call Status`/`Call Details` com filtro de Direção e de Status,
+mas o proxy deste contêiner bloqueou a leitura direta da página de opções,
+mesma barreira já registrada para outros domínios do GHL em
+`APRENDIZADOS-CRM.md` — **confiança média**, várias fontes secundárias
+convergentes, sem confirmação na tela desta subconta). Esta operação não
+tem ninguém dedicado a atender chamada inbound ao vivo — todo `Inbound`
+que chegar aqui é, por definição do próprio desenho da operação, uma
+chamada que ninguém atendeu.
+
+### Configurações
+| Configuração | Valor |
+|---|---|
+| Allow Re-entry | **Ligado** — o mesmo lead pode retornar mais de uma ligação perdida ao longo dos 30 dias da régua, e cada retorno é sinal novo, não repetição do mesmo evento |
+| Janela de envio | Sem janela no gatilho/tags (nó 1-6); o `Send WhatsApp`/`Send SMS` do nó 7 herda a janela de envio já em vigor no canal (G-05/G-06) — retorno às 22h prioriza e cria tarefa na hora, mas não dispara mensagem fora do horário permitido |
+
+### Nós
+| # | Ação | Configuração |
+|---|---|---|
+| 1 | If/Else | Tag `nao-perturbe` presente → FIM (opt-out sempre vale, mesma guarda de toda automação deste projeto) · Senão → 2 |
+| 2 | If/Else | Contato tem oportunidade `open` ou `abandoned` em `FUNIL DE VENDAS`? → Sim: 3 · Não: FIM (ligação de quem não é lead desta operação — número errado, engano, contato pessoal; a Porta de Entrada, seção 1.3, só cria oportunidade em `Contact Created`, não neste gatilho) |
+| 3 | Update Contact Field | `Sinal recebido` = `Retornou ligação` (opção nova, ver abaixo) |
+| 4 | Update Contact Field | `Prioridade` = `5` (mesmo valor máximo que a Interceptação de Sinal, seção 2.9, usa para clique em link — retorno de ligação não é sinal menor) |
+| 5 | Add Tag | `fila-quente` (reaproveita a mesma fila que o F-01 já prioriza — não cria fila paralela) |
+| 6 | If/Else | `Toques na semana` (C-26) já bateu o teto do F-04/F-23 nesta semana? → Sim: 9 (prioriza e avisa sem mandar mensagem) · Não: 7 |
+| 7 | Send WhatsApp (Template) ou Send SMS (transporte Stevo, D5/D6 de `PLANO-MULTICANAL.md`) | Mensagem `MRC-1` (`biblioteca-mensagens.md`) — pedido de desculpa por não ter atendido + oferta de horário |
+| 8 | Math | `Toques na semana` (C-26) + 1 — mesmo tratamento que o F-23 já dá a toda mensagem automática nova, para não furar o teto que existe |
+| 9 | Add Task | Título: `[RETORNO] Ligar de volta — {{contact.first_name}} retornou a chamada` · Vence: agora · Atribuir: `Contact Owner` (dinâmico, R-10) |
+
+**Por que o nó 2 não cria oportunidade:** diferente da Porta de Entrada
+(seção 1.3, gatilho `Contact Created`), quem liga de volta já é contato
+existente — criar oportunidade neste gatilho duplicaria a lógica de entrada
+por um caminho que só serve depois que o lead já existe na régua. Se o
+número que ligou nunca foi lead (visitante, engano, contato pessoal), o
+nó 2 barra sem tocar em nada — mesma cautela que o G-16 já ensinou (não
+tratar toda mensagem/ligação recebida como sinal comercial automático).
+
+**O que este item não resolve, e por que nasce sem `[x]`:**
+1. A opção nova `Retornou ligação` em `Sinal recebido` (C-13, já com uma
+   opção pendente do F-21) é edição de campo `SINGLE_OPTIONS` já existente
+   — não sai por API neste conector, mesma classe de limite já registrada
+   para o F-21; precisa de linha própria em `APROVADO.md`, nasce `[ ]`.
+2. O nó 7 (a mensagem em si) depende do mesmo bloqueio de sempre: a linha
+   "Enviar mensagem por WhatsApp a partir da subconta" em `APROVADO.md`
+   segue `[ ]` esperando o número de teste do dono — sem isso, nem esta
+   mensagem nem nenhuma outra deste projeto pode ser publicada de verdade.
+   Os nós 1-6 e 9 (priorizar e criar tarefa) não dependem disso.
+3. Mesma pendência sem resposta do F-06/F-08/F-09: se a ligação sai por LC
+   Phone ou por linha própria do SDR. Se for linha própria, o gatilho
+   `Call Status` não vê essas chamadas e este desenho inteiro não dispara
+   — a confirmação já está pedida em três itens antes deste, não repito o
+   pedido, só herdo a mesma dependência.
+
+**Pronto quando:** opção `Retornou ligação` criada em `Sinal recebido` na
+tela, workflow publicado, e uma chamada de teste de volta ao número da
+operação comprova que o contato de teste sobe para `Prioridade = 5`, ganha
+`fila-quente` e a tarefa `[RETORNO]` aparece — sem esperar o nó 7, que
+segue dependente do bloqueio de mensagem de sempre. `campos-e-tags.md`
+(C-13) e `APROVADO.md` (linha nova, `[ ]`) documentam o pré-requisito. Zero
+campo novo, zero tag nova, zero escrita no CRM nesta rodada: item de
+especificação pura, reaproveitando `Sinal recebido`/`Prioridade`/
+`fila-quente`/`Toques na semana` já existentes.

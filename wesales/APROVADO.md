@@ -373,6 +373,19 @@ manual (não sai por API para ninguém, nem ler nem escrever pipeline além do
       opção a um `SINGLE_OPTIONS` também não sai por API neste conector,
       mesma classe de limite. Nasce `[ ]` pela regra de sempre.
 
+- [ ] Adicionar a opção `Retornou ligação` ao campo já existente `Sinal
+      recebido` (C-13, `SINGLE_OPTIONS`) — nasceu no F-27
+      (`ROADMAP-SALES-ENGAGEMENT.md`), especificada em `campos-e-tags.md`
+      (C-13) e `build-wesales.md` (seção 2.58): o workflow "Retorno de
+      Chamada Perdida" grava este valor quando o lead liga de volta uma das
+      tentativas de telefone da régua sem ninguém disponível para atender
+      — nenhuma opção existente descreve isso (as outras duas implicam que
+      o SDR iniciou o contato). Mesma classe de limite do F-21: edição de
+      `SINGLE_OPTIONS`, não sai por API. Nasce `[ ]` pela regra de sempre.
+      **Priorizar o lead (`Prioridade` = 5, tag `fila-quente`) e criar a
+      tarefa `[RETORNO]` não dependem desta opção** — só a gravação do
+      valor em `Sinal recebido` espera a criação na tela.
+
 ### Contatos de teste
 
 - [x] Criar os 5 contatos fictícios do checklist da seção 10 do

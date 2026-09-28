@@ -526,3 +526,21 @@ gerando valor, conforme o formulário do SDR. Textos completos no construtor
 PROCESSO, DEMANDA, GERAL}** (WA), **LR-D1** (WA+e-mail), **LR-H3-DOR** ou
 **LR-H3-{trilha}** (WA), **LR-M10** (WA+e-mail). Sem nome, sem {{user.*}},
 sem "amanhã/hoje", sem número inventado. Link = `{{appointment.meeting_location}}`.
+
+## MRC-1 — retorno de chamada perdida (Retorno de Chamada Perdida — F-27)
+
+Especificado em `build-wesales.md`, seção 2.58, nó 7. Dispara quando o lead
+retorna uma ligação da régua e ninguém atende ao vivo (`Call Status` ·
+`Inbound` · não atendida) — o SDR estava provavelmente ao telefone com
+outro lead no mesmo instante. Curto, sem desculpa alongada, indo direto
+para o próximo passo (o lead já demonstrou a intenção mais forte possível
+ao ligar de volta sozinho).
+
+> Oi {{contact.first_name}}, vi que você ligou! Desculpa não ter
+> conseguido atender — eu tava em outra ligação. Pode me dizer o melhor
+> horário pra eu te retornar hoje?
+
+**Antes de publicar de verdade:** depende do mesmo bloqueio de sempre —
+`APROVADO.md` ainda não libera envio de mensagem real por WhatsApp (número
+de teste do dono pendente). Até lá, o workflow prioriza e cria tarefa
+(`build-wesales.md`, seção 2.58, nós 1-6 e 9) sem mandar este texto.

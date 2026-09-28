@@ -5626,6 +5626,64 @@ contato não repete o aviso, só soma o contador. Detalhe nó a nó em
 T-25); ambos nascem `[ ]` em `APROVADO.md`. Zero escrita no CRM nesta
 rodada: item de especificação pura.
 
+### F-27 · Toda chamada `Inbound` cai no vácuo desde a seção 2.27 — inclusive o lead que retorna a própria tentativa de telefone da régua enquanto o SDR está discando outro número, o cenário mais provável desta operação (28/09/2026) — **FEITO em 28/09/2026 (especificação)**
+
+**Por quê:** `grep -n "Call Status\|chamada recebida\|Inbound Call"
+wesales/build-wesales.md` confirma que a única linha deste projeto inteiro
+que toca numa chamada `Inbound` é o nó 1 da seção 2.27 (F-06) — e ela só
+descarta ("chamada recebida não é tentativa da cadência"). A operação roda
+Power Dialer outbound com meta de 100 ligações/dia por SDR: o cenário mais
+comum para uma chamada `Inbound` aqui não é um desconhecido, é o próprio
+lead retornando uma das 8 tentativas de telefone da régua enquanto o SDR
+está ao telefone com outra pessoa — ninguém disponível para atender ao
+vivo. Pesquisa de concorrência (mesma pergunta do F-07/F-08/F-14/F-22/F-24/
+F-25/F-26): o próprio GHL descreve o "Missed Call Text-Back" como a
+automação nativa de maior ROI da plataforma — recupera lead que iria para
+o concorrente, respondendo em segundos, sem gastar mais anúncio
+(`help.gohighlevel.com`, `ideas.gohighlevel.com` e múltiplos blogs
+especializados em GHL convergindo no mesmo mecanismo nativo; nenhuma fonte
+mostrou Reev, Meetime, Outreach ou Salesloft cobrindo o caso — nenhum dos
+quatro é a própria operadora de telefonia). Uma ligação de volta é, no
+mínimo, tão quente quanto o clique em link que o F-01 já trata como sinal
+máximo; hoje ela é inteiramente invisível: sem tag, sem tarefa, sem
+mensagem.
+
+**Como:** workflow novo "Retorno de Chamada Perdida", especificado nó a nó
+em `build-wesales.md`, seção 2.58, pelo gatilho nativo `Call Status`
+(Direção `Inbound`, Status não atendida — nome exato do valor a confirmar
+na tela, `help.gohighlevel.com` bloqueado pelo proxy deste contêiner nesta
+sessão, mesma barreira já registrada para outros domínios do GHL em
+`APRENDIZADOS-CRM.md`, **confiança média**). Prioriza o lead (`Prioridade`
+= 5, tag `fila-quente`, mesmo tratamento máximo do F-01) e cria a tarefa
+`[RETORNO]` para o `Contact Owner` — nenhum dos dois depende de campo ou
+tag nova. Só a gravação do sinal em si usa uma 4ª opção nova em `Sinal
+recebido` (C-13, mesma classe de edição de `SINGLE_OPTIONS` já usada pelo
+F-21), e a mensagem automática (`MRC-1`, `biblioteca-mensagens.md`) segue
+o teto de toques do F-04/F-23 e o bloqueio de sempre para envio real de
+WhatsApp. Desenhado para não repetir o erro que o F-11/G-16 já ensinaram
+(tratar todo evento recebido como sinal comercial automático): o nó 2 só
+segue se o contato já tiver oportunidade `open`/`abandoned` na operação —
+uma chamada de quem nunca foi lead (engano, contato pessoal) não move nada.
+
+**Campo/tag novos:** nenhum — reaproveita `Sinal recebido` (C-13, ganha só
+uma opção nova), `Prioridade`, `fila-quente` e `Toques na semana` (C-26),
+todos já existentes. A única pendência de tela é a opção nova em C-13,
+registrada em `campos-e-tags.md` e como linha própria `[ ]` em
+`APROVADO.md` — mesma classe de limite (edição de campo, não sai por API)
+já documentada para o F-21. `GUIA-MONTAGEM.md` e
+`IMPLEMENTACAO-WORKFLOWS.md` (W31) atualizados no mesmo commit. F-09,
+F-10, G-11 (item 1), G-19, G-27/G-29 e G-31 continuam sendo as decisões
+sem prazo fixo que esperam o dono, sem novidade nesta sessão.
+
+**Pronto quando:** opção `Retornou ligação` criada em `Sinal recebido` na
+tela, workflow publicado, e uma chamada de teste de volta ao número da
+operação confirma `Prioridade` = 5, tag `fila-quente` e a tarefa
+`[RETORNO]` — sem esperar a mensagem automática, que segue dependente do
+bloqueio de sempre. Detalhe nó a nó em `build-wesales.md`, seção 2.58;
+texto em `biblioteca-mensagens.md` (MRC-1); campo em `campos-e-tags.md`
+(C-13); `APROVADO.md` com a linha nova, `[ ]`. Zero campo novo, zero tag
+nova, zero escrita no CRM nesta rodada: item de especificação pura.
+
 ---
 
 ## Ordem sugerida
@@ -7553,3 +7611,31 @@ documentos (`APROVADO.md`, `campos-e-tags.md`, `build-wesales.md`,
 `IMPLEMENTACAO-WORKFLOWS.md`, `GUIA-MONTAGEM.md`). F-09, F-10, G-11 (item
 1), G-19, G-27/G-29 e G-31 continuam sendo as decisões sem prazo fixo que
 esperam o dono, sem mudança nesta rodada.
+
+**F-27 aberto e fechado (especificação) em 28/09/2026, sessão automática
+seguinte — reconciliação de sempre antes de desenhar (hábito do
+G-31/G-32/G-33/F-26): `git fetch` nas branches irmãs
+(`abertura-operacao-dnd-n7dnjv`) e leitura do `DE-PARA-SESSOES-CRM.md`
+(atualizado até 28/09 ~01:27 UTC, turnos flexíveis/comissão) não achou
+resposta nova para F-09, F-10, G-11 (item 1), G-19 ou G-31 — só confirmou
+de novo o estado do G-27/G-29 (`SDR responsável` e `B · Quanto pode
+investir` ainda sem workflow lendo). CRM reconfirmado por API sem mudança
+de estrutura: 64 oportunidades, 60 campos de contato.** Sem achado de
+reconciliação, a sessão foi à pesquisa de concorrência de sempre — desta
+vez não a um sinal ou a uma guarda de canal (já esgotados por F-19-F-26),
+mas ao próprio nó 1 da seção 2.27 (F-06), que descarta toda chamada
+`Inbound` numa frase só sem que nenhum outro item do projeto tivesse
+voltado a essa linha desde então. Achou que o cenário mais provável de uma
+chamada `Inbound` nesta subconta — o lead retornando uma tentativa de
+telefone da própria régua enquanto o Power Dialer discava outro número —
+cai no vácuo, e que o GHL trata o "Missed Call Text-Back" como sua própria
+automação de maior ROI, um caso que nem Reev nem Meetime cobrem por não
+serem operadora de telefonia. Fechado como **F-27**: workflow "Retorno de
+Chamada Perdida" (gatilho nativo `Call Status`, Direção `Inbound`),
+priorizando o lead e criando tarefa sem depender de campo ou tag nova —
+só uma 4ª opção em `Sinal recebido` (C-13, mesma classe do F-21) fica
+pendente de tela. `IMPLEMENTACAO-WORKFLOWS.md` (W31), `campos-e-tags.md`
+(C-13), `APROVADO.md` (linha nova, `[ ]`) e `GUIA-MONTAGEM.md` atualizados
+no mesmo commit. F-09, F-10, G-11 (item 1), G-19, G-27/G-29 e G-31
+continuam sendo as decisões sem prazo fixo que esperam o dono, sem
+mudança nesta rodada.

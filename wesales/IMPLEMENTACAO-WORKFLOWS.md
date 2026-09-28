@@ -2016,6 +2016,45 @@ continua 4 (não sobe para além), nenhum aviso novo, nota do nó 7b em vez do
 anterior) que clica — confirme que `Prioridade` continua 5, nunca cai para
 4.
 
+## W31 · Retorno de Chamada Perdida — `build-wesales.md` 2.58 (F-27, especificado em 28/09/2026)
+
+**Gatilho:** `Call Status` — filtros Direção = `Inbound`, Status =
+`No Answer`/`Não atendida` (nome exato do valor a confirmar na tela).
+
+| Configuração | Valor |
+|---|---|
+| Allow Re-entry | Ligado |
+| Janela | Sem janela nos nós 1-6/9; o `Send WhatsApp`/`Send SMS` do nó 7 herda a janela de envio do canal (G-05/G-06) |
+
+| # | Ação | Configuração exata | Vai para |
+|---|---|---|---|
+| 1 | If/Else | Tags inclui `nao-perturbe` → FIM · None → 2 | FIM ou 2 |
+| 2 | If/Else | Oportunidade `open` ou `abandoned` em `FUNIL DE VENDAS`? Sim → 3 · Não → FIM | 3 ou FIM |
+| 3 | Update Contact Field | `Sinal recebido` = `Retornou ligação` (opção nova) | 4 |
+| 4 | Update Contact Field | `Prioridade` = `5` | 5 |
+| 5 | Add Contact Tag | `fila-quente` | 6 |
+| 6 | If/Else | `Toques na semana` (C-26) já no teto do F-04/F-23? Sim → 9 · Não → 7 | 9 ou 7 |
+| 7 | Send WhatsApp (Template)/Send SMS (Stevo) | Mensagem `MRC-1` (`biblioteca-mensagens.md`) | 8 |
+| 8 | Math | `Toques na semana` (C-26) + 1 | 9 |
+| 9 | Add Task | `[RETORNO] Ligar de volta — {{contact.first_name}} retornou a chamada` · vence agora · `Contact Owner` | fim |
+
+**Pré-requisito:** opção `Retornou ligação` no campo já existente `Sinal
+recebido` (C-13) criada na tela — não sai por API neste conector, `[ ]` em
+`APROVADO.md`. Nós 1-6 e 9 não dependem do nó 7 (mensagem); o nó 7 depende
+também do bloqueio de sempre para envio real de WhatsApp em `APROVADO.md`.
+
+**Por que o nó 2 não cria oportunidade:** diferente da Porta de Entrada
+(W1, `Contact Created`), aqui o contato já existe — o nó 2 só filtra quem
+nunca foi lead desta operação (engano, contato pessoal), sem duplicar a
+lógica de entrada.
+
+**Teste:** num contato fictício com oportunidade `open` e telefone
+preenchido, simule (ou provoque) um `Call Status`/`Inbound`/não atendida e
+confira: `Sinal recebido` = `Retornou ligação`, `Prioridade` = 5, tag
+`fila-quente` aplicada, tarefa `[RETORNO]` criada com vencimento imediato.
+Repita com um contato sem oportunidade e confirme que nada é gravado (nó 2
+barra). Confirme também que um contato com `nao-perturbe` não é tocado.
+
 ---
 
 # PARTE 3 — OPERAÇÃO (a dinâmica de alta produtividade)
