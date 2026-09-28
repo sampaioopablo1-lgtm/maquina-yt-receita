@@ -239,3 +239,14 @@ Tentativas até agendar e até qualificar ainda sem dado real (4 agendados e 3 q
 - Passagem depois de FORMALIZAR (quem assume, checklist) e modelos de proposta/contrato.
 - Critério da premiação anual.
 - Volume de leads para a meta (460 em out, 770 em nov, 1.540 em dez) e 2º closer ou mais horários a partir de novembro (agenda atual ≈ 74 reuniões/mês).
+
+### Uma tag, uma lista, um botão (28/09, manhã)
+
+| Item | O que foi gravado | Onde | Relido | Observação |
+|---|---|---|---|---|
+| uma tag no discador | a SDR puxa só `fila-tel`. Os 36 leads de 19–21/09 (entraram antes da Cadência Inbound, nunca receberam `fila-tel`) ganharam a tag `sem-cadencia`; o atuador põe `fila-tel` neles 1×/dia (sem ligação nas últimas 24 h), até 12 tentativas, **sem WhatsApp automático** (decisão do dono). Rede de órfãos: lead novo fora da cadência (2 h a 3 dias, Tentativa nº 0) entra na Cadência Inbound. `fila-sdr` aposentada (tirada dos 36) | PR #114 + Action aplicada | sim: 36 em `fila-tel`, `fila-sdr` 0, CONVERGIU | a Cadência Inbound não aceita reentrada (`allowMultiple: false`) |
+| lista única da SDR | "Minha fila — SDR" (`lC5kjBoCH1J3Ze0VKsYe`): CONECTAR, sem perdido/não perturbe/`falou-hoje`, e (fila-quente OU fila-tel OU fechar-horario OU retorno-vencido OU 2+ tentativas tel sem conexão); ordem Prioridade ↓. Compartilhada com a Andreyna; as 5 antigas (Fila quente, Fila do dia, Ligar pelo WhatsApp, Fechar horário, Retornos vencidos) **descompartilhadas** dela (continuam do dono) | Contatos | sim: 36 na tela, ordenada | não apagadas |
+| lista única do closer | "Minha agenda — Closer" (`GNlBCDC1iukze8m1bqOt`): REUNIÃO/NEGOCIAR/FORMALIZAR, sem perdido; ordem Data agendado ↑ | Contatos | filtros relidos | as 2 antigas do closer seguem existindo |
+| botão WhatsApp | Roteiro do Power Dialer recriado (`6ab9fa95d6f0a71d7f123034`): botões "Abrir ficha e agendar" e "📱 Ligar pelo WhatsApp" (`api.whatsapp.com/send?phone={{contact.phone_raw}}`) | Roteiros | sim, com o contato de teste | o roteiro antigo (6ab9f0e9…) foi sobrescrito num teste e apagado; a SDR escolhe o roteiro de novo no painel |
+| coluna com botão na lista | **não feito**: exige campo personalizado novo (regra do dono) e a lista não mostra link como botão | — | — | alternativa: botão no Roteiro + clique no nome abre a ficha |
+| playbook | links, rotina, Passo 1 (uma tag + botão verde), Passo 3, regras | Claude Docs rev 64 | sim | |

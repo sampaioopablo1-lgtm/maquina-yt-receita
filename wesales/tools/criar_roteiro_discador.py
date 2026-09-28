@@ -12,7 +12,9 @@ from gravar_link_form_primeiro import LINK
 
 NOME = "Roteiro SDR + ficha do lead"
 HTML = f"""
-<p><a href="{LINK}" target="_blank" style="display:inline-block;background:#155EEF;color:#fff;padding:10px 16px;border-radius:8px;font-weight:700;text-decoration:none">📋 Abrir ficha de {{{{contact.first_name}}}} e agendar</a></p>
+<p><a href="{LINK}" target="_blank" style="display:inline-block;background:#155EEF;color:#fff;padding:10px 16px;border-radius:8px;font-weight:700;text-decoration:none">📋 Abrir ficha de {{{{contact.first_name}}}} e agendar</a>
+&nbsp; <a href="https://api.whatsapp.com/send?phone={{{{contact.phone_raw}}}}" target="_blank" style="display:inline-block;background:#16A34A;color:#fff;padding:10px 16px;border-radius:8px;font-weight:700;text-decoration:none">📱 Ligar pelo WhatsApp</a></p>
+<p style="font-size:13px;color:#475467">Não atendeu no telefone? Clique em <b>Ligar pelo WhatsApp</b>: abre a conversa de {{{{contact.first_name}}}} no WhatsApp; toque no ícone de chamada. Depois marque <b>Canal = WhatsApp</b> e o Resultado.</p>
 <p style="font-size:13px;color:#475467">Abre o formulário já preenchido com o que o CRM sabe. Ao enviar, abre a agenda do closer (seg–sex 18:00 · 19:30 · 21:00 · sáb 09:00 · 10:30).</p>
 <p><b>Veio do anúncio (só confirme):</b> necessidade <i>{{{{contact.necessidade}}}}</i> · urgência <i>{{{{contact.urgncia}}}}</i> · investe <i>{{{{contact.investimento_mensal_em_anncios}}}}</i> · prazo <i>{{{{contact.prazo}}}}</i></p>
 <hr>
