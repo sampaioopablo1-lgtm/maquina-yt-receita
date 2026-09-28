@@ -299,3 +299,14 @@ Tentativas até agendar e até qualificar ainda sem dado real (4 agendados e 3 q
 |---|---|
 | filas do discador, governador do WhatsApp e análises semanais **nunca rodaram por cron** (só manual); outros workflows do repo, em minutos quebrados, rodam | PR #117: filas `7,37 11-23 * * 1-5`, governador `13,43 11-23 * * 1-5`, análises `19 10 * * 1` (GitHub atrasa e descarta crons em :00/:30). Rodados à mão às 09:16: filas (CONVERGIU; `fila-wa` 0 — nenhuma ligação feita hoje ainda), governador e análises |
 | visão "Ligar pelo WhatsApp" criada pelo dono em Conversas | fica vazia até a SDR ligar pelo discador e o lead não atender (regra: 1+ tentativa tel sem conexão) |
+
+### Canais por toque — 50% ligação, 40% ligação de WhatsApp, 10% mensagem (28/09 09:30)
+
+| Item | O que foi feito | Observação |
+|---|---|---|
+| regra | ligação de WhatsApp é **toque da cadência** (não "quem não atendeu"). Atuador: toque k = tentativas registradas (tel+WA)+1; WhatsApp nos toques 2,4,6,8,10 (tira `fila-tel`, põe `fila-wa`); telefone nos 1,3,5,7,9,11,12 | PR #118 |
+| leads atuais | aplicado às 09:26: **14 dos 36 antigos na `fila-wa`** (paridade do id: metade começa pelo WhatsApp), 22 na `fila-tel`; CONVERGIU | alternam nos próximos toques |
+| entrada na cadência | leads antigos entram na Cadência Inbound (fluxo completo, com mensagens) **1 por rodada**, seg–sex 09–18, só com toque de telefone no dia e só quando < 2 mensagens esperam o governador; perdem `sem-cadencia` | 1º: Ceuomar Delphino (09:26) |
+| mensagens | governador: **1 por rodada** (era 2) e ~1/3 das rodadas puladas ao acaso quando não está atrasado → intervalo irregular (30/60/90 min + espera de 15 min do portão); limite 11–15/dia mantido | pedido do dono: não parecer robô |
+| mistura atual | 12 ligações (7 tel / 5 WA) + 5 mensagens = 41% / 29% / 29%. **Próximo passo:** trocar 3 das 5 mensagens (MT4, MT8, MT11) por ligação de WhatsApp → 8/7/2 = 47% / 41% / 12% | exige editar portões das cadências; com ensaio antes |
+| playbook | Passo 3: tabela de toques × canal, regra "toque de WhatsApp", 1 ligação de WhatsApp por lead por dia | rev 78 |

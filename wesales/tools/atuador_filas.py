@@ -375,10 +375,10 @@ def ritmo_sem_cadencia(cs, etapas, aplicar):
             continue
         if etapas.get(c["id"]) != CONECTAR or not c.get("phone") or c.get("dnd"):
             continue
-        if tags & {"nao-perturbe", TAG_FALOU, "telefone-invalido"}:
+        if tags & {"nao-perturbe", TAG_FALOU, "telefone-invalido", TAG_WA, "wa-feito-hoje"}:
             continue
         try:
-            tent = float(valor(c, TENT_TEL) or 0)
+            tent = float(valor(c, TENT_TEL) or 0) + float(valor(c, "5j9SerJeZ6ngfZCPb2Wg") or 0)
             con = float(valor(c, CONEX_TEL) or 0) + float(valor(c, CONEX_WA) or 0)
         except (TypeError, ValueError):
             continue
@@ -388,9 +388,82 @@ def ritmo_sem_cadencia(cs, etapas, aplicar):
         if h is not None and h < 24:
             continue
         n += 1
+        tag = TAG_WA if canal_whatsapp(c) else "fila-tel"
         if aplicar:
-            pedir("POST", "/contacts/%s/tags" % c["id"], {"tags": ["fila-tel"]})
-    print("  sem cadência: %d lead(s) voltam para a fila-tel%s" % (n, "" if aplicar else " (DRY)"))
+            pedir("POST", "/contacts/%s/tags" % c["id"], {"tags": [tag]})
+        MOVIDOS_WA.update([c["id"]] if tag == TAG_WA else [])
+    print("  sem cadência: %d lead(s) com toque hoje%s" % (n, "" if aplicar else " (DRY)"))
+
+
+# ---- Distribuição de canais (dono, 28/09): 50% ligação, 40% ligação de WhatsApp, 10% mensagem.
+# As 12 ligações da cadência: telefone nos toques 1,3,5,7,9,11,12; WhatsApp nos 2,4,6,8,10.
+# O toque é contado pelas tentativas já registradas (telefone + WhatsApp) + 1. Os leads antigos
+# (`sem-cadencia`) começam metade pelo WhatsApp (paridade do id), para a ligação de WhatsApp
+# começar no mesmo dia. Toque de WhatsApp: sai da `fila-tel` (discador) e entra na `fila-wa`
+# (visão "Ligar pelo WhatsApp" em Conversas).
+TOQUES_WA = {2, 4, 6, 8, 10}
+MOVIDOS_WA = set()
+
+
+def canal_whatsapp(c) -> bool:
+    try:
+        k = int(float(valor(c, TENT_TEL) or 0) + float(valor(c, "5j9SerJeZ6ngfZCPb2Wg") or 0)) + 1
+    except (TypeError, ValueError):
+        return False
+    if SEM_CAD in (c.get("tags") or []) and int(c["id"].encode().hex(), 16) % 2:
+        k += 1
+    return k in TOQUES_WA
+
+
+def distribuir_canal(cs, etapas, aplicar):
+    """Lead com `fila-tel` (toque vencido, posto pela cadência) cujo toque é de WhatsApp: tira
+    `fila-tel` e põe `fila-wa`."""
+    n = 0
+    for c in cs:
+        tags = set(c.get("tags") or [])
+        if "fila-tel" not in tags or TAG_WA in tags or etapas.get(c["id"]) != CONECTAR:
+            continue
+        if tags & {"nao-perturbe", TAG_FALOU, "wa-feito-hoje", "telefone-invalido"} or not c.get("phone"):
+            continue
+        if not canal_whatsapp(c):
+            continue
+        n += 1
+        MOVIDOS_WA.add(c["id"])
+        if aplicar:
+            pedir("DELETE", "/contacts/%s/tags" % c["id"], {"tags": ["fila-tel"]})
+            pedir("POST", "/contacts/%s/tags" % c["id"], {"tags": [TAG_WA]})
+    print("  canal: %d toque(s) de telefone viraram ligação de WhatsApp%s" % (n, "" if aplicar else " (DRY)"))
+
+
+def entrada_gradual(cs, etapas, aplicar):
+    """Leads antigos entram na Cadência Inbound (fluxo completo, com mensagens) 1 por rodada,
+    seg-sex 09:00-18:00, para a 1ª mensagem nunca sair em bloco (o governador ainda limita e
+    espaça os envios). Ao entrar, perdem `sem-cadencia` (a cadência assume o ritmo)."""
+    import datetime as dt
+    agora = dt.datetime.now(dt.timezone(dt.timedelta(hours=-3)))
+    if agora.weekday() >= 5 or not (9 <= agora.hour < 18):
+        print("  entrada gradual: fora da janela (seg-sex 09-18)")
+        return
+    # ritmo: só entra alguém quando a fila de mensagens do governador está quase vazia (< 2
+    # esperando), senão o excedente vira tarefa manual em bloco para a SDR.
+    esperando = sum(1 for c in cs if "wa-aguardando" in (c.get("tags") or []))
+    if esperando >= 2:
+        print("  entrada gradual: %d mensagem(ns) esperando o governador; ninguém entra agora" % esperando)
+        return
+    for c in sorted(cs, key=lambda x: x.get("dateAdded") or ""):
+        tags = set(c.get("tags") or [])
+        if SEM_CAD not in tags or etapas.get(c["id"]) != CONECTAR or not c.get("phone"):
+            continue
+        # só quem tem hoje toque de TELEFONE (a TI1 da cadência é telefone: não dobra o toque)
+        if tags & {"nao-perturbe", TAG_FALOU, "telefone-invalido", TAG_WA, "wa-feito-hoje"} or c["id"] in MOVIDOS_WA:
+            continue
+        print("  entrada gradual: %s %s entra na Cadência Inbound%s" % (
+            c["id"], c.get("contactName") or "?", "" if aplicar else " (DRY)"))
+        if aplicar:
+            pedir("POST", "/contacts/%s/workflow/%s" % (c["id"], WF_INBOUND), {})
+            pedir("DELETE", "/contacts/%s/tags" % c["id"], {"tags": [SEM_CAD]})
+        return
+    print("  entrada gradual: nenhum lead antigo restante")
 
 
 def rede_orfaos(cs, etapas, aplicar):
@@ -438,6 +511,8 @@ def main() -> int:
 
     rede_trava(cs, etapas, aplicar)
     ritmo_sem_cadencia(cs, etapas, aplicar)
+    distribuir_canal(cs, etapas, aplicar)
+    entrada_gradual(cs, etapas, aplicar)
     rede_orfaos(cs, etapas, aplicar)
     dono_por_turno(cs, etapas, aplicar)
     filas_por_sdr(cs, aplicar)
@@ -454,18 +529,13 @@ def main() -> int:
 
     def quer_wa(c):
         tags = set(c.get("tags") or [])
+        if TAG_WA not in tags and c["id"] not in MOVIDOS_WA:
+            return False
         if etapas.get(c["id"]) != CONECTAR or not c.get("phone") or c.get("dnd") or TESTE.search(c.get("contactName") or ""):
             return False
-        if tags & {"nao-perturbe", TAG_FALOU, "wa-feito-hoje", "telefone-invalido"}:
-            return False
-        try:
-            tel = float(valor(c, TENT_TEL) or 0)
-            con = float(valor(c, CONEX_TEL) or 0) + float(valor(c, "Og1CkI9x9OztsV242nIM") or 0)
-        except (TypeError, ValueError):
-            return False
-        return tel >= 1 and con == 0
+        return not (tags & {"nao-perturbe", TAG_FALOU, "wa-feito-hoje", "telefone-invalido"})
     d_wa = {c["id"] for c in cs if quer_wa(c)}
-    a_wa = {c["id"] for c in cs if TAG_WA in (c.get("tags") or [])}
+    a_wa = {c["id"] for c in cs if TAG_WA in (c.get("tags") or [])} | (MOVIDOS_WA if aplicar else set())
     a_ativo = {c["id"] for c in cs if TAG_CLOSER_ATIVO in (c.get("tags") or [])}
     for tag, desejado, atual in ((TAG_SDR, d_sdr, a_sdr),
                                  (TAG_CLOSER, d_clo, a_clo),
