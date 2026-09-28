@@ -9120,7 +9120,7 @@ momento estou fora`.
 
 | Configuração | Valor |
 |---|---|
-| Gatilho | `Customer Replied` — Canal: **E-mail** — `Doesn't Contain` as duas listas acima, todas combinadas em E |
+| Gatilho | `Customer Replied` — Canal: **E-mail** — `Doesn't Contain` as duas listas acima, todas combinadas em E — **acrescentado em 28/09/2026, F-30:** mais uma condição em E, `Intent Type` **não é** `Negative` (filtro nativo de sentimento do próprio gatilho, seção 2.60) |
 | Janela de envio | Sem restrição, 24/7 — mesmo motivo do 2.9.2/2.9.3/2.9.6: nenhum nó manda mensagem ao lead |
 | Allow Re-entry | Ligado — cada resposta é um evento novo, mesmo raciocínio do 2.9.2 |
 | Stop on Response | Desligado |
@@ -9948,3 +9948,112 @@ primeiro erro real de código de número inatingível confirmar (a) que o
 código corresponde de fato a "sem WhatsApp" e (b) que o gatilho `Messaging
 Error Code - SMS` dispara para mensagem da Stevo — as duas pendências de
 confiança registradas acima, resolvidas com dado, não com suposição.
+
+## 2.60 Workflow "Resposta com Intenção Negativa" — F-30: a Interceptação de Sinal só filtra opt-out e auto-resposta, uma recusa educada ainda vira "ligar agora"
+
+**Achado relendo o próprio F-19 (seção 2.48) em vez de comparar contra
+Reev/Meetime/Outreach/Salesloft direto.** O F-19 já tinha citado, de
+passagem, que o gatilho `Customer Replied` filtra por `Contains
+Phrase`/`Exact Match`/tag/canal **e** `Intent Type` — e usou essa frase só
+para checar se `Intent Type` tinha uma categoria de "ausência" (não tem,
+por isso o F-19 seguiu por lista de dezenove frases). Ninguém voltou para
+perguntar se `Intent Type` resolve o problema que o R-17 abriu: uma
+resposta que **não** é opt-out (não pede silêncio) e **não** é auto-resposta
+(é genuína), mas também não é sinal quente — "não tenho interesse,
+obrigado", "já contratei outra agência", "não é pra mim agora". Essa frase
+não bate nenhuma das duas listas hoje publicadas (2.9.5, opt-out; 2.48,
+ausência) e passa direto pela 2.9.3: `Prioridade` = 5, `fila-quente`,
+tarefa `[CADENCIA] ... ligar agora`. O mesmo `Stop on Response` nativo que
+o F-19 já descreveu encerra a régua no mesmo segundo, em silêncio.
+
+**Pesquisado antes de desenhar, com a ressalva de método que este projeto já
+registra quando ela se aplica (F-06, F-29):** o proxy deste contêiner
+bloqueia todos os domínios `gohighlevel.com` (medido em `ABERTURA.md`,
+27/09/2026, para outro fim) — não deu para abrir a documentação oficial ao
+vivo nesta sessão. A pesquisa saiu por busca externa, três consultas
+independentes, fontes convergentes (a documentação oficial indexada por
+terceiros e blogs especializados em HighLevel): o filtro `Intent Type` do
+gatilho `Customer Replied` classifica cada resposta em
+`POSITIVE`/`NEGATIVE`/`NONE` por IA nativa **embutida no próprio filtro do
+gatilho** — não é o nó de ação separado `AI Intent Detection`, que é ação
+premium cobrada por execução (US$ 0,01/execução, achado na mesma busca); o
+filtro do gatilho é dimensão de trigger, mesma família de `Contains
+Phrase`/canal que a 2.9.3/2.9.5 já usam. Nenhuma das quatro plataformas de
+referência embute classificação de sentimento de graça no próprio gatilho
+de reply — quem tem isso paga um add-on de IA à parte ou constrói regra
+manual; o GHL oferece dentro do mesmo filtro que este projeto usa desde o
+R-17, nunca lido até o F-19 citar de passagem.
+
+**Limite documentado, não escondido — três pontos:**
+1. **Caixa-preta.** Não há como ver a confiança da classificação nem
+   corrigir um falso `NEGATIVE` numa resposta com ironia ou crítica
+   construtiva ("não sei se funciona, mas manda mais informação"). Por
+   isso este item **nunca fecha a oportunidade nem aplica DND sozinho** —
+   só evita o alarme falso e avisa o gestor, mesma filosofia do F-19; quem
+   decide "isto é opt-out de verdade" continua sendo o R-17 (frase
+   explícita), não este item.
+2. **Não testado ao vivo** se `Intent Type` classifica tráfego que chega
+   como `TYPE_CUSTOM_SMS` (o WhatsApp desta subconta via Stevo, G-09) do
+   mesmo jeito que classifica WhatsApp/e-mail nativos — o G-09 só confirmou
+   isso para `Contains Phrase`. Registrado como pendência, não suposição.
+3. **Custo por execução não confirmado.** A busca achou o preço do nó de
+   ação `AI Intent Detection` (premium, cobrado), não do filtro do gatilho
+   em si — conferir na tela antes de montar, mesma disciplina do F-06 com
+   o custo do Voice Intelligence.
+
+**Como — filtro do gatilho, aditivo às duas listas já existentes:**
+`Intent Type` **não é** `Negative`, combinado em E com os `Doesn't Contain`
+de opt-out (2.9.5/2.9.6, seção 2.9.5, 17 frases) e de ausência/auto-resposta
+(F-19/F-20, seção 2.48, 19 frases) — nas duas Interceptações de Sinal:
+2.9.3 (WhatsApp/SMS, publicada) e 2.50 (E-mail, F-21, ainda não montada).
+
+**Como — workflow novo "Resposta com Intenção Negativa", um só para os três
+canais que a operação usa (lição do F-19→F-20 aplicada desde o início — a
+mesma que o F-21 já citou para si mesmo ao construir os dois filtros juntos
+desde a primeira versão):**
+
+| Configuração | Valor |
+|---|---|
+| Gatilho | `Customer Replied` — Canal: WhatsApp, SMS e E-mail — `Intent Type` **é** `Negative` — `Doesn't Contain` as duas listas (opt-out + ausência), combinadas em E: uma resposta que já bate uma das duas listas segue pelo workflow dela (2.9.5/2.9.6/2.48/2.49), nunca duplica aviso aqui |
+| Janela de envio | Sem restrição, 24/7 — nenhum nó manda mensagem ao lead, mesmo padrão do 2.9.5/2.48/2.50 |
+| Allow Re-entry | Ligado — cada resposta negativa é um evento novo, mesmo raciocínio do 2.9.5/2.48 |
+| Stop on Response | Desligado |
+
+| # | Nó | Ação | Configuração |
+|---|---|---|---|
+| 1 | Buscar oportunidade | Find opportunity | Pipeline `FUNIL DE VENDAS` · "Most recently created opportunity". Ramo **Opportunity Not Found**: segue mesmo assim (auditoria é do contato, mesmo padrão do nó 1 do 2.48) |
+| 2 | Marcar | Add Contact Tag | `resposta-negativa` (T-28, pulso de auditoria — mesma ideia da `toque`/T-15 e da `resposta-automatica`/T-23: registra o evento, nunca vira estado permanente) |
+| 3 | Contar | Update Contact Field (Math +1) | `Respostas negativas` (C-38, `NUMERICAL`) — mesmo padrão cumulativo de C-33 a C-37: sem contador, "quantas vezes a base recusou sem pedir silêncio" não aparece em lugar nenhum |
+| 4 | Registro | Add Note | `Resposta com intenção negativa detectada em {{right_now}} (Intent Type nativo do GHL, POSITIVE/NEGATIVE/NONE) — não é opt-out nem auto-resposta, mas também não é sinal quente; revisar antes de continuar a régua` |
+| 5 | Aviso, sempre | Internal Notification | Para `Contact Owner`: `{{contact.name}} respondeu com sinal negativo (classificação nativa do GHL) — não pediu silêncio nem é auto-resposta, mas também não é "quero saber mais". A cadência que ele estava rodando já parou (Stop on Response nativo não distingue o motivo). Decida: desqualificar (Motivo da desqualificação) ou aguardar — não ligar "agora" como se fosse sinal quente.` |
+
+**Patch pendente na 2.9.3 (`Interceptação de Sinal — Resposta v2`, já
+publicada), mesma mecânica que o F-19 já deixou pendente para a lista de
+ausência:** acrescentar `Intent Type não é Negative` ao filtro do gatilho
+— mecânico, não decisão, próximo passo de quem tiver a tela. Na 2.50
+(E-mail, F-21), que **ainda não foi montada** (W27 no
+`IMPLEMENTACAO-WORKFLOWS.md`), o filtro já nasce com a condição desde a
+especificação: acrescentar `Doesn't Contain` as mesmas duas listas (já
+usadas) **e** `Intent Type não é Negative` ao gatilho descrito na seção
+2.50, tabela "Configuração" — não precisa de patch porque não há nada
+publicado para remendar ainda, mesma diferença que o próprio F-21 já
+registrou para o 2.9.3 versus o W27.
+
+**Zero redesenho dos workflows existentes além do filtro do gatilho:** a
+2.9.3 e a 2.50 continuam tratando toda resposta que sobra (positiva,
+neutra, ou negativa-mas-já-capturada-por-opt-out/ausência) exatamente como
+hoje — este item só tira mais uma fatia do que "sobra" para a 2.9.3/2.50
+escalonarem como sinal quente por engano, mesmo papel que o F-19 já cumpriu
+para a fatia de ausência.
+
+**Zero campo, zero tag, zero escrita no CRM nesta rodada:** `resposta-
+negativa` (T-28) e `Respostas negativas` (C-38) nascem `[ ]` em
+`APROVADO.md`, mesma regra de sempre desde o incidente da T-15.
+
+**Pronto quando:** um lead que responde recusando educadamente (sem
+opt-out explícito, sem ser auto-resposta) não gera `Prioridade` = 5 nem
+tarefa `ligar agora` na 2.9.3/2.50, e fica registrado (tag + contador +
+aviso ao gestor) em vez de virar uma ligação indesejada — e o primeiro
+caso real confirma as duas pendências que este item regista em vez de
+supor: se `Intent Type` classifica tráfego `TYPE_CUSTOM_SMS` da Stevo, e
+quanto custa por execução.

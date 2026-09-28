@@ -2107,6 +2107,55 @@ depois que a `Cadência 12x30` sair do rascunho. Quando acontecer, confira:
 aviso ao `Contact Owner`, e que nenhuma mensagem de WhatsApp nova saiu
 para aquele contato depois do patch de portão aplicado.
 
+## W33 · Resposta com Intenção Negativa — `build-wesales.md` 2.60 (F-30, especificado em 28/09/2026)
+
+**Gatilho:** `Customer Replied` — Canal: WhatsApp, SMS e E-mail — `Intent
+Type` **é** `Negative` — `Doesn't Contain` as listas de opt-out (2.9.5/2.9.6)
+e de ausência/auto-resposta (2.48/2.49), combinadas em E.
+
+| Configuração | Valor |
+|---|---|
+| Janela | Sem restrição, 24/7 — nenhum nó manda mensagem ao lead |
+| Allow Re-entry | Ligado |
+| Stop on Response | Desligado |
+
+| # | Ação | Configuração exata | Vai para |
+|---|---|---|---|
+| 1 | Find opportunity | Pipeline `FUNIL DE VENDAS` · "Most recently created opportunity" | 2 (Not Found segue mesmo assim) |
+| 2 | Add Contact Tag | `resposta-negativa` (T-28, novo) | 3 |
+| 3 | Update Contact Field (Math +1) | `Respostas negativas` (C-38, novo) | 4 |
+| 4 | Add Note | `Resposta com intenção negativa detectada em {{right_now}} (Intent Type nativo do GHL) — não é opt-out nem auto-resposta, mas também não é sinal quente; revisar antes de continuar a régua` | 5 |
+| 5 | Internal Notification | ao `Contact Owner`: `{{contact.name}} respondeu com sinal negativo (classificação nativa do GHL) — não pediu silêncio nem é auto-resposta, mas também não é "quero saber mais". A cadência que ele estava rodando já parou (Stop on Response nativo não distingue o motivo). Decida: desqualificar (Motivo da desqualificação) ou aguardar — não ligar "agora" como se fosse sinal quente.` | fim |
+
+**Pré-requisito:** campo `Respostas negativas` (C-38, `NUMERICAL`) e tag
+`resposta-negativa` (T-28) criados na tela — nenhum sai por API neste
+conector. Ambos `[ ]` em `APROVADO.md`.
+
+**Patch pendente na 2.9.3 (`Interceptação de Sinal — Resposta v2`, já
+publicada), não editado aqui pela convenção do `build-wesales.md` (só
+acrescentar no fim):** acrescentar `Intent Type não é Negative` ao filtro
+do gatilho já publicado, mesma mecânica do patch que o W25 (F-19) já deixou
+pendente para a lista de ausência. A 2.50/W27 (E-mail, F-21) ainda não foi
+montada — o filtro já nasce com a condição na própria especificação
+(`build-wesales.md`, seção 2.50, tabela "Configuração", linha "Gatilho").
+
+**Duas pendências de confiança, não resolvidas por suposição (mesma classe
+do W32):** (1) se `Intent Type` classifica tráfego `TYPE_CUSTOM_SMS` (o
+WhatsApp desta subconta via Stevo) do mesmo jeito que classifica canais
+nativos — o G-09 só confirmou isso para `Contains Phrase`; (2) quanto custa
+o filtro `Intent Type` por execução — a pesquisa desta rodada achou o preço
+do nó de ação `AI Intent Detection` (premium, US$ 0,01/execução), não do
+filtro do gatilho em si, e o domínio `gohighlevel.com` está bloqueado pelo
+proxy deste contêiner para verificação ao vivo (`ABERTURA.md`).
+
+**Teste:** num contato fictício com oportunidade aberta, simule uma
+resposta que a classificação nativa entenda como negativa (ex.: "não tenho
+interesse, obrigado") e confira: tag `resposta-negativa` aplicada,
+`Respostas negativas` +1, nota gravada, aviso ao `Contact Owner` — e que
+`Prioridade`/`fila-quente`/tarefa `ligar agora` **não** foram tocados.
+Repita com uma frase de opt-out explícito e confirme que quem dispara é o
+W14 (2.9.5), não este.
+
 ---
 
 # PARTE 3 — OPERAÇÃO (a dinâmica de alta produtividade)

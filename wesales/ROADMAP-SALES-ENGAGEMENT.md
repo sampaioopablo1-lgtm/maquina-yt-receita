@@ -5870,6 +5870,120 @@ rodada".
 
 ---
 
+### F-30 · A Interceptação de Sinal só filtra opt-out (R-17) e auto-resposta (F-19/F-20) — um "não tenho interesse" educado ainda vira Prioridade 5 e "ligar agora" (28/09/2026) — **FEITO em 28/09/2026 (especificação)**
+
+**Por quê:** pesquisando Reev/Meetime/Outreach/Salesloft de novo antes de
+considerar o bloco 6 esgotado (rotina obrigatória de todo item novo), achado
+que o próprio F-19 (`build-wesales.md`, seção 2.48) já tinha citado, sem
+usar, a peça que fecha esta lacuna: o gatilho `Customer Replied` filtra por
+`Contains Phrase`/`Exact Match`/tag/canal **e** `Intent Type` — filtro nativo
+que classifica o sentimento da resposta. O F-19 só perguntou se o `Intent
+Type` tinha uma categoria de "ausência" (não tem) e seguiu por lista de
+frases; ninguém voltou a perguntar se ele resolve o problema que motivou o
+R-17 e o F-19 na origem — separar "sinal quente" de "sinal que não é quente"
+— para o caso que nem um nem outro cobre: uma resposta genuína, não
+automática, que **recusa educadamente** ("não tenho interesse, obrigado",
+"já contratei outra agência", "não é pra mim agora"). Essa frase não bate
+nenhuma das 17 frases de opt-out (explícitas demais) nem nenhuma das 19 de
+ausência/auto-resposta (não é auto-resposta) — passa direto pela 2.9.3:
+`Prioridade` = 5, tag `fila-quente`, tarefa `[CADENCIA] ... ligar agora`. O
+SDR liga "agora" para um lead que acabou de dizer que não quer. Mesma classe
+de alarme falso que o F-19 corrigiu para ausência, agora para rejeição —
+e o mesmo `Stop on Response` nativo (seções 2.2/2.10) encerra a régua de 12
+tentativas no mesmo segundo, em silêncio, do jeito que o F-19 já descreveu
+para o outro caso.
+
+**Pesquisado antes de desenhar, com uma ressalva de método explícita:** o
+proxy deste contêiner bloqueia todos os domínios `gohighlevel.com`
+(`ABERTURA.md` já tinha medido isso em 27/09/2026 para outro fim) — não deu
+para abrir a documentação oficial ao vivo. A pesquisa saiu por busca externa
+(três consultas, fontes independentes: `help.gohighlevel.com` indexado por
+terceiros, blogs especializados em HighLevel) e todas convergem: o filtro
+`Intent Type` do gatilho `Customer Replied` classifica cada resposta em
+`POSITIVE`/`NEGATIVE`/`NONE` por IA nativa, embutido no próprio filtro do
+gatilho (não é o nó separado `AI Intent Detection`, que é ação premium
+cobrada por execução — o filtro do gatilho é dimensão de trigger, mesma
+família de `Contains Phrase`/canal que a 2.9.3/2.9.5 já usam sem custo
+extra conhecido). Nenhuma das quatro plataformas de referência (Reev,
+Meetime, Outreach, Salesloft) embute classificação de sentimento de graça
+no próprio gatilho de reply — quem tem isso paga um add-on de IA à parte ou
+constrói regra manual; o GHL oferece de graça, dentro do mesmo filtro que
+este projeto já usa desde o R-17, e nunca tinha sido lido até o F-19 citar
+de passagem. **Limite documentado, não escondido, do jeito que o F-06/F-29
+já registraram para os deles:** (1) é classificador de caixa-preta — não há
+como ver a confiança da classificação nem corrigir um falso `NEGATIVE` em
+resposta com ironia ou crítica construtiva ("não sei se funciona, mas manda
+mais informação"); por isso este item **nunca fecha a oportunidade nem
+aplica DND sozinho** — só evita o alarme falso e avisa, mesma filosofia do
+F-19, nunca decide por conta própria o que o R-17 decide com uma frase
+explícita; (2) não testado ao vivo se `Intent Type` classifica tráfego que
+chega como `TYPE_CUSTOM_SMS` (o WhatsApp desta subconta via Stevo, G-09) do
+mesmo jeito que classifica WhatsApp/e-mail nativos — o G-09 só confirmou isso
+para `Contains Phrase`; (3) custo do filtro por execução não confirmado
+(a mesma pesquisa que achou a lista de filtros não achou preço específico do
+`Intent Type` como dimensão de trigger, só do nó de ação `AI Intent
+Detection`, que é outra coisa) — conferir na tela antes de montar.
+
+**Como — filtro do gatilho, aditivo às duas listas já existentes:**
+`Intent Type` **não é** `Negative`, combinado em E com os `Doesn't Contain`
+de opt-out (2.9.5/2.9.6, 17 frases) e de ausência/auto-resposta (F-19/F-20,
+19 frases, seção 2.48) — nas duas Interceptações de Sinal que já existem
+(2.9.3, WhatsApp/SMS, publicada) e na que ainda está só especificada (2.50,
+E-mail, F-21, W27 no `IMPLEMENTACAO-WORKFLOWS.md`, ainda não montada).
+
+**Como — workflow novo "Resposta com Intenção Negativa", um só para os três
+canais que a operação usa (lição do F-19→F-20 aplicada desde o início, não
+depois — mesma lição que o F-21 já citou para si mesmo):**
+
+| Configuração | Valor |
+|---|---|
+| Gatilho | `Customer Replied` — Canal: WhatsApp, SMS e E-mail — `Intent Type` **é** `Negative` — `Doesn't Contain` as duas listas (opt-out + ausência), combinadas em E: uma resposta que já bate uma das duas listas segue pelo workflow dela (2.9.5/2.9.6/F-19/F-20), nunca duplica aviso aqui |
+| Janela de envio | Sem restrição, 24/7 — nenhum nó manda mensagem ao lead, mesmo padrão do 2.9.5/2.48/2.50 |
+| Allow Re-entry | Ligado — cada resposta negativa é um evento novo, mesmo raciocínio do 2.9.5/F-19 |
+| Stop on Response | Desligado |
+
+| # | Nó | Ação | Configuração |
+|---|---|---|---|
+| 1 | Buscar oportunidade | Find opportunity | Pipeline `FUNIL DE VENDAS` · "Most recently created opportunity". Ramo **Opportunity Not Found**: segue mesmo assim (auditoria é do contato, mesmo padrão do F-19 nó 1) |
+| 2 | Marcar | Add Contact Tag | `resposta-negativa` (T-28, pulso de auditoria — mesma ideia da `toque`/T-15 e da `resposta-automatica`/T-23: registra o evento, nunca vira estado permanente) |
+| 3 | Contar | Update Contact Field (Math +1) | `Respostas negativas` (C-38, `NUMERICAL`) — mesmo padrão cumulativo de C-33/C-34/C-35/C-36/C-37: sem contador, "quantas vezes a base recusou sem pedir silêncio" não aparece em lugar nenhum |
+| 4 | Registro | Add Note | `Resposta com intenção negativa detectada em {{right_now}} (Intent Type nativo do GHL, POSITIVE/NEGATIVE/NONE) — não é opt-out nem auto-resposta, mas também não é sinal quente; revisar antes de continuar a régua` |
+| 5 | Aviso, sempre | Internal Notification | Para `Contact Owner`: `{{contact.name}} respondeu com sinal negativo (classificação nativa do GHL) — não pediu silêncio nem é auto-resposta, mas também não é "quero saber mais". A cadência que ele estava rodando já parou (Stop on Response nativo não distingue o motivo). Decida: desqualificar (Motivo da desqualificação) ou aguardar — não ligar "agora" como se fosse sinal quente.` |
+
+**Patch pendente na 2.9.3 (`Interceptação de Sinal — Resposta v2`, já
+publicada, mesma mecânica do patch que o F-19 já deixou pendente para a
+lista de ausência):** acrescentar `Intent Type não é Negative` ao filtro do
+gatilho — mecânico, não decisão, próximo passo de quem tiver a tela. Na
+2.50 (E-mail, F-21), que **ainda não foi montada**, o filtro já nasce com a
+condição desde a especificação (`build-wesales.md`, seção 2.50, atualizada
+no mesmo commit) — não precisa de patch porque não há nada publicado para
+remendar ainda, mesma diferença que o próprio F-21 já registrou para o
+2.9.3 versus o W27.
+
+**Zero redesenho dos workflows existentes além do filtro do gatilho:** a
+2.9.3 e a 2.50 continuam tratando toda resposta que sobra (positiva, neutra,
+ou negativa-mas-já-capturada-por-opt-out/ausência) exatamente como hoje —
+este item só tira mais uma fatia do que "sobra" para a 2.9.3/2.50
+escalonarem como sinal quente por engano, mesmo papel que o F-19 já cumpriu
+para a fatia de ausência.
+
+**Pronto quando:** um lead que responde recusando educadamente (sem opt-out
+explícito, sem ser auto-resposta) não gera `Prioridade` = 5 nem tarefa
+`ligar agora` na 2.9.3/2.50, e fica registrado (tag + contador + aviso ao
+gestor) em vez de virar uma ligação indesejada — e o primeiro caso real
+confirma as duas pendências que este item regista em vez de supor: se
+`Intent Type` classifica tráfego `TYPE_CUSTOM_SMS` da Stevo, e quanto custa
+por execução. Detalhe nó a nó em `build-wesales.md`, seção 2.60; tag e campo
+em `campos-e-tags.md` (T-28, C-38); ambos nascem `[ ]` em `APROVADO.md`.
+`IMPLEMENTACAO-WORKFLOWS.md` (W33) e `GUIA-MONTAGEM.md` atualizados no
+mesmo commit. Zero campo, zero tag, zero escrita no CRM nesta rodada. CRM
+reconfirmado por API antes de desenhar: 64 oportunidades, mesma composição
+de sempre; 60 campos de contato, sem novidade. F-09, F-10, G-11 (item 1),
+G-19, G-27/G-29 e G-31 continuam sendo as decisões sem prazo fixo que
+esperam o dono, sem mudança nesta rodada.
+
+---
+
 ## Ordem sugerida
 
 **Bloco 0 (G-01) fechado em 19/09/2026, antes de tudo o resto desta seção:**
@@ -7869,3 +7983,39 @@ próxima vez: o parágrafo de fechamento vale para qualquer prefixo (`F-`,
 `G-`, `R-`) que altere esta lista ou feche citando "sem mudança nesta
 rodada" — não só para `G-`, que era a única família em que a regra tinha
 sido testada quando o G-24 a escreveu (`APRENDIZADOS-CRM.md`).
+
+**F-30 aberto e fechado (especificação) em 28/09/2026, sessão automática
+seguinte — reconciliação de sempre antes de desenhar, seguindo a própria
+regra do G-36 acima (o parágrafo de fechamento vale para qualquer prefixo):**
+`git fetch` nas duas branches irmãs (`abertura-operacao-dnd-n7dnjv`,
+atualizada 28/09 ~02:53 UTC, mesmo commit que o F-29/G-36 já tinham lido;
+`abertura-operacao-dnd-ib6xaz`, sem commit novo desde 27/09 18:03 UTC — o
+único commit dela é de outro projeto deste repositório, fora de `wesales/`)
+não achou resposta nova para F-09, F-10, G-11 (item 1), G-19, G-27/G-29 ou
+G-31. CRM reconfirmado por API antes de desenhar: `opportunities_search-
+opportunity` segue em 64 oportunidades, mesma composição; `locations_get-
+custom-fields` segue em 60 campos de contato, sem novidade (`SDR
+responsável` ainda só com `Andreyna Siqueira`, `Sinal recebido` ainda com
+só duas das quatro opções que F-21/F-27 já pediram). Sem achado de
+reconciliação, a sessão foi à pesquisa de concorrência de sempre — desta
+vez relendo o próprio F-19 (que já citava o filtro `Intent Type` do
+gatilho `Customer Replied` sem usá-lo) em vez de comparar contra
+Reev/Meetime/Outreach/Salesloft direto. A lacuna: a Interceptação de Sinal
+(2.9.3/2.50) só exclui opt-out (R-17) e auto-resposta (F-19/F-20) — uma
+recusa educada e genuína ("não tenho interesse") ainda vira `Prioridade` =
+5 e "ligar agora". Fechado como **F-30**: filtro nativo `Intent Type não é
+Negative` acrescentado às duas Interceptações de Sinal (patch pendente na
+2.9.3, já publicada; direto na especificação da 2.50, ainda não montada) e
+workflow novo "Resposta com Intenção Negativa" cobrindo os três canais
+desde o início (lição do F-19→F-20 aplicada de saída), tag
+`resposta-negativa` (T-28) e campo `Respostas negativas` (C-38), ambos
+nascendo `[ ]` em `APROVADO.md`. Duas pendências de confiança registradas,
+não escondidas (mesmo padrão do F-06/F-29): se `Intent Type` classifica
+tráfego `TYPE_CUSTOM_SMS` da Stevo, e o custo por execução do filtro — a
+pesquisa não achou preço, e o domínio oficial (`gohighlevel.com`) segue
+bloqueado pelo proxy deste contêiner para verificação ao vivo (mesmo
+achado que `ABERTURA.md` já tinha registrado em 27/09/2026 para outro
+fim). `IMPLEMENTACAO-WORKFLOWS.md` (W33) e `GUIA-MONTAGEM.md` atualizados
+no mesmo commit. Zero campo, zero tag, zero escrita no CRM nesta rodada.
+F-09, F-10, G-11 (item 1), G-19, G-27/G-29 e G-31 continuam sendo as
+decisões sem prazo fixo que esperam o dono, sem mudança nesta rodada.

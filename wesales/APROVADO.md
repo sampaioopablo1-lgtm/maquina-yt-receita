@@ -486,6 +486,27 @@ manual (não sai por API para ninguém, nem ler nem escrever pipeline além do
       `open` mudou de 49 para 48 com esta correção — a oportunidade da
       `Francisca` saiu do lote ativo sem apagar nada (regra 1).
 
+- [ ] Criar a 28ª tag, `resposta-negativa` — nasceu no F-30 (Resposta com
+      Intenção Negativa), especificada em `campos-e-tags.md` (T-28) e
+      `build-wesales.md` (seção 2.60). Nasce `[ ]` de propósito, mesma regra
+      desde o incidente da tag `toque`/T-15 em 19/09/2026: linha que a
+      própria rotina acrescenta não é autorização, vira `[x]` quando o dono
+      trocar, num commit que não é o meu.
+
+- [ ] Criar o campo `Respostas negativas` (NUMERICAL) — nasceu junto com a
+      T-28, mesmo item (F-30): contador cumulativo de quantas vezes o
+      filtro nativo `Intent Type` do gatilho `Customer Replied` classificou
+      uma resposta como `Negative` sem ela ser opt-out nem auto-resposta.
+      Campo personalizado não sai por API neste conector (é criação na
+      tela). Nasce `[ ]`. **Depende de duas confirmações que ainda não
+      existem** (registradas em `build-wesales.md`, seção 2.60): se
+      `Intent Type` classifica tráfego `TYPE_CUSTOM_SMS` (o WhatsApp desta
+      subconta via Stevo, mesma ressalva do G-09) do mesmo jeito que
+      classifica canais nativos, e quanto custa por execução — o domínio
+      `gohighlevel.com` está bloqueado pelo proxy deste contêiner
+      (`ABERTURA.md`, 27/09/2026), então a pesquisa desta rodada saiu por
+      busca externa, não por leitura direta da documentação oficial.
+
 ### Mensagens
 
 - [ ] Enviar mensagem por WhatsApp a partir da subconta (SMS saiu por decisão do dono em 19/09/2026 — não é canal de contato com lead neste projeto)

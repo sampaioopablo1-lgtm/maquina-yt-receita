@@ -6916,3 +6916,26 @@ nesta família, confira o fim do arquivo, não o nome do prefixo.
 oportunidades, 60 campos de contato), nenhuma novidade nas seis decisões
 que esperam o dono. Zero campo, zero tag, zero escrita no CRM: item de
 coerência dentro do próprio roadmap, mesma classe do G-24.
+
+## O bloqueio de rede do proxy não é só `gohighlevel.com` — cobre qualquer site sobre HighLevel — 28/09/2026
+
+`ABERTURA.md` (27/09/2026) já tinha medido que os domínios `gohighlevel.com`
+respondem `000` pelo proxy deste contêiner. Ao pesquisar o F-30 (filtro
+nativo `Intent Type`), `WebFetch` foi tentado contra quatro páginas
+**fora** de `gohighlevel.com` que discutem o produto — `help.gohighlevel.com`
+(subdomínio), `extendly.helpjuice.com`, `consultevo.com` e
+`danishhussains.com` — e as quatro devolveram `EGRESS_BLOCKED`, não só a
+primeira. O bloqueio não é por nome de domínio específico, é por categoria
+(conteúdo sobre HighLevel/GHL, de qualquer origem).
+
+**O que ainda funciona:** a ferramenta `WebSearch` (busca hospedada, não
+passa pelo `WebFetch`/proxy deste contêiner da mesma forma) continua
+devolvendo resultados sintetizados de múltiplas fontes independentes sobre
+o mesmo assunto — foi o caminho usado para confirmar o filtro `Intent Type`
+com três consultas cruzadas, sem conseguir abrir a página original de
+nenhuma delas.
+
+**Regra prática:** antes de gastar uma tentativa de `WebFetch` numa página
+sobre GoHighLevel/HighLevel (documentação oficial, blog de consultoria,
+fórum), assuma que vai bloquear e vá direto para `WebSearch` com 2-3
+consultas cruzadas — mais rápido e o resultado já vem com fontes citadas.

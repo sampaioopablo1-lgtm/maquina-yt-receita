@@ -4,7 +4,7 @@
 da sua confirmação, item por item. A auditoria pode cortar linhas desta lista
 (campo que já existe é reaproveitado, nunca duplicado).
 
-## Etapa 2 — Campos personalizados (55 + 1 sugerido)
+## Etapa 2 — Campos personalizados (56 + 1 sugerido)
 
 > **Onde mora a contagem.** Só este título conta campos, e só ele. Os títulos
 > de seção perderam o número de propósito: eram quatro lugares para errar cada
@@ -54,6 +54,7 @@ Todos no objeto **contato**. Tipo é o `dataType` da API do GHL.
 | C-35 | Bounces de e-mail | NUMERICAL | — | Workflow (F-25) |
 | C-36 | Voicemails automáticos | NUMERICAL | — | Workflow (F-26) |
 | C-37 | Números de WhatsApp inválidos | NUMERICAL | — | Workflow (F-29) |
+| C-38 | Respostas negativas | NUMERICAL | — | Workflow (F-30) |
 
 C-09 a C-12 abrem `Total de ligações`/`Total de conexões` (C-06/C-07) por
 canal — sem eles não dá para responder "a T7 do telefone conecta mais que a
@@ -295,6 +296,17 @@ guarda por `voicemail-enviado`/T-26 antes de chegar aqui), então também
 serve como "quantos leads distintos receberam voicemail", não só "quantos
 voicemails saíram".
 
+C-38 fecha o F-30 (`ROADMAP-SALES-ENGAGEMENT.md`, `build-wesales.md` seção
+2.60): conta, cumulativamente, quantas vezes o filtro nativo `Intent Type`
+do gatilho `Customer Replied` classificou uma resposta como `Negative` sem
+ela ser opt-out (2.9.5/2.9.6) nem auto-resposta (C-33) — mesmo padrão de
+contador de evento que C-06/C-07/C-11/C-12/C-26/C-31 a C-36, incrementado
+por `Math +1`, nunca sobrescrito. **Não é a mesma população que C-33:**
+C-33 soma resposta automática (a pessoa não leu a mensagem); C-38 soma
+resposta genuína com sentimento negativo (a pessoa leu e recusou) — somar
+os dois no mesmo campo confundiria "ninguém em casa" com "recusou", mesmo
+raciocínio que já separou C-34 de C-13 e C-31/C-32 de C-09.
+
 C-25 fecha o horário aprendido por segmento (`build-wesales.md`, seção 2.18,
 F-02 do roadmap): grava só a **hora** (não o carimbo completo) em que o lead
 `Atendeu`, para cruzar com `Segmento` (Q-01) numa lista e enxergar se um
@@ -501,7 +513,7 @@ fiação do workflow é relato da outra branch, dado, não confirmado nó a nó
 por aqui. Detalhe e "Pronto quando" (cumprido, é reconciliação, não decisão
 pendente) em `ROADMAP-SALES-ENGAGEMENT.md`, **G-32**.
 
-## Etapa 3 — Tags (27 numeradas, dez pendentes de aprovação — e 12 na conta fora da numeração)
+## Etapa 3 — Tags (28 numeradas, onze pendentes de aprovação — e 12 na conta fora da numeração)
 
 > **Onde mora a contagem das tags fora da numeração.** Só este título e a
 > linha abaixo contam; qualquer outro documento que precisar dizer "a conta
@@ -514,8 +526,8 @@ pendente) em `ROADMAP-SALES-ENGAGEMENT.md`, **G-32**.
 > e o "25" (na verdade 27) para `build-wesales.md` §2.32; os dois corrigidos
 > junto — detalhe em `ROADMAP-SALES-ENGAGEMENT.md`, G-20.
 
-As 27 são as tags **deste projeto**: T-01 a T-15 e T-21/T-22 criadas, T-16 a
-T-20 e T-23 a T-27 esperando `[x]` no `APROVADO.md`. **T-21 e T-22 não seguiram a fila do
+As 28 são as tags **deste projeto**: T-01 a T-15 e T-21/T-22 criadas, T-16 a
+T-20 e T-23 a T-28 esperando `[x]` no `APROVADO.md`. **T-21 e T-22 não seguiram a fila do
 `[x]`** — o dono criou as duas direto pelo próprio caminho (`tools/
 build_estagnacao.py`, PC dele, 23/09/2026, depois do horário em que a T-21
 foi especificada aqui) junto com os dois workflows que as aplicam; ver as
@@ -561,6 +573,7 @@ diferentes; quem for conferir na tela vê 29.
 | T-25 | `email-invalido` | **Aguardando aprovação em `APROVADO.md` — não criada ainda.** Higiene de E-mail — Bounce (F-25, `build-wesales.md` seção 2.56): aplicada pelo workflow "Higiene de E-mail — Bounce" quando um envio da operação bate (`Email Events`/`Bounced`) — marcador permanente, mirror de `telefone-invalido`/T-09 para o canal e-mail, **não** a mesma tag que `nao-perturbe`/T-06 (bounce é falha de entrega, não pedido de silêncio) |
 | T-26 | `voicemail-enviado` | **Aguardando aprovação em `APROVADO.md` — não criada ainda.** Voicemail Automático (F-26, `build-wesales.md` seção 4, nós 5-9 do ramo `Caixa Postal`/`Não atendeu`): aplicada pelo `Pós-ligação` na primeira vez que o telefone (nunca o WhatsApp) cai em caixa postal/não atende, para o `Ringless Voicemail (Voicemail Drop)` nativo disparar **uma única vez por lead** na régua, não a cada toque perdido; marcador permanente, sem limpeza própria (dura a vida do lead na régua, mesmo padrão de `email-invalido`/T-25 e `email-engajado`/T-24) |
 | T-27 | `whatsapp-invalido` | **Aguardando aprovação em `APROVADO.md` — não criada ainda.** Higiene de WhatsApp — Número Inválido (F-29, `build-wesales.md` seção 2.59): aplicada pelo workflow novo quando o gatilho `Messaging Error Code - SMS` reporta um código de número inatingível/inexistente numa mensagem de WhatsApp (transportada pela Stevo, tipada como SMS — G-09); marcador permanente, mirror de `telefone-invalido`/T-09 e `email-invalido`/T-25 para o canal WhatsApp; portão pendente em todo `Send WhatsApp`/`Send SMS` da operação (patch cirúrgico, ainda não aplicado) |
+| T-28 | `resposta-negativa` | **Aguardando aprovação em `APROVADO.md` — não criada ainda.** Resposta com Intenção Negativa (F-30, `build-wesales.md` seção 2.60): aplicada pelo workflow novo quando o filtro nativo `Intent Type` do gatilho `Customer Replied` classifica a resposta como `Negative` sem ela bater a lista de opt-out (2.9.5/2.9.6) nem a de ausência (T-23); pulso de auditoria, mesma ideia da `toque`/T-15 e da `resposta-automatica`/T-23, soma em `Respostas negativas` (C-38) e não precisa de limpeza própria; cobre os três canais (WhatsApp/SMS/E-mail) num só workflow, desde o início |
 
 Todas em minúsculas com hífen. O GHL normaliza tags para minúsculas, então
 `Fila-Quente` e `fila-quente` são a mesma tag — o que ajuda a não duplicar.
@@ -595,7 +608,9 @@ segue a mesma regra** — nasce `[ ]`, ainda não saiu por API. **T-26
 — nasce `[ ]`, ainda não saiu por API, e não monta na tela antes de o F-09
 ter decisão do dono (`build-wesales.md`, seção 4). **T-27
 (`whatsapp-invalido`, nascida do F-29 em 28/09/2026) segue a mesma regra**
-— nasce `[ ]`, ainda não saiu por API.
+— nasce `[ ]`, ainda não saiu por API. **T-28 (`resposta-negativa`, nascida
+do F-30 em 28/09/2026) segue a mesma regra** — nasce `[ ]`, ainda não saiu
+por API.
 
 ## O que eu preciso de você para executar
 
