@@ -52,7 +52,7 @@ BANT = [
     ("2tLo2m4KLTcP6fTEq3LG", "Instagram", 120),
     ("f1jNltRYjcrgKUZlxo8z", "Site", 130),
     # N
-    ("OJQEsl5dV37pfVY2sIaB", "N · Necessidade (anúncio)", 200),
+    ("OJQEsl5dV37pfVY2sIaB", "N · Necessidade (anúncio)", 50),
     ("qmIKSSDVYNLl5E8vnr3f", "N · Dor principal", 210),
     ("wmod0p91VuukwWDwKCgi", "N · Clientes novos por mês", 220),
     ("xjEcIFfdt2h29wBaKMQO", "N · Quem atende os leads", 230),
@@ -62,11 +62,11 @@ BANT = [
     ("O500dbTabWUJwnBKwuUl", "N · Já teve agência?", 270),
     ("QyEDg0qFlQ3gra5qZsJF", "N · Experiência com agência", 280),
     # T
-    ("2LnUD4KYSGkIBwiUdzl3", "T · Urgência (anúncio)", 300),
-    ("lAqbaJE9K4LDkq3t2zzc", "T · Prazo", 310),
+    ("2LnUD4KYSGkIBwiUdzl3", "T · Urgência (anúncio)", 52),
+    ("lAqbaJE9K4LDkq3t2zzc", "T · Prazo", 58),
     # B
-    ("bQithNwReQIBGlZBaNlI", "B · Investimento mensal em anúncios (anúncio)", 400),
-    ("x5JUx0YCWaZmH3Q85psI", "B · Investe em anúncios", 410),
+    ("bQithNwReQIBGlZBaNlI", "B · Investimento mensal em anúncios (anúncio)", 54),
+    ("x5JUx0YCWaZmH3Q85psI", "B · Investe em anúncios", 56),
     ("f5bd9nBObV1cGgejAzdv", "B · Plataformas de anúncio", 420),
     ("SZVgh0Y5HRcWWZG4fO9V", "B · Budget", 430),
     # A
