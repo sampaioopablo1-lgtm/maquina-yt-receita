@@ -76,6 +76,23 @@ tem a função.
 - Feito em:
 - Bloqueio:
 
+### [ ] 5. Lead promovido a CONECTAR sem `etapa-conectar` e sem T1 (conferir o gatilho)
+- **Por quê:** em 28/09 os 3 leads que entraram depois das 14:00 (contatos `rDdjNJj8THKGqSWVDe0J`
+  14:26, `8z8iEHpclHoLAFTfnJU2` 16:24 e `bdz3szInSNrPJQGrplOF` 16:32) estão com a oportunidade em
+  CONECTAR, mas o contato ficou com `etapa-novo-lead` (sem `etapa-conectar`); os 2 mais novos também
+  não receberam `fila-tel`/`fila-quente`. Os 3 leads da manhã, promovidos às 14:42, trocaram a tag
+  certo. Se a troca de etapa não dispara os workflows que ouvem "entrou em CONECTAR", a Cadência
+  12x30 (T1) e o alerta de speed-to-lead não rodam para esses leads.
+- **Como:** abrir um dos 3 contatos → Automações/Histórico e ver se "Cadência 12x30" e o workflow
+  de tag de etapa foram acionados. Se não: ver como a oportunidade foi movida (API/atuador × tela ×
+  workflow) e garantir que o caminho usado dispare "Opportunity Stage Changed" (ou incluir a troca de
+  tag e o início da cadência na própria ação que move). Se sim: só a tag do contato está atrasada e
+  basta um ajuste no workflow de tags.
+- **Conferência:** próximo lead novo chega em CONECTAR com `etapa-conectar` e `fila-tel` em até 15 min,
+  e o histórico do contato mostra a Cadência 12x30 iniciada.
+- Feito em:
+- Bloqueio:
+
 ## Aplicados
 
 (os itens vêm para cá depois de marcados)
