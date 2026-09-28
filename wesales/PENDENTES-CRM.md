@@ -24,9 +24,11 @@ tem a função.
   "Ligar pelo WhatsApp" → compartilhar com as SDRs.
 - **Detalhe:** `wesales/VISAO-LIGAR-WHATSAPP.md` e Passo 3 do playbook.
 - Feito em:
-- Bloqueio:
+- Bloqueio: **manual do dono (admin)**, 28/09. A API não cria visão de Conversas; pela tela
+  automatizada o painel Filtros abre (Tipo de filtro tem `Tag`), mas salvar/compartilhar a visão
+  é do admin na tela. Passo a passo no playbook (Passo 3). A tag já é mantida (item 2).
 
-### [ ] 2. Conferir que a cadência publicada aplica `fila-wa`
+### [x] 2. Conferir que a cadência publicada aplica `fila-wa`
 - **Por quê:** sem isso a visão do item 1 fica vazia.
 - **Como:** abrir a Cadência 12x30 publicada (e Inbound e Reengajamento) e
   confirmar que as tentativas de ligação por WhatsApp (T2, T4, T5, T7, T9,
@@ -34,16 +36,24 @@ tem a função.
   aplicarem, ajustar.
 - **Conferência:** um lead de teste recebe `fila-wa` na tentativa e aparece
   na visão.
-- Feito em:
+- Feito em: 28/09 (máquina local). **Conferido: nenhum workflow publicado põe `fila-wa`**
+  (12x30, 12x30 p2, Inbound, Pós-ligação v3, Mestre de saída v2 e Opt-out só tiram). Em vez de
+  editar as 3 cadências (dezenas de nós), o atuador das filas (PR #116, a cada 30 min) põe
+  `fila-wa` em: CONECTAR, com telefone, 1+ tentativa por telefone sem conexão, sem
+  `falou-hoje`/`wa-feito-hoje`/`nao-perturbe`. Workflow novo "WhatsApp tentado hoje"
+  (`1c247efc-7f6f-4028-b328-6ab51103c3da`): Canal = WhatsApp → `wa-feito-hoje` 12 h e tira
+  `fila-wa` → 1 ligação de WhatsApp por lead por dia. Hoje 0 elegíveis (contadores começam
+  com as ligações de hoje).
 - Bloqueio:
 
-### [ ] 3. Conferir que o Pós-ligação remove `fila-wa`
+### [x] 3. Conferir que o Pós-ligação remove `fila-wa`
 - **Por quê:** sem isso o lead fica preso na visão.
 - **Como:** no Pós-ligação publicado, confirmar a remoção de `fila-tel` e
   `fila-wa` depois de ler o canal (`build-wesales.md`, nós 3b/5 da seção 4).
 - **Conferência:** registrar Canal = WhatsApp e um Resultado no lead de
   teste; a tag sai e o lead some da visão.
-- Feito em:
+- Feito em: 28/09 (máquina local). Pós-ligação v3 publicado tira `fila-wa` em 6 nós; e agora o
+  "WhatsApp tentado hoje" também tira na hora em que o Canal = WhatsApp é marcado.
 - Bloqueio:
 
 ## Aplicados
