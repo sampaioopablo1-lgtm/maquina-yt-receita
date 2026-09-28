@@ -8749,3 +8749,94 @@ este achado não tira nem acrescenta nenhuma a essa lista (G-04 já tinha
 saído dela pelo G-33; esta rodada só corrigiu o registro). CRM
 reconfirmado por API antes de fechar: 66 oportunidades, 60 campos de
 contato, sem novidade além do já registrado acima.
+
+### G-41 · A própria regra 9.2 (`Prioridade`) tem uma ordem que perde a higiene de base e um furo de cobertura — os dois já documentados no script que roda a operação real, nunca promovidos a item deste roadmap (28/09/2026) — **FEITO em 28/09/2026 (correção de especificação)**
+
+**Por quê:** reconciliação de sempre antes de desenhar — `git fetch` nas
+branches irmãs não achou commit novo em `claude/abertura-operacao-dnd-
+n7dnjv` (`cd004af`, mesmo do G-38/G-39/F-33/G-40) nem em `claude/abertura-
+operacao-dnd-ib6xaz` (repositório da máquina de vídeo, sem relação com
+`wesales/`). CRM reconfirmado por API: `opportunities_search-opportunity`
+(`status=all`) confirma **67** oportunidades (1 a mais que a última leitura
+— `Flávia Do`, lead novo em `NOVO LEAD`, crescimento orgânico, não achado);
+`locations_get-custom-fields` (`model=contact`) segue em **60** campos, sem
+campo novo. `mcp__github` confirma que o PR desta branch mudou de número
+(#93, citado no G-19/G-35, fechou sem merge; o aberto hoje é o **#102**,
+mesma base `claude/youtube-publication-next-steps-v7o4el`) — sem
+consequência: o G-19 já generalizava "o número muda toda vez que um fecha e
+outro abre", nada para corrigir. Sem achado de reconciliação, a sessão
+conferiu se os seis itens que esperam decisão do dono (F-09, F-10, G-11
+item 1, G-19, G-27/G-29, G-31) tiveram a premissa vencida — nenhuma: 0
+oportunidades `won` (F-18 segue bloqueado), só 2 conversas automáticas
+outbound e as duas são teste do próprio dono, não tráfego de cadência real
+(R-14 segue corretamente bloqueada).
+
+**Como — a lacuna veio de uma pergunta que nenhuma rodada tinha feito
+ainda: por que 8 leads reais amostrados em `CONECTAR`, todos com
+`Tentativa nº` = 0, carregavam `Prioridade` = 4 sem nenhum workflow deste
+projeto ter escrito isso?** A primeira hipótese (o `T · Prazo` = "Pra
+ontem" do F-33 já estaria influenciando `Prioridade`) não resistiu à
+amostra — os 8 leads tinham "Pra ontem" **e** `Prioridade` = 4, mas também
+tinham `atraso-1a-tentativa` (o tag de SLA do R-02) e zero tentativas,
+então a amostra sozinha não separava as duas causas. A resposta real, lida
+em `wesales/tools/atuador_filas.py` (branch irmã, só leitura — o script
+**lê** `Prioridade` para montar fila, nunca escreve nela desde 28/09) e
+depois em `wesales/tools/recalcula_prioridade.py` (mesma branch): o G-25
+desta mesma sequência de rodadas já tinha registrado que o dono rodou
+`recalcula_prioridade.py --aplicar` em 27/09 21:04 UTC para soltar os 31
+leads represados na abertura — o script implementa a regra 9.2 **como
+está escrita**, e por isso reproduz o defeito que ela já tinha antes de
+qualquer script existir.
+
+O docstring do script (lido por inteiro, não só o cabeçalho) já documentava
+os dois defeitos, sem nenhuma rodada deste roadmap ter promovido isso a
+item — mesma classe de G-16/G-17/G-19/G-21 ("achado técnico completo num
+lugar vizinho, nunca promovido a item rastreável"), desta vez o "lugar
+vizinho" é o docstring de um script na branch irmã, não um `.md` deste
+projeto:
+
+1. **Ordem perde a higiene.** A regra de `nutricao-90d`/`telefone-invalido`
+   morava na posição 8 (a última); a regra de `Tentativa nº` ≤ 2 morava na
+   5 e casa primeiro — "primeira regra que casar, ganha" (topo da seção
+   9.2). Um lead com telefone inválido e 0-2 tentativas (o caso mais comum:
+   a tag nasce perto da 1ª tentativa, quando o discador rejeita o número)
+   nunca alcançava a regra 8: saía com `Prioridade` 4 (fila quente) em vez
+   de 1. O `--dump` do script já marcava isso como `[9.2-r8-perdeu]`.
+2. **Furo de cobertura.** A regra de `Tentativa nº` ≥ 8 só valia com
+   `Total de conexões` = 0; um lead com 8+ tentativas que já conectou ao
+   menos uma vez, mas nunca produziu `Pediu retorno` nem nota, não casava
+   em regra nenhuma — o script marcava `[9.2-sem-regra]` e não escrevia
+   nada, em vez de inventar valor.
+
+**Corrigido na fonte, `build-wesales.md` seção 9.2 (não neste roadmap — a
+tabela é lá; aqui só o registro):** a regra de higiene subiu para a posição
+5, depois das quatro regras de sinal/nota (1-4, que continuam decidindo
+primeiro quando há sinal real — um lead que respondeu ou tirou nota alta
+não perde fila por uma tag de higiene que, nesses casos, já não descreve o
+estado real dele) e antes das três regras de `Tentativa nº` (agora 6-8). A
+condição `e Total de conexões = 0` da antiga regra 7 foi removida — 8+
+tentativas envelhece a fila do mesmo jeito, tenha conectado antes ou não,
+mesmo raciocínio que já separa as faixas 3-7 de 8+. A nota de coerência do
+F-33 (mesma seção) foi renumerada para bater com a tabela corrigida (regras
+3, 6, 7, 8 em vez de 3, 5, 6, 7). O achado do "nenhum workflow remove
+`telefone-invalido` fora do F-11" (reenvio de formulário) ficou registrado
+na própria seção 9.2, sem virar item novo — mesma classe de L-03/L-06,
+achado sem urgência.
+
+**O que este achado não é:** não é uma decisão de negócio — hygiene sempre
+deveria vencer "lead fresco", não é escolha do dono, é bug de ordenação.
+Não muda `Prioridade` de nenhum lead real (o script que a escreve mora na
+branch irmã, fora do escopo desta sessão — regra 5, só `wesales/`); a
+próxima vez que alguém rodar `recalcula_prioridade.py --aplicar` lá, a
+tabela corrigida aqui é a referência para atualizar o script também, não
+esta rodada. Não reabre G-25/G-31 (a soltura dos 31 leads em 27/09 já
+aconteceu e não muda). Zero campo, zero tag, zero escrita no CRM: item de
+correção de especificação, não depende de `APROVADO.md`.
+
+**Pronto quando:** cumprido nesta rodada — a tabela da seção 9.2 não tem
+mais regra que hygiene perde para `Tentativa nº`, nem faixa de `Tentativa
+nº` sem regra que a cubra; a nota de coerência do F-33 bate com a nova
+numeração. F-09, F-10, G-11 (item 1), G-19, G-27/G-29 e G-31 continuam
+sendo as seis decisões sem prazo fixo que esperam o dono, sem mudança
+nesta rodada. CRM reconfirmado por API antes de fechar: 67 oportunidades,
+60 campos de contato, sem novidade além do já registrado acima.

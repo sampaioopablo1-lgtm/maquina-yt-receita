@@ -7665,20 +7665,57 @@ documentada para a lista `Retornos` (8.4), que já filtra só pelo campo.
 | 2 | `Nota de qualificação` ≥ 70 | 5 |
 | 3 | Respondeu mensagem (tem conversa de entrada) **ou** `Permissão WhatsApp` = `Sim` | 4 |
 | 4 | `Nota de qualificação` entre 45 e 69 | 4 |
-| 5 | `Tentativa nº` ≤ 2 | 4 |
-| 6 | `Tentativa nº` entre 3 e 7 | 3 |
-| 7 | `Tentativa nº` ≥ 8 **e** `Total de conexões` = 0 | 2 |
-| 8 | tag `nutricao-90d` **ou** `telefone-invalido` presente | 1 |
+| 5 | tag `nutricao-90d` **ou** `telefone-invalido` presente | 1 |
+| 6 | `Tentativa nº` ≤ 2 | 4 |
+| 7 | `Tentativa nº` entre 3 e 7 | 3 |
+| 8 | `Tentativa nº` ≥ 8 | 2 |
 
-Regra 5 (lead novo com prioridade alta) é o que mantém a fila do SDR
+**Correção de ordem e de cobertura, G-41 (28/09/2026):** a regra de higiene
+(tag `nutricao-90d`/`telefone-invalido`, hoje na posição 5) morava na
+posição 8, depois das três regras que só olham `Tentativa nº` — "primeira
+regra que casar, ganha" fazia um lead recém-tagueado `telefone-invalido`
+(0-2 tentativas, o caso mais comum: a tag nasce cedo, perto da 1ª tentativa)
+casar na regra de `Tentativa nº` ≤ 2 antes de chegar à de higiene, saindo
+com `Prioridade` 4 (fila quente) em vez de 1 (fora da fila ativa). Corrigido
+subindo a regra de higiene para antes das três regras de `Tentativa nº` —
+depois das quatro regras de sinal/nota (1-4), que continuam decidindo
+primeiro quando há sinal real, mesmo com tag de higiene presente (um lead
+que respondeu ou tirou nota alta não deveria perder a fila por uma tag que,
+nesses dois casos, já não descreve o estado real do lead). A antiga regra 7
+(`Tentativa nº` ≥ 8 **e** `Total de conexões` = 0) também tinha um furo: um
+lead com 8+ tentativas que já conectou ao menos uma vez, mas nunca produziu
+`Pediu retorno` nem nota, não casava em regra nenhuma — ficava sem
+`Prioridade` escrita. Removida a condição `e Total de conexões = 0`: os dois
+casos (nunca conectou, conectou e não avançou) envelhecem do mesmo jeito
+depois de 8 tentativas, mesmo raciocínio que já separa as faixas 3-7 de
+8+.
+
+Regra 6 (lead novo com prioridade alta) é o que mantém a fila do SDR
 produtiva: a taxa de atendimento cai a cada tentativa, então lead fresco vale
 mais que lead velho de mesma nota.
 
-**Nota de coerência, F-33 (28/09/2026):** as regras 3, 5, 6 e 7 desta
+**Achado por leitura de `wesales/tools/recalcula_prioridade.py`
+(branch irmã `claude/abertura-operacao-dnd-n7dnjv`, 27/09/2026) — não
+inventado nesta rodada.** O script é o reconciliador que a própria operação
+real usa para recalcular `Prioridade` em massa (citado no G-25 desta
+rodada, `--aplicar` foi o que soltou os 31 leads represados na abertura); o
+próprio docstring dele já documentava as duas correções acima como
+defeitos da regra 9.2 que ele "só denuncia, não conserta" (marcadores
+`[9.2-r8-perdeu]`/`[9.2-sem-regra]` no `--dump`, numeração da tabela antiga
+— desatualizados frente à tabela corrigida acima). O script também registra
+que nenhum workflow **remove** `telefone-invalido` fora do caso específico
+do F-11 (reenvio do formulário do Meta, seção 1.4/W21) — uma correção manual
+de telefone na tela, sem reenvio de formulário, deixa a tag e a
+`Prioridade` = 1 permanentes. Não é lacuna represada por este item: fica
+registrado aqui para quem for promover isso a item próprio (mesma classe de
+L-03/L-06, achado sem urgência, sem "Pronto quando" ainda).
+
+**Nota de coerência, F-33 (28/09/2026), renumerada nesta rodada (G-41) para
+bater com a tabela corrigida acima:** as regras 3, 6, 7 e 8 desta
 tabela nunca foram escritas como `Update Contact Field` em nenhum nó deste
 documento — conferido por `grep -n "Prioridade" build-wesales.md` antes de
 propor qualquer coisa nova. Não é lacuna represada: o efeito de cada uma já
-existe por outro caminho. Regras 5-7 (fila degrada por `Tentativa nº`) são
+existe por outro caminho. Regras 6-8 (fila degrada por `Tentativa nº`) são
 alcançadas pela ordenação de dois níveis das listas 8.1/8.2/8.3
 (`Prioridade` desc, depois `Tentativa nº` asc) — como todo lead sem sinal
 empata em `Prioridade`, o segundo nível já devolve fresco antes de velho.
