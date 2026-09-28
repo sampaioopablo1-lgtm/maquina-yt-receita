@@ -1,0 +1,40 @@
+name: WeSales - analises semanais da operacao
+
+# Toda segunda 07:00 em Sao Paulo (10:00 UTC): tentativas ate agendar e ate qualificar,
+# velocidade da 1a ligacao, conexao por tentativa/horario/canal e resultado por origem.
+# Le os dados com GHL_PIT. Se o segredo GHL_STORAGE_STATE existir (sessao logada), tambem
+# atualiza a nota fixa no painel "Decisao — Operacao SDR/Closer"; sem ele, so imprime.
+on:
+  schedule:
+    - cron: "0 10 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  analises:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        if: ${{ env.TEM_SESSAO == 'sim' }}
+        with:
+          node-version: "20"
+        env:
+          TEM_SESSAO: ${{ secrets.GHL_STORAGE_STATE != '' && 'sim' || 'nao' }}
+      - name: Analises
+        env:
+          GHL_PIT: ${{ secrets.GHL_PIT }}
+          GHL_STORAGE_STATE: ${{ secrets.GHL_STORAGE_STATE }}
+        run: |
+          if [ -n "$GHL_STORAGE_STATE" ]; then
+            npm install --no-save playwright >/dev/null 2>&1 && npx playwright install --with-deps chromium >/dev/null 2>&1
+            node wesales/tools/renovar_bearer.js && python wesales/tools/analises_semanais.py --nota
+          else
+            echo "sem GHL_STORAGE_STATE: so imprime (a nota do painel nao e atualizada)"
+            python wesales/tools/analises_semanais.py
+          fi
