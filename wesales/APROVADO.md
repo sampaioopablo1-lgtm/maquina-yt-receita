@@ -344,6 +344,29 @@ manual (não sai por API para ninguém, nem ler nem escrever pipeline além do
       e-mail da operação bateu (bounce) num contato. Campo personalizado
       não sai por API neste conector (é criação na tela). Nasce `[ ]`.
 
+- [ ] Criar a 27ª tag, `whatsapp-invalido` — nasceu no F-29 (Higiene de
+      WhatsApp — Número Inválido), especificada em `campos-e-tags.md`
+      (T-27) e `build-wesales.md` (seção 2.59). Nasce `[ ]` de propósito,
+      mesma regra desde o incidente da tag `toque`/T-15 em 19/09/2026:
+      linha que a própria rotina acrescenta não é autorização, vira `[x]`
+      quando o dono trocar, num commit que não é o meu. **Mesmo com o
+      `[x]`, o portão nos pontos de envio de WhatsApp (patch pendente,
+      seção 2.59) precisa ser aplicado antes de a tag valer alguma coisa**
+      — sem ele, o workflow marca o número mas ninguém para de mandar
+      mensagem para ele.
+
+- [ ] Criar o campo `Números de WhatsApp inválidos` (NUMERICAL) — nasceu
+      junto com a T-27, mesmo item (F-29): contador cumulativo de quantos
+      números de WhatsApp a operação já viu falhar por inatingível/
+      inexistente. Campo personalizado não sai por API neste conector (é
+      criação na tela). Nasce `[ ]`. **Depende de uma confirmação que
+      ainda não existe** (registrada em `build-wesales.md`, seção 2.59):
+      se a Stevo (provedor de WhatsApp desta subconta) de fato reporta
+      falha de entrega de volta ao GHL, e quais códigos de erro
+      correspondem a "número nunca teve WhatsApp" — só o primeiro caso
+      real decide; até lá, o filtro do gatilho nasce com os candidatos
+      mais prováveis, não fechado.
+
 - [ ] Criar a 26ª tag, `voicemail-enviado` — nasceu no F-26 (Voicemail
       Automático), especificada em `campos-e-tags.md` (T-26) e
       `build-wesales.md` (seção 4, nós 5-9 do ramo `Caixa Postal`/`Não

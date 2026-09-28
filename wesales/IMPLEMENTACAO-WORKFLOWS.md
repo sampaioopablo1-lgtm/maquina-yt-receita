@@ -2055,6 +2055,58 @@ confira: `Sinal recebido` = `Retornou ligação`, `Prioridade` = 5, tag
 Repita com um contato sem oportunidade e confirme que nada é gravado (nó 2
 barra). Confirme também que um contato com `nao-perturbe` não é tocado.
 
+## W32 · Higiene de WhatsApp — Número Inválido — `build-wesales.md` 2.59 (F-29, especificado em 28/09/2026)
+
+**Gatilho:** `Messaging Error Code - SMS` — filtro pelos códigos de número
+inatingível/inexistente (`30003`, `30005`, `30006`, `30034` — candidatos a
+confirmar com o primeiro erro real, não fechado).
+
+| Configuração | Valor |
+|---|---|
+| Janela | Sem restrição, 24/7 |
+| Allow Re-entry | Ligado |
+| Stop on Response | Desligado |
+
+| # | Ação | Configuração exata | Vai para |
+|---|---|---|---|
+| 1 | Update Contact Field (Math +1) | `Números de WhatsApp inválidos` (C-37, novo) | 2 |
+| 2 | Add Contact Tag | `whatsapp-invalido` (T-27, novo) | 3 |
+| 3 | Internal Notification | ao `Contact Owner`: `{{contact.name}} — mensagem de WhatsApp não entregue (número inatingível/inexistente). Marcado whatsapp-invalido; a operação não tenta mais WhatsApp para este número. Telefone continua normal. Confirme na tela se o código de erro realmente significa "sem WhatsApp" antes de decidir se isto é definitivo.` | 4 |
+| 4 | Add Note | `WhatsApp inválido detectado em {{right_now}} — código {{trigger.errorCode}} — whatsapp-invalido aplicada, contador somado` | fim |
+
+**Pré-requisito:** campo `Números de WhatsApp inválidos` (C-37,
+`NUMERICAL`) e tag `whatsapp-invalido` (T-27) criados na tela — nenhum sai
+por API neste conector. Ambos `[ ]` em `APROVADO.md`.
+
+**Por que não há `Set Contact DND` aqui, diferente do W30 (e-mail):** o
+transporte de saída do WhatsApp desta subconta é a Stevo (Custom
+Conversation Provider), tipado como SMS — não o canal nativo `WhatsApp`
+nem o `Email` do W30. Escopar DND a `WhatsApp` arriscaria não bloquear
+nada; escopar a `SMS` bloquearia mais do que o pretendido se este projeto
+voltar a usar SMS de verdade (hoje não usa). A defesa real é o portão de
+tag no patch pendente abaixo, mesmo mecanismo de `telefone-invalido`/T-09.
+
+**Patch pendente, não editado aqui pela convenção do `build-wesales.md`
+(só acrescentar no fim):** todo `Send WhatsApp`/`Send SMS` (Stevo) da
+operação — `MI-0`/`MI-F`, `RE-1`/`RE-2`, `NS-1`/`NS-2`, os quatro nós do
+Pós-agendamento, M1/M2/M3, `QI-1` (W6) e `MRC-1` (W31, nó 7) — precisa
+ganhar a condição extra **E** `tag whatsapp-invalido ausente` no portão
+que já os precede (o mesmo portão que já checa `nao-perturbe`).
+
+**Duas pendências de confiança, não resolvidas por suposição:** (1) quais
+códigos de `Messaging Error Code - SMS` a Stevo de fato gera para "nunca
+teve WhatsApp" — só o primeiro erro real decide; (2) se a Stevo, como
+provedor terceiro, chega a reportar falha de entrega de volta ao GHL — se
+não reportar, este workflow nunca dispara, por ausência de dado na
+origem, não por erro de desenho.
+
+**Teste:** não simulável com o contato de teste (nenhum número de teste
+gera erro de operadora de verdade) — fica pendente do primeiro erro real
+depois que a `Cadência 12x30` sair do rascunho. Quando acontecer, confira:
+`Números de WhatsApp inválidos` +1, tag `whatsapp-invalido` aplicada,
+aviso ao `Contact Owner`, e que nenhuma mensagem de WhatsApp nova saiu
+para aquele contato depois do patch de portão aplicado.
+
 ---
 
 # PARTE 3 — OPERAÇÃO (a dinâmica de alta produtividade)

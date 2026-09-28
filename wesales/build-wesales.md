@@ -9803,3 +9803,148 @@ segue dependente do bloqueio de mensagem de sempre. `campos-e-tags.md`
 campo novo, zero tag nova, zero escrita no CRM nesta rodada: item de
 especificação pura, reaproveitando `Sinal recebido`/`Prioridade`/
 `fila-quente`/`Toques na semana` já existentes.
+
+---
+
+## 2.59 Workflow "Higiene de WhatsApp — Número Inválido" — F-29: a higiene de base cobre telefone e e-mail, e o WhatsApp — o canal da maioria das mensagens automáticas — nunca ganhou o par
+
+**Achado, pesquisando Reev/Meetime/Outreach/Salesloft antes de fechar mais um
+pilar do bloco 6 (rotina obrigatória de todo item novo) — aplicando à
+higiene de base a mesma pergunta que já abriu F-20/F-21/F-25: "esta guarda
+existe em todo canal que a operação usa, ou só no que motivou o achado
+original?"** R-13 (18/09/2026) fechou a higiene do telefone
+(`telefone-invalido`/T-09: número errado marca o contato, o portão do nó 3
+das seções 2.4/2.10 para de tentar). F-25 (28/09/2026, sessão anterior a
+esta) fechou o par do e-mail (`email-invalido`/T-25, gatilho nativo `Email
+Events`/`Bounced`). O WhatsApp — canal de toda mensagem automática do
+projeto (M1 a M3 da 12x30, MI-0/MI-F da Inbound, RE-1/RE-2 do
+Reengajamento, NS-1/NS-2 da Nutrição, os quatro lembretes do
+Pós-agendamento, `MRC-1` do F-27, `QI-1` do G-06) — nunca ganhou o
+equivalente: hoje um número que nunca teve WhatsApp, ou que a Meta rejeita
+por formato, recebe a mesma M1 na T1, a mesma RE-1 na reativação e a mesma
+MRC-1 no retorno de chamada, para sempre, sem que nenhuma tag ou campo
+marque o número como morto. Nenhuma das quatro plataformas pesquisadas
+resolve isso por fora — é limpeza de lista, prática universal de
+outbound, não um recurso de sales engagement — mas nenhuma delas também
+teria esse problema: as quatro operam sobre WhatsApp Business API/e-mail
+próprios, com status de entrega nativo. Esta subconta não.
+
+**Por que isto não é uma cópia cega do desenho do e-mail (a lição que o
+F-21 já ensinou):** telefone e e-mail relatam falha por um canal
+**nativo** da LeadConnector (`Call Status`, `Email Events`). O WhatsApp
+desta subconta **não é** o canal nativo (LC WhatsApp/Meta Cloud API) — é a
+**Stevo**, um Custom Conversation Provider conectado por QR em 22/09/2026,
+que entrega toda mensagem, de entrada e de saída, como `TYPE_CUSTOM_SMS`
+— fato já medido por API e citado três vezes neste projeto (G-09; nós de
+gatilho da 2.9.3/2.9.5; 2.48/2.49). Isso muda qual gatilho nativo enxerga
+a falha de saída. Pesquisado via `WebSearch` (confiança média — a
+documentação oficial da HighLevel segue bloqueada pelo proxy deste
+ambiente; achados convergentes em buscas independentes, mesmo padrão de
+confiança já usado em F-05 peça 4/peça 5-6 e F-08):
+
+- Existe um gatilho `WhatsApp` com ramo/estado **Undelivered** ("ativa se a
+  mensagem falha, ex. usuário inatingível") — mas é documentado para o
+  canal **nativo** de WhatsApp; nada nas fontes confirma que ele reconhece
+  tráfego que saiu por um Custom Conversation Provider tipado como SMS.
+- Existe o gatilho nativo **`Messaging Error Code - SMS`**, por código de
+  erro (`30003` Unreachable/Out of Service Number, `30005` User
+  Inactive/Number does not exist, `30006` Landline or Unreachable Carrier,
+  `30034` A2P Registration Pending, entre outros) — dispara pelo **tipo**
+  da mensagem (SMS), não pelo provedor que a transportou. É o candidato
+  coerente com o único fato que este projeto já **testou ao vivo**, não só
+  pesquisou: o G-09 provou que `Customer Replied — Canal: WhatsApp e SMS`
+  enxerga tráfego de entrada da Stevo exatamente porque ela se anuncia como
+  SMS — o mesmo raciocínio, aplicado à saída, aponta para o gatilho de erro
+  de SMS, não para o de WhatsApp.
+
+**Pendência de confiança, registrada e não escondida (mesma classe do
+F-06/F-08/F-09 com a pergunta LC Phone vs. linha própria):** não há
+confirmação nesta subconta de (a) quais códigos de erro a Stevo de fato
+gera para "número nunca teve WhatsApp" versus outras falhas (formato,
+limite de taxa, Template não aprovado — esses **não** deveriam marcar
+`whatsapp-invalido`, só os de número inatingível/inexistente), nem de (b)
+se o gatilho `Messaging Error Code - SMS` dispara para uma mensagem cujo
+provedor é um Custom Conversation Provider e não a SMS nativa da conta.
+Os dois só se resolvem com o primeiro caso real depois de a `Cadência
+12x30` sair do rascunho — não há como simular isto com o contato de teste
+(nenhum número de teste vai gerar erro de operadora de verdade).
+
+**Como (proposta, não executada):** workflow novo "Higiene de WhatsApp —
+Número Inválido", gatilho `Messaging Error Code - SMS`, filtro pelos
+códigos de número inatingível/inexistente listados acima (a lista exata a
+confirmar quando o primeiro erro real chegar — nasce com o filtro nos
+candidatos mais prováveis, não fechado). Tag `whatsapp-invalido` (T-27,
+mirror de `telefone-invalido`/T-09 e `email-invalido`/T-25 — marcador
+permanente, sem limpeza própria, mesmo padrão das duas) e campo `Números
+de WhatsApp inválidos` (C-37, `NUMERICAL`, mesmo padrão cumulativo de C-31
+a C-36 — sem ele, "quantos números morreram no WhatsApp" não aparece em
+lugar nenhum, mesma lição do F-06/C-32).
+
+### Configurações
+| Configuração | Valor |
+|---|---|
+| Gatilho | `Messaging Error Code - SMS` — filtro pelos códigos de número inatingível/inexistente (candidatos acima, a confirmar) |
+| Janela de envio | Sem restrição, 24/7 — nenhuma mensagem sai deste workflow |
+| Allow Re-entry | Ligado — cada erro novo é evento novo |
+| Stop on Response | Desligado |
+
+### Nós
+| # | Ação | Configuração |
+|---|---|---|
+| 1 | Update Contact Field (Math +1) | `Números de WhatsApp inválidos` (C-37, novo) |
+| 2 | Add Contact Tag | `whatsapp-invalido` (T-27, novo) |
+| 3 | Internal Notification | Para `Contact Owner`: `{{contact.name}} — mensagem de WhatsApp não entregue (número inatingível/inexistente). Marcado whatsapp-invalido; a operação não tenta mais WhatsApp para este número. Telefone continua normal. Confirme na tela se o código de erro realmente significa "sem WhatsApp" antes de decidir se isto é definitivo.` |
+| 4 | Add Note | `WhatsApp inválido detectado em {{right_now}} — código {{trigger.errorCode}} — whatsapp-invalido aplicada, contador somado` |
+
+**Por que não há `Set Contact DND` neste desenho, diferente do W30
+(e-mail):** o F-25 desliga DND escopado a `Outbound Email` porque o canal
+de transporte ali é nativo e o escopo de DND correspondente existe e é
+confiável (`dndSettings.Email`). Aqui o transporte de saída é a Stevo,
+tipado como SMS — e este mesmo documento já registrou (G-09) que um filtro
+de tela para "WhatsApp" pode não reconhecer tráfego que a plataforma
+enxerga como SMS por dentro. Escopar o DND a `WhatsApp` correria o risco de
+não bloquear nada (a Stevo não é o canal WhatsApp nativo); escopar a `SMS`
+bloquearia mais do que o pretendido, se algum dia este projeto voltar a
+usar SMS de verdade (hoje não usa — decisão do dono de 19/09/2026,
+`APROVADO.md`). A defesa real deste item não é o DND, é o portão de tag
+que segue abaixo — o mesmo mecanismo que já protege telefone (T-09) e
+e-mail (T-25).
+
+**Patch pendente em todo `Send WhatsApp`/`Send SMS` (Stevo) da operação —
+não editado aqui pela convenção deste documento (só acrescentar no fim);
+mesma classe de patch cirúrgico que o G-05/G-06 já aplicaram para a janela
+de 24h e o F-23 para o teto de toques.** Cada um dos pontos de envio já
+listados pelo G-05 (segunda peça) — `MI-0`/`MI-F`, `RE-1`/`RE-2`,
+`NS-1`/`NS-2` e os quatro nós do Pós-agendamento —, mais M1/M2/M3 (bloco
+padrão de tentativa, seção 2.4), `QI-1` (G-06) e `MRC-1` (F-27, seção
+2.58, nó 7), precisa ganhar a condição extra **E** `tag whatsapp-invalido
+ausente` no portão que já os precede (o mesmo portão que já checa
+`nao-perturbe`). Sem o patch, o workflow novo detecta e marca, mas nenhuma
+mensagem futura é de fato barrada — mesmo risco que motivou o item, só
+que na metade do caminho.
+
+**Limite conhecido, documentado em vez de escondido:** diferente de
+`telefone-invalido` (confirmado pelo próprio SDR ao discar) e
+`email-invalido` (confirmado pelo evento `Bounced` da LeadConnector), este
+item depende de um provedor terceiro (Stevo) reportar corretamente o
+status de falha de volta para o GHL pelo webhook `ProviderOutboundMessage`
+— pesquisado via `WebSearch` (confiança média): a documentação de
+Custom Conversation Provider da própria HighLevel diz que **quem** atualiza
+o status da mensagem (`conversations/message.write`) é o provedor, não a
+LeadConnector. Se a Stevo não reportar falha para números sem WhatsApp
+(ex. se ela só confirmar "enviado" sem verificar entrega), este workflow
+nunca dispara — não por erro de desenho, por ausência de dado na origem. É
+a mesma classe de "o conector não pode responder" já registrada para
+F-06/F-08/F-09, aqui uma camada abaixo (não é o GHL que não expõe, é a
+Stevo que pode não reportar).
+
+**Zero campo, zero tag e zero escrita no CRM nesta rodada:** `whatsapp-
+invalido` (T-27) e `Números de WhatsApp inválidos` (C-37) nascem `[ ]` em
+`APROVADO.md`, mesma regra de sempre desde o incidente da T-15.
+
+**Pronto quando:** o workflow publicado, o campo e a tag criados na tela,
+o patch de portão aplicado nos pontos de envio listados acima, e o
+primeiro erro real de código de número inatingível confirmar (a) que o
+código corresponde de fato a "sem WhatsApp" e (b) que o gatilho `Messaging
+Error Code - SMS` dispara para mensagem da Stevo — as duas pendências de
+confiança registradas acima, resolvidas com dado, não com suposição.

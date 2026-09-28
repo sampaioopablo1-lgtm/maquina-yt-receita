@@ -5752,6 +5752,66 @@ isso em vez de fingir uma leitura que não existe. Passa a responder de
 verdade quando `Daniel`/`Genilson` (ou o próximo lead real) ganhar
 veredito do closer — sem exigir nenhuma mudança neste script.
 
+### F-29 · A higiene de base cobre telefone (R-13) e e-mail (F-25), e o WhatsApp — o canal de toda mensagem automática do projeto — nunca ganhou o par (28/09/2026) — **FEITO em 28/09/2026 (especificação)**
+
+**Por quê:** achado aplicando à higiene de base a mesma pergunta que já
+abriu F-20/F-21/F-25 — "esta guarda existe em todo canal que a operação
+usa, ou só no que motivou o achado original?" `telefone-invalido` (T-09,
+R-13, 18/09/2026) para o telefone e `email-invalido` (T-25, F-25, sessão
+anterior a esta, mesmo dia) para o e-mail já existem; o WhatsApp — canal
+de M1 a M3, MI-0/MI-F, RE-1/RE-2, NS-1/NS-2, os quatro lembretes do
+Pós-agendamento, `MRC-1` (F-27) e `QI-1` (G-06) — nunca ganhou o
+equivalente. Um número que nunca teve WhatsApp continua recebendo a mesma
+mensagem em cada tentativa da régua, para sempre, sem tag nem contador que
+marque o número como morto. Pesquisado antes de desenhar: nenhuma das
+quatro plataformas (Reev/Meetime/Outreach/Salesloft) precisa resolver
+isto — operam sobre WhatsApp Business API/e-mail próprios, com status de
+entrega nativo —, mas nenhuma delas tem o motivo real desta subconta ter
+o problema: o WhatsApp aqui não sai pelo canal nativo do GHL, sai por um
+Custom Conversation Provider (Stevo, QR, 22/09/2026) que entrega toda
+mensagem — entrada e saída — tipada como `TYPE_CUSTOM_SMS` (fato já
+medido por API, G-09).
+
+**Como:** workflow novo "Higiene de WhatsApp — Número Inválido", gatilho
+nativo `Messaging Error Code - SMS` (dispara pelo **tipo** SMS da
+mensagem, não pelo provedor — coerente com o único fato que este projeto
+já testou ao vivo, não só pesquisou: o G-09 provou que `Customer Replied —
+Canal: WhatsApp e SMS` enxerga tráfego de entrada da Stevo exatamente
+porque ela se anuncia como SMS). Tag `whatsapp-invalido` (T-27, mirror de
+T-09/T-25) e campo `Números de WhatsApp inválidos` (C-37, `NUMERICAL`,
+contador cumulativo, mesmo padrão de C-31 a C-36). Detalhe nó a nó em
+`build-wesales.md`, seção 2.59.
+**Pronto quando:** o workflow publicado, campo e tag criados na tela, o
+patch de portão (`tag whatsapp-invalido ausente`) aplicado em todo `Send
+WhatsApp`/`Send SMS` da operação, e o primeiro erro real de número
+inatingível confirmar as duas pendências que este item regista em vez de
+supor: (a) que o código de erro corresponde de fato a "sem WhatsApp", e
+(b) que o gatilho de erro de SMS dispara para mensagem transportada pela
+Stevo.
+
+**Resumo:** diferente de F-25 (mirror direto de R-13, canal nativo dos
+dois lados), este item não pôde copiar o desenho às cegas — a mesma lição
+que o F-21 já tinha ensinado para o sinal. Duas pendências de confiança
+ficam registradas e não escondidas, mesma classe da dependência LC
+Phone/linha própria do F-06/F-08/F-09: (1) quais códigos de
+`Messaging Error Code - SMS` a Stevo de fato gera para "nunca teve
+WhatsApp" — só o primeiro caso real decide; (2) se a Stevo, como provedor
+terceiro, chega a reportar falha de entrega de volta ao GHL pelo webhook
+`ProviderOutboundMessage` — se não reportar, o workflow nunca dispara, não
+por erro de desenho, por ausência de dado na origem (Stevo), uma camada
+abaixo do "o GHL não expõe" já visto em outros itens. Por esse mesmo
+motivo, o desenho não usa `Set Contact DND` (diferente do W30/e-mail):
+escopar a `WhatsApp` arriscaria não bloquear nada (a Stevo não é o canal
+nativo) e escopar a `SMS` bloquearia mais do que o pretendido se este
+projeto voltar a usar SMS de verdade — a defesa real é o portão de tag,
+mesmo mecanismo que já protege telefone e e-mail. `IMPLEMENTACAO-
+WORKFLOWS.md` (W32) e `GUIA-MONTAGEM.md` atualizados no mesmo commit.
+Zero campo, zero tag, zero escrita no CRM nesta rodada: `whatsapp-
+invalido` (T-27) e `Números de WhatsApp inválidos` (C-37) nascem `[ ]` em
+`APROVADO.md`, mesma regra de sempre. F-09, F-10, G-11 (item 1), G-19,
+G-27/G-29 e G-31 continuam sendo as decisões sem prazo fixo que esperam o
+dono, sem mudança nesta rodada.
+
 ---
 
 ## Ordem sugerida
