@@ -61,7 +61,7 @@ def _janela(dia):
         ini, (fh, fm) = j
         fim_min = fh * 60 + fm - 30
         INICIO, FIM = ini, (fim_min // 60, fim_min % 60)
-POR_RODADA = 2
+POR_RODADA = 1   # 28/09: 1 por rodada + rodadas puladas ao acaso = envios espaçados, sem intervalo fixo
 BRT = dt.timezone(dt.timedelta(hours=-3))
 
 
@@ -145,6 +145,13 @@ def main() -> int:
         return 0
     devido = round(meta * fracao_do_dia(agora))
     soltar = max(0, min(POR_RODADA, devido - len(ja), meta - len(ja), len(fila)))
+    # 28/09 (dono): o WhatsApp não pode perceber padrão de robô. Pula ~1/3 das rodadas ao acaso
+    # (só quando não está atrasado em relação à meta do dia), então o intervalo entre envios
+    # varia (30, 60, 90 min), somado à espera de 15 min do portão em cada workflow.
+    import random
+    if soltar and devido - len(ja) <= 1 and random.random() < 0.35:
+        print("  rodada pulada ao acaso (intervalo irregular entre envios)")
+        soltar = 0
     print("hoje %s | meta %d | ja liberados %d | devido ate agora %d | na fila %d | libera agora %d"
           % (hoje, meta, len(ja), devido, len(fila), soltar))
     for c in fila[:soltar]:
