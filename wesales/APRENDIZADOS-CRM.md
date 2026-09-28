@@ -6891,3 +6891,28 @@ API quando o risco importar de novo, nunca um número fixo. Custo do erro:
 uma instrução de verificação ficou de pé por 4 dias apontando para um
 evento (o #93 mesclar) que já não podia mais acontecer. Detalhe em
 `ROADMAP-SALES-ENGAGEMENT.md`, **G-35**.
+
+## A regra de fechamento que o G-24 deixou só citava "G-item" — o primeiro F-item a quebrá-la não foi pego por nome (G-36) — 28/09/2026, sessão automática
+
+O G-24 (23/09/2026, entrada acima) tinha deixado uma regra prática: "todo
+G-item que fechar nesta família confere, antes do commit, se o parágrafo
+de recapitulação no fim da 'Ordem sugerida' foi escrito". Funcionou para
+G-25 a G-35 — todos ganharam parágrafo. Mas F-24 a F-28 também passaram a
+ganhar esse mesmo parágrafo (sem que nenhuma regra escrita os obrigasse a
+isso — virou hábito por imitação, não por regra), e o F-29 foi o primeiro
+item de qualquer prefixo a fechar o `###` no corpo do Bloco 6 sem voltar
+ao fim do arquivo. A causa provável: a regra do G-24 fala em "G-item" no
+texto, e uma leitura literal (ou uma busca por "G-" na varredura de
+coerência) não pega um item que começa com F.
+
+**Regra prática, corrigida:** o parágrafo de fechamento na "Ordem
+sugerida" não é ritual do prefixo `G-`, é ritual de qualquer item que
+altere a lista de "decisões que esperam o dono" ou cite "sem mudança
+nesta rodada" — `F-`, `G-` ou `R-`, o que for. Ao fechar qualquer item
+nesta família, confira o fim do arquivo, não o nome do prefixo.
+
+**Correção aplicada:** parágrafo retroativo do F-29 escrito como `G-36`
+(`ROADMAP-SALES-ENGAGEMENT.md`) — CRM reconfirmado sem mudança (64
+oportunidades, 60 campos de contato), nenhuma novidade nas seis decisões
+que esperam o dono. Zero campo, zero tag, zero escrita no CRM: item de
+coerência dentro do próprio roadmap, mesma classe do G-24.

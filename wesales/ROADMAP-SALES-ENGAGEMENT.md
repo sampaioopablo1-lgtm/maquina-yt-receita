@@ -5812,6 +5812,62 @@ invalido` (T-27) e `Números de WhatsApp inválidos` (C-37) nascem `[ ]` em
 G-27/G-29 e G-31 continuam sendo as decisões sem prazo fixo que esperam o
 dono, sem mudança nesta rodada.
 
+### G-36 · O F-29 fechou sem o parágrafo de fechamento que F-24 a F-28 ganharam nesta seção — mesmo lapso que o G-24 já tinha corrigido para o G-23 (28/09/2026) — **FEITO em 28/09/2026 (coerência da própria seção "Ordem sugerida")**
+
+**Por quê:** o G-24 (23/09/2026) tinha deixado uma regra prática depois de
+achar o mesmo tipo de buraco: "todo G-item que fechar nesta família
+confere, antes do commit, se o parágrafo de recapitulação no fim da 'Ordem
+sugerida' foi escrito". A regra pegou — G-25 a G-35 e F-24 a F-28
+cumpriram, cada um deixando um parágrafo curto no fim desta seção
+recapitulando o que mudou. O F-29 (item acima) fechou o `### F-29` no
+corpo do Bloco 6 e foi direto para o `---`, sem voltar ao fim do arquivo:
+o parágrafo mais recente ali continuava sendo o do F-28, sem citar o
+F-29. Causa provável: a regra do G-24 fala em "G-item" no texto — uma
+leitura literal não pega um item que começa com F, e F-24 a F-28
+cumpriram por hábito, não por regra escrita que os obrigasse.
+
+**Como:** `git fetch` nas duas branches irmãs
+(`abertura-operacao-dnd-n7dnjv`, atualizada 28/09 ~02:53 UTC — o mesmo
+commit que o F-29 já tinha lido; `abertura-operacao-dnd-ib6xaz`, sem
+commit novo desde 27/09 18:03 UTC) confirma que não há novidade para F-09,
+F-10, G-11 (item 1), G-19, G-27/G-29 ou G-31 além do que o F-29 já
+registrou. CRM reconfirmado por API antes de fechar:
+`opportunities_search-opportunity` (`status: all`) segue em **64**
+oportunidades, mesma composição de sempre (39 `CONECTAR` open + 10
+`NOVO LEAD` abandoned + 8 `CONECTAR` lost + 2 `NOVO LEAD` open + 2
+`NEGOCIAR` open + 1 `NOVO LEAD` lost + 1 `REUNIÃO DE DIAGNÓSTICO` lost + 1
+`NEGOCIAR` lost); `locations_get-custom-fields` segue em **60** campos de
+contato (`SDR responsável` ainda só com a opção `Andreyna Siqueira`,
+`B · Quanto pode investir` sem nenhum workflow lendo — mesmo estado do
+G-29/G-34/G-35).
+
+A mesma leitura do `DE-PARA-SESSOES-CRM.md` da branch irmã (commit
+`3de2868`) trouxe um dado lido, não hipotético, que vale registrar para a
+próxima rodada não reabrir: ela nota que o F-27 especifica o gatilho `Call
+Status` para "Retorno de Chamada Perdida" sem saber que já existe,
+publicado do outro lado, um workflow parecido ("Trava de canal — falou
+hoje", `c4a3aab7-5fb2-4d05-80cf-0364a0a90bc5`) no mesmo tipo de gatilho.
+**Checado nó a nó antes de virar achado — não é conflito:** `Trava de
+canal` dispara em `Call Status = completed`, direção de saída, ligação
+**atendida** pelo Power Dialer; o F-27 especifica `Direção = Inbound` **e**
+`Status = No Answer`. Filtros diferentes no mesmo tipo de gatilho não
+colidem no GHL. Fica registrado só para não obrigar a próxima rodada a
+refazer esta mesma checagem ao ler a mesma nota.
+
+**Zero campo, zero tag, zero escrita no CRM: item de coerência dentro do
+próprio roadmap, não depende de `APROVADO.md`.**
+
+**Pronto quando:** feito — este `### G-36` e o parágrafo de recapitulação
+no fim da "Ordem sugerida" (abaixo) são o próprio "Pronto quando", como já
+valia para o G-24.
+
+**Resumo:** a regra do G-24 falou só em "G-item"; o primeiro item a
+quebrá-la foi um F-item, que ela não nomeava. Regra corrigida (detalhe em
+`APRENDIZADOS-CRM.md`): o parágrafo de fechamento não é ritual do prefixo
+`G-`, é ritual de qualquer item — `F-`, `G-` ou `R-` — que altere a lista
+de "decisões que esperam o dono" ou feche citando "sem mudança nesta
+rodada".
+
 ---
 
 ## Ordem sugerida
@@ -7800,3 +7856,16 @@ proveniência explicando o caminho MCP em vez de `GHL_TOKEN`. Zero campo, zero
 tag, zero escrita no CRM: reaproveita C-15 a C-17. F-09, F-10, G-11 (item 1),
 G-19, G-27/G-29 e G-31 continuam sendo as decisões sem prazo fixo que
 esperam o dono, sem mudança nesta rodada.
+
+**G-36 fechado em 28/09/2026, sessão automática seguinte — o F-29 tinha
+fechado sem o parágrafo de recapitulação que esta seção espera (detalhe
+completo no próprio `### G-36`, corpo do Bloco 6, logo após o F-29).**
+Reconciliação de sempre sem novidade: `git fetch` nas duas branches irmãs
+não achou nada além do que o F-29 já tinha lido; CRM reconfirmado por API
+sem mudança (64 oportunidades, 60 campos de contato). F-09, F-10, G-11
+(item 1), G-19, G-27/G-29 e G-31 continuam sendo as decisões sem prazo
+fixo que esperam o dono, sem mudança nesta rodada. Regra corrigida para a
+próxima vez: o parágrafo de fechamento vale para qualquer prefixo (`F-`,
+`G-`, `R-`) que altere esta lista ou feche citando "sem mudança nesta
+rodada" — não só para `G-`, que era a única família em que a regra tinha
+sido testada quando o G-24 a escreveu (`APRENDIZADOS-CRM.md`).
