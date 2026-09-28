@@ -56,7 +56,7 @@ def venda():
          "type": "select", "id": "moved-to-status"}]}]
 
 
-def criar_varios(nome, nos, gats, seco):
+def criar_varios(nome, nos, gats, seco):  # cur_window_none: CAPI sem janela (evento sai na hora)
     """criar() aceita um gatilho; aqui o primeiro vai por ele e os demais são acrescentados."""
     criar(nome, nos, gats[0], seco)
     if seco or len(gats) == 1:

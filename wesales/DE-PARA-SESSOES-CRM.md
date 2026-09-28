@@ -191,3 +191,11 @@ Tentativas até agendar e até qualificar ainda sem dado real (4 agendados e 3 q
 | funil real | o relatório abre com funil **por marco do lead**, cumulativo (entrou → tentado → conectou → qualificou → agendou → compareceu → ganhou), taxa sobre a etapa anterior e sobre o total | `tools/analises_semanais.py` | sim | o "Funil de oportunidades" por etapa dá NOVO LEAD → CONECTAR = 100% (passagem automática); o funil real corrige o conceito |
 | entrega sem sessão | relatório semanal vira **tarefa "📊 Análise da semana"** para o Pablo (API pública); Action só com `GHL_PIT` (PR #110) | GitHub + Tarefas | sim, Action na nuvem criou a tarefa | nenhuma credencial que vença |
 | sessão removida | segredo `GHL_STORAGE_STATE` **apagado** do GitHub; aviso de vencimento retirado da Action; nota do painel virou aviso de onde o relatório chega | GitHub / painel | sim | nada nas automações depende de login do dono |
+
+### Conversions API ativa (28/09 00:10)
+
+| Item | O que foi feito | Onde | Relido | Observação |
+|---|---|---|---|---|
+| token | dono colou o token real do Meta em "Meta CAPI token"; a sessão copiou para o campo de token dos 3 nós, sem exibir | Meta CAPI — Contato / Reunião marcada / Venda ganha | sim, v3 → v4, confere com o valor guardado | se o token for trocado, recopiar para os 3 nós |
+| janela | os 3 workflows herdaram a janela seg–sex 08:30–18:30 do modelo; **retirada** para o evento sair na hora | os 3 workflows | sim | |
+| teste | Resultado = Atendeu no contato de teste (2×) → Meta registrou **2 eventos `Contact` de servidor** (23:00–00:00) | Pixel 1600846091439175 | sim, `ads_get_dataset_stats` SERVER_ONLY | `server_last_fired_time` do Meta demora a atualizar; a contagem é o sinal confiável. `Purchase` não testado de propósito (não mandar venda falsa) |
