@@ -174,5 +174,10 @@ mandar User-Agent de navegador (sem ele o Cloudflare responde 1010).
 | Pixel nos itens internos | calendário da SDR sem Pixel de propósito; formulários internos disparam `SubmitApplication` já ao abrir a página (ruído da SDR) — remoção pelo formulário novo não pegou (rota própria `/forms/update-…`); original protegido | Formulários | — | os 2 `SubmitApplication` de 27/09 vieram daí |
 | Conversions API | 3 workflows novos: "Meta CAPI — Contato (atendeu)" → `Contact`; "— Reunião marcada" (2 calendários) → `Schedule`; "— Venda ganha" → `Purchase`; integração Facebook conectada, pixel 1600846091439175, BRL | workflows novos | sim, publicados | **o GHL exige token**: lido do valor personalizado `{{custom_values.meta_capi_token}}` (criado com o texto COLE_O_TOKEN_AQUI). Até o dono colar o token, os eventos não saem. `Lead` fora de propósito: o formulário do Meta já conta |
 
-### Análises pedidas (27/09 01:10) — aguardando o dono aprovar a entrega
+### Análises pedidas (28/09) — aprovadas e entregues
 Tentativas até agendar e até qualificar ainda sem dado real (4 agendados e 3 qualificados, quase todos teste); e a conta não congela o nº de tentativas no momento do agendamento/qualificação. Proposta: script semanal (GitHub, segunda cedo) que calcula pelo histórico das conversas (ligações/WhatsApp antes da data da reunião e antes do envio do formulário da SDR) + 3 análises: velocidade de resposta × agendamento, conexão por tentativa/horário/canal, resultado por formulário/campanha do Meta. Resultado como nota fixa no painel "Decisão".
+
+| Item | O que foi gravado | Onde | Relido | Observação |
+|---|---|---|---|---|
+| análises semanais | `tools/analises_semanais.py`: tentativas até agendar e até qualificar, velocidade da 1ª ligação × agendamento, conexão por tentativa/horário/canal, resultado por origem | nota fixa no painel "Decisão" | sim (1 nota, atualizada no lugar) | ligação por WhatsApp não aparece na conversa, só nos contadores; conexão = chamada completada ≥ 20 s |
+| agendamento | Action `wesales-analises.yml` no branch padrão (PR #108), toda segunda 07:00; rodada manual verde | GitHub | sim | sem `GHL_STORAGE_STATE` ela só imprime no log; a nota do painel exige sessão (a chave pública dá 401) |
