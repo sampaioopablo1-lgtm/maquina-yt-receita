@@ -143,3 +143,15 @@ mandar User-Agent de navegador (sem ele o Cloudflare responde 1010).
 | roteiro | trecho "ROTEIRO da ligação" (digitar /ROTEIRO) | Conversas → Trechos | 17→18 | sim | |
 | listas | Fila quente, Fechar horário, Retornos vencidos (SDR, compartilhadas com a Andreyna); Reuniões marcadas, Negociar (closer) | Contatos | novas | sim, na tela | |
 | teste | tag `wa-lib-2026-09-27` retirada do contato de teste | contato de teste | — | sim | |
+| F-19 (parte que não exige campo nem tag nova) | as 19 frases de ausência/resposta automática entram como condições OU no portão de opt-out, cujo ramo "sim" encerra sem ação | Interceptação de Sinal — Resposta v2 | v10→v11 | sim, nó a nó + arquivo de execução | auto-resposta deixa de virar prioridade 5 / `fila-quente` / "ligar agora". O `Stop on Response` nativo das cadências continua parando a cadência (limite da plataforma) |
+
+### Ficou para o dono (27/09 22:40)
+
+| Item | Recomendação |
+|---|---|
+| Valor da oportunidade nasce 5000 fixo | definir de onde vem o valor real (campo "Valor do contrato" preenchido pelo closer em NEGOCIAR) e então gravar o workflow de ganho; exige criar um campo |
+| Passagem para FORMALIZAR / entrega | definir quem assume depois do fechamento e o checklist; depois disso vira uma tarefa automática |
+| Relatórios e dashboard | montar na tela depois da 1ª semana de operação, com dado real (ligações/dia, conexão por tentativa, agendamentos, comparecimento) |
+| Tags `sdr-lotado` e `fila-wa` (lidas, nunca aplicadas) | `fila-wa` ficou obsoleta com o Canal da tentativa; `sdr-lotado` só faz sentido com mais de uma SDR — manter sem uso por ora |
+| Limite de horas no "Pediu retorno" do Fechar Horário | exigiria campo contador novo; hoje o lead sai do laço ao deixar CONECTAR e o Retorno Vencido avisa |
+| Resposta automática também parar a cadência | limite do GHL (`Stop on Response` não filtra texto); reativar à mão quando acontecer |
