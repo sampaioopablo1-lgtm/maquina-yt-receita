@@ -3572,6 +3572,36 @@ deste F-08, já cumprido. Zero campo, zero tag, zero escrita no CRM.
 > A/B/C continuam decisão do dono — só fecha a pergunta de infraestrutura que
 > a seção abaixo ainda descrevia como sem resposta.
 
+> **Correção de 28/09/2026 (G-38) — a premissa "12 de 12, único canal" já
+> não descreve a operação real, e não foi nenhuma sessão deste roadmap que
+> mudou isso.** O próprio dono, direto em código (não pela tela nem por
+> `APROVADO.md`), publicou o PR #118 (`atuador_filas.py`, branches
+> `abertura-operacao-dnd-n7dnjv`/`claude/stoic-hawking-tlxjtf`, commit
+> `69e034a`, 28/09/2026 09:27 BRT — autor `Pablo Sampaio`, não sessão
+> automática): telefone deixa de carregar os 12 toques e passa a carregar
+> **7 dos 12** (toques 1,3,5,7,9,11,12); os toques 2,4,6,8,10 (**5 de 12**)
+> viram ligação de WhatsApp, um canal que este item nunca tinha — o F-09 foi
+> escrito comparando telefone contra "WhatsApp mensagem", não contra
+> "WhatsApp ligação". Confirmado por API, não só pelo código: o campo
+> `Canal da tentativa` (`AsZMGmsKVu1xEp36hyLb`, `SINGLE_OPTIONS`
+> `Telefone`/`WhatsApp`, já registrado no G-32) e o campo `Canal que
+> conectou` (`TxJmoWdkA8rTqC1uEsMW`, opções `Ligação WhatsApp`/`Ligação
+> normal`/`Mensagem`, já registrado no G-21) existem na subconta real e
+> gravam exatamente essa distinção. **O que isto muda, e o que não muda:**
+> não decide nada das opções A/B/C abaixo — o limiar de corte continua
+> escolha do dono — mas invalida a conta que a coluna "Efeito" fazia
+> ("reduziria os 12 toques de telefone a talvez 2-3"): a base agora é 7, não
+> 12, e dois desses 7 (a partir do toque 9) já vêm depois de um toque de
+> WhatsApp ter rodado no meio, então "2 não atendidas seguidas de telefone"
+> conta uma sequência que a régua real intercala com outro canal. Quem for
+> escolher A/B/C precisa reler a tabela olhando para 7 toques de telefone
+> intercalados, não para 12 seguidos. **O que também não muda:** a exposição
+> regulatória que motivou o item (Despacho 82/2026/RCTS/SRC, F-08) segue
+> valendo para os 7 toques de telefone que restam — só ficou menor, não
+> zerada. Detalhe completo, achado pela mesma reconciliação entre branches
+> que o G-31/G-32/G-33 já tinham deixado como hábito, no `### G-38` da seção
+> "Ordem sugerida".
+
 **Por quê:** achado ao conferir o F-08. O seletor de canal (nó 4 da seção
 2.4; nó 3 da 2.10) é registro histórico da régua alternada (seção 2.5) — só
 mandava pelo WhatsApp se `WA não atendidas seguidas` fosse **< 2**, duas sem
@@ -8356,3 +8386,88 @@ desde 18/09/2026 — não depende de `APROVADO.md`. `campos-e-tags.md` (Q-01),
 atualizados no mesmo commit. F-09, F-10, G-11 (item 1), G-19, G-27/G-29 e
 G-31 continuam sendo as decisões sem prazo fixo que esperam o dono, sem
 mudança nesta rodada.
+
+### G-38 · A premissa "100% telefone, 12 de 12" do F-09 venceu em produção — o próprio dono já mudou a distribuição de canal em código, numa branch irmã, sem passar por este roadmap nem por `APROVADO.md` (28/09/2026) — **FEITO em 28/09/2026 (reconciliação)**
+
+**Por quê:** pegando o item de maior prioridade ainda aberto desta rodada
+(instrução desta execução), a reconciliação de sempre veio primeiro —
+hábito que G-31 deixou e G-32/G-33/G-34/G-35 já aplicaram: `git fetch` nas
+branches irmãs antes de desenhar qualquer coisa nova. `abertura-operacao-
+dnd-n7dnjv` tinha um commit novo desde a última leitura (`58f3e07`/`69e034a`,
+o mesmo conteúdo chegou também a `claude/stoic-hawking-tlxjtf`, a branch
+onde o PR #118 foi mesclado) — e, diferente de toda reconciliação anterior
+deste roadmap, o autor não é uma sessão automática: é `Pablo Sampaio
+<sampaioopablo@gmail.com>`, o próprio dono, escrevendo `atuador_filas.py`
+direto. O commit muda exatamente o ponto que o F-09 discute: a régua deixa
+de ser 100% telefone (12 de 12 toques, decisão `d52e61d` de 22/09/2026) e
+passa a intercalar telefone (toques 1,3,5,7,9,11,12 — **7 de 12**) com
+ligação de WhatsApp (toques 2,4,6,8,10 — **5 de 12**), com leads antigos
+entrando pela metade que a paridade do próprio ID escolhe. Conferido por
+API, não só pelo diff do código: `locations_get-custom-fields` mostra os
+campos `Canal da tentativa` (`AsZMGmsKVu1xEp36hyLb`, já registrado no G-32
+como peça de um "redesenho do seletor de canal — o mesmo ponto que o F-09
+discute") e `Canal que conectou` (`TxJmoWdkA8rTqC1uEsMW`, já registrado no
+G-21) vivos na subconta real, com as opções exatas que o script grava —
+não é plano, é o que já está rodando. `opportunities_search-opportunity`
+confirma **66 oportunidades** (`meta.total`, não a contagem de itens da
+página), 2 a mais que a última leitura registrada neste arquivo (F-32).
+
+**Como:** não há nada para "aplicar" — a mudança já é fato consumado na
+operação real, fora do que este conector ou `APROVADO.md` governam (o
+próprio G-31 já tinha registrado que decidir qual branch é fonte de
+verdade, ou consolidar as branches, é escolha do dono, não desta sessão).
+O que esta rodada faz é o que a reconciliação sempre fez desde o G-32:
+atualizar o item que a mudança afeta para não deixar uma decisão pendente
+apoiada em número que já não é real. Corrigido dentro do próprio `### F-09`
+(banner "Correção de 28/09/2026", acima): a tabela de opções A/B/C não
+muda — o limiar de corte continua decisão do dono — mas a conta que a
+coluna "Efeito" fazia sobre "12 toques de telefone" passa a valer para 7,
+intercalados com WhatsApp, não seguidos. Não mexi na tabela em si (decidir
+o número da opção não é desta sessão); só no texto que a contextualiza,
+para quem for decidir não decidir sobre um cenário que não existe mais.
+
+**O que este achado não é:** não é o dono escolhendo A, B ou C — a régua
+continua sem freio de "não atendidas seguidas" nenhum, só ficou mais curta
+por fora dele. Também não é motivo para fechar F-09: a exposição
+regulatória que o abriu (Despacho 82/2026/RCTS/SRC, F-08) segue valendo
+para os 7 toques de telefone que restam. E não é um caso novo de campo
+órfão (G-27/G-29/G-30) — os dois campos que a API confirma já tinham
+explicação registrada antes de hoje (G-21, G-32); o que faltava registrar
+era que o *comportamento* que eles alimentam já mudou a régua de verdade,
+não só o vocabulário do dado.
+
+**Nota sobre o resto da documentação, sem tentar resolver tudo numa
+rodada só:** `grep -rn "100% telefone\|12 de 12"` em todo o `wesales/`
+acha a mesma premissa em pelo menos nove outros arquivos (`APROVADO.md`,
+`build-wesales.md`, `GUIA-MONTAGEM.md`, `APRENDIZADOS-CRM.md`,
+`ESTADO-E-PLANO.md`, `AGENTE-IA-CONEXAO.md`, além de outras menções neste
+próprio roadmap). Nenhum deles está "errado" no sentido de descrever mal a
+especificação que motivou — `build-wesales.md` e `GUIA-MONTAGEM.md`
+continuam descrevendo corretamente a `Cadência 12x30` **como este roadmap a
+especificou**, o workflow nativo do GHL que ainda não foi publicado na
+tela. A divergência é que a operação real, na branch irmã, não está
+rodando essa especificação: está rodando `atuador_filas.py`, um mecanismo
+por tag e cron que faz uma coisa parecida por fora do GHL nativo — o mesmo
+tipo de descolamento entre "documento medido" e "documento rastreado" que
+G-16/G-17/G-19/G-21 já mediram para outros pontos. Reescrever os nove
+arquivos para uma premissa que só vale para metade da operação (a metade
+que ainda não foi publicada) trocaria uma verdade parcial por outra —
+por isso esta rodada corrigiu só o item que a decisão do dono afeta
+diretamente (F-09) e registrou aqui, para a próxima sessão que for mexer
+em qualquer um dos nove não redescobrir sozinha por que o número não bate
+mais com a tela. Zero campo, zero tag, zero escrita no CRM: item de
+reconciliação entre branches e de coerência de premissa, não depende de
+`APROVADO.md`.
+
+**Pronto quando:** cumprido nesta rodada para o item que a mudança afeta
+(F-09) — os outros nove arquivos ficam registrados como pendência
+conhecida, não como trabalho represado: eles descrevem a especificação
+correta para quem for publicar a `Cadência 12x30` na tela, e só precisam
+de correção se o dono decidir que a operação real (branch A) é a fonte de
+verdade daqui para frente, a mesma escolha (a) vs. (b) que o G-31 já
+colocou para ele. F-09, F-10, G-11 (item 1), G-19, G-27/G-29 e G-31
+continuam sendo as seis decisões sem prazo fixo que esperam o dono — a
+mudança desta rodada não tira nem acrescenta nenhuma à lista, só atualiza
+o cenário que uma delas (F-09) descreve. CRM reconfirmado por API antes de
+fechar: 66 oportunidades, 60 campos de contato (`locations_get-custom-
+fields`, `query_model=contact`), sem novidade além do já registrado acima.

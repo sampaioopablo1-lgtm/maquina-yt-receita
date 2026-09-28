@@ -6983,3 +6983,37 @@ já esperava um evento real, não montagem na tela). Detalhe completo em
 oportunidades, 60 campos de contato). Zero campo, zero tag, zero escrita
 no CRM: item de coerência dentro do próprio roadmap, mesma classe do
 G-24/G-36.
+
+## Uma "decisão do dono aguardando" pode vencer sem nenhum `[x]` — a checagem de branch irmã precisa incluir o `git log`, não só o `DE-PARA` (G-38, 28/09/2026)
+
+O hábito que o G-31 deixou ("antes de escalonar item como bloqueado, leia o
+`DE-PARA`/equivalente da branch candidata") tem um ponto cego: ele lê um
+documento que a outra branch escreveu *sobre si mesma*, e um documento só é
+atualizado quando alguém lembra de atualizá-lo. O `git log` da branch, ao
+contrário, muda sozinho a cada commit — e desta vez foi o `git log`, não o
+`DE-PARA-SESSOES-CRM.md`, que mostrou primeiro que algo tinha mudado
+(`69e034a`/`58f3e07`, "canais por toque"), o `DE-PARA` só confirmou o
+detalhe depois de já se saber que havia novidade.
+
+**O ponto realmente novo, que nenhuma reconciliação anterior (G-31 a G-35)
+tinha visto ainda:** todas as reconciliações até agora encontravam commits
+de **sessões automáticas** de outras branches. Este commit é assinado
+`Pablo Sampaio <sampaioopablo@gmail.com>` — o próprio dono, escrevendo
+Python direto, sem passar por `APROVADO.md`, sem `[x]`, sem tela. Uma
+"decisão do dono" não precisa vir como resposta a uma pergunta que este
+roadmap fez (as opções A/B/C do F-09 continuam sem resposta) — ela pode vir
+como uma mudança de comportamento que **torna a pergunta original
+parcialmente diferente** sem responder a pergunta em si. Tratar as duas
+coisas como a mesma ("F-09 ainda está aguardando decisão, sem novidade")
+teria sido tecnicamente verdadeiro e materialmente enganoso: a régua que a
+decisão A/B/C se aplicaria já não é a régua descrita na tabela.
+
+**Regra prática, nova, ao lado da do G-31:** reconciliação entre branches
+não é só "ler o documento que a outra branch escreveu para explicar campo
+órfão" (G-32/G-33) — é também "ler o `git log` procurando commit que mude o
+*comportamento* que um item pendente descreve", mesmo quando ninguém
+perguntou nada e nenhum `[x]` foi trocado. Um item pode continuar "sem
+decisão" e ainda assim precisar de correção de premissa. As duas coisas são
+independentes: decisão pendente é sobre o que falta escolher; premissa
+desatualizada é sobre o que já mudou embaixo da escolha. Detalhe completo,
+e a correção aplicada ao F-09, em `ROADMAP-SALES-ENGAGEMENT.md`, `G-38`.

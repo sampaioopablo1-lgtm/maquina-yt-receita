@@ -513,6 +513,13 @@ fiação do workflow é relato da outra branch, dado, não confirmado nó a nó
 por aqui. Detalhe e "Pronto quando" (cumprido, é reconciliação, não decisão
 pendente) em `ROADMAP-SALES-ENGAGEMENT.md`, **G-32**.
 
+**Continuação em 28/09/2026 (G-38):** o "redesenho do seletor de canal"
+citado acima saiu do desenho e virou régua real — `Canal da tentativa` e
+`Canal que conectou` (ambos citados acima) já alimentam uma distribuição de
+canal por toque publicada em código pelo próprio dono, na mesma branch
+irmã. Detalhe completo, e o que isso muda para o F-09, em
+`ROADMAP-SALES-ENGAGEMENT.md`, **G-38**.
+
 ## Etapa 3 — Tags (28 numeradas, onze pendentes de aprovação — e 12 na conta fora da numeração)
 
 > **Onde mora a contagem das tags fora da numeração.** Só este título e a
