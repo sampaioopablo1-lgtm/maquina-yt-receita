@@ -10401,3 +10401,29 @@ lead novo que declarou "pra ontem" no anúncio entrar em `CONECTAR` com
 `Prioridade` = 4 sem o SDR ter feito nada ainda; e as listas 8.1/8.2/8.3
 mostrarem esse lead acima dos outros de mesma `Tentativa nº` que não
 declararam urgência nenhuma.
+
+## 2.64 Correção de coerência — a seção 2.63 (F-33) citava o G-04 como decisão ainda aberta; ele já tinha fechado seis dias antes (G-40)
+
+A seção 2.63 (F-33, acima), no parágrafo "Achado incidental", diz "quem
+for decidir a Opção A/B do G-04 deveria conferir isso antes de fechar" —
+texto que fazia sentido enquanto o G-04 esteve mesmo aberto entre Opção A
+e Opção B (`ROADMAP-SALES-ENGAGEMENT.md`, aberto em 21/09/2026,
+`CONFERENCIA-CAMPOS.md` Tabela H), mas já estava desatualizado no momento
+em que a 2.63 nasceu (28/09/2026): o **G-04 já tinha fechado
+em 27/09/2026** (`ROADMAP-SALES-ENGAGEMENT.md`, G-33), por uma terceira
+saída que nem a Opção A nem a B previam — o dono aplicou ramos extras de
+igualdade exata com o texto literal do Meta direto no `Pós-agendamento
+v2` (v17→v18), sem remapear os 8 formulários nem trocar a régua para
+`Contains`. Achado nesta rodada (G-40, `ROADMAP-SALES-ENGAGEMENT.md`),
+seguindo a própria instrução deste projeto de varrer por nome tocado
+antes de commitar.
+
+**Não muda o achado nem o nó 0.9/0.9b em si** — a observação de que
+`Urgência` às vezes carrega texto de `Prazo` continua válida e continua
+sem investigação a fundo. Só a frase de encaminhamento estava errada:
+não há mais "Opção A/B do G-04" para alguém decidir — quem for investigar
+o mapeamento trocado confere direto contra o que o `Pós-agendamento v2`
+grava hoje (as igualdades exatas listadas no G-33), não contra uma
+decisão pendente que já foi tomada por outro caminho. Zero campo, zero
+tag, zero escrita no CRM: correção de texto, não depende de
+`APROVADO.md`.

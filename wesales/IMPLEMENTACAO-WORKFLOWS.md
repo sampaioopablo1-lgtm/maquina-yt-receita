@@ -292,7 +292,7 @@ antigo parado, nunca excluir):**
 | Hoje | Problema | O que fazer |
 |---|---|---|
 | `Plataformas de anúncio` — SINGLE_OPTIONS | lead que anuncia em Meta **e** Google só registra um | criar `Plataformas de anúncio (múltipla)` MULTIPLE_OPTIONS com `Meta`, `Google`, `Tiktok`, `Outros`; apontar formulário (1.5) e prompt da IA (W10) para o novo |
-| `Investimento mensal em anúncios` — opções `Até 1k` / `1k a 5k` / `5k a 10k` / `Acima de 10k` | o Meta Lead Ads grava `Não invisto nada ainda` / `Até R$ 1.000` / `Abaixo de 5k` / `Acima de 10k` — três valores fora da lista, a régua 9.1 nunca casa | **decisão G-04** (`CONFERENCIA-CAMPOS.md`, Tabela H): Opção A — trocar as opções pelos 4 textos exatos do Meta e reponderar a régua (12/6/3/1); Opção B — régua lê `Urgência`/`Necessidade` por `Contains` |
+| `Investimento mensal em anúncios` — opções `Até 1k` / `1k a 5k` / `5k a 10k` / `Acima de 10k` | o Meta Lead Ads grava `Não invisto nada ainda` / `Até R$ 1.000` / `Abaixo de 5k` / `Acima de 10k` — três valores fora da lista, a régua 9.1 nunca casa | **já não precisa de decisão** (G-04, fechado em 27/09/2026 — `ROADMAP-SALES-ENGAGEMENT.md`, G-33): nem Opção A nem Opção B da `CONFERENCIA-CAMPOS.md` Tabela H — o dono aplicou uma terceira saída direto no `Pós-agendamento v2` (v17→v18): ramos extras por igualdade exata com o texto literal do Meta, sem trocar opção de campo nem reponderar a régua |
 | `Prazo` chega vazio do Meta; `Urgência` cheio — **já não precisa de decisão** (G-04, resolvido em 22/09/2026): o Pós-agendamento v2 lê `Urgência` como reserva quando `Prazo` vem vazio, mesma pontuação, publicado e no ar | — | nada a fazer aqui; ficou só como registro de por que o campo `Urgência` segue existindo ao lado de `Prazo` |
 | `Dor principal` chega vazio do Meta; `Necessidade` cheio | o formulário do anúncio mapeia para o campo que a tela criou sozinha; nenhum dos dois entra na régua de nota (9.1), então não pontua errado — só duplica dado | opcional, sem decisão G-04 pendente: apontar os 8 formulários do Meta para `Dor principal` (mais organizado) ou deixar como está |
 
@@ -401,11 +401,16 @@ Meta Lead Ads, G-04).
 
 **Formulários do Meta Lead Ads (8 campanhas, `CONFERENCIA-CAMPOS.md` H):**
 em Marketing → Integrações → Facebook → Mapeamento de campos, cada formulário
-deve gravar: "o que você busca hoje?" → `Dor principal`; "quando pretende
+poderia gravar: "o que você busca hoje?" → `Dor principal`; "quando pretende
 resolver?" → `Prazo`; "quanto investe por mês?" → `Investimento mensal em
 anúncios` — com as **opções do campo iguais, letra por letra, ao texto da
-resposta no anúncio** (é a Opção A do G-04; até o dono decidir, o mapeamento
-atual continua gravando em `Necessidade`/`Urgência`).
+resposta no anúncio** (era a Opção A do G-04). **Não é mais necessário para
+a régua pontuar** — o G-04 fechou em 27/09/2026 (`ROADMAP-SALES-ENGAGEMENT.md`,
+G-33) por uma terceira saída, direto no `Pós-agendamento v2`: ramos extras
+que já leem o texto que o Meta grava em `Necessidade`/`Urgência` e pontuam
+certo sem remapear formulário nenhum. Este remapeamento continua opcional,
+só por organização de dado (deixar de duplicar `Necessidade`/`Urgência`
+com `Dor principal`/`Prazo`), nunca mais bloqueio de nota.
 
 ## 1.6 Trigger Link `Agendar com o closer` — já existe
 

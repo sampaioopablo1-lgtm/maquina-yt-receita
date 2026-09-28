@@ -474,7 +474,7 @@ tentadora justamente por parecer não depender de nada.
 autorização específica virar `[x]` em `APROVADO.md`, e então o workflow for
 publicado, o estoque promovido e o T1 conferido.
 
-### G-04 · O formulário do Meta grava em campo que a régua não lê, e grava valor que o campo não aceita — **peça 1 (Prazo/Urgência) resolvida em 22/09/2026 sem decisão; peça 2 (Investimento mensal) aguarda o dono**
+### G-04 · O formulário do Meta grava em campo que a régua não lê, e grava valor que o campo não aceita — **FEITO: peça 1 (Prazo/Urgência) resolvida em 22/09/2026 sem decisão; peça 2 (Investimento mensal) fechada em 27/09/2026 pelo próprio dono, ver G-33**
 
 > **Atualização de 22/09/2026, sessão automática — o item se dividiu em duas
 > peças de tamanho e urgência diferentes, e só uma segue bloqueada.** No PC do
@@ -540,13 +540,26 @@ parte da base durante toda a transição. Detalhe em `CONFERENCIA-CAMPOS.md`,
 Tabela H.
 **Por que não decidi sozinho:** muda a nota do lead (D-05) e o formulário do
 anúncio — decisão de negócio, e nenhuma das duas sai por API.
-**Pronto quando (revisado em 22/09/2026 — só a peça 2 segue aberta):**
-`Prazo`/`Urgência` já fecharam sem decisão (peça 1, acima — bloco de reserva
-publicado e provado). Falta só: o dono escolhe A ou B **para
-`Investimento mensal em anúncios`**; `campos-e-tags.md` (Q-06) e a seção 9.1,
-Bloco B, refletem a escolha; um lead novo do Meta chega com `Investimento
-mensal` pontuando na nota sem depender de qual dos quatro textos o anúncio
-grava.
+**Pronto quando (revisado em 28/09/2026 — as duas peças fecharam, nenhuma
+segue aberta):** `Prazo`/`Urgência` fecharam sem decisão em 22/09/2026
+(peça 1, acima — bloco de reserva publicado e provado). A peça 2
+(`Investimento mensal em anúncios`) fechou em 27/09/2026, mas não pela
+Opção A nem pela Opção B que este item chegou a desenhar — o dono aplicou
+uma terceira saída direto no `Pós-agendamento v2` (v17→v18, fora deste
+conector): ramos extras por igualdade exata com o texto literal que o Meta
+grava (`Abaixo de 5k` pontua como `1k a 5k`, `Até R$ 1.000` como `Até 1k`,
+os três valores pagos de `Investe em anúncios` como `Sim`), sem remapear
+os 8 formulários (Opção A) nem trocar a régua inteira para `Contains`
+(Opção B). Detalhe completo em **G-33**, achado por reconciliação de
+branch irmã, não por resposta direta às opções A/B — por isso um lead novo
+do Meta já pontua o Bloco B inteiro sem depender de qual dos quatro textos
+o anúncio grava, sem que `campos-e-tags.md` (Q-06) nem a tabela de opções
+da seção 9.1 precisassem mudar (as opções da tela continuam as mesmas
+quatro; o que mudou foi a régua aceitar também o texto do Meta como
+sinônimo). G-04 sai por inteiro da lista de decisões sem prazo fixo que
+esperam o dono — ver G-33 e **G-40** (achado de coerência que corrigiu as
+referências a esta decisão que ainda ficaram desatualizadas em outros
+documentos).
 
 ### G-05 · Mensagens automáticas de WhatsApp especificadas como texto livre, sem checar a janela de 24h — pode falhar em silêncio assim que a cadência publicar
 **Por quê:** todo nó `Send WhatsApp` da operação (M1-a/M1-b/M2-v1/M3-v1 na
@@ -8621,9 +8634,12 @@ montagem em `GUIA-MONTAGEM.md`):** `If/Else` `Prazo` é `Pra ontem` →
 opções de `Prazo` (ex.: "Pra ontem", "Sem prazo" aparecendo no campo
 `Urgência`) — indício de mapeamento trocado entre os dois campos para
 parte da base, mesma família do G-04 mas nunca registrado para este par
-específico. Quem for decidir a Opção A/B do G-04 (peça 2, `Investimento
-mensal`) deveria conferir isso também antes de fechar. Não teve nó nem
-decisão nesta rodada — é nota para a próxima.
+específico. **Correção de 28/09/2026 (G-40): o G-04 já tinha fechado seis
+dias antes desta nota (G-33, 27/09/2026), por uma terceira saída que não
+é nem a Opção A nem a B — não há mais "Opção A/B do G-04" para decidir.**
+Quem for investigar o mapeamento trocado confere direto contra o que o
+`Pós-agendamento v2` grava hoje (as igualdades exatas do G-33). Não teve
+nó nem decisão nesta rodada — é nota para a próxima.
 
 **O que este achado não é, e o limite honesto:** não substitui nem
 antecipa a `Nota de qualificação` (9.1), que segue existindo só para o
@@ -8645,3 +8661,91 @@ listas 8.1/8.2/8.3 mostrarem esse lead acima dos outros de mesma
 `Tentativa nº` sem urgência declarada. F-09, F-10, G-11 (item 1), G-19,
 G-27/G-29 e G-31 continuam sendo as seis decisões sem prazo fixo que
 esperam o dono, sem mudança nesta rodada.
+
+### G-40 · O G-04 fechou em 27/09/2026 (G-33), e o F-33, escrito seis dias-de-rodada depois, ainda mandava alguém "decidir a Opção A/B" que já não existia — **FEITO em 28/09/2026 (coerência entre documentos)**
+
+**Por quê:** reconciliação de sempre antes de desenhar — `git fetch` na
+`abertura-operacao-dnd-n7dnjv` não achou commit novo desde a leitura do
+F-33 (`cd004af`, o playbook, sem consequência para nenhuma das seis
+decisões sem prazo fixo). CRM reconfirmado por API: `opportunities_search-
+opportunity` segue em **66** oportunidades, `locations_get-custom-fields`
+(model `contact`) segue em **60** campos — os três novos frente à leitura
+do F-32/F-33 (`SDR responsável`, `B · Quanto pode investir`, `Voice AI
+Reason for Call`) já estavam explicados por G-27/G-29/G-30, nenhuma
+novidade. Sem achado aí, a sessão seguiu a instrução deste roadmap de
+varrer por nome tocado nas últimas rodadas antes de tratar o documento
+como coerente — `grep -rn "G-04"` em todo o `wesales/` — em vez de ir
+direto à pesquisa de concorrência.
+
+**Como:** a varredura achou uma contradição dentro da própria família de
+documentos que este roadmap gera. O `### G-04` (acima) ainda trazia no
+cabeçalho "peça 2 (Investimento mensal) aguarda o dono" e no `Pronto
+quando` "só a peça 2 segue aberta" — mas o **G-33** (27/09/2026, mais
+abaixo neste mesmo arquivo) já tinha fechado essa peça, achado por
+reconciliação de branch irmã: o dono aplicou uma terceira saída direto no
+`Pós-agendamento v2` (v17→v18), nem a Opção A nem a Opção B que o G-04
+desenhava. O `Pronto quando` do próprio G-33 já dizia "G-04 (peça 2) ...
+sai da lista de decisões sem prazo fixo que esperam o dono" — e todo
+recapitulativo posterior (G-34 em diante) respeitou isso, tirando G-04 da
+lista. **O que nenhuma rodada corrigiu foi a entrada do G-04 em si**,
+que continuou parada no texto de antes do G-33 — mesma classe de lapso do
+G-24/G-36 (regra de fechamento cobre o recapitulativo, não o corpo do
+item que ela recapitula) e do G-37 (cabeçalho atrasado em relação ao
+fechamento real), só que desta vez o cabeçalho atrasado não estava sem a
+marca `FEITO`: estava com uma frase que folheava a decisão errada.
+
+A mesma varredura achou a contradição se espalhando: o **F-33** (seção
+2.63 de `build-wesales.md`, escrito em 28/09/2026, um dia inteiro depois
+do G-33) citou o G-04 no parágrafo "Achado incidental" como se a Opção
+A/B ainda estivesse para alguém decidir — prova de que o texto desatualizado
+do G-04 já tinha enganado uma rodada seguinte, exatamente o risco que este
+tipo de lapso cria. E `IMPLEMENTACAO-WORKFLOWS.md` trazia a mesma
+contradição **dentro do próprio arquivo**: uma linha da tabela "Corrigir"
+(seção de campos) e um parágrafo sobre o Formulário SDR ainda descreviam
+"decisão G-04 pendente"/"até o dono decidir", enquanto outras três
+passagens do mesmo arquivo (a linha logo abaixo na mesma tabela, o
+checklist de go-live e a fórmula da régua BANT) já diziam corretamente
+"G-04 fechado em 27/09/2026".
+
+**Corrigido nesta rodada, cinco pontos, sem tocar em nenhuma decisão de
+negócio nova:** (1) cabeçalho e `Pronto quando` do próprio `### G-04`
+(acima), agora contando a saída real (a terceira via, não A nem B) e
+apontando para o G-33; (2) o parágrafo "Achado incidental" do próprio
+`### F-33` (mais abaixo, seção "Ordem sugerida" tardia), que tinha a
+mesma frase — editado no lugar, este arquivo não tem a regra de "só
+acrescente no fim"; (3) o espelho dessa mesma frase na seção 2.63 de
+`build-wesales.md` **não** foi editado no meio (regra do próprio arquivo
+— sessões paralelas editam parágrafo no meio, isso colide) — ganhou a
+seção **2.64**, nova, no fim do arquivo, corrigindo o encaminhamento sem
+apagar o achado original; (4) e (5) as duas passagens de `IMPLEMENTACAO-
+WORKFLOWS.md` (tabela "Corrigir" e o parágrafo do Formulário SDR),
+editadas no lugar — este arquivo também não tem a regra de "só acrescente
+no fim".
+
+**O que este achado não é:** não é uma decisão de negócio nova, não muda
+nenhum campo nem tag, não reabre o G-04 nem o G-33 — os dois continuam
+`FEITO`, só o *registro* estava um passo atrás do que já tinha
+acontecido. Também não é o mesmo defeito do G-37 (cabeçalho sem a marca
+`FEITO`): ali faltava só o carimbo; aqui o texto ativamente apontava para
+uma decisão que já não existia, o tipo de erro mais caro de achar tarde
+porque parece, à primeira leitura, uma pendência real.
+
+**Regra prática, ao lado da do G-24/G-36/G-37:** quando um item fecha por
+um caminho que **nenhuma** das opções que ele mesmo desenhou previa (como
+o G-04/G-33 — nem A nem B, uma terceira saída), procurar por outras
+seções que ainda descrevem as opções originais como escolha em aberto —
+elas tendem a sobreviver ao fechamento porque ninguém as está lendo como
+"parte do G-04", só como contexto lateral (a seção 2.63 citou o G-04 de
+passagem, num parágrafo sobre outro achado). O sweep de coerência de
+sempre (`grep -rn` pelo nome do item) pega isso; a leitura linear do
+arquivo, não.
+
+**Pronto quando:** cumprido nesta rodada — as cinco passagens corrigidas
+concordam entre si e com o G-33 sobre como o G-04 fechou de verdade. Zero
+campo, zero tag, zero escrita no CRM: item de coerência entre documentos,
+não depende de `APROVADO.md`. F-09, F-10, G-11 (item 1), G-19, G-27/G-29 e
+G-31 continuam sendo as seis decisões sem prazo fixo que esperam o dono —
+este achado não tira nem acrescenta nenhuma a essa lista (G-04 já tinha
+saído dela pelo G-33; esta rodada só corrigiu o registro). CRM
+reconfirmado por API antes de fechar: 66 oportunidades, 60 campos de
+contato, sem novidade além do já registrado acima.
