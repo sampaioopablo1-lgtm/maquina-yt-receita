@@ -248,6 +248,87 @@ def rede_trava(cs, etapas, aplicar):
     print("  rede da trava de canal: %d contato(s)" % n)
 
 
+def dono_por_turno(cs, etapas, aplicar):
+    """Turnos flexíveis (dono, 28/09): lead em CONECTAR que ninguém tentou ainda, cujo dono é
+    uma SDR fora do turno, passa para uma SDR em turno (a com menos leads novos), levando as
+    tarefas abertas. Assim o lead das 09:00 não espera a SDR das 13:00. Turnos em
+    `wesales/equipe.json`; com uma SDR só cadastrada, não faz nada."""
+    import datetime as dt
+    try:
+        from turnos import em_turno, ids
+    except Exception as e:
+        print("  turnos: equipe.json indisponível (%s)" % e)
+        return
+    sdrs, agora_turno = set(ids("sdrs")), em_turno(dt.datetime.now(dt.timezone.utc))
+    if len(sdrs) < 2 or not agora_turno:
+        print("  turnos: %d SDR(s) cadastrada(s), %d em turno agora: nada a redistribuir"
+              % (len(sdrs), len(agora_turno)))
+        return
+    carga = {u: 0 for u in agora_turno}
+    novos = []
+    limite = dt.datetime.now(dt.timezone.utc) - dt.timedelta(hours=24)
+    for c in cs:
+        if etapas.get(c["id"]) != CONECTAR or c.get("assignedTo") not in sdrs:
+            continue
+        # só lead que ENTROU nas últimas 24 h: os antigos têm contador vazio (os contadores
+        # nasceram em 27/09) e não podem ser redistribuídos em massa.
+        try:
+            entrou = dt.datetime.fromisoformat((c.get("dateAdded") or "").replace("Z", "+00:00"))
+        except ValueError:
+            continue
+        if entrou < limite:
+            continue
+        try:
+            tent = float(valor(c, TENT_TEL) or 0) + float(valor(c, "5j9SerJeZ6ngfZCPb2Wg") or 0)
+        except (TypeError, ValueError):
+            tent = 1
+        if tent:
+            continue
+        if c["assignedTo"] in carga:
+            carga[c["assignedTo"]] += 1
+        else:
+            novos.append(c)
+    for c in novos:
+        para = min(carga, key=carga.get)
+        carga[para] += 1
+        de = c["assignedTo"]
+        print("  turno: %s %s  %s -> %s%s" % (c["id"], c.get("contactName") or "?", de, para,
+                                             "" if aplicar else " (DRY)"))
+        if not aplicar:
+            continue
+        pedir("PUT", "/contacts/%s" % c["id"], {"assignedTo": para})
+        for t in (pedir("GET", "/contacts/%s/tasks" % c["id"]).get("tasks") or []):
+            if not t.get("completed") and t.get("assignedTo") == de:
+                pedir("PUT", "/contacts/%s/tasks/%s" % (c["id"], t["id"]), {"assignedTo": para})
+    print("  turnos: %d lead(s) novo(s) passado(s) para SDR em turno" % len(novos))
+
+
+def filas_por_sdr(cs, aplicar):
+    """Duas SDRs no mesmo horário não podem puxar a mesma `fila-tel` (ligariam para os mesmos
+    leads). Com 2+ SDRs com usuário em equipe.json, mantém para cada uma a tag `tag_fila` =
+    contatos com `fila-tel` cujo dono é ela. Com uma SDR só, não faz nada (ela puxa fila-tel)."""
+    try:
+        from turnos import equipe
+        sdrs = [p for p in equipe()["sdrs"] if p.get("userId") and p.get("tag_fila")]
+    except Exception as e:
+        print("  filas por SDR: equipe.json indisponível (%s)" % e)
+        return
+    if len(sdrs) < 2:
+        print("  filas por SDR: %d SDR com usuário: todas puxam fila-tel" % len(sdrs))
+        return
+    for p in sdrs:
+        tag = p["tag_fila"]
+        quer = {c["id"] for c in cs if "fila-tel" in (c.get("tags") or []) and c.get("assignedTo") == p["userId"]}
+        tem = {c["id"] for c in cs if tag in (c.get("tags") or [])}
+        print("  %s: %d desejados, %d com a tag" % (tag, len(quer), len(tem)))
+        if not aplicar:
+            continue
+        for cid in quer - tem:
+            pedir("POST", "/contacts/%s/tags" % cid, {"tags": [tag]})
+        for cid in tem - quer:
+            pedir("DELETE", "/contacts/%s/tags" % cid, {"tags": [tag]})
+
+
 def main() -> int:
     aplicar = "--aplicar" in sys.argv
     print("=" * 74)
@@ -261,6 +342,8 @@ def main() -> int:
           % (len(etapas), len(cs)))
 
     rede_trava(cs, etapas, aplicar)
+    dono_por_turno(cs, etapas, aplicar)
+    filas_por_sdr(cs, aplicar)
     d_sdr, d_clo, a_sdr, a_clo, excl = decidir(cs, etapas)
     nome = {c["id"]: (c.get("contactName") or "?") for c in cs}
 

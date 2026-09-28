@@ -45,7 +45,22 @@ AGUARDA, LIBERADO, MANUAL = "wa-aguardando", "wa-liberado", "wa-manual"
 #   - às 18:30, o que ainda estiver esperando vira manual.
 # Simulado para 36 entradas às 08:30: 14 automáticos espalhados + 22 manuais às 08:30.
 META_MIN, META_MAX = 11, 15
-INICIO, FIM = (8, 30), (18, 30)          # horário de Brasília
+INICIO, FIM = (8, 30), (18, 30)          # horário de Brasília (padrão; o dia usa equipe.json)
+# 28/09: a janela do dia vem dos turnos das SDRs (equipe.json): do início do primeiro turno a
+# 30 min antes do fim do último, para a tarefa [WHATSAPP MANUAL] ainda cair com alguém em turno.
+try:
+    from turnos import janela as _janela_turnos
+except Exception:  # sem o arquivo, fica o padrão
+    _janela_turnos = None
+
+
+def _janela(dia):
+    global INICIO, FIM
+    j = _janela_turnos(dia) if _janela_turnos else None
+    if j:
+        ini, (fh, fm) = j
+        fim_min = fh * 60 + fm - 30
+        INICIO, FIM = ini, (fim_min // 60, fim_min % 60)
 POR_RODADA = 2
 BRT = dt.timezone(dt.timedelta(hours=-3))
 
@@ -101,13 +116,14 @@ def main() -> int:
     if hoje.weekday() >= 5:
         print("fim de semana: nada a liberar")
         return 0
+    _janela(hoje)
     tag_dia = "wa-lib-" + hoje.isoformat()
     meta = meta_do_dia(hoje)
     cs = contatos()
     ini = agora.replace(hour=INICIO[0], minute=INICIO[1], second=0, microsecond=0)
     fim = agora.replace(hour=FIM[0], minute=FIM[1], second=0, microsecond=0)
     if agora < ini:
-        print("antes das 08:30: nada a fazer")
+        print("antes das %02d:%02d: nada a fazer" % INICIO)
         return 0
 
     def tags(c):
@@ -125,7 +141,7 @@ def main() -> int:
               % ("manual" if aplicar else "iria para manual", nome, c["id"]))
     fila = fila[:vagas]
     if agora >= fim:
-        print("depois das 18:30: nada mais a liberar hoje")
+        print("depois das %02d:%02d: nada mais a liberar hoje" % FIM)
         return 0
     devido = round(meta * fracao_do_dia(agora))
     soltar = max(0, min(POR_RODADA, devido - len(ja), meta - len(ja), len(fila)))
