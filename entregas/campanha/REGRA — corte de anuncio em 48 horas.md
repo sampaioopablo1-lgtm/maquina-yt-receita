@@ -268,6 +268,7 @@ trocado nem pausado; fica, e se passar de 7 dias sem 300 impressões vira aviso 
 | 15/09 20h | V11 `120247409468960766` | INTERESSE | T1: 523 imp, 0 lead, R$13,54 em 72h (V15: 6 leads a R$8,41) | V16 `120247453147450766` | imagem do V15 + copy "Impulsionou e não deu em nada?" |
 | 15/09 20h | — (adicionado) | INTERESSE | teste de 2ª copy junto | V17 `120247453147890766` | imagem do V15 + copy "Pare de depender de indicação" |
 | 15/09 20h | — (adicionado) | CNAE RJ | conjunto com 0 lead em 7d, só copy antiga no ar | V16 `120247453176830766` | mesmo criativo do V16 INTERESSE |
+| 28/09 12h | — (nenhuma troca) | IMOBILIÁRIA | **C0: conjunto cortado.** created_time 17/09 18h56; 508 imp, R$14,44, **0 lead em 11 dias** | — | conjunto renomeado `ZZ CORTADO 48H — …` e pausado |
 
 ## As travas — o que a regra NUNCA faz
 

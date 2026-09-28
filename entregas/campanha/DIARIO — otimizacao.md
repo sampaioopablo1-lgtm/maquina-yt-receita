@@ -1773,3 +1773,60 @@ inteira é **a copy curta** (ADV V05, R$7,01). O V11 do INTERESSE tem CTR maior 
 CPL pior (R$8,99). E os dois melhores CPL absolutos são de anúncios com pouca entrega e um
 lead só — V16 CNAE a R$1,37 e V17 do INTERESSE a R$1,62 —, número bonito demais para o
 volume que têm; não servem de base ainda.
+
+### Rodada de 28/09, 12h (REGRA V3 — primeira rodada depois de 4 dias parada)
+
+**A conta voltou a ser gravável.** Desde 23/09 toda escrita devolvia
+`Ad account not writable: Ad account status is ineligible to manage ads` (erro 200, subcódigo
+2490592). Hoje o `ads_update_entity` passou de primeira. O bloqueio saiu — não sei quando nem por
+quê, só que agora dá para agir.
+
+**PASSO 0 — C0. Um conjunto cortado.**
+
+| Conjunto | created_time (relógio) | Impressões | Gasto | Leads | Veredito |
+|---|---|---|---|---|---|
+| INTERESSE BR F3 | 09/09 16h50 | 3.789 | R$110,51 | **10** | tem lead, segue |
+| ADVOCACIA BR F3 | 17/09 18h57 | 1.180 | R$29,77 | **4** | tem lead, segue |
+| CNAE BR F3 | 09/09 16h44 | 845 | R$22,94 | **2** | tem lead, segue |
+| **IMOBILIÁRIA BR F3** | **17/09 18h56** | **508** | **R$14,44** | **0** | **C0 BATEU → CORTADO** |
+| CONTABILIDADE BR F3 | 17/09 18h57 | 387 | R$11,51 | **1** | tem lead, segue |
+| HARMONIZAÇÃO BR F3 | 16/09 17h59 | **7** | R$0,21 | 0 | **TRAVA 7 → NÃO TESTADO** |
+
+**IMOBILIÁRIA (120247487374980766) pausado e renomeado `ZZ CORTADO 48H — …`.** Onze dias no ar,
+passou das 500 impressões e não entregou um único lead. Nenhuma trava impediu: não era o último
+conjunto ativo (sobram cinco), e nunca gerou lead, então a trava dos 48h não se aplica. O anúncio
+que mais rodou dentro dele foi o **IMOB V03 — indicacao acabou** (431 imp, 8 cliques, CTR 1,86%,
+R$11,29, zero lead) — o mesmo que estava marcado para swap em 23/09 e nunca pôde ser trocado
+porque a conta estava travada. O conjunto morreu antes da troca.
+
+**HARMONIZAÇÃO: 7 impressões em 12 dias.** É a TRAVA 7 pura: não é público ruim, é a CBO não
+mandando verba. Segue no ar como NÃO TESTADO.
+
+**PASSO 2 — nenhum anúncio bateu T1–T8.** Vencedores de cada grupo:
+
+| Grupo | Vencedor | Impressões | Leads | CPL |
+|---|---|---|---|---|
+| INTERESSE WhatsApp | V11 — F3 `120247466750200766` | 1.372 | 4 | **R$9,22** |
+| INTERESSE CALENDLY | V13 — CALENDLY F3 `120247466288110766` | 86 | 1 | **R$2,95** |
+| CNAE | V16 — copy impulsionou `120247453176830766` | 92 | 2 | **R$1,55** |
+| ADVOCACIA | ADV V05 — curta `120247487668280766` | 1.174 | 4 | **R$7,41** |
+| CONTABILIDADE | CONT V03 — abertura de empresa `120247487435050766` | 364 | 1 | R$10,74 |
+
+O **V15** do INTERESSE (1.163 imp, 2 leads, CPL R$15,43) foi o único que encostou em T3 — precisaria
+passar de R$18,44 (2× o CPL do vencedor) para ser trocado. Passou raspando e fica.
+
+**Pablo duplicou 21 anúncios em 27/09 às 22h32–22h41** ("24 — Cópia", "V20 — Cópia", "V21 — Cópia",
+"V22 — Cópia", "23 — Cópia", em todos os seis conjuntos). Todos com menos de 48h, fora de
+julgamento. **Dez deles estão com defeito de criação:** `effective_status` WITH_ISSUES e o erro
+`Too Many Same Type Assets In Dof Asset Feed Spec: Too many titles. The limit is 10.` — a
+duplicação levou mais de dez títulos no asset feed. **Religar não conserta:** criativo é imutável
+na API, o caminho é refazer o anúncio com no máximo 10 títulos. Não mexi neles.
+
+**Sem entrega há mais de 7 dias, para o Pablo decidir verba:** V11 do CNAE
+(`120247409626800766`, 249 imp desde 12/09, 16 dias) e V15 — F3 do CNAE
+(`120247466690310766`, 176 imp desde 16/09). Os dois abaixo das 300 impressões, sem veredito
+possível.
+
+**Geo conferida nos cinco conjuntos que seguem ativos:** só a cidade de Taubaté em
+`excluded_geo_locations`, nenhum `regions`, `advantage_audience` 0, mobile e desktop,
+feed/story/reels. Nada para consertar.
