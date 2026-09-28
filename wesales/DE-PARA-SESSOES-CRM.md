@@ -321,3 +321,12 @@ Tentativas até agendar e até qualificar ainda sem dado real (4 agendados e 3 q
 | "Minha fila — SDR" foi recriada fora desta sessão: id novo `jB9TeEuL9X7mupxwJqde` (filtros iguais) | links do playbook corrigidos |
 
 | playbook (28/09 10:45) | "Regras da máquina" ganhou "A cadência, dia a dia" (12 toques × canal × mensagem, regras do toque) e "O que cada workflow faz" (os 41 publicados em linguagem simples, por momento do lead, com o que muda para a SDR) | rev 80 |
+
+### Relógio dos robôs no GitHub (28/09 14:10)
+
+| Achado | Correção |
+|---|---|
+| o agendador do GitHub neste repositório roda crons a cada 3–6 h (faxina `*/10` rodou 00:27, 06:29, 15:08); filas e governador **nunca** rodaram por agendamento | workflow novo `wesales-relogio.yml` (PR #119): fica ligado, a cada 30 min seg–sex 08–21 (São Paulo) roda `atuador_filas.py --aplicar` e `wa_governador.py --aplicar`, dispara a análise semanal na segunda se ainda não rodou; se relança a cada ~5h30 por workflow_dispatch (permitido pelo GITHUB_TOKEN); cron `11 */3` só reinicia se a corrente cair; concurrency impede dois relógios |
+| crons antigos | removidos de `wesales-filas.yml` e `wesales-wa-governador.yml` (ficam só manuais) para não rodar em dobro |
+| custo | repositório público: minutos de Actions grátis. Descartados: Custom Webhook do CRM (ação premium, cobrada por execução) e Supabase (dono prefere GitHub) |
+| ligado | 14:10, run 36455806642 em andamento |
