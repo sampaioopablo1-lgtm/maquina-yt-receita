@@ -222,3 +222,20 @@ Tentativas até agendar e até qualificar ainda sem dado real (4 agendados e 3 q
 | horários | agenda do Pablo (schedule `xn2Wz3s2eBWulv7j4JXM`): seg–sex 18:00–22:00, sáb 09:00–12:00, dom fechado; os 2 calendários ligados a ela; intervalo 90 min | Calendários | 17:30–20:30 todo dia, a cada 30 min | sim: seg–sex 18:00/19:30/21:00, sáb 09:00/10:30 | `openHours` no calendário não gera sábado quando há schedule do usuário; a disponibilidade vale pela schedule |
 | playbook | links, Passo 3 (lista se atualiza sozinha), Passo 5 (formulário → agenda), Qualificar e agendar, horários do closer | Claude Docs | rev 36 | sim | |
 | roteiro do discador | "Roteiro SDR + ficha do lead" (`6ab9f0e9c4094d71a47295bd`): botão "Abrir ficha de {{contact.first_name}} e agendar" com o link do formulário preenchido (24 campos) + resumo do anúncio + roteiro em 5 blocos | Configurações → Telefone → Roteiros (rota `POST backend/phone-system/locations/{loc}/call-scripts`, `scriptContent: {contentType: "html", contentBody}`) | novo | sim: com `replaceVariables=true&contactId=<teste>` o link sai com os dados do lead | o painel Roteiro do Power Dialer busca com `replaceVariables=true&contactId` do lead na linha (lido no código do discador). É o caminho da SDR dentro do discador. `tools/criar_roteiro_discador.py` |
+
+### Turnos flexíveis, grupo automático, metas e comissão (28/09)
+
+| Item | O que foi gravado | Onde | Antes → depois | Relido | Observação |
+|---|---|---|---|---|---|
+| janela das automações | 16 workflows publicados: seg–sex 08:30–**21:00** (Pós-ligação v2, rascunho, intocado) | Automações | 08:30–18:30 | sim, 16/16 (backup em `.local/bkp-janela-28-09/`) | turnos das SDRs: 09–18 e 13–21 (dono) |
+| turnos | `wesales/equipe.json` (SDRs, turnos, `tag_fila`, closer) + `tools/turnos.py`; governador: janela do WhatsApp automático = do 1º turno a 30 min antes do fim do último (hoje 09:00–20:30); atuador: lead novo (24 h, nunca tentado) de SDR fora do turno passa para SDR em turno, com as tarefas; com 2+ SDRs, tag `fila-tel-<nome>` por SDR | PR #112 e #113 (mergeados) | crons até 20:59 | simulado com SDR fictícia (1ª versão pegava os 38 antigos com contador vazio → limitado a 24 h) | só existe **uma** SDR com usuário (Andreyna). A SDR da manhã entra no `equipe.json` quando o usuário for criado |
+| grupo com o closer | workflow "Grupo com o closer — tarefa da SDR" (`8ed2fc63-e542-4b9d-867e-6a2cd6b1799f`): reunião confirmada nos 2 calendários → tarefa `[GRUPO] Criar grupo com o closer — {{contact.first_name}}` para a SDR, prazo no dia | Automações | novo, publicado v3, sem janela | sim (2 gatilhos ativos) | concluir a tarefa = grupo criado (sem tag manual). Tarefa vai para a Andreyna; com 2 SDRs, rever |
+| playbook | turnos + rotina da manhã; máquina acompanha os turnos; tag por SDR; tarefa [GRUPO]; motivos de desqualificação; comissão sobre a 1ª mensalidade paga (R$ 500 / R$ 1.000 por venda); planejamento out–dez (R$ 30k / 50k / 100k) e ganho da SDR com e sem 100 ligações/dia; listas "o que não está pronto" retiradas (pendências do dono, abaixo) | Claude Docs | rev 54 | sim | |
+
+**Pendências do dono (fora do playbook da SDR):**
+- Conta de anúncios do Meta com pagamento pendente e termos de lead da Página.
+- Formulários do Meta: 5 de 9 sem mapeamento para o CRM (conferir só os de campanhas ativas).
+- Criar o usuário da SDR da manhã no CRM e pôr o `userId` em `wesales/equipe.json`.
+- Passagem depois de FORMALIZAR (quem assume, checklist) e modelos de proposta/contrato.
+- Critério da premiação anual.
+- Volume de leads para a meta (460 em out, 770 em nov, 1.540 em dez) e 2º closer ou mais horários a partir de novembro (agenda atual ≈ 74 reuniões/mês).
