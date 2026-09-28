@@ -1,0 +1,52 @@
+name: WeSales - filas do discador
+
+# Mantem `fila-sdr` e `fila-closer` sozinhas, que e o que faz a lista do Call
+# Center "ser seguida automaticamente": o discador nao tem start automatico, mas a
+# COMPOSICAO da lista pode ser. O SDR chega, puxa a tag e disca.
+#
+# 08:10 em Sao Paulo (11:10 UTC), antes do expediente comecar, para o SDR abrir o
+# discador com a fila do dia ja pronta. Minuto 10 e nao 00 de proposito: cron no
+# minuto zero disputa fila com o resto do mundo.
+#
+# Escreve APENAS estas duas tags, e nenhum workflow as le nem as escreve — fui eu
+# que as criei em 27/09 justamente para ficarem fora do caminho da maquina. Por
+# isso este cron pode aplicar sem pedir nada: ele nao tem como brigar com a
+# cadencia. E o motivo pelo qual `sdr-lotado` e `fila-wa` NAO estao aqui esta no
+# docstring do atuador_filas.py.
+#
+# O cron so funciona depois do merge, porque um agendamento roda a versao do
+# BRANCH PADRAO e o script vive no branch de trabalho. Antes do merge, use o
+# modo `filas-aplicar` do wesales-finalizar.yml.
+
+on:
+  schedule:
+    - cron: "*/30 11-21 * * 1-5"   # a cada 30 min, 08:00-18:59 em Sao Paulo: lead novo entra na fila em ate 30 min
+  workflow_dispatch:
+    inputs:
+      aplicar:
+        description: "false = DRY, so calcula e imprime"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  filas:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Atuador das filas
+        env:
+          GHL_PIT: ${{ secrets.GHL_PIT }}
+        run: |
+          if [ "${{ github.event_name }}" = "schedule" ] || [ "${{ inputs.aplicar }}" = "true" ]; then
+            python wesales/tools/atuador_filas.py --aplicar
+          else
+            python wesales/tools/atuador_filas.py
+          fi
