@@ -79,6 +79,10 @@ DO_CLOSER = ("3d26fcd1", "cbcf0229")   # REUNIAO DE DIAGNOSTICO, NEGOCIAR
 PRIORIDADE = "chuJMRlKzY0Uq1f0lSkX"
 TAG_SDR = "fila-sdr"
 TAG_CLOSER = "fila-closer"
+# 28/09: lista "Minha agenda — Closer" filtra por esta tag (a tela não aceita OU de etapas).
+# = oportunidade aberta em REUNIÃO DE DIAGNÓSTICO, NEGOCIAR ou FORMALIZAR (com ou sem telefone).
+TAG_CLOSER_ATIVO = "closer-ativo"
+FORMALIZAR = "b8485ec0"
 # Trava de canal (28/09): quem falou com a SDR nas ultimas 12 h (atendeu o discador ou
 # Resultado = Atendeu/Pediu retorno) nao entra na fila do discador nem na lista "Ligar pelo
 # WhatsApp". A tag e posta e tirada pelo workflow "Trava de canal — falou hoje"; este arquivo
@@ -439,8 +443,11 @@ def main() -> int:
             print("     %s  %s" % (cid, n))
 
     plano = []
+    d_ativo = {c["id"] for c in cs if etapas.get(c["id"]) in DO_CLOSER + (FORMALIZAR,)}
+    a_ativo = {c["id"] for c in cs if TAG_CLOSER_ATIVO in (c.get("tags") or [])}
     for tag, desejado, atual in ((TAG_SDR, d_sdr, a_sdr),
-                                 (TAG_CLOSER, d_clo, a_clo)):
+                                 (TAG_CLOSER, d_clo, a_clo),
+                                 (TAG_CLOSER_ATIVO, d_ativo, a_ativo)):
         por = sorted(desejado - atual)
         tirar = sorted(atual - desejado)
         print("\n  %s: %d desejados, %d com a tag hoje" % (tag, len(desejado), len(atual)))
