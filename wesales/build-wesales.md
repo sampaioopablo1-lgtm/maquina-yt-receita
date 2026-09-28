@@ -9337,3 +9337,20 @@ ou pergunta de qualificação distinta) e "Pronto quando":
 `ROADMAP-SALES-ENGAGEMENT.md`, **G-29**; `campos-e-tags.md`, Etapa 2, quinto
 campo (correção) e sexto campo (novo). Zero campo, zero tag, zero escrita
 no CRM.
+
+---
+
+## 2.54 A pergunta do G-28 (qual das duas intenções de `SDR responsável` é a certa) tinha resposta desde 27/09/2026 — G-34
+
+A seção 2.52 deixava a pergunta em aberto. Ela já tinha resposta num
+documento de outra branch (`DE-PARA-SESSOES-CRM.md`,
+`abertura-operacao-dnd-n7dnjv`): decisão ao vivo do dono, "`SDR responsável`
+só com a SDR" — não é espelho de `Assigned User` (o risco que o R-10, seção
+2.14, já tinha afastado), é registro de quem qualificou, preenchido à mão.
+A sessão que fechou o G-29 (§2.53) já tinha essa mesma fonte disponível e
+não a aplicou ao G-28 especificamente — só ao G-30, no fechamento seguinte
+(G-33). Fechado em `ROADMAP-SALES-ENGAGEMENT.md`, **G-34**, com a
+reconfirmação própria do campo por API (sem mudança desde a §2.53). A
+pergunta do G-29 sobre consumo (quem escreve, quem lê `SDR responsável`/
+`B · Quanto pode investir`) continua sem resposta — não é a mesma pergunta,
+não fecha junto. Zero campo, zero tag, zero escrita no CRM.

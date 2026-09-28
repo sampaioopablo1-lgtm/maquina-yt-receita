@@ -385,9 +385,20 @@ não aprovação — regra 1 nunca se aplicaria aqui mesmo se quisesse (o campo
 
 **Atualização em G-29 (27/09/2026), sem mudar o parágrafo acima:** o mesmo
 campo (`e1n7As703nqjAOpzREHc`, id inalterado) perdeu a opção `Pablo Santos`
-— só `Andreyna Siqueira` continua na lista. A pergunta do G-27/G-28 (qual
-das duas intenções é a certa) segue sem resposta; detalhe em
-`ROADMAP-SALES-ENGAGEMENT.md`, **G-29**.
+— só `Andreyna Siqueira` continua na lista. Isso, sozinho, **não** respondia
+qual das duas intenções era a certa — só favorecia uma leitura.
+
+**G-28 fechado em 28/09/2026 (G-34):** a resposta não veio do formato do
+campo, veio do relato da sessão com navegador logado ativo junto do dono
+(`DE-PARA-SESSOES-CRM.md` da branch `abertura-operacao-dnd-n7dnjv`, 18:25
+27/09: "carteira → Andreyna; `SDR responsável` só com a SDR") — decisão ao
+vivo, não inferência de opções. **Confirmado por esta sessão em
+28/09/2026:** `locations_get-custom-fields` mostra o campo sem mudança
+desde a leitura do G-29 (mesmo id, ainda só `Andreyna Siqueira`). Detalhe
+completo em `ROADMAP-SALES-ENGAGEMENT.md`, **G-34**. **O que isto não
+responde:** a pergunta do G-29 sobre `B · Quanto pode investir` (duplicata
+de Q-06 ou pergunta nova) e se algum workflow deveria ler qualquer um dos
+dois campos — nenhuma das duas tem decisão ainda.
 
 **Um sexto campo fora desta lista, criado direto na tela em 27/09/2026:**
 `B · Quanto pode investir` — `contact.b__quanto_pode_investir`, id
@@ -404,7 +415,9 @@ as duas leituras possíveis e "Pronto quando" em
 27/09/2026 (G-33), ainda sem confirmação do dono:** a SDR preenche
 `SDR responsável` e `B · Quanto pode investir` na ligação, e a nota de
 qualificação passa a ler `B · Quanto pode investir` (hoje nada lê nenhum
-dos dois) — não fecha G-27/G-28/G-29, é recomendação, não decisão.
+dos dois) — não fecha G-27/G-29, é recomendação, não decisão (G-28,
+a pergunta sobre qual intenção do campo era a certa, fechou em 28/09/2026,
+ver nota acima).
 
 **Um sétimo campo fora desta lista, e desta vez não veio da tela de
 qualificação — veio de um recurso nativo, em 27/09/2026:** `Voice AI Reason

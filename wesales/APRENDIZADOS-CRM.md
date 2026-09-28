@@ -6819,3 +6819,27 @@ afirmação sobre o que **esta** branch sabe, não sobre o que já aconteceu.
 Uma lista que só cresce e nunca é reconferida contra as branches irmãs
 acumula falso bloqueio do mesmo jeito que o G-25 acumulou falsa prioridade
 por quase 10h. Detalhe em `ROADMAP-SALES-ENGAGEMENT.md`, **G-33**.
+
+## Resumir uma tabela de outra sessão numa frase só apaga a linha que ela mesma separou (G-34, 28/09/2026)
+
+O G-33 leu a tabela "Para o dono decidir" do `DE-PARA-SESSOES-CRM.md` (outra
+branch) corretamente linha a linha — mas, ao escrever a frase de fechamento
+("G-27/G-28/G-29... recomendação, ainda sem confirmação"), juntou três
+números que a própria fonte tratava em **duas** linhas diferentes: uma
+dizendo "G-25, G-26, G-28, G-30 — nada a fazer, resolvidos" (fato já
+decidido ao vivo pelo dono) e outra, separada, dizendo "G-27/G-29 —
+definir..." (recomendação, ainda sem resposta). O G-28 caiu na frase errada
+porque o número dele "parece" o do G-27 (mesmo campo, mesma pergunta
+original) — mas a fonte já tinha resolvido essa aparência, tratando os dois
+de forma diferente, e resumir de memória em vez de citar a tabela por
+inteiro apagou essa diferença. **A checagem que teria evitado isto: ao
+copiar uma lista de outra fonte para uma frase de fechamento, contar quantos
+grupos a fonte tem antes de contar quantos itens — se a fonte separa em
+dois grupos, a frase de fechamento também precisa de dois, mesmo que dois
+dos números "pareçam" pertencer ao mesmo grupo.** Custo do erro: um item
+(G-28) ficou marcado como pendente por uma sessão inteira depois de a fonte
+já ter dito o contrário — não chegou a bloquear nada (nenhuma decisão real
+esperava por ele), mas é a mesma classe de "lista que não é reconferida"
+que o G-32/G-33 já tinham generalizado para branch, agora aplicada a uma
+única tabela lida na própria sessão que a citou. Detalhe em
+`ROADMAP-SALES-ENGAGEMENT.md`, **G-34**.

@@ -4891,7 +4891,7 @@ não passar sem disparo.
 
 ---
 
-### G-28 · O campo do G-27 já mudou de novo — o dono trocou `SDR responsável` de `TEXT` livre para `SINGLE_OPTIONS` fechado 13 minutos depois, sem que nenhum documento tivesse chegado a registrar o primeiro estado (27/09/2026)
+### G-28 · O campo do G-27 já mudou de novo — o dono trocou `SDR responsável` de `TEXT` livre para `SINGLE_OPTIONS` fechado 13 minutos depois, sem que nenhum documento tivesse chegado a registrar o primeiro estado (27/09/2026) — **FEITO em 28/09/2026 (ver G-34)**
 
 **Por quê:** reconferência de rotina do G-25 (a primeira tarefa de toda
 sessão enquanto ele não fechar) — `opportunities_search-opportunity`
@@ -5311,6 +5311,75 @@ zero tag, zero escrita no CRM: não depende de `APROVADO.md`.
 lista de decisões sem prazo fixo que esperam o dono. G-27/G-28/G-29 (agora
 com a recomendação da sessão A registrada, ainda sem confirmação), F-09,
 F-10, G-11 (item 1), G-19 e G-31 continuam sendo essas decisões.
+
+### G-34 · O próprio G-33 juntou G-28 com G-27/G-29 na mesma recomendação "ainda sem confirmação" — mas a fonte que ele cita separa os três em dois grupos diferentes, e um deles já tem decisão (28/09/2026) — **FEITO**
+
+**Por quê:** reconferência de rotina do G-25 antes de qualquer outra
+coisa (já fechado, sem novidade — `git fetch` limpo, `HEAD` de
+`abertura-operacao-dnd-n7dnjv` parado no mesmo commit de 20:40:50
+`-03:00` da sessão anterior; a janela da MI-0 abre às 11:30 UTC de hoje,
+faltando ~11h a esta sessão, 00:08 UTC). Fresh reconferido por API própria,
+não presumido: `locations_get-custom-fields` (`model: contact`) mostra o
+mesmo campo `SDR responsável` (`e1n7As703nqjAOpzREHc`, `SINGLE_OPTIONS`)
+com a mesma opção única `Andreyna Siqueira` que o G-29 já tinha achado —
+nenhuma mudança desde então. Relendo o próprio `DE-PARA-SESSOES-CRM.md` da
+sessão A (mesmo documento que o G-33 já tinha usado para fechar G-04 peça 2
+e G-30) linha a linha, a tabela final separa os achados desta rodada em
+**dois** grupos, não um: *"G-25, G-26, G-28, G-30: nada a fazer: resolvidos
+pela sua decisão das 20:10–20:23 ou só registro (Voice AI com 0 agentes)"*
+— um grupo — e, **linha separada**, *"G-27/G-29: `SDR responsável` e `B ·
+Quanto pode investir` sem nenhum workflow lendo → definir que a SDR
+preenche os dois na ligação e que a nota de qualificação lê `Quanto pode
+investir`; hoje nada lê"* — outro grupo, explicitamente ainda em aberto. O
+G-33 leu a segunda linha corretamente (por isso registrou "recomendação,
+ainda sem confirmação" para G-27/G-29), mas colou o `G-28` dentro dessa
+mesma frase — quando a fonte já tinha posto o G-28 no primeiro grupo,
+ao lado do G-25/G-26/G-30 que o próprio G-33 fechou duas linhas antes. Não
+é erro de leitura da conta (nenhum dos dois grupos discorda do que
+`locations_get-custom-fields` mostra); é erro de agrupar três números numa
+frase só sem reconferir se a fonte os tratava do mesmo jeito — a mesma
+classe de descuido que o G-20/G-26 já corrigiram para número fixo e o G-32
+corrigiu para `G-03` na lista de pendências, agora aplicado a lista de
+itens, não a número.
+
+**O que isso resolve, e o que continua em aberto:** o G-28 fechava com "o
+dono disser qual das duas intenções é a certa" (mesma pergunta do G-27).
+Este documento já registrava, com cautela, que a saída de `Pablo Santos`
+das opções **por si só** não responde isso — só favorece a leitura "quem
+qualificou" (G-29, penúltimo parágrafo). O que fecha o item não é o
+formato do campo, é o relato da sessão A: ela teve sessão de navegador
+logado com o dono ativa na mesma janela (27/09, tarde/noite) e registrou,
+na própria tabela "Gravado pela sessão do PC", a linha "18:25 | carteira →
+Andreyna; `SDR responsável` só com a SDR | ✓" — decisão ao vivo, não
+inferência de formato. Mesma classe de evidência (relato em primeira mão
+de uma sessão com acesso que esta não tem) já aceita pelo G-33 para fechar
+o G-04 peça 2 (conteúdo de workflow) e o G-30 (contagem de agentes Voice
+AI) — nenhuma das duas era verificável por este conector também, e
+não foram tratadas como exigindo confirmação adicional. Aplicar padrão
+diferente ao G-28 sem motivo seria inconsistência nova, não cautela.
+**O que isso NÃO fecha:** a pergunta do G-29 é outra — se algum workflow
+deveria ler `SDR responsável`/`B · Quanto pode investir`, e se este último
+é duplicata de `Investimento mensal em anúncios` — nenhuma linha da tabela
+da sessão A resolve isso, ela mesma marca como recomendação, não decisão.
+G-27 fica como está (já `FEITO` — registro do achado original; a pergunta
+que ele fazia é a mesma do G-28, agora respondida, mas o cabeçalho do G-27
+não muda porque "FEITO" ali já se referia ao trabalho de documentação, não
+à resposta).
+
+**Como:** nada sai por API — reconciliação de leitura entre dois
+documentos deste projeto (o G-33 e a fonte que ele cita), mais uma
+reconfirmação própria do campo por API. Corrigido: cabeçalho do G-28
+(acima) e `campos-e-tags.md` (linha que dizia "a pergunta... segue sem
+resposta" para o par G-27/G-28 — separada da pergunta do G-29, que
+continua sem resposta). Zero campo, zero tag, zero escrita no CRM: não
+depende de `APROVADO.md`.
+
+**Pronto quando:** cumprido — G-28 sai da lista de decisões sem prazo
+fixo que esperam o dono. F-09, F-10, G-11 (item 1), G-19, G-27/G-29
+(recomendação da sessão A registrada, ainda sem confirmação) e G-31
+continuam sendo essas decisões — seis, uma a menos que a lista do G-33.
+G-25 segue fechado; a janela da MI-0 (segunda 28/09 08:30
+`America/Sao_Paulo`) não passou ainda nesta sessão.
 
 ## Ordem sugerida
 
