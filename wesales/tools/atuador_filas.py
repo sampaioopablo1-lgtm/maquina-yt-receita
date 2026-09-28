@@ -440,6 +440,11 @@ def entrada_gradual(cs, etapas, aplicar):
     seg-sex 09:00-18:00, para a 1ª mensagem nunca sair em bloco (o governador ainda limita e
     espaça os envios). Ao entrar, perdem `sem-cadencia` (a cadência assume o ritmo)."""
     import datetime as dt
+    # 28/09 15h: PAUSADA. Leads que entraram na Cadência Inbound por aqui não receberam mensagem
+    # nem tarefa (investigando). Ao entrar, perdiam `sem-cadencia` e o ritmo diário de ligação.
+    # Religar só depois de confirmar a Cadência Inbound processando o lead de ponta a ponta.
+    print("  entrada gradual: PAUSADA (Cadência Inbound em diagnóstico)")
+    return
     agora = dt.datetime.now(dt.timezone(dt.timedelta(hours=-3)))
     if agora.weekday() >= 5 or not (9 <= agora.hour < 18):
         print("  entrada gradual: fora da janela (seg-sex 09-18)")
