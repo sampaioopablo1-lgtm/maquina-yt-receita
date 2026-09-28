@@ -56,6 +56,26 @@ tem a função.
   "WhatsApp tentado hoje" também tira na hora em que o Canal = WhatsApp é marcado.
 - Bloqueio:
 
+### [ ] 4. Publicar o workflow "Promover NOVO LEAD para CONECTAR" (G-03) (manual)
+- **Por quê:** em 28/09 os 2 leads do Meta (07:11 e 09:05) ficaram 3h56 e 2h02 em NOVO LEAD
+  sem nenhuma tentativa, sem `atraso-1a-tentativa` e sem dono. A Porta de Entrada criou a
+  oportunidade em 10 s, mas Cadência 12x30 e alerta de speed-to-lead só disparam ao entrar em
+  CONECTAR, e nada move o lead para lá: o workflow de promoção (build §1.4) não existe e o
+  runner `promote_g03_scheduled.py` só roda de 29/09 08:00 a 30/09 08:00. Todo lead novo
+  fica parado até alguém mover na mão.
+- **Como (tela do CRM, Automações → Workflows):** criar "Promover NOVO LEAD para CONECTAR".
+  Gatilho: Opportunity Stage Changed · Pipeline `FUNIL DE VENDAS` · Para a etapa `NOVO LEAD`.
+  Ação única: Create/Update Opportunity · Pipeline `FUNIL DE VENDAS` · Etapa `CONECTAR` ·
+  Status `open` · Allow Duplicate desligado. Sem espera, sem janela de envio, Allow Re-entry
+  ligado. Publicar só com a Cadência 12x30 `published` (ordem obrigatória do §1.4).
+  Rascunho JSON: `tools/build_g03.py`.
+- **Conferência:** contato de teste novo → oportunidade passa por NOVO LEAD e chega em
+  CONECTAR em menos de 1 min, recebe `etapa-conectar`, a T1 roda e, se ninguém tentar,
+  `atraso-1a-tentativa` aparece em 15 min (inbound) ou 1 h. Depois, mover na mão os leads de
+  28/09 que o runner de 29/09 não pegar.
+- Feito em:
+- Bloqueio:
+
 ## Aplicados
 
 (os itens vêm para cá depois de marcados)
