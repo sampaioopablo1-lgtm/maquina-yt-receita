@@ -11,6 +11,7 @@ on:
 
 permissions:
   contents: read
+  issues: write
 
 jobs:
   analises:
@@ -20,12 +21,6 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - uses: actions/setup-node@v4
-        if: ${{ env.TEM_SESSAO == 'sim' }}
-        with:
-          node-version: "20"
-        env:
-          TEM_SESSAO: ${{ secrets.GHL_STORAGE_STATE != '' && 'sim' || 'nao' }}
       - name: Analises
         env:
           GHL_PIT: ${{ secrets.GHL_PIT }}
@@ -37,4 +32,13 @@ jobs:
           else
             echo "sem GHL_STORAGE_STATE: so imprime (a nota do painel nao e atualizada)"
             python wesales/tools/analises_semanais.py
+          fi
+      - name: Aviso de vencimento da sessao
+        if: always()
+        env:
+          GHL_STORAGE_STATE: ${{ secrets.GHL_STORAGE_STATE }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if ! python wesales/tools/vigia_sessao.py; then
+            gh issue list --state open --search "Renovar sessao do WeSales" --json number -q '.[].number' | grep -q . ||             gh issue create --title "Renovar sessao do WeSales (vence em ate 10 dias)" --body "A sessao usada pelas automacoes vence em ate 10 dias. Para renovar: no PC, rode 'node wesales/tools/login-capture.js', faca login e depois peca ao Claude para regravar o segredo GHL_STORAGE_STATE (versao sem os caches statsig). Enquanto nao renovar, so a nota do painel deixa de atualizar; governador, filas e analises continuam."
           fi
