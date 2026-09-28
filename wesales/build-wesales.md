@@ -9506,3 +9506,115 @@ montagem dos dois workflows na tela (nenhum dos dois sai por API neste
 conector); `campos-e-tags.md` (C-34, T-24) e `APROVADO.md` (duas linhas
 novas, ambas `[ ]`) documentam o pré-requisito. Zero campo, zero tag, zero
 escrita no CRM nesta rodada: item de especificação pura.
+
+## 2.56 Higiene de E-mail — Bounce — F-25
+
+**Por quê:** o R-13 (seções 2.3/2.10) fechou a higiene de base do
+**telefone** — contato sem número válido nunca gasta as 12 tentativas,
+marcado por `telefone-invalido` (T-09) — desde 18/09/2026. O e-mail só
+ganhou disparo real quatro dias depois (F-15, seção 2.30) e nenhuma rodada
+voltou a perguntar a mesma coisa do canal novo, a mesma classe de lacuna
+que G-06/G-07/F-19/F-20/F-21/F-22 já fecharam cada um a seu turno ("a
+guarda mais velha nunca alcança o canal mais novo"). Hoje um endereço que
+bate no `Resgate por E-mail — Sem Telefone` não é marcado de jeito nenhum:
+o `Reengajamento 90 dias` (R-08, seção 2.12) recicla o contato de volta
+para `abandoned`+`nutricao-90d` a cada 90 dias, e o `Resgate por E-mail`
+(`Allow Re-entry` ligado, nó 8) tenta `EM-1`/`EM-2` de novo no mesmo
+endereço morto, para sempre. Não é só desperdício de tentativa: o F-22
+(seção 2.51) já mediu que o risco real da rampa de e-mail nativa do GHL
+não é volume, é **qualidade** — "bounce alto numa lista nunca limpa" é um
+dos dois motivos documentados de a rampa regredir (`Stage declined`) — e
+hoje nada neste projeto lê o evento que produz esse risco. Este item é o
+contador individual que falta ao lado do checklist agregado do F-22: um
+`email-invalido` que sobe rápido é o sinal antecedente barato que o F-22
+já pedia para o gestor vigiar antes de a rampa cair sozinha.
+
+**Pesquisado antes de desenhar (`WebSearch`):** confirmado que o GHL expõe
+gatilho nativo `Email Events`, com filtro `Event = Bounced` — a própria
+HighLevel publica a receita oficial para este caso exato ("Auto-Enable
+Email DND When a Contact's Email Bounces"): gatilho `Email Events` filtrado
+por `Bounced`, seguido de uma ação `Enable/Disable DND` com escopo
+`Outbound Email` (não todos os canais). A mesma fonte documenta o limite
+que este item herda, sem poder resolver: o gatilho **não distingue bounce
+definitivo** (endereço não existe, domínio inexistente — GHL marca como
+`Invalid` automaticamente) **de temporário** (caixa cheia, erro momentâneo
+de servidor) — não existe um filtro nativo "tipo de bounce" na tela do
+gatilho, só o evento "bateu". A própria documentação avisa: "nem todo
+bounce significa endereço permanentemente inválido", e "nenhuma
+verificação de e-mail remove o DND automaticamente depois" — quem liga,
+só um humano desliga. Comparado às quatro plataformas do enunciado (todas
+pesquisadas): Outreach pausa o Prospect para revisão manual já no primeiro
+bounce, sem distinguir tipo; Salesloft tolera um bounce definitivo **ou**
+dois temporários antes de marcar (o próprio suporte deles descreve os dois
+como classes diferentes, mas com política declarada, não filtro
+automático); Apollo remove o endereço de circulação já no primeiro bounce
+definitivo. As três convergem no mesmo ponto que a receita nativa do GHL
+já assume: não existe distinção automática confiável — a decisão é
+"registrar tudo, revisar depois", não "decidir sozinho e nunca revisar".
+
+**Por que não é `nao-perturbe` (T-06) nem `Set Contact DND` em todos os
+canais (2.9.5/R-17, 2.9.6/G-07):** um bounce é falha de **entrega**, não
+pedido de silêncio. Reaproveitar `nao-perturbe` faria um endereço
+tecnicamente morto aparecer nas Smart Lists de compliance do R-14
+(8.26/8.27), que leem essa tag como "consentimento revogado" — confundindo
+duas perguntas diferentes ("o lead pediu para parar?" vs. "o e-mail dele
+ainda existe?"). E desligar DND em **todos** os canais (o padrão do
+2.9.5/R-17 para opt-out explícito) pararia telefone e WhatsApp por um
+motivo que é só do e-mail — o contato continua 100% alcançável pelos dois
+outros canais, só o endereço que bateu está morto. Por isso: tag própria
+(`email-invalido`, mirror de `telefone-invalido`/T-09, não de
+`nao-perturbe`/T-06) e DND escopado só a `Outbound Email`.
+
+**Por que não usa `Remove Workflows: All Except Current` (o padrão que o
+2.9.5/R-17 já usa para opt-out):** essa opção tiraria o contato de **toda**
+régua ativa, incluindo a `Cadência 12x30` (telefone) e a `Cadência
+Inbound` — um bounce de e-mail não deveria interromper a ligação que está
+rodando por outro canal. Este item remove o contato só do workflow que
+manda e-mail de verdade hoje (`Resgate por E-mail — Sem Telefone`, seção
+2.30) — lista a manter atualizada manualmente a cada novo workflow de
+`Send Email` publicado, mesma classe de manutenção que a lista de frases
+de opt-out (seção 2.9.5) já pede há duas seções.
+
+**Como:**
+
+| Configuração | Valor | Por quê |
+|---|---|---|
+| Gatilho | `Email Events` — filtro `Event = Bounced` | Receita nativa confirmada por pesquisa; dispara para bounce em qualquer envio da subconta, não só `EM-1`/`EM-2` |
+| Janela de envio | Sem restrição, 24/7 | Nenhum nó manda mensagem ao lead |
+| Allow Re-entry | Ligado | Cada bounce é um evento novo — um contato pode bater duas vezes em campanhas diferentes, mesmo raciocínio do 2.9.5/2.55 |
+| Stop on Response | Desligado | Não é gatilho de resposta |
+
+| # | Nó | Ação | Configuração |
+|---|---|---|---|
+| 1 | Contar | Update Contact Field (Math +1) | `Bounces de e-mail` (C-35, novo) — mesmo padrão de contador cumulativo que C-06/C-07/C-11/C-12/C-26/C-31/C-32/C-33/C-34, nunca sobrescrito |
+| 2 | Marcar | Add Contact Tag | `email-invalido` (T-25, novo) — marcador permanente, mesma classe de `telefone-invalido`/T-09, nunca removida automaticamente |
+| 3 | Bloquear canal | Set Contact DND | Escopo **`Outbound Email`** apenas — não "todos os canais" (diferente do nó 3 do 2.9.5) |
+| 4 | Sair da régua de e-mail | Remove Workflows | Nomeado: `Resgate por E-mail — Sem Telefone` (seção 2.30) — não `All Except Current Workflow`, ver nota acima |
+| 5 | Portão de repetição | If/Else | `Bounces de e-mail` `=` 1 → nó 6 (avisa) · `>` 1 → nó 7 (só soma, sem repetir aviso — mesmo padrão de "não treinar o gestor a ignorar alarme repetido" do F-24/nó 5 e do G-25) |
+| 6 | Aviso, só no primeiro bounce | Internal Notification | Para `Contact Owner`: `{{contact.name}} — e-mail bateu (bounce). Marcado email-invalido, e-mail desligado (DND), saiu do Resgate por E-mail. Telefone/WhatsApp continuam normais. Nem todo bounce é definitivo (caixa cheia, erro temporário) — nenhuma automação desliga este DND sozinha; revisar na tela se o endereço voltar a ser válido.` |
+| 7 | Registro | Add Note | `Bounce de e-mail detectado em {{right_now}} · email-invalido aplicada · DND de e-mail ligado · saiu do Resgate por E-mail` |
+
+**Campo novo:** `Bounces de e-mail` (C-35, `NUMERICAL`, cumulativo).
+**Tag nova:** `email-invalido` (T-25, marcador permanente). Nenhum dos
+dois sai por API neste conector (campo é criação de tela; tag nasce `[ ]`
+em `APROVADO.md` pela regra de sempre — nenhuma linha nova vira `[x]`
+sozinha). Zero escrita no CRM nesta rodada.
+
+**Fora de escopo, de propósito — mesmo limite que o F-22 já documentou
+para a reputação agregada:** este item não lê o **estágio** de reputação
+do domínio (`Stage declined`), só o evento individual de bounce — não
+existe gatilho nativo para ler estágio (pesquisado no F-22, confirmado
+ausente de novo aqui). O contador `Bounces de e-mail`, olhado em conjunto
+por contato, é o sinal antecedente que o checklist do F-22 já pedia para
+vigiar; ele não substitui a checagem manual periódica de `Email Services`
+que o F-22 recomenda.
+
+**Pronto quando:** um bounce em qualquer envio de e-mail da operação marca
+o contato com `email-invalido`, soma `Bounces de e-mail`, desliga o envio
+de e-mail (sem tocar telefone/WhatsApp) e tira o contato do `Resgate por
+E-mail`, avisando o gestor uma única vez — o segundo bounce do mesmo
+contato não repete o aviso, só soma o contador. Falta a criação manual do
+campo/tag e a montagem do workflow na tela (não sai por API neste
+conector); `campos-e-tags.md` (C-35, T-25) e `APROVADO.md` (duas linhas
+novas, ambas `[ ]`) documentam o pré-requisito. Zero campo, zero tag, zero
+escrita no CRM nesta rodada: item de especificação pura.

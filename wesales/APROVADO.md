@@ -334,6 +334,16 @@ manual (não sai por API para ninguém, nem ler nem escrever pipeline além do
       personalizado não sai por API neste conector (é criação na tela).
       Nasce `[ ]`.
 
+- [ ] Criar a 25ª tag, `email-invalido` — nasceu no F-25 (Higiene de
+      E-mail — Bounce), especificada em `campos-e-tags.md` (T-25) e
+      `build-wesales.md` (seção 2.56). Mesma regra de sempre: nasce `[ ]`,
+      vira `[x]` quando o dono trocar, num commit que não é o meu.
+
+- [ ] Criar o campo `Bounces de e-mail` (NUMERICAL) — nasceu junto com a
+      T-25, mesmo item (F-25): contador cumulativo de quantas vezes um
+      e-mail da operação bateu (bounce) num contato. Campo personalizado
+      não sai por API neste conector (é criação na tela). Nasce `[ ]`.
+
 - [ ] Adicionar a opção `Resposta de e-mail` ao campo já existente `Sinal
       recebido` (C-13, `SINGLE_OPTIONS`) — nasceu no F-21
       (`ROADMAP-SALES-ENGAGEMENT.md`), especificada em `campos-e-tags.md`

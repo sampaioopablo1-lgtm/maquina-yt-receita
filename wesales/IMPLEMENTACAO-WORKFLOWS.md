@@ -1942,6 +1942,43 @@ e-mail` +1, nota registrada, nenhuma tag e nenhum aviso.
 | 7b | Add Note | `Sinal: clique em e-mail em {{right_now}} — clique adicional, contador somado, sem novo escalonamento (idempotente, mesmo padrão do toque/T-15)` | fim |
 | 8 | Add Note | `Sinal: clique em e-mail em {{right_now}} — primeiro clique, Prioridade subiu para 4, tag email-engajado aplicada` | fim |
 
+## W30 · Higiene de E-mail — Bounce — `build-wesales.md` 2.56 (F-25, especificado em 28/09/2026)
+
+**Gatilho:** `Email Events` — filtro `Event = Bounced`.
+
+| Configuração | Valor |
+|---|---|
+| Janela | Sem restrição, 24/7 |
+| Allow Re-entry | Ligado |
+| Stop on Response | Desligado |
+
+| # | Ação | Configuração exata | Vai para |
+|---|---|---|---|
+| 1 | Update Contact Field (Math +1) | `Bounces de e-mail` (C-35, novo) | 2 |
+| 2 | Add Contact Tag | `email-invalido` (T-25, novo) | 3 |
+| 3 | Set Contact DND | Escopo `Outbound Email` apenas — não todos os canais | 4 |
+| 4 | Remove Workflows | Nomeado: `Resgate por E-mail — Sem Telefone` (não `All Except Current Workflow` — telefone/WhatsApp continuam) | 5 |
+| 5 | If/Else | `Bounces de e-mail` `=` 1 → 6 · `>` 1 → 7 | 6 ou 7 |
+| 6 | Internal Notification | ao `Contact Owner`: `{{contact.name}} — e-mail bateu (bounce). Marcado email-invalido, e-mail desligado (DND), saiu do Resgate por E-mail. Telefone/WhatsApp continuam normais. Nem todo bounce é definitivo (caixa cheia, erro temporário) — nenhuma automação desliga este DND sozinha; revisar na tela se o endereço voltar a ser válido.` | 7 |
+| 7 | Add Note | `Bounce de e-mail detectado em {{right_now}} · email-invalido aplicada · DND de e-mail ligado · saiu do Resgate por E-mail` | fim |
+
+**Pré-requisito:** campo `Bounces de e-mail` (C-35, `NUMERICAL`) e tag
+`email-invalido` (T-25) criados na tela — nenhum sai por API neste
+conector. Ambos `[ ]` em `APROVADO.md`.
+
+**Por que o DND é só de e-mail, e a saída de régua é só do `Resgate por
+E-mail`, não de tudo:** um bounce prova que o endereço está morto, não que
+o telefone/WhatsApp pararam de funcionar — desligar os três canais ou
+tirar o contato de toda régua (o padrão do W14/`Opt-out por Palavra-chave`)
+pararia a Cadência 12x30 por um motivo que não é dela.
+
+**Teste:** num contato fictício com `Email` preenchido, simule (ou
+provoque) um `Email Events`/`Bounced` e confira: `Bounces de e-mail` +1,
+tag `email-invalido` aplicada, `Outbound Email` em DND, contato fora do
+`Resgate por E-mail — Sem Telefone`, aviso único ao gestor. Repita o evento
+no mesmo contato e confirme que o segundo bounce só soma o contador, sem
+segundo aviso.
+
 **Pré-requisito:** campo `Pontos de engajamento e-mail` (C-34) e tag
 `email-engajado` (T-24) — nenhum sai por API neste conector nesta rodada
 (campo é criação de tela; a tag poderia sair por API, mas segue a regra de

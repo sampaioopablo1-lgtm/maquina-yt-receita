@@ -5511,6 +5511,80 @@ contato sem `email-engajado` sobe `Prioridade` para 4 e avisa o gestor uma
 T-24); ambos nascem `[ ]` em `APROVADO.md`. Zero escrita no CRM nesta
 rodada: item de especificação pura.
 
+### F-25 · Nenhum item marca e-mail que bateu (bounce) como inválido — a cadência de e-mail continua tentando o mesmo endereço morto, e cada tentativa é o próprio risco que o F-22 já mediu (28/09/2026)
+
+**Por quê:** mesma pergunta do R-13 ("a base suja infla métrica e queima
+SDR") aplicada ao canal que R-13 nunca cobriu — R-13 fechou a higiene do
+**telefone** (`telefone-invalido`, T-09: portão de entrada + tag, 18/09/2026),
+mas o e-mail só ganhou disparo real depois (F-15, 22/09/2026) e nenhuma
+rodada voltou para perguntar a mesma coisa do canal novo — a mesma classe de
+lacuna que G-06/G-07/F-19/F-20/F-21/F-22 já fecharam cada um a seu turno
+("a guarda mais velha nunca alcança o canal mais novo"). Hoje um endereço
+que bate (`Resgate por E-mail — Sem Telefone`, seção 2.30, F-15) não é
+marcado de jeito nenhum: o `Reengajamento 90 dias` (R-08) recicla o contato
+de volta para `abandoned`+`nutricao-90d` a cada 90 dias e o `Resgate por
+E-mail` (`Allow Re-entry` ligado) tenta `EM-1`/`EM-2` de novo no mesmo
+endereço morto, para sempre. Não é só desperdício: o F-22 (2.51) já mediu
+que o risco real da rampa de e-mail nativa do GHL não é volume, é
+**qualidade** — "bounce alto numa lista nunca limpa" é um dos dois motivos
+documentados de a rampa regredir (`Stage declined`) — e hoje nada neste
+projeto lê o evento que produz esse risco.
+
+**Pesquisado antes de desenhar (`WebSearch`):** confirmado que o GHL expõe
+gatilho nativo para isto — `Email Events` filtrado por `Event = Bounced` —
+e a própria HighLevel publica a receita oficial para o caso ("Auto-Enable
+Email DND When a Contact's Email Bounces"): gatilho `Email Events` →
+`Bounced` seguido de uma ação de DND com escopo `Outbound Email`. A mesma
+fonte documenta o limite que este item herda sem poder resolver: o gatilho
+**não distingue bounce definitivo (endereço não existe) de temporário**
+(caixa cheia, erro momentâneo do servidor) — "nem todo bounce significa
+endereço permanentemente inválido", e nenhuma verificação de e-mail desliga
+o DND sozinha depois. Outreach pausa o Prospect para revisão manual no
+primeiro bounce; Salesloft tolera um bounce definitivo ou dois temporários
+antes de marcar; Apollo remove o endereço de circulação no primeiro bounce
+definitivo — as três convergem em "não trate todo bounce como igual, mas
+não deixe nenhum passar sem registro", exatamente o que a receita nativa (e
+este item) fazem com o que o conector permite ler.
+
+**Por que não é `nao-perturbe` (T-06) nem `Set Contact DND` em todos os
+canais (2.9.5/R-17):** um bounce é falha de **entrega**, não pedido de
+silêncio — reaproveitar `nao-perturbe` confundiria a auditoria de
+compliance do R-14 (Smart Lists 8.26/8.27, que leem essa tag como
+"consentimento revogado") e desligar DND em todos os canais pararia
+telefone e WhatsApp por um motivo que é só do e-mail. Mesmo raciocínio que
+já separou `email-invalido` (novo, mirror de `telefone-invalido`/T-09) de
+`nao-perturbe`: são dois estados diferentes de um contato, um de
+consentimento, outro de alcançabilidade.
+
+**Como:** workflow novo "Higiene de E-mail — Bounce", especificado nó a nó
+em `build-wesales.md`, seção 2.56 — soma o contador `Bounces de e-mail`
+(C-35, novo), aplica `email-invalido` (T-25, novo), liga `Set Contact DND`
+com escopo **só e-mail**, remove o contato do `Resgate por E-mail — Sem
+Telefone` (2.30, único workflow que hoje manda `Send Email`) e avisa o
+gestor **uma única vez**, no primeiro bounce do contato — bounces
+seguintes só somam o contador, mesmo padrão de "não treinar o gestor a
+ignorar alarme repetido" já usado no F-24/nó 5 e no G-25. O aviso deixa
+explícito o limite documentado acima: nenhuma automação desliga este DND
+sozinha, revisão é manual.
+
+**Campo novo:** `Bounces de e-mail` (C-35, `NUMERICAL`, cumulativo — mesmo
+padrão de contador de evento que C-06/C-07/C-11/C-12/C-26/C-31/C-32/C-33/
+C-34). **Tag nova:** `email-invalido` (T-25, marcador permanente, mesma
+classe que `telefone-invalido`/T-09 — sinaliza canal não confiável, nunca
+removida automaticamente). Nenhum dos dois sai por API neste conector
+(campo é criação de tela; tag nasce `[ ]` em `APROVADO.md` pela regra de
+sempre — nenhuma linha nova vira `[x]` sozinha). Zero escrita no CRM nesta
+rodada.
+
+**Pronto quando:** um bounce em qualquer envio de e-mail da operação marca
+o contato com `email-invalido`, soma `Bounces de e-mail`, desliga o envio
+de e-mail (sem tocar telefone/WhatsApp) e tira o contato do `Resgate por
+E-mail`, avisando o gestor uma única vez — o segundo bounce do mesmo
+contato não repete o aviso, só soma o contador. Detalhe nó a nó em
+`build-wesales.md`, seção 2.56; campo e tag em `campos-e-tags.md` (C-35,
+T-25); ambos nascem `[ ]` em `APROVADO.md`. Zero escrita no CRM nesta
+rodada: item de especificação pura.
+
 ---
 
 ## Ordem sugerida
@@ -7383,3 +7457,31 @@ escalona, só uma vez por contato, nunca a abertura sozinha — e não herda o
 teto de toques do F-04/F-23 porque não cria toque nenhum, só reordena a
 fila que já existe. Zero campo, zero tag, zero escrita no CRM nesta
 rodada.
+
+**F-25 aberto e fechado em 28/09/2026, sessão automática seguinte — a
+mesma pergunta de concorrência aplicada não a um sinal (F-24), mas à
+higiene de base que o R-13 nunca estendeu ao e-mail.** CRM reconfirmado
+por API antes de desenhar: 64 oportunidades, 60 campos de contato, sem
+mudança — F-09, F-10, G-11 (item 1), G-27/G-29 e G-31 continuam sendo as
+decisões sem prazo fixo que esperam o dono; G-19 continua aberto (decisão
+do dono, fora de `wesales/`). A lacuna veio de perguntar ao R-13 ("base
+suja infla métrica e queima SDR") a mesma pergunta que já tinha sido feita
+a outras guardas mais velhas: ele cobre telefone (`telefone-invalido`,
+T-09) desde 18/09/2026, mas o e-mail só ganhou disparo real quatro dias
+depois (F-15) e nunca ganhou o par. Fechado como **F-25**: workflow
+"Higiene de E-mail — Bounce" especificado nó a nó (`build-wesales.md`,
+seção 2.56), reagindo ao gatilho nativo `Email Events`/`Bounced` que a
+pesquisa confirmou existir (a própria HighLevel publica a receita —
+`Email Events` → `Bounced` + DND escopado a `Outbound Email`); campo
+`Bounces de e-mail` (C-35) e tag `email-invalido` (T-25) especificados em
+`campos-e-tags.md`, ambos nascendo `[ ]` em `APROVADO.md`;
+`IMPLEMENTACAO-WORKFLOWS.md` (W30) e `GUIA-MONTAGEM.md` atualizados no
+mesmo commit. Desenhado para não repetir dois erros já vistos neste
+roadmap: reaproveitar `nao-perturbe`/DND-em-todos-os-canais (como o
+2.9.5/R-17) confundiria a auditoria de compliance do R-14 e pararia
+telefone/WhatsApp por um motivo que é só do e-mail — por isso tag e DND
+próprios, escopados ao canal; e tratar bounce como binário definitivo, que
+a própria fonte da receita nativa desaconselha ("nem todo bounce é
+permanente") — por isso o item avisa o gestor em vez de decidir sozinho
+que o endereço morreu para sempre. Zero campo, zero tag, zero escrita no
+CRM nesta rodada.
