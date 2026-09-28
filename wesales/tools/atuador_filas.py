@@ -199,8 +199,9 @@ def decidir(cs, etapas):
                 p = float(valor(c, PRIORIDADE) or 0)
             except (TypeError, ValueError):
                 p = 0
-            if p >= 3:
-                d_sdr.add(cid)
+            # 28/09: fila-sdr aposentada (dono): a SDR puxa só fila-tel. O conjunto desejado
+            # fica vazio, então o atuador tira a tag de quem ainda a tem.
+            pass
         elif etapa in DO_CLOSER:
             d_clo.add(cid)
     return d_sdr, d_clo, a_sdr, a_clo, excl
@@ -329,6 +330,89 @@ def filas_por_sdr(cs, aplicar):
             pedir("DELETE", "/contacts/%s/tags" % cid, {"tags": [tag]})
 
 
+SEM_CAD = "sem-cadencia"
+WF_INBOUND = "c2375e2f-b4cb-4947-8377-7c1e0529ba82"
+TENT_N = "qHJGJKZBccASOKkKP8ge"      # Tentativa nº (0 = cadência nunca tocou)
+CONEX_WA = "Og1CkI9x9OztsV242nIM"
+MAX_TENT = 12
+
+
+def ultima_ligacao_horas(cid):
+    import datetime as dt
+    agora = dt.datetime.now(dt.timezone.utc)
+    r = pedir("GET", "/conversations/search?locationId=%s&contactId=%s" % (LOC, cid))
+    ult = None
+    for cv in r.get("conversations") or []:
+        m = pedir("GET", "/conversations/%s/messages?limit=30" % cv["id"])
+        for x in ((m.get("messages") or {}).get("messages") or []):
+            if x.get("messageType") == "TYPE_CALL" and x.get("direction") == "outbound":
+                q = dt.datetime.fromisoformat(x["dateAdded"].replace("Z", "+00:00"))
+                ult = q if ult is None or q > ult else ult
+    return None if ult is None else (agora - ult).total_seconds() / 3600
+
+
+def ritmo_sem_cadencia(cs, etapas, aplicar):
+    """Leads `sem-cadencia` (os 36 de 19-21/09, que entraram antes da Cadência Inbound; o dono
+    decidiu em 28/09 ligar sem mandar WhatsApp automático): o atuador faz o papel da cadência
+    só na ligação. Põe `fila-tel` no máximo 1 vez por dia (sem ligação nas últimas 24 h), até
+    12 tentativas; o Pós-ligação v3 tira a tag quando a SDR registra o Resultado. Para quando
+    o lead conecta, pede para não ligar, fica sem telefone ou sai de CONECTAR."""
+    n = 0
+    for c in cs:
+        tags = set(c.get("tags") or [])
+        if SEM_CAD not in tags or "fila-tel" in tags:
+            continue
+        if etapas.get(c["id"]) != CONECTAR or not c.get("phone") or c.get("dnd"):
+            continue
+        if tags & {"nao-perturbe", TAG_FALOU, "telefone-invalido"}:
+            continue
+        try:
+            tent = float(valor(c, TENT_TEL) or 0)
+            con = float(valor(c, CONEX_TEL) or 0) + float(valor(c, CONEX_WA) or 0)
+        except (TypeError, ValueError):
+            continue
+        if con > 0 or tent >= MAX_TENT:
+            continue
+        h = ultima_ligacao_horas(c["id"])
+        if h is not None and h < 24:
+            continue
+        n += 1
+        if aplicar:
+            pedir("POST", "/contacts/%s/tags" % c["id"], {"tags": ["fila-tel"]})
+    print("  sem cadência: %d lead(s) voltam para a fila-tel%s" % (n, "" if aplicar else " (DRY)"))
+
+
+def rede_orfaos(cs, etapas, aplicar):
+    """Lead novo que ficou fora da cadência: em CONECTAR, com `atraso-1a-tentativa`, Tentativa
+    nº 0, sem `fila-tel`, entrou há mais de 2 h e menos de 3 dias -> entra na Cadência Inbound
+    (fluxo normal, com WhatsApp). A cadência não aceita o mesmo lead duas vezes, então quem já
+    está nela (esperando janela ou teto) não é afetado."""
+    import datetime as dt
+    agora = dt.datetime.now(dt.timezone.utc)
+    n = 0
+    for c in cs:
+        tags = set(c.get("tags") or [])
+        if "atraso-1a-tentativa" not in tags or "fila-tel" in tags or SEM_CAD in tags:
+            continue
+        if etapas.get(c["id"]) != CONECTAR or not c.get("phone") or TESTE.search(c.get("contactName") or ""):
+            continue
+        try:
+            if float(valor(c, TENT_N) or 0) > 0:
+                continue
+            entrou = dt.datetime.fromisoformat((c.get("dateAdded") or "").replace("Z", "+00:00"))
+        except (TypeError, ValueError):
+            continue
+        idade = (agora - entrou).total_seconds() / 3600
+        if not (2 <= idade <= 72):
+            continue
+        n += 1
+        print("  órfão: %s %s entra na Cadência Inbound%s" % (c["id"], c.get("contactName") or "?",
+                                                              "" if aplicar else " (DRY)"))
+        if aplicar:
+            pedir("POST", "/contacts/%s/workflow/%s" % (c["id"], WF_INBOUND), {})
+    print("  rede de órfãos: %d lead(s)" % n)
+
+
 def main() -> int:
     aplicar = "--aplicar" in sys.argv
     print("=" * 74)
@@ -342,6 +426,8 @@ def main() -> int:
           % (len(etapas), len(cs)))
 
     rede_trava(cs, etapas, aplicar)
+    ritmo_sem_cadencia(cs, etapas, aplicar)
+    rede_orfaos(cs, etapas, aplicar)
     dono_por_turno(cs, etapas, aplicar)
     filas_por_sdr(cs, aplicar)
     d_sdr, d_clo, a_sdr, a_clo, excl = decidir(cs, etapas)
