@@ -250,3 +250,9 @@ Tentativas até agendar e até qualificar ainda sem dado real (4 agendados e 3 q
 | botão WhatsApp | Roteiro do Power Dialer recriado (`6ab9fa95d6f0a71d7f123034`): botões "Abrir ficha e agendar" e "📱 Ligar pelo WhatsApp" (`api.whatsapp.com/send?phone={{contact.phone_raw}}`) | Roteiros | sim, com o contato de teste | o roteiro antigo (6ab9f0e9…) foi sobrescrito num teste e apagado; a SDR escolhe o roteiro de novo no painel |
 | coluna com botão na lista | **não feito**: exige campo personalizado novo (regra do dono) e a lista não mostra link como botão | — | — | alternativa: botão no Roteiro + clique no nome abre a ficha |
 | playbook | links, rotina, Passo 1 (uma tag + botão verde), Passo 3, regras | Claude Docs rev 64 | sim | |
+
+### Vigia das rotinas (28/09)
+
+| Item | O que foi gravado | Observação |
+|---|---|---|
+| rotina na nuvem | `trig_01RFBXPswYVRBvMvst3RqhZj` reaproveitada (antes: "rotina ativa", one-shot 28/09 08:30 com o estado superado de 27/09). Agora "WeSales — vigia das rotinas (avaliar e propor, sem publicar)", seg–sex 12:17 e 21:17 (São Paulo), sessão nova a cada rodada | lê Actions + CRM (só leitura), escreve em `wesales/SAUDE-ROTINAS.md` e, se houver decisão, cria **uma** tarefa "🩺 Rotinas — decisão dd/mm" para o Pablo. Proibido publicar/editar qualquer coisa no CRM |
