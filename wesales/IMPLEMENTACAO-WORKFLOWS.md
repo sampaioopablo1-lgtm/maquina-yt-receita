@@ -88,7 +88,7 @@ checa **etapa E status**.
 | `pausado` | Represado pelo SDR, sem ser opt-out | sim |
 | `toque` | Pulso: cada tarefa/mensagem aplica e o Contador de Toques remove | sim |
 | `novo-lead-estagnado` | F-05 peça 1: 24h em `NOVO LEAD` | **não** — `[ ]` em `APROVADO.md` |
-| `fila-travada` | F-05 peça 2: `fila-tel`/`fila-wa` que o nó 9 da cadência não removeu | **não** — `[ ]` em `APROVADO.md` |
+| `fila-travada` | F-05 peça 2: `fila-tel`/`fila-wa` que o nó 9 da cadência não removeu | **sim** — publicada pelo dono fora do `[x]`, achado em 28/09/2026 (G-39, `ROADMAP-SALES-ENGAGEMENT.md`); relógio real é 8h, não o fim do dia às 19:00 que esta seção descreve |
 | `conectar-estagnado` | F-05 peça 3: `CONECTAR` sem tentativa nova em 14 dias | **não** — `[ ]` em `APROVADO.md` |
 | `agendar-estagnado` | F-05 peça 5: `AGENDAR` sem reunião nem descarte em 24h | **não** — `[ ]` em `APROVADO.md` |
 | `retorno-vencido` | F-05 peça 6: `Data de retorno` passou sem reclassificação | **não** — `[ ]` em `APROVADO.md` |
@@ -529,7 +529,7 @@ SDR: adicioná-lo nos dois nós e duplicar as listas 8.1–8.3 (1.7).
 | 15 | Alerta de Speed-to-lead | não existe | — |
 | 16 | Reengajamento 90 dias | não existe | — |
 | 17 | Lead Esquecido em NOVO LEAD (F-05 peça 1) | não existe | tag `novo-lead-estagnado` (`APROVADO.md`) |
-| 17b | Fila Travada (F-05 peça 2) | não existe | tag `fila-travada` (`APROVADO.md`) |
+| 17b | Fila Travada (F-05 peça 2) | não existe **como este workflow específico** — mas a tag `fila-travada` já está em uso na conta, aplicada por um mecanismo próprio do dono fora desta especificação (achado em 28/09/2026, G-39, `ROADMAP-SALES-ENGAGEMENT.md`) | tag `fila-travada` (`APROVADO.md`) |
 | 17c | CONECTAR Estagnado (F-05 peça 3) | não existe | tag `conectar-estagnado`, campo `Checkpoint — Tentativa nº` |
 | 17d | AGENDAR Estagnado (F-05 peça 5) | não existe | tag `agendar-estagnado` |
 | 17e | Retorno Vencido (F-05 peça 6) | não existe | tag `retorno-vencido`, campo `Checkpoint — Data de retorno`, `Wait` Dynamic (confirmar na tela) |
@@ -1366,7 +1366,7 @@ publicar, `Add to Workflow` em massa nos leads já parados.
 | 4 | Internal Notification | ao gestor: `{{contact.name}} está com fila-tel/fila-wa presa desde antes de hoje às 18:30 — o nó 9 da cadência não rodou. Tentativa nº {{contact.tentativa_n}}.` | 5 |
 | 5 | Add Note | `Alerta de saúde: fila-tel/fila-wa travada, nó 9 não removeu até 18:30 · {{right_now}}` | fim |
 
-**Pré-requisito:** tag `fila-travada` (`APROVADO.md`, `[ ]`). Lista 8.21 filtra por ela.
+**Pré-requisito:** tag `fila-travada` (`APROVADO.md`, `[ ]` — mas já existe na conta via mecanismo próprio do dono, G-39 em `ROADMAP-SALES-ENGAGEMENT.md`; quem montar este workflow específico reaproveita a tag, não recria). Lista 8.21 filtra por ela.
 
 ---
 

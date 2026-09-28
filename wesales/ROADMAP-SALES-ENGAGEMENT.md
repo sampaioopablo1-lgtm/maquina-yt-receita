@@ -8471,3 +8471,91 @@ mudança desta rodada não tira nem acrescenta nenhuma à lista, só atualiza
 o cenário que uma delas (F-09) descreve. CRM reconfirmado por API antes de
 fechar: 66 oportunidades, 60 campos de contato (`locations_get-custom-
 fields`, `query_model=contact`), sem novidade além do já registrado acima.
+
+### G-39 · T-17 (`fila-travada`) já está publicada e em uso — o documento dizia "não criada ainda" para uma tag que 5 de 5 leads reais conferidos já carregavam, com um relógio diferente do especificado (28/09/2026) — **FEITO em 28/09/2026 (reconciliação)**
+
+**Por quê:** pegando o item de maior prioridade ainda aberto desta rodada,
+a reconciliação de sempre veio primeiro (hábito do G-31 em diante): `git
+fetch` nas branches irmãs antes de desenhar qualquer coisa nova. A única
+com commit novo desde a última leitura (G-38) foi `abertura-operacao-dnd-
+n7dnjv` (`a1ca792`, do próprio dono, 9 linhas em `DE-PARA-SESSOES-CRM.md`
+sobre visão de Contatos/Conversas para WhatsApp — achado sem consequência
+para nenhuma das seis decisões sem prazo fixo). Sem novidade aí, a sessão
+reconfirmou o CRM por API (`opportunities_search-opportunity`: 66
+oportunidades, mesma composição; `locations_get-custom-fields`: 60 campos
+de contato, sem campo novo) e foi à releitura de premissa técnica que este
+roadmap sempre recomenda quando reconciliação e CRM não acham nada
+("reler os itens represados... a razão de esperar pode ter vencido sem
+ninguém notar") — desta vez não um campo represado, mas o próprio F-02
+(horário aprendido por segmento), para conferir se a "0 conexões reais"
+que o bloqueia desde 19/09/2026 ainda é verdade. Não era mais só isso: ao
+puxar 5 contatos reais em `CONECTAR` (Carlos Andrade, Gerson De Souza Pia,
+Andreia, Wesley, Edson — `contacts_get-contact`, um a um, não a listagem
+que atrasa) para checar `Hora da conexão` (C-25, segue vazio nos 5,
+F-02 continua bloqueado) e `Segmento` (Q-01, também vazio nos 5, F-32
+segue sem consumidor), os 5 traziam uma tag que nenhum documento deste
+projeto cita: `fila-travada` — que **é** T-17, a tag que `campos-e-tags.md`
+e `APROVADO.md` descreviam como "aguardando aprovação, não criada ainda".
+
+**Como:** confirmado que não é falso positivo nem homônimo — a branch irmã
+`abertura-operacao-dnd-n7dnjv` tem um arquivo que este roadmap ainda não
+tinha lido, `DISCADOR-CONFIG-POR-FUNCAO.md`, e ele descreve o mecanismo
+publicado: "O `Fila Travada` vigia `fila-tel`: se a tag ficar 8 h sem
+resultado, avisa o gestor e põe `fila-travada`." É o mesmo T-17 (mesmo
+nome de tag, mesmo propósito — avisar que uma tentativa ficou parada), com
+um relógio **diferente** do que a especificação original (F-05, peça 2,
+`build-wesales.md` seção 2.21) previa: **8 horas corridas desde a tag de
+fila**, não "depois do fim do dia em que foi aplicada" (o relógio fixo às
+19:00 que o nó 1 da seção 2.21 descreve) — mesma classe de divergência que
+o G-23 já mediu para T-21 (5 dias vs. 3) e T-22. Um dos cinco contatos
+(Carlos Andrade) tinha `fila-wa` presente junto com `fila-travada`, não só
+`fila-tel` — evidência a favor de o relógio publicado vigiar os dois
+canais como o desenho original propunha, mas o `DISCADOR-CONFIG-POR-
+FUNCAO.md` só descreve `fila-tel` por extenso; registrado como indício, não
+como confirmação, para a próxima rodada não tratar como fechado o que
+ainda é leitura indireta (nenhum dump de workflow foi lido, o MCP não
+expõe workflow). Corrigidos `campos-e-tags.md` (título da Etapa 3, o
+parágrafo de contagem, a linha da T-17 e o parágrafo de fechamento — T-17
+sai do grupo "nasce `[ ]` e ainda não saiu por API" e entra no grupo do
+T-21/T-22, "já criada e publicada, dono não seguiu a fila do `[x]`") e
+`APROVADO.md` (nota de registro sob a linha da T-17, mesmo padrão do
+T-21/T-22 — **`[x]` não marcado**, regra 1 e a regra "Como autorizar" do
+próprio arquivo).
+
+**A mesma varredura trouxe uma segunda tag sem dono, menor, junto:**
+`sem-cadencia`, presente nos 5 contatos junto com `fila-travada`. Também
+sem nenhuma linha em `wesales/*.md` antes de hoje (`grep -rn` vazio), mas
+com explicação de primeira na mesma branch irmã (`DE-PARA-SESSOES-CRM.md`):
+marca os 36 leads que entraram entre 19 e 21/09/2026, antes de a Cadência
+Inbound existir, e por isso nunca receberam `fila-tel` pela via normal — o
+atuador da branch irmã os resgata aplicando `fila-tel` 1×/dia até 12
+tentativas, sem WhatsApp automático (decisão do dono), e a tag some quando
+o lead entra de fato na Cadência Inbound. Não é órfã nem bug: é rede de
+resgate para quem ficou para trás de uma mudança de desenho, mesma classe
+do achado de `Canal da tentativa` no G-32. Registrada em `campos-e-tags.md`
+junto com as outras tags fora da numeração (agora 13, era 12) — a conta
+tem hoje **31** tags no total (18 numeradas criadas + 13 fora da
+numeração), não mais 29; os dois números corrigidos nos três lugares que
+os citam (`campos-e-tags.md`, único dono da contagem — regra do próprio
+arquivo).
+
+**O que este achado não é:** não é uma nova decisão pendente do dono — T-17
+já está resolvida (publicada, em uso), só o registro estava desatualizado.
+Não é motivo para reabrir F-05 (a peça 2 continua "FEITO", o documento é
+que mentia sobre o estado da tela). E não é confirmação de que F-02 ou
+F-32 estão perto de destravar: os dois campos que eles precisam (`Hora da
+conexão`, `Segmento`) seguem vazios na amostra real conferida — a operação
+ao vivo roda por fora do `build-wesales.md`/`Cadência 12x30` nativa (o
+mesmo descolamento que o G-38 já registrou, `atuador_filas.py` em vez do
+workflow nativo), então os campos que só a `Cadência 12x30` publicada
+escreveria continuam sem consumidor nenhum enquanto essa branch for a
+operação real.
+
+**Pronto quando:** cumprido nesta rodada — os três documentos que contam
+tag (`APROVADO.md`, `campos-e-tags.md`, e este roadmap) concordam entre si
+e com a conta real sobre T-17 e `sem-cadencia`. F-09, F-10, G-11 (item 1),
+G-19, G-27/G-29 e G-31 continuam sendo as seis decisões sem prazo fixo que
+esperam o dono, sem mudança nesta rodada — este achado não tira nem
+acrescenta nenhuma a essa lista. CRM reconfirmado por API antes de fechar:
+66 oportunidades, 60 campos de contato, sem novidade além do já registrado
+acima.

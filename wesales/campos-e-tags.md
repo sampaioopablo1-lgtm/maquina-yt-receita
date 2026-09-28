@@ -520,7 +520,7 @@ canal por toque publicada em código pelo próprio dono, na mesma branch
 irmã. Detalhe completo, e o que isso muda para o F-09, em
 `ROADMAP-SALES-ENGAGEMENT.md`, **G-38**.
 
-## Etapa 3 — Tags (28 numeradas, onze pendentes de aprovação — e 12 na conta fora da numeração)
+## Etapa 3 — Tags (28 numeradas, dez pendentes de aprovação — e 13 na conta fora da numeração)
 
 > **Onde mora a contagem das tags fora da numeração.** Só este título e a
 > linha abaixo contam; qualquer outro documento que precisar dizer "a conta
@@ -533,19 +533,21 @@ irmã. Detalhe completo, e o que isso muda para o F-09, em
 > e o "25" (na verdade 27) para `build-wesales.md` §2.32; os dois corrigidos
 > junto — detalhe em `ROADMAP-SALES-ENGAGEMENT.md`, G-20.
 
-As 28 são as tags **deste projeto**: T-01 a T-15 e T-21/T-22 criadas, T-16 a
-T-20 e T-23 a T-28 esperando `[x]` no `APROVADO.md`. **T-21 e T-22 não seguiram a fila do
-`[x]`** — o dono criou as duas direto pelo próprio caminho (`tools/
-build_estagnacao.py`, PC dele, 23/09/2026, depois do horário em que a T-21
-foi especificada aqui) junto com os dois workflows que as aplicam; ver as
-duas linhas abaixo e G-23 (`ROADMAP-SALES-ENGAGEMENT.md`) para o que isso
-corrigiu. A conta tem outras **12**, criadas por ação do dono e
+As 28 são as tags **deste projeto**: T-01 a T-15, T-17 e T-21/T-22 criadas,
+T-16, T-18 a T-20 e T-23 a T-28 esperando `[x]` no `APROVADO.md`. **T-17,
+T-21 e T-22 não seguiram a fila do `[x]`** — o dono criou as três direto
+pelo próprio caminho, fora deste conector (T-21/T-22 via `tools/
+build_estagnacao.py`, PC dele, 23/09/2026; T-17 publicada na branch irmã
+`abertura-operacao-dnd-n7dnjv`, achada nesta rodada — G-39,
+`ROADMAP-SALES-ENGAGEMENT.md`) junto com os workflows que as aplicam; ver as
+três linhas abaixo, G-23 e G-39 (`ROADMAP-SALES-ENGAGEMENT.md`) para o que
+isso corrigiu. A conta tem outras **13**, criadas por ação do dono e
 registradas abaixo nas linhas `—` (`teste-regua`, `fechar-horario`,
-`cadencia-12x30-p2`, `teste-12x30` e as 8 do Espelho de Etapa) — ficam fora da
-numeração de propósito, para o `T-nn` continuar significando "tag que a rotina
-só cria com aprovação". **Total na conta hoje: 29** (17 numeradas já criadas
-+ 12 fora da numeração). Dois números diferentes porque contam coisas
-diferentes; quem for conferir na tela vê 29.
+`cadencia-12x30-p2`, `teste-12x30`, `sem-cadencia` e as 8 do Espelho de
+Etapa) — ficam fora da numeração de propósito, para o `T-nn` continuar
+significando "tag que a rotina só cria com aprovação". **Total na conta
+hoje: 31** (18 numeradas já criadas + 13 fora da numeração). Dois números
+diferentes porque contam coisas diferentes; quem for conferir na tela vê 31.
 
 | # | Tag | Função na máquina |
 |---|---|---|
@@ -568,8 +570,9 @@ diferentes; quem for conferir na tela vê 29.
 | — | `fechar-horario` | **Tag nº 17, criada por ação do dono no commit `1d04af2` (23/09/2026)**, fora de `APROVADO.md` — não é criação minha e não estou desfazendo. Estado novo "conectou, está fechando o horário da reunião de diagnóstico": **aplicada** pelo `Pós-ligação v2` (publicado, nós 13/26/77/86/97, junto com `conectado-hoje`) e **removida só** pelo `Fechar Horário` (publicado no `23db864` — nasceu em rascunho e a janela fechou limpa, 0 contatos com a tag; seção 2.31.1). **O que continua aberto:** a remoção mora nos 4 nós de saída do `Fechar Horário` (36/38/39/40) e o caminho de quem **agenda** não passa por eles — o `Pós-agendamento v2` arranca o contato do workflow no nó 4, e `remove_from_workflow` não executa as saídas do alvo. Logo todo lead que agenda fica com esta tag para sempre, e ela é a única da conta **sem** segunda rede (o Mestre de saída não a limpa). Correção: um `Remove Tag fechar-horario` no nó 4 do `Pós-agendamento v2`. Detalhe na seção 2.31.2 do `build-wesales.md` | Dono (`1d04af2`) |
 | — | `etapa-novo-lead`, `etapa-conectar`, `etapa-reuniao`, `etapa-negociar`, `etapa-formalizar`, `status-nutricao`, `status-perdido`, `status-ganho` | **Tags 18 a 25, criadas por ação do dono no commit `61eb167` (23/09/2026)**, fora de `APROVADO.md` — não são criação minha. São o **Espelho de Etapa**: a etapa/status da oportunidade virando tag no contato, porque condição `Pipeline stage is …` lê vazio em workflow cujo gatilho não é oportunidade (achado do dono, medido no registro de execução da `ZZ TESTE 12X30`). Exatamente uma delas por contato. O `Espelho de Etapa` está **publicado** (v4, 36 nós) e os 11 consumidores também — a ordem está certa. (Cheguei a registrar que ele estava em rascunho; era leitura de dump exportado 4 segundos antes da publicação, e retirei o achado — seção 2.32 do `build-wesales.md`.) Continua em aberto, e nenhum dump responde: **o gatilho de oportunidade etiqueta o acervo ou só mudança futura?** Se for só futura, as 45 oportunidades paradas em `NOVO LEAD` não recebem `etapa-novo-lead` | Dono (`61eb167`) |
 | — | `cadencia-12x30-p2`, `teste-12x30` | Tags de controle e de teste da divisão da 12x30 em duas partes, criadas por ação do dono em 23/09. `cadencia-12x30-p2` marca quem está na segunda metade da régua; `teste-12x30` é marcador de teste dele. Registradas aqui para nenhuma rodada futura "descobrir" e tentar consertar | Dono |
+| — | `sem-cadencia` | **Achada em 28/09/2026 (G-39), fora deste conector.** Marca os 36 leads que entraram entre 19 e 21/09/2026, antes de a Cadência Inbound existir, e por isso nunca receberam `fila-tel` pela via normal. O atuador da branch irmã (`abertura-operacao-dnd-n7dnjv`) aplica `fila-tel` a eles 1×/dia (sem WhatsApp automático, decisão do dono) até 12 tentativas, e a tag some quando o lead entra de fato na Cadência Inbound. Não é órfã: rede de resgate para quem ficou para trás de uma mudança de desenho, explicada em `wesales/DE-PARA-SESSOES-CRM.md` daquela branch. Detalhe em `ROADMAP-SALES-ENGAGEMENT.md`, G-39 | Dono (atuador) |
 | T-16 | `novo-lead-estagnado` | **Aguardando aprovação em `APROVADO.md` — não criada ainda.** Monitor de Saúde da Operação (F-05, seção 2.20 do `build-wesales.md`): aplicada pelo workflow "Lead Esquecido em NOVO LEAD" quando a oportunidade passa 24h em `NOVO LEAD` sem ser promovida nem descartada; limpa incondicionalmente pelo nó 0 novo do Mestre de saída (seção 3) e filtra a lista 8.20 |
-| T-17 | `fila-travada` | **Aguardando aprovação em `APROVADO.md` — não criada ainda.** Monitor de Saúde da Operação (F-05, seção 2.21 do `build-wesales.md`): aplicada pelo workflow "Fila Travada" quando `fila-tel`/`fila-wa` segue presente depois do fim do dia em que foi aplicada (sinal de que o nó 9 do bloco padrão, seção 2.4, não rodou); limpa pelo próprio workflow (nó 0, na tentativa seguinte) e pelo nó 4 do Mestre de saída (seção 3, quando o lead sai de cadência de verdade) e filtra a lista 8.21 |
+| T-17 | `fila-travada` | **Já criada e publicada — pelo dono, não por este `[x]` (achado em 28/09/2026, G-39).** O workflow que a aplica está no ar na branch irmã (`abertura-operacao-dnd-n7dnjv`), com desenho **diferente** do que a especificação original do F-05 (`build-wesales.md`, seção 2.21) previa: dispara quando `fila-tel` fica **8 horas** sem resultado (não "depois do fim do dia em que foi aplicada", o relógio fixo às 19:00 da seção 2.21) — confirmado por amostra real (5 de 5 leads em `CONECTAR` conferidos nesta rodada tinham a tag). G-39 (`ROADMAP-SALES-ENGAGEMENT.md`) registra a divergência entre a especificação e o publicado, mesmo tratamento já dado a T-21/T-22 |
 | T-18 | `conectar-estagnado` | **Aguardando aprovação em `APROVADO.md` — não criada ainda.** Monitor de Saúde da Operação (F-05, seção 2.22 do `build-wesales.md`): aplicada pelo workflow "Cadência Sem Avanço" quando a oportunidade segue em `CONECTAR`/`open` sem nenhuma tentativa nova em 14 dias corridos (sinal de cadência realmente parada, não só uma tentativa travada — diferença explicada na seção 2.22); limpa pelo nó 4 do Mestre de saída (seção 3, quando o lead sai de cadência de verdade) e filtra a lista 8.22 |
 | T-19 | `agendar-estagnado` | **Não recomendado para aprovação — premissa superada em 23/09/2026 (G-13, `ROADMAP-SALES-ENGAGEMENT.md`).** O workflow que a aplicaria ("AGENDAR Estagnado"/W17d) foi despublicado pelo dono (`PLANO-MULTICANAL.md`, E8): desde a D3, `REUNIÃO DE DIAGNÓSTICO` só é alcançada com reunião marcada, então "24h em `AGENDAR` sem reunião marcada" deixou de poder acontecer. Substituto publicado (`Fechar Horário`) cobre a fase nova por mensagem, sem tag nem aviso ao gestor equivalente — detalhe e decisão pendente em `build-wesales.md`, seção 2.23. Continua `[ ]` em `APROVADO.md`; se aprovar, aprove o desenho revisado, não este |
 | T-20 | `retorno-vencido` | **Aguardando aprovação em `APROVADO.md` — não criada ainda.** Monitor de Saúde da Operação (F-05, seção 2.24 do `build-wesales.md`): aplicada pelo workflow "Retorno Vencido" quando `Data de retorno` (S-01) passa sem o SDR reclassificar `Resultado da tentativa`; limpa pelo nó 3c novo do Pós-ligação (seção 4, incondicional, a cada resultado novo) e, como rede de segurança, pelo nó 4 do Mestre de saída (seção 3); filtra a lista 8.24 |
@@ -596,9 +599,11 @@ do F-05 em 21/09/2026) ainda não saiu por API** — nasce `[ ]` em
 `APROVADO.md`, não `[x]`: a lição do incidente de 19/09/2026 com a T-15
 (a própria rotina escrevendo o próprio `[x]` não é aprovação, é a rotina se
 autorizando) é para ficar, e vale para toda tag nova a partir de agora, não
-só para aquela. **T-17 (`fila-travada`, nascida do F-05 peça 2 nesta
-rodada) segue a mesma regra desde o nascimento** — nasce `[ ]`, não `[x]`.
-**T-18 (`conectar-estagnado`, nascida do F-05 peça 3), T-19
+só para aquela. **T-17 (`fila-travada`, nascida do F-05 peça 2) foge da
+regra desde 28/09/2026 (G-39) pelo mesmo motivo de T-21/T-22: não foi esta
+rotina que escreveu o próprio `[x]`, foi o dono, publicando o workflow pelo
+próprio caminho — a tag já está na conta e em uso.** **T-18
+(`conectar-estagnado`, nascida do F-05 peça 3), T-19
 (`agendar-estagnado`, nascida do F-05 peça 5) e T-20 (`retorno-vencido`,
 nascida do F-05 peça 6) idem — nenhuma das três saiu por API ainda.** T-21
 (`negociacao-estagnada`) e T-22 (`proposta-pendente`) fogem da regra por um

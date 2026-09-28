@@ -166,6 +166,20 @@ manual (não sai por API para ninguém, nem ler nem escrever pipeline além do
       regra: nasce `[ ]`, vira `[x]` quando o dono trocar, num commit que
       não é o meu.
 
+      **Registro, não aprovação — 28/09/2026, achado por G-39
+      (`ROADMAP-SALES-ENGAGEMENT.md`):** a tag **já existe e está em uso** —
+      publicada pelo próprio caminho do dono (fora deste conector, branch
+      irmã `abertura-operacao-dnd-n7dnjv`), aplicada em toda a amostra de
+      leads reais conferida nesta rodada (5 de 5, todos em `CONECTAR`).
+      Desenho confirmado diferente do especificado: dispara quando
+      `fila-tel` fica **8 horas** sem resultado (não "depois do fim do
+      dia em que foi aplicada", o relógio fixo às 19:00 que a seção 2.21
+      de `build-wesales.md` descreve). Mesmo caso já registrado para
+      `fechar-horario`, o Espelho de Etapa e T-21/T-22: campo/tag na tela
+      sem `[x]` aqui é o dono decidindo direto pelo próprio caminho, não a
+      rotina se autorizando — **não marquei o `[x]`**. Detalhe completo em
+      `campos-e-tags.md` (T-17) e `ROADMAP-SALES-ENGAGEMENT.md` (G-39).
+
 - [ ] Criar a 18ª tag, `conectar-estagnado` — nasceu no F-05 (Monitor de
       Saúde da Operação, peça 3: `CONECTAR` sem nenhuma tentativa nova em 14
       dias corridos), especificada em `campos-e-tags.md` (T-18) e
