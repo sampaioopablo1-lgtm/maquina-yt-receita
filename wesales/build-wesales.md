@@ -7670,6 +7670,20 @@ Regra 5 (lead novo com prioridade alta) é o que mantém a fila do SDR
 produtiva: a taxa de atendimento cai a cada tentativa, então lead fresco vale
 mais que lead velho de mesma nota.
 
+### 9.3 Calibração agregada da régua — F-28
+
+O "Pronto quando" da 9.1 promete dizer "nota ≥ 70 acerta X%"; o alerta em
+tempo real do 5.1 (Loop do closer) só resolve o caso isolado. Quem soma os
+casos ao longo do tempo é `wesales/tools/calibracao_regua.py` — script só
+leitura, roda com `GHL_TOKEN` (mesmo padrão do `faxina_tarefas.py`), busca
+as etapas `REUNIÃO DE DIAGNÓSTICO`/`NEGOCIAR`/`FORMALIZAR`, exclui contato
+de teste (por ID e por heurística de nome/e-mail) e agrupa por faixa
+(mesmos cortes A/B/C/D desta seção). Não publica nada, não cria cron: zero
+escrita no CRM, não depende do `APROVADO.md`. Detalhe completo e a primeira
+leitura real (zero vereditos hoje, um veredito de teste corretamente
+excluído) em `ROADMAP-SALES-ENGAGEMENT.md`, F-28, e em
+`RELATORIO-CALIBRACAO.md`.
+
 ---
 
 ## 10. Checklist de teste — 5 contatos fictícios

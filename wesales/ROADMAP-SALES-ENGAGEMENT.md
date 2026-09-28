@@ -5684,6 +5684,74 @@ texto em `biblioteca-mensagens.md` (MRC-1); campo em `campos-e-tags.md`
 (C-13); `APROVADO.md` com a linha nova, `[ ]`. Zero campo novo, zero tag
 nova, zero escrita no CRM nesta rodada: item de especificação pura.
 
+### F-28 · O F-03 prometeu "dá pra dizer nota ≥ 70 acerta X%" e nunca calculou — o alerta em tempo real do 5.1 pega o caso isolado, nenhum lugar soma os casos (28/09/2026) — **FEITO em 28/09/2026 (script + primeira leitura real)**
+
+**Por quê:** o próprio "Pronto quando" do F-03 (acima, bloco 6) diz "dá pra
+dizer 'nota ≥ 70 acerta X%' — e corrigir a régua da seção 9 com dado, não
+com achismo". O workflow 5.1 (`build-wesales.md`) cumpre metade disso: no
+instante em que o closer registra o veredito, compara com a nota e avisa o
+gestor quando os dois discordam. Mas isso é caso a caso — nenhum lugar deste
+projeto soma esses casos ao longo do tempo para responder à própria
+pergunta que o F-03 fez. Pesquisa de concorrência antes de desenhar (mesma
+pergunta de sempre, agora voltada aos dois pilares do bloco 6 que nunca
+tinham ganhado extensão — F-02 e F-03, todos os outros quatro já
+estendidos por F-07 a F-27): Meetime descreve o "call review" — reunião
+semanal de 30-45min entre SDR e closer para revisar oportunidades e
+recalibrar o critério de qualificação — como prática padrão do mercado
+brasileiro de pré-vendas; Outreach (Kaia) e Salesloft (scorecards)
+resolvem com IA de coaching sobre gravação de chamada, infraestrutura que
+este projeto não tem (e que o F-06/F-09 já mostraram custar caro e
+disputar o mesmo canal de telefone perto do limite). As três abordagens
+têm o mesmo formato: pessoa olhando número, de tempos em tempos. Este item
+não substitui a reunião semanal (ela decide o que fazer; dado nenhum
+decide sozinho) — automatiza o número que ela hoje calcula na mão ou nem
+calcula, e um concorrente olhando a tela nunca veria: não é um card, é um
+script que lê o CRM e nunca escreve nele.
+
+**Como:** script novo, só leitura, `wesales/tools/calibracao_regua.py` —
+zero escrita no CRM, então não depende do `APROVADO.md`. Busca as
+oportunidades do `FUNIL DE VENDAS` nas três etapas onde o closer já pode
+ter atuado (`REUNIÃO DE DIAGNÓSTICO`, `NEGOCIAR`, `FORMALIZAR`), lê cada
+contato e mantém só quem tem `Data do veredito do closer` preenchida
+**e não é contato de teste** — a exclusão de teste não é cautela
+hipotética: é o achado real desta mesma rodada (abaixo). Agrupa por faixa
+(as mesmas quatro da seção 9.1: A ≥70, B 45-69, C 25-44, D <25), calcula a
+taxa de `Sim` por faixa e lista os casos que já dispararam (ou deveriam
+disparar) o alerta do 5.1. Roda com `GHL_TOKEN` (Private Integration
+Token, mesmo padrão do `faxina_tarefas.py`) — publicar um cron para ele é
+`.github/*`, fora de `wesales/`, regra 5 desta rotina; fica pronto para
+quem tiver o token rodar a qualquer momento, e o `--escrever` grava o
+relatório em `wesales/RELATORIO-CALIBRACAO.md`.
+
+**Achado ao rodar contra a subconta real (não hipótese — as quatro
+oportunidades das três etapas foram lidas nesta sessão por
+`opportunities_search-opportunity` + `contacts_get-contact`, sem
+`GHL_TOKEN` disponível neste ambiente de nuvem, mesma lógica do script
+aplicada à mão):** zero vereditos reais hoje. Os dois leads reais em
+`NEGOCIAR` (`Daniel`, `Genilson | Bombeiro`, nota 93 os dois) ainda não
+têm veredito do closer. O único veredito que existe na subconta agora —
+nota 23, `Reunião foi qualificada` = `Sim`, o pior caso possível de
+descalibração se fosse real — é do contato de teste "9940"
+(`Pablo Sampaio`, `rdaijzR0ZVCmXLAJ6jT2`), usado pelo dono para testar o
+`build_estagnacao.py` (G-23, acima). Contar esse dado teria feito o
+relatório mentir na primeira leitura — exatamente o motivo de o script
+excluir teste por lista fechada de ID **e** por heurística de nome/e-mail,
+não confiar em nenhuma tag isolada. `RELATORIO-CALIBRACAO.md` já existe
+com esta primeira leitura, incluindo a nota de proveniência (leitura via
+MCP desta sessão, não via `GHL_TOKEN`).
+
+**Campo/tag novos:** nenhum — reaproveita `Nota de qualificação`,
+`Reunião foi qualificada`, `Motivo da desqualificação` e `Data do veredito
+do closer` (C-15 a C-17, todos já criados na tela). Zero linha nova em
+`APROVADO.md`: o script nunca escreve no CRM.
+
+**Pronto quando:** o script roda contra a subconta real e devolve a taxa
+de acerto por faixa — cumprido nesta mesma rodada, mesmo com amostra zero:
+zero é a resposta real de hoje, não falha do mecanismo, e o relatório diz
+isso em vez de fingir uma leitura que não existe. Passa a responder de
+verdade quando `Daniel`/`Genilson` (ou o próximo lead real) ganhar
+veredito do closer — sem exigir nenhuma mudança neste script.
+
 ---
 
 ## Ordem sugerida
@@ -7639,3 +7707,36 @@ pendente de tela. `IMPLEMENTACAO-WORKFLOWS.md` (W31), `campos-e-tags.md`
 no mesmo commit. F-09, F-10, G-11 (item 1), G-19, G-27/G-29 e G-31
 continuam sendo as decisões sem prazo fixo que esperam o dono, sem
 mudança nesta rodada.
+
+**F-28 aberto e fechado em 28/09/2026, sessão automática seguinte —
+reconciliação de sempre antes de desenhar (hábito do G-31/G-32/G-33/F-26/
+F-27): `git fetch` na branch irmã `abertura-operacao-dnd-n7dnjv` (atualizada
+28/09 ~02:53 UTC, ~11 min antes desta sessão) e leitura de
+`DE-PARA-SESSOES-CRM.md` não achou resposta nova para F-09, F-10, G-11
+(item 1), G-19 ou G-31 — só reconfirmou G-27/G-29 (`SDR responsável` e
+`B · Quanto pode investir` seguem sem workflow lendo, recomendação
+registrada, sem confirmação). `opportunities_search-opportunity` (status
+`all`) confirma 64 oportunidades, mesma composição de sempre;
+`locations_get-custom-fields` confirma os campos de contato sem novidade —
+C-15/C-16/C-17 (`Reunião foi qualificada`/`Motivo da desqualificação`/`Data
+do veredito do closer`) já criados na tela (contagem exata em
+`campos-e-tags.md`).** Sem achado de reconciliação, a sessão foi à
+pesquisa de concorrência — mas desta vez não repetiu a pergunta já esgotada
+sobre guarda de canal/sinal (F-19 a F-27): aplicou a mesma pergunta aos dois
+pilares do bloco 6 que nunca tinham ganhado extensão, F-02 (horário
+aprendido) e F-03 (loop do closer), e achou que o próprio "Pronto quando" do
+F-03 — "dá pra dizer nota ≥ 70 acerta X%" — nunca foi calculado: o alerta em
+tempo real do 5.1 resolve o caso isolado, nenhum lugar soma ao longo do
+tempo. Fechado como **F-28**: script só-leitura
+`wesales/tools/calibracao_regua.py` (zero escrita no CRM, não depende do
+`APROVADO.md`), rodado nesta mesma sessão contra a subconta real via MCP (sem
+`GHL_TOKEN` neste ambiente) — achou **zero vereditos reais** hoje, e que o
+único veredito existente na subconta é do contato de teste "9940" (mesmo
+contato do G-23), que o script exclui por ID fechado **e** por heurística de
+nome/e-mail. Sem essa exclusão o relatório mentiria já na primeira leitura
+(nota 23, veredito `Sim`, pareceria o pior caso de descalibração). Primeira
+leitura real gravada em `wesales/RELATORIO-CALIBRACAO.md`, com nota de
+proveniência explicando o caminho MCP em vez de `GHL_TOKEN`. Zero campo, zero
+tag, zero escrita no CRM: reaproveita C-15 a C-17. F-09, F-10, G-11 (item 1),
+G-19, G-27/G-29 e G-31 continuam sendo as decisões sem prazo fixo que
+esperam o dono, sem mudança nesta rodada.
