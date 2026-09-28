@@ -310,3 +310,12 @@ Tentativas até agendar e até qualificar ainda sem dado real (4 agendados e 3 q
 | mensagens | governador: **1 por rodada** (era 2) e ~1/3 das rodadas puladas ao acaso quando não está atrasado → intervalo irregular (30/60/90 min + espera de 15 min do portão); limite 11–15/dia mantido | pedido do dono: não parecer robô |
 | mistura atual | 12 ligações (7 tel / 5 WA) + 5 mensagens = 41% / 29% / 29%. **Próximo passo:** trocar 3 das 5 mensagens (MT4, MT8, MT11) por ligação de WhatsApp → 8/7/2 = 47% / 41% / 12% | exige editar portões das cadências; com ensaio antes |
 | playbook | Passo 3: tabela de toques × canal, regra "toque de WhatsApp", 1 ligação de WhatsApp por lead por dia | rev 78 |
+
+### Visão de WhatsApp para todos (28/09 10:30)
+
+| Achado | O que foi feito |
+|---|---|
+| visão de Conversas criada pelo dono: "Nova visualização" (`8pjxZirVDwntKIBpjQMG`), filtro Tag contém `fila-wa`, **`sharedWith: []` (só o Pablo)** | não compartilhada por mim: ver abaixo |
+| a busca de Conversas só indexa **13 conversas** (as com mensagem real); os 36 leads antigos têm só atividade do sistema → a visão mostra 0 mesmo com 14 leads em `fila-wa` | a ligação de WhatsApp passa a ser feita pela lista de Contatos |
+| lista "Ligar pelo WhatsApp" (`1b41aFUhh6DYi8SAX0tC`) reapontada: tag `fila-wa`, sem perdido/não perturbe, colunas Nome/Telefone/Tentativas tel/Tentativas WA/Prioridade | 14 na tela; compartilhada com a Andreyna (cópia `Mi7PnwSFAXkophfcYekT`) |
+| "Minha fila — SDR" foi recriada fora desta sessão: id novo `jB9TeEuL9X7mupxwJqde` (filtros iguais) | links do playbook corrigidos |
