@@ -6,7 +6,7 @@ name: WeSales - analises semanais da operacao
 # So usa GHL_PIT (chave publica, nao vence): nenhuma sessao, nenhuma acao manual.
 on:
   schedule:
-    - cron: "0 10 * * 1"
+    - cron: "19 10 * * 1"
   workflow_dispatch:
 
 permissions:
