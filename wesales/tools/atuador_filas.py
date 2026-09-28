@@ -82,6 +82,13 @@ TAG_CLOSER = "fila-closer"
 # 28/09: lista "Minha agenda — Closer" filtra por esta tag (a tela não aceita OU de etapas).
 # = oportunidade aberta em REUNIÃO DE DIAGNÓSTICO, NEGOCIAR ou FORMALIZAR (com ou sem telefone).
 TAG_CLOSER_ATIVO = "closer-ativo"
+# 28/09 (PENDENTES-CRM item 1/2): `fila-wa` alimenta a visão "Ligar pelo WhatsApp" em Conversas
+# (botão de ligar do WhatsApp lá dentro). Nenhum workflow publicado põe a tag (só tiram), então
+# o atuador põe: CONECTAR, com telefone, sem DND/nao-perturbe/falou-hoje/wa-feito-hoje, ao menos
+# 1 tentativa por telefone e nenhuma conexão. `wa-feito-hoje` (workflow "WhatsApp tentado hoje",
+# 12 h) garante 1 ligação de WhatsApp por lead por dia. Cadências e Pós-ligação tiram a tag a cada
+# toque; o atuador põe de novo na rodada seguinte se o lead continuar elegível.
+TAG_WA = "fila-wa"
 FORMALIZAR = "b8485ec0"
 # Trava de canal (28/09): quem falou com a SDR nas ultimas 12 h (atendeu o discador ou
 # Resultado = Atendeu/Pediu retorno) nao entra na fila do discador nem na lista "Ligar pelo
@@ -444,10 +451,26 @@ def main() -> int:
 
     plano = []
     d_ativo = {c["id"] for c in cs if etapas.get(c["id"]) in DO_CLOSER + (FORMALIZAR,)}
+
+    def quer_wa(c):
+        tags = set(c.get("tags") or [])
+        if etapas.get(c["id"]) != CONECTAR or not c.get("phone") or c.get("dnd") or TESTE.search(c.get("contactName") or ""):
+            return False
+        if tags & {"nao-perturbe", TAG_FALOU, "wa-feito-hoje", "telefone-invalido"}:
+            return False
+        try:
+            tel = float(valor(c, TENT_TEL) or 0)
+            con = float(valor(c, CONEX_TEL) or 0) + float(valor(c, "Og1CkI9x9OztsV242nIM") or 0)
+        except (TypeError, ValueError):
+            return False
+        return tel >= 1 and con == 0
+    d_wa = {c["id"] for c in cs if quer_wa(c)}
+    a_wa = {c["id"] for c in cs if TAG_WA in (c.get("tags") or [])}
     a_ativo = {c["id"] for c in cs if TAG_CLOSER_ATIVO in (c.get("tags") or [])}
     for tag, desejado, atual in ((TAG_SDR, d_sdr, a_sdr),
                                  (TAG_CLOSER, d_clo, a_clo),
-                                 (TAG_CLOSER_ATIVO, d_ativo, a_ativo)):
+                                 (TAG_CLOSER_ATIVO, d_ativo, a_ativo),
+                                 (TAG_WA, d_wa, a_wa)):
         por = sorted(desejado - atual)
         tirar = sorted(atual - desejado)
         print("\n  %s: %d desejados, %d com a tag hoje" % (tag, len(desejado), len(atual)))
