@@ -264,3 +264,11 @@ Tentativas até agendar e até qualificar ainda sem dado real (4 agendados e 3 q
 | playbook | nova seção "Guia das telas" (Minha fila, Ficha, Call Center, Tarefas, Conversas — 4 capturas novas com nomes/telefones de leads borrados), glossário de tags (quem põe, o que significa, o que a SDR faz), passo a passo do grupo no celular (salvar lead e closer, criar, admin, convite por link) e sequência de mensagens no grupo da marcação ao pós-reunião | rev 65 |
 | rotina "construção contínua" | lida, não alterada (pedido do dono: só entender). Nuvem, ~1 sessão/hora, branch `claude/amazing-johnson-mclksg`, escreve especificação (build-wesales.md, ROADMAP F-/G-/T-, APRENDIZADOS, APROVADO.md como freio), não escreve no CRM | diverge do que está publicado (ex.: F-27 especifica "chamada perdida" com Call Status; a Trava de canal já usa esse gatilho) |
 | label GitHub | `para-claude` criada para pedidos do dono ao ciclo de melhoria | o agendamento local de hora em hora foi **negado** pelo controle de permissões (agente autônomo com escrita no CRM); fica para o dono liberar |
+
+### Lista do closer corrigida e F-27 publicado (28/09, manhã)
+
+| Item | O que foi gravado | Relido | Observação |
+|---|---|---|---|
+| lista do closer | "Minha agenda — Closer" mostrava 54 (a tela descartou o OU de etapas; "qualquer uma das tags" deu 0). Agora filtra só pela tag `closer-ativo`, mantida pelo atuador (oportunidade aberta em REUNIÃO/NEGOCIAR/FORMALIZAR) | sim, 2 na tela | PR #115 (atuador) mergeado |
+| F-27 | workflow "Retorno de chamada perdida (F-27)" (`21206cc9-c01e-4845-9b62-ebbd06d14fc9`): Call Status entrada não atendida (no-answer/busy/canceled/voicemail) → se oportunidade aberta e sem `nao-perturbe`: Prioridade 5, `fila-quente`, tarefa `[LIGAR AGORA] Retornar ligação perdida` para o dono do lead. Sem janela, reentrada ligada | publicado v3, gatilho ativo | versão enxuta do F-27 da rotina "construção contínua" (PR #102): sem a mensagem MRC-1 (template Meta) e sem opção nova em Sinal recebido. **Não testado com chamada real** |
+| F-24, F-25, F-26 | não publicados | — | e-mail não é canal da operação hoje (F-24/F-25); F-26 a própria rotina marcou travado no F-09 |
