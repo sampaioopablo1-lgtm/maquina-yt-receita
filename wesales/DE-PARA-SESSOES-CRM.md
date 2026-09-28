@@ -200,3 +200,12 @@ Tentativas até agendar e até qualificar ainda sem dado real (4 agendados e 3 q
 | janela | os 3 workflows herdaram a janela seg–sex 08:30–18:30 do modelo; **retirada** para o evento sair na hora | os 3 workflows | sim | |
 | teste | Resultado = Atendeu no contato de teste (2×) → Meta registrou **2 eventos `Contact` de servidor** (23:00–00:00) | Pixel 1600846091439175 | sim, `ads_get_dataset_stats` SERVER_ONLY | `server_last_fired_time` do Meta demora a atualizar; a contagem é o sinal confiável. `Purchase` não testado de propósito (não mandar venda falsa) |
 | Pixel no formulário da SDR | "Qualificação e agendamento — SDR": `fbPixelId`, `pageViewEvent` e `formSubmissionEvent` vazios (a remoção de antes tinha gravado; a leitura que dizia o contrário pegou uma cópia antiga do arquivo). Página pública aberta sem tela: nenhum evento disparado | formulário novo | sim (arquivo da versão atual + página ao vivo) | o formulário original "Qualificação SDR" segue com Pixel (protegido e fora do fluxo da SDR). Contato de teste limpo: 3 tarefas [FECHAR HORÁRIO] concluídas e tag `fechar-horario` retirada |
+
+### Playbook SDR/Closer (28/09)
+
+| O que | Onde | Estado |
+|---|---|---|
+| Playbook de ponta a ponta: operação, links, rotina hora a hora, registrar tentativa, scripts inbound + objeções, qualificar e agendar, rotina do closer, regras da máquina, metas, referências | Claude Docs — https://claude.ai/code/artifact/8454238e-c51c-4bbc-90ff-cc407f4b6458 | pronto (rev 23) |
+| Fotos das telas | ficha do contato de teste (sem dado de lead real), formulário SDR em branco, painel Decisão | no doc |
+| Pesquisa de mercado | HBR 2011, MIT/InsideSales LRM, Gong Labs (aberturas e objeções), Meetime (metas e benchmark BR) — tabela "O que a pesquisa de mercado diz" nos scripts | no doc |
+| Correção | "Ligação por WhatsApp não existe no sistema" → ligação pelo app + lista "Ligar pelo WhatsApp" + Canal da tentativa = WhatsApp | no doc |
