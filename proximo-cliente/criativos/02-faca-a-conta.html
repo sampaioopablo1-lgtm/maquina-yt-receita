@@ -121,7 +121,8 @@
 
   /* formato quadrado 1080x1080 (#render-square): coluna 3:4 no centro, fundo contínuo */
   body.render.square .col-stage{width:100vw;height:100vh;display:grid;place-items:center;background:var(--grafite)}
-  body.render.square .stage{width:75vh;height:100vh;overflow:visible}
+  body.render.square{background:var(--grafite)}
+  body.render.square .stage{width:75vh;height:100vh;overflow:visible;background:transparent}
   body.render.square .grain, body.render.square .vignette{position:fixed}
   body.render.square .scene{padding:12cqw 7cqw 9cqw}
   body.render.square .brand{top:3.5cqw}
