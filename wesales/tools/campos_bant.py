@@ -73,8 +73,8 @@ BANT = [
     ("3dphGCPCoFcYXEQC2jeB", "A · Decisor", 500),
     # fechamento da ligacao
     # criado em 27/09 pela API: a SDR marca por onde ligou (o Pós-ligação v3 lê)
-    ("AsZMGmsKVu1xEp36hyLb", "Canal da tentativa", 595),
-    ("nPafc9c0JdSSptdPhUlF", "Resultado da tentativa", 600),
+    ("AsZMGmsKVu1xEp36hyLb", "Canal da tentativa", 10),   # 28/09: topo da ficha (painel de Conversas)
+    ("nPafc9c0JdSSptdPhUlF", "Resultado da tentativa", 20),
     ("IBOMNQecWtIUruHpNAs1", "Data de retorno", 610),
     ("IHXNFnguTPyNj5Q59ea2", "Hora do retorno", 620),
     ("mJv4YcFBH4NsPfbh5Q3G", "Qualificação", 630),

@@ -283,3 +283,12 @@ Tentativas até agendar e até qualificar ainda sem dado real (4 agendados e 3 q
 | 1 visão em Conversas | **manual do dono** (admin cria e compartilha); passos no playbook | API não cria visão |
 | playbook | Passo 3 da sessão da nuvem mantido; corrigidas 3 frases que diziam que a cadência põe `fila-wa` | rev 76 |
 | ciclo /loop 1h | cancelado (job 74f7640a) por decisão do dono: melhorias discutidas na nuvem, aplicadas aqui 1–3×/dia | |
+
+### Painel de ligação pelo WhatsApp (28/09)
+
+| Item | Resultado | Observação |
+|---|---|---|
+| campos | "Canal da tentativa" 595→**10** e "Resultado da tentativa" 600→**20** (pasta da ficha): aparecem logo abaixo do Nome na coluna direita de Conversas | só posição (PUT sem parentId); `campos_bant.py` atualizado para não voltar |
+| botão | o botão verde **"Ligar"** do cabeçalho da conversa é **"Ligar via WhatsApp"** (aria-label), da integração do WhatsApp (Stevo) | conferido na tela, sem ligar |
+| visão | os leads têm conversa (amostra de 12 dos `sem-cadencia`: todos com conversa TYPE_PHONE) → aparecem na visão por tag | a visão ainda precisa ser criada/compartilhada pelo dono |
+| registro | a ligação por WhatsApp **não deixa registro** no CRM (mensagens Stevo chegam como TYPE_CUSTOM_SMS; nenhuma chamada WhatsApp) | a medição de 40% depende da SDR marcar Canal = WhatsApp |
