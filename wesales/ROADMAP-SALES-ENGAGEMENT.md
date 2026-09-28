@@ -4238,7 +4238,7 @@ fato tem, em vez de reciclar para sempre sem nenhuma.
 
 ---
 
-### F-18 · `monetaryValue` nasce com um número falso e nada troca pelo valor real quando o negócio fecha — inventário dos módulos do CRM (27/09/2026)
+### F-18 · `monetaryValue` nasce com um número falso e nada troca pelo valor real quando o negócio fecha — inventário dos módulos do CRM (27/09/2026) — **especificação fechada em 27/09/2026, execução aguarda o primeiro `won`**
 **Renumerado de F-07 para F-18 em 27/09/2026, na reconciliação deste arquivo** (ver alerta de integridade no topo): o item nasceu como F-07 sem saber que o número já pertencia a outro item, perdido no acidente de 24/09/2026 e agora restaurado — "Proteção de reputação do número de WhatsApp", acima. F-16 e F-17 também já estão em uso (`build-wesales.md`, §2.31/§2.32, citados em cinco outros documentos); F-18 é o primeiro número livre.
 **Por quê:** pedido do dono ("módulos que ainda não tenhamos tocado, tabelas,
 funções e recursos do CRM"). Inventariadas as 36 ferramentas do conector `GHL
@@ -4264,7 +4264,7 @@ verificados um a um, em `build-wesales.md` §2.47.
 diferente de `5000`, e o dashboard do gestor soma receita real, não
 contagem de negócios fechados.
 
-### F-19 · A Interceptação de Sinal trata "estou de férias" como "tenho interesse" — e o Stop on Response encerra a cadência do lead no mesmo segundo, em silêncio (27/09/2026)
+### F-19 · A Interceptação de Sinal trata "estou de férias" como "tenho interesse" — e o Stop on Response encerra a cadência do lead no mesmo segundo, em silêncio (27/09/2026) — **FEITO em 27/09/2026 (especificação)**
 
 **Por quê:** pesquisando Reev/Meetime/Outreach/Salesloft antes de considerar
 o bloco 6 esgotado (rotina obrigatória de todo item novo deste roadmap),
@@ -4310,7 +4310,7 @@ C-33); ambos nascem `[ ]` em `APROVADO.md`.
 
 ---
 
-### F-20 · O próprio F-19 deixou o e-mail de fora do filtro de ausência — o canal onde autorresponder de férias é mais comum, não menos (27/09/2026)
+### F-20 · O próprio F-19 deixou o e-mail de fora do filtro de ausência — o canal onde autorresponder de férias é mais comum, não menos (27/09/2026) — **FEITO em 27/09/2026 (especificação)**
 
 **Por quê:** pesquisando Reev/Meetime/Outreach/Salesloft na sessão automática
 seguinte ao F-19 (mesma rotina obrigatória), achado dentro do próprio item
@@ -4360,7 +4360,7 @@ contato com quem só está fora do escritório. Detalhe nó a nó em
 continuam `[ ]` em `APROVADO.md`, mesma linha do F-19 — este item amplia o
 motivo de aprovar, não pede aprovação nova.
 
-### F-21 · A própria Interceptação de Sinal nunca ganhou canal e-mail — e copiar o desenho do WhatsApp cegamente aplicaria `fila-quente` a quem a lista que a lê nunca mostra (27/09/2026)
+### F-21 · A própria Interceptação de Sinal nunca ganhou canal e-mail — e copiar o desenho do WhatsApp cegamente aplicaria `fila-quente` a quem a lista que a lê nunca mostra (27/09/2026) — **FEITO em 27/09/2026 (especificação)**
 
 **Por quê:** aplicando a pergunta que o F-20 deixou pronta ("essa guarda
 existe em todo canal de texto que a operação usa, ou só no canal que
@@ -5458,7 +5458,7 @@ sendo as decisões sem prazo fixo que esperam o dono — sem mudança de
 estado nesta rodada. G-25 segue fechado; a janela da MI-0 não passou ainda
 nesta sessão.
 
-### F-24 · O bloco 6 mede clique em Trigger Link do WhatsApp e resposta de qualquer canal — nunca abertura nem clique de e-mail, o par que Outreach/Salesloft pontuam como sinal de intenção há anos (28/09/2026)
+### F-24 · O bloco 6 mede clique em Trigger Link do WhatsApp e resposta de qualquer canal — nunca abertura nem clique de e-mail, o par que Outreach/Salesloft pontuam como sinal de intenção há anos (28/09/2026) — **FEITO em 28/09/2026 (especificação)**
 
 **Por quê:** pesquisa de concorrência de rotina (obrigatória antes de
 declarar o bloco 6 esgotado de novo), desta vez aplicada não a uma guarda de
@@ -5511,7 +5511,7 @@ contato sem `email-engajado` sobe `Prioridade` para 4 e avisa o gestor uma
 T-24); ambos nascem `[ ]` em `APROVADO.md`. Zero escrita no CRM nesta
 rodada: item de especificação pura.
 
-### F-26 · Toda ligação que cai na caixa postal só soma contador — nenhuma mensagem sai, e o recurso nativo que resolveria isso sem gastar tempo do SDR nunca foi olhado, mas ativá-lo cedo demais empilha sobre um canal que dois itens já mediram perto do limite (28/09/2026)
+### F-26 · Toda ligação que cai na caixa postal só soma contador — nenhuma mensagem sai, e o recurso nativo que resolveria isso sem gastar tempo do SDR nunca foi olhado, mas ativá-lo cedo demais empilha sobre um canal que dois itens já mediram perto do limite (28/09/2026) — **FEITO em 28/09/2026 (especificação)**
 
 **Resumo:** Reev/Meetime não têm telefonia própria (abrem para o discador
 do usuário) e não cobrem isto; o GHL já tem nativo o **Ringless Voicemail
@@ -5552,7 +5552,7 @@ dependência explícita em `APROVADO.md`, `campos-e-tags.md`,
 aprovado pelo dono, nós 5-9 montados no `Pós-ligação` publicado — e o F-09
 já com decisão tomada. Zero escrita no CRM nesta rodada.
 
-### F-25 · Nenhum item marca e-mail que bateu (bounce) como inválido — a cadência de e-mail continua tentando o mesmo endereço morto, e cada tentativa é o próprio risco que o F-22 já mediu (28/09/2026)
+### F-25 · Nenhum item marca e-mail que bateu (bounce) como inválido — a cadência de e-mail continua tentando o mesmo endereço morto, e cada tentativa é o próprio risco que o F-22 já mediu (28/09/2026) — **FEITO em 28/09/2026 (especificação)**
 
 **Por quê:** mesma pergunta do R-13 ("a base suja infla métrica e queima
 SDR") aplicada ao canal que R-13 nunca cobriu — R-13 fechou a higiene do
@@ -6068,6 +6068,71 @@ Estatísticas do WhatsApp, os dois motivos de `Failed`. Zero campo, zero
 tag, zero workflow, zero escrita no CRM — item de documentação pura,
 mesmo padrão do F-07/F-08: não depende de `APROVADO.md` (a submissão já
 era ação do dono desde o G-05; esta seção só diz qual categoria escolher).
+F-09, F-10, G-11 (item 1), G-19, G-27/G-29 e G-31 continuam sendo as
+decisões sem prazo fixo que esperam o dono, sem mudança nesta rodada.
+
+---
+
+### G-37 · Sete cabeçalhos de item fechado (F-18 a F-26) nunca ganharam a marca `FEITO` que o próprio parágrafo de fechamento, no fim desta seção, já dava por certa (28/09/2026) — **FEITO em 28/09/2026 (coerência da própria seção "Bloco 6")**
+
+**Por quê:** reconciliação de sempre antes de pegar o item de maior
+prioridade da fila (instrução da tarefa desta sessão) — `git fetch` nas
+duas branches irmãs sem commit novo além do que o F-31 já tinha lido; CRM
+reconfirmado por API sem mudança (64 oportunidades, mesma composição; 60
+campos de contato, sem novidade). Antes de desenhar algo novo, a sessão
+tentou responder "qual é o item de maior prioridade ainda aberto?" com o
+método mais barato: `grep -n "^### [FGR]-[0-9]" ROADMAP-SALES-ENGAGEMENT.md`
+— o mesmo comando que resolveu essa pergunta em rodadas anteriores. Sete
+cabeçalhos vieram **sem** a marca `FEITO`: F-18, F-19, F-20, F-21, F-24,
+F-25 e F-26 — pareciam sete itens abertos, alguns deles (F-19 a F-21) do
+bloco mais antigo do roadmap ainda sem trabalho.
+
+**Não eram.** Cada um dos sete já tem parágrafo de fechamento no fim desta
+seção ("Fechado como F-19", "F-24 aberto e fechado em 28/09/2026" etc.) e
+está referenciado, coerente, em `build-wesales.md` (seções 2.47 a 2.56 e a
+seção 4), `campos-e-tags.md` (T-23 a T-26, C-33 a C-36),
+`IMPLEMENTACAO-WORKFLOWS.md` (W25 a W30) e `GUIA-MONTAGEM.md` (fila de
+montagem manual) — conferido linha a linha nesta sessão, não só por grep de
+nome. F-18 é o único caso genuinamente diferente dos outros seis: o texto
+desta própria seção (parágrafo de 27/09/2026, logo depois do alerta de
+integridade) já registrava "F-18 se soma à lista dos itens que esperam
+evento real... porque o primeiro `won` desta operação ainda não aconteceu"
+— então **não** leva `FEITO`, leva o mesmo formato que o `R-14` já usa
+("especificação fechada em ..., execução aguarda ..."), para não afirmar
+uma entrega que o próprio texto já nega.
+
+**Causa provável, mesma classe do G-24/G-36:** os seis primeiros nasceram
+em três rodadas diferentes (F-19/F-20/F-21 em 27/09; F-24/F-25/F-26 em
+28/09) que escreveram o parágrafo de fechamento no fim da seção — a
+obrigação que o G-24 criou — mas nenhuma delas voltou ao próprio `###
+cabeçalho` do item, lá no corpo do Bloco 6, para acrescentar a mesma marca
+que F-07/F-22/F-23/F-27/F-29/F-30/F-31 carregam. O F-18 já tinha o motivo
+registrado por escrito; os outros seis não tinham motivo nenhum — só
+faltou o passo mecânico. G-24 e G-36 corrigiram o parágrafo de fechamento
+em si (existir ou não); este item corrige o outro lado do mesmo par, o
+cabeçalho que ele fecha.
+
+**Como:** `### F-18` recebeu "especificação fechada em 27/09/2026, execução
+aguarda o primeiro `won`"; `### F-19`, `F-20`, `F-21` receberam "FEITO em
+27/09/2026 (especificação)"; `### F-24`, `F-25`, `F-26` receberam "FEITO
+em 28/09/2026 (especificação)" — mesma data que o parágrafo de fechamento
+de cada um já registra. Nenhum texto de corpo mudou, só o cabeçalho.
+
+**Regra nova para a próxima rodada, ao lado da que o G-24/G-36 já deixaram:**
+o parágrafo de fechamento no fim da "Ordem sugerida" e a marca `FEITO` no
+`### cabeçalho` do item são **as duas metades da mesma entrega** — fechar
+um sem o outro é o mesmo tipo de item pela metade que a introdução deste
+roadmap pede para nunca deixar. `grep -n "^### [FGR]-[0-9]"` sem `FEITO`
+nem "aguarda"/"especificação fechada" na mesma linha é o comando que
+verifica as duas de uma vez.
+
+**Zero campo, zero tag, zero escrita no CRM: item de coerência dentro do
+próprio roadmap, não depende de `APROVADO.md`.**
+
+**Pronto quando:** feito — este `### G-37` e os sete cabeçalhos corrigidos
+acima são o próprio "Pronto quando", mesmo padrão que já valia para o
+G-24/G-36.
+
 F-09, F-10, G-11 (item 1), G-19, G-27/G-29 e G-31 continuam sendo as
 decisões sem prazo fixo que esperam o dono, sem mudança nesta rodada.
 
@@ -8135,3 +8200,29 @@ Zero campo, zero tag, zero workflow, zero escrita no CRM: item de
 documentação pura, mesmo padrão do F-07/F-08, não depende de `APROVADO.md`.
 F-09, F-10, G-11 (item 1), G-19, G-27/G-29 e G-31 continuam sendo as
 decisões sem prazo fixo que esperam o dono, sem mudança nesta rodada.
+
+**G-37 fechado em 28/09/2026, sessão automática seguinte — pegando o item de
+maior prioridade ainda aberto (instrução desta rodada), o próprio comando
+que separa item fechado de item aberto (`grep -n "^### [FGR]-[0-9]"`) mentiu
+sete vezes: F-18, F-19, F-20, F-21, F-24, F-25 e F-26 tinham o corpo
+inteiro fechado (especificados nó a nó, cross-referenciados em
+`build-wesales.md`, `campos-e-tags.md`, `IMPLEMENTACAO-WORKFLOWS.md` e
+`GUIA-MONTAGEM.md`, cada um com parágrafo de fechamento já escrito nesta
+mesma seção) mas o `### cabeçalho` nunca ganhou a marca `FEITO` que
+F-07/F-22/F-23/F-27/F-29/F-30/F-31 carregam — mesma classe de lapso que o
+G-24 e o G-36 já corrigiram, desta vez no outro lado do par (o cabeçalho,
+não o parágrafo de fechamento). Corrigidos os sete: seis com `FEITO em
+27/09/2026 (especificação)` ou `FEITO em 28/09/2026 (especificação)` — a
+mesma data que o parágrafo de fechamento de cada um já registrava —, e o
+F-18 com `especificação fechada em 27/09/2026, execução aguarda o primeiro
+won`, porque este item é o único dos sete que esta própria seção já dizia
+esperar um evento real, não decisão do dono. Sem essa distinção, o F-18
+teria ganhado `FEITO` como os outros seis e o roadmap passaria a afirmar
+uma entrega que o próprio texto, três parágrafos acima, já negava. Detalhe
+completo, inclusive a regra nova para a próxima rodada, no próprio
+`### G-37`, acima. CRM reconfirmado sem mudança (64 oportunidades, 60
+campos de contato). Zero campo, zero tag, zero escrita no CRM. Sem item de
+`APROVADO.md` para marcar `[x]` nesta rodada — a fila do dono
+(`APROVADO.md`) segue igual à da última leitura. F-09, F-10, G-11 (item 1),
+G-19, G-27/G-29 e G-31 continuam sendo as decisões sem prazo fixo que
+esperam o dono, sem mudança nesta rodada.

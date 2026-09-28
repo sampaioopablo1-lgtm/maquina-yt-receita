@@ -6939,3 +6939,47 @@ nenhuma delas.
 sobre GoHighLevel/HighLevel (documentação oficial, blog de consultoria,
 fórum), assuma que vai bloquear e vá direto para `WebSearch` com 2-3
 consultas cruzadas — mais rápido e o resultado já vem com fontes citadas.
+
+## `grep -n "^### [FGR]-[0-9]"` para achar "o item de maior prioridade ainda aberto" mentiu sete vezes — o parágrafo de fechamento e a marca `FEITO` no cabeçalho são duas entregas separadas, não uma (G-37) — 28/09/2026, sessão automática
+
+Ao pegar o item de maior prioridade ainda aberto do roadmap (instrução
+padrão de toda rodada), o atalho de sempre — grepar os cabeçalhos `###
+F-`/`G-`/`R-` e olhar quais não terminam em `FEITO` — apontou sete itens
+"abertos" (F-18, F-19, F-20, F-21, F-24, F-25, F-26) que na verdade já
+estavam fechados havia até um dia inteiro: cada um tinha parágrafo de
+fechamento completo no fim da "Ordem sugerida" e estava corretamente
+cross-referenciado em `build-wesales.md`, `campos-e-tags.md`,
+`IMPLEMENTACAO-WORKFLOWS.md` e `GUIA-MONTAGEM.md`. Só o `###` cabeçalho no
+corpo do Bloco 6 — o lugar que o grep olha — nunca ganhou a marca `FEITO`
+que F-07/F-22/F-23/F-27/F-29/F-30/F-31 carregam.
+
+**Causa provável, mesma classe do G-24/G-36 (regra escrita não cobria as
+duas metades da entrega):** o G-24 tinha corrigido "todo item que fechar
+escreve o parágrafo de recapitulação no fim da seção" — mas nunca disse
+nada sobre o cabeçalho em si. F-19/F-20/F-21 (27/09) e F-24/F-25/F-26
+(28/09) cumpriram a parte que a regra cobria (o parágrafo) e pularam a
+parte que nenhuma regra pedia (voltar ao `###` e marcar `FEITO`).
+
+**Por que isto quase virou um item novo inventado do zero:** sem checar os
+parágrafos de fechamento e os outros quatro documentos antes de assumir
+"aberto = sem trabalho feito", a rodada teria especificado um oitavo item
+duplicando F-19 a F-26 — exatamente o tipo de retrabalho que este arquivo
+existe para evitar.
+
+**Regra prática, nova, ao lado da do G-24/G-36:** o parágrafo de
+fechamento no fim da "Ordem sugerida" e a marca `FEITO` (ou o equivalente
+"especificação fechada em..., execução aguarda...", quando o item
+realmente depende de evento real — caso do F-18/R-14) no `### cabeçalho`
+são as duas metades da mesma entrega. **Antes de tratar um item como
+"aberto" só por não ter `FEITO` no cabeçalho, procure o nome dele
+("Fechado como F-XX", "F-XX aberto e fechado") no fim da seção "Ordem
+sugerida" — se achar, é o cabeçalho que está atrasado, não o item.**
+
+**Correção aplicada:** os sete cabeçalhos corrigidos com a data que o
+parágrafo de fechamento de cada um já registrava (F-18 é o único que não
+leva `FEITO` — leva o formato do R-14, porque este item específico
+já esperava um evento real, não montagem na tela). Detalhe completo em
+`ROADMAP-SALES-ENGAGEMENT.md`, `G-37`. CRM reconfirmado sem mudança (64
+oportunidades, 60 campos de contato). Zero campo, zero tag, zero escrita
+no CRM: item de coerência dentro do próprio roadmap, mesma classe do
+G-24/G-36.
