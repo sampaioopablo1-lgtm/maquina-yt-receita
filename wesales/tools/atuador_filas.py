@@ -79,6 +79,14 @@ DO_CLOSER = ("3d26fcd1", "cbcf0229")   # REUNIAO DE DIAGNOSTICO, NEGOCIAR
 PRIORIDADE = "chuJMRlKzY0Uq1f0lSkX"
 TAG_SDR = "fila-sdr"
 TAG_CLOSER = "fila-closer"
+# Trava de canal (28/09): quem falou com a SDR nas ultimas 12 h (atendeu o discador ou
+# Resultado = Atendeu/Pediu retorno) nao entra na fila do discador nem na lista "Ligar pelo
+# WhatsApp". A tag e posta e tirada pelo workflow "Trava de canal — falou hoje"; este arquivo
+# so a le e, como rede de seguranca, poe no workflow quem atendeu o discador e ficou sem ela.
+TAG_FALOU = "falou-hoje"
+WF_TRAVA = "c4a3aab7-5fb2-4d05-80cf-0364a0a90bc5"
+TENT_TEL = "wCzdqF7uLQwtrZ1JyZRn"
+CONEX_TEL = "LB11ao0AdSI1QSHyZBOP"
 
 # Contato de teste nao entra em fila de discagem. E heuristica de nome, e por isso
 # o script IMPRIME quem excluiu por este motivo em toda execucao: heuristica que
@@ -186,7 +194,7 @@ def decidir(cs, etapas):
             continue
 
         etapa = etapas.get(cid)
-        if etapa == CONECTAR and "nao-perturbe" not in tags:
+        if etapa == CONECTAR and "nao-perturbe" not in tags and TAG_FALOU not in tags:
             try:
                 p = float(valor(c, PRIORIDADE) or 0)
             except (TypeError, ValueError):
@@ -196,6 +204,48 @@ def decidir(cs, etapas):
         elif etapa in DO_CLOSER:
             d_clo.add(cid)
     return d_sdr, d_clo, a_sdr, a_clo, excl
+
+
+def atendeu_recente(cid, horas=12):
+    """Ligacao de saida completada com 20 s ou mais nas ultimas `horas` (mesma regra das
+    analises semanais)."""
+    import datetime as dt
+    limite = dt.datetime.now(dt.timezone.utc) - dt.timedelta(hours=horas)
+    r = pedir("GET", "/conversations/search?locationId=%s&contactId=%s" % (LOC, cid))
+    for cv in r.get("conversations") or []:
+        m = pedir("GET", "/conversations/%s/messages?limit=30" % cv["id"])
+        for x in ((m.get("messages") or {}).get("messages") or []):
+            if x.get("messageType") != "TYPE_CALL" or x.get("direction") != "outbound":
+                continue
+            quando = dt.datetime.fromisoformat(x["dateAdded"].replace("Z", "+00:00"))
+            call = (x.get("meta") or {}).get("call") or {}
+            if quando >= limite and call.get("status") == "completed" and (call.get("duration") or 0) >= 20:
+                return True
+    return False
+
+
+def rede_trava(cs, etapas, aplicar):
+    """Candidatos da lista "Ligar pelo WhatsApp" (CONECTAR, 2+ tentativas por telefone, nenhuma
+    conexao registrada) que atenderam o discador e ainda nao tem `falou-hoje`: entram no
+    workflow da trava. Cobre o caso de o gatilho nativo da ligacao nao disparar."""
+    n = 0
+    for c in cs:
+        tags = set(c.get("tags") or [])
+        if TAG_FALOU in tags or etapas.get(c["id"]) != CONECTAR or not c.get("phone"):
+            continue
+        try:
+            tent = float(valor(c, TENT_TEL) or 0); con = float(valor(c, CONEX_TEL) or 0)
+        except (TypeError, ValueError):
+            continue
+        if tent < 1 or con > 0:
+            continue
+        if atendeu_recente(c["id"]):
+            n += 1
+            print("  trava: %s %s atendeu o discador sem trava%s" % (
+                c["id"], c.get("contactName") or "?", "" if aplicar else " (DRY)"))
+            if aplicar:
+                pedir("POST", "/contacts/%s/workflow/%s" % (c["id"], WF_TRAVA), {})
+    print("  rede da trava de canal: %d contato(s)" % n)
 
 
 def main() -> int:
@@ -210,6 +260,7 @@ def main() -> int:
     print("  oportunidades abertas mapeadas: %d | contatos lidos: %d"
           % (len(etapas), len(cs)))
 
+    rede_trava(cs, etapas, aplicar)
     d_sdr, d_clo, a_sdr, a_clo, excl = decidir(cs, etapas)
     nome = {c["id"]: (c.get("contactName") or "?") for c in cs}
 
