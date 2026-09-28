@@ -732,6 +732,8 @@ acidente nem por um segundo lugar decidindo a mesma coisa.
 | 0.7b | Assign to User → modo `Round Robin` | Lista de SDRs ativos, configurada na tela do nó (seção 2.14) |
 | 0.8 | If/Else (F-32) | `Segmento` está vazio → segue para 0.8b. Senão → pula para M1 (já preenchido — manual ou de uma rodada anterior deste mesmo nó — nunca sobrescreve) |
 | 0.8b | If/Else em cascata (F-32) — detalhe na seção 2.62 | `UTM Medium (First Attribution)` `Contains` "NICHO ADVOCACIA" → `Segmento` = `Advocacia` · `Contains` "NICHO CONTABILIDADE" → `Segmento` = `Contabilidade` · nenhum dos dois → segue vazio (campanha sem nicho, ou nicho ainda não cadastrado nesta lista) |
+| 0.9 | If/Else (F-33) — detalhe na seção 2.63 | `Prazo` **é** `Pra ontem` → Update Contact Field `Prioridade` = 4. Senão → segue para 0.9b |
+| 0.9b | If/Else (F-33, fallback) — detalhe na seção 2.63 | `Prazo` **está vazio** **e** `Urgência` **é** `Pra ontem` → Update Contact Field `Prioridade` = 4. Senão → `Prioridade` continua 3 |
 
 **Por que o portão de higiene (0.0/0.0b) vem antes de qualquer outro nó, e
 não dentro do portão da tentativa (nó 3, seção 2.4) — R-13:** o bloqueio
@@ -7672,6 +7674,21 @@ Regra 5 (lead novo com prioridade alta) é o que mantém a fila do SDR
 produtiva: a taxa de atendimento cai a cada tentativa, então lead fresco vale
 mais que lead velho de mesma nota.
 
+**Nota de coerência, F-33 (28/09/2026):** as regras 3, 5, 6 e 7 desta
+tabela nunca foram escritas como `Update Contact Field` em nenhum nó deste
+documento — conferido por `grep -n "Prioridade" build-wesales.md` antes de
+propor qualquer coisa nova. Não é lacuna represada: o efeito de cada uma já
+existe por outro caminho. Regras 5-7 (fila degrada por `Tentativa nº`) são
+alcançadas pela ordenação de dois níveis das listas 8.1/8.2/8.3
+(`Prioridade` desc, depois `Tentativa nº` asc) — como todo lead sem sinal
+empata em `Prioridade`, o segundo nível já devolve fresco antes de velho.
+Regra 3 (respondeu mensagem → 4) é alcançada pela Interceptação de Sinal
+(F-01, seção 2.9.3): qualquer resposta que não seja opt-out/auto-resposta/
+negativa já vira `Prioridade` = 5, mais alto que o 4 que esta regra pediria.
+Se um dia as listas 8.1/8.2/8.3 pararem de existir ou trocarem de
+ordenação, esta nota para de valer e as quatro regras voltam a precisar de
+nó próprio — registrado aqui para não ser esquecido.
+
 ### 9.3 Calibração agregada da régua — F-28
 
 O "Pronto quando" da 9.1 promete dizer "nota ≥ 70 acerta X%"; o alerta em
@@ -10271,3 +10288,116 @@ de campanha "NICHO X" entrar em `CONECTAR` com `Segmento` já preenchido
 sem o SDR perguntar; e o próprio F-02 deixar de esperar só volume — passa
 a esperar volume **e** ter segmento para cruzar, que agora nasce no dia 1
 em vez de nunca.
+
+## 2.63 Prioridade por urgência declarada (nós 0.9/0.9b) — F-33: a fila do dia não usa a urgência que o próprio lead já escreveu no anúncio, antes de qualquer ligação
+
+**Por quê:** o nó 0.5 (seção 2.3) grava `Prioridade` = 3 para todo lead
+outbound, comentário ao lado dizendo "a seção 9 recalcula" — e a seção 9.2
+lista 8 regras de prioridade, com a segunda metade (regras 3, 5, 6 e 7,
+metade da tabela) nunca escrita como nó em lugar nenhum do documento
+(`grep -n "Prioridade" build-wesales.md` não acha nenhuma delas fora da
+própria seção 9.2). Nesta rodada, antes de propor qualquer nó novo, conferi
+se isso é bug real ou só imprecisão de texto: **as regras 5, 6 e 7 (a
+fila degrada por `Tentativa nº`) são, na prática, redundantes** — as três
+listas que o SDR usa (8.1/8.2/8.3) já ordenam por `Prioridade` desc e
+**depois** por `Tentativa nº`/`WA não atendidas seguidas` asc; como todo
+lead sem sinal empata em `Prioridade` = 3, o segundo nível de ordenação já
+devolve fresco antes de velho, o mesmo efeito que as regras 5-7 teriam. A
+regra 3 ("respondeu mensagem" → 4) também é redundante: qualquer resposta
+que não seja opt-out/auto-resposta/negativa já vira sinal forte pela
+Interceptação de Sinal (F-01, seção 2.9.3), `Prioridade` = 5, mais alto que
+os 4 que a regra 3 daria. **Não sobra bug para consertar nessas quatro** —
+sobra só uma nota para a seção 9.2 (abaixo), porque o próximo item pode
+gastar uma rodada tentando "implementar" uma regra que já está coberta por
+outro caminho.
+
+**A lacuna real é outra, e apareceu conferindo dado, não texto:** os 12
+leads reais mais recentes ainda não trabalhados por nenhum SDR (2 em
+`NOVO LEAD`, 10 em `CONECTAR`, todos com `Tentativa nº` = 0 e `Resultado da
+tentativa` vazio, lidos um a um por `contacts_get-contact` nesta rodada)
+já chegam com `Prazo` preenchido em 9 dos 12 e `Urgência` (o campo espelho
+que o G-04 já registrou) em 11 dos 12 — o próprio lead escreveu, no
+formulário do anúncio, se precisa "pra ontem" ou "sem prazo, só
+pesquisando". Isso é **15 dos 45 pontos do Bloco C** (seção 9.1) já
+disponíveis no instante em que o contato nasce. Hoje esse dado fica parado
+até o Pós-agendamento (seção 5, nó 4) somar a `Nota de qualificação`
+inteira — e a fila do dia (8.1/8.2/8.3) não vê nada disso: um lead "pra
+ontem" e um "sem prazo" entram na mesma `Prioridade` = 3 e só se separam
+pelo acaso de qual foi criado primeiro (o desempate por `Tentativa nº`).
+Diferente das regras 5-7 (acima), este caso **não tem** nenhum outro
+mecanismo cobrindo — nenhum nó lê `Prazo`/`Urgência` antes do fim do funil.
+
+**Por que não é só "rodar a régua de nota mais cedo":** tentei essa saída
+primeiro e ela quebra sozinha. A `Nota de qualificação` (9.1) soma Fit (30,
+Bloco A) + Mídia (25, Bloco B) + BANT (45, Bloco C) — e Fit inteiro depende
+de três campos que a amostra desta rodada confirma **vazios em 12 de 12**
+leads não trabalhados (`Clientes novos por mês`, `Tem time comercial`,
+`Quem atende os leads` — só o SDR preenche isso na ligação, nunca o
+formulário). Rodar a fórmula cheia no nó 0 somaria no máximo ~40 pontos
+mesmo para o lead mais urgente e mais maduro em mídia possível — dentro da
+faixa "C — nutrição" (25-44) das próprias faixas da seção 9.1, que
+rebaixa `Prioridade` para 2 e move a oportunidade para `abandoned`. Ou
+seja: aplicar a régua cheia cedo demais **descartaria leads bons por falta
+de dado, não por falta de fit** — o oposto do que este item quer. Por isso
+o desenho abaixo não toca em `Nota de qualificação` nem nas faixas A/B/C/D
+da seção 9.1 (que seguem existindo só para o veredito pós-ligação, sem
+mudança): é uma prioridade **separada**, de escopo estreito, que só sobe
+`Prioridade` de 3 para 4 — nunca para 5 (reservado a sinal real e a
+`Pediu retorno`) — e nunca mexe em `status` nem em tag de fila.
+
+**Como — nós 0.9/0.9b, no nó de inicialização já existente da `Cadência
+12x30` (seção 2.3), logo depois do 0.8b do F-32:**
+
+| # | Nó | Ação | Configuração |
+|---|---|---|---|
+| 0.9 | If/Else | `Prazo` **é** `Pra ontem` → Update Contact Field `Prioridade` = 4 → M1. Senão → 0.9b |
+| 0.9b | If/Else (fallback, mesmo padrão de reserva do G-04) | `Prazo` **está vazio** **E** `Urgência` **é** `Pra ontem` → Update Contact Field `Prioridade` = 4 → M1. Senão → M1, `Prioridade` continua 3 |
+
+Só o degrau mais alto (`Pra ontem`) dispara o bump — de propósito, não
+preguiça de mapear os quatro degraus. `Espera 30 dias`/`Este ano`/`Sem
+prazo` ficam de fora: são a maioria dos 15 pontos possíveis mas nenhum
+deles, sozinho, justifica furar a ordem de chegada da fila; só o degrau
+que já significa "quer ser ligado agora" justifica. Se o padrão mostrar
+que vale a pena um segundo degrau (`Espera 30 dias` → algo entre 3 e 4),
+fica registrado aqui como extensão, não decisão tomada.
+
+**Por que só node 0, não os pontos de reset (`Reset de rodada`, seções
+2.10/2.12):** aqueles pontos são para lead **voltando** à régua (Cadência
+Inbound handoff, Reengajamento 90 dias) — `Prazo`/`Urgência` já foram lidos
+uma vez, se iam mudar já teriam mudado, e o ganho de reaplicar o mesmo
+bump ali é baixo comparado ao lead que está entrando pela primeira vez
+(a maioria do volume). Registrado como extensão possível, não lacuna
+esquecida — escopo desta rodada é só a entrada nova, seção 2.3.
+
+**Achado incidental, registrado e não investigado a fundo (não é este
+item):** em vários dos 12 contatos lidos, o valor gravado em `Urgência`
+pertence à lista de opções de `Prazo` (ex.: "Pra ontem", "Sem prazo"
+aparecendo no campo `Urgência`, não só o texto livre da pergunta do
+formulário que o G-04 já tinha documentado para outros contatos) —
+indício de que o mapeamento formulário → campo, para este par específico,
+está trocado em parte da base, não só ausente. Mesma família de achado do
+G-04, nunca registrado para este par; quem for decidir a Opção A/B do G-04
+deveria conferir isso antes de fechar, porque muda quantos dos "11 de 12
+com Urgência preenchida" são de fato aproveitáveis pelo 0.9b acima. Não
+teve nó novo nem decisão nesta rodada — é nota para a próxima.
+
+**Nota de coerência para a seção 9.2 (não muda nó nenhum, só o texto):**
+as regras 3, 5, 6 e 7 daquela tabela nunca foram implementadas como
+`Update Contact Field` — o efeito delas é alcançado por outro caminho
+(ordenação de dois níveis das listas 8.1/8.2/8.3 para 5-7; Interceptação
+de Sinal, F-01, para a 3, que já entrega `Prioridade` = 5, mais alto que
+o 4 que a regra 3 pediria). Quem ler a seção 9.2 sozinha, sem cruzar com
+as listas do bloco 8 e com o F-01, pode achar que falta nó para escrever;
+não falta — falta só esta ressalva, acrescentada no fim da 9.2.
+
+**Zero campo novo, zero tag nova:** reaproveita `Prazo` (Q-17) e
+`Urgência` (campo fora da numeração, já registrado pelo G-04), os dois na
+tela desde antes desta rodada. Não depende de `APROVADO.md` — nenhuma
+escrita por API nesta rodada, só especificação e leitura.
+
+**Pronto quando:** os nós 0.9/0.9b estiverem montados na tela, logo após
+o 0.8b do F-32, dentro do nó de inicialização da `Cadência 12x30`; um
+lead novo que declarou "pra ontem" no anúncio entrar em `CONECTAR` com
+`Prioridade` = 4 sem o SDR ter feito nada ainda; e as listas 8.1/8.2/8.3
+mostrarem esse lead acima dos outros de mesma `Tentativa nº` que não
+declararam urgência nenhuma.

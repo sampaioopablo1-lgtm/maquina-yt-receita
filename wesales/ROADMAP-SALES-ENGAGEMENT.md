@@ -8559,3 +8559,89 @@ esperam o dono, sem mudança nesta rodada — este achado não tira nem
 acrescenta nenhuma a essa lista. CRM reconfirmado por API antes de fechar:
 66 oportunidades, 60 campos de contato, sem novidade além do já registrado
 acima.
+
+### F-33 · A fila do dia trata "pra ontem" e "sem prazo" do mesmo jeito — o lead já declarou urgência no anúncio, antes de qualquer ligação, e a régua só lê isso no fim do funil (28/09/2026) — **FEITO em 28/09/2026 (especificação)**
+
+**Por quê:** reconciliação de sempre antes de desenhar — `git fetch` nas
+branches irmãs achou só um commit de documentação na `abertura-operacao-
+dnd-n7dnjv` (playbook explicando os 41 workflows, sem consequência para
+nenhuma das seis decisões sem prazo fixo de sempre) e nada na `ib6xaz`
+(repositório diferente, máquina de vídeo). CRM reconfirmado por API: 66
+oportunidades, mesma composição de G-38/G-39; 60 campos de contato, sem
+campo novo. Sem achado de reconciliação, a sessão pegou o item de maior
+prioridade ainda aberto por um caminho diferente do habitual: em vez de ir
+direto à pesquisa de concorrência, conferiu se a própria seção 9.2 do
+`build-wesales.md` (a tabela de `Prioridade`) bate com o que os nós de
+fato fazem — `grep -n "Prioridade" build-wesales.md` mostra que 4 das 8
+regras da tabela (3, 5, 6 e 7) nunca foram escritas como nó em lugar
+nenhum. Conferido a fundo antes de tratar isso como bug: **não é** — o
+efeito de cada uma já existe por outro caminho (regras 5-7: as listas
+8.1/8.2/8.3 já ordenam por `Prioridade` desc e depois por `Tentativa nº`
+asc, e como todo lead sem sinal empata em `Prioridade`, o segundo nível já
+devolve fresco antes de velho; regra 3: qualquer resposta que não seja
+opt-out/auto-resposta/negativa já vira `Prioridade` = 5 pela Interceptação
+de Sinal, F-01, mais alto que o 4 que a regra 3 daria). Detalhe completo
+dessa checagem, e a nota de coerência que ela deixou na própria seção 9.2,
+em `build-wesales.md`, seções 2.63 e 9.2.
+
+**A lacuna real, achada conferindo dado, não texto:** os 12 leads reais
+mais recentes ainda não trabalhados por SDR nenhum (2 em `NOVO LEAD`, 10
+em `CONECTAR`, todos com `Tentativa nº` = 0 e `Resultado da tentativa`
+vazio — confirmado contato a contato, não pela listagem) já chegam com
+`Prazo` preenchido em 9 de 12 e `Urgência` (o campo espelho que o G-04 já
+registrou) em 11 de 12. O lead já escreveu, no formulário do anúncio, se
+precisa "pra ontem" ou "sem prazo, só pesquisando" — 15 dos 45 pontos do
+Bloco C (seção 9.1) disponíveis desde o instante em que o contato nasce.
+Hoje esse dado fica parado até o Pós-agendamento somar a nota inteira, e a
+fila do dia (`Prioridade` desc) não vê nada disso: os dois leads entram
+empatados em `Prioridade` = 3 e só se separam pela ordem de chegada.
+
+**Por que não é "rodar a régua de nota mais cedo":** testado e descartado
+nesta própria rodada — os três campos do Bloco A (Fit, 30 pontos:
+`Clientes novos por mês`, `Tem time comercial`, `Quem atende os leads`)
+vêm **vazios em 12 de 12** dos mesmos leads (só o SDR preenche na
+ligação), então rodar a fórmula cheia no nó 0 somaria no máximo ~40
+pontos mesmo para o lead mais urgente — dentro da faixa "C — nutrição"
+(25-44) das próprias faixas da 9.1, que rebaixaria `Prioridade` e moveria
+a oportunidade para `abandoned`. Aplicar a régua cheia cedo demais
+descartaria lead bom por falta de dado, o oposto do que o item quer. Por
+isso o desenho não toca em `Nota de qualificação` nem nas faixas A/B/C/D:
+é uma prioridade separada, de escopo estreito (só o degrau mais alto de
+urgência, só até `Prioridade` = 4, nunca 5).
+
+**Como — nós 0.9/0.9b, logo após o 0.8b do F-32, no nó de inicialização
+já existente da `Cadência 12x30` (seção 2.3 do `build-wesales.md`, detalhe
+na 2.63; espelhado em `IMPLEMENTACAO-WORKFLOWS.md`, W11; checklist de
+montagem em `GUIA-MONTAGEM.md`):** `If/Else` `Prazo` é `Pra ontem` →
+`Update Contact Field Prioridade = 4`; senão, fallback `Prazo` vazio **e**
+`Urgência` é `Pra ontem` → mesmo update; senão, `Prioridade` continua 3.
+
+**Achado incidental, registrado e não investigado a fundo:** em vários dos
+12 contatos lidos, o valor gravado em `Urgência` pertence à lista de
+opções de `Prazo` (ex.: "Pra ontem", "Sem prazo" aparecendo no campo
+`Urgência`) — indício de mapeamento trocado entre os dois campos para
+parte da base, mesma família do G-04 mas nunca registrado para este par
+específico. Quem for decidir a Opção A/B do G-04 (peça 2, `Investimento
+mensal`) deveria conferir isso também antes de fechar. Não teve nó nem
+decisão nesta rodada — é nota para a próxima.
+
+**O que este achado não é, e o limite honesto:** não substitui nem
+antecipa a `Nota de qualificação` (9.1), que segue existindo só para o
+veredito pós-ligação, sem mudança. E, como o próprio G-38/G-39 já
+registraram, a operação ao vivo hoje roda por `atuador_filas.py` numa
+branch irmã, não pela `Cadência 12x30` nativa deste desenho (0 inscritos,
+`IMPLEMENTACAO-WORKFLOWS.md`) — então os nós 0.9/0.9b só valem quando essa
+spec for publicada de verdade, ou como referência para quem for portar o
+mesmo raciocínio (ler `Prazo`/`Urgência` cedo) para o mecanismo que roda
+hoje. Zero campo novo, zero tag nova: reaproveita `Prazo` (Q-17) e
+`Urgência`, os dois já na tela. Não depende de `APROVADO.md` — nenhuma
+escrita por API nesta rodada, só especificação e leitura.
+
+**Pronto quando:** os nós 0.9/0.9b estiverem montados na tela (ou
+portados para o mecanismo que estiver rodando a operação real no
+momento); um lead que declarou "pra ontem" no anúncio entrar em
+`CONECTAR` com `Prioridade` = 4 sem o SDR ter feito nada ainda; e as
+listas 8.1/8.2/8.3 mostrarem esse lead acima dos outros de mesma
+`Tentativa nº` sem urgência declarada. F-09, F-10, G-11 (item 1), G-19,
+G-27/G-29 e G-31 continuam sendo as seis decisões sem prazo fixo que
+esperam o dono, sem mudança nesta rodada.

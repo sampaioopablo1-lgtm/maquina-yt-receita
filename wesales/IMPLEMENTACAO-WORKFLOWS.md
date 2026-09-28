@@ -1059,6 +1059,8 @@ Trigger Link `Agendar com o closer` também.
 | 0.7b | Assign to User | modo `Round Robin` · usuários: todos os SDRs (hoje só o dono) | M1.1 |
 | 0.8 | If/Else (F-32) | `Segmento` está vazio → 0.8b · None → M1.1 (nunca sobrescreve) | |
 | 0.8b | If/Else em cascata (F-32, `build-wesales.md` 2.62) | `UTM Medium (First Attribution)` `Contains` `NICHO ADVOCACIA` → Update `Segmento` = `Advocacia` → M1.1 · `Contains` `NICHO CONTABILIDADE` → Update `Segmento` = `Contabilidade` → M1.1 · nenhum dos dois → M1.1, vazio | M1.1 |
+| 0.9 | If/Else (F-33, `build-wesales.md` 2.63) | `Prazo` é `Pra ontem` → Update `Prioridade` = `4` → M1.1 · None → 0.9b | |
+| 0.9b | If/Else (F-33, fallback) | `Prazo` vazio E `Urgência` é `Pra ontem` → Update `Prioridade` = `4` → M1.1 · None → M1.1, `Prioridade` continua `3` | M1.1 |
 
 ### M1 — abertura com teste A/B (D1 08:45)
 
