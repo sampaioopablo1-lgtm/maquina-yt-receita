@@ -256,3 +256,11 @@ Tentativas até agendar e até qualificar ainda sem dado real (4 agendados e 3 q
 | Item | O que foi gravado | Observação |
 |---|---|---|
 | rotina na nuvem | `trig_01RFBXPswYVRBvMvst3RqhZj` reaproveitada (antes: "rotina ativa", one-shot 28/09 08:30 com o estado superado de 27/09). Agora "WeSales — vigia das rotinas (avaliar e propor, sem publicar)", seg–sex 12:17 e 21:17 (São Paulo), sessão nova a cada rodada | lê Actions + CRM (só leitura), escreve em `wesales/SAUDE-ROTINAS.md` e, se houver decisão, cria **uma** tarefa "🩺 Rotinas — decisão dd/mm" para o Pablo. Proibido publicar/editar qualquer coisa no CRM |
+
+### Playbook auto-explicativo e rotina "construção contínua" (28/09, madrugada)
+
+| Item | O que foi feito | Observação |
+|---|---|---|
+| playbook | nova seção "Guia das telas" (Minha fila, Ficha, Call Center, Tarefas, Conversas — 4 capturas novas com nomes/telefones de leads borrados), glossário de tags (quem põe, o que significa, o que a SDR faz), passo a passo do grupo no celular (salvar lead e closer, criar, admin, convite por link) e sequência de mensagens no grupo da marcação ao pós-reunião | rev 65 |
+| rotina "construção contínua" | lida, não alterada (pedido do dono: só entender). Nuvem, ~1 sessão/hora, branch `claude/amazing-johnson-mclksg`, escreve especificação (build-wesales.md, ROADMAP F-/G-/T-, APRENDIZADOS, APROVADO.md como freio), não escreve no CRM | diverge do que está publicado (ex.: F-27 especifica "chamada perdida" com Call Status; a Trava de canal já usa esse gatilho) |
+| label GitHub | `para-claude` criada para pedidos do dono ao ciclo de melhoria | o agendamento local de hora em hora foi **negado** pelo controle de permissões (agente autônomo com escrita no CRM); fica para o dono liberar |
