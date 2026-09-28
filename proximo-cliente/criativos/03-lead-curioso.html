@@ -1,7 +1,7 @@
 <title>Chega de Lead Curioso</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Playfair+Display:ital,wght@1,600;1,700;1,800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Roboto:wght@400;500;700&family=Playfair+Display:ital,wght@1,600;1,700;1,800&display=swap">
 <style>
 
 
@@ -122,9 +122,9 @@
 
   /* formato quadrado 1080x1080 (#render-square): coluna 3:4 no centro, fundo contínuo */
   body.render.square .col-stage{width:100vw;height:100vh;display:grid;place-items:center;background:var(--grafite)}
-  body.render.square{background:var(--grafite)}
-  body.render.square .stage{width:75vh;height:100vh;overflow:visible;background:transparent}
-  body.render.square .grain, body.render.square .vignette{position:fixed}
+  body.render.square .stage{width:75vh;height:100vh;overflow:visible}
+  body.render.square .grain, body.render.square .vignette{display:none}
+  body.render.square::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;background:radial-gradient(120% 90% at 50% 45%, transparent 55%, rgba(0,0,0,.55))}
   body.render.square .scene{padding:12cqw 7cqw 9cqw}
   body.render.square .brand{top:3.5cqw}
   body.render.square .strip{bottom:4cqw}
@@ -143,35 +143,83 @@
   .raio b{display:block;font-weight:900;font-size:5cqw}
   .raio span{display:block;font-weight:600;font-size:3.3cqw;color:var(--muted);line-height:1.35;margin-top:.8cqw}
 
-  /* criativo 03: lead curioso */
+  .stamp{align-self:flex-end;font-weight:900;font-size:5cqw;letter-spacing:.14em;text-transform:uppercase;color:var(--laranja);border:.7cqw solid var(--laranja);border-radius:1.6cqw;padding:1.6cqw 3cqw;transform:rotate(-8deg) scale(2);opacity:0;transition:transform .35s cubic-bezier(.5,0,.3,1.4), opacity .2s}
+  .stamp.in{transform:rotate(-8deg) scale(1);opacity:1}
+
+  /* criativo 03: interface real do WhatsApp (modo escuro) */
   .pings{display:flex;align-items:center;gap:3cqw}
-  .badge{min-width:13cqw;height:13cqw;padding:0 3cqw;border-radius:7cqw;background:#25D366;color:#06210f;display:grid;place-items:center;font-weight:900;font-size:6.4cqw;font-variant-numeric:tabular-nums;box-shadow:0 0 0 1.4cqw rgba(37,211,102,.18)}
+  .badge{min-width:13cqw;height:13cqw;padding:0 3cqw;border-radius:7cqw;background:#25D366;color:#0B141A;display:grid;place-items:center;font-family:Roboto,"Helvetica Neue",Arial,sans-serif;font-weight:700;font-size:6.4cqw;font-variant-numeric:tabular-nums;box-shadow:0 0 0 1.4cqw rgba(37,211,102,.18)}
   .badge.bump{animation:bump .25s ease-out}
   @keyframes bump{40%{transform:scale(1.18)}}
   .pings span{font-weight:700;font-size:4.2cqw;color:var(--muted)}
-  #s2{justify-content:flex-start;padding-top:19cqw;gap:3.4cqw}
-  .inbox{align-self:stretch;height:98cqw;border-radius:5cqw;border:.8cqw solid #2A2D36;background:#0B141A;overflow:hidden;position:relative}
-  .inbox .head{position:absolute;z-index:2;top:0;left:0;right:0;background:#1F2C33;padding:3cqw 4cqw;font-weight:800;font-size:4cqw;color:#E9EDEF;display:flex;justify-content:space-between}
-  .inbox .head b{color:#25D366}
-  .inbox .list{position:absolute;top:12cqw;left:0;right:0;will-change:transform}
-  .chat{display:grid;grid-template-columns:10cqw 1fr auto;gap:3cqw;align-items:center;padding:2.6cqw 4cqw;border-bottom:1px solid rgba(233,237,239,.06)}
-  .chat .av{width:10cqw;height:10cqw;border-radius:50%;background:#2A3942;display:grid;place-items:center;font-weight:800;font-size:4cqw;color:#AEBAC1}
-  .chat b{display:block;font-size:3.7cqw;color:#E9EDEF;font-weight:700}
-  .chat span{display:block;font-size:3.3cqw;color:#8696A0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:52cqw}
-  .chat i{font-style:normal;min-width:5.4cqw;height:5.4cqw;border-radius:3cqw;background:#25D366;color:#06210f;font-size:2.8cqw;font-weight:900;display:grid;place-items:center;padding:0 1.2cqw}
-  .chat.good{background:rgba(253,122,32,.06)}
-  .chat.good.hl{background:rgba(253,122,32,.2);box-shadow:inset 0 0 0 .6cqw var(--laranja)}
-  .chat.good span{color:#E9EDEF}
-  .gray{align-self:flex-start;max-width:78cqw;background:#1F2C33;color:#E9EDEF;font-weight:600;font-size:5.4cqw;line-height:1.25;padding:3.6cqw 4.6cqw;border-radius:4.6cqw 4.6cqw 4.6cqw 1cqw}
-  .gray small{display:block;font-size:3cqw;color:#8696A0;margin-bottom:1cqw;font-weight:700}
+  #s2, #s3{justify-content:flex-start;padding-top:18cqw;gap:3cqw}
+  .phone2{align-self:center;width:76cqw;border-radius:7cqw;border:1.1cqw solid #1B1E24;background:#0B141A;overflow:hidden;position:relative;box-shadow:0 5cqw 12cqw rgba(0,0,0,.55);font-family:Roboto,"Helvetica Neue",Arial,sans-serif;color:#E9EDEF}
+  .wa-status{height:6cqw;display:flex;justify-content:space-between;align-items:center;padding:0 5cqw;font-size:2.7cqw;font-weight:500}
+  .wa-status svg{height:2.6cqw;fill:#E9EDEF}
+  .wa-top{display:flex;justify-content:space-between;align-items:center;padding:1.2cqw 4.5cqw 2cqw}
+  .wa-top b{font-weight:500;font-size:5.4cqw;letter-spacing:.01em}
+  .wa-top .icons{display:flex;gap:4cqw}
+  .wa-top svg, .wa-chathead svg, .wa-input svg{height:4.6cqw;fill:#AEBAC1}
+  .wa-search{margin:0 3.5cqw;height:8cqw;border-radius:5cqw;background:#202C33;color:#8696A0;font-size:3.1cqw;display:flex;align-items:center;gap:2.6cqw;padding:0 4cqw}
+  .wa-search svg{height:3.6cqw;fill:#8696A0}
+  .wa-chips{display:flex;gap:1.6cqw;padding:2.4cqw 3.5cqw}
+  .wa-chips span{background:#202C33;color:#8696A0;font-size:2.9cqw;font-weight:500;border-radius:5cqw;padding:1.3cqw 3cqw;white-space:nowrap}
+  .wa-chips span.on{background:#103529;color:#D9FDD3}
+  .wa-list{height:70cqw;overflow:hidden;position:relative}
+  .wa-list .rows{will-change:transform}
+  .wa-row{display:grid;grid-template-columns:11cqw 1fr auto;gap:3cqw;align-items:center;padding:2.2cqw 3.5cqw}
+  .wa-av{width:11cqw;height:11cqw;border-radius:50%;background:#6A7175;overflow:hidden;display:grid;place-items:end center}
+  .wa-av svg{width:8.4cqw;height:8.4cqw;fill:#CFD4D6;margin-bottom:-.6cqw}
+  .wa-row .nm{font-size:3.9cqw;font-weight:500;color:#E9EDEF;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .wa-row .ms{font-size:3.3cqw;color:#8696A0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:.5cqw}
+  .wa-row .rt{display:flex;flex-direction:column;align-items:flex-end;gap:1cqw}
+  .wa-row .tm{font-size:2.6cqw;color:#25D366}
+  .wa-row .ct{min-width:5cqw;height:5cqw;border-radius:3cqw;background:#25D366;color:#0B141A;font-size:2.6cqw;font-weight:700;display:grid;place-items:center;padding:0 1.2cqw}
+  .wa-row .ms b{color:#E9EDEF;font-weight:400}
+  .wa-row.good{transition:background .3s}
+  .wa-row.good.hl{background:rgba(253,122,32,.18);box-shadow:inset 0 0 0 .6cqw var(--laranja)}
+  .wa-nav{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(134,150,160,.15);padding:2cqw 1cqw 2.6cqw;background:#0B141A}
+  .wa-nav div{display:flex;flex-direction:column;align-items:center;gap:.8cqw;font-size:2.3cqw;color:#8696A0}
+  .wa-nav div span{display:grid;place-items:center;width:11cqw;height:6cqw;border-radius:4cqw}
+  .wa-nav div.on{color:#E9EDEF;font-weight:500}
+  .wa-nav div.on span{background:#103529}
+  .wa-nav svg{height:4.2cqw;fill:#AEBAC1}
+  .wa-nav div.on svg{fill:#D9FDD3}
+  /* conversa aberta */
+  .wa-chathead{display:flex;align-items:center;gap:2.6cqw;padding:1.6cqw 3cqw 2.2cqw;background:#202C33}
+  .wa-chathead .wa-av{width:9cqw;height:9cqw}
+  .wa-chathead .wa-av svg{width:7cqw;height:7cqw}
+  .wa-chathead .who b{display:block;font-size:3.9cqw;font-weight:500}
+  .wa-chathead .who small{display:block;font-size:2.7cqw;color:#8696A0;min-height:3.4cqw}
+  .wa-chathead .who small.typing{color:#25D366}
+  .wa-chathead .sp{flex:1}
+  .wa-body{height:62cqw;padding:3cqw 3.5cqw;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;gap:2cqw;background-color:#0B141A;
+    background-image:radial-gradient(circle at 20% 30%, rgba(255,255,255,.035) 0 .6cqw, transparent .7cqw),radial-gradient(circle at 70% 70%, rgba(255,255,255,.03) 0 .9cqw, transparent 1cqw),radial-gradient(circle at 45% 85%, rgba(255,255,255,.025) 0 .5cqw, transparent .6cqw);
+    background-size:14cqw 14cqw, 19cqw 19cqw, 11cqw 11cqw}
+  .wa-day{align-self:center;background:#182229;color:#8696A0;font-size:2.5cqw;font-weight:500;border-radius:1.6cqw;padding:1cqw 2.6cqw;letter-spacing:.04em}
+  .wa-msg{max-width:78%;font-size:3.4cqw;line-height:1.35;padding:1.6cqw 2.6cqw 1.2cqw;border-radius:2.2cqw;position:relative}
+  .wa-msg .mt{display:block;text-align:right;font-size:2.3cqw;color:rgba(233,237,239,.6);margin-top:.4cqw}
+  .wa-msg.in{align-self:flex-start;background:#202C33;border-top-left-radius:0}
+  .wa-msg.out{align-self:flex-end;background:#005C4B;border-top-right-radius:0}
+  .wa-msg .tk{font-size:2.8cqw;color:#8696A0;margin-left:.8cqw;letter-spacing:-.4cqw;transition:color .25s}
+  .wa-msg .tk.read{color:#53BDEB}
+  .wa-input{display:flex;align-items:center;gap:2cqw;padding:1.8cqw 2.4cqw 2.6cqw}
+  .wa-input .box{flex:1;height:8.4cqw;border-radius:5cqw;background:#202C33;color:#8696A0;font-size:3.1cqw;display:flex;align-items:center;padding:0 3.6cqw}
+  .wa-input .mic{width:8.4cqw;height:8.4cqw;border-radius:50%;background:#00A884;display:grid;place-items:center}
+  .wa-input .mic svg{fill:#0B141A;height:4cqw}
+  .phone2 .stamp{position:absolute;right:4cqw;top:24cqw;z-index:3}
   .chips{display:flex;flex-wrap:wrap;gap:2.4cqw}
   .chip{font-weight:800;font-size:3.8cqw;border-radius:6cqw;padding:2cqw 3.6cqw;border:.35cqw solid rgba(241,240,235,.25);transition:opacity .45s, transform .45s, filter .45s}
   .chip.x{opacity:.12;transform:scale(.9);filter:grayscale(1)}
   .chip.ok{border-color:var(--laranja);background:rgba(253,122,32,.15);color:var(--laranja)}
   .filters{display:flex;gap:2.4cqw;flex-wrap:wrap}
   .filters .f{font-weight:800;font-size:3.6cqw;letter-spacing:.06em;text-transform:uppercase;padding:2cqw 3cqw;border-radius:2cqw;background:var(--laranja);color:#1a0d04}
-  .stamp{align-self:flex-end;font-weight:900;font-size:5cqw;letter-spacing:.14em;text-transform:uppercase;color:var(--laranja);border:.7cqw solid var(--laranja);border-radius:1.6cqw;padding:1.6cqw 3cqw;transform:rotate(-8deg) scale(2);opacity:0;transition:transform .35s cubic-bezier(.5,0,.3,1.4), opacity .2s}
-  .stamp.in{transform:rotate(-8deg) scale(1);opacity:1}
+  body.render.square #s2, body.render.square #s3{padding-top:11cqw}
+  body.render.square .phone2{width:74cqw}
+  body.render.square .wa-list{height:44cqw}
+  body.render.square .wa-body{height:48cqw;gap:1.4cqw;padding-top:2cqw}
+  body.render.square #s3 .sans-l{font-size:5cqw}
+  body.render.square .phone2 .stamp{top:20cqw}
 </style>
 
 <div class="wrap">
@@ -200,19 +248,23 @@
       <!-- 2. A caixa -->
       <section class="scene" id="s2">
         <div class="sans-l rv">Quarenta conversas. <em style="font-family:var(--serif);color:var(--laranja)">Qual delas vale?</em></div>
-        <div class="inbox rv">
-          <div class="head">WhatsApp da empresa <b>40 não lidas</b></div>
-          <div class="list" id="list"><div class="chat"><div class="av">A</div><div><b>Ana</b><span>Quanto custa?</span></div><i>3</i></div><div class="chat"><div class="av">M</div><div><b>Marcos</b><span>Só dando uma olhada</span></div><i>1</i></div><div class="chat"><div class="av">J</div><div><b>Júlia</b><span>Vocês parcelam?</span></div><i>2</i></div><div class="chat"><div class="av">+</div><div><b>+55 11 9…</b><span>👍</span></div><i>1</i></div><div class="chat"><div class="av">C</div><div><b>Carla</b><span>Manda o catálogo</span></div><i>4</i></div><div class="chat"><div class="av">P</div><div><b>Pedro</b><span>kkk era só curiosidade</span></div><i>1</i></div><div class="chat"><div class="av">L</div><div><b>Luana</b><span>Qual o valor mesmo?</span></div><i>2</i></div><div class="chat"><div class="av">D</div><div><b>Diego</b><span>Depois eu vejo</span></div><i>1</i></div><div class="chat"><div class="av">F</div><div><b>Fábio</b><span>Oi</span></div><i>1</i></div><div class="chat good" id="good"><div class="av">R</div><div><b>Roberto · Diretor</b><span>Quero fechar essa semana. Posso ligar?</span></div><i>2</i></div><div class="chat"><div class="av">T</div><div><b>Tati</b><span>Tem desconto?</span></div><i>3</i></div><div class="chat"><div class="av">G</div><div><b>Gustavo</b><span>Só pesquisando</span></div><i>1</i></div><div class="chat"><div class="av">B</div><div><b>Bia</b><span>Me manda o preço</span></div><i>2</i></div><div class="chat"><div class="av">V</div><div><b>Vitor</b><span>👀</span></div><i>1</i></div><div class="chat"><div class="av">N</div><div><b>Nina</b><span>Achei caro</span></div><i>1</i></div><div class="chat"><div class="av">S</div><div><b>Sérgio</b><span>Vou pensar</span></div><i>1</i></div></div>
-        </div>
-        <div class="sub rv" id="hint">O cliente bom fica lá no meio, esperando.</div>
+        <div class="phone2 rv"><div class="wa-status"><span>14:32</span><svg viewBox="0 0 60 12"><path d="M0 11h3V8H0zm5 0h3V6H5zm5 0h3V3h-3zm5 0h3V0h-3z"/><path d="M26 3a9 9 0 0 1 12 0l-1.4 1.4a7 7 0 0 0-9.2 0zm2.8 2.8a5 5 0 0 1 6.4 0L32 9z"/><rect x="44" y="2" width="14" height="8" rx="2" fill="none" stroke="#E9EDEF" stroke-width="1.2"/><rect x="46" y="4" width="9" height="4" rx="1"/></svg></div><div class="wa-top"><b>WhatsApp</b><div class="icons"><svg viewBox="0 0 24 24"><path d="M9 3 7.2 5H4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-3.2L15 3zm3 15a5 5 0 1 1 0-10 5 5 0 0 1 0 10zm0-2a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg></div></div><div class="wa-search"><svg viewBox="0 0 24 24"><path d="M10 3a7 7 0 0 1 5.6 11.2l5.1 5.1-1.4 1.4-5.1-5.1A7 7 0 1 1 10 3zm0 2a5 5 0 1 0 0 10 5 5 0 0 0 0-10z"/></svg>Pesquisar</div><div class="wa-chips"><span>Tudo</span><span class="on">Não lidas 40</span><span>Favoritas</span><span>Grupos</span></div><div class="wa-list"><div class="rows" id="list"><div class="wa-row"><div class="wa-av"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4.6"/><path d="M2.5 24c0-5.8 4.3-9.6 9.5-9.6s9.5 3.8 9.5 9.6z"/></svg></div><div style="min-width:0"><div class="nm">Ana</div><div class="ms">Quanto custa?</div></div><div class="rt"><span class="tm">14:31</span><span class="ct">3</span></div></div><div class="wa-row"><div class="wa-av"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4.6"/><path d="M2.5 24c0-5.8 4.3-9.6 9.5-9.6s9.5 3.8 9.5 9.6z"/></svg></div><div style="min-width:0"><div class="nm">Marcos</div><div class="ms">Só dando uma olhada</div></div><div class="rt"><span class="tm">14:29</span><span class="ct">1</span></div></div><div class="wa-row"><div class="wa-av"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4.6"/><path d="M2.5 24c0-5.8 4.3-9.6 9.5-9.6s9.5 3.8 9.5 9.6z"/></svg></div><div style="min-width:0"><div class="nm">Júlia</div><div class="ms">Vocês parcelam?</div></div><div class="rt"><span class="tm">14:22</span><span class="ct">2</span></div></div><div class="wa-row"><div class="wa-av"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4.6"/><path d="M2.5 24c0-5.8 4.3-9.6 9.5-9.6s9.5 3.8 9.5 9.6z"/></svg></div><div style="min-width:0"><div class="nm">+55 11 98…</div><div class="ms">👍</div></div><div class="rt"><span class="tm">14:15</span><span class="ct">1</span></div></div><div class="wa-row"><div class="wa-av"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4.6"/><path d="M2.5 24c0-5.8 4.3-9.6 9.5-9.6s9.5 3.8 9.5 9.6z"/></svg></div><div style="min-width:0"><div class="nm">Carla</div><div class="ms">Manda o catálogo</div></div><div class="rt"><span class="tm">13:58</span><span class="ct">4</span></div></div><div class="wa-row"><div class="wa-av"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4.6"/><path d="M2.5 24c0-5.8 4.3-9.6 9.5-9.6s9.5 3.8 9.5 9.6z"/></svg></div><div style="min-width:0"><div class="nm">Pedro</div><div class="ms">kkk era só curiosidade</div></div><div class="rt"><span class="tm">13:40</span><span class="ct">1</span></div></div><div class="wa-row"><div class="wa-av"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4.6"/><path d="M2.5 24c0-5.8 4.3-9.6 9.5-9.6s9.5 3.8 9.5 9.6z"/></svg></div><div style="min-width:0"><div class="nm">Luana</div><div class="ms">Qual o valor mesmo?</div></div><div class="rt"><span class="tm">13:12</span><span class="ct">2</span></div></div><div class="wa-row"><div class="wa-av"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4.6"/><path d="M2.5 24c0-5.8 4.3-9.6 9.5-9.6s9.5 3.8 9.5 9.6z"/></svg></div><div style="min-width:0"><div class="nm">Diego</div><div class="ms">Depois eu vejo</div></div><div class="rt"><span class="tm">12:47</span><span class="ct">1</span></div></div><div class="wa-row"><div class="wa-av"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4.6"/><path d="M2.5 24c0-5.8 4.3-9.6 9.5-9.6s9.5 3.8 9.5 9.6z"/></svg></div><div style="min-width:0"><div class="nm">Fábio</div><div class="ms">Oi</div></div><div class="rt"><span class="tm">12:30</span><span class="ct">1</span></div></div><div class="wa-row good" id="good"><div class="wa-av"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4.6"/><path d="M2.5 24c0-5.8 4.3-9.6 9.5-9.6s9.5 3.8 9.5 9.6z"/></svg></div><div style="min-width:0"><div class="nm">Roberto · Diretor</div><div class="ms">Quero fechar essa semana. Posso ligar?</div></div><div class="rt"><span class="tm">12:04</span><span class="ct">2</span></div></div><div class="wa-row"><div class="wa-av"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4.6"/><path d="M2.5 24c0-5.8 4.3-9.6 9.5-9.6s9.5 3.8 9.5 9.6z"/></svg></div><div style="min-width:0"><div class="nm">Tati</div><div class="ms">Tem desconto?</div></div><div class="rt"><span class="tm">11:52</span><span class="ct">3</span></div></div><div class="wa-row"><div class="wa-av"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4.6"/><path d="M2.5 24c0-5.8 4.3-9.6 9.5-9.6s9.5 3.8 9.5 9.6z"/></svg></div><div style="min-width:0"><div class="nm">Gustavo</div><div class="ms">Só pesquisando</div></div><div class="rt"><span class="tm">11:20</span><span class="ct">1</span></div></div><div class="wa-row"><div class="wa-av"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4.6"/><path d="M2.5 24c0-5.8 4.3-9.6 9.5-9.6s9.5 3.8 9.5 9.6z"/></svg></div><div style="min-width:0"><div class="nm">Bia</div><div class="ms">Me manda o preço</div></div><div class="rt"><span class="tm">10:45</span><span class="ct">2</span></div></div><div class="wa-row"><div class="wa-av"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4.6"/><path d="M2.5 24c0-5.8 4.3-9.6 9.5-9.6s9.5 3.8 9.5 9.6z"/></svg></div><div style="min-width:0"><div class="nm">Vitor</div><div class="ms">👀</div></div><div class="rt"><span class="tm">10:02</span><span class="ct">1</span></div></div><div class="wa-row"><div class="wa-av"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4.6"/><path d="M2.5 24c0-5.8 4.3-9.6 9.5-9.6s9.5 3.8 9.5 9.6z"/></svg></div><div style="min-width:0"><div class="nm">Nina</div><div class="ms">Achei caro</div></div><div class="rt"><span class="tm">09:31</span><span class="ct">1</span></div></div><div class="wa-row"><div class="wa-av"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4.6"/><path d="M2.5 24c0-5.8 4.3-9.6 9.5-9.6s9.5 3.8 9.5 9.6z"/></svg></div><div style="min-width:0"><div class="nm">Sérgio</div><div class="ms">Vou pensar</div></div><div class="rt"><span class="tm">09:10</span><span class="ct">1</span></div></div></div></div><div class="wa-nav"><div class="on"><span><svg viewBox="0 0 24 24"><path d="M12 3C7 3 3 6.6 3 11c0 1.9.8 3.7 2 5.1L4 21l4.9-1.5c1 .3 2 .5 3.1.5 5 0 9-3.6 9-8s-4-9-9-9z"/></svg></span>Conversas</div><div><span><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 2a8 8 0 1 1 0 16 8 8 0 0 1 0-16zm0 3a5 5 0 1 0 0 10 5 5 0 0 0 0-10z"/></svg></span>Atualizações</div><div><span><svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><path d="M1 19c0-3.3 3.1-5.5 7-5.5s7 2.2 7 5.5zm14.5 0c0-1.9-.7-3.4-1.9-4.6.8-.2 1.5-.4 2.4-.4 3.9 0 7 2.2 7 5z"/></svg></span>Comunidades</div><div><span><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg></span>Ligações</div></div></div>
       </section>
 
       <!-- 3. O cliente bom desiste -->
       <section class="scene" id="s3">
-        <div class="sans-l rv">Seu vendedor responde por ordem de chegada. Ou não responde</div>
-        <div class="serif-big rv pop">nenhuma.</div>
-        <div class="gray rv pop"><small>Roberto · Diretor · 2 dias depois</small>"Já fechei com outro."</div>
-        <div class="stamp" id="stamp">Cliente perdido</div>
+        <div class="sans-l rv">Seu vendedor responde por ordem de chegada. Dois dias depois:</div>
+        <div class="phone2 rv" id="chatPhone"><div class="wa-status"><span>14:32</span><svg viewBox="0 0 60 12"><path d="M0 11h3V8H0zm5 0h3V6H5zm5 0h3V3h-3zm5 0h3V0h-3z"/><path d="M26 3a9 9 0 0 1 12 0l-1.4 1.4a7 7 0 0 0-9.2 0zm2.8 2.8a5 5 0 0 1 6.4 0L32 9z"/><rect x="44" y="2" width="14" height="8" rx="2" fill="none" stroke="#E9EDEF" stroke-width="1.2"/><rect x="46" y="4" width="9" height="4" rx="1"/></svg></div><div class="wa-chathead"><svg viewBox="0 0 24 24"><path d="M20 11H7.8l5.6-5.6L12 4l-8 8 8 8 1.4-1.4L7.8 13H20z"/></svg><div class="wa-av"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4.6"/><path d="M2.5 24c0-5.8 4.3-9.6 9.5-9.6s9.5 3.8 9.5 9.6z"/></svg></div><div class="who"><b>Roberto · Diretor</b><small id="presence">visto por último terça 12:05</small></div><div class="sp"></div><svg viewBox="0 0 24 24"><path d="M15 8v8H4V8zm1-2H3a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4V7a1 1 0 0 0-1-1z"/></svg><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg></div>
+          <div class="wa-body">
+            <div class="wa-day">TERÇA</div>
+            <div class="wa-msg in">Quero fechar essa semana. Posso ligar?<span class="mt">12:04</span></div>
+            <div class="wa-day">HOJE</div>
+            <div class="wa-msg out" id="msgOut" style="opacity:0">Oi, Roberto! Desculpa a demora, vi sua mensagem só agora 🙏<span class="mt">16:10<span class="tk" id="tk">✓✓</span></span></div>
+            <div class="wa-msg in" id="msgIn" style="opacity:0">Já fechei com outro.<span class="mt">16:11</span></div>
+          </div>
+          <div class="wa-input"><div class="box">Mensagem</div><div class="mic"><svg viewBox="0 0 24 24"><path d="M12 15a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v7a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.9V22h2v-3.1a7 7 0 0 0 6-6.9z"/></svg></div></div>
+          <div class="stamp" id="stamp">Cliente perdido</div>
+        </div>
       </section>
 
       <!-- 4. O filtro -->
@@ -352,72 +404,95 @@
   function reveal(sel, i){ const els = $$(sel + ' .rv'); if(i===undefined) els.forEach(e=>e.classList.add('in')); else if(els[i]) els[i].classList.add('in'); }
   function glow(name){ ['Warm','Cold','Wine'].forEach(n=>$('#g'+n).classList.toggle('on', n.toLowerCase()===name)); }
 
-  const ping = (k=0)=>{ tone('sine',1568,1568,.07,.12); tone('sine',2093,2093,.1,.1,.06); };
+  /* ---------- kit de sons exclusivo do criativo 03: celular e WhatsApp ---------- */
+  const K = {
+    buzz(){ tone('square',92,92,.13,.09); tone('square',92,92,.13,.09,.19); noise(.3,'lowpass',260,120,.25,.8); },
+    swipe(){ noise(.2,'highpass',700,5200,.2,.6,0,.09); },
+    msgIn(){ tone('sine',1330,640,.09,.26); tone('sine',990,990,.06,.1,.07); },
+    msgOut(){ tone('sine',620,1500,.09,.2); noise(.1,'bandpass',2200,5200,.09,1.4); },
+    tap(){ tone('triangle',3100,3100,.014,.09); },
+    typing(n=6){ for(let i=0;i<n;i++) noise(.022,'bandpass',2300+(i%3)*500,2600+(i%3)*500,.2,3,i*.11+(i%2)*.03); },
+    busy(){ [0,.26,.52].forEach((d,i)=>tone('square',480-i*70,480-i*70,.17,.07,d)); },
+    marimba(f,d=0){ tone('sine',f,f,.4,.28,d); tone('sine',f*4,f*4,.07,.05,d); },
+    chipOut(i){ tone('triangle',980-i*55,260,.08,.1); },
+    rise(dur){ tone('sine',210,1680,dur,.07,0,dur*.9); tone('sine',213,1700,dur,.05,0,dur*.9); },
+    pluck(){ [523.25,659.25,783.99,1046.5,1318.5].forEach((f,i)=>K.marimba(f,i*.08)); tone('sine',130.8,130.8,1.3,.22,0,.02); },
+    thump(){ tone('sine',120,55,.3,.6); noise(.06,'lowpass',1200,300,.2); }
+  };
 
   /* ---------- roteiro ---------- */
   const chips = $$('#chips .chip');
   const EVENTS = [
-    [0.00, ()=>{ scene('s1'); glow('warm'); sfx.hit(); flash(); }],
+    [0.00, ()=>{ scene('s1'); glow('warm'); K.buzz(); flash(); }],
     [0.20, ()=>reveal('#s1',0)],
     [0.45, ()=>reveal('#s1',1)],
-    [0.90, ()=>{ reveal('#s1',2); sfx.whoosh(); }],
-    [1.30, ()=>{ sfx.hit(); shake(); }],
+    [0.90, ()=>{ reveal('#s1',2); K.swipe(); }],
+    [1.30, ()=>{ K.thump(); shake(); }],
     [1.60, ()=>reveal('#s1',3)],
     [1.75, ()=>reveal('#s1',4)],
 
-    [3.40, ()=>{ scene('s2'); glow('cold'); sfx.swoosh(); }],
+    [3.40, ()=>{ scene('s2'); glow('cold'); K.swipe(); }],
     [3.55, ()=>reveal('#s2',0)],
-    [3.80, ()=>reveal('#s2',1)],
-    [8.90, ()=>{ $('#good').classList.add('hl'); sfx.ding(880); }],
-    [9.20, ()=>reveal('#s2',2)],
+    [3.80, ()=>{ reveal('#s2',1); K.tap(); }],
+    [8.90, ()=>{ $('#good').classList.add('hl'); K.marimba(880); K.marimba(1318.5,.12); }],
 
-    [11.2, ()=>{ scene('s3'); sfx.swoosh(); $('#strip').classList.add('in'); }],
+    [11.2, ()=>{ scene('s3'); K.swipe(); $('#strip').classList.add('in'); }],
     [11.4, ()=>reveal('#s3',0)],
-    [12.4, ()=>{ reveal('#s3',1); sfx.hit(); }],
-    [13.4, ()=>{ reveal('#s3',2); sfx.notif(); }],
-    [14.2, ()=>{ $('#stamp').classList.add('in'); sfx.stamp(); sfx.fail(); shake(); }],
+    [11.8, ()=>{ reveal('#s3',1); K.tap(); }],
+    [12.5, ()=>{ $('#msgOut').style.opacity = 1; K.msgOut(); }],
+    [12.9, ()=>{ $('#tk').classList.add('read'); K.tap(); }],
+    [13.0, ()=>{ const p = $('#presence'); p.textContent = 'digitando…'; p.classList.add('typing'); K.typing(7); }],
+    [13.9, ()=>{ const p = $('#presence'); p.textContent = 'online'; p.classList.remove('typing'); $('#msgIn').style.opacity = 1; K.msgIn(); }],
+    [14.5, ()=>{ $('#stamp').classList.add('in'); K.busy(); shake(); }],
 
-    [15.4, ()=>{ scene('s4'); glow('warm'); sfx.swoosh(); }],
+    [15.4, ()=>{ scene('s4'); glow('warm'); K.swipe(); }],
     [15.6, ()=>reveal('#s4',0)],
     [15.9, ()=>reveal('#s4',1)],
-    [16.5, ()=>{ reveal('#s4',2); sfx.pop(); }],
+    [16.5, ()=>{ reveal('#s4',2); K.tap(); K.tap(); }],
     [17.0, ()=>reveal('#s4',3)],
-    [17.9, ()=>{ chips.forEach((c,i)=>{ if(c.id !== 'chipGood') setTimeout(()=>c.classList.add('x'), i*70); }); sfx.whooshDown ? sfx.whooshDown() : sfx.swoosh(); }],
-    [18.9, ()=>{ $('#chipGood').classList.add('ok'); sfx.ding(987.77); }],
-    [19.6, ()=>{ reveal('#s4',4); sfx.pop(); sfx.notif(); }],
+    [17.9, ()=>{ let j = 0; chips.forEach((c,i)=>{ if(c.id !== 'chipGood'){ const k = j++; setTimeout(()=>c.classList.add('x'), k*70); K.chipOut(k); } }); }],
+    [18.9, ()=>{ $('#chipGood').classList.add('ok'); K.marimba(1046.5); }],
+    [19.6, ()=>{ reveal('#s4',4); K.msgIn(); }],
 
-    [21.2, ()=>{ scene('s5'); sfx.swoosh(); }],
+    [21.2, ()=>{ scene('s5'); K.swipe(); }],
     [21.4, ()=>reveal('#s5',0)],
     [22.4, ()=>reveal('#s5',1)],
     [22.7, ()=>reveal('#s5',2)],
-    [23.3, ()=>{ reveal('#s5',3); sfx.hit(); flash(); }],
-    [24.2, ()=>sfx.riser(.8)],
+    [23.3, ()=>{ reveal('#s5',3); K.thump(); flash(); }],
+    [24.2, ()=>K.rise(.8)],
 
-    [25.0, ()=>{ scene('s6'); glow('wine'); $('#strip').classList.remove('in'); sfx.hit(); flash(); }],
+    [25.0, ()=>{ scene('s6'); glow('wine'); $('#strip').classList.remove('in'); K.buzz(); flash(); }],
     [25.3, ()=>reveal('#s6',0)],
-    [26.0, ()=>{ reveal('#s6',1); sfx.pop(); }],
-    [26.8, ()=>{ reveal('#s6',2); sfx.chord(); }],
+    [26.0, ()=>{ reveal('#s6',1); K.tap(); }],
+    [26.8, ()=>{ reveal('#s6',2); K.pluck(); }],
     [27.5, ()=>reveal('#s6',3)]
   ];
+  /* chipOut precisa do atraso de cada chip no áudio renderizado: agenda pelo índice */
+  const _chipOut = K.chipOut; K.chipOut = i => { const b = A.base; A.base = b + i*.07; _chipOut(i); A.base = b; };
 
   /* ---------- contador de conversas e rolagem da caixa ---------- */
   const lerp = (a,b,k)=>a+(b-a)*Math.max(0,Math.min(1,k));
   const ease = k=>{ k = Math.max(0,Math.min(1,k)); return k<.5 ? 2*k*k : 1-Math.pow(-2*k+2,2)/2; };
   let lastPing = -1;
+  function scrollTargets(){
+    const list = $('#list'), vp = list.parentElement, g = $('#good');
+    const vh = vp.clientHeight, target = g.offsetTop - (vh - g.offsetHeight)/2;
+    return { target, max: Math.min(list.scrollHeight - vh, target + vh*.55) };
+  }
   function continuous(t){
     if(t >= 1.75 && t <= 3.3){
       const v = Math.round(lerp(0, 40, (t-1.75)/1.2));
       const b = $('#badge');
       if(b.textContent !== String(v)){ b.textContent = v; b.classList.remove('bump'); void b.offsetWidth; b.classList.add('bump'); }
       const k = Math.floor((t-1.75)/0.12);
-      if(k !== lastPing && t < 2.95){ lastPing = k; ping(); }
+      if(k !== lastPing && t < 2.95){ lastPing = k; K.msgIn(); }
     }
     if(t >= 3.8 && t <= 9.0){
-      /* rola a caixa: desce até o fim e volta para deixar o Roberto no centro */
-      const y = t < 7.2 ? lerp(0, 150, ease((t-3.8)/3.4)) : lerp(150, 103, ease((t-7.2)/1.5));
-      $('#list').style.transform = 'translateY(' + (-y) + 'cqw)';
-      const k = 100 + Math.floor((t-3.8)/0.45);
-      if(k !== lastPing && t < 8.7){ lastPing = k; ping(); }
+      const s = scrollTargets();
+      const y = t < 7.2 ? lerp(0, s.max, ease((t-3.8)/3.4)) : lerp(s.max, s.target, ease((t-7.2)/1.5));
+      $('#list').style.transform = 'translateY(' + (-y) + 'px)';
+      const k = 100 + Math.floor((t-3.8)/0.5);
+      if(k !== lastPing && t < 8.7){ lastPing = k; K.tap(); }
     }
   }
 
@@ -430,6 +505,8 @@
     $('#stamp').classList.remove('in'); $('#strip').classList.remove('in'); $('#good').classList.remove('hl');
     chips.forEach(c=>c.classList.remove('x','ok'));
     $('#badge').textContent = '0'; $('#list').style.transform = 'translateY(0)';
+    $('#msgOut').style.opacity = 0; $('#msgIn').style.opacity = 0; $('#tk').classList.remove('read');
+    const p = $('#presence'); p.textContent = 'visto por último terça 12:05'; p.classList.remove('typing');
     $$('.scene').forEach(s=>s.classList.remove('on'));
     lastPing = -1;
   }

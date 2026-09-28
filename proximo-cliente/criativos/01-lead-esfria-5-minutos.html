@@ -156,7 +156,8 @@
   body.render.square .col-stage{width:100vw;height:100vh;display:grid;place-items:center;background:var(--grafite)}
   body.render.square{background:var(--grafite)}
   body.render.square .stage{width:75vh;height:100vh;overflow:visible;background:transparent}
-  body.render.square .grain, body.render.square .vignette{position:fixed}
+  body.render.square .grain, body.render.square .vignette{display:none}
+  body.render.square::after{content:"";position:fixed;inset:0;z-index:9;pointer-events:none;background:radial-gradient(120% 90% at 50% 45%, transparent 55%, rgba(0,0,0,.55))}
   body.render.square .scene{padding:12cqw 7cqw 9cqw}
   body.render.square .brand{top:3.5cqw}
   body.render.square .strip{bottom:4cqw}
