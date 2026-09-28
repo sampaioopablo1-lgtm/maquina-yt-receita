@@ -20,7 +20,7 @@ name: WeSales - filas do discador
 
 on:
   schedule:
-    - cron: "*/30 11-21 * * 1-5"   # a cada 30 min, 08:00-18:59 em Sao Paulo: lead novo entra na fila em ate 30 min
+    - cron: "*/30 11-23 * * 1-5"   # a cada 30 min, 08:00-20:59 em Sao Paulo (turnos 09-18 e 13-21): lead novo entra na fila em ate 30 min
   workflow_dispatch:
     inputs:
       aplicar:
