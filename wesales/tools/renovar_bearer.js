@@ -94,6 +94,13 @@ function minutosDe(tok) {
   }
 
   const url = page.url();
+  // Opcional: grava a sessão depois do acesso (os tokens podem ter sido renovados) sem os
+  // caches `statsig`, para caber no limite de 48 KB de um segredo do GitHub.
+  if (process.env.GHL_STORAGE_OUT) {
+    const st = await ctx.storageState();
+    for (const o of st.origins || []) o.localStorage = (o.localStorage || []).filter((i) => !i.name.startsWith('statsig'));
+    fs.writeFileSync(process.env.GHL_STORAGE_OUT, JSON.stringify(st));
+  }
   await browser.close();
 
   if (!bearer) {
