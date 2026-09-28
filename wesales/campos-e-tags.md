@@ -4,7 +4,7 @@
 da sua confirmação, item por item. A auditoria pode cortar linhas desta lista
 (campo que já existe é reaproveitado, nunca duplicado).
 
-## Etapa 2 — Campos personalizados (51 + 1 sugerido)
+## Etapa 2 — Campos personalizados (52 + 1 sugerido)
 
 > **Onde mora a contagem.** Só este título conta campos, e só ele. Os títulos
 > de seção perderam o número de propósito: eram quatro lugares para errar cada
@@ -50,6 +50,7 @@ Todos no objeto **contato**. Tipo é o `dataType` da API do GHL.
 | C-31 | Conexões reais telefone | NUMERICAL | — | Workflow (F-06) |
 | C-32 | Ligações com transcrição | NUMERICAL | — | Workflow (F-06) |
 | C-33 | Respostas automáticas | NUMERICAL | — | Workflow (F-19) |
+| C-34 | Pontos de engajamento e-mail | NUMERICAL | — | Workflow (F-24) |
 
 C-09 a C-12 abrem `Total de ligações`/`Total de conexões` (C-06/C-07) por
 canal — sem eles não dá para responder "a T7 do telefone conecta mais que a
@@ -250,6 +251,18 @@ workflows, não um: "Resposta Automática — Ausência" (WhatsApp/SMS, F-19) e
 "Resposta Automática — Ausência — E-mail" (F-20) — mesmo campo para os
 dois de propósito, porque o que se quer medir é "quantas vezes isso
 aconteceu na base", não "quantas vezes em cada canal".
+
+C-34 fecha o F-24 (`ROADMAP-SALES-ENGAGEMENT.md`, `build-wesales.md` seção
+2.55): conta, cumulativamente, quantos eventos de engajamento por e-mail
+(abertura +1, clique +3) um contato acumulou — mesmo padrão de contador de
+evento que C-06/C-07/C-11/C-12/C-31/C-32/C-33, incrementado por `Math`,
+nunca sobrescrito. **Não é a mesma métrica que `Sinal recebido` (C-13):**
+C-13 é o veredito de um evento forte (clique em Trigger Link, resposta) que
+decide ação; C-34 é a soma de eventos fracos a moderados (abertura, clique
+em e-mail) que só decide ação depois de cruzar um portão (o primeiro clique,
+não a soma) — separado de propósito, mesmo raciocínio que já separou C-31/
+C-32 de C-09 no F-06: somar populações diferentes no mesmo campo confundiria
+"quantas vezes engajou" com "quantas vezes decidiu algo".
 
 C-25 fecha o horário aprendido por segmento (`build-wesales.md`, seção 2.18,
 F-02 do roadmap): grava só a **hora** (não o carimbo completo) em que o lead
@@ -457,7 +470,7 @@ fiação do workflow é relato da outra branch, dado, não confirmado nó a nó
 por aqui. Detalhe e "Pronto quando" (cumprido, é reconciliação, não decisão
 pendente) em `ROADMAP-SALES-ENGAGEMENT.md`, **G-32**.
 
-## Etapa 3 — Tags (23 numeradas, seis pendentes de aprovação — e 12 na conta fora da numeração)
+## Etapa 3 — Tags (24 numeradas, sete pendentes de aprovação — e 12 na conta fora da numeração)
 
 > **Onde mora a contagem das tags fora da numeração.** Só este título e a
 > linha abaixo contam; qualquer outro documento que precisar dizer "a conta
@@ -470,8 +483,8 @@ pendente) em `ROADMAP-SALES-ENGAGEMENT.md`, **G-32**.
 > e o "25" (na verdade 27) para `build-wesales.md` §2.32; os dois corrigidos
 > junto — detalhe em `ROADMAP-SALES-ENGAGEMENT.md`, G-20.
 
-As 23 são as tags **deste projeto**: T-01 a T-15 e T-21/T-22 criadas, T-16 a
-T-20 e T-23 esperando `[x]` no `APROVADO.md`. **T-21 e T-22 não seguiram a fila do
+As 24 são as tags **deste projeto**: T-01 a T-15 e T-21/T-22 criadas, T-16 a
+T-20, T-23 e T-24 esperando `[x]` no `APROVADO.md`. **T-21 e T-22 não seguiram a fila do
 `[x]`** — o dono criou as duas direto pelo próprio caminho (`tools/
 build_estagnacao.py`, PC dele, 23/09/2026, depois do horário em que a T-21
 foi especificada aqui) junto com os dois workflows que as aplicam; ver as
@@ -513,6 +526,7 @@ diferentes; quem for conferir na tela vê 29.
 | T-21 | `negociacao-estagnada` | **Já criada e publicada — pelo dono, não por este `[x]`.** O workflow que a aplica saiu do papel em 23/09/2026 (`tools/build_estagnacao.py`, id `53334baa`, testado com o contato 9940), com desenho **diferente** do que a especificação original do F-13 (`build-wesales.md`, seção 2.28) previa: gatilho `Opportunity Stage Changed → NEGOCIAR` (não `Contact Changed` em `Reunião foi qualificada`) e **5 dias** de espera (não 3) — o dono ajustou os dois na hora de montar. Aplicada quando a oportunidade fica 5 dias em `NEGOCIAR`/`open` sem virar `won` nem `lost`; a entrada do workflow já remove `proposta-pendente`/`negociacao-estagnada` de rodadas anteriores, e o `Mestre de saída v2` (`tools/patch_mestre_tags.py`) também limpa as duas. G-23 (`ROADMAP-SALES-ENGAGEMENT.md`) registra a divergência entre a especificação e o publicado |
 | T-22 | `proposta-pendente` | **Já criada e publicada — pelo dono, não por este `[x]`.** Segundo alerta do mesmo pacote da T-21 (`tools/build_estagnacao.py`, id `14fdf9fa`, 23/09/2026, testado com o 9940): o closer marca `Reunião foi qualificada` = `Sim` e 3 dias depois a tag `etapa-reuniao` (Espelho de Etapa) ainda está presente — ou seja, ninguém moveu a oportunidade para `NEGOCIAR`. É o buraco que a especificação da T-21 nunca cobriu (o gatilho dela só olhava `NEGOCIAR`) e que nenhum documento deste projeto tinha especificado antes do próprio dono construir. Gatilho `Contact Changed` em `Reunião foi qualificada`, portão de aviso único pela própria tag. Limpa pelo `Mestre de saída v2` e pela entrada do workflow da T-21 (acima). G-23 (`ROADMAP-SALES-ENGAGEMENT.md`) tem o detalhe completo |
 | T-23 | `resposta-automatica` | **Aguardando aprovação em `APROVADO.md` — não criada ainda.** Auto-resposta/ausência não vira sinal quente sem aviso (F-19, `build-wesales.md` seção 2.48): pulso de auditoria, aplicado a cada `Customer Replied` que casar com a lista de frases de ausência; nunca vira estado permanente (mesma ideia da `toque`/T-15), soma em `Respostas automáticas` (C-33) e não precisa de limpeza própria. **Desde o F-20** (seção 2.49): a mesma tag também é aplicada pelo workflow-irmão "Resposta Automática — Ausência — E-mail", que estende o filtro ao canal que o F-19 tinha deixado de fora |
+| T-24 | `email-engajado` | **Aguardando aprovação em `APROVADO.md` — não criada ainda.** Sinal de Engajamento por E-mail (F-24, `build-wesales.md` seção 2.55): aplicada pelo workflow "Sinal de E-mail — Clique" no **primeiro** clique de um contato, junto com `Prioridade` = 4 — marcador permanente (não removida, diferente do pulso `toque`/T-15), para o mesmo workflow não escalonar de novo a cada clique seguinte do mesmo contato |
 
 Todas em minúsculas com hífen. O GHL normaliza tags para minúsculas, então
 `Fila-Quente` e `fila-quente` são a mesma tag — o que ajuda a não duplicar.
@@ -539,7 +553,9 @@ o próprio `[x]`, foi o **dono**, pelo caminho de sempre (`tools/`, fora
 deste conector) — mesmo tratamento que `fechar-horario`/Espelho de Etapa já
 recebem. Ver as duas linhas da tabela acima. **T-23 (`resposta-automatica`,
 nascida do F-19 em 27/09/2026) segue a mesma regra dos monitores do F-05** —
-nasce `[ ]`, não `[x]`, e ainda não saiu por API.
+nasce `[ ]`, não `[x]`, e ainda não saiu por API. **T-24 (`email-engajado`,
+nascida do F-24 em 28/09/2026) segue a mesma regra** — nasce `[ ]`, ainda
+não saiu por API.
 
 ## O que eu preciso de você para executar
 

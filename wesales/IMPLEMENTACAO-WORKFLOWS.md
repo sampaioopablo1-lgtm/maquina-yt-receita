@@ -1886,6 +1886,88 @@ aparece `fila-quente` nem `Prioridade` = 5, o aviso ao `Contact Owner` é a
 variante "teto batido" e a nota do nó 10 registra o motivo, sem tag `toque`
 nova (nada foi enfileirado).
 
+## W28 · Sinal de E-mail — Abertura — `build-wesales.md` 2.55 (F-24, especificado em 28/09/2026)
+
+**Gatilho:** `Email Opened` — mesmo escopo de template do W29 (a confirmar
+na tela se dá para restringir por template/campanha específica).
+
+| Configuração | Valor |
+|---|---|
+| Janela | Sem restrição, 24/7 |
+| Allow Re-entry | Ligado |
+| Stop on Response | Desligado |
+
+| # | Ação | Configuração exata | Vai para |
+|---|---|---|---|
+| 1 | If/Else | Tags inclui `nao-perturbe` → encerra | 2 |
+| 2 | Find opportunity | Pipeline `FUNIL DE VENDAS` · "Most recently created" — ramo **Not Found**: encerra (vazio) | 3 |
+| 3 | If/Else | `status` é `won`/`lost` → 4b · `status` é `open`/`abandoned` → 4 | 4 ou 4b |
+| 4 | Update Contact Field (Math +1) | `Pontos de engajamento e-mail` (C-34, novo) | 5 |
+| 4b | Update Contact Field (Math +1) | Mesmo campo, sem nota depois (negócio já decidido) | fim |
+| 5 | Add Note | `Sinal: e-mail aberto em {{right_now}} — pontos de engajamento e-mail +1, sem ação automática (abertura sozinha nunca escalona, ver F-24)` | fim |
+
+**Pré-requisito:** campo `Pontos de engajamento e-mail` (C-34, `NUMERICAL`)
+criado na tela — não sai por API neste conector. `[ ]` em `APROVADO.md`.
+
+**Deliberadamente sem `Internal Notification`:** abertura de e-mail é
+inflada por pré-carregamento de pixel (Apple Mail Privacy Protection,
+scanners corporativos) — avisar a cada abertura treinaria o gestor a
+ignorar o aviso, mesmo raciocínio do G-25 sobre alarme repetido sem fato
+novo.
+
+**Teste:** num contato fictício com oportunidade `open`, sem `nao-perturbe`,
+simule (ou aguarde) um `Email Opened` e confira: `Pontos de engajamento
+e-mail` +1, nota registrada, nenhuma tag e nenhum aviso.
+
+## W29 · Sinal de E-mail — Clique — `build-wesales.md` 2.55 (F-24, especificado em 28/09/2026)
+
+**Gatilho:** `Email Link Clicked` — mesmo escopo de template do W28.
+
+| Configuração | Valor |
+|---|---|
+| Janela | Sem restrição, 24/7 |
+| Allow Re-entry | Ligado |
+| Stop on Response | Desligado |
+
+| # | Ação | Configuração exata | Vai para |
+|---|---|---|---|
+| 1 | If/Else | Tags inclui `nao-perturbe` → encerra | 2 |
+| 2 | Find opportunity | Pipeline `FUNIL DE VENDAS` · "Most recently created" — ramo **Not Found**: encerra (vazio) | 3 |
+| 3 | If/Else | `status` é `abandoned`/`won`/`lost` → 4b · `status` é `open` → 4 | 4 ou 4b |
+| 4 | Update Contact Field (Math +3) | `Pontos de engajamento e-mail` (C-34) | 5 |
+| 4b | Update Contact Field (Math +3) | Mesmo campo, sem escalonamento nem nota depois | fim |
+| 5 | If/Else — condições **E** | Tag `email-engajado` ausente **E** `Prioridade` (C-05) `<` 4 → 6 · senão → 7b | 6 ou 7b |
+| 6 | Add Contact Tag + Update Contact Field | `email-engajado` (T-24, novo) + `Prioridade` (C-05) `=` 4 | 7 |
+| 7 | Internal Notification | ao `Contact Owner`: `{{contact.name}} clicou num link do e-mail da operação — primeiro clique registrado, Prioridade subiu para 4 (entra na Fila Quente/8.1 se já estiver em CONECTAR ou REUNIÃO DE DIAGNÓSTICO). Sinal de interesse passivo, não tão forte quanto uma resposta (F-21) — considere o contexto antes de tratar como "quer fechar agora".` | 8 |
+| 7b | Add Note | `Sinal: clique em e-mail em {{right_now}} — clique adicional, contador somado, sem novo escalonamento (idempotente, mesmo padrão do toque/T-15)` | fim |
+| 8 | Add Note | `Sinal: clique em e-mail em {{right_now}} — primeiro clique, Prioridade subiu para 4, tag email-engajado aplicada` | fim |
+
+**Pré-requisito:** campo `Pontos de engajamento e-mail` (C-34) e tag
+`email-engajado` (T-24) — nenhum sai por API neste conector nesta rodada
+(campo é criação de tela; a tag poderia sair por API, mas segue a regra de
+sempre: nasce `[ ]`, só o dono vira `[x]`). Ambos em `APROVADO.md`.
+
+**Por que `abandoned` não escalona aqui, diferente do W27:** o W27 reabre
+`abandoned` porque reage a **resposta** (sinal forte, F-21). Um clique
+sozinho não confirma intenção o bastante para reabrir um negócio já
+descartado — só soma o contador (nó 4b). Reabertura continua sendo do W27
+ou da reativação por relógio (R-08, W16).
+
+**Por que não precisa do portão de teto de toques (F-04/F-23), diferente do
+W27:** este workflow não cria tarefa de ligação nem envia mensagem — só
+reordena `Prioridade`, um campo que a fila de ligação já lê. Não há toque
+novo para tetar.
+
+**Teste:** num contato fictício com oportunidade `open`, telefone
+preenchido, sem `email-engajado` e `Prioridade` = 2, simule um `Email Link
+Clicked` e confira: `Pontos de engajamento e-mail` +3, tag `email-engajado`
+aplicada, `Prioridade` = 4, aviso ao `Contact Owner`, nota do nó 8. Repita
+o clique no mesmo contato e confirme: contador soma de novo, `Prioridade`
+continua 4 (não sobe para além), nenhum aviso novo, nota do nó 7b em vez do
+8. Terceiro caso: um contato de teste com `Prioridade` já 5 (sinal forte
+anterior) que clica — confirme que `Prioridade` continua 5, nunca cai para
+4.
+
 ---
 
 # PARTE 3 — OPERAÇÃO (a dinâmica de alta produtividade)

@@ -321,6 +321,19 @@ manual (não sai por API para ninguém, nem ler nem escrever pipeline além do
       tela). Nasce `[ ]`. **F-20** estendeu o mesmo contador ao canal
       e-mail — mesmo campo, não um novo.
 
+- [ ] Criar a 24ª tag, `email-engajado` — nasceu no F-24 (Sinal de
+      Engajamento por E-mail), especificada em `campos-e-tags.md` (T-24) e
+      `build-wesales.md` (seção 2.55). Nasce `[ ]` de propósito, mesma regra
+      desde o incidente da tag `toque`/T-15 em 19/09/2026: linha que a
+      própria rotina acrescenta não é autorização, vira `[x]` quando o dono
+      trocar, num commit que não é o meu.
+
+- [ ] Criar o campo `Pontos de engajamento e-mail` (NUMERICAL) — nasceu
+      junto com a T-24, mesmo item (F-24): contador cumulativo de eventos de
+      engajamento por e-mail (abertura +1, clique +3) por contato. Campo
+      personalizado não sai por API neste conector (é criação na tela).
+      Nasce `[ ]`.
+
 - [ ] Adicionar a opção `Resposta de e-mail` ao campo já existente `Sinal
       recebido` (C-13, `SINGLE_OPTIONS`) — nasceu no F-21
       (`ROADMAP-SALES-ENGAGEMENT.md`), especificada em `campos-e-tags.md`

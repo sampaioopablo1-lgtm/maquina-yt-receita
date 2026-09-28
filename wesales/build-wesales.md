@@ -9354,3 +9354,155 @@ reconfirmação própria do campo por API (sem mudança desde a §2.53). A
 pergunta do G-29 sobre consumo (quem escreve, quem lê `SDR responsável`/
 `B · Quanto pode investir`) continua sem resposta — não é a mesma pergunta,
 não fecha junto. Zero campo, zero tag, zero escrita no CRM.
+
+---
+
+## 2.55 Sinal de Engajamento por E-mail — Abertura e Clique — F-24
+
+**Achado, aplicando a pesquisa de concorrência que este roadmap sempre exige
+antes de declarar o bloco 6 esgotado de novo — desta vez ao próprio conjunto
+de sinais que a Interceptação de Sinal (F-01) já intercepta.** F-01 reage a
+clique em Trigger Link do WhatsApp e a resposta de qualquer canal; F-21
+estendeu resposta ao e-mail. Nenhum dos dois lê os dois eventos nativos do
+GHL que existem desde a entrada do plano — `Email Opened` e `Email Link
+Clicked` (`grep -rn "Email Opened\|Email Link Clicked\|abertura de e-mail"
+wesales/*.md`, vazio antes desta seção). Isso importa porque o e-mail já
+manda mensagem de verdade neste projeto desde o F-15 (`EM-1`/`EM-2`) — e a
+correção registrada na própria seção 2.30 mostra que a maioria de quem tem
+e-mail **também tem telefone**: o canal, hoje, é o "toque barato" de quem já
+está sendo trabalhado por telefone, não só o resgate de quem não tem número.
+Um lead que abre ou clica esse e-mail está dando o mesmo tipo de sinal
+passivo que Outreach/Salesloft pontuam há anos (pesquisa desta rodada:
+"1 ponto por abertura, 3 por clique, 10 por resposta" é o framework citado
+com mais frequência) — e nada aqui usa isso para decidir quem o SDR liga
+primeiro dentro da própria fila que já existe.
+
+**Por que não é cópia do F-21:** o F-21 reage a **resposta** (texto,
+intenção explícita) e por isso reabre oportunidade `abandoned` — é sinal
+forte. Este item reage a **abertura/clique** (sem texto, intenção passiva)
+de quem já está `open` — não precisa reabrir nada, precisa fazer a fila de
+ligação já existente (`Fila Quente`, seção 8.1) enxergar mais cedo quem
+mostrou interesse silencioso. É o par que faltava ao lado do F-21, não um
+substituto dele.
+
+**Pesquisado antes de desenhar — e o cuidado que uma cópia ingênua do F-01
+("todo sinal é sinal quente") erraria aqui:** confirmado por `WebSearch` que
+`Email Opened`/`Email Link Clicked` são gatilhos nativos de workflow do GHL,
+disponíveis desde o plano de entrada (não é recurso premium — mesma classe
+de verificação de fonte que já evitou o F-08 supor duas vezes na mesma
+semana um recurso que não existia). Mas a mesma pesquisa também confirma que
+**abertura de e-mail é o sinal mais ruidoso deste projeto inteiro**: o Apple
+Mail Privacy Protection e scanners de segurança corporativos pré-carregam o
+pixel de rastreamento no instante da entrega, gerando "abertura" sem
+ninguém ter lido a mensagem — a mesma classe de alarme falso que o F-19 já
+ensinou este projeto a temer ("toda resposta é sinal quente" também estava
+errado). Clique é mais confiável (exige ação voluntária num link), mas
+ainda pode vir de um scanner de link corporativo, não só de uma pessoa.
+Por isso este item **nunca** aplica `fila-quente`/`Prioridade = 5`
+(reservados ao sinal forte do F-01/F-21) a partir de abertura nem de
+clique, e só reage no **primeiro** clique de cada contato — abertura conta,
+nunca escalona sozinha.
+
+**Como — dois workflows curtos, mesmo motivo do F-01 (seção 2.9): o GHL não
+expõe de forma segura, dentro dos nós, qual gatilho disparou quando dois
+tipos de evento dividem um workflow só.**
+
+### Workflow novo — "Sinal de E-mail — Abertura" (medição pura, nunca escalona)
+
+| Configuração | Valor | Por quê |
+|---|---|---|
+| Gatilho | `Email Opened` — todo e-mail da subconta (a confirmar na tela se dá para restringir por template/campanha; mesma ressalva "a confirmar na tela" já registrada para o filtro de canal do G-05) | Ainda só `EM-1`/`EM-2` (F-15) enviam e-mail hoje; restringir por template evita contar abertura de e-mail transacional do próprio GHL (recibo, notificação), se algum existir nesta subconta |
+| Janela de envio | Sem restrição, 24/7 | Nenhum nó manda mensagem ao lead |
+| Allow Re-entry | Ligado | Cada abertura é um evento novo — mesmo raciocínio do 2.9.2/2.50 |
+| Stop on Response | Desligado | Não é gatilho de resposta |
+
+| # | Nó | Ação | Configuração |
+|---|---|---|---|
+| 1 | Portão de silêncio | If/Else | Tags inclui `nao-perturbe` → encerra · senão segue |
+| 2 | Buscar oportunidade | Find opportunity | Pipeline `FUNIL DE VENDAS` · "Most recently created opportunity" → ramo **Not Found**: encerra (vazio) · ramo **Found**: segue |
+| 3 | Portão de negócio decidido | If/Else | `status` é `won` ou `lost` → nó 4b (só soma, sem nota) · `status` é `open` ou `abandoned` → nó 4 |
+| 4 | Contar | Update Contact Field (Math +1) | `Pontos de engajamento e-mail` (C-34, novo) | 
+| 4b | Contar (negócio decidido) | Update Contact Field (Math +1) | Mesmo campo — soma sempre, mesmo com negócio fechado; a métrica de "quantas vezes esta base engajou" não deveria variar com decisão de negócio, mesmo raciocínio do R-14 sobre medir versus agir |
+| 5 | Registro | Add Note | Ramo 4: `Sinal: e-mail aberto em {{right_now}} — pontos de engajamento e-mail +1, sem ação automática (abertura sozinha nunca escalona, ver F-24)` · ramo 4b: nenhuma nota (negócio já decidido, nota seria ruído) |
+
+**Deliberadamente sem `Internal Notification` em nenhum ramo:** abertura é
+sinal fraco e ruidoso (MPP, acima) — avisar o gestor a cada abertura
+treinaria a ignorar o aviso, o mesmo erro que o G-25 já descreveu para
+alarme repetido sem fato novo.
+
+### Workflow novo — "Sinal de E-mail — Clique" (medição + escalonamento no primeiro clique)
+
+| Configuração | Valor | Por quê |
+|---|---|---|
+| Gatilho | `Email Link Clicked` — mesmo escopo de template do workflow acima | |
+| Janela de envio | Sem restrição, 24/7 | Nenhum nó manda mensagem ao lead |
+| Allow Re-entry | Ligado | Cada clique é um evento novo |
+| Stop on Response | Desligado | Não é gatilho de resposta |
+
+| # | Nó | Ação | Configuração |
+|---|---|---|---|
+| 1 | Portão de silêncio | If/Else | Tags inclui `nao-perturbe` → encerra · senão segue |
+| 2 | Buscar oportunidade | Find opportunity | Pipeline `FUNIL DE VENDAS` · "Most recently created opportunity" → ramo **Not Found**: encerra (vazio) · ramo **Found**: segue |
+| 3 | Portão de negócio decidido | If/Else | `status` é `abandoned`, `won` ou `lost` → nó 4b (só soma, sem escalonamento — ver nota abaixo) · `status` é `open` → nó 4 |
+| 4 | Contar | Update Contact Field (Math +3) | `Pontos de engajamento e-mail` (C-34) — mesmo campo do workflow acima, peso maior porque clique é sinal mais confiável que abertura (framework 1/3/10 da pesquisa, adaptado: aqui não existe "10" próprio porque resposta já é o F-21/F-01) |
+| 4b | Contar (negócio não `open`) | Update Contact Field (Math +3) | Mesmo campo — soma sempre |
+| 5 | Portão de escalonamento | If/Else — condições **E** | Tag `email-engajado` **ausente** **E** `Prioridade` (C-05) **<** 4 → ramo escalona (6) · senão (já escalonado antes, ou já `Prioridade` ≥ 4/5 por outro sinal — F-01/F-21/nota do gestor) → fim, só o contador soma |
+| 6 | Escalonar | Add Contact Tag + Update Contact Field | `email-engajado` (T-24, novo) + `Prioridade` (C-05) `=` 4 — **nunca** `= 5` (reservado ao sinal forte de F-01/F-21) e **nunca** reduz quem já está acima de 4 (o portão do nó 5 já garante isso) |
+| 7 | Aviso, só no primeiro clique | Internal Notification | Para `Contact Owner`: `{{contact.name}} clicou num link do e-mail da operação — primeiro clique registrado, Prioridade subiu para 4 (entra na Fila Quente/8.1 se já estiver em CONECTAR ou REUNIÃO DE DIAGNÓSTICO). Sinal de interesse passivo, não tão forte quanto uma resposta (F-21) — considere o contexto antes de tratar como "quer fechar agora".` |
+| 8 | Registro | Add Note | Ramo 6/7: `Sinal: clique em e-mail em {{right_now}} — primeiro clique, Prioridade subiu para 4, tag email-engajado aplicada` · ramo "senão" do nó 5 (clique adicional): `Sinal: clique em e-mail em {{right_now}} — clique adicional, contador somado, sem novo escalonamento (idempotente, mesmo padrão do toque/T-15)` · ramo 4b (negócio não `open`): nenhuma nota |
+
+**Por que `abandoned` fica de fora do escalonamento (diferente do F-21, que
+reabre `abandoned` para `CONECTAR`):** reabrir um negócio a partir de um
+clique sozinho — sem texto, sem intenção confirmada — seria fazer o F-21
+de novo com um sinal mais fraco, e duplicaria a responsabilidade de decidir
+"isto justifica reabrir". Clique só acelera quem **já está sendo
+trabalhado** (`open`); reabertura continua sendo trabalho exclusivo de um
+sinal forte (resposta, F-21) ou da reativação por relógio (R-08). Contato
+`abandoned` que clica ainda soma o contador (nó 4b) — o dado não se perde,
+só não decide sozinho.
+
+**Por que subir `Prioridade` em vez de criar uma fila nova:** a `Fila
+Quente` (8.1) e a ordenação de chamada do dia já leem `Prioridade` — reagir
+ao clique reordenando a mesma fila (chamar mais cedo quem clicou) é mais
+barato e mais robusto do que inventar um terceiro mecanismo de fila ao lado
+de `Prioridade`/`fila-quente` e do teto de toques (F-04). É a mesma lição
+do F-06 e do G-06 (reestruturar em vez de multiplicar mecanismo).
+
+**Por que este item não precisa do portão de teto de toques (F-04/F-23), ao
+contrário do F-21:** o F-21 cria um compromisso de ligação (`fila-quente` +
+"ligar hoje", nó 6a) a cada resposta, e por isso herdou o teto semanal. Este
+item **não cria nenhum toque novo** — só reordena a fila de ligação que a
+cadência já ia rodar, mudando quando o SDR chega a um lead que já estava na
+régua. Não empilha toque sem limite porque não adiciona toque nenhum; o
+teto do F-04 continua sendo o freio certo para tarefas de ligação e
+mensagem, não para uma releitura de prioridade.
+
+**Campo novo:** `Pontos de engajamento e-mail` (C-34, `NUMERICAL`,
+cumulativo — mesmo padrão de C-06/C-07/C-11/C-12/C-31/C-32/C-33, nunca
+sobrescrito, `campos-e-tags.md`). **Tag nova:** `email-engajado` (T-24,
+pulso de auditoria idempotente — aplicada uma vez, nunca removida, mesmo
+espírito de marcador permanente que T-21/T-22 já usam para "isto já
+aconteceu neste lead"; diferente do `toque`/T-15, que é pulso removido em
+segundos — aqui o estado "já escalonei este contato uma vez" precisa
+persistir, para o nó 5 não escalonar de novo a cada clique seguinte).
+Nenhum dos dois sai por API neste conector (campo personalizado é criação
+de tela; tag poderia sair por API, mas nasce `[ ]` em `APROVADO.md` pela
+regra de sempre — nenhuma linha nova vira `[x]` sozinha). Zero escrita no
+CRM nesta rodada.
+
+**Fora de escopo, de propósito:** este item não pontua a **resposta** de
+e-mail — isso já é o F-21 (sinal forte, reabre `abandoned`), e somar os dois
+no mesmo campo confundiria "quantas vezes engajou" com "quantas vezes
+respondeu de verdade", o mesmo tipo de mistura de população que motivou
+C-31/C-32 a nascerem separados de C-09 no F-06.
+
+**Pronto quando:** todo contato que abre ou clica um e-mail da operação
+(`EM-1`/`EM-2` hoje, qualquer envio futuro depois) tem o evento contado em
+`Pontos de engajamento e-mail`; o primeiro clique de um contato sem
+`email-engajado` sobe `Prioridade` para 4 (nunca reduz uma `Prioridade` já
+maior) e avisa o gestor uma única vez; abertura, sozinha, nunca vira fila
+nem aviso — só soma o contador. Falta a criação manual do campo/tag e a
+montagem dos dois workflows na tela (nenhum dos dois sai por API neste
+conector); `campos-e-tags.md` (C-34, T-24) e `APROVADO.md` (duas linhas
+novas, ambas `[ ]`) documentam o pré-requisito. Zero campo, zero tag, zero
+escrita no CRM nesta rodada: item de especificação pura.

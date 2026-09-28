@@ -5458,6 +5458,61 @@ sendo as decisões sem prazo fixo que esperam o dono — sem mudança de
 estado nesta rodada. G-25 segue fechado; a janela da MI-0 não passou ainda
 nesta sessão.
 
+### F-24 · O bloco 6 mede clique em Trigger Link do WhatsApp e resposta de qualquer canal — nunca abertura nem clique de e-mail, o par que Outreach/Salesloft pontuam como sinal de intenção há anos (28/09/2026)
+
+**Por quê:** pesquisa de concorrência de rotina (obrigatória antes de
+declarar o bloco 6 esgotado de novo), desta vez aplicada não a uma guarda de
+canal (F-19 a F-22 já esgotaram opt-out/ausência/reputação nos três canais)
+mas ao próprio conjunto de sinais que a Interceptação de Sinal (F-01)
+intercepta: clique em Trigger Link e resposta. O e-mail já manda mensagem
+real desde o F-15 (`EM-1`/`EM-2`, 22/09/2026) e a correção registrada na
+própria seção 2.30 do `build-wesales.md` mostra que a maioria de quem tem
+e-mail **também tem telefone** — o canal hoje é o toque barato de quem já
+está sendo trabalhado, não só o resgate de quem não tem número. Nenhum item
+deste projeto lê os gatilhos nativos `Email Opened`/`Email Link Clicked` do
+GHL (`grep -rn "Email Opened\|Email Link Clicked" wesales/*.md`, vazio antes
+desta sessão), embora Outreach/Salesloft pontuem exatamente isso há anos
+(framework "1 ponto por abertura, 3 por clique, 10 por resposta", achado na
+pesquisa desta rodada) para decidir quem a fila de ligação chama primeiro.
+
+**Por que não é cópia do F-21:** o F-21 reage a resposta de e-mail (sinal
+forte, texto, reabre `abandoned`); este item reage a abertura/clique (sinal
+passivo, sem texto) de quem já está `open` — não precisa reabrir nada,
+precisa fazer a fila de ligação que já existe (`Fila Quente`, seção 8.1)
+enxergar mais cedo quem deu sinal silencioso. É o par que faltava ao lado
+do F-21, não um substituto.
+
+**Cuidado que a pesquisa exige, e que uma cópia ingênua do F-01 ("todo
+sinal é sinal quente") erraria:** abertura de e-mail é inflada por
+pré-carregamento de pixel de rastreamento (Apple Mail Privacy Protection,
+scanners corporativos) — a mesma classe de alarme falso que o F-19 já
+ensinou este projeto a temer para resposta automática. Clique é mais
+confiável, mas não é imune a scanner de link corporativo. Por isso este
+item nunca aplica `fila-quente`/`Prioridade` = 5 (reservados ao sinal forte
+do F-01/F-21) a partir de abertura ou clique, e só escalona no **primeiro**
+clique de cada contato — abertura conta, nunca escalona sozinha.
+
+**Como:** dois workflows curtos ("Sinal de E-mail — Abertura" e "— Clique"),
+mesmo motivo do F-01 (o GHL não expõe com segurança qual gatilho disparou
+quando dois tipos de evento dividem um workflow). Os dois somam
+`Pontos de engajamento e-mail` (C-34, novo — abertura +1, clique +3); só o
+clique, e só no primeiro de cada contato, aplica a tag `email-engajado`
+(T-24, novo, marcador permanente) e sobe `Prioridade` (C-05) para 4 — nunca
+para 5, e nunca reduzindo quem já está acima de 4. Reaproveita a fila que já
+lê `Prioridade` em vez de inventar mecanismo novo (mesma lição do F-06/G-06:
+reestruturar em vez de multiplicar). Não precisa do teto de toques (F-04/
+F-23) porque não cria toque nenhum — só reordena a fila existente.
+
+**Pronto quando:** todo contato que abre ou clica um e-mail da operação tem
+o evento contado em `Pontos de engajamento e-mail`; o primeiro clique de um
+contato sem `email-engajado` sobe `Prioridade` para 4 e avisa o gestor uma
+única vez; abertura sozinha nunca vira fila nem aviso. Detalhe nó a nó em
+`build-wesales.md`, seção 2.55; campo e tag em `campos-e-tags.md` (C-34,
+T-24); ambos nascem `[ ]` em `APROVADO.md`. Zero escrita no CRM nesta
+rodada: item de especificação pura.
+
+---
+
 ## Ordem sugerida
 
 **Bloco 0 (G-01) fechado em 19/09/2026, antes de tudo o resto desta seção:**
@@ -7303,3 +7358,28 @@ F-10, G-11 (item 1), G-27/G-29 e G-31 continuam sendo as decisões sem
 prazo fixo que esperam o dono, sem mudança nesta rodada. Nenhum item
 "salta a fila": a sessão seguinte volta à varredura de coerência ou à
 pesquisa de concorrência normais.
+
+**F-24 aberto e fechado em 28/09/2026, sessão automática seguinte —
+seguindo exatamente essa instrução (pesquisa de concorrência, já que o
+sweep de coerência de sempre não achou nada novo em texto).** CRM
+reconfirmado por API antes de desenhar: 64 oportunidades, mesma composição
+de sempre; 60 campos de contato (`Canal da tentativa`/G-32 e `Voice AI
+Reason for Call`/G-30 já contavam, nenhum campo novo fora da lista desta
+vez) — G-19 continua aberto (decisão do dono, fora de `wesales/`); F-09,
+F-10, G-11 (item 1), G-27/G-29 e G-31 continuam sendo as decisões sem
+prazo fixo que esperam o dono, sem mudança. A lacuna veio de aplicar a
+pergunta do F-19/F-20/F-21 ("o que Reev/Meetime/Outreach/Salesloft cobrem
+que este item ainda não cobre") ao próprio conjunto de sinais do F-01, não
+a uma guarda de canal — e achar que abertura/clique de e-mail, sinal que
+Outreach/Salesloft pontuam há anos, nunca foi lido por nenhum workflow
+deste projeto. Fechado como **F-24**: dois workflows especificados nó a nó
+(`build-wesales.md`, seção 2.55), campo `Pontos de engajamento e-mail`
+(C-34) e tag `email-engajado` (T-24) especificados em `campos-e-tags.md`,
+ambos nascendo `[ ]` em `APROVADO.md` pela regra de sempre;
+`IMPLEMENTACAO-WORKFLOWS.md` (W28/W29) e `GUIA-MONTAGEM.md` atualizados no
+mesmo commit. Desenhado de propósito para não repetir o erro que o F-19 já
+ensinou (tratar todo sinal automático como sinal quente): só o clique
+escalona, só uma vez por contato, nunca a abertura sozinha — e não herda o
+teto de toques do F-04/F-23 porque não cria toque nenhum, só reordena a
+fila que já existe. Zero campo, zero tag, zero escrita no CRM nesta
+rodada.
