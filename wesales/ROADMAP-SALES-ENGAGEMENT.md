@@ -385,7 +385,7 @@ Zero escrita no CRM: item de documentação pura, não depende de
 **Pronto quando (cumprido):** todo `[ ]` do checklist de migração em
 `GUIA-MONTAGEM.md` (Fase 1) virou `[x]`.
 
-### G-03 · L-07 deixou de ser lacuna teórica — promoção imediata escolhida em 24/09/2026
+### G-03 · L-07 deixou de ser lacuna teórica — promoção imediata escolhida em 24/09/2026 — **especificação fechada em 24/09/2026, execução agendada para 29/09/2026**
 **Agendamento operacional (24/09/2026):** a execução idempotente foi
 agendada no Windows para **29/09/2026 às 08:00
 (`America/Sao_Paulo`)**. A limpeza de tarefas permanece report-only porque a
@@ -561,7 +561,7 @@ esperam o dono — ver G-33 e **G-40** (achado de coerência que corrigiu as
 referências a esta decisão que ainda ficaram desatualizadas em outros
 documentos).
 
-### G-05 · Mensagens automáticas de WhatsApp especificadas como texto livre, sem checar a janela de 24h — pode falhar em silêncio assim que a cadência publicar
+### G-05 · Mensagens automáticas de WhatsApp especificadas como texto livre, sem checar a janela de 24h — pode falhar em silêncio assim que a cadência publicar — **especificação fechada em 22/09/2026, execução aguarda Templates aprovados pela Meta**
 **Por quê:** todo nó `Send WhatsApp` da operação (M1-a/M1-b/M2-v1/M3-v1 na
 Cadência 12x30, `build-wesales.md` seção 2.6; `MI-0`/`MI-F` na Cadência
 Inbound, seção 2.10; `RE-1`/`RE-2` no Reengajamento, seção 2.12; `NS-1`/
@@ -1971,7 +1971,7 @@ o `dac443f`) e passou a citar o patch e o G-21; `build-wesales.md` §2.34
 sequenciamento com o G-18) ganhou uma nota apontando para o §2.41, para
 ninguém implementar a sugestão antiga por cima do patch do G-18.
 
-### G-22 · O agente de IA que existe só para alcançar os 5 leads do Instagram nunca confirmou se alcança — e a "regra do portão" mais importante do próprio desenho depende de um filtro de tela nunca visto — **especificado em 23/09/2026 (pesquisa + desenho alternativo mais seguro)**
+### G-22 · O agente de IA que existe só para alcançar os 5 leads do Instagram nunca confirmou se alcança — e a "regra do portão" mais importante do próprio desenho depende de um filtro de tela nunca visto — **FEITO em 23/09/2026 (especificação nó a nó completa)**
 **Por quê:** `AGENTE-IA-CONEXAO.md` diz da própria razão de existir, na
 abertura: "Leads reais do Instagram, sem telefone e sem e-mail: **5**... O
 trabalho do agente é esse: ser o canal de quem chega por mensagem e não
@@ -4996,7 +4996,7 @@ de 28/09 08:30 `America/Sao_Paulo` não passar sem disparo.
 
 ---
 
-### G-29 · Um sexto campo fora da lista nasceu ao lado do quinto — `B · Quanto pode investir` chegou com as mesmas opções de `Investimento mensal em anúncios`, e o próprio `SDR responsável` perdeu uma opção sem nenhum documento ter registrado quando (27/09/2026)
+### G-29 · Um sexto campo fora da lista nasceu ao lado do quinto — `B · Quanto pode investir` chegou com as mesmas opções de `Investimento mensal em anúncios`, e o próprio `SDR responsável` perdeu uma opção sem nenhum documento ter registrado quando (27/09/2026) — **ABERTO, decisão do dono**
 
 **Por quê:** reconferência de rotina do G-25 (a primeira tarefa de toda
 sessão enquanto ele não fechar) — `contacts_get-contact` em `Carlos Andrade`
@@ -5089,7 +5089,7 @@ sem disparo.
 > sendo copiada ainda era a correta). Corrigido aqui e no G-30; detalhe em
 > `APRENDIZADOS-CRM.md`, achado do G-32.
 
-### G-30 · Um sétimo campo fora da lista nasceu na conta, e este não é da tela — é o rastro de um recurso nativo que ninguém documentou ligar (27/09/2026)
+### G-30 · Um sétimo campo fora da lista nasceu na conta, e este não é da tela — é o rastro de um recurso nativo que ninguém documentou ligar (27/09/2026) — **ABERTO, decisão do dono**
 
 **Por quê:** reconferência de rotina do G-25 (a primeira tarefa de toda
 sessão enquanto ele não fechar) — `contacts_get-contact` em `Carlos Andrade`
@@ -5172,7 +5172,7 @@ maior prioridade do roadmap enquanto a janela de 28/09 08:30
 `America/Sao_Paulo` não passar
 sem disparo.
 
-### G-31 · Quatro branches diferentes escrevem na mesma subconta sem se cruzarem — o G-25 ficou "item de maior prioridade" por ~10h depois de já estar resolvido do outro lado (27/09/2026)
+### G-31 · Quatro branches diferentes escrevem na mesma subconta sem se cruzarem — o G-25 ficou "item de maior prioridade" por ~10h depois de já estar resolvido do outro lado (27/09/2026) — **ABERTO, decisão do dono**
 
 **Por quê:** fechando o G-25 nesta sessão (acima), a conferência de rotina
 ("a janela mudou?") achou o risco já resolvido — mas não por nenhuma
@@ -8840,3 +8840,90 @@ numeração. F-09, F-10, G-11 (item 1), G-19, G-27/G-29 e G-31 continuam
 sendo as seis decisões sem prazo fixo que esperam o dono, sem mudança
 nesta rodada. CRM reconfirmado por API antes de fechar: 67 oportunidades,
 60 campos de contato, sem novidade além do já registrado acima.
+
+### G-42 · Seis cabeçalhos de item (G-03, G-05, G-22, G-29, G-30, G-31) não carregavam nenhuma marca de status — mesmo bug que o G-37 já corrigiu para F-18 a F-26, desta vez na família G (28/09/2026) — **FEITO em 28/09/2026 (coerência da própria seção "Ordem sugerida")**
+
+**Por quê:** reconciliação de sempre antes de pegar o item de maior
+prioridade ainda aberto — `git fetch` nas branches irmãs achou um commit
+novo em `claude/abertura-operacao-dnd-n7dnjv` (`9622b8e`, depois do
+`cd004af` que o G-38/G-39/F-33/G-40/G-41 já tinham lido): só um registro
+de infraestrutura (`DE-PARA-SESSOES-CRM.md`, "Relógio dos robôs no
+GitHub" — o dono trocou os crons de `wesales-filas.yml`/
+`wesales-wa-governador.yml` por um workflow novo, `wesales-relogio.yml`,
+que roda `atuador_filas.py --aplicar`/`wa_governador.py --aplicar` a cada
+30 min), sem consequência para nenhum item deste roadmap. CRM
+reconfirmado por API: `opportunities_search-opportunity` (`status=all`)
+confirma **68** oportunidades (1 a mais que a leitura do G-41 — mais
+crescimento orgânico, não achado); `locations_get-custom-fields`
+(`model=contact`) segue em **60** campos, sem campo novo.
+
+Sem achado de reconciliação, a sessão seguiu a própria instrução deste
+roadmap ("`grep -n '^### [FGR]-[0-9]'` é o comando que resolveu essa
+pergunta em rodadas anteriores" — G-37) para achar o item de maior
+prioridade ainda aberto. O resultado trouxe **seis** cabeçalhos sem
+`FEITO`, `ABERTO` nem "especificação fechada": G-03, G-05, G-22, G-29,
+G-30, G-31 — pareciam seis itens abertos.
+
+**Cinco eram mesmo abertos, só sem o marcador explícito que G-11/F-09/F-10
+já usam.** G-03 (execução idempotente já agendada para 29/09/2026 08:00,
+confirmado no próprio corpo do item — falta só a data chegar); G-05
+(peça 1/2 fechadas, falta a submissão dos Templates à Meta, já registrado
+no próprio "O que falta para fechar o G-05 por inteiro"); G-29, G-30 e
+G-31 (as três seguem, sem mudança, na lista de "decisões sem prazo fixo
+que esperam o dono" que todo parágrafo de fechamento desde o G-29 já
+carrega — só o cabeçalho de cada uma nunca ganhou o rótulo que essa lista
+já dava por certo).
+
+**G-22 era o caso genuinamente diferente: já estava fechado, e o
+cabeçalho nunca recebeu a marca.** A própria seção "Ordem sugerida" (mais
+abaixo neste arquivo) registra, desde 23/09/2026: "Fechado como **G-22**:
+especificação nó a nó completa... `AGENTE-IA-CONEXAO.md` (§1, §8)
+atualizado com o achado" — e o parágrafo seguinte já agrupava G-22 junto
+com F-11, F-12, F-13, F-15, G-07, G-08, G-17, G-18 e G-21 como "itens com
+desenho completo... só faltam ser montados/aplicados na tela". Todos os
+outros nove dessa lista carregam `FEITO` no próprio `### cabeçalho`; só
+G-22 tinha ficado para trás — mesma causa provável que o G-37 já registrou
+para F-18 a F-26: a rodada que escreveu o parágrafo de fechamento no fim
+da seção nunca voltou ao cabeçalho do item, lá no corpo do documento, para
+acrescentar a mesma marca.
+
+**Como:** seis cabeçalhos editados no lugar, cada um com a marca que o
+próprio corpo do item já sustenta — `### G-03` recebeu "especificação
+fechada em 24/09/2026, execução agendada para 29/09/2026"; `### G-05`
+recebeu "especificação fechada em 22/09/2026, execução aguarda Templates
+aprovados pela Meta"; `### G-22` recebeu "FEITO em 23/09/2026
+(especificação nó a nó completa)"; `### G-29`, `### G-30` e `### G-31`
+receberam "ABERTO, decisão do dono", mesmo rótulo que o `### G-11` já usa.
+Nenhum texto de corpo mudou, só os seis cabeçalhos. Conferido depois:
+`grep -n "^### [FGR]-[0-9]" ROADMAP-SALES-ENGAGEMENT.md | grep -v
+"FEITO\|aguarda\|especificação fechada\|ABERTO"` volta vazio.
+
+**O que este achado não é:** não é decisão de negócio nova — não muda
+nenhum campo, tag ou desenho; G-22 continua sendo o mesmo desenho de
+23/09/2026 (dois workflows sidecar, `Update Conversation AI Bot and
+Status`), só o registro estava um passo atrás do que já tinha acontecido,
+mesma classe do G-40 (para o G-04) e do G-37 (para F-18 a F-26). Não
+reabre G-29/G-30/G-31: as três continuam abertas exatamente como estavam,
+só agora com o rótulo que a lista de fechamento de cada rodada seguinte já
+lhes dava. Zero campo, zero tag, zero escrita no CRM: item de coerência
+entre documentos, não depende de `APROVADO.md`.
+
+**Regra prática, ao lado da que o G-24/G-36/G-37 já deixaram:** a regra do
+G-37 ("parágrafo de fechamento + marca `FEITO` no cabeçalho são as duas
+metades da mesma entrega") vale também no sentido inverso — um item
+genuinamente aberto também precisa do rótulo explícito (`ABERTO`,
+"aguarda decisão do dono", "especificação fechada, execução aguarda...")
+no próprio cabeçalho, não só no corpo ou na lista recapitulativa do fim da
+seção. `grep -n "^### [FGR]-[0-9]"` sem nenhum dos quatro marcadores
+(`FEITO`/`ABERTO`/`aguarda`/`especificação fechada`) na mesma linha é o
+comando que verifica os dois lados de uma vez — a próxima rodada que abrir
+ou fechar um item deve rodar esse grep antes de encerrar.
+
+**Pronto quando:** cumprido nesta rodada — o grep de verificação volta
+vazio; os seis cabeçalhos corrigidos são o próprio "Pronto quando", mesmo
+padrão que já valia para o G-24/G-36/G-37/G-40/G-41.
+
+F-09, F-10, G-11 (item 1), G-19, G-27/G-29 e G-31 continuam sendo as seis
+decisões sem prazo fixo que esperam o dono, sem mudança nesta rodada. CRM
+reconfirmado por API antes de fechar: 68 oportunidades, 60 campos de
+contato, sem novidade além do já registrado acima.

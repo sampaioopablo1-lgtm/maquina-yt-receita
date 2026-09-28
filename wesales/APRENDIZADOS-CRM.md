@@ -7017,3 +7017,41 @@ decisão" e ainda assim precisar de correção de premissa. As duas coisas são
 independentes: decisão pendente é sobre o que falta escolher; premissa
 desatualizada é sobre o que já mudou embaixo da escolha. Detalhe completo,
 e a correção aplicada ao F-09, em `ROADMAP-SALES-ENGAGEMENT.md`, `G-38`.
+
+## O conserto do G-37 (F-18 a F-26) não generalizou — a mesma classe de cabeçalho sem marca de status reapareceu na família G, seis vezes (G-42, 28/09/2026)
+
+O G-37 (28/09/2026, entrada acima) já tinha corrigido sete cabeçalhos
+`F-` fechados sem a marca `FEITO`, e deixado a regra escrita: "parágrafo de
+fechamento no fim da 'Ordem sugerida' + marca `FEITO` no cabeçalho são as
+duas metades da mesma entrega". A regra ficou só em prosa — nenhum script
+verifica isso, e o próprio `grep -n "^### [FGR]-[0-9]"` que a resolveu uma
+vez continuou disponível para a próxima rodada rodar, mas nada obriga
+ninguém a rodá-lo. Resultado: a mesma classe de lapso reapareceu na família
+`G-`, desta vez em seis cabeçalhos (G-03, G-05, G-22, G-29, G-30, G-31),
+sem nenhuma sessão notar até esta.
+
+**Cinco dos seis eram itens genuinamente abertos (G-03, G-05, G-29, G-30,
+G-31) — só sem o rótulo explícito que `G-11`/`F-09`/`F-10` já usam no
+cabeçalho** (`ABERTO, decisão do dono` ou o formato do `R-14`/`F-18`,
+"especificação fechada em..., execução aguarda..."). O sexto, **G-22**, era
+o caso real: fechado desde 23/09/2026 (a própria seção "Ordem sugerida" já
+registrava "Fechado como G-22: especificação nó a nó completa", e o
+parágrafo seguinte já agrupava G-22 junto com nove outros itens que
+carregam `FEITO` no próprio cabeçalho) — só o `###` nunca recebeu a marca,
+mesma causa do G-37: a rodada que fechou o item escreveu o parágrafo de
+recapitulação no fim da seção e nunca voltou ao cabeçalho no corpo do
+documento.
+
+**Regra prática, reforçada (a do G-37 não bastou sozinha):** o grep de
+verificação (`grep -n "^### [FGR]-[0-9]" ROADMAP-SALES-ENGAGEMENT.md |
+grep -v "FEITO\|aguarda\|especificação fechada\|ABERTO"`, saída vazia =
+limpo) precisa rodar **toda vez** que um item abre ou fecha, não só quando
+alguém lembra — e vale nos dois sentidos: item fechado sem `FEITO` no
+cabeçalho é o mesmo bug que item aberto sem `ABERTO`/"aguarda" no
+cabeçalho, os dois enganam o mesmo atalho ("pegar o item de maior
+prioridade ainda aberto" lendo só os cabeçalhos). Uma regra escrita em
+prosa, sem verificação automática nem convenção que force o hábito, decai
+— o G-37 corrigiu a instância, não a causa; só rodar o grep de novo (como
+esta rodada fez, seguindo a própria instrução do G-37) pega a recaída.
+Detalhe completo, e as seis correções aplicadas, em
+`ROADMAP-SALES-ENGAGEMENT.md`, `G-42`.
