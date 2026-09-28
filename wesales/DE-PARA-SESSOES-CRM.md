@@ -149,7 +149,7 @@ mandar User-Agent de navegador (sem ele o Cloudflare responde 1010).
 
 | Item | Recomendação |
 |---|---|
-| Valor da oportunidade nasce 5000 fixo | definir de onde vem o valor real (campo "Valor do contrato" preenchido pelo closer em NEGOCIAR) e então gravar o workflow de ganho; exige criar um campo |
+| Valor da oportunidade nasce 5000 fixo | **decidido pelo dono em 27/09: fica fixo em R$ 5.000.** Nada a gravar |
 | Passagem para FORMALIZAR / entrega | definir quem assume depois do fechamento e o checklist; depois disso vira uma tarefa automática |
 | Relatórios e dashboard | montar na tela depois da 1ª semana de operação, com dado real (ligações/dia, conexão por tentativa, agendamentos, comparecimento) |
 | Tags `sdr-lotado` e `fila-wa` (lidas, nunca aplicadas) | `fila-wa` ficou obsoleta com o Canal da tentativa; `sdr-lotado` só faz sentido com mais de uma SDR — manter sem uso por ora |
