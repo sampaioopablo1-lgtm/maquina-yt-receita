@@ -8927,3 +8927,47 @@ F-09, F-10, G-11 (item 1), G-19, G-27/G-29 e G-31 continuam sendo as seis
 decisões sem prazo fixo que esperam o dono, sem mudança nesta rodada. CRM
 reconfirmado por API antes de fechar: 68 oportunidades, 60 campos de
 contato, sem novidade além do já registrado acima.
+
+### G-43 · O portão do governador de WhatsApp é um laço que espera 15 min e volta — e em lead real ele não volta: `wa-liberado` fica horas sem consumir, e nenhum monitor deste roadmap enxerga isso (28/09/2026) — **especificação fechada em 28/09/2026, execução aguarda o dono (troca de desenho em workflow publicado, sem `[x]`)**
+
+**Por quê:** reconciliação de sempre. O branch `claude/stoic-hawking-0euxnd`
+(a operação real) ganhou, depois do último cruzamento, um registro do dono
+(`DE-PARA-SESSOES-CRM.md`, "28/09 noite"): o portão do governador
+(`wa_governador.py`) faz o lead esperar com `wa-aguardando`, o script troca
+por `wa-liberado`, e o workflow **deveria** ver a tag e enviar. Não envia.
+Conferido por leitura direta nesta sessão (`contacts_get-contacts`,
+contato de origem Meta): entrou 17:46 UTC, ainda carrega `wa-liberado` e a
+tag do dia `wa-lib-2026-09-28` às ~22:10 UTC — mais de quatro horas com a
+liberação dada e nada enviado. O relato do dono fala em 2h30 no mesmo
+lead, então o problema não é pontual. O log de execução não sai por API
+(404), o que explica por que ninguém viu antes: **nenhum dos monitores do
+F-05 olha uma tag de portão parada**, e o lead até aparece como "tratado"
+(tem tag de liberação do dia).
+
+**Causa (hipótese do dono, coerente com o que se vê):** o laço "tem
+`wa-liberado`? → não → espera 15 min → volta" (Go To) não reavalia nos leads
+reais, só funcionou no teste em que a liberação veio em minutos. É o
+desenho, não um lead: o mesmo laço existe em todos os workflows que ganharam
+a trava.
+
+**Como (o que um concorrente não copia olhando a tela):** trocar **espera
+por evento**. A tag é a fila e o governador é o relógio; quem envia é um
+workflow que **nasce da própria tag**, sem laço nenhum
+(`build-wesales.md`, seção 2.65): gatilho `Contact Tag` = `wa-liberado`
+adicionada, dispara no instante da liberação, uma vez por liberação, e o
+texto do toque vem de `Tentativa nº` (C-01) — um único envio para todas as
+cadências, em vez de um laço copiado em cada uma. Reaproveita tag, campo e
+script que já existem: zero tag, zero campo novo.
+
+**Pronto quando:** (1) a seção 2.65 existe nó a nó — feito nesta rodada;
+(2) o dono montar o workflow na tela e religar um lead de teste
+(`wa-aguardando` → governador → mensagem entregue em minutos, `wa-liberado`
+removida); (3) o "Watchdog de portão" (2.65, peça B) cadastrado no
+`atuador_filas.py`, que hoje o dono roda a cada 30 min no GitHub: lista
+contato com `wa-liberado` há mais de 45 min e o devolve para `wa-aguardando`
+mais um aviso na tela da SDR — assim, mesmo que a troca de desenho falhe, a
+falha vira tarefa em 45 min e não silêncio de 4 h.
+
+**Zero escrita no CRM nesta rodada:** trocar o desenho de workflow
+publicado é decisão do dono, sem `[x]` em `APROVADO.md`. Esta sessão só leu.
+F-09, F-10, G-11 (item 1), G-19, G-27/G-29 e G-31 seguem esperando o dono.

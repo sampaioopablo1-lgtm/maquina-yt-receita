@@ -7055,3 +7055,9 @@ prosa, sem verificação automática nem convenção que force o hábito, decai
 esta rodada fez, seguindo a própria instrução do G-37) pega a recaída.
 Detalhe completo, e as seis correções aplicadas, em
 `ROADMAP-SALES-ENGAGEMENT.md`, `G-42`.
+
+## 28/09/2026 (noite) — laço de portão do governador não reavalia (G-43)
+
+- **O que vi:** `contacts_get-contacts` com `query_query` pelo nome acha o contato e devolve as tags; dá para medir tempo parado de `wa-liberado` só com `dateAdded`/`dateUpdated` — sem log de execução (404 pela API pública).
+- **Achado:** um lead Meta com `wa-liberado` + `wa-lib-<dia>` há mais de 4 h sem mensagem. Laço "espera 15 min → volta" não é confiável em produção; gatilho por tag é.
+- **Lição:** qualquer portão precisa de métrica externa (idade da tag), porque o próprio workflow não denuncia que travou.

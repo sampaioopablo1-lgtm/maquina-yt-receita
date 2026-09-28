@@ -10464,3 +10464,45 @@ grava hoje (as igualdades exatas listadas no G-33), não contra uma
 decisão pendente que já foi tomada por outro caminho. Zero campo, zero
 tag, zero escrita no CRM: correção de texto, não depende de
 `APROVADO.md`.
+
+## 2.65 Portão de WhatsApp por evento (sem laço) e watchdog — G-43
+
+**Problema:** a trava do governador (`wa_governador.py`) é um laço — espera
+15 min e volta — e em lead real ele não volta; `wa-liberado` fica horas sem
+consumir (medido em 28/09/2026, mais de 4 h, no mesmo lead que o dono já
+tinha registrado com 2h30). Só o desenho de tag+script fica; o laço sai.
+
+### Peça A — Workflow "WA · Envio Liberado" (um só, para todas as cadências)
+
+**Gatilho:** `Contact Tag` → `wa-liberado` **adicionada**. Sem filtro de
+workflow de origem: a tag só nasce do governador.
+
+**Condições (If/Else, nesta ordem, saída = sem ação):**
+1. Tag `nao-perturbe` presente → encerrar.
+2. Tag `wa-invalido` (F-29) presente → remover `wa-liberado` e encerrar.
+3. Tag `pausa` (R-09) presente → remover `wa-liberado`, devolver
+   `wa-aguardando` e encerrar (o governador libera de novo quando a pausa
+   acabar).
+
+**Ações:**
+1. If/Else por `Tentativa nº` (C-01): um ramo por toque com WhatsApp na
+   tabela de canais (`biblioteca-mensagens.md`), cada um com o Template
+   daquele código.
+2. Enviar WhatsApp (o mesmo nó `sms`/Stevo que já entrega hoje).
+3. Remover `wa-liberado`.
+4. Somar `Tentativas WhatsApp` (C-10).
+5. Se a mensagem falhar (Send Status = Failed no If/Else pós-envio): criar a
+   tarefa `[WHATSAPP MANUAL]` com o texto, como o timeout do desenho antigo.
+
+**Nunca** `Go To` para trás nem `Wait` aguardando tag: a espera é do
+governador, o envio é do gatilho.
+
+### Peça B — Watchdog de portão (no `atuador_filas.py`)
+
+Uma passada a mais no script que já roda a cada 30 min: para todo contato
+com `wa-liberado` cujo `dateUpdated` seja anterior a 45 min, ler (não
+escrever ainda) e, com `--aplicar`, remover `wa-liberado`, aplicar
+`wa-aguardando` e a tag de fila que a SDR já lê (`fila-quente`, se tiver),
+e registrar a contagem na saída do run. Critério de sucesso: **zero
+contato com `wa-liberado` acima de 45 min** — é a métrica única de saúde
+do portão. Escrita só por tag, como o governador; nada é apagado.
