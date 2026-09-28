@@ -315,3 +315,11 @@ avisa e a SDR liga pela ficha. `fila-sdr` continua existindo (nada apagado), for
 
 **Só na terça 29/09:** a `fila-tel` vem vazia até ~10:05, porque o primeiro toque da
 Cadência Inbound vence 1 dia + ~1 h35 depois da MI-0 de segunda 08:30.
+
+## 28/09 — trava de canal (`falou-hoje`)
+
+Quem atendeu o discador (gatilho nativo Call Status = completed) ou teve Resultado Atendeu/Pediu
+retorno recebe `falou-hoje` por 12 h, pelo workflow "Trava de canal — falou hoje". A lista
+"Ligar pelo WhatsApp" exclui a tag, então o lead some dela no instante em que atende o Power
+Dialer, antes de a SDR marcar o Resultado. `fila-tel` (a fila puxada) já era limpa pelo
+`Pós-ligação v3` no Atendeu/Pediu retorno; `fila-sdr` (reservatório) também exclui a tag.
