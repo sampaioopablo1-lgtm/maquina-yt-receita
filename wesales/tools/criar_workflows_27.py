@@ -138,10 +138,11 @@ def criar(nome, nos, gat, seco):
     print("%s: %d nós, grafo %s" % (nome, len(nos), erros or "ok"))
     if seco or erros:
         return
-    if any(w.get("name") == nome for w in g.listar()):
+    ex = [w for w in g.listar() if w.get("name") == nome]
+    if ex and (g.ler(ex[0]["id"]).get("workflowData") or {}).get("templates"):
         print("  já existe — nada a fazer")
         return
-    wid = g.pedir("POST", "/workflow/%s" % LOC, {"name": nome})["id"]
+    wid = ex[0]["id"] if ex else g.pedir("POST", "/workflow/%s" % LOC, {"name": nome})["id"]
     base = BASE["wf"]
     cur = g.ler(wid)
     for k in ("allowMultiple", "stopOnResponse", "timezone", "window", "allowMultipleOpportunity"):

@@ -164,3 +164,12 @@ mandar User-Agent de navegador (sem ele o Cloudflare responde 1010).
 | FORMALIZAR: prazo 7 dias | workflow novo "Formalização Parada" (`14a76a7d`): entra em FORMALIZAR → espera 7 dias → ainda aberta → aviso + tarefa "[CLOSER] Marcar a oportunidade como ganha ou perdida" | workflow novo | v2 → v3 (3 → 7 dias) | sim | decisão do dono: depois de FORMALIZAR o closer marca ganha ou perdida |
 | fila do discador | atuador das filas no branch padrão (PR #106 e #107), cron a cada 30 min seg–sex 08:00–18:59; aplicado agora: `fila-sdr` 5 → 36 | GitHub Actions + tag `fila-sdr` | — | sim, 36/36 | antes o cron nunca tinha rodado (arquivo fora do branch padrão): lead novo não entrava na fila do Power Dialer |
 | painel "Decisão — Operação SDR/Closer" | painel criado (`6ab9b477ea8a8a09aee49d8b`), **ainda sem widgets** | Relatórios | — | — | gravar widget pela API esbarra em "versão desatualizada do painel"; falta o formato que a tela usa |
+
+### Sexta rodada — relatórios e Pixel (27/09 23:30–28/09 00:45)
+
+| Item | O que foi gravado | Onde | Relido | Observação |
+|---|---|---|---|---|
+| painel de decisão | "Decisão — Operação SDR/Closer" (`6ab9b477ea8a8a09aee49d8b`) com **21 widgets** (leads e origem/campanha/meio/usuário; oportunidades abertas/ganhas/perdidas/valor/eficiência; reuniões agendadas/confirmadas/canceladas/não comparecidas; tarefas; ações manuais) | Painel de controle | sim, API | montado pela tela sem janela (objetivos: vendas, agendamento, equipe, leads). Faltam widgets de ligações/dia e funil por etapa |
+| Pixel no calendário público | `pixelId` 1600846091439175 no "Reunião com closer" (evento sai do navegador do lead) | Calendário | sim | duração, consentimento e antecedência conferidos intactos |
+| Pixel nos itens internos | calendário da SDR sem Pixel de propósito; formulários internos disparam `SubmitApplication` já ao abrir a página (ruído da SDR) — remoção pelo formulário novo não pegou (rota própria `/forms/update-…`); original protegido | Formulários | — | os 2 `SubmitApplication` de 27/09 vieram daí |
+| Conversions API | 3 workflows novos: "Meta CAPI — Contato (atendeu)" → `Contact`; "— Reunião marcada" (2 calendários) → `Schedule`; "— Venda ganha" → `Purchase`; integração Facebook conectada, pixel 1600846091439175, BRL | workflows novos | sim, publicados | **o GHL exige token**: lido do valor personalizado `{{custom_values.meta_capi_token}}` (criado com o texto COLE_O_TOKEN_AQUI). Até o dono colar o token, os eventos não saem. `Lead` fora de propósito: o formulário do Meta já conta |
