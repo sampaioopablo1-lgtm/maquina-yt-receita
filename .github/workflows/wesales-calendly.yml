@@ -1,0 +1,31 @@
+name: WeSales - Calendly para o CRM
+
+# O dono mantém o Calendly (integrado às campanhas). Este workflow lê as reuniões futuras do
+# Calendly (API v2, token pessoal no segredo CALENDY, só leitura) e registra no CRM: reunião na
+# agenda "Reunião com closer", lead quente e tarefa de confirmação para a SDR.
+# Por padrão só lista (dry-run); "aplicar" grava. O relógio chama com --aplicar a cada 30 min.
+on:
+  workflow_dispatch:
+    inputs:
+      aplicar:
+        description: "Gravar no CRM (senão só lista)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  calendly:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Calendly -> CRM
+        env:
+          GHL_PIT: ${{ secrets.GHL_PIT }}
+          CALENDLY_TOKEN: ${{ secrets.CALENDY }}
+        run: python wesales/tools/calendly_para_crm.py ${{ inputs.aplicar && '--aplicar' || '' }}
