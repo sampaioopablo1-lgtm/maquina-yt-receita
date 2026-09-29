@@ -1,15 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1257 520" width="1257" height="520" role="img" aria-label="O Proximo Cliente">
   <title>O Próximo Cliente — logo horizontal</title>
   <rect width="1257" height="520" fill="#FAF8F5"/>
-  <g transform="translate(70 90)">
-    <rect width="340" height="340" rx="74" fill="#0F2137"/>
-    <g transform="translate(43 42) scale(0.665)">
-      <circle cx="61" cy="256" r="50" fill="none" stroke="#E8A33D" stroke-width="22"/>
-      <circle cx="61" cy="256" r="20" fill="#E8A33D"/>
-      <text x="147" y="317" font-family="Montserrat, Poppins, 'Helvetica Neue', Arial, sans-serif"
-            font-size="170" font-weight="700" letter-spacing="3" fill="#FAF8F5">PC</text>
-    </g>
-  </g>
+  <rect x="70" y="90" width="340" height="340" rx="74" fill="#0F2137"/>
+  <circle cx="240" cy="260" r="112" fill="none" stroke="#FAF8F5" stroke-width="17.4"/>
+  <circle cx="240" cy="260" r="72" fill="none" stroke="#E8A33D" stroke-width="17.4"/>
+  <circle cx="240" cy="260" r="30.7" fill="#FAF8F5"/>
   <g font-family="Montserrat, Poppins, 'Helvetica Neue', Arial, sans-serif">
     <text x="480" y="248" font-size="96" font-weight="700" letter-spacing="10" fill="#0F2137">O PRÓXIMO</text>
     <text x="480" y="378" font-size="96" font-weight="300" letter-spacing="30" fill="#3A4C61">CLIENTE</text>
