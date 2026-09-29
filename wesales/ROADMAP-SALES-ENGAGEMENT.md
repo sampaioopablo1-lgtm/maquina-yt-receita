@@ -9066,3 +9066,38 @@ avisa: dump/relato é candidato, não item). Zero escrita no CRM nesta rodada.
 **Pronto quando:** `GUIA-SDR.md` e `campos-e-tags.md` deixam de contradizer a
 conta (feito); o `INVENTARIO-WORKFLOWS.md` ganha a linha do workflow depois de
 lido ao vivo (pendente, do PC).
+
+### G-45 · Dois campos novos nasceram na conta na noite de 29/09/2026 — um explicado por código de branch irmã, o outro sem dono conhecido — e a lista de campos fora da numeração parava no nono (29/09/2026) — **FEITO em 29/09/2026 (reconciliação)**
+
+**Por quê.** Mesma reconciliação de sempre antes de desenhar: `locations_get-custom-fields`
+(model `contact`) sobe de 61 (G-44) para 63. Os dois novos: `Registro automático
+em` (id `gf332esJXqwxY8LsA66e`, 22:16Z) e `Link: formulário + agenda` (id
+`GX7Z8yRGeERXCUgNbL3W`, 22:20Z), ambos `TEXT`, ambos com posição 2800/2850 no
+grupo de controle e placeholder `preenchido pelo robô`.
+
+**O que a busca nas branches irmãs achou.** `Link: formulário + agenda` tem
+autor: `tools/link_formulario.py` (commit `491d25d`, `claude/link-formulario`,
+pedido do dono, coluna da Minha fila). Lido o código: escreve só em contato
+`CONECTAR` ou com `confirmar-reuniao`, via `PUT /contacts` com o link montado
+dos valores preenchidos, e só quando mudou — idempotente. `Registro automático
+em` **não aparece em nenhuma branch** (busca por nome e por id): fica registrado
+como sem dono conhecido, e proibido de alimentar regra até alguém confirmar.
+
+**Riscos que a leitura do código mostrou (candidatos, não medidos ao vivo):**
+1. O link carrega **telefone, e-mail e as respostas de qualificação** na query
+   string, gravado em campo de contato. Quem tiver a coluna da Minha fila vê o
+   link — igual ao que a SDR já vê no contato; mas colar o link em mensagem ao
+   lead expõe dados dele na URL. Vale o `GUIA-SDR.md` dizer que o link é da SDR,
+   não para reenviar.
+2. O script varre `contatos()` inteiro a cada disparo do relógio. Com a base
+   crescendo (66 → 81 oportunidades em uma semana) o custo cresce junto; medir
+   antes de pôr no relógio de 5 min.
+3. `sdr_responsvel` vai fixo `Andreyna Siqueira` no link: com o segundo SDR do
+   R-10, todo lead do formulário nasce atribuído à mesma pessoa.
+
+**Pendente, e por que não fecho aqui:** confirmar com o dono quem escreve
+`Registro automático em`; nada foi escrito no CRM nesta rodada.
+
+**Pronto quando:** `campos-e-tags.md` lista os dois campos com id e origem
+(feito); o dono diz o que `Registro automático em` registra (pendente).
+

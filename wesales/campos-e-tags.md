@@ -524,6 +524,29 @@ duplicata: é um atalho de digitação que um workflow (relato do commit `5d4140
 branch `abertura-operacao-dnd-n7dnjv`) traduz para C-02 e `Canal da tentativa`.
 Detalhe em `ROADMAP-SALES-ENGAGEMENT.md`, **G-44**.
 
+**Um décimo e um décimo primeiro campo fora desta lista, ambos de 29/09/2026 à
+noite, ambos preenchidos "pelo robô" (G-45):**
+
+- `Link: formulário + agenda` — `contact.link_formulrio__agenda`, id
+  `GX7Z8yRGeERXCUgNbL3W`, `TEXT`, criado 22:20Z, grupo de controle. Escreve:
+  script `tools/link_formulario.py` (commit `491d25d`, branch
+  `claude/link-formulario`, já no `wesales-relogio.yml` daquela branch). Monta a
+  URL do formulário "Qualificação e agendamento — SDR" já preenchida com o que
+  o CRM sabe do lead, só para contato em `CONECTAR` ou com tag
+  `confirmar-reuniao`, e grava só quando o link mudou. Explicação achada de
+  primeira pelo hábito do G-31.
+- `Registro automático em` — `contact.registro_automtico_em`, id
+  `gf332esJXqwxY8LsA66e`, `TEXT`, placeholder `preenchido pelo robô`, criado
+  22:16Z (4 min antes do anterior, mesmo padrão de posição 2800 vs 2850).
+  **Sem explicação em nenhuma branch lida** (`grep` por nome e por id em todas
+  as branches `wesales-*`, `responder`, `finalizar-tarefas*`, `fila-*`,
+  `link-formulario`, `abertura-*`, `closer-para-sdr`): quem escreve e para quê
+  é hipótese — pelo nome e pela hora, carimbo de um dos automatismos novos do
+  relógio. Não usar em regra nenhuma até o dono confirmar.
+
+Nenhum dos dois é órfão nem duplicata de campo do projeto. Detalhe em
+`ROADMAP-SALES-ENGAGEMENT.md`, **G-45**.
+
 **Continuação em 28/09/2026 (G-38):** o "redesenho do seletor de canal"
 citado acima saiu do desenho e virou régua real — `Canal da tentativa` e
 `Canal que conectou` (ambos citados acima) já alimentam uma distribuição de

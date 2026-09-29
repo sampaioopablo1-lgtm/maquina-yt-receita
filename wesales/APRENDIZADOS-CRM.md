@@ -7082,3 +7082,9 @@ Detalhe completo, e as seis correções aplicadas, em
 - **O que vi:** `locations_get-custom-fields` (contato) devolveu 61 campos (eram 60) e 81 oportunidades (eram 66). O campo novo, `Registro da ligação`, tinha `dateAdded` do mesmo dia.
 - **O que funcionou:** `git log --all -S"Registro da ligação"` achou o commit em `abertura-operacao-dnd-n7dnjv` em segundos; ler o script (`criar_registro_1_campo.py`) dá o desenho do workflow sem token, já que o MCP não lê workflow.
 - **Lição:** contar campos e oportunidades no início da rodada é a detecção mais barata de mudança feita por outra sessão; `git log --all -S` no nome do campo é a resolução mais barata.
+
+## 29/09/2026 (noite) — G-45: dois campos novos; um achado por `git grep` em branch remota, o outro sem rastro
+
+- **O que vi:** `locations_get-custom-fields` devolveu 63 campos (eram 61). Novos: `Link: formulário + agenda` e `Registro automático em`, ambos `TEXT`, criados com 4 min de diferença.
+- **O que funcionou:** `git grep -l <nome ou id> origin/<branch>` em cada branch remota `wesales-*`/`link-formulario`/`responder` (a checkout local não tem as irmãs); o script `link_formulario.py` explicou o primeiro. O segundo não aparece em nenhuma — registrado como sem dono, não como hipótese firme.
+- **Lição:** `git fetch origin` primeiro; a branch de trabalho da sessão pode não ser a da tarefa (esta checkout veio em outra e não tinha `APROVADO.md`).
