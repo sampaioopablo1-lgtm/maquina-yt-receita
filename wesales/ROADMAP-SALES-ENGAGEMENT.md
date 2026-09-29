@@ -2659,6 +2659,31 @@ rodada.
 > rastreabilidade de workflow que o projeto tem sem acesso à tela, e exatamente o
 > que a 8.27 (`DND sem tag`) precisava para achar o caminho não documentado.
 
+> **Prova de "ninguém incomodado depois do DND" — medida ao vivo em 29/09/2026
+> (segunda metade do "Pronto quando").** Método, só leitura, cabe em qualquer
+> sessão com o conector: (1) `contacts_get-contacts` (`query_limit=100`) →
+> contatos com `dnd == true`; (2) `conversations_search-conversation`
+> (`query_limit=100`) uma vez com `query_lastMessageDirection=outbound` e outra
+> com `inbound` → `lastMessageDate` de cada conversa, que é o **teto** de
+> qualquer mensagem daquele contato; (3) comparar com o `dateUpdated` do contato
+> (o mais perto que a API pública dá de "quando o DND foi ligado").
+> **Resultado:** todos os contatos com DND têm `lastMessageDate` **anterior** ao
+> `dateUpdated`; zero envio depois do DND. Os contatos `zz teste …` não têm
+> conversa nenhuma. Os dois grupos de WhatsApp (`grupo-whatsapp-nao-e-lead`)
+> só recebem mensagem **inbound** (o grupo fala, a máquina não responde). O
+> único envio automático a contato hoje com DND é o e-mail "Reunião confirmada"
+> da Ana Lucia (duplicado do Calendly), enviado 07:38Z, no segundo em que o
+> contato nasceu — antes de o duplicado ser marcado.
+> **Limite honesto da prova:** `dateUpdated` é cota superior do instante do DND
+> (qualquer tag nova o empurra), então a prova é forte para os DND antigos e
+> **fraca para os das últimas horas** (Ana Lucia, os dois grupos, `teste não
+> atende`, `zz teste estrutura`). Prova forte de verdade só vem de rodar isto
+> **periodicamente** e comparar com a rodada anterior: enviado depois da rodada
+> em que o contato já constava com DND = violação certa. Falta a rotina que
+> grave essa foto (fica para quando houver token no Action — não desenhada aqui
+> por não caber em API pública sem segredo). O que se prova hoje é o ponto no
+> tempo, não a operação contínua: o item **continua aberto** por esse motivo.
+
 **Por quê:** `nao-perturbe` e DND são a linha entre prospecção e perseguição.
 Precisa ser verificável, não confiável.
 **Como:** rotina que confere se algum contato com DND recebeu mensagem, e se

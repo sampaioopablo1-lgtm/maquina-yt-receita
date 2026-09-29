@@ -7069,3 +7069,10 @@ Detalhe completo, e as seis correções aplicadas, em
 - **Consequência:** as Smart Lists por canal da 8.26 dariam alarme falso permanente. A conferência confiável é cruzar tag com `dnd` global, e cabe em qualquer sessão com o conector.
 - **Armadilha de método:** `conversations_search-conversation` filtra por direção/ação da última mensagem, não por tag — para saber se algo saiu depois do DND, ir a `conversations_get-messages` do contato e comparar datas com a mudança de status da oportunidade.
 
+
+## 29/09/2026 (tarde) — R-14: prova de "nenhum envio depois do DND" só com o conector
+
+- **O que fiz:** 1 chamada de contatos (`dnd`) + 2 de `conversations_search-conversation` (`query_lastMessageDirection` = `outbound` e `inbound`, `query_limit=100`; a base inteira cabe). `lastMessageDate` da conversa é o teto de qualquer mensagem do contato, então dispensa `get-messages` por contato (17 chamadas a menos).
+- **Achado:** zero envio depois do DND; método e limite (o `dateUpdated` do contato é só cota superior do instante do DND) em `ROADMAP-SALES-ENGAGEMENT.md`, R-14.
+- **Armadilha:** a resposta de `conversations_search-conversation` traz o corpo da última mensagem inteiro (uma mensagem de grupo tinha ~4 mil caracteres) — filtrar por direção mantém a saída pequena; sem filtro, estoura.
+- **Lição:** prova pontual não é monitor. Só uma foto guardada e comparada rodada a rodada distingue "DND ligado antes do envio" de "DND ligado depois".
