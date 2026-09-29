@@ -53,6 +53,11 @@ jobs:
             else
               echo "fora do horario ($dow $hm)"
             fi
+            # Depois do atuador (usa as tags desta rodada). Ordem da "Minha fila — SDR" (Prioridade), seg-sex 07:30-21:00: a lista chega ordenada
+            if [ "$dow" -le 5 ] && [ $((10#$hm)) -ge 730 ] && [ $((10#$hm)) -le 2100 ]; then
+              git pull -q origin "${GITHUB_REF_NAME}" || true
+              python wesales/tools/ordem_fila.py --aplicar || echo "ordem da fila falhou nesta rodada"
+            fi
             sleep 1800
           done
       - name: Relanca o relogio

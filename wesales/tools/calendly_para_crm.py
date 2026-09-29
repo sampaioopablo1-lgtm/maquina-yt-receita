@@ -201,7 +201,8 @@ def main() -> int:
                                              "contato novo" if novo else "contato existente", "" if aplicar else " (DRY)"))
         if not aplicar or not cid:
             continue
-        ghl("POST", "/contacts/%s/tags" % cid, {"tags": ["calendly", "fila-quente"]})
+        # confirmar-reuniao: põe o lead no topo da "Minha fila — SDR" (Prioridade 10, ordem_fila.py)
+        ghl("POST", "/contacts/%s/tags" % cid, {"tags": ["calendly", "fila-quente", "confirmar-reuniao"]})
         ghl("PUT", "/contacts/%s" % cid, {"customFields": [{"id": PRIORIDADE, "value": 5}]})
         st, ap = ghl("POST", "/calendars/events/appointments", {
             "calendarId": CAL_CLOSER, "locationId": LOC, "contactId": cid, "assignedUserId": CLOSER,
