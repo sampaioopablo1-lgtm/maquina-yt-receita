@@ -27,6 +27,7 @@ import statistics
 import sys
 
 from campos_bant import ghl, LOC
+import turnos
 
 F = {"tel": "wCzdqF7uLQwtrZ1JyZRn", "wa": "5j9SerJeZ6ngfZCPb2Wg", "con_tel": "LB11ao0AdSI1QSHyZBOP",
      "con_wa": "Og1CkI9x9OztsV242nIM", "agendado": "aY5cwLe9y13CEyv8ecwv", "compareceu": "EsisfhEZWFLcnEYEzx3k",
@@ -102,6 +103,7 @@ def main():
     por_hora = collections.defaultdict(lambda: [0, 0])
     tel_t = tel_c = wa_t = wa_c = 0
     funil = collections.Counter()
+    meta5 = []   # minutos até a 1ª ligação (None = sem ligação) dos leads que chegaram em turno
     for c in cs:
         v = {f["id"]: f.get("value") for f in c.get("customFields", [])}
         tent = num(v.get(F["tel"])) + num(v.get(F["wa"]))
@@ -126,13 +128,22 @@ def main():
         o = por_origem[origem(c)]
         o["leads"] += 1; o["qualificados"] += qualif; o["agendados"] += agendado
         o["compareceram"] += bool(v.get(F["compareceu"])); o["ganhos"] += c["id"] in won
+        entrada = dt.datetime.fromisoformat(c["dateAdded"].replace("Z", "+00:00"))
+        # META DE 5 MIN (28/09, dono): só lead que chegou com SDR em turno, nos últimos 30 dias;
+        # sem ligação conta como fora da meta.
+        no_turno = (dt.datetime.now(dt.timezone.utc) - entrada).days < 30 and bool(turnos.em_turno(entrada))
         if not num(v.get(F["tel"])):
+            if no_turno:
+                meta5.append(None)
             continue
         ls = ligacoes(c["id"])
         if not ls:
+            if no_turno:
+                meta5.append(None)
             continue
-        entrada = dt.datetime.fromisoformat(c["dateAdded"].replace("Z", "+00:00"))
         minutos = (ls[0][0] - entrada).total_seconds() / 60
+        if no_turno:
+            meta5.append(minutos)
         faixa = "até 5 min" if minutos <= 5 else "até 1 h" if minutos <= 60 else "até 24 h" if minutos <= 1440 else "mais de 24 h"
         faixas[faixa][0] += 1; faixas[faixa][1] += agendado
         for i, (quando, conectou) in enumerate(ls, 1):
@@ -159,6 +170,11 @@ def main():
     for f in ("até 5 min", "até 1 h", "até 24 h", "mais de 24 h"):
         n, a = faixas[f]
         linhas.append("   %-13s %3d leads · agendaram %s" % (f, n, pct(a, n)))
+    dentro = sum(1 for m in meta5 if m is not None and m <= 5)
+    ligados = [m for m in meta5 if m is not None]
+    linhas.append("   META 5 MIN (lead chegou com SDR em turno, 30 dias): %s (%d de %d) · mediana %s · sem ligação: %d" % (
+        pct(dentro, len(meta5)), dentro, len(meta5),
+        "%d min" % round(statistics.median(ligados)) if ligados else "—", meta5.count(None)))
     linhas.append("")
     linhas.append("4. Conexão (ligação completada ≥ 20 s):")
     linhas.append("   por tentativa: " + " · ".join("%s: %s (n=%d)" % ("6+" if k == 6 else "%dª" % k, pct(c2, n), n)
