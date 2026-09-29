@@ -8,8 +8,10 @@ partir de agora e ainda não está no CRM:
   2. registra a reunião na agenda "Reunião com closer", no mesmo horário, com o closer como dono.
      Isso a faz aparecer na agenda do CRM e dispara o Pós-agendamento (confirmação, lembretes,
      tarefa do grupo, aviso ao closer);
-  3. lead extremamente quente: Prioridade 5, `fila-quente` e tarefa "[LIGAR AGORA] Agendou pelo
+  3. lead ouro (marcou sozinho na agenda do dono): Prioridade 5, `fila-quente` e tarefa "[LIGAR AGORA] Agendou pelo
      Calendly — confirmar a reunião" para a SDR (confirmar e completar Q1–Q6 antes da reunião).
+  4. tag `calendly-ouro` -> workflow "Calendly — lead ouro (aviso à SDR)" (criar_calendly_ouro.py)
+     manda notificação interna à SDR: ligar, qualificar e criar o grupo.
 
 Duplicidade: o título da reunião no CRM leva `calendly:<uuid do evento>`; se já existe, pula.
 Cancelou ou remarcou no Calendly (remarcar = cancela o antigo e cria outro): a reunião antiga é
@@ -174,6 +176,8 @@ def main() -> int:
                      "confirme a presença e complete Q1–Q6 na ficha. Respostas do Calendly: %s" % (quando, resp or "—")),
             "dueDate": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
             "completed": False, "assignedTo": SDR})
+        # dispara "Calendly — lead ouro (aviso à SDR)": notificação especial, depois o workflow tira a tag
+        ghl("POST", "/contacts/%s/tags" % cid, {"tags": ["calendly-ouro"]})
     cancelar_no_crm(aplicar)
     return 0
 
