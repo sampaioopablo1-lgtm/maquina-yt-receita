@@ -42,5 +42,37 @@ def main():
         d2 = g.ler(wid); print("criado", nome(d), wid, d2["status"], len(d2["workflowData"]["templates"]), "nó")
 
 
-if __name__ == "__main__":
+if __name__ == "__main__" and "--publicar" not in sys.argv:
     main()
+
+
+def gatilho(disp):
+    """Formato lido do editor (CallStatusFilter): valor = NOME da disposição, não o id."""
+    return {"type": "call_status", "name": "Disposição = " + disp, "conditions": [
+        {"operator": "contains-any", "field": "custom_disposition", "value": [disp],
+         "title": "Custom disposition", "type": "multiselect", "id": "custom_disposition"}]}
+
+
+def publicar():
+    ex = {w["name"]: w["id"] for w in g.listar()}
+    for d, _, valor in MAPA:
+        wid = ex[nome(d)]
+        cur = g.ler(wid); nos = cur["workflowData"]["templates"]
+        if g.gatilhos(wid):
+            print("já tem gatilho:", nome(d)); continue
+        cur["status"] = "published"; cur["allowMultiple"] = True
+        g.put(cur, nos)
+        gat = gatilho(d)
+        corpo = {"status": "published", "workflowId": wid, "schedule_config": {}, "conditions": gat["conditions"],
+                 "type": gat["type"], "masterType": "highlevel", "name": gat["name"],
+                 "actions": [{"workflow_id": wid, "type": "add_to_workflow"}], "active": True,
+                 "triggersChanged": True, "location_id": g.LOC}
+        tr = g.pedir("POST", "/workflow/%s/trigger" % g.LOC, corpo)
+        g.pedir("PUT", "/workflow/%s/trigger/%s" % (g.LOC, tr["id"]),
+                {**corpo, "targetActionId": nos[0]["id"], "advanceCanvasMeta": {"position": {"x": 57.5, "y": -73}}})
+        d2 = g.ler(wid); ts = g.gatilhos(wid)
+        print("publicado", nome(d), d2["status"], [(t["name"], t.get("active"), t["conditions"][0]["value"]) for t in ts])
+
+
+if __name__ == "__main__" and "--publicar" in sys.argv:
+    publicar()
