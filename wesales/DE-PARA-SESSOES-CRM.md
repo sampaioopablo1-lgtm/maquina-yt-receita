@@ -484,3 +484,11 @@ Tentativas até agendar e até qualificar ainda sem dado real (4 agendados e 3 q
 Nomes, telefones e e-mails borrados. Gerador em `tools/guia_imagens_playbook.py`; cópias em `wesales/imagens/`.
 
 **Achado:** a nota "Alerta De Saúde" do vigia saiu com "[object Object]" no texto (ficha da Suzana, 28/09 23:02). Corrigir o vigia.
+
+## 28/09 noite — leads no nome do Pablo passam para a SDR
+
+- **Levantamento:** 7 contatos no nome do Pablo.
+- **Movidos para a Andreyna** (contato + oportunidade, relidos): Samuel e Viviane (CONECTAR/aberta) e 2 "Sem Nome" (NOVO LEAD/abandonada = nutrição).
+- **Ficaram com o Pablo, o closer:** Genilson e Daniel (NEGOCIAR) e Ruan Sampaio (reunião perdida, número de teste do Call Center).
+- **Causa provável:** mensagem de WhatsApp recebida atribui o contato ao Pablo. Viviane já tinha sido movida para a Andreyna às ~18:30 e voltou depois de escrever.
+- **Robô (PR #123, merge):** `closer_para_sdr`. A cada 30 min, lead em CONECTAR no nome de um closer volta para a SDR em turno (ou a 1ª SDR), com as tarefas abertas. Dry-run depois da mudança manual: 0.
