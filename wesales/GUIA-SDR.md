@@ -45,6 +45,13 @@ WhatsApp seguidas: comece pelo telefone.
 
 ## Depois de cada ligação: marque 2 campos
 
+> **Atalho desde 29/09/2026 (G-44):** em vez dos dois campos abaixo, marque só
+> **Registro da ligação** (`Telefone · Atendeu`, `WhatsApp · Não atendeu`...).
+> Um workflow converte para `Canal da tentativa` + `Resultado da tentativa` e
+> limpa o campo — o resto da tabela vale igual. Os dois campos manuais seguem
+> valendo como reserva. Detalhe e o que ainda não foi conferido por aqui:
+> `ROADMAP-SALES-ENGAGEMENT.md`, **G-44**.
+
 **Resultado da tentativa** (obrigatório) — é isso que move tudo:
 
 | Você marca | O que o sistema faz |

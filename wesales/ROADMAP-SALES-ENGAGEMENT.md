@@ -9013,3 +9013,56 @@ falha vira tarefa em 45 min e não silêncio de 4 h.
 **Zero escrita no CRM nesta rodada:** trocar o desenho de workflow
 publicado é decisão do dono, sem `[x]` em `APROVADO.md`. Esta sessão só leu.
 F-09, F-10, G-11 (item 1), G-19, G-27/G-29 e G-31 seguem esperando o dono.
+
+### G-44 · O SDR agora registra a ligação em UM campo (`Registro da ligação`), e nenhum documento desta branch sabe — o `GUIA-SDR.md` ainda manda marcar dois (29/09/2026) — **FEITO em 29/09/2026 (reconciliação)**
+
+**Por quê.** Reconciliação de sempre antes de desenhar: CRM lido por API nesta
+rodada — `locations_get-custom-fields` sobe de 60 para 61 campos de contato,
+`opportunities_search-opportunity` de 66 para 81 oportunidades (leads novos de
+verdade; o mais recente, às 14:06Z, já com `cad-inbound`, `fila-quente`,
+`atraso-1a-tentativa` e `limpar-tarefas`). O campo novo é `Registro da ligação`
+(id `2iqHW8jbd41AI6fZJr6P`, criado 11:37Z). A explicação estava numa branch
+irmã, não nesta (hábito do G-31): commit `5d41401` (`tools/criar_registro_1_campo.py`)
+e `DE-PARA-SESSOES-CRM.md` da `abertura-operacao-dnd-n7dnjv`. Pedido do dono:
+menos cliques para a SDR.
+
+**O que o relato diz que existe (não confirmado nó a nó daqui — o MCP não lê
+workflow):** workflow `Registro da ligação — 1 campo` (id `9f70fac2`), gatilho
+`contact_changed` / `has-changed` em `Registro da ligação`; cadeia de 10
+If/Else, um por opção; cada ramo escreve `Canal da tentativa` (só as opções
+`Telefone · …` e `WhatsApp · …`) e `Resultado da tentativa` num único nó
+`update_contact_field`, depois limpa o campo novo. `Não ligar` e `Desqualificado`
+gravam só o Resultado. O `Pós-ligação v3` não muda: continua disparando pela
+mudança de `Resultado da tentativa`.
+
+**O que a leitura do desenho encontrou (por que vale registrar):**
+1. **Nenhum documento cita o campo.** `GUIA-SDR.md` (o que o SDR vê na tela)
+   mandava marcar dois campos; corrigido com o atalho, mantendo os dois como
+   reserva — o script do dono diz que continuam valendo.
+2. **Canal e Resultado saem no mesmo nó**, então o `Pós-ligação v3` (que lê
+   `Canal da tentativa` nos portões de `fila-wa`, G-38) não corre o risco de ler
+   Resultado novo com Canal velho. É o desenho certo; o risco só volta se
+   alguém separar em dois nós.
+3. **O workflow roda duas vezes por marcação** (a limpeza do campo é uma nova
+   mudança): a segunda execução cai em nenhum ramo e termina. Inofensivo,
+   mas conta como execução no plano — F-10/monitor de custo devem saber.
+4. **Marcar a mesma opção duas vezes seguidas funciona** justamente porque o
+   campo é limpo ao fim; sem a limpeza, `has-changed` não dispararia na segunda
+   "Não atendeu" seguida. É a mesma razão que faz o `Pós-ligação` limpar
+   `Resultado da tentativa` (build-wesales.md, nó 5).
+5. **Não há opção `WhatsApp · Caixa postal` nem `WhatsApp · Número errado`:**
+   consistente com o mundo real (WhatsApp não tem caixa postal), mas o SDR que
+   tiver número errado descoberto pelo WhatsApp precisa marcar
+   `Telefone · Número errado`, que grava `Canal = Telefone` — cosmético, o
+   Pós-ligação trata Número errado igual nos dois canais.
+
+**Pendente, e por quê não fecho aqui:** (a) confirmar ao vivo que o workflow
+9f70fac2 está publicado e cobre as 10 opções (leitura de workflow é
+`tools/ghl_interno`, com token do PC — não disponível neste conector);
+(b) `INVENTARIO-WORKFLOWS.md` não lista esse workflow — inclusão vale ser feita
+por quem o ler ao vivo, não por relato de commit (o CLAUDE.md desta pasta já
+avisa: dump/relato é candidato, não item). Zero escrita no CRM nesta rodada.
+
+**Pronto quando:** `GUIA-SDR.md` e `campos-e-tags.md` deixam de contradizer a
+conta (feito); o `INVENTARIO-WORKFLOWS.md` ganha a linha do workflow depois de
+lido ao vivo (pendente, do PC).

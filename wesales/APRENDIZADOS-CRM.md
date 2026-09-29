@@ -7076,3 +7076,9 @@ Detalhe completo, e as seis correções aplicadas, em
 - **Achado:** zero envio depois do DND; método e limite (o `dateUpdated` do contato é só cota superior do instante do DND) em `ROADMAP-SALES-ENGAGEMENT.md`, R-14.
 - **Armadilha:** a resposta de `conversations_search-conversation` traz o corpo da última mensagem inteiro (uma mensagem de grupo tinha ~4 mil caracteres) — filtrar por direção mantém a saída pequena; sem filtro, estoura.
 - **Lição:** prova pontual não é monitor. Só uma foto guardada e comparada rodada a rodada distingue "DND ligado antes do envio" de "DND ligado depois".
+
+## 29/09/2026 (tarde) — G-44: campo novo na conta sem rastro na branch — a explicação mora no `DE-PARA` da branch irmã
+
+- **O que vi:** `locations_get-custom-fields` (contato) devolveu 61 campos (eram 60) e 81 oportunidades (eram 66). O campo novo, `Registro da ligação`, tinha `dateAdded` do mesmo dia.
+- **O que funcionou:** `git log --all -S"Registro da ligação"` achou o commit em `abertura-operacao-dnd-n7dnjv` em segundos; ler o script (`criar_registro_1_campo.py`) dá o desenho do workflow sem token, já que o MCP não lê workflow.
+- **Lição:** contar campos e oportunidades no início da rodada é a detecção mais barata de mudança feita por outra sessão; `git log --all -S` no nome do campo é a resolução mais barata.

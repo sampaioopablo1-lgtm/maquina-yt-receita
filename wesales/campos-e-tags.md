@@ -513,6 +513,17 @@ fiação do workflow é relato da outra branch, dado, não confirmado nó a nó
 por aqui. Detalhe e "Pronto quando" (cumprido, é reconciliação, não decisão
 pendente) em `ROADMAP-SALES-ENGAGEMENT.md`, **G-32**.
 
+**Um nono campo fora desta lista, este pedido pelo dono e já em uso:**
+`Registro da ligação` — `contact.registro_da_ligao`, id `2iqHW8jbd41AI6fZJr6P`,
+`SINGLE_OPTIONS`, criado em 29/09/2026 11:37Z, grupo de qualificação. Opções
+(lidas por `locations_get-custom-fields`): `Telefone · Atendeu`, `Telefone ·
+Não atendeu`, `Telefone · Caixa postal`, `Telefone · Pediu retorno`, `Telefone ·
+Número errado`, `WhatsApp · Atendeu`, `WhatsApp · Não atendeu`, `WhatsApp ·
+Pediu retorno`, `Não ligar`, `Desqualificado`. Escreve: SDR. Não é órfão nem
+duplicata: é um atalho de digitação que um workflow (relato do commit `5d41401`,
+branch `abertura-operacao-dnd-n7dnjv`) traduz para C-02 e `Canal da tentativa`.
+Detalhe em `ROADMAP-SALES-ENGAGEMENT.md`, **G-44**.
+
 **Continuação em 28/09/2026 (G-38):** o "redesenho do seletor de canal"
 citado acima saiu do desenho e virou régua real — `Canal da tentativa` e
 `Canal que conectou` (ambos citados acima) já alimentam uma distribuição de
