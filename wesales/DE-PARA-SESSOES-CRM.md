@@ -386,3 +386,7 @@ Tentativas até agendar e até qualificar ainda sem dado real (4 agendados e 3 q
 > Oi, {{contact.first_name}}! Aqui é {{user.first_name}}, da O Próximo Cliente. Recebi seu cadastro agora. Quase todo dono de negócio que fala com a gente vive o mesmo aperto: mês bom, mês fraco, porque o cliente novo depende de indicação. Hoje, o que mais trava a entrada de clientes novos aí? Me conta em uma frase que eu já te mostro o caminho.
 
 **Pendente:** o snippet `/WA MI-0` da SDR ainda tem o texto antigo. A API pública lista 0 modelos, então é preciso trocar na tela.
+
+**Snippet `/WA MI-0` consertado.** O registro jLVJufAuBA6K0O9kiEJd estava quebrado desde 27/09 22:09, sem nome e sem texto: a SDR não achava o atalho. Foi regravado pela rota da tela, `PUT services/snippets/{loc}/{id}` com bearer, com o nome "WA MI-0 abertura inbound" e o texto novo, igual ao do workflow MI-0.
+- **Conferido:** a leitura depois do PUT mostra nome e texto. A leitura demora alguns segundos para refletir a gravação.
+- **Ressalva:** ele não entra na pasta "WhatsApp manual — prospecção", porque o `parentId` é ignorado no PUT. Isso não impede de achar pelo `/`.
