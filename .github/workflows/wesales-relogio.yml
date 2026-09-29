@@ -3,7 +3,7 @@ name: WeSales - relogio (filas + governador a cada 30 min)
 # Por que existe (28/09): o agendador do GitHub neste repositorio roda os crons a cada 3-6 h
 # (medido: faxina "*/10" rodou 00:27, 06:29, 15:08), e as filas/governador precisam de 30 min.
 # Este relogio fica ligado: a cada 30 min, seg-sex 08:00-21:00 (Sao Paulo), roda o atuador das
-# filas e o governador do WhatsApp; depois de ~5h30 se relanca (workflow_dispatch pelo proprio
+# filas e o governador do WhatsApp (e o Calendly -> CRM a qualquer hora); depois de ~5h30 se relanca (workflow_dispatch pelo proprio
 # GITHUB_TOKEN e permitido). O cron abaixo so reinicia a corrente se ela cair. Repositorio
 # publico: minutos de Actions gratis.
 on:
@@ -31,12 +31,15 @@ jobs:
       - name: Ciclo de 30 min
         env:
           GHL_PIT: ${{ secrets.GHL_PIT }}
+          CALENDLY_TOKEN: ${{ secrets.CALENDY }}
           GH_TOKEN: ${{ github.token }}
         run: |
           fim=$(( $(date +%s) + 330*60 ))
           while [ "$(date +%s)" -lt "$fim" ]; do
             dow=$(TZ=America/Sao_Paulo date +%u)
             hm=$(TZ=America/Sao_Paulo date +%H%M)
+            # Calendly -> CRM a qualquer hora (lead marca reunião à noite e no fim de semana)
+            [ -n "$CALENDLY_TOKEN" ] && { python wesales/tools/calendly_para_crm.py --aplicar || echo "calendly falhou nesta rodada"; }
             if [ "$dow" -le 5 ] && [ $((10#$hm)) -ge 800 ] && [ $((10#$hm)) -le 2100 ]; then
               echo "==== $(TZ=America/Sao_Paulo date '+%d/%m %H:%M') ===="
               git pull -q origin "${GITHUB_REF_NAME}" || true
