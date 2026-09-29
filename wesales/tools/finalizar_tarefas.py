@@ -11,6 +11,10 @@ ligação feita. Este robô (relógio, a cada ciclo) fecha a tarefa quando a AÇ
         -> ligação de pessoa com 25 s ou mais depois da criação (confirmar exige conversa)
   [COMPLETAR QUALIFICAÇÃO]
         -> Q1 a Q6 preenchidos na ficha
+  [FECHAR HORÁRIO] / [NO-SHOW]
+        -> reunião marcada (não cancelada) DEPOIS da criação da tarefa
+  [RETORNO] Preencher Data e Hora
+        -> Data de retorno e Hora do retorno preenchidas (não fecha com ligação)
   [GRUPO], análises, testes -> nunca (o sistema não enxerga a ação)
 
 Só CONCLUI (nunca apaga). Ligação = mensagem TYPE_CALL de saída com userId (feita por pessoa).
@@ -26,19 +30,27 @@ from collections import Counter
 
 from atuador_filas import LOC, contatos, pedir, valor
 
+import datetime as dt
+
 CONVERSA_S = 25
+BR = dt.timezone(dt.timedelta(hours=-3))
+RETORNO = ["IBOMNQecWtIUruHpNAs1", "IHXNFnguTPyNj5Q59ea2"]   # Data de retorno, Hora do retorno
 Q = ["qmIKSSDVYNLl5E8vnr3f", "wmod0p91VuukwWDwKCgi", "xjEcIFfdt2h29wBaKMQO",
      "SZVgh0Y5HRcWWZG4fO9V", "3dphGCPCoFcYXEQC2jeB", "lAqbaJE9K4LDkq3t2zzc"]
 
 
 def regra(titulo: str):
     t = titulo or ""
+    if t.startswith("[RETORNO] Preencher Data e Hora"):
+        return "retorno"
     if t.startswith("[LIGAR AGORA]") and "Calendly" in t:
         return "conversa"
     if (t.startswith("[CADENCIA]") and "Ligar" in t) or t.startswith("[LIGAR AGORA]") or t.startswith("[RETORNO]"):
         return "ligacao"
     if t.startswith("[COMPLETAR QUALIFICAÇÃO]"):
         return "qualificacao"
+    if t.startswith("[FECHAR HORÁRIO]") or t.startswith("[NO-SHOW]"):
+        return "reuniao"
     return None
 
 
@@ -64,7 +76,23 @@ def decidir(t, c, calls) -> str | None:
         return "conversou %ss" % feitas[0][1] if feitas else None
     if r == "qualificacao":
         return "Q1-Q6 preenchidos" if all(str(valor(c, q) or "").strip() for q in Q) else None
+    if r == "retorno":
+        return "data e hora do retorno preenchidas" if all(str(valor(c, f) or "").strip() for f in RETORNO) else None
+    if r == "reuniao":
+        # reunião marcada DEPOIS da tarefa (a agenda devolve hora local de São Paulo, sem fuso)
+        for ap in reunioes(c["id"]):
+            criada_ap = dt.datetime.strptime(ap["dateAdded"], "%Y-%m-%d %H:%M:%S").replace(tzinfo=BR)
+            if criada_ap > quando(criada) and str(ap.get("appointmentStatus")) not in ("cancelled", "invalid", "noshow"):
+                return "reunião marcada %s" % str(ap.get("startTime", ""))[:16]
     return None
+
+
+def reunioes(cid) -> list:
+    return pedir("GET", "/contacts/%s/appointments" % cid).get("events") or []
+
+
+def quando(s: str) -> dt.datetime:
+    return dt.datetime.fromisoformat(s.replace("Z", "+00:00"))
 
 
 def main() -> int:
