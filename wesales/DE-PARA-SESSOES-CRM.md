@@ -447,3 +447,10 @@ Tentativas até agendar e até qualificar ainda sem dado real (4 agendados e 3 q
   - Então ele liga **pelo WhatsApp**.
   - A seção 📱 do playbook foi reescrita para "Call Center em lote, tag `fila-wa`" (rev 157; entre a 148 e a 157 houve edições de outra sessão).
   - Se confirmado, a ligação normal em lote (Power Dialer nativo) não existe nesta conta ("Fila — Em breve"), e a ligação normal é uma por vez, pelo botão Ligar da ficha.
+
+**Confirmado pelo dono (28/09):** o Call Center liga pelo WhatsApp, não faz ligação normal. Não existe ligação normal em lote: o discador nativo aparece como "Fila — Em breve", e Laboratórios e Números de telefone não têm opção para ligá-lo.
+
+**Playbook (rev 160):**
+- Ligação normal: uma por vez, pela Minha fila → nome do lead → Observações → Ligar (LC Phone) → formulário.
+- Ligação de WhatsApp: em lote, no Call Center com a tag `fila-wa`, pausa ≥ 30 s entre ligações (risco de bloqueio do número não oficial).
+- Trechos corrigidos: destaque ⭐, links rápidos, Tela 3, glossário, rotina do dia (2 turnos), Passo 1, aviso de lead novo e Passo 3 (bloco "Caminho principal").
