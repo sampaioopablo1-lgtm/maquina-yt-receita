@@ -349,3 +349,11 @@ Tentativas até agendar e até qualificar ainda sem dado real (4 agendados e 3 q
 - ligar o ramo "MI-0 · Ainda vale mandar? = sim" direto em "WA · limpar marcas" → envio, apagando os 12 nós do laço;
 - lead novo chega espaçado pelo próprio anúncio, então o MI-0 não precisa do governador;
 - o mesmo laço existe no MIF-v2 (9452af51) e nos outros 6 workflows com a trava.
+
+**Aplicado com o OK do dono (28/09):**
+- Cadência Inbound v25 → v26, publicada.
+- "MI-0 · Ainda vale mandar? = sim" agora vai direto para "WA · limpar marcas" e depois para o envio do MI-0.
+- Foram apagados os 12 nós do laço do governador desse trecho.
+- Backup da v25 no scratchpad da sessão.
+- O laço do MIF-v2 e dos outros 6 workflows segue igual.
+- Os leads que já estavam parados no laço não voltam sozinhos, porque `allowMultiple` é falso.
