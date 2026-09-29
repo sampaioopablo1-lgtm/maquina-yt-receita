@@ -454,3 +454,19 @@ Tentativas até agendar e até qualificar ainda sem dado real (4 agendados e 3 q
 - Ligação normal: uma por vez, pela Minha fila → nome do lead → Observações → Ligar (LC Phone) → formulário.
 - Ligação de WhatsApp: em lote, no Call Center com a tag `fila-wa`, pausa ≥ 30 s entre ligações (risco de bloqueio do número não oficial).
 - Trechos corrigidos: destaque ⭐, links rápidos, Tela 3, glossário, rotina do dia (2 turnos), Passo 1, aviso de lead novo e Passo 3 (bloco "Caminho principal").
+
+## 28/09 noite — workflows revisados depois do achado "Call Center = WhatsApp"
+
+**Auditoria dos 80 workflows** (texto, gatilhos de chamada e contadores):
+- Nenhum texto manda usar o Power Dialer ou o Call Center para ligação normal.
+- **Contadores OK:** "Total de ligações" (base da comissão), "Tentativas telefone/WhatsApp" e "Total de conexões" são somados pelo **Pós-ligação v3** a partir do Resultado + Canal que a SDR marca, em qualquer canal. A ligação pelo Call Center conta, desde que registrada.
+- **Só veem ligação normal (LC Phone), por natureza:**
+  - Trava de canal (call_status completed): a ligação de WhatsApp atendida trava pelo Resultado = Atendeu, já previsto no mesmo workflow;
+  - Retorno de chamada perdida F-27: ligação recebida no número fixo; a ligação de WhatsApp recebida cai no Call Center, com "Receber" desligado;
+  - Qualidade da Conexão (transcrição);
+  - robô `rede_trava`;
+  - META 5 MIN da análise, que usa TYPE_CALL: ligação de WhatsApp não entra; fica como limitação.
+
+| Workflow | Antes | Depois |
+|---|---|---|
+| Cadência Inbound v29, 12x30 v41, 12x30 parte 2 v15 (97 trocas em tarefas [CADENCIA]) | "📞 Ligar pelo telefone (botão de ligar do contato)" · "🟢 Ligar pelo WhatsApp (botão **Ligar via WhatsApp** na conversa)" · "Marque … **Canal que conectou**" | "(Minha fila → nome do lead → botão **Ligar** da ficha)" · "(**Call Center**, tag **fila-wa**, em lote)" · "**Canal da tentativa**". Backups em .local/bkp-copy-27-09/*-antes-textos-callcenter.json |
