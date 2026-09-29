@@ -15,6 +15,9 @@ ligação feita. Este robô (relógio, a cada ciclo) fecha a tarefa quando a AÇ
         -> reunião marcada (não cancelada) DEPOIS da criação da tarefa
   [RETORNO] Preencher Data e Hora
         -> Data de retorno e Hora do retorno preenchidas (não fecha com ligação)
+  [RESPONDER] / [CADENCIA] Sinal: respondeu
+        -> alguém respondeu no WhatsApp (CRM ou celular) ou ligou depois da criação. Aberta há 30+ min
+           no horário (seg-sáb 08-21): tag `resposta-atrasada` -> workflow avisa o Pablo (1 vez).
   [GRUPO], análises, testes -> nunca (o sistema não enxerga a ação)
 
 Só CONCLUI (nunca apaga). Ligação = mensagem TYPE_CALL de saída com userId (feita por pessoa).
@@ -41,11 +44,13 @@ Q = ["qmIKSSDVYNLl5E8vnr3f", "wmod0p91VuukwWDwKCgi", "xjEcIFfdt2h29wBaKMQO",
 
 def regra(titulo: str):
     t = titulo or ""
+    if t.startswith("[RESPONDER]") or t.startswith("[CADENCIA] Sinal: respondeu"):
+        return "resposta"
     if t.startswith("[RETORNO] Preencher Data e Hora"):
         return "retorno"
     if t.startswith("[LIGAR AGORA]") and "Calendly" in t:
         return "conversa"
-    if (t.startswith("[CADENCIA]") and "Ligar" in t) or t.startswith("[LIGAR AGORA]") or t.startswith("[RETORNO]"):
+    if (t.startswith("[CADENCIA]") and "ligar" in t.lower()) or t.startswith("[LIGAR AGORA]") or t.startswith("[RETORNO]"):
         return "ligacao"
     if t.startswith("[COMPLETAR QUALIFICAÇÃO]"):
         return "qualificacao"
@@ -54,20 +59,32 @@ def regra(titulo: str):
     return None
 
 
-def ligacoes(cid) -> list:
-    out = []
+MSG = {"TYPE_CUSTOM_SMS", "TYPE_WHATSAPP", "TYPE_SMS"}
+
+
+def historico(cid):
+    """(ligações de pessoa [(quando, duração)], mensagens de pessoa [quando]).
+    Mensagem de pessoa = saída que não veio de workflow (CRM com userId, ou celular pelo Stevo = "api")."""
+    calls, msgs = [], []
     for cv in pedir("GET", "/conversations/search?locationId=%s&contactId=%s" % (LOC, cid)).get("conversations") or []:
         ms = (pedir("GET", "/conversations/%s/messages?limit=100" % cv["id"]).get("messages") or {}).get("messages") or []
         for m in ms:
-            if m.get("messageType") == "TYPE_CALL" and m.get("direction") == "outbound" and m.get("userId"):
-                out.append((m.get("dateAdded") or "", ((m.get("meta") or {}).get("call") or {}).get("duration") or 0))
-    return out
+            if m.get("direction") != "outbound":
+                continue
+            if m.get("messageType") == "TYPE_CALL" and m.get("userId"):
+                calls.append((m.get("dateAdded") or "", ((m.get("meta") or {}).get("call") or {}).get("duration") or 0))
+            elif m.get("messageType") in MSG and m.get("source") != "workflow" and (m.get("userId") or m.get("source") == "api"):
+                msgs.append(m.get("dateAdded") or "")
+    return calls, msgs
 
 
-def decidir(t, c, calls) -> str | None:
+def decidir(t, c, calls, msgs=()) -> str | None:
     """Pura: motivo para fechar a tarefa, ou None."""
     r = regra(t.get("title"))
     criada = t.get("dateAdded") or ""
+    if r == "resposta":
+        feitas = sorted([x[0] for x in calls if x[0] > criada] + [m for m in msgs if m > criada])
+        return "respondeu/ligou %s" % feitas[0][11:16] if feitas else None
     if r == "ligacao":
         feitas = [x for x in calls if x[0] > criada]
         return "ligou %s" % feitas[0][0][11:16] if feitas else None
@@ -87,6 +104,16 @@ def decidir(t, c, calls) -> str | None:
     return None
 
 
+def atrasada(t, tags, agora) -> bool:
+    """Pura: tarefa de resposta aberta há 30+ min, no horário (seg-sáb 08-21, São Paulo), sem aviso ainda."""
+    if regra(t.get("title")) != "resposta" or tags & {"resposta-atrasada", "resposta-atrasada-avisada"}:
+        return False
+    local = agora.astimezone(BR)
+    if local.weekday() == 6 or not 8 <= local.hour < 21:
+        return False
+    return agora - quando(t.get("dateAdded") or agora.isoformat()) >= dt.timedelta(minutes=30)
+
+
 def reunioes(cid) -> list:
     return pedir("GET", "/contacts/%s/appointments" % cid).get("events") or []
 
@@ -97,17 +124,27 @@ def quando(s: str) -> dt.datetime:
 
 def main() -> int:
     aplicar = "--aplicar" in sys.argv
+    agora = dt.datetime.now(dt.timezone.utc)
     cont = Counter()
     for c in contatos():
         tarefas = [t for t in (pedir("GET", "/contacts/%s/tasks" % c["id"]).get("tasks") or [])
                    if not t.get("completed") and regra(t.get("title"))]
         if not tarefas:
             continue
-        calls = ligacoes(c["id"]) if any(regra(t["title"]) != "qualificacao" for t in tarefas) else []
+        calls, msgs = historico(c["id"]) if any(regra(t["title"]) != "qualificacao" for t in tarefas) else ([], [])
+        tags = set(c.get("tags") or [])
         for t in tarefas:
-            motivo = decidir(t, c, calls)
+            motivo = decidir(t, c, calls, msgs)
             if not motivo:
+                if atrasada(t, tags, agora):
+                    cont["avisar atraso"] += 1
+                    print("  %-22s %-55s <- ATRASADA, avisar o Pablo" % ((c.get("firstNameLowerCase") or "?")[:22], t["title"][:55]))
+                    if aplicar:
+                        pedir("POST", "/contacts/%s/tags" % c["id"], {"tags": ["resposta-atrasada"]})
+                    tags.add("resposta-atrasada")
                 continue
+            if regra(t["title"]) == "resposta" and "resposta-atrasada-avisada" in tags and aplicar:
+                pedir("DELETE", "/contacts/%s/tags" % c["id"], {"tags": ["resposta-atrasada-avisada"]})
             cont[regra(t["title"])] += 1
             print("  %-22s %-55s <- %s" % ((c.get("firstNameLowerCase") or "?")[:22], t["title"][:55], motivo))
             if aplicar:
