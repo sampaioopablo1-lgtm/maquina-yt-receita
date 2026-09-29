@@ -44,6 +44,8 @@ jobs:
             python wesales/tools/preencher_qualificacao.py --aplicar || echo "qualificação do anúncio falhou nesta rodada"
             # Tarefa feita = tarefa fechada (ligação feita, conversa do Calendly, Q1-Q6 preenchidos), a qualquer hora
             python wesales/tools/finalizar_tarefas.py --aplicar || echo "finalizar tarefas falhou nesta rodada"
+            # Link "formulário + agenda" de cada lead (coluna da Minha fila)
+            python wesales/tools/link_formulario.py --aplicar || echo "link do formulário falhou nesta rodada"
             if [ "$dow" -le 5 ] && [ $((10#$hm)) -ge 800 ] && [ $((10#$hm)) -le 2100 ]; then
               echo "==== $(TZ=America/Sao_Paulo date '+%d/%m %H:%M') ===="
               git pull -q origin "${GITHUB_REF_NAME}" || true
