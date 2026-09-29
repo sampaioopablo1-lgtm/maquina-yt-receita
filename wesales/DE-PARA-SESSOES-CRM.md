@@ -408,3 +408,19 @@ Tentativas até agendar e até qualificar ainda sem dado real (4 agendados e 3 q
 | Playbook (rev 142) | seção "Qualificar e agendar na mesma página" + formulário | "Qualificar e agendar na ficha do lead", tabela da ficha, 15 trechos e o texto do MI-0 atualizados | sim |
 
 **Fora:** o formulário ww2ruVG5 continua existindo, mas sem nenhum link apontando para ele. Não foi encurtado: o formulário não é editável pela API.
+
+## 28/09 noite — roteiro dentro da ficha
+
+**Achado:** o roteiro do discador nativo (call script 6ab9fa95) não aparece para a SDR.
+- A aba "Fila" (Power Dialer) do discador do CRM mostra "Em breve…": o recurso não está liberado nesta conta.
+- A discagem em sequência é feita pelo **Call Center do WeSales** (Fila de ligações → Tag), que não tem painel de roteiro.
+- O call script fica criado, mas sem uso.
+
+**Solução aplicada:** nota amarela **"📋 ROTEIRO DA LIGAÇÃO"** na ficha de cada lead (Observações).
+- Traz as respostas do anúncio (desafio, quando quer resolver, quanto toparia investir) e os 5 passos: abertura, dor, Q1–Q6, agendar pelo calendário, travar.
+- **Lead novo:** nó `add_notes` no "Promover NOVO LEAD para CONECTAR" (v6), com merge fields.
+- **Leads já na fila** (`fila-tel`, `fila-quente`, `fila-wa`): 44 notas criadas pela API, já renderizadas; contatos de teste e quem já tinha a nota ficaram de fora.
+- **Conferido na tela da Suzana:** a nota aparece formatada; na mesma tela ficam Ligar, Canal/Resultado/Q1–Q6 e o calendário.
+- **Guia:** `wesales/imagens/como_ligar_ficha.png` (também na Área de Trabalho do dono).
+
+**Playbook (rev 145):** o caminho normal passa a ser Minha fila → nome do lead → ficha. O Call Center fica para bloco em sequência pela `fila-tel`; quando o lead atende, a SDR abre a ficha pelo Ctrl+K.
