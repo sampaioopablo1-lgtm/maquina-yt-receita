@@ -315,6 +315,41 @@ def dono_por_turno(cs, etapas, aplicar):
     print("  turnos: %d lead(s) novo(s) passado(s) para SDR em turno" % len(novos))
 
 
+def closer_para_sdr(cs, etapas, aplicar):
+    """Lead em CONECTAR no nome do closer volta para a SDR (dono, 28/09: "oportunidades, leads,
+    contatos no nome de Pablo, mude para a SDR"). Mensagem de WhatsApp recebida atribui a
+    conversa ao closer (visto em 28/09: Samuel e Viviane voltaram para o Pablo depois de
+    escrever). Reunião, negociação e formalização continuam com o closer (outras etapas).
+    Vai para a SDR em turno; fora do turno, para a primeira SDR cadastrada."""
+    import datetime as dt
+    try:
+        from turnos import em_turno, ids
+    except Exception as e:
+        print("  closer->SDR: equipe.json indisponível (%s)" % e)
+        return
+    closers, sdrs = set(ids("closers")), ids("sdrs")
+    if not sdrs:
+        return
+    agora = em_turno(dt.datetime.now(dt.timezone.utc)) or sdrs
+    n = 0
+    for c in cs:
+        if etapas.get(c["id"]) != CONECTAR or c.get("assignedTo") not in closers:
+            continue
+        if TESTE.search(c.get("contactName") or ""):
+            continue
+        para, de = agora[n % len(agora)], c["assignedTo"]
+        n += 1
+        print("  closer->SDR: %s %s  %s -> %s%s" % (c["id"], c.get("contactName") or "?", de, para,
+                                                   "" if aplicar else " (DRY)"))
+        if not aplicar:
+            continue
+        pedir("PUT", "/contacts/%s" % c["id"], {"assignedTo": para})
+        for t in (pedir("GET", "/contacts/%s/tasks" % c["id"]).get("tasks") or []):
+            if not t.get("completed") and t.get("assignedTo") == de:
+                pedir("PUT", "/contacts/%s/tasks/%s" % (c["id"], t["id"]), {"assignedTo": para})
+    print("  closer->SDR: %d lead(s) de CONECTAR devolvido(s) à SDR" % n)
+
+
 def filas_por_sdr(cs, aplicar):
     """Duas SDRs no mesmo horário não podem puxar a mesma `fila-tel` (ligariam para os mesmos
     leads). Com 2+ SDRs com usuário em equipe.json, mantém para cada uma a tag `tag_fila` =
@@ -551,6 +586,7 @@ def main() -> int:
     entrada_gradual(cs, etapas, aplicar)
     rede_orfaos(cs, etapas, aplicar)
     dono_por_turno(cs, etapas, aplicar)
+    closer_para_sdr(cs, etapas, aplicar)
     filas_por_sdr(cs, aplicar)
     d_sdr, d_clo, a_sdr, a_clo, excl = decidir(cs, etapas)
     nome = {c["id"]: (c.get("contactName") or "?") for c in cs}
