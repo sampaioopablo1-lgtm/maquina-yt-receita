@@ -12,6 +12,8 @@ partir de agora e ainda não está no CRM:
      Calendly — confirmar a reunião" para a SDR (confirmar e completar Q1–Q6 antes da reunião).
 
 Duplicidade: o título da reunião no CRM leva `calendly:<uuid do evento>`; se já existe, pula.
+Cancelou ou remarcou no Calendly (remarcar = cancela o antigo e cria outro): a reunião antiga é
+cancelada no CRM, para os lembretes não saírem para um horário morto; a nova entra pelo passo 2.
 Só lê o Calendly (API v2, token pessoal em CALENDLY_TOKEN). Nunca cancela nem altera evento lá.
 
     CALENDLY_TOKEN=... GHL_PIT=... python calendly_para_crm.py            # DRY: só mostra
@@ -50,11 +52,11 @@ def calendly(caminho: str):
         sys.exit("Calendly %s -> HTTP %s %s" % (url.split("?")[0], e.code, e.read()[:300].decode("utf-8", "replace")))
 
 
-def eventos_futuros():
+def eventos_futuros(status="active"):
     eu = calendly("/users/me")["resource"]
     agora = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-    url = "/scheduled_events?user=%s&status=active&min_start_time=%s&sort=start_time:asc&count=100" % (
-        urllib.request.quote(eu["uri"], safe=""), agora)
+    url = "/scheduled_events?user=%s&status=%s&min_start_time=%s&sort=start_time:asc&count=100" % (
+        urllib.request.quote(eu["uri"], safe=""), status, agora)
     out = []
     while url:
         r = calendly(url)
@@ -80,11 +82,25 @@ def convidado(ev):
             "respostas": [(qa.get("question"), qa.get("answer")) for qa in inv.get("questions_and_answers") or []]}
 
 
-def ja_no_crm(uuid, inicio):
+def no_crm(uuid, inicio):
     t0 = int((inicio - dt.timedelta(hours=1)).timestamp() * 1000)
     t1 = int((inicio + dt.timedelta(hours=1)).timestamp() * 1000)
     st, r = ghl("GET", "/calendars/events?locationId=%s&calendarId=%s&startTime=%d&endTime=%d" % (LOC, CAL_CLOSER, t0, t1))
-    return any(uuid in (e.get("title") or "") for e in r.get("events", []))
+    return [e for e in r.get("events", []) if uuid in (e.get("title") or "")]
+
+
+def cancelar_no_crm(aplicar):
+    for ev in eventos_futuros("canceled"):
+        uuid = ev["uri"].rsplit("/", 1)[-1]
+        inicio = dt.datetime.fromisoformat(ev["start_time"].replace("Z", "+00:00"))
+        for e in no_crm(uuid, inicio):
+            if (e.get("appointmentStatus") or "").lower() == "cancelled":
+                continue
+            quando = inicio.astimezone(dt.timezone(dt.timedelta(hours=-3))).strftime("%d/%m %H:%M")
+            print("  - cancelada no Calendly: %s · %s%s" % (e.get("title"), quando, "" if aplicar else " (DRY)"))
+            if aplicar:
+                st, _ = ghl("PUT", "/calendars/events/appointments/%s" % e["id"], {"appointmentStatus": "cancelled"})
+                print("    agenda do CRM: cancelada, HTTP %s" % st)
 
 
 def achar_ou_criar(p, aplicar):
@@ -113,7 +129,7 @@ def main() -> int:
         uuid = ev["uri"].rsplit("/", 1)[-1]
         inicio = dt.datetime.fromisoformat(ev["start_time"].replace("Z", "+00:00"))
         fim = dt.datetime.fromisoformat(ev["end_time"].replace("Z", "+00:00"))
-        if ja_no_crm(uuid, inicio):
+        if no_crm(uuid, inicio):
             continue
         p = convidado(ev)
         if not p:
@@ -140,6 +156,7 @@ def main() -> int:
                      "confirme a presença e complete Q1–Q6 na ficha. Respostas do Calendly: %s" % (quando, resp or "—")),
             "dueDate": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
             "completed": False, "assignedTo": SDR})
+    cancelar_no_crm(aplicar)
     return 0
 
 
