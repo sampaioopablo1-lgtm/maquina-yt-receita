@@ -470,3 +470,17 @@ Tentativas até agendar e até qualificar ainda sem dado real (4 agendados e 3 q
 | Workflow | Antes | Depois |
 |---|---|---|
 | Cadência Inbound v29, 12x30 v41, 12x30 parte 2 v15 (97 trocas em tarefas [CADENCIA]) | "📞 Ligar pelo telefone (botão de ligar do contato)" · "🟢 Ligar pelo WhatsApp (botão **Ligar via WhatsApp** na conversa)" · "Marque … **Canal que conectou**" | "(Minha fila → nome do lead → botão **Ligar** da ficha)" · "(**Call Center**, tag **fila-wa**, em lote)" · "**Canal da tentativa**". Backups em .local/bkp-copy-27-09/*-antes-textos-callcenter.json |
+
+## 28/09 noite — Laboratórios e fotos do procedimento
+
+**Laboratórios** (autorizado pelo dono):
+- Ligados: **Global Search V2**, **Smart List Preferences** e **Contact-Conversation Overlay**. O controle é o interruptor do cartão; o texto "Ativar agora – Ativo em X dias" é só o prazo de liberação geral.
+- Conferido o estado de todos os interruptores depois. Outros já estavam ligados antes desta sessão: Company por domínio, Events, novos tipos de campo, campos condicionais da oportunidade, Pinterest, Email AI e outros. Não foram mexidos.
+
+**Playbook (rev 161):** imagens-guia numeradas, com setas, na seção ⭐:
+- `guia_ligacao_normal.png`: Minha fila → nome → Ligar → Observações → formulário → Canal/Resultado → Q1–Q6 → Enviar;
+- `guia_ligacao_whatsapp.png`: Call Center → Fila de ligações → Tag `fila-wa` → Puxar → pausa 30 s → Iniciar → Ctrl+K → contato → Observações → formulário → Canal/Resultado → Q1–Q6 → Enviar.
+
+Nomes, telefones e e-mails borrados. Gerador em `tools/guia_imagens_playbook.py`; cópias em `wesales/imagens/`.
+
+**Achado:** a nota "Alerta De Saúde" do vigia saiu com "[object Object]" no texto (ficha da Suzana, 28/09 23:02). Corrigir o vigia.
