@@ -357,3 +357,13 @@ Tentativas até agendar e até qualificar ainda sem dado real (4 agendados e 3 q
 - Backup da v25 no scratchpad da sessão.
 - O laço do MIF-v2 e dos outros 6 workflows segue igual.
 - Os leads que já estavam parados no laço não voltam sozinhos, porque `allowMultiple` é falso.
+
+## 28/09 noite — meta de 5 min para lead novo
+
+| O quê | Antes | Depois | Conferido |
+|---|---|---|---|
+| Cadência Inbound | espera de 5 min antes da tarefa da 1ª ligação (TI1) | espera removida: a tarefa TI1 nasce junto com o MI-0 (v26 → v27) | sim, publicada |
+| Notificações da Andreyna e do Pablo | "tarefa atribuída a mim" e "conversa atribuída a mim" desligadas | ligadas no aplicativo (POST /notifications/preferences) | sim, relidas |
+| Som | — | o CRM não tem opção de som. O som vem da notificação push do Chrome ou do app LeadConnector; cada usuária ativa no próprio aparelho (passo a passo no playbook) | — |
+| analises_semanais.py | faixas de velocidade | + linha "META 5 MIN": lead que chegou com SDR em turno, 30 dias; sem ligação conta como fora (PR #121). Linha de base: 0 de 10 | sim, rodado |
+| Playbook | "Lead novo no meio de um bloco" | "Lead novo: ligar em até 5 minutos": o que o sistema faz, os 4 passos com o discador, como ligar o som | sim, rev 139 |
