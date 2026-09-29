@@ -20,3 +20,6 @@ fontes/
 fotos/
 producao/bofu/
 node_modules/
+
+# dados locais e segredos (tokens, log de eventos do CRM)
+**/.local/

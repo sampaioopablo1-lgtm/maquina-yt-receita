@@ -369,3 +369,46 @@ A consulta:
 Um detalhe que economiza doze refreshes: `videos.list` e `channels.list` com
 `part=statistics` leem dado PUBLICO. **Um token de qualquer canal da frota le
 os treze.** So `mine=true` e as escritas exigem o token do dono.
+
+## B-roll do Pexels: a busca sai do runner, o download fica
+
+O `broll.py` sempre funcionou — o agla-level-004 saiu com footage e credito. O
+que nao funciona e chamar a API de dentro do runner do GitHub: sete de sete
+cenas do epomeno-epipedo-004 morreram em `TimeoutError`, e o kolejny-005 e o
+kolejny-006 registraram "SEM BROLL: o Pexels da TimeoutError a partir do
+runner". Medido em 07/09/2026, a MESMA chave responde do sandbox com HTTP 200 e
+TLS em 68 ms.
+
+Isso e bloqueio contra a faixa de IP do runner, nao lentidao. **Retry nao vence
+bloqueio**: as tres tentativas do `buscar()` so gastam 90 s por cena antes de
+cair no fallback — um longo com oito cenas de broll perde doze minutos de render
+para nao trazer footage nenhum.
+
+A saida e que sao **dois hosts diferentes**: `api.pexels.com` e a API
+autenticada (com chave e cota) e `videos.pexels.com` e o CDN dos arquivos. So a
+API mostrou o bloqueio. Entao:
+
+    # 1. ONDE A API RESPONDE (sandbox), resolve o link de cada cena
+    SB=... KEY=... python3 fabrica/prebusca_broll.py \
+        fabrica/specs/<pacote>.json --conferir   # so testa, nao grava
+    SB=... KEY=... python3 fabrica/prebusca_broll.py \
+        fabrica/specs/<pacote>.json              # grava broll_url na spec
+
+    # 2. commit da spec, e o render segue normal
+    git add fabrica/specs/<pacote>.json && git commit && git push
+
+O `--conferir` faz um GET com `Range: bytes=0-1023` no CDN antes de gravar: se
+o CDN tambem estiver bloqueado, voce descobre em segundos em vez de descobrir
+depois de vinte minutos de render.
+
+No `garantir()`, `broll_url` curto-circuita a busca e o render so baixa. Sem
+`broll_url` nada muda — cai no caminho de sempre, que volta a valer sozinho no
+dia em que o runner destravar.
+
+**De graca, a spec vira reproduzivel.** Hoje dois renders da mesma spec podem
+pegar clipes diferentes, porque a busca e refeita e o Pexels reordena. Com o
+link gravado, o pacote rende igual amanha — e o credito em
+`broll_creditos.json` passa a ser previsivel.
+
+O que continua valendo: broll e ENFEITE. Falha aqui nunca para o render, a cena
+cai no lower-third sobre preto, e o motivo vai para o log cena por cena.
