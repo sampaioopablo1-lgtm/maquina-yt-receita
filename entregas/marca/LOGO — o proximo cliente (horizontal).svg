@@ -2,9 +2,10 @@
   <title>O Próximo Cliente — logo horizontal</title>
   <rect width="1257" height="520" fill="#FAF8F5"/>
   <rect x="70" y="90" width="340" height="340" rx="74" fill="#0F2137"/>
-  <circle cx="240" cy="260" r="112" fill="none" stroke="#FAF8F5" stroke-width="17.4"/>
-  <circle cx="240" cy="260" r="72" fill="none" stroke="#E8A33D" stroke-width="17.4"/>
-  <circle cx="240" cy="260" r="30.7" fill="#FAF8F5"/>
+  <rect x="151.0" y="220.2" width="30.5" height="79.7" rx="15.3" fill="#FAF8F5"/>
+  <rect x="200.2" y="205.5" width="30.5" height="108.9" rx="15.3" fill="#FAF8F5"/>
+  <rect x="249.3" y="190.9" width="30.5" height="138.1" rx="15.3" fill="#FAF8F5"/>
+  <rect x="298.4" y="171.0" width="30.5" height="178.0" rx="15.3" fill="#E8A33D"/>
   <g font-family="Montserrat, Poppins, 'Helvetica Neue', Arial, sans-serif">
     <text x="480" y="248" font-size="96" font-weight="700" letter-spacing="10" fill="#0F2137">O PRÓXIMO</text>
     <text x="480" y="378" font-size="96" font-weight="300" letter-spacing="30" fill="#3A4C61">CLIENTE</text>
