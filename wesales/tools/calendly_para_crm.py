@@ -14,6 +14,9 @@ partir de agora e ainda não está no CRM:
 Duplicidade: o título da reunião no CRM leva `calendly:<uuid do evento>`; se já existe, pula.
 Cancelou ou remarcou no Calendly (remarcar = cancela o antigo e cria outro): a reunião antiga é
 cancelada no CRM, para os lembretes não saírem para um horário morto; a nova entra pelo passo 2.
+Mesmo link: o Calendly e o CRM estão na mesma agenda do Google e cada um gera o seu Meet. A reunião
+no CRM leva o link do Calendly (o do convite que o lead recebeu), para os lembretes apontarem para
+a mesma sala; as já gravadas com outro link são corrigidas a cada rodada.
 Só lê o Calendly (API v2, token pessoal em CALENDLY_TOKEN). Nunca cancela nem altera evento lá.
 
     CALENDLY_TOKEN=... GHL_PIT=... python calendly_para_crm.py            # DRY: só mostra
@@ -89,6 +92,11 @@ def no_crm(uuid, inicio):
     return [e for e in r.get("events", []) if uuid in (e.get("title") or "")]
 
 
+def link_calendly(ev):
+    loc = ev.get("location") or {}
+    return loc.get("join_url") or (loc.get("location") if str(loc.get("location") or "").startswith("http") else "")
+
+
 def cancelar_no_crm(aplicar):
     for ev in eventos_futuros("canceled"):
         uuid = ev["uri"].rsplit("/", 1)[-1]
@@ -129,7 +137,17 @@ def main() -> int:
         uuid = ev["uri"].rsplit("/", 1)[-1]
         inicio = dt.datetime.fromisoformat(ev["start_time"].replace("Z", "+00:00"))
         fim = dt.datetime.fromisoformat(ev["end_time"].replace("Z", "+00:00"))
-        if no_crm(uuid, inicio):
+        link = link_calendly(ev)
+        ja = no_crm(uuid, inicio)
+        for e in ja:
+            st, d = ghl("GET", "/calendars/events/appointments/%s" % e["id"])
+            atual = ((d.get("appointment") or d) if isinstance(d, dict) else {}).get("address") or ""
+            if link and atual != link:
+                print("  ~ link: %s · CRM %s -> Calendly %s%s" % (e.get("title"), atual or "(vazio)", link, "" if aplicar else " (DRY)"))
+                if aplicar:
+                    st, _ = ghl("PUT", "/calendars/events/appointments/%s" % e["id"], {"address": link})
+                    print("    agenda do CRM: link trocado, HTTP %s" % st)
+        if ja:
             continue
         p = convidado(ev)
         if not p:
@@ -146,7 +164,7 @@ def main() -> int:
             "calendarId": CAL_CLOSER, "locationId": LOC, "contactId": cid, "assignedUserId": CLOSER,
             "startTime": inicio.isoformat(), "endTime": fim.isoformat(),
             "title": "%s · Calendly (calendly:%s)" % (p["nome"] or "Reunião", uuid),
-            "appointmentStatus": "confirmed", "ignoreDateRange": True, "ignoreFreeSlotValidation": True,
+            "appointmentStatus": "confirmed", "ignoreDateRange": True, **({"meetingLocationType": "custom", "address": link} if link else {}), "ignoreFreeSlotValidation": True,
             "toNotify": False})
         print("    agenda do CRM: HTTP %s" % st)
         resp = "; ".join("%s: %s" % (q, a) for q, a in p["respostas"] if a)[:800]
