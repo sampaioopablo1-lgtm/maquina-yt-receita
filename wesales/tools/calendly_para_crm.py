@@ -24,6 +24,7 @@ import json
 import os
 import re
 import sys
+import urllib.error
 import urllib.request
 
 from campos_bant import ghl, LOC
@@ -40,9 +41,13 @@ def calendly(caminho: str):
     if not tok:
         sys.exit("sem CALENDLY_TOKEN no ambiente")
     url = caminho if caminho.startswith("http") else API + caminho
-    req = urllib.request.Request(url, headers={"Authorization": "Bearer " + tok, "Content-Type": "application/json"})
-    with urllib.request.urlopen(req, timeout=60) as r:
-        return json.loads(r.read())
+    req = urllib.request.Request(url, headers={"Authorization": "Bearer " + tok.strip(), "Content-Type": "application/json",
+                                               "Accept": "application/json", "User-Agent": "wesales-crm/1.0 (+github actions)"})
+    try:
+        with urllib.request.urlopen(req, timeout=60) as r:
+            return json.loads(r.read())
+    except urllib.error.HTTPError as e:
+        sys.exit("Calendly %s -> HTTP %s %s" % (url.split("?")[0], e.code, e.read()[:300].decode("utf-8", "replace")))
 
 
 def eventos_futuros():
