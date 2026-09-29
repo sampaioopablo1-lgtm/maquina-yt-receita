@@ -395,6 +395,36 @@ def ritmo_sem_cadencia(cs, etapas, aplicar):
     print("  sem cadência: %d lead(s) com toque hoje%s" % (n, "" if aplicar else " (DRY)"))
 
 
+# ---- fila-tel completa (dono, 28/09): o Call Center disca por UMA tag. A `fila-tel` passa a
+# cobrir também o que a "Minha fila — SDR" mostra por outras tags — lead quente, fechar horário
+# e retorno vencido —, para o bloco de discagem levar a lista inteira. Trava: só quem não
+# recebeu ligação nas últimas 2 h (o Pós-ligação tira a tag quando a SDR registra o Resultado).
+EXTRA_TEL = {"fila-quente", "fechar-horario", "retorno-vencido"}
+BLOQ_TEL = {"fila-tel", TAG_WA, "nao-perturbe", TAG_FALOU, "status-perdido", "telefone-invalido",
+            "wa-feito-hoje"}
+HORAS_TEL = 2
+
+
+def fila_tel_completa(cs, etapas, aplicar):
+    n = 0
+    for c in cs:
+        tags = set(c.get("tags") or [])
+        if not (tags & EXTRA_TEL) or (tags & BLOQ_TEL) or c["id"] in MOVIDOS_WA:
+            continue
+        if etapas.get(c["id"]) != CONECTAR or not c.get("phone") or c.get("dnd"):
+            continue
+        if TESTE.search(c.get("contactName") or ""):
+            continue
+        h = ultima_ligacao_horas(c["id"])
+        if h is not None and h < HORAS_TEL:
+            continue
+        n += 1
+        print("     + fila-tel  %s  %s  (%s)" % (c["id"], c.get("contactName") or "?", ", ".join(sorted(tags & EXTRA_TEL))))
+        if aplicar:
+            pedir("POST", "/contacts/%s/tags" % c["id"], {"tags": ["fila-tel"]})
+    print("  fila-tel completa: %d lead(s) entraram%s" % (n, "" if aplicar else " (DRY)"))
+
+
 # ---- Distribuição de canais (dono, 28/09): 50% ligação, 40% ligação de WhatsApp, 10% mensagem.
 # As 12 ligações da cadência: telefone nos toques 1,3,5,7,9,11,12; WhatsApp nos 2,4,6,8,10.
 # O toque é contado pelas tentativas já registradas (telefone + WhatsApp) + 1. Os leads antigos
@@ -440,6 +470,11 @@ def entrada_gradual(cs, etapas, aplicar):
     seg-sex 09:00-18:00, para a 1ª mensagem nunca sair em bloco (o governador ainda limita e
     espaça os envios). Ao entrar, perdem `sem-cadencia` (a cadência assume o ritmo)."""
     import datetime as dt
+    # 28/09 15h: PAUSADA. Leads que entraram na Cadência Inbound por aqui não receberam mensagem
+    # nem tarefa (investigando). Ao entrar, perdiam `sem-cadencia` e o ritmo diário de ligação.
+    # Religar só depois de confirmar a Cadência Inbound processando o lead de ponta a ponta.
+    print("  entrada gradual: PAUSADA (Cadência Inbound em diagnóstico)")
+    return
     agora = dt.datetime.now(dt.timezone(dt.timedelta(hours=-3)))
     if agora.weekday() >= 5 or not (9 <= agora.hour < 18):
         print("  entrada gradual: fora da janela (seg-sex 09-18)")
@@ -511,6 +546,7 @@ def main() -> int:
 
     rede_trava(cs, etapas, aplicar)
     ritmo_sem_cadencia(cs, etapas, aplicar)
+    fila_tel_completa(cs, etapas, aplicar)
     distribuir_canal(cs, etapas, aplicar)
     entrada_gradual(cs, etapas, aplicar)
     rede_orfaos(cs, etapas, aplicar)
