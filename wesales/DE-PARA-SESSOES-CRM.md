@@ -390,3 +390,21 @@ Tentativas até agendar e até qualificar ainda sem dado real (4 agendados e 3 q
 **Snippet `/WA MI-0` consertado.** O registro jLVJufAuBA6K0O9kiEJd estava quebrado desde 27/09 22:09, sem nome e sem texto: a SDR não achava o atalho. Foi regravado pela rota da tela, `PUT services/snippets/{loc}/{id}` com bearer, com o nome "WA MI-0 abertura inbound" e o texto novo, igual ao do workflow MI-0.
 - **Conferido:** a leitura depois do PUT mostra nome e texto. A leitura demora alguns segundos para refletir a gravação.
 - **Ressalva:** ele não entra na pasta "WhatsApp manual — prospecção", porque o `parentId` é ignorado no PUT. Isso não impede de achar pelo `/`.
+
+## 28/09 noite — a ficha substitui o formulário de qualificação
+
+**Diagnóstico** (teste com a Suzana):
+- O formulário ww2ruVG5 só preenche quando aberto pelo link do lead. Digitar o telefone não busca nada, porque o formulário do GHL não tem essa função.
+- Pelo link, 18 dos 24 campos vieram vazios.
+- São 24 campos, 6 seções e 13 listas: confuso para usar durante a ligação.
+
+| O quê | Antes | Depois | Conferido |
+|---|---|---|---|
+| Ficha (campos_bant.py --aplicar) | BANT espalhado em posições 50–500 | **Q1 Dor principal · Q2 Clientes novos/mês · Q3 Quem atende os leads · Q4 Budget (tem verba?) · Q5 Decisor · Q6 Prazo**, posições 30–35, logo abaixo de Canal/Resultado. "Investimento mensal (anúncio)" → "Quanto toparia investir por mês (anúncio)", que é o que a pergunta do Meta pergunta. "Necessidade (anúncio)" → "(anúncio antigo v1/v2)", pos 290 | CONVERGIU; os fieldKeys não mudam, então os merge fields seguem |
+| Roteiro do Power Dialer | botão "Abrir ficha e agendar" → formulário | botão **"👤 Abrir a ficha de [nome]"** → /contacts/detail/{{contact.id}}; bloco "Já respondeu no anúncio"; passo 3 = Q1–Q6; passo 4 = ícone de calendário, agenda "Agendamento pela SDR" | renderizado para a Suzana: link com o id certo |
+| Tarefas | Fechar Horário (FH2, FH3) e Pós-ligação v3 apontavam para o formulário | "👉 Abrir a ficha do lead"; os passos passam a ser Q1–Q6 + calendário. Fechar Horário v17, Pós-ligação v10; backup em .local/bkp-copy-27-09 | 0 links de formulário restantes |
+| Checagem | — | workflow **"Qualificação incompleta na reunião"** (83f3cbee): reunião marcada em qualquer das 2 agendas → espera 10 min → se faltar qualquer Q1–Q6 (OU), tarefa [COMPLETAR QUALIFICAÇÃO] para a Andreyna. allowMultiple, sem janela | publicado, 2 gatilhos ativos |
+| Mapeamento do Meta | pendência "5 de 9" | os formulários ativos (v3 e v3-copy) têm 3 perguntas + nome/telefone/e-mail, **todas mapeadas**: desafio → Dor principal, quando resolver → Urgência, quanto toparia investir → campo renomeado acima. A pendência antiga estava desatualizada | lido em /integrations/facebook/{loc}/{page}/forms |
+| Playbook (rev 142) | seção "Qualificar e agendar na mesma página" + formulário | "Qualificar e agendar na ficha do lead", tabela da ficha, 15 trechos e o texto do MI-0 atualizados | sim |
+
+**Fora:** o formulário ww2ruVG5 continua existindo, mas sem nenhum link apontando para ele. Não foi encurtado: o formulário não é editável pela API.

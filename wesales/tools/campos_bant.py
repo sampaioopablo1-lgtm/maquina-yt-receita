@@ -43,7 +43,8 @@ SONDA = "zz-sonda-bant"
 SDR_TEXTO_ANTIGO = "LoSi8PQCbBRjmkMC8CH8"   # `SDR responsavel` TEXT, criado 27/09 16:53, vazio
 NOME_SDR = "SDR responsável"
 
-# (id, nome novo, posicao). Prefixo = grupo BANT; "(anúncio)" = veio do formulario
+# (id, nome novo, posicao). 28/09 (dono): Q1-Q6 = as 6 perguntas da ligação, no topo da
+# ficha logo abaixo de Canal/Resultado — a ficha substitui o formulário externo. Prefixo = grupo BANT; "(anúncio)" = veio do formulario
 # do Meta, o SDR confirma e nao pergunta. Posicao manda na ordem da ficha.
 BANT = [
     # identidade
@@ -52,10 +53,10 @@ BANT = [
     ("2tLo2m4KLTcP6fTEq3LG", "Instagram", 120),
     ("f1jNltRYjcrgKUZlxo8z", "Site", 130),
     # N
-    ("OJQEsl5dV37pfVY2sIaB", "N · Necessidade (anúncio)", 50),
-    ("qmIKSSDVYNLl5E8vnr3f", "N · Dor principal", 210),
-    ("wmod0p91VuukwWDwKCgi", "N · Clientes novos por mês", 220),
-    ("xjEcIFfdt2h29wBaKMQO", "N · Quem atende os leads", 230),
+    ("OJQEsl5dV37pfVY2sIaB", "N · Necessidade (anúncio antigo v1/v2)", 290),
+    ("qmIKSSDVYNLl5E8vnr3f", "Q1 · Dor principal", 30),
+    ("wmod0p91VuukwWDwKCgi", "Q2 · Clientes novos por mês", 31),
+    ("xjEcIFfdt2h29wBaKMQO", "Q3 · Quem atende os leads", 32),
     ("sJY6q3X7deZ5yGbjiORT", "N · Tem time comercial", 240),
     ("qxJhMydTz6DcM4td4F08", "N · Canal principal de venda", 250),
     ("dYKivcXqdw4MToQLwoA9", "N · Usa CRM", 260),
@@ -63,14 +64,14 @@ BANT = [
     ("QyEDg0qFlQ3gra5qZsJF", "N · Experiência com agência", 280),
     # T
     ("2LnUD4KYSGkIBwiUdzl3", "T · Urgência (anúncio)", 52),
-    ("lAqbaJE9K4LDkq3t2zzc", "T · Prazo", 58),
+    ("lAqbaJE9K4LDkq3t2zzc", "Q6 · Prazo", 35),
     # B
-    ("bQithNwReQIBGlZBaNlI", "B · Investimento mensal em anúncios (anúncio)", 54),
+    ("bQithNwReQIBGlZBaNlI", "B · Quanto toparia investir por mês (anúncio)", 54),
     ("x5JUx0YCWaZmH3Q85psI", "B · Investe em anúncios", 56),
     ("f5bd9nBObV1cGgejAzdv", "B · Plataformas de anúncio", 420),
-    ("SZVgh0Y5HRcWWZG4fO9V", "B · Budget", 430),
+    ("SZVgh0Y5HRcWWZG4fO9V", "Q4 · Budget (tem verba?)", 33),
     # A
-    ("3dphGCPCoFcYXEQC2jeB", "A · Decisor", 500),
+    ("3dphGCPCoFcYXEQC2jeB", "Q5 · Decisor", 34),
     # fechamento da ligacao
     # criado em 27/09 pela API: a SDR marca por onde ligou (o Pós-ligação v3 lê)
     ("AsZMGmsKVu1xEp36hyLb", "Canal da tentativa", 10),   # 28/09: topo da ficha (painel de Conversas)
