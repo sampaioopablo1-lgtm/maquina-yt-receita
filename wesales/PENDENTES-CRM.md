@@ -93,6 +93,25 @@ tem a função.
 - Feito em:
 - Bloqueio:
 
+### [ ] 6. `fila-tel` some de lead intocado (pisca a cada ~1 h) (manual)
+- **Por quê:** em 29/09 dois leads novos, sem nenhuma tentativa registrada, perderam `fila-tel` sem
+  ganhar `fila-wa`: `2KRbdwlsE7QwHVTqmNLU` (entrou 10:01; com `fila-tel` às 10:07, sem às 12:07, com
+  de novo às 13:07) e `riOAwk6u6tOXadcorOJz` (entrou 11:06; com `fila-tel` às 12:07, sem às 13:07).
+  Enquanto a tag está fora, a SDR não vê o lead na visão do discador, e o lead pode ser um dos que
+  mais precisam de ligação (1ª tentativa ainda não feita). O `atuador_filas.py` só tira `fila-tel`
+  para pôr `fila-wa` (`distribuir_canal`), então quem tira é um nó `remove_contact_tag` de workflow
+  publicado (Cadência Inbound / 12x30 / Pós-ligação) rodando sem ligação registrada.
+- **Como:** abrir o contato `riOAwk6u6tOXadcorOJz` → Automações/Histórico e ver qual workflow
+  removeu `fila-tel` entre 12:07 e 13:07 e em qual passo. Se for a cadência (toque "vence" e o passo
+  seguinte tira a tag antes de alguém ligar): trocar a remoção para acontecer só no Pós-ligação
+  (Resultado registrado), ou pôr a tag de volta no passo seguinte da cadência. Se for o
+  Pós-ligação: conferir por que ele disparou sem ligação.
+- **Conferência:** lead novo sem tentativa mantém `fila-tel` de uma hora para a outra em 3 rodadas
+  seguidas do diário (10:07 → 13:07 do dia seguinte), e o histórico do contato não mostra
+  `remove_contact_tag` de `fila-tel` sem uma ligação antes.
+- Feito em:
+- Bloqueio:
+
 ## Aplicados
 
 (os itens vêm para cá depois de marcados)
