@@ -1830,3 +1830,26 @@ possível.
 **Geo conferida nos cinco conjuntos que seguem ativos:** só a cidade de Taubaté em
 `excluded_geo_locations`, nenhum `regions`, `advantage_audience` 0, mobile e desktop,
 feed/story/reels. Nada para consertar.
+
+### 29/09 — a janela de julgamento virou 7 dias (decisão do Pablo)
+
+Perguntado se a regra de ativação/desativação era semanal, o Pablo respondeu **"7 dias"**. Vale
+para **anúncio e conjunto**. A instrução da rotina já vinha se contradizendo: o nome dela mudou
+para "otimização semanal", a trava de lead subiu de 48h para 7 dias e a leitura passou a ser
+`last_7d`, mas os limites de corte (C0, TRAVA 7, T1–T8) continuavam escritos em 48h.
+
+Consertado em `REGRA — corte de anuncio em 48 horas.md`: C0, C1, C2, A1–A3, T1–T8, a trava 2
+(lead recente) e a trava 6 (não cortar antes do prazo) agora leem **7 dias**. A periodicidade da
+rodada passou de diária para semanal. As citações do Pablo de 15 e 17/09 e o histórico de cortes
+ficam como estavam — são registro, não regra.
+
+**O nome do arquivo segue "48 horas" de propósito:** as rotinas apontam para esse caminho e
+renomear quebraria a referência.
+
+**O que motivou a mudança, com número:** na rodada de 28/09 o `V11 — CALENDLY F3` tinha 86
+impressões e seria candidato a troca pela régua de 48h. Com entrega de verdade no dia seguinte
+virou o melhor anúncio da conta — 772 impressões, CTR 3,76%, **CPL R$4,05**, 5 dos 9 leads do dia.
+A régua curta quase matou o vencedor.
+
+**O corte da IMOBILIÁRIA de 28/09 continua válido pela régua nova:** o conjunto tinha 11 dias de
+vida e 508 impressões sem lead, então passa nos dois critérios.

@@ -3,18 +3,39 @@
 *Criada em 09/09/2026. Vale para qualquer campanha da conta 1695865631502778.*
 *Coluna "onde a conta está" atualizada em 14/09/2026 — medida nos 2 conjuntos ativos.*
 *Em 14/09/2026 o Pablo trocou o corte direto por uma escada de 4 tentativas. **Em 15/09/2026 ele
-trocou de novo: a escada saiu, entrou a REGRA V3 — anúncio que não performa em 48h ganha criativo
+trocou de novo: a escada saiu, entrou a REGRA V3 — anúncio que não performa ganha criativo
 novo (imagem/copy) com base nos dados. Ver a seção "REGRA V3".** A escada fica só como histórico.*
 
-## Por que 48 horas e não 24, nem 7 dias
+> ## DECISÃO DO PABLO EM 29/09/2026 — A JANELA VIROU 7 DIAS
+>
+> Perguntado se o prazo de julgamento era semanal, o Pablo respondeu **"7 dias"**. Vale para
+> **anúncio E conjunto**: nada é julgado, cortado ou trocado antes de completar 7 dias desde o
+> `created_time`. A rodada também passou a **rodar uma vez por semana**, não mais todo dia.
+>
+> **O que isso substitui:** todo limite de 48h deste arquivo — C0, C1, A1–A3, T1–T8 e a trava 6.
+> Onde ainda se lê "48h" fora do histórico, leia "7 dias".
+>
+> **A trava de lead também mudou:** não se pausa nada que gerou lead nos **últimos 7 dias**
+> (antes eram 48h).
+>
+> **O nome do arquivo continua "48 horas" de propósito** — as rotinas apontam para este caminho,
+> e renomear quebraria a referência. É nome histórico, não é a regra.
+>
+> **Por que 7 dias, na prática:** em 28/09 o `V11 — CALENDLY F3` tinha 86 impressões e teria sido
+> candidato a troca pela régua de 48h. Com volume, virou o melhor anúncio da conta: 772
+> impressões, CTR 3,76%, **CPL R$4,05**. A régua curta quase matou o vencedor.
+
+## Por que a janela existe (era 48h até 28/09; é 7 dias desde 29/09)
 
 O Meta leva de 24 a 48 horas para sair da fase de aprendizado inicial. Antes disso o número é
 ruído: o leilão ainda está calibrando quem vê o anúncio. Depois de 7 dias, já foi dinheiro
 demais em anúncio morto.
 
-**48 horas é o ponto onde o dado já é dado e o prejuízo ainda é pequeno.**
+O raciocínio de 48h era esse. **A decisão de 29/09/2026 esticou a janela para 7 dias**, com o
+custo assumido de gastar mais em quem não vai funcionar, em troca de não matar anúncio que ainda
+ia engrenar — foi o que quase aconteceu com o `V11 — CALENDLY F3`.
 
-Mas tempo sozinho não basta. Um anúncio de 48 horas com 80 impressões não tem o que ser julgado.
+Mas tempo sozinho não basta. Um anúncio de 7 dias com 80 impressões não tem o que ser julgado.
 Por isso toda regra abaixo exige **tempo E volume**.
 
 ## Referência de mercado (geração de lead, Brasil, 2026)
@@ -27,16 +48,16 @@ Por isso toda regra abaixo exige **tempo E volume**.
 
 ## As regras de corte
 
-Rodam uma vez por dia. Um anúncio ou conjunto só é pausado se bater **tempo, volume e defeito**
-ao mesmo tempo.
+Rodam **uma vez por semana** (mudou em 29/09/2026; antes era diária). Um anúncio ou conjunto só é
+pausado se bater **tempo, volume e defeito** ao mesmo tempo.
 
 ### Nível anúncio
 
 | # | Condição | Ação |
 |---|---|---|
-| A1 | ≥ 48h no ar **e** ≥ 1.000 impressões **e** 0 lead **e** CTR < 0,50% | **entra na escada** |
-| A2 | ≥ 48h no ar **e** ≥ 500 impressões **e** CTR < 0,30% | **entra na escada** |
-| A3 | ≥ 48h no ar **e** ≥ 500 impressões **e** 0 clique | **entra na escada** |
+| A1 | ≥ 7 dias no ar **e** ≥ 1.000 impressões **e** 0 lead **e** CTR < 0,50% | **entra na escada** |
+| A2 | ≥ 7 dias no ar **e** ≥ 500 impressões **e** CTR < 0,30% | **entra na escada** |
+| A3 | ≥ 7 dias no ar **e** ≥ 500 impressões **e** 0 clique | **entra na escada** |
 | A4 | já existe lead no conjunto **e** o custo por lead deste anúncio é > 3× o do melhor anúncio (o melhor com no mínimo 3 leads) | **entra na escada** |
 
 **Bater uma regra A não pausa mais nada.** Desde 14/09/2026, por decisão do Pablo, bater A1–A4
@@ -47,9 +68,9 @@ dela, e só se nenhuma tentativa tiver melhorado.
 
 | # | Condição | Ação |
 |---|---|---|
-| **C0** | **≥ 48h desde o created_time do conjunto e 0 lead** | **pausar o conjunto** |
-| C1 | ≥ 48h no ar **e** ≥ 2.000 impressões **e** 0 lead **e** CPM > R$ 60 | pausar o conjunto |
-| C2 | ≥ 72h no ar **e** alcance total < 500 pessoas | pausar — público pequeno demais para leiloar |
+| **C0** | **≥ 7 dias desde o created_time do conjunto e 0 lead** | **pausar o conjunto** |
+| C1 | ≥ 7 dias no ar **e** ≥ 2.000 impressões **e** 0 lead **e** CPM > R$ 60 | pausar o conjunto |
+| C2 | ≥ 7 dias no ar **e** alcance total < 500 pessoas | pausar — público pequeno demais para leiloar |
 | C3 | todos os anúncios do conjunto foram pausados pelas regras acima | pausar o conjunto |
 
 ### C0 — a regra dura de conjunto (decisão do Pablo, 17/09/2026)
@@ -57,9 +78,12 @@ dela, e só se nenhuma tentativa tiver melhorado.
 *Palavra do Pablo: "a regra de desativar por falta de performance, crítica, também se aplica ao
 conjunto de anúncios. Se em 48 horas, o conjunto não gerou leads, precisa ser desativado."*
 
+*A frase do Pablo dizia 48 horas. **Em 29/09/2026 ele esticou o prazo para 7 dias**, e é o prazo
+de 7 dias que vale — a regra segue a mesma, só o relógio mudou.*
+
 **C0 vale acima de C1.** C1 exigia três coisas ao mesmo tempo (volume, zero lead e CPM alto) e por
 isso quase nunca disparava — um conjunto podia queimar dias sem lead e nunca bater a condição.
-C0 tira as muletas: **passou de 48 horas e não gerou lead, sai do ar.** C1, C2 e C3 continuam
+C0 tira as muletas: **passou de 7 dias e não gerou lead, sai do ar.** C1, C2 e C3 continuam
 existindo para os casos que C0 não pega (conjunto que gerou lead mas está caro, público pequeno
 demais, conjunto esvaziado).
 
@@ -67,7 +91,7 @@ demais, conjunto esvaziado).
 - O relógio é o `created_time` do CONJUNTO lido da Meta, nunca data escrita em prompt.
 - "Lead" é o mesmo `results` que já usamos no nível anúncio (`actions:leadgen.other`), somado em
   todos os anúncios do conjunto, no período desde o created_time.
-- Conjunto com menos de 48h não é julgado. Conjunto com exatamente 48h ou mais e zero lead é
+- Conjunto com menos de 7 dias não é julgado. Conjunto com 7 dias ou mais e zero lead é
   pausado na mesma rodada, sem pedir confirmação.
 - Pausar = `ads_update_entity`, entity_type `ad_set`, status PAUSED, e renomear com o prefixo
   **"ZZ CORTADO 48H — "**. Não apagar nada. Os anúncios de dentro ficam como estão.
@@ -75,13 +99,13 @@ demais, conjunto esvaziado).
   contagem de leads que motivou o corte.
 
 **ENTREGA ZERO conta como zero lead.** Um conjunto que não recebeu verba da CBO e ficou com 0
-impressão em 48h é pausado igual. O raciocínio: numa campanha CBO a Meta distribui o orçamento
+impressão em 7 dias é pausado igual. O raciocínio: numa campanha CBO a Meta distribui o orçamento
 sozinha, e conjunto que ela escolheu não alimentar durante dois dias inteiros não vai alimentar
 depois — ele só divide a atenção do algoritmo. Se o Pablo quiser testar aquele público de novo, o
 caminho é conjunto novo com criativo novo, não esperar mais.
 
 **O que C0 NÃO autoriza:** mexer em orçamento (segue proibido), pausar o último conjunto ativo de
-uma campanha (segue proibido), e pausar conjunto que gerou lead nas últimas 48h (segue proibido).
+uma campanha (segue proibido), e pausar conjunto que gerou lead nos últimos 7 dias (segue proibido).
 Se C0 e uma trava se chocarem, **a trava vence** e a rodada avisa o Pablo em vez de pausar.
 
 **Primeiro caso previsto:** LEADS I NICHO HARMONIZACAO BR I FASE 3 (120247470141000766), created
@@ -90,7 +114,7 @@ e nenhum lead.
 
 ### TRAVA 7 — "não testado" não é o mesmo que "reprovado" (acrescentada 17/09/2026 21h33)
 
-**C0 não corta conjunto que teve menos de 500 impressões nas 48 horas.** Abaixo disso o veredito é
+**C0 não corta conjunto que teve menos de 500 impressões nos 7 dias.** Abaixo disso o veredito é
 **NÃO TESTADO**: a rodada não pausa, registra no DIARIO e avisa o Pablo em duas linhas.
 
 Por quê. Na noite de 17/09 o Pablo baixou a verba da campanha de R$ 30 para R$ 20 por dia (log da
@@ -141,7 +165,7 @@ descartado, não acumulado.
 
 **Mínimo de 2 dias por rodada** — é a decisão do Pablo, e bate com a janela de aprendizado do Meta.
 
-Mas tempo sozinho não basta, pela mesma razão que a regra de 48h já exige volume: **uma rodada só
+Mas tempo sozinho não basta, pela mesma razão que a regra de janela já exige volume: **uma rodada só
 recebe veredito com no mínimo 300 impressões.** Abaixo disso a diferença entre duas variações é
 ruído, não resultado.
 
@@ -204,17 +228,17 @@ um título melhor.** Vale a pena quando o criativo é caro de produzir, que é o
 registrado para que a escolha seja lembrada como escolha, não sofrida como lentidão.
 
 
-## REGRA V3 — troca de criativo em 48h (decisão do Pablo em 15/09/2026, 20h)
+## REGRA V3 — troca de criativo (decisão do Pablo em 15/09/2026, 20h; janela de 7 dias desde 29/09/2026)
 
 *Substitui a escada de 4 rodadas de 14/09 no nível anúncio. Pablo: "no prazo de 48 horas o
 anúncio não performar, mudar o criativo, imagem, copy, com base nos dados, contexto, objetivo da
 agência".* As travas continuam iguais. **No nível conjunto, a partir de 17/09/2026 vale a C0 —
-48h sem lead, o conjunto é pausado — e ela tem prioridade sobre C1. Ver "C0 — a regra dura de
+7 dias sem lead, o conjunto é pausado — e ela tem prioridade sobre C1. Ver "C0 — a regra dura de
 conjunto".**
 
 ### Quando um anúncio "não performou" (tempo E volume, como sempre)
 
-| # | Condição (≥ 48h no ar) | Leitura |
+| # | Condição (≥ 7 dias no ar) | Leitura |
 |---|---|---|
 | T1 | ≥ 300 impressões **e** 0 lead | entrega sem converter |
 | T2 | gasto ≥ 2× o CPL do melhor anúncio do conjunto (melhor com ≥ 3 leads) **e** 0 lead | já custou dois leads e não trouxe nenhum |
@@ -231,7 +255,7 @@ leads, custo por lead, taxa clique→lead (leads ÷ cliques). Sem essas 11 colun
 Diagnóstico pela combinação: CTR baixo + CPM alto = imagem; CTR ok + T7 = copy/promessa ou
 formulário; frequência alta = público saturado (aviso ao Pablo, não troca de criativo).
 
-Menos de 300 impressões em 48h **não é veredito** — é falta de entrega. Anúncio assim não é
+Menos de 300 impressões em 7 dias **não é veredito** — é falta de entrega. Anúncio assim não é
 trocado nem pausado; fica, e se passar de 7 dias sem 300 impressões vira aviso ao Pablo.
 
 ### O que fazer (uma troca por anúncio, sem escada)
@@ -253,9 +277,9 @@ trocado nem pausado; fica, e se passar de 7 dias sem 300 impressões vira aviso 
    pelo MCP `ads_activate_entity`. Nome: `V<n> — <o que mudou>`.
 4. **Pausar o antigo** só se ele bateu T1/T2/T4 (0 lead) e o conjunto continua com ≥ 2 ativos.
    Renomear `ZZ TROCADO 48H — <nome>`. Anúncio T3 (converte caro) **fica no ar** até o novo ter
-   48h e 300 impressões; aí compara e pausa o pior.
+   7 dias e 300 impressões; aí compara e pausa o pior.
 5. **Registrar** na tabela "Trocas feitas" abaixo: data, anúncio antigo, número que motivou,
-   anúncio novo, o que mudou. O anúncio novo só pode ser julgado depois de 48h + 300 impressões.
+   anúncio novo, o que mudou. O anúncio novo só pode ser julgado depois de 7 dias + 300 impressões.
 6. **NUNCA usar a foto do Pablo em criativo** (regra obrigatória, Pablo 15/09). Imagem nova = ilustração,
    cena de negócio ou texto sobre fundo; rosto do Pablo, nunca.
 7. **Copy sempre no BRIEFING:** agência que escreve, publica e acompanha; dono só atende; para quem
@@ -273,14 +297,14 @@ trocado nem pausado; fica, e se passar de 7 dias sem 300 impressões vira aviso 
 ## As travas — o que a regra NUNCA faz
 
 1. **Nunca mexe em orçamento.** Nem sobe, nem desce, nem tira teto. Isso é decisão do Pablo.
-2. **Nunca pausa nada que gerou lead nas últimas 48 horas**, por pior que esteja o CTR.
+2. **Nunca pausa nada que gerou lead nos últimos 7 dias**, por pior que esteja o CTR.
 3. **Nunca deixa um conjunto com menos de 5 anúncios ativos** (Pablo, 15/09 22h: "ao menos 5 por conjunto, mesmo que ainda não tenha performado" — público mudou, tudo recomeça). Se o corte esvaziaria o conjunto,
    pausa só os piores e mantém os 2 melhores rodando até haver substituto.
 4. **Nunca pausa o último conjunto ativo de uma campanha.** Campanha zerada não volta do zero de
    graça — perde o aprendizado inteiro.
 5. **Nunca apaga.** Só pausa e renomeia com prefixo `ZZ`. O que está pausado guarda histórico e
    pode voltar.
-6. **Nunca corta antes das 48h**, mesmo que o número esteja horrível. Único caso de corte
+6. **Nunca corta antes dos 7 dias**, mesmo que o número esteja horrível. Único caso de corte
    imediato: erro de entrega que impede o anúncio de rodar (aí é conserto, não corte).
 7. **Nunca pausa anúncio que ainda não terminou a escada.** Desde 14/09/2026, pausar anúncio é o
    último degrau, nunca o primeiro. Conjunto continua podendo ser pausado direto pelas regras C.
