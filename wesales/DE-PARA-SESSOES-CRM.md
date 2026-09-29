@@ -367,3 +367,22 @@ Tentativas até agendar e até qualificar ainda sem dado real (4 agendados e 3 q
 | Som | — | o CRM não tem opção de som. O som vem da notificação push do Chrome ou do app LeadConnector; cada usuária ativa no próprio aparelho (passo a passo no playbook) | — |
 | analises_semanais.py | faixas de velocidade | + linha "META 5 MIN": lead que chegou com SDR em turno, 30 dias; sem ligação conta como fora (PR #121). Linha de base: 0 de 10 | sim, rodado |
 | Playbook | "Lead novo no meio de um bloco" | "Lead novo: ligar em até 5 minutos": o que o sistema faz, os 4 passos com o discador, como ligar o som | sim, rev 139 |
+
+## 28/09 noite — MI-0 vira workflow próprio, focado na dor
+
+| O quê | Antes | Depois | Conferido |
+|---|---|---|---|
+| MI-0 | nó dentro da Cadência Inbound: seg–sex 08:30–21:00; mandava mesmo para quem já tinha escrito; texto "indicação ou anúncio?" | workflow novo **"MI-0 — 1ª mensagem do lead de formulário"** (02511c72) | sim, publicado, gatilho ativo, janela gravada |
+| Cadência Inbound | portão → limpar marcas → MI-0 → Template usado | portão → fila-quente (3 nós de envio removidos, v27 → v28; backup da v27 no scratchpad) | sim, só resta o sms MIF-v2 |
+
+**Como o workflow novo funciona:**
+- **Gatilho:** oportunidade entra em CONECTAR.
+- **Espera de 2 min**, para chegar a mensagem de quem clicou no WhatsApp do anúncio.
+- **Só envia se:** tem `cad-inbound`, não tem `nao-perturbe`, tem telefone, "Sinal recebido" está vazio (não escreveu) e "Template usado" está vazio (nunca recebeu mensagem).
+- **Janela:** todos os dias, 08:30–22:00. `allowMultiple` falso.
+
+**Texto novo** (dor, sem pedir licença para ligar; conduz para qualificar):
+
+> Oi, {{contact.first_name}}! Aqui é {{user.first_name}}, da O Próximo Cliente. Recebi seu cadastro agora. Quase todo dono de negócio que fala com a gente vive o mesmo aperto: mês bom, mês fraco, porque o cliente novo depende de indicação. Hoje, o que mais trava a entrada de clientes novos aí? Me conta em uma frase que eu já te mostro o caminho.
+
+**Pendente:** o snippet `/WA MI-0` da SDR ainda tem o texto antigo. A API pública lista 0 modelos, então é preciso trocar na tela.
