@@ -31,6 +31,7 @@ import json
 import os
 import re
 import sys
+import unicodedata
 import urllib.error
 import urllib.request
 
@@ -82,7 +83,7 @@ def convidado(ev):
     tel = re.sub(r"\D", "", tel)
     if tel and not tel.startswith("55") and len(tel) in (10, 11):
         tel = "55" + tel
-    return {"nome": inv.get("name") or "", "email": (inv.get("email") or "").lower(),
+    return {"nome": inv.get("name") or "", "email": (inv.get("email") or "").lower(), "criado": inv.get("created_at") or "",
             "telefone": ("+" + tel) if tel else "",
             "respostas": [(qa.get("question"), qa.get("answer")) for qa in inv.get("questions_and_answers") or []]}
 
@@ -113,6 +114,34 @@ def cancelar_no_crm(aplicar):
                 print("    agenda do CRM: cancelada, HTTP %s" % st)
 
 
+def _primeiro(nome):
+    n = unicodedata.normalize("NFKD", nome or "").encode("ascii", "ignore").decode().lower().split()
+    return n[0] if n else ""
+
+
+def lead_do_formulario(p):
+    """O lead preenche o formulário da Meta (nome, telefone, e-mail) e, na última etapa, marca no
+    Calendly — que não pede telefone e onde ele às vezes digita outro e-mail (29/09: Ana Lucia,
+    contato duplicado sem telefone). Casa pelo primeiro nome entre os contatos do Facebook criados
+    nas 12 h antes do agendamento; só aceita se houver exatamente um."""
+    nome = _primeiro(p["nome"])
+    if not nome or not p.get("criado"):
+        return None
+    fim = dt.datetime.fromisoformat(p["criado"].replace("Z", "+00:00"))
+    ini = fim - dt.timedelta(hours=12)
+    st, r = ghl("POST", "/contacts/search", {"locationId": LOC, "pageLimit": 100, "filters": [
+        {"field": "dateAdded", "operator": "range", "value": {
+            "gte": ini.strftime("%Y-%m-%dT%H:%M:%SZ"), "lte": (fim + dt.timedelta(minutes=5)).strftime("%Y-%m-%dT%H:%M:%SZ")}}]})
+    achados = [c for c in r.get("contacts", []) if (c.get("source") or "").lower() == "facebook" and c.get("phone")
+               and _primeiro((c.get("firstName") or "") + " " + (c.get("lastName") or "")) == nome]
+    if len(achados) == 1:
+        print("    casado com o lead do formulário da Meta: %s %s" % (achados[0]["id"], achados[0].get("phone")))
+        return achados[0]["id"]
+    if len(achados) > 1:
+        print("    %d leads do formulário com o nome %r — não caso sozinho" % (len(achados), nome))
+    return None
+
+
 def achar_ou_criar(p, aplicar):
     for campo in ("email", "telefone"):
         v = p["email"] if campo == "email" else p["telefone"]
@@ -123,6 +152,9 @@ def achar_ou_criar(p, aplicar):
                                                                "operator": "eq", "value": v}]})
         if r.get("contacts"):
             return r["contacts"][0]["id"], False
+    cid = lead_do_formulario(p)
+    if cid:
+        return cid, False
     if not aplicar:
         return None, True
     corpo = {"locationId": LOC, "name": p["nome"], "email": p["email"] or None, "phone": p["telefone"] or None,
