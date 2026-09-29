@@ -1,0 +1,45 @@
+{
+  "_leia": "Turnos da operação (dono, 28/09). Único lugar para mudar quando alguém entra, sai ou muda de horário. userId = id do usuário no CRM (Configurações > Minha equipe). Entrada sem userId é ignorada pelos robôs até o usuário existir. dias: 1=seg ... 7=dom. tag_fila: com 2+ SDRs com usuário, cada uma puxa no Power Dialer só a própria tag (o robô a mantém = fila-tel + dono = ela); com uma SDR só, todas puxam fila-tel.",
+  "fuso": "America/Sao_Paulo",
+  "sdrs": [
+    {
+      "nome": "SDR da manhã (criar o usuário no CRM e preencher o userId)",
+      "userId": null,
+      "turno": {
+        "dias": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "inicio": "09:00",
+        "fim": "18:00"
+      },
+      "tag_fila": "fila-tel-manha"
+    },
+    {
+      "nome": "Andreyna Siqueira",
+      "userId": "ML69c5kAJ93cliAGgBj6",
+      "turno": {
+        "dias": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "inicio": "13:00",
+        "fim": "21:00"
+      },
+      "tag_fila": "fila-tel-andreyna"
+    }
+  ],
+  "closers": [
+    {
+      "nome": "Pablo Santos",
+      "userId": "JdvhvOTEBTvUyRi0BXU8",
+      "agenda": "schedule xn2Wz3s2eBWulv7j4JXM (seg-sex 18:00-22:00, sáb 09:00-12:00), ligada aos 2 calendários"
+    }
+  ]
+}
