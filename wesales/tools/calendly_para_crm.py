@@ -100,6 +100,15 @@ def link_calendly(ev):
     return loc.get("join_url") or (loc.get("location") if str(loc.get("location") or "").startswith("http") else "")
 
 
+def nota_ouro(quando, link):
+    """Destaque no topo das Observações da ficha (a nota mais nova fica em cima do roteiro)."""
+    return ('<p><b>⭐⭐⭐ LEAD OURO — AGENDOU REUNIÃO SOZINHO PELO CALENDLY ⭐⭐⭐</b></p>'
+            '<p><b>Reunião com o Pablo: %s</b>%s</p>'
+            '<p><b>Ligue AGORA:</b> 1) confirme a presença; 2) qualifique Q1–Q6 no formulário; '
+            '3) crie o grupo com o closer. <b>Não agende de novo — a reunião já está marcada.</b></p>'
+            % (quando, (' · <a href="%s" target="_blank">link da reunião</a>' % link) if link else ""))
+
+
 def cancelar_no_crm(aplicar):
     for ev in eventos_futuros("canceled"):
         uuid = ev["uri"].rsplit("/", 1)[-1]
@@ -208,6 +217,7 @@ def main() -> int:
                      "confirme a presença e complete Q1–Q6 na ficha. Respostas do Calendly: %s" % (quando, resp or "—")),
             "dueDate": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
             "completed": False, "assignedTo": SDR})
+        ghl("POST", "/contacts/%s/notes" % cid, {"body": nota_ouro(quando, link)})
         # dispara "Calendly — lead ouro (aviso à SDR)": notificação especial, depois o workflow tira a tag
         ghl("POST", "/contacts/%s/tags" % cid, {"tags": ["calendly-ouro"]})
     cancelar_no_crm(aplicar)
