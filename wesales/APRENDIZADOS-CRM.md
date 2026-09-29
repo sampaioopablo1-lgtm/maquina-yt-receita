@@ -7061,3 +7061,11 @@ Detalhe completo, e as seis correções aplicadas, em
 - **O que vi:** `contacts_get-contacts` com `query_query` pelo nome acha o contato e devolve as tags; dá para medir tempo parado de `wa-liberado` só com `dateAdded`/`dateUpdated` — sem log de execução (404 pela API pública).
 - **Achado:** um lead Meta com `wa-liberado` + `wa-lib-<dia>` há mais de 4 h sem mensagem. Laço "espera 15 min → volta" não é confiável em produção; gatilho por tag é.
 - **Lição:** qualquer portão precisa de métrica externa (idade da tag), porque o próprio workflow não denuncia que travou.
+
+## 29/09/2026 — R-14 medido ao vivo: o DND dos contatos é o global (`dnd`), não a gravação por canal
+
+- **O que fiz:** `contacts_get-contacts` com `query_limit=100` devolve todos os contatos da subconta (a base cabe numa página) com `tags`, `dnd` e `dndSettings`. A saída passa de 190 mil caracteres e vai para arquivo — analisar com `python3`/`jq` sobre o arquivo, não ler no contexto.
+- **Achado:** `'nao-perturbe' in tags` bate 1 a 1 com `dnd == true` (zero divergência). `dndSettings` por canal só vem preenchido nos contatos que passaram pelo Pós-ligação (`message: "Updated from workflow_cf6fa19d-…"`); nos demais é `{}`.
+- **Consequência:** as Smart Lists por canal da 8.26 dariam alarme falso permanente. A conferência confiável é cruzar tag com `dnd` global, e cabe em qualquer sessão com o conector.
+- **Armadilha de método:** `conversations_search-conversation` filtra por direção/ação da última mensagem, não por tag — para saber se algo saiu depois do DND, ir a `conversations_get-messages` do contato e comparar datas com a mudança de status da oportunidade.
+

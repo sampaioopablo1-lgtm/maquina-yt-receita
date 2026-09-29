@@ -459,7 +459,7 @@ Fonte da lógica: `build-wesales.md`, 8.
 | 8.24 | `Saúde — Retorno Vencido` | tag `retorno-vencido` | Nome · Telefone · `Data de retorno` · `Prioridade` · Tarefas abertas | `Data de retorno` asc | Gestor — diário |
 | 8.25a | `Entrada — últimas 24h` | `Data de criação` `In the Last` 1 dia (relativo) | Nome · Telefone · Origem (`source`) · Data de criação | Data de criação desc | Gestor — diário |
 | 8.25b | `Entrada — últimos 7 dias` | `Data de criação` `In the Last` 7 dias | idem | idem | Gestor — semanal |
-| 8.26 | `Auditoria — tag sem DND nativo` | tag `nao-perturbe` **E** (`Calls & Voicemails DND` = Disabled **OU** `WhatsApp DND` = Disabled) | Nome · Telefone · Tags · `Resultado da tentativa` · Etapa/status | Data de criação desc | Gestor — R-14 |
+| 8.26 | `Auditoria — tag sem DND nativo` | tag `nao-perturbe` **E** (`Calls & Voicemails DND` = Disabled **OU** `WhatsApp DND` = Disabled) | Nome · Telefone · Tags · `Resultado da tentativa` · Etapa/status | Data de criação desc | Gestor — R-14 (medição de 29/09/2026: começar pelo filtro de DND **geral**, se existir — ver `build-wesales.md` 8.26) |
 | 8.27 | `Auditoria — DND sem tag` | (`Calls & Voicemails DND` = Enabled **OU** `WhatsApp DND` = Enabled) **E** tag `nao-perturbe` ausente | Nome · Telefone · Tags · Etapa/status | Data de criação desc | Gestor — R-14 |
 | 8.28 | `Saúde — Negociação Estagnada` | tag `negociacao-estagnada` | Nome · `Empresa` · `Nota de qualificação` · `Data do veredito do closer` | `Data do veredito do closer` asc | Gestor — diário |
 | 8.29 | `Saúde — Proposta Pendente` | tag `proposta-pendente` | Nome · `Empresa` · `Nota de qualificação` · `Data do veredito do closer` | `Data do veredito do closer` asc | Gestor — diário |

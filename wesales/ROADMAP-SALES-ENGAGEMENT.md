@@ -2635,7 +2635,7 @@ reconfirmada nesta execução via `locations_get-custom-fields`/
 contatos, só o `FUNIL DE VENDAS` pré-existente — nada mudou desde a última
 rodada.
 
-### R-14 · Auditoria de compliance — especificação fechada em 22/09/2026, execução aguarda mensagem real
+### R-14 · Auditoria de compliance — especificação fechada em 22/09/2026; primeira medição real feita em 29/09/2026 (tag ⇔ DND global fecha); as listas 8.26/8.27 aguardam montagem na tela, com uma correção de filtro
 
 > **Conferido no mesmo dia** (`build-wesales.md`, 8.26): duas correções. (a) O
 > filtro da 8.26 nasceu com `E` onde o espelho dela (8.27) usa `OU` — com `E`
@@ -2748,6 +2748,23 @@ Subconta reconfirmada nesta execução via `opportunities_search-opportunity`/
 `locations_get-custom-fields`: mesmas 5 etapas do `FUNIL DE VENDAS`, 51
 campos, 50 oportunidades (47 `NOVO LEAD` + 2 `NEGOCIAR` + 1 `lost`, sem
 mudança) — G-03/G-04/F-09/F-10 seguem aguardando o dono.
+
+**Medição real, 29/09/2026 — a espera por "mensagem real" venceu, e a
+medição achou um defeito no próprio desenho.** A operação já manda
+mensagem automática (e-mail de confirmação de reunião, áudios da SDR;
+`conversations_search-conversation` com `lastMessageAction=automated`), então
+o R-14 foi medido ao vivo em vez de esperar as listas na tela. Leitura de
+todos os contatos por `contacts_get-contacts`: **tag `nao-perturbe` ⇔ `dnd`
+global ligado, sem nenhuma divergência nos dois sentidos**, e zero envio
+automático posterior ao DND nos contatos de teste que têm mensagem de saída.
+O defeito: a maioria dos contatos com a tag tem `dndSettings` **vazio** — o
+DND deles é o global, não a gravação por canal — e a 8.26 lê só filtros por
+canal, então nasceria com linhas para sempre e o "sempre vazia" nunca
+valeria. Correção (filtro geral primeiro, receita de conferência por MCP que
+não depende de tela) em `build-wesales.md`, seção 8.26, "Primeira medição
+real". Zero escrita no CRM; não depende de `APROVADO.md`. O que continua
+aguardando o dono: montar as duas listas na tela e repetir a medição quando
+houver `nao-perturbe` em lead real (hoje só há contatos de teste).
 
 **Pronto quando:** as duas listas existirem na tela e, quando a operação
 já estiver mandando mensagem de verdade, `Auditoria — tag sem DND nativo`

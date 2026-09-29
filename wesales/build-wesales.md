@@ -7537,6 +7537,51 @@ descobrir *quem* silenciou um contato sem abrir a tela — útil exatamente para
 ligou DND. Se o `message` disser `workflow_…`, foi régua; se disser outra
 coisa, foi clique ou API.
 
+#### Primeira medição real, 29/09/2026 — o DND que a maioria dos contatos tem é o **global** (`dnd`), e as duas listas por canal não o enxergam
+
+Com a operação mandando mensagem automática de verdade (e-mail de
+confirmação de reunião, áudios de WhatsApp da SDR), o R-14 deixou de esperar
+volume e foi medido ao vivo por `contacts_get-contacts` (`limit=100`, todos os
+contatos da subconta numa página; o retorno traz `tags`, `dnd` e
+`dndSettings`). Resultado, contato a contato, sem amostragem:
+
+| Grupo | Contatos | `dnd` (global) | `dndSettings` por canal |
+|---|---|---|---|
+| tag `nao-perturbe` | todos os que a carregam | **ligado em todos** | vazio (`{}`) na maioria; os seis canais `active` só em três, todos com `message: "Updated from workflow_cf6fa19d-…"` (Pós-ligação) |
+| sem a tag | todos os demais | desligado em todos | vazio |
+
+Duas leituras:
+
+1. **A conta fecha: tag ⇔ `dnd` global, nos dois sentidos, zero divergência.**
+   Nenhum contato com a tag sem bloqueio; nenhum bloqueio sem a tag. Essa é a
+   prova que o "Pronto quando" do R-14 pede, e sai de uma leitura só.
+2. **Mas a 8.26 como está escrita daria alarme falso permanente.** Ela lê os
+   filtros **por canal** (`Calls & Voicemails DND`, `WhatsApp DND`, `Email
+   DND`). A maioria dos contatos com a tag tem `dndSettings` vazio — o DND
+   deles é o botão global, não a gravação por canal do nó `Set Contact DND`.
+   Se o filtro por canal ler `dndSettings` (o mais provável — é o campo que o
+   `contacts_get-contact` devolve por canal), a lista nasce com todos esses
+   contatos como "tag sem DND nativo", e "sempre vazia" — o critério do R-14 —
+   nunca acontece. **Ação na montagem:** antes de montar a lista, olhe na tela
+   se existe um filtro de DND **geral** (todos os canais) e use-o como primeira
+   cláusula (`tag presente E DND geral = Disabled`); os filtros por canal
+   ficam só na 8.27 e como segunda leitura. **Não confirmado na tela** — se não
+   existir filtro geral, a leitura 1 (via MCP, abaixo) é a conferência.
+
+**Receita de conferência que não depende de tela** (roda em qualquer sessão
+com o conector): listar todos os contatos e cruzar `'nao-perturbe' in tags`
+com `dnd`. Divergência em qualquer sentido é o bug que a 8.26/8.27 procuram.
+Vale para até 100 contatos por chamada; acima disso, paginar por
+`startAfter`/`startAfterId` do `meta`.
+
+**Envio depois do DND (a metade "ninguém foi incomodado" do "Pronto quando"):**
+os contatos com a tag que têm mensagem de saída são três, todos contatos de
+teste do dono. No único com mensagem automática (`workflow`) na conversa, a
+ordem é: automática 23/09 02:54 e 02:56 → resposta do dono → oportunidade para
+`abandoned` (a tag e o DND vieram depois). **Zero envio automático posterior
+ao DND.** É uma amostra de contatos de teste, não prova de volume: a
+conferência de verdade repete quando existir `nao-perturbe` em lead real.
+
 ### 8.27 `Auditoria — DND sem tag` — R-14
 
 | Item | Configuração |
