@@ -1,0 +1,26 @@
+name: WeSales - analises semanais da operacao
+
+# Toda segunda 07:00 em Sao Paulo (10:00 UTC): funil real por marco do lead, tentativas ate
+# agendar e ate qualificar, velocidade da 1a ligacao, conexao por tentativa/horario/canal e
+# resultado por origem. Entrega como TAREFA "Analise da semana" para o dono dentro do CRM.
+# So usa GHL_PIT (chave publica, nao vence): nenhuma sessao, nenhuma acao manual.
+on:
+  schedule:
+    - cron: "19 10 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  analises:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Analises
+        env:
+          GHL_PIT: ${{ secrets.GHL_PIT }}
+        run: python wesales/tools/analises_semanais.py --tarefa
