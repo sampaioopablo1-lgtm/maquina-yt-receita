@@ -424,3 +424,15 @@ Tentativas até agendar e até qualificar ainda sem dado real (4 agendados e 3 q
 - **Guia:** `wesales/imagens/como_ligar_ficha.png` (também na Área de Trabalho do dono).
 
 **Playbook (rev 145):** o caminho normal passa a ser Minha fila → nome do lead → ficha. O Call Center fica para bloco em sequência pela `fila-tel`; quando o lead atende, a SDR abre a ficha pelo Ctrl+K.
+
+## 28/09 noite — discador + formulário curto aberto pela nota
+
+**Decisão do dono:** Call Center discando + formulário aberto no navegador + as respostas do anúncio à vista.
+
+**Achado:** o "Adicionar compromisso" da ficha leva para a página de Calendários e a SDR perde o contexto. O caminho de agendamento continua sendo o formulário, que redireciona para a agenda `oOfR9ADPJM0WyVyHRgKE`.
+
+| O quê | Antes | Depois | Conferido |
+|---|---|---|---|
+| Formulário ww2ruVG5 | 33 itens | 18 itens: Contato (nome, telefone, e-mail, empresa) · Veio do anúncio (quando quer resolver, quanto toparia investir) · Q1–Q6 · SDR responsável · autorização · botão. Gravado por `POST services/forms/{id}` com corpo `{formData, name}`, sem `locationId`. A leitura demora uns segundos para refletir. Backup em .local/bkp-copy-27-09/form_qualificacao_antes_encurtar.json | aberto com o link da Suzana: pré-preenchido; redirect para a agenda mantido |
+| Nota ROTEIRO DA LIGAÇÃO | só o roteiro | + link no topo, "📝 Abrir formulário + agenda (já preenchido)". Promover v7 com merge fields; 44 notas existentes atualizadas com o link já renderizado | o link aparece na ficha da Suzana com os dados dela |
+| Playbook (rev 147) | ficha como caminho único | Call Center (`fila-tel`) → Ctrl+K → nota → formulário → agenda; lead novo pela Minha fila | sim |
