@@ -436,3 +436,14 @@ Tentativas até agendar e até qualificar ainda sem dado real (4 agendados e 3 q
 | Formulário ww2ruVG5 | 33 itens | 18 itens: Contato (nome, telefone, e-mail, empresa) · Veio do anúncio (quando quer resolver, quanto toparia investir) · Q1–Q6 · SDR responsável · autorização · botão. Gravado por `POST services/forms/{id}` com corpo `{formData, name}`, sem `locationId`. A leitura demora uns segundos para refletir. Backup em .local/bkp-copy-27-09/form_qualificacao_antes_encurtar.json | aberto com o link da Suzana: pré-preenchido; redirect para a agenda mantido |
 | Nota ROTEIRO DA LIGAÇÃO | só o roteiro | + link no topo, "📝 Abrir formulário + agenda (já preenchido)". Promover v7 com merge fields; 44 notas existentes atualizadas com o link já renderizado | o link aparece na ficha da Suzana com os dados dela |
 | Playbook (rev 147) | ficha como caminho único | Call Center (`fila-tel`) → Ctrl+K → nota → formulário → agenda; lead novo pela Minha fila | sim |
+
+## 28/09 noite — fila-tel completa, destaque no playbook, cadência tel-wa no Call Center
+
+- **Robô (PR #122, merge):** `fila_tel_completa`. A `fila-tel` passa a incluir também `fila-quente`, `fechar-horario` e `retorno-vencido` (CONECTAR, sem trava, sem ligação nas últimas 2 h). Dry-run: 0 escritas hoje, porque os quentes já tinham `fila-tel`.
+- **Playbook (rev 148):** seção "⭐ Na ligação: o procedimento (leia primeiro)" logo abaixo da introdução: nota amarela, 📞 lote `fila-tel`, 📱 lote `fila-wa`, 🔥 lead novo.
+- **Link "📱 Ligar pelo WhatsApp" na nota:** criado e removido a pedido do dono ("não vou chamar ninguém pelo WhatsApp com link"). Promover v9 sem o link; 44 notas limpas.
+- **Achado, a confirmar com o dono:** o Call Center do WeSales é o app de chamadas do Stevo.
+  - Chama `backcallstevo-v2.fly.dev`, tem botões Áudio/Vídeo e um único "Número ativo": O Próximo Cliente · 5512982381407, um celular diferente do LC Phone +551150266034.
+  - Então ele liga **pelo WhatsApp**.
+  - A seção 📱 do playbook foi reescrita para "Call Center em lote, tag `fila-wa`" (rev 157; entre a 148 e a 157 houve edições de outra sessão).
+  - Se confirmado, a ligação normal em lote (Power Dialer nativo) não existe nesta conta ("Fila — Em breve"), e a ligação normal é uma por vez, pelo botão Ligar da ficha.
