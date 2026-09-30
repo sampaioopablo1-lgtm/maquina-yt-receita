@@ -6462,6 +6462,8 @@ listas 8.10 a 8.12.
 
 ## 5.3 Workflow "Recuperação de No-show" — R-12 — migrado para as 5 etapas reais em 19/09/2026
 
+> **30/09/2026:** a recuperação hoje é a cadência 6x15 por robô; este desenho é histórico. Ver seção 2.66.
+
 A seção 5 fecha o agendamento e a 5.2 confirma o comparecimento; nenhuma das
 duas trata o meio-termo, que é o vazamento mais caro do funil: reunião
 marcada, closer de agenda reservada, lead que simplesmente não aparece. Hoje
@@ -6592,6 +6594,8 @@ mesmo dia — nova tentativa, não silêncio.
 ---
 
 ## 5.4 Workflow "SLA do Closer — No-show" — R-12 — migrado para as 5 etapas reais em 19/09/2026
+
+> **30/09/2026:** a recuperação hoje é a cadência 6x15 por robô; este desenho é histórico. Ver seção 2.66.
 
 O ramo Recuperação da seção 5.3 cobre o lado do SDR. Falta o lado do closer:
 é quem tinha o horário reservado, quem mais rápido consegue julgar se vale a
@@ -7202,6 +7206,8 @@ tag `fila-tel` aplicada pela seção 5.3 conta aqui mesmo com a oportunidade
 em `NEGOCIAR`, não em `CONECTAR`.
 
 ### 8.17 `Recuperação de No-show` — R-12 — migrado para as 5 etapas reais em 21/09/2026
+
+> **30/09/2026:** a recuperação hoje é a cadência 6x15 por robô; este desenho é histórico. Ver seção 2.66.
 | Item | Configuração |
 |---|---|
 | Filtros | `Nº de no-shows` ≥ 1 **E** etapa da oportunidade = `NEGOCIAR` **E** `nao-perturbe` ausente |
@@ -10551,3 +10557,49 @@ escrever ainda) e, com `--aplicar`, remover `wa-liberado`, aplicar
 e registrar a contagem na saída do run. Critério de sucesso: **zero
 contato com `wa-liberado` acima de 45 min** — é a métrica única de saúde
 do portão. Escrita só por tag, como o governador; nada é apagado.
+
+## 2.66 No-show: a recuperação passou do workflow `Recuperação de No-show` (5.3) para a cadência 6x15 por robô — o que mudou e o que ficou sem dono — G-47
+
+**Leia isto antes da 5.3, da 5.4 e da 8.17.** Em 30/09/2026 o dono decidiu (commit
+`8956d02`, `tools/cadencia_noshow.py`, rodando no relógio) que a recuperação de
+no-show deixa de ser o workflow NS1–NS3 e vira a cadência 6x15: seis toques em
+quinze dias, ligação e WhatsApp alternados. O workflow antigo voltou a rascunho
+(parava no envio automático do WhatsApp). As seções 5.3 e 8.17 seguem abaixo
+como **histórico do desenho**, não como estado da conta.
+
+| Peça | Antes (5.3 / 5.4 / 8.17) | Agora |
+|---|---|---|
+| Recuperação | workflow, tarefas `[CADENCIA] NS1`–`NS3`, 4 dias | robô, tarefas `[NS k/6]`, 15 dias, tag `noshow-6x15` |
+| Mensagem | automática | **pessoa** envia a mensagem pronta "10 · Faltou na reunião" — nada sai sozinho |
+| Fila | tag `fila-tel` | tag `fila-noshow` + campo `Próxima ação` (colunas da Minha fila) |
+| Início | gatilho `Appointment Status = No Show` | leitura das agendas do closer e da SDR (status `noshow`, últimos 16 dias) |
+| Saída | reagendar remove os workflows (Pós-agendamento, nó 3) | remarca, sai de `REUNIÃO`, DND/`nao-perturbe` ou 6 toques feitos (`noshow-fim`) |
+| `Nº de no-shows` | Math Operation no nó 2 | **ninguém escreve mais** (ver lacuna 1) |
+| Descarte no 2º no-show | ramo Descarte: `status = lost` + nota + aviso ao gestor | **não existe** (ver lacuna 2) |
+
+### Três lacunas que a troca abriu (leitura do código, não medição ao vivo)
+
+1. **`Nº de no-shows` parou de subir, e a 5.4 depende dele.** O nó 2 da 5.4
+   encerra quando o contador é ≥ 2 ("a 5.3 já decidiu descartar"). Com a 5.3
+   em rascunho o contador não sobe, então esse portão nunca fecha e o
+   `SLA do Closer — No-show` continua cobrando o closer também no 2º no-show.
+   O nó 3 da 5.2 (`Showed` zera o contador) segue válido, mas zera um número
+   que ninguém incrementa.
+2. **A regra de proteção de agenda do closer sumiu.** O 2º no-show seguido
+   levava a oportunidade a `lost`; hoje o lead que falta duas vezes entra na
+   6x15 de novo, sem teto. Decisão de dono: manter o descarte (então o robô
+   precisa contar e virar `status = lost`, e isso é escrita em oportunidade,
+   fora de `APROVADO.md` até o dono marcar) ou aceitar que a 6x15 substitui a
+   regra.
+3. **A passagem para a 12x30 (parte 2) é "o próximo passo" no próprio
+   script.** Ao fim dos 6 toques o lead ganha `noshow-fim` e fica parado: nenhum
+   workflow lê essa tag. Enquanto não houver consumidor, é um beco — o mesmo
+   padrão de tag-sem-leitor que a auditoria de tags mede.
+
+**Proposta mínima, para o dono aprovar** (nada escrito no CRM nesta rodada):
+`cadencia_noshow.py` soma 1 em `Nº de no-shows` uma vez por reunião perdida
+(chave: id do evento, para não contar duas vezes a cada 30 min) e, no 2º,
+aplica `status-perdido` em vez de abrir a 6x15 — `status-perdido` já está em
+`FORA`, então o desenho fecha sem oportunidade nova. Depois, decidir o destino
+de `noshow-fim` (`nutricao-90d`, como fazia o ramo Recuperação do desenho
+antigo).

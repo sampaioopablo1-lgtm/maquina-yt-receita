@@ -2567,6 +2567,9 @@ do R-anterior), só o `FUNIL DE VENDAS` pré-existente — nada mudou desde a
 última checagem.
 
 ### R-12 · Handoff e no-show — **FEITO em 18/09/2026**
+> **Atualização 30/09/2026:** a recuperação hoje é a cadência 6x15 por robô, não o
+> workflow NS1–NS3 descrito abaixo; ver `build-wesales.md` seção 2.66.
+
 **Por quê:** reunião agendada que não acontece é o vazamento mais caro do
 funil, e hoje o desenho termina no agendamento.
 **Como:** gatilho de status `No-show` → volta para cadência com régua curta;
@@ -9153,4 +9156,8 @@ robô no relógio — o que isso muda em `build-wesales.md` (seção de no-show,
 **não foi reconciliado aqui** e fica como próximo passo.
 
 **Pronto quando:** a seção de no-show do `build-wesales.md` e o R-12 dizem que a
-recuperação é a cadência 6x15 e não o workflow antigo (pendente).
+recuperação é a cadência 6x15 e não o workflow antigo — **feito em 30/09/2026**:
+seção 2.66 do `build-wesales.md` (aviso no topo das 5.3, 5.4 e 8.17, e no R-12
+abaixo). Achado novo na leitura do código, sem dono: o contador
+`Nº de no-shows` e o descarte no 2º no-show morreram junto com o workflow (2.66,
+lacunas 1 e 2), e `noshow-fim` não tem consumidor (lacuna 3) — decisão do dono.

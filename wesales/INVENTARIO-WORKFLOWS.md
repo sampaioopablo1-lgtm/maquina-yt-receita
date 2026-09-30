@@ -640,6 +640,8 @@ Gerado por `tools/inventario.py`. Só leitura.
 
 `050052db-5ae8-43fe-8e94-b0f747563d57` · 40 nós
 
+> **30/09/2026:** voltou a rascunho; a recuperação é a cadência 6x15 por robô (`build-wesales.md`, seção 2.66). Fotografia abaixo é do desenho antigo.
+
 - **Gatilho** `appointment` (ativo): Tipo de evento == normal; In calendar == 3uNQFjCEDe7b4gKZJuOZ; Appointment status is == noshow; contactMode is-any-of ['contact']
 - `remove_contact_tag` Remove Tag —  tag:fila-tel
 - `add_contact_tag` Add Tag —  tag:limpar-tarefas
