@@ -87,6 +87,12 @@ primeiro.
   Se responder, o sistema pergunta "1 quero conversar / 2 agora não / 3 sem
   interesse" — quem responde **1** volta para você com uma tarefa nova.
 
+- **Link do formulário + agenda**: para lead em `CONECTAR` ou com
+  `confirmar-reuniao`, o sistema monta sozinho o link já preenchido e grava no
+  campo `Link: formulário + agenda`. **O link é seu, não do lead:** a URL
+  carrega telefone, e-mail e as respostas de qualificação dele. Não cole o link
+  numa mensagem ao lead — use o formulário público da agenda (G-45).
+
 ## Ligando pelo telefone, se houver mais de um número
 
 Se a operação tiver mais de um número de telefone ativo (a subconta compra

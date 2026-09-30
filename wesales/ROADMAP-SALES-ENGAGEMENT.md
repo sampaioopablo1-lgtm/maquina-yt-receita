@@ -9101,3 +9101,9 @@ como sem dono conhecido, e proibido de alimentar regra até alguém confirmar.
 **Pronto quando:** `campos-e-tags.md` lista os dois campos com id e origem
 (feito); o dono diz o que `Registro automático em` registra (pendente).
 
+
+**Risco 1 do G-45 fechado em 30/09/2026:** `GUIA-SDR.md` (seção "O que o
+sistema faz sozinho") agora diz que o `Link: formulário + agenda` é da SDR e não
+deve ser colado em mensagem ao lead, porque a URL leva telefone, e-mail e
+respostas de qualificação. Riscos 2 e 3 e a dúvida sobre `Registro automático
+em` seguem pendentes do dono; CRM reconferido, sem campo novo desde 29/09 22:20Z.
