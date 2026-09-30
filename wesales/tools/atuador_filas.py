@@ -61,6 +61,9 @@ from __future__ import annotations
 import json
 import os
 import re
+import time
+
+import privacidade
 import sys
 import urllib.error
 import urllib.parse
@@ -123,19 +126,29 @@ def pedir(metodo: str, caminho: str, corpo: dict | None = None):
     req.add_header("User-Agent", UA)
     if dados is not None:
         req.add_header("Content-Type", "application/json")
-    try:
-        with urllib.request.urlopen(req, timeout=60) as r:
-            corpo_resp = r.read().decode("utf-8")
-            return json.loads(corpo_resp) if corpo_resp else {}
-    except urllib.error.HTTPError as e:
-        detalhe = ""
+    for tentativa in range(4):
         try:
-            detalhe = e.read().decode("utf-8")[:300]
-        except Exception:
-            pass
-        raise SystemExit("%s %s -> HTTP %s %s" % (metodo, caminho, e.code, detalhe))
-    except urllib.error.URLError as e:
-        raise SystemExit("%s %s -> rede recusou: %s" % (metodo, caminho, e.reason))
+            with urllib.request.urlopen(req, timeout=60) as r:
+                corpo_resp = r.read().decode("utf-8")
+                saida = json.loads(corpo_resp) if corpo_resp else {}
+                privacidade.registrar(saida)
+                return saida
+        except urllib.error.HTTPError as e:
+            detalhe = ""
+            try:
+                detalhe = e.read().decode("utf-8")[:300]
+            except Exception:
+                pass
+            # 429 (limite) e 5xx são passageiros: espera crescente em vez de perder a rodada (auditoria 30/09)
+            if (e.code == 429 or e.code >= 500) and tentativa < 3:
+                time.sleep(2 ** tentativa * 3)
+                continue
+            raise SystemExit("%s %s -> HTTP %s %s" % (metodo, caminho, e.code, detalhe))
+        except urllib.error.URLError as e:
+            if tentativa < 3:
+                time.sleep(2 ** tentativa * 3)
+                continue
+            raise SystemExit("%s %s -> rede recusou: %s" % (metodo, caminho, e.reason))
 
 
 def etapa_por_contato() -> dict:
