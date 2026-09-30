@@ -78,6 +78,12 @@ def historico(cid):
                 calls.append((m.get("dateAdded") or "", ((m.get("meta") or {}).get("call") or {}).get("duration") or 0))
             elif m.get("messageType") in MSG and m.get("source") != "workflow" and (m.get("userId") or m.get("source") == "api"):
                 msgs.append(m.get("dateAdded") or "")
+    # Ligação pelo WhatsApp (Stevo) não deixa rastro na conversa (medido 30/09): vale o "Registro da
+    # ligação" da SDR, que o workflow 9f70fac2 transforma em nota "📞 Ligação registrada: <canal · resultado>".
+    for n in pedir("GET", "/contacts/%s/notes" % cid).get("notes") or []:
+        corpo = n.get("body") or ""
+        if "Ligação registrada:" in corpo:
+            calls.append((n.get("dateAdded") or "", 999 if "· Atendeu" in corpo else 0))
     return calls, msgs
 
 
@@ -85,6 +91,8 @@ def decidir(t, c, calls, msgs=()) -> str | None:
     """Pura: motivo para fechar a tarefa, ou None."""
     r = regra(t.get("title"))
     criada = t.get("dateAdded") or ""
+    if not criada and r not in ("qualificacao", "retorno"):
+        return None      # sem a hora de criação não dá para dizer se a ação veio depois: nunca fechar
     if r == "resposta":
         feitas = sorted([x[0] for x in calls if x[0] > criada] + [m for m in msgs if m > criada])
         return "respondeu/ligou %s" % feitas[0][11:16] if feitas else None
@@ -120,6 +128,14 @@ def atrasada(t, tags, agora) -> bool:
     return agora - quando(t.get("dateAdded") or agora.isoformat()) >= dt.timedelta(minutes=30)
 
 
+def criadas(cid) -> dict:
+    """id da tarefa -> dateAdded. A rota /contacts/{id}/tasks NÃO devolve a data de criação (medido
+    30/09: nenhuma tarefa traz dateAdded, e o robô comparava com "" e fechava tarefa com ligação antiga).
+    A busca de tarefas devolve."""
+    r = pedir("POST", "/locations/%s/tasks/search" % LOC, {"contactId": [cid], "limit": 100})
+    return {t.get("_id") or t.get("id"): t.get("dateAdded") or t.get("createdAt") for t in r.get("tasks") or []}
+
+
 def reunioes(cid) -> list:
     return pedir("GET", "/contacts/%s/appointments" % cid).get("events") or []
 
@@ -137,6 +153,9 @@ def main() -> int:
                    if not t.get("completed") and regra(t.get("title"))]
         if not tarefas:
             continue
+        datas = criadas(c["id"])
+        for t in tarefas:
+            t["dateAdded"] = t.get("dateAdded") or datas.get(t["id"]) or ""
         calls, msgs = historico(c["id"]) if any(regra(t["title"]) != "qualificacao" for t in tarefas) else ([], [])
         tags = set(c.get("tags") or [])
         for t in tarefas:
