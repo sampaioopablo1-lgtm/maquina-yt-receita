@@ -144,10 +144,42 @@ def quando(s: str) -> dt.datetime:
     return dt.datetime.fromisoformat(s.replace("Z", "+00:00"))
 
 
+def faxina(aplicar, cont) -> None:
+    """Nenhuma tarefa órfã (30/09, auditoria): tarefa sem contato (contato apagado) — 17 em 30/09, desde
+    22/09, poluindo a lista; ninguém consegue executá-la. Conclui pela rota da location (funciona sem contato).
+    Tarefa de toque atrasada NÃO é fechada por ter nascido um toque novo: pendente pode ser trabalho não feito,
+    e a conclusão sem ação vista é manual (regra do dono, 30/09)."""
+    abertas, depois = [], None
+    for _ in range(30):
+        corpo = {"completed": False, "limit": 100}
+        if depois:
+            corpo["searchAfter"] = depois
+        lote = pedir("POST", "/locations/%s/tasks/search" % LOC, corpo).get("tasks") or []
+        abertas += lote
+        if len(lote) < 100:
+            break
+        depois = lote[-1].get("searchAfter")
+    for t in abertas:
+        titulo = t.get("title") or ""
+        if not t.get("contactId"):
+            motivo = "órfã (contato apagado)"
+        else:
+            continue
+        fechar(t, motivo, aplicar, cont)
+
+
+def fechar(t, motivo, aplicar, cont) -> None:
+    cont[motivo.split(" ")[0]] += 1
+    print("  %-22s %-55s <- %s" % (((t.get("contactDetails") or {}).get("firstName") or "?")[:22], t["title"][:55], motivo))
+    if aplicar:
+        pedir("PUT", "/locations/%s/tasks/%s" % (LOC, t.get("_id") or t.get("id")), {"completed": True})
+
+
 def main() -> int:
     aplicar = "--aplicar" in sys.argv
     agora = dt.datetime.now(dt.timezone.utc)
     cont = Counter()
+    faxina(aplicar, cont)
     for c in contatos():
         tarefas = [t for t in (pedir("GET", "/contacts/%s/tasks" % c["id"]).get("tasks") or [])
                    if not t.get("completed") and regra(t.get("title"))]
