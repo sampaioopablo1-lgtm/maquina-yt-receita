@@ -51,7 +51,7 @@ def regra(titulo: str):
         return "resposta"
     if t.startswith("[RETORNO] Preencher Data e Hora"):
         return "retorno"
-    if t.startswith("[LIGAR AGORA]") and "Calendly" in t:
+    if t.startswith("[LIGAR AGORA]") and ("Calendly" in t or "Confirmar a reunião" in t):
         return "conversa"
     if (t.startswith("[CADENCIA]") and "ligar" in t.lower()) or t.startswith("[LIGAR AGORA]") or t.startswith("[RETORNO]"):
         return "ligacao"

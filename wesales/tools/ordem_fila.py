@@ -5,9 +5,9 @@ QUEM entra na fila continua sendo decidido pela cadência 12x30 e pelo atuador d
 Este arquivo só decide a ORDEM: escreve `Prioridade`, que a lista ordena de cima para baixo.
 Roda no relógio a cada 30 min (seg–sex 07:30–21:00). Escreve só o que mudou.
 
-    10  agendou sozinho pelo Calendly, ligação de confirmação pendente (tag confirmar-reuniao);
+    10  lead novo (< 2 h) sem nenhuma ligação real; reunião a confirmar (tag confirmar-reuniao);
         faltou à reunião e tem toque de remarcação a fazer (fila-noshow, cadencia_noshow.py)
-     9  pediu retorno e o horário já passou (retorno-vencido)
+     9  pediu retorno e o horário já passou (retorno-vencido); lead de até 72 h que nunca recebeu ligação
      8  lead novo: entrou há menos de 2 h e ninguém ligou ainda
      7  respondeu mensagem, ligou de volta (fila-quente), fechar horário ou nota >= 70
      5  toque da cadência vencido hoje (fila-tel / fila-wa)
@@ -27,7 +27,7 @@ import datetime as dt
 import sys
 from collections import Counter
 
-from atuador_filas import CONECTAR, PRIORIDADE, TESTE, contatos, etapa_por_contato, pedir, valor
+from atuador_filas import CONECTAR, PRIORIDADE, TESTE, contatos, etapa_por_contato, pedir, ultima_ligacao_horas, valor
 
 REUNIAO = "3d26fcd1"
 TAG_CONF = "confirmar-reuniao"
@@ -59,12 +59,13 @@ def nota(c, etapa, agora):
         return 0, "tag " + ",".join(sorted(tags & FORA))
     if "retorno-vencido" in tags:
         return 9, "retorno vencido"
-    tent = num(valor(c, CAMPO_TENTATIVA)) or 0
+    # lead novo = nenhuma ligação REAL ainda (30/09: a Cadência Inbound grava "Tentativa nº 1" na entrada e
+    # um "Não atendeu" automático aos 25 min, então o contador não serve para saber se alguém ligou)
     entrou = c.get("dateAdded")
-    if entrou and tent == 0:
+    if entrou:
         h = (agora - dt.datetime.fromisoformat(entrou.replace("Z", "+00:00"))).total_seconds() / 3600
-        if h < 2:
-            return 8, "lead novo (%.1f h)" % h
+        if h < 72 and ultima_ligacao_horas(c["id"]) is None:
+            return (10, "lead novo sem ligação (%.1f h)" % h) if h < 2 else (9, "sem nenhuma ligação (%.0f h)" % h)
     n = num(valor(c, CAMPO_NOTA))
     if valor(c, CAMPO_SINAL) == "Resposta de mensagem" or tags & {"fila-quente", "fechar-horario"} or (n is not None and n >= 70):
         return 7, "quente"
@@ -80,6 +81,10 @@ def acao(p, motivo, tags):
     """Pura: o que a SDR faz com o lead, em uma linha. None = quem escreve é outro robô (no-show 6x15)."""
     if motivo.startswith("no-show"):
         return None
+    if motivo.startswith("lead novo"):
+        return "📞 LEAD NOVO: ligar já"
+    if motivo.startswith("sem nenhuma ligação"):
+        return "📞 Nunca ligado: ligar"
     if p == 10:
         return "📞 Confirmar reunião"
     if p == 9:
@@ -104,7 +109,7 @@ def solta_confirmacao(cs, etapas, aplicar, agora):
             motivo = "saiu de REUNIÃO"
         else:
             ts = pedir("GET", "/contacts/%s/tasks" % c["id"]).get("tasks") or []
-            if not any(t.get("title", "").startswith("[LIGAR AGORA] Agendou pelo Calendly") and not t.get("completed")
+            if not any(t.get("title", "").startswith("[LIGAR AGORA]") and "onfirmar a reunião" in t.get("title", "") and not t.get("completed")
                        for t in ts):
                 motivo = "SDR concluiu a ligação de confirmação"
             else:

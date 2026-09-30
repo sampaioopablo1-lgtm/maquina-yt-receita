@@ -54,6 +54,8 @@ import sys
 import urllib.error
 import urllib.request
 
+import privacidade
+
 BASE = "https://backend.leadconnectorhq.com"
 LOC = "1D53YTI9C7oIMBavcQxV"          # unica subconta permitida
 _AQUI = os.path.dirname(os.path.abspath(__file__))
@@ -142,7 +144,9 @@ def pedir(metodo: str, caminho: str, corpo: dict | None = None, timeout: int = 6
             "esta negado na politica de rede deste ambiente."
             % (metodo, caminho, e.reason)) from e
     try:
-        return json.loads(bruto)
+        saida = json.loads(bruto)
+        privacidade.registrar(saida)
+        return saida
     except ValueError:
         raise RecusadoPelaConta(
             "%s %s -> resposta nao era JSON: %r" % (metodo, caminho, bruto[:200]))
