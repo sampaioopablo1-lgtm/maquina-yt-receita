@@ -33,7 +33,9 @@ from collections import Counter
 
 import ghl_interno as g
 
-DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".local", "eventos")
+# Na nuvem (wesales-log.yml) aponta para o clone do repositório PRIVADO opc-crm-dados: este repo é
+# público e nunca recebe dado de lead.
+DIR = os.environ.get("EVENTOS_DIR") or os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".local", "eventos")
 BR = dt.timezone(dt.timedelta(hours=-3))
 PESSOA = {"WEB_USER", "MOBILE_APP", "MOBILE_USER", "USER"}
 DO_CONTATO = {"CONTACT", "NOTE", "TASK", "OPPORTUNITY", "CALENDAR_EVENT", "APPOINTMENT"}
