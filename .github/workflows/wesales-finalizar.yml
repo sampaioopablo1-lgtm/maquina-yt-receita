@@ -1,1 +1,113 @@
-bmFtZTogV2VTYWxlcyAtIGZpbmFsaXphciBjb25maWd1cmFjYW8KCiMgUG9yIHF1ZSBleGlzdGU6IG8gY29udGVpbmVyIG9uZGUgZXN0YSBjb25maWd1cmFjYW8gZSBlc2NyaXRhIG5hbyBhbGNhbmNhIG8gR0hMCiMgKHNlcnZpY2VzLiBlIGJhY2tlbmQubGVhZGNvbm5lY3RvcmhxLmNvbSByZXNwb25kZW0gMDAwIHBlbG8gcHJveHkgZGUgZWdyZXNzbywKIyBtZWRpZG8gZW0gMjcvMDkpLiBPIHJ1bm5lciBkbyBHaXRIdWIgYWxjYW5jYSwgZSB0ZW0gbyBzZWdyZWRvIEdITF9QSVQuIEVzdGUgZQojIG8gdW5pY28gYXJxdWl2byBxdWUgZmF6IGEgZmluYWxpemFjYW8g4oCUIGRlIHByb3Bvc2l0byBzZXBhcmFkbyBkZQojIHdlc2FsZXMtZzAzLnltbCwgcXVlIHRlbSBjcm9uIGRlIHByb2R1Y2FvIGUgbmFvIGRldmUgY2FycmVnYXIgb3V0cmEgZnVuY2FvLgojCiMgU2VtIGNyb246IGlzdG8gRVNDUkVWRSBuYSBlc3RydXR1cmEgZSBub3MgcmVnaXN0cm9zIGRvIENSTS4gUm9kYSBzbyBwb3IgYm90YW8uCiMgTyBwYWRyYW8gZSBgcmVjb25gLCBxdWUgbGUgZSBuYW8gZXNjcmV2ZSwgZW50YW8gYXBlcnRhciBzZW0gcGVuc2FyIG5hbyBtdWRhIG5hZGEuCiMKIyBOT1RBIERFIEFMQ0FOQ0UsIHBhcmEgcXVlbSB2aWVyIGRlcG9pczogdW0gd29ya2Zsb3dfZGlzcGF0Y2ggcGVsYSBBUEkgZG8gR2l0SHViCiMgc28gcmVzb2x2ZSBvIHdvcmtmbG93IHNlIG8gYXJxdWl2byBleGlzdGlyIG5vIEJSQU5DSCBQQURSQU8g4oCUIHRlc3RhZG8sIHVtCiMgYXJxdWl2byBxdWUgZXhpc3RlIGFwZW5hcyBubyBicmFuY2ggZGUgdHJhYmFsaG8gZGV2b2x2ZSA0MDQuIEVucXVhbnRvIGVzdGUKIyBhcnF1aXZvIG5hbyBlc3RpdmVyIG5vIGJyYW5jaCBwYWRyYW8sIGVsZSBzbyByb2RhIHBlbG8gYm90YW8gZGEgdGVsYSBkbwojIEdpdEh1YiwgY29tICJVc2Ugd29ya2Zsb3cgZnJvbSIgYXBvbnRhbmRvIHBhcmEgbyBicmFuY2ggZGUgdHJhYmFsaG8uCgpvbjoKICB3b3JrZmxvd19kaXNwYXRjaDoKICAgIGlucHV0czoKICAgICAgbW9kbzoKICAgICAgICBkZXNjcmlwdGlvbjogInJlY29uIGxlIGUgbmFvIGVzY3JldmUuIE9zIG91dHJvcyBlc2NyZXZlbSBubyBDUk0uIgogICAgICAgIHR5cGU6IGNob2ljZQogICAgICAgIGRlZmF1bHQ6IHJlY29uCiAgICAgICAgb3B0aW9uczoKICAgICAgICAgIC0gcmVjb24KICAgICAgICAgIC0gcGFzdGFzCiAgICAgICAgICAtIGRvbm9zCiAgICAgICAgICAtIHZlcmlmaWNhcgogICAgICAgICAgLSBmaWxhcwogICAgICAgICAgLSBmaWxhcy1hcGxpY2FyCiAgICAgICAgICAtIGZvcm11bGFyaW8KICAgICAgdXNlcl9pZDoKICAgICAgICBkZXNjcmlwdGlvbjogIlNvIHBhcmEgbW9kbz1kb25vczogaWQgZG8gdXN1YXJpbyBxdWUgcmVjZWJlIG9zIGxlYWRzIgogICAgICAgIHR5cGU6IHN0cmluZwogICAgICAgIHJlcXVpcmVkOiBmYWxzZQoKcGVybWlzc2lvbnM6CiAgY29udGVudHM6IHJlYWQKCmpvYnM6CiAgZmluYWxpemFyOgogICAgcnVucy1vbjogdWJ1bnR1LWxhdGVzdAogICAgc3RlcHM6CiAgICAgIC0gbmFtZTogQ2hlY2tvdXQKICAgICAgICB1c2VzOiBhY3Rpb25zL2NoZWNrb3V0QHY0CgogICAgICAtIG5hbWU6IFNldCB1cCBQeXRob24KICAgICAgICB1c2VzOiBhY3Rpb25zL3NldHVwLXB5dGhvbkB2NQogICAgICAgIHdpdGg6CiAgICAgICAgICBweXRob24tdmVyc2lvbjogIjMuMTIiCgogICAgICAjIENvbmZlcmUgbyBtYXBhIGNhbXBvLT5wYXN0YSBjb250cmEgbyBzbmFwc2hvdCB2ZXJzaW9uYWRvLiBPZmZsaW5lLCBzZW0KICAgICAgIyBzZWdyZWRvLCBzZW1wcmUuIEZhbGhhIHNlIHNvYnJhciwgZmFsdGFyIG91IHJlcGV0aXIgY2FtcG8g4oCUIGFudGVzIGRlCiAgICAgICMgcXVhbHF1ZXIgZXNjcml0YS4KICAgICAgLSBuYW1lOiBDb25mZXJpciBvIG1hcGEgZGUgY2FtcG9zCiAgICAgICAgcnVuOiBweXRob24gd2VzYWxlcy90b29scy9wYXN0YXNfZGVfY2FtcG8ucHkgLS1wbGFubwoKICAgICAgLSBuYW1lOiBSZWNvbmhlY2ltZW50byAobGUgYSBjb250YSwgZXNjcmV2ZSBuYWRhKQogICAgICAgIGlmOiAke3sgaW5wdXRzLm1vZG8gPT0gJ3JlY29uJyB9fQogICAgICAgIGVudjoKICAgICAgICAgIEdITF9QSVQ6ICR7eyBzZWNyZXRzLkdITF9QSVQgfX0KICAgICAgICAgIEdITF9TVE9SQUdFX1NUQVRFOiAke3sgc2VjcmV0cy5HSExfU1RPUkFHRV9TVEFURSB9fQogICAgICAgIHJ1bjogcHl0aG9uIHdlc2FsZXMvdG9vbHMvZmluYWxpemFyLnB5IC0tcmVjb24KCiAgICAgIC0gbmFtZTogUGFzdGFzIGRlIGNhbXBvIChyZW5vbWVpYSBhIGdyYW5kZSwgY3JpYSBhcyBvdXRyYXMgcXVhdHJvKQogICAgICAgIGlmOiAke3sgaW5wdXRzLm1vZG8gPT0gJ3Bhc3RhcycgfX0KICAgICAgICBlbnY6CiAgICAgICAgICBHSExfUElUOiAke3sgc2VjcmV0cy5HSExfUElUIH19CiAgICAgICAgcnVuOiBweXRob24gd2VzYWxlcy90b29scy9maW5hbGl6YXIucHkgLS1wYXN0YXMKCiAgICAgIC0gbmFtZTogRG9ubyBkbyBsZWFkCiAgICAgICAgaWY6ICR7eyBpbnB1dHMubW9kbyA9PSAnZG9ub3MnIH19CiAgICAgICAgZW52OgogICAgICAgICAgR0hMX1BJVDogJHt7IHNlY3JldHMuR0hMX1BJVCB9fQogICAgICAgIHJ1bjogfAogICAgICAgICAgaWYgWyAtbiAiJHt7IGlucHV0cy51c2VyX2lkIH19IiBdOyB0aGVuCiAgICAgICAgICAgIHB5dGhvbiB3ZXNhbGVzL3Rvb2xzL2ZpbmFsaXphci5weSAtLWRvbm9zIC0tdXNlciAiJHt7IGlucHV0cy51c2VyX2lkIH19IgogICAgICAgICAgZWxzZQogICAgICAgICAgICBweXRob24gd2VzYWxlcy90b29scy9maW5hbGl6YXIucHkgLS1kb25vcwogICAgICAgICAgZmkKCiAgICAgIC0gbmFtZTogRmlsYXMgZG8gZGlzY2Fkb3IgKERSWSDigJQgY2FsY3VsYSBlIGltcHJpbWUsIGVzY3JldmUgbmFkYSkKICAgICAgICBpZjogJHt7IGlucHV0cy5tb2RvID09ICdmaWxhcycgfX0KICAgICAgICBlbnY6CiAgICAgICAgICBHSExfUElUOiAke3sgc2VjcmV0cy5HSExfUElUIH19CiAgICAgICAgcnVuOiBweXRob24gd2VzYWxlcy90b29scy9hdHVhZG9yX2ZpbGFzLnB5CgogICAgICAtIG5hbWU6IEZpbGFzIGRvIGRpc2NhZG9yIChBUExJQ0EpCiAgICAgICAgaWY6ICR7eyBpbnB1dHMubW9kbyA9PSAnZmlsYXMtYXBsaWNhcicgfX0KICAgICAgICBlbnY6CiAgICAgICAgICBHSExfUElUOiAke3sgc2VjcmV0cy5HSExfUElUIH19CiAgICAgICAgcnVuOiBweXRob24gd2VzYWxlcy90b29scy9hdHVhZG9yX2ZpbGFzLnB5IC0tYXBsaWNhcgoKICAgICAgLSBuYW1lOiBGb3JtdWxhcmlvIGRlIHF1YWxpZmljYWNhbyAoY29uZmVyZSBvcyA1IGNhbXBvcyBkbyBhbnVuY2lvKQogICAgICAgIGlmOiAke3sgaW5wdXRzLm1vZG8gPT0gJ2Zvcm11bGFyaW8nIH19CiAgICAgICAgcnVuOiBweXRob24gd2VzYWxlcy90b29scy9maW5hbGl6YXIucHkgLS1mb3JtdWxhcmlvCgogICAgICAtIG5hbWU6IFZlcmlmaWNhY2FvIChyZWxlIGEgY29udGEgZSBwcm92YSkKICAgICAgICBpZjogJHt7IGlucHV0cy5tb2RvID09ICd2ZXJpZmljYXInIH19CiAgICAgICAgZW52OgogICAgICAgICAgR0hMX1BJVDogJHt7IHNlY3JldHMuR0hMX1BJVCB9fQogICAgICAgIHJ1bjogcHl0aG9uIHdlc2FsZXMvdG9vbHMvZmluYWxpemFyLnB5IC0tdmVyaWZpY2FyCg==
+name: WeSales - finalizar configuracao
+
+# Por que existe: o conteiner onde esta configuracao e escrita nao alcanca o GHL
+# (services. e backend.leadconnectorhq.com respondem 000 pelo proxy de egresso,
+# medido em 27/09). O runner do GitHub alcanca, e tem o segredo GHL_PIT. Este e
+# o unico arquivo que faz a finalizacao — de proposito separado de
+# wesales-g03.yml, que tem cron de producao e nao deve carregar outra funcao.
+#
+# Sem cron: isto ESCREVE na estrutura e nos registros do CRM. Roda so por botao.
+# O padrao e `recon`, que le e nao escreve, entao apertar sem pensar nao muda nada.
+#
+# NOTA DE ALCANCE, para quem vier depois: um workflow_dispatch pela API do GitHub
+# so resolve o workflow se o arquivo existir no BRANCH PADRAO — testado, um
+# arquivo que existe apenas no branch de trabalho devolve 404. Enquanto este
+# arquivo nao estiver no branch padrao, ele so roda pelo botao da tela do
+# GitHub, com "Use workflow from" apontando para o branch de trabalho.
+
+on:
+  workflow_dispatch:
+    inputs:
+      modo:
+        description: "recon le e nao escreve. Os outros escrevem no CRM."
+        type: choice
+        default: recon
+        options:
+          - recon
+          - pastas
+          - donos
+          - verificar
+          - filas
+          - filas-aplicar
+          - formulario
+      user_id:
+        description: "So para modo=donos: id do usuario que recebe os leads"
+        type: string
+        required: false
+
+permissions:
+  contents: read
+
+jobs:
+  finalizar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Confere o mapa campo->pasta contra o snapshot versionado. Offline, sem
+      # segredo, sempre. Falha se sobrar, faltar ou repetir campo — antes de
+      # qualquer escrita.
+      - name: Conferir o mapa de campos
+        run: python wesales/tools/pastas_de_campo.py --plano
+
+      - name: Reconhecimento (le a conta, escreve nada)
+        if: ${{ inputs.modo == 'recon' }}
+        env:
+          GHL_PIT: ${{ secrets.GHL_PIT }}
+          GHL_STORAGE_STATE: ${{ secrets.GHL_STORAGE_STATE }}
+        run: python wesales/tools/finalizar.py --recon
+
+      # `pastas` foi reaproveitado: pasta nao sai por API (400), mas NOME e POSICAO
+      # de campo saem. Este passo poe a ficha do contato em ordem BANT e cria
+      # `SDR responsavel` como lista com os usuarios do CRM. Rode `formulario`
+      # (a sonda) antes; ela prova num campo de teste o que a API aceita.
+      - name: Ficha do contato em ordem BANT (APLICA)
+        if: ${{ inputs.modo == 'pastas' }}
+        env:
+          GHL_PIT: ${{ secrets.GHL_PIT }}
+        run: python wesales/tools/campos_bant.py --aplicar
+
+      - name: Dono do lead
+        if: ${{ inputs.modo == 'donos' }}
+        env:
+          GHL_PIT: ${{ secrets.GHL_PIT }}
+        run: |
+          if [ -n "${{ inputs.user_id }}" ]; then
+            python wesales/tools/finalizar.py --donos --user "${{ inputs.user_id }}"
+          else
+            python wesales/tools/finalizar.py --donos
+          fi
+
+      - name: Filas do discador (DRY — calcula e imprime, escreve nada)
+        if: ${{ inputs.modo == 'filas' }}
+        env:
+          GHL_PIT: ${{ secrets.GHL_PIT }}
+        run: python wesales/tools/atuador_filas.py
+
+      - name: Filas do discador (APLICA)
+        if: ${{ inputs.modo == 'filas-aplicar' }}
+        env:
+          GHL_PIT: ${{ secrets.GHL_PIT }}
+        run: python wesales/tools/atuador_filas.py --aplicar
+
+      # O formulario nativo nao e editavel por API; a ficha do contato e o
+      # formulario (decisao do dono em 27/09: tudo dentro do CRM). Este modo e a
+      # SONDA: cria um campo de teste proprio, prova renomear/posicao/pasta/opcoes
+      # e o apaga. Nao toca em campo real.
+      - name: Sonda da estrutura de campos (campo de teste proprio)
+        if: ${{ inputs.modo == 'formulario' }}
+        env:
+          GHL_PIT: ${{ secrets.GHL_PIT }}
+        run: python wesales/tools/campos_bant.py --sondar
+
+      - name: Verificacao (rele a conta e prova)
+        if: ${{ inputs.modo == 'verificar' }}
+        env:
+          GHL_PIT: ${{ secrets.GHL_PIT }}
+        run: python wesales/tools/finalizar.py --verificar
