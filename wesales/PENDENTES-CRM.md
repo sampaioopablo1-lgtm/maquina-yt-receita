@@ -101,6 +101,9 @@ tem a função.
   mais precisam de ligação (1ª tentativa ainda não feita). O `atuador_filas.py` só tira `fila-tel`
   para pôr `fila-wa` (`distribuir_canal`), então quem tira é um nó `remove_contact_tag` de workflow
   publicado (Cadência Inbound / 12x30 / Pós-ligação) rodando sem ligação registrada.
+  Em 30/09 repetiu com `FLHUzG8EzfiUpMyQiET6` (entrou 08:17): `fila-tel` às 09:07, `fila-wa` às
+  10:07, `fila-tel` de novo às 11:07, sem ligação nem mensagem no meio; aqui a troca é
+  `fila-tel` ↔ `fila-wa`, então o `distribuir_canal` pode estar no ciclo junto com o workflow.
 - **Como:** abrir o contato `riOAwk6u6tOXadcorOJz` → Automações/Histórico e ver qual workflow
   removeu `fila-tel` entre 12:07 e 13:07 e em qual passo. Se for a cadência (toque "vence" e o passo
   seguinte tira a tag antes de alguém ligar): trocar a remoção para acontecer só no Pós-ligação
