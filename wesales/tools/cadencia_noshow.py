@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Cadência de no-show 6x15 (30/09, decisão do dono): 6 toques em 15 dias depois da reunião perdida.
+"""Cadência de no-show (30/09, decisão do dono): 6x15 e, sem remarcar, a 12x30 parte 2, no mesmo robô.
 
     toque  dia  canal
       1     0   📞 ligação (telefone)
@@ -14,7 +14,10 @@ Substitui o workflow "Recuperação de No-show" (NS1–NS3), que parava no envio
 
 Quem entra: reunião marcada como No-show (agendas do closer e da SDR) nos últimos 16 dias, lead ainda
 em REUNIÃO e sem nova reunião depois dela. Sai quando remarca, sai de REUNIÃO, vira DND/nao-perturbe,
-ou quando os 6 toques terminam (tag `noshow-fim`, a passagem para a 12x30 parte 2 é o próximo passo).
+ou no dia 30. Do dia 17 ao 29 seguem os toques T7–T12 da 12x30 parte 2 (mesmas mensagens MT8, MT11 e
+MT12, que são os snippets 5, 6 e 13), SEM mover para CONECTAR: mover reinscreveria o lead na Inbound e na
+12x30 desde o 1º toque. Dia 30 sem remarcar: oportunidade abandonada + `nutricao-90d` + tag `noshow-fim`,
+o mesmo fim da parte 2.
 
 Cada toque vira tarefa "[NS k/6] ..." (o finalizar_tarefas fecha quando a ação acontece). Enquanto há
 tarefa vencendo hoje, o lead leva a tag `fila-noshow` (entra na Minha fila) e o campo "Próxima ação"
@@ -39,22 +42,38 @@ ACAO = "oc7FTlIhIpiH90oZxPyx"            # Próxima ação (coluna da Minha fila
 SDR = "ML69c5kAJ93cliAGgBj6"             # Andreyna
 TAG, FILA, FIM = "noshow-6x15", "fila-noshow", "noshow-fim"
 FORA = {"nao-perturbe", "status-perdido", "telefone-invalido"}
+SNIP = "Clique no nome do lead para abrir a conversa, digite / e escolha \"%s\". Depois, Enviar."
+WA_LIGA = "Na conversa do lead, botão \"Ligar via WhatsApp\"."
+# (código, dia, emoji, ação, como fazer, texto curto da coluna Próxima ação)
 TOQUES = [
-    (1, 0, "📞", "Ligar (telefone)",
-     "Ligue e remarque. Se remarcar, marque pela ficha: ícone de calendário, agenda \"Agendamento pela SDR\"."),
-    (2, 0, "💬", "WhatsApp: enviar a mensagem pronta",
-     "Clique no nome do lead para abrir a conversa, digite / e escolha \"10 · Faltou na reunião\". Depois, Enviar."),
-    (3, 2, "🟢", "Ligar pelo WhatsApp",
-     "Na conversa do lead, botão \"Ligar via WhatsApp\"."),
-    (4, 5, "📞", "Ligar (telefone)", "Segunda ligação normal. Objetivo: remarcar."),
-    (5, 9, "🟢", "Ligar pelo WhatsApp", "Na conversa do lead, botão \"Ligar via WhatsApp\"."),
-    (6, 14, "📞", "Ligar (telefone), última tentativa",
-     "Última tentativa da recuperação. Não remarcou: o lead segue para a 12x30."),
+    # fase 1: 6x15
+    ("1/6", 0, "📞", "Ligar (telefone)",
+     "Ligue e remarque. Se remarcar, marque pela ficha: ícone de calendário, agenda \"Agendamento pela SDR\".", "ligar"),
+    ("2/6", 0, "💬", "WhatsApp: enviar a mensagem pronta", SNIP % "10 · Faltou na reunião", "WhatsApp"),
+    ("3/6", 2, "🟢", "Ligar pelo WhatsApp", WA_LIGA, "ligar WhatsApp"),
+    ("4/6", 5, "📞", "Ligar (telefone)", "Segunda ligação normal. Objetivo: remarcar.", "ligar"),
+    ("5/6", 9, "🟢", "Ligar pelo WhatsApp", WA_LIGA, "ligar WhatsApp"),
+    ("6/6", 14, "📞", "Ligar (telefone)", "Última ligação da 6x15. Não remarcou: segue a 12x30 (parte 2).", "ligar"),
+    # fase 2: 12x30 parte 2 (T7-T12, mensagens MT8/MT11/MT12 = snippets 5, 6 e 13), sem mover de etapa
+    ("7/12", 17, "📞", "Ligar (telefone)", "12x30, toque 7. Objetivo: remarcar.", "ligar"),
+    ("8/12", 19, "📞", "Ligar (telefone)", "12x30, toque 8.", "ligar"),
+    ("8/12 WA", 19, "💬", "WhatsApp: enviar a mensagem pronta", SNIP % "5 · Indicação ou anúncio", "WhatsApp"),
+    ("9/12", 21, "🟢", "Ligar pelo WhatsApp", WA_LIGA, "ligar WhatsApp"),
+    ("10/12", 24, "📞", "Ligar (telefone)", "12x30, toque 10.", "ligar"),
+    ("11/12", 26, "📞", "Ligar (telefone)", "12x30, toque 11.", "ligar"),
+    ("11/12 WA", 26, "💬", "WhatsApp: enviar a mensagem pronta", SNIP % "6 · O que travou", "WhatsApp"),
+    ("12/12 WA", 29, "💬", "WhatsApp: mensagem de encerramento", SNIP % "13 · Encerrar",
+     "WhatsApp de encerramento"),
 ]
+FIM_DIA = 30      # sem remarcar até aqui: oportunidade abandonada + nutricao-90d (mesmo fim da parte 2)
 
 
-def titulo(k, emoji, acao, nome):
-    return "[NS %d/6] %s %s — %s" % (k, emoji, acao, nome)
+def titulo(cod, emoji, acao, nome):
+    return "[NS %s] %s %s — %s" % (cod, emoji, acao, nome)
+
+
+def chave(t: str) -> str:
+    return t.split("]")[0] + "]"
 
 
 def data_local(s: str) -> dt.datetime:
@@ -66,7 +85,7 @@ def data_local(s: str) -> dt.datetime:
 
 def eventos(agora) -> dict:
     por = {}
-    ini, fim = int((agora - dt.timedelta(days=20)).timestamp() * 1000), int((agora + dt.timedelta(days=90)).timestamp() * 1000)
+    ini, fim = int((agora - dt.timedelta(days=FIM_DIA + 10)).timestamp() * 1000), int((agora + dt.timedelta(days=90)).timestamp() * 1000)
     for cal in AGENDAS:
         for e in pedir("GET", "/calendars/events?locationId=%s&calendarId=%s&startTime=%d&endTime=%d"
                        % (LOC, cal, ini, fim)).get("events") or []:
@@ -78,7 +97,7 @@ def eventos(agora) -> dict:
 def situacao(evs, agora):
     """Pura: (reunião perdida, motivo de saída ou None)."""
     ns = [e for e in evs if (e.get("appointmentStatus") or "") == "noshow"
-          and agora - data_local(e["startTime"]) <= dt.timedelta(days=16)]
+          and agora - data_local(e["startTime"]) <= dt.timedelta(days=FIM_DIA + 5)]
     if not ns:
         return None, "sem no-show recente"
     ultimo = max(ns, key=lambda e: data_local(e["startTime"]))
@@ -120,26 +139,27 @@ def main() -> int:
         base = dt.date.fromisoformat(str(inicio)[:10]) if inicio else hoje
         dia = (hoje - base).days
         tarefas = pedir("GET", "/contacts/%s/tasks" % c["id"]).get("tasks") or []
-        feitos = {t["title"].split("]")[0] + "]": t for t in tarefas if t.get("title", "").startswith("[NS ")}
+        feitos = {chave(t["title"]): t for t in tarefas if t.get("title", "").startswith("[NS ")}
         quando_perdida = data_local(perdida["startTime"]).strftime("%d/%m %H:%M")
         novos = []
-        for k, off, emoji, acao, como in TOQUES:
-            if off <= dia and "[NS %d/6]" % k not in feitos:
+        for cod, off, emoji, acao, como, _ in TOQUES:
+            if off <= dia and "[NS %s]" % cod not in feitos:
                 vence = dt.datetime.combine(base + dt.timedelta(days=off), dt.time(18, 0), BR)
-                novos.append((k, titulo(k, emoji, acao, nome),
+                novos.append((cod, titulo(cod, emoji, acao, nome),
                               "Faltou à reunião de %s. %s" % (quando_perdida, como), vence))
         # tarefa só nasce no dia do toque: aberta = toque a fazer (hoje ou atrasado)
         vencendo = sorted([t["title"] for t in feitos.values() if not t.get("completed")] + [n[1] for n in novos])
-        proximo = next(((k, off, e, a) for k, off, e, a, _ in TOQUES if off > dia), None)
-        terminou = dia >= 14 and not proximo and not vencendo
+        proximo = next((x for x in TOQUES if x[1] > dia), None)
+        terminou = dia >= FIM_DIA and not vencendo
+        por_cod = {"[NS %s]" % x[0]: x for x in TOQUES}
         if vencendo:
-            k0 = int(vencendo[0][4])
-            curto = {1: "ligar", 2: "WhatsApp", 3: "ligar WhatsApp", 4: "ligar", 5: "ligar WhatsApp", 6: "última ligação"}[k0]
-            acao_txt = "%s No-show %d/6: %s" % (TOQUES[k0 - 1][2], k0, curto)
+            x = por_cod.get(chave(vencendo[0]))
+            acao_txt = "%s No-show %s: %s" % (x[2], x[0].replace(" WA", ""), x[5]) if x else vencendo[0][:40]
         elif terminou:
-            acao_txt = "✅ No-show: 6 toques feitos"
+            acao_txt = "✅ No-show: 12 toques sem remarcar → nutrição"
         elif proximo:
-            acao_txt = "⏳ No-show %d/6 em %s" % (proximo[0], (base + dt.timedelta(days=proximo[1])).strftime("%d/%m"))
+            acao_txt = "⏳ No-show %s em %s" % (proximo[0].replace(" WA", ""),
+                                             (base + dt.timedelta(days=proximo[1])).strftime("%d/%m"))
         else:
             acao_txt = "No-show: aguardando conclusão das tarefas"
         print("  %-5s %-26s dia %2d | novas %s | %s" % ("ativo" if ativo else "entra", nome[:26], dia,
@@ -154,6 +174,13 @@ def main() -> int:
             pedir("POST", "/contacts/%s/tasks" % c["id"], {"title": tt, "body": corpo, "assignedTo": SDR,
                   "dueDate": vence.astimezone(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.000Z"), "completed": False})
             time.sleep(0.2)
+        if terminou:
+            # mesmo fim da 12x30 parte 2: oportunidade abandonada + nutrição de 15 em 15 dias
+            for o in pedir("GET", "/opportunities/search?location_id=%s&contact_id=%s&status=open" % (LOC, c["id"])).get("opportunities") or []:
+                pedir("PUT", "/opportunities/%s/status" % o["id"], {"status": "abandoned"})
+            pedir("POST", "/contacts/%s/tags" % c["id"], {"tags": ["nutricao-90d"]})
+            pedir("POST", "/contacts/%s/notes" % c["id"], {"body": "No-show de %s: 6x15 + 12x30 parte 2 sem remarcar. "
+                  "Oportunidade abandonada e lead em nutrição (cadencia_noshow.py)." % quando_perdida})
         quer = {FIM} if terminou else ({TAG, FILA} if vencendo else {TAG})
         if quer - tags:
             pedir("POST", "/contacts/%s/tags" % c["id"], {"tags": sorted(quer - tags)})

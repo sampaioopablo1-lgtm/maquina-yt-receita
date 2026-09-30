@@ -5,9 +5,10 @@ QUEM entra na fila continua sendo decidido pela cadência 12x30 e pelo atuador d
 Este arquivo só decide a ORDEM: escreve `Prioridade`, que a lista ordena de cima para baixo.
 Roda no relógio a cada 30 min (seg–sex 07:30–21:00). Escreve só o que mudou.
 
-    10  agendou sozinho pelo Calendly, ligação de confirmação pendente (tag confirmar-reuniao)
+    10  agendou sozinho pelo Calendly, ligação de confirmação pendente (tag confirmar-reuniao);
+        faltou à reunião e tem toque de remarcação a fazer (fila-noshow, cadencia_noshow.py)
      9  pediu retorno e o horário já passou (retorno-vencido)
-     8  lead novo: entrou há menos de 2 h e ninguém ligou ainda; no-show com toque da 6x15 a fazer (fila-noshow)
+     8  lead novo: entrou há menos de 2 h e ninguém ligou ainda
      7  respondeu mensagem, ligou de volta (fila-quente), fechar horário ou nota >= 70
      5  toque da cadência vencido hoje (fila-tel / fila-wa)
      3  os demais em CONECTAR
@@ -49,7 +50,7 @@ def nota(c, etapa, agora):
     if TAG_CONF in tags and etapa == REUNIAO:
         return (0, "DND") if c.get("dnd") else (10, "agendou pelo Calendly, confirmar")
     if "fila-noshow" in tags and etapa == REUNIAO:
-        return (0, "DND") if c.get("dnd") else (8, "no-show: toque da 6x15")
+        return (0, "DND") if c.get("dnd") else (10, "no-show: remarcar reunião")
     if etapa != CONECTAR:
         return None, ""
     if c.get("dnd"):
