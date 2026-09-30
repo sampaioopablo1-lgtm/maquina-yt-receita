@@ -9132,3 +9132,25 @@ usá-lo em regra até o dono confirmar. Nada foi escrito no CRM.
 
 **Pronto quando:** o dono diz quem escreve o campo e se ele substitui ou
 complementa `Data agendado` (pendente).
+
+
+### G-47 · Dois campos novos nasceram na conta em 30/09/2026 13:34Z e a lista de campos fora da numeração parava no décimo segundo — os dois têm dono conhecido (30/09/2026) — **FEITO em 30/09/2026 (reconciliação)**
+
+**Por quê.** Mesma reconciliação de sempre: `locations_get-custom-fields`
+(model `contact`) sobe de 64 (G-46) para 66. Os novos, criados no mesmo minuto:
+`No-show: início da recuperação` (`i5V0ZaltEMU2sDrWCNjJ`, `DATE`) e `Próxima ação`
+(`oc7FTlIhIpiH90oZxPyx`, `TEXT`).
+
+**O que a busca achou.** Diferente do G-46, explicação de primeira: o commit
+`8956d02` da branch `claude/noshow-6x15` (cadência de no-show 6x15, decisão do
+dono de 30/09) usa os dois ids em `tools/cadencia_noshow.py` e
+`tools/ordem_fila.py`. Leitura do código, não medição ao vivo — nada foi lido
+nos contatos nesta rodada.
+
+**Feito:** `campos-e-tags.md` lista os dois com id, tipo e escritor. Nada foi
+escrito no CRM. O commit também troca o workflow `Recuperação de No-show` por
+robô no relógio — o que isso muda em `build-wesales.md` (seção de no-show, R-12)
+**não foi reconciliado aqui** e fica como próximo passo.
+
+**Pronto quando:** a seção de no-show do `build-wesales.md` e o R-12 dizem que a
+recuperação é a cadência 6x15 e não o workflow antigo (pendente).

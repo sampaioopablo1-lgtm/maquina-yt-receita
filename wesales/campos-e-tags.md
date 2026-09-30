@@ -560,6 +560,21 @@ para quê; já existem `Data agendado` e a tag `confirmar-reuniao` para o mesmo
 fato, então há risco de terceira fonte da verdade. Detalhe em
 `ROADMAP-SALES-ENGAGEMENT.md`, **G-46**.
 
+**Um décimo terceiro e um décimo quarto campo fora desta lista, ambos de 30/09/2026
+13:34Z, ambos do mesmo commit de branch irmã (G-47):**
+
+- `No-show: início da recuperação` — `contact.noshow_incio_da_recuperao`, id
+  `i5V0ZaltEMU2sDrWCNjJ`, `DATE`, posição 870, grupo de qualificação. Escreve:
+  `tools/cadencia_noshow.py` (commit `8956d02`, `claude/noshow-6x15`) — a data
+  do no-show que ancora os 6 toques em 15 dias; a cadência substitui o workflow
+  `Recuperação de No-show`, que voltou a rascunho.
+- `Próxima ação` — `contact.prxima_ao`, id `oc7FTlIhIpiH90oZxPyx`, `TEXT`,
+  posição 820, grupo de qualificação. Escreve: `tools/ordem_fila.py` (mesmo
+  commit) — texto do que fazer no lead, coluna da Minha fila.
+
+Nenhum é órfão nem duplicata. Como o script da branch irmã escreve neles, não
+mudam regra deste roadmap por si. Detalhe em `ROADMAP-SALES-ENGAGEMENT.md`, **G-47**.
+
 **Continuação em 28/09/2026 (G-38):** o "redesenho do seletor de canal"
 citado acima saiu do desenho e virou régua real — `Canal da tentativa` e
 `Canal que conectou` (ambos citados acima) já alimentam uma distribuição de
