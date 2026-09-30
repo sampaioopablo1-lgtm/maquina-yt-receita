@@ -125,6 +125,10 @@ tem a função.
   exatamente quem precisa da 2ª tentativa; fora das duas filas, o lead some do discador e da
   visão de WhatsApp e ninguém liga de novo. É diferente do item 6 (lá o lead some sem ligação;
   aqui some depois de uma ligação não atendida).
+  Confirmado às 16:07 com Ale `wZabWXgjVzW7AjRYnZ8L`: `no-answer` às 16:07:24, com `fila-tel` na
+  leitura seguinte e sem `fila-tel` (com `limpar-tarefas`) 1 s depois; a remoção é imediata, no
+  evento da chamada. Na mesma hora Neid, Andre, Elton e Andreia (`no-answer`) mantiveram `fila-wa`,
+  então o nó parece tirar só `fila-tel`.
 - **Como:** abrir o contato `AHWYfCVjwDpDT2QFFEli` → Automações/Histórico e ver qual workflow
   removeu `fila-tel` depois da ligação das 14:28 (provável: Pós-ligação disparando pelo evento de
   chamada e removendo a fila sem Resultado). No workflow: quando o status da chamada for
