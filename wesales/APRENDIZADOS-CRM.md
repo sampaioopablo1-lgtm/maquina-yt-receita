@@ -7088,3 +7088,9 @@ Detalhe completo, e as seis correções aplicadas, em
 - **O que vi:** `locations_get-custom-fields` devolveu 63 campos (eram 61). Novos: `Link: formulário + agenda` e `Registro automático em`, ambos `TEXT`, criados com 4 min de diferença.
 - **O que funcionou:** `git grep -l <nome ou id> origin/<branch>` em cada branch remota `wesales-*`/`link-formulario`/`responder` (a checkout local não tem as irmãs); o script `link_formulario.py` explicou o primeiro. O segundo não aparece em nenhuma — registrado como sem dono, não como hipótese firme.
 - **Lição:** `git fetch origin` primeiro; a branch de trabalho da sessão pode não ser a da tarefa (esta checkout veio em outra e não tinha `APROVADO.md`).
+
+## 30/09/2026 — G-46: campo novo sem rastro; confirmar vazio lendo os contatos
+
+- **O que vi:** `locations_get-custom-fields` (contato) trouxe `Lead já tem reunião marcada?`, criado no mesmo dia; nenhum campo anterior mudou.
+- **O que funcionou:** `contacts_get-contacts` (`query_limit=100`) salva a resposta em arquivo; `python3` sobre o JSON e o id do campo mostra em segundos que nenhum contato tem valor. Busca por nome, chave e id em 9 branches irmãs (`git fetch origin <branch>` + `git grep FETCH_HEAD`) não achou dono.
+- **Lição:** o checkout desta tarefa não tinha as branches irmãs; o `git ls-remote --heads` filtrado por `wesales|link|responder|abertura|crm` lista as candidatas sem baixar as 130.

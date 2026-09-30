@@ -547,6 +547,19 @@ noite, ambos preenchidos "pelo robô" (G-45):**
 Nenhum dos dois é órfão nem duplicata de campo do projeto. Detalhe em
 `ROADMAP-SALES-ENGAGEMENT.md`, **G-45**.
 
+**Um décimo segundo campo fora desta lista, de 30/09/2026 (G-46):**
+`Lead já tem reunião marcada?` — `contact.lead_j_tem_reunio_marcada`, id
+`HKuJMWNg0TwXw6WQa0pS`, `SINGLE_OPTIONS` (`Não`, `Sim`), criado 30/09/2026
+12:14Z, grupo de qualificação, posição 770. **Sem explicação em nenhuma branch
+lida** (busca por nome, chave e id nas branches `abertura-*`, `calendly-crm`,
+`closer-para-sdr`, `link-formulario`, `responder`, `wesales-*`) e **vazio nos
+contatos da subconta** (nenhum carrega valor). Pelo nome, é pergunta de
+formulário que separa lead que já agendou de lead a agendar — hipótese, não
+fato. Não usar em regra, lista ou workflow até o dono confirmar quem escreve e
+para quê; já existem `Data agendado` e a tag `confirmar-reuniao` para o mesmo
+fato, então há risco de terceira fonte da verdade. Detalhe em
+`ROADMAP-SALES-ENGAGEMENT.md`, **G-46**.
+
 **Continuação em 28/09/2026 (G-38):** o "redesenho do seletor de canal"
 citado acima saiu do desenho e virou régua real — `Canal da tentativa` e
 `Canal que conectou` (ambos citados acima) já alimentam uma distribuição de

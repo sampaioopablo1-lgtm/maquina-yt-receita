@@ -9107,3 +9107,28 @@ sistema faz sozinho") agora diz que o `Link: formulário + agenda` é da SDR e n
 deve ser colado em mensagem ao lead, porque a URL leva telefone, e-mail e
 respostas de qualificação. Riscos 2 e 3 e a dúvida sobre `Registro automático
 em` seguem pendentes do dono; CRM reconferido, sem campo novo desde 29/09 22:20Z.
+
+
+### G-46 · Um campo novo nasceu na conta em 30/09/2026 (`Lead já tem reunião marcada?`) sem rastro em nenhuma branch — e ele duplica um fato que a operação já guarda em duas fontes (30/09/2026) — **FEITO em 30/09/2026 (reconciliação)**
+
+**Por quê.** Mesma reconciliação de sempre antes de desenhar: `locations_get-custom-fields`
+(model `contact`) sobe de 63 (G-45) para 64. O novo: `Lead já tem reunião
+marcada?` (id `HKuJMWNg0TwXw6WQa0pS`, `SINGLE_OPTIONS` com `Não`/`Sim`,
+12:14Z, posição 770, grupo de qualificação).
+
+**O que a busca achou.** Nada: nome, chave `lead_j_tem_reunio_marcada` e id
+procurados no branch de trabalho e nas branches `abertura-operacao-dnd-*`,
+`calendly-crm`, `closer-para-sdr`, `link-formulario`, `responder`,
+`wesales-filas-*` e `wesales-workflows-pc` — zero ocorrência. Lidos os contatos
+(a base cabe numa página): nenhum tem valor no campo. Ou é pergunta de
+formulário ainda sem resposta, ou campo criado e não ligado.
+
+**Risco (candidato, não medido).** O fato "já tem reunião" hoje mora em `Data
+agendado` e na tag `confirmar-reuniao`. Uma terceira fonte preenchida à mão
+diverge das outras duas sem erro visível — mesmo padrão do G-27/G-29.
+
+**Feito:** `campos-e-tags.md` lista o campo com id, opções e a proibição de
+usá-lo em regra até o dono confirmar. Nada foi escrito no CRM.
+
+**Pronto quando:** o dono diz quem escreve o campo e se ele substitui ou
+complementa `Data agendado` (pendente).
