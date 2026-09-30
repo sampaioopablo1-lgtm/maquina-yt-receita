@@ -22,6 +22,7 @@ importar daqui. Se preferir, esta pasta migra para um repositório próprio
 | `ROADMAP-SALES-ENGAGEMENT.md` | **A distância até um Reev/Meetime** — lacunas medidas e priorizadas. É o backlog que a rotina horária trabalha |
 | `APROVADO.md` | O freio de mão: o que a rotina pode escrever no CRM |
 | `rotina-horaria.md` | Como a rotina de construção contínua funciona |
+| `ROTINA-DIARIA.md` | O prompt da rotina, para rodar 1x por dia ou sob demanda numa sessão local |
 | `conectar.md` | **Como conectar o CRM** — caminho curto, por Private Integration Token, sem OAuth e sem e-mail |
 | `APRENDIZADOS-CRM.md` | O que as execuções da rotina já descobriram sobre o conector e o GHL, para não redescobrir 24 vezes por dia |
 | `biblioteca-mensagens.md` | R-04 — textos das mensagens automáticas, versionados por código; fonte única, `build-wesales.md` só referencia |
