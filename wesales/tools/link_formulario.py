@@ -39,6 +39,9 @@ def montar(c, por_chave) -> str:
         if v not in (None, "", []):
             ps.append((k, str(v)))
     ps.append(("sdr_responsvel", "Andreyna Siqueira"))
+    # 30/09: quem marcou pelo Calendly já tem reunião -> o formulário encerra sem abrir a agenda
+    if "confirmar-reuniao" in (c.get("tags") or []):
+        ps.append(("lead_j_tem_reunio_marcada", "Sim"))
     return FORM + "?" + urllib.parse.urlencode(ps, quote_via=urllib.parse.quote)
 
 
