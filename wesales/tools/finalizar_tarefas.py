@@ -18,6 +18,7 @@ ligação feita. Este robô (relógio, a cada ciclo) fecha a tarefa quando a AÇ
   [RESPONDER] / [CADENCIA] Sinal: respondeu
         -> alguém respondeu no WhatsApp (CRM ou celular) ou ligou depois da criação. Aberta há 30+ min
            no horário (seg-sáb 08-21): tag `resposta-atrasada` -> workflow avisa o Pablo (1 vez).
+  [NS k/6] (no-show 6x15) -> 📞/🟢 ligação de pessoa depois da criação; 💬 mensagem de pessoa depois
   [GRUPO], análises, testes -> nunca (o sistema não enxerga a ação)
 
 Só CONCLUI (nunca apaga). Ligação = mensagem TYPE_CALL de saída com userId (feita por pessoa).
@@ -44,6 +45,8 @@ Q = ["qmIKSSDVYNLl5E8vnr3f", "wmod0p91VuukwWDwKCgi", "xjEcIFfdt2h29wBaKMQO",
 
 def regra(titulo: str):
     t = titulo or ""
+    if t.startswith("[NS "):          # cadência de no-show 6x15 (cadencia_noshow.py)
+        return "mensagem" if "💬" in t else "ligacao"
     if t.startswith("[RESPONDER]") or t.startswith("[CADENCIA] Sinal: respondeu"):
         return "resposta"
     if t.startswith("[RETORNO] Preencher Data e Hora"):
@@ -85,6 +88,9 @@ def decidir(t, c, calls, msgs=()) -> str | None:
     if r == "resposta":
         feitas = sorted([x[0] for x in calls if x[0] > criada] + [m for m in msgs if m > criada])
         return "respondeu/ligou %s" % feitas[0][11:16] if feitas else None
+    if r == "mensagem":
+        feitas = sorted(m for m in msgs if m > criada)
+        return "mandou mensagem %s" % feitas[0][11:16] if feitas else None
     if r == "ligacao":
         feitas = [x for x in calls if x[0] > criada]
         return "ligou %s" % feitas[0][0][11:16] if feitas else None

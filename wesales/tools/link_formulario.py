@@ -52,7 +52,7 @@ def main() -> int:
     etapas = etapa_por_contato()
     cont = Counter()
     for c in contatos():
-        if etapas.get(c["id"]) != CONECTAR and "confirmar-reuniao" not in (c.get("tags") or []):
+        if etapas.get(c["id"]) != CONECTAR and not {"confirmar-reuniao", "noshow-6x15"} & set(c.get("tags") or []):
             continue
         link = montar(c, por_chave)
         atual = next((f.get("value") for f in c.get("customFields") or [] if f["id"] == CAMPO), None)

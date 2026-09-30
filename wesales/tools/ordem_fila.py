@@ -7,7 +7,7 @@ Roda no relógio a cada 30 min (seg–sex 07:30–21:00). Escreve só o que mudo
 
     10  agendou sozinho pelo Calendly, ligação de confirmação pendente (tag confirmar-reuniao)
      9  pediu retorno e o horário já passou (retorno-vencido)
-     8  lead novo: entrou há menos de 2 h e ninguém ligou ainda
+     8  lead novo: entrou há menos de 2 h e ninguém ligou ainda; no-show com toque da 6x15 a fazer (fila-noshow)
      7  respondeu mensagem, ligou de volta (fila-quente), fechar horário ou nota >= 70
      5  toque da cadência vencido hoje (fila-tel / fila-wa)
      3  os demais em CONECTAR
@@ -48,6 +48,8 @@ def nota(c, etapa, agora):
     tags = {str(t).lower() for t in c.get("tags") or []}
     if TAG_CONF in tags and etapa == REUNIAO:
         return (0, "DND") if c.get("dnd") else (10, "agendou pelo Calendly, confirmar")
+    if "fila-noshow" in tags and etapa == REUNIAO:
+        return (0, "DND") if c.get("dnd") else (8, "no-show: toque da 6x15")
     if etapa != CONECTAR:
         return None, ""
     if c.get("dnd"):
@@ -68,6 +70,28 @@ def nota(c, etapa, agora):
     if tags & {"fila-tel", "fila-wa"}:
         return 5, "toque vencido hoje"
     return 3, "demais"
+
+
+ACAO = "oc7FTlIhIpiH90oZxPyx"   # Próxima ação (coluna da Minha fila, 30/09)
+
+
+def acao(p, motivo, tags):
+    """Pura: o que a SDR faz com o lead, em uma linha. None = quem escreve é outro robô (no-show 6x15)."""
+    if motivo.startswith("no-show"):
+        return None
+    if p == 10:
+        return "📞 Confirmar reunião"
+    if p == 9:
+        return "📞 Retorno vencido"
+    if p == 8:
+        return "📞 Lead novo: ligar já"
+    if p == 7:
+        return "🔥 Fechar horário"
+    if p == 5:
+        return "💬 Cadência: WhatsApp" if "fila-wa" in tags else "📞 Cadência: ligar"
+    if p == 3:
+        return "⏳ Aguardar"
+    return "⛔ Fora (%s)" % motivo
 
 
 def solta_confirmacao(cs, etapas, aplicar, agora):
@@ -109,12 +133,18 @@ def main() -> int:
         if p is None:
             continue
         dist[p] += 1
-        if num(valor(c, PRIORIDADE)) == p:
+        texto = acao(p, motivo, {str(t).lower() for t in c.get("tags") or []})
+        campos = []
+        if num(valor(c, PRIORIDADE)) != p:
+            campos.append({"id": PRIORIDADE, "field_value": p})
+        if texto is not None and (valor(c, ACAO) or "") != texto:
+            campos.append({"id": ACAO, "field_value": texto})
+        if not campos:
             continue
         mudou += 1
-        print("  %-28s %s -> %d  (%s)" % ((c.get("contactName") or "?")[:28], valor(c, PRIORIDADE), p, motivo))
+        print("  %-28s %s -> %d  (%s) | %s" % ((c.get("contactName") or "?")[:28], valor(c, PRIORIDADE), p, motivo, texto))
         if aplicar:
-            pedir("PUT", "/contacts/%s" % c["id"], {"customFields": [{"id": PRIORIDADE, "field_value": p}]})
+            pedir("PUT", "/contacts/%s" % c["id"], {"customFields": campos})
     print("ordem da fila: %s | %d mudança(s)%s" % (dict(sorted(dist.items(), reverse=True)), mudou, "" if aplicar else " (DRY)"))
     return 0
 
