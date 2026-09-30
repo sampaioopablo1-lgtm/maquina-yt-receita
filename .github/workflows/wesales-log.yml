@@ -1,0 +1,64 @@
+name: WeSales - log de eventos do CRM (para o repositorio privado)
+
+# Por que existe (30/09, decisao do dono: "use o github"): o log de auditoria do CRM guarda so ~60 dias
+# e o banco do OPC recusa gravacao (cota da organizacao Supabase). Esta rotina coleta os ultimos 2 dias
+# (auditoria + ligacoes/mensagens, deduplicado pelo id do evento) e grava no repositorio PRIVADO
+# sampaioopablo1-lgtm/opc-crm-dados. Este repositorio e publico: dado de lead nunca entra aqui.
+# Segredos: GHL_STORAGE_STATE (sessao do CRM -> bearer via Playwright), GHL_PIT (conversas),
+# DADOS_DEPLOY_KEY (chave que so escreve no opc-crm-dados).
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "37 */2 * * *"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: wesales-log
+  cancel-in-progress: false
+
+jobs:
+  log:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Playwright (para renovar a sessao)
+        run: |
+          npm install --no-save playwright@1
+          npx playwright install --with-deps chromium
+      - name: Clona o repositorio privado de dados
+        env:
+          DADOS_DEPLOY_KEY: ${{ secrets.DADOS_DEPLOY_KEY }}
+        run: |
+          mkdir -p ~/.ssh && printf '%s\n' "$DADOS_DEPLOY_KEY" > ~/.ssh/dados && chmod 600 ~/.ssh/dados
+          ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/dados -o IdentitiesOnly=yes"
+          git clone -q git@github.com:sampaioopablo1-lgtm/opc-crm-dados.git dados || { mkdir -p dados && cd dados && git init -q -b main && git remote add origin git@github.com:sampaioopablo1-lgtm/opc-crm-dados.git; }
+      - name: Coleta
+        env:
+          GHL_STORAGE_STATE: ${{ secrets.GHL_STORAGE_STATE }}
+          GHL_PIT: ${{ secrets.GHL_PIT }}
+          EVENTOS_DIR: ${{ github.workspace }}/dados/eventos
+          PYTHONIOENCODING: utf-8
+        run: |
+          node wesales/tools/renovar_bearer.js || echo "AVISO: sessao do CRM nao renovou (segredo GHL_STORAGE_STATE vencido?)"
+          python wesales/tools/log_eventos.py --dias 2
+          python wesales/tools/log_eventos.py --resumo 3
+      - name: Grava no repositorio privado
+        run: |
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/dados -o IdentitiesOnly=yes"
+          cd dados
+          git config user.name "wesales-log"
+          git config user.email "wesales-log@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet && { echo "nada novo"; exit 0; }
+          git commit -q -m "eventos $(TZ=America/Sao_Paulo date '+%d/%m %H:%M')"
+          git push -q origin HEAD:main

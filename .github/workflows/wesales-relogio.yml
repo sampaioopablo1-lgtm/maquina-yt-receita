@@ -44,6 +44,12 @@ jobs:
             python wesales/tools/preencher_qualificacao.py --aplicar || echo "qualificação do anúncio falhou nesta rodada"
             # Tarefa feita = tarefa fechada (ligação feita, conversa do Calendly, Q1-Q6 preenchidos), a qualquer hora
             python wesales/tools/finalizar_tarefas.py --aplicar || echo "finalizar tarefas falhou nesta rodada"
+            # No-show 6x15: 3 ligações, 2 ligações pelo WhatsApp e 1 mensagem em 15 dias (tarefas [NS k/6] + fila-noshow)
+            python wesales/tools/cadencia_noshow.py --aplicar || echo "cadência de no-show falhou nesta rodada"
+            # Reunião: confirmar as das próximas 26 h, cobrar o resultado do closer, No-show automático às 10:00 do dia seguinte
+            python wesales/tools/reunioes_robo.py --aplicar || echo "robô de reuniões falhou nesta rodada"
+            # Link "formulário + agenda" de cada lead (coluna da Minha fila)
+            python wesales/tools/link_formulario.py --aplicar || echo "link do formulário falhou nesta rodada"
             if [ "$dow" -le 5 ] && [ $((10#$hm)) -ge 800 ] && [ $((10#$hm)) -le 2100 ]; then
               echo "==== $(TZ=America/Sao_Paulo date '+%d/%m %H:%M') ===="
               git pull -q origin "${GITHUB_REF_NAME}" || true

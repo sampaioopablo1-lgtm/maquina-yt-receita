@@ -34,6 +34,8 @@ import sys
 import urllib.error
 import urllib.request
 
+import privacidade
+
 GHL = "https://services.leadconnectorhq.com"
 VERSAO = "2021-07-28"
 UA = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -163,7 +165,9 @@ def ghl(metodo: str, rota: str, corpo=None, tolerar=()):
     try:
         with urllib.request.urlopen(req, timeout=60) as r:
             t = r.read().decode("utf-8")
-            return r.status, (json.loads(t) if t else {})
+            saida = json.loads(t) if t else {}
+            privacidade.registrar(saida)
+            return r.status, saida
     except urllib.error.HTTPError as e:
         det = ""
         try:
