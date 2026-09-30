@@ -115,6 +115,28 @@ tem a função.
 - Feito em:
 - Bloqueio:
 
+### [ ] 7. Ligação não atendida (`no-answer`) tira o lead das duas filas sem próximo passo (manual)
+- **Por quê:** em 30/09, 4 leads ficaram `no-answer` na ligação da SDR entre 14:11 e 14:52. Três
+  perderam a fila na hora seguinte sem nenhuma tag de resultado: Renata `AHWYfCVjwDpDT2QFFEli`
+  (tinha `fila-tel` às 14:07, `no-answer` 14:28, às 15:07 sem `fila-tel`, sem `fila-wa`, sem
+  `falou-hoje`), Claudia `riOAwk6u6tOXadcorOJz` (`fila-wa` às 14:07, `no-answer` 14:40, às 15:07
+  sem fila) e Catia `yuvaHnx8upNydVhq9lvJ` (`fila-tel` às 14:07, `no-answer` 14:52, às 15:07 sem
+  fila). Adriana `6B0x8b2BjfkUUlbg16Se` (`no-answer` 14:11) manteve `fila-tel`. Quem não atende é
+  exatamente quem precisa da 2ª tentativa; fora das duas filas, o lead some do discador e da
+  visão de WhatsApp e ninguém liga de novo. É diferente do item 6 (lá o lead some sem ligação;
+  aqui some depois de uma ligação não atendida).
+- **Como:** abrir o contato `AHWYfCVjwDpDT2QFFEli` → Automações/Histórico e ver qual workflow
+  removeu `fila-tel` depois da ligação das 14:28 (provável: Pós-ligação disparando pelo evento de
+  chamada e removendo a fila sem Resultado). No workflow: quando o status da chamada for
+  `no-answer`/`busy`/`failed`, manter (ou repor) a tag de fila e criar o retorno (tarefa ou tag
+  `retorno-hoje`) em vez de remover; remover a fila só quando houver Resultado registrado.
+  Conferir também por que Adriana não seguiu o mesmo caminho (diferença de gatilho ou de tempo).
+- **Conferência:** lead com ligação `no-answer` aparece na hora seguinte do diário com `fila-tel`
+  (ou `fila-wa`) e algum sinal de retorno; três rodadas seguidas sem lead "não atendido e sem
+  fila".
+- Feito em:
+- Bloqueio:
+
 ## Aplicados
 
 (os itens vêm para cá depois de marcados)
