@@ -10,7 +10,7 @@ Ao publicar: preencher Data e Permalink na tabela, commit e push neste branch.
 | 1 | 06-meta-2026.mp4 | 06-meta-2026-capa.jpg | 28/09/2026 | https://www.instagram.com/reel/Dd0YhwYCQ5M/ |
 | 2 | 05-cem-ligacoes.mp4 | 05-cem-ligacoes-capa.jpg | 28/09/2026 | https://www.instagram.com/reel/Dd2FGLIgEfR/ |
 | 3 | 04-lead-de-sabado.mp4 | 04-lead-de-sabado-capa.jpg | 29/09/2026 | https://www.instagram.com/reel/Dd4p1KPlNLl/ |
-| 4 | 03-lead-curioso.mp4 | 03-lead-curioso-capa.jpg | | |
+| 4 | 03-lead-curioso.mp4 | 03-lead-curioso-capa.jpg | 30/09/2026 | https://www.instagram.com/reel/Dd7OpsVDlGG/ |
 | 5 | 02-faca-a-conta.mp4 | 02-faca-a-conta-capa.jpg | | |
 | 6 | 01-lead-esfria-5-minutos.mp4 | 01-lead-esfria-5-minutos-capa.jpg | | |
 
