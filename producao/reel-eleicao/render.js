@@ -8,6 +8,8 @@
  *
  * Sem candidato, sem partido, sem lado. O gancho e o calendario, nao a disputa.
  *
+ * Dependencia:  npm i @napi-rs/canvas   (rode na pasta deste arquivo, ou
+ *                aponte NODE_PATH para onde ela estiver instalada)
  * Uso:  node producao/reel-eleicao/render.js [saida.mp4]
  * Saida padrao: producao/reel-eleicao/out/reel-eleicao.mp4
  */
