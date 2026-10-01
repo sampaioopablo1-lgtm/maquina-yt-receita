@@ -50,3 +50,9 @@
 - **Leads presos de antes da retirada da janela:** 6 parados em "WA · limpar marcas" da Inbound receberam `sem-cadencia` (ligação diária pelo atuador, sem WhatsApp automático) e saíram da inscrição travada. Os 34 `queued_to_continue` de 24/09 já eram `sem-cadencia`.
 - **Histórico de inscrições dos 55 publicados lido** (rota da tela, `st.js`): fora Inbound e MI-0, só 1 inscrição presa (Reunião Cancelada, contato já perdido).
 - **Remarcação no Calendly (corrigida):** antes, o robô criava a reunião nova e cancelava a antiga na mesma rodada; a "Reunião Cancelada" tirava o contato dos Lembretes (inclusive da nova) e mandava "vi que a reunião foi cancelada". Agora `calendly_para_crm.py` cancela ANTES de criar; se o Calendly marca o convidado cancelado como `rescheduled`, põe a tag `calendly-remarcou` antes do cancelamento e só cria a reunião nova na rodada seguinte (tirando a tag). A "Reunião Cancelada" (`37ee2c13`, v9, 26 nós) ganhou a guarda "Lead só remarcou pelo Calendly?": com a tag, sai dos lembretes antigos e para, sem WhatsApp, tarefa ou nota. Testado com Calendly e CRM simulados (2 rodadas); falta ver uma remarcação real.
+
+## 01/10 — CRM sem Supabase (regra do dono: rotina do CRM fica no GitHub)
+
+- Único ponto do CRM que ainda apontava para o Supabase: o envio do `log_eventos.py` para `opc.crm_eventos` (função `crm-eventos`). Retirado. A tabela nunca recebeu linha (a cota barrava).
+- O log vive só no repositório PRIVADO `opc-crm-dados` (`eventos/AAAA-MM-DD.jsonl.gz`), gravado pelo `wesales-log.yml`. O histórico de 17/09 a 28/09, que estava só no PC, foi enviado para lá: 15 dias no total.
+- Nenhum outro robô ou workflow do CRM lê ou grava no Supabase (busca em `wesales/` e nos `wesales-*.yml`).
