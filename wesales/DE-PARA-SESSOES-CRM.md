@@ -56,3 +56,4 @@
 - Único ponto do CRM que ainda apontava para o Supabase: o envio do `log_eventos.py` para `opc.crm_eventos` (função `crm-eventos`). Retirado. A tabela nunca recebeu linha (a cota barrava).
 - O log vive só no repositório PRIVADO `opc-crm-dados` (`eventos/AAAA-MM-DD.jsonl.gz`), gravado pelo `wesales-log.yml`. O histórico de 17/09 a 28/09, que estava só no PC, foi enviado para lá: 15 dias no total.
 - Nenhum outro robô ou workflow do CRM lê ou grava no Supabase (busca em `wesales/` e nos `wesales-*.yml`).
+- **Removido do Supabase (01/10, a pedido do dono):** tabela `opc.crm_eventos` apagada (0 linhas, sem dependentes); funções `crm-eventos` e `painel-sdr` (painel externo aposentado em 27/09; 0 chamadas em 24 h) trocadas por uma resposta 410 com JWT obrigatório — o conector não apaga função, isso só se faz no painel do Supabase. Token local `_opc_log_token.txt` apagado.
