@@ -1,8 +1,9 @@
 name: WeSales - Relatorio de tarefas vencidas
 
+# 01/10: agendamento retirado. Esta rotina nunca concluiu (403 por falta de User-Agent desde 27/09 e, corrigido
+# isso, 422: o corpo da busca de tarefas esta errado). As tarefas vencidas ja saem, por tipo, no monitor de hora
+# em hora (wesales-monitor.yml -> opc-crm-dados/monitor/ULTIMO.md). Fica so o botao manual.
 on:
-  schedule:
-    - cron: "0 12 * * *"
   workflow_dispatch:
 
 permissions:
