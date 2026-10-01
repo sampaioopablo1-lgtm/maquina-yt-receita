@@ -36,6 +36,7 @@ import urllib.error
 import urllib.request
 
 from campos_bant import ghl, LOC
+import privacidade
 
 CAL_CLOSER = "3uNQFjCEDe7b4gKZJuOZ"          # "Reunião com closer"
 CLOSER = "JdvhvOTEBTvUyRi0BXU8"
@@ -53,7 +54,9 @@ def calendly(caminho: str):
                                                "Accept": "application/json", "User-Agent": "wesales-crm/1.0 (+github actions)"})
     try:
         with urllib.request.urlopen(req, timeout=60) as r:
-            return json.loads(r.read())
+            saida = json.loads(r.read())
+            privacidade.registrar(saida)
+            return saida
     except urllib.error.HTTPError as e:
         sys.exit("Calendly %s -> HTTP %s %s" % (url.split("?")[0], e.code, e.read()[:300].decode("utf-8", "replace")))
 
