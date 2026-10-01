@@ -1,7 +1,7 @@
 name: WeSales - log de eventos do CRM (para o repositorio privado)
 
 # Por que existe (30/09, decisao do dono: "use o github"): o log de auditoria do CRM guarda so ~60 dias
-# e o banco do OPC recusa gravacao (cota da organizacao Supabase). Esta rotina coleta os ultimos 2 dias
+# e a regra do dono (01/10) e que rotina do CRM nao usa Supabase. Esta rotina coleta os ultimos 2 dias
 # (auditoria + ligacoes/mensagens, deduplicado pelo id do evento) e grava no repositorio PRIVADO
 # sampaioopablo1-lgtm/opc-crm-dados. Este repositorio e publico: dado de lead nunca entra aqui.
 # Segredos: GHL_STORAGE_STATE (sessao do CRM -> bearer via Playwright), GHL_PIT (conversas),
