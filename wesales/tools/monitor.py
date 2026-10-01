@@ -209,7 +209,8 @@ def crm(cs, etapas) -> list[str]:
     for q, nome in sorted(sem_resp)[:8]:
         alertas.append("Lead **%s** escreveu às %s e ninguém respondeu" % (nome, hm(q.isoformat())))
     local = AGORA.astimezone(BR)
-    if local.weekday() < 5 and local.hour >= 11 and lig == 0:
+    # a SDR trabalha das 13h às 21h (dono, 01/10): sem ligação duas horas depois do início do turno é alerta
+    if local.weekday() < 5 and local.hour >= 15 and lig == 0:
         alertas.append("Nenhuma ligação de pessoa hoje até %s" % local.strftime("%H:%M"))
 
     # tarefas abertas
