@@ -68,6 +68,9 @@ def _request_page(token: str, page: int, limit: int) -> list[dict]:
             "Version": VERSION,
             "Content-Type": "application/json",
             "Accept": "application/json",
+            # sem User-Agent de navegador a API devolve 403 (Cloudflare 1010); a rotina falhava todo dia desde 27/09
+            "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) "
+                          "Chrome/126.0.0.0 Safari/537.36",
         },
         method="POST",
     )

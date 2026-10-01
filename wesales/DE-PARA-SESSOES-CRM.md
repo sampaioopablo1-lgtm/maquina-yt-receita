@@ -68,3 +68,10 @@
 - **Conta da meta:** 12 toques em 30 dias = 0,4 tentativa/lead/dia; 100 tentativas/dia pedem ~250 leads ativos (8 a 13 leads novos por dia). Em 01/10: 55 em CONECTAR.
 - **Esperas vencidas (01/10 tarde):** o "órfão" que a rede tentava inscrever a cada rodada JÁ estava inscrito na Inbound desde 28/09, parado em "Wait 15 Minutes" com retomada vencida em 29/09 e status `wait_time` — a varredura da manhã só olhava `step`/`wait_finished`/`queued_to_continue` e não pegou. Varredura refeita nos 55 publicados por `executeOn` no passado: só 2 casos. O da Inbound saiu da inscrição e ganhou `sem-cadencia` (entra na 12x30 pela entrada gradual). O da 12x30 (desde 23/09) é um lead `nao-perturbe`: tirado da inscrição para nunca retomar. Regra para o vigia: inscrição em espera com `executeOn` mais de 1 h no passado = presa.
 - **Tag `limpar-tarefas`** retirada de 70 contatos (sobrava porque a faxina está só simulando; se religada, apagaria tarefas deles). O Pós-ligação v3 e o Mestre de saída ainda a põem.
+
+## 01/10 tarde — monitor do CRM no GitHub
+
+- **`wesales-monitor.yml`** (de hora em hora, só leitura) roda `tools/monitor.py`: simula cada robô do relógio, lê as rodadas das rotinas `wesales-*` desta ramificação, os números do CRM e o histórico de inscrições dos workflows publicados (`tools/monitor_inscricoes.js`, com a sessão do CRM). Compara com a leitura anterior.
+- **Onde ler ao voltar:** repositório PRIVADO `opc-crm-dados`, pasta `monitor/` — `ULTIMO.md` (leitura completa), `AAAA-MM-DD.md` (resumo de cada hora do dia, o mais novo em cima), `historico.csv` (números por leitura).
+- **O que vira alerta:** robô que quebra na simulação; rotina com `failure`; relógio parado; inscrição presa ou espera vencida DEPOIS de 30/09 20:40 (as de antes contam como resíduo conhecido); mensagem automática com falha de entrega; lead que escreveu e está há 30 min sem resposta; reunião a menos de 6 h sem confirmação; reunião passada sem resultado; nenhuma ligação até as 11h.
+- **`report_overdue_tasks.py`** falhava todo dia desde 27/09 com 403 (faltava o User-Agent de navegador; Cloudflare 1010). Corrigido.
