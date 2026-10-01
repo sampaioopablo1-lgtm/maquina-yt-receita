@@ -229,15 +229,24 @@ def crm(cs, etapas) -> list[str]:
     numeros.update(tarefas_abertas=len(tarefas), tarefas_vencidas_24h=sum(vencidas.values()))
 
     # reuniões
-    reun = []
+    reun, criadas = [], Counter()
     for cal, dono in AGENDAS.items():
         a = int((AGORA - dt.timedelta(days=3)).timestamp() * 1000)
         b = int((AGORA + dt.timedelta(days=3)).timestamp() * 1000)
         for e in pedir("GET", "/calendars/events?locationId=%s&calendarId=%s&startTime=%d&endTime=%d" % (LOC, cal, a, b)).get("events") or []:
-            reun.append((ts(e["startTime"]), e.get("appointmentStatus") or "?", e.get("contactId"), dono))
+            # origem: o lead marcou sozinho no Calendly (robô cria, título com "calendly:") ou a SDR agendou pelo
+            # formulário + agenda (booking_widget). O resto (criado à mão/teste) fica como "outra".
+            tit, src = (e.get("title") or "").lower(), str((e.get("createdBy") or {}).get("source") or "")
+            origem = "Calendly" if "calendly:" in tit else "SDR" if src.startswith("booking") else "outra"
+            reun.append((ts(e["startTime"]), e.get("appointmentStatus") or "?", e.get("contactId"), origem))
+            if e.get("dateAdded") and ts(e["dateAdded"]).astimezone(BR).date() == HOJE:
+                criadas[origem] += 1
     por_id = {c["id"]: c for c in cs}
     futuras = sorted(r for r in reun if r[0] > AGORA and r[1] == "confirmed")
     passadas = Counter(r[1] for r in reun if r[0] <= AGORA)
+    por_origem = Counter("%s %s" % (r[3], {"showed": "realizada", "noshow": "no-show", "cancelled": "cancelada",
+                                           "confirmed": "sem resultado"}.get(r[1], r[1])) for r in reun if r[0] <= AGORA)
+    numeros.update(reunioes_criadas_hoje_sdr=criadas.get("SDR", 0), reunioes_criadas_hoje_calendly=criadas.get("Calendly", 0))
     numeros.update(reunioes_futuras=len(futuras), reunioes_compareceu_3d=passadas.get("showed", 0),
                    reunioes_noshow_3d=passadas.get("noshow", 0), reunioes_sem_resultado=passadas.get("confirmed", 0))
     for r in futuras:
@@ -266,8 +275,9 @@ def crm(cs, etapas) -> list[str]:
     for k, v in por_tipo.most_common(10):
         out.append("| %s | %d | %d |" % (k, v, vencidas.get(k, 0)))
     out += ["", "| Reuniões | |", "|---|---|",
-            "| Próximas (3 dias) | %s |" % (", ".join("%s %s" % (primeiro(por_id.get(r[2]) or {}), hm(r[0].isoformat())) for r in futuras) or "nenhuma"),
-            "| Últimos 3 dias | %s |" % (", ".join("%s: %d" % kv for kv in passadas.most_common()) or "nenhuma")]
+            "| Agendadas hoje pela SDR / pelo lead no Calendly | %d / %d |" % (criadas.get("SDR", 0), criadas.get("Calendly", 0)),
+            "| Próximas (3 dias) | %s |" % (", ".join("%s %s (%s)" % (primeiro(por_id.get(r[2]) or {}), hm(r[0].isoformat()), r[3]) for r in futuras) or "nenhuma"),
+            "| Últimos 3 dias, por origem | %s |" % (", ".join("%s: %d" % kv for kv in por_origem.most_common()) or "nenhuma")]
     return out
 
 
