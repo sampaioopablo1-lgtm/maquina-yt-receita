@@ -160,12 +160,48 @@ def toque_pendente(cs, etapas, aplicar):
     print("toque pendente: %d lead(s) de volta à fila%s" % (n, "" if aplicar else " (DRY)"))
 
 
+def solta_toque_feito(cs, etapas, aplicar, agora):
+    """Toque já feito sai da Minha fila (01/10, dono: o que não é do dia some). A Cadência Inbound deixa
+    `fila-tel` por 22 h a 2 dias depois do toque e só o registro do Resultado a tira antes; sem registro, o
+    lead ligado ontem reaparecia hoje. Sai quem já recebeu ligação e não tem motivo para ficar: nenhuma tarefa
+    de ligação pendente, não voltou a falar depois da ligação, não é fechar horário nem retorno vencido, e
+    (lead `sem-cadencia`) recebeu ligação há menos de 24 h."""
+    from atuador_filas import ultimo_contato
+    from finalizar_tarefas import criadas, decidir, historico, regra
+    n = 0
+    for c in cs:
+        tags = {str(t).lower() for t in c.get("tags") or []}
+        if "fila-tel" not in tags or etapas.get(c["id"]) != CONECTAR or tags & {"fechar-horario", "retorno-vencido"}:
+            continue
+        ligou, respondeu = ultimo_contato(c["id"])
+        if ligou is None or (respondeu is not None and respondeu > ligou):
+            continue
+        if "sem-cadencia" in tags and (agora - ligou).total_seconds() >= 24 * 3600:
+            continue
+        ts = [t for t in (pedir("GET", "/contacts/%s/tasks" % c["id"]).get("tasks") or [])
+              if not t.get("completed") and regra(t.get("title")) in ("ligacao", "resposta")]
+        if ts:
+            datas = criadas(c["id"])
+            for t in ts:
+                t["dateAdded"] = t.get("dateAdded") or datas.get(t["id"]) or ""
+            calls, msgs = historico(c["id"])
+            if any(not t["dateAdded"] or decidir(t, c, calls, msgs) is None for t in ts):
+                continue
+        n += 1
+        print("  - fila-tel  %s  (toque já feito, sem tarefa de ligação pendente)%s" % (c.get("contactName") or c["id"], "" if aplicar else " DRY"))
+        if aplicar:
+            pedir("DELETE", "/contacts/%s/tags" % c["id"], {"tags": ["fila-tel"]})
+        c["tags"] = [t for t in c.get("tags") or [] if str(t).lower() != "fila-tel"]
+    print("toque feito: %d lead(s) saíram da fila%s" % (n, "" if aplicar else " (DRY)"))
+
+
 def main() -> int:
     aplicar = "--aplicar" in sys.argv
     agora = dt.datetime.now(dt.timezone.utc)
     etapas = etapa_por_contato()
     cs = contatos()
     solta_confirmacao(cs, etapas, aplicar, agora)
+    solta_toque_feito(cs, etapas, aplicar, agora)
     toque_pendente(cs, etapas, aplicar)
     dist, mudou = Counter(), 0
     for c in cs:
