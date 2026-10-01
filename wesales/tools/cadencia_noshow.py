@@ -158,8 +158,9 @@ def main() -> int:
         elif terminou:
             acao_txt = "✅ No-show: 12 toques sem remarcar → nutrição"
         elif proximo:
-            acao_txt = "⏳ No-show %s em %s" % (proximo[0].replace(" WA", ""),
-                                             (base + dt.timedelta(days=proximo[1])).strftime("%d/%m"))
+            # entre os toques o lead fica no fim da Minha fila (ordem_fila.py, 01/10): à vista, sem ligar antes do dia
+            acao_txt = "⏳ No-show: próximo toque (%s) em %s · só agir se ele responder" % (
+                proximo[0].replace(" WA", ""), (base + dt.timedelta(days=proximo[1])).strftime("%d/%m"))
         else:
             acao_txt = "No-show: aguardando conclusão das tarefas"
         print("  %-5s %-26s dia %2d | novas %s | %s" % ("ativo" if ativo else "entra", nome[:26], dia,

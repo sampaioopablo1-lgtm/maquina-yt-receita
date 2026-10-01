@@ -75,3 +75,10 @@
 - **Onde ler ao voltar:** repositório PRIVADO `opc-crm-dados`, pasta `monitor/` — `ULTIMO.md` (leitura completa), `AAAA-MM-DD.md` (resumo de cada hora do dia, o mais novo em cima), `historico.csv` (números por leitura).
 - **O que vira alerta:** robô que quebra na simulação; rotina com `failure`; relógio parado; inscrição presa ou espera vencida DEPOIS de 30/09 20:40 (as de antes contam como resíduo conhecido); mensagem automática com falha de entrega; lead que escreveu e está há 30 min sem resposta; reunião a menos de 6 h sem confirmação; reunião passada sem resultado; nenhuma ligação até as 11h.
 - **`report_overdue_tasks.py`** falhava todo dia desde 27/09 com 403 (faltava o User-Agent de navegador; Cloudflare 1010). Corrigido.
+
+## 01/10 noite — a SDR acompanha o lead até a reunião acontecer (regra do dono)
+
+- **Regra:** no-show e reunião marcada são missão da SDR até a reunião acontecer; o lead não pode sumir da Minha fila. Sem desfazer a regra da manhã (não ligar antes do dia do toque).
+- **Como:** tag nova `fila-reuniao` (`ordem_fila.acompanha_reuniao`): lead na etapa REUNIÃO com reunião confirmada à frente ou na recuperação de no-show (`noshow-6x15`). A lista (`jB9TeEuL9X7mupxwJqde`) ganhou o 4º grupo OU: `fila-reuniao` sem `nao-perturbe` (backup `.local/minha-fila-antes-fila-reuniao.json`).
+- **Ordem:** dia de agir (confirmar nas 26 h antes; toque do no-show) = Prioridade 10, topo, como antes. Nos outros dias = Prioridade 2, fim da lista, com a Próxima ação "⏳ No-show: próximo toque (k/6) em dd/mm · só agir se ele responder" (`cadencia_noshow.py`) ou "📅 Reunião dd/mm HH:MM: aguardar (confirmar na véspera)".
+- Sai da lista quando deixa a etapa REUNIÃO, quando a recuperação termina ou quando não há mais reunião à frente.
