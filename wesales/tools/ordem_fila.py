@@ -92,7 +92,11 @@ def acao(p, motivo, tags):
     if p == 8:
         return "📞 Lead novo: ligar já"
     if p == 7:
-        return "🔥 Fechar horário"
+        if "fechar-horario" in tags:
+            return "🔥 Fechar horário"
+        if "fila-wa" in tags and "fila-tel" not in tags:
+            return "💬 Quente: ligar pelo WhatsApp"
+        return "🔥 Quente: ligar" if "fila-tel" in tags else "⏳ Aguardar o dia do toque"
     if p == 5:
         return "💬 Cadência: WhatsApp" if "fila-wa" in tags else "📞 Cadência: ligar"
     if p == 3:
@@ -125,12 +129,44 @@ def solta_confirmacao(cs, etapas, aplicar, agora):
             c["tags"] = [t for t in c.get("tags") or [] if t != TAG_CONF]
 
 
+def toque_pendente(cs, etapas, aplicar):
+    """Quem tem ligação a fazer hoje fica na Minha fila até ligar (01/10, dono: a lista só mostra quem tem
+    tentativa vencida). A lista entra por `fila-tel`; a Cadência Inbound tira essa tag 25 min depois do toque,
+    feito ou não. Aqui ela volta para quem tem tarefa de ligação ABERTA e ainda sem ligação depois dela —
+    a mesma regra que fecha a tarefa no finalizar_tarefas.py. Dia de toque por WhatsApp fica na visão do WhatsApp."""
+    from finalizar_tarefas import criadas, decidir, historico, regra
+    n = 0
+    for c in cs:
+        tags = {str(t).lower() for t in c.get("tags") or []}
+        if etapas.get(c["id"]) != CONECTAR or c.get("dnd") or not c.get("phone") or TESTE.search(c.get("contactName") or ""):
+            continue
+        if tags & FORA or tags & {"fila-tel", "fila-wa", "wa-feito-hoje", "falou-hoje"}:
+            continue
+        ts = [t for t in (pedir("GET", "/contacts/%s/tasks" % c["id"]).get("tasks") or [])
+              if not t.get("completed") and regra(t.get("title")) in ("ligacao", "resposta")]
+        if not ts:
+            continue
+        datas = criadas(c["id"])
+        for t in ts:
+            t["dateAdded"] = t.get("dateAdded") or datas.get(t["id"]) or ""
+        calls, msgs = historico(c["id"])
+        if not any(t["dateAdded"] and decidir(t, c, calls, msgs) is None for t in ts):
+            continue
+        n += 1
+        print("  + fila-tel  %s  (tarefa de ligação aberta, sem ligação depois)%s" % (c.get("contactName") or c["id"], "" if aplicar else " DRY"))
+        if aplicar:
+            pedir("POST", "/contacts/%s/tags" % c["id"], {"tags": ["fila-tel"]})
+        c["tags"] = list(c.get("tags") or []) + ["fila-tel"]
+    print("toque pendente: %d lead(s) de volta à fila%s" % (n, "" if aplicar else " (DRY)"))
+
+
 def main() -> int:
     aplicar = "--aplicar" in sys.argv
     agora = dt.datetime.now(dt.timezone.utc)
     etapas = etapa_por_contato()
     cs = contatos()
     solta_confirmacao(cs, etapas, aplicar, agora)
+    toque_pendente(cs, etapas, aplicar)
     dist, mudou = Counter(), 0
     for c in cs:
         if TESTE.search(c.get("contactName") or ""):

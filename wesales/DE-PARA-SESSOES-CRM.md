@@ -38,3 +38,15 @@
 - **Correção:** `finalizar_tarefas.py` tira a tag na mesma hora em que fecha a tarefa de confirmação (ligação de 25 s ou mais, ou Registro da ligação "Atendeu"), a qualquer hora. `reunioes_robo.py` não recoloca a tag quando a tarefa da reunião já está concluída.
 - **Tarefa de confirmação de reunião que já começou** (ou saiu de "confirmed") fecha sozinha no `reunioes_robo.py`: a ação não tem mais como ser feita e a tarefa ficava aberta para sempre.
 - **Medido:** ligação de confirmação de 24 s registrada como "Caixa postal"/"Pediu retorno" NÃO confirma. Para o lead sair, o registro tem de ser "Atendeu". Prazo: até 30 min (uma rodada do relógio).
+
+## 01/10 — Minha fila só mostra quem tem ligação a fazer hoje (pedido do dono)
+
+- **Medido:** 25 leads na lista; 12 estavam em dia de toque por WhatsApp (`fila-wa`) e apareciam mesmo assim, porque a lista aceitava `fila-quente` — que todo lead recebe na entrada (Promover) e quase nunca perde — e a regra "2+ tentativas sem conexão". A SDR podia ligar antes do dia do toque.
+- **Filtro novo da lista (`jB9TeEuL9X7mupxwJqde`):** em CONECTAR, sem `status-perdido`/`nao-perturbe`/`falou-hoje`, e com `fila-tel` OU `fechar-horario` OU `retorno-vencido`; mais os grupos `confirmar-reuniao` e `fila-noshow`. Saíram `fila-quente` e a regra das tentativas. Backup em `.local/minha-fila-antes-01-10.json`.
+- **`atuador_filas.py` (fila-tel completa):** a trava de 2 h virou "no máximo 1 ligação por dia"; `fila-quente` sozinha só vira ligação se ninguém ligou ainda ou se o lead respondeu/ligou depois da última ligação. Teto de 12 tentativas.
+- **`ordem_fila.py` (toque pendente):** a Cadência Inbound tira `fila-tel` 25 min depois do toque. Quem tem tarefa de ligação aberta e sem ligação depois dela volta para a fila até a ligação ser feita (mesma regra do `finalizar_tarefas.py`). A coluna Próxima ação só diz "Fechar horário" para quem tem `fechar-horario`.
+- **Cadência Inbound v31:** retirado o "Não atendeu" automático (10 nós: gravar Resultado + `limpar-tarefas`) dos toques TI1–TI5. A cadência segue andando; o resultado e a tarefa passam a depender de ligação real.
+- **Lembretes da Reunião v3 (v6):** as 4 mensagens "H-3 dor" ganharam o link da reunião.
+- **Leads presos de antes da retirada da janela:** 6 parados em "WA · limpar marcas" da Inbound receberam `sem-cadencia` (ligação diária pelo atuador, sem WhatsApp automático) e saíram da inscrição travada. Os 34 `queued_to_continue` de 24/09 já eram `sem-cadencia`.
+- **Histórico de inscrições dos 55 publicados lido** (rota da tela, `st.js`): fora Inbound e MI-0, só 1 inscrição presa (Reunião Cancelada, contato já perdido).
+- **Achado, não corrigido:** remarcação no Calendly = cancela a antiga + cria a nova na mesma rodada; a "Reunião Cancelada" tira o contato dos Lembretes (inclusive da reunião nova) e manda "vi que a reunião foi cancelada".

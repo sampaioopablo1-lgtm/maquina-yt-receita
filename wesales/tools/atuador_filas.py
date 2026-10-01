@@ -394,6 +394,7 @@ WF_INBOUND = "c2375e2f-b4cb-4947-8377-7c1e0529ba82"
 TENT_N = "qHJGJKZBccASOKkKP8ge"      # Tentativa nº (0 = cadência nunca tocou)
 CONEX_WA = "Og1CkI9x9OztsV242nIM"
 MAX_TENT = 12
+BR_TZ = __import__("datetime").timezone(__import__("datetime").timedelta(hours=-3))
 
 
 def ultima_ligacao_horas(cid):
@@ -408,6 +409,29 @@ def ultima_ligacao_horas(cid):
                 q = dt.datetime.fromisoformat(x["dateAdded"].replace("Z", "+00:00"))
                 ult = q if ult is None or q > ult else ult
     return None if ult is None else (agora - ult).total_seconds() / 3600
+
+
+def ultimo_contato(cid):
+    """(última ligação de saída, última entrada do lead: mensagem ou ligação), em UTC; None = não houve."""
+    import datetime as dt
+    ligou = respondeu = None
+    r = pedir("GET", "/conversations/search?locationId=%s&contactId=%s" % (LOC, cid))
+    for cv in r.get("conversations") or []:
+        m = pedir("GET", "/conversations/%s/messages?limit=30" % cv["id"])
+        for x in ((m.get("messages") or {}).get("messages") or []):
+            if not x.get("dateAdded"):
+                continue
+            q = dt.datetime.fromisoformat(x["dateAdded"].replace("Z", "+00:00"))
+            if x.get("direction") == "inbound":
+                respondeu = q if respondeu is None or q > respondeu else respondeu
+            elif x.get("messageType") == "TYPE_CALL" and x.get("direction") == "outbound":
+                ligou = q if ligou is None or q > ligou else ligou
+    return ligou, respondeu
+
+
+def _hoje_br():
+    import datetime as dt
+    return dt.datetime.now(BR_TZ).date()
 
 
 def ritmo_sem_cadencia(cs, etapas, aplicar):
@@ -463,9 +487,23 @@ def fila_tel_completa(cs, etapas, aplicar):
             continue
         if TESTE.search(c.get("contactName") or ""):
             continue
-        h = ultima_ligacao_horas(c["id"])
-        if h is not None and h < HORAS_TEL:
+        # 01/10 (dono): a Minha fila só mostra quem tem ligação a fazer HOJE. A trava de 2 h devolvia o lead
+        # quente à fila várias vezes no mesmo dia. Agora: no máximo 1 ligação por dia por este caminho (o toque
+        # marcado pela cadência continua vindo dela), salvo se o lead respondeu ou ligou DEPOIS da última ligação.
+        ligou, respondeu = ultimo_contato(c["id"])
+        voltou = ligou is not None and respondeu is not None and respondeu > ligou
+        if ligou is not None and ligou.astimezone(BR_TZ).date() == _hoje_br() and not voltou:
             continue
+        # `fila-quente` sozinha não é toque: todo lead a recebe na entrada (Promover) e ela fica. Só vale como
+        # ligação a fazer se ninguém ligou ainda ou se o lead voltou; o resto segue o dia marcado pela cadência.
+        if not (tags & {"fechar-horario", "retorno-vencido"}) and ligou is not None and not voltou:
+            continue
+        if not voltou and "retorno-vencido" not in tags:
+            try:
+                if float(valor(c, TENT_TEL) or 0) + float(valor(c, "5j9SerJeZ6ngfZCPb2Wg") or 0) >= MAX_TENT:
+                    continue
+            except (TypeError, ValueError):
+                pass
         n += 1
         print("     + fila-tel  %s  %s  (%s)" % (c["id"], c.get("contactName") or "?", ", ".join(sorted(tags & EXTRA_TEL))))
         if aplicar:
