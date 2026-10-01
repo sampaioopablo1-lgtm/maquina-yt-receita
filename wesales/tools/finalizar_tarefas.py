@@ -37,6 +37,7 @@ from atuador_filas import LOC, contatos, pedir, valor
 import datetime as dt
 
 CONVERSA_S = 25
+TAG_CONF = "confirmar-reuniao"
 BR = dt.timezone(dt.timedelta(hours=-3))
 RETORNO = ["IBOMNQecWtIUruHpNAs1", "IHXNFnguTPyNj5Q59ea2"]   # Data de retorno, Hora do retorno
 Q = ["qmIKSSDVYNLl5E8vnr3f", "wmod0p91VuukwWDwKCgi", "xjEcIFfdt2h29wBaKMQO",
@@ -206,6 +207,13 @@ def main() -> int:
             print("  %-22s %-55s <- %s" % ((c.get("firstNameLowerCase") or "?")[:22], t["title"][:55], motivo))
             if aplicar:
                 pedir("PUT", "/contacts/%s/tasks/%s/completed" % (c["id"], t["id"]), {"completed": True})
+            # Reunião confirmada em conversa: o lead sai do topo da Minha fila já, a qualquer hora (01/10: a tag
+            # só saía no ordem_fila.py, que roda seg-sex 07:30-21:00, e a SDR não distinguia confirmado de pendente)
+            if regra(t["title"]) == "conversa" and TAG_CONF in tags:
+                print("  %-22s - %s (reunião confirmada)" % ((c.get("firstNameLowerCase") or "?")[:22], TAG_CONF))
+                if aplicar:
+                    pedir("DELETE", "/contacts/%s/tags" % c["id"], {"tags": [TAG_CONF]})
+                tags.discard(TAG_CONF)
     print("tarefas finalizadas%s: %s" % ("" if aplicar else " (DRY)", dict(cont) or "nenhuma"))
     return 0
 

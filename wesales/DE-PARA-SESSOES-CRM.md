@@ -31,3 +31,10 @@
 - `wa-liberado` pendurado em 20 contatos (o Promover põe de propósito para a 1ª mensagem; a Inbound travada não tirava) — retirado.
 - Logs das 312 rodadas antigas dos robôs do CRM apagados no Actions (expunham dados de lead antes do `privacidade.py`).
 - Leads presos antes da correção NÃO foram reenviados (a MI-0 diz "recebi seu cadastro agora"); seguem com a SDR.
+
+## 01/10 — "Confirmar reunião" sai da Minha fila quando a SDR registra "Atendeu"
+
+- **Problema:** o lead de nível 10 "Confirmar reunião" seguia no topo depois de confirmado. A tag `confirmar-reuniao` só saía no `ordem_fila.py` (seg–sex 07:30–21:00) e o `reunioes_robo.py` a recolocava a cada rodada, porque só olhava se a tarefa existia, não se estava concluída.
+- **Correção:** `finalizar_tarefas.py` tira a tag na mesma hora em que fecha a tarefa de confirmação (ligação de 25 s ou mais, ou Registro da ligação "Atendeu"), a qualquer hora. `reunioes_robo.py` não recoloca a tag quando a tarefa da reunião já está concluída.
+- **Tarefa de confirmação de reunião que já começou** (ou saiu de "confirmed") fecha sozinha no `reunioes_robo.py`: a ação não tem mais como ser feita e a tarefa ficava aberta para sempre.
+- **Medido:** ligação de confirmação de 24 s registrada como "Caixa postal"/"Pediu retorno" NÃO confirma. Para o lead sair, o registro tem de ser "Atendeu". Prazo: até 30 min (uma rodada do relógio).
