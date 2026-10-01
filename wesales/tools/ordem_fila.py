@@ -12,6 +12,8 @@ Roda no relógio a cada 30 min (seg–sex 07:30–21:00). Escreve só o que mudo
      7  respondeu mensagem, ligou de volta (fila-quente), fechar horário ou nota >= 70
      5  toque da cadência vencido hoje (fila-tel / fila-wa)
      3  os demais em CONECTAR
+     2  na etapa REUNIÃO, sem nada a fazer hoje: reunião marcada à frente ou no-show entre dois toques
+        (tag fila-reuniao; fica no fim da Minha fila para a SDR acompanhar até a reunião acontecer)
      0  fora da fila: DND, nao-perturbe, pausado, telefone-invalido, status-perdido
 
 `confirmar-reuniao` (posta pelo calendly_para_crm.py) sai quando a SDR conclui a tarefa
@@ -31,6 +33,7 @@ from atuador_filas import CONECTAR, PRIORIDADE, TESTE, contatos, etapa_por_conta
 
 REUNIAO = "3d26fcd1"
 TAG_CONF = "confirmar-reuniao"
+TAG_ACOMP = "fila-reuniao"
 FORA = {"nao-perturbe", "pausado", "telefone-invalido", "status-perdido", "grupo-whatsapp-nao-e-lead"}
 CAMPO_TENTATIVA = "qHJGJKZBccASOKkKP8ge"
 CAMPO_NOTA = "FHoXQnLYA8LW5mFzfdIq"
@@ -51,6 +54,14 @@ def nota(c, etapa, agora):
         return (0, "DND") if c.get("dnd") else (10, "agendou pelo Calendly, confirmar")
     if "fila-noshow" in tags and etapa == REUNIAO:
         return (0, "DND") if c.get("dnd") else (10, "no-show: remarcar reunião")
+    # 01/10 (dono): até a reunião acontecer o lead é missão da SDR e fica à vista dela. Fora do dia de agir
+    # (confirmar, toque do no-show) ele vai para o FIM da lista, com a coluna Próxima ação dizendo para aguardar.
+    if TAG_ACOMP in tags and etapa == REUNIAO:
+        if c.get("dnd"):
+            return 0, "DND"
+        if "noshow-6x15" in tags:
+            return 2, "no-show: aguardando o dia do toque"
+        return 2, "reunião %s" % (c.get("_reuniao") or "marcada")
     if etapa != CONECTAR:
         return None, ""
     if c.get("dnd"):
@@ -81,6 +92,8 @@ def acao(p, motivo, tags):
     """Pura: o que a SDR faz com o lead, em uma linha. None = quem escreve é outro robô (no-show 6x15)."""
     if motivo.startswith("no-show"):
         return None
+    if motivo.startswith("reunião "):
+        return "📅 Reunião %s: aguardar (confirmar na véspera)" % motivo[8:]
     if motivo.startswith("lead novo"):
         return "📞 LEAD NOVO: ligar já"
     if motivo.startswith("sem nenhuma ligação"):
@@ -127,6 +140,37 @@ def solta_confirmacao(cs, etapas, aplicar, agora):
             if aplicar:
                 pedir("DELETE", "/contacts/%s/tags" % c["id"], {"tags": [TAG_CONF]})
             c["tags"] = [t for t in c.get("tags") or [] if t != TAG_CONF]
+
+
+def acompanha_reuniao(cs, etapas, aplicar, agora):
+    """Tag `fila-reuniao` = lead na etapa REUNIÃO que a SDR acompanha: tem reunião confirmada à frente ou está na
+    recuperação de no-show. É por ela que o lead aparece na Minha fila nos dias em que não há nada a fazer."""
+    n = 0
+    for c in cs:
+        tags = {str(t).lower() for t in c.get("tags") or []}
+        quer = False
+        if etapas.get(c["id"]) == REUNIAO and not tags & FORA and not TESTE.search(c.get("contactName") or ""):
+            if "noshow-6x15" in tags:
+                quer = True
+            else:
+                futuras = []
+                for e in pedir("GET", "/contacts/%s/appointments" % c["id"]).get("events") or []:
+                    if (e.get("appointmentStatus") or "") != "confirmed":
+                        continue
+                    ini = dt.datetime.fromisoformat(e["startTime"].replace(" ", "T") + ("" if "+" in e["startTime"] or "-03" in e["startTime"] else "-03:00"))
+                    if ini > agora:
+                        futuras.append(ini)
+                if futuras:
+                    quer = True
+                    c["_reuniao"] = min(futuras).astimezone(dt.timezone(dt.timedelta(hours=-3))).strftime("%d/%m %H:%M")
+        if quer == (TAG_ACOMP in tags):
+            continue
+        n += 1
+        print("  %s %s  %s%s" % ("+" if quer else "-", TAG_ACOMP, c.get("contactName") or c["id"], "" if aplicar else " DRY"))
+        if aplicar:
+            pedir("POST" if quer else "DELETE", "/contacts/%s/tags" % c["id"], {"tags": [TAG_ACOMP]})
+        c["tags"] = [t for t in c.get("tags") or [] if str(t).lower() != TAG_ACOMP] + ([TAG_ACOMP] if quer else [])
+    print("reunião acompanhada: %d mudança(s)%s" % (n, "" if aplicar else " (DRY)"))
 
 
 def toque_pendente(cs, etapas, aplicar):
@@ -201,6 +245,7 @@ def main() -> int:
     etapas = etapa_por_contato()
     cs = contatos()
     solta_confirmacao(cs, etapas, aplicar, agora)
+    acompanha_reuniao(cs, etapas, aplicar, agora)
     solta_toque_feito(cs, etapas, aplicar, agora)
     toque_pendente(cs, etapas, aplicar)
     dist, mudou = Counter(), 0
