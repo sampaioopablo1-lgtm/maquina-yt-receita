@@ -394,6 +394,7 @@ WF_INBOUND = "c2375e2f-b4cb-4947-8377-7c1e0529ba82"
 TENT_N = "qHJGJKZBccASOKkKP8ge"      # Tentativa nº (0 = cadência nunca tocou)
 CONEX_WA = "Og1CkI9x9OztsV242nIM"
 MAX_TENT = 12
+BR_TZ = __import__("datetime").timezone(__import__("datetime").timedelta(hours=-3))
 
 
 def ultima_ligacao_horas(cid):
@@ -408,6 +409,29 @@ def ultima_ligacao_horas(cid):
                 q = dt.datetime.fromisoformat(x["dateAdded"].replace("Z", "+00:00"))
                 ult = q if ult is None or q > ult else ult
     return None if ult is None else (agora - ult).total_seconds() / 3600
+
+
+def ultimo_contato(cid):
+    """(última ligação de saída, última entrada do lead: mensagem ou ligação), em UTC; None = não houve."""
+    import datetime as dt
+    ligou = respondeu = None
+    r = pedir("GET", "/conversations/search?locationId=%s&contactId=%s" % (LOC, cid))
+    for cv in r.get("conversations") or []:
+        m = pedir("GET", "/conversations/%s/messages?limit=30" % cv["id"])
+        for x in ((m.get("messages") or {}).get("messages") or []):
+            if not x.get("dateAdded"):
+                continue
+            q = dt.datetime.fromisoformat(x["dateAdded"].replace("Z", "+00:00"))
+            if x.get("direction") == "inbound":
+                respondeu = q if respondeu is None or q > respondeu else respondeu
+            elif x.get("messageType") == "TYPE_CALL" and x.get("direction") == "outbound":
+                ligou = q if ligou is None or q > ligou else ligou
+    return ligou, respondeu
+
+
+def _hoje_br():
+    import datetime as dt
+    return dt.datetime.now(BR_TZ).date()
 
 
 def ritmo_sem_cadencia(cs, etapas, aplicar):
@@ -463,9 +487,23 @@ def fila_tel_completa(cs, etapas, aplicar):
             continue
         if TESTE.search(c.get("contactName") or ""):
             continue
-        h = ultima_ligacao_horas(c["id"])
-        if h is not None and h < HORAS_TEL:
+        # 01/10 (dono): a Minha fila só mostra quem tem ligação a fazer HOJE. A trava de 2 h devolvia o lead
+        # quente à fila várias vezes no mesmo dia. Agora: no máximo 1 ligação por dia por este caminho (o toque
+        # marcado pela cadência continua vindo dela), salvo se o lead respondeu ou ligou DEPOIS da última ligação.
+        ligou, respondeu = ultimo_contato(c["id"])
+        voltou = ligou is not None and respondeu is not None and respondeu > ligou
+        if ligou is not None and ligou.astimezone(BR_TZ).date() == _hoje_br() and not voltou:
             continue
+        # `fila-quente` sozinha não é toque: todo lead a recebe na entrada (Promover) e ela fica. Só vale como
+        # ligação a fazer se ninguém ligou ainda ou se o lead voltou; o resto segue o dia marcado pela cadência.
+        if not (tags & {"fechar-horario", "retorno-vencido"}) and ligou is not None and not voltou:
+            continue
+        if not voltou and "retorno-vencido" not in tags:
+            try:
+                if float(valor(c, TENT_TEL) or 0) + float(valor(c, "5j9SerJeZ6ngfZCPb2Wg") or 0) >= MAX_TENT:
+                    continue
+            except (TypeError, ValueError):
+                pass
         n += 1
         print("     + fila-tel  %s  %s  (%s)" % (c["id"], c.get("contactName") or "?", ", ".join(sorted(tags & EXTRA_TEL))))
         if aplicar:
@@ -514,15 +552,15 @@ def distribuir_canal(cs, etapas, aplicar):
 
 
 def entrada_gradual(cs, etapas, aplicar):
-    """Leads antigos entram na Cadência Inbound (fluxo completo, com mensagens) 1 por rodada,
-    seg-sex 09:00-18:00, para a 1ª mensagem nunca sair em bloco (o governador ainda limita e
-    espaça os envios). Ao entrar, perdem `sem-cadencia` (a cadência assume o ritmo)."""
+    """Leads `sem-cadencia` entram na Cadência 12x30 (12 toques + mensagens), 1 por rodada, seg-sex 09:00-18:00,
+    para a 1ª mensagem nunca sair em bloco (o governador ainda limita e espaça os envios).
+
+    01/10: religada. Estava pausada desde 28/09 porque quem entrava não recebia mensagem nem tarefa: o lead já
+    tinha uma inscrição PRESA na Cadência Inbound (a janela de horário travava tudo) e o CRM não aceita o mesmo
+    lead duas vezes — o POST não fazia nada. Agora: sai da inscrição presa, troca `cad-inbound` por `cad-outbound`
+    (é o gatilho da 12x30, o mesmo caminho de quem termina a Inbound; provado no contato de teste em 01/10) e perde
+    `sem-cadencia`. Vai para a 12x30, não para a Inbound: são leads antigos, a régua rápida de lead novo não serve."""
     import datetime as dt
-    # 28/09 15h: PAUSADA. Leads que entraram na Cadência Inbound por aqui não receberam mensagem
-    # nem tarefa (investigando). Ao entrar, perdiam `sem-cadencia` e o ritmo diário de ligação.
-    # Religar só depois de confirmar a Cadência Inbound processando o lead de ponta a ponta.
-    print("  entrada gradual: PAUSADA (Cadência Inbound em diagnóstico)")
-    return
     agora = dt.datetime.now(dt.timezone(dt.timedelta(hours=-3)))
     if agora.weekday() >= 5 or not (9 <= agora.hour < 18):
         print("  entrada gradual: fora da janela (seg-sex 09-18)")
@@ -535,16 +573,20 @@ def entrada_gradual(cs, etapas, aplicar):
         return
     for c in sorted(cs, key=lambda x: x.get("dateAdded") or ""):
         tags = set(c.get("tags") or [])
-        if SEM_CAD not in tags or etapas.get(c["id"]) != CONECTAR or not c.get("phone"):
+        if SEM_CAD not in tags or etapas.get(c["id"]) != CONECTAR or not c.get("phone") or c.get("dnd"):
             continue
-        # só quem tem hoje toque de TELEFONE (a TI1 da cadência é telefone: não dobra o toque)
-        if tags & {"nao-perturbe", TAG_FALOU, "telefone-invalido", TAG_WA, "wa-feito-hoje"} or c["id"] in MOVIDOS_WA:
+        if TESTE.search(c.get("contactName") or ""):
             continue
-        print("  entrada gradual: %s %s entra na Cadência Inbound%s" % (
+        # quem falou hoje ou já tem toque de WhatsApp hoje espera a próxima rodada (a T1 da 12x30 é ligação)
+        if tags & {"nao-perturbe", TAG_FALOU, "telefone-invalido", TAG_WA, "wa-feito-hoje", "status-perdido"} or c["id"] in MOVIDOS_WA:
+            continue
+        print("  entrada gradual: %s %s entra na Cadência 12x30%s" % (
             c["id"], c.get("contactName") or "?", "" if aplicar else " (DRY)"))
         if aplicar:
-            pedir("POST", "/contacts/%s/workflow/%s" % (c["id"], WF_INBOUND), {})
-            pedir("DELETE", "/contacts/%s/tags" % c["id"], {"tags": [SEM_CAD]})
+            pedir("DELETE", "/contacts/%s/workflow/%s" % (c["id"], WF_INBOUND), {})
+            pedir("DELETE", "/contacts/%s/tags" % c["id"], {"tags": [SEM_CAD, "cad-inbound"]})
+            time.sleep(3)   # a 12x30 recusa quem ainda tem `cad-inbound` no instante do gatilho
+            pedir("POST", "/contacts/%s/tags" % c["id"], {"tags": ["cad-outbound"]})
         return
     print("  entrada gradual: nenhum lead antigo restante")
 

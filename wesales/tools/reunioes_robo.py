@@ -73,6 +73,15 @@ def main() -> int:
         if not cid:
             continue
         quando = local(e["startTime"]).astimezone(BR).strftime("%d/%m %H:%M")
+        # Confirmação de reunião que já começou (ou saiu da agenda) não tem mais como ser feita: a tarefa fecha.
+        # Não fecha se há outra reunião do mesmo lead, no mesmo horário, ainda por confirmar (remarcada em cima).
+        if (local(e["startTime"]) <= agora or (e.get("appointmentStatus") or "") != "confirmed") and not any(
+                o is not e and o.get("contactId") == cid and o["startTime"] == e["startTime"] and acao(agora, o) == "confirmar" for o in evs):
+            for t in tarefas(cid):
+                if "onfirmar a reunião de %s" % quando in (t.get("title") or "") and not t.get("completed"):
+                    print("  fecha confirmação %s %s (reunião passou ou status %s)" % (quando, cid, e.get("appointmentStatus")))
+                    if aplicar:
+                        pedir("PUT", "/contacts/%s/tasks/%s/completed" % (cid, t["id"]), {"completed": True})
         if (e.get("appointmentStatus") or "") != "confirmed":
             for t in tarefas(cid):
                 if t.get("title", "").startswith("[RESULTADO] Reunião de %s" % quando) and not t.get("completed"):
@@ -89,9 +98,12 @@ def main() -> int:
             continue
         ts = tarefas(cid)
         if a == "confirmar":
-            ja = any("onfirmar a reunião de %s" % quando in (t.get("title") or "") for t in ts)
+            da_reuniao = [t for t in ts if "onfirmar a reunião de %s" % quando in (t.get("title") or "")]
+            ja = bool(da_reuniao)
             tem_tag = TAG_CONF in (c.get("tags") or [])
-            if ja and tem_tag:
+            # tarefa já concluída = reunião confirmada: a tag não volta (01/10: voltava a cada rodada e o lead
+            # confirmado seguia no topo da Minha fila fora do horário do ordem_fila.py)
+            if ja and (tem_tag or all(t.get("completed") for t in da_reuniao)):
                 continue
             print("  confirmar  %-22s reunião %s%s" % (nome[:22], quando, "" if not ja else " (só a tag)"))
             if aplicar:

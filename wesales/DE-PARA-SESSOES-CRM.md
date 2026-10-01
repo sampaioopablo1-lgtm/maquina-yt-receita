@@ -31,3 +31,38 @@
 - `wa-liberado` pendurado em 20 contatos (o Promover põe de propósito para a 1ª mensagem; a Inbound travada não tirava) — retirado.
 - Logs das 312 rodadas antigas dos robôs do CRM apagados no Actions (expunham dados de lead antes do `privacidade.py`).
 - Leads presos antes da correção NÃO foram reenviados (a MI-0 diz "recebi seu cadastro agora"); seguem com a SDR.
+
+## 01/10 — "Confirmar reunião" sai da Minha fila quando a SDR registra "Atendeu"
+
+- **Problema:** o lead de nível 10 "Confirmar reunião" seguia no topo depois de confirmado. A tag `confirmar-reuniao` só saía no `ordem_fila.py` (seg–sex 07:30–21:00) e o `reunioes_robo.py` a recolocava a cada rodada, porque só olhava se a tarefa existia, não se estava concluída.
+- **Correção:** `finalizar_tarefas.py` tira a tag na mesma hora em que fecha a tarefa de confirmação (ligação de 25 s ou mais, ou Registro da ligação "Atendeu"), a qualquer hora. `reunioes_robo.py` não recoloca a tag quando a tarefa da reunião já está concluída.
+- **Tarefa de confirmação de reunião que já começou** (ou saiu de "confirmed") fecha sozinha no `reunioes_robo.py`: a ação não tem mais como ser feita e a tarefa ficava aberta para sempre.
+- **Medido:** ligação de confirmação de 24 s registrada como "Caixa postal"/"Pediu retorno" NÃO confirma. Para o lead sair, o registro tem de ser "Atendeu". Prazo: até 30 min (uma rodada do relógio).
+
+## 01/10 — Minha fila só mostra quem tem ligação a fazer hoje (pedido do dono)
+
+- **Medido:** 25 leads na lista; 12 estavam em dia de toque por WhatsApp (`fila-wa`) e apareciam mesmo assim, porque a lista aceitava `fila-quente` — que todo lead recebe na entrada (Promover) e quase nunca perde — e a regra "2+ tentativas sem conexão". A SDR podia ligar antes do dia do toque.
+- **Filtro novo da lista (`jB9TeEuL9X7mupxwJqde`):** em CONECTAR, sem `status-perdido`/`nao-perturbe`/`falou-hoje`, e com `fila-tel` OU `fechar-horario` OU `retorno-vencido`; mais os grupos `confirmar-reuniao` e `fila-noshow`. Saíram `fila-quente` e a regra das tentativas. Backup em `.local/minha-fila-antes-01-10.json`.
+- **`atuador_filas.py` (fila-tel completa):** a trava de 2 h virou "no máximo 1 ligação por dia"; `fila-quente` sozinha só vira ligação se ninguém ligou ainda ou se o lead respondeu/ligou depois da última ligação. Teto de 12 tentativas.
+- **`ordem_fila.py` (toque pendente):** a Cadência Inbound tira `fila-tel` 25 min depois do toque. Quem tem tarefa de ligação aberta e sem ligação depois dela volta para a fila até a ligação ser feita (mesma regra do `finalizar_tarefas.py`). A coluna Próxima ação só diz "Fechar horário" para quem tem `fechar-horario`.
+- **Cadência Inbound v31:** retirado o "Não atendeu" automático (10 nós: gravar Resultado + `limpar-tarefas`) dos toques TI1–TI5. A cadência segue andando; o resultado e a tarefa passam a depender de ligação real.
+- **Lembretes da Reunião v3 (v6):** as 4 mensagens "H-3 dor" ganharam o link da reunião.
+- **Leads presos de antes da retirada da janela:** 6 parados em "WA · limpar marcas" da Inbound receberam `sem-cadencia` (ligação diária pelo atuador, sem WhatsApp automático) e saíram da inscrição travada. Os 34 `queued_to_continue` de 24/09 já eram `sem-cadencia`.
+- **Histórico de inscrições dos 55 publicados lido** (rota da tela, `st.js`): fora Inbound e MI-0, só 1 inscrição presa (Reunião Cancelada, contato já perdido).
+- **Remarcação no Calendly (corrigida):** antes, o robô criava a reunião nova e cancelava a antiga na mesma rodada; a "Reunião Cancelada" tirava o contato dos Lembretes (inclusive da nova) e mandava "vi que a reunião foi cancelada". Agora `calendly_para_crm.py` cancela ANTES de criar; se o Calendly marca o convidado cancelado como `rescheduled`, põe a tag `calendly-remarcou` antes do cancelamento e só cria a reunião nova na rodada seguinte (tirando a tag). A "Reunião Cancelada" (`37ee2c13`, v9, 26 nós) ganhou a guarda "Lead só remarcou pelo Calendly?": com a tag, sai dos lembretes antigos e para, sem WhatsApp, tarefa ou nota. Testado com Calendly e CRM simulados (2 rodadas); falta ver uma remarcação real.
+
+## 01/10 — CRM sem Supabase (regra do dono: rotina do CRM fica no GitHub)
+
+- Único ponto do CRM que ainda apontava para o Supabase: o envio do `log_eventos.py` para `opc.crm_eventos` (função `crm-eventos`). Retirado. A tabela nunca recebeu linha (a cota barrava).
+- O log vive só no repositório PRIVADO `opc-crm-dados` (`eventos/AAAA-MM-DD.jsonl.gz`), gravado pelo `wesales-log.yml`. O histórico de 17/09 a 28/09, que estava só no PC, foi enviado para lá: 15 dias no total.
+- Nenhum outro robô ou workflow do CRM lê ou grava no Supabase (busca em `wesales/` e nos `wesales-*.yml`).
+- **Removido do Supabase (01/10, a pedido do dono):** tabela `opc.crm_eventos` apagada (0 linhas, sem dependentes); funções `crm-eventos` e `painel-sdr` (painel externo aposentado em 27/09; 0 chamadas em 24 h) trocadas por uma resposta 410 com JWT obrigatório — o conector não apaga função, isso só se faz no painel do Supabase. Token local `_opc_log_token.txt` apagado.
+- **Toque já feito sai da fila (01/10 tarde):** a Cadência Inbound deixa `fila-tel` por 22 h a 2 dias depois do toque; sem Resultado registrado, o lead ligado ontem reaparecia hoje. `ordem_fila.py` (`solta_toque_feito`) tira `fila-tel` de quem já recebeu ligação e não tem tarefa de ligação pendente, não voltou a falar, não é fechar horário/retorno vencido; lead `sem-cadencia` sai se a ligação tem menos de 24 h (o atuador devolve depois). Decisão do dono: NÃO criar bloco de "reforço" para bater 100 ligações agora; a base passa de 100 leads em ~2 dias e a lista do dia cresce sozinha. Reavaliar então (ideia guardada: reforço no fim da lista, teto de 2 ligações/dia por lead com 4 h de intervalo).
+
+## 01/10 tarde — a cadência de ponta a ponta
+
+- **Passagem Inbound → 12x30 PROVADA** no contato de teste (9940): ao fim da Inbound o lead perde `cad-inbound` e ganha `cad-outbound`; o gatilho "Cad Outbound" da 12x30 (`c64a808b`) inscreve em ~15 s, cria a tarefa `[CADENCIA] T1`, põe `fila-tel` e espera 2 h antes da MT1. Teste desfeito (saída do workflow, tarefa concluída, tags e campos de volta).
+- **Desenho medido:** Inbound = 5 toques em ~6 dias + 1 WhatsApp (MIF) no fim; depois a 12x30 inteira (T1–T12, com MT1/MT4/MT8/MT11/MT12). Um lead que não atende recebe até 17 toques de ligação.
+- **"Não atendeu" automático retirado também da 12x30 (v43, 395 nós) e da parte 2 (v17, 378 nós):** 12 pares de nós, mesma decisão da Inbound.
+- **Entrada gradual religada, agora para a 12x30** (`atuador_filas.entrada_gradual`): 1 lead `sem-cadencia` por rodada, seg–sex 09–18, só com menos de 2 mensagens esperando o governador. Causa da pausa de 28/09 achada: o lead já tinha inscrição presa na Inbound e o CRM não aceita o mesmo lead duas vezes — o POST não fazia nada. Agora sai da inscrição presa, troca `cad-inbound` por `cad-outbound` e perde `sem-cadencia`. 1º lead entrou em 01/10 13:13 (T1 criada, `fila-tel`). Restam ~39; a ~18 por dia útil, 2 a 3 dias.
+- **Conta da meta:** 12 toques em 30 dias = 0,4 tentativa/lead/dia; 100 tentativas/dia pedem ~250 leads ativos (8 a 13 leads novos por dia). Em 01/10: 55 em CONECTAR.

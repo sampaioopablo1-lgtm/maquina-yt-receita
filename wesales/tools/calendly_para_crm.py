@@ -112,7 +112,23 @@ def nota_ouro(quando, link):
             % (quando, (' · <a href="%s" target="_blank">link da reunião</a>' % link) if link else ""))
 
 
-def cancelar_no_crm(aplicar):
+TAG_REMARCOU = "calendly-remarcou"
+
+
+def remarcou(ev) -> bool:
+    """O evento cancelado no Calendly foi REMARCADO (o convidado cancelado vem com rescheduled=true)?"""
+    r = calendly(ev["uri"] + "/invitees?status=canceled&count=10")
+    return any(i.get("rescheduled") for i in r.get("collection") or [])
+
+
+def cancelar_no_crm(aplicar) -> set:
+    """Cancela no CRM o que foi cancelado no Calendly. Devolve os contatos que REMARCARAM nesta rodada.
+
+    Remarcação (01/10): cancelar a antiga dispara a "Reunião Cancelada", que tira o contato dos Lembretes e
+    mandava "vi que a reunião foi cancelada" a quem só mudou o horário; e, criada na mesma rodada, a reunião nova
+    perdia os lembretes junto. Agora: a tag `calendly-remarcou` vai ANTES do cancelamento (o workflow lê a tag, tira
+    dos lembretes antigos e para ali, sem aviso nem tarefa) e a reunião nova só entra na rodada seguinte."""
+    remarcados = set()
     for ev in eventos_futuros("canceled"):
         uuid = ev["uri"].rsplit("/", 1)[-1]
         inicio = dt.datetime.fromisoformat(ev["start_time"].replace("Z", "+00:00"))
@@ -120,10 +136,16 @@ def cancelar_no_crm(aplicar):
             if (e.get("appointmentStatus") or "").lower() == "cancelled":
                 continue
             quando = inicio.astimezone(dt.timezone(dt.timedelta(hours=-3))).strftime("%d/%m %H:%M")
-            print("  - cancelada no Calendly: %s · %s%s" % (e.get("title"), quando, "" if aplicar else " (DRY)"))
+            mudou = bool(e.get("contactId")) and remarcou(ev)
+            print("  - %s no Calendly: %s · %s%s" % ("remarcada" if mudou else "cancelada", e.get("title"), quando, "" if aplicar else " (DRY)"))
+            if mudou:
+                remarcados.add(e["contactId"])
             if aplicar:
+                if mudou:
+                    ghl("POST", "/contacts/%s/tags" % e["contactId"], {"tags": [TAG_REMARCOU]})
                 st, _ = ghl("PUT", "/calendars/events/appointments/%s" % e["id"], {"appointmentStatus": "cancelled"})
                 print("    agenda do CRM: cancelada, HTTP %s" % st)
+    return remarcados
 
 
 def _primeiro(nome):
@@ -177,6 +199,7 @@ def achar_ou_criar(p, aplicar):
 
 def main() -> int:
     aplicar = "--aplicar" in sys.argv
+    remarcados = cancelar_no_crm(aplicar)   # antes de criar: ver cancelar_no_crm
     evs = eventos_futuros()
     print("Calendly: %d reunião(ões) futura(s) ativa(s)%s" % (len(evs), "" if aplicar else " (DRY)"))
     for ev in evs:
@@ -202,8 +225,12 @@ def main() -> int:
         quando = inicio.astimezone(dt.timezone(dt.timedelta(hours=-3))).strftime("%d/%m %H:%M")
         print("  + %s <%s> %s · %s · %s%s" % (p["nome"], p["email"], p["telefone"] or "sem telefone", quando,
                                              "contato novo" if novo else "contato existente", "" if aplicar else " (DRY)"))
+        if cid in remarcados:
+            print("    remarcação: a reunião nova entra na próxima rodada (os lembretes antigos saem primeiro)")
+            continue
         if not aplicar or not cid:
             continue
+        ghl("DELETE", "/contacts/%s/tags" % cid, {"tags": [TAG_REMARCOU]})
         # confirmar-reuniao: põe o lead no topo da "Minha fila — SDR" (Prioridade 10, ordem_fila.py)
         ghl("POST", "/contacts/%s/tags" % cid, {"tags": ["calendly", "fila-quente", "confirmar-reuniao"]})
         ghl("PUT", "/contacts/%s" % cid, {"customFields": [{"id": PRIORIDADE, "value": 5}]})
@@ -224,7 +251,6 @@ def main() -> int:
         ghl("POST", "/contacts/%s/notes" % cid, {"body": nota_ouro(quando, link)})
         # dispara "Calendly — lead ouro (aviso à SDR)": notificação especial, depois o workflow tira a tag
         ghl("POST", "/contacts/%s/tags" % cid, {"tags": ["calendly-ouro"]})
-    cancelar_no_crm(aplicar)
     return 0
 
 

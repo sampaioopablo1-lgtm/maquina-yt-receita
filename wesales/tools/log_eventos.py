@@ -12,6 +12,8 @@ tarefa, oportunidade, agenda e lista, com antes/depois e a ORIGEM de cada mudan�
 
 O CRM guarda só ~60 dias; este arquivo copia para `wesales/dados/eventos/AAAA-MM-DD.jsonl.gz`
 (uma linha por evento, compacta, deduplicada pelo id do evento), que fica para sempre.
+Guarda só em arquivo: na nuvem o `wesales-log.yml` grava no repositório PRIVADO `opc-crm-dados` (01/10, regra do
+dono: rotina do CRM não usa Supabase; o envio para `opc.crm_eventos` foi retirado).
 
 Limite: o log de auditoria só aceita token de SESSÃO (o PIT responde 401 "not authorized for
 this scope"). Na nuvem precisa do segredo GHL_STORAGE_STATE + renovar_bearer.js.
@@ -181,37 +183,6 @@ def gravar_dia(dia: dt.date, novos: list) -> tuple:
     return n0, len(linhas)
 
 
-FUNCAO = "https://cscczluzpblzhvojxanp.supabase.co/functions/v1/crm-eventos"
-
-
-def token_banco() -> str:
-    t = (os.environ.get("OPC_LOG_TOKEN") or "").strip()
-    f = os.path.join(DIR, "..", "_opc_log_token.txt")
-    if not t and os.path.exists(f):
-        t = open(f, encoding="utf-8").read().strip()
-    return t
-
-
-def enviar(eventos: list) -> int:
-    """Grava no banco do OPC (opc.crm_eventos) pela função crm-eventos. Idempotente (id do evento)."""
-    tok = token_banco()
-    if not tok:
-        print("AVISO: sem OPC_LOG_TOKEN; eventos ficaram só no arquivo local")
-        return 0
-    total = 0
-    for i in range(0, len(eventos), 1000):
-        req = urllib.request.Request(FUNCAO, method="POST",
-                                     data=json.dumps({"eventos": eventos[i:i + 1000]}, ensure_ascii=False).encode("utf-8"),
-                                     headers={"x-log-token": tok, "content-type": "application/json"})
-        try:
-            total += json.load(urllib.request.urlopen(req, timeout=120)).get("gravados", 0)
-        except urllib.error.HTTPError as e:
-            # 402 = organização do Supabase com cota estourada (29/09): o arquivo local segue valendo
-            print("AVISO: banco recusou (%s %s); eventos ficaram no arquivo local" % (e.code, e.read()[:120]))
-            break
-    return total
-
-
 def dia_br(ts: str) -> dt.date:
     return dt.datetime.fromisoformat(ts.replace("Z", "+00:00")).astimezone(BR).date()
 
@@ -236,7 +207,6 @@ def coletar(dias: int) -> None:
     for dia in sorted(por_dia):
         antes, depois = gravar_dia(dia, por_dia[dia])
         print("%s: %d eventos coletados, arquivo %d -> %d" % (dia, len(por_dia[dia]), antes, depois))
-    print("banco opc.crm_eventos: %d gravados" % enviar([e for d in sorted(por_dia) for e in ler_dia(d)]))
     if sem_sessao:
         print("AVISO: só ligações/mensagens; o log de auditoria precisa do segredo GHL_STORAGE_STATE")
 
