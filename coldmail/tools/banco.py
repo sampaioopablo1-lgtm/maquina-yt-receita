@@ -1,21 +1,15 @@
-"""Estado da máquina: leads, envios, mensagens lidas e lista de bloqueio.
+"""Estado da máquina: leads, envios, mensagens lidas e lista de bloqueio, num arquivo SQLite.
 
-Duas implementações com a mesma interface mínima (inserir / buscar / atualizar):
-  - Supabase (PostgREST) quando SUPABASE_URL e SUPABASE_SERVICE_ROLE_KEY estão no ambiente. É o que roda
-    no GitHub Actions: o runner é efêmero e o repositório é público, então nenhum dado de lead fica em
-    arquivo do repo. Tabelas em coldmail/schema.sql.
-  - SQLite local (coldmail/.local/coldmail.db, fora do git) para testar no PC sem nada configurado.
+No GitHub Actions o arquivo fica no repositório PRIVADO de dados (COLDMAIL_DB aponta para o clone dele;
+o workflow faz commit a cada ciclo). Este repositório é público: nenhum dado de lead entra aqui.
+No PC, sem COLDMAIL_DB, fica em coldmail/.local/coldmail.db (fora do git).
 
 Filtros: lista de (coluna, operador, valor), operadores eq, neq, lte, gte, lt, in.
 """
 from __future__ import annotations
 
-import json
 import os
 import sqlite3
-import urllib.error
-import urllib.parse
-import urllib.request
 from pathlib import Path
 
 TABELAS_SQLITE = """
@@ -25,7 +19,7 @@ create table if not exists cold_leads (
     primeiro_nome text, empresa text, cargo text, site text, abertura text, extra text,
     status text not null default 'ativo',
     passo integer not null default 0,
-    proximo_envio text,
+    proximo_envio text default (strftime('%Y-%m-%dT%H:%M:%S+00:00', 'now')),
     conta text, assunto text, thread_msgid text, ultimo_msgid text,
     categoria text, ghl_contato text,
     criado_em text default (strftime('%Y-%m-%dT%H:%M:%S+00:00', 'now')),
@@ -47,7 +41,6 @@ create table if not exists cold_bloqueio (
 );
 """
 
-CHAVE = {"cold_leads": "email", "cold_mensagens": "message_id", "cold_bloqueio": "email"}
 OPS_SQL = {"eq": "=", "neq": "!=", "lte": "<=", "gte": ">=", "lt": "<"}
 
 
@@ -102,71 +95,16 @@ class Sqlite:
         self.db.commit()
 
 
-class Supabase:
-    def __init__(self, url: str, chave: str):
-        self.base = url.rstrip("/") + "/rest/v1/"
-        self.chave = chave
-
-    def _pedir(self, metodo: str, caminho: str, corpo=None, prefer: str = ""):
-        dados = None if corpo is None else json.dumps(corpo).encode("utf-8")
-        req = urllib.request.Request(self.base + caminho, data=dados, method=metodo)
-        req.add_header("apikey", self.chave)
-        req.add_header("Authorization", "Bearer " + self.chave)
-        req.add_header("Content-Type", "application/json")
-        if prefer:
-            req.add_header("Prefer", prefer)
-        try:
-            with urllib.request.urlopen(req, timeout=60) as r:
-                t = r.read().decode("utf-8")
-                return json.loads(t) if t else None
-        except urllib.error.HTTPError as e:
-            det = e.read().decode("utf-8", "replace")[:300]
-            raise SystemExit("Supabase %s %s -> HTTP %s %s" % (metodo, caminho.split("?")[0], e.code, det))
-
-    @staticmethod
-    def _filtros(filtros) -> list[tuple[str, str]]:
-        q = []
-        for col, op, val in filtros or []:
-            if op == "in":
-                vals = ",".join('"%s"' % str(v).replace('"', "") for v in val)
-                q.append((col, "in.(%s)" % vals))
-            else:
-                q.append((col, "%s.%s" % (op, val)))
-        return q
-
-    def inserir(self, tabela: str, linhas: list[dict]) -> int:
-        n = 0
-        for i in range(0, len(linhas), 500):
-            lote = linhas[i:i + 500]
-            caminho = tabela
-            if tabela in CHAVE:
-                caminho += "?on_conflict=" + CHAVE[tabela]
-            r = self._pedir("POST", caminho, lote, "resolution=ignore-duplicates,return=representation")
-            n += len(r or [])
-        return n
-
-    def buscar(self, tabela: str, filtros=None, ordem: str | None = None, limite: int | None = None,
-               colunas: str = "*") -> list[dict]:
-        q = [("select", colunas)] + self._filtros(filtros)
-        if ordem:
-            q.append(("order", ordem))
-        if limite:
-            q.append(("limit", str(limite)))
-        return self._pedir("GET", tabela + "?" + urllib.parse.urlencode(q)) or []
-
-    def atualizar(self, tabela: str, filtros, campos: dict) -> None:
-        q = urllib.parse.urlencode(self._filtros(filtros))
-        self._pedir("PATCH", tabela + "?" + q, campos, "return=minimal")
-
-
 LOCAL = Path(__file__).resolve().parents[1] / ".local" / "coldmail.db"
 
 
-def abrir(exigir_remoto: bool = False):
-    url, chave = os.environ.get("SUPABASE_URL"), os.environ.get("SUPABASE_SERVICE_ROLE_KEY")
-    if url and chave:
-        return Supabase(url, chave)
+def abrir(exigir_remoto: bool = False) -> Sqlite:
+    """COLDMAIL_DB aponta para o banco dentro do clone do repositório PRIVADO de dados (no Actions);
+    sem ela, banco local fora do git."""
+    caminho = os.environ.get("COLDMAIL_DB")
+    if caminho:
+        return Sqlite(caminho)
     if exigir_remoto:
-        raise SystemExit("sem SUPABASE_URL/SUPABASE_SERVICE_ROLE_KEY: no Actions o estado precisa ficar no "
-                         "Supabase (o runner apaga tudo ao terminar).")
+        raise SystemExit("sem COLDMAIL_DB: no Actions o banco precisa ficar no repositório privado de dados "
+                         "(o runner apaga tudo ao terminar, e este repositório é público).")
     return Sqlite(LOCAL)

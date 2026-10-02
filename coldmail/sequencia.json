@@ -1,0 +1,21 @@
+{
+  "passos": [
+    {
+      "espera_dias": 0,
+      "assunto": "A {empresa:sua empresa}, precisa de +CLIENTES?",
+      "corpo": "{Oi|Olá} {primeiro_nome},\n\n{abertura}\n\nA maioria das empresas até gera contatos, mas eles esfriam antes de virar cliente: ninguém responde na hora, ninguém insiste.\n\nE cada lead que esfria é anúncio pago jogado fora, enquanto o concorrente que respondeu primeiro fecha a venda.\n\nNa WeSales a gente monta a operação que fala com o lead em minutos, faz o follow-up e entrega reunião marcada na sua agenda.\n\n{Faz sentido|Vale} uma conversa de 20 minutos {essa semana|nos próximos dias}? Me diz um dia e horário que eu mando o convite.\n\n{assinatura}\n\nSe não for prioridade agora, é só responder \"sair\" que eu não te escrevo mais."
+    },
+    {
+      "espera_dias": 3,
+      "corpo": "{primeiro_nome:Oi}, {voltando aqui|subindo essa mensagem} caso tenha se perdido na caixa.\n\nQuantos contatos a {empresa:sua empresa} recebeu no último mês que ninguém respondeu no mesmo dia? É ali que a venda escapa.\n\nTopa 20 minutos para eu te mostrar como resolver? Me diz o melhor dia e horário.\n\n{assinatura}"
+    },
+    {
+      "espera_dias": 4,
+      "corpo": "{Oi|Olá} {primeiro_nome}, uma ideia simples: a gente pode começar só pelo primeiro contato com o lead, sem mexer no resto da sua operação. Você vê o resultado na agenda em poucas semanas.\n\nQual dia e horário fica bom para conversarmos 20 minutos?\n\n{assinatura}"
+    },
+    {
+      "espera_dias": 7,
+      "corpo": "{primeiro_nome:Oi}, vou parar de te escrever por aqui para não encher sua caixa. Se em algum momento a {empresa:sua empresa} quiser mais clientes vindos dos contatos que já chegam, é só responder este e-mail.\n\n{Abraço|Um abraço},\n{assinatura}"
+    }
+  ]
+}

@@ -2,12 +2,12 @@
   "passos": [
     {
       "espera_dias": 0,
-      "assunto": "{{primeiro_nome}, pergunta rápida|pergunta sobre a {empresa}|{empresa} e novos clientes}",
-      "corpo": "{Oi|Olá} {primeiro_nome},\n\n{abertura}\n\nA gente ajuda empresas como a {empresa} a transformar anúncio em reunião marcada: o lead chega, alguém fala com ele em minutos e a agenda do time comercial enche sem depender de indicação.\n\n{Faz sentido|Vale} uma conversa de 20 minutos {essa semana|nos próximos dias} para eu te mostrar como ficaria aí?\n\n{assinatura}\n\nSe não fizer sentido, é só responder \"sair\" que eu não te escrevo mais."
+      "assunto": "{{primeiro_nome:Oi}, pergunta rápida|pergunta sobre a {empresa:sua empresa}|{empresa:sua empresa} e novos clientes}",
+      "corpo": "{Oi|Olá} {primeiro_nome},\n\n{abertura}\n\nA gente ajuda empresas como a {empresa:sua empresa} a transformar anúncio em reunião marcada: o lead chega, alguém fala com ele em minutos e a agenda do time comercial enche sem depender de indicação.\n\n{Faz sentido|Vale} uma conversa de 20 minutos {essa semana|nos próximos dias} para eu te mostrar como ficaria aí?\n\n{assinatura}\n\nSe não fizer sentido, é só responder \"sair\" que eu não te escrevo mais."
     },
     {
       "espera_dias": 3,
-      "corpo": "{primeiro_nome}, {voltando aqui|subindo essa mensagem} caso tenha se perdido na caixa.\n\nSe hoje quem atende os leads da {empresa} demora para responder, é aí que a maior parte das vendas escapa. Topa 20 minutos para eu te mostrar os números?\n\n{assinatura}"
+      "corpo": "{primeiro_nome:Oi}, {voltando aqui|subindo essa mensagem} caso tenha se perdido na caixa.\n\nSe hoje quem atende os leads da {empresa:sua empresa} demora para responder, é aí que a maior parte das vendas escapa. Topa 20 minutos para eu te mostrar os números?\n\n{assinatura}"
     },
     {
       "espera_dias": 4,
@@ -15,7 +15,7 @@
     },
     {
       "espera_dias": 7,
-      "corpo": "{primeiro_nome}, vou parar de te escrever por aqui para não encher sua caixa. Se em algum momento quiser mais reuniões vindas dos anúncios, é só responder este e-mail.\n\n{Abraço|Um abraço},\n{assinatura}"
+      "corpo": "{primeiro_nome:Oi}, vou parar de te escrever por aqui para não encher sua caixa. Se em algum momento quiser mais reuniões vindas dos anúncios, é só responder este e-mail.\n\n{Abraço|Um abraço},\n{assinatura}"
     }
   ]
 }

@@ -4,7 +4,7 @@ Várias contas Gmail em rotação: importa a lista, envia a sequência intercala
 respostas, classifica com IA, responde e marca a reunião na agenda do closer no CRM.
 
 ```
-leads.csv ──importar──▶ Supabase (cold_leads)
+leads.csv ──importar──▶ coldmail.db (repositório privado opc-crm-dados)
                             │  a cada 30 min, seg-sex 8h-18h (coldmail-relogio.yml)
                             ▼
                     enviar: aquecimento + rotação ──▶ conta A, conta B, conta C, A, B, C…
@@ -34,6 +34,30 @@ no-show).
 Descadastro e bounce são sempre automáticos. Comece em `rascunho`, leia umas 30 respostas e só depois
 passe para `auto`.
 
+## Primeiro teste (uma caixa, você mesmo como lead)
+
+1. **Senha de app** da caixa de envio: <https://myaccount.google.com/apppasswords> (precisa da verificação
+   em duas etapas ligada). Não cole a senha em conversa nenhuma: ela vai direto no segredo.
+2. **Segredo `COLDMAIL_CONTAS`** (Settings > Secrets and variables > Actions > New repository secret):
+   ```json
+   [{"email": "sampaioopablo@gmail.com", "senha_app": "xxxx xxxx xxxx xxxx", "nome": "Pablo Sampaio",
+     "assinatura": "Pablo\nWeSales", "limite_dia": 20}]
+   ```
+3. **Variáveis** (aba Variables): `COLDMAIL_MODO` = `auto` (agenda sozinho), `COLDMAIL_EMPRESA` = `WeSales`,
+   `COLDMAIL_OFERTA` = uma frase sobre o que vocês vendem.
+4. **`leads.csv`** em `opc-crm-dados/coldmail/` só com e-mails SEUS para o teste (outra conta sua, de um sócio):
+   ```csv
+   email,primeiro_nome,empresa
+   seu.outro.email@gmail.com,Pablo,Empresa Teste
+   ```
+5. No Actions, rode **Cold mail - relogio** com `testar-contas` (login), depois `simular-envio` (mostra o
+   e-mail sem enviar) e por fim `relogio` (liga). Para testar fora do horário comercial, crie a variável
+   `COLDMAIL_JANELA` = `0-24` durante o teste.
+6. Da outra conta, responda o e-mail com um horário ("pode ser quinta às 15h?"). Em até 30 min a máquina lê,
+   cria o contato e a oportunidade em FUNIL DE VENDAS > NOVO LEAD e, se o horário estiver livre na agenda
+   "Reunião com closer", marca a reunião e confirma por e-mail. Se não estiver livre, responde com 2-3
+   horários livres; responda escolhendo um.
+
 ## Configuração (uma vez)
 
 ### 1. Contas de envio
@@ -57,10 +81,20 @@ O aumento gradual de volume não substitui o aquecimento de reputação. Deixe c
 numa ferramenta de aquecimento (lemwarm, Warmup Inbox ou o aquecimento avulso do Instantly) antes de
 colocá-la aqui, e mantenha o aquecimento ligado depois.
 
-### 2. Banco (Supabase)
+### 2. Dados (repositório privado)
 
-Rode `coldmail/schema.sql` no SQL Editor do Supabase. Os segredos `SUPABASE_URL` e
-`SUPABASE_SERVICE_ROLE_KEY` já existem no repositório.
+Tudo o que tem lead fica no repositório **privado** `sampaioopablo1-lgtm/opc-crm-dados`, pasta `coldmail/`,
+o mesmo que o monitor do wesales já usa (segredo `DADOS_DEPLOY_KEY`, que já existe). Este repositório é
+público: lead nenhum entra aqui.
+
+| Arquivo em `opc-crm-dados/coldmail/` | Quem mexe |
+|---|---|
+| `leads.csv` | você: sobe e atualiza pelo site do GitHub (Add file > Upload files) |
+| `coldmail.db` | a máquina: estado de cada lead, envios, respostas, bloqueios (gravado a cada ciclo) |
+| `STATUS.md` | a máquina: resumo atualizado a cada ciclo |
+
+A cada ciclo a máquina importa os e-mails novos do `leads.csv` (os repetidos e os bloqueados são ignorados).
+Para mandar mais gente, é só acrescentar linhas no arquivo.
 
 ### 3. Segredos e variáveis do repositório
 
@@ -69,7 +103,7 @@ Configure em Settings > Secrets and variables > Actions.
 | Tipo | Nome | Valor |
 |---|---|---|
 | Segredo | `COLDMAIL_CONTAS` | o JSON das contas (com as senhas de app) |
-| Segredo | `COLDMAIL_SEQUENCIA` | o JSON da sequência (formato de `sequencia.exemplo.json`) |
+| Segredo | `COLDMAIL_SEQUENCIA` | opcional: substitui o `coldmail/sequencia.json` sem commit |
 | Segredo | `ANTHROPIC_API_KEY` | chave da API do Claude |
 | Segredo | `GHL_PIT` | já existe (o mesmo dos robôs do wesales) |
 | Variável | `COLDMAIL_MODO` | `rascunho` ou `auto` |
@@ -78,10 +112,11 @@ Configure em Settings > Secrets and variables > Actions.
 | Variável | `COLDMAIL_POR_RODADA` | envios por conta a cada 30 min (padrão 3) |
 | Variável | `COLDMAIL_JANELA` | horário de envio, padrão `8-18` |
 
-O repositório é público, por isso a sequência e as contas ficam em segredo, não em arquivo.
+O repositório é público, por isso as contas (com as senhas de app) ficam em segredo, não em arquivo. A
+sequência está em `coldmail/sequencia.json`: é o texto que vai para os leads, não tem nada de sigiloso.
 
-Opcionais (variáveis de ambiente): `COLDMAIL_AGENDA_ID`, `COLDMAIL_CLOSER_ID`, `COLDMAIL_SDR_ID` e
-`COLDMAIL_DURACAO_MIN` (padrão: a agenda "Reunião com closer" do `calendly_para_crm.py`, 30 min),
+Opcionais (variáveis de ambiente): `COLDMAIL_AGENDA_ID`, `COLDMAIL_CLOSER_ID`, `COLDMAIL_SDR_ID`,
+`COLDMAIL_FUNIL_ID`, `COLDMAIL_ETAPA_ID` (padrão: FUNIL DE VENDAS > NOVO LEAD) e `COLDMAIL_DURACAO_MIN` (padrão: a agenda "Reunião com closer" do `calendly_para_crm.py`, 30 min),
 além de `COLDMAIL_MODELO` (padrão `claude-opus-5-5`).
 
 ### 4. Ligar
@@ -92,15 +127,11 @@ ele se mantém sozinho. Para desligar, apague o segredo `COLDMAIL_CONTAS`.
 
 ## Leads
 
-Importe no seu PC, com `SUPABASE_URL` e `SUPABASE_SERVICE_ROLE_KEY` no ambiente. A lista nunca entra
-no repositório.
+Suba o `leads.csv` em `opc-crm-dados/coldmail/` pelo site do GitHub. Para conferir no PC antes:
 
 ```bash
 python coldmail/tools/cold.py importar leads.csv            # confere: válidos, bloqueados, repetidos
-python coldmail/tools/cold.py importar leads.csv --aplicar
-python coldmail/tools/cold.py personalizar --limite 100 --aplicar   # 1ª linha por IA lendo o site
 python coldmail/tools/cold.py enviar --forcar --mostrar       # vê o texto exato que sairia
-python coldmail/tools/cold.py status
 ```
 
 O CSV aceita `,` ou `;` (veja `leads.exemplo.csv`). A única coluna obrigatória é `email`. As colunas
@@ -131,4 +162,4 @@ domínio. Onde encontrar leads: Apollo (B2B em geral), Casa dos Dados (CNPJ), Ap
 
 Prospecção B2B por e-mail corporativo se apoia em legítimo interesse: mande só para quem tem relação com
 a oferta, identifique quem está enviando e ofereça a saída em todo e-mail. A lista de bloqueio
-(`cold_bloqueio`) é permanente e a importação a respeita.
+(tabela `cold_bloqueio` do `coldmail.db`) é permanente e a importação a respeita.

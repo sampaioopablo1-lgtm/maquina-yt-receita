@@ -81,10 +81,12 @@ def carregar_contas() -> list[Conta]:
 
 def carregar_sequencia(aplicar: bool) -> list[dict]:
     dados = _json_de("COLDMAIL_SEQUENCIA", LOCAL / "sequencia.json")
+    if dados is None and (RAIZ / "sequencia.json").exists():
+        dados = json.loads((RAIZ / "sequencia.json").read_text(encoding="utf-8"))
     if dados is None:
         if aplicar:
-            raise SystemExit("sem sequência: preencha o segredo COLDMAIL_SEQUENCIA (ou coldmail/.local/"
-                             "sequencia.json). O exemplo do repositório não é enviado de verdade.")
+            raise SystemExit("sem sequência: crie coldmail/sequencia.json (ou o segredo COLDMAIL_SEQUENCIA). "
+                             "O sequencia.exemplo.json não é enviado de verdade.")
         print("(DRY com coldmail/sequencia.exemplo.json)")
         dados = json.loads((RAIZ / "sequencia.exemplo.json").read_text(encoding="utf-8"))
     passos = dados["passos"] if isinstance(dados, dict) else dados
@@ -447,6 +449,7 @@ def executar(acao: str, r: dict, lead: dict, conta: Conta, m, crm: bool, atualiz
     if crm and cat in CRM_CATEGORIAS:
         cid = agenda.contato(lead, ["cold-email", "cold-" + cat.replace("_", "-")])
         campos["ghl_contato"] = cid
+        agenda.oportunidade(cid, "%s · Cold e-mail" % (lead.get("empresa") or lead.get("primeiro_nome") or lead["email"]))
     corpo = (r.get("resposta") or "").strip()
     assinatura = conta.assinatura or (conta.nome.split(" ")[0] if conta.nome else "")
     resposta = gmail.montar(conta, lead["email"], assunto_resposta(m.assunto),

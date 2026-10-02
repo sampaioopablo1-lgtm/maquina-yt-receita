@@ -100,7 +100,7 @@ def planejar(devidos: list[dict], contas: list[Conta], cap: dict[str, int]) -> l
 
 
 SPIN = re.compile(r"\{([^{}]*\|[^{}]*)\}")
-VAR = re.compile(r"\{(\w+)\}")
+VAR = re.compile(r"\{(\w+)(?::([^{}|]*))?\}")      # {empresa} ou {empresa:sua empresa} (padrão se vazio)
 
 
 def spintax(texto: str, rng: random.Random) -> str:
@@ -114,11 +114,12 @@ def spintax(texto: str, rng: random.Random) -> str:
 
 def renderizar(modelo: str, variaveis: dict, rng: random.Random) -> str:
     """Variáveis primeiro (assim "{{primeiro_nome}, pergunta|...}" funciona), depois spintax.
-    Variável vazia some sem deixar "Oi ," nem linha em branco dupla."""
+    Variável vazia some sem deixar "Oi ," nem linha em branco dupla; {empresa:sua empresa} usa o padrão."""
     def valor(m):
-        if m.group(1) not in variaveis:
+        if m.group(1) not in variaveis and m.group(2) is None:
             return m.group(0)
-        return re.sub(r"[{}|]", " ", str(variaveis.get(m.group(1)) or ""))
+        v = str(variaveis.get(m.group(1)) or "").strip() or (m.group(2) or "")
+        return re.sub(r"[{}|]", " ", v)
     texto = VAR.sub("", spintax(VAR.sub(valor, modelo), rng))   # variável que o lead não tem: some
     texto = re.sub(r"[ \t]+([,.!?])", r"\1", texto)
     texto = re.sub(r"[ \t]{2,}", " ", texto)

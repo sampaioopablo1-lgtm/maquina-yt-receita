@@ -33,6 +33,8 @@ AGENDA = os.environ.get("COLDMAIL_AGENDA_ID") or "3uNQFjCEDe7b4gKZJuOZ"    # "Re
 CLOSER = os.environ.get("COLDMAIL_CLOSER_ID") or "JdvhvOTEBTvUyRi0BXU8"
 SDR = os.environ.get("COLDMAIL_SDR_ID") or "ML69c5kAJ93cliAGgBj6"
 DURACAO_MIN = int(os.environ.get("COLDMAIL_DURACAO_MIN") or 30)
+FUNIL = os.environ.get("COLDMAIL_FUNIL_ID") or "0Fo2xbeayE4EP6yuSUtq"                     # FUNIL DE VENDAS
+ETAPA = os.environ.get("COLDMAIL_ETAPA_ID") or "7ae9c950-9bcf-4e60-8bc5-cb7388c87b7d"     # NOVO LEAD
 
 
 def ativo() -> bool:
@@ -113,6 +115,20 @@ def contato(lead: dict, tags: list[str]) -> str:
              "source": "Cold e-mail", "tags": tags, "assignedTo": SDR}
     r = pedir("POST", "/contacts/upsert", {k: v for k, v in corpo.items() if v})
     return ((r or {}).get("contact") or {}).get("id") or ""
+
+
+def oportunidade(contato_id: str, nome: str) -> str:
+    """Oportunidade em FUNIL DE VENDAS > NOVO LEAD. Se o contato já tem uma aberta nesse funil (criada pela
+    Porta de Entrada ou por outra resposta), reaproveita: nunca duplica."""
+    r = pedir("GET", "/opportunities/search?location_id=%s&contact_id=%s&pipeline_id=%s&status=open"
+              % (LOC, contato_id, FUNIL))
+    abertas = (r or {}).get("opportunities") or []
+    if abertas:
+        return abertas[0].get("id") or ""
+    r = pedir("POST", "/opportunities/", {
+        "pipelineId": FUNIL, "pipelineStageId": ETAPA, "locationId": LOC, "contactId": contato_id,
+        "name": nome, "status": "open", "source": "Cold e-mail", "assignedTo": SDR})
+    return ((r or {}).get("opportunity") or {}).get("id") or ""
 
 
 def marcar(contato_id: str, inicio_iso: str, titulo: str) -> str:

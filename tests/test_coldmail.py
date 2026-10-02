@@ -98,16 +98,28 @@ def test_spintax_aninhado():
     assert spintax("{a|{b|b}}", random.Random(0)) in ("a", "b")
 
 
-def test_sequencia_de_exemplo_renderiza_todos_os_passos():
-    passos = json.loads((FERRAMENTAS.parent / "sequencia.exemplo.json").read_text(encoding="utf-8"))["passos"]
+def test_variavel_com_padrao():
+    modelo = "A {empresa:sua empresa}, precisa de +CLIENTES?"
+    assert renderizar(modelo, {"empresa": "Acme"}, random.Random()) == "A Acme, precisa de +CLIENTES?"
+    assert renderizar(modelo, {"empresa": ""}, random.Random()) == "A sua empresa, precisa de +CLIENTES?"
+    assert renderizar("{primeiro_nome:Oi}, voltando", {}, random.Random()) == "Oi, voltando"
+
+
+@pytest.mark.parametrize("arquivo", ["sequencia.json", "sequencia.exemplo.json"])
+@pytest.mark.parametrize("lead", [
+    {"email": "j@acme.com", "primeiro_nome": "joana", "empresa": "Acme", "abertura": ""},
+    {"email": "x@y.com", "primeiro_nome": "", "empresa": "", "abertura": ""},
+])
+def test_sequencias_renderizam_todos_os_passos(arquivo, lead):
+    passos = json.loads((FERRAMENTAS.parent / arquivo).read_text(encoding="utf-8"))["passos"]
     c = conta("a@x.com")
     c.assinatura = "Pablo"
-    lead = {"email": "j@acme.com", "primeiro_nome": "joana", "empresa": "Acme", "abertura": ""}
     for p in passos:
         for campo in ("assunto", "corpo"):
             if p.get(campo):
                 t = renderizar(p[campo], cold.variaveis(lead, c), random.Random())
                 assert "{" not in t and "}" not in t and "|" not in t, t
+                assert not t.startswith(",") and "A , " not in t and " ," not in t, t
 
 
 # ------------------------------------------------------------------ Gmail
@@ -260,3 +272,25 @@ def test_descadastro_bloqueia_para_sempre(maquina, monkeypatch):
     assert maquina.db.buscar("cold_leads", [("email", "eq", "m@beta.com")])[0]["status"] == "descadastro"
     assert maquina.db.buscar("cold_bloqueio", [("email", "eq", "m@beta.com")])
     assert maquina.rascunhos == []
+
+
+def test_resposta_com_interesse_vira_oportunidade_e_reuniao(maquina, monkeypatch):
+    cold.main(["enviar", "--aplicar", "--forcar"])
+    chamadas = []
+    monkeypatch.setattr(agenda, "ativo", lambda: True)
+    monkeypatch.setattr(agenda, "horarios_livres", lambda agora: ["2026-10-08T14:00:00-03:00"])
+    monkeypatch.setattr(agenda, "contato", lambda lead, tags: chamadas.append(("contato", tags)) or "C1")
+    monkeypatch.setattr(agenda, "oportunidade", lambda cid, nome: chamadas.append(("oportunidade", cid)) or "O1")
+    monkeypatch.setattr(agenda, "marcar", lambda cid, quando, titulo: chamadas.append(("marcar", quando)) or "A1")
+    monkeypatch.setattr(agenda, "nota", lambda cid, corpo: None)
+    monkeypatch.setenv("COLDMAIL_MODO", "auto")
+    bruto = b"From: k@gama.com\r\nMessage-ID: <q@gama>\r\nSubject: Re: x\r\n\r\nPode ser quarta dia 8 as 14h"
+    monkeypatch.setattr(gmail, "ler_caixa", lambda c, desde: [gmail.analisar(bruto)])
+    monkeypatch.setattr(ia, "analisar_resposta", lambda *a, **k: {
+        "categoria": "aceitou_horario", "confianca": 0.95, "horario_escolhido": "2026-10-08T14:00:00-03:00",
+        "resumo": "marcou", "resposta": "Combinado, quarta 8/10 às 14h. O convite chega no seu e-mail."})
+    maquina.enviados.clear()
+    cold.main(["ler", "--aplicar"])
+    assert ("oportunidade", "C1") in chamadas and ("marcar", "2026-10-08T14:00:00-03:00") in chamadas
+    assert [m["To"] for _, m in maquina.enviados] == ["k@gama.com"]
+    assert maquina.db.buscar("cold_leads", [("email", "eq", "k@gama.com")])[0]["status"] == "reuniao"
