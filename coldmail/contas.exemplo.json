@@ -1,19 +1,18 @@
 [
   {
-    "email": "pablo@usewesales.com.br",
+    "email": "sampaioopablo@gmail.com",
     "senha_app": "abcd efgh ijkl mnop",
     "nome": "Pablo Sampaio",
-    "assinatura": "Pablo\nWeSales",
-    "limite_dia": 30,
-    "inicio": "2026-10-01"
+    "assinatura": "Pablo Sampaio\nAgência - Próximo Cliente",
+    "limite_dia": 20,
+    "inicio": "2026-10-02"
   },
   {
-    "email": "pablo@wesaleshq.com",
+    "email": "agencia.proximocliente@gmail.com",
     "senha_app": "qrst uvwx yzab cdef",
     "nome": "Pablo Sampaio",
-    "assinatura": "Pablo\nWeSales",
-    "limite_dia": 30,
-    "inicio": "2026-10-01",
-    "ativa": true
+    "assinatura": "Pablo Sampaio\nAgência - Próximo Cliente",
+    "limite_dia": 15,
+    "inicio": "2026-10-02"
   }
 ]

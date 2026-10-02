@@ -42,9 +42,9 @@ passe para `auto`.
 2. **Segredo `COLDMAIL_CONTAS`** (Settings > Secrets and variables > Actions > New repository secret):
    ```json
    [{"email": "sampaioopablo@gmail.com", "senha_app": "xxxx xxxx xxxx xxxx", "nome": "Pablo Sampaio",
-     "assinatura": "Pablo\nWeSales", "limite_dia": 20}]
+     "assinatura": "Pablo Sampaio\nAgência - Próximo Cliente", "limite_dia": 20}]
    ```
-3. **Variáveis** (aba Variables): `COLDMAIL_MODO` = `auto` (agenda sozinho), `COLDMAIL_EMPRESA` = `WeSales`,
+3. **Variáveis** (aba Variables): `COLDMAIL_MODO` = `auto` (agenda sozinho), `COLDMAIL_EMPRESA` = `Agência - Próximo Cliente`,
    `COLDMAIL_OFERTA` = uma frase sobre o que vocês vendem.
 4. **`leads.csv`** em `opc-crm-dados/coldmail/` só com e-mails SEUS para o teste (outra conta sua, de um sócio):
    ```csv
