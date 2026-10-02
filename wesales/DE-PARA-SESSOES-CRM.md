@@ -82,3 +82,13 @@
 - **Como:** tag nova `fila-reuniao` (`ordem_fila.acompanha_reuniao`): lead na etapa REUNIÃO com reunião confirmada à frente ou na recuperação de no-show (`noshow-6x15`). A lista (`jB9TeEuL9X7mupxwJqde`) ganhou o 4º grupo OU: `fila-reuniao` sem `nao-perturbe` (backup `.local/minha-fila-antes-fila-reuniao.json`).
 - **Ordem:** dia de agir (confirmar nas 26 h antes; toque do no-show) = Prioridade 10, topo, como antes. Nos outros dias = Prioridade 2, fim da lista, com a Próxima ação "⏳ No-show: próximo toque (k/6) em dd/mm · só agir se ele responder" (`cadencia_noshow.py`) ou "📅 Reunião dd/mm HH:MM: aguardar (confirmar na véspera)".
 - Sai da lista quando deixa a etapa REUNIÃO, quando a recuperação termina ou quando não há mais reunião à frente.
+
+## 01/10 noite — lead de cold e-mail (tag `cold-email`, sem telefone)
+
+- **Problema:** a Porta de Entrada marca todo contato novo como `cad-inbound`; sem telefone, a Inbound (e a 12x30) punha `telefone-invalido` e fechava a oportunidade como perdida. O lead de cold e-mail respondeu o e-mail querendo reunião: não pode ser perdido.
+- **Feito:** If/Else "Lead de cold e-mail?" inserido ANTES de "Contato sem telefone?" na Cadência Inbound (v32, 357 nós) e na 12x30 (v44, 398 nós): com a tag `cold-email` o lead sai do workflow sem nenhuma alteração. Backups `antes-guarda-cold-*.json` no scratchpad 423e88d1.
+- **Não feito, de propósito:** filtro de tag no gatilho. Os gatilhos das duas cadências NÃO têm filtro de tag (a separação por `cad-inbound` é o 1º nó); a guarda interna já protege.
+- **Teste (2 contatos ZZ TESTE só com e-mail):** com `cold-email` → CONECTAR, oportunidade `open`, sem `telefone-invalido`/`status-perdido`/`limpar-tarefas`. Sem a tag → `lost` + `telefone-invalido`, como antes.
+- **Efeito colateral conhecido:** o "Promover NOVO LEAD" continua tratando o lead como lead de ligação (`fila-tel`, `fila-quente`, `wa-liberado`, aviso "ligar agora" e nota do roteiro). `ordem_fila.py` passou a dar Prioridade 10 e a Próxima ação "✉️ Cold e-mail: responder e marcar a reunião".
+- **Cold e-mail fora da fila de ligação (01/10 ~22:40):** `ordem_fila.cold_email_fora_da_fila` tira `fila-tel`, `fila-quente` e `wa-liberado` de quem tem `cold-email` e não tem telefone (o "Promover NOVO LEAD" dá essas tags a todo lead novo). Com telefone, fica no topo com "ligar ou chamar no WhatsApp e confirmar dia e horário (19h às 21h)". A SDR trabalha pela tarefa `[COLD] ...` da máquina de cold mail. O robô roda seg–sex 07:30–21:00: lead que entra à noite fica com as tags até a manhã.
+- Contato de teste 9940 restaurado depois do teste da máquina (nome, empresa, dono closer, tags `cad-inbound` + `status-perdido`); o e-mail ficou o do teste.

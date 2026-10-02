@@ -70,6 +70,12 @@ def nota(c, etapa, agora):
         return 0, "tag " + ",".join(sorted(tags & FORA))
     if "retorno-vencido" in tags:
         return 9, "retorno vencido"
+    # 01/10 (dono): lead de cold e-mail chega em CONECTAR porque respondeu o e-mail querendo reunião; quase sempre
+    # sem telefone. A ação é marcar a reunião por e-mail, não ligar.
+    # O e-mail termina pedindo o WhatsApp do lead (dono, 01/10): com telefone, a SDR chama no WhatsApp e combina o
+    # horário (reuniões das 19h às 21h); sem telefone, responde o e-mail pedindo o número.
+    if "cold-email" in tags:
+        return (10, "cold e-mail com telefone") if c.get("phone") else (3, "cold e-mail sem telefone")
     # lead novo = nenhuma ligação REAL ainda (30/09: a Cadência Inbound grava "Tentativa nº 1" na entrada e
     # um "Não atendeu" automático aos 25 min, então o contador não serve para saber se alguém ligou)
     entrou = c.get("dateAdded")
@@ -92,6 +98,10 @@ def acao(p, motivo, tags):
     """Pura: o que a SDR faz com o lead, em uma linha. None = quem escreve é outro robô (no-show 6x15)."""
     if motivo.startswith("no-show"):
         return None
+    if motivo == "cold e-mail com telefone":
+        return "💬 Cold e-mail: ligar ou chamar no WhatsApp e confirmar dia e horário (19h às 21h)"
+    if motivo.startswith("cold e-mail"):
+        return "✉️ Cold e-mail: aguardando o lead mandar o WhatsApp"
     if motivo.startswith("reunião "):
         return "📅 Reunião %s: aguardar (confirmar na véspera)" % motivo[8:]
     if motivo.startswith("lead novo"):
@@ -173,6 +183,27 @@ def acompanha_reuniao(cs, etapas, aplicar, agora):
     print("reunião acompanhada: %d mudança(s)%s" % (n, "" if aplicar else " (DRY)"))
 
 
+TAGS_LIGACAO = ["fila-tel", "fila-quente", "wa-liberado"]
+
+
+def cold_email_fora_da_fila(cs, etapas, aplicar):
+    """Lead de cold e-mail não é da fila de ligação (dono, 01/10): a SDR trabalha pela tarefa "[COLD] ...".
+    O "Promover NOVO LEAD" dá `fila-tel`/`fila-quente` a todo lead novo; aqui elas saem de quem tem `cold-email`
+    e NÃO tem telefone (não há para quem ligar; a máquina de cold mail já pede o WhatsApp por e-mail). Quem já
+    mandou o WhatsApp tem telefone e fica no topo da Minha fila. Vale também para contato de teste."""
+    n = 0
+    for c in cs:
+        tags = {str(t).lower() for t in c.get("tags") or []}
+        if "cold-email" not in tags or c.get("phone") or not tags & set(TAGS_LIGACAO):
+            continue
+        n += 1
+        print("  - fila de ligação  %s  (cold e-mail sem telefone)%s" % (c.get("contactName") or c["id"], "" if aplicar else " DRY"))
+        if aplicar:
+            pedir("DELETE", "/contacts/%s/tags" % c["id"], {"tags": sorted(tags & set(TAGS_LIGACAO))})
+        c["tags"] = [t for t in c.get("tags") or [] if str(t).lower() not in TAGS_LIGACAO]
+    print("cold e-mail sem telefone: %d lead(s) fora da fila de ligação%s" % (n, "" if aplicar else " (DRY)"))
+
+
 def toque_pendente(cs, etapas, aplicar):
     """Quem tem ligação a fazer hoje fica na Minha fila até ligar (01/10, dono: a lista só mostra quem tem
     tentativa vencida). A lista entra por `fila-tel`; a Cadência Inbound tira essa tag 25 min depois do toque,
@@ -245,6 +276,7 @@ def main() -> int:
     etapas = etapa_por_contato()
     cs = contatos()
     solta_confirmacao(cs, etapas, aplicar, agora)
+    cold_email_fora_da_fila(cs, etapas, aplicar)
     acompanha_reuniao(cs, etapas, aplicar, agora)
     solta_toque_feito(cs, etapas, aplicar, agora)
     toque_pendente(cs, etapas, aplicar)

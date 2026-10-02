@@ -68,6 +68,11 @@ jobs:
               git pull -q origin "${GITHUB_REF_NAME}" || true
               python wesales/tools/ordem_fila.py --aplicar || echo "ordem da fila falhou nesta rodada"
             fi
+            # Monitor (avancos e erros): o agendamento proprio dele (cron do GitHub) nao disparou nenhuma vez em 3 h
+            # (01/10). Este laco e o unico relogio confiavel do repositorio: dispara o monitor 1 vez por hora.
+            if [ "$(( 10#$(date +%M) ))" -lt 30 ]; then
+              gh workflow run wesales-monitor.yml --ref "${GITHUB_REF_NAME}" && echo "monitor disparado" || echo "monitor nao disparou nesta rodada"
+            fi
             sleep 1800
           done
       - name: Relanca o relogio
