@@ -178,47 +178,36 @@ def test_sqlite_ignora_duplicado_e_filtra():
 # ------------------------------------------------------------------ decisão e agenda
 @pytest.mark.parametrize("r, modo, crm, esperado", [
     ({"categoria": "descadastro", "confianca": 0.4}, "auto", True, "bloquear"),
-    ({"categoria": "aceitou_horario", "confianca": 0.9, "resposta": "ok", "horario_escolhido": "h"}, "auto", True,
-     "marcar_e_responder"),
-    ({"categoria": "aceitou_horario", "confianca": 0.9, "resposta": "ok", "horario_escolhido": "h"}, "auto", False,
-     "responder"),
-    ({"categoria": "aceitou_horario", "confianca": 0.9, "resposta": "ok", "horario_escolhido": "h"}, "rascunho",
+    ({"categoria": "sugeriu_horario", "confianca": 0.9, "resposta": "ok", "horario_pedido": "terça às 10h"}, "auto",
+     True, "sdr"),
+    ({"categoria": "sugeriu_horario", "confianca": 0.9, "resposta": "ok", "horario_pedido": "terça às 10h"},
+     "rascunho", True, "rascunho"),
+    ({"categoria": "enviou_whatsapp", "confianca": 0.9, "resposta": "ok", "whatsapp": "+5511987654321"}, "auto", True,
+     "sdr"),
+    ({"categoria": "enviou_whatsapp", "confianca": 0.9, "resposta": "ok", "whatsapp": "+5511987654321"}, "rascunho",
      True, "rascunho"),
+    ({"categoria": "interessado", "confianca": 0.9, "resposta": "ok"}, "auto", True, "responder"),
     ({"categoria": "interessado", "confianca": 0.6, "resposta": "ok"}, "auto", True, "rascunho"),
     ({"categoria": "objecao", "confianca": 0.99, "resposta": "ok"}, "auto", True, "rascunho"),
     ({"categoria": "outro", "confianca": 0.0, "resposta": ""}, "auto", True, "humano"),
-    ({"categoria": "enviou_whatsapp", "confianca": 0.9, "resposta": "ok", "whatsapp": "+5511987654321"}, "auto", True,
-     "whatsapp"),
-    ({"categoria": "enviou_whatsapp", "confianca": 0.9, "resposta": "ok", "whatsapp": "+5511987654321"}, "rascunho",
-     True, "rascunho"),
 ])
 def test_decidir(r, modo, crm, esperado):
     assert cold.decidir(r, modo, 0.8, crm) == esperado
 
 
-def test_escolher_horarios_espalha_e_respeita_antecedencia():
-    agora = dt.datetime(2026, 10, 1, 9, tzinfo=BR)   # quinta 9h
-    slots = ["2026-10-01T10:00:00-03:00"] + [
-        "2026-10-%02dT%02d:00:00-03:00" % (d, h) for d in (2, 3, 5, 6) for h in (9, 10, 11, 14, 15, 16)]
-    escolhidos = agenda.escolher_horarios(slots, agora)
-    assert "2026-10-01T10:00:00-03:00" not in escolhidos                  # menos de 4 h
-    assert not any(e.startswith("2026-10-03") for e in escolhidos)        # sábado
-    assert len(escolhidos) == 6 and len({e[:10] for e in escolhidos}) == 3
-
-
-def test_ia_nao_marca_horario_fora_da_lista(monkeypatch):
+def test_ia_numero_invalido_vira_pedido_de_whatsapp(monkeypatch):
     monkeypatch.setattr(ia, "_chamar", lambda *a, **k: json.dumps({
-        "categoria": "aceitou_horario", "confianca": 0.95, "horario_escolhido": "2026-10-09T07:00:00-03:00",
-        "resumo": "topou", "resposta": "Combinado!"}))
-    r = ia.analisar_resposta({}, "nosso", "pode ser dia 9 às 7h", {"2026-10-09T14:00:00-03:00": "quinta"}, "", "hoje")
-    assert r["categoria"] == "interessado" and r["horario_escolhido"] == "" and r["confianca"] <= 0.5
+        "categoria": "enviou_whatsapp", "confianca": 0.95, "horario_pedido": "terça, 6/10, às 10h",
+        "whatsapp": "123", "resumo": "x", "resposta": "y"}))
+    r = ia.analisar_resposta({}, "nosso", "meu zap 123, pode ser terça 10h", "hoje")
+    assert r["categoria"] == "sugeriu_horario" and r["whatsapp"] == "" and r["confianca"] <= 0.5
 
 
 def test_ia_fora_do_ar_vai_para_humano(monkeypatch):
     def falha(*a, **k):
         raise ConnectionError("sem rede")
     monkeypatch.setattr(ia, "_chamar", falha)
-    r = ia.analisar_resposta({}, "nosso", "oi", {}, "", "hoje")
+    r = ia.analisar_resposta({}, "nosso", "oi", "hoje")
     assert r["categoria"] == "outro" and cold.decidir(r, "auto", 0.8, True) == "humano"
 
 
@@ -259,7 +248,7 @@ def test_envio_rotaciona_e_leitura_para_a_sequencia(maquina, monkeypatch):
              % (joana["assunto"], joana["thread_msgid"])).encode("utf-8")
     monkeypatch.setattr(gmail, "ler_caixa", lambda c, desde: [gmail.analisar(bruto)] if c.email == joana["conta"] else [])
     monkeypatch.setattr(ia, "analisar_resposta", lambda *a, **k: {
-        "categoria": "pediu_info", "confianca": 0.9, "horario_escolhido": "", "resumo": "quer saber mais",
+        "categoria": "pediu_info", "confianca": 0.9, "horario_pedido": "", "resumo": "quer saber mais",
         "resposta": "Claro! Posso te mostrar em 20 min na quinta às 14h?"})
     assert cold.main(["ler", "--aplicar"]) == 0
     joana = maquina.db.buscar("cold_leads", [("email", "eq", "j@acme.com")])[0]
@@ -289,40 +278,40 @@ def test_descadastro_bloqueia_para_sempre(maquina, monkeypatch):
     bruto = b"From: m@beta.com\r\nMessage-ID: <s@beta>\r\nSubject: Re: x\r\n\r\nme tira da lista"
     monkeypatch.setattr(gmail, "ler_caixa", lambda c, desde: [gmail.analisar(bruto)])
     monkeypatch.setattr(ia, "analisar_resposta", lambda *a, **k: {
-        "categoria": "descadastro", "confianca": 0.99, "horario_escolhido": "", "resumo": "", "resposta": ""})
+        "categoria": "descadastro", "confianca": 0.99, "horario_pedido": "", "resumo": "", "resposta": ""})
     cold.main(["ler", "--aplicar"])
     assert maquina.db.buscar("cold_leads", [("email", "eq", "m@beta.com")])[0]["status"] == "descadastro"
     assert maquina.db.buscar("cold_bloqueio", [("email", "eq", "m@beta.com")])
     assert maquina.rascunhos == []
 
 
-def test_resposta_com_interesse_vira_oportunidade_e_reuniao(maquina, monkeypatch):
+def test_lead_que_sugere_horario_vira_tarefa_da_sdr_sem_marcar(maquina, monkeypatch):
     cold.main(["enviar", "--aplicar", "--forcar"])
     chamadas = []
     monkeypatch.setattr(agenda, "ativo", lambda: True)
-    monkeypatch.setattr(agenda, "horarios_livres", lambda agora: ["2026-10-08T14:00:00-03:00"])
-    monkeypatch.setattr(agenda, "contato", lambda lead, tags, tel="": chamadas.append(("contato", tags)) or "C1")
+    monkeypatch.setattr(agenda, "contato", lambda lead, tags, tel="": chamadas.append(("contato", tel)) or "C1")
     monkeypatch.setattr(agenda, "oportunidade", lambda cid, nome: chamadas.append(("oportunidade", cid)) or "O1")
-    monkeypatch.setattr(agenda, "marcar", lambda cid, quando, titulo: chamadas.append(("marcar", quando)) or "A1")
-    monkeypatch.setattr(agenda, "nota", lambda cid, corpo: None)
+    monkeypatch.setattr(agenda, "tarefa", lambda cid, titulo, corpo, resp=None: chamadas.append(("tarefa", titulo, corpo)))
     monkeypatch.setenv("COLDMAIL_MODO", "auto")
-    bruto = b"From: k@gama.com\r\nMessage-ID: <q@gama>\r\nSubject: Re: x\r\n\r\nPode ser quarta dia 8 as 14h"
+    bruto = b"From: k@gama.com\r\nMessage-ID: <q@gama>\r\nSubject: Re: x\r\n\r\nPode ser terca as 10h?"
     monkeypatch.setattr(gmail, "ler_caixa", lambda c, desde: [gmail.analisar(bruto)])
-    monkeypatch.setattr(ia, "analisar_resposta", lambda *a, **k: {
-        "categoria": "aceitou_horario", "confianca": 0.95, "horario_escolhido": "2026-10-08T14:00:00-03:00",
-        "resumo": "marcou", "resposta": "Combinado, quarta 8/10 às 14h. O convite chega no seu e-mail."})
+    monkeypatch.setattr(ia, "_chamar", lambda *a, **k: json.dumps({
+        "categoria": "sugeriu_horario", "confianca": 0.95, "horario_pedido": "terça, 6/10, às 10h", "whatsapp": "",
+        "resumo": "topou", "resposta": "Anotei terça às 10h. Me passa seu WhatsApp para a SDR confirmar?"}))
     maquina.enviados.clear()
     cold.main(["ler", "--aplicar"])
-    assert ("oportunidade", "C1") in chamadas and ("marcar", "2026-10-08T14:00:00-03:00") in chamadas
+    assert ("oportunidade", "C1") in chamadas
+    tarefa = [c for c in chamadas if c[0] == "tarefa"][0]
+    assert "confirmar dia e horário" in tarefa[1] and "terça, 6/10, às 10h" in tarefa[2]
+    assert "ainda não mandou número" in tarefa[2]
     assert [m["To"] for _, m in maquina.enviados] == ["k@gama.com"]
-    assert maquina.db.buscar("cold_leads", [("email", "eq", "k@gama.com")])[0]["status"] == "reuniao"
+    assert not hasattr(agenda, "marcar")     # a máquina não marca reunião: quem marca é a SDR
 
 
 def test_resposta_com_whatsapp_grava_telefone_e_cria_tarefa(maquina, monkeypatch):
     cold.main(["enviar", "--aplicar", "--forcar"])
     chamadas = []
     monkeypatch.setattr(agenda, "ativo", lambda: True)
-    monkeypatch.setattr(agenda, "horarios_livres", lambda agora: [])
     monkeypatch.setattr(agenda, "contato", lambda lead, tags, tel="": chamadas.append(("contato", tel)) or "C1")
     monkeypatch.setattr(agenda, "oportunidade", lambda cid, nome: "O1")
     monkeypatch.setattr(agenda, "tarefa", lambda cid, titulo, corpo, resp=None: chamadas.append(("tarefa", titulo, corpo)))
@@ -330,7 +319,7 @@ def test_resposta_com_whatsapp_grava_telefone_e_cria_tarefa(maquina, monkeypatch
     bruto = b"From: k@gama.com\r\nMessage-ID: <w@gama>\r\nSubject: Re: x\r\n\r\nMeu zap: (11) 98765-4321"
     monkeypatch.setattr(gmail, "ler_caixa", lambda c, desde: [gmail.analisar(bruto)])
     monkeypatch.setattr(ia, "_chamar", lambda *a, **k: json.dumps({
-        "categoria": "enviou_whatsapp", "confianca": 0.95, "horario_escolhido": "", "whatsapp": "(11) 98765-4321",
+        "categoria": "enviou_whatsapp", "confianca": 0.95, "horario_pedido": "", "whatsapp": "(11) 98765-4321",
         "resumo": "mandou o zap", "resposta": "Obrigado! Te chamo ainda hoje no WhatsApp."}))
     maquina.enviados.clear()
     cold.main(["ler", "--aplicar"])

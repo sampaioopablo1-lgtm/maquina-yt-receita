@@ -14,10 +14,10 @@ Sem --aplicar nada é enviado, gravado nem marcado: só mostra o que faria (padr
 Modo das respostas (COLDMAIL_MODO):
   rascunho (padrão)  a resposta escrita pela IA fica nos Rascunhos da conta, na conversa do lead, e a SDR
                      ganha tarefa no CRM. Ninguém recebe nada sem uma pessoa clicar em Enviar.
-  auto               "aceitou horário" livre na agenda -> marca a reunião e confirma por e-mail;
-                     "enviou WhatsApp" -> grava o número no CRM, tarefa da SDR (ligar ou chamar no
-                     WhatsApp para confirmar dia e horário) e responde avisando que a SDR vai entrar em contato;
-                     "interessado" -> pede o WhatsApp (e oferece horários). Só com confiança >=
+  auto               "enviou WhatsApp" ou "sugeriu horário" -> grava no CRM (com o número, se veio), tarefa da
+                     SDR (ligar ou chamar no WhatsApp para confirmar dia e horário) e responde avisando que a
+                     SDR vai entrar em contato; "interessado" -> pede o WhatsApp. A máquina nunca marca reunião:
+                     quem marca é a SDR, na agenda do closer. Só com confiança >=
                      COLDMAIL_CONFIANCA_MIN (0.8). Objeção, pedido de informação etc. continuam em rascunho.
 Descadastro e bounce são sempre automáticos: o lead sai da sequência e entra na lista de bloqueio.
 """
@@ -49,7 +49,7 @@ from rotacao import (BR, Conta, assunto_resposta, capacidade, espacamento, limit
 RAIZ = AQUI.parent
 LOCAL = RAIZ / ".local"
 EMAIL = re.compile(r"^[A-Za-z0-9._%+'-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$")
-CRM_CATEGORIAS = {"aceitou_horario", "enviou_whatsapp", "interessado", "pediu_info", "objecao"}
+CRM_CATEGORIAS = {"sugeriu_horario", "enviou_whatsapp", "interessado", "pediu_info", "objecao"}
 
 
 def iso(t: dt.datetime) -> str:
@@ -104,7 +104,6 @@ def configuracao() -> dict:
         "confianca_min": float(os.environ.get("COLDMAIL_CONFIANCA_MIN") or 0.8),
         "por_rodada": int(os.environ.get("COLDMAIL_POR_RODADA") or 3),
         "janela": (int(janela[0]), int(janela[1])),
-        "link_agenda": os.environ.get("COLDMAIL_LINK_AGENDA") or "",
         "rampa": {"rampa_inicial": int(os.environ.get("COLDMAIL_RAMPA_INICIAL") or 5),
                   "rampa_passo": int(os.environ.get("COLDMAIL_RAMPA_PASSO") or 3)},
     }
@@ -322,11 +321,9 @@ def decidir(r: dict, modo: str, confianca_min: float, crm: bool) -> str:
     if cat == "fora_do_escritorio":
         return "ignorar"
     seguro = modo == "auto" and conf >= confianca_min and bool(r.get("resposta"))
-    if cat == "aceitou_horario" and seguro and crm and r.get("horario_escolhido"):
-        return "marcar_e_responder"
-    if cat == "enviou_whatsapp" and seguro and r.get("whatsapp"):
-        return "whatsapp"
-    if cat in ("aceitou_horario", "interessado") and seguro:
+    if cat in ("enviou_whatsapp", "sugeriu_horario") and seguro:
+        return "sdr"
+    if cat == "interessado" and seguro:
         return "responder"
     return "rascunho" if r.get("resposta") else "humano"
 
@@ -350,18 +347,6 @@ def cmd_ler(args) -> int:
     agora = dt.datetime.now(dt.timezone.utc)
     desde = agora.astimezone(BR).date() - dt.timedelta(days=args.dias)
     crm = agenda.ativo()
-    cache_horarios: dict[str, str] | None = None
-
-    def horarios() -> dict[str, str]:
-        nonlocal cache_horarios
-        if cache_horarios is None:
-            cache_horarios = {}
-            if crm:
-                try:
-                    cache_horarios = {h: agenda.por_extenso(h) for h in agenda.horarios_livres(agora)}
-                except RuntimeError as e:
-                    print("  agenda indisponível: %s" % e)
-        return cache_horarios
 
     def registrar(m, conta, tipo, lead=None, r=None, acao=None):
         if args.aplicar:
@@ -413,8 +398,7 @@ def cmd_ler(args) -> int:
 
             # resposta de verdade: a sequência para já, antes de qualquer outra coisa
             atualizar_lead(lead, {"status": "respondeu", "proximo_envio": None})
-            r = ia.analisar_resposta(lead, _ultimo_email(lead, conta, passos), m.texto, horarios(),
-                                     cfg["link_agenda"], agenda.por_extenso(iso(agora)))
+            r = ia.analisar_resposta(lead, _ultimo_email(lead, conta, passos), m.texto, agenda.por_extenso(iso(agora)))
             acao = decidir(r, cfg["modo"], cfg["confianca_min"], crm)
             resumo[r["categoria"]] += 1
             print("  %s → %s (%.2f) → %s%s" % (lead["email"], r["categoria"], float(r.get("confianca") or 0),
@@ -435,6 +419,24 @@ def cmd_ler(args) -> int:
 
     print("respostas: %s" % (", ".join("%s=%d" % kv for kv in resumo.most_common()) or "nenhuma nova"))
     return 0
+
+
+def tarefa_sdr(r: dict, conta: Conta, rascunho: bool | None = None) -> str:
+    linhas = ["O lead respondeu ao cold e-mail enviado por %s." % conta.email,
+              "Resumo: %s" % (r.get("resumo") or "-")]
+    if r.get("whatsapp"):
+        linhas.append("WhatsApp que ele mandou: %s" % r["whatsapp"])
+    if r.get("horario_pedido"):
+        linhas.append("Horário que ele sugeriu: %s" % r["horario_pedido"])
+    if rascunho is None:
+        linhas.append("Já respondemos que a SDR vai ligar ou mandar mensagem para confirmar o melhor dia e horário: "
+                      "faça isso hoje e marque a reunião na agenda 'Reunião com closer'."
+                      + ("" if r.get("whatsapp") else " Ele ainda não mandou número: a resposta pediu o WhatsApp; "
+                         "se não vier, responda pelo e-mail."))
+    else:
+        linhas.append("Resposta pronta nos Rascunhos dessa conta, na conversa do lead: revise e envie."
+                      if rascunho else "Responda direto pela caixa dessa conta.")
+    return "\n".join(linhas)
 
 
 def executar(acao: str, r: dict, lead: dict, conta: Conta, m, crm: bool, atualizar_lead, db) -> str:
@@ -460,21 +462,10 @@ def executar(acao: str, r: dict, lead: dict, conta: Conta, m, crm: bool, atualiz
                             corpo + ("\n\n" + assinatura if assinatura else ""),
                             in_reply_to=m.message_id, references=m.references) if corpo else None
 
-    if acao == "marcar_e_responder":
-        quando = r["horario_escolhido"]
-        agenda.marcar(cid, quando, "%s · Cold e-mail" % (lead.get("empresa") or lead.get("primeiro_nome") or "Reunião"))
-        gmail.enviar(conta, resposta)
-        agenda.nota(cid, "Cold e-mail: marcou sozinho para %s respondendo ao e-mail de %s.\nResumo: %s" % (
-            agenda.por_extenso(quando), conta.email, r.get("resumo") or "-"))
-        atualizar_lead(lead, {**campos, "status": "reuniao"})
-    elif acao == "whatsapp":
+    if acao == "sdr":
         gmail.enviar(conta, resposta)
         if cid:
-            agenda.tarefa(cid, "[COLD] Ligar ou chamar no WhatsApp para confirmar dia e horário", (
-                "O lead respondeu ao cold e-mail (%s) com o WhatsApp %s. Já respondemos que a SDR vai ligar ou "
-                "mandar mensagem para confirmar o melhor dia e horário: faça isso hoje e marque a reunião na agenda "
-                "'Reunião com closer'.\nResumo: %s"
-                % (conta.email, r["whatsapp"], r.get("resumo") or "-")))
+            agenda.tarefa(cid, "[COLD] Ligar ou chamar no WhatsApp para confirmar dia e horário", tarefa_sdr(r, conta))
         atualizar_lead(lead, campos)
     elif acao == "responder":
         gmail.enviar(conta, resposta)
@@ -486,14 +477,8 @@ def executar(acao: str, r: dict, lead: dict, conta: Conta, m, crm: bool, atualiz
         if resposta:
             gmail.salvar_rascunho(conta, resposta)
         if cid:
-            agenda.tarefa(cid, "[COLD] Responder e-mail (%s)" % cat.replace("_", " "), (
-                "O lead respondeu ao cold e-mail enviado por %s.\nResumo: %s\n%s%s\n"
-                "%s" % (conta.email, r.get("resumo") or "-",
-                        ("WhatsApp que ele mandou: %s\n" % r["whatsapp"]) if r.get("whatsapp") else "",
-                        ("Horário que ele pediu: %s" % agenda.por_extenso(r["horario_escolhido"]))
-                        if r.get("horario_escolhido") else "",
-                        "Resposta pronta nos Rascunhos dessa conta, na conversa do lead: revise e envie."
-                        if resposta else "Responda direto pela caixa dessa conta.")))
+            agenda.tarefa(cid, "[COLD] Responder e-mail (%s)" % cat.replace("_", " "),
+                          tarefa_sdr(r, conta, rascunho=bool(resposta)))
         atualizar_lead(lead, {**campos, "status": "nao_agora" if cat == "nao_agora" else "respondeu"})
     return acao
 

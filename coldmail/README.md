@@ -7,30 +7,31 @@ respostas, classifica com IA, responde e marca a reunião na agenda do closer no
 leads.csv ──importar──▶ coldmail.db (repositório privado opc-crm-dados)
                             │  a cada 30 min, seg-sex 8h-18h (coldmail-relogio.yml)
                             ▼
-                    enviar: aquecimento + rotação ──▶ conta A, conta B, conta C, A, B, C…
+                    enviar: aquecimento + rotação ──▶ conta A, conta B, A, B…
                             │                          (follow-up sai sempre da mesma conta, na mesma conversa)
                             ▼
                     ler (IMAP, todas as caixas, a qualquer hora)
                             ├─ bounce ............ bloqueio, nunca mais envia
                             ├─ ausência .......... sequência continua
                             └─ resposta real ──── sequência PARA ──▶ Claude classifica e escreve a réplica
-                                   ├─ aceitou horário livre ─▶ reunião na agenda "Reunião com closer" + confirmação
-                                   ├─ mandou WhatsApp ──────▶ telefone no CRM + tarefa da SDR (chamar e marcar)
-                                   ├─ interessado ──────────▶ pede o WhatsApp (e oferece 2 horários livres)
-                                   ├─ pediu info / objeção ─▶ rascunho no Gmail + tarefa da SDR no CRM
+                                   ├─ mandou WhatsApp ──────▶ contato com telefone + oportunidade + tarefa da SDR
+                                   ├─ sugeriu horário ──────▶ oportunidade + tarefa da SDR (horário anotado) + pede o WhatsApp
+                                   ├─ interessado ──────────▶ pede o WhatsApp
+                                   ├─ pediu info / objeção ─▶ rascunho no Gmail + tarefa da SDR
                                    └─ descadastro ──────────▶ bloqueio
 ```
 
-A reunião cai na mesma agenda que o `wesales/tools/calendly_para_crm.py` usa, então tudo o que vem
-depois já funciona: convite com Meet, pós-agendamento, `reunioes_robo.py` (confirmação, resultado e
-no-show).
+**A máquina não marca reunião.** Quem marca é a SDR: a tarefa "[COLD] Ligar ou chamar no WhatsApp para
+confirmar dia e horário" traz o número e o horário sugerido; ela confirma com o lead e marca na agenda
+"Reunião com closer". Assim o que já existe depois (convite com Meet, pós-agendamento, lembretes,
+`reunioes_robo.py`) continua valendo sem mudança.
 
 ## Modos
 
 | `COLDMAIL_MODO` | O que acontece com a resposta do lead |
 |---|---|
 | `rascunho` (padrão) | A IA escreve a réplica e ela fica nos **Rascunhos da própria conta, dentro da conversa do lead**. Quem respondeu com interesse vira contato no CRM e a SDR ganha a tarefa `[COLD] Responder e-mail`. Nada sai sem uma pessoa clicar em Enviar. |
-| `auto` | "Aceitou um horário livre" → marca a reunião e confirma por e-mail. "Interessado" → responde oferecendo horários livres. As duas coisas só acontecem com confiança ≥ `COLDMAIL_CONFIANCA_MIN` (0.8). O resto continua em rascunho. |
+| `auto` | "Mandou WhatsApp" ou "sugeriu horário" → tarefa da SDR e resposta avisando que a SDR vai ligar ou mandar mensagem para confirmar o dia e horário. "Interessado" → resposta pedindo o WhatsApp. Só com confiança ≥ `COLDMAIL_CONFIANCA_MIN` (0.8). O resto continua em rascunho. |
 
 Descadastro e bounce são sempre automáticos. Comece em `rascunho`, leia umas 30 respostas e só depois
 passe para `auto`.
@@ -109,15 +110,13 @@ Configure em Settings > Secrets and variables > Actions.
 | Segredo | `GHL_PIT` | já existe (o mesmo dos robôs do wesales) |
 | Variável | `COLDMAIL_MODO` | `rascunho` ou `auto` |
 | Variável | `COLDMAIL_EMPRESA` / `COLDMAIL_OFERTA` | nome e uma frase sobre a oferta (contexto para a IA responder) |
-| Variável | `COLDMAIL_LINK_AGENDA` | link do Calendly, oferecido como alternativa aos horários |
 | Variável | `COLDMAIL_POR_RODADA` | envios por conta a cada 30 min (padrão 3) |
 | Variável | `COLDMAIL_JANELA` | horário de envio, padrão `8-18` |
 
 O repositório é público, por isso as contas (com as senhas de app) ficam em segredo, não em arquivo. A
 sequência está em `coldmail/sequencia.json`: é o texto que vai para os leads, não tem nada de sigiloso.
 
-Opcionais (variáveis de ambiente): `COLDMAIL_AGENDA_ID`, `COLDMAIL_CLOSER_ID`, `COLDMAIL_SDR_ID`,
-`COLDMAIL_FUNIL_ID`, `COLDMAIL_ETAPA_ID` (padrão: FUNIL DE VENDAS > NOVO LEAD) e `COLDMAIL_DURACAO_MIN` (padrão: a agenda "Reunião com closer" do `calendly_para_crm.py`, 30 min),
+Opcionais (variáveis de ambiente): `COLDMAIL_SDR_ID`, `COLDMAIL_FUNIL_ID` e `COLDMAIL_ETAPA_ID` (padrão: FUNIL DE VENDAS > NOVO LEAD) (padrão: a agenda "Reunião com closer" do `calendly_para_crm.py`, 30 min),
 além de `COLDMAIL_MODELO` (padrão `claude-opus-5-5`).
 
 ### 4. Ligar

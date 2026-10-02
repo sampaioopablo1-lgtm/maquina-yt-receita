@@ -1,9 +1,8 @@
-"""Agenda e CRM (HighLevel): horários livres, contato, reunião, tarefa e nota.
+"""CRM (HighLevel): contato, oportunidade, tarefa e nota.
 
-A reunião entra na MESMA agenda que o calendly_para_crm.py usa ("Reunião com closer"), então tudo o que
-já existe depois dela continua valendo sem mudança: pós-agendamento, convite com Meet, lembretes,
-reunioes_robo.py (confirmação, resultado, no-show). A agenda do CRM está ligada ao Google Agenda do
-closer, por isso os horários livres já descontam o que ele marcou por fora.
+A máquina não marca reunião (decisão de 02/10): todo lead interessado vira tarefa da SDR, que liga ou chama
+no WhatsApp, confirma dia e horário e marca na agenda "Reunião com closer". Assim o que já existe depois do
+agendamento continua valendo sem mudança: pós-agendamento, convite com Meet, lembretes, reunioes_robo.py.
 
 Só lead que respondeu com interesse vira contato no CRM: a lista fria inteira lá dentro dispararia a
 Porta de Entrada (oportunidade em NOVO LEAD) para milhares de pessoas que nunca levantaram a mão.
@@ -30,10 +29,7 @@ UA = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) "
 BR = dt.timezone(dt.timedelta(hours=-3))
 
 LOC = os.environ.get("GHL_LOCATION_ID") or "1D53YTI9C7oIMBavcQxV"
-AGENDA = os.environ.get("COLDMAIL_AGENDA_ID") or "3uNQFjCEDe7b4gKZJuOZ"    # "Reunião com closer"
-CLOSER = os.environ.get("COLDMAIL_CLOSER_ID") or "JdvhvOTEBTvUyRi0BXU8"
 SDR = os.environ.get("COLDMAIL_SDR_ID") or "ML69c5kAJ93cliAGgBj6"
-DURACAO_MIN = int(os.environ.get("COLDMAIL_DURACAO_MIN") or 30)
 FUNIL = os.environ.get("COLDMAIL_FUNIL_ID") or "0Fo2xbeayE4EP6yuSUtq"                     # FUNIL DE VENDAS
 ETAPA = os.environ.get("COLDMAIL_ETAPA_ID") or "7ae9c950-9bcf-4e60-8bc5-cb7388c87b7d"     # NOVO LEAD
 
@@ -69,45 +65,6 @@ def pedir(metodo: str, rota: str, corpo=None):
                 time.sleep(2 ** tentativa * 3)
                 continue
             raise RuntimeError("%s %s -> rede recusou: %s" % (metodo, rota.split("?")[0], e.reason))
-
-
-def escolher_horarios(slots: list[str], agora: dt.datetime, por_dia: int = 2, dias: int = 3,
-                      antecedencia_h: int = 4) -> list[str]:
-    """Dos horários livres da agenda, oferece poucos e espalhados: até `por_dia` por dia (um de manhã e
-    um à tarde, quando dá) em `dias` dias úteis, nunca antes de `antecedencia_h` horas a partir de agora."""
-    limite = agora + dt.timedelta(hours=antecedencia_h)
-    por_data: dict[dt.date, list[dt.datetime]] = {}
-    for s in slots:
-        try:
-            t = dt.datetime.fromisoformat(s)
-        except ValueError:
-            continue
-        if t.tzinfo is None:
-            t = t.replace(tzinfo=BR)
-        if t < limite or t.astimezone(BR).isoweekday() > 5:
-            continue
-        por_data.setdefault(t.astimezone(BR).date(), []).append(t)
-    saida = []
-    for data in sorted(por_data)[:dias]:
-        ts = sorted(por_data[data])
-        manha = [t for t in ts if t.astimezone(BR).hour < 12]
-        tarde = [t for t in ts if t.astimezone(BR).hour >= 12]
-        escolhidos = ([manha[len(manha) // 2]] if manha else []) + ([tarde[len(tarde) // 2]] if tarde else [])
-        for t in (escolhidos or ts)[:por_dia]:
-            saida.append(t.astimezone(BR).isoformat())
-    return saida
-
-
-def horarios_livres(agora: dt.datetime, dias_busca: int = 7) -> list[str]:
-    inicio = int(agora.timestamp() * 1000)
-    fim = int((agora + dt.timedelta(days=dias_busca)).timestamp() * 1000)
-    r = pedir("GET", "/calendars/%s/free-slots?startDate=%d&endDate=%d&timezone=America/Sao_Paulo"
-              % (AGENDA, inicio, fim))
-    slots = []
-    for chave, valor in (r or {}).items():
-        if isinstance(valor, dict) and isinstance(valor.get("slots"), list):
-            slots.extend(valor["slots"])
-    return escolher_horarios(slots, agora)
 
 
 def contato(lead: dict, tags: list[str], telefone: str = "") -> str:
@@ -151,16 +108,6 @@ def oportunidade(contato_id: str, nome: str) -> str:
         "pipelineId": FUNIL, "pipelineStageId": ETAPA, "locationId": LOC, "contactId": contato_id,
         "name": nome, "status": "open", "source": "Cold e-mail", "assignedTo": SDR})
     return ((r or {}).get("opportunity") or {}).get("id") or ""
-
-
-def marcar(contato_id: str, inicio_iso: str, titulo: str) -> str:
-    inicio = dt.datetime.fromisoformat(inicio_iso)
-    fim = inicio + dt.timedelta(minutes=DURACAO_MIN)
-    r = pedir("POST", "/calendars/events/appointments", {
-        "calendarId": AGENDA, "locationId": LOC, "contactId": contato_id, "assignedUserId": CLOSER,
-        "startTime": inicio.isoformat(), "endTime": fim.isoformat(), "title": titulo,
-        "appointmentStatus": "confirmed", "toNotify": True})
-    return (r or {}).get("id") or ""
 
 
 def tarefa(contato_id: str, titulo: str, corpo: str, responsavel: str | None = None) -> None:
