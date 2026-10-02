@@ -1,0 +1,67 @@
+name: WeSales - monitor (avancos e erros, de hora em hora)
+
+# Por que existe (01/10, pedido do dono): "monitorar todos os logs, e quando voltarmos vermos os avancos, erros".
+# De hora em hora, SO LEITURA: roda cada robo do relogio em simulacao, le as rodadas das rotinas wesales-*,
+# os numeros do CRM (leads, reguas, Minha fila, ligacoes, registros, mensagens, tarefas, reunioes) e o historico de
+# inscricoes de todos os workflows publicados (inscricao presa, espera vencida). Compara com a leitura anterior.
+# O relatorio vai para o repositorio PRIVADO sampaioopablo1-lgtm/opc-crm-dados, pasta monitor/:
+#   ULTIMO.md (leitura completa) · AAAA-MM-DD.md (resumo de cada leitura do dia) · historico.csv · estado.json
+# Este repositorio e publico: aqui so saem numeros no log.
+# Segredos: GHL_PIT, GHL_STORAGE_STATE (sessao do CRM, para o historico de inscricoes), CALENDY, DADOS_DEPLOY_KEY.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 * * * *"
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: wesales-monitor
+  cancel-in-progress: false
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Playwright (para ler o historico de inscricoes com a sessao do CRM)
+        run: |
+          npm install --no-save playwright@1
+          npx playwright install --with-deps chromium
+      - name: Clona o repositorio privado de dados
+        env:
+          DADOS_DEPLOY_KEY: ${{ secrets.DADOS_DEPLOY_KEY }}
+        run: |
+          mkdir -p ~/.ssh && printf '%s\n' "$DADOS_DEPLOY_KEY" > ~/.ssh/dados && chmod 600 ~/.ssh/dados
+          ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/dados -o IdentitiesOnly=yes"
+          git clone -q git@github.com:sampaioopablo1-lgtm/opc-crm-dados.git dados
+      - name: Leitura
+        env:
+          GHL_PIT: ${{ secrets.GHL_PIT }}
+          GHL_STORAGE_STATE: ${{ secrets.GHL_STORAGE_STATE }}
+          CALENDLY_TOKEN: ${{ secrets.CALENDY }}
+          GH_TOKEN: ${{ github.token }}
+          MONITOR_DIR: ${{ github.workspace }}/dados/monitor
+          PYTHONIOENCODING: utf-8
+        run: python wesales/tools/monitor.py
+      - name: Grava no repositorio privado
+        if: always()
+        run: |
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/dados -o IdentitiesOnly=yes"
+          cd dados
+          git config user.name "wesales-monitor"
+          git config user.email "wesales-monitor@users.noreply.github.com"
+          git add -A monitor
+          git diff --cached --quiet && { echo "nada novo"; exit 0; }
+          git commit -q -m "monitor $(TZ=America/Sao_Paulo date '+%d/%m %H:%M')"
+          for i in 1 2 3; do git pull -q --rebase origin main && git push -q origin HEAD:main && break; sleep 5; done
