@@ -109,8 +109,9 @@ def horarios_livres(agora: dt.datetime, dias_busca: int = 7) -> list[str]:
     return escolher_horarios(slots, agora)
 
 
-def contato(lead: dict, tags: list[str]) -> str:
-    corpo = {"locationId": LOC, "email": lead["email"], "firstName": lead.get("primeiro_nome") or None,
+def contato(lead: dict, tags: list[str], telefone: str = "") -> str:
+    corpo = {"locationId": LOC, "email": lead["email"], "phone": telefone or None,
+             "firstName": lead.get("primeiro_nome") or None,
              "companyName": lead.get("empresa") or None, "website": lead.get("site") or None,
              "source": "Cold e-mail", "tags": tags, "assignedTo": SDR}
     r = pedir("POST", "/contacts/upsert", {k: v for k, v in corpo.items() if v})

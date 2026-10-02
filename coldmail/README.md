@@ -15,7 +15,8 @@ leads.csv ──importar──▶ coldmail.db (repositório privado opc-crm-dado
                             ├─ ausência .......... sequência continua
                             └─ resposta real ──── sequência PARA ──▶ Claude classifica e escreve a réplica
                                    ├─ aceitou horário livre ─▶ reunião na agenda "Reunião com closer" + confirmação
-                                   ├─ interessado ──────────▶ réplica com 2-3 horários livres reais
+                                   ├─ mandou WhatsApp ──────▶ telefone no CRM + tarefa da SDR (chamar e marcar)
+                                   ├─ interessado ──────────▶ pede o WhatsApp (e oferece 2 horários livres)
                                    ├─ pediu info / objeção ─▶ rascunho no Gmail + tarefa da SDR no CRM
                                    └─ descadastro ──────────▶ bloqueio
 ```
@@ -152,6 +153,7 @@ domínio. Onde encontrar leads: Apollo (B2B em geral), Casa dos Dados (CNPJ), Ap
 ```
 
 - `{Oi|Olá}` sorteia uma variação a cada e-mail. Isso evita que todos os e-mails saiam iguais.
+- `[[trecho com {variavel}]]` é opcional: some inteiro quando o lead não tem aquele dado (pode aninhar).
 - As variáveis disponíveis são `{primeiro_nome}`, `{empresa}`, `{cargo}`, `{site}`, `{abertura}`,
   `{remetente}`, `{assinatura}` e as colunas extras do CSV. Variável vazia some do texto.
 - Os passos depois do primeiro saem como resposta na mesma conversa ("Re: assunto"), da mesma conta.

@@ -15,7 +15,8 @@ Modo das respostas (COLDMAIL_MODO):
   rascunho (padrão)  a resposta escrita pela IA fica nos Rascunhos da conta, na conversa do lead, e a SDR
                      ganha tarefa no CRM. Ninguém recebe nada sem uma pessoa clicar em Enviar.
   auto               "aceitou horário" livre na agenda -> marca a reunião e confirma por e-mail;
-                     "interessado" -> responde oferecendo horários livres. Só com confiança >=
+                     "enviou WhatsApp" -> grava o número no CRM, tarefa da SDR e confirma;
+                     "interessado" -> pede o WhatsApp (e oferece horários). Só com confiança >=
                      COLDMAIL_CONFIANCA_MIN (0.8). Objeção, pedido de informação etc. continuam em rascunho.
 Descadastro e bounce são sempre automáticos: o lead sai da sequência e entra na lista de bloqueio.
 """
@@ -47,7 +48,7 @@ from rotacao import (BR, Conta, assunto_resposta, capacidade, espacamento, limit
 RAIZ = AQUI.parent
 LOCAL = RAIZ / ".local"
 EMAIL = re.compile(r"^[A-Za-z0-9._%+'-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$")
-CRM_CATEGORIAS = {"aceitou_horario", "interessado", "pediu_info", "objecao"}
+CRM_CATEGORIAS = {"aceitou_horario", "enviou_whatsapp", "interessado", "pediu_info", "objecao"}
 
 
 def iso(t: dt.datetime) -> str:
@@ -322,6 +323,8 @@ def decidir(r: dict, modo: str, confianca_min: float, crm: bool) -> str:
     seguro = modo == "auto" and conf >= confianca_min and bool(r.get("resposta"))
     if cat == "aceitou_horario" and seguro and crm and r.get("horario_escolhido"):
         return "marcar_e_responder"
+    if cat == "enviou_whatsapp" and seguro and r.get("whatsapp"):
+        return "whatsapp"
     if cat in ("aceitou_horario", "interessado") and seguro:
         return "responder"
     return "rascunho" if r.get("resposta") else "humano"
@@ -447,7 +450,7 @@ def executar(acao: str, r: dict, lead: dict, conta: Conta, m, crm: bool, atualiz
 
     cid = ""
     if crm and cat in CRM_CATEGORIAS:
-        cid = agenda.contato(lead, ["cold-email", "cold-" + cat.replace("_", "-")])
+        cid = agenda.contato(lead, ["cold-email", "cold-" + cat.replace("_", "-")], r.get("whatsapp") or "")
         campos["ghl_contato"] = cid
         agenda.oportunidade(cid, "%s · Cold e-mail" % (lead.get("empresa") or lead.get("primeiro_nome") or lead["email"]))
     corpo = (r.get("resposta") or "").strip()
@@ -463,6 +466,14 @@ def executar(acao: str, r: dict, lead: dict, conta: Conta, m, crm: bool, atualiz
         agenda.nota(cid, "Cold e-mail: marcou sozinho para %s respondendo ao e-mail de %s.\nResumo: %s" % (
             agenda.por_extenso(quando), conta.email, r.get("resumo") or "-"))
         atualizar_lead(lead, {**campos, "status": "reuniao"})
+    elif acao == "whatsapp":
+        gmail.enviar(conta, resposta)
+        if cid:
+            agenda.tarefa(cid, "[COLD] Chamar no WhatsApp e marcar a reunião", (
+                "O lead respondeu ao cold e-mail (%s) com o WhatsApp %s para combinar dia e horário da conversa. "
+                "Já respondemos dizendo que você chama ainda hoje.\nResumo: %s"
+                % (conta.email, r["whatsapp"], r.get("resumo") or "-")))
+        atualizar_lead(lead, campos)
     elif acao == "responder":
         gmail.enviar(conta, resposta)
         if cid:
@@ -474,8 +485,9 @@ def executar(acao: str, r: dict, lead: dict, conta: Conta, m, crm: bool, atualiz
             gmail.salvar_rascunho(conta, resposta)
         if cid:
             agenda.tarefa(cid, "[COLD] Responder e-mail (%s)" % cat.replace("_", " "), (
-                "O lead respondeu ao cold e-mail enviado por %s.\nResumo: %s\n%s\n"
+                "O lead respondeu ao cold e-mail enviado por %s.\nResumo: %s\n%s%s\n"
                 "%s" % (conta.email, r.get("resumo") or "-",
+                        ("WhatsApp que ele mandou: %s\n" % r["whatsapp"]) if r.get("whatsapp") else "",
                         ("Horário que ele pediu: %s" % agenda.por_extenso(r["horario_escolhido"]))
                         if r.get("horario_escolhido") else "",
                         "Resposta pronta nos Rascunhos dessa conta, na conversa do lead: revise e envie."

@@ -98,6 +98,24 @@ def test_spintax_aninhado():
     assert spintax("{a|{b|b}}", random.Random(0)) in ("a", "b")
 
 
+def test_trecho_opcional_some_sem_o_dado_e_aninha():
+    modelo = "[[Em {mes_ano} você pediu contato[[, com o time de {vendedores}]] na {empresa_curta}.]]\nPergunta"
+    cheio = {"mes_ano": "junho de 2023", "vendedores": "3 a 6 vendedores", "empresa_curta": "Acme"}
+    assert renderizar(modelo, cheio, random.Random()).startswith(
+        "Em junho de 2023 você pediu contato, com o time de 3 a 6 vendedores na Acme.")
+    sem_time = dict(cheio, vendedores="")
+    assert renderizar(modelo, sem_time, random.Random()).startswith("Em junho de 2023 você pediu contato na Acme.")
+    assert renderizar(modelo, {}, random.Random()) == "Pergunta"
+
+
+@pytest.mark.parametrize("bruto, esperado", [
+    ("(11) 98765-4321", "+5511987654321"), ("+55 21 98742-9940", "+5521987429940"),
+    ("1133224455", "+551133224455"), ("98765-4321", ""), ("meu zap é 0800 123", ""), ("", ""),
+])
+def test_normalizar_whatsapp(bruto, esperado):
+    assert ia.normalizar_whatsapp(bruto) == esperado
+
+
 def test_variavel_com_padrao():
     modelo = "A {empresa:sua empresa}, precisa de +CLIENTES?"
     assert renderizar(modelo, {"empresa": "Acme"}, random.Random()) == "A Acme, precisa de +CLIENTES?"
@@ -118,7 +136,7 @@ def test_sequencias_renderizam_todos_os_passos(arquivo, lead):
         for campo in ("assunto", "corpo"):
             if p.get(campo):
                 t = renderizar(p[campo], cold.variaveis(lead, c), random.Random())
-                assert "{" not in t and "}" not in t and "|" not in t, t
+                assert "{" not in t and "}" not in t and "|" not in t and "[[" not in t and "]]" not in t, t
                 assert not t.startswith(",") and "A , " not in t and " ," not in t, t
 
 
@@ -169,6 +187,10 @@ def test_sqlite_ignora_duplicado_e_filtra():
     ({"categoria": "interessado", "confianca": 0.6, "resposta": "ok"}, "auto", True, "rascunho"),
     ({"categoria": "objecao", "confianca": 0.99, "resposta": "ok"}, "auto", True, "rascunho"),
     ({"categoria": "outro", "confianca": 0.0, "resposta": ""}, "auto", True, "humano"),
+    ({"categoria": "enviou_whatsapp", "confianca": 0.9, "resposta": "ok", "whatsapp": "+5511987654321"}, "auto", True,
+     "whatsapp"),
+    ({"categoria": "enviou_whatsapp", "confianca": 0.9, "resposta": "ok", "whatsapp": "+5511987654321"}, "rascunho",
+     True, "rascunho"),
 ])
 def test_decidir(r, modo, crm, esperado):
     assert cold.decidir(r, modo, 0.8, crm) == esperado
@@ -279,7 +301,7 @@ def test_resposta_com_interesse_vira_oportunidade_e_reuniao(maquina, monkeypatch
     chamadas = []
     monkeypatch.setattr(agenda, "ativo", lambda: True)
     monkeypatch.setattr(agenda, "horarios_livres", lambda agora: ["2026-10-08T14:00:00-03:00"])
-    monkeypatch.setattr(agenda, "contato", lambda lead, tags: chamadas.append(("contato", tags)) or "C1")
+    monkeypatch.setattr(agenda, "contato", lambda lead, tags, tel="": chamadas.append(("contato", tags)) or "C1")
     monkeypatch.setattr(agenda, "oportunidade", lambda cid, nome: chamadas.append(("oportunidade", cid)) or "O1")
     monkeypatch.setattr(agenda, "marcar", lambda cid, quando, titulo: chamadas.append(("marcar", quando)) or "A1")
     monkeypatch.setattr(agenda, "nota", lambda cid, corpo: None)
@@ -294,3 +316,25 @@ def test_resposta_com_interesse_vira_oportunidade_e_reuniao(maquina, monkeypatch
     assert ("oportunidade", "C1") in chamadas and ("marcar", "2026-10-08T14:00:00-03:00") in chamadas
     assert [m["To"] for _, m in maquina.enviados] == ["k@gama.com"]
     assert maquina.db.buscar("cold_leads", [("email", "eq", "k@gama.com")])[0]["status"] == "reuniao"
+
+
+def test_resposta_com_whatsapp_grava_telefone_e_cria_tarefa(maquina, monkeypatch):
+    cold.main(["enviar", "--aplicar", "--forcar"])
+    chamadas = []
+    monkeypatch.setattr(agenda, "ativo", lambda: True)
+    monkeypatch.setattr(agenda, "horarios_livres", lambda agora: [])
+    monkeypatch.setattr(agenda, "contato", lambda lead, tags, tel="": chamadas.append(("contato", tel)) or "C1")
+    monkeypatch.setattr(agenda, "oportunidade", lambda cid, nome: "O1")
+    monkeypatch.setattr(agenda, "tarefa", lambda cid, titulo, corpo, resp=None: chamadas.append(("tarefa", titulo, corpo)))
+    monkeypatch.setenv("COLDMAIL_MODO", "auto")
+    bruto = b"From: k@gama.com\r\nMessage-ID: <w@gama>\r\nSubject: Re: x\r\n\r\nMeu zap: (11) 98765-4321"
+    monkeypatch.setattr(gmail, "ler_caixa", lambda c, desde: [gmail.analisar(bruto)])
+    monkeypatch.setattr(ia, "_chamar", lambda *a, **k: json.dumps({
+        "categoria": "enviou_whatsapp", "confianca": 0.95, "horario_escolhido": "", "whatsapp": "(11) 98765-4321",
+        "resumo": "mandou o zap", "resposta": "Obrigado! Te chamo ainda hoje no WhatsApp."}))
+    maquina.enviados.clear()
+    cold.main(["ler", "--aplicar"])
+    assert ("contato", "+5511987654321") in chamadas
+    tarefas = [c for c in chamadas if c[0] == "tarefa"]
+    assert tarefas and "WhatsApp" in tarefas[0][1] and "+5511987654321" in tarefas[0][2]
+    assert [m["To"] for _, m in maquina.enviados] == ["k@gama.com"]

@@ -5,7 +5,7 @@
   - rotação: follow-up sai SEMPRE da conta que abriu a conversa (mesma thread no Gmail do lead);
     lead novo vai para a conta com mais folga hoje, e a fila final intercala as contas
     (A, B, C, A, B, C...) para nenhuma caixa disparar várias seguidas;
-  - texto: spintax {Oi|Olá} e variáveis {primeiro_nome}, {empresa}...
+  - texto: spintax {Oi|Olá}, variáveis {primeiro_nome}, {empresa:padrão} e trechos opcionais [[... {vendedores} ...]]
 """
 from __future__ import annotations
 
@@ -101,6 +101,7 @@ def planejar(devidos: list[dict], contas: list[Conta], cap: dict[str, int]) -> l
 
 SPIN = re.compile(r"\{([^{}]*\|[^{}]*)\}")
 VAR = re.compile(r"\{(\w+)(?::([^{}|]*))?\}")      # {empresa} ou {empresa:sua empresa} (padrão se vazio)
+BLOCO = re.compile(r"\[\[((?:(?!\[\[|\]\]).)*)\]\]", re.S)   # [[trecho opcional]], do mais interno para fora
 
 
 def spintax(texto: str, rng: random.Random) -> str:
@@ -120,7 +121,15 @@ def renderizar(modelo: str, variaveis: dict, rng: random.Random) -> str:
             return m.group(0)
         v = str(variaveis.get(m.group(1)) or "").strip() or (m.group(2) or "")
         return re.sub(r"[{}|]", " ", v)
-    texto = VAR.sub("", spintax(VAR.sub(valor, modelo), rng))   # variável que o lead não tem: some
+
+    def bloco(m):   # [[, com um time de {vendedores}]] some inteiro se o lead não tem {vendedores}
+        dentro = m.group(1)
+        vazias = [n for n, padrao in VAR.findall(dentro) if not str(variaveis.get(n) or "").strip() and not padrao]
+        return "" if vazias else dentro
+    texto = modelo
+    while BLOCO.search(texto):
+        texto = BLOCO.sub(bloco, texto)
+    texto = VAR.sub("", spintax(VAR.sub(valor, texto), rng))   # variável que o lead não tem: some
     texto = re.sub(r"[ \t]+([,.!?])", r"\1", texto)
     texto = re.sub(r"[ \t]{2,}", " ", texto)
     texto = re.sub(r"\n{3,}", "\n\n", texto)
