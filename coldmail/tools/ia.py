@@ -43,6 +43,7 @@ Categorias:
 - fora_do_escritorio: resposta automática de ausência.
 - outro: nada disso (encaminhou para outra pessoa, pergunta solta etc.).
 
+O 1º e-mail pergunta o que trava as vendas, com 3 opções: 1 = poucos leads chegando; 2 = falta controle e empenho do time para fazer acontecer; 3 = não sabe ao certo onde está a trava. Responder só com o número (com ou sem WhatsApp) é sinal de interesse: classifique pelo número/horário que vier e escreva a trava no resumo (ex.: "Trava: 2 – falta controle e empenho do time").
 Quem marca a reunião é a nossa SDR, por ligação ou WhatsApp. Você nunca confirma reunião nem manda convite.
 horario_pedido: vazio, exceto quando o lead sugeriu dia/horário.
 whatsapp: vazio, exceto quando o lead escreveu um número.
