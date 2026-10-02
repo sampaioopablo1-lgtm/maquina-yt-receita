@@ -55,10 +55,9 @@ passe para `auto`.
 5. No Actions, rode **Cold mail - relogio** com `testar-contas` (login), depois `simular-envio` (mostra o
    e-mail sem enviar) e por fim `relogio` (liga). Para testar fora do horário comercial, crie a variável
    `COLDMAIL_JANELA` = `0-24` durante o teste.
-6. Da outra conta, responda o e-mail com um horário ("pode ser quinta às 15h?"). Em até 30 min a máquina lê,
-   cria o contato e a oportunidade em FUNIL DE VENDAS > NOVO LEAD e, se o horário estiver livre na agenda
-   "Reunião com closer", marca a reunião e confirma por e-mail. Se não estiver livre, responde com 2-3
-   horários livres; responda escolhendo um.
+6. Da outra conta, responda o e-mail com um WhatsApp ("meu zap é (11) 9…") ou um horário ("pode ser quinta às
+   15h?"). Em até 30 min a máquina lê, cria o contato e a oportunidade em FUNIL DE VENDAS > NOVO LEAD, cria a
+   tarefa da SDR e responde avisando que a SDR vai ligar ou mandar mensagem para confirmar o dia e horário.
 
 ## Configuração (uma vez)
 
@@ -116,8 +115,7 @@ Configure em Settings > Secrets and variables > Actions.
 O repositório é público, por isso as contas (com as senhas de app) ficam em segredo, não em arquivo. A
 sequência está em `coldmail/sequencia.json`: é o texto que vai para os leads, não tem nada de sigiloso.
 
-Opcionais (variáveis de ambiente): `COLDMAIL_SDR_ID`, `COLDMAIL_FUNIL_ID` e `COLDMAIL_ETAPA_ID` (padrão: FUNIL DE VENDAS > NOVO LEAD) (padrão: a agenda "Reunião com closer" do `calendly_para_crm.py`, 30 min),
-além de `COLDMAIL_MODELO` (padrão `claude-opus-5-5`).
+Opcionais (variáveis de ambiente): `COLDMAIL_SDR_ID`, `COLDMAIL_FUNIL_ID` e `COLDMAIL_ETAPA_ID` (padrão: FUNIL DE VENDAS > NOVO LEAD), além de `COLDMAIL_MODELO` (padrão `claude-opus-5-5`).
 
 ### 4. Ligar
 
