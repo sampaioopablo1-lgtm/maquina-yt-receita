@@ -72,8 +72,10 @@ def nota(c, etapa, agora):
         return 9, "retorno vencido"
     # 01/10 (dono): lead de cold e-mail chega em CONECTAR porque respondeu o e-mail querendo reunião; quase sempre
     # sem telefone. A ação é marcar a reunião por e-mail, não ligar.
+    # O e-mail termina pedindo o WhatsApp do lead (dono, 01/10): com telefone, a SDR chama no WhatsApp e combina o
+    # horário (reuniões das 19h às 21h); sem telefone, responde o e-mail pedindo o número.
     if "cold-email" in tags:
-        return 10, "cold e-mail: respondeu querendo reunião"
+        return 10, "cold e-mail %s telefone" % ("com" if c.get("phone") else "sem")
     # lead novo = nenhuma ligação REAL ainda (30/09: a Cadência Inbound grava "Tentativa nº 1" na entrada e
     # um "Não atendeu" automático aos 25 min, então o contador não serve para saber se alguém ligou)
     entrou = c.get("dateAdded")
@@ -96,8 +98,10 @@ def acao(p, motivo, tags):
     """Pura: o que a SDR faz com o lead, em uma linha. None = quem escreve é outro robô (no-show 6x15)."""
     if motivo.startswith("no-show"):
         return None
+    if motivo == "cold e-mail com telefone":
+        return "💬 Cold e-mail: chamar no WhatsApp e marcar a conversa (19h às 21h)"
     if motivo.startswith("cold e-mail"):
-        return "✉️ Cold e-mail: responder e marcar a reunião"
+        return "✉️ Cold e-mail: responder o e-mail pedindo o WhatsApp"
     if motivo.startswith("reunião "):
         return "📅 Reunião %s: aguardar (confirmar na véspera)" % motivo[8:]
     if motivo.startswith("lead novo"):
