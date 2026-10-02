@@ -14,6 +14,7 @@ O que faz com cada linha (nenhum dado de lead fica no repositório: entrada e sa
 from __future__ import annotations
 
 import argparse
+import os
 import collections
 import csv
 import re
@@ -167,8 +168,39 @@ def tem_mx(dominio: str, cache: dict) -> bool | None:
     return cache[dominio]
 
 
-def qualificar(linhas: list[list[str]], checar_mx: bool = True) -> tuple[list[dict], collections.Counter]:
+# caixas de função (lista de mixmaxhq/role-based-email-addresses, resumida): costumam voltar mais, cair em triagem
+# e gerar mais denúncia de spam; não são descartadas, só vão para o fim da fila
+FUNCAO = {
+    "abuse", "adm", "admin", "administracao", "administrativo", "atendimento", "billing", "comercial", "compras",
+    "contabilidade", "contact", "contato", "contatos", "diretoria", "faleconosco", "financeiro", "hello", "help",
+    "info", "informacoes", "juridico", "marketing", "noreply", "no-reply", "ola", "orcamento", "orcamentos",
+    "postmaster", "recepcao", "rh", "sac", "sales", "secretaria", "suporte", "support", "vendas", "webmaster",
+}
+DESCARTAVEIS_URL = ("https://raw.githubusercontent.com/disposable-email-domains/disposable-email-domains/"
+                    "main/disposable_email_blocklist.conf")
+
+
+def descartaveis(cache: str = os.path.join(os.path.dirname(__file__), "..", ".local", "descartaveis.txt")) -> set[str]:
+    """Domínios de e-mail descartável (lista aberta disposable-email-domains). Sem rede, usa o cache; sem cache, vazio."""
+    try:
+        import urllib.request
+        txt = urllib.request.urlopen(DESCARTAVEIS_URL, timeout=20).read().decode()
+        os.makedirs(os.path.dirname(cache), exist_ok=True)
+        open(cache, "w").write(txt)
+    except Exception:
+        txt = open(cache).read() if os.path.exists(cache) else ""
+    return {l.strip().lower() for l in txt.splitlines() if l.strip() and not l.startswith("#")}
+
+
+def conta_de_funcao(email: str) -> bool:
+    local = email.split("@")[0].lower()
+    return local in FUNCAO or re.split(r"[._+-]", local)[0] in FUNCAO
+
+
+def qualificar(linhas: list[list[str]], checar_mx: bool = True,
+               descartavel: set[str] | None = None) -> tuple[list[dict], collections.Counter]:
     saida, motivos, vistos, cache = [], collections.Counter(), set(), {}
+    descartavel = descartavel or set()
     for r in linhas:
         r = list(r) + [""] * (17 - len(r))
         deslocada = bool(re.match(r"\d{1,2}-\w+\.?-\d{4}", r[5])) and bool(re.match(r"\d+\.\d+\.\d+\.\d+", r[6]))
@@ -188,6 +220,8 @@ def qualificar(linhas: list[list[str]], checar_mx: bool = True) -> tuple[list[di
             motivo = "domínio digitado errado"
         elif email in vistos:
             motivo = "duplicado"
+        elif email.split("@")[1] in descartavel:
+            motivo = "e-mail descartável"
         elif checar_mx and tem_mx(email.split("@")[1], cache) is False:
             motivo = "domínio sem servidor de e-mail"
         if motivo:
@@ -199,7 +233,8 @@ def qualificar(linhas: list[list[str]], checar_mx: bool = True) -> tuple[list[di
         v = vendedores(tam)
         corporativo = email.split("@")[1] not in PESSOAIS
         decisor = bool(DECISOR.search(cargo or ""))
-        pontos = (2 if corporativo else 0) + (2 if decisor else 0) + (1 if emp else 0)
+        funcao = conta_de_funcao(email)
+        pontos = (2 if corporativo else 0) + (2 if decisor else 0) + (1 if emp else 0) - (1 if funcao else 0)
         saida.append({
             "prioridade": "A" if pontos >= 4 else "B" if pontos >= 3 else "C",
             "email": email,
@@ -210,6 +245,7 @@ def qualificar(linhas: list[list[str]], checar_mx: bool = True) -> tuple[list[di
             "convite_extra": "Se quiser, traga quem decide aí também." if (MEIO.search(cargo or "")
                                                                           and not DONO.search(cargo or "")) else "",
             "mes_ano": mes_ano(data),
+            "conta_funcao": "sim" if funcao else "",
         })
     ordem = {"A": 0, "B": 1, "C": 2}
     saida.sort(key=lambda x: ordem[x["prioridade"]])
@@ -223,7 +259,7 @@ def main(argv=None) -> int:
     ap.add_argument("--sem-mx", action="store_true")
     a = ap.parse_args(argv)
     linhas = list(csv.reader(open(a.planilha, encoding="utf-8-sig")))[1:]
-    fila, motivos = qualificar(linhas, checar_mx=not a.sem_mx)
+    fila, motivos = qualificar(linhas, checar_mx=not a.sem_mx, descartavel=descartaveis())
     with open(a.fila, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=list(fila[0].keys()) if fila else ["email"])
         w.writeheader()

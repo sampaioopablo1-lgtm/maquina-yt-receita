@@ -15,38 +15,22 @@
     },
     {
       "espera_dias": 3,
-      "corpo": "{primeiro_nome:Oi}, uma pergunta sobre velocidade: quando um lead chega aí, quanto tempo o time leva para responder?\n\nLead respondido em minutos fecha muito mais do que lead respondido no dia seguinte. No diagnóstico gratuito do funil a gente mede isso com você.\n\nMe responde com seu WhatsApp que a nossa equipe te chama para marcar."
-    },
-    {
-      "espera_dias": 4,
       "corpo": "{primeiro_nome:Oi}, quantos orçamentos saíram este mês e ficaram sem um segundo contato?\n\nÉ ali que mais venda escapa sem ninguém perceber. Se quiser, a gente olha isso junto em 30 minutos, sem custo.\n\nMe passa seu WhatsApp que a nossa equipe te chama."
     },
     {
-      "espera_dias": 3,
+      "espera_dias": 4,
       "corpo": "{primeiro_nome:Oi}, só para deixar claro o que é o diagnóstico gratuito do funil:\n\nEm 30 minutos você sai sabendo onde o lead esfria, quanto isso custa por mês[[ {na_empresa}]] e o que ajustar primeiro. Se fizer sentido, a gente apresenta uma solução para destravar as vendas. Se não, você fica com o mapa.\n\nTopa? Me responde com seu WhatsApp."
     },
     {
-      "espera_dias": 4,
-      "corpo": "{primeiro_nome:Oi}, como está a meta deste mês?\n\nSe estiver apertada, o diagnóstico gratuito do funil mostra onde está o vazamento antes de o mês fechar.\n\nMe responde com seu WhatsApp que a nossa equipe te chama para marcar."
-    },
-    {
-      "espera_dias": 3,
-      "corpo": "{primeiro_nome:Oi}, você consegue ver hoje, num lugar só, quantos leads cada vendedor atendeu e quantos fecharam?\n\nQuando não dá para ver, não dá para cobrar. É uma das primeiras coisas que a gente olha no diagnóstico gratuito do funil.\n\nMe passa seu WhatsApp que a gente marca."
-    },
-    {
-      "espera_dias": 4,
+      "espera_dias": 7,
       "corpo": "{primeiro_nome:Oi}, facilitando: me responde só com 1, 2 ou 3.\n\n1. Poucos leads chegando\n2. Falta controle e empenho do time\n3. Não sei onde está a trava\n\nCom a resposta e o seu WhatsApp, a nossa equipe te chama para o diagnóstico gratuito."
     },
     {
-      "espera_dias": 3,
+      "espera_dias": 7,
       "corpo": "{primeiro_nome:Oi}, se não é você quem cuida das vendas[[ {na_empresa}]], quem seria a melhor pessoa para essa conversa?\n\nSe puder me indicar o nome ou o WhatsApp, eu falo direto com ela."
     },
     {
-      "espera_dias": 4,
-      "corpo": "{primeiro_nome:Oi}, uma coisa que a gente vê muito: o time gasta tempo com lead frio e deixa o lead quente esperando.\n\nAcontece aí? No diagnóstico gratuito do funil a gente mostra como separar um do outro.\n\nMe responde com seu WhatsApp que a nossa equipe te chama."
-    },
-    {
-      "espera_dias": 3,
+      "espera_dias": 10,
       "corpo": "{primeiro_nome:Oi}, vou parar de te escrever por aqui.\n\nSe bater a meta voltar a ser prioridade, o diagnóstico gratuito do funil fica à disposição: é só responder com seu WhatsApp.\n\nAbraço,\n{assinatura}"
     }
   ]
