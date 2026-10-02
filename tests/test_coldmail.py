@@ -90,7 +90,7 @@ def test_variavel_dentro_de_spintax_e_nome_vazio_sem_virgula_solta():
     for semente in range(10):
         t = renderizar("{{primeiro_nome}, pergunta rápida|pergunta sobre a {empresa}}",
                        {"primeiro_nome": "Joana", "empresa": "Acme"}, random.Random(semente))
-        assert t in ("Joana, pergunta rápida", "pergunta sobre a Acme")
+        assert t in ("Joana, pergunta rápida", "Pergunta sobre a Acme")
     assert renderizar("Oi {primeiro_nome}, tudo bem?", {"primeiro_nome": ""}, random.Random()) == "Oi, tudo bem?"
 
 

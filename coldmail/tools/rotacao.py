@@ -134,8 +134,8 @@ def renderizar(modelo: str, variaveis: dict, rng: random.Random) -> str:
     texto = re.sub(r"[ \t]{2,}", " ", texto)
     texto = re.sub(r"[ \t]+\n", "\n", texto)
     texto = re.sub(r"\n[ \t]+", "\n", texto)
-    texto = re.sub(r"\n{3,}", "\n\n", texto)
-    return texto.strip()
+    texto = re.sub(r"\n{3,}", "\n\n", texto).strip()
+    return texto[:1].upper() + texto[1:]   # "a sua empresa precisa..." no começo vira "A sua empresa..."
 
 
 def variaveis(lead: dict, conta: Conta, extra: dict | None = None) -> dict:
