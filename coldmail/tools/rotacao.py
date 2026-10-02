@@ -132,6 +132,8 @@ def renderizar(modelo: str, variaveis: dict, rng: random.Random) -> str:
     texto = VAR.sub("", spintax(VAR.sub(valor, texto), rng))   # variável que o lead não tem: some
     texto = re.sub(r"[ \t]+([,.!?])", r"\1", texto)
     texto = re.sub(r"[ \t]{2,}", " ", texto)
+    texto = re.sub(r"[ \t]+\n", "\n", texto)
+    texto = re.sub(r"\n[ \t]+", "\n", texto)
     texto = re.sub(r"\n{3,}", "\n\n", texto)
     return texto.strip()
 

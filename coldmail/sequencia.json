@@ -2,12 +2,12 @@
   "passos": [
     {
       "espera_dias": 0,
-      "assunto": "{primeiro_nome:Oi}, o que trava as vendas hoje?",
-      "corpo": "{primeiro_nome:Oi}, coisa rápida.\n\nO que mais trava as vendas aí na empresa hoje?\n\n1. Poucos leads chegando\n2. Falta controle e empenho do time para fazer acontecer\n3. Não sei ao certo onde está a trava\n\nTe convido para um diagnóstico gratuito do seu funil de vendas: em 30 minutos a gente encontra onde está a trava e, se fizer sentido, apresenta uma solução para destravar as vendas e colocar a meta no bolso.\n\nMe responde com o número e o seu WhatsApp que a nossa equipe te chama para marcar.\n\n{assinatura}\n\nSe não fizer sentido, responde \"sair\" que eu não te escrevo mais."
+      "assunto": "{primeiro_nome:Oi}, o que trava as vendas[[ {na_empresa}]]?",
+      "corpo": "{primeiro_nome:Oi}, coisa rápida.\n\n[[Em {mes_ano} você pediu contato com a gente para vender mais[[ {na_empresa}]].]][[ {gancho}]]\n\nO que mais trava as vendas aí hoje?\n\n1. Poucos leads chegando\n2. Falta controle e empenho do time para fazer acontecer\n3. Não sei ao certo onde está a trava\n\nTe convido para um diagnóstico gratuito do seu funil de vendas: em 30 minutos a gente encontra onde está a trava e, se fizer sentido, apresenta uma solução para destravar as vendas e colocar a meta no bolso.[[ {convite_extra}]]\n\nMe responde com o número e o seu WhatsApp que a nossa equipe te chama para marcar.\n\n{assinatura}\n\nSe não fizer sentido, responde \"sair\" que eu não te escrevo mais."
     },
     {
       "espera_dias": 3,
-      "corpo": "{primeiro_nome:Oi}, conseguiu ver?\n\n[[Pergunto porque em {mes_ano} você pediu contato com a gente para vender mais[[ na {empresa_curta}]]. ]]O convite para o diagnóstico gratuito do funil continua de pé: responde com 1, 2 ou 3 e o seu WhatsApp que a gente marca."
+      "corpo": "{primeiro_nome:Oi}, conseguiu ver?\n\nSó para facilitar: responde com 1, 2 ou 3 e o seu WhatsApp que a gente marca o diagnóstico gratuito do funil[[ {da_empresa}]]."
     },
     {
       "espera_dias": 4,
