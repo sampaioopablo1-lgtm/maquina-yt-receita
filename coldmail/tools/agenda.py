@@ -16,6 +16,7 @@ import os
 import sys
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 from pathlib import Path
 
@@ -110,12 +111,32 @@ def horarios_livres(agora: dt.datetime, dias_busca: int = 7) -> list[str]:
 
 
 def contato(lead: dict, tags: list[str], telefone: str = "") -> str:
+    """Cria o contato ou acha o que já existe (por e-mail ou telefone).
+
+    Contato que já existe NÃO é sobrescrito: o `tags` do upsert substitui todas as tags dele, e nome,
+    empresa e origem trocariam os do cadastro original (achado no teste de 02/10). Para quem já existe,
+    só acrescenta as tags e o telefone, se faltar."""
+    existente = _buscar(lead["email"]) or (_buscar(telefone) if telefone else None)
+    if existente:
+        cid = existente["id"]
+        pedir("POST", "/contacts/%s/tags" % cid, {"tags": tags})
+        if telefone and not existente.get("phone"):
+            pedir("PUT", "/contacts/%s" % cid, {"phone": telefone})
+        return cid
     corpo = {"locationId": LOC, "email": lead["email"], "phone": telefone or None,
              "firstName": lead.get("primeiro_nome") or None,
              "companyName": lead.get("empresa") or None, "website": lead.get("site") or None,
              "source": "Cold e-mail", "tags": tags, "assignedTo": SDR}
     r = pedir("POST", "/contacts/upsert", {k: v for k, v in corpo.items() if v})
     return ((r or {}).get("contact") or {}).get("id") or ""
+
+
+def _buscar(chave: str) -> dict | None:
+    """Contato por e-mail ou telefone (+55...), via busca de duplicados do GHL."""
+    campo = "email" if "@" in chave else "number"
+    r = pedir("GET", "/contacts/search/duplicate?locationId=%s&%s=%s"
+              % (LOC, campo, urllib.parse.quote(chave)))
+    return (r or {}).get("contact") or None
 
 
 def oportunidade(contato_id: str, nome: str) -> str:

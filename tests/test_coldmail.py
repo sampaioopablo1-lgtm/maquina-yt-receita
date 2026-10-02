@@ -338,3 +338,23 @@ def test_resposta_com_whatsapp_grava_telefone_e_cria_tarefa(maquina, monkeypatch
     tarefas = [c for c in chamadas if c[0] == "tarefa"]
     assert tarefas and "WhatsApp" in tarefas[0][1] and "+5511987654321" in tarefas[0][2]
     assert [m["To"] for _, m in maquina.enviados] == ["k@gama.com"]
+
+
+def test_contato_existente_nao_perde_tags_nem_cadastro(monkeypatch):
+    pedidos = []
+
+    def falso(metodo, rota, corpo=None):
+        pedidos.append((metodo, rota, corpo))
+        if rota.startswith("/contacts/search/duplicate") and "number=" in rota:
+            return {"contact": {"id": "EXISTE", "phone": "+5521987429940"}}
+        if rota.startswith("/contacts/search/duplicate"):
+            return {}
+        return {}
+    monkeypatch.setattr(agenda, "pedir", falso)
+    cid = agenda.contato({"email": "novo@acme.com", "primeiro_nome": "Ana", "empresa": "Acme"},
+                         ["cold-email"], "+5521987429940")
+    assert cid == "EXISTE"
+    metodos = [(m, r.split("?")[0]) for m, r, _ in pedidos]
+    assert ("POST", "/contacts/EXISTE/tags") in metodos      # só acrescenta tag
+    assert ("POST", "/contacts/upsert") not in metodos       # nada de sobrescrever nome/empresa/tags
+    assert not any(m == "PUT" for m, _ in metodos)           # já tinha telefone
