@@ -5,7 +5,9 @@ QUEM entra na fila continua sendo decidido pela cadência 12x30 e pelo atuador d
 Este arquivo só decide a ORDEM: escreve `Prioridade`, que a lista ordena de cima para baixo.
 Roda no relógio a cada 30 min (seg–sex 07:30–21:00). Escreve só o que mudou.
 
-    10  lead novo (< 2 h) sem nenhuma ligação real; reunião a confirmar (tag confirmar-reuniao);
+    11  reunião a confirmar (tag confirmar-reuniao): fica ACIMA dos no-shows (dono, 02/10), porque a reunião
+        tem hora marcada e o no-show pode esperar a ligação seguinte
+    10  lead novo (< 2 h) sem nenhuma ligação real;
         faltou à reunião e tem toque de remarcação a fazer (fila-noshow, cadencia_noshow.py)
      9  pediu retorno e o horário já passou (retorno-vencido); lead de até 72 h que nunca recebeu ligação
      8  lead novo: entrou há menos de 2 h e ninguém ligou ainda
@@ -51,7 +53,7 @@ def nota(c, etapa, agora):
     """Pura: (prioridade, motivo). None = não é da fila da SDR, não escrever."""
     tags = {str(t).lower() for t in c.get("tags") or []}
     if TAG_CONF in tags and etapa == REUNIAO:
-        return (0, "DND") if c.get("dnd") else (10, "agendou pelo Calendly, confirmar")
+        return (0, "DND") if c.get("dnd") else (11, "reunião a confirmar")
     if "fila-noshow" in tags and etapa == REUNIAO:
         return (0, "DND") if c.get("dnd") else (10, "no-show: remarcar reunião")
     # 01/10 (dono): até a reunião acontecer o lead é missão da SDR e fica à vista dela. Fora do dia de agir
@@ -108,7 +110,7 @@ def acao(p, motivo, tags):
         return "📞 LEAD NOVO: ligar já"
     if motivo.startswith("sem nenhuma ligação"):
         return "📞 Nunca ligado: ligar"
-    if p == 10:
+    if p in (10, 11):
         return "📞 Confirmar reunião"
     if p == 9:
         return "📞 Retorno vencido"
