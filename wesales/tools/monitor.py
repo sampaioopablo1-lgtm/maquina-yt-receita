@@ -25,6 +25,7 @@ from __future__ import annotations
 
 import csv
 import datetime as dt
+import unicodedata
 import json
 import os
 import re
@@ -154,6 +155,19 @@ def crm(cs, etapas) -> list[str]:
                    fila_whatsapp=sum(1 for c in con if "fila-wa" in tg(c)),
                    wa_esperando=sum(1 for c in reais if "wa-aguardando" in tg(c)),
                    wa_liberados_hoje=sum(1 for c in reais if "wa-lib-%s" % HOJE.isoformat() in tg(c)))
+    # Cadastro duplicado (02/10): o lead preenche o formulário com um telefone e fala no WhatsApp por outro, e
+    # vira 2 leads abertos (ligação e mensagem em dobro). Sinal: mesmo DDD e o nome de um contido no do outro.
+    def _nome(c):
+        n = unicodedata.normalize("NFKD", c.get("contactName") or "")
+        n = re.sub(r"[^a-z ]", "", "".join(ch for ch in n if not unicodedata.combining(ch)).lower())
+        return {w for w in n.split() if len(w) >= 4} - {"delivery", "loja", "sem", "nome"}
+    abertos = [(c, _nome(c), re.sub(r"\D", "", c.get("phone") or "")[2:4]) for c in reais
+               if c["id"] in etapas and "nao-perturbe" not in tg(c)]
+    for i, (c1, n1, d1) in enumerate(abertos):
+        for c2, n2, d2 in abertos[i + 1:]:
+            if n1 and n2 and d1 and d1 == d2 and (n1 <= n2 or n2 <= n1):
+                alertas.append("Possível cadastro duplicado: **%s** e **%s** (mesmo DDD, nome igual): unir na tela"
+                               % (c1.get("contactName"), c2.get("contactName")))
     fila = []
     for c in reais:
         t = tg(c)

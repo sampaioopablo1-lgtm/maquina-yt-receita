@@ -481,7 +481,9 @@ def fila_tel_completa(cs, etapas, aplicar):
     n = 0
     for c in cs:
         tags = set(c.get("tags") or [])
-        if not (tags & EXTRA_TEL) or (tags & BLOQ_TEL) or c["id"] in MOVIDOS_WA:
+        # 02/10: `wa-feito-hoje` não barra quem RESPONDEU depois (medido em 01/10: dois leads responderam a
+        # mensagem automática da tarde e só entraram na fila na manhã seguinte).
+        if not (tags & EXTRA_TEL) or (tags & (BLOQ_TEL - {"wa-feito-hoje"})) or c["id"] in MOVIDOS_WA:
             continue
         if etapas.get(c["id"]) != CONECTAR or not c.get("phone") or c.get("dnd"):
             continue
@@ -492,6 +494,8 @@ def fila_tel_completa(cs, etapas, aplicar):
         # marcado pela cadência continua vindo dela), salvo se o lead respondeu ou ligou DEPOIS da última ligação.
         ligou, respondeu = ultimo_contato(c["id"])
         voltou = ligou is not None and respondeu is not None and respondeu > ligou
+        if "wa-feito-hoje" in tags and not voltou:
+            continue
         if ligou is not None and ligou.astimezone(BR_TZ).date() == _hoje_br() and not voltou:
             continue
         # `fila-quente` sozinha não é toque: todo lead a recebe na entrada (Promover) e ela fica. Só vale como
