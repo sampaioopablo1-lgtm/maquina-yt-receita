@@ -47,6 +47,40 @@ NAO_NOME = {"portal", "grupo", "loja", "contato", "comercial", "vendas", "empres
             "dra", "sr", "sra", "eu", "nenhum", "teste"}
 
 
+CERTO = {"gmail": "gmail.com", "hotmail": "hotmail.com", "outlook": "outlook.com", "yahoo": "yahoo.com.br",
+         "icloud": "icloud.com", "live": "live.com"}
+
+
+TROCA = {"gmail.con": "gmail.com", "gmial.com": "gmail.com", "gamil.com": "gmail.com", "gmai.com": "gmail.com",
+         "gmail.co": "gmail.com", "gmail.com.br": "gmail.com", "hotmial.com": "hotmail.com", "hotmal.com": "hotmail.com",
+         "hotmail.con": "hotmail.com", "homail.com": "hotmail.com", "outlook.con": "outlook.com",
+         "outlok.com": "outlook.com", "yaho.com.br": "yahoo.com.br", "yahoo.com.b": "yahoo.com.br"}
+
+
+def corrigir_email(bruto: str) -> tuple[str, str]:
+    """Conserta erros grosseiros de digitação. Devolve (e-mail, o que foi corrigido)."""
+    e = (bruto or "").strip().lower().replace("mailto:", "")
+    e = re.sub(r"\s+", "", e).replace(",", ".").replace(";", ".")
+    e = re.sub(r"@+", "@", e)
+    e = re.sub(r"\.{2,}", ".", e).strip(".")
+    if e.count("@") != 1:
+        return "", ""
+    local, dom = e.split("@")
+    dom = dom.strip(".")
+    dom = re.sub(r"\.com\.b$", ".com.br", dom)
+    dom = re.sub(r"\.combr$", ".com.br", dom)
+    dom = re.sub(r"\.(con|cmo|ocm|cm|co)$", ".com", dom) if dom.split(".")[0] in CERTO or \
+        any(_distancia(dom.split(".")[0], g) <= 1 for g in CERTO) else dom
+    dom = TROCA.get(dom, dom)
+    base = dom.split(".")[0]
+    alvo = next((g for g in CERTO if base == g or (len(base) >= 5 and _distancia(base, g) == 1)), None)
+    if alvo and dom not in PESSOAIS:
+        dom = CERTO[alvo] if not dom.endswith(".br") or alvo == "yahoo" else alvo + ".com.br"
+    corrigido = local.strip(".") + "@" + dom
+    original = (bruto or "").strip().lower()
+    return corrigido, ("" if corrigido == original else original + " -> " + corrigido)
+
+
 def dominio_parecido(d: str) -> bool:
     """gmail.cm, hotmail.co, outlok.com...: provedor grande com final errado (o domínio pode até existir)."""
     if d in PESSOAIS:
@@ -208,8 +242,11 @@ def qualificar(linhas: list[list[str]], checar_mx: bool = True,
             nome, email, empresa, cargo, tam, fat, data = r[7], r[8], r[10], r[11], r[12], r[13], r[5]
         else:
             nome, email, cargo, data, empresa, tam, fat = r[1], r[2], r[4], r[6], r[7], r[8], r[13]
-        m = EMAIL.search(email or "") or EMAIL.search(" ".join(r))
-        email = (m.group(0) if m else "").strip().lower().rstrip(".")
+        bruto = email or ""
+        email, ajuste = corrigir_email(bruto)
+        if not EMAIL.fullmatch(email or ""):
+            m = EMAIL.search(bruto) or EMAIL.search(" ".join(r))
+            email, ajuste = corrigir_email(m.group(0) if m else "")
         nome = (nome or "").strip()
         motivo = ""
         if not email:
@@ -246,6 +283,7 @@ def qualificar(linhas: list[list[str]], checar_mx: bool = True,
                                                                           and not DONO.search(cargo or "")) else "",
             "mes_ano": mes_ano(data),
             "conta_funcao": "sim" if funcao else "",
+            "email_corrigido": ajuste,
         })
     ordem = {"A": 0, "B": 1, "C": 2}
     saida.sort(key=lambda x: ordem[x["prioridade"]])

@@ -375,3 +375,13 @@ def test_segunda_resposta_vira_nota_e_resposta_de_outro_endereco_e_reconhecida(m
     assert [c for c in chamadas if c[0] == "tarefa"] == [("tarefa", "[COLD] Ligar ou chamar no WhatsApp para confirmar dia e horário")]
     assert any(c[0] == "nota" for c in chamadas)
     assert ("pedir", "PUT", "/contacts/C1", {"phone": "+5521988877729"}) in chamadas
+
+
+def test_corrige_email_com_erro_grosseiro():
+    import qualificar as q
+    assert q.corrigir_email("Joao@Gmail.cm")[0] == "joao@gmail.com"
+    assert q.corrigir_email("maria@@hotmial.com")[0] == "maria@hotmail.com"
+    assert q.corrigir_email(" ana@empresa,com.br ")[0] == "ana@empresa.com.br"
+    assert q.corrigir_email("x@empresa.com.b")[0] == "x@empresa.com.br"
+    assert q.corrigir_email("luiz@gmail.com.br")[0] == "luiz@gmail.com"
+    assert q.corrigir_email("ok@firma.com.br")[1] == ""
