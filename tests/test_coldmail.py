@@ -347,3 +347,31 @@ def test_contato_existente_nao_perde_tags_nem_cadastro(monkeypatch):
     assert ("POST", "/contacts/EXISTE/tags") in metodos      # só acrescenta tag
     assert ("POST", "/contacts/upsert") not in metodos       # nada de sobrescrever nome/empresa/tags
     assert not any(m == "PUT" for m, _ in metodos)           # já tinha telefone
+
+
+def test_segunda_resposta_vira_nota_e_resposta_de_outro_endereco_e_reconhecida(maquina, monkeypatch):
+    cold.main(["enviar", "--aplicar", "--forcar"])
+    k = maquina.db.buscar("cold_leads", [("email", "eq", "k@gama.com")])[0]
+    chamadas = []
+    monkeypatch.setattr(agenda, "ativo", lambda: True)
+    monkeypatch.setattr(agenda, "contato", lambda lead, tags, tel="": "C1")
+    monkeypatch.setattr(agenda, "oportunidade", lambda cid, nome: "O1")
+    monkeypatch.setattr(agenda, "pedir", lambda metodo, rota, corpo=None: chamadas.append(("pedir", metodo, rota, corpo)))
+    monkeypatch.setattr(agenda, "tarefa", lambda cid, titulo, corpo, resp=None: chamadas.append(("tarefa", titulo)))
+    monkeypatch.setattr(agenda, "nota", lambda cid, corpo: chamadas.append(("nota", corpo)))
+    monkeypatch.setenv("COLDMAIL_MODO", "auto")
+    # 1ª resposta vem de OUTRO endereço (secretária), só achável pela conversa; 2ª corrige o número
+    r1 = ("From: secretaria@gama.com\r\nMessage-ID: <r1@gama>\r\nIn-Reply-To: %s\r\nSubject: Re: x\r\n\r\n"
+          "zap 2188887744" % k["thread_msgid"]).encode()
+    r2 = ("From: k@gama.com\r\nMessage-ID: <r2@gama>\r\nIn-Reply-To: <r1@gama>\r\nReferences: %s <r1@gama>\r\n"
+          "Subject: Re: x\r\n\r\ncorrigindo: 21988877729" % k["thread_msgid"]).encode()
+    monkeypatch.setattr(gmail, "ler_caixa", lambda c, desde: [gmail.analisar(r1), gmail.analisar(r2)]
+                        if c.email == k["conta"] else [])
+    numeros = iter(["2188887744", "21988877729"])
+    monkeypatch.setattr(ia, "_chamar", lambda *a, **kw: json.dumps({
+        "categoria": "enviou_whatsapp", "confianca": 0.95, "horario_pedido": "", "whatsapp": next(numeros),
+        "resumo": "mandou o zap", "resposta": "Obrigado! A SDR vai te chamar."}))
+    cold.main(["ler", "--aplicar"])
+    assert [c for c in chamadas if c[0] == "tarefa"] == [("tarefa", "[COLD] Ligar ou chamar no WhatsApp para confirmar dia e horário")]
+    assert any(c[0] == "nota" for c in chamadas)
+    assert ("pedir", "PUT", "/contacts/C1", {"phone": "+5521988877729"}) in chamadas

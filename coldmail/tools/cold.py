@@ -356,6 +356,7 @@ def cmd_ler(args) -> int:
                 "confianca": (r or {}).get("confianca"), "acao": acao}])
 
     def atualizar_lead(lead, campos):
+        lead.update(campos)   # a 2ª resposta do mesmo lead na mesma rodada já enxerga o que a 1ª gravou
         if args.aplicar:
             db.atualizar("cold_leads", [("id", "eq", lead["id"])],
                          {**campos, "atualizado_em": iso(dt.datetime.now(dt.timezone.utc))})
@@ -372,6 +373,19 @@ def cmd_ler(args) -> int:
         novos = [m for m in msgs if m.message_id not in vistos]
         enderecos = {m.de for m in novos} | {a for m in novos for a in m.falhou_para}
         leads = {l["email"]: l for l in _em_lotes(db, "cold_leads", "email", enderecos)}
+        # lead que responde de outro endereço (alias, secretária): acha pela conversa (In-Reply-To/References)
+        refs = {r for m in novos for r in (m.in_reply_to + " " + m.references).split() if r}
+        envio_de = {e["message_id"]: e["lead_id"] for e in _em_lotes(db, "cold_envios", "message_id", refs,
+                                                                    colunas="message_id,lead_id")}
+        por_id = {l["id"]: l for l in _em_lotes(db, "cold_leads", "id", set(envio_de.values()))}
+        for l in por_id.values():
+            leads.setdefault(l["email"], l)
+
+        def da_conversa(m):
+            for r in (m.in_reply_to + " " + m.references).split():
+                if r in envio_de and envio_de[r] in por_id:
+                    return leads[por_id[envio_de[r]]["email"]]
+            return None
 
         for m in novos:
             if m.falhou_para:
@@ -383,7 +397,7 @@ def cmd_ler(args) -> int:
                 resumo["bounce"] += 1
                 registrar(m, conta, "bounce")
                 continue
-            lead = leads.get(m.de)
+            lead = leads.get(m.de) or da_conversa(m)
             if not lead:
                 registrar(m, conta, "outra")
                 continue
@@ -451,10 +465,13 @@ def executar(acao: str, r: dict, lead: dict, conta: Conta, m, crm: bool, atualiz
                               "proximo_envio": iso(dt.datetime.now(dt.timezone.utc) + dt.timedelta(days=3))})
         return acao
 
+    ja_tratado = bool(lead.get("ghl_contato"))   # o lead já respondeu antes e já tem contato/tarefa no CRM
     cid = ""
     if crm and cat in CRM_CATEGORIAS:
         cid = agenda.contato(lead, ["cold-email", "cold-" + cat.replace("_", "-")], r.get("whatsapp") or "")
         campos["ghl_contato"] = cid
+        if ja_tratado and r.get("whatsapp"):    # número novo ou corrigido numa resposta seguinte
+            agenda.pedir("PUT", "/contacts/%s" % cid, {"phone": r["whatsapp"]})
         agenda.oportunidade(cid, "%s · Cold e-mail" % (lead.get("empresa") or lead.get("primeiro_nome") or lead["email"]))
     corpo = (r.get("resposta") or "").strip()
     assinatura = conta.assinatura or (conta.nome.split(" ")[0] if conta.nome else "")
@@ -464,7 +481,9 @@ def executar(acao: str, r: dict, lead: dict, conta: Conta, m, crm: bool, atualiz
 
     if acao == "sdr":
         gmail.enviar(conta, resposta)
-        if cid:
+        if cid and ja_tratado:      # 2ª resposta: a tarefa já existe; vira nota, sem tarefa duplicada
+            agenda.nota(cid, "Nova resposta ao cold e-mail.\n" + tarefa_sdr(r, conta))
+        elif cid:
             agenda.tarefa(cid, "[COLD] Ligar ou chamar no WhatsApp para confirmar dia e horário", tarefa_sdr(r, conta))
         atualizar_lead(lead, campos)
     elif acao == "responder":
@@ -476,7 +495,9 @@ def executar(acao: str, r: dict, lead: dict, conta: Conta, m, crm: bool, atualiz
     else:
         if resposta:
             gmail.salvar_rascunho(conta, resposta)
-        if cid:
+        if cid and ja_tratado:
+            agenda.nota(cid, "Nova resposta ao cold e-mail.\n" + tarefa_sdr(r, conta, rascunho=bool(resposta)))
+        elif cid:
             agenda.tarefa(cid, "[COLD] Responder e-mail (%s)" % cat.replace("_", " "),
                           tarefa_sdr(r, conta, rascunho=bool(resposta)))
         atualizar_lead(lead, {**campos, "status": "nao_agora" if cat == "nao_agora" else "respondeu"})
