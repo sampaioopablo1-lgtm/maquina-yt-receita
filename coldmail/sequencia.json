@@ -3,19 +3,19 @@
     {
       "espera_dias": 0,
       "assunto": "{primeiro_nome:Oi}, o que trava as vendas hoje?",
-      "corpo": "{primeiro_nome:Oi}, coisa rápida.\n\nO que mais trava as vendas aí na empresa hoje?\n\n1. Poucos leads chegando\n2. Falta controle e empenho do time para fazer acontecer\n3. Não sei ao certo onde está a trava\n\nMe responde só com o número e o seu WhatsApp, que a nossa equipe te chama para descobrirmos juntos em 15 minutos.\n\n{assinatura}\n\nSe não fizer sentido, responde \"sair\" que eu não te escrevo mais."
+      "corpo": "{primeiro_nome:Oi}, coisa rápida.\n\nO que mais trava as vendas aí na empresa hoje?\n\n1. Poucos leads chegando\n2. Falta controle e empenho do time para fazer acontecer\n3. Não sei ao certo onde está a trava\n\nTe convido para um diagnóstico gratuito do seu funil de vendas: em 30 minutos a gente encontra onde está a trava e, se fizer sentido, apresenta uma solução para destravar as vendas e colocar a meta no bolso.\n\nMe responde com o número e o seu WhatsApp que a nossa equipe te chama para marcar.\n\n{assinatura}\n\nSe não fizer sentido, responde \"sair\" que eu não te escrevo mais."
     },
     {
       "espera_dias": 3,
-      "corpo": "{primeiro_nome:Oi}, conseguiu ver?\n\n[[Pergunto porque em {mes_ano} você pediu contato com a gente para vender mais[[ na {empresa_curta}]]. ]]Responde só com 1, 2 ou 3 que a gente começa por aí."
+      "corpo": "{primeiro_nome:Oi}, conseguiu ver?\n\n[[Pergunto porque em {mes_ano} você pediu contato com a gente para vender mais[[ na {empresa_curta}]]. ]]O convite para o diagnóstico gratuito do funil continua de pé: responde com 1, 2 ou 3 e o seu WhatsApp que a gente marca."
     },
     {
       "espera_dias": 4,
-      "corpo": "{primeiro_nome:Oi}, uma pergunta só: [[com {vendedores}, ]]quem responde o lead que chega às 19h ou no sábado?\n\nÉ esse lead que costuma ir para o concorrente. Me passa seu WhatsApp que a nossa equipe te mostra como resolver em 15 minutos."
+      "corpo": "{primeiro_nome:Oi}, uma pergunta só: [[com {vendedores}, ]]quem responde o lead que chega às 19h ou no sábado?\n\nÉ esse lead que costuma ir para o concorrente. No diagnóstico gratuito do funil a gente mostra onde isso acontece aí e como resolver. Me passa seu WhatsApp que a nossa equipe te chama para marcar."
     },
     {
       "espera_dias": 7,
-      "corpo": "{primeiro_nome:Oi}, vou parar de te escrever por aqui.\n\nSe vender mais voltar a ser prioridade, é só responder com seu WhatsApp.\n\nAbraço,\n{assinatura}"
+      "corpo": "{primeiro_nome:Oi}, vou parar de te escrever por aqui.\n\nSe bater a meta voltar a ser prioridade, o diagnóstico gratuito do funil fica à disposição: é só responder com seu WhatsApp.\n\nAbraço,\n{assinatura}"
     }
   ]
 }
