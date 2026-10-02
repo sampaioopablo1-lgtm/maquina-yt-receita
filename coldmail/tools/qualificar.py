@@ -138,14 +138,27 @@ def mes_ano(d: str) -> str:
     return ""
 
 
+def _resolve(host: str) -> bool:
+    import dns.resolver
+    for tipo in ("A", "AAAA"):
+        try:
+            dns.resolver.resolve(host, tipo, lifetime=8)
+            return True
+        except Exception:
+            pass
+    return False
+
+
 def tem_mx(dominio: str, cache: dict) -> bool | None:
     """True/False; None se não deu para consultar (sem dnspython ou DNS fora): não descarta por isso."""
     if dominio in cache:
         return cache[dominio]
     try:
         import dns.resolver
-        dns.resolver.resolve(dominio, "MX", lifetime=8)
-        cache[dominio] = True
+        mx = [str(r.exchange).rstrip(".") for r in dns.resolver.resolve(dominio, "MX", lifetime=8)]
+        # "null MX" (RFC 7505): o domínio declara que não recebe e-mail
+        mx = [h for h in mx if h]
+        cache[dominio] = bool(mx) and any(_resolve(h) for h in mx[:3])
     except ImportError:
         cache[dominio] = None
     except Exception as e:
