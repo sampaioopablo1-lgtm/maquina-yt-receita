@@ -3,15 +3,15 @@
     {
       "espera_dias": 0,
       "assunto": "A {empresa_curta:sua empresa}, precisa de +CLIENTES?",
-      "corpo": "{Oi|Olá} {primeiro_nome},\n\n[[Em {mes_ano} você pediu contato com a gente porque queria vender mais[[, com o time de {vendedores}]] na {empresa_curta}.]]\n\n{Pergunta direta|Uma pergunta rápida}: hoje, quantos contatos chegam e esfriam antes de alguém do time responder?\n\nCada lead que espera é venda que vai para o concorrente que respondeu primeiro.\n\nA gente monta a operação que fala com o lead em minutos, faz o follow-up e entrega reunião marcada na agenda do seu time.\n\n{Vale|Faz sentido} uma conversa de 20 minutos? Me responde com o seu melhor WhatsApp que eu te chamo para combinarmos o melhor dia e horário.\n\n{assinatura}\n\nSe não fizer mais sentido, é só responder \"sair\" que eu não te escrevo mais."
+      "corpo": "{Oi|Olá} {primeiro_nome},\n\n[[Em {mes_ano} você pediu contato com a gente porque queria vender mais[[, com o time de {vendedores}]] na {empresa_curta}.]]\n\n{Pergunta direta|Uma pergunta rápida}: hoje, quantos contatos chegam e esfriam antes de alguém do time responder?\n\nCada lead que espera é venda que vai para o concorrente que respondeu primeiro.\n\nA gente monta a operação que fala com o lead em minutos, faz o follow-up e entrega reunião marcada na agenda do seu time.\n\n{Vale|Faz sentido} uma conversa de 20 minutos? Me responde com o seu melhor WhatsApp que a nossa equipe te chama para combinar o melhor dia e horário.\n\n{assinatura}\n\nSe não fizer mais sentido, é só responder \"sair\" que eu não te escrevo mais."
     },
     {
       "espera_dias": 3,
-      "corpo": "{primeiro_nome:Oi}, {voltando aqui|subindo essa mensagem} caso tenha se perdido na caixa.\n\nSe a {empresa_curta:sua empresa} ainda perde venda por demorar a responder quem chega, dá para resolver isso em poucas semanas.\n\nMe manda seu WhatsApp por aqui que eu te chamo e a gente acha um horário que funcione para você.\n\n{assinatura}"
+      "corpo": "{primeiro_nome:Oi}, {voltando aqui|subindo essa mensagem} caso tenha se perdido na caixa.\n\nSe a {empresa_curta:sua empresa} ainda perde venda por demorar a responder quem chega, dá para resolver isso em poucas semanas.\n\nMe manda seu WhatsApp por aqui que a nossa equipe te chama e acha um horário que funcione para você.\n\n{assinatura}"
     },
     {
       "espera_dias": 4,
-      "corpo": "{Oi|Olá} {primeiro_nome}, uma ideia simples: a gente pode começar só pelo primeiro contato com o lead, sem mexer no resto da operação[[ do seu time de {vendedores}]]. Você vê o resultado na agenda em poucas semanas.\n\nQual o melhor WhatsApp para eu te chamar e combinarmos 20 minutos?\n\n{assinatura}"
+      "corpo": "{Oi|Olá} {primeiro_nome}, uma ideia simples: a gente pode começar só pelo primeiro contato com o lead, sem mexer no resto da operação[[ do seu time de {vendedores}]]. Você vê o resultado na agenda em poucas semanas.\n\nQual o melhor WhatsApp para a nossa equipe te chamar e combinar 20 minutos?\n\n{assinatura}"
     },
     {
       "espera_dias": 7,

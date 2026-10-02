@@ -49,8 +49,8 @@ confianca: de 0 a 1, o quanto você tem certeza da categoria.
 resumo: uma frase para o time comercial.
 resposta: o e-mail que vamos mandar de volta, em português do Brasil, curto (até 80 palavras), no tom de uma pessoa, sem assinatura, sem "Prezado":
 - aceitou_horario: confirme dia e hora por extenso e diga que o convite chega no e-mail.
-- enviou_whatsapp: agradeça e diga que vamos chamar nesse WhatsApp ainda hoje (em horário comercial) para combinar o melhor dia e horário.
-- interessado: peça o melhor WhatsApp para combinarmos dia e horário; como alternativa, ofereça 2 dos HORÁRIOS LIVRES por extenso (ex.: "quinta, 9/10, às 14h").
+- enviou_whatsapp: agradeça, repita o número e diga que a nossa SDR vai ligar ou mandar mensagem nesse WhatsApp para confirmar o melhor dia e horário da conversa (ainda hoje ou no próximo dia útil).
+- interessado: peça o melhor WhatsApp, explicando que a nossa SDR vai ligar ou mandar mensagem para confirmar o melhor dia e horário; como alternativa, ofereça 2 dos HORÁRIOS LIVRES por extenso (ex.: "quinta, 9/10, às 14h").
 - pediu_info / objecao / outro: responda de forma útil e leve para uma conversa de 20 minutos, oferecendo 2 horários livres.
 - nao_agora: agradeça e pergunte quando faz sentido voltar a falar.
 - descadastro / fora_do_escritorio: deixe vazio.

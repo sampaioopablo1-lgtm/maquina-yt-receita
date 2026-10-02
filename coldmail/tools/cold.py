@@ -15,7 +15,8 @@ Modo das respostas (COLDMAIL_MODO):
   rascunho (padrão)  a resposta escrita pela IA fica nos Rascunhos da conta, na conversa do lead, e a SDR
                      ganha tarefa no CRM. Ninguém recebe nada sem uma pessoa clicar em Enviar.
   auto               "aceitou horário" livre na agenda -> marca a reunião e confirma por e-mail;
-                     "enviou WhatsApp" -> grava o número no CRM, tarefa da SDR e confirma;
+                     "enviou WhatsApp" -> grava o número no CRM, tarefa da SDR (ligar ou chamar no
+                     WhatsApp para confirmar dia e horário) e responde avisando que a SDR vai entrar em contato;
                      "interessado" -> pede o WhatsApp (e oferece horários). Só com confiança >=
                      COLDMAIL_CONFIANCA_MIN (0.8). Objeção, pedido de informação etc. continuam em rascunho.
 Descadastro e bounce são sempre automáticos: o lead sai da sequência e entra na lista de bloqueio.
@@ -469,9 +470,10 @@ def executar(acao: str, r: dict, lead: dict, conta: Conta, m, crm: bool, atualiz
     elif acao == "whatsapp":
         gmail.enviar(conta, resposta)
         if cid:
-            agenda.tarefa(cid, "[COLD] Chamar no WhatsApp e marcar a reunião", (
-                "O lead respondeu ao cold e-mail (%s) com o WhatsApp %s para combinar dia e horário da conversa. "
-                "Já respondemos dizendo que você chama ainda hoje.\nResumo: %s"
+            agenda.tarefa(cid, "[COLD] Ligar ou chamar no WhatsApp para confirmar dia e horário", (
+                "O lead respondeu ao cold e-mail (%s) com o WhatsApp %s. Já respondemos que a SDR vai ligar ou "
+                "mandar mensagem para confirmar o melhor dia e horário: faça isso hoje e marque a reunião na agenda "
+                "'Reunião com closer'.\nResumo: %s"
                 % (conta.email, r["whatsapp"], r.get("resumo") or "-")))
         atualizar_lead(lead, campos)
     elif acao == "responder":

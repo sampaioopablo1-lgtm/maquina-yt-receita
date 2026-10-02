@@ -336,7 +336,7 @@ def test_resposta_com_whatsapp_grava_telefone_e_cria_tarefa(maquina, monkeypatch
     cold.main(["ler", "--aplicar"])
     assert ("contato", "+5511987654321") in chamadas
     tarefas = [c for c in chamadas if c[0] == "tarefa"]
-    assert tarefas and "WhatsApp" in tarefas[0][1] and "+5511987654321" in tarefas[0][2]
+    assert tarefas and "WhatsApp" in tarefas[0][1] and "confirmar dia e horário" in tarefas[0][1] and "+5511987654321" in tarefas[0][2]
     assert [m["To"] for _, m in maquina.enviados] == ["k@gama.com"]
 
 
