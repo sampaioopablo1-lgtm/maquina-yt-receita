@@ -1,0 +1,60 @@
+name: WeSales - backup da configuracao do CRM (para o repositorio privado)
+
+# Por que existe (02/10, pedido do dono): se a conta do CRM for desativada, a configuracao tem de poder ser
+# remontada numa contratacao futura sem comecar do zero. Toda semana (e sob demanda) grava em
+# sampaioopablo1-lgtm/opc-crm-dados/backup-config/AAAA-MM-DD/ a fotografia completa: workflows (com gatilhos),
+# campos, tags, funil, agendas, formularios, mensagens prontas, listas, equipe, numeros. Nenhum lead.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "23 9 * * 1"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: wesales-backup-config
+  cancel-in-progress: false
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Playwright (para renovar a sessao)
+        run: |
+          npm install --no-save playwright@1
+          npx playwright install --with-deps chromium
+      - name: Clona o repositorio privado de dados
+        env:
+          DADOS_DEPLOY_KEY: ${{ secrets.DADOS_DEPLOY_KEY }}
+        run: |
+          mkdir -p ~/.ssh && printf '%s\n' "$DADOS_DEPLOY_KEY" > ~/.ssh/dados && chmod 600 ~/.ssh/dados
+          ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/dados -o IdentitiesOnly=yes"
+          git clone -q --depth 1 git@github.com:sampaioopablo1-lgtm/opc-crm-dados.git dados
+      - name: Fotografia da configuracao
+        env:
+          GHL_STORAGE_STATE: ${{ secrets.GHL_STORAGE_STATE }}
+          GHL_PIT: ${{ secrets.GHL_PIT }}
+          PYTHONIOENCODING: utf-8
+        run: |
+          node wesales/tools/renovar_bearer.js || echo "AVISO: sessao do CRM nao renovou (segredo GHL_STORAGE_STATE vencido?)"
+          cd wesales/tools && python backup_config.py "${{ github.workspace }}/dados/backup-config"
+      - name: Grava no repositorio privado
+        run: |
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/dados -o IdentitiesOnly=yes"
+          cd dados
+          git config user.name "wesales-backup"
+          git config user.email "wesales-backup@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet && { echo "nada novo"; exit 0; }
+          git commit -q -m "backup da configuracao $(TZ=America/Sao_Paulo date '+%d/%m %H:%M')"
+          git push -q origin HEAD:main
