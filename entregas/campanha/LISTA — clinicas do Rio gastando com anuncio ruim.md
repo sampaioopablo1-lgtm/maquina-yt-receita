@@ -1,0 +1,6831 @@
+# Lista quente — quem já paga anúncio no Rio e está errando
+
+## PRÓXIMOS 10 PARA HOJE
+*Ordem por quão fácil é provar o erro. Copie a mensagem, troque o nome, mande.*
+
+| # | Empresa | O erro, em uma linha |
+|---|---|---|
+| 1 | **Marcio Alcides Adv** (Campo Grande RJ) | anúncio no ar desde **11/11/2024** — **quase dois anos** — com o título **`instagram.com`**. É o mais antigo do arquivo e a prova mais concreta de dinheiro saindo sem ninguém olhar |
+| 2 | **Dr. Daniel Pinheiro — Odonto Barra** (*Trilha A*) | **21 anúncios ativos, todos sem título nenhum**, o mais antigo desde **março de 2025** — dezoito meses |
+| 2 | **Aliança Viva** (Botafogo) | os três anúncios têm **`{{product.name}}` no título**, com as chavinhas — o código do catálogo nunca foi trocado pelo nome do imóvel, desde **novembro de 2025** |
+| 3 | **Lucrum Imobiliária** (Copacabana) | tem **dois anúncios ao mesmo tempo**: um com dez campos de título vazios e outro com seis imóveis descritos com preço e bairro — a prova é o trabalho dela mesma |
+| 4 | **teixeiramendes.advogados** (Copacabana) | **6 anúncios ativos e o título de cinco é `instagram.com`** — o endereço do link vazou para a manchete; o sexto diz `api.whatsapp.com`. Desde 01/05/2026 |
+| 5 | **Petmalia — Hospital Veterinário** (Barra) | **vinte anúncios ativos e os vinte com o mesmo título: "Entre em contato"** — a maior concentração de anúncio idêntico já encontrada, desde 15/07 |
+| 6 | **Bicho D+ Veterinária** (Niterói) | "Converse conosco" **sete vezes** no mesmo título, no ar desde **junho de 2024** — dois anos |
+| 7 | **Grace Lucas corretora** (Copacabana, *Trilha A*) | anúncio **sem título nenhum**, no ar desde abril de 2026 — 5 meses |
+| 8 | **Dr. Thiago Vieira Moraes** (Copacabana, *Trilha A*) | o título do anúncio é o **título bruto da página do Instagram**, terminando em **"• Instagram photos and videos"** — ninguém trocou pelo texto da oferta |
+| 9 | **Fisioterapia & Pilates SODRÉ** (Copacabana) | três anúncios **sem título nenhum**, o mais antigo no ar desde **21/03/2025** — dezoito meses, empata o recorde de tempo do arquivo |
+| 10 | **Juliana Murta — Advogada** (Botafogo, *Trilha A*) | anúncio **sem título nenhum**, no ar desde 08/09/2026 — e advocacia é o nicho onde o dono é a marca, então a abordagem cai direto no Instagram dela |
+| — | *(sai de hoje)* **Cláudia S. Ioschpe** (Copacabana, *Trilha A*) | o título é o nome dela seguido de **treze campos vazios** |
+| — | *(sai de hoje)* **Paulo Fernandes** (Madureira, *Trilha A*) | o título do anúncio é **`api.whatsapp.com`** — o endereço do link colado no lugar da chamada |
+| — | *(sai de hoje)* **Carloscarlos6268** (Niterói) | **6 anúncios, todos sem título**, no ar desde **fevereiro de 2026** — 7 meses |
+
+*Saíram da lista de hoje (continuam no arquivo, seções abaixo): CVP — Veterinária 24h, Flip Dog
+Care, Núcleo Angela Beatriz Varella, Luciana Martins, Núcleo Saúde Novo Leblon, Tânia Angarano
+Imóveis, Julianazogbi.imoveis, Paulo Eduardo Corretor, Machado de Souza, robertodpcarvalho.*
+
+**Sete dos dez são imobiliária ou corretor.** O nicho já foi o melhor em sete bairros seguidos
+(Tijuca 10/30, Niterói 5/11, Copacabana 9/28, Méier 3/3, Botafogo 2/6, Campo Grande 1/3, Madureira 3/5) — é onde vale concentrar a abordagem.
+
+**Exemplo de concorrente fazendo certo, para citar em Copacabana:** *Copa Azul Imobiliária
+Digital*, mesmo bairro, quinze anúncios com cada campo de título escrito com metragem, preço
+e rua.
+
+### A regra que vale para todas as mensagens
+
+**A prova vem na primeira linha. A apresentação vem na segunda.**
+
+O que decide se ele abre é a prévia da notificação — cerca de 50 caracteres. Se ela disser
+"Oi, aqui é o Pablo, do Rio", ele lê "vendedor" e não abre. Se disser "seu anúncio está sem
+título desde março", ele abre, porque é sobre o negócio dele e soa como problema.
+
+A apresentação não some — desce uma linha. Sem ela a mensagem parece golpe.
+
+---
+
+**Casos 1, 2, 9 e 10 — chamada repetida / muitos anúncios iguais:**
+
+> Seu anúncio repete "Converse conosco" sete vezes seguidas — e está assim desde junho de 2024.
+>
+> Aqui é o Pablo, do Rio. Não sou cliente e não vim vender nada. Vi na Biblioteca de Anúncios do
+> Facebook, que é pública. Dois anos pagando por um anúncio que ninguém abriu para conferir.
+>
+> Quem cuida das campanhas de vocês hoje?
+
+**Casos 3, 4 e 7 — sem título ou título repetido:**
+
+> Quatro dos seus seis anúncios estão sem título nenhum.
+>
+> Aqui é o Pablo, do Rio. Não sou cliente. O título é o campo que o Facebook usa para decidir
+> a quem mostrar — vazio, o alcance encarece e o mesmo dinheiro compra menos gente.
+>
+> Quem monta os anúncios aí?
+
+**Casos 5 e 6 — erro técnico visível:**
+
+> O título do seu anúncio está saindo como código: aparece {{product.name}} no lugar do texto.
+>
+> Aqui é o Pablo, do Rio. Não sou cliente. Está assim desde julho e vocês pagam do mesmo jeito.
+>
+> Quem cuida das campanhas aí?
+
+**Caso 8 — anúncio velho no ar:**
+
+> Sua promoção de "apenas hoje" está no ar desde setembro do ano passado.
+>
+> Aqui é o Pablo, do Rio. Não sou cliente. Quem vê a mesma urgência por um ano para de acreditar
+> nela — e aí ela para de funcionar até quando for verdade.
+>
+> Vocês trocam o criativo de quanto em quanto tempo?
+
+---
+
+*Versão anterior destas mensagens abria com "Oi, aqui é o Pablo, do Rio. Não sou cliente" e
+enterrava a prova na terceira frase. Corrigido em 08/09: a prévia da notificação é a única
+linha garantida, e ela estava sendo gasta com apresentação.*
+
+---
+
+## Tier A — os três que mais desperdiçam
+
+### 1. Dr. Daniel Pinheiro — Odonto Barra
+- **Defeito:** 10 anúncios ativos, **todos sem título de chamada**. Quem vê não sabe o que fazer.
+- **Há quanto tempo:** desde março de 2026. Seis meses queimando com o mesmo erro.
+- Página: `157469857458079` · Barra da Tijuca
+- Ver: https://www.facebook.com/ads/library/?id=903832852692871
+
+### 2. Clínica Odontológica Oral Unic Tijuca
+- **Defeito:** 16 anúncios ativos, **todos com o mesmo texto**: "Clique Aqui e Fale Conosco! 👉🦷". É a definição de anúncio que traz curioso.
+- **Há quanto tempo:** criados entre 01 e 08 de setembro. Está gastando agora.
+- Página: `105347062291972` · Tijuca
+- Ver: https://www.facebook.com/ads/library/?id=3993583147602944
+
+### 3. Nascimento Odontologia
+- **Defeito:** 12 anúncios idênticos "Agende uma avaliação", todos criados **no mesmo segundo** (06/09). Ou é criativo dinâmico mal configurado, ou são conjuntos disputando o mesmo público.
+- Página: `371765596010542`
+- Ver: https://www.facebook.com/ads/library/?id=1772872390398634
+
+---
+
+## Tier B — gastando com chamada genérica
+
+| Clínica | Defeito | Página |
+|---|---|---|
+| Ferdinand Odontologia | títulos vazios + "VOLTE A TER DENTES FIXOS ➡️➡️", desde março | `228892780928260` |
+| Arcobelo Odontologia | "⭐⭐⭐⭐⭐Implantes Dentários" — estrela no título não é oferta | `173889459656382` |
+| Viva Implantes | "Converse conosco" | `821530124613131` |
+| LM Odontológica | "Agende Sua Consulta" | `127849310745659` |
+| OdontoBelle RJ | títulos vazios | `993213007454568` |
+| Harmonização Facial — Dra Caroline Carneiro | 3 anúncios "Fale comigo" | `101633105277750` |
+| Tati Dias — Harmonização Facial e Corporal | título vazio | `1158814960642937` |
+| Clínica Central | 3 anúncios cujo título é o próprio nome da clínica | `308107989678878` |
+
+---
+
+## Quem NÃO abordar
+- **Espaço Facial** (Taquara, Méier, Leme, Centro, Metropolitano, Shopping Downtown): rede com marketing central. Fora do ICP.
+- **Uninassau, Allmed**: instituições grandes, têm equipe.
+
+## Quem está acertando (use como referência, não como alvo)
+- **Dr.ª Monique Pimentel** — "Perdeu um ou mais dentes?" (gancho de dor, certo)
+- **Bel Sorriso Tijuca** — "📲 Agende sua Avaliação Grátis" (oferta clara)
+- **Dra. Andreia Araújo** — "Preenchimento Labial a partir de R$ 500" (preço na chamada)
+
+---
+
+## Como chegar na pessoa
+1. Abra o anúncio pelo link acima. O botão dele leva ao WhatsApp ou ao Direct da clínica — é a linha mais direta que existe.
+2. Se preferir LinkedIn: busque o nome da clínica e ache o dono ou o diretor clínico.
+3. **Nada de se passar por paciente** — mas a apresentação vem na segunda linha, não na primeira. A primeira é da prova.
+
+## As três aberturas, por tipo de defeito
+
+*Reescritas em 11/09. As versões antigas abriam com "Oi, aqui é o Pablo, não sou paciente" — gastavam a
+prévia da notificação com a linha que identifica vendedor. A regra de 08/09 (prova primeiro) estava
+escrita em LICOES e nunca tinha chegado até aqui.*
+
+**Anúncio sem chamada (Daniel Pinheiro, Ferdinand, OdontoBelle, Tati Dias):**
+> Seus anúncios estão no ar sem título de chamada — o campo está vazio.
+> Aqui é o Pablo, não sou paciente. Quem vê o anúncio não sabe o que fazer depois, e isso costuma jogar fora metade do investimento. Quem cuida disso aí?
+
+**"Fale Conosco" (Oral Unic, Viva Implantes, Caroline Carneiro):**
+> Seus 16 anúncios estão todos com o mesmo título: "Fale Conosco".
+> Aqui é o Pablo, não sou paciente. Esse é o texto padrão do Facebook — ele enche o WhatsApp de curioso e não de paciente. Vocês sentem isso na prática?
+
+**Muitos anúncios iguais (Nascimento, Clínica Central):**
+> Vocês têm 12 anúncios idênticos no ar, todos criados no mesmo dia.
+> Aqui é o Pablo, não sou paciente. Isso quase sempre é configuração, e faz o custo subir sem trazer mais paciente. Quem monta as campanhas aí?
+
+**A segunda mensagem, depois que responder:**
+> A gente cuida do anúncio para você — eu tenho um time que faz isso todo dia, não é curso nem mentoria. Te mostro em 20 minutos o que faríamos no seu caso, sem compromisso: https://calendly.com/oproximocliente/diagnostico
+
+*A segunda mensagem mudou em 11/09 junto com o posicionamento: era mentoria ("eu ensino dono de clínica
+a rodar o próprio anúncio, 4 encontros, 30 dias"), virou serviço de agência com reunião no Calendly.
+Vender programa de 30 dias para quem acabou de ouvir que o anúncio dele está quebrado pede trabalho
+dele justo na hora em que ele quer o contrário.*
+
+---
+
+## Rotina
+- 5 por dia, todo dia útil. Não mais: mensagem em volume perde a mão.
+- Antes de mandar, abra o anúncio e confira se ainda está no ar. Se trocaram o criativo, mude a abordagem ou pule.
+- Anote quem respondeu e o que disse. Toda objeção nova vira linha no diário.
+- Esta lista envelhece: anúncio sai do ar. Refazer a varredura toda segunda.
+
+---
+
+## Achados de 08/09, 16h10 — fora de odontologia
+
+### Veterinária
+| Empresa | Defeito | Página | Ver |
+|---|---|---|---|
+| **Pet Care Animália** | título do anúncio é `{{product.name}}` — variável não substituída, no ar desde julho | `388887351138791` | [anúncio](https://www.facebook.com/ads/library/?id=1960339504875314) |
+| **mvmateusmarques** | título é o nome do perfil seguido de barras vazias | `609513955575345` | [anúncio](https://www.facebook.com/ads/library/?id=2067162104209854) |
+| **Lídervet e Diagnóstico** | título vazio | `167005513159683` | [anúncio](https://www.facebook.com/ads/library/?id=893504100499958) |
+| Veterinária Popular.Cão.br | 3 anúncios repetindo "Agende sua consulta com preços populares" | `1175974635593409` | — |
+### Fisioterapia e academia (nicho fraco no Rio, poucos anunciam)
+| Empresa | Defeito | Página |
+|---|---|---|
+| Lavitá Barra da Tijuca | título vazio | `246700075197222` |
+| Studio Mormaii Freguesia | "Agende sua Aula", aceitável | `177157168809970` |
+| Connect Bem Estar | "Agende uma avaliação!", aceitável | `635802626291984` |
+
+### Advocacia
+Só 1 anúncio ativo encontrado (Andre Albuquerque Advogados, São João de Meriti, "Converse conosco"). **Nicho fraco na Biblioteca: advogado quase não anuncia no Meta.** Melhor caminho para advocacia é parceria, não prospecção por anúncio.
+
+---
+
+## Varredura — advocacia + "advogado Copacabana" (14/09/2026, 12h30)
+
+13 resultados ativos. Nicho raso em quantidade, mas **denso em defeito**: dos 13, só 3 são de
+fora do nicho (um psicanalista, uma compra de ouro e uma comunidade de condomínio, todos
+pegos pelo corpo do texto). Os 10 restantes são de **5 escritórios**, e **todos os 5 têm
+defeito de título**.
+
+| # | Escritório | Defeito | No ar desde | Biblioteca |
+|---|---|---|---|---|
+| 1 | **teixeiramendes.advogados** | **6 anúncios ativos e o título de cinco deles é literalmente `instagram.com`** — o domínio do link vazou para a manchete. O sexto diz `api.whatsapp.com`. Ninguém escreveu título nenhum. | 01/05/2026 (o mais antigo) a 16/08/2026 | [ver](https://www.facebook.com/ads/library/?id=3524303447726351) |
+| 2 | **megadvogados_adv** — *Rodrigo Gonçalves* · **Trilha A** | O título é a mesma frase **repetida oito vezes**: "Advogado Copacabana e Barra da Tijuca Rodrigo Gonçalves \| MEGADVOGADOS" ×8. Quem vê no feed lê um paredão de texto cortado. | 20/04/2026 (~5 meses) | [ver](https://www.facebook.com/ads/library/?id=1305963944810990) |
+| 3 | **Silvério Vieira Advogados** | 2 anúncios, **título vazio nos dois** | 25/07/2026 e 07/08/2026 | [ver](https://www.facebook.com/ads/library/?id=1804081330962635) |
+| 4 | **CEDOC — Consumidor orientado** | Título vazio, e é o **anúncio mais antigo da varredura: 08/01/2026, oito meses no ar** sem manchete | 08/01/2026 | [ver](https://www.facebook.com/ads/library/?id=1568855047650173) |
+
+**O que esta varredura ensina:** advocacia em Copacabana tem pouco anunciante, mas o
+defeito é quase universal — 5 escritórios, 5 com o título errado ou vazio. Ao contrário de
+imobiliária (233 resultados na Tijuca), aqui não dá para escolher: dá para abordar todos.
+
+**Abertura pronta — teixeiramendes.advogados**
+> Oi! Vi que vocês estão com seis anúncios no ar em Copacabana. Só que o título que aparece
+> em cinco deles é "instagram.com" — o endereço do link, não uma frase. Quem passa no feed lê
+> isso e segue. Posso te mostrar em 2 minutos o que entraria no lugar?
+
+**Abertura pronta — Rodrigo Gonçalves (MEGADVOGADOS) · Trilha A, Instagram dele**
+> Rodrigo, vi seu anúncio de Copacabana na Biblioteca do Meta. O título está repetido oito
+> vezes seguidas — provavelmente foi o sistema que duplicou, e no feed sai cortado no meio.
+> Está assim desde abril. Quer que eu te mostre como fica com uma frase só?
+
+**Abertura pronta — Silvério Vieira / CEDOC (título vazio)**
+> Oi! Seu anúncio está no ar há meses (o da CEDOC desde janeiro), mas o campo de título está vazio — o Meta preenche
+> sozinho com o que sobrar. É o texto que mais decide clique, e está em branco. Te mostro?
+
+
+## Varredura — academia + musculação + Niterói (14/09/2026, 16h15)
+
+27 resultados. O nicho anuncia, mas **quase ninguém escreve título**: de 27 anúncios, **17 estão
+com o campo vazio**. E há um padrão novo que não tinha aparecido em nenhum outro nicho — a
+**rede Fábrica**, com uma página por unidade, todas anunciando sozinhas e todas errando igual.
+
+| # | Empresa | Defeito | No ar desde | Biblioteca |
+|---|---|---|---|---|
+| 1 | **Fábrica Premium Região Oceânica** | **8 anúncios ativos e os oito com título vazio** — a maior concentração de título em branco já encontrada | 30/06/2026 | [ver](https://www.facebook.com/ads/library/?id=1599206601560917) |
+| 2 | **Exercit Esportes** | 3 anúncios: um com o nome da loja **repetido seis vezes** no título ("Exercit Esportes \| Exercit Esportes \|" ×6), os outros dois com título vazio | 18/08 a 08/09/2026 | [ver](https://www.facebook.com/ads/library/?id=1077600837986483) |
+| 3 | **Lifetime Academia** | 2 anúncios, título vazio nos dois, no ar desde **abril** — 5 meses | 07/04/2026 | [ver](https://www.facebook.com/ads/library/?id=2687285521646205) |
+| 4 | **Fábrica Premium Niterói** | título é **"Fale Conosco"**, o texto padrão do Meta | 27/08/2026 | [ver](https://www.facebook.com/ads/library/?id=4586046825011078) |
+| 5 | **Fábrica CT Barreto Niterói** · **Fábrica Ct Niteroi** | título vazio nas duas unidades | 07/08 e 01/09/2026 | [ver](https://www.facebook.com/ads/library/?id=28449632377965219) |
+| 6 | **Jimmy Sereno** (*Trilha A*) | título vazio, anúncio novo | 12/09/2026 | [ver](https://www.facebook.com/ads/library/?id=2223509608218107) |
+
+**Quem está acertando, e serve de referência na abordagem:** *Academia Tio Sam Barreto* tem
+dois anúncios com **"Clique para liberar uma aula gratuita"** — oferta concreta, no ar desde
+junho. (O terceiro anúncio dela é "Converse conosco", genérico. Vale citar como "a própria
+academia já provou que sabe fazer: veja o anúncio da aula gratuita contra o 'Converse conosco'".)
+
+**Achado de mecanismo — a rede com página por unidade.** Cinco páginas diferentes da rede
+Fábrica apareceram nesta varredura (Premium Região Oceânica, Premium Niterói, CT Barreto, CT
+Niterói e Fábrica CT Niterói), cada uma anunciando por conta própria e **todas com o mesmo
+defeito**. Isso é diferente de rede com marketing central, tipo o Espaço Facial, que está na
+lista de "não abordar": aqui **cada unidade toca o próprio anúncio**, e erra sozinha. É um
+alvo legítimo, e um só acerto de abordagem pode render várias unidades.
+
+**Confirmação da regra do termo:** "academia" puxa **anúncio de vaga de emprego** — a *A.R
+Academia* está anunciando vaga de estagiário de musculação. É o mesmo comportamento já visto
+com "corretor". Termo de profissão puxa recrutamento; termo de serviço puxa captação.
+
+**Fora do nicho, vieram de carona:** Agateimoveisprime (imobiliária), InForce Equipamentos
+(fornecedor), bsk_studiobsk, maria_comasoutras e o Grupo Caminha (lar para idosos, anúncio de
+**janeiro de 2023** — o mais antigo já encontrado no arquivo, três anos e meio no ar).
+
+**Abertura pronta — Fábrica Premium Região Oceânica**
+> Oi! Vocês estão com oito anúncios no ar e os oito estão com o campo de título vazio. O título
+> é o que o Meta usa para decidir a quem mostrar o anúncio — em branco, o alcance encarece e o
+> mesmo dinheiro compra menos gente. Estão assim desde junho. Posso te mostrar em 2 minutos?
+
+**Abertura pronta — Exercit Esportes**
+> Oi! O título de um dos seus anúncios está com o nome da loja repetido seis vezes seguidas, e
+> os outros dois estão em branco. No feed sai cortado no meio. Quer que eu te mostre como fica
+> com uma frase só?
+
+
+## Varredura — advocacia + "advogado Niterói" (14/09/2026, 17h15)
+
+32 resultados, e **a maior concentração de Trilha A do arquivo inteiro**: nove advogados
+anunciando com o próprio nome na página. Advocacia é o nicho onde o dono É a marca — e isso
+faz de Niterói o melhor bairro achado até hoje para abordagem direta no Instagram do dono.
+
+**Trilha A — abordagem direta do Pablo, no Instagram de cada um**
+
+| # | Advogado | Defeito | No ar desde |
+|---|---|---|---|
+| 1 | **Paulo Ribeiro** | título vazio | 13/09/2026 — anúncio novo, gastando agora |
+| 2 | **drarosemagalhaes** | título vazio | 13/09/2026 |
+| 3 | **elton_dasp** | título vazio | 10/09/2026 |
+| 4 | **Ojosinaldoalmeida** | título vazio | 09/09/2026 |
+| 5 | **Guilherme Delaroli** | título vazio | 07/09/2026 |
+| 6 | **Marcio Santos** | título vazio | 19/08/2026 |
+| 7 | **Adv. Felipe Morgan** | título é **`api.whatsapp.com`** — o endereço do link no lugar da chamada | 01/09/2026 |
+| 8 | **raimundoalvesjunior.advogado** | título é **`api.whatsapp.com`** | 18/06/2026 — 3 meses |
+| 9 | **cohnepaixaoadvs** | título vazio, no ar desde **setembro de 2025** — quase um ano | 25/09/2025 |
+
+Links: [Paulo Ribeiro](https://www.facebook.com/ads/library/?id=1469716831650766) ·
+[drarosemagalhaes](https://www.facebook.com/ads/library/?id=1564924629001215) ·
+[Felipe Morgan](https://www.facebook.com/ads/library/?id=1621537249491420) ·
+[raimundoalvesjunior](https://www.facebook.com/ads/library/?id=1521304243072325) ·
+[cohnepaixaoadvs](https://www.facebook.com/ads/library/?id=1129011332032719)
+
+**Já catalogados, apareceram de novo:** teixeiramendes.advogados (6 anúncios com "instagram.com"
+no título — a busca de Copacabana já pegou) e Carloscarlos6268 (6 anúncios sem título).
+
+**Quem está acertando, para citar:** *Carneiro Advocacia — Direito de Trânsito e da Saúde* usa
+**"CLIQUE AQUI para conversarmos"**. Não é brilhante, mas é uma frase escrita por gente, com verbo
+e instrução — serve de contraste imediato contra o campo vazio dos nove acima.
+
+**O que esta varredura ensina, e muda a prioridade do nicho:** advocacia parecia nicho fraco por
+causa das duas primeiras varreduras com termo largo. Com bairro no termo, ele virou **o nicho com
+mais Trilha A por resultado de toda a lista** — 9 em 32. E Trilha A é a abordagem que mais
+converte, porque vai direto no dono, sem passar por recepção ou social media.
+
+**Abertura pronta — advogado com título vazio (serve para 7 dos 9)**
+> Dr., vi seu anúncio na Biblioteca do Meta e o campo de título está em branco. É a frase que
+> aparece em negrito no feed, e é ela que o Meta usa para decidir a quem mostrar — vazia, o
+> alcance encarece e o mesmo dinheiro alcança menos gente. Quer que eu te mostre em 2 minutos
+> como ficaria com uma frase no lugar?
+
+**Abertura pronta — Felipe Morgan e Raimundo Alves Jr. (`api.whatsapp.com` no título)**
+> Dr., o título do seu anúncio está saindo como "api.whatsapp.com" — é o endereço do link, que
+> vazou para o lugar da chamada. Quem passa no feed lê isso e segue. No seu caso está assim
+> desde junho. Posso te mostrar o que entraria no lugar?
+
+**Abertura pronta — cohnepaixaoadvs (quase um ano no ar)**
+> Oi! O anúncio de vocês está no ar desde setembro do ano passado com o campo de título vazio.
+> É quase um ano pagando por um anúncio que ninguém abriu para conferir. Te mostro em 2 minutos?
+
+
+## Varredura — advocacia + "advogado Méier" (14/09/2026, 21h10)
+
+8 resultados, de 3 anunciantes. E um caso que vale mais como **aula do que como alvo**.
+
+**Meier Advogados — 6 anúncios, e o defeito é só metade do que parece**
+
+Os seis dizem **"Acidente no Trabalho?"**. Isso é um **bom título**: é pergunta, é dor concreta,
+fala com quem tem o problema. Está muito acima do "Fale Conosco" que a gente vê no resto do
+arquivo. Só que:
+
+1. **Em quatro dos seis o título aparece duplicado** — "Acidente no Trabalho? \| Acidente no
+   Trabalho?" — o campo foi preenchido duas vezes e sai repetido no feed;
+2. os seis foram criados **no mesmo segundo** (19/08/2026), o que é assinatura de criativo
+   dinâmico mal configurado ou de conjuntos disputando o mesmo público.
+
+**Por que isso importa para a abordagem:** aqui não dá para dizer "seu anúncio está sem título".
+Ele escreveu um título bom. O argumento é outro, e é mais forte: *"você acertou a frase e o
+sistema está repetindo ela duas vezes"*. Elogio verdadeiro antes da correção — e o cara sabe que
+é verdade, porque a frase é dele.
+
+[ver](https://www.facebook.com/ads/library/?id=1299048422166889)
+
+**Os outros dois, Trilha A**
+
+| Advogado | Defeito | No ar desde |
+|---|---|---|
+| **advogado.carlosjunior** | título vazio | **27/03/2026** — quase 6 meses |
+| **Dra. Fatima Matos Advogada** | "Converse com um advogado especialista!" — CTA genérico, sem dor nem especialidade | **28/02/2026** — mais de 6 meses |
+
+Links: [carlosjunior](https://www.facebook.com/ads/library/?id=1265634535508780) ·
+[Dra. Fatima Matos](https://www.facebook.com/ads/library/?id=1256614422462894)
+
+**Abertura pronta — Meier Advogados (título duplicado)**
+> Oi! Vi os anúncios de vocês sobre acidente de trabalho. A pergunta que vocês usaram é boa — é
+> exatamente a dor de quem procura. Só que em quatro dos seis ela está saindo **duplicada**:
+> "Acidente no Trabalho? | Acidente no Trabalho?". É o campo preenchido duas vezes, e no feed
+> fica com cara de erro justo no texto que era o ponto forte. Posso te mostrar em 2 minutos?
+
+**Abertura pronta — Dra. Fatima Matos**
+> Dra., seu anúncio está no ar desde fevereiro com o título "Converse com um advogado
+> especialista". Especialista em quê? É a pergunta que quem tem o problema faz — e o anúncio não
+> responde. Quem sabe a área, procura pela área. Quer que eu te mostre como ficaria?
+
+
+## Varredura — advocacia + "advogado Madureira" (14/09/2026, 22h10)
+
+**75 resultados e quase nenhum é do bairro.** "Madureira" é **sobrenome comum de advogado** —
+Marcondes Madureira, Leonardo Marcondes Madureira, Thales M. Madureira, Cerqueira e Madureira,
+Madureira Advogados & Consultores. A busca devolveu a lista telefônica do sobrenome, não o bairro.
+
+**Quarto modo de falha de termo catalogado.** Os anteriores eram: termo de profissão puxa vaga de
+emprego; termo largo esconde o nicho; termo de serviço adjacente puxa fornecedor. Este é novo:
+**bairro cujo nome também é sobrenome.** Madureira, Meier (o bairro e a banca "Meier Advogados"),
+e provavelmente outros. Quando o bairro é sobrenome, o termo precisa de reforço geográfico —
+"advogado Madureira Rio de Janeiro" — ou a varredura é lixo.
+
+**Ainda assim, três aproveitáveis** (localização a confirmar antes de abordar):
+
+| Escritório | Defeito | Desde |
+|---|---|---|
+| **Marcondes Madureira Advocacia** | ~10 anúncios cujo título é **só o nome do escritório** — não é chamada, é placa. Um deles repete "Advogado online \| Marcondes Madureira" **cinco vezes**; outro termina em campos vazios | 02/06/2026 |
+| **Cerqueira e Madureira Advocacia** | 4 anúncios, todos "Fale com um advogado especialista" — especialista em quê? | 04/09/2026 |
+| **Leonardo Marcondes Madureira** | vários sem título, e um com o título do Instagram repetido **sete vezes**, terminando em "• Instagram photos and videos" | 18/08/2026 |
+
+**⚠️ Ressalva sobre o Leonardo Marcondes Madureira:** ele se apresenta como *"Neuromarketing
+Jurídico"* e anuncia **"O método que transforma post em contrato"**. Ou seja, ele **vende marketing
+para advogados** — é concorrente do Pablo, não cliente. Não abordar como prospect. Fica registrado
+justamente para não ser abordado por engano numa próxima varredura.
+
+**Dois que estão acertando, e servem de referência boa para o nicho jurídico:**
+
+- **Thales M. Madureira** — *"Pagando 2 empréstimos e recebeu só 1?"* e *"Dívida infinita? A culpa
+  é do banco!"* (23/06/2026). São ganchos de dor com situação concreta. É o melhor par de títulos
+  de advocacia visto no arquivo.
+- **Madureira Advogados & Consultores** — *"Desbloqueio de Contas Digitais | Advogado Especialista"*
+  (17/08/2026). Serviço específico + qualificação. Mostra como "especialista" funciona **quando vem
+  acompanhado do quê**, ao contrário do "Fale com um advogado especialista" da Cerqueira.
+
+Esse contraste dentro do mesmo nicho e da mesma varredura é material de abordagem: dá para mostrar
+ao Cerqueira o anúncio do Thales e perguntar qual dos dois ele clicaria.
+
+
+## Varredura — advocacia + "advogado Campo Grande RJ" (14/09/2026, 23h10)
+
+**A regra do sufixo "RJ" funcionou de novo.** 7 resultados, todos advogados de verdade, **nenhuma
+contaminação** de Campo Grande/MS ou do interior de SP — que foi o que estragou a varredura de
+energia solar no mesmo bairro. Confirmação pela segunda vez: bairro com nome repetido em outro
+estado **sempre** leva "RJ" no termo.
+
+Bairro raso em quantidade, mas **os 5 escritórios erram, e um deles bate o recorde de idade do
+arquivo.**
+
+| # | Escritório | Defeito | No ar desde |
+|---|---|---|---|
+| 1 | **Marcio Alcides Adv** | 2 anúncios: um com o título **`instagram.com`**, outro **sem título**. No ar desde **11/11/2024** — **quase dois anos** | 11/11/2024 |
+| 2 | **carlos_henrique_advocacia** · *Trilha A* | título vazio, no ar desde **outubro de 2025** — quase um ano | 28/10/2025 |
+| 3 | **Firma de Advogados Alderito Assis** | título é o nome do escritório seguido de **quatorze campos vazios** — o maior número de campos em branco já catalogado | 21/08/2026 |
+| 4 | **Rafaelle Souza — Escritório de Advocacia** · *Trilha A* | nome do escritório + **seis campos vazios** | 04/08/2026 |
+| 5 | **Rivera, Ouverney & Frez Advogados Associados** | título vazio | 20/05/2026 |
+
+Links: [Marcio Alcides](https://www.facebook.com/ads/library/?id=532693889660452) ·
+[carlos_henrique](https://www.facebook.com/ads/library/?id=1151684123600082) ·
+[Alderito Assis](https://www.facebook.com/ads/library/?id=885121687789375) ·
+[Rafaelle Souza](https://www.facebook.com/ads/library/?id=1564079628536457) ·
+[Rivera Ouverney](https://www.facebook.com/ads/library/?id=1616530086111972)
+
+**O caso Marcio Alcides é o melhor argumento de vendas do arquivo inteiro.** Quase dois anos de
+anúncio no ar com o título `instagram.com`. Ninguém abriu para conferir em 22 meses. É a prova
+mais concreta possível de que existe dinheiro saindo sem ninguém olhar.
+
+**Abertura pronta — Marcio Alcides**
+> Dr., seu anúncio está no ar desde **novembro de 2024** — quase dois anos — e o título dele é
+> "instagram.com". É o endereço do link, não uma frase. Quem passa no feed lê isso e segue.
+> Aqui é o Pablo, do Rio, não sou cliente: vi na Biblioteca de Anúncios do Facebook, que é
+> pública. Dois anos pagando por um anúncio que ninguém abriu para conferir. Quem cuida das
+> campanhas aí hoje?
+
+**Abertura pronta — Alderito Assis (14 campos vazios)**
+> Oi! O título do anúncio de vocês é o nome do escritório seguido de **quatorze campos em
+> branco**. O Meta preenche esses campos sozinho com o que sobrar. É o texto que mais decide
+> clique, e está vazio quatorze vezes. Posso te mostrar em 2 minutos o que entraria no lugar?
+
+
+## Achados de 14/09, 21h — "ótica Copacabana" (nicho novo: ótica)
+
+**42 resultados, mas um único anunciante ocupa 27 deles.** A *Copacabana Eyewear — Distribuidora
+de Óculos* não é ótica de rua, é **distribuidora** (vende para ótica) — e mesmo assim é alvo
+legítimo: anuncia sozinha, com volume, e erra de três jeitos ao mesmo tempo:
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Copacabana Eyewear — Distribuidora de Óculos** | **10 anúncios novos com título vazio** (subiram hoje, 14/09) + **6 com "Fale conosco" repetido até 10 vezes** + **6 com "api.whatsapp.com" no título** — 22 anúncios errados de um lote de 27 | `101905786180247` | 09/07/2026 (os antigos) e 14/09/2026 (os novos) | [vazio](https://www.facebook.com/ads/library/?id=1632501632247023) · [Fale conosco ×10](https://www.facebook.com/ads/library/?id=4611746375816355) · [api.whatsapp.com](https://www.facebook.com/ads/library/?id=3157109284477947) |
+
+**Abordagem (o argumento é o lote de hoje — quem acabou de subir 10 anúncios está com a mão na campanha):**
+
+> Boa noite. Aqui é o Pablo, do Rio — não sou cliente. Vi que vocês subiram **dez anúncios
+> hoje** na Biblioteca do Facebook, e os dez estão saindo **sem título**. Os de julho já tinham
+> o mesmo problema: seis com "Fale conosco" repetido dez vezes, seis com "api.whatsapp.com" no
+> lugar do título. São 22 anúncios pagando para mostrar um campo em branco. Como o lote é de
+> hoje, dá pra corrigir antes de gastar. Quer que eu te mande o que eu colocaria em cada um?
+
+**Descartados de propósito:** *Arrocha Araraquara* (show em SP, contaminação do termo "Copacabana")
+e *Raphael Perachi Videomaker* (campos vazios, mas não é ótica nem do Rio — ficou fora).
+
+**Lição do nicho:** "ótica" + bairro puxa **distribuidor** antes de ótica de varejo, e "Copacabana"
+puxa nome de evento e de empresa de fora. Termo para a próxima: "óculos de grau" + bairro.
+
+## Achados de 14/09, 22h — "óculos de grau Tijuca" (ótica, 2ª tentativa com termo de produto)
+
+**11 resultados, 5 aproveitáveis, 1 Trilha A.** O termo de produto funcionou onde "ótica" puxou
+distribuidor — mas revelou o **5º modo de falha de termo: "Tijuca" puxa "Tijucas/SC"** (duas
+óticas de Santa Catarina vieram de carona). Reforçar com "RJ" ou "Rio" na próxima.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Dr. Oswaldo Frazão** — **Trilha A** | **3 anúncios sem título**, o mais novo de hoje | `587396684467882` | 10/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1612660190235051) |
+| **Oftalmo Città** | sem título há **3 meses e meio** | `236757996479241` | 29/05/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1532752995009640) |
+| **QualiÓtica Carioca** | título é o **nome da página do Instagram repetido 7 vezes** ("Instagram photos and videos") | `716867871491330` | 10/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1083985151022047) |
+| **Central dos Óculos** | sem título há 1 mês | `438264816042647` | 15/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1546003337207353) |
+| **Óticas SAADE** | sem título, subiu hoje | `106031825354397` | 14/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2158618138385501) |
+
+**Referência boa no mesmo termo:** *Dr. Igor Mota* — "Cirurgia Refrativa a Laser?" — pergunta,
+especialidade, cinco palavras. Contraste direto pro Dr. Oswaldo, que é o mesmo nicho.
+
+**Abordagem para o Dr. Oswaldo Frazão (Trilha A, Instagram dele):**
+
+> Boa noite, Dr. Oswaldo. Aqui é o Pablo, do Rio — não sou paciente. Vi que o senhor subiu
+> um anúncio hoje na Biblioteca do Facebook, e ele está saindo **sem título** — igual aos
+> dois anteriores, de quarta. É o campo que a pessoa lê antes de decidir clicar, e está em
+> branco nos três. Um colega seu, o Dr. Igor Mota, está rodando com "Cirurgia Refrativa a
+> Laser?" e é só isso que falta. Quer que eu te mande duas ou três opções?
+
+**Descartados de propósito:** *Instituto Visão Solidária — Tijucas SC* e *Mercadão dos Óculos —
+Tijucas/SC* (Santa Catarina). *Use Visio* tem título duplicado mas está no Itanhangá com CTA
+de exame — fraco demais pra abrir conversa.
+
+## Achados de 15/09, 00h — "pet shop Copacabana" (nicho novo: pet shop)
+
+**10 resultados, 3 aproveitáveis, nenhum Trilha A.** Bairro rende pouco no nicho, mas os três que
+aparecem erram de jeitos diferentes — inclusive um defeito novo: **título comprido demais**.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **pet_shop_copacabana** | 2 anúncios: um **sem título**, outro com **"instagram.com"** no título | `1121481771038043` | 09/09/2026 | [sem título](https://www.facebook.com/ads/library/?id=1117806390903177) · [instagram.com](https://www.facebook.com/ads/library/?id=939128815922094) |
+| **Pet Shop Essencial — Casa de Rações** | 2 anúncios **sem título**, um há 2 meses | `106126027924810` | 09/07/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1612987213787333) |
+| **Apaixonados Copacabana** (veterinária + pet shop) | **4 anúncios com o mesmo título de 150 caracteres** — emoji, 5 serviços, horário e endereço, tudo no campo que o feed corta em 40 | `693008997223394` | 06/07/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1052866054340953) |
+
+**Abordagem para o Apaixonados Copacabana (o defeito é "quer dizer tudo" — a conversa é sobre escolher):**
+
+> Bom dia. Aqui é o Pablo, do Rio — não sou cliente. Vi os quatro anúncios de vocês na
+> Biblioteca do Facebook. O título tem 150 caracteres: emoji, consultas, vacinas, castração,
+> cirurgias, exames, horário e endereço. O feed mostra uns 40 e corta o resto — então quem
+> vê lê "🐾 Veterinária e Pet Shop | Consultas, Vac…" e para aí. Quatro anúncios são a chance
+> de quatro títulos curtos, um por serviço. Quer que eu te mande os quatro?
+
+**Descartados de propósito:** *Imóveis Leonardo Almeida* (imobiliária, Praia do Morro) e *avenidaieq*
+(igreja) — vieram de carona no termo "Copacabana".
+
+**Lição do nicho:** pet shop de bairro quase não anuncia; quem anuncia é a clínica veterinária que
+tem pet shop junto. Pra render, o termo é "veterinária" (já varrido em vários bairros).
+
+## Combinações já varridas (não repetir)
+- pet shop + Copacabana ✔ (**10 resultados, 3 aproveitáveis, nenhum Trilha A** — inclui **defeito novo: título de 150 caracteres** no Apaixonados Copacabana, e o "instagram.com" de novo. Pet shop de bairro quase não anuncia; rende mais como "veterinária")
+- escola de idiomas + "Tijuca RJ" ✔ (**zero resultados** — nicho não anuncia com bairro; se voltar, tentar "curso de inglês" + Rio)
+- ótica + "óculos de grau Tijuca" ✔ (**11 resultados, 5 aproveitáveis, 1 Trilha A** — Dr. Oswaldo Frazão com 3 sem título. **5º modo de falha de termo: "Tijuca" puxa "Tijucas/SC"** — reforçar com RJ. Termo de produto funcionou onde "ótica" puxou distribuidor)
+- ótica + Copacabana ✔ (**42 resultados, 27 de UM anunciante** — a Copacabana Eyewear, distribuidora, com 22 anúncios errados: 10 sem título subidos hoje, 6 "Fale conosco" ×10, 6 "api.whatsapp.com". 1 aproveitável, nenhum Trilha A. Termo puxa distribuidor e evento de SP; próxima: "óculos de grau" + bairro)
+- advocacia + "advogado Campo Grande **RJ**" ✔ (**7 resultados, 5 escritórios, os 5 erram**, 2 Trilha A. **Regra do sufixo "RJ" confirmada pela 2ª vez** — zero contaminação de MS/SP. Inclui o **anúncio mais antigo do arquivo: Marcio Alcides, no ar desde 11/11/2024 com o título "instagram.com" — quase 2 anos** — e o recorde de campos vazios: 14, da Alderito Assis)
+- advocacia + "advogado Madureira" ✔ (**75 resultados e quase nenhum do bairro** — "Madureira" é sobrenome comum de advogado. **4º modo de falha de termo: bairro que também é sobrenome**, precisa de reforço geográfico. 3 aproveitáveis, 1 concorrente identificado (vende marketing jurídico — NÃO abordar) e 2 referências boas de título com gancho de dor)
+- advocacia + "advogado Méier" ✔ (**8 resultados, 3 anunciantes, 2 Trilha A** — um deles no ar há quase 6 meses com título vazio, outro há mais de 6 com CTA genérico. **Caso novo de defeito: título DUPLICADO** — a Meier Advogados escreveu um bom título ("Acidente no Trabalho?") e ele sai repetido em 4 dos 6 anúncios. Primeiro caso do arquivo em que o anunciante acertou a copy e errou só o preenchimento)
+- advocacia + "advogado Botafogo" ✔ (**7 resultados, mas 6 são da teixeiramendes**, já catalogada em Copacabana — a mesma banca aparece nos três bairros da Zona Sul com os mesmos 6 anúncios. **1 novo Trilha A: Juliana Murta — Advogada**, título vazio, desde 08/09/2026. Botafogo é raso para o nicho, ao contrário de Niterói (9 Trilha A) e Copacabana (5 bancas))
+- energia solar + Méier ✔ (**zero resultados** — nenhum anúncio ativo. Solar rende no Rio como um todo (124) e na Tijuca (40), mas não no Méier: é nicho de bairro rico e de casa própria com telhado, não de subúrbio de prédio. Não insistir em solar nos bairros densos)
+- arquitetura + design de interiores + Niterói ✔ (**5 resultados, ZERO aproveitável** — e nenhum é arquiteto: dois de madeireira, um de marmoraria, um de imobiliária e um do nicho excluído pelo Pablo, que não foi registrado. O termo "design de interiores" puxa a CADEIA DE FORNECEDORES do arquiteto, não o arquiteto. Combinação queimada, não repetir em outros bairros com este termo)
+- advocacia + "advogado Niterói" ✔ (**32 resultados e 9 Trilha A — a maior concentração de dono-no-nome do arquivo**; 7 com título vazio, 2 com "api.whatsapp.com", um deles no ar desde setembro/2025. Confirma pela 2ª vez que advocacia só aparece com bairro no termo, e promove o nicho de "fraco" a prioritário para Trilha A)
+- academia + musculação + Niterói ✔ (**27 resultados, 17 com título vazio** — inclui a Fábrica Premium Região Oceânica com 8 anúncios em branco e a Lifetime com 5 meses assim; 1 Trilha A. **Achado:** a rede Fábrica tem uma página por unidade, cada uma anuncia sozinha e todas erram igual — alvo legítimo, diferente de rede com marketing central. Confirma também que "academia" puxa vaga de emprego, como "corretor")
+- advocacia + "advogado Copacabana" ✔ (**13 resultados, 5 escritórios, os 5 com defeito de título** — 6 anúncios com o título "instagram.com", 1 com a frase repetida 8x, 3 com título vazio; 1 Trilha A; inclui anúncio de 8 meses)
+- imobiliária + "apartamento à venda" + Campo Grande **RJ** ✔ (10 resultados — o sufixo "RJ" resolveu a contaminação de Mato Grosso do Sul; 5 aproveitáveis novos, 1 Trilha A, inclui **erro de digitação no título** e anúncio de 13 meses)
+- veterinária + Barra ✔ (31 resultados mas **um único anunciante ocupa 20 deles** — a Petmalia, com "Entre em contato" nos vinte; 3 aproveitáveis novos, 2 Trilha A)
+- fisioterapia + "pilates" + Barra ✔ (72 resultados, 9 aproveitáveis novos, 4 Trilha A — confirma a densidade de defeito do nicho; inclui 3 imobiliárias que vieram de carona)
+- fisioterapia + "pilates" + Copacabana ✔ (20 resultados e **12 aproveitáveis, todos novos** — nicho onde quase ninguém preenche título; 4 Trilha A; inclui anúncio de **18 meses**)
+- odontologia + implante + Niterói ✔ (47 resultados, 6 aproveitáveis novos, 2 Trilha A — metade do bairro já estava catalogada por varreduras anteriores)
+- imobiliária + "apartamento à venda" + Méier ✔ (**só 11 resultados** — a regra do termo multiplica onde há volume, mas não cria volume: Méier é raso de verdade. 5 aproveitáveis novos, 3 Trilha A)
+- imobiliária + "apartamento à venda" + Botafogo ✔ (**72 resultados contra 6 do termo "corretor"** — regra confirmada pela 3ª vez; 20 aproveitáveis, todos novos, 9 Trilha A)
+- harmonização facial + Méier ✔ (13 resultados mas **só 2 anunciantes** — 1 novo: a Botocenter, com **estrelas no lugar do título**)
+- imobiliária + "apartamento à venda" + Tijuca ✔ (**233 resultados — a maior de todas; 15 aproveitáveis e TODOS novos**, 6 Trilha A. Confirma que "apartamento à venda" rende ~10x mais que "corretor")
+- veterinária + Copacabana ✔ (**só 6 resultados** — bairro rico em imobiliária, harmonização e odonto, mas fraco em veterinária; 3 aproveitáveis, nenhum Trilha A)
+- odontologia + implante + Copacabana ✔ (18 resultados, 6 aproveitáveis novos, 1 Trilha A — inclui o anúncio mais antigo já achado, de **julho de 2025**)
+- harmonização facial + Copacabana ✔ (**36 resultados, 11 aproveitáveis e TODOS novos** — melhor rendimento por varredura até agora; 6 Trilha A)
+- imobiliária + corretor + Barra da Tijuca ✔ (23 resultados, **só 2 aproveitáveis novos** — bairro já raspado pelas buscas de "Tijuca"; e o termo "corretor" puxa anúncio de RECRUTAMENTO, não de captação)
+- energia solar + Tijuca ✔ (**40 resultados, mas o termo puxa Barra da Tijuca e devolve imobiliária** — só 2 páginas solares de verdade; 8 aproveitáveis novos, 2 Trilha A)
+- odontologia + Rio de Janeiro ✔
+- implante dentário + Tijuca ✔
+- harmonização facial + Rio ✔
+- clínica de estética + Niterói/Barra ✔ (zero resultado)
+- clínica estética + botox + Rio ✔
+- contabilidade + abrir empresa + Rio ✔ (nicho fraco, 5 resultados)
+- fisioterapia + pilates + Rio ✔ (fraco, 3)
+- clínica veterinária + Rio ✔
+- advogado + Rio ✔ (fraco, 1)
+- energia solar + Rio ✔ (**124 anúncios, o nicho mais rico**)
+- academia + musculação + Botafogo ✔ (zero resultado)
+- arquitetura + design de interiores + Copacabana ✔ (fraco, 6 de 1 empresa)
+- odontologia + implante + Méier ✔ (1 resultado, anúncio correto)
+- energia solar + Campo Grande ✔ (**combinação queimada**: 341 resultados e nenhum do Rio — o termo puxa Campo Grande/MS e o interior de SP. Bairro com nome repetido em outro estado precisa de "RJ" no termo)
+- arquitetura + design de interiores + Barra ✔ (10 resultados, 3 aproveitáveis, 2 Trilha A)
+- fisioterapia + pilates + Niterói ✔ (8 resultados, 3 aproveitáveis, 1 Trilha A — inclui o `{{product.name}}` mais antigo já visto, de dezembro/2025)
+- odontologia + implante + Botafogo ✔ (**só 4 resultados** — bairro fraco para o nicho; 2 aproveitáveis, nenhum Trilha A)
+- harmonizacao facial + Tijuca ✔ (**168 resultados**, quase todos Barra da Tijuca; 6 aproveitaveis, 5 Trilha A — nicho mais rico ate agora em dono-no-nome)
+- harmonização + botox + Botafogo ✔ (5 resultados, 1 aproveitável)
+- veterinária + Niterói ✔ (10 resultados, 3 aproveitáveis)
+- imobiliária + corretor + Tijuca ✔ (**30 resultados, 10 aproveitáveis, 6 deles Trilha A — o melhor nicho**)
+- imobiliária + apartamento à venda + Niterói ✔ (11 resultados, **5 aproveitáveis**)
+- veterinária + pet + Tijuca ✔ (15 resultados, 1 empresa dominante com 8 anúncios)
+- harmonização + estética avançada + Niterói ✔ (6 resultados, 1 aproveitável — nicho escreve bem)
+- energia solar + Barra/Recreio ✔ (zero)
+- odontologia + implante + Barra ✔ (5 resultados, 2 aproveitáveis)
+- fisioterapia e pilates + Tijuca ✔ (**26 resultados, 5 aproveitáveis** — corrige a varredura larga anterior)
+- academia + crossfit + Barra ✔ (zero)
+- advocacia + trabalhista + Barra ✔ (zero)
+- odontologia + implante + Madureira ✔ (1 resultado, aproveitável)
+- energia solar + Niterói ✔ (8 resultados, mas devolveu **imobiliárias** — 3 aproveitáveis)
+- imobiliária + apartamento à venda + Copacabana ✔ (**28 resultados, 9 aproveitáveis** — segundo melhor bairro do nicho)
+- imobiliária + corretor + Méier ✔ (3 resultados, **os 3 aproveitáveis e os 3 Trilha A**)
+- salão de beleza + barbearia + Tijuca ✔ (zero)
+- imobiliária + corretor + Botafogo ✔ (6 resultados, 2 novos aproveitáveis — inclui o caso `{{product.name}}`)
+- imobiliária + corretor + Campo Grande ✔ (3 resultados, 1 aproveitável)
+- imobiliária + apartamento + Madureira ✔ (5 resultados, 3 aproveitáveis, 2 Trilha A — inclui o caso `api.whatsapp.com`)
+- veterinária + Méier ✔ (8 resultados, **uma única empresa — CVP, já catalogada**; zero novo)
+- harmonização facial + estética + Méier ✔ (zero)
+- odontologia + implante + Niterói ✔ (**46 resultados, 11 aproveitáveis, 4 Trilha A** — segundo maior lote)
+- academia + musculação + Tijuca ✔ (23 resultados, 9 aproveitáveis, 4 Trilha A — abre o sub-nicho personal trainer)
+- veterinária + pet + Copacabana/Botafogo ✔ (1 resultado, e era imobiliária)
+- advocacia + advogado + Tijuca ✔ (25 resultados, mas 21 sao de um dentista — nicho fraco confirmado; revelou os 21 anuncios sem titulo do Dr. Daniel)
+- fisioterapia + pilates + Barra ✔ (21 resultados, 4 aproveitáveis, 1 Trilha A — Núcleo Saúde Novo Leblon com 4 anúncios sem título desde junho/2025)
+- odontologia + implante + Copacabana ✔ (22 resultados, 15 de uma só clínica bem feita; 3 aproveitáveis, os 3 Trilha A — Dr. José Ribamar sem título desde maio/2025)
+- imobiliária + corretor + Barra ✔ (**só 3 resultados** — o nicho não anuncia na Barra; 1 aproveitável, já catalogado)
+- veterinária + pet + Madureira/Campo Grande ✔ (**zero resultados**)
+- academia + musculação + Copacabana/Botafogo ✔ (**zero resultados**)
+- arquitetura + design de interiores + Tijuca ✔ (7 resultados, 2 aproveitáveis — 1 Trilha A)
+- harmonização + estética + Barra ✔ (25 resultados, mas metade é curso para profissional e rede de fora do Rio; 4 aproveitáveis, 2 Trilha A)
+- odontologia + implante + Tijuca ✔ (**66 resultados** — maior lote do nicho; 6 aproveitáveis, 1 Trilha A. Metade do resultado é Barra da Tijuca, não Tijuca: o termo "Tijuca" puxa os dois bairros e isso precisa ser filtrado na leitura)
+- odontologia + implante + Méier ✔ (**103 resultados, mas 29 dos 30 primeiros sao de UMA clinica** — Inovier, com o mesmo titulo repetido; 2 aproveitaveis)
+- harmonização facial + Botafogo ✔ (15/09 01h — 36 resultados, mas 13 são Clinic Cursos e 4 Espaço Facial, fora do ICP; Vênus Belle já catalogada. **2 novos: Dra. Victória Castelan (Trilha A) e Centro de Beleza Botafogo**)
+- óculos de grau + Copacabana ✔ (15/09 02h — **só 2 resultados**: Copacabana Eyewear, já catalogada, e Chilli Beans do Shopping Copacabana, franquia com título "instagram.com", fora do ICP. Ótica em Copacabana está esgotada)
+- tatuagem + Tijuca RJ ✔ (15/09 03h — **20 resultados, 6 aproveitáveis, 4 Trilha A**. Nicho novo e rico em dono-no-nome; título vazio é o defeito padrão. Puxa Barra da Tijuca junto)
+- tatuagem + Niterói ✔ (15/09 04h — **53 resultados, 6 aproveitáveis, 5 Trilha A**. Confirma o nicho: tatuador anuncia sozinho e erra no título. Elleva Salon e delicata são curso, fora)
+- tatuagem + Copacabana ✔ (15/09 05h — 12 resultados, 4 aproveitáveis, 2 Trilha A. Bairro mais raso que Niterói e Tijuca no nicho; **nicho tatuagem fecha os três bairros da Zona Sul/Niterói, faltam Méier, Barra e Campo Grande**)
+- tatuagem + Méier ✔ (15/09 06h — 7 resultados, 3 aproveitáveis, os 3 Trilha A. Todos com link no lugar do título. Bairro raso, mas rende dono-no-nome)
+- tatuagem + Barra da Tijuca ✔ (15/09 07h — 28 resultados, 6 novos aproveitáveis, 3 Trilha A; Giovana, Josi e rphbernardino já vieram na varredura de Tijuca. **Nicho tatuagem: 5 bairros varridos, 25 nomes, 15 Trilha A — falta só Campo Grande/Madureira**)
+- tatuagem + Campo Grande RJ ✔ (15/09 08h — 26 resultados, 6 aproveitáveis, 4 Trilha A. **Nicho tatuagem fechado nos 6 bairros: 31 nomes, 19 Trilha A.** Falta só Madureira, provavelmente raso)
+- tatuagem + Madureira ✔ (15/09 09h — **1 resultado**, título funcional. Bairro esgotado. **Nicho tatuagem concluído: 7 bairros, 31 nomes, 19 Trilha A**)
+- pet shop + banho e tosa + Niterói ✔ (15/09 10h — 5 resultados, 4 aproveitáveis, nenhum Trilha A. Anúncios muito antigos: um de 2024)
+- escola de idiomas + curso de inglês + Niterói ✔ (15/09 11h — 19 resultados, 4 aproveitáveis, 1 Trilha A. Niterói é o único bairro onde o nicho anuncia; Tijuca deu zero em 14/09)
+- fisioterapia + Méier ✔ (15/09 12h — 8 resultados, 4 aproveitáveis, 2 Trilha A. Nicho continua raso, mas o que anuncia erra)
+- veterinária + clínica veterinária + Barra ✔ (15/09 13h — 7 resultados, 3 aproveitáveis, 1 Trilha A. Nicho raso na Barra como nos outros bairros)
+- arquitetura + "projeto de arquitetura" + Barra ✔ (15/09 14h — **186 resultados, mas o termo puxa imobiliária**: 20 dos 25 primeiros são corretor e lançamento. 2 aproveitáveis de arquitetura, 1 Trilha A. Regra nova: em arquitetura, usar "arquiteta"/"escritório de arquitetura" em vez de "projeto")
+- energia solar + Campo Grande RJ ✔ (15/09 15h — **2 resultados**: SunVolts já catalogada e uma imobiliária de Minas. Solar não anuncia por bairro; a varredura de solar é estadual, já feita em 08/09)
+- academia + musculação + Niterói ✔ (15/09 16h — **52 resultados, 9 aproveitáveis, 4 Trilha A**. Niterói é o bairro mais rico do nicho; a rede Fábrica tem 3 páginas e todas erram)
+- odontologia + Madureira ✔ (15/09 17h — "implante dentário Madureira" deu **zero**; "dentista Madureira RJ" deu 8, 5 aproveitáveis, 3 Trilha A. Regra: em bairro raso, termo de PROFISSÃO funciona onde o de PROCEDIMENTO não acha nada)
+
+**Nicho excluído por decisão do Pablo (09/09):** móveis planejados e marcenaria — não varrer, não abordar, não registrar.
+
+**Ainda por varrer:** escola de idiomas, pet shop, ótica, estúdio de tatuagem; bairros Méier, Copacabana, Botafogo, Campo Grande, Madureira, Niterói.
+
+## Leitura que já dá para tirar
+Os nichos que mais gastam com anúncio ruim no Rio são, nesta ordem: **energia solar (124 anúncios ativos), odontologia, estética e veterinária**. Contabilidade, advocacia e fisioterapia quase não anunciam — para esses, o caminho é parceria ou o Maps, não a Biblioteca.
+
+---
+
+## Achados de 08/09, 16h25 — energia solar (124 anúncios ativos, o nicho mais rico até agora)
+
+**Por que solar é o melhor nicho para a mentoria:** ticket alto, dono opera o negócio, venda inteira pelo WhatsApp, e queimam muito dinheiro em anúncio ruim.
+
+| Empresa | Defeito | Página | Ver |
+|---|---|---|---|
+| **Energia Solar — SunVolts** | o título do anúncio é literalmente **"⭐⭐⭐⭐⭐"**, sem uma palavra | `406808232515769` | [anúncio](https://www.facebook.com/ads/library/?id=1429163679064429) |
+| **Eu Sollar Energy** | "Kit solar com entrega em até 48h" repetido 4 vezes dentro do mesmo título, em 3 anúncios | `1133220793215273` | [anúncio](https://www.facebook.com/ads/library/?id=1060719110050064) |
+| **PeG soluções Energéticas** | título é o nome da empresa seguido de "Orçamento" três vezes | `1044915618714036` | [anúncio](https://www.facebook.com/ads/library/?id=1046124078225855) |
+| **Fênix Energia Fotovoltaica** | 5 anúncios idênticos, mesmo título | `103241548531349` | [anúncio](https://www.facebook.com/ads/library/?id=1094216669722006) |
+| **Haja Energia Solar** | 4 anúncios idênticos, **com exatamente o mesmo título da Fênix** | `421576177716751` | [anúncio](https://www.facebook.com/ads/library/?id=2187946035100995) |
+| **JBR Soluções em Energia Solar** | "Quero economizar mais 👉🏻" em 4 anúncios, um deles com a frase repetida 3 vezes | `102433715749168` | [anúncio](https://www.facebook.com/ads/library/?id=975483085556644) |
+| Rio suner | "ENTRE EM CONTATO! ➡️" | `109594208009432` | — |
+| Wes energiasolar | "ENTRE EM CONTATO" | `777793935427863` | — |
+
+### A observação de ouro deste lote
+**Fênix e Haja usam o título idêntico:** "Instale Placas Solares, e chega de pagar caro na conta de luz!". Duas empresas diferentes, mesma frase, palavra por palavra. Ou é a mesma agência, ou é template copiado. Abertura:
+
+> Oi, aqui é o Pablo, do Rio. Não sou cliente. Reparei que o título do anúncio de vocês é exatamente igual, palavra por palavra, ao de outra empresa de solar aqui do Rio. Vocês usam agência? Porque no leilão vocês estão competindo com a mesma frase.
+
+### Quem está acertando em solar (referência)
+- **DEV Solar** — "💸 Sua conta de luz passa de R$ 500 todo mês? Instale Energia Solar e reduza em até 95%" (qualifica por valor de conta no próprio título)
+- **Triotec** — testa faixas de conta: "até R$ 350? / chega a R$ 470? / até R$ 675?" (segmentação por criativo dinâmico, bem feita)
+- **MWX Energia Solar** — "Faça o sol pagar sua conta de luz!"
+
+---
+
+## Achados de 08/09, 19h45 — arquitetura + Copacabana (nicho fraco: 6 anúncios, 1 empresa)
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Rafael Ramos Arquitetura e Interiores** — *Trilha A, dono no nome* | "Fale conosco \| Fale conosco \| Fale conosco" — a mesma chamada repetida 3 vezes no título. E **4 dos 6 anúncios estão sem título nenhum**, um deles com o título literalmente vazio: "Rafael Ramos Arquitetura e Interiores \|   \|  " | `828059224001697` | 23/06/2026 (2 meses e meio) | [anúncio](https://www.facebook.com/ads/library/?id=1594193535550255) |
+
+**Abertura pronta (Trilha A — o nome do dono está na página, então é ele quem lê):**
+
+> Rafael, aqui é o Pablo, do Rio. Não sou cliente e não vim vender nada agora. Vi os anúncios da sua arquitetura na Biblioteca do Facebook e reparei em duas coisas: em um deles o título é "Fale conosco" três vezes seguidas, e em quatro dos seis o título está vazio. Isso não é detalhe de estética — o título vazio é o que o Facebook usa para decidir para quem mostrar. Rodando desde junho assim. Você cuida disso sozinho ou tem agência?
+
+**Leitura do nicho:** arquitetura + Copacabana rende quase nada — 6 anúncios de uma única empresa. Junta-se a contabilidade, advocacia e fisioterapia na lista de nichos que não anunciam no Rio. Para arquitetura, o caminho é Instagram e indicação, não a Biblioteca.
+
+**Academia + Botafogo: zero anúncios ativos.** Combinação queimada, não repetir.
+
+---
+
+## Achados de 08/09, 20h10 — harmonização + Botafogo / odontologia + Méier
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Vênus Belle** (Trilha B — sem nome de dono) | "Vênus Belle \| Fale conosco \| Fale conosco \| Fale conosco \| Fale conosco" — a mesma chamada **quatro vezes** no mesmo título | `589688710904829` | 02/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1571355244374897) |
+
+**Abertura pronta:**
+
+> Oi, aqui é o Pablo, do Rio. Não sou cliente. Vi o anúncio de vocês na Biblioteca do Facebook e o título dele repete "Fale conosco" quatro vezes seguidas. Isso normalmente é campo preenchido errado na hora de subir, e quem vê não entende o que está sendo oferecido. Quem cuida dos anúncios aí?
+
+**Descartados nesta varredura (anúncio está correto, não abordar):**
+- *Prime Dente* (Méier) — título "Implante Dentário", certo. Único anúncio de odonto no Méier.
+- *Clinic Cursos* e *Espaço Facial* (Botafogo) — vendem curso e franquia, não é o ICP.
+
+**Leitura:** Méier e Botafogo têm pouquíssimo anúncio ativo nesses nichos. O volume do Rio está concentrado em Barra, Tijuca e Niterói — vale voltar as varreduras para lá e para nichos novos, em vez de continuar abrindo bairros pequenos.
+
+---
+
+## Achados de 08/09, 21h15 — veterinária + Niterói (o melhor lote até agora)
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Bicho D+ Veterinária e Pet Shop** | "Clínica Veterinária Bicho D+ em Niterói/RJ. \| Converse conosco \| Converse conosco \| Converse conosco \| Converse conosco \| Converse conosco \| Converse conosco \| Converse conosco" — **sete repetições** | `1255112617929642` | **01/06/2024 — 2 anos e 3 meses** | [anúncio](https://www.facebook.com/ads/library/?id=989751759165957) |
+| **Flip Dog Care** | um anúncio com o título **`api.whatsapp.com`** (URL crua) e outro com "Converse conosco" cinco vezes | `417931334744365` | 15/01/2025 — 20 meses | [anúncio](https://www.facebook.com/ads/library/?id=1288493340098133) |
+| **lerveticarai** | "lerveticarai \|   \|   \|   \|   \|  " — **cinco campos totalmente vazios**; outros 3 anúncios com "instagram.com" no título | `1010139942171723` | 12/05/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1678031390184088) |
+
+**O caso Bicho D+ é o mais forte da lista inteira.** Dois anos e três meses pagando por um
+título que repete "Converse conosco" sete vezes. Não é erro de gosto, é campo preenchido
+errado que ninguém nunca abriu para conferir. Abertura:
+
+> Oi, aqui é o Pablo, do Rio. Não sou cliente. Vi o anúncio da Bicho D+ na Biblioteca do
+> Facebook e o título dele repete "Converse conosco" sete vezes seguidas. Está assim
+> **desde junho de 2024** — dois anos pagando por um anúncio que ninguém abriu para conferir.
+> Quem cuida das campanhas de vocês hoje?
+
+**Descartados (motivo registrado):**
+- *Anhanguera Educacional* e *faculdadeancliveparj* — vendem curso de veterinária, não são o ICP.
+- *Veterinária Natalia Razal* (Trilha A, dono no nome) — título "Veterinária domiciliar", **correto**. Não abordar por defeito de anúncio; se um dia entrar, é por outro gancho.
+
+**Leitura:** veterinária em Niterói rendeu 3 empresas aproveitáveis em 10 anúncios — a melhor
+taxa de todas as combinações varridas. E os dois melhores casos são os mais **antigos**: quanto
+mais tempo o anúncio ruim está no ar, mais forte fica a abertura, porque o desperdício é
+mensurável em anos.
+
+---
+
+## Achados de 08/09, 22h15 — fisioterapia e pilates + Tijuca (26 anúncios)
+
+**Correção de uma varredura anterior:** eu tinha registrado "fisioterapia + pilates + Rio" como
+nicho fraco, com 3 resultados. Estava errado — o termo estava largo demais. Buscando **por bairro**,
+a Tijuca sozinha devolve **26 anúncios ativos**. Fisioterapia não é nicho fraco; a minha busca é que
+era ruim. Lição registrada: bairro no termo de busca muda a ordem de grandeza do resultado.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Núcleo Angela Beatriz Varella de Fisioterapia** — *Trilha A* | "Venha conhecer o Núcleo \| Venha conhecer o Núcleo \| Venha conhecer o Núcleo \| Venha conhecer o Núcleo" — 4 repetições; **outros 2 anúncios sem título nenhum** | `105253774677022` | 31/07/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2116132649331973) |
+| **Núcleo Saúde Novo Leblon** | 5 anúncios, **4 deles sem título**, no ar desde **junho de 2025** — 15 meses | `174772386011095` | 06/06/2025 | [anúncio](https://www.facebook.com/ads/library/?id=744432214582554) |
+| **Corpory Pilates & Cia.** | **9 anúncios ativos com o título idêntico**, quatro deles criados no mesmo segundo | `142389662633298` | 29/07/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2046353746241373) |
+| **Espaço Vida Barra** | "Aproveite nossa **promoção de Agosto**!" — ainda no ar em setembro | `415841588288319` | 24/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1029734440092383) |
+| **Espaço Saúde em Foco - Pilates** | título é só "Converse conosco" | `300054226709200` | 19/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1327494199466913) |
+
+**O caso Corpory é diferente dos outros e vale abordagem própria.** O título deles é *bom* —
+"Chega de adiar o cuidado com o seu corpo. Agende agora mesmo sua consulta." O defeito é
+**quantidade**: nove anúncios ativos com a mesma frase, competindo entre si no leilão. Abertura:
+
+> Oi, aqui é o Pablo, do Rio. Não sou cliente. Diferente do que eu costumo ver, o texto do
+> anúncio de vocês é bom. O problema é outro: vocês têm **nove anúncios ativos com o mesmo
+> título**, quatro criados no mesmo segundo. Eles disputam o mesmo leilão entre si, e isso
+> costuma subir o custo sem trazer mais paciente. Foi proposital ou veio da configuração?
+
+**Quem está acertando (referência, não abordar):**
+- *Clínica Fisio Saúde Total* — "Fisioterapia na Tijuca | Atendemos convênios". Diz o serviço, o bairro e remove a objeção de preço em sete palavras.
+
+---
+
+## Achados de 08/09, 23h10 — três combinações, uma empresa
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Cia. do Dente** (Madureira) | anúncio **sem título nenhum** — único anúncio de odontologia ativo no bairro | `286088274591845` | 01/07/2026 — 2 meses | [anúncio](https://www.facebook.com/ads/library/?id=4207217466080508) |
+
+**Zeradas nesta rodada, não repetir:**
+- academia + musculação + crossfit + Barra da Tijuca → **0 anúncios**
+- advocacia + trabalhista + Barra da Tijuca → **0 anúncios**
+
+**Leitura acumulada dos bairros.** Depois de varrer oito combinações com bairro no termo, o
+mapa fica claro: **o anúncio ativo no Rio se concentra em Tijuca, Niterói e Barra**, e nos
+nichos de saúde e estética. Bairro de periferia com nicho específico devolve zero ou um.
+
+Madureira e Campo Grande estão praticamente vazios na Biblioteca — não porque não haja
+empresa, mas porque essas empresas não anunciam no Meta. Para elas o caminho é o Maps ou o
+Instagram, não a Biblioteca.
+
+**Consequência prática:** parar de abrir bairro novo e voltar a varrer **nicho novo dentro
+de Tijuca, Niterói e Barra**, que é onde o dinheiro está.
+
+---
+
+## Achados de 09/09, 00h15 — imobiliárias em Niterói (nicho novo, achado por acidente)
+
+Busquei "energia solar Niterói" e a Biblioteca devolveu **imobiliárias** — o termo "solar"
+casou com nome de imóvel. O acidente rendeu mais que a busca pretendida.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Luis Imóveis** | **4 anúncios ativos, todos sem título nenhum** — o mais recente subiu ontem | `1606680692690344` | 04/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1758628865164703) |
+| **Katia Castro Imóveis** — *Trilha A* | 2 anúncios, ambos sem título | `924956747377696` | 26/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=890630563872749) |
+| **AGF Imóveis** | anúncio sem título | `104002578976940` | 28/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1622248665922127) |
+
+**Imobiliária entra na lista de nichos.** Não estava nas nove combinações da rotina e rendeu
+3 aproveitáveis de 8 resultados — taxa parecida com veterinária em Niterói, que era a melhor
+até agora. Corretor de imóveis também é ICP: decide sozinho, vende pelo WhatsApp, e vive de
+gerar contato.
+
+E o padrão é o mesmo dos outros nichos fracos em anúncio: **título vazio**, que é o defeito
+mais fácil de provar e o mais barato de corrigir.
+
+**Quem está acertando (referência, não abordar):**
+- *Evosolar — Usinas Fotovoltaicas*: "☀️ Energia Solar em Niterói por parcelas de R$ 257? Sim, é real!" — bairro, preço e objeção respondidos no título. É o modelo do que eu mostro no toque 3.
+
+**Nicho novo para varrer daqui pra frente:** imobiliária e corretor, nos três bairros que concentram.
+
+---
+
+## Achados de 09/09, 01h10 — imobiliárias na Tijuca e Barra: 30 anúncios, o nicho mais rico até agora
+
+Confirmando o acidente da rodada anterior: **imobiliária é o melhor nicho do Rio para este
+método.** 30 anúncios ativos, e a maioria com defeito grosseiro.
+
+### O novo primeiro lugar da lista
+
+**Alfaiataria Imobiliária** — página `100626021948017` — três anúncios, três defeitos diferentes,
+todos absurdos:
+
+| Anúncio | Título |
+|---|---|
+| [1](https://www.facebook.com/ads/library/?id=2915161268831676) | "Alfaiataria Imobiliária \| **ALPHAVILLE \| BARRA DA TIJUCA** ×9" — a mesma dupla nove vezes |
+| [2](https://www.facebook.com/ads/library/?id=5442966129261018) | "Alt Anúncios \| **Chat with us** ×10" — **em inglês**, e o nome da página saiu como "Alt Anúncios" |
+| [3](https://www.facebook.com/ads/library/?id=894822760022214) | "Alfaiataria Imobiliária \| **Fale conosco** ×10" |
+
+No ar desde 17/08 e 28/08. O segundo é o mais revelador: **"Chat with us" em inglês** numa
+imobiliária da Barra significa que ninguém trocou o texto padrão da ferramenta. Abertura:
+
+> Um dos anúncios da Alfaiataria está com o botão escrito em inglês — "Chat with us", repetido
+> dez vezes. Outro repete "ALPHAVILLE | BARRA DA TIJUCA" nove vezes seguidas.
+>
+> Aqui é o Pablo, do Rio. Não sou cliente. Vi na Biblioteca de Anúncios do Facebook, que é
+> pública. Isso costuma ser campo padrão que ninguém trocou na hora de subir.
+>
+> Quem cuida das campanhas de vocês hoje?
+
+### Os outros aproveitáveis
+
+| Empresa | Defeito | Página | Trilha |
+|---|---|---|---|
+| **Luciana Martins** | "Luciana Martins \|   \|   \|   \|   \|   \|   \|  " — 7 campos vazios | `369908146209899` | **A** |
+| **heitorosilvaa** | 3 anúncios, todos sem título | `1038103609392698` | B |
+| **Imóveis Corretora Gabriela Souza** | "Converse conosco" ×4 | `113398690442869` | **A** |
+| **Giselle Soares** | título é "instagram.com" | `128474343684112` | **A** |
+| **Fabio Vandré Imóveis** | anúncio sem título | `101993021307871` | **A** |
+| **Thiago Sampaio Imóveis** | anúncio sem título | `1091016734102743` | **A** |
+| **Vagner Carvalho Imóveis** | 3 anúncios idênticos, "COMISSÃO DOBRADA" | `102625572779947` | **A** |
+| **Re/max Sweet Home Tijuca** | "Você decide o tamanho do seu sucesso" ×3 | `104545662616081` | B |
+| **Imobiliária Remax Sky** | sem título | `101540486114539` | B |
+| **Lopes Rio** | sem título | `223439840855674` | B |
+
+**Seis dos dez são Trilha A** — corretor anuncia com o próprio nome. É a maior concentração de
+dono acessível que apareceu em qualquer nicho.
+
+**Observação sobre metade dos anúncios do nicho:** muitos são de **recrutamento** de corretor
+("Torne-se corretor RE/MAX", "VAGA VENDEDOR", "Alto potencial de ganhos"). Não descartar: quem
+recruta corretor também precisa gerar cliente, tem verba e está anunciando mal. Mas a abordagem
+muda — o gancho é o anúncio quebrado, não a vaga.
+
+**Conclusão do nicho:** imobiliária vira prioridade sobre saúde. Mais volume, mais defeito, mais
+dono acessível, e ticket que justifica investir em marketing.
+
+---
+
+## Achados de 09/09, 02h10 — imobiliárias em Niterói: o defeito é epidêmico no nicho
+
+Segunda varredura de imobiliária, agora em Niterói. **11 anúncios, 5 empresas aproveitáveis.**
+Confirma o padrão: no ramo imobiliário do Rio, título vazio é regra, não exceção.
+
+| Empresa | Defeito | Página | No ar desde | Trilha |
+|---|---|---|---|---|
+| **Julianazogbi.imoveis** | "Julianazogbi.imoveis \|   \|   …" — **dezoito campos vazios**. Recorde da lista | `1199844849869800` | 08/09/2026 | **A** |
+| **Carloscarlos6268** | **6 anúncios ativos, todos sem título**, desde **fevereiro de 2026** — 7 meses pagando | `811705948688029` | 12/02/2026 | B |
+| **Fabio Figueiredo4.0 Jorplan** | 2 anúncios, cada um com 10 campos vazios; o "4.0" no nome da página parece resto de template | `1244482262085895` | 06/09/2026 | **A** |
+| **invest.predial** | "Predial Invest Administradora De Imóveis Ltda" **dez vezes** — a razão social inteira, repetida | `559458157255367` | 02/09/2026 | B |
+| **Pamela Franco Imobiliária** | anúncio sem título | `102458189330090` | 04/09/2026 | **A** |
+
+**Julianazogbi assume o recorde de absurdo:** dezoito campos vazios num título só. Passa os
+dez da Alfaiataria e os sete da Bicho D+.
+
+**Carloscarlos6268 é o de melhor argumento:** seis anúncios, nenhum com título, **desde
+fevereiro**. Sete meses de verba num anúncio que o Facebook não sabe para quem mostrar.
+
+### O que este lote ensina sobre o nicho
+
+Duas varreduras de imobiliária, 41 anúncios, **15 empresas aproveitáveis**. Nenhum outro nicho
+chegou perto. E o defeito é quase sempre o mesmo — **campo de título vazio ou repetido** —, o
+que sugere causa comum: essas empresas sobem anúncio pelo botão de impulsionar ou por uma
+ferramenta de portal imobiliário que não preenche o campo.
+
+Isso é ótimo para a abordagem: **uma explicação serve para todos.** Não é erro de gosto de cada
+um, é uma falha de processo que o mercado inteiro repete — e que dá para corrigir em minutos.
+
+---
+
+## Achados de 09/09, 03h15 — veterinária na Tijuca: o caso que ensina a melhor abordagem
+
+15 anúncios. Uma empresa domina o lote, e o caso dela é o mais instrutivo da lista inteira.
+
+### CVP — Clínica Veterinária 24 horas · página `115599403204573`
+
+**Oito anúncios ativos, de julho de 2025 até maio de 2026.** Catálogo completo de defeitos:
+
+| Anúncio | Título | Desde |
+|---|---|---|
+| [1](https://www.facebook.com/ads/library/?id=24156582717304603) | **(vazio)** | 11/07/2025 — 14 meses |
+| [2](https://www.facebook.com/ads/library/?id=1506891823651194) | "CVP … \| **Converse conosco** ×4" | 19/08/2025 |
+| [3](https://www.facebook.com/ads/library/?id=758921773504183) | "CVP … \|   \|   \|   \|  " — 4 campos vazios | 19/08/2025 |
+| [4](https://www.facebook.com/ads/library/?id=1481149689791449) | "CVP … \| **Fale conosco** ×2" | 09/09/2025 |
+| [5](https://www.facebook.com/ads/library/?id=1696518768162335) | **(vazio)** | 19/05/2026 |
+| … | mais dois sem título | |
+| **[7](https://www.facebook.com/ads/library/?id=797459419418863)** | **"Clínica Veterinária Popular na Tijuca"** — **certo** | 07/08/2025 |
+
+**O sétimo muda tudo.** Eles sabem escrever um bom título: serviço, posicionamento e bairro em
+cinco palavras. Escreveram uma vez, em agosto de 2025 — e os outros sete continuam vazios ou
+repetindo "Converse conosco" desde então.
+
+Isso permite a melhor abordagem que apareceu até agora, porque **não é corretiva, é elogiosa**:
+
+> Um dos anúncios de vocês está escrito certo: "Clínica Veterinária Popular na Tijuca" — diz o
+> serviço, o posicionamento e o bairro em cinco palavras.
+>
+> Os outros sete estão vazios ou repetindo "Converse conosco". O mais antigo assim é de julho de 2025.
+>
+> Aqui é o Pablo, do Rio. Não sou cliente, vi na Biblioteca de Anúncios do Facebook. Quem cuida
+> das campanhas de vocês hoje?
+
+Ninguém se defende de um elogio. E a pergunta que fica na cabeça dele não é "esse cara está me
+criticando", é **"por que só um está certo?"** — que é exatamente a conversa que interessa.
+
+**Padrão novo para procurar em todos os outros:** empresa que tem **um anúncio bom no meio de
+vários quebrados**. É o prospect mais fácil de abordar e o mais fácil de ajudar, porque a
+correção é replicar o que ele mesmo já fez.
+
+**Quem está acertando (referência):** *Clínica Veterinária Xatô | Barra* e *Vet Pituka | Tijuca* —
+os dois usam nome + bairro, simples e correto.
+
+**Descartado:** *Esfera Condominial BNI Freguesia* — evento de networking, não é o ICP.
+
+## Achados de 09/09, 05h15 — estética em Niterói: nicho quase limpo, e a descoberta que explica tudo
+
+Só 6 anúncios, e **quase todos bem escritos**. Uma aproveitável:
+
+| Empresa | Defeito | Página | Trilha |
+|---|---|---|---|
+| **Dra Luciana Maudonet** | anúncio **sem título** | `124631214056856` | **A** |
+
+### A descoberta: para que servem aqueles campos separados por barra
+
+O anúncio da **MCP Esteticaediagnostico** finalmente explicou o mecanismo por trás de todos os
+defeitos que eu venho catalogando:
+
+> "MCP Esteticaediagnostico **|** Preenchimento Labial **|** Lábio Aparente **|** Uma boca modelada **|** Com Segurança"
+
+**Cada campo tem uma chamada diferente.** Não é repetição — são quatro títulos distintos, e o
+Facebook testa qual funciona melhor com cada pessoa.
+
+**É para isso que aqueles campos existem.** O anunciante escreve várias chamadas; a plataforma
+descobre a melhor. É um recurso bom.
+
+E é exatamente aí que está o defeito de todos os outros:
+
+| O que a empresa fez | O que acontece |
+|---|---|
+| Deixou os campos **vazios** | o Facebook não tem o que testar, e não sabe a quem mostrar |
+| Colou **a mesma frase** em todos | o teste existe mas compara a frase com ela mesma — resultado nenhum |
+| Colou **o nome da página** ou uma URL | o campo é preenchido com lixo, e o teste testa lixo |
+
+"Converse conosco" sete vezes na Bicho D+, "ALPHAVILLE | BARRA DA TIJUCA" nove vezes na
+Alfaiataria, dezoito campos vazios na Julianazogbi — **é tudo o mesmo erro, no mesmo lugar.**
+
+### Isso muda a mensagem, para melhor
+
+Deixa de ser "seu anúncio está errado" e vira **explicação de um recurso que ele está pagando
+e não usa**:
+
+> Reparei que o anúncio de vocês repete "Converse conosco" sete vezes seguidas no título.
+>
+> Aqui é o Pablo, do Rio. Não sou cliente. Aqueles campos servem para você escrever **chamadas
+> diferentes** — o Facebook testa qual funciona melhor com cada pessoa e usa a vencedora.
+> Repetindo a mesma frase, o teste compara ela com ela mesma e você perde o recurso.
+>
+> Uma clínica aqui de Niterói usa assim: "Preenchimento Labial | Lábio Aparente | Uma boca
+> modelada | Com Segurança". Quatro chamadas, quatro chances.
+>
+> Quem cuida das campanhas de vocês?
+
+É melhor por três motivos: **não acusa**, **ensina algo verdadeiro e útil na hora**, e **mostra
+um exemplo concreto de concorrente fazendo certo** — que é exatamente o toque 3 da cadência,
+antecipado para o toque 1.
+
+---
+
+## Achados de 09/09, 06h15 — odontologia na Barra (lote fino) e solar na Barra (zero)
+
+| Empresa | Defeito | Página | Desde |
+|---|---|---|---|
+| **SX Odonto** | o título é uma **nota de avaliação**: "5.0 ⭐527 - Clientes Satisfeitos". Não diz o que a clínica faz nem oferece nada — e o "527" está grudado na estrela | `724982247368775` | 08/09/2026 |
+| **Moreira Etchatz Odontologia** | 3 anúncios, todos com o mesmo "Agende a sua avaliação" — o campo de teste anulado | `298425250253903` | 28/06/2026 |
+| *BB Oral Clinic* | título com **duas perguntas retóricas** e 96 caracteres: "Você sabia que cada sorriso tem uma história? E cada pessoa merece ser cuidada de forma única?" | `469005133631773` | 28/08/2026 |
+
+**SX Odonto é o mesmo caso da SunVolts** (⭐⭐⭐⭐⭐ como título): a nota de avaliação ocupa o
+lugar da chamada. É prova social, que é bom — mas prova social **sozinha** não diz a quem o
+anúncio interessa, e o Facebook não tem palavra nenhuma para segmentar.
+
+**Zerada, não repetir:** energia solar + Barra/Recreio → **0 anúncios**.
+
+**Nota sobre a Barra:** as varreduras no bairro (odontologia 5, academia 0, solar 0)
+mostram que a Barra rende bem menos que Tijuca e Niterói. Ajuste de prioridade: **Tijuca e
+Niterói primeiro**, Barra só em nicho que já provou volume lá.
+
+---
+
+## Achados de 09/09, 07h10 — imobiliária em Copacabana (28 anúncios) e no Méier (3)
+
+### Copacabana — o bairro mais rico depois da Tijuca neste nicho
+
+| Empresa | Defeito | Página | Ver |
+|---|---|---|---|
+| **Leardi 213** | **"Converse conosco" oito vezes** no mesmo título — o caso mais limpo do lote | `102999765990005` | [anúncio](https://www.facebook.com/ads/library/?id=1067310575792394) |
+| **Lucrum Imobiliária** | título = nome da página + **dez campos vazios** — *e a mesma empresa tem outro anúncio escrito certo*, com 6 imóveis, preço e bairro em cada campo | `257904157663752` | [errado](https://www.facebook.com/ads/library/?id=4101778700119932) · [certo](https://www.facebook.com/ads/library/?id=1319563400157152) |
+| **BBotler Consultoria Imobiliária** | nome da página + **cinco campos em branco** | `1063948040142092` | [anúncio](https://www.facebook.com/ads/library/?id=1815818682932402) |
+| **Tânia Angarano Imóveis** (*Trilha A*) | 2 anúncios, **os dois sem título nenhum**, desde maio/2026 | `111045283973122` | [anúncio](https://www.facebook.com/ads/library/?id=2464002677338506) |
+| **Grace Lucas corretora** (*Trilha A*) | sem título, no ar desde **abril de 2026** — 5 meses | `391985074302962` | [anúncio](https://www.facebook.com/ads/library/?id=1996472854236293) |
+| **Nova Inova Imóveis** | 2 anúncios criados no mesmo dia, os dois sem título | `783742998152564` | [anúncio](https://www.facebook.com/ads/library/?id=1606765697625705) |
+| **A Fonte Imobiliária** | sem título | `117132131257606` | [anúncio](https://www.facebook.com/ads/library/?id=1638554411326068) |
+| **RLBimoveis.com** | sem título | `1466163353657560` | [anúncio](https://www.facebook.com/ads/library/?id=2254700801976008) |
+| **Elas no Rio Imóveis** | sem título, desde **fevereiro de 2026** | `1156217140907344` | [anúncio](https://www.facebook.com/ads/library/?id=1722956525383650) |
+| *Imóveis da Caixa em Bauru* | nome da página + 10 vazios — **mas é de Bauru, fora do Rio**. Não abordar | `2355780974680248` | — |
+
+**A Copa Azul Imobiliária Digital é o contraexemplo do bairro.** Quinze anúncios, todos escritos
+certo: cada campo é uma chamada diferente ("Endereço do Alto Padrão no Posto 5 | Amplo Living em
+3 Ambientes | Fluidez e Inteligência no Espaço | ..."), com metragem, preço e rua. É o exemplo
+concreto para citar na abordagem de todos os outros nove — mesmo bairro, mesmo nicho, mesma
+plataforma.
+
+### A Lucrum é o melhor caso de abordagem que apareceu até agora
+
+Ela tem **os dois anúncios ao mesmo tempo**: um com dez campos vazios e outro com seis imóveis
+descritos com preço e bairro. Não dá para dizer que ela não sabe — ela já fez certo uma vez.
+O que aconteceu é que alguém publicou um anúncio novo e não preencheu. Isso muda a mensagem:
+
+> Vocês têm um anúncio rodando com dez campos de título em branco — e outro, do mesmo perfil,
+> com os seis imóveis descritos, preço e bairro em cada campo.
+>
+> Aqui é o Pablo, do Rio. Não sou cliente. Vi na Biblioteca de Anúncios, que é pública. O
+> segundo está certo; o primeiro está pagando o mesmo dinheiro sem dizer nada ao Facebook.
+>
+> Quem publica os anúncios de vocês?
+
+**Não acusa de incompetência — mostra uma inconsistência entre dois anúncios da própria pessoa.**
+É o argumento mais difícil de descartar, porque a prova é o trabalho dela mesma.
+
+### Méier — nicho existe, volume não (3 anúncios)
+
+| Empresa | Defeito | Página | Ver |
+|---|---|---|---|
+| **Paulo Eduardo Corretor** (*Trilha A*) | sem título, no ar desde **maio de 2026** | `1186808151184012` | [anúncio](https://www.facebook.com/ads/library/?id=1071775201952730) |
+| **Roberto Corretor de Imóveis** (*Trilha A*) | o título é **o próprio nome da página** | `1100224619835170` | [anúncio](https://www.facebook.com/ads/library/?id=1567145608751397) |
+| **Thiago Pinheiro** (*Trilha A*) | "2 quartos 1 banheiro – Apartamento \|" — descreve o imóvel mas **não diz o bairro nem o preço**, e o segundo campo ficou vazio | `108132085109507` | [anúncio](https://www.facebook.com/ads/library/?id=854308967264295) |
+
+Os três são corretores autônomos com o nome na página: **Trilha A, os três**. Volume baixo, mas
+taxa de aproveitamento de 100% e conversa direta com o dono.
+
+**Zerada, não repetir:** salão de beleza e barbearia + Tijuca → **0 anúncios**. Salão no Rio
+anuncia no Instagram orgânico, não em tráfego pago.
+
+---
+
+## Achados de 09/09, 08h10 — imobiliária em Botafogo (6) e Campo Grande (3)
+
+### O melhor defeito que apareceu até hoje: Aliança Viva
+
+| Empresa | Defeito | Página | Ver |
+|---|---|---|---|
+| **Aliança Viva** | o título dos **três anúncios** é literalmente `{{product.name}}` — o código do catálogo **não foi substituído pelo nome do imóvel**. No ar desde **novembro de 2025**: dez meses | `679115075280146` | [anúncio](https://www.facebook.com/ads/library/?id=813904178147720) |
+| **paulofernandes_corretor** (*Trilha A*) | sem título, desde maio/2026 | `104975455816495` | [anúncio](https://www.facebook.com/ads/library/?id=1055308350830358) |
+| **Mob Rio Imobiliária** (Campo Grande) | título é só "Converse conosco" | `103216268041788` | [anúncio](https://www.facebook.com/ads/library/?id=2074637513145614) |
+| *Escolha seu LAR* | "Marque sua entrevista" — anúncio de **vaga de emprego**, não de imóvel. Não abordar | `108545295090104` | — |
+| *Pé na Areia* | "O Vivere Home Resort redefine o conceito de morar bem" — **escrito certo**, contraexemplo | `453385538544027` | — |
+
+**Por que a Aliança Viva é o caso mais forte da lista inteira.** Todos os outros defeitos são
+julgamento — "esse título está fraco", "essa frase se repete". Esse não: `{{product.name}}` é um
+**marcador de código que apareceu no lugar do nome do imóvel**. Não tem como discordar, não tem
+como dizer que era proposital, e qualquer pessoa entende olhando. É a prova mais limpa possível
+de que ninguém abriu a campanha para conferir — por dez meses.
+
+> Os três anúncios de vocês estão com `{{product.name}}` no título, no lugar do nome do imóvel —
+> assim mesmo, com as chavinhas. Está no ar desde novembro.
+>
+> Aqui é o Pablo, do Rio. Não sou cliente e não vim vender nada. Vi na Biblioteca de Anúncios do
+> Facebook, que é pública. É o código do catálogo que não foi trocado pelo dado do imóvel.
+>
+> Quem cuida das campanhas de vocês hoje?
+
+**Botafogo e Campo Grande são bairros finos neste nicho** (6 e 3 anúncios), mas Botafogo devolveu
+o melhor achado de todos. Volume baixo não é sinônimo de lote ruim.
+
+**Repetidos, já catalogados:** Alfaiataria Imobiliária e RLBimoveis.com voltaram nas duas buscas.
+
+---
+
+## Achados de 09/09, 09h10 — imobiliária em Madureira (5)
+
+| Empresa | Defeito | Página | Ver |
+|---|---|---|---|
+| **Paulo Fernandes** (*Trilha A*) | o título do anúncio é **`api.whatsapp.com`** — a URL crua do link colada no campo da chamada. No ar desde junho/2026 | `1182156948322558` | [anúncio](https://www.facebook.com/ads/library/?id=1597923598671412) |
+| **Miguel Arthur** (*Trilha A*) | "2 quartos 2 banheiros Casa \|" — descreve o imóvel mas **não diz bairro nem preço**, e o segundo campo ficou vazio | `803804566148957` | [anúncio](https://www.facebook.com/ads/library/?id=1668041521992097) |
+| **Casa Forte Negócios Imobiliários** | sem título, desde **abril de 2026** | `168591979868989` | [anúncio](https://www.facebook.com/ads/library/?id=983954294255679) |
+
+**A Lucrum apareceu de novo — e piora o caso dela.** Um terceiro anúncio, este também escrito
+certo, com seis salas e apartamentos descritos com bairro, cômodos e proximidade de metrô e BRT.
+Agora são **dois anúncios corretos contra um com dez campos vazios**. O argumento fica ainda mais
+difícil de contestar: não é falta de saber, é um anúncio que ninguém revisou.
+
+**O caso `api.whatsapp.com` é irmão do `{{product.name}}`.** Os dois são a mesma falha — um dado
+técnico apareceu onde deveria estar texto para pessoa. Já tinha aparecido na Flip Dog Care
+(Niterói); é o terceiro caso, o que sugere ser um erro comum de quem monta o anúncio pelo celular
+colando o link de WhatsApp no campo errado. Abertura:
+
+> O título do anúncio de vocês está aparecendo como "api.whatsapp.com" — o endereço do link, no
+> lugar da chamada.
+>
+> Aqui é o Pablo, do Rio. Não sou cliente. Vi na Biblioteca de Anúncios do Facebook, que é
+> pública. O link está certo; o que colaram no campo do título foi o endereço dele.
+>
+> Quem monta os anúncios de vocês?
+
+**Madureira:** 5 anúncios, 3 aproveitáveis, **2 deles Trilha A**. Bairro fino mas com aproveitamento alto,
+igual ao Méier.
+
+---
+
+## Achados de 09/09, 10h10 — odontologia em Niterói (46 anúncios, o segundo maior lote)
+
+| Empresa | Defeito | Página | Ver |
+|---|---|---|---|
+| **Estética Dental** | **dois anúncios** com o título `api.whatsapp.com` — o endereço do link no lugar da chamada, desde junho/2026 | `429715380420674` | [anúncio](https://www.facebook.com/ads/library/?id=1409786027836361) |
+| **Oral Sin - Niterói** | "📅 AGENDE SUA AVALIAÇÃO" **três vezes** no mesmo título, em **dois anúncios** | `546342759626595` | [anúncio](https://www.facebook.com/ads/library/?id=990724660436000) |
+| **Dr. Eric Daldegan** (*Trilha A*) | ">>>> CLIQUE AGORA NO BOTÃO E FALE CONOSCO 📞" — quatro sinais de maior, caixa alta e nenhuma palavra sobre o tratamento | `949455194924112` | [anúncio](https://www.facebook.com/ads/library/?id=2048338202488270) |
+| **My Planning Center** | nome da página + **sete campos vazios** | `119396324597448` | [anúncio](https://www.facebook.com/ads/library/?id=1499222508560074) |
+| **Dr. Francisco Villela** (*Trilha A*) | sem título | `622978961080203` | [anúncio](https://www.facebook.com/ads/library/?id=2139905630263717) |
+| **Dr. Marcelo Braga — MB Odontologia** (*Trilha A*) | sem título, desde **abril de 2026** | `1406509999563401` | [anúncio](https://www.facebook.com/ads/library/?id=1271190704588310) |
+| **Dr. Bruno Chies** (*Trilha A*) | "➡️ QUERO SABER MAIS" — é o texto do botão, não uma chamada | `109526547345608` | [anúncio](https://www.facebook.com/ads/library/?id=1371710094923419) |
+| **Inovar Odontologia Especializada** | 2 anúncios, os dois **sem título** | `112105558567793` | [anúncio](https://www.facebook.com/ads/library/?id=2726395607818300) |
+| **Clínica Novadent** | sem título | `1568648976554815` | [anúncio](https://www.facebook.com/ads/library/?id=2020100531960812) |
+| **Segalote Odontologia** | o título é "Saiba mais" | `1049872011766056` | [anúncio](https://www.facebook.com/ads/library/?id=1551273293415407) |
+| **Odonto Uai Niterói** | o título é "Odonto Niterói" — o próprio nome | `305910773318377` | [anúncio](https://www.facebook.com/ads/library/?id=4083431875126083) |
+
+### Os dois contraexemplos deste lote são os melhores do arquivo inteiro
+
+**Nitz Odontologia** (`110843421252840`) escreve chamadas que falam do problema da pessoa, não
+do serviço:
+
+> "Quando foi a última vez que você mordeu um pão sem medo?"
+> "Se você precisa de adesivo pra prender a prótese, esse vídeo é pra você."
+> "Você já reparou que o rosto vai mudando quando faltam dentes?"
+
+**Nord Odontologia** (`390757374110778`) usa a chamada para tirar o medo do preço:
+
+> "Orçamento só depois do exame"
+> "Implante planejado, em Niterói"
+
+São os dois exemplos para citar em qualquer abordagem de odontologia em Niterói: mesma cidade,
+mesmo nicho, mesma verba, resultado oposto. *(A Nitz também repete "Seu sorriso merece um cuidado
+completo!" em quatro anúncios — nem ela acerta em todos.)*
+
+**`api.whatsapp.com` é agora o quarto caso** (Flip Dog Care, Paulo Fernandes, e os dois da Estética
+Dental). Deixou de ser curiosidade e virou **padrão**: quem monta o anúncio pelo celular cola o
+link do WhatsApp no campo do título. Vale uma varredura própria por esse termo.
+
+**Niterói + odontologia: 46 anúncios, 11 aproveitáveis, 4 deles Trilha A.** Junto com imobiliária
+na Tijuca, é o lote mais rico catalogado.
+
+---
+
+## Achados de 09/09, 11h10 — academia na Tijuca (23) e veterinária em Copacabana/Botafogo (1)
+
+| Empresa | Defeito | Página | Ver |
+|---|---|---|---|
+| **Academia Workout Tijuca** | **três anúncios** com o título `api.whatsapp.com` — o mais recente é de **hoje** | `295514937138805` | [anúncio](https://www.facebook.com/ads/library/?id=1242800484664450) |
+| **Ultra Academia Tijuca** | 2 anúncios com "Converse conosco" e 1 sem título nenhum | `1219307594595488` | [anúncio](https://www.facebook.com/ads/library/?id=941859738929160) |
+| **Academia Physical** | o título é "Matricule-se! 👉" — o texto do botão no lugar da chamada | `424442594249301` | [anúncio](https://www.facebook.com/ads/library/?id=1018615397470438) |
+| **Academia Shidokan** | sem título, desde **abril de 2026** | `646262532166179` | [anúncio](https://www.facebook.com/ads/library/?id=941267915432223) |
+| **Botoclinic Tijuca** | sem título | `630467393479720` | [anúncio](https://www.facebook.com/ads/library/?id=1796229024680175) |
+| **Dr. Bruno Garrett Bento** (*Trilha A*) | sem título | `1182456194958287` | [anúncio](https://www.facebook.com/ads/library/?id=1505995594619158) |
+| **leopontes_personal** (*Trilha A*) | sem título, no ar desde **novembro de 2025** — dez meses | `920114724508108` | [anúncio](https://www.facebook.com/ads/library/?id=4134609460119693) |
+| **will.jad** (*Trilha A*) | sem título | `100660851527321` | [anúncio](https://www.facebook.com/ads/library/?id=1020841954330762) |
+| **musahmovimento** (*Trilha A*) | sem título | `1356572130861878` | [anúncio](https://www.facebook.com/ads/library/?id=1505237654699323) |
+| *Body Coach Club* | "A melhor academia da Tijuca está mais perto do que você imagina! 💪🔥" — superlativo sem prova, mas **não é campo vazio**; caso fraco | `122018874138387` | — |
+
+### O contraexemplo do lote: Body Line Academias
+
+> **"Funcional e Musculação Para 3ª Idade"**
+
+Seis anúncios, quatro com esse título. Ele diz **exatamente para quem o anúncio é** — e é isso
+que o Facebook usa para segmentar. Uma academia que anuncia "musculação" disputa com todas as
+outras; uma que anuncia "para 3ª idade" fala com quem procura isso e some do leilão do resto.
+
+*(Os outros dois anúncios da Body Line estão sem título — nem ela acerta em todos.)*
+
+### `api.whatsapp.com` chegou ao quinto anunciante, e o mais recente é de hoje
+
+Flip Dog Care, Paulo Fernandes, Estética Dental (×2) e agora **Academia Workout Tijuca (×3)**.
+O anúncio de hoje, publicado hoje, tem o endereço do link no lugar da chamada. Já não é lote
+antigo: é erro que continua acontecendo agora, o que sustenta a abordagem "reparei hoje".
+
+### Personal trainer é um sub-nicho novo e todo Trilha A
+
+leopontes_personal, will.jad, musahmovimento e Dr. Bruno Garrett Bento: quatro perfis pessoais
+anunciando, **todos sem título**, todos com o dono no nome. O do leopontes está assim desde
+**novembro de 2025**.
+
+**Zerada, não repetir:** veterinária + Copacabana/Botafogo → 1 resultado, e era imobiliária.
+
+## Achados de 09/09, 13h10 — advocacia na Tijuca (25), e o caso do Dr. Daniel fica muito maior
+
+A busca por advocacia devolveu pouca advocacia — mas trouxe de volta um nome que já está na
+nossa lista, com uma dimensão que a gente não conhecia.
+
+### Dr. Daniel Pinheiro — Odonto Barra: 21 anúncios, todos sem título, desde março de 2025
+
+Página `157469857458079`. Ele já estava marcado como **Trilha A** (o dono no nome). O que mudou é
+o tamanho da prova: são **vinte e um anúncios ativos**, e **nenhum deles tem título**. O mais
+antigo começou a rodar em **13 de março de 2025** — dezoito meses.
+
+| O que sabíamos | O que sabemos agora |
+|---|---|
+| "um anúncio sem chamada" | **21 anúncios, todos sem chamada** |
+| sem data | **desde março de 2025** |
+
+Isso deixa de ser um deslize e vira o modo como a operação inteira dele funciona. E torna a
+abordagem muito mais fácil, porque não depende de interpretação:
+
+> Dr. Daniel, seus 21 anúncios estão no ar sem título nenhum — o campo da chamada está vazio em
+> todos, e o mais antigo começou em março do ano passado.
+>
+> Aqui é o Pablo, do Rio. Não sou paciente e não vim vender nada. Vi na Biblioteca de Anúncios do
+> Facebook, que é pública, e a data de início aparece lá. Sem esse campo o Facebook não tem
+> palavra nenhuma para decidir a quem mostrar o anúncio — ele mostra para quem sobra.
+>
+> Quem cuida das campanhas do consultório hoje?
+
+**Ele passa a ser o primeiro da lista.** Vinte e um anúncios sem título por dezoito meses é a
+maior evidência de dinheiro parado que catalogamos, e ele é Trilha A — conversa direta com o dono.
+
+### Os outros do lote
+
+| Empresa | Defeito | Página |
+|---|---|---|
+| **cmw_advogados** | 2 anúncios sem título, desde maio/2026 | `100881269519103` |
+| **Hexabull Design** | nome da página + **"Fale conosco" seis vezes** | `892893547235282` |
+| *compro.ouro* | sem título — fora do perfil, não abordar | `1159585447229455` |
+
+**Advocacia na Tijuca é nicho fraco de novo:** 25 resultados, mas 21 são de um dentista e um é de
+compra de ouro. Advogado no Rio não anuncia — confirma o que já tínhamos visto.
+
+---
+
+## Achados de 09/09, 11h20 — fisioterapia e pilates na Barra: 21 anúncios, 4 aproveitáveis
+
+Confirma a leitura da Tijuca: fisioterapia e pilates **anunciam** quando o bairro é o certo. Na
+Barra, 21 anúncios ativos de 8 páginas.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Núcleo Saúde Novo Leblon** | **5 anúncios, 4 sem título nenhum** — o mais antigo desde **06/06/2025**, quinze meses | `174772386011095` | 06/06/2025 | [anúncio](https://www.facebook.com/ads/library/?id=1497994158251028) |
+| **Lavitá Barra da Tijuca** (+ página "Lavita") | 3 anúncios em duas páginas, **todos sem título**; o mais antigo desde 28/04/2026 | `246700075197222` / `1645850118961291` | 28/04/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1734123697868695) |
+| **Corpory Pilates & Cia.** | **10 anúncios iguais**, o mesmo título "Chega de adiar o cuidado com o seu corpo…" repetido em nove, e um sem título | `142389662633298` | 30/07/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1780975673235431) |
+| **ricardomoreirapilates** — *Trilha A* | anúncio sem título, subiu ontem | `112132074821292` | 08/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1431233052229936) |
+| *Espaço Vida Barra* | "Aproveite nossa promoção de **Agosto**!" ainda no ar em 9 de setembro | `415841588288319` | 24/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1029734440092383) |
+
+**Quem está acertando (referência, não abordar):** *Dr. Bruno Garrett* — "Agendar Consulta
+Particular": verbo, objeto e o filtro de preço no título.
+
+### O melhor caso do lote: Núcleo Saúde Novo Leblon
+
+Já estava no arquivo com um anúncio; agora são **quatro sem título**, o que muda o peso da prova.
+Quatro anúncios sem título há quinze meses, no bairro mais caro da cidade para anunciar. Abertura:
+
+> Quatro dos cinco anúncios do Núcleo Saúde estão no ar sem título — o campo da chamada está
+> vazio, e o mais antigo começou em junho do ano passado.
+>
+> Aqui é o Pablo, do Rio. Não sou paciente. Vi na Biblioteca de Anúncios do Facebook, que é
+> pública, e a data de início aparece lá. Sem esse campo o Facebook mostra o anúncio para quem
+> sobra, não para quem procura fisioterapia no Leblon.
+>
+> Quem cuida das campanhas da clínica hoje?
+
+Para a **Corpory**, a prova é outra e igualmente simples: dez anúncios idênticos competem entre
+si no mesmo leilão — o Facebook cobra dez vezes para aprender uma coisa só.
+
+---
+
+## Achados de 09/09, 12h10 — odontologia em Copacabana: a busca puxou a Zona Oeste, mas rendeu três donos
+
+O termo "implante Copacabana" devolveu 22 anúncios, e **15 são da Odontovic** — anunciando
+Campo Grande e Madureira com título certo em todos ("Implantes dentários em Campo Grande",
+"Agende sua avaliação"). É referência, não alvo. O que sobrou é pequeno, mas todo Trilha A:
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Dr. Jose Ribamar — Odontologia** — *Trilha A* | **2 anúncios sem título nenhum**, o mais antigo desde **07/05/2025** — dezesseis meses | `508550439274583` | 07/05/2025 | [anúncio](https://www.facebook.com/ads/library/?id=644983671707529) |
+| **Dra. Gisele Nunes — Lipo de Papada** — *Trilha A* | anúncio sem título desde 27/05/2026 | `829278363604384` | 27/05/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2220209618751945) |
+| **Dr. João Carvalho — Reabilitação Oral** — *Trilha A* | anúncio sem título, subiu ontem | `369739679776051` | 08/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1824623012041002) |
+
+**Quem está acertando (referência, não abordar):** *Odontovic* — quinze anúncios, cada um com
+o bairro no título. É o exemplo para mostrar ao Dr. Ribamar no toque 3.
+
+Abertura para o Dr. Ribamar (a mesma estrutura do Dr. Daniel, prova na primeira linha):
+
+> Dr. Ribamar, seus dois anúncios estão no ar sem título — o campo da chamada está vazio nos
+> dois, e o mais antigo começou em maio do ano passado.
+>
+> Aqui é o Pablo, do Rio. Não sou paciente. Vi na Biblioteca de Anúncios do Facebook, que é
+> pública, e a data aparece lá. Sem esse campo o Facebook mostra para quem sobra.
+>
+> Quem cuida das campanhas do consultório hoje?
+
+---
+
+## Achados de 09/09, 13h15 — harmonização e estética na Barra: nicho poluído por curso
+
+25 anúncios, e a maior parte **não é clínica**: são cursos para profissionais (`HOF Na Pratica`,
+`nesa cursos`, `Prime Doctor Club`, `Dr. GustavoMartins`) e uma rede gaúcha (`Huff Life`) que
+anuncia no Rio. Sobram quatro reais:
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Revera Clinic — Estética e Emagrecimento** | 2 anúncios, **"Converse conosco"** nos dois | `1218655984668272` | 01/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1409267641136191) |
+| **Clínica doutora da estética Barra** | **"Converse conosco"** — o campo padrão do botão | `1172311762634449` | 22/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2503937473365534) |
+| **Huff Life — Barra da Tijuca** | 2 anúncios **sem título nenhum**, no ar desde **20/01/2026** — quase 8 meses | `946448845214327` | 20/01/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2620023151703795) |
+| **Dra Priscila Ribeiro Clínica** — *Trilha A* | anúncio sem título | `101215499580409` | 24/09/2025 | [anúncio](https://www.facebook.com/ads/library/?id=1476761290196823) |
+| **enfa_miriansilva** — *Trilha A* | "Agende sua avaliação" repetido **três vezes** no mesmo título | `102612922618437` | 02/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1109464114741765) |
+
+**Quem está acertando (referência):** *Royal Face — Barra da Tijuca*, "Agende a sua avaliação
+grátis" — verbo, objeto e a objeção de preço resolvida em cinco palavras.
+
+**Leitura do nicho:** harmonização na Barra é o primeiro nicho onde o concorrente do Pablo aparece
+— quatro páginas vendendo **curso de harmonização para profissional de saúde**, com anúncio bem
+escrito. Quem vende para dentista e biomédico já entendeu que precisa de título. Isso reforça a
+regra: quanto mais o nicho depende de venda direta, melhor o anúncio; clínica que vive de
+indicação escreve mal.
+
+---
+
+## Achados de 09/09, 15h15 — imobiliária na Barra: o nicho campeão não anuncia lá
+
+Três anúncios no total. Depois de sete bairros com dez, vinte, trinta resultados, a Barra devolve
+**três** — e nenhum novo aproveitável:
+
+| Empresa | Situação |
+|---|---|
+| **Luciana Martins** | nome da página + **sete campos vazios** — já catalogada em Copacabana |
+| *Equipe Luiz Cardozo* | anúncio de **vaga de emprego** para corretor, título bem escrito. Não é alvo |
+| *Malvino Gomes Corretor* | "OPORTUNIDADE UNICA NA ABM" — sem acento, mas é título de verdade |
+
+**O que isso ensina:** imobiliária na Barra vende por outro caminho — plantão de lançamento,
+parceria com construtora, indicação de porteiro. Quem anuncia lá é a construtora, não o corretor.
+
+**Fecha o mapa do melhor nicho.** Imobiliária e corretor, por bairro:
+
+| Bairro | Resultados | Aproveitáveis |
+|---|---|---|
+| Copacabana | 28 | 9 |
+| Tijuca | 30 | 10 |
+| Niterói | 11 | 5 |
+| Madureira | 5 | 3 |
+| Botafogo | 6 | 2 |
+| Méier | 3 | 3 |
+| Campo Grande | 3 | 1 |
+| **Barra** | **3** | **0 novos** |
+
+Oito bairros varridos, o mapa está completo. **Parar de abrir bairro em imobiliária** — a partir
+daqui, ou é nicho novo, ou é abordar os 33 que já estão catalogados.
+
+---
+
+## Achados de 09/09, 16h15 — três varreduras, duas vazias
+
+**Veterinária em Madureira e Campo Grande: zero.** **Academia em Copacabana e Botafogo: zero.**
+Confirma o padrão: nicho de bairro popular não anuncia no Meta, e academia só anuncia na Tijuca.
+
+**Arquitetura na Tijuca: 7 resultados**, e a maioria nem é arquitetura — são imobiliárias e um
+lançamento da Barra. Dois aproveitáveis:
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Hiago Santos Arquitetura** — *Trilha A* | anúncio **sem título nenhum** | `1216159181584232` | 03/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2195659484334612) |
+| **Vintage Imobiliária** | 2 anúncios com **"Converse conosco"** — o campo padrão | `339594765901660` | 08/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1468779885079335) |
+| *Junior Dal Mora Imóveis* | sem título — imobiliária, já é nicho mapeado | `103445278205130` | 08/09/2026 | — |
+
+**Quem está acertando (referência):** *Green Park Barra* — "O novo ícone residencial da Barra da
+Tijuca". É lançamento com verba de construtora, não é alvo, mas serve de exemplo de título.
+
+### Leitura desta rodada
+
+Três varreduras, duas vazias. **O mapa do Rio está chegando ao fim** — os nichos que anunciam já
+foram todos abertos, e os bairros populares não têm anunciante de serviço no Meta.
+
+**Consequência:** a partir daqui o valor não está em varrer mais, está em **abordar os 40 que já
+estão catalogados**. Varredura vira manutenção semanal, não tarefa de hora em hora.
+
+---
+
+## Achados de 09/09, 20h15 — veterinária no Méier: bairro novo, empresa velha
+
+Oito anúncios ativos, **todos da mesma página**: CVP — Clínica Veterinária 24 horas
+(`115599403204573`), que já está no arquivo. Nenhuma empresa nova.
+
+Vale registrar o tamanho do defeito, porque ela é hoje o caso mais gritante da lista inteira:
+"Converse conosco" **quatro vezes** num título, "Fale conosco" **duas vezes** em outro, um
+título que é o nome da página seguido de **quatro campos vazios**, e três anúncios **sem título
+nenhum** — o mais antigo no ar desde **julho de 2025**, catorze meses. Oito anúncios pagos, e o
+único que tem chamada escrita ("Clínica Veterinária 24h no Méier") é justamente o mais recente.
+
+**Leitura:** o Méier não tem mercado de veterinária no Meta — tem *um* anunciante. Confirma o que
+a rodada anterior já dizia: o mapa fechou. **Esta foi a última varredura de hora em hora.** A
+partir daqui a varredura passa a ser semanal e o trabalho é abordar os ~40 já catalogados.
+
+---
+
+## Achados de 11/09, 15h20 — odontologia + implante + Tijuca (66 anúncios)
+
+O maior lote que o nicho já devolveu. **Metade não serve:** o termo "Tijuca" puxa
+também a Barra da Tijuca, que é outro bairro e outro público. Lição para as
+próximas varreduras: em "Tijuca" é preciso separar os dois na leitura, não no termo.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Doutor Sorriso - Tijuca RJ** | **11 anúncios ativos e os 11 com o mesmo título: "Converse conosco"**. Junta os dois defeitos — título que não diz nada e quantidade disputando o próprio leilão | `992383317291785` | 11/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1022051644007713) |
+| **Dr. Rhuan Salgado** — *Trilha A* | título **"Chat with us"**, em inglês, num anúncio para paciente do Rio. É o texto padrão do botão que ninguém trocou | `101285671966616` | 04/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=3347323702136540) |
+| **Clínica Odontológica Oral Unic Tijuca** | "Clique Aqui e Fale Conosco!" — e o nome da página tem **"Tiijuca"**, com dois ii | `105347062291972` | 12/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1399492002105769) |
+| **Bel Sorriso Tijuca - RJ** | anúncio **sem título nenhum** | `102607924547785` | 25/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1798187101174114) |
+| **Clínica Moretti & Carraro Implantes** | anúncio **sem título nenhum** | `661586927030361` | 01/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2326256011241930) |
+| **SX Odonto** | título é **"5.0 ⭐527 - Clientes Satisfeitos"** — estrela e número no lugar da frase; não diz serviço nem bairro | `724982247368775` | 10/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1385593973164082) |
+
+**O caso Doutor Sorriso é o melhor desta rodada** e a abertura escreve sozinha:
+
+> Oi, aqui é o Pablo, do Rio. Não sou paciente. Vi que vocês têm **onze anúncios
+> ativos agora**, e os onze com o mesmo título: "Converse conosco". Dois problemas
+> aí: o título não diz o que vocês fazem nem que é na Tijuca, e onze anúncios
+> iguais disputam o mesmo leilão entre si — costuma subir o custo sem trazer mais
+> paciente. Isso veio da configuração ou foi proposital?
+
+**Dr. Rhuan Salgado (Trilha A, abordagem direta):**
+
+> Dr. Rhuan, aqui é o Pablo, do Rio. Não sou paciente, e não vim vender nada agora.
+> O seu anúncio está no ar com o título **"Chat with us"**, em inglês — é o texto
+> padrão do botão, que costuma passar batido na hora de publicar. Quem vê no
+> feed não entende que é consultório no Rio. Quer que eu te mostre onde troca?
+
+**Quem está acertando (referência, não abordar):** *BB Oral Clinic* — "Implante
+Dentário na Barra da Tijuca/RJ: Recupere o Prazer de Sorrir e Mastigar". Serviço,
+bairro e benefício numa linha só. (Mas eles também rodam onze cópias de um
+anúncio com pergunta longa — acertaram num, erraram no outro.)
+
+---
+
+## Achados de 11/09, 16h15 — odontologia + implante + Méier (103 anúncios)
+
+O caso mais extremo de repetição que a varredura já encontrou.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Inovier Odontologia Avançada** | **29 dos 30 primeiros resultados são dela**, todos com o título idêntico: "IMPLANTES COM CONDIÇÕES FACILITADAS!". Vinte e nove anúncios criados no mesmo segundo, disputando o mesmo leilão entre si | `1645759772381085` | 01/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1989874638392843) |
+| **Clínica Odontológica Prime Dente** | título é só o nome do serviço, "Implante Dentário" — não diz bairro, preço, prazo nem diferencial | `1741709459390027` | 03/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1528326089064139) |
+
+**Por que a Inovier é a melhor abordagem da semana.** Não é um erro de texto, é
+um erro de estrutura, e custa dinheiro todo dia. Vinte e nove cópias do mesmo
+anúncio competem entre si no leilão: o Meta cobra mais caro para entregar cada
+uma, e o desempenho fica picado em vinte e nove pedaços pequenos demais para
+qualquer um deles sair da fase de aprendizado. É exatamente o mecanismo que já
+está registrado em LICOES sobre dez anúncios num conjunto — aqui, vinte e nove.
+
+> Oi, aqui é o Pablo, do Rio. Não sou paciente, e não vim vender nada agora.
+> Vocês têm **vinte e nove anúncios ativos agora, todos com o mesmo título** —
+> "IMPLANTES COM CONDIÇÕES FACILITADAS!" — e criados no mesmo segundo. Eles
+> disputam o mesmo leilão entre si: o custo sobe e nenhum junta dado suficiente
+> para o Meta aprender quem converte. Normalmente isso vem da configuração, não
+> de escolha. Quer que eu te mostre onde se ajusta?
+
+**Nota de método:** "103 resultados" parecia o maior lote do nicho até eu ler os
+nomes. Volume na Biblioteca não é volume de anunciantes — uma clínica sozinha
+pode encher a página inteira. Contar páginas distintas, não anúncios.
+
+---
+
+## Achados de 11/09, 17h15 — harmonização facial + Tijuca (168 anúncios)
+
+O nicho mais rico em **Trilha A** encontrado até agora: cinco dos seis
+aproveitáveis têm o nome do dono na página, então a abordagem é direta no
+Instagram dele. Vale a mesma ressalva do Méier: "Tijuca" puxa a Barra da Tijuca,
+e aqui quase tudo é Barra.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Clínica Drª Fabiana Silveira** — *Trilha A* | **três anúncios sem título nenhum**, e um quarto cujo título é o texto inteiro do Instagram **repetido três vezes** — "Cirurgias estéticas da face (@dra.fabisilveira) • Instagram photos and videos \| ... \| ..." | `240451609671598` | 09/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1549196029825886) |
+| **Dra giuliana Lemos** — *Trilha A* | o título do anúncio é literalmente **"instagram.com"** — a URL crua no lugar da frase | `1161984110328623` | 09/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2005868943441796) |
+| **dra.karinaduarte** — *Trilha A* | três anúncios, os três com o título **"Converse conosco"** | `100497541405254` | 05/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2155366402062896) |
+| **Dra. Mah Amum** — *Trilha A* | título **"Agendar Agora ➡️"** — instrução, não motivo | `769348832938816` | 09/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1075589762113573) |
+| **Espaço Facial Shopping Downtown** | três anúncios, os três com **"AGENDE AQUI"** | `194913153711529` | 10/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1057338450435470) |
+| **Bruno Marano Estética Avançada** — *Trilha A* | **cinco anúncios idênticos**, todos "Harmonização Facial pagando apenas o material na Barra da Tijuca RJ" — e a oferta entrega o preço antes de criar o desejo | `409729075550792` | 11/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1739035217212663) |
+
+**O melhor caso da rodada é a Drª Fabiana Silveira**, e o defeito é do tipo que
+constrange quando apontado com cuidado — o título do anúncio é o texto que o
+Facebook puxou sozinho do Instagram, colado três vezes:
+
+> Dra. Fabiana, aqui é o Pablo, do Rio. Não sou paciente. Vi os seus anúncios
+> na Biblioteca e um deles está com o título quebrado: em vez de uma frase, ele
+> repete três vezes o texto que o Facebook puxou do seu Instagram. Outros três
+> estão **sem título nenhum**. Isso costuma acontecer quando o anúncio é
+> impulsionado direto do post, e ninguém vê depois. Quer que eu te mostre?
+
+**Dra. Giuliana (Trilha A, uma linha só):**
+
+> Dra. Giuliana, o título do seu anúncio está aparecendo como "instagram.com".
+> É o endereço no lugar da frase. Quem vê no feed não entende o que é. Leva
+> dois minutos para trocar — quer que eu te mande onde?
+
+**Quem está acertando (referência, não abordar):**
+- *Dra. Sânia Avilla* — "Harmonização Facial - Barra da Tijuca". Serviço e bairro em cinco palavras.
+- *Dr. Júnior Pires* — "Seu rosto comunica antes de você falar." Gancho de desejo, não de instrução.
+
+## Achados de 11/09, 18h — arquitetura + design de interiores na Barra
+
+Dez anúncios ativos, e o nicho quase não aparece sozinho: metade do que volta é
+**imobiliária** vendendo lançamento com "arquitetura" no texto. Mesmo assim a
+rodada rendeu três, e um deles é o defeito mais fácil de provar que já vi.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **O Único Imóvel** | o título é **"📲 Agende sua visita" repetido sete vezes**, com um campo vazio no meio — dois anúncios assim | `113164668499127` | 01/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1059204456841685) |
+| **Hiago Santos Arquitetura** — *Trilha A* | anúncio **sem título nenhum** | `1216159181584232` | 02/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2195659484334612) |
+| **Junior Dal Mora Imóveis** — *Trilha A* | anúncio **sem título nenhum** | `103445278205130` | 06/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1831270611200333) |
+
+**O Único Imóvel (a melhor abordagem da rodada):**
+
+> Boa tarde. Aqui é o Pablo, do Rio — não sou comprador. Vi os anúncios de
+> vocês na Biblioteca do Facebook e o título está saindo com "Agende sua visita"
+> repetido sete vezes, e um dos campos em branco. Isso acontece quando os
+> títulos alternativos ficam todos iguais, e quem vê no feed acha que travou.
+> Quer que eu te mostre onde arrumar?
+
+**Hiago (Trilha A, uma linha só):**
+
+> Hiago, o seu anúncio está no ar sem título nenhum — o espaço da frase está
+> vazio. É rápido de arrumar e muda quanta gente para pra ler. Quer que eu te
+> mande onde?
+
+**O que esta rodada ensina sobre a varredura.** "energia solar + Campo Grande"
+voltou 341 anúncios e nenhum do Rio: o termo puxou Campo Grande/MS e o interior
+de São Paulo. Bairro cujo nome existe em outro estado — Campo Grande é o caso —
+precisa de "RJ" colado no termo, senão a rodada inteira se perde. Anotado na
+lista de combinações para não repetir o erro.
+
+## Achados de 11/09, 19h — fisioterapia e pilates em Niterói
+
+Oito anúncios ativos, e o nicho confirma o que a varredura da Tijuca já tinha
+mostrado: quem faz pilates anuncia pouco e anuncia mal. O melhor caso aqui é o
+**mais antigo que já apareceu em qualquer rodada**.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **RPG Pilates Yoga Niterói Icaraí** | dois anúncios com o título **`{{product.name}}`**, com as chavinhas — o código do catálogo nunca virou nome; um terceiro **sem título** | `258719205065053` | **22/12/2025** — quase 9 meses | [anúncio](https://www.facebook.com/ads/library/?id=863195149802140) |
+| **ricardomoreirapilates** — *Trilha A* | anúncio **sem título nenhum** | `112132074821292` | 07/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1431233052229936) |
+| **Espaço Fisio Clarear** | anúncio **sem título**, no ar há dois meses | `104751761533982` | 13/07/2026 | [anúncio](https://www.facebook.com/ads/library/?id=37100006512979408) |
+
+**RPG Pilates é o melhor caso da rodada, e de longe.** Nove meses pagando por um
+anúncio cujo título literalmente mostra código:
+
+> Boa tarde. Aqui é o Pablo, do Rio — não sou aluno. Vi os anúncios de vocês na
+> Biblioteca do Facebook e dois estão com o título aparecendo como
+> `{{product.name}}`, com as chavinhas — é o código do catálogo que nunca foi
+> trocado pelo nome da aula. Está assim desde dezembro. Quem vê no feed acha que
+> o anúncio quebrou. Quer que eu te mostre onde arrumar?
+
+**Ricardo Moreira (Trilha A, uma linha):**
+
+> Ricardo, o seu anúncio de pilates está no ar sem título — o espaço da frase
+> está vazio. Dois minutos pra arrumar e muda quanta gente para pra ler. Quer
+> que eu te mande onde?
+
+**Descartados nesta rodada:** *Centro Fisio* ("Especialista on-line" — é oferta
+on-line, não local) e *AME Constelações* (título `api.whatsapp.com`, defeito
+bom, mas o nicho é terapia/constelação, fora da lista).
+
+## Achados de 11/09, 20h — odontologia em Botafogo
+
+Quatro anúncios ativos no bairro inteiro. Comparado com Tijuca (66) e Méier
+(103), **Botafogo não é bairro de odontologia** — vale parar de abrir esse nicho
+aqui. Ainda assim dois servem, e um deles está errando há nove meses.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **IRio Odontologia Botafogo** | o título é **"🔴 ATENÇÃO BOTAFOGO" repetido duas vezes** num anúncio, e sozinho no outro — grito, não motivo | `101116868406390` | **04/12/2025** — nove meses | [anúncio](https://www.facebook.com/ads/library/?id=2048926162404040) |
+| **CliniDoctor Botafogo** | "Inscreva-se agora e garanta sua vaga!" — instrução no lugar da razão, e "vaga" não diz de quê | `460095757179072` | 18/05/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2932348537118736) |
+
+**IRio (a abordagem da rodada):**
+
+> Boa tarde. Aqui é o Pablo, do Rio — não sou paciente. Vi o anúncio de vocês na
+> Biblioteca do Facebook: o título está saindo com "ATENÇÃO BOTAFOGO" escrito
+> duas vezes seguidas, e é a única coisa que a frase diz. Quem vê no feed não
+> descobre o que é implante, avaliação, preço. Está assim desde dezembro. Quer
+> que eu te mostre o que costuma funcionar no lugar?
+
+**Quem está acertando (referência, não abordar):** *Preven Odontologia* —
+"Dentes fixos". Duas palavras e você já sabe o que é.
+
+**Leitura de bairro:** odontologia rende em Tijuca, Méier, Niterói e Copacabana.
+Em Botafogo e Madureira, quase nada. Parar de cruzar odontologia com esses dois.
+
+## Achados de 11/09, 23h — "energia solar + Tijuca" (o termo enganou, o lote prestou)
+
+**Lição do termo:** "Tijuca" sozinho puxa **Barra da Tijuca**, e "energia solar +
+Barra" já tinha dado zero. Resultado: 40 anúncios, e a esmagadora maioria é
+**imobiliária da Barra**, não solar. Só duas páginas solares apareceram. Mesmo
+assim o lote rendeu oito nomes novos — nenhum deles estava neste arquivo.
+
+Fica a regra, igual à de Campo Grande: **bairro com nome ambíguo precisa do nicho
+mandando no termo**, não o contrário.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Impact Houses** | título é **"Conversa connosco" repetido dez vezes** — e é português de Portugal, não do Brasil, anunciando em BRL | `330676320130971` | 11/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1044790391764555) |
+| **Griffe House Imobiliária** | **"Fale conosco" nove vezes** — o clássico: instrução no lugar do motivo | `102107268717812` | 09/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2263125171197874) |
+| **Levis Imóveis RJ** | quinze títulos e **todos em branco** — só o nome da página aparece | `103849868529828` | 10/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1586734356166130) |
+| **MR3 Imóveis** | onze títulos, **todos em branco** | `1197527426769629` | 20/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1360835142368451) |
+| **RRT Energia Solar** | cinco títulos, **quatro em branco** — sobra o nome da empresa, que não é oferta | `934663006402330` | 10/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2481816288996410) |
+| **Overload Solar** | título é literalmente **"Energia Solar"** nos três anúncios — nomeia a categoria, não dá razão nenhuma | `852277307960977` | 18/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=28024433183832451) |
+| **Carolina Fernandes - Imóveis** — **Trilha A** | cinco anúncios, **os cinco sem título** | `1311127872074118` | 01/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=3196814837177168) |
+| **Tuane Corretora Rj** — **Trilha A** | anúncio **sem título** | `1112536775284153` | 19/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1393683812732348) |
+
+**Impact Houses (a abordagem da rodada — é o defeito mais gritante já visto):**
+
+> Boa noite. Aqui é o Pablo, do Rio — não sou cliente. Vi o anúncio de vocês na
+> Biblioteca do Facebook e ele está saindo com **"Conversa connosco" escrito dez
+> vezes seguidas** no título. Fora que "connosco" é português de Portugal, e
+> vocês estão cobrando em real, anunciando aqui. Quem vê no feed não descobre o
+> que é. Quer que eu te mostre o que costuma entrar no lugar?
+
+**Carolina Fernandes (Trilha A, direto no Instagram dela):**
+
+> Oi Carolina, aqui é o Pablo, do Rio. Não sou comprador — trabalho com anúncio.
+> Teus cinco anúncios estão no ar **sem título nenhum**: aparece a foto e o nome
+> da página, e mais nada. É o campo que faz a pessoa parar. Te mostro?
+
+**Quem está acertando (referência, não abordar):** *Sulfilm Design* — "O teste que
+prova: sua casa pode esfriar sem gastar mais luz". Promessa concreta e curiosidade
+no mesmo título, sem gritar.
+
+**Nota de tempo:** ao contrário das rodadas anteriores, **nenhum destes está errando
+há meses** — o mais antigo é de 05/08. São erros novos, o que quer dizer que
+provavelmente ainda não olharam. Boa hora para falar.
+
+## Achados de 12/09, 00h — "imobiliária + corretor + Barra da Tijuca" (rendimento baixo, mas duas lições)
+
+Fui na Barra porque imobiliária é o nicho mais rico e era o único bairro dele ainda
+não varrido. **23 resultados e só 2 nomes novos.** Vale mais pelo que ensinou.
+
+### Lição 1: "corretor" puxa anúncio de recrutamento, não de captação
+
+Nove dos 23 resultados são imobiliária **contratando corretor**, não buscando cliente:
+
+> "Seja corretor na maior imobiliária do mundo!" · "VAGA VENDEDOR" · "COMISSÃO DOBRADA"
+> · "Alto potencial de ganhos como corretor" · "OPORTUNIDADE PARA CORRETORES DE IMÓVEIS!"
+> · "CADASTRE-SE AGORA E DESCUBRA COMO ENTRAR PARA O TIME!"
+
+Esses são o prospecto errado por dois motivos: quem recruta não tem a dor de "falta
+cliente chegando", e anúncio de vaga entra na categoria especial de emprego da Meta,
+com regras próprias. **Para captação, o termo bom é "apartamento à venda", não
+"corretor"** — e de fato as varreduras com "apartamento à venda" (Niterói, Copacabana,
+Madureira) renderam muito mais.
+
+### Lição 2: a Barra já tinha sido raspada sem eu saber
+
+Quase todo nome que apareceu já estava catalogado — Alfaiataria, Luciana Martins,
+Gabriela Souza, Giselle Soares, Lopes Rio, Malvino Gomes. Motivo: as varreduras de
+**"Tijuca"** puxam Barra da Tijuca, coisa que eu já tinha anotado em 11/09 e que agora
+se confirma pelo lado inverso — o bairro veio junto de carona e eu não tinha percebido
+que ele estava coberto.
+
+**Regra que sai daqui:** antes de varrer um bairro, conferir se ele não foi coberto de
+carona por um termo ambíguo já usado. Barra, Tijuca e Campo Grande são os três casos
+conhecidos.
+
+### Os 2 aproveitáveis novos
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Consultoria Imobiliária** | dois anúncios, **os dois sem título** — e o nome da página termina em espaço, então no feed sai "Consultoria Imobiliária " solto | `1067122113144874` | 11/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1082673880958114) |
+| **LP Consultoria Imobiliária** | **sem título** | `962618623767489` | 11/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=28000444299625030) |
+
+Nenhum dos dois é Trilha A: são nomes de empresa, não de pessoa.
+
+**Abordagem (serve para os dois, é o mesmo defeito):**
+
+> Boa noite. Aqui é o Pablo, do Rio — não sou cliente. Vi o anúncio de vocês na
+> Biblioteca do Facebook e ele está no ar **sem título nenhum**: aparece a foto do
+> imóvel e o nome da página, e mais nada escrito. É o campo que faz a pessoa parar de
+> rolar. Quer que eu te mostre o que costuma entrar ali?
+
+**Descartados de propósito:** *Realler Imóveis* ("Imobiliária de Alto Padrão | Realler
+Imóveis" — título correto, não há o que apontar) e *Cazzu Imobiliária* (anúncio de
+recrutamento).
+
+## Achados de 12/09, 01h — "harmonização facial + Copacabana" (a melhor varredura até agora)
+
+36 resultados e **onze aproveitáveis, todos inéditos** — nenhum estava no arquivo. Seis
+são Trilha A. Até aqui o melhor rendimento por varredura tinha sido imobiliária na
+Tijuca (10 de 30); esta bate.
+
+Confirma duas coisas já suspeitadas: **harmonização é o nicho mais rico em dono-no-nome**,
+e **Copacabana é bairro caro onde muita gente anuncia mal**.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Dr. Thiago Vieira Moraes** — **Trilha A** | o título é o **título bruto da página do Instagram**: "Thiago Moraes l Harmonização Facial Copacabana (@drthiagovieiramoraes) **• Instagram photos and videos**" | `100101935741941` | 03/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=968329256306472) |
+| **Dra. Letícia Martins** — **Trilha A** | título é **`api.whatsapp.com`** | `100892562529558` | 10/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1640819290714352) |
+| **Elizene Souza - Harmonizacao Facial** — **Trilha A** | título é **`api.whatsapp.com`** (e o nome da página está sem cedilha e sem til) | `415669234963144` | 03/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=28096733123318820) |
+| **Espaço Facial Leme** | **"AGENDE AQUI" em nove anúncios ativos**, todos idênticos | `559374157255408` | 13/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1771732490696664) |
+| **Bernadete Araújo Estética** — **Trilha A** | "Agende seu horário!" em dois anúncios — instrução no lugar do motivo | `451496818562789` | 04/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1402696845376990) |
+| **mah_le16** | três anúncios com "agende sua avaliação", **dois em minúscula e um em maiúscula** — nem o padrão interno bate | `101540041944176` | 10/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1339610791323897) |
+| **Maison Harmony** | "Converse conosco" | `902830449589093` | 27/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=27314224994917856) |
+| **AAD Dermatologia** | **sem título** | `105795477933445` | 31/07/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1201441265488969) |
+| **Andreia Perlingeiro Instituto Multidisciplinar** — **Trilha A** | nome da página seguido de **dois campos vazios** | `446437406128400` | 26/07/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1363585375129809) |
+| **Dra. Raphaela Aguiar - Estética Avançada** — **Trilha A** | **sete anúncios idênticos**, todos "Harmonização Facial - Copacabana". O título em si está correto; o defeito é rodar sete cópias iguais em vez de sete ângulos | `657280187468738` | 26/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=4360047767567807) |
+
+**A abordagem do Dr. Thiago (é a mais fácil de provar que já apareceu):**
+
+> Boa noite, Dr. Thiago. Aqui é o Pablo, do Rio — não sou paciente. Vi seu anúncio na
+> Biblioteca do Facebook e o título dele está saindo assim: **"Thiago Moraes l
+> Harmonização Facial Copacabana (@drthiagovieiramoraes) • Instagram photos and
+> videos"**. Esse é o título automático da página do Instagram — alguém colou o link e
+> o campo nunca foi trocado pelo texto da oferta. Quem vê no feed lê "Instagram photos
+> and videos" no lugar do motivo para clicar. Quer que eu te mostre o que costuma
+> entrar ali?
+
+**A abordagem da Dra. Letícia e da Elizene (mesmo defeito, serve para as duas):**
+
+> Boa noite. Aqui é o Pablo, do Rio — não sou paciente. Seu anúncio no Facebook está com
+> o título **`api.whatsapp.com`**: é o endereço do link que ficou no lugar da chamada.
+> Quem vê no feed lê um endereço de site em vez de um motivo. É troca de um campo. Te
+> mostro?
+
+**A abordagem da Dra. Raphaela (é diferente — o dela não está errado, está desperdiçado):**
+
+> Boa noite, Dra. Raphaela. Aqui é o Pablo, do Rio — não sou paciente. Vi que a senhora
+> tem sete anúncios rodando e os sete têm o mesmo título. Não está errado, mas é sete
+> vezes o mesmo teste: o Facebook não tem como aprender qual funciona melhor porque não
+> há diferença entre eles. Sete ângulos diferentes custam o mesmo e ensinam sete vezes
+> mais. Quer ver como eu faria?
+
+**Quem está acertando (referência para citar no bairro, não abordar):** *Dra. Amanda
+Mariano* — "Últimos 2 Horários Ultraformer 🔥" (escassez + nome do aparelho) e *AP -
+Harmonização Facial e Corporal* — "Poucos horários disponíveis". As duas dão um motivo
+para clicar agora, não uma instrução.
+
+**Descartado de propósito:** *Cinthia Ramos Estrategista Digital* — anúncio sem título,
+mas ela vende marketing digital. É concorrente, não cliente.
+
+## Achados de 12/09, 02h — "implante dentário + Copacabana"
+
+18 resultados, **6 aproveitáveis novos**. Rendimento médio, mas com dois casos que valem
+pelo tamanho do erro.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Oral 360 RJ** | "A Melhor Clínica para o Seu Sorriso" — superlativo sem prova, e **no ar desde 23/07/2025**. É o anúncio mais antigo já encontrado nesta lista: **quase 14 meses** repetindo a mesma frase | `310010632193537` | 23/07/2025 | [anúncio](https://www.facebook.com/ads/library/?id=610418658399134) |
+| **Clínica Sorrio** | **"FALE CONOSCO➡️" em quatro anúncios**, todos iguais | `108923355275304` | 24/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1413028374109539) |
+| **Sorrio** (página separada) | **seis anúncios idênticos**, todos "IMPLANTES COM CONDIÇÕES FACILITADAS!" | `233953546797659` | 18/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2091515141734575) |
+| **Smart Dental Clinic** | "AGENDE AGORA >>>" em dois anúncios — instrução, e as setas não substituem o motivo | `109235022214304` | 10/07/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1523331529100413) |
+| **drraffaelsouza** — **Trilha A** | o título é **"Drraffaelsouza"** — o arroba dele com a primeira letra maiúscula, colado no lugar da chamada | `100124415197413` | 11/06/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1918403645525767) |
+| **A sorrir Odontologia** | título é **"PRÓTESE FLEX"** — nome do produto, sem dizer para quem serve nem por quê | `322817671131310` | 15/07/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1425398436093704) |
+
+**O caso Sorrio — duas páginas, a mesma marca, anunciando em paralelo.**
+`Clínica Sorrio` (`108923355275304`) e `Sorrio` (`233953546797659`) são páginas diferentes
+rodando anúncios ao mesmo tempo para o mesmo serviço. Isso divide o aprendizado do
+Facebook em dois e faz as duas competirem entre si no leilão — sobe o custo das duas.
+É defeito de estrutura, não de texto, e é o tipo de coisa que o dono não enxerga porque
+cada página parece certa isolada. **Vale como gancho de abordagem próprio**, e é mais
+forte que apontar o "FALE CONOSCO".
+
+**Abordagem para a Sorrio (usar o defeito de estrutura, não o de texto):**
+
+> Boa noite. Aqui é o Pablo, do Rio — não sou paciente. Reparei na Biblioteca de Anúncios
+> que vocês têm **duas páginas diferentes anunciando implante ao mesmo tempo**: a Clínica
+> Sorrio e a Sorrio. Elas estão disputando o mesmo público no leilão do Facebook, o que
+> encarece as duas e divide o aprendizado pela metade. Fora isso, os quatro anúncios de
+> uma delas têm o mesmo título "FALE CONOSCO". Quer que eu te mostre como juntar isso?
+
+**Abordagem para a Oral 360 (o gancho é o tempo):**
+
+> Boa noite. Aqui é o Pablo, do Rio — não sou paciente. Vi na Biblioteca do Facebook que
+> o anúncio de vocês está no ar **desde julho do ano passado** com o título "A Melhor
+> Clínica para o Seu Sorriso". Catorze meses é muito tempo com a mesma frase, e
+> "a melhor" é o que todo concorrente também escreve — quem vê não tem como diferenciar.
+> Quer que eu te mostre o que costuma entrar no lugar?
+
+**Abordagem para o Dr. Raffael (Trilha A, direto no Instagram dele):**
+
+> Boa noite, Dr. Raffael. Aqui é o Pablo, do Rio — não sou paciente. Seu anúncio no
+> Facebook está com o título **"Drraffaelsouza"**: é o seu arroba que ficou no campo da
+> chamada. Quem vê no feed lê o seu usuário em vez de um motivo para clicar. É troca de
+> um campo só. Te mostro?
+
+**Quem está acertando (referência, não abordar):** *Odontovic* — "Implantes dentários em
+Madureira". Diz o serviço e o bairro no título, que é exatamente o que falta nos outros.
+
+## Achados de 12/09, 03h — "clínica veterinária + Copacabana" (varredura magra, um caso forte)
+
+Apenas **6 resultados**. Vale a anotação: Copacabana rendeu muito em imobiliária (9 de 28),
+harmonização (11 de 36) e odontologia (6 de 18), mas **quase nada em veterinária**.
+Riqueza de bairro é por nicho, não por bairro — não dá para assumir que um bairro bom é
+bom em tudo.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Clínica Veterinária S.O.S Castração** | dois anúncios, dois defeitos: um **sem título nenhum desde 02/12/2025** — mais de nove meses — e outro com o título **`api.whatsapp.com`** | `398118780373800` | 02/12/2025 | [sem título](https://www.facebook.com/ads/library/?id=857280800019256) · [api.whatsapp](https://www.facebook.com/ads/library/?id=1730008354785773) |
+| **AnimaLeme** | três anúncios, todos com o título **"Clínica Veterinária Animaleme"** — o nome da empresa, que não é motivo para clicar | `912169338864770` | 03/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1720166439040779) |
+
+**Abordagem para a S.O.S Castração (é o melhor gancho: dois erros e nove meses):**
+
+> Bom dia. Aqui é o Pablo, do Rio — não sou cliente. Vi os anúncios de vocês na Biblioteca
+> do Facebook e os dois estão com problema no título: **um está sem título nenhum desde
+> dezembro do ano passado** — mais de nove meses — e o outro está com **`api.whatsapp.com`**
+> no lugar da chamada, que é o endereço do link. Nos dois casos quem vê no feed não lê
+> nenhum motivo para clicar. São dois campos. Quer que eu te mostre o que entra neles?
+
+**Abordagem para a AnimaLeme:**
+
+> Bom dia. Aqui é o Pablo, do Rio — não sou cliente. Os três anúncios de vocês estão com o
+> mesmo título: "Clínica Veterinária Animaleme". É o nome da clínica, e quem está rolando o
+> feed já vê o nome logo acima — o campo está repetindo em vez de dar um motivo. Quer ver o
+> que costuma entrar ali?
+
+**Quem está acertando (referência, não abordar):** *Clínica Veterinária Santa Mônica* —
+"Mais cuidado para o seu pet, com muito mais economia." Promete benefício, não repete o
+nome.
+
+## Achados de 12/09, 04h — "apartamento à venda + Tijuca" (233 resultados, a maior varredura)
+
+**A lição de ontem se pagou na primeira tentativa.** A varredura de "imobiliária +
+corretor + Barra" tinha dado 23 resultados e ensinado que "corretor" puxa anúncio de
+recrutamento. Trocando para **"apartamento à venda"**, no mesmo nicho: **233 resultados**,
+dez vezes mais, e **15 aproveitáveis, todos inéditos** — seis com o dono no nome.
+
+Fica a regra consolidada: **para captação, o termo é o que o CLIENTE procura ("apartamento
+à venda"), não o que o PROSPECTO é ("corretor")**. Vale para todo nicho: o paciente procura
+"implante", não "dentista".
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Machado de Souza Consultoria Imobiliária** | nome da página + **dezoito campos vazios** — empata o recorde do arquivo | `119037485315543` | 10/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2020172451949891) |
+| **robertodpcarvalho** — **Trilha A** | **duas páginas diferentes** (`101441885982960` e `106037502214511`) anunciando ao mesmo tempo, **as duas sem título** | duas | 09/09/2026 | [pág. 1](https://www.facebook.com/ads/library/?id=956648816709832) · [pág. 2](https://www.facebook.com/ads/library/?id=1550116679773259) |
+| **Marco Castro Imóveis** | **"Converse conosco" em cinco anúncios**, todos iguais | `285752845482373` | 10/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1613876267070806) |
+| **Ricardo Martins Investimentos** | nome da página + **dez campos vazios** | `483231911729698` | 10/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1389483512654158) |
+| **Gilberto Cupolillo Imóveis** — **Trilha A** | título é **`api.whatsapp.com`** | `657892467415314` | 11/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2055457845110116) |
+| **andersonvianareis** — **Trilha A** | o título é **o arroba dele** seguido de "Oportunidade, Saiba mais!" **repetido duas vezes** | `108071234915846` | 11/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1005512575829497) |
+| **Ana Hajjar Imob** — **Trilha A** | **sem título** | `954111221113576` | 11/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=4048142075493724) |
+| **Rodrigo Moraes Imóveis** — **Trilha A** | dois anúncios, **os dois sem título** | `1172931749233023` | 11/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1446737534027354) |
+| **Fabiano Collares Imóveis** — **Trilha A** | **sem título** | `112877735079740` | 11/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1338950928052576) |
+| **Atobá Imóveis** | dois anúncios, **os dois sem título** | `667291566461931` | 11/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=28284059061246639) |
+| **Top Band imóveis** | **sem título** | `1645918765734055` | 11/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1010414065344737) |
+| **jlpimoveisrj** | **sem título** | `106098761052562` | 11/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=4377058819105021) |
+| **Delnik Administradora e Corretora** | **sem título** | `682483758485926` | 10/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2221658915073738) |
+| **Conectta Imóveis** | "Converse conosco" | `111211148603936` | 10/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2285964888612237) |
+| **Brasil Brokers Tijuca** | "Saiba Mais" — instrução genérica, e é franquia de rede grande | `109883898332137` | 10/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1577760824100550) |
+
+### O defeito das duas páginas apareceu de novo — agora tem nome
+
+O `robertodpcarvalho` roda **duas páginas separadas** anunciando o mesmo serviço ao mesmo
+tempo, as duas sem título. É o segundo caso em duas varreduras — o primeiro foi a **Sorrio**
+(odontologia, Copacabana), com `Clínica Sorrio` e `Sorrio`.
+
+É um defeito de estrutura que o dono nunca enxerga, porque cada página parece certa
+isolada. Efeito: as duas disputam o mesmo público no leilão, uma encarece a outra, e o
+aprendizado do Facebook é dividido pela metade. **Passa a ser um item da checagem de toda
+varredura:** conferir se o mesmo nome aparece com `page_id` diferente.
+
+**Abordagem para o Roberto (Trilha A, e o gancho é a estrutura, não o texto):**
+
+> Bom dia, Roberto. Aqui é o Pablo, do Rio — não sou comprador. Reparei na Biblioteca de
+> Anúncios que você tem **duas páginas diferentes anunciando ao mesmo tempo**, e as duas
+> estão com o anúncio **sem título nenhum**. São dois problemas de uma vez: as páginas
+> disputam o mesmo público no leilão e encarecem uma à outra, e nenhuma das duas diz por
+> que alguém deveria clicar. Quer que eu te mostre como juntar isso?
+
+**Abordagem para a Machado de Souza (o número faz o trabalho):**
+
+> Bom dia. Aqui é o Pablo, do Rio — não sou comprador. O anúncio de vocês está no ar com o
+> nome da imobiliária e **dezoito campos de título vazios** em seguida. Não é exagero meu,
+> está na Biblioteca de Anúncios do próprio Facebook. Cada um desses campos era um espaço
+> para dizer metragem, bairro ou preço. Quer que eu te mostre o que costuma entrar neles?
+
+**Quem está acertando (referência para citar na Tijuca):** *Griffe House Imobiliária* —
+"Blue Vision | 4 Quartos (3 Suítes) | 1 Escritório | Varanda Ampla | Clube de Praia |
+R$ 1.780.000" e *Podium Imóveis RJ* — "London Green 4 Suítes 157m²". Os dois dizem
+empreendimento, metragem e preço no título. É o contraste exato com os nove que estão
+sem título nenhum.
+
+## Achados de 12/09, 05h — "harmonização facial + Méier" (13 anúncios, só 2 anunciantes)
+
+O Méier é bairro raso neste nicho: 13 resultados, mas de **apenas duas páginas**. Uma
+delas, a *Nascimento Odontologia*, já está catalogada na seção 3 (segue com onze anúncios
+idênticos, todos "Agende uma avaliação"). Sobrou uma nova — e é do tipo mais fácil de
+vender.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Botocenter Méier** | o título dos dois anúncios é literalmente **"⭐⭐⭐⭐⭐"** — cinco estrelas e mais nada escrito | `105113189115168` | 11/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1631760715058527) |
+
+**Por que este é fácil de vender:** estrela no título não diz serviço, não diz preço, não
+diz bairro e não diz para quem serve. Além disso o Facebook trata sequência de emoji como
+texto de baixa qualidade, então o anúncio tende a entregar pior por si só. E é uma troca de
+um campo — a pessoa vê o problema em dois segundos.
+
+**Abordagem:**
+
+> Bom dia. Aqui é o Pablo, do Rio — não sou paciente. Vi o anúncio de vocês na Biblioteca
+> do Facebook e o título dele está saindo como **cinco estrelas e mais nada**: "⭐⭐⭐⭐⭐".
+> Quem está rolando o feed não lê nem o procedimento, nem o bairro, nem o preço — só as
+> estrelinhas. É um campo só para trocar. Quer que eu te mostre o que costuma entrar ali?
+
+## Achados de 12/09, 06h — "apartamento à venda + Botafogo" (72 resultados, 20 novos)
+
+Terceira confirmação da regra do termo: Botafogo com **"corretor"** deu 6 resultados;
+com **"apartamento à venda"**, **72**. Vinte aproveitáveis, todos inéditos, nove com o
+dono no nome.
+
+### O caso da Brasil Brokers — o catálogo inteiro despejado no título
+
+O título de um único anúncio contém **seis imóveis completos**, com código, metragem,
+descrição inteira e preço, tudo concatenado num campo só. Começa em "Casa de Condomínio à
+venda com 177,00m² e 5 quartos em Engenheiro Leal... R$350,000 | Casa em Botafogo - 300m²...
+R$2,800,000 | Apartamento à venda com 276,00m² em Copacabana... R$6,000,000 | ..." e segue.
+
+É um feed de catálogo jogado cru no campo da chamada. No feed o leitor vê um paredão de
+texto truncado. **É o defeito mais visualmente chocante que já apareceu nesta lista** — a
+pessoa não precisa de explicação, ela olha e entende.
+
+E tem um agravante: a **Brasil Brokers Tijuca** (`109883898332137`), catalogada ontem, é
+página diferente desta (`354245788004916`). **Terceiro caso do defeito de duas páginas da
+mesma marca** — depois da Sorrio e do robertodpcarvalho.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Brasil Brokers** | **seis imóveis inteiros com preço concatenados dentro do título** | `354245788004916` | 11/09 | [anúncio](https://www.facebook.com/ads/library/?id=1059711283634204) |
+| **Ariane Gomes Imóveis** — **A** | "Converse conosco" **dez vezes**, em dois anúncios | `673699585821695` | 10/09 | [anúncio](https://www.facebook.com/ads/library/?id=2179127179349687) |
+| **Rio Couto Imóveis** | "Fale conosco" **dez vezes**; e um segundo anúncio **sem título** | `114514347055243` | 10/09 | [anúncio](https://www.facebook.com/ads/library/?id=2082991382306679) |
+| **Bielle Imóveis** | "SAIBA MAIS" **dez vezes** | `329356906935615` | 10/09 | [anúncio](https://www.facebook.com/ads/library/?id=1092969740339716) |
+| **Mariana Alves** — **A** | "Fale conosco" **nove vezes** | `764605636728170` | 10/09 | [anúncio](https://www.facebook.com/ads/library/?id=2042974629671219) |
+| **Corcovado Real Estate** | "Fale conosco" **sete vezes** | `589004660973313` | 10/09 | [anúncio](https://www.facebook.com/ads/library/?id=1810834920361177) |
+| **giuseppecirillo.corretor** — **A** | título é **`instagram.com`** | `114447028252250` | 11/09 | [anúncio](https://www.facebook.com/ads/library/?id=1527361892756727) |
+| **matheussena.rio** — **A** | o arroba dele + **dez campos vazios**; e mais dois anúncios **sem título** | `116767508019351` | 11/09 | [anúncio](https://www.facebook.com/ads/library/?id=1882657179373113) |
+| **vistapro.rio** — **A** | o arroba + **oito campos vazios** | `100128026331442` | 10/09 | [anúncio](https://www.facebook.com/ads/library/?id=1653617386336829) |
+| **douglasnunesimoveis** — **A** | **sem título** | `672109482654744` | 11/09 | [anúncio](https://www.facebook.com/ads/library/?id=2147179529482898) |
+| **consultor.wander** — **A** | **sem título** | `110184671709220` | 11/09 | [anúncio](https://www.facebook.com/ads/library/?id=28654480867490313) |
+| **jessicafarias.gerentedevendas** — **A** | **sem título** | `113936504956004` | 11/09 | [anúncio](https://www.facebook.com/ads/library/?id=1967461363951703) |
+| **morabilidade** | **sem título** | `102543282421918` | 11/09 | [anúncio](https://www.facebook.com/ads/library/?id=1068326678932425) |
+| **Orla Rio Imobiliária** | **sem título** | `428394817034055` | 10/09 | [anúncio](https://www.facebook.com/ads/library/?id=1721565578955820) |
+| **Kiko Imóveis** | **sem título** | `100327588713273` | 09/09 | [anúncio](https://www.facebook.com/ads/library/?id=1369719918209141) |
+| **Othon Rangel** — **A** | "📲 Entre em contato e agende uma visita!" — instrução pura, sem dizer qual imóvel | `644100792125691` | 10/09 | [anúncio](https://www.facebook.com/ads/library/?id=1761290781675582) |
+
+**Abordagem para a Brasil Brokers (o próprio anúncio é a prova):**
+
+> Bom dia. Aqui é o Pablo, do Rio — não sou comprador. Vi o anúncio de vocês na Biblioteca
+> do Facebook e o **título dele tem seis imóveis inteiros dentro**, com descrição completa e
+> preço, um colado no outro: Engenheiro Leal, Botafogo, Tauá, Copacabana, Anil. Parece que o
+> catálogo foi despejado direto no campo da chamada. No feed isso vira um paredão de texto
+> cortado e ninguém lê. Tem mais: vocês têm **duas páginas anunciando ao mesmo tempo** — esta
+> e a Brasil Brokers Tijuca — o que faz uma competir com a outra no leilão. Quer que eu te
+> mostre como arrumar as duas coisas?
+
+**Abordagem para os nove de Trilha A com título vazio ou arroba (serve para todos):**
+
+> Bom dia, [nome]. Aqui é o Pablo, do Rio — não sou comprador. Seu anúncio no Facebook está
+> **sem título** (ou com o seu arroba no lugar dele). É o campo que faz a pessoa parar de
+> rolar e entender o que você está oferecendo. É uma troca de um campo. Te mostro?
+
+**Quem está acertando (referência forte para citar em Botafogo):** *Luís Cruz Imob* —
+"65 m² • 2 quartos • 1 vaga • andar alto • R$ 850 mil. Agende sua visita." e *Imobiliária
+Casa 3* — "Oportunidade de Compra em Botafogo: 125m², Pé-Direito Alto, 2 por Andar e 1
+Vaga". Os dois dizem metragem, característica e preço. É o contraste exato com os nove
+que estão sem título nenhum, no mesmo bairro.
+
+## Achados de 12/09, 07h — "apartamento à venda + Méier" (e um limite da regra do termo)
+
+Méier com **"corretor"** tinha dado 3 resultados. Com **"apartamento à venda"**, deu **11**.
+Melhorou, mas está longe dos 233 da Tijuca e dos 72 de Botafogo com o mesmo termo.
+
+**Refinamento da regra:** trocar o termo de "o que o prospecto é" para "o que o cliente
+procura" **multiplica o que existe, mas não cria o que não existe**. Méier simplesmente tem
+poucos anunciantes de imóvel. Bairro raso continua raso — a diferença é que agora eu sei
+que é o bairro, e não o termo, e não preciso voltar nele.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Marcio Feitosa - Corretor de Imóveis** — **Trilha A** | "Converse conosco" **dez vezes**, e no ar desde **21/08/2025** — **quase treze meses**. É o segundo anúncio mais antigo do arquivo, atrás só da Oral 360 | `701599569695076` | 21/08/2025 | [anúncio](https://www.facebook.com/ads/library/?id=4018602198402640) |
+| **Aline Gomes - Corretora de Imóveis** — **Trilha A** | "Converse conosco" **nove vezes**, precedido de um único "Agende agora sua visita!" — dá para ver que alguém preencheu o primeiro campo e desistiu | `943579125507449` | 09/04/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2721245624915276) |
+| **Lins Imóveis** | dois anúncios, os dois "Converse conosco", desde **16/01/2026** — oito meses | `802521579614966` | 16/01/2026 | [anúncio](https://www.facebook.com/ads/library/?id=929771726392304) |
+| **Homestead Imobiliária** | "Converse conosco" três vezes | `100652992549310` | 10/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1060150953624963) |
+| **Ricardo Simões Corretor Avaliador Judicial** — **Trilha A** | **sem título** | `349426395242948` | 26/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1532039654914502) |
+
+**Abordagem para o Marcio Feitosa (o tempo é o argumento):**
+
+> Bom dia, Marcio. Aqui é o Pablo, do Rio — não sou comprador. Seu anúncio está no ar
+> **desde agosto do ano passado**, com "Converse conosco" repetido dez vezes no título.
+> Treze meses pagando para mostrar dez vezes a mesma instrução, sem dizer em nenhuma delas
+> qual imóvel, qual bairro ou qual preço. Não é o seu trabalho que está errado — é um campo
+> que ninguém voltou para preencher. Quer que eu te mostre o que entra ali?
+
+**Abordagem para a Aline Gomes (o detalhe do primeiro campo é o gancho):**
+
+> Bom dia, Aline. Aqui é o Pablo, do Rio — não sou comprador. Reparei no seu anúncio que o
+> **primeiro título está preenchido** ("Agende agora sua visita!") e os **nove seguintes são
+> todos "Converse conosco"**. Parece que começaram a preencher e pararam. Cada um daqueles
+> nove era um espaço para metragem, bairro ou preço de um imóvel diferente. Te mostro o que
+> costuma entrar neles?
+
+**Quem está acertando (referência para citar no Méier):** *Imobiliária MBAdm* —
+"Oportunidade no Méier" e *Gestolano Lopes* — "More no seu próprio Apartamento". Nenhum dos
+dois é brilhante, mas os dois dizem alguma coisa; é o contraste mínimo que já basta.
+
+## Achados de 12/09, 08h — "implante dentário + Niterói"
+
+47 resultados. Metade das páginas já estava no arquivo (Estética Dental, Inovar, Oral Sin,
+Segalote, Dr. Bruno Chies, Nord, Nitz) — sinal de que Niterói em odontologia já foi bem
+raspado. Sobraram **6 novos**, e um deles traz um defeito inédito nesta lista.
+
+### Defeito novo: a frase inteira repetida seis vezes
+
+A **Clínica Ortoim** roda um anúncio cujo título é esta frase, **repetida seis vezes
+seguidas**:
+
+> "Você sonha em ter um sorriso saudável e radiante? Nossa clínica oferece os melhores
+> serviços de tratamento dentário"
+
+Os casos anteriores repetiam duas ou três palavras ("Fale conosco", "Converse conosco").
+Este repete **uma frase de treze palavras**, seis vezes. O efeito é pior: além de não dizer
+nada específico, ocupa todo o espaço e o leitor vê o mesmo texto emendado em si mesmo.
+
+**Mecanismo, para não confundir com descuido:** são os seis campos de título do anúncio de
+catálogo, todos preenchidos com o mesmo texto. Quem montou preencheu o primeiro e copiou
+para os outros cinco, em vez de escrever seis ângulos diferentes. É o mesmo erro estrutural
+dos "dez campos vazios" — só que preenchido com cópia em vez de vazio.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Clínica Ortoim** | a **mesma frase de treze palavras repetida seis vezes** no título | `1205718982938367` | 15/06/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1312460037170248) |
+| **Dra Joana Moreno** — **Trilha A** | "AGENDE SUA AVALIAÇÃO" em **três anúncios**, todos iguais, desde 27/07 | `1538737576432702` | 27/07/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1575628363938004) |
+| **Ortozara Niterói** | "Avaliação Grátis!" em **três anúncios** — e "grátis" sem dizer do quê nem para quem | `104522402225108` | 19/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1061908939766858) |
+| **Studio do Sorriso** | **sem título** | `636154083213176` | 08/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1814397546597113) |
+| **Feliz Dente Niterói** | "Converse conosco👉🏼" — instrução, com emoji no lugar do motivo | `177684778754392` | 15/04/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1625862578746938) |
+| **Odontoclinic** | o título é **"📍Niterói - RJ"** — só o endereço, sem serviço nem oferta | `258368544027900` | 19/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1402316821858472) |
+
+**Abordagem para a Ortoim (mostrar a repetição é o argumento):**
+
+> Bom dia. Aqui é o Pablo, do Rio — não sou paciente. Vi o anúncio de vocês na Biblioteca do
+> Facebook e o título dele tem **a mesma frase repetida seis vezes seguidas**: "Você sonha em
+> ter um sorriso saudável e radiante? Nossa clínica oferece os melhores serviços de tratamento
+> dentário". Aqueles seis campos eram para seis ângulos diferentes — implante, prótese,
+> clareamento, preço, horário. Quem montou preencheu um e copiou nos outros cinco. Quer que
+> eu te mostre o que costuma entrar neles?
+
+### Quem está acertando em Niterói — e aqui vale estudar, não só citar
+
+Este bairro tem os **dois melhores títulos que já apareceram em qualquer varredura**:
+
+- **Nitz Odontologia:** *"Quando foi a última vez que você mordeu um pão sem medo?"* e
+  *"Se você precisa de adesivo pra prender a prótese, esse vídeo é pra você."*
+- **Nord Odontologia:** *"Orçamento só depois do exame"* e *"Implante planejado, em Niterói"*
+
+Os quatro fazem a mesma coisa: **falam do problema vivido**, não do serviço vendido. "Morder
+um pão sem medo" e "adesivo pra prender a prótese" são cenas que o paciente reconhece.
+"Orçamento só depois do exame" ataca a desconfiança de quem já foi empurrado para um plano
+caro.
+
+**Isto vale como modelo para a copy do próprio Pablo**, não só como referência para citar:
+é exatamente a diferença entre "a gente faz seus anúncios" e "você abre o WhatsApp e não tem
+ninguém novo pedindo orçamento" — que é a linha que está nos anúncios de nicho que subimos
+ontem.
+
+## Achados de 12/09, 09h — "pilates + Copacabana" (o nicho onde quase ninguém preenche o título)
+
+20 resultados e **12 aproveitáveis, todos inéditos**. É a maior proporção de defeito por
+resultado de todas as varreduras: **de vinte anúncios, dezesseis estão sem título ou com o
+nome da página seguido de campos vazios**. Só um anunciante escreveu alguma coisa.
+
+Hipótese do porquê: fisioterapia e pilates são negócios pequenos, tocados pelo próprio
+profissional, que impulsiona o post pelo celular. O botão "Impulsionar" não pede título —
+ele só aparece quando se monta o anúncio pelo Gerenciador. **O nicho inteiro está
+impulsionando, não anunciando.**
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Fisioterapia & Pilates SODRÉ** | **três anúncios sem título**, o mais antigo desde **21/03/2025** — dezoito meses | `193167314564498` | 21/03/2025 | [anúncio](https://www.facebook.com/ads/library/?id=1361323754879477) |
+| **Cláudia S. Ioschpe** — **Trilha A** | nome dela + **treze campos vazios**, em dois anúncios | `149733411754775` | 11/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1577700137185730) |
+| **Espaço Physio RJ** | dois anúncios **sem título** e um terceiro com o nome + **cinco vazios** | `1044441875423733` | 23/06/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1043570244776060) |
+| **DDC Clinic Fisioterapia** | **três anúncios, os três sem título** | `1084232018105389` | 21/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1085721230866192) |
+| **Terapeuta Ocupacional Fernanda Azevedo** — **Trilha A** | título é **`instagram.com`** | `943227802398266` | 11/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1045734291414509) |
+| **Lavland Santana** — **Trilha A** | nome + **cinco campos vazios** | `1326592423860877` | 26/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2103823713554732) |
+| **dralolapilates** — **Trilha A** | **sem título** | `495823870288504` | 09/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2535679253607955) |
+| **Rlstudio** | dois anúncios, **os dois sem título** | `342397135632772` | 11/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2257821915002265) |
+| **Balance Gym** | **sem título** | `273152313502821` | 11/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=3192048034324678) |
+| **Estúdio Qualivida** | **sem título** | `334619783257207` | 09/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1351566870296741) |
+| **Comprimob** | **sem título**, desde 23/04/2026 | `110354887026016` | 23/04/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1496685615386530) |
+
+**Abordagem para a SODRÉ (o tempo é o argumento, e é o mais forte da lista):**
+
+> Bom dia. Aqui é o Pablo, do Rio — não sou aluno. Vi na Biblioteca de Anúncios do Facebook
+> que vocês têm três anúncios no ar **sem título nenhum**, e um deles está rodando **desde
+> março do ano passado** — dezoito meses. Aparece a foto e o nome do estúdio, e mais nada
+> escrito. É o campo que faz a pessoa parar de rolar e entender o que vocês oferecem. Quer
+> que eu te mostre o que costuma entrar ali?
+
+**Abordagem que serve para o nicho inteiro (é o mesmo defeito em onze deles):**
+
+> Bom dia, [nome]. Aqui é o Pablo, do Rio — não sou aluno. Seu anúncio no Facebook está
+> **sem título**. Isso costuma acontecer quando o anúncio é feito pelo botão "Impulsionar"
+> do celular, que não pede esse campo. Pelo Gerenciador dá para escrever ali o motivo — tipo
+> "dor nas costas há meses?" — e é justamente esse campo que faz a pessoa parar. Te mostro?
+
+**Quem está acertando (referência, e é o único do lote):** *Instituto Vital Fit* — "MELHORE
+SUAS DORES". Não é brilhante, mas fala do problema do aluno e não do nome do estúdio — no
+meio de dezesseis títulos vazios, isso já o coloca na frente de todo mundo no bairro.
+
+## Achados de 12/09, 10h — "pilates + Barra da Tijuca"
+
+72 resultados, **9 aproveitáveis novos**. Confirma o que Copacabana já tinha mostrado:
+**pilates e fisioterapia é o nicho com maior densidade de título vazio ou instrução**.
+Lavitá, ricardomoreirapilates e Corpory já estavam catalogados de varreduras anteriores.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Harmonize Pilates** | **"Converse conosco" em nove anúncios ativos**, todos idênticos — é o maior número de anúncios iguais com instrução pura já visto | `567563023427348` | 31/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1775448396929714) |
+| **Espaço Essencial** | "Fale conosco" **seis vezes** no mesmo título | `1474744136129755` | 10/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1832475444860074) |
+| **Pilates With Thaíza** — **Trilha A** | dois anúncios, **os dois sem título** | `1697093783930399` | 11/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1618973516549095) |
+| **Débora Macedo Studio de Pilates** — **Trilha A** | **sem título** | `332482880246142` | 07/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2576388512883591) |
+| **Dra. Daniela Sallaberry** — **Trilha A** | **sem título** | `101284194797876` | 02/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=959420700507555) |
+| **TerapyAtiva Pilates & Saúde** | **sem título** | `279895528706942` | 11/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1986879882026281) |
+| **Fabio Pereira Imobiliária** | título é **"📲 Toque em Saiba mais"** — instrução sobre onde clicar, não motivo para clicar | `697447753460171` | 10/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1050204744455184) |
+| **Dobler's Assessoria Imobiliária** | **sem título** | `111449371687131` | 07/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1397627235057030) |
+| **Bons Negócios Imóveis RJ** | "37 ESPAÇOS DE LAZER NA BARRA DA TIJUCA" — número grande sem dizer de que empreendimento, em caixa alta | `1000390076777168` | 10/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1771235547423558) |
+
+**Nota de método:** as três últimas são imobiliárias que vieram **de carona** numa busca de
+pilates. A Biblioteca de Anúncios casa o termo com o **texto do corpo**, não só com o
+assunto — e imóvel na Barra costuma citar "pilates" na lista de lazer do condomínio.
+Aproveitei porque imobiliária é o melhor nicho da lista, mas fica o registro: **resultado
+fora do nicho buscado é comum e vale conferir em vez de descartar**.
+
+**Abordagem para a Harmonize Pilates (o número é o argumento):**
+
+> Bom dia. Aqui é o Pablo, do Rio — não sou aluno. Vi na Biblioteca de Anúncios do Facebook
+> que vocês têm **nove anúncios rodando ao mesmo tempo, e os nove têm o mesmo título:
+> "Converse conosco"**. São nove espaços pagos dizendo a mesma instrução, e nenhum deles diz
+> se é pilates para dor nas costas, para pós-operatório, para gestante ou para idoso. Quer
+> que eu te mostre o que costuma entrar ali?
+
+**Quem está acertando (referência forte, e do mesmo bairro):** *Corpory Pilates & Cia.* —
+"Chega de adiar o cuidado com o seu corpo. Agende agora mesmo sua consulta." e *Tecfit
+Brasil* — "Potencialize o que você já faz. Agora no Rio." Os dois falam com quem está
+adiando ou já treina — não com "quem quiser conversar".
+
+## Achados de 12/09, 11h — "veterinário + Barra da Tijuca" (um anunciante ocupa o bairro)
+
+31 resultados, mas o número engana: **vinte deles são da mesma página**, a Petmalia. Sobram
+3 aproveitáveis novos.
+
+### O recorde de repetição: vinte anúncios, um título
+
+A **Petmalia — Hospital Veterinário** tem **vinte anúncios ativos ao mesmo tempo, e os vinte
+têm exatamente o mesmo título: "Entre em contato"**. Os mais antigos estão no ar desde
+**15/07/2026**.
+
+Para comparação, os maiores casos anteriores eram a Harmonize Pilates com nove e o Dr. Daniel
+Pinheiro com vinte e um — mas o do Dr. Daniel eram títulos **vazios**, não preenchidos com a
+mesma instrução. A Petmalia é o maior caso de **repetição deliberada**.
+
+**Por que isso é pior que parecer:** vinte anúncios idênticos não são vinte testes, são um
+teste repetido vinte vezes. O Facebook não tem como aprender qual funciona melhor, porque não
+há diferença entre eles — e ainda divide a verba e o aprendizado por vinte. É a mesma estrutura
+do caso da Dra. Raphaela (sete anúncios iguais, Copacabana), só que quase três vezes maior.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Petmalia — Hospital Veterinário** | **vinte anúncios ativos, os vinte com "Entre em contato"** | `101495181581938` | 15/07/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1614487943593080) |
+| **flaviaclare** — **Trilha A** | o arroba dela + **cinco campos vazios** | `105235465067568` | 09/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=3452566114926871) |
+| **Leonardo Machado Ortopedia Veterinária** — **Trilha A** | dois anúncios, **os dois sem título** | `702233186312986` | 26/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2252727262180879) |
+
+**Abordagem para a Petmalia (o número faz tudo):**
+
+> Bom dia. Aqui é o Pablo, do Rio — não sou cliente. Vi na Biblioteca de Anúncios do Facebook
+> que vocês têm **vinte anúncios rodando ao mesmo tempo, e os vinte têm o mesmo título:
+> "Entre em contato"**. Não é exagero meu, está lá para qualquer um conferir. O problema é que
+> vinte anúncios iguais não são vinte testes — são o mesmo teste vinte vezes, e o Facebook não
+> consegue aprender qual funciona porque não há diferença entre eles. Vinte ângulos diferentes
+> custariam o mesmo: emergência 24h, castração, vacina, odontologia, exame de imagem. Quer que
+> eu te mostre como eu dividiria?
+
+**Quem está acertando (referência do mesmo bairro, e é do mesmo nicho):** *DOK — Hospital
+Veterinário* — **"Odontologia Veterinária | Barra da Tijuca"**. Diz a especialidade e o bairro
+em cinco palavras. É exatamente o que falta nos vinte da Petmalia — e serve de contraste
+direto, porque são concorrentes de rua.
+
+**Descartados de propósito:** *Estácio Barra - Tom Jobim* e *Biofao* — vieram de carona
+(faculdade de veterinária e evento acadêmico), não são clínicas.
+
+## Achados de 12/09, 13h — "apartamento à venda + Campo Grande RJ" (as duas lições juntas)
+
+Esta varredura testou as duas regras de termo ao mesmo tempo, e as duas funcionaram:
+
+1. **"apartamento à venda" em vez de "corretor"** — a regra do termo de cliente
+2. **"RJ" no fim** — a correção para bairro com nome repetido em outro estado
+
+Em 11/09, "energia solar + Campo Grande" tinha devolvido **341 resultados e nenhum do Rio**,
+todos de Campo Grande/MS e do interior de SP. Agora, com "RJ": **10 resultados, todos do
+Rio**. A contaminação sumiu. Campo Grande RJ é bairro raso de verdade, mas agora eu sei que
+é o bairro, não a busca.
+
+### Defeito novo: erro de digitação no título, em três anúncios
+
+A **Primoris** roda três anúncios com este título:
+
+> **"ENTRE EM NOSSO GRUOPO NO WHATSP"**
+
+Dois erros de digitação numa frase de cinco palavras — "GRUOPO" em vez de "grupo" e "WHATSP"
+em vez de "WhatsApp" — em caixa alta, no ar desde **14/08**. É a primeira vez que aparece
+erro de ortografia na lista, e é o tipo de coisa que a pessoa conserta na hora que enxerga.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Primoris** | **"ENTRE EM NOSSO GRUOPO NO WHATSP"** — dois erros de digitação, em três anúncios | `1115151141687827` | 14/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2563675907402413) |
+| **grajaucapital** | o arroba + **dez campos vazios**, e no ar desde **02/08/2025** — treze meses | `424810384056503` | 02/08/2025 | [anúncio](https://www.facebook.com/ads/library/?id=1239532377971183) |
+| **Apartamento a venda em Campo grande RJ** | o título é **o próprio nome da página seguido de nove campos vazios**; o segundo anúncio está **totalmente sem título**. O nome da página é literalmente a frase de busca — alguém montou a página como anúncio | `1344553605404710` | 10/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=3109259839263845) |
+| **jonathancorretor.imoveis** — **Trilha A** | **sem título** | `1142171925647802` | 30/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1405251184872208) |
+| **Terrenos & Imóveis RJ** | "🚩 Apartamento à Venda" — diz o produto e nada mais: nem bairro, nem metragem, nem preço | `105468811025702` | 09/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1423079669886484) |
+
+**Abordagem para a Primoris (é a mais constrangedora de mostrar, então tem que ser gentil):**
+
+> Bom dia. Aqui é o Pablo, do Rio — não sou comprador. Vi os anúncios de vocês na Biblioteca
+> do Facebook e passei para avisar de uma coisa que provavelmente ninguém percebeu: o título
+> dos três está saindo **"ENTRE EM NOSSO GRUOPO NO WHATSP"** — "gruopo" e "whatsp". Está no
+> ar assim desde agosto. Não é o fim do mundo, mas passa desleixo justo no campo que a pessoa
+> lê antes de decidir clicar. Já que é para mexer nele, dá para trocar por algo que diga o
+> imóvel. Quer ver o que eu colocaria?
+
+**Abordagem para a grajaucapital (o tempo é o argumento):**
+
+> Bom dia. Aqui é o Pablo, do Rio — não sou comprador. Seu anúncio está no ar **desde agosto
+> do ano passado**, treze meses, com o seu arroba no título seguido de **dez campos vazios**.
+> Cada um daqueles dez era espaço para um imóvel com bairro, metragem e preço. Quer que eu te
+> mostre o que entra ali?
+
+
+---
+
+## Achados de 15/09, 01h — harmonização facial + Botafogo (varredura da rotina)
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Dra. Victória Castelan** — **Trilha A** | **5 anúncios ativos com o mesmo título, "Harmonização Facial"**, e nada mais: nem bairro, nem procedimento, nem chamada. Cinco anúncios disputando o mesmo leilão entre si | `109662460568189` | 15/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1373688794184307) |
+| **Centro de Beleza Botafogo** | o título é só **"📍Botafogo - RJ"** — o endereço no lugar da oferta, há **dois meses** | `143316065525021` | 16/07/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1307317748149356) |
+
+Fora do ICP neste lote: Clinic Cursos (13 anúncios, vende curso), Espaço Facial Botafogo (franquia, marketing central), Clínica Dra Gizele Cabral (título bom, não é caso).
+
+**Abordagem para a Dra. Victória (dono no nome, Instagram direto):**
+
+> Oi, Dra. Victória. Aqui é o Pablo, do Rio — não sou paciente. Vi na Biblioteca do Facebook
+> que a senhora está com **cinco anúncios no ar, todos com o mesmo título "Harmonização Facial"**,
+> desde agosto. Eles estão competindo entre si no leilão e nenhum diz o que a pessoa ganha
+> nem onde fica. Dá pra deixar um só, com bairro e procedimento, e gastar menos. Quer ver como?
+
+
+---
+
+## Achados de 15/09, 03h — tatuagem + Tijuca RJ (nicho novo: estúdio de tatuagem)
+
+Primeira varredura do nicho. Tatuador é dono-operador, vende pelo Instagram e pelo WhatsApp, e anuncia sozinho — perfil parecido com harmonização, ticket menor. **Quatro dos seis têm o dono no nome.**
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Giovana Tattoo** — **Trilha A** (@giosousa_ink) | o título é **o nome da aba do Instagram repetido três vezes**: "Giovana Tattoo / Barra da Tijuca RJ (@giosousa_ink) • Instagram photos and videos" ×3. Colou o link e o Facebook puxou o título da página | `107607855419831` | 14/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2367663080437332) |
+| **Carlos MagnoTattoo** — **Trilha A** | **dois anúncios sem título**, um desde julho | `257047584793755` | 31/07/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2522130291568596) |
+| **Josi Bissaro tattoo** — **Trilha A** | **sem título** | `100223415654625` | 05/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1115151037516445) |
+| **rphbernardino** — **Trilha A** | **sem título** | `110513477401761` | 27/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1380643820928268) |
+| **Le Perrout Ink - Tattoo & Art Studio** | **6 anúncios idênticos**, todos "Converse conosco", disputando entre si | `236645640195566` | 13/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2575932256182669) |
+| **nanocapilar_rjtatianeleal** (nanopigmentação, Trilha A) | **dois anúncios sem título há quase cinco meses** | `1093356730524515` | 30/04/2026 | [anúncio](https://www.facebook.com/ads/library/?id=804798886037817) |
+
+Fora do ICP: Curso De Tatuagem & Piercing (vende curso). Guilherme - Tatuador, rodbarreto_tattoo, Dimelo Tattoo e sorrymae têm título funcional, não são caso.
+
+**Abordagem para a Giovana (o defeito é visual e ela vai entender na hora):**
+
+> Oi, Giovana. Aqui é o Pablo, do Rio — não sou cliente. Vi seu anúncio na Biblioteca do
+> Facebook e o título saiu assim: "Giovana Tattoo / Barra da Tijuca RJ (@giosousa_ink) •
+> Instagram photos and videos", **três vezes seguidas**. É o que acontece quando cola o link
+> do perfil e não troca o texto. Está no ar desde ontem, dá pra corrigir antes de gastar
+> mais. Quer que eu te mande o título que eu colocaria?
+
+
+---
+
+## Achados de 15/09, 04h — tatuagem + Niterói (segunda varredura do nicho)
+
+Niterói rende mais que Tijuca no nicho: 53 anúncios ativos. Cinco dos seis aproveitáveis têm o dono no nome.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **lucastattoo667** — **Trilha A** | o título dos **três anúncios é "api.whatsapp.com"** — colou o link do WhatsApp e o Facebook usou o endereço como título | `108888615226851` | 09/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=4299614300337217) |
+| **Zana Portugal** — **Trilha A** (micropigmentação) | **erro de digitação no título, em dois anúncios diferentes**: "Recurpere sua autoestima" e "Recuere sua autoestima". Errou duas vezes a mesma palavra | `104148925260711` | 04/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1162422026107571) |
+| **Sabrina Maia - Tattoer** — **Trilha A** | **três anúncios sem título** | `2199095003678192` | 03/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1044854701850239) |
+| **Wedison Barbosa Tatuagem Profissional** — **Trilha A** | dois anúncios idênticos, "Converse conosco", subidos ontem | `101867239468057` | 15/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1419432526992081) |
+| **keli.delicata.pmu** — **Trilha A** (micropigmentação) | **sem título** | `106871268594008` | 08/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1831961564460486) |
+| **Ripper Tattoo Studio** | dois anúncios idênticos, "Converse conosco" | `381875022463907` | 10/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1087072573969280) |
+
+Fora do ICP: Elleva Salon (8 anúncios, vende curso de laser), delicata.pmu.academy (curso). Jessica Almeida Clinic Beauty tem título vazio mas é estética geral, já coberta em outro nicho. Leo LEAD Tattoo tem título funcional.
+
+**Abordagem para o Lucas (o defeito é o mais fácil de mostrar do lote):**
+
+> Oi, Lucas. Aqui é o Pablo, do Rio — não sou cliente. Vi seus três anúncios na Biblioteca
+> do Facebook e o título deles está saindo **"api.whatsapp.com"**. É o que acontece quando
+> cola o link do zap no campo errado. Quem vê no feed não entende o que é. Está no ar desde
+> a semana passada. Quer que eu te mande o título certo pra trocar?
+
+**Abordagem para a Zana (o erro se repete, então não foi distração):**
+
+> Oi, Zana. Aqui é o Pablo, do Rio — não sou cliente. Reparei que dois dos seus anúncios
+> estão com o título "Recurpere sua autoestima" e "Recuere sua autoestima". A palavra é
+> "recupere". Como saiu errado nos dois, deve ter copiado de um pro outro. É rápido de
+> arrumar e faz diferença em quem clica. Quer ajuda com o texto inteiro?
+
+
+---
+
+## Achados de 15/09, 05h — tatuagem + Copacabana
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **danielarteink** — **Trilha A** | dois anúncios com **a mesma frase repetida DEZ vezes no título** ("13 ANOS DE EXPERIÊNCIA TRANSFORMANDO PELE EM ARTE" ×10 e "REALISMO QUE IMPRESSIONA" ×10). É o recorde de repetição da lista inteira | `109469031372151` | 19/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1987846078583138) |
+| **Rota da Tattoo** | **três anúncios sem título** há um mês | `817579691439733` | 18/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1443758160925959) |
+| **Arpô Tattoo** | título em inglês, **"Walk-ins welcome"**, para público do Rio, no ar há **sete meses** | `380689051802271` | 03/02/2026 | [anúncio](https://www.facebook.com/ads/library/?id=930910673076317) |
+| **Carol Alena** — **Trilha A** | **sem título**, subiu dia 13 | `100415471449286` | 13/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=27920996814266257) |
+
+Fora: Fabiane Almeida (anuncia em euro, não é do Rio), Adriana Caturani e Estética avançada (título funcional, estética geral).
+
+**Abordagem para o Daniel (o número dez é o argumento):**
+
+> Oi, Daniel. Aqui é o Pablo, do Rio — não sou cliente. Vi seus anúncios na Biblioteca do
+> Facebook e o título de um deles é "13 anos de experiência transformando pele em arte"
+> repetido **dez vezes seguidas**. O outro, a mesma coisa com "realismo que impressiona".
+> Deve ter sido o campo de título que aceitou colar várias vezes. Seu trabalho é bom, o
+> anúncio não está mostrando isso. Quer ver como eu deixaria?
+
+
+---
+
+## Achados de 15/09, 06h — tatuagem + Méier
+
+Padrão do bairro: **os três colaram um link no campo de título.** Nenhum anúncio com título vazio, nenhum repetido — defeito diferente dos outros bairros.
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **ink__maiconn** — **Trilha A** | título é **"instagram.com"**, no ar há **quatro meses** | `846449008549146` | 29/05/2026 | [anúncio](https://www.facebook.com/ads/library/?id=978440574917414) |
+| **rafaelazoth** — **Trilha A** | título é **"api.whatsapp.com"** | `111666681890778` | 31/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1051639657472677) |
+| **Bodypiercerstefany** — **Trilha A** (piercing) | título é **"instagram.com"** | `105412437682373` | 13/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2406846583179850) |
+
+Fora: babi.sobrancelhas (título bom), Alma de Cor Esmalteria (evento pontual).
+
+**Abordagem para o Maicon (quatro meses é o argumento):**
+
+> Oi, Maicon. Aqui é o Pablo, do Rio — não sou cliente. Seu anúncio está no ar **desde maio**
+> com o título "instagram.com". Quatro meses pagando pra mostrar o nome de um site no lugar
+> do seu trabalho. É só trocar o texto do título, leva dois minutos. Quer que eu te mande
+> uma sugestão?
+
+
+---
+
+## Achados de 15/09, 07h — tatuagem + Barra da Tijuca
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Rabiska Tattoo Barra da Tijuca** | **6 anúncios ativos: 3 sem título e 3 "Converse conosco"**, há dois meses | `1217114964818594` | 15/07/2026 | [anúncio](https://www.facebook.com/ads/library/?id=4334706030113149) |
+| **Base Tattoo Rio** | **dois anúncios sem título há oito meses** — o mais antigo do nicho | `157639171728861` | 22/01/2026 | [anúncio](https://www.facebook.com/ads/library/?id=834651329577783) |
+| **Estúdio de Tatuagem e Ateliê de Artes - Camila Sol Castello** — **Trilha A** | **sem título há seis meses** | `295403277295190` | 22/03/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2687800238268717) |
+| **Designer Nádia Lima** — **Trilha A** (micropigmentação) | **dois anúncios sem título há quatro meses** | `523680867716999` | 28/05/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1020673187171312) |
+| **maiatattoo.art** — **Trilha A** | **sem título** | `102231035203183` | 07/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=926045573420552) |
+| **Brazilian Ink Tattoo** | **sem título** | `346717395499079` | 01/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1592962352558404) |
+
+Fora: Curso De Tatuagem & Piercing (3 anúncios, curso), Corpo Bueno (estética, título bom), Instituto Karen Stephane (curso). Tatyana Santos, Letícia Sousa, Jade e rodbarreto têm título funcional.
+
+**Abordagem para a Base Tattoo (oito meses é o argumento):**
+
+> Oi, pessoal da Base. Aqui é o Pablo, do Rio — não sou cliente. Os dois anúncios de vocês
+> estão no ar **desde janeiro sem título nenhum**. Oito meses pagando pra mostrar a foto
+> sem dizer o que é nem onde fica. É o campo mais lido do anúncio e está vazio. Quer que
+> eu mande dois títulos prontos pra testar?
+
+
+---
+
+## Achados de 15/09, 08h — tatuagem + Campo Grande RJ
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Thiago Santos** — **Trilha A** | **15 anúncios idênticos**, todos "Clique para solicitar seu orçamento", subidos no mesmo minuto. Quinze anúncios disputando entre si | `305974750243712` | 04/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1798672464497348) |
+| **tctattooarte** — **Trilha A** | **sem título há vinte meses** (desde janeiro de 2025) — o mais antigo de toda a lista | `104008182641473` | 18/01/2025 | [anúncio](https://www.facebook.com/ads/library/?id=1786141522199748) |
+| **studiopatriciaariston** — **Trilha A** | "Converse conosco" **seis vezes** no título, em dois anúncios, há quatro meses | `990227547518081` | 18/05/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1708733893904387) |
+| **Leonardo Xavier** — **Trilha A** | **sem título** | `374335423318150` | 09/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1405417918156517) |
+| **Studio Zero** | **dois anúncios sem título**, subidos ontem | `416665981838572` | 14/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1548395307045129) |
+| **Studio Iracema Vieira** | título é **o nome da página**, sem oferta | `100308201702733` | 15/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1120762230303496) |
+
+Fora: Rubi Campo Grande (loja), giselevieira_estetica (estética geral). Thierry Tattoo e Thiago Santos têm CTA funcional; o problema do Thiago é a quantidade.
+
+**Abordagem para o Thiago (o número quinze é o argumento):**
+
+> Oi, Thiago. Aqui é o Pablo, do Rio — não sou cliente. Vi na Biblioteca do Facebook que
+> você subiu **quinze anúncios iguais** no mesmo dia, todos com "Clique para solicitar seu
+> orçamento". Eles estão competindo entre si no leilão e o Facebook não consegue aprender
+> qual funciona. Com dois ou três bem diferentes você gasta menos e recebe mais. Quer que
+> eu mostre como dividiria?
+
+
+---
+
+## Achados de 15/09, 10h — pet shop (banho e tosa) + Niterói
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Bicho D+ Veterinária e Pet Shop** | "Converse conosco" **sete vezes** no título, no ar há **27 meses** (desde junho de 2024) — o anúncio mais antigo de toda a lista | `1255112617929642` | 01/06/2024 | [anúncio](https://www.facebook.com/ads/library/?id=989751759165957) |
+| **Hachiko Pet House** | **sem título há 14 meses** | `334308013671240` | 22/07/2025 | [anúncio](https://www.facebook.com/ads/library/?id=1163421955517403) |
+| **Pets de luxo** | título é **"api.whatsapp.com"** | `102870384994593` | 30/07/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2250857358995227) |
+| **Fino trato** | **sem título** | `169236819608435` | 13/07/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1572767520867150) |
+
+Fora: Spin Imóveis (imobiliária, veio pelo termo).
+
+**Abordagem para a Bicho D+ (dois anos é o argumento):**
+
+> Bom dia. Aqui é o Pablo, do Rio — não sou cliente. O anúncio de vocês está no ar **desde
+> junho de 2024**, mais de dois anos, com "Converse conosco" repetido sete vezes no título.
+> Dois anos pagando pra mostrar isso. Deve ter sido esquecido ligado. Quer que eu mostre o
+> que eu colocaria no lugar, ou pelo menos confira se ainda vale a pena estar no ar?
+
+
+---
+
+## Achados de 15/09, 11h — escola de idiomas + Niterói
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **American Insight Niterói** | **6 anúncios idênticos** ("Inglês para crescer na carreira e no mundo") há **5 meses** | `875124359008598` | 24/04/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2759712821080839) |
+| **Gabriel Assunção** — **Trilha A** (professor) | **dois anúncios sem título** | `102432845286242` | 03/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1806963704080254) |
+| **Curso Yes! Barreto** | **sem título** | `368340969890495` | 20/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1436998458482510) |
+| **Associação Brasileira de Bolsas** | erro de digitação no título: **"SEJA BE-VINDA"** | `358758378502102` | 11/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1101860558944839) |
+
+Fora: Wizard, Wise Up, YES Itaipu, Uninter (redes com marketing central ou título bom). Matheus Calione e Teacher Fabrício têm título funcional.
+
+**Abordagem para a American Insight (cinco meses, seis iguais):**
+
+> Bom dia. Aqui é o Pablo, do Rio — não sou aluno. Vi na Biblioteca do Facebook que vocês
+> estão com **seis anúncios idênticos no ar desde abril**, mesma frase, mesma imagem. Eles
+> competem entre si e o Facebook não aprende qual funciona. Com dois ou três diferentes
+> vocês gastam menos e matriculam mais. Quer ver como eu dividiria?
+
+
+---
+
+## Achados de 15/09, 12h — fisioterapia + Méier
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Quiropraxia - Acupuntura - Alex Calderaro** — **Trilha A** | **sem título há 17 meses** (desde abril de 2025) | `2443997432292291` | 15/04/2025 | [anúncio](https://www.facebook.com/ads/library/?id=645960888285833) |
+| **fisio.noslensantana** — **Trilha A** | um dos dois anúncios **sem título** (o outro está bom) | `111408330592493` | 11/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=965658589914099) |
+| **Clínica de Fisioterapia e Acupuntura R M P na Taquara** | **sem título** | `1776024749316014` | 08/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1436763491635005) |
+| **Metamorfose Clínica de Reabilitação Infantil** | título é **"Instagram"** há cinco meses | `957073850826740` | 08/04/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1522622005955599) |
+
+Fora: Dr. Dayan Siebra (influenciador nacional), Fisioterapia e Estética Méier e Viver bem737 (título funcional).
+
+**Abordagem para o Alex (17 meses é o argumento):**
+
+> Oi, Alex. Aqui é o Pablo, do Rio — não sou paciente. Seu anúncio está no ar **desde abril
+> do ano passado sem título**. Dezessete meses pagando pra mostrar a foto sem dizer o que é
+> nem onde fica. É o campo mais lido do anúncio. Quer que eu mande dois títulos prontos?
+
+
+---
+
+## Achados de 15/09, 13h — veterinária + Barra da Tijuca
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Hug - Qualidade de Vida Animal** | **3 anúncios com o título igual ao nome** ("Hug Veterinária"), há **12 meses** | `401995120265385` | 03/09/2025 | [anúncio](https://www.facebook.com/ads/library/?id=627082823805658) |
+| **flaviaclare** — **Trilha A** (veterinária) | título é **o arroba seguido de cinco campos vazios** ("flaviaclare \| \| \| \| \|") | `105235465067568` | 09/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=3452566114926871) |
+| **Clinica Veterinaria Xatô** | **sem título**, subiu dia 13 | `487910281359381` | 13/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1768821860974896) |
+
+Fora: Clincardio (curso), Esfera Condominial (evento, veio pelo termo).
+
+**Abordagem para a Flávia (o defeito é visual):**
+
+> Oi, Flávia. Aqui é o Pablo, do Rio — não sou cliente. Vi seu anúncio na Biblioteca do
+> Facebook e o título saiu como "flaviaclare" seguido de cinco espaços em branco. É o que
+> acontece quando o campo fica vazio na hora de subir. Quem vê não sabe o que você faz nem
+> onde. Quer que eu mande um título pronto pra trocar?
+
+
+---
+
+## Achados de 15/09, 14h — arquitetura + Barra da Tijuca
+
+O termo "projeto de arquitetura" puxou o nicho imobiliário quase inteiro. Do que era arquitetura de verdade:
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Lucio Nocito Arquitetura e Design de Interiores** — **Trilha A** | **sem título** | `323370017811740` | 12/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1585093416494052) |
+| **Sentineli & Sobral** | **sem título**, subiu hoje | `293421540812776` | 15/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1252822293650885) |
+
+Fora: tudo que é imobiliária (Ym Imóveis com 8 iguais, Alfaiataria com "Fale conosco" ×10, corretores) já é nicho coberto em outra varredura; Doutor Persiana (persianas, 2 sem título, fora da lista de nichos). Um resultado de móveis planejados apareceu e foi descartado sem registro, por decisão do Pablo.
+
+**Abordagem para o Lucio:**
+
+> Oi, Lucio. Aqui é o Pablo, do Rio — não sou cliente. Seu anúncio na Biblioteca do
+> Facebook está **sem título**. Pra arquitetura, que vende projeto pela imagem, o título é
+> onde entra o bairro e o tipo de obra. Quer que eu mande dois pra testar?
+
+
+---
+
+## Achados de 15/09, 16h — academia + Niterói
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **leosousanutricao** — **Trilha A** (nutricionista) | título é o código **`{{product.name}}`**, com as chavinhas, há um mês | `1276694938860269` | 10/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2195501894633488) |
+| **Exercit Esportes** | nome da loja **seis vezes** no título de um anúncio, e o outro **sem título** | `130448062092951` | 18/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1077600837986483) |
+| **Fábrica Premium Niterói** | 3 anúncios "Fale conosco" idênticos; a irmã **Fábrica Premium Região Oceânica** e a **Fábrica CT Niterói** estão sem título; a **Fábrica CT Barreto** tem "instagram.com" no título. Quatro páginas da mesma rede, quatro defeitos | `928131783723869` | 27/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=4586046825011078) |
+| **alexandrechristino_trainer** — **Trilha A** | **sem título**, subiu ontem | `111828893903048` | 14/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=4647831222203074) |
+| **claudiogomes_massoterapeuta** — **Trilha A** | título é **"instagram.com"** | `1329845486875136` | 13/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2532051677285446) |
+| **Jimmy Sereno** — **Trilha A** (personal) | **sem título** | `102829081154262` | 12/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2223509608218107) |
+| **Studio In Prime** | **dois anúncios sem título** | `744824058708593` | 21/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1043747931773494) |
+
+Fora: A.R Academia (vaga de emprego), ITC Vertebral e Instituto Trata (clínica, título funcional), Nitfit e Tio Sam (título funcional).
+
+**Abordagem para o Leo (o código no título é o mais fácil de mostrar):**
+
+> Oi, Leo. Aqui é o Pablo, do Rio — não sou cliente. Seu anúncio na Biblioteca do Facebook
+> está com o título "{{product.name}}", com as chavinhas mesmo. É um código de catálogo
+> que nunca foi trocado pelo nome do serviço. Está assim há um mês. Dá pra corrigir em dois
+> minutos, quer que eu mande o texto?
+
+**Abordagem para a rede Fábrica (quatro páginas, quatro erros diferentes):**
+
+> Bom dia. Aqui é o Pablo, do Rio — não sou aluno. Vi na Biblioteca do Facebook que as
+> quatro unidades da Fábrica em Niterói anunciam separadas e cada uma com um erro diferente
+> no título: uma repete "Fale conosco", duas estão sem título e uma mostra "instagram.com".
+> Quem cuida do anúncio de vocês? Dá pra padronizar e gastar menos. Quer ver como?
+
+
+---
+
+## Achados de 15/09, 17h — odontologia + Madureira
+
+| Empresa | Defeito | Página | No ar desde | Ver |
+|---|---|---|---|---|
+| **Dr. Cadu Crevelario • Madureira - RJ** — **Trilha A** | **sem título**, subiu hoje | `351863688011695` | 15/09/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1735352334210541) |
+| **Dr.Marcelo Duarte** — **Trilha A** | título é **o próprio nome**, sem oferta, há dois meses | `980307261838192` | 17/07/2026 | [anúncio](https://www.facebook.com/ads/library/?id=1957824878260036) |
+| **Dentista Michelle & Equipe** — **Trilha A** | **sem título** | `1398513620467375` | 05/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2938106873206558) |
+| **Centro de Saúde Costa Lima** | **sem título** | `109523875102752` | 03/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=873263165602920) |
+| **Rede Odonto Madureira** | "Não deixe para depois" **duas vezes** no título | `508676572903620` | 13/08/2026 | [anúncio](https://www.facebook.com/ads/library/?id=2402889143573174) |
+
+Fora: Inter Sorriso (rede, título funcional), Carla Santos Consultora (não é odontologia, veio pelo bairro).
+
+**Abordagem para o Dr. Cadu (subiu hoje, dá pra corrigir antes de gastar):**
+
+> Oi, Dr. Cadu. Aqui é o Pablo, do Rio — não sou paciente. Vi que o senhor subiu um anúncio
+> hoje na Biblioteca do Facebook e ele está **sem título**. É o campo mais lido, e o único
+> onde cabe "Madureira" e o procedimento. Como acabou de entrar no ar, dá pra corrigir
+> antes de gastar. Quer que eu mande dois títulos prontos?
+
+## Varredura 15/09 18h — advocacia Méier ("advogado Méier", 8 anúncios)
+- Combo varrido: advocacia × Méier.
+- **Meier Advogados** — 6 anúncios idênticos "Acidente no Trabalho?" rodando desde ago/26 (≈1 mês), sem variação de copy nem título. Trilha A (gasta, mas repete o mesmo criativo).
+- **advogado.carlosjunior** — 1 anúncio ativo desde mar/26 (≈6 meses), sem título. Trilha A.
+- **Dra. Fatima Matos Advogada** — 1 anúncio "Converse com um advogado especialista!" desde mar/26 (≈6 meses), genérico, sem nicho. Trilha A.
+- Nicho advocacia Méier: 3 nomes, 3 Trilha A.
+
+## Varredura 15/09 19h — harmonização Campo Grande RJ ("harmonização facial Campo Grande RJ", 4 anúncios)
+- Combo varrido: harmonização × Campo Grande.
+- **Ariel Barradas - Harmonização Facial** — dono no nome, Trilha A. Anúncio desde ago/26, título "Agendar Avaliação" repetido 4x (carrossel sem variação). https://www.facebook.com/ads/library/?id=27825580700426643
+- **enfa_miriansilva** — dona no nome, Trilha A. Desde ago/26, "Agende sua avaliação" repetido 3x, sem promessa. https://www.facebook.com/ads/library/?id=1109464114741765
+- **Odonto Aliados** — título é "instagram.com" (link colado no título). Desde ago/26. https://www.facebook.com/ads/library/?id=1385434276867309
+- **Espaço Facial - Campo Grande - RJ** — anúncio de 09/09, título "✅ AGENDE AGORA!" genérico. Novo demais, observar.
+- Nicho harmonização Campo Grande: 4 nomes, 2 Trilha A.
+
+## Varredura 15/09 20h — odontologia Botafogo ("dentista Botafogo", 13 anúncios)
+- Combo varrido: odontologia × Botafogo.
+- **IRio Odontologia Botafogo** — 4 anúncios, o mais antigo desde dez/25 (9 meses), títulos "🔴 ATENÇÃO BOTAFOGO" e "🔴 Clique e agende" repetidos 2x cada. https://www.facebook.com/ads/library/?id=868477806138006
+- **Dra Cris Cunha** — dona no nome, Trilha A. 2 anúncios de set/26 sem título. https://www.facebook.com/ads/library/?id=814067495122483
+- **Odontopediatra em Botafogo - Dra Thais Aguiar Gomes** — dona no nome, Trilha A. Anúncio de 13/09, título genérico "Converse conosco". https://www.facebook.com/ads/library/?id=1398106905072745
+- **Dra Georgia Botafogo** — dona no nome, Trilha A. Desde abr/26 (5 meses), título "Fale Conosco". https://www.facebook.com/ads/library/?id=1337534981526411
+- **Prime Dente Unidade Botafogo** — franquia, anúncio sem título. https://www.facebook.com/ads/library/?id=1245472954406605
+- **Clinica Odontológica Santa Rosa de Lima** — desde ago/26, sem título. https://www.facebook.com/ads/library/?id=2094317364778194
+- Fora: Simplifica Doctor (curso), COA Nova Cruz RN (outro estado), Espaço Facial (franquia, já listada).
+- Nicho odontologia Botafogo: 6 nomes, 3 Trilha A.
+
+## Varredura 15/09 21h — fisioterapia Tijuca ("fisioterapia Tijuca RJ", 41 anúncios, termo puxou muita coisa fora)
+- Combo varrido: fisioterapia × Tijuca. Termo largo: veio curso (Ibrafisio, Elo3), quiropraxia, residencial sênior. Aproveitável:
+- **Nunes Curativos** — 8 anúncios idênticos de set/26, título "Converse conosco" repetido até 8x no carrossel. https://www.facebook.com/ads/library/?id=1371944757974600
+- **Dr. Mauro Monteiro Osteopatia** — dono no nome, Trilha A. 2 anúncios desde ago/26, sem título. https://www.facebook.com/ads/library/?id=2119133688956685
+- **Rodrigo Salvitti** — dono no nome, Trilha A. 3 anúncios desde ago/26, todos sem título. https://www.facebook.com/ads/library/?id=1018698091030714
+- **Núcleo Angela Beatriz Varella de Fisioterapia** — dona no nome, Trilha A. Anúncio de set/26 sem título. https://www.facebook.com/ads/library/?id=2158480202213241
+- **Maicom Lima** — dono no nome, Trilha A. Título é o próprio nome. https://www.facebook.com/ads/library/?id=2557775764670138
+- **Clínica Ortobarra** — anúncio de set/26 sem título. https://www.facebook.com/ads/library/?id=4530476013875596
+- **Espaço Vida Barra** — "promoção de Agosto" ainda no ar em setembro. https://www.facebook.com/ads/library/?id=1029734440092383
+- Lição de termo: "fisioterapia <bairro>" puxa curso e quiropraxia; próxima vez usar "fisioterapeuta <bairro>".
+- Nicho fisioterapia Tijuca: 7 nomes, 4 Trilha A.
+
+## Varredura 15/09 22h — veterinária Niterói ("veterinária Niterói", 38 anúncios, metade é faculdade)
+- Combo varrido: veterinária × Niterói. Fora: Estácio, Anhanguera, faculdade (curso de veterinária).
+- **Veterinária Popular Niterói** — 2 anúncios, títulos "api.whatsapp.com" e "instagram.com" (link colado no título). https://www.facebook.com/ads/library/?id=1405288051055182
+- **Veterinária Natália Pereira** — dona no nome, Trilha A. 2 anúncios desde set/26, título "api.whatsapp.com". https://www.facebook.com/ads/library/?id=4252308868239655
+- **morada.veterinaria** — título "api.whatsapp.com". https://www.facebook.com/ads/library/?id=1644328720440707
+- **BluePet 24h** — 4 anúncios, carrossel com o mesmo título repetido 7x, desde ago/26. https://www.facebook.com/ads/library/?id=1080030124526543
+- Lição de termo: "veterinária <bairro>" puxa faculdade; usar "clínica veterinária <bairro>" ou "veterinário <bairro>".
+- Nicho veterinária Niterói: 4 nomes, 1 Trilha A.
+
+## Varredura 15/09 23h — ótica Barra ("óculos de grau Barra da Tijuca", 4 anúncios)
+- Combo varrido: ótica × Barra.
+- **QualiÓtica Carioca** — carrossel com o título "Instagram photos and videos" repetido 7x (título vazado da página do Instagram). Desde set/26. https://www.facebook.com/ads/library/?id=1083985151022047
+- **Use Visio Ótica** — "Agende aqui seu Exame de Vista no Itanhangá" repetido 2x, desde ago/26. https://www.facebook.com/ads/library/?id=2072206450171044
+- **Oftalmo Città** — anúncio sem título desde jun/26 (3 meses). https://www.facebook.com/ads/library/?id=1532752995009640
+- Fora: Dr. Igor Mota (cirurgia refrativa, nicho médico, anúncio novo e com título).
+- Nicho ótica Barra: 3 nomes, 0 Trilha A.
+
+## Varredura 16/09 00h — escola de idiomas Tijuca ("escola de inglês Tijuca RJ", 1 anúncio) — ESGOTADO
+- Combo varrido: escola de idiomas × Tijuca. Só veio uma creche (fora do nicho). Combo esgotado; próxima tentativa com "curso de inglês <bairro>".
+
+## Varredura 16/09 01h — pet shop Copacabana ("pet shop Copacabana", 10 anúncios)
+- Combo varrido: pet shop × Copacabana.
+- **pet_shop_copacabana** — 2 anúncios de set/26: um sem título, outro com "instagram.com" no título. https://www.facebook.com/ads/library/?id=939128815922094
+- **Pet Shop Essencial (Casa de Rações / Aquarismo)** — 2 anúncios sem título, desde jul/26. https://www.facebook.com/ads/library/?id=1612987213787333
+- **ApaixonadosCopacabana** (veterinária + pet shop) — 4 anúncios idênticos desde jul/26, título gigante com endereço e horário. https://www.facebook.com/ads/library/?id=1052866054340953
+- Fora: imobiliária, igreja.
+- Nicho pet shop Copacabana: 3 nomes, 0 Trilha A.
+
+## Varredura 16/09 02h — energia solar Niterói ("energia solar Niterói", 97 anúncios, quase tudo uma empresa)
+- Combo varrido: energia solar × Niterói. Termo puxou imobiliárias também (Luis Imóveis, dreamsimob, JGoulart, Victor Maisonnette) — fora.
+- **RBR Solar Niterói** — pelo menos 20 anúncios ativos, 13 deles criados no mesmo minuto (15/09) com o título "solicite seu orçamento!" idêntico; mais 4 com "Converse conosco" repetido 3x no carrossel. Gasto alto e criativo repetido em massa: candidato forte, mas empresa (não Trilha A). https://www.facebook.com/ads/library/?id=1464897782361879
+- Nicho energia solar Niterói: 1 nome, 0 Trilha A.
+
+## Varredura 16/09 03h — academia Méier ("academia Méier", 38 anúncios)
+- Combo varrido: academia × Méier. Fora: imobiliárias (Julyana Mendes, Meu Apê RJ), loja de esportes.
+- **Academia Xtreme Meier** — 11 anúncios desde ago/26, 8 com o mesmo título "Depois dos 50, movimento é qualidade de vida" e 3 "Converse conosco". Repetição em massa. https://www.facebook.com/ads/library/?id=1380653280938690
+- **Champs Fitness Méier** — 5 anúncios, 2 sem título, 3 "Voucher de R$ 360" (um com o título repetido 4x no carrossel), desde ago/26. https://www.facebook.com/ads/library/?id=3087470541461113
+- **Lifefit Méier** — 3 anúncios de set/26, "Comece hoje mesmo!" e "Converse conosco!" genéricos. https://www.facebook.com/ads/library/?id=1385399619740386
+- **Marius Sports** — título é só "⭐⭐⭐⭐⭐". https://www.facebook.com/ads/library/?id=27750127007931461
+- **Academia Top3 Méier** — 1 anúncio desde jul/26 (2 meses), título ok. Observar.
+- Nicho academia Méier: 5 nomes, 0 Trilha A.
+
+## Varredura 16/09 04h — arquitetura Botafogo ("arquiteta Botafogo", 1 anúncio) — ESGOTADO
+- Combo varrido: arquitetura × Botafogo. Só veio imobiliária (Alfaiataria Imobiliária, "Chat with us" repetido 10x; fora do nicho). Combo esgotado.
+
+## Varredura 16/09 05h — imobiliária Madureira ("apartamento à venda Madureira RJ", 1 anúncio) — ESGOTADO
+- Combo varrido: imobiliária × Madureira. Só a construtora Tenda (grande, fora do perfil). Combo esgotado.
+
+## Varredura 16/09 06h — tatuagem Botafogo ("estúdio de tatuagem Botafogo", 8 anúncios)
+- Combo varrido: tatuagem × Botafogo (8º bairro do nicho).
+- **João C. Mello Tattoo** — dono no nome, Trilha A. 5 anúncios desde jul/26 (2 meses), 4 sem título e 1 carrossel com títulos vazios. https://www.facebook.com/ads/library/?id=1593755368856070
+- **Táta Saraiva Tattoo** — dona no nome, Trilha A. Título "api.whatsapp.com", desde set/26. https://www.facebook.com/ads/library/?id=1768931324418881
+- **ANA JULIA Botafogo • Tattoo** — dona no nome, Trilha A. "Converse conosco" genérico, anúncio de 15/09. https://www.facebook.com/ads/library/?id=1469072431776915
+- **ancientt.ink** — título ok ("Agenda Aberta Rio de Janeiro"), anúncio de 16/09. Observar.
+- Nicho tatuagem Botafogo: 4 nomes, 3 Trilha A. Tatuagem agora com os 8 bairros varridos.
+
+## Varredura 16/09 07h — odontologia Campo Grande ("dentista Campo Grande RJ", 30 anúncios)
+- Combo varrido: odontologia × Campo Grande.
+- **Sorrisos Odontologia Estética (Dra. Dani Racca)** — dona no nome, Trilha A. 16 anúncios desde jun/26 (3 meses), 14 com o título "Dra. Dani Racca" (só o nome, sem promessa) e 2 "Converse conosco". https://www.facebook.com/ads/library/?id=1062542630107689
+- **Oral Imagem** — 3 anúncios desde ago/26, 2 sem título e 1 carrossel com títulos vazios. https://www.facebook.com/ads/library/?id=1069649479339138
+- **Odonto mais saúde** — 3 anúncios idênticos de set/26, título é o nome da clínica. https://www.facebook.com/ads/library/?id=4569776863262378
+- **Click Odonto** — desde jun/26 (3 meses), "Converse com a nossa equipe" genérico. https://www.facebook.com/ads/library/?id=1675538100151008
+- **Clínica Dra Priscila Máximo** — dona no nome, Trilha A. Desde mai/26 (4 meses), título ok mas anúncio único e velho. https://www.facebook.com/ads/library/?id=2203481183730273
+- Fora: Dr. Hélio Nobre (cirurgia plástica).
+- Nicho odontologia Campo Grande: 5 nomes, 2 Trilha A.
+
+## Varredura 16/09 08h — harmonização Copacabana ("harmonização facial Copacabana", 45 anúncios ativos)
+- Combo varrido: harmonização × Copacabana. Termo bom: quase tudo dentro do nicho.
+- **Dra. Raphaela Aguiar - Estética Avançada** (página 657280187468738) — 8 anúncios ativos, todos com o MESMO título "Harmonização Facial - Copacabana"; 6 criados em 15/09 (rodada nova) + 2 desde 25/08. Defeito: título genérico repetido, sem promessa nem gancho; roda várias cópias iguais. Trilha A (nome da dona na página). https://www.facebook.com/ads/library/?id=3150808288447802
+- **drthiagovieiramoraes** (página 100101935741941) — 3 anúncios, todos apontando pro perfil do Instagram (título "Instagram photos and videos"); um no ar desde 03/09. Defeito: anúncio de perfil, sem destino de conversão. Trilha A. https://www.facebook.com/ads/library/?id=1779632749949968
+- **Espaço Facial Leme** (página 559374157255408) — 11 anúncios ativos, todos "AGENDE AQUI", desde 02/09 com novas cópias a cada 2–3 dias. Defeito: mesmo CTA repetido em 11 peças, sem ângulo. Trilha B (sem dono no nome). https://www.facebook.com/ads/library/?id=1445191317479123
+- **Bernadete Araújo Estética** (página 451496818562789) — 2 anúncios "Agende seu horário!", desde 30/08. Trilha A. https://www.facebook.com/ads/library/?id=1402696845376990
+- **Elizene Souza - Harmonizacao Facial** (página 415669234963144) — 1 anúncio com título "api.whatsapp.com" (link cru no título), desde 02/09. Defeito claro. Trilha A. https://www.facebook.com/ads/library/?id=28096733123318820
+- **AP - Harmonização Facial e Corporal** (página 1333034956554823) — 1 anúncio "Poucos horários disponíveis", desde 10/09. Trilha B.
+- Nicho harmonização Copacabana: 6 nomes, 4 Trilha A.
+
+## Varredura 16/09 09h — fisioterapia Barra da Tijuca ("fisioterapia Barra da Tijuca", 77 anúncios ativos)
+- Combo varrido: fisioterapia × Barra. Fora do nicho: Ibrafisio Cursos, Elo3 Cursos (curso), souquiro (quiropraxia/lote promocional), Lavitá (residencial sênior), Instituto Hoffdahn2 (título quebrado "|   |   |").
+- **Instituto Trata - Barra da Tijuca** (página 103952842572635) — 6 anúncios criados em 15/09, 4 com o mesmo título "Toque para Agendar sua Consulta" e 2 sem título. Defeito: título genérico repetido e peças sem título; rede/franquia (Trilha B). https://www.facebook.com/ads/library/?id=1259305247274292
+- **Clínica Ortobarra** (página 116441024392088) — 3 anúncios desde 05/09: um com título "instagram.com" (link cru), um "Fale Conosco no WhatsApp", um sem título. Defeito claro. Trilha B. https://www.facebook.com/ads/library/?id=1042278558420048
+- **Corpory Pilates & Cia.** (página 142389662633298) — 3 cópias iguais desde 03/09, título longo demais ("Chega de adiar o cuidado com o seu corpo. Agende agora mesmo sua consulta."). Trilha B. https://www.facebook.com/ads/library/?id=1780975673235431
+- **Clínica Daniel Rosa** (página 103095201582744) — 1 anúncio "Converse conosco", desde 15/09. Trilha A (dono no nome). https://www.facebook.com/ads/library/?id=921889083919160
+- **dayanedias.fisioterapia** (página 112666207301741) — 1 anúncio sem título, desde 15/09. Trilha A. https://www.facebook.com/ads/library/?id=1154870580483316
+- **Rodrigo Salvitti** (página 964281120110122) — 1 anúncio sem título, 16/09. Trilha A. https://www.facebook.com/ads/library/?id=1574930684313564
+- **Clinica Multidisciplinar Despertare** (página 107011772013743) — título repetido "Fale conosco | Fale conosco | Fale conosco" (erro de montagem). Trilha B. https://www.facebook.com/ads/library/?id=1076939951717847
+- **Recive Dor Crônica** (página 258460720689661) — 1 anúncio sem título, 14/09. Trilha B.
+- Nicho fisioterapia Barra: 8 nomes, 3 Trilha A.
+
+## Varredura 16/09 14h10 — harmonização facial × Tijuca (RJ)
+Termo "harmonização facial Tijuca RJ", 67 anúncios ativos. Muito anúncio de rede (Espaço Facial: Tijuca, Downtown, Millennium) com botão "AGENDE JÁ" genérico e anúncio-modelo "pagando apenas o material" (curso/treinamento, não clínica).
+| Nome | Página | Defeito | No ar desde | Biblioteca | Trilha |
+|---|---|---|---|---|---|
+| Dra. Raphaella Martins | 554483664423299 | link direto pro WhatsApp, sem formulário nem filtro | 16/09 | https://www.facebook.com/ads/library/?id=1118734827768373 | A |
+| Dr. Felipe Farah | 276705448867654 | sem título, post impulsionado | 15/09 | https://www.facebook.com/ads/library/?id=1107244545062485 | A |
+| Dra Giuliana Lemos | 1161984110328623 | link pro Instagram (manda pro perfil, não capta) | 13/09 | https://www.facebook.com/ads/library/?id=1379925157643846 | A |
+| Dra Beatriz Leal | 111807668397806 | 3 anúncios iguais, título é só o endereço | 03/09 | https://www.facebook.com/ads/library/?id=1111279301554879 | A |
+| Dra. Victoria Coelho | 502575372929809 | sem título, post impulsionado | 02/09 | https://www.facebook.com/ads/library/?id=1517450360190002 | A |
+| Espaço Facial Tijuca | 107941095463368 | "AGENDE JÁ" genérico, rede (dono não aparece) | 14/09 | https://www.facebook.com/ads/library/?id=1788444632160763 | B |
+Fábio Motta e Bruno Marano: mesma copy "pagando apenas o material na Barra" = anúncio de curso com modelo, não é clínica captando paciente. Não abordar.
+Combos varridos até aqui: + harmonização Tijuca.
+
+## Varredura 16/09 15h10 — odontologia × Tijuca (RJ)
+Termo "dentista Tijuca RJ", 90 anúncios ativos. Perio Diária = curso pra dentista (não abordar).
+| Nome | Página | Defeito | No ar desde | Biblioteca | Trilha |
+|---|---|---|---|---|---|
+| Dra Ingrid Bittencourt | 245512042686621 | título quebrado ("Dra Ingrid Bittencourt \| \| \| \|"), post impulsionado sem oferta | 16/09 | https://www.facebook.com/ads/library/?id=1837365473947565 | A |
+| AllCenter Saúde | 292816667258920 | título só o nome da clínica, sem chamada nem formulário | 15/09 | https://www.facebook.com/ads/library/?id=2101548327401000 | B |
+| Clínica Viotto - Rio de Janeiro | 238492289345108 | 14 anúncios idênticos "Agende sua avaliação!" no ar há 6 dias (concorrem entre si, sem variação de copy) | 10/09 | https://www.facebook.com/ads/library/?id=1952735698737586 | B |
+Combos varridos até aqui: + odontologia Tijuca.
+
+## Varredura 16/09 16h10 — harmonização × Barra da Tijuca
+Termo "harmonização facial Barra da Tijuca", 158 ativos. HOF Na Prática, Instituto Elaine Granato, Espex = curso/paciente modelo (não abordar). drjuniorpires tem copy boa ("Seu rosto comunica antes de você falar") — não é alvo.
+| Nome | Página | Defeito | No ar desde | Biblioteca | Trilha |
+|---|---|---|---|---|---|
+| Dra Juliana Marconi | 1349602758226839 | título quebrado ("Fale conosco \| Fale conosco \| …" 4×), 2 anúncios iguais | 16/09 | https://www.facebook.com/ads/library/?id=28590579560572446 | A |
+| Dra. Sânia Avilla | 147387110819552 | erro de português no título ("Haronização"), sem chamada | 13/09 | https://www.facebook.com/ads/library/?id=2436151166907859 | A |
+| Dra Carla Duarte - Harmonização facial | 673936059146797 | botão genérico "Converse conosco", 2 anúncios iguais | 15/09 | https://www.facebook.com/ads/library/?id=2305253270268319 | A |
+Combos varridos até aqui: + harmonização Barra.
+
+## Varredura 16/09 17h10 — odontologia × Copacabana
+Termo "dentista Copacabana", 33 ativos. Dr. Gabriel Lembo tem copy boa ("Naturalidade em cada detalhe") — não é alvo. Sorrio/Clínica Sorrio e Smart Dental são rede (Trilha B).
+| Nome | Página | Defeito | No ar desde | Biblioteca | Trilha |
+|---|---|---|---|---|---|
+| Dra. Luana Martins | 105773321329139 | link direto pro WhatsApp, sem formulário nem filtro | 16/09 | https://www.facebook.com/ads/library/?id=1080784408021860 | A |
+| Dentista Alana Mourão | 105337892507837 | sem título, post impulsionado | 12/09 | https://www.facebook.com/ads/library/?id=1077499591336074 | A |
+| Dra. Vanessa Torres | 106236135750157 | título repetido 3× ("Pare de sofrer com sua prótese hoje \| \| …") | 12/09 | https://www.facebook.com/ads/library/?id=1691458646316639 | A |
+| Dra Fernanda Oliveira | 387982371062359 | botão genérico "Converse conosco" + "Agende sua avaliação", 2 anúncios | 10/09 | https://www.facebook.com/ads/library/?id=1595638308711933 | A |
+| Dr. Cristiano Castro - Instituto Crescer e Sorrir | 100196335896190 | 4 anúncios sem título, posts impulsionados | 04/09 | https://www.facebook.com/ads/library/?id=1773884200543895 | A |
+| Dr. João Carvalho - Reabilitação Oral | 369739679776051 | sem título, post impulsionado | 08/09 | https://www.facebook.com/ads/library/?id=1824623012041002 | A |
+| dra.miriaandrade | 954797137720010 | título quebrado ("dra.miriaandrade \| \| \|"), no ar há 40 dias | 07/08 | https://www.facebook.com/ads/library/?id=992423723817676 | A |
+Combos varridos até aqui: + odontologia Copacabana.
+
+## Varredura 16/09 18h10 — odontologia + harmonização Méier
+("harmonização facial Méier RJ" só devolveu Nascimento Odontologia; "dentista Méier" rendeu a lista abaixo)
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| Nascimento Odontologia | 371765596010542 | 11 anúncios iguais "Agende uma avaliação", sem gancho, sem oferta | 03/09/2026 | B | https://www.facebook.com/ads/library/?id=4636420659919453 |
+| MEIER Dentista | 1289019517628747 | título genérico "AGENDAR AGORA!", sem diferencial | 15/09/2026 | B | https://www.facebook.com/ads/library/?id=2372431986869079 |
+| Gabriela Moura Dentista | 278477818690486 | carrossel repetindo "Converse conosco" 3x, sem promessa | 11/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1701183170949863 |
+| Archipéva Odontologia — Dra. Fernanda Archipéva | 334274203101187 | 2 anúncios "PRÓTESE FLEXIVEL" em caixa alta, produto sem gancho, um no ar desde 07/2026 | 16/07/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1403902291851260 |
+| OdontoCompany Méier | 869113366274437 | franquia; anúncio sem título e outro "Agende já sua consulta" | 28/08/2026 | B (franquia) | https://www.facebook.com/ads/library/?id=1550646109573709 |
+| Vamos Sorrir Méier | 213513398508568 | 2 anúncios sem título, no ar há 1 mês+ | 12/08/2026 | B (rede) | https://www.facebook.com/ads/library/?id=2592667207862109 |
+| DR Odontologia | 1435342266685032 | carrossel "Converse conosco" 6x, no ar desde 07/2026 | 04/07/2026 | B | https://www.facebook.com/ads/library/?id=1305297694925833 |
+| SorriaMed | 979637205389895 | anúncio sem título, no ar desde 08/2026 | 05/08/2026 | B | https://www.facebook.com/ads/library/?id=2680200249044424 |
+| Pedro Augusto Odontologia | 548669842695215 | "Dentista Referência No Méier RJ", só autoelogio, sem oferta, no ar desde 07/2026 | 06/07/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1031590486237078 |
+| Dr. Stanko Butkovski | 385587994644652 | anúncio sem título, no ar há 3 meses+ | 31/05/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1661594055127588 |
+
+Combos varridos até aqui: + harmonização Méier, odontologia Méier.
+
+## Varredura 16/09 19h10 — odontologia Botafogo
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| Dra Cris Cunha | 747632785957718 | 2 anúncios sem título nenhum, subiram ontem | 15/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=991900523308957 |
+| Odontopediatra em Botafogo — Dra Thais Aguiar Gomes | 101165332363974 | "Converse conosco", sem oferta, sem gancho | 13/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1398106905072745 |
+| Dental Clinic Corcovado | 942388585620822 | 2 anúncios idênticos "Volte a sorrir com segurança", fala de produto e não do paciente | 11/09/2026 | B | https://www.facebook.com/ads/library/?id=1715597019518474 |
+| Prime Dente Unidade Botafogo | 100847196341788 | anúncio sem título; nome da página com código interno de franquia | 09/09/2026 | B (franquia) | https://www.facebook.com/ads/library/?id=1245472954406605 |
+| Dra Jéssica Morais | 117877657949857 | "Lentes Dentais em Botafogo" repetido em 2 anúncios, um no ar desde 05/2026, só nome de procedimento | 11/05/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=2290553045075597 |
+| Clinica Odontológica Santa Rosa de Lima | 309914146557707 | anúncio sem título | 06/09/2026 | B | https://www.facebook.com/ads/library/?id=2094317364778194 |
+| IRio Odontologia Botafogo | 101116868406390 | 2 anúncios "🔴 Clique e agende", emoji no lugar de argumento, no ar desde 08/2026 | 28/08/2026 | B | https://www.facebook.com/ads/library/?id=878334098486055 |
+| Dra Georgia Botafogo | 101298596068260 | "Fale Conosco", no ar desde 04/2026 sem trocar | 23/04/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1337534981526411 |
+
+Fora do alvo nessa busca: Simplifica Doctor (curso), COA Nova Cruz RN (outro estado), Espaço Facial (venda de franquia).
+
+Combos varridos até aqui: + odontologia Botafogo.
+
+## Varredura 16/09 20h10 — odontologia Niterói
+(116 anúncios ativos no termo, o bairro mais concorrido varrido até agora; abaixo os que têm dono no nome ou defeito claro)
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| Dra Julienne Melo | 792933171083270 | anúncio sem título nenhum, subiu ontem | 15/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1091564876691665 |
+| Rodrigo Rocha Odontologia Especializada | 209981512418469 | 3 anúncios no ar ao mesmo tempo, todos sem título | 15/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1079346641395547 |
+| dra.larissaspier | 111515063989257 | perfil pessoal como página, anúncio sem título | 15/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1052361690951628 |
+| Caroline Diniz | 2479684345392925 | 2 anúncios "Converse conosco", sem oferta | 15/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1049539454632282 |
+| Lívia Ferreira Costa | 614997645680765 | título é "instagram.com", manda pro perfil em vez de conversa | 15/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=2218117915471216 |
+| Bruno Lessa | 389374397752319 | anúncio sem título | 14/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1369293461607907 |
+| Inovar Odontologia Especializada Niterói | 112105558567793 | anúncio sem título | 15/09/2026 | B | https://www.facebook.com/ads/library/?id=1067611019206488 |
+| Segalote Odontologia | 1049872011766056 | anúncio sem título | 15/09/2026 | B | https://www.facebook.com/ads/library/?id=1602193601642510 |
+| Clínica Odonty | 334280660105218 | carrossel com 8 cartões de título vazio | 14/09/2026 | B | https://www.facebook.com/ads/library/?id=2066077897607658 |
+| Clínica Dentária Terceira Dentição | 539487736238716 | anúncio sem título | 12/09/2026 | B | https://www.facebook.com/ads/library/?id=1096364842867457 |
+
+Padrão do bairro: anúncio SEM TÍTULO é a regra em Niterói, não a exceção. Bom gancho de abordagem.
+Fora do alvo: Estética Dental, Consultório 10X (curso para dentista).
+
+Combos varridos até aqui: + odontologia Niterói.
+
+## Varredura 17/09 00h10 — Madureira (odontologia + estética)
+Madureira é bairro fraco na Biblioteca: "dentista Madureira Rio de Janeiro" devolveu só 3 anúncios. Ampliei com "clínica estética Madureira RJ", que puxou clínicas da Zona Oeste/Recreio.
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| Dr. Marcelo Duarte | 980307261838192 | título é só o nome dele, sem oferta nem gancho | 15/07/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1957824878260036 |
+| Dentista Michelle & Equipe | 1398513620467375 | 6 anúncios no ar, cinco sem título nenhum e um com título "instagram.com" | 03/08/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1464039925537309 |
+| Inter Sorriso — Madureira | 718432768022994 | 2 anúncios "Atenção Madureira", grito sem oferta, no ar desde 07/2026 | 22/07/2026 | B | https://www.facebook.com/ads/library/?id=2204380773748516 |
+| Centro de Saúde Costa Lima | 109523875102752 | 5 anúncios, um com título "api.whatsapp.com" (link cru aparecendo como título) | 12/08/2026 | B | https://www.facebook.com/ads/library/?id=2148381352384050 |
+| Sorrisos Para Todos | 1189862540874176 | "Entre em Contato", sem argumento | 16/08/2026 | B | https://www.facebook.com/ads/library/?id=3990129431283281 |
+| ClinDerm | 658918477520136 | carrossel com 10 cartões de título vazio | 09/08/2026 | B | https://www.facebook.com/ads/library/?id=919008060701682 |
+
+Aprendizado de termo: "dentista Madureira Rio de Janeiro" rende quase nada (3 anúncios). O bairro tem pouca gente anunciando; vale mais varrer por Zona Oeste ampla que por Madureira isolada. Defeito novo catalogado: título com URL crua ("instagram.com", "api.whatsapp.com"), que é gancho forte de abordagem.
+
+Combos varridos até aqui: + odontologia Madureira, estética Madureira.
+
+## Varredura 17/09 01h10 — harmonização Botafogo (termo de PRODUTO)
+Testei "preenchimento labial Botafogo" em vez de "harmonização facial Botafogo". Funcionou: 16 anúncios ativos contra quase nada dos termos anteriores. Confirma a regra do termo de produto.
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| Dra. Flavia Cerqueira — Ortodontista | 111006918318698 | "Seleção para Preenchimento Labial" — ortodontista vendendo estética, promessa de "seleção" que soa a filtro falso | 13/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=28058009940536991 |
+| Espaço Facial Botafogo | 108949315264427 | 4 anúncios idênticos "AGENDE AQUI", zero argumento, todos no ar juntos | 10/09/2026 | B (franquia) | https://www.facebook.com/ads/library/?id=1083463767763637 |
+| Maselli Clinic | 271984545987824 | "Realce sua beleza com naturalidade", frase genérica que qualquer clínica usa | 12/09/2026 | B | https://www.facebook.com/ads/library/?id=2651895361928620 |
+| Clinicaloza | 1144052102116576 | título é só o nome do procedimento, "Preenchimento labial" | 09/09/2026 | B | https://www.facebook.com/ads/library/?id=3184893051705327 |
+
+Fora do alvo: Clinic Cursos (8 anúncios, vende curso para dentista, não é clínica).
+
+**Aprendizado de termo novo**: para estética, buscar pelo PROCEDIMENTO ("preenchimento labial", "botox") em vez de "harmonização facial" — o termo do procedimento rende 16 anúncios onde o termo guarda-chuva rendia 3. Mesma lógica de "óculos de grau" vs "ótica".
+
+Combos varridos até aqui: + harmonização Botafogo (via preenchimento labial).
+
+## Varredura 17/09 02h10 — estética Tijuca (termo "botox")
+63 anúncios ativos no termo — o procedimento confirma de novo que rende muito mais que o guarda-chuva. A rede "Espaço Facial" domina o bairro com 4 unidades anunciando ao mesmo tempo (Tijuca, Shopping Millennium, Shopping Downtown, Botafogo), todas com o mesmo criativo "AGENDE JÁ"/"AGENDE AQUI". São franquias, Trilha B.
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| Instituto Elaine Granato | 116522953587558 | carrossel com 3 cartões de título vazio, só o nome da página aparece | 15/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=28339645685688088 |
+| Clinica Dra Leticia Moraes | 108056271910333 | "Conversar no Messenger" — manda pro Messenger, que quase ninguém usa, em vez do WhatsApp | 14/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=4485631325099003 |
+| Nobre Face | 1207674919098359 | 2 anúncios "Converse conosco", sem oferta | 15/09/2026 | B | https://www.facebook.com/ads/library/?id=1097675622945871 |
+| Espaço Facial Tijuca | 107941095463368 | 4 anúncios idênticos "AGENDE JÁ" | 15/09/2026 | B (franquia) | https://www.facebook.com/ads/library/?id=1788444632160763 |
+| Espaço Facial & Corporal Shopping Millennium | 108547335401590 | 4 anúncios idênticos, mesmo criativo da unidade Tijuca | 15/09/2026 | B (franquia) | https://www.facebook.com/ads/library/?id=1640663650764968 |
+| Espaço Facial Shopping Downtown | 194913153711529 | 3 anúncios idênticos "AGENDE AQUI" | 15/09/2026 | B (franquia) | https://www.facebook.com/ads/library/?id=1057918457048924 |
+
+**Defeito novo catalogado**: botão "Conversar no Messenger" em clínica. Gancho forte — praticamente ninguém abre Messenger no Brasil, o lead morre ali.
+
+Combos varridos até aqui: + estética Tijuca (via botox).
+
+## Varredura 17/09 03h10 — fisioterapia Copacabana
+36 anúncios ativos no termo.
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| Dr. Henrique Baumgarth | 737089326143774 | 3 anúncios no ar ao mesmo tempo, todos sem título nenhum, subiram ontem | 15/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=2343155519550746 |
+| victoriacandidofisio | 216554144872848 | carrossel com 6 cartões de título vazio; perfil pessoal como página | 15/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1523619369804624 |
+| GMF Fisioterapia | 710041835527857 | 2 anúncios cujo título é só o nome da clínica | 13/09/2026 | B | https://www.facebook.com/ads/library/?id=3720761334753671 |
+| Instituto Vital Fit | 652886404834295 | "MELHORE SUAS DORES" em caixa alta, promessa vaga | 11/09/2026 | B | https://www.facebook.com/ads/library/?id=28038835642477757 |
+| Estética Spa e Fisioterapia Bnarby | 338069859858244 | "Drenagem Linfática R$90" — compete por preço, atrai o pior cliente | 10/09/2026 | B | https://www.facebook.com/ads/library/?id=2137503386844624 |
+| FVS Fisioterapia & Performance | 462295967255900 | 2 anúncios, um sem título e outro só com o nome da unidade ("FVS Leblon") | 10/09/2026 | B | https://www.facebook.com/ads/library/?id=1941916866482078 |
+| DDC Clinic Fisioterapia | 1084232018105389 | anúncio sem título | 05/09/2026 | B | https://www.facebook.com/ads/library/?id=1085721230866192 |
+| Habilistar | 100258393003933 | "AGENDE UMA AVALIAÇÃO", sem diferencial | 03/09/2026 | B | https://www.facebook.com/ads/library/?id=2837533793365958 |
+
+Fora do alvo: Residencial RJZ (imóvel), Estácio Copacabana (faculdade, 2 carrosséis com 10 cartões "Fale conosco").
+
+Combos varridos até aqui: + fisioterapia Copacabana.
+
+## Varredura 17/09 04h10 — veterinária Tijuca
+Só 12 anúncios ativos, e 9 deles são da mesma página.
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| Petmalia — Hospital Veterinário | 101495181581938 | **9 anúncios no ar ao mesmo tempo, todos com o mesmo título "Entre em contato"**. Caso clássico de quem impulsiona tudo sem estratégia; o orçamento se divide entre nove peças idênticas | 14/09/2026 | B | https://www.facebook.com/ads/library/?id=4433600560223618 |
+| Oncopet | 349668468229270 | carrossel com 9 cartões de título vazio | 15/09/2026 | B | https://www.facebook.com/ads/library/?id=1743291093618603 |
+| Cellula Animal Clínica Veterinária | 229866610800625 | carrossel com 2 cartões vazios, só o nome da clínica aparece | 12/09/2026 | B | https://www.facebook.com/ads/library/?id=3431989246974582 |
+
+Fora do alvo: Clincardio (vende curso para veterinário).
+
+**Padrão que se repete em todos os nichos varridos**: o erro campeão é o mesmo em odontologia, estética, fisioterapia e veterinária — anúncio sem título ou com título genérico ("Entre em contato", "Converse conosco", "AGENDE JÁ"), muitas peças iguais no ar ao mesmo tempo. Serve de argumento único na abordagem, independente do nicho.
+
+Combos varridos até aqui: + veterinária Tijuca.
+
+## Varredura 17/09 05h10 — advocacia trabalhista RJ
+"advocacia trabalhista Tijuca" deu ZERO. Ampliei para "advogado trabalhista Rio de Janeiro" e rendeu 19.
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| Lavyniaduarteadv | 1349368221583531 | 3 anúncios idênticos, título com emoji de balança e frase institucional ("seus direitos merecem análise clara e estratégica") — fala de si, não do problema do cliente | 15/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=944710944777557 |
+| jptavares.advocacia | 1382226974964195 | carrossel com 9 cartões de título vazio | 14/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1073304065301814 |
+| arruda.fl | 260541797137006 | carrossel com 11 cartões vazios, no ar desde 08/2026 | 20/08/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1067593632324057 |
+| FR - Advocacia (Felipe Ramos) | 234969333704144 | 2 carrosséis, um repetindo o mesmo título 6x e outro repetindo "Fale conosco" 6x | 14/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1090099770330982 |
+| LF Cálculos Trabalhistas | 1278448602018267 | carrossel com 8 cartões de título vazio | 14/09/2026 | B | https://www.facebook.com/ads/library/?id=1083323274665915 |
+| Melhor Advogado | 596649130436082 | **título é uma lista de palavra-chave** ("advogado maricá, direito alcantara, advogado rj, advogados online...") — truque de SEO antigo jogado no anúncio, péssima impressão | 11/09/2026 | B | https://www.facebook.com/ads/library/?id=1860423558280058 |
+| Andre Albuquerque Advogados | 579928225213681 | "Converse conosco", no ar desde 07/2026 sem trocar | 12/07/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1037464065327636 |
+| DDC - Diego Douglas Consultoria | 1005286209332623 | anúncio sem título | 13/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1059703480008522 |
+
+Fora do alvo (são concorrentes nossos, vendem marketing para advogado): Facilita Jurídico, Nil Empresarial. Bottino Advocacia e Raphael Alves têm anúncio decente, com título específico — não entram na lista.
+
+**Defeito novo catalogado**: título recheado de palavra-chave separada por vírgula. Gancho de abordagem muito forte.
+
+Combos varridos até aqui: + advocacia trabalhista RJ (Tijuca não rende isolada).
+
+## Varredura 17/09 07h10 — odontologia Niterói
+Termo "dentista Niterói": 118 anúncios ativos estimados, 50 lidos. Aviso de leitura: a Biblioteca não filtra por bairro, o termo puxa página de todo o Brasil — marquei abaixo quem está confirmado em Niterói/RJ pelo nome da página; o resto entra como "a confirmar" antes de abordar.
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| Dra. Elisa Thomé | 566740073179866 | **14 anúncios no ar ao mesmo tempo**, só 3 títulos diferentes repetidos em rodízio. O orçamento se divide entre catorze peças quase iguais | 09/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1476189381016396 |
+| Rodrigo Rocha Odontologia Especializada | 209981512418469 | 3 anúncios no ar, todos sem título nenhum | 16/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1079346641395547 |
+| Bruno Lessa | 389374397752319 | 3 anúncios sem título | 11/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1369293461607907 |
+| Dra Sara Martins — Endodontista | 482118088315803 | **título é a URL crua "api.whatsapp.com"** aparecendo para o público | 09/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=852794737919254 |
+| Lívia Ferreira Costa | 614997645680765 | título é a URL crua "instagram.com" | 16/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=2218117915471216 |
+| Caroline Diniz | 2479684345392925 | 2 anúncios, os dois com o título "Converse conosco" | 16/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1049539454632282 |
+| Dr. Francisco Villela | 622978961080203 | 2 anúncios sem título, subiram no mesmo minuto | 09/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1082985594093847 |
+| Dra Julienne Melo | 792933171083270 | anúncio sem título | 16/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1091564876691665 |
+| dra.larissaspier | 111515063989257 | anúncio sem título; perfil pessoal como página | 16/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1052361690951628 |
+| Dr. Adson Sousa | 598023373393389 | anúncio sem título | 11/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=2046222212543573 |
+| Dra Viviane Braga | 1299968243199548 | título é só o nome da dentista, no ar desde 03/09 sem trocar | 03/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1041552148756626 |
+| Inovar Odontologia Especializada Niterói | 112105558567793 | anúncio sem título — **confirmado Niterói** | 16/09/2026 | B | https://www.facebook.com/ads/library/?id=1067611019206488 |
+| Inco25 | 306802752758176 | 4 anúncios: um com título "fb.me" (URL crua) e três sem título | 02/09/2026 | B | https://www.facebook.com/ads/library/?id=1263878172531006 |
+| Clínica Odonty | 334280660105218 | **carrossel com o título "Clínica Odonty \| \| \| \| \| \| \| \|"** — 8 cartões vazios, só o primeiro preenchido | 15/09/2026 | B | https://www.facebook.com/ads/library/?id=2066077897607658 |
+| Segalote Odontologia | 1049872011766056 | anúncio sem título | 16/09/2026 | B | https://www.facebook.com/ads/library/?id=1602193601642510 |
+| Estética Dental | 429715380420674 | 2 anúncios sem título | 16/09/2026 | B | https://www.facebook.com/ads/library/?id=1555159922510918 |
+| Equilíbrio Dental Clínica Odontológica | 1401596253417558 | 2 anúncios sem título | 03/09/2026 | B | https://www.facebook.com/ads/library/?id=1432515632024799 |
+| Clínica Dentária Terceira Dentição | 539487736238716 | anúncio sem título | 12/09/2026 | B | https://www.facebook.com/ads/library/?id=1096364842867457 |
+| Odontologia Benatti | 708480139015945 | anúncio sem título | 12/09/2026 | B | https://www.facebook.com/ads/library/?id=2680757985679219 |
+| Instituto Odontológico Digital | 328697836991974 | anúncio sem título | 01/09/2026 | B | https://www.facebook.com/ads/library/?id=1098480386470311 |
+
+Fora do alvo: Anhanguera Educacional (faculdade vendendo curso de odontologia), Plano de Saúde Marcus Lacerda, Consultório 10X (concorrente — vende marketing para dentista).
+
+**Observação de nicho**: odontologia é, disparado, o nicho com maior proporção de Trilha A (dono/dona no nome da página) — 11 de 20. E o defeito campeão continua o mesmo: anúncio sem título nenhum, 14 das 20 páginas.
+
+Combos varridos até aqui: + odontologia Niterói.
+
+## Varredura 17/09 08h10 — harmonização/estética Niterói
+Usei o termo de PROCEDIMENTO, não o guarda-chuva: "preenchimento labial Niterói" rendeu 37 ativos, todos lidos. Confirma de novo a regra — "harmonização facial <bairro>" dá quase zero no mesmo lugar.
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| Vitória Hagge | 246985662613644 | **17 anúncios ativos ao mesmo tempo, o mais velho no ar desde 18/06/2025** — mais de um ano sem trocar. Os títulos se dividem entre a URL crua "instagram.com" e "Vitória Hagge \| Fale conosco \| Fale conosco \| Fale conosco" (carrossel com os cartões repetindo a mesma chamada) | 18/06/2025 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1425663246182756 |
+| Botolifting Niterói | 101891472965470 | 5 anúncios idênticos, todos "Agende sua avaliação grátis", no ar desde 30/04/2026 sem trocar. **"Avaliação grátis" atrai quem não compra** | 30/04/2026 | B | https://www.facebook.com/ads/library/?id=981178241097149 |
+| Espaço Facial Icaraí | 113126231636019 | 3 anúncios, títulos "AGENDE JÁ" e "AGENDE AQUI" em caixa alta; o mais antigo no ar desde 12/05/2026 | 12/05/2026 | B | https://www.facebook.com/ads/library/?id=1073666395268378 |
+| draleticiamartins_ | 100892562529558 | título é a URL crua "api.whatsapp.com" | 16/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1386927409700052 |
+| Dra. Rebeca Santa Rita | 516106954927333 | **"50% OFF no preenchimento essa semana"** — desconto agressivo em procedimento injetável; compete por preço e queima a margem | 16/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1112039361515761 |
+| Espaço Letícia Ramos | 184442965231130 | título é uma frase inteira em minúscula ("me mande uma mensagem e consulte os horários disponíveis!") — pede ação antes de dar motivo | 16/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1551814186245036 |
+| Estetic Doctor Niterói | 528399997031697 | 2 anúncios sem título nenhum — **confirmado Niterói** | 15/09/2026 | B | https://www.facebook.com/ads/library/?id=2889141641460431 |
+| Sorovitta Niterói | 1103480562851367 | título "Converse conosco" — **confirmado Niterói** | 09/09/2026 | B | https://www.facebook.com/ads/library/?id=2310525709778976 |
+| Além do Olhar — Icaraí | 901238226416435 | título "Super Promoção 🎁", sem dizer do quê | 10/09/2026 | B | https://www.facebook.com/ads/library/?id=2177715849455731 |
+| Clinicaloza | 1144052102116576 | título é só o nome do procedimento ("Preenchimento labial") — descreve, não convida | 10/09/2026 | B | https://www.facebook.com/ads/library/?id=3184893051705327 |
+| Dra lialyz André | 163114326894885 | "ENVIE UMA MENSAGEM" em caixa alta, sem diferencial | 03/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=2431627994029378 |
+| Victor Santos | 264330897345482 | carrossel "Victor Santos \| \| \|" — 3 cartões de título vazio | 27/07/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1035166866145560 |
+| Royal Face | 105914408354836 | título "instagram.com", no ar desde 11/12/2025 | 11/12/2025 | B | https://www.facebook.com/ads/library/?id=879270967881932 |
+| Dra. Carol Passeri | 765812253272265 | título "instagram.com", no ar desde 08/08/2025 | 08/08/2025 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1441406066908435 |
+
+**Achado que vale de gancho**: estética em Niterói tem os anúncios mais VELHOS de toda a lista — quatro páginas com peça no ar há mais de um ano sem trocar (Vitória Hagge desde 06/2025, Dra. Carol Passeri desde 08/2025, Royal Face desde 12/2025). Nos outros nichos quase tudo subiu nos últimos 15 dias. Abordagem óbvia: "seu anúncio está no ar há mais de um ano com o mesmo criativo".
+
+**Defeito novo catalogado**: desconto percentual em procedimento injetável ("50% OFF") e "avaliação grátis" — os dois enchem a agenda de quem não fecha.
+
+Combos varridos até aqui: + harmonização/estética Niterói.
+
+## Varredura 17/09 09h10 — harmonização/estética Madureira
+"preenchimento labial Madureira RJ" deu **ZERO**. Trocando o procedimento para "botox Madureira" rendeu 19 ativos, todos lidos. Regra que fica: em Madureira o procedimento que a Biblioteca indexa é botox, não preenchimento.
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| Bodyprime Madureira | 101464706075700 | **"🎄 Promoção de Natal: Botox + Preenchimento Labial!" rodando em setembro** — anúncio de Natal no ar desde 05/08/2026, fora de época. Ninguém olha a conta | 05/08/2026 | B | https://www.facebook.com/ads/library/?id=1507725244372023 |
+| Espaço Facial — Madureira | 103379859116154 | 5 anúncios ao mesmo tempo: dois com "Avaliação gratuita"/"AVALIAÇÃO GRATUITA" (o mesmo texto, um em caixa alta) e três sem título nenhum | 12/09/2026 | B (franquia) | https://www.facebook.com/ads/library/?id=952980784125623 |
+| Dra Cinele Azevedo | 100345475413009 | 4 anúncios no ar, todos sem título nenhum | 12/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1094274496893458 |
+| Bm Diany | 1123584040846731 | 3 carrosséis, cada um repetindo "Converse conosco" nos três cartões; no ar desde 06/08/2026 | 06/08/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1040891385398630 |
+| Dra. Juliana Magalhaes — Biomédica Esteta | 1001374869729194 | título "Fale Conosco Pelo WhatsApp! >>>" — setinhas de banner antigo, passa impressão de anúncio duvidoso | 25/08/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=2404497183690853 |
+| Clinic Day | 1166797139854316 | título é só o nome da clínica | 16/09/2026 | B | https://www.facebook.com/ads/library/?id=2657523584693596 |
+| Rose Provenzano Studio Fashion | 1484228898467423 | 2 anúncios idênticos, título "📆 Agendar Agora" — emoji no lugar do argumento | 13/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1971858390177967 |
+
+Fora do alvo: Garimpando com PH (revenda de garimpo), Thaís Souza Entrelace Madureira (salão de cabelo, não é o nicho).
+
+**Defeito novo catalogado, o mais forte até agora**: campanha sazonal esquecida no ar. Anúncio de Natal rodando em setembro prova sozinho que ninguém acompanha a conta — é o gancho de abordagem mais fácil de todos, não exige explicar marketing.
+
+**Observação**: "avaliação gratuita" aparece de novo, agora em Madureira, do mesmo jeito que em Niterói. É o padrão do nicho de estética inteiro, não de um bairro.
+
+Combos varridos até aqui: + harmonização/estética Madureira. Com isso, harmonização e odontologia estão fechadas nos dois bairros prioritários (Niterói e Madureira).
+
+## Varredura 17/09 10h10 — imobiliária/corretor Copacabana
+"apartamento à venda Copacabana": **142 ativos estimados**, 50 lidos. Confirma com folga a regra do termo de produto — é o combo mais cheio de toda a lista até agora.
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| Futura Imobiliária | 108773068610304 | **carrossel com 20 cartões de título vazio** — só o nome da imobiliária aparece | 16/09/2026 | B | https://www.facebook.com/ads/library/?id=1985971995400137 |
+| Machado de Souza Consultoria Imobiliária | 119037485315543 | carrossel com 15 cartões vazios | 16/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1573690717250916 |
+| copacabanaimobiliaria | 587815197758045 | carrossel com 15 cartões vazios | 15/09/2026 | B | https://www.facebook.com/ads/library/?id=921459667275759 |
+| Hausen Brokers | 621027844433113 | carrossel com 15 cartões vazios | 15/09/2026 | B | https://www.facebook.com/ads/library/?id=2313081376132031 |
+| cg_imoveisdesignlifestyle | 111109293960073 | carrossel com 8 cartões vazios | 17/09/2026 | B | https://www.facebook.com/ads/library/?id=1270725035138047 |
+| Carioquinha | 122097050786017720 | carrossel com 5 cartões vazios | 15/09/2026 | B | https://www.facebook.com/ads/library/?id=1598779748695518 |
+| Copa Azul Imobiliária Digital | 235783436475708 | **11 anúncios no ar ao mesmo tempo**, e o defeito é o oposto do comum: o título é a ficha técnica inteira do imóvel, com 10 a 12 campos separados por barra e emoji em cada um. Ninguém lê isso no feed | 16/09/2026 | B | https://www.facebook.com/ads/library/?id=1416764893738997 |
+| Meu Metro Quadrado Rio | 147106765809945 | 3 anúncios, todos com título "api.whatsapp.com" (URL crua) | 17/09/2026 | B | https://www.facebook.com/ads/library/?id=28493508766927756 |
+| Lopes Select | 1371116259417033 | 3 anúncios idênticos, título "Clique em saiba mais e não perca essa oportunidade" — instrução sem oferta | 15/09/2026 | B | https://www.facebook.com/ads/library/?id=1873499936945402 |
+| Ronald Almeida Imóveis | 287913414402015 | um anúncio com título "api.whatsapp.com" e outro com "Apenas Venda R$1.700.000 -", terminando em hífen solto | 15/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=3094535630739802 |
+| Brasil Brokers | 354245788004916 | **título com o catálogo inteiro colado** — seis imóveis, de Engenheiro Leal a Anil, num anúncio buscado por Copacabana. Feed de imóvel misturado sem curadoria | 12/09/2026 | B | https://www.facebook.com/ads/library/?id=1059711283634204 |
+| Jussandra Lucca Corretora | 1212589108594378 | 2 anúncios sem título nenhum | 17/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1621490869761957 |
+| Victoria Magana Corretora de imóveis | 613902825148911 | 3 anúncios sem título | 16/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1065239276108729 |
+| Luanna Ranzan | 230265480915892 | 2 anúncios sem título | 16/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=2202807177243896 |
+| Igor — Consultor de Negócios | 104769284786741 | 2 anúncios com título "Venda* Rua Bolívar/ Copacabana" — asterisco solto, parece letra miúda escondida | 12/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=28941110238881875 |
+| Michelle Machado Imóveis | 166280336569071 | anúncio sem título | 14/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1485444683019913 |
+| Yasmin Monteiro | 109546985567764 | anúncio sem título | 16/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=2555418238291445 |
+| Felipe Corretor de Imóveis | 122942944238310 | anúncio sem título | 15/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1025097157277440 |
+| lucasguimaraescorretor | 456265484227560 | anúncio sem título; perfil pessoal como página | 15/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=28151420197813572 |
+| Eduardo Parga | 1253911441145227 | título é só o nome do corretor | 15/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1404433254459913 |
+| Georgiana Guinle | 544861969043942 | anúncio sem título | 11/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1809230796769029 |
+| Top Class Imóveis | 109677408852283 | anúncio sem título | 17/09/2026 | B | https://www.facebook.com/ads/library/?id=1612954087063896 |
+| imoveisdorio.com.br | 534784556568702 | anúncio sem título | 16/09/2026 | B | https://www.facebook.com/ads/library/?id=1399484844914252 |
+| DNA Imóveis \\ Miguel Lemos | 499668446554293 | anúncio sem título | 16/09/2026 | B | https://www.facebook.com/ads/library/?id=1843529003684757 |
+| Elysium | 567460709789247 | anúncio sem título | 15/09/2026 | B | https://www.facebook.com/ads/library/?id=1043745965148633 |
+| aveguicopacabana | 1119287421276467 | anúncio sem título | 15/09/2026 | B | https://www.facebook.com/ads/library/?id=1386744413630631 |
+
+**Defeito novo catalogado, e é o contrário de todos os outros**: título longo demais. A Copa Azul escreve a ficha técnica inteira no título (10 a 12 campos com emoji), e a Brasil Brokers cola o catálogo de seis imóveis de bairros diferentes. Até hoje o defeito campeão era título vazio; aqui o excesso faz o mesmo estrago. Serve de argumento nos dois sentidos: **o título tem um trabalho só, que é fazer a pessoa parar**.
+
+**Observação de volume**: imobiliária em Copacabana tem mais anunciante ruim que qualquer nicho varrido até aqui, e 13 das 26 páginas são Trilha A. É o combo com melhor relação esforço/retorno da lista.
+
+Combos varridos até aqui: + imobiliária/corretor Copacabana.
+
+## Varredura 17/09 11h10 — imobiliária/corretor Botafogo
+"apartamento à venda Botafogo": 65 ativos, 40 lidos. Menos que Copacabana, mas com o mesmo perfil de defeito.
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| Nathy Imóveis | 172373145949182 | **4 anúncios no ar**, todos carrosséis repetindo "Fale conosco"/"Converse conosco" em 8 a 10 cartões seguidos. O mais velho desde 02/09 | 02/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=2485072515238034 |
+| Imobiliária Casa 3 | 108962928578188 | 4 anúncios **idênticos**, mesmo título ("Oportunidade de Compra em Botafogo: 125m², Pé-Direito Alto, 2 por Andar e 1 Vaga"), criados no mesmo minuto. O orçamento se divide entre quatro cópias | 10/09/2026 | B | https://www.facebook.com/ads/library/?id=1519593483535802 |
+| Bielle Imóveis | 329356906935615 | carrossel com "SAIBA MAIS" repetido em 10 cartões | 09/09/2026 | B | https://www.facebook.com/ads/library/?id=1092969740339716 |
+| Ariane Gomes Imóveis | 673699585821695 | 2 carrosséis, "Converse conosco" repetido 10 vezes em cada | 10/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=2179127179349687 |
+| Rio Couto Imóveis | 114514347055243 | um carrossel com "Fale conosco" 10 vezes e outro anúncio sem título | 10/09/2026 | B | https://www.facebook.com/ads/library/?id=2082991382306679 |
+| Souza & Martin — Assessoria e Investimentos | 1040482762489527 | 2 carrosséis com "Converse conosco" 9 vezes cada, no ar desde 29/08 | 29/08/2026 | B | https://www.facebook.com/ads/library/?id=1889236462045614 |
+| marcosmendes.corretordeimoveis | 103974518820181 | **carrossel com 17 cartões de título vazio**, no ar desde 30/08 | 30/08/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1376576464644843 |
+| cr_solucoesimobiliarias | 1255333410977116 | carrossel com 13 cartões vazios | 15/09/2026 | B | https://www.facebook.com/ads/library/?id=1059022007052359 |
+| rafaelestrategistadna | 501092513089043 | carrossel com 11 cartões vazios | 16/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1066761079540582 |
+| Lucrum Imobiliária | 257904157663752 | carrossel com 10 cartões vazios | 17/09/2026 | B | https://www.facebook.com/ads/library/?id=1733961994327914 |
+| douglasnunesimoveis | 672109482654744 | carrossel com 10 cartões vazios | 14/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1734829220936208 |
+| HomeHub Jd.Laranjeiras | 101113539511376 | carrossel com 7 cartões vazios | 13/09/2026 | B | https://www.facebook.com/ads/library/?id=1758405185424552 |
+| Luís Cruz Imob | 273407653324183 | **"📍 BOTAFogo + URCA"** — o nome do bairro escrito errado, com maiúscula no meio. Detalhe pequeno que destrói a credibilidade de quem vende imóvel de R$ 850 mil | 11/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1720934792355018 |
+| Imovelweb | 153532364685205 | carrossel misturando Recreio, Barra, Tijuca e Botafogo no mesmo anúncio, com um título cortado no meio ("riacho cortando a propriedade, lago e terr…") | 08/09/2026 | B | https://www.facebook.com/ads/library/?id=1618279769991728 |
+| Marcelo Desiderio | 106939734388348 | título gerado por sistema: "3 quartos 3 banheiros Apartamento" — ordem de palavra de robô | 14/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1712026153233796 |
+| Luiz Eduardo Castanheira | 100205632546416 | mesmo título automático: "2 quartos 2 banheiros Apartamento" | 11/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=2878804775831391 |
+| Othon Rangel — Consultor Imobiliário | 644100792125691 | "📲 Entre em contato e agende uma visita!" — instrução sem imóvel | 14/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=3082560548741707 |
+| morabilidade | 102543282421918 | anúncio sem título | 16/09/2026 | B | https://www.facebook.com/ads/library/?id=924429790342203 |
+| Marcelo Nascimento imóveis | 358649573994828 | anúncio sem título | 16/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1557602712210136 |
+| jorgeluizimoveisrj | 113444717449844 | anúncio sem título | 15/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1055900747311150 |
+| Orla Rio Imobiliária | 428394817034055 | anúncio sem título | 10/09/2026 | B | https://www.facebook.com/ads/library/?id=1721565578955820 |
+| BrenoFaria Corretor | 575916598932920 | anúncio sem título, no ar desde 01/09 | 01/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1567083981764382 |
+| Capitólio Imóveis | 1227882863733977 | anúncio sem título | 03/09/2026 | B | https://www.facebook.com/ads/library/?id=1417180837177806 |
+| RLBimoveis.com | 1466163353657560 | anúncio sem título | 05/09/2026 | B | https://www.facebook.com/ads/library/?id=2254700801976008 |
+| Kitnet Rio | 102341279171119 | 2 anúncios sem título | 03/09/2026 | B | https://www.facebook.com/ads/library/?id=1963978320939946 |
+
+A Brasil Brokers reaparece aqui com o mesmo anúncio-catálogo já registrado na varredura de Copacabana — não repito a linha.
+
+**Defeitos novos catalogados**:
+1. **Título gerado por sistema do portal** — "3 quartos 3 banheiros Apartamento", com o substantivo no fim. É o feed do portal jogado no anúncio sem ninguém escrever nada.
+2. **Erro de digitação no nome do bairro** ("BOTAFogo"). Em imóvel de alto valor, o detalhe pequeno é o que derruba a confiança.
+
+**Padrão consolidado nos dois bairros de imobiliária**: o carrossel com o mesmo CTA repetido em 8 a 10 cartões ("Fale conosco", "Converse conosco", "SAIBA MAIS") é tão comum quanto o cartão vazio. Os dois têm a mesma causa — ninguém preencheu o campo de título por cartão, e o sistema repete o CTA ou deixa em branco.
+
+Combos varridos até aqui: + imobiliária/corretor Botafogo.
+
+## Varredura 17/09 12h10 — imobiliária/corretor Tijuca
+"apartamento à venda Tijuca RJ": 46 ativos, 40 lidos. **Aviso de termo, novo**: pôr "RJ" não resolve o caso da Tijuca — o "RJ" não filtra nada porque a **Barra da Tijuca** também é RJ, e ela domina o resultado. Marquei abaixo quem é Barra e não Tijuca; para varrer Tijuca de verdade o caminho é o nome da rua ou "Tijuca" com bairro vizinho ("Maracanã", "Vila Isabel").
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| jonathancorretor.imoveis | 1142171925647802 | **6 anúncios ativos, todos sem título nenhum, o mais velho no ar desde 29/06/2026** — quase três meses com a mesma peça muda | 29/06/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1014584714806220 |
+| Consultora de Imóveis Soraya Bittencourt | 100343585620319 | título "Seu novo Apê", no ar desde **03/10/2025** — quase um ano sem trocar. O anúncio mais antigo de toda a lista | 03/10/2025 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1051373353604116 |
+| O Único Imóvel | 113164668499127 | 3 carrosséis, cada um com "📲 Agende sua visita" repetido em 10 cartões | 16/09/2026 | B | https://www.facebook.com/ads/library/?id=1675479873962464 |
+| heitorosilvaa | 1038103609392698 | 4 anúncios sem título, o mais velho desde 15/08/2026 | 15/08/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=914307081319037 |
+| Marco Castro Imóveis | 285752845482373 | 3 anúncios, todos com título "Converse conosco", desde 08/09 | 08/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1613876267070806 |
+| Sthelena imóveis | 686558474539744 | 3 anúncios idênticos com título "A VENDA" em caixa alta e sem acento, no ar desde 21/07/2026 | 21/07/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=2240974610013154 |
+| Blue Chip Imóveis | 494789804019987 | **título é uma nota de avaliação: "⭐⭐⭐⭐ (4,5 / 5)"** — nem diz o que está vendendo | 08/09/2026 | B | https://www.facebook.com/ads/library/?id=1071036855318751 |
+| New Home Imóveis | 1400370723550476 | carrossel com 10 cartões vazios, mais um anúncio sem título | 16/09/2026 | B | https://www.facebook.com/ads/library/?id=1106520115249699 |
+| Essencia Rio Imoveis | 898627846671912 | carrossel com 7 cartões vazios | 14/09/2026 | B | https://www.facebook.com/ads/library/?id=28102171689405901 |
+| Ilaine Imóveis | 337719036086623 | carrossel com 9 cartões vazios | 03/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1393096122240886 |
+| Gaúcho Imóveis RJ | 395343807004184 | **"Anuncie com um especialista"** — está captando IMÓVEL, não comprador, num termo de compra. Público errado | 14/07/2026 | B | https://www.facebook.com/ads/library/?id=873376212103621 |
+| Julio Castro Corretor | 372168299304326 | anúncio sem título | 17/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=2287326132024518 |
+| O.corretormatheus.rj | 1090531254144670 | título "Converse conosco" | 16/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1124233196931869 |
+| Felipe Arruda — Imóveis no Rio | 1243851598819629 | título "Converse conosco" | 14/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1512046924096606 |
+| casaquarantta | 985971204590536 | anúncio sem título | 15/09/2026 | B | https://www.facebook.com/ads/library/?id=1011174921937096 |
+| crisalecrim.remax | 550705081463255 | anúncio sem título | 13/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=3399909306844162 |
+| Complan Imóveis | 114539294572044 | título "Marcar visita" | 08/09/2026 | B | https://www.facebook.com/ads/library/?id=1568605414269963 |
+| Marcusleandro_ | 111024928569188 | anúncio sem título, desde 29/08 | 29/08/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1764668841330475 |
+| pc_paulocarolinobroker | 110332501570271 | anúncio sem título, desde 27/08 | 27/08/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=3609383952571667 |
+| NM Imóveis Rio | 1261353313725517 | anúncio sem título, desde 17/08 | 17/08/2026 | B | https://www.facebook.com/ads/library/?id=938945605903899 |
+| Vitta Prime | 868609663012472 | anúncio sem título, desde 06/05/2026 | 06/05/2026 | B | https://www.facebook.com/ads/library/?id=1732705837734225 |
+
+São da **Barra da Tijuca**, não da Tijuca (contaminação do termo): Henovah imoveis (2 anúncios com título todo em caixa alta entre emojis de losango azul), Smart Credi, Imovelweb (já registrada em Botafogo).
+
+**Defeitos novos catalogados**:
+1. **Nota de avaliação no lugar do título** ("⭐⭐⭐⭐ (4,5 / 5)"). Prova social sem produto não vende nada.
+2. **Anúncio de captação rodando em termo de compra** — "Anuncie com um especialista" aparecendo para quem procura apartamento. O corretor está pagando para falar com a pessoa errada.
+
+**Observação que muda a prioridade da lista**: imobiliária é onde estão os anúncios mais velhos do Rio inteiro. Soraya Bittencourt está com a mesma peça no ar desde **outubro de 2025**, e jonathancorretor desde junho. O gancho de "seu anúncio não muda há meses" é mais forte aqui do que em qualquer nicho de clínica.
+
+Combos varridos até aqui: + imobiliária/corretor Tijuca (com a ressalva do termo).
+
+## Varredura 17/09 13h10 — advocacia previdenciária RJ
+"advogado previdenciário Rio de Janeiro": só **9 ativos**, e 3 são concorrentes nossos. Sobraram 6. Nicho MAGRO — bem diferente do trabalhista, que rendeu 19.
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| Quesada Advogados Associados | 309804669123797 | anúncio sem título nenhum, no ar desde **09/12/2025** — nove meses | 09/12/2025 | **A** (sobrenome) | https://www.facebook.com/ads/library/?id=850946760862889 |
+| guimaraesadvogados.cg | 955736424291972 | título é a URL crua "instagram.com", no ar desde **09/03/2026** — seis meses | 09/03/2026 | **A** (sobrenome) | https://www.facebook.com/ads/library/?id=1448965393618573 |
+| Rivera, Ouverney & Frez Advogados | 108548497620888 | anúncio sem título, desde 20/05/2026 | 20/05/2026 | **A** (sobrenomes) | https://www.facebook.com/ads/library/?id=1616530086111972 |
+| André Beschizza Advogados | 174595706008750 | título "Converse conosco", no ar desde 17/06/2026 | 17/06/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1144182114595402 |
+| Melhor Advogado | 596649130436082 | título recheado de palavra-chave por vírgula (já registrado na varredura trabalhista, mesma peça) | 08/09/2026 | B | https://www.facebook.com/ads/library/?id=1860423558280058 |
+
+**NÃO entra na lista — anúncio bom**: Adv Washington Teixeira, com o título *"Benefício negado ou cortado pelo INSS?"*. Fala do problema do cliente, não de si. É o melhor título de advogado que apareceu em qualquer varredura, e serve de referência do que funciona no nicho.
+
+Fora do alvo (vendem marketing para advogado, são concorrentes): Marlon Jönck — Marketing Jurídico, Nil Empresarial, arena.dodireito (congresso).
+
+**Achado que corrige a leitura do nicho**: advocacia no RJ é **magra em anunciante, mas velha em criativo**. Só 6 escritórios previdenciários anunciando, e metade com peça no ar há mais de seis meses. Ou seja: pouca gente para abordar, mas a que existe está visivelmente abandonada. É lista curta de alta conversão, não lista de volume.
+
+Combos varridos até aqui: + advocacia previdenciária RJ.
+
+## Varredura 17/09 14h10 — veterinária Copacabana
+"clínica veterinária Copacabana": só **7 ativos**. Nicho magro no bairro, mas trouxe o achado mais extremo de toda a lista.
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| Clínica Veterinária S.O.S Castração | 398118780373800 | **3 anúncios ativos, e o mais velho está no ar desde 22/11/2024 — quase dois anos com o mesmo criativo.** Dois deles sem título nenhum e um com a URL crua "api.whatsapp.com" | 22/11/2024 | B | https://www.facebook.com/ads/library/?id=1299131247900620 |
+| HV Unidade Copacabana | 689542937566848 | título é a URL crua "api.whatsapp.com" | 12/09/2026 | B (rede) | https://www.facebook.com/ads/library/?id=883134234731471 |
+| AnimaLeme | 912169338864770 | 2 anúncios idênticos, título é só o nome da clínica ("Clínica Veterinária Animaleme") | 14/09/2026 | B | https://www.facebook.com/ads/library/?id=4569707033300791 |
+| Clínica Veterinária Santa Mônica | 1211364085389822 | **"Mais cuidado para o seu pet, com muito mais economia"** — vende por preço num serviço de saúde. Atrai quem escolhe pelo mais barato | 17/08/2026 | B | https://www.facebook.com/ads/library/?id=2880712582272390 |
+
+**Recorde da lista**: a S.O.S Castração bate a Soraya Bittencourt (imobiliária, outubro/2025). **Quase dois anos** com a mesma peça no ar — 22/11/2024. É o exemplo mais extremo de conta abandonada que encontrei.
+
+**Observação de nicho**: veterinária tem pouquíssimo anunciante em todos os bairros varridos (7 em Copacabana, 12 na Tijuca, e na Tijuca 9 deles eram da mesma página). E a Trilha A é quase inexistente — clínica veterinária costuma ter nome de marca, não do dono. Para o critério "falar direto com o dono", **veterinária é o pior nicho da lista até agora**.
+
+Combos varridos até aqui: + veterinária Copacabana.
+
+## Varredura 17/09 15h10 — odontologia Barra da Tijuca
+"dentista Barra da Tijuca": 123 ativos estimados, 35 lidos. **Leitura importante**: 31 dos 35 são de apenas DUAS páginas. O resultado parece grande e não é — é concentração, não mercado.
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| Clínica Viotto — Rio de Janeiro | 238492289345108 | **11 anúncios no ar ao mesmo tempo, todos com o título idêntico "Agende sua avaliação!"**, criados no mesmo segundo. É o mesmo anúncio onze vezes dividindo o orçamento | 10/09/2026 | B | https://www.facebook.com/ads/library/?id=1952735698737586 |
+| Dra Ingrid Bittencourt | 245512042686621 | carrossel com 7 cartões de título vazio | 16/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1837365473947565 |
+| Dentista Michelle & Equipe | 1398513620467375 | anúncio sem título, subiu hoje | 17/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1578264824049817 |
+| Dr. Cristiano Castro — Instituto Crescer e Sorrir | 100196335896190 | anúncio sem título | 16/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1746088373364612 |
+
+Fora do alvo: **Perio Diária** (página 1950766445014867) — são **20 anúncios ativos**, todos com o título "Se Inscrever", mas é curso de periodontia VENDIDO PARA dentista. Não é cliente nosso, é infoproduto mirando o mesmo público. Não entra na lista, mas vale saber que ele está comprando atenção do mesmo dentista que a gente quer abordar.
+
+**Observação de método, para não errar de novo**: o `estimated_total_count` da Biblioteca **não** é número de anunciantes. Aqui 123 viraram 4 páginas úteis, porque duas contas sozinhas ocupam 31 das 35 peças lidas. Regra que fica: **contar páginas distintas, nunca anúncios** — e desconfiar de combo "grande" antes de olhar de quem são as peças.
+
+**"Avaliação grátis/gratuita" agora apareceu em quatro nichos** (estética Niterói, estética Madureira, fisioterapia, odontologia Barra). É o clichê mais difundido do Rio inteiro, e por isso o argumento mais reaproveitável na abordagem.
+
+Combos varridos até aqui: + odontologia Barra da Tijuca.
+
+## Varredura 17/09 16h10 — arquitetura RJ
+"escritório de arquitetura Rio de Janeiro": 31 ativos, todos lidos. Confirma de novo a regra antiga — **o termo puxa imobiliária e incorporadora** (Tegra, Wave, Vizu, SOTER, Luis Imóveis, Aprova Fácil). Sobraram 8 escritórios de arquitetura de verdade.
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| patriciaparreiras.interiores | 108188131074274 | **o título é `{{product.name}}` — a variável do sistema aparecendo crua para o público**, porque o campo nunca foi preenchido. No ar desde 27/05/2025, quase um ano e meio | 27/05/2025 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1463485964618855 |
+| (Fran Vilaça ) | 778874741971432 | carrossel repetindo "(Fran Vilaça )" em 9 cartões — com o parêntese e o espaço extra do nome da página | 29/06/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1008042308703038 |
+| Muda • arquitetura possível | 970044212861365 | carrossel com 16 cartões de título vazio | 03/09/2026 | B | https://www.facebook.com/ads/library/?id=1697741588379631 |
+| Rafael Ramos Arquitetura e Interiores | 828059224001697 | 2 anúncios: um "Converse conosco" e outro sem título, o mais velho desde 23/06/2026 | 23/06/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1059348310138115 |
+| Ingrid Suan Arquitetura e Interiores | 113514721722581 | 2 anúncios sem título, o mais velho desde 31/08/2026 | 31/08/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=1105547958642688 |
+| Dafne Sampaio Arquitetura | 597813703988854 | anúncio sem título | 16/09/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=901321679525459 |
+| Hiago Santos Arquitetura | 1216159181584232 | anúncio sem título | 03/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=28042757645415904 |
+| Ciça Rego Macedo | 137158456994015 | anúncio sem título, no ar desde 15/04/2026 — cinco meses | 15/04/2026 | **A** (dona no nome) | https://www.facebook.com/ads/library/?id=921317780715778 |
+
+**Defeito novo catalogado, e é o mais gritante da lista inteira**: **variável de template não renderizada no título** — `{{product.name}}`. O anunciante subiu um catálogo, não preencheu o campo de nome, e há quase um ano e meio o público vê um código no lugar do produto. Prova irrefutável de que ninguém abre a conta.
+
+Também apareceu, do lado imobiliário: **Aprova Facil Imóveis Rio** com "O primeiro **porjeto** de alto padrão do Porto ⭐⭐⭐⭐⭐" — erro de digitação em "projeto", num anúncio que subiu hoje.
+
+**Ruído da Biblioteca, para registro**: o termo trouxe 4 páginas em dólar com o mesmo título de isca ("Você teve um ONS com um garoto de programa... ou bilionário?"), nomes de pessoa estrangeiros e criativo idêntico. É fazenda de anúncio de aplicativo de história, não tem relação com arquitetura. Vale saber que termo em português puxa esse tipo de lixo e que ele **não** entra na contagem de mercado.
+
+**Arquitetura tem a maior proporção de Trilha A de todos os nichos: 7 de 8.** Escritório de arquitetura quase sempre leva o nome do arquiteto. Para o critério "falar direto com o dono", é o melhor nicho medido até agora — melhor até que odontologia (11 de 20).
+
+Combos varridos até aqui: + arquitetura RJ (termo amplo, não por bairro).
+
+## Varredura 17/09 17h10 — academia Copacabana: TERMO FALHOU
+"academia Copacabana": 170 ativos estimados, 35 lidos, e **nenhuma academia**. O termo trouxe imobiliária, estética, clínica, moto-táxi e cruzeiro. Registro como falha de termo, com a causa.
+
+**Por que falhou — mecanismo novo, e vale para toda varredura daqui pra frente**: em Copacabana o mercado imobiliário satura tanto o leilão que o nome do bairro sozinho já domina o resultado. Pior: a construtora **TARRAF** tem um empreendimento **chamado "Copacabana"** em São José do Rio Preto (SP), e 4 anúncios dela entraram numa busca do Rio — junto com a "Imobiliária São José", que anuncia "Em São José do Rio Preto". Ou seja: **nome de bairro também é nome de prédio**, e a Biblioteca não distingue.
+
+Regra que fica: para varrer academia, não usar o nome do bairro com a palavra "academia". Usar o serviço vendido ("musculação", "treino personalizado", "personal trainer <bairro>") ou o nome da rua.
+
+Das páginas que apareceram, entram na lista as que são do nicho de imobiliária/estética e ainda não estavam registradas:
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| Designer da Beleza Copacabana | 1409710325951880 | **5 anúncios ativos, todos sem título nenhum** | 15/09/2026 | B | https://www.facebook.com/ads/library/?id=1745406566725816 |
+| Estética Rabella | 112771025151563 | 3 anúncios sem título, criados no mesmo minuto | 16/09/2026 | **A** (sobrenome) | https://www.facebook.com/ads/library/?id=28207014408993486 |
+| Igor Sá | 209740102860942 | 3 anúncios idênticos, "GARANTA JÁ SEU STUDIO!" em caixa alta com exclamação | 15/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1066687476158205 |
+| Coutinhos Corretoras | 107056721572611 | 3 anúncios com título "Solicite mais detalhes->", com a setinha de teclado no fim | 16/09/2026 | **A** (sobrenome) | https://www.facebook.com/ads/library/?id=1607617927403647 |
+| Lucas Corazon | 100198118465274 | 2 anúncios: um sem título e outro com a URL crua "api.whatsapp.com" | 15/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1764812311101923 |
+| Clinica Coronato | 122102512982015369 | anúncio sem título, subiu hoje | 17/09/2026 | **A** (sobrenome) | https://www.facebook.com/ads/library/?id=1140189162028429 |
+
+Já registradas em varreduras anteriores, reapareceram aqui: Copa Azul, Lopes Select, Lalessa Imóveis.
+
+**Anúncio bom, não entra na lista**: Sawala Imobiliária, com "A 250m da praia: O novo padrão Posto 4 em Copacabana" — diz onde, diz o quê, dá referência que o carioca entende. Serve de contraexemplo do "Converse conosco".
+
+Combos varridos até aqui: + academia Copacabana (termo falhou, motivo registrado).
+
+## Varredura 17/09 18h10 — academia Copacabana, agora pelo termo certo
+Testei as duas correções que eu mesmo tinha proposto na rodada anterior:
+- **"personal trainer Copacabana" → 1 anúncio.** Específico demais, não serve.
+- **"musculação Copacabana" → 11 anúncios, e todos são academia de verdade.** É o termo certo, e é o mesmo que já tinha funcionado em Niterói ("academia + musculação").
+
+**A conclusão anterior estava incompleta e fica corrigida aqui**: o nicho de academia NÃO é fraco em Copacabana — quem falhou foi a palavra "academia" no bairro mais saturado de imobiliária do Rio. Em Niterói (27) e Méier (38) a mesma palavra funciona. Regra final: **em Copacabana, trocar "academia" por "musculação"**.
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| Bio Ritmo Oficial | 10150107269225594 | 4 anúncios: dois repetindo "Bio Ritmo Copacabana: Agende Já", mais "Quando tudo muda" e "Eleve seus treinos!" — os dois últimos não dizem o que é nem onde fica | 03/09/2026 | B (rede) | https://www.facebook.com/ads/library/?id=1084247044101780 |
+| l3fit_academia | 427898943750146 | 3 anúncios, todos sem título nenhum | 13/09/2026 | B | https://www.facebook.com/ads/library/?id=940287641909859 |
+| Instituto Biodelta | 283979911614559 | **o título é a mesma frase duas vezes**: "Metodologia Biodelta em Copacabana \| Metodologia Biodelta em Copacabana" | 14/09/2026 | B | https://www.facebook.com/ads/library/?id=4535434783363336 |
+| Aksel Musculação Especializada | 164101620124349 | carrossel com "Fale conosco" repetido em 4 cartões | 09/09/2026 | B | https://www.facebook.com/ads/library/?id=3233164976878152 |
+| lucianomassoterapeutarj | 103185691410191 | título é a URL crua "instagram.com" | 03/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1422716866389745 |
+| Universo Saude Expansiva | 102730592706548 | anúncio sem título | 02/09/2026 | B | https://www.facebook.com/ads/library/?id=2273423580104219 |
+
+**Defeito novo catalogado**: título duplicado dentro de si mesmo, a mesma frase repetida com barra no meio. Diferente do carrossel com cartões iguais — aqui é um anúncio só, com o campo preenchido duas vezes.
+
+**Academia confirma o que veterinária já indicava**: é nicho de marca, não de dono. 1 Trilha A em 6, e a única é um massoterapeuta, não academia. Para o critério "falar direto com o dono", academia fica atrás de arquitetura (7 de 8) e odontologia (11 de 20).
+
+Combos varridos até aqui: + academia/musculação Copacabana (com o termo corrigido).
+
+## Varredura 17/09 19h10 — ótica Tijuca
+"óculos de grau Tijuca": 8 ativos, todos lidos. O termo de PRODUTO funcionou como esperado (o termo de loja, "ótica", puxava distribuidor), mas veio com a contaminação **Tijuca → Tijucas/SC** que já estava prevista nas regras de termo. Duas das 8 páginas são de Santa Catarina.
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| Dr. Oswaldo Frazão | 587396684467882 | 2 anúncios sem título nenhum, criados no mesmo minuto | 16/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=4081503938822813 |
+| Oftalmo Cittá | 236757996479241 | anúncio sem título, no ar desde **29/05/2026** — quase quatro meses | 29/05/2026 | B | https://www.facebook.com/ads/library/?id=1532752995009640 |
+| Óticas SAADE | 106031825354397 | anúncio sem título | 16/09/2026 | **A** (sobrenome) | https://www.facebook.com/ads/library/?id=1065074133053016 |
+| Central dos óculos | 438264816042647 | anúncio sem título, desde 15/08/2026 | 15/08/2026 | B | https://www.facebook.com/ads/library/?id=1546003337207353 |
+| Dr. Igor Mota | 1387715857756444 | título "Cirurgia Refrativa a Laser?" — pergunta o nome do procedimento, não o problema de quem enxerga mal | 14/09/2026 | **A** (dono no nome) | https://www.facebook.com/ads/library/?id=1408520321413953 |
+
+**De Santa Catarina, não do Rio** — e uma delas com um erro que vale registrar: a **Rede de Óticas Mercadão dos Óculos - Tijucas/SC** está com o título **"ATENÇÃO MORADORES DE TIJUCA"**, em caixa alta e com o nome da própria cidade escrito errado (Tijucas, com S). É por isso que ela aparece em busca do Rio. Também apareceu o Instituto Visão Solidária - Tijucas SC, com "🚨 ECONOMIA NA SUA VISÃO" e emoji de sirene.
+
+**Confirmação da regra de termo**: "Tijuca" continua puxando "Tijucas/SC" mesmo em termo de produto. Só o "RJ" no termo não resolve (já testado na varredura de imobiliária) — o jeito é conferir o nome da página uma a uma, como foi feito aqui.
+
+**Ótica/oftalmologia é nicho pequeno e velho**: 8 anúncios no total, e o mais antigo está no ar há quase quatro meses sem título. 3 Trilha A em 5 — o médico costuma pôr o nome na página, a ótica não.
+
+Combos varridos até aqui: + ótica Tijuca.
+
+## Varredura 17/09 20h10 — pet shop Tijuca
+"banho e tosa Tijuca" (termo de SERVIÇO, como manda a regra): só 5 ativos. Nicho magro no bairro, mas com dois anúncios bem velhos.
+
+| Nome | Página | Defeito do anúncio | No ar desde | Trilha | Link |
+|---|---|---|---|---|---|
+| Rota Animal | 950622271470333 | título é só a palavra "Instagram", no ar desde **03/04/2026** — mais de cinco meses | 03/04/2026 | B | https://www.facebook.com/ads/library/?id=929765093374639 |
+| Lolo Pet Shop | 427674360429586 | anúncio sem título nenhum, no ar desde **11/04/2026** | 11/04/2026 | B | https://www.facebook.com/ads/library/?id=4297603047170347 |
+| Perto Pet Tijuca | 1298454070011830 | título é a URL crua "instagram.com" | 14/09/2026 | B | https://www.facebook.com/ads/library/?id=1094014983212337 |
+| Tosa Pet Estética Animal | 370065412859446 | anúncio sem título, subiu hoje | 17/09/2026 | B | https://www.facebook.com/ads/library/?id=1066033416040814 |
+| laklastudiopet | 162847603584966 | anúncio sem título | 15/09/2026 | B | https://www.facebook.com/ads/library/?id=2038533620191638 |
+
+**Zero Trilha A em 5.** Pet shop se comporta igual a veterinária e academia: nome de marca, não de dono. Consolida o agrupamento que a lista vem mostrando o dia inteiro:
+- **Nicho de dono** (vale abordar pensando em falar com quem decide): arquitetura 7/8, odontologia 11/20, estética 8/14, advocacia 5/8.
+- **Nicho de marca** (o dono não aparece, a abordagem tem que achar outro caminho): pet shop 0/5, academia 1/6, veterinária ~0/7.
+
+**Variação curiosa do mesmo defeito**: "Instagram" (só a palavra, na Rota Animal) e "instagram.com" (a URL, na Perto Pet) são o mesmo erro em dois formatos — o campo de título recebendo o destino do link em vez de uma frase.
+
+Combos varridos até aqui: + pet shop Tijuca.
+
+---
+
+## Imobiliária — Méier (varrido 17/09/2026, 19h)
+
+Termo: `apartamento à venda Méier`. 13 anúncios ativos, **12 páginas distintas** — quase nenhuma
+repetição, diferente da Barra. E o melhor número de Trilha A de todas as varreduras até agora:
+**9 das 12 páginas têm o nome do dono**, porque no Méier quem anuncia é o corretor autônomo, não
+a construtora.
+
+| Página | Page ID | Defeito do anúncio | No ar desde | Trilha | Biblioteca |
+|---|---|---|---|---|---|
+| Gestolano Lopes - Consultor Imobiliário | 674996082361477 | "More no seu próprio Apartamento" — frase genérica, sem bairro, sem preço, sem nada que identifique o imóvel | **15/08/2025** (13 meses) | A | [link](https://www.facebook.com/ads/library/?id=1424735235454110) |
+| Marcio Feitosa - Corretor de Imóveis | 701599569695076 | título é o nome da página seguido de "Converse conosco" repetido 10 vezes | **21/08/2025** (13 meses) | A | [link](https://www.facebook.com/ads/library/?id=4018602198402640) |
+| Lins Imóveis | 802521579614966 | dois anúncios idênticos, ambos só "Converse conosco" | 16/01/2026 | B | [link](https://www.facebook.com/ads/library/?id=929771726392304) |
+| Aline Gomes - Corretora de Imóveis | 943579125507449 | "Agende agora sua visita!" seguido de "Converse conosco" repetido 9 vezes | 08/04/2026 | A | [link](https://www.facebook.com/ads/library/?id=2721245624915276) |
+| Roberto Corretor de Imóveis | 1100224619835170 | título = só o nome da página. Nenhuma oferta | 23/04/2026 | A | [link](https://www.facebook.com/ads/library/?id=1567145608751397) |
+| Paulo Eduardo Corretor | 1186808151184012 | título vazio | 05/08/2026 | A | [link](https://www.facebook.com/ads/library/?id=1071775201952730) |
+| Homestead Imobiliária | 100652992549310 | "Converse conosco" três vezes | 08/08/2026 | B | [link](https://www.facebook.com/ads/library/?id=1060150953624963) |
+| Andre Luiz Dezao | 104604435111120 | título gerado pelo portal: "2 quartos 2 banheiros Apartamento" | 21/08/2026 | A | [link](https://www.facebook.com/ads/library/?id=1019357444428070) |
+| duduparga | 720183641185183 | título vazio | 13/09/2026 | A | [link](https://www.facebook.com/ads/library/?id=1812467643256350) |
+| Melissa Martins | 104555298116262 | "Venda seu imóvel com estratégia e agilidade" — anúncio de CAPTAÇÃO rodando em termo de COMPRA | 14/09/2026 | A | [link](https://www.facebook.com/ads/library/?id=1074417814995637) |
+| Ricardo Simões Corretor de Imóveis Avaliador Judicial | 349426395242948 | título do portal repetido **10 vezes** dentro de si mesmo, e o imóvel é em Engenho de Dentro, não no Méier | 15/09/2026 | A | [link](https://www.facebook.com/ads/library/?id=1102051798874016) |
+| Rede Imobiliaria | 842966852225006 | título vazio | 17/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=38403427075968269) |
+
+**O que esta varredura ensinou.** O defeito dominante no Méier não é o mesmo de Copacabana. Lá o
+problema era título longo demais (ficha técnica inteira). Aqui é o oposto: **título vazio ou
+"Converse conosco"**. São 7 das 12 páginas gastando dinheiro em anúncio que não diz o que está
+vendendo. É o argumento de abordagem mais fácil que já apareceu na lista, porque o dono consegue
+ver o erro sozinho em dois segundos.
+
+**Os dois melhores alvos**: Gestolano Lopes e Marcio Feitosa, ambos com o MESMO anúncio no ar há
+13 meses. Ninguém olha essa conta há mais de um ano.
+
+Combos varridos até aqui: + imobiliária Méier.
+
+---
+
+## Imobiliária — Campo Grande RJ (varrido 18/09/2026, 00h BRT)
+
+Termo: `apartamento à venda Campo Grande RJ`. 14 anúncios, mas **2 são de um curso de cultivo de
+cogumelos** e 1 é o Gestolano Lopes, já registrado na seção do Méier. Sobram **9 páginas reais**,
+2 delas Trilha A.
+
+Rendimento bem abaixo do Méier (12 páginas, 9 Trilha A). Em Campo Grande quem anuncia é
+construtora e página genérica de "venda de imóveis", não o corretor com nome próprio.
+
+| Página | Page ID | Defeito do anúncio | No ar desde | Trilha | Biblioteca |
+|---|---|---|---|---|---|
+| grajaucapital | 424810384056503 | título é o nome da página seguido de **10 campos vazios** separados por barra | **02/08/2025** (13 meses) | B | [link](https://www.facebook.com/ads/library/?id=1239532377971183) |
+| Primoris | 1115151141687827 | **"ENTRE EM NOSSO GRUOPO NO WHATSP"** — dois erros de digitação em cinco palavras, e o mesmo título em 3 anúncios simultâneos | 14/08/2026 | B | [link](https://www.facebook.com/ads/library/?id=2563675907402413) |
+| Venda de Imóveis | 806738789200651 | "🏡 SAIA DO ALUGUEL E CONQUISTE SEU APÊ EM CAMPO GRANDE!" — caixa alta inteira, que a própria Meta penaliza | 17/08/2026 | B | [link](https://www.facebook.com/ads/library/?id=27877973548491451) |
+| Afonso Lopes | 100868259318304 | título vazio | 27/08/2026 | A | [link](https://www.facebook.com/ads/library/?id=28186706644328563) |
+| jonathancorretor.imoveis | 1142171925647802 | título vazio | 30/08/2026 | A | [link](https://www.facebook.com/ads/library/?id=1405251184872208) |
+| Terrenos & Imóveis RJ | 105468811025702 | "🚩 Apartamento à Venda" — e a bandeira vermelha como emoji de destaque é uma escolha infeliz | 09/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=1423079669886484) |
+| Brasil Brokers | 354245788004916 | **o catálogo inteiro dentro do título**: 6 imóveis com descrição completa e preço, num campo que mostra ~40 caracteres. E nenhum deles é em Campo Grande — são Engenheiro Leal, Botafogo, Tauá, Copacabana e Anil | 11/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=1059711283634204) |
+| New Home Imóveis | 1400370723550476 | título vazio | 13/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=1662298845453649) |
+| Apartamento a venda em Campo grande RJ | 1344553605404710 | "Apto pronto para morar!" — o nome da PÁGINA é a palavra-chave inteira, sinal de página feita só pra anúncio | 16/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=1532296718584476) |
+
+**Melhor alvo**: Primoris. Três anúncios no ar ao mesmo tempo com "GRUOPO" e "WHATSP" no título.
+É o erro mais fácil de mostrar para um dono: ele lê, vê o erro sozinho e entende na hora que
+ninguém está olhando a conta dele.
+
+**Lição de termo nova**: pôr "RJ" no termo **reduz** a contaminação de outro estado, mas não elimina
+contaminação de outro ASSUNTO — aqui entraram dois anúncios de um curso de cultivo de cogumelos.
+A Meta casa o termo com o texto do anúncio, não só com o lugar. Continuar contando páginas reais na
+mão.
+
+**Lição de bairro nova**: bairro de periferia grande (Campo Grande) tem perfil de anunciante
+diferente de bairro de classe média consolidada (Méier). Lá é corretor autônomo com nome na página
+(9 de 12 Trilha A), aqui é construtora e página genérica (2 de 9). Para Trilha A em imobiliária,
+priorizar Méier, Tijuca, Botafogo e Copacabana.
+
+Combos varridos até aqui: + imobiliária Campo Grande RJ.
+
+---
+
+## Contabilidade — Rio de Janeiro (varrido 18/09/2026, 01h BRT)
+
+Termo: `abertura de empresa contador Rio de Janeiro`. Primeira varredura do nicho, feita agora que
+contabilidade virou conjunto que a gente anuncia. Só **8 anúncios ativos, 7 páginas distintas** —
+é o nicho mais vazio que já varremos, e isso é informação boa: quase ninguém do ramo está anunciando.
+
+| Página | Page ID | Defeito do anúncio | No ar desde | Trilha | Biblioteca |
+|---|---|---|---|---|---|
+| Salesy Serviços Digitais | 805590092636426 | "Serviços Contábeis e Digitais" — descrição de catálogo, não oferta | **09/02/2026** (7 meses) | B | [link](https://www.facebook.com/ads/library/?id=1216397800097535) |
+| Robson Wailant | 333487056515640 | título = só o nome da página | 21/07/2026 | A | [link](https://www.facebook.com/ads/library/?id=1010030495120972) |
+| Adiel Portes - Contabilidade | 1090839257452975 | **nenhum** — "Pagar contador sai mais barato do que pagar multa" é o único título decente de toda a varredura | 25/08/2026 | A | — |
+| afr_contabilidade | 227837610411206 | dois anúncios, os dois com título vazio | 03 e 07/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=1044518128399139) |
+| Factormix Fomento Mercantil | 1122771530920932 | nome da página seguido de **8 campos vazios**; e nem é contabilidade, é fomento mercantil | 04/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=2039608293382790) |
+| contabilizando_na_pratica_ | 1323666427501060 | nome da página + 3 campos vazios; é curso para contador, não escritório | 11/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=1566588261878298) |
+| PRECISA CONTABILIDADE | 614746341728334 | título é **"api.whatsapp.com"** — o endereço técnico do link vazando para o lugar do título | 17/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=1780372306309384) |
+
+**O defeito novo do dia**: "api.whatsapp.com" como título. Acontece quando o anunciante cola o link
+do WhatsApp e não preenche o título — a Meta usa o domínio. É a versão mais crua de "ninguém
+revisou": o cliente vê literalmente um endereço de servidor onde deveria estar a promessa.
+
+**Munição de criativo para o nosso conjunto CONTABILIDADE.** Esta varredura vale mais como
+inteligência do que como lista fria, e ensina três coisas:
+1. **O nicho é um deserto.** 7 páginas anunciando contabilidade no Rio inteiro. Contra 12 só de
+   imobiliária no Méier. Concorrência de leilão baixíssima — é onde o CPM tende a ser mais barato.
+2. **O único anúncio bem escrito do lote é uma frase de dor com número implícito**: "Pagar contador
+   sai mais barato do que pagar multa". Vale testar essa lógica de comparação de custo na nossa copy.
+3. **Quem anuncia contabilidade anuncia para o DONO DA EMPRESA, não para o contador.** Confirma que
+   o nosso conjunto (que fala COM o contador) não disputa leilão com nenhum deles. Estamos sozinhos
+   naquele espaço.
+
+**Único alvo real de Trilha A**: Robson Wailant, com título vazio há dois meses.
+
+Combos varridos até aqui: + contabilidade Rio de Janeiro.
+
+---
+
+## Escola de idiomas — Rio de Janeiro (varrido 18/09/2026, 02h BRT)
+
+**Duas tentativas de termo.** `curso de inglês Tijuca Rio de Janeiro` devolveu **1 anúncio**, e nem
+era do nicho: era a Estácio da Barra da Tijuca. `aulas de inglês Rio de Janeiro` devolveu **59**.
+Lição de termo: em escola de idiomas o bairro não filtra nada, porque quase ninguém do ramo anuncia
+por bairro — o curso é online ou "no Rio".
+
+Dos 59 anúncios, a concentração é brutal: TravelMate Intercâmbio sozinha tem 9, Portal Concursos 7,
+Med Fluency 7, Rockfeller 4, eba.sankofa 4, Centro de Ensino Aline de Andrade 4. Sobram **13 páginas
+distintas**, e várias nem são escola de idioma (intercâmbio, faculdade EAD, concurso público).
+
+| Página | Page ID | Defeito do anúncio | No ar desde | Trilha | Biblioteca |
+|---|---|---|---|---|---|
+| Centro de Ensino Aline de Andrade | 1169075449628877 | **"Não perca essa portunidade!"** — falta o "o" de oportunidade, em 4 anúncios simultâneos | **29/06/2026** (quase 3 meses) | A | [link](https://www.facebook.com/ads/library/?id=1308982291421410) |
+| TravelMate Intercâmbio | 231586210244036 | **`{{product.name}}`** — a variável do modelo aparecendo crua no título, em 5 anúncios; outros 4 com título vazio | 23/07/2026 | B | [link](https://www.facebook.com/ads/library/?id=1337222758573232) |
+| Legacy School Monteiro | 121292851071720 | "Matrículas 2027 abertas!" em 3 anúncios iguais — sem diferencial nenhum | 12/08/2026 | B | [link](https://www.facebook.com/ads/library/?id=1044241851799333) |
+| Rockfeller Rio de Janeiro | 106598678580504 | **"Conversa connosco"** — português de Portugal num anúncio do Rio. Criativo importado sem adaptar | 20/08/2026 | B | [link](https://www.facebook.com/ads/library/?id=1547606080356107) |
+| Pro Imóveis Rio | 105303848313856 | página de **imobiliária** anunciando "Fale inglês com mais naturalidade" — ou a conta foi invadida, ou alguém subiu o criativo na página errada | 20/08/2026 | B | [link](https://www.facebook.com/ads/library/?id=1071167958836401) |
+| northglobalenglish | 103914925517289 | título vazio | 24/08/2026 | B | [link](https://www.facebook.com/ads/library/?id=2844042749298894) |
+| Portal Concursos | 257466290793447 | título **"sndflw.com"** em 4 anúncios — o domínio do encurtador de link vazando para o lugar do título; outros 3 com título vazio | 09/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=1757588445286684) |
+| eba.sankofa | 117474501310052 | nome da página seguido de **12 campos vazios**, em 4 anúncios | 09/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=937296198875438) |
+| Unifcv - Polo Rio de Janeiro | 104427341534700 | título repetido 8 a 9 vezes, e ainda **escrito de dois jeitos diferentes** no mesmo anúncio ("Unifcv" e "Unicive") | 10/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=1610663590691043) |
+| Daniel Medeiros | 107986182321124 | **nenhum** — "4 Aulas VIP individuais por R$ 259,00 mensais" é oferta clara com preço. O melhor do lote | 14/09/2026 | A | — |
+| Med Fluency Academy | 563669673504893 | "BOLSA DE INGLÊS EXCLUSIVAS PARA MÉDICOS EM RIO DE JANEIRO!" — caixa alta inteira, concordância errada ("bolsa... exclusivas") e "EM Rio de Janeiro" em vez de "NO". 7 anúncios com o mesmo erro | 16/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=28291965983804710) |
+
+**O padrão que se repete e já dá para chamar de regra.** Pela terceira varredura seguida aparece o
+mesmo defeito com roupa diferente: **o domínio do link ocupando o lugar do título**. Já vimos
+"api.whatsapp.com" (contabilidade), "fb.me" (TravelMate São Paulo) e agora "sndflw.com" (Portal
+Concursos). Sempre que o anunciante cola um link e não escreve o título, a Meta preenche com o
+endereço técnico. É o sinal mais barato de "ninguém revisou esta conta" que existe na Biblioteca —
+e o mais fácil de mostrar para um dono, porque ele não precisa entender de tráfego para ver que
+está errado.
+
+**Os dois melhores alvos de abordagem:**
+1. **Centro de Ensino Aline de Andrade** — erro de digitação no título há quase 3 meses, em 4
+   anúncios ao mesmo tempo, e tem nome de dona na página.
+2. **Rockfeller Rio de Janeiro** — "Conversa connosco". Uma franquia grande rodando criativo em
+   português de Portugal na praça do Rio.
+
+Combos varridos até aqui: + escola de idiomas Rio de Janeiro (termo por bairro não funciona neste nicho).
+
+---
+
+## Estúdio de tatuagem — Rio de Janeiro (varrido 18/09/2026, 03h BRT)
+
+Termo: `estúdio de tatuagem Rio de Janeiro`. 53 anúncios, **27 páginas distintas** — o maior número
+de páginas de qualquer varredura até agora, e **16 delas Trilha A**. Faz sentido: tatuador vende o
+próprio traço, então a página é o nome dele.
+
+| Página | Page ID | Defeito do anúncio | No ar desde | Trilha | Biblioteca |
+|---|---|---|---|---|---|
+| Tattoo Experience RJ | 852344041284961 | 3 anúncios, todos com título vazio | **20/10/2025** (11 meses) | B | [link](https://www.facebook.com/ads/library/?id=1781946795775357) |
+| arthousebangu | 558871087317289 | título vazio | **12/11/2025** (10 meses) | B | [link](https://www.facebook.com/ads/library/?id=1956205548283727) |
+| Studio Emellyn | 100379565957249 | nome da página + 3 campos vazios | **14/11/2025** (10 meses) | B | [link](https://www.facebook.com/ads/library/?id=1608534883467118) |
+| Arpô Tattoo | 380689051802271 | **"👉 Enviar mensagem (WhatsApp)"** — o rótulo do BOTÃO colado no lugar do título | 03/02/2026 | B | [link](https://www.facebook.com/ads/library/?id=1436671701200888) |
+| Camila Sol Castello | 295403277295190 | título vazio | 22/03/2026 | A | [link](https://www.facebook.com/ads/library/?id=2687800238268717) |
+| Rabiska Tattoo Portifolio | 104196074773124 | título vazio — e **"Portifolio"** escrito errado no nome da própria página | 10/06/2026 | B | [link](https://www.facebook.com/ads/library/?id=994830242912580) |
+| Leandro Andrade Tattoo | 629823736879099 | **8 anúncios simultâneos** com o mesmo "Clique e Fale comigo". Oito peças, zero variação | 12/06/2026 | A | [link](https://www.facebook.com/ads/library/?id=1025160646554407) |
+| Primore Tattoo & Piercing | 100792137970789 | 2 anúncios, títulos vazios | 09/07/2026 | B | [link](https://www.facebook.com/ads/library/?id=1484355926792388) |
+| Severo Tatto's | 582980565161144 | "últimas vagas para essa semana 🔥" sem dizer de quê — e **"Tatto's"**, com letra faltando e apóstrofo indevido, no nome da página | 06/08/2026 | B | [link](https://www.facebook.com/ads/library/?id=1047452420980972) |
+| João C. Mello Tattoo | 626930584621605 | **5 anúncios**: 4 com título vazio e 1 com o nome da página seguido de 7 campos vazios | 07/08/2026 | A | [link](https://www.facebook.com/ads/library/?id=1747414603210662) |
+| Estúdio Rosa Black | 604894972706267 | "Faça seu agendamento!" — genérico, serve para qualquer negócio | 19/08/2026 | B | [link](https://www.facebook.com/ads/library/?id=1427653639298322) |
+| yann.tattoo | 102516815106081 | título vazio | 02/09/2026 | A | [link](https://www.facebook.com/ads/library/?id=1379200907728247) |
+| IG San Tattoo | 1236485939546010 | 3 anúncios iguais, "Sua tattoo começa aqui." | 11/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=1423835726314431) |
+| **bellacavelinne** | 104327822308065 | título **"instagram.com"** | 15/09/2026 | A | [link](https://www.facebook.com/ads/library/?id=960511240467417) |
+| ANA JULIA Botafogo • Tattoo | 100814048304577 | "Converse conosco" | 15/09/2026 | A | [link](https://www.facebook.com/ads/library/?id=1469072431776915) |
+| Letícia Sousa | 109580284206502 | 2 anúncios, "Chama a gente!" | 16/09/2026 | A | [link](https://www.facebook.com/ads/library/?id=904724109141800) |
+| Rodrigo Patello | 721625634892502 | 2 anúncios, títulos vazios | 17/09/2026 | A | [link](https://www.facebook.com/ads/library/?id=1097658699296727) |
+
+Outros Trilha A com defeito menor, no mesmo lote: Gustavo Tattoo Studio ("AGENDE AGORA!" em caixa
+alta, 2 anúncios), MelB.tattoo ("Conversar no Messenger" — outro rótulo de botão virando título),
+Guilherme Tattoo (vazio), Franklucas.tattoo ("Tattoo de Anime", que pelo menos é específico),
+Josi Bissaro (vazio), furtadottt (vazio), leo_fuque_tattoo (vazio).
+
+### O domínio no título já apareceu 4 vezes — é padrão, não coincidência
+`api.whatsapp.com` (contabilidade), `fb.me` (intercâmbio), `sndflw.com` (concursos) e agora
+**`instagram.com`** (bellacavelinne). Some-se a isso duas variações irmãs encontradas hoje: o
+**rótulo do botão** virando título — "👉 Enviar mensagem (WhatsApp)" na Arpô e "Conversar no
+Messenger" na MelB. Todas têm a mesma causa: o anunciante impulsiona pelo celular, não preenche o
+campo de título, e a Meta preenche sozinha com o que tiver à mão.
+
+**Por que isso importa para a abordagem.** É o único defeito da lista que o dono entende em dois
+segundos, sem precisar de nenhuma explicação sobre tráfego. Basta mandar o print. Vale montar uma
+mensagem de abordagem só para esse caso e usá-la em todos os nichos.
+
+### Observação sobre o nicho
+Tatuagem tem a melhor proporção de Trilha A em volume absoluto (16 donos identificáveis num só
+termo), mas é o nicho de **menor ticket** de toda a lista. Antes de priorizar, vale o Pablo decidir
+se quer volume de conversa ou tamanho de contrato — são objetivos diferentes. Imobiliária e
+odontologia continuam melhores por valor; tatuagem ganha em quantidade de porta para bater.
+
+**Os três melhores alvos**: Tattoo Experience RJ (11 meses com título vazio), Leandro Andrade
+(8 anúncios idênticos, e é Trilha A) e bellacavelinne (o "instagram.com", Trilha A, no ar há 3 dias).
+
+Combos varridos até aqui: + estúdio de tatuagem Rio de Janeiro.
+
+---
+
+## Energia solar — Rio de Janeiro (varrido 18/09/2026, 04h BRT)
+
+Termo: `instalação de energia solar Rio de Janeiro`. **129 anúncios** — o nicho mais saturado de
+toda a lista, por larga margem (tatuagem 53, imobiliária Méier 13, contabilidade 8). Cerca de
+**25 páginas distintas**, e quase todas Trilha B: energia solar é vendida por empresa com nome de
+empresa, não por dono com nome próprio.
+
+### A descoberta desta varredura: duas empresas diferentes com o MESMO título
+
+> **"Instale Placas Solares, e chega de pagar caro na conta de luz!"**
+
+Esse título, com a mesma vírgula fora do lugar antes do "e", está rodando ao mesmo tempo em:
+- **Fênix Energia Fotovoltaica** (page 103241548531349), desde 15/09
+- **Haja Energia Solar .** (page 421576177716751), em **4 anúncios**, desde 24/08
+
+Não é coincidência de redação. É o mesmo criativo vendido por uma agência ou comprado no mesmo
+pacote de template. **Isso é ouro para abordagem**: dá para mostrar ao dono, lado a lado, que o
+anúncio pelo qual ele paga é literalmente o mesmo do concorrente — incluindo o erro de pontuação.
+Vale procurar esse padrão de propósito nas próximas varreduras.
+
+(Detalhe que reforça: a página "Haja Energia Solar **.**" termina com um ponto final no nome, sinal
+de página criada às pressas.)
+
+| Página | Page ID | Defeito do anúncio | No ar desde | Trilha | Biblioteca |
+|---|---|---|---|---|---|
+| Esummer Engenharia Elétrica | 116733118200281 | "Faça Seu Orçamento!" em 2 anúncios, mais 1 com título vazio | 28/07/2026 | B | [link](https://www.facebook.com/ads/library/?id=1387447563353464) |
+| Technicenergia | 108565795511310 | "Converse conosco" em 3 anúncios | 07/08/2026 | B | [link](https://www.facebook.com/ads/library/?id=1809082870085407) |
+| Bon Tech Engenharia Solar | 617241574801119 | título vazio | 05/08/2026 | B | [link](https://www.facebook.com/ads/library/?id=2071026170186921) |
+| Evosolar - Usinas Fotovoltaicas | 107128252207454 | "☀️ Energia solar em **Itaperuna**" — anúncio de outra cidade aparecendo no termo do Rio | 05/08/2026 | B | [link](https://www.facebook.com/ads/library/?id=900567199774201) |
+| FULL POWER Energy | 111394752025043 | **6 anúncios** simultâneos, todos "Solicitar orçamento 👉" | 17/08/2026 | B | [link](https://www.facebook.com/ads/library/?id=1688041212684013) |
+| Haja Energia Solar . | 421576177716751 | título de template compartilhado com concorrente, em 4 anúncios | 24/08/2026 | B | [link](https://www.facebook.com/ads/library/?id=2187946035100995) |
+| Renovas Energias Sustentáveis | 1117460434791468 | "Converse conosco" | 24/08/2026 | B | [link](https://www.facebook.com/ads/library/?id=1578722017054563) |
+| OGES - EcoSoluções | 108021918959316 | "Seu telhado precisa de engenharia" — bom gancho, mas sem oferta nem próximo passo | 28/08/2026 | B | [link](https://www.facebook.com/ads/library/?id=1722453839020979) |
+| PeG soluções Energéticas | 1044915618714036 | nome da página + "Orçamento" repetido 3 vezes | 02/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=1046124078225855) |
+| Combo Vendedor Solar | 1098032116732177 | "Converse conosco" em 2 anúncios | 07/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=1587103269865185) |
+| Fênix Energia Fotovoltaica | 103241548531349 | o título de template compartilhado | 15/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=1140124905006489) |
+| Fenattech Engenharia & Consultoria | 117027822316983 | 1 anúncio com título vazio (os outros 2 usam "Quero economizar!", que funciona) | 17/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=1818779439112888) |
+| Electy | 105758298869789 | nome da página + 4 campos vazios | 17/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=1455616293127905) |
+| Expo 6 Soluções Energéticas | 118732134650723 | "ENTRE EM CONTATO CONOSCO!➡️" — caixa alta e nenhuma oferta | 15/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=1595685652256493) |
+| Rio suner | 109594208009432 | "ENTRE EM CONTATO! ➡️" — mesmo defeito, e o nome da página parece erro de digitação de "Rio Sunner" | 17/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=1787203998979803) |
+
+**Quem está fazendo certo** (útil como referência de copy, não como alvo): **Eng Full**, com "Energia
+Solar Não É Só Preço" e "Paga Mais de R$ 800 de Energia?" — as duas peças qualificam o lead antes
+do clique. E **VIA SOLAR**, com "Energia solar a partir de R$682,50", que é a única do lote que põe
+número no título.
+
+**Contaminação do termo**: entraram um jornal (Valor Econômico), uma empresa de aquecedor a gás
+(Aquecegás) e uma usina de Itaperuna. Termo de serviço em nicho saturado puxa qualquer coisa que
+fale de energia.
+
+### Veredito do nicho para o Pablo
+Energia solar é o **oposto** de contabilidade: 129 anúncios contra 8. Leilão caríssimo, quase
+nenhum dono identificável, e todo mundo já anuncia — ou seja, o discurso "você não está anunciando"
+não serve aqui, e o discurso "seu anúncio está ruim" enfrenta gente que já tem agência. Como lista
+fria, rende pouco apesar do tamanho. **Mantém no fim da fila.**
+
+Combos varridos até aqui: + energia solar Rio de Janeiro.
+
+---
+
+## Veterinária — Niterói (varrido 18/09/2026, 05h BRT)
+
+Termo: `clínica veterinária Niterói`. Só 12 anúncios, **8 páginas distintas** — e duas delas são
+faculdade (Anhanguera e faculdadeancliveparj), contaminação de "veterinária" como CURSO. Sobram
+**6 páginas reais**.
+
+Nicho pequeno, mas é a varredura mais reveladora da madrugada pelo motivo abaixo.
+
+| Página | Page ID | Defeito do anúncio | No ar desde | Trilha | Biblioteca |
+|---|---|---|---|---|---|
+| **Bicho D+ Veterinária e Pet Shop** | 1255112617929642 | "Clínica Veterinária Bicho D+ em Niterói/RJ." seguido de **"Converse conosco" repetido 7 vezes** | **01/06/2024 — 27 MESES** | B | [link](https://www.facebook.com/ads/library/?id=989751759165957) |
+| Flip Dog Care | 417931334744365 | nome da página + "Converse conosco" 5 vezes (jan/2025); e um segundo anúncio com título **"api.whatsapp.com"** (mai/2026) | 15/01/2025 | B | [link](https://www.facebook.com/ads/library/?id=584150911212037) |
+| Dra. Mabel Vaz Dermatologia Veterinária e Clínica Geral | 1741740266153530 | título **"instagram.com"** | 08/02/2025 | A | [link](https://www.facebook.com/ads/library/?id=556432990744569) |
+| Veterinária Natalia Razal | 537690169427360 | "Veterinária domiciliar" — descreve o serviço, mas não dá motivo nenhum para clicar | 02/03/2026 | A | [link](https://www.facebook.com/ads/library/?id=805703958546455) |
+| lerveticarai | 1010139942171723 | **4 anúncios: 3 com título "instagram.com"** e 1 com o nome da página + 5 campos vazios | 12/05/2026 | B | [link](https://www.facebook.com/ads/library/?id=759798210460466) |
+| Medvet.eugeniagranada | 347140411825394 | "Descubra como posso te ajudar!" — genérico, mas é o menos pior do lote | 16/09/2026 | A | [link](https://www.facebook.com/ads/library/?id=1807558910241484) |
+
+### Dois recordes quebrados nesta varredura
+
+**1. O anúncio mais velho de toda a lista.** Bicho D+ está com a mesma peça no ar desde
+**01/06/2024 — 27 meses**. O recorde anterior era a Clínica Veterinária S.O.S Castração, desde
+22/11/2024. Dois anos e três meses pagando pelo mesmo anúncio cujo título é "Converse conosco" sete
+vezes seguidas. É o exemplo mais extremo de conta abandonada que a lista tem.
+
+**2. O defeito do domínio no título explodiu.** Nesta única varredura de 12 anúncios apareceram
+**5 ocorrências**: 3 "instagram.com" na lerveticarai, 1 "instagram.com" na Dra. Mabel Vaz e 1
+"api.whatsapp.com" na Flip Dog Care. São **42% dos anúncios do nicho**.
+
+Somando tudo o que já foi varrido, o padrão tem agora **9 ocorrências em 5 nichos diferentes**:
+api.whatsapp.com (contabilidade, veterinária), instagram.com (tatuagem, veterinária ×4),
+sndflw.com (concursos), fb.me (intercâmbio) — mais as duas variações com rótulo de botão.
+
+**Conclusão prática que isso fecha**: o defeito não é de um ramo, é de um JEITO de anunciar —
+impulsionar pelo celular sem abrir o campo de título. Ele atravessa todos os nichos e é o critério
+de busca mais eficiente que a lista tem, porque identifica de uma vez alguém que (a) gasta dinheiro,
+(b) não tem quem cuide da conta e (c) consegue enxergar o próprio erro sem explicação nenhuma.
+
+**Sugestão ao Pablo**: a próxima leva de abordagem pode ser montada só por esse critério,
+atravessando os nichos, em vez de ir bairro por bairro. Já há 9 nomes prontos na lista.
+
+Combos varridos até aqui: + veterinária Niterói.
+
+---
+
+# 🎯 LISTA DE ATAQUE — "O ENDEREÇO NO LUGAR DO TÍTULO"
+### Montada em 18/09/2026, 06h. Atravessa todos os nichos e todos os bairros.
+
+Esta seção não é uma varredura nova. É a **consolidação** de um defeito que apareceu em quase todas
+as varreduras do arquivo, de dias e nichos diferentes, e que só ficou visível como padrão quando
+reunido num lugar só.
+
+**Correção de um número que eu passei ao Pablo há uma hora.** Eu disse "9 ocorrências, 9 nomes
+prontos". Estava contando só as varreduras da madrugada. Relendo o arquivo inteiro, o defeito já
+estava catalogado desde os primeiros dias: são **17 anunciantes dentro do perfil**, não 9.
+
+## O que é o defeito
+
+O anunciante impulsiona pelo celular, cola o link e não escreve o título. A Meta preenche sozinha
+com o que tem à mão — o domínio do link, ou o rótulo do botão. O cliente vê no feed:
+
+> **instagram.com**
+> **api.whatsapp.com**
+> **sndflw.com** · **fb.me**
+> **👉 Enviar mensagem (WhatsApp)** · **Conversar no Messenger**
+
+## Por que este é o melhor critério de abordagem do arquivo
+
+1. **Identifica dinheiro saindo.** Só aparece em anúncio ativo, pago.
+2. **Identifica conta sem dono.** Ninguém que olha a conta deixa isso passar uma semana, muito menos
+   dois anos.
+3. **O dono entende sozinho.** É o único defeito da lista que não precisa de nenhuma explicação
+   sobre tráfego. Manda o print e pronto.
+4. **Não depende de nicho nem de bairro.** Funciona em advogado, pet shop, tatuador, ótica e
+   contador igual.
+
+## Os 17 alvos, do mais abandonado para o mais recente
+
+| # | Anunciante | Nicho / bairro | O que aparece | No ar desde | Trilha |
+|---|---|---|---|---|---|
+| 1 | **Marcio Alcides Adv** | advocacia, Campo Grande | `instagram.com` | **11/11/2024 — 22 meses** | A |
+| 2 | **Flip Dog Care** | veterinária, Niterói | `api.whatsapp.com` | 15/01/2025 — 20 meses | B |
+| 3 | **Dra. Mabel Vaz Dermatologia Veterinária** | veterinária, Niterói | `instagram.com` | 08/02/2025 | A |
+| 4 | **teixeiramendes.advogados** | advocacia, Copacabana | **5 anúncios** `instagram.com` + 1 `api.whatsapp.com` | 01/05/2026 | B |
+| 5 | **lerveticarai** | veterinária, Niterói | **3 anúncios** `instagram.com` | 12/05/2026 | B |
+| 6 | **raimundoalvesjunior.advogado** | advocacia, Niterói | `api.whatsapp.com` | 18/06/2026 | A |
+| 7 | **Paulo Fernandes** | imobiliária, Madureira | `api.whatsapp.com` | junho/2026 | A |
+| 8 | **Estética Dental** | odontologia | **2 anúncios** `api.whatsapp.com` | junho/2026 | B |
+| 9 | **Copacabana Eyewear** | ótica, Copacabana | **6 anúncios** `api.whatsapp.com` | 09/07/2026 | B |
+| 10 | **TravelMate São Paulo** | intercâmbio | `fb.me` | 15/09/2026 | B |
+| 11 | **Adv. Felipe Morgan** | advocacia | `api.whatsapp.com` | 01/09/2026 | A |
+| 12 | **pet_shop_copacabana** | pet shop, Copacabana | `instagram.com` | 09/09/2026 | B |
+| 13 | **Portal Concursos** | cursos | **4 anúncios** `sndflw.com` | 09/09/2026 | B |
+| 14 | **Giselle Soares** | (ver seção de origem) | `instagram.com` | — | A |
+| 15 | **bellacavelinne** | tatuagem | `instagram.com` | 15/09/2026 | A |
+| 16 | **PRECISA CONTABILIDADE** | contabilidade | `api.whatsapp.com` | 17/09/2026 | B |
+| 17 | **Arpô Tattoo** e **MelB.tattoo** | tatuagem | rótulo do botão no título | 03/02/2026 e 11/09/2026 | A |
+
+**Trilha A (dono no nome da página): 7 dos 17** — Marcio Alcides, Dra. Mabel Vaz, Raimundo Alves Jr.,
+Paulo Fernandes, Felipe Morgan, Giselle Soares, bellacavelinne, mais os dois tatuadores do item 17.
+
+## Ordem sugerida de abordagem
+
+1. **Marcio Alcides** — 22 meses. O argumento se conta sozinho.
+2. **Flip Dog Care** e **Dra. Mabel Vaz** — 20 meses e 19 meses.
+3. **Copacabana Eyewear** e **teixeiramendes** — volume alto de anúncios errados ao mesmo tempo
+   (6 e 6), então o desperdício é maior e mais fácil de mostrar em números.
+4. O resto, priorizando Trilha A.
+
+## A mensagem, pronta para os dois casos
+
+**Quando é `api.whatsapp.com` ou `instagram.com`:**
+> Dr. / Sr(a)., o título do seu anúncio está saindo como "api.whatsapp.com". Isso é o endereço do
+> link, não uma frase — a Meta preenche sozinha quando o campo do título fica vazio. Quem passa no
+> feed lê isso e segue direto. Segue o print. Se quiser, te mostro em dois minutos como arrumar.
+
+**Quando é o rótulo do botão ("Enviar mensagem (WhatsApp)"):**
+> O título do seu anúncio está repetindo o nome do botão. Sobra um espaço no feed que podia estar
+> dizendo o que você faz, e está dizendo "enviar mensagem". Segue o print.
+
+Em nenhum dos dois é preciso falar de CPM, de público ou de otimização. O erro é visível.
+
+## Como manter esta lista viva
+Toda varredura nova: se aparecer título com domínio (`.com`, `.br`, `fb.me`) ou com rótulo de botão,
+acrescentar aqui além da seção do nicho. É a lista que o Pablo vai usar primeiro.
+
+---
+
+## Fisioterapia — Tijuca (varrido 18/09/2026, 07h BRT)
+
+Termo: `fisioterapia Tijuca RJ`. 38 anúncios, **14 páginas distintas**, **5 Trilha A**. O sufixo
+"RJ" cumpriu o papel de novo: zero contaminação de Tijucas/SC.
+
+Concentração forte: **Nunes Curativos sozinha tem 9 anúncios** e o Instituto TRATA tem 5.
+
+| Página | Page ID | Defeito do anúncio | No ar desde | Trilha | Biblioteca |
+|---|---|---|---|---|---|
+| **M&B Fisioterapia** | 491878520899614 | "Converse conosco" | **14/08/2024 — 25 meses** | B | [link](https://www.facebook.com/ads/library/?id=482135827863922) |
+| Núcleo Saúde Novo Leblon | 174772386011095 | **6 anúncios**: 4 com título vazio, 1 com "Consulte nossa agenda!" e 1 com o nome da página + um campo vazio + "Converse conosco" 6 vezes | **06/06/2025 — 15 meses** | B | [link](https://www.facebook.com/ads/library/?id=798694882553978) |
+| Unigama Matriz | 377429398797294 | nome da página + "Fale conosco" 2 vezes | 15/06/2026 | B | [link](https://www.facebook.com/ads/library/?id=1300113592276108) |
+| Instituto TRATA - Unidade Tijuca | 2165668653685205 | **5 anúncios, todos com título vazio** | 03/07/2026 | B | [link](https://www.facebook.com/ads/library/?id=2987336934806714) |
+| Dr. Bruno Garrett | 1166755226529382 | "Agendar Consulta Particular" — funciona, mas é rótulo de botão, não promessa | 20/07/2026 | A | [link](https://www.facebook.com/ads/library/?id=1646714707456770) |
+| Cora Residencial Senior | 1121894897837722 | 2 anúncios, títulos vazios | 23/07/2026 | B | [link](https://www.facebook.com/ads/library/?id=964966716549753) |
+| Rodrigo Salvitti | 964281120110122 | **3 anúncios, todos com título vazio** | 28/07/2026 | A | [link](https://www.facebook.com/ads/library/?id=1018698091030714) |
+| Espaço Vida Barra | 415841588288319 | **"Aproveite nossa promoção de Agosto!"** — ainda no ar em 18 de setembro | 24/08/2026 | B | [link](https://www.facebook.com/ads/library/?id=1029734440092383) |
+| souquiro | 108866823958255 | "Converse conosco" | 02/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=2540046356463545) |
+| Dr. Mauro Monteiro Osteopatia | 1305429126182898 | **4 anúncios, todos com título vazio**, o mais antigo de 03/07 | 04/09/2026 | A | [link](https://www.facebook.com/ads/library/?id=1068726606119975) |
+| **Nunes Curativos** | 1593079370959383 | **9 anúncios**. Um deles tem o nome da página seguido de **"Converse conosco" 8 vezes**; outro 7 vezes; outro 6; os demais 1 vez | 07/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=1613948350112727) |
+| Núcleo Angela Beatriz Varella de Fisioterapia | 105253774677022 | título vazio | 11/09/2026 | A | [link](https://www.facebook.com/ads/library/?id=2158480202213241) |
+| Clínica Ortobarra | 116441024392088 | título vazio | 11/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=4530476013875596) |
+| Drª Vitória Costa | 104752944739269 | título vazio | 16/09/2026 | A | [link](https://www.facebook.com/ads/library/?id=2603812466707915) |
+
+*(Elo3 Cursos é contaminação — curso para fisioterapeuta, não clínica.)*
+
+### Dois achados
+
+**1. Promoção de agosto no ar em setembro.** Espaço Vida Barra está pagando, hoje, por um anúncio que
+diz "Aproveite nossa promoção de Agosto!". É o segundo caso do gênero no arquivo (o primeiro foi uma
+campanha de Natal rodando em setembro). Vale virar categoria própria: **anúncio fora de época**.
+Argumento de abordagem excelente, porque o dono não precisa entender de tráfego — ele só precisa
+olhar o calendário.
+
+**2. O recorde de repetição.** Nunes Curativos tem um anúncio cujo título é o nome da página seguido
+de "Converse conosco" **oito vezes seguidas**. E tem nove anúncios no ar ao mesmo tempo, todos
+variações do mesmo nada. É o maior desperdício por página de toda a lista.
+
+**O segundo mais antigo do arquivo**: M&B Fisioterapia, no ar desde 14/08/2024 — **25 meses**. Fica
+atrás só do Bicho D+ (27 meses), encontrado na rodada passada.
+
+**Trilha A do lote**: Drª Vitória Costa, Dr. Mauro Monteiro, Rodrigo Salvitti, Dr. Bruno Garrett e
+Núcleo Angela Beatriz Varella — **5 de 14**. Todos com título vazio, menos o Dr. Bruno. Fisioterapia
+tem proporção de dono parecida com odontologia, e ticket de recorrência (paciente volta 10 vezes),
+o que a torna melhor que tatuagem por valor.
+
+Combos varridos até aqui: + fisioterapia Tijuca (o sufixo "RJ" funcionou pela 3ª vez).
+
+---
+
+## Odontologia — Méier (varrido 18/09/2026, 08h BRT)
+
+Termo: `dentista Méier`. 16 anúncios, **12 páginas distintas**, **5 Trilha A**. Confirma pela segunda
+vez que o Méier é o melhor bairro do arquivo: assim como em imobiliária, aqui também é gente com
+nome próprio na página, não só rede.
+
+| Página | Page ID | Defeito do anúncio | No ar desde | Trilha | Biblioteca |
+|---|---|---|---|---|---|
+| DR Odontologia | 1435342266685032 | **2 anúncios**, ambos com o nome da página + **"Converse conosco" 6 vezes** | 02/07/2026 | B | [link](https://www.facebook.com/ads/library/?id=1305297694925833) |
+| Pedro Augusto Odontologia | 548669842695215 | "Dentista  Referência No Méier RJ" — **espaço duplo** depois de "Dentista", e é afirmação sobre si mesmo, não oferta | 06/07/2026 | A | [link](https://www.facebook.com/ads/library/?id=1031590486237078) |
+| Nascimento Odontologia | 371765596010542 | "Agende uma avaliação" — genérico | 27/07/2026 | B | [link](https://www.facebook.com/ads/library/?id=2469003420265011) |
+| SorriaMed | 979637205389895 | título vazio | 04/08/2026 | B | [link](https://www.facebook.com/ads/library/?id=2680200249044424) |
+| dra.miriaandrade | 954797137720010 | nome da página + **5 campos vazios** | 10/08/2026 | A | [link](https://www.facebook.com/ads/library/?id=992423723817676) |
+| Vamos Sorrir - Méier | 213513398508568 | 2 anúncios, títulos vazios | 31/08/2026 | B | [link](https://www.facebook.com/ads/library/?id=1097318869685781) |
+| Archipéva Odontologia (Dra. Fernanda Archipéva) | 334274203101187 | 2 anúncios com **"PRÓTESE FLEXIVEL"** — caixa alta, **sem acento em "flexível"**, e é o nome do produto, não um motivo | 09/09/2026 | A | [link](https://www.facebook.com/ads/library/?id=1403902291851260) |
+| Gabriela Moura Dentista | 278477818690486 | "Converse conosco" 3 vezes | 10/09/2026 | A | [link](https://www.facebook.com/ads/library/?id=1701183170949863) |
+| MEIER Dentista | 1289019517628747 | "AGENDAR AGORA!" em caixa alta; e o nome da página é a palavra-chave sem acento, sinal de página feita só para anúncio | 14/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=2372431986869079) |
+| sorria3d | 565928923280917 | nome da página + 3 campos vazios | 16/09/2026 | B | [link](https://www.facebook.com/ads/library/?id=1759728975080266) |
+| OdontoCompany - Méier | 869113366274437 | 2 anúncios, títulos vazios | 17/09/2026 | B (rede) | [link](https://www.facebook.com/ads/library/?id=1099864609254009) |
+| Biancalamosasant'Anna | 1530380530379255 | **nenhum** — "Esculpindo Sorrisos: naturalidade em cada detalhe" é o único título bem escrito do lote | 17/09/2026 | A | — |
+
+### O que este lote confirma
+
+**O Méier é o melhor bairro do arquivo, e agora em dois nichos.** Imobiliária deu 9 Trilha A em 12
+páginas; odontologia deu 5 em 12. Nenhum outro bairro chega perto nos dois ao mesmo tempo. A
+explicação provável é a mesma: classe média consolidada, negócio de dono, sem a saturação de
+agência que existe na Barra e em Copacabana.
+
+**Recomendação de foco**: se o Pablo quiser concentrar a prospecção em um lugar só, é o Méier.
+Rende Trilha A em nicho de ticket alto (dentista e corretor), que é a combinação que interessa.
+
+**Erro de português como gancho, terceira vez.** Já tivemos "portunidade" (escola de idiomas),
+"GRUOPO"/"WHATSP" (imobiliária Campo Grande) e agora **"FLEXIVEL"** sem acento, em caixa alta, em
+dois anúncios de uma dentista que põe o próprio CRO no nome da página. É do mesmo tipo do defeito do
+domínio: o dono vê o erro sozinho.
+
+**Melhores alvos**: DR Odontologia (dois anúncios com a frase repetida 6 vezes, no ar há 2 meses e
+meio) e **dra.miriaandrade** (Trilha A, 5 campos vazios no título).
+
+Combos varridos até aqui: + odontologia Méier.
+
+---
+
+## Estética / harmonização — Méier (varrido 18/09/2026)
+
+**A lição do termo confirmada pela TERCEIRA vez.** Dois termos, mesmo bairro, mesmo dia:
+
+| Termo | Resultado |
+|---|---|
+| `preenchimento labial Méier` | 12 anúncios, **2 páginas** |
+| `botox Méier` | **32 anúncios**, 7 páginas |
+
+Se a varredura tivesse parado no primeiro termo, o bairro inteiro teria sido classificado como vazio.
+**Regra: em estética, sempre rodar os dois termos antes de dar um bairro por varrido.**
+(Casos anteriores: em Madureira `preenchimento labial` deu zero e `botox` rendeu 19.)
+
+### Alvos
+
+**Botocenter Méier** — Trilha B — o caso de volume.
+~17 anúncios simultâneos, **todos com o título `⭐⭐⭐⭐⭐`**. Uma nota de avaliação no lugar onde
+deveria estar a promessa. Quem vê o anúncio não sabe o que está sendo vendido nem por quanto.
+Defeito: título sem oferta, repetido em toda a conta.
+Link: Biblioteca de Anúncios, busca `botox Méier`.
+
+**Clínica da dor** — Trilha B — **entra na LISTA DE ATAQUE**.
+2 anúncios com o título `Enviar mensagem` repetido 3 a 4 vezes. É o rótulo do botão ocupando o
+campo do título — mesmo mecanismo do `api.whatsapp.com`, `instagram.com` e `sndflw.com` já
+catalogados. O anunciante impulsionou pelo celular e nunca preencheu o título.
+
+**Startsmed** — Trilha B — **entra na LISTA DE ATAQUE** (defeito irmão).
+Título: `{{product.name}}`. Variável de template que nunca foi renderizada. É o erro mais visível
+da lista inteira: qualquer pessoa, sem nenhuma explicação, entende que está quebrado.
+
+**Espaço Facial Meier** — Trilha B — 6 anúncios em `botox`, 3 em `preenchimento labial`.
+Títulos: `✅ AGENDE AGORA!` e `AVALIAÇÃO GRATUITA`. Sem defeito técnico, só genérico.
+Prioridade baixa.
+
+**Botocenter Barra Shopping** — apareceu na busca mas é **outro bairro**. Não abordar por aqui.
+
+**Garimpando com PH** — título vazio, mas é contaminação da busca (não é do nicho). Descartado.
+
+### Referência positiva
+
+**Paula Almeida Clinic** — 5 anúncios, título `Botox com 50% OFF no Méier 💉`.
+Único da varredura com oferta real: procedimento + desconto + bairro em cinco palavras.
+Serve de contraste na abordagem dos outros — "o seu concorrente no Méier está anunciando assim".
+
+### Leitura
+
+Méier confirma pela terceira vez que é o melhor bairro do arquivo, mas aqui pelo motivo oposto ao
+de imobiliária e odontologia: a Trilha A é baixa (as páginas são marcas, não nomes de donos) e o
+que sobra é **qualidade de anúncio muito ruim em quem gasta muito** — Botocenter com 17 anúncios
+no ar e nenhum deles dizendo o que vende.
+
+Combos varridos até aqui: + estética Méier (os dois termos).
+
+---
+
+## Advocacia — direito de família RJ (varrido 18/09/2026)
+
+Terceiro recorte de advocacia (depois de trabalhista e previdenciário). Dois termos:
+
+| Termo | Resultado |
+|---|---|
+| `divórcio consensual Rio de Janeiro` | 2 anúncios, 2 páginas — termo estreito demais |
+| `direito de família Rio de Janeiro` | 318 estimados, mas **quase tudo político** |
+
+### LIÇÃO DE TERMO NOVA — advocacia + "Rio de Janeiro" cai em campanha eleitoral
+
+`direito de família Rio de Janeiro` devolveu deputado, candidato, pastor e vereador em quase toda a
+primeira página: Marcelo Rizzi, Daniel Soranz, Chris Tonietto, Anielle Franco, Clarice Chacon,
+Guilherme Pimentel, Celso André, Bibo Nunes. A palavra "família" somada ao nome do estado é
+vocabulário de campanha, não de escritório.
+
+**Regra: em advocacia, termo de RAMO DO DIREITO + nome do estado puxa política.** O que funciona é
+o termo de PROCESSO (`ação trabalhista`, `aposentadoria INSS`) — os dois recortes anteriores
+renderam justamente por isso. Direito de família precisa de um termo de processo equivalente
+(`inventário`, `pensão alimentícia`, `guarda compartilhada`), a testar na próxima rodada.
+
+### Escritórios de verdade encontrados (5 páginas nas duas buscas)
+
+**Ferreira Pires Adv** — Trilha A (sobrenomes dos sócios) — **melhor alvo**.
+3 anúncios simultâneos, **todos com o título vazio**. No ar desde 16/09 — quem acabou de começar a
+gastar é quem mais escuta. Link: Biblioteca, busca `direito de família Rio de Janeiro`.
+
+**Marcia Rianelli Advocacia** — Trilha A — **o recorde de tempo do arquivo neste defeito**.
+Título: `Marcia Rianelli Advocacia | | | | | | | | |` — nome da página mais **nove campos vazios**.
+No ar desde **21/10/2025**: quase 11 meses pagando por um anúncio que não diz nada. É o caso mais
+antigo já catalogado aqui e o argumento se escreve sozinho.
+
+**alinefrassonadv** — Trilha A — título `alinefrassonadv | | | | | |`: o @ do Instagram no lugar do
+nome, mais seis campos vazios. No ar desde 16/09. Irmão direto do padrão "domínio no título".
+
+**Vanessa Adriano Adv** — Trilha A — título vazio, no ar desde **17/08/2026** (um mês).
+
+**Queiroz e Andrade Sociedade de Advogados** — Trilha B — `Fale com nossos Advogados Especialistas`.
+Sem defeito técnico, só genérico. Prioridade baixa.
+
+### Leitura
+
+Quatro das cinco páginas são Trilha A — a melhor proporção depois do Méier. Faz sentido: escritório
+de advocacia quase sempre leva o nome do dono. E o defeito é o mesmo de sempre, o campo de título em
+branco, com um caso de 11 meses no ar que serve de exemplo para qualquer abordagem do nicho.
+
+Combos varridos até aqui: + advocacia direito de família RJ (com a ressalva do termo político).
+
+---
+
+## Advocacia — inventário RJ (varrido 18/09/2026, mesma rodada)
+
+Teste direto da hipótese aberta na seção anterior: **se o termo de ramo do direito puxa política, o
+termo de PROCESSO resolve?** Resolve.
+
+| Termo | Anúncios | Poluição |
+|---|---|---|
+| `direito de família Rio de Janeiro` | 318 estimados | deputado, vereador, pastor — quase tudo |
+| `inventário e partilha Rio de Janeiro` | 14 | **zero político** |
+
+**A regra vira definitiva: em advocacia, usar sempre o nome do PROCESSO, nunca o nome do ramo.**
+`ação trabalhista`, `aposentadoria INSS`, `inventário e partilha` — os três recortes que renderam.
+Um volume menor e limpo vale mais que 318 anúncios de campanha eleitoral.
+
+### Alvos
+
+**Dutel Advogados** — Trilha B — **entra na LISTA DE ATAQUE**.
+Título: `api.whatsapp.com`. No ar desde **24/02/2026** — quase sete meses. É o caso mais antigo do
+padrão "domínio no título" em toda a lista, e o segundo escritório de advocacia a cair nele.
+
+**Ivan Alexandre - Consultor Imobiliário** — Trilha A — **entra na LISTA DE ATAQUE**.
+Título: `api.whatsapp.com`, no ar desde 17/09. É de imobiliária, não de advocacia (apareceu na busca
+por anunciar inventário de imóvel), e é Trilha A com o nome completo na página: abordagem fácil.
+
+**Especialista em Inventários** — Trilha B — o caso de volume.
+**9 anúncios simultâneos**, todos com o mesmo título `Inventário não segue lógica, segue regra!`.
+Sem defeito técnico — o título até é bom —, mas nove criativos rodando a mesma frase é dinheiro
+competindo consigo mesmo. Desde 11/09. Argumento diferente dos outros: aqui não é erro, é desperdício.
+
+**Jonatas Albino** — Trilha A — título vazio, no ar desde **31/07/2026** (mês e meio).
+
+**Agência 01 Mídia** — nome da página repetido 6 vezes no título, desde 02/07. É agência, não cliente
+final: **não abordar** (registrado só para não reaparecer como alvo em varredura futura).
+
+**Marcia Rianelli Advocacia** — já catalogada na seção anterior. Apareceu nos dois termos, o que
+confirma que está com um anúncio único e antigo rodando de forma ampla.
+
+### Leitura
+
+Este recorte deu 3 alvos novos com 14 anúncios; o anterior deu 5 com 318. **Termo limpo rende mais
+por anúncio lido** — vale mais rodar três termos de processo estreitos que um termo de ramo largo.
+
+Combos varridos até aqui: + advocacia inventário RJ (hipótese do termo de processo confirmada).
+
+---
+
+## Contabilidade — planejamento tributário RJ (varrido 18/09/2026)
+
+Segundo recorte de contabilidade (o primeiro foi `abertura de empresa contador Rio de Janeiro`),
+usando de propósito um termo de PROCESSO, a regra que acabou de se confirmar em advocacia.
+
+15 anúncios, **11 páginas distintas**, zero poluição política. O termo de processo funcionou de novo,
+num nicho diferente — a regra não é só de advocacia, é de **serviço profissional em geral**.
+
+Mas apareceu uma poluição nova: **faculdade**. FGV (2 anúncios de MBA e LL.M.) e Unilasalle-RJ
+vendem o CURSO de planejamento tributário, não o serviço. Registrado para não virar alvo.
+
+### Alvos
+
+**Zamani Contabilidade** — Trilha B — **entra na LISTA DE ATAQUE**.
+Título: `instagram.com`. No ar desde **29/07/2026** — quase dois meses. Contabilidade caindo no
+mesmo padrão de domínio no título.
+
+**Pedro Pamplona, Noé e Almeida Advogados** — Trilha A (três sobrenomes de sócios) — **LISTA DE ATAQUE**.
+Título: `instagram.com`, desde 16/09. Terceiro escritório de advocacia com esse defeito em um só dia.
+
+**FR - Advocacia** — Trilha A (Felipe Ramos) — 2 anúncios, os dois com o nome da página mais a
+frase repetida 6 vezes: um com `Diagnóstico Jurídico Empresarial — Felipe Ramos Advogados`, outro
+com `Fale conosco`. Desde 11/09. O primeiro é até uma boa oferta, estragada pela repetição.
+
+**ETCA Contabilidade** — Trilha B — título vazio, desde 16/09.
+
+**Soraia Plachi** — Trilha A — título vazio, desde **29/07/2026** (quase dois meses).
+
+**Strong Comex** — Trilha B — título vazio, no ar desde **13/02/2026**: sete meses. Junto com Dutel
+Advogados, é o par de casos mais antigos já catalogados aqui.
+
+**Robson Wailant** e **Plane Contabilidade** — títulos fracos mas sem defeito técnico
+(`Robson Wailant`, `Fale com um especialista.`). Prioridade baixa.
+
+**Reduza** — `Avaliação Gratuita: Evite Dívidas com o INSS da sua Obra` — referência positiva:
+promessa concreta, público nomeado, sem defeito. Serve de contraste na abordagem.
+
+### Leitura
+
+Três recortes seguidos com termo de processo (`inventário`, `planejamento tributário`) contra um com
+termo de ramo (`direito de família`): os de processo deram 29 anúncios com 17 páginas úteis; o de
+ramo deu 318 anúncios com 5. **A regra do termo de processo vale para todo serviço profissional**,
+e a nova poluição a vigiar é a faculdade que vende o curso do mesmo assunto.
+
+Combos varridos até aqui: + contabilidade planejamento tributário RJ (regra do termo de processo
+confirmada fora da advocacia).
+
+---
+
+## Imobiliária — Barra da Tijuca (varrido 18/09/2026)
+
+Termo `apartamento à venda Barra da Tijuca`: **178 anúncios estimados**, ~20 páginas distintas na
+primeira leva. Confirma pela enésima vez que imobiliária é o nicho mais gordo do arquivo, e a Barra
+é o bairro de ticket mais alto varrido até aqui.
+
+### 🏆 O RECORDE DO ARQUIVO
+
+**New Home Imóveis** — Trilha B — 4 anúncios.
+Título: `New Home Imóveis |` seguido de **VINTE campos vazios**. É o maior número de campos em
+branco já encontrado — o recorde anterior era nove (Marcia Rianelli Advocacia). No ar desde hoje,
+18/09, ou seja: a conta está gastando agora, neste minuto, num anúncio que não diz nada.
+**Melhor alvo da varredura**: gasto fresco + erro gritante.
+
+### O SEGUNDO CASO DE PORTUGUÊS DE PORTUGAL
+
+**Marcelo Nunes Broker** — Trilha A — no ar desde 15/09.
+Título: `Marcelo Nunes Broker | Conversa connosco` repetido **dez vezes**. "Connosco" com dois N é
+grafia portuguesa, não brasileira. É o **segundo caso** do arquivo (o primeiro foi a Rockfeller, na
+escola de idiomas), e a explicação é a mesma: o texto veio de um template ou de uma agência que não
+localizou. Para a abordagem é ouro — o dono lê e reconhece na hora que não foi ele que escreveu.
+
+### Demais alvos
+
+**O Único Imóvel** — Trilha B — 3 anúncios, título `O Único Imóvel | 📲 Agende sua visita` repetido
+**dez vezes**. Desde 16/09. Mesmo mecanismo do rótulo de botão virando título.
+
+**decastroleonardo_** — Trilha A — o @ do Instagram como nome da página, mais **onze campos vazios**.
+Desde 17/09. Irmão direto do caso `alinefrassonadv` de hoje de manhã.
+
+**Essencia Rio Imoveis** — Trilha B — nome da página + 7 campos vazios, desde hoje.
+
+**Coelho Lançamentos** — Trilha B — nome da página + 3 campos vazios.
+
+**mariapiaimoveis**, **Zayinimoveis**, **Chaves da Barra**, **Rodrigo Moraes Imóveis**,
+**vanessa.lopesenjoy**, **calcada.app.br** — todos com **título completamente vazio**. Seis páginas,
+o mesmo defeito, no mesmo bairro, no mesmo dia. Quatro delas são Trilha A.
+
+### Referências positivas (não abordar, usar de contraste)
+
+- **MNG Imobiliária** — `Latitud | 125 m² | Sala ampliada` e `Cyano | 380 m² | 4 suítes | Frontal mar`.
+  Empreendimento, metragem e diferencial em cinco palavras. O melhor título de imobiliária do arquivo.
+- **vistapro.rio** — `Venda - Jardim Oceânico - R$ 1.348.000`. Bairro e preço no título.
+- **Salles Imóveis** — 11 anúncios, mas com títulos de verdade (`A Maior Planta da Barra`).
+  Volume alto e bem feito: é concorrência, não alvo.
+- **Lopes Enjoy Imóveis** e **Grankasa** — títulos corretos e específicos do bairro.
+
+### Leitura
+
+A Barra separa o joio do trigo melhor que qualquer bairro varrido: convivem no mesmo leilão quem
+escreve `Cyano | 380 m² | 4 suítes | Frontal mar` e quem publica vinte campos em branco. Como o
+ticket é alto, o custo do anúncio mudo aqui é o mais caro do arquivo — e esse é exatamente o
+argumento a usar na abordagem.
+
+Combos varridos até aqui: + imobiliária Barra da Tijuca.
+
+---
+
+# 🎯 LISTA DE ATAQUE — ATUALIZAÇÃO DE 18/09/2026, 11h
+
+As varreduras de hoje (estética Méier, advocacia em dois recortes, contabilidade e imobiliária na
+Barra) acrescentaram **nove alvos** ao padrão consolidado de manhã. A lista sai de 17 para **26
+anunciantes**. Abaixo só o que entrou hoje, ordenado do mais antigo no ar para o mais novo — quanto
+mais tempo o erro está no ar, mais forte o argumento.
+
+| # | Anunciante | Trilha | O que aparece no título | No ar desde | Nicho |
+|---|---|---|---|---|---|
+| 18 | **Strong Comex** | B | título **vazio** | 13/02/2026 (7 meses) | contabilidade/comex |
+| 19 | **Dutel Advogados** | B | `api.whatsapp.com` | 24/02/2026 (7 meses) | advocacia |
+| 20 | **Marcia Rianelli Advocacia** | A | nome da página + **9 campos vazios** | 21/10/2025 (11 meses) | advocacia |
+| 21 | **Zamani Contabilidade** | B | `instagram.com` | 29/07/2026 (2 meses) | contabilidade |
+| 22 | **Soraia Plachi** | A | título **vazio** | 29/07/2026 (2 meses) | contabilidade |
+| 23 | **Marcelo Nunes Broker** | A | `Conversa connosco` ×10 (**grafia portuguesa**) | 15/09/2026 | imobiliária |
+| 24 | **Startsmed** | B | `{{product.name}}` (variável não renderizada) | — | estética |
+| 25 | **Pedro Pamplona, Noé e Almeida Advogados** | A | `instagram.com` | 16/09/2026 | advocacia |
+| 26 | **New Home Imóveis** | B | nome da página + **20 campos vazios** | 18/09/2026 (hoje) | imobiliária |
+
+Entram também, no mesmo padrão mas com o rótulo do botão no lugar do domínio: **Clínica da dor**
+(`Enviar mensagem` ×3–4, estética Méier) e **Ivan Alexandre - Consultor Imobiliário**
+(`api.whatsapp.com`, Trilha A, desde 17/09).
+
+## Os três primeiros a abordar, e por quê
+
+1. **Marcia Rianelli Advocacia** (Trilha A) — **onze meses** no ar com nove campos vazios. É o
+   recordista absoluto de tempo do arquivo. Nome de dona na página, nicho que a gente anuncia.
+2. **New Home Imóveis** — **vinte campos vazios**, o recorde de gravidade, e começou hoje. Gasto
+   fresco: a chance de o dono estar olhando a conta nesta semana é a maior da lista.
+3. **Marcelo Nunes Broker** (Trilha A) — o `connosco` em português de Portugal. Argumento que não
+   precisa de nenhum conhecimento de tráfego: "isso aqui não foi você que escreveu".
+
+## Duas variações novas do defeito, para vigiar nas próximas varreduras
+
+- **Variável de template crua** — `{{product.name}}` (Startsmed). Mais visível ainda que o domínio.
+- **Português de Portugal** — `connosco`. Dois casos até aqui (Rockfeller em idiomas, Marcelo Nunes
+  em imobiliária). Denuncia template comprado ou agência que não localizou, e é sempre Trilha boa
+  porque o dono não reconhece o próprio texto.
+
+## O número que importa
+
+Dos 26 anunciantes, **11 são Trilha A** (nome do dono na página). E o tempo médio no ar dos nove
+casos novos com data conhecida passa de **três meses**. Ninguém está olhando essas contas.
+
+---
+
+## Imobiliária — Niterói (varrido 18/09/2026)
+
+Termo `apartamento à venda Niterói`: 79 anúncios, **33 páginas distintas** na primeira leva.
+
+### 🏆 O RECORDE DE TRILHA A DO ARQUIVO
+
+**Cerca de 21 das 33 páginas são Trilha A** — nome de pessoa na página, não de marca. Bate o Méier,
+que tinha 9 de 12. O motivo é estrutural e vale registrar: **Niterói é mercado de corretor autônomo,
+não de imobiliária grande**. Cada corretor anuncia em nome próprio, com a própria conta e o próprio
+cartão. Quem decide é quem atende o telefone.
+
+**Conclusão de prospecção: Niterói passa a ser o bairro prioritário para imobiliária**, à frente do
+Méier. Mais nomes de dono, menos camada de marca entre a abordagem e a decisão.
+
+### Alvos com defeito de título
+
+**Essenza Negócios Imobiliários** — Trilha B — **entra na LISTA DE ATAQUE**.
+Título `api.whatsapp.com`, no ar desde hoje, 18/09.
+
+**Promoção de Imóveis** — Trilha B — nome da página + **15 campos vazios**, desde 14/09.
+Segundo maior número de campos em branco do arquivo, atrás só da New Home (20).
+
+**ricardo_vagno_imoveis** — Trilha A — o @ do Instagram + **10 campos vazios**, desde **26/08**
+(mais de três semanas).
+
+**invest.predial** — Trilha B — a **razão social completa** (`Predial Invest Administradora De
+Imóveis Ltda`) repetida dez vezes. Desde 02/09. Defeito novo na coleção: não é domínio nem rótulo de
+botão, é o nome jurídico do CNPJ, que ninguém procura no Google.
+
+**Eveline Andrade - Corretora de imóveis** — Trilha A — nome + `Saiba mais` + `Converse conosco`
+repetido nove vezes. 2 anúncios, desde 14/09.
+
+**Carlos Macedo - Corretor de imóveis** — Trilha A — nome + `Fale conosco` ×8, desde 16/09.
+
+**Antônio Quinto Corretor** — Trilha A — `Agende sua visita` ×4.
+
+**União Imóveis Niterói** (4 anúncios) e **nlimoveis_natalia.rj** (6 anúncios, Trilha A) — os dois
+com **título totalmente vazio** em toda a conta. São os dois maiores volumes de anúncio mudo do
+bairro.
+
+Mais treze páginas com título vazio em um ou dois anúncios: Flora Imóveis, carolsnogueirag,
+Corretor Gustavo Ferreira, thay.imoveis.niteroi, Márcio Vinícius Cremona, Fernanda Mello,
+Coluna Imóveis, Victor Maisonnette, andrecyriacoimoveis, dreamsimob, wetimoveis,
+Paulo Guerreiro Imóveis, felipeimovel, Joel Nobre, Victor Mafram, Jorge Henrique Imóveis,
+Alferr Imóveis, Gáudio Imóveis, wallace25gomes.
+
+### O caso curioso
+
+**Jonas Mattos - Corretor de Imóveis** — Trilha A — o título é **bom**
+(`Apartamento à venda em Santa Rosa por R$ 735 mil`: bairro, tipo e preço), mas vem repetido oito
+vezes depois do nome da página. Mesmo mecanismo mecânico dos outros, só que com conteúdo decente
+dentro. Prova que o defeito é do preenchimento, não da falta de ideia.
+
+### Referências positivas
+
+- **Evelyn Bevilaqua Corretora** — `R$ 520.000 - 2 Quartos no Miolo de Icaraí com Vaga.` Preço,
+  metragem, micro-região e vaga em uma linha. O melhor título de corretor autônomo do arquivo.
+- **PRIME Consultoria** — `2 quartos + suíte em Icaraí por R$ 655 mil`.
+- **Lar doce lar Cury** — `2 quartos em Niterói com entrada de R$ 10 mil` — vende pela entrada, não
+  pelo valor total. Copy inteligente para o público de primeira compra.
+- **Imóvel Icaraí** — `Apartamento em Icaraí — aceita proposta`.
+
+### Leitura
+
+Niterói junta as duas coisas que a prospecção precisa: **a maior proporção de Trilha A do arquivo**
+e uma quantidade alta de anúncio mudo pago. E, ao contrário da Barra, aqui quem erra é gente física
+com o próprio dinheiro — o que encurta a conversa.
+
+Combos varridos até aqui: + imobiliária Niterói (novo bairro prioritário do nicho).
+
+---
+
+## Advocacia — recuperação judicial (varrido 18/09/2026, fim de tarde)
+
+Terceiro recorte de advocacia do dia, e o mais gordo de todos: **470 anúncios estimados** com o termo
+`recuperação judicial empresa`. Contra 14 do inventário e 318 (poluídos) do direito de família.
+
+**A regra do termo de processo se refina:** não basta ser processo, tem que ser processo que a
+EMPRESA contrata. `Recuperação judicial` é a dor de um dono de negócio pagando advogado caro — por
+isso tanta gente disputa o leilão.
+
+### Por que esta varredura vale mais que as outras: é munição de criativo
+
+Nosso conjunto de ADVOCACIA converteu hoje pela primeira vez, e o anúncio vencedor foi o mais curto.
+Aqui está o que os escritórios que mais gastam estão escrevendo, e o padrão é o mesmo:
+**pergunta de dor, curta, na segunda pessoa.**
+
+| Anunciante | Título | Estrutura |
+|---|---|---|
+| **Pablo Buarque Advogados** | `Sua empresa está sendo sufocada pelas dívidas?` | pergunta de dor |
+| **Godoy & Köhler Advogados** | `Regularize os débitos tributários` | verbo no imperativo |
+| **CSA Advocacia** | `Recuperação Judicial para Empresas` | serviço + público |
+| **Vantari Crédito** | `Recuperação judicial? Antecipe já!` | pergunta + ação |
+| **Fávaro Lemos Advogados** | `Procure um Advogado especialista.` | genérico, o mais fraco |
+
+**Leitura para o nosso criativo:** o melhor da lista (`Sua empresa está sendo sufocada pelas
+dívidas?`) tem seis palavras e nomeia o público pela dor, não pelo serviço. É exatamente a lógica do
+nosso ADV V05 "curta", que hoje converteu a R$2,94. **Vale escrever mais variações curtas em forma
+de pergunta para o conjunto de advocacia**, em vez de descrever o que a agência faz.
+
+### Alvos com defeito de título
+
+**Marcelo Oguido** — Trilha A — nome da página + **5 campos vazios**, no ar desde hoje.
+
+**Adv Djonata Lyvison** — Trilha A — 2 anúncios, título vazio.
+
+**Arpini & Araujo** — Trilha B — 2 anúncios, título vazio.
+
+Mais nove páginas com título vazio: Lucas Gavaza Advocacia, pedrovazfernandes,
+Rubens Gomes de Oliveira, Luiz Henrique Zanin Advocacia, Dr. Alex Abreu, Leandro Ribeiro,
+Wilson Sanches XR, Inquest Soluções, Lawletter. Sete das doze são Trilha A.
+
+**MQC Advogados** — `Toque em saiba mais`: rótulo de botão como título, o padrão já catalogado.
+
+### Poluição do termo (registrar para não repetir)
+
+`recuperação judicial empresa` puxa três categorias que não são alvo:
+1. **Infoproduto jurídico** — Raphael Costa "O mentor" (`Garanta já a sua vaga! ⚡️`), Escola
+   Trabalhista, Lawletter: vendem curso para advogado, não serviço para empresa.
+2. **Conteúdo em dólar** — Ethyl Bednar (`Depois do Divórcio, o Império Dela Caiu`) e
+   **Publicidade Verificada** (5 anúncios `Clique e confira`, moeda USD): fazenda de conteúdo, não
+   escritório.
+3. **Fora do nicho** — thiagosolaarquiteto, evoinc., Vantari Crédito (fintech, não advocacia).
+
+### Leitura
+
+O volume aqui é grande demais para prospecção fria manual — 470 anúncios não se varre a mão. Mas
+como **banco de headline para o nosso próprio conjunto de advocacia**, é a melhor fonte do arquivo:
+são dezenas de escritórios pagando para descobrir qual frase converte, e a resposta que aparece
+repetida é a pergunta curta sobre a dor.
+
+Combos varridos até aqui: + advocacia recuperação judicial (usado como munição de criativo, não só
+como lista fria).
+
+---
+
+## Imobiliária — Madureira (varrido 18/09/2026) — RESULTADO NEGATIVO, e o negativo ensina
+
+Dois termos, os dois falharam, cada um por um motivo diferente:
+
+| Termo | Resultado | Por quê |
+|---|---|---|
+| `apartamento à venda Madureira Rio de Janeiro` | **1 anúncio** | o reforço geográfico estrangulou a busca |
+| `apartamento à venda Madureira` | 28 anúncios, mas **quase nenhum é do bairro** | o sobrenome contamina |
+
+### A armadilha dos dois lados
+
+A lição antiga do arquivo dizia: *"bairro que também é sobrenome (Madureira) precisa de reforço
+geográfico"*. **Está incompleta.** Em imobiliária, os dois caminhos quebram:
+
+- **Sem reforço**, a busca devolve São Paulo. Das 28, quinze são da **THURA Negócios Imobiliários**
+  anunciando `Reformado, mobiliado e pronto para morar na Vila Clementino` — Vila Clementino é
+  bairro de São Paulo. Somam-se Imofar **Caxias** e **Camila Madureira Almeida**, que é o sobrenome
+  puro.
+- **Com reforço**, sobra 1 anúncio. O termo fica específico demais para um bairro que praticamente
+  não tem anunciante de imóvel.
+
+**Regra corrigida: em Madureira, imobiliária não tem mercado de anúncio. Não varrer de novo.**
+O bairro segue válido para os nichos que já renderam ali (odontologia e estética, varridos em dias
+anteriores), mas para imóvel está fechado.
+
+### O único alvo real do bairro
+
+**Betel Negócios Imobiliários** — Trilha B — título
+`🏡 UM APARTAMENTO COMPLETO NO CORAÇÃO DO MADUREIRA!`. Sem defeito técnico: nomeia o bairro e o
+produto. É concorrência bem feita, não alvo.
+
+### Dois alvos de fora do bairro que a busca entregou de brinde
+
+**Seu Apartamento Tenda** — 3 anúncios com `Converse conosco` como título.
+**Artur Peruzzo. Corretor De Imóveis.** — Trilha A — `Converse conosco` repetido 3 vezes, no ar
+desde **agosto**. Entram no padrão de rótulo-de-botão-como-título.
+
+**Imofar Caxias** — Trilha B — nome da página + `Imobiliária Imofar. Aqui a gente te escuta.`
+repetido 7 vezes. É de Duque de Caxias, fora do escopo do Rio; registrado só para não reaparecer.
+
+### Leitura
+
+Esta rodada não produziu alvo, e é exatamente por isso que vale estar no arquivo: **evita que uma
+rodada futura gaste tempo com o mesmo combo.** Com Madureira fechado, imobiliária está varrido em
+todos os bairros prioritários — Méier, Campo Grande, Copacabana, Botafogo, Tijuca, Barra e Niterói —
+e a conclusão consolidada do nicho é que **Niterói lidera em Trilha A e a Barra em gravidade de erro**.
+
+Combos varridos até aqui: + imobiliária Madureira (fechado como improdutivo, não repetir).
+
+---
+
+## Fisioterapia — Niterói (varrido 18/09/2026)
+
+90 anúncios, mas apenas **~11 páginas distintas** — o nicho tem poucos anunciantes rodando muito
+volume cada. Confirma de novo a regra de contar páginas, não anúncios: quem olhasse só o número 90
+concluiria que Niterói é um mercado disputado de fisioterapia, e não é.
+
+### Alvos para a LISTA DE ATAQUE
+
+**Felipe Braga - Fisioterapeuta** — Trilha A — título `api.whatsapp.com`, desde 15/09.
+Nome completo na página, profissional autônomo: abordagem direta.
+
+**fisiodilaineazara** — Trilha A — título `instagram.com`, desde 15/09. O @ como nome de página.
+
+Os dois entram no padrão consolidado do domínio no título e sobem a lista para **28 anunciantes**.
+
+### Alvos com rótulo de botão no título
+
+**ITC Vertebral Niterói** — Trilha B — **3 anúncios**, todos com `Converse conosco`.
+**Fisio On Fisioterapia** — Trilha B — `Converse conosco`.
+
+**Somos Colo - Por Drª Nicolle Tavares** — Trilha A — nome da página + 5 campos vazios.
+
+Títulos completamente vazios: **_julianaandrade** (Trilha A), **Recive Dor Crônica**,
+**Espaço Apoio** (2 anúncios).
+
+### O caso que merece atenção — e é o contrário de um alvo
+
+**inovacaokickboxing** — 17 anúncios simultâneos, e **todos com título bom**:
+`A causa da dor ciática, não só o sintoma` · `Pilates não é molezinha` ·
+`Pilates e musculação não competem` · `Cuidar da articulação é cuidar da liberdade de se mover` ·
+`Recuperar a autonomia, um movimento de cada vez` · `Pilates é controle, consciência e movimento`.
+
+Seis headlines diferentes, todas com ideia própria, nenhuma genérica. **É o melhor conjunto de copy
+encontrado em qualquer varredura deste arquivo** — e vem de uma academia de kickboxing anunciando
+pilates, não de uma clínica. Não é alvo: é referência. Serve de prova de que dá para escrever 17
+anúncios sem repetir frase nem cair no "Converse conosco".
+
+### Contaminação do termo
+
+**Ajls soluções assistência técnica em equipamentos para saúde e estética** vende manutenção de
+aparelho para clínica, não fisioterapia. Fornecedor B2B, não alvo.
+
+### Leitura
+
+Niterói em fisioterapia tem poucos anunciantes, mas **a proporção de Trilha A se mantém alta** —
+_julianaandrade, fisiodilaineazara, Felipe Braga, Drª Nicolle Tavares. É o mesmo retrato da
+imobiliária no bairro: profissional autônomo anunciando em nome próprio. O bairro se confirma como
+o mais promissor do arquivo para abordagem direta, em dois nichos diferentes.
+
+Combos varridos até aqui: + fisioterapia Niterói.
+
+---
+
+## Veterinária — Barra da Tijuca (varrido 18/09/2026) — combo fechado como improdutivo
+
+Dois termos de procedimento, os dois vazios:
+
+| Termo | Resultado |
+|---|---|
+| `veterinário 24 horas Barra da Tijuca` | 3 anúncios, **2 páginas** |
+| `castração cachorro Barra da Tijuca` | **1 anúncio**, 1 página |
+
+A única página de verdade nos dois termos é a mesma: **Petmalia - Hospital Veterinário**, com 3
+anúncios, todos titulados `Entre em contato` — rótulo de botão no lugar do título, o padrão já
+catalogado. Trilha B. É o único alvo do bairro no nicho, e sozinho não justifica uma varredura.
+
+**Clincardio** apareceu vendendo `Apenas 3 VAGAS para o nosso Curso de Cardiologia Clínica
+Veterinária` repetido 3 vezes: é curso para veterinário, não clínica. Mesma poluição de infoproduto
+que apareceu hoje de tarde em advocacia — **o padrão se repete em todo nicho técnico**.
+
+### A regra que fecha o assunto
+
+Veterinária foi varrida agora em quatro bairros: Tijuca, Copacabana, Niterói e Barra. O retrato é
+consistente — **poucas páginas, muitas delas grandes redes, e pouco erro de título aproveitável**.
+Comparado com imobiliária (33 páginas só em Niterói) e fisioterapia (11 em Niterói), veterinária é o
+nicho mais magro da lista.
+
+**Decisão de prospecção: veterinária sai da fila. Não varrer em bairro novo.** Se sobrar tempo de
+rodada, imobiliária e estética rendem mais por busca.
+
+Combos varridos até aqui: + veterinária Barra da Tijuca (nicho encerrado, não varrer em bairro novo).
+
+---
+
+## Pet shop — Niterói (varrido 18/09/2026) — o combo mais magro deu o MAIOR achado do arquivo
+
+Termo `banho e tosa Niterói`: só **6 anúncios**. Volume ridículo. E mesmo assim esta varredura
+produziu o recorde absoluto de tempo no ar de toda a LISTA.
+
+### 🏆 O RECORDE ABSOLUTO — DOIS ANOS E TRÊS MESES NO AR
+
+**Bicho D+ Veterinária e Pet Shop** — Trilha B — **no ar desde 01/06/2024**.
+
+Título: `Clínica Veterinária Bicho D+ em Niterói/RJ.` seguido de **`Converse conosco` repetido
+sete vezes**.
+
+Dois anos e três meses e meio. O recorde anterior do arquivo era Marcia Rianelli Advocacia, com
+onze meses. Este anúncio está no ar desde antes de metade das outras páginas desta lista terem
+começado a anunciar.
+
+O primeiro campo até está certo — nomeia o serviço e o bairro. Do segundo em diante, sete repetições
+do rótulo do botão. **É o melhor exemplo do arquivo inteiro para a abordagem**: dá para mandar o
+print e dizer só "isso está no ar desde junho de 2024". Não precisa explicar mais nada.
+
+### O segundo mais antigo
+
+**Hachiko Pet House** — Trilha B — título **completamente vazio**, no ar desde **22/07/2025**.
+Quatorze meses. Sozinho já seria o segundo caso mais antigo da lista.
+
+### Os outros
+
+**Pets de luxo** — Trilha B — `api.whatsapp.com`, desde **30/07/2026** (quase dois meses).
+Entra na LISTA DE ATAQUE — sobe para **29 anunciantes**.
+
+**Fino trato** — Trilha B — título vazio, desde 13/07/2026.
+
+**Tonton Pet Care** — `Agende um horário`. Genérico, mas sem defeito técnico. Prioridade baixa.
+
+**Spin Imóveis** — contaminação, é imobiliária. Descartado.
+
+### A lição da rodada
+
+**Volume de busca e qualidade de alvo não têm relação.** Seis anúncios no termo mais magro do dia
+produziram o caso de 2 anos e o de 14 meses — enquanto `recuperação judicial`, com 470 anúncios,
+rendeu três alvos comuns.
+
+**Regra nova: não descartar um combo por ter poucos anúncios.** Termo magro tende a devolver quem
+anuncia há muito tempo sem ninguém olhar, que é exatamente o perfil que a gente procura. O que
+descarta um combo é não ter página real (como Madureira em imobiliária), não ter pouco volume.
+
+Isso muda a leitura de veterinária, encerrada na rodada passada por ser "magra": o motivo correto do
+encerramento é que as páginas são redes grandes, não que o volume é baixo. Correção anotada.
+
+Combos varridos até aqui: + pet shop Niterói (termo magro, achado recorde).
+
+---
+
+## Ótica — Niterói (varrido 18/09/2026, noite)
+
+Termo de PRODUTO, `óculos de grau Niterói`, seguindo a lição já registrada de que `ótica` puxa
+distribuidor. Funcionou: **14 anúncios, 10 páginas, todas do varejo final.** Nenhum distribuidor.
+
+E a regra descoberta na rodada anterior — **termo magro entrega anunciante antigo** — se confirma
+imediatamente: com só 14 anúncios, este combo devolveu o **terceiro caso mais antigo do arquivo**.
+
+### Os antigos
+
+**Ótica Visão Niterói** — Trilha B — título **vazio**, no ar desde **14/01/2026**.
+Oito meses. Terceiro lugar no ranking de tempo, atrás de Bicho D+ (2 anos) e Hachiko (14 meses).
+
+**Optoclínica Niterói** — Trilha B — título `Clique no Botão`, desde **22/05/2026** (4 meses).
+Variação nova do padrão: não é o rótulo do botão copiado, é uma **instrução para clicar no botão**
+escrita no campo do título. Ainda pior, porque parece intencional.
+
+**Óticas Turibio** — Trilha B — **4 anúncios**, todos com `Última Oportunidade 👇🏻`. O mais velho
+está no ar desde **03/06/2026** — três meses e meio de "última oportunidade". A frase se
+autodesmente, e é um ótimo gancho de abordagem.
+
+### Os demais
+
+**Óticas Visão Certa** — título vazio, começou hoje (18/09).
+**oticasamilapaula** — Trilha A (nome no @) — 2 anúncios, título vazio, desde 06/09.
+**Óticas Gassi** — título vazio, desde 11/08.
+**Projeto Popular Mais Cidadão** — título vazio; é projeto social, não varejo. Não abordar.
+
+### Referências positivas
+
+- **Ótica Na Moral** — título `R$330.00 | R$470.00 | R$489.00 | R$330.00 | R$319.00 | R$318.00`.
+  Curioso: é a **repetição usada de propósito e funcionando**. Seis preços em vez de seis frases
+  iguais. É o único caso do arquivo em que o campo repetido carrega informação diferente em cada
+  posição. Vale copiar a ideia.
+- **DiMagnus Ótica** — `Precisa de Óculos Multifocais?` — pergunta de dor, curta. A mesma estrutura
+  que os escritórios de advocacia usam e que o nosso ADV V05 usa.
+- **Dr. Vision Niterói** — `Avaliação Gratuita de Catarata em Niterói` — oferta, serviço e bairro.
+  Repetido 3 vezes, mas com conteúdo bom.
+
+### Leitura
+
+Terceiro nicho seguido em Niterói (imobiliária, fisioterapia, agora ótica) e o padrão não muda:
+poucas páginas, muita gente antiga no ar sem ninguém olhar. **Niterói é o bairro de maior densidade
+de alvo por busca do arquivo inteiro.**
+
+Combos varridos até aqui: + ótica Niterói (termo de produto, confirmado pela 2ª vez).
+
+---
+
+# 📕 MANUAL DO TERMO — consolidado em 18/09/2026, 22h
+
+Onze varreduras em um dia produziram seis regras novas, espalhadas por onze seções. Este bloco
+junta tudo o que se sabe sobre **como escolher o termo de busca**, para que nenhuma rodada futura
+repita um caminho já testado. É a página a ler antes de varrer.
+
+## As sete regras, em ordem de força
+
+**1. Termo de PROCESSO, nunca de RAMO** *(descoberta 18/09, a mais forte do dia)*
+Em serviço profissional, buscar o nome do procedimento que o cliente contrata, não a área.
+
+| Nicho | ✅ funciona | ❌ falha |
+|---|---|---|
+| Advocacia | `ação trabalhista`, `aposentadoria INSS`, `inventário e partilha`, `recuperação judicial` | `direito de família` |
+| Contabilidade | `planejamento tributário`, `abertura de empresa` | — |
+
+O refinamento: **tem que ser processo que a EMPRESA contrata.** `recuperação judicial` deu 470
+anúncios; `inventário`, que é de pessoa física, deu 14.
+
+**2. Termo de PRODUTO onde o de LOJA falha** *(confirmado 2×)*
+`óculos de grau` ✅ · `ótica` ❌ (puxa distribuidor).
+
+**3. Termo de SERVIÇO, nunca de PROFISSÃO**
+Profissão puxa vaga de emprego. `banho e tosa` ✅ · `pet shop` tende a puxar franquia.
+
+**4. Em estética, o PROCEDIMENTO muda por bairro — rodar sempre os dois** *(confirmado 3×)*
+Méier: `preenchimento labial` = 2 páginas, `botox` = 32 anúncios.
+Madureira: `preenchimento labial` = zero, `botox` = 19.
+Nunca dar um bairro por varrido em estética com um termo só.
+
+**5. Imobiliária: `apartamento à venda` rende ~10× mais que `corretor`.**
+
+**6. Bairro ambíguo precisa de "RJ" — mas em imobiliária nem isso salva Madureira**
+`Tijuca` colide com Tijucas/SC; `Campo Grande` existe em outros estados.
+**Exceção registrada:** em Madureira + imobiliária os dois caminhos quebram — sem reforço a busca
+cai em São Paulo, com reforço sobra 1 anúncio. Combo fechado.
+
+**7. Volume de busca NÃO prediz qualidade de alvo** *(descoberta 18/09, contraintuitiva)*
+`banho e tosa Niterói` = 6 anúncios → deu o caso de **2 anos e 3 meses** no ar.
+`recuperação judicial` = 470 anúncios → deu três alvos comuns.
+**Termo magro tende a devolver quem anuncia há muito tempo sem ninguém olhar.** Nunca descartar um
+combo por ter poucos anúncios; descartar só quando não houver página real.
+
+## As quatro poluições a reconhecer
+
+| Poluição | Como aparece | Onde apareceu |
+|---|---|---|
+| **Política** | deputado, vereador, pastor | ramo do direito + nome do estado |
+| **Infoproduto** | "Garanta já sua vaga", curso para o profissional | advocacia, veterinária |
+| **Faculdade** | MBA, LL.M., pós | planejamento tributário |
+| **Conteúdo em dólar** | moeda USD, títulos de isca | advocacia |
+| **Fornecedor B2B** | manutenção de equipamento, distribuidor | fisioterapia, ótica |
+
+## O ranking de bairro, fechado hoje
+
+1. **Niterói** — três nichos varridos (imobiliária, fisioterapia, ótica), o mesmo retrato nos três:
+   poucas páginas, muita gente antiga no ar, **21 de 33 páginas Trilha A em imobiliária**. É o
+   bairro de maior densidade de alvo por busca do arquivo.
+2. **Méier** — melhor Trilha A em dois nichos (imobiliária 9/12, odontologia 5/12).
+3. **Barra da Tijuca** — maior gravidade de erro (20 campos vazios) e maior ticket.
+4. **Madureira** — fechado para imobiliária.
+
+## O ranking de nicho
+
+- **Imobiliária** — o mais gordo, varrido em todos os bairros prioritários. Fechado.
+- **Advocacia e contabilidade** — servem dobrado: lista fria e munição de criativo para os nossos
+  próprios conjuntos.
+- **Estética** — rende, mas exige dois termos por bairro.
+- **Veterinária** — **fora da fila**: as páginas são redes grandes, com pouco erro aproveitável.
+
+---
+
+## 🏋️ Academia / musculação — Niterói (varredura de 19/09/2026, 02h)
+
+Termo usado: `musculação Niterói` — **não** `academia Niterói`. A lição de Copacabana
+(termo de serviço bate melhor que termo de categoria) se confirmou de novo: 55 anúncios ativos
+contra o deserto que `academia` devolveu na época.
+
+**Volume:** 55 anúncios ativos, ~16 páginas distintas.
+
+### Achado novo de defeito: variável de template não renderizada
+
+| Página | Defeito | No ar desde | Trilha | Biblioteca |
+|---|---|---|---|---|
+| **leosousanutricao** | título do anúncio é literalmente `{{product.name}}` — a variável do catálogo nunca foi substituída. O anúncio roda há mais de um mês mostrando código ao público. | **10/08/2026** | **A** (nome do dono na página) | https://www.facebook.com/ads/library/?id=2195501894633488 |
+
+Esse é o **quinto tipo de poluição/defeito** do manual, e o mais fácil de abrir conversa:
+não exige opinião nenhuma, é um erro objetivo que o dono consegue ver em 3 segundos.
+
+### Título vazio em escala
+
+| Página | Anúncios com título vazio | No ar desde | Trilha | Biblioteca |
+|---|---|---|---|---|
+| **Fábrica Premium Região Oceânica** | **18** — todos sem título | **30/06/2026** (2,5 meses) | B (rede) | https://www.facebook.com/ads/library/?id=1599206601560917 |
+| **Studio In Prime** | 2 | 28/08/2026 | B | https://www.facebook.com/ads/library/?id=1043747931773494 |
+| **Round Studio** | 1 | 23/06/2026 | B | https://www.facebook.com/ads/library/?id=1668449911118373 |
+| **bsk_studiobsk** | 1 | 17/07/2026 | B | https://www.facebook.com/ads/library/?id=1709713227002129 |
+| **Fábrica Ct Niteroi** | 1 | 06/07/2026 | B | https://www.facebook.com/ads/library/?id=2535941086853648 |
+| **Fábrica CT Barreto Niterói** | 1 | 02/09/2026 | B | https://www.facebook.com/ads/library/?id=28449632377965219 |
+
+**Cuidado com a rede Fábrica:** cinco páginas diferentes (Premium Niterói, Premium Região
+Oceânica, CT Niterói, CT Barreto, Ct Niteroi) são unidades da mesma franquia. Decisão de mídia
+é da rede, não da unidade — **Trilha B, prioridade baixa**, mesmo com 18 anúncios quebrados.
+É o mesmo padrão que tirou veterinária da fila.
+
+### Título genérico de botão
+
+| Página | Título | Anúncios | No ar desde | Trilha |
+|---|---|---|---|---|
+| Muscle Up | `Converse conosco` ×4 | 4 | 15/09/2026 | B |
+| ITC Vertebral Niterói | `Converse conosco` ×4 | 4 | 14/09/2026 | B (rede ITC) |
+| Nitfit Studio | `Converse conosco` | 1 | 04/09/2026 | B |
+| Fábrica Premium Niterói | `Fale Conosco` / `Fale conosco` (inconsistente) | 3 | 02/09/2026 | B |
+| Boleiros Night | `instagram.com` (URL crua como título) | 2 | 15/09/2026 | B |
+
+### Quem está fazendo certo (referência de copy)
+
+- **Academia Tio Sam Barreto** — `Clique para liberar uma aula gratuita`. Oferta concreta no
+  título, no ar desde **12/06/2026** (3 meses). É o melhor CTA de academia do arquivo.
+- **inovacaokickboxing** — de novo. `Pilates e musculação não competem` — título que resolve uma
+  objeção em vez de pedir clique. Já era a referência de copy da varredura de fisioterapia;
+  agora aparece também aqui, com criativo novo. Página para estudar, não para abordar.
+- **Instituto Trata - Niterói** — `Toque para Agendar sua Consulta`. Verbo + ação + objeto.
+
+### Para a LISTA DE ATAQUE
+
+1. **leosousanutricao** — Trilha A, defeito objetivo e inédito (`{{product.name}}`), 40 dias no ar.
+   **Melhor alvo desta varredura.**
+2. **Studio In Prime** — Trilha B, mas estúdio pequeno e independente (não é rede), 2 anúncios
+   sem título há 3 semanas. Decisor provavelmente alcançável.
+3. **Round Studio** — mesmo perfil, 3 meses no ar.
+
+Total da LISTA DE ATAQUE: **26 → 29 anunciantes**.
+
+### O que essa varredura ensina
+
+1. **O termo de serviço vence o termo de categoria** — confirmado pela segunda vez
+   (`musculação` > `academia`, como `botox` > `estética`).
+2. **Volume de anúncios quebrados ≠ alvo bom.** As 18 peças sem título da Fábrica Premium são
+   o maior defeito do dia e o pior alvo do dia, porque a página é unidade de franquia.
+   A regra que já valia para veterinária vale para academia: **antes de contar defeitos,
+   conferir se a página decide a própria mídia.**
+3. Academia entra na fila como **nicho de rendimento médio**: muito anúncio, poucas Trilha A.
+
+Combos varridos até aqui: + academia/musculação Niterói (termo de serviço, defeito novo de template).
+
+---
+
+## 🦷 Odontologia — Campo Grande RJ (varredura de 19/09/2026, 00h)
+
+Termo usado: `dentista Campo Grande RJ` — com o "RJ" obrigatório (Campo Grande/MS engoliria a busca).
+Confirma as duas regras antigas de uma vez: "dentista <bairro>" funciona, e bairro com homônimo
+em outro estado precisa do reforço.
+
+**Volume:** 54 anúncios ativos, 8 páginas distintas.
+
+### Achado novo: título repetido 11 vezes na mesma peça
+
+| Página | Defeito | No ar desde | Trilha | Biblioteca |
+|---|---|---|---|---|
+| **Luiz Ramos Filho** | o campo de título traz `Luiz Ramos Filho (@luizramosfilho.rj) • Instagram photos and videos` **repetido 11 vezes**, emendado com `\|`. É o título do perfil do Instagram puxado automaticamente em cada card do carrossel. | 18/09/2026 (novo) | **A** (nome do dono é o nome da página) | https://www.facebook.com/ads/library/?id=967687123045014 |
+
+Variante do defeito de Niterói (razão social repetida), mas pior: aqui o texto que repete é o
+"• Instagram photos and videos", que denuncia impulsionamento direto do perfil.
+Como está no ar há poucas horas, é o alvo com a conversa mais fácil: "acabei de ver seu anúncio".
+
+### Domínio de um anunciante só
+
+| Página | Anúncios | No ar desde | Trilha | Observação |
+|---|---|---|---|---|
+| **Odontovic - Implantes Dentários** | **27 dos 54** (metade do bairro) | **17/08/2026** | B | dois títulos alternando: `Implantes dentários em Campo Grande` e `Agende sua avaliação de Implantes Dentários`. **Não é anúncio ruim** — é o padrão certo: título com serviço + bairro, ou verbo + oferta. Uma peça escapou com `Entre em contato hoje mesmo.` (genérico). |
+
+Odontovic é o **melhor caso de disciplina de título** do arquivo inteiro: 27 peças, 3 títulos,
+zero campo vazio. Serve de referência, não de alvo.
+
+### Título vazio
+
+| Página | Anúncios | No ar desde | Trilha |
+|---|---|---|---|
+| Odontix Kids | 1 | 18/09/2026 | B |
+| Oral Imagem | 2 vazios + 1 com `Oral Imagem \| \| \| \| \| \| \|` (barras sem conteúdo) | 13/08/2026 | B |
+
+O caso da Oral Imagem é o mesmo mecanismo do Luiz Ramos: multi-card puxando um campo que
+não existe. Um repete, o outro repete o vazio.
+
+### Nome da doutora como título
+
+| Página | Título | Anúncios | No ar desde | Trilha |
+|---|---|---|---|---|
+| **Sorrisos Odontologia Estética** | `Dra. Dani Racca` em 9 peças | 9 | **06/06/2026** (3,5 meses) | **A** (nome da profissional no título, não na página) |
+
+Título que é só o nome do profissional não diz nada a quem não a conhece. Defeito clássico,
+mas **3,5 meses de constância** significa que há verba e não há quem cuide. Bom alvo.
+
+### Para a LISTA DE ATAQUE
+
+1. **Luiz Ramos Filho** — Trilha A, defeito escancarado, no ar hoje.
+2. **Sorrisos Odontologia Estética / Dra. Dani Racca** — Trilha A, 3,5 meses no mesmo erro.
+3. **Oral Imagem** — Trilha B, mas clínica local, 5 semanas com título vazio.
+
+Total da LISTA DE ATAQUE: **29 → 32 anunciantes**.
+
+### O que essa varredura ensina
+
+1. **Um bairro pode ter um anunciante dominante que faz tudo certo.** Metade do inventário de
+   Campo Grande é da Odontovic e não há nada a oferecer a ela. Contar páginas, não anúncios —
+   a regra de sempre — é o que impede de confundir volume com oportunidade.
+2. **O defeito de "campo puxado automaticamente" é uma família, não um caso isolado.** Já são
+   quatro formas: razão social repetida (Niterói), `{{product.name}}` (academia), título do
+   perfil repetido e barras vazias (aqui). Todas vêm de impulsionar post/perfil em vez de
+   montar o anúncio. É o marcador mais confiável de "não tem gestor".
+3. Campo Grande entra como **bairro de rendimento médio**: volume bom, mas concentrado.
+
+Combos varridos até aqui: + odontologia Campo Grande RJ (termo com reforço de estado; anunciante dominante).
+
+---
+
+## 💉 Estética — preenchimento labial Botafogo (varredura de 19/09/2026, 01h)
+
+**Volume:** 16 anúncios ativos, 5 páginas. Bairro magro — mas a lição do pet shop vale:
+magro não quer dizer ruim. Aqui, porém, o problema é outro.
+
+### Poluição nova: venda de CURSO
+
+**9 dos 16 anúncios são da Clinic Cursos** (page 102844671347444), que não é clínica: vende
+`Curso de Preenchimento Labial`, `Curso de Perfiloplastia`, `Curso de Harmonização Facial`.
+Um deles está no ar desde **28/01/2026** — quase 8 meses.
+
+É o mesmo mecanismo da "faculdade" que poluiu contabilidade e da "vaga de emprego" que polui
+termo de profissão: **o termo do procedimento atrai quem ensina o procedimento.**
+Fica como **5º tipo de poluição** do manual: curso/formação.
+
+Sem a Clinic Cursos, o bairro tem 7 anúncios reais. Foi ela que fez o termo parecer vivo.
+
+### Alvos reais
+
+| Página | Defeito | Anúncios | No ar desde | Trilha | Biblioteca |
+|---|---|---|---|---|---|
+| **Espaço Facial Botafogo** | `AGENDE AQUI` em caixa alta nas 4 peças — título de botão, não de anúncio | 4 | 11/09/2026 | B | https://www.facebook.com/ads/library/?id=2070781047657345 |
+| **Clinicaloza** | título é só `Preenchimento labial` — repete o nome do procedimento que já está na imagem | 1 | 10/09/2026 | B | https://www.facebook.com/ads/library/?id=3184893051705327 |
+
+### Quem está fazendo certo
+
+- **Dra. Flavia Cerqueira - Ortodontista** — `Seleção para Preenchimento Labial`. A palavra
+  "seleção" inverte a posição: não é a clínica pedindo cliente, é o cliente se candidatando.
+  **Trilha A** e copy boa — página para estudar, não para abordar. No ar desde 17/09.
+- **Maselli Clinic** — `Realce sua beleza com naturalidade`. Benefício + objeção ("naturalidade"
+  responde ao medo de ficar artificial) em cinco palavras. No ar desde 13/09.
+
+### O que essa varredura ensina
+
+1. **Botafogo é bairro fraco para estética**: 4 páginas reais, nenhuma Trilha A com defeito.
+   Comparado ao Méier (12 páginas, 9 Trilha A), não compensa voltar.
+2. **Termo de procedimento atrai vendedor de curso.** A contagem bruta de 16 vira 7 quando se
+   tira a escola. Reforça a regra que já existia por outro caminho: **contar páginas, não
+   anúncios** — e, agora, conferir se a página é do setor ou vende PARA o setor.
+3. Munição de criativo para o nosso conjunto HARMONIZAÇÃO: o padrão `Seleção para X` da
+   Dra. Flavia é aplicável direto ao nosso título — "Seleção para diagnóstico de tráfego".
+
+Combos varridos até aqui: + preenchimento labial Botafogo (bairro fraco; poluição de curso).
+
+---
+
+## 📐 Arquitetura — Barra da Tijuca (varredura de 19/09/2026, 02h)
+
+Termo usado: `escritório de arquitetura Barra da Tijuca`, seguindo a regra de que "arquitetura"
+sozinho puxa imobiliária. **A regra se confirmou mesmo com o termo corrigido**: dos 19 anúncios,
+13 são de incorporadora e imobiliária (Tegra com 8, New Home, Eliane Dias, luxobrasil).
+
+**O nicho real:** 6 páginas de arquitetura, 6 anúncios. Poucos — mas é a **melhor taxa de
+defeito do arquivo inteiro**.
+
+### Todas as 6 páginas de arquitetura têm o título quebrado
+
+| Página | Defeito | No ar desde | Trilha | Biblioteca |
+|---|---|---|---|---|
+| **Marise Kessel Arquitetura** | título vazio | 15/09/2026 | **A** | https://www.facebook.com/ads/library/?id=4716417051972100 |
+| **Tayna Porto Arquitetura e Design** | título vazio | 08/09/2026 | **A** | https://www.facebook.com/ads/library/?id=1625056809213449 |
+| **Ingrid Suan Arquitetura e Interiores** | título vazio em 2 peças | **31/08/2026** | **A** | https://www.facebook.com/ads/library/?id=1628291432147164 |
+| **Ricardo Melo e Rodrigo Passos Arquitetura** | título vazio | **28/07/2026** (quase 2 meses) | **A** (dois nomes) | https://www.facebook.com/ads/library/?id=1235579512972925 |
+| **andreaesposito_75** | título vazio | **08/08/2026** | **A** (nome no @) | https://www.facebook.com/ads/library/?id=2284322635700272 |
+| **sdesign.arquitetura** | `sdesign.arquitetura \| \| \| \| \| \| \|` — barras vazias | **04/02/2026 (7,5 meses)** | B | https://www.facebook.com/ads/library/?id=827132887008791 |
+
+**6 de 6 páginas com título quebrado. 5 de 6 são Trilha A.**
+Nenhum outro combo do arquivo chegou perto disso — o Méier (9 de 12) era o recorde anterior
+de proporção, e aqui é 5 de 6 com defeito em 100% delas.
+
+### Por que isso acontece — e por que é o melhor alvo
+
+Arquiteto é profissional autônomo que impulsiona o próprio portfólio do Instagram. Não monta
+anúncio, aperta "impulsionar" na foto do projeto. Daí o título vazio em todas: **não existe
+campo de título quando se impulsiona post.** É a assinatura de "não tem gestor" no estado puro.
+
+Combina com as duas descobertas das últimas horas (o `{{product.name}}` da academia e o título
+de perfil repetido de Campo Grande): são todos o mesmo mecanismo, e arquitetura é onde ele
+aparece em 100% do nicho.
+
+### Para a LISTA DE ATAQUE
+
+Entram as **5 Trilha A** inteiras. Prioridade por tempo no ar:
+1. **Ricardo Melo e Rodrigo Passos Arquitetura** — quase 2 meses.
+2. **andreaesposito_75** — 6 semanas.
+3. **Ingrid Suan Arquitetura e Interiores** — 3 semanas, 2 peças.
+4. **Tayna Porto Arquitetura e Design** — 11 dias.
+5. **Marise Kessel Arquitetura** — 4 dias.
+
+Total da LISTA DE ATAQUE: **32 → 37 anunciantes**.
+
+### O que essa varredura ensina
+
+1. **Arquitetura é o nicho de maior densidade de alvo do arquivo.** Volume baixíssimo (6 peças),
+   qualidade máxima (5 Trilha A, 100% com defeito). Terceira confirmação seguida de que
+   **volume de busca não prevê qualidade de alvo** — depois do pet shop e da academia.
+2. **A regra "arquitetura puxa imobiliária" vale mesmo com o termo corrigido.** `escritório de
+   arquitetura` melhorou, mas 2/3 do resultado ainda é incorporadora. Não há termo que limpe:
+   o jeito é filtrar na leitura.
+3. **Prioridade nova para a fila**: varrer arquitetura nos outros bairros antes de repetir
+   nichos gordos. Tijuca, Botafogo e Niterói ainda não foram.
+
+Combos varridos até aqui: + arquitetura Barra da Tijuca (6 de 6 com defeito, 5 Trilha A — recorde de densidade).
+
+---
+
+## 📐 Arquitetura — Tijuca RJ (varredura de 19/09/2026, 03h) — RESULTADO NEGATIVO, COMBO FECHADO
+
+Depois do recorde de densidade da Barra, tentei o mesmo nicho na Tijuca. **Não existe.**
+
+**Tentativa 1** — `escritório de arquitetura Tijuca RJ`: **2 anúncios**, ambos de imobiliária
+(Eliane Dias Imóveis, Coutinho Imoveis). Zero arquitetura.
+
+**Tentativa 2** — `arquiteta Tijuca Rio de Janeiro`: 8 anúncios, e **todos os 8 são da Barra da
+Tijuca, não da Tijuca**:
+- Arquiteta Byanca Pietroluongo — 6 peças, todas com o título `Barra da Tijuca`
+- Louback França — `Barra da Tijuca X Península`
+- Atelier Denise Nagem — título vazio, mas é ateliê de artes e terapias, não escritório
+
+### A armadilha nova: bairro cujo nome é substring de outro bairro
+
+"Tijuca" está inteiro dentro de "Barra da Tijuca". Colocar `RJ` ou `Rio de Janeiro` no termo
+**não resolve**, porque os dois bairros são do Rio. É diferente de Campo Grande (outro estado)
+e de Madureira (sobrenome): aqui **não há reforço que separe** — a busca por texto não distingue
+o bairro do bairro que o contém.
+
+Regra nova para o manual: **bairro contido no nome de outro bairro da mesma cidade não é
+pesquisável por termo.** Vale para Tijuca→Barra da Tijuca. O jeito seria filtrar pelo conteúdo
+do anúncio, um a um, o que não compensa.
+
+### Único registro aproveitável
+
+| Página | Defeito | No ar desde | Trilha | Biblioteca |
+|---|---|---|---|---|
+| Atelier Denise Nagem | título vazio | 18/09/2026 | A | https://www.facebook.com/ads/library/?id=1816084299392310 |
+
+Não entra na LISTA DE ATAQUE: ateliê de artes/terapias/danças circulares não é o perfil
+(não é empresa que compra lead). Registrado só para não ser varrido de novo.
+
+LISTA DE ATAQUE segue em **37**.
+
+### O que essa varredura ensina
+
+1. **Densidade de nicho não se transfere entre bairros.** Arquitetura deu 6 de 6 na Barra e
+   zero na Tijuca uma hora depois. A conclusão da rodada anterior ("subir arquitetura na fila
+   para os demais bairros") foi otimista demais — **corrijo**: vale testar, não vale esperar
+   repetição.
+2. **Terceira família de armadilha de bairro**, junto com homônimo em outro estado e
+   bairro-sobrenome: **bairro contido em outro bairro**. Tijuca está fechada para busca por termo.
+
+Combos varridos até aqui: + arquitetura Tijuca RJ (negativo — bairro não pesquisável, contido em "Barra da Tijuca").
+
+---
+
+## ☀️ Energia solar — Rio de Janeiro (varredura de 19/09/2026, 04h)
+
+Termo usado: `energia solar residencial Rio de Janeiro` — cidade inteira, não bairro, porque
+integrador de solar atende região e não rua.
+
+**Volume:** 11 anúncios, 9 páginas. Nicho magro, mas com **duas páginas Trilha A**.
+
+### O defeito de "título repetido" bate seu recorde
+
+| Página | Defeito | No ar desde | Trilha | Biblioteca |
+|---|---|---|---|---|
+| **elétrica do André serviço em geral** | o nome da página repetido **10 vezes** no título, emendado com `\|`. Está no ar desde **01/06/2026 — 3,5 meses** mostrando isso. | 01/06/2026 | **A** (nome do dono) | https://www.facebook.com/ads/library/?id=2798580257163842 |
+| **RELAND** | `RELAND \| \| \| \| \| \| \| \| \|` — nome + 9 barras vazias | 17/09/2026 | B | https://www.facebook.com/ads/library/?id=1079780044906150 |
+| **smarthouse.4936379** | `smarthouse.4936379 \| \| \| \| \| \| \|` — e o nome da página é um número gerado automaticamente, ou seja, nunca foi configurada | 29/07/2026 | B | https://www.facebook.com/ads/library/?id=3198039297054937 |
+
+O caso do André é o **recorde de duração** desta família de defeito: 3,5 meses. E é Trilha A.
+
+### Título vazio
+
+| Página | Anúncios | No ar desde | Trilha |
+|---|---|---|---|
+| **Guilherme Marton - AG POWER** | 2 | **18/07/2026** (2 meses) | **A** (nome do dono na página) |
+
+### Quem está fazendo certo
+
+- **OGES - EcoSoluções** — `Seu telhado precisa de engenharia`. Melhor título de solar que já vi:
+  ataca o concorrente barato sem citá-lo e justifica preço. No ar desde 28/08.
+- **Fênix Energia Fotovoltaica** — `Clique agora e peça seu orçamento.` Genérico, mas funcional.
+- **Uil Van Top Solar** — `Orçamento gratuito 👉`.
+
+### Poluição do termo
+
+3 dos 11 não são solar: Summercar Film (película), Maria Imóveis (imobiliária de outra região),
+e a própria elétrica do André (serviço elétrico geral). O termo "energia solar" atrai
+**serviço correlato de obra** — quarta família de poluição depois de vaga, faculdade e curso.
+
+### Para a LISTA DE ATAQUE
+
+1. **elétrica do André serviço em geral** — Trilha A, 3,5 meses com o nome repetido 10x.
+   Recorde de duração desta família de defeito.
+2. **Guilherme Marton - AG POWER** — Trilha A, 2 meses com título vazio.
+
+Total da LISTA DE ATAQUE: **37 → 39 anunciantes**.
+
+### O que essa varredura ensina
+
+1. **Solar é nicho pequeno mas de boa qualidade**: 9 páginas, 2 Trilha A com defeito antigo.
+   Vale uma segunda passada com outro termo (`placa solar`, `usina fotovoltaica`) mais adiante.
+2. **A família "campo puxado automaticamente" já é o defeito mais comum do arquivo.** Quinta
+   aparição em 24 horas, em cinco nichos diferentes (Niterói, academia, Campo Grande,
+   arquitetura, solar). É o marcador universal de "impulsionou em vez de anunciar".
+3. `energia solar` atrai serviço de obra correlato — filtrar na leitura, como em arquitetura.
+
+Combos varridos até aqui: + energia solar Rio de Janeiro (cidade inteira; recorde de duração do título repetido).
+
+---
+
+## 🇬🇧 Escola de idiomas — Copacabana (varredura de 19/09/2026, 05h) — RESULTADO NEGATIVO
+
+Termo: `curso de inglês Copacabana`. **3 anúncios**, 3 páginas, e nenhum serve.
+
+| Página | Por que não serve |
+|---|---|
+| **CNA Copacabana BH** | é o bairro **Copacabana de Belo Horizonte** — nem é o Rio |
+| Kumon Copacabana - Shopping 680 | franquia grande; título `Fazer Kumon Muda a Vida` repetido 2x (defeito), mas decisão de mídia é da rede. No ar desde 29/07 |
+| Projeto Jovem Empregado Rio de Janeiro | programa social, não escola |
+
+### Quarta armadilha de bairro: bairro homônimo em OUTRA CIDADE do mesmo país
+
+Já tínhamos três famílias mapeadas — homônimo em outro estado (Campo Grande), bairro-sobrenome
+(Madureira), bairro contido em outro bairro (Tijuca). Esta é a quarta: **Copacabana existe em
+Belo Horizonte**, e o `RJ` não foi usado porque Copacabana parecia inequívoco. Não é.
+
+**Regra corrigida e ampliada:** usar o reforço `RJ` em **todo** termo com bairro, sempre, mesmo
+nos que parecem únicos. Custa nada e evita o falso positivo.
+
+### Conclusão sobre o nicho
+
+Escola de idiomas no Rio é dominado por franquia (CNA, Kumon, Wizard, Fisk) — mesma situação de
+veterinária e da rede Fábrica: página local, decisão central. **Nicho vai para fora da fila**,
+junto com veterinária.
+
+LISTA DE ATAQUE segue em **39**.
+
+Combos varridos até aqui: + escola de idiomas Copacabana (negativo; nicho de franquia, fora da fila).
+
+---
+
+## 📐 Arquitetura — Niterói (varredura de 21/09/2026, 10h30)
+
+Termo: `escritório de arquitetura Niterói`. **10 anúncios**, 10 páginas — e o mesmo fenômeno da
+Barra: o termo puxa majoritariamente imobiliária e incorporadora, não arquitetura. Só **3 das 10
+páginas** são de fato escritório/profissional de arquitetura.
+
+| Página | Trilha | Defeito | No ar desde | Biblioteca |
+|---|---|---|---|---|
+| **pateo.arq** | B | título é `instagram.com` — o domínio cru no lugar do título | **15/11/2025 (10 meses)** | [ver](https://www.facebook.com/ads/library/?id=1211889954124011) |
+| **Architeq Arquitetura** | B | título vazio | 24/07/2026 | [ver](https://www.facebook.com/ads/library/?id=1640042554792361) |
+| **Marcelo Laurentino** | A | título vazio | 22/06/2026 | [ver](https://www.facebook.com/ads/library/?id=1341390297937983) |
+| ritadecassialucasferreira | A | título vazio | 26/08/2026 | [ver](https://www.facebook.com/ads/library/?id=2936640380028394) |
+
+As outras seis (Your Place, Luis Imóveis ×2, pc_paulocarolinobroker, SOTER Engenharia, Kiffer
+Imóveis) são imobiliária/incorporadora — poluição do termo, não alvo desta seção. A SOTER e a
+Kiffer, aliás, são as **únicas do lote com título escrito à mão** e servem de referência de
+como se escreve um: `Casa Alto Padrão em Itaipu: Agende Sua Visita!`.
+
+### Sexto tipo de defeito da família "campo puxado automaticamente": o domínio cru
+
+Novo membro da família, e o mais revelador de todos: **`instagram.com` como título**. Acontece
+quando o anúncio aponta para um perfil do Instagram e ninguém escreveu título — a Meta preenche
+com o domínio do destino. O anunciante está pagando para exibir a palavra "instagram.com" como
+manchete do próprio anúncio.
+
+Os cinco anteriores: título vazio, nome da página repetido N vezes, `{{product.name}}` não
+substituído, título do perfil do Instagram repetido, e separadores `|` sem nada entre eles.
+
+### Recorde de tempo no ar do arquivo
+
+**pateo.arq bate o recorde: 10 meses** (desde 15/11/2025), superando os 3,5 meses da "elétrica
+do André". Dez meses de verba com o título `instagram.com`. É o argumento de abordagem mais
+forte que o arquivo já produziu, porque o defeito é literal e verificável em um print.
+
+### Arquitetura confirma o padrão da Barra
+
+Segunda praça seguida em que **100% das páginas do nicho têm o título quebrado** (4 de 4 aqui,
+6 de 6 na Barra). O mecanismo é o mesmo já escrito: arquiteto impulsiona post de portfólio, e
+post impulsionado não tem campo de título. Diferente da Barra, aqui a Trilha A é minoria (2 de 4).
+
+LISTA DE ATAQUE: **39 → 43**.
+
+Combos varridos até aqui: + arquitetura Niterói (4 alvos, 2 Trilha A, recorde de 10 meses no ar).
+
+---
+
+## 📐 Arquitetura — Botafogo (varredura de 22/09/2026, 02h) — RESULTADO NEGATIVO NO NICHO
+
+Duas tentativas de termo:
+
+| Termo | Resultado |
+|---|---|
+| `escritório de arquitetura Botafogo RJ` | **zero anúncios** |
+| `arquiteta Botafogo` | 1 anúncio, e é imobiliária |
+
+**Arquitetura em Botafogo não existe na Biblioteca.** Diferente da Tijuca, aqui não é
+armadilha de termo — é ausência real: o bairro é pequeno, denso e já construído, então
+não há obra residencial para escritório de arquitetura anunciar. Barra e Niterói têm
+condomínio novo e casa; Botafogo tem prédio antigo.
+
+**Regra nova:** arquitetura só rende em bairro com obra nova. Antes de varrer o nicho num
+bairro, perguntar se ali se constrói. Botafogo, Copacabana e Méier provavelmente dão zero
+pelo mesmo motivo — não vale gastar rodada neles.
+
+Isso fecha arquitetura com **Barra e Niterói como as duas únicas praças produtivas**, e as
+duas já foram varridas. **Nicho encerrado.**
+
+### O achado lateral: um alvo de imobiliária
+
+O único anúncio que voltou merece entrar na lista.
+
+| Página | Trilha | Defeito | No ar desde | Biblioteca |
+|---|---|---|---|---|
+| **Alfaiataria Imobiliária** | B | título com **`Alt Anúncios`** seguido de **`Chat with us` repetido 10 vezes** | 17/08/2026 (5 semanas) | [ver](https://www.facebook.com/ads/library/?id=1575003674035723) |
+
+Dois defeitos empilhados num título só, e o primeiro é inédito no arquivo:
+
+1. **`Alt Anúncios` é rótulo interno vazando.** É nome de campo de organização — de quem
+   montou o anúncio — aparecendo como manchete para o público. Sétimo membro da família
+   "campo puxado automaticamente", e o mais constrangedor deles: não é a Meta preenchendo
+   sozinha, é o próprio anunciante deixando a etiqueta de bastidor no ar.
+2. **`Chat with us` dez vezes, e em inglês.** Uma imobiliária carioca anunciando para
+   público brasileiro com a chamada padrão da Meta em inglês, nunca traduzida. Mesma
+   família do "Converse conosco" ×7 da Bicho D+, com a agravante do idioma.
+
+É o tipo de alvo que se aborda em uma frase: *"seu anúncio está dizendo 'Alt Anúncios' e
+'Chat with us' dez vezes, em inglês, há cinco semanas."*
+
+LISTA DE ATAQUE: **43 → 44**.
+
+Combos varridos até aqui: + arquitetura Botafogo (negativo no nicho, nicho encerrado;
+1 alvo lateral de imobiliária).
+
+---
+
+## ⚖️ Advocacia — Barra da Tijuca (varredura de 22/09/2026, 06h)
+
+Termo: `advogado trabalhista Barra da Tijuca` — termo de SERVIÇO, não de profissão, pela
+regra já aprendida. **3 anúncios, e os três são da mesma página.**
+
+| Página | Trilha | Defeito | No ar desde | Biblioteca |
+|---|---|---|---|---|
+| **Rodrigo Gonçalves Advogado** | **A** | título vazio | 20/09/2026 | [ver](https://www.facebook.com/ads/library/?id=1396282512479781) |
+| Rodrigo Gonçalves Advogado | A | título vazio | 20/09/2026 | [ver](https://www.facebook.com/ads/library/?id=28359425577048647) |
+| Rodrigo Gonçalves Advogado | A | título `instagram.com` | 20/09/2026 | [ver](https://www.facebook.com/ads/library/?id=1392530149130462) |
+
+### O alvo mais quente do arquivo, por um motivo novo: ele acabou de começar
+
+Todo o resto da lista é gente errando há meses — seis, dez, dezoito. Este subiu os três
+anúncios **no mesmo minuto, anteontem**, e os três já saíram quebrados: dois sem título
+nenhum e um com o domínio cru.
+
+Isso muda a abordagem por completo:
+
+- **Ainda não desistiu.** Quem erra há dez meses já normalizou o resultado ruim. Quem
+  subiu anteontem ainda está olhando o painel todo dia esperando o telefone tocar.
+- **Ainda não gastou.** A frustração está chegando agora, não chegou. Dá para pegar antes
+  de ele concluir que "anúncio não funciona pro meu escritório".
+- **O erro é do primeiro dia.** Não é descuido acumulado, é falta de saber. Mais fácil de
+  aceitar ajuda, menos constrangedor.
+
+**Regra nova para o arquivo:** além de ordenar por tempo no ar (o mais velho = prova mais
+forte), passar a marcar **os que subiram nos últimos 7 dias** — são os de maior chance de
+resposta, ainda que a prova seja menor. São duas filas diferentes, não uma.
+
+### O termo de serviço confirmou a regra, e revelou outra
+
+`advogado trabalhista` puxou só escritório de captação, zero vaga de emprego — a regra de
+termo de SERVIÇO vs PROFISSÃO segue de pé.
+
+Mas o volume foi baixíssimo (3 anúncios, 1 página) para um bairro do tamanho da Barra.
+Hipótese: **advogado anuncia por área do direito, e trabalhista pode não ser a que mais
+se anuncia no Rio.** Vale testar `advogado previdenciário`, `INSS` e `direito do
+consumidor` antes de concluir que a Barra é rasa em advocacia.
+
+### Munição para o nosso próprio criativo
+
+Advocacia é conjunto nosso e está entregando. Aqui está a prova de que o dono de
+escritório sobe anúncio sem título — é exatamente a dor que o nosso anúncio pode nomear.
+
+LISTA DE ATAQUE: **44 → 45** (uma página, três peças).
+
+Combos varridos até aqui: + advocacia Barra da Tijuca (termo de serviço; 1 página, 3 peças
+quebradas, alvo recém-chegado — nova categoria de fila).
+
+---
+
+## ⚖️ Advocacia — Barra da Tijuca, 2ª passada por ÁREA DO DIREITO (22/09/2026, 10h)
+
+Teste da hipótese levantada na varredura anterior: o bairro não é raso, o **termo** é que
+estava estreito. Mesmo bairro, só troquei a área.
+
+| Termo | Anúncios | Páginas |
+|---|---|---|
+| `advogado trabalhista Barra da Tijuca` | 3 | 1 |
+| `advogado previdenciário Barra da Tijuca` | **8** | **2** |
+
+**Hipótese confirmada.** Mais que dobrou trocando uma palavra.
+
+### REGRA NOVA: advocacia se varre por área do direito, não por bairro
+
+Este é o primeiro nicho do arquivo em que o **eixo de busca não é o bairro**. Advogado não
+anuncia "sou advogado na Barra" — ele anuncia a dor que resolve, e a dor tem nome jurídico.
+Cada área é um mercado separado, com anunciantes diferentes.
+
+Áreas a varrer antes de dar qualquer bairro por esgotado: **previdenciário/INSS**,
+trabalhista, **direito do consumidor**, família e divórcio, criminal, **bancário e
+superendividamento**. As três em negrito são as que mais se anunciam em lead-gen.
+
+Isso provavelmente vale para **contabilidade** também (abertura de empresa, imposto de
+renda, MEI, folha) — o outro nicho que a gente anuncia. Vale testar do mesmo jeito.
+
+### O alvo novo
+
+| Página | Trilha | Defeito | No ar desde | Biblioteca |
+|---|---|---|---|---|
+| **Videira e Palhano Previdenciario** | **A** | os **5 anúncios com o título idêntico**: `FALE COMIGO!`, em caixa alta | 21/09/2026 | [ver](https://www.facebook.com/ads/library/?id=2313614956153265) |
+
+Trilha A pelos sobrenomes dos sócios no nome da página — mesmo critério do Machado de
+Souza. Subiu dois lotes ontem, 13h e 19h, cinco peças ao todo, e **as cinco com a mesma
+manchete**.
+
+O defeito é da família "chamada repetida" (mesma do Petmalia com `Entre em contato` ×20 e
+da Bicho D+ com `Converse conosco` ×7), mas com um agravante próprio: `FALE COMIGO!` **não
+diz nada sobre previdência.** Podia ser anúncio de qualquer coisa. Quem rola o feed não
+tem como saber que ali tem alguém que resolve INSS negado.
+
+E cinco peças com a mesma manchete disputam o mesmo leilão entre si — encarecem umas às
+outras.
+
+**Segundo alvo recém-chegado seguido.** Subiu ontem, como o Rodrigo Gonçalves subiu
+anteontem. A fila dos recentes, criada na varredura passada, já tem dois nomes — e os dois
+de advocacia. Faz sentido: é nicho em que o profissional sobe anúncio sozinho, e setembro
+é mês de movimento em escritório.
+
+LISTA DE ATAQUE: **45 → 46**.
+
+Combos varridos até aqui: + advocacia Barra da Tijuca por área (previdenciário — regra nova:
+advocacia se varre por área do direito, não por bairro).
+
+---
+
+## 🧾 Contabilidade — Rio, por SERVIÇO (varredura de 22/09/2026, 13h)
+
+Termo: `abertura de empresa contabilidade Rio de Janeiro`. **14 anúncios.** A regra
+descoberta em advocacia hoje de manhã — varrer por **serviço**, não pelo nome do nicho —
+vale igual aqui. É o termo mais produtivo que contabilidade já deu.
+
+| Página | Trilha | Defeito | No ar desde | Biblioteca |
+|---|---|---|---|---|
+| **Alailton Raze contabilidade e legalização de empresas.** | **A** | título vazio | 21/09/2026 | [ver](https://www.facebook.com/ads/library/?id=1723178228739693) |
+| *(mesma página, nome anterior)* Afr contabilidade e legalização | A | título vazio | 20/09/2026 | [ver](https://www.facebook.com/ads/library/?id=1631825928523232) |
+| **afr_contabilidade** (outra página) | B | 3 anúncios, os 3 com título vazio | 03–07/09/2026 | [ver](https://www.facebook.com/ads/library/?id=3351706071678641) |
+| **PRECISA CONTABILIDADE** | B | título `api.whatsapp.com` | 18/09/2026 | [ver](https://www.facebook.com/ads/library/?id=1950457518955365) |
+| **contabilizando_na_pratica_** | B | `contabilizando_na_pratica_ \|   \|   \|  ` — nome da página e três barras vazias | 11/09/2026 | [ver](https://www.facebook.com/ads/library/?id=1566588261878298) |
+| **Facilite Tecnologia Contábil** | B | título vazio | 26/06/2026 (3 meses) | [ver](https://www.facebook.com/ads/library/?id=1504555890637699) |
+| **Robson Wailant** | **A** | título é só o próprio nome da página | 21/07/2026 (2 meses) | [ver](https://www.facebook.com/ads/library/?id=1010030495120972) |
+
+### O caso AFR: o mesmo contador aparece três vezes, errando igual nas três
+
+Reparei numa coisa olhando os `page_id`: **"Afr contabilidade e legalização de empresas."
+e "Alailton Raze contabilidade e legalização de empresas." são a MESMA página** (id
+1211780232029362). Ela foi **renomeada entre 20 e 21/09** — trocou a sigla pelo nome do
+dono. E existe ainda uma terceira página, `afr_contabilidade` (id 227837610411206), com
+mais 3 anúncios.
+
+Ou seja: **o mesmo negócio rodando anúncio por duas páginas ao mesmo tempo, com 5 peças no
+ar, e as 5 sem título.** E acabou de rebatizar a página para o nome do dono — sinal de
+alguém mexendo na presença digital *agora*, tentando melhorar, sem saber onde está o erro.
+
+É o alvo mais bem qualificado que a lista tem hoje: dono identificado, mexendo no negócio
+esta semana, errando de forma visível e repetida.
+
+### Poluição do termo, registrada
+
+- **Gustavo Tutuca** (17/09, título vazio) — político do RJ, não é contabilidade
+- **Allmed** (2 peças) — curso de medicina
+- Ambos caem no termo por causa de "empresa"/"Rio de Janeiro"
+
+**Quinto e sexto tipo de poluição** do arquivo, junto com curso/formação, distribuidor,
+vaga de emprego e incorporadora: **político** e **curso de outra área**.
+
+### Referências de título bem escrito
+
+- **Adiel Portes - Contabilidade**: `Pagar contador sai mais barato do que pagar multa` —
+  o melhor título de contabilidade do arquivo. Argumento inteiro numa linha, com a dor
+  (multa) e a solução no mesmo fôlego. Serve de modelo pro nosso próprio criativo do
+  conjunto CONTABILIDADE.
+- Salesy Serviços Digitais: `Serviços Contábeis e Digitais` — funcional, sem graça.
+
+### A regra confirmada nos dois nichos que a gente anuncia
+
+Advocacia e contabilidade **não se varrem por bairro nem pelo nome da profissão.** Varre-se
+por **serviço**: abertura de empresa, imposto de renda, MEI, folha de pagamento,
+recuperação de crédito. Mesma lógica das áreas do direito.
+
+LISTA DE ATAQUE: **46 → 52**.
+
+Combos varridos até aqui: + contabilidade Rio por serviço (abertura de empresa — 6 alvos
+novos, regra de varrer por serviço confirmada no segundo nicho).
+
+---
+
+## ⚖️ Advocacia — direito do consumidor (22/09/2026, 14h) — O MAIOR VOLUME DO ARQUIVO
+
+Termo: `advogado direito do consumidor Rio de Janeiro`. **251 anúncios estimados.**
+
+Para comparar, os maiores até hoje eram academia Niterói (55), odontologia Campo Grande
+(54) e tatuagem Niterói (53). **Este é quase 5x o recorde anterior.**
+
+### Ressalva honesta, antes dos nomes
+
+Os 251 são **nacionais, não do Rio**. A Biblioteca casa o termo com o texto do anúncio, e
+"Rio de Janeiro" no termo não garante que o anunciante seja daqui — apareceram nomes que
+soam de outros estados. **Antes de abordar, conferir a praça de cada um.** O que está
+provado aqui é o tamanho do nicho, não a localização.
+
+### Os alvos do lote lido (40 dos 251)
+
+| Página | Trilha | Defeito | No ar desde |
+|---|---|---|---|
+| **Juliana Benicio** | **A** | **11 anúncios, os 11 sem título** | 20–21/09 |
+| angelotancredoadv_ | A | 2 anúncios, sem título | 22/09 |
+| **karinaviana.advogada** | A | `karinaviana.advogada \|  \|  \|  \|  \|  \|  \|` — nome e **7 barras vazias** | 22/09 |
+| **Antero Paes de Barros** | A | nome e 7 barras vazias (mesmo padrão) | 22/09 |
+| MVGF Juris | B | `MVGF Juris \|  \|  \|` | 22/09 |
+| Quadros Advogados & Associados | B | `api.whatsapp.com` | 22/09 |
+| **Melhor Advogado** / **fabiotoledoadv** | A | duas páginas do mesmo advogado: uma com `api.whatsapp.com`, a outra com `instagram.com` | 21/09 |
+| Prof. Claudio Branchieri | A | sem título | 22/09 |
+| Guilherme Delaroli | A | sem título | 21/09 |
+| Laura zandavalle zopelaro | A | sem título | 21/09 |
+| Mara Damasceno | A | sem título | 20/09 |
+| Fabiano Gonçalves | A | 2 anúncios, sem título | 20/09 |
+| Advocacia Piacentini | B | título é só o nome da página | 22/09 |
+
+**Treze páginas com defeito em quarenta anúncios lidos, e onze delas Trilha A.** Se a
+proporção se mantiver nos 251, é o maior poço da lista.
+
+### Juliana Benicio: onze peças, onze sem título, todas de ontem
+
+Maior concentração individual de advocacia no arquivo — e todas subidas em 20 e 21/09.
+Alguém investindo pesado esta semana e errando em série.
+
+### O caso Fábio Toledo repete o padrão AFR
+
+Segunda vez hoje: **o mesmo profissional rodando por duas páginas**, "Melhor Advogado" e
+"fabiotoledoadv", e errando nas duas com defeitos diferentes (`api.whatsapp.com` numa,
+`instagram.com` na outra). O padrão apareceu de manhã na contabilidade (AFR / Alailton
+Raze). Vale virar item de checagem: **ao achar um alvo, procurar se ele tem segunda
+página** — dobra a prova e mostra desorganização.
+
+### Referências de título bem escrito
+
+- **Linhares & Senna**: `Paga IR sobre a GRAM? Saiba mais` — pergunta específica que só o
+  público-alvo entende. O melhor de advocacia no arquivo.
+- **Petronilho Carneiro**: `Militar do RJ: Converse conosco` — segmenta o público na
+  primeira palavra.
+- **Diego Lopes**: `ADVOGADO (5,0)⭐⭐⭐⭐⭐` — usa avaliação como prova; discutível, mas é
+  uma escolha, não um descuido.
+
+### Poluição
+
+**Marcelo Cabeleireiro** (sem título) caiu no termo — cabeleireiro. E "Invisto Direito -
+Comunidade" parece infoproduto, não escritório.
+
+### A regra fica mais forte
+
+Nas três áreas testadas hoje: trabalhista 3, previdenciário 8, **consumidor 251**. Não é só
+que advocacia se varre por área — **as áreas diferem em uma ordem de grandeza entre si.**
+Consumidor é onde o advogado brasileiro gasta em anúncio, e de longe.
+
+LISTA DE ATAQUE: **52 → 65**.
+
+Combos varridos até aqui: + advocacia direito do consumidor (nacional, 251 anúncios — maior
+volume do arquivo; 13 páginas com defeito em 40 lidos, 11 Trilha A; conferir praça antes de
+abordar).
+
+---
+
+## 🏠 Imobiliária — ALUGUEL (22/09/2026, 16h) — eixo novo, e a explicação das barras
+
+Termo: `apartamento para alugar Rio de Janeiro`. **27 anúncios.** Eixo nunca testado: o
+arquivo inteiro de imobiliária foi feito em cima de **venda** (`apartamento à venda`,
+`corretor`). Aluguel é outro conjunto de anunciantes — administradora e corretor de
+locação — e rendeu bem.
+
+### A descoberta que reescreve um item do arquivo: as barras são CARROSSEL
+
+O arquivo vinha tratando `nome da página |  |  |  |` como um tipo de defeito. **Não é um
+defeito, é um formato.** As barras separam os títulos dos **cards de um carrossel** — cada
+`|` é um card. O que varia é o que foi escrito em cada slot, e é aí que está o defeito:
+
+| O que aparece | O que significa |
+|---|---|
+| `Nome \|  \|  \|  \|` | só o primeiro card tem título; os outros ficaram em branco |
+| `Texto \| Texto \| Texto \| Texto` | escreveu um e deixou repetir em todos os cards |
+| `Descrição A \| Descrição B \| Descrição C` | **feito certo** — cada card com sua descrição |
+
+Isso explica de uma vez os casos antigos de "nome repetido N vezes" e "N barras vazias":
+são o mesmo mecanismo, em carrossel de tamanho diferente. **E muda a abordagem:** não é
+"seu anúncio está sem título", é *"seu carrossel tem 6 fotos e as 6 estão com a mesma
+legenda — a pessoa desliza e vê a mesma frase seis vezes"*. Muito mais concreto.
+
+### A prova mais bonita está dentro de um único anunciante
+
+A **Lucrum Imobiliária** (já no arquivo) tem, ao mesmo tempo:
+
+- dois anúncios com **título totalmente vazio**
+- e um com **seis descrições distintas e úteis**: `Centro - Sala para aluguel - 10 | Apto
+  para alugar, térreo com quintal, 2 quartos com dependência reversível, próx. BRT
+  Campinho e Estação Madureira. Cód 1071 | Apto para alugar em Copacabana, andar alto, 3
+  qts (suíte/armários), dep. complt. e garagem. | ...`
+
+O mesmo anunciante prova o certo e o errado. **É o melhor argumento de abordagem do
+arquivo: não precisa ensinar nada, só mostrar o trabalho dele mesmo.**
+
+### Alvos novos
+
+| Página | Trilha | Defeito | No ar desde |
+|---|---|---|---|
+| **Sérgio Castro Imóveis - A Empresa que Resolve.** | B | nome da página + `A 2 Quadras da Praia de Copacabana!` repetido 6× | **22/07/2025 — 14 meses** |
+| **Encontre seu Lar** | B | `Encontre seu Lar` **11 vezes** | 08/09/2026 |
+| **Igarashi Imóveis** | B | 2 anúncios; título bom, mas repetido 6× em cada | 17/09/2026 |
+| **Elias Jabbour** | **A** | 3 anúncios, título vazio | 04/09/2026 |
+| **Charles Nunes** | **A** | 3 anúncios, título = `Clique em "saiba mais"` | 05/08/2026 |
+| **Corretor Rodrigo Pereira** | **A** | título vazio | 07/07/2026 |
+| GEPS.imoveis | B | título = nome da página | 25/07/2026 |
+| Suhcasa Copacabana | B | título vazio | 05/03/2026 |
+| As Incríveis Aventuras de Eu Mesmo | B | descrição boa no 1º card, **7 barras vazias** depois | 21/09/2026 |
+| Itaúna - Saquarema / Rio - Copacabana | B | 1º slot com o nome da página, 2 slots repetidos, typo `Atântica` | **29/11/2024 — 22 meses** |
+
+**O Itaúna bate o recorde de tempo no ar do arquivo: 22 meses**, contra os 18 do Dr. Daniel
+Pinheiro. Ressalva honesta: o carrossel dele **está parcialmente preenchido** — alguém
+trabalhou nele. É recorde de duração, não de descuido.
+
+### Poluição
+
+- `Aluguel chapecó` — Chapecó/SC, outro estado (o `Rio de Janeiro` no termo não segurou)
+- **Xtay, Luggo, Biahost** — proptech e aluguel por temporada, operação profissional
+- fabimachado_so — RE/MAX, decisão de mídia da rede
+
+### Conclusão do eixo
+
+Aluguel **vale a pena** e estava invisível: 10 alvos novos num termo só, 3 deles Trilha A,
+e o recorde de duração do arquivo. **Venda e aluguel são dois mercados distintos dentro da
+mesma imobiliária** — varrer os dois, sempre.
+
+Próximos do eixo: `sala comercial para alugar`, `casa para alugar`, `aluguel temporada`.
+
+LISTA DE ATAQUE: **65 → 75**.
+
+Combos varridos até aqui: + imobiliária ALUGUEL Rio (eixo novo; 10 alvos, recorde de 22
+meses; **as barras são carrossel, não defeito de campo** — mecanismo corrigido).
+
+---
+
+## 🏢 Sala comercial — aluguel (22/09/2026, 18h) — termo magro, achado exemplar
+
+Termo: `sala comercial para alugar Rio de Janeiro`. **2 anúncios.** Termo magro — sala
+comercial no Rio quase não se anuncia no Meta. **Não vale voltar.**
+
+Mas o único alvo novo é a ilustração mais limpa do mecanismo de carrossel que o arquivo tem.
+
+| Página | Trilha | Defeito | No ar desde |
+|---|---|---|---|
+| **Ricardo Simões Corretor de Imóveis Avaliador Judicial** | **A** | carrossel de 11 slots: o nome da página e **a mesma descrição repetida 10 vezes** | 15/09/2026 |
+
+A descrição repetida é:
+
+> `Sala Comercial 25m² à venda Rua Dias da Cruz, Méier, Rio de Janeiro - R$ 89.000
+> RSSL00001 - Ricardo Simões`
+
+### Por que este caso é tão bom para abordar
+
+**A descrição é boa.** Tem metragem, rua, bairro, preço. O cara sabe descrever imóvel. Só
+que ele escreveu **uma** e deixou copiar nas **dez** outras fotos do carrossel. Quem desliza
+vê a mesma sala onze vezes.
+
+Não é falta de capricho — é falta de saber que cada card tem campo próprio. **É o alvo mais
+fácil de converter da lista: a correção é meia hora de trabalho e ele já tem o texto.**
+
+### Defeito novo na família do rótulo interno: o código do imóvel
+
+`RSSL00001` é o código de cadastro interno dele, exposto na manchete pública. É irmão do
+`Alt Anúncios` encontrado hoje de manhã na Alfaiataria Imobiliária — **campo de uso interno
+vazando para o público**. Fica registrado como variação: além de rótulo de organização,
+**código de imóvel**.
+
+E o termo casou "para alugar" com um anúncio "à venda" — a Biblioteca é frouxa na
+correspondência, o que reforça conferir o texto antes de classificar.
+
+LISTA DE ATAQUE: **75 → 76**.
+
+Combos varridos até aqui: + sala comercial aluguel Rio (termo magro, 2 anúncios, não voltar;
+1 alvo exemplar de carrossel repetido 10x e código interno no título).
+
+---
+
+## 🦷 Odontologia por PROCEDIMENTO (22/09/2026, 19h) — a regra do eixo NÃO generaliza
+
+Teste deliberado: a regra descoberta hoje em advocacia e contabilidade — varrer por
+**serviço**, não por bairro — vale para os outros nichos?
+
+Termo: `lente de contato dental Rio de Janeiro` (procedimento + cidade, sem bairro).
+**12 anúncios**, e 10 deles de uma página só.
+
+**Resposta: não generaliza.** Compare no mesmo dia:
+
+| Nicho | Eixo testado | Anúncios |
+|---|---|---|
+| Advocacia | área (consumidor) | **251** |
+| Contabilidade | serviço (abertura de empresa) | 14 |
+| **Odontologia** | **procedimento (lente de contato)** | **12** |
+| Odontologia | **bairro** (Campo Grande, 19/09) | **54** |
+
+Odontologia rende **4x mais por bairro do que por procedimento**. O eixo certo depende do
+nicho.
+
+### A REGRA GERAL, que é o achado desta rodada
+
+> **O eixo de busca tem que ser o mesmo critério pelo qual o cliente escolhe o
+> fornecedor.**
+
+| Como o cliente escolhe | Eixo de varredura | Nichos |
+|---|---|---|
+| Por **proximidade** — quero perto de casa | **bairro** | odontologia, estética, academia, pet shop, ótica, fisioterapia, tatuagem |
+| Por **problema** — tenho essa dor específica | **área / serviço** | advocacia, contabilidade |
+| Por **produto** — quero esse imóvel | **tipo de transação** | imobiliária (venda × aluguel) |
+
+Paciente escolhe dentista pelo caminho de casa; cliente escolhe advogado pelo problema que
+tem. **Por isso "implante + bairro" dava zero e "dentista + bairro" funcionava** — o eixo
+estava certo, o termo é que era específico demais dentro dele.
+
+Isso fecha uma dúvida antiga do arquivo e evita gastar rodada testando procedimento em
+nicho de proximidade.
+
+### O único alvo
+
+| Página | Trilha | Defeito | No ar desde |
+|---|---|---|---|
+| **Clínica Viotto - Rio de Janeiro** | B | 9 anúncios: seis com o título `🟢 SAIBA MAIS >>` repetido e um vazio | 27/07/2026 (2 meses) |
+
+Ressalva: tem página irmã em Salvador (`Clínica Viotto Salvador - Nova`, também com título
+vazio). **Quarto caso hoje de mesmo negócio com duas páginas.** Pode ser rede pequena com
+decisão de mídia central — conferir antes de abordar, como se faz com franquia.
+
+`SAIBA MAIS` não diz nada sobre lente de contato dental. É botão, não manchete.
+
+### Referência de título
+
+**Clínica Magna Odontologia e Bem Estar**: `Parcele no boleto! ➡` e `Agendar avaliação! ➡`.
+Duas peças, dois títulos diferentes, os dois com verbo e objeção tratada (preço). Faz certo.
+
+LISTA DE ATAQUE: **76 → 77**.
+
+Combos varridos até aqui: + odontologia por procedimento (negativo — **a regra do eixo não
+generaliza**; o eixo é o critério de compra do cliente: proximidade → bairro, problema →
+área, produto → transação).
+
+---
+
+## ADVOCACIA DE FAMÍLIA — pensão e divórcio (22/09, nacional)
+
+Terceira área do direito varrida, depois de trabalhista e previdenciário (Barra) e
+consumidor (nacional). O termo foi de SERVIÇO, não de profissão: "pensão alimentícia
+advogado". **855 anúncios ativos estimados** — atrás só do consumidor (251 na amostra,
+mas menor no total). Como no consumidor, isto é nacional, não Rio: dos 30 lidos, um
+único é declaradamente carioca.
+
+### O que esta área ensina sobre criativo, que é o achado do dia
+
+Advocacia de família é a área onde **a pergunta em segunda pessoa domina**. Não é
+estilo: é a natureza do problema. Quem procura advogado de família tem uma situação
+concreta e datada, e o título que nomeia essa situação é lido como se fosse sobre ele.
+
+Os títulos bons que apareceram, todos perguntas:
+
+- "O cônjuge pediu o divórcio?" — Ederval Oscar dos Santos
+- "Separado(a) e sem acordo na partilha?" — o mesmo, segunda peça, outra situação
+- "Seu filho recebe o valor correto?" — Evandro Soares
+- "Pensão do seu filho ainda não foi definida?" — Advocacia
+- "Precisa regularizar a pensão do seu filho?" — o mesmo, variação
+- "O valor da pensão pode ser revisto?" — Tarek Maluf
+- "Paternidade: cartório ou via judicial?" — o mesmo, outra dúvida
+- "Está passando por divórcio? Fale conosco!" — Arthur Alexandre
+
+Repare no mecanismo: nenhuma fala do escritório. Todas falam do **estado civil de quem
+lê**. É a mesma coisa que faz o nosso ADV V05 — curta ser o melhor CPL da conta
+(R$7,01): pergunta que só o alvo responde.
+
+Vale para o nosso criativo: o alvo do OPC não tem estado civil, tem **agenda**. A
+tradução da fórmula é perguntar pelo número que só o dono sabe — "quantas visitas
+saíram dos seus leads?", "quantas ligações sua equipe fez hoje?".
+
+### Os alvos
+
+Todos anunciam, todos gastam, todos erram o título.
+
+| Página | Defeito do título | Trilha |
+|---|---|---|
+| **Advogado Rio de Janeiro - Dr. Max Victor** | vazio | A — **e é do Rio** |
+| Campos e Carvalho ADV | "Advogado Especialista PENSÃO ALIMENTÍCIA" repetido em **6 anúncios** | A |
+| Castello Branco Advogados | "Saiba Mais..." em 2 peças | A |
+| Arthur Alexandre Advogados | "Clique e Fale Conosco" | A |
+| Guidio Advogados Associados | "Não Perca Esse Tempo" — urgência sem objeto | A |
+| Luciana Lima Advocacia | "Saiba mais!" | A |
+| leodutraadvocacia | vazio | A |
+| Juan Pinheiro | "Iniciar Atendimento" | A |
+| andersonsstein | "Saiba mais" | A |
+| adv.anaclaraaraujo | "instagram.com" | A |
+| Michelline Rodrigues Raez | "Advogado" — nomeia a profissão, não o problema | A |
+| advocacia.jh | vazio | B |
+| advogado_fortalezace | vazio | B — Fortaleza, fora do Rio |
+
+Treze alvos, **onze de Trilha A**. É a maior proporção de nome de dono de todas as
+varreduras até hoje — maior que o Méier (9 de 12). Faz sentido: advocacia de família é
+vendida na pessoa, então o escritório leva o nome de quem atende.
+
+**Arthur Alexandre merece nota:** tem uma peça com "Está passando por divórcio? Fale
+conosco!" e outra com "Clique e Fale Conosco". Sabe fazer e não aplica em tudo — é o
+alvo mais fácil de abordar, porque a prova está dentro da própria conta dele.
+
+LISTA DE ATAQUE: **77 → 90**.
+
+Combos varridos até aqui: + advocacia de família (pensão/divórcio, nacional, 855 ativos
+estimados — **a área com mais anunciante de todas**; 11 de 13 alvos com nome do dono,
+recorde de Trilha A; confirma que pergunta em segunda pessoa é o padrão que converte em
+advocacia, o mesmo mecanismo do nosso melhor anúncio).
+
+---
+
+## CONTABILIDADE — serviço MEI (22/09, nacional)
+
+Segundo serviço de contabilidade varrido, depois de "abertura de empresa". Termo:
+"abrir MEI contador". **104 anúncios ativos** — um décimo da advocacia de família, e
+bem abaixo de abertura de empresa.
+
+### A regra nova: serviço de ticket baixo puxa software, não escritório
+
+O volume baixo não é o achado. O achado é **quem está anunciando**. Dos 30 lidos, uma
+parte grande não é escritório contábil vendendo contabilidade:
+
+- **"MEI sem contador"** — o nome da página é a negação do nosso alvo
+- **"Mapa Fácil do MEI"** — infoproduto, "Evite multas e dívidas no seu MEI 🚨"
+- **"Meisuite"** — "O app que organiza seu MEI de ponta a ponta"
+- **"App Donu"** — app
+- **Murilo Moraes** — "GARANTA JÁ O SEU INGRESSO!", venda de evento, nada a ver
+- **Contabilizei** — player nacional, não escritório de bairro
+
+O mecanismo: MEI é o serviço mais barato da contabilidade. O escritório de bairro não
+briga por ele — quem briga é quem vende software e curso, porque para esses o MEI é
+volume. Abertura de empresa rendeu escritório; MEI rende app.
+
+**Regra:** dentro do eixo certo (serviço), o TICKET do serviço decide o tipo de
+anunciante. Serviço barato puxa quem vende ferramenta no lugar do profissional. Para
+achar escritório, varrer pelo serviço que ele cobra caro — abertura de empresa,
+recuperação de crédito, folha —, não pelo que ele cobra barato.
+
+Isto refina a regra do eixo de 22/09, não a contradiz: o eixo continua sendo o critério
+de compra do cliente. O que se acrescenta é que **o preço do serviço filtra o
+anunciante**.
+
+### Os alvos
+
+| Página | Defeito do título | Trilha |
+|---|---|---|
+| **yuriaires.contador** | "yuriaires.contador \| \| \| \| \| \|" — carrossel com os cards vazios | A |
+| **Azon Contabilidade** | "Fale conosco" repetido em **6 cards** do carrossel | B |
+| **Start Assessoria Contábil** | "Contador Recomendado ⭐⭐⭐⭐⭐" — estrela sem origem | B |
+| caparozcontabilidadeexpert | "Contador Atende no WhatsApp 🌟🌟🌟🌟🌟" | A |
+| Mentore Contabilidade | "Converse conosco e saiba mais" — o campo padrão da Meta | B |
+| OMC Organização Mouta Contábil | "Contabilidade para sua empresa" — diz o óbvio | A |
+| Contabilidade Tribo de Judá | título = nome da página | B |
+| Asmj Contabilidade | "api.whatsapp.com" | B |
+| Contabilidade Morando LTDA | "api.whatsapp.com" | A |
+| jessicasoarescontadora | vazio | A |
+| Maurício Carvalho | vazio | A |
+| daianaolopes | vazio | A |
+| João Mimoso | vazio | A |
+| Contabilbr | vazio | B |
+| Fatorxcontabilidade | vazio | B |
+| Contabilidade Cruz | vazio | B |
+| ANX Contabilidade | vazio | B |
+
+Dezessete alvos, oito de Trilha A. O **yuriaires.contador** é a terceira aparição do
+defeito de carrossel com card vazio — depois do Ricardo Simões e do Lucrum. O padrão se
+confirma: quem sobe carrossel preenche o primeiro card e esquece os outros.
+
+Quem escreve bem aqui, para munição: **"Vai abrir uma empresa?"** (PC Nasci — pergunta
+na situação), **"Ei, prestador!"** (Assessoria do pequeno — nomeia o público na
+primeira palavra), **"Não perca mais trabalhos"** (Contabilizei — consequência).
+
+LISTA DE ATAQUE: **90 → 107**.
+
+Combos varridos até aqui: + contabilidade serviço MEI (nacional, 104 ativos — magro;
+**regra nova: dentro do eixo certo, o ticket do serviço decide o tipo de anunciante —
+serviço barato puxa app e infoproduto no lugar do escritório**; varrer contabilidade
+pelo serviço caro, não pelo barato).
+
+---
+
+## CONTABILIDADE — serviço caro: recuperação de crédito tributário (22/09, nacional)
+
+Varredura: `recuperação de crédito tributário`, BR, ACTIVE. **172 anúncios ativos** —
+contra 104 do MEI. A regra do ticket, escrita na varredura passada, se confirma na
+primeira prova: **o serviço caro puxou escritório de verdade**. No MEI, metade do que
+aparecia era app e infoproduto. Aqui, de 23 páginas distintas, só duas são curso (IPOG,
+ibpt.educacao) e uma é ruído de busca (Ricardo Nunes Eletro). Sobram **20 alvos**.
+
+Outra coisa que mudou: apareceu o **anunciante híbrido**. Recuperação tributária é
+vendida tanto por contabilidade quanto por advogado tributarista — Porto Câmara, DC-
+Assessoria Jurídica, ADVINTEGRA, marcelasantosadv_, Lucas Teixeira Dezem são jurídicos
+disputando a mesma palavra que Hope, Sanji, Múltipla e maxicont. Para a lista fria isso
+é bom: um mesmo termo entrega dois nichos que a gente já anuncia.
+
+**Trilha A (dono no nome da página) — 9 de 20:** Dr. Jose Netto — Recuperação de Crédito
+Tributário, Rafaela Posser, Advogado Lucas Teixeira Dezem, marcelasantosadv_,
+andrebaeta.obraspublicas, Burati GT, Mello Consultoria, Porto Câmara, Rocha Assessoria e
+Consultoria Empresarial.
+
+**Demais alvos (11):** Hope Contabilidade, Múltipla Contabilidade e Consultoria São
+Paulo, ARS Consultoria Tributária, ASEC — Serviços Administrativos e Financeiros,
+maxicontassessoriacontabil, OSET • Open Soluções Empresariais e Tributárias, DC-
+Assessoria Jurídica, Vocare Tax, Sanji Contabilidade, MS Tax — Inteligência e Gestão
+Tributária, ADVINTEGRA Soluções Tributárias.
+
+**Defeitos:**
+- **Título vazio** (o anúncio não promete nada onde o olho cai): Dr. Jose Netto (os dois
+  anúncios), Vocare Tax, ASEC, IPOG, ibpt. MS Tax é pior: o título é um espaço em branco.
+- **Carrossel com card sem headline** — **quarta aparição** do mesmo defeito (depois de
+  Ricardo Simões, Lucrum e yuriaires.contador): andrebaeta.obraspublicas e Rafaela Posser
+  aparecem com `|   |   |   |   |` no lugar dos títulos dos cards. Card montado, headline
+  esquecida. Já dá para chamar de padrão do nicho, não de acidente.
+- **CTA de porta fechada**: "Fale conosco" (Hope), "Converse conosco" (Múltipla, Lucas
+  Teixeira Dezem), "Saiba mais" (DC — nos quatro anúncios). Nenhum diz o que acontece
+  depois do clique.
+- **Volume no lugar de variação**: OSET tem 16 anúncios ativos com **a mesma headline**
+  ("Sua empresa pode ter impostos a recuperar"). Não é teste, é repetição paga.
+
+**Quem escreve bem, para munição:** **"O que sai da sua margem"** (ARS — a dor em cinco
+palavras, sem falar de imposto); **"Para Empresas de R$10 milhões+ · Lucro Real e
+Presumido"** (Burati GT — qualifica e desqualifica na própria headline, o clique que
+sobra é bom); **"Sua empresa pode ter impostos a recuperar"** (OSET — situação do leitor,
+não serviço do vendedor); **"Especialista em Recuperação e Restituição de ICMS-ST no
+Estado de São Paulo"** (Mello — estreita até doer e é exatamente por isso que funciona).
+
+LISTA DE ATAQUE: **107 → 127**.
+
+Combos varridos até aqui: + contabilidade serviço caro (recuperação de crédito
+tributário, nacional, 172 ativos — **a regra do ticket está provada: o serviço caro
+puxa escritório, o barato puxa app**; o termo entrega contabilidade E advocacia
+tributária no mesmo saco; carrossel com card sem headline é padrão do nicho, 4ª vez).
+
+---
+
+## ADVOCACIA DE TICKET ALTO — holding familiar e planejamento sucessório (22/09, nacional)
+
+Varredura: `holding familiar planejamento sucessório`, BR, ACTIVE. **201 anúncios ativos**,
+**28 páginas distintas**. Foi o teste da regra do ticket num segundo eixo, e ela passou —
+mas com uma ressalva que vale escrever.
+
+**A ressalva:** ticket alto puxa escritório, sim. Mas quando o tema também virou **assunto
+de curso para o próprio profissional**, o infoproduto volta pelo outro lado. Aqui caíram
+três: Professor Edgar Madruga, "Holding Familiar" (workshop gratuito) e o "Método ESPIA"
+do Nelson Shikicima. Não é advogado vendendo holding para o cliente, é gente vendendo
+holding para o advogado. Fora esses três, sobram **25 alvos**.
+
+Isso fecha a regra em duas partes: **o ticket decide se o anunciante é escritório ou app;
+o tema decide se aparece curso junto.** Serviço barato → app. Serviço caro → escritório.
+Serviço caro E ensinável → escritório + curso.
+
+Também repetiu a mistura da varredura anterior: contabilidade e advocacia disputando a
+mesma palavra. DePizzol, Sintya Abreu e Fisconet são contábeis; o resto é jurídico.
+
+**Trilha A (dono no nome da página) — 18 de 25:** Joyce Nunes, Cabral e Nakasato Sociedade
+de Advogados, Sintya Abreu Contabilidade & Holding, Caio Roman, Marcio Rodrigo Pereira
+Holding, Holding com Bruno Couto Rocha, Marcondes Machado e Beek, Amorim e Giacomolli,
+Melo Braga, Negrão e Fares, Valéria Zangrandi Advogada, joaopaulogoncalvesoli, Advogado
+Paulo Henrique Buere, Eber Coloni, Fernando Corrêa da Silva Advogados, Camila Becker
+Advocacia, hoffmann.advogado, Marra Araujo Adv.
+
+**Demais alvos (7):** DePizzol Organização Contábil, Fisconet Soluções Tributárias,
+Planejamento Sucessório Holding Familiar Brasil, Governança Familiar Br, Minas Advocacia,
+MPC Law, heloisahvm.
+
+**Defeitos:**
+- **Título vazio, em escala**: 13 das 25 páginas rodam anúncio sem nenhuma promessa no
+  título — Melo Braga, Valéria Zangrandi, joaopaulogoncalvesoli, Governança Familiar Br
+  (5 anúncios), Paulo Buere, Minas Advocacia, MPC Law, Fernando Corrêa, heloisahvm,
+  hoffmann.advogado, Marra Araujo, Marcondes Machado, Planejamento Sucessório Brasil.
+  Mais da metade do nicho. É o defeito dominante aqui, não o carrossel.
+- **Carrossel com card sem headline** — 5ª e 6ª aparições: Cabral e Nakasato, Sintya Abreu.
+- **DEFEITO NOVO — carrossel com o mesmo texto em todos os cards**: Camila Becker repete o
+  próprio nome nos 10 cards; Amorim e Giacomolli repete "Fale conosco" 6 vezes; Fisconet
+  repete "Clique em Saiba Mais" 5 vezes. Pior que o card vazio: o card vazio é esquecimento,
+  esse é o anunciante achando que preencheu. O leitor desliza cinco telas e não lê nada novo.
+- **CTA que descreve o clique, não o resultado**: "Clique em Saiba Mais" (Fisconet, em
+  todos), "Toque No Botão Para Saber Mais 👉" (Joyce Nunes).
+
+**Quem escreve bem, para munição:** **"Planejamento sucessório é cuidado, não pressa"**
+(Negrão e Fares — desarma o medo de estar sendo empurrado, num tema onde todo mundo
+empurra); **"Seu patrimônio está preparado para o futuro da sua família?"** (Eber Coloni —
+pergunta na situação, como a advocacia de família que deu 11 Trilha A); **"A Passagem
+Secreta do ITBI na Holding"** (é infoproduto e está fora da lista, mas a headline é a
+melhor de todas: promete uma coisa específica que o leitor não sabe que existe).
+
+LISTA DE ATAQUE: **127 → 152**.
+
+Combos varridos até aqui: + advocacia ticket alto (holding familiar/planejamento
+sucessório, nacional, 201 ativos — **regra do ticket fechada em duas partes: o ticket
+decide escritório vs app, o tema decide se vem curso junto**; defeito dominante aqui é
+título vazio, 13 de 25 páginas; **defeito novo: carrossel com o mesmo texto repetido em
+todos os cards**).
+
+---
+
+## IMOBILIÁRIA DE TICKET ALTO — apartamento na planta e lançamento (23/09, nacional)
+
+Varredura: `apartamento na planta lançamento`, BR, ACTIVE. **1.793 anúncios ativos** — o
+maior combo já varrido, o dobro da advocacia de família. **26 páginas distintas na
+primeira página de resultados, 26 alvos: nenhuma descartada.**
+
+É a confirmação mais limpa da regra do ticket, no terceiro eixo seguido. **Zero app, zero
+portal, zero infoproduto.** Só corretor, imobiliária e incorporadora. Compare com o MEI,
+onde metade era aplicativo. Imóvel na planta é caro demais para app vender e específico
+demais para virar curso — então só quem faz o serviço anuncia.
+
+**Trilha A (dono no nome da página) — 13 de 26:** Isabela Corretora, Henrique Berticelli,
+Miriam Sepulvida Corretora Vivaz, Brüno Deretti — Corretor de Imóveis, Ignácio Figueiredo,
+Corretor Altair Barbosa Gouveia, Fabio Rocha — Consultor Imobiliário, Yan Coan Corretor de
+Imóveis, RodolfoRocha.SP, Jeremias Caetano Imóveis, Corretor José Aparecido, Celso
+Ferracini, Ademir — Consultor de Negócios Imobiliários.
+
+**Demais alvos (13):** Consultor Orion, Torresul Imobiliária Piçarras, Conect Home Imóveis,
+APÊ FÁCIL SP, Joal Empreendimentos, INC Uberaba — Vendas, AD Imóveis, Prospere Imóveis,
+Incorporare Empreendimentos, Apartamentos Grande São Paulo, S2 Imob, Empreendimentos na
+Planta, RRE Soluções Imobiliárias.
+
+**Defeitos:**
+- **DEFEITO NOVO — URL crua no lugar da headline**: Isabela Corretora roda com o título
+  `api.whatsapp.com`. Não é título vazio, é pior: é o endereço do link aparecendo onde
+  deveria estar a promessa. O leitor lê um domínio.
+- **Título vazio**: Joal Empreendimentos, AD Imóveis, Altair Barbosa, Fabio Rocha, S2 Imob,
+  José Aparecido.
+- **Repetição em escala** — aqui é o defeito dominante: Brüno Deretti mantém **14 anúncios
+  ativos alternando só DUAS headlines**; Ademir roda 5 com o mesmo `📍Zona Norte` (um
+  título que é só localização, não promete nada); RRE roda 4 iguais. Gastam como quem testa
+  e entregam como quem repete.
+- **CTA que manda o leitor trabalhar**: "CADASTRE - SE AGORA!" (Consultor Orion),
+  "Cadastre-se!!" (APÊ FÁCIL), "Clique em 'Saiba mais' e receba valores, disponibilidade e
+  todas as condições..." (Jeremias Caetano — a headline inteira é instrução de uso).
+- **Texto malfeito**: "tudo oque voce precisa em um só lugar," (Apartamentos Grande São
+  Paulo) — erro de português e vírgula solta no fim.
+
+**Quem escreve bem, para munição:** **"O metro quadrado que você não comprou vai custar o
+dobro em 2 anos"** (Brüno Deretti — a melhor do nicho: não vende o imóvel, cobra o preço de
+não agir; é a mesma mecânica de "boca a boca tem teto", só que com número); **"Invista na
+Tabela Zero em Porto Belo-SC"** (mesmo anunciante — termo de dentro do mercado, que
+qualifica quem já sabe o que é); **"More à 5min do Iguatemi"** (Prospere — benefício de
+lugar em cinco palavras, sem adjetivo).
+
+Observação para o nosso criativo: o defeito de repetição aqui é o mesmo que a nossa REGRA
+V3 existe para evitar. Deretti tem 14 anúncios e 2 mensagens. Nós temos 5 por conjunto e
+5 mensagens.
+
+LISTA DE ATAQUE: **152 → 178**.
+
+Combos varridos até aqui: + imobiliária ticket alto (apartamento na planta/lançamento,
+nacional, **1.793 ativos, o maior de todos**; 26 páginas, 26 alvos, **nenhuma descartada —
+a regra do ticket no seu caso mais limpo: caro demais para app, específico demais para
+curso**; defeito dominante é repetição em escala; **defeito novo: URL crua no lugar da
+headline**).
+
+---
+
+## ADVOCACIA CRIMINAL — prisão em flagrante (23/09, nacional)
+
+Varredura: `prisão em flagrante advogado`, BR, ACTIVE. **360 anúncios ativos**, 19 páginas
+distintas. Uma delas é curso (Professor Felipe Novaes, o "FlagranteDay"), sobram **18
+alvos** — e **16 deles são Trilha A**. É a melhor proporção de todas as varreduras, melhor
+que o Méier (9 de 12) e que a holding (18 de 25). Advocacia criminal é negócio de nome
+próprio: quase ninguém anuncia como "escritório", anunciam como pessoa.
+
+**Terceira confirmação da regra do tema ensinável**, e a mais escancarada: o Professor
+Felipe Novaes sozinho mantém **mais de 20 anúncios ativos** vendendo um evento gratuito
+sobre flagrante — para advogados, não para réus. Como em holding familiar, o tema virou
+produto de ensino e o curso divide o leilão com quem presta o serviço.
+
+**Trilha A (16):** Gonçalves e Dutra Advogados, Dr. Abilio Tavares, Gilderson Advogado,
+Edivar Souza Advocacia, Wander Sander Advocacia, Amorim Advogados Associados, Paulo
+Machado, Guilherme André Advogado, Ediomar Fabiano Fernandes, drfelipearauj_, Leonardo
+Soares Advogado Criminalista, Dr. Lucas Schneider Vargas, gabrielacavalcanteadv,
+geversonchagas.adv, Advogado Thiago Gouveia, Dra. Luciana Ramos.
+
+**Demais alvos (2):** "Escritório de Advocacia" (a página se chama isso mesmo, o que já é
+o defeito), ocriminalista2018.
+
+**Defeitos:**
+- **Repetição em escala, o pior caso já visto**: Advogado Thiago Gouveia mantém **13
+  anúncios ativos com a headline idêntica** — "Fale com um advogado". Treze. Pior que os 14
+  de Brüno Deretti, que ao menos alternava duas frases.
+- **URL crua no lugar da headline** — 2ª, 3ª e 4ª aparições, o defeito deixa de ser
+  curiosidade e vira padrão: Guilherme André (`api.whatsapp.com`), Wander Sander e
+  ocriminalista2018 (`instagram.com`).
+- **Carrossel com card sem headline** — 7ª e 8ª aparições: Paulo Machado, drfelipearauj_.
+- **Título vazio**: Dr. Abilio Tavares, Amorim, Leonardo Soares, gabrielacavalcanteadv (2),
+  geversonchagas.adv, Escritório de Advocacia.
+
+**ERRO DE AUDIÊNCIA, e é um achado novo:** a Dra. Luciana Ramos anuncia "🚨 Você foi preso
+em flagrante, você precisa de um advogado!". Fala com o preso. **Quem está preso não está
+no Instagram** — quem procura advogado às duas da manhã é a mãe, a esposa, o irmão. O
+anúncio inteiro está escrito para a pessoa errada. Vale como padrão a procurar: em serviço
+de urgência, o comprador quase nunca é o usuário.
+
+**Quem escreve bem, e é aula:** o **Gilderson Advogado** roda três anúncios com **três
+headlines diferentes, três ângulos diferentes** — "As primeiras 24 horas depois de uma
+prisão" (tempo), "A defesa começa na delegacia" (lugar e momento), "Atendimento criminal à
+noite e nos fins de semana" (disponibilidade, que é a objeção real de quem liga de
+madrugada). É exatamente o contrário do Thiago Gouveia: mesmo nicho, mesma semana, mesmo
+leilão — um testa três coisas, o outro repete uma treze vezes.
+
+LISTA DE ATAQUE: **178 → 196**.
+
+Combos varridos até aqui: + advocacia criminal (prisão em flagrante, nacional, 360 ativos —
+**16 de 18 em Trilha A, recorde de proporção: o nicho anuncia por nome próprio**; terceira
+confirmação do tema ensinável, com um curso sozinho rodando 20+ anúncios; **achado novo:
+erro de audiência — anunciar para o preso e não para a família que procura por ele**).
+
+---
+
+## IMOBILIÁRIA — aluguel residencial (23/09, Rio) + o teste do critério de longevidade
+
+Varredura: `casa para alugar Rio de Janeiro`, BR, ACTIVE. **27 anúncios ativos** — contra
+1.793 de "apartamento na planta". Diferença de 66 vezes no mesmo nicho, só trocando venda
+por aluguel.
+
+**A regra do ticket, agora provada pela negativa.** Aluguel residencial é comissão de um
+mês; planta é comissão de venda. No caro, 26 páginas disputando o leilão; no barato, o
+corretor simplesmente não anuncia — quem atende esse mercado é portal, e portal não compra
+palavra-chave de bairro. **Não voltar a varrer aluguel residencial.**
+
+O termo ainda puxou muito ruído, e o ruído confirma duas regras antigas de uma vez:
+"Mantiqueira" e "Canastra" são de **Minas**, não do Rio (cidade no termo não filtra geo, só
+texto), e entraram coworking, loja de andaimes, academia e uma "Cegonha de Aluguel". Dos 27,
+sobram **8 alvos** de verdade: BAP Administração de Bens, GEPS.imoveis, Encontre seu Lar,
+MegaClick, Allan Barros, pauloramos.1, olajeadense1891, Maria Vânia Corretora de Imóveis
+(Trilha A).
+
+### O teste do critério de longevidade — e a ressalva que ele merece
+
+Esta varredura serviu para uma segunda coisa: **é a primeira em que consegui medir há
+quanto tempo cada anúncio está no ar.** Com 27 resultados a lista inteira volta; com 1.793
+a Biblioteca devolve só as últimas horas. **O critério "no ar há mais de 60 dias" só é
+aplicável em combo magro** — em combo gordo, a ferramenta não deixa.
+
+Quem passa de 60 dias aqui: Xtay (232 dias), Maria Vânia (142), The Last Night Group (125),
+Maria Imóveis Mantiqueira (74), MegaClick (67).
+
+E aqui está a ressalva que muda como usar esse critério: **quatro dos cinco não têm headline
+nenhuma** — título vazio. Se longevidade fosse prova de copy boa, a conclusão seria que não
+escrever título é a melhor estratégia do mercado. Não é. **Anúncio velho também é anúncio
+esquecido**: campanha ligada há oito meses que ninguém olha, com verba baixa pingando.
+
+Fica então a regra corrigida, para as próximas varreduras: **tempo no ar só vale como sinal
+quando vem acompanhado de sinal de cuidado** — headline escrita, mais de uma variação viva,
+criativo trocado ao longo do período. Velho e abandonado é ruído; velho e mexido é ouro.
+
+LISTA DE ATAQUE: **196 → 204**.
+
+Combos varridos até aqui: + imobiliária aluguel residencial (Rio, 27 ativos — **magro, não
+repetir: a regra do ticket pela negativa, no barato o corretor não anuncia**; cidade no
+termo não filtra geo, Mantiqueira/Canastra são de MG; **regra nova sobre o critério de
+longevidade: só é medível em combo magro, e velho sem headline é anúncio esquecido, não
+anúncio campeão**).
+
+---
+
+## ENERGIA SOLAR — residencial, pela conta de luz (23/09, nacional)
+
+Varredura: `energia solar residencial economia conta de luz`, BR, ACTIVE. **384 anúncios
+ativos**, 25 páginas distintas, **24 alvos** (fora Rossi Sampaio, corretora que entrou por
+ruído).
+
+**A proporção de Trilha A desabou: 3 ou 4 em 24.** Energia Solar Reginaldo, Raio Solar
+Daniel, Solar Teles, Persol Jaú. O resto anuncia como empresa — Evolua, Engensol, Naster,
+Spenergy, EcoSun. É o oposto exato da advocacia criminal (16 de 18 com nome próprio) e diz
+algo sobre o nicho: **quanto mais técnica a entrega, menos o dono vende a própria cara.**
+Vale como regra de abordagem — em solar, falar com a empresa; em advocacia, com a pessoa.
+
+**O defeito da URL crua virou epidemia aqui.** Cinco páginas rodam com `api.whatsapp.com`
+no lugar da headline: Branco Energia, Megasulsolar, Raio Solar Daniel (em três anúncios),
+Engensol e Rocha Elétrica. Somando com advocacia criminal e imobiliária, o defeito já
+apareceu em nove páginas — e a concentração tem padrão: **é nicho de instalador e serviço
+técnico, gente que monta o anúncio sozinha e não percebe que o campo do título ficou com o
+endereço do link.**
+
+Outros defeitos: carrossel com card vazio (Instalações Segura, Voltprime — 9ª e 10ª
+aparições); nome da própria página como headline (Spenergy quatro vezes, Fort Sol);
+"Conversar no Messenger" como título (Naster); título vazio (Persol Jaú, nos dois).
+
+### O que este nicho ensina e os outros não ensinaram
+
+**Aqui todo mundo põe preço — e usa o preço como filtro, não como promessa.** "Kit solar a
+partir de R$ 399,90 por mês" (Solar Teles), "Energia Solar a Partir de R$400/mês" (EcoSun).
+Em advocacia e contabilidade ninguém cita valor; em solar é regra. A diferença é que solar
+vende parcela contra uma despesa que o cliente já tem.
+
+E daí sai a melhor munição da varredura, que é **qualificar pelo gasto atual do leitor**:
+**"Energia Elétrica maior que 300 reais?"** (lopessolarsystem) e **"Cansado de pagar mais de
+R$ 350?"** (MultServ Indaiatuba). Quem paga menos não clica; quem paga mais se reconhece na
+hora. É o mesmo mecanismo do nosso "para quem já fatura", só que com número — e é a forma
+mais barata de filtrar que apareceu em todas as varreduras até agora.
+
+A EcoSun faz outra coisa que vale copiar: **a mesma copy com a cidade trocada na headline**
+("Moradores de Governador Valadares e Região", "Moradores de Belo Horizonte e Região"). Seis
+anúncios, uma mensagem, várias praças. Personalização geográfica sem reescrever nada.
+
+LISTA DE ATAQUE: **204 → 228**.
+
+Combos varridos até aqui: + energia solar residencial (nacional, 384 ativos — 24 alvos,
+**só 3 ou 4 em Trilha A: quanto mais técnica a entrega, menos o dono vende a própria
+cara**; a URL crua no título é epidemia de nicho técnico, 9 páginas somando as varreduras;
+**munição nova: qualificar pelo gasto atual do leitor — "conta de luz maior que R$300?"** —
+e a personalização por cidade da EcoSun).
+
+---
+
+## VETERINÁRIA — clínica 24 horas (23/09, nacional)
+
+Varredura: `clínica veterinária 24 horas`, BR, ACTIVE. **591 anúncios ativos**, 35 páginas
+distintas, **31 alvos** (fora Cursos vet Paraguay e Vetclinic Cursos, que são curso, e
+Chumbo Leve Proteção Radiológica, que é fornecedor vendendo para a clínica, não clínica).
+
+**Trilha A: 7 de 31** — Bündchen, SmartDog Teo, Munari, Veterinária Bassin, Tabanez,
+Veterinária & Estética Pacheco, Coellho. Fica no meio do caminho entre a advocacia criminal
+(16 de 18) e a energia solar (3 de 24), e isso confirma a regra do nicho técnico por um
+terceiro ponto: **veterinária é metade relação pessoal, metade entrega técnica, e o nome
+próprio na fachada acompanha essa metade.**
+
+**Defeitos.** A URL crua no título continua sendo o defeito número um: `api.whatsapp.com`
+em Guapeka's, Mundo Silvestre, Uxvet, Ceprovet, Pet Peludim, Vet Norte, Tabanez e Bela
+Vista; `instagram.com` em Vet Suporte, Hellen Cordeiro, Arca de Noé, UpaPets (quatro
+anúncios), Vita Vet, Clínica da Hora, Satori, Vet Center 24H e Guarany. **São 17 páginas só
+nesta varredura** — mais que as nove somadas de todas as anteriores. Carrossel com card
+vazio, com o nome da página repetido e barras vazias no lugar das manchetes: Tierplatz,
+Arca de Noé, Vita Vet, Miados e Latidos. Título vazio: SmartDog Teo, Mavie Vet, Bündchen,
+Animalmedic (dois), Bicho Livre, Cursos vet Paraguay.
+
+### O que este nicho ensina e os outros não ensinaram
+
+**O termo "24 horas" é o filtro de gasto do nicho** — é o equivalente veterinário do
+"conta de luz maior que R$300?" da energia solar. Quem anuncia plantão está dizendo que tem
+estrutura e folha para sustentar, ou seja, tem verba. Vale como regra de varredura: em
+qualquer nicho, **o termo que denuncia estrutura cara denuncia junto quem tem dinheiro para
+anunciar.**
+
+**E aqui apareceu o plano de assinatura** — Fauna Pet roda "Conheça os planos👉" em dois
+anúncios. É o único nicho varrido até agora que vende recorrência em vez de atendimento
+avulso, e isso muda a abordagem: para essas páginas o argumento não é "mais clientes", é
+"mais assinantes", que é exatamente o que a gente entrega.
+
+**Munição direta para o nosso criativo:** três páginas usam o CTA no imperativo da decisão
+do dono do pet — "AGENDE A CONSULTA DO SEU PET" (Animal Help, em dois), "AGENDAR AGORA"
+(Coellho, em dois), "Agende o banho e tosa do seu pet" (Coellho). É o mesmo movimento do
+nosso "É O MEU CASO": **o CTA que descreve a ação do leitor, não a do anunciante.**
+
+LISTA DE ATAQUE: **228 → 259**.
+
+Combos varridos até aqui: + veterinária clínica 24 horas (nacional, 591 ativos — 31 alvos,
+7 em Trilha A, confirmando por um terceiro ponto a curva nome-próprio × entrega técnica;
+**URL crua no título em 17 páginas de uma varredura só**; munição nova: o termo que denuncia
+estrutura cara denuncia quem tem verba, e o plano de assinatura da Fauna Pet).
+
+---
+
+## FISIOTERAPIA E PILATES — clínica (23/09, nacional)
+
+Varredura: `clínica de fisioterapia e pilates`, BR, ACTIVE. **936 anúncios ativos**, 34
+páginas distintas, **30 alvos** (fora Vedius, que é software; Cursosrs, que é curso;
+Esquadrão da Juventude; e Mariana Gestora de Tráfego, que é concorrente — ver abaixo).
+
+**Trilha A: 1 de 30** — só a Clínica Dayse Andrade. É a menor proporção de todas as
+varreduras, menor até que energia solar. Reforça a curva: **quanto mais a entrega é
+clínica/técnica, menos o dono aparece no nome** — em fisioterapia a marca é sempre um nome
+de conceito (Plenitude, Habilitare, Corporis, Cedrus, Limonium).
+
+**Defeito novo, e é o maior que apareceu até agora: uma página só disputando o leilão
+contra ela mesma.** A Fisio Nova roda **11 anúncios ativos** com duas manchetes repetidas —
+"Cuide da sua saúde" em três e "FALE AQUI 👉" em oito. Não é teste: é a mesma mensagem
+multiplicada. Quem faz isso paga mais caro pelo próprio público. A Clínica Plenitude faz o
+mesmo em escala menor (três anúncios idênticos, título vazio) e a Viver Fisioterapia também
+(três, dois sem título). **Munição direta: "sua agência está fazendo você competir com você
+mesmo?"**
+
+Título vazio é epidemia aqui — 14 páginas: Fisyobem, Dor Crônica, Cedrus, Dayse Andrade,
+Plenitude (três), Vida Ativa, Habilitare, Corporis, Florescer, Abba (dois), Viver (dois),
+Esquadrão. URL crua: luvittafisio, Paf Lagos, Clínica GL, Cursosrs (`instagram.com`),
+movimente_pilates (`api.whatsapp.com`), Santa Lúcia (`fb.com` — variante nova). Carrossel
+com card vazio: Fisio Victory, FisioVida, Clube Carioca. Nome da página como headline:
+Saúde e Movimento, com o título inteiro do perfil do Instagram ("• Instagram photos and
+videos") dentro do campo.
+
+### O que este nicho ensina e os outros não ensinaram
+
+**A personalização por cidade na headline se confirmou num segundo nicho.** A Fisio Clínica
+roda "⚠️ATENÇÃO ITAGUARA!⚠️" e "⚠️ATENÇÃO CLÁUDIO!⚠️" — mesma copy, cidade trocada, igual à
+EcoSun em solar. Dois nichos sem nenhuma relação chegaram sozinhos na mesma solução; deixa
+de ser achado e vira padrão para copiar.
+
+**E apareceu um gancho que nenhum outro nicho tinha: usar um benefício que o leitor já
+paga.** A Clínica Zelo anuncia "Seu benefício Wellhub agora vale na Zelo." Não é desconto, é
+lembrar que o dinheiro já saiu. É o mesmo mecanismo do "conta de luz maior que R$300?" da
+energia solar, pelo outro lado: **qualificar pelo que a pessoa já gasta, seja para doer,
+seja para aproveitar.**
+
+**Concorrente direto na varredura:** "Mariana Gestora de Tráfego — Mais alunos para SEU
+ESPAÇO", anunciando exatamente para estúdios de pilates. É a primeira vez que uma gestora de
+tráfego aparece disputando um nicho que a gente varre. Vale acompanhar a página.
+
+LISTA DE ATAQUE: **259 → 289**.
+
+Combos varridos até aqui: + fisioterapia e pilates (nacional, 936 ativos — 30 alvos, **só 1
+em Trilha A, o piso da curva nome-próprio × entrega técnica**; defeito novo e grande: **uma
+página com 11 anúncios repetidos competindo contra ela mesma**, munição direta para a nossa
+copy; a personalização por cidade na headline se confirmou num segundo nicho; gancho novo:
+o benefício que o leitor já paga, tipo Wellhub).
+
+---
+
+## ARQUITETURA E INTERIORES — escritório (23/09, nacional)
+
+Varredura: `escritório de arquitetura projeto de interiores`, BR, ACTIVE. **628 anúncios
+ativos**, 31 páginas distintas, **23 alvos** (fora seis páginas de imóveis, duas de curso
+para arquiteto — Renata Pocztaruk e Agilizarq — e três de fornecedor: Talismã Pedras,
+Design Supplier, Rede Sim).
+
+**A regra "arquitetura puxa imobiliária" não se resolve com termo mais específico.** Eu
+somei "projeto de interiores" achando que isso filtraria, e ainda vieram seis páginas de
+imóveis: Bossa Nova Sotheby's, Tatiana Machado Broker, daniel.o.corretor, Eduardo Cleoni,
+Sheyla Siqueira, Guilherme Neilly. O motivo é o inverso do que eu supunha: não é o termo que
+está largo, **é o anúncio de imóvel de alto padrão que escreve "projeto assinado por" e
+"arquitetura autoral" dentro do texto.** Filtrar pelo termo não resolve; é preciso filtrar
+pela página.
+
+**Trilha A: 14 de 23** — Rafael Ramos, Ana Bonim, Jackelyne Tavares, Travagli, Paula
+Knabben, Mazur, Rita Braga, Letícia Broch, Thaíres Marques, Natália Bittencourt, Edilene
+Savazzi, Patricia Kogake, Guilherme Rahde, Dua. É a segunda melhor proporção de todas, atrás
+só da advocacia criminal — **e desmonta a leitura simples que eu tinha feito em solar.** Não
+é "entrega técnica esconde o dono": arquitetura é técnica e o dono está em quase todo nome.
+O que decide é **se o cliente escolhe uma pessoa ou contrata uma capacidade.** Advogado e
+arquiteto a pessoa escolhe; instalador de painel solar e clínica 24h ela contrata.
+
+**Defeito novo e recorde: a descrição inteira do imóvel dentro do campo de título.** A Bossa
+Nova Sotheby's roda três anúncios em que a headline tem **milhares de caracteres** — seis
+descrições completas de imóvel emendadas com "|", cada uma com metragem, número de suítes,
+vagas e nome do paisagista. Nenhuma dessas linhas aparece legível no feed; o campo corta na
+primeira dúzia de palavras. É uma página cara rodando anúncio que ninguém consegue ler.
+
+**A auto-concorrência se confirmou num segundo nicho:** a AUPI Arquitetura roda **seis
+anúncios ativos** com a mesma headline "Saiba mais". Junto com a Fisio Nova (11 anúncios),
+já são dois nichos sem relação nenhuma cometendo o mesmo erro. Vira padrão, não caso isolado.
+
+Título vazio: 13 páginas. Nome da página como headline: A2, Atrio (com "Átrio Lab"
+alternando em sete cards), offset arquitetos (com o título do perfil do Instagram inteiro,
+repetido seis vezes). URL crua: digitalarquitetura.
+
+### O que este nicho ensina e os outros não ensinaram
+
+**A melhor headline de todas as varreduras apareceu aqui**, da Thaíres Marques: **"Seu
+projeto pode ser lindo no papel e virar outra coisa na obra."** Não promete, não cita preço,
+não diz quem ela é — nomeia um medo que o cliente já tem e que ninguém verbaliza. É o modelo
+exato do que a gente quer no bloco "geramos, atendemos e agendamos": *o lead pode ser ótimo
+no relatório e virar outra coisa no telefone.*
+
+LISTA DE ATAQUE: **289 → 312**.
+
+Combos varridos até aqui: + arquitetura e interiores (nacional, 628 ativos — 23 alvos, **14
+em Trilha A, segunda melhor proporção**; corrige a regra de solar: o que decide o nome
+próprio não é ser técnico, é **se o cliente escolhe uma pessoa ou contrata uma capacidade**;
+"projeto de interiores" NÃO limpa o ruído de imobiliária, porque é o anúncio de alto padrão
+que usa a palavra; defeito recorde: **descrição inteira do imóvel dentro do campo de
+título**; auto-concorrência confirmada num segundo nicho, AUPI com 6 anúncios iguais).
+
+---
+
+## ESCOLA DE IDIOMAS — matrícula (23/09, nacional)
+
+Varredura: `escola de idiomas matrícula inglês`, BR, ACTIVE. **115 anúncios ativos** — o
+nicho mais magro de todos os varridos até agora, menos que a metade da contabilidade MEI.
+27 páginas distintas, **22 alvos**.
+
+**A descoberta da varredura não é um alvo: é um filtro novo.** Cinco páginas com nome de
+pessoa — Lucy Santos, Carlos Souza, Wagner Rufino, Taty Lucena, Kelly Watson — rodam a
+**mesma headline idêntica**, "Não estude inglês antes de ver isto 👉", em **onze anúncios**.
+E todas cobram em **USD**, não em BRL. Não são escolas nem professores: é uma operação de
+afiliado/infoproduto usando páginas com cara de gente local.
+
+**Regra nova, barata e que serve em toda varredura daqui em diante: moeda diferente de BRL
+denuncia que o anunciante não é negócio brasileiro.** O campo `currency` vem em toda
+resposta da Biblioteca e eu nunca tinha usado. Economiza o trabalho de abrir a página para
+descobrir que é infoproduto.
+
+**A auto-concorrência apareceu pela terceira vez, e agora numa franquia grande.** A Wizard
+nacional roda **11 anúncios ativos** com a headline idêntica "Inglês que destrava seu futuro
+🚀", e a Wizard SJC roda **5** com "Matrículas Abertas". Junto com Fisio Nova (11) e AUPI
+(6), são quatro páginas em três nichos sem relação. **Isso não é erro de amador: é erro de
+quem tem verba e nenhum controle de leilão** — o que torna a copy "sua agência está fazendo
+você competir com você mesmo?" boa para empresa grande também, não só para clínica de bairro.
+
+Outros defeitos: nome da página como headline (KNN Pindamonhangaba, Escola M60); título do
+perfil do Instagram inteiro repetido cinco vezes (inglescomsamira); "Saiba mais" e "Toque e
+Saiba Mais 👉" repetido em quatro cards (CNA Teresina, CNA Vila Mariana); título vazio
+(americanacademyscs, Minds Santa Rita nos dois); português de Portugal no CTA ("Conversa
+connosco" — Poliglotix).
+
+**Um alvo do Rio:** Yes Irajá, rodando "🔥ÚLTIMAS VAGAS".
+
+### O que este nicho ensina e os outros não ensinaram
+
+**A melhor oferta de risco zero de todas as varreduras**, da Five Nova Friburgo: *"A aula
+experimental é gratuita e sem compromisso: ele vive uma aula de verdade, e vocês decidem
+depois."* Ela não promete resultado — ela **descreve o que vai acontecer** e devolve a
+decisão para quem lê. É o caminho mais honesto para o nosso bloco dos R$5k, e resolve o
+problema que ficou em aberto lá: "não gostou" é subjetivo; **"você vê acontecer e decide
+depois" não é.**
+
+LISTA DE ATAQUE: **312 → 334**.
+
+Combos varridos até aqui: + escola de idiomas (nacional, 115 ativos — o nicho mais magro de
+todos; 22 alvos; **filtro novo: `currency` diferente de BRL denuncia infoproduto/afiliado
+disfarçado de página local**, 5 páginas com nome de pessoa e a mesma copy; auto-concorrência
+pela terceira vez e agora em franquia grande — Wizard com 11 anúncios iguais; melhor oferta
+de risco zero já vista, da Five Nova Friburgo).
+
+---
+
+## ÓTICA — óculos de grau (23/09, nacional)
+
+Varredura: `óculos de grau armação completa`, BR, ACTIVE. **131 anúncios ativos**, 35 páginas
+distintas, **31 alvos** (fora Verlux Brasil Ofertas, Millu Shop, Querover e Oculosjaoficial,
+que são e-commerce de dropship, não loja).
+
+**A regra do termo de PRODUTO se confirma, mas com ressalva.** "Óculos de grau" de fato traz
+ótica de rua onde "ótica" trazia distribuidor — mas traz junto **dropship de produto barato**
+("Óculos de leitura HD com ajuste automático", "Óculos 2 em 1") e **oftalmologista**. Dá
+para separar sem abrir a página: a loja real põe cidade ou bairro no nome; o dropship põe
+"Ofertas", "Shop" ou "Brasil".
+
+**Achado que vale mais que a lista: o nicho já tem uma máquina de lead pronta rodando.**
+Cinco páginas operam no modelo *exame grátis + armação cortesia* com nome de instituto —
+Projeto Enxergar (Castanhal), Instituto Claro, Instituto Visão Solidária (Itaperuna/RJ),
+Visão no Lar, Visão Perfeita (Manaus, três unidades). As headlines são de urgência pura:
+"🚨 VAGAS ABERTAS: EXAME + ARMAÇÃO DE GRAU GRÁTIS NA ZONA LESTE", "🚨 PARE TUDO,
+ITAPERUNA!". **É exatamente o nosso modelo de negócio — gerar lead qualificado por oferta de
+entrada — só que operado pela própria ótica.** Quem já faz isso sozinho é alvo difícil; quem
+não faz e vê o concorrente fazendo é alvo fácil. Vale usar isso na abordagem.
+
+**Auto-concorrência, quarta aparição:** Óticas Lillo com **6 anúncios ativos** e a mesma
+headline "Minha Experiência Completa na Óticas Lillo! 👓". Ótica Curitiba com 3, Ótica da
+Cidade e Stile com 2 cada. Quatro nichos, cinco páginas, o mesmo erro.
+
+**Defeito novo e barato de identificar: o texto padrão do botão deixado no campo do
+título.** "Converse conosco" aparece como headline em cinco páginas — Stile, Oticasmaia,
+Suenny Maia, Equilibrium, Ótica da Cidade. Não é URL crua nem título vazio: é a pessoa que
+nunca abriu o campo. Some com "Nos chame agora mesmo" (Ótica Curitiba) e "Fale conosco!"
+(Mercadão Paracatu) e vira a família de defeito mais comum do nicho.
+
+E um defeito que eu não tinha visto em lugar nenhum: **headline que diz o que NÃO tem.** O
+Projeto Enxergar roda "CIRURGIAS NÃO ESTÃO DISPONIVEIS" como título. Está gastando para
+avisar quem o procurou que não vai ser atendido.
+
+**Trilha A: 6 de 31** — Suenny Maia, Oticasmaia, Josy JMB, Fábio Medina Rocha, Dra Raisa
+Rubert, Barboza Saab. Baixo, e coerente com a regra corrigida na arquitetura: óculos a
+pessoa **contrata uma capacidade**, não escolhe um dono.
+
+**Alvo do Rio:** Instituto Visão Solidária — Itaperuna/RJ.
+
+LISTA DE ATAQUE: **334 → 365**.
+
+Combos varridos até aqui: + ótica óculos de grau (nacional, 131 ativos — 31 alvos, 6 em
+Trilha A; o termo de produto traz a loja real mas também dropship, separável pelo nome da
+página; **achado grande: cinco páginas já rodam o modelo "exame grátis + armação cortesia",
+que é a nossa própria mecânica de lead operada pela ótica**; auto-concorrência na quarta
+aparição, Óticas Lillo com 6 iguais; **defeito novo: o texto padrão do botão — "Converse
+conosco" — deixado no campo do título, em 5 páginas**).
+
+---
+
+## ESTÚDIO DE TATUAGEM (23/09, nacional)
+
+Varredura: `estúdio de tatuagem agendar sessão`, BR, ACTIVE. **27 anúncios ativos** — o menor
+número de todas as varreduras, menor até que o aluguel residencial no Rio. 16 páginas
+distintas, **16 alvos**, e como o combo é magro o retorno trouxe os 27, o que torna a
+longevidade medível de verdade aqui.
+
+**Trilha A: 11 de 16** — gledstontattoo, Salerno, Yumi, Ana Julia, Carol Mendonça, Marcos
+Maranho, Geysler Rodrigues, Hiago Ribas, João Kovalski, Tarciana Negromonte, Alex Bosevic.
+Confirma pela quarta vez a regra corrigida na arquitetura: **tatuagem o cliente escolhe uma
+pessoa, e o nome dela está na fachada.**
+
+**A regra de longevidade funcionou exatamente como foi escrita.** Cinco anúncios estão no ar
+há muito tempo, e o título separa os dois casos:
+
+- **Campeão de verdade:** INK Legacy, "ENVIE SUA IDEIA", no ar desde **novembro de 2025** —
+  onze meses. Título curto, imperativo, que descreve a ação do leitor. É a terceira vez que
+  a fórmula "CTA que descreve a ação de quem lê" aparece entre os melhores.
+- **Abandonados, não campeões:** arthousebangu (outubro e novembro de 2025), Alex Bosevic
+  (novembro de 2025), Tarciana Negromonte (junho), João Kovalski (julho) — **todos com o
+  campo de título vazio.** Anúncio velho sem headline é dinheiro saindo sem ninguém olhar,
+  e aqui tem um que está assim há quase um ano.
+
+**Auto-concorrência, quinta aparição:** Geysler Rodrigues com **6 anúncios ativos** e a
+headline idêntica "Tatuagem Realista em JF"; Junco Tattoo com 3 iguais ("Estúdio de tatuagem
+em Itapema") mais 2 iguais ("Orçamento grátis no WhatsApp"). Cinco nichos, seis páginas.
+**Isso deixou de ser curiosidade e virou o defeito mais universal que a gente achou** — mais
+comum que URL crua, mais comum que título vazio.
+
+Outros defeitos: URL crua (gledstontattoo, Artes Marginais); "Converse conosco" no título
+(Ana Julia); título vazio em 7 das 16 páginas.
+
+**Dois alvos do Rio:** ANA JULIA Botafogo • Tattoo (Botafogo) e arthousebangu (Bangu) — e o
+de Bangu está rodando anúncio sem título desde outubro de 2025.
+
+LISTA DE ATAQUE: **365 → 381**.
+
+Combos varridos até aqui: + estúdio de tatuagem (nacional, 27 ativos — o combo mais magro de
+todos, 16 alvos, 11 em Trilha A; **a regra de longevidade se comprovou: INK Legacy com
+título forte há 11 meses é campeão, quatro páginas com título vazio há meses são
+abandonadas**; auto-concorrência na quinta aparição — Geysler com 6 iguais — e agora é o
+defeito mais universal da base; dois alvos do Rio, Botafogo e Bangu).
+
+---
+
+## PET SHOP — banho e tosa (23/09, nacional)
+
+Varredura: `banho e tosa pet shop leva e traz`, BR, ACTIVE. **16 anúncios ativos** — novo
+piso, menor que tatuagem. 14 páginas, **13 alvos**.
+
+**O filtro de moeda, criado na varredura de idiomas há duas rodadas, funcionou de primeira.**
+"3D PET PRO — Pack de 300 Modelos STL Pet", **em USD**: infoproduto para quem tem impressora
+3D, não pet shop. Descartado sem precisar abrir a página. A regra está valendo.
+
+**O caso mais extremo de anúncio abandonado de toda a base está aqui.** A página Flor Dicão
+roda um anúncio **desde 24 de abril de 2025 — dezessete meses — com o campo de título
+vazio.** Não é campeão: é verba saindo há um ano e meio sem ninguém olhar. O segundo pior é
+petlandmongagua, com `api.whatsapp.com` no título desde abril deste ano.
+
+**Botão padrão no título, agora em inglês:** o Cantinho do Cão roda **"Chat with us"** como
+headline — o texto que a Meta preenche sozinha, sem nem estar traduzido. Petit Gattoo roda
+"Converse conosco" desde maio. Some com as cinco óticas da varredura anterior e a família
+"nunca abri o campo do título" já tem oito páginas.
+
+**Auto-concorrência, sexta aparição:** Pet Shop Lavô Tosô com 3 anúncios idênticos, Petpeluxo
+com 2. Seis nichos seguidos.
+
+**E um defeito de meio-termo que vale registrar como categoria própria.** O Lavô Tosô escreve
+no campo de título a frase inteira: *"Banho, tosa bebê e serviço de leva e traz em Vicente
+Pires. Agende agora e garanta o melhor cuidado para o seu pet!"* — 120 caracteres, corta na
+metade no feed. É a versão pequena do que a Bossa Nova faz com descrição de imóvel. **Vira
+regra de diagnóstico: título acima de ~40 caracteres é texto de legenda no lugar errado.**
+
+### O que este nicho ensina
+
+**Nicho magro não é nicho ruim — é nicho sem concorrência de leilão.** Dezesseis anúncios no
+Brasil inteiro para banho e tosa significa que qualquer pet shop que anuncie direito domina a
+praça dele por muito pouco. É o argumento mais forte que a gente tem para abordar aqui, e vale
+o mesmo para tatuagem (27) e idiomas (115): **"seus concorrentes não estão anunciando."**
+
+LISTA DE ATAQUE: **381 → 394**.
+
+Combos varridos até aqui: + pet shop banho e tosa (nacional, 16 ativos — novo piso da base,
+13 alvos; **o filtro de moeda funcionou de primeira e descartou um infoproduto em USD**;
+recorde de anúncio abandonado: Flor Dicão há 17 meses com título vazio; botão padrão no
+título agora em inglês, "Chat with us"; auto-concorrência na sexta aparição; **regra nova de
+diagnóstico: título acima de ~40 caracteres é legenda no lugar errado**; e o argumento de
+abordagem para nicho magro — "seus concorrentes não estão anunciando").
+
+---
+
+## ACADEMIA (23/09, nacional)
+
+Varredura: `academia musculação plano mensal sem taxa`, BR, ACTIVE. **27 anúncios ativos**,
+9 páginas distintas, **8 alvos** (fora a totalpass, que é plataforma de benefício, não
+academia).
+
+**Aqui a auto-concorrência deixou de ser um defeito de uma página e virou a explicação do
+número do nicho.** Das 27 peças ativas, **22 saem de quatro páginas**:
+
+| página | anúncios iguais | headline repetida |
+|---|---|---|
+| WGP Fight Gym | **10** | "Agende sua aula experimental" |
+| academianewlifesc | **6** | (título vazio nos seis) |
+| Studio Prime Jackeline Panceri | 4 | "Agende sua aula gratuita!" |
+| Sky Fit Monte Alto | 2 | nome da página + "Fale conosco" ×7 cards |
+
+**Isso muda como eu leio o tamanho de um nicho.** "27 anúncios ativos" parecia mercado
+magro; na verdade são **oito anunciantes**, e metade deles multiplicando a mesma peça. O
+número da Biblioteca mede volume de anúncio, não volume de concorrente — e em nicho magro a
+diferença é de três para um. **Regra nova: em combo com menos de ~50 ativos, contar páginas
+antes de concluir qualquer coisa sobre o tamanho do mercado.**
+
+**A academianewlifesc junta os dois piores defeitos ao mesmo tempo:** seis anúncios ativos,
+todos com **título vazio**, o mais antigo de **maio de 2026**. Está competindo consigo mesma
+com peças que ninguém consegue ler, há quatro meses.
+
+**Variante nova do botão padrão no título:** a Panobianco roda a headline **"Instagram"** —
+literalmente o nome da rede no campo do título. Some com "Converse conosco" (5 óticas),
+"Chat with us" (Cantinho do Cão), "Fale conosco" (Sky Fit ×7, Mercadão) e a família passa de
+dez páginas.
+
+**Trilha A: 2 de 8** — Studio Prime Jackeline Panceri e nalukecastle. Baixo, e coerente:
+academia o cliente contrata uma estrutura, não escolhe uma pessoa. A exceção é justamente o
+studio de personal, que é o formato em que a pessoa é o produto.
+
+LISTA DE ATAQUE: **394 → 402**.
+
+Combos varridos até aqui: + academia (nacional, 27 ativos — mas **só 8 anunciantes: 22 das
+27 peças saem de 4 páginas**, o que obriga uma regra nova: em combo com menos de ~50 ativos,
+contar páginas antes de concluir qualquer coisa sobre o tamanho do mercado; WGP Fight Gym com
+10 anúncios iguais; academianewlifesc com 6 de título vazio desde maio; variante nova do
+botão padrão — headline "Instagram" da Panobianco).
+
+---
+
+## ODONTOLOGIA — Copacabana (23/09, Rio)
+
+Varredura: `dentista Copacabana`, BR, ACTIVE. **117 anúncios ativos** — e **apenas 3 páginas
+distintas**, **3 alvos**.
+
+**Esta varredura é a prova definitiva da regra escrita na rodada anterior.** Dos 50 anúncios
+que a Biblioteca devolveu, **42 são de uma página só**: a Odontovic, rodando "Agende sua
+avaliação de Implantes Dentários" dezenas de vezes, mais seis com "Implantes dentários em
+Campo Grande" e cinco com título vazio. A Realizart roda outros **7 idênticos** ("Dentista em
+Copacabana"). Sobra **um** anunciante com uma peça só: Dr. José Ed. Carvalho.
+
+Ou seja: o combo que parecia ter 117 concorrentes tem **três**. Se eu tivesse lido o número
+como mercado, teria descartado Copacabana como bairro saturado — e é o contrário, é o bairro
+mais vazio que a gente varreu no Rio.
+
+**E tem um detalhe que muda a leitura do nicho inteiro:** a Odontovic **nem é de
+Copacabana** — é de Campo Grande. Ela aparece aqui porque roda dezenas de variações
+geográficas da mesma peça. **Regra nova: em varredura por bairro, conferir se a página é
+mesmo do bairro antes de contar como alvo local.** O nome do bairro no título não garante
+nada; garante só que alguém comprou aquela palavra.
+
+**Trilha A: 1 de 3** — Dr. José Ed. Carvalho.
+
+**Os três são alvo, e por motivos diferentes:** a Odontovic gasta muito e compete contra si
+mesma em escala industrial; a Realizart faz o mesmo em escala pequena; o Dr. José Ed.
+Carvalho tem uma peça só, com headline genérica ("Agende sua consulta!"), e é o caso clássico
+de quem anuncia pouco e mal.
+
+LISTA DE ATAQUE: **402 → 405**.
+
+Combos varridos até aqui: + odontologia Copacabana (Rio, 117 ativos mas **só 3 páginas** —
+prova definitiva de que anúncio ≠ concorrente: 42 dos 50 retornados são de uma página só;
+**regra nova: em varredura por bairro, conferir se a página é do bairro — a Odontovic domina
+o termo "Copacabana" sendo de Campo Grande**; Copacabana é o bairro mais VAZIO varrido no
+Rio, não o mais saturado).
+
+---
+
+## ESTÉTICA — preenchimento labial, Tijuca/RJ (23/09, Rio)
+
+Varredura: `preenchimento labial Tijuca RJ`, BR, ACTIVE. **48 anúncios ativos**, 20 páginas
+distintas, **19 alvos** (fora HOF Na Prática, que é curso para o profissional — a regra do
+tema ensinável puxando curso se confirma pela quarta vez).
+
+**A regra do procedimento funcionou.** "Harmonização facial <bairro>" rendia quase nada;
+trocar pelo procedimento trouxe 48 anúncios e uma lista limpa de clínica de rua. Fica
+confirmada.
+
+**Recorde de anúncio abandonado no Rio, e o pior caso combinado da base inteira:** a **Huff
+Life — Barra da Tijuca** roda **12 anúncios ativos**, quase todos com **título vazio**, o
+mais antigo de **19 de janeiro de 2026** — oito meses. É auto-concorrência e abandono ao
+mesmo tempo, na mesma página: doze peças comprando o mesmo público, e ninguém abriu o campo
+do título desde janeiro. A unidade de Petrópolis faz igual, em escala menor.
+
+**A rede Espaço Facial mostra o mesmo erro em três endereços:** Tijuca, Shopping Downtown e
+Shopping Millennium, quatro anúncios cada, todos com "AGENDE JÁ" ou "AGENDE AQUI". Doze
+peças, duas headlines. A Clínica Araujo RJ roda quatro com "Converse conosco" — o botão
+padrão no título de novo, agora no Rio.
+
+**Trilha A: 9 de 19** — Dra. Maria Beatriz Viana, Paulo Vitor, Iana Simão, Fábio Motta, Dra.
+Thaiana Fernandes, Mirian Silva, Lana Faria, Arthur Morais, Willmed. Coerente com a regra
+corrigida: procedimento estético a pessoa escolhe quem vai aplicar, não onde aplicar.
+
+**Alvos do Rio nesta varredura:** Espaço Facial Tijuca, Dom Esthétic (Tijuca), Huff Life
+Barra da Tijuca, Huff Life Petrópolis, Botopremium Recreio, Botopremium Downtown e Clínica
+Araujo RJ.
+
+### O que este nicho ensina e os outros não ensinaram
+
+**A oferta de entrada aqui é o preço de custo, não o desconto.** Fábio Motta anuncia
+"Harmonização Facial pagando apenas o material na Barra da Tijuca" e Arthur Morais, "Pague o
+Valor de Custo na sua Harmonização". Não é "50% off": é abrir a estrutura de custo e abrir
+mão da margem na primeira vez. Some com o "exame grátis + armação cortesia" das óticas e vira
+padrão: **em nicho onde o cliente volta, a primeira vez é vendida no custo para comprar a
+segunda.** É o argumento que falta no nosso bloco de fundo de funil.
+
+E uma headline que merece registro pelo avesso: a Iana Simão roda **"Lábios lindos sem
+volumizar"** — vende o procedimento pela objeção de quem tem medo de exagerar. Nomear o medo
+do cliente vale mais que prometer o resultado.
+
+LISTA DE ATAQUE: **405 → 424**.
+
+Combos varridos até aqui: + estética preenchimento labial Tijuca/RJ (48 ativos — 19 alvos,
+9 em Trilha A; **a regra do procedimento em vez de "harmonização facial" está confirmada**;
+pior caso combinado da base: Huff Life Barra com 12 anúncios, título vazio, desde janeiro;
+rede Espaço Facial com 12 peças e 2 headlines em três endereços; **oferta de entrada no
+preço de custo — o mesmo mecanismo do exame grátis das óticas**; e a headline pela objeção,
+"lábios lindos sem volumizar").
+
+---
+
+## IMOBILIÁRIA — apartamento à venda, Niterói (23/09, Rio)
+
+Varredura: `apartamento à venda Niterói`, BR, ACTIVE. **84 anúncios ativos**, 38 páginas
+distintas, **36 alvos**. Primeira varredura em Niterói.
+
+**Trilha A: 19 de 36** — metade. Barbara, Gabriel César, Eveline Andrade, Lucy Santos, Amanda
+Mendes, Dani Marmo, Fábio Massa, Danilo Gomes, Evelyn Bevilaqua, Carlos Macedo, Fernanda
+Mello, Antônio Quinto, André Cyriaco, Victor Mafram, Jorge Henrique, Paulo Guerreiro, Felipe,
+Wallace Gomes, Natália. Confirma o que o Méier já tinha mostrado: **corretor é o nicho em que
+o nome próprio é a fachada**, e é por isso que imobiliária continua rendendo mais alvo que
+qualquer outro.
+
+**Recorde de carrossel vazio da base inteira.** O fabiomassacorretor roda um anúncio com
+**vinte cards** e o título vazio em todos os vinte. A página Promoção de Imóveis faz o mesmo
+com quinze. São peças caras, de carrossel, em que ninguém escreveu uma única manchete.
+
+**E o botão padrão virou carrossel inteiro:** a Eveline Andrade roda "Converse conosco"
+repetido em **dez cards**; o Carlos Macedo, "Fale conosco" em **oito**; a invest.predial
+repete o nome da própria empresa em **dez**. Não é um card esquecido — é o campo nunca aberto,
+multiplicado pelo número de fotos do imóvel.
+
+Outros: Barbara com 5 anúncios entre "Agende sua Visita", "Converse conosco" e título vazio;
+Evelyn Bevilaqua com 3 idênticos; AGM com 2 iguais; Kiffer com 2.
+
+### O que este bairro ensina e os outros não ensinaram
+
+**Em Niterói o preço está na headline, e isso é o certo.** "R$ 1.500.000 — 166 m² frente mar
+na Praia de Icaraí", "2 quartos + suíte em Icaraí por R$ 655 mil", "Apto de 2 quartos à venda
+em Icaraí". Quem não tem o valor não clica, e o corretor economiza a conversa. É a mesma
+mecânica da conta de luz na energia solar, aplicada a ticket alto.
+
+**Duas variações que valem copiar:**
+
+- **"2 quartos em Niterói com entrada de R$ 10 mil"** (Lar Doce Lar Cury) — qualifica pelo que
+  a pessoa consegue pagar **agora**, não pelo preço total. Para ticket alto, a entrada é o
+  filtro mais honesto que existe.
+- **"Apartamento em Icaraí — aceita proposta"** (Imóvel Icaraí) — sinaliza negociação aberta
+  sem dizer desconto. Atrai quem está decidido a comprar e afasta quem só olha vitrine.
+
+LISTA DE ATAQUE: **424 → 460**.
+
+Combos varridos até aqui: + imobiliária apartamento à venda Niterói (84 ativos — 36 alvos,
+**19 em Trilha A**, metade, confirmando corretor como o nicho de nome próprio; **recorde de
+carrossel vazio: 20 cards sem título numa peça só**; botão padrão repetido em 10 cards em três
+páginas; **munição nova: qualificar pela ENTRADA e não pelo preço total, e "aceita proposta"
+como filtro de quem decide**).
+
+---
+
+## ADVOCACIA TRABALHISTA — rescisão (23/09, nacional)
+
+Duas varreduras nesta rodada. A primeira, `advogado trabalhista demissão Botafogo`, devolveu
+**2 anúncios** — e a lição é a regra de termo: **profissão + bairro estreita demais.** Ficou
+registrado e refiz pelo serviço.
+
+Varredura boa: `demissão sem justa causa receber seus direitos`, BR, ACTIVE. **981 anúncios
+ativos** — o maior volume de advocacia até agora, acima dos 855 da advocacia de família. 22
+páginas distintas, **22 alvos**.
+
+**Novo recorde de "Converse conosco":** o Diego Bruno Nascimento roda **13 anúncios ativos**,
+todos com essa headline, três deles em carrossel repetindo a mesma frase em cada card. Some
+com os 12 da Huff Life (estética) e com os 11 da Fisio Nova: **a auto-concorrência não é mais
+o defeito de um nicho, é o defeito do mercado.** Ghidoni com 4 iguais, Suelen Fraga com 3,
+Carolina Barreira com 2, George Pessoa com 2.
+
+**Trilha A: 13 de 22.** Advocacia segue sendo o nicho de nome próprio.
+
+### O que este nicho ensina e os outros não ensinaram
+
+**Aqui está o melhor contraexemplo da base — uma página que faz certo o que todas as outras
+fazem errado.** O Theodoro & Souza roda sete anúncios ativos e **cada um ataca um ângulo
+diferente**, com headline própria:
+
+- "Você acorda sem vontade de ir trabalhar porque já sabe o que vai encontrar?"
+- "Trabalhou sem registro?"
+- "⚠️ Está pensando em pedir demissão? Calma!"
+- "Você está sendo lesado no trabalho?"
+
+É exatamente o que a gente prega: mesma verba, sete mensagens, zero canibalização. Vale como
+prova na conversa de venda — não é teoria nossa, é o que o concorrente que faz certo já faz.
+
+**E apareceu o primeiro uso realmente bom de carrossel de toda a base.** O Guinossi &
+Rodrigues monta a peça como **lista numerada, um item por card**: "Foi Demitido? 5 Erros no
+Acerto" → "1. Aviso Prévio Proporcional" → "2. Multa de 40% do FGTS" → "3. Descontos
+Indevidos no TRCT" → "Não Assine Antes de Conferir". Cada card carrega informação e o último
+é o CTA. **Regra nova: carrossel é lista, não galeria.** Todas as 30+ páginas com card vazio
+que a gente catalogou estão usando carrossel como álbum de fotos; esta usa como argumento.
+
+**Duas headlines de qualificação para copiar:** "Você assumiu funções além do seu cargo?"
+(Dra. Juciely Nere) e "Sua rescisão está certa?" (Jairo Mota). Nenhuma promete resultado —
+ambas fazem a pessoa checar um fato sobre a própria vida.
+
+LISTA DE ATAQUE: **460 → 482**.
+
+Combos varridos até aqui: + advocacia trabalhista rescisão (nacional, 981 ativos — maior
+volume de advocacia; 22 alvos, 13 em Trilha A; **novo recorde de "Converse conosco": 13
+anúncios de uma página só**; regra confirmada por falha: profissão + bairro devolve quase
+nada; **melhor contraexemplo da base — Theodoro & Souza com 7 anúncios e 7 ângulos
+diferentes**; e o **primeiro carrossel bem usado: lista numerada, um item por card**).
+
+## Psicologia / terapia — varredura nacional por termo de serviço (23/09, 16h)
+
+Termo: `terapia para ansiedade agende sua sessão`, BR, ACTIVE. **713 anúncios ativos.**
+Amostra de 50 → **43 páginas distintas**. É o nicho mais pulverizado da base inteira: quase
+um anunciante por anúncio. O oposto de odontologia Copacabana (117 anúncios, 3 páginas).
+Onde o mercado é pulverizado, o volume não é de concorrente grande — é de gente pequena
+gastando pouco e errado. **26 alvos, 21 em Trilha A.**
+
+### Defeito novo, e é o pior que a base já registrou: o título é o domínio
+
+Oito anúncios sobem com a headline literal **`instagram.com`**, **`api.whatsapp.com`** ou
+**`fb.com`**. Não é botão padrão, não é campo vazio — é a URL de destino aparecendo como
+argumento de venda. Lucas Nascimento, vannyvidaplena, espacolotusgyn, daya_von,
+daianemachadopsicologa, psiemelinecerqueira, psi.fabianasouzagomes, psico.biancacamargo,
+Missionária Delza Costa. **Regra nova: título com ponto-com é impulsionamento de post feito
+pelo celular, sem nenhuma configuração.** Quem faz isso nunca entrou no Gerenciador.
+
+### Novo recorde de botão padrão como título
+
+**Fernanda Manuela Psicóloga:** um único anúncio com o título
+`Fernanda Manuela Psicóloga | Fale conosco | Fale conosco | ...` — **nove "Fale conosco"
+seguidos**, um por card. O Instituto Vinícius Graça repete o mesmo com sete. E a página
+**Dani** sobe um carrossel onde os onze cards têm o mesmo título: `Dani`. Talita Martins sem
+tabu vai além: quatro cards com o título em branco separados por barra.
+
+Some ao Diego Bruno Nascimento (13 "Converse conosco") e à Huff Life (12 títulos vazios): o
+carrossel continua sendo o formato onde o erro se multiplica sozinho.
+
+### O termo puxa terapia espiritual junto
+
+Kokopelli Vibracional, Missionária Delza Costa, SOS EMOTIONAL PRONTO SOCORRO DA ALMA, Fil
+Felix – Central dos Sonhos, Forjados para Vencer. **Regra nova: termo de saúde mental puxa
+terapia espiritual e coaching no mesmo balde.** Filtro que funciona: `psi.`, `psicóloga`,
+`Psicólogo` ou CRP no nome da página. Sem o filtro, um terço da lista não é o alvo.
+
+### Auto-concorrência e os dois que fazem certo
+
+**Psicólogo Tatiane Cunha: 3 anúncios ativos, os três com a mesma headline** ("Você não
+precisa enfrentar tudo sozinha"). Mariana Patrocínio: 2 iguais. Renan César: 2 iguais.
+Terapeuta Maria Helena: 2, ambos com título vazio. Instituto Fregona: 2, um deles `fb.com`.
+
+Dois merecem anotação pelo acerto:
+
+- **Mariana Patrocínio — "Agendar Sessão de Mapeamento".** Dá nome ao mecanismo de entrada.
+  Não é "agende uma consulta", é uma coisa específica que a pessoa vai receber. Copiar.
+- **Psicóloga Ana Carolina Oliveira — "Terapia online para mulheres."** Qualifica no título
+  e economiza o clique de quem não é o público. É o mesmo movimento do "Sua rescisão está
+  certa?" da advocacia.
+
+E um que **não** é alvo: **Aora — "terapia online com psicólogos verificados a partir de
+R$119"**. Plataforma, não consultório. Preço no título, escala, verba grande. Passa longe.
+
+LISTA DE ATAQUE: **482 → 508**.
+
+Combos varridos até aqui: + psicologia/terapia nacional por termo de serviço (713 ativos,
+43 páginas em 50 anúncios — **nicho mais pulverizado da base**; 26 alvos, 21 em Trilha A;
+**defeito novo: título = domínio (`instagram.com`, `api.whatsapp.com`), impulsionamento pelo
+celular**; **novo recorde de botão padrão: 9 "Fale conosco" num título só**; regra nova:
+termo de saúde mental puxa terapia espiritual, filtrar por `psi.`/CRP no nome da página).
+
+## Energia solar — varredura nacional por termo de serviço (23/09, 17h)
+
+Termo: `energia solar economize na conta de luz orçamento sem compromisso`, BR, ACTIVE.
+**545 anúncios ativos.** Amostra de 50 → **33 páginas distintas**. **24 alvos, só 3 em
+Trilha A** — e é isso que o nicho ensina.
+
+### A regra do nome próprio fecha aqui
+
+Quase ninguém usa o próprio nome: Gm, MM, Rawell, Dunnas, Solarium são exceção no meio de
+TMD, GDX, VS Energy, Ecosfera, Stellato, Revelis, Bitsol, Seven Tech, NewSolar, Yottawatt.
+**Confirma a regra nascida na arquitetura: o que decide o nome da página é se o cliente
+escolhe uma PESSOA ou contrata uma CAPACIDADE.** Ninguém escolhe quem parafusa a placa no
+telhado — escolhe quem entrega o sistema. Advocacia e psicologia são nome próprio;
+arquitetura e solar são marca. A regra agora tem os dois lados provados.
+
+### O defeito novo da psicologia se repete aqui, uma hora depois
+
+**Título = domínio**, de novo: Sun Mega Energia Solar com `api.whatsapp.com`, Solar RMT com
+`instagram.com`. A regra criada às 16h num nicho totalmente diferente apareceu de primeira
+no seguinte. **Não é vício de um mercado, é o que acontece quando se impulsiona pelo celular.**
+
+E o título em branco continua: GDX Engenharia sobe **dois anúncios cujo título é um espaço
+literal** (` `). Smart Litoral e Solarse, campo vazio.
+
+### A headline virou commodity — e dá para provar
+
+Nenhum outro nicho da base mostrou isso com tanta clareza:
+
+| headline | quantas páginas DIFERENTES usam |
+|---|---|
+| `⚡ De R$ 600 para R$ 69 na conta de luz!` | 2 (VS Energy e Ecosfera Solar) |
+| `Economize até 90% na conta de luz` | 5 (EASY WAY, Stellato, Revelis, Rawell, 2L) |
+| `Orçamento👉` | 3 (NewSolar, Bitsol, Seven Tech) |
+| `Converse conosco` | 3 (Gratitude, Rali, Norte Solar) |
+
+A primeira linha é a mais séria: **duas empresas concorrentes rodando a MESMA frase, no
+MESMO formato de carrossel com seis cards repetindo o texto.** Isso não é coincidência, é
+template — a mesma agência atendendo as duas, ou modelo comprado pronto. **Argumento de
+venda direto: "o seu anúncio é o mesmo do seu concorrente, palavra por palavra."**
+
+Auto-concorrência dentro de casa, como sempre: VS Energy 4 iguais, Seven Tech 3, Revelis 3,
+Rawell 3, Gm 2, Stellato 2, Solar Eletricidade 2. Rali Solar com 5 "Converse conosco" num
+carrossel, Norte Solar com 6, Solvix com 6 "Sua conta de luz está alta?".
+
+**2L Elétrica** põe a legenda inteira no campo do título — cinco linhas com quebra de linha
+e emoji. Confirma a regra do pet shop (título acima de ~40 caracteres é legenda no campo
+errado), agora com quebra de linha dentro.
+
+### O contraexemplo do nicho: Get Financas
+
+Carrossel de dez cards, **um segmento de cliente por card**: "Sua loja precisa de energia
+para vender." / "Refrigeração e iluminação sem parar." / "Cozinha funcionando. Energia
+trabalhando." / "Sua clínica precisa de energia. Seu custo merece atenção." / e fecha com
+**"Sua conta passa de R$ 400? Pode existir uma oportunidade"**.
+
+É o carrossel-como-lista do Guinossi (advocacia) aplicado a segmentação, e o último card
+**qualifica pelo valor da conta** — o mesmo movimento do "qualificar pela entrada" que a
+imobiliária de Niterói ensinou. Um anúncio só cobrindo seis públicos sem canibalizar
+nenhum. É o que a gente vende.
+
+LISTA DE ATAQUE: **508 → 532**.
+
+Combos varridos até aqui: + energia solar nacional por termo de serviço (545 ativos, 33
+páginas em 50 anúncios; 24 alvos, só 3 em Trilha A — **fecha a regra do nome próprio: marca
+onde se contrata capacidade, nome onde se escolhe pessoa**; **a regra do título-domínio
+criada na psicologia se repetiu de primeira aqui**; **headline commodity: a mesma frase em
+páginas concorrentes, prova de template de agência**; contraexemplo Get Financas, carrossel
+com um segmento por card e qualificação pelo valor da conta).
+
+## Imobiliária — Barra da Tijuca (23/09, 18h)
+
+Termo: `apartamento à venda Barra da Tijuca`, BR, ACTIVE. **177 anúncios ativos.** Amostra de
+50 → **30 páginas distintas**. **28 alvos, 11 em Trilha A.** Fecha imobiliária nos sete
+bairros prioritários (faltava só a Barra).
+
+### Novo recorde absoluto de carrossel vazio — e por larga margem
+
+**New Home Imóveis** sobe **dois anúncios, cada um com vinte cards sem título**: o campo vem
+como `New Home Imóveis | | | | ...`, vinte barras seguidas. **Quarenta cards em branco numa
+página só.** O recorde anterior era um anúncio de 20 cards (Niterói); aqui são dois.
+
+Up Seven Imóveis: 15 cards vazios. bq_consultoriaimobiliaria: 11. Ilaine Imóveis: 9. Rio
+Couto Imóveis: nove "Fale conosco". ÓGA Soluções Imobiliárias: dez cards, todos com a MESMA
+frase ("Apartamento à venda - Porteira fechada").
+
+### O título-domínio aparece pela terceira varredura seguida
+
+`api.whatsapp.com` no campo do título: **elkeredgarcorretor** e **Gilberto Cupolillo
+Imóveis**. Psicologia às 16h, energia solar às 17h, imobiliária da Barra às 18h — três
+nichos sem nenhuma relação entre si, o mesmo defeito. **A regra está fechada: é assinatura
+de quem impulsiona post pelo celular, não vício de mercado.**
+
+### O que a Barra ensina e nenhum outro bairro ensinou
+
+Aqui o título carrega **o nome do empreendimento, a metragem e o preço**:
+
+- `Américas Park | 93 m² | R$ 930 mil` — Chaves da Barra
+- `Cyano | 380 m² | 4 suítes | Frontal mar` — MNG Imobiliária
+- `Latitud | 125 m² | Sala ampliada` — MNG
+- `Vista Mar e Golfe | 255 m² no Golden Green` — Conectta Imóveis
+- `TERRAZAS | 215 M², 4 QUARTOS E VARANDA COM PISCINA` — MNG
+
+**Na Barra o condomínio tem marca própria.** Quem compra procura pelo nome do prédio, não
+pelo nome do bairro — e quem anuncia bem já entendeu isso. Nenhum dos outros seis bairros
+mostrou esse padrão. **Regra nova: em bairro de ticket alto, o termo de busca é o nome do
+empreendimento; em bairro de ticket médio, é o bairro.** Isso muda como a gente monta
+campanha para imobiliária da Barra.
+
+### Sua Casa Digital: acerta o formato e erra o alvo
+
+Carrossel de seis cards, **um imóvel por card**, cada um com metragem, quartos, suítes,
+vagas e condomínio. É o carrossel usado como catálogo, do jeito certo. Só que:
+
+1. Os títulos têm 80 a 120 caracteres e terminam todos com ` - Imóvel pronto` — a mesma
+   frase repetida seis vezes dentro do mesmo anúncio.
+2. **O anúncio que sai por "Barra da Tijuca" está cheio de Leblon.** Rita Ludolf, quadra da
+   praia do Leblon, Garden de 198 m² no Leblon. O outro anúncio da mesma página é todo
+   Jardim Oceânico, esse sim da Barra.
+
+Um bom formato entregando o imóvel errado para a pessoa errada. Serve de exemplo na
+conversa: não adianta o criativo estar bonito se ele responde à busca errada.
+
+### Captação de proprietário, de novo
+
+**Marcus Godoy Corretor de Imóveis: "Saiba o valor real do seu imóvel"**, dois anúncios
+iguais. Não vende apartamento, capta quem quer vender o dele. Confirma pela terceira vez a
+regra de que termo de serviço puxa captação — e mostra o lado bom dela: é a headline de
+qualificação mais limpa do nicho.
+
+### Poluição nova do termo
+
+`Desconto no cupom` (4 anúncios), `FlexLeilões`, `Portal On`, `Carlota Pets Realistas`.
+**Regra nova: termo de compra de ticket alto puxa página de cupom, leilão e dropshipping**,
+que tem verba e não é do nicho. Filtrar pelo nome da página antes de contar o mercado.
+
+LISTA DE ATAQUE: **532 → 560**.
+
+Combos varridos até aqui: + imobiliária/corretor Barra da Tijuca (177 ativos, 30 páginas em
+50 anúncios; 28 alvos, 11 em Trilha A — **com isso imobiliária está fechada nos sete bairros
+prioritários**; **novo recorde absoluto de carrossel vazio: New Home Imóveis com dois
+anúncios de 20 cards em branco cada**; **título-domínio pela terceira varredura seguida, em
+nicho sem relação — regra fechada**; **regra nova: em bairro de ticket alto o termo de busca
+é o nome do empreendimento, não o bairro**; regra nova: termo de ticket alto puxa cupom e
+leilão).
+
+## Imobiliária — Madureira: o combo NÃO EXISTE (23/09, 19h)
+
+Três termos, registrados para ninguém repetir:
+
+| termo | ativos | do Rio? |
+|---|---|---|
+| `apartamento à venda Madureira Rio de Janeiro` | **1** | não |
+| `imóveis Madureira RJ apartamento` | **0** | — |
+| `apartamento Madureira` | 69 | **2** |
+
+**Só 2 dos 69 são do Rio de Janeiro.** É o pior aproveitamento de termo de toda a base, e
+ele prova que a regra antiga sobre Madureira estava incompleta.
+
+### Por que o termo falha — três motivos ao mesmo tempo
+
+1. **Existe um bairro Madureira em Caxias do Sul/RS**, e é ele que domina o termo. A própria
+   Perfil Imóveis sobe um anúncio com o título literal **"Madureira em Caxias do Sul"**.
+   Junto vêm Válum Imóveis, Imofar Caxias, Dornelles Imóveis, Fabricia Oscari, Patricia Zan
+   ("Apartamento no Madureira — 3 Dormitórios com Suíte") — todos gaúchos. **A Perfil Imóveis
+   sozinha responde por 8 dos 69 anúncios.**
+2. **Madureira é sobrenome comum**, e puxa gente que não é do nicho: Camila Madureira
+   Almeida, Marcia Madureira – Negócios Imobiliários (é de BH: "150 m² no Funcionários |
+   R$ 1.590.000") e **Marcondes Madureira Advocacia**, que nem imobiliária é.
+3. **Puxa São Paulo junto**: THURA com seis anúncios idênticos da Vila Clementino, Today
+   Smart Life by Canopus com sete cards repetindo "Today Vila Clementino | Canopus".
+
+### A correção da regra
+
+A regra antiga dizia "bairro que também é sobrenome precisa de reforço geográfico". **Falso
+aqui: com reforço o termo devolve 1 anúncio, sem reforço devolve 69 de outros estados.**
+
+**Regra nova e dura: Madureira/RJ não tem mercado imobiliário anunciado. Não é problema de
+termo — o nicho não existe nesse bairro.** Ninguém anuncia apartamento em Madureira no
+Facebook. Não gastar mais rodada nisso. O mesmo vale como alerta para qualquer bairro de
+ticket baixo: a ausência de anúncio não é falha da varredura, é o mercado dizendo que ali
+não se vende apartamento por tráfego pago.
+
+**Fecha a regra do ticket, que a Barra abriu uma hora atrás:** ticket alto (Barra) → o termo
+é o nome do empreendimento; ticket médio (Méier, Niterói, Tijuca) → o termo é o bairro;
+ticket baixo (Madureira) → **não há termo, porque não há anunciante.**
+
+### Os dois únicos do Rio
+
+- **Imóvel a venda** — `Apto 65m² em Cascadura | R$ 160 mil`. Título com bairro, metragem e
+  preço, do jeito certo, e o bairro é Cascadura, não Madureira. Trilha B (nome genérico).
+- **Iara Constança** — `Lançamento em Olaria`, três anúncios ativos com a **mesma headline**.
+  Trilha A. Zona Norte de verdade, e já com auto-concorrência.
+
+LISTA DE ATAQUE: **560 → 562**.
+
+Combos varridos até aqui: + imobiliária Madureira — **combo morto, registrado para não se
+repetir** (3 termos testados: 1, 0 e 69 ativos, dos quais só 2 do Rio; o termo é dominado
+pelo bairro Madureira de **Caxias do Sul/RS**, pelo sobrenome Madureira e por São Paulo).
+**Regra nova: em bairro de ticket baixo não existe termo, porque não existe anunciante** —
+e com isso a escala do ticket fica completa: empreendimento (alto), bairro (médio), nada
+(baixo).
+
+## Odontologia — Campo Grande (23/09, 20h)
+
+Dois termos. `dentista Campo Grande RJ implante e clareamento` → **0 ativos** (termo longo
+demais, de novo). `dentista Campo Grande` → **247 ativos**, amostra de 50 → **17 páginas
+distintas**. **16 alvos, 9 em Trilha A.**
+
+### NOVO RECORDE ABSOLUTO DE AUTO-CONCORRÊNCIA: 22 anúncios de uma página só
+
+A **Odontovic – Implantes Dentários** responde por **22 dos 50 anúncios da amostra** —
+quase metade — todos criados no mesmo minuto, alternando só três headlines:
+
+- `Agende sua avaliação de Implantes Dentários` (13 vezes)
+- `Implantes dentários em Campo Grande` (8 vezes)
+- `Entre em contato hoje mesmo.` (1 vez)
+
+Dois deles são carrossel repetindo a mesma frase em dois cards. O recorde anterior da base
+era 13 anúncios idênticos (Diego Bruno Nascimento, advocacia). **A Odontovic quase dobrou.**
+
+E ela já estava na base: é a mesma página que dominava o termo `odontologia Copacabana`
+sendo de Campo Grande. **Agora dá para dizer o que ela realmente faz: ela não domina um
+bairro, ela domina o leilão inteiro com 22 anúncios competindo entre si.** É o melhor caso
+da base para a conversa de venda — dá para mostrar página, contagem e headline repetida.
+
+### A regra do Campo Grande confirmada em outro nicho
+
+Sem "RJ" no termo, **quem aparece é Campo Grande/MS**: Dr. Gabriel Lopes – Oral Unic Campo
+Grande, Laeli Weis Schons – Dentista em Campo Grande **Ms** (4 anúncios, todos com título
+vazio), Dra. Alessandra Terra | Campo Grande **MS** (2 iguais), OdontoMed Campo Grande, Oral
+Unic Naviraí. A regra tinha nascido em imobiliária; agora está confirmada em odontologia.
+
+Mas com "RJ" o termo devolve zero. **Mesma armadilha da Madureira: ou o termo é largo demais
+e traz outro estado, ou é específico demais e não traz nada.** Para Campo Grande/RJ o que
+funciona é buscar pela página conhecida, não pelo bairro.
+
+### Título-domínio: quarta varredura seguida
+
+**Giselle Duarte – Dentista no Rio de Janeiro**, com `instagram.com` no campo do título.
+Psicologia (16h), energia solar (17h), imobiliária Barra (18h), odontologia agora. Quatro
+nichos, quatro varreduras, o mesmo defeito.
+
+### Poluição do termo: curso para dentista
+
+Dra. Aline Pedrosa ("Mentoria Vip Botox Iniciante e Preenchimento Lábial" — com o erro de
+acento no anúncio), Dra Andrea Melo ("Faça sua inscrição", 2 anúncios), Professor Tiago
+Botelho, Canal Janela Aberta (entrevista de universidade). **Confirma a regra do idiomas:
+onde existe curso para o profissional, o termo da profissão puxa o curso junto.** Some a
+Mediquo Telemedicina, que vende plano ("Dentista a preços popular", sic) e não é clínica.
+
+### Dois contraexemplos que valem copiar
+
+- **Dr. Gabriel Lopes — "Do medo à transformação: a história da Dona Elizabeth".** É a única
+  headline de HISTÓRIA em toda a base. Não promete resultado, não pede contato: apresenta
+  uma pessoa. Num nicho onde todo mundo escreve "agende sua avaliação", isso para o dedo.
+- **Studio Oral Group — "Quando um dentista escolhe onde transformar o próprio sorriso, essa
+  escolha diz muito."** Prova social pelo par: o profissional como cliente. Nenhuma outra
+  página da base usou esse ângulo.
+
+O contraste dentro da própria página do Dr. Gabriel Lopes também ensina: ele tem a melhor
+headline do nicho e, nos outros dois anúncios, "Converse conosco".
+
+LISTA DE ATAQUE: **562 → 578**.
+
+Combos varridos até aqui: + odontologia Campo Grande (247 ativos, 17 páginas em 50
+anúncios; 16 alvos, 9 em Trilha A; **NOVO RECORDE ABSOLUTO DE AUTO-CONCORRÊNCIA: Odontovic
+com 22 anúncios ativos e só 3 headlines** — quase o dobro do recorde anterior; regra do
+Campo Grande confirmada em odontologia, e com "RJ" o termo devolve zero, mesma armadilha da
+Madureira; **título-domínio pela quarta varredura seguida**; poluição por curso para
+dentista; contraexemplos: headline de história do Dr. Gabriel Lopes e prova social pelo par
+do Studio Oral Group).
+
+## Ótica — Copacabana: combo morto, mas com uma regra nova (23/09, 21h)
+
+Dois termos: `óculos de grau Copacabana` → **2 ativos**. `ótica Copacabana lentes` → **1 ativo**.
+Três anúncios no total, **2 páginas**, e nenhuma delas é uma ótica de bairro. **Combo morto,
+registrado para não se repetir.**
+
+### Regra nova: bairro que também é nome de marca
+
+As duas páginas que aparecem provam por que o termo não serve:
+
+- **Copacabana Eyewear – Distribuidora de Óculos.** "Copacabana" aqui é o nome da EMPRESA,
+  não o bairro — e ela é distribuidora, atende lojista, não consumidor. Dois anúncios, um
+  com **10 "Fale conosco"** no título e outro com 4.
+- **Chilli Beans do Shopping Copacabana.** Franquia de rede, com `instagram.com` no título.
+
+A regra antiga da ótica dizia: *termo de loja ("ótica") puxa distribuidor, termo de produto
+("óculos de grau") resolve*. **Aqui os dois puxaram a mesma distribuidora.** O motivo é
+outro: **o bairro virou marca.** Quando existe empresa com o nome do bairro, o termo
+geográfico deixa de filtrar geografia e passa a filtrar razão social.
+
+Isso soma às armadilhas de bairro já catalogadas, e agora são quatro tipos:
+
+| armadilha | exemplo | efeito |
+|---|---|---|
+| bairro homônimo em outro estado | Campo Grande/MS, Madureira/Caxias, Tijucas/SC | traz o outro estado |
+| bairro que é sobrenome | Madureira | traz pessoas |
+| bairro sem mercado anunciado | Madureira (imóveis) | traz zero do Rio |
+| **bairro que é marca** | **Copacabana Eyewear** | **traz a empresa, não o bairro** |
+
+### Título-domínio: quinta varredura seguida
+
+`instagram.com` na Chilli Beans. Psicologia, solar, imobiliária Barra, odontologia Campo
+Grande e agora ótica. **Cinco varreduras, cinco nichos, o mesmo defeito.** Não há mais dúvida
+sobre a regra.
+
+LISTA DE ATAQUE: **578 → 578** (nenhum alvo novo — as duas páginas são distribuidora e
+franquia de rede, fora do perfil).
+
+Combos varridos até aqui: + ótica Copacabana — **combo morto** (2 termos, 3 anúncios, 2
+páginas, nenhuma ótica de bairro). **Regra nova: bairro que também é nome de marca
+(Copacabana Eyewear) faz o termo geográfico filtrar razão social em vez de geografia** — é a
+quarta armadilha de bairro da base. **Título-domínio pela quinta varredura seguida.**

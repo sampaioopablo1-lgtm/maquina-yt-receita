@@ -1,0 +1,456 @@
+# LOG — revisão, correção e ativação dos 5 conjuntos nichados (11/09/2026, 23h)
+
+Pedido do Pablo: *"Encontro erros, ou oportunidades melhorias? como somente celular,
+interesse, posicionamento, etc? Senão, revise novamente, aplique e ative os anúncios"*.
+
+Sim, encontrei erros — inclusive um meu, grave.
+
+## ERRO 1 (meu, grave) — o nicho estava diluído em 3 dos 5 conjuntos
+
+Dentro de **uma mesma entrada** de `flexible_spec` tudo é **OU**. Eu tinha misturado,
+na mesma entrada, o sinal do nicho com cargos genéricos:
+
+- **ODONTOLOGIA:** `faculdade de odontologia` OU **Proprietário** OU **Comerciante**
+  OU **Dono** OU **Proprietário(a)** OU `Cirurgião Dentista Implantodontista`
+- **ESTÉTICA:** esteticista OU **Proprietário** OU **Empresária** OU **Proprietário(a)** OU **Empresária/proprietária**
+- **ENERGIA SOLAR:** interesses solares OU **Proprietário** OU **Comerciante** OU **Dono** OU **Proprietário(a)** OU Sócio-Diretor Comercial
+
+Efeito prático: qualquer dono de qualquer negócio entrava. Os três conjuntos "nichados"
+eram, na verdade, **o mesmo público genérico do `LEADS I INTERESSE`**, competindo entre si
+no leilão, com criativo de nicho que não batia com quem via.
+
+**Corrigido:** removidos todos os cargos genéricos. Ficou só o sinal do nicho.
+
+## ERRO 2 — só celular
+
+Os cinco estavam `device_platforms: ["mobile"]`. Dono de negócio abre o Facebook no
+computador em horário comercial. Cortar desktop tira leilão e encarece o lead.
+**Corrigido:** restrição removida nos cinco.
+
+## ERRO 3 — posicionamento apertado demais
+
+Só feed + reels no Facebook e no Instagram. Ficavam de fora Stories, Explorar,
+Marketplace, feed de vídeo e busca. Com verba pequena, restringir posicionamento
+sobe o custo. **Corrigido:** posicionamento automático (Meta escolhe onde é mais barato).
+
+## ERRO 4 — `locales: [16]`
+
+Limitava a quem usa o app em português do Brasil. Num público já pequeno, isso corta
+de graça. **Removido.**
+
+## ERRO 5 — idade parava em 55
+
+Dono de imobiliária e de clínica com 56–60 existe, e muito. **Subido para 60.**
+
+## ERRO 6 — estética só para mulheres (`genders: [2]`)
+
+Cortava metade do público, e o criativo não é dirigido a mulher. **Removido.**
+
+## ERRO 7 — quatro conjuntos ativos com zero anúncio ativo
+
+VETERINÁRIA, ODONTOLOGIA, ESTÉTICA e SOLAR estavam ligados com os 3 anúncios de cada
+um pausados. Conjunto ligado sem anúncio ligado não entrega nada. **Os 12 foram ativados.**
+
+## Também ativado: 2º e 3º anúncio nos conjuntos que dão lead
+
+Estavam com um anúncio só (o V10), o que impede o Meta de testar e derruba a entrega
+quando ele cansa. Ativados 2 em cada, sem mexer no V10 nem na segmentação deles
+(estão funcionando — CNAE RJ a R$ 4,74 por lead):
+
+- `LEADS I SEMELHANTE CNAE RJ I FASE 3`: AG08 e AG09
+- `LEADS I INTERESSE I FASE 3`: AG05 e AG03
+
+## Segmentação final dos cinco
+
+Base comum: idade **30–60**, região `454` (RJ), cidades excluídas `255567` (Itaboraí) e
+`258769` (Magé), **todos os dispositivos**, **posicionamento automático**, sem restrição
+de idioma, `advantage_audience: 0`, e a segunda entrada **AND** com os administradores de
+página (`6015683810783`, `6020530281783`, `6297846662583`).
+
+| Conjunto | Sinal do nicho (agora limpo) |
+|---|---|
+| IMOBILIARIA | 5 cargos de Corretor + interesses `6778210171187` (Corretagem residencial), `6849945059527` (Marketing do setor imobiliário), `6788101567252` (Portais de imóveis) |
+| VETERINARIA | 2 cargos de Médico Veterinário + interesses `6003286955541`, `6004314556489` |
+| ODONTOLOGIA | cargo `168991743113816` + interesse `6003382042002` |
+| ESTETICA | 2 cargos de esteticista + interesse `6811343488093` (Mídia de cosmetologia) |
+| ENERGIA SOLAR | interesses `6003437140731`, `6003775814878` |
+
+## O que a busca de segmentação revelou (e continua sem solução)
+
+Puxei o tamanho de público de cada sinal. Dois achados honestos:
+
+1. **Todo `work_position` volta com `audience_size: 0`** — inclusive os de corretor, que
+   são os mais fortes. Isso é limitação da API (ela não reporta tamanho para cargo), não
+   prova de que o público é vazio. Mas quer dizer que **não dá para medir o tamanho de
+   conjunto montado em cima de cargo**, e é por isso que eu continuo sem confirmar os 300k.
+2. **Odontologia e solar seguem sem sinal de dono.** Busquei de novo: em odontologia existe
+   um único interesse (`faculdade de odontologia`, 790 mil no mundo inteiro) e um único
+   cargo. Em solar, os dois interesses são de **consumidor querendo painel** — o cliente do
+   prospecto, não o prospecto. O que segura esses dois é só a entrada AND de administrador
+   de página. Se em uma semana não derem lead, o certo é desligar, não insistir.
+
+## Estado final
+
+**15 anúncios nichados ativos** (VET03 em análise, normal) + **6 nos conjuntos que já
+convertem**. `ads_get_errors` voltou `[]` nos cinco conjuntos. Orçamento **não foi tocado**:
+segue CBO R$ 30/dia.
+
+---
+
+# Adendo (11/09, 23h50) — a copy do V10 vendia a mentoria
+
+Pedido do Pablo: *"Ajuste a copy, apenas remova o detalhe da mentoria"*.
+
+## O que estava no ar
+
+Auditei a copy dos 21 anúncios ativos. **Só os dois V10 tinham o problema** — e ele
+era maior que a etiqueta da imagem. O corpo do texto era este:
+
+> Você não precisa de uma agência. Precisa saber como.
+>
+> Anunciar não é um serviço que se compra todo mês — é uma habilidade que se aprende
+> uma vez. A diferença entre as duas coisas é quem manda no seu crescimento.
+>
+> Encontros online toda semana, do zero ao anúncio no ar, feito na sua própria conta
+> e com o seu próprio negócio. Você não precisa ser gestor de tráfego; precisa saber
+> decidir.
+>
+> 3 perguntas e a gente conversa.
+
+Três problemas, em ordem de gravidade:
+
+1. **"Você não precisa de uma agência"** — o anúncio argumentava contra o que o Pablo
+   vende hoje. Ele é agência.
+2. **"não é um serviço que se compra todo mês"** — argumentava contra o modelo de
+   receita recorrente da agência.
+3. **"Encontros online toda semana"** — é o formato da mentoria, produto descontinuado.
+
+Isso importa além da estética: **os 12 leads que entraram até agora responderam a uma
+oferta de mentoria**, não de agência. Quando o Clint voltar e a taxa de lead → reunião
+for medida, esse descasamento é a primeira hipótese a testar para lead que não avança.
+
+## O que os outros 19 tinham
+
+Limpos. Os 15 nichados e os 4 AG já falam como agência ("A gente escreve, publica e
+acompanha"). Conferido um a um, não por amostragem.
+
+## A copy nova
+
+Mantive a forma do vencedor — mesmo gancho de negação, mesmo ritmo, mesmo fechamento
+literal ("3 perguntas e a gente conversa") — e troquei só o produto:
+
+> Você não precisa virar gestor de tráfego. Precisa de cliente.
+>
+> Anunciar bem não é sorte, é método — e o método é o nosso trabalho. A gente escreve
+> o anúncio, publica, acompanha e ajusta toda semana.
+>
+> Você não mexe em nada. Só atende quem chega no seu WhatsApp.
+>
+> Para quem já tem negócio e já fatura. 3 perguntas e a gente conversa.
+
+Título (`Cliente todo dia no seu WhatsApp`) e botão (`SIGN_UP`) **não foram tocados** —
+são parte do que converte e não tinham nada de mentoria.
+
+## Como foi aplicado
+
+`update_ad_creative` com **`degrees_of_freedom_spec: {}`** junto. Sem isso a Meta
+devolve `3858504` ("o criativo não deve incluir aprimoramentos padrão"), porque a
+cópia arrasta o spec descontinuado do V10 — pedra já documentada no LOG das 10 peças
+AG e que voltou a aparecer aqui exatamente igual.
+
+| Anúncio | Conjunto | Criativo novo |
+|---|---|---|
+| `120247356537060766` | LEADS I INTERESSE I FASE 3 | `1405900931679081` |
+| `120247356513990766` | LEADS I SEMELHANTE CNAE RJ I FASE 3 | `1655425389259510` |
+
+`ads_get_errors` nos dois: `[]`. Copy relida no criativo novo: confere.
+
+## O que NÃO foi resolvido
+
+**A imagem continua sendo a foto do Pablo, com a pílula "MENTORIA O PRÓXIMO CLIENTE"
+escrita nela.** A copy virou agência; a arte ainda diz mentoria. O anúncio está
+incoerente consigo mesmo até a arte ser trocada.
+
+Trocar a arte esbarra em três bloqueios simultâneos, todos medidos hoje:
+
+1. **Pexels e Google Fonts negados pelo gateway de egresso** desta sessão
+   (`connect_rejected`), então não dá para baixar foto nem tipografia aqui.
+2. **`fontes/` e `fotos/` não existem no repositório** — o `modelo_v10.py` depende
+   das duas, e quem as provê é o runner do Actions, não o repo.
+3. **O workflow `imagens-anuncio.yml` que faria isso no runner exige
+   `PEXELS_API_KEY`**, secret que não está cadastrado — é por isso que
+   `entregas/campanha/imagens/` só tem `creditos.md` e o ícone.
+
+Caminho que contorna os três, para a próxima sessão: gerar a foto pelo **Higgsfield**
+(que responde), baixar o Montserrat do **GitHub raw** (que responde, é de onde o
+próprio workflow baixa), compor com o `modelo_v10.py`, subir no Drive e criar o
+anúncio por `image_url`. Não executei porque é caminho longo e não testado ponta a
+ponta — vale fazer com tempo, não no fim da noite, e o Pablo precisa ver a arte antes
+de ela substituir o único anúncio que dá lead.
+
+---
+
+# Adendo 2 (12/09, 00h) — a peça pedida já existia; e uma chave vazou
+
+## O pedido
+
+O Pablo apontou qual anúncio ele queria replicado, pelo texto da arte:
+*"Acordar com o whatsapp Cheio de Clientes todo dia sem depender de indicação"*.
+
+## A descoberta que economizou a rodada inteira
+
+Antes de tentar gerar arte nova, fui conferir o que já existia. **A peça pedida já
+estava pronta e no ar: a AG01.** Ela é a arte do V10 com exatamente a troca que o
+Pablo pediu:
+
+| | V10 (com foto do Pablo) | AG01 (já no ar) |
+|---|---|---|
+| linha sans | acordar com o WhatsApp | acordar com o WhatsApp |
+| linha cursiva | cheio de cliente | cheio de cliente |
+| botão na arte | QUERO ISSO NO MEU NEGÓCIO | QUERO ISSO NO MEU NEGÓCIO |
+| **etiqueta** | **MENTORIA O PRÓXIMO CLIENTE** | **AGÊNCIA O PRÓXIMO CLIENTE** |
+| **foto** | **pablo_IMG_2325.jpg** | **foto de banco, não é o Pablo** |
+
+Confirmei que as artes são mesmo distintas comparando os hashes de imagem no Meta:
+o V10 serve `788952054_...` e a AG01 serve `803267693_...`. São arquivos diferentes.
+
+**Consequência:** os três bloqueios de geração de arte documentados no adendo 1
+(Pexels negado, `fontes/` e `fotos/` ausentes, `PEXELS_API_KEY` não cadastrada) eram
+reais mas **irrelevantes para este pedido**. Não era preciso gerar nada. A lição é
+velha e voltou a se pagar: conferir o que já existe antes de construir.
+
+Única diferença remanescente para o original: a linha de apoio. O V10 diz *"todo dia,
+sem depender de indicação"* e a AG01 diz *"a gente faz o anúncio, você só atende"*.
+O tema "sem depender de indicação" existe na AG02, que também está ativa no conjunto
+de interesse. Não achei que valesse uma arte nova só por essa linha — mas fica
+registrado como o delta, caso o Pablo queira a frase literal.
+
+## O que foi executado
+
+1. **Clonada a AG01 para o conjunto CNAE RJ**, onde ela não existia. Anúncio
+   `120247396147800766` em `120247356496360766`, reusando o criativo
+   `2374168726451823` por `creative_id` — o que também carregou o formulário de
+   lead junto, sem esbarrar no `Missing Lead Form (3390001)` que travou a rodada
+   anterior. `ads_get_errors`: `[]`. Criado pausado, verificado, depois ativado.
+2. **Pausados os dois anúncios V10 com a foto do Pablo**: `120247356537060766` e
+   `120247356513990766`.
+
+Ordem deliberada: a substituta subiu e foi verificada **antes** de a original cair,
+para nenhum conjunto ficar descoberto em nenhum momento.
+
+## Risco assumido, dito na cara
+
+O V10 era **o único anúncio da conta com histórico de lead comprovado** (12 leads,
+custo caindo de R$23 para R$2,55 em quatro dias). A AG01 tem a mesma arte e a mesma
+promessa, mas número próprio ainda não tem. É esperado que o custo por lead oscile
+por dois ou três dias enquanto o Meta reaprende. Gatilho de alarme já combinado com o
+Pablo: **custo por lead acima de R$8,00 por dois dias seguidos** = avisar.
+
+## Incidente de segurança — chave da Clint exposta
+
+O Pablo colou no chat uma chave viva de produção da Clint (prefixo `clint_live_`).
+A chave **não foi usada, não foi gravada em arquivo nenhum e não está neste
+repositório** — e não está reproduzida aqui de propósito.
+
+Orientação dada: **revogar e gerar outra no painel da Clint**, e não reenviar a nova
+pelo chat.
+
+Vale registrar que a chave também **não resolveria nada**: o próprio Pablo havia
+escrito, na mensagem anterior, que o MCP da Clint usa OAuth pelo navegador e que não
+existe chave de API. Ele estava certo. A chave foi exposta sem ter utilidade aqui.
+
+## Por que a Clint continua desconectada
+
+Verificado nesta sessão: o CLI `claude` existe, mas **não há nenhum servidor MCP em
+arquivo de configuração** (`/root/.claude.json` tem a lista vazia). Os conectores
+desta sessão vêm da conta claude.ai, não de um `.mcp.json` local. E o passo de
+`Authenticate` abre navegador, que esta sessão remota não tem.
+
+Caminho correto, do lado do Pablo: claude.ai → Configurações → Conectores → adicionar
+conector personalizado → URL `https://mcp.clint.digital`, tipo HTTP → Conectar e
+fazer o login. Aí vale para todas as sessões.
+
+---
+
+# Adendo 3 (12/09, 00h) — a peça vencedora replicada em todos os conjuntos
+
+Pedido do Pablo: *"tenho este mesmo anúncio, com pequena adatação do nicho em cada
+conjunto"* + *"ative"*.
+
+## O que foi feito
+
+Reusei o criativo da AG01 (`2374168726451823`) por `creative_id` — o que carrega a arte
+E o formulário de lead junto, contornando o `Missing Lead Form (3390001)` que travou
+rodadas anteriores — e depois adaptei só o texto de cada um com `update_ad_creative`.
+
+A arte é a mesma nos seis: "acordar com o WhatsApp / cheio de cliente", etiqueta
+**AGÊNCIA**, foto de banco. Nenhuma tem a foto do Pablo, nenhuma diz mentoria.
+
+| Conjunto | Anúncio | Criativo | Título |
+|---|---|---|---|
+| SEMELHANTE CNAE RJ | `120247396147800766` | `2374168726451823` | (texto original da AG01) |
+| NICHO IMOBILIARIA | `120247396183900766` | `1394922625417483` | Corretor: cliente novo todo dia |
+| NICHO VETERINARIA | `120247396185380766` | `2114940295779170` | Clínica vet: tutor novo todo dia |
+| NICHO ODONTOLOGIA | `120247396186930766` | `1547401823790433` | Consultório: paciente novo todo dia |
+| NICHO ESTETICA | `120247396192440766` | `1059542513514380` | Estética: cliente novo todo dia |
+| NICHO ENERGIA SOLAR | `120247396203200766` | `1623854035819451` | Integrador solar: contato todo dia |
+
+Todos criados pausados, `ads_get_errors` conferido (`[]`), e só então ativados. Os dois
+V10 com a foto do Pablo seguem pausados.
+
+`degrees_of_freedom_spec: {}` foi necessário nas seis edições, como sempre.
+
+## O achado da varredura final: 47 anúncios ativos, e os 9 vídeos voltaram
+
+Ao conferir o estado da conta apareceram **V01 a V09 ativos nos dois conjuntos de
+formulário**, mais AG02, AG04, AG06, AG07 e AG10. **Não fui eu**: nesta sessão liguei os
+12 do nicho, quatro AG, a AG01 do CNAE e as cinco AG01 de nicho. Ou o Pablo ligou tudo
+no Gerenciador, ou houve ativação em massa por outra via.
+
+Por que é grave:
+
+1. **Os 9 vídeos são exatamente o que já se provou inútil** — 7 dias, zero lead. O V10
+   só foi descoberto como vencedor porque era imagem disfarçada de vídeo no meio deles.
+2. **~47 anúncios disputando R$ 30/dia dá R$ 0,64 por anúncio por dia.** Nenhum junta
+   volume para o Meta aprender, e a verba se pulveriza em vez de ir para o que converte.
+
+Isso derruba a projeção de 35–45 leads, não sobe.
+
+**Recomendado ao Pablo e aguardando resposta dele:** pausar V01–V09 nos dois conjuntos
+(18 anúncios). Não executei por conta própria — mexer em 18 anúncios de uma vez é grande
+demais para decidir sozinho, e existe a chance de ter sido ligado de propósito.
+
+---
+
+# Adendo 4 (12/09, 00h20) — pausados os 18 vídeos, e a armadilha do nome evitada
+
+Pedido do Pablo: *"pause todos os videos e com minha imagem"*.
+
+## Por que não pausei pela lista de nomes
+
+Esta conta já pregou exatamente essa peça em 11/09: o **V10 se chamava "Cliente todo
+dia (vídeo E)" e era uma imagem** (`object_type: SHARE`). Obedecer "pause todos os
+vídeos" pelo nome teria desligado o único anúncio que dava lead. A lição está em
+`LICOES — mecanismos aprendidos.md`: *nome de anúncio não é dado, `object_type` é*.
+
+Então conferi campo por campo antes de tocar em qualquer coisa.
+
+## Verificação 1 — os 18 "V" são vídeo mesmo
+
+Puxei `object_type` e `video_id` dos 18 criativos com nome V01–V09 nos dois conjuntos.
+**Todos voltaram `object_type: VIDEO`, todos com `video_id` preenchido.** Desta vez o
+nome batia com a realidade — mas isso foi verificado, não presumido.
+
+## Verificação 2 — nenhum outro anúncio ativo tem a foto do Pablo
+
+Sete peças do `producao/bofu.json` usam foto dele: BF02, BF03, BF04, BF05, BF06, BF09
+e BF10. Puxei `object_type` e `image_hash` dos 29 anúncios ativos que não são vídeo.
+
+Resultado: os 29 são `SHARE` e usam **dez artes distintas**, nenhuma delas com hash
+igual ao da BF02 (`7c124f9d162408dc638dddc8c58d01c9`) ou da BF10
+(`427922c4a1857b295d7e738563dbdd2e`), os dois hashes de peça com a foto dele que o
+repositório documenta.
+
+**Onde a verificação por hash bateu no limite:** `ads_get_ad_images` devolve o nome de
+todas as dez como `untitled_105` — a Meta não guarda nome útil para imagem enviada por
+URL. E o repositório só documenta 4 hashes dos 20, faltando justamente BF03, BF04,
+BF05, BF06 e BF09. Então o hash sozinho não fecha o caso.
+
+O que fecha: as dez artes em uso são as das peças AG, e o
+`PECAS — modelo do V10.json` tem **10 peças, todas com `busca_pexels` e nenhuma com
+`foto: fotos/pablo...`** — conferido por script, não a olho. Os anúncios de nicho
+reusam essas mesmas dez artes (IMOB01 e AG02 compartilham `ad4f8921...`, ODO01 e AG04
+compartilham `7c9ff3b2...`), então herdam a mesma origem de banco.
+
+Os dois anúncios com a foto dele já tinham sido pausados no adendo 2.
+
+## O que foi pausado
+
+18 anúncios, nove em cada conjunto de formulário: V01, V02, V03, V04, V05, V06, V07,
+V08 e V09 em `LEADS I INTERESSE I FASE 3` e em `LEADS I SEMELHANTE CNAE RJ I FASE 3`.
+
+Justificativa de dado, não de gosto: **em 7 dias os nove vídeos entregaram zero lead**.
+Todo lead da conta veio de imagem.
+
+## Estado final: de 48 para 30 anúncios ativos
+
+| Conjunto | Ativos |
+|---|---|
+| LEADS I INTERESSE I FASE 3 | 5 (AG01–AG05) |
+| LEADS I SEMELHANTE CNAE RJ I FASE 3 | 6 (AG01 CNAE, AG06–AG10) |
+| NICHO IMOBILIARIA | 4 |
+| NICHO VETERINARIA | 4 |
+| NICHO ODONTOLOGIA | 4 |
+| NICHO ESTETICA | 4 |
+| NICHO ENERGIA SOLAR | 4 |
+
+Nenhum conjunto ficou abaixo de dois anúncios ativos — a regra foi respeitada em todos.
+A verba de R$ 30/dia agora se divide entre 30 anúncios em vez de 48, e nenhum deles é
+vídeo. Nenhum tem a foto do Pablo. Nenhum diz mentoria.
+
+---
+
+# Adendo 5 (12/09, 11h) — limpeza de erros e o formulário que ainda diz "mentoria"
+
+Pedido do Pablo: *"faça as correções e melhorias necessárias. mudanças se precisar"*.
+
+## O que estava errado e foi corrigido
+
+### 1. A campanha de topo tinha o conjunto ativo e o anúncio de dentro pausado
+
+`REC I FS1` (R$ 10/dia) estava ATIVA, com o conjunto `INT I DONOS` ativo, e **o único
+anúncio dentro dele — "DINAMICO - VÍDEOS" — pausado**. É o mesmo defeito que consertei nos
+cinco conjuntos de nicho ontem: conjunto ligado que não tem o que entregar.
+
+O anúncio é de vídeo, então já devia estar pausado pela ordem do Pablo de 12/09 ("pause
+todos os videos e com minha imagem") — e estava. Faltava fechar a ponta: **campanha pausada**.
+Não move orçamento de lugar nenhum (cada campanha tem o seu) e é reversível em um clique.
+
+### 2. Quatro anúncios travados com erro poluíam toda checagem de monitoramento
+
+`ads_get_errors` na conta inteira devolvia quatro erros, todos em conjuntos já renomeados
+como `ZZ INATIVO`:
+
+| Anúncio | Erro |
+|---|---|
+| `120247356298300766` | Terms of Service Not Accepted — a Página não aceitou os Termos de Geração de Leads |
+| `120247353451310766` | idem |
+| `120247352877730766` | idem |
+| `120247356296740766` | **Ads creative post was created by an app that is in development mode** — é o app OPC Automação, hipótese que a rotina manda checar primeiro |
+
+Os conjuntos estavam pausados, então **não gastavam nada**. Mas os anúncios seguiam com
+status `WITH_ISSUES` e apareciam em toda varredura de erro.
+
+**Por que isso importava de verdade:** a rotina horária checa erro de entrega toda rodada.
+Com quatro erros crônicos no resultado, um erro NOVO e real passaria despercebido no meio
+deles. Vermelho permanente é como se perde a atenção no vermelho que importa — a mesma
+lição que já está registrada sobre o CI.
+
+**Os quatro foram pausados.** `ads_get_errors` na conta agora devolve `[]`.
+
+**Observação sobre o erro de Termos de Serviço:** ele é antigo e não bloqueia nada hoje —
+os conjuntos FASE 3 rodam anúncio de formulário e já produziram 13 leads, o que só é
+possível com os Termos aceitos. Era resíduo de antes do aceite.
+
+## O que NÃO deu para corrigir — e é o mais importante
+
+**O formulário que o lead preenche ainda promete "90 dias".**
+
+Está registrado no `DIARIO — otimizacao.md`: *"três versões da oferta no ar: anúncio
+(mentoria/turma), formulário ('90 dias'), LinkedIn (30 dias, 4 encontros)"*. E o
+`BRIEFING` diz, em letra dele: **"não falar '90 dias'"**.
+
+Ontem a copy dos anúncios foi corrigida de mentoria para agência. **O formulário não foi** —
+e ele é a última superfície onde a mentoria sobrevive. Pior: é a superfície que o lead lê
+no momento exato em que decide entregar o contato.
+
+**Não existe ferramenta de formulário instantâneo em nenhum MCP desta sessão.** Já estava
+documentado em 11/09 ("Nenhuma ferramenta do MCP lista, cria ou expõe esse id") e foi
+reconfirmado agora com busca. O conserto é manual, no Gerenciador de Anúncios do Pablo.
+
+## O que é decisão do Pablo, não minha
+
+**Sete conjuntos dividindo R$ 30/dia.** Com 30 anúncios ativos, dá cerca de R$ 1 por anúncio
+por dia. Nenhum junta volume suficiente para o Meta aprender depressa. As duas saídas —
+subir a verba ou separar os nichos em campanha própria — são mexer em orçamento, que é
+decisão dele por combinação explícita. Segue esperando.

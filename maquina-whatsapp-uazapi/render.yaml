@@ -1,0 +1,22 @@
+# Render.com (plano free): New → Blueprint → este repositório. Root: maquina-whatsapp-uazapi.
+services:
+  - type: web
+    name: opc-whatsapp-uazapi
+    runtime: docker
+    plan: free
+    rootDir: maquina-whatsapp-uazapi
+    envVars:
+      - key: UAZAPI_BASE_URL
+        sync: false
+      - key: UAZAPI_INSTANCE_TOKEN
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-2.5-flash
+      - key: BUFFER_SECONDS
+        value: "8"
+      - key: CALENDLY_URL
+        value: https://calendly.com/maisvendas/diagnostico-30min
+      - key: OWNER_NUMBER
+        value: "5512982381407"
