@@ -118,6 +118,10 @@ tts_provider: "edge"
 # pollinations: Pollinations.AI — GRATUITO, sem chave, imagens Flux cinematograficas.
 # Troque por "openai" (gpt-image-1, ~US$0,04/imagem) quando quiser controle total
 # de prompt e resolucao customizada.
+# muapi: Muapi.ai, o motor do Open Higgsfield AI (ferramentas/open-higgsfield-ai) —
+# 221 modelos de imagem/video/lip sync; exige MUAPI_API_KEY. image_model escolhe
+# o modelo texto->imagem (ids em config/muapi_modelos.json; ex.: flux-schnell,
+# nano-banana-2, seedream-5.0). Ver docs/23-open-higgsfield-muapi.md
 image_provider: "pollinations"
 llm_model: "claude-opus-5"            # Anthropic, se algum dia houver chave
 # A cadeia, em ordem. So entra quem tiver chave no ambiente — pode citar

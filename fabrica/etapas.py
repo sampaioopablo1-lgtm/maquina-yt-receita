@@ -162,6 +162,26 @@ if _pedem_broll and not LONGO_PRONTO:
             log(f"  broll cena {_i} ({_dd:.1f}s) SEM FOOTAGE: {BR.ULTIMO_MOTIVO}")
     log(f"etapa 1.5 ok: broll em {_ok}/{len(_pedem_broll)} cenas")
 
+# ------------------------ 1.6. arte gerada por IA nas cenas que pedem
+# Mesma regra do broll: roda ANTES da etapa 2 porque compoe a imagem gerada
+# por baixo do l{i}.png transparente que a etapa 1 rasterizou. Falha aqui nunca
+# para o render — a cena cai no fallback (cartao sobre preto). A imagem vem da
+# Muapi, o motor do Open Higgsfield AI (fabrica/arte.py).
+_pedem_arte = [(i, c) for i, c in enumerate(cenas)
+               if c.get("layout") == "arte"]
+if _pedem_arte and not LONGO_PRONTO:
+    import arte as AR                                             # noqa: E402
+    _ka = AR.chave()
+    log(f"etapa 1.6: chave da Muapi — {AR.ORIGEM_DA_CHAVE}")
+    _oka = 0
+    for _i, _c in _pedem_arte:
+        if AR.garantir(d, "l", _i, _c, W, H, api_key=_ka,
+                       estilo=sp.get("arte_estilo", "")):
+            _oka += 1
+        else:
+            log(f"  arte cena {_i} SEM IMAGEM: {AR.ULTIMO_MOTIVO}")
+    log(f"etapa 1.6 ok: arte em {_oka}/{len(_pedem_arte)} cenas")
+
 # ------------------------------------------- 2. clipes, liberando um a um
 log("etapa 2: clipes do longo")
 tempos = []

@@ -271,17 +271,57 @@ DIACRITICOS = {
 PISO_REFERENCIA = 0.02
 
 
-def _densidade_diacritica(cenas, tabela: str) -> float | None:
+def _sem_numerais(txt: str, base: str) -> str:
+    """O mesmo texto, sem as palavras que sao numero por extenso.
+
+    NUMERAL POR EXTENSO NAO ACENTUA, e isso desloca a densidade para baixo sem
+    que exista defeito nenhum. Medido em 14/09/2026 na nivel-do-jogo-003: o
+    short fala "quatrocentos e quarenta e nove reais e noventa centavos" e
+    "mil seiscentos e vinte e um", e 41% das palavras sao numeral. A densidade
+    dava 1,89% contra um limite de 2,10% e o portao acusava — mas o texto esta
+    inteiro certo: `e`, `minimo`, `propria`, `esta` e `video` acentuados onde
+    devem. Tirando so os numerais, a mesma spec mede 3,07% e passa.
+
+    Isto APERTA a medida, nao afrouxa o portao: o que ele existe para pegar e
+    ASCII puro, e texto sem acento nenhum continua medindo 0% depois de tirar
+    os numerais — nao ha como um defeito se esconder aqui. O que muda e que a
+    spec numerosa para de ser confundida com a spec escrita sem acento.
+
+    A lista de numerais e a MESMA que `narracao.conta_numeros` usa, por idioma,
+    para nao existirem duas nocoes de "isto e um numero" no repositorio.
+    """
+    import re
+
+    from narracao import NUMEROS, normaliza
+
+    padrao = NUMEROS.get(base)
+    if not padrao:
+        return txt
+    fica = []
+    for tok in re.findall(r"\S+", txt):
+        # casa no token NORMALIZADO (a lista e sem acento), mas guarda o
+        # ORIGINAL: e nele que os acentos serao contados.
+        alvo = tok if base == "hi" else normaliza(tok)
+        if not re.search(padrao, alvo):
+            fica.append(tok)
+    return " ".join(fica)
+
+
+def _densidade_diacritica(cenas, tabela: str, base: str = "") -> float | None:
     txt = "".join((c or {}).get("nar") or "" for c in cenas)
+    if base:
+        txt = _sem_numerais(txt, base)
     letras = sum(1 for ch in txt if ch.isalpha())
     if not letras:
         return None
     return sum(1 for ch in txt if ch in tabela) / letras
 
 
-def _letras(cenas) -> int:
-    return sum(1 for c in cenas
-               for ch in ((c or {}).get("nar") or "") if ch.isalpha())
+def _letras(cenas, base: str = "") -> int:
+    txt = "".join((c or {}).get("nar") or "" for c in cenas)
+    if base:
+        txt = _sem_numerais(txt, base)
+    return sum(1 for ch in txt if ch.isalpha())
 
 
 # Quantas specs precisam acentuar para que a mediana delas vire referencia. Com
@@ -319,7 +359,7 @@ def _referencia_do_idioma(base: str, tabela: str, caminho: str) -> float:
                       "es" if idi.startswith("es") else idi)
         if outro_base != base:
             continue
-        d = _densidade_diacritica(o.get("longo") or [], tabela)
+        d = _densidade_diacritica(o.get("longo") or [], tabela, base)
         if d is not None and d >= PISO_REFERENCIA:
             boas.append(d)
     if len(boas) < MINIMO_REFERENCIA_IDIOMA:
@@ -373,7 +413,7 @@ def _gate_ortografia(caminho, sp):
         return []
 
     blocos = [("longo", sp.get("longo") or []), ("short", sp.get("short") or [])]
-    blocos = [(nome, _densidade_diacritica(cenas, tabela), _letras(cenas))
+    blocos = [(nome, _densidade_diacritica(cenas, tabela, base), _letras(cenas, base))
               for nome, cenas in blocos]
     if all(d is None for _, d, _ in blocos):
         return []
@@ -388,7 +428,7 @@ def _gate_ortografia(caminho, sp):
             o = json.load(open(outro, encoding="utf-8"))
         except (json.JSONDecodeError, OSError):
             continue
-        d = _densidade_diacritica(o.get("longo") or [], tabela)
+        d = _densidade_diacritica(o.get("longo") or [], tabela, base)
         if d is not None:
             vizinhas.append(d)
 
@@ -548,11 +588,11 @@ def _gate_capitulos(sp):
                 f"some no render (setiap-level-014, 01/09/2026). Estique o "
                 f"texto ate {copy_md.MIN_CAP * MARGEM_CAP:.0f}s estimados"]
     perdidos = [c.get("cap") for c in longo
-                if c.get("cap") and c.get("layout") not in ("titulo", "broll")]
+                if c.get("cap") and c.get("layout") not in ("titulo", "broll", "arte")]
     if perdidos:
         return [f"{desenhados} capitulos desenhados e {produzidos} produzidos — "
                 f"abre(m) em layout que o render ignora: {perdidos}. "
-                f"Abertura de capitulo tem de ser layout `titulo` ou `broll`"]
+                f"Abertura de capitulo tem de ser layout `titulo`, `broll` ou `arte`"]
 
     # Sobrou a outra causa, e ela precisa ser DITA: com as aberturas todas em
     # `titulo`, o que derruba capitulo e a distancia ate o anterior. Dizer

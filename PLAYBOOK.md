@@ -698,6 +698,27 @@ estoura o teto de 50 MB do Storage.
 
 ---
 
+### Arte gerada por IA — layout `arte` (desde 22/09/2026)
+
+O Open Higgsfield AI (`ferramentas/open-higgsfield-ai`) trouxe a Muapi para a
+fábrica: uma cena com `layout: "arte"` e `arte_prompt` recebe uma imagem gerada
+(Flux Schnell por padrão) atrás do mesmo cartão flutuante do `broll`. A etapa
+1.6 do `etapas.py` faz isso **antes** dos clipes; sem chave (`MUAPI_API_KEY` ou
+`config.muapi_api_key` no banco) a cena cai no fallback e o render segue.
+
+| Regra | Por quê |
+|---|---|
+| `arte_prompt` em inglês, sem pedir texto | letras geradas saem erradas no idioma; TTS e legenda já carregam o texto |
+| um `arte_estilo` por spec, herdado do canal | cena a cena com estilo diferente lê como pacote colado, não como vídeo |
+| no máximo 1 cena `arte` a cada 4; nunca no short | é enfeite: o que segura retenção é gancho e ritmo, e o short tem layout 9:16 próprio |
+| capítulo pode abrir em `arte` | `prontidao.py` e `copy_md.py` tratam como `titulo`/`broll` |
+| vídeo gerado (Kling, Veo, Wan) só com `experimentos` + teto | custa por segundo, e não há medida de retenção que o justifique ainda |
+| log diz de onde veio a chave | "sem arte" sem motivo custa 20 min de render para a mesma dúvida (aprendizado 304) |
+
+Catálogo dos 221 modelos: `config/muapi_modelos.json`. Guia completo:
+`docs/23-open-higgsfield-muapi.md`. Para gerar peças à mão (thumbnail
+alternativa, avatar, capa): `cd ferramentas/open-higgsfield-ai && npm run dev`.
+
 ### Número de pacote se consulta, não se supõe
 
 `python3 fabrica/grava_spec.py <slug>` diz quais números estão ocupados e qual é o próximo
