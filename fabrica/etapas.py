@@ -279,8 +279,24 @@ if not LONGO_PRONTO:
 # passaram por todos os asserts, porque o arquivo estava perfeito.
 import visual as VIS                                              # noqa: E402
 
+# As JANELAS DE FOOTAGE vao para o teste visual, e sem elas ele mede a coisa
+# errada nas cenas broll: `analisa` toma a cor dominante do quadro como fundo e
+# conta toda a variacao fotografica como tinta, inclusive na borda. Foi assim
+# que o seviye-seviye-010 reprovou em t=333,9s com 3,6% de tinta na borda, e a
+# tinta estava espalhada no topo, na base e na direita — era o clipe, nao texto
+# cortado. Com as janelas, o quadro de footage e julgado pelo lower-third.
+_janelas_broll, _t = [], 0.0
+for _i, _c in enumerate(cenas):
+    _dur = tempos[_i]
+    if (_c or {}).get("layout") == "broll":
+        _janelas_broll.append((_t, _t + _dur))
+    _t += _dur
+if _janelas_broll:
+    log(f"etapa 7: {len(_janelas_broll)} janela(s) de footage vao ao teste visual")
+
 _erros, _avisos = VIS.conferir(f"{d}/video.mp4",
-                               VIS.hexcor(sp["paleta"].get("bg", "#FFFFFF")))
+                               VIS.hexcor(sp["paleta"].get("bg", "#FFFFFF")),
+                               janelas_broll=_janelas_broll)
 assert not _erros, "video reprovado no teste visual — nao entregue assim"
 log("etapa 7 ok: video conferido quadro a quadro")
 

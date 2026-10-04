@@ -17,6 +17,35 @@ Isto amostra quadros do mp4 pronto e mede quatro coisas por quadro:
              e some na tela cai aqui.
   fundo      a cor dominante e a do canal? Pega inversao de paleta.
 
+CENA COM FOOTAGE E OUTRA COISA, e isto custou um pacote em 04/10/2026. As
+quatro medidas acima assumem CARTAO: fundo plano, texto por cima. Numa cena
+`layout: "broll"` o quadro e uma FOTOGRAFIA escurecida, e `analisa` toma a cor
+dominante dela como "fundo" e chama toda a variacao fotografica de "tinta" —
+inclusive na borda. O seviye-seviye-010 foi reprovado em `t=333,9s` com 3,6% de
+tinta na borda, e a tinta estava no TOPO (5,35%), na base (4,04%) e na direita
+(4,61%), espalhada: era a estacao de trem do clipe, nao texto cortado. Nos
+quadros de cartao do mesmo video a margem le 0,00% nos quatro lados.
+
+E PIOR: antes disso o portao nao estava aprovando footage, estava sem ve-lo. A
+amostragem e uniforme e as cenas de broll sao curtas (8 a 11 s em 556 a 728 s).
+Medido nos tres pacotes com footage de 04/10: agla-level-009 teve ZERO dos 12
+quadros sondados dentro de cena broll, resep-naik-level-010 tambem zero, e o
+seviye-seviye-010 pegou um — e reprovou. Os dois primeiros passaram por sorte
+de amostragem, nao por conferencia.
+
+Por isso o portao agora faz duas coisas diferentes, e as duas APERTAM:
+
+  * recebe `janelas_broll` e sonda UM quadro dentro de cada cena de footage,
+    alem dos n uniformes. Cena com footage deixa de depender de sorte.
+  * no quadro de footage, nao mede tinta/margem/fundo — mede o que de fato
+    pode dar errado ali: se o lower-third e LEGIVEL sobre o clipe. O fundo de
+    referencia e a cor dominante da propria faixa do lower-third, nao do quadro
+    inteiro.
+
+O fallback documentado do broll (lower-third sobre preto, quando o clipe nao
+vem) continua passando, porque la o texto e perfeitamente legivel — e e isso
+que a medida nova pergunta.
+
 Uso:  python3 visual.py <video.mp4> [--fundo RRGGBB] [--quadros 12]
 Sai 1 se houver ERRO.
 """
@@ -40,6 +69,15 @@ MAX_MARGEM = 0.012        # tinta encostada na borda
 RECONFERIR_S = 0.8        # quanto adiante reamostrar um quadro que mediu vazio
 MIN_CONTRASTE = 70        # distancia RGB media entre tinta e fundo
 MAX_DESVIO_FUNDO = 60     # distancia da cor dominante ate o fundo declarado
+
+# Faixa do lower-third, medida a partir da base do quadro. E a unica regiao que
+# importa num quadro de footage: e onde a fabrica desenha kicker e sub.
+FAIXA_LT = 0.34
+MIN_TINTA_LT = 0.004      # texto no lower-third. Mais baixo que MIN_TINTA do
+                          # cartao porque a faixa e um terco do quadro e o texto
+                          # ocupa parte dela; 0,00% continua reprovando.
+MIN_CONTRASTE_LT = 55     # texto sobre clipe nunca tem o contraste de texto
+                          # sobre fundo plano, mas abaixo disto nao se le.
 
 
 def duracao(v):
@@ -122,7 +160,48 @@ def analisa(q):
     }
 
 
-def conferir(video, fundo_esperado=None, n=QUADROS):
+def analisa_lt(q):
+    """Mede SO a faixa do lower-third, contra o fundo dela mesma.
+
+    Num quadro de footage nao existe "o fundo do quadro": existe o clipe. Mas
+    existe uma pergunta que decide se a cena presta — o texto sobre o clipe da
+    para ler? Essa pergunta se responde na faixa onde o texto esta, e com a cor
+    dominante DESSA faixa como referencia.
+    """
+    y0 = int(H * (1 - FAIXA_LT))
+    conta = Counter()
+    for y in range(y0, H, 3):
+        for x in range(0, W, 5):
+            o = (y * W + x) * 3
+            conta[(q[o] // 12, q[o + 1] // 12, q[o + 2] // 12)] += 1
+    bal = conta.most_common(1)[0][0]
+    fundo = (bal[0] * 12 + 6, bal[1] * 12 + 6, bal[2] * 12 + 6)
+
+    tinta = total = 0
+    soma_d = 0
+    for y in range(y0, H, 2):
+        for x in range(0, W, 2):
+            o = (y * W + x) * 3
+            d = dist((q[o], q[o + 1], q[o + 2]), fundo)
+            total += 1
+            if d > 90:
+                tinta += 1
+                soma_d += d
+    return {
+        "fundo": fundo,
+        "tinta": tinta / max(total, 1),
+        "contraste": (soma_d / tinta) if tinta else 0,
+    }
+
+
+def _em_janela(t, janelas):
+    for a, b in janelas or ():
+        if a <= t <= b:
+            return True
+    return False
+
+
+def conferir(video, fundo_esperado=None, n=QUADROS, janelas_broll=None):
     qs, d = quadros(video, n)
     erros, avisos = [], []
     tintas = []
@@ -133,9 +212,28 @@ def conferir(video, fundo_esperado=None, n=QUADROS):
         tintas.append(m["tinta"])
         t = d * (i + 0.5) / len(qs)
         f = m["fundo"]
+        onde = f"t={t:.1f}s"
+        # QUADRO DE FOOTAGE: as quatro medidas de cartao nao se aplicam, e
+        # aplica-las reprova video bom (ver o docstring). Mede-se o
+        # lower-third.
+        if _em_janela(t, janelas_broll):
+            tintas.pop()
+            lt = analisa_lt(q)
+            fl = lt["fundo"]
+            print(f"{t:>7.1f} {'broll':>6}  {lt['tinta']*100:>6.2f}% "
+                  f"{lt['contraste']:>6.0f}  #{fl[0]:02X}{fl[1]:02X}{fl[2]:02X}"
+                  f"  (lower-third)")
+            if lt["tinta"] < MIN_TINTA_LT:
+                erros.append(f"{onde}: cena de footage sem texto legivel no "
+                             f"lower-third ({lt['tinta']*100:.2f}% de tinta na "
+                             f"faixa) — o clipe entrou e o texto nao")
+            elif lt["contraste"] < MIN_CONTRASTE_LT:
+                erros.append(f"{onde}: lower-third com contraste "
+                             f"{lt['contraste']:.0f} sobre o clipe — o texto "
+                             f"existe e nao se le em cima do footage")
+            continue
         print(f"{t:>7.1f} {m['tinta']*100:>6.2f}% {m['margem']*100:>6.2f}% "
               f"{m['contraste']:>6.0f}  #{f[0]:02X}{f[1]:02X}{f[2]:02X}")
-        onde = f"t={t:.1f}s"
         # A amostragem e uniforme e nao sabe onde as cenas comecam, entao um
         # quadro pode cair na janela de entrada da animacao — nos primeiros
         # ~0,45s de uma cena em camadas ainda nao ha elemento nenhum na tela, e
@@ -171,6 +269,35 @@ def conferir(video, fundo_esperado=None, n=QUADROS):
         if fundo_esperado and dist(f, fundo_esperado) > MAX_DESVIO_FUNDO:
             avisos.append(f"{onde}: fundo #{f[0]:02X}{f[1]:02X}{f[2]:02X} nao e o do canal "
                           f"#{fundo_esperado[0]:02X}{fundo_esperado[1]:02X}{fundo_esperado[2]:02X}")
+    # CADA CENA DE FOOTAGE RECEBE UMA SONDA PROPRIA, e isto APERTA o portao.
+    # A amostragem uniforme nao cobre cena curta: medido em 04/10/2026, o
+    # agla-level-009 e o resep-naik-level-010 tiveram ZERO dos 12 quadros dentro
+    # de cena broll, com tres cenas de footage cada. Passaram sem serem
+    # conferidos. Um quadro por janela custa uma decodificacao e tira a sorte
+    # da conta.
+    for a_, b_ in (janelas_broll or ()):
+        meio = (a_ + b_) / 2
+        if any(abs(meio - d * (i + 0.5) / len(qs)) < (b_ - a_) / 2
+               for i in range(len(qs))):
+            continue                      # a amostra uniforme ja caiu aqui
+        q = quadro_em(video, min(meio, d - 0.1))
+        if not q:
+            avisos.append(f"t={meio:.1f}s: nao consegui sondar a cena de footage")
+            continue
+        lt = analisa_lt(q)
+        fl = lt["fundo"]
+        print(f"{meio:>7.1f} {'broll':>6}  {lt['tinta']*100:>6.2f}% "
+              f"{lt['contraste']:>6.0f}  #{fl[0]:02X}{fl[1]:02X}{fl[2]:02X}"
+              f"  (sonda da cena)")
+        if lt["tinta"] < MIN_TINTA_LT:
+            erros.append(f"t={meio:.1f}s: cena de footage sem texto legivel no "
+                         f"lower-third ({lt['tinta']*100:.2f}% de tinta na faixa) "
+                         f"— o clipe entrou e o texto nao")
+        elif lt["contraste"] < MIN_CONTRASTE_LT:
+            erros.append(f"t={meio:.1f}s: lower-third com contraste "
+                         f"{lt['contraste']:.0f} sobre o clipe — o texto existe e "
+                         f"nao se le em cima do footage")
+
     # MIN_TINTA julga um quadro de cada vez, e por bom motivo e frouxo. Mas um
     # video pode estar vazio sem que nenhum quadro sozinho encoste no piso: em
     # seja-mais-magra-001, 59 das 76 cenas foram escritas sem `kicker`, entao a
