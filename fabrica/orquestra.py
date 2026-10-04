@@ -29,6 +29,7 @@ assim que este modulo e testado, e e assim que se reproduz uma decisao antiga.
 from __future__ import annotations
 
 import argparse
+import datetime as dt
 import glob
 import json
 import os
@@ -41,9 +42,28 @@ SPECS = os.path.join(RAIZ, "fabrica", "specs")
 sys.path.insert(0, os.path.join(RAIZ, "fabrica"))
 
 META_POR_CANAL = 10       # longos publicados por canal
-MAX_POR_DIA_POR_CANAL = 1  # PACOTES/dia/canal — 1 longo + 1 short por dia
-# 3 -> 5 em 20/08/2026, 5 -> 1 em 24/08/2026, as duas vezes a pedido do dono.
+MAX_POR_DIA_POR_CANAL = 2  # PACOTES/dia/canal — 2 longos + 2 shorts por dia
+# 3 -> 5 em 20/08/2026, 5 -> 1 em 24/08/2026, 1 -> 2 em 04/10/2026, as tres
+# vezes a pedido do dono.
 # O numero conta PACOTE, nao video: cada pacote e um longo mais um short.
+#
+# A SUBIDA DE 04/10 E O QUE MUDOU DESDE A QUEDA DE 24/08.
+#
+# A queda para 1 foi motivada por duplicata, nao por volume: cinco copias do
+# mesmo short do kolejny-poziom em cinco dias seguidos. Em 04/10 isso e muito
+# menos provavel, e nao por confianca — por codigo que nao existia em agosto:
+#   * `ja_no_ar_pelo_titulo` cruza o TITULO contra os publicados, nao so o nome
+#     do pacote, e roda igual no modo ponte;
+#   * `corpus_publicados.json` e versionado e o md5 dele e conferido contra a
+#     tabela `videos` antes de cada publicacao (aprendizado do corpus, 01/09);
+#   * `prontidao.avalia` recusa spec com similaridade alta contra o mesmo canal
+#     antes de gastar render.
+# As cinco copias de agosto passariam hoje por tres portoes antes de subir.
+#
+# O QUE A SUBIDA NAO RESOLVE, e esta medido: dobrar o volume fecha os 1.000
+# inscritos do epomeno-epipedo em ~5 meses em vez de ~10, e corta o prazo das
+# 4.000 horas de 2,2 anos para ~1,1 ano. Mas a razao longo/short continua em 6
+# a 17%, e e ela que decide as horas. Volume compra tempo; nao compra o fator.
 #
 # A decisao de 24/08 foi "apenas 1 video longo por canal por dia, todos os
 # dias", e ela precisa morar AQUI, nao so no prompt da rotina. A rotina e lida
@@ -385,9 +405,31 @@ def proximo(videos: list[dict], n: int,
     # canal alcanca a propria janela dentro do mesmo dia.
     import janela as J
 
+    # HORARIO ALEATORIO, mas DENTRO da janela boa do canal — pedido do dono em
+    # 04/10/2026, com uma ressalva que o dado impoe.
+    #
+    # O pedido foi "horarios aleatorios". Aleatorio no dia INTEIRO devolveria o
+    # defeito que o `janela.py` existe para corrigir: a faixa morta local (01h
+    # as 08h) e onde o seviye-seviye publicou dois tercos dos seus shorts, e um
+    # short que estreia na madrugada compete com ninguem acordado. Entao o
+    # sorteio acontece DEPOIS do filtro de janela, nao antes dele: a faixa boa
+    # tem dezessete horas e sobra espaco para variar.
+    #
+    # O que era desempate ALFABETICO virava fila fixa: `agla-level` sempre
+    # primeiro, `sx-educacao` sempre ultimo, e cada canal caindo na mesma hora
+    # todo dia. Agora o desempate e sorteado com semente do DIA (UTC), o que da
+    # duas propriedades ao mesmo tempo: a ordem muda a cada dia, e nao muda
+    # DENTRO do dia — dois disparos da mesma data veem a mesma fila, que e o
+    # que mantem o teto por canal honesto e as reexecucoes reproduzivis.
+    import hashlib
+
+    def _sorteio_do_dia(slug: str) -> str:
+        semente = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d")
+        return hashlib.md5(f"{semente}:{slug}".encode()).hexdigest()
+
     ordem = sorted(est["canais"].items(),
                    key=lambda kv: (0 if J.na_janela(kv[0]) else 1,
-                                   -kv[1]["faltam"], kv[0]))
+                                   -kv[1]["faltam"], _sorteio_do_dia(kv[0])))
     for canal, info in ordem:
         for nome in info["specs_pendentes"]:
             if len(escolhidas) >= n:
