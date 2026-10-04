@@ -29,6 +29,24 @@ Pexels. No epomeno-epipedo-004 a chave veio do banco — o log diz "banco
 sandbox e nao respondia do runner. So uma busca de verdade separa "a linha
 existe" de "o footage vem".
 
+E AQUI ESTE PORTAO ESTAVA SONDANDO O HOST ERRADO. Medido em 04/10/2026, no
+agla-level-009: a spec chegou com os tres `broll_url` JA resolvidos pelo
+`prebusca_broll.py`, e este portao reprovou o pacote de qualquer jeito, porque
+exigia chave e sondava `api.pexels.com` — que e exatamente o host que o render
+nao usa mais quando o link esta na spec. Zero segundos de render gastos, mas
+tambem zero pacote: o portao reprovou por uma dependencia que a spec havia
+removido.
+
+A pergunta certa e sempre "o footage chega ate o render?", e a resposta depende
+de QUEM vai busca-lo:
+
+  * cena com `broll_url` na spec: o render so baixa do CDN
+    (`videos.pexels.com`), sem chave e sem cota. Entao o portao sonda o CDN,
+    naquele link, com um Range de 1 KiB. Isso e mais forte que a sonda antiga
+    — confere o arquivo QUE VAI SER USADO, nao um resultado de busca qualquer.
+  * cena sem `broll_url`: o render ainda chama a API. Ai valem a chave e a
+    busca, como sempre.
+
 Uso:
     python3 fabrica/confere_broll.py spec.json
 """
@@ -54,28 +72,59 @@ def main(caminho: str) -> int:
         return 0
 
     import broll as BR
+    from prebusca_broll import _cdn_responde
+
+    # CENAS JA RESOLVIDAS: o render nao chama a API por elas, entao o portao
+    # tambem nao. Sonda o CDN no link exato que vai ser baixado.
+    resolvidas = [i for i in pedem if (sp["longo"][i].get("broll_url") or "").strip()]
+    if resolvidas:
+        print(f"{len(resolvidas)}/{len(pedem)} cenas broll com link na spec — "
+              f"sondando o CDN, nao a API")
+        ruins = []
+        for i in resolvidas:
+            link = sp["longo"][i]["broll_url"].strip()
+            if _cdn_responde(link):
+                print(f"  cena {i:2d}: CDN entrega {link.rsplit('/', 1)[-1]}")
+            else:
+                ruins.append(i)
+        if ruins:
+            print(f"CDN NAO ENTREGA {len(ruins)} de {len(resolvidas)} clipes "
+                  f"resolvidos (cenas {ruins}).")
+            print("O link esta na spec mas videos.pexels.com nao responde a "
+                  "este runner. Renderizar agora entrega desenho onde a spec "
+                  "pede footage.")
+            print("Caminhos: refazer a pre-busca "
+                  "(`python3 fabrica/prebusca_broll.py <spec> --conferir`) de "
+                  "onde o CDN responde, ou tirar o layout broll da spec.")
+            return 1
+
+    por_buscar = [i for i in pedem if i not in resolvidas]
+    if not por_buscar:
+        print(f"sonda ok: {len(resolvidas)}/{len(pedem)} cenas com footage que "
+              f"o CDN entrega; nenhuma depende da API")
+        return 0
 
     k = BR.chave()
     if not k:
         print(f"CHAVE DO PEXELS AUSENTE: {BR.ORIGEM_DA_CHAVE}")
-        print(f"A spec {sp.get('pacote')} declara {len(pedem)} cenas com "
-              f"footage; sem chave todas viram desenho e o pacote nao e o que "
-              f"a spec descreve.")
+        print(f"A spec {sp.get('pacote')} tem {len(por_buscar)} cena(s) com "
+              f"footage e SEM link na spec; sem chave elas viram desenho e o "
+              f"pacote nao e o que a spec descreve.")
         print("Conserto: gravar a chave no banco e disparar de novo —")
         print("  insert into config (chave, valor) values "
               "('pexels_api_key', to_jsonb('<chave>'::text))")
         print("  on conflict (chave) do update set valor = excluded.valor;")
         return 1
     print(f"chave do Pexels ok ({BR.ORIGEM_DA_CHAVE}) para "
-          f"{len(pedem)} cenas broll")
+          f"{len(por_buscar)} cena(s) broll sem link na spec")
 
     # Ter a chave nao e chegar ao Pexels. No epomeno-epipedo-004 a chave veio
     # do banco e as 7 cenas morreram em `TimeoutError` — a mesma chave que
     # respondia do sandbox nao respondia do runner. Uma busca de verdade
     # aqui custa uma chamada e responde em segundos o que o render responde
     # em vinte minutos.
-    q = next((c["broll_q"] for c in sp["longo"]
-              if c.get("layout") == "broll" and c.get("broll_q")), None)
+    q = next((sp["longo"][i].get("broll_q") for i in por_buscar
+              if sp["longo"][i].get("broll_q")), None)
     if not q:
         print("nenhuma cena broll declara broll_q — nada a sondar")
         return 1
@@ -84,11 +133,12 @@ def main(caminho: str) -> int:
     except Exception as e:
         print(f"PEXELS INALCANCAVEL DAQUI: {type(e).__name__}: {e}")
         print(f"A chave resolve, mas a busca por '{q}' nao completou em "
-              f"3 tentativas. Renderizar agora entrega {len(pedem)} cenas de "
-              f"desenho onde a spec pede footage — o pacote sai diferente do "
+              f"3 tentativas. Renderizar agora entrega {len(por_buscar)} cena(s) "
+              f"de desenho onde a spec pede footage — o pacote sai diferente do "
               f"que foi desenhado, e isso so apareceria olhando frame.")
-        print("Caminhos: conferir se o Pexels responde a este runner, ou "
-              "tirar o layout broll da spec e despachar de novo.")
+        print("Caminhos: resolver os links fora do runner "
+              "(`python3 fabrica/prebusca_broll.py <spec>` de onde a API "
+              "responde), ou tirar o layout broll da spec e despachar de novo.")
         return 1
     n = len(dados.get("videos", []))
     print(f"sonda ok: '{q}' devolveu {n} resultado(s)")
