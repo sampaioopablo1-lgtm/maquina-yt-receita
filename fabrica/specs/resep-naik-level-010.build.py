@@ -115,9 +115,33 @@ import json
 
 CENAS = []
 
-# Links resolvidos pela pre-busca rodada de onde `api.pexels.com` responde.
-# Preenchido abaixo, apos a conferencia do CDN.
-BROLL = {}
+# Links resolvidos em 04/10/2026 pela pre-busca rodada do sandbox, onde
+# `api.pexels.com` responde — do runner do GitHub ela da TimeoutError e do meu
+# runner o proxy devolve 403 para os dois hosts. `--conferir`: 3/3 clipes que o
+# CDN entrega. Com o link gravado o pacote tambem fica REPRODUZIVEL: sem ele,
+# dois renders da mesma spec pegam clipes diferentes, porque o Pexels reordena.
+#
+# A CENA 0 FOI ESCOLHIDA A MAO, e o motivo importa. A busca por "food scraps in
+# a kitchen trash bin" devolveu 7668957, que e PAPEL AMASSADO num cesto — e o
+# capitulo fala do lixo de COMIDA. Sondei cinco consultas e o Pexels nao tem
+# lixo de alimento: "throwing food into the garbage" devolve papel amassado nas
+# duas primeiras posicoes, e "vegetable peels and food waste" devolve gente
+# descascando legume, que e exatamente o que o capitulo 6 diz que NAO conta.
+# Clipe que contradiz a narracao e pior que nenhum clipe. 6994930 e uma pessoa
+# conferindo o que tem dentro da geladeira: fala do mesmo assunto sem afirmar
+# nada, e ainda antecipa a quarta causa do capitulo 4 ("esquecer que o
+# alimento existe").
+BROLL = {
+    6994930: ("https://videos.pexels.com/video-files/6994930/6994930-hd_1280_720_30fps.mp4",
+              "Kindel Media",
+              "https://www.pexels.com/video/woman-checking-items-inside-her-refrigerator-6994930/"),
+    6962695: ("https://videos.pexels.com/video-files/6962695/6962695-hd_1280_720_25fps.mp4",
+              "Mikhail Nilov",
+              "https://www.pexels.com/video/a-person-typing-on-calculator-6962695/"),
+    5717448: ("https://videos.pexels.com/video-files/5717448/5717448-hd_1280_720_25fps.mp4",
+              "Polina",
+              "https://www.pexels.com/video/person-writing-a-new-year-resolution-5717448/"),
+}
 
 
 def T(kicker, sub, nar, cap=None):
@@ -166,7 +190,7 @@ def C(kicker, sub, nar):
 B("Satu pengeluaran di rumah", "yang tidak punya struk",
   "Ada satu pengeluaran di rumah Anda yang tidak pernah punya struk. Isinya "
   "tempat sampah dapur, dan tidak ada yang menimbangnya.",
-  "food scraps in a kitchen trash bin", 0,
+  "person checking what is inside the refrigerator", 6994930,
   cap="Angka yang tidak pernah ditimbang")
 I("Semua yang lain tercatat", "yang ini tidak",
   "Belanja punya struk. Listrik punya tagihan. Cicilan punya tanggal. Yang "
@@ -209,7 +233,7 @@ I("Satu minggu cukup", "tujuh hari saja",
 B("Angka kedua", "sudah tercetak",
   "Angka kedua tidak perlu Anda taksir. Angka itu sudah tercetak, dan ada di "
   "struk belanja Anda sendiri.",
-  "hands holding a paper receipt", 10,
+  "hands holding a paper receipt", 6962695,
   cap="Angka kedua, dan jumlahnya")
 I("Cari harganya", "satu per satu",
   "Ambil struk minggu ini dan cari harga setiap barang yang ada di catatan "
@@ -253,7 +277,7 @@ I("Keempat", "lupa barangnya ada",
 B("Empat penyebab", "empat langkah",
   "Empat penyebab, empat langkah. Dan keempatnya bisa mulai di belanja "
   "berikutnya, tanpa alat apa pun.",
-  "person writing a shopping list on paper", 20,
+  "person writing a shopping list on paper", 5717448,
   cap="Empat langkah, satu per penyebab")
 I("Untuk yang pertama", "belanja untuk hari masak",
   "Untuk yang pertama: hitung dulu berapa hari Anda benar-benar akan masak "
@@ -389,6 +413,8 @@ Bab terakhir tentang cara memakai angka itu: pilih satu penyebab saja, kerjakan 
 
 Di akhir, tiga langkah, semuanya dengan barang yang sudah ada di rumah Anda hari ini.
 
+Footage: Pexels (lisensi bebas) — Kindel Media, Mikhail Nilov, Polina.
+
 ## CAPITULOS
 {CAPITULOS}
 
@@ -412,7 +438,7 @@ sisa makanan, buang makanan, hemat uang dapur, uang belanja dapur, cara hemat be
 {TRILHA}
 
 ## AVISO SOBRE OS NUMEROS
-Este video NAO cita nenhum numero meu e NAO faz nenhuma afirmacao institucional. Nao cita preco de alimento, nao cita HET, nao cita media nacional nem regional de desperdicio, nao cita estudo, nao cita nome de mercado nem de marca, e nao compara o espectador com media nenhuma. Os dois numeros da conta sao do proprio espectador: o que ele jogou fora sem comer (que ele observa e anota na semana) e o preco daquilo (que esta impresso no struk dele). Nao ha numero meu para certificar em duas fontes, e por isso nao ha numero meu que possa envelhecer nem que dependa da regiao, do mercado ou do tamanho da familia dele. O QUE FOI DELIBERADAMENTE DEIXADO DE FORA, e por que: (1) qualquer estatistica de desperdicio de alimentos, porque ela so serviria para dizer ao espectador se ele esta acima ou abaixo da media, e o video nao faz essa comparacao — a conta e sobre a casa dele, nao sobre o pais; (2) qualquer preco de referencia, porque varia por regiao e por semana na Indonesia, e um preco meu tornaria a conta errada para a maioria de quem assiste, justamente quando o preco certo esta impresso no papel que ele tem na mao; (3) qualquer prazo de validade ou tempo de conservacao em dias, porque depende do produto, da embalagem e da geladeira dele, e citar um numero ali seria afirmacao que eu nao posso certificar. O video tambem nao diz quanto desperdicio e "muito", nao culpa ninguem, nao promete economia em porcentagem e nao e aconselhamento financeiro.
+Este video NAO cita nenhum numero meu e NAO faz nenhuma afirmacao institucional. Nao cita preco de alimento, nao cita HET, nao cita media nacional nem regional de desperdicio, nao cita estudo, nao cita nome de mercado nem de marca, e nao compara o espectador com media nenhuma. Os dois numeros da conta sao do proprio espectador: o que ele jogou fora sem comer (que ele observa e anota na semana) e o preco daquilo (que esta impresso no struk dele). Nao ha numero meu para certificar em duas fontes, e por isso nao ha numero meu que possa envelhecer nem que dependa da regiao, do mercado ou do tamanho da familia dele. O QUE FOI DELIBERADAMENTE DEIXADO DE FORA, e por que: (1) qualquer estatistica de desperdicio de alimentos, porque ela so serviria para dizer ao espectador se ele esta acima ou abaixo da media, e o video nao faz essa comparacao — a conta e sobre a casa dele, nao sobre o pais; (2) qualquer preco de referencia, porque varia por regiao e por semana na Indonesia, e um preco meu tornaria a conta errada para a maioria de quem assiste, justamente quando o preco certo esta impresso no papel que ele tem na mao; (3) qualquer prazo de validade ou tempo de conservacao em dias, porque depende do produto, da embalagem e da geladeira dele, e citar um numero ali seria afirmacao que eu nao posso certificar. O video tambem nao diz quanto desperdicio e "muito", nao culpa ninguem, nao promete economia em porcentagem e nao e aconselhamento financeiro. SOBRE O FOOTAGE: tres cenas usam b-roll do Pexels sob licenca livre, com os tres clipes resolvidos NA SPEC (`broll_url`, `broll_credito`) em vez de buscados em tempo de render. A cena 0 foi escolhida A MAO depois que a busca devolveu papel amassado num cesto para um capitulo que fala de lixo de COMIDA: o Pexels nao tem o assunto, e clipe que contradiz a narracao e pior que nenhum clipe. Os autores vao creditados por nome na propria descricao: Kindel Media, Mikhail Nilov e Polina.
 """
 
 
