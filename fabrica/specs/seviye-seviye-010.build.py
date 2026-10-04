@@ -106,7 +106,32 @@ que transporte publico e nao e aconselhamento financeiro.
 import json
 
 CENAS = []
-BROLL = {}
+
+# Links resolvidos em 04/10/2026 pela pre-busca rodada do sandbox, onde
+# `api.pexels.com` responde. `--conferir`: 4/4 clipes que o CDN entrega. Com o
+# link gravado o pacote fica REPRODUZIVEL — sem ele, dois renders da mesma spec
+# pegam clipes diferentes, porque o Pexels reordena a busca.
+#
+# UMA RESSALVA HONESTA sobre a cena 0: o clipe e uma estacao de metro em
+# Jacarta, nao na Turquia. A narracao nao afirma lugar nenhum, e b-roll aqui e
+# enfeite — mas fica dito, porque um clipe de transporte lotado "generico" num
+# canal turco e uma escolha, nao um dado. Os outros tres nao tem esse problema:
+# documento, catraca e congestionamento urbano nao carregam lugar, e o do
+# transito e de um autor turco.
+BROLL = {
+    39648550: ("https://videos.pexels.com/video-files/39648550/16902813_1280_720_25fps.mp4",
+               "Daneswara Eka",
+               "https://www.pexels.com/video/busy-jakarta-metro-station-scene-39648550/"),
+    8298007: ("https://videos.pexels.com/video-files/8298007/8298007-hd_1280_720_25fps.mp4",
+              "Mikhail Nilov",
+              "https://www.pexels.com/video/a-woman-checking-the-documents-8298007/"),
+    7251756: ("https://videos.pexels.com/video-files/7251756/7251756-hd_1280_720_25fps.mp4",
+              "MART PRODUCTION",
+              "https://www.pexels.com/video/a-person-entering-a-train-station-7251756/"),
+    32909774: ("https://videos.pexels.com/video-files/32909774/14025983_1280_720_29fps.mp4",
+               "Seyhmus Kino",
+               "https://www.pexels.com/video/heavy-traffic-jam-on-urban-highway-during-daytime-32909774/"),
+}
 
 
 def T(kicker, sub, nar, cap=None):
@@ -149,7 +174,7 @@ def C(kicker, sub, nar):
 B("Maaşınız bir sayı", "elinizde kalan başka bir sayı",
   "Maaşınızı biliyorsunuz. Ama onu almaya gitmenin size kaça mal olduğunu "
   "büyük olasılıkla hiç yan yana koymadınız.",
-  "crowded public transport during rush hour", None,
+  "crowded public transport during rush hour", 39648550,
   cap="Maaş bir sayı, kalan başka bir sayı")
 I("Bu bir kayıp değil", "bir maliyet",
   "Bu bir kayıp değil, bir maliyet. İşe gitmek zorunlu, ve o para gerçekten "
@@ -199,7 +224,7 @@ I("Toplayın", "bu birinci sayı",
 B("İkinci sayı", "bordroda yazılı",
   "İkinci sayıyı aramanız gerekmiyor; o zaten yazılı. Bordronuzda elinize "
   "geçen net tutar.",
-  "person checking a payslip document", None,
+  "person checking a payslip document", 8298007,
   cap="İkinci sayı ve bölme işlemi")
 I("Brütü değil", "eline geçeni",
   "Brütü değil, elinize geçeni alın. Çünkü ulaşımı brütle değil, hesabınıza "
@@ -257,7 +282,7 @@ I("Dördü de aynı yolda", "ve dördü de sizin",
 B("Dört yer", "dört hesap",
   "Dört yerin her biri için bir hesap var, ve hiçbiri sizden yeni bir sayı "
   "istemiyor.",
-  "person tapping a transit card at a turnstile", None,
+  "person tapping a transit card at a turnstile", 7251756,
   cap="Her yer için bir hesap")
 I("Olağandışı gün için", "ayı ikiye ayırın",
   "Olağandışı gün için: ayı ikiye ayırın. Olağan günlerin maliyetini ve "
@@ -363,7 +388,7 @@ I("Değişmediyse", "yöntem değil, seçim",
 # -------------------------------------------------------------------- cap 9
 B("Bugün üç adım", "hepsi elinizdekiyle",
   "Bugün üç adım, ve üçü de bugün elinizde olan şeylerle yapılıyor.",
-  "city traffic jam at rush hour", None,
+  "city traffic jam at rush hour", 32909774,
   cap="Bugün üç adım")
 I("Birinci adım", "otuz günü açın",
   "Birinci adım: ulaşım kartı ekstresini ya da banka hareketlerini açın ve son "
@@ -436,7 +461,7 @@ Son bölüm bu sayının zam konuşmasındaki işini anlatıyor, ve orada iki yo
 
 Sonda üç adım, hepsi bugün elinizde olan şeylerle.
 
-Görüntüler: Pexels (serbest lisans).
+Görüntüler: Pexels (serbest lisans) — Daneswara Eka, Mikhail Nilov, MART PRODUCTION, Şeyhmus Kino.
 
 ## CAPITULOS
 {CAPITULOS}
