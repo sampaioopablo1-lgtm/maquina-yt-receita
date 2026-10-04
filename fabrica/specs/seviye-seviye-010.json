@@ -1,0 +1,474 @@
+{
+ "slug": "seviye-seviye",
+ "pacote": "seviye-seviye-010",
+ "idioma": "tr",
+ "voz": "tr-TR-AhmetNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#0F3538",
+  "c1": "#E4572E",
+  "c2": "#F2B134",
+  "bg": "#EAF3F3"
+ },
+ "thumb": {
+  "l1": "İşe gitmek",
+  "l2": "maaşının?"
+ },
+ "longo": [
+  {
+   "layout": "broll",
+   "kicker": "Maaşınız bir sayı",
+   "sub": "elinizde kalan başka bir sayı",
+   "nar": "Maaşınızı biliyorsunuz. Ama onu almaya gitmenin size kaça mal olduğunu büyük olasılıkla hiç yan yana koymadınız.",
+   "broll_q": "crowded public transport during rush hour",
+   "cap": "Maaş bir sayı, kalan başka bir sayı"
+  },
+  {
+   "layout": "item",
+   "kicker": "Bu bir kayıp değil",
+   "preco": "bir maliyet",
+   "nar": "Bu bir kayıp değil, bir maliyet. İşe gitmek zorunlu, ve o para gerçekten bir şey satın alıyor. Ama maliyetin büyüklüğünü bilmek sizin hakkınız, çünkü onunla karar veriyorsunuz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ve karar yakın",
+   "preco": "zam ve teklif mevsimi",
+   "nar": "Kararın tarihi de belli: bir sonraki zam konuşması ve bir sonraki iş teklifi. İkisinde de masaya konan sayı brüt maaş oluyor, ve brüt maaş bu maliyeti görmüyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Benim tek sayım yok",
+   "preco": "ikisi de sizin",
+   "nar": "Bu hesapta benim bir tek sayım yok. Ne bilet fiyatı, ne tarife, ne akaryakıt fiyatı, ne ortalama. Çünkü ulaşım ücreti şehirden şehire değişiyor ve yıl içinde değişiyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Doğru sayı sizde",
+   "preco": "cebinizdeki ekstrede",
+   "nar": "Doğru sayı sizin cebinizde: ulaşım kartınızın ekstresinde, uygulamada ya da banka hesabınızda. Benim bir sayı söylemem hesabı çoğunluk için yanlış yapardı.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "İki bölüm sonra",
+   "preco": "hesap bitiyor",
+   "nar": "İki bölüm sonra hesap bitmiş olacak. Bir toplama, bir bölme, ve iki sayı — ikisi de bugün elinizin altında.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Birinci sayı",
+   "sub": "ekstreden, tahminden değil",
+   "nar": "Birinci sayı aylık ulaşım harcamanız, ve onu tahminle bulmak işe yaramaz — tahmin her zaman olağan günü sayar, olağandışı günü saymaz.",
+   "cap": "Birinci sayı: ekstreden, tahminden değil"
+  },
+  {
+   "layout": "item",
+   "kicker": "Son otuz günü açın",
+   "preco": "kart, uygulama ya da banka",
+   "nar": "Son otuz günü açın: ulaşım kartı ekstresi, ulaşım uygulaması ya da banka hareketleri. Hepsini değil, sadece işe gidiş ve dönüşle ilgili olanları.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dört kalem sayılıyor",
+   "preco": "hepsi aynı trajede",
+   "nar": "Dört kalem sayılıyor. Bir: bilet, kart yüklemesi ya da abonman. İki: o güzergâhta yakıt ve otopark. Üç: geç kaldığınız günlerin taksisi. Dört: sadece yolda olduğunuz için aldığınız kahve ve öğle yemeği.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dördüncüsü şaşırtıyor",
+   "preco": "ve en kolay unutulan",
+   "nar": "Dördüncüsü çoğu insanı şaşırtır, ve en kolay unutulandır — çünkü yemek harcaması gibi görünür, ama evde kalsanız o parayı harcamıyordunuz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sayılmayanlar",
+   "preco": "yola bağlı olmayan",
+   "nar": "Sayılmayanlar: eve giden market alışverişi, hafta sonu çıkışları, ve arabanın yola bağlı olmayan sabit masrafları. Onlar işe gitmeseniz de vardı.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Toplayın",
+   "preco": "bu birinci sayı",
+   "nar": "Dört kalemi toplayın. Çıkan rakam sizin aylık trajede maliyetiniz, ve bu birinci sayı. Otuz gün yeterli, çünkü ay içinde hem olağan hem olağandışı gün geçiyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "İkinci sayı",
+   "sub": "bordroda yazılı",
+   "nar": "İkinci sayıyı aramanız gerekmiyor; o zaten yazılı. Bordronuzda elinize geçen net tutar.",
+   "broll_q": "person checking a payslip document",
+   "cap": "İkinci sayı ve bölme işlemi"
+  },
+  {
+   "layout": "item",
+   "kicker": "Brütü değil",
+   "preco": "eline geçeni",
+   "nar": "Brütü değil, elinize geçeni alın. Çünkü ulaşımı brütle değil, hesabınıza yatan parayla ödüyorsunuz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Şimdi bölün",
+   "preco": "birinciyi ikinciye",
+   "nar": "Şimdi bölün: aylık trajede maliyetini net maaşınıza bölün ve yüzle çarpın. Çıkan yüzde, maaşınızın işe gitmek için harcanan kısmıdır.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ve bir çevirme daha",
+   "preco": "yüzdeyi güne çevirin",
+   "nar": "Bir çevirme daha isterseniz: o yüzdeyi yirmi iş günüyle çarpıp yüze bölün. Çıkan gün sayısı, ayda kaç gün sadece işe gitmek için çalıştığınızı gösterir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Hesap bitti",
+   "preco": "sırada: nereden geldiği",
+   "nar": "Hesap bitti. Bundan sonraki bölümler yeni soruyu yanıtlıyor: bu sayı neden sandığınızdan büyük çıkıyor, ve aynı trajede nerede birikiyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yüzde mi, gün mü",
+   "preco": "ikisi aynı sayı",
+   "nar": "İki sonuç aynı şeyi söylüyor, ama farklı yerde işe yarıyor: yüzde zam konuşmasında, gün sayısı ise ofiste geçirilecek gün sayısını tartışırken. İkisini de yazın, çünkü ikisi de aynı iki sayıdan çıkıyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ve bir uyarı",
+   "preco": "yüzde kaçı makul demiyorum",
+   "nar": "Bir uyarı da şimdi: bu video yüzde kaçın makul olduğunu söylemeyecek. O sizin şehrinize, mesafenize ve maaşınıza bağlı, ve onları siz biliyorsunuz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Neden büyük çıkıyor",
+   "sub": "dört yerde birikiyor",
+   "nar": "Sayı neredeyse her zaman tahminden büyük çıkar, ve nedeni tek değil. Aynı trajede dört ayrı yerde birikiyor.",
+   "cap": "Aynı trajede dört yer"
+  },
+  {
+   "layout": "item",
+   "kicker": "Birinci yer",
+   "preco": "olağandışı gün",
+   "nar": "Birinci yer: olağandışı gün. Kart yüklemesi aylık ve sabit görünür, ama geç kaldığınız, yağmur yağan ve aktarma kaçırdığınız günler o sabitin üstüne biniyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "İkinci yer",
+   "preco": "ikinci bacak",
+   "nar": "İkinci yer: trajenin ikinci bacağı. Metroya ya da otobüse ulaşmak için attığınız kısa adım — dolmuş, minibüs, scooter — ayrı ödenir ve ayrı unutulur.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Üçüncü yer",
+   "preco": "yolda olmanın yemeği",
+   "nar": "Üçüncü yer: yolda olmanın yemeği. Sabah kahvesi ve dışarıda öğle yemeği trajenin parçasıdır, çünkü evde olsanız o harcama olmuyordu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dördüncü yer",
+   "preco": "ve en sessizi",
+   "nar": "Dördüncü yer, ve en sessizi: otopark, köprü ve otoyol ücretleri. Tek tek küçük görünürler ve hiçbiri aylık ekstrede tek satır halinde durmaz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ve hepsi birden görünmez",
+   "preco": "ekstrede dağınık durur",
+   "nar": "Dördünün ortak özelliği şu: hiçbiri ekstrede tek bir satır halinde durmuyor. Dağınık dururlar, her biri küçük görünür, ve küçük görünen kalemler toplanmadıkça büyük olduklarını belli etmezler.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dördü de aynı yolda",
+   "preco": "ve dördü de sizin",
+   "nar": "Dördü de aynı yola ait, ve dördü de sizin ekstrenizde yazılı. Hiçbirini tahmin etmeniz gerekmiyor — sadece aynı başlık altında toplanmaları gerekiyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Dört yer",
+   "sub": "dört hesap",
+   "nar": "Dört yerin her biri için bir hesap var, ve hiçbiri sizden yeni bir sayı istemiyor.",
+   "broll_q": "person tapping a transit card at a turnstile",
+   "cap": "Her yer için bir hesap"
+  },
+  {
+   "layout": "item",
+   "kicker": "Olağandışı gün için",
+   "preco": "ayı ikiye ayırın",
+   "nar": "Olağandışı gün için: ayı ikiye ayırın. Olağan günlerin maliyetini ve olağandışı günlerin maliyetini ayrı toplayın. İkincisi genelde birincinin yanında küçük durmaz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "İkinci bacak için",
+   "preco": "tek gidişi ölçün",
+   "nar": "İkinci bacak için: tek bir günü baştan sona ölçün, kapıdan kapıya, her ödemeyi yazarak. Sonra yirmi iş günüyle çarpın. Bir gün ölçmek otuz günü hatırlamaktan doğrudur.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yemek için",
+   "preco": "evde kalınan günle karşılaştırın",
+   "nar": "Yemek için: işe gitmediğiniz bir günün yemek harcamasını, gittiğiniz bir günle karşılaştırın. Aradaki fark trajenin yemek maliyetidir, ve o fark tahmin değil ölçüm.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ücretler için",
+   "preco": "üç aylık ekstre",
+   "nar": "Köprü, otoyol ve otopark için: üç aylık ekstre açın ve bu kalemleri arayın. Üç ayın ortalaması bir ayın tahmininden iyidir, çünkü bu harcamalar düzensiz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ve sonra",
+   "preco": "tek bir başlık",
+   "nar": "Hepsini tek bir başlık altına yazın: trajede maliyeti. Bu dört hesabın tamamı bir akşamda biter, ve ondan sonra her ay sadece güncellenir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Hesaba girmeyenler",
+   "sub": "gizlemekten iyidir söylemek",
+   "nar": "Şimdi gizlemekten iyi olan kısım: üç şey bu hesaba bilerek girmiyor, ve girmemeleri gerekiyor.",
+   "cap": "Hesaba bilerek girmeyenler"
+  },
+  {
+   "layout": "item",
+   "kicker": "Arabanın sabitleri",
+   "preco": "yolla gelmedi",
+   "nar": "Arabanın sigortası, vergisi ve değer kaybı girmiyor. Onlar işe gitmeseniz de vardı. Sadece o güzergâha ait yakıt, otopark ve ücretler giriyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Zaman",
+   "preco": "para değil, ama bedava da değil",
+   "nar": "Yolda geçen zaman da girmiyor, çünkü o para değil. Ama bedava olduğunu da söylemiyorum: sadece bu hesabın birimi lira, ve zamanı liraya çevirmek başka bir tartışma.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "İşveren desteği",
+   "preco": "varsa düşülür",
+   "nar": "İşvereniniz ulaşım desteği veriyorsa, o destek maliyetten düşülür. Hesap cebinizden çıkanı ölçüyor, cebinize girmeyeni değil.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ve bir sonuç da meşru",
+   "preco": "yüzde küçük çıkabilir",
+   "nar": "Son bir olasılık, ve o da meşru bir sonuç: yüzde küçük çıkabilir. O zaman bu kalem sizde düzenli, ve para başka yerde gidiyor — burada değil.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bir de şu girmiyor",
+   "preco": "başkasının trajesi",
+   "nar": "Eşinizin ya da çocuğunuzun yol masrafı da bu hesaba girmiyor. Bu hesap tek bir kişinin tek bir işine gidişini ölçüyor; haneyi ölçmek isterseniz aynı hesabı herkes için ayrı yapın, toplamayın.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Önemli olan",
+   "preco": "karşılaştırılabilir olması",
+   "nar": "Önemli olan sayının küçük ya da büyük olması değil, aynı yöntemle tekrar ölçülebilir olması. Yöntem sabitse, iki ölçüm arasındaki fark bir şey söyler.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Aynı maaş, iki traje",
+   "sub": "ve aynı teklif değil",
+   "nar": "Şimdi neredeyse herkesi yanıltan durum: iki iş teklifi, aynı net maaş, farklı mesafe. Aynı teklif değiller.",
+   "cap": "Aynı maaş, iki farklı traje"
+  },
+  {
+   "layout": "item",
+   "kicker": "Brüt eşitse",
+   "preco": "kalan eşit değil",
+   "nar": "İki teklifin brütü ve neti eşit olabilir, ama elinizde kalan eşit olmayacak, çünkü birine gitmek diğerine gitmekten pahalı.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Karşılaştırma şöyle",
+   "preco": "net eksi traje",
+   "nar": "Karşılaştırmayı şöyle yapın: her teklif için netten o trajenin aylık maliyetini çıkarın. Kıyaslanacak sayı o farktır, maaşın kendisi değil.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Evden çalışma günleri",
+   "preco": "hesabı değiştirir",
+   "nar": "Haftada kaç gün ofiste olunacağı da bu hesabın içindedir. Üç gün ofis ile beş gün ofis, aynı maaşta iki ayrı sonuç verir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Mesafe maaş gibi artmaz",
+   "preco": "bir kere seçilir",
+   "nar": "Bir fark daha var: maaş her yıl yeniden konuşulur, mesafe ise işe girerken bir kere seçilir ve sonra yıllarca aynı kalır. Yanlış seçilen mesafeyi düzeltmek, yanlış konuşulan zamı düzeltmekten zordur.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bir de şu durum",
+   "preco": "aynı şirket, iki ofis",
+   "nar": "Aynı şirkette bile iki ofis arasında fark olabilir, ve hangi ofiste çalışacağınız çoğu zaman teklifte yazmaz. Yazması istenebilir, ve bu istek tamamen olağandır.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ve sormak normaldir",
+   "preco": "yazılı olarak",
+   "nar": "Kaç gün ofiste beklendiğini sormak tamamen olağan bir sorudur, ve cevabı yazılı olarak istenebilir. Teklifi kabul etmeden önce sorulur, sonra değil.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bu sayının bir işi var",
+   "sub": "zam konuşmasında",
+   "nar": "Sayı artık var. Bir işi daha kaldı, ve o iş bir sonraki zam konuşmasında oluyor.",
+   "cap": "Zam konuşmasında hangi sayı"
+  },
+  {
+   "layout": "item",
+   "kicker": "Şikâyet değil",
+   "preco": "bir sayı",
+   "nar": "Masaya konan şey şikâyet değil, bir sayı: bu işe gelmek bana ayda şu kadar tutuyor, ve bu maaşın yüzde şu kadarı. Sayı üzerinden konuşmak kolaydır.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ve iki yol var",
+   "preco": "zam ya da gün",
+   "nar": "Ve iki çözüm yolu var, ikisi de istenebilir: ya zam, ya ofiste geçirilen gün sayısının azalması. İkincisi şirkete bedava gelir, ve sizin hesabınızı aynı miktarda düzeltir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Zam istenirken",
+   "preco": "yuvarlak sayı değil",
+   "nar": "Zam istenirken yuvarlak bir rakam söylemek yerine bu sayıyı söylemek işinize yarar, çünkü yuvarlak rakam pazarlık gibi durur ve ölçülmüş bir sayı gerekçe gibi durur.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ofis günü istenirken",
+   "preco": "şirkete bedava gelir",
+   "nar": "Gün sayısının azalmasını isterken de aynı sayı işe yarar: haftada bir günün sizin hesabınızda ne kadar düzelttiğini söyleyebilirsiniz. Şirkete bir lira maliyeti yok, ve sizde ölçülebilir bir fark var.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bir ay sonra ölçün",
+   "preco": "aynı yöntemle",
+   "nar": "Hangi yol olursa olsun, bir ay sonra aynı yöntemle tekrar ölçün. İki ölçüm arasındaki fark işe yarayıp yaramadığını söyler — his değil.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Değişmediyse",
+   "preco": "yöntem değil, seçim",
+   "nar": "Sayı değişmediyse yöntem çalışmıyor demek değil; yanlış kalemi seçtiniz demek. Dört yerden sıradakine geçip yeniden ölçün.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Bugün üç adım",
+   "sub": "hepsi elinizdekiyle",
+   "nar": "Bugün üç adım, ve üçü de bugün elinizde olan şeylerle yapılıyor.",
+   "broll_q": "city traffic jam at rush hour",
+   "cap": "Bugün üç adım"
+  },
+  {
+   "layout": "item",
+   "kicker": "Birinci adım",
+   "preco": "otuz günü açın",
+   "nar": "Birinci adım: ulaşım kartı ekstresini ya da banka hareketlerini açın ve son otuz günde o dört kalemi toplayın. Bu birinci sayı, ve bir akşamda çıkıyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "İkinci adım",
+   "preco": "bordrodan net",
+   "nar": "İkinci adım: bordronuzdan elinize geçen net tutarı alın. Brütü değil, neti — ulaşımı netle ödüyorsunuz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Üçüncü adım",
+   "preco": "bölün ve yazın",
+   "nar": "Üçüncü adım: birinciyi ikinciye bölün, yüzle çarpın, ve çıkan yüzdeyi bir yere yazın tarihiyle birlikte. Bir ay sonra karşılaştıracağınız sayı o.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ve tarihi yazın",
+   "preco": "sayı tek başına işe yaramaz",
+   "nar": "Tarihi yazmayı atlamayın. Tek bir yüzde bir durum bildirir; tarihli iki yüzde bir yön bildirir, ve karar vermek için yön gerekiyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Yorumda tek bir şey",
+   "sub": "ne maaş, ne şehir",
+   "nar": "Yorumlara tek bir şey yazın: çıkan yüzde. Ne maaşınızı, ne şehrinizi — sadece yüzdeyi. Aynı işte bu sayının ne kadar farklı çıktığını görmek istiyorum.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Maaşınızı biliyorsunuz",
+   "sub": "onu almaya gitmek kaça?",
+   "nar": "Maaşınızı biliyorsunuz. Onu almaya gitmenin kaça mal olduğunu biliyor musunuz?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Birinci",
+   "sub": "otuz günlük ulaşım",
+   "nar": "Birinci: son otuz günde işe gidiş dönüş için ödediğiniz her şeyi toplayın. Bilet, yakıt, otopark, taksi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "İkinci",
+   "sub": "bordrodaki net",
+   "nar": "İkinci: bordronuzdaki net maaş. Brüt değil.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bölün",
+   "sub": "işte yüzdeniz",
+   "nar": "Birinciyi ikinciye bölüp yüzle çarpın. Maaşınızın o kadarı işe gitmeye gidiyor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Nerede birikiyor",
+   "sub": "dört yer, aşağıda",
+   "nar": "Aynı yolda dört yerde birikiyor, ve dördü de aşağıdaki videoda.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# İşe gitmenin maliyeti: maaşınızın yüzde kaçı yolda kalıyor\n\n## TITULO\nMaaşınız Değil, Elinizde Kalanı: İşe Gitmek Size Kaça Mal Oluyor?\n\n## TITULO SHORT\nİşe gitmek maaşının yüzde kaçı?\n\n## DESCRICAO\nMaaşınızı biliyorsunuz. Ama onu almaya gitmenin size ayda kaça mal olduğunu büyük olasılıkla hiç yan yana koymadınız. Bu bir kayıp değil, bir maliyet — işe gitmek zorunlu ve o para gerçekten bir şey satın alıyor. Ama maliyetin büyüklüğünü bilmek sizin hakkınız, çünkü bir sonraki zam konuşmasında ve bir sonraki iş teklifinde masaya konan sayı brüt maaş oluyor, ve brüt maaş bu maliyeti görmüyor.\n\nBu videoda benim bir tek sayım yok. Ne bilet fiyatı, ne tarife, ne akaryakıt fiyatı, ne ortalama. Bu bilerek böyle: ulaşım ücreti şehirden şehire değişiyor ve yıl içinde değişiyor, dolayısıyla benim söyleyeceğim bir sayı hesabı çoğunluk için yanlış yapardı — tam da doğru sayı sizin cebinizdeki ekstrede dururken. Hesabın iki sayısı da sizin: biri ulaşım kartı ekstrenizde, uygulamanızda ya da banka hareketlerinizde, diğeri bordronuzda.\n\nBirinci sayıyı tahminle bulmak işe yaramaz, çünkü tahmin olağan günü sayar ve olağandışı günü saymaz. Son otuz günü açın ve dört kalemi toplayın: bilet, kart yüklemesi veya abonman; o güzergâha ait yakıt ve otopark; geç kaldığınız günlerin taksisi; ve sadece yolda olduğunuz için aldığınız kahve ile öğle yemeği. Dördüncüsü çoğu insanı şaşırtır, çünkü yemek harcaması gibi görünür — ama evde kalsanız o parayı harcamıyordunuz. Sayılmayanlar da var: eve giden market alışverişi, hafta sonu çıkışları ve arabanın yola bağlı olmayan sabit masrafları.\n\nİkinci sayıyı aramanız gerekmiyor; o zaten yazılı. Bordronuzda elinize geçen net tutar — brütü değil, çünkü ulaşımı brütle değil hesabınıza yatan parayla ödüyorsunuz. Sonra bölün: aylık trajede maliyetini net maaşınıza bölüp yüzle çarpın. Çıkan yüzde, maaşınızın işe gitmek için harcanan kısmıdır. İsterseniz bir çevirme daha: o yüzdeyi yirmi iş günüyle çarpıp yüze bölün, ve çıkan gün sayısı ayda kaç gün sadece işe gitmek için çalıştığınızı gösterir.\n\nBir bölüm bu sayının neden tahminden büyük çıktığını anlatıyor, ve orada aynı trajenin dört ayrı yeri var: olağandışı günler; trajenin ikinci bacağı, yani metroya ya da otobüse ulaşmak için attığınız kısa adım; yolda olmanın yemeği; ve en sessizi, otopark ile köprü ve otoyol ücretleri. Sonraki bölüm her biri için bir hesap veriyor, ve hiçbiri sizden yeni bir sayı istemiyor.\n\nBir bölüm hesaba bilerek girmeyenleri sayıyor, çünkü gizlemekten iyidir söylemek: arabanın sigortası, vergisi ve değer kaybı; yolda geçen zaman; ve işveren ulaşım desteği, ki varsa maliyetten düşülür. Yüzdenin küçük çıkması da meşru bir sonuç — o zaman bu kalem sizde düzenli ve para başka yerde gidiyor.\n\nBir bölüm neredeyse herkesi yanıltan duruma ayrıldı: iki iş teklifi, aynı net maaş, farklı mesafe. Aynı teklif değiller, ve karşılaştırma netten o trajenin maliyeti çıkarılarak yapılır. Haftada kaç gün ofiste olunacağı da bu hesabın içindedir, ve sormak tamamen olağan bir sorudur.\n\nSon bölüm bu sayının zam konuşmasındaki işini anlatıyor, ve orada iki yol var: ya zam, ya ofiste geçirilen gün sayısının azalması.\n\nSonda üç adım, hepsi bugün elinizde olan şeylerle.\n\nGörüntüler: Pexels (serbest lisans).\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nHesabı yapınca yorumlara tek bir şey yazın: çıkan yüzde. Ne maaşınızı, ne şehrinizi, ne iş yerinizi — sadece yüzdeyi. Aynı işi yapan insanlarda bu sayının ne kadar farklı çıktığını görmek istiyorum. Yüzde küçük çıktıysa onu da yazın; o da bir sonuç.\n\n## HASHTAGS\n#Maaş #Kariyer #SeviyeSeviye\n\n## TAGS\nulaşım masrafı, işe gidiş gelis maliyeti, net maaş hesaplama, maaş pazarlığı, zam konuşması, iş teklifi karşılaştırma, bordro nasıl okunur, aylık butce, kişisel finans, ulaşım kartı ekstresi, evden çalışma, hibrit çalışma, otopark köprü ücreti, is degistirme, maas yuzdesi\n\n## CONFIGURACOES DO STUDIO\n- Idioma: Turco (tr) | Categoria: Educacao (27)\n- Nao feito para criancas\n- Divulgacao de conteudo sintetico: SIM (voz gerada por IA)\n- Localizacao: Turquia | Licenca: Licenca padrao do YouTube\n- Anuncios mid-roll: ativados (duracao acima de 8 minutos)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nEste video NAO cita nenhum numero meu e NAO faz nenhuma afirmacao institucional. Nao cita preco de passagem, nao cita tarifa de nenhuma cidade turca, nao cita preco de combustivel, nao cita valor de pedagio nem de estacionamento, nao cita media nacional e nao cita lei nem regulamento. Os dois numeros da conta sao do proprio espectador: o que ele gastou para ir e voltar do trabalho nos ultimos trinta dias, que esta no extrato do cartao de transporte, no aplicativo ou no extrato bancario dele, e o liquido dele, que esta na folha de pagamento. O QUE FOI DELIBERADAMENTE DEIXADO DE FORA, e por que: (1) qualquer tarifa de transporte, porque ela varia por cidade na Turquia e muda durante o ano, e um numero meu tornaria a conta errada para a maioria de quem assiste — justamente quando o numero certo esta no extrato que ele tem no bolso; (2) qualquer percentual de referencia do tipo \"o normal e gastar X por cento\", porque nao ha fonte oficial para isso e o video nao faz essa comparacao: a conta e sobre o trajeto dele, nao sobre uma media; (3) o valor do TEMPO gasto no trajeto, porque converter tempo em lira exige uma premissa que eu nao posso certificar — o video diz explicitamente que a unidade desta conta e lira e que o tempo e outra discussao, em vez de fingir que ele nao existe. O video tambem nao diz qual percentual e \"muito\", nao recomenda mudar de casa nem de emprego, nao compara cidades, nao diz que carro e melhor ou pior que transporte publico e nao e aconselhamento financeiro.\n"
+}
