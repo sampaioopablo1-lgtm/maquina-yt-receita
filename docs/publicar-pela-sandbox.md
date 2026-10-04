@@ -446,7 +446,7 @@ coluna — linha de Analytics e janela movel de 28 dias, linha de `videos.list` 
 vida inteira. Falta a parte que so apareceu em 04/10/2026, auditando
 `v_maquina_licoes`.
 
-**A boa noticia:** os vereditos estao sa'os. `v_ultima_metrica` pega a linha
+**A boa noticia:** os vereditos estao sadios. `v_ultima_metrica` pega a linha
 mais recente com `views > 0`, e para os **239** videos essa linha vem de
 `videos.list`. Nenhum veredito esta calculado sobre a janela de 28 dias.
 
