@@ -120,16 +120,43 @@ def T(kicker, sub, nar, cap=None):
     CENAS.append(c)
 
 
-def B(kicker, sub, nar, q, cap=None):
+# O LINK FICA NA SPEC, nao na busca em tempo de render. Resolvido em 04/10/2026
+# pelo `prebusca_broll.py` rodado do sandbox, onde `api.pexels.com` responde —
+# do runner do GitHub ele da TimeoutError, e do meu runner o proxy devolve 403
+# para os DOIS hosts. `--conferir` do sandbox: 3/3 clipes que o CDN entrega.
+#
+# Com o link gravado o pacote tambem fica REPRODUZIVEL: hoje dois renders da
+# mesma spec podem pegar clipes diferentes, porque o Pexels reordena a busca.
+BROLL = {
+    7685212: ("https://videos.pexels.com/video-files/7685212/7685212-hd_1280_720_24fps.mp4",
+              "ArtHouse Studio",
+              "https://www.pexels.com/video/person-signing-on-the-documents-7685212/"),
+    8298011: ("https://videos.pexels.com/video-files/8298011/8298011-hd_1280_720_25fps.mp4",
+              "Mikhail Nilov",
+              "https://www.pexels.com/video/a-woman-using-a-calculator-and-card-terminal-8298011/"),
+    7710749: ("https://videos.pexels.com/video-files/7710749/7710749-hd_1366_720_25fps.mp4",
+              "https://kaboompics.com/",
+              "https://www.pexels.com/video/a-person-holding-a-pencil-7710749/"),
+}
+
+
+def B(kicker, sub, nar, q, pexels_id, cap=None):
     """Cena de abertura de capitulo COM FOOTAGE.
 
     O `copy_md` aceita `broll` ao lado de `titulo` como cena que abre secao,
     porque no epomeno-epipedo-004 as sete aberturas eram broll e ele desenhou
     7 capitulos para publicar 4. Narracao curta de proposito: ver o
     DIMENSIONAMENTO.
+
+    `broll_q` fica gravado mesmo com o link resolvido: e o que permite refazer
+    a pre-busca no dia em que o clipe sair do Pexels, e e o que o
+    `confere_broll.py` sonda.
     """
+    link, autor, pagina = BROLL[pexels_id]
     c = {"layout": "broll", "kicker": kicker, "sub": sub, "nar": nar,
-         "broll_q": q}
+         "broll_q": q, "broll_url": link,
+         "broll_credito": {"pexels_id": pexels_id, "autor": autor,
+                           "url": pagina}}
     if cap:
         c["cap"] = cap
     else:
@@ -155,6 +182,7 @@ B("कुछ रक़म माँगने पर मिलती है", "�
   "आपकी वेतन पर्ची पर कुछ लाइनें ऐसी हैं जो अपने आप नहीं आतीं। वे आती हैं तभी, "
   "जब आप माँगते हैं।",
   "person reading paper documents at a desk",
+  7685212,
   cap="माँगने पर मिलने वाला पैसा")
 I("और जो नहीं माँगा गया", "वो हाथ नहीं आया",
   "और जो नहीं माँगा गया, वो आपके हाथ नहीं आया। कोई सूचना नहीं आती, कोई शिकायत "
@@ -195,6 +223,7 @@ B("दूसरा नंबर", "याददाश्त से नहीं 
   "दूसरा नंबर याददाश्त से नहीं निकलेगा। वो पिछले साल के आपके अपने दावों से "
   "निकलेगा।",
   "hands using a calculator on a desk with documents",
+  8298011,
   cap="दूसरा नंबर, और घटाव")
 I("पिछले बारह महीने", "सच में कितना लिया",
   "पिछले बारह महीनों में आपने इन लाइनों के बदले सच में कितना लिया? बिल जमा किए "
@@ -236,6 +265,7 @@ I("तीनों आपके हाथ में", "कोई नियम �
 B("तीन वजहें", "तीन क़दम",
   "तो तीनों वजहों के सामने एक-एक क़दम रखिए। तीनों आज शुरू हो सकते हैं।",
   "person organizing receipts and paperwork on a table",
+  7710749,
   cap="तीनों के लिए एक-एक क़दम")
 I("बिल के लिए", "एक जगह",
   "बिल के लिए: एक जगह। फ़ोन में एक फ़ोल्डर, या मेज़ पर एक लिफ़ाफ़ा। बिल बनते ही "
@@ -361,6 +391,8 @@ COPY = """# पर्ची पर रखी वो रक़म जो मा�
 
 अंत में तीन क़दम, उन्हीं नंबरों से जो आपके पास आज मौजूद हैं।
 
+फ़ुटेज: Pexels (मुफ़्त लाइसेंस) — ArtHouse Studio, Mikhail Nilov, Kaboompics।
+
 ## CAPITULOS
 {CAPITULOS}
 
@@ -384,7 +416,7 @@ salary slip kaise padhein, vetan parchi, reimbursement claim, salary slip reimbu
 {TRILHA}
 
 ## AVISO SOBRE OS NUMEROS
-Este video NAO cita nenhum numero meu e NAO faz nenhuma afirmacao institucional. Nao cita limite de isencao, nao cita aliquota, nao cita percentual de contribuicao, nao cita teto nem faixa, nao cita nome de empresa e nao nomeia nenhuma rubrica especifica como obrigatoria ou garantida. Os dois numeros da conta sao do proprio espectador: o primeiro sai das linhas condicionais da vetan parchi dele multiplicadas por doze, e o segundo sai dos reembolsos que ele mesmo pediu e recebeu nos ultimos doze meses. Nao ha numero meu para certificar em duas fontes, e por isso nao ha numero meu que possa envelhecer nem que dependa do estado, do setor ou da empresa dele. O QUE FOI DELIBERADAMENTE DEIXADO DE FORA, e por que: (1) qualquer limite de isencao ou aliquota, porque muda por regime, por faixa e por ano, e citar um so tornaria a conta errada para a maioria de quem assiste; (2) o nome de qualquer rubrica, porque a nomenclatura varia por empresa e nomear uma faria o espectador procurar a palavra em vez de procurar a CONDICAO, que e o que o video ensina a reconhecer; (3) **o que acontece com o dinheiro nao reclamado** — o video afirma apenas que ele nao chegou ao espectador, que e o unico fato verificavel no papel dele. Dizer que a empresa fica com ele seria afirmacao sobre pratica empresarial, que varia por contrato e para a qual eu nao tenho duas fontes oficiais. O video tambem nao diz qual estrutura salarial e melhor, nao recomenda aceitar nem recusar oferta, nao promete economia de imposto e nao e aconselhamento financeiro nem tributario.
+Este video NAO cita nenhum numero meu e NAO faz nenhuma afirmacao institucional. Nao cita limite de isencao, nao cita aliquota, nao cita percentual de contribuicao, nao cita teto nem faixa, nao cita nome de empresa e nao nomeia nenhuma rubrica especifica como obrigatoria ou garantida. Os dois numeros da conta sao do proprio espectador: o primeiro sai das linhas condicionais da vetan parchi dele multiplicadas por doze, e o segundo sai dos reembolsos que ele mesmo pediu e recebeu nos ultimos doze meses. Nao ha numero meu para certificar em duas fontes, e por isso nao ha numero meu que possa envelhecer nem que dependa do estado, do setor ou da empresa dele. O QUE FOI DELIBERADAMENTE DEIXADO DE FORA, e por que: (1) qualquer limite de isencao ou aliquota, porque muda por regime, por faixa e por ano, e citar um so tornaria a conta errada para a maioria de quem assiste; (2) o nome de qualquer rubrica, porque a nomenclatura varia por empresa e nomear uma faria o espectador procurar a palavra em vez de procurar a CONDICAO, que e o que o video ensina a reconhecer; (3) **o que acontece com o dinheiro nao reclamado** — o video afirma apenas que ele nao chegou ao espectador, que e o unico fato verificavel no papel dele. Dizer que a empresa fica com ele seria afirmacao sobre pratica empresarial, que varia por contrato e para a qual eu nao tenho duas fontes oficiais. O video tambem nao diz qual estrutura salarial e melhor, nao recomenda aceitar nem recusar oferta, nao promete economia de imposto e nao e aconselhamento financeiro nem tributario. SOBRE O FOOTAGE: tres cenas usam b-roll do Pexels sob licenca livre, e os tres clipes estao resolvidos NA SPEC (`broll_url`, `broll_credito`) em vez de buscados em tempo de render — o que torna o pacote reproduzivel e tira a chamada a `api.pexels.com` de dentro do runner, onde ela da TimeoutError. Os autores vao creditados por nome na propria descricao: ArtHouse Studio, Mikhail Nilov e Kaboompics.
 """
 
 
