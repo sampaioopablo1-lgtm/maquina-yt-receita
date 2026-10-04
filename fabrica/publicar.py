@@ -494,6 +494,25 @@ def registrar(saida, sp, cp, d, canal, sb_url, sb_key, registro_json=None):
         # que continua aberta. Publicar sem registrar deixa as travas
         # anti-duplicata cegas para o que a propria frota acabou de subir, e
         # esse defeito ja custou um pacote republicado.
+        #
+        # E CUSTOU DE NOVO EM 04/10/2026, por um mkdir que faltava. O
+        # labtreinamento-008 subiu os dois videos (bQoujWaY7Hw e UCEaG0NqsA0),
+        # pos thumbnail, legenda e o link do short para o longo — e morreu AQUI,
+        # com `FileNotFoundError: /home/user/pub/reg/labtreinamento-008.json`,
+        # porque a sandbox tinha reciclado e so `pub/f` havia sido recriado.
+        #
+        # O estado que isso produz e o pior de todos: video publico no YouTube
+        # que a trava anti-duplicata nao enxerga, e um `conduz.py` dizendo
+        # "0 publicados, 1 falharam" — que convida exatamente ao retry que
+        # duplicaria o pacote.
+        #
+        # Entao a pasta passa a ser criada aqui, e nao no chamador: quem escreve
+        # o arquivo e quem garante que ha onde escrever. `conduz.py` monta este
+        # caminho e nunca fez o mkdir; qualquer chamador novo herdaria o mesmo
+        # defeito.
+        pasta = os.path.dirname(os.path.abspath(registro_json))
+        if pasta:
+            os.makedirs(pasta, exist_ok=True)
         with open(registro_json, "w", encoding="utf-8") as f:
             json.dump({"canal": canal, "pacote": pacote, "linhas": linhas},
                       f, ensure_ascii=False, indent=2)
