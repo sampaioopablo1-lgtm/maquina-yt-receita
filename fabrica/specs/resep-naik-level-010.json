@@ -1,0 +1,340 @@
+{
+ "slug": "resep-naik-level",
+ "pacote": "resep-naik-level-010",
+ "idioma": "id",
+ "voz": "id-ID-GadisNeural",
+ "trilha": "Deliberate_Thought",
+ "paleta": {
+  "ink": "#20303A",
+  "c1": "#B7410E",
+  "c2": "#3E7C59",
+  "bg": "#FAF5EF"
+ },
+ "thumb": {
+  "l1": "Uang di",
+  "l2": "tempat sampah"
+ },
+ "longo": [
+  {
+   "layout": "broll",
+   "kicker": "Satu pengeluaran di rumah",
+   "sub": "yang tidak punya struk",
+   "nar": "Ada satu pengeluaran di rumah Anda yang tidak pernah punya struk. Isinya tempat sampah dapur, dan tidak ada yang menimbangnya.",
+   "broll_q": "food scraps in a kitchen trash bin",
+   "cap": "Angka yang tidak pernah ditimbang"
+  },
+  {
+   "layout": "item",
+   "kicker": "Semua yang lain tercatat",
+   "preco": "yang ini tidak",
+   "nar": "Belanja punya struk. Listrik punya tagihan. Cicilan punya tanggal. Yang dibuang tidak punya apa-apa — jadi tidak pernah masuk hitungan siapa pun, termasuk hitungan Anda sendiri.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dan ini bukan soal salah",
+   "preco": "ini soal ukuran",
+   "nar": "Ini bukan soal menyalahkan siapa pun. Setiap rumah membuang sesuatu. Yang perlu Anda tahu cuma ukurannya, karena ukuran itulah yang menentukan apa yang berubah di belanja berikutnya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Tidak ada angka saya",
+   "preco": "dua-duanya angka Anda",
+   "nar": "Dalam hitungan ini tidak ada satu pun angka saya. Tidak ada harga, tidak ada rata-rata, tidak ada nama pasar. Dua angkanya ada di rumah Anda hari ini: satu di tempat sampah, satu di struk.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dan batas waktunya jelas",
+   "preco": "belanja berikutnya",
+   "nar": "Batas waktunya juga milik Anda sendiri: belanja berikutnya. Dua bab lagi dan hitungannya sudah selesai.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Angka pertama",
+   "sub": "dari tempat sampah",
+   "nar": "Angka pertama datang dari tempat sampah, dan cara mengambilnya penting — kalau salah, angkanya jadi besar tanpa alasan.",
+   "cap": "Angka pertama: dari tempat sampah"
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang dihitung",
+   "preco": "dulunya makanan",
+   "nar": "Yang dihitung cuma satu jenis: barang yang tadinya makanan dan dibuang tanpa dimakan. Sayur yang layu di kulkas, nasi sisa yang basi, lauk yang tidak dihabiskan, buah yang telat.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang tidak dihitung",
+   "preco": "memang bukan makanan",
+   "nar": "Yang tidak dihitung: kulit, tulang, biji, ampas, cangkang. Itu memang tidak pernah akan masuk mulut siapa pun, jadi memasukkannya cuma membesarkan angka dan mengaburkan masalahnya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jadi hari ini",
+   "preco": "satu catatan saja",
+   "nar": "Jadi hari ini, satu catatan saja, di kertas atau di ponsel. Setiap kali ada yang dibuang tanpa dimakan, tulis namanya dan kira-kira berapa banyak. Bukan dari ingatan — saat kejadian.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Satu minggu cukup",
+   "preco": "tujuh hari saja",
+   "nar": "Satu minggu sudah cukup untuk angka yang jujur. Tujuh hari, karena belanja dan masak berulang dalam tujuh hari — satu hari saja bisa kebetulan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Angka kedua",
+   "sub": "sudah tercetak",
+   "nar": "Angka kedua tidak perlu Anda taksir. Angka itu sudah tercetak, dan ada di struk belanja Anda sendiri.",
+   "broll_q": "hands holding a paper receipt",
+   "cap": "Angka kedua, dan jumlahnya"
+  },
+  {
+   "layout": "item",
+   "kicker": "Cari harganya",
+   "preco": "satu per satu",
+   "nar": "Ambil struk minggu ini dan cari harga setiap barang yang ada di catatan Anda. Kalau yang dibuang cuma separuh, ambil separuh harganya. Kalau barangnya dibeli tanpa struk, pakai harga terakhir yang Anda ingat bayar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Lalu jumlahkan",
+   "preco": "itu angka seminggu",
+   "nar": "Lalu jumlahkan semuanya. Itu angka seminggu Anda, dalam rupiah: uang yang sudah keluar dari dompet Anda dan tidak pernah jadi makanan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kali lima puluh dua",
+   "preco": "itu angka setahun",
+   "nar": "Dan kalikan lima puluh dua. Itu angka setahun. Bukan ramalan — itu minggu Anda sendiri, diulang seperti minggu memang berulang.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Hitungannya selesai",
+   "preco": "sisanya: dari mana",
+   "nar": "Hitungannya sudah selesai. Bab-bab berikutnya menjawab pertanyaan yang baru muncul sekarang: kenapa angkanya sebesar itu, dan di mana dia dibuat.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kenapa angkanya besar",
+   "sub": "empat tempat, bukan satu",
+   "nar": "Angka itu hampir selalu lebih besar dari yang diduga, dan penyebabnya bukan satu. Ada empat tempat berbeda, dan tiap tempat punya jalan keluar sendiri.",
+   "cap": "Empat tempat angkanya dibuat"
+  },
+  {
+   "layout": "item",
+   "kicker": "Pertama",
+   "preco": "dibeli terlalu banyak",
+   "nar": "Pertama: dibeli lebih banyak dari yang akan dimasak. Belanja sering dibuat untuk seminggu penuh, padahal masaknya tidak tujuh hari — ada hari pesan dari luar, ada hari makan di tempat lain.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kedua",
+   "preco": "disimpan dengan cara salah",
+   "nar": "Kedua: disimpan dengan cara yang memperpendek umurnya. Barang yang sama bisa bertahan dua hari atau dua minggu, dan yang menentukan cuma di mana dan bagaimana dia ditaruh.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ketiga",
+   "preco": "dimasak lebih dari yang dimakan",
+   "nar": "Ketiga: dimasak lebih banyak dari yang dimakan. Ini yang paling sering berulang, karena porsi diukur dengan tangan, bukan dengan jumlah orang yang benar-benar akan makan hari itu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Keempat",
+   "preco": "lupa barangnya ada",
+   "nar": "Keempat, dan yang paling sunyi: lupa barangnya ada. Yang tidak terlihat tidak dimasak, dan yang tidak dimasak akhirnya dibuang — tanpa pernah diputuskan oleh siapa pun.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Empat penyebab",
+   "sub": "empat langkah",
+   "nar": "Empat penyebab, empat langkah. Dan keempatnya bisa mulai di belanja berikutnya, tanpa alat apa pun.",
+   "broll_q": "person writing a shopping list on paper",
+   "cap": "Empat langkah, satu per penyebab"
+  },
+  {
+   "layout": "item",
+   "kicker": "Untuk yang pertama",
+   "preco": "belanja untuk hari masak",
+   "nar": "Untuk yang pertama: hitung dulu berapa hari Anda benar-benar akan masak minggu ini, lalu belanja untuk hari-hari itu. Bukan untuk tujuh hari karena seminggu ada tujuh hari.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Untuk yang kedua",
+   "preco": "satu barang, satu kali",
+   "nar": "Untuk yang kedua: ambil satu barang yang paling sering layu di rumah Anda, dan cari satu kali saja cara menyimpannya lebih lama. Satu barang, bukan semua — yang satu itu sudah mengubah angkanya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Untuk yang ketiga",
+   "preco": "hitung orangnya dulu",
+   "nar": "Untuk yang ketiga: sebelum menakar, hitung berapa orang yang makan hari ini. Masak untuk jumlah itu, dan kalau memang mau ada sisa, putuskan sisanya untuk besok — bukan kebetulan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Untuk yang keempat",
+   "preco": "yang terlihat, dimasak",
+   "nar": "Untuk yang keempat: taruh yang paling cepat rusak di tempat yang pertama Anda lihat saat membuka kulkas. Yang terlihat akan dimasak. Itu seluruh triknya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Yang sengaja tidak masuk",
+   "sub": "supaya angkanya jujur",
+   "nar": "Sekarang bagian yang lebih baik dikatakan daripada disembunyikan: ada tiga hal yang sengaja TIDAK masuk hitungan ini.",
+   "cap": "Yang tidak masuk hitungan"
+  },
+  {
+   "layout": "item",
+   "kicker": "Kulit, tulang, ampas",
+   "preco": "bukan kerugian",
+   "nar": "Kulit, tulang, biji dan ampas tidak masuk, dan tidak boleh masuk. Itu tidak pernah akan dimakan, jadi dia bukan uang yang hilang — dia bagian dari harga bahan yang memang begitu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang Anda berikan",
+   "preco": "tidak dibuang",
+   "nar": "Yang Anda berikan ke orang lain juga tidak masuk. Itu bukan dibuang, itu dipakai — cuma bukan oleh Anda. Memasukkannya akan membuat angka Anda terlihat buruk karena hal yang baik.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang masih sempat",
+   "preco": "dibekukan atau dimasak",
+   "nar": "Dan yang masih sempat dibekukan atau dimasak sebelum rusak tidak masuk juga. Dia selamat. Hitungan ini cuma tentang yang sudah tidak bisa diselamatkan lagi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dan satu hasil mungkin",
+   "preco": "angkanya kecil",
+   "nar": "Satu kemungkinan terakhir, dan itu hasil yang sah: angka Anda keluar kecil. Kalau begitu, rumah Anda sudah rapi di sisi ini, dan uangnya hilang di tempat lain — bukan di sini.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Belanja berikutnya",
+   "sub": "satu perubahan saja",
+   "nar": "Angka itu sekarang ada. Kerjanya cuma satu, dan terjadi di belanja berikutnya.",
+   "cap": "Belanja berikutnya: satu perubahan"
+  },
+  {
+   "layout": "item",
+   "kicker": "Jangan ubah semuanya",
+   "preco": "satu hal cukup",
+   "nar": "Jangan ubah empat hal sekaligus. Pilih satu penyebab yang paling besar di catatan Anda, dan kerjakan cuma itu selama satu bulan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ukur lagi setelah sebulan",
+   "preco": "dua angka, bukan satu",
+   "nar": "Lalu ulangi pencatatan satu minggu lagi, sebulan kemudian. Sekarang Anda punya dua angka, dan selisih dua angka itu yang memberi tahu apakah langkahnya bekerja — bukan perasaan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dan kalau tidak berubah",
+   "preco": "ganti penyebabnya",
+   "nar": "Kalau angkanya tidak berubah, berarti Anda memilih penyebab yang salah, bukan berarti caranya tidak jalan. Ganti ke penyebab berikutnya dan ukur lagi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Yang tidak video ini bilang",
+   "preco": "berapa yang wajar",
+   "nar": "Dan satu hal yang video ini tidak akan bilang: berapa angka yang wajar. Itu tergantung berapa orang di rumah Anda dan apa yang Anda masak, dan itu Anda yang tahu, bukan saya. Yang bisa saya bilang cuma ini: angka yang turun bulan depan lebih berguna daripada angka yang kecil hari ini.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Hari ini, tiga langkah",
+   "sub": "tanpa alat apa pun",
+   "nar": "Jadi hari ini, tiga langkah, dan ketiganya pakai barang yang sudah ada di rumah Anda.",
+   "cap": "Tiga langkah hari ini"
+  },
+  {
+   "layout": "item",
+   "kicker": "Langkah pertama",
+   "preco": "satu catatan, tujuh hari",
+   "nar": "Pertama: buka satu catatan di ponsel dan beri nama minggu ini. Setiap kali ada yang dibuang tanpa dimakan, tulis namanya dan jumlahnya saat itu juga.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Langkah kedua",
+   "preco": "simpan struknya",
+   "nar": "Kedua: simpan struk belanja minggu ini, jangan dibuang. Tanpa struk, angka kedua jadi taksiran, dan taksiran tidak bisa dibandingkan bulan depan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Langkah ketiga",
+   "preco": "jumlahkan, lalu kali lima puluh dua",
+   "nar": "Ketiga: di hari ketujuh, cocokkan catatan dengan struk, jumlahkan, dan kalikan lima puluh dua. Itu angka Anda, dan dia baru ada karena Anda mencatatnya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Tulis selisihnya di bawah",
+   "sub": "bukan belanja, bukan gaji",
+   "nar": "Dan di kolom komentar, tulis satu hal saja: angka seminggu Anda, dalam rupiah. Bukan total belanja, bukan penghasilan — cuma yang dibuang.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Pengeluaran tanpa struk",
+   "sub": "isinya tempat sampah",
+   "nar": "Ada satu pengeluaran di rumah Anda yang tidak punya struk: isi tempat sampah dapur.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Pertama",
+   "sub": "catat yang dibuang",
+   "nar": "Pertama: tujuh hari, catat apa saja yang dibuang tanpa dimakan. Bukan kulit, bukan tulang.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kedua",
+   "sub": "harganya ada di struk",
+   "nar": "Kedua: cari harganya di struk belanja Anda sendiri, lalu jumlahkan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Itu angka seminggu",
+   "sub": "kali lima puluh dua",
+   "nar": "Itu angka seminggu Anda. Kalikan lima puluh dua, dan itu angka setahun.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Di mana angkanya dibuat",
+   "sub": "empat tempat, di bawah",
+   "nar": "Di mana angka itu dibuat, ada empat tempat, dan semuanya di video di bawah.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# Uang yang dibuang sebelum dimakan: dari mana angkanya datang\n\n## TITULO\nUang yang Dibuang Sebelum Dimakan: Empat Tempat Angka Itu Dibuat\n\n## TITULO SHORT\nPengeluaran yang tidak punya struk\n\n## DESCRICAO\nBelanja punya struk. Listrik punya tagihan. Cicilan punya tanggal jatuh tempo. Tapi ada satu pengeluaran di rumah Anda yang tidak punya apa-apa, dan karena itu tidak pernah masuk hitungan siapa pun, termasuk hitungan Anda sendiri: isi tempat sampah dapur. Barang yang sudah dibeli dengan uang Anda, lalu dibuang tanpa pernah dimakan.\n\nDalam video ini tidak ada satu pun angka saya. Tidak ada harga, tidak ada HET, tidak ada rata-rata nasional, tidak ada nama pasar atau merek. Dua angka hitungannya ada di rumah Anda hari ini, dan dua-duanya milik Anda: satu ada di tempat sampah, satu lagi sudah tercetak di struk belanja Anda.\n\nCara mengambil angka pertama penting, karena kalau salah, angkanya jadi besar tanpa alasan. Yang dihitung cuma barang yang tadinya makanan dan dibuang tanpa dimakan: sayur yang layu, nasi yang basi, lauk yang tidak dihabiskan, buah yang telat. Yang tidak dihitung adalah kulit, tulang, biji, ampas dan cangkang — itu memang tidak pernah akan dimakan siapa pun. Catat saat kejadian, bukan dari ingatan, selama tujuh hari, karena belanja dan masak berulang dalam tujuh hari dan satu hari saja bisa kebetulan.\n\nAngka kedua tidak perlu ditaksir. Ambil struk minggu ini dan cari harga setiap barang yang ada di catatan Anda; kalau yang dibuang cuma separuh, ambil separuh harganya. Jumlahkan semuanya, dan itu angka seminggu Anda dalam rupiah. Kalikan lima puluh dua untuk angka setahun — bukan ramalan, cuma minggu Anda sendiri diulang seperti minggu memang berulang.\n\nSatu bab menjawab kenapa angkanya hampir selalu lebih besar dari yang diduga, dan di situ ada empat tempat berbeda yang masing-masing punya jalan keluar sendiri: dibeli lebih banyak dari yang akan dimasak; disimpan dengan cara yang memperpendek umurnya; dimasak lebih banyak dari yang dimakan; dan yang paling sunyi, lupa barangnya ada. Bab setelahnya memberi satu langkah untuk tiap penyebab, dan semuanya bisa mulai di belanja berikutnya tanpa alat apa pun.\n\nSatu bab lagi tentang apa yang sengaja TIDAK masuk hitungan, karena lebih baik dikatakan daripada disembunyikan: kulit dan tulang, yang Anda berikan ke orang lain, dan yang masih sempat dibekukan atau dimasak sebelum rusak. Dan ada satu kemungkinan yang juga hasil yang sah — angka Anda keluar kecil, yang berarti uangnya hilang di tempat lain, bukan di sini.\n\nBab terakhir tentang cara memakai angka itu: pilih satu penyebab saja, kerjakan sebulan, lalu ukur lagi satu minggu. Selisih dua angka itulah yang memberi tahu apakah langkahnya bekerja — bukan perasaan.\n\nDi akhir, tiga langkah, semuanya dengan barang yang sudah ada di rumah Anda hari ini.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nSetelah tujuh hari, tulis satu hal saja di bawah: angka seminggu Anda, dalam rupiah. Bukan total belanja, bukan penghasilan — cuma yang dibuang tanpa dimakan. Dan kalau angkanya kecil, tulis juga; saya mau tahu seberapa jauh angka ini berbeda antar rumah.\n\n## HASHTAGS\n#DapurHemat #UangDapur #ResepNaikLevel\n\n## TAGS\nsisa makanan, buang makanan, hemat uang dapur, uang belanja dapur, cara hemat belanja dapur, struk belanja, catat pengeluaran dapur, menyimpan sayur agar tahan lama, porsi masak, belanja mingguan, kulkas rapi, hemat rumah tangga, keuangan rumah tangga, dapur hemat, menghitung pengeluaran\n\n## CONFIGURACOES DO STUDIO\n- Idioma: Indonesio (id) | Categoria: Educacao (27)\n- Nao feito para criancas\n- Divulgacao de conteudo sintetico: SIM (voz gerada por IA)\n- Localizacao: Indonesia | Licenca: Licenca padrao do YouTube\n- Anuncios mid-roll: ativados (duracao acima de 8 minutos)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nEste video NAO cita nenhum numero meu e NAO faz nenhuma afirmacao institucional. Nao cita preco de alimento, nao cita HET, nao cita media nacional nem regional de desperdicio, nao cita estudo, nao cita nome de mercado nem de marca, e nao compara o espectador com media nenhuma. Os dois numeros da conta sao do proprio espectador: o que ele jogou fora sem comer (que ele observa e anota na semana) e o preco daquilo (que esta impresso no struk dele). Nao ha numero meu para certificar em duas fontes, e por isso nao ha numero meu que possa envelhecer nem que dependa da regiao, do mercado ou do tamanho da familia dele. O QUE FOI DELIBERADAMENTE DEIXADO DE FORA, e por que: (1) qualquer estatistica de desperdicio de alimentos, porque ela so serviria para dizer ao espectador se ele esta acima ou abaixo da media, e o video nao faz essa comparacao — a conta e sobre a casa dele, nao sobre o pais; (2) qualquer preco de referencia, porque varia por regiao e por semana na Indonesia, e um preco meu tornaria a conta errada para a maioria de quem assiste, justamente quando o preco certo esta impresso no papel que ele tem na mao; (3) qualquer prazo de validade ou tempo de conservacao em dias, porque depende do produto, da embalagem e da geladeira dele, e citar um numero ali seria afirmacao que eu nao posso certificar. O video tambem nao diz quanto desperdicio e \"muito\", nao culpa ninguem, nao promete economia em porcentagem e nao e aconselhamento financeiro.\n"
+}
