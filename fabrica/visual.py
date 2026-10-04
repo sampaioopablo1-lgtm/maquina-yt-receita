@@ -46,6 +46,16 @@ O fallback documentado do broll (lower-third sobre preto, quando o clipe nao
 vem) continua passando, porque la o texto e perfeitamente legivel — e e isso
 que a medida nova pergunta.
 
+E A FRAQUEZA DESTA MEDIDA FICA DITA, porque ela e mais fraca que a do cartao e
+isso nao deve ser descoberto depois. Na faixa do lower-third sobre footage, a
+propria variacao do clipe conta como tinta: medido no seviye-seviye-010, as
+quatro cenas deram 11,66%, 45,33%, 2,96% e 52,75% de tinta na faixa. Ou seja
+`MIN_TINTA_LT` so pega o caso extremo — a faixa chapada, em que o texto nao
+renderizou. Quem realmente julga aqui e o CONTRASTE (os quatro deram 265, 292,
+379 e 238, contra um piso de 55). Este portao pega "o texto nao entrou" e "o
+texto lavou"; ele NAO pega "o texto esta um pouco dificil de ler sobre um
+clipe movimentado". Para isso ainda e preciso olhar o quadro.
+
 Uso:  python3 visual.py <video.mp4> [--fundo RRGGBB] [--quadros 12]
 Sai 1 se houver ERRO.
 """
