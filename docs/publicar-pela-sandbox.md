@@ -412,3 +412,66 @@ link gravado, o pacote rende igual amanha — e o credito em
 
 O que continua valendo: broll e ENFEITE. Falha aqui nunca para o render, a cena
 cai no lower-third sobre preto, e o motivo vai para o log cena por cena.
+
+### O portao tambem tinha de mudar de host (04/10/2026)
+
+Resolver o link na spec remove a API do caminho do render — e **o portao que
+protegia essa etapa continuou sondando a API**. O agla-level-009 chegou ao
+runner com 3/3 `broll_url` gravados e o `confere_broll.py` reprovou o pacote
+mesmo assim, porque exigia `config.pexels_api_key` e fazia uma busca em
+`api.pexels.com`, o unico host que a spec havia tirado do caminho. Custo: zero
+segundo de render e um disparo inteiro perdido.
+
+Agora o portao pergunta pela cena:
+
+* cena **com** `broll_url` -> sonda o **CDN**, naquele link, com `Range:
+  bytes=0-1023`. E mais forte que a sonda antiga: confere o arquivo que vai ser
+  baixado, nao um resultado de busca qualquer. Nao pede chave.
+* cena **sem** `broll_url` -> chave e busca, como sempre.
+
+Spec toda resolvida passa sem chave nenhuma. Spec mista confere as duas coisas.
+Conferido no runner do GitHub em 04/10/2026: o CDN **entrega** de la — o
+bloqueio era so da API. Do meu proprio runner o proxy recusa os dois hosts com
+403, e por isso o portao novo reprova aqui de proposito; quem decide e o runner
+que vai renderizar.
+
+A licao que vale fora do broll: **portao sonda o host que a ETAPA vai usar, nao
+o host de quando o portao foi escrito.** Quando uma etapa troca de dependencia,
+o portao e parte da troca.
+
+## Views de vida inteira: a ULTIMA linha de `videos.list`, nunca `max(views)`
+
+O aprendizado 554 ja dizia que `metricas.views` tem duas semanticas na mesma
+coluna — linha de Analytics e janela movel de 28 dias, linha de `videos.list` e
+vida inteira. Falta a parte que so apareceu em 04/10/2026, auditando
+`v_maquina_licoes`.
+
+**A boa noticia:** os vereditos estao sa'os. `v_ultima_metrica` pega a linha
+mais recente com `views > 0`, e para os **239** videos essa linha vem de
+`videos.list`. Nenhum veredito esta calculado sobre a janela de 28 dias.
+
+**A ma:** as linhas permutadas de 01/09/2026 (o erro do aprendizado 549)
+continuam no historico, e `max(views)` as pega. Conferido **no proprio video
+publicado**:
+
+| video | real em 04/10 | linha de 01/09 |
+|---|---|---|
+| IUOmToMY8rU | 6 | 986 |
+| v2j35YekImM | 37 | 721 |
+| xxuLnebdvrk | 61 | 731 |
+| AXeHdTi27RM | 4 | 250 |
+
+Somando a frota: **26.258** views pela ultima linha contra **29.737** por
+`max()` — 3.479 views fantasma, 13,2% de inflacao, concentrados em 23
+video-linhas de quatro coletas de 01/09 (06:14, 07:12, 08:12, 09:13).
+
+**Nao apaguei as linhas, e e deliberado.** A permutacao e por COLETA: a metade
+que ficou baixa demais e igualmente falsa e e invisivel, porque parece
+crescimento normal. E nao existe teto que separe permutacao de expurgo
+legitimo de views pelo YouTube — 986 -> 6 nao e expurgo, mas 401 -> 344 pode
+ser. Apagar so o que da para provar deixaria o resto parecendo conferido, que e
+pior que deixar tudo marcado. Ficam no aprendizado 557, com data e hora.
+
+**A regra, entao:** para views de vida inteira, `distinct on (youtube_id) ...
+order by youtube_id, coletado_em desc` filtrando `duracao_media_s = 0 and
+retencao_media_pct = 0`. Nunca `max(views)`, nunca "a ultima linha qualquer".
