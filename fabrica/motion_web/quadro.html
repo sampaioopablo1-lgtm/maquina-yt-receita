@@ -1,0 +1,34 @@
+<!doctype html><meta charset="utf-8">
+<style>html,body{margin:0;padding:0;background:#F6F3EE;overflow:hidden}
+svg{display:block;width:1280px;height:720px}</style>
+<svg id="s" xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+  <rect width="1280" height="720" fill="#F6F3EE"/>
+  <!-- O fundo e cor chapada: escala-lo nao muda um pixel, e deixa-lo FORA do grupo
+       escalado evita a emenda de tom que o Chromium cria ao compor a camada. -->
+  <g id="burn">
+    <g id="l0"><text x="640" y="288.0" font-family="DejaVu Sans" font-weight="bold" font-size="64" fill="#3E7C8A" text-anchor="middle"><tspan x="640" dy="0">A subtra&#231;&#227;o</tspan></text><path d="M 307.2 374.40000000000003 Q 640 396.00000000000006, 972.8 374.40000000000003" stroke="#E0A458" stroke-width="10" fill="none" stroke-linecap="round"/></g>
+    <g id="l1"><text x="640" y="468.0" font-family="DejaVu Sans" font-weight="bold" font-size="39" fill="#22303C" text-anchor="middle"><tspan x="640" dy="0">esse e o seu n&#250;mero</tspan></text></g>
+  </g>
+</svg>
+<script>
+// As MESMAS contas de fabrica.filtro_camadas / fabrica.ken_burns / fabrica.tempos_entrada.
+var ENTRADA=0.40, DESLIZE=26, INICIO=0.45, OCUPA=0.62, AMP_ZOOM=0.12, AMP_PAN=0.5;
+var DD=4.0, FPS=30, NF=Math.round(DD*FPS), W=1280, H=720, I=21;
+function tempos(n,dd){var fim=Math.max(INICIO+ENTRADA,dd*OCUPA);if(n===1)return[INICIO];
+  var passo=(fim-INICIO)/(n-1),a=[];for(var i=0;i<n;i++)a.push(INICIO+i*passo);return a;}
+var T=tempos(2,DD);
+// ken_burns(21, nf) -> i%4 == 1 -> (fora, volta, meio)
+function kb(p){return{z:(1+AMP_ZOOM)-AMP_ZOOM*p, fx:(1-AMP_PAN)/2+AMP_PAN-AMP_PAN*p, fy:0.5};}
+var burn=document.getElementById('burn'), L=[document.getElementById('l0'),document.getElementById('l1')];
+window.quadro=function(on){
+  var p=on/NF, k=kb(p), t=on/FPS, ox=k.fx*W, oy=k.fy*H;
+  burn.setAttribute('transform','translate('+(ox*(1-k.z))+' '+(oy*(1-k.z))+') scale('+k.z+')');
+  for(var i=0;i<2;i++){
+    var u=(t-T[i])/ENTRADA;
+    L[i].setAttribute('opacity', u<=0?0:(u>=1?1:u));
+    L[i].setAttribute('transform','translate(0 '+(DESLIZE*Math.max(0,1-u))+')');
+  }
+  return {on:on,t:t,z:k.z,fx:k.fx};
+};
+window.quadro(0);
+</script>
