@@ -1,0 +1,540 @@
+{
+ "slug": "game-money-lab",
+ "pacote": "game-money-lab-009",
+ "idioma": "en",
+ "voz": "en-GB-RyanNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#181C2A",
+  "c1": "#EF476F",
+  "c2": "#22D3EE",
+  "bg": "#F4F4F8"
+ },
+ "thumb": {
+  "l1": "Off what",
+  "l2": "exactly"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "Minus seventy percent",
+   "sub": "of what, exactly",
+   "nar": "A discount is a division. The number on the banner is the top of it, and the bottom is a price someone chose. You can find out which one.",
+   "cap": "A discount is a division, and you can see the bottom of it"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Nobody is lying",
+   "sub": "the maths is real",
+   "nar": "The store is not making the percentage up. It divides honestly. The question is only what it divides by.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Two numbers",
+   "sub": "on the same page",
+   "nar": "And both numbers are on the page you are already looking at: the price today, and the price it is being compared against.",
+   "broll_q": "person browsing a game store on a laptop",
+   "broll_url": "https://videos.pexels.com/video-files/6994624/6994624-hd_1280_720_30fps.mp4",
+   "broll_credito": {
+    "pexels_id": 6994624,
+    "autor": "Kindel Media",
+    "url": "https://www.pexels.com/video/a-girl-shopping-online-6994624/"
+   },
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "The one that matters",
+   "sub": "is the bottom one",
+   "nar": "The bottom one is the reference price. It is usually the launch price, and that is not the same as a price charged for long.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "What this costs you",
+   "sub": "in a decision, not in money",
+   "nar": "That difference costs you a decision: a record sale and a sale five dollars off the usual floor look identical on the banner.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Not a scam",
+   "sub": "a denominator",
+   "nar": "This is not a scam. It is a denominator, and reading one is a skill you can have in a minute.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "No number of mine",
+   "sub": "in any of this",
+   "nar": "There is no number of mine in this. No average discount, no store name. Both numbers come off your own screen.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Your deadline too",
+   "sub": "the sale ends Sunday",
+   "nar": "The deadline is yours as well: the sale on your list ends on a date the page already shows you.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Where the bottom comes from",
+   "sub": "three possibilities",
+   "nar": "The reference price is one of three things, and which one changes what the percentage means.",
+   "cap": "What the reference price actually is"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "The first",
+   "sub": "the launch price",
+   "nar": "The first is the launch price: what the game cost on day one. It may not have been charged since that first week.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "The second",
+   "sub": "the current list price",
+   "nar": "The second is the current list price, which a publisher can raise or lower whenever it wants.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "The third",
+   "sub": "the regional price",
+   "nar": "The third is the price for your region, which can differ from the one in the trailer and from the one your friend sees.",
+   "broll_q": "hand holding a game controller close up",
+   "broll_url": "https://videos.pexels.com/video-files/7668105/7668105-hd_1280_720_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 7668105,
+    "autor": "Pavel Danilyuk",
+    "url": "https://www.pexels.com/video/close-up-view-of-a-person-playing-7668105/"
+   },
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "All three are legitimate",
+   "sub": "and none is the floor",
+   "nar": "All three are legitimate. None is the lowest the game actually sold for, and that is the number you need.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "The floor",
+   "sub": "what it has really gone down to",
+   "nar": "Call it the floor: the cheapest this game has ever actually been. It is not on the banner, and that is exactly why it is useful.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Why the floor",
+   "sub": "it is the only honest comparison",
+   "nar": "The floor is the only honest comparison: it is the one price you know was actually paid.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "And it is personal",
+   "sub": "your floor, not the internet's",
+   "nar": "And the floor belongs to you. The cheapest price that existed somewhere is not the cheapest that existed for your account.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "What comes next",
+   "sub": "the account, in two steps",
+   "nar": "What comes next is the account. Two steps, two numbers, and nothing beyond the store page you already have open.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Step one",
+   "sub": "today's price",
+   "nar": "Step one: the price today — what you would actually be charged, after the discount, in your own currency.",
+   "cap": "The account: two numbers, one division"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Not the banner",
+   "sub": "the checkout line",
+   "nar": "Not the banner. The checkout line, because regional pricing and taxes land there.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Step two",
+   "sub": "the floor",
+   "nar": "Step two: the floor — the cheapest that game has ever been for you. Your purchase history and wishlist alerts hold it.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "If you never saw it low",
+   "sub": "use the lowest you ever saw",
+   "nar": "Never seen it cheap? Use the lowest you have personally seen. An imperfect floor still beats the launch price.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Now divide",
+   "sub": "today by the floor",
+   "nar": "Now divide today's price by the floor. Not the other way round.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "The result",
+   "sub": "that is your real discount",
+   "nar": "If the result is one, this sale matches the best price you have ever seen. Above one, you are paying more than the floor. Below one, this is genuinely the cheapest it has been for you.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Turn it into a percent",
+   "sub": "if you prefer",
+   "nar": "Subtract one and multiply by one hundred if you prefer a percentage. A result of one point two means twenty percent above your own floor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Keep both",
+   "sub": "today and the floor",
+   "nar": "Keep both numbers, not just the ratio. Without the floor written down you cannot tell next time whether the floor moved or the sale did.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Why not the list price",
+   "sub": "it is a choice, not a fact",
+   "nar": "The reason to divide by the floor and not the list price is simple: the list price is a decision somebody makes, and the floor is a thing that happened.",
+   "cap": "Why the floor beats the list price"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A list price can move",
+   "sub": "upward, before a sale",
+   "nar": "A list price can move up. When it does, every percentage measured from it gets larger without a single cent coming off what you pay.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "The floor cannot move up",
+   "sub": "it only ever goes down",
+   "nar": "A floor cannot move up. It is the lowest value in a history, so new data either lowers it or leaves it alone. That is what makes it a baseline.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Same page, two stories",
+   "sub": "and only one is checkable",
+   "nar": "So the same page tells two stories. One is a percentage off a number chosen by the seller; the other is a ratio against a number from the past.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "You are not cynical",
+   "sub": "you are using a baseline",
+   "nar": "Using the floor does not mean assuming bad faith. It means comparing against a fixed point instead of a moving one, which is what a baseline is for.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "And it works both ways",
+   "sub": "it also finds real sales",
+   "nar": "And it works in your favour too. A ratio below one is a genuine record low, and the banner will not tell you that either.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "The number is not a verdict",
+   "sub": "on the game",
+   "nar": "The ratio says nothing about whether the game is good or worth your evening. It says what this price is, compared with prices that existed.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Next",
+   "sub": "how to read a sale with it",
+   "nar": "What is left is using it. How to look at a sale and decide, with two conditions.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Two conditions",
+   "sub": "both have to hold",
+   "nar": "Two conditions, and a sale has to clear both before it counts as a real one for you.",
+   "cap": "How to decide whether a sale is a sale"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Condition one",
+   "sub": "the ratio is at or below one",
+   "nar": "Condition one: the ratio is at one or below. At one it matches your floor; below one it beats it.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Condition two",
+   "sub": "you wanted it before the banner",
+   "nar": "Condition two: the game was on your list before you saw the banner. A discount on something you had not wanted is not a saving, it is a purchase.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Both, not either",
+   "sub": "that is the whole filter",
+   "nar": "Both, not either. Condition one without condition two is how a wishlist turns into a library you never open.",
+   "broll_q": "writing numbers on a notepad with a calculator",
+   "broll_url": "https://videos.pexels.com/video-files/8479266/8479266-hd_1280_720_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 8479266,
+    "autor": "ArtHouse Studio",
+    "url": "https://www.pexels.com/video/close-up-video-of-a-person-counting-8479266/"
+   },
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "When the ratio is above one",
+   "sub": "waiting costs nothing",
+   "nar": "When the ratio comes out above one, waiting costs you nothing except patience, because the floor already proved that price is reachable.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "When it is well below one",
+   "sub": "that is the moment",
+   "nar": "When it comes out well below one, that is the moment, and your own history is what told you so rather than the size of the banner.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "What not to do",
+   "sub": "change the floor to fit",
+   "nar": "What not to do: quietly raise the floor in your head so the sale passes. The floor is a record, not an opinion, and editing it defeats the point.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "And do not compare games",
+   "sub": "compare each with itself",
+   "nar": "And do not compare one game's ratio with another's. Each floor belongs to one game, in one region, for one person.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Three mistakes",
+   "sub": "the floor makes visible",
+   "nar": "With a floor written down, three ordinary mistakes become obvious. All three are the same confusion: reading the percentage as the saving.",
+   "cap": "Three mistakes the floor makes visible"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Mistake one",
+   "sub": "trusting the banner size",
+   "nar": "Mistake one: trusting the size of the percentage. A ninety percent off a launch price can be worse than a thirty percent off a current one.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Mistake two",
+   "sub": "buying the bundle for the discount",
+   "nar": "Mistake two: taking the bundle because the bundle shows the bigger number. Divide by your floor for the one game you actually wanted.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Mistake three",
+   "sub": "treating the first sale as the best",
+   "nar": "Mistake three: assuming the first sale after launch is the deepest. For most games it is the shallowest one they will ever run.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "None of the three",
+   "sub": "is being bad with money",
+   "nar": "None of the three is being careless. All three are reading a ratio without knowing its denominator, which is a measurement problem with a measurement fix.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "The expensive case",
+   "sub": "buying at twice your floor",
+   "nar": "The expensive case is buying at twice your own floor during a sale that felt generous, which happens most often with games you have been watching for a long time.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "And the reverse",
+   "sub": "waiting past a record low",
+   "nar": "The reverse costs too: waiting through a genuine record low because the banner looked ordinary, then paying more three months later.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "One number fixes both",
+   "sub": "and it is the same one",
+   "nar": "The same floor fixes both cases, which is why it is worth the minute it takes to look up.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "What to write down",
+   "sub": "and in what shape",
+   "nar": "The shape of the record matters, because it decides whether this still works for you in six months.",
+   "cap": "What to record, and why two numbers and not one"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Per game, two numbers",
+   "sub": "the floor and the date",
+   "nar": "Per game, write two things: the floor, and the date you saw it. The date is what tells you later whether the floor is stale.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Not the percentage",
+   "sub": "it is not a number about the game",
+   "nar": "Do not record the percentage. It belongs to one banner on one day and it describes the seller's choice, not the game's price history.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Five games is enough",
+   "sub": "you do not need a database",
+   "nar": "Five games is enough to start. You do not need a database, and the ones worth tracking are the ones you keep almost buying.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Any list works",
+   "sub": "paper included",
+   "nar": "Any list works. Paper, notes app, a spreadsheet. What it must show is the number and the date, not a chart with the shape smoothed out.",
+   "broll_q": "person writing in a notebook at a desk",
+   "broll_url": "https://videos.pexels.com/video-files/8342359/8342359-hd_1280_720_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 8342359,
+    "autor": "Pavel Danilyuk",
+    "url": "https://www.pexels.com/video/girl-writing-in-notebook-8342359/"
+   },
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "In one sale season",
+   "sub": "you have a baseline set",
+   "nar": "After one sale season you have five floors with dates, and a banner stops being the thing that decides.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "And floors do fall",
+   "sub": "that is information too",
+   "nar": "Floors do keep falling, and that is information as well: a floor that dropped twice in a year is telling you about the game's demand.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "None of this costs",
+   "sub": "anything at all",
+   "nar": "And none of this requires an extension, a subscription or a tool. It requires two numbers and one division.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "One caveat",
+   "sub": "about what this is not",
+   "nar": "Before the end, one caveat, and it matters more than the account does.",
+   "cap": "What this account does NOT say"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "It does not say",
+   "sub": "whether to buy",
+   "nar": "This does not tell you whether to buy anything. It tells you where this price sits against prices that existed. Whether the game is worth it is not a number.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "It is not a price prediction",
+   "sub": "the floor is history",
+   "nar": "It is also not a forecast. A floor is a record of the past, and nothing guarantees the game goes that low again.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Regional prices differ",
+   "sub": "so floors are personal",
+   "nar": "And because regional pricing exists, your floor is yours. Someone else's screenshot of a cheaper price is not your floor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "What you are left with",
+   "sub": "a ratio, and that is all",
+   "nar": "What you are left with is one ratio, computed from your own screen and your own history. At or below one, it is a real sale for you.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "And one more limit",
+   "sub": "it says nothing about value",
+   "nar": "It also says nothing about whether the price is fair. A game can sit at its floor and still cost more than an evening is worth to you, and that judgement is not something a ratio can hand over.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Start with one game",
+   "sub": "the one you keep almost buying",
+   "nar": "Start with one game: the one you keep almost buying. Look up its floor today, before the next banner.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Put your ratio below",
+   "sub": "just the number",
+   "nar": "In the comments, put just the ratio for one game. Not the title, not the price. I want to see how far from one these land during the same sale.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Minus seventy percent",
+   "sub": "of what",
+   "nar": "A discount is a division, and the bottom of it is a price somebody chose. Here is how to check your own.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "First",
+   "sub": "the checkout price",
+   "nar": "First: the price at checkout today, in your currency, after the discount. Not the number on the banner.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Second",
+   "sub": "your floor",
+   "nar": "Second: the cheapest that game has ever been for you. Your purchase history holds it.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Divide",
+   "sub": "today by the floor",
+   "nar": "Divide today by the floor. At one, it matches your best price ever. Above one, you are paying over your own floor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "When it comes out above one",
+   "sub": "two conditions, in the video",
+   "nar": "What to do when it lands above one is two conditions, and both are in the video.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# The denominator of a discount, and how to find your own floor\n\n## TITULO\nSeventy Percent Off What? The Reference Price in Your Wishlist, and the Real Floor\n\n## TITULO SHORT\nSeventy percent off what, exactly?\n\n## DESCRICAO\nA discount is a division. The percentage on the banner is the top of it, and the bottom is a price somebody chose — usually the launch price, sometimes the current list price, sometimes the price for your region. The store is not making the maths up. The only question is what it divides by, and you can find that out from the page you already have open.\n\nThe number you actually need is not on the banner: it is the floor — the cheapest that game has ever genuinely been for you. The floor has one property the list price does not. A list price is a decision, and it can move upward, which makes every percentage measured from it look bigger without a cent coming off what you pay. A floor is the lowest value in a history, so new data either lowers it or leaves it alone. That is what makes it a baseline.\n\nThe account has two steps and no number of mine. Step one: the price at checkout today, in your currency, after the discount — the line at checkout and not the poster, because regional pricing and taxes land there. Step two: the floor, which your own purchase history and your wishlist alerts already hold; if you have never seen the game cheap, use the lowest price you have personally seen on it, because an imperfect floor still beats the launch price. Then divide today by the floor. At one, this sale matches the best price you have ever seen. Above one, you are paying more than your own floor. Below one, it is a genuine record low — and the banner will not tell you that either.\n\nThe video closes that account in the first three minutes, then shows what to do with the ratio: the two conditions a sale has to clear before it counts (the ratio at or below one, AND the game was on your list before you saw the banner), three mistakes the floor makes visible, and what to record per game so this still works for you next sale season.\n\nOne caveat that matters more than the account: this does not tell you whether to buy anything, and it is not a forecast. A floor is a record of the past, and nothing guarantees a game goes that low again. Whether a game is worth your evening is not a number.\n\nCAPITULOS\n{CAPITULOS}\n\nIn the comments, put just the ratio for one game. Not the title, not the price. I want to see how far from one these land during the same sale.\n\n## DISCLOSURE\nNarration and visuals in this video are computer-generated. The script is original, and this is information, not financial or purchasing advice.\n\n## HASHTAGS\n#gamedeals #gamingprices #wishlist\n\n## TAGS\ngame discounts, reference price, wishlist price history, real discount, price floor, how to read a sale, steam sale maths, regional pricing, list price vs floor, record low price, game price tracking, is this sale good, launch price, discount denominator, when to buy games\n\n## COMENTARIO FIXADO\nThe whole thing in two lines: take the checkout price today, in your currency; take the cheapest that game has ever actually been for you. Divide today by the floor. At or below one it is a real sale; above one you are paying over your own floor. Put just that ratio here — not the title, not the price.\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nEste video NAO cita nenhum numero meu e NAO faz nenhuma afirmacao institucional. Nao cita desconto medio de nenhuma loja, nao cita politica de preco de nenhuma plataforma, nao cita nome de loja, de publisher nem de rastreador de preco, nao cita quanto tempo um jogo leva para chegar ao piso e nao cita percentual tipico de promocao. Os dois numeros da conta sao do proprio espectador: o preco no checkout dele, na moeda dele, e o menor preco que ELE ja viu naquele jogo. O QUE FOI DELIBERADAMENTE DEIXADO DE FORA, e por que: (1) qualquer afirmacao sobre COMO cada loja calcula o preco de referencia, porque isso varia por loja, por regiao e por acordo com o publisher, e eu nao fecharia esse numero em duas fontes institucionais — o video diz que o preco de referencia pode ser preco de lancamento, preco de tabela atual ou preco regional, que sao as tres possibilidades, sem atribuir nenhuma a nenhuma loja especifica; (2) qualquer previsao de quando um jogo volta ao piso, porque piso e registro do passado e tratar registro como previsao e o erro oposto ao que o video corrige; (3) qualquer juizo sobre o jogo — o video diz explicitamente que a razao nao fala do jogo, so do preco contra precos que existiram. ESTE EIXO SUBSTITUI O NUMERO INSTITUCIONAL DE PROPOSITO, e a escolha tem uma ressalva honesta: os dois shorts mais vistos deste canal (noventa e uma e cinquenta e duas views) entregaram FATO sobre a industria, e os dois de metodo entregaram dezoito e duas. A ordem de views, porem, e quase a ordem de antiguidade — 002 e 003 sao de agosto e 008 e de setembro — e com sete pontos nao da para separar forma de data. Entao este pacote tenta a sintese: conta do espectador, mas ancorada num numero que ele ve na propria tela de loja e confere em dez segundos. Se o short passar de cinquenta views foi a sintese; se ficar abaixo de vinte, a ancora nao bastou.\n"
+}
