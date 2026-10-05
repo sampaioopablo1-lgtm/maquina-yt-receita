@@ -93,7 +93,22 @@ erro, e nao e aconselhamento financeiro.
 import json
 
 CENAS = []
-BROLL = {}
+
+# Links resolvidos em 05/10/2026 pela pre-busca rodada do sandbox, onde
+# `api.pexels.com` responde. `--conferir`: 3/3 clipes que o CDN entrega. Com o
+# link gravado o pacote fica reproduzivel — sem ele, dois renders da mesma spec
+# pegam clipes diferentes, porque o Pexels reordena a busca.
+BROLL = {
+    6862466: ("https://videos.pexels.com/video-files/6862466/6862466-hd_1366_720_25fps.mp4",
+              "cottonbro studio",
+              "https://www.pexels.com/video/a-person-looking-bank-check-while-using-laptop-6862466/"),
+    6327790: ("https://videos.pexels.com/video-files/6327790/6327790-hd_1366_720_25fps.mp4",
+              "Kaboompics",
+              "https://www.pexels.com/video/person-counting-money-6327790/"),
+    6964247: ("https://videos.pexels.com/video-files/6964247/6964247-hd_1280_720_25fps.mp4",
+              "Mikhail Nilov",
+              "https://www.pexels.com/video/man-using-calculator-6964247/"),
+}
 
 
 def T(kicker, sub, nar, cap=None):
@@ -136,7 +151,7 @@ def C(kicker, sub, nar):
 B("One account", "two kinds of money",
   "There is money in your account that you decide, and money that was already "
   "decided before you ever saw it. Same account. Same balance.",
-  "person looking at bank statement on a laptop", None,
+  "person looking at bank statement on a laptop", 6862466,
   cap="Two kinds of money, one account")
 I("This is not a trap", "it is a structure",
   "Nobody is tricking you. Rent gets decided once and then repeats. So does "
@@ -198,7 +213,7 @@ I("And add them up", "that is the first number",
 B("The second number", "already printed",
   "The second number you do not have to estimate. It is already printed, and "
   "it is at the top of the same statement.",
-  "hands holding a paper bank statement", None,
+  "hands holding a paper bank statement", 6327790,
   cap="Second number, and the division")
 I("What came in", "the amount that landed",
   "What came in last month — the amount that actually landed in the account, "
@@ -261,7 +276,7 @@ I("Four places", "and the first is the biggest",
 B("Four places", "four moves",
   "Each place has one move, and none of them asks you for a number you do not "
   "already have.",
-  "person writing notes next to a calculator", None,
+  "person writing notes next to a calculator", 6964247,
   cap="One move for each place")
 I("For the first", "read the deduction lines",
   "For the first: read the deduction lines on your own pay statement, one by "
@@ -421,7 +436,7 @@ One chapter is about the case that fools almost everyone: two people with the sa
 
 At the end, three steps, all using paper you already have.
 
-Footage: Pexels (free license).
+Footage: Pexels (free license) — cottonbro studio, Kaboompics, Mikhail Nilov.
 
 ## CAPITULOS
 {CAPITULOS}
