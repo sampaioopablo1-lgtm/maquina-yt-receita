@@ -42,6 +42,12 @@
    "sub": "duas horas de diferença",
    "nar": "A mesma pessoa, no mesmo dia, pode marcar valores que diferem em quase um quilo. Nenhum dos dois está errado.",
    "broll_q": "person stepping on a bathroom scale at home",
+   "broll_url": "https://videos.pexels.com/video-files/7801722/7801722-hd_1366_576_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 7801722,
+    "autor": "Pavel Danilyuk",
+    "url": "https://www.pexels.com/video/a-person-weighing-using-a-weighing-scale-7801722/"
+   },
    "sem_cap": true
   },
   {
@@ -80,18 +86,24 @@
    "cap": "O que faz o número andar sem nada mudar"
   },
   {
-   "layout": "titulo",
+   "layout": "broll",
    "kicker": "A primeira",
    "sub": "água",
    "nar": "A primeira é água. O corpo carrega litros dela e troca essa quantidade durante o dia, conforme você bebe, transpira e dorme.",
+   "broll_q": "pouring water into a glass",
+   "broll_url": "https://videos.pexels.com/video-files/8554345/8554345-hd_1280_720_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 8554345,
+    "autor": "TP Motion",
+    "url": "https://www.pexels.com/video/filling-up-a-glass-with-water-8554345/"
+   },
    "sem_cap": true
   },
   {
-   "layout": "broll",
+   "layout": "titulo",
    "kicker": "A segunda",
    "sub": "o que ainda está passando",
    "nar": "A segunda é a comida que ainda está no caminho: o que você comeu ontem pesa hoje, e vai deixar de pesar sem ter virado nada.",
-   "broll_q": "glass of water being filled in a kitchen",
    "sem_cap": true
   },
   {
@@ -274,7 +286,13 @@
    "kicker": "Media contra média",
    "sub": "nunca dia contra dia",
    "nar": "É sempre média contra média. Hoje contra o mesmo dia da semana passada compara dois sorteios dentro da faixa, e não prova nada.",
-   "broll_q": "notebook with handwritten numbers on a table",
+   "broll_q": "writing numbers in a notebook",
+   "broll_url": "https://videos.pexels.com/video-files/5466772/5466772-hd_1280_720_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 5466772,
+    "autor": "olia danilevich",
+    "url": "https://www.pexels.com/video/using-a-calculator-and-writing-5466772/"
+   },
    "sem_cap": true
   },
   {

@@ -62,11 +62,24 @@ import json
 
 CENAS = []
 
-# Os links do Pexels entram aqui depois da pre-busca rodada de onde
-# `api.pexels.com` responde — no runner ele da TimeoutError em 7 de 7 cenas.
+# Links resolvidos em 05/10/2026, e a busca rodou DENTRO do Postgres por
+# `pg_net`: `net.http_get` para api.pexels.com com a chave lida do `config` na
+# mesma consulta. Assim a chave nao atravessa nem a sandbox nem o chat, do
+# mesmo jeito que o access_token do YouTube. No runner a busca nao roda —
+# `api.pexels.com` da TimeoutError em 7 de 7 cenas pela faixa de IP dele.
 # Com o link gravado o pacote fica reproduzivel: sem ele, dois renders da mesma
 # spec pegam clipes diferentes, porque a busca reordena.
-BROLL = {}
+BROLL = {
+    7801722: ("https://videos.pexels.com/video-files/7801722/7801722-hd_1366_576_25fps.mp4",
+              "Pavel Danilyuk",
+              "https://www.pexels.com/video/a-person-weighing-using-a-weighing-scale-7801722/"),
+    8554345: ("https://videos.pexels.com/video-files/8554345/8554345-hd_1280_720_25fps.mp4",
+              "TP Motion",
+              "https://www.pexels.com/video/filling-up-a-glass-with-water-8554345/"),
+    5466772: ("https://videos.pexels.com/video-files/5466772/5466772-hd_1280_720_25fps.mp4",
+              "olia danilevich",
+              "https://www.pexels.com/video/using-a-calculator-and-writing-5466772/"),
+}
 
 
 def T(kicker, sub, nar, cap=None):
@@ -114,7 +127,7 @@ T("E o que está em cima", "muda o dia inteiro",
 B("Mesma pessoa", "duas horas de diferença",
   "A mesma pessoa, no mesmo dia, pode marcar valores que diferem em quase um "
   "quilo. Nenhum dos dois está errado.",
-  "person stepping on a bathroom scale at home")
+  "person stepping on a bathroom scale at home", 7801722)
 T("O que isso custa", "em decisão, não em quilo",
   "Isso custa decisão. A pessoa pesa num dia ruim e muda o plano inteiro por "
   "causa de um número que ia voltar sozinho.")
@@ -133,13 +146,13 @@ T("O que mexe sozinho", "quatro coisas, nenhuma e gordura",
   "Quatro coisas mexem no mostrador sem mexer no corpo. Vale conhecer as "
   "quatro, porque são elas que formam o tamanho que vamos medir.",
   cap="O que faz o número andar sem nada mudar")
-T("A primeira", "água",
+B("A primeira", "água",
   "A primeira é água. O corpo carrega litros dela e troca essa quantidade "
-  "durante o dia, conforme você bebe, transpira e dorme.")
-B("A segunda", "o que ainda está passando",
+  "durante o dia, conforme você bebe, transpira e dorme.",
+  "pouring water into a glass", 8554345)
+T("A segunda", "o que ainda está passando",
   "A segunda é a comida que ainda está no caminho: o que você comeu ontem "
-  "pesa hoje, e vai deixar de pesar sem ter virado nada.",
-  "glass of water being filled in a kitchen")
+  "pesa hoje, e vai deixar de pesar sem ter virado nada.")
 T("A terceira", "sal e carboidrato",
   "A terceira é sal e carboidrato, que fazem o corpo segurar mais água por "
   "um ou dois dias. Uma refeição mais salgada aparece no mostrador depois.")
@@ -232,7 +245,7 @@ T("Juntas", "elas filtram quase todo ruído",
 B("Media contra média", "nunca dia contra dia",
   "É sempre média contra média. Hoje contra o mesmo dia da semana passada "
   "compara dois sorteios dentro da faixa, e não prova nada.",
-  "notebook with handwritten numbers on a table")
+  "writing numbers in a notebook", 5466772)
 T("Quando a faixa é grande", "espere mais",
   "Se a sua faixa saiu grande, você precisa de mais semanas para concluir "
   "algo. Não e azar: é a sua resolução.")
