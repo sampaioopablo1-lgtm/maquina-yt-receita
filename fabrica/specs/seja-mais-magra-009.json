@@ -1,0 +1,501 @@
+{
+ "slug": "seja-mais-magra",
+ "pacote": "seja-mais-magra-009",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-FranciscaNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#22303C",
+  "c1": "#3E7C8A",
+  "c2": "#E0A458",
+  "bg": "#F6F3EE"
+ },
+ "thumb": {
+  "l1": "Quanto ela",
+  "l2": "varia sozinha"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "Dois números diferentes",
+   "sub": "no mesmo mostrador",
+   "nar": "Existe o número que a balança mostra e existe o quanto o seu corpo mudou. Não são a mesma coisa, e a diferença tem tamanho.",
+   "cap": "O número e a mudança não são a mesma coisa"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ninguém está errado",
+   "sub": "a balança está certa",
+   "nar": "A balança não está quebrada e você não está se enganando. Ela pesa, com precisão, tudo que está em cima dela naquele segundo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E o que está em cima",
+   "sub": "muda o dia inteiro",
+   "nar": "Mas o que está em cima dela às sete da manhã e diferente do que está às sete da noite, sem uma célula de gordura ter entrado ou saido.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Mesma pessoa",
+   "sub": "duas horas de diferença",
+   "nar": "A mesma pessoa, no mesmo dia, pode marcar valores que diferem em quase um quilo. Nenhum dos dois está errado.",
+   "broll_q": "person stepping on a bathroom scale at home",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que isso custa",
+   "sub": "em decisão, não em quilo",
+   "nar": "Isso custa decisão. A pessoa pesa num dia ruim e muda o plano inteiro por causa de um número que ia voltar sozinho.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Não e força de vontade",
+   "sub": "e leitura de instrumento",
+   "nar": "Isso não é falta de disciplina. É ler um instrumento sem saber a margem dele, que é um erro técnico e tem conserto técnico.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Nenhum número meu",
+   "sub": "nenhuma média nacional",
+   "nar": "Não tem um número meu nesta conta. Nenhuma média, nenhum percentual recomendado. O número que decide sai da sua casa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O prazo é seu também",
+   "sub": "a próxima pesagem",
+   "nar": "O prazo também e seu: a próxima vez que você subir na balança. Ela vai mostrar um número, e você vai ter de decidir se aquilo significa algo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que mexe sozinho",
+   "sub": "quatro coisas, nenhuma e gordura",
+   "nar": "Quatro coisas mexem no mostrador sem mexer no corpo. Vale conhecer as quatro, porque são elas que formam o tamanho que vamos medir.",
+   "cap": "O que faz o número andar sem nada mudar"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A primeira",
+   "sub": "água",
+   "nar": "A primeira é água. O corpo carrega litros dela e troca essa quantidade durante o dia, conforme você bebe, transpira e dorme.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "A segunda",
+   "sub": "o que ainda está passando",
+   "nar": "A segunda é a comida que ainda está no caminho: o que você comeu ontem pesa hoje, e vai deixar de pesar sem ter virado nada.",
+   "broll_q": "glass of water being filled in a kitchen",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A terceira",
+   "sub": "sal e carboidrato",
+   "nar": "A terceira é sal e carboidrato, que fazem o corpo segurar mais água por um ou dois dias. Uma refeição mais salgada aparece no mostrador depois.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A quarta",
+   "sub": "a hora do relógio",
+   "nar": "A quarta é a hora. Pesar de manhã em jejum e um ponto do dia; pesar à noite, depois de três refeições, e outro ponto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Juntas",
+   "sub": "elas formam um intervalo",
+   "nar": "Juntas, essas quatro fazem o seu número passear dentro de um intervalo que se repete e tem tamanho medível.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E o tamanho é seu",
+   "sub": "não é geral",
+   "nar": "E esse tamanho é seu: depende de quanta água você carrega, do que come, de como treina. Por isso não existe número geral aqui.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que vem agora",
+   "sub": "a conta, em dois passos",
+   "nar": "O que vem agora é a conta. Dois passos, sete dias, e nada além da balança que você já tem em casa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Passo um",
+   "sub": "o mesmo momento, sete vezes",
+   "nar": "Passo um: durante sete dias, pese uma vez por dia, sempre no mesmo momento. De manhã, em jejum, depois do banheiro, antes de beber água.",
+   "cap": "A conta: sete dias e duas subtrações"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Mesmo momento",
+   "sub": "e também mesma balança",
+   "nar": "Mesmo momento é também mesma balança, no mesmo lugar do chao. Trocar de piso ou de aparelho no meio mistura dois instrumentos numa série só.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Anote os sete",
+   "sub": "todos, inclusive os ruins",
+   "nar": "Anote os sete números. Todos. Inclusive o do dia que você quer esquecer, porque e justamente ele que define o tamanho que estamos medindo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Sete dias inteiros",
+   "sub": "não cinco",
+   "nar": "Sete dias inteiros, não cinco. Uma semana incompleta corta o fim de semana, e o fim de semana costuma ser o dia mais alto da série.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Passo dois",
+   "sub": "o maior e o menor",
+   "nar": "Passo dois: olhe os sete e ache o maior e o menor. Esses dois valores são os únicos de que você precisa agora.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A subtração",
+   "sub": "esse e o seu número",
+   "nar": "Subtraia o menor do maior. O resultado é a sua faixa de variação: o quanto a sua balança anda sozinha numa semana em que nada mudou.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que ele significa",
+   "sub": "um limiar, não uma meta",
+   "nar": "Esse número é um limiar: diferença menor que ele, entre duas pesagens, não é informação sobre o corpo. É o instrumento passeando.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Guarde os dois",
+   "sub": "a faixa e a média",
+   "nar": "Guarde dois valores: a faixa, que é a subtração, e a média dos sete. A média sozinha não serve, porque sem a faixa você não sabe quanto ela pode errar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Por que a média",
+   "sub": "e não a pesagem de hoje",
+   "nar": "A média dos sete é melhor que qualquer pesagem isolada, por aritmética: os dias altos e baixos se cancelam, e sobra o que não oscila.",
+   "cap": "Por que a média de sete vence a pesagem de hoje"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Uma pesagem",
+   "sub": "carrega a faixa inteira",
+   "nar": "Uma pesagem sozinha carrega toda a faixa de variação em cima dela. A média de sete carrega uma fracao dessa faixa, porque o acaso aparece nos dois sentidos.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Exemplo da sua própria série",
+   "sub": "sem número meu",
+   "nar": "Da para ver na sua série: compare o maior desvio de um dia com o tamanho da faixa. O dia erra muito mais que a média.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E a média de amanhã",
+   "sub": "muda pouco",
+   "nar": "E tem outra vantagem. Trocando um dia por outro, a média de sete anda pouco. Isso é o que você quer de uma referência: que ela não pule.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Não e desculpa",
+   "sub": "e resolução",
+   "nar": "Isso não é desculpa para ignorar a balança. É saber a resolução dela, do mesmo jeito que uma régua tem milímetros.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Régua e balança",
+   "sub": "a mesma ideia",
+   "nar": "Ninguém tenta medir meio milímetro com uma régua de escola. Medir trezentos gramas de mudança com uma balança que varia um quilo é o mesmo gesto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que você ganha",
+   "sub": "para de reagir a ruído",
+   "nar": "O que você ganha com a faixa é simples: você para de mudar o plano por causa de ruído, e passa a mudar só quando a leitura sai da faixa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O próximo passo",
+   "sub": "como ler uma mudança",
+   "nar": "Falta a parte que usa o número. Como saber, olhando a série, se algo realmente mudou.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A regra de leitura",
+   "sub": "duas condições",
+   "nar": "A regra tem duas condições, e as duas precisam valer ao mesmo tempo para uma mudança contar.",
+   "cap": "Como saber se mudou de verdade"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Condição um",
+   "sub": "maior que a faixa",
+   "nar": "Condição um: a diferença entre a média desta semana e a da semana passada tem de ser maior que a sua faixa. Menor que ela, não conta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Condição dois",
+   "sub": "repetiu",
+   "nar": "Condição dois: a diferença apareceu no mesmo sentido em duas semanas seguidas. Uma semana sozinha ainda pode ser acaso dentro da faixa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Juntas",
+   "sub": "elas filtram quase todo ruído",
+   "nar": "Juntas, as duas condições derrubam quase todo o ruído. O que passa por elas é mudança de verdade, e merece que você mude algo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Media contra média",
+   "sub": "nunca dia contra dia",
+   "nar": "É sempre média contra média. Hoje contra o mesmo dia da semana passada compara dois sorteios dentro da faixa, e não prova nada.",
+   "broll_q": "notebook with handwritten numbers on a table",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Quando a faixa é grande",
+   "sub": "espere mais",
+   "nar": "Se a sua faixa saiu grande, você precisa de mais semanas para concluir algo. Não e azar: é a sua resolução.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Quando ela é pequena",
+   "sub": "você decide mais rápido",
+   "nar": "Se saiu pequena, você enxerga mudanças menores e decide mais rápido. Dois corpos com a mesma rotina podem ter faixas bem diferentes.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que não fazer",
+   "sub": "mudar a conta no meio",
+   "nar": "O que não fazer: trocar o momento da pesagem, a balança ou o criterio no meio da série. Isso inventa uma mudança que não aconteceu no corpo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Três erros",
+   "sub": "que a faixa deixa visivel",
+   "nar": "Com a faixa na mao, três erros comuns ficam óbvios. Todos eles são a mesma confusao: tratar leitura como mudança.",
+   "cap": "Três erros que a faixa torna visíveis"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Erro um",
+   "sub": "pesar todo dia e reagir todo dia",
+   "nar": "Erro um: pesar todo dia e reagir todo dia. Pesar todo dia é útil, porque alimenta a média; reagir a cada leitura é ler ruído como notícia.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Erro dois",
+   "sub": "pesar quando parece bom",
+   "nar": "Erro dois: pesar só quando parece que vai dar número bom. Isso corta os dias altos, encolhe a faixa e estraga as duas contas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Erro três",
+   "sub": "comparar com outra pessoa",
+   "nar": "Erro três: comparar a sua faixa com a de outra pessoa. Ela não mede esforço nem resultado, mede quanta água e comida o corpo movimenta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Nenhum dos três",
+   "sub": "e falta de disciplina",
+   "nar": "Nenhum dos três é falta de disciplina. Os três são erro de medição, e e por isso que tem conserto sem precisar de força nenhuma.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O caso mais caro",
+   "sub": "abandonar na primeira semana",
+   "nar": "O caso mais caro é desistir na primeira semana por um número que estava dentro da faixa: interromper o que funcionava por ler mal o instrumento.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E o caso inverso",
+   "sub": "insistir em algo que não anda",
+   "nar": "O inverso também acontece: insistir meses numa rotina que não move a média fora da faixa, porque uma leitura boa de vez em quando parece progresso.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A faixa resolve os dois",
+   "sub": "com o mesmo número",
+   "nar": "A faixa resolve os dois casos com o mesmo número, e é esse o motivo de ela valer a semana que custa medir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que anotar",
+   "sub": "e em que formato",
+   "nar": "Vale falar do registro, porque a forma de anotar decide se a conta vai servir em um mês ou não.",
+   "cap": "O que anotar, e por que dois números e não um"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Anote os sete",
+   "sub": "não só a média",
+   "nar": "Anote os sete números do dia, não apenas a média da semana. Sem os sete você não pode recalcular a faixa, e a faixa muda com o tempo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dois números por semana",
+   "sub": "faixa e média",
+   "nar": "No fim de cada semana, feche dois números: a média dos sete e a faixa daquela semana. Uma linha por semana, dois valores.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Por que dois",
+   "sub": "um não distingue nada",
+   "nar": "Por que dois: se a média cair e você tiver só ela, não dá para saber se caiu de verdade ou se a semana foi de faixa larga.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Papel serve",
+   "sub": "e aplicativo também",
+   "nar": "Papel serve, caderno serve, aplicativo serve — desde que mostre os números do dia e não só um gráfico suavizado, que esconde o que interessa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Em quatro semanas",
+   "sub": "você tem uma série",
+   "nar": "Em quatro semanas você tem quatro médias e quatro faixas. E com isso você responde a pergunta que uma pesagem nunca respondeu: mudou, ou não mudou?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E se a faixa mudar",
+   "sub": "isso também é informação",
+   "nar": "Se a faixa mudar muito de uma semana para outra, isso também e informação: algo na comida, no sal ou no treino mudou.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Nada disso exige",
+   "sub": "comprar coisa nenhuma",
+   "nar": "E nada disso exige comprar nada, assinar nada nem trocar de balança. Exige sete leituras e duas subtrações.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Uma ressalva",
+   "sub": "sobre o que a faixa não é",
+   "nar": "Antes de terminar, uma ressalva, porque ela importa mais que a conta.",
+   "cap": "O que esta conta NÃO diz"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ela não diz",
+   "sub": "se o seu peso está bom",
+   "nar": "Esta conta não diz se o seu peso está bom, não diz qual deveria ser, e não diz se você precisa mudar algo. Ela diz apenas quando a balança está falando e quando está só variando.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ela não substitui",
+   "sub": "quem acompanha você",
+   "nar": "Ela também não substitui quem acompanha a sua saúde. Faixa de variação é leitura de instrumento, não diagnóstico, e não distingue perda de gordura de perda de músculo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Variação grande e rápida",
+   "sub": "não é assunto de planilha",
+   "nar": "E uma variação grande e rápida, de muitos quilos em pouco tempo, não é assunto de conta nenhuma: é assunto de consulta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que sobra para você",
+   "sub": "um limiar, e só",
+   "nar": "O que sobra para você é um limiar, em quilos, calculado na sua casa, com a sua balança, nos seus sete dias. Abaixo dele, a leitura não é notícia.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Comece hoje",
+   "sub": "a série precisa de um dia um",
+   "nar": "A série precisa de um dia um. Se você pesar amanhã de manhã e anotar, no próximo domingo você tem a sua faixa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Escreva a sua faixa aqui embaixo",
+   "sub": "só o número da subtração",
+   "nar": "Nos comentários, escreva só o número da subtração: maior menos menor, em quilos. Não o seu peso. Quero ver o quanto esse limiar muda entre pessoas que fazem a mesma rotina.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "A balança varia",
+   "sub": "sozinha",
+   "nar": "A sua balança muda de número sem o seu corpo mudar nada. Essa variação tem tamanho, e dá para medir em uma semana.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Sete dias",
+   "sub": "mesmo momento",
+   "nar": "Pese uma vez por dia, sete dias, sempre no mesmo momento: de manhã, em jejum, depois do banheiro. Anote os sete.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ache dois",
+   "sub": "o maior e o menor",
+   "nar": "No fim da semana, ache o maior e o menor dos sete.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Subtraia",
+   "sub": "esse e o seu limiar",
+   "nar": "Subtraia o menor do maior. Esse é o seu limiar: qualquer diferença menor que ele não é mudança, e a balança passeando.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Como usar o limiar",
+   "sub": "no vídeo",
+   "nar": "Como saber se mudou de verdade são duas condições, e as duas estão no vídeo.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# A faixa de variacao da propria balanca, medida em sete dias\n\n## TITULO\nBalança: Quanto Ela Varia Sozinha em Sete Dias, e Por Que Abaixo Disso Nada Mudou\n\n## TITULO SHORT\nQuanto sua balança varia sozinha\n\n## DESCRICAO\nExiste o número que a balança mostra e existe o quanto o seu corpo mudou. Os dois não são a mesma coisa, e a diferença entre eles tem um tamanho que você pode medir em casa, numa semana, sem comprar nada.\n\nQuatro coisas movem o mostrador sem mover um grama de gordura: a água que o corpo troca ao longo do dia, a comida que ainda está em trânsito, o sal e o carboidrato que fazem o corpo segurar água por um ou dois dias, e a hora do relógio em que você sobe na balança. Juntas, elas fazem o seu número passear dentro de um intervalo que se repete toda semana.\n\nA conta tem dois passos e nenhum número meu. Passo um: durante sete dias, pese uma vez por dia, sempre no mesmo momento — de manhã, em jejum, depois do banheiro, antes de beber água — e anote os sete valores, inclusive o do dia que você queria esquecer. Passo dois: ache o maior e o menor da série e subtraia. O resultado é a sua faixa de variação, e ela funciona como limiar: qualquer diferença menor que ela, entre duas pesagens, não é informação sobre o seu corpo.\n\nO vídeo fecha essa conta nos primeiros três minutos e depois mostra o que fazer com o número: por que a média de sete dias vence qualquer pesagem isolada, as duas condições que uma mudança precisa cumprir para contar (ser maior que a faixa E repetir o sentido em duas semanas seguidas), três erros de medição que a faixa torna visíveis, e o que anotar por semana para que a série ainda sirva dentro de um mês.\n\nUma ressalva que importa mais que a conta: isso não diz se o seu peso está bom, não diz qual deveria ser e não substitui quem acompanha a sua saúde. Faixa de variação é leitura de instrumento, não diagnóstico, e não distingue perda de gordura de perda de músculo. Variação grande e rápida é assunto de consulta, não de planilha.\n\nCAPITULOS\n{CAPITULOS}\n\nEscreva nos comentários só o número da subtração — maior menos menor, em quilos. Não o seu peso. Quero ver o quanto esse limiar muda entre pessoas com a mesma rotina.\n\n## DISCLOSURE\nVídeo com narração e imagens geradas por computador. O roteiro é original e o conteúdo é informativo, não é orientação médica nem nutricional.\n\n## HASHTAGS\n#balanca #medicao #peso\n\n## TAGS\nbalanca, faixa de variacao, como pesar, peso que oscila, media de sete dias, variacao de peso diaria, retencao de agua, pesar em jejum, erro de medicao, limiar de mudanca, acompanhar peso, peso oscila sem motivo, balanca de banheiro, serie semanal de peso, quando mudar a rotina\n\n## COMENTARIO FIXADO\nA conta inteira em duas linhas: pese sete dias no mesmo momento, anote os sete; pegue o maior, tire o menor. O resultado é o seu limiar — abaixo dele, a leitura não é notícia. Escreve aqui só esse número, em quilos, não o seu peso.\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nEste video NAO cita nenhum numero meu e NAO faz nenhuma afirmacao institucional. Nao cita peso ideal, nao cita indice de massa corporal, nao cita media nacional, nao cita quantos litros de agua o corpo carrega, nao cita percentual de variacao esperado, nao cita marca de balanca nem de aplicativo. O unico numero que decide e medido pelo espectador, na balanca da casa dele, em sete leituras: o maior menos o menor. O QUE FOI DELIBERADAMENTE DEIXADO DE FORA, e por que: (1) qualquer faixa de referencia do tipo \"o normal e variar X quilos\", porque ela depende de massa, de rotina de comida e de treino, e um numero medio tornaria a conta errada para a maioria de quem assiste exatamente quando o numero certo esta na balanca dele; (2) qualquer afirmacao sobre quantos litros de agua o corpo troca por dia, porque nao conferi isso em duas fontes institucionais e o video nao precisa desse numero para a conta fechar — basta que a variacao exista, e a propria serie do espectador prova que existe; (3) qualquer juizo sobre peso, meta ou necessidade de mudar, porque a conta mede a RESOLUCAO do instrumento e nao o estado de quem sobe nele. ESTE EIXO SUBSTITUI O NUMERO INSTITUCIONAL DE PROPOSITO, e a decisao vem do proprio canal: os tres pacotes que abriram com numero da Anvisa (tres produtos proibidos, cento e oitenta e nove alegacoes permitidas, semaglutida generica registrada) somaram QUATRO views de short em tres pacotes, enquanto os dois que entregaram metodo aplicavel aos numeros do espectador (qual coluna da tabela comparar, em qual das duas faixas de atividade voce esta) somaram OITENTA E CINCO. O video tambem nao recomenda pesar todo dia nem deixar de pesar, nao vende nada, e diz explicitamente que variacao grande e rapida e assunto de consulta.\n"
+}
