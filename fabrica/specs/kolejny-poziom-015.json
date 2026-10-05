@@ -1,0 +1,582 @@
+{
+ "slug": "kolejny-poziom",
+ "pacote": "kolejny-poziom-015",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Ile naprawdę",
+  "l2": "płacisz"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "Dwie liczby",
+   "sub": "na tym samym pasku",
+   "nar": "Na twoim pasku wypłaty są dwie liczby dotyczące PPK. Jedna to twoja składka, druga to ile naprawdę ubyło ci z wypłaty. Nie są równe.",
+   "cap": "Twoja składka i to, co faktycznie ubyło z wypłaty"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Nikt nic nie ukrywa",
+   "sub": "pasek jest poprawny",
+   "nar": "Pasek nie jest błędny i nikt nic nie ukrywa. Pokazuje sumy, a sumy tej różnicy nie pokazują.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Pierwsza jest łatwa",
+   "sub": "stoi wprost na pasku",
+   "nar": "Pierwszą znajdziesz od razu: to linia składki pracownika, podana w złotych. To liczba brutto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Druga nie stoi nigdzie",
+   "sub": "trzeba ją policzyć",
+   "nar": "Drugiej nie ma na pasku w żadnej linii. Trzeba ją policzyć, i to ona decyduje, bo to ona realnie wychodzi z twojego konta.",
+   "broll_q": "person holding a paper document and pen",
+   "broll_url": "https://videos.pexels.com/video-files/7490379/7490379-hd_1280_720_30fps.mp4",
+   "broll_credito": {
+    "pexels_id": 7490379,
+    "autor": "RDNE Stock project",
+    "url": "https://www.pexels.com/video/person-affixing-her-signature-7490379/"
+   },
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Czemu nie są równe",
+   "sub": "bo składka zmienia podatek",
+   "nar": "Nie są równe, bo twoja składka zmienia podstawę, od której liczy się podatek. Część tego, co wpłacasz, wraca do ciebie niższym podatkiem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Co to kosztuje",
+   "sub": "decyzję, nie złotówki",
+   "nar": "Kosztuje cię decyzję: patrzysz na brutto, bierzesz je za cenę i rezygnujesz z czegoś tańszego, niż myślałeś.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Albo odwrotnie",
+   "sub": "zostajesz nie wiedząc ile płacisz",
+   "nar": "Albo odwrotnie: zostajesz, nie wiedząc ile płacisz miesięcznie — i to też jest decyzja bez liczby.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Żadnej mojej liczby",
+   "sub": "w całym materiale",
+   "nar": "Nie ma tu żadnej mojej liczby: ani stawki, ani progu. Oba numery są na twoich paskach.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Termin też jest twój",
+   "sub": "data ponownego zapisu",
+   "nar": "Termin też jest twój: rezygnacja z PPK wygasa i zapis wraca automatycznie. Data jest w ustawie, więc decyzja ma termin z definicji.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Co wychodzi",
+   "sub": "i co wpływa",
+   "nar": "Warto rozdzielić trzy rzeczy, bo mieszanie ich jest powodem, dla którego większość ludzi nie wie, ile ten program ich kosztuje.",
+   "cap": "Co wychodzi z wypłaty, a co wpływa na konto"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Pierwsza",
+   "sub": "twoja składka",
+   "nar": "Pierwsza to twoja składka. Wychodzi z twojej wypłaty i trafia na twoje konto PPK.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Druga",
+   "sub": "składka pracodawcy",
+   "nar": "Druga to składka pracodawcy. Nie wychodzi z twojej wypłaty i też trafia na twoje konto — ale podnosi twoją podstawę podatkową.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Trzecia",
+   "sub": "wpłaty od państwa",
+   "nar": "Trzecia to wpłaty od państwa. Nie wychodzą z twojej wypłaty, trafiają na twoje konto i nie zależą od tego, ile zarabiasz.",
+   "broll_q": "person placing coin on stacks",
+   "broll_url": "https://videos.pexels.com/video-files/8661806/8661806-hd_1280_720_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 8661806,
+    "autor": "Adrian Frentescu",
+    "url": "https://www.pexels.com/video/person-placing-coin-on-stacks-8661806/"
+   },
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dlaczego to miesza",
+   "sub": "bo wszystkie trzy są na jednym koncie",
+   "nar": "Mieszają się, bo wszystkie trzy lądują na tym samym koncie. Patrzysz na saldo i widzisz sumę, która nie mówi nic o twoim koszcie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Twój koszt",
+   "sub": "to tylko pierwsza, minus podatek",
+   "nar": "Twój koszt to wyłącznie pierwsza z tych trzech, i to jeszcze pomniejszona o podatek, którego nie zapłaciłeś.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A twoja korzyść",
+   "sub": "to pozostałe dwie",
+   "nar": "Twoja korzyść to pozostałe dwie, plus to, co urośnie. Ale korzyść i koszt liczy się osobno, inaczej jedno zasłania drugie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dziś liczymy koszt",
+   "sub": "bo on jest pewny",
+   "nar": "Dzisiaj liczymy koszt, nie korzyść. Koszt jest pewny i już się wydarzył, a korzyść zależy od rynku i od lat.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Co teraz",
+   "sub": "rachunek w dwóch krokach",
+   "nar": "Teraz rachunek. Dwa kroki, dwa paski wypłaty i nic poza tym, co już masz w szufladzie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Krok pierwszy",
+   "sub": "dwa miesiące do porównania",
+   "nar": "Krok pierwszy: znajdź dwa paski. Jeden z miesiąca ze składką PPK i jeden z miesiąca bez niej, możliwie blisko siebie.",
+   "cap": "Rachunek: dwa paski i jedno odejmowanie"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bez premii",
+   "sub": "i bez wyrównań",
+   "nar": "Omijaj miesiące z premią, nagrodą, wyrównaniem czy trzynastką. One zmieniają sumę i różnica przestaje dotyczyć składki.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Jeśli nie masz miesiąca bez",
+   "sub": "weź pasek z pierwszego miesiąca",
+   "nar": "Nie masz miesiąca bez PPK? Weź pasek z miesiąca, w którym składka ruszyła w połowie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Krok drugi",
+   "sub": "różnica w kwocie do wypłaty",
+   "nar": "Krok drugi: odejmij kwotę do wypłaty z miesiąca ze składką od kwoty do wypłaty z miesiąca bez niej. Do wypłaty, nie brutto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "To jest twój koszt",
+   "sub": "miesięcznie, w złotych",
+   "nar": "Ta różnica to twój realny koszt PPK na miesiąc, w złotych. To ona wychodzi z twojego konta, i to ona powinna stać w każdej twojej decyzji.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Teraz porównaj",
+   "sub": "z linią składki",
+   "nar": "Teraz porównaj tę różnicę z linią twojej składki na pasku. Różnica będzie mniejsza, i to o tyle, ile oddał ci podatek.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Odległość",
+   "sub": "to jest ta informacja",
+   "nar": "Odległość między tymi dwiema liczbami jest całą informacją. Linia składki mówi, ile wpłacasz; różnica mówi, ile cię to kosztuje.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Zapisz obie",
+   "sub": "nie tylko jedną",
+   "nar": "Zapisz obie, nie tylko koszt. Bez linii składki nie będziesz wiedział później, która z dwóch się zmieniła.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Jedna uwaga",
+   "sub": "to nie jest zysk",
+   "nar": "Jedna uwaga od razu: to, że koszt jest mniejszy od składki, nie jest zyskiem. To tylko znaczy, że cena jest inna niż ta na pasku.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dlaczego koszt",
+   "sub": "a nie procent",
+   "nar": "Powód, dla którego liczymy złote na miesiąc, a nie procent, jest prosty: procent jest taki sam dla wszystkich, a złote są twoje.",
+   "cap": "Dlaczego złote na miesiąc, a nie procent"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ten sam procent",
+   "sub": "dwie różne kwoty",
+   "nar": "Ten sam procent daje dwie różne kwoty u dwóch osób z różną pensją, i trzecią u osoby, która w tym roku przeszła próg podatkowy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "I u ciebie też",
+   "sub": "inny w styczniu, inny w listopadzie",
+   "nar": "I u ciebie też bywa inny w styczniu niż w listopadzie, bo dochód narastająco przesuwa się w skali przez cały rok.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Procent nie da się porównać",
+   "sub": "z ratą ani z rachunkiem",
+   "nar": "A procentu nie da się porównać z niczym, co faktycznie płacisz. Złote na miesiąc porównasz z ratą, z rachunkiem, z czymkolwiek.",
+   "broll_q": "calculator on top of documents",
+   "broll_url": "https://videos.pexels.com/video-files/7735903/7735903-hd_1280_720_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 7735903,
+    "autor": "Mikhail Nilov",
+    "url": "https://www.pexels.com/video/a-person-calculating-family-budget-7735903/"
+   },
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "To nie jest niesprawiedliwość",
+   "sub": "to jest skala",
+   "nar": "To nie jest niesprawiedliwość ani błąd. To skala, a skala znaczy, że liczba zależy od miejsca, w którym stoisz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Co zyskujesz",
+   "sub": "porównywalną cenę",
+   "nar": "Zyskujesz cenę, którą można porównać. Dopiero wtedy pytanie, czy warto, ma sens, bo wcześniej nie wiedziałeś, o jakiej kwocie mówisz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "I działa w drugą stronę",
+   "sub": "znajduje też tanie lata",
+   "nar": "Działa też w drugą stronę: w roku, w którym twój koszt wychodzi niski, rezygnacja oszczędza mniej, niż się wydaje.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Liczba nie ocenia",
+   "sub": "programu ani ciebie",
+   "nar": "Ta liczba nie ocenia programu i nie ocenia ciebie. Mówi, ile to kosztuje teraz, u ciebie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dalej",
+   "sub": "decyzja i jej data",
+   "nar": "Zostaje decyzja i jej data, bo ta data wraca sama, bez twojego udziału.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Decyzja ma termin",
+   "sub": "i on się powtarza",
+   "nar": "Decyzja o PPK ma tę rzadką cechę, że wraca sama. Rezygnacja nie jest wieczna i zapis wraca automatycznie, w dacie zapisanej w ustawie.",
+   "cap": "Decyzja, która wraca sama: jak ją czytać"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Co to znaczy",
+   "sub": "że milczenie jest wyborem",
+   "nar": "Znaczy to, że milczenie też jest wyborem. Jeśli nic nie zrobisz, program wraca, a twój koszt wraca razem z nim.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dwa warunki",
+   "sub": "oba muszą zagrać",
+   "nar": "Dwa warunki, i oba muszą zagrać, żeby decyzja była policzona, a nie odruchowa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Pierwszy",
+   "sub": "koszt mieści się w twoim miesiącu",
+   "nar": "Pierwszy: twój koszt w złotych mieści się w twoim miesiącu bez zmiany niczego innego. To ty wiesz, czy się mieści.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Drugi",
+   "sub": "policzyłeś go w tym roku",
+   "nar": "Drugi: liczba jest z tego roku, nie z poprzedniego. Przy zmianie pensji albo progu stary rachunek nie obowiązuje.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kiedy koszt jest mały",
+   "sub": "zostanie jest tanie",
+   "nar": "Kiedy koszt wychodzi mały, zostanie w programie jest tańsze, niż sugeruje linia składki, i rezygnacja oszczędza mniej, niż się wydawało.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kiedy jest duży",
+   "sub": "wtedy warto policzyć drugi raz",
+   "nar": "Kiedy wychodzi duży, warto policzyć drugi raz w innym miesiącu, bo mogłeś trafić na miesiąc z czymś dodatkowym w środku.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Czego nie robić",
+   "sub": "nie decyduj z salda konta",
+   "nar": "Czego nie robić: nie decyduj, patrząc na saldo konta PPK. Tam leżą trzy wpłaty, a tylko jedna jest twoim kosztem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "I nie porównuj",
+   "sub": "z kolegą z biurka obok",
+   "nar": "I nie porównuj swojego kosztu z kolegą obok. Ta sama składka procentowo daje inny koszt w złotych u każdego z was.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Trzy błędy",
+   "sub": "które ten rachunek ujawnia",
+   "nar": "Z liczbą na papierze trzy zwykłe błędy stają się widoczne. Wszystkie trzy to jedno pomylenie: brutto w miejscu kosztu.",
+   "cap": "Trzy błędy, które ten rachunek ujawnia"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Błąd pierwszy",
+   "sub": "czytać linię składki jako cenę",
+   "nar": "Błąd pierwszy: czytać linię składki jako cenę. To kwota wpłaty, a nie to, co ubyło ci z konta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Błąd drugi",
+   "sub": "liczyć z salda PPK",
+   "nar": "Błąd drugi: liczyć z salda konta PPK. Saldo rośnie też od pieniędzy, które nie są twoje, i zawyża wszystko.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Błąd trzeci",
+   "sub": "jeden miesiąc",
+   "nar": "Błąd trzeci: wnioskować z jednego miesiąca. Jeden pasek nie ma w sobie porównania, a rachunek potrzebuje dwóch.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Żaden z trzech",
+   "sub": "to nie naiwność",
+   "nar": "Żaden z tych trzech to nie naiwność. To błąd pomiaru, więc naprawia się go pomiarem, a nie poradą.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Najdroższy przypadek",
+   "sub": "rezygnacja bez liczby",
+   "nar": "Najdroższy przypadek to rezygnacja podjęta na podstawie linii składki, bo realny koszt był niższy i decyzja oparła się na złej kwocie.",
+   "broll_q": "couple reading papers at a table",
+   "broll_url": "https://videos.pexels.com/video-files/6975457/6975457-hd_1366_720_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 6975457,
+    "autor": "T Leish",
+    "url": "https://www.pexels.com/video/a-couple-talking-while-reading-6975457/"
+   },
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "I odwrotnie",
+   "sub": "zostanie bez liczby",
+   "nar": "Odwrotnie też boli: zostanie w programie przez lata bez policzenia kosztu, w roku, w którym był on akurat wysoki.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "I jeszcze jeden",
+   "sub": "porównywać się z saldem kolegi",
+   "nar": "Jest jeszcze czwarty, rzadszy: porównywać swoje saldo z saldem kolegi, który jest w programie dłużej. Saldo rośnie z czasem i z trzech źródeł, więc taka różnica nie mówi nic o koszcie żadnego z was.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ta sama liczba",
+   "sub": "rozstrzyga oba",
+   "nar": "Ta sama liczba rozstrzyga oba przypadki, i dlatego warte jest tych pięciu minut.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Co zapisać",
+   "sub": "i w jakiej formie",
+   "nar": "Forma zapisu decyduje o tym, czy rachunek przyda ci się jeszcze za rok, gdy data wróci.",
+   "cap": "Co zapisać, i dlaczego dwie liczby, a nie jedna"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dwie liczby",
+   "sub": "i miesiąc",
+   "nar": "Zapisz dwie liczby i miesiąc: linię składki, realny koszt i to, z jakiego miesiąca pochodzą.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Miesiąc nie jest ozdobą",
+   "sub": "to miejsce w roku",
+   "nar": "Miesiąc nie jest ozdobą. To miejsce w roku, a miejsce w roku jest połową powodu, dla którego liczba wyszła taka, a nie inna.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Nie zapisuj procentu",
+   "sub": "zapisz złote",
+   "nar": "Nie zapisuj procentu. Zapisz złote na miesiąc, bo procent wygląda porównywalnie między ludźmi, nie będąc porównywalnym.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kartka wystarczy",
+   "sub": "i notatka w telefonie też",
+   "nar": "Kartka wystarczy. Notatka w telefonie wystarczy. Byleby widać było liczby i miesiąc, a nie tylko sumę na koniec roku.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dwa pomiary",
+   "sub": "początek i koniec roku",
+   "nar": "Dwa pomiary w roku wystarczą: jeden na początku i jeden blisko końca, bo wtedy dochód narastająco jest najwyżej.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Jeśli różnica skacze",
+   "sub": "to też informacja",
+   "nar": "Jeśli odległość między składką a kosztem mocno się zmieni między pomiarami, to też informacja: przesunąłeś się w skali.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Jedna kolumna więcej",
+   "sub": "ile wynosiła pensja",
+   "nar": "Jeśli chcesz jedną kolumnę więcej, dopisz pensję brutto z tego miesiąca. Dwa pomiary z różną pensją pokazują, jak mocno twój koszt zależy od miejsca w skali, a to jest najużyteczniejsza informacja z całej tabelki.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Nic z tego",
+   "sub": "nie wymaga zakupu",
+   "nar": "I nic z tego nie wymaga aplikacji, subskrypcji ani doradcy. Wymaga dwóch pasków i jednego odejmowania.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Zastrzeżenie",
+   "sub": "i liczy się bardziej niż rachunek",
+   "nar": "Zostaje zastrzeżenie, i liczy się ono bardziej niż sam rachunek.",
+   "cap": "Czego ten rachunek NIE mówi"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Nie mówi",
+   "sub": "czy zostać czy zrezygnować",
+   "nar": "Ten rachunek nie mówi, czy zostać w PPK, czy zrezygnować. Mówi, ile to kosztuje miesięcznie u ciebie. Decyzja ma w sobie więcej niż cenę.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Nie liczy korzyści",
+   "sub": "ani przyszłej wartości",
+   "nar": "Nie liczy też korzyści. Składka pracodawcy, wpłaty od państwa i to, co urośnie, są poza tym rachunkiem, i są realne.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Nie jest doradztwem",
+   "sub": "ani podatkowym, ani inwestycyjnym",
+   "nar": "Nie jest to doradztwo podatkowe ani inwestycyjne. To pomiar na dwóch kartkach, które już masz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "I nie sprawdza",
+   "sub": "czy pasek jest poprawny",
+   "nar": "I nie sprawdza, czy twój pasek jest poprawny. Jeśli podejrzewasz błąd w składkach, to inna rozmowa i inna osoba.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Co ci zostaje",
+   "sub": "kwota na miesiąc",
+   "nar": "Zostaje ci kwota w złotych na miesiąc, policzona z twoich papierów, na twój rok — i data, w której pytanie wróci samo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Zacznij od szuflady",
+   "sub": "dwa paski",
+   "nar": "Zacznij od szuflady: dwa paski, jeden ze składką i jeden bez, zanim data wróci sama.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Napisz kwotę niżej",
+   "sub": "tylko złote na miesiąc",
+   "nar": "W komentarzu napisz samą kwotę: złote na miesiąc, realny koszt. Nie pensję, nie pracodawcę. Chcę zobaczyć, jak daleko od siebie wypadają ludzie z podobnym paskiem.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Dwie liczby",
+   "sub": "na tym samym pasku",
+   "nar": "Linia twojej składki PPK i to, co faktycznie ubyło z wypłaty, to dwie różne liczby. Druga jest mniejsza i to ona jest ceną.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Pierwsze",
+   "sub": "dwa paski",
+   "nar": "Weź dwa paski: miesiąc ze składką i miesiąc bez. Bez premii i bez wyrównań.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Drugie",
+   "sub": "odejmij do wypłaty",
+   "nar": "Odejmij kwotę do wypłaty jednego od kwoty do wypłaty drugiego. Do wypłaty, nie brutto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "To jest koszt",
+   "sub": "złote na miesiąc",
+   "nar": "Ta różnica to twój realny koszt na miesiąc. Będzie mniejsza od linii składki, bo część wróciła niższym podatkiem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Data wraca sama",
+   "sub": "w materiale",
+   "nar": "Rezygnacja wygasa i zapis wraca automatycznie. Co z tym zrobić jest w materiale.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# Realny koszt składki PPK, policzony z dwóch pasków wypłaty\n\n## TITULO\nPPK: Ile Kosztuje Cię Naprawdę Twoja Składka — i Data Ponownego Zapisu\n\n## TITULO SHORT\nTwoja składka PPK: ile to realnie?\n\n## DESCRICAO\nNa twoim pasku wypłaty są dwie liczby dotyczące PPK. Pierwsza stoi wprost: linia składki pracownika, w złotych. Drugiej nie ma w żadnej linii — to kwota, która faktycznie ubyła ci z wypłaty. Nie są równe, bo składka zmienia podstawę, od której liczy się podatek, więc część tego, co wpłacasz, wraca do ciebie niższym podatkiem. Decyduje druga, bo to ona realnie wychodzi z konta.\n\nWarto najpierw rozdzielić trzy strumienie, bo ich mieszanie jest powodem, dla którego większość ludzi nie wie, ile ten program ich kosztuje: twoja składka (wychodzi z twojej wypłaty), składka pracodawcy (nie wychodzi, ale podnosi twoją podstawę podatkową) i wpłaty od państwa (nie wychodzą i nie zależą od pensji). Wszystkie trzy lądują na tym samym koncie, więc saldo pokazuje sumę, która nie mówi nic o twoim koszcie. Twój koszt to wyłącznie pierwszy strumień, pomniejszony o podatek, którego nie zapłaciłeś.\n\nRachunek ma dwa kroki i żadnej mojej liczby. Krok pierwszy: dwa paski — jeden z miesiąca ze składką PPK i jeden bez niej, możliwie blisko siebie, z pominięciem miesięcy z premią, nagrodą, wyrównaniem czy trzynastką, bo one zmieniają sumę. Krok drugi: odejmij kwotę do wypłaty z miesiąca ze składką od kwoty do wypłaty z miesiąca bez niej — do wypłaty, nie brutto. Ta różnica to twój realny koszt w złotych na miesiąc. Porównaj ją z linią składki: będzie mniejsza, i to o tyle, ile oddał ci podatek. Odległość między tymi dwiema liczbami jest całą informacją.\n\nMateriał zamyka rachunek w pierwszych trzech minutach, a potem pokazuje, co z tą liczbą zrobić: dlaczego złote na miesiąc, a nie procent; jak czytać decyzję, która wraca sama, bo rezygnacja wygasa i zapis wraca automatycznie w dacie z ustawy; trzy błędy pomiaru, które liczba ujawnia; i co zapisać, żeby rachunek przydał się jeszcze raz, gdy data wróci.\n\nZastrzeżenie, które liczy się bardziej niż sam rachunek: to nie mówi, czy zostać, czy zrezygnować, i nie liczy korzyści — składka pracodawcy, wpłaty od państwa i to, co urośnie, są poza tym rachunkiem i są realne. Nie jest to doradztwo podatkowe ani inwestycyjne, i nie sprawdza, czy twój pasek jest poprawny.\n\nCAPITULOS\n{CAPITULOS}\n\nW komentarzu napisz samą kwotę: złote na miesiąc, realny koszt. Nie pensję, nie pracodawcę. Chcę zobaczyć, jak daleko od siebie wypadają ludzie z podobnym paskiem.\n\n## DISCLOSURE\nNarracja i grafika w tym materiale są wygenerowane komputerowo. Scenariusz jest oryginalny, a treść ma charakter informacyjny i nie jest doradztwem podatkowym ani inwestycyjnym.\n\n## HASHTAGS\n#ppk #wyplata #pasek\n\n## TAGS\nppk, skladka ppk, realny koszt ppk, pasek wyplaty, kwota do wyplaty, rezygnacja z ppk, ponowny zapis ppk, ile kosztuje ppk, podstawa opodatkowania, skladka pracodawcy, wplaty od panstwa, jak czytac pasek, zlote na miesiac, prog podatkowy, dochod narastajaco\n\n## COMENTARIO FIXADO\nCały rachunek w dwóch linijkach: weź dwa paski — miesiąc ze składką PPK i miesiąc bez (bez premii i wyrównań). Odejmij kwotę do wypłaty jednego od kwoty do wypłaty drugiego. Ta różnica to twój realny koszt na miesiąc, i będzie mniejsza od linii składki. Napisz tutaj samą tę kwotę — nie pensję.\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nEste video NAO cita nenhum numero meu e NAO faz nenhuma afirmacao institucional. Nao cita a aliquota da contribuicao do empregado nem do empregador, nao cita o valor das wplaty do Estado, nao cita o prazo exato da reinscricao automatica, nao cita progressao de imposto e nao cita nome de instituicao financeira. Os dois numeros da conta sao do proprio espectador: as kwoty do wyplaty de dois paskow dele. O QUE FOI DELIBERADAMENTE DEIXADO DE FORA, e por que: (1) as aliquotas legais do PPK e o calendario exato da reinscricao automatica, porque sao numeros institucionais que eu NAO conferi em duas fontes oficiais dentro desta rodada — e o video nao precisa deles para a conta fechar, porque a subtracao entre dois paskow nao depende de saber a aliquota; o video afirma apenas que a rezygnacja expira e o zapis volta, que e o desenho do programa e nao um numero; (2) qualquer valor de retorno futuro, porque custo e beneficio se contam separados e o beneficio depende de mercado e de anos; (3) qualquer juizo sobre ficar ou sair — o video diz explicitamente que a conta nao decide, so precifica. ESTE EIXO SUBSTITUI O NUMERO INSTITUCIONAL DE PROPOSITO, e a decisao vem do dado deste canal: o MAIOR short do canal (287 views) entregou vinte e uma views de longo, enquanto o MELHOR longo (cento e tres views) veio de um short de vinte e sete — um decimo do alcance e cinco vezes o resultado. E o pior longo do canal entregava constatacao datada sobre o mercado, nao do espectador: o seguro OC esta mais barato em dois anos, seis views de longo.\n"
+}
