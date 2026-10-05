@@ -186,7 +186,7 @@ T("Sete dias inteiros", "não cinco",
 T("Passo dois", "o maior e o menor",
   "Passo dois: olhe os sete e ache o maior e o menor. Esses dois valores são "
   "os únicos de que você precisa agora.")
-T("A subtração", "esse e o seu número",
+T("A subtração", "esse é o seu número",
   "Subtraia o menor do maior. O resultado é a sua faixa de variação: o "
   "quanto a sua balança anda sozinha numa semana em que nada mudou.")
 T("O que ele significa", "um limiar, não uma meta",
