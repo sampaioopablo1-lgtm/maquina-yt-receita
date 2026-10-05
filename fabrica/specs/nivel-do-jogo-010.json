@@ -1,0 +1,547 @@
+{
+ "slug": "nivel-do-jogo",
+ "pacote": "nivel-do-jogo-010",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-AntonioNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#1B4332",
+  "c1": "#D64570",
+  "c2": "#7FB069",
+  "bg": "#EFF6F1"
+ },
+ "thumb": {
+  "l1": "Quanto já",
+  "l2": "saiu"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "Existe um número",
+   "sub": "que você nunca somou",
+   "nar": "Existe um número seu que você nunca somou: quanto saiu da sua conta este ano em moeda de jogo, passe e pacote. Ele está escrito.",
+   "cap": "O número que existe e que ninguém soma"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Não é estimativa",
+   "sub": "é recibo",
+   "nar": "E não é estimativa. São recibos, com data e valor, numa página que você abre em dez segundos.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Por que ninguém soma",
+   "sub": "porque sai em pedaços",
+   "nar": "Ninguém soma porque não sai de uma vez: sai em pedaços de cinco, de dez, de trinta reais, e cada um parece pequeno.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "E a memória",
+   "sub": "conta sempre menos",
+   "nar": "A memória também não ajuda: ela lembra da compra grande e esquece as pequenas, que são justamente as que se repetem.",
+   "broll_q": "person pressing a gaming controller",
+   "broll_url": "https://videos.pexels.com/video-files/4267433/4267433-hd_1280_720_30fps.mp4",
+   "broll_credito": {
+    "pexels_id": 4267433,
+    "autor": "Gustavo Fring",
+    "url": "https://www.pexels.com/video/man-pressing-gaming-controller-4267433/"
+   },
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que isso custa",
+   "sub": "decisão, não dinheiro",
+   "nar": "Isso custa decisão: você decide o próximo passe comparando com um número que não existe.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Não é falta de controle",
+   "sub": "é falta de total",
+   "nar": "Não é falta de controle e não é vergonha nenhuma. É um total que ninguém calculou, e total se calcula.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Nenhum número meu",
+   "sub": "em todo o vídeo",
+   "nar": "Não tem número meu aqui. Nenhuma média, nenhum limite recomendado, nenhum nome de loja. Os dois números saem do seu histórico.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O prazo é seu",
+   "sub": "o passe que está acabando",
+   "nar": "O prazo também é seu: a temporada que está terminando, com o passe que você vai decidir comprar ou não dentro de dias.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Por que não parece dinheiro",
+   "sub": "três motivos de desenho",
+   "nar": "Três coisas no desenho da compra fazem o gasto não parecer gasto. Vale conhecer as três, porque é por elas que o total surpreende.",
+   "cap": "Por que a moeda do jogo não parece dinheiro"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A primeira",
+   "sub": "você compra duas vezes",
+   "nar": "A primeira: você compra duas vezes. Dinheiro por moeda, moeda por item. Só a primeira é gasto, e é a que se esquece.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A segunda",
+   "sub": "os pacotes não fecham",
+   "nar": "A segunda: os pacotes de moeda não fecham com o preço do item. Sobra um resto guardado, e o resto puxa a próxima compra.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "A terceira",
+   "sub": "o cartão já está salvo",
+   "nar": "A terceira: o cartão já está salvo, e compra sem digitar nada não tem o instante em que você olha o valor.",
+   "broll_q": "person holding a credit card",
+   "broll_url": "https://videos.pexels.com/video-files/7534262/7534262-hd_1280_720_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 7534262,
+    "autor": "Mikhail Nilov",
+    "url": "https://www.pexels.com/video/person-holding-credit-card-7534262/"
+   },
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Juntas",
+   "sub": "elas transformam gasto em rotina",
+   "nar": "Juntas, as três transformam gasto em rotina. E rotina só aparece no total, nunca na compra.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E o total existe",
+   "sub": "a loja guarda tudo",
+   "nar": "E o total existe mesmo assim, porque a loja guarda cada recibo. Ela precisa guardar, e isso trabalha a seu favor agora.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Não é armadilha",
+   "sub": "é desenho comum",
+   "nar": "Nada disso é armadilha. É desenho comum de loja digital, igual ao da cafeteria que vende cartão pré-pago.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que vem agora",
+   "sub": "a conta, em dois passos",
+   "nar": "O que vem agora é a conta. Dois passos, e nada além do histórico que já é seu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Passo um",
+   "sub": "abra o histórico de compras",
+   "nar": "Passo um: abra o histórico de compras da loja onde você joga. Console, Steam ou celular, todos têm.",
+   "cap": "A conta: o histórico do ano e uma divisão"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Filtre o ano",
+   "sub": "e só o que é moeda ou passe",
+   "nar": "Filtre do primeiro dia do ano até hoje e marque só moeda, passe, pacote ou item. Jogo inteiro fica de fora.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Some tudo",
+   "sub": "inclusive os de cinco reais",
+   "nar": "Some todos, inclusive os de cinco reais. São eles que mudam o total, porque são muitos.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Esse é o primeiro número",
+   "sub": "o total do ano",
+   "nar": "Esse total é o seu primeiro número: quanto você já colocou em moeda e passe neste ano.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Passo dois",
+   "sub": "divida pelos meses",
+   "nar": "Passo dois: divida pelo número de meses que já passaram. Não por doze.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O resultado",
+   "sub": "é o seu valor por mês",
+   "nar": "O resultado é o seu gasto por mês nessa categoria. E é esse número que você compara com o preço do próximo passe, não o preço dele sozinho.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Por que jogo fica fora",
+   "sub": "porque não repete",
+   "nar": "Voltando ao filtro: jogo inteiro fica de fora porque não repete. O que estamos medindo é o gasto que volta, e é ele que decide a próxima compra.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E um detalhe do filtro",
+   "sub": "assinatura entra, jogo não",
+   "nar": "Um detalhe do filtro que muda o total: assinatura mensal de serviço entra na conta, porque repete igual ao passe. O que fica de fora é só jogo comprado de uma vez, que você joga e não volta a pagar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Guarde os dois",
+   "sub": "o total e o por mês",
+   "nar": "Guarde os dois: o total do ano e o valor por mês. Sem o total você não saberá depois se o mês mudou ou se o ano inteiro mudou.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Por que o recibo",
+   "sub": "e não a lembrança",
+   "nar": "O motivo de usar recibo e não lembrança é medido, não é desconfiança: a lembrança soma as compras grandes e some com as pequenas.",
+   "cap": "Por que o recibo vence a lembrança"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "As pequenas repetem",
+   "sub": "e repetição é o total",
+   "nar": "E são as pequenas que repetem. Uma compra de trinta reais por mês é trezentos e sessenta por ano, e nenhuma delas pareceu grande.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A lembrança também",
+   "sub": "escolhe o mês bom",
+   "nar": "A lembrança ainda faz outra coisa: escolhe o mês em que você gastou pouco como se fosse o mês típico. O histórico não escolhe.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "E o histórico tem data",
+   "sub": "o que a memória não tem",
+   "nar": "O histórico tem data em cada linha, e data é o que permite dividir por mês. Lembrança não tem data, só tem impressão.",
+   "broll_q": "man typing on a phone",
+   "broll_url": "https://videos.pexels.com/video-files/6257825/6257825-hd_1366_720_24fps.mp4",
+   "broll_credito": {
+    "pexels_id": 6257825,
+    "autor": "ArtHouse Studio",
+    "url": "https://www.pexels.com/video/man-touch-typing-on-phone-6257825/"
+   },
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Isso não é culpa",
+   "sub": "é como memória funciona",
+   "nar": "Isso não é defeito seu. É como a memória funciona com valores repetidos e pequenos, e é por isso que existe a conta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que você ganha",
+   "sub": "um número comparável",
+   "nar": "O que você ganha é um número comparável. Agora o preço do passe tem com o que ser comparado, e antes não tinha.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E vale ao contrário",
+   "sub": "pode sair menor",
+   "nar": "E pode sair menor do que você temia. Isso também é informação, e também muda a decisão, no sentido oposto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A próxima parte",
+   "sub": "como ler o próximo passe",
+   "nar": "Falta usar o número. Como olhar o próximo passe com ele na mão.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Duas condições",
+   "sub": "as duas juntas",
+   "nar": "Duas condições, e as duas precisam valer para a compra ser decidida e não automática.",
+   "cap": "Como decidir sobre o próximo passe"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A primeira",
+   "sub": "cabe no seu valor por mês",
+   "nar": "A primeira: o preço do passe, dividido pelos meses que ele dura, cabe no seu valor por mês sem empurrar nada. Quem decide se cabe é você.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A segunda",
+   "sub": "você jogou o anterior até o fim",
+   "nar": "A segunda: você terminou o passe anterior. Passe não terminado é dinheiro que saiu e valor que ficou na loja.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "As duas, não uma",
+   "sub": "esse é o filtro",
+   "nar": "As duas, não uma. A primeira sem a segunda é como a conta cresce: cabe no mês, mas não é usado, e isso repete por temporadas.",
+   "broll_q": "a person writing on paper",
+   "broll_url": "https://videos.pexels.com/video-files/6672502/6672502-hd_1280_720_24fps.mp4",
+   "broll_credito": {
+    "pexels_id": 6672502,
+    "autor": "Andy Barbour",
+    "url": "https://www.pexels.com/video/a-person-writing-6672502/"
+   },
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Se o passe anterior",
+   "sub": "parou na metade",
+   "nar": "Se o passe anterior parou na metade, o número a comparar não é o preço dele: é a metade que você aproveitou, pelo preço inteiro que pagou.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Quando sobra folga",
+   "sub": "aí é decisão e não impulso",
+   "nar": "Quando as duas condições passam, comprar é decisão com número atrás. É exatamente o que faltava antes.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que não fazer",
+   "sub": "comparar com o amigo",
+   "nar": "O que não fazer: comparar o seu valor por mês com o de um amigo. Ele tem outros jogos, outra rotina e outro tempo livre.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E não arredondar",
+   "sub": "para baixo",
+   "nar": "E não arredondar para baixo porque o número incomodou. Ele é recibo, não opinião, e arredondar desfaz a conta inteira.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Três erros",
+   "sub": "que o total deixa visível",
+   "nar": "Com o total escrito, três erros comuns ficam óbvios. Os três são a mesma confusão: olhar a compra e não a série.",
+   "cap": "Três erros que o total torna visíveis"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Erro um",
+   "sub": "somar só as compras grandes",
+   "nar": "Erro um: somar só as compras que você lembra. O histórico tem linhas que você vai ler e não reconhecer, e elas contam igual.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Erro dois",
+   "sub": "contar a moeda que sobrou como dinheiro",
+   "nar": "Erro dois: tratar a moeda que sobrou na conta como dinheiro guardado. Ela só vale dentro daquela loja, e só para aquele catálogo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Erro três",
+   "sub": "medir um mês só",
+   "nar": "Erro três: medir um mês e achar que é o seu padrão. Tem mês de lançamento e mês parado, e a série precisa do ano.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Nenhum dos três",
+   "sub": "é descontrole",
+   "nar": "Nenhum dos três é descontrole. São erros de medição, e é por isso que têm conserto sem precisar de força de vontade.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O caso mais caro",
+   "sub": "renovar sem terminar",
+   "nar": "O caso mais caro é renovar passe três temporadas seguidas sem terminar nenhuma, porque o preço parece pequeno e o aproveitado nunca é medido.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E o inverso",
+   "sub": "cortar o que você usava",
+   "nar": "O inverso custa também: cortar o passe que você jogava até o fim, por causa de um susto com o total, quando era a parte bem gasta do ano.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O mesmo número",
+   "sub": "resolve os dois",
+   "nar": "O mesmo total resolve os dois casos, e é por isso que vale os dez minutos que leva.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que anotar",
+   "sub": "e em que formato",
+   "nar": "O formato do registro decide se a conta ainda serve na próxima temporada, que é quando a pergunta volta.",
+   "cap": "O que anotar, e por que dois números"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dois números",
+   "sub": "e o ano",
+   "nar": "Anote dois números e o ano: o total do ano e o valor por mês. Uma linha por ano já resolve.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Não anote o percentual",
+   "sub": "anote reais",
+   "nar": "Não anote percentual da sua renda. Anote reais, porque reais você compara com o preço do passe e percentual não.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Se quiser uma coluna",
+   "sub": "quantos passes terminou",
+   "nar": "Se quiser uma coluna a mais, anote quantos passes você terminou naquele ano. É a coluna que separa gasto de desperdício.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Papel serve",
+   "sub": "e bloco do celular também",
+   "nar": "Papel serve, bloco de notas serve. O que importa é ver os números e o ano, não um gráfico que suaviza justamente o que interessa.",
+   "broll_q": "writing in a notebook",
+   "broll_url": "https://videos.pexels.com/video-files/5717468/5717468-hd_1280_720_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 5717468,
+    "autor": "Polina",
+    "url": "https://www.pexels.com/video/writting-in-a-notebook-5717468/"
+   },
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Em dois anos",
+   "sub": "você tem uma série",
+   "nar": "Em dois anos você tem dois totais e dois valores por mês, e aí a pergunta deixa de ser sobre o passe e passa a ser sobre a tendência.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Se o total subir muito",
+   "sub": "isso também é informação",
+   "nar": "E se o total subir muito de um ano para o outro, isso é informação: mudou o jogo, mudou a rotina ou mudou o preço, e dá para descobrir qual.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Nada disso exige",
+   "sub": "comprar nada",
+   "nar": "Nada disso exige aplicativo, planilha paga ou assinatura. Exige uma página de histórico e uma divisão.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Uma ressalva",
+   "sub": "e ela importa mais",
+   "nar": "Antes de terminar, uma ressalva, e ela importa mais que a conta.",
+   "cap": "O que esta conta NÃO diz"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Não diz",
+   "sub": "se você gasta demais",
+   "nar": "Esta conta não diz se você gasta demais. Diz quanto você gasta. Se é demais ou não, só você sabe, olhando o resto do seu mês.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E não julga",
+   "sub": "o hobby",
+   "nar": "E não julga o hobby. Jogo é lazer e lazer custa dinheiro, como cinema, viagem ou qualquer outra coisa que você escolhe.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Não é aconselhamento",
+   "sub": "financeiro",
+   "nar": "Não é aconselhamento financeiro. É uma soma e uma divisão em cima de recibos que já são seus.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E se o número assustar",
+   "sub": "ele continua sendo só um número",
+   "nar": "E se o total assustar, ele continua sendo apenas um número. Ele serve para decidir a próxima compra, não para brigar com as anteriores.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que sobra",
+   "sub": "reais por mês, seus",
+   "nar": "O que sobra para você são reais por mês, calculados no seu histórico, para o seu ano — e uma data em que a pergunta volta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Comece agora",
+   "sub": "antes do passe acabar",
+   "nar": "Comece pela página de histórico, hoje, antes de a temporada virar e a pergunta chegar sem o número.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Escreva o valor por mês",
+   "sub": "só esse número",
+   "nar": "Nos comentários, escreva só o valor por mês. Não o total, não o seu salário, não o jogo. Quero ver o quanto esse número varia entre pessoas que jogam parecido.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Um número seu",
+   "sub": "que ninguém soma",
+   "nar": "Quanto saiu da sua conta este ano em moeda de jogo e passe? O número existe e está escrito em recibos.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Primeiro",
+   "sub": "o histórico do ano",
+   "nar": "Abra o histórico de compras, filtre do começo do ano e marque só moeda, passe e pacote.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Some tudo",
+   "sub": "até os de cinco reais",
+   "nar": "Some todas, inclusive as de cinco reais. São elas que mudam o total.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Divida",
+   "sub": "pelos meses que passaram",
+   "nar": "Divida pelo número de meses que já passaram. Esse é o seu valor por mês, e é com ele que se compara o próximo passe.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "As duas condições",
+   "sub": "no vídeo",
+   "nar": "Quando comprar o próximo passe são duas condições, e as duas estão no vídeo.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# O total do ano em moeda de jogo e passe, somado no próprio histórico\n\n## TITULO\nPasse de Temporada: Quanto Você Já Gastou Este Ano — A Conta Está no Seu Histórico\n\n## TITULO SHORT\nQuanto saiu em moeda de jogo este ano?\n\n## DESCRICAO\nExiste um número seu que você provavelmente nunca somou: quanto saiu da sua conta este ano em moeda de jogo, passe e pacote. Ele não é estimativa. São recibos, com data e valor, numa página que você abre em dez segundos — e ninguém soma porque o gasto não sai de uma vez, sai em pedaços de cinco, de dez, de trinta reais, e cada pedaço parece pequeno sozinho.\n\nTrês coisas no desenho da compra fazem o gasto não parecer gasto. Você compra duas vezes: primeiro troca dinheiro por moeda, depois troca moeda por item, e só a primeira troca é gasto — justamente a que se esquece. Os pacotes de moeda quase nunca fecham com o preço do item, então sobra um resto guardado que puxa a próxima compra. E o cartão já está salvo, então a compra não tem o instante em que você olha o valor e pensa. Nada disso é armadilha: é desenho comum de loja digital.\n\nA conta tem dois passos e nenhum número meu. Passo um: abra o histórico de compras da loja onde você joga — console, Steam ou celular, todos têm essa página — filtre do primeiro dia do ano até hoje e marque só o que é moeda, passe, pacote ou item. Jogo inteiro comprado uma vez fica de fora, porque não repete, e o que estamos medindo é o gasto que volta. Some tudo, inclusive os de cinco reais, que são os que mudam o total. Passo dois: divida esse total pelo número de meses que já passaram — não por doze, pelos meses que realmente aconteceram. O resultado é o seu valor por mês nessa categoria, e é com ele que se compara o preço do próximo passe, não com o preço dele sozinho.\n\nO vídeo fecha essa conta nos primeiros três minutos e depois mostra o que fazer com o número: por que o recibo vence a lembrança, as duas condições que a compra do próximo passe precisa cumprir (caber no seu valor por mês E você ter terminado o passe anterior), três erros de medição que o total torna visíveis, e o que anotar para que a conta ainda sirva na próxima temporada.\n\nUma ressalva que importa mais que a conta: isso não diz se você gasta demais — diz quanto você gasta. Se é demais ou não, só você sabe, olhando o resto do seu mês. E não julga o hobby: jogo é lazer e lazer custa dinheiro, como cinema ou viagem. Não é aconselhamento financeiro, é uma soma e uma divisão em cima de recibos que já são seus.\n\nCAPITULOS\n{CAPITULOS}\n\nNos comentários, escreva só o valor por mês. Não o total, não o seu salário, não o jogo. Quero ver o quanto esse número varia entre pessoas que jogam parecido.\n\n## DISCLOSURE\nA narração e as imagens deste vídeo são geradas por computador. O roteiro é original e o conteúdo é informativo, não é aconselhamento financeiro.\n\n## HASHTAGS\n#passedetemporada #moedadojogo #gastos\n\n## TAGS\npasse de temporada, moeda do jogo, historico de compras, quanto gastei em jogos, gasto por mes, battle pass, microtransacoes, loja digital, recibos de compra, controle de gastos em jogos, steam historico, compras no console, valor por mes, passe nao terminado, lazer e orcamento\n\n## COMENTARIO FIXADO\nA conta em duas linhas: abra o histórico de compras, filtre do começo do ano e some só moeda, passe e pacote (jogo inteiro fica fora). Divida pelos meses que já passaram. Esse é o seu valor por mês — e é com ele que se compara o próximo passe. Escreve aqui só esse número, não o total.\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nEste video NAO cita nenhum numero meu e NAO faz nenhuma afirmacao institucional. Nao cita gasto medio em microtransacao, nao cita percentual recomendado de orcamento para lazer, nao cita preco de passe de nenhum jogo, nao cita nome de loja nem de editora e nao cita quanto a industria fatura com moeda virtual. Os dois numeros da conta sao do proprio espectador: a soma dos recibos dele no ano e o numero de meses que ja passaram. O QUE FOI DELIBERADAMENTE DEIXADO DE FORA, e por que: (1) qualquer valor de referencia do tipo \"o normal e gastar X por mes em jogo\", porque nao existe fonte oficial para isso e o video nao faz essa comparacao — a conta e sobre o historico dele, nao sobre uma media; (2) qualquer numero de faturamento da industria, porque seria FATO sobre o mundo, e neste canal o unico pacote com ZERO views de longo e justamente o que entregou fato sobre a industria (demissoes na Square Enix); (3) qualquer juizo sobre gastar em jogo — o video diz explicitamente que lazer custa dinheiro e que se o total e demais ou nao, so o espectador sabe. ESTE EIXO SUBSTITUI O NUMERO INSTITUCIONAL DE PROPOSITO, e a decisao vem do dado deste canal: o MAIOR short daqui (250 views) entregou QUATRO views de longo, falando de preco em horas de trabalho em abstrato, enquanto o MELHOR longo (vinte e uma views) veio de um short de cem e prometia \"a conta em reais ANTES de comprar\".\n"
+}
