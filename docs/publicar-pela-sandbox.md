@@ -526,3 +526,46 @@ download na sandbox — nao tres rodadas.
 E por que nao baixar o artefato aqui: o proxy desta sessao da 403 no blob do
 Azure, e o `gh` nao segue o redirecionamento. A sandbox baixa os 23 MB em
 menos de um segundo. Essa divisao de trabalho e a ponte, nao um contorno.
+
+## A chave do Pexels tambem nao precisa viajar (05/10/2026)
+
+O `prebusca_broll.py` roda na sandbox porque `api.pexels.com` bloqueia a faixa
+de IP do runner. Mas a sandbox nao tem os segredos do Supabase, e ele morre
+assim:
+
+    chave do Pexels: AUSENTE: sem PEXELS_API_KEY e sem SB/KEY no ambiente
+    sem chave: exporte PEXELS_API_KEY, ou SB/KEY para ler config.pexels_api_key
+
+A saida obvia e passar a chave na linha de comando. A melhor e nao mover a
+chave: o banco ja tem ela, e o `pg_net` ja sabe falar com a internet.
+
+    with k as (select coalesce(valor->>'pexels_api_key', valor#>>'{}') as key
+                 from config where chave in ('pexels_api_key','pexels') limit 1)
+    select net.http_get(
+      url := 'https://api.pexels.com/videos/search?per_page=8'
+             || '&orientation=landscape&size=medium&query=pouring%20water',
+      headers := jsonb_build_object('Authorization', k.key)) from k;
+
+Duas armadilhas, as duas custam um pedido cada:
+
+* o `valor` do `config` e string JSON crua. `valor->>'pexels_api_key'` sozinho
+  devolve NULL e a API responde `401 Missing API key`. Use o `coalesce` com
+  `valor#>>'{}'`.
+* `net.http_get` recusa espaco na URL com `Malformed input to a URL function`.
+  A query vai percent-encoded (`%20`), nao com espaco.
+
+Depois, os links saem da resposta com SQL e vao baked na spec:
+
+    select v->>'id', v->'user'->>'name', v->>'url',
+           (select f->>'link' from jsonb_array_elements(v->'video_files') f
+             where f->>'quality'='hd' and (f->>'width')::int between 1200 and 1500
+             order by abs((f->>'height')::int - 720) limit 1)
+    from net._http_response r, jsonb_array_elements((r.content::jsonb)->'videos') v
+    where r.id = <pedido> and (v->>'duration')::int >= <o que a cena pede>;
+
+E a sonda do CDN continua na sandbox, com `Range: bytes=0-1023` — ela nao pede
+chave nenhuma, so diz se o download esta liberado.
+
+**O principio, que vale alem do Pexels:** segredo que o banco ja tem nao
+precisa viajar para ser usado. Vale para o access_token do YouTube, vale para a
+chave do Pexels, e vale para o proximo.
