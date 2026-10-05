@@ -500,3 +500,29 @@ Então, ao reaparecer depois de uma lacuna, nesta ordem:
 
 E confira que o artefato não expirou (`/actions/runs/<id>/artifacts` traz
 `expired` e `expires_at`). Passados os 14 dias, aí sim é re-render.
+
+## A URL assinada nao se le mais por `gh api .../logs` (05/10/2026)
+
+O `urlartefato.yml` continua certo: ele imprime a URL assinada no stdout e nao
+toca em token. O que mudou e o lado de ca. O `gh` embutido desta sessao recusa
+seguir redirecionamento para fora de `api.github.com`:
+
+    gh: refusing a redirect to https://productionresultssa8.blob.core.windows.net
+
+e e exatamente ali que o log de um job mora. O `-i` no endpoint `/zip` tambem
+nao resolve, porque o `gh` engole o cabecalho `Location` antes de imprimir.
+
+A rota que funciona:
+
+1. `gh api -X POST .../workflows/urlartefato.yml/dispatches` com
+   `inputs[artefatos]=<id>`
+2. `gh api .../runs/<run>/jobs --jq '.jobs[0].id'`
+3. `mcp__github__get_job_logs` com `return_content: true` e `tail_lines: 25`
+
+O servidor MCP busca o log do lado dele e devolve o texto, com a URL inteira.
+O `se=` dela deu dez minutos, entao os tres passos sao uma sequencia seguida do
+download na sandbox — nao tres rodadas.
+
+E por que nao baixar o artefato aqui: o proxy desta sessao da 403 no blob do
+Azure, e o `gh` nao segue o redirecionamento. A sandbox baixa os 23 MB em
+menos de um segundo. Essa divisao de trabalho e a ponte, nao um contorno.
