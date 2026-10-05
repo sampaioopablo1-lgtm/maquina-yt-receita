@@ -33,6 +33,7 @@ from __future__ import annotations
 import glob
 import json
 import os
+import re
 import sys
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -704,6 +705,131 @@ def _gate_fatos(sp):
     return fatos.conferir(sp)
 
 
+# --------------------------------------------------------------- a similaridade
+
+DUPLICATA_DURA = 0.90
+
+
+def _titulo_do_copy(sp) -> str:
+    """O titulo que VAI AO AR, e as duas geracoes de copy nao o guardam igual.
+
+    Nas specs antigas (nivel-do-jogo-002) a primeira linha `# ` e o proprio
+    titulo publicado. Nas novas (next-level-money-009) a linha `# ` e uma
+    descricao de trabalho e o titulo real mora na secao `## TITULO` — foi
+    exatamente isso que fez a primeira versao deste portao aprovar um pacote
+    cujo titulo ja estava no corpus: ela leu a descricao, comparou a descricao,
+    e nao achou nada. Entao `## TITULO` vem primeiro e o `# ` e so o resto.
+    """
+    copy = sp.get("copy") or ""
+    m = re.search(r"^##\s*TITULO\s*$\n+(.+)$", copy, re.M)
+    if m:
+        return m.group(1).strip()
+    m = re.search(r"^#\s*(.+)$", copy, re.M)
+    return m.group(1).strip() if m else ""
+
+
+def _titulos_do_corpus(raiz: str) -> list[str]:
+    caminho = os.path.join(raiz, "fabrica/corpus_publicados.json")
+    try:
+        with open(caminho, encoding="utf-8") as f:
+            d = json.load(f)
+    except (OSError, ValueError):
+        return []
+    t = d.get("titulos") if isinstance(d, dict) else d
+    return [x for x in (t or []) if isinstance(x, str) and x.strip()]
+
+
+def _titulos_do_canal(raiz: str, slug: str, corpus: set[str]) -> list[str]:
+    """Titulos JA no ar deste canal, montados das specs do disco.
+
+    O `autor.titulos_publicados` resolveria isto numa consulta, mas ele fala
+    com a REST do Supabase, que devolve 402 desde 25/08 — um portao que depende
+    dela nao roda exatamente nas rodadas em que mais faz falta. Entao a fonte e
+    o par (specs do disco, corpus): a spec diz de qual canal o titulo e, e o
+    corpus diz se ele ja foi ao ar.
+    """
+    fora = []
+    for caminho in glob.glob(os.path.join(raiz, "fabrica/specs/*.json")):
+        try:
+            with open(caminho, encoding="utf-8") as f:
+                outra = json.load(f)
+        except (OSError, ValueError):
+            continue
+        if outra.get("slug") != slug:
+            continue
+        t = _titulo_do_copy(outra)
+        if t and t in corpus:
+            fora.append(t)
+    return fora
+
+
+def _gate_similaridade(caminho, sp):
+    """O titulo ja foi ao ar? O portao que faltava ANTES do render.
+
+    Em 05/10/2026 eu quase despachei o `nivel-do-jogo-002` como segundo pacote
+    da rodada: ele passou nos dez portoes, e o titulo dele esta publicado DEZ
+    vezes — cinco datas do cron de agosto, dois formatos cada, e e parte das 44
+    duplicatas que o dono tem de apagar. A trava de similaridade existe, mas
+    mora no `conduz.py`, isto e, DEPOIS do render. O comentario da linha 59 do
+    `orquestra.py` afirmava que `prontidao.avalia` recusava similaridade alta;
+    nao recusava. Um portao que a rotina manda rodar "ANTES de gastar render"
+    nao olhava para a unica coisa que desperdiça o render inteiro.
+
+    Dois cortes, e eles medem coisas diferentes:
+
+    * contra o MESMO canal, o 0,65 da rotina (`autor.SIMILARIDADE_MAX`). E o
+      numero que o `autor.py` ja usa para descartar pauta, e aqui ele vale para
+      a spec pronta.
+    * contra QUALQUER canal, 0,90. Estrutura de titulo se copia de proposito
+      entre canais — a rotina pede que o titulo modele a estrutura do outlier —
+      e com oito idiomas a razao cruzada e naturalmente baixa. Mas 0,90 nao e
+      estrutura parecida: e o mesmo titulo. Republicar isso e a duplicata de
+      24/08 voltando com outro nome.
+
+    Spec cujo titulo ainda nao esta no corpus passa sem consulta nenhuma.
+    """
+    import autor as A
+
+    titulo = _titulo_do_copy(sp)
+    if not titulo:
+        return ["nao achei o titulo na copy (nem `## TITULO` nem a linha `# `) "
+                "— sem titulo nao da para afirmar que o pacote e inedito, e "
+                "silencio aqui seria passe livre para a duplicata"]
+
+    raiz = RAIZ
+    corpus = _titulos_do_corpus(raiz)
+    if not corpus:
+        return ["corpus_publicados.json ausente ou vazio — sem base para medir "
+                "similaridade; nao posso afirmar que o titulo e inedito"]
+
+    jogo = set(corpus)
+    falhas = []
+
+    if titulo in jogo:
+        return [f"titulo JA PUBLICADO, identico: {titulo!r}. Nao e similaridade "
+                f"alta, e o mesmo pacote indo ao ar de novo."]
+
+    do_canal = _titulos_do_canal(raiz, sp.get("slug") or "", jogo)
+    if do_canal:
+        passa, pior, contra = A.inedita(titulo, do_canal)
+        if not passa:
+            falhas.append(
+                f"similaridade {pior:.2f} contra o MESMO canal (teto "
+                f"{A.SIMILARIDADE_MAX}): {contra!r}")
+
+    pior_geral, contra_geral = 0.0, ""
+    for t in corpus:
+        v = A.similaridade(titulo, t)
+        if v > pior_geral:
+            pior_geral, contra_geral = v, t
+    if pior_geral >= DUPLICATA_DURA:
+        falhas.append(
+            f"similaridade {pior_geral:.2f} contra um titulo ja no ar (corte "
+            f"duro {DUPLICATA_DURA}): {contra_geral!r}")
+
+    return falhas
+
+
 PORTOES = (
     ("identidade", lambda c, s: _gate_identidade(c, s)),
     ("fatos", lambda c, s: _gate_fatos(s)),
@@ -715,6 +841,7 @@ PORTOES = (
     ("capitulos", lambda c, s: _gate_capitulos(s)),
     ("duracao", lambda c, s: _gate_duracao(s)),
     ("layout", lambda c, s: _gate_layout(s)),
+    ("similaridade", lambda c, s: _gate_similaridade(c, s)),
 )
 
 

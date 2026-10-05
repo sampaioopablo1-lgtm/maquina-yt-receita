@@ -57,7 +57,11 @@ MAX_POR_DIA_POR_CANAL = 2  # PACOTES/dia/canal — 2 longos + 2 shorts por dia
 #   * `corpus_publicados.json` e versionado e o md5 dele e conferido contra a
 #     tabela `videos` antes de cada publicacao (aprendizado do corpus, 01/09);
 #   * `prontidao.avalia` recusa spec com similaridade alta contra o mesmo canal
-#     antes de gastar render.
+#     antes de gastar render. ATENCAO: esta linha foi FALSA de agosto a
+#     05/10/2026. O portao `similaridade` nao existia em `PORTOES` — a trava
+#     morava so no `conduz.py`, DEPOIS do render. Em 05/10 eu quase despachei o
+#     `nivel-do-jogo-002`, que passou nos dez portoes e cujo titulo esta no ar
+#     DEZ vezes. O portao existe agora; a linha voltou a ser verdade.
 # As cinco copias de agosto passariam hoje por tres portoes antes de subir.
 #
 # O QUE A SUBIDA NAO RESOLVE, e esta medido: dobrar o volume fecha os 1.000
