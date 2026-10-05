@@ -1,0 +1,466 @@
+{
+ "slug": "next-level-money",
+ "pacote": "next-level-money-009",
+ "idioma": "en",
+ "voz": "en-US-AndrewNeural",
+ "trilha": "Deliberate_Thought",
+ "paleta": {
+  "ink": "#1A1A1A",
+  "c1": "#2A6F97",
+  "c2": "#E9C46A",
+  "bg": "#F2ECDF"
+ },
+ "thumb": {
+  "l1": "Already",
+  "l2": "spent"
+ },
+ "longo": [
+  {
+   "layout": "broll",
+   "kicker": "One account",
+   "sub": "two kinds of money",
+   "nar": "There is money in your account that you decide, and money that was already decided before you ever saw it. Same account. Same balance.",
+   "broll_q": "person looking at bank statement on a laptop",
+   "cap": "Two kinds of money, one account"
+  },
+  {
+   "layout": "item",
+   "kicker": "This is not a trap",
+   "preco": "it is a structure",
+   "nar": "Nobody is tricking you. Rent gets decided once and then repeats. So does insurance. So does a loan payment. That is how those things work.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "But the size of it",
+   "preco": "you should know",
+   "nar": "What you should know is how big that part is, because it is the part you cannot move this month no matter what you decide.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "And it is not about discipline",
+   "preco": "it is about timing",
+   "nar": "This also is not a discipline problem. The committed part is not money you spent badly — it is money whose decision happened in the past, which is a completely different thing to work on than a habit.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "No number of mine",
+   "preco": "both numbers are yours",
+   "nar": "There is not a single number of mine in this. No rate, no average, no recommended percentage, no bank name. Both numbers are already in your account.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "And the deadline is yours",
+   "preco": "next month's autopay dates",
+   "nar": "The deadline is yours too: the autopay dates on next month's statement. They are already scheduled.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Most people guess low",
+   "preco": "and guess by feel",
+   "nar": "Almost everyone guesses this number low, and guesses it by feel. The guess and the statement rarely land close, and the gap between them is the whole reason to open the statement at all.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Two chapters",
+   "preco": "and the math is done",
+   "nar": "Two chapters from now the math is finished. One addition, one division, and both numbers come off paper you already have.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "The first number",
+   "sub": "from the statement, not memory",
+   "nar": "The first number is what left your account last month, and memory is no good here. Memory counts the normal month and skips the real one.",
+   "cap": "First number: from the statement"
+  },
+  {
+   "layout": "item",
+   "kicker": "Open one month",
+   "preco": "every line that left",
+   "nar": "Open last month on your bank or card statement. Every line that left the account. Not the plan, not the budget — what actually went out.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Now split it",
+   "preco": "decided then, or decided now",
+   "nar": "Now split those lines in two. On one side, the ones you decided LAST month. On the other, the ones that were decided once, earlier, and simply repeated.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The second side counts",
+   "preco": "and only that side",
+   "nar": "Only the second side counts for this number. Rent or mortgage. Insurance. The minimum on any loan. Anything on autopay. Withholding, which left before the money ever reached you.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The test is one question",
+   "preco": "could you have skipped it?",
+   "nar": "If a line is hard to place, ask one question: could you have skipped it last month without breaking an agreement you already signed? If yes, you decided it. If no, it was decided for you.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Groceries do not count",
+   "preco": "you chose them this month",
+   "nar": "Groceries do not count. Dinner out does not count. A repair does not count. You decided those last month, even when they felt unavoidable.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "One month is enough",
+   "preco": "but it has to be a whole one",
+   "nar": "One month is enough, as long as it is a whole one. Half a month cuts the commitments that fall on the other half, and those are usually the biggest ones on the statement.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "And add them up",
+   "preco": "that is the first number",
+   "nar": "Add the second side up. That total is the first number: what was already committed before the month started.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "The second number",
+   "sub": "already printed",
+   "nar": "The second number you do not have to estimate. It is already printed, and it is at the top of the same statement.",
+   "broll_q": "hands holding a paper bank statement",
+   "cap": "Second number, and the division"
+  },
+  {
+   "layout": "item",
+   "kicker": "What came in",
+   "preco": "the amount that landed",
+   "nar": "What came in last month — the amount that actually landed in the account, not the amount on the offer letter.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Now divide",
+   "preco": "first by second",
+   "nar": "Divide the first number by the second and multiply by one hundred. The percentage you get is the share of your money that was decided before you saw it.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Use what landed, not gross",
+   "preco": "you pay with what landed",
+   "nar": "Use what landed and not the gross figure, because you pay the committed part out of what landed. Using gross makes the percentage look smaller than the month actually felt.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "One more turn",
+   "preco": "percent into days",
+   "nar": "If you want it in days instead: take that percentage, multiply by thirty, and divide by one hundred. That is how many days of the month were spent before the first of the month.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Write both numbers down",
+   "preco": "not just the percent",
+   "nar": "Write both numbers down, not only the percentage. A percentage alone cannot tell you later whether it moved because the committed part shrank or because your income grew, and those two call for opposite decisions.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The math is done",
+   "preco": "what is left is where",
+   "nar": "The math is finished. What is left is the question it just created: where that committed part comes from, and which parts of it can still move.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "And one warning",
+   "preco": "I will not say what is healthy",
+   "nar": "One warning now: this video will not tell you what percentage is healthy. That depends on where you live and what you earn, and you know those, not me.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Why it comes out high",
+   "sub": "four places, not one",
+   "nar": "That number almost always comes out higher than people guess, and the reason is not one thing. It accumulates in four separate places.",
+   "cap": "The four places it accumulates"
+  },
+  {
+   "layout": "item",
+   "kicker": "The first place",
+   "preco": "decided before it arrives",
+   "nar": "The first place is the money that never reached the account: withholding and anything deducted at the source. It is the largest for most people and the easiest to forget, because it is invisible on the statement.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The second place",
+   "preco": "a one-time choice that repeats",
+   "nar": "The second place is a choice you made once, years ago, that still repeats every month. The deciding happened once; the paying did not stop.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The third place",
+   "preco": "small and automatic",
+   "nar": "The third place is the small automatic ones. Each is too small to argue with, and none of them has a day on which you decide it again.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The fourth place",
+   "preco": "the minimum on a balance",
+   "nar": "The fourth place is the minimum on a balance. It is committed money that grows if you only ever pay the committed part — which is why it belongs in this count and not in the other one.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "And they hide differently",
+   "preco": "which is why four",
+   "nar": "They hide in different ways, and that is why counting them as a single number is not enough. The first never appears on the statement at all. The next appears every month, in the same place. Another arrives in small pieces. And the last one looks like progress while it stands still.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Four places",
+   "preco": "and the first is the biggest",
+   "nar": "Four places, and they are not equal. For most people the first one is larger than the other three together, and it is the one nobody looks at.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Four places",
+   "sub": "four moves",
+   "nar": "Each place has one move, and none of them asks you for a number you do not already have.",
+   "broll_q": "person writing notes next to a calculator",
+   "cap": "One move for each place"
+  },
+  {
+   "layout": "item",
+   "kicker": "For the first",
+   "preco": "read the deduction lines",
+   "nar": "For the first: read the deduction lines on your own pay statement, one by one, and find out which of them you chose and which you did not. Some are choices wearing the clothes of a rule.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "For the second",
+   "preco": "put a date on it",
+   "nar": "For the second: give each repeating commitment a date on which you look at it again. Once a year is enough. Without a date, a decision made once becomes permanent by default.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "For the third",
+   "preco": "one statement, one pass",
+   "nar": "For the third: go down one statement and mark every automatic charge. Not to cancel them — to see them in one place, which is the thing that has never happened.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "For the fourth",
+   "preco": "one dollar above the minimum",
+   "nar": "For the fourth: pay anything above the minimum, even a little. The minimum is the amount that keeps the commitment alive; anything above it is the only part that ends it.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "And measure before you move",
+   "preco": "so the move is readable",
+   "nar": "Do the measurement before you change anything. If you move first and measure after, you will never know which of the four places the difference came from, and the next decision gets harder, not easier.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Pick one",
+   "preco": "not four",
+   "nar": "And do not do all four this month. Pick the place where your own number is biggest, and work only on that one until you measure again.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "What this leaves out",
+   "sub": "on purpose",
+   "nar": "Now the part that is better said than hidden: three things are deliberately NOT in this division.",
+   "cap": "What the division leaves out"
+  },
+  {
+   "layout": "item",
+   "kicker": "Saving is not counted",
+   "preco": "it is still yours",
+   "nar": "Money you moved into savings is not counted as committed, even on autopay. It did not leave your control; it changed rooms.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "One-time bills",
+   "preco": "they distort the month",
+   "nar": "A one-time bill is not counted either. A repair or an annual payment makes one month look terrible and tells you nothing about the pattern.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "And value is not counted",
+   "preco": "only timing",
+   "nar": "This number says nothing about whether the commitments are worth it. Insurance you need and a subscription you forgot look identical here, because this count measures WHEN a thing was decided, not whether it was wise.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A small number is a result too",
+   "preco": "and a real one",
+   "nar": "And if your percentage comes out small, that is a legitimate result, not a failed measurement. It means this is not where your money is going, and the next question is where it is.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "And it is not a score",
+   "preco": "nobody grades this",
+   "nar": "This is not a score and nobody grades it. A high number can be the right answer for someone who chose a house on purpose, and a low one can hide an income that is simply too small to commit anything.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "What matters",
+   "preco": "that it repeats the same way",
+   "nar": "What matters is not whether the number is high or low. It is that you can measure it the same way next month, because only then does the difference between two numbers mean something.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Same pay, different share",
+   "sub": "and it fools everyone",
+   "nar": "Here is the case that fools almost everyone: two people with the same amount landing in the account, and completely different freedom.",
+   "cap": "Same pay, different committed share"
+  },
+  {
+   "layout": "item",
+   "kicker": "The pay is equal",
+   "preco": "the committed part is not",
+   "nar": "The amount that lands is identical. But for the first of them, most of it was decided in advance, and for the second, far less was. So when something goes wrong in a month, one of them has room and the other does not — on the same pay.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Which is why",
+   "preco": "pay is a bad comparison",
+   "nar": "Which is why comparing two jobs, or two cities, or two years of your own life by what lands in the account tells you much less than people think.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "The comparison that works",
+   "preco": "what is left after the committed part",
+   "nar": "The comparison that works is what remains after the committed part. That is the number you actually spend decisions on.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "It also explains a raise",
+   "preco": "that changed nothing",
+   "nar": "It also explains the raise that somehow changed nothing. If the committed part grows with the raise, the room you spend decisions on stays exactly where it was, and the feeling of standing still is accurate.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "And it explains the opposite",
+   "preco": "a smaller pay that felt easier",
+   "nar": "And the opposite case, which people rarely talk about: a smaller amount landing in the account that somehow felt easier, because the committed share went down more than the pay did.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "And it moves slowly",
+   "preco": "which is the good news",
+   "nar": "The committed share moves slowly, which cuts both ways: it will not improve in a week, and it will not collapse in a week either. It responds to decisions made once, which is exactly what you can do.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Today, three steps",
+   "sub": "with what you already have",
+   "nar": "So today, three steps, and all three use paper you already have.",
+   "cap": "Three steps today"
+  },
+  {
+   "layout": "item",
+   "kicker": "Step one",
+   "preco": "one month, two sides",
+   "nar": "First: open last month's statement and split what left into decided-then and decided-now. Add up the decided-then side. That is your first number.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Step two",
+   "preco": "what landed",
+   "nar": "Second: take what landed in the account that same month. Not gross. The amount that arrived.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Step three",
+   "preco": "divide, and write the date",
+   "nar": "Third: divide, multiply by one hundred, and write the percentage down with today's date next to it. The date is the part people skip, and it is the part that makes the second measurement worth anything.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Then do it again next month",
+   "preco": "same two sides",
+   "nar": "Then do exactly the same thing next month, splitting the statement the same way. Two dated percentages are worth more than one careful percentage, because only the difference tells you anything.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Put the percent below",
+   "sub": "not your pay, not your city",
+   "nar": "And in the comments, put one thing: the percentage. Not your pay, not your city, not where you work. Just the percent. I want to see how far apart this number lands for people who look alike on paper.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Two kinds of money",
+   "sub": "in one account",
+   "nar": "Some of the money in your account was already decided before you saw it. Here is how much.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "First",
+   "sub": "what repeated",
+   "nar": "First: last month's statement. Add only the lines that were decided once and repeated. Rent, insurance, autopay, minimums, withholding.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Second",
+   "sub": "what landed",
+   "nar": "Second: what actually landed in the account that month.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Divide",
+   "sub": "that is your share",
+   "nar": "Divide the first by the second, times one hundred. That is the share of your money someone else decided.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Where it comes from",
+   "sub": "four places, below",
+   "nar": "It piles up in four places, and all four are in the video below.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# The share of your money that was decided before you saw it\n\n## TITULO\nYour Money Is Already Spent: The Share Someone Else Decided Before You Saw It\n\n## TITULO SHORT\nHow much of your pay is already spent?\n\n## DESCRICAO\nThere is money in your account that you decide, and money that was already decided before you ever saw it. Same account, same balance. Nobody is tricking you — rent gets decided once and then repeats, and so does insurance, and so does a loan payment. That is how those things work. What you should know is how big that part is, because it is the part you cannot move this month no matter what you decide.\n\nThere is not a single number of mine in this video. No rate, no average, no recommended budget percentage, no bank name, no product name. That is deliberate, and it comes from this channel's own record: twelve packages in a row opened with an institutional number — trillions in card debt, delinquency percentages, adoption percentages — and none of them reached anyone. Both numbers in this calculation are already sitting in your account.\n\nThe first number cannot come from memory, because memory counts the normal month and skips the real one. Open last month on your statement and look at every line that left the account. Then split those lines in two: the ones you decided LAST month, and the ones that were decided once, earlier, and simply repeated. Only the second side counts — rent or mortgage, insurance, the minimum on any loan, anything on autopay, and withholding, which left before the money ever reached you. Groceries do not count. Dinner out does not count. A repair does not count. You decided those, even when they felt unavoidable.\n\nThe second number is already printed at the top of the same statement: what actually landed in the account, not what the offer letter says. Divide the first by the second, multiply by one hundred, and the percentage you get is the share of your money that was decided before you saw it. If you want it in days, multiply that percentage by thirty and divide by one hundred — that is how many days of the month were spent before the first of the month.\n\nOne chapter is about why that number comes out higher than people guess, and there are four separate places it accumulates: the money that never reached the account; a one-time choice that still repeats; the small automatic charges that are each too small to argue with; and the minimum on a balance, which is committed money that grows if you only ever pay the committed part. For most people the first place is larger than the other three together, and it is the one nobody looks at. The next chapter gives one move for each place, and asks you to pick only one.\n\nOne chapter lists what the division deliberately leaves out, because that is better said than hidden: money moved into savings, one-time bills, and the question of whether a commitment is worth it at all. This number measures WHEN a thing was decided, not whether it was wise — which is why insurance you need and a subscription you forgot look identical in it. And a small percentage is a legitimate result, not a failed measurement.\n\nOne chapter is about the case that fools almost everyone: two people with the same amount landing in the account and completely different freedom, because one had eighty percent decided in advance and the other had forty.\n\nAt the end, three steps, all using paper you already have.\n\nFootage: Pexels (free license).\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nRun the number and put one thing in the comments: the percentage. Not your pay, not your city, not where you work — just the percent. I want to see how far apart this lands for people who look alike on paper. And if it comes out small, post that too; that is a result.\n\n## HASHTAGS\n#PersonalFinance #Money #NextLevelMoney\n\n## TAGS\nhow to read a bank statement, fixed vs variable expenses, committed spending, autopay audit, paycheck withholding explained, take home pay, monthly budget math, minimum payment trap, recurring charges, subscription audit, personal finance basics, money management, cash flow, financial freedom math, where my money goes\n\n## CONFIGURACOES DO STUDIO\n- Idioma: Ingles (en) | Categoria: Educacao (27)\n- Nao feito para criancas\n- Divulgacao de conteudo sintetico: SIM (voz gerada por IA)\n- Localizacao: Estados Unidos | Licenca: Licenca padrao do YouTube\n- Anuncios mid-roll: ativados (duracao acima de 8 minutos)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nEste video NAO cita nenhum numero meu e NAO faz nenhuma afirmacao institucional. Nao cita aliquota de imposto, nao cita taxa de juro, nao cita media nacional, nao cita percentual recomendado de orcamento, nao cita nome de banco, de produto nem de aplicativo. Os dois numeros da conta sao do proprio espectador: o que saiu da conta dele no mes passado, separado por ELE em duas categorias, e o que entrou nela no mesmo mes. O QUE FOI DELIBERADAMENTE DEIXADO DE FORA, e por que: (1) qualquer percentual de referencia do tipo \"o normal e comprometer X por cento\", porque nao existe fonte oficial para isso e o video nao faz essa comparacao — a conta e sobre o extrato dele, nao sobre uma media; (2) qualquer aliquota ou regra de retencao na fonte, porque muda por pais, por estado e por situacao, e citar uma tornaria a conta errada para a maioria de quem assiste, justamente quando o numero certo esta impresso na folha de pagamento dele; (3) o JUIZO sobre cada compromisso — o video diz explicitamente que seguro necessario e assinatura esquecida sao identicos nesta conta, porque ela mede QUANDO a coisa foi decidida e nao se foi acertada. ESTE EIXO SUBSTITUI O NUMERO INSTITUCIONAL DE PROPOSITO: os doze pacotes anteriores deste canal abriram com um (1,26 trilhao de divida de cartao, 12,8% de inadimplencia, 16% dos adultos no BNPL, 7,9 trilhoes da Companhia das Indias) e somaram 160 views de canal em 24 videos. O video tambem nao diz qual percentual e saudavel, nao recomenda cancelar nada, nao compara o espectador com media nenhuma, nao diz que divida e erro e nao e aconselhamento financeiro.\n"
+}
