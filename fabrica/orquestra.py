@@ -308,9 +308,20 @@ def estado(videos: list[dict]) -> dict:
         # Spec de producao e a que tem sufixo -00N; as sem sufixo sao pilotos v1.
         minhas = {n: sp for n, sp in specs.items()
                   if sp.get("slug") == c and n[-4:-3] == "-" and n[-3:].isdigit()}
+        # ULTIMO PACOTE DO CANAL. A regra escrita da fila e
+        # `order by ultimo_pacote_em asc nulls first`, e ela nao estava no
+        # desempate: com todos os canais na janela e `faltam` empatado, o hash
+        # do dia decidia sozinho e podia por na frente um canal publicado ha
+        # 35 h sobre um parado ha 34 dias (aprendizado 567). Canal que nunca
+        # publicou fica com None, que ordena ANTES de qualquer data — e o
+        # `nulls first` da regra.
+        datas = [_instante(v.get("publicado_em")) for v in videos
+                 if v.get("canal") == c and v.get("youtube_id")]
+        datas = [d for d in datas if d is not None]
         por_canal[c] = {
             "publicados": len(longos),
             "faltam": max(0, META_POR_CANAL - len(longos)),
+            "ultimo_pacote_em": max(datas).isoformat() if datas else None,
             "specs": sorted(minhas),
             "specs_no_ar": sorted(n for n in minhas
                                   if ja_no_ar(n, minhas[n], ja, titulos)),
@@ -427,9 +438,19 @@ def proximo(videos: list[dict], n: int,
         semente = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d")
         return hashlib.md5(f"{semente}:{slug}".encode()).hexdigest()
 
+    # O SORTEIO E DESEMPATE, NAO CRITERIO. Entre o placar e o hash entra
+    # `ultimo_pacote_em`, que e a regra escrita da fila. Sem ele o hash decidia
+    # sozinho sempre que `faltam` empatava — e com teto de 2/dia em treze
+    # canais, `faltam` empata quase todo dia. O hash continua valendo para o
+    # que ele foi feito: variar a ordem entre canais igualmente antigos.
+    def _antiguidade(info: dict) -> tuple[int, str]:
+        u = info.get("ultimo_pacote_em")
+        return (0, "") if not u else (1, u)
+
     ordem = sorted(est["canais"].items(),
                    key=lambda kv: (0 if J.na_janela(kv[0]) else 1,
-                                   -kv[1]["faltam"], _sorteio_do_dia(kv[0])))
+                                   -kv[1]["faltam"], _antiguidade(kv[1]),
+                                   _sorteio_do_dia(kv[0])))
     for canal, info in ordem:
         for nome in info["specs_pendentes"]:
             if len(escolhidas) >= n:
