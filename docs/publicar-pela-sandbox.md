@@ -475,3 +475,28 @@ pior que deixar tudo marcado. Ficam no aprendizado 557, com data e hora.
 **A regra, entao:** para views de vida inteira, `distinct on (youtube_id) ...
 order by youtube_id, coletado_em desc` filtrando `duracao_media_s = 0 and
 retencao_media_pct = 0`. Nunca `max(views)`, nunca "a ultima linha qualquer".
+
+## Depois de uma lacuna, a PRIMEIRA pergunta não é qual canal está na fila
+
+Medido em 05/10/2026. Entre 04/10 04:30 e 05/10 15:13 a máquina publicou **zero**,
+e a fábrica não tinha nada a ver com isso: o render do `seviye-seviye-010`
+terminou **com sucesso** em 04/10 05:47 e o pacote ficou renderizado e sem
+publicar por ~33 h, porque a sessão da rotina horária ficou inalcançável.
+Trinta e quatro disparos idênticos se enfileiraram sem ninguém para executá-los.
+
+**O artefato do GitHub tem retenção de 14 dias**, então o pacote foi publicado
+inteiro depois, sem gastar render de novo: `urlartefato.yml` com o id do
+artefato do run bem-sucedido, download na sandbox, `conduz.py`. Custo de render
+na recuperação: **zero**.
+
+Então, ao reaparecer depois de uma lacuna, nesta ordem:
+
+1. `select max(publicado_em) from videos where status = 'publicado'` — quando foi
+   a última publicação de verdade.
+2. Os runs de `frota.yml` depois dessa data que terminaram em
+   `completed/success`. Cada um é um pacote **pago e não entregue**.
+3. Só então a fila. Render pago e não publicado é a coisa mais barata que existe
+   para entregar, e é a primeira que se perde quando se corre para a fila.
+
+E confira que o artefato não expirou (`/actions/runs/<id>/artifacts` traz
+`expired` e `expires_at`). Passados os 14 dias, aí sim é re-render.
