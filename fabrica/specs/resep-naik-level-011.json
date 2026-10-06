@@ -1,0 +1,421 @@
+{
+ "slug": "resep-naik-level",
+ "pacote": "resep-naik-level-011",
+ "idioma": "id",
+ "voz": "id-ID-GadisNeural",
+ "trilha": "Deliberate_Thought",
+ "paleta": {
+  "ink": "#20303A",
+  "c1": "#B7410E",
+  "c2": "#3E7C59",
+  "bg": "#FAF5EF"
+ },
+ "thumb": {
+  "l1": "Dua angka",
+  "l2": "resmi"
+ },
+ "longo": [
+  {
+   "layout": "broll",
+   "kicker": "Ada dua angka resmi",
+   "sub": "dan keduanya bukan angka di struk Anda",
+   "nar": "Untuk barang yang sama di pasar, pemerintah punya lebih dari satu angka resmi. Dan tidak satu pun dari keduanya adalah angka di struk Anda.",
+   "broll_q": "traditional street market in Indonesia",
+   "broll_url": "https://videos.pexels.com/video-files/37840670/16051649_1920_1080_30fps.mp4",
+   "broll_credito": {
+    "pexels_id": 37840670,
+    "autor": "Adiardi Zulfansyah",
+    "url": "https://www.pexels.com/video/vibrant-street-market-in-wamena-indonesia-37840670/"
+   },
+   "cap": "Ada dua angka resmi"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kenapa ini penting",
+   "sub": "karena Anda sedang membandingkan apa",
+   "nar": "Ini penting karena menentukan Anda sedang membandingkan apa dengan apa. Membandingkan struk dengan angka yang salah membuat kesimpulan ikut salah.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Angka pertama",
+   "sub": "harga acuan yang ditetapkan",
+   "nar": "Angka pertama adalah harga acuan yang ditetapkan lewat peraturan. Itu keputusan, bukan hasil pengukuran pasar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Angka kedua",
+   "sub": "harga yang diukur di pasar",
+   "nar": "Angka kedua adalah harga yang benar-benar diukur di pasar oleh petugas, setiap minggu. Itu pengukuran, bukan keputusan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Keduanya resmi",
+   "sub": "tapi menjawab pertanyaan berbeda",
+   "nar": "Keduanya sama-sama resmi dan sama-sama benar. Yang berbeda adalah pertanyaan yang mereka jawab, dan karena itu angkanya jarang sama.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Angka ketiga",
+   "sub": "yang ini hanya Anda yang punya",
+   "nar": "Dan ada angka ketiga, yang tidak ada di situs mana pun: harga per satuan di struk belanja Anda sendiri. Itu yang akan kita hitung.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Yang pertama namanya HAP",
+   "sub": "harga acuan",
+   "nar": "Angka pertama punya nama: harga acuan, disingkat HAP. Ia ditetapkan oleh Badan Pangan Nasional lewat peraturan badan.",
+   "broll_q": "person checking an official document",
+   "broll_url": "https://videos.pexels.com/video-files/6814544/6814544-hd_1366_720_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 6814544,
+    "autor": "cottonbro studio",
+    "url": "https://www.pexels.com/video/a-man-checking-the-documents-6814544/"
+   },
+   "cap": "Yang pertama namanya HAP"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dua tingkat",
+   "sub": "produsen dan konsumen",
+   "nar": "Dan HAP punya dua tingkat, bukan satu. Ada acuan di tingkat produsen dan ada acuan di tingkat konsumen, dan angkanya berbeda.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Yang mana untuk Anda",
+   "sub": "yang tingkat konsumen",
+   "nar": "Yang Anda pakai untuk membandingkan belanja adalah yang tingkat konsumen. Yang tingkat produsen adalah untuk petani dan peternak.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Salah tingkat",
+   "sub": "salah kesimpulan",
+   "nar": "Mengambil angka tingkat produsen dan membandingkan dengan struk pasar selalu menghasilkan selisih besar yang tidak berarti apa-apa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Di mana tertulis",
+   "sub": "di peraturan badan itu sendiri",
+   "nar": "HAP tertulis di peraturan badan yang bisa Anda buka sendiri. Bukan di berita tentang peraturan, tapi di dokumen peraturannya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kenapa saya tidak sebut angkanya",
+   "sub": "karena angka itu berubah",
+   "nar": "Saya sengaja tidak menyebut angkanya di sini. Angka acuan berubah lewat peraturan baru, dan video yang menyebut angka lahir dengan tanggal mati.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Yang kedua diukur",
+   "sub": "survei harga konsumen",
+   "nar": "Angka kedua datang dari survei harga konsumen, yang mengukur harga nyata di pasar tradisional setiap minggu.",
+   "cap": "Yang kedua diukur, bukan ditetapkan"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Siapa yang mengukur",
+   "sub": "badan statistik",
+   "nar": "Yang mengukur adalah badan statistik, dan hasilnya diterbitkan per kota. Jadi ada angka untuk kota Anda, bukan hanya angka nasional.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Sekarang angka Anda",
+   "sub": "harga per satuan dari struk",
+   "nar": "Sekarang angka ketiga, yang Anda hitung sendiri. Ambil struk terakhir dan cari satu barang yang juga ada di daftar acuan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bagi",
+   "sub": "harga dibagi isi",
+   "nar": "Bagi harga yang Anda bayar dengan isi kemasan dalam satuan yang sama. Kalau acuannya per kilogram, hitung punya Anda per kilogram juga.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Itu angka Anda",
+   "sub": "sekarang ada tiga di tangan",
+   "nar": "Hasilnya adalah angka Anda. Sekarang Anda punya tiga angka untuk barang yang sama: yang ditetapkan, yang diukur, dan yang Anda bayar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Catat ketiganya",
+   "sub": "sebelum menyimpulkan apa pun",
+   "nar": "Catat ketiganya berdampingan. Sisa video ini hanya untuk satu hal: supaya Anda tidak salah membaca selisih di antara mereka.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Tidak semua barang punya acuan",
+   "sub": "daftarnya terbatas",
+   "nar": "Hal pertama yang harus Anda tahu: tidak semua isi keranjang belanja punya harga acuan. Daftarnya terbatas dan ditulis di peraturan.",
+   "cap": "Tidak semua barang punya acuan"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Yang ada di satu peraturan",
+   "sub": "jagung, telur, daging ayam",
+   "nar": "Satu peraturan mengatur acuan untuk jagung, telur ayam ras dan daging ayam ras. Tiga komoditas, satu dokumen.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Yang ada di peraturan lain",
+   "sub": "kedelai, bawang, cabai, gula, daging",
+   "nar": "Peraturan lain mengatur kedelai, bawang merah, bawang putih, cabai, gula konsumsi dan daging sapi atau kerbau.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kalau barang Anda tidak ada",
+   "sub": "bandingkan dengan yang diukur saja",
+   "nar": "Kalau barang yang Anda beli tidak ada di daftar, Anda masih punya angka kedua. Bandingkan struk dengan harga pasar yang diukur di kota Anda.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Daftar bisa berubah",
+   "sub": "periksa yang berlaku",
+   "nar": "Daftar itu juga bisa berubah lewat peraturan baru. Jadi periksa daftar yang sedang berlaku, jangan percaya daftar dari video mana pun.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Termasuk video ini",
+   "sub": "saya pun bisa ketinggalan",
+   "nar": "Termasuk video ini. Saya menyebut dua peraturan yang saya baca, dan peraturan ketiga bisa terbit besok tanpa saya tahu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Kenapa struk Anda berbeda",
+   "sub": "dan ini bukan tanda apa-apa",
+   "nar": "Sekarang bagian yang paling sering disalahpahami. Ada banyak alasan sah kenapa struk Anda berbeda dari kedua angka resmi itu.",
+   "broll_q": "checking shopping receipts on a table",
+   "broll_url": "https://videos.pexels.com/video-files/5981291/5981291-hd_1366_720_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 5981291,
+    "autor": "https://kaboompics.com/",
+    "url": "https://www.pexels.com/video/a-woman-checking-and-accounting-receipts-5981291/"
+   },
+   "cap": "Kenapa struk Anda berbeda"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Alasan pertama",
+   "sub": "kualitas bukan barang yang sama",
+   "nar": "Pertama, kualitas. Beras premium dan beras medium adalah barang berbeda, dan acuan menyebut kualitas mana yang dimaksud.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Alasan kedua",
+   "sub": "kota Anda bukan rata-rata nasional",
+   "nar": "Kedua, tempat. Harga yang diukur dipublikasikan per kota, dan rata-rata nasional hampir tidak pernah sama dengan kota mana pun.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Alasan ketiga",
+   "sub": "pasar dan ritel modern berbeda",
+   "nar": "Ketiga, jenis toko. Pasar tradisional dan ritel modern punya struktur biaya berbeda, dan survei mingguan itu mengukur pasar tradisional.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Alasan keempat",
+   "sub": "ukuran kemasan menipu",
+   "nar": "Keempat, ukuran kemasan. Kemasan yang bukan satu kilogram membuat harga terlihat lebih murah sampai Anda membagi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Alasan kelima",
+   "sub": "tanggal struk bukan minggu survei",
+   "nar": "Kelima, tanggal. Struk bulan lalu dibandingkan dengan survei minggu ini adalah perbandingan dua waktu yang berbeda.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Apa arti selisihnya",
+   "sub": "dan apa yang bukan artinya",
+   "nar": "Setelah lima alasan itu disingkirkan, barulah selisih mulai berbicara. Tapi ia berbicara lebih pelan daripada yang orang kira.",
+   "cap": "Apa arti selisihnya"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Selisih kecil",
+   "sub": "itu normal",
+   "nar": "Selisih kecil adalah keadaan normal. Harga acuan bukan harga pas, dan pasar bergerak di sekitarnya setiap hari.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Selisih besar sekali",
+   "sub": "itu pertanyaan, bukan jawaban",
+   "nar": "Selisih yang sangat besar adalah pertanyaan, bukan jawaban. Pertanyaannya: apakah saya membandingkan kualitas, kota dan satuan yang sama.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Yang paling sering",
+   "sub": "jawabannya satuan",
+   "nar": "Dalam pengalaman menghitung, jawaban yang paling sering muncul adalah satuan. Orang membandingkan harga per bungkus dengan acuan per kilogram.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Harga di atas acuan",
+   "sub": "bukan bukti pelanggaran",
+   "nar": "Dan harga di atas acuan bukan bukti pelanggaran. Acuan adalah rujukan kebijakan, dan menilai pelanggaran bukan pekerjaan video ini.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Yang video ini berikan",
+   "sub": "cara menghitung, bukan vonis",
+   "nar": "Yang video ini berikan hanya cara menghitung dan cara membandingkan. Vonis apa pun tentang harga bukan bagian dari sini.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Yang video ini tidak katakan",
+   "sub": "batasnya perlu jelas",
+   "nar": "Sekarang bagian yang biasanya dilewati. Ini hal-hal yang sengaja tidak ada di video ini.",
+   "cap": "Yang video ini tidak katakan"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Tidak ada satu angka pun",
+   "sub": "dan itu disengaja",
+   "nar": "Tidak ada satu angka harga pun yang saya sebut. Angka acuan berubah lewat peraturan, dan saya tidak mau video ini menua dalam sebulan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Tidak membahas HET",
+   "sub": "itu instrumen lain",
+   "nar": "Tidak membahas harga eceran tertinggi, yang merupakan instrumen lain dari lembaga lain. Saya tidak memeriksanya di dua sumber resmi hari ini.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Tidak menilai pedagang",
+   "sub": "tidak satu pun",
+   "nar": "Tidak menilai pedagang, pasar atau toko mana pun. Selisih angka bukan tuduhan terhadap siapa pun.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Tidak menyarankan laporan",
+   "sub": "itu keputusan Anda",
+   "nar": "Tidak menyarankan Anda melapor ke mana pun. Kalau Anda memutuskan melakukannya, itu keputusan Anda dan bukan anjuran saya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Yang saya lakukan",
+   "sub": "membaca sumber dan memecah langkah",
+   "nar": "Yang saya lakukan hanyalah membaca dua sumber resmi dan memecah perbandingan menjadi langkah-langkah yang bisa Anda ulang sendiri.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Empat langkah",
+   "sub": "dari awal sampai akhir",
+   "nar": "Sekarang seluruh perbandingan dalam empat langkah, supaya Anda bisa melakukannya setelah video ini ditutup.",
+   "broll_q": "hand writing a numbered checklist",
+   "broll_url": "https://videos.pexels.com/video-files/29568794/12727336_1920_1080_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 29568794,
+    "autor": "Jakub Zerdzicki",
+    "url": "https://www.pexels.com/video/hand-writing-checklist-at-work-desk-29568794/"
+   },
+   "cap": "Empat langkah"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Langkah satu",
+   "sub": "pilih satu barang dari struk",
+   "nar": "Langkah satu: ambil struk terakhir dan pilih satu barang yang juga ada di daftar acuan. Mulai dari satu, jangan sepuluh.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Langkah dua",
+   "sub": "hitung harga per satuan",
+   "nar": "Langkah dua: bagi harga yang Anda bayar dengan isi kemasan, dalam satuan yang sama dengan satuan acuan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Langkah tiga",
+   "sub": "cari dua angka resmi itu",
+   "nar": "Langkah tiga: buka peraturan badan pangan untuk acuan tingkat konsumen, dan publikasi badan statistik untuk harga terukur di kota Anda.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Langkah empat",
+   "sub": "bandingkan dan baca pelan",
+   "nar": "Langkah empat: sejajarkan ketiga angka dan lewati lima alasan sah tadi sebelum menyimpulkan apa pun.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Tulis selisih Anda di bawah",
+   "sub": "hanya selisihnya, bukan belanja Anda",
+   "nar": "Di kolom komentar, tulis hanya selisih yang Anda temukan dan barang apa itu. Bukan total belanja Anda. Saya ingin tahu barang mana yang paling sering meleset.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Tiga angka, satu barang",
+   "sub": "dan dua di antaranya resmi",
+   "nar": "Untuk barang yang sama ada tiga angka. Dua resmi, satu punya Anda.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Satu",
+   "sub": "acuan tingkat konsumen",
+   "nar": "Satu: harga acuan tingkat konsumen, yang ditetapkan lewat peraturan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dua",
+   "sub": "harga terukur di kota Anda",
+   "nar": "Dua: harga yang diukur di pasar kota Anda, diterbitkan tiap minggu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Tiga",
+   "sub": "harga dibagi isi",
+   "nar": "Tiga: harga di struk Anda dibagi isi kemasan, dalam satuan yang sama.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bandingkan",
+   "sub": "satuan dulu, baru simpulkan",
+   "nar": "Lalu bandingkan. Kalau selisihnya besar, periksa satuan dulu, bukan pedagangnya.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# resep-naik-level-011\n\n## TITULO\nHAP dan Panel Harga: 2 Angka Resmi untuk Barang yang Sama, dan Struk Anda\n\n## TITULO SHORT\nHAP dan harga terukur: 2 angka resmi\n\n## DESCRICAO\nUntuk satu barang yang sama di pasar, ada lebih dari satu angka resmi — dan\ntidak satu pun dari keduanya adalah angka yang Anda bayar. Video ini tidak\nmenyebut satu harga pun, dan itu disengaja. Yang diajarkan adalah cara\nmenemukan kedua angka itu sendiri dan membandingkannya dengan struk Anda.\n\nAngka pertama adalah harga acuan, disingkat HAP, yang ditetapkan lewat\nPeraturan Badan Pangan Nasional. HAP punya dua tingkat: satu di tingkat\nprodusen dan satu di tingkat konsumen. Untuk membandingkan belanja rumah\ntangga, yang dipakai adalah yang tingkat konsumen — mengambil angka tingkat\nprodusen selalu menghasilkan selisih besar yang tidak berarti apa-apa.\n\nAngka kedua bukan ditetapkan, melainkan diukur: survei harga konsumen yang\ndilakukan di pasar tradisional setiap minggu oleh badan statistik, dan\nditerbitkan per kota. Karena itu ada angka untuk kota Anda, bukan hanya\nrata-rata nasional.\n\nAngka ketiga hanya Anda yang punya: harga per satuan di struk Anda. Bagi harga\nyang Anda bayar dengan isi kemasan, dalam satuan yang sama dengan satuan acuan.\n\nSebelum menyimpulkan apa pun dari selisihnya, video ini menyebut lima alasan\nsah kenapa ketiga angka itu berbeda: kualitas yang tidak sama, kota yang bukan\nrata-rata nasional, pasar tradisional dibanding ritel modern, ukuran kemasan,\ndan tanggal struk yang bukan minggu survei.\n\nTidak semua barang punya harga acuan. Dua peraturan yang disebut di video\nmencakup jagung, telur ayam ras dan daging ayam ras pada satu peraturan, dan\nkedelai, bawang merah, bawang putih, cabai, gula konsumsi serta daging sapi\natau kerbau pada peraturan lain. Daftar yang berlaku harus diperiksa di\nsumbernya, bukan di video mana pun.\n\nVideo ini tidak membahas harga eceran tertinggi, tidak menilai pedagang atau\ntoko mana pun, dan tidak menyarankan pelaporan ke mana pun. Harga di atas acuan\nbukan bukti pelanggaran.\n\nBab:\n00:00 Ada dua angka resmi\n01:11 Yang pertama namanya HAP\n02:21 Yang kedua diukur, bukan ditetapkan\n03:30 Tidak semua barang punya acuan\n04:38 Kenapa struk Anda berbeda\n05:47 Apa arti selisihnya\n06:58 Yang video ini tidak katakan\n08:04 Empat langkah\n\nTulis di komentar hanya selisih yang Anda temukan dan barang apa itu — bukan\ntotal belanja Anda.\n\n## DISCLOSURE\nNarasi dan visual video ini dibuat dengan kecerdasan buatan. Fakta yang disebut\nberasal dari sumber resmi yang disebutkan dalam deskripsi.\n\n## HASHTAGS\n#HargaPangan #BelanjaCerdas #HAP\n\n## TAGS\nharga acuan pangan, hap konsumen, badan pangan nasional, peraturan badan pangan, survei harga konsumen, harga pasar tradisional, harga per kilogram, cara hitung harga satuan, struk belanja, harga telur ayam ras, harga daging ayam ras, cabai bawang gula, harga beras, belanja dapur, menghitung harga\n\n## COMENTARIO FIXADO\nEmpat langkah: pilih satu barang dari struk → bagi harga dengan isi kemasan →\ncari acuan tingkat konsumen dan harga terukur kota Anda → bandingkan, dan\nperiksa satuan dulu sebelum menyimpulkan. Tulis di sini hanya selisihnya dan\nbarang apa, bukan total belanja.\n\n## MUSICA / LICENCA\nTrilha: Deliberate_Thought (biblioteca livre do pacote). B-roll: Pexels, crédito\npor clipe em broll_creditos.json.\n\n## AVISO SOBRE OS NUMEROS\nEste video NAO cita nenhum preco — nenhum — e isso e desenho, nao limitacao:\npreco de referencia muda por regulamento e por semana, e video que cita a cifra\nnasce com data de validade. O que entra sao fatos de ESTRUTURA, conferidos em\nDUAS instituicoes diferentes. Da Badan Pangan Nasional (badanpangan.go.id, a\npagina de regulacao e os proprios Perbadan 6/2024 e 12/2024): existe um preco de\nreferencia chamado HAP, ele tem dois niveis — produtor e consumidor — e as\ncategorias cobertas por esses dois regulamentos sao milho, ovo e frango num, e\nsoja, cebola, alho, pimenta, acucar e carne no outro. Do BPS (bps.go.id): existe\numa pesquisa de preco ao consumidor feita semanalmente em mercado tradicional e\npublicada por cidade. DESCARTADO: nenhuma cifra de HAP, de HET ou de media do\nBPS; e o HET como instrumento, que e de outro orgao e nao foi fechado em duas\nfontes nesta rodada. TAMBEM FORA: o video nao afirma que diferenca entre recibo\ne referencia e irregularidade, lista cinco razoes legitimas antes de qualquer\nleitura, e diz que preco acima da referencia nao e prova de nada. O numero que\ndecide e do espectador: o preco por unidade do recibo dele.\n"
+}
