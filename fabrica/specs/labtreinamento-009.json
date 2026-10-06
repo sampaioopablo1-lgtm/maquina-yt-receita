@@ -1,0 +1,582 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-009",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#22333B",
+  "c1": "#A4243B",
+  "c2": "#D8973C",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "8% do bruto",
+  "l2": "bate?"
+ },
+ "longo": [
+  {
+   "layout": "broll",
+   "kicker": "Todo mês tem uma data",
+   "sub": "e quase ninguém olha para ela",
+   "nar": "Todo mês, no seu nome, entra um depósito que não passa pela sua conta corrente e que você quase nunca confere. Ele tem data certa.",
+   "broll_q": "payslip paperwork desk close up",
+   "broll_url": "https://videos.pexels.com/video-files/6538597/6538597-hd_1366_720_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 6538597,
+    "autor": "cottonbro studio",
+    "url": "https://www.pexels.com/video/a-woman-getting-a-file-6538597/"
+   },
+   "cap": "Todo mês tem uma data"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A data",
+   "sub": "até o dia vinte",
+   "nar": "A lei marca o prazo: o depósito do mês tem que estar feito até o dia vinte do mês seguinte. Não é uma data que a empresa escolhe.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Por que isso importa",
+   "sub": "a conferência tem um calendário",
+   "nar": "Isso importa porque muda o que você compara com o quê. O valor que aparece hoje no extrato se refere ao mês passado, não a este.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O erro mais comum",
+   "sub": "comparar mês com mês errado",
+   "nar": "E esse é o erro mais comum de quem tenta conferir. A pessoa olha a folha deste mês e o depósito deste mês, e conclui que falta dinheiro.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A regra simples",
+   "sub": "o depósito olha para trás",
+   "nar": "Guarde a regra assim: o depósito de um mês olha sempre para a remuneração do mês anterior. Um mês de distância, sempre.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Primeiro passo",
+   "sub": "separe a folha do mês passado",
+   "nar": "Então o primeiro passo não é abrir o extrato. É separar a folha de pagamento do mês passado, que é a base de tudo o que vem a seguir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Quem recebe por recibo",
+   "sub": "o eixo é outro",
+   "nar": "Se você não tem folha porque trabalha por recibo, esta conferência não é a sua. Ela vale para quem é registrado pela CLT.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Onde ela está",
+   "sub": "no portal da empresa ou no papel",
+   "nar": "Essa folha está no portal do empregador ou no papel que você recebe. Qualquer uma das duas serve, desde que seja a do mês certo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A base da conta",
+   "sub": "não é o salário na mão",
+   "nar": "Agora a parte que mais gera engano. A base do cálculo não é o salário que cai na sua conta.",
+   "cap": "A base não é o que cai na conta"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que a lei diz",
+   "sub": "remuneração paga ou devida",
+   "nar": "A lei fala em remuneração paga ou devida no mês anterior. Remuneração é uma palavra mais larga do que salário líquido.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que entra",
+   "sub": "as parcelas da CLT",
+   "nar": "Dentro dela entram as parcelas previstas nos artigos quatrocentos e cinquenta e sete e quatrocentos e cinquenta e oito da CLT.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Em linguagem de folha",
+   "sub": "o bruto, antes das descontos",
+   "nar": "Em linguagem de folha de pagamento, isso quer dizer o bruto. O valor antes de descontar previdência, imposto e o que mais for descontado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Então some",
+   "sub": "salário mais o que é habitual",
+   "nar": "Então some o salário base com o que vem todo mês junto dele: horas extras habituais, adicional noturno, insalubridade, comissões.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Comissão conta",
+   "sub": "mesmo variando todo mês",
+   "nar": "Comissão entra na base mesmo quando varia muito de um mês para o outro. O que muda é o valor, não o fato de ela contar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Hora extra eventual",
+   "sub": "também entra no mês em que houve",
+   "nar": "Hora extra que aconteceu só naquele mês também entra na base daquele mês. Habitual ou não, se foi paga, compõe a remuneração.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que não é remuneração",
+   "sub": "indenização não entra",
+   "nar": "O que a folha chama de indenização ou de reembolso não é remuneração. Vale transporte devolvido e diária de viagem ficam de fora.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Se a folha separa tudo",
+   "sub": "melhor para você",
+   "nar": "Folha que separa cada parcela em uma linha facilita a conferência. Some linha por linha e compare com o total bruto impresso.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Anote esse número",
+   "sub": "ele é metade da conta",
+   "nar": "Anote o bruto do mês passado em algum lugar. Ele é metade da conta, e a outra metade é um único percentual.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Os oito por cento",
+   "sub": "o percentual é um só",
+   "nar": "O percentual está no artigo quinze da lei e é um só para o empregado comum: oito por cento.",
+   "broll_q": "typing numbers on calculator",
+   "broll_url": "https://videos.pexels.com/video-files/7535087/7535087-hd_1280_720_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 7535087,
+    "autor": "Mikhail Nilov",
+    "url": "https://www.pexels.com/video/person-using-a-calculator-7535087/"
+   },
+   "cap": "Os oito por cento"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A conta",
+   "sub": "bruto vezes zero vírgula zero oito",
+   "nar": "A conta é direta. Pegue o bruto que você anotou e multiplique por zero vírgula zero oito. Em calculadora, é o bruto vezes oito dividido por cem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Esse é o seu número",
+   "sub": "o que deveria ter sido depositado",
+   "nar": "O resultado é o seu número: o valor que deveria ter entrado na sua conta vinculada referente ao mês passado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Agora compare",
+   "sub": "abra o extrato do fundo",
+   "nar": "Agora abra o extrato do fundo no aplicativo oficial e procure o depósito lançado para esse mês. Compare com o número que você acabou de achar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dois resultados",
+   "sub": "bate ou não bate",
+   "nar": "Só existem dois resultados. Ou os dois valores batem, com centavos de diferença, ou existe uma distância que tem que ser explicada.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Centavos não são erro",
+   "sub": "o arredondamento é normal",
+   "nar": "Diferença de centavos não é erro. Arredondamento de centavos acontece em qualquer folha e não significa nada.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Se der diferença grande",
+   "sub": "não conclua ainda",
+   "nar": "Se a distância for de dezenas ou centenas de reais, segure a conclusão. Existem razões comuns para isso, e elas vêm no próximo bloco.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Anote a data da conferência",
+   "sub": "ela serve de marco",
+   "nar": "Anote também a data em que você conferiu. Se precisar voltar ao assunto depois, essa data situa o que já tinha sido lançado e o que ainda não.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Guarde os dois valores",
+   "sub": "o seu e o do extrato",
+   "nar": "Guarde os dois valores lado a lado. O resto do vídeo serve para você saber se uma diferença maior tem explicação legítima.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Quando a diferença é normal",
+   "sub": "e são vários casos",
+   "nar": "Antes de concluir qualquer coisa, veja as razões pelas quais a conta deixa de bater sem que exista nada de errado.",
+   "cap": "Quando a diferença é normal"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Primeiro caso",
+   "sub": "mês de admissão ou de saída",
+   "nar": "O primeiro é o mês em que você entrou ou saiu da empresa. A remuneração é proporcional aos dias, e o depósito acompanha essa proporção.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Segundo caso",
+   "sub": "o décimo terceiro tem depósito próprio",
+   "nar": "O segundo é o décimo terceiro salário. Ele gera depósito próprio, em cima do valor dele, e não se mistura com o do salário do mês.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Terceiro caso",
+   "sub": "afastamento sem remuneração",
+   "nar": "O terceiro é o afastamento. Em alguns afastamentos não há remuneração no mês, e sem remuneração não há base para o depósito.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Quarto caso",
+   "sub": "a folha foi corrigida depois",
+   "nar": "O quarto é a folha corrigida depois do fechamento. Se a empresa acertou um valor no mês seguinte, o depósito também se acerta no mês seguinte.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Quinto caso",
+   "sub": "o extrato demora a atualizar",
+   "nar": "E o quinto é o extrato simplesmente ainda não ter atualizado. O depósito feito perto do prazo pode demorar alguns dias para aparecer.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Sexto caso",
+   "sub": "férias no meio do mês",
+   "nar": "Há ainda o mês de férias, em que parte da remuneração entra como férias e parte como salário. A base muda de forma e o depósito acompanha.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Como separar os casos",
+   "sub": "olhe a folha, não o extrato",
+   "nar": "Para saber em qual caso você está, a resposta quase sempre está na folha daquele mês, não no extrato. O extrato só mostra o resultado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Só depois disso",
+   "sub": "a diferença vira pergunta",
+   "nar": "Só depois de descartar esses cinco casos é que uma diferença vira uma pergunta de verdade para levar a alguém.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Faça a conta do ano",
+   "sub": "doze conferências, não uma",
+   "nar": "Uma conferência de um mês prova pouco. Doze conferências seguidas provam muito, e dão quase o mesmo trabalho.",
+   "broll_q": "writing in notebook rows table",
+   "broll_url": "https://videos.pexels.com/video-files/6413836/6413836-hd_1280_720_24fps.mp4",
+   "broll_credito": {
+    "pexels_id": 6413836,
+    "autor": "RDNE Stock project",
+    "url": "https://www.pexels.com/video/a-woman-writing-on-the-notebook-6413836/"
+   },
+   "cap": "Faça a conta do ano"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Como fazer",
+   "sub": "uma linha por mês",
+   "nar": "Monte uma linha por mês: bruto da folha, o seu número calculado e o valor que o extrato mostra. Três colunas, doze linhas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que você procura",
+   "sub": "um padrão, não um mês",
+   "nar": "O que interessa não é um mês solto. É se existe um padrão: uma diferença que se repete sempre no mesmo sentido.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Diferença que se repete",
+   "sub": "essa é a que fala",
+   "nar": "Uma diferença que aparece num mês e some no outro costuma ser calendário. Uma que se repete todo mês costuma ser base de cálculo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Onde o padrão aparece",
+   "sub": "em geral numa parcela",
+   "nar": "Quando a base é o problema, o padrão quase sempre está numa parcela: alguma coisa que está na folha e que não entrou na conta do depósito.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Comece pelos meses fáceis",
+   "sub": "os de salário parado",
+   "nar": "Comece pelos meses em que nada mudou: sem férias, sem décimo terceiro, sem afastamento. Se bate nesses, a sua conta está certa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Depois os meses estranhos",
+   "sub": "um de cada vez",
+   "nar": "Só então vá aos meses atípicos, um de cada vez. Comparar um mês de férias com um mês comum confunde mais do que esclarece.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Doze linhas num papel",
+   "sub": "não precisa de planilha",
+   "nar": "Isso cabe num papel. Doze linhas, três colunas, e você já enxerga o que nenhuma leitura de mês solto mostra.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E aí você já sabe qual",
+   "sub": "porque fez a conta linha a linha",
+   "nar": "E aí você já consegue apontar qual parcela é, porque refez a conta linha a linha e não dependeu de ninguém para isso.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que este vídeo não diz",
+   "sub": "e os limites importam",
+   "nar": "Agora a parte que costuma ser omitida. Aqui estão as coisas sobre as quais este vídeo não fala.",
+   "cap": "O que este vídeo não diz"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Outros regimes",
+   "sub": "aprendiz e doméstico são diferentes",
+   "nar": "Não trata do aprendiz nem do empregado doméstico. Esses regimes têm percentuais próprios e a conferência deles é outra.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Por que não falo deles",
+   "sub": "não conferi em duas fontes",
+   "nar": "E não dou os percentuais deles porque não os conferi em duas fontes oficiais. Número sem duas fontes não entra, nem quando é fácil de achar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Atraso",
+   "sub": "tem correção, juros e multa",
+   "nar": "Depósito em atraso tem correção, juros e multa previstos na mesma lei. As cifras eu também não digo, pela mesma razão.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Não é orientação jurídica",
+   "sub": "é uma conferência",
+   "nar": "Nada aqui é orientação jurídica. É uma conferência aritmética que termina num número seu, e a decisão sobre o que fazer é sua.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Não trato de rescisão",
+   "sub": "ali a conta é outra",
+   "nar": "Também não trato de rescisão. Na saída existem outras parcelas e outra aritmética, e misturar as duas coisas gera erro.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Não falo de saque",
+   "sub": "nem de aniversário",
+   "nar": "Nem falo de saque, de modalidade de saque ou de prazo para sacar. Isso é outro assunto e não muda em nada a conferência do depósito.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Por que insisto no limite",
+   "sub": "porque o excesso tira a confiança",
+   "nar": "Insisto nesses limites porque vídeo que fala de tudo acaba acertando pouco. Aqui são três números e uma comparação.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que eu fiz",
+   "sub": "li a lei e dividi em passos",
+   "nar": "O que eu fiz foi ler o artigo quinze e separar em passos: a data, a base, o percentual, e as razões normais de diferença.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Onde conferir sozinho",
+   "sub": "sem depender deste vídeo",
+   "nar": "Se você quiser checar tudo o que eu disse, as duas fontes estão abertas e não custam nada.",
+   "cap": "Onde conferir sozinho"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A lei",
+   "sub": "no portal da legislação federal",
+   "nar": "O texto consolidado da lei está no portal da legislação federal. Procure a lei oito mil e trinta e seis e vá direto ao artigo quinze.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A mesma lei, outra fonte",
+   "sub": "no banco que opera o fundo",
+   "nar": "A mesma lei está publicada no site do banco que opera o fundo. Duas fontes oficiais, o mesmo texto, e foi assim que eu conferi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O extrato",
+   "sub": "no aplicativo oficial",
+   "nar": "O extrato vem do aplicativo oficial do fundo, com o seu login. Nenhum outro lugar precisa saber os seus números.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Por que insisto nisso",
+   "sub": "porque o número é seu",
+   "nar": "Insisto porque o número é seu e a conferência também. Vídeo nenhum deve ser a última palavra sobre o seu dinheiro.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Guarde o link da lei",
+   "sub": "ele não muda de endereço",
+   "nar": "Guarde o endereço do texto da lei em algum lugar seu. Ele não muda, e serve para qualquer conferência futura.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Desconfie de número solto",
+   "sub": "sem fonte, não serve",
+   "nar": "E desconfie de qualquer número sobre o seu dinheiro que apareça sem fonte. Inclusive os que aparecem com confiança.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A conferência é sua",
+   "sub": "e leva dois minutos",
+   "nar": "A conferência inteira leva dois minutos depois que você faz uma vez. O trabalho está em começar, não em repetir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Inclusive este",
+   "sub": "confira e depois confie",
+   "nar": "Inclusive este. Refaça a conta com a sua folha na mão, e só então decida se ela faz sentido.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A conferência em quatro passos",
+   "sub": "do começo ao fim",
+   "nar": "Agora a conferência inteira, em quatro passos, para você fazer depois de fechar o vídeo.",
+   "cap": "A conferência em quatro passos"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Passo um",
+   "sub": "a folha do mês passado",
+   "nar": "Passo um: separe a folha de pagamento do mês passado, porque o depósito deste mês se refere a ela.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Passo dois",
+   "sub": "o bruto, com o que é habitual",
+   "nar": "Passo dois: pegue o bruto, somando o que vem todo mês junto do salário base, e deixando de fora o que é indenização.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Passo três",
+   "sub": "multiplique por zero vírgula zero oito",
+   "nar": "Passo três: multiplique esse bruto por zero vírgula zero oito. Esse é o valor que deveria ter sido depositado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Passo quatro",
+   "sub": "compare com o extrato",
+   "nar": "Passo quatro: compare com o extrato. Se a diferença passar de centavos, volte nos cinco casos normais antes de concluir qualquer coisa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Se bater",
+   "sub": "feche o vídeo tranquilo",
+   "nar": "Se os dois valores baterem, acabou. Você não precisa fazer mais nada, e agora sabe conferir sozinho todo mês.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Se não bater",
+   "sub": "volte aos seis casos",
+   "nar": "Se não baterem, volte aos seis casos normais antes de qualquer outra coisa. A maioria das diferenças morre ali.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E se sobrar dúvida",
+   "sub": "leve o número, não a impressão",
+   "nar": "E se ainda sobrar dúvida, leve o número calculado e a folha, não a impressão de que algo está errado. Número conversa melhor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Escreva a diferença aqui embaixo",
+   "sub": "só a diferença, não o salário",
+   "nar": "Nos comentários, escreva só a diferença que você encontrou, em reais, e nunca o seu salário. Quero ver quantos fecham em zero.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "FGTS do mês passado",
+   "sub": "confira em dois minutos",
+   "nar": "Dá para conferir o depósito do mês passado em dois minutos. São quatro passos.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Um",
+   "sub": "a folha do mês anterior",
+   "nar": "Um: pegue a folha do mês anterior. O depósito deste mês se refere a ela, não a este.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dois",
+   "sub": "o bruto, não o líquido",
+   "nar": "Dois: use o bruto, com horas extras e adicionais habituais. Não o valor que cai na conta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Três",
+   "sub": "vezes zero vírgula zero oito",
+   "nar": "Três: multiplique por zero vírgula zero oito. Esse é o valor devido.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Quatro",
+   "sub": "compare com o extrato",
+   "nar": "Quatro: compare com o extrato do aplicativo oficial. Diferença de centavos é arredondamento.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# labtreinamento-009\n\n## TITULO\nFGTS: os 8% do Mês Passado e o Dia 20 — Confira o Depósito Contra a Sua Folha\n\n## TITULO SHORT\nFGTS: 8% do bruto, e o dia 20\n\n## DESCRICAO\nTodo mês entra um depósito no seu nome que não passa pela conta corrente, e\nquase ninguém confere. Dá para conferir em dois minutos, com a folha de\npagamento na mão e uma calculadora, e este vídeo separa a conferência em quatro\npassos.\n\nO primeiro passo é de calendário, e é onde a maioria erra: o depósito de um mês\nse refere à remuneração do mês ANTERIOR. Comparar a folha deste mês com o\ndepósito deste mês produz uma diferença que não existe.\n\nO segundo passo é a base. A lei fala em remuneração paga ou devida, incluindo as\nparcelas dos artigos 457 e 458 da CLT — ou seja, o bruto, com horas extras\nhabituais, adicional noturno, insalubridade e comissões. O que a folha chama de\nindenização ou reembolso fica de fora.\n\nO terceiro passo é o percentual, que está no artigo 15 da Lei 8.036 de 1990 e é\nde 8% para o empregado comum. Bruto vezes zero vírgula zero oito.\n\nO quarto passo é a comparação com o extrato do aplicativo oficial. E antes de\nconcluir que falta alguma coisa, o vídeo lista cinco razões pelas quais a conta\ndeixa de bater sem que haja irregularidade: mês de admissão ou saída, décimo\nterceiro, afastamento sem remuneração, folha corrigida depois e extrato ainda\nnão atualizado.\n\nOs percentuais do aprendiz e do empregado doméstico não são citados, e as cifras\nde multa e juros do depósito em atraso também não — nenhum desses números foi\nconferido em duas fontes oficiais nesta edição, e número sem duas fontes não\nentra. O vídeo diz que esses regimes e essas penalidades existem, e manda\nconferir na fonte.\n\nNada aqui é orientação jurídica. É uma conferência aritmética que termina num\nnúmero seu.\n\nCapítulos:\n00:00 Todo mês tem uma data\n01:12 A base não é o que cai na conta\n02:38 Os oito por cento\n03:57 Quando a diferença é normal\n05:18 Faça a conta do ano\n06:34 O que este vídeo não diz\n07:52 Onde conferir sozinho\n09:04 A conferência em quatro passos\n\nEscreva nos comentários só a diferença que você encontrou, em reais — nunca o\nseu salário.\n\n## DISCLOSURE\nA narração e as imagens deste vídeo foram geradas com inteligência artificial.\nOs números citados vêm de fontes oficiais, indicadas na descrição.\n\n## HASHTAGS\n#FGTS #FolhaDePagamento #DireitosTrabalhistas\n\n## TAGS\nfgts, extrato fgts, deposito fgts, lei 8036, artigo 15 fgts, base de calculo fgts, remuneracao bruta, conferir fgts, folha de pagamento, horas extras habituais, decimo terceiro fgts, conta vinculada, direitos trabalhistas, fgts nao depositado, calculo fgts\n\n## COMENTARIO FIXADO\nQuatro passos: folha do mês ANTERIOR → bruto (com habituais, sem indenização) →\nvezes zero vírgula zero oito → compare com o extrato. Diferença de centavos é\narredondamento. Escreva aqui só a diferença, nunca o salário.\n\n## MUSICA / LICENCA\nTrilha: Inspired (biblioteca livre do pacote). B-roll: Pexels, crédito por clipe\nem broll_creditos.json.\n\n## AVISO SOBRE OS NUMEROS\nEste vídeo cita três números e os três são do artigo 15 da Lei 8.036 de 1990,\nconferidos em duas fontes institucionais que batem — o texto consolidado no\nplanalto.gov.br e o PDF da mesma lei no caixa.gov.br: oito por cento da\nremuneração paga ou devida no mês anterior; depósito até o dia vinte de cada\nmês; e base incluindo as parcelas dos artigos 457 e 458 da CLT. DESCARTADO: os\npercentuais do aprendiz e do empregado doméstico, e as cifras de multa e juros\ndo depósito em atraso. Todos existem e estão na mesma lei, mas não os fechei em\nduas fontes oficiais nesta rodada, então o vídeo afirma que existem e manda\nconferir na fonte, sem dizer quanto. TAMBÉM FORA: não oriento sobre ação\ntrabalhista, não calculo saque nem rescisão, e não afirmo que toda diferença é\nirregularidade — as cinco razões legítimas de diferença vêm antes de qualquer\nconclusão. O número que decide é do espectador: o bruto da folha dele e o\ndepósito no extrato dele.\n"
+}
