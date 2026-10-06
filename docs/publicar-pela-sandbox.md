@@ -569,3 +569,69 @@ chave nenhuma, so diz se o download esta liberado.
 **O principio, que vale alem do Pexels:** segredo que o banco ja tem nao
 precisa viajar para ser usado. Vale para o access_token do YouTube, vale para a
 chave do Pexels, e vale para o proximo.
+
+## Fontes oficiais: o estado REAL dos hosts em 06/10/2026
+
+A lista de hosts da rotina esta desatualizada e me custou tempo em tres
+rodadas hoje. Isto e o que eu MEDI da sandbox, com user-agent de navegador,
+nas rodadas das 14:09, 15:09 e 18:09. Confira antes de escolher o eixo, nao
+depois de escrever a spec.
+
+### Respondem com TEXTO LEGIVEL (servem para fechar fato)
+
+| host | instituicao | observacao |
+|---|---|---|
+| `irs.gov` | Internal Revenue Service (EUA) | tabela de formulas completa |
+| `govinfo.gov` | U.S. Government Publishing Office | texto do U.S. Code |
+| `ecfr.gov` | Office of the Federal Register | texto do CFR |
+| `legislation.gov.uk` | The National Archives (RU) | texto dos atos, 44k de texto |
+| `gov.uk` | HM Government / HMRC | orientacao em texto corrido |
+| `planalto.gov.br` | Presidencia (BR) | texto das leis; vem em latin-1 |
+| `bpjsketenagakerjaan.go.id` | BPJS Ketenagakerjaan (ID) | pagina de beneficios + PDFs de Perbadan |
+| `jdih.kemnaker.go.id` | Biro Hukum, Min. Trabalho (ID) | busca por `?semuajudul=`; da status de vigencia |
+| `csgb.gov.tr`, `sgk.gov.tr`, `iskur.gov.tr` | orgaos turcos | respondem, mas conteudo institucional raso |
+| `federalreserve.gov`, `consumerfinance.gov`, `census.gov` | EUA | respondem 200 |
+| `statistics.gr` | ELSTAT (GR) | responde 200 (conteudo nao testado a fundo) |
+
+### NAO SERVEM, e o motivo de cada um
+
+| host | sintoma | o que isso significa |
+|---|---|---|
+| `bls.gov` | **403** mesmo com user-agent de navegador | nao insista; nao da para citar U-1..U-6 |
+| `ssa.gov` | **403** | idem |
+| `dol.gov` | **403** | idem |
+| `aade.gr` | **403** | autoridade fiscal grega fora de alcance |
+| `gov.gr` | **403** | idem |
+| `uscode.house.gov` | 200 mas **aplicacao JavaScript** (256 chars de texto) | use `govinfo.gov` no lugar |
+| `eur-lex.europa.eu` | **202**, pagina de desafio sem texto | nao da para citar diretiva europeia |
+| `taxation-customs.ec.europa.eu` | **404** nas paginas de IVA digital | idem |
+| `oecd.org` | **403** | idem |
+| `efka.gov.gr` | 200 mas **shell JavaScript**: 6,2k de texto e quase tudo nome de classe CSS | as categorias de contribuicao NAO estao no HTML |
+| `et.gr` | 200, 19k de texto na home, mas a **busca de FEK e app JS** sem `action` | nao da para puxar FEK por URL |
+| `mevzuat.gov.tr` | **TIMEOUT** (25 s, duas vezes) | a rotina o lista como funcionando; hoje nao funcionou |
+| `www.tuik.gov.tr` | **TIMEOUT** seguindo redirecionamento | idem |
+| `data.tuik.gov.tr` | 200 mas "JavaScript Gerekli", 200 chars | idem |
+| `resmigazete.gov.tr` | **TIMEOUT** | a rotina ja avisava |
+| `cdn.gib.gov.tr` | **404** na raiz | |
+| `peraturan.bpk.go.id` | **403** | use o PDF no site do BPJS |
+| `jdih.setkab.go.id` | falha de conexao | |
+
+### A consequencia pratica, que vale mais que a tabela
+
+O PADRAO que funciona e **orgao que aplica + publicador do texto**, e ele ja
+fechou tres pacotes hoje:
+
+* EUA: `irs.gov` (agencia) + `govinfo.gov` (U.S. Code) -> next-level-money-010
+* RU: `gov.uk`/HMRC (agencia) + `legislation.gov.uk` (o ato) -> game-money-lab-010
+* BR: `gov.br/anvisa` (agencia) + `planalto.gov.br` (a lei) -> seja-mais-magra-010
+* ID: `bpjsketenagakerjaan.go.id` (orgao + PDF da PP) + `jdih.kemnaker.go.id`
+  (vigencia) -> setiap-level-015
+
+**GRECIA NAO TEM ESSE PAR DISPONIVEL hoje**: a agencia (`efka.gov.gr`) e o
+publicador (`et.gr`) sao os dois aplicacoes JavaScript, e a autoridade fiscal
+(`aade.gr`) da 403. Para o epomeno-epipedo — que e o canal mais forte da frota
+— isso significa que um eixo com fato estrutural grego nao fecha em duas
+fontes pela sandbox. Quem pegar esse canal: ou desenhe o pacote para que o
+numero que decide seja inteiramente do espectador (o documento na mao dele), ou
+peca ao dono uma rota de leitura para `aade.gr`/`efka.gov.gr`. NAO gaste vinte
+minutos redescobrindo isto — eu gastei.
