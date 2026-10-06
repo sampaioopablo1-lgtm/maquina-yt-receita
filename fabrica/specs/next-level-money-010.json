@@ -1,0 +1,491 @@
+{
+ "slug": "next-level-money",
+ "pacote": "next-level-money-010",
+ "idioma": "en",
+ "voz": "en-US-AndrewNeural",
+ "trilha": "Deliberate_Thought",
+ "paleta": {
+  "ink": "#16202B",
+  "c1": "#9A3412",
+  "c2": "#115E59",
+  "bg": "#F5F3EE"
+ },
+ "thumb": {
+  "l1": "One rate",
+  "l2": "five answers"
+ },
+ "longo": [
+  {
+   "layout": "broll",
+   "kicker": "One rate, five answers",
+   "sub": "and only one of them is symmetric",
+   "nar": "There is a single interest rate underneath federal tax interest, and it produces five different numbers. Which one you get depends on who you are.",
+   "broll_q": "US Treasury building exterior",
+   "broll_url": "https://videos.pexels.com/video-files/29188207/12603662_1920_1080_30fps.mp4",
+   "broll_credito": {
+    "pexels_id": 29188207,
+    "autor": "In Old News LLC",
+    "url": "https://www.pexels.com/video/us-treasury-building-in-washington-dc-29188207/"
+   },
+   "cap": "One rate, five answers"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Why this is worth knowing",
+   "sub": "because money sits on both sides",
+   "nar": "This matters because money sits on both sides of that line. Sometimes the government is holding yours, and sometimes you are holding the government's.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "The base rate",
+   "sub": "determined monthly, not by the agency alone",
+   "nar": "The base is called the federal short-term rate. It is determined every month under a separate section of the code, and then rounded to a whole number.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Then points are added",
+   "sub": "and the number of points is the whole story",
+   "nar": "On top of that base, the code adds a fixed number of percentage points. That number of points is the entire story, and it is not the same for everyone.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Four different spreads",
+   "sub": "written in one section",
+   "nar": "There are four different spreads written into one section of the code. They do not change from quarter to quarter, because they are not a rate.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "What does change",
+   "sub": "the base, every quarter",
+   "nar": "What changes every quarter is only the base. So the spreads are permanent and the published percentage is temporary, which is backwards from how people read it.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "And one number is yours",
+   "sub": "the one on your own account",
+   "nar": "And there is a number that no page will tell you: the interest on your own balance, for your own days. That is the one we are going to calculate.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "What the code actually says",
+   "sub": "section sixty six twenty one",
+   "nar": "The section is numbered sixty six twenty one, and it is short enough to read in one sitting. It is worth reading because the numbers in it are not the ones that get reported. Here is what it sets, in plain order.",
+   "broll_q": "person turning pages of a book",
+   "broll_url": "https://videos.pexels.com/video-files/9198046/9198046-hd_1920_1080_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 9198046,
+    "autor": "Mikhail Nilov",
+    "url": "https://www.pexels.com/video/a-man-turning-pages-of-a-book-9198046/"
+   },
+   "cap": "What the code actually says"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "If the government owes you",
+   "sub": "base plus three points",
+   "nar": "If the government is holding an overpayment of yours, the rate is the base plus three percentage points. That is the general rule.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Unless you are a corporation",
+   "sub": "then base plus two",
+   "nar": "Unless the overpayment belongs to a corporation. Then the code says two percentage points instead of three, in the same sentence.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "And on the large part",
+   "sub": "half a point",
+   "nar": "And for the part of a corporate overpayment above ten thousand dollars, the code substitutes half of one percentage point. Not two, and not three.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "If you owe the government",
+   "sub": "base plus three, for everyone",
+   "nar": "Now the other direction. If you owe, the rate is the base plus three percentage points, and the code sets that one the same for everyone.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Except the largest underpayments",
+   "sub": "base plus five",
+   "nar": "Except for what the code calls a large corporate underpayment. There, five percentage points replaces three, after a date the code defines.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Line them up",
+   "sub": "and the asymmetry is visible",
+   "nar": "Line those up and something becomes visible that no single number shows. The spread is not symmetric, and it is not symmetric in the same direction for everyone.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Now calculate yours",
+   "sub": "three inputs, one multiplication",
+   "nar": "Now your turn. You need three things to do this, and you already have two of them sitting in front of you right now. The third one takes a minute to look up, and I will tell you exactly where.",
+   "broll_q": "writing dates on a calendar",
+   "broll_url": "https://videos.pexels.com/video-files/5408798/5408798-hd_1920_1080_30fps.mp4",
+   "broll_credito": {
+    "pexels_id": 5408798,
+    "autor": "Leeloo The First",
+    "url": "https://www.pexels.com/video/a-person-writing-on-calendar-5408798/"
+   },
+   "cap": "Now calculate yours"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Input one",
+   "sub": "the amount",
+   "nar": "The first input is the amount. Either what you overpaid and have not been refunded yet, or what you owe and have not paid yet.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Input two",
+   "sub": "the days",
+   "nar": "The second input is the number of days that amount has been sitting on the other side. Count from the date it was due to the date it moved.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Input three",
+   "sub": "the rate for your quarter",
+   "nar": "The third input is the rate for the quarter you are in. Look that one up on the agency's own page, because it changes and I am not going to say it here.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "The multiplication",
+   "sub": "amount times rate times days over a year",
+   "nar": "Then multiply: your amount, times the rate as a decimal, times your days divided by three hundred sixty five. That is the simple version.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "That is your number",
+   "sub": "and now you have something to compare",
+   "nar": "That result is your number. Now you know what the waiting was actually worth, and the rest of this is only so you do not misread it.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Write it next to the amount",
+   "sub": "two figures, one line",
+   "nar": "Write it on one line next to the amount itself. Those two figures together are the whole answer, and they will mean something next year too.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Why it compounds daily",
+   "sub": "and why the simple version is low",
+   "nar": "First refinement, and it is the one that explains most small mismatches: the real calculation compounds daily, not once at the end. So the simple multiplication you just did comes out slightly low, and predictably so.",
+   "cap": "Why it compounds daily"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "How much lower",
+   "sub": "at these rates, not much",
+   "nar": "At rates in this range and over a few months, the difference between simple and daily compounding is small. It matters more the longer the money sits.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Why start simple anyway",
+   "sub": "because it tells you the order of size",
+   "nar": "Starting simple is still right, because what you needed first was the order of magnitude. Knowing whether it is dollars or hundreds decides what you do next.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "And the agency compounds",
+   "sub": "so expect slightly more",
+   "nar": "The agency's own computation compounds, so expect the official figure to come out slightly above your simple one. That direction is predictable.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "If yours is far off",
+   "sub": "check days before you check rate",
+   "nar": "If your number is far from theirs, check your day count before you suspect the rate. Day counting is where almost every mismatch comes from.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Because the dates are defined",
+   "sub": "not chosen",
+   "nar": "And the dates are defined by rule, not by preference. When interest starts and stops is set, and it is rarely the date you remember.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Which is the real lesson",
+   "sub": "the clock is not yours to set",
+   "nar": "That is the quieter lesson of this whole section. The amount may be yours, but the clock on it is defined somewhere else.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "The part people misread",
+   "sub": "and it is not the percentage",
+   "nar": "Here is the part that gets misread most often, and it is not the percentage itself. It is what the percentage is attached to, and that confusion survives even among people who quote the figure correctly.",
+   "cap": "The part people misread"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A spread is not a rate",
+   "sub": "and the news reports the rate",
+   "nar": "A spread is not a rate. When a figure is reported each quarter, that figure is already the base plus a spread, added together before anyone printed it.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "So the quarterly number moves",
+   "sub": "while the rule does not",
+   "nar": "So the quarterly number moves while the rule behind it sits perfectly still. Watching the quarterly number tells you nothing about the rule.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "And comparing quarters",
+   "sub": "compares bases, not fairness",
+   "nar": "Comparing one quarter's published percentage to another's compares two bases. It does not tell you anything about who the code treats how.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "The comparison that works",
+   "sub": "same quarter, two categories",
+   "nar": "The comparison that works is within one quarter, across two categories. That holds the base still and lets the spread show.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Do that once",
+   "sub": "and the structure appears",
+   "nar": "Do that one comparison once, with any quarter's published table, and the structure appears immediately. You do not need history for it.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "And it will keep appearing",
+   "sub": "because the spreads are in the code",
+   "nar": "And it will keep appearing next quarter and the one after, because the spreads are in the code and the code is not reprinted quarterly.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "What this does not mean",
+   "sub": "and I am going to be exact",
+   "nar": "Now the limits of what I just showed you, and I am going to be exact about them, because this is precisely where a video like this one usually overreaches and turns a reading into an accusation.",
+   "cap": "What this does not mean"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Not a claim of illegality",
+   "sub": "the code says what it says",
+   "nar": "First: nothing here says that anything is illegal. The code sets these numbers openly and publishes them, and I am reading them out loud, not accusing anyone of anything.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Not a claim about intent",
+   "sub": "I do not know why",
+   "nar": "Second: I am not telling you why the spreads differ. Legislative reasons exist in the record and they are not in this video.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Not unfair by arithmetic",
+   "sub": "a difference is not a verdict",
+   "nar": "Third: a difference is not automatically unfair. Showing that two numbers differ is not the same thing as showing that one of them is wrong, and the step between those two claims is the whole argument.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "And not tax advice",
+   "sub": "this is an arithmetic lesson",
+   "nar": "Fourth: this is not tax advice. Nothing here tells you to pay late, pay early, or expect anything in particular from your own filing.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "What it is",
+   "sub": "a reading of one section",
+   "nar": "What it is, is a reading of one numbered section and a multiplication you can do on your own balance. That is the whole scope.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "And why that is enough",
+   "sub": "because the number becomes yours",
+   "nar": "And that scope is enough, because at the end the number in your hand is yours. You did not take it from a headline.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "What I left out on purpose",
+   "sub": "and this is the part usually skipped",
+   "nar": "Now the part that usually gets skipped entirely. There are things that are deliberately missing from this video, and I am going to name each one and say why it is not here.",
+   "cap": "What I left out on purpose"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "No quarterly percentage",
+   "sub": "not one",
+   "nar": "First: I did not say a single quarterly percentage out loud. The agency publishes them, they are correct, and they are replaced every three months by a new set that is equally correct.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Why that matters",
+   "sub": "a cited rate ages badly",
+   "nar": "A video that recites this quarter's percentage is wrong three months later and stays online anyway. The spreads do not have that problem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "No dollar thresholds beyond one",
+   "sub": "and that one is in the statute",
+   "nar": "Second: the only dollar figure I used is the ten thousand dollar threshold, and that one is written in the statute itself, not in a quarterly notice.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "No state interest",
+   "sub": "this is federal only",
+   "nar": "Third: none of this covers state tax interest. States set their own, and they are not what this section governs.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "No penalty rates",
+   "sub": "interest and penalties are different",
+   "nar": "Fourth: interest is not the same thing as penalties. They are computed separately under different sections, and this video is only about the interest side of it.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "And nothing about your case",
+   "sub": "I have not seen your account",
+   "nar": "And fifth: nothing here evaluates your situation. I have not seen your account and I cannot tell you what your dates are.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Four steps",
+   "sub": "start to finish",
+   "nar": "Here is the whole check in four steps, so you can do it after this ends.",
+   "broll_q": "hand writing on paper",
+   "broll_url": "https://videos.pexels.com/video-files/7428839/7428839-hd_1366_720_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 7428839,
+    "autor": "cottonbro studio",
+    "url": "https://www.pexels.com/video/person-writing-on-a-paper-7428839/"
+   },
+   "cap": "Four steps"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Step one",
+   "sub": "write the amount and the two dates",
+   "nar": "Step one: write down the amount, the date it was due, and the date it actually moved. Three items, on paper.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Step two",
+   "sub": "count the days between them",
+   "nar": "Step two: count the days between those two dates. Count them, do not estimate them in months, because months are not equal.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Step three",
+   "sub": "look up your quarter on the agency page",
+   "nar": "Step three: open the agency's quarterly interest page and find the category and quarter that match you. Read the percentage from there.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Step four",
+   "sub": "multiply and write it down",
+   "nar": "Step four: multiply amount, by rate, by days over three hundred sixty five. Write the result next to the amount, on the same line.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Then the comparison",
+   "sub": "same quarter, other category",
+   "nar": "Then do one comparison: in that same quarter's table, read the category that is not yours. The gap between them is the spread you just learned about.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Repeat it next year",
+   "sub": "and the line becomes a record",
+   "nar": "Repeat this next year on the same sheet. Two lines tell you more than one, because the base will have moved and the spread will not have.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "And one note",
+   "sub": "if you have no dates, that is step zero",
+   "nar": "One last note: if you cannot find the dates, that is not a dead end. That is your actual first step, and it comes before any arithmetic.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Comment the spread, not your balance",
+   "sub": "two points, not two dollars",
+   "nar": "In the comments, post only the gap in percentage points between two categories in one quarter. Do not post your balance or your dates.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "One rate, five answers",
+   "sub": "and the spread is in the code",
+   "nar": "Federal tax interest is one base rate plus a fixed spread. The spread is not the same for everyone.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "One",
+   "sub": "owed to you: three points",
+   "nar": "One: if the government holds your overpayment, the code adds three percentage points.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Two",
+   "sub": "a corporation: two points",
+   "nar": "Two: for a corporation's overpayment it adds two, and above ten thousand dollars, half of one.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Three",
+   "sub": "owing: three, or five",
+   "nar": "Three: if you owe, it adds three for everyone, but five for a large corporate underpayment.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Now yours",
+   "sub": "amount, days, rate",
+   "nar": "Take your amount, your days, and this quarter's rate from the agency page. Multiply. That is your number.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# next-level-money-010\n\n## TITULO\nIRS Code 6621: You Get 3 Points Both Ways, a Corporation Does Not\n\n## TITULO SHORT\nIRS 6621: 3 points both ways\n\n## DESCRICAO\nFederal tax interest is not one number. Underneath it there is a single base —\nthe federal short-term rate, determined monthly — and on top of that base the\nInternal Revenue Code adds a fixed number of percentage points. That number of\npoints is the whole story, and it is not the same for everyone.\n\nSection 6621 of Title 26 sets four different spreads. If the government is\nholding an overpayment of yours, the rate is the base plus three percentage\npoints — \"2 percentage points in the case of a corporation\", in the statute's\nown words. For the part of a corporate overpayment above ten thousand dollars,\nthe code substitutes half of one percentage point. In the other direction, if\nyou owe, the rate is the base plus three percentage points for everyone — except\nfor what the code calls a large corporate underpayment, where five percentage\npoints replaces three.\n\nLine those up and the asymmetry is visible: an individual is charged and paid at\nthe same spread, and a corporation is not.\n\nThis video does not quote a single quarterly percentage, and that is\ndeliberate. The published percentages are correct and they change every three\nmonths, so a video that recites them is wrong by the next quarter and stays\nonline anyway. The spreads do not have that problem, because they are in the\ncode and the code is not reprinted quarterly. What you are shown instead is\nwhere to read your own quarter's rate, and how to use it.\n\nThe number that decides is yours: your amount, your days. Take what you\noverpaid and have not been refunded, or what you owe and have not paid, count\nthe days it has been sitting on the other side, read the rate for your quarter\nand category from the agency's own page, and multiply amount by rate by days\nover three hundred sixty five. The real computation compounds daily, so expect\nthe official figure to come out slightly above your simple one — and if yours\nis far off, check your day count before you suspect the rate.\n\nWhat this video does not say: it does not claim anything here is illegal, it\ndoes not explain why the spreads differ, it does not call the difference unfair,\nand it is not tax advice. It also leaves out state tax interest and penalties,\nwhich are governed separately.\n\nSources, and they agree: 26 U.S.C. 6621 as published by the U.S. Government\nPublishing Office, and the Internal Revenue Service's own quarterly interest\nrates page, which states that different rates apply to underpayments and\noverpayments depending on whether you are an individual or a corporation.\n\nChapters:\n00:00 One rate, five answers\n01:07 What the code actually says\n02:14 Now calculate yours\n03:21 Why it compounds daily\n04:28 The part people misread\n05:35 What this does not mean\n06:42 What I left out on purpose\n07:49 Four steps\n\nIn the comments, post only the gap in percentage points between two categories\nin one quarter — not your balance and not your dates.\n\n## DISCLOSURE\nThe narration and visuals in this video were produced with artificial\nintelligence. The rules described are quoted from the statute and from the\nadministering agency, both linked above.\n\n## HASHTAGS\n#TaxInterest #IRS #PersonalFinance\n\n## TAGS\nirs interest rate, section 6621, federal short term rate, overpayment interest, underpayment interest, large corporate underpayment, how irs interest is calculated, tax refund interest, quarterly interest rates irs, title 26 section 6621, irs interest formula, daily compounding interest tax, corporate overpayment rate, tax interest explained, calculate irs interest\n\n## COMENTARIO FIXADO\nFour steps: write the amount and the two dates → count the days between them →\nread your quarter and category on the agency's quarterly interest page →\nmultiply amount by rate by days over three hundred sixty five. Then read the\ncategory that is not yours in that same quarter: the gap is the spread. Post\nonly that gap, not your balance.\n"
+}
