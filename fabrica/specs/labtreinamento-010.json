@@ -1,0 +1,547 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-010",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#22333B",
+  "c1": "#A4243B",
+  "c2": "#D8973C",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Três datas",
+  "l2": "um dia útil"
+ },
+ "longo": [
+  {
+   "layout": "broll",
+   "kicker": "Um dia útil",
+   "sub": "e o prazo já começou",
+   "nar": "O prazo para comunicar um acidente do trabalho é de um dia útil. Curto, conhecido, e quase sempre contado a partir da data errada.",
+   "broll_q": "three workers in industrial safety suits",
+   "broll_url": "https://videos.pexels.com/video-files/5055607/5055607-hd_1280_720_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 5055607,
+    "autor": "ArtHouse Studio",
+    "url": "https://www.pexels.com/video/three-workers-in-industrial-suit-5055607/"
+   },
+   "cap": "Um dia útil, contado a partir de qual data"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Onde está escrito",
+   "sub": "artigo vinte e dois",
+   "nar": "Está no artigo vinte e dois da lei que organiza os benefícios da Previdência Social, com a redação dada por uma lei complementar de dois mil e quinze.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O texto",
+   "sub": "até o primeiro dia útil",
+   "nar": "A empresa, ou o empregador doméstico, deverá comunicar o acidente do trabalho à Previdência Social até o primeiro dia útil seguinte ao da ocorrência.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E tem pena",
+   "sub": "multa que cresce",
+   "nar": "E não é recomendação: o próprio artigo prevê multa, variável entre o limite mínimo e o limite máximo do salário de contribuição, aumentada nas reincidências.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O problema real",
+   "sub": "não é o tamanho do prazo",
+   "nar": "Mas o problema que aparece na prática não é o tamanho do prazo. É saber qual é a data da ocorrência quando não houve um acidente com hora marcada.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Porque doença",
+   "sub": "não tem hora",
+   "nar": "Num acidente típico a data é óbvia. Numa doença ocupacional não existe um instante único, e aí a lei precisou escolher uma data — e escolheu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que vem agora",
+   "sub": "três datas",
+   "nar": "Este vídeo não cita nenhuma alíquota, nenhum valor de multa e nenhum piso. Cita três datas candidatas, e a regra que diz qual delas vale.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dia útil é dia útil",
+   "sub": "não é vinte e quatro horas",
+   "nar": "E antes de contar, uma precisão do texto: ele diz primeiro dia útil seguinte, não vinte e quatro horas. Fim de semana e feriado não são dia útil, e isso muda a conta num acidente de sábado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "A resposta",
+   "sub": "está no artigo vinte e três",
+   "nar": "A resposta está no artigo vinte e três, e ela vale para doença profissional ou do trabalho. Ele define o que se considera como dia do acidente.",
+   "broll_q": "close up of a person filling out a form",
+   "broll_url": "https://videos.pexels.com/video-files/8060739/8060739-hd_1280_720_50fps.mp4",
+   "broll_credito": {
+    "pexels_id": 8060739,
+    "autor": "Pavel Danilyuk",
+    "url": "https://www.pexels.com/video/close-up-footage-of-a-person-filling-up-the-form-8060739/"
+   },
+   "cap": "Qual data começa o prazo: as três candidatas"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Primeira candidata",
+   "sub": "início da incapacidade",
+   "nar": "A primeira candidata é a data do início da incapacidade laborativa para o exercício da atividade habitual. Não é o dia do desconforto; é o da incapacidade.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Segunda candidata",
+   "sub": "segregação compulsória",
+   "nar": "A segunda é o dia da segregação compulsória, que é o afastamento imposto, por exemplo por determinação sanitária.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Terceira candidata",
+   "sub": "o diagnóstico",
+   "nar": "A terceira é o dia em que for realizado o diagnóstico. Aqui conta o documento: a data que o laudo ou o atestado carrega.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E a regra",
+   "sub": "o que ocorrer primeiro",
+   "nar": "E a regra que decide está na última frase do artigo: vale para este efeito o que ocorrer primeiro. A mais antiga das três, não a mais conveniente.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A conta",
+   "sub": "três datas e um dia útil",
+   "nar": "Então a conta é esta: escreva as três datas, circule a mais antiga, e conte um dia útil a partir dela. Pronto, você tem o seu prazo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Nenhum número meu",
+   "sub": "tudo do seu registro",
+   "nar": "Nenhuma dessas datas vem de mim. Todas estão no registro de ocorrência, no atestado e no prontuário que a sua empresa já tem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E no acidente comum",
+   "sub": "a data é a do fato",
+   "nar": "Vale dizer o limite disto: o artigo vinte e três fala de doença profissional ou do trabalho. No acidente típico a data da ocorrência é a do próprio fato, e não há três candidatas para escolher.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Uma exceção",
+   "sub": "e ela é dura",
+   "nar": "O mesmo artigo vinte e dois traz uma exceção ao prazo de um dia útil, e ela é a mais dura do dispositivo.",
+   "cap": "Em caso de morte não é um dia útil"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Em caso de morte",
+   "sub": "de imediato",
+   "nar": "Em caso de morte, a comunicação é de imediato, e à autoridade competente. Não há dia útil seguinte, não há expediente, não há segunda-feira.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Por que isso importa",
+   "sub": "o plantão",
+   "nar": "Isso importa porque muda o desenho do procedimento interno: quem está de plantão num sábado precisa saber que esse caso não espera o escritório abrir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Duas vias diferentes",
+   "sub": "não é a mesma coisa",
+   "nar": "E note que são duas obrigações com destinos diferentes no texto: a comunicação à Previdência Social, e a comunicação imediata à autoridade competente.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Confundir custa",
+   "sub": "e custa caro",
+   "nar": "Quem trata os dois casos com o mesmo fluxo tende a cumprir o prazo do mais frequente e perder o do mais grave, que é exatamente o inverso do que a lei pede.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Um teste simples",
+   "sub": "no seu procedimento",
+   "nar": "Abra o seu procedimento de resposta a acidentes e procure a palavra morte. Se ela não aparecer com um fluxo próprio, o procedimento está incompleto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E o prazo do resto",
+   "sub": "continua",
+   "nar": "Para todos os outros casos o prazo segue sendo até o primeiro dia útil seguinte ao da ocorrência, com a data definida como vimos no capítulo dois.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Quem é a autoridade competente",
+   "sub": "o texto não diz",
+   "nar": "E repare que o texto diz autoridade competente sem nomeá-la. Quem define isso é a norma de cada situação, então esse é um ponto para o seu procedimento resolver antes do acidente, não durante.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E se a empresa não comunicar",
+   "sub": "parágrafo segundo",
+   "nar": "Agora a parte que muita gente não sabe que existe, e está no parágrafo segundo do artigo vinte e dois.",
+   "cap": "Quem mais pode emitir, e para eles o prazo não vale"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Cinco podem formalizar",
+   "sub": "na falta da empresa",
+   "nar": "Na falta de comunicação por parte da empresa, podem formalizá-la o próprio acidentado, seus dependentes, a entidade sindical competente, o médico que o assistiu, ou qualquer autoridade pública.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E aqui está o detalhe",
+   "sub": "o prazo não prevalece",
+   "nar": "E o texto termina com uma frase que muda o jogo: não prevalecendo nestes casos o prazo previsto neste artigo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que isso significa",
+   "sub": "não há decadência para eles",
+   "nar": "Ou seja, quando quem comunica é o trabalhador, o sindicato ou o médico, aquele prazo de um dia útil simplesmente não se aplica a eles.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Mas atenção",
+   "sub": "parágrafo terceiro",
+   "nar": "O parágrafo terceiro fecha a porta do outro lado: essa comunicação não exime a empresa da responsabilidade pela falta de cumprimento do artigo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Traduzindo",
+   "sub": "não é substituto",
+   "nar": "Traduzindo: o trabalhador emitir a comunicação não conserta o descumprimento da empresa. Resolve o registro, não a infração.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E tem fiscalização",
+   "sub": "parágrafo quarto",
+   "nar": "E o parágrafo quarto diz que sindicatos e entidades representativas de classe poderão acompanhar a cobrança das multas pela Previdência Social.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Por que isso é útil",
+   "sub": "para os dois lados",
+   "nar": "Esse parágrafo é útil para os dois lados: para o trabalhador, porque abre um caminho quando a empresa não emite; e para a empresa, porque mostra que o registro aparecer por outra via não encerra o assunto dela.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A cópia fiel",
+   "sub": "parágrafo primeiro",
+   "nar": "Falta uma obrigação que quase nunca é cumprida, e ela está no parágrafo primeiro do mesmo artigo.",
+   "cap": "A cópia fiel que vai para você e para o sindicato"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Quem recebe",
+   "sub": "duas partes",
+   "nar": "Da comunicação receberão cópia fiel o acidentado, ou seus dependentes, e também o sindicato a que corresponda a sua categoria.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Cópia fiel",
+   "sub": "não é resumo",
+   "nar": "A expressão do texto é cópia fiel. Não é aviso, não é resumo e não é confirmação de protocolo: é a mesma comunicação, inteira.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Por que o sindicato",
+   "sub": "e por que importa",
+   "nar": "O sindicato entra no texto junto com o trabalhador, e isso se conecta com o parágrafo quarto: ele pode acompanhar a cobrança das multas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O teste do arquivo",
+   "sub": "procure a segunda via",
+   "nar": "Então um teste rápido no seu arquivo: para a última comunicação emitida, existe registro de entrega da cópia ao trabalhador e ao sindicato?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Se não existe",
+   "sub": "é obrigação aberta",
+   "nar": "Se não existe, não é uma formalidade esquecida: é uma obrigação do próprio artigo que ficou aberta, e ela é fácil de fechar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E para o trabalhador",
+   "sub": "é o seu direito",
+   "nar": "E se você é o trabalhador: essa cópia é sua por previsão do parágrafo primeiro. Pedi-la não é favor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Está no mesmo artigo",
+   "sub": "do prazo",
+   "nar": "Vale notar onde essa obrigação mora: no mesmo artigo vinte e dois que fixa o prazo. Não é norma de outro lugar, é o parágrafo imediatamente seguinte ao caput que todo mundo cita.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Um detalhe de arquivo",
+   "sub": "comprove a entrega",
+   "nar": "E como é obrigação de entregar, o que fecha o item no seu arquivo não é a cópia guardada: é o comprovante de que ela foi entregue a quem o parágrafo nomeia.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Sem comunicação",
+   "sub": "e ainda assim acidentário",
+   "nar": "Existe um caminho em que a natureza acidentária é reconhecida mesmo sem comunicação nenhuma, e ele está no artigo vinte e um A.",
+   "broll_q": "a doctor writing on a medical report",
+   "broll_url": "https://videos.pexels.com/video-files/8375617/8375617-hd_1366_720_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 8375617,
+    "autor": "Tima Miroshnichenko",
+    "url": "https://www.pexels.com/video/a-doctor-writing-on-a-paper-8375617/"
+   },
+   "cap": "Quando o INSS caracteriza sem comunicação"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Quem caracteriza",
+   "sub": "a perícia do INSS",
+   "nar": "A perícia médica do Instituto Nacional do Seguro Social considerará caracterizada a natureza acidentária da incapacidade em uma hipótese específica.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A hipótese",
+   "sub": "nexo técnico epidemiológico",
+   "nar": "Quando constatar a ocorrência de nexo técnico epidemiológico entre o trabalho e o agravo. É o nome técnico de uma ligação estatística reconhecida.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "De onde sai o nexo",
+   "sub": "duas listas cruzadas",
+   "nar": "Esse nexo decorre da relação entre a atividade da empresa e a entidade mórbida motivadora da incapacidade, elencada na Classificação Internacional de Doenças.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Pode ser afastado",
+   "sub": "parágrafo primeiro",
+   "nar": "E o parágrafo primeiro prevê o contrário: a perícia deixará de aplicar o artigo quando demonstrada a inexistência do nexo. Não é automático nos dois sentidos.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A ligação com a multa",
+   "sub": "parágrafo quinto",
+   "nar": "Aqui entra o parágrafo quinto do artigo vinte e dois: a multa não se aplica na hipótese do caput do artigo vinte e um A.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que isso ensina",
+   "sub": "duas coisas distintas",
+   "nar": "Ou seja, reconhecimento do caráter acidentário e multa por não comunicar são coisas distintas, e uma pode existir sem a outra.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "De quando é esse artigo",
+   "sub": "não é antigo",
+   "nar": "Esse dispositivo não vem da redação original da lei: ele foi incluído depois, por uma lei posterior, justamente para dar à perícia esse caminho.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E foi ajustado",
+   "sub": "quando mudou o doméstico",
+   "nar": "Mais tarde a redação foi ajustada de novo, e foi nessa revisão que o empregador doméstico passou a aparecer no texto, ao lado da empresa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E o que é acidente",
+   "sub": "artigo dezenove",
+   "nar": "Para fechar, vale ler o que a lei chama de acidente do trabalho, porque a definição é mais larga do que a imagem que vem à cabeça.",
+   "cap": "O que a lei chama de acidente do trabalho"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A definição",
+   "sub": "duas consequências",
+   "nar": "É o que ocorre pelo exercício do trabalho a serviço de empresa ou de empregador doméstico, provocando lesão corporal ou perturbação funcional.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E o efeito exigido",
+   "sub": "três possibilidades",
+   "nar": "Com um efeito: que cause a morte, ou a perda, ou a redução — permanente ou temporária — da capacidade para o trabalho.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Perturbação funcional",
+   "sub": "não precisa de sangue",
+   "nar": "Note perturbação funcional e redução temporária. Não é preciso lesão visível nem incapacidade definitiva para caber na definição.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Parágrafo primeiro",
+   "sub": "a responsabilidade",
+   "nar": "O parágrafo primeiro diz que a empresa é responsável pela adoção e uso das medidas coletivas e individuais de proteção e segurança da saúde do trabalhador.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Parágrafo segundo",
+   "sub": "contravenção penal",
+   "nar": "O parágrafo segundo vai além da multa: constitui contravenção penal, punível com multa, deixar a empresa de cumprir as normas de segurança e higiene do trabalho.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Parágrafo terceiro",
+   "sub": "informar os riscos",
+   "nar": "E o terceiro cria um dever de informação: é dever da empresa prestar informações pormenorizadas sobre os riscos da operação a executar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E não é só empregado",
+   "sub": "o texto é mais largo",
+   "nar": "O artigo também alcança o exercício do trabalho dos segurados de uma categoria específica que ele cita por remissão, além do trabalho a serviço de empresa ou de empregador doméstico.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Hoje",
+   "sub": "quinze minutos",
+   "nar": "Fechando com a coisa a fazer, que leva quinze minutos e usa só papel que você já tem.",
+   "broll_q": "a calendar hanging on a wall",
+   "broll_url": "https://videos.pexels.com/video-files/4378032/4378032-hd_1280_720_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 4378032,
+    "autor": "Ketut Subiyanto",
+    "url": "https://www.pexels.com/video/calendar-hanged-on-a-wall-4378032/"
+   },
+   "cap": "Hoje: três datas e um dia útil"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Primeiro",
+   "sub": "pegue o último caso",
+   "nar": "Pegue o último caso de doença ocupacional registrado na sua empresa, ou o seu próprio, se você é o trabalhador.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Segundo",
+   "sub": "escreva as três datas",
+   "nar": "Escreva as três datas: início da incapacidade, segregação compulsória se houve, e a data do diagnóstico no laudo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Terceiro",
+   "sub": "circule a mais antiga",
+   "nar": "Circule a mais antiga das três. Essa é a data da ocorrência para efeito deste prazo, porque a lei manda valer o que ocorrer primeiro.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Quarto",
+   "sub": "conte um dia útil",
+   "nar": "Conte um dia útil a partir dela e compare com a data em que a comunicação foi efetivamente emitida. Agora você sabe se o prazo foi cumprido.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E o que não concluir",
+   "sub": "a ressalva",
+   "nar": "O que não concluir: isto não é consultoria jurídica, não avalia o seu caso e não decide se houve nexo. Caso concreto é trabalho de profissional.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E se o prazo passou",
+   "sub": "não é motivo para não emitir",
+   "nar": "E se a conta mostrar que o prazo passou, isso não é motivo para não emitir. O parágrafo terceiro trata do descumprimento como coisa própria, separada de existir ou não o registro.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Nos comentários",
+   "sub": "só um número",
+   "nar": "Nos comentários escreva só quantos dias de diferença deu na sua conta. Sem nome de empresa, sem CID e sem dado de ninguém.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Um dia útil",
+   "sub": "mas a partir de quando",
+   "nar": "O prazo para comunicar acidente do trabalho é de um dia útil. O problema é a data em que ele começa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Em doença ocupacional",
+   "sub": "são três datas",
+   "nar": "Em doença do trabalho a lei dá três datas: início da incapacidade, segregação compulsória e diagnóstico.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A regra",
+   "sub": "o que ocorrer primeiro",
+   "nar": "E manda valer o que ocorrer primeiro. A mais antiga das três, não a mais conveniente.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A conta",
+   "sub": "do seu próprio registro",
+   "nar": "Escreva as três, circule a mais antiga e conte um dia útil. Todas saem do seu registro.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "E em caso de morte",
+   "sub": "não é um dia útil",
+   "nar": "Em caso de morte não é um dia útil: é de imediato. Essa e outras quatro regras estão no vídeo.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# CAT: o prazo é de um dia útil, mas a data que o inicia são três — e vale a mais antiga\n\n## TITULO\nCAT em Doença Ocupacional: São Três Datas Candidatas e Vale a Mais Antiga — Conte o Seu Prazo\n\n## TITULO SHORT\nCAT: três datas, qual inicia o prazo?\n\n## DESCRICAO\nO prazo para comunicar um acidente do trabalho à Previdência Social é de um dia útil. Isso quase todo mundo sabe. O que derruba a contagem na prática não é o tamanho do prazo: é saber qual é a data da ocorrência quando não houve um acidente com hora marcada, e sim uma doença ocupacional.\n\nO artigo 23 da Lei 8.213/1991 resolve isso e é pouco lido. Ele diz que se considera como dia do acidente, no caso de doença profissional ou do trabalho, a data do início da incapacidade laborativa para o exercício da atividade habitual, ou o dia da segregação compulsória, ou o dia em que for realizado o diagnóstico — e encerra com a frase que decide tudo: valendo para este efeito o que ocorrer primeiro. São três datas candidatas e vale a mais antiga, não a mais conveniente. A conta deste vídeo é essa: escreva as três, circule a mais antiga, conte um dia útil a partir dela e compare com a data em que a comunicação foi emitida. As três datas saem do registro de ocorrência, do atestado e do laudo que você já tem.\n\nDepois da resposta o vídeo percorre cinco regras do artigo 22 e dos artigos vizinhos. O caput: a empresa ou o empregador doméstico deverão comunicar até o primeiro dia útil seguinte ao da ocorrência e, em caso de morte, de imediato à autoridade competente, sob pena de multa variável entre o limite mínimo e o máximo do salário de contribuição, aumentada nas reincidências. O § 2º: na falta de comunicação da empresa podem formalizá-la o próprio acidentado, seus dependentes, a entidade sindical competente, o médico que o assistiu ou qualquer autoridade pública — não prevalecendo nestes casos o prazo do artigo; e o § 3º avisa que isso não exime a empresa. O § 1º: da comunicação receberão cópia fiel o acidentado ou seus dependentes e também o sindicato da categoria. O artigo 21-A: a perícia médica do INSS considerará caracterizada a natureza acidentária quando constatar nexo técnico epidemiológico entre o trabalho e o agravo, pela relação entre a atividade da empresa e a entidade mórbida elencada na CID — e o § 5º do artigo 22 diz que a multa não se aplica nessa hipótese. E o artigo 19, que define acidente do trabalho de forma mais larga do que a imagem comum: basta perturbação funcional que cause redução temporária da capacidade para o trabalho.\n\nUma ressalva que pesa mais que a conta: este vídeo é informativo, não é consultoria jurídica, não avalia caso concreto e não decide se há nexo entre a doença e o trabalho. Ele não cita alíquota, valor de multa nem piso de nada. Se houver divergência sobre a data, sobre o nexo ou sobre a emissão, isso é trabalho de profissional habilitado e, no caso do trabalhador, também do sindicato da categoria.\n\nCAPITULOS\n{CAPITULOS}\n\nNos comentários escreva só quantos dias de diferença deu na sua conta. Sem nome de empresa, sem CID e sem dado de pessoa nenhuma.\n\n## DISCLOSURE\nA narração e os gráficos deste vídeo são gerados por computador. O texto é original e o conteúdo é informativo, não constitui consultoria jurídica, médica ou de segurança do trabalho.\n\n## HASHTAGS\n#CAT #SegurancaDoTrabalho #LabTreinamento\n\n## TAGS\nCAT, comunicacao de acidente de trabalho, prazo da CAT, primeiro dia util, artigo 22 Lei 8213, artigo 23 Lei 8213, doenca ocupacional, doenca profissional, inicio da incapacidade, nexo tecnico epidemiologico, artigo 21-A, copia fiel sindicato, acidente do trabalho, seguranca do trabalho, SST\n\n## COMENTARIO FIXADO\nA conta inteira: em doença ocupacional o artigo 23 da Lei 8.213/1991 dá três datas candidatas para o dia do acidente — início da incapacidade laborativa, segregação compulsória e data do diagnóstico — e manda valer o que ocorrer primeiro. Escreva as três, circule a mais antiga, conte um dia útil a partir dela e compare com a data em que a comunicação foi emitida. E atenção ao caso de morte: ali não é um dia útil, é de imediato.\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nEste video NAO cita nenhuma aliquota, nenhum valor de multa, nenhum piso, nenhum teto e nenhuma estatistica de acidente. Os unicos numeros citados sao PRAZOS e ARTIGOS: o prazo de um dia util e o \"de imediato\" em caso de morte (art. 22, caput), os artigos 19, 21-A, 22 e 23 da Lei 8.213/1991, e os paragrafos 1 a 5 do art. 22. Prazo legal e numero de artigo nao sao medicoes.\n\nO NUMERO QUE DECIDE E DO ESPECTADOR: as tres datas candidatas do art. 23 saem do registro de ocorrencia, do atestado e do laudo que ele ja tem, e a operacao e escolher a mais antiga e somar um dia util.\n\nA RESSALVA DE FONTE, declarada: o prazo tem UMA fonte, o texto consolidado da Lei 8.213/1991 no planalto.gov.br. Para prazo LEGAL essa e a fonte definitiva — nao e medicao que precise de cruzamento, e a norma, publicada pela Presidencia da Republica. O gov.br/inss corrobora a VIA (o servico \"Registrar Comunicacao de Acidente de Trabalho - CAT\" existe na area de Empresas do orgao que recebe a comunicacao), nao o prazo. Nao inventei uma segunda fonte para o prazo e nao finjo que o gov.br/inss e uma.\n\nO QUE FOI DESCARTADO, e por que: (1) o valor da multa, porque o texto a define por referencia ao limite minimo e maximo do salario de contribuicao, que muda por ano e que eu nao fecharia em duas fontes nesta rodada — o video diz que existe multa e como ela e definida, sem numero; (2) o prazo de entrega de eSocial e de qualquer evento correlato, porque muda por ato normativo e nao e o assunto; (3) qualquer afirmacao sobre SE uma doenca especifica tem nexo com uma atividade especifica, porque isso depende da CID, do regulamento e da pericia — o video explica o MECANISMO do art. 21-A e diz explicitamente que o parag. 1 permite afasta-lo; (4) orientacao de como contestar indeferimento, que e trabalho de profissional habilitado.\n\n## FONTES\nLei nº 8.213, de 24 de julho de 1991 (Planos de Benefícios da Previdência Social), texto consolidado — Presidência da República, planalto.gov.br: art. 19 e §§ 1º a 3º; art. 21-A e § 1º; art. 22 caput e §§ 1º a 5º (redação do caput dada pela Lei Complementar nº 150, de 2015; § 5º incluído pela Lei nº 11.430, de 2006); art. 23.\nInstituto Nacional do Seguro Social — gov.br/inss, área de Empresas: serviço \"Registrar Comunicação de Acidente de Trabalho - CAT\" (confirma o órgão que recebe a comunicação e a via de registro).\n"
+}
