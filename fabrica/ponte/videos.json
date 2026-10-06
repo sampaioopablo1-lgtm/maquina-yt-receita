@@ -4191,12 +4191,48 @@
 "canal": "kolejny-poziom",
 "pacote": "kolejny-poziom-015",
 "formato": "longo",
-"youtube_id": null,
-"publicado_em": null,
+"youtube_id": "nPyVHJmY2HA",
+"publicado_em": "2026-10-06T08:13:48+00:00",
 "erro": null,
 "titulo": "PPK: Ile Kosztuje Cię Naprawdę Twoja Składka — i Data Ponownego Zapisu",
 "criado_em": "2026-10-05T19:34:25.880366+00:00",
-"status": "erro",
+"status": "publicado",
 "slug": "kolejny-poziom-015"
+},
+{
+"canal": "nivel-do-jogo",
+"pacote": "nivel-do-jogo-010",
+"formato": "longo",
+"youtube_id": "PwKylKITzEE",
+"publicado_em": "2026-10-06T08:13:38+00:00",
+"erro": null,
+"titulo": "Passe de Temporada: Quanto Você Já Gastou Este Ano — A Conta Está no Seu Histórico",
+"criado_em": "2026-10-06T08:13:38+00:00",
+"status": "publicado",
+"slug": "nivel-do-jogo-010"
+},
+{
+"canal": "nivel-do-jogo",
+"pacote": "nivel-do-jogo-010",
+"formato": "shorts",
+"youtube_id": "6jaw1eo1hUM",
+"publicado_em": "2026-10-06T08:13:38+00:00",
+"erro": null,
+"titulo": "Quanto saiu em moeda de jogo este ano?",
+"criado_em": "2026-10-06T08:13:38+00:00",
+"status": "publicado",
+"slug": "nivel-do-jogo-010-short"
+},
+{
+"canal": "kolejny-poziom",
+"pacote": "kolejny-poziom-015",
+"formato": "shorts",
+"youtube_id": "u-vIsXaKjcM",
+"publicado_em": "2026-10-06T08:13:48+00:00",
+"erro": null,
+"titulo": "Twoja składka PPK: ile to realnie?",
+"criado_em": "2026-10-06T08:13:48+00:00",
+"status": "publicado",
+"slug": "kolejny-poziom-015-short"
 }
 ]
