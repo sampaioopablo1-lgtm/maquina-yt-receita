@@ -1,0 +1,484 @@
+{
+ "slug": "game-money-lab",
+ "pacote": "game-money-lab-010",
+ "idioma": "en",
+ "voz": "en-GB-RyanNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1A2430",
+  "c1": "#A63D2F",
+  "c2": "#1E6F6A",
+  "bg": "#F4F2ED"
+ },
+ "thumb": {
+  "l1": "One division",
+  "l2": "two causes"
+ },
+ "longo": [
+  {
+   "layout": "broll",
+   "kicker": "Part of the price never reaches the game",
+   "sub": "and the rule says where it goes",
+   "nar": "A part of what you paid for your last game never reached the studio and never reached the store. And the rule that decides that part is about you.",
+   "broll_q": "person playing on a game console",
+   "broll_url": "https://videos.pexels.com/video-files/7985919/7985919-hd_1920_1080_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 7985919,
+    "autor": "Mikhail Nilov",
+    "url": "https://www.pexels.com/video/man-playing-game-console-7985919/"
+   },
+   "cap": "Part of the price never reaches the game"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Not about the studio",
+   "sub": "about where you are",
+   "nar": "It is not about where the studio is, and not about where the company is registered. The rule turns on where the person buying the thing is.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "That rule has a name",
+   "sub": "place of supply",
+   "nar": "That rule has a name: place of supply. It decides, for tax purposes, in which country a transaction is treated as having happened.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "And it is written down",
+   "sub": "in one short paragraph",
+   "nar": "And it is written down in one short paragraph, which I am going to read the sense of in a moment. Short enough that you can check me.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Why this is not trivia",
+   "sub": "because it changes what you compare",
+   "nar": "This is not trivia, because it decides what you are comparing when you compare prices across two countries. Two different numbers can hold the same price.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "And one more thing",
+   "sub": "on a store, the store answers for it",
+   "nar": "There is one more piece, and it surprises people: when the sale happens through a store or marketplace, the store is the one that accounts for the tax.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "The number that is yours",
+   "sub": "your receipt",
+   "nar": "And there is a number that only you have: your own receipt, and the rate where you live. That is what we are going to divide.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "What the paragraph says",
+   "sub": "and I will name it exactly",
+   "nar": "Now the text. I am going to name the instrument exactly, so that you can open it yourself instead of taking my word for it.",
+   "cap": "What the paragraph says"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "The instrument",
+   "sub": "an act, a schedule, a paragraph",
+   "nar": "It is the United Kingdom's Value Added Tax Act of nineteen ninety four, Schedule four A, paragraph fifteen. Three coordinates, and it is findable.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "What paragraph fifteen sets",
+   "sub": "treated as made where the recipient belongs",
+   "nar": "Paragraph fifteen says that a supply to a person who is not a business is to be treated as made in the country in which the recipient belongs.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "And what it applies to",
+   "sub": "electronically supplied services",
+   "nar": "And the next part lists what it applies to. The first item on that list is electronically supplied services, which is what a downloaded game is.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Read those two together",
+   "sub": "and the whole thing follows",
+   "nar": "Read those two sentences together and the whole thing follows: for a digital purchase by a private person, the country that counts is yours.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "The agency says the same",
+   "sub": "in plainer words",
+   "nar": "The tax authority's own guidance says the same in plainer words: supplies to consumers in the country are liable to that country's tax.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "And supplies outside it",
+   "sub": "are not",
+   "nar": "And it adds the mirror: supplies to consumers outside the country are not liable to it, and may be liable where that consumer is based instead.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Now divide your own receipt",
+   "sub": "three inputs, one division",
+   "nar": "Now your turn. You need three things, and two of them you already have.",
+   "broll_q": "paying online with a card and laptop",
+   "broll_url": "https://videos.pexels.com/video-files/8937990/8937990-hd_1920_1080_30fps.mp4",
+   "broll_credito": {
+    "pexels_id": 8937990,
+    "autor": "Leeloo The First",
+    "url": "https://www.pexels.com/video/person-holding-a-card-while-using-a-laptop-8937990/"
+   },
+   "cap": "Now divide your own receipt"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Input one",
+   "sub": "what you actually paid",
+   "nar": "The first is the amount you actually paid for the last game you bought. The total, as it appeared on the receipt, not the shelf number.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Input two",
+   "sub": "the rate where you live",
+   "nar": "The second is the rate that applies where you live. Look that up on your own country's tax authority page, because I am not going to say a number here.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Input three",
+   "sub": "whether the price included it",
+   "nar": "The third is whether the price you saw already included the tax. For consumers that is usually the case, and the receipt normally says so.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "The division",
+   "sub": "paid, divided by one plus the rate",
+   "nar": "If it was included, divide what you paid by one plus the rate written as a decimal. The result is the part that was the price before tax.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Subtract to see the rest",
+   "sub": "and that is your number",
+   "nar": "Subtract that result from what you paid. What is left is the tax you paid, and that part never reached the game. That is your number.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Write both on one line",
+   "sub": "paid, and of which tax",
+   "nar": "Write both figures on one line: what you paid, and of that, how much was tax. The rest of this is only so you do not misread it.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Why the store, not the studio",
+   "sub": "and this is in the guidance",
+   "nar": "First refinement, and it is written in the guidance: when the sale goes through a third party store or marketplace, the store accounts for the tax.",
+   "broll_q": "browsing an online store",
+   "broll_url": "https://videos.pexels.com/video-files/7568745/7568745-hd_1920_1080_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 7568745,
+    "autor": "Ivan S",
+    "url": "https://www.pexels.com/video/person-browsing-on-online-store-7568745/"
+   },
+   "cap": "Why the store, not the studio"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "What that means in practice",
+   "sub": "the developer is not the one filing",
+   "nar": "In practice that means the developer is not the one filing that tax for your purchase. The platform is, and it does it for every country it sells into.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "So the storefront carries it",
+   "sub": "and that is why prices differ",
+   "nar": "That is part of why the same game shows different numbers in different stores and countries. The tax is attached to your location, not to the game.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "It is not a markup",
+   "sub": "and not the studio's choice",
+   "nar": "So a higher number in your country is not automatically a markup by the studio. Part of it may be a rate that neither the studio nor you chose.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "And not always",
+   "sub": "regional pricing exists too",
+   "nar": "But be careful with the reverse claim as well: stores also set regional prices deliberately. Tax explains part of the gap, not all of it.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Which is why you divide",
+   "sub": "to separate the two",
+   "nar": "That is exactly why the division matters. It separates the part that is tax from the part that is a pricing decision, instead of guessing which is which.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "One number, two causes",
+   "sub": "and now you can tell them apart",
+   "nar": "The number on the page has at least two causes, and until you divide, they look like one. After you divide, they do not.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "What people get wrong",
+   "sub": "and almost none of it is carelessness",
+   "nar": "Now the part that gets read wrong most, and almost none of it is carelessness. There are good reasons the picture is confusing.",
+   "cap": "What people get wrong"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "First reason",
+   "sub": "the shelf price hides it",
+   "nar": "First: for consumers the displayed price usually already contains the tax, so there is nothing on the page that looks like a tax line at all. Nothing is being hidden from you — it is simply shown as one number.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Second reason",
+   "sub": "the currency moves too",
+   "nar": "Second: when you compare two countries you are also comparing two currencies, and the exchange rate moves independently of any rule.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Third reason",
+   "sub": "the rate is not one rate",
+   "nar": "Third: a country can apply more than one rate, and which of them applies to a digital good is a question about that country's own list of categories, which is published separately from the rule itself.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Fourth reason",
+   "sub": "the seller may not be where you think",
+   "nar": "Fourth: the legal seller of a digital game is often the platform, not the studio whose logo is on the box art.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Fifth reason",
+   "sub": "sales change the base",
+   "nar": "Fifth: a discount changes the base the tax is computed on, so the tax amount falls with the price. The share stays, the amount does not.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "So before concluding",
+   "sub": "divide first, judge second",
+   "nar": "So before concluding that someone is overcharging you, do the division. The order matters: divide first, judge second.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "What this does not mean",
+   "sub": "and I will be exact",
+   "nar": "Now the limits, and I will be exact, because this is where a video like this usually says more than its sources do.",
+   "cap": "What this does not mean"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "No judgement on the rate",
+   "sub": "high or low is not my claim",
+   "nar": "First: I am not saying the rate is high, low, fair or unfair. I read where the rule points, and that is a different question from what it should be.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "No claim about winners",
+   "sub": "not store, not studio",
+   "nar": "Second: I am not telling you that the store wins or the studio loses. Who bears what is an economics question this video does not answer.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "No region switching",
+   "sub": "and I mean that plainly",
+   "nar": "Third: I am not telling you to change your account region to pay less. That usually breaks the store's own terms, and this video does not go there.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "One jurisdiction read",
+   "sub": "and I will say which",
+   "nar": "Fourth, and this is the real limit: I read one country's text, and I named it. I am not asserting the wording of any other country's law.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Why I say that out loud",
+   "sub": "because I could not open the others",
+   "nar": "I say it out loud because I tried to open two other official sources for this and could not. So I am telling you what I verified, and nothing beyond it.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "What you get instead",
+   "sub": "the question to ask at home",
+   "nar": "What you get instead is the exact question to ask about your own country, and the division to run once you have the answer.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "What I left out on purpose",
+   "sub": "and this part is usually skipped",
+   "nar": "Now the part that is usually skipped entirely. Things are missing from this video on purpose, and I will name each one.",
+   "cap": "What I left out on purpose"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "No rates",
+   "sub": "not one percentage",
+   "nar": "First: no rates. Not a single percentage, because rates differ by country and get changed, and a recited rate is wrong soon and stays online.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "No country comparison table",
+   "sub": "that is a snapshot, not a rule",
+   "nar": "Second: no table comparing countries. Any such table is a snapshot of a day, and this video is about the rule that outlives the snapshot.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "No business rules",
+   "sub": "this is the consumer side",
+   "nar": "Third: nothing about business to business supplies. The paragraph I read is specifically about a person who is not a business, and that is you here.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "No other taxes",
+   "sub": "import, customs, or anything else",
+   "nar": "Fourth: no import duty, no customs, no other charge. One tax, one rule, one division — widening it would mean sources I do not have.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "And nothing about your account",
+   "sub": "I cannot see your receipt",
+   "nar": "Fifth: nothing about your specific purchase. I have not seen your receipt and I do not know which rate applied to it.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "The rule I follow",
+   "sub": "two sources, or it stays out",
+   "nar": "The rule I follow is simple: if it does not match in two official sources, it does not go in the video. That is why this one is narrow and checkable.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Four steps",
+   "sub": "start to finish",
+   "nar": "Here is the whole thing in four steps, so you can run it after this ends.",
+   "cap": "Four steps"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Step one",
+   "sub": "open your last receipt",
+   "nar": "Step one: open the receipt for the last digital game you bought. The email or the purchase history both work.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Step two",
+   "sub": "find your own rate",
+   "nar": "Step two: look up the rate your country applies to digital goods, on your own tax authority's page. Write it down as a decimal.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Step three",
+   "sub": "divide, then subtract",
+   "nar": "Step three: divide the amount you paid by one plus that decimal, then subtract the result from what you paid. That difference is the tax.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Step four",
+   "sub": "write both numbers down",
+   "nar": "Step four: write the amount paid and the tax amount side by side, with the date. One line per purchase, on the same sheet.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Then one comparison",
+   "sub": "the same game, another country",
+   "nar": "Then, if you want one more thing, compare that line with the listed price of the same game in another country, and see how much of the gap your division explains.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Repeat on the next sale",
+   "sub": "because the base moves",
+   "nar": "Repeat it on your next discounted purchase, because the tax amount falls with the price while the share stays the same. Two lines show that immediately.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "And one note",
+   "sub": "if there is no receipt, that is step zero",
+   "nar": "One last note: if you cannot find a receipt, that is not a dead end. Finding where your purchase history lives is your actual first step.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Post the share, not the receipt",
+   "sub": "the percentage, not your purchases",
+   "nar": "In the comments, post only the share of your price that turned out to be tax. Do not post your receipt, your account or what you bought.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Part of the price never reaches the game",
+   "sub": "and the rule is about you",
+   "nar": "Part of what you paid for your last game never reached the studio or the store. The rule that decides it is about you.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "One",
+   "sub": "taxed where you belong",
+   "nar": "One: for a private buyer, a digital supply is treated as made in the country where the recipient belongs.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Two",
+   "sub": "the store accounts for it",
+   "nar": "Two: when the sale goes through a store or marketplace, the store accounts for the tax, not the developer.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Three",
+   "sub": "divide by one plus the rate",
+   "nar": "Three: divide what you paid by one plus your rate, then subtract. The difference is the tax.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "And that part",
+   "sub": "never reached the game",
+   "nar": "That part never reached the game. Divide first, then judge whether a price gap is a markup.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# game-money-lab-010\n\n## TITULO\nThe Tax in Your Game Price Is Set Where You Live: Schedule 4A, Paragraph 15\n\n## TITULO SHORT\nSchedule 4A: taxed where you live\n\n## DESCRICAO\nA part of what you paid for your last game never reached the studio and never\nreached the store. The rule that decides that part is not about where the\ncompany is registered — it is about where you are. This video does not quote a\nsingle rate, and that is deliberate. What it gives you is the rule, the exact\nplace it is written, and one division you can run on your own receipt.\n\nThe rule has a name: place of supply. It decides, for tax purposes, in which\ncountry a transaction is treated as having happened. In the United Kingdom's\nValue Added Tax Act 1994, Schedule 4A, paragraph 15(1), a supply to a person\nwho is not a relevant business person is \"to be treated as made in the country\nin which the recipient belongs\" — and paragraph 15(2)(a) applies that to\n\"electronically supplied services\", which is what a downloaded game is. HMRC's\nown guidance says the same in plainer words: supplies of digital services to\nconsumers in the country are liable to that country's VAT, while supplies to\nconsumers outside it are not, and \"may be liable to VAT in the country where\nthe consumer is based\".\n\nThere is a second piece that surprises people, and it is in the same guidance:\n\"If you supply digital services to consumers via a third party platform or\nmarketplace, the digital platform is responsible for accounting for VAT on the\nsupply instead of you.\" On a store, the store answers for the tax — not the\ndeveloper whose logo is on the box art.\n\nThe number that decides is yours. Take what you actually paid, find the rate\nyour own country applies to digital goods on your own tax authority's page, and\nif the price already included it, divide what you paid by one plus that rate as\na decimal. Subtract the result from what you paid: the difference is the tax,\nand that part never reached the game.\n\nThat division matters because a price gap between two countries has at least\ntwo causes — the applicable rate and a deliberate regional price — and until\nyou divide, they look like one. The video also lists five legitimate reasons the\npicture is confusing: the displayed price usually hides the tax; comparing\ncountries also compares currencies; a country can apply more than one rate; the\nlegal seller is often the platform; and a discount changes the base, so the tax\namount falls while the share stays.\n\nWhat this video does not do: it does not call the rate high, low, fair or\nunfair; it does not say who wins between store and studio; and it does not tell\nyou to change your account region, which usually breaks the store's own terms.\nAnd one real limit, stated plainly: I read and verified one jurisdiction's text,\nand I name it. Two other official sources for this would not open for me, so I\nassert nothing about any other country's wording — instead the video gives you\nthe exact question to ask about your own.\n\nChapters:\n00:00 Part of the price never reaches the game\n01:06 What the paragraph says\n02:12 Now divide your own receipt\n03:18 Why the store, not the studio\n04:24 What people get wrong\n05:30 What this does not mean\n06:36 What I left out on purpose\n07:42 Four steps\n\nIn the comments, post only the share of your price that turned out to be tax —\nnot your receipt, your account or what you bought.\n\n## DISCLOSURE\nThe narration and visuals in this video were produced with artificial\nintelligence. The rule described is quoted from the published text of the\nlegislation and from the tax authority's own guidance, both named above.\n\n## HASHTAGS\n#GameEconomics #VAT #DigitalGoods\n\n## TAGS\nvat on digital games, place of supply, schedule 4a paragraph 15, why game prices differ by country, digital services vat, marketplace accounts for vat, regional pricing games, tax in game price, how to calculate vat from total, value added tax act 1994, electronically supplied services, game price breakdown, steam price by country, digital goods taxation, consumer vat rules\n\n## COMENTARIO FIXADO\nFour steps: open the receipt for your last digital game → look up the rate your\ncountry applies to digital goods on your own tax authority's page → divide what\nyou paid by one plus that rate as a decimal, then subtract → write the amount\npaid and the tax side by side with the date. That difference never reached the\ngame. Post only the share, not the receipt.\n"
+}
