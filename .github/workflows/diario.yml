@@ -68,7 +68,28 @@ jobs:
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: |
           set -euo pipefail
-          python3 fabrica/orquestra.py relatorio | tee informe.txt
+
+          # A PONTE. A REST do Supabase devolve 402 desde 25/08/2026 e ESTE
+          # passo morria nela todo ciclo, em orquestra.carrega_videos ->
+          # HTTP Error 402: Payment Required. Nao era um ciclo ruim: eram seis
+          # semanas sem despachar a frota e sem coletar uma metrica, com o
+          # `limpeza / varrer` passando ao lado e dando ar de ciclo saudavel.
+          # A porta e sondada a cada ciclo, entao quando ela reabrir PONTE fica
+          # vazia e tudo volta a ler ao vivo sem ninguem mexer em nada.
+          COD=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 \
+                -H "apikey: $SUPABASE_SERVICE_ROLE_KEY" \
+                -H "Authorization: Bearer $SUPABASE_SERVICE_ROLE_KEY" \
+                "$SUPABASE_URL/rest/v1/videos?select=slug&limit=1" || echo 000)
+          if [ "$COD" = "200" ]; then
+            PONTE=""
+            echo "porta ABERTA (HTTP $COD) — lendo o banco ao vivo"
+          else
+            PONTE="--dados fabrica/ponte/videos.json --canais fabrica/ponte/canais.json"
+            GERADO=$(python3 -c "import json;print(json.load(open('fabrica/ponte/canais.json'))['gerado_em'])")
+            echo "::warning::porta FECHADA (HTTP $COD) — rodando pelo retrato de fabrica/ponte/, gerado em $GERADO"
+          fi
+
+          python3 fabrica/orquestra.py relatorio $PONTE | tee informe.txt
           {
             echo '```'
             cat informe.txt
@@ -90,7 +111,7 @@ jobs:
           # pacote parado.
           python3 fabrica/tokens.py vigiar || echo "::warning::ha canais com token MORTO — reautorize antes que a matriz os escolha"
 
-          MATRIZ=$(python3 fabrica/orquestra.py proximo --n "${{ inputs.n || '10' }}")
+          MATRIZ=$(python3 fabrica/orquestra.py proximo --n "${{ inputs.n || '10' }}" $PONTE)
           echo "matriz=$MATRIZ" >> "$GITHUB_OUTPUT"
           echo "quantos=$(echo "$MATRIZ" | python3 -c 'import json,sys; print(len(json.load(sys.stdin)))')" >> "$GITHUB_OUTPUT"
 

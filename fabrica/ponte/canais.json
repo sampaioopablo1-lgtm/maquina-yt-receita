@@ -1,0 +1,10 @@
+{
+  "gerado_em": "2026-10-06",
+  "origem": "Management API (execute_sql) — a REST do Supabase devolve 402 desde 25/08/2026",
+  "com_destino": ["agla-level","epomeno-epipedo","game-money-lab","kolejny-poziom","labtreinamento","next-level-money","nivel-do-jogo","resep-naik-level","seja-mais-magra","setiap-level","seviye-seviye","sx-educacao"],
+  "com_token": ["agla-level","epomeno-epipedo","game-money-lab","kolejny-poziom","labtreinamento","next-level-money","nivel-do-jogo","resep-naik-level","seja-mais-magra","setiap-level","seviye-seviye"],
+  "fora_e_por_que": {
+    "cocina-por-niveles": "refresh_token ausente DENTRO do yt_token_* do config — a chave existe, o campo nao",
+    "sx-educacao": "invalid_grant: o Google revogou. 400/401 e definitivo, entao sai do com_token e fica no com_destino"
+  }
+}

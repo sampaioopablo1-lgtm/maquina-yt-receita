@@ -108,6 +108,31 @@ def carrega_videos(args) -> list[dict]:
                         os.environ["SUPABASE_SERVICE_ROLE_KEY"])
 
 
+def carrega_canais(args) -> tuple[set[str] | None, set[str] | None]:
+    """Os dois filtros de canal: do retrato, da REST, ou desligados.
+
+    Existe porque `--dados` sozinho DESLIGAVA os dois filtros. Isso era
+    aceitavel quando `--dados` servia so para depurar sem rede; deixou de ser
+    quando virou o caminho de producao do modo ponte, porque filtro desligado
+    devolve a fila o cocina-por-niveles (sem refresh_token) e o sx-educacao
+    (revogado) — os dois canais que a rotina manda NAO insistir. Um render de
+    doze minutos que nao tem como publicar e o defeito que o
+    `canais_sem_token_morto` foi escrito para evitar, e a ponte o estava
+    reintroduzindo pela porta dos fundos.
+
+    None continua significando FILTRO DESLIGADO, que e o comportamento
+    historico de quem passa `--dados` sem `--canais`.
+    """
+    if args.canais:
+        d = json.load(open(args.canais, encoding="utf-8"))
+        return set(d.get("com_destino") or []), set(d.get("com_token") or [])
+    if args.dados:
+        return None, None
+    sb = os.environ["SUPABASE_URL"].rstrip("/")
+    sk = os.environ["SUPABASE_SERVICE_ROLE_KEY"]
+    return busca_canais_com_destino(sb, sk), canais_sem_token_morto(sb, sk)
+
+
 def busca_canais_com_destino(sb_url: str, sb_key: str) -> set[str]:
     """Slugs cujo canal EXISTE no YouTube.
 
@@ -559,18 +584,15 @@ def main() -> int:
     p.add_argument("--n", type=int, default=10, help="maximo de pacotes no disparo")
     p.add_argument("--dados", default=None,
                    help="JSON com as linhas de videos (para rodar sem rede)")
+    p.add_argument("--canais", default=None,
+                   help="JSON com com_destino e com_token (para rodar sem rede)")
     args = p.parse_args()
 
     videos = carrega_videos(args)
     if args.acao == "estado":
         print(json.dumps(estado(videos), ensure_ascii=False, indent=1))
     elif args.acao == "proximo":
-        com_destino = com_token = None
-        if not args.dados:
-            sb = os.environ["SUPABASE_URL"].rstrip("/")
-            sk = os.environ["SUPABASE_SERVICE_ROLE_KEY"]
-            com_destino = busca_canais_com_destino(sb, sk)
-            com_token = canais_sem_token_morto(sb, sk)
+        com_destino, com_token = carrega_canais(args)
         escolhidas, _ = proximo(videos, args.n, com_destino, com_token)
         print(json.dumps(escolhidas, ensure_ascii=False))
     else:
