@@ -765,3 +765,40 @@ canal errado:
     from canais c left join videos v on v.canal = c.slug and v.youtube_id is not null
     where c.ativo group by 1,2 order by 3 asc nulls first;
 
+
+## Brasil: planalto serve a lei inteira, e o Procon-SP serve o que a lei nao diz
+
+Medido na rodada 21:09 de 06/10/2026.
+
+    planalto.gov.br/ccivil_03/leis/l8078compilado.htm   82.876 chars  (CDC compilado)
+    procon.sp.gov.br  (raiz)                           217.081 chars  (Fundacao Procon-SP)
+    gov.br/aneel/pt-br                                  25.554 chars
+    consumidor.gov.br/pages/conteudo/publico/1          20.956 chars
+    gov.br/mj/pt-br/assuntos/seus-direitos/consumidor   14.502 chars  (SO navegacao)
+    gov.br/anatel/pt-br                                  3.780 chars
+    in.gov.br                                            2.185 chars  (fino)
+    consumidor.gov.br  (raiz)                                503
+
+UMA CORRECAO NA LISTA DA PROPRIA ROTINA: ela diz que `gov.br/mj` deu 404. O
+caminho `gov.br/mj/pt-br/assuntos/seus-direitos/consumidor` responde 200 — mas
+com 14.502 chars de PURA NAVEGACAO: nenhum dos termos que importam ("prazo",
+"garantia", "90 dias", "vicio") aparece. Serve para dizer que o host esta vivo,
+nao como fonte. E `gov.br/mj/.../consumidor/garantia-legal` da 404.
+
+O PAR QUE FECHA, e ele e o padrao de sempre: `planalto.gov.br` publica o TEXTO
+e `procon.sp.gov.br` e quem APLICA. E o segundo nao e redundante — ele
+acrescenta fato que a lei nao traz. Nos trechos que eu li para o
+nivel-do-jogo-011 ele define vicio oculto ("nao evidenciados de inicio, so
+aparecendo apos determinado tempo ou consumo do produto"), confirma que
+constatado o vicio oculto a contagem comeca ali com os MESMOS prazos, afirma
+que **o direito de reclamar independe do certificado de garantia, bastando
+documento que comprove a compra**, e avisa que em algumas situacoes sera
+preciso laudo tecnico. Nada disso esta no artigo 26.
+
+CUIDADO COM O ENCODING: o `planalto.gov.br` serve `latin-1` em varias paginas.
+Decodifique tentando `utf-8` e caindo para `latin-1`, nunca com `errors=replace`
+silencioso — acento trocado em citacao de lei e citacao errada.
+
+`procon.sp.gov.br/duvidas-mais-frequentes/` da 404; o conteudo de duvidas esta
+na RAIZ, que e uma pagina longa. Nao gaste tempo chutando caminho.
+
