@@ -84,7 +84,33 @@ def T(kicker, sub, nar, cap=None):
     CENAS.append(c)
 
 
-def B(kicker, sub, nar, q, cap=None):
+# O LINK FICA NA SPEC, nao na busca em tempo de render. Resolvido em 06/10/2026
+# pela busca por `pg_net` DENTRO do banco: o `prebusca_broll.py` rodado da
+# sandbox parou em "chave do Pexels: AUSENTE" (o passo do workflow nao exporta
+# os secrets), e a chave mora em `config.pexels_api_key` — entao a busca saiu
+# de onde a chave esta. Do meu runner o proxy devolve 403 para api.pexels.com.
+#
+# Com o link gravado o pacote fica REPRODUZIVEL: sem ele, dois renders da mesma
+# spec pegam clipes diferentes, porque o Pexels reordena a busca.
+#
+# CADA CLIPE FOI ESCOLHIDO CONTRA O QUE A NARRACAO DIZ, nao pelo termo da
+# busca. O primeiro candidato da terceira cena era "a person using a calculator
+# and counting CASH" — e a narracao ali manda contar MESES, nao dinheiro.
+# Trocado pelo 6963484, que e so a calculadora. Ja errei isso tres vezes.
+BROLL = {
+    8731564: ("https://videos.pexels.com/video-files/8731564/8731564-hd_1280_720_25fps.mp4",
+              "Mikhail Nilov",
+              "https://www.pexels.com/video/a-man-signing-the-documents-8731564/"),
+    1793371: ("https://videos.pexels.com/video-files/1793371/1793371-hd_1280_720_30fps.mp4",
+              "Miguel Á. Padriñán",
+              "https://www.pexels.com/video/person-saving-a-date-on-his-planner-1793371/"),
+    6963484: ("https://videos.pexels.com/video-files/6963484/6963484-hd_1280_720_25fps.mp4",
+              "Mikhail Nilov",
+              "https://www.pexels.com/video/a-person-using-a-calculator-6963484/"),
+}
+
+
+def B(kicker, sub, nar, q, pexels_id, cap=None):
     """Abertura de capitulo com footage.
 
     SEM `broll_url` de proposito: quem o grava e o `prebusca_broll.py` rodado
@@ -93,8 +119,11 @@ def B(kicker, sub, nar, q, cap=None):
     spec ANTES do disparo do frota.yml, e e isso que torna o pacote
     reproduzivel: sem ele, dois renders da mesma spec pegam clipes diferentes.
     """
+    link, autor, pagina = BROLL[pexels_id]
     c = {"layout": "broll", "kicker": kicker, "sub": sub, "nar": nar,
-         "broll_q": q}
+         "broll_q": q, "broll_url": link,
+         "broll_credito": {"pexels_id": pexels_id, "autor": autor,
+                           "url": pagina}}
     if cap:
         c["cap"] = cap
     else:
@@ -116,7 +145,7 @@ def C(kicker, sub, nar):
 B("पाँच साल की दहलीज़", "इससे एक दिन कम, और शून्य",
   "नौकरी छोड़ने पर जो रक़म सालों के बदले मिलती है, उसकी पहली शर्त समय है। "
   "और यह शर्त नरम नहीं है।",
-  "office worker signing resignation letter desk",
+  "office worker signing resignation letter desk", 8731564,
   cap="पाँच साल की दहलीज़")
 T("शर्त", "लगातार पाँच साल",
   "क़ानून कहता है: लगातार पाँच साल की सेवा पूरी होने पर ही यह रक़म देय होती "
@@ -163,7 +192,7 @@ T("अब तक", "एक साल का भाव तैयार",
 B("छह महीने का नियम", "यहीं एक पूरा साल बनता या टूटता है",
   "सालों की गिनती में एक नियम है जिसे ज़्यादातर लोग नहीं जानते। और यही नियम "
   "आपकी रक़म बदल देता है।",
-  "calendar pages turning close up",
+  "calendar pages turning close up", 1793371,
   cap="छह महीने का नियम")
 T("नियम", "छह महीने से ज़्यादा, तो पूरा साल",
   "पूरे साल के बाद बचा हुआ हिस्सा अगर छह महीने से ज़्यादा है, तो वह पूरा एक "
@@ -212,7 +241,7 @@ T("एक मिनट का काम", "पर्ची निकालिए
 B("दो किनारे", "दोनों तारीख़ पर टिके हैं",
   "अब दो किनारे देखिए। दोनों समय पर टिके हैं, और दोनों आपके अपने काग़ज़ से दिख "
   "जाते हैं।",
-  "person counting on calculator at desk",
+  "person counting on calculator at desk", 6963484,
   cap="दो किनारे")
 T("पहला किनारा", "पाँच साल की दहलीज़",
   "पहला किनारा पाँच साल है। उसके इस तरफ़ शून्य है और उस तरफ़ पूरी गिनती शुरू "
