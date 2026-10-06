@@ -1,0 +1,484 @@
+{
+ "slug": "setiap-level",
+ "pacote": "setiap-level-015",
+ "idioma": "id",
+ "voz": "id-ID-ArdiNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1E2A38",
+  "c1": "#C2410C",
+  "c2": "#0F766E",
+  "bg": "#F7F4EE"
+ },
+ "thumb": {
+  "l1": "Dua kartu",
+  "l2": "5 tahun"
+ },
+ "longo": [
+  {
+   "layout": "broll",
+   "kicker": "Dua jaminan, bukan satu",
+   "sub": "dan kartu kesehatanmu bukan yang itu",
+   "nar": "Kalau kamu pekerja penerima upah, kamu terdaftar di dua jaminan sosial yang berbeda, bukan satu. Keduanya resmi, dan keduanya punya aturan sendiri.",
+   "broll_q": "workers talking at their workplace",
+   "broll_url": "https://videos.pexels.com/video-files/4293960/4293960-hd_1920_1080_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 4293960,
+    "autor": "Tiger Lily",
+    "url": "https://www.pexels.com/video/men-having-a-conversation-while-at-work-4293960/"
+   },
+   "cap": "Dua jaminan, bukan satu"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kenapa ini penting",
+   "sub": "karena yang satu tidak menanggung urusan yang lain",
+   "nar": "Ini penting karena kalau kamu cedera saat bekerja, yang menanggung bukan jaminan kesehatan biasa. Ada program lain yang dibuat khusus untuk itu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Yang pertama",
+   "sub": "jaminan kesehatan untuk sakit sehari-hari",
+   "nar": "Yang pertama kamu sudah kenal: jaminan kesehatan, yang dipakai untuk sakit sehari-hari dan jalannya lewat rujukan berjenjang dari faskes pertama.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Yang kedua",
+   "sub": "jaminan kecelakaan kerja",
+   "nar": "Yang kedua namanya jaminan kecelakaan kerja, disingkat J K K, dan dia diselenggarakan oleh badan yang berbeda, bukan badan yang sama.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bedanya bukan soal rumah sakit",
+   "sub": "bedanya soal PENYEBAB",
+   "nar": "Yang memisahkan keduanya bukan rumah sakitnya dan bukan penyakitnya. Yang memisahkan adalah PENYEBABNYA: apakah kondisi itu datang dari pekerjaanmu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Contoh yang paling jelas",
+   "sub": "punggung, pendengaran, pernapasan",
+   "nar": "Contoh paling jelas bukan jatuh dari tangga. Punggung yang rusak karena mengangkat tiap hari, pendengaran yang turun karena kebisingan mesin.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dan ada hal ketiga",
+   "sub": "yang ini cuma kamu yang punya",
+   "nar": "Dan ada hal ketiga, yang tidak ada di situs mana pun: tanggal kejadian di kalendermu sendiri. Itu yang akan kita hitung sebentar lagi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Yang ditanggung JKK",
+   "sub": "dua hal, bukan satu",
+   "nar": "J K K tidak menanggung satu hal, tapi dua. Yang pertama jelas: kecelakaan yang terjadi saat kamu bekerja.",
+   "broll_q": "manual workers loading boxes",
+   "broll_url": "https://videos.pexels.com/video-files/37546343/15909642_1920_1080_30fps.mp4",
+   "broll_credito": {
+    "pexels_id": 37546343,
+    "autor": "setengah lima sore",
+    "url": "https://www.pexels.com/video/asian-workers-loading-boxes-into-truck-37546343/"
+   },
+   "cap": "Yang ditanggung JKK"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Yang kedua jarang diketahui",
+   "sub": "penyakit akibat kerja",
+   "nar": "Yang kedua hampir tidak ada yang tahu: penyakit yang disebabkan oleh lingkungan kerjamu. Dalam aturannya ini disebut penyakit akibat kerja.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Itu bukan sakit biasa",
+   "sub": "dan itu bukan istilah longgar",
+   "nar": "Penyakit akibat kerja bukan istilah longgar dan bukan sakit biasa yang kebetulan muncul saat kamu bekerja. Dia punya definisi dan punya diagnosis.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Layanan kesehatannya",
+   "sub": "sesuai kebutuhan medis",
+   "nar": "Untuk kasus yang masuk J K K, layanan kesehatan diberikan sesuai kebutuhan medis. Itu rumusan yang dipakai di dalam peraturannya sendiri.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dan manfaatnya lebih dari obat",
+   "sub": "ada santunan, ada beasiswa",
+   "nar": "Manfaat J K K juga tidak berhenti di pengobatan. Ada santunan untuk masa tidak mampu bekerja, santunan cacat, santunan kematian, dan beasiswa anak.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dasar hukumnya bisa kamu buka",
+   "sub": "peraturan pemerintah, bukan berita",
+   "nar": "Semua ini tertulis di peraturan pemerintah yang bisa kamu buka sendiri. Bukan di berita tentang peraturan, tapi di dokumen peraturannya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Saya sengaja tidak menyebut angkanya",
+   "sub": "dan itu bukan kelalaian",
+   "nar": "Saya sengaja tidak menyebut nominal mana pun di sini. Nominal berubah lewat peraturan baru, dan video yang menyebut nominal lahir dengan tanggal mati.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Hitung batas waktumu",
+   "sub": "lima tahun, dan jamnya sudah jalan",
+   "nar": "Sekarang bagian yang mengubah urusan ini jadi mendesak. Hak menuntut manfaat J K K punya batas waktu, dan batasnya lima tahun.",
+   "broll_q": "person marking a date on a calendar",
+   "broll_url": "https://videos.pexels.com/video-files/9057559/9057559-hd_1920_1080_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 9057559,
+    "autor": "SHVETS production",
+    "url": "https://www.pexels.com/video/a-person-marking-on-calendar-9057559/"
+   },
+   "cap": "Hitung batas waktumu"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dari kapan dihitung",
+   "sub": "dua tanggal yang berbeda",
+   "nar": "Dan lima tahun itu dihitung dari dua tanggal yang berbeda, tergantung kasusnya. Membedakan keduanya adalah seluruh isi bagian ini.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kalau kecelakaan",
+   "sub": "dari hari kejadiannya",
+   "nar": "Kalau yang terjadi adalah kecelakaan kerja, hitungannya mulai dari hari kejadiannya. Tanggal itu biasanya kamu ingat dan ada di catatan kantor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kalau penyakit akibat kerja",
+   "sub": "dari hari DIAGNOSISNYA",
+   "nar": "Kalau yang terjadi adalah penyakit akibat kerja, hitungannya mulai dari hari penyakit itu DIDIAGNOSIS, bukan dari hari kamu mulai merasa tidak enak.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Sekarang hitung punyamu",
+   "sub": "ambil kalender dan kurangi",
+   "nar": "Sekarang angka ketiga, yang kamu hitung sendiri. Ambil tanggal kejadian atau tanggal diagnosis, tambah lima tahun, lalu kurangi dengan hari ini.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Itu sisa waktumu",
+   "sub": "dalam bulan, bukan dalam perasaan",
+   "nar": "Hasilnya adalah sisa waktumu, dan tulis dalam bulan supaya terbaca. Sisa video ini hanya untuk satu hal: supaya kamu tidak salah membaca angka itu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Tulis di satu baris",
+   "sub": "tanggal, lima tahun, sisa",
+   "nar": "Tulis ketiganya berdampingan di satu baris: tanggalnya, tanggal batasnya, dan sisa bulannya. Satu baris itu adalah seluruh jawabannya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Kenapa tanggal diagnosis",
+   "sub": "dan bukan tanggal kamu merasa sakit",
+   "nar": "Hal pertama yang harus kamu tahu: untuk penyakit akibat kerja, yang dipakai adalah tanggal diagnosis, dan itu bukan pilihan yang dibuat sembarangan.",
+   "broll_q": "health professional filling in a dated form",
+   "broll_url": "https://videos.pexels.com/video-files/8944537/8944537-hd_1920_1080_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 8944537,
+    "autor": "Kampus Production",
+    "url": "https://www.pexels.com/video/close-up-footage-of-medical-practitioner-filling-up-a-form-8944537/"
+   },
+   "cap": "Kenapa tanggal diagnosis"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Karena awalnya tidak kelihatan",
+   "sub": "penyakit kerja datang perlahan",
+   "nar": "Penyakit akibat kerja sering datang perlahan selama bertahun-tahun. Tidak ada hari pertama yang bisa ditunjuk, jadi tanggal mulai merasa tidak dipakai.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Diagnosis itu tanggal yang tertulis",
+   "sub": "ada di dokumen, bukan di ingatan",
+   "nar": "Diagnosis, sebaliknya, punya tanggal yang tertulis di dokumen medis. Itu tanggal yang bisa dibuktikan, dan karena itu dia yang jadi titik mulai.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Konsekuensinya satu",
+   "sub": "diagnosis yang tertunda menunda jamnya",
+   "nar": "Konsekuensinya langsung: selama penyakitnya belum didiagnosis, jam lima tahun itu belum mulai jalan untuk kasus penyakit akibat kerja.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Tapi jangan dibaca sebaliknya",
+   "sub": "menunda periksa bukan strategi",
+   "nar": "Jangan dibaca sebaliknya. Menunda pemeriksaan bukan cara memperpanjang waktu, karena tanpa diagnosis tidak ada yang bisa diajukan sama sekali.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dan jangan pakai tanggal keluhan",
+   "sub": "yang dipakai tanggal dokumennya",
+   "nar": "Jadi jangan pakai tanggal kamu mulai mengeluh ke teman kerja. Yang dipakai adalah tanggal yang tertulis di dokumen medis, dan cuma itu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Yang perlu kamu simpan",
+   "sub": "tanggalnya, bukan ingatanmu",
+   "nar": "Yang perlu kamu lakukan sederhana: simpan tanggal yang tertulis di dokumen, bukan perkiraan dari ingatan. Dokumen bertanggal adalah seluruh buktinya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kenapa kartu bisa tertukar",
+   "sub": "dan ini bukan tanda apa-apa",
+   "nar": "Sekarang bagian yang paling sering disalahpahami. Ada banyak alasan sah kenapa orang memakai kartu yang satu untuk urusan yang seharusnya di satu lagi.",
+   "cap": "Kenapa kartu bisa tertukar"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Alasan pertama",
+   "sub": "di ruang gawat darurat tidak ada yang bertanya",
+   "nar": "Alasan pertama: saat kejadian, yang penting adalah ditangani. Di ruang gawat darurat tidak ada yang berhenti untuk menanyakan penyebab pekerjaan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Alasan kedua",
+   "sub": "kartu kesehatan yang selalu di dompet",
+   "nar": "Alasan kedua: kartu jaminan kesehatan ada di dompet dan sudah biasa dipakai, sementara yang satu lagi jarang dikeluarkan sepanjang tahun.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Alasan ketiga",
+   "sub": "penyebab kerja baru jelas belakangan",
+   "nar": "Alasan ketiga: kaitan dengan pekerjaan sering baru jelas berbulan-bulan kemudian, apalagi untuk kondisi yang tumbuh perlahan seperti pendengaran.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Alasan keempat",
+   "sub": "kantor pun kadang tidak melaporkan",
+   "nar": "Alasan keempat: pelaporan ke program kecelakaan kerja adalah kewajiban pemberi kerja, dan kewajiban yang tidak dijalankan bukan kesalahan pekerja.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Alasan kelima",
+   "sub": "nama programnya pun mirip",
+   "nar": "Alasan kelima, dan yang paling sederhana: nama kedua badan itu mirip dan keduanya disebut B P J S dalam percakapan sehari-hari.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Jadi hati-hati menyimpulkan",
+   "sub": "salah kartu bukan berarti curang",
+   "nar": "Jadi kalau kartu yang dipakai ternyata yang salah, itu bukan bukti niat buruk siapa pun. Itu cuma tanda bahwa kasusnya perlu diperiksa lagi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Apa arti batas lima tahun",
+   "sub": "dan apa yang bukan artinya",
+   "nar": "Setelah empat alasan itu disingkirkan, baru batas lima tahun mulai berbicara. Tapi dia berbicara lebih pelan daripada yang orang kira.",
+   "cap": "Apa arti batas lima tahun"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Artinya yang pertama",
+   "sub": "batasnya ada di peraturannya",
+   "nar": "Artinya yang pertama: batas itu tertulis di peraturan pemerintah, bukan di kebijakan kantor dan bukan di kebijakan rumah sakit.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Artinya yang kedua",
+   "sub": "lewat batas, haknya gugur",
+   "nar": "Artinya yang kedua: kalau batasnya lewat, hak menuntut manfaatnya gugur. Itu kata yang dipakai peraturannya, dan dia tidak punya arti lain.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Yang BUKAN artinya",
+   "sub": "bukan berarti kamu pasti dapat",
+   "nar": "Yang bukan artinya: masih di dalam lima tahun tidak berarti kamu pasti menerima sesuatu. Batas waktu hanya menjaga pintunya tetap terbuka.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dan bukan berarti besarnya pasti",
+   "sub": "nominal tergantung kasus",
+   "nar": "Dan tidak berarti besarnya sudah pasti. Berapa yang diterima tergantung kasusnya dan dokumennya, dan itu bukan sesuatu yang video bisa janjikan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dan bukan berarti otomatis",
+   "sub": "mengajukan tetap harus dilakukan",
+   "nar": "Dan tidak berarti prosesnya jalan sendiri. Batas waktu cuma mengukur sampai kapan pengajuan masih bisa diterima, bukan menggantikan pengajuan.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Jadi yang kamu dapat hari ini",
+   "sub": "satu tanggal dan satu sisa",
+   "nar": "Jadi yang kamu dapat dari video ini bukan janji. Yang kamu dapat adalah satu tanggal yang jelas dan sisa waktu yang kamu hitung sendiri.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Yang video ini tidak katakan",
+   "sub": "dan ini bagian yang biasanya dilewati",
+   "nar": "Sekarang bagian yang biasanya dilewati. Ini hal-hal yang sengaja tidak ada di video ini, dan alasannya saya tulis satu per satu.",
+   "cap": "Yang video ini tidak katakan"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Tidak ada nominal",
+   "sub": "tidak satu rupiah pun",
+   "nar": "Pertama: tidak ada nominal di sini, tidak satu rupiah pun. Angka iuran, teto dan penggantian berubah lewat peraturan baru dan ini bukan tempatnya.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Tidak ada persentase santunan",
+   "sub": "dan ini yang paling saya ingin katakan",
+   "nar": "Kedua, dan ini yang paling ingin saya katakan: persentase santunan masa tidak mampu bekerja tidak masuk, karena saya hanya menemukannya di satu sumber.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kenapa itu penting",
+   "sub": "satu sumber bukan konfirmasi",
+   "nar": "Satu sumber resmi bukan konfirmasi. Aturan yang saya pakai sederhana: angka yang tidak sama di dua sumber resmi tidak masuk ke video.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Tidak ada penilaian kasus",
+   "sub": "saya tidak tahu kasusmu",
+   "nar": "Ketiga: saya tidak menilai kasus siapa pun. Apakah sebuah kejadian masuk kecelakaan kerja ditentukan oleh dokumen dan pemeriksaan, bukan oleh video.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Tidak ada janji hasil",
+   "sub": "dua kasus sama bisa beda",
+   "nar": "Dan kelima: tidak ada janji hasil di sini. Dua kasus yang terlihat sama bisa berakhir berbeda, karena dokumennya berbeda.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dan ini bukan nasihat hukum",
+   "sub": "ini cara membaca tanggal",
+   "nar": "Dan keempat: ini bukan nasihat hukum. Yang video ini ajarkan adalah cara membaca satu tanggal dan menghitung sisa waktu dari tanggal itu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Empat langkah",
+   "sub": "dari awal sampai selesai",
+   "nar": "Sekarang seluruh pemeriksaan dalam empat langkah, supaya kamu bisa melakukannya setelah video ini ditutup.",
+   "cap": "Empat langkah"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Langkah satu",
+   "sub": "tulis dua tanggal",
+   "nar": "Langkah satu: tulis dua tanggal di selembar kertas. Tanggal kejadian kalau kecelakaan, dan tanggal diagnosis kalau penyakit akibat kerja.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Langkah dua",
+   "sub": "tambah lima tahun",
+   "nar": "Langkah dua: tambahkan lima tahun ke tanggal yang berlaku untuk kasusmu. Itu tanggal terakhir pintunya masih terbuka.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Langkah tiga",
+   "sub": "kurangi dengan hari ini",
+   "nar": "Langkah tiga: kurangi tanggal itu dengan hari ini, dan tulis hasilnya dalam bulan. Dalam bulan, bukan dalam tahun, supaya tidak terasa jauh.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Langkah empat",
+   "sub": "cari dokumen bertanggalnya",
+   "nar": "Langkah empat: cari dokumen yang memuat tanggal itu. Surat keterangan, laporan kantor atau rekam medis — yang penting tanggalnya tertulis di sana.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ulangi tiap tahun",
+   "sub": "sisa bulanmu berubah sendiri",
+   "nar": "Dan ulangi hitungan itu sekali setahun, karena sisa bulanmu berubah tanpa kamu melakukan apa pun. Angka yang kamu tulis hari ini akan mengecil.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dan satu catatan",
+   "sub": "kalau tanggalnya tidak ada, itu langkah pertamamu",
+   "nar": "Satu catatan terakhir: kalau tidak ada dokumen bertanggal, itu bukan jalan tertutup. Itu justru langkah pertamamu, dan dia tidak bisa menunggu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Tulis sisa bulanmu",
+   "sub": "bukan kasusmu",
+   "nar": "Tulis di komentar hanya berapa bulan yang tersisa dari hitunganmu, dan jenis kasusnya. Jangan tulis nama kantor atau rincian medismu.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Dua kartu, satu kejadian",
+   "sub": "dan yang salah yang bikin repot",
+   "nar": "Kamu punya dua jaminan sosial, bukan satu. Dan kecelakaan kerja bukan urusan kartu kesehatanmu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Satu",
+   "sub": "jaminan kecelakaan kerja",
+   "nar": "Satu: kecelakaan kerja dan penyakit akibat kerja masuk program yang lain, dari badan yang lain.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dua",
+   "sub": "ada batas lima tahun",
+   "nar": "Dua: hak menuntutnya gugur setelah lima tahun, dan jamnya sudah jalan sekarang.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Tiga",
+   "sub": "dari tanggal mana",
+   "nar": "Tiga: dari hari kejadian kalau kecelakaan, dari hari diagnosis kalau penyakit akibat kerja.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Hitung",
+   "sub": "tambah lima, kurangi hari ini",
+   "nar": "Tambah lima tahun ke tanggal itu, kurangi hari ini, dan tulis sisanya dalam bulan. Itu angkamu.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# setiap-level-015\n\n## TITULO\nDua Kartu BPJS, Satu Kecelakaan: Ada Batas 5 Tahun dan Jamnya Sudah Jalan\n\n## TITULO SHORT\nDua kartu BPJS: 5 tahun, dari tanggal mana\n\n## DESCRICAO\nKalau kamu pekerja penerima upah, kamu terdaftar di dua jaminan sosial yang\nberbeda — bukan satu. Dan kecelakaan kerja bukan urusan kartu jaminan\nkesehatan yang ada di dompetmu. Video ini tidak menyebut satu nominal pun, dan\nitu disengaja. Yang diajarkan adalah cara mengetahui kasus mana masuk program\nmana, dan cara menghitung sendiri sisa batas waktumu.\n\nJaminan kecelakaan kerja, disingkat JKK, tidak menanggung satu hal tapi dua:\nkecelakaan yang terjadi saat bekerja, dan penyakit yang disebabkan oleh\nlingkungan kerja — yang dalam aturannya disebut penyakit akibat kerja. Untuk\nkasus yang masuk JKK, layanan kesehatan diberikan sesuai kebutuhan medis, dan\nmanfaatnya tidak berhenti di pengobatan: ada santunan masa tidak mampu\nbekerja, santunan cacat, santunan kematian dan beasiswa anak.\n\nYang paling sering tidak diketahui adalah batas waktunya. Hak menuntut manfaat\nJKK gugur setelah lima tahun. Dan lima tahun itu dihitung dari dua tanggal yang\nberbeda: dari hari kejadian kalau yang terjadi adalah kecelakaan kerja, dan\ndari hari penyakit itu DIDIAGNOSIS kalau yang terjadi adalah penyakit akibat\nkerja — bukan dari hari pertama kamu merasa tidak enak. Perbedaan itu yang\nmembuat banyak kasus penyakit kerja terhitung salah.\n\nAngka ketiga hanya kamu yang punya: tanggal di kalendermu. Ambil tanggal\nkejadian atau tanggal diagnosis, tambahkan lima tahun, kurangi dengan hari\nini, dan tulis hasilnya dalam bulan.\n\nSebelum menyimpulkan apa pun, video ini menyebut empat alasan sah kenapa orang\nmemakai kartu yang salah: di ruang gawat darurat tidak ada yang menanyakan\npenyebab pekerjaan; kartu kesehatan yang selalu ada di dompet; kaitan dengan\npekerjaan yang baru jelas berbulan-bulan kemudian; dan pelaporan yang menjadi\nkewajiban pemberi kerja. Kartu yang salah bukan bukti niat buruk siapa pun.\n\nDasar hukumnya adalah Peraturan Pemerintah Nomor 82 Tahun 2019, yang mengubah\nPeraturan Pemerintah Nomor 44 Tahun 2015 tentang penyelenggaraan JKK dan JKM.\nStatusnya berlaku, dan teksnya bisa kamu buka sendiri — bukan berita tentang\nperaturan, tapi dokumen peraturannya.\n\nVideo ini tidak menyebut nominal apa pun, tidak menyebut persentase santunan,\ntidak menilai kasus siapa pun, dan bukan nasihat hukum. Persentase santunan\nmasa tidak mampu bekerja sengaja tidak masuk karena hanya ditemukan di satu\nsumber resmi, dan satu sumber bukan konfirmasi.\n\nBab:\n00:00 Dua jaminan, bukan satu\n01:08 Yang ditanggung JKK\n02:16 Hitung batas waktumu\n03:24 Kenapa tanggal diagnosis\n04:32 Kenapa kartu bisa tertukar\n05:40 Apa arti batas lima tahun\n06:48 Yang video ini tidak katakan\n07:56 Empat langkah\n\nTulis di komentar hanya berapa bulan yang tersisa dari hitunganmu dan jenis\nkasusnya — jangan tulis nama kantor atau rincian medismu.\n\n## DISCLOSURE\nNarasi dan visual video ini dibuat dengan kecerdasan buatan. Fakta yang disebut\nberasal dari sumber resmi yang disebutkan dalam deskripsi.\n\n## HASHTAGS\n#JKK #BPJSKetenagakerjaan #HakPekerja\n\n## TAGS\njaminan kecelakaan kerja, jkk bpjs ketenagakerjaan, penyakit akibat kerja, batas waktu klaim jkk, pp 82 tahun 2019, bpjs ketenagakerjaan, beda bpjs kesehatan dan ketenagakerjaan, santunan kecelakaan kerja, hak pekerja penerima upah, cara klaim jkk, kecelakaan saat bekerja, dokumen bertanggal klaim, kedaluwarsa klaim lima tahun, lapor kecelakaan kerja, pekerja penerima upah\n\n## COMENTARIO FIXADO\nEmpat langkah: tulis tanggal kejadian atau tanggal diagnosis → tambah lima\ntahun → kurangi dengan hari ini dan tulis sisanya dalam bulan → cari dokumen\nyang memuat tanggal itu. Kalau dokumen bertanggalnya tidak ada, itu langkah\npertamamu. Tulis di sini hanya sisa bulanmu dan jenis kasusnya.\n"
+}
