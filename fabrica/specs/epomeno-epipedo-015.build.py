@@ -62,6 +62,19 @@ ALAVANCA B: resposta dentro dos primeiros duzentos segundos. Ela fecha na cena
 corrigida pelo residuo da voz (aprendizado 575) esta impressa no rodape deste
 arquivo. A `el-GR-NestorasNeural` tem residuo de -0,1% com n=519.
 
+SOBREPOSICAO QUE EU PRECISO DECLARAR, e o portao de similaridade NAO pegou
+porque ela nao esta no texto, esta no tema: o pacote 006 deste canal e
+"Πληθωρισμός 3,4% και Μοσχάρι 14,3%: Γιατί ο Μέσος Όρος Δεν Είναι το Καλάθι
+σου" — ou seja, ele TAMBEM termina dizendo que a media nao e o seu carrinho, e
+fez 10,5% de travessia. A diferenca, e ela e o motivo de eu ter seguido: o 006
+CITA duas taxas e o eixo dele e a constatacao "a media esconde o item"; aqui o
+eixo e institucional — existem DOIS indices oficiais, com definicoes, bases e
+usos legais diferentes, e so um entra no contrato de aluguel. O carrinho
+proprio e o capitulo 10 de 10, o fechamento, nao o eixo. Quem pegar este canal
+depois: se o 015 tambem travessar perto de 10%, a hipotese a testar e que o
+PUBLICO deste canal nao responde a assunto de indice de precos, qualquer que
+seja o angulo — e nesse caso sao dois pontos, nao um.
+
 TITULO PROPRIO DO SHORT: tem (aprendizado 548).
 """
 
