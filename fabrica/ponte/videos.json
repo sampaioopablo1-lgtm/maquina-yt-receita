@@ -4258,5 +4258,29 @@
 "criado_em": "2026-10-06T10:36:00+00:00",
 "status": "publicado",
 "slug": "agla-level-010-short"
+},
+{
+"canal": "labtreinamento",
+"pacote": "labtreinamento-009",
+"formato": "longo",
+"youtube_id": "dsoEo103l1o",
+"publicado_em": "2026-10-06T11:33:00+00:00",
+"erro": null,
+"titulo": "FGTS: os 8% do Mês Passado e o Dia 20 — Confira o Depósito Contra a Sua Folha",
+"criado_em": "2026-10-06T11:33:00+00:00",
+"status": "publicado",
+"slug": "labtreinamento-009"
+},
+{
+"canal": "labtreinamento",
+"pacote": "labtreinamento-009",
+"formato": "shorts",
+"youtube_id": "q4tnHmoUb-I",
+"publicado_em": "2026-10-06T11:33:00+00:00",
+"erro": null,
+"titulo": "FGTS: 8% do bruto, e o dia 20",
+"criado_em": "2026-10-06T11:33:00+00:00",
+"status": "publicado",
+"slug": "labtreinamento-009-short"
 }
 ]
