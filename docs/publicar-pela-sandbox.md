@@ -697,3 +697,71 @@ banco — `Conferir nome do pacote` e `Conferir chave do broll` — e os dois
 precisam ser feitos a mao antes: o md5 do corpus contra o banco (secao acima) e
 o `BROLL` baked na spec.
 
+
+## Polonia: a API ELI do Sejm abre tudo, e o id base engana (06/10/2026)
+
+Medido na rodada 20:09. A Polonia e o melhor conjunto de fontes da frota — oito
+hosts respondendo, contra oito hosts gregos reprovados:
+
+    api.sejm.gov.pl (ELI)   JSON de metadados + text.html + text.pdf
+    podatki.gov.pl          10.426 chars   MF/KAS, o procedimento
+    biznes.gov.pl           25.975 chars   outro ministerio, mesmos temas
+    monitorpolski.gov.pl     7.388 chars   tambem em pagina profunda (/MP/rok/2025)
+    dziennikustaw.gov.pl     5.849 chars
+    gov.pl/web/finanse       6.753 chars
+    zus.pl                  89.010 chars
+    stat.gov.pl (GUS)        8.761 chars
+
+NAO SERVEM, e os dois primeiros enganam de um jeito especifico:
+
+    isap.sejm.gov.pl   a RAIZ responde com 2.773 chars; a pagina de documento
+                       devolve 200 com pagina anti-bot de 688 chars
+    nbp.pl             a raiz devolve a MESMA pagina de 688 chars — se voce ver
+                       688, e bloqueio, nao conteudo
+    um.warszawa.pl     403
+
+A rota boa:
+
+    https://api.sejm.gov.pl/eli/acts/DU/1991/31            -> metadados JSON
+    https://api.sejm.gov.pl/eli/acts/DU/1991/31/text.html  -> texto
+    https://api.sejm.gov.pl/eli/acts/MP/2026/741           -> o obwieszczenie
+
+**A ARMADILHA, e ela custaria o pacote:** o `text.html` do id BASE de uma lei
+antiga e o texto como foi PROMULGADO. Para a ustawa o podatkach i oplatach
+lokalnych (DU/1991/31) isso quer dizer o texto de 1991: ele cita "500.000 zl"
+por automovel, em zloty pre-denominacao, e diz que a pessoa juridica declara
+ate 15 de janeiro, quando o podatki.gov.pl hoje publica 31 de janeiro.
+
+O vigente esta no proprio JSON de metadados, em
+`references["Inf. o tekscie jednolitym"]`, primeiro da lista — para esta lei,
+`DU/2025/707`. Esse id tem `textHTML: false` e `textPDF: true`, entao vai de
+PDF mais `pdftotext -layout`. Foi de la que sairam os artigos citados no
+kolejny-poziom-016.
+
+Os `references["Akty wykonawcze"]` do mesmo JSON dao de graca os atos
+executorios recentes — foi assim que eu achei, sem buscar, o M.P. 2026 poz. 741
+(tetos para 2027, 23/07/2026) e o M.P. 2026 poz. 704 (indice do GUS,
+15/07/2026), que juntos SAO a cadeia que o video explica.
+
+## Um passo que faltava na ponte: `canais.ultimo_pacote_em`
+
+Descoberto na rodada 20:09. O modo ponte grava em `videos` pelo Management API,
+mas NUNCA escreveu `canais.ultimo_pacote_em` — e e essa coluna que a
+`v_maquina_fila` usa para ordenar. Resultado medido: o `setiap-level` aparecia
+na cabeca da fila com `ultimo_pacote_em` de 01/09/2026 tendo publicado as 13:37
+do mesmo dia, e sete canais estavam defasados do mesmo jeito. A fila escolheu o
+canal errado, e eu so vi porque conferi a coluna contra `max(videos.publicado_em)`.
+
+Entao o registro na ponte tem TRES passos, nao dois:
+
+    1. inserir as duas linhas em `videos`
+    2. `update canais set ultimo_pacote_em = <publicado_em do longo> where slug = ...`
+    3. conferir o md5 do corpus contra o banco
+
+E antes de confiar na fila, rode isto — custa uma consulta e evita produzir no
+canal errado:
+
+    select c.slug, c.ultimo_pacote_em as coluna, max(v.publicado_em) as real
+    from canais c left join videos v on v.canal = c.slug and v.youtube_id is not null
+    where c.ativo group by 1,2 order by 3 asc nulls first;
+
