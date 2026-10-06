@@ -1,0 +1,533 @@
+{
+ "slug": "kolejny-poziom",
+ "pacote": "kolejny-poziom-016",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Twoja stawka",
+  "l2": "kto ją wybrał"
+ },
+ "longo": [
+  {
+   "layout": "broll",
+   "kicker": "Raz w roku",
+   "sub": "przychodzi decyzja",
+   "nar": "Raz w roku przychodzi do ciebie decyzja o podatku od nieruchomości. Jest w niej stawka, i prawie nikt nie wie, kto tę stawkę właściwie ustalił.",
+   "broll_q": "person putting down an envelope with a letter",
+   "broll_url": "https://videos.pexels.com/video-files/7430218/7430218-hd_1280_720_50fps.mp4",
+   "broll_credito": {
+    "pexels_id": 7430218,
+    "autor": "alleksana",
+    "url": "https://www.pexels.com/video/a-person-putting-down-an-envelope-with-a-letter-7430218/"
+   },
+   "cap": "Kto ustalił stawkę z twojej decyzji"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Nie minister",
+   "sub": "i nie skarbówka",
+   "nar": "Nie ustalił jej minister. Nie ustalił jej urząd skarbowy. Ustaliła ją rada twojej gminy, uchwałą, i mogła spokojnie wybrać inną liczbę.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dwa takie same mieszkania",
+   "sub": "dwie stawki",
+   "nar": "To nie jest szczegół proceduralny. To znaczy, że dwa identyczne mieszkania w dwóch gminach mogą mieć różną stawkę za dokładnie ten sam metr.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Mówi to ustawa",
+   "sub": "artykuł piąty",
+   "nar": "Ustawa o podatkach i opłatach lokalnych mówi to wprost w artykule piątym: rada gminy określa wysokość stawek, a stawki nie mogą przekroczyć granicy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Czyli ustawa",
+   "sub": "podaje sufit",
+   "nar": "Czyli to, co stoi w ustawie, to nie jest twoja stawka. To sufit. Twoja stawka siedzi pod tym sufitem, i wybrała ją twoja gmina.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Czego tu nie usłyszysz",
+   "sub": "żadnej stawki",
+   "nar": "Ten film nie podaje żadnej stawki. Nie mógłby — twoja zależy od gminy, w której leży nieruchomość, i zmienia się co roku.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Co usłyszysz",
+   "sub": "cztery rzeczy",
+   "nar": "Podaje cztery inne rzeczy: gdzie przeczytasz swoją, kto ustala sufit, kiedy go ogłasza, i jakie terminy obowiązują właśnie ciebie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kogo to dotyczy",
+   "sub": "nie tylko mieszkania",
+   "nar": "I jeszcze jedno na wstępie, bo wielu to zaskakuje: opodatkowane są nie tylko budynki, ale też grunty, a budowle wtedy, gdy są związane z działalnością gospodarczą.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Dwa dokumenty",
+   "sub": "oba masz",
+   "nar": "Odpowiedź ma dwa dokumenty i oba są dostępne: pierwszy to decyzja, którą dostałeś pocztą, drugi to uchwała rady twojej gminy.",
+   "broll_q": "low angle view of an apartment building with balconies",
+   "broll_url": "https://videos.pexels.com/video-files/4693665/4693665-hd_1280_720_24fps.mp4",
+   "broll_credito": {
+    "pexels_id": 4693665,
+    "autor": "Luis Quintero",
+    "url": "https://www.pexels.com/video/low-angle-view-of-a-multi-storey-building-with-balconies-4693665/"
+   },
+   "cap": "Gdzie naprawdę przeczytasz swoją stawkę"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "W decyzji",
+   "sub": "dwie liczby",
+   "nar": "W decyzji masz podstawę opodatkowania, czyli powierzchnię w metrach kwadratowych, i kwotę podatku za rok. Z tych dwóch liczb wyliczysz stawkę.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Jedno dzielenie",
+   "sub": "i masz stawkę",
+   "nar": "Dzielisz kwotę podatku za rok przez liczbę metrów kwadratowych. Wynik to stawka za metr, którą twoja gmina właśnie na ciebie zastosowała.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "To cała metoda",
+   "sub": "i nie potrzebuje mnie",
+   "nar": "To jest cała metoda i nie potrzebuje mnie. Dwie liczby z twojej własnej decyzji, jedno dzielenie, i masz stawkę, której nikt ci nie podał.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Drugi dokument",
+   "sub": "sprawdza pierwszy",
+   "nar": "Drugi dokument sprawdza pierwszy. Uchwała rady gminy w sprawie stawek podatku od nieruchomości jest publikowana i jest publiczna.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Jeśli się nie zgadza",
+   "sub": "to nie przypadek",
+   "nar": "Jeśli twoje dzielenie nie zgadza się ze stawką z uchwały, to znaczy, że decyzja opisuje inną powierzchnię albo inny rodzaj przedmiotu niż myślisz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Wtedy dzwoń",
+   "sub": "do gminy",
+   "nar": "I to jest moment, w którym warto zadzwonić do gminy. A nie wtedy, gdy ktoś w internecie powie ci, ile powinieneś płacić.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Uwaga przy dzieleniu",
+   "sub": "pozycja po pozycji",
+   "nar": "Jedna ostrożność przy dzieleniu: decyzja może wymieniać kilka pozycji, na przykład budynek i grunt osobno, z różnymi stawkami. Wtedy dzielisz każdą pozycję oddzielnie, a nie sumę przez sumę.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kto rusza sufit",
+   "sub": "raz w roku",
+   "nar": "Skoro ustawa podaje sufit, to kto go aktualizuje? Minister właściwy do spraw finansów publicznych, i robi to raz w roku.",
+   "cap": "Co ogłasza minister, i kiedy"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Artykuł dwudziesty",
+   "sub": "Monitor Polski",
+   "nar": "Artykuł dwudziesty tej samej ustawy mówi, że minister ogłasza górne granice stawek kwotowych obwieszczeniem, w Monitorze Polskim.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Co to znaczy",
+   "sub": "dziennik urzędowy",
+   "nar": "Monitor Polski to dziennik urzędowy. Obwieszczenie nie jest komunikatem prasowym ani wpisem na stronie — ma numer pozycji i ma datę.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Z wyprzedzeniem",
+   "sub": "na następny rok",
+   "nar": "I ogłasza je z wyprzedzeniem, na następny rok podatkowy. Nie w grudniu, kiedy już płacisz, ale wcześniej, kiedy gmina jeszcze decyduje.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ten rok",
+   "sub": "data konkretna",
+   "nar": "Obwieszczenie z górnymi granicami na rok dwa tysiące dwudziesty siódmy zostało ogłoszone dwudziestego trzeciego lipca tego roku.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Jeden szczegół",
+   "sub": "brzmi drobno",
+   "nar": "Ustawa dodaje jeszcze jeden szczegół, który brzmi drobno i drobny nie jest: te granice zaokrągla się w górę, do pełnych groszy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dwie decyzje",
+   "sub": "dwa organy",
+   "nar": "Czyli sufit rośnie, zaokrąglony do góry, a potem gmina wybiera liczbę pod nim. Dwie decyzje, dwa różne organy, i jeden twój rachunek.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Nie tylko nieruchomości",
+   "sub": "podatki i opłaty lokalne",
+   "nar": "Warto wiedzieć, że to samo obwieszczenie obejmuje nie tylko podatek od nieruchomości. Dotyczy górnych granic podatków i opłat lokalnych, czyli całej grupy, której twoja gmina jest gospodarzem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Minister nie wybiera",
+   "sub": "dowolnie",
+   "nar": "Minister nie wybiera tego sufitu dowolnie. Ustawa wiąże go ze wskaźnikiem cen towarów i usług konsumpcyjnych, i mówi dokładnie z którym.",
+   "cap": "Skąd bierze się ten wskaźnik"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Który dokładnie",
+   "sub": "pierwsze półrocze",
+   "nar": "Ze wskaźnikiem za pierwsze półrocze roku, w którym stawki się zmieniają, w stosunku do tego samego okresu roku poprzedniego.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kto go podaje",
+   "sub": "nie minister",
+   "nar": "A kto podaje ten wskaźnik? Nie minister. Prezes Głównego Urzędu Statystycznego, komunikatem, i również w Monitorze Polskim.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ustawa mówi kiedy",
+   "sub": "dwadzieścia dni",
+   "nar": "Ustawa mówi nawet kiedy: w terminie dwudziestu dni po upływie pierwszego półrocza. Czyli gdzieś do dwudziestego lipca.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "I tak było",
+   "sub": "piętnastego lipca",
+   "nar": "I dokładnie tak było w tym roku. Komunikat Prezesa Głównego Urzędu Statystycznego nosi datę piętnastego lipca.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Osiem dni później",
+   "sub": "obwieszczenie",
+   "nar": "Obwieszczenie ministra — dwudziestego trzeciego lipca. Osiem dni później. Najpierw liczba od statystyki, potem sufit od finansów.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Możesz to sprawdzić",
+   "sub": "oba mają pozycję",
+   "nar": "To jest łańcuch, który sprawdzisz sam, bo oba dokumenty leżą w tym samym dzienniku urzędowym i oba mają swój numer pozycji.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "To nie ta inflacja",
+   "sub": "którą cytują w mediach",
+   "nar": "I jedna rzecz, którą łatwo pomylić: to nie jest roczna inflacja, o której mówią w wiadomościach. To wskaźnik za pierwsze półrocze, porównany z tym samym półroczem rok wcześniej. Inny okres, inna liczba.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Pytanie teoretyczne",
+   "sub": "skutek praktyczny",
+   "nar": "Zostaje pytanie, które brzmi teoretycznie, a ma bardzo praktyczny skutek: co, jeśli rada gminy nie uchwali stawek na dany rok?",
+   "cap": "Gdy gmina nie uchwali stawek"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ustawa to przewiduje",
+   "sub": "artykuł dwudziesty a",
+   "nar": "Ustawa to przewiduje, w artykule dwudziestym a. Nie ma luki, nie ma zera, i nie wchodzi tu żadna stawka ministra.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Zostaje to, co było",
+   "sub": "rok poprzedni",
+   "nar": "Obowiązują stawki z roku poprzedniego. Czyli brak uchwały nie znaczy brak podatku — znaczy, że zostaje dokładnie to, co było.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Wniosek dla ciebie",
+   "sub": "brak zmiany",
+   "nar": "Dla ciebie wniosek jest prosty. Jeśli twoja kwota nie zmieniła się między dwoma latami, to niekoniecznie jest błąd w decyzji.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dwie możliwości",
+   "sub": "i obie zwykłe",
+   "nar": "To może być gmina, która nie podniosła stawki, albo gmina, która po prostu nie uchwaliła jej w nowej wysokości.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "I odwrotnie",
+   "sub": "wzrost kwoty",
+   "nar": "I odwrotnie: wzrost kwoty nie musi znaczyć, że wzrosła stawka. Mógł się zmienić opis nieruchomości, a stawka zostać ta sama.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dlatego",
+   "sub": "dziel dla dwóch lat",
+   "nar": "Dlatego dzielenie z drugiego rozdziału ma pełny sens dopiero wtedy, gdy zrobisz je dla dwóch lat i porównasz dwa wyniki.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "I jeszcze jeden krok",
+   "sub": "dwie uchwały",
+   "nar": "A jeśli chcesz mieć pewność, zrób to samo z dwiema uchwałami: tą na ten rok i tą na poprzedni. Jeśli obie podają tę samą stawkę, twoja gmina po prostu jej nie podniosła.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Teraz terminy",
+   "sub": "tu nie ma wyboru",
+   "nar": "Teraz terminy, bo to jedyna część, w której ustawa mówi wprost do osoby fizycznej i nie zostawia ci żadnego wyboru.",
+   "broll_q": "person circling a date on a calendar",
+   "broll_url": "https://videos.pexels.com/video-files/9057678/9057678-hd_1280_720_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 9057678,
+    "autor": "SHVETS production",
+    "url": "https://www.pexels.com/video/a-person-encircling-the-date-on-the-calendar-9057678/"
+   },
+   "cap": "Twoje cztery daty"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Nie liczysz sam",
+   "sub": "organ wydaje decyzję",
+   "nar": "Podatek od nieruchomości dla osoby fizycznej ustala organ podatkowy w drodze decyzji. Ty go sobie sam nie wyliczasz i nie deklarujesz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Cztery raty",
+   "sub": "cztery terminy",
+   "nar": "Jest płatny w ratach, i tych rat są cztery. Terminy to piętnasty marca, piętnasty maja, piętnasty września i piętnasty listopada.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dlaczego to ważne",
+   "sub": "nie jedna data",
+   "nar": "Cztery daty, a nie jedna. To znaczy, że jeśli pamiętasz tylko marzec, trzy razy w roku jesteś po terminie i zwykle o tym nie wiesz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Osoba prawna",
+   "sub": "inny tryb",
+   "nar": "Osoba prawna ma inny tryb i inne terminy — składa deklarację i płaci co miesiąc. Nie mieszaj tych dwóch trybów, bo to dwa różne obowiązki.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Druga instytucja",
+   "sub": "ta sama liczba",
+   "nar": "Serwis ministerstwa podaje dla osoby fizycznej te same cztery terminy, co ustawa. To są dwie instytucje na jednej i tej samej liczbie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Zrób to teraz",
+   "sub": "w kalendarzu",
+   "nar": "Wpisz te cztery daty tam, gdzie je naprawdę zobaczysz. Nie w pamięci, a w kalendarzu, który sam ci przypomni.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Decyzja jest wzorcem",
+   "sub": "nie mój film",
+   "nar": "I pamiętaj, że kwoty poszczególnych rat oraz ich terminy są wypisane w samej decyzji. Jeśli cokolwiek tutaj nie zgadza się z twoją decyzją, to wzorcem jest twoja decyzja, a nie moja narracja.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Najkrótszy termin",
+   "sub": "czternaście dni",
+   "nar": "Jest jeszcze jeden termin, i on jest najkrótszy, więc najłatwiej go przegapić. Czternaście dni.",
+   "cap": "Czternaście dni, które łatwo przegapić"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Co trzeba złożyć",
+   "sub": "informację",
+   "nar": "Osoba fizyczna ma obowiązek złożyć informację o nieruchomościach i obiektach budowlanych, na ustalonym formularzu, w terminie czternastu dni.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Od czego liczy się termin",
+   "sub": "od okoliczności",
+   "nar": "Czternastu dni od czego? Od dnia, w którym powstały okoliczności uzasadniające obowiązek podatkowy. Na przykład od dnia zakupu mieszkania.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Część pomijana",
+   "sub": "także wygaśnięcie",
+   "nar": "I tu jest część, którą ludzie pomijają: ustawa mówi tak samo o wygaśnięciu obowiązku. Czyli sprzedaż też uruchamia te czternaście dni.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Co z tego wynika",
+   "sub": "decyzja wciąż przychodzi",
+   "nar": "Jeśli sprzedałeś i nie złożyłeś informacji, decyzja może dalej przychodzić na ciebie, bo gmina nie dowiedziała się o tym od ciebie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ten sam termin",
+   "sub": "dotyczy zmian",
+   "nar": "Ten sam czternastodniowy termin dotyczy zmian. Zmieniłeś sposób wykorzystania części budynku — to też jest zdarzenie do zgłoszenia.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Gdzie się składa",
+   "sub": "w gminie",
+   "nar": "Formularz osoby fizycznej to informacja oznaczona jako i en jeden, a składa się ją w urzędzie gminy, na której terenie leży nieruchomość.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Współwłasność",
+   "sub": "odpowiadacie solidarnie",
+   "nar": "Na koniec sytuacja, która dotyczy bardzo wielu: jeśli nieruchomość ma kilku współwłaścicieli, obowiązek podatkowy dotyczy ich solidarnie. Czyli gmina może dochodzić całości od każdego z was.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Jedna liczba",
+   "sub": "której nikt poza tobą nie ma",
+   "nar": "Zbierzmy to w jedną rzecz do zrobienia, bo cały ten film prowadzi do jednej liczby, której nie ma nikt poza tobą.",
+   "broll_q": "architectural floor plans on a table",
+   "broll_url": "https://videos.pexels.com/video-files/6615523/6615523-hd_1280_720_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 6615523,
+    "autor": "Tima Miroshnichenko",
+    "url": "https://www.pexels.com/video/blue-plans-6615523/"
+   },
+   "cap": "Jedna liczba, którą tylko ty masz"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Weź dwie kartki",
+   "sub": "dwa lata",
+   "nar": "Weź decyzję za ten rok i decyzję za rok poprzedni. Dwie kartki, nic więcej, i obie już masz w domu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Wypisz dwie rzeczy",
+   "sub": "z każdej",
+   "nar": "Z każdej wypisz dwie rzeczy: powierzchnię w metrach kwadratowych i kwotę podatku za rok. Nic poza tym nie jest teraz potrzebne.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Podziel",
+   "sub": "osobno dla każdego roku",
+   "nar": "Podziel kwotę przez metry, osobno dla każdego roku. Dostaniesz dwie stawki za metr — swoje własne, a nie żadne średnie krajowe.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Czytanie wyniku",
+   "sub": "dwa przypadki",
+   "nar": "Jeśli stawki są równe, a kwota wzrosła, to zmieniła się powierzchnia albo opis. Jeśli wzrosła stawka, to zadecydowała o tym twoja gmina.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "To jest cała wartość",
+   "sub": "tego rachunku",
+   "nar": "To rozróżnienie jest całą wartością tego rachunku. Bez niego nie wiesz, czy rozmawiać z gminą o stawce, czy o opisie nieruchomości.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Czego nie rób",
+   "sub": "nie porównuj z sąsiadem",
+   "nar": "I czego nie robić: nie porównuj swojej kwoty z kwotą kogoś z innej gminy. To dwie różne uchwały i dwie różne stawki, więc z takiego porównania nie wynika absolutnie nic.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "W komentarzu",
+   "sub": "tylko jedno słowo",
+   "nar": "Napisz w komentarzu tylko jedno: czy twoja stawka za metr wzrosła, została taka sama, czy spadła. Bez kwoty, bez gminy i bez adresu.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Twoja stawka",
+   "sub": "nie z Warszawy",
+   "nar": "Stawka z twojej decyzji o podatku od nieruchomości nie powstała w Warszawie. Wybrała ją rada twojej gminy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ustawa daje sufit",
+   "sub": "nie stawkę",
+   "nar": "Ustawa podaje tylko sufit. Sufit na następny rok ogłasza minister w Monitorze Polskim, w lipcu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Policz swoją",
+   "sub": "jedno dzielenie",
+   "nar": "Swoją stawkę wyliczysz sam: kwotę podatku za rok podziel przez metry kwadratowe z tej samej decyzji.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Termin do przegapienia",
+   "sub": "czternaście dni",
+   "nar": "I uwaga na najkrótszy termin: czternaście dni na zgłoszenie — także wtedy, gdy nieruchomość sprzedałeś.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Cztery raty",
+   "sub": "cztery daty",
+   "nar": "Cztery raty, cztery daty i jedno dzielenie, które pokazuje, czy rozmawiać o stawce, czy o metrach. Wszystko jest w filmie.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# Stawka z twojej decyzji o podatku od nieruchomości — kto ją wybrał i jak ją policzyć samemu\n\n## TITULO\nPodatek od Nieruchomości: Twoją Stawkę Wybrała Gmina, nie Państwo — Policz Ją z Własnej Decyzji\n\n## TITULO SHORT\nTwoja stawka: kto ją właściwie wybrał?\n\n## DESCRICAO\nRaz w roku przychodzi decyzja o podatku od nieruchomości, a w niej stawka. Prawie nikt nie wie, kto tę stawkę ustalił — i nie ustalił jej ani minister, ani urząd skarbowy. Ustawa o podatkach i opłatach lokalnych mówi w artykule piątym, że wysokość stawek określa rada gminy uchwałą, z tym że stawki nie mogą przekroczyć granicy. To, co stoi w ustawie, jest sufitem, a nie twoją stawką.\n\nMetoda z tego filmu nie wymaga żadnej liczby ode mnie, bo obie potrzebne liczby już masz w domu. W decyzji znajdziesz podstawę opodatkowania, czyli powierzchnię w metrach kwadratowych, oraz kwotę podatku za rok. Dzielisz kwotę przez metry i dostajesz stawkę za metr, którą twoja gmina zastosowała właśnie na ciebie. Uchwała rady gminy w sprawie stawek jest publiczna, więc wynik dzielenia można z nią zestawić — a jeśli się nie zgadza, to zwykle decyzja opisuje inną powierzchnię albo inny rodzaj przedmiotu opodatkowania, niż sądzisz. Wtedy warto zadzwonić do gminy.\n\nDalej film pokazuje, skąd bierze się sufit i kto go rusza. Artykuł dwudziesty tej samej ustawy nakłada na ministra obowiązek ogłaszania górnych granic stawek kwotowych obwieszczeniem w Monitorze Polskim, zaokrąglonych w górę do pełnych groszy, a artykuł dwudziesty ustęp trzeci wiąże je ze wskaźnikiem cen, który podaje Prezes Głównego Urzędu Statystycznego komunikatem w tym samym dzienniku urzędowym, w terminie dwudziestu dni po upływie pierwszego półrocza. W tym roku komunikat GUS nosi datę piętnastego lipca, a obwieszczenie ministra z granicami na następny rok podatkowy — dwudziestego trzeciego lipca, osiem dni później. Jest też artykuł dwudziesty a, który odpowiada na pytanie, co się dzieje, gdy rada gminy stawek nie uchwali: obowiązują stawki z roku poprzedniego.\n\nNa koniec terminy, bo tu ustawa nie zostawia wyboru. Podatek osoby fizycznej ustala organ podatkowy w drodze decyzji i jest płatny w czterech ratach: do piętnastego marca, piętnastego maja, piętnastego września i piętnastego listopada. Osobno jest termin czternastu dni na złożenie informacji o nieruchomościach i obiektach budowlanych — i ten sam termin dotyczy wygaśnięcia obowiązku, czyli także sprzedaży.\n\nZastrzeżenie, które waży więcej niż rachunek: to nie jest porada podatkowa ani prawna, film nie wylicza twojego podatku i nie sprawdza, czy twoja decyzja jest poprawna. Nie podaje żadnej stawki, bo stawka zależy od gminy i od roku. Jeśli po dzieleniu coś ci nie pasuje, rozmowa należy do twojej gminy, a w sprawach spornych do pełnomocnika — nie do filmu.\n\nCAPITULOS\n{CAPITULOS}\n\nW komentarzu napisz tylko jedno słowo: czy twoja stawka za metr wzrosła, została taka sama, czy spadła. Bez kwoty, bez nazwy gminy, bez adresu.\n\n## DISCLOSURE\nNarracja i grafika w tym filmie są wygenerowane komputerowo. Tekst jest oryginalny, a treść ma charakter informacyjny i nie stanowi porady podatkowej ani prawnej.\n\n## HASHTAGS\n#PodatekOdNieruchomości #Gmina #KolejnyPoziom\n\n## TAGS\npodatek od nieruchomosci, stawki podatku od nieruchomosci, decyzja podatkowa, uchwala rady gminy, gorne granice stawek, Monitor Polski, obwieszczenie ministra finansow, komunikat GUS, wskaznik cen, IN-1, informacja o nieruchomosciach, terminy platnosci podatku, 15 marca podatek, czternascie dni zgloszenie, podatki lokalne\n\n## COMENTARIO FIXADO\nCała metoda w dwóch zdaniach: weź decyzję o podatku od nieruchomości, znajdź w niej powierzchnię w metrach kwadratowych i kwotę podatku za rok, i podziel kwotę przez metry. Wynik to stawka za metr, którą zastosowała twoja gmina — nie państwo. Zrób to dla dwóch lat: jeśli stawka jest ta sama, a kwota wzrosła, zmienił się opis nieruchomości; jeśli wzrosła stawka, zadecydowała o tym rada gminy uchwałą.\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nEste video NAO cita nenhuma aliquota de imposto predial, de nenhum ano e de nenhuma gmina — e isso nao e cautela, e o eixo: a aliquota que vale para o espectador esta na uchwala da gmina DELE e na decisao que ele tem em casa. Os numeros que o video cita sao de tres tipos, e cada um e identificador ou prazo legal, nao medicao: (1) os ARTIGOS da ustawa o podatkach i oplatach lokalnych — artigo 5 ust. 1 (a rada gminy fixa as aliquotas por uchwala e elas nao podem exceder a granica), artigo 6 ust. 6 (os catorze dias), artigo 6 ust. 7 (o imposto da pessoa fisica e fixado por decisao e pago em quatro parcelas), artigo 20 ust. 2 (o ministro anuncia os tetos por obwieszczenie no Monitor Polski, arredondando para cima ao grosz cheio), artigo 20 ust. 3 (o indice vem de comunicado do presidente do GUS, em vinte dias apos o semestre) e artigo 20a (sem uchwala valem as aliquotas do ano anterior); (2) os PRAZOS — quatro parcelas em quinze de marco, quinze de maio, quinze de setembro e quinze de novembro, e catorze dias para a informacao; (3) as DATAS de duas publicacoes oficiais deste ano — o comunicado do GUS de quinze de julho e o obwieszczenie do ministro de vinte e tres de julho.\n\nA SUSTENTACAO, e ela tem TRES orgaos diferentes, nao dois: o texto vigente da lei e o `tekst jednolity` publicado como Dz.U. 2025 poz. 707 (obwieszczenie do Marszalek do Sejm de 21 de maio de 2025); o teto para o proximo ano e o M.P. 2026 poz. 741, obwieszczenie do Ministro de Financas e Economia de 23 de julho de 2026; o indice em que esse teto se apoia e o M.P. 2026 poz. 704, komunikat do Presidente do GUS de 15 de julho de 2026. E o procedimento da pessoa fisica — formulario IN-1, catorze dias, as quatro datas e a entrega no urzad gminy — esta no serwis podatki.gov.pl do Ministerio das Financas. Os quatro prazos batem em DUAS fontes independentes: a lei e o serwis do ministerio.\n\nO QUE FOI DESCARTADO, e por que: (1) TODA aliquota, inclusive as que estao impressas no proprio texto da lei — porque o texto as marca com nota de rodape dizendo que as granicas de cada ano sao anunciadas separadamente, ou seja, o numero impresso na lei NAO e o teto vigente; (2) o valor do indice de precos do GUS, porque o video nao precisa dele para nada e cita-lo abriria a porta a confundir indice com aliquota; (3) a afirmacao de que a aliquota da gmina do espectador subiu ou nao subiu — eu nao leio a uchwala de duas mil e quase quinhentas gminas e o video manda ele ler a sua; (4) qualquer numero vindo do texto ORIGINAL da lei de 1991, que a API do Sejm serve no id base: ele cita quinhentos mil zlotych por automovel (zloty pre-denominacao) e um prazo de quinze de janeiro onde o ministerio hoje publica trinta e um. Texto base nao e texto vigente, e confundir os dois seria citar lei de trinta e cinco anos atras como se fosse de hoje.\n\n## FONTES\nUstawa z dnia 12 stycznia 1991 r. o podatkach i opłatach lokalnych — tekst jednolity: Dz.U. 2025 poz. 707 (obwieszczenie Marszałka Sejmu z 21 maja 2025 r.). Art. 5 ust. 1, art. 6 ust. 6 i 7, art. 20 ust. 1-3, art. 20a.\nObwieszczenie Ministra Finansów i Gospodarki z dnia 23 lipca 2026 r. w sprawie górnych granic stawek kwotowych podatków i opłat lokalnych na rok 2027 — M.P. 2026 poz. 741.\nKomunikat Prezesa Głównego Urzędu Statystycznego z dnia 15 lipca 2026 r. w sprawie wskaźnika cen towarów i usług konsumpcyjnych w pierwszym półroczu 2026 r. — M.P. 2026 poz. 704.\nMinisterstwo Finansów, serwis podatki.gov.pl — podatek od nieruchomości: formularz IN-1, termin 14 dni, cztery raty (15 marca, 15 maja, 15 września, 15 listopada), złożenie w urzędzie gminy.\n"
+}
