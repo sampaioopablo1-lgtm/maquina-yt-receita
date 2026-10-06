@@ -627,11 +627,45 @@ fechou tres pacotes hoje:
 * ID: `bpjsketenagakerjaan.go.id` (orgao + PDF da PP) + `jdih.kemnaker.go.id`
   (vigencia) -> setiap-level-015
 
-**GRECIA NAO TEM ESSE PAR DISPONIVEL hoje**: a agencia (`efka.gov.gr`) e o
-publicador (`et.gr`) sao os dois aplicacoes JavaScript, e a autoridade fiscal
-(`aade.gr`) da 403. Para o epomeno-epipedo — que e o canal mais forte da frota
-— isso significa que um eixo com fato estrutural grego nao fecha em duas
-fontes pela sandbox. Quem pegar esse canal: ou desenhe o pacote para que o
-numero que decide seja inteiramente do espectador (o documento na mao dele), ou
-peca ao dono uma rota de leitura para `aade.gr`/`efka.gov.gr`. NAO gaste vinte
-minutos redescobrindo isto — eu gastei.
+**GRECIA: o par existe, e nao e grego-grego.** Corrigido as 19:30 de
+06/10/2026, uma hora depois de eu escrever aqui que nao existia.
+
+O que eu escrevi as 18:09 e que continua VERDADE: nenhum orgao grego serve
+texto legivel pela sandbox. A agencia (`efka.gov.gr`) e o publicador (`et.gr`)
+sao aplicacoes JavaScript, `aade.gr` da 403, e nesta rodada eu medi mais quatro
+e todos reprovaram — `bankofgreece.gr` 403, `ypergasias.gov.gr` e `minfin.gr`
+devolvem 202 (pagina de desafio, texto zero), `dypa.gov.gr` e `hdigf.gr` (o
+TEKE, que paga a garantia de depositos) dao timeout. Oito hosts gregos
+reprovados.
+
+O que estava ERRADO era a CONCLUSAO: que por isso o canal nao fecha. O par nao
+precisa ser do mesmo pais. Para a Grecia ele tem tres niveis, e os tres servem:
+
+* `statistics.gr` (ELSTAT, 13.953 chars) — o orgao NACIONAL que ainda responde.
+  Publica o indice nacional (base 2020=100) e, junto dele, a
+  `Ανακοίνωση Αναπροσαρμογής Μισθωμάτων`: o indice que entra no contrato de
+  aluguel do espectador.
+* `ec.europa.eu/eurostat` (48.364 chars de texto nos metadados do HICP) — quem
+  DEFINE a regra. Base 2025=100, Regulamento (UE) 2016/792, a "egchoria
+  ennoia" (inclui compras de nao residentes no territorio), a lista das
+  categorias NAO cobertas (04.2, alugueis imputados) e o ECOICOP v2 a partir da
+  publicacao de janeiro/2026.
+* `ecb.europa.eu` (13.117 chars) — quem USA o numero para decidir, e o mais
+  valioso dos tres: na pagina de estabilidade de precos o BCE escreve que
+  considera o harmonizado a medida apropriada do objetivo E que reconhece que
+  incluir o custo da habitacao propria representaria melhor a inflacao
+  relevante para as familias.
+
+**Por que o terceiro nivel vale ouro:** o furo que o COMPILADOR registra como
+categoria excluida, o UTILIZADOR registra como ressalva. Dois orgaos
+independentes, a mesma admissao, cada um na pagina dele — sustentacao cruzada
+sem precisar de dois orgaos do mesmo pais. Foi assim que o
+epomeno-epipedo-015 fechou: 746,0 s, 10 capitulos, 11/11 portoes, ZERO taxa de
+inflacao citada.
+
+NAO afirmei que a ELSTAT publica tambem o harmonizado: a pagina `DKT88`
+responde 200 mas com a descricao VAZIA, so navegacao. Fica aqui para quem tiver
+rota melhor.
+
+Uma rota de leitura para `aade.gr`/`efka.gov.gr` continua sendo util e continua
+pendente com o dono — mas ela nao e mais bloqueio para este canal.
