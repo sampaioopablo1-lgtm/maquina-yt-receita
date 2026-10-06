@@ -1,0 +1,477 @@
+{
+ "slug": "nivel-do-jogo",
+ "pacote": "nivel-do-jogo-011",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-AntonioNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#1B4332",
+  "c1": "#D64570",
+  "c2": "#7FB069",
+  "bg": "#EFF6F1"
+ },
+ "thumb": {
+  "l1": "Drift",
+  "l2": "qual prazo vale"
+ },
+ "longo": [
+  {
+   "layout": "broll",
+   "kicker": "Três relógios",
+   "sub": "não um",
+   "nar": "O analógico do seu controle começou a andar sozinho. Existem três prazos diferentes correndo sobre isso, e o da caixa é o menos importante dos três.",
+   "broll_q": "close up of hands using a video game controller",
+   "broll_url": "https://videos.pexels.com/video-files/5901406/5901406-hd_1366_720_30fps.mp4",
+   "broll_credito": {
+    "pexels_id": 5901406,
+    "autor": "ROMAN ODINTSOV",
+    "url": "https://www.pexels.com/video/close-up-of-hands-using-video-game-controller-5901406/"
+   },
+   "cap": "Três prazos correndo, e o da caixa é o menor"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O primeiro",
+   "sub": "é o da lei",
+   "nar": "O primeiro prazo é o da garantia legal. Ele existe por lei, vale para qualquer produto durável e ninguém precisa te conceder nada.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O segundo",
+   "sub": "é do fornecedor",
+   "nar": "O segundo é o prazo que o fornecedor tem para consertar depois que você reclama. Ele é curto, e quando estoura a escolha passa a ser sua.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O terceiro",
+   "sub": "é o da caixa",
+   "nar": "O terceiro é a garantia que vem escrita na caixa ou no certificado. Esse é contratual, e a lei diz que ele é complementar, não substituto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Por que isso importa",
+   "sub": "a ordem se inverte",
+   "nar": "A maioria olha só para o terceiro. Quando ele vence, a pessoa acha que acabou. Não acabou, e em alguns casos nem tinha começado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O caso do drift",
+   "sub": "aparece depois",
+   "nar": "E o drift é o exemplo perfeito disso, porque ele quase nunca aparece na primeira semana. Aparece meses depois, com o uso.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que vem agora",
+   "sub": "a conta de dias",
+   "nar": "Então a conta deste vídeo não é de reais. É de dias, e os dois números saem de papéis que você tem: a nota fiscal e a data em que o defeito surgiu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Pegue a nota",
+   "sub": "e olhe a data",
+   "nar": "A resposta começa num documento só seu. Pegue a nota fiscal ou o comprovante de compra e olhe a data da entrega, não a data do pedido.",
+   "broll_q": "person touching a paper document on a table",
+   "broll_url": "https://videos.pexels.com/video-files/6143908/6143908-hd_1366_720_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 6143908,
+    "autor": "cottonbro studio",
+    "url": "https://www.pexels.com/video/person-touching-a-paper-6143908/"
+   },
+   "cap": "Qual prazo é o seu, e como contar"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Primeira pergunta",
+   "sub": "o defeito é visível?",
+   "nar": "Agora uma pergunta só, e ela decide tudo: o defeito era visível na entrega, ou apareceu depois de um tempo de uso?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Se era visível",
+   "sub": "conta da entrega",
+   "nar": "Se era visível na entrega, a contagem começa na entrega efetiva do produto. É o caso de um controle que já chegou torto ou riscado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Se apareceu depois",
+   "sub": "conta de quando apareceu",
+   "nar": "Se apareceu depois, isso é vício oculto, e a contagem começa no momento em que o defeito ficou evidenciado. Não na compra.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A conta",
+   "sub": "noventa dias a partir dali",
+   "nar": "Então a sua conta é esta: produto durável tem noventa dias, e para vício oculto esses noventa dias correm a partir do dia em que o drift apareceu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "É isso",
+   "sub": "e não precisa de mim",
+   "nar": "Essa é a resposta inteira. Dois dados seus, uma pergunta e uma soma de dias. Eu não entrei com nenhum número nessa conta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Anote hoje",
+   "sub": "antes de esquecer",
+   "nar": "E faça uma coisa agora: anote a data em que você notou o problema. Daqui a dois meses você não vai lembrar, e é essa data que inicia o seu prazo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "De onde vem",
+   "sub": "artigo vinte e seis",
+   "nar": "Esses prazos não são praxe de loja nem política de fabricante. Estão no artigo vinte e seis do Código de Defesa do Consumidor.",
+   "cap": "Os noventa dias, e de onde começam"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "São dois prazos",
+   "sub": "e dependem do produto",
+   "nar": "O artigo traz dois: trinta dias para serviço e produto não durável, e noventa dias para serviço e produto durável.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Console é durável",
+   "sub": "controle também",
+   "nar": "Console, controle e headset são produtos duráveis. Então o prazo que te interessa aqui é o de noventa dias, não o de trinta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O parágrafo primeiro",
+   "sub": "entrega efetiva",
+   "nar": "E o parágrafo primeiro do mesmo artigo diz de onde a contagem parte: da entrega efetiva do produto. Entrega, não compra, não pagamento.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Por que a diferença",
+   "sub": "compra online",
+   "nar": "Para quem compra na internet essa diferença é real. Você pode ter pagado numa segunda e recebido dez dias depois, e o prazo é do recebimento.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O Procon confirma",
+   "sub": "e cita o artigo",
+   "nar": "A Fundação Procon de São Paulo, que é quem aplica o código no estado, cita esse artigo com as mesmas palavras na sua página de dúvidas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Um detalhe do Procon",
+   "sub": "que a lei não diz",
+   "nar": "E acrescenta um detalhe prático que a lei não traz: o direito de reclamar não depende do certificado de garantia. Basta comprovar a compra.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "O vício oculto",
+   "sub": "o seu caso",
+   "nar": "Agora o parágrafo que muda tudo para quem tem drift, e é o parágrafo terceiro do mesmo artigo vinte e seis.",
+   "broll_q": "person writing a date on a planner",
+   "broll_url": "https://videos.pexels.com/video-files/1793371/1793371-hd_1280_720_30fps.mp4",
+   "broll_credito": {
+    "pexels_id": 1793371,
+    "autor": "Miguel Á. Padriñán",
+    "url": "https://www.pexels.com/video/person-saving-a-date-on-his-planner-1793371/"
+   },
+   "cap": "Vício oculto: o relógio começa depois"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que ele diz",
+   "sub": "fica evidenciado",
+   "nar": "Tratando-se de vício oculto, o prazo começa no momento em que ficar evidenciado o defeito. É a lei escolhendo a data do aparecimento.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A definição",
+   "sub": "pelo Procon",
+   "nar": "O Procon define vício oculto como aquele não evidenciado de início, que só aparece após determinado tempo ou consumo do produto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Isso é drift",
+   "sub": "quase por definição",
+   "nar": "Leia essa frase pensando no drift. Um analógico que funcionou por oito meses e começou a derivar cabe nela quase por definição.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E os prazos",
+   "sub": "são os mesmos",
+   "nar": "E o Procon é explícito: constatado o vício oculto, inicia-se a contagem dos prazos, e são os mesmos trinta e noventa dias do artigo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que não muda",
+   "sub": "a ressalva honesta",
+   "nar": "Uma ressalva que eu preciso dizer: o Procon avisa que em algumas situações será preciso laudo técnico mostrando que a origem é de fabricação.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ou seja",
+   "sub": "não é automático",
+   "nar": "Ou seja, vício oculto não é senha automática. É o prazo que começa depois, e a origem do defeito pode precisar de prova. O que o parágrafo te dá é tempo para reclamar, não a garantia de que a reclamação será aceita.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "O segundo relógio",
+   "sub": "trinta dias",
+   "nar": "Você reclamou dentro do prazo. Começa aí o segundo relógio, e esse é do fornecedor: ele tem trinta dias para sanar o vício.",
+   "broll_q": "technician repairing an electronic device",
+   "broll_url": "https://videos.pexels.com/video-files/6755160/6755160-hd_1280_720_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 6755160,
+    "autor": "Tima Miroshnichenko",
+    "url": "https://www.pexels.com/video/young-man-repairing-electronic-device-6755160/"
+   },
+   "cap": "Os trinta dias do fornecedor"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Está no artigo dezoito",
+   "sub": "parágrafo primeiro",
+   "nar": "Isso está no artigo dezoito, parágrafo primeiro. E o texto é claro sobre o que acontece quando esses trinta dias passam sem conserto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A escolha passa a ser sua",
+   "sub": "três opções",
+   "nar": "Não sendo o vício sanado no prazo, o consumidor pode exigir, à sua escolha, uma de três coisas. A escolha é sua, não da loja.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Primeira",
+   "sub": "outro produto",
+   "nar": "A primeira é a substituição do produto por outro da mesma espécie, em perfeitas condições de uso.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Segunda",
+   "sub": "dinheiro de volta",
+   "nar": "A segunda é a restituição imediata da quantia paga, monetariamente atualizada, sem prejuízo de eventuais perdas e danos.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Terceira",
+   "sub": "abatimento",
+   "nar": "A terceira é o abatimento proporcional do preço, para quem prefere ficar com o produto como ele está e pagar menos por ele. Faz sentido quando o defeito incomoda mas não impede de jogar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Guarde o protocolo",
+   "sub": "a data conta",
+   "nar": "Por isso guarde o número do atendimento e a data em que entregou o produto. Os trinta dias contam dali, e quem precisa provar a data é você.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Esse prazo pode mudar",
+   "sub": "e muita gente não sabe",
+   "nar": "Os trinta dias não são imutáveis, e essa é a parte que quase ninguém sabe. O próprio artigo dezoito permite mudar o prazo.",
+   "cap": "De sete a cento e oitenta dias"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O parágrafo segundo",
+   "sub": "a faixa",
+   "nar": "O parágrafo segundo diz que as partes podem convencionar a redução ou a ampliação do prazo, não podendo ser inferior a sete nem superior a cento e oitenta dias.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ou seja",
+   "sub": "pode ser seis vezes maior",
+   "nar": "Ou seja, aquele prazo de trinta dias pode legalmente virar cento e oitenta. Seis vezes mais tempo com o produto na assistência.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Mas tem condição",
+   "sub": "e ela protege você",
+   "nar": "Só que o mesmo parágrafo coloca uma condição, e ela existe justamente para proteger quem assina sem ler.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Em contrato de adesão",
+   "sub": "em separado",
+   "nar": "Nos contratos de adesão, a cláusula de prazo deverá ser convencionada em separado, por meio de manifestação expressa do consumidor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que isso quer dizer",
+   "sub": "não vale escondido",
+   "nar": "Em outras palavras, esse prazo maior não pode estar escondido no meio das letras miúdas. Ele precisa de um sim seu, destacado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que fazer com isso",
+   "sub": "procure a cláusula",
+   "nar": "Então se a assistência te falar de um prazo maior que trinta dias, peça para ver onde você concordou com isso em separado. Se não acharem, o prazo que vale é o de trinta dias do artigo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Reclamar para o relógio",
+   "sub": "literalmente",
+   "nar": "Falta o movimento mais barato e mais ignorado de toda essa história: reclamar não é só pedir conserto. Reclamar PARA o relógio.",
+   "cap": "Reclamar obsta a decadência"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Parágrafo segundo",
+   "sub": "obstam a decadência",
+   "nar": "O artigo vinte e seis, parágrafo segundo, lista o que obsta a decadência, ou seja, o que interrompe a contagem contra você.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O inciso primeiro",
+   "sub": "a reclamação",
+   "nar": "O primeiro item é a reclamação comprovadamente formulada pelo consumidor perante o fornecedor, até a resposta negativa correspondente.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E ela tem forma",
+   "sub": "inequívoca",
+   "nar": "E o texto exige que essa resposta negativa seja transmitida de forma inequívoca. Silêncio da loja não é resposta negativa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A consequência prática",
+   "sub": "o prazo congela",
+   "nar": "Na prática: enquanto a loja não te dá um não claro, o prazo não está correndo contra você. Mas isso só vale se a reclamação for comprovável.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Por isso",
+   "sub": "sempre por escrito",
+   "nar": "Por isso reclame por escrito, por um canal que gere registro, e guarde o protocolo. Reclamação por telefone sem número de atendimento não prova nada.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "É o passo mais barato",
+   "sub": "e o mais esquecido",
+   "nar": "Esse é o passo mais barato da lista inteira e o mais esquecido. Custa cinco minutos e congela o prazo que está trabalhando contra você.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O terceiro relógio",
+   "sub": "o da caixa",
+   "nar": "Voltamos ao prazo da caixa, aquele que a maioria acha que é o único. O código fala dele no artigo cinquenta.",
+   "cap": "A da caixa é complementar, e os sete dias"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que ele diz",
+   "sub": "complementar",
+   "nar": "A garantia contratual é complementar à legal e será conferida mediante termo escrito. Complementar quer dizer que soma, não que substitui.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A inversão",
+   "sub": "que custa dinheiro",
+   "nar": "Então a leitura certa é o contrário da que se faz. O prazo da caixa se soma ao da lei, e vencer o da caixa não encerra o da lei.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E se comprou online",
+   "sub": "artigo quarenta e nove",
+   "nar": "Tem ainda um prazo separado, que não é de defeito nenhum: o artigo quarenta e nove dá sete dias para desistir da compra feita fora da loja física.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Esse é por arrependimento",
+   "sub": "não por vício",
+   "nar": "Esse não exige problema no produto. É arrependimento, e os valores pagos devem ser devolvidos de imediato, monetariamente atualizados.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Não confunda os dois",
+   "sub": "são relógios diferentes",
+   "nar": "Não confunda esse com os noventa dias. Um é para desistir sem motivo, o outro é para reclamar de defeito. Perder um não consome o outro.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Nos comentários",
+   "sub": "só uma data",
+   "nar": "Escreva nos comentários só isto: quantos dias de uso o seu controle tinha quando o drift apareceu. Sem modelo, sem loja, sem valor.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Drift no analógico",
+   "sub": "o prazo não é o da caixa",
+   "nar": "Seu controle anda sozinho e a garantia da caixa já venceu. Isso não encerra o seu prazo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Produto durável",
+   "sub": "noventa dias",
+   "nar": "O código do consumidor dá noventa dias para reclamar de vício em produto durável, e controle é durável.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E aqui está o pulo",
+   "sub": "vício oculto",
+   "nar": "Para vício oculto, o prazo começa quando o defeito fica evidenciado. Drift de oito meses é esse caso.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A conta",
+   "sub": "duas datas suas",
+   "nar": "Conte noventa dias do dia em que o drift apareceu, não da compra. Anote essa data hoje.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Tem mais dois prazos",
+   "sub": "e um congela o relógio",
+   "nar": "Há outros dois prazos, e um deles congela a contagem a seu favor. Os três estão no vídeo.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# Drift no analógico: qual dos três prazos é o seu, e como contar com a sua nota fiscal\n\n## TITULO\nDrift no Controle: São Três Prazos, Não Um — e a Garantia da Caixa é o Menos Importante\n\n## TITULO SHORT\nDrift: qual dos três prazos é o seu?\n\n## DESCRICAO\nO analógico do seu controle começou a andar sozinho e a garantia escrita na caixa já venceu. Muita gente para aí, e para cedo: existem três prazos diferentes correndo sobre o mesmo defeito, e o da caixa é o menos importante dos três.\n\nA conta deste vídeo não é de reais, é de dias, e os dois números saem de papéis que você já tem. Pegue a nota fiscal e responda uma pergunta: o defeito era visível na entrega, ou apareceu depois de um tempo de uso? Se era visível, a contagem começa na entrega efetiva do produto. Se apareceu depois, é vício oculto, e o artigo vinte e seis, parágrafo terceiro, do Código de Defesa do Consumidor manda contar do momento em que o defeito ficou evidenciado. Produto durável tem noventa dias — então para drift que apareceu em oito meses de uso, os noventa dias correm a partir do dia em que ele apareceu, não da compra. Anote essa data hoje, porque é ela que inicia o seu prazo.\n\nDepois da resposta, o vídeo percorre os outros dois relógios. O artigo dezoito, parágrafo primeiro, dá ao fornecedor trinta dias para sanar o vício, e quando esse prazo estoura a escolha passa a ser do consumidor entre três opções: substituição por outro produto da mesma espécie, restituição imediata da quantia paga monetariamente atualizada, ou abatimento proporcional do preço. O parágrafo segundo do mesmo artigo permite que esse prazo seja convencionado entre sete e cento e oitenta dias, mas em contrato de adesão a cláusula tem de ser convencionada em separado, por manifestação expressa do consumidor — não vale escondida nas letras miúdas. E o artigo vinte e seis, parágrafo segundo, traz o movimento mais barato de toda a história: a reclamação comprovadamente formulada obsta a decadência até a resposta negativa, que precisa ser transmitida de forma inequívoca. Reclamar por escrito congela o prazo que está correndo contra você.\n\nPor fim, o artigo cinquenta diz que a garantia contratual é complementar à legal — ela soma, não substitui. E o artigo quarenta e nove dá sete dias para desistir de compra feita fora do estabelecimento comercial, que é um prazo separado, de arrependimento, e não de defeito.\n\nUma ressalva que pesa mais que a conta: isto não é consultoria jurídica e não resolve o seu caso concreto. A própria Fundação Procon de São Paulo avisa que em algumas situações será preciso laudo técnico detalhando os indícios de que o problema teve origem em vício de fabricação. Vício oculto não é senha automática: é o prazo que começa depois, e a origem do defeito pode precisar de prova. Se houver recusa ou divergência, isso é assunto para o Procon do seu estado ou para um advogado.\n\nCAPITULOS\n{CAPITULOS}\n\nNos comentários escreva só isto: quantos dias de uso o seu controle tinha quando o drift apareceu. Sem modelo, sem loja, sem valor.\n\n## DISCLOSURE\nA narração e os gráficos deste vídeo são gerados por computador. O texto é original e o conteúdo é informativo, não constitui consultoria jurídica nem orientação sobre caso concreto.\n\n## HASHTAGS\n#GarantiaLegal #Controle #NivelDoJogo\n\n## TAGS\ndrift no analogico, garantia legal, codigo de defesa do consumidor, vicio oculto, artigo 26 CDC, noventa dias garantia, trinta dias conserto, nota fiscal prazo, produto duravel, reclamar vicio, Procon, garantia contratual complementar, direito de arrependimento, artigo 18 CDC, controle de videogame\n\n## COMENTARIO FIXADO\nA conta inteira em duas linhas: pegue a nota fiscal e responda se o defeito era visível na entrega ou apareceu depois. Se apareceu depois, é vício oculto, e os noventa dias de produto durável contam do dia em que o drift apareceu, não da compra — artigo 26, parágrafo 3º, do CDC. Anote hoje a data em que você notou o problema, porque é ela que inicia o seu prazo, e reclame por escrito: reclamação comprovada obsta a decadência até a resposta negativa inequívoca.\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nEste video NAO cita nenhum numero meu, nenhum preco, nenhum valor de conserto e nenhuma estatistica de defeito. TODOS os numeros que ele cita sao prazos e artigos de lei, e cada um esta na fonte abaixo: noventa dias e trinta dias (art. 26, I e II), entrega efetiva como inicio da contagem (art. 26 par. 1), a reclamacao que obsta a decadencia (art. 26 par. 2, I), o inicio da contagem no vicio oculto (art. 26 par. 3), os trinta dias para sanar e as tres escolhas do consumidor (art. 18 par. 1), a faixa de sete a cento e oitenta dias com manifestacao expressa em separado nos contratos de adesao (art. 18 par. 2), os sete dias de arrependimento fora do estabelecimento (art. 49) e a garantia contratual como complementar a legal (art. 50). O numero que decide e do espectador: a data de entrega na nota fiscal dele e o dia em que o defeito apareceu.\n\nA SUSTENTACAO E DE DUAS INSTITUICOES, e a segunda acrescenta fato que a lei nao traz: o texto e a Lei 8.078/1990 compilada no planalto.gov.br, e quem aplica e a Fundacao Procon de Sao Paulo, que cita o art. 26 com as mesmas palavras, define vicio oculto como aquele \"nao evidenciado de inicio, so aparecendo apos determinado tempo ou consumo do produto\", confirma que constatado o vicio oculto inicia-se a contagem dos MESMOS prazos, e diz que o direito de reclamar INDEPENDE do certificado de garantia, bastando documento que comprove a compra.\n\nO QUE FOI DESCARTADO, e por que: (1) a afirmacao de que um jogo DIGITAL e produto nao duravel ou duravel — a classificacao e contestada e eu nao vou decidi-la num video; por isso o pacote fala de CONTROLE e CONSOLE, que sao duraveis sem controversia, e nao estende a conclusao ao jogo baixado; (2) qualquer taxa de incidencia de drift por modelo ou fabricante, porque nao existe estatistica oficial disso e numero de fabricante nao e fonte institucional; (3) o prazo de garantia que cada fabricante oferece, porque muda por produto e por pais e o video diz justamente que esse e o menos importante dos tres; (4) a promessa de que vicio oculto garante o conserto — o proprio Procon avisa do laudo tecnico, e isso esta DENTRO do video, nao so aqui; (5) qualquer orientacao sobre como abrir processo, porque isso e trabalho de advogado e nao de roteiro.\n\nALCANCE DA FONTE, declarado: a Fundacao Procon-SP e orgao estadual de Sao Paulo. A lei que ela cita e FEDERAL e vale no pais inteiro, mas o canal de atendimento varia por estado, e o video diz \"o Procon do seu estado\" por isso.\n\n## FONTES\nLei nº 8.078, de 11 de setembro de 1990 (Código de Defesa do Consumidor), texto compilado — Presidência da República, planalto.gov.br: art. 18, §§ 1º e 2º; art. 26, I, II, §§ 1º, 2º e 3º; art. 49; art. 50.\nFundação Procon-SP, Dúvidas mais frequentes — procon.sp.gov.br: garantia legal e prazos, definição de vício aparente e vício oculto, início da contagem no vício oculto, independência do certificado de garantia e necessidade eventual de laudo técnico.\n"
+}
