@@ -1,0 +1,491 @@
+{
+ "slug": "seja-mais-magra",
+ "pacote": "seja-mais-magra-010",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-FranciscaNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#22303C",
+  "c1": "#B04A2F",
+  "c2": "#2E7D6B",
+  "bg": "#FAF6F0"
+ },
+ "thumb": {
+  "l1": "Três",
+  "l2": "categorias"
+ },
+ "longo": [
+  {
+   "layout": "broll",
+   "kicker": "São três categorias",
+   "sub": "e a sua caixa pertence a uma delas",
+   "nar": "Todo medicamento vendido no Brasil pertence a uma de três categorias oficiais. E a caixa que está na sua gaveta já diz qual é a dela.",
+   "broll_q": "pharmacy counter with staff working",
+   "broll_url": "https://videos.pexels.com/video-files/8667456/8667456-hd_1366_720_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 8667456,
+    "autor": "cottonbro studio",
+    "url": "https://www.pexels.com/video/a-man-and-a-woman-working-at-a-pharmacy-8667456/"
+   },
+   "cap": "São três categorias"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Por que isso importa",
+   "sub": "porque as três não garantem a mesma coisa",
+   "nar": "Isso importa porque as três categorias não garantem exatamente a mesma coisa. O que muda não é a qualidade pela qualidade: é o que foi comprovado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A primeira",
+   "sub": "o de referência",
+   "nar": "A primeira categoria é o medicamento de referência. É o produto inovador, registrado e vendido no país, com eficácia, segurança e qualidade comprovadas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A segunda",
+   "sub": "o genérico",
+   "nar": "A segunda é o genérico. A lei o define como similar a um produto de referência que se pretende ser com este intercambiável.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A terceira",
+   "sub": "o similar",
+   "nar": "A terceira é o similar. Tem os mesmos princípios ativos, a mesma concentração, a mesma forma, a mesma via e a mesma indicação do de referência.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Então qual é a diferença",
+   "sub": "está no nome impresso",
+   "nar": "Se similar e genérico têm tanto em comum, onde está a diferença visível? Ela está no nome impresso na caixa, e a lei determina os dois casos.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E esse é o seu número",
+   "sub": "a sua própria caixa",
+   "nar": "Esse é o dado que só você tem: a caixa que está na sua casa. Daqui a pouco você vai classificá-la sem consultar nada.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que a lei determina",
+   "sub": "e está escrito nos incisos",
+   "nar": "Agora o que a lei determina, e vou ler o sentido de cada inciso em vez de resumir por fora. São três definições curtas.",
+   "cap": "O que a lei determina"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Sobre o similar",
+   "sub": "sempre tem marca",
+   "nar": "Sobre o similar, a lei diz que ele deve sempre ser identificado por nome comercial ou marca. A palavra que a lei usa ali é sempre.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Sobre o genérico",
+   "sub": "designado pela denominação comum",
+   "nar": "Sobre o genérico, a lei diz que ele é designado pela denominação comum brasileira, ou, na ausência dela, pela denominação comum internacional.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que é denominação comum",
+   "sub": "o nome da substância",
+   "nar": "Denominação comum é o nome da substância em si, aquele que não pertence a nenhum fabricante. É o nome do princípio ativo, e não um nome de produto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Junte as duas regras",
+   "sub": "e a caixa se classifica sozinha",
+   "nar": "Junte as duas regras e aparece o atalho: se a caixa traz um nome de marca, ela não é um genérico. Se traz o nome da substância, ela não é um similar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "No que o similar pode diferir",
+   "sub": "e a lista é fechada",
+   "nar": "A lei também lista no que o similar pode diferir do de referência: tamanho e forma do produto, prazo de validade, embalagem, rotulagem, excipientes e veículos.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E no que não pode",
+   "sub": "princípio ativo, dose, forma, via, indicação",
+   "nar": "E, por consequência, no que ele não pode diferir: princípio ativo, concentração, forma farmacêutica, via de administração, posologia e indicação.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Classifique a sua caixa",
+   "sub": "três perguntas, nenhuma consulta",
+   "nar": "Agora é com você. Pegue uma caixa de remédio que esteja em casa e responda três perguntas, nessa ordem.",
+   "broll_q": "person sorting their own medicines at home",
+   "broll_url": "https://videos.pexels.com/video-files/8581288/8581288-hd_1920_1080_30fps.mp4",
+   "broll_credito": {
+    "pexels_id": 8581288,
+    "autor": "RDNE Stock project",
+    "url": "https://www.pexels.com/video/a-person-organizing-her-medicine-8581288/"
+   },
+   "cap": "Classifique a sua caixa"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Pergunta um",
+   "sub": "o nome maior é de marca ou de substância",
+   "nar": "Pergunta um: o nome em destaque na frente é um nome inventado, de marca, ou é o nome da substância? Essa única pergunta já separa dois dos três casos.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Pergunta dois",
+   "sub": "aparece a palavra genérico",
+   "nar": "Pergunta dois: a caixa traz a palavra genérico escrita nela? Nos genéricos essa identificação aparece na embalagem, junto do nome da substância.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Pergunta três",
+   "sub": "a substância aparece em algum lugar",
+   "nar": "Pergunta três: se o nome da frente é de marca, procure o nome da substância em letra menor. Ele está lá, e é por ele que você compara com qualquer outra caixa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Agora você já sabe",
+   "sub": "e sem abrir nenhum site",
+   "nar": "Com essas três respostas você já sabe em qual das três categorias a sua caixa está. Esse é o resultado, e ele não precisou de internet.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Depois, confirme",
+   "sub": "no registro público da agência",
+   "nar": "Depois, se quiser confirmar, a agência mantém uma consulta pública de medicamentos com um campo chamado categoria regulatória.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "É lá que fecha",
+   "sub": "o que a caixa diz e o que o registro diz",
+   "nar": "É ali que a sua leitura fecha: o que você leu na caixa e o que o registro público mostra devem dizer a mesma coisa. O resto do vídeo é para não ler errado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "O que é bioequivalência",
+   "sub": "e por que ela é o centro de tudo",
+   "nar": "Primeiro detalhe, e é o centro de tudo: a palavra bioequivalência. Ela aparece na lei com uma definição técnica e bem estreita.",
+   "broll_q": "researcher observing an experiment",
+   "broll_url": "https://videos.pexels.com/video-files/3214096/3214096-hd_1920_1080_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 3214096,
+    "autor": "Pressmaster",
+    "url": "https://www.pexels.com/video/a-man-in-deep-focus-of-his-observation-in-an-experiment-3214096/"
+   },
+   "cap": "O que é bioequivalência"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Duas partes",
+   "sub": "equivalência e biodisponibilidade",
+   "nar": "A definição tem duas partes. A primeira é equivalência farmacêutica: mesma forma, mesma composição qualitativa e quantitativa do princípio ativo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A segunda parte",
+   "sub": "biodisponibilidade comparável",
+   "nar": "A segunda é biodisponibilidade comparável. Biodisponibilidade, na própria lei, é a velocidade e a extensão com que o princípio ativo é absorvido.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E sob o mesmo desenho",
+   "sub": "comparados do mesmo jeito",
+   "nar": "E a lei acrescenta uma condição: os produtos têm que ser estudados sob um mesmo desenho experimental. Comparação feita de jeitos diferentes não serve.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Por que isso é exigente",
+   "sub": "mesma substância pode absorver diferente",
+   "nar": "Isso é exigente porque dois produtos com a mesma substância podem ser absorvidos em velocidades diferentes, dependendo de como foram feitos.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "É aí que entram os excipientes",
+   "sub": "o que não é princípio ativo",
+   "nar": "E é aí que os excipientes importam. Eles são a parte que não é princípio ativo, e a lei permite que o similar os tenha diferentes.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Então a palavra chave",
+   "sub": "é comprovado, não parecido",
+   "nar": "Por isso a palavra que decide não é parecido. É comprovado, com estudo, sob o mesmo desenho — e é isso que separa uma afirmação de uma suposição.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Onde as pessoas erram",
+   "sub": "e quase nunca é má-fé",
+   "nar": "Agora a parte mais mal lida. Há vários motivos legítimos para alguém se confundir entre as três categorias, e nenhum deles é desatenção.",
+   "broll_q": "pharmacist assisting a customer at the counter",
+   "broll_url": "https://videos.pexels.com/video-files/8657656/8657656-hd_1366_720_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 8657656,
+    "autor": "cottonbro studio",
+    "url": "https://www.pexels.com/video/a-pharmacist-assisting-an-elderly-woman-in-choosing-the-8657656/"
+   },
+   "cap": "Onde as pessoas erram"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Primeiro motivo",
+   "sub": "as caixas se parecem",
+   "nar": "Primeiro motivo: as embalagens se parecem muito. A lei permite que o similar tenha rotulagem e embalagem próprias, então o visual não é pista.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Segundo motivo",
+   "sub": "a farmácia fala em marca",
+   "nar": "Segundo motivo: no balcão quase todo mundo chama o remédio pelo nome mais conhecido, que costuma ser o de marca, mesmo quando entrega outra coisa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Terceiro motivo",
+   "sub": "a receita pode vir dos dois jeitos",
+   "nar": "Terceiro motivo: a receita pode vir com o nome da substância ou com um nome comercial, e isso muda o que a pessoa espera ver na caixa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Quarto motivo",
+   "sub": "o mesmo fabricante faz mais de um",
+   "nar": "Quarto motivo: um mesmo fabricante pode ter produtos nas três categorias. Reconhecer a empresa não diz em qual categoria aquele produto está.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Quinto motivo",
+   "sub": "a palavra genérico virou gíria",
+   "nar": "Quinto motivo: no dia a dia a palavra genérico virou sinônimo de mais barato. Na lei ela não significa preço, significa uma categoria de registro.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Então, antes de concluir",
+   "sub": "leia a caixa, não a memória",
+   "nar": "Por isso, antes de concluir qualquer coisa, vale ler a caixa em vez da memória. A informação está impressa, e ler leva poucos segundos.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que isso não quer dizer",
+   "sub": "e aqui eu vou ser exata",
+   "nar": "Agora os limites, e vou ser exata, porque é aqui que um vídeo como este costuma dizer mais do que as fontes dizem.",
+   "cap": "O que isso não quer dizer"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Não digo que um é melhor",
+   "sub": "a lei define, não classifica",
+   "nar": "Primeiro: não estou dizendo que uma categoria é melhor que a outra. A lei define o que cada uma é e o que cada uma precisa comprovar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Não falo de preço",
+   "sub": "preço não está na definição",
+   "nar": "Segundo: não falei de preço em nenhum momento, e não vou falar. Preço não faz parte de nenhuma das definições que eu li, e ele varia por produto, por farmácia e por mês.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Não mando trocar nada",
+   "sub": "isso é de quem prescreve",
+   "nar": "Terceiro: não estou dizendo para você trocar o seu medicamento. Essa decisão é de quem prescreve e de quem dispensa, e não de um vídeo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Não avalio a sua caixa",
+   "sub": "eu não a vi",
+   "nar": "Quarto: não estou avaliando a sua caixa específica. Eu não a vi, e o registro público existe exatamente para quem precisa confirmar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E não é orientação médica",
+   "sub": "é leitura de rótulo",
+   "nar": "E quinto: isto não é orientação médica. É leitura de rótulo, com as definições que estão na lei e na página da agência.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que você leva",
+   "sub": "uma classificação que você mesma fez",
+   "nar": "O que você leva daqui é uma classificação que você mesma fez, com a caixa na mão. Isso continua valendo para a próxima caixa, e para a seguinte.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que ficou de fora",
+   "sub": "e esta parte costuma ser pulada",
+   "nar": "Agora a parte que quase todo mundo pula. Tem coisa que ficou de fora de propósito, e eu vou dizer cada uma e por quê.",
+   "cap": "O que ficou de fora"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Nenhuma marca",
+   "sub": "nem para elogiar nem para criticar",
+   "nar": "Primeiro: não citei nenhuma marca, nem para elogiar nem para criticar. O vídeo é sobre categorias de registro, não sobre fabricantes.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Nenhum preço",
+   "sub": "nem percentual de economia",
+   "nar": "Segundo: nenhum preço e nenhum percentual de economia. Esses números mudam por produto, por farmácia e por mês.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Nenhuma dose",
+   "sub": "dose é de quem prescreve",
+   "nar": "Terceiro: nenhuma dose e nenhuma posologia. Isso está na bula e na receita de quem acompanha você, e não é o assunto deste vídeo em nenhum momento.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Nada sobre intercambialidade caso a caso",
+   "sub": "e esse é um limite real",
+   "nar": "Quarto, e este é um limite de verdade: eu li a definição de intercambiável que está na lei, e não digo se um produto específico é intercambiável com outro.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Por que esse limite",
+   "sub": "porque depende do registro de cada um",
+   "nar": "Não digo porque isso depende do registro daquele produto específico, e quem tem essa informação é o registro público e quem dispensa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A regra que eu uso",
+   "sub": "duas fontes ou não entra",
+   "nar": "A regra que eu uso aqui é simples: o que não bate em duas fontes oficiais não entra no vídeo. Preferi ficar com as definições do que arriscar o resto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Quatro passos",
+   "sub": "do começo ao fim",
+   "nar": "Agora a verificação inteira em quatro passos, para você fazer depois que este vídeo terminar.",
+   "cap": "Quatro passos"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Passo um",
+   "sub": "pegue uma caixa",
+   "nar": "Passo um: pegue uma caixa de remédio que esteja em casa agora. Qualquer uma serve, e é melhor começar por uma que você usa com frequência.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Passo dois",
+   "sub": "leia o nome maior",
+   "nar": "Passo dois: leia o nome em destaque na frente e decida se é um nome de marca ou o nome de uma substância. Essa decisão é quase sempre imediata.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Passo três",
+   "sub": "procure a substância em letra menor",
+   "nar": "Passo três: se o nome da frente for de marca, ache o nome da substância em letra menor. Anote esse nome, porque é por ele que tudo se compara.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Passo quatro",
+   "sub": "confirme no registro público",
+   "nar": "Passo quatro: abra a consulta pública de medicamentos da agência e procure pelo nome da substância, olhando o campo de categoria regulatória.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Anote em uma linha",
+   "sub": "substância, categoria, data",
+   "nar": "Anote numa linha o nome da substância, a categoria que você encontrou e a data de hoje. Uma linha por caixa, na mesma folha.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E repita quando trocar",
+   "sub": "a categoria pode mudar de caixa para caixa",
+   "nar": "Repita isso sempre que comprar de novo, porque a caixa seguinte pode ser de outra categoria mesmo sendo a mesma substância.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Essa é a parte que fica",
+   "sub": "o hábito, não o vídeo",
+   "nar": "E é esse hábito que fica depois, não este vídeo. Ler a caixa leva menos tempo do que procurar a resposta pronta na internet.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Escreva só a categoria",
+   "sub": "não escreva o remédio",
+   "nar": "Nos comentários escreva só em qual das três categorias a sua caixa estava. Não escreva o nome do remédio nem para que você usa.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Três categorias oficiais",
+   "sub": "e a caixa diz qual é a sua",
+   "nar": "Todo remédio no Brasil está em uma de três categorias oficiais. A sua caixa já diz qual é.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Um",
+   "sub": "o similar sempre tem marca",
+   "nar": "Um: a lei diz que o similar deve sempre ser identificado por nome comercial ou marca.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dois",
+   "sub": "o genérico leva o nome da substância",
+   "nar": "Dois: o genérico é designado pela denominação comum, que é o nome da própria substância.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Três",
+   "sub": "o de referência é o inovador",
+   "nar": "Três: o de referência é o produto inovador registrado e vendido no país.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Agora olhe",
+   "sub": "marca ou substância",
+   "nar": "Olhe o nome maior da sua caixa. Se é marca, não é genérico. Se é a substância, não é similar.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# seja-mais-magra-010\n\n## TITULO\nGenérico, Similar ou Referência: as 3 Categorias e o Que Está Escrito na Caixa\n\n## TITULO SHORT\nGenérico ou similar: olhe o nome na caixa\n\n## DESCRICAO\nTodo medicamento vendido no Brasil pertence a uma de três categorias oficiais —\nreferência, genérico e similar — e a caixa que está na sua gaveta já diz qual é\na dela. Este vídeo não cita preço, dose nem marca. O que ele mostra são as\ndefinições que estão na lei, e como usá-las para classificar a sua própria\ncaixa em poucos segundos, sem abrir nenhum site.\n\nA Lei 9.787 de 1999, que alterou a Lei 6.360 de 1976, define as três. O\nmedicamento de referência é o produto inovador, registrado e comercializado no\npaís, com eficácia, segurança e qualidade comprovadas. O genérico é definido\ncomo similar a um produto de referência que se pretende ser com este\nintercambiável, e — este é o ponto — é designado pela Denominação Comum\nBrasileira ou, na ausência dela, pela Denominação Comum Internacional, ou seja,\npelo nome da própria substância. O similar tem os mesmos princípios ativos, a\nmesma concentração, forma farmacêutica, via de administração, posologia e\nindicação do de referência, podendo diferir apenas em tamanho e forma do\nproduto, prazo de validade, embalagem, rotulagem, excipientes e veículos — e,\nnas palavras da lei, deve sempre ser identificado por nome comercial ou marca.\n\nJunte as duas regras e aparece o atalho que este vídeo ensina: se a caixa traz\num nome de marca em destaque, ela não é um genérico; se traz o nome da\nsubstância, ela não é um similar.\n\nA lei também define bioequivalência, e a definição é estreita: equivalência\nfarmacêutica entre produtos na mesma forma farmacêutica, com idêntica\ncomposição qualitativa e quantitativa de princípio ativo, e biodisponibilidade\ncomparável quando estudados sob um mesmo desenho experimental. Biodisponibilidade,\nainda na lei, é a velocidade e a extensão de absorção do princípio ativo. Por\nisso a palavra que decide não é parecido: é comprovado.\n\nAntes de concluir qualquer coisa, o vídeo lista cinco motivos legítimos para\nalguém confundir as categorias: as embalagens se parecem; no balcão o remédio é\nchamado pelo nome mais conhecido; a receita pode vir com o nome da substância ou\ncom um nome comercial; o mesmo fabricante pode ter produtos nas três\ncategorias; e no dia a dia a palavra genérico virou sinônimo de mais barato,\nembora na lei ela signifique uma categoria de registro.\n\nPara confirmar, a Anvisa mantém uma consulta pública de medicamentos em que a\nbusca tem o campo Categoria Regulatória, com Genérico entre as opções.\n\nEste vídeo não diz que uma categoria é melhor que outra, não fala de preço, não\norienta ninguém a trocar de medicamento — essa decisão é de quem prescreve e de\nquem dispensa — e não é orientação médica.\n\nCapítulos:\n00:00 São três categorias\n01:05 O que a lei determina\n02:10 Classifique a sua caixa\n03:15 O que é bioequivalência\n04:20 Onde as pessoas erram\n05:25 O que isso não quer dizer\n06:30 O que ficou de fora\n07:35 Quatro passos\n\nNos comentários escreva só em qual das três categorias a sua caixa estava — não\nescreva o nome do remédio nem para que você usa.\n\n## DISCLOSURE\nA narração e os visuais deste vídeo foram produzidos com inteligência\nartificial. As definições citadas vêm do texto da lei e da página da agência\nreguladora, mencionados na descrição.\n\n## HASHTAGS\n#Medicamentos #Genericos #LeituRaDeRotulo\n\n## TAGS\nmedicamento generico, medicamento similar, medicamento de referencia, diferenca generico e similar, lei 9787, bioequivalencia, denominacao comum brasileira, como ler caixa de remedio, categoria regulatoria anvisa, consulta publica medicamentos, intercambiavel, principio ativo, excipientes, rotulagem de medicamento, registro de medicamento\n\n## COMENTARIO FIXADO\nQuatro passos: pegue uma caixa → leia o nome em destaque e decida se é marca ou\nsubstância → se for marca, ache a substância em letra menor e anote → confirme\nna consulta pública de medicamentos da agência, no campo categoria regulatória.\nAtalho da lei: se tem nome de marca, não é genérico; se tem o nome da\nsubstância, não é similar. Escreva aqui só a categoria, não o remédio.\n"
+}
