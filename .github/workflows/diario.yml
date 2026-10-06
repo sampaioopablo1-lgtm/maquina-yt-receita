@@ -82,8 +82,10 @@ jobs:
                 "$SUPABASE_URL/rest/v1/videos?select=slug&limit=1" || echo 000)
           if [ "$COD" = "200" ]; then
             PONTE=""
+            echo "porta=aberta" >> "$GITHUB_OUTPUT"
             echo "porta ABERTA (HTTP $COD) — lendo o banco ao vivo"
           else
+            echo "porta=fechada" >> "$GITHUB_OUTPUT"
             PONTE="--dados fabrica/ponte/videos.json --canais fabrica/ponte/canais.json"
             GERADO=$(python3 -c "import json;print(json.load(open('fabrica/ponte/canais.json'))['gerado_em'])")
             echo "::warning::porta FECHADA (HTTP $COD) — rodando pelo retrato de fabrica/ponte/, gerado em $GERADO"
@@ -133,7 +135,14 @@ jobs:
 
       # O informe vai para o banco, nao so para a aba de Actions: a rotina
       # horaria le config e repassa ao Pablo. Aba de Actions ninguem abre.
+      # Este passo e CONVENIENCIA: grava o informe para o painel ler. Com a
+      # porta fechada ele devolvia 402 e derrubava o job INTEIRO depois de o
+      # orquestra ja ter calculado a matriz — foi o segundo ponto da mesma
+      # porta, achado so depois de consertar o primeiro. A licao: ao escrever
+      # um modo de contingencia, procure TODOS os pontos que batem na porta
+      # que caiu, nao o que doi primeiro.
       - name: Guardar o informe no banco
+        if: ${{ steps.informe.outputs.porta == 'aberta' }}
         env:
           SB: ${{ secrets.SUPABASE_URL }}
           KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
@@ -164,6 +173,12 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           MATRIZ: ${{ steps.informe.outputs.matriz }}
           QUANTOS: ${{ steps.informe.outputs.quantos }}
+          # Com a porta fechada o publicar.py nao tem como ler token nem
+          # gravar em `videos`: renderizar com publicar=true gastaria doze
+          # minutos para morrer no fim. Na ponte o run entrega o artefato e a
+          # publicacao sai pela sandbox, que e como os dezesseis pacotes do
+          # periodo foram publicados.
+          PUBLICAR: ${{ steps.informe.outputs.porta == 'aberta' && 'sim' || 'nao' }}
         run: |
           set -euo pipefail
 
@@ -190,7 +205,7 @@ jobs:
           # `pacotes` do frota.yml e string: quem faz o jq e ele.
           print(json.dumps({"ref": os.environ["GITHUB_REF_NAME"],
                             "inputs": {"pacotes": os.environ["MATRIZ"],
-                                       "publicar": True}}))
+                                       "publicar": os.environ["PUBLICAR"] == "sim"}}))
           PY
           curl -sS --fail -X POST \
             -H "Authorization: Bearer $GH_TOKEN" \
