@@ -669,3 +669,31 @@ rota melhor.
 
 Uma rota de leitura para `aade.gr`/`efka.gov.gr` continua sendo util e continua
 pendente com o dono — mas ela nao e mais bloqueio para este canal.
+
+## O REST do Supabase esta em 402, e isso quebra o `frota.yml` ANTES do render
+
+Medido em 06/10/2026, 19:32. O primeiro disparo do `frota.yml` para o
+epomeno-epipedo-015 morreu em 1 min 47 s no passo `Conferir token do canal`:
+
+    urllib.error.HTTPError: HTTP Error 402: Payment Required
+
+NAO e token morto, e a diferenca importa porque a mensagem do passo sugere que
+seja. Fiz o refresh pelo `pg_net` no mesmo minuto e o Google devolveu 200 com os
+tres escopos (`youtube`, `youtube.force-ssl`, `youtube.upload`). O projeto esta
+`ACTIVE_HEALTHY` e o Postgres responde normalmente — o 402 e **so na Data API**
+(PostgREST). O `confere_token.py` le o token por `GET /rest/v1/config`, e por
+isso ele cai; e cai junto TUDO que le o banco por REST dentro do workflow.
+
+**A regra operacional, enquanto o Pro nao entrar:** dispare o `frota.yml` com
+`publicar=false` e publique pela ponte. Disparar com `publicar=true` e queimar
+um minuto e meio de runner para falhar no mesmo lugar, toda vez. Os passos de
+portao que NAO tocam o banco (`enquadramento`, `idioma`, `glifos`) passam antes
+e continuam valendo — o render em si nao depende do REST.
+
+O que o `publicar=false` custa: nada de qualidade. O artefato sai completo
+(video.mp4, short.mp4, thumbnail.png, legendas.srt, copy.md) e a ponte faz
+capa, legenda, tags e short->longo igual. O que ele tira sao os dois portoes de
+banco — `Conferir nome do pacote` e `Conferir chave do broll` — e os dois
+precisam ser feitos a mao antes: o md5 do corpus contra o banco (secao acima) e
+o `BROLL` baked na spec.
+
