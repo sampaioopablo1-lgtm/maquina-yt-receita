@@ -356,48 +356,49 @@ SHORT = [
 COPY = """# seviye-seviye-016
 
 ## TITULO
-Bordroda Bes Satir: Brutle Net Arasindaki Fark Tahmin Degil, Carpma
+Bordroda Beş Satır: Brütle Net Arasındaki Fark Tahmin Değil, Çarpma
 
 ## TITULO SHORT
-Bordroda bes satir: hepsi carpma
+Bordroda beş satır: hepsi çarpma
 
 ## DESCRICAO
-Brut maasinla hesabina yatan para arasinda bes satir var, bir tane degil. Ve o
-bes satirin hepsi her ay bordronda basili duruyor. Cogu kisi bordroyu acip
-sadece en alttaki sayiya bakar; aradaki satirlar tahmin gibi gorunur, ama
-hicbiri tahmin degil. Her kesinti satiri bir carpma islemidir: bir taban, bir
-oran, bir sonuc — ve ucu de o kagitta yazili.
+Brüt maaşınla hesabına yatan para arasında beş satır var, bir tane değil. Ve o
+beş satırın hepsi her ay bordronda basılı duruyor. Çoğu kişi bordroyu açıp
+sadece en alttaki sayıya bakar; aradaki satırlar tahmin gibi görünür, ama
+hiçbiri tahmin değil. Her kesinti satırı bir çarpma işlemidir: bir taban, bir
+oran ve çıkan sonuç — üçü de o kâğıtta yazılı.
 
-Bu video tek bir oran soylemiyor, ve bu bilerek. Oranlar duzenlemeyle degisir;
-oran soyleyen video dogdugu gun eskimeye baslar. Oranlari vermeye gerek de yok,
-cunku zaten senin kagidinda yaziyor. Ogretilen sey yontem: tabani oranla carp,
-basili tutarla karsilastir, bes kez.
+Burada tek bir oran söylenmiyor, ve bu bilerek. Oranlar düzenlemeyle değişir;
+oran söyleyen anlatım doğduğu gün eskimeye başlar. Oranları vermeye gerek de
+yok, çünkü zaten senin kâğıdında yazıyor. Öğretilen şey yöntem: tabanı oranla
+çarp, basılı tutarla karşılaştır, beş kez.
 
-Asil yanilgi tabanlarda. Bes satirin hepsi ayni tabandan hesaplanmiyor. Bazisi
-dogrudan bruttan, bazisi bazi kesintiler dusuldukten sonra kalan tutardan, biri
-de yil basindan beri birikmis toplamdan. Bu yuzden ayni brutle ocak ayi ve
-kasim ayi ayni kesintiyi gostermez — ve ikisi de dogrudur. Yanlis tabanla
-carpip sonuc tutmayinca insanlar kesintinin yanlis oldugunu dusunur; genelde
-yanlis olan kesinti degil, secilen tabandir.
+Asıl yanılgı tabanlarda. Beş satırın hepsi aynı tabandan hesaplanmıyor. Bazısı
+doğrudan brütten, bazısı bazı kesintiler düşüldükten sonra kalan tutardan,
+biri de yıl başından beri birikmiş toplamdan. Bu yüzden aynı brütle ocak ayı
+ve kasım ayı aynı kesintiyi göstermez — ve ikisi de doğrudur. Yanlış tabanla
+çarpıp sonuç tutmayınca insanlar kesintinin yanlış olduğunu düşünür; genelde
+yanlış olan kesinti değil, seçilen tabandır.
 
-Bazi satirlarin tabani sinirsiz da degil: belli bir tutarin uzerinde taban
-artmayi birakir, brutun artmaya devam etse bile. O tutari burada soylemiyorum
-cunku donem donem guncellenir — ama ogrenmesen de olur, cunku o ay kullanilan
-taban zaten bordronda basili.
+Bazı satırların tabanı sınırsız da değil: belli bir tutarın üzerinde taban
+artmayı bırakır, brütün artmaya devam etse bile. O tutarı burada
+söylemiyorum çünkü dönem dönem güncellenir — ama öğrenmesen de olur, çünkü o
+ay kullanılan taban zaten bordronda basılı.
 
-Hesabin tutmadiginda bes mesru sebep var ve hepsi hatadan once gelir:
-yuvarlama; eksik ya da fazla gun; brute giren prim ve fazla mesai; birikmis
-tabanin hangi aya kadar toplandigi; ve oranin o donem degismis olmasi. Ancak
-bunlar elendikten sonra fark konusmaya baslar — ve o zaman bile fark bir
-suclama degil, sorulacak bir sorudur: bu satirda hangi taban kullanildi.
+Hesabın tutmadığında meşru sebepler var ve hepsi hatadan önce gelir:
+yuvarlama; eksik ya da fazla gün; brüte giren prim ve fazla mesai; birikmiş
+tabanın hangi aya kadar toplandığı; oranın o dönem değişmiş olması; ve
+bordronun ait olduğu dönemle ödemenin yapıldığı günün aynı ay olmaması. Ancak
+bunlar elendikten sonra fark konuşmaya başlar — ve o zaman bile fark bir
+suçlama değil, sorulacak bir sorudur: bu satırda hangi taban kullanıldı.
 
-Bu video oran, tavan rakami ve madde numarasi vermiyor. Sebebini aciklikla
-yaziyorum: hazirlik sirasinda resmi kaynaklarin yarisi acilmadi, ve kullandigim
-kural su — iki resmi kaynakta ayni cikmayan sayi videoya girmez. Bir kaynak
-teyit degildir. O yuzden rakam degil yontem ogretiliyor, ve yontemin butun
-girdileri senin elindeki kagitta.
+Burada oran, tavan rakamı ve madde numarası yok. Sebebini açıklıkla
+yazıyorum: hazırlık sırasında resmî kaynakların yarısı açılmadı, ve
+kullandığım kural şu — iki resmî kaynakta aynı çıkmayan sayı anlatıma girmez.
+Bir kaynak teyit değildir. O yüzden rakam değil yöntem öğretiliyor, ve
+yöntemin bütün girdileri senin elindeki kâğıtta.
 
-Bolumler:
+Bölümler:
 00:00 Bordroda beş satır var
 01:07 Her satır aynı tabandan almıyor
 02:13 Kendi bordronu kapat
@@ -408,25 +409,25 @@ Bolumler:
 09:01 Bu anlatım neyi söylemiyor
 10:23 Dört adım
 
-Yoruma sadece bes satirdan kacinin tuttugunu yaz — brutunu, netini ya da
-isyerini yazma.
+Yoruma sadece beş satırdan kaçının tuttuğunu yaz — brütünü, netini ya da
+işyerini yazma.
 
 ## DISCLOSURE
-Bu videonun anlatimi ve gorselleri yapay zeka ile uretilmistir. Anlatilan
-yontem, izleyicinin kendi bordrosu uzerinde yapilan aritmetik bir kontroldur.
+Bu videonun anlatımı ve görselleri yapay zekâ ile üretilmiştir. Anlatılan
+yöntem, izleyicinin kendi bordrosu üzerinde yapılan aritmetik bir kontroldür.
 
 ## HASHTAGS
-#Bordro #MaasHesabi #CalisanHaklari
+#Bordro #MaaşHesabı #ÇalışanHakları
 
 ## TAGS
-bordro nasil okunur, brutten nete hesap, maas kesintileri, bordro kontrolu, kesinti tabani, kumulatif taban, bordro hesaplama, maas bordrosu satirlari, net maas hesabi, prim fazla mesai brut, eksik gun bordro, bordro yuvarlama farki, maasim eksik mi, bordro ornegi okuma, calisan maas kontrolu
+bordro nasıl okunur, brütten nete hesap, maaş kesintileri, bordro kontrolü, kesinti tabanı, kümülatif taban, bordro hesaplama, maaş bordrosu satırları, net maaş hesabı, prim fazla mesai brüt, eksik gün bordro, bordro yuvarlama farkı, maaşım eksik mi, bordro örneği okuma, çalışan maaş kontrolü
 
 ## COMENTARIO FIXADO
-Dort adim: son bordroyu ac ve brutu yaz → bes kesinti satirini tabani ve
-oraniyla alt alta yaz → her satirda tabani oranla carp ve basili tutarla
-karsilastir → bes tutari topla, brutten dus ve hesabina yatanla karsilastir.
-Tutmayan satir kaldiysa soru hazir: hangi taban kullanildi. Oran degil, taban.
-Yoruma sadece kac satirin tuttugunu yaz.
+Dört adım: son bordroyu aç ve brütü yaz → beş kesinti satırını tabanı ve
+oranıyla alt alta yaz → her satırda tabanı oranla çarp ve basılı tutarla
+karşılaştır → beş tutarı topla, brütten düş ve hesabına yatanla karşılaştır.
+Tutmayan satır kaldıysa soru hazır: hangi taban kullanıldı. Oran değil, taban.
+Yoruma sadece kaç satırın tuttuğunu yaz.
 """
 
 
