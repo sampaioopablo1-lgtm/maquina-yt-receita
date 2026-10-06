@@ -167,188 +167,188 @@ def C(kicker, sub, nar):
 # A resposta — o espectador fecha a propria conta — cai no capitulo 3.
 
 # -------------------------------------------------------------------- cap 1
-B("Bordroda bes satir var", "brutle net arasinda",
+B("Bordroda beş satır var", "brütle net arasında",
   "Brütünle elindeki para arasında beş satır var, bir tane değil. Ve o beş satırın hepsi her ay senin bordrona basılıyor.",
   "person working with printed documents", 8298013,
-  cap="Bordroda bes satir var")
-T("Kimse bakmiyor", "cunku sadece son satira bakiliyor",
+  cap="Bordroda beş satır var")
+T("Kimse bakmıyor", "çünkü sadece son satıra bakılıyor",
   "Çoğu kişi bordroyu açıp sadece en alttaki sayıya bakar. Aradaki satırlar tahmin gibi görünür, ama hiçbiri tahmin değil.")
-T("Hepsi carpma", "her satir bir taban ve bir oran",
+T("Hepsi çarpma", "her satır bir taban ve bir oran",
   "Her kesinti satırı aslında bir çarpma işlemidir. Bir taban, bir oran ve çıkan sonuç — hepsi o kâğıtta yazılı duruyor.")
-T("Yani kontrol edilebilir", "ve kontrol etmek dakikalar suruyor",
+T("Yani kontrol edilebilir", "ve kontrol etmek dakikalar sürüyor",
   "Bu da şunu getirir: bordro tahmin edilecek bir belge değil, kontrol "
   "edilecek bir belgedir. Tahmin etmen gereken hiçbir şey yok; çarpman "
   "gereken birkaç satır var, ve hepsi o kâğıtta duruyor.")
 T("Burada ne yok", "tek bir oran bile yok",
   "Tek bir oran söylemeyeceğim, bilerek. Oranlar düzenlemeyle değişir ve oran söyleyen anlatım doğduğu gün eskimeye başlar.")
-T("Peki oran nereden", "senin kagidindan",
+T("Peki oran nereden", "senin kâğıdından",
   "Oranları ben vermeyeceğim çünkü zaten senin kâğıdında yazıyor. Okunacak yer orası, ve bütün fikir bu.")
 
 # -------------------------------------------------------------------- cap 2
-B("Her satir ayni tabandan almiyor", "ve asil yanilgi burada",
+B("Her satır aynı tabandan almıyor", "ve asıl yanılgı burada",
   "Şimdi işin can alıcı yeri. Beş satırın hepsi aynı tabandan hesaplanmıyor, ve en sık yapılan hata tam burada duruyor.",
   "calculating from documents on a desk", 7735903,
-  cap="Her satir ayni tabandan almiyor")
-T("Bazisi bruttan", "dogrudan ve basit",
+  cap="Her satır aynı tabandan almıyor")
+T("Bazısı brütten", "doğrudan ve basit",
   "Bazı satırlar doğrudan brüt tutardan hesaplanır. Onların kontrolü en kolay olanıdır, çünkü taban zaten en üstteki sayıdır.")
-T("Bazisi kesintiden sonra", "yani daha kucuk bir tabandan",
+T("Bazısı kesintiden sonra", "yani daha küçük bir tabandan",
   "Başka satırlar ise bazı kesintiler düşüldükten sonra kalan tutardan hesaplanır. O zaman taban brütten küçük olur, ve sonuç da küçük olur.")
-T("Biri de kumulatif", "yil icinde buyuyen bir taban",
+T("Biri de kümülatif", "yıl içinde büyüyen bir taban",
   "Bir satırın tabanı ise yıl başından beri toplanarak büyür. O yüzden aynı brütle aynı sonucu her ay vermez.")
-T("Hangisi hangisi", "bunu kagit soyluyor",
+T("Hangisi hangisi", "bunu kâğıt söylüyor",
   "Hangi satırın hangi tabanı kullandığını akıldan bilmen gerekmiyor. Bordroda her satırın yanına tabanı da basılır.")
-T("Yanlis taban, buyuk fark", "ve bu en yaygin hata",
+T("Yanlış taban, büyük fark", "ve bu en yaygın hata",
   "Yanlış tabanla çarpıp sonuç tutmayınca insanlar kesintinin yanlış olduğunu düşünür. Genelde yanlış olan kesinti değil, seçilen tabandır.")
 
 # -------------------------------------------------------------------- cap 3
-B("Kendi bordronu kapat", "sirayla, bes carpma",
+B("Kendi bordronu kapat", "sırayla, beş çarpma",
   "Şimdi sıra sende. Bordroyu önüne koy ve beş çarpma yap, yukarıdan aşağıya, atlamadan.",
   "calculator and pen on paper together", 5466772,
   cap="Kendi bordronu kapat")
-T("Birinci adim", "brut tutari yaz",
+T("Birinci adım", "brüt tutarı yaz",
   "Birinci adım: en üstteki brüt tutarı bir kâğıda yaz. Bu, bütün hesabın başlangıç noktası ve elle girdiğin tek sayı.")
-T("Ikinci adim", "her satirin tabanini ve oranini al",
+T("İkinci adım", "her satırın tabanını ve oranını al",
   "İkinci adım: her kesinti satırında yazılı olan tabanı ve oranı al. Yanına yaz, satır satır, beş satır için.")
-T("Ucuncu adim", "carp ve basiliyla karsilastir",
+T("Üçüncü adım", "çarp ve basılıyla karşılaştır",
   "Üçüncü adım: her satır için tabanı oranla çarp ve çıkan sayıyı o satırda basılı olan tutarla karşılaştır. Beş kez, tek tek.")
-T("Dorduncu adim", "hepsini bruttan dus",
+T("Dördüncü adım", "hepsini brütten düş",
   "Dördüncü adım: beş satırın tutarını topla ve brütten düş. Elinde kalan sayı, o ay hesapladığın net tutardır.")
-T("Iste senin sayin", "ve simdi karsilastiracagin sey var",
+T("İşte senin sayın", "ve şimdi karşılaştıracağın şey var",
   "Bu, senin kendi hesapladığın sayı. Şimdi onu hesabına gerçekten yatan tutarla karşılaştır: geri kalan her şey sadece bunu doğru okumak için.")
-T("Ucunu yan yana yaz", "brut, kesinti toplami, net",
+T("Üçünü yan yana yaz", "brüt, kesinti toplamı, net",
   "Üçünü bir satıra yan yana yaz: brüt, kesinti toplamı ve net. O bir satır senin bütün cevabın, ve her ay aynı yerde duracak.")
 
 # -------------------------------------------------------------------- cap 4
-T("Degismeyen satir", "neden hep ayni oranda gorunuyor",
+T("Değişmeyen satır", "neden hep aynı oranda görünüyor",
   "İlk ayrıntı: bir satır her ay neredeyse aynı oranda görünür ve insan onu sabit sanır. Sabit değil, sadece tabanı az değişiyor.",
-  cap="Degismeyen satir")
-T("Tabani brut", "o yuzden brutle birlikte oynar",
+  cap="Değişmeyen satır")
+T("Tabanı brüt", "o yüzden brütle birlikte oynar",
   "O satırın tabanı doğrudan brüt tutardır. Brüt değişmediğinde sonuç da değişmez, ve böyle aylarda gerçekten sabit görünür.")
-T("Ama prim degisirse", "satir da degisir",
+T("Ama prim değişirse", "satır da değişir",
   "Brütüne bir prim ya da fazla mesai eklendiği ay, o satır da büyür. Sabit sandığın satırın aslında brütle birlikte hareket ettiğini orada görürsün.")
-T("Kontrolu en kolay", "bu satirla baslamak mantikli",
+T("Kontrolü en kolay", "bu satırla başlamak mantıklı",
   "Kontrol etmeye bu satırdan başlamak mantıklı, çünkü tabanı aramak gerekmiyor. En üstteki sayı zaten tabanın kendisi.")
-T("Tutmazsa ne olur", "once brute bak, orana degil",
+T("Tutmazsa ne olur", "önce brüte bak, orana değil",
   "Bu satır tutmazsa ilk bakılacak yer oran değil, brütün kendisidir. Bordroda kullanılan brüt, beklediğin brütten farklı olabilir.")
-T("Eksik gun varsa", "taban da eksilir",
+T("Eksik gün varsa", "taban da eksilir",
   "O ay rapor, ücretsiz izin ya da işe giriş varsa, kullanılan brüt tam ay değildir. Taban eksilir ve sonuç da doğal olarak eksilir.")
-T("Bu bir hata degil", "oransal hesap boyle",
+T("Bu bir hata değil", "oransal hesap böyle",
   "Bu bir hata değil, oransal hesabın kendisidir. Tam ay çalışmayan bir ayda tam ay tabanı beklemek, hatayı senin tarafında yaratır.")
 
 # -------------------------------------------------------------------- cap 5
-T("Ay ay buyuyen satir", "ve bu seni sasirtmasin",
+T("Ay ay büyüyen satır", "ve bu seni şaşırtmasın",
   "İkinci ayrıntı, ve bu en çok şaşırtan: bir satır yıl içinde ay ay büyür, sen aynı brütü almaya devam etsen bile.",
-  cap="Ay ay buyuyen satir")
-T("Cunku tabani birikiyor", "yil basindan beri",
+  cap="Ay ay büyüyen satır")
+T("Çünkü tabanı birikiyor", "yıl başından beri",
   "Sebebi şu: o satırın tabanı o ayın tutarı değil, yıl başından o aya kadar birikmiş toplamdır. Toplam büyüdükçe satır da büyür.")
-T("Yani ayni maas, farkli kesinti", "ve ikisi de dogru",
+T("Yani aynı maaş, farklı kesinti", "ve ikisi de doğru",
   "Böylece ocak ayıyla kasım ayı aynı brütü gösterse bile, o satırın tutarı farklı olur. İkisi de doğrudur, ve karşılaştırmak yanlıştır.")
-T("Iki ayi karsilastirma", "ayni ayi karsilastir",
+T("İki ayı karşılaştırma", "aynı ayı karşılaştır",
   "O yüzden bir ayı önceki ayla karşılaştırarak hata aramak işe yaramaz. Karşılaştırılacak olan, o ayın kendi tabanı ve kendi oranıdır.")
-T("Nerede gorunur", "kumulatif sutununda",
+T("Nerede görünür", "kümülatif sütununda",
   "Bordroda bu birikmiş toplam genelde kendi sütununda yazar. O sütunu bir kez bulursan, bu satır bir daha seni şaşırtmaz.")
-T("Ve yil basinda sifirlanir", "o yuzden ocakta duser",
+T("Ve yıl başında sıfırlanır", "o yüzden ocakta düşer",
   "Bu taban her yıl başında sıfırlanır. Bu yüzden ocak ayında o satır düşer ve net tutar birden artmış gibi görünür.")
-T("Zam degil", "sadece taban sifirlandi",
+T("Zam değil", "sadece taban sıfırlandı",
   "Ocakta elindeki paranın artması tek başına zam demek değildir. Bazen sadece o birikmiş tabanın sıfırlanmasıdır, ve şubatta tekrar tırmanır.")
 
 # -------------------------------------------------------------------- cap 6
-T("Tabanin bir tavani var", "ve ustunde satir durur",
+T("Tabanın bir tavanı var", "ve üstünde satır durur",
   "Üçüncü ayrıntı: bazı satırların tabanı sınırsız değil. Belli bir tutarın üzerinde taban artmayı bırakır, ve satır da artmayı bırakır.",
-  cap="Tabanin bir tavani var")
-T("Yani brut artar", "satir artmaz",
+  cap="Tabanın bir tavanı var")
+T("Yani brüt artar", "satır artmaz",
   "Sonucu şudur: brütün artmaya devam eder ama o satır aynı kalır. Zam aldığın ay o satırın kıpırdamadığını görürsen, sebebi bu olabilir.")
-T("Tavan rakamini soylemiyorum", "ve nedeni belli",
+T("Tavan rakamını söylemiyorum", "ve nedeni belli",
   "Tavan rakamını burada söylemeyeceğim, çünkü o rakam dönem dönem güncellenir. Söyleyen anlatım, güncellendiği gün yanlış olur.")
-T("Nereden ogrenirsin", "kurumun kendi sayfasindan",
+T("Nereden öğrenirsin", "kurumun kendi sayfasından",
   "O tutarı kurumun kendi sayfasından öğrenmen gerekir, o dönem için geçerli olanını. Ben sana nerede arayacağını söylüyorum, rakamı değil.")
-T("Kendi kagidinda da var", "taban zaten basili",
+T("Kendi kâğıdında da var", "taban zaten basılı",
   "Ama aslında öğrenmesen de olur: o ay kullanılan taban zaten bordronda basılıdır. Brütünden küçük bir taban görüyorsan, tavana değmiş olabilirsin.")
-T("Nasil anlarsin", "iki ayi ust uste koy",
+T("Nasıl anlarsın", "iki ayı üst üste koy",
   "Anlamanın pratik yolu şu: brütünün arttığı bir ayla önceki ayı üst üste koy ve o satırın tabanına bak. Taban aynı kaldıysa cevabı buldun.")
-T("Ve bunun bir bedeli var", "ileride sayilan taban da o",
+T("Ve bunun bir bedeli var", "ileride sayılan taban da o",
   "Bunun uzun vadeli bir yanı da var: ileride hesaplanacak hakların tabanı da o sınırı aşmaz. Bugünkü küçük kesinti, yarınki küçük taban demektir.")
 
 # -------------------------------------------------------------------- cap 7
-T("Fark cikti, ne anlama gelir", "ve ne anlama gelmez",
+T("Fark çıktı, ne anlama gelir", "ve ne anlama gelmez",
   "Şimdi en çok yanlış okunan kısım. Hesabın tutmadığında bunun birçok meşru sebebi var, ve hepsi hatadan önce gelir.",
-  cap="Fark cikti, ne anlama gelir")
+  cap="Fark çıktı, ne anlama gelir")
 T("Birinci sebep", "yuvarlama",
   "Birinci sebep yuvarlamadır. Beş satırın her birinde kuruş seviyesinde yuvarlama olur ve toplamda birkaç kuruş fark çıkması normaldir.")
-T("Ikinci sebep", "eksik ya da fazla gun",
+T("İkinci sebep", "eksik ya da fazla gün",
   "İkinci sebep gün sayısıdır. Rapor, ücretsiz izin, işe giriş ya da çıkış olan aylarda taban tam ay değildir.")
-T("Ucuncu sebep", "brute giren kalemler",
+T("Üçüncü sebep", "brüte giren kalemler",
   "Üçüncü sebep brütün içeriğidir. Prim, fazla mesai ve bazı yardımlar brüte girer ve tabanı değiştirir, ama hepsi aynı şekilde girmez.")
-T("Dorduncu sebep", "kumulatif tabanin ayi",
+T("Dördüncü sebep", "kümülatif tabanın ayı",
   "Dördüncü sebep birikmiş tabandır. Hangi aya kadar birikmiş toplamı kullandığını karıştırırsan, sonuç kaçınılmaz olarak sapar.")
-T("Besinci sebep", "oranin o donem degismesi",
+T("Beşinci sebep", "oranın o dönem değişmesi",
   "Beşinci sebep oranın kendisidir. Oranlar dönem içinde değişebilir, ve o ay geçerli olan oran senin hatırladığın oran olmayabilir.")
-T("Ancak bundan sonra", "fark konusmaya baslar",
+T("Ancak bundan sonra", "fark konuşmaya başlar",
   "Bu sebepler elendikten sonra fark konuşmaya başlar. Ama önce onlar elenir, ve bu sıra önemli.")
-T("Altinci sebep", "bordro donemiyle odeme gunu",
+T("Altıncı sebep", "bordro dönemiyle ödeme günü",
   "Altıncı sebep takvimdir. Bordronun ait olduğu dönemle ödemenin yapıldığı gün aynı ay olmayabilir, ve o zaman iki belge aynı ayı anlatmaz.")
-T("Ve fark suclama degil", "once soru, sonra kanaat",
+T("Ve fark suçlama değil", "önce soru, sonra kanaat",
   "Hesabın tutmaması tek başına kimsenin kötü niyetinin kanıtı değildir. O, sorulacak bir sorudur: hangi taban kullanıldı.")
 
 # -------------------------------------------------------------------- cap 8
-T("Bu video neyi soylemiyor", "ve bu kisim genelde atlanir",
+T("Bu anlatım neyi söylemiyor", "ve bu kısım genelde atlanır",
   "Şimdi genelde atlanan kısım. Burada bilerek olmayan şeyler var, ve hepsinin sebebini tek tek söylüyorum.",
-  cap="Bu video neyi soylemiyor")
+  cap="Bu anlatım neyi söylemiyor")
 T("Oran yok", "tek bir tane bile",
   "Birincisi: burada tek bir oran yok. Oranlar düzenlemeyle değişir ve bu anlatım oranları saymak için hazırlanmadı.")
-T("Tavan rakami yok", "ve bu da bilerek",
+T("Tavan rakamı yok", "ve bu da bilerek",
   "İkincisi: tavan rakamı da yok, aynı sebeple. Dönem dönem güncellenen bir sayıyı buraya gömerek seni yanıltmak istemiyorum.")
-T("Kanun maddesi de vermiyorum", "ve iste gercek sebebi",
+T("Kanun maddesi de vermiyorum", "ve işte gerçek sebebi",
   "Üçüncüsü, ve asıl sebebini söyleyeyim: madde numarası da vermiyorum. Hazırlık sırasında kaynakların yarısı bana hiç açılmadı.")
-T("Bir kaynak yeterli degil", "kuralim bu",
+T("Bir kaynak yeterli değil", "kuralım bu",
   "Kullandığım kural şu: iki resmî kaynakta aynı çıkmayan sayı anlatıma girmez. Bir kaynak, teyit değildir.")
-T("O yuzden yontem degisti", "kagit senin elinde",
+T("O yüzden yöntem değişti", "kâğıt senin elinde",
   "O yüzden burada rakam değil yöntem öğretiliyor. Ve yöntemin bütün girdileri senin elindeki kâğıtta basılı duruyor.")
-T("Kimseyi degerlendirmiyorum", "senin bordronu gormedim",
+T("Kimseyi değerlendirmiyorum", "senin bordronu görmedim",
   "Dördüncüsü: kimsenin bordrosunu değerlendirmiyorum. Senin kâğıdını görmedim ve hangi tabanın kullanıldığını bilemem.")
-T("Ve hukuki tavsiye degil", "bu bir carpma dersi",
+T("Ve hukukî tavsiye değil", "bu bir çarpma dersi",
   "Beşincisi: bu hukukî ya da malî danışmanlık değil. Bu, elindeki belgede beş çarpma yapmayı öğreten bir anlatım.")
 
 # -------------------------------------------------------------------- cap 9
-B("Dort adim", "bastan sona",
+B("Dört adım", "baştan sona",
   "Şimdi bütün kontrol dört adımda, ekranı kapattıktan sonra yapabilmen için sırayla.",
   "hand writing on paper", 8479061,
-  cap="Dort adim")
-T("Adim bir", "son bordroyu ac",
+  cap="Dört adım")
+T("Adım bir", "son bordroyu aç",
   "Adım bir: son bordronu aç ve brüt tutarı bir kâğıda yaz. Ekrandan değil, kâğıttan çalış: gözün satırda kalır.")
-T("Adim iki", "bes satiri tabanlariyla yaz",
+T("Adım iki", "beş satırı tabanlarıyla yaz",
   "Adım iki: beş kesinti satırını, her birinin yanındaki tabanla ve oranla birlikte alt alta yaz. Beş satır, üç sütun.")
-T("Adim uc", "carp ve karsilastir",
+T("Adım üç", "çarp ve karşılaştır",
   "Adım üç: her satırda tabanı oranla çarp ve basılı tutarla karşılaştır. Tutmayan satırın yanına bir işaret koy, ve devam et.")
-T("Adim dort", "topla, dus, hesabina bak",
+T("Adım dört", "topla, düş, hesabına bak",
   "Adım dört: beş tutarı topla, brütten düş ve çıkan sayıyı hesabına yatan tutarla karşılaştır. İşte kendi kapattığın bordro.")
-T("Isaretli satir varsa", "once tabani sor",
+T("İşaretli satır varsa", "önce tabanı sor",
   "İşaret koyduğun bir satır kaldıysa, sorulacak soru hazır: bu satırda hangi taban kullanıldı. Oran değil, taban.")
-T("Her ay tekrar et", "ve ayni kagida yaz",
+T("Her ay tekrar et", "ve aynı kâğıda yaz",
   "Bunu her ay tekrar et ve aynı kâğıda yeni bir satır ekle. On iki satırın olduğu gün, elinde bir yıllık kendi kaydın olur.")
-T("Ve bir sey daha", "oniki satir bir sey daha gosterir",
+T("Ve bir şey daha", "on iki satır bir şey daha gösterir",
   "O on iki satır başka bir şey de gösterir: birikmiş tabanın seni hangi ay yakaladığını. Tek bir ayda bu görünmez.")
 
-T("Bir yil sonra", "kagit senin kaydin olur",
+T("Bir yıl sonra", "kâğıt senin kaydın olur",
   "On iki satırlık o kâğıt zamanla senin kendi kaydına dönüşür. Ve kendi kaydın olan bir sayıyı kimse sana anlatmak zorunda kalmaz.")
 
-C("Yorumda sadece tutan satir sayisini yaz", "tutari degil",
+C("Yorumda sadece tutan satır sayısını yaz", "tutarı değil",
   "Yoruma sadece beş satırdan kaçının tuttuğunu yaz. Brütünü, netini ya da işyerini yazma.")
 
-THUMB = {"l1": "Bes satir", "l2": "bir carpma"}
+THUMB = {"l1": "Beş satır", "l2": "bir çarpma"}
 
 
 SHORT = [
-    {"layout": "titulo", "kicker": "Brutle net arasinda bes satir",
-     "sub": "ve hepsi carpma",
+    {"layout": "titulo", "kicker": "Brütle net arasında beş satır",
+     "sub": "ve hepsi çarpma",
      "nar": "Brütünle elindeki para arasında beş satır var. Hepsi çarpma, ve hepsi bordronda basılı.", "sem_cap": True},
-    {"layout": "titulo", "kicker": "Bir", "sub": "taban ve oran yazili",
+    {"layout": "titulo", "kicker": "Bir", "sub": "taban ve oran yazılı",
      "nar": "Bir: her satırın yanında kullandığı taban ve oran yazar. Oranları bilmen gerekmiyor.", "sem_cap": True},
-    {"layout": "titulo", "kicker": "Iki", "sub": "tabanlar ayni degil",
+    {"layout": "titulo", "kicker": "İki", "sub": "tabanlar aynı değil",
      "nar": "İki: tabanlar aynı değil. Biri brütten, biri kesintiden sonra, biri yıl içinde birikerek.", "sem_cap": True},
-    {"layout": "titulo", "kicker": "Uc", "sub": "carp ve karsilastir",
+    {"layout": "titulo", "kicker": "Üç", "sub": "çarp ve karşılaştır",
      "nar": "Üç: her satırda tabanı oranla çarp ve basılı tutarla karşılaştır.", "sem_cap": True},
-    {"layout": "titulo", "kicker": "Tutmazsa", "sub": "oran degil, taban",
+    {"layout": "titulo", "kicker": "Tutmazsa", "sub": "oran değil, taban",
      "nar": "Tutmayan satır varsa sorulacak soru hazır: hangi taban kullanıldı. Oran değil, taban.", "sem_cap": True},
 ]
 
@@ -398,15 +398,15 @@ teyit degildir. O yuzden rakam degil yontem ogretiliyor, ve yontemin butun
 girdileri senin elindeki kagitta.
 
 Bolumler:
-00:00 Bordroda bes satir var
-01:06 Her satir ayni tabandan almiyor
-02:12 Kendi bordronu kapat
-03:31 Degismeyen satir
-04:50 Ay ay buyuyen satir
-06:09 Tabanin bir tavani var
-07:28 Fark cikti, ne anlama gelir
-09:00 Bu video neyi soylemiyor
-10:32 Dort adim
+00:00 Bordroda beş satır var
+01:07 Her satır aynı tabandan almıyor
+02:13 Kendi bordronu kapat
+03:26 Değişmeyen satır
+04:45 Ay ay büyüyen satır
+06:02 Tabanın bir tavanı var
+07:24 Fark çıktı, ne anlama gelir
+09:01 Bu anlatım neyi söylemiyor
+10:23 Dört adım
 
 Yoruma sadece bes satirdan kacinin tuttugunu yaz — brutunu, netini ya da
 isyerini yazma.

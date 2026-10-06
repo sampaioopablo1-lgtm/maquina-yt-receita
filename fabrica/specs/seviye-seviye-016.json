@@ -11,14 +11,14 @@
   "bg": "#F6F2EA"
  },
  "thumb": {
-  "l1": "Bes satir",
-  "l2": "bir carpma"
+  "l1": "Beş satır",
+  "l2": "bir çarpma"
  },
  "longo": [
   {
    "layout": "broll",
-   "kicker": "Bordroda bes satir var",
-   "sub": "brutle net arasinda",
+   "kicker": "Bordroda beş satır var",
+   "sub": "brütle net arasında",
    "nar": "Brütünle elindeki para arasında beş satır var, bir tane değil. Ve o beş satırın hepsi her ay senin bordrona basılıyor.",
    "broll_q": "person working with printed documents",
    "broll_url": "https://videos.pexels.com/video-files/8298013/8298013-hd_1920_1080_25fps.mp4",
@@ -27,26 +27,26 @@
     "autor": "Mikhail Nilov",
     "url": "https://www.pexels.com/video/a-person-working-with-documents-8298013/"
    },
-   "cap": "Bordroda bes satir var"
+   "cap": "Bordroda beş satır var"
   },
   {
    "layout": "titulo",
-   "kicker": "Kimse bakmiyor",
-   "sub": "cunku sadece son satira bakiliyor",
+   "kicker": "Kimse bakmıyor",
+   "sub": "çünkü sadece son satıra bakılıyor",
    "nar": "Çoğu kişi bordroyu açıp sadece en alttaki sayıya bakar. Aradaki satırlar tahmin gibi görünür, ama hiçbiri tahmin değil.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
-   "kicker": "Hepsi carpma",
-   "sub": "her satir bir taban ve bir oran",
+   "kicker": "Hepsi çarpma",
+   "sub": "her satır bir taban ve bir oran",
    "nar": "Her kesinti satırı aslında bir çarpma işlemidir. Bir taban, bir oran ve çıkan sonuç — hepsi o kâğıtta yazılı duruyor.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
    "kicker": "Yani kontrol edilebilir",
-   "sub": "ve kontrol etmek dakikalar suruyor",
+   "sub": "ve kontrol etmek dakikalar sürüyor",
    "nar": "Bu da şunu getirir: bordro tahmin edilecek bir belge değil, kontrol edilecek bir belgedir. Tahmin etmen gereken hiçbir şey yok; çarpman gereken birkaç satır var, ve hepsi o kâğıtta duruyor.",
    "sem_cap": true
   },
@@ -60,14 +60,14 @@
   {
    "layout": "titulo",
    "kicker": "Peki oran nereden",
-   "sub": "senin kagidindan",
+   "sub": "senin kâğıdından",
    "nar": "Oranları ben vermeyeceğim çünkü zaten senin kâğıdında yazıyor. Okunacak yer orası, ve bütün fikir bu.",
    "sem_cap": true
   },
   {
    "layout": "broll",
-   "kicker": "Her satir ayni tabandan almiyor",
-   "sub": "ve asil yanilgi burada",
+   "kicker": "Her satır aynı tabandan almıyor",
+   "sub": "ve asıl yanılgı burada",
    "nar": "Şimdi işin can alıcı yeri. Beş satırın hepsi aynı tabandan hesaplanmıyor, ve en sık yapılan hata tam burada duruyor.",
    "broll_q": "calculating from documents on a desk",
    "broll_url": "https://videos.pexels.com/video-files/7735903/7735903-hd_1920_1080_25fps.mp4",
@@ -76,47 +76,47 @@
     "autor": "Mikhail Nilov",
     "url": "https://www.pexels.com/video/a-person-calculating-family-budget-7735903/"
    },
-   "cap": "Her satir ayni tabandan almiyor"
+   "cap": "Her satır aynı tabandan almıyor"
   },
   {
    "layout": "titulo",
-   "kicker": "Bazisi bruttan",
-   "sub": "dogrudan ve basit",
+   "kicker": "Bazısı brütten",
+   "sub": "doğrudan ve basit",
    "nar": "Bazı satırlar doğrudan brüt tutardan hesaplanır. Onların kontrolü en kolay olanıdır, çünkü taban zaten en üstteki sayıdır.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
-   "kicker": "Bazisi kesintiden sonra",
-   "sub": "yani daha kucuk bir tabandan",
+   "kicker": "Bazısı kesintiden sonra",
+   "sub": "yani daha küçük bir tabandan",
    "nar": "Başka satırlar ise bazı kesintiler düşüldükten sonra kalan tutardan hesaplanır. O zaman taban brütten küçük olur, ve sonuç da küçük olur.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
-   "kicker": "Biri de kumulatif",
-   "sub": "yil icinde buyuyen bir taban",
+   "kicker": "Biri de kümülatif",
+   "sub": "yıl içinde büyüyen bir taban",
    "nar": "Bir satırın tabanı ise yıl başından beri toplanarak büyür. O yüzden aynı brütle aynı sonucu her ay vermez.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
    "kicker": "Hangisi hangisi",
-   "sub": "bunu kagit soyluyor",
+   "sub": "bunu kâğıt söylüyor",
    "nar": "Hangi satırın hangi tabanı kullandığını akıldan bilmen gerekmiyor. Bordroda her satırın yanına tabanı da basılır.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
-   "kicker": "Yanlis taban, buyuk fark",
-   "sub": "ve bu en yaygin hata",
+   "kicker": "Yanlış taban, büyük fark",
+   "sub": "ve bu en yaygın hata",
    "nar": "Yanlış tabanla çarpıp sonuç tutmayınca insanlar kesintinin yanlış olduğunu düşünür. Genelde yanlış olan kesinti değil, seçilen tabandır.",
    "sem_cap": true
   },
   {
    "layout": "broll",
    "kicker": "Kendi bordronu kapat",
-   "sub": "sirayla, bes carpma",
+   "sub": "sırayla, beş çarpma",
    "nar": "Şimdi sıra sende. Bordroyu önüne koy ve beş çarpma yap, yukarıdan aşağıya, atlamadan.",
    "broll_q": "calculator and pen on paper together",
    "broll_url": "https://videos.pexels.com/video-files/5466772/5466772-hd_1920_1080_25fps.mp4",
@@ -129,199 +129,199 @@
   },
   {
    "layout": "titulo",
-   "kicker": "Birinci adim",
-   "sub": "brut tutari yaz",
+   "kicker": "Birinci adım",
+   "sub": "brüt tutarı yaz",
    "nar": "Birinci adım: en üstteki brüt tutarı bir kâğıda yaz. Bu, bütün hesabın başlangıç noktası ve elle girdiğin tek sayı.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
-   "kicker": "Ikinci adim",
-   "sub": "her satirin tabanini ve oranini al",
+   "kicker": "İkinci adım",
+   "sub": "her satırın tabanını ve oranını al",
    "nar": "İkinci adım: her kesinti satırında yazılı olan tabanı ve oranı al. Yanına yaz, satır satır, beş satır için.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
-   "kicker": "Ucuncu adim",
-   "sub": "carp ve basiliyla karsilastir",
+   "kicker": "Üçüncü adım",
+   "sub": "çarp ve basılıyla karşılaştır",
    "nar": "Üçüncü adım: her satır için tabanı oranla çarp ve çıkan sayıyı o satırda basılı olan tutarla karşılaştır. Beş kez, tek tek.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
-   "kicker": "Dorduncu adim",
-   "sub": "hepsini bruttan dus",
+   "kicker": "Dördüncü adım",
+   "sub": "hepsini brütten düş",
    "nar": "Dördüncü adım: beş satırın tutarını topla ve brütten düş. Elinde kalan sayı, o ay hesapladığın net tutardır.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
-   "kicker": "Iste senin sayin",
-   "sub": "ve simdi karsilastiracagin sey var",
+   "kicker": "İşte senin sayın",
+   "sub": "ve şimdi karşılaştıracağın şey var",
    "nar": "Bu, senin kendi hesapladığın sayı. Şimdi onu hesabına gerçekten yatan tutarla karşılaştır: geri kalan her şey sadece bunu doğru okumak için.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
-   "kicker": "Ucunu yan yana yaz",
-   "sub": "brut, kesinti toplami, net",
+   "kicker": "Üçünü yan yana yaz",
+   "sub": "brüt, kesinti toplamı, net",
    "nar": "Üçünü bir satıra yan yana yaz: brüt, kesinti toplamı ve net. O bir satır senin bütün cevabın, ve her ay aynı yerde duracak.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
-   "kicker": "Degismeyen satir",
-   "sub": "neden hep ayni oranda gorunuyor",
+   "kicker": "Değişmeyen satır",
+   "sub": "neden hep aynı oranda görünüyor",
    "nar": "İlk ayrıntı: bir satır her ay neredeyse aynı oranda görünür ve insan onu sabit sanır. Sabit değil, sadece tabanı az değişiyor.",
-   "cap": "Degismeyen satir"
+   "cap": "Değişmeyen satır"
   },
   {
    "layout": "titulo",
-   "kicker": "Tabani brut",
-   "sub": "o yuzden brutle birlikte oynar",
+   "kicker": "Tabanı brüt",
+   "sub": "o yüzden brütle birlikte oynar",
    "nar": "O satırın tabanı doğrudan brüt tutardır. Brüt değişmediğinde sonuç da değişmez, ve böyle aylarda gerçekten sabit görünür.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
-   "kicker": "Ama prim degisirse",
-   "sub": "satir da degisir",
+   "kicker": "Ama prim değişirse",
+   "sub": "satır da değişir",
    "nar": "Brütüne bir prim ya da fazla mesai eklendiği ay, o satır da büyür. Sabit sandığın satırın aslında brütle birlikte hareket ettiğini orada görürsün.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
-   "kicker": "Kontrolu en kolay",
-   "sub": "bu satirla baslamak mantikli",
+   "kicker": "Kontrolü en kolay",
+   "sub": "bu satırla başlamak mantıklı",
    "nar": "Kontrol etmeye bu satırdan başlamak mantıklı, çünkü tabanı aramak gerekmiyor. En üstteki sayı zaten tabanın kendisi.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
    "kicker": "Tutmazsa ne olur",
-   "sub": "once brute bak, orana degil",
+   "sub": "önce brüte bak, orana değil",
    "nar": "Bu satır tutmazsa ilk bakılacak yer oran değil, brütün kendisidir. Bordroda kullanılan brüt, beklediğin brütten farklı olabilir.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
-   "kicker": "Eksik gun varsa",
+   "kicker": "Eksik gün varsa",
    "sub": "taban da eksilir",
    "nar": "O ay rapor, ücretsiz izin ya da işe giriş varsa, kullanılan brüt tam ay değildir. Taban eksilir ve sonuç da doğal olarak eksilir.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
-   "kicker": "Bu bir hata degil",
-   "sub": "oransal hesap boyle",
+   "kicker": "Bu bir hata değil",
+   "sub": "oransal hesap böyle",
    "nar": "Bu bir hata değil, oransal hesabın kendisidir. Tam ay çalışmayan bir ayda tam ay tabanı beklemek, hatayı senin tarafında yaratır.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
-   "kicker": "Ay ay buyuyen satir",
-   "sub": "ve bu seni sasirtmasin",
+   "kicker": "Ay ay büyüyen satır",
+   "sub": "ve bu seni şaşırtmasın",
    "nar": "İkinci ayrıntı, ve bu en çok şaşırtan: bir satır yıl içinde ay ay büyür, sen aynı brütü almaya devam etsen bile.",
-   "cap": "Ay ay buyuyen satir"
+   "cap": "Ay ay büyüyen satır"
   },
   {
    "layout": "titulo",
-   "kicker": "Cunku tabani birikiyor",
-   "sub": "yil basindan beri",
+   "kicker": "Çünkü tabanı birikiyor",
+   "sub": "yıl başından beri",
    "nar": "Sebebi şu: o satırın tabanı o ayın tutarı değil, yıl başından o aya kadar birikmiş toplamdır. Toplam büyüdükçe satır da büyür.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
-   "kicker": "Yani ayni maas, farkli kesinti",
-   "sub": "ve ikisi de dogru",
+   "kicker": "Yani aynı maaş, farklı kesinti",
+   "sub": "ve ikisi de doğru",
    "nar": "Böylece ocak ayıyla kasım ayı aynı brütü gösterse bile, o satırın tutarı farklı olur. İkisi de doğrudur, ve karşılaştırmak yanlıştır.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
-   "kicker": "Iki ayi karsilastirma",
-   "sub": "ayni ayi karsilastir",
+   "kicker": "İki ayı karşılaştırma",
+   "sub": "aynı ayı karşılaştır",
    "nar": "O yüzden bir ayı önceki ayla karşılaştırarak hata aramak işe yaramaz. Karşılaştırılacak olan, o ayın kendi tabanı ve kendi oranıdır.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
-   "kicker": "Nerede gorunur",
-   "sub": "kumulatif sutununda",
+   "kicker": "Nerede görünür",
+   "sub": "kümülatif sütununda",
    "nar": "Bordroda bu birikmiş toplam genelde kendi sütununda yazar. O sütunu bir kez bulursan, bu satır bir daha seni şaşırtmaz.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
-   "kicker": "Ve yil basinda sifirlanir",
-   "sub": "o yuzden ocakta duser",
+   "kicker": "Ve yıl başında sıfırlanır",
+   "sub": "o yüzden ocakta düşer",
    "nar": "Bu taban her yıl başında sıfırlanır. Bu yüzden ocak ayında o satır düşer ve net tutar birden artmış gibi görünür.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
-   "kicker": "Zam degil",
-   "sub": "sadece taban sifirlandi",
+   "kicker": "Zam değil",
+   "sub": "sadece taban sıfırlandı",
    "nar": "Ocakta elindeki paranın artması tek başına zam demek değildir. Bazen sadece o birikmiş tabanın sıfırlanmasıdır, ve şubatta tekrar tırmanır.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
-   "kicker": "Tabanin bir tavani var",
-   "sub": "ve ustunde satir durur",
+   "kicker": "Tabanın bir tavanı var",
+   "sub": "ve üstünde satır durur",
    "nar": "Üçüncü ayrıntı: bazı satırların tabanı sınırsız değil. Belli bir tutarın üzerinde taban artmayı bırakır, ve satır da artmayı bırakır.",
-   "cap": "Tabanin bir tavani var"
+   "cap": "Tabanın bir tavanı var"
   },
   {
    "layout": "titulo",
-   "kicker": "Yani brut artar",
-   "sub": "satir artmaz",
+   "kicker": "Yani brüt artar",
+   "sub": "satır artmaz",
    "nar": "Sonucu şudur: brütün artmaya devam eder ama o satır aynı kalır. Zam aldığın ay o satırın kıpırdamadığını görürsen, sebebi bu olabilir.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
-   "kicker": "Tavan rakamini soylemiyorum",
+   "kicker": "Tavan rakamını söylemiyorum",
    "sub": "ve nedeni belli",
    "nar": "Tavan rakamını burada söylemeyeceğim, çünkü o rakam dönem dönem güncellenir. Söyleyen anlatım, güncellendiği gün yanlış olur.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
-   "kicker": "Nereden ogrenirsin",
-   "sub": "kurumun kendi sayfasindan",
+   "kicker": "Nereden öğrenirsin",
+   "sub": "kurumun kendi sayfasından",
    "nar": "O tutarı kurumun kendi sayfasından öğrenmen gerekir, o dönem için geçerli olanını. Ben sana nerede arayacağını söylüyorum, rakamı değil.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
-   "kicker": "Kendi kagidinda da var",
-   "sub": "taban zaten basili",
+   "kicker": "Kendi kâğıdında da var",
+   "sub": "taban zaten basılı",
    "nar": "Ama aslında öğrenmesen de olur: o ay kullanılan taban zaten bordronda basılıdır. Brütünden küçük bir taban görüyorsan, tavana değmiş olabilirsin.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
-   "kicker": "Nasil anlarsin",
-   "sub": "iki ayi ust uste koy",
+   "kicker": "Nasıl anlarsın",
+   "sub": "iki ayı üst üste koy",
    "nar": "Anlamanın pratik yolu şu: brütünün arttığı bir ayla önceki ayı üst üste koy ve o satırın tabanına bak. Taban aynı kaldıysa cevabı buldun.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
    "kicker": "Ve bunun bir bedeli var",
-   "sub": "ileride sayilan taban da o",
+   "sub": "ileride sayılan taban da o",
    "nar": "Bunun uzun vadeli bir yanı da var: ileride hesaplanacak hakların tabanı da o sınırı aşmaz. Bugünkü küçük kesinti, yarınki küçük taban demektir.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
-   "kicker": "Fark cikti, ne anlama gelir",
+   "kicker": "Fark çıktı, ne anlama gelir",
    "sub": "ve ne anlama gelmez",
    "nar": "Şimdi en çok yanlış okunan kısım. Hesabın tutmadığında bunun birçok meşru sebebi var, ve hepsi hatadan önce gelir.",
-   "cap": "Fark cikti, ne anlama gelir"
+   "cap": "Fark çıktı, ne anlama gelir"
   },
   {
    "layout": "titulo",
@@ -332,59 +332,59 @@
   },
   {
    "layout": "titulo",
-   "kicker": "Ikinci sebep",
-   "sub": "eksik ya da fazla gun",
+   "kicker": "İkinci sebep",
+   "sub": "eksik ya da fazla gün",
    "nar": "İkinci sebep gün sayısıdır. Rapor, ücretsiz izin, işe giriş ya da çıkış olan aylarda taban tam ay değildir.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
-   "kicker": "Ucuncu sebep",
-   "sub": "brute giren kalemler",
+   "kicker": "Üçüncü sebep",
+   "sub": "brüte giren kalemler",
    "nar": "Üçüncü sebep brütün içeriğidir. Prim, fazla mesai ve bazı yardımlar brüte girer ve tabanı değiştirir, ama hepsi aynı şekilde girmez.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
-   "kicker": "Dorduncu sebep",
-   "sub": "kumulatif tabanin ayi",
+   "kicker": "Dördüncü sebep",
+   "sub": "kümülatif tabanın ayı",
    "nar": "Dördüncü sebep birikmiş tabandır. Hangi aya kadar birikmiş toplamı kullandığını karıştırırsan, sonuç kaçınılmaz olarak sapar.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
-   "kicker": "Besinci sebep",
-   "sub": "oranin o donem degismesi",
+   "kicker": "Beşinci sebep",
+   "sub": "oranın o dönem değişmesi",
    "nar": "Beşinci sebep oranın kendisidir. Oranlar dönem içinde değişebilir, ve o ay geçerli olan oran senin hatırladığın oran olmayabilir.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
    "kicker": "Ancak bundan sonra",
-   "sub": "fark konusmaya baslar",
+   "sub": "fark konuşmaya başlar",
    "nar": "Bu sebepler elendikten sonra fark konuşmaya başlar. Ama önce onlar elenir, ve bu sıra önemli.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
-   "kicker": "Altinci sebep",
-   "sub": "bordro donemiyle odeme gunu",
+   "kicker": "Altıncı sebep",
+   "sub": "bordro dönemiyle ödeme günü",
    "nar": "Altıncı sebep takvimdir. Bordronun ait olduğu dönemle ödemenin yapıldığı gün aynı ay olmayabilir, ve o zaman iki belge aynı ayı anlatmaz.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
-   "kicker": "Ve fark suclama degil",
-   "sub": "once soru, sonra kanaat",
+   "kicker": "Ve fark suçlama değil",
+   "sub": "önce soru, sonra kanaat",
    "nar": "Hesabın tutmaması tek başına kimsenin kötü niyetinin kanıtı değildir. O, sorulacak bir sorudur: hangi taban kullanıldı.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
-   "kicker": "Bu video neyi soylemiyor",
-   "sub": "ve bu kisim genelde atlanir",
+   "kicker": "Bu anlatım neyi söylemiyor",
+   "sub": "ve bu kısım genelde atlanır",
    "nar": "Şimdi genelde atlanan kısım. Burada bilerek olmayan şeyler var, ve hepsinin sebebini tek tek söylüyorum.",
-   "cap": "Bu video neyi soylemiyor"
+   "cap": "Bu anlatım neyi söylemiyor"
   },
   {
    "layout": "titulo",
@@ -395,7 +395,7 @@
   },
   {
    "layout": "titulo",
-   "kicker": "Tavan rakami yok",
+   "kicker": "Tavan rakamı yok",
    "sub": "ve bu da bilerek",
    "nar": "İkincisi: tavan rakamı da yok, aynı sebeple. Dönem dönem güncellenen bir sayıyı buraya gömerek seni yanıltmak istemiyorum.",
    "sem_cap": true
@@ -403,42 +403,42 @@
   {
    "layout": "titulo",
    "kicker": "Kanun maddesi de vermiyorum",
-   "sub": "ve iste gercek sebebi",
+   "sub": "ve işte gerçek sebebi",
    "nar": "Üçüncüsü, ve asıl sebebini söyleyeyim: madde numarası da vermiyorum. Hazırlık sırasında kaynakların yarısı bana hiç açılmadı.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
-   "kicker": "Bir kaynak yeterli degil",
-   "sub": "kuralim bu",
+   "kicker": "Bir kaynak yeterli değil",
+   "sub": "kuralım bu",
    "nar": "Kullandığım kural şu: iki resmî kaynakta aynı çıkmayan sayı anlatıma girmez. Bir kaynak, teyit değildir.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
-   "kicker": "O yuzden yontem degisti",
-   "sub": "kagit senin elinde",
+   "kicker": "O yüzden yöntem değişti",
+   "sub": "kâğıt senin elinde",
    "nar": "O yüzden burada rakam değil yöntem öğretiliyor. Ve yöntemin bütün girdileri senin elindeki kâğıtta basılı duruyor.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
-   "kicker": "Kimseyi degerlendirmiyorum",
-   "sub": "senin bordronu gormedim",
+   "kicker": "Kimseyi değerlendirmiyorum",
+   "sub": "senin bordronu görmedim",
    "nar": "Dördüncüsü: kimsenin bordrosunu değerlendirmiyorum. Senin kâğıdını görmedim ve hangi tabanın kullanıldığını bilemem.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
-   "kicker": "Ve hukuki tavsiye degil",
-   "sub": "bu bir carpma dersi",
+   "kicker": "Ve hukukî tavsiye değil",
+   "sub": "bu bir çarpma dersi",
    "nar": "Beşincisi: bu hukukî ya da malî danışmanlık değil. Bu, elindeki belgede beş çarpma yapmayı öğreten bir anlatım.",
    "sem_cap": true
   },
   {
    "layout": "broll",
-   "kicker": "Dort adim",
-   "sub": "bastan sona",
+   "kicker": "Dört adım",
+   "sub": "baştan sona",
    "nar": "Şimdi bütün kontrol dört adımda, ekranı kapattıktan sonra yapabilmen için sırayla.",
    "broll_q": "hand writing on paper",
    "broll_url": "https://videos.pexels.com/video-files/8479061/8479061-hd_1920_1080_25fps.mp4",
@@ -447,68 +447,68 @@
     "autor": "ArtHouse Studio",
     "url": "https://www.pexels.com/video/person-writing-on-paper-8479061/"
    },
-   "cap": "Dort adim"
+   "cap": "Dört adım"
   },
   {
    "layout": "titulo",
-   "kicker": "Adim bir",
-   "sub": "son bordroyu ac",
+   "kicker": "Adım bir",
+   "sub": "son bordroyu aç",
    "nar": "Adım bir: son bordronu aç ve brüt tutarı bir kâğıda yaz. Ekrandan değil, kâğıttan çalış: gözün satırda kalır.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
-   "kicker": "Adim iki",
-   "sub": "bes satiri tabanlariyla yaz",
+   "kicker": "Adım iki",
+   "sub": "beş satırı tabanlarıyla yaz",
    "nar": "Adım iki: beş kesinti satırını, her birinin yanındaki tabanla ve oranla birlikte alt alta yaz. Beş satır, üç sütun.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
-   "kicker": "Adim uc",
-   "sub": "carp ve karsilastir",
+   "kicker": "Adım üç",
+   "sub": "çarp ve karşılaştır",
    "nar": "Adım üç: her satırda tabanı oranla çarp ve basılı tutarla karşılaştır. Tutmayan satırın yanına bir işaret koy, ve devam et.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
-   "kicker": "Adim dort",
-   "sub": "topla, dus, hesabina bak",
+   "kicker": "Adım dört",
+   "sub": "topla, düş, hesabına bak",
    "nar": "Adım dört: beş tutarı topla, brütten düş ve çıkan sayıyı hesabına yatan tutarla karşılaştır. İşte kendi kapattığın bordro.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
-   "kicker": "Isaretli satir varsa",
-   "sub": "once tabani sor",
+   "kicker": "İşaretli satır varsa",
+   "sub": "önce tabanı sor",
    "nar": "İşaret koyduğun bir satır kaldıysa, sorulacak soru hazır: bu satırda hangi taban kullanıldı. Oran değil, taban.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
    "kicker": "Her ay tekrar et",
-   "sub": "ve ayni kagida yaz",
+   "sub": "ve aynı kâğıda yaz",
    "nar": "Bunu her ay tekrar et ve aynı kâğıda yeni bir satır ekle. On iki satırın olduğu gün, elinde bir yıllık kendi kaydın olur.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
-   "kicker": "Ve bir sey daha",
-   "sub": "oniki satir bir sey daha gosterir",
+   "kicker": "Ve bir şey daha",
+   "sub": "on iki satır bir şey daha gösterir",
    "nar": "O on iki satır başka bir şey de gösterir: birikmiş tabanın seni hangi ay yakaladığını. Tek bir ayda bu görünmez.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
-   "kicker": "Bir yil sonra",
-   "sub": "kagit senin kaydin olur",
+   "kicker": "Bir yıl sonra",
+   "sub": "kâğıt senin kaydın olur",
    "nar": "On iki satırlık o kâğıt zamanla senin kendi kaydına dönüşür. Ve kendi kaydın olan bir sayıyı kimse sana anlatmak zorunda kalmaz.",
    "sem_cap": true
   },
   {
    "layout": "cta",
-   "kicker": "Yorumda sadece tutan satir sayisini yaz",
-   "sub": "tutari degil",
+   "kicker": "Yorumda sadece tutan satır sayısını yaz",
+   "sub": "tutarı değil",
    "nar": "Yoruma sadece beş satırdan kaçının tuttuğunu yaz. Brütünü, netini ya da işyerini yazma.",
    "sem_cap": true
   }
@@ -516,39 +516,39 @@
  "short": [
   {
    "layout": "titulo",
-   "kicker": "Brutle net arasinda bes satir",
-   "sub": "ve hepsi carpma",
+   "kicker": "Brütle net arasında beş satır",
+   "sub": "ve hepsi çarpma",
    "nar": "Brütünle elindeki para arasında beş satır var. Hepsi çarpma, ve hepsi bordronda basılı.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
    "kicker": "Bir",
-   "sub": "taban ve oran yazili",
+   "sub": "taban ve oran yazılı",
    "nar": "Bir: her satırın yanında kullandığı taban ve oran yazar. Oranları bilmen gerekmiyor.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
-   "kicker": "Iki",
-   "sub": "tabanlar ayni degil",
+   "kicker": "İki",
+   "sub": "tabanlar aynı değil",
    "nar": "İki: tabanlar aynı değil. Biri brütten, biri kesintiden sonra, biri yıl içinde birikerek.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
-   "kicker": "Uc",
-   "sub": "carp ve karsilastir",
+   "kicker": "Üç",
+   "sub": "çarp ve karşılaştır",
    "nar": "Üç: her satırda tabanı oranla çarp ve basılı tutarla karşılaştır.",
    "sem_cap": true
   },
   {
    "layout": "titulo",
    "kicker": "Tutmazsa",
-   "sub": "oran degil, taban",
+   "sub": "oran değil, taban",
    "nar": "Tutmayan satır varsa sorulacak soru hazır: hangi taban kullanıldı. Oran değil, taban.",
    "sem_cap": true
   }
  ],
- "copy": "# seviye-seviye-016\n\n## TITULO\nBordroda Bes Satir: Brutle Net Arasindaki Fark Tahmin Degil, Carpma\n\n## TITULO SHORT\nBordroda bes satir: hepsi carpma\n\n## DESCRICAO\nBrut maasinla hesabina yatan para arasinda bes satir var, bir tane degil. Ve o\nbes satirin hepsi her ay bordronda basili duruyor. Cogu kisi bordroyu acip\nsadece en alttaki sayiya bakar; aradaki satirlar tahmin gibi gorunur, ama\nhicbiri tahmin degil. Her kesinti satiri bir carpma islemidir: bir taban, bir\noran, bir sonuc — ve ucu de o kagitta yazili.\n\nBu video tek bir oran soylemiyor, ve bu bilerek. Oranlar duzenlemeyle degisir;\noran soyleyen video dogdugu gun eskimeye baslar. Oranlari vermeye gerek de yok,\ncunku zaten senin kagidinda yaziyor. Ogretilen sey yontem: tabani oranla carp,\nbasili tutarla karsilastir, bes kez.\n\nAsil yanilgi tabanlarda. Bes satirin hepsi ayni tabandan hesaplanmiyor. Bazisi\ndogrudan bruttan, bazisi bazi kesintiler dusuldukten sonra kalan tutardan, biri\nde yil basindan beri birikmis toplamdan. Bu yuzden ayni brutle ocak ayi ve\nkasim ayi ayni kesintiyi gostermez — ve ikisi de dogrudur. Yanlis tabanla\ncarpip sonuc tutmayinca insanlar kesintinin yanlis oldugunu dusunur; genelde\nyanlis olan kesinti degil, secilen tabandir.\n\nBazi satirlarin tabani sinirsiz da degil: belli bir tutarin uzerinde taban\nartmayi birakir, brutun artmaya devam etse bile. O tutari burada soylemiyorum\ncunku donem donem guncellenir — ama ogrenmesen de olur, cunku o ay kullanilan\ntaban zaten bordronda basili.\n\nHesabin tutmadiginda bes mesru sebep var ve hepsi hatadan once gelir:\nyuvarlama; eksik ya da fazla gun; brute giren prim ve fazla mesai; birikmis\ntabanin hangi aya kadar toplandigi; ve oranin o donem degismis olmasi. Ancak\nbunlar elendikten sonra fark konusmaya baslar — ve o zaman bile fark bir\nsuclama degil, sorulacak bir sorudur: bu satirda hangi taban kullanildi.\n\nBu video oran, tavan rakami ve madde numarasi vermiyor. Sebebini aciklikla\nyaziyorum: hazirlik sirasinda resmi kaynaklarin yarisi acilmadi, ve kullandigim\nkural su — iki resmi kaynakta ayni cikmayan sayi videoya girmez. Bir kaynak\nteyit degildir. O yuzden rakam degil yontem ogretiliyor, ve yontemin butun\ngirdileri senin elindeki kagitta.\n\nBolumler:\n00:00 Bordroda bes satir var\n01:06 Her satir ayni tabandan almiyor\n02:12 Kendi bordronu kapat\n03:31 Degismeyen satir\n04:50 Ay ay buyuyen satir\n06:09 Tabanin bir tavani var\n07:28 Fark cikti, ne anlama gelir\n09:00 Bu video neyi soylemiyor\n10:32 Dort adim\n\nYoruma sadece bes satirdan kacinin tuttugunu yaz — brutunu, netini ya da\nisyerini yazma.\n\n## DISCLOSURE\nBu videonun anlatimi ve gorselleri yapay zeka ile uretilmistir. Anlatilan\nyontem, izleyicinin kendi bordrosu uzerinde yapilan aritmetik bir kontroldur.\n\n## HASHTAGS\n#Bordro #MaasHesabi #CalisanHaklari\n\n## TAGS\nbordro nasil okunur, brutten nete hesap, maas kesintileri, bordro kontrolu, kesinti tabani, kumulatif taban, bordro hesaplama, maas bordrosu satirlari, net maas hesabi, prim fazla mesai brut, eksik gun bordro, bordro yuvarlama farki, maasim eksik mi, bordro ornegi okuma, calisan maas kontrolu\n\n## COMENTARIO FIXADO\nDort adim: son bordroyu ac ve brutu yaz → bes kesinti satirini tabani ve\noraniyla alt alta yaz → her satirda tabani oranla carp ve basili tutarla\nkarsilastir → bes tutari topla, brutten dus ve hesabina yatanla karsilastir.\nTutmayan satir kaldiysa soru hazir: hangi taban kullanildi. Oran degil, taban.\nYoruma sadece kac satirin tuttugunu yaz.\n"
+ "copy": "# seviye-seviye-016\n\n## TITULO\nBordroda Bes Satir: Brutle Net Arasindaki Fark Tahmin Degil, Carpma\n\n## TITULO SHORT\nBordroda bes satir: hepsi carpma\n\n## DESCRICAO\nBrut maasinla hesabina yatan para arasinda bes satir var, bir tane degil. Ve o\nbes satirin hepsi her ay bordronda basili duruyor. Cogu kisi bordroyu acip\nsadece en alttaki sayiya bakar; aradaki satirlar tahmin gibi gorunur, ama\nhicbiri tahmin degil. Her kesinti satiri bir carpma islemidir: bir taban, bir\noran, bir sonuc — ve ucu de o kagitta yazili.\n\nBu video tek bir oran soylemiyor, ve bu bilerek. Oranlar duzenlemeyle degisir;\noran soyleyen video dogdugu gun eskimeye baslar. Oranlari vermeye gerek de yok,\ncunku zaten senin kagidinda yaziyor. Ogretilen sey yontem: tabani oranla carp,\nbasili tutarla karsilastir, bes kez.\n\nAsil yanilgi tabanlarda. Bes satirin hepsi ayni tabandan hesaplanmiyor. Bazisi\ndogrudan bruttan, bazisi bazi kesintiler dusuldukten sonra kalan tutardan, biri\nde yil basindan beri birikmis toplamdan. Bu yuzden ayni brutle ocak ayi ve\nkasim ayi ayni kesintiyi gostermez — ve ikisi de dogrudur. Yanlis tabanla\ncarpip sonuc tutmayinca insanlar kesintinin yanlis oldugunu dusunur; genelde\nyanlis olan kesinti degil, secilen tabandir.\n\nBazi satirlarin tabani sinirsiz da degil: belli bir tutarin uzerinde taban\nartmayi birakir, brutun artmaya devam etse bile. O tutari burada soylemiyorum\ncunku donem donem guncellenir — ama ogrenmesen de olur, cunku o ay kullanilan\ntaban zaten bordronda basili.\n\nHesabin tutmadiginda bes mesru sebep var ve hepsi hatadan once gelir:\nyuvarlama; eksik ya da fazla gun; brute giren prim ve fazla mesai; birikmis\ntabanin hangi aya kadar toplandigi; ve oranin o donem degismis olmasi. Ancak\nbunlar elendikten sonra fark konusmaya baslar — ve o zaman bile fark bir\nsuclama degil, sorulacak bir sorudur: bu satirda hangi taban kullanildi.\n\nBu video oran, tavan rakami ve madde numarasi vermiyor. Sebebini aciklikla\nyaziyorum: hazirlik sirasinda resmi kaynaklarin yarisi acilmadi, ve kullandigim\nkural su — iki resmi kaynakta ayni cikmayan sayi videoya girmez. Bir kaynak\nteyit degildir. O yuzden rakam degil yontem ogretiliyor, ve yontemin butun\ngirdileri senin elindeki kagitta.\n\nBolumler:\n00:00 Bordroda beş satır var\n01:07 Her satır aynı tabandan almıyor\n02:13 Kendi bordronu kapat\n03:26 Değişmeyen satır\n04:45 Ay ay büyüyen satır\n06:02 Tabanın bir tavanı var\n07:24 Fark çıktı, ne anlama gelir\n09:01 Bu anlatım neyi söylemiyor\n10:23 Dört adım\n\nYoruma sadece bes satirdan kacinin tuttugunu yaz — brutunu, netini ya da\nisyerini yazma.\n\n## DISCLOSURE\nBu videonun anlatimi ve gorselleri yapay zeka ile uretilmistir. Anlatilan\nyontem, izleyicinin kendi bordrosu uzerinde yapilan aritmetik bir kontroldur.\n\n## HASHTAGS\n#Bordro #MaasHesabi #CalisanHaklari\n\n## TAGS\nbordro nasil okunur, brutten nete hesap, maas kesintileri, bordro kontrolu, kesinti tabani, kumulatif taban, bordro hesaplama, maas bordrosu satirlari, net maas hesabi, prim fazla mesai brut, eksik gun bordro, bordro yuvarlama farki, maasim eksik mi, bordro ornegi okuma, calisan maas kontrolu\n\n## COMENTARIO FIXADO\nDort adim: son bordroyu ac ve brutu yaz → bes kesinti satirini tabani ve\noraniyla alt alta yaz → her satirda tabani oranla carp ve basili tutarla\nkarsilastir → bes tutari topla, brutten dus ve hesabina yatanla karsilastir.\nTutmayan satir kaldiysa soru hazir: hangi taban kullanildi. Oran degil, taban.\nYoruma sadece kac satirin tuttugunu yaz.\n"
 }
