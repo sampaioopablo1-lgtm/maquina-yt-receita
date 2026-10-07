@@ -1,0 +1,57 @@
+{
+ "slug": "epomeno-epipedo",
+ "pacote": "epomeno-epipedo-s002",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#12263A",
+  "c1": "#2A9D8F",
+  "c2": "#E8A33D",
+  "bg": "#F5F2EC"
+ },
+ "thumb": {
+  "l1": "Λάθος μήνας;",
+  "l2": "λάθος αριθμός"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Λάθος μήνας",
+   "sub": "λάθος αριθμός",
+   "nar": "Αν έκανες την πράξη σε μήνα με δώρο ή αναδρομικά, ο αριθμός που βρήκες δεν ισχύει.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Γιατί χαλάει",
+   "sub": "το δώρο μπαίνει μέσα",
+   "nar": "Το δώρο και τα αναδρομικά μπαίνουν στα καθαρά. Η διαφορά που μέτρησες δεν είναι μόνο υπερωρία.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Δύο καθαροί μήνες",
+   "sub": "χωρίς τίποτα έξτρα",
+   "nar": "Θέλεις δύο μήνες καθαρούς από έξτρα: έναν με υπερωρίες και έναν χωρίς καθόλου.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Και αλλάζει",
+   "sub": "μέσα στη χρονιά",
+   "nar": "Ο αριθμός αλλάζει και μέσα στη χρονιά. Κρατάς πότε τον έβγαλες, όχι μόνο πόσο βγήκε.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Ξανακάνε το",
+   "sub": "με καθαρούς μήνες",
+   "nar": "Ξανακάνε την πράξη με δύο καθαρούς μήνες. Η πλήρης πράξη είναι στο βίντεο.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "h04-UVlVevs",
+ "copy": "# epomeno-epipedo-s002\n\n## TITULO\nΛάθος Μήνας, Λάθος Αριθμός: Γιατί η Πράξη της Υπερωρίας Σπάει σε Μήνα με Δώρο\n\n## TITULO SHORT\nΛάθος μήνας, λάθος αριθμός\n\n## DESCRICAO\nΗ πράξη που δείχνει πόσα μένουν καθαρά από μία ώρα υπερωρίας είναι μία διαίρεση: παίρνεις τα καθαρά πληρωτέα ενός μήνα με υπερωρίες, αφαιρείς τα καθαρά ενός μήνα χωρίς, και διαιρείς τη διαφορά με τις ώρες. Απλό — και σπάει εντελώς αν ο ένας από τους δύο μήνες έχει δώρο ή αναδρομικά. Τότε η διαφορά που μέτρησες δεν είναι υπερωρία: είναι υπερωρία συν ό,τι άλλο μπήκε εκείνον τον μήνα, και ο αριθμός που βγήκε δεν αφορά την επόμενη ώρα σου.\n\nΓι' αυτό η επιλογή των δύο μηνών είναι μέρος της πράξης και όχι λεπτομέρεια. Θέλεις δύο μήνες καθαρούς από έξτρα: έναν με υπερωρίες και έναν χωρίς καθόλου, χωρίς δώρα, χωρίς αναδρομικά, χωρίς αποζημιώσεις και χωρίς εφάπαξ ποσά. Αν δεν έχεις δύο τέτοιους μήνες, η πράξη περιμένει — καλύτερα να μην έχεις αριθμό από να έχεις λάθος αριθμό και να αποφασίζεις με βάση αυτόν.\n\nΥπάρχει και δεύτερο σημείο, που αφορά όχι ΠΟΥ κάνεις την πράξη αλλά ΠΟΤΕ: ο αριθμός δεν είναι σταθερός μέσα στη χρονιά. Αλλάζει, και γι' αυτό μαζί με το αποτέλεσμα κρατάς και την ημερομηνία που το έβγαλες. Ένας αριθμός από τον Μάρτιο δεν είναι ο αριθμός με τον οποίο κρίνεις μια προσφορά υπερωρίας τον Νοέμβριο. Οι τρεις στιγμές στις οποίες αλλάζει είναι στο πλήρες βίντεο.\n\nΕδώ δεν αναφέρεται ποσοστό υπερωρίας, δεν αναφέρεται φορολογικός συντελεστής και δεν αναφέρεται ποσό δώρου: ο αριθμός που αποφασίζει βγαίνει από τις δικές σου δύο μισθοδοσίες. Το πλήρες βίντεο έχει όλη την πράξη, τα τρία λάθη που ο αριθμός κάνει ορατά, και το τι ΔΕΝ λέει αυτή η πράξη.\n\nΕνημερωτικό περιεχόμενο, δεν αποτελεί φορολογική, νομική ή εργατική συμβουλή.\n\n## COMENTARIO FIXADO\nΗ πράξη είναι μία διαίρεση: καθαρά μήνα με υπερωρίες μείον καθαρά μήνα χωρίς, διά τις ώρες υπερωρίας του πρώτου. Το κρίσιμο είναι η ΕΠΙΛΟΓΗ των δύο μηνών: και οι δύο πρέπει να είναι καθαροί από έξτρα — χωρίς δώρα, χωρίς αναδρομικά, χωρίς αποζημιώσεις, χωρίς εφάπαξ. Αλλιώς η διαφορά δεν μετράει υπερωρία, μετράει υπερωρία συν ό,τι άλλο μπήκε. Και κράτα την ημερομηνία μαζί με τον αριθμό, γιατί ο αριθμός αλλάζει μέσα στη χρονιά. Αν κάνεις την πράξη, γράψε αν ο μήνας που είχες διαθέσιμο ήταν καθαρός — χωρίς να γράψεις ποσά.\n\n## HASHTAGS\n#Υπερωρία #Μισθοδοσία #EpomenoEpipedo\n\n## TAGS\nυπερωρια, μισθοδοσια, καθαρα, δωρο, αναδρομικα, υπολογισμος, καθαρα ανα ωρα, εργασια, προσωπικα οικονομικα, ελλαδα, μισθος, πραξη, επομενο επιπεδο, δυο μηνες, λαθος μηνας\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO. Este short nao cita aliquota, nao cita\npercentual de hora extra, nao cita valor de dadiva e nao nomeia orgao. Os unicos\nnumeros que ele diz sao \"dois\" — dois meses, duas folhas — e sao a aritmetica da\npropria conta.\n\nO QUE O VIDEO AFIRMA: que dadiva e retroativo entram no liquido, e que por isso\na diferenca entre dois meses deixa de medir so hora extra. Isso e aritmetica da\nconta e esta no longo epomeno-epipedo-014 (h04-UVlVevs) com as fontes.\n\nDESCARTADO, e vai escrito:\n  (1) QUANDO a dadiva e paga na Grecia e em que proporcao — nao reconferido hoje\n      em duas fontes; o short diz \"mes com dadiva ou retroativo\" sem datar;\n  (2) as tres situacoes em que o numero muda dentro do ano — estao no longo, e o\n      short manda para la em vez de listar de memoria;\n  (3) qualquer aliquota ou faixa de imposto.\n\n## FONTES\nO longo de onde este short foi extraido (epomeno-epipedo-014, h04-UVlVevs) traz\nas fontes. Este short nao introduz numero novo sobre o mundo.\n"
+}
