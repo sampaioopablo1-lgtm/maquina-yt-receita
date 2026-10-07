@@ -47,31 +47,77 @@ MAX_POR_DIA_POR_CANAL = 2  # PACOTES/dia/canal — 2 longos + 2 shorts por dia
 # TETO POR CANAL — sobrescreve o teto geral apenas para os canais listados.
 #
 # Existe por causa de uma pergunta do dono em 07/10/2026: "focar em 3 canais?".
-# A resposta medida foi NAO como troca, porque as vagas NAO transferem — o teto
-# e por canal, entao focar em tres daria 6 pacotes/dia no lugar de ~20 e nenhum
-# canal receberia mais do que ja recebe. Concentrar so significa algo se o teto
-# do canal escolhido subir, e para isso existe este dicionario.
+# A resposta medida foi que concentrar NAO transfere vagas — o teto e por canal,
+# entao focar em tres SEM mexer no teto daria 6 pacotes/dia no lugar de ~20 e
+# nenhum canal receberia mais do que ja recebe. Concentrar so significa algo se
+# o teto do canal escolhido subir, e e isso que este dicionario faz.
 #
-# O QUE ESTA ABERTO AQUI E UM EXPERIMENTO, nao uma decisao de regime. A
-# pergunta dele e detectavel em 7 a 10 dias: VIEWS escalam com pacotes/dia? Nao
-# pergunto por inscritos porque inscrito se move 0 a 1 por canal em 36 dias e
-# nao da sinal nessa janela; views se movem em milhares e dao.
+# DECISAO DO DONO em 07/10/2026, depois de eu apresentar a conta e o risco:
+# TRES canais, teto 7/dia em cada, imediatamente. Eu havia recomendado 4/dia
+# com subida para 7 so depois de ler o experimento 31; ele escolheu 7 agora,
+# com o risco de spam declarado na frente dele. A escolha e dele e esta aplicada
+# por inteiro — o que me cabe e vigiar e avisar, nao amortecer pela metade.
 #
-# POR QUE 4 E NAO 7. Sete manteria o total de ~21/dia concentrado, mas sao 14
-# videos/dia num canal de 14 inscritos, e o risco de o YouTube tratar isso como
-# spam nao esta medido por ninguem. Quatro e o dobro do teto atual — suficiente
-# para detectar efeito linear — com metade do risco. Se o efeito aparecer, sobe.
+# A CONTA QUE SUSTENTA A ESCOLHA DOS TRES, com 210 pacotes por canal em 30 dias:
+#   labtreinamento  210 shorts x 335 views = 70.300 views de short. E o UNICO
+#                   canal com conversao real (65 inscritos sobre 2.342 views de
+#                   short = 2,78%, dentro da faixa normal do YouTube). O lado
+#                   dos INSCRITOS passa de 1.000 nessa conta. O lado das HORAS
+#                   nao: 210 longos x 17,3 = 3.633 views = 202 h de 4.000.
+#   epomeno-epipedo o mais equilibrado e o unico com horas de verdade (90,9 de
+#                   4.000). Inscritos: precisa de conversao 0,89% contra 0,20%
+#                   hoje, ou 4,5x — alcancavel, esta na faixa normal. Horas:
+#                   210 longos x 117 = 24.500 views = 1.364 h de 4.000, precisa
+#                   de 2,9x em views por longo.
+#   kolejny-poziom  o melhor dos restantes em views de LONGO (653 em 19), que e
+#                   a metrica do requisito das 4.000 h.
 #
-# CONDICAO DE PARADA, e ela e obrigatoria: se neste canal aparecer video
-# removido, aviso no Studio, ou queda de alcance por pacote contra a media dele
-# proprio, ZERE a entrada aqui e diga ao dono no mesmo relatorio.
+# O QUE A CONTA DIZ, E ESTA ESCRITO AQUI PARA NAO SER ESQUECIDO: com tres canais
+# a 7/dia o requisito de INSCRITOS entra em distancia atacavel em pelo menos um
+# canal, e o requisito das 4.000 HORAS nao fecha em nenhum cenario de 30 dias,
+# porque depende de views de LONGO e o aprendizado 598 mediu em seis canais que
+# alcance de short nao compra longo. Nao prometa monetizacao em 30 dias por
+# causa deste dicionario.
+#
+# O QUE ESTA ESCOLHA CUSTOU, e eu devo isso por escrito: ela DESTROI o grupo de
+# controle do experimento 31. O 31 comparava epomeno a 4/dia contra os outros
+# onze a 2/dia; com tres a 7/dia e os outros dez fora da fila, nao existe mais
+# controle e o efeito do teto deixa de ser isolavel. Virou o experimento 32, com
+# essa fraqueza declarada.
+#
+# CONDICAO DE PARADA, e com 7/dia ela e mais apertada, nao menos: se em QUALQUER
+# um dos tres aparecer video removido, aviso no Studio, ou queda de alcance por
+# pacote contra a media do proprio canal, ZERE a entrada do canal aqui e diga ao
+# dono no mesmo relatorio. Catorze videos por dia num canal de 14 inscritos e
+# risco que ninguem mediu.
 TETO_POR_CANAL = {
-    # epomeno-epipedo: escolhido por ter o melhor material para o efeito agir —
-    # maior views em 36 dias (+1.744), melhor travessia da frota (23,9%) e
-    # maior estoque de horas (90,9 de 4.000). Em canal de travessia baixa o
-    # pacote extra viraria view de short que nao converte (aprendizado 598).
-    "epomeno-epipedo": 4,
+    "labtreinamento": 7,
+    "epomeno-epipedo": 7,
+    "kolejny-poziom": 7,
 }
+
+# CANAIS_FOCO — quando nao vazio, SO estes canais entram na fila.
+#
+# Decisao do dono em 07/10/2026: "ao invés de muitos canais agora são apenas 3".
+# Subir o teto sem restringir a fila nao concentraria nada: os outros dez
+# continuariam consumindo rodada. Os dez ficam PARADOS, nao apagados — o
+# historico deles continua no banco e no repo, e tirar um nome daqui devolve o
+# canal a fila sem mais nada.
+#
+# Por que uma lista no codigo e nao `canais.ativo = false` no banco: `ativo`
+# governa tambem as views de metrica e os relatorios historicos, e desligar la
+# faria a frota parecer menor do que foi. Aqui a mudanca e versionada,
+# reversivel e visivel no diff.
+CANAIS_FOCO = {
+    "labtreinamento",
+    "epomeno-epipedo",
+    "kolejny-poziom",
+}
+
+
+def no_foco(canal: str) -> bool:
+    """True se o canal pode entrar na fila. Lista vazia = frota inteira."""
+    return (not CANAIS_FOCO) or (canal in CANAIS_FOCO)
 
 
 def teto_do_canal(canal: str) -> int:
@@ -519,6 +565,11 @@ def proximo(videos: list[dict], n: int,
         for nome in info["specs_pendentes"]:
             if len(escolhidas) >= n:
                 break
+            if not no_foco(canal):
+                descartadas.append({
+                    "spec": nome,
+                    "motivo": "canal fora do foco de 3 (orquestra.CANAIS_FOCO)"})
+                continue
             repetido = ja_no_ar(nome, specs[nome], ja, titulos)
             if repetido:
                 descartadas.append({"spec": nome, "motivo": repetido})

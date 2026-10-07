@@ -128,6 +128,31 @@ def test_teto_de_tres_por_dia_por_canal():
     assert not estouraram, f"passaram do teto do proprio canal: {estouraram}"
 
 
+def test_canais_foco_restringe_a_fila():
+    """O foco de 3 canais do dono (07/10) tem de ser coerente com o teto.
+
+    Dois erros possiveis e os dois silenciosos: um canal com teto elevado que
+    ficou FORA do foco (o teto nunca age) e um canal no foco que nao existe no
+    repo (a fila fica menor do que se pensa). Nenhum dos dois quebra nada em
+    producao — so fazem a maquina trabalhar menos do que o dono pediu.
+    """
+    if not M.CANAIS_FOCO:
+        return  # frota inteira, nada a conferir
+    do_repo = set(M.canais_do_repo())
+    fantasmas = M.CANAIS_FOCO - do_repo
+    assert not fantasmas, f"no foco mas nao existem no repo: {sorted(fantasmas)}"
+    com_teto = set(M.TETO_POR_CANAL)
+    fora = com_teto - M.CANAIS_FOCO
+    assert not fora, (
+        f"tem teto elevado e esta fora do foco, logo o teto nunca age: "
+        f"{sorted(fora)}")
+    for c in M.CANAIS_FOCO:
+        assert M.no_foco(c), c
+    algum_de_fora = do_repo - M.CANAIS_FOCO
+    for c in algum_de_fora:
+        assert not M.no_foco(c), f"{c} deveria estar fora do foco"
+
+
 def test_teto_por_canal_sobrescreve_o_geral():
     """O dicionario tem de valer para quem esta nele e nao vazar para os outros."""
     assert M.teto_do_canal("__canal_que_nao_existe__") == M.MAX_POR_DIA_POR_CANAL
@@ -319,29 +344,38 @@ def test_teto_conta_o_que_ja_esta_no_banco_e_nao_so_o_disparo(monkeypatch):
     O teste antigo (`test_teto_de_tres_por_dia_por_canal`) passava o tempo
     todo: ele so olhava as escolhidas de UMA chamada.
     """
-    canal = sorted(M.canais_do_repo())[0]
+    # O canal tem de sair do FOCO, nao da ordem alfabetica: em 07/10/2026 o
+    # dono reduziu a fila a tres canais e o primeiro alfabetico (agla-level)
+    # ficou de fora, entao `proximo` deixou de devolver spec dele e este teste
+    # passou a PULAR. Pular aqui e pior que falhar — o comentario abaixo diz
+    # por que, e ja aconteceu.
     livre, _ = M.proximo(DADOS, n=50)
-    disponiveis = [e for e in livre if e["canal"] == canal]
-    if not disponiveis:
+    elegiveis = sorted(c for c in M.canais_do_repo() if M.no_foco(c))
+    canal = next((c for c in elegiveis
+                  if any(e["canal"] == c for e in livre)), None)
+    if canal is None:
         pytest.skip(
-            f"{canal} nao tem spec pendente aprovada no corpus — este teste "
-            f"pulou por meses por esse motivo e escondeu um relogio congelado "
-            f"em _agora(). Se ele estiver pulando de novo, confira se o canal "
-            f"escolhido (o primeiro em ordem alfabetica) ficou sem specs.")
+            f"nenhum canal do foco ({elegiveis}) tem spec pendente aprovada no "
+            f"corpus — este teste pulou por meses por esse motivo e escondeu um "
+            f"relogio congelado em _agora(). Se ele estiver pulando de novo, "
+            f"confira se os canais do foco ficaram sem specs.")
 
-    # o canal ja registrou o teto inteiro nas ultimas 24h, em outro disparo
+    # O TETO E O DO CANAL, nao a constante geral: com TETO_POR_CANAL em 7 para
+    # os tres do foco, encher a janela com `MAX_POR_DIA_POR_CANAL` (2) deixaria
+    # o canal ABAIXO do teto e o teste passaria medindo a coisa errada.
+    teto = M.teto_do_canal(canal)
     cheio = DADOS + [{"canal": canal, "pacote": f"{canal}-j{i}",
                       "slug": f"{canal}-j{i}", "status": "publicado",
                       "formato": "longo", "youtube_id": None, "titulo": None,
                       "criado_em": _ha(i + 1)}
-                     for i in range(M.MAX_POR_DIA_POR_CANAL)]
+                     for i in range(teto)]
     escolhidas, descartadas = M.proximo(cheio, n=50)
     assert not [e for e in escolhidas if e["canal"] == canal], \
-        f"{canal} ja tinha {M.MAX_POR_DIA_POR_CANAL} na janela e entrou de novo"
+        f"{canal} ja tinha {teto} na janela e entrou de novo"
     motivos = [d["motivo"] for d in descartadas
                if d["spec"].startswith(canal) and "teto" in d["motivo"]]
     assert motivos, "descartou sem dizer que foi o teto"
-    assert str(M.MAX_POR_DIA_POR_CANAL) in motivos[0], motivos[0]
+    assert str(teto) in motivos[0], motivos[0]
 
 
 def test_janela_ignora_linha_sem_criado_em():
