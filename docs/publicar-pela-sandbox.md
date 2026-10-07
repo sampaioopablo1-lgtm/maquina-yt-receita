@@ -933,3 +933,54 @@ pôr uma letra da MESMA palavra tambem passa. Logo:
 * a causa e a combinacao de glifos naquela largura especifica;
 * a correcao e MEDIR com `layout.tinta_na_borda(F.svg_cena(c, pal, 1080, 1920), 1080, 1920, i)`
   e trocar a palavra, nao encurtar por supersticao.
+
+
+## TENDENCIA: CORRECAO DO MAPA DE CATEGORIAS (medido 07/10/2026)
+
+**A coluna de categoria que esta na secao "Tendencia" acima esta ERRADA.** Eu a
+montei em 06/10 por associacao com o NOME do canal, nao por dado. O que o dado
+diz:
+
+**1. A categoria real de TODOS os videos da frota e a 27 (Education).** Doze de
+doze canais, conferido no ultimo longo de cada um. A causa esta no codigo:
+`fabrica/publicar.py` tem `"categoryId": "27"` fixo. Consequencia que importa:
+a secao `## CONFIGURACOES DO STUDIO` da copy **declara** `categoryId` e o codigo
+**ignora**. Eu escrevi `26` na copy do 012 e o video saiu em `27`.
+
+**2. A categoria 27 nao tem chart `mostPopular` em nenhuma regiao.** Testado:
+
+| consulta | resposta |
+|---|---|
+| `regionCode=ID&videoCategoryId=27` | `Requested entity was not found` |
+| `regionCode=BR&videoCategoryId=27` | idem |
+| `regionCode=US&videoCategoryId=27` | idem |
+| `regionCode=GR&videoCategoryId=27` | idem |
+
+**3. O feed geral da regiao (sem `videoCategoryId`) funciona** nas oito regioes
+da frota (ID, BR, GR, PL, TR, IN, US, MX) — mas e dominado por musica e clipe,
+entao serve para conferir que a rota responde, nao para grafar forma.
+
+**4. Os numeros que eu havia mapeado, com o nome de verdade:**
+
+| id | nome real | eu mandava para |
+|---|---|---|
+| 20 | **Gaming** | nivel-do-jogo, game-money-lab |
+| 25 | **News & Politics** | epomeno, kolejny, seviye, setiap, agla, next-level-money |
+| 26 | Howto & Style | labtreinamento, seja-mais-magra, resep-naik, cocina |
+| 27 | Education | (onde todos realmente estao) |
+
+Seis canais de financas pessoais apontados para **News & Politics** e dois
+canais de dinheiro apontados para **Gaming**, porque o nome tinha "jogo" e
+"game".
+
+**A REGRA CERTA, uma linha para todos os canais:** `regionCode` do pais do canal
++ `videoCategoryId=26`, e **diga no relatorio que a 26 e PROXY** — a categoria
+onde o canal de fato publica nao tem chart.
+
+**RETRATACAO.** Em 06/10 eu escrevi aqui que "o feed grego de News estava
+dominado por politica e tensao com a Turquia, entao copie a FORMA e nao o
+ASSUNTO". A conclusao esta certa e continua valendo. O DIAGNOSTICO estava
+errado: aquele feed veio de politica porque eu pedi a categoria 25, que **e**
+News & Politics. Nao era peculiaridade do feed grego. O feed indonesio de
+squishy tem a mesma causa — pedi a 26 acreditando que era a categoria do canal,
+e ela so acidentalmente era a escolha certa.

@@ -192,6 +192,11 @@ def C(kicker, sub, nar):
 # nos quatro pontos medidos), ou seja no video real ela chega ANTES. Mesmo com o
 # pior erro medido ela cai aos 81 s, bem dentro dos 200. Vou medir buscando a
 # FRASE no legendas.srt depois do render, nao a abertura do capitulo.
+#
+# MEDIDO depois de publicar: a resposta cai aos 71,75 s contra 73,1 s estimados.
+# Erro de 1,35 s, errando para MAIS — quinto ponto do 604 e a quinta vez na
+# mesma direcao (0,1 / 4,6 / 8,2 / 4,3 / 1,35). Os capitulos acima foram
+# trocados pelos tempos REAIS do srt; os da estimativa erravam ate 8 s no fim.
 
 # ---------------------------- 1 -------------------------------------- 70,6 s
 B("Label dan piring", "dua harga untuk barang yang sama",
@@ -399,12 +404,12 @@ Video ini bukan nasihat keuangan dan tidak menyebut harga pasar mana pun.
 
 ## CAPITULOS
 0:00 Label dan piring
-1:13 Rumusnya satu baris
-2:25 Timbang yang masuk
-3:37 Hitung yang keluar
-4:51 Bagian yang tidak ikut makan
-6:02 Biaya memasaknya sendiri
-7:14 Empat langkah
+1:11 Rumusnya satu baris
+2:23 Timbang yang masuk
+3:32 Hitung yang keluar
+4:44 Bagian yang tidak ikut makan
+5:55 Biaya memasaknya sendiri
+7:06 Empat langkah
 
 ## COMENTARIO FIXADO
 Rumusnya ada di menit satu sepuluh, jadi Anda tidak perlu menonton sampai habis
@@ -420,10 +425,12 @@ sering membalik dugaan orang.
 harga per porsi, biaya masak, uang dapur, hemat dapur, biaya per porsi, masak sendiri atau beli, menghitung biaya masakan, belanja dapur, timbangan dapur, biaya gas masak, dapur hemat, resep naik level, mengatur uang dapur, harga label, porsi makanan
 
 ## CONFIGURACOES DO STUDIO
+# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27
+# fixo. Escrito 27 porque e o que o video realmente recebeu. Aprendizado 610.
 privacyStatus: public
 defaultLanguage: id
 defaultAudioLanguage: id
-categoryId: 26
+categoryId: 27
 madeForKids: false
 
 ## MUSICA / LICENCA
