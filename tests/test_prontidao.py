@@ -648,3 +648,63 @@ def test_spec_acentuada_passa_mesmo_em_canal_que_nao_acentua():
     sp = json.load(open(RAIZ / "fabrica/specs/sx-educacao-003.json",
                         encoding="utf-8"))
     assert not P._gate_ortografia("fabrica/specs/sx-educacao-003.json", sp)
+
+
+# ============================ O SHORT SOLTO ==================================
+# Tres defeitos, achados em 07/10/2026 ao construir a esteira de short sem longo,
+# e os tres tinham a mesma assinatura: o portao passava em SILENCIO sobre o que
+# nao olhou. Silencio aqui tem a mesma cara de aprovacao, e por isso ficam
+# trancados em teste em vez de ficarem so no commit.
+
+def test_avalia_nao_engole_spec_de_short_solto(tmp_path):
+    """`avalia` devolvia None quando `longo` estava vazio, e o `main()` pula o
+    None: a spec de short solto desaparecia da lista, nem PRONTA nem TRAVADA."""
+    sp = _spec_minima(longo=[], short=[{"layout": "titulo", "kicker": "k",
+                                        "sub": "s", "nar": "Oi."}])
+    cam = tmp_path / "nivel-do-jogo-002.json"
+    cam.write_text(json.dumps(sp), encoding="utf-8")
+    r = prontidao.avalia(str(cam))
+    assert r is not None, "short solto nao pode sumir da avaliacao"
+    assert "duracao" in r, "o teto do short tem de continuar sendo cobrado"
+
+
+def test_avalia_tira_capitulos_do_short_solto(tmp_path):
+    """O `capitulos` nao se aplica a short solto — e aprovar em silencio o que
+    nao se olhou ensina a confiar no que o portao nao verificou. Ele sai da
+    lista em vez de devolver "ok"."""
+    sp = _spec_minima(longo=[], short=[{"layout": "titulo", "kicker": "k",
+                                        "sub": "s", "nar": "Oi."}])
+    cam = tmp_path / "nivel-do-jogo-002.json"
+    cam.write_text(json.dumps(sp), encoding="utf-8")
+    assert "capitulos" not in prontidao.avalia(str(cam))
+    # com longo, ele volta
+    cam2 = tmp_path / "com-longo.json"
+    cam2.write_text(json.dumps(_spec_minima(pacote="com-longo")), encoding="utf-8")
+    assert "capitulos" in prontidao.avalia(str(cam2))
+
+
+def test_avalia_devolve_none_so_quando_nao_ha_formato(tmp_path):
+    cam = tmp_path / "vazio.json"
+    cam.write_text(json.dumps(_spec_minima(longo=[], short=[])), encoding="utf-8")
+    assert prontidao.avalia(str(cam)) is None
+
+
+def test_identidade_nao_reprova_pelo_nome_que_o_runner_escolhe(tmp_path):
+    """O `frota.yml` copia a spec para `spec.json` DE PROPOSITO. Comparar o
+    campo `pacote` com esse basename fazia TODO render da frota imprimir
+    "TRAVADAS (1): identidade" e seguir verde."""
+    sp = _spec_minima()
+    cam = tmp_path / "spec.json"
+    cam.write_text(json.dumps(sp), encoding="utf-8")
+    faltas = prontidao._gate_identidade(str(cam), sp)
+    assert not [f for f in faltas if "pacote=" in f], faltas
+
+
+def test_identidade_ainda_reprova_nome_errado_no_disco(tmp_path):
+    """No disco, onde o arquivo tem o nome do pacote, a comparacao continua
+    valendo — senao o conserto acima viraria um buraco novo."""
+    sp = _spec_minima()
+    cam = tmp_path / "outro-nome-qualquer.json"
+    cam.write_text(json.dumps(sp), encoding="utf-8")
+    faltas = prontidao._gate_identidade(str(cam), sp)
+    assert [f for f in faltas if "pacote=" in f], faltas
