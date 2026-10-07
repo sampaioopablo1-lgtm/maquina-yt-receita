@@ -1,0 +1,57 @@
+{
+ "slug": "kolejny-poziom",
+ "pacote": "kolejny-poziom-s002",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Ta sama kwota?",
+  "l2": "to nie błąd"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Ta sama kwota",
+   "sub": "co rok temu",
+   "nar": "Kwota podatku od nieruchomości taka sama jak rok temu? To niekoniecznie błąd w decyzji.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ustawa to przewiduje",
+   "sub": "zostają stawki z poprzedniego roku",
+   "nar": "Jeśli rada gminy nie uchwali nowych stawek, obowiązują stawki z roku poprzedniego. Nic nie znika.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "I odwrotnie",
+   "sub": "wzrost nie znaczy stawka",
+   "nar": "Wzrost kwoty też nie znaczy, że wzrosła stawka. Mógł się zmienić opis nieruchomości.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dlatego dzielisz",
+   "sub": "osobno za każdy rok",
+   "nar": "Dlatego dzielenie robisz osobno za każdy rok: kwotę podatku przez metry z tej samej decyzji.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Porównaj wyniki",
+   "sub": "i wiesz co się zmieniło",
+   "nar": "Porównaj wyniki i wiesz, czy zmieniła się stawka, czy metry. Cały rachunek jest w filmie.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "IuBLU-P4Aj8",
+ "copy": "# kolejny-poziom-s002\n\n## TITULO\nTa Sama Kwota co Rok Temu? Dlaczego Brak Uchwały Gminy Nie Znaczy Błędu w Decyzji\n\n## TITULO SHORT\nTa sama kwota co rok temu? To nie błąd\n\n## DESCRICAO\nDostajesz decyzję o podatku od nieruchomości, patrzysz na kwotę i jest identyczna jak rok temu. Pierwsza myśl bywa taka, że ktoś się pomylił albo że decyzja jest stara. Niekoniecznie: ustawa przewiduje dokładnie ten przypadek. Jeśli rada gminy nie uchwali stawek na dany rok, obowiązują stawki z roku poprzedniego — nie ma luki, nie ma zera i nie wchodzi tu żadna stawka ogłaszana centralnie. Brak uchwały nie znaczy brak podatku; znaczy, że zostaje dokładnie to, co było.\n\nZ tego wynika coś praktycznego, i działa w obie strony. Kwota, która się nie zmieniła, nie jest dowodem błędu — może po prostu oznaczać gminę, która stawki nie podniosła albo w ogóle nie uchwaliła nowych. I odwrotnie: kwota, która wzrosła, nie jest dowodem, że wzrosła stawka. Mógł się zmienić opis nieruchomości w decyzji, a stawka zostać ta sama. Sama kwota nie rozstrzyga ani w jedną, ani w drugą stronę.\n\nRozstrzyga dzielenie, i to zrobione dla dwóch lat osobno: kwota podatku za rok podzielona przez metry kwadratowe z TEJ SAMEJ decyzji. Masz wtedy dwie liczby, które możesz porównać, i dopiero to porównanie mówi, czy rozmawiać o stawce, czy o metrach. To jedna z niewielu liczb w tym podatku, którą tylko ty masz — bo tylko ty masz obie decyzje.\n\nPełny film pokazuje, kto właściwie ustala tę stawkę i gdzie ją przeczytasz, co i kiedy ogłasza minister, skąd bierze się wskaźnik, cztery daty rat oraz termin, który najłatwiej przegapić. Tutaj nie podajemy ani stawek, ani sufitu z ustawy, ani terminów w dniach: te liczby są w pełnym filmie razem ze źródłami.\n\nTreść informacyjna, nie stanowi porady podatkowej ani prawnej.\n\n## COMENTARIO FIXADO\nKrótko: brak uchwały rady gminy nie znaczy brak podatku — obowiązują wtedy stawki z roku poprzedniego, więc identyczna kwota dwa lata z rzędu nie jest sama z siebie błędem. Działa to też w drugą stronę: wzrost kwoty nie dowodzi wzrostu stawki, bo mógł się zmienić opis nieruchomości. Jedyne, co rozstrzyga, to dzielenie zrobione OSOBNO za każdy rok: kwota podatku za rok przez metry kwadratowe z tej samej decyzji. Porównujesz dwa wyniki i wiesz, czy rozmawiać o stawce, czy o metrach. Stawki, sufit z ustawy i terminy są w pełnym filmie razem ze źródłami. Jeśli policzysz dla dwóch lat, napisz czy wynik się zmienił — bez podawania kwot.\n\n## HASHTAGS\n#PodatekOdNieruchomosci #Gmina #KolejnyPoziom\n\n## TAGS\npodatek od nieruchomosci, stawka, gmina, uchwala rady gminy, decyzja podatkowa, metry kwadratowe, dzielenie, dwa lata, porownanie, podatki lokalne, finanse domowe, polska, kolejny poziom, nieruchomosc, rachunek\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nUMA AFIRMACAO NORMATIVA, e ela vem do longo com a fonte: o artigo vigesimo a da\nustawa o podatkach i oplatach lokalnych determina que, nao havendo uchwala da\nrada gminy para o ano, valem as stawki do ano anterior. Esta no longo\nkolejny-poziom-016 (IuBLU-P4Aj8), que carrega as fontes. Eu NAO a reconferi hoje\nem duas fontes proprias: ela entra porque e a mesma afirmacao do longo\npublicado, e isso vai dito em vez de passar como se fosse nova.\n\nZERO CIFRA. O short nao diz valor de imposto, nao diz sufit, nao diz percentual,\nnao diz prazo em dias e nao nomeia publicacao oficial.\n\nO NUMERO QUE DECIDE E DO ESPECTADOR: valor do imposto do ano dividido pelos\nmetros da MESMA decisao, feito para dois anos e comparado.\n\nDESCARTADO, e vai escrito:\n  (1) o sufit da ustawa e qualquer stawka — estao no longo com a fonte;\n  (2) o prazo de catorze dias — esta no longo; prazo num short sem a fonte ao\n      lado e cifra solta;\n  (3) O QUE EU IA PUBLICAR E ERA FALSO: \"nao havendo uchwala, paga-se o sufit\".\n      O artigo vigesimo a diz o OPOSTO. Fui ler o capitulo do proprio longo\n      antes de escrever e o erro nao foi ao ar. Fica registrado porque era meu.\n\n## FONTES\nO longo de onde este short foi extraido (kolejny-poziom-016, IuBLU-P4Aj8) traz\nas fontes, incluindo o artigo vigesimo a. Este short nao introduz cifra nova.\n"
+}
