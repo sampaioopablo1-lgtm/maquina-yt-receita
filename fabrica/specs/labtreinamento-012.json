@@ -1,0 +1,498 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-012",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#22333B",
+  "c1": "#A4243B",
+  "c2": "#D8973C",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Por turma",
+  "l2": "ou por pessoa?"
+ },
+ "longo": [
+  {
+   "layout": "broll",
+   "kicker": "Turma de até vinte",
+   "sub": "e você tem doze",
+   "nar": "O orçamento de treinamento quase sempre vem com preço por turma e um limite: turma de até tantas pessoas. E você raramente tem esse número exato.",
+   "broll_q": "students having a lecture in a classroom",
+   "broll_url": "https://videos.pexels.com/video-files/8196812/8196812-hd_1280_720_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 8196812,
+    "autor": "Yan Krukau",
+    "url": "https://www.pexels.com/video/students-having-a-lecture-in-their-classroom-8196812/"
+   },
+   "cap": "Turma de até vinte"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O preço é da turma",
+   "sub": "não da pessoa",
+   "nar": "O preço é da turma. Você paga o mesmo valor mandando vinte pessoas ou mandando doze, e isso está escrito ali, só não está somado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O número que falta",
+   "sub": "ninguém o imprime",
+   "nar": "O número que decide a compra é o custo por pessoa, e ele não está impresso em lugar nenhum do orçamento. Você precisa fazer a divisão.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E ele muda",
+   "sub": "conforme a sua lista",
+   "nar": "E ele não é um número fixo do fornecedor: muda conforme a SUA lista. Dois clientes com a mesma cotação pagam valores diferentes por cabeça.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O erro mais comum",
+   "sub": "dividir pelo limite",
+   "nar": "O erro mais comum é dividir pelo limite do orçamento. Isso dá o melhor caso possível, que só acontece se você lotar a turma.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E o limite é teto",
+   "sub": "não é contagem",
+   "nar": "O limite é um teto, não uma contagem. A palavra até está ali justamente porque o fornecedor não sabe quantas pessoas você vai mandar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que este vídeo faz",
+   "sub": "uma divisão e uma comparação",
+   "nar": "A solução é uma divisão seguida de uma comparação. Os números já estão na sua cotação e na sua lista de vencimentos, nenhum vem de fora.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Sem preço de mercado",
+   "sub": "e vou explicar por quê",
+   "nar": "Não vou citar quanto custa treinamento. Esse número eu não tenho em fonte, e o vídeo funciona inteiro sem ele.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "A divisão",
+   "sub": "e é só uma",
+   "nar": "A conta é uma divisão: preço da turma dividido pelo número de pessoas que você VAI mandar. Não pelo limite, e não pelo tamanho da equipe.",
+   "broll_q": "woman writing in a notebook",
+   "broll_url": "https://videos.pexels.com/video-files/8716885/8716885-hd_1280_720_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 8716885,
+    "autor": "Pavel Danilyuk",
+    "url": "https://www.pexels.com/video/woman-sitting-while-writing-in-notebook-8716885/"
+   },
+   "cap": "A divisão"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Repare na entrada",
+   "sub": "vai mandar, não poderia mandar",
+   "nar": "Repare na entrada: quantas pessoas vão mandar de verdade. Quem está de licença, quem já tem certificado válido e quem saiu não entram.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O resultado",
+   "sub": "é o único número comparável",
+   "nar": "O resultado é o custo por pessoa daquela cotação, para a sua situação. É o único número que se compara entre dois orçamentos diferentes.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A comparação",
+   "sub": "mesmo número de pessoas",
+   "nar": "E a comparação tem uma regra: use o MESMO número de pessoas nas duas contas. É o seu número, e não muda de fornecedor para fornecedor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Por que isso importa",
+   "sub": "o limite varia",
+   "nar": "Isso importa porque o limite varia entre cotações. Comparar custo por pessoa calculado em limites diferentes é comparar duas situações que não existem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que pode inverter",
+   "sub": "e inverte com frequência",
+   "nar": "E aqui está o que mais surpreende: a cotação que parece mais cara por pessoa no limite pode ser a mais barata para o seu número real.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dois números por cotação",
+   "sub": "o preço e o limite",
+   "nar": "Então de cada orçamento você tira dois números: o preço da turma e o limite de pessoas. O terceiro número é seu, e é o mesmo para todos.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Agora onde ler",
+   "sub": "e são quatro campos",
+   "nar": "Com a conta na mão, falta saber onde cada número está no papel. São quatro campos, e dois deles costumam estar na letra miúda.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Quatro campos",
+   "sub": "no orçamento ou na proposta",
+   "nar": "O primeiro campo é o preço da turma. Procure o valor que não está multiplicado por nada: é o preço do evento, não o de uma vaga.",
+   "broll_q": "business people in a meeting",
+   "broll_url": "https://videos.pexels.com/video-files/7648407/7648407-hd_1280_720_30fps.mp4",
+   "broll_credito": {
+    "pexels_id": 7648407,
+    "autor": "RDNE Stock project",
+    "url": "https://www.pexels.com/video/business-people-in-a-meeting-7648407/"
+   },
+   "cap": "Quatro campos para ler"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Cuidado aqui",
+   "sub": "preço por vaga é outra coisa",
+   "nar": "Se a cotação dá preço por vaga, você está em outro modelo e a divisão não é necessária. O custo por pessoa já está impresso ali.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O segundo campo",
+   "sub": "o limite de pessoas",
+   "nar": "O segundo campo é o limite: turma de até tantos. Anote o número, não a faixa, e confira se ele vale por turma ou por dia de curso.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O terceiro campo",
+   "sub": "o que está incluído",
+   "nar": "O terceiro é o que está incluído: material, certificado, deslocamento do instrutor, reposição de quem faltar. Só o que estiver escrito conta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Por que isso é um campo",
+   "sub": "muda a comparação",
+   "nar": "Isso é um campo e não um detalhe, porque duas cotações com preços parecidos podem incluir coisas diferentes. Aí a divisão compara maçã com laranja.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O quarto campo",
+   "sub": "a validade do orçamento",
+   "nar": "O quarto é a validade da proposta. Ele não entra na divisão, mas decide se você ainda pode comparar as duas ou se uma já venceu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Se faltar um campo",
+   "sub": "pergunte, não presuma",
+   "nar": "Se algum desses campos não estiver no papel, pergunte antes de comparar. Presumir o que está incluído é o jeito mais rápido de errar a conta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E anote",
+   "sub": "para a próxima compra",
+   "nar": "Anote os quatro num lugar só. Na próxima compra você compara a cotação nova com a antiga em menos de um minuto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Por que o até engana",
+   "sub": "e engana sempre na mesma direção",
+   "nar": "A palavra até cria uma expectativa de preço que só se realiza na turma cheia. E turma cheia é o caso menos comum em equipe pequena.",
+   "broll_q": "a man teaching in front of a class",
+   "broll_url": "https://videos.pexels.com/video-files/7100892/7100892-hd_1280_720_30fps.mp4",
+   "broll_credito": {
+    "pexels_id": 7100892,
+    "autor": "Gustavo Fring",
+    "url": "https://www.pexels.com/video/video-of-a-man-teaching-in-front-7100892/"
+   },
+   "cap": "Por que o até engana"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A conta do fornecedor",
+   "sub": "é legítima",
+   "nar": "Do lado do fornecedor isso é legítimo: ele reserva instrutor, sala e material para o limite, e o custo dele não cai se você mandar menos.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Mas o custo é seu",
+   "sub": "e ele sobe",
+   "nar": "Só que o custo por pessoa é seu, e ele sobe exatamente na proporção da divisão. Menos gente no mesmo preço significa mais por cabeça.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Quanto sobe",
+   "sub": "a conta é direta",
+   "nar": "E sobe rápido: mandar metade da turma dobra o custo por pessoa. Mandar dois terços aumenta em cerca de cinquenta por cento.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Por isso o teto importa",
+   "sub": "mais que o preço",
+   "nar": "Por isso o limite importa tanto quanto o preço. Uma turma de limite menor e preço menor pode ser melhor para quem tem pouca gente.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E o oposto também",
+   "sub": "se você tem muita gente",
+   "nar": "E o contrário vale: se você tem gente suficiente para lotar, o limite alto passa a trabalhar a seu favor e o preço por cabeça desaba.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que não fazer",
+   "sub": "inventar gente",
+   "nar": "O que não fazer é inventar gente para lotar a turma. Treinar quem não precisa custa o mesmo que não treinar quem precisa, e some do controle.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Vamos aos números",
+   "sub": "e são inventados",
+   "nar": "Fica mais claro com números. Eles são inventados por mim, e digo isso na cena que abre o exemplo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Exemplo",
+   "sub": "números inventados, e digo",
+   "nar": "Os números deste exemplo são inventados para a conta ficar visível. Não são preço de fornecedor nenhum e não foram medidos em lugar nenhum.",
+   "broll_q": "a man practicing CPR training",
+   "broll_url": "https://videos.pexels.com/video-files/3981779/3981779-hd_1280_720_30fps.mp4",
+   "broll_credito": {
+    "pexels_id": 3981779,
+    "autor": "Gustavo Fring",
+    "url": "https://www.pexels.com/video/a-man-practicing-the-right-way-of-doing-cpr-3981779/"
+   },
+   "cap": "Exemplo com números redondos"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Cotação A",
+   "sub": "turma grande, preço maior",
+   "nar": "Cotação A: três mil reais, turma de até vinte pessoas. Dividindo pelo limite dá cento e cinquenta reais por pessoa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Cotação B",
+   "sub": "turma menor, preço menor",
+   "nar": "Cotação B: dois mil reais, turma de até doze pessoas. Dividindo pelo limite dá cerca de cento e sessenta e sete por pessoa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "No limite",
+   "sub": "a A parece melhor",
+   "nar": "Olhando só assim, a A parece melhor: cento e cinquenta contra cento e sessenta e sete. É essa comparação que quase todo mundo faz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Mas quantas pessoas",
+   "sub": "você tem de verdade",
+   "nar": "Agora entre com o seu número. Digamos que a sua lista tem doze pessoas para mandar, nem uma mais.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Refazendo a A",
+   "sub": "com o seu número",
+   "nar": "A cotação A fica em três mil divididos por doze, ou seja duzentos e cinquenta reais por pessoa. O limite de vinte não foi usado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Refazendo a B",
+   "sub": "com o mesmo número",
+   "nar": "A cotação B fica em dois mil divididos por doze, ou seja cento e sessenta e sete por pessoa. O limite dela coincide com a sua lista.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A inversão",
+   "sub": "e o tamanho dela",
+   "nar": "A ordem inverteu. A diferença é de oitenta e três reais por pessoa, que na sua lista inteira dá mil reais no mesmo treinamento.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "O que entra",
+   "sub": "só o que está escrito",
+   "nar": "Agora a parte que arruína comparação boa: o que está incluído. A regra é uma só, e vale nos dois lados: entra o que está escrito.",
+   "broll_q": "hands-on CPR training with a mannequin",
+   "broll_url": "https://videos.pexels.com/video-files/32252415/13755052_1366_720_24fps.mp4",
+   "broll_credito": {
+    "pexels_id": 32252415,
+    "autor": "SHOX ART",
+    "url": "https://www.pexels.com/video/hands-on-cpr-training-with-mannequin-outdoors-32252415/"
+   },
+   "cap": "O que entra na comparação"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Material e certificado",
+   "sub": "nem sempre vêm juntos",
+   "nar": "Material didático e emissão de certificado nem sempre estão no preço. Quando um orçamento inclui e o outro não, a divisão sozinha engana.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Como resolver",
+   "sub": "some antes de dividir",
+   "nar": "Resolve-se somando antes de dividir: ponha no preço da turma tudo o que você teria de pagar à parte, e só então divida pelo seu número.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Deslocamento",
+   "sub": "quando a turma é fechada",
+   "nar": "Deslocamento e hospedagem do instrutor aparecem em turma fechada na sua empresa. Se estiverem por fora, entram na soma da mesma forma.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Reposição",
+   "sub": "a linha que quase ninguém lê",
+   "nar": "Reposição de quem faltou é a linha que quase ninguém lê, e é a que mais custa depois. Confira se há reposição e em que prazo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que não entra",
+   "sub": "o seu tempo",
+   "nar": "O que não entra na conta é o seu tempo e as horas de trabalho que a equipe deixa de produzir. Existem, mas não se comparam com nada no papel.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Por que deixar fora",
+   "sub": "para a conta continuar conferível",
+   "nar": "Ficam fora para a conta continuar conferível: duas pessoas com os mesmos orçamentos têm de chegar no mesmo número por pessoa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Resumo da regra",
+   "sub": "soma, depois divide",
+   "nar": "A regra em cinco palavras: some o que está escrito, depois divida pelo seu número. Nessa ordem, e só com o que está no papel.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "O que a conta não decide",
+   "sub": "e é importante",
+   "nar": "Esta conta não diz qual fornecedor contratar. Diz quanto cada um custa por pessoa para a sua lista, e isso é um critério entre vários.",
+   "broll_q": "students raising hands in class",
+   "broll_url": "https://videos.pexels.com/video-files/8198505/8198505-hd_1280_720_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 8198505,
+    "autor": "Yan Krukau",
+    "url": "https://www.pexels.com/video/students-raising-hands-in-class-8198505/"
+   },
+   "cap": "O que a conta não decide"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Turma fechada",
+   "sub": "economiza o que a conta não vê",
+   "nar": "Turma fechada na sua empresa pode economizar horas de deslocamento da equipe inteira, e essas horas não aparecem em nenhuma das divisões.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Qualidade",
+   "sub": "não está no preço",
+   "nar": "E não digo nada sobre qualidade de instrutor nem sobre validade de certificado: isso depende de coisas que não estão no orçamento.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Primeiro passo",
+   "sub": "junte as cotações",
+   "nar": "Quatro passos, e cabem nesta semana. Primeiro: junte as cotações que você tem em aberto, mesmo as vencidas, para ter base de comparação.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Segundo passo",
+   "sub": "conte a sua lista",
+   "nar": "Segundo: conte quantas pessoas você VAI mandar, usando a lista de vencimentos. Esse é o número que entra em todas as divisões.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Terceiro passo",
+   "sub": "some o que está escrito",
+   "nar": "Terceiro: para cada cotação, some ao preço da turma tudo o que não está incluído e que você teria de pagar à parte.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Quarto passo",
+   "sub": "divida e ordene",
+   "nar": "Quarto: divida cada soma pelo seu número e ordene. O menor custo por pessoa é o ponto de partida da conversa, não o fim dela.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Conte quantas cotações",
+   "sub": "e se a ordem inverteu",
+   "nar": "Se você fizer a conta, escreva nos comentários quantas cotações comparou e se a ordem inverteu. Sem nomes de fornecedor e sem valores.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Turma de até vinte",
+   "sub": "e você tem doze",
+   "nar": "O orçamento diz turma de até vinte. Você tem doze pessoas para mandar, e paga o mesmo preço.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O preço é da turma",
+   "sub": "não da pessoa",
+   "nar": "O custo por pessoa não está impresso em lugar nenhum do orçamento. Você faz a divisão.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O erro",
+   "sub": "dividir pelo limite",
+   "nar": "Dividir pelo limite dá o melhor caso, que só acontece com a turma cheia. Divida pelo seu número.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E a ordem inverte",
+   "sub": "com frequência",
+   "nar": "A cotação que parece mais cara por pessoa no limite pode ser a mais barata para a sua lista.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Mesmo número",
+   "sub": "nas duas contas",
+   "nar": "Use o mesmo número de pessoas nas duas divisões: o seu. O exemplo inteiro está no vídeo.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# labtreinamento-012\n\n## TITULO\nTreinamento Cotado por Turma: o Custo por Pessoa Que o Orçamento Não Mostra\n\n## TITULO SHORT\nTurma de até 20? Divida pelo seu número\n\n## DESCRICAO\nO orçamento de treinamento quase sempre vem com preço por turma e um limite: turma de até tantas pessoas. E você raramente tem esse número exato. O preço é da turma — você paga o mesmo valor mandando vinte pessoas ou mandando doze, e isso está escrito ali, só não está somado. O número que decide a compra é o custo por pessoa, e ele não está impresso em lugar nenhum do orçamento: você precisa fazer a divisão. E ele não é um número fixo do fornecedor, muda conforme a SUA lista — dois clientes com a mesma cotação pagam valores diferentes por cabeça.\n\nO erro mais comum é dividir pelo limite do orçamento, porque isso dá o melhor caso possível, que só acontece se você lotar a turma. O limite é um teto, não uma contagem: a palavra \"até\" está ali justamente porque o fornecedor não sabe quantas pessoas você vai mandar. A conta certa é uma divisão só — preço da turma dividido pelo número de pessoas que você VAI mandar, descontando quem está de licença, quem já tem certificado válido e quem saiu. E a comparação entre duas cotações tem uma regra: use o MESMO número de pessoas nas duas contas, porque esse número é seu e não muda de fornecedor para fornecedor.\n\nO vídeo mostra onde ler cada campo (preço da turma, limite de pessoas, o que está incluído e a validade da proposta), por que a palavra \"até\" engana sempre na mesma direção, e um exemplo com números redondos — declarados inventados na própria cena que o abre — em que a ordem das duas cotações INVERTE quando você entra com o seu número real. Um capítulo inteiro vai para o que está incluído: material, certificado, deslocamento do instrutor e reposição de quem faltou, com a regra em cinco palavras — some o que está escrito, depois divida pelo seu número.\n\nE o último capítulo é o que a conta NÃO decide. O menor custo por pessoa é o ponto de partida da conversa, não o fim dela: turma fechada na sua empresa pode economizar horas de deslocamento da equipe inteira, e essas horas não aparecem em nenhuma das divisões. O vídeo não diz quanto custa treinamento no mercado, não cita norma nem periodicidade, não nomeia fornecedor e não opina sobre qualidade de instrutor nem validade de certificado — nada disso está no orçamento, e nada disso é necessário para a conta.\n\nConteúdo informativo, não é consultoria de segurança do trabalho nem recomendação de compra.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nA conta está no primeiro minuto e meio, então não é preciso ver o vídeo inteiro para pegá-la: preço da turma dividido pelo número de pessoas que você VAI mandar. Nunca pelo limite do \"até\", que é teto e não contagem. Para comparar duas cotações, use o MESMO número de pessoas nas duas divisões — o seu — e antes de dividir some ao preço da turma tudo o que não está incluído e que você pagaria à parte (material, certificado, deslocamento do instrutor, reposição de quem faltou). Duas armadilhas: mandar metade da turma dobra o custo por pessoa, e a cotação que parece mais cara por pessoa no limite pode ser a mais barata para a sua lista real. Se fizer a conta, escreva nos comentários quantas cotações comparou e se a ordem inverteu — sem nome de fornecedor e sem valores.\n\n## HASHTAGS\n#Treinamento #CustoPorPessoa #LabTreinamento\n\n## TAGS\ncusto por pessoa, orcamento de treinamento, turma fechada, turma aberta, comparar cotacoes, treinamento corporativo, compra de treinamento, limite de turma, material didatico incluido, reposicao de faltas, seguranca do trabalho, SST, gestao de equipe, planejamento de treinamento, lab treinamento\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\nB-roll: Pexels, creditos por clipe em broll_creditos.json e abaixo.\nYan Krukau; Pavel Danilyuk; RDNE Stock project; Gustavo Fring; SHOX ART.\n\n## AVISO SOBRE OS NUMEROS\nZERO AFIRMACAO SOBRE O MUNDO, e por isso nao ha fonte a citar: o video nao diz\nquanto custa treinamento, nao cita norma, nao cita periodicidade, nao cita preco\nde mercado e nao nomeia fornecedor.\n\nO QUE O VIDEO AFIRMA E ARITMETICA, e so ela:\n  * custo por pessoa = preco da turma dividido pelo numero de pessoas que voce\n    VAI MANDAR — nunca pelo limite do \"ate\";\n  * faltando gente para o limite, o custo por pessoa sobe na proporcao exata da\n    divisao: metade da turma dobra o valor por cabeca;\n  * comparar duas cotacoes e comparar esses dois custos por pessoa para o MESMO\n    numero de pessoas, o seu;\n  * o que nao esta incluido soma ao preco da turma ANTES da divisao.\n\nAS ENTRADAS SAO TODAS DO ESPECTADOR: preco da turma e limite saem da cotacao\ndele, e o numero de pessoas sai da lista dele. Nenhum numero meu entra no\nresultado.\n\nO EXEMPLO DO CAPITULO CINCO E HIPOTETICO E O VIDEO DIZ ISSO NA CENA QUE O ABRE:\ntres mil reais para turma de ate vinte, dois mil para turma de ate doze, doze\npessoas na lista. Nao e preco de fornecedor nenhum e nao foi medido em lugar\nnenhum.\n\nO QUE FOI DESCARTADO, e vai escrito:\n  (1) quanto custa treinamento no mercado brasileiro — sem fonte, sem citacao;\n  (2) qualquer periodicidade, carga horaria ou numero de NR, pelo mesmo motivo\n      do labtreinamento-011: o `planalto.gov.br` nao abre. QUINTA tentativa\n      nesta rodada, tres horas depois da primeira, mesmo erro pelo `pg_net`\n      (\"Failure when receiving data from the peer\") — nao e intermitencia;\n  (3) se contratar turma fechada ou mandar para turma aberta, que depende de\n      logistica e de precos que eu nao tenho;\n  (4) qualquer juizo sobre fornecedor, instrutor ou certificado.\n\nE O QUE A CONTA NAO DECIDE esta no capitulo sete: o menor custo por pessoa e o\nponto de partida da conversa, nao o fim. Turma fechada economiza horas de\ndeslocamento da equipe que esta conta nao ve, e o video diz isso em vez de\nfingir que o menor numero ganha sempre.\n\n## FONTES\nNENHUMA FONTE NORMATIVA OU DE MERCADO E CITADA, e isso e deliberado. As unicas\n\"fontes\" sao os documentos do proprio espectador: as cotacoes que ele tem em\nmaos e a lista de vencimentos da equipe dele (que e o assunto do\nlabtreinamento-011).\nB-roll: Pexels, licenca Pexels, creditos por clipe em broll_creditos.json.\n"
+}
