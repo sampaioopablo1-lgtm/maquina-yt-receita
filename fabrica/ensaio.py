@@ -356,3 +356,64 @@ if __name__ == "__main__":
 # afirmava que a contagem "nao muda por dois por cento". Muda, quando a folga e
 # menor que o desvio. `prontidao.MARGEM_CAP` agora exige 1,07 x MIN_CAP = 64,2s
 # na estimativa, e recusa o pacote antes do render em vez de depois.
+
+
+# --------------------------------------------------------------------------
+# O PISO DE CARACTERES, calculado ANTES de escrever
+# --------------------------------------------------------------------------
+# POR QUE ISTO EXISTE (07/10/2026, aprendizado 616). No kolejny-poziom-018 eu
+# escrevi as 56 cenas "com uma frase cada" e o pacote saiu em 435,5 s contra o
+# piso de 480 s, com os SETE capitulos entre 55,8 e 61,5 s — todos abaixo dos
+# 64,2 s que o portao exige. Corrigi para 640,3 s por excesso e so na TERCEIRA
+# reconstrucao cheguei a 499,4 s. Tres ciclos de reescrita por uma conta que
+# cabe numa linha e que eu podia ter feito antes da primeira cena.
+#
+# E A PRIMEIRA VERSAO DESTA FUNCAO TAMBEM ESTAVA ERRADA, o que vale escrever
+# porque e o mesmo erro numa camada acima: eu assumi `2*P + GAP` por cena. Nao
+# e. `duracao_cena` cobra `len/R + NUMERO DE FRASES * P`, e o GAP de 0,300 s e
+# intervalo ENTRE cenas, logo ha n-1 deles e nao n. Com a conta errada o piso
+# do polones saiu 109 e 109 caracteres por cena dao 400,1 s, nao 480. Quem
+# pegou foi o teste que escreve narracao do tamanho do piso e exige o piso de
+# volta — nao a revisao da formula, que eu ja tinha lido como certa.
+#
+# O custo fixo e a parte invisivel: com 56 cenas de duas frases numa voz de
+# P alto ele come 159 s do orcamento, mais de um terco do piso, e nao aparece
+# para quem escreve olhando a frase, porque a frase parece suficiente.
+import math  # noqa: E402
+
+
+def piso_de_caracteres(voz: str, n_cenas: int = 56, cenas_por_cap: int = 8,
+                       frases_por_cena: int = 2,
+                       piso_total_s: float = 480.0,
+                       piso_cap_s: float = 64.2) -> dict:
+    """Quantos caracteres de narracao cada cena precisa ter, no MINIMO.
+
+    `frases_por_cena` e o estilo da casa: duas frases por cena. Com uma frase o
+    piso sobe, porque o termo P entra uma vez em vez de duas.
+
+    O piso do CAPITULO nao conta intervalo, do mesmo jeito que o portao: ele
+    soma `duracao_cena` das cenas do capitulo. O piso do TOTAL conta os n-1
+    intervalos de montagem.
+    """
+    if voz not in MODELO_VOZ:
+        raise KeyError(f"voz sem modelo medido: {voz!r}; "
+                       f"conhecidas: {sorted(MODELO_VOZ)}")
+    R, P = MODELO_VOZ[voz]
+    fixo_cena = frases_por_cena * P
+    por_cap = (piso_cap_s - cenas_por_cap * fixo_cena) * R / cenas_por_cap
+    por_total = ((piso_total_s - n_cenas * fixo_cena - (n_cenas - 1) * GAP_CENA_S)
+                 * R / n_cenas)
+    return {
+        "voz": voz, "R": R, "P": P, "frases_por_cena": frases_por_cena,
+        "custo_fixo_por_cena_s": round(fixo_cena, 3),
+        "custo_fixo_total_s": round(n_cenas * fixo_cena
+                                    + (n_cenas - 1) * GAP_CENA_S, 1),
+        # PISO ARREDONDA PARA CIMA, e isto nao e detalhe: com `round` o polones
+        # dava 109 (de 109,2) e 109 caracteres por cena medem 479,6 s — meio
+        # segundo abaixo do piso que a funcao existe para garantir. Piso que
+        # arredonda para baixo nao e piso.
+        "min_por_cena_capitulo": math.ceil(por_cap),
+        "min_por_cena_total": math.ceil(por_total),
+        "manda": "total" if por_total >= por_cap else "capitulo",
+        "min_por_cena": math.ceil(max(por_cap, por_total)),
+    }
