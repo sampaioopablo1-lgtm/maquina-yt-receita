@@ -836,7 +836,8 @@ def render(spec_file):
             # o pacote entrega um .srt para subir junto, melhor que a automatica.
             if pref == "s":
                 vf += f",subtitles={d}/{pref}{i:02d}.srt:force_style='{EST}'"
-            clipe_cena(d, pref, i, c, dd, nf, RW, RH)
+            clipe_cena(d, pref, i, c, dd, nf, RW, RH,
+                       motion=M.motion_ligado(sp))
             # MANIFESTO: checkpoint por clipe — uma falha nunca custa o pacote
             with open(f"{d}/manifesto.txt","a") as mf:
                 mf.write(f"{pref}clip{i:02d}.mp4\n")
@@ -880,6 +881,13 @@ if __name__ == "__main__":
     montar(spec) if fn == "montar" else render(spec)
 
 # --------------------------------------------------------------- animacao
+# O motion.py entra por aqui e NAO muda nada por padrao: todas as chamadas
+# abaixo recebem `motion=False` a menos que a spec traga `"motion": true`. Ele
+# ficou escrito e sem ninguem o chamar desde 07/10 — modulo que nada importa e
+# codigo morto, e codigo morto nao se mede. Agora ligar e trocar uma linha da
+# spec, e o caminho antigo continua byte a byte o mesmo.
+import motion as M  # noqa: E402
+
 ENTRADA = 0.40      # segundos que cada elemento leva para entrar
 DESLIZE = 26        # pixels que ele sobe enquanto entra
 INICIO = 0.45       # atraso do primeiro elemento, para a cena assentar
@@ -903,22 +911,33 @@ def tempos_entrada(n, dd):
     return [INICIO + i * passo for i in range(n)]
 
 
-def filtro_camadas(n, dd, i_cena, nf, RW, RH):
+def filtro_camadas(n, dd, i_cena, nf, RW, RH, motion=False, layout=""):
     """Monta o filter_complex: base + n camadas entrando, e o Ken Burns no fim.
 
     Cada camada e uma tela transparente do tamanho do quadro, entao o overlay
     vai em x=0 e so o y anima — nao ha coordenada para acertar aqui, o SVG ja
     colocou o elemento no lugar certo.
+
+    Com `motion=True` tres coisas mudam, e SO elas: o deslize deixa de ser
+    linear (ease-out cubico do motion.deslize_easing), cada elemento ganha o
+    tempo de entrada do seu PAPEL em vez dos 0,40 s iguais para tudo, e o clipe
+    nasce com um fade curto nas duas pontas, que na emenda do concat le como
+    dissolve. Com `motion=False` a string sai identica a de antes — e o teste
+    test_motion_desligado_nao_muda_nada compara as duas.
     """
     z, fx, fy = ken_burns(i_cena, nf)
+    borda = M.filtro_bordas(dd) if motion else ""
+    fim = f",{borda}" if borda else ""
     if n == 0:
         return (f"[0:v]scale=iw*{SUAVIZA}:ih*{SUAVIZA}:flags=bilinear,"
                 f"zoompan=z='{z}':d={nf}:x='(iw-iw/zoom)*({fx})'"
-                f":y='(ih-ih/zoom)*({fy})':s={RW}x{RH}:fps=30[v]")
+                f":y='(ih-ih/zoom)*({fy})':s={RW}x{RH}:fps=30{fim}[v]")
     partes, atual = [], "0:v"
     for k, t0 in enumerate(tempos_entrada(n, dd)):
-        partes.append(f"[{k+1}:v]format=rgba,fade=in:st={t0:.2f}:d={ENTRADA}:alpha=1[a{k}]")
-        y = f"{DESLIZE}*max(0\\,1-(t-{t0:.2f})/{ENTRADA})"
+        ent = M.entrada_do_elemento(k, n, layout) if motion else ENTRADA
+        partes.append(f"[{k+1}:v]format=rgba,fade=in:st={t0:.2f}:d={ent}:alpha=1[a{k}]")
+        y = (M.deslize_easing(DESLIZE, t0, ent) if motion
+             else f"{DESLIZE}*max(0\\,1-(t-{t0:.2f})/{ENTRADA})")
         partes.append(f"[{atual}][a{k}]overlay=x=0:y='{y}':format=auto[o{k}]")
         atual = f"o{k}"
     # A ampliacao vem DEPOIS dos overlays de proposito: ampliar antes faria
@@ -926,11 +945,27 @@ def filtro_camadas(n, dd, i_cena, nf, RW, RH):
     # zoompan precisa e so da resolucao que ELE ve.
     partes.append(f"[{atual}]scale=iw*{SUAVIZA}:ih*{SUAVIZA}:flags=bilinear,"
                   f"zoompan=z='{z}':d=1:x='(iw-iw/zoom)*({fx})'"
-                  f":y='(ih-ih/zoom)*({fy})':s={RW}x{RH}:fps=30[v]")
+                  f":y='(ih-ih/zoom)*({fy})':s={RW}x{RH}:fps=30{fim}[v]")
     return ";".join(partes)
 
 
-def clipe_cena(d, pref, i, c, dd, nf, RW, RH, est=None):
+def sons_do_render(d):
+    """Sintetiza os tres efeitos UMA vez por diretorio de render.
+
+    Nao e um download: o ffmpeg gera cada um por lavfi, em menos de um segundo
+    os tres. Fica em disco porque 56 cenas pediriam a mesma sintese 56 vezes.
+    """
+    feitos = {}
+    for nome in M.SONS:
+        alvo = f"{d}/_som_{nome}.wav"
+        if not (os.path.exists(alvo) and os.path.getsize(alvo) > 100):
+            subprocess.run(M.comando_sintetizar(nome, alvo, ffmpeg_bin()),
+                           check=True, capture_output=True)
+        feitos[nome] = alvo
+    return feitos
+
+
+def clipe_cena(d, pref, i, c, dd, nf, RW, RH, est=None, motion=False):
     """Renderiza UM clipe de cena. Fonte unica para fabrica.render e etapas.py.
 
     Existe porque o etapas.py mantinha a propria copia deste loop, e as duas
@@ -952,10 +987,24 @@ def clipe_cena(d, pref, i, c, dd, nf, RW, RH, est=None):
                 "-stream_loop", "-1", "-t", f"{dd:.2f}", "-i", broll_mp4,
                 "-framerate", "30", "-loop", "1", "-t", f"{dd:.2f}",
                 "-i", f"{d}/{pref}{i:02d}.png",
-                "-i", f"{d}/{pref}{i:02d}.mp3",
-                "-filter_complex",
-                f"[1:v]scale={RW}:{RH}[t];[0:v][t]overlay=0:0:format=auto[v]",
-                "-map", "[v]", "-map", "2:a"]
+                "-i", f"{d}/{pref}{i:02d}.mp3"]
+        # Em broll NAO entra efeito de entrada: nenhuma camada esta entrando, e
+        # som sem nada acontecendo na tela le como defeito. So o `marco` da
+        # abertura de capitulo, e so se a cena abrir capitulo.
+        plano = M.plano_de_sons("broll", [], bool(c.get("cap"))) if motion else []
+        if plano:
+            sons = sons_do_render(d)
+            for nome, _t in plano:
+                args += ["-i", sons[nome]]
+        borda = M.filtro_bordas(dd) if motion else ""
+        fim = f",{borda}" if borda else ""
+        fc = (f"[1:v]scale={RW}:{RH}[t];"
+              f"[0:v][t]overlay=0:0:format=auto{fim}[v]")
+        mapa_a = "2:a"
+        fa = M.filtro_mixar_sons(plano, 3, dd) if plano else ""
+        if fa:
+            fc, mapa_a = f"{fc};{fa}", "[a]"
+        args += ["-filter_complex", fc, "-map", "[v]", "-map", mapa_a]
         subprocess.run(args + ["-t", f"{dd:.2f}", "-c:v", "libx264",
                                "-preset", "ultrafast", "-crf", "23",
                                "-pix_fmt", "yuv420p", *AUDIO_ARGS, saida],
@@ -969,9 +1018,24 @@ def clipe_cena(d, pref, i, c, dd, nf, RW, RH, est=None):
         for k in range(n_cam):
             args += ["-framerate", "30", "-loop", "1", "-t", f"{dd:.2f}",
                      "-i", f"{d}/{pref}{i:02d}_{k}.png"]
-        args += ["-i", f"{d}/{pref}{i:02d}.mp3",
-                 "-filter_complex", filtro_camadas(n_cam, dd, i, nf, RW, RH),
-                 "-map", "[v]", "-map", f"{n_cam+1}:a"]
+        args += ["-i", f"{d}/{pref}{i:02d}.mp3"]
+        # Os sons entram DEPOIS da narracao de proposito: o filtro_mixar_sons
+        # conta a voz como a ultima entrada antes deles, e inverter a ordem
+        # mixaria a voz como se fosse efeito.
+        tempos = tempos_entrada(n_cam, dd)
+        plano = (M.plano_de_sons(c.get("layout", ""), tempos, bool(c.get("cap")))
+                 if motion else [])
+        if plano:
+            sons = sons_do_render(d)
+            for nome, _t in plano:
+                args += ["-i", sons[nome]]
+        fc = filtro_camadas(n_cam, dd, i, nf, RW, RH,
+                            motion=motion, layout=c.get("layout", ""))
+        mapa_a = f"{n_cam+1}:a"
+        fa = M.filtro_mixar_sons(plano, n_cam + 2, dd) if plano else ""
+        if fa:
+            fc, mapa_a = f"{fc};{fa}", "[a]"
+        args += ["-filter_complex", fc, "-map", "[v]", "-map", mapa_a]
     else:
         z, fx, fy = ken_burns(i, nf)
         vf = (f"scale=iw*{SUAVIZA}:ih*{SUAVIZA}:flags=bilinear,"
@@ -979,6 +1043,10 @@ def clipe_cena(d, pref, i, c, dd, nf, RW, RH, est=None):
               f":y='(ih-ih/zoom)*({fy})':s={RW}x{RH}:fps=30")
         if pref == "s":
             vf += f",subtitles={d}/{pref}{i:02d}.srt:force_style='{est or EST}'"
+        if motion and M.filtro_bordas(dd):
+            # A legenda queimada do short e desenhada ANTES do fade, senao ela
+            # entraria e sairia em cima dele e piscaria na emenda.
+            vf += f",{M.filtro_bordas(dd)}"
         args = [ffmpeg_bin(), "-nostdin", "-y", "-loop", "1",
                 "-i", f"{d}/{pref}{i:02d}.png", "-i", f"{d}/{pref}{i:02d}.mp3",
                 "-vf", vf]
