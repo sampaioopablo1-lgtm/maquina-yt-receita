@@ -984,3 +984,43 @@ errado: aquele feed veio de politica porque eu pedi a categoria 25, que **e**
 News & Politics. Nao era peculiaridade do feed grego. O feed indonesio de
 squishy tem a mesma causa — pedi a 26 acreditando que era a categoria do canal,
 e ela so acidentalmente era a escolha certa.
+
+## GRECIA: IMPOSTO E BENEFICIO NAO ABREM (medido 07/10/2026)
+
+O par de tres niveis que o `epomeno-epipedo-015` usou (ELSTAT + Eurostat + a
+ressalva do BCE) continua valendo — mas **so para indice de preco**. Para
+imposto, beneficio ou elegibilidade nao existe fonte:
+
+| host | resposta |
+|---|---|
+| `aade.gr` | 403 Access Denied |
+| `gsis.gr` | **403** (novo) |
+| `efka.gov.gr` | renderizado por JavaScript |
+| `et.gr` | renderizado por JavaScript |
+| `minfin.gr` | 202 |
+| `bankofgreece.gr` | 403 |
+| `oecd.org` | **403 Cloudflare** (novo) |
+| `taxation-customs.ec.europa.eu` | **200, 101 KB, SPA — texto vazio** (novo) |
+| `ec.europa.eu/social` (MISSOC) | **200, 86 KB, texto vazio** (novo) |
+| `europa.eu/youreurope` | **200, 158 KB COM texto** — mas a pagina por pais serve so o menu de navegacao (novo) |
+
+**Consequencia pratica, e ela decide a pauta:** o dado do `epomeno-epipedo`
+pede um eixo de REGRA. Os quatro melhores longos dele — 431, 347, 186 e 133
+views — sao todos "existe uma regra que separa quem recebe de quem nao, e voce
+descobre de que lado esta", e os piores (18, 20, 34, 36) sao todos decomposicao
+de conta. Mas o eixo que o dado pede nao tem fonte nesse canal. Se a fila mandar
+o epomeno e o eixo for de regra, **troque de canal e diga que trocou**.
+
+## API ELI DO SEJM: TRES ARMADILHAS NA MESMA CHAMADA (medido 07/10/2026)
+
+1. **A chave do texto consolidado tem ACENTO:** `Inf. o tekście jednolitym`. O
+   doc e o aprendizado 603 guardavam `tekscie`, sem acento — e sem o acento a
+   busca devolve vazio **em silencio**, sem erro, e quem le conclui que o ato
+   nao tem texto consolidado.
+2. **A lista vem em ordem DECRESCENTE.** O vigente e o indice **0**, nao o
+   ultimo. Para a ustawa o PIT: `[0] DU/2026/592` (vigente) … `[13] DU/1993/416`.
+   Pegar `[-1]` serve o texto de 1993.
+3. **`text.html` responde 200 com ZERO bytes** quando nao existe. Quem avisa e
+   o campo `textHTML: False` nos metadados, nao o codigo HTTP. Baixe o
+   `text.pdf` e rode `pdftotext -layout` (4,6 MB viraram 11.134 linhas, e o
+   art. 27f estava na linha 6852).
