@@ -43,6 +43,41 @@ sys.path.insert(0, os.path.join(RAIZ, "fabrica"))
 
 META_POR_CANAL = 10       # longos publicados por canal
 MAX_POR_DIA_POR_CANAL = 2  # PACOTES/dia/canal — 2 longos + 2 shorts por dia
+
+# TETO POR CANAL — sobrescreve o teto geral apenas para os canais listados.
+#
+# Existe por causa de uma pergunta do dono em 07/10/2026: "focar em 3 canais?".
+# A resposta medida foi NAO como troca, porque as vagas NAO transferem — o teto
+# e por canal, entao focar em tres daria 6 pacotes/dia no lugar de ~20 e nenhum
+# canal receberia mais do que ja recebe. Concentrar so significa algo se o teto
+# do canal escolhido subir, e para isso existe este dicionario.
+#
+# O QUE ESTA ABERTO AQUI E UM EXPERIMENTO, nao uma decisao de regime. A
+# pergunta dele e detectavel em 7 a 10 dias: VIEWS escalam com pacotes/dia? Nao
+# pergunto por inscritos porque inscrito se move 0 a 1 por canal em 36 dias e
+# nao da sinal nessa janela; views se movem em milhares e dao.
+#
+# POR QUE 4 E NAO 7. Sete manteria o total de ~21/dia concentrado, mas sao 14
+# videos/dia num canal de 14 inscritos, e o risco de o YouTube tratar isso como
+# spam nao esta medido por ninguem. Quatro e o dobro do teto atual — suficiente
+# para detectar efeito linear — com metade do risco. Se o efeito aparecer, sobe.
+#
+# CONDICAO DE PARADA, e ela e obrigatoria: se neste canal aparecer video
+# removido, aviso no Studio, ou queda de alcance por pacote contra a media dele
+# proprio, ZERE a entrada aqui e diga ao dono no mesmo relatorio.
+TETO_POR_CANAL = {
+    # epomeno-epipedo: escolhido por ter o melhor material para o efeito agir —
+    # maior views em 36 dias (+1.744), melhor travessia da frota (23,9%) e
+    # maior estoque de horas (90,9 de 4.000). Em canal de travessia baixa o
+    # pacote extra viraria view de short que nao converte (aprendizado 598).
+    "epomeno-epipedo": 4,
+}
+
+
+def teto_do_canal(canal: str) -> int:
+    """Teto diario de PACOTES do canal, com a sobrescrita do experimento."""
+    return TETO_POR_CANAL.get(canal, MAX_POR_DIA_POR_CANAL)
+
 # 3 -> 5 em 20/08/2026, 5 -> 1 em 24/08/2026, 1 -> 2 em 04/10/2026, as tres
 # vezes a pedido do dono.
 # O numero conta PACOTE, nao video: cada pacote e um longo mais um short.
@@ -504,10 +539,11 @@ def proximo(videos: list[dict], n: int,
                                     "motivo": "token OAuth do canal esta morto — "
                                               "reautorize antes de despachar"})
                 continue
-            if por_canal_hoje.get(canal, 0) >= MAX_POR_DIA_POR_CANAL:
+            teto = teto_do_canal(canal)
+            if por_canal_hoje.get(canal, 0) >= teto:
                 descartadas.append({
                     "spec": nome,
-                    "motivo": f"teto de {MAX_POR_DIA_POR_CANAL}/dia no canal "
+                    "motivo": f"teto de {teto}/dia no canal "
                               f"({por_canal_hoje.get(canal, 0)} nas ultimas "
                               f"{JANELA_H}h, contando o que ja esta registrado)"})
                 continue

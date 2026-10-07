@@ -802,3 +802,61 @@ silencioso — acento trocado em citacao de lei e citacao errada.
 `procon.sp.gov.br/duvidas-mais-frequentes/` da 404; o conteudo de duvidas esta
 na RAIZ, que e uma pagina longa. Nao gaste tempo chutando caminho.
 
+
+## Tendencia: o feed de populares do YouTube, por regiao (07/10/2026)
+
+Pedido do dono: pesquisar o que esta viralizando antes de produzir. Testei duas
+rotas e so uma serve.
+
+NAO SERVE: busca na web. "YouTube Shorts trending topics October 2026" devolve
+blog de marketing com generalidade ("financas pessoais e nicho rentavel",
+"curiosidade e payoff rapido"). Nao e tendencia, e conteudo de SEO.
+
+SERVE: a propria API do YouTube, `chart=mostPopular`, que aceita regiao e
+categoria. De graca, autoritativa e por pais. Pelo `pg_net`, com qualquer token
+da frota (le dado publico):
+
+    with tok as (select content::jsonb->>'access_token' as at
+                 from net._http_response where id = <req do refresh>)
+    select net.http_get(
+      url := 'https://www.googleapis.com/youtube/v3/videos'
+             || '?part=snippet&chart=mostPopular'
+             || '&regionCode=GR&videoCategoryId=25&maxResults=10',
+      headers := jsonb_build_object('Authorization','Bearer '||tok.at,
+                                    'Accept','application/json'),
+      timeout_milliseconds := 25000) from tok;
+
+E a leitura, que tem de checar erro antes de confiar no vazio:
+
+    select (r.content::jsonb->>'error') is not null as deu_erro,
+           coalesce(r.content::jsonb->'error'->>'message','') as msg,
+           (select string_agg(left(i->'snippet'->>'title',60), ' || ')
+            from jsonb_array_elements(coalesce(r.content::jsonb->'items','[]')) i)
+    from net._http_response r where r.id = <req>;
+
+REGIAO E CATEGORIA POR CANAL (categoria 25 = News & Politics, 27 = Education,
+20 = Gaming, 26 = Howto & Style):
+
+    labtreinamento      BR  27 e 25
+    nivel-do-jogo       BR  20
+    seja-mais-magra     BR  26
+    sx-educacao         BR  27
+    epomeno-epipedo     GR  25
+    kolejny-poziom      PL  25
+    seviye-seviye       TR  25
+    resep-naik-level    ID  26
+    setiap-level        ID  25
+    agla-level          IN  25
+    next-level-money    US  25
+    game-money-lab      US  20
+    cocina-por-niveles  MX  26
+
+COMO USAR, e aqui esta a parte que importa: use a FORMA que esta no topo, nao o
+ASSUNTO. O primeiro teste real deixou isso obvio — o feed grego de News veio
+dominado por politica interna e tensao com a Turquia, zero financas pessoais.
+Enxertar o assunto viral num canal de financas produz exatamente o que o
+aprendizado 482 mediu como pior: fato sobre o mundo em vez de metodo aplicavel.
+O que se copia e a estrutura do titulo, o tipo de gancho e o formato do payoff.
+
+E diga no relatorio o que o feed mostrou e se grafou ou nao. Rodada que nao diz
+isso nao fez a pesquisa.

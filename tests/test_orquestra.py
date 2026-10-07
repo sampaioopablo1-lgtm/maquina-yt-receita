@@ -115,12 +115,29 @@ def test_a_janela_e_a_chave_de_fora_e_a_meta_a_de_dentro(monkeypatch):
 
 
 def test_teto_de_tres_por_dia_por_canal():
+    # O invariante e POR CANAL desde 07/10/2026, nao global: `TETO_POR_CANAL`
+    # sobrescreve o teto geral para os canais em experimento. Comparar contra a
+    # constante global dava falso vermelho no canal com teto subido e, pior,
+    # deixaria de pegar estouro no canal que TEM teto proprio.
     muitos = DADOS + []
     escolhidas, descartadas = M.proximo(muitos, n=50)
     por_canal: dict[str, int] = {}
     for e in escolhidas:
         por_canal[e["canal"]] = por_canal.get(e["canal"], 0) + 1
-    assert all(v <= M.MAX_POR_DIA_POR_CANAL for v in por_canal.values()), por_canal
+    estouraram = {c: n for c, n in por_canal.items() if n > M.teto_do_canal(c)}
+    assert not estouraram, f"passaram do teto do proprio canal: {estouraram}"
+
+
+def test_teto_por_canal_sobrescreve_o_geral():
+    """O dicionario tem de valer para quem esta nele e nao vazar para os outros."""
+    assert M.teto_do_canal("__canal_que_nao_existe__") == M.MAX_POR_DIA_POR_CANAL
+    for canal, teto in M.TETO_POR_CANAL.items():
+        assert M.teto_do_canal(canal) == teto, canal
+        assert teto > M.MAX_POR_DIA_POR_CANAL, (
+            f"{canal} esta no TETO_POR_CANAL com {teto}, que nao e maior que o "
+            f"teto geral {M.MAX_POR_DIA_POR_CANAL} — entrada inutil ou erro")
+        assert canal in M.canais_do_repo(), (
+            f"{canal} tem teto proprio e nao existe no repo")
 
 
 def test_spec_travada_e_descartada_com_o_motivo():
