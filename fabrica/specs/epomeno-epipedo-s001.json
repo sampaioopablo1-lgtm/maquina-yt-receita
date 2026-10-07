@@ -1,0 +1,57 @@
+{
+ "slug": "epomeno-epipedo",
+ "pacote": "epomeno-epipedo-s001",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#12263A",
+  "c1": "#2A9D8F",
+  "c2": "#E8A33D",
+  "bg": "#F5F2EC"
+ },
+ "thumb": {
+  "l1": "Άλλαξε το σπίτι;",
+  "l2": "άλλαξε η γραμμή"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Ίδιος μισθός",
+   "sub": "άλλη πλευρά",
+   "nar": "Ο μισθός σου δεν άλλαξε μέσα στη χρονιά. Η γραμμή που σε κρίνει όμως άλλαξε.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Δεν μετράει μόνο ο μισθός",
+   "sub": "μετράει και ποιοι μένουν μαζί",
+   "nar": "Ο υπολογισμός δεν κοιτάζει μόνο πόσα βγάζεις. Κοιτάζει και ποιοι μένουν μαζί σου.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Κάθε αλλαγή στο σπίτι",
+   "sub": "μετακινεί τη γραμμή",
+   "nar": "Γέννηση, παιδί που μεγάλωσε, κάποιος που έφυγε ή μπήκε. Κάθε αλλαγή μετακινεί τη γραμμή σου.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ο ίδιος κανόνας",
+   "sub": "με το σημερινό σπίτι",
+   "nar": "Ένα για τον πρώτο ενήλικα, μισό για κάθε άλλον, μηδέν κόμμα τρία για κάθε μικρό παιδί. Μέτρα το σημερινό σπίτι.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Κάν' το σήμερα",
+   "sub": "με το σπίτι όπως είναι",
+   "nar": "Κάνε την πράξη με το σπίτι όπως είναι τώρα. Ο πλήρης υπολογισμός είναι στο βίντεο.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "eimuyGaCor8",
+ "copy": "# epomeno-epipedo-s001\n\n## TITULO\nΆλλαξε το Σπίτι, Άλλαξε η Γραμμή: Ξανακάνε την Πράξη με το Σημερινό Νοικοκυριό\n\n## TITULO SHORT\nΜπήκε κάποιος στο σπίτι; Άλλαξε η γραμμή\n\n## DESCRICAO\nΟ υπολογισμός που δείχνει πού πέφτει το νοικοκυριό σου δεν κοιτάζει μόνο πόσα βγάζεις. Κοιτάζει και ποιοι μένουν μαζί σου, και αυτό σημαίνει κάτι που σχεδόν κανείς δεν ελέγχει δεύτερη φορά: η γραμμή σου μετακινείται όταν αλλάζει το σπίτι, ακόμη και όταν ο μισθός σου μένει ακριβώς ο ίδιος. Μια γέννηση, ένα παιδί που μεγάλωσε, κάποιος που έφυγε, κάποιος που μπήκε — κάθε μια από αυτές τις αλλαγές αλλάζει τον συντελεστή του σπιτιού, και ο συντελεστής είναι ο διαιρέτης της πράξης.\n\nΗ ίδια η πράξη δεν αλλάζει, και είναι μία διαίρεση: το εισόδημα όλου του σπιτιού διά τον συντελεστή του σπιτιού. Ο συντελεστής φτιάχνεται με βάρη: ένα για τον πρώτο ενήλικα, μισό για κάθε άλλον ενήλικα, μηδέν κόμμα τρία για κάθε μικρό παιδί. Αυτό που αλλάζει είναι ΠΟΙΟΥΣ μετράς, και γι' αυτό η πράξη θέλει το σπίτι όπως είναι σήμερα και όχι όπως ήταν όταν την έκανες την προηγούμενη φορά.\n\nΤο βίντεο δείχνει από πού παίρνεις το εισόδημα του νοικοκυριού, πώς μετράς τα βάρη χωρίς να μπερδέψεις ενήλικα με παιδί, με ποιο αριθμό συγκρίνεις το αποτέλεσμα, και τι ΔΕΝ λέει αυτό το νούμερο για τη ζωή σου. Έχει επίσης το κομμάτι που εξηγεί γιατί δύο νοικοκυριά με το ίδιο ακριβώς εισόδημα πέφτουν σε διαφορετικές πλευρές της γραμμής, κάτι που ακούγεται λάθος μέχρι να κάνεις τη διαίρεση.\n\nΕδώ δεν αναφέρεται η γραμμή σε ευρώ, δεν αναφέρεται ευρωπαϊκός μέσος όρος και δεν αναφέρεται ποσοστό πληθυσμού: αυτά είναι στο πλήρες βίντεο, με την πηγή δίπλα τους. Ο αριθμός που αποφασίζει εδώ είναι δικός σου — βγαίνει από το εισόδημα του σπιτιού σου και από το ποιοι μένουν σε αυτό σήμερα.\n\nΕνημερωτικό περιεχόμενο, δεν αποτελεί φορολογική, νομική ή οικονομική συμβουλή.\n\n## COMENTARIO FIXADO\nΗ πράξη είναι μία διαίρεση και τη ξανακάνεις κάθε φορά που αλλάζει το σπίτι: εισόδημα όλου του νοικοκυριού διά τον συντελεστή. Ο συντελεστής φτιάχνεται με ένα για τον πρώτο ενήλικα, μισό για κάθε άλλον ενήλικα και μηδέν κόμμα τρία για κάθε μικρό παιδί. Γέννηση, παιδί που μεγάλωσε, κάποιος που έφυγε ή κάποιος που μπήκε — κάθε αλλαγή αλλάζει τον διαιρέτη, άρα και το αποτέλεσμα, με τον μισθό σου ακριβώς ίδιο. Ο αριθμός με τον οποίο συγκρίνεις το αποτέλεσμα είναι στο πλήρες βίντεο, με την πηγή του. Αν κάνεις την πράξη, γράψε αν άλλαξε πλευρά — χωρίς να γράψεις το εισόδημά σου.\n\n## HASHTAGS\n#Νοικοκυριό #Υπολογισμός #EpomenoEpipedo\n\n## TAGS\nνοικοκυριο, συντελεστης, ισοδυναμο εισοδημα, γραμμη, υπολογισμος, εισοδημα σπιτιου, παιδια, ενηλικες, διαιρεση, οικονομικα του σπιτιου, ελλαδα, προσωπικα οικονομικα, επομενο επιπεδο, πραξη, μετρηση\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO AFIRMACAO NOVA SOBRE O MUNDO. Este short nao cita a linha em euros, nao\ncita media europeia, nao cita porcentagem e nao nomeia orgao. Os unicos numeros\nque ele diz sao os PESOS DO COEFICIENTE — um, meio e zero virgula tres — e eles\nvem do longo epomeno-epipedo-016 (eimuyGaCor8), onde estao com a fonte\ndeclarada.\n\nO NUMERO QUE DECIDE E DO ESPECTADOR: o resultado sai do rendimento da casa dele\ne de quem mora com ele hoje.\n\nDESCARTADO, e vai escrito:\n  (1) a linha em euros por ano — esta no longo com a fonte; repeti-la aqui sem\n      a fonte ao lado seria cifra solta num short;\n  (2) quantos gregos estao de cada lado da linha — nao reconferido hoje em duas\n      fontes;\n  (3) a idade exata em que a crianca passa a contar como adulto — e o detalhe\n      que mais muda entre publicadores e nao foi reconferido hoje; o short diz\n      \"crianca pequena\" e manda ao longo.\n\n## FONTES\nO longo de onde este short foi extraido (epomeno-epipedo-016, eimuyGaCor8) traz\nas fontes dos numeros. Este short nao introduz numero novo sobre o mundo.\n"
+}
