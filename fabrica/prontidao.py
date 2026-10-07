@@ -845,11 +845,34 @@ PORTOES = (
 )
 
 
+# Portoes que SO fazem sentido com longo. Numa spec de short solto eles nao
+# falham: eles passam em silencio, porque nao ha capitulo para medir nem piso de
+# oito minutos para cobrar. Ficam de fora da lista para que o relatorio nao diga
+# "capitulos ok" sobre um pacote que nao tem capitulo — portao que aprova o que
+# nao olhou ensina a confiar no que ele nao verificou.
+PORTOES_SO_DO_LONGO = {"capitulos"}
+
+
 def avalia(caminho):
+    """Roda os portoes. Devolve None so quando a spec nao tem NENHUM formato.
+
+    ATE 07/10/2026 a linha era `if not sp.get("longo"): return None`, e isso
+    fazia uma spec de SHORT SOLTO desaparecer sem aviso: o `main()` pula o
+    None, entao ela nao entrava em PRONTAS nem em TRAVADAS — sumia da lista.
+    Era o pior desfecho possivel, porque silencio aqui tem a mesma cara de
+    aprovacao. Achado ao construir o short solto.
+
+    O `duracao` continua cobrando o teto do short com o longo vazio (medido:
+    short de 77,3 s previstos e recusado), e o `capitulos` sai da lista em vez
+    de aprovar em silencio.
+    """
     sp = json.load(open(caminho, encoding="utf-8"))
-    if not sp.get("longo"):
+    tem_longo = bool(sp.get("longo"))
+    if not tem_longo and not sp.get("short"):
         return None
-    return {nome: fn(caminho, sp) for nome, fn in PORTOES}
+    portoes = [(n, f) for n, f in PORTOES
+               if tem_longo or n not in PORTOES_SO_DO_LONGO]
+    return {nome: fn(caminho, sp) for nome, fn in portoes}
 
 
 def main() -> int:

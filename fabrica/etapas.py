@@ -56,6 +56,26 @@ d = F.dir_trabalho(sp)
 # costurar dois roteiros num video so.
 assert d.endswith(sp.get("pacote") or sp["slug"]), f"dir {d} nao bate com {spec}"
 
+# ------------------------------------------------------------- SHORT SOLTO
+# Spec com `short` e com `longo` VAZIO: renderiza so o vertical, sem longo
+# novo. Existe porque a porta do YPP que esta ao alcance e a Porta 1 (500
+# inscritos mais 3 milhoes de views de Shorts em 90 dias) e o que falta nela e
+# alcance de SHORT — enquanto cada short exigisse um longo de oito minutos
+# junto, o ritmo de sete shorts/dia por canal era impossivel por construcao, e
+# os longos que vinham de carona mediam zero view.
+#
+# O short solto PULA as etapas 1.5 a 7, que sao todas do longo, e vai da etapa
+# 1 direto para a 8. O que ele NAO pula: a etapa 0 (narracao), os portoes, e o
+# teste visual do proprio short.
+SO_SHORT = not sp.get("longo")
+tempos = []
+if SO_SHORT:
+    assert sp.get("short"), (
+        f"{spec}: spec sem longo E sem short nao renderiza nada. Se a intencao "
+        f"era short solto, preencha `short`.")
+    log(f"SHORT SOLTO: {len(sp['short'])} cenas, sem longo — etapas 1.5 a 7 "
+        f"nao se aplicam")
+
 
 def log(m):
     print(m, flush=True)
@@ -121,7 +141,11 @@ if LONGO_PRONTO:
 # na retomada a contagem de mp3 estava completa, `montar` foi pulado inteiro, e
 # o pacote chegou ao fim sem thumbnail — sem nenhum assert reclamar, porque
 # nenhuma etapa seguinte olha para esse arquivo.
-_mp3_ok = len(glob.glob(f"{d}/l*.mp3")) >= len(sp["longo"])
+# A guarda conta os DOIS formatos. Com `longo` vazio, `len(l*.mp3) >= 0` e
+# sempre verdade: `montar` seria pulado inteiro e o short ficaria sem UM mp3,
+# para estourar vinte linhas adiante no F.dur do s00.mp3.
+_mp3_ok = (len(glob.glob(f"{d}/l*.mp3")) >= len(sp.get("longo") or [])
+           and len(glob.glob(f"{d}/s*.mp3")) >= len(sp.get("short") or []))
 _thumb = f"{d}/thumbnail.png"
 if not LONGO_PRONTO:
     if not (_mp3_ok and os.path.exists(_thumb)):
@@ -145,7 +169,7 @@ W, H = 1280, 720
 RW, RH = F.render_wh(W, H)
 _pedem_broll = [(i, c) for i, c in enumerate(cenas)
                 if c.get("layout") == "broll"]
-if _pedem_broll and not LONGO_PRONTO:
+if _pedem_broll and not LONGO_PRONTO and not SO_SHORT:
     import broll as BR                                            # noqa: E402
     _k = BR.chave()
     # A origem da chave vai para o log ANTES de qualquer cena: no
@@ -162,144 +186,162 @@ if _pedem_broll and not LONGO_PRONTO:
             log(f"  broll cena {_i} ({_dd:.1f}s) SEM FOOTAGE: {BR.ULTIMO_MOTIVO}")
     log(f"etapa 1.5 ok: broll em {_ok}/{len(_pedem_broll)} cenas")
 
-# ------------------------------------------- 2. clipes, liberando um a um
-log("etapa 2: clipes do longo")
-tempos = []
-# Com o longo pronto os clipes ja foram apagados pela etapa 5, e refaze-los so
-# para recalcular `tempos` custa 35 min. Os mesmos numeros estao em tempos.json,
-# gravados na etapa 3 a partir dos clipes RENDERIZADOS.
-pendentes = [] if LONGO_PRONTO else list(enumerate(cenas))
-if LONGO_PRONTO:
-    tempos = json.load(open(f"{d}/tempos.json"))
-    log(f"etapa 2 pulada: {len(tempos)} tempos lidos de tempos.json")
-for i, c in pendentes:
-    saida = f"{d}/lclip{i:02d}.mp4"
-    if not arquivo_valido(saida, 10000):
-        dd = F.dur(f"{d}/l{i:02d}.mp3") + 0.5
-        nf = max(int(dd * 30), 1)
-        # Uma unica fonte para o clipe. Este loop ja teve copia propria da
-        # logica e ficou para tras quando a composicao em camadas entrou na
-        # fabrica: o pacote sairia SEM animacao e passaria em todos os asserts.
-        F.clipe_cena(d, "l", i, c, dd, nf, RW, RH,
-                     motion=F.M.motion_ligado(sp, "l"))
-    tempos.append(F.dur(saida))
-    # padrao ancorado: nunca `l*.png`
-    for ext in ("png", "mp3"):
-        try:
-            os.remove(f"{d}/l{i:02d}.{ext}")
-        except OSError:
-            pass
-    if i % 40 == 0:
-        log(f"  clipe {i}/{len(cenas)}")
-log(f"etapa 2 ok: {len(tempos)} clipes, {sum(tempos):.1f}s")
-
-# ------------------------------- 3. legenda ANTES de qualquer limpeza futura
-with open(f"{d}/legendas.srt", "w", encoding="utf-8") as srt:
-    t = 0.0
-    for i, c in enumerate(cenas):
-        fim = t + tempos[i]
-        srt.write(f"{i+1}\n{F.st(t + 0.15)} --> {F.st(fim - 0.15)}\n{c['nar']}\n\n")
-        t = fim
-json.dump(tempos, open(f"{d}/tempos.json", "w"))
-
-# O copy.md sai daqui e nao do `render()` da fabrica, que esta esteira nunca
-# chama — era por isso que TODO pacote feito por etapas.py ficava sem ele, e o
-# publicar.py caia no texto da spec com "{CAPITULOS}" ainda por preencher.
-# Medido em 13/08/2026 no seviye-seviye-002, ja publicado com o placeholder.
-# Fica junto da legenda de proposito: os dois dependem de `tempos`, que so
-# existe aqui e some quando os clipes sao apagados.
-F.escrever_copy(sp, tempos, d)
-log("etapa 3 ok: legendas.srt + tempos.json + copy.md")
-
-# -------------------------------------------- 4. concat, em DUAS METADES
-# O tmpfs mora na RAM: 196 clipes sao 390 MB dos 985 MB da maquina. Concatenar
-# tudo de uma vez deixava 2 MB livres, com kswapd0 ativo e o ffmpeg a 36% de
-# CPU escrevendo 0,26 MB a cada 50s — horas de encode. Metade de cada vez libera
-# a RAM da primeira antes de codificar a segunda, e a juncao final e -c copy.
-# Medido: 0,26 MB/50s antes, 6 MB/min depois.
-#
-# O aperto piorou quando o Ken Burns passou a ter pan de verdade: com quadros
-# quase identicos o x264 comprimia de graca, e agora nao comprime mais.
-crf = "29" if sum(tempos) >= 1100 else "26"
-meio = len(cenas) // 2
-partes = [] if LONGO_PRONTO else list(enumerate(((0, meio), (meio, len(cenas))), start=1))
-for parte, (ini, fim) in partes:
-    saida = f"{d}/p{parte}.mp4"
-    if arquivo_valido(saida, 100000):
-        log(f"etapa 4: parte {parte} ja existe")
-        continue
-    lista = f"{d}/lista_p{parte}.txt"
-    with open(lista, "w") as f:
-        for i in range(ini, fim):
-            f.write(f"file 'lclip{i:02d}.mp4'\n")
-    log(f"etapa 4: parte {parte}, clipes {ini}-{fim - 1}")
-    subprocess.run(["ffmpeg", "-nostdin", "-y", "-f", "concat", "-safe", "0",
-        "-i", lista, "-vf", f"scale={W}:{H}:flags=lanczos", "-c:v", "libx264",
-        "-preset", "veryfast", "-crf", crf, "-pix_fmt", "yuv420p",
-        "-c:a", "copy", saida], check=True, capture_output=True, cwd=d)
-    esperado, real = sum(tempos[ini:fim]), F.dur(saida)
-    log(f"etapa 4: parte {parte} ok, {real:.1f}s (esperado {esperado:.1f}s)")
-    assert abs(real - esperado) < 5, f"parte {parte} truncada"
-    # libera a RAM desta metade antes de codificar a proxima
-    for i in range(ini, fim):
-        try:
-            os.remove(f"{d}/lclip{i:02d}.mp4")
-        except OSError:
-            pass
-
-if not LONGO_PRONTO:
-    with open(f"{d}/lista_final.txt", "w") as f:
-        f.write("file 'p1.mp4'\nfile 'p2.mp4'\n")
-    subprocess.run(["ffmpeg", "-nostdin", "-y", "-f", "concat", "-safe", "0",
-        "-i", f"{d}/lista_final.txt", "-c", "copy", "-movflags", "+faststart",
-        f"{d}/video.mp4"], check=True, capture_output=True, cwd=d)
-    dv = F.dur(f"{d}/video.mp4")
-    log(f"etapa 4 ok: video.mp4 {dv:.1f}s")
-    # A etapa confere a PROPRIA saida. Sem isto, um concat truncado passa batido
-    # atras de um log de sucesso montado com a medicao da entrada.
-    assert abs(dv - sum(tempos)) < 5, f"concat truncado: {dv:.1f} vs {sum(tempos):.1f}"
-
-    # --------------------- 5. so agora, com o concat conferido, libera restos
-    for f in glob.glob(f"{d}/p[12].mp4") + glob.glob(f"{d}/lclip*.mp4"):
-        os.remove(f)
-    log("etapa 5 ok: partes e clipes liberados")
-
-    # ------------------------------------------------------------ 6. trilha
-    # A marca so e escrita DEPOIS da trilha entrar. Ela e o que impede a
-    # proxima retomada de mixar musica sobre musica.
-    log("etapa 6: trilha")
-    F.aplicar_trilha(d, "video.mp4", sp["slug"], sp.get("trilha"))
-    open(PRONTO, "w").write(f"longo montado, trilha {sp['trilha']}\n")
-    log(f"etapa 6 ok: {F.dur(f'{d}/video.mp4'):.1f}s, "
-        f"{os.path.getsize(f'{d}/video.mp4') / 1e6:.1f} MB")
-
-# ------------------------------- 7. alguem finalmente OLHA o video
-# As seis etapas acima medem se o arquivo saiu: duracao, tamanho, soma dos
-# clipes. Nenhuma media se ele esta visivel. As duas queixas visuais que
-# chegaram ao dono — cor invertida no CTA e legenda em hindi saindo VAZIA —
-# passaram por todos os asserts, porque o arquivo estava perfeito.
+# O `visual` e usado pela etapa 7 (longo) E pela etapa 8 (short), entao o
+# import mora aqui fora. Ele estava dentro da etapa 7: ao mover as etapas 2 a
+# 7 para dentro do `if not SO_SHORT`, um short solto chegaria a etapa 8 e
+# estouraria NameError no `VIS` — o teste visual do short e obrigatorio.
 import visual as VIS                                              # noqa: E402
 
-# As JANELAS DE FOOTAGE vao para o teste visual, e sem elas ele mede a coisa
-# errada nas cenas broll: `analisa` toma a cor dominante do quadro como fundo e
-# conta toda a variacao fotografica como tinta, inclusive na borda. Foi assim
-# que o seviye-seviye-010 reprovou em t=333,9s com 3,6% de tinta na borda, e a
-# tinta estava espalhada no topo, na base e na direita — era o clipe, nao texto
-# cortado. Com as janelas, o quadro de footage e julgado pelo lower-third.
-_janelas_broll, _t = [], 0.0
-for _i, _c in enumerate(cenas):
-    _dur = tempos[_i]
-    if (_c or {}).get("layout") == "broll":
-        _janelas_broll.append((_t, _t + _dur))
-    _t += _dur
-if _janelas_broll:
-    log(f"etapa 7: {len(_janelas_broll)} janela(s) de footage vao ao teste visual")
+# ============== ETAPAS 2 A 7: TODAS DO LONGO ==============================
+# O short solto nao passa por aqui. Nao e otimizacao: etapa 4 concatena
+# video.mp4, a 6 mixa a trilha nele e a 7 confere video.mp4 quadro a quadro
+# — com `longo` vazio as tres estourariam em arquivo que nunca existiu.
+# O `escrever_copy` FICOU DE FORA do bloco de proposito: o copy.md e
+# entregavel dos dois formatos, e e dele que o publicar.py tira titulo e
+# descricao. Short solto sem copy.md subiria com o texto cru da spec.
+if not SO_SHORT:
+    # ------------------------------------------- 2. clipes, liberando um a um
+    log("etapa 2: clipes do longo")
+    tempos = []
+    # Com o longo pronto os clipes ja foram apagados pela etapa 5, e refaze-los so
+    # para recalcular `tempos` custa 35 min. Os mesmos numeros estao em tempos.json,
+    # gravados na etapa 3 a partir dos clipes RENDERIZADOS.
+    pendentes = [] if LONGO_PRONTO else list(enumerate(cenas))
+    if LONGO_PRONTO:
+        tempos = json.load(open(f"{d}/tempos.json"))
+        log(f"etapa 2 pulada: {len(tempos)} tempos lidos de tempos.json")
+    for i, c in pendentes:
+        saida = f"{d}/lclip{i:02d}.mp4"
+        if not arquivo_valido(saida, 10000):
+            dd = F.dur(f"{d}/l{i:02d}.mp3") + 0.5
+            nf = max(int(dd * 30), 1)
+            # Uma unica fonte para o clipe. Este loop ja teve copia propria da
+            # logica e ficou para tras quando a composicao em camadas entrou na
+            # fabrica: o pacote sairia SEM animacao e passaria em todos os asserts.
+            F.clipe_cena(d, "l", i, c, dd, nf, RW, RH,
+                         motion=F.M.motion_ligado(sp, "l"))
+        tempos.append(F.dur(saida))
+        # padrao ancorado: nunca `l*.png`
+        for ext in ("png", "mp3"):
+            try:
+                os.remove(f"{d}/l{i:02d}.{ext}")
+            except OSError:
+                pass
+        if i % 40 == 0:
+            log(f"  clipe {i}/{len(cenas)}")
+    log(f"etapa 2 ok: {len(tempos)} clipes, {sum(tempos):.1f}s")
 
-_erros, _avisos = VIS.conferir(f"{d}/video.mp4",
-                               VIS.hexcor(sp["paleta"].get("bg", "#FFFFFF")),
-                               janelas_broll=_janelas_broll)
-assert not _erros, "video reprovado no teste visual — nao entregue assim"
-log("etapa 7 ok: video conferido quadro a quadro")
+    # ------------------------------- 3. legenda ANTES de qualquer limpeza futura
+    with open(f"{d}/legendas.srt", "w", encoding="utf-8") as srt:
+        t = 0.0
+        for i, c in enumerate(cenas):
+            fim = t + tempos[i]
+            srt.write(f"{i+1}\n{F.st(t + 0.15)} --> {F.st(fim - 0.15)}\n{c['nar']}\n\n")
+            t = fim
+    json.dump(tempos, open(f"{d}/tempos.json", "w"))
+
+    # O copy.md sai daqui e nao do `render()` da fabrica, que esta esteira nunca
+    # chama — era por isso que TODO pacote feito por etapas.py ficava sem ele, e o
+    # publicar.py caia no texto da spec com "{CAPITULOS}" ainda por preencher.
+    # Medido em 13/08/2026 no seviye-seviye-002, ja publicado com o placeholder.
+    # Fica junto da legenda de proposito: os dois dependem de `tempos`, que so
+    # existe aqui e some quando os clipes sao apagados.
+    log("etapa 3 ok: legendas.srt + tempos.json")
+
+    # -------------------------------------------- 4. concat, em DUAS METADES
+    # O tmpfs mora na RAM: 196 clipes sao 390 MB dos 985 MB da maquina. Concatenar
+    # tudo de uma vez deixava 2 MB livres, com kswapd0 ativo e o ffmpeg a 36% de
+    # CPU escrevendo 0,26 MB a cada 50s — horas de encode. Metade de cada vez libera
+    # a RAM da primeira antes de codificar a segunda, e a juncao final e -c copy.
+    # Medido: 0,26 MB/50s antes, 6 MB/min depois.
+    #
+    # O aperto piorou quando o Ken Burns passou a ter pan de verdade: com quadros
+    # quase identicos o x264 comprimia de graca, e agora nao comprime mais.
+    crf = "29" if sum(tempos) >= 1100 else "26"
+    meio = len(cenas) // 2
+    partes = [] if LONGO_PRONTO else list(enumerate(((0, meio), (meio, len(cenas))), start=1))
+    for parte, (ini, fim) in partes:
+        saida = f"{d}/p{parte}.mp4"
+        if arquivo_valido(saida, 100000):
+            log(f"etapa 4: parte {parte} ja existe")
+            continue
+        lista = f"{d}/lista_p{parte}.txt"
+        with open(lista, "w") as f:
+            for i in range(ini, fim):
+                f.write(f"file 'lclip{i:02d}.mp4'\n")
+        log(f"etapa 4: parte {parte}, clipes {ini}-{fim - 1}")
+        subprocess.run(["ffmpeg", "-nostdin", "-y", "-f", "concat", "-safe", "0",
+            "-i", lista, "-vf", f"scale={W}:{H}:flags=lanczos", "-c:v", "libx264",
+            "-preset", "veryfast", "-crf", crf, "-pix_fmt", "yuv420p",
+            "-c:a", "copy", saida], check=True, capture_output=True, cwd=d)
+        esperado, real = sum(tempos[ini:fim]), F.dur(saida)
+        log(f"etapa 4: parte {parte} ok, {real:.1f}s (esperado {esperado:.1f}s)")
+        assert abs(real - esperado) < 5, f"parte {parte} truncada"
+        # libera a RAM desta metade antes de codificar a proxima
+        for i in range(ini, fim):
+            try:
+                os.remove(f"{d}/lclip{i:02d}.mp4")
+            except OSError:
+                pass
+
+    if not LONGO_PRONTO:
+        with open(f"{d}/lista_final.txt", "w") as f:
+            f.write("file 'p1.mp4'\nfile 'p2.mp4'\n")
+        subprocess.run(["ffmpeg", "-nostdin", "-y", "-f", "concat", "-safe", "0",
+            "-i", f"{d}/lista_final.txt", "-c", "copy", "-movflags", "+faststart",
+            f"{d}/video.mp4"], check=True, capture_output=True, cwd=d)
+        dv = F.dur(f"{d}/video.mp4")
+        log(f"etapa 4 ok: video.mp4 {dv:.1f}s")
+        # A etapa confere a PROPRIA saida. Sem isto, um concat truncado passa batido
+        # atras de um log de sucesso montado com a medicao da entrada.
+        assert abs(dv - sum(tempos)) < 5, f"concat truncado: {dv:.1f} vs {sum(tempos):.1f}"
+
+        # --------------------- 5. so agora, com o concat conferido, libera restos
+        for f in glob.glob(f"{d}/p[12].mp4") + glob.glob(f"{d}/lclip*.mp4"):
+            os.remove(f)
+        log("etapa 5 ok: partes e clipes liberados")
+
+        # ------------------------------------------------------------ 6. trilha
+        # A marca so e escrita DEPOIS da trilha entrar. Ela e o que impede a
+        # proxima retomada de mixar musica sobre musica.
+        log("etapa 6: trilha")
+        F.aplicar_trilha(d, "video.mp4", sp["slug"], sp.get("trilha"))
+        open(PRONTO, "w").write(f"longo montado, trilha {sp['trilha']}\n")
+        log(f"etapa 6 ok: {F.dur(f'{d}/video.mp4'):.1f}s, "
+            f"{os.path.getsize(f'{d}/video.mp4') / 1e6:.1f} MB")
+
+    # ------------------------------- 7. alguem finalmente OLHA o video
+    # As seis etapas acima medem se o arquivo saiu: duracao, tamanho, soma dos
+    # clipes. Nenhuma media se ele esta visivel. As duas queixas visuais que
+    # chegaram ao dono — cor invertida no CTA e legenda em hindi saindo VAZIA —
+    # passaram por todos os asserts, porque o arquivo estava perfeito.
+
+    # As JANELAS DE FOOTAGE vao para o teste visual, e sem elas ele mede a coisa
+    # errada nas cenas broll: `analisa` toma a cor dominante do quadro como fundo e
+    # conta toda a variacao fotografica como tinta, inclusive na borda. Foi assim
+    # que o seviye-seviye-010 reprovou em t=333,9s com 3,6% de tinta na borda, e a
+    # tinta estava espalhada no topo, na base e na direita — era o clipe, nao texto
+    # cortado. Com as janelas, o quadro de footage e julgado pelo lower-third.
+    _janelas_broll, _t = [], 0.0
+    for _i, _c in enumerate(cenas):
+        _dur = tempos[_i]
+        if (_c or {}).get("layout") == "broll":
+            _janelas_broll.append((_t, _t + _dur))
+        _t += _dur
+    if _janelas_broll:
+        log(f"etapa 7: {len(_janelas_broll)} janela(s) de footage vao ao teste visual")
+
+    _erros, _avisos = VIS.conferir(f"{d}/video.mp4",
+                                   VIS.hexcor(sp["paleta"].get("bg", "#FFFFFF")),
+                                   janelas_broll=_janelas_broll)
+    assert not _erros, "video reprovado no teste visual — nao entregue assim"
+    log("etapa 7 ok: video conferido quadro a quadro")
+
+# O copy.md vale para os dois formatos. Com short solto `tempos` e lista
+# vazia e `capitulos()` devolve nada — a spec de short solto nao traz
+# {CAPITULOS} na copy.
+F.escrever_copy(sp, tempos if not SO_SHORT else [], d)
+log("etapa 3-b ok: copy.md")
 
 # ---------------------------------------------------------------- 8. short
 # O short era renderizado por script avulso e NUNCA passava no teste visual —

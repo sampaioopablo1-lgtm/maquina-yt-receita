@@ -1,0 +1,57 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-s001",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#22333B",
+  "c1": "#A4243B",
+  "c2": "#D8973C",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Mora perto?",
+  "l2": "confira o desconto"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Mora perto?",
+   "sub": "então confira",
+   "nar": "Se você mora perto do trabalho, o desconto do vale-transporte na sua folha provavelmente está maior do que podia.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Seis por cento",
+   "sub": "é teto, não valor",
+   "nar": "Seis por cento do salário básico é o TETO do desconto. Não é o valor dele, e a folha trata como se fosse.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A outra conta",
+   "sub": "essa é sua",
+   "nar": "A outra conta é passagem vezes viagens por dia vezes dias trabalhados. É o seu gasto real do mês.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Vale a menor",
+   "sub": "sempre a menor",
+   "nar": "O que pode sair da sua folha é a MENOR das duas. Gastou menos que o teto? O desconto é o gasto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Confira a linha",
+   "sub": "do seu holerite",
+   "nar": "Compare a menor com a linha do holerite. Se a linha estiver acima, sobrou desconto.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "NNgAQLlpEzg",
+ "copy": "# labtreinamento-s001\n\n## TITULO\nVale-Transporte: Quem Mora Perto do Trabalho Costuma Pagar Desconto a Mais\n\n## TITULO SHORT\nMora perto? Confira o desconto na folha\n\n## DESCRICAO\nSeis por cento do salário básico é o TETO do desconto de vale-transporte, não o valor dele. Essa distinção decide quem paga a mais, e quem paga a mais costuma ser exatamente quem mora perto do trabalho. A lei fala da ajuda de custo equivalente à parcela que EXCEDER seis por cento do salário básico, e o decreto que a regulamenta repete: o beneficiário custeia a parcela equivalente a esse percentual e o empregador custeia no que exceder. Se o seu gasto real de transporte no mês ficou abaixo do teto, não existe parcela a exceder — e aí o desconto tem de ser o gasto real, não o percentual cheio.\n\nSão duas contas e vale sempre a menor. A primeira é seis por cento do salário básico sozinho, sem hora extra, sem adicional noturno, sem insalubridade, sem periculosidade, sem gratificação e sem comissão. A segunda é sua e não está em documento nenhum: valor da passagem, vezes quantas você paga por dia, vezes quantos dias você trabalha no mês. A linha do seu holerite tem de ser igual à menor das duas, e se ela estiver acima disso sobrou desconto.\n\nQuem mais cai nesse caso: quem mora perto e paga uma passagem só por dia, quem trabalha em escala com poucos dias no mês, e quem teve mês de férias ou afastamento. O decreto trata esse caso de um jeito específico — na hipótese de a despesa ser inferior ao percentual, o empregado pode optar por receber o vale antecipado, com o valor descontado integralmente depois.\n\nA conta inteira, com o exemplo passo a passo, a armadilha da base (seis por cento tirados do bruto em vez do salário básico) e a exceção de quem é pago por tarefa ou só de comissão, está no vídeo completo linkado aqui.\n\nConteúdo informativo, não é consultoria jurídica, trabalhista nem contábil.\n\n## COMENTARIO FIXADO\nDuas contas e vale sempre a MENOR: seis por cento do salário BÁSICO sozinho (sem hora extra, adicional, insalubridade, periculosidade, gratificação ou comissão) e o seu gasto real do mês (passagem vezes viagens por dia vezes dias trabalhados). Se o seu gasto ficou abaixo do teto, o desconto é o gasto — não o teto. Se fizer a conta, escreva aqui se bateu, sem nome de empresa e sem o seu salário.\n\n## HASHTAGS\n#ValeTransporte #Holerite #LabTreinamento\n\n## TAGS\nvale transporte, desconto em folha, holerite, salario basico, mora perto do trabalho, folha de pagamento, direitos do trabalhador, conferir holerite, departamento pessoal, transporte coletivo, calculo de desconto, escala de trabalho, lab treinamento, seis por cento, teto de desconto\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nDUAS FONTES INSTITUCIONAIS QUE BATEM, as mesmas do labtreinamento-013 e as duas\nlidas ao vivo em 07/10:\n  Lei n. 7.418/1985, art. 4., paragrafo unico (planalto.gov.br) — \"a ajuda de\n  custo equivalente a parcela que exceder a 6% (seis por cento) de seu salario\n  basico\";\n  Decreto n. 10.854/2021, art. 114 e 116 (planalto.gov.br) — o beneficiario\n  custeia \"a parcela equivalente a seis por cento de seu salario basico ou\n  vencimento, excluidos quaisquer adicionais ou vantagens\", o empregador \"no que\n  exceder\", e o art. 116 trata da hipotese de a despesa ser INFERIOR a esse\n  percentual.\n\nO NUMERO QUE DECIDE E DO ESPECTADOR. A norma da o percentual e a base; o\nresultado sai da passagem que ele paga, das viagens que ele faz e dos dias que\nele trabalha.\n\nDESCARTADO: valor de tarifa de qualquer cidade (sem duas fontes, e tarifa muda)\ne qualquer afirmacao sobre quantas empresas erram esse desconto (sem medicao).\n\n## FONTES\nLei n. 7.418/1985, art. 4., paragrafo unico — planalto.gov.br.\nDecreto n. 10.854/2021, art. 114 e 116 — planalto.gov.br.\n"
+}

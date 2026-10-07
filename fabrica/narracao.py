@@ -261,51 +261,81 @@ def conta_numeros(frase, idi):
 
 
 def analisa(spec, idi):
+    """Confere a narracao do LONGO e do SHORT.
+
+    ATE 07/10/2026 ISTO LIA SO O LONGO, e o defeito e grave o bastante para
+    ficar escrito aqui: a funcao comecava com `cenas = spec.get("longo", [])` e
+    nunca tocava `spec["short"]`. Ou seja, nenhum short que a maquina publicou —
+    e sao mais de cem — teve a narracao conferida contra hype, contra slop,
+    contra o maximo de numeros por frase ou contra frase longa demais para um
+    folego. O portao existia e nao olhava para o formato que recebe a
+    distribuicao.
+
+    Foi achado ao construir o short solto: uma spec sem longo passava com
+    "0 frases" e zero erro, que e a prova de que o short nunca entrava na conta.
+
+    O QUE VALE PARA CADA FORMATO:
+      * hype, slop, estatistica sem dono, numeros por frase, palavras por frase
+        e virgulas por frase valem para OS DOIS;
+      * o gancho antes da troca de capitulo e so do longo — short nao tem
+        capitulo;
+      * o ritmo (porcentagem de frases curtas) tambem e so do longo. Num short
+        de cinco cenas a amostra e pequena demais e a porcentagem viraria ruido
+        com cara de medida.
+
+    `todas` devolve as frases DOS DOIS formatos, porque quem chama usa esse
+    numero para dizer quanta narracao foi conferida.
+    """
     erros, avisos = [], []
-    todas = []
-    cenas = spec.get("longo", [])
+    todas, do_longo = [], []
 
-    for i, c in enumerate(cenas):
-        nar = c.get("nar", "")
-        n = normaliza(nar)
-        onde = f"cena {i:02d}"
+    for pref, cenas in (("cena", spec.get("longo") or []),
+                        ("short", spec.get("short") or [])):
+        for i, c in enumerate(cenas):
+            nar = c.get("nar", "")
+            n = normaliza(nar)
+            onde = f"{pref} {i:02d}"
 
-        for termo in HYPE.get(idi, []):
-            if normaliza(termo) in n:
-                erros.append(f"{onde}: hype '{termo}' — understatement, a calma e que faz bater")
-        for termo in SLOP.get(idi, []):
-            if normaliza(termo) in n:
-                erros.append(f"{onde}: slop '{termo}' — comece o video em vez de anuncia-lo")
-        for termo in VAGO.get(idi, []):
-            if normaliza(termo) in n:
-                avisos.append(f"{onde}: estatistica sem dono '{termo}' — use NOME + ANO + NUMERO")
+            for termo in HYPE.get(idi, []):
+                if normaliza(termo) in n:
+                    erros.append(f"{onde}: hype '{termo}' — understatement, a calma e que faz bater")
+            for termo in SLOP.get(idi, []):
+                if normaliza(termo) in n:
+                    erros.append(f"{onde}: slop '{termo}' — comece o video em vez de anuncia-lo")
+            for termo in VAGO.get(idi, []):
+                if normaliza(termo) in n:
+                    avisos.append(f"{onde}: estatistica sem dono '{termo}' — use NOME + ANO + NUMERO")
 
-        fs = frases(nar, idi)
-        todas.extend(fs)
-        for f in fs:
-            nn = conta_numeros(f, idi)
-            if nn >= MAX_NUM_FRASE:
-                erros.append(f"{onde}: {nn} numeros numa frase — planilha falada. "
-                             f"Quebre em progressao: \"{f[:70]}...\"")
-            pal = len(f.split())
-            if pal > MAX_PALAVRAS:
-                avisos.append(f"{onde}: frase de {pal} palavras, nao cabe num folego")
-            nv = conta_virgulas(f, idi)
-            if nv >= MAX_VIRGULAS:
-                avisos.append(f"{onde}: {nv} virgulas numa frase — vire frases separadas")
+            fs = frases(nar, idi)
+            todas.extend(fs)
+            if pref == "cena":
+                do_longo.extend(fs)
+            for f in fs:
+                nn = conta_numeros(f, idi)
+                if nn >= MAX_NUM_FRASE:
+                    erros.append(f"{onde}: {nn} numeros numa frase — planilha falada. "
+                                 f"Quebre em progressao: \"{f[:70]}...\"")
+                pal = len(f.split())
+                if pal > MAX_PALAVRAS:
+                    avisos.append(f"{onde}: frase de {pal} palavras, nao cabe num folego")
+                nv = conta_virgulas(f, idi)
+                if nv >= MAX_VIRGULAS:
+                    avisos.append(f"{onde}: {nv} virgulas numa frase — vire frases separadas")
 
-        # Cliffhanger: so na cena que ANTECEDE uma troca de capitulo. `sem_cap`
-        # marca quase toda cena — nao e sinal de ponte, e o contrario disso.
-        proxima_abre_cap = i + 1 < len(cenas) and cenas[i + 1].get("cap")
-        if proxima_abre_cap and fs:
-            if not fs[-1].rstrip().endswith(GANCHO.get(idi, GANCHO[None])):
-                avisos.append(f"{onde}: ultima cena do capitulo fecha com ponto final morto "
-                              f"— vira '{cenas[i + 1]['cap']}' sem gancho")
+            # Cliffhanger: so na cena que ANTECEDE uma troca de capitulo, e so
+            # no longo. `sem_cap` marca quase toda cena — nao e sinal de ponte,
+            # e o contrario disso.
+            proxima_abre_cap = (pref == "cena" and i + 1 < len(cenas)
+                                and cenas[i + 1].get("cap"))
+            if proxima_abre_cap and fs:
+                if not fs[-1].rstrip().endswith(GANCHO.get(idi, GANCHO[None])):
+                    avisos.append(f"{onde}: ultima cena do capitulo fecha com ponto final morto "
+                                  f"— vira '{cenas[i + 1]['cap']}' sem gancho")
 
-    # Ritmo: sobe, sobe, derruba. Sem frase curta nao ha soco.
-    if todas:
-        curtas = sum(1 for f in todas if len(f.split()) <= 5)
-        pct = 100.0 * curtas / len(todas)
+    # Ritmo: sobe, sobe, derruba. Sem frase curta nao ha soco. So o longo entra.
+    if do_longo:
+        curtas = sum(1 for f in do_longo if len(f.split()) <= 5)
+        pct = 100.0 * curtas / len(do_longo)
         if pct < MIN_SOCO_PCT:
             avisos.append(f"ritmo: so {pct:.1f}% de frases curtas (<=5 palavras), "
                           f"minimo {MIN_SOCO_PCT}% — falta o soco depois do build")

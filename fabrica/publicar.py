@@ -991,6 +991,16 @@ def main():
         saida["short"] = sid
         print("SHORT:", sid, "| playlist:", na_playlist(acc, args.playlist, sid))
 
+        # SHORT SOLTO: nao ha longo nesta rodada para apontar, e o passo
+        # `apontar_para_longo` la embaixo so roda quando um longo acabou de
+        # subir. Sem isto o short solto sobe com CTA para lugar nenhum — e a
+        # razao de existir do short e levar ao longo. O id vem da spec, que
+        # declara de qual longo JA PUBLICADO este short foi extraido.
+        _ja = sp.get("longo_existente")
+        if _ja and not os.path.exists(os.path.join(d, "video.mp4")):
+            print("  short->longo existente:",
+                  apontar_para_longo(acc, sid, _ja, base=meta_short))
+
     # 2) LONGO, ja apontando para o short.
     longo = os.path.join(d, "video.mp4")
     r_leg = "sem arquivo"
