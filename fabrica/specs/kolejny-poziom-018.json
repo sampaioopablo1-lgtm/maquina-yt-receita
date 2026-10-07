@@ -1,0 +1,498 @@
+{
+ "slug": "kolejny-poziom",
+ "pacote": "kolejny-poziom-018",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Niższa rata",
+  "l2": "większa suma"
+ },
+ "longo": [
+  {
+   "layout": "broll",
+   "kicker": "Dwie oferty",
+   "sub": "ta sama kwota",
+   "nar": "Dwie oferty na ten sam kredyt. W jednej miesięczna rata jest niższa, i prawie każdy patrzy właśnie na tę liczbę.",
+   "broll_q": "man and woman reading a contract",
+   "broll_url": "https://videos.pexels.com/video-files/7732810/7732810-hd_1280_720_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 7732810,
+    "autor": "Mikhail Nilov",
+    "url": "https://www.pexels.com/video/man-and-woman-reading-a-contract-7732810/"
+   },
+   "cap": "Dwie oferty, ta sama kwota"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A ona mówi najmniej",
+   "sub": "bo rata to nie koszt",
+   "nar": "Tylko że rata to nie koszt. Koszt to suma wszystkiego, co oddasz bankowi do ostatniego miesiąca. Rata mówi, ile zapłacisz w tym miesiącu, i ani złotówki więcej.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dwie liczby",
+   "sub": "idą w różne strony",
+   "nar": "I te dwie liczby nie idą w tę samą stronę: niższa rata na starcie potrafi oznaczać większą sumę na końcu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Gdzie jest różnica",
+   "sub": "nie w negocjacji",
+   "nar": "Różnica nie siedzi w banku ani w negocjacji. Siedzi w kształcie raty, a ten kształt wybierasz ty przy podpisie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dwa kształty",
+   "sub": "i oba mają nazwy",
+   "nar": "Kształty są dwa. Rata równa, taka sama od pierwszego do ostatniego miesiąca, i rata malejąca.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Jak maleje",
+   "sub": "i dlaczego właśnie tak",
+   "nar": "W malejącej każda kolejna rata jest trochę mniejsza, bo odsetki liczy się od tego, co jeszcze zostało do spłaty. Im mniej zostało do oddania, tym mniejsza kolejna rata.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Czego tu nie będzie",
+   "sub": "żadnej stawki",
+   "nar": "Nie usłyszysz tu żadnej stawki, żadnego wskaźnika i żadnej oferty banku. Niczego takiego nie potrzebujemy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Zaczynamy od rachunków",
+   "sub": "bo reszta z nich wynika",
+   "nar": "Zaczynamy od dwóch rachunków, bo wszystko inne jest tylko ich konsekwencją.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Dwa rachunki",
+   "sub": "jeden krótki, drugi w dwóch krokach",
+   "nar": "Pierwszy rachunek dotyczy raty równej i jest najkrótszy z możliwych: liczba rat pomnożona przez ratę z twojej oferty.",
+   "broll_q": "lawyer writing on a document",
+   "broll_url": "https://videos.pexels.com/video-files/6101321/6101321-hd_1366_720_30fps.mp4",
+   "broll_credito": {
+    "pexels_id": 6101321,
+    "autor": "KATRIN BOLOVTSOVA",
+    "url": "https://www.pexels.com/video/lawyer-writing-on-a-document-6101321/"
+   },
+   "cap": "Dwa rachunki"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "To cała suma",
+   "sub": "a odsetki to resztka",
+   "nar": "To cała suma, którą oddasz. Odejmij od niej kwotę kredytu i zostają same odsetki. Ta resztka jest tym, ile kredyt rzeczywiście kosztował.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Skąd ta rata",
+   "sub": "nie ode mnie",
+   "nar": "Zwróć uwagę, skąd wzięła się ta rata: ja jej nie policzyłem. Jest napisana na papierze, który już masz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Drugi rachunek",
+   "sub": "najpierw kapitał",
+   "nar": "Drugi rachunek dotyczy malejącej i ma dwa kroki. Najpierw część kapitałowa: kwota podzielona przez liczbę rat.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ta część jest stała",
+   "sub": "zmieniają się odsetki",
+   "nar": "Ta część jest stała, co miesiąc dokładnie taka sama. Zmieniają się tylko odsetki, bo maleje to, od czego się je liczy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Potem oprocentowanie",
+   "sub": "miesięczne, nie roczne",
+   "nar": "Potem miesięczne oprocentowanie: roczne podzielone przez dwanaście. Też z oferty, nie ode mnie. Jeśli w ofercie stoi roczne, dziel; jeśli miesięczne, nie dziel.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "I suma odsetek",
+   "sub": "trzy mnożenia i dzielenie",
+   "nar": "Suma odsetek malejącej to miesięczne oprocentowanie razy kwota razy liczba rat plus jeden, podzielone przez dwa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "To nie reguła banku",
+   "sub": "to szkolny ciąg",
+   "nar": "Ten wzór nie jest regułą żadnego banku. Wychodzi z sumy sald, która jest zwykłym ciągiem ze szkoły.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Gdzie to przeczytać",
+   "sub": "wszystko na jednym papierze",
+   "nar": "Do obu rachunków potrzebujesz trzech liczb, i wszystkie trzy stoją w jednym dokumencie: w ofercie albo w umowie.",
+   "broll_q": "people looking at a document",
+   "broll_url": "https://videos.pexels.com/video-files/7732868/7732868-hd_1280_720_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 7732868,
+    "autor": "Mikhail Nilov",
+    "url": "https://www.pexels.com/video/people-looking-at-document-7732868/"
+   },
+   "cap": "Gdzie to przeczytać"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Pierwsza liczba",
+   "sub": "kwota kredytu",
+   "nar": "Pierwsza to kwota kredytu. Nie cena mieszkania i nie wkład własny, a dokładnie tyle, ile pożycza bank. Wkład własny został już wpłacony i odsetek nie generuje.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Druga liczba",
+   "sub": "miesiące, nie lata",
+   "nar": "Druga to liczba rat, czyli miesiące. Dwadzieścia lat zapisuje się jako dwieście czterdzieści rat.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Trzecia liczba",
+   "sub": "oprocentowanie roczne",
+   "nar": "Trzecia to oprocentowanie roczne. Szukaj liczby opisanej jako oprocentowanie, nie jako całkowity koszt kredytu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Te dwie bywają mylone",
+   "sub": "a to nie to samo",
+   "nar": "Bywają mylone, a to nie to samo: całkowity koszt ma już w sobie prowizję i ubezpieczenia, i do wzoru nie wchodzi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Czwarta liczba",
+   "sub": "do porównania, nie do wzoru",
+   "nar": "I czwarta liczba, która nie wchodzi do wzoru, tylko do porównania: rata równa, wpisana w ofercie. Bez niej nie porównasz drugiej strony rachunku.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Jeśli jest",
+   "sub": "zapisz też pierwszą malejącą",
+   "nar": "Jeśli oferta podaje także pierwszą ratę malejącą, zapisz ją. Sprawdzisz nią własny rachunek.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Masz wszystko",
+   "sub": "i nic więcej nie wejdzie",
+   "nar": "Masz cztery liczby z jednego papieru. Nic więcej nie będzie potrzebne, i nic więcej tu nie wejdzie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Pierwsza rata myli",
+   "sub": "i myli najbardziej",
+   "nar": "Teraz rzecz, która myli najbardziej. Pierwsza rata malejąca jest wyższa od równej, i to zawsze, nie czasami.",
+   "broll_q": "counting cash from a wallet",
+   "broll_url": "https://videos.pexels.com/video-files/34596756/14661003_1280_720_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 34596756,
+    "autor": "Jakub Zerdzicki",
+    "url": "https://www.pexels.com/video/managing-finances-counting-cash-from-wallet-34596756/"
+   },
+   "cap": "Dlaczego pierwsza rata myli"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dlaczego wyższa",
+   "sub": "wprost ze wzoru",
+   "nar": "Wychodzi to wprost ze wzoru: część kapitałowa plus odsetki od pełnej kwoty, bo w pierwszym miesiącu nic jeszcze nie spłaciłeś. Odsetki od pełnej kwoty są największe, jakie w ogóle zapłacisz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Równa jest niższa",
+   "sub": "ale nie za darmo",
+   "nar": "Równa jest w tym miesiącu niższa, bo bank rozłożył kapitał inaczej. Na starcie spłacasz go mniej.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Mniej kapitału",
+   "sub": "dłużej większy dług",
+   "nar": "Mniej kapitału na starcie znaczy, że dłużej zostaje większy dług. A odsetki liczy się właśnie od długu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Nie ma sprzeczności",
+   "sub": "to ta sama rzecz",
+   "nar": "Dlatego niższa pierwsza rata i wyższa suma odsetek to nie sprzeczność. To ta sama rzecz widziana z dwóch stron.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Na końcu odwrotnie",
+   "sub": "ostatnia rata malejąca",
+   "nar": "Na końcu jest odwrotnie: ostatnia rata malejąca jest znacznie niższa od równej, bo dług już prawie nie istnieje. Pod koniec okresu płacisz już niemal wyłącznie kapitał.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Co właściwie porównujesz",
+   "sub": "najgorszy miesiąc z każdym",
+   "nar": "Patrząc tylko na pierwszą ratę, porównujesz najgorszy miesiąc malejącej z każdym miesiącem równej.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dlatego suma",
+   "sub": "i zaraz ją zobaczysz",
+   "nar": "Dlatego rachunek z poprzedniego rozdziału patrzy na sumę, a nie na jeden miesiąc. Zobaczmy ją na liczbach.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Przykład",
+   "sub": "liczby wymyślone, i mówię to wprost",
+   "nar": "Przykład, i mówię to wprost: liczby są wymyślone, żeby rachunek był widoczny. To nie jest żadna oferta.",
+   "broll_q": "person writing on paper",
+   "broll_url": "https://videos.pexels.com/video-files/8478946/8478946-hd_1280_720_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 8478946,
+    "autor": "ArtHouse Studio",
+    "url": "https://www.pexels.com/video/person-writing-on-paper-8478946/"
+   },
+   "cap": "Przykład na okrągłych liczbach"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Trzy dane",
+   "sub": "kwota, okres, oprocentowanie",
+   "nar": "Kwota: trzysta tysięcy złotych. Okres: dwadzieścia lat. Oprocentowanie: siedem procent w roku. Trzy dane, i tyle wystarczy obu rachunkom.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Miesięczne oprocentowanie",
+   "sub": "roczne przez dwanaście",
+   "nar": "Miesięczne oprocentowanie to roczne podzielone przez dwanaście. Wychodzi niecałe sześć dziesiątych procenta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Część kapitałowa",
+   "sub": "stała przez cały okres",
+   "nar": "Część kapitałowa: trzysta tysięcy podzielone przez dwieście czterdzieści rat daje tysiąc dwieście pięćdziesiąt złotych.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Odsetki pierwszego miesiąca",
+   "sub": "od pełnej kwoty",
+   "nar": "Odsetki pierwszego miesiąca to kwota razy to oprocentowanie, czyli około tysiąca siedmiuset pięćdziesięciu złotych.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Pierwsza rata malejąca",
+   "sub": "suma dwóch części",
+   "nar": "Pierwsza rata malejąca to suma tych dwóch części. Wychodzi około trzech tysięcy złotych. To najwyższa rata w całym harmonogramie, i dalej jest tylko taniej.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Mnożnik sumy",
+   "sub": "liczba rat plus jeden przez dwa",
+   "nar": "Teraz mnożnik: liczba rat plus jeden, podzielone przez dwa. Daje sto dwadzieścia i pół.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Suma odsetek malejącej",
+   "sub": "jedno mnożenie",
+   "nar": "Odsetki pierwszego miesiąca razy sto dwadzieścia i pół to około dwustu dziesięciu tysięcy złotych.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Druga strona",
+   "sub": "rata równa jako dana",
+   "nar": "Druga strona przykładu. Ratę równą przyjmuję jako daną, tak jak wziąłbyś ją z papieru: dwa tysiące trzysta dwadzieścia pięć złotych.",
+   "broll_q": "making a presentation to a couple",
+   "broll_url": "https://videos.pexels.com/video-files/7735495/7735495-hd_1280_720_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 7735495,
+    "autor": "Mikhail Nilov",
+    "url": "https://www.pexels.com/video/making-a-presentation-to-a-couple-7735495/"
+   },
+   "cap": "Druga strona przykładu"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Nie liczę jej",
+   "sub": "i nie trzeba",
+   "nar": "Nie liczę jej, bo na kartce się jej nie policzy. I nie trzeba: bank wpisuje ją w ofercie. Wzór na nią wymaga potęgowania, a oferta policzyła go za ciebie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Suma oddana",
+   "sub": "liczba rat razy rata",
+   "nar": "Suma to liczba rat razy rata, czyli dwieście czterdzieści razy dwa tysiące trzysta dwadzieścia pięć.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ile to jest",
+   "sub": "zanim odejmiemy kwotę",
+   "nar": "Wychodzi około pięciuset pięćdziesięciu ośmiu tysięcy złotych oddanych do banku. Prawie dwa razy tyle, ile w ogóle pożyczyłeś.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Same odsetki",
+   "sub": "po odjęciu kwoty",
+   "nar": "Odejmij kwotę kredytu i zostają odsetki: blisko dwustu pięćdziesięciu ośmiu tysięcy złotych.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Teraz obok siebie",
+   "sub": "dwie sumy odsetek",
+   "nar": "Postaw to obok malejącej: dwieście dziesięć tysięcy przeciw dwustu pięćdziesięciu ośmiu tysiącom.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Różnica",
+   "sub": "przy tej samej kwocie",
+   "nar": "Różnica w tym przykładzie to blisko pięćdziesiąt tysięcy złotych, przy tej samej kwocie i tym samym okresie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A co oddałeś w zamian",
+   "sub": "to jest cała wymiana",
+   "nar": "A pierwsza rata malejąca była wyższa o jakieś sześćset siedemdziesiąt pięć złotych. To jest cała ta wymiana. Wyżej na starcie, niżej w sumie, i to jest cała treść wyboru.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Czego to nie rozstrzyga",
+   "sub": "i to jest najważniejsze",
+   "nar": "I teraz rzecz najważniejsza: ten rachunek nie mówi, co wybrać. Mówi tylko, ile kosztuje każdy z wyborów.",
+   "broll_q": "person signing documents",
+   "broll_url": "https://videos.pexels.com/video-files/5311423/5311423-hd_1280_720_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 5311423,
+    "autor": "olia danilevich",
+    "url": "https://www.pexels.com/video/person-signing-a-documents-5311423/"
+   },
+   "cap": "Czego ten rachunek nie rozstrzyga"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Wyższy start",
+   "sub": "to prawdziwe ryzyko",
+   "nar": "Malejąca startuje wyżej, a wyższy start to prawdziwe ryzyko w domowym budżecie pierwszych lat. Dochód pierwszego roku musi ją unieść co miesiąc, bez wyjątku.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Nie wybiera źle",
+   "sub": "wybiera coś innego",
+   "nar": "Kto nie udźwignie pierwszej raty, nie wybiera źle. Wybiera coś innego: niższy start zamiast niższej sumy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Czego nie powiem",
+   "sub": "bo nie mam źródła",
+   "nar": "Nie powiem ci też, co robią polskie banki ani co wybiera większość. Nie mam na to źródła i nie będę zgadywał.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Krok pierwszy",
+   "sub": "wypisz trzy liczby",
+   "nar": "Cztery kroki, wszystkie na jednym papierze. Zacznij od wypisania kwoty, liczby rat i oprocentowania.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Krok drugi",
+   "sub": "wariant równy",
+   "nar": "Drugi: pomnóż liczbę rat przez ratę równą z oferty i odejmij kwotę. Masz odsetki wariantu równego.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Krok trzeci",
+   "sub": "wariant malejący",
+   "nar": "Trzeci: policz miesięczne oprocentowanie, pomnóż przez kwotę, a potem przez mnożnik z piątego rozdziału.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Krok czwarty",
+   "sub": "i napisz tylko stronę",
+   "nar": "Czwarty: porównaj obie sumy i obie pierwsze raty. Napisz w komentarzu, która strona wyszła, bez podawania kwot. Ciekawe, u ilu osób wyjdzie inaczej niż w moim przykładzie.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Dwie oferty",
+   "sub": "ten sam kredyt",
+   "nar": "Dwie oferty na ten sam kredyt. W jednej rata jest niższa, i to ona mówi najmniej.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Rata to nie koszt",
+   "sub": "koszt to suma",
+   "nar": "Bo rata to nie koszt. Koszt to suma wszystkiego, co oddasz do ostatniego miesiąca.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Wariant równy",
+   "sub": "jedno mnożenie",
+   "nar": "Policz: liczba rat razy rata równa z oferty, minus kwota kredytu. To twoje odsetki.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Wariant malejący",
+   "sub": "i to też z oferty",
+   "nar": "W malejącej: miesięczne oprocentowanie razy kwota razy liczba rat plus jeden, przez dwa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Niższa rata",
+   "sub": "większa suma",
+   "nar": "Niższa pierwsza rata potrafi oznaczać większą sumę. Oba warianty są policzone w filmie.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# kolejny-poziom-018\n\n## TITULO\nTwoja Pierwsza Rata Jest Niższa, a Oddajesz Bankowi Więcej: Policz Oba Warianty na Swojej Kwocie\n\n## TITULO SHORT\nNiższa rata, większa suma? Policz oba\n\n## DESCRICAO\nDwie oferty na ten sam kredyt, ta sama kwota i ten sam okres. W jednej miesięczna rata jest niższa — i prawie każdy patrzy właśnie na tę liczbę. Tylko że rata to nie koszt. Koszt to suma wszystkiego, co oddasz bankowi do ostatniego miesiąca, a te dwie liczby nie idą w tę samą stronę: niższa rata na starcie potrafi oznaczać wyraźnie większą sumę na końcu. Różnica nie siedzi w banku ani w negocjacji — siedzi w kształcie raty, a ten kształt wybierasz ty przy podpisie.\n\nFilm pokazuje dwa rachunki i oba policzysz na własnej kwocie. Pierwszy, dla raty równej, jest najkrótszy z możliwych: liczba rat pomnożona przez ratę, którą bank wpisał w twojej ofercie; odejmij kwotę kredytu i zostają same odsetki. Zwróć uwagę, skąd bierze się ta rata — nikt jej tu nie liczy, bo na kartce się jej nie policzy, a nie trzeba: jest napisana na papierze, który już masz. Drugi rachunek, dla raty malejącej, ma dwa kroki: część kapitałowa to kwota podzielona przez liczbę rat i jest stała przez cały okres, a suma odsetek to miesięczne oprocentowanie razy kwota razy liczba rat plus jeden, podzielone przez dwa. Ten wzór nie jest regułą żadnego banku — wychodzi z sumy sald, która jest zwykłym ciągiem arytmetycznym ze szkoły.\n\nCały rozdział idzie na to, co myli najbardziej: pierwsza rata malejąca jest zawsze wyższa od równej, i wynika to wprost ze wzoru, bo w pierwszym miesiącu odsetki liczy się od pełnej kwoty. Rata równa jest wtedy niższa, bo bank rozłożył kapitał inaczej i na starcie spłacasz go mniej — a mniej kapitału na starcie znaczy, że dłużej zostaje większy dług. Dlatego niższa pierwsza rata i wyższa suma odsetek to nie sprzeczność, a ta sama rzecz widziana z dwóch stron. Patrząc tylko na pierwszą ratę, porównujesz najgorszy miesiąc malejącej z każdym miesiącem równej.\n\nDalej jest przykład na okrągłych liczbach — i mówię w filmie wprost, że są wymyślone, żeby rachunek był widoczny, a nie wzięte z jakiejkolwiek oferty. Na koniec rozdział o tym, czego ten rachunek NIE rozstrzyga: malejąca startuje wyżej, a wyższy start to prawdziwe ryzyko w budżecie pierwszych lat. Kto nie udźwignie pierwszej raty, nie wybiera źle — wybiera coś innego: niższy start zamiast niższej sumy. Film nie poleca żadnego z wariantów i nie mówi, co robią polskie banki ani co wybiera większość, bo na to nie ma tu źródła.\n\nMateriał informacyjny, nie jest doradztwem finansowym ani ofertą.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nOba rachunki są w pierwszych dwóch minutach, więc nie musisz oglądać całości, żeby je mieć. Wariant równy: liczba rat razy rata równa z twojej oferty, minus kwota kredytu — to odsetki. Wariant malejący: miesięczne oprocentowanie, czyli roczne przez dwanaście, razy kwota, razy liczba rat plus jeden podzielone przez dwa. Trzy liczby do obu rachunków są w jednym dokumencie: kwota kredytu, liczba rat i oprocentowanie roczne. Uwaga na pułapkę: oprocentowanie to nie całkowity koszt kredytu, bo ten ma już w sobie prowizję i ubezpieczenia. I rzecz, która myli najbardziej: pierwsza rata malejąca jest wyższa od równej zawsze, nie czasami — to nie znaczy, że malejąca jest droższa. Jeśli policzysz, napisz w komentarzu tylko, która strona wyszła. Bez kwot.\n\n## HASHTAGS\n#RataMalejąca #KredytHipoteczny #KolejnyPoziom\n\n## TAGS\nrata malejaca, rata rowna, rata annuitetowa, kredyt hipoteczny, suma odsetek, czesc kapitalowa, oprocentowanie roczne, jak policzyc odsetki, pierwsza rata, zdolnosc kredytowa, kolejny poziom, finanse osobiste, kredyt na mieszkanie, porownanie ofert, liczba rat\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\nB-roll: Pexels, creditos por clipe em broll_creditos.json e abaixo.\nMikhail Nilov; KATRIN BOLOVTSOVA; Jakub Zerdzicki; ArtHouse Studio;\nolia danilevich.\n\n## AVISO SOBRE OS NUMEROS\nZERO AFIRMACAO SOBRE O MUNDO, e por isso nao ha fonte a citar.\n\nO QUE O VIDEO AFIRMA E ARITMETICA, e so ela:\n  * na rata malejaca a parte do capital e a mesma todo mes — kwota dividida\n    pela liczba rat — e a primeira rata e essa parte MAIS kwota vezes o\n    oprocentowanie mensal;\n  * a soma dos juros da malejaca e oprocentowanie mensal vezes kwota vezes\n    (liczba rat mais um), dividido por dois. Isso sai da soma dos saldos, que e\n    uma progressao aritmetica: conta de escola, nao regra de banco;\n  * na rata rowna a soma devolvida e liczba rat vezes A RATA QUE O BANCO\n    ESCREVEU NA OFERTA. Essa rata nao se calcula a mao e nao precisa: esta no\n    papel da pessoa.\n\nAS ENTRADAS SAO TODAS DO ESPECTADOR: kwota, liczba rat e oprocentowanie estao\nna oferta dele, e a rata rowna tambem. Nao ha numero meu no resultado.\n\nO EXEMPLO DO CAPITULO CINCO E HIPOTETICO E O VIDEO DIZ ISSO NA PROPRIA CENA DE\nABERTURA DELE: trzysta tysiecy zlotych, dwadziescia lat, siedem procent. Nao e\ntaxa de mercado, nao e oferta de banco nenhum, nao foi medido em lugar nenhum —\ne numero redondo para a conta ficar visivel. A rata rowna do exemplo entra como\nDADA, do mesmo jeito que entraria do papel.\n\nO QUE FOI DESCARTADO, e o descarte vai escrito porque e a regra da casa:\n  (1) qualquer afirmacao sobre o que os bancos poloneses fazem, oferecem ou\n      preferem — nao tenho fonte e nao cito de memoria;\n  (2) qualquer afirmacao sobre o que a MAIORIA escolhe: o titulo chegou a ser\n      \"porque quase todo mundo escolhe a mais cara\" e CAIU, por ser afirmacao\n      sobre uma maioria que eu nao medi;\n  (3) o efeito da rata malejaca na zdolnosc kredytowa, que depende do banco e\n      de regulamento e que eu nao fecho em duas fontes;\n  (4) qualquer taxa, indice de referencia, marza ou valor vigente.\n\nE O QUE A CONTA NAO DECIDE esta no capitulo sete inteiro: a malejaca comeca\nmais alta, e isso e risco de caixa real nos primeiros anos. Quem nao aguenta a\nprimeira rata nao esta escolhendo errado — esta escolhendo outra coisa. O video\nnao recomenda nenhum dos dois lados.\n\n## FONTES\nNENHUMA FONTE NORMATIVA OU ESTATISTICA E CITADA, e isso e deliberado: o video\nnao faz afirmacao sobre o mundo. As unicas \"fontes\" sao os documentos do\nproprio espectador — a oferta ou a umowa, de onde saem kwota, liczba rat,\noprocentowanie roczne e a rata rowna.\nB-roll: Pexels, licenca Pexels, creditos por clipe em broll_creditos.json.\n"
+}
