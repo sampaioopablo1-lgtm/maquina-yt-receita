@@ -97,18 +97,51 @@ def duracao(v):
 
 
 def quadros(v, n=QUADROS):
-    """Um unico passe do ffmpeg devolve os n quadros ja reduzidos.
+    """Os n quadros, cada um BUSCADO no instante que o relatorio vai nomear.
 
-    Amostrar com -ss por quadro custaria n decodificacoes; aqui e uma so.
+    ANTES ERA UM PASSE UNICO com `fps=n/d`, e o comentario que o justificava
+    dizia que "amostrar com -ss por quadro custaria n decodificacoes". As duas
+    coisas estavam erradas, e a segunda escondia a primeira.
+
+    O ERRO: o filtro `fps` emite o quadro i no instante `i*d/n` — 0, 42,1,
+    84,1... — enquanto `conferir` nomeia esse mesmo quadro de `d*(i+0.5)/n` —
+    21,0, 63,1, 105,2... Meio passo de diferenca, que num video de 505 s e
+    VINTE E UM SEGUNDOS. O relatorio media um quadro e falava de outro.
+
+    MEDIDO em 07/10/2026 no labtreinamento-011 (504,8 s, 12 quadros), com a
+    faixa do lower-third do quadro i:
+
+        i    rotulo    quadro do passe   tinta no rotulo   tinta no passe
+        3     147,2        126,2              60,41%           60,41%
+        8     357,6        336,6              66,10%            0,00%
+
+    O i=3 batia por COINCIDENCIA (os dois instantes cairam em cena de footage);
+    o i=8 reprovou o pacote. O rotulo 357,6 cai na janela da cena 40, que e
+    broll, entao a regra do lower-third foi aplicada — a um quadro de 336,6 s,
+    que e uma cena de cartao com o texto no centro e a faixa de baixo vazia por
+    desenho. "0,00% de tinta na faixa" era verdade sobre o quadro errado.
+
+    E O LADO PIOR, que ninguem teria visto: o `sonda da cena` PULA a janela em
+    que um rotulo caiu. A cena 40 ficou sem nenhuma sonda dentro do footage, e
+    o portao se deu por satisfeito com sete janelas tendo conferido cinco.
+
+    O CUSTO REAL da correcao, medido no mesmo arquivo: `-ss` ANTES do `-i` e
+    busca de entrada, nao decodificacao do video inteiro. Doze buscas mais as
+    doze medidas levaram 2,4 s. O passe unico nunca foi a opcao barata; era a
+    opcao imprecisa.
     """
     d = duracao(v)
-    fps = n / d
-    r = subprocess.run(
-        ["ffmpeg", "-v", "error", "-i", v, "-vf", f"fps={fps},scale={W}:{H}",
-         "-f", "rawvideo", "-pix_fmt", "rgb24", "-"],
-        capture_output=True)
-    px = W * H * 3
-    return [r.stdout[i:i + px] for i in range(0, len(r.stdout) - px + 1, px)], d
+    qs = []
+    for i in range(n):
+        t = min(d * (i + 0.5) / n, d - 0.1)
+        q = quadro_em(v, t)
+        # A posicao na lista E a identidade do instante: `conferir` recalcula
+        # `t` por indice. Entao uma busca que falha entra como None e e pulada
+        # la — nunca encolhe a lista, que renumeraria todos os seguintes e
+        # reporia, por outro caminho, exatamente o erro que este docstring
+        # acabou de descrever.
+        qs.append(q)
+    return qs, d
 
 
 def quadro_em(v, t):
@@ -218,6 +251,10 @@ def conferir(video, fundo_esperado=None, n=QUADROS, janelas_broll=None):
     print(f"{video}  {d:.1f}s  {len(qs)} quadros")
     print(f"{'t(s)':>7} {'tinta':>7} {'margem':>7} {'contr':>6}  fundo")
     for i, q in enumerate(qs):
+        if q is None:
+            avisos.append(f"t={d * (i + 0.5) / len(qs):.1f}s: nao consegui "
+                          f"buscar este quadro")
+            continue
         m = analisa(q)
         tintas.append(m["tinta"])
         t = d * (i + 0.5) / len(qs)
