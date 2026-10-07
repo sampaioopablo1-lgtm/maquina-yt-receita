@@ -860,3 +860,76 @@ O que se copia e a estrutura do titulo, o tipo de gancho e o formato do payoff.
 
 E diga no relatorio o que o feed mostrou e se grafou ou nao. Rodada que nao diz
 isso nao fez a pesquisa.
+
+## INDONESIA: o par existe, e o que barra nao e so tecnico (medido 07/10/2026)
+
+O doc so tinha o par de trabalho/previdencia (`bpjsketenagakerjaan.go.id` +
+`jdih.kemnaker.go.id`). Para o eixo de METROLOGIA LEGAL — peso liquido
+declarado, tera e tera ulang, BDKT — o par tambem existe:
+
+| host | codigo | tamanho | serve? |
+|---|---|---|---|
+| `jdih.kemendag.go.id` | 200 | 390 KB | publicador do texto, mas **SPA** |
+| `ditjenpktn.kemendag.go.id` | 200 | 206 KB | orgao que aplica a metrologia, **SPA** |
+| `www.kemendag.go.id` | 200 | 249 KB | SPA |
+| `peraturan.go.id` | — | — | timeout no handshake TLS aos 20 s |
+| `peraturan.bpk.go.id` | 403 | 5,5 KB | Cloudflare "Just a moment" |
+| `www.bps.go.id` | **403** | 5,4 KB | **Cloudflare — mudou, era usavel** |
+
+**Atencao ao BPS.** Pacotes antigos de `resep-naik-level` (005 e 011) citam o
+BPS como fonte. O host agora responde 403 atras de Cloudflare, igual ao
+`peraturan.bpk.go.id`. Se precisar RECONFERIR um numero do BPS, essa rota nao
+existe mais — nao e falha de rede, e desafio de bot.
+
+**A rota de documento do JDIH Kemendag e slug legivel**, e isso da para
+confirmar que uma norma existe sem busca:
+
+    https://jdih.kemendag.go.id/peraturan/undang-undang-nomor-2-tahun-1981-tentang-metrologi-legal
+
+O que distingue achou de nao achou: um slug inexistente devolve **404 com 2
+bytes**; o que existe devolve **200 com ~75 KB**, com `<title>` e `canonical`
+batendo. A pagina de listagem devolve ~93 KB e **ignora a query** (`?q=`,
+`?search=`, `?judul=` dao todos o mesmo tamanho), e `/api/...` e
+`/wp-json/...` dao 404.
+
+**DUAS BARREIRAS, e a segunda nao se resolve com tecnica:**
+
+1. o corpo e renderizado por JavaScript — 200 com texto vazio depois de limpar
+   as tags, igual a `efka.gov.gr` e `et.gr`;
+2. o JDIH Kemendag declara, no `<head>`:
+
+       <meta name="robots" content="noai, noimageai">
+       <meta name="tdm-reservation" content="1">
+
+   O publicador esta pedindo para nao ser minerado por IA e reservando os
+   direitos de text-and-data-mining. **Nao raspe o texto da norma dali.** O
+   `<title>` e o `canonical` que a propria pagina expoe bastam para confirmar
+   que a norma existe e qual e o numero dela; o corpo, nao.
+
+Quando isso acontece, a saida da rotina e redesenhar a pauta para que o numero
+que decide seja o DO ESPECTADOR — e nao fingir segunda fonte. O
+`resep-naik-level-012` foi feito assim.
+
+## O PORTAO `layout` REPROVA POR GLIFO, NAO POR COMPRIMENTO (medido 07/10/2026)
+
+O `kicker` `"Rumusnya"` reprovou o short com **1,36% de tinta na borda**. Minha
+primeira hipotese foi comprimento — kicker curto, fonte escalada ao maximo,
+descendente estourando. **A hipotese estava errada, e testar custou uma chamada:**
+
+| kicker | chars | tinta na borda |
+|---|---|---|
+| `Rumusnya` | 8 | **1,36%** |
+| `Hitungan` | 8 | 0,00% |
+| `Contohny` | 8 | 0,00% |
+| `Delapann` | 8 | 0,00% |
+| `Satu dua` | 8 | 0,00% |
+| `Rumusny` | 7 | 0,00% |
+| `Rumusnyaa` | 9 | 0,00% |
+
+Oito caracteres passam em quatro palavras diferentes e reprovam numa. Tirar ou
+pôr uma letra da MESMA palavra tambem passa. Logo:
+
+* **nao existe regra "kicker ate N caracteres"** — nao escreva uma;
+* a causa e a combinacao de glifos naquela largura especifica;
+* a correcao e MEDIR com `layout.tinta_na_borda(F.svg_cena(c, pal, 1080, 1920), 1080, 1920, i)`
+  e trocar a palavra, nao encurtar por supersticao.
