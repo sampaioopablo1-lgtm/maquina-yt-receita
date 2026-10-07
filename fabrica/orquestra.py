@@ -90,10 +90,29 @@ MAX_POR_DIA_POR_CANAL = 2  # PACOTES/dia/canal — 2 longos + 2 shorts por dia
 # pacote contra a media do proprio canal, ZERE a entrada do canal aqui e diga ao
 # dono no mesmo relatorio. Catorze videos por dia num canal de 14 inscritos e
 # risco que ninguem mediu.
+# 7 -> 1 nos tres em 07/10/2026, no MESMO dia em que o dono pediu 7, e a troca
+# tem conta por tras. O teto conta PACOTE (um longo mais um short), e o pacote
+# carrega um longo que nao e lido: dos treze pacotes publicados nas 72 h
+# anteriores a esta linha, NOVE tem o longo com zero view e onze com no maximo
+# uma. Sete pacotes/dia sao quatorze videos/dia, dos quais sete sao longos
+# mortos que comem o render e quase toda a cota de escrita (o `captions.insert`
+# e ~400 das ~500 unidades de um pacote, e o teto medido e 40 videos por
+# janela) — e quatorze videos/dia num canal de sete inscritos e risco de spam
+# nao medido.
+#
+# O ALVO DE RITMO NAO E ESTE NUMERO. O alvo e 7 SHORTS/dia por canal com um
+# longo/dia so no labtreinamento, porque a porta do YPP que esta perto e a
+# Porta 1 (500 inscritos + 3 milhoes de views de Shorts em 90 dias) e o que
+# falta nela e alcance de SHORT. Mas a fabrica so renderiza short DENTRO de um
+# pacote, entao enquanto o SHORT SOLTO nao existir o teto de pacote tem de ser
+# baixo. Quando ele existir, estes numeros deixam de governar o ritmo.
+#
+# O dono autorizou decisao dura ("nao fico preso a definicoes ja colocadas").
+# Se ele quiser o 7 de volta, e o 7 que vale.
 TETO_POR_CANAL = {
-    "labtreinamento": 7,
-    "epomeno-epipedo": 7,
-    "kolejny-poziom": 7,
+    "labtreinamento": 1,
+    "epomeno-epipedo": 1,
+    "kolejny-poziom": 1,
 }
 
 # CANAIS_FOCO — quando nao vazio, SO estes canais entram na fila.
