@@ -1,0 +1,498 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-013",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#22333B",
+  "c1": "#A4243B",
+  "c2": "#D8973C",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Seis por cento",
+  "l2": "de qual base?"
+ },
+ "longo": [
+  {
+   "layout": "broll",
+   "kicker": "Seis por cento",
+   "sub": "de qual salário?",
+   "nar": "No holerite tem uma linha de vale-transporte. Quase todo mundo acha que ela é seis por cento do salário, e é — mas de qual salário?",
+   "broll_q": "person looking at documents",
+   "broll_url": "https://videos.pexels.com/video-files/8298004/8298004-hd_1280_720_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 8298004,
+    "autor": "Mikhail Nilov",
+    "url": "https://www.pexels.com/video/person-looking-at-documents-8298004/"
+   },
+   "cap": "As duas contas"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A resposta inteira",
+   "sub": "em duas linhas",
+   "nar": "A resposta é esta e o vídeo só a destrincha. Faça duas contas: seis por cento do salário básico sozinho, e o seu gasto real do mês.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Vale a menor",
+   "sub": "sempre a menor",
+   "nar": "Das duas, o que pode ser descontado de você é a MENOR. Nunca a maior, e nunca o percentual cheio quando o seu gasto ficou abaixo dele.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Agora confira",
+   "sub": "na sua própria linha",
+   "nar": "Pegue o holerite e compare: a linha de vale-transporte tem de ser igual à menor das duas contas. Acima disso, o desconto está errado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Por que ninguém confere",
+   "sub": "a conta parece uma só",
+   "nar": "Ninguém confere porque a conta parece ser uma só. O número chega pronto na folha, e número impresso não convida ninguém a recalcular.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O salário básico",
+   "sub": "sozinho, sem mais nada",
+   "nar": "A primeira armadilha mora na palavra básico. A base é o salário básico sozinho, excluídos quaisquer adicionais ou vantagens.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Onde está escrito",
+   "sub": "lei e regulamento",
+   "nar": "São dois textos e eles dizem o mesmo. A lei fala da parcela que exceder seis por cento do salário básico, e o decreto detalha a base.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O resto do vídeo",
+   "sub": "é só destrinchar",
+   "nar": "Daqui para frente eu mostro onde ler cada número no seu papel, como somar o gasto de transporte, o exemplo inteiro e as armadilhas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Procure a base",
+   "sub": "e só ela",
+   "nar": "Abra o holerite onde ficam os proventos. Você procura uma linha só, a do salário base, que em alguns modelos vem como vencimento.",
+   "broll_q": "a person finding a document",
+   "broll_url": "https://videos.pexels.com/video-files/7710452/7710452-hd_1366_720_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 7710452,
+    "autor": "Kaboompics.com",
+    "url": "https://www.pexels.com/video/a-person-finding-a-document-7710452/"
+   },
+   "cap": "Onde está a base"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O bruto não serve",
+   "sub": "e é ele que chama atenção",
+   "nar": "O total bruto é o número grande e é o que chama atenção, mas não serve aqui. Ele soma tudo, e tudo é o que a norma manda excluir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que sai da base",
+   "sub": "a lista inteira",
+   "nar": "Sai da base a hora extra e sai o adicional noturno. Saem insalubridade, periculosidade, gratificação, prêmio, comissão e qualquer vantagem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Por que isso importa",
+   "sub": "e importa muito aqui",
+   "nar": "Importa porque na indústria o adicional pesa de verdade. Quem recebe periculosidade tem bruto bem maior que a base, e o desconto sai inflado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A exceção",
+   "sub": "quem ganha por produção",
+   "nar": "Há uma exceção no mesmo decreto, e ela inverte a base. Quem é pago por tarefa ou serviço feito tem como base o montante do período.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E quem vive de comissão",
+   "sub": "a mesma exceção",
+   "nar": "Vale o mesmo para quem tem remuneração constituída exclusivamente de comissões, percentagens ou gorjetas. Aí a base é o que entrou.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "No meio não tem",
+   "sub": "é um caso ou o outro",
+   "nar": "Repare na palavra exclusivamente. Quem tem salário fixo mais comissão não está na exceção, e a base segue sendo o básico sozinho.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Anote o número",
+   "sub": "antes de seguir",
+   "nar": "Anote esse número num canto do papel, porque ele é a entrada de uma das contas. É dele, e não do bruto, que saem os seis por cento.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Agora o transporte",
+   "sub": "o gasto de verdade",
+   "nar": "A outra conta não está em documento nenhum: ela é sua. É quanto você gasta de transporte para ir trabalhar e voltar, no mês inteiro.",
+   "broll_q": "man waiting at the bus stop",
+   "broll_url": "https://videos.pexels.com/video-files/7251039/7251039-hd_1280_720_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 7251039,
+    "autor": "MART PRODUCTION",
+    "url": "https://www.pexels.com/video/man-waiting-at-the-bus-stop-7251039/"
+   },
+   "cap": "O seu gasto real"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Três entradas",
+   "sub": "e você tem todas elas",
+   "nar": "São três entradas e você tem todas: valor da passagem, quantas você paga por dia e quantos dias vai trabalhar no mês. Multiplique.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Conte as baldeações",
+   "sub": "não só a ida",
+   "nar": "Conte cada embarque que você paga do próprio bolso. Se pega um ônibus e depois pega outro, são duas passagens só na ida, e a volta repete.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Os dias são seus",
+   "sub": "e não são trinta",
+   "nar": "Os dias não são os do calendário, são os que você trabalha. Quem folga no fim de semana costuma ter vinte e dois dias úteis no mês.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que não entra",
+   "sub": "só o trajeto do trabalho",
+   "nar": "Entra o deslocamento entre a sua casa e o trabalho, nos dois sentidos. Não entra passeio, nem viagem que a empresa paga à parte.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Se você vai de carro",
+   "sub": "a conta muda de lugar",
+   "nar": "O vale-transporte é do transporte coletivo público. Quem vai de carro ou de moto por escolha própria está fora dessa conta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Some, não arredonde",
+   "sub": "a tarifa de hoje",
+   "nar": "Some com o valor exato da tarifa que você paga hoje, não com o de memória. Tarifa muda, e o seu gasto do mês muda junto com ela.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dois números na mão",
+   "sub": "e eles vão se encarar",
+   "nar": "Agora você tem os dois números na mão: os seis por cento da base e o gasto do mês. É hora de colocar um contra o outro e ver qual vence.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "A comparação",
+   "sub": "é uma linha só",
+   "nar": "A comparação é uma linha só e é ela que decide. O que pode ser descontado de você é o MENOR entre o percentual da base e o gasto do mês.",
+   "broll_q": "person using a calculator",
+   "broll_url": "https://videos.pexels.com/video-files/5466766/5466766-hd_1280_720_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 5466766,
+    "autor": "olia danilevich",
+    "url": "https://www.pexels.com/video/person-using-a-calculator-5466766/"
+   },
+   "cap": "Vale sempre a menor"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O caso comum",
+   "sub": "o gasto passa do teto",
+   "nar": "No caso mais comum o gasto de transporte passa dos seis por cento. Aí o seu desconto é esse percentual, e a empresa paga o que passou.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A parcela que exceder",
+   "sub": "é dela, não sua",
+   "nar": "A palavra que a lei usa é exceder. Você custeia a parcela equivalente aos seis por cento, e o empregador custeia no que exceder.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O caso invertido",
+   "sub": "o gasto fica abaixo",
+   "nar": "Agora o caso que ninguém confere: o seu gasto fica ABAIXO do percentual. Se nada excede, o desconto não pode ser o percentual cheio.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Quem mora perto",
+   "sub": "paga menos, não mais",
+   "nar": "É o caso de quem mora perto, de quem paga uma passagem só por dia e de quem faz escala. Para essas pessoas o desconto é o gasto real.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A sobra não existe",
+   "sub": "não há o que descontar",
+   "nar": "Não existe sobra para a empresa guardar por antecipação. Se o transporte custou menos, o que sai da sua folha é esse custo menor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A opção do decreto",
+   "sub": "receber antecipado",
+   "nar": "O decreto trata esse caso de um jeito específico. Sendo a despesa inferior ao percentual, cabe optar por receber o vale antecipado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Guarde a regra",
+   "sub": "em quatro palavras",
+   "nar": "A regra inteira cabe em quatro palavras: vale sempre a menor. Decorando isso você confere a sua linha sozinho, todo mês.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Números inventados",
+   "sub": "e eu digo que são",
+   "nar": "Vou fazer o exemplo com números redondos, e aviso: são inventados por mim. Não é salário de ninguém e não é tarifa de cidade nenhuma.",
+   "broll_q": "person punching in numbers at a calculator",
+   "broll_url": "https://videos.pexels.com/video-files/7593564/7593564-hd_1280_720_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 7593564,
+    "autor": "Pavel Danilyuk",
+    "url": "https://www.pexels.com/video/person-punching-in-numbers-at-a-calculator-7593564/"
+   },
+   "cap": "Um exemplo inteiro"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O salário do exemplo",
+   "sub": "dois mil redondos",
+   "nar": "Digamos que o salário básico impresso no holerite seja dois mil reais. O bruto é maior, porque tem hora extra, mas ele não entra.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A conta da base",
+   "sub": "o percentual sobre ela",
+   "nar": "Seis por cento de dois mil reais dá cento e vinte reais. Esse é o teto do que pode ser descontado de você naquele mês, e ele não sobe.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A conta do transporte",
+   "sub": "passagem vezes dias",
+   "nar": "A passagem custa cinco reais e você paga duas por dia, ida e volta. Em vinte e dois dias isso dá duzentos e vinte reais no mês.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Quem vence",
+   "sub": "o menor dos dois",
+   "nar": "Duzentos e vinte é maior que cento e vinte. Então vale cento e vinte, e é esse o número que a sua linha tem de mostrar, nem um centavo acima.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Agora inverta",
+   "sub": "mesma base, outra tarifa",
+   "nar": "Troque só a tarifa: a passagem custa dois reais e você segue pagando duas por dia. Nos mesmos dias o gasto cai para oitenta e oito reais.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O desconto cai com ela",
+   "sub": "e não fica no teto",
+   "nar": "Oitenta e oito é menor que cento e vinte. Então vale oitenta e oito, e quem descontou o teto nesse caso tirou mais do que podia.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A diferença é sua",
+   "sub": "e não é do salário",
+   "nar": "A diferença entre esses dois descontos é de trinta e dois reais por mês. Ela não depende do seu salário, e sim do trajeto que você faz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "A armadilha da base",
+   "sub": "o percentual sobre o bruto",
+   "nar": "A armadilha mais comum é a base. Quando o desconto sai do bruto, ele cresce junto com a hora extra e o adicional, que ficariam de fora.",
+   "broll_q": "inside a bus",
+   "broll_url": "https://videos.pexels.com/video-files/1179998/1179998-hd_1280_720_30fps.mp4",
+   "broll_credito": {
+    "pexels_id": 1179998,
+    "autor": "Felipe Goncalves",
+    "url": "https://www.pexels.com/video/inside-a-bus-1179998/"
+   },
+   "cap": "Três armadilhas"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Como ela se mostra",
+   "sub": "o desconto oscila",
+   "nar": "Essa tem um sinal fácil de ver na folha: o desconto muda de valor todo mês. Se a sua base é fixa, o teto do desconto também tem de ser fixo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A armadilha do teto",
+   "sub": "tratado como piso",
+   "nar": "A segunda é tratar o teto como se fosse piso. A empresa desconta o percentual cheio de todo mundo, porque é mais simples de rodar na folha.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O sinal dela",
+   "sub": "o mesmo valor para todos",
+   "nar": "O sinal aqui é o inverso: o desconto é sempre o mesmo valor, para todo mundo com o mesmo salário, não importa onde cada um mora.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A armadilha da exceção",
+   "sub": "quem é pago por produção",
+   "nar": "A terceira pega quem é pago por tarefa, por serviço feito ou só de comissão. Para essas pessoas a base é o montante percebido no período.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E ela erra para os dois lados",
+   "sub": "depende do mês",
+   "nar": "Essa erra para os dois lados e é a mais difícil de notar. Num mês cheio a base sobe; num mês fraco ela cai, e o desconto tinha de cair.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Como levar a conversa",
+   "sub": "com papel, não com achismo",
+   "nar": "Se a sua conta não bate com a linha, leve as duas contas escritas e peça para conferirem junto. Chegar com o número feito muda o tom.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Guarde os papéis",
+   "sub": "o seu e o da tarifa",
+   "nar": "Guarde o holerite do mês e o valor da tarifa daquele mesmo período. Sem esses dois papéis a conversa vira memória contra memória.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "O que ela não decide",
+   "sub": "e não é pouco",
+   "nar": "Essa conta diz quanto pode ser descontado de você, e só isso. Ela não diz se você tem direito ao benefício nem quanto a empresa entrega.",
+   "broll_q": "a man and a woman reviewing documents",
+   "broll_url": "https://videos.pexels.com/video-files/8454311/8454311-hd_1366_720_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 8454311,
+    "autor": "cottonbro studio",
+    "url": "https://www.pexels.com/video/a-man-and-a-woman-reviewing-documents-8454311/"
+   },
+   "cap": "O que a conta não decide"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Quem tem direito",
+   "sub": "é outra pergunta",
+   "nar": "Quem tem direito ao vale e para quais trajetos é outra pergunta. Esta conta começa depois que o benefício já aparece na sua folha.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Convenção coletiva",
+   "sub": "pode mudar o desenho",
+   "nar": "Convenção ou acordo coletivo pode mudar coisas em volta, como o momento do desconto. Vale ler o que a sua categoria negociou.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Se vem em dinheiro",
+   "sub": "muda a natureza",
+   "nar": "Vindo em dinheiro em vez de vale, a discussão deixa de ser aritmética e passa a ser de natureza. Esta conta não resolve esse ponto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E o que ela resolve bem",
+   "sub": "um número por mês",
+   "nar": "O que ela resolve é bem objetivo: um número por mês, que você produz sozinho e compara com uma linha impressa. Não precisa de ninguém.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Faça por três meses",
+   "sub": "e vira hábito",
+   "nar": "Faça a conferência por três meses seguidos, do mesmo jeito. Batendo nos três, confie na linha; se não bater, você tem um padrão.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Vale para a equipe",
+   "sub": "não só para você",
+   "nar": "Se você cuida de uma equipe, a mesma conta vale para cada pessoa, com a base e o trajeto de cada uma. Não existe desconto único do time.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Duas contas",
+   "sub": "e vale a menor",
+   "nar": "Resumindo: seis por cento do salário básico sozinho, o seu gasto real do mês, e vale a menor. Confira a linha e diga nos comentários.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Do bruto?",
+   "sub": "não pode ser",
+   "nar": "O vale-transporte desconta do seu salário. Seis por cento, dizem. Mas seis por cento de qual número?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Da base",
+   "sub": "e só dela",
+   "nar": "Da base, e base é o salário básico sozinho. Sem hora extra, sem adicional, sem gratificação, sem comissão.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E tem um limite",
+   "sub": "por baixo",
+   "nar": "E tem limite por baixo: se o seu transporte do mês custou menos que isso, o desconto é o custo real.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Então são duas",
+   "sub": "contas, não uma",
+   "nar": "São duas contas. O percentual sobre a base, e passagem vezes viagens vezes dias. Vale a menor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Confira a linha",
+   "sub": "do seu holerite",
+   "nar": "Compare a menor com a linha do holerite. O exemplo inteiro e as armadilhas estão no vídeo.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# labtreinamento-013\n\n## TITULO\nVale-Transporte: 6% de Qual Salário? A Linha do Holerite Que Quase Ninguém Confere\n\n## TITULO SHORT\nSeu vale-transporte saiu do bruto?\n\n## DESCRICAO\nO desconto de vale-transporte no holerite é seis por cento — isso quase todo mundo sabe. O que quase ninguém confere é seis por cento DE QUÊ, e é aí que a linha erra. A base não é o salário bruto: é o salário básico sozinho, excluídos quaisquer adicionais ou vantagens. Sai a hora extra, sai o adicional noturno, saem insalubridade e periculosidade, saem gratificação, prêmio e comissão. Em quem recebe adicional — e na indústria isso é a regra, não a exceção — o bruto é bem maior que a base, e tirar o percentual do bruto infla o desconto todo mês.\n\nE há um segundo limite, esse por baixo, que é o menos conhecido dos dois. O percentual é um TETO, não um valor fixo: o empregado custeia a parcela equivalente a seis por cento do salário básico, e o empregador custeia no que exceder essa parcela. Se o seu gasto real de transporte no mês ficou ABAIXO desse teto, não existe parcela a exceder — e o desconto tem de ser o gasto real, não o percentual cheio. É o caso de quem mora perto, de quem paga uma passagem só por dia e de quem trabalha em escala com poucos dias no mês.\n\nEntão são duas contas, e a regra cabe em quatro palavras: vale sempre a menor. A primeira conta é o percentual sobre o salário básico, que está impresso no seu holerite. A segunda é sua e não está em documento nenhum — valor da passagem, quantas você paga por dia e quantos dias você trabalha no mês. O vídeo mostra onde ler cada campo, como contar baldeação e dias de escala, um exemplo inteiro com números declarados inventados em que o desconto correto MUDA quando só a tarifa muda, e as três armadilhas mais comuns da folha: o percentual sobre o bruto, o teto tratado como piso, e a exceção de quem é pago por tarefa, por serviço feito ou exclusivamente de comissão, para quem a base é o montante percebido no período.\n\nO último capítulo é o que a conta NÃO decide, e isso também está dito no vídeo: ela não diz quem tem direito ao benefício nem para quais trajetos, não substitui o que a sua convenção coletiva negociou, e não resolve a discussão de quando o valor vem em dinheiro em vez de vale. O que ela resolve é um número por mês que você produz sozinho e compara com uma linha impressa.\n\nConteúdo informativo, não é consultoria jurídica, trabalhista nem contábil.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nA conta está nos primeiros quarenta segundos do vídeo, então não é preciso ver tudo para pegá-la. Duas contas e vale sempre a MENOR: a primeira é seis por cento do SALÁRIO BÁSICO sozinho — não do bruto, e sem hora extra, adicional noturno, insalubridade, periculosidade, gratificação, prêmio ou comissão; a segunda é o seu gasto real do mês, igual a valor da passagem vezes passagens por dia vezes dias que você trabalha. A linha do seu holerite tem de ser igual à menor das duas. Duas armadilhas, uma de cada lado: o percentual tirado do bruto infla o desconto, e o percentual tratado como valor fixo desconta demais de quem mora perto. Exceção que inverte a base: quem é pago por tarefa, por serviço feito ou exclusivamente de comissão tem como base o montante percebido no período. Se fizer a conta, escreva nos comentários se bateu — sem nome de empresa e sem valores do seu salário.\n\n## HASHTAGS\n#ValeTransporte #Holerite #LabTreinamento\n\n## TAGS\nvale transporte, desconto em folha, holerite, salario basico, seis por cento, folha de pagamento, direitos do trabalhador, adicional noturno, periculosidade, insalubridade, conferir holerite, departamento pessoal, transporte coletivo, calculo de desconto, lab treinamento\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo na linha 757. Escrito 27 porque e o que o video realmente recebe.\n# Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\nB-roll: Pexels, creditos por clipe em broll_creditos.json e abaixo.\nMikhail Nilov; Kaboompics.com; MART PRODUCTION; olia danilevich; Pavel\nDanilyuk; Felipe Goncalves; cottonbro studio.\n\n## AVISO SOBRE OS NUMEROS\nDUAS FONTES INSTITUCIONAIS QUE BATEM, no padrao \"publicador do texto + o\nregulamento que aplica\", as duas lidas ao vivo nesta rodada e nao de memoria:\n\n  (1) Lei n. 7.418, de 16 de dezembro de 1985, art. 4., paragrafo unico\n      (planalto.gov.br): \"O empregador participara dos gastos de deslocamento\n      do trabalhador com a ajuda de custo equivalente a parcela que exceder a\n      6% (seis por cento) de seu salario basico.\"\n\n  (2) Decreto n. 10.854, de 10 de novembro de 2021, Capitulo XIII\n      (planalto.gov.br). art. 114: \"O vale-transporte sera custeado: I - pelo\n      beneficiario, na parcela equivalente a seis por cento de seu salario\n      basico ou vencimento, excluidos quaisquer adicionais ou vantagens; e\n      II - pelo empregador, no que exceder a parcela de que trata o inciso I.\"\n      art. 117: a base de calculo e o salario basico ou vencimento, excluidos\n      quaisquer adicionais ou vantagens; e e \"o montante percebido no periodo\"\n      quando se tratar de trabalhador remunerado por tarefa ou servico feito,\n      ou de remuneracao constituida exclusivamente de comissoes, percentagens,\n      gratificacoes, gorjetas ou equivalentes. art. 116: na hipotese de a\n      despesa com o deslocamento ser inferior a seis por cento, o empregado\n      pode optar pelo recebimento antecipado do vale.\n\nAS DUAS FONTES BATEM no percentual, na base e na direcao do rateio. O decreto\nacrescenta a exclusao dos adicionais e a excecao de quem ganha por producao; a\nlei nao contradiz nada disso, apenas nao detalha.\n\nNOTA DE CONFERENCIA: o Decreto 10.854 revogou o Decreto 95.247/1987, que era o\nregulamento classico do vale-transporte. Ele nao deixou o assunto sem\nregulamento: trouxe o Capitulo XIII inteiro no lugar, e e o art. 114 que vale.\n\nO NUMERO QUE DECIDE E DO ESPECTADOR. A norma da o percentual e a base; o\nresultado sai de dois numeros que so ele tem — o salario basico do holerite\ndele e o gasto de transporte do mes dele. Nenhum numero meu entra no resultado.\n\nO EXEMPLO DO CAPITULO CINCO E HIPOTETICO e o video diz isso na cena que o abre:\nsalario basico de dois mil reais, tarifa de cinco reais, duas passagens por dia,\nvinte e dois dias uteis. Nao e salario de ninguem e nao e tarifa de cidade\nnenhuma.\n\nO QUE FOI DESCARTADO, e vai escrito:\n  (1) o VALOR da tarifa de qualquer cidade brasileira — sem duas fontes\n      institucionais para nenhuma, e tarifa muda; o video manda usar a tarifa\n      que o espectador paga hoje;\n  (2) o salario minimo e qualquer piso de categoria — desnecessarios para a\n      conta;\n  (3) QUEM tem direito ao vale e para quais trajetos — e outra pergunta, e o\n      capitulo sete diz isso em vez de responder pela metade;\n  (4) qualquer afirmacao sobre quantas empresas erram esse desconto — nao ha\n      medicao e eu nao inventei uma;\n  (5) o tratamento tributario do vale pago em dinheiro — o capitulo sete diz\n      que ali a discussao deixa de ser aritmetica, e para.\n\n## FONTES\nLei n. 7.418/1985, art. 4., paragrafo unico — planalto.gov.br.\nDecreto n. 10.854/2021, Capitulo XIII, art. 114, 116 e 117 — planalto.gov.br.\nB-roll: Pexels, licenca Pexels, creditos por clipe em broll_creditos.json.\n"
+}
