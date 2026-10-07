@@ -1,0 +1,498 @@
+{
+ "slug": "kolejny-poziom",
+ "pacote": "kolejny-poziom-017",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1F2A37",
+  "c1": "#B23A48",
+  "c2": "#2F6F62",
+  "bg": "#F7F3EC"
+ },
+ "thumb": {
+  "l1": "Limit?",
+  "l2": "tylko przy jednym"
+ },
+ "longo": [
+  {
+   "layout": "broll",
+   "kicker": "Limit tylko dla jednych",
+   "sub": "nie dla wszystkich rodziców",
+   "nar": "W uldze na dziecko istnieje limit dochodu, ale on nie dotyczy wszystkich rodziców. Dotyczy tylko części z nich, i to bardzo konkretnej części.",
+   "broll_q": "mother helping daughter with homework",
+   "broll_url": "https://videos.pexels.com/video-files/4297126/4297126-hd_1920_1080_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 4297126,
+    "autor": "August de Richelieu",
+    "url": "https://www.pexels.com/video/mother-teaching-her-daughter-on-her-homework-4297126/"
+   },
+   "cap": "Limit tylko dla jednych"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Liczba dzieci decyduje",
+   "sub": "czy limit cię dotyczy",
+   "nar": "To jedna z niewielu ulg w polskim systemie, w której liczba twoich dzieci decyduje nie o wysokości kwoty, a o tym, czy limit dochodu w ogóle ma do ciebie zastosowanie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Przy jednym jest",
+   "sub": "przy dwojgu go nie ma",
+   "nar": "Przy jednym dziecku limit istnieje i trzeba go sprawdzić. Przy dwojgu dzieci i więcej nie ma go wcale, niezależnie od tego, ile zarabiasz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ten sam dochód",
+   "sub": "inne rozstrzygnięcie",
+   "nar": "Dlatego dwie rodziny z dokładnie tym samym dochodem mogą dostać zupełnie inne rozstrzygnięcie, a cała różnica to liczba dzieci.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dlaczego tylu traci",
+   "sub": "mimo że byli blisko",
+   "nar": "I dlatego wielu rodziców z jednym dzieckiem rezygnuje z ulgi, nie sprawdzając jej, chociaż mieścili się w limicie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bo liczba do porównania",
+   "sub": "to nie pensja brutto",
+   "nar": "Bo liczba, którą porównuje się z limitem, to nie jest twoja pensja brutto. I to jest najczęściej popełniany błąd w tej uldze.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Na koniec policzysz",
+   "sub": "swoją własną liczbę",
+   "nar": "Na koniec tego filmu policzysz swoją własną liczbę i sam zobaczysz, po której stronie limitu stoisz w tym roku.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bez aplikacji",
+   "sub": "dwie rzeczy, które masz",
+   "nar": "Bez aplikacji i bez zgadywania. Potrzebujesz dwóch rzeczy, które już masz w domu albo w systemie urzędu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Twoje dwie liczby",
+   "sub": "i jedno odjęcie",
+   "nar": "Oto rachunek. Bierzesz swój dochód z roku, odejmujesz od niego zapłacone składki na ubezpieczenie społeczne, i to co zostaje porównujesz z limitem.",
+   "broll_q": "close up of a person using a calculator",
+   "broll_url": "https://videos.pexels.com/video-files/7593891/7593891-hd_1920_1080_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 7593891,
+    "autor": "Pavel Danilyuk",
+    "url": "https://www.pexels.com/video/close-up-video-of-a-person-using-calculator-7593891/"
+   },
+   "cap": "Twoje dwie liczby"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Pierwsza liczba",
+   "sub": "dochód, nie przychód",
+   "nar": "Pierwsza liczba to dochód za cały rok podatkowy, a nie przychód i nie kwota netto, którą widzisz na pasku wypłaty co miesiąc. Przepis mówi o dochodzie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Druga liczba",
+   "sub": "składki społeczne",
+   "nar": "Druga liczba to suma składek na ubezpieczenie społeczne, które zapłaciłaś albo zapłaciłeś w tym samym roku podatkowym.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Limit przy małżeństwie",
+   "sub": "liczy się oboje razem",
+   "nar": "Jeśli jesteś w związku małżeńskim przez cały rok, limit wynosi sto dwanaście tysięcy złotych i liczy się wasze dochody razem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Limit bez małżeństwa",
+   "sub": "połowa tej kwoty",
+   "nar": "Jeśli nie jesteś w związku małżeńskim, limit wynosi pięćdziesiąt sześć tysięcy złotych i liczy tylko twój własny dochód.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Samotny rodzic",
+   "sub": "ma wyższy limit",
+   "nar": "Z jednym wyjątkiem: rodzic samotnie wychowujący dziecko stosuje ten wyższy limit, mimo że nie jest w związku małżeńskim.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dlaczego brutto myli",
+   "sub": "składki to realna kwota",
+   "nar": "Składki społeczne potrafią zdjąć z tej liczby kilka tysięcy złotych, więc ktoś kto patrzy na brutto może uznać się za przekroczonego bez powodu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Działalność liniowa",
+   "sub": "jeszcze składki zdrowotne",
+   "nar": "A przy działalności opodatkowanej liniowo odejmujesz dodatkowo składki zdrowotne, które odliczasz od dochodu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Przy dwojgu limit znika",
+   "sub": "i to nie jest błąd",
+   "nar": "Przy dwojgu dzieci i więcej limit dochodu nie obowiązuje wcale. To nie jest luka ani błąd w przepisie, to sama konstrukcja ulgi.",
+   "broll_q": "two children reading a book together",
+   "broll_url": "https://videos.pexels.com/video-files/7494652/7494652-hd_1280_720_30fps.mp4",
+   "broll_credito": {
+    "pexels_id": 7494652,
+    "autor": "Artem Podrez",
+    "url": "https://www.pexels.com/video/two-children-reading-a-book-together-7494652/"
+   },
+   "cap": "Przy dwojgu limit znika"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Co to oznacza",
+   "sub": "zarobki przestają mieć znaczenie",
+   "nar": "Oznacza to, że rodzic dwojga dzieci odlicza ulgę bez względu na to, ile zarobił w roku podatkowym, choć kwota jest ta sama.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Rodzina z jednym",
+   "sub": "ta sama kwota, ale z warunkiem",
+   "nar": "Rodzina z jednym dzieckiem odlicza dokładnie tyle samo na to dziecko, ale tylko wtedy, gdy zmieści się w limicie dochodu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dlatego porównanie",
+   "sub": "nie dotyczy kwoty",
+   "nar": "Dlatego porównanie dwóch rodzin nie dotyczy wysokości ulgi. Dotyczy tego, czy trzeba w ogóle sprawdzać dochód.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Warunek przy dwojgu",
+   "sub": "jeden dzień wystarczy",
+   "nar": "Przy dwojgu jest własny warunek, ale łagodny: wystarczy, że przez co najmniej jeden dzień roku sprawowałaś opiekę nad więcej niż jednym dzieckiem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kiedy ulga się urywa",
+   "sub": "dwie sytuacje",
+   "nar": "Ulga urywa się od miesiąca, w którym dziecko trafia do instytucji całodobowej na mocy orzeczenia sądu albo wstępuje w związek małżeński.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dzieci pełnoletnie",
+   "sub": "osobne przepisy",
+   "nar": "Dla dzieci pełnoletnich przepisy stosuje się odpowiednio, gdy utrzymujesz je w związku z ciążącym na tobie obowiązkiem alimentacyjnym albo w związku ze sprawowaniem funkcji rodziny zastępczej.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Wniosek z tej części",
+   "sub": "sprawdź, ile masz dzieci",
+   "nar": "Wniosek jest prosty i warto go zapamiętać: najpierw policz dzieci, a dopiero potem dochód. Odwrotna kolejność traci czas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Ile dokładnie odliczasz",
+   "sub": "kwoty za każdy miesiąc",
+   "nar": "Teraz kwoty. Odliczenie liczy się za każdy miesiąc kalendarzowy, w którym sprawowałaś albo sprawowałeś opiekę nad dzieckiem.",
+   "broll_q": "a person encircling a value on paper",
+   "broll_url": "https://videos.pexels.com/video-files/8479056/8479056-hd_1920_1080_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 8479056,
+    "autor": "ArtHouse Studio",
+    "url": "https://www.pexels.com/video/encircle-a-value-8479056/"
+   },
+   "cap": "Ile dokładnie odliczasz"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Pierwsze i drugie",
+   "sub": "ta sama kwota",
+   "nar": "Na pierwsze dziecko i na drugie dziecko kwota jest ta sama: dziewięćdziesiąt dwa złote i sześćdziesiąt siedem groszy miesięcznie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Rocznie",
+   "sub": "na każde z nich",
+   "nar": "Rocznie wychodzi z tego tysiąc sto dwanaście złotych i cztery grosze na każde z tych dzieci, jeśli opieka trwała cały rok.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Trzecie dziecko",
+   "sub": "wyraźnie więcej",
+   "nar": "Na trzecie dziecko kwota rośnie do stu sześćdziesięciu sześciu złotych i sześćdziesięciu siedmiu groszy miesięcznie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Czwarte i kolejne",
+   "sub": "najwyższa stawka",
+   "nar": "Na czwarte dziecko i na każde następne kwota wynosi dwieście dwadzieścia pięć złotych miesięcznie, czyli dwa tysiące siedemset rocznie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Przykład z trójką",
+   "sub": "pierwsze i drugie",
+   "nar": "Weźmy trójkę dzieci. Na pierwsze i na drugie liczysz po tysiąc sto dwanaście złotych i cztery grosze.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "I trzecie",
+   "sub": "jedna liczba do zapamiętania",
+   "nar": "Na trzecie dochodzi dwa tysiące złotych i cztery grosze. Razem daje to cztery tysiące dwieście dwadzieścia cztery złote i dwanaście groszy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Od podatku",
+   "sub": "nie od dochodu",
+   "nar": "I tyle odejmujesz od podatku, nie od dochodu. Ta różnica jest ważna, bo ulga od podatku działa mocniej niż ta sama kwota od dochodu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Wyjątek, który znosi limit",
+   "sub": "jeden ustęp przepisu",
+   "nar": "Jest jeden ustęp, który znosi limit dochodu nawet przy jednym dziecku, i wielu rodziców o nim nie wie.",
+   "broll_q": "a person pointing at a line in a document",
+   "broll_url": "https://videos.pexels.com/video-files/7735485/7735485-hd_1920_1080_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 7735485,
+    "autor": "Mikhail Nilov",
+    "url": "https://www.pexels.com/video/a-person-pointing-on-a-document-7735485/"
+   },
+   "cap": "Wyjątek, który znosi limit"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kogo dotyczy",
+   "sub": "dziecko z orzeczeniem",
+   "nar": "Dotyczy rodziców jednego dziecka, które ma orzeczenie o zakwalifikowaniu przez organy orzekające do jednego z trzech stopni niepełnosprawności. Wystarczy jedno z tych orzeczeń.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Albo decyzja rentowa",
+   "sub": "trzy rodzaje renty",
+   "nar": "Albo decyzję przyznającą rentę z tytułu niezdolności do pracy, rentę szkoleniową albo rentę socjalną.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Albo młodsze dziecko",
+   "sub": "orzeczenie do szesnastu lat",
+   "nar": "Albo orzeczenie o niepełnosprawności dziecka, które nie ukończyło szesnastego roku życia, bo dla najmłodszych dzieci orzeczenie wydaje się w innej formie niż stopień.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Co się wtedy dzieje",
+   "sub": "limit przestaje istnieć",
+   "nar": "W każdym z tych przypadków limit dochodu po prostu przestaje cię dotyczyć, dokładnie tak, jakbyś rozliczał ulgę na dwoje dzieci, choć masz jedno.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dlaczego to ważne",
+   "sub": "najczęściej pomijany warunek",
+   "nar": "To najczęściej pomijany warunek całej ulgi, bo rodzic sprawdza dochód, widzi przekroczenie i kończy sprawdzanie w tym miejscu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kolejność sprawdzania",
+   "sub": "najpierw orzeczenie",
+   "nar": "Dlatego kolejność ma znaczenie: najpierw sprawdź orzeczenie, potem liczbę dzieci, a dochód na samym końcu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dokumenty",
+   "sub": "urząd może poprosić",
+   "nar": "Urząd może poprosić o dokumenty: odpis aktu urodzenia, zaświadczenie sądu o opiekunie albo zaświadczenie o nauce dziecka pełnoletniego.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Dwoje rodziców",
+   "sub": "jedna kwota do podziału",
+   "nar": "Ulga należy do obojga rodziców razem, nie do każdego osobno. Jest jedna kwota na dziecko i trzeba ją między sobą podzielić. Za osobę w związku małżeńskim nie uważa się przy tym kogoś po orzeczonej separacji.",
+   "broll_q": "a couple talking over a paper together",
+   "broll_url": "https://videos.pexels.com/video-files/6975457/6975457-hd_1366_720_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 6975457,
+    "autor": "T Leish",
+    "url": "https://www.pexels.com/video/a-couple-talking-while-reading-newspaper-and-answering-sudoku-6975457/"
+   },
+   "cap": "Dwoje rodziców, jedna kwota"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dowolna proporcja",
+   "sub": "jeśli się dogadacie",
+   "nar": "Jeśli się dogadacie, możecie podzielić tę kwotę w dowolnej proporcji, jaką sami ustalicie między sobą.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Całe sto procent",
+   "sub": "dla jednego z was",
+   "nar": "Możecie też ustalić, że cała kwota trafia do jednego z was, i to jest zupełnie dopuszczalne. Przepis nie narzuca tu żadnej proporcji.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bez porozumienia",
+   "sub": "przy pieczy naprzemiennej",
+   "nar": "Bez porozumienia przepis decyduje za was. Przy pieczy naprzemiennej po rozwodzie kwotę dzieli się w częściach równych.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ten sam adres",
+   "sub": "też po połowie",
+   "nar": "Tak samo po połowie, gdy miejsce zamieszkania dziecka jest takie samo jak miejsce zamieszkania obojga rodziców.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "W pozostałych",
+   "sub": "sto procent u jednego",
+   "nar": "W pozostałych przypadkach całe odliczenie stosuje ten rodzic, u którego dziecko ma miejsce zamieszkania.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ten sam miesiąc",
+   "sub": "liczy się na dni",
+   "nar": "Gdy w tym samym miesiącu opiekę sprawują oboje, każdy odlicza jedną trzydziestą kwoty miesięcznej za każdy dzień, w którym sprawował pieczę nad dzieckiem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dlatego warto ustalić",
+   "sub": "zanim złożycie zeznania",
+   "nar": "Dlatego warto ustalić podział zanim oboje złożycie zeznania, bo poprawianie tego potem jest znacznie bardziej żmudne.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Cztery kroki",
+   "sub": "do zrobienia w tym tygodniu",
+   "nar": "Cztery kroki, i wszystkie możesz zrobić w tym tygodniu, zanim zasiądziesz do rozliczenia za ten rok podatkowy.",
+   "broll_q": "a person filling out a form",
+   "broll_url": "https://videos.pexels.com/video-files/8293306/8293306-hd_1280_720_30fps.mp4",
+   "broll_credito": {
+    "pexels_id": 8293306,
+    "autor": "RDNE Stock project",
+    "url": "https://www.pexels.com/video/a-man-filling-out-a-form-8293306/"
+   },
+   "cap": "Cztery kroki"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Jeden",
+   "sub": "policz dzieci",
+   "nar": "Pierwszy: policz dzieci, nad którymi sprawowałeś opiekę w roku. Przy dwojgu i więcej limit dochodu cię nie dotyczy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dwa",
+   "sub": "sprawdź orzeczenie",
+   "nar": "Drugi: przy jednym dziecku sprawdź, czy ma orzeczenie albo decyzję rentową. Jeśli ma, limit również cię nie dotyczy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Trzy",
+   "sub": "dochód minus składki",
+   "nar": "Trzeci: dopiero teraz weź swój dochód roczny, odejmij zapłacone składki społeczne i porównaj wynik z limitem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Cztery",
+   "sub": "ustal podział z drugim rodzicem",
+   "nar": "Czwarty: ustal z drugim rodzicem, w jakiej proporcji dzielicie kwotę, i zapiszcie to, zanim złożycie zeznania.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "W zeznaniu",
+   "sub": "liczba dzieci i PESEL",
+   "nar": "W samym zeznaniu podajesz liczbę dzieci i ich numery PESEL, a gdy ich nie ma, imiona, nazwiska i daty urodzenia dzieci.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Jeszcze jedna rzecz",
+   "sub": "gdy ulga przewyższa podatek",
+   "nar": "I ostatnia rzecz, warta zapamiętania: gdy ulga jest wyższa od twojego podatku, różnicę możesz dostać, ale nie więcej niż suma twoich składek.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Napisz swój wynik",
+   "sub": "ile dzieci i która strona",
+   "nar": "Ten film nie jest poradą podatkową. Jeśli policzysz swoją liczbę, napisz w komentarzu ile masz dzieci i po której stronie limitu wyszedłeś.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Dlaczego tylu traci",
+   "sub": "ulgę na jedno dziecko",
+   "sem_cap": true,
+   "nar": "Dlaczego tyle osób traci ulgę na jedno dziecko? Bo sprawdzają złą liczbę."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Limit tylko przy jednym",
+   "sub": "przy dwojgu go nie ma",
+   "sem_cap": true,
+   "nar": "Limit dochodu istnieje tylko przy jednym dziecku. Przy dwojgu nie ma go wcale."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Nie brutto",
+   "sub": "dochód minus składki",
+   "sem_cap": true,
+   "nar": "I porównuje się nie pensję brutto, a dochód po odjęciu składek społecznych."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dwa limity",
+   "sub": "zależnie od małżeństwa",
+   "sem_cap": true,
+   "nar": "Sto dwanaście tysięcy w małżeństwie, pięćdziesiąt sześć tysięcy bez niego."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Policz dzisiaj",
+   "sub": "najpierw dzieci, potem dochód",
+   "sem_cap": true,
+   "nar": "Policz najpierw dzieci, a dochód na końcu. Cały rachunek jest w dłuższym filmie."
+  }
+ ],
+ "copy": "# kolejny-poziom-017\n\n## TITULO\nUlga na Dziecko: Limit Dochodu Istnieje Tylko przy Jednym — Policz Swoją Liczbę\n\n## TITULO SHORT\nLimit tylko przy jednym dziecku\n\n## DESCRICAO\nW uldze prorodzinnej istnieje limit dochodu, ale nie dotyczy on wszystkich\nrodziców. Dotyczy tylko tych, którzy rozliczają ulgę na jedno dziecko. Przy\ndwojgu dzieci i więcej limit nie obowiązuje wcale, niezależnie od wysokości\nzarobków. Dlatego dwie rodziny z tym samym dochodem mogą dostać zupełnie inne\nrozstrzygnięcie, a cała różnica to liczba dzieci.\n\nDrugi powód, dla którego wielu rodziców rezygnuje z ulgi bez potrzeby: liczba,\nktórą porównuje się z limitem, to nie pensja brutto. To dochód roczny pomniejszony\no zapłacone składki na ubezpieczenie społeczne, a przy działalności opodatkowanej\nliniowo dodatkowo o składki zdrowotne odliczane od dochodu. Składki potrafią zdjąć\nz tej liczby kilka tysięcy złotych, więc ktoś kto patrzy na brutto może uznać się\nza przekroczonego bez powodu.\n\nFilm pokazuje też wyjątek, który znosi limit nawet przy jednym dziecku: orzeczenie\no stopniu niepełnosprawności, decyzja przyznająca rentę z tytułu niezdolności do\npracy, rentę szkoleniową albo socjalną, albo orzeczenie o niepełnosprawności\ndziecka poniżej szesnastego roku życia. To najczęściej pomijany warunek całej ulgi.\n\nDalej: dokładne kwoty na pierwsze, drugie, trzecie oraz czwarte i każde kolejne\ndziecko, w ujęciu miesięcznym i rocznym; zasada, że kwota należy do obojga rodziców\nrazem i można ją podzielić w dowolnej proporcji; co dzieje się bez porozumienia przy\npieczy naprzemiennej; oraz cztery kroki do wykonania przed złożeniem zeznania.\n\nKolejność, która oszczędza czas: najpierw policz dzieci, potem sprawdź orzeczenie,\na dochód zostaw na sam koniec.\n\nTen film nie jest poradą podatkową i nie zna Twojej sytuacji.\n\n## CAPITULOS\n0:00 Limit tylko dla jednych\n1:11 Twoje dwie liczby\n2:19 Przy dwojgu limit znika\n3:31 Ile dokładnie odliczasz\n4:41 Wyjątek, który znosi limit\n5:49 Dwoje rodziców, jedna kwota\n7:01 Cztery kroki\n\n## COMENTARIO FIXADO\nRachunek jest w pierwszej minucie, więc nie musisz oglądać do końca, żeby go\ndostać: dochód roczny minus zapłacone składki społeczne, i dopiero ten wynik\nporównujesz z limitem. A limit sprawdzasz tylko wtedy, gdy rozliczasz ulgę na\nJEDNO dziecko. Jeśli policzysz swoją liczbę, napisz w komentarzu ile masz dzieci\ni po której stronie limitu wyszedłeś — bez kwot, sama strona wystarczy.\n\n## HASHTAGS\n#UlgaNaDziecko #PodatkiPL #KolejnyPoziom\n\n## TAGS\nulga na dziecko, ulga prorodzinna, limit dochodu ulga, pit ulga na dzieci, art 27f, rozliczenie pit, podatki polska, ulga na jedno dziecko, dochod minus skladki, odliczenie od podatku, finanse osobiste, kolejny poziom, pit 2026, podzial ulgi miedzy rodzicow, piecza naprzemienna ulga\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\nWholesome — Kevin MacLeod (incompetech.com), CC BY 3.0.\nB-roll: Pexels, creditos por clipe em broll_creditos.json e abaixo.\nAugust de Richelieu; Pavel Danilyuk; Artem Podrez; ArtHouse Studio;\nMikhail Nilov; T Leish; RDNE Stock project.\n\n## AVISO SOBRE OS NUMEROS\nWszystkie kwoty i limity w tym filmie pochodzą z DWÓCH źródeł instytucjonalnych\ni zgadzają się w obu:\n\n1. SEJM, API ELI — ustawa o podatku dochodowym od osób fizycznych, art. 27f,\n   tekst JEDNOLITY obowiązujący: Dz.U. 2026 poz. 592, obwieszczenie Marszałka\n   Sejmu z dnia 17 kwietnia 2026 r.\n2. MINISTERSTWO FINANSÓW — podatki.gov.pl, strona\n   /ulgi-i-odliczenia/ulga-na-dziecko-pit.\n\nZgodne w obu źródłach: 92,67 zł miesięcznie na pierwsze i drugie dziecko\n(1112,04 zł rocznie), 166,67 zł na trzecie (2000,04 zł rocznie), 225,00 zł na\nczwarte i każde kolejne (2700,00 zł rocznie); limit 112 000 zł dla osoby\npozostającej w związku małżeńskim przez cały rok, liczony łącznie z małżonkiem;\nlimit 56 000 zł dla osoby niepozostającej w związku małżeńskim; brak limitu przy\ndwojgu dzieci i więcej; brak limitu przy jednym dziecku z orzeczeniem; dochód\npomniejszany o składki społeczne.\n\nSzczegół, który podaje tylko strona Ministerstwa: przy działalności opodatkowanej\npodatkiem liniowym odejmuje się dodatkowo składki zdrowotne odliczane od dochodu.\nUstawa odsyła w tym miejscu do art. 30c.\n\nNic nie zostało odrzucone z braku źródła w tym odcinku.\n"
+}
