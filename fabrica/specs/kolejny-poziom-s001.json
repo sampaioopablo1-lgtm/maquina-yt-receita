@@ -1,0 +1,57 @@
+{
+ "slug": "kolejny-poziom",
+ "pacote": "kolejny-poziom-s001",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Dwoje rodziców",
+  "l2": "kwota jedna"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Dwoje rodziców",
+   "sub": "jedno dziecko",
+   "nar": "Oboje odliczacie ulgę na to samo dziecko? Kwota na dziecko jest jedna, nie dwie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "To nie kwota dla każdego",
+   "sub": "to jedna kwota do podziału",
+   "nar": "To nie jest kwota dla każdego z was. To jedna kwota, którą dzielicie między sobą.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Razem nie więcej",
+   "sub": "niż ta jedna kwota",
+   "nar": "Wasze dwie części razem nie mogą przekroczyć tej jednej kwoty na to dziecko.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Liczy się zeznanie",
+   "sub": "to, co każdy wpisał",
+   "nar": "Dlatego liczy się to, co każdy z was faktycznie wpisał w swoim zeznaniu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Sprawdźcie oboje",
+   "sub": "ten sam rok",
+   "nar": "Sprawdźcie oboje ten sam rok podatkowy, zanim złożycie. Pełny rachunek jest w filmie.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "kWZW-qV4tQc",
+ "copy": "# kolejny-poziom-s001\n\n## TITULO\nDwoje Rodziców, Jedna Kwota: Ulga na Dziecko Nie Mnoży Się przez Liczbę Rodziców\n\n## TITULO SHORT\nDwoje rodziców, a kwota jedna\n\n## DESCRICAO\nUlga na dziecko to kwota przypisana do DZIECKA, a nie do rodzica. To jedno zdanie decyduje o tym, czy rozliczenie dwóch rodziców jest poprawne, i jest to miejsce, w którym najłatwiej popełnić błąd bez złej woli: każdy wpisuje pełną kwotę w swoim zeznaniu, bo każdy ma to samo dziecko. Tymczasem kwota jest jedna i dzieli się między rodziców — dwie części, które razem nie mogą przekroczyć tej jednej kwoty na to dziecko.\n\nDlatego o wyniku decyduje nie to, co każde z was uważa za sprawiedliwe, ale to, co każde z was faktycznie wpisało w swoim zeznaniu za ten sam rok podatkowy. Jeśli obie deklaracje zawierają pełną kwotę, suma przekracza to, co przysługuje na dziecko, i to wychodzi po stronie urzędu, nie po waszej. Sprawdzenie zajmuje tyle, ile zajmuje porównanie dwóch pozycji w dwóch dokumentach, i trzeba je zrobić RAZEM, a nie każde osobno.\n\nW pełnym filmie jest cały rachunek: skąd bierzesz liczbę dzieci i skąd dochód, dlaczego porównuje się dochód po odjęciu składek społecznych a nie pensję brutto, kiedy limit dochodu w ogóle istnieje i kiedy znika, oraz wyjątek, który ten limit zdejmuje. Jest też krok po kroku dla sytuacji dwóch rodziców rozliczających się oddzielnie.\n\nTutaj nie podajemy ani kwoty ulgi, ani limitu dochodu w złotych: te liczby są w pełnym filmie razem ze źródłami. Ten short mówi tylko o arytmetyce podziału — kwota jest jedna, części są dwie, suma nie może jej przekroczyć.\n\nTreść informacyjna, nie stanowi porady podatkowej ani prawnej.\n\n## COMENTARIO FIXADO\nNajkrócej: ulga jest przypisana do DZIECKA, nie do rodzica. Kwota jest jedna i dzielicie ją między sobą — wasze dwie części razem nie mogą przekroczyć tej jednej kwoty na to dziecko. Najczęstszy błąd to dwie pełne kwoty w dwóch zeznaniach, bo każde z was ma to samo dziecko. Sprawdźcie oboje ten sam rok podatkowy i porównajcie to, co każde faktycznie wpisało, a nie to, co ustaliliście w rozmowie. Kwota ulgi, limit dochodu i wyjątek, który ten limit zdejmuje, są w pełnym filmie razem ze źródłami. Jeśli policzycie, napiszcie czy suma się zgadzała — bez podawania swoich kwot.\n\n## HASHTAGS\n#UlgaNaDziecko #Podatki #KolejnyPoziom\n\n## TAGS\nulga na dziecko, ulga prorodzinna, dwoje rodzicow, podzial ulgi, zeznanie podatkowe, pit, rozliczenie roczne, dochod, skladki spoleczne, limit dochodu, podatki w polsce, finanse domowe, kolejny poziom, odliczenie, rodzina\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO. Este short NAO cita o valor da ulga, NAO cita o\nlimite de renda, NAO cita faixa e NAO nomeia orgao. Os dois numeros que ele diz\n— \"uma\" e \"duas\" — sao sobre a aritmetica da divisao, nao sobre o mundo.\n\nO QUE O VIDEO AFIRMA, e so isso: a quantia e por CRIANCA e nao por pai; os pais\na dividem entre si; as duas partes somadas nao podem passar dela; e por isso\nvale o que cada um efetivamente declarou no mesmo ano fiscal.\n\nDESCARTADO, e vai escrito:\n  (1) o valor da ulga e o limite de renda em zlotys — estao no longo\n      kolejny-poziom-017 (kWZW-qV4tQc) com as fontes;\n  (2) a REGRA DE DESEMPATE quando os pais nao se acertam: eu ia escrever \"volta\n      a divisao pela metade\" e TIREI, porque nao reconferi hoje em duas fontes\n      e seria afirmacao nova sobre o mundo num short que se propoe a nao ter\n      nenhuma;\n  (3) a idade ate a qual a crianca conta e qualquer caso de guarda\n      compartilhada — nao reconferidos nesta rodada.\n\n## FONTES\nO longo de onde este short foi extraido (kolejny-poziom-017, kWZW-qV4tQc) traz\nas fontes dos numeros. Este short nao introduz numero novo sobre o mundo.\n"
+}
