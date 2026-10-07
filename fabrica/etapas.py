@@ -56,6 +56,12 @@ d = F.dir_trabalho(sp)
 # costurar dois roteiros num video so.
 assert d.endswith(sp.get("pacote") or sp["slug"]), f"dir {d} nao bate com {spec}"
 
+
+
+def log(m):
+    print(m, flush=True)
+
+
 # ------------------------------------------------------------- SHORT SOLTO
 # Spec com `short` e com `longo` VAZIO: renderiza so o vertical, sem longo
 # novo. Existe porque a porta do YPP que esta ao alcance e a Porta 1 (500
@@ -75,10 +81,6 @@ if SO_SHORT:
         f"era short solto, preencha `short`.")
     log(f"SHORT SOLTO: {len(sp['short'])} cenas, sem longo — etapas 1.5 a 7 "
         f"nao se aplicam")
-
-
-def log(m):
-    print(m, flush=True)
 
 
 # ---- trava contra relancamento concorrente (2 processos no mesmo workdir

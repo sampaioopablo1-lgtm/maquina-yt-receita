@@ -47,7 +47,15 @@ def _gate_identidade(caminho, sp):
 
     faltas = []
     nome = os.path.basename(caminho)[:-5]
-    if sp.get("pacote") != nome:
+    # O `frota.yml` copia a spec para `spec.json` antes de rodar os portoes, de
+    # proposito — e o nome que todos os passos do runner esperam. Comparar o
+    # campo `pacote` com esse basename faz o portao reprovar TODO pacote no
+    # runner: medido em 07/10/2026, o passo "Conferir glifos" imprimia
+    # "TRAVADAS (1): identidade: pacote='labtreinamento-s001' != 'spec'" e o job
+    # seguia verde, porque o `main()` devolvia 0 de qualquer jeito. Portao que
+    # sempre reprova e nunca derruba nada ensina a ignorar o portao.
+    # A comparacao vale no DISCO, onde o arquivo tem o nome do pacote.
+    if nome not in ("spec", "spec.json") and sp.get("pacote") != nome:
         faltas.append(f"pacote={sp.get('pacote')!r} != {nome!r}")
     do_canal = idioma_do_canal(sp["slug"])
     if sp.get("idioma"):
@@ -905,6 +913,14 @@ def main() -> int:
 
     total = len(prontas) + len(travadas)
     print(f"\n-> {len(prontas)}/{total} specs disparam a frota hoje")
+    # Devolvia 0 SEMPRE, inclusive com tudo travado. No runner, onde o passo
+    # roda com UMA spec, isso fazia o portao ser decorativo: imprimia a falha e
+    # deixava o render seguir. Com UM alvo explicito, spec travada derruba o
+    # passo — que e a razao de o passo existir. Varredura do diretorio inteiro
+    # (sem argumento) continua devolvendo 0: ali travada e inventario, nao
+    # bloqueio, e derrubar o comando esconderia o relatorio.
+    if travadas and len(sys.argv) > 1:
+        return 2
     return 0
 
 
