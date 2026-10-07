@@ -1,0 +1,505 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-011",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#22333B",
+  "c1": "#A4243B",
+  "c2": "#D8973C",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Quem vence",
+  "l2": "antes de dezembro"
+ },
+ "longo": [
+  {
+   "layout": "broll",
+   "kicker": "Quem vence primeiro",
+   "sub": "e você não sabe dizer",
+   "nar": "Se eu perguntar agora quantas pessoas da sua equipe estão com treinamento vencendo nos próximos noventa dias, você consegue responder sem abrir nada?",
+   "broll_q": "people talking in a warehouse",
+   "broll_url": "https://videos.pexels.com/video-files/4284181/4284181-hd_1280_720_50fps.mp4",
+   "broll_credito": {
+    "pexels_id": 4284181,
+    "autor": "Tiger Lily",
+    "url": "https://www.pexels.com/video/people-talking-in-the-warehouse-4284181/"
+   },
+   "cap": "Quem vence primeiro"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Quase ninguém consegue",
+   "sub": "e não é desorganização",
+   "nar": "Quase ninguém consegue, e não é desorganização. É que o certificado guarda a data de quando o treinamento aconteceu, não a data em que ele deixa de valer.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A data que falta",
+   "sub": "ninguém a escreve",
+   "nar": "A data que interessa, a do vencimento, não está escrita em lugar nenhum. Ela precisa ser calculada, uma pessoa de cada vez.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E some quando muda",
+   "sub": "quem entra e quem sai",
+   "nar": "E some de vista toda vez que alguém entra na equipe, muda de função ou volta de afastamento com um treinamento diferente do resto do time.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O custo de descobrir tarde",
+   "sub": "é sempre o mesmo",
+   "nar": "Descobrir tarde custa sempre a mesma coisa: alguém parado esperando turma, ou um treinamento comprado com pressa pelo preço da urgência.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que este vídeo faz",
+   "sub": "duas contas e uma lista",
+   "nar": "Este vídeo resolve isso com duas contas curtas e uma lista que você monta agora e depois só revisa por mês.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Não precisa de sistema",
+   "sub": "nem de consultoria",
+   "nar": "Não precisa de sistema, não precisa de consultoria e não precisa comprar nada. Papel e caneta resolvem para uma equipe pequena.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E o aviso do começo",
+   "sub": "sobre periodicidade",
+   "nar": "Um aviso desde já: eu não vou dizer de quanto em quanto tempo cada treinamento se repete. Esse número vem do seu certificado, e explico o porquê no fim.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "As duas contas",
+   "sub": "e só isso",
+   "nar": "Aqui estão as duas contas. A primeira: data em que o treinamento foi realizado, mais a periodicidade dele, dá a data de vencimento.",
+   "broll_q": "a person encircling a date on the calendar",
+   "broll_url": "https://videos.pexels.com/video-files/9057678/9057678-hd_1920_1080_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 9057678,
+    "autor": "SHVETS production",
+    "url": "https://www.pexels.com/video/a-person-encircling-the-date-on-the-calendar-9057678/"
+   },
+   "cap": "As duas contas"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A segunda",
+   "sub": "vencimento menos hoje",
+   "nar": "A segunda: data de vencimento menos a data de hoje dá quantos dias faltam. É esse número que você vai ordenar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Repare no que entra",
+   "sub": "só coisa que você tem",
+   "nar": "Repare no que entra nas duas: a data de realização, que está no certificado, e a periodicidade, que está no certificado ou no procedimento da empresa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Nenhuma entrada é minha",
+   "sub": "todas são suas",
+   "nar": "Nenhuma dessas entradas vem de mim. Todas vêm de um papel que você já tem guardado, e é isso que torna a conta confiável.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Um exemplo",
+   "sub": "com data redonda",
+   "nar": "Um exemplo. Treinamento realizado em março do ano passado, periodicidade de dois anos. O vencimento cai em março do ano que vem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E os dias que faltam",
+   "sub": "a conta que ordena",
+   "nar": "Se hoje é outubro, faltam cerca de cinco meses. Esse é o número que coloca a pessoa em cima ou embaixo da sua lista.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O erro mais comum",
+   "sub": "usar a data de emissão",
+   "nar": "O erro mais comum é usar a data de emissão do certificado em vez da data de realização. Elas podem estar separadas por semanas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Use sempre a realização",
+   "sub": "e anote qual usou",
+   "nar": "Use sempre a data da realização, e anote em algum lugar que foi ela que você usou. Isso evita refazer a conta daqui a seis meses.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "O que ler no certificado",
+   "sub": "três campos, não mais",
+   "nar": "Agora o certificado. Você precisa de três campos dele, e só três, mesmo que o documento tenha vinte linhas de texto.",
+   "broll_q": "a man writing on a paper in a clipboard",
+   "broll_url": "https://videos.pexels.com/video-files/8293501/8293501-hd_1280_720_30fps.mp4",
+   "broll_credito": {
+    "pexels_id": 8293501,
+    "autor": "RDNE Stock project",
+    "url": "https://www.pexels.com/video/a-man-writing-on-a-paper-in-a-clipboard-8293501/"
+   },
+   "cap": "O que ler no certificado"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Campo um",
+   "sub": "o nome da pessoa",
+   "nar": "O primeiro é o nome de quem fez, escrito igual ao que está no seu cadastro, para você não acabar com a mesma pessoa em duas linhas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Campo dois",
+   "sub": "a data de realização",
+   "nar": "O segundo é a data em que o treinamento foi realizado, que às vezes aparece como período com início e fim. Nesse caso, use o fim.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Campo três",
+   "sub": "a periodicidade",
+   "nar": "O terceiro é a periodicidade, ou seja, de quanto em quanto tempo ele precisa ser refeito. Costuma estar no rodapé ou no procedimento interno.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Se não achar",
+   "sub": "pergunte a quem ministrou",
+   "nar": "Se a periodicidade não estiver no certificado, pergunte a quem ministrou ou veja no procedimento da sua empresa. Não chute esse número.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Por que não chutar",
+   "sub": "ele comanda tudo",
+   "nar": "Não chute porque ele comanda as duas contas. Errar a periodicidade move a data de vencimento de uma pessoa em meses.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A carga horária",
+   "sub": "não entra aqui",
+   "nar": "A carga horária não entra nesta conta. Ela importa para outras coisas, mas não muda quando o treinamento vence.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Com três campos",
+   "sub": "a linha está pronta",
+   "nar": "Com esses três campos você já consegue escrever uma linha da lista. Repita para cada pessoa e a lista nasce sozinha.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "A lista",
+   "sub": "cinco colunas bastam",
+   "nar": "A lista tem cinco colunas e cabe em qualquer planilha ou caderno. Nome, treinamento, data de realização, periodicidade e vencimento.",
+   "broll_q": "person working on a laptop",
+   "broll_url": "https://videos.pexels.com/video-files/8479064/8479064-hd_1920_1080_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 8479064,
+    "autor": "ArtHouse Studio",
+    "url": "https://www.pexels.com/video/person-working-on-a-laptop-8479064/"
+   },
+   "cap": "A lista de cinco colunas"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A quinta é calculada",
+   "sub": "as outras são copiadas",
+   "nar": "As quatro primeiras você copia do certificado. A quinta é a única calculada, e sai da primeira conta que eu dei.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Uma linha por pessoa",
+   "sub": "e por treinamento",
+   "nar": "Uma linha por pessoa e por treinamento. Quem fez três treinamentos ocupa três linhas, e isso é proposital.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Por que separado",
+   "sub": "porque vencem em datas diferentes",
+   "nar": "É proposital porque cada treinamento vence na sua própria data. Juntar tudo numa linha por pessoa esconde exatamente o que você quer ver.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Depois ordene",
+   "sub": "pelo vencimento, crescente",
+   "nar": "Terminada a lista, ordene pelo vencimento, do mais próximo para o mais distante. O topo da lista é a sua fila de trabalho.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que aparece no topo",
+   "sub": "costuma surpreender",
+   "nar": "O que aparece no topo costuma surpreender, porque raramente é quem você imaginava. Memória não ordena datas bem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Guarde num lugar só",
+   "sub": "e combinado com alguém",
+   "nar": "Guarde essa lista num lugar só, e combine com outra pessoa onde ela fica. Lista que mora na cabeça de uma pessoa some quando ela sai de férias.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Revise por mês",
+   "sub": "quinze minutos bastam",
+   "nar": "Revise uma vez por mês. Com a lista pronta, a revisão é olhar o topo e conferir quem entrou na equipe desde a última vez.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "A antecedência",
+   "sub": "o número que você escolhe",
+   "nar": "Falta um número, e esse é escolha sua: com quantos dias de antecedência você quer ser avisado antes de um treinamento vencer.",
+   "broll_q": "person saving a date on a planner",
+   "broll_url": "https://videos.pexels.com/video-files/1793371/1793371-hd_1920_1080_30fps.mp4",
+   "broll_credito": {
+    "pexels_id": 1793371,
+    "autor": "Miguel A. Padrinan",
+    "url": "https://www.pexels.com/video/person-saving-a-date-on-his-planner-1793371/"
+   },
+   "cap": "A antecedência"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Por que precisa existir",
+   "sub": "o dia do vencimento é tarde",
+   "nar": "Esse número precisa existir porque descobrir no dia do vencimento não serve para nada. Você precisa de tempo para agir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "De quanto tempo",
+   "sub": "depende de duas coisas",
+   "nar": "De quanto tempo depende de duas coisas suas: quanto demora para formar turma e quanto demora para a pessoa conseguir sair da operação.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Meça, não estime",
+   "sub": "olhe a última vez",
+   "nar": "Em vez de estimar, olhe a última turma que você montou e conte os dias entre a decisão e a realização. Esse é o seu número real.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Some uma folga",
+   "sub": "porque algo sempre atrasa",
+   "nar": "Some uma folga em cima dele, porque alguma coisa sempre atrasa. Se a última turma levou quarenta dias, trabalhar com sessenta é razoável.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E aí a regra fica",
+   "sub": "simples de aplicar",
+   "nar": "A regra fica assim: tudo que vence dentro desse prazo entra na sua lista de ação agora, não no mês que vem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O resto só observa",
+   "sub": "sem ansiedade",
+   "nar": "O que vence depois você apenas observa. Essa separação é o que tira a ansiedade de olhar a lista inteira toda semana.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Um número por treinamento",
+   "sub": "se fizer sentido",
+   "nar": "Se um treinamento específico for muito mais difícil de agendar, dê a ele uma antecedência maior. A regra não precisa ser igual para todos.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Quem entra na lista",
+   "sub": "mais gente do que parece",
+   "nar": "Falta decidir quem entra na lista, e aqui costuma faltar gente. Não é só quem está na operação hoje.",
+   "broll_q": "man working on a construction site",
+   "broll_url": "https://videos.pexels.com/video-files/5100043/5100043-hd_1920_1080_30fps.mp4",
+   "broll_credito": {
+    "pexels_id": 5100043,
+    "autor": "Gustavo Fring",
+    "url": "https://www.pexels.com/video/man-working-on-the-construction-site-5100043/"
+   },
+   "cap": "Quem entra na lista"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Quem mudou de função",
+   "sub": "pode precisar de outro",
+   "nar": "Quem mudou de função pode precisar de um treinamento que não precisava antes, e o certificado antigo continua válido para a função antiga.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Quem voltou de afastamento",
+   "sub": "o tempo correu igual",
+   "nar": "Quem voltou de afastamento longo entra também: o tempo correu para o certificado dele igual, mesmo sem ele estar trabalhando.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Terceirizados e temporários",
+   "sub": "se trabalham na sua área",
+   "nar": "Terceirizados e temporários que trabalham na sua área entram na lista de controle, mesmo que o treinamento seja responsabilidade de outra empresa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Por que entram",
+   "sub": "você precisa saber, não fazer",
+   "nar": "Entram porque você precisa SABER a situação deles para liberar ou não uma atividade, mesmo quando não é você quem agenda o treinamento.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Quem está de licença",
+   "sub": "marque, não exclua",
+   "nar": "Quem está de licença longa não some da lista. Marque a situação numa coluna de observação e deixe a linha lá.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O risco de excluir",
+   "sub": "é voltar sem ninguém notar",
+   "nar": "O risco de excluir é a pessoa voltar e ninguém notar que o treinamento dela venceu no meio do afastamento.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Regra simples",
+   "sub": "quem pode executar, entra",
+   "nar": "A regra simples é esta: se a pessoa pode ser escalada para a atividade, ela entra na lista. Decida pela possibilidade, não pela escala de hoje.",
+   "sem_cap": true
+  },
+  {
+   "layout": "broll",
+   "kicker": "Quatro passos",
+   "sub": "para esta semana",
+   "nar": "Quatro passos, e todos cabem nesta semana. Comece pelo que der e vá completando, porque lista incompleta já é melhor que nenhuma.",
+   "broll_q": "a person doing her checklist",
+   "broll_url": "https://videos.pexels.com/video-files/7816376/7816376-hd_1920_1080_25fps.mp4",
+   "broll_credito": {
+    "pexels_id": 7816376,
+    "autor": "Pavel Danilyuk",
+    "url": "https://www.pexels.com/video/a-realtor-doing-her-checklist-7816376/"
+   },
+   "cap": "Quatro passos"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Um",
+   "sub": "junte os certificados",
+   "nar": "Primeiro: junte os certificados da equipe num lugar só, digital ou físico, sem organizar nada ainda. Só juntar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dois",
+   "sub": "monte as cinco colunas",
+   "nar": "Segundo: monte a lista de cinco colunas, uma linha por pessoa e por treinamento, copiando os três campos de cada certificado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Três",
+   "sub": "calcule e ordene",
+   "nar": "Terceiro: calcule o vencimento de cada linha e ordene do mais próximo para o mais distante. Só agora você tem a resposta da primeira pergunta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Quatro",
+   "sub": "defina a antecedência",
+   "nar": "Quarto: defina a sua antecedência olhando quanto tempo levou a última turma, some uma folga, e marque quem já entrou nesse prazo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Quem estiver faltando",
+   "sub": "pergunte, não presuma",
+   "nar": "Se faltar certificado de alguém, escreva o nome mesmo assim com um campo em branco. Linha em branco é visível; pessoa esquecida não é.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Por que não dei prazos",
+   "sub": "e isto é importante",
+   "nar": "E agora o porquê do aviso do começo: eu não disse de quanto em quanto tempo cada treinamento se repete porque não consegui confirmar isso em fonte oficial hoje.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Memória não é fonte",
+   "sub": "então peguei o seu número",
+   "nar": "Eu sei de cabeça várias dessas periodicidades, mas memória não é fonte. Por isso a conta usa o número que está no SEU papel.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Conte quantos",
+   "sub": "sem nomes, só o número",
+   "nar": "Se você montar a lista, escreva nos comentários quantas pessoas apareceram dentro da sua antecedência. Sem nomes, só o número.",
+   "sem_cap": true
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Antes do fim do ano",
+   "sub": "quantos da sua equipe",
+   "nar": "Quantas pessoas da sua equipe estão com treinamento vencendo antes do fim do ano? Quase ninguém sabe responder.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E não é desorganização",
+   "sub": "é a data que falta",
+   "nar": "O certificado guarda a data em que o treinamento aconteceu, não a data em que ele deixa de valer.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A primeira conta",
+   "sub": "uma linha, duas entradas",
+   "nar": "Data de realização mais a periodicidade que consta no seu certificado dá a data de vencimento.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A segunda",
+   "sub": "e é ela que ordena",
+   "nar": "Vencimento menos hoje dá os dias que faltam. Ordene do menor para o maior e a resposta aparece.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "O erro que derruba tudo",
+   "sub": "e quase todo mundo comete",
+   "nar": "Quem usa a data de emissão em vez da data de realização erra por semanas. A lista inteira está no vídeo.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# labtreinamento-011\n\n## TITULO\nQuantos da Sua Equipe Estão com Treinamento Vencendo Antes do Fim do Ano? Duas Contas e Uma Lista\n\n## TITULO SHORT\nQuem da sua equipe vence antes de dezembro?\n\n## DESCRICAO\nSe alguém perguntar agora quantas pessoas da sua equipe estão com treinamento vencendo nos próximos noventa dias, você consegue responder sem abrir nada? Quase ninguém consegue, e não é desorganização. É que o certificado guarda a data em que o treinamento FOI REALIZADO, não a data em que ele deixa de valer. A data que interessa não está escrita em lugar nenhum: ela precisa ser calculada, uma pessoa de cada vez.\n\nEste vídeo resolve isso com duas contas de uma linha cada e uma lista que você monta uma vez e revisa por mês. A primeira conta: data de realização mais a periodicidade dá a data de vencimento. A segunda: data de vencimento menos a data de hoje dá os dias que faltam — e é esse número que ordena a lista. Repare no que entra nas duas contas: a data de realização, que está no certificado, e a periodicidade, que está no certificado ou no procedimento da sua empresa. Nenhuma das duas entradas vem daqui.\n\nE é aqui que vai o aviso mais importante desta descrição, dito antes de qualquer outra coisa: ESTE VÍDEO NÃO AFIRMA DE QUANTO EM QUANTO TEMPO NENHUM TREINAMENTO SE REPETE. Não porque o assunto seja delicado, mas porque hoje eu não consegui confirmar nenhuma periodicidade em fonte oficial — o texto das normas não abriu por nenhuma das vias que eu tenho, e o detalhe técnico disso está escrito no bloco AVISO SOBRE OS NÚMEROS, mais abaixo. Eu sei de cabeça várias dessas periodicidades, e isso não basta: memória não é fonte. Então a conta deste vídeo usa o número que está no SEU papel, e a única coisa que o vídeo afirma é aritmética — somar e subtrair datas.\n\nO que o vídeo cobre, nos sete capítulos: as duas contas com as entradas nomeadas e um exemplo de data redonda; os três campos que você precisa ler no certificado, e só três, mesmo que o documento tenha vinte linhas; a lista de cinco colunas — pessoa, treinamento, data de realização, periodicidade e vencimento calculado — uma linha por pessoa E por treinamento, nunca uma linha por pessoa; como definir a sua antecedência olhando quanto tempo levou a última turma e somando uma folga, em vez de copiar um prazo de alguém; quem entra na lista, que é mais gente do que parece (quem mudou de função, quem voltou de afastamento longo, terceirizados e temporários que trabalham na sua área); e quatro passos que cabem nesta semana.\n\nUma ressalva: este conteúdo é informativo e não é consultoria de segurança do trabalho, não avalia a situação da sua empresa e não diz se a sua equipe está ou não em conformidade com qualquer norma. Decidir isso é trabalho de profissional habilitado, com o texto da norma na mão.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nAs duas contas estão no primeiro minuto e meio, então não é preciso ver o vídeo inteiro para pegá-las: data de REALIZAÇÃO do treinamento mais a periodicidade que consta no seu certificado dá a data de vencimento; vencimento menos hoje dá os dias que faltam, e é por esse número que a lista se ordena. O erro mais comum é usar a data de EMISSÃO do certificado no lugar da data de realização — as duas podem estar separadas por semanas. E o aviso que eu repito dentro do vídeo: eu não digo aqui de quanto em quanto tempo cada treinamento se repete, porque hoje não consegui confirmar isso em fonte oficial, e memória não é fonte. Esse número é o único que vem do seu papel. Se você montar a lista, escreva nos comentários quantas pessoas apareceram dentro da sua antecedência — sem nomes, só o número.\n\n## HASHTAGS\n#SegurancaDoTrabalho #ControleDeTreinamentos #LabTreinamento\n\n## TAGS\ncontrole de treinamentos, vencimento de treinamento, validade de certificado, data de realizacao, reciclagem de treinamento, planilha de controle de treinamento, gestao de equipe, seguranca do trabalho, SST, matriz de treinamento, antecedencia de agendamento, terceirizados treinamento, controle de validade, lab treinamento, organizacao de equipe\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\nB-roll: Pexels, creditos por clipe em broll_creditos.json e abaixo.\nTiger Lily; SHVETS production; RDNE Stock project; ArtHouse Studio;\nMiguel A. Padrinan; Gustavo Fring; Pavel Danilyuk.\n\n## AVISO SOBRE OS NUMEROS\nZERO AFIRMACAO SOBRE O MUNDO. Este video nao cita periodicidade de norma, nao\ncita numero de NR, nao cita prazo legal, nao cita multa, nao cita estatistica de\nacidente e nao cita preco de treinamento. O que ele afirma e SO ARITMETICA: data\nmais periodicidade da uma data; data menos data da um numero de dias. Isso nao\nprecisa de fonte porque nao e afirmacao sobre o mundo — e a operacao que o\nespectador faz com os numeros DELE.\n\nPOR QUE DESENHEI ASSIM, e esta medido nesta rodada: a fonte nao abriu. O\n`planalto.gov.br` esta inacessivel pelas TRES rotas que a maquina tem:\n  * `pg_net` do Supabase -> \"Failure when receiving data from the peer\", nas\n    quatro tentativas, inclusive com timeout de 55 s e em http simples;\n  * proxy deste container -> 403 no CONNECT;\n  * sandbox do Composio -> timeout de 20 s com zero bytes.\nE os sites do Ministerio do Trabalho sao renderizados por JavaScript: 200 com\n201 KB e texto limpo vazio; a pagina de normas vigentes devolve 404.\n\nO QUE FOI DESCARTADO, e vai escrito porque a regra da casa e que o descarte\ntambem se declara: (1) a periodicidade de qualquer treinamento — eu sei de\ncabeca que varias sao bienais, e memoria nao e fonte, entao nao entrou nenhuma;\n(2) o numero e o nome de qualquer NR, porque citar a norma sem poder ler o texto\ndela hoje seria afirmar de memoria; (3) o prazo em que o treinamento vencido\nimpede a atividade, que depende do texto da norma e do procedimento da empresa;\n(4) qualquer juizo sobre conformidade, que e trabalho de profissional habilitado.\n\nO NUMERO QUE DECIDE E DO ESPECTADOR, e aqui ele e o unico numero do video: a\nperiodicidade sai do certificado ou do procedimento da empresa dele, a data de\nrealizacao sai do mesmo papel, e a antecedencia sai de quanto tempo levou a\nultima turma que ele mesmo agendou.\n\n## FONTES\nNENHUMA FONTE NORMATIVA E CITADA, e isso e deliberado — ver o bloco acima. As\nunicas \"fontes\" deste video sao os documentos do proprio espectador: o\ncertificado de treinamento (data de realizacao e periodicidade) e o procedimento\ninterno da empresa dele. Os hosts oficiais testados e que NAO abriram nesta\nrodada estao nomeados no AVISO SOBRE OS NUMEROS.\nB-roll: Pexels, licenca Pexels, creditos por clipe em broll_creditos.json.\n"
+}
