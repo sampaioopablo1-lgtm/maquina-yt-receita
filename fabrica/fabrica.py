@@ -837,7 +837,7 @@ def render(spec_file):
             if pref == "s":
                 vf += f",subtitles={d}/{pref}{i:02d}.srt:force_style='{EST}'"
             clipe_cena(d, pref, i, c, dd, nf, RW, RH,
-                       motion=M.motion_ligado(sp))
+                       motion=M.motion_ligado(sp, pref))
             # MANIFESTO: checkpoint por clipe — uma falha nunca custa o pacote
             with open(f"{d}/manifesto.txt","a") as mf:
                 mf.write(f"{pref}clip{i:02d}.mp4\n")

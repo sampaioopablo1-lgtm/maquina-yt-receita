@@ -134,3 +134,19 @@ def test_comando_de_sintese_nao_baixa_nada():
         pass
     else:
         raise AssertionError("som desconhecido deveria estourar, nao sair calado")
+
+
+def test_padrao_ligado_no_short_desligado_no_longo():
+    """A decisao de 07/10: motion entra pelo SHORT, que e onde mora o portao
+    dos tres segundos. O longo segue sem, para a atribuicao ficar limpa."""
+    import motion as M
+    sp = {}
+    assert M.motion_ligado(sp, "s") is True
+    assert M.motion_ligado(sp, "l") is False
+    assert M.motion_ligado(sp) is False  # chamada antiga nao muda de sentido
+
+
+def test_spec_manda_nos_dois_sentidos():
+    import motion as M
+    assert M.motion_ligado({"motion": True}, "l") is True
+    assert M.motion_ligado({"motion": False}, "s") is False

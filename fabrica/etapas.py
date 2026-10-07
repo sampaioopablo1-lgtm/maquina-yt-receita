@@ -181,7 +181,7 @@ for i, c in pendentes:
         # logica e ficou para tras quando a composicao em camadas entrou na
         # fabrica: o pacote sairia SEM animacao e passaria em todos os asserts.
         F.clipe_cena(d, "l", i, c, dd, nf, RW, RH,
-                     motion=F.M.motion_ligado(sp))
+                     motion=F.M.motion_ligado(sp, "l"))
     tempos.append(F.dur(saida))
     # padrao ancorado: nunca `l*.png`
     for ext in ("png", "mp3"):
@@ -319,7 +319,7 @@ if not (os.path.exists(f"{d}/short.mp4") and os.path.getsize(f"{d}/short.mp4") >
             srt.write(f"1\n{F.st(0.2)} --> {F.st(dd - 0.15)}\n{c['nar']}\n")
         nf = max(int(dd * 30), 1)
         F.clipe_cena(d, "s", i, c, dd, nf, SRW, SRH,
-                     motion=F.M.motion_ligado(sp))
+                     motion=F.M.motion_ligado(sp, "s"))
     with open(f"{d}/slista.txt", "w") as f:
         for i in range(len(sp["short"])):
             f.write(f"file 'sclip{i:02d}.mp4'\n")

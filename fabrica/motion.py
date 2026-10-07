@@ -218,12 +218,30 @@ def filtro_bordas(dur: float) -> str:
 # --------------------------------------------------------------------------
 # 5. A CHAVE
 # --------------------------------------------------------------------------
-def motion_ligado(spec: dict) -> bool:
-    """So com `"motion": true` na spec.
+def motion_ligado(spec: dict, formato: str = "") -> bool:
+    """LIGADO no short, DESLIGADO no longo. A spec manda nos dois sentidos.
 
-    O padrao e DESLIGADO e isso e deliberado: o experimento 32 precisa de sete a
-    dez dias com o pipeline intacto, e trocar o renderizador no meio tornaria
-    impossivel saber se um resultado veio do foco de tres canais ou daqui. Foi
-    assim que o experimento 31 morreu, uma hora depois de aberto.
+    `formato` e o prefixo da fabrica: "s" para short, "l" para longo. Sem
+    `formato` o padrao segue DESLIGADO, para nao mudar chamada antiga por
+    acidente.
+
+    POR QUE O SHORT E O LONGO TEM PADRAO DIFERENTE, e a razao e medida, nao
+    estetica. O portao de distribuicao do short e a taxa de abandono nos tres
+    primeiros segundos: a Short entra num lote semeado de 200 a 500 impressoes e
+    so passa dali se pouca gente desliza embora na largada; o alvo publicado e
+    abandono abaixo de 25% nos primeiros tres segundos, e retencao de 65% para
+    short abaixo de 30 s ou 50% para short de 30 a 60 s. Gancho VISUAL bate
+    gancho verbal nesse primeiro segundo, e motion e exatamente isso. O longo
+    nao tem esse portao: ele e achado por busca e por sugestao, e nos nossos
+    numeros ele nao esta sendo achado de jeito nenhum (nove dos treze longos das
+    ultimas 72 h com ZERO view).
+
+    POR QUE SO O SHORT, e nao os dois de uma vez: mudar os dois formatos na
+    mesma rodada em que o mix de producao tambem muda tornaria impossivel
+    atribuir qualquer movimento de alcance a uma causa. Foi assim que o
+    experimento 31 morreu. Uma mudanca, um alvo: alcance por short.
     """
-    return bool(spec.get("motion"))
+    v = spec.get("motion")
+    if v is not None:
+        return bool(v)
+    return formato == "s"

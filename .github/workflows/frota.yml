@@ -420,5 +420,6 @@ jobs:
             /tmp/f/${{ matrix.pacote }}/thumbnail.png
             /tmp/f/${{ matrix.pacote }}/legendas.srt
             /tmp/f/${{ matrix.pacote }}/copy.md
+            /tmp/f/${{ matrix.pacote }}/broll_creditos.json
           retention-days: 14
           if-no-files-found: warn
