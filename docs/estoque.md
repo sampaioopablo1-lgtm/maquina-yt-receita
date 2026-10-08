@@ -1,6 +1,6 @@
 # Estoque de origens livres (medido no banco, nao de memoria)
 
-Atualizado: 2026-10-08, rodada 14:35. Aprendizados 658 e 659.
+Atualizado: 2026-10-08, rodada 15:18. Aprendizados 658, 659 e 660.
 
 ## Por que este arquivo existe
 
@@ -35,7 +35,7 @@ e 5 shorts (`2ywuj5CvQLw IjogSl2TE4M Ry9BgorzJA8 tVKaCqnTR3g VUF-ZhmBJWI`).
 
 Contagem honesta por **titulo DISTINTO**, excluido o grupo duplicado e todas as
 origens ja usadas: epomeno 18/18 titulos, labtreinamento 13/13,
-kolejny 24 longos mas **19 titulos**. Livres: 12 + 13 + 11 = **36** as 14:09; o s004 consumiu uma do labtreinamento -> **35**.
+kolejny 24 longos mas **19 titulos**. Livres: 12 + 13 + 11 = **36** as 14:09; o s004 e o s005 consumiram duas do labtreinamento -> **34**.
 
 ## Origens livres e limpas (11 por canal)
 
@@ -56,12 +56,12 @@ E um proxy fraco e enviesado: premiava duplicacao (foi exatamente o defeito do
 `EwUkhdwyuuo` (27) · `34SgUG7rf0U` (0)
 
 ### labtreinamento (BR)
-`dsoEo103l1o` (82) · `Sr6VhvD_aPE` (80) ·
+`Sr6VhvD_aPE` (80) ·
 `lau1nnOUm1U` (46) · `6BeNHqT2okA` (41) · `KRUERlNPzDw` (28) ·
 `StQNFMdpGdk` (26) · `3KtwRYxl7_U` (22) · `yrWVyqQtw00` (21) ·
 `XgqPVJuAk3o` (4)
 
-Ja usadas e fora da lista: `4OYBkCHFTV8` (1111, s003), `bQoujWaY7Hw` (212, s004),
+Ja usadas e fora da lista: `4OYBkCHFTV8` (1111, s003), `bQoujWaY7Hw` (212, s004), `dsoEo103l1o` (82, s005),
 `NNgAQLlpEzg`, `ntrMxq89I4o`.
 
 ## Regra de escolha de pauta (651)
