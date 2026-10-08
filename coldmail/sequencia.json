@@ -65,5 +65,19 @@
         "3": "não sabe onde trava"
       }
     }
+  ],
+  "e3_variantes": [
+    {
+      "id": "E3A-horario",
+      "corpo": "{primeiro_nome:Oi}, uma pergunta só: [[com {vendedores}, ]]quem responde o lead que chega às 19h ou no sábado?\n\nÉ esse lead que costuma ir para o concorrente. No diagnóstico gratuito do funil a gente mostra onde isso acontece aí e como resolver. Me passa seu WhatsApp que a nossa equipe te chama para marcar.\n\n{assinatura}"
+    },
+    {
+      "id": "E3B-5min",
+      "corpo": "{primeiro_nome:Oi}, faz um teste rápido comigo: se entrassem 10 leads hoje aí, quantos seriam respondidos em menos de 5 minutos?\n\nSe a resposta não for \"todos\", é ali que a venda está escapando. No diagnóstico gratuito do funil a gente mede isso com você em 30 minutos.\n\nMe passa seu WhatsApp que a nossa equipe te chama para marcar.\n\n{assinatura}"
+    },
+    {
+      "id": "E3C-curto",
+      "corpo": "{primeiro_nome:Oi}, posso te mandar 3 ajustes que costumam destravar o funil de vendas[[ de empresas com {vendedores}]]?\n\nSe sim, responde com \"sim\" e o seu WhatsApp.\n\n{assinatura}"
+    }
   ]
 }
