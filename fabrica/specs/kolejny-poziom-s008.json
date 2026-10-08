@@ -1,0 +1,57 @@
+{
+ "slug": "kolejny-poziom",
+ "pacote": "kolejny-poziom-s008",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Krótka czy",
+  "l2": "długa?"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Porównujesz stawki?",
+   "sub": "to nie ten sam produkt",
+   "nar": "Porównujesz stawkę obligacji krótkiej ze stawką obligacji długiej, jakby to był ten sam produkt?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Krótka",
+   "sub": "trzeba ją odnawiać",
+   "nar": "Stawkę krótkiej trzymasz tylko do wykupu. Potem musisz ją odnowić, a wtedy stawka jest już inna.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Długa",
+   "sub": "trzyma stawkę do końca",
+   "nar": "Długa trzyma swoją stawkę przez cały okres, więc liczysz ją raz i wiesz, co dostaniesz na końcu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Policz odnowienia",
+   "sub": "zanim porównasz",
+   "nar": "Zanim porównasz, policz ile razy musiałbyś odnowić krótką, żeby dojść do wykupu długiej.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Zrób to na swojej",
+   "sub": "ofercie",
+   "nar": "Policz tę liczbę na ofercie, którą masz przed sobą. Pełne porównanie jest w filmie.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "Rj7beZkOeYo",
+ "copy": "# kolejny-poziom-s008\n\n## TITULO\nObligacje Krótkie czy Długie: Policz Odnowienia, Zanim Porównasz Stawki\n\n## TITULO SHORT\nKrótka czy długa? Policz odnowienia\n\n## DESCRICAO\nNajczęstszy sposób wybierania obligacji wygląda rozsądnie: patrzysz na listę ofert, szukasz najwyższej stawki i bierzesz tę. Problem polega na tym, że na tej liście stoją obok siebie produkty, których stawki znaczą zupełnie różne rzeczy — i porównanie samych liczb pomija to, co właśnie decyduje.\n\nStawka obligacji krótkiej obowiązuje tylko do jej wykupu. Jeśli twój cel jest dalszy niż ten termin, to po wykupie musisz coś z tymi pieniędzmi zrobić: kupić kolejną, po stawce, która będzie obowiązywać wtedy, a nie dziś. Nie wiesz dziś, jaka ona będzie. Stawka obligacji długiej obowiązuje natomiast przez cały jej okres — liczysz ją raz i wiesz, z czym dojdziesz do końca. To są więc dwie różne rzeczy: jedna liczba, którą masz pewną na krótko, i jedna liczba, którą masz pewną na długo.\n\nDlatego porównanie, które coś mówi, wygląda inaczej. Najpierw policz, ile razy musiałbyś odnowić krótką, żeby dojść do wykupu długiej. Ta liczba to liczba momentów, w których stawka może się zmienić na twoją niekorzyść — i jednocześnie liczba momentów, w których może zmienić się na korzyść. Dopiero wtedy wiesz, co właściwie wybierasz: wyższą liczbę teraz plus niepewność kilka razy, albo niższą liczbę teraz i spokój do końca.\n\nZ tej jednej liczby wynika też prosta wskazówka, która nie wymaga prognozowania niczego. Jeśli odnowień wychodzi dużo, to wyższa stawka krótkiej kupuje ci mniej, niż wygląda, bo większość twojego okresu i tak zależy od stawek, których jeszcze nie znasz. Jeśli odnowień wychodzi mało albo żadne — bo twój cel jest blisko — to długa nie daje ci nic, za co warto zapłacić niższą stawką.\n\nNie ma tu żadnej stawki, żadnej inflacji i żadnego terminu: liczby, które decydują, są w ofercie, którą masz przed sobą. Pełne porównanie wszystkich ofert, próg, od którego oferta przegrywa, i cztery najczęstsze błędy — są w filmie.\n\n## COMENTARIO FIXADO\nCała różnica siedzi w jednym pytaniu: ile razy musiałbyś odnowić krótką, żeby dojść do wykupu długiej. Ta liczba mówi, jaka część twojego okresu zależy od stawek, których dziś nie znasz. Dużo odnowień — wyższa stawka krótkiej kupuje mniej, niż wygląda. Zero odnowień, bo cel jest blisko — długa nie daje nic, za co warto płacić. Policz tę liczbę na swojej ofercie i napisz w komentarzu tylko, czy wyszło dużo czy mało — bez kwot i bez stawek.\n\n## HASHTAGS\n#Obligacje #Oszczednosci #KolejnyPoziom\n\n## TAGS\nobligacje skarbowe, obligacje krotkie, obligacje dlugie, odnowienie, wykup, stawka, oszczednosci, finanse osobiste, polska, jak wybrac obligacje, oprocentowanie, horyzont inwestycyjny, kolejny poziom, liczenie, oferta\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Nao cita\noprocentowanie, nao cita inflacao, nao cita aliquota, nao cita prazo em meses ou\nanos, nao cita valor e nao nomeia emissor nem orgao. Conferido a mao campo por\ncampo, porque o portao `narracao` conta quantidades por frase e nao pega digito\ncru (640).\n\nO QUE O VIDEO AFIRMA: que a taxa de um titulo curto vale so pelo periodo do\ntitulo e precisa ser renovada, enquanto a do titulo longo vale pelo prazo inteiro\n— logo comparar as duas diretamente compara coisas diferentes, e a conta que\nfalta e quantas renovacoes cabem no prazo do longo. Esta no longo\nkolejny-poziom-006 (Rj7beZkOeYo), capitulos \"Czym one sa\", \"Jak wybrac\" e \"Cztery\nbledy\", com as fontes.\n\nDESCARTADO, e vai escrito:\n  (1) qualquer taxa, a inflacao e a aliquota sobre os juros — estao no longo com\n      fonte;\n  (2) qual oferta ganha hoje — preco que muda a cada emissao e NAO foi\n      reconferido nesta rodada em duas fontes;\n  (3) o limiar \"inflacao dividida por zero oitenta e um\", que e do short original\n      daquele pacote e nao se repete aqui.\n\n## FONTES\nO longo de onde este short foi extraido (kolejny-poziom-006, Rj7beZkOeYo) traz as\nfontes. Este short nao introduz numero novo sobre o mundo.\n"
+}
