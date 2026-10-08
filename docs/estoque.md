@@ -1,6 +1,6 @@
 # Estoque de origens livres (medido no banco, nao de memoria)
 
-Atualizado: 2026-10-08, rodada 20:20. Aprendizados 658 a 663.
+Atualizado: 2026-10-08, rodada 22:20. Aprendizados 658 a 666.
 
 ## Por que este arquivo existe
 
@@ -35,7 +35,7 @@ e 5 shorts (`2ywuj5CvQLw IjogSl2TE4M Ry9BgorzJA8 tVKaCqnTR3g VUF-ZhmBJWI`).
 
 Contagem honesta por **titulo DISTINTO**, excluido o grupo duplicado e todas as
 origens ja usadas: epomeno 18/18 titulos, labtreinamento 13/13,
-kolejny 24 longos mas **19 titulos**. Livres: 12 + 13 + 11 = **36** as 14:09; sete consumidas em 08/10 (labtreinamento s004/s005/s006/s007, kolejny s008/s009, epomeno s009) -> **29**.
+kolejny 24 longos mas **19 titulos**. Livres: 12 + 13 + 11 = **36** as 14:09; oito consumidas em 08/10 (labtreinamento s004-s007, kolejny s008/s009, epomeno s009/s010) -> **28**.
 
 ## Origens livres e limpas (11 por canal)
 
@@ -46,10 +46,10 @@ E um proxy fraco e enviesado: premiava duplicacao (foi exatamente o defeito do
 ### epomeno-epipedo (GR)
 `TJZcjE-uv8E` (600) · `uWs-k_Wrn_w` (540) ·
 `jAWKppvjAG8` (428) · `alZ97hpgqXo` (386) · `h66MCKjwAJ8` (311) ·
-`P2q6w9y7j88` (301) · `os51d8fA0sY` (191) · `wUHuwyO2HYo` (1) ·
+`os51d8fA0sY` (191) · `wUHuwyO2HYo` (1) ·
 `GwNkPfM9pSY` (—) · `eZ697VNYCPU` (—)
 
-Ja usada e fora da lista: `jUxJPvmA4Mk` (541, s009).
+Ja usadas e fora da lista: `jUxJPvmA4Mk` (541, s009), `P2q6w9y7j88` (301, s010).
 
 ### kolejny-poziom (PL)
 `Xgt32iH8Ft8` (165) ·
