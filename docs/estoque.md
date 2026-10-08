@@ -1,6 +1,6 @@
 # Estoque de origens livres (medido no banco, nao de memoria)
 
-Atualizado: 2026-10-08, rodada 18:20. Aprendizados 658 a 662.
+Atualizado: 2026-10-08, rodada 19:20. Aprendizados 658 a 662.
 
 ## Por que este arquivo existe
 
@@ -35,7 +35,7 @@ e 5 shorts (`2ywuj5CvQLw IjogSl2TE4M Ry9BgorzJA8 tVKaCqnTR3g VUF-ZhmBJWI`).
 
 Contagem honesta por **titulo DISTINTO**, excluido o grupo duplicado e todas as
 origens ja usadas: epomeno 18/18 titulos, labtreinamento 13/13,
-kolejny 24 longos mas **19 titulos**. Livres: 12 + 13 + 11 = **36** as 14:09; cinco consumidas em 08/10 (labtreinamento s004/s005, kolejny s008/s009, epomeno s009) -> **31**.
+kolejny 24 longos mas **19 titulos**. Livres: 12 + 13 + 11 = **36** as 14:09; seis consumidas em 08/10 (labtreinamento s004/s005/s006, kolejny s008/s009, epomeno s009) -> **30**.
 
 ## Origens livres e limpas (11 por canal)
 
@@ -60,12 +60,12 @@ Ja usada e fora da lista: `jUxJPvmA4Mk` (541, s009).
 Ja usadas e fora da lista: `Rj7beZkOeYo` (172, s008), `ef_oZmfmdz4` (86, s009).
 
 ### labtreinamento (BR)
-`Sr6VhvD_aPE` (80) ·
+
 `lau1nnOUm1U` (46) · `6BeNHqT2okA` (41) · `KRUERlNPzDw` (28) ·
 `StQNFMdpGdk` (26) · `3KtwRYxl7_U` (22) · `yrWVyqQtw00` (21) ·
 `XgqPVJuAk3o` (4)
 
-Ja usadas e fora da lista: `4OYBkCHFTV8` (1111, s003), `bQoujWaY7Hw` (212, s004), `dsoEo103l1o` (82, s005),
+Ja usadas e fora da lista: `4OYBkCHFTV8` (1111, s003), `bQoujWaY7Hw` (212, s004), `dsoEo103l1o` (82, s005), `Sr6VhvD_aPE` (80, s006),
 `NNgAQLlpEzg`, `ntrMxq89I4o`.
 
 ## Regra de escolha de pauta (651)
@@ -91,7 +91,7 @@ sai da lista no mesmo commit do short.
 
 ## Aviso sobre o perfil do estoque do labtreinamento (17:20 de 08/10)
 
-As OITO origens livres que sobraram no labtreinamento sao **todas de
+As origens livres que sobraram no labtreinamento (SETE depois do s006) sao **todas de
 conformidade corporativa** — NR-1, ISO 9001, NR-10, FAP, CAT, treinamento
 vencendo, custo por turma. E exatamente o perfil que o 651 mediu como ~30x PIOR
 (4 a 70 views contra 1.111 e 1.133), porque ali o numero e do empregador e nao do
