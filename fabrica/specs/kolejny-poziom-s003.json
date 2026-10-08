@@ -1,0 +1,57 @@
+{
+ "slug": "kolejny-poziom",
+ "pacote": "kolejny-poziom-s003",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Których odsetek?",
+  "l2": "to się zmienia"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Których odsetek?",
+   "sub": "to się zmienia",
+   "nar": "Porównałeś czynsz z odsetkami? Dobrze. Ale z odsetkami którego miesiąca?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Najwyższe na starcie",
+   "sub": "potem maleją",
+   "nar": "Odsetki są najwyższe w pierwszym miesiącu i maleją z każdą ratą. Kapitał rośnie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Więc nie jest",
+   "sub": "porównanie neutralne",
+   "nar": "Więc porównanie z pierwszego miesiąca jest najlepsze dla najmu, a nie neutralne.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Weź harmonogram",
+   "sub": "twój miesiąc",
+   "nar": "Weź harmonogram i odczytaj odsetki z miesiąca, w którym jesteś. Tę liczbę porównujesz z czynszem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Sprawdź dziś",
+   "sub": "cały rachunek",
+   "nar": "Sprawdź harmonogram dziś. Cały rachunek jest w filmie.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "GUiq15usizw",
+ "copy": "# kolejny-poziom-s003\n\n## TITULO\nPorównałeś Czynsz z Odsetkami? Odsetki Maleją z Każdą Ratą, Więc Liczy się Miesiąc\n\n## TITULO SHORT\nOdsetki z którego miesiąca?\n\n## DESCRICAO\nPorównanie najmu z własnością psuje się na jednej rzeczy: prawie każdy stawia czynsz obok CAŁEJ raty kredytu. To nie jest jedno porównanie, bo w racie siedzą dwie różne rzeczy. Odsetki to koszt — zostają w banku i nie wracają do ciebie. Kapitał to twoje oszczędzanie — zmniejsza dług i zostaje u ciebie. Wrzucając całą ratę do kosztów, wliczasz własne oszczędzanie do rachunku i wychodzi, że własność jest droższa, niż jest.\n\nDlatego porównuje się czynsz z CZĘŚCIĄ ODSETKOWĄ. Ale jest drugi krok, o którym prawie nikt nie mówi, i on decyduje: część odsetkowa nie jest stała. Jest najwyższa w pierwszym miesiącu i maleje z każdą kolejną ratą, a kapitałowa w tym samym czasie rośnie. Suma zostaje ta sama, proporcje nie.\n\nKonsekwencja jest prosta i niewygodna: porównanie zrobione na odsetkach z pierwszego miesiąca jest najkorzystniejszym możliwym porównaniem DLA NAJMU. Nie jest neutralne. Jeżeli kredyt trwa już kilka lat, twoje dzisiejsze odsetki są wyraźnie niższe niż te z pierwszej raty, a więc dzisiejszy rachunek wypada inaczej niż ten, który zrobiłeś na starcie. Uczciwa wersja: weź harmonogram spłat, znajdź miesiąc, w którym faktycznie jesteś, i odczytaj część odsetkową z tego wiersza. Ta liczba porównuje się z czynszem.\n\nPo stronie własności dolicz jeszcze podatek od nieruchomości, ubezpieczenie i fundusz remontowy, bo najemca ich nie płaci osobno. Po stronie najmu pamiętaj, że czynsz rośnie w czasie, a rata w kredycie o stałym oprocentowaniu nie.\n\nTutaj nie podaję żadnej stawki, żadnej raty i żadnej kwoty czynszu: liczba, która decyduje, wychodzi z twojego harmonogramu i twojej umowy. Pełny rachunek, miejsce gdzie odczytać odsetki i to, czego ten rachunek NIE rozstrzyga, są w filmie.\n\n## COMENTARIO FIXADO\nDwa kroki, nie jeden. Pierwszy: porównuj czynsz z częścią ODSETKOWĄ raty, nie z całą ratą — kapitał to twoje oszczędzanie, nie koszt. Drugi, ten pomijany: odsetki maleją z każdą ratą, więc rachunek zrobiony na pierwszym miesiącu jest najkorzystniejszy dla najmu i nie jest neutralny. Weź harmonogram, znajdź miesiąc, w którym jesteś, i odczytaj odsetki z tego wiersza. Po stronie własności dolicz podatek, ubezpieczenie i fundusz remontowy. Jeśli policzysz, napisz, czy odsetki z twojego miesiąca były wyższe czy niższe od czynszu — bez podawania kwot.\n\n## HASHTAGS\n#Kredyt #Najem #KolejnyPoziom\n\n## TAGS\nkredyt, najem, odsetki, kapital, harmonogram splat, rata, wynajem czy kredyt, finanse osobiste, polska, obliczenia, amortyzacja, podatek od nieruchomosci, kolejny poziom, mieszkanie, porownanie\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO. Nao cita taxa de juro, nao cita prestacao, nao\ncita aluguel, nao cita percentual e nao nomeia banco nem orgao. O unico numero\ndito e \"primeiro mes\", e e referencia de posicao na propria conta.\n\nO QUE O VIDEO AFIRMA: que numa prestacao de credito a parte de juros e maior no\ninicio e diminui a cada prestacao, enquanto a de capital cresce. E aritmetica de\namortizacao e esta no longo kolejny-poziom-019 (GUiq15usizw) com as fontes.\n\nDESCARTADO, e vai escrito:\n  (1) QUAL sistema de amortizacao o banco polones aplica por padrao — nao\n      reconferido hoje em duas fontes; o short so diz que os juros caem, o que\n      vale nos dois sistemas correntes;\n  (2) qualquer taxa, prestacao ou valor de aluguel;\n  (3) o que a conta NAO decide — esta no longo, e o short manda para la.\n\n## FONTES\nO longo de onde este short foi extraido (kolejny-poziom-019, GUiq15usizw) traz as\nfontes. Este short nao introduz numero novo sobre o mundo.\n"
+}
