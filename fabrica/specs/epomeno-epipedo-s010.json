@@ -1,0 +1,57 @@
+{
+ "slug": "epomeno-epipedo",
+ "pacote": "epomeno-epipedo-s010",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#12263A",
+  "c1": "#2A9D8F",
+  "c2": "#E8A33D",
+  "bg": "#F5F2EC"
+ },
+ "thumb": {
+  "l1": "Στη γραμμή,",
+  "l2": "όχι στο σύνολο"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Έκπτωση στο ρεύμα;",
+   "sub": "πού την υπολόγισες",
+   "nar": "Σου υποσχέθηκαν έκπτωση στο ρεύμα και την υπολόγισες πάνω στο τελικό ποσό του λογαριασμού;",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Πέφτει στη γραμμή",
+   "sub": "όχι στη σελίδα",
+   "nar": "Η έκπτωση πέφτει μόνο στη γραμμή της ενέργειας. Στα υπόλοιπα της σελίδας δεν αγγίζει τίποτα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Η σωστή σειρά",
+   "sub": "πρώτα η γραμμή",
+   "nar": "Βρες τη γραμμή της ενέργειας, βάλε την έκπτωση εκεί, και μετά δες τη διαφορά στο τελικό ποσό.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ίδιο ποσοστό",
+   "sub": "άλλο κέρδος",
+   "nar": "Το ίδιο ποσοστό δίνει άλλο κέρδος σε κάθε λογαριασμό, γιατί η ενέργεια δεν ζυγίζει ίδια παντού.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Κάνε την πράξη",
+   "sub": "στη δική σου φατούρα",
+   "nar": "Κάνε την πράξη στον δικό σου λογαριασμό πριν υπογράψεις. Η πλήρης πράξη είναι στο βίντεο.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "P2q6w9y7j88",
+ "copy": "# epomeno-epipedo-s010\n\n## TITULO\nΈκπτωση Ρεύματος: Πέφτει στη Γραμμή της Ενέργειας, Όχι στο Τελικό Ποσό\n\n## TITULO SHORT\nΗ έκπτωση πέφτει στη γραμμή, όχι στο σύνολο\n\n## DESCRICAO\nΌταν κάποιος ακούει «έκπτωση στο ρεύμα», ο υπολογισμός που κάνει στο κεφάλι του είναι σχεδόν πάντα ο ίδιος: παίρνει το ποσό που πληρώνει κάθε μήνα και του αφαιρεί το ποσοστό. Είναι ο λογικός υπολογισμός και είναι ο λάθος υπολογισμός, γιατί εφαρμόζει το ποσοστό σε βάση που δεν το δέχεται.\n\nΟ λογαριασμός δεν είναι ένα πράγμα. Μέσα του υπάρχει η γραμμή της ενέργειας — αυτή που ο πάροχος πουλάει και τιμολογεί — και υπάρχουν όλα τα υπόλοιπα, που δεν τα ορίζει ο πάροχος: δίκτυα, ρυθμιζόμενες χρεώσεις, φόροι και τέλη. Η έκπτωση που σου υπόσχονται αφορά τη γραμμή της ενέργειας. Στα υπόλοιπα δεν αγγίζει τίποτα, όποιον και να διαλέξεις.\n\nΑπό αυτό βγαίνει η σωστή σειρά των πράξεων, και δεν χρειάζεται κανένα νούμερο από έξω. Πρώτα βρίσκεις στη σελίδα τη γραμμή της ενέργειας. Μετά εφαρμόζεις την έκπτωση εκεί και μόνο εκεί. Και τέλος κοιτάς τη διαφορά σε σχέση με το τελικό ποσό που πληρώνεις σήμερα. Αυτό είναι το πραγματικό κέρδος της προσφοράς — και είναι συστηματικά μικρότερο από αυτό που βγάζει ο υπολογισμός «ποσοστό επί του συνόλου».\n\nΥπάρχει και μια δεύτερη συνέπεια, που εξηγεί γιατί δύο γείτονες με την ίδια προσφορά βγάζουν διαφορετικό συμπέρασμα. Η ενέργεια δεν ζυγίζει το ίδιο σε κάθε λογαριασμό: σε κάποιον με μεγάλη κατανάλωση είναι μεγαλύτερο κομμάτι της σελίδας, σε κάποιον με μικρή είναι μικρότερο. Άρα το ίδιο ποσοστό έκπτωσης δίνει άλλο κέρδος στον καθένα — και η σύγκριση προσφορών δεν μεταφέρεται από το ένα νοικοκυριό στο άλλο.\n\nΔεν υπάρχει εδώ ούτε ποσοστό, ούτε φόρος, ούτε ποσό: οι αριθμοί που αποφασίζουν είναι στη δική σου φατούρα. Το φύλλο των τεσσάρων γραμμών, οι πέντε επιβαρύνσεις, τι αλλάζει πραγματικά με τον πάροχο και τα τέσσερα συνηθισμένα λάθη — είναι στο βίντεο.\n\n## COMENTARIO FIXADO\nΗ σειρά των πράξεων είναι το παν: πρώτα βρίσκεις τη γραμμή της ενέργειας, μετά βάζεις την έκπτωση ΕΚΕΙ, και μόνο στο τέλος κοιτάς τη διαφορά στο τελικό ποσό. Αν αφαιρέσεις το ποσοστό από το σύνολο, βγάζεις κέρδος που δεν υπάρχει. Και προσοχή στο δεύτερο: η ενέργεια δεν ζυγίζει ίδια σε κάθε λογαριασμό, άρα η σύγκριση του γείτονα δεν ισχύει για σένα. Όποιος κάνει την πράξη, ας γράψει στα σχόλια μόνο αν βγήκε μεγαλύτερο ή μικρότερο απ' όσο περίμενε — χωρίς ποσά.\n\n## HASHTAGS\n#Ρεύμα #Λογαριασμοί #ΕπόμενοΕπίπεδο\n\n## TAGS\nλογαριασμος ρευματος, εκπτωση ρευματος, γραμμη ενεργειας, παροχος ρευματος, ρυθμιζομενες χρεωσεις, συγκριση προσφορων, προσωπικα οικονομικα, ελλαδα, υπολογισμος, καταναλωση, φατουρα, νοικοκυριο, επομενο επιπεδο, αλλαγη παροχου, ποσοστο\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Nao cita a faixa do\nque nao e energia, nao cita percentual de desconto, nao cita imposto, nao cita\nvalor e nao nomeia fornecedor nem orgao. Conferido a mao campo por campo.\n\nO QUE O VIDEO AFIRMA: que o desconto de fornecedor incide sobre a linha da\nENERGIA e nao sobre o total da conta, e que por isso o mesmo percentual rende\ndiferente em cada fatura. Esta no longo epomeno-epipedo-004 (P2q6w9y7j88),\ncapitulos \"Τι αλλάζει με τον πάροχο\" e \"Το φύλλο τεσσάρων γραμμών\".\n\nDESCARTADO, e vai escrito:\n  (1) a faixa de quanto da conta nao e energia e as cinco rubricas — estao no\n      longo com fonte; aqui o numero e o DA FATURA do espectador;\n  (2) qualquer percentual de desconto de mercado — muda por oferta e NAO foi\n      reconferido nesta rodada em duas fontes;\n  (3) se vale ou nao trocar de fornecedor, que depende do perfil de consumo.\n\n## FONTES\nO longo de onde este short foi extraido (epomeno-epipedo-004, P2q6w9y7j88) traz\nas fontes. Este short nao introduz numero novo sobre o mundo.\n"
+}
