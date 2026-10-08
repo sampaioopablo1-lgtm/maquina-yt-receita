@@ -1,0 +1,57 @@
+{
+ "slug": "epomeno-epipedo",
+ "pacote": "epomeno-epipedo-s009",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#12263A",
+  "c1": "#2A9D8F",
+  "c2": "#E8A33D",
+  "bg": "#F5F2EC"
+ },
+ "thumb": {
+  "l1": "Ο μήνας,",
+  "l2": "όχι μία"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Μία απόδειξη;",
+   "sub": "δεν είναι το νούμερο",
+   "nar": "Έκανες τη διαίρεση σε μία απόδειξη και σου φάνηκε μικρό το ποσό του φόρου που πλήρωσες;",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Το νούμερο",
+   "sub": "είναι ο μήνας",
+   "nar": "Το νούμερο που μετράει δεν είναι μιας απόδειξης. Είναι το άθροισμα ενός ολόκληρου μήνα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Μία διαίρεση",
+   "sub": "στο τέλος, όχι σε κάθε μία",
+   "nar": "Κράτα τις αποδείξεις ενός μήνα, πρόσθεσε τα σύνολα και κάνε τη διαίρεση μία φορά, στο τέλος.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Μην πετάς",
+   "sub": "τις μικρές",
+   "nar": "Και μην πετάς τις μικρές αποδείξεις. Ο συντελεστής δεν ξέρει πόσο μεγάλη είναι η αγορά σου.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Ξεκίνα σήμερα",
+   "sub": "κράτα τις αποδείξεις",
+   "nar": "Ξεκίνα να τις κρατάς από σήμερα, μέχρι το τέλος του μήνα. Η πλήρης πράξη είναι στο βίντεο.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "jUxJPvmA4Mk",
+ "copy": "# epomeno-epipedo-s009\n\n## TITULO\nΟ Φόρος στις Αποδείξεις: Το Νούμερο Δεν Είναι Μιας Αγοράς, Είναι Ενός Μήνα\n\n## TITULO SHORT\nΜία απόδειξη δεν είναι το νούμερο\n\n## DESCRICAO\nΌταν κάποιος κάνει για πρώτη φορά τη διαίρεση σε μία απόδειξη, η αντίδραση είναι σχεδόν πάντα η ίδια: το ποσό βγαίνει μικρό και το θέμα κλείνει εκεί. Είναι λογική αντίδραση και είναι η λάθος είσοδος στον υπολογισμό, γιατί μία απόδειξη δεν είναι η μονάδα μέτρησης αυτού του φόρου. Η μονάδα είναι ο μήνας.\n\nΟ λόγος είναι απλός. Ο φόρος δεν μπαίνει μία φορά, σε μία μεγάλη αγορά: μπαίνει σε κάθε συναλλαγή, κάθε μέρα, στο ίδιο ποσοστό. Όταν τον βλέπεις ανά απόδειξη, τον βλέπεις πάντα στη μικρότερη δυνατή κλίμακα, και γι' αυτό πάντα σου φαίνεται αμελητέος. Όταν τον αθροίσεις για έναν μήνα, βλέπεις το νούμερο που πραγματικά φεύγει από το εισόδημά σου — και αυτό είναι το νούμερο με το οποίο μπορείς να πάρεις απόφαση.\n\nΗ πράξη αλλάζει λίγο, και αλλάζει προς το ευκολότερο. Δεν κάνεις μία διαίρεση σε κάθε απόδειξη. Κρατάς τις αποδείξεις ενός μήνα, προσθέτεις τα σύνολα και κάνεις τη διαίρεση μία φορά, στο τέλος. Ένα άθροισμα και μία διαίρεση για όλον τον μήνα, αντί για δεκάδες μικρές πράξεις που κανείς δεν τις κάνει στην πραγματικότητα.\n\nΥπάρχει και ένα δίδυμο λάθος, που υποεκτιμά το αποτέλεσμα: να κρατάς μόνο τις μεγάλες αποδείξεις. Ο συντελεστής δεν εξαρτάται από το μέγεθος της αγοράς, άρα οι μικρές καθημερινές συναλλαγές μπαίνουν με την ίδια αναλογία — και επειδή είναι πολλές, συχνά αθροίζουν περισσότερα από τις λίγες μεγάλες. Αν πετάξεις τις μικρές, το αποτέλεσμα βγαίνει συστηματικά χαμηλότερο από την πραγματικότητα.\n\nΔεν υπάρχει εδώ κανένας συντελεστής, κανένας διαιρέτης και κανένα ποσό: οι αριθμοί που αποφασίζουν είναι στις αποδείξεις που έχεις στο χέρι σου. Οι τρεις συντελεστές, η πράξη βήμα προς βήμα, οι περιπτώσεις όπου δεν είναι ίδιο παντού και τι σημαίνει πρακτικά — είναι στο βίντεο.\n\n## COMENTARIO FIXADO\nΔύο πράγματα κάνουν τη διαφορά. Πρώτο: η μονάδα είναι ο μήνας, όχι η απόδειξη — ανά απόδειξη ο φόρος φαίνεται πάντα αμελητέος, επειδή τον κοιτάς στη μικρότερη κλίμακα. Δεύτερο: κρατάς ΟΛΕΣ τις αποδείξεις, όχι μόνο τις μεγάλες, γιατί ο συντελεστής δεν εξαρτάται από το μέγεθος της αγοράς και οι μικρές συχνά αθροίζουν περισσότερα. Ένα άθροισμα, μία διαίρεση, στο τέλος του μήνα. Όποιος το κάνει, ας γράψει στα σχόλια μόνο αν βγήκε περισσότερο ή λιγότερο απ' όσο περίμενε — χωρίς ποσά.\n\n## HASHTAGS\n#Φόρος #Αποδείξεις #ΕπόμενοΕπίπεδο\n\n## TAGS\nφορος, αποδειξεις, εμμεσος φορος, μηνιαιος προυπολογισμος, προσωπικα οικονομικα, ελλαδα, υπολογισμος, διαιρεση, καταναλωση, συντελεστης, αγορες, μικρες αγορες, επομενο επιπεδο, νοικοκυριο, καλαθι\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Nao cita συντελεστής\nnenhum, nao cita o divisor, nao cita a reducao das ilhas, nao cita valor e nao\nnomeia orgao. Conferido a mao campo por campo, porque o portao `narracao` conta\nquantidades por frase e nao pega digito cru (640).\n\nO QUE O VIDEO AFIRMA: que o imposto esta embutido no preco de cada apodeixi, que\no numero relevante e o do MES e nao de uma compra, e que a taxa nao depende do\ntamanho da compra — logo descartar as pequenas subestima o total. Esta no longo\nepomeno-epipedo-011 (jUxJPvmA4Mk), capitulos \"Η πράξη: μία διαίρεση\" e \"Ένα μήνα\nαποδείξεις\", com as fontes.\n\nDESCARTADO, e vai escrito:\n  (1) os tres συντελεστές e o divisor — estao no longo com fonte;\n  (2) a reducao nas ilhas e quais ilhas — regra geografica com numero, NAO\n      reconferida nesta rodada em duas fontes;\n  (3) qualquer estimativa de quanto isso da por mes, que depende do consumo de\n      cada pessoa e e o que o video manda ELA calcular.\n\n## FONTES\nO longo de onde este short foi extraido (epomeno-epipedo-011, jUxJPvmA4Mk) traz\nas fontes. Este short nao introduz numero novo sobre o mundo.\n"
+}
