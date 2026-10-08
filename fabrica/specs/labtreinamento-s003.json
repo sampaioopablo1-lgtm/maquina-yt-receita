@@ -1,0 +1,57 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-s003",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#22333B",
+  "c1": "#A4243B",
+  "c2": "#D8973C",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Não complemente",
+  "l2": "tudo"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Vai complementar?",
+   "sub": "não comece por tudo",
+   "nar": "Decidiu complementar a guia para contar tempo de contribuição? Não comece querendo tudo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Mês antigo",
+   "sub": "custa mais juro",
+   "nar": "Cada mês que você complementa vem com juro, e quanto mais antigo o mês, maior fica a conta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ordene os meses",
+   "sub": "do mais novo ao mais velho",
+   "nar": "Ordene então os meses do mais novo para o mais velho, e some só até onde o dinheiro alcança.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Pode já bastar",
+   "sub": "veja o que falta",
+   "nar": "Antes disso, confira quanto tempo ainda falta. Talvez você não precise complementar todos.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Monte a ordem",
+   "sub": "antes de pagar",
+   "nar": "Monte essa ordem antes de pagar a primeira guia. A conta completa está no vídeo.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "4OYBkCHFTV8",
+ "copy": "# labtreinamento-s003\n\n## TITULO\nComplementar a Guia do Autônomo: Comece pelos Meses Mais Novos, Não por Todos\n\n## TITULO SHORT\nNão complemente tudo. Ordene os meses\n\n## DESCRICAO\nQuem descobre que a guia que paga todo mês não conta para tempo de contribuição costuma ter a mesma reação: complementar o passado inteiro. É a decisão certa pelo motivo errado, e ela sai mais cara do que precisa.\n\nA complementação de um mês passado não custa só a diferença: custa a diferença mais juro, e esse juro depende de quanto tempo aquele mês já ficou para trás. Dois meses com exatamente a mesma diferença custam valores diferentes se um é do ano passado e o outro é de muitos anos atrás. Então \"complementar tudo\" não é uma decisão única: é uma fila de decisões com preços diferentes, e tratá-la como bloco faz você pagar primeiro justamente o que é mais caro por mês recuperado.\n\nA ordem honesta é a inversa da intuição: liste os meses do mais recente para o mais antigo, veja o custo de cada um, e vá somando até onde o dinheiro que você tem de verdade alcança. Assim cada real comprado compra o máximo de tempo possível. Se depois sobrar fôlego, você desce mais na lista — mas já com o barato garantido.\n\nE há um passo que vem antes de todos e que quase ninguém dá: conferir quanto tempo ainda falta. Dependendo da sua idade e do que já está registrado, pode ser que você não precise de todos aqueles meses, ou que o caminho que faz sentido não seja o de tempo de contribuição. Complementar sem saber quanto falta é comprar sem saber o preço do que se quer.\n\nNão há aqui nenhum percentual, nenhuma taxa de juro e nenhum valor: os números que decidem estão na sua guia e no seu extrato. A conta completa, onde encontrar cada número, quando NÃO vale consertar e o que fazer ainda nesta semana — estão no vídeo.\n\n## COMENTARIO FIXADO\nA ordem importa e é contraintuitiva. Complementar um mês passado custa a diferença MAIS juro, e o juro cresce com a idade do mês — então dois meses de diferença igual têm preços diferentes. Liste os meses do mais NOVO para o mais VELHO, veja o custo de cada um e vá somando até onde o seu dinheiro alcança: assim cada real compra o máximo de tempo. E antes de qualquer pagamento, confira quanto tempo ainda falta — dependendo da idade e do que já está registrado, talvez você não precise de todos, ou talvez o caminho não seja esse. Se você fizer a lista, comente só se a diferença entre o mês mais novo e o mais velho foi grande — sem valores.\n\n## HASHTAGS\n#Autonomo #INSS #LabTreinamento\n\n## TAGS\nautonomo, complementacao, guia de contribuicao, tempo de contribuicao, juro, meses passados, aposentadoria, financas pessoais, brasil, calculo, carne, extrato, lab treinamento, ordem de pagamento, mes mais novo\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO. Nao cita percentual de contribuicao, nao cita\naliquota de complementacao, nao cita taxa de juro, nao cita valor, nao cita tempo\nminimo de contribuicao e nao nomeia orgao. Nao ha numero dito na narracao.\n\nO QUE O VIDEO AFIRMA: que a complementacao de meses passados vem com juros e que\na conta cresce com a idade do mes, logo convem ordenar os meses do mais novo para\no mais velho e conferir primeiro quanto tempo ainda falta. Esta no longo\nlabtreinamento-006 (4OYBkCHFTV8), no capitulo \"Quando nao vale consertar\", com as\nfontes.\n\nDESCARTADO, e vai escrito:\n  (1) os percentuais da guia e da diferenca, e qualquer taxa de juro — estao no\n      longo com fonte; o short nao precisa deles para dizer que mes antigo custa\n      mais;\n  (2) quanto tempo de contribuicao e exigido, e em que regra — afirmacao juridica\n      com numero, NAO reconferida hoje em duas fontes; o short MANDA conferir;\n  (3) se vale ou nao complementar, que depende de idade e historico e esta no\n      longo.\n\n## FONTES\nO longo de onde este short foi extraido (labtreinamento-006, 4OYBkCHFTV8) traz as\nfontes. Este short nao introduz numero novo sobre o mundo.\n"
+}
