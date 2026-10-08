@@ -1,0 +1,57 @@
+{
+ "slug": "kolejny-poziom",
+ "pacote": "kolejny-poziom-s007",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Zysk netto",
+  "l2": "nie brutto"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Nadpłacać czy",
+   "sub": "inwestować?",
+   "nar": "Porównujesz oprocentowanie kredytu z zyskiem z inwestycji? To porównanie jest nierówne.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Zysk jest",
+   "sub": "opodatkowany",
+   "nar": "Od zysku z inwestycji płacisz podatek. Od odsetek, których nie zapłacisz, nie płacisz nic.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Odejmij podatek",
+   "sub": "i wtedy porównaj",
+   "nar": "Odejmij więc podatek od zysku, i dopiero ten wynik porównaj z oprocentowaniem kredytu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kolejność się",
+   "sub": "potrafi odwrócić",
+   "nar": "Po tej poprawce kolejność potrafi się odwrócić, i nadpłata wychodzi na lepsze.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Policz netto",
+   "sub": "potem decyduj",
+   "nar": "Policz zysk netto, a potem decyduj. Cała kalkulacja jest w filmie.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "MjI4ZGJAhIo",
+ "copy": "# kolejny-poziom-s007\n\n## TITULO\nNadpłata czy Inwestycja: Porównuj Zysk po Podatku, a Nie przed Nim\n\n## TITULO SHORT\nPorównaj zysk netto, nie brutto\n\n## DESCRICAO\nPytanie „nadpłacać kredyt czy inwestować\" prawie zawsze rozbija się o jedną liczbę ustawioną w złym miejscu. Człowiek bierze oprocentowanie kredytu, bierze oczekiwany zysk z inwestycji, stawia je obok siebie i patrzy, co jest większe. Krok jest logiczny i wynik bywa błędny, bo te dwie liczby nie są tego samego rodzaju.\n\nZysk z inwestycji jest opodatkowany: część tego, co urośnie, oddajesz. Odsetki, których NIE zapłacisz dzięki nadpłacie, nie są przychodem — nie ma od czego pobierać podatku. Więc jedna strona porównania jest „przed\", a druga „po\". Porównując je bezpośrednio, dajesz inwestycji przewagę, której ona nie ma.\n\nPoprawka jest jedna i prosta: od oczekiwanego zysku odejmij podatek, i DOPIERO ten wynik porównaj z oprocentowaniem kredytu. Nic więcej nie trzeba zmieniać w rachunku. Po tej korekcie kolejność potrafi się odwrócić — i akurat ta odwrotna kolejność jest tą, która zmienia decyzję, bo zwykle obie liczby leżą blisko siebie.\n\nWarto wiedzieć, czego ten rachunek NIE rozstrzyga, bo to nie drobiazg: nie mówi nic o terminie, o płynności ani o ryzyku. Nadpłata jest pewna i nieodwracalna, inwestycja jest niepewna i można z niej wyjść. Dwie liczby po korekcie mówią tylko, która strona jest matematycznie korzystniejsza przy danych założeniach — a nie, która jest mądrzejsza w twojej sytuacji.\n\nNie ma tu żadnego oprocentowania, żadnej stawki podatku i żadnej kwoty: liczby, które decydują, są w twojej umowie kredytowej i w ofercie, którą rozważasz. Pełna kalkulacja na konkretnym przypadku, gdzie znaleźć każdą liczbę i co zrobić, gdy wyniki wychodzą niemal równe — są w filmie.\n\n## COMENTARIO FIXADO\nNajczęstszy błąd w tym porównaniu: stawianie oprocentowania kredytu obok zysku BRUTTO z inwestycji. Zysk jest opodatkowany, a odsetki, których nie zapłacisz dzięki nadpłacie, nie są przychodem — nie ma od czego pobrać podatku. Jedna strona jest „przed\", druga „po\". Odejmij podatek od zysku i dopiero wtedy porównaj: kolejność potrafi się odwrócić, bo zwykle obie liczby leżą blisko siebie. Czego ten rachunek NIE mówi: nic o terminie, płynności i ryzyku — nadpłata jest pewna i nieodwracalna, inwestycja niepewna i odwracalna. Stawki i kwot tu nie podaję: są w twojej umowie, a pełna kalkulacja w filmie. Jeśli policzysz, napisz tylko, czy po korekcie kolejność się odwróciła — bez kwot.\n\n## HASHTAGS\n#Kredyt #Inwestowanie #KolejnyPoziom\n\n## TAGS\nnadplata kredytu, inwestowanie, zysk netto, podatek od zyskow, oprocentowanie, kredyt hipoteczny, finanse osobiste, polska, obliczenia, decyzja finansowa, plynnosc, ryzyko, kolejny poziom, porownanie, brutto netto\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO. Nao cita taxa de credito, nao cita rendimento,\nnao cita aliquota de imposto, nao cita valor, nao cita prazo e nao nomeia o\nimposto nem orgao nenhum. Nao ha numero dito na narracao.\n\nO QUE O VIDEO AFIRMA: que o rendimento de um investimento e tributado e que o\njuro que se deixa de pagar ao amortizar nao e, logo comparar a taxa do credito\ncom o rendimento BRUTO compara grandezas diferentes. Esta no longo\nkolejny-poziom-007 (MjI4ZGJAhIo) com as fontes, e a parte aritmetica e\nverificavel sem fonte nova.\n\nDESCARTADO, e vai escrito:\n  (1) a aliquota do imposto sobre rendimento na Polonia e o nome do imposto —\n      estao no longo com fonte e NAO foram reconferidos hoje em duas fontes;\n  (2) qualquer taxa de credito, rendimento ou valor;\n  (3) se vale amortizar ou investir no caso de cada um — depende de prazo,\n      liquidez e risco, esta no longo, e o short manda para la.\n\n## FONTES\nO longo de onde este short foi extraido (kolejny-poziom-007, MjI4ZGJAhIo) traz as\nfontes. Este short nao introduz numero novo sobre o mundo.\n"
+}
