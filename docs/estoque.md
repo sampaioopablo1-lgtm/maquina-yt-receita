@@ -1,6 +1,6 @@
 # Estoque de origens livres (medido no banco, nao de memoria)
 
-Atualizado: 2026-10-08, rodada 16:18. Aprendizados 658, 659 e 660.
+Atualizado: 2026-10-08, rodada 17:20. Aprendizados 658 a 661.
 
 ## Por que este arquivo existe
 
@@ -35,7 +35,7 @@ e 5 shorts (`2ywuj5CvQLw IjogSl2TE4M Ry9BgorzJA8 tVKaCqnTR3g VUF-ZhmBJWI`).
 
 Contagem honesta por **titulo DISTINTO**, excluido o grupo duplicado e todas as
 origens ja usadas: epomeno 18/18 titulos, labtreinamento 13/13,
-kolejny 24 longos mas **19 titulos**. Livres: 12 + 13 + 11 = **36** as 14:09; o s004/s005 (labtreinamento) e o s008 (kolejny) consumiram tres -> **33**.
+kolejny 24 longos mas **19 titulos**. Livres: 12 + 13 + 11 = **36** as 14:09; o s004/s005 (labtreinamento), o s008 (kolejny) e o s009 (epomeno) consumiram quatro -> **32**.
 
 ## Origens livres e limpas (11 por canal)
 
@@ -44,10 +44,12 @@ E um proxy fraco e enviesado: premiava duplicacao (foi exatamente o defeito do
 658). Use como tie-break, nunca como criterio unico.
 
 ### epomeno-epipedo (GR)
-`TJZcjE-uv8E` (600) · `jUxJPvmA4Mk` (541) · `uWs-k_Wrn_w` (540) ·
+`TJZcjE-uv8E` (600) · `uWs-k_Wrn_w` (540) ·
 `jAWKppvjAG8` (428) · `alZ97hpgqXo` (386) · `h66MCKjwAJ8` (311) ·
 `P2q6w9y7j88` (301) · `os51d8fA0sY` (191) · `wUHuwyO2HYo` (1) ·
 `GwNkPfM9pSY` (—) · `eZ697VNYCPU` (—)
+
+Ja usada e fora da lista: `jUxJPvmA4Mk` (541, s009).
 
 ### kolejny-poziom (PL)
 `Xgt32iH8Ft8` (165) · `ef_oZmfmdz4` (86) ·
@@ -86,3 +88,17 @@ Prefira dinheiro proprio.
 Rode a consulta de duplicatas e a de estoque **antes de escolher pauta**, nao de
 memoria, e reescreva este arquivo quando o resultado mudar. Toda origem usada
 sai da lista no mesmo commit do short.
+
+## Aviso sobre o perfil do estoque do labtreinamento (17:20 de 08/10)
+
+As OITO origens livres que sobraram no labtreinamento sao **todas de
+conformidade corporativa** — NR-1, ISO 9001, NR-10, FAP, CAT, treinamento
+vencendo, custo por turma. E exatamente o perfil que o 651 mediu como ~30x PIOR
+(4 a 70 views contra 1.111 e 1.133), porque ali o numero e do empregador e nao do
+espectador. As duas de dinheiro proprio (`bQoujWaY7Hw`, `dsoEo103l1o`) foram
+consumidas em 08/10.
+
+Consequencia pratica: **contar origem livre sem olhar o PERFIL superestima o
+estoque util.** O labtreinamento tem oito livres e zero do perfil que funciona.
+A saida estrutural e PACOTE COMPLETO no canal (calendario liberado desde 07/10
+09:46), que cria origem nova de dinheiro proprio, nao minerar compliance.
