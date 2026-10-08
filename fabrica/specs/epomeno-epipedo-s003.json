@@ -1,0 +1,57 @@
+{
+ "slug": "epomeno-epipedo",
+ "pacote": "epomeno-epipedo-s003",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#12263A",
+  "c1": "#2A9D8F",
+  "c2": "#E8A33D",
+  "bg": "#F5F2EC"
+ },
+ "thumb": {
+  "l1": "Βγήκε φθηνό;",
+  "l2": "λείπουν λάστιχα"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Βγήκε φθηνό;",
+   "sub": "λείπουν τα λάστιχα",
+   "nar": "Έκανες τη διαίρεση και βγήκε φθηνό; Δες αν μέσα στους δώδεκα μήνες υπάρχουν λάστιχα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Γιατί χαλάει",
+   "sub": "δεν έρχονται κάθε χρόνο",
+   "nar": "Τα λάστιχα και το μεγάλο σέρβις δεν έρχονται κάθε χρόνο. Αν έπεσαν έξω, το κόστος βγαίνει μικρότερο.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Τι διορθώνεις",
+   "sub": "κλείσε τον κύκλο",
+   "nar": "Πάρε δώδεκα μήνες που περιέχουν την τελευταία αλλαγή. Ή μοίρασε το ποσό στα χρόνια ζωής τους.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Και αντίστροφα",
+   "sub": "βγαίνει ακριβότερο",
+   "nar": "Ισχύει και αντίστροφα. Δώδεκα μήνες με δύο σέρβις δείχνουν κόστος μεγαλύτερο από το αληθινό.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Ξανακάνε το",
+   "sub": "με κλειστό κύκλο",
+   "nar": "Ξανακάνε τη διαίρεση με κλειστό κύκλο. Η πλήρης πράξη είναι στο βίντεο.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "opFSah50OWo",
+ "copy": "# epomeno-epipedo-s003\n\n## TITULO\nΒγήκε Φθηνό το Χιλιόμετρο; Έλεγξε αν τα Λάστιχα Έπεσαν Έξω από τους Δώδεκα Μήνες\n\n## TITULO SHORT\nΒγήκε φθηνό; Λείπουν τα λάστιχα\n\n## DESCRICAO\nΗ πράξη που δείχνει πόσο σου κοστίζει κάθε χιλιόμετρο είναι μία διαίρεση: παίρνεις όλα όσα πλήρωσες για το αυτοκίνητο σε δώδεκα μήνες και τα διαιρείς με τα χιλιόμετρα της ίδιας περιόδου. Το αποτέλεσμα είναι το κόστος ανά χιλιόμετρο, και με αυτό κρίνεις αν αξίζει μια διαδρομή, αν αξίζει το ταξί, αν αξίζει η μετακόμιση πιο κοντά στη δουλειά.\n\nΥπάρχει όμως ένα σημείο όπου η πράξη σε ξεγελάει, και δεν είναι η διαίρεση: είναι η ΕΠΙΛΟΓΗ των δώδεκα μηνών. Τα λάστιχα και το μεγάλο σέρβις δεν έρχονται κάθε χρόνο. Αν ο κύκλος που διάλεξες έπεσε ακριβώς ανάμεσα σε δύο αλλαγές, η μεγάλη δαπάνη έμεινε έξω και το κόστος σου βγαίνει μικρότερο από το αληθινό — και με αυτόν τον μικρότερο αριθμό αποφασίζεις σαν να είναι φθηνότερο το αυτοκίνητο από ό,τι είναι.\n\nΔύο τρόποι να το διορθώσεις. Ο πρώτος: πάρε δώδεκα μήνες που περιέχουν την τελευταία αλλαγή λάστιχων, ώστε ο κύκλος να κλείνει. Ο δεύτερος, που είναι και ο σωστότερος όταν έχεις τα στοιχεία: μοίρασε το ποσό της μεγάλης δαπάνης σε όσα χρόνια πραγματικά κρατάει, και βάλε στη διαίρεση μόνο το μέρος που αναλογεί στη χρονιά.\n\nΙσχύει και αντίστροφα, και αυτό το ξεχνάμε: δώδεκα μήνες που έτυχε να έχουν δύο σέρβις μαζί δείχνουν κόστος πιο ακριβό από το αληθινό. Η πράξη δεν είναι λάθος σε καμία από τις δύο περιπτώσεις — λάθος είναι το παράθυρο.\n\nΕδώ δεν αναφέρεται τιμή καυσίμου, δεν αναφέρεται ποσό για λάστιχα, δεν αναφέρεται τέλος κυκλοφορίας και δεν αναφέρεται συντελεστής: ο αριθμός που αποφασίζει βγαίνει από τις δικές σου αποδείξεις και από τον δικό σου χιλιομετρητή. Το πλήρες βίντεο έχει όλη την πράξη, το πού βρίσκεις τα νούμερα, τις τρεις στιγμές που η πράξη σε ξεγελάει, και το τι ΔΕΝ πιάνει αυτή η διαίρεση.\n\nΕνημερωτικό περιεχόμενο, δεν αποτελεί φορολογική, νομική ή οικονομική συμβουλή.\n\n## COMENTARIO FIXADO\nΗ πράξη είναι μία διαίρεση: όλα όσα πλήρωσες για το αυτοκίνητο σε δώδεκα μήνες, διά τα χιλιόμετρα της ίδιας περιόδου. Το κρίσιμο είναι η ΕΠΙΛΟΓΗ του παραθύρου: τα λάστιχα και το μεγάλο σέρβις δεν έρχονται κάθε χρόνο, κι αν έπεσαν έξω το κόστος βγαίνει ψεύτικα μικρό. Διόρθωσέ το με δύο τρόπους — είτε πάρε δώδεκα μήνες που περιέχουν την τελευταία αλλαγή, είτε μοίρασε τη μεγάλη δαπάνη σε όσα χρόνια κρατάει. Και θυμήσου ότι ισχύει και αντίστροφα: δύο σέρβις στο ίδιο παράθυρο δείχνουν κόστος ακριβότερο από το αληθινό. Αν κάνεις την πράξη, γράψε αν ο κύκλος σου έκλεινε ή όχι — χωρίς να γράψεις ποσά.\n\n## HASHTAGS\n#ΚόστοςΑνάΧιλιόμετρο #Αυτοκίνητο #EpomenoEpipedo\n\n## TAGS\nκοστος ανα χιλιομετρο, αυτοκινητο, λαστιχα, σερβις, διαιρεση, δωδεκα μηνες, χιλιομετρητης, προσωπικα οικονομικα, ελλαδα, υπολογισμος, παραθυρο, μεγαλη δαπανη, επομενο επιπεδο, καυσιμα, αποσβεση\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO. Este short nao cita preco de combustivel, nao\ncita valor de pneu, nao cita taxa de circulacao, nao cita aliquota e nao nomeia\norgao. Os unicos numeros que ele diz sao \"doze\" (doze meses) e \"dois\" (dois\nservicos), e sao a aritmetica da propria conta.\n\nO QUE O VIDEO AFIRMA: que pneu e revisao grande nao ocorrem todo ano, e que por\nisso a escolha dos doze meses muda o resultado da divisao. Isso e aritmetica da\nconta e esta no longo epomeno-epipedo-013 (opFSah50OWo) com as fontes.\n\nDESCARTADO, e vai escrito:\n  (1) de quantos em quantos quilometros se troca pneu e de quanto em quanto tempo\n      se faz a revisao grande — NAO reconferido hoje em duas fontes; o short diz\n      apenas \"nao vem todo ano\", sem numero;\n  (2) qualquer valor em euros de pneu, combustivel, seguro ou imposto;\n  (3) as tres situacoes em que a conta engana — estao no longo, e o short manda\n      para la em vez de listar de memoria.\n\n## FONTES\nO longo de onde este short foi extraido (epomeno-epipedo-013, opFSah50OWo) traz\nas fontes. Este short nao introduz numero novo sobre o mundo.\n"
+}
