@@ -1,0 +1,57 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-s006",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#22333B",
+  "c1": "#A4243B",
+  "c2": "#D8973C",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Some as horas",
+  "l2": "primeiro"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Comparou os preços?",
+   "sub": "falta uma parcela",
+   "nar": "Você comparou os orçamentos de treinamento pelo preço impresso e escolheu o mais barato por pessoa?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O preço é da turma",
+   "sub": "a hora é por pessoa",
+   "nar": "O preço do orçamento é da turma. Mas a hora fora do posto você paga por pessoa, não por turma.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Some antes",
+   "sub": "depois divida",
+   "nar": "Então some as horas de todos ao preço da turma, e só depois divida pelo seu número de pessoas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A ordem muda",
+   "sub": "outra vez",
+   "nar": "Com essa parcela dentro, a cotação mais barata do papel pode virar a mais cara da sua lista.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Refaça a conta",
+   "sub": "com as horas dentro",
+   "nar": "Refaça a comparação com as horas dentro antes de assinar. O exemplo inteiro está no vídeo aqui embaixo.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "Sr6VhvD_aPE",
+ "copy": "# labtreinamento-s006\n\n## TITULO\nComparar Orçamentos de Treinamento: Some as Horas Fora do Posto Antes de Dividir\n\n## DESCRICAO\nQuem recebe três orçamentos de treinamento compara três preços, e isso parece suficiente. O problema é que o preço impresso responde uma pergunta menor do que a que você precisa responder: ele diz quanto custa contratar a turma, não quanto custa treinar as suas pessoas.\n\nA diferença está em como cada parcela escala. O preço do curso é da TURMA: ele é o mesmo se você manda o grupo cheio ou metade dele. Já as horas em que cada pessoa fica fora do posto escalam com PESSOAS: dobram se você manda o dobro de gente, e mudam se um fornecedor pede mais horas de aula do que outro. São dois comportamentos diferentes dentro da mesma decisão, e somá-los na ordem errada — ou não somar um deles — é o que faz a comparação apontar para o lado errado.\n\nA conta que resolve tem dois passos e usa só números que você já tem. Primeiro, para cada cotação, some ao preço da turma o total de horas fora do posto de todas as pessoas que você vai mandar. Segundo, divida esse total pelo seu número real de pessoas — o mesmo número nas duas cotações, sempre. Só depois desse segundo passo as duas propostas ficam comparáveis entre si.\n\nE o resultado costuma surpreender em uma direção específica: a cotação com o preço de tabela mais baixo é muitas vezes a que pede mais horas de aula, porque é assim que ela consegue cobrar menos pela turma. Quando as horas entram, a ordem inverte — e inverte justamente no caso em que você tem pouca gente para mandar, porque aí o preço da turma se dilui pouco e as horas pesam proporcionalmente mais.\n\nNão há aqui nenhum preço, nenhum tamanho de turma e nenhuma carga horária: os números que decidem estão nos seus orçamentos e na sua escala. O exemplo completo com números redondos, os quatro campos que você precisa ler em cada proposta e o que esta conta NÃO decide — estão no vídeo.\n\n## TITULO SHORT\nSome as horas antes de comparar preço\n\n## COMENTARIO FIXADO\nA chave é que as duas parcelas escalam de formas diferentes: o preço é da TURMA (igual com grupo cheio ou metade) e a hora fora do posto é por PESSOA (dobra se você manda o dobro de gente). Por isso: some as horas de todos ao preço da turma e só então divida pelo seu número real — o mesmo número nas duas cotações. Quem fizer isso vai notar que a proposta mais barata no papel costuma ser a que pede mais horas de aula. Se você refizer a conta, comente só se a ordem das cotações mudou — sem valores.\n\n## HASHTAGS\n#Treinamento #GestaoDePessoas #LabTreinamento\n\n## TAGS\ntreinamento, custo por pessoa, orcamento de treinamento, horas fora do posto, comparacao de cotacoes, gestao de pessoas, pequeno negocio, custo real, turma fechada, carga horaria, decisao de compra, brasil, calculo, rh, lab treinamento\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Nao cita preco, nao\ncita tamanho de turma, nao cita carga horaria, nao cita salario e nao nomeia\nnorma nem orgao. Conferido a mao campo por campo, porque o portao `narracao`\nconta quantidades por frase e nao pega digito cru (640).\n\nO QUE O VIDEO AFIRMA: que o preco do orcamento e da TURMA, que as horas fora do\nposto escalam com PESSOAS, e que somar essa parcela antes de dividir muda a ordem\ndas cotacoes. E aritmetica sobre os papeis do proprio espectador. Esta no longo\nlabtreinamento-012 (Sr6VhvD_aPE), capitulos \"O que entra na comparacao\" e \"O que\na conta nao decide\".\n\nDESCARTADO, e vai escrito:\n  (1) qualquer preco, tamanho de turma e carga horaria — sao os numeros DO\n      ESPECTADOR;\n  (2) se a hora fora do posto deve ser contada como custo contabil — depende do\n      regime de cada empresa e esta no longo;\n  (3) a divisao pelo numero real em vez do limite da turma, que e do short\n      original daquele pacote.\n\n## FONTES\nO longo de onde este short foi extraido (labtreinamento-012, Sr6VhvD_aPE) traz as\nfontes. Este short nao introduz numero novo sobre o mundo.\n"
+}
