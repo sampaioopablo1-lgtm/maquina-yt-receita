@@ -1,0 +1,57 @@
+{
+ "slug": "kolejny-poziom",
+ "pacote": "kolejny-poziom-s006",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Linia składki",
+  "l2": "to nie koszt"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Linia składki?",
+   "sub": "to nie twój koszt",
+   "nar": "Patrzysz na linię składki PPK na pasku? To nie jest to, co ubyło ci z wypłaty.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Składka obniża",
+   "sub": "podstawę podatku",
+   "nar": "Składka obniża podstawę podatku, więc część wraca do ciebie niższym podatkiem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dwa paski",
+   "sub": "jeden bez składki",
+   "nar": "Weź dwa paski: jeden ze składką, jeden bez niej. Pomiń miesiące z premią.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Odejmij wypłaty",
+   "sub": "nie brutto",
+   "nar": "Od wypłaty bez składki odejmij wypłatę ze składką. Ta różnica to twój realny koszt.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Policz dziś",
+   "sub": "złote na miesiąc",
+   "nar": "Policz to dziś, w złotych na miesiąc. Cały rachunek jest w filmie.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "nPyVHJmY2HA",
+ "copy": "# kolejny-poziom-s006\n\n## TITULO\nLinia Składki PPK na Pasku Nie Jest Twoim Kosztem: Policz Różnicę Dwóch Wypłat\n\n## TITULO SHORT\nLinia składki to nie twój koszt\n\n## DESCRICAO\nNa pasku wypłaty linia składki PPK stoi wprost, w złotych, i prawie każdy czyta ją jako swój koszt. Nie jest nim. Składka zmienia podstawę, od której liczy się podatek, więc część tego, co wpłacasz, wraca do ciebie niższym podatkiem — i to, co realnie ubyło z twojej wypłaty, jest mniejsze niż ta linia. Decyduje ta druga liczba, bo to ona wychodzi z konta.\n\nProblem jest w tym, że tej drugiej liczby nie ma w żadnej linii paska. Trzeba ją zmierzyć, a nie odczytać. Procedura ma dwa kroki i żadnej mojej liczby. Krok pierwszy: weź dwa paski — jeden z miesiąca ze składką PPK i jeden z miesiąca bez niej, możliwie blisko siebie, pomijając miesiące z premią, nagrodą, wyrównaniem czy trzynastką, bo one zmieniają sumę i zepsują pomiar. Krok drugi: od kwoty do wypłaty z miesiąca bez składki odejmij kwotę do wypłaty z miesiąca ze składką — do wypłaty, nie brutto. Ta różnica to twój realny koszt w złotych na miesiąc.\n\nPotem porównaj ją z linią składki. Będzie mniejsza, i to dokładnie o tyle, ile oddał ci podatek. Odległość między tymi dwiema liczbami jest całą informacją, którą ten pomiar daje — i jest to informacja o twoim pasku, nie o programie.\n\nZastrzeżenie waży tu więcej niż sam rachunek: ta liczba NIE mówi, czy zostać, czy zrezygnować. Składka pracodawcy, wpłaty od państwa i to, co urośnie, są realne i są poza tym rachunkiem — on mierzy wyłącznie twój koszt, jedną stronę. Nie ma tu żadnego procentu, żadnej stawki podatku i żadnej daty: liczby, które decydują, są na twoich dwóch paskach. Pełny rachunek, co ta liczba przemilcza, trzy błędy pomiaru i decyzja, która wraca sama — są w filmie.\n\n## COMENTARIO FIXADO\nPomiar: weź dwa paski, jeden ze składką PPK i jeden bez, blisko siebie i bez premii ani trzynastki. Od kwoty DO WYPŁATY bez składki odejmij kwotę DO WYPŁATY ze składką — nie brutto. Różnica to twój realny koszt w złotych na miesiąc, i jest mniejsza od linii składki, bo składka obniża podstawę podatku. Ta liczba mierzy jedną stronę: składka pracodawcy, wpłaty od państwa i zyski są realne i są poza nią, więc nie rozstrzyga, czy zostać. Jeśli policzysz, napisz samą różnicę między linią składki a realnym kosztem — bez pensji i bez pracodawcy.\n\n## HASHTAGS\n#PPK #Wyplata #KolejnyPoziom\n\n## TAGS\nppk, skladka ppk, realny koszt, pasek wyplaty, kwota do wyplaty, podstawa opodatkowania, podatek, dwa paski, finanse osobiste, polska, obliczenia, wyplata, kolejny poziom, zlote na miesiac, jak czytac pasek\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO. Nao cita percentual de contribuicao, nao cita\naliquota, nao cita valor, nao cita data de reinscricao e nao nomeia instituicao.\nOs unicos numeros ditos sao \"dwa\" e \"jeden\", e sao a aritmetica do procedimento.\n\nO QUE O VIDEO AFIRMA: que a contribuicao do empregado baixa a base sobre a qual o\nimposto e calculado, e que por isso a linha da contribuicao no pasko e MAIOR do\nque o que realmente saiu da wyplata. Esta no longo kolejny-poziom-015\n(nPyVHJmY2HA) com as fontes.\n\nDESCARTADO, e vai escrito:\n  (1) a data de reinscricao automatica e o fato de a rezygnacja expirar — e\n      afirmacao juridica com data, NAO reconferida hoje em duas fontes; fica no\n      longo;\n  (2) qualquer percentual, aliquota, valor ou nome de instituicao;\n  (3) o lado do BENEFICIO — contribuicao do empregador, aporte do Estado e\n      rendimento — que e real e esta FORA desta conta; o short manda para o longo\n      em vez de insinuar que a conta decide ficar ou sair.\n\n## FONTES\nO longo de onde este short foi extraido (kolejny-poziom-015, nPyVHJmY2HA) traz as\nfontes. Este short nao introduz numero novo sobre o mundo.\n"
+}
