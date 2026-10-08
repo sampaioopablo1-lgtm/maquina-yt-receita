@@ -1,0 +1,57 @@
+{
+ "slug": "epomeno-epipedo",
+ "pacote": "epomeno-epipedo-s007",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#12263A",
+  "c1": "#2A9D8F",
+  "c2": "#E8A33D",
+  "bg": "#F5F2EC"
+ },
+ "thumb": {
+  "l1": "Σύγκρινε",
+  "l2": "τη χρονιά"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Συγκρίνεις ενοίκια;",
+   "sub": "λάθος αριθμός",
+   "nar": "Συγκρίνεις δύο ενοίκια με το μηνιαίο ποσό; Αυτός ο αριθμός δεν είναι ο τελικός.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Κάτι επιστρέφεται",
+   "sub": "μία φορά τον χρόνο",
+   "nar": "Ένα μέρος του ενοικίου επιστρέφεται μία φορά τον χρόνο, και έχει ανώτατο όριο.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Το όριο",
+   "sub": "δεν μεγαλώνει μαζί",
+   "nar": "Το όριο δεν μεγαλώνει μαζί με το ενοίκιο, όσο ακριβό κι αν είναι. Είναι σταθερό ποσό, όχι ποσοστό.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Άρα μετράει",
+   "sub": "πιο πολύ στο φθηνό",
+   "nar": "Άρα η επιστροφή καλύπτει μεγαλύτερο μέρος σε φθηνό ενοίκιο παρά σε ακριβό.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Σύγκρινε τη χρονιά",
+   "sub": "μετά την επιστροφή",
+   "nar": "Σύγκρινε λοιπόν τη χρονιά μετά την επιστροφή, για το ένα και για το άλλο. Η πλήρης πράξη είναι στο βίντεο.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "481Zgd4IhsE",
+ "copy": "# epomeno-epipedo-s007\n\n## TITULO\nΗ Επιστροφή Ενοικίου Έχει Οροφή: Γιατί Μετράει Πιο Πολύ σε Φθηνό Σπίτι\n\n## TITULO SHORT\nΣύγκρινε τη χρονιά, όχι τον μήνα\n\n## DESCRICAO\nΌταν διαλέγεις ανάμεσα σε δύο σπίτια, ο αριθμός που κοιτάς σχεδόν πάντα είναι το μηνιαίο ενοίκιο. Είναι ο πιο εύκολος αριθμός και είναι ο λάθος αριθμός, γιατί δεν είναι αυτό που τελικά φεύγει από την τσέπη σου μέσα στη χρονιά.\n\nΈνα μέρος του ενοικίου επιστρέφεται, μία φορά τον χρόνο — και εδώ είναι το σημείο που αλλάζει τη σύγκριση: η επιστροφή έχει ΟΡΟΦΗ. Οροφή σημαίνει σταθερό ποσό, όχι ποσοστό. Δεν μεγαλώνει μαζί με το ενοίκιο. Οπότε το ίδιο ποσό που επιστρέφεται καλύπτει μεγαλύτερο κομμάτι ενός φθηνού ενοικίου και μικρότερο κομμάτι ενός ακριβού.\n\nΗ συνέπεια είναι πρακτική και δεν είναι προφανής: δύο σπίτια που φαίνονται να απέχουν ένα συγκεκριμένο ποσό τον μήνα, απέχουν ΑΛΛΟ ποσό μέσα στη χρονιά, και η διαφορά μετά την επιστροφή είναι πάντα μεγαλύτερη από τη διαφορά πριν — γιατί το φθηνό κερδίζει αναλογικά περισσότερο από το ίδιο όφελος. Αν η σύγκρισή σου ήταν στο όριο, αυτό μπορεί να την γυρίσει.\n\nΗ σωστή είσοδος είναι η ΧΡΟΝΙΑ, όχι ο μήνας: πόσο πληρώνεις σε δώδεκα μήνες, μείον ό,τι επιστρέφεται, για το ένα σπίτι και για το άλλο. Δύο αριθμοί, μία αφαίρεση, και η απόφαση γίνεται πάνω σε κάτι που υπάρχει.\n\nΔεν υπάρχει εδώ ούτε ποσό οροφής, ούτε ενοίκιο, ούτε ποσοστό, ούτε ημερομηνία: οι αριθμοί που αποφασίζουν είναι στο μισθωτήριό σου. Πόσο είναι η οροφή, ποιος έχει δικαίωμα, τι χαρτιά θέλει και πού αλλιώς πιάνει — είναι στο βίντεο.\n\n## COMENTARIO FIXADO\nΤο κλειδί είναι ότι η επιστροφή έχει ΟΡΟΦΗ, δηλαδή σταθερό ποσό και όχι ποσοστό: δεν μεγαλώνει μαζί με το ενοίκιο. Άρα καλύπτει μεγαλύτερο κομμάτι σε φθηνό σπίτι και μικρότερο σε ακριβό, και η διαφορά δύο σπιτιών ΜΕΤΑ την επιστροφή είναι πάντα μεγαλύτερη από τη διαφορά πριν. Μη συγκρίνεις μηνιαία ενοίκια: υπολόγισε τη χρονιά — δώδεκα μήνες μείον ό,τι επιστρέφεται — για το ένα και για το άλλο. Αν η σύγκριση ήταν στο όριο, αυτό την γυρίζει. Πόσο είναι η οροφή και ποιος έχει δικαίωμα δεν τα βάζω εδώ: είναι στο βίντεο με τις πηγές. Αν το υπολογίσεις, γράψε μόνο αν η απόφαση άλλαξε ή όχι — χωρίς ποσά.\n\n## HASHTAGS\n#Ενοίκιο #Σπίτι #ΕπόμενοΕπίπεδο\n\n## TAGS\nενοικιο, επιστροφη ενοικιου, οροφη, μισθωτηριο, συγκριση σπιτιων, προσωπικα οικονομικα, ελλαδα, υπολογισμος, χρονια, μηνιαιο ενοικιο, φθηνο ενοικιο, κατοικια, επομενο επιπεδο, νοικι, προυπολογισμος\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO. Nao cita o valor do teto da devolucao, nao cita\naluguel, nao cita percentual, nao cita data e nao nomeia orgao. Os unicos numeros\nditos sao \"dois\" e \"uma\", e sao a aritmetica da comparacao.\n\nO QUE O VIDEO AFIRMA: que a devolucao de aluguel tem um teto, que teto e valor\nfixo e nao percentual, e que por isso ela cobre fatia maior de um aluguel barato\ndo que de um caro. A primeira parte esta no longo epomeno-epipedo-002\n(481Zgd4IhsE) com as fontes; a segunda e aritmetica.\n\nDESCARTADO, e vai escrito:\n  (1) o VALOR do teto e quem tem direito — esta no longo com fonte, e NAO foi\n      reconferido hoje em duas fontes;\n  (2) qualquer aluguel, percentual ou data de pedido;\n  (3) se vale mudar de casa por causa disso — nao e o que a conta decide.\n\n## FONTES\nO longo de onde este short foi extraido (epomeno-epipedo-002, 481Zgd4IhsE) traz\nas fontes. Este short nao introduz numero novo sobre o mundo.\n"
+}
