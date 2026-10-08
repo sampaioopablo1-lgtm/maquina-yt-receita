@@ -1,0 +1,57 @@
+{
+ "slug": "epomeno-epipedo",
+ "pacote": "epomeno-epipedo-s008",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#12263A",
+  "c1": "#2A9D8F",
+  "c2": "#E8A33D",
+  "bg": "#F5F2EC"
+ },
+ "thumb": {
+  "l1": "Λείπει",
+  "l2": "μια στήλη"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Συγκρίνεις μισθούς;",
+   "sub": "λείπει μια στήλη",
+   "nar": "Συγκρίνεις τον μισθό δύο χωρών και βγάζεις συμπέρασμα; Λείπει μια ολόκληρη στήλη.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ο ίδιος μισθός",
+   "sub": "δεν αγοράζει το ίδιο",
+   "nar": "Ο ίδιος μισθός δεν αγοράζει τα ίδια πράγματα στις δύο χώρες. Αυτό λείπει από τη σύγκριση.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Βάλε το νοίκι",
+   "sub": "και τη μετακίνηση",
+   "nar": "Βάλε δίπλα στον μισθό το νοίκι, τη μετακίνηση και το ρεύμα, για την κάθε χώρα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Τότε διαιρείς",
+   "sub": "και μένει ο λόγος",
+   "nar": "Τότε διαιρείς τον μισθό με το κόστος σε κάθε κολόνα, και ο λόγος που μένει είναι η σύγκριση.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Φτιάξε τη στήλη",
+   "sub": "πριν αποφασίσεις",
+   "nar": "Φτιάξε λοιπόν αυτή τη στήλη πριν αποφασίσεις οτιδήποτε. Ο πλήρης λογαριασμός είναι στο βίντεο.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "9Hg5A3H1Qe4",
+ "copy": "# epomeno-epipedo-s008\n\n## TITULO\nΣύγκριση Μισθών Μεταξύ Χωρών: Χωρίς τη Στήλη του Κόστους ο Λόγος Δεν Υπάρχει\n\n## TITULO SHORT\nΛείπει η στήλη του κόστους\n\n## DESCRICAO\nΗ πιο συχνή σύγκριση που κάνει κανείς όταν σκέφτεται να φύγει είναι και η πιο εύκολη να κάνει λάθος: βάζει τον μισθό εδώ δίπλα στον μισθό εκεί, βγάζει μια διαφορά, και αποφασίζει πάνω σε αυτή. Και οι δύο αριθμοί μπορεί να είναι απόλυτα σωστοί. Η σύγκριση παραμένει άκυρη, γιατί λείπει μια ολόκληρη στήλη.\n\nΟ μισθός δεν είναι αγαθό — είναι μέσο. Δεν σε ενδιαφέρει πόσα παίρνεις, σε ενδιαφέρει πόσα πράγματα αγοράζεις με αυτά. Και τα ίδια πράγματα δεν κοστίζουν το ίδιο σε δύο χώρες: το νοίκι, η μετακίνηση, το ρεύμα, το φαγητό. Οπότε δύο μισθοί δεν συγκρίνονται μεταξύ τους απευθείας. Συγκρίνονται μόνο αφού ο καθένας διαιρεθεί με το κόστος της ΙΔΙΑΣ καλάθας στον τόπο του.\n\nΗ πράξη είναι απλή και είναι δική σου, γιατί η καλάθα είναι δική σου: γράψε σε δύο κολόνες τον μισθό και κάτω από αυτόν τα πάγια που θα πλήρωνες — στέγη, μετακίνηση, ενέργεια, και ό,τι άλλο είναι σταθερό στη ζωή σου. Διαίρεσε μισθό με κόστος σε κάθε κολόνα. Ο λόγος που μένει είναι ο μόνος αριθμός που συγκρίνει. Μπορεί να επιβεβαιώσει τη διαίσθησή σου, μπορεί να την αντιστρέψει, και στις δύο περιπτώσεις θα ξέρεις γιατί.\n\nΠροσοχή σε ένα σημείο: η καλάθα πρέπει να είναι η ΙΔΙΑ στις δύο κολόνες. Αν στη μία βάλεις διαμέρισμα στο κέντρο και στην άλλη σπίτι στην περιφέρεια, δεν μέτρησες τη χώρα — μέτρησες δύο διαφορετικές ζωές. Αυτό είναι το πιο συχνό λάθος αφού κανείς φτιάξει τη στήλη.\n\nΔεν υπάρχει εδώ κανένας μισθός, κανένα νοίκι, κανένα ωρομίσθιο και κανένα νόμισμα: οι αριθμοί που αποφασίζουν είναι οι δικοί σου και οι τοπικοί. Οι επίσημοι αριθμοί των δύο χωρών, τι κρύβει η κάθε επικεφαλίδα, πόσοι μισθοί μετρούν στον χρόνο και το φύλλο που απαντά για τη δική σου περίπτωση — είναι στο βίντεο.\n\n## COMENTARIO FIXADO\nΟ μισθός είναι μέσο, όχι αγαθό: μετράει πόσα αγοράζεις, όχι πόσα παίρνεις. Άρα δύο μισθοί δεν συγκρίνονται απευθείας — συγκρίνονται αφού ο καθένας διαιρεθεί με το κόστος της ίδιας καλάθας στον τόπο του. Δύο κολόνες: μισθός, και κάτω στέγη, μετακίνηση, ενέργεια και τα πάγια σου. Διαίρεσε σε κάθε κολόνα. Ο λόγος που μένει συγκρίνει. ΚΑΙ Η ΚΑΛΑΘΑ ΠΡΕΠΕΙ ΝΑ ΕΙΝΑΙ Η ΙΔΙΑ στις δύο: κέντρο εδώ και περιφέρεια εκεί δεν μετράει χώρες, μετράει δύο διαφορετικές ζωές — αυτό είναι το πιο συχνό λάθος. Τους επίσημους αριθμούς δεν τους βάζω εδώ: είναι στο βίντεο με τις πηγές. Αν το υπολογίσεις, γράψε μόνο αν ο λόγος αντέστρεψε τη διαίσθησή σου ή όχι — χωρίς ποσά.\n\n## HASHTAGS\n#Μισθός #Κόστος #ΕπόμενοΕπίπεδο\n\n## TAGS\nμισθος, συγκριση μισθων, κοστος ζωης, καλαθα, μετανάστευση, προσωπικα οικονομικα, ελλαδα, υπολογισμος, νοικι, μετακινηση, ενεργεια, αγοραστικη δυναμη, επομενο επιπεδο, δυο χωρες, αποφαση\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO. Nao cita salario de pais nenhum, nao cita\naluguel, nao cita horas de contrato, nao cita numero de salarios por ano, nao\ncita cambio e nao nomeia orgao. O unico numero dito e \"dois\" (dois paises), e e a\naritmetica da comparacao.\n\nO QUE O VIDEO AFIRMA: que o mesmo salario nao compra as mesmas coisas em dois\npaises, e que por isso a razao entre dois salarios so vira comparacao depois de\ndividida pelo custo da mesma cesta. E estrutura de calculo, e esta no longo\nepomeno-epipedo-003 (9Hg5A3H1Qe4) no capitulo da coluna do custo, com as fontes.\n\nDESCARTADO, e vai escrito:\n  (1) os dois salarios, as horas de contrato e o numero de salarios por ano —\n      estao no longo com fonte e NAO foram reconferidos hoje em duas fontes;\n  (2) qualquer valor de aluguel, transporte ou energia em qualquer pais;\n  (3) qual dos dois paises \"ganha\" — nao e o que a conta decide, e depende da\n      cesta de cada pessoa. O short manda montar a coluna, nao da veredito.\n\n## FONTES\nO longo de onde este short foi extraido (epomeno-epipedo-003, 9Hg5A3H1Qe4) traz\nas fontes. Este short nao introduz numero novo sobre o mundo.\n"
+}
