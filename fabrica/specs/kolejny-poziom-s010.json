@@ -1,0 +1,57 @@
+{
+ "slug": "kolejny-poziom",
+ "pacote": "kolejny-poziom-s010",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Zamknij limit,",
+  "l2": "nie szukaj podwyżki"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Chcesz większy kredyt?",
+   "sub": "nie zaczynaj od dochodu",
+   "nar": "Chcesz zwiększyć swoją zdolność kredytową i myślisz o podwyżce albo o dodatkowym zleceniu?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bank liczy",
+   "sub": "co ci zostaje",
+   "nar": "Bank nie liczy tego, ile zarabiasz, a to, co ci zostaje. I odejmuje limit karty, choć go nie wydałeś.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Zamknij limit",
+   "sub": "działa jak podwyżka",
+   "nar": "Więc zamknięcie limitu, którego nie używasz, działa jak podwyżka — tylko od razu i bez negocjacji.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Porównaj dźwignie",
+   "sub": "ile dochodu zamiast tego",
+   "nar": "Policz, ile dochodu musiałbyś dodać, żeby uzyskać ten sam efekt. Zwykle wychodzi więcej, niż myślisz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Zrób to przed",
+   "sub": "złożeniem wniosku",
+   "nar": "Zrób to przed złożeniem wniosku, nie po. Pełna lista kroków jest w filmie pod spodem.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "42hpD7eaptE",
+ "copy": "# kolejny-poziom-s010\n\n## TITULO\nZdolność Kredytowa: Zamknięcie Nieużywanego Limitu Działa Jak Podwyżka\n\n## TITULO SHORT\nZamknij limit. Działa jak podwyżka\n\n## DESCRICAO\nKiedy ktoś chce zwiększyć swoją zdolność kredytową, pierwsza myśl jest prawie zawsze ta sama: trzeba więcej zarabiać. Podwyżka, dodatkowe zlecenie, druga umowa. To działa, ale jest najdroższą i najwolniejszą z dostępnych dźwigni — i zwykle nie jest tą, która w twoim przypadku zmienia najwięcej.\n\nPowód leży w tym, co bank właściwie liczy. Nie liczy twojego dochodu: liczy to, co ci z niego zostaje po wszystkich zobowiązaniach, które widzi. A wśród tych zobowiązań jest pozycja, której większość ludzi nie uznaje za zobowiązanie, bo nic z niej nie wydała — nieużywany limit na karcie lub w koncie. Bank przyjmuje, że możesz go wykorzystać w każdej chwili, więc odejmuje jego obsługę tak, jakby był już wykorzystany.\n\nZ tego wynika porównanie, które warto zrobić zanim pójdziesz prosić o podwyżkę. Z jednej strony: ile dodatkowego dochodu potrzebujesz, żeby twoja zdolność wzrosła o konkretną kwotę. Z drugiej: ile ta sama zdolność wzrośnie, jeśli po prostu zamkniesz limit, z którego nie korzystasz. Druga opcja nie wymaga niczyjej zgody, działa od momentu aktualizacji w rejestrze i nie kosztuje cię ani złotówki dochodu — a bardzo często daje więcej.\n\nJest też odwrotna strona tej samej monety, i dlatego warto zrobić rachunek świadomie. Limit jest poduszką bezpieczeństwa. Zamykasz go i tracisz dostęp do pieniędzy na nagły wypadek, więc decyzja ma sens tylko wtedy, gdy masz oszczędności, które tę rolę przejmą, albo gdy kredyt, o który się starasz, jest ważniejszy niż ta poduszka. To jest wybór, nie automat — ale żeby go świadomie podjąć, musisz najpierw znać oba numery.\n\nNie ma tu żadnej stopy, żadnego buforu i żadnej kwoty: liczby, które decydują, są w twojej umowie karty i w twoich wyciągach. Pełna lista tego, co obniża i co realnie podnosi zdolność, pięć kroków przed wnioskiem i cztery najczęstsze błędy — są w filmie.\n\n## COMENTARIO FIXADO\nNajważniejsze zdanie: bank liczy to, co ci ZOSTAJE, a nieużywany limit odejmuje tak, jakbyś go wydał. Dlatego zamknięcie limitu działa jak podwyżka, tylko natychmiast i bez niczyjej zgody. Zrób porównanie obu dźwigni: ile dochodu trzeba dodać dla danego wzrostu zdolności, a ile da samo zamknięcie limitu. I pamiętaj o drugiej stronie — limit to poduszka na nagły wypadek, więc zamykaj go tylko mając oszczędności, które ją zastąpią. Kto policzy, niech napisze w komentarzu tylko, która dźwignia wyszła większa — bez kwot.\n\n## HASHTAGS\n#Kredyt #ZdolnoscKredytowa #KolejnyPoziom\n\n## TAGS\nzdolnosc kredytowa, limit na karcie, karta kredytowa, wniosek kredytowy, bank, dochod, zobowiazania, finanse osobiste, polska, kredyt hipoteczny, przygotowanie do wniosku, bik, oszczednosci, poduszka finansowa, kolejny poziom\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Nao cita stopa\nreferencyjna, nao cita o buffer, nao cita valor de limite, nao cita renda e nao\nnomeia banco nem orgao. O short original daquele pacote citava a stopa; aqui ela\nfica FORA de proposito, porque muda e envelheceria a peca. Conferido a mao campo\npor campo (640).\n\nO QUE O VIDEO AFIRMA: que o banco calcula sobre o que SOBRA e nao sobre a renda,\ne que o limite nao utilizado do cartao e subtraido como se estivesse gasto —\nlogo fecha-lo aumenta a capacidade de imediato. Esta no longo kolejny-poziom-008\n(42hpD7eaptE), capitulos \"Co bank liczy zamiast dochodu\", \"Co obniza zdolnosc\" e\n\"Co realnie ja podnosi\". E norma de calculo bancario, declarada.\n\nDESCARTADO, e vai escrito:\n  (1) a stopa referencyjna e o tamanho do buffer — mudam e estao no longo;\n  (2) quanto cada banco subtrai do limite, que varia por instituicao e NAO foi\n      reconferido nesta rodada em duas fontes;\n  (3) se vale ou nao fechar o limite, que depende de reserva de emergencia.\n\n## FONTES\nO longo de onde este short foi extraido (kolejny-poziom-008, 42hpD7eaptE) traz as\nfontes. Este short nao introduz numero novo sobre o mundo.\n"
+}
