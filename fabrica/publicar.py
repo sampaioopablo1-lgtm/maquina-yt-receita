@@ -986,7 +986,14 @@ def main():
         meta_short = meta_video(
             cp.get("short_titulo") or cp["titulo"],
             desc_curta,
-            (cp.get("short_tags") or cp.get("tags") or [])[:8], idioma)
+            # SEM `[:8]`. O corte em oito era meu, nao do YouTube: o
+            # `orcamento_tags` ja respeita o limite de 500 caracteres, e o
+            # longo (linha ~1011) sempre mandou a lista inteira. Medido em
+            # 08/10/2026 (aprendizado 662): os shorts subiam com OITO das
+            # QUINZE tags da copy, e as sete que sobravam eram justamente as
+            # de cauda longa. Corrigido aqui para a lista inteira; quem
+            # decide o que cabe e o orcamento, nao um numero redondo.
+            (cp.get("short_tags") or cp.get("tags") or []), idioma)
         sid = subir(acc, curto, meta_short)
         saida["short"] = sid
         print("SHORT:", sid, "| playlist:", na_playlist(acc, args.playlist, sid))

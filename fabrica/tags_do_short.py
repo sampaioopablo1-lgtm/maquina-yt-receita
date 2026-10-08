@@ -17,11 +17,11 @@ e repoe o que a leitura perdeu). Este arquivo trata do que ja esta no ar, que e
 o que esta em uso.
 
 DE ONDE VEM A TAG CERTA, e esta e a parte que evita inventar: do LONGO DO MESMO
-PACOTE. O `publicar.py` monta as tags do short como os OITO PRIMEIROS da lista
-do longo — `(cp["short_tags"] or cp["tags"])[:8]` — e o `orcamento_tags` so
-corta acima de 480 caracteres, teto que oito tags nunca alcancam. Entao os oito
-primeiros do longo publicado SAO, caractere a caractere, o que o short tinha
-antes de ser apagado. Nao ha reconstrucao nem palpite: a fonte esta no ar, no
+PACOTE. ATE 08/10/2026 o `publicar.py` montava as tags do short como os OITO PRIMEIROS
+da lista do longo — `(cp["short_tags"] or cp["tags"])[:8]`. Esse corte era MEU,
+nao do YouTube: medido, as quinze tags da copy custam 216 dos 480 do
+`orcamento_tags`. O corte caiu (aprendizado 662) e o reparo passa a repor a
+lista INTEIRA do longo irmao, que e o que a copy sempre mandou. Nao ha reconstrucao nem palpite: a fonte esta no ar, no
 video irmao, com as quinze tags intactas.
 
 Short cujo longo tambem esta sem tags nao e reparado aqui — sem fonte confiavel
@@ -37,8 +37,12 @@ import urllib.request
 
 API = "https://youtube.googleapis.com/youtube/v3"
 
-# O mesmo corte que o `publicar.py` aplica ao montar o short.
-TAGS_DO_SHORT = 8
+# O `publicar.py` NAO corta mais em oito (corrigido em 08/10/2026, aprendizado
+# 662): o `orcamento_tags` ja respeita o limite de 500 caracteres e as quinze
+# tags da copy custam 216 dele. Entao o reparo passa a repor a lista INTEIRA.
+# Shorts publicados ANTES dessa correcao subiram com oito; repor quinze neles
+# nao e reconstrucao errada, e a lista que a copy sempre mandou.
+TAGS_DO_SHORT = None
 
 
 def _req(url, data=None, method=None, headers=None):
@@ -117,7 +121,8 @@ def main() -> int:
                 linhas.append(f"{canal}\t{s}\tsumiu (apagado, privado ou de outro canal)")
                 continue
             fonte = (vistos.get(l) or {}).get("tags") or []
-            r = repor(acc, s, snip, fonte[:TAGS_DO_SHORT], seco=args.seco)
+            escolhidas = fonte if TAGS_DO_SHORT is None else fonte[:TAGS_DO_SHORT]
+            r = repor(acc, s, snip, escolhidas, seco=args.seco)
             if r.startswith("reposto"):
                 mudados += 1
             linhas.append(f"{canal}\t{s}\t{r}")
