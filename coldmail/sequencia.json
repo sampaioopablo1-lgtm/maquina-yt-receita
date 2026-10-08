@@ -1,0 +1,83 @@
+{
+  "passos": [
+    {
+      "espera_dias": 0,
+      "assunto": "{[[{primeiro_nome}, ]]{a_empresa:a sua empresa} precisa de +CLIENTES?|{a_empresa:a sua empresa} precisa de +CLIENTES[[, {primeiro_nome}]]?|+CLIENTES para {a_empresa:a sua empresa}[[, {primeiro_nome}]]?}",
+      "corpo": "{primeiro_nome:Oi}, coisa rápida.\n\n[[{gancho}\n\n]]{Quantos clientes escaparam este mês sem ninguém ir atrás?|A meta deste mês está garantida ou está escapando?|Quanto orçamento ficou parado este mês sem retorno?}\n\nO que mais trava as vendas aí hoje?\n\n1. Poucos leads chegando\n2. Falta controle e empenho do time para fazer acontecer\n3. Não sei ao certo onde está a trava\n\nTe convido para um diagnóstico gratuito do seu funil de vendas: em 30 minutos a gente encontra onde está a trava e, se fizer sentido, apresenta uma solução para destravar as vendas e colocar a meta no bolso.[[ {convite_extra}]]\n\nMe responde com o número e o seu WhatsApp que a nossa equipe te chama para marcar.\n\n{assinatura}\n\nSe não fizer sentido, responde \"sair\" que eu não te escrevo mais."
+    },
+    {
+      "espera_dias": 3,
+      "corpo": "{primeiro_nome:Oi}, conseguiu ver?\n\nSó para facilitar: responde com 1, 2 ou 3 e o seu WhatsApp que a gente marca o diagnóstico gratuito do funil[[ {da_empresa}]]."
+    },
+    {
+      "espera_dias": 4,
+      "corpo": "{primeiro_nome:Oi}, uma pergunta só: [[com {vendedores}, ]]quem responde o lead que chega às 19h ou no sábado?\n\nÉ esse lead que costuma ir para o concorrente. No diagnóstico gratuito do funil a gente mostra onde isso acontece aí e como resolver. Me passa seu WhatsApp que a nossa equipe te chama para marcar."
+    },
+    {
+      "espera_dias": 3,
+      "corpo": "{primeiro_nome:Oi}, quantos orçamentos saíram este mês e ficaram sem um segundo contato?\n\nÉ ali que mais venda escapa sem ninguém perceber. Se quiser, a gente olha isso junto em 30 minutos, sem custo.\n\nMe passa seu WhatsApp que a nossa equipe te chama."
+    },
+    {
+      "espera_dias": 4,
+      "corpo": "{primeiro_nome:Oi}, só para deixar claro o que é o diagnóstico gratuito do funil:\n\nEm 30 minutos você sai sabendo onde o lead esfria, quanto isso custa por mês[[ {na_empresa}]] e o que ajustar primeiro. Se fizer sentido, a gente apresenta uma solução para destravar as vendas. Se não, você fica com o mapa.\n\nTopa? Me responde com seu WhatsApp."
+    },
+    {
+      "espera_dias": 7,
+      "corpo": "{primeiro_nome:Oi}, facilitando: me responde só com 1, 2 ou 3.\n\n1. Poucos leads chegando\n2. Falta controle e empenho do time\n3. Não sei onde está a trava\n\nCom a resposta e o seu WhatsApp, a nossa equipe te chama para o diagnóstico gratuito."
+    },
+    {
+      "espera_dias": 7,
+      "corpo": "{primeiro_nome:Oi}, se não é você quem cuida das vendas[[ {na_empresa}]], quem seria a melhor pessoa para essa conversa?\n\nSe puder me indicar o nome ou o WhatsApp, eu falo direto com ela."
+    },
+    {
+      "espera_dias": 10,
+      "corpo": "{primeiro_nome:Oi}, vou parar de te escrever por aqui.\n\nSe bater a meta voltar a ser prioridade, o diagnóstico gratuito do funil fica à disposição: é só responder com seu WhatsApp.\n\nAbraço,\n{assinatura}"
+    }
+  ],
+  "e1_variantes": [
+    {
+      "id": "A-clientes",
+      "assunto": "{[[{primeiro_nome}, ]]{a_empresa:a sua empresa} precisa de +CLIENTES?|{a_empresa:a sua empresa} precisa de +CLIENTES[[, {primeiro_nome}]]?|+CLIENTES para {a_empresa:a sua empresa}[[, {primeiro_nome}]]?}",
+      "corpo": "{primeiro_nome:Oi}, coisa rápida.\n\n[[{gancho}\n\n]]{Quantos clientes escaparam este mês sem ninguém ir atrás?|A meta deste mês está garantida ou está escapando?|Quanto orçamento ficou parado este mês sem retorno?}\n\nO que mais trava as vendas aí hoje?\n\n1. Poucos leads chegando\n2. Falta controle e empenho do time para fazer acontecer\n3. Não sei ao certo onde está a trava\n\nTe convido para um diagnóstico gratuito do seu funil de vendas: em 30 minutos a gente encontra onde está a trava e, se fizer sentido, apresenta uma solução para destravar as vendas e colocar a meta no bolso.[[ {convite_extra}]]\n\nMe responde com o número e o seu WhatsApp que a nossa equipe te chama para marcar.\n\n{assinatura}\n\nSe não fizer sentido, responde \"sair\" que eu não te escrevo mais.",
+      "opcoes": {
+        "1": "poucos leads",
+        "2": "falta controle/empenho do time",
+        "3": "não sabe onde trava"
+      }
+    },
+    {
+      "id": "B-lead-qualificado",
+      "assunto": "{[[{primeiro_nome}, ]]mais lead ou lead que compra?|[[{primeiro_nome}, ]]{a_empresa:a sua empresa} recebe lead ou curioso?|Lead curioso ou lead pronto para comprar[[, {primeiro_nome}]]?}",
+      "corpo": "{primeiro_nome:Oi}, coisa rápida.\n\n[[{abertura}\n\n]]Muita empresa não sofre por falta de lead. Sofre com lead curioso, que pede preço e some.\n\nO que mais trava as vendas aí hoje?\n\n1. Poucos leads chegando\n2. Chegam leads, mas curiosos e pouco qualificados\n3. Falta controle e empenho do time para fazer acontecer\n\nTe convido para um diagnóstico gratuito do seu funil de vendas: em 30 minutos a gente encontra onde está a trava e, se fizer sentido, apresenta uma solução para destravar as vendas e colocar a meta no bolso.[[ {convite_extra}]]\n\nMe responde com o número e o seu WhatsApp que a nossa equipe te chama para marcar.\n\n{assinatura}\n\nSe não fizer sentido, responde \"sair\" que eu não te escrevo mais.",
+      "opcoes": {
+        "1": "poucos leads",
+        "2": "lead curioso/desqualificado",
+        "3": "falta controle/empenho do time"
+      }
+    },
+    {
+      "id": "C-comercial",
+      "assunto": "{[[{primeiro_nome}, ]]seu vendedor pegou no telefone hoje?|[[{primeiro_nome}, ]]o lead não respondeu ou não foi atendido?|Culpa do marketing ou do comercial[[, {primeiro_nome}]]?}",
+      "corpo": "{primeiro_nome:Oi}, pergunta direta: seu vendedor reclama que o lead não respondeu… ou que ninguém ligou para ele?\n\n[[{abertura}\n\n]]Muitas vezes o problema não está na geração de leads, e sim no comercial: demora para atender, falta de follow-up, cada vendedor fazendo de um jeito.\n\nOnde está a trava aí?\n\n1. Marketing: chegam poucos leads\n2. Comercial: falta processo e empenho do time\n3. Não sei ao certo\n\nTe convido para um diagnóstico gratuito do seu funil de vendas: em 30 minutos a gente encontra onde está a trava e, se fizer sentido, apresenta uma solução para destravar as vendas e colocar a meta no bolso.[[ {convite_extra}]]\n\nMe responde com o número e o seu WhatsApp que a nossa equipe te chama para marcar.\n\n{assinatura}\n\nSe não fizer sentido, responde \"sair\" que eu não te escrevo mais.",
+      "opcoes": {
+        "1": "marketing/poucos leads",
+        "2": "comercial/processo e empenho",
+        "3": "não sabe onde trava"
+      }
+    }
+  ],
+  "e3_variantes": [
+    {
+      "id": "E3A-horario",
+      "corpo": "{primeiro_nome:Oi}, uma pergunta só: [[com {vendedores}, ]]quem responde o lead que chega às 19h ou no sábado?\n\nÉ esse lead que costuma ir para o concorrente. No diagnóstico gratuito do funil a gente mostra onde isso acontece aí e como resolver. Me passa seu WhatsApp que a nossa equipe te chama para marcar.\n\n{assinatura}"
+    },
+    {
+      "id": "E3B-5min",
+      "corpo": "{primeiro_nome:Oi}, faz um teste rápido comigo: se entrassem 10 leads hoje aí, quantos seriam respondidos em menos de 5 minutos?\n\nSe a resposta não for \"todos\", é ali que a venda está escapando. No diagnóstico gratuito do funil a gente mede isso com você em 30 minutos.\n\nMe passa seu WhatsApp que a nossa equipe te chama para marcar.\n\n{assinatura}"
+    },
+    {
+      "id": "E3C-curto",
+      "corpo": "{primeiro_nome:Oi}, posso te mandar 3 ajustes que costumam destravar o funil de vendas[[ de empresas com {vendedores}]]?\n\nSe sim, responde com \"sim\" e o seu WhatsApp.\n\n{assinatura}"
+    }
+  ]
+}
