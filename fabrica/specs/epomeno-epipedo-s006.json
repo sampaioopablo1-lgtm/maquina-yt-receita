@@ -1,0 +1,57 @@
+{
+ "slug": "epomeno-epipedo",
+ "pacote": "epomeno-epipedo-s006",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#12263A",
+  "c1": "#2A9D8F",
+  "c2": "#E8A33D",
+  "bg": "#F5F2EC"
+ },
+ "thumb": {
+  "l1": "Δύο αριθμοί",
+  "l2": "όχι ένας"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Μέσο ποσοστό;",
+   "sub": "λάθος είσοδος",
+   "nar": "Υπολόγισες την υπερωρία με το μέσο ποσοστό της μισθοδοσίας; Αυτή η είσοδος είναι λάθος.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Η επόμενη ώρα",
+   "sub": "δεν είναι η μέση",
+   "nar": "Η επόμενη ώρα δεν φορολογείται όπως ο μέσος μισθός. Το μέσο ποσοστό κρύβει τη διαφορά.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Βγάλε δύο",
+   "sub": "όχι έναν αριθμό",
+   "nar": "Βγάλε δύο αριθμούς: τα καθαρά ανά ώρα κανονικά, και τα καθαρά της ώρας υπερωρίας.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Η απόσταση",
+   "sub": "είναι η πληροφορία",
+   "nar": "Η απόσταση ανάμεσά τους είναι όλη η πληροφορία. Ένας αριθμός δεν σου τη δείχνει.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Βγάλε τους δύο",
+   "sub": "σήμερα",
+   "nar": "Βγάλε και τους δύο σήμερα. Η πλήρης πράξη είναι στο βίντεο.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "h04-UVlVevs",
+ "copy": "# epomeno-epipedo-s006\n\n## TITULO\nΤο Μέσο Ποσοστό Δεν Είναι της Επόμενης Ώρας: Βγάλε Δύο Αριθμούς, Όχι Έναν\n\n## TITULO SHORT\nΔύο αριθμοί, όχι ένας\n\n## DESCRICAO\nΣχεδόν όλοι υπολογίζουν την υπερωρία με έναν αριθμό: το μέσο ποσοστό που βγαίνει από τη μισθοδοσία τους. Είναι λογική κίνηση και είναι λάθος είσοδος. Το μέσο ποσοστό περιγράφει τον μισθό που ΗΔΗ πήρες, συνολικά. Η επόμενη ώρα δεν μπαίνει στον μέσο όρο — μπαίνει στην άκρη του, και εκεί το ποσοστό δεν είναι το ίδιο. Οπότε ο αριθμός που βγάζεις με τη μέση δεν αντιστοιχεί σε καμία ώρα που θα δουλέψεις.\n\nΗ διόρθωση δεν είναι καλύτερος υπολογισμός. Είναι να σταματήσεις να ψάχνεις ΕΝΑΝ αριθμό. Θέλεις δύο, και είναι δύο διαφορετικά πράγματα: τα καθαρά ανά ώρα που βγάζεις κανονικά — καθαρά του μήνα διά τις ώρες του μήνα — και τα καθαρά που αφήνει η ώρα υπερωρίας, που βγαίνει από τη διαφορά δύο μισθοδοσιών, μιας με υπερωρίες και μιας χωρίς. Ο πρώτος αριθμός λέει πόσο αξίζει η ώρα σου σήμερα. Ο δεύτερος λέει πόσο αξίζει η ΕΠΟΜΕΝΗ ώρα. Δεν είναι ο ίδιος αριθμός και δεν απαντούν στην ίδια ερώτηση.\n\nΗ απόσταση ανάμεσά τους είναι όλη η πληροφορία που δίνει αυτή η μέτρηση. Αν είναι μικρή, η υπερωρία σου κοστίζει περίπου όσο η κανονική ώρα σου και η απόφαση είναι εύκολη. Αν είναι μεγάλη, το ξέρεις με αριθμό και όχι με αίσθηση — και αυτό αλλάζει πώς διαβάζεις την επόμενη προσφορά. Ένας αριθμός, όποιος και να είναι, δεν σου δείχνει αυτή την απόσταση.\n\nΔεν υπάρχει εδώ ούτε ποσοστό, ούτε κλίμακα, ούτε όριο, ούτε όνομα υπηρεσίας: οι αριθμοί που αποφασίζουν είναι στις δικές σου δύο μισθοδοσίες. Η πλήρης πράξη, πού ακριβώς κοιτάς στη μισθοδοσία, γιατί ο αριθμός αλλάζει μέσα στη χρονιά, και τι ΔΕΝ λέει αυτή η πράξη — είναι στο βίντεο.\n\n## COMENTARIO FIXADO\nΔύο αριθμοί, όχι ένας. Πρώτος: καθαρά του μήνα διά τις ώρες του μήνα — πόσο αξίζει η ώρα σου σήμερα. Δεύτερος: η διαφορά των καθαρών ανάμεσα σε έναν μήνα με υπερωρίες και έναν χωρίς, διά τις ώρες υπερωρίας — πόσο αξίζει η επόμενη ώρα. Το μέσο ποσοστό δεν κάνει για τον δεύτερο, γιατί η επόμενη ώρα μπαίνει στην άκρη και όχι στον μέσο όρο. Διάλεξε μήνες καθαρούς από δώρο, αναδρομικά και αναπροσαρμογές, αλλιώς μετράς κάτι άλλο. Αυτή η πράξη δεν λέει αν αξίζει να δεχτείς την υπερωρία. Αν το βγάλεις, γράψε μόνο αν η απόσταση βγήκε μικρή ή μεγάλη — χωρίς ποσά και χωρίς εργοδότη.\n\n## HASHTAGS\n#Υπερωρία #Μισθοδοσία #ΕπόμενοΕπίπεδο\n\n## TAGS\nυπερωρια, μισθοδοσια, καθαρα ανα ωρα, μεσο ποσοστο, επομενη ωρα, δυο αριθμοι, προσωπικα οικονομικα, ελλαδα, υπολογισμος, εκκαθαριση, καθαρα, ωρες εργασιας, επομενο επιπεδο, μισθος, φορολογια εισοδηματος\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO. Nao cita aliquota, nao cita faixa de imposto,\nnao cita limite, nao cita valor, nao cita percentual e nao nomeia orgao. Os\nunicos numeros ditos sao \"dois\" e \"um\", e sao a aritmetica do procedimento.\n\nO QUE O VIDEO AFIRMA: que o ponto percentual MEDIO da misthodosia nao e o que\nincide sobre a HORA SEGUINTE, e que por isso calcular a hora extra pela media da\num numero que nao existe. Esta no longo epomeno-epipedo-014 (h04-UVlVevs), nos\ncapitulos sobre o ponto medio contra o da hora seguinte, com as fontes.\n\nDESCARTADO, e vai escrito:\n  (1) QUALQUER aliquota, faixa, limite ou percentual do sistema grego — nao\n      reconferido hoje em duas fontes, e o short nao precisa deles para dizer\n      que media nao e marginal;\n  (2) quanto a diferenca costuma ser — varia por pessoa e e exatamente o que o\n      espectador vai MEDIR;\n  (3) o que a conta NAO decide — se vale aceitar a hora extra. Esta no longo, e\n      o short manda para la.\n\n## FONTES\nO longo de onde este short foi extraido (epomeno-epipedo-014, h04-UVlVevs) traz\nas fontes. Este short nao introduz numero novo sobre o mundo.\n"
+}
