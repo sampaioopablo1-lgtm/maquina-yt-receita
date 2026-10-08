@@ -1,0 +1,57 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-s004",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#22333B",
+  "c1": "#A4243B",
+  "c2": "#D8973C",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Divida pelos",
+  "l2": "dias"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Mesmo desconto?",
+   "sub": "prazos diferentes",
+   "nar": "Você deu o mesmo desconto à vista para quem pagaria logo e para quem pagaria muito depois?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O desconto não é o preço",
+   "sub": "o prazo é",
+   "nar": "Então você cobrou de si mesmo dois juros bem diferentes, porque o preço do dinheiro não é o desconto que você deu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Divida",
+   "sub": "pelos dias antecipados",
+   "nar": "Divida o desconto pelo que sobra, e divida de novo pelos dias que você antecipou de verdade.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Prazo curto",
+   "sub": "custa muito mais",
+   "nar": "Prazo curto com desconto igual sai muito mais caro, e é exatamente ali que o cliente esperto compra.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Pegue a proposta",
+   "sub": "e conte os dias",
+   "nar": "Pegue a última proposta e conte os dias que o desconto antecipou. A conta está no vídeo.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "bQoujWaY7Hw",
+ "copy": "# labtreinamento-s004\n\n## TITULO\nDesconto à Vista: o Mesmo Desconto Não Tem o Mesmo Preço — Divida pelo Prazo\n\n## TITULO SHORT\nMesmo desconto, prazo curto: muito mais caro\n\n## DESCRICAO\nQuem dá desconto para o cliente pagar à vista costuma ter uma política só: um percentual, igual para todo mundo. É o jeito mais simples de administrar e também o mais caro, porque o desconto não é o preço do dinheiro — o preço é o desconto dividido pelo prazo que ele antecipou.\n\nPense em dois clientes com a mesma proposta e o mesmo desconto. Um deles pagaria em poucos dias; o outro só pagaria bem mais adiante. Para o primeiro, você entregou o mesmo abatimento para trazer o dinheiro quase nada para a frente: o juro implícito é altíssimo. Para o segundo, o mesmo abatimento comprou um pedaço grande de tempo, e o juro implícito é muito menor. Mesma linha na tabela, dois negócios completamente diferentes — e o único que percebeu isso, até agora, foi o cliente que escolheu o lado bom.\n\nA conta tem dois passos e nenhum número de fora. Primeiro, o desconto sobre o que efetivamente sobra: você não abate do que recebeu, você abate do que ia receber. Segundo, e é esse que quase ninguém dá: divida o resultado pelos dias que o pagamento foi realmente antecipado, contados da data em que o cliente ia pagar até a data em que ele pagou. Só depois desse segundo passo os dois negócios ficam comparáveis entre si, e comparáveis com a antecipação que o seu banco vende.\n\nO que sai disso não é \"pare de dar desconto\". É que um desconto único, igual para qualquer prazo, está sempre caro demais em algum pedaço da sua carteira — e esse pedaço é exatamente o que mais gente vai escolher. Quem quer continuar dando desconto à vista precisa de uma política que olhe o prazo, não só o valor.\n\nNão há aqui nenhum percentual, nenhum prazo em dias e nenhuma taxa: os números que decidem estão na sua última proposta e no extrato da sua conta. A conta completa, com outros prazos, a comparação com a antecipação de recebíveis e os casos em que o desconto é a decisão certa mesmo assim — estão no vídeo.\n\n## COMENTARIO FIXADO\nO passo que quase ninguém dá é o segundo. Todo mundo divide o desconto pelo que sobra; poucos dividem de novo pelos DIAS que o pagamento foi antecipado — da data em que o cliente ia pagar até a data em que pagou. Sem esse segundo passo, dois negócios com o mesmo desconto e prazos muito diferentes parecem iguais, e eles não são: o de prazo curto é o caro. Se você for olhar a sua última proposta, comente só se o prazo antecipado foi curto ou longo — sem valores e sem percentual.\n\n## HASHTAGS\n#Financas #Precificacao #LabTreinamento\n\n## TAGS\ndesconto a vista, precificacao, juro implicito, antecipacao de recebiveis, fluxo de caixa, prazo de pagamento, proposta comercial, pequeno negocio, financas da empresa, margem, tabela de precos, politica de desconto, brasil, calculo, lab treinamento\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Nao cita percentual de\ndesconto, nao cita prazo em dias, nao cita taxa de antecipacao, nao cita valor e\nnao nomeia banco nem orgao. Conferido a mao campo por campo, porque o portao\n`narracao` conta quantidades por frase e nao pega digito cru (640).\n\nO QUE O VIDEO AFIRMA: que o custo de um desconto a vista depende do PRAZO que ele\nantecipou, logo o mesmo desconto sai mais caro quando o prazo antecipado e curto.\nEsta no longo labtreinamento-008 (bQoujWaY7Hw), capitulos \"A conta: o desconto\ndividido pelo que sobra\" e \"Quando o prazo nao e de trinta dias\", com as fontes.\n\nDESCARTADO, e vai escrito:\n  (1) qualquer percentual de desconto e o resultado da divisao — estao no longo\n      com fonte; o short nao precisa deles para dizer que prazo curto encarece;\n  (2) qualquer taxa de antecipacao de recebiveis — e preco de mercado, muda, e\n      nao foi reconferido hoje em duas fontes; o short MANDA comparar;\n  (3) se vale ou nao dar o desconto, que depende do caixa e esta no longo.\n\n## FONTES\nO longo de onde este short foi extraido (labtreinamento-008, bQoujWaY7Hw) traz as\nfontes. Este short nao introduz numero novo sobre o mundo.\n"
+}
