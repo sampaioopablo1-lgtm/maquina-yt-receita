@@ -1,0 +1,57 @@
+{
+ "slug": "kolejny-poziom",
+ "pacote": "kolejny-poziom-s005",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Średnia myli",
+  "l2": "weź maksimum"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Wziąłeś średnią?",
+   "sub": "to złe wejście",
+   "nar": "Wziąłeś średnie zużycie z trzech miesięcy? Do tej decyzji średnia nie wystarczy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Pakiet pokrywa",
+   "sub": "miesiąc najwyższy",
+   "nar": "Pakiet musi pokryć miesiąc najwyższy, nie przeciętny. Jeden wyjazd i już przekraczasz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Weź maksimum",
+   "sub": "nie średnią",
+   "nar": "Weź więc maksimum z trzech miesięcy, nie średnią. Do niego dobieraj pakiet.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Jeden wyjątek",
+   "sub": "tanie przekroczenie",
+   "nar": "Jest wyjątek: jeśli przekroczenie jest tanie, średnia wystarczy. Sprawdź to w umowie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Porównaj dziś",
+   "sub": "maksimum i pakiet",
+   "nar": "Porównaj maksimum z pakietem. Cały rachunek jest w filmie.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "-5aMrDsxlZE",
+ "copy": "# kolejny-poziom-s005\n\n## TITULO\nŚrednia z Trzech Miesięcy Myli: Pakiet Musi Pokryć Miesiąc Najwyższy, nie Przeciętny\n\n## TITULO SHORT\nŚrednia myli. Weź maksimum\n\n## DESCRICAO\nRachunek na marnowane gigabajty jest prosty i robi się go raz: miesięczną kwotę dzielisz przez wielkość pakietu, co daje cenę gigabajta, a potem od pakietu odejmujesz swoje zużycie i mnożysz jedno przez drugie. Wynik to złote, które każdego miesiąca płacisz za dane, których nie użyłeś. I właśnie w tym drugim składniku — w „swoim zużyciu\" — kryje się błąd, który kosztuje.\n\nBo prawie każdy wstawia tam ŚREDNIĄ z trzech miesięcy. Średnia jest dobrym wejściem, gdy chcesz wiedzieć, ile marnujesz TERAZ. Jest złym wejściem, gdy chcesz na tej podstawie ZMNIEJSZYĆ pakiet, a to jest zwykle prawdziwy cel. Pakiet nie obsługuje miesiąca przeciętnego — obsługuje każdy miesiąc osobno, w tym ten najwyższy. Jeden wyjazd, jeden tydzień pracy zdalnej z innego miasta, jeden miesiąc bez wifi w domu, i zużycie skacze ponad średnią. Jeśli dobrałeś pakiet do średniej, w tym miesiącu wchodzisz w przekroczenie — i oszczędność z poprzednich miesięcy potrafi zniknąć w jednym rachunku.\n\nUczciwa wersja: weź MAKSIMUM z trzech miesięcy, nie średnią, i do niego dobieraj pakiet. Zachowaj średnią, ale jako osobną liczbę — ona mówi, ile marnujesz; maksimum mówi, czego nie możesz zejść poniżej.\n\nJest jeden wyjątek i wart sprawdzenia, bo zmienia odpowiedź: jeśli w twojej umowie przekroczenie jest tanie albo kończy się tylko ograniczeniem prędkości, a nie dopłatą, to ryzyko miesiąca szczytowego jest małe i można schodzić do średniej. To trzeba przeczytać w umowie, nie zgadnąć — i dlatego tego tutaj nie podaję.\n\nNie ma tu żadnej ceny, żadnego rozmiaru pakietu i żadnej nazwy operatora: liczby, które decydują, są na twoim rachunku i w twojej aplikacji. Pełny rachunek, miejsce gdzie te liczby leżą, czego ten rachunek NIE obejmuje i jak przejść od jednego miesiąca do całej umowy — są w filmie.\n\n## COMENTARIO FIXADO\nRachunek: kwota przez pakiet daje cenę gigabajta; pakiet minus zużycie daje nadwyżkę; mnożysz. Haczyk jest w „zużyciu\": do ZMNIEJSZENIA pakietu nie wstawiaj średniej z trzech miesięcy, tylko MAKSIMUM — pakiet obsługuje każdy miesiąc osobno, w tym ten, w którym wyjechałeś. Średnią zachowaj jako drugą liczbę: mówi ile marnujesz, nie czego nie możesz zejść poniżej. Wyjątek: jeśli w umowie przekroczenie jest tanie albo to tylko ograniczenie prędkości, średnia wystarczy — ale to przeczytaj, nie zgaduj. Jeśli policzysz, napisz, czy maksimum było dużo wyższe od średniej — bez kwot.\n\n## HASHTAGS\n#Telefon #Pakiet #KolejnyPoziom\n\n## TAGS\ntelefon, pakiet danych, gigabajty, rachunek, srednia, maksimum, przekroczenie, umowa, finanse osobiste, polska, obliczenia, operator, kolejny poziom, oszczedzanie, zuzycie danych\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO. Nao cita preco de plano, nao cita tamanho de\npacote, nao cita custo de excedente, nao cita operadora e nao nomeia orgao. Os\nunicos numeros ditos sao \"tres\" e \"um\", e sao a aritmetica da propria conta.\n\nO QUE O VIDEO AFIRMA: que a media de tres meses pode ficar abaixo do mes de maior\nconsumo, e que por isso dimensionar o pacote pela media expoe ao excedente no mes\nde pico. E aritmetica e esta no longo kolejny-poziom-014 (-5aMrDsxlZE) com as\nfontes.\n\nDESCARTADO, e vai escrito:\n  (1) quanto custa o excedente em qualquer operadora polonesa, e se ha limitacao\n      de velocidade em vez de cobranca — NAO reconferido hoje em duas fontes; o\n      short MANDA conferir no contrato em vez de afirmar;\n  (2) qualquer preco, tamanho de pacote ou valor;\n  (3) o que a conta NAO decide — esta no longo, e o short manda para la.\n\n## FONTES\nO longo de onde este short foi extraido (kolejny-poziom-014, -5aMrDsxlZE) traz as\nfontes. Este short nao introduz numero novo sobre o mundo.\n"
+}
