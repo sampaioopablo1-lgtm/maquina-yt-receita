@@ -1,0 +1,57 @@
+{
+ "slug": "epomeno-epipedo",
+ "pacote": "epomeno-epipedo-s005",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#12263A",
+  "c1": "#2A9D8F",
+  "c2": "#E8A33D",
+  "bg": "#F5F2EC"
+ },
+ "thumb": {
+  "l1": "Βγήκε μηδέν;",
+  "l2": "κοίτα τα έξοδα"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Βγήκε μηδέν;",
+   "sub": "κοίτα τα έξοδα",
+   "nar": "Η αφαίρεση έβγαλε μηδέν και είπες ότι είναι άτοκες; Κοίτα αν υπάρχει γραμμή εξόδων.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Μένουν έξω",
+   "sub": "από τις δόσεις",
+   "nar": "Τα έξοδα φακέλου δεν μπαίνουν στις δόσεις. Πληρώνονται χώρια, και το μηδέν σου δεν τα είδε.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Βάλ' τα μέσα",
+   "sub": "και ξανακάνε",
+   "nar": "Πρόσθεσέ τα στο σύνολο των δόσεων. Μετά ξανακάνε την αφαίρεση με την τιμή μετρητοίς.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Και τα άλλα",
+   "sub": "ασφάλεια, κάρτα",
+   "nar": "Το ίδιο για ασφάλεια ή συνδρομή κάρτας. Ό,τι πληρώνεις για να πάρεις τις δόσεις, μπαίνει.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Πριν υπογράψεις",
+   "sub": "με τα έξοδα μέσα",
+   "nar": "Ξανακάνε την αφαίρεση με τα έξοδα μέσα. Η πλήρης πράξη είναι στο βίντεο.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "nttW9fR8wyY",
+ "copy": "# epomeno-epipedo-s005\n\n## TITULO\nΒγήκε Μηδέν και Είπες Άτοκες; Η Γραμμή των Εξόδων Μένει Έξω από τις Δόσεις\n\n## TITULO SHORT\nΒγήκε μηδέν; Κοίτα τα έξοδα\n\n## DESCRICAO\nΟ έλεγχος για το αν μια προσφορά με δόσεις είναι πράγματι άτοκη είναι δύο πράξεις: πολλαπλασιάζεις τον αριθμό των δόσεων με το ποσό της δόσης, και από το σύνολο αφαιρείς την τιμή μετρητοίς. Αν μείνει μηδέν, οι δόσεις δεν σου κόστισαν τίποτα παραπάνω. Αν μείνει θετικός αριθμός, αυτό είναι το κόστος της διευκόλυνσης, σε ευρώ, όχι σε ποσοστό.\n\nΥπάρχει όμως ένα σημείο όπου το μηδέν σου μπορεί να είναι ψεύτικο, και δεν είναι λάθος στην αριθμητική: είναι ό,τι μένει ΕΞΩ από το σύνολο των δόσεων. Τα έξοδα φακέλου, όπου υπάρχουν, δεν πληρώνονται μέσα στη δόση — πληρώνονται χωριστά, συχνά στην αρχή, και η αφαίρεσή σου δεν τα είδε ποτέ. Το ίδιο ισχύει για ασφάλεια που συνοδεύει τη χρηματοδότηση και για συνδρομή ή ανανέωση κάρτας που η προσφορά απαιτεί. Ο κανόνας είναι απλός και δεν χρειάζεται γνώσεις: ό,τι πληρώνεις ΓΙΑ ΝΑ πάρεις τις δόσεις, μπαίνει στο σύνολο.\n\nΗ διορθωμένη πράξη, λοιπόν: σύνολο δόσεων, συν κάθε έξοδο που ζητά η συγκεκριμένη προσφορά, μείον η τιμή μετρητοίς. Αυτό που μένει είναι το πραγματικό κόστος, και είναι ο αριθμός με τον οποίο συγκρίνεις δύο προσφορές μεταξύ τους — ή τη δόση με το να περιμένεις και να πληρώσεις μετρητοίς.\n\nΔύο πράγματα που αυτός ο έλεγχος ΔΕΝ κάνει. Δεν σου λέει αν αξίζει το προϊόν, και δεν σου λέει αν αντέχεις τη δόση στον μηνιαίο προϋπολογισμό σου· αυτά είναι άλλη απόφαση. Σου λέει μόνο πόσο κοστίζει η διευκόλυνση, με δικά σου νούμερα, από το χαρτί που κρατάς πριν υπογράψεις.\n\nΕδώ δεν αναφέρεται επιτόκιο, δεν αναφέρεται ποσοστό, δεν αναφέρεται ποσό εξόδων και δεν αναφέρεται τράπεζα: ο αριθμός που αποφασίζει βγαίνει από τη δική σου προσφορά. Το πλήρες βίντεο έχει όλη την πράξη, πού βρίσκεις τα νούμερα στο χαρτί, τι σημαίνει άτοκες, και πού ο υπολογισμός δεν φτάνει.\n\nΕνημερωτικό περιεχόμενο, δεν αποτελεί οικονομική, νομική ή επενδυτική συμβουλή.\n\n## COMENTARIO FIXADO\nΗ πράξη: δόσεις επί ποσό δόσης, συν κάθε έξοδο που ζητά η προσφορά, μείον η τιμή μετρητοίς. Το κρίσιμο είναι το «συν κάθε έξοδο»: τα έξοδα φακέλου, η ασφάλεια που συνοδεύει τη χρηματοδότηση και η συνδρομή κάρτας πληρώνονται ΧΩΡΙΑ από τη δόση, κι αν δεν τα βάλεις μέσα το μηδέν σου είναι ψεύτικο. Κανόνας: ό,τι πληρώνεις για να πάρεις τις δόσεις, μπαίνει στο σύνολο. Αν κάνεις τον έλεγχο, γράψε αν η προσφορά σου είχε γραμμή εξόδων ή όχι — χωρίς να γράψεις ποσά.\n\n## HASHTAGS\n#Δόσεις #ΈξοδαΦακέλου #EpomenoEpipedo\n\n## TAGS\nδοσεις, ατοκες, εξοδα φακελου, τιμη μετρητοις, αφαιρεση, ασφαλεια, συνδρομη καρτας, προσωπικα οικονομικα, ελλαδα, υπολογισμος, προσφορα, κοστος, επομενο επιπεδο, χρηματοδοτηση, συγκριση\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO. Nao cita taxa de juro, nao cita TAEG, nao cita\nvalor de despesa, nao cita percentual e nao nomeia banco nem orgao. Os unicos\nnumeros ditos sao \"zero\" e \"duas\", e sao a aritmetica da propria conta.\n\nO QUE O VIDEO AFIRMA: que despesa de processo, seguro e anuidade de cartao podem\nficar FORA do total das prestacoes, e que por isso a subtracao precisa incluir\ntudo o que se paga para obter o credito. Esta no longo epomeno-epipedo-017\n(nttW9fR8wyY) com as fontes.\n\nDESCARTADO, e vai escrito:\n  (1) QUAIS despesas a lei grega permite cobrar e em que limite — nao reconferido\n      hoje em duas fontes; o short diz apenas \"se existir a linha\";\n  (2) qualquer valor ou percentual de despesa, juro ou seguro;\n  (3) o que a conta NAO decide — esta no longo, e o short manda para la.\n\n## FONTES\nO longo de onde este short foi extraido (epomeno-epipedo-017, nttW9fR8wyY) traz\nas fontes. Este short nao introduz numero novo sobre o mundo.\n"
+}
