@@ -1,0 +1,57 @@
+{
+ "slug": "kolejny-poziom",
+ "pacote": "kolejny-poziom-s009",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Kolejność",
+  "l2": "zmienia wynik"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Ta sama wpłata",
+   "sub": "ale w jakiej kolejności?",
+   "nar": "Wpłacasz tę samą kwotę co miesiąc. Ale wiesz, w jakiej kolejności trafia ona na twoje konta?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kolejność",
+   "sub": "zmienia wynik",
+   "nar": "Kolejność zmienia wynik, bo ulga podatkowa liczy się za dany rok, a nie za całe twoje życie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Rok niewykorzystany",
+   "sub": "przepada",
+   "nar": "Rok, w którym nie wykorzystasz ulgi, przepada. Nie przenosi się na następny.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Najpierw ulga",
+   "sub": "resztę potem",
+   "nar": "Więc najpierw zapełniasz konto z ulgą, a resztę dopiero potem. Ta sama wpłata, inny wynik.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Sprawdź swoje",
+   "sub": "przelewy z tego roku",
+   "nar": "Sprawdź, w jakiej kolejności szły twoje przelewy w tym roku. Cała kolejność jest w filmie.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "ef_oZmfmdz4",
+ "copy": "# kolejny-poziom-s009\n\n## TITULO\nTa Sama Wpłata, Inna Kolejność: Dlaczego Rok Bez Ulgi Już Nie Wróci\n\n## TITULO SHORT\nTa sama wpłata, inna kolejność\n\n## DESCRICAO\nKiedy ktoś odkłada tę samą kwotę co miesiąc, naturalnie myśli o tym jak o jednym strumieniu pieniędzy: wpłacam tyle, odkładam tyle, reszta to szczegóły. I to jest właśnie ta jedna rzecz, która kosztuje — bo pieniądze nie trafiają do jednego worka, a to, do którego worka trafiają pierwsze, zmienia końcowy wynik przy identycznej wpłacie.\n\nPowód nie ma nic wspólnego z prognozowaniem rynku. Ulga podatkowa jest przypisana do ROKU, nie do twojego życia. Jeśli w danym roku nie wykorzystasz jej w całości, ta część nie przechodzi na następny rok i nie wraca później — przepada. To jest zasada, nie przewidywanie, i właśnie dlatego kolejność wpłat jest decyzją, a nie szczegółem technicznym.\n\nZ tego wynika praktyczna reguła, która nie wymaga żadnej liczby z zewnątrz. Najpierw zapełniasz to, co jest ograniczone rocznym limitem i co przepada — czyli konto z ulgą. Dopiero potem to, co zostaje, idzie tam, gdzie limitu nie ma i gdzie nic nie przepada, bo tam ta sama wpłata będzie możliwa również w przyszłym roku. Odwrotna kolejność oznacza, że oddajesz ulgę za ten rok w zamian za coś, co i tak było dostępne później.\n\nDruga konsekwencja jest mniej oczywista. Jeśli w ciągu roku twoje możliwości się zmieniają — pojawia się premia, albo wręcz odwrotnie, miesiąc bez nadwyżki — to kolejność decyduje, na czym ta zmiana się odbije. Przy właściwej kolejności gorszy miesiąc zabiera ci część tego, co i tak można nadrobić. Przy odwrotnej zabiera ci część tego, czego nadrobić już nie będzie można.\n\nNie ma tu żadnego limitu, żadnej stawki i żadnej kwoty: liczby, które decydują, są w twoich przelewach i w twoim rozliczeniu. Pełna kolejność, co dokładnie daje państwo, trzy rachunki do porównania i cztery liczby do sprawdzenia — są w filmie.\n\n## COMENTARIO FIXADO\nKluczowe zdanie jest jedno: ulga liczy się za ROK, nie za życie. Rok niewykorzystany przepada i nie przenosi się na następny — więc najpierw zapełniasz to, co przepada, a dopiero potem to, co i tak będzie dostępne w przyszłym roku. Odwrotna kolejność to oddanie ulgi za ten rok w zamian za coś, co było dostępne później. Jeśli sprawdzisz swoje przelewy z tego roku, napisz w komentarzu tylko, czy kolejność była właściwa — bez kwot.\n\n## HASHTAGS\n#Oszczednosci #Emerytura #KolejnyPoziom\n\n## TAGS\noszczednosci, ulga podatkowa, kolejnosc wplat, roczny limit, rozliczenie, finanse osobiste, polska, planowanie, emerytura, wplata miesieczna, konto emerytalne, podatek, kolejny poziom, limit roczny, przelewy\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Nao cita limite anual,\nnao cita aliquota, nao cita taxa, nao cita valor, nao cita prazo e NAO NOMEIA\nproduto nem orgao — a narracao diz \"konto z ulga podatkowa\" em vez do nome da\nconta. Conferido a mao campo por campo, porque o portao `narracao` conta\nquantidades por frase e nao pega digito cru (640).\n\nO QUE O VIDEO AFIRMA: que o beneficio fiscal e contado POR ANO e que o ano nao\nusado nao se transfere para o seguinte — logo a ORDEM em que a mesma contribuicao\nentra nas contas muda o resultado. E NORMA, nao estatistica, e esta no longo\nkolejny-poziom-004 (ef_oZmfmdz4), capitulos \"Kolejnosc ma znaczenie\" e \"Co\npanstwo daje\", com as fontes. Declarado conforme a regra de fonte unica que e\nnorma.\n\nDESCARTADO, e vai escrito:\n  (1) o valor do limite anual e qualquer aliquota — estao no longo com fonte;\n  (2) o nome dos produtos — evitado de proposito (609);\n  (3) a aritmetica do arrasto das taxas, que e do short original daquele pacote.\n\n## FONTES\nO longo de onde este short foi extraido (kolejny-poziom-004, ef_oZmfmdz4) traz as\nfontes. Este short nao introduz numero novo sobre o mundo.\n"
+}
