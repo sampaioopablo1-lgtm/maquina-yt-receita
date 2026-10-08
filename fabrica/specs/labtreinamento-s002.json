@@ -1,0 +1,57 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-s002",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#22333B",
+  "c1": "#A4243B",
+  "c2": "#D8973C",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Refaça pelo",
+  "l2": "mês todo"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Somou as horas?",
+   "sub": "faltou uma parte",
+   "nar": "Você somou as horas daquele projeto? Então faltou no denominador a parte que não aparece.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A proposta perdida",
+   "sub": "também foi sua hora",
+   "nar": "As propostas que você montou e não ganhou também gastaram as suas horas, e ninguém pagou por nenhuma delas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Divida pelo mês",
+   "sub": "não pelo projeto",
+   "nar": "Divida então pelo mês inteiro, e não por um projeto só. Entra tudo que o mês consumiu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A hora cai",
+   "sub": "e é essa a real",
+   "nar": "O valor da sua hora cai. E é esse número menor que decide o seu próximo preço.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Refaça hoje",
+   "sub": "pelo mês todo",
+   "nar": "Refaça a conta pelo mês todo, hoje mesmo. A conta completa está no vídeo.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "ntrMxq89I4o",
+ "copy": "# labtreinamento-s002\n\n## TITULO\nAs Horas da Proposta Que Você Não Ganhou Também Contam: Refaça a Conta pelo Mês\n\n## TITULO SHORT\nRefaça pelo mês, não pelo projeto\n\n## DESCRICAO\nA conta do valor real da sua hora é simples e cabe em uma divisão: o líquido que sobrou de um trabalho dividido pelas horas que aquele trabalho consumiu. Ela funciona, e é por onde se começa. Mas ela tem um buraco no denominador, e o buraco não é pequeno.\n\nAs horas que você soma são as horas do projeto que você ENTREGOU. Ficam de fora as horas que você gastou montando propostas que não viraram projeto: a conversa inicial, o escopo que você escreveu, o orçamento que você detalhou, o retorno que nunca veio. Essas horas foram trabalhadas do mesmo jeito, saíram do mesmo mês e não foram pagas por ninguém. Se o denominador só tem as horas do trabalho que deu certo, o valor da sua hora sai mais alto do que ele é — e é com esse número inflado que você vai precificar o próximo.\n\nA versão honesta troca o recorte: em vez de um projeto, o MÊS. Pegue o líquido que entrou no mês e divida por todas as horas que o mês consumiu, incluindo as propostas perdidas, as reuniões que não fecharam nada e o tempo de administração. O número cai. Esse número menor é o que descreve a sua operação, e é ele que decide se o próximo preço paga a sua semana ou só a sua entrega.\n\nVale manter as duas contas, porque elas respondem perguntas diferentes: a do projeto diz quanto aquele trabalho rendeu; a do mês diz quanto você ganha por hora trabalhada. A distância entre as duas é o custo de conseguir trabalho, e ela aparece em quase todo mundo que vende serviço.\n\nNão há aqui nenhum preço, nenhuma hora e nenhum percentual: os números que decidem estão no seu extrato e na sua agenda. A conta completa, onde achar as horas que você não anotou, quando ela engana e como passar de um mês para o ano — estão no vídeo.\n\n## COMENTARIO FIXADO\nA conta do projeto é líquido do projeto sobre horas do projeto. O buraco está no denominador: ela não conta as horas das propostas que você montou e não ganhou, e essas saíram do mesmo mês. Refaça pelo MÊS — líquido que entrou no mês sobre todas as horas do mês, propostas perdidas e administração incluídas. O número cai, e é o menor que descreve a sua operação e precifica o próximo trabalho. Guarde as duas: a do projeto diz quanto aquele trabalho rendeu, a do mês diz quanto você ganha por hora trabalhada, e a distância entre elas é o custo de conseguir trabalho. Se refizer, comente só se a hora caiu pouco ou muito — sem valores e sem cliente.\n\n## HASHTAGS\n#Freelancer #PrecoPorHora #LabTreinamento\n\n## TAGS\nvalor da hora, preco por hora, por projeto, freelancer, prestador de servico, proposta, orcamento, horas trabalhadas, precificacao, financas pessoais, brasil, calculo, autonomo, lab treinamento, conta do mes\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO. Nao cita preco, nao cita hora, nao cita imposto,\nnao cita aliquota, nao cita taxa e nao nomeia orgao. Nao ha numero dito na\nnarracao.\n\nO QUE O VIDEO AFIRMA: que as horas gastas em propostas nao ganhas sao horas\ntrabalhadas, e que por isso dividir o liquido de UM projeto pelas horas DAQUELE\nprojeto superestima o valor da hora. E aritmetica e esta no longo\nlabtreinamento-007 (ntrMxq89I4o), no capitulo sobre o que a conta nao pega.\n\nDESCARTADO, e vai escrito:\n  (1) qualquer valor, preco por hora ou percentual de imposto;\n  (2) quanto a hora costuma cair ao dividir pelo mes — varia por pessoa e e\n      exatamente o que o espectador vai MEDIR;\n  (3) o que a conta NAO decide — se vale cobrar por hora ou por projeto. Esta no\n      longo, e o short manda para la.\n\n## FONTES\nO longo de onde este short foi extraido (labtreinamento-007, ntrMxq89I4o) traz as\nfontes. Este short nao introduz numero novo sobre o mundo.\n"
+}
