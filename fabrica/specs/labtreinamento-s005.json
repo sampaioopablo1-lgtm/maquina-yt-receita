@@ -1,0 +1,57 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-s005",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#22333B",
+  "c1": "#A4243B",
+  "c2": "#D8973C",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Um mês",
+  "l2": "não prova"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Conferiu um mês?",
+   "sub": "isso não prova nada",
+   "nar": "Você conferiu o depósito de um mês, bateu, e ficou tranquilo? Esse é um teste de tamanho um.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Erro de base",
+   "sub": "não erra uma vez só",
+   "nar": "Se a base do cálculo está errada, ela está errada todos os meses, porque é a mesma regra aplicada sempre.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Multiplique",
+   "sub": "pelos meses trabalhados",
+   "nar": "Então pegue a diferença de um mês e multiplique pelos meses que você já trabalhou nessa empresa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Escolha o mês certo",
+   "sub": "o de hora extra",
+   "nar": "E não confira um mês calmo. Confira o mês em que você fez hora extra: é ali que a base erra mais.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Confira dois meses",
+   "sub": "um calmo, um cheio",
+   "nar": "Confira então um mês calmo e também um mês cheio, e compare. A conta do ano inteiro está no vídeo.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "dsoEo103l1o",
+ "copy": "# labtreinamento-s005\n\n## TITULO\nConferir Um Mês de Depósito Não Prova Nada: Erro de Base se Repete Todo Mês\n\n## TITULO SHORT\nConferiu um mês? Isso é amostra de um\n\n## DESCRICAO\nQuem aprende a conferir o depósito do fundo costuma fazer a conta uma vez, ver que fecha, e encerrar o assunto. O problema é que uma conferência isolada responde uma pergunta muito menor do que a pessoa pensa: ela diz que aquele mês específico está certo. Não diz nada sobre os outros.\n\nE a distinção importa porque os dois tipos de erro possíveis se comportam de maneiras opostas. Um erro de lançamento é pontual: acontece num mês, por descuido, e não diz nada sobre o mês seguinte. Um erro de base é estrutural: alguém decidiu, em algum momento, o que entra e o que não entra no cálculo, e essa decisão é aplicada todos os meses, igual, sem ninguém revisitar. Se ela está errada, ela está errada desde que passou a valer — e a diferença que você vê num mês é só uma fatia do total.\n\nDaí a conta que o vídeo faz: pegue a diferença de um mês e multiplique pelos meses que você já trabalhou ali. Esse é o tamanho real do assunto, e normalmente é ele que decide se vale levar a conversa adiante ou não. Uma diferença que parece pequena no mês quase nunca parece pequena no ano.\n\nTem ainda a escolha de qual mês conferir, e aqui a intuição também atrapalha. A tendência é conferir um mês comum, \"limpo\", porque a conta fica mais fácil. Mas é justamente no mês atípico — aquele com hora extra, adicional, algum pagamento habitual fora do básico — que uma base mal definida aparece, porque é ali que a diferença entre o básico e o que realmente deveria compor o cálculo fica grande. Um mês calmo pode fechar perfeitamente com uma base errada e você não ver nada.\n\nA recomendação prática é conferir dois meses: um calmo e um cheio. Se os dois fecham, a base provavelmente está certa. Se o calmo fecha e o cheio não, você achou um erro de base, e ele tem a idade do seu contrato.\n\nNão há aqui nenhum percentual, nenhuma data e nenhum prazo: os números que decidem estão na sua folha e no seu extrato. A conta do ano, onde encontrar cada número, quando a diferença é normal e o que este vídeo não diz — estão no vídeo.\n\n## COMENTARIO FIXADO\nO ponto é a diferença entre erro de lançamento e erro de base. Lançamento é pontual; base é uma regra aplicada todo mês, então ela erra desde que passou a valer. Por isso conferir um mês só é amostra de tamanho um — e por isso o mês a conferir é o CHEIO, com hora extra e adicionais, não o calmo: um mês calmo fecha bonito mesmo com a base errada. Confira dois, um de cada tipo. Se o calmo fecha e o cheio não, multiplique a diferença pelos meses de casa. Quem fizer os dois, comente só se os dois fecharam ou não — sem valores.\n\n## HASHTAGS\n#FGTS #DireitosDoTrabalhador #LabTreinamento\n\n## TAGS\nfgts, deposito mensal, base de calculo, hora extra, adicional habitual, folha de pagamento, extrato, conferencia, erro de base, direitos do trabalhador, financas pessoais, brasil, calculo, carteira assinada, lab treinamento\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Nao cita o percentual\ndo deposito, nao cita data, nao cita prazo legal, nao cita valor e nao nomeia\norgao, lei nem aplicativo. Conferido a mao campo por campo, porque o portao\n`narracao` conta quantidades por frase e nao pega digito cru (640).\n\nO QUE O VIDEO AFIRMA: que um erro na BASE do deposito se repete mes a mes, logo a\ndiferenca de um mes se multiplica pelos meses trabalhados, e que o mes com hora\nextra e o que melhor revela erro de base. Esta no longo labtreinamento-009\n(dsoEo103l1o), capitulos \"A base nao e o que cai na conta\", \"Quando a diferenca e\nnormal\" e \"Faca a conta do ano\", com as fontes.\n\nDESCARTADO, e vai escrito:\n  (1) o percentual do deposito e a data do mes — estao no longo com fonte;\n  (2) qualquer prazo para reclamar diferenca — afirmacao juridica com numero, NAO\n      reconferida hoje em duas fontes; o short nao fala de prazo;\n  (3) o que fazer quando a diferenca e real, que depende do caso e esta no longo.\n\n## FONTES\nO longo de onde este short foi extraido (labtreinamento-009, dsoEo103l1o) traz as\nfontes. Este short nao introduz numero novo sobre o mundo.\n"
+}
