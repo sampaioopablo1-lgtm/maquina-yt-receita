@@ -1,0 +1,57 @@
+{
+ "slug": "epomeno-epipedo",
+ "pacote": "epomeno-epipedo-s004",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#12263A",
+  "c1": "#2A9D8F",
+  "c2": "#E8A33D",
+  "bg": "#F5F2EC"
+ },
+ "thumb": {
+  "l1": "Το καλάθι σου",
+  "l2": "όχι το μέσο"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Όχι το καλάθι σου",
+   "sub": "ένα μέσο καλάθι",
+   "nar": "Ο επίσημος πληθωρισμός δεν μετράει το δικό σου καλάθι. Μετράει ένα μέσο καλάθι.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Οι αποδείξεις",
+   "sub": "πέντε πράγματα",
+   "nar": "Το δικό σου βγαίνει από τις αποδείξεις σου. Διάλεξε πέντε πράγματα που αγοράζεις κάθε μήνα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Δύο σύνολα",
+   "sub": "ίδιος μήνας, πέρυσι",
+   "nar": "Βρες πόσο κόστιζαν τον ίδιο μήνα πέρυσι. Κρατάς δύο σύνολα: του τότε και του τώρα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Μία διαίρεση",
+   "sub": "τώρα διά τότε",
+   "nar": "Διαίρεσε το τώρα με το τότε. Αυτός είναι ο πληθωρισμός σου, και δεν συμφωνεί πάντα με τις ειδήσεις.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Φτιάξε τη λίστα",
+   "sub": "απόψε",
+   "nar": "Φτιάξε τη λίστα σου απόψε. Η πλήρης πράξη είναι στο βίντεο.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "9U2h4HuAzLs",
+ "copy": "# epomeno-epipedo-s004\n\n## TITULO\nΟ Πληθωρισμός σου Βγαίνει από τις Αποδείξεις σου, Όχι από το Μέσο Καλάθι\n\n## TITULO SHORT\nΟ πληθωρισμός σου, από τις αποδείξεις\n\n## DESCRICAO\nΟ επίσημος δείκτης τιμών δεν είναι λάθος, αλλά δεν μετράει εσένα: μετράει ένα μέσο καλάθι, φτιαγμένο ώστε να αντιπροσωπεύει ένα σύνολο νοικοκυριών. Αν εσύ δεν έχεις αυτοκίνητο, αν δεν καπνίζεις, αν τρως έξω κάθε μέρα ή αν δεν τρως έξω ποτέ, το καλάθι σου έχει άλλο βάρος σε κάθε κατηγορία — και άρα άλλη μεταβολή. Γι' αυτό μπορείς να διαφωνείς με τον επίσημο αριθμό χωρίς να διαφωνείς με τη μέτρηση.\n\nΗ πράξη για το δικό σου είναι απλή και δεν χρειάζεται κανέναν δείκτη. Διάλεξε πέντε πράγματα που αγοράζεις κάθε μήνα, σταθερά, από αυτά που θα αγόραζες είτε ακρίβυναν είτε όχι. Βρες πόσο σου κόστιζαν τον ίδιο μήνα πέρυσι — από απόδειξη, από το ιστορικό της κάρτας ή από την εφαρμογή του σουπερμάρκετ, όχι από μνήμη. Κράτα δύο σύνολα: του τότε και του τώρα. Διαίρεσε το τώρα με το τότε, και αυτό που βγαίνει είναι η μεταβολή του δικού σου καλαθιού.\n\nΤρεις κανόνες για να μη σε ξεγελάσει η πράξη. Πρώτον, ίδιος μήνας με ίδιο μήνα: οι τιμές έχουν εποχικότητα και η σύγκριση Δεκεμβρίου με Ιούνιο δεν μετράει τίποτα. Δεύτερον, ίδια ποσότητα και ίδια συσκευασία — αν το πακέτο μίκρυνε και η τιμή έμεινε, εσύ πλήρωσες ακριβότερα και η πράξη πρέπει να το δει. Τρίτον, μη διαλέγεις ό,τι ακρίβυνε περισσότερο· τότε δεν μετράς το καλάθι σου, μετράς τον θυμό σου.\n\nΑυτός ο αριθμός δεν αντικαθιστά τον επίσημο, και δεν μπαίνει σε συμβόλαιο. Κάνει κάτι άλλο: σου λέει πόσο μεγάλωσε ο δικός σου λογαριασμός, με δικά σου στοιχεία, και σου δίνει βάση να αποφασίσεις — τι να αλλάξεις, τι να ζητήσεις, πού να κοιτάξεις. Το πλήρες βίντεο έχει ποιοι επίσημοι δείκτες υπάρχουν, ποιος μπαίνει στο χαρτί σου, τι μένει έξω από τη μέτρηση και πού τα διαβάζεις μόνος σου.\n\nΕνημερωτικό περιεχόμενο, δεν αποτελεί οικονομική, φορολογική ή νομική συμβουλή.\n\n## COMENTARIO FIXADO\nΗ πράξη: πέντε πράγματα που αγοράζεις σταθερά κάθε μήνα, σύνολο τώρα διά σύνολο τον ίδιο μήνα πέρυσι. Τρεις κανόνες για να μη σε ξεγελάσει — ίδιος μήνας με ίδιο μήνα λόγω εποχικότητας, ίδια ποσότητα και συσκευασία γιατί το μικρότερο πακέτο στην ίδια τιμή είναι αύξηση, και μη διαλέγεις μόνο ό,τι ακρίβυνε περισσότερο. Τα στοιχεία βγαίνουν από αποδείξεις, από το ιστορικό της κάρτας ή από την εφαρμογή του σουπερμάρκετ, όχι από μνήμη. Αν την κάνεις, γράψε πόσα από τα πέντε κατάφερες να βρεις πέρυσι — χωρίς να γράψεις ποσά.\n\n## HASHTAGS\n#Πληθωρισμός #ΤοΚαλάθιΣου #EpomenoEpipedo\n\n## TAGS\nπληθωρισμος, καλαθι, αποδειξεις, δεικτης τιμων, σουπερμαρκετ, προσωπικα οικονομικα, ελλαδα, υπολογισμος, εποχικοτητα, συσκευασια, μεσο καλαθι, διαιρεση, επομενο επιπεδο, τιμες, νοικοκυριο\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO. Este short nao cita taxa de inflacao, nao cita\nindice, nao cita ano-base, nao cita percentual e nao nomeia orgao — nem ELSTAT,\nnem Eurostat, nem BCE. Os unicos numeros que ele diz sao \"cinco\" (cinco itens) e\n\"dois\" (dois totais), e sao a aritmetica da conta.\n\nO QUE O VIDEO AFIRMA: que o indice oficial mede um cesto medio e nao o de quem\nassiste, e que dividir o total de agora pelo total do mesmo mes do ano passado da\na variacao do cesto proprio. A primeira parte esta no longo epomeno-epipedo-015\n(9U2h4HuAzLs) com as fontes; a segunda e aritmetica.\n\nDESCARTADO, e vai escrito:\n  (1) QUAL dos dois indices oficiais entra em qual contrato e o ano-base de cada\n      um — esta no longo, com fonte, e o short nao repete de memoria;\n  (2) qualquer percentual de inflacao, de qualquer mes;\n  (3) a ressalva do BCE sobre habitacao propria e a mudanca de janeiro de 2026 —\n      estao no longo; citar de memoria seria numero novo sem reconferencia.\n\n## FONTES\nO longo de onde este short foi extraido (epomeno-epipedo-015, 9U2h4HuAzLs) traz\nas fontes. Este short nao introduz numero novo sobre o mundo.\n"
+}
