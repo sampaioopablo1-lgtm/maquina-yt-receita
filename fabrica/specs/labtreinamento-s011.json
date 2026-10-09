@@ -1,0 +1,57 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-s011",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#22333B",
+  "c1": "#A4243B",
+  "c2": "#D8973C",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "O corte",
+  "l2": "é seu"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "O corte não vem da norma",
+   "sub": "vem de você",
+   "nar": "Você multiplicou as duas notas e achou o nível. Agora precisa dizer onde começa o alto, e é aí que a planilha trava.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A norma não dita",
+   "sub": "a faixa",
+   "nar": "A norma não dita essa faixa. Quem separa alto de médio é a empresa, e muita gente descobre na hora de pintar a coluna.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Então é escolha",
+   "sub": "e escolha se escreve",
+   "nar": "Se é escolha, ela precisa estar escrita: o corte, a data e quem definiu. Numa aba própria, não num e-mail.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Critério na cabeça",
+   "sub": "vira discussão",
+   "nar": "Critério que só mora na cabeça vira discussão no dia da auditoria. E a discussão acontece com o auditor na sala.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Se inscreva",
+   "sub": "para as próximas",
+   "nar": "O nível é conta; a faixa é decisão sua. Se inscreva para as próximas, e a planilha inteira está no vídeo.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "XgqPVJuAk3o",
+ "copy": "# labtreinamento-s011\n\n## TITULO\nA Faixa que Separa Alto de Médio no Inventário Psicossocial é Escolha da Empresa, Não da Norma\n\n## TITULO SHORT\nA norma não escolhe o seu corte\n\n## DESCRICAO\nDepois que o inventário está preenchido, a conta do nível é a parte fácil: duas notas e uma multiplicação. O que trava a planilha vem logo depois, e quase ninguém escreve: onde começa o alto. Essa linha não está na norma.\n\nA faixa que separa baixo, médio, alto e crítico é escolha da empresa. Isso não é uma brecha nem um descuido do texto — é consequência de o inventário descrever o trabalho de cada lugar, e o que é alto numa operação de turno não é o mesmo numa equipe administrativa. A norma cobra o método; o corte é decisão de quem conhece a operação.\n\nA consequência prática é de documento, não de cálculo. Se é escolha, ela precisa estar escrita: o corte, a data em que foi definido e quem definiu — numa aba própria da planilha, não num e-mail que alguém vai procurar depois. Critério que só mora na cabeça de uma pessoa vira discussão no dia da auditoria, e a discussão acontece com o auditor sentado na sala.\n\nNada disso é argumento para escolher um corte frouxo. É o contrário: como a escolha é sua, ela é defensável quando está registrada e indefensável quando não está. Quem registra consegue explicar por que aquela linha ficou onde ficou; quem não registra descobre que o número existia e o critério não.\n\nAqui não há escala de notas nem corte de exemplo, e isso é deliberado — eles são escolha, não fato, e repeti-los no short seria transformar escolha em norma, que é justamente o erro que este vídeo aponta. As quatro abas, as duas colunas travadas por validação, a fórmula do nível, o SE aninhado com SEERRO e um corte possível para você discutir internamente — estão no vídeo completo.\n\n## COMENTARIO FIXADO\nO erro aqui não é de cálculo, é de autoridade: a norma cobra o método e NÃO dita onde começa o alto. Essa faixa é escolha da empresa, e é por isso que ela precisa estar escrita com data e autor, numa aba própria — critério que só mora na cabeça vira discussão com o auditor na sala. E para ficar claro, porque o vídeo não defende corte frouxo: como a escolha é sua, ela é defensável quando está registrada e indefensável quando não está. Quem já passou por auditoria com inventário psicossocial, escreva nos comentários apenas se o critério estava escrito ou não — sem nomes de empresa.\n\n## HASHTAGS\n#NR1 #RiscosPsicossociais #LabTreinamento\n\n## TAGS\ninventario psicossocial, matriz de risco, probabilidade e severidade, faixa de risco, criterio escrito, auditoria, planilha de riscos, seguranca do trabalho, gestao de riscos, validacao de dados, formatacao condicional, labtreinamento, plano de acao, fonte da evidencia, classificacao de risco\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Nao cita escala de\nnotas, corte de faixa, numero de abas ou colunas, e nao nomeia a norma.\nConferido a mao campo por campo.\n\nA REGRA (g) MANDA, e aqui de um jeito especial: os cortes que separam baixo,\nmedio, alto e critico NAO SAO FATO — o proprio longo diz que sao ESCOLHA DA\nEMPRESA. Repetir o corte de exemplo no short transformaria escolha em norma, que\ne EXATAMENTE o erro que o video denuncia.\n\nNUMERAIS NA NARRACAO: \"duas notas\" e \"uma multiplicacao\", que descrevem a conta.\n\nO QUE O VIDEO AFIRMA: que o nivel sai de duas notas multiplicadas, e que a faixa\nque separa alto de medio e escolha da empresa e nao da norma — logo precisa estar\nescrita com data e autor. Esta no longo labtreinamento-002 (XgqPVJuAk3o),\ncapitulo \"Duas notas — e uma multiplicacao\".\n\nDESCARTADO, e vai escrito:\n  (1) a escala das notas e o corte de exemplo, que sao escolha e nao fato;\n  (2) o nome numerado da norma e a contagem de abas e colunas;\n  (3) a formula literal com SE aninhado e SEERRO, que e do longo.\n\n## FONTES\nO longo de onde este short foi extraido (labtreinamento-002, XgqPVJuAk3o) traz as\nfontes oficiais. Este short nao introduz numero novo sobre o mundo.\n"
+}
