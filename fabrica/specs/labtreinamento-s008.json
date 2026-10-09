@@ -1,0 +1,57 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-s008",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#22333B",
+  "c1": "#A4243B",
+  "c2": "#D8973C",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Meça o seu",
+  "l2": "histórico"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "A lista esta pronta",
+   "sub": "e agora?",
+   "nar": "Você montou a lista de vencimentos, ela está ordenada pelo que vence primeiro, e agora precisa decidir com quanta antecedência avisar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Número redondo",
+   "sub": "é palpite",
+   "nar": "Quase todo mundo escolhe aqui um número redondo de dias. Número redondo parece regra, mas é palpite com cara de organização.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Olhe a última vez",
+   "sub": "não o palpite",
+   "nar": "Olhe a última turma que você realizou. Quantos dias passaram entre alguém pedir e ela finalmente acontecer?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Esse é o seu número",
+   "sub": "mais uma folga",
+   "nar": "Esse intervalo é o tempo que a sua operação leva. Some uma folga, porque alguma coisa sempre atrasa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Se inscreva",
+   "sub": "para as próximas",
+   "nar": "Meça no seu histórico, não no meu palpite. Se inscreva para as próximas, e a lista inteira está no vídeo.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "lau1nnOUm1U",
+ "copy": "# labtreinamento-s008\n\n## TITULO\nAntecedência do Aviso de Vencimento: Por Que Ela Se Mede no Seu Histórico e Não se Arredonda\n\n## TITULO SHORT\nAntecedência não se arredonda: se mede\n\n## DESCRICAO\nDepois que a lista de vencimentos existe e está ordenada, aparece a pergunta que ninguém respondeu ainda: com quanta antecedência avisar? E aqui quase todo mundo faz a mesma coisa — escolhe um número redondo de dias, porque número redondo parece organizado. Ele não é organizado. Ele é um palpite com cara de regra.\n\nA antecedência certa não é uma convenção, é uma medida, e a medida já está na sua operação. Pense na última turma que você realizou: entre o momento em que alguém pediu e o momento em que ela aconteceu de verdade, quantos dias passaram? Aquele intervalo é a sua antecedência mínima, porque é o tempo que a sua organização realmente leva — com o seu fornecedor, a sua aprovação de compra, a sua escala de turno, a sua sala.\n\nSobre esse intervalo você soma uma folga. Não por pessimismo: porque alguma coisa sempre atrasa, e a folga é o que impede que um atraso normal transforme um vencimento previsto em um vencimento perdido. O resultado dessas duas parcelas é a antecedência que você vai usar, e ela é diferente da do vizinho exatamente por isso.\n\nRepare no que esta conta NÃO tem: nenhum número vindo de fora. Nenhum prazo que eu pudesse te dar aqui serviria, e dar um seria cometer o erro que este vídeo ataca — trocar a medida por um arredondamento. Pela mesma razão o vídeo completo também não dá prazos, e isso é deliberado.\n\nVale um ajuste fino quando fizer sentido: um número por tipo de treinamento, porque nem todos levam o mesmo tempo para ser agendados. Quem mudou de função, quem voltou de afastamento, quem está de licença e quem é terceirizado tem tratamento próprio na lista — e isso, mais as cinco colunas, a ordenação por vencimento e os campos que você precisa procurar no certificado, está no vídeo.\n\n## COMENTARIO FIXADO\nA conta da antecedência, em duas parcelas, para quem quiser fazer agora: primeira, quantos dias levou entre pedir a última turma e ela acontecer DE VERDADE — isso é medida, está no seu histórico. Segunda, uma folga, porque algo sempre atrasa. A soma é a sua antecedência. Se você escolheu um número redondo de cabeça, você estimou e não mediu, e é assim que um atraso normal vira vencimento perdido. Um número por tipo de treinamento, se os prazos de agendamento forem diferentes. Quem fizer a conta, comente só se o resultado ficou maior ou menor do que o palpite que usava antes — sem prazos.\n\n## HASHTAGS\n#Treinamentos #SegurancaDoTrabalho #LabTreinamento\n\n## TAGS\nantecedencia de aviso, vencimento de treinamento, controle de treinamentos, planilha de vencimentos, gestao de treinamentos, seguranca do trabalho, prazo de agendamento, folga de prazo, lista de vencimentos, responsavel de treinamento, como medir, historico da operacao, labtreinamento, treinamento vencendo, planejamento de turma\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Nao cita prazo de\nnorma, nao cita periodicidade, nao cita quantos dias de antecedencia, nao cita\ncusto e nao nomeia norma nem orgao. Conferido a mao campo por campo.\n\nE ESTE E O PONTO DA PECA: a antecedencia certa NAO E um numero que eu possa dar.\nDar um numero redondo seria cometer exatamente o erro que o video ataca. O longo\ntambem nao da prazo — o capitulo final dele se chama \"Por que nao dei prazos\".\n\nO QUE O VIDEO AFIRMA: que a antecedencia do aviso deve sair do tempo que a\npropria organizacao levou para realizar a ultima turma, mais uma folga, e nao de\num numero redondo escolhido de cabeca. Esta no longo labtreinamento-011\n(lau1nnOUm1U), capitulos \"De quanto tempo\", \"Meca, nao estime\" e \"Some uma folga\".\n\nDESCARTADO, e vai escrito:\n  (1) qualquer prazo em dias — e o numero do historico DELE, nao meu;\n  (2) periodicidade de treinamento especifico, que muda por norma e NAO foi\n      reconferida nesta rodada em duas fontes;\n  (3) o custo de descobrir tarde, que esta no longo e depende da operacao.\n\n## FONTES\nO longo de onde este short foi extraido (labtreinamento-011, lau1nnOUm1U) traz\nas fontes. Este short nao introduz numero novo sobre o mundo.\n"
+}
