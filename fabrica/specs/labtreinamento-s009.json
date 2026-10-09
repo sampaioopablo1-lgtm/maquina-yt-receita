@@ -1,0 +1,57 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-s009",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#22333B",
+  "c1": "#A4243B",
+  "c2": "#D8973C",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Contestar",
+  "l2": "não pausa"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Contestou?",
+   "sub": "a cobrança continua",
+   "nar": "Você contestou o índice e já tirou o custo maior do orçamento. Só que a cobrança não parou.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Sem efeito suspensivo",
+   "sub": "é a regra",
+   "nar": "A contestação não tem efeito suspensivo. O índice divulgado continua sendo aplicado enquanto o pedido é analisado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Na prática",
+   "sub": "recolhe e discute",
+   "nar": "Na prática você recolhe pelo índice divulgado e discute em paralelo. Contestar não é uma pausa no pagamento.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A provisão",
+   "sub": "pelo divulgado",
+   "nar": "Então a provisão do ano se faz pelo índice divulgado, não pelo que você espera obter. Se o pedido for acolhido, o ajuste vem depois.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Se inscreva",
+   "sub": "para as próximas",
+   "nar": "Contestar e planejar o caixa são duas contas separadas. Se inscreva para as próximas, e a conta inteira está no vídeo.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "3KtwRYxl7_U",
+ "copy": "# labtreinamento-s009\n\n## TITULO\nContestação do FAP Não Tem Efeito Suspensivo: Por Que a Provisão do Ano Usa o Índice Divulgado\n\n## TITULO SHORT\nContestou o FAP? A cobrança continua\n\n## DESCRICAO\nQuando o índice do estabelecimento sobe, a reação correta e comum é a mesma: reunir o histórico e contestar. O que costuma aparecer tarde demais — às vezes já na reunião de orçamento — é que contestar e deixar de pagar não são a mesma coisa. A contestação não tem efeito suspensivo, e isso muda o planejamento do ano inteiro.\n\nNa prática funciona assim: o índice divulgado continua sendo aplicado enquanto o pedido é analisado. Você recolhe pelo valor que discorda e discute em paralelo. Se o pedido for acolhido, o ajuste acontece depois — mas o fluxo de caixa do começo do ano já terá acontecido pelo índice maior, e esse dinheiro saiu.\n\nA consequência é de planejamento, não de direito, e tem nome no financeiro: a provisão do ano se faz pelo índice divulgado, não pelo índice que você espera conseguir. É a diferença entre uma provisão que resiste e uma provisão que depende de um resultado que ainda não existe.\n\nNada disso é argumento contra contestar. É o contrário: contestar continua valendo sempre que o histórico sustentar o pedido. O que não funciona é tratar a contestação como uma pausa. São duas contas separadas — uma decide se vale pedir revisão, a outra decide quanto reservar enquanto o pedido corre — e quem junta as duas descobre o problema no meio do ano, quando o caixa já foi comprometido.\n\nAqui não há piso, teto, alíquota nem data, e isso é deliberado: esses valores são definidos por ato normativo e mudam de ano para ano, enquanto a regra do efeito suspensivo não muda. Como achar o seu índice, as duas multiplicações que transformam ele em reais na sua folha, o calendário com as duas datas e as fontes oficiais — estão no vídeo completo.\n\n## COMENTARIO FIXADO\nO erro aqui não é de cálculo, é de sequência: contestar NÃO suspende a cobrança. Enquanto o pedido é analisado você recolhe pelo índice divulgado, e se o acolhimento vier, o ajuste é depois — o caixa do começo do ano já saiu. Logo a provisão se faz pelo índice DIVULGADO, não pelo que você espera obter. E para ficar claro, porque o vídeo não é contra contestar: contestar vale sempre que o histórico sustentar o pedido. O que não vale é contar com ele para pausar o pagamento. Quem já passou por isso, escreva nos comentários apenas se a contestação foi acolhida ou não — sem valores.\n\n## HASHTAGS\n#FAP #SegurancaDoTrabalho #LabTreinamento\n\n## TAGS\ncontestacao fap, efeito suspensivo, provisao do ano, multiplicador da folha, indice divulgado, fluxo de caixa, seguranca do trabalho, gestao de riscos, planejamento orcamentario, recolhimento, revisao de indice, labtreinamento, folha de pagamento, historico de acidentes, prazo de analise\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Nao cita piso, teto,\naliquota, data de consulta nem valor de folha, e nao nomeia orgao nem norma.\nConferido a mao campo por campo.\n\nA REGRA (g) MANDA: piso, teto, aliquota e data sao definidos por ato normativo e\nmudam de ano para ano. Um short com a data do ano passado fica errado e continua\nno ar. O longo os tem com fonte; o short tem a REGRA, que nao envelhece.\n\nUNICO NUMERAL NA NARRACAO: \"duas contas separadas\", que descreve o raciocinio.\n\nO QUE O VIDEO AFIRMA: que a contestacao NAO tem efeito suspensivo, logo o indice\ndivulgado continua sendo recolhido enquanto o pedido e analisado; e que por isso\na provisao do ano se faz pelo indice DIVULGADO e nao pelo esperado, porque um\neventual acolhimento ajusta depois. Esta no longo labtreinamento-005\n(3KtwRYxl7_U), capitulo \"O detalhe caro — contestar nao suspende\".\n\nDESCARTADO, e vai escrito:\n  (1) piso, teto e aliquota — ato normativo, mudam por ano;\n  (2) a data de abertura da consulta, que envelhece em dias;\n  (3) a diferenca em reais numa folha de referencia, que depende da folha DELE.\n\n## FONTES\nO longo de onde este short foi extraido (labtreinamento-005, 3KtwRYxl7_U) traz as\nfontes oficiais. Este short nao introduz numero novo sobre o mundo.\n"
+}
