@@ -229,6 +229,19 @@ VIES_SHORT = 1.047
 #     el-GR-NestorasNeural              -0,3% a -4,2%   (n=2)
 #     pl-PL-MarekNeural                 +4,4% a -1,8%   (n=3)
 #
+# ATUALIZADO em 09/10/2026, aprendizado 679, e a correcao e minha: eu tratei
+# essas faixas como ESTREITAS e elas nao sao. Com mais pontos, o el chegou a
+# -6,3% (epomeno-s013: 42,6 estimados, 39,93 reais) — FORA da faixa que eu tinha
+# declarado com n=2. A leitura certa e CENTRO por voz mais ~2,7 pontos para cada
+# lado, e a LARGURA e parecida nas tres (~5 pontos de ponta a ponta):
+#
+#     centro pl  ~ +2,3     centro el  ~ -2,9     centro pt-BR  ~ -5
+#
+# A conduta nao muda e a razao fica mais nitida: em pl mirar 43,0 daria real de
+# 43,6 a 46,3, e 46,3 ESTOURA os 45 — use o PISO em pl. Em el e pt-BR o TOPO
+# continua sob o teto. Mas nao prometa precisao de decimo: faixa com n=2 nao e
+# faixa, e um par.
+#
 # O pior caso e o +4,4% do polones, e `MARGEM_SHORT` = 0,043 foi calibrada
 # justamente para ele: 43,14 x 1,044 = 45,0. Logo mirar 43 est e seguro NAS TRES
 # vozes, e nao e otimismo — e a margem fazendo o trabalho dela.
