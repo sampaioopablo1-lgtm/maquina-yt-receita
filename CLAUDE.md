@@ -5,6 +5,22 @@ porque número dentro de prompt envelhece e já me fez errar quatro vezes
 (652/655, 658, 682, 685). Aqui não entra contagem de estoque, nem de views, nem
 de inscritos. Entra onde olhar.
 
+## Antes de ler qualquer contador
+
+**Três leituras na mesma rodada, e o estimador é o MÁXIMO declarado como PISO,
+com a faixa ao lado — NÃO a mediana.** Medido em 09/10/2026 (aprendizado 688,
+`crítico`): das 17 peças que mudaram entre três leituras de 3 s, **todas as 17
+subiram na terceira e nenhuma na segunda**. View não sobe simultaneamente em 17
+vídeos de três canais em três segundos — as leituras 1 e 2 caem numa réplica e a
+3 numa mais fresca, e a mediana virou o mínimo em 17 de 17. Um contador de view
+só **atrasa**, nunca adianta.
+
+**Inscrito e view DE CANAL não se leem de hora em hora** (686): o
+`channels.list` devolveu statistics byte a byte idênticas em duas leituras
+separadas por uma hora, nos três canais, enquanto peças individuais subiam.
+Compare só leituras separadas por ≥ ~4 h, e nunca conte N leituras horárias
+iguais como N observações.
+
 ## Antes de escolher pauta
 - `consultas/estoque.sql` — **rode a consulta.** É a única fonte de origem livre.
   Nenhuma lista de memória, à mão, ou escrita num prompt decide nada.
