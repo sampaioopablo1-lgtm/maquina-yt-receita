@@ -1,0 +1,92 @@
+{
+ "slug": "kolejny-poziom",
+ "pacote": "kolejny-poziom-s017",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Kolejność",
+  "l2": "nie kwota"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Masz plan",
+   "sub": "i wciąż nie masz poduszki",
+   "nar": "Masz rozpisany plan na pensję, a wciąż bez poduszki.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Problem",
+   "preco": "nie w kwocie",
+   "nar": "Kolejność kroków jest ważniejsza niż kwota.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Najpierw",
+   "preco": "bufor",
+   "nar": "Najpierw bufor na awarie, potem wszystko inne.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bez bufora",
+   "sub": "plan się rozsypie",
+   "nar": "Bo bez bufora każdy taki plan się rozsypie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Awaria",
+   "preco": "wraca dług",
+   "nar": "Jedna awaria w domu i wracasz do długu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "I wtedy",
+   "preco": "od zera",
+   "nar": "I wtedy całe oszczędzanie zaczynasz od zera.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dopiero potem",
+   "sub": "bierzesz się za długi",
+   "nar": "Dopiero po buforze bierzesz się za długi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Zasada",
+   "preco": "najdroższy pierwszy",
+   "nar": "Najdroższy dług schodzi tu pierwszy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Inwestowanie",
+   "preco": "na końcu",
+   "nar": "A inwestowanie jest ostatnie, nie pierwsze.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Zasubskrybuj",
+   "sub": "na następne",
+   "nar": "To kolejność robi robotę. Zasubskrybuj.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "Xgt32iH8Ft8",
+ "copy": "# kolejny-poziom-s017\n\n## TITULO\nKolejność Filarów, Nie Kwoty: Dlaczego Plan Na Pensję Rozsypuje Się Przy Pierwszej Awarii\n\n## TITULO SHORT\nOd czego zacząć z pensją?\n\n## DESCRICAO\nPrawie każdy plan na pensję wygląda tak samo: tyle na życie, tyle na oszczędności, tyle na przyszłość. I prawie każdy rozsypuje się w tym samym miejscu — przy pierwszej awarii, bo zaczął od złej strony.\n\nRzecz, która decyduje, nie jest w kwotach. Jest w **kolejności**. Dopóki nie ma buforu, każda nieprzewidziana rzecz wraca długiem, a oszczędzanie zaczyna się od zera — i tak w kółko, niezależnie od tego, ile odkładasz miesięcznie.\n\nDlatego bufor jest pierwszy, nie drugi i nie trzeci. Dopiero po nim ma sens brać się za długi, a wśród długów pierwszy schodzi ten najdroższy, bo on rośnie najszybciej. Inwestowanie i długi horyzont są na końcu tej listy nie dlatego, że są mniej ważne, ale dlatego, że bez dwóch poprzednich kroków zostaną przerwane w najgorszym momencie.\n\nTo jest cała metoda i ona nie starzeje się razem z liczbami. Ten short świadomie nie podaje ani średniej pensji, ani inflacji, ani stopy referencyjnej, ani oprocentowania obligacji — te liczby zmieniają się co kwartał i są w pełnym filmie razem z datą i źródłem. Nie podaje też, ile dokładnie miesięcy ma mieć bufor, bo to zależy od stabilności twojego dochodu.\n\nPełny plan — cztery filary, trzy koszyki, konkretne liczby i automat, który tego pilnuje — jest w filmie na kanale.\n\n## COMENTARIO FIXADO\nNajczęstszy błąd nie jest w kwotach, jest w kolejności: ludzie zaczynają od inwestowania albo od spłaty, a bufor zostawiają na koniec. I wtedy pierwsza awaria wraca długiem, a oszczędzanie startuje od zera — niezależnie od tego, ile odkładali. Dlatego bufor jest pierwszy, potem długi (najdroższy schodzi pierwszy, bo rośnie najszybciej), a długi horyzont jest ostatni. Żeby było jasno, bo film tego nie mówi: inwestowanie nie jest złe ani mniej ważne — jest po prostu kruche, dopóki nie ma czym złapać awarii. Celowo nie ma tu ani jednej liczby: średnia pensja, inflacja i oprocentowanie zmieniają się co kwartał, a kolejność nie. Napiszcie w komentarzach tylko, od którego filaru zaczynaliście — bez kwot.\n\n## HASHTAGS\n#Finanse #Oszczedzanie #KolejnyPoziom\n\n## TAGS\nkolejnosc filarow, poduszka bezpieczenstwa, plan na pensje, splata dlugow, najdrozszy dlug pierwszy, budzet domowy, oszczedzanie od zera, finanse osobiste, dlugi horyzont, od czego zaczac oszczedzanie, bufor finansowy, kolejny poziom, plan finansowy, awaria i dlug, metoda a nie liczby\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Nao cita pensao\nmedia, inflacao, stopa referencyjna, oprocentowanie de obligacje, quantos meses\nde bufor, nem nomeia instrumento. Conferido a mao campo por campo.\n\nA REGRA (g) MANDA, e a descricao do proprio longo prova: ela traz \"II kwartal\n2026\", \"sierpien 2026\" e \"najnizej od czterech lat\" — numeros com data colada,\nque envelhecem por ato do GUS, do NBP ou do Ministerio. O que nao envelhece e a\nORDEM dos filares, e e ela que este short carrega.\n\nNUMERAIS NA NARRACAO: apenas ordinais de metodo — \"najpierw\", \"pierwszy\",\n\"ostatnie\".\n\nO QUE O VIDEO AFIRMA: que a ordem importa mais que a quantia; que sem bufor uma\navaria devolve a pessoa a divida; que a divida mais cara sai primeiro; e que o\nhorizonte longo e o ultimo. Esta nos capitulos \"Filar 1\", \"Filar 2\" e \"Filar 4\"\ndo longo `Xgt32iH8Ft8` (kp-plan-9233-20260811).\n\nDESCARTADO, e vai escrito:\n  (1) a pensao media bruta e na mao, numero do GUS com trimestre colado;\n  (2) inflacao, stopa referencyjna e oprocentowanie das obligacje, datados de\n      agosto de 2026 no proprio longo;\n  (3) quantos meses de bufor e qual instrumento — o primeiro varia com a renda,\n      o segundo e recomendacao e nao metodo.\n\n## FONTES\nO longo de onde este short foi extraido (kp-plan-9233-20260811, Xgt32iH8Ft8) traz\nas fontes oficiais — GUS, NBP, Ministerstwo Finansow — e as datas. Este short nao\nintroduz numero novo sobre o mundo.\n"
+}
