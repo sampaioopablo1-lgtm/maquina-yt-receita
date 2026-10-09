@@ -1,0 +1,57 @@
+{
+ "slug": "epomeno-epipedo",
+ "pacote": "epomeno-epipedo-s011",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#12263A",
+  "c1": "#2A9D8F",
+  "c2": "#E8A33D",
+  "bg": "#F5F2EC"
+ },
+ "thumb": {
+  "l1": "Είναι γραμμένο",
+  "l2": "στο εκκαθαριστικό"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Η αύξηση ανακοινώθηκε",
+   "sub": "έφτασε σε εσένα;",
+   "nar": "Ξέρεις ότι η σύνταξη αυξήθηκε, αλλά όχι αν η αύξηση έφτασε ολόκληρη σε εσένα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Δεν το μαντεύεις",
+   "sub": "είναι γραμμένο",
+   "nar": "Δεν το μαντεύεις. Είναι γραμμένο, με το όνομά του, στο εκκαθαριστικό της σύνταξης.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ψάξε τη γραμμή",
+   "sub": "προσωπική διαφορά",
+   "nar": "Μπες στο εκκαθαριστικό και ψάξε τη γραμμή της προσωπικής διαφοράς. Αν δεν υπάρχει καθόλου, την πήρες ολόκληρη.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Αν υπάρχει",
+   "sub": "βάλε τους δίπλα δίπλα",
+   "nar": "Αν υπάρχει, κατέβασε δύο διαδοχικούς μήνες και βάλε τους δίπλα δίπλα. Η γραμμή που κουνήθηκε σου λέει τι συμψηφίστηκε.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Κάνε εγγραφή",
+   "sub": "για τα επόμενα",
+   "nar": "Κάνε το στο δικό σου χαρτί. Κάνε εγγραφή για τα επόμενα, και η πλήρης διαδρομή είναι στο βίντεο.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "TJZcjE-uv8E",
+ "copy": "# epomeno-epipedo-s011\n\n## TITULO\nΠροσωπική Διαφορά: Πώς Βλέπεις στο Εκκαθαριστικό αν Πήρες Ολόκληρη την Αύξηση\n\n## TITULO SHORT\nΒρες τη γραμμή: πήρες ολόκληρη την αύξηση;\n\n## DESCRICAO\nΗ αύξηση ανακοινώνεται μία φορά και είναι ίδια για όλους. Το ποσό που φτάνει στον καθένα δεν είναι. Και η διαφορά δεν είναι εικασία ούτε θέμα τύχης: είναι γραμμένη, με το όνομά της, σε ένα χαρτί που μπορείς να κατεβάσεις μόνος σου.\n\nΤο χαρτί είναι το εκκαθαριστικό της σύνταξης, και η γραμμή που ψάχνεις είναι η προσωπική διαφορά. Από εκεί η διαδρομή είναι απλή και δεν χρειάζεται κανένα νούμερο από έξω. Πρώτο ενδεχόμενο: η γραμμή δεν υπάρχει καθόλου. Τότε δεν υπάρχει τίποτα να συμψηφιστεί και η αύξηση έφτασε σε εσένα ολόκληρη. Δεύτερο ενδεχόμενο: η γραμμή υπάρχει. Τότε ένα μέρος της αύξησης πηγαίνει να μειώσει αυτή τη γραμμή και δεν το βλέπεις στο ποσό που εισπράττεις.\n\nΓια να το δεις με τα δικά σου μάτια και όχι σε παράδειγμα, κατέβασε δύο διαδοχικούς μήνες και βάλε τους δίπλα δίπλα. Κοίτα τι έκανε η γραμμή της προσωπικής διαφοράς από τον έναν μήνα στον άλλον, και κοίτα τι έκανε το τελικό πληρωτέο. Η σύγκριση των δύο σελίδων σου δείχνει ακριβώς τι συμψηφίστηκε — κάτι που κανένα γενικό άρθρο δεν μπορεί να σου πει, γιατί το νούμερο που αποφασίζει είναι στο δικό σου χαρτί.\n\nΜια προσοχή, γιατί είναι η πιο συχνή παρεξήγηση: η προσωπική διαφορά δεν είναι ποινή και δεν είναι λάθος της υπηρεσίας. Είναι μια γέφυρα από παλαιότερο καθεστώς υπολογισμού, και ο μηχανισμός που τη μειώνει είναι ο λόγος που δύο συνταξιούχοι με την ίδια ανακοινωμένη αύξηση βλέπουν άλλο ποσό στον λογαριασμό τους.\n\nΕδώ δεν υπάρχει ποσοστό, ούτε έτος, ούτε πλήθος δικαιούχων: αυτά είναι στο πλήρες βίντεο, μαζί με το πώς βγαίνει το ποσοστό κάθε χρόνο, τι αλλάζει όταν ο μηχανισμός ολοκληρωθεί, πού ακριβώς πατάς για να βρεις το χαρτί και τα τέσσερα λάθη που κάνουν οι περισσότεροι όταν το διαβάζουν.\n\n## COMENTARIO FIXADO\nΗ διαδρομή με δύο ενδεχόμενα, για να μην τη χάσει κανείς: κατεβάζεις το εκκαθαριστικό, ψάχνεις τη γραμμή «προσωπική διαφορά». ΔΕΝ υπάρχει η γραμμή; Πήρες την αύξηση ολόκληρη. ΥΠΑΡΧΕΙ η γραμμή; Μέρος της αύξησης πήγε να τη μειώσει. Και το κρίσιμο: βάλε δύο διαδοχικούς μήνες δίπλα δίπλα — η κίνηση της γραμμής είναι η απόδειξη, όχι η εξήγηση κανενός. Αν βρήκες τη γραμμή, γράψε στα σχόλια μόνο αν υπήρχε ή όχι, χωρίς ποσά.\n\n## HASHTAGS\n#Σύνταξη #ΠροσωπικήΔιαφορά #ΕπόμενοΕπίπεδο\n\n## TAGS\nπροσωπικη διαφορα, εκκαθαριστικο συνταξης, αυξηση συνταξεων, κυριες συνταξεις, συμψηφισμος, συνταξιουχοι, ελλαδα, πως το βρισκω, εκκαθαριστικο, συνταξη, προσωπικα οικονομικα, επομενο επιπεδο, πληρωτεο, ελεγχος συνταξης, δυο μηνες\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO. Nao cita o percentual do aumento, nao cita o ano\nde fim do mecanismo, nao cita quantas pessoas estao em cada lado, nao cita valor\ne nao nomeia orgao. Conferido a mao campo por campo.\n\nUNICO NUMERAL NA NARRACAO: \"δύο διαδοχικούς μήνες\". E instrucao de\nprocedimento — quantos extratos por lado a lado — nao afirmacao sobre o mundo.\n\nO QUE O VIDEO AFIRMA: que a diferenca pessoal aparece como linha nomeada no\nextrato da aposentadoria; que a ausencia dessa linha significa ter recebido o\naumento inteiro; e que comparar dois meses seguidos mostra o que foi acertado.\nEsta no longo epomeno-epipedo-007 (TJZcjE-uv8E), capitulos\n\"Το εκκαθαριστικό — εκεί είναι γραμμένο\" e \"Η προσωπική διαφορά\".\n\nDESCARTADO, e vai escrito:\n  (1) o percentual do aumento e o ano de fim do mecanismo — estao no longo com\n      fonte, e mudam por decisao de politica;\n  (2) quantos aposentados estao em cada lado da linha — numero do longo, nao\n      reconferido nesta rodada em duas fontes;\n  (3) quanto o espectador vai receber, que depende do extrato dele.\n\n## FONTES\nO longo de onde este short foi extraido (epomeno-epipedo-007, TJZcjE-uv8E) traz\nas fontes. Este short nao introduz numero novo sobre o mundo.\n"
+}
