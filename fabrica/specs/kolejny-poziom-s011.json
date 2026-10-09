@@ -1,0 +1,57 @@
+{
+ "slug": "kolejny-poziom",
+ "pacote": "kolejny-poziom-s011",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Okres",
+  "l2": "czy rata?"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Nadpłacasz kredyt?",
+   "sub": "co ona skraca?",
+   "nar": "Zdecydowałeś, że będziesz nadpłacać kredyt. Ale wiesz, co dokładnie twoja nadpłata skraca?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Prawie każdy zakłada",
+   "sub": "że okres",
+   "nar": "Prawie każdy zakłada, że skraca okres. Umowa może zamiast tego obniżyć ratę, a okres zostawić bez zmian.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "To nie to samo",
+   "sub": "i to kosztuje",
+   "nar": "To nie to samo. Skracanie okresu zabiera więcej odsetek, bo zabiera właśnie te miesiące, w których odsetki by narosły.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Sprawdź w umowie",
+   "sub": "potem policz",
+   "nar": "Sprawdź w umowie, co wybiera twoja nadpłata, a potem policz to tym samym rachunkiem: dwa mnożenia i odejmowanie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Subskrybuj",
+   "sub": "na kolejne",
+   "nar": "Policz na swojej umowie, nie na przykładzie. Subskrybuj na kolejne, a cały rachunek jest w filmie.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "EwUkhdwyuuo",
+ "copy": "# kolejny-poziom-s011\n\n## TITULO\nNadpłata Kredytu: Skraca Okres czy Obniża Ratę? To Dwie Różne Decyzje\n\n## TITULO SHORT\nNadpłata skraca okres czy ratę?\n\n## DESCRICAO\nDecyzja o nadpłacaniu kredytu wydaje się jedną decyzją, a są w niej dwie. Pierwsza to czy nadpłacać. Druga, o której prawie nikt nie myśli, to co ta nadpłata ma skrócić — i od niej zależy, ile odsetek faktycznie zostaje w twojej kieszeni.\n\nNadpłata może działać na dwa sposoby. Może skrócić okres kredytu, zostawiając ratę taką, jaka była. Albo może obniżyć ratę, zostawiając okres bez zmian. Z zewnątrz obie wyglądają jak sukces, bo w obu coś spada. Ale to nie są równoważne wyniki: skracanie okresu zabiera z kredytu więcej odsetek niż obniżanie raty, bo odsetki naliczają się od pozostałego kapitału przez pozostałe miesiące — a tutaj skracasz właśnie te miesiące.\n\nZ tego wynika praktyczna kolejność. Najpierw sprawdź w umowie, co dokładnie robi twoja nadpłata, bo to jest zapis umowny i różni się między bankami i produktami — nie jest to ogólna zasada, którą ktoś może ci podać z zewnątrz. Potem, jeśli masz wybór, wybierz go świadomie: niższa rata daje margines bezpieczeństwa w gorszym miesiącu, krótszy okres daje niższą sumę na końcu.\n\nA policzyć to możesz tym samym rachunkiem, który już znasz z tego kanału: dwa mnożenia i jedno odejmowanie. Pomnóż ratę przez liczbę miesięcy w jednym wariancie, zrób to samo w drugim, i odejmij jedną sumę od drugiej. Jedyna zmiana polega na tym, że drugim okresem nie jest okres z oferty, lecz okres, do którego realnie skrócisz kredyt nadpłatami.\n\nZanim oprzesz na tym decyzję, sprawdź jeszcze w umowie, czy nadpłata jest możliwa bez ograniczeń i bez dodatkowych kosztów — tego nie da się założyć. Gdzie znaleźć każdą z liczb, czego ten rachunek nie obejmuje i jak wygląda trzecia opcja, czyli dłuższy okres z nadpłatą — jest w pełnym filmie.\n\n## COMENTARIO FIXADO\nDwie rzeczy do sprawdzenia w umowie, zanim nadpłacisz pierwszą złotówkę. PIERWSZA: czy nadpłata skraca OKRES, czy obniża RATĘ. To zapis umowny, różni się między bankami, i nikt z zewnątrz nie odpowie na to za ciebie. DRUGA: czy nadpłata jest w ogóle możliwa bez limitów i bez dodatkowych kosztów. Jeśli masz wybór i celujesz w niższą sumę odsetek — kierunkiem jest skracanie okresu, nie obniżanie raty. Jeśli bardziej potrzebujesz oddechu w miesiącu, odwrotnie, i to też jest sensowna decyzja. Kto sprawdzi w swojej umowie, niech napisze w komentarzu tylko, który z dwóch wariantów tam znalazł — bez kwot.\n\n## HASHTAGS\n#Kredyt #Nadpłata #KolejnyPoziom\n\n## TAGS\nnadplata kredytu, skrocenie okresu kredytu, obnizenie raty, kredyt hipoteczny, odsetki kredytu, umowa kredytowa, okres kredytowania, jak nadplacac, finanse osobiste, polska, rachunek kredytu, dwa mnozenia, kolejny poziom, decyzja kredytowa, co skraca nadplata\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Nao cita taxa, prazo,\nvalor de prestacao nem percentual, e nao nomeia banco. Conferido a mao.\n\nUNICO NUMERAL NA NARRACAO: \"dwa mnozenia\". E o NOME da operacao, herdado do\nproprio longo, nao afirmacao sobre o mundo.\n\nE ESTE E O PONTO: a resposta certa esta na UMOWA do espectador. Bancos e\ncontratos diferem em se a nadplata encurta o prazo ou reduz a prestacao, e dizer\nqual e \"o normal\" seria inventar regra onde existe clausula.\n\nO QUE O VIDEO AFIRMA: que a nadplata pode encurtar o PRAZO ou reduzir a\nPRESTACAO, que sao efeitos diferentes; que encurtar o prazo retira mais juros; e\nque a conta e a MESMA do short original, trocando o segundo prazo. Esta no longo\nkolejny-poziom-013 (EwUkhdwyuuo), capitulo \"Trzecia opcja\", itens \"I co skraca\",\n\"Bo tylko jedno\" e \"I policz obie wersje\".\n\nDESCARTADO, e vai escrito:\n  (1) qual das duas formas o banco aplica por padrao — e CLAUSULA e varia;\n  (2) se a nadplata tem custo ou limite, que o longo manda verificar e que NAO\n      foi reconferido nesta rodada em duas fontes;\n  (3) se vale nadplatar, que depende da alternativa de uso do dinheiro.\n\n## FONTES\nO longo de onde este short foi extraido (kolejny-poziom-013, EwUkhdwyuuo) traz as\nfontes. Este short nao introduz numero novo sobre o mundo.\n"
+}
