@@ -5,6 +5,52 @@ porque número dentro de prompt envelhece e já me fez errar quatro vezes
 (652/655, 658, 682, 685). Aqui não entra contagem de estoque, nem de views, nem
 de inscritos. Entra onde olhar.
 
+## O dinamismo visual — o que mudou em 09/10 e a regra nova
+
+O dono disse que os frames pareciam estáticos. **Medido, e ele estava certo com
+folga** (aprendizado 690): no `labtreinamento-s011`, diferença **mediana** entre
+quadros consecutivos de **0,39** numa escala de 0–255, e **375 de 414 quadros
+(91%) abaixo de 1,0**. A média de 4,34 vinha inteira dos cinco cortes de cena.
+
+Três causas, e a física diz onde está a alavanca:
+
+    movimento por quadro = amplitude / (duração da cena x fps)
+
+12% de zoom em 8,3 s dá **0,048% por quadro**. Aumentar a amplitude não
+conserta — corta a borda do texto antes de ficar perceptível. **A alavanca é a
+duração da cena.**
+
+**Consertado, e é defeito e não experimento:**
+- `fabrica/legenda.py` — a legenda queimada do short era UMA fala para a cena
+  inteira: ~18 palavras paradas por oito segundos, na região que o olho lê.
+  Agora são grupos de até **quatro** palavras, com tempo proporcional aos
+  caracteres.
+- `motion.filtro_bordas(dur, primeira=True)` — a cena ZERO perdeu o fade de
+  entrada. Havia preto de t=0 a t=0,067, dentro do primeiro segundo, que é o que
+  decide a distribuição. As emendas entre cenas continuam.
+
+**Regra nova para spec de short solto: DEZ a CATORZE cenas, mantendo a duração
+total** (experimento 40). Não mexer em `ALVO_SHORT` — isso é o experimento 38, e
+ele ainda não tem leitura de 12 h. O esqueleto novo quebra o `39 de 39` idêntico
+de propósito: ritmo e esqueleto são a mesma mudança de forma.
+
+**Experimento 33 (motion) foi ABORTADO** em 09/10. A própria hipótese dele
+declarava "não mede o que quer medir", e ele travou três testes por dez dias
+enquanto o defeito que deveria medir ficava no ar. Pode ser reaberto com
+retenção de verdade quando o escopo voltar.
+
+**O que o `chart=mostPopular` disse** (categoria 26, e isso é PROXY — 610), lido
+em 09/10: o que tem milhões de views dura **10 a 35 s** — mediana 26 s no BR,
+35 no PL, 30 no GR. Os nossos estão em 41–42 s porque eu os empurrei para lá.
+Isso é dado contra o experimento 38, não a favor; não resolver antes da leitura
+de 12 h.
+
+**Busca na web para tendência continua inútil**, como a rotina avisa: voltou
+blog de fornecedor de ferramenta de legenda, sem teste controlado e com números
+que se contradizem. O único item aproveitável foi um limite de forma — quatro a
+cinco palavras na tela por vez — e ele entrou porque é coerente com a medição,
+não porque a fonte é boa.
+
 ## Autorização permanente do dono (09/10/2026)
 
 Palavras dele: *"Deixe 100% automático, sem precisar de aprovação. Usando toda

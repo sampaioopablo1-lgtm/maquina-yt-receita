@@ -72,12 +72,34 @@ def test_entrada_escalona_por_papel():
 
 
 def test_borda_entra_e_desaparece_em_cena_curta():
-    """O fade da emenda nao cabe em cena curtissima, e ali ele nao deve existir."""
-    longa = F.filtro_camadas(1, 10.0, 0, 300, 1280, 720, motion=True)
+    """O fade da emenda nao cabe em cena curtissima, e ali ele nao deve existir.
+
+    ATUALIZADO em 09/10/2026: o `i_cena` passou a decidir o fade de ENTRADA, e
+    por isso este teste usa a cena 1 para cobrar a entrada. A cena ZERO tem
+    contrato proprio, no teste seguinte.
+    """
+    longa = F.filtro_camadas(1, 10.0, 1, 300, 1280, 720, motion=True)
     assert f"fade=t=in:st=0:d={M.FADE_BORDA}" in longa
     assert "fade=t=out:st=9.880" in longa, "a saida nao fechou na borda certa"
-    curta = F.filtro_camadas(1, 0.3, 0, 9, 1280, 720, motion=True)
+    curta = F.filtro_camadas(1, 0.3, 1, 9, 1280, 720, motion=True)
     assert "fade=t=in" not in curta, "fade em cena de 0,3 s engoliria a cena"
+
+
+def test_a_cena_ZERO_nao_tem_fade_de_entrada():
+    """O quadro escuro no primeiro segundo e o pior lugar possivel para ele.
+
+    Medido em 09/10/2026 no `labtreinamento-s011`: `blackdetect` acha preto de
+    t=0 a t=0,067. O primeiro segundo e o que decide a distribuicao do Short, e
+    o aprendizado 648/649 ja tinha contado seis quadros de preto puro em CINCO
+    momentos. Este corta o que cai no gancho — e SO ele: as emendas entre cenas
+    continuam, porque tirar todas e o teste que o experimento 33 tem na fila.
+    """
+    zero = F.filtro_camadas(1, 10.0, 0, 300, 1280, 720, motion=True)
+    assert "fade=t=in" not in zero, "voltou o preto no primeiro segundo"
+    assert "fade=t=out:st=9.880" in zero, "a emenda de saida tem de continuar"
+
+    umi = F.filtro_camadas(1, 10.0, 1, 300, 1280, 720, motion=True)
+    assert "fade=t=in" in umi, "a cena 1 em diante mantem a emenda de entrada"
 
 
 # --------------------------------------------------------------- os sons

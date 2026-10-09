@@ -1,5 +1,6 @@
 import json, subprocess, sys, os, asyncio
 import cairosvg, edge_tts
+import legenda as LG
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
 from maquina.media import duracao as _duracao, ffmpeg_bin  # fallback pro binario estatico do imageio-ffmpeg
@@ -814,7 +815,15 @@ def render(spec_file):
             if os.path.exists(saida) and os.path.getsize(saida) > 10000:
                 continue
             dd = dur(f"{d}/{pref}{i:02d}.mp3") + 0.5
-            open(f"{d}/{pref}{i:02d}.srt","w").write(f"1\n{st(0.2)} --> {st(dd-0.15)}\n{c['nar']}\n")
+            # A LEGENDA EM PEDACOS, nao uma fala congelada pela cena inteira.
+            # Media em 09/10/2026 no labtreinamento-s011: 91% dos quadros com
+            # diferenca < 1,0 numa escala de 0-255, mediana 0,39 — o video lia
+            # como cartaz. A regiao que o olho LE era justamente a que nunca
+            # mudava: ~18 palavras paradas por oito segundos. Ver
+            # `fabrica/legenda.py` para a medida e a procedencia do limite.
+            open(f"{d}/{pref}{i:02d}.srt", "w").write(
+                LG.srt(c["nar"], dd) if pref == "s"
+                else f"1\n{st(0.2)} --> {st(dd-0.15)}\n{c['nar']}\n")
             RW, RH = render_wh(W, H)
             # Ken Burns em funcao de `on` (numero do frame), nao por incremento
             # acumulado: assim a amplitude e a mesma nas duas direcoes e ocupa a
@@ -926,7 +935,7 @@ def filtro_camadas(n, dd, i_cena, nf, RW, RH, motion=False, layout=""):
     test_motion_desligado_nao_muda_nada compara as duas.
     """
     z, fx, fy = ken_burns(i_cena, nf)
-    borda = M.filtro_bordas(dd) if motion else ""
+    borda = M.filtro_bordas(dd, primeira=(i_cena == 0)) if motion else ""
     fim = f",{borda}" if borda else ""
     if n == 0:
         return (f"[0:v]scale=iw*{SUAVIZA}:ih*{SUAVIZA}:flags=bilinear,"
@@ -996,7 +1005,7 @@ def clipe_cena(d, pref, i, c, dd, nf, RW, RH, est=None, motion=False):
             sons = sons_do_render(d)
             for nome, _t in plano:
                 args += ["-i", sons[nome]]
-        borda = M.filtro_bordas(dd) if motion else ""
+        borda = M.filtro_bordas(dd, primeira=(i == 0)) if motion else ""
         fim = f",{borda}" if borda else ""
         fc = (f"[1:v]scale={RW}:{RH}[t];"
               f"[0:v][t]overlay=0:0:format=auto{fim}[v]")
@@ -1043,10 +1052,10 @@ def clipe_cena(d, pref, i, c, dd, nf, RW, RH, est=None, motion=False):
               f":y='(ih-ih/zoom)*({fy})':s={RW}x{RH}:fps=30")
         if pref == "s":
             vf += f",subtitles={d}/{pref}{i:02d}.srt:force_style='{est or EST}'"
-        if motion and M.filtro_bordas(dd):
+        if motion and M.filtro_bordas(dd, primeira=(i == 0)):
             # A legenda queimada do short e desenhada ANTES do fade, senao ela
             # entraria e sairia em cima dele e piscaria na emenda.
-            vf += f",{M.filtro_bordas(dd)}"
+            vf += f",{M.filtro_bordas(dd, primeira=(i == 0))}"
         args = [ffmpeg_bin(), "-nostdin", "-y", "-loop", "1",
                 "-i", f"{d}/{pref}{i:02d}.png", "-i", f"{d}/{pref}{i:02d}.mp3",
                 "-vf", vf]

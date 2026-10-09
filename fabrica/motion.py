@@ -207,12 +207,28 @@ def filtro_mixar_sons(plano: list, n_entradas_antes: int, dur: float) -> str:
 FADE_BORDA = 0.12
 
 
-def filtro_bordas(dur: float) -> str:
-    """fade de entrada e saida para a emenda. Vazio em cena curta demais."""
+def filtro_bordas(dur: float, primeira: bool = False) -> str:
+    """fade de entrada e saida para a emenda. Vazio em cena curta demais.
+
+    `primeira=True` SUPRIME o fade de ENTRADA, e isso conserta o pior lugar
+    possivel de um quadro escuro. Medido em 09/10/2026 no
+    `labtreinamento-s011`: `blackdetect` acha preto de t=0 a t=0,067 — dentro
+    do primeiro segundo, que e o que decide se o Short recebe distribuicao. O
+    aprendizado 648/649 ja tinha contado seis quadros de preto puro em CINCO
+    momentos; este corta o unico que cai no gancho.
+
+    Os fades de EMENDA entre cenas continuam: tirar todos e o teste que o
+    experimento 33 tem na fila, e antecipar o teste inteiro para consertar um
+    defeito seria trocar uma coisa por outra sem medir nenhuma. Aqui vai so o
+    quadro do gancho.
+    """
     if dur <= 3 * FADE_BORDA:
         return ""
     fim = dur - FADE_BORDA
-    return f"fade=t=in:st=0:d={FADE_BORDA},fade=t=out:st={fim:.3f}:d={FADE_BORDA}"
+    saida = f"fade=t=out:st={fim:.3f}:d={FADE_BORDA}"
+    if primeira:
+        return saida
+    return f"fade=t=in:st=0:d={FADE_BORDA},{saida}"
 
 
 # --------------------------------------------------------------------------
