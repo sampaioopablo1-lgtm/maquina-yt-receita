@@ -1,0 +1,57 @@
+{
+ "slug": "kolejny-poziom",
+ "pacote": "kolejny-poziom-s013",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Nierobienie",
+  "l2": "ma cenę"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Wznawia się sama",
+   "sub": "i to ma cenę",
+   "nar": "Twoja polisa wznawia się sama, i ta wygoda ma cenę. Umiesz ją policzyć?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Trzy liczby",
+   "sub": "wszystkie twoje",
+   "nar": "Weź trzy liczby: ile zapłaciłeś rok temu, najlepszą ofertę jaką dostajesz dzisiaj, i kwotę, którą proponuje twoja obecna firma.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Odejmij",
+   "sub": "to jest cena bezwładu",
+   "nar": "Odejmij ofertę od propozycji wznowienia. To, co zostaje, są pieniądze, które kosztuje cię nierobienie niczego.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ale uwaga",
+   "sub": "nie bierz najtańszej",
+   "nar": "I nie bierz automatycznie najtańszej pozycji z listy. Zakres jest ustawowy, ale sposób likwidacji szkody już nie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Subskrybuj",
+   "sub": "na kolejne",
+   "nar": "Sprawdź dziś datę końca polisy i wpisz ją w kalendarz. Subskrybuj, a cała tabela jest w filmie.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "wb1RGIx7OJI",
+ "copy": "# kolejny-poziom-s013\n\n## TITULO\nCena Bezwładu: Jak Policzyć, Ile Kosztuje Cię Automatyczne Wznowienie Polisy\n\n## TITULO SHORT\nIle kosztuje cię nierobienie niczego?\n\n## DESCRICAO\nObowiązkowa polisa ma jedną właściwość, która działa przeciwko tobie, choć wygląda jak udogodnienie: wznawia się sama. Nie musisz nic robić, i właśnie dlatego większość kierowców nic nie robi — a kwota wznowienia wygrywa przez bezwład, nie przez porównanie.\n\nTa wygoda ma cenę i można ją policzyć dokładnie, trzema liczbami, z których dwie już masz. Pierwsza: ile zapłaciłeś rok temu — jest na polisie albo na wyciągu. Druga: najlepsza oferta, jaką dostajesz dzisiaj, po sprawdzeniu w co najmniej trzech miejscach. Trzecia: kwota, którą proponuje ci twoja obecna firma na wznowienie.\n\nI teraz jedno odejmowanie, które jest całym sensem tego materiału: odejmij drugą liczbę od trzeciej. To, co zostaje, nie jest oszczędnością hipotetyczną ani obietnicą marketingową — to są pieniądze, które kosztuje cię nierobienie niczego, w tym jednym roku, na tej jednej pozycji budżetu. Za kwadrans pracy raz w roku.\n\nJest jedna rzecz, której robić nie warto, choć kusi: nie bierz automatycznie pierwszej, najtańszej pozycji z listy. W obowiązkowym ubezpieczeniu zakres jest ustawowy i rzeczywiście identyczny u wszystkich — ale to jest jedyny element, który jest identyczny. Różni się to, jak firma likwiduje szkodę: ile czeka się na oględziny, czy dostaniesz auto zastępcze, czy kosztorys liczą po częściach oryginalnych czy po zamiennikach. Tego nie widzisz w kolumnie z ceną, a zobaczysz dokładnie wtedy, kiedy będziesz tego potrzebować.\n\nNie ma tu żadnej średniej rynkowej ani statystyki, i to jest celowe: tamte liczby opisują miliony kierowców i zmieniają się co kwartał, a twoja tabela porównuje ciebie z tobą sprzed roku. Pełna tabela, piąty wiersz z datą do kalendarza, co właściwie dzieje się dziś na rynku i dlaczego to jest ostrzeżenie, a nie prezent — są w filmie.\n\n## COMENTARIO FIXADO\nRachunek w jednym odejmowaniu, dla każdego kto chce to zrobić teraz: najlepsza oferta z dziś MINUS kwota wznowienia od twojej obecnej firmy. Wynik to cena bezwładu — pieniądze, które tracisz nie robiąc nic. Dwie uwagi, bo bez nich rachunek jest niekompletny. PIERWSZA: sprawdź w co najmniej trzech miejscach, bo jedna oferta nie jest rynkiem. DRUGA, i to jest pułapka: w obowiązkowym OC zakres jest ustawowy i identyczny, ale likwidacja szkody NIE jest — czas oględzin, auto zastępcze, części oryginalne czy zamienniki. Najtańsza pozycja z listy nie jest automatycznie najlepszym wyborem. Kto policzy, niech napisze w komentarzu tylko czy różnica wyszła większa czy mniejsza, niż się spodziewał — bez kwot.\n\n## HASHTAGS\n#OC #Ubezpieczenia #KolejnyPoziom\n\n## TAGS\nwznowienie polisy, cena bezwladu, porownanie ofert oc, ubezpieczenie obowiazkowe, likwidacja szkody, auto zastepcze, czesci zamienne, finanse osobiste, polska, jak policzyc, kalendarz polisy, oszczednosci, kolejny poziom, polisa samochodowa, trzy oferty\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Nao cita media de\npremio, media de sinistro, percentuais de variacao nem \"mais barato em dois\nanos\", e nao nomeia orgao nem associacao. Conferido a mao campo por campo.\n\nA REGRA (g) MANDA: todas essas sao estatisticas de mercado de um trimestre, e o\nproprio longo trata a frase \"mais barato em dois anos\" como AVISO sobre o passado\ne nao promessa. O short fica com o METODO, que nao envelhece.\n\nUNICO NUMERAL NA NARRACAO: \"trzy liczby\", o tamanho da receita.\n\nO QUE O VIDEO AFIRMA: que a apolice obrigatoria se renova sozinha; que a\ndiferenca entre a melhor oferta de hoje e a proposta de renovacao da seguradora\natual e o custo de nao fazer nada; e que no obrigatorio o ambito e legal e\nidentico, mas a liquidacao do sinistro nao e — logo a posicao mais barata nao e\nautomaticamente a escolha. Esta no longo kolejny-poziom-009 (wb1RGIx7OJI),\ncapitulos \"Piec wierszy\" e \"Czego NIE robic\".\n\nDESCARTADO, e vai escrito:\n  (1) media de premio, media de sinistro e os percentuais — trimestrais;\n  (2) o resultado tecnico do ramo, que e do periodo e vem de supervisao;\n  (3) a faixa de economia tipica em zlotys, que depende do perfil do condutor.\n\n## FONTES\nO longo de onde este short foi extraido (kolejny-poziom-009, wb1RGIx7OJI) traz as\nfontes. Este short nao introduz numero novo sobre o mundo.\n"
+}
