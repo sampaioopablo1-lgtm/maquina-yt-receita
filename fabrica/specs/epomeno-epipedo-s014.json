@@ -1,0 +1,57 @@
+{
+ "slug": "epomeno-epipedo",
+ "pacote": "epomeno-epipedo-s014",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#12263A",
+  "c1": "#2A9D8F",
+  "c2": "#E8A33D",
+  "bg": "#F5F2EC"
+ },
+ "thumb": {
+  "l1": "Κοίτα",
+  "l2": "τη μονάδα"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Η διαφορά σου φάνηκε",
+   "sub": "τεράστια;",
+   "nar": "Βρήκες την τιμή ενός άλλου τιμολογίου και η διαφορά σου φάνηκε τεράστια. Κοίτα πρώτα τη μονάδα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ευρώ ή λεπτά",
+   "sub": "ίδια τιμή",
+   "nar": "Η τιμή γράφεται σε ευρώ ανά κιλοβατώρα, και μερικές φορές σε λεπτά ανά κιλοβατώρα — εκατό φορές άλλο νούμερο για το ίδιο πράγμα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ίδια ημέρα",
+   "sub": "και τις δύο",
+   "nar": "Πάρε και τις δύο τιμές την ίδια ημέρα, και ποτέ από διαφήμιση. Τιμή από σήμερα εναντίον τιμής από πέρσι δεν είναι σύγκριση.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ίδια κατανάλωση",
+   "sub": "στις δύο πλευρές",
+   "nar": "Και βάλε το ίδιο ακριβώς νούμερο κατανάλωσης στις δύο πλευρές της πράξης. Όλο το κόλπο της σύγκρισης είναι αυτό.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Κάνε εγγραφή",
+   "sub": "για τα επόμενα",
+   "nar": "Και δεν συγκρίνεις εταιρείες, συγκρίνεις τιμολόγια. Κάνε εγγραφή για τα επόμενα, και η πράξη είναι στο βίντεο.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "wUHuwyO2HYo",
+ "copy": "# epomeno-epipedo-s014\n\n## TITULO\nΣύγκριση Τιμολογίων Ρεύματος: Οι Τρεις Προϋποθέσεις που Κάνουν την Πράξη να Ισχύει\n\n## TITULO SHORT\nΣύγκρινες τιμές; Κοίτα τη μονάδα\n\n## DESCRICAO\nΗ πράξη για να συγκρίνεις το τιμολόγιό σου με ένα άλλο είναι απλή: κιλοβατώρες επί τιμή, δύο φορές, και αφαίρεση. Το δύσκολο δεν είναι η πράξη — είναι να βάλεις μέσα τα σωστά νούμερα. Και υπάρχουν τρεις προϋποθέσεις που, αν τις παραβλέψεις, κάνουν το αποτέλεσμα όχι ανακριβές αλλά άσχετο.\n\nΗ πρώτη είναι η μονάδα, και είναι η πιο ύπουλη. Η τιμή ανά κιλοβατώρα γράφεται άλλοτε σε ευρώ και άλλοτε σε λεπτά. Είναι ακριβώς το ίδιο πράγμα γραμμένο με νούμερο εκατό φορές διαφορετικό. Αν πάρεις τη δική σου τιμή σε ευρώ και τη σύγκρινες με μια τιμή σε λεπτά, δεν βρήκες προσφορά — βρήκες λάθος ανάγνωση. Πριν από οτιδήποτε άλλο, κοίτα τι γράφει δίπλα στο νούμερο.\n\nΗ δεύτερη είναι η ημερομηνία. Πάρε και τις δύο τιμές την ίδια ημέρα. Η δική σου τιμή είναι στη σύμβαση και επαναλαμβάνεται στον λογαριασμό, στην ανάλυση της χρέωσης ενέργειας· η τιμή του άλλου τιμολογίου υπάρχει σε επίσημο εργαλείο σύγκρισης και είναι δημόσια. Τιμή από σήμερα εναντίον τιμής που θυμάσαι από πέρσι δεν είναι σύγκριση. Και μην παίρνεις τιμή από διαφήμιση: η διαφήμιση δείχνει την καλύτερη περίπτωση, σχεδόν πάντα υπό προϋποθέσεις.\n\nΗ τρίτη είναι η πιο απλή και η πιο ξεχασμένη: το ίδιο ακριβώς νούμερο κατανάλωσης μπαίνει στις δύο πλευρές. Δεν συγκρίνεις δύο λογαριασμούς δύο διαφορετικών μηνών ούτε δύο διαφορετικών σπιτιών — συγκρίνεις τι θα πλήρωνες εσύ, για τη δική σου κατανάλωση, με δύο διαφορετικούς κανόνες τιμολόγησης.\n\nΚαι μια διευκρίνιση που μπερδεύει πολλούς: δεν συγκρίνεις εταιρείες, συγκρίνεις τιμολόγια. Ο ίδιος πάροχος έχει πολλά, με διαφορετικούς κανόνες. Ποια είναι τα τέσσερα χρώματα και τι υπόσχεται το καθένα, γιατί στο δυναμικό η απλή πράξη δεν αρκεί, τι ΔΕΝ πιάνει η πράξη — πάγιο, εκπτώσεις συνέπειας, δέσμευση, προσφορές εισαγωγής — και πώς πας από τον μήνα στον χρόνο, είναι στο πλήρες βίντεο.\n\n## COMENTARIO FIXADO\nΟι τρεις προϋποθέσεις, για να μην χαθεί καμία. ΠΡΩΤΗ, η μονάδα: ευρώ ανά κιλοβατώρα ή λεπτά ανά κιλοβατώρα — ίδιο πράγμα, νούμερο εκατό φορές διαφορετικό. Αν συγκρίνεις ευρώ με λεπτά, το αποτέλεσμα δεν είναι ανακριβές, είναι άσχετο. ΔΕΥΤΕΡΗ, η ημερομηνία: και οι δύο τιμές την ίδια ημέρα, και ΠΟΤΕ τιμή από διαφήμιση — η διαφήμιση δείχνει την καλύτερη περίπτωση υπό προϋποθέσεις. ΤΡΙΤΗ, η κατανάλωση: το ίδιο ακριβώς νούμερο στις δύο πλευρές. Και το πιο συχνό μπέρδεμα: δεν συγκρίνεις εταιρείες, συγκρίνεις τιμολόγια — ο ίδιος πάροχος έχει πολλά. Όποιος κάνει την πράξη, ας γράψει στα σχόλια μόνο αν η μονάδα του ήταν σε ευρώ ή σε λεπτά — χωρίς τιμές.\n\n## HASHTAGS\n#Ρεύμα #Τιμολόγια #ΕπόμενοΕπίπεδο\n\n## TAGS\nσυγκριση τιμολογιων, τιμη κιλοβατωρας, ευρω ανα κιλοβατωρα, λεπτα ανα κιλοβατωρα, μοναδα μετρησης, λογαριασμος ρευματος, αναλυση χρεωσης, προσωπικα οικονομικα, ελλαδα, πως συγκρινω, καταναλωση, συμβαση ρευματος, επομενο επιπεδο, παροχος ρευματος, τιμολογιο\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO PRECO. Nao cita tarifa, termo fixo nem\ndesconto, nao nomeia fornecedor nem a autoridade reguladora, e nao diz qual cor e\nmais barata. Conferido a mao campo por campo.\n\nUNICO NUMERAL NA NARRACAO: \"εκατό φορές\". NAO e numero sobre o mundo — e a razao\nentre euro e centimo, definicao de unidade, que nao muda nunca. E ela e o\nconteudo da peca.\n\nA REGRA (g) MANDA o resto para fora: tarifa, termo fixo e desconto mudam por\noferta e por mes. O short fica com as tres CONDICOES da comparacao.\n\nO QUE O VIDEO AFIRMA: que o preco por kilowatt-hora aparece em euro ou em\ncentimos, e que as duas escritas diferem por fator cem para o mesmo preco; que as\nduas tarifas comparadas tem de ser lidas na MESMA data, e nunca de publicidade;\ne que o MESMO numero de consumo entra nos dois lados. Esta no longo\nepomeno-epipedo-012 (wUHuwyO2HYo), capitulo \"Οι τιμές\", itens \"Πρόσεξε τη\nμονάδα\", \"Πάρε την ίδια ημερομηνία\" e \"Το ίδιο νούμερο, δύο φορές\".\n\nDESCARTADO, e vai escrito:\n  (1) todos os precos e o termo fixo — mudam por oferta e por mes;\n  (2) o nome da ferramenta oficial e da autoridade, NAO reconferidos nesta rodada;\n  (3) as outras cinco armadilhas do capitulo \"Τι δεν πιάνει η πράξη\" — sao OUTRA\n      peca e nao se empilham aqui.\n\n## FONTES\nO longo de onde este short foi extraido (epomeno-epipedo-012, wUHuwyO2HYo) traz\nas fontes. Este short nao introduz numero novo sobre o mundo.\n"
+}
