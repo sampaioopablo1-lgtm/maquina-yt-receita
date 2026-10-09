@@ -43,6 +43,42 @@ o aviso do portão `variedade` para de aparecer.
 O `kolejny-poziom-s015` saiu com 10 cenas, 41,8 est, **4,18 s por plano** contra
 8,3 e **20 falas de legenda** contra 5.
 
+## A correção do dinamismo FUNCIONOU — medida, e no mesmo método
+
+**Aprendizado 699.** Com `fps=10, tblend=all_mode=difference, signalstats`, que é
+o método do 690 e uma escala absoluta de 0–255:
+
+| peça | mediana | congelados (<1,0) |
+|---|---|---|
+| `labtreinamento-s011` — 5 cenas, legenda de uma fala | **0,39** | **91%** (375/414) |
+| `kolejny-poziom-s017` — 10 cenas, legenda em pedaços | **0,63** | **73%** (302/416) |
+
+Mediana **+62%** e congelados de 91% para 73%. Confundidor declarado: canais e
+vozes diferentes, n=1 contra n=1, e as duas mudanças vêm juntas. **Vale mesmo
+com n=1** porque a escala é absoluta e o efeito é no quadro, não em contagem de
+view com CV 0,66.
+
+**Não use `mpdecimate` sem fixar `hi/lo/frac`:** na mesma peça ele devolveu
+"1.254 de 1.255 quadros distintos", que não é comparável com o "8 de 273" que eu
+medi na manhã. Os números de `blackdetect` e `signalstats` são absolutos; esse
+não.
+
+## "Matar os fades" DESCEU na fila — medido
+
+**Aprendizado 700, e retrata uma estimativa minha.** Eu escrevi aqui "~9 emendas
+escuras, ~2,2 s de escurecimento". Medido na peça de dez cenas (1.255 quadros,
+30 fps):
+
+- **nove** quadros de preto puro, um por emenda: **0,30 s** (0,72% da peça);
+- abaixo de 75% da mediana (204): 45 quadros = **1,50 s** (3,6%);
+- emendas em 4,77 / 8,83 / 13,27 / 17,30 / 21,23 / 25,20 / 28,87 / 32,40 / 36,57 s.
+
+**A primeira emenda cai em 4,77 s — FORA dos três segundos que decidem**, porque
+o preto de t=0 da cena zero já foi consertado. Então o item mexe em 3,6% dos
+quadros, todos depois do ponto de decisão, e deixa de ser o próximo da fila. Na
+frente dele ficam **pauta** (longo novo) e o que acontece DENTRO dos três
+primeiros segundos.
+
 **Experimento 33 (motion) foi ABORTADO** em 09/10. A própria hipótese dele
 declarava "não mede o que quer medir", e ele travou três testes por dez dias
 enquanto o defeito que deveria medir ficava no ar. Pode ser reaberto com
