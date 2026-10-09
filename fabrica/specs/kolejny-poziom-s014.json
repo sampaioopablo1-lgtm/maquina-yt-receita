@@ -1,0 +1,57 @@
+{
+ "slug": "kolejny-poziom",
+ "pacote": "kolejny-poziom-s014",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Opłata",
+  "l2": "co roku"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Co kosztuje więcej?",
+   "sub": "podatek czy opłata",
+   "nar": "Porównujesz stawkę podatku, bo jest większa. A koszt siedzi w opłacie, która wygląda na nic.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Opłatę płacisz",
+   "sub": "co roku",
+   "nar": "Opłatę płacisz co roku, z kapitału, który miał pracować. Zabrana złotówka już nie zarobi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Podatek płacisz",
+   "sub": "raz",
+   "nar": "Podatek płacisz raz, od zysku, który już się zdarzył. Do tego momentu cała kwota pracuje dla ciebie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Odwrotność",
+   "sub": "z czasu, nie ze stawek",
+   "nar": "Dlatego niższa stawka opłaty kosztuje więcej niż wyższa stawka podatku. Ta odwrotność bierze się z czasu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Zasubskrybuj",
+   "sub": "na następne",
+   "nar": "Porównuj najpierw opłatę roczną, a potem podatek. Zasubskrybuj na następne, a cała kwota jest w filmie.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "iqV7m6tKb5A",
+ "copy": "# kolejny-poziom-s014\n\n## TITULO\nDlaczego Opłata Roczna Kosztuje Więcej Niż Podatek od Zysku, Choć Jej Stawka Jest Niższa\n\n## TITULO SHORT\nCo kosztuje więcej: podatek czy opłata?\n\n## DESCRICAO\nKiedy porównujesz dwa produkty emerytalne, pierwsze, co widzisz, to stawka podatku — bo jest duża i napisana grubą czcionką. Opłata za zarządzanie wygląda przy niej na zaokrąglenie. I właśnie dlatego kosztuje więcej.\n\nMechanizm jest arytmetyczny i nie ma w nim nic spornego. Opłatę płacisz co roku, z kapitału, który miał pracować — a złotówka zabrana w piątym roku nie zarobi już nic przez wszystkie lata, które zostały. Podatek płacisz raz, przy wypłacie, od zysku, który już się zdarzył; do tego momentu cała kwota pracuje dla ciebie, podatek i tak.\n\nStąd odwrotność, która brzmi nielogicznie, dopóki nie policzysz: niższa stawka opłaty może cię kosztować więcej niż wyższa stawka podatku. Ta odwrotność nie bierze się ze stawek — bierze się z czasu. Procent zabierany co roku wycina także przyszły wzrost. Podatek zabiera plaster z tortu, który już urósł.\n\nWniosek praktyczny jest jednym zdaniem: jeśli masz porównać dwa produkty, najpierw porównaj opłatę roczną, a dopiero potem zastanawiaj się nad podatkiem. I to działa też w drugą stronę — każdy obniżony punkt procentowy opłaty pracuje dla ciebie przez cały okres, bez żadnego ryzyka.\n\nNie ma tu stawki podatku, wysokości opłaty, limitów rocznych ani wieku wypłaty, i jest to świadome: te liczby są ustalane ustawą i obwieszczeniem, i zmieniają się rok do roku. Odwrotność nie zmienia się wcale. Pełna kwota w złotych, oba rachunki obok siebie, limity z datą obwieszczenia i legalne obejście podatku — są w pełnym filmie.\n\n## COMENTARIO FIXADO\nNajczęstszy błąd nie jest w rachunku, jest w kolejności patrzenia: najpierw sprawdzasz stawkę podatku, bo jest większa, a koszt siedzi w opłacie. Opłata działa co roku i wycina także przyszły wzrost; podatek działa raz, od zysku, który już urósł. Dlatego niższa stawka opłaty może kosztować więcej niż wyższa stawka podatku — i ta odwrotność nie bierze się ze stawek, tylko z czasu. Praktycznie: porównuj najpierw opłatę roczną. I żeby było jasno, bo film nie jest przeciw podatkowi: podatku nie unikniesz wyborem produktu, a opłatę owszem. Kto porównywał dwa produkty, napiszcie w komentarzach tylko, czy opłata była w tabeli czy w regulaminie — bez kwot.\n\n## HASHTAGS\n#Oszczedzanie #Emerytura #KolejnyPoziom\n\n## TAGS\noplata za zarzadzanie, podatek od zysku, procent skladany, koszt oplaty, porownanie produktow, oszczedzanie dlugoterminowe, emerytura, finanse osobiste, kapital, stopa zwrotu, wplaty miesieczne, kolejny poziom, planowanie finansowe, oplata roczna, wzrost kapitalu\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Nao cita aliquota,\ntaxa, limite anual, prazo nem idade, e nao nomeia produto. Conferido a mao campo\npor campo.\n\nA REGRA (g) MANDA: aliquota do imposto e limites anuais vem de lei e de\nobwieszczenie e mudam de ano para ano. A INVERSAO nao envelhece, e e ela que este\nshort carrega.\n\nNUMERAIS NA NARRACAO: \"raz\" e \"co roku\", que descrevem a FREQUENCIA — o proprio\nmecanismo, nao o mundo.\n\nO QUE O VIDEO AFIRMA: que uma taxa anual pode custar mais que um imposto de\naliquota varias vezes maior, porque a taxa age todo ano sobre capital que ia\nrender e corta tambem o crescimento futuro, enquanto o imposto age uma vez sobre\nganho que ja aconteceu; logo compara-se PRIMEIRO a taxa anual. Esta no longo\nkolejny-poziom-004 (iqV7m6tKb5A), capitulo \"TERAZ WAZNE — kolejnosc, nie stawka\".\n\nDESCARTADO, e vai escrito:\n  (1) a aliquota do imposto sobre o ganho, definida por lei;\n  (2) a taxa em pontos percentuais e os valores em zloty, que dependem do produto\n      DELE;\n  (3) os limites anuais e as idades de saque, de obwieszczenie anual.\n\n## FONTES\nO longo de onde este short foi extraido (kolejny-poziom-004, iqV7m6tKb5A) traz as\nfontes oficiais, inclusive a data do obwieszczenie dos limites. Este short nao\nintroduz numero novo sobre o mundo.\n"
+}
