@@ -348,7 +348,7 @@
    "layout": "item",
    "kicker": "Bagusnya",
    "preco": "pilihannya kembali besok",
-   "nar": "Bagusnya, pilihan ini kembali besok, dan kembali utuh. Satu bulan yang mahal tidak mengikat bulan berikutnya.",
+   "nar": "Bagusnya, pilihan ini kembali besok, dan kembali utuh. Satu bulan yang mahal tidak mengikat bulan berikutnya, dan hitungannya tetap sama.",
    "sem_cap": true
   },
   {
@@ -394,7 +394,7 @@
    "layout": "cta",
    "kicker": "Tulis angka Anda",
    "sub": "di kolom komentar",
-   "nar": "Kalau Anda menghitung, tulis satu angka saja di kolom komentar: selisih per porsi, dengan tandanya. Tanpa nama tempat, cukup selisihnya.",
+   "nar": "Kalau Anda menghitung, tulis satu angka saja di kolom komentar: selisih per porsi, dengan tandanya. Tanpa nama tempat, cukup selisihnya, karena angka itu milik dapur Anda sendiri.",
    "sem_cap": true
   }
  ],
