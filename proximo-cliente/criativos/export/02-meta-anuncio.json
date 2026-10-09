@@ -1,0 +1,67 @@
+{
+  "_leia": "Pacote do criativo 02 (aprovado em 28/09/2026). Criar 1 anuncio por conjunto ativo, em rascunho, com o video 9:16 em Stories/Reels e o 1:1 no Feed (placement_videos). Videos ja estao na biblioteca da conta. O video 01 quadrado tambem subiu, para completar o anuncio 01 no Feed.",
+  "ad_account_id": "1695865631502778",
+  "page_id": "1117439194786453",
+  "instagram_user_id": "17841480745368398",
+  "lead_gen_form_id": "2412763482587375",
+  "conjuntos_ativos": {
+    "LEADS I INTERESSE BR I FASE 3": "120247356527930766",
+    "LEADS I PERSONALIZADO CNAE BR I FASE 3": "120247356496360766",
+    "LEADS I NICHO IMOBILIARIA BR I FASE 3": "120247487374980766",
+    "LEADS I NICHO CONTABILIDADE BR I FASE 3": "120247487377260766",
+    "LEADS I NICHO ADVOCACIA BR I FASE 3": "120247487376720766",
+    "LEADS I NICHO HARMONIZACAO BR I FASE 3": "120247470141000766"
+  },
+  "videos": {
+    "02_reels_9x16": "1358286922792469",
+    "02_feed_1x1": "2321737775260710",
+    "01_feed_1x1": "1621971552973592",
+    "01_reels_9x16": "2491771824667489"
+  },
+  "capas": {
+    "02_reels_9x16": "https://raw.githubusercontent.com/sampaioopablo1-lgtm/maquina-yt-receita/claude/magical-brown-ovi1hp/proximo-cliente/criativos/export/02-faca-a-conta-capa.jpg",
+    "02_feed_1x1": "https://raw.githubusercontent.com/sampaioopablo1-lgtm/maquina-yt-receita/claude/magical-brown-ovi1hp/proximo-cliente/criativos/export/02-faca-a-conta-quadrado-capa.jpg"
+  },
+  "ad_name": "PC02 VIDEO — faca a conta (5 textos, 9x16 + 1x1)",
+  "call_to_action": {
+    "type": "SIGN_UP",
+    "value": {
+      "link": "http://fb.me/",
+      "lead_gen_form_id": "2412763482587375"
+    }
+  },
+  "bodies": [
+    "Faz a conta comigo: R$ 2 mil em anúncio, 100 leads, 30 atendidos, 10 responderam, 3 reuniões, 1 venda. Você não pagou por 100 leads. Pagou por 1 cliente. No Raio-X do Lead gratuito a gente faz essa conta com os seus números.",
+    "Você não perde dinheiro no anúncio. Perde depois dele. O relatório mostra custo por lead baixo e muita gente clicando, mas o buraco não aparece no painel, porque o painel para onde começa o seu comercial. Preencha e veja onde o seu dinheiro morre.",
+    "Trocar de agência não conserta isso. A agência nova vai te entregar os mesmos 100 leads pra morrerem no mesmo lugar. O que conserta é alguém ligar em minutos, qualificar e marcar a reunião. É o que a gente faz. Toque em Cadastre-se.",
+    "Quanto custa o seu cliente de verdade? Não o lead: o cliente. Divide o que você investiu em anúncio pelo número de vendas do mês. Se o número assustou, o problema está entre o clique e o encontro. Em 20 minutos a gente te mostra onde.",
+    "Anúncio, atendimento e agendamento na mesma mão. A gente liga pro seu lead em até 5 minutos, qualifica orçamento, decisor e prazo, e entrega a reunião na agenda do seu vendedor. Faça o Raio-X do Lead gratuito e veja o seu funil inteiro."
+  ],
+  "titles": [
+    "Faça a conta do seu lead",
+    "Raio-X do Lead gratuito",
+    "Seu dinheiro morre depois do anúncio",
+    "100 leads, 1 cliente?",
+    "Do clique à reunião marcada"
+  ],
+  "descriptions": [
+    "Para empresas com time comercial",
+    "Raio-X em 20 minutos",
+    "Anúncio + pré-vendas + reunião",
+    "Veja onde o seu lead se perde",
+    "Método OPC · O Próximo Cliente"
+  ],
+  "posicionamentos": {
+    "feed_1x1": [
+      "facebook feed",
+      "instagram stream",
+      "instagram explore"
+    ],
+    "reels_9x16": [
+      "facebook story",
+      "facebook_reels",
+      "instagram story",
+      "instagram reels"
+    ]
+  }
+}
