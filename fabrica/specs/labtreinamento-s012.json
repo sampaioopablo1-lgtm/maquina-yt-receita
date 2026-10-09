@@ -1,0 +1,92 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-s012",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#22333B",
+  "c1": "#A4243B",
+  "c2": "#D8973C",
+  "bg": "#F2F2EF"
+ },
+ "thumb": {
+  "l1": "Sua data",
+  "l2": "é outra"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Você anotou o prazo",
+   "sub": "e ficou tranquilo",
+   "nar": "Você anotou o prazo da norma nova e ficou tranquilo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O prazo público",
+   "preco": "não é seu",
+   "nar": "Só que esse prazo público não é a sua data de verdade.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A sua data",
+   "preco": "é a auditoria",
+   "nar": "A sua data é a da sua própria auditoria de transição.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E essa data",
+   "sub": "não é você que marca",
+   "nar": "E quem marca essa auditoria no seu ciclo não é você.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Quem define",
+   "preco": "o certificador",
+   "nar": "É o organismo certificador que define isso.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Então",
+   "preco": "pergunte antes",
+   "nar": "Então quem pergunta antes escolhe, e quem espera recebe.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Por isso",
+   "sub": "conte de trás para frente",
+   "nar": "Por isso o cronograma inteiro conta de trás para frente.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Parta dela",
+   "preco": "não do calendário",
+   "nar": "Parta da sua auditoria, e nunca do calendário público.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E cada ação",
+   "preco": "eficácia verificada",
+   "nar": "E cada ação só fecha com a eficácia verificada.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Inscreva-se",
+   "sub": "para a próxima",
+   "nar": "Pergunte essa data ao certificador hoje. Inscreva-se.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "KRUERlNPzDw",
+ "copy": "# labtreinamento-s012\n\n## TITULO\nA Data Que Obriga Você Na Transição Da Norma Não É A Do Calendário — É A Da Sua Auditoria\n\n## TITULO SHORT\nA data que obriga você é outra\n\n## DESCRICAO\nQuase todo mundo anota o prazo público da transição e sai tranquilo. O problema é que esse prazo não é a data que obriga a sua empresa.\n\nA data que obriga é a da **sua auditoria de transição** — e ela não é escolhida por você. Quem a define é o organismo certificador, dentro do ciclo de auditorias que a sua empresa já tem. Dois concorrentes com o mesmo certificado podem ser cobrados em momentos bem diferentes, e nenhum dos dois decidiu isso.\n\nDaí sai a única pergunta que organiza o resto: **em qual auditoria do meu ciclo a versão nova vai ser cobrada?** Quem faz essa pergunta cedo escolhe a data; quem espera recebe a data — e descobre o prazo real quando já não dá para reorganizar nada.\n\nCom a resposta na mão, o cronograma se conta de trás para frente, partindo dessa auditoria e não do fim do período de transição. É o mesmo plano, na ordem que cabe no tempo que existe de verdade.\n\nE tem um erro silencioso que vale mais que todos os outros: marcar ação como concluída sem verificar eficácia. A planilha fica verde, a reunião fica curta, e a não conformidade aparece na auditoria externa. Verificar eficácia é perguntar se resolveu — não se foi feito.\n\nEste short não traz nenhuma data, nenhuma duração de transição e nenhuma faixa de nota, e isso é deliberado: datas de vigência mudam, e o próprio vídeo completo diz que as faixas de prioridade são critério da empresa, não da norma. O que não envelhece é a regra: a sua data é a da sua auditoria, e a pergunta é com o certificador.\n\nA planilha completa — diagnóstico, lacunas, plano e cronograma, montada do zero — está no vídeo completo no canal.\n\n## COMENTARIO FIXADO\nO erro aqui não é de prazo, é de âncora: as pessoas penduram o plano no prazo público e esquecem que quem as cobra é a auditoria do próprio ciclo, marcada pelo organismo certificador. Por isso a primeira tarefa da transição não é preencher planilha nenhuma — é mandar um e-mail ao certificador perguntando em qual auditoria do seu ciclo a versão nova será cobrada. Com essa data você conta o cronograma de trás para frente; sem ela você está planejando contra um calendário que não é o seu. Para ser justo com quem espera: esperar não é preguiça, é não saber que a data é negociável em termos de informação, não de prazo. E o erro mais silencioso de todos: ação marcada como concluída sem eficácia verificada — a planilha fica verde e a não conformidade aparece na auditoria externa. De propósito não citei nenhuma data nem faixa de nota aqui: datas de vigência mudam e as faixas são critério da sua empresa. Quem já perguntou ao certificador, conta nos comentários só se a resposta veio rápido.\n\n## HASHTAGS\n#ISO9001 #Qualidade #LabTreinamento\n\n## TAGS\nauditoria de transicao, organismo certificador, transicao da norma, cronograma de tras para frente, verificacao de eficacia, plano de acao qualidade, diagnostico de lacunas, sistema de gestao da qualidade, nao conformidade, auditoria externa, planilha de transicao, lab treinamento, gestao da qualidade, ciclo de auditoria, prazo de transicao\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Nao cita data de\npublicacao da edicao nova, fim do periodo de transicao, duracao em anos, numero\nde abas, colunas ou marcos, nem faixa de nota. Conferido a mao campo por campo.\n\nA REGRA (g) MANDA com forca aqui: a descricao do longo traz duas datas de\nvigencia, que e a classe exata que fica fora. E o caso especial da regra tambem\nse aplica: o proprio longo diz que os cortes de faixa sao CRITERIO DA EMPRESA,\nlogo sao escolha e nao norma, e repetir escolha como norma seria transformar a\nnossa invencao em exigencia.\n\nO QUE NAO ENVELHECE, e e o que a peca carrega: a data que obriga e a da auditoria\nde transicao da propria empresa, quem a define e o organismo certificador, o\ncronograma se conta de tras para frente a partir dela, e acao sem eficacia\nverificada reaparece na auditoria externa.\n\nNUMERAIS NA NARRACAO: nenhum.\n\nDESCARTADO, e vai escrito:\n  (1) as duas datas e a duracao da transicao — vigencia, muda;\n  (2) faixas de prioridade e escala de nota — criterio da empresa;\n  (3) a lista do que ganha peso na edicao nova — redacao de norma, sem duas\n      fontes institucionais nesta rodada.\n\n## FONTES\nO longo de onde este short foi extraido (KRUERlNPzDw) traz as datas e as fontes.\nEste short nao introduz numero novo sobre o mundo.\n"
+}
