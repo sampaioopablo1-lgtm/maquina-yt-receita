@@ -57,13 +57,28 @@ def test_o_canal_e_descoberto_pela_api_nunca_assumido():
     assert "SEM SLUG" in corpo, "sem canal correspondente, o token tem que ser recusado"
 
 
-def test_escopos_sao_os_tres_que_a_maquina_usa():
+def test_escopos_sao_os_quatro_que_a_maquina_usa():
+    """ATUALIZADO em 09/10/2026: entrou `yt-analytics.readonly`, e por quê.
+
+    O teste cobrava TRES escopos e o aviso dele continua valendo — escopo a
+    mais no refresh ja produziu `invalid_scope` em todos os canais uma vez. O
+    quarto nao e "a mais": o banco tem 388 linhas de retencao REAL da YouTube
+    Analytics API em doze canais, todas parando em 20/09/2026. O escopo
+    FUNCIONOU e foi perdido porque cada reautorizacao reemitia o token por esta
+    lista, que nao o tinha. Aprendizado 689.
+
+    O MONETARIO fica de fora de proposito: so serve depois do YPP.
+    """
     assert T.ESCOPOS == [
         "https://www.googleapis.com/auth/youtube",
         "https://www.googleapis.com/auth/youtube.force-ssl",
         "https://www.googleapis.com/auth/youtube.upload",
-    ], ("escopo a mais no refresh e o que produziu invalid_scope em todos os "
-        "canais uma vez")
+        "https://www.googleapis.com/auth/yt-analytics.readonly",
+    ], ("escopo a mais no refresh ja produziu invalid_scope em todos os canais "
+        "uma vez; o de analytics esta aqui porque JA produziu dado (689)")
+    assert "yt-analytics-monetary" not in " ".join(T.ESCOPOS), (
+        "o escopo monetario so serve depois do YPP e amplia o consentimento "
+        "sem devolver nada")
 
 
 def test_pede_consentimento_para_receber_refresh_token():

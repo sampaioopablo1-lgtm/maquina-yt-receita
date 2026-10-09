@@ -122,5 +122,31 @@ def test_nao_escreve_em_config():
             f"confere_token voltou a escrever em config ({escrita}); `valor` e "
             f"jsonb unico e a escrita levaria o refresh_token junto")
     # POST e legitimo: e o refresh no endpoint do Google, nao no banco.
-    assert corpo.count("rest/v1/config") == 1, (
+    #
+    # ATUALIZADO em 09/10/2026, e a atualizacao e o achado. A contagem era
+    # `== 1` como atalho para "le uma vez, nunca escreve". Desde que o
+    # `token_do_canal` daqui passou a DELEGAR ao `publicar.py` (para o token
+    # poder vir do ambiente e a publicacao sair da ponte), a contagem aqui e
+    # ZERO — mais seguro do que o teste pedia. Mas o teste passou a guardar um
+    # arquivo que nao tem mais a credencial, e por isso a guarda tambem segue a
+    # leitura: ver `test_publicar_nao_escreve_em_config` abaixo.
+    assert corpo.count("rest/v1/config") <= 1, (
         "config e tocado em mais de um lugar; este arquivo so deve LER o token")
+
+
+def test_publicar_nao_escreve_em_config():
+    """A guarda segue a credencial.
+
+    Mover a leitura do token para o `publicar.py` sem mover esta proibicao
+    deixaria o risco fora do alcance de qualquer teste — `config.valor` e um
+    jsonb unico e uma escrita nele leva o refresh_token junto.
+    """
+    fonte = (RAIZ / "fabrica" / "publicar.py").read_text(encoding="utf-8")
+    import re
+
+    for m in re.finditer(r'rest/v1/config', fonte):
+        janela = fonte[max(0, m.start() - 400):m.end() + 400]
+        for escrita in ('method="PATCH"', 'method="PUT"', 'method="DELETE"'):
+            assert escrita not in janela, (
+                f"publicar.py escreve em config ({escrita}); `valor` e jsonb "
+                f"unico e a escrita levaria o refresh_token dos canais junto")
