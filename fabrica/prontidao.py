@@ -838,6 +838,24 @@ def _gate_similaridade(caminho, sp):
     return falhas
 
 
+AVISOS: dict[str, list[str]] = {}
+
+
+def _gate_variedade(caminho, sp):
+    """O portao de conteudo INAUTENTICO. Ver `fabrica/variedade.py`.
+
+    Guarda os avisos em `AVISOS` em vez de devolver: aviso que reprova e
+    reprovacao, e o `esqueleto` nao reprova de proposito — a trava do
+    experimento 33 e o motivo, e esta escrita no modulo.
+    """
+    import variedade
+
+    erros, avisos = variedade.analisa(sp, RAIZ, os.path.basename(caminho))
+    if avisos:
+        AVISOS[os.path.basename(caminho)[:-5]] = avisos
+    return erros
+
+
 PORTOES = (
     ("identidade", lambda c, s: _gate_identidade(c, s)),
     ("fatos", lambda c, s: _gate_fatos(s)),
@@ -850,6 +868,7 @@ PORTOES = (
     ("duracao", lambda c, s: _gate_duracao(s)),
     ("layout", lambda c, s: _gate_layout(s)),
     ("similaridade", lambda c, s: _gate_similaridade(c, s)),
+    ("variedade", lambda c, s: _gate_variedade(c, s)),
 )
 
 
@@ -910,6 +929,13 @@ def main() -> int:
                 print(f"          - {i[:150]}")
             if len(itens) > 3:
                 print(f"          ... e mais {len(itens) - 3}")
+
+    if AVISOS:
+        print(f"\nAVISOS ({len(AVISOS)}) — nao reprovam:")
+        for n, itens in AVISOS.items():
+            print(f"    {n}")
+            for i in itens:
+                print(f"          ~ {i}")
 
     total = len(prontas) + len(travadas)
     print(f"\n-> {len(prontas)}/{total} specs disparam a frota hoje")
