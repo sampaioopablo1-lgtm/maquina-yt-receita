@@ -1,0 +1,57 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-s010",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#22333B",
+  "c1": "#A4243B",
+  "c2": "#D8973C",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Levante",
+  "l2": "antes de cotar"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Você pediu o estudo",
+   "sub": "antes de levantar",
+   "nar": "Chegou a norma elétrica nova e você pediu o estudo no mesmo dia. A conta veio alta, e a ordem é o motivo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Sem levantamento",
+   "sub": "o escopo é tudo",
+   "nar": "Quem pede orçamento sem levantamento recebe o escopo da instalação inteira. É o único escopo que o fornecedor cota sem te conhecer.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E talvez metade",
+   "sub": "não exigisse",
+   "nar": "E talvez metade da instalação não exigisse o estudo. O fornecedor não tem como saber isso por você.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A ordem inversa",
+   "sub": "levante primeiro",
+   "nar": "A ordem que funciona é a inversa: levante, descubra onde falta, e só então peça orçamento com escopo definido.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Se inscreva",
+   "sub": "para as próximas",
+   "nar": "O preço cai porque o escopo encolheu, não porque alguém negociou. Se inscreva para as próximas, e o roteiro está no vídeo.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "yrWVyqQtw00",
+ "copy": "# labtreinamento-s010\n\n## TITULO\nPor Que Pedir o Estudo de Engenharia Antes do Levantamento Encarece a Adequação Elétrica\n\n## TITULO SHORT\nVocê pediu o estudo antes de levantar\n\n## DESCRICAO\nA reação mais comum quando chega uma norma elétrica nova é também a mais cara: pedir orçamento do estudo de engenharia no mesmo dia. O gasto não aparece inflado por má-fé do fornecedor — aparece porque a sequência está trocada, e a sequência trocada só tem um escopo possível.\n\nFunciona assim: quem pede orçamento sem levantamento recebe o escopo da instalação inteira. Não existe alternativa do outro lado. O fornecedor não conhece a sua planta, não sabe quais pontos realmente precisam de estudo, e a única cotação que ele consegue montar sem chutar é a que cobre tudo. Você recebe um número grande e correto para o escopo errado.\n\nE talvez metade da instalação não exigisse. Essa é a parte que só o levantamento responde, e ele não é função do fornecedor: descobrir onde falta é trabalho de dentro, feito com a lista do que existe na mão.\n\nA ordem que funciona é a inversa — levantar primeiro, descobrir onde falta, e só então pedir orçamento com escopo definido. O preço cai não porque alguém negociou melhor, mas porque o escopo encolheu para aquilo que de fato precisa. É a diferença entre comprar um estudo e comprar a tranquilidade de ter pedido orçamento.\n\nAqui não há data de vigência, número de portaria nem preço, e isso é deliberado: data e número são definidos por ato normativo e envelhecem, e preço de adequação depende do estado da instalação — quem te der um número sem olhar está chutando. A ordem de contratação não envelhece. O roteiro do levantamento, os prazos com fonte e o que a norma separa entre habilitado, qualificado, capacitado e autorizado estão no vídeo completo.\n\n## COMENTARIO FIXADO\nO erro aqui não é de preço, é de sequência: pedir o estudo ANTES do levantamento só tem um escopo possível, a instalação inteira — porque é o único que o fornecedor consegue cotar sem te conhecer. E talvez metade dela não exigisse. A ordem que funciona é a inversa: levante, descubra onde falta, e só então peça orçamento com escopo definido. O preço cai porque o escopo encolheu, não porque alguém negociou. E para ficar claro, porque o vídeo não é contra o estudo: onde a norma exige, o estudo é obrigatório e não há desconto nisso. O que não vale é comprá-lo antes de saber onde. Quem já cotou nas duas ordens, escreva nos comentários apenas se o escopo mudou — sem valores.\n\n## HASHTAGS\n#SegurancaDoTrabalho #RiscoEletrico #LabTreinamento\n\n## TAGS\nlevantamento eletrico, estudo de engenharia, escopo definido, adequacao eletrica, orcamento de adequacao, ordem de contratacao, seguranca do trabalho, risco eletrico, norma eletrica, trabalhos energizados, lista de autorizados, labtreinamento, gestao de riscos, planejamento orcamentario, inventario de riscos\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Nao cita data de\nvigencia, numero de portaria nem preco, e NAO NOMEIA a norma (o nome dela carrega\num numeral). Conferido a mao campo por campo.\n\nA REGRA (g) MANDA: data de vigencia e numero de ato normativo envelhecem; preco\nde adequacao depende da instalacao de quem assiste. A ORDEM de contratacao nao\nenvelhece, e e ela que este short carrega.\n\nUNICO NUMERAL NA NARRACAO: \"a ordem inversa\" e \"metade\", que descrevem o\nraciocinio.\n\nO QUE O VIDEO AFIRMA: que pedir o estudo ANTES do levantamento faz o escopo virar\na instalacao inteira, e que a ordem que funciona e a inversa — levantar,\ndescobrir onde falta, e so entao pedir orcamento com escopo definido. Esta no\nlongo labtreinamento-004 (yrWVyqQtw00), capitulo \"Um erro de sequencia — comum e\ncaro\".\n\nDESCARTADO, e vai escrito:\n  (1) a data de vigencia, de calendario;\n  (2) o numero do ato normativo e o nome numerado da norma;\n  (3) quanto custa a adequacao, que depende da instalacao DELE.\n\n## FONTES\nO longo de onde este short foi extraido (labtreinamento-004, yrWVyqQtw00) traz as\nfontes oficiais. Este short nao introduz numero novo sobre o mundo.\n"
+}
