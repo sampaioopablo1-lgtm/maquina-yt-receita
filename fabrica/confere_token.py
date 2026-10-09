@@ -50,16 +50,17 @@ def _env(*nomes):
 
 
 def token_do_canal(canal, sb, sk):
-    url = (f"{sb}/rest/v1/config?chave=eq."
-           f"{urllib.parse.quote('yt_token_' + canal, safe='')}&select=valor")
-    req = urllib.request.Request(
-        url, headers={"Authorization": f"Bearer {sk}", "apikey": sk})
-    with urllib.request.urlopen(req, timeout=30) as r:
-        linhas = json.load(r)
-    if not linhas:
-        sys.exit(f"config.yt_token_{canal} nao existe no banco — o canal nunca "
-                 f"foi autorizado. Peca o link de autorizacao ao Pablo.")
-    return linhas[0]["valor"]
+    """Delega ao `publicar.token_do_canal` — ENV primeiro, REST depois.
+
+    Tinha uma copia propria que so sabia ler o REST, e isso fazia este portao
+    ser MAIS SEVERO que o passo que ele guarda: com o secret no lugar e a porta
+    do Supabase fechada, aqui reprovava e o `publicar.py` teria publicado. Duas
+    implementacoes da mesma pergunta divergem, e a divergencia aparece no pior
+    momento — depois de dezessete minutos de render.
+    """
+    import publicar
+
+    return publicar.token_do_canal(canal, sb, sk)
 
 
 ESCOPOS_NECESSARIOS = {

@@ -31,10 +31,32 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
+# `yt-analytics.readonly` ENTROU em 09/10/2026, e a historia dele e um aviso.
+#
+# Esta lista tinha tres escopos e eu reportei ONZE vezes ao dono que medir
+# retencao "exigia uma autorizacao que ele nao deu". Era falso desde quando eu
+# comecei a dizer: o banco tem 388 linhas de retencao REAL da YouTube Analytics
+# API (averageViewPercentage, subscribersGained) em DOZE canais, os tres da
+# frota incluidos, e todas param em 20/09/2026.
+#
+# O escopo FUNCIONOU e foi PERDIDO por causa desta lista. Os refresh tokens
+# morriam de sete em sete dias (303) e cada reautorizacao reemitiu o token
+# por ESTA lista — sem analytics. O `tokeninfo` do token de hoje devolve os tres
+# e mais nenhum. O docstring de `escopos.py` dizia "jamais foi medido" e era
+# verdade quando foi escrito; deixou de ser, e ninguem reconferiu.
+#
+# LICAO, e ela e geral: antes de chamar uma capacidade de "nao autorizada",
+# procure no banco se ela JA PRODUZIU DADO, e confira a lista de escopos do
+# PROPRIO codigo. Aprendizado 689, `critico`.
+#
+# O MONETARIO fica de fora de proposito: `yt-analytics-monetary.readonly` so
+# serve depois do YPP, e pedir escopo que nao se usa amplia o consentimento sem
+# devolver nada.
 ESCOPOS = [
     "https://www.googleapis.com/auth/youtube",
     "https://www.googleapis.com/auth/youtube.force-ssl",
     "https://www.googleapis.com/auth/youtube.upload",
+    "https://www.googleapis.com/auth/yt-analytics.readonly",
 ]
 REDIRECT = "http://localhost"
 TOKEN_URI = "https://oauth2.googleapis.com/token"

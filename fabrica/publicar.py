@@ -102,14 +102,72 @@ def _req(url, data=None, method="GET", headers=None, timeout=60):
     return urllib.request.urlopen(r, timeout=timeout, context=_ctx())
 
 
+def _env_do_canal(slug: str) -> str:
+    """`epomeno-epipedo` -> `YT_TOKEN_EPOMENO_EPIPEDO`.
+
+    A mesma convencao que o `legendar.yml` ja usa desde sempre, com o mesmo
+    fallback para `YT_TOKEN_JSON`.
+    """
+    return "YT_TOKEN_" + slug.upper().replace("-", "_")
+
+
 def token_do_canal(slug, sb_url, sb_key):
-    """Le config.yt_token_<slug>. A tabela tem RLS para service_role, entao a
-    chave anon nao serve aqui — e isso e proposital."""
+    """O token do canal, do ENV primeiro e do REST depois.
+
+    POR QUE A ORDEM MUDOU (09/10/2026). Este arquivo era o unico ponto que
+    obrigava a publicacao a passar por mim. O REST do Supabase devolve 402 desde
+    25/08 (cota da ORGANIZACAO), e como esta funcao era a unica porta do token,
+    `publicar=true` no runner era impossivel — dai a ponte: renderizar com
+    `publicar=false`, pedir a URL assinada, baixar na sandbox do Composio e
+    rodar o `conduz.py` a mao, toda rodada.
+
+    E a saida ja estava no repositorio. O `legendar.yml` le o token de
+    `YT_TOKEN_<CANAL>` desde sempre, e esses secrets EXISTEM para dez canais.
+    O 402 e no GATEWAY REST, nao no Postgres: quem nao precisa do gateway nao
+    sente a cota.
+
+    Entao: ENV primeiro, REST como reserva. Com o secret no lugar o runner
+    publica sozinho e a ponte deixa de ser obrigatoria. Sem o secret, nada muda
+    — o REST continua sendo tentado e a mensagem de erro agora diz AS DUAS
+    portas, porque "sem credencial" sem dizer onde ela era procurada custou
+    tempo antes.
+
+    NAO loga o token nem o nome do canal junto do conteudo: o valor carrega
+    refresh token.
+    """
+    nome = _env_do_canal(slug)
+    cru = os.environ.get(nome) or os.environ.get("YT_TOKEN_JSON")
+    if cru:
+        try:
+            tok = json.loads(cru)
+        except json.JSONDecodeError as e:
+            raise SystemExit(
+                f"{nome} existe mas nao e JSON valido ({e}). Um secret truncado "
+                f"aqui falha DEPOIS do render, entao o erro e explicito.")
+        # Um `YT_TOKEN_JSON` generico pode ser de outro canal, e publicar no
+        # canal errado ja aconteceu uma vez (14/08). Se o token nomeia o canal,
+        # confira; se nao nomeia, siga — o `publicar.py` ainda pergunta a API
+        # de quem e o token antes de subir.
+        dono = tok.get("canal") or tok.get("slug")
+        if dono and dono != slug:
+            raise SystemExit(
+                f"{nome} diz pertencer a {dono!r} e o pacote e de {slug!r} — "
+                f"recusando em vez de publicar no canal errado.")
+        if not tok.get("refresh_token"):
+            raise SystemExit(f"{nome} nao tem refresh_token.")
+        return tok
+
+    if not (sb_url and sb_key):
+        raise SystemExit(
+            f"sem credencial para {slug}: nem {nome} no ambiente nem "
+            f"SUPABASE_URL/SUPABASE_SERVICE_ROLE_KEY para tentar o REST.")
     url = f"{sb_url}/rest/v1/config?chave=eq.yt_token_{slug}&select=valor"
     r = _req(url, headers={"Authorization": f"Bearer {sb_key}", "apikey": sb_key})
     linhas = json.load(r)
     if not linhas:
-        raise SystemExit(f"sem credencial para {slug}: grave config.yt_token_{slug}")
+        raise SystemExit(
+            f"sem credencial para {slug}: procurei em {nome} no ambiente e em "
+            f"config.yt_token_{slug} no Supabase, e nao achei em nenhum dos dois.")
     return linhas[0]["valor"]
 
 

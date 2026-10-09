@@ -294,6 +294,13 @@ jobs:
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          # As MESMAS variaveis do passo de publicar. Sem elas aqui, este portao
+          # reprovaria antes do render um canal que o `publicar.py` publicaria
+          # — portao mais severo que o passo que ele guarda e portao que mente.
+          YT_TOKEN_LABTREINAMENTO: ${{ secrets.YT_TOKEN_LABTREINAMENTO }}
+          YT_TOKEN_EPOMENO_EPIPEDO: ${{ secrets.YT_TOKEN_EPOMENO_EPIPEDO }}
+          YT_TOKEN_KOLEJNY_POZIOM: ${{ secrets.YT_TOKEN_KOLEJNY_POZIOM }}
+          YT_TOKEN_JSON: ${{ secrets.YT_TOKEN_JSON }}
         run: python3 fabrica/confere_token.py "${{ matrix.canal }}"
 
       # A spec que declara footage e nao acha a chave produz um pacote que
@@ -397,6 +404,22 @@ jobs:
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          # O TOKEN DO CANAL PELO AMBIENTE, e e isto que tira a publicacao da
+          # mao de quem conduz a rodada.
+          #
+          # O 402 do Supabase e no GATEWAY REST, nao no Postgres, e o
+          # `token_do_canal` do `publicar.py` era o unico ponto que obrigava a
+          # passar por ele. Desde 09/10/2026 ele le `YT_TOKEN_<CANAL>` primeiro
+          # e so cai no REST se o secret nao existir — a mesma convencao que o
+          # `legendar.yml` usa desde sempre.
+          #
+          # Secret que falta aqui nao quebra nada: o passo cai no REST e, com a
+          # porta fechada, falha como ja falhava. Secret presente e a frota
+          # publicando sozinha.
+          YT_TOKEN_LABTREINAMENTO: ${{ secrets.YT_TOKEN_LABTREINAMENTO }}
+          YT_TOKEN_EPOMENO_EPIPEDO: ${{ secrets.YT_TOKEN_EPOMENO_EPIPEDO }}
+          YT_TOKEN_KOLEJNY_POZIOM: ${{ secrets.YT_TOKEN_KOLEJNY_POZIOM }}
+          YT_TOKEN_JSON: ${{ secrets.YT_TOKEN_JSON }}
         # --idioma pode vir vazio: o publicar.py resolve por
         # config/canais/<slug>.yaml, que e onde os treze canais declaram idioma
         # desde sempre. A matriz continua vencendo quando preenchida, mas nao e

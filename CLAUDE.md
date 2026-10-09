@@ -5,6 +5,42 @@ porque número dentro de prompt envelhece e já me fez errar quatro vezes
 (652/655, 658, 682, 685). Aqui não entra contagem de estoque, nem de views, nem
 de inscritos. Entra onde olhar.
 
+## Autorização permanente do dono (09/10/2026)
+
+Palavras dele: *"Deixe 100% automático, sem precisar de aprovação. Usando toda
+cota possível nos 3 canais."* Vale como autorização durável para a produção:
+**não pare para pedir aprovação de pauta, render, publicação ou pacote
+completo.** O "pacote completo exige janela dedicada do dono" CAIU — era
+aprovação, e ela foi dada.
+
+**O que a autorização NÃO cobre, porque é irreversível e ele não falou disso:**
+apagar vídeo publicado e apagar as 46 duplicatas. A trava continua.
+
+**E o que ela não pode destravar, porque não é aprovação:** os três secrets
+`YT_TOKEN_<CANAL>` no GitHub (o proxy desta sessão bloqueia a API de secrets) e
+o clique no link de consentimento do Google. Ver
+`docs/reautorizar-analytics.md`.
+
+## A restrição real é PAUTA, não cota nem aprovação
+
+Medido em 09/10: **10 origens livres** (epomeno 4, kolejny 4, labtreinamento 2),
+contra ~14 peças publicadas no dia. **Menos de um dia de pauta.** Cota não é o
+limite; origem é. E origem só nasce de LONGO novo.
+
+Isso converge com o 689: o longo converte ~5x melhor por view **e** gera pauta
+**e** satisfaz os 3 uploads públicos/90 dias da Porta 1. Logo **pacote completo
+deixa de ser exceção e passa a ser a produção principal** quando a pauta estiver
+baixa.
+
+## Por que NÃO aumentar o número de canais
+
+O dono deu liberdade para isso. A aritmética diz não: **os 500 inscritos são um
+limite POR CANAL.** Dividir ~2.100 views/dia em mais canais afasta cada um do
+limite em vez de aproximar — concentração vence dispersão quando o portão é por
+canal. Ele mesmo cortou de 13 para 3 em 07/10, e a conversão medida (1,0 a 1,3
+por mil) exige acumular view no MESMO canal. Reabrir canal só faz sentido depois
+de UM canal passar a Porta 1.
+
 ## O escopo de analytics NÃO foi negado — nós o perdemos
 
 **Corrige onze afirmações minhas** (aprendizado 689, `crítico`). O banco tem
