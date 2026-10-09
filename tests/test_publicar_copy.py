@@ -21,6 +21,42 @@ import pytest
 RAIZ = Path(__file__).resolve().parents[1]
 SPECS = sorted((RAIZ / "fabrica" / "specs").glob("*.json"))
 
+# ---------------------------------------------------------------------------
+# ESTE MODULO DEPENDE DE UM ATIVO QUE NAO ESTA NO REPOSITORIO: os mp3 das
+# trilhas, em `TRILHA_DIR` (/tmp/trilhas por padrao).
+#
+# Descoberto em 09/10/2026, e a historia importa. O modulo vinha morrendo na
+# COLETA com `ModuleNotFoundError: No module named 'caminhos'`, porque
+# `fabrica/` nao estava no sys.path — e morria assim TAMBEM NO CI, que roda
+# `pytest -v` puro. Resultado: 329 testes nunca chegaram a ser executados, e
+# ninguem percebeu, porque um erro de coleta se parece com "um" problema.
+#
+# Essa e exatamente a rede que NAO pegou a remocao do `[:8]` do `publicar.py`
+# em 08/10: o teste que deveria ter avisado nunca foi coletado.
+#
+# Com o `pythonpath` consertado em pyproject.toml eles coletam. Entao aparece a
+# segunda camada: sem os mp3, `copy_md` levanta RuntimeError de proposito,
+# porque gravar copy sem o credito CC-BY poria o video no ar com musica NAO
+# licenciada. A guarda esta certa e fica onde esta — em producao.
+#
+# O que o TESTE deve fazer e declarar a dependencia e pular limpo, para que a
+# suite volte a servir de rede para os outros 2.100. Com as trilhas presentes
+# (no runner, ou depois de baixa-las aqui) ele roda inteiro e cobra tudo.
+def _trilhas_ausentes() -> str:
+    try:
+        import copy_md
+    except Exception as e:                      # pragma: no cover
+        return f"copy_md nao importa: {e}"
+    d = Path(copy_md.TRILHA_DIR)
+    if not d.is_dir() or not any(d.glob("*.mp3")):
+        return (f"nenhum mp3 em {d} — estes testes exigem as trilhas, e a guarda "
+                f"de credito CC-BY de copy_md recusa escrever copy sem elas")
+    return ""
+
+
+_SEM_TRILHAS = _trilhas_ausentes()
+pytestmark = pytest.mark.skipif(bool(_SEM_TRILHAS), reason=_SEM_TRILHAS)
+
 
 def _publicar():
     spec = importlib.util.spec_from_file_location(

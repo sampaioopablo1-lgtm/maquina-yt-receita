@@ -44,3 +44,13 @@ where = ["src"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 markers = ["slow: exercita render real com ffmpeg"]
+# `fabrica/` nao e pacote instalado: os modulos la se importam entre si por nome
+# simples (`from caminhos import dir_trabalho`). Sem esta linha, qualquer teste
+# que carregue `fabrica/publicar.py` por caminho morre na coleta com
+# `ModuleNotFoundError: No module named 'caminhos'` — e morria em silencio, nos
+# 329 testes de `test_publicar_copy.py`, TAMBEM NO CI, que roda `pytest -v` puro.
+#
+# Medido em 09/10/2026: a suite reprovava 354 de 2.476, e 329 disso era este
+# unico import. Essa e a rede que NAO pegou a remocao do `[:8]` do publicar.py
+# em 08/10 — o teste que deveria ter avisado nunca chegou a ser coletado.
+pythonpath = ["fabrica", "."]
