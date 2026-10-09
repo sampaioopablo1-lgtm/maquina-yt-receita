@@ -185,12 +185,18 @@ def test_a_fonte_da_densidade_e_a_que_mede_melhor_em_cada_bloco():
         longo   canal  5,23% / 58,1%   contra   corpus  4,55% / 71,6%
         short   canal  4,20% / 71,2%   contra   corpus 14,26% / 32,5%
 
-    No longo o canal perde por tamanho de amostra. No short o corpus perde
-    porque a constante de 2,26 foi calibrada em bloco longo, e short e outro
-    regime de escrita.
+    ISSO VIROU EM 08/09/2026, e virou do jeito que este teste foi feito para
+    pegar: com noventa e nove specs medidas no longo, a mediana do canal passa
+    a ganhar (72,7% contra 66,7%). A razao pela qual ela perdia era tamanho de
+    amostra, e a amostra cresceu — entao `densidade` passou a devolver a
+    mediana do canal nos DOIS blocos.
 
-    Se um dia qualquer das duas viradas se inverter, este teste cai e a decisao
-    se revisa com dado — em vez de a funcao seguir existindo por inercia.
+        longo   canal  72,7% (72/99)    contra   corpus  66,7% (66/99)
+        short   canal  70,5% (74/105)   contra   corpus  34,3% (36/105)
+
+    O teste continua sendo a mesma trava, agora apontada para o outro lado: se
+    o corpus voltar a ser melhor em qualquer bloco, ele cai e a decisao se
+    revisa com dado — em vez de a funcao seguir existindo por inercia.
     """
     tol = autor.TOLERANCIA_S / autor.ALVO_S
 
@@ -199,9 +205,9 @@ def test_a_fonte_da_densidade_e_a_que_mede_melhor_em_cada_bloco():
 
     longo_canal = _desvios_do_bloco("longo", usar_canal=True)
     longo_corpus = _desvios_do_bloco("longo", usar_canal=False)
-    assert dentro(longo_corpus) > dentro(longo_canal), (
-        "no longo a constante do corpus deixou de ser melhor — "
-        f"corpus {dentro(longo_corpus):.1%} contra canal {dentro(longo_canal):.1%}")
+    assert dentro(longo_canal) > dentro(longo_corpus), (
+        "no longo a mediana do canal deixou de ser melhor — "
+        f"canal {dentro(longo_canal):.1%} contra corpus {dentro(longo_corpus):.1%}")
 
     short_canal = _desvios_do_bloco("short", usar_canal=True)
     short_corpus = _desvios_do_bloco("short", usar_canal=False)
@@ -212,10 +218,22 @@ def test_a_fonte_da_densidade_e_a_que_mede_melhor_em_cada_bloco():
 
 def test_densidade_devolve_a_fonte_escolhida_em_cada_bloco():
     """A trava contra reverter a escolha sem reverter a medicao junto."""
-    assert autor.densidade("nivel-do-jogo", "longo") == autor.FRASES_POR_CENA
-    do_short = autor.densidade("nivel-do-jogo", "short")
-    assert do_short != autor.FRASES_POR_CENA
-    assert do_short == _mediana_do_canal("nivel-do-jogo", "short", "")
+    for bloco in ("longo", "short"):
+        assert autor.densidade("nivel-do-jogo", bloco) == _mediana_do_canal(
+            "nivel-do-jogo", bloco, ""), (
+            f"densidade({bloco}) deixou de ser a mediana do canal")
+
+
+def test_canal_sem_amostra_cai_na_constante_do_corpus():
+    """O fallback que substituiu o ramo por bloco.
+
+    Ele existia implicito e nunca tinha sido afirmado: enquanto o longo
+    devolvia FRASES_POR_CENA sempre, canal novo nao era um caso, era o padrao.
+    Agora que os dois blocos leem o canal, este e o unico caminho de volta a
+    constante — e sem teste ele quebra calado, dando mediana de lista vazia.
+    """
+    assert autor.densidade("canal-que-nao-existe", "longo") == autor.FRASES_POR_CENA
+    assert autor.densidade("canal-que-nao-existe", "short") == autor.FRASES_POR_CENA
 
 
 def test_voz_sem_modelo_medido_nao_dimensiona():
