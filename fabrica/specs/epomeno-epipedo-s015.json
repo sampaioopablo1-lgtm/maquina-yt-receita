@@ -1,0 +1,57 @@
+{
+ "slug": "epomeno-epipedo",
+ "pacote": "epomeno-epipedo-s015",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#12263A",
+  "c1": "#2A9D8F",
+  "c2": "#E8A33D",
+  "bg": "#F5F2EC"
+ },
+ "thumb": {
+  "l1": "Πότε",
+  "l2": "γυρίζει"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Μη ρωτάς πόσο κοστίζει",
+   "sub": "ρώτα πότε γυρίζει",
+   "nar": "Ρωτάς πόσο κοστίζουν τα πλασματικά έτη και το συγκρίνεις με τις οικονομίες σου. Είναι η λάθος ερώτηση.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Τι αγοράζεις",
+   "sub": "μηνιαία αύξηση",
+   "nar": "Αυτό που αγοράζεις δεν είναι χρόνια. Είναι μια αύξηση που θα παίρνεις κάθε μήνα, για όσο ζεις.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Η πράξη",
+   "sub": "δύο νούμερα",
+   "nar": "Άρα η πράξη θέλει δύο νούμερα: τι πληρώνεις σήμερα, και πόσο παραπάνω παίρνεις κάθε μήνα μετά. Διαίρεσε το πρώτο με το δεύτερο.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Το αποτέλεσμα",
+   "sub": "μήνες, όχι ευρώ",
+   "nar": "Το αποτέλεσμα δεν είναι ευρώ, είναι μήνες. Είναι ο χρόνος σύνταξης που χρειάζεσαι για να γυρίσει πίσω το ποσό.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Κάνε εγγραφή",
+   "sub": "για τα επόμενα",
+   "nar": "Αν η απάντηση βγει δεκαετίες, το ξανασκέφτεσαι. Κάνε εγγραφή για τα επόμενα, και η ανάλυση είναι στο βίντεο.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "jAWKppvjAG8",
+ "copy": "# epomeno-epipedo-s015\n\n## TITULO\nΠλασματικά Έτη: Η Σωστή Ερώτηση Δεν Είναι Πόσο Κοστίζουν αλλά σε Πόσα Χρόνια Επιστρέφουν\n\n## TITULO SHORT\nΡώτα σε πόσα χρόνια γυρίζει\n\n## DESCRICAO\nΗ πρώτη ερώτηση που κάνει σχεδόν όλος ο κόσμος είναι «πόσο κοστίζουν»; Είναι φυσική ερώτηση, και είναι η λάθος ερώτηση — γιατί το κόστος μόνο του δεν απαντά τίποτα. Το συγκρίνεις με τις οικονομίες σου, βλέπεις αν τα βγάζεις, και η απόφαση παίρνεται χωρίς να μπει στη μέση το νούμερο που μετράει.\n\nΑυτό που αγοράζεις δεν είναι χρόνια. Είναι μια αύξηση που θα παίρνεις κάθε μήνα, για όσο ζεις. Και όταν αυτό που αγοράζεις είναι μηνιαία ροή, η σύγκριση με ένα εφάπαξ ποσό δεν στέκει αριθμητικά — λείπει ο χρόνος.\n\nΗ πράξη που λείπει θέλει δύο νούμερα: τι πληρώνεις σήμερα, και πόσο παραπάνω παίρνεις κάθε μήνα μετά. Διαιρείς το πρώτο με το δεύτερο, και το αποτέλεσμα δεν είναι ευρώ — είναι μήνες. Είναι ο χρόνος σύνταξης που χρειάζεσαι για να γυρίσει πίσω αυτό που έδωσες. Αν η απάντηση βγει δεκαετίες, το ξανασκέφτεσαι. Αν βγει λίγα χρόνια, η απόφαση είναι άλλη.\n\nΤίποτα από αυτά δεν είναι επιχείρημα κατά της αναγνώρισης. Είναι το αντίθετο: με τη σωστή πράξη ξέρεις πότε συμφέρει, αντί να το αποφασίζεις με το συναίσθημα. Και πριν πληρώσεις οτιδήποτε, αξίζει να δεις αν υπάρχει χρόνος στον φάκελό σου που αναγνωρίζεται χωρίς πληρωμή — γιατί αυτός μετράει τα ίδια και κοστίζει μηδέν.\n\nΕδώ δεν υπάρχει κόστος, δόση, όριο ετών ούτε ημερομηνία, και είναι σκόπιμο: το κόστος και η δόση είναι δεμένα με τον κατώτατο μισθό και άλλαξαν φέτος, ενώ η ερώτηση δεν αλλάζει. Τα ποσά με πηγή, τα όρια ανά τομέα, οι τρεις περιπτώσεις που συμφέρουν και η ημερομηνία που κλειδώνει την τιμή — είναι στο πλήρες βίντεο.\n\n## COMENTARIO FIXADO\nΤο λάθος εδώ δεν είναι στην πράξη, είναι στην ερώτηση: ρωτάς «πόσο κοστίζει» και το συγκρίνεις με τις οικονομίες σου. Αυτό που αγοράζεις όμως είναι μηνιαία αύξηση, όχι χρόνια — άρα θέλεις δύο νούμερα και μία διαίρεση: τι πληρώνεις, δια πόσο παραπάνω παίρνεις κάθε μήνα. Το αποτέλεσμα είναι ΜΗΝΕΣ, ο χρόνος σύνταξης μέχρι να γυρίσει το ποσό. Και για να είμαι καθαρός, γιατί το βίντεο δεν είναι κατά της αναγνώρισης: με τη σωστή πράξη ξέρεις πότε συμφέρει. Πριν πληρώσεις, κοίτα και τον χρόνο που αναγνωρίζεται δωρεάν. Όποιος έκανε την πράξη, γράψτε στα σχόλια μόνο αν βγήκε χρόνια ή δεκαετίες — χωρίς ποσά.\n\n## HASHTAGS\n#Συνταξη #ΠλασματικαΕτη #EpomenoEpipedo\n\n## TAGS\nplasmatika eti, syntaxi, anagnorisi chronou, apodosi, miniaia afxisi, posa chronia gyrizei, asfalistika etoi, oikonomika, syntaxiodotisi, ypologismos, epomeno epipedo, dorean chronos, anergia, asfalisi, prosopika oikonomika\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Nao cita custo, dose,\nlimite de anos, data nem orgao. Conferido a mao campo por campo.\n\nA REGRA (g) MANDA: o custo e a parcela estao atados ao salario minimo e MUDARAM\neste ano — o longo tem um capitulo so para isso. A PERGUNTA nao envelhece, e e\nela que este short carrega.\n\nNUMERAIS NA NARRACAO: \"dois numeros\" e \"uma pergunta\", que descrevem o\nraciocinio.\n\nO QUE O VIDEO AFIRMA: que o que se compra e um aumento MENSAL, logo a conta que\ndecide e o pago dividido pelo aumento mensal, e o resultado sao MESES ate o\ndinheiro voltar; e que \"quanto custa\" e a pergunta errada. Esta no longo\nepomeno-epipedo-009 (jAWKppvjAG8), capitulos \"Εκεί — η πράξη γίνεται απλή\" e\n\"Ρώτα πάντα — σε πόσα χρόνια γυρίζει\".\n\nDESCARTADO, e vai escrito:\n  (1) o custo total e a parcela mensal, atados ao salario minimo;\n  (2) os limites de anos por setor, que o short ORIGINAL ja usou;\n  (3) a data de vigencia e a data da solicitacao.\n\n## FONTES\nO longo de onde este short foi extraido (epomeno-epipedo-009, jAWKppvjAG8) traz\nas fontes oficiais e as datas. Este short nao introduz numero novo sobre o mundo.\n"
+}
