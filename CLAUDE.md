@@ -5,6 +5,31 @@ porque número dentro de prompt envelhece e já me fez errar quatro vezes
 (652/655, 658, 682, 685). Aqui não entra contagem de estoque, nem de views, nem
 de inscritos. Entra onde olhar.
 
+## O escopo de analytics NÃO foi negado — nós o perdemos
+
+**Corrige onze afirmações minhas** (aprendizado 689, `crítico`). O banco tem
+**388 linhas de retenção real** vinda da YouTube Analytics API
+(`averageViewPercentage`, `subscribersGained`), em **doze canais**, incluindo os
+três da frota — e todas param em **20/09/2026**. O escopo funcionou e foi
+perdido: `ESCOPOS` em `fabrica/tokens.py` lista só `youtube`,
+`youtube.force-ssl` e `youtube.upload`, e o `tokeninfo` do token atual confirma
+esses três e nenhum outro. Como os refresh tokens morriam de sete em sete dias
+(303), cada reautorização reemitiu o token pela nossa lista, sem analytics.
+
+**Antes de chamar uma capacidade de "não autorizada", procure no banco se ela já
+produziu dado, e confira a lista de escopos do próprio código.**
+
+O que esses dados já dizem, com atribuição POR VÍDEO:
+
+| | retenção média | inscritos | views | por mil |
+|---|---|---|---|---|
+| shorts | **45,1%** (n=72) | 23 | 18.693 | **1,23** |
+| longos | **20,9%** (n=103) | 17 | 2.733 | **6,22** |
+
+O longo converte ~5x melhor **por view** — o que contradiz "o longo deixou de
+ser alavanca". Amostra pequena e janela de uma coleta só: trate como o melhor
+dado disponível, não como conclusão.
+
 ## Antes de ler qualquer contador
 
 **Três leituras na mesma rodada, e o estimador é o MÁXIMO declarado como PISO,
