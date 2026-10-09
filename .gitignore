@@ -14,5 +14,12 @@ token*.json
 out/
 data/
 
+# Fontes e fotos sao baixadas na hora (workflow e sandbox), nao versionadas:
+# sao binarios grandes e o repositorio nao e lugar de banco de imagem.
+fontes/
+fotos/
+producao/bofu/
+node_modules/
+
 # dados locais e segredos (tokens, log de eventos do CRM)
 **/.local/

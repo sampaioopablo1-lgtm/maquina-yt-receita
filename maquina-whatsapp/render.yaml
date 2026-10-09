@@ -1,0 +1,25 @@
+# Render.com (free): New → Blueprint → este repositório. Root: maquina-whatsapp.
+# API oficial da Meta (Cloud API) + Gemini grátis. Custo: R$ 0.
+services:
+  - type: web
+    name: opc-whatsapp
+    runtime: docker
+    plan: free
+    rootDir: maquina-whatsapp
+    envVars:
+      - key: WA_TOKEN
+        sync: false
+      - key: WA_PHONE_NUMBER_ID
+        sync: false
+      - key: WA_VERIFY_TOKEN
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-2.5-flash
+      - key: CALENDLY_URL
+        value: https://calendly.com/maisvendas/diagnostico-30min
+      - key: OWNER_WHATSAPP
+        value: "5512982381407"
+      - key: BUFFER_SECONDS
+        value: "8"

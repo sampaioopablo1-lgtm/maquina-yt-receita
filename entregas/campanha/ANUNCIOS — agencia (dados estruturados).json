@@ -1,0 +1,55 @@
+{
+  "campanha": "Agência de Ads — WhatsApp",
+  "account_id": "1695865631502778",
+  "objective": "LINK_CLICKS",
+  "anuncios": [
+    {
+      "id": "ad_agencia_crescimento",
+      "nome": "Crescimento WhatsApp",
+      "headline": "Precisa de novos clientes pelo whatsapp?",
+      "body": "Te ajudo, através de anúncios online.",
+      "cta": "Clique aqui e marque uma conversa com o nosso time de especialistas.",
+      "image_description": "Celular mostrando WhatsApp com 3-4 mensagens de clientes reais (nomes fictícios) + fundo com gráfico verde crescente (+150%, +8 clientes/mês). Estilo mockup realista, profissional, moderno. Cores: verde (crescimento), azul (confiança), branco (clean). Dimensões: 1200x628px.",
+      "image_key": "ad_agencia_crescimento.png",
+      "url": "https://calendly.com/oproximocliente/diagnostico",
+      "budget_daily": "R$ 40,00",
+      "placements": ["facebook_feed", "instagram_feed"],
+      "audience_id": "120247320350580766"
+    },
+    {
+      "id": "ad_agencia_analytics",
+      "nome": "Analytics Dashboard",
+      "headline": "Precisa de novos clientes pelo whatsapp?",
+      "body": "Te ajudo, através de anúncios online.",
+      "cta": "Clique aqui e marque uma conversa com o nosso time de especialistas.",
+      "image_description": "Dashboard/painel com métricas de campanha: impressões, cliques, leads, custo por lead. Computador ou tablet exibindo interface moderna e clean. Gráficos em barras e linhas com números visíveis (ex: 2.450 impressões, 84 cliques, 12 leads, R$35 CPL). Estilo tech, profissional. Cores: azul, verde, branco com destaque em amarelo/laranja para KPIs. Dimensões: 1200x628px.",
+      "image_key": "ad_agencia_analytics.png",
+      "url": "https://calendly.com/oproximocliente/diagnostico",
+      "budget_daily": "R$ 40,00",
+      "placements": ["facebook_feed", "instagram_feed"],
+      "audience_id": "120247320350580766"
+    },
+    {
+      "id": "ad_agencia_expertise",
+      "nome": "Consultoria Expertise",
+      "headline": "Precisa de novos clientes pelo whatsapp?",
+      "body": "Te ajudo, através de anúncios online.",
+      "cta": "Clique aqui e marque uma conversa com o nosso time de especialistas.",
+      "image_description": "Dois profissionais em conversa/consultoria. Um explicando estratégia, outro ouvindo atentamente. Ambiente: escritório moderno com plantas, café, ou reunião virtual via Meet com boa iluminação. Estilo realista mas acessível (não ultraprofissional). Foco em relacionamento humano e confiança. Cores: tons quentes (laranja, bege), azul, profissional. Dimensões: 1200x628px.",
+      "image_key": "ad_agencia_expertise.png",
+      "url": "https://calendly.com/oproximocliente/diagnostico",
+      "budget_daily": "R$ 40,00",
+      "placements": ["facebook_feed", "instagram_feed"],
+      "audience_id": "120247320350580766"
+    }
+  ],
+  "testing_plan": {
+    "duration_days": 3,
+    "kpi_threshold": {
+      "max_cpl": 60,
+      "min_ctr": 0.5
+    },
+    "action_if_underperform": "disable_after_3_days"
+  },
+  "notes": "Mudança de posicionamento: de Mentoria para Agência de Ads. Foco em empresários que querem clientes via WhatsApp através de anúncios online. Headlines e copy idênticos para teste de imagem isolado."
+}
