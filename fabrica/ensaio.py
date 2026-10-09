@@ -207,6 +207,55 @@ def duracao_estimada(cenas, voz: str) -> float:
 VIES_SHORT = 1.047
 
 
+# --------------------------------------------------------------------------
+# ALVO do short: o que a MIRA deve ser, nao o que o portao permite.
+#
+# Isto existe porque em 08/10/2026 eu descobri que vinha jogando watch time no
+# lixo por habito meu, nao por limite do sistema. Os dezenove shorts publicados
+# naquele dia tem duracao REAL medida no YouTube de
+#
+#     33 34 35 36 33 34 36 36 35 36 35 38 40 33 33 33 35 34 35   -> media 34,8 s
+#
+# contra um teto de `SHORT_MAX_S` = 45 s. Sobravam ~8 s por peca, 19% de
+# tempo de exibicao por view que nao custava nada produzir. A causa nao era o
+# portao: `prontidao` sempre permitiu estimativa de ate 43,14 s
+# (`SHORT_MAX_S / (1 + MARGEM_SHORT)`). A causa era a mira "35 a 37" que eu
+# carregava na rotina e nunca revisei depois de medir o residuo por voz.
+#
+# RESIDUO REAL MEDIDO (real - estimado)/estimado, nos nove shorts de 08/10 cuja
+# spec nao mudou depois do render:
+#
+#     pt-BR-ThalitaMultilingualNeural   -3,5% a -6,8%   (n=4)
+#     el-GR-NestorasNeural              -0,3% a -4,2%   (n=2)
+#     pl-PL-MarekNeural                 +4,4% a -1,8%   (n=3)
+#
+# O pior caso e o +4,4% do polones, e `MARGEM_SHORT` = 0,043 foi calibrada
+# justamente para ele: 43,14 x 1,044 = 45,0. Logo mirar 43 est e seguro NAS TRES
+# vozes, e nao e otimismo — e a margem fazendo o trabalho dela.
+#
+# POR QUE A FAIXA NAO VAI ATE 43,14: um corte de narracao mexe na contagem de
+# frases, e o termo P do modelo e por frase. Entao a estimativa salta em degraus
+# de ~1 s e nao em decimos. A faixa deixa esse degrau caber sem reprovar.
+#
+# O QUE ESTE NUMERO NAO SABE, e e a parte honesta: short mais longo nao retem
+# igual. Pode ser que 42 s segure menos gente ate o fim que 34 s, e nesse caso o
+# tempo de exibicao NAO sobe os 19% aritmeticos. Sem `yt-analytics.readonly` eu
+# NAO meco retencao — so view. Por isso isto roda como EXPERIMENTO 38 e nao como
+# verdade assentada, e a comparacao e tempo de exibicao por view ao longo de
+# dias, nao a duracao em si.
+ALVO_SHORT = (41.5, 43.0)
+
+
+def alvo_short() -> tuple[float, float]:
+    """A faixa de estimativa que uma spec de short deve mirar.
+
+    Nao e o teto. O teto e de `prontidao` e reprova; esta faixa e onde a peca
+    aproveita o tempo que o teto permite. Quem escreve spec confere contra ela
+    ANTES de rodar os portoes, que e onde iterar custa um ciclo de build.
+    """
+    return ALVO_SHORT
+
+
 def duracao_estimada_short(cenas, voz: str) -> float:
     """Como duracao_estimada, mas corrigida do vies medido em short.
 

@@ -59,24 +59,40 @@ class _Corpo:
 def test_os_oito_do_longo_sao_os_do_short():
     """A igualdade que autoriza copiar do irmao, contra as funcoes reais.
 
-    No upload o short recebe `orcamento_tags(tags[:8])` e o longo recebe
-    `orcamento_tags(tags)`. Como o orcamento so corta acima de 480 caracteres,
-    e oito tags nao chegam la, os oito primeiros do longo publicado sao
-    exatamente o que o short tinha.
+    ATENCAO — ESTE TESTE FOI VIRADO EM 09/10/2026, e o motivo importa.
+
+    Ele exigia `TAGS_DO_SHORT == 8` e a igualdade `longo[:8] == short`. Isso
+    congelava um DEFEITO: o `publicar.py` mandava `tags[:8]` no short, e as sete
+    que sobravam das quinze eram justamente as de cauda longa (aprendizado 662).
+    O corte em oito era meu, nao do YouTube — o `orcamento_tags` ja respeita o
+    limite de 480 caracteres, e quinze tags custam 216 dos 480. Com o `[:8]`
+    removido, o short sobe com a lista INTEIRA, igual ao longo, e foi medido
+    ponta a ponta no `aiQdNIGaRb8`.
+
+    Licao de instrumento: um teste que afirma um numero redondo defende o numero,
+    nao o comportamento. O que este teste deve cobrar e que o short e o longo
+    recebam A MESMA lista, qualquer que seja o tamanho dela, e que quem decide o
+    que cabe seja o orcamento.
     """
-    # o que o `publicar.py` manda no short
-    do_short_no_upload, _ = P.orcamento_tags(QUINZE[:8])
-    # o que o `publicar.py` manda no longo, e que sobreviveu no ar
+    # o que o `publicar.py` manda no short (sem corte desde 08/10)
+    do_short_no_upload, _ = P.orcamento_tags(QUINZE)
+    # o que o `publicar.py` manda no longo
     do_longo_publicado, custo = P.orcamento_tags(QUINZE)
 
-    assert do_longo_publicado[:T.TAGS_DO_SHORT] == do_short_no_upload
-    assert len(do_short_no_upload) == 8, "o orcamento nao pode cortar oito tags"
+    assert do_longo_publicado == do_short_no_upload, \
+        "short e longo tem de receber a MESMA lista de tags"
+    assert len(do_short_no_upload) == 15, "o orcamento nao pode cortar as quinze"
     assert custo <= 480, "as quinze cabem inteiras; o corte nunca entra em jogo"
 
 
-def test_o_corte_do_reparo_e_o_mesmo_do_publicar():
-    """Se o `publicar.py` passar a mandar outro numero, este teste cai."""
-    assert T.TAGS_DO_SHORT == 8
+def test_o_reparo_nao_corta_mais_a_lista():
+    """`TAGS_DO_SHORT = None` significa: quem corta e o orcamento, nao um numero.
+
+    Se alguem reintroduzir um inteiro aqui, o short volta a subir com uma
+    fatia da copy e as tags de cauda longa se perdem em silencio. Este teste
+    existe para que essa volta seja barulhenta.
+    """
+    assert T.TAGS_DO_SHORT is None
 
 
 # ------------------------------------------------------ a gravacao e inteira

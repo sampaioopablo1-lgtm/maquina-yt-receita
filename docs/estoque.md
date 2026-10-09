@@ -1,104 +1,64 @@
-# Estoque de origens livres (medido no banco, nao de memoria)
+# Estoque de origens livres
 
-Atualizado: 2026-10-08, rodada 23:20. Aprendizados 658 a 666.
+Atualizado: 2026-10-09. **Este arquivo nao carrega mais a lista.**
 
-## Por que este arquivo existe
+## O que mudou, e por que
 
-A rotina horaria carregava estas listas dentro do proprio prompt. Duas vezes
-isso envelheceu e produziu erro:
+A lista de origens livres morava aqui, escrita a mao a cada rodada. Antes disso
+morava dentro do prompt da rotina horaria. Nos dois lugares ela envelheceu e
+produziu erro:
 
-- **652/655**: a rotina dizia "estoque de origem ZERO" porque eu havia contado
-  longos das embalagens RECENTES. O banco tinha 55 longos.
-- **658**: a rotina dizia "41 origens virgens" e apontava `_M8t8SPC_f0` como a
-  melhor origem livre do kolejny. `_M8t8SPC_f0` e uma das **6 copias do mesmo
-  video** listadas em `duplicatas-a-apagar.md`. Se eu tivesse construido a
-  partir daquela lista, o CTA do short apontaria para um video marcado para
-  exclusao.
+- **652/655** — "estoque de origem ZERO" porque contei longos das embalagens
+  recentes. O banco tinha 55 longos.
+- **658** — apontei `_M8t8SPC_f0` como a melhor origem livre do kolejny. Era uma
+  das **seis copias do mesmo video**, marcadas para exclusao em
+  `duplicatas-a-apagar.md`. O CTA do short teria apontado para um video a apagar.
+- **09/10** — a lista dizia **27 livres**. A consulta derivada diz **23**. A mao
+  estava errada em quatro, e nao havia como eu saber qual numero valia.
 
-Entao a lista mora aqui, versionada, e a rotina so aponta para este arquivo.
+A causa raiz nao era desatencao, e levou dois meses para aparecer: **a origem
+consumida nao existia no banco.** `fonte_pauta_vd` e numerico (score) e
+`fonte_pauta` e o texto da pesquisa do longo. Logo "quais origens eu ja usei" so
+existia na minha lista escrita a mao — e uma lista a mao e um instrumento que
+mente sem avisar.
 
-## A consulta (uma por chamada, sempre no banco)
+## O conserto
 
-Grupo duplicado a excluir inteiro (nao `row_number()=1` — a primeira copia
-tambem sera apagada):
+1. Migracao `videos_origem_id`: coluna `videos.origem_id`, indexada.
+2. Backfill dos 27 shorts soltos lendo o `longo_existente` da propria spec.
+   Isso revelou de imediato um defeito invisivel ate entao: **epomeno-s002 e
+   epomeno-s006 usaram a MESMA origem** (`h04-UVlVevs`).
+3. `consultas/estoque.sql` — a consulta canonica. Origem usada e titulo
+   duplicado saem **por construcao**.
 
-```sql
-select canal, formato, titulo, count(*) from videos
- where youtube_id is not null and titulo is not null
- group by 1,2,3 having count(*) > 1;
-```
+**Rode `consultas/estoque.sql` antes de escolher pauta. Nao reescreva a lista
+aqui.** Toda spec nova grava `origem_id` quando publica, entao a consulta se
+mantem sozinha.
 
-Hoje retorna exatamente duas linhas, as duas do kolejny-poziom,
-titulo `Emerytura z ZUS: 34,4%...`:
-6 longos (`_M8t8SPC_f0 5gHnniPl0f8 jDa9SM8A7os qcY5XC1KtlQ SZV9Vk5YFwI YLGwalTND7M`)
-e 5 shorts (`2ywuj5CvQLw IjogSl2TE4M Ry9BgorzJA8 tVKaCqnTR3g VUF-ZhmBJWI`).
+## O que a consulta NAO sabe
 
-Contagem honesta por **titulo DISTINTO**, excluido o grupo duplicado e todas as
-origens ja usadas: epomeno 18/18 titulos, labtreinamento 13/13,
-kolejny 24 longos mas **19 titulos**. Livres: 12 + 13 + 11 = **36** as 14:09; nove consumidas em 08/10 (labtreinamento s004-s007, kolejny s008-s010, epomeno s009/s010) -> **27**.
+O **perfil** da origem. O aprendizado 651 mediu espalhamento de ~30x no
+labtreinamento entre dinheiro proprio com papel na mao (1.111 e 1.133 views) e
+conformidade corporativa (4 a 70) — e as **seis** livres que restam naquele canal
+sao todas do segundo tipo. Contar origem livre sem olhar o perfil **superestima o
+estoque util**. Por isso a consulta devolve o titulo: o perfil continua sendo
+leitura, nao consulta.
 
-## Origens livres e limpas (11 por canal)
+A saida estrutural no labtreinamento e **pacote completo** (calendario liberado
+desde 07/10), que cria origem nova de dinheiro proprio, nao minerar conformidade.
 
-Numero entre parenteses = views do short que saiu daquele tema, quando existe.
-E um proxy fraco e enviesado: premiava duplicacao (foi exatamente o defeito do
-658). Use como tie-break, nunca como criterio unico.
+## Faixas de identidade
 
-### epomeno-epipedo (GR)
-`TJZcjE-uv8E` (600) · `uWs-k_Wrn_w` (540) ·
-`jAWKppvjAG8` (428) · `alZ97hpgqXo` (386) · `h66MCKjwAJ8` (311) ·
-`os51d8fA0sY` (191) · `wUHuwyO2HYo` (1) ·
-`GwNkPfM9pSY` (—) · `eZ697VNYCPU` (—)
+Use a faixa ATUAL do canal, nunca a paleta da embalagem de origem (601).
 
-Ja usadas e fora da lista: `jUxJPvmA4Mk` (541, s009), `P2q6w9y7j88` (301, s010).
-
-### kolejny-poziom (PL)
-`Xgt32iH8Ft8` (165) ·
-`kDkagIf2isA` (72) · `wb1RGIx7OJI` (69) · `SP7Vz8qHdRY` (68) ·
-`iqV7m6tKb5A` (47) · `vcJf6WipLtY` (42) · 
-`EwUkhdwyuuo` (27) · `34SgUG7rf0U` (0)
-
-Ja usadas e fora da lista: `Rj7beZkOeYo` (172, s008), `ef_oZmfmdz4` (86, s009), `42hpD7eaptE` (34, s010).
-
-### labtreinamento (BR)
-
-`lau1nnOUm1U` (46) · `KRUERlNPzDw` (28) ·
-`StQNFMdpGdk` (26) · `3KtwRYxl7_U` (22) · `yrWVyqQtw00` (21) ·
-`XgqPVJuAk3o` (4)
-
-Ja usadas e fora da lista: `4OYBkCHFTV8` (1111, s003), `bQoujWaY7Hw` (212, s004), `dsoEo103l1o` (82, s005), `Sr6VhvD_aPE` (80, s006), `6BeNHqT2okA` (41, s007),
-`NNgAQLlpEzg`, `ntrMxq89I4o`.
-
-## Regra de escolha de pauta (651)
-
-No labtreinamento o espalhamento de ~30x e "de quem e o numero": dinheiro
-proprio com papel na mao (1133, 1111) contra compliance corporativo (4-70).
-Confundidor declarado: as embalagens de compliance tambem sao as mais antigas.
-Prefira dinheiro proprio.
-
-## Faixas de identidade (use a faixa ATUAL, nunca a paleta antiga da embalagem de origem)
-
-| canal | paleta | fonte |
+| canal | paleta | trilha |
 |---|---|---|
 | labtreinamento | `#22333B #A4243B #D8973C #F4F1EA` | Inspired |
 | epomeno-epipedo | `#12263A #2A9D8F #E8A33D #F5F2EC` | Inspired |
 | kolejny-poziom | `#1B3A5C #2A9D8F #F5B841 #F4F1EA` | Wholesome |
 
-## Como manter
+## Duplicatas a apagar
 
-Rode a consulta de duplicatas e a de estoque **antes de escolher pauta**, nao de
-memoria, e reescreva este arquivo quando o resultado mudar. Toda origem usada
-sai da lista no mesmo commit do short.
-
-## Aviso sobre o perfil do estoque do labtreinamento (17:20 de 08/10)
-
-As origens livres que sobraram no labtreinamento (SEIS depois do s007) sao **todas de
-conformidade corporativa** — NR-1, ISO 9001, NR-10, FAP, CAT, treinamento
-vencendo, custo por turma. E exatamente o perfil que o 651 mediu como ~30x PIOR
-(4 a 70 views contra 1.111 e 1.133), porque ali o numero e do empregador e nao do
-espectador. As duas de dinheiro proprio (`bQoujWaY7Hw`, `dsoEo103l1o`) foram
-consumidas em 08/10.
-
-Consequencia pratica: **contar origem livre sem olhar o PERFIL superestima o
-estoque util.** O labtreinamento tem oito livres e zero do perfil que funciona.
-A saida estrutural e PACOTE COMPLETO no canal (calendario liberado desde 07/10
-09:46), que cria origem nova de dinheiro proprio, nao minerar compliance.
+Em `docs/duplicatas-a-apagar.md`. Sao 46 e **dependem do dono**: apagar video
+publicado e irreversivel. A consulta acima ja as exclui como origem, entao elas
+nao contaminam mais a escolha de pauta — o que restava era o teto de upload.
