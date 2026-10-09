@@ -1,0 +1,92 @@
+{
+ "slug": "kolejny-poziom",
+ "pacote": "kolejny-poziom-s016",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Taryfa",
+  "l2": "czy oferta"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Zatwierdzona cena",
+   "sub": "to nie twoja cena",
+   "nar": "Cena prądu spadła, a ty czekasz na niższy rachunek.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Taryfa",
+   "preco": "z urzędu",
+   "nar": "Taryfę zatwierdza regulator. Nie każdego dotyczy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Oferta",
+   "preco": "twój podpis",
+   "nar": "Oferta to umowa, którą podpisałeś.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Jeśli masz ofertę",
+   "sub": "nagłówek cię nie dotyczy",
+   "nar": "Na ofercie ta cena cię nie dotyczy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Gdzie sprawdzić",
+   "preco": "na fakturze",
+   "nar": "Nazwa taryfy jest na fakturze.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "I druga rzecz",
+   "preco": "data końca",
+   "nar": "Obok niej sprawdź datę końca umowy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A zmiana sprzedawcy",
+   "sub": "rusza tylko połowę",
+   "nar": "Zmiana sprzedawcy rusza jedną połowę.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dystrybucja",
+   "preco": "nie drgnie",
+   "nar": "Dystrybucja nie drgnie, cokolwiek podpiszesz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlatego licz",
+   "preco": "cenę końcową",
+   "nar": "Porównuj cenę końcową, nie hasło z reklamy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Zasubskrybuj",
+   "sub": "na następne",
+   "nar": "Dwie połowy oglądaj osobno. Zasubskrybuj.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "vcJf6WipLtY",
+ "copy": "# kolejny-poziom-s016\n\n## TITULO\nZatwierdzona Cena Prądu a Twoja Umowa: Dlaczego Nagłówek Może Cię Nie Dotyczyć\n\n## TITULO SHORT\nZatwierdzona cena to twoja cena?\n\n## DESCRICAO\nCo roku wraca ten sam nagłówek: cena prądu zatwierdzona, w górę albo w dół. I co roku wraca to samo rozczarowanie przy fakturze. Powód nie jest w rachunku — jest w tym, że nagłówek mówi o **taryfie**, a ty możesz być na **ofercie**.\n\nTo dwie różne rzeczy i warto je rozdzielić raz na zawsze. Taryfę zatwierdza regulator i obowiązuje odbiorców, którzy na niej są. Oferta to umowa, którą kiedyś podpisałeś z konkretnym sprzedawcą — i jej cena nie zmienia się, bo regulator coś ogłosił. Jeśli jesteś na ofercie, zatwierdzona cena po prostu cię nie dotyczy.\n\nSprawdzenie zajmuje minutę i jest na fakturze: nazwa twojej taryfy, a obok niej data końca umowy. Ta data jest twoją jedyną dźwignią — przed nią nie masz wyboru, po niej masz.\n\nDruga rzecz, którą warto wiedzieć przed jakąkolwiek zmianą: zmiana sprzedawcy rusza tylko jedną połowę rachunku. Dystrybucja nie drgnie, cokolwiek podpiszesz, bo nie kupujesz jej od sprzedawcy. Dlatego porównuje się cenę końcową za cały rok, nie hasło z reklamy — hasło dotyczy połowy, którą można zmienić, i milczy o połowie, której nie można.\n\nNie ma tu zatwierdzonej ceny, stawki dystrybucyjnej ani żadnej daty, i jest to świadome: te liczby ustala regulator, zależą od regionu i starzeją się szybciej niż metoda. Pełne liczby, sposób policzenia własnej ceny z faktury i co zrobić z datą końca umowy — są w pełnym filmie.\n\n## COMENTARIO FIXADO\nNajczęstsze nieporozumienie nie jest w rachunku, jest w słowie: nagłówek mówi o TARYFIE, a bardzo wielu z nas jest na OFERCIE — czyli na umowie podpisanej ze sprzedawcą, której zatwierdzona cena nie dotyczy. Jedna minuta z fakturą rozstrzyga: nazwa taryfy, i obok data końca umowy. Ta data jest całą dźwignią. I druga rzecz: zmiana sprzedawcy rusza tylko połowę rachunku — dystrybucji nie kupujesz od sprzedawcy, więc nie drgnie, cokolwiek podpiszesz. Dlatego porównuj cenę końcową na rok, nie hasło z reklamy. Żeby było jasno, bo film nie mówi, że zmiana się nie opłaca: mówi, że opłaca się policzona. Kto sprawdził na fakturze, napiszcie w komentarzach tylko czy był na taryfie czy na ofercie — bez nazw sprzedawców.\n\n## HASHTAGS\n#Prad #Rachunki #KolejnyPoziom\n\n## TAGS\ntaryfa czy oferta, zatwierdzona cena pradu, dystrybucja energii, rachunek za prad, zmiana sprzedawcy, cena koncowa, faktura za prad, data konca umowy, dwie polowy rachunku, oszczedzanie energii, finanse osobiste, kolejny poziom, regulator energii, sprzedaz energii, koszty stale\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Nao cita preco\naprovado, tarifa de distribuicao, percentual nem data, e nao nomeia vendedor ou\nregiao. Conferido a mao campo por campo.\n\nA REGRA (g) MANDA, e o longo prova: ele tem um capitulo dizendo que o numero do\ncabecalho envelhece mais rapido que o metodo. O preco aprovado muda por ato do\nregulador e a distribuicao depende da REGIAO. A distincao TARIFA vs OFERTA nao\nenvelhece, e e ela que este short carrega.\n\nNUMERAIS NA NARRACAO: \"jedna polowe\" e \"dwie polowy\", que descrevem a ESTRUTURA\nda fatura.\n\nO QUE O VIDEO AFIRMA: que o preco aprovado e a TARIFA e nao alcanca quem assinou\nOFERTA; que o nome da tarifa e a data de fim do contrato estao na fatura; e que\ntrocar de vendedor move so a metade de venda. Esta no longo kolejny-poziom-012\n(vcJf6WipLtY).\n\nDESCARTADO, e vai escrito:\n  (1) o preco aprovado e qualquer percentual;\n  (2) a tarifa de distribuicao, que depende da regiao;\n  (3) datas e o mecanismo de congelamento, que o proprio longo nao soube prever.\n\n## FONTES\nO longo de onde este short foi extraido (kolejny-poziom-012, vcJf6WipLtY) traz as\nfontes oficiais e as datas. Este short nao introduz numero novo sobre o mundo.\n"
+}
