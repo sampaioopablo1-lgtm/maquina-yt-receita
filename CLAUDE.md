@@ -240,6 +240,34 @@ iguais como N observações.
   é o efeito (D) da rotina, e foi o que viciou as minhas leituras anteriores
   deste canal.
 
+## A mira de duração tem INTERAÇÃO CANAL × TRATAMENTO — e é por isso que ela é por canal
+
+**Aprendizado 701, `alto`, observado.** Na janela **casada** de 4 a 8 h de vida,
+no `kolejny`:
+
+| mira | peças |
+|---|---|
+| nova (41–43 s) | **209** (s015, 10 cenas), **117** (s017, 10), **115** (s014, 5), **83** (s016, 10) |
+| antiga (34–35 s) | **17**, **13**, **4**, **0** (s004 a s007) |
+
+Sem sobreposição nos dois sentidos: os quatro novos acima dos quatro antigos dá
+1/C(8,4) = **1,4%** sob a nula. **E no labtreinamento o sinal é o OPOSTO** (698).
+Logo não existe "a mira certa do short" — existe a mira certa **de cada canal**, e
+é assim que `ALVO_POR_CANAL` deve crescer.
+
+**CONFUNDIDOR QUE NÃO SAI DO RELATO:** as peças de mira antiga são de 08/10 e as
+de mira nova de 09/10. Crescimento do próprio canal entre os dias explica parte ou
+tudo, e isto **não é aleatorizado no tempo**.
+
+**Experimento 40 (dez cenas) ainda sem leitura:** na mesma janela, dez cenas
+(83, 117, 209) contra cinco cenas (115) — n=1 de um lado.
+
+## Dois `grava_metricas_janela` no mesmo statement colidem
+
+**Aprendizado 702.** Dentro de um único statement o `now()` não avança, então a
+segunda chamada viola `metricas_youtube_id_coletado_em_key`. **Um statement por
+chamada.**
+
 ## O denominador da conversão NÃO é o `viewCount` do canal
 
 **Aprendizado 697, `crítico`.** O `channels.list?part=statistics` devolveu
