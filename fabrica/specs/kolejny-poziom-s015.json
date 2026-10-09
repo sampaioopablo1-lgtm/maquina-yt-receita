@@ -1,0 +1,92 @@
+{
+ "slug": "kolejny-poziom",
+ "pacote": "kolejny-poziom-s015",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Tylko",
+  "l2": "nadwyżka"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Cała pensja?",
+   "sub": "nie, tylko nadwyżka",
+   "nar": "Dostałeś podwyżkę i boisz się progu podatkowego.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Mit",
+   "preco": "cała pensja",
+   "nar": "Myślisz, że wyższa stawka obejmie wszystko.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Prawda",
+   "preco": "tylko nadwyżka",
+   "nar": "Obejmuje tylko złotówki ponad samym progiem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Skala działa",
+   "sub": "warstwami",
+   "nar": "Skala działa warstwami, nie przełącznikiem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Pod progiem",
+   "preco": "stawka niższa",
+   "nar": "Co mieści się pod progiem, zostaje niżej.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ponad progiem",
+   "preco": "stawka wyższa",
+   "nar": "Dopiero reszta wchodzi na wyższą stawkę.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dlatego",
+   "sub": "podwyżka nie zabiera",
+   "nar": "Dlatego podwyżka nigdy nie zmniejsza wypłaty.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Krok jeden",
+   "preco": "odejmij próg",
+   "nar": "Odejmij próg od dochodu. To jest nadwyżka.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Krok dwa",
+   "preco": "licz tylko ją",
+   "nar": "Wyższą stawkę licz tylko od nadwyżki.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Zasubskrybuj",
+   "sub": "na następne",
+   "nar": "Strach przed progiem kosztuje więcej niż sam próg.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "SP7Vz8qHdRY",
+ "copy": "# kolejny-poziom-s015\n\n## TITULO\nCzy Przekroczenie Progu Podatkowego Obejmuje Całą Pensję? Skala Działa Warstwami\n\n## TITULO SHORT\nCzy cała pensja wchodzi w wyższy próg?\n\n## DESCRICAO\nTo jest najczęstszy błąd arytmetyczny w rozmowie o podatkach, i kosztuje prawdziwe pieniądze: ludzie odmawiają podwyżki albo nadgodzin, bo sądzą, że przekroczenie progu przeniesie **całą** pensję na wyższą stawkę. Nie przeniesie.\n\nSkala działa warstwami, nie jednym przełącznikiem. To, co mieści się pod progiem, zostaje na niższej stawce — całe, bez zmian. Dopiero nadwyżka, czyli złotówki ponad progiem, wchodzi na wyższą stawkę. Pierwsza złotówka ponad progiem jest opodatkowana wyżej, i jest to dokładnie jedna złotówka, nie cała pensja.\n\nDlatego podwyżka nigdy nie zmniejsza tego, co zostaje w kieszeni. Może zmniejszyć procent, który zostaje z każdej kolejnej złotówki — i to jest zupełnie inne zdanie niż \"stracę na podwyżce\".\n\nRachunek, który to rozstrzyga, to dwa odejmowania, nie jedno mnożenie: odejmij próg od swojego dochodu, i wyższą stawkę licz tylko od tej różnicy. Resztę zostaw na niższej. Jeśli ktoś mnoży cały dochód przez wyższą stawkę, liczy inny kraj.\n\nNie ma tu wysokości progu ani żadnej ze stawek, i jest to świadome: te liczby są ustalane ustawą i już jest propozycja ich zmiany — sam tytuł pełnego filmu ją wymienia. Mechanika warstw nie zmienia się wcale. Kwoty z datą, obie stawki, miejsce na skali i co zmienia propozycja — są w pełnym filmie.\n\n## COMENTARIO FIXADO\nNajdroższy błąd w tej rozmowie nie jest w stawce, jest w ZAKRESIE: wyższa stawka obejmuje tylko NADWYŻKĘ ponad progiem, nigdy całej pensji. Skala działa warstwami — co pod progiem, zostaje niżej; dopiero reszta idzie wyżej. Dlatego podwyżka nie zmniejsza wypłaty, a rachunek to dwa odejmowania, nie jedno mnożenie: dochód minus próg, i wyższą stawkę licz tylko od różnicy. I żeby było jasno, bo film nie twierdzi, że progi są nieważne: zmieniają procent z KAŻDEJ NASTĘPNEJ złotówki, i to warto planować. Kto odmówił kiedyś nadgodzin z powodu progu, napiszcie w komentarzach tylko czy policzyliście to przed, czy po — bez kwot.\n\n## HASHTAGS\n#Podatki #ProgPodatkowy #KolejnyPoziom\n\n## TAGS\nprog podatkowy, skala podatkowa, nadwyzka, stawka podatku, podwyzka a podatek, nadgodziny podatek, dochod a prog, finanse osobiste, rozliczenie roczne, planowanie podatkowe, kolejny poziom, wyplata netto, zaliczka na podatek, kwota ponad progiem, dwie stawki\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Nao cita o valor do\nlimiar, nao cita aliquota, nao cita salario e nao cita data. Conferido a mao\ncampo por campo.\n\nA REGRA (g) MANDA: o limiar e as aliquotas vem de lei e ja existe PROPOSTA DE\nMUDANCA — o proprio titulo do longo a cita. A MECANICA DE CAMADAS nao envelhece,\ne e ela que este short carrega.\n\nNUMERAIS NA NARRACAO: \"krok jeden\" e \"krok dwa\", que numeram os passos.\n\nO QUE O VIDEO AFIRMA: que a aliquota maior incide SO sobre a parte acima do\nlimiar e nao sobre o rendimento inteiro; que por isso um aumento nunca reduz o\nque sobra; e que a conta e subtrair o limiar e aplicar a aliquota maior somente\nsobre a diferenca. Esta no longo SP7Vz8qHdRY.\n\nDESCARTADO, e vai escrito:\n  (1) o valor do limiar e as duas aliquotas, de lei e com proposta de mudanca;\n  (2) qualquer salario de exemplo, que depende do espectador;\n  (3) a data de vigencia da proposta.\n\n## FONTES\nO longo de onde este short foi extraido (kolejny-poziom, SP7Vz8qHdRY) traz as\nfontes oficiais e as datas. Este short nao introduz numero novo sobre o mundo.\n"
+}

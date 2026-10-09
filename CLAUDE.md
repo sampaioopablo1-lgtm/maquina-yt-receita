@@ -29,10 +29,19 @@ duração da cena.**
   entrada. Havia preto de t=0 a t=0,067, dentro do primeiro segundo, que é o que
   decide a distribuição. As emendas entre cenas continuam.
 
-**Regra nova para spec de short solto: DEZ a CATORZE cenas, mantendo a duração
+**Regra nova para spec de short solto: DEZ a ONZE cenas, mantendo a duração
 total** (experimento 40). Não mexer em `ALVO_SHORT` — isso é o experimento 38, e
 ele ainda não tem leitura de 12 h. O esqueleto novo quebra o `39 de 39` idêntico
-de propósito: ritmo e esqueleto são a mesma mudança de forma.
+de propósito: ritmo e esqueleto são a mesma mudança de forma, e com a forma nova
+o aviso do portão `variedade` para de aparecer.
+
+**CORREÇÃO, e é de uma regra que eu escrevi nesta mesma manhã:** eu havia posto
+"dez a CATORZE" sem conferir a sobrecarga. Há **~1,9 s fixos por cena** no
+`ensaio` (medido: 12 cenas de um caractere já somam 21,9 s). Doze cenas gastariam
+22 s só em padding e estourariam o teto de 43,1. O teto real no alvo atual é
+**onze**, e o ponto de equilíbrio é **10 cenas de ~40 caracteres** ou 11 de ~34.
+O `kolejny-poziom-s015` saiu com 10 cenas, 41,8 est, **4,18 s por plano** contra
+8,3 e **20 falas de legenda** contra 5.
 
 **Experimento 33 (motion) foi ABORTADO** em 09/10. A própria hipótese dele
 declarava "não mede o que quer medir", e ele travou três testes por dez dias
