@@ -1,0 +1,57 @@
+{
+ "slug": "epomeno-epipedo",
+ "pacote": "epomeno-epipedo-s012",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#12263A",
+  "c1": "#2A9D8F",
+  "c2": "#E8A33D",
+  "bg": "#F5F2EC"
+ },
+ "thumb": {
+  "l1": "Ο δείκτης",
+  "l2": "ο δικός σου"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Ο μέσος όρος ανέβηκε",
+   "sub": "και το δικό σου;",
+   "nar": "Ακούς πόσο ανέβηκαν οι τιμές και το συγκρίνεις με το δικό σου καλάθι. Αλλά αυτός ο αριθμός δεν περιγράφει το δικό σου καλάθι.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Είναι σταθμισμένος",
+   "sub": "με άλλα βάρη",
+   "nar": "Ο επίσημος δείκτης είναι σταθμισμένος: περιγράφει τη μέση οικογένεια, με τα βάρη της, όχι με τα δικά σου.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Φτιάξε τον δικό σου",
+   "sub": "δέκα προϊόντα",
+   "nar": "Φτιάξε τον δικό σου, και δεν χρειάζεσαι τίποτα από έξω. Διάλεξε δέκα προϊόντα που αγοράζεις πραγματικά, κάθε φορά, στο ίδιο μαγαζί.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Δύο μήνες",
+   "sub": "δύο αθροίσματα",
+   "nar": "Γράψε τι πλήρωσες γι' αυτά τον ένα μήνα και τι πλήρωσες τον επόμενο. Σύγκρινε τα δύο αθροίσματα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Κάνε εγγραφή",
+   "sub": "για τα επόμενα",
+   "nar": "Αυτό είναι ο δείκτης σου, και είναι ο μόνος που σε αφορά. Κάνε εγγραφή για τα επόμενα, και το φύλλο είναι στο βίντεο.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "os51d8fA0sY",
+ "copy": "# epomeno-epipedo-s012\n\n## TITULO\nΟ Δικός σου Δείκτης Τιμών: Δέκα Προϊόντα, Δύο Μήνες, Δύο Αθροίσματα\n\n## TITULO SHORT\nΠόσο ανέβηκε το ΔΙΚΟ σου καλάθι;\n\n## DESCRICAO\nΚάθε φορά που ανακοινώνεται πόσο ανέβηκαν οι τιμές, ο καθένας κάνει την ίδια κίνηση: παίρνει τον αριθμό και τον συγκρίνει με την αίσθηση που έχει από το ταμείο του σουπερμάρκετ. Και σχεδόν πάντα δεν βγαίνει. Δεν βγαίνει επειδή κάποιος λέει ψέματα, αλλά επειδή ο αριθμός δεν απαντά στην ερώτηση που εσύ κάνεις.\n\nΟ επίσημος δείκτης είναι σταθμισμένος. Σημαίνει ότι κάθε κατηγορία μετράει μέσα του με ένα βάρος, και αυτά τα βάρη περιγράφουν τη μέση οικογένεια: πόσο ξοδεύει κατά μέσο όρο στο κρέας, πόσο στο λάδι, πόσο στα υπόλοιπα. Τα δικά σου βάρη είναι άλλα, γιατί εσύ δεν αγοράζεις στις μέσες αναλογίες — κανείς δεν αγοράζει. Αυτό έχει μια συνέπεια που δεν είναι διαίσθηση αλλά αριθμητική: μέσα στον ίδιο δείκτη ένα προϊόν μπορεί να έχει ανεβεί πολύ και ένα άλλο να έχει πέσει, και η στάθμιση να τα ισοφαρίσει. Ο μέσος όρος βγαίνει μικρός, και όμως το δικό σου ταμείο βγαίνει μεγάλο — αν αγοράζεις κυρίως αυτό που ανέβηκε.\n\nΗ λύση δεν είναι να διαφωνήσεις με τον δείκτη. Είναι να φτιάξεις τον δικό σου, και είναι πιο απλό από όσο φαίνεται. Διάλεξε δέκα προϊόντα που αγοράζεις πραγματικά και σταθερά, από το ίδιο μαγαζί, στην ίδια συσκευασία. Γράψε τι πλήρωσες για το καθένα τον ένα μήνα, κράτα την απόδειξη, και επανάλαβε τον επόμενο. Στο τέλος έχεις δύο αθροίσματα, και η σχέση τους είναι ο δείκτης σου.\n\nΑυτός ο αριθμός έχει μια ιδιότητα που ο επίσημος δεν μπορεί να έχει: αφορά εσένα και μόνο εσένα. Δεν αντικαθιστά τη στατιστική, αλλά απαντά στην ερώτηση που πραγματικά σε ενδιαφέρει — πόσο ανέβηκε το κόστος της δικής σου εβδομάδας.\n\nΕδώ δεν υπάρχει ούτε ποσοστό ούτε τιμή, και αυτό είναι σκόπιμο: οι αριθμοί του δελτίου αλλάζουν κάθε μήνα, η μέθοδος όχι. Πώς μοιάζει το φύλλο, γιατί η ίδια συσκευασία και το ίδιο μαγαζί δεν είναι λεπτομέρεια, και τα τέσσερα λάθη που ακυρώνουν όλη τη δουλειά — είναι στο πλήρες βίντεο.\n\n## COMENTARIO FIXADO\nΗ συνταγή σε τέσσερα βήματα, για όποιον θέλει να το κάνει τώρα: ΕΝΑ, δέκα προϊόντα που αγοράζεις πραγματικά — όχι δέκα που θα ήταν «αντιπροσωπευτικά». ΔΥΟ, το ίδιο μαγαζί και η ίδια συσκευασία κάθε φορά, αλλιώς μετράς τη διαφορά των μαγαζιών και όχι των τιμών. ΤΡΙΑ, κρατάς την απόδειξη, γιατί η μνήμη στρογγυλεύει προς τα πάνω. ΤΕΣΣΕΡΑ, συγκρίνεις τα δύο αθροίσματα και όχι προϊόν με προϊόν. Όποιος το κάνει, ας γράψει στα σχόλια μόνο αν ο δικός του δείκτης βγήκε πιο πάνω ή πιο κάτω απ' όσο περίμενε — χωρίς ποσά.\n\n## HASHTAGS\n#Τιμές #Καλάθι #ΕπόμενοΕπίπεδο\n\n## TAGS\nδικος σου δεικτης, καλαθι νοικοκυριου, τιμες σουπερμαρκετ, σταθμιση δεικτη, μεσος ορος, προσωπικα οικονομικα, ελλαδα, πως μετραω, αποδειξη, δεκα προϊοντα, συγκριση τιμων, κοστος ζωης, επομενο επιπεδο, νοικοκυριο, μεθοδος\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO: nenhum indice, percentual, preco, produto\nespecifico, mes nem orgao. Conferido a mao campo por campo.\n\nEXIGENCIA DA REGRA (g): indice e variacao de preco MUDAM a cada boletim. Um short\ncom o numero do mes passado fica errado no mes seguinte e continua no ar. O longo\ntem os numeros com fonte e data; o short tem o METODO, que nao envelhece.\n\nUNICOS NUMERAIS NA NARRACAO: \"δέκα προϊόντα\" e \"δύο μήνες\" — o TAMANHO da\nreceita, herdado do capitulo do longo, nao afirmacao sobre o mundo.\n\nO QUE O VIDEO AFIRMA: que o indice oficial e PONDERADO pela cesta media e por\nisso nao descreve a cesta de ninguem em particular; e que o espectador pode\ncalcular o proprio indice somando dez produtos que realmente compra em dois meses\nseguidos. Esta no longo epomeno-epipedo-006 (os51d8fA0sY), capitulos\n\"Η στάθμιση\" e \"Ο δικός σου δείκτης\".\n\nDESCARTADO, e vai escrito:\n  (1) qualquer variacao de indice ou de produto — muda a cada boletim;\n  (2) o nome do orgao e a data do boletim, que estao no longo com fonte;\n  (3) a ferramenta oficial de comparacao de precos citada no longo, NAO\n      reconferida nesta rodada e cuja disponibilidade pode ter mudado.\n\n## FONTES\nO longo de onde este short foi extraido (epomeno-epipedo-006, os51d8fA0sY) traz\nas fontes. Este short nao introduz numero novo sobre o mundo.\n"
+}
