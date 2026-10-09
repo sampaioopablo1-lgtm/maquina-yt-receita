@@ -1,0 +1,92 @@
+{
+ "slug": "epomeno-epipedo",
+ "pacote": "epomeno-epipedo-s016",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "thumb": {
+  "l1": "Δύο αριθμοί",
+  "l2": "ένας φόρος"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Δήλωσες",
+   "sub": "και περιμένεις τον φόρο",
+   "nar": "Δήλωσες το εισόδημά σου και περιμένεις ήσυχος τον φόρο.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Όμως",
+   "preco": "δεύτερος αριθμός",
+   "nar": "Υπάρχει όμως και ένας δεύτερος αριθμός εκεί.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Το τεκμαρτό",
+   "preco": "άλλη ερώτηση",
+   "nar": "Λέγεται τεκμαρτό, και δεν ρωτά καθόλου πόσα βγάζεις.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ρωτά",
+   "sub": "πού μένεις, τι οδηγείς",
+   "nar": "Ρωτά σε πόσα τετραγωνικά μένεις και τι οδηγείς.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Η κατοικία",
+   "preco": "τα τετραγωνικά",
+   "nar": "Βγαίνει από τα τετραγωνικά της κύριας κατοικίας σου.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Το όχημα",
+   "preco": "από την άδεια",
+   "nar": "Και από τον αριθμό στην άδεια του αυτοκινήτου.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ο φόρος",
+   "sub": "στον μεγαλύτερο",
+   "nar": "Και ο φόρος πάει πάντα στον μεγαλύτερο των δύο.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Αν υπερβεί",
+   "preco": "το δηλωμένο",
+   "nar": "Αν το τεκμαρτό υπερβεί το δηλωμένο εισόδημα,",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Τότε",
+   "preco": "στη διαφορά",
+   "nar": "τότε πληρώνεις τον φόρο πάνω στη διαφορά.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Κάνε εγγραφή",
+   "sub": "για το επόμενο",
+   "nar": "Υπολόγισέ το μόνος πριν δηλώσεις. Κάνε εγγραφή.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "h66MCKjwAJ8",
+ "copy": "# epomeno-epipedo-s016\n\n## TITULO\nΥπολόγισε Το Τεκμαρτό Σου Πριν Δηλώσεις: Ο Φόρος Πάει Στον Μεγαλύτερο Των Δύο Αριθμών\n\n## TITULO SHORT\nΥπολόγισε το τεκμαρτό σου\n\n## DESCRICAO\nΟι περισσότεροι περιμένουν τον φόρο κοιτώντας έναν αριθμό: το εισόδημα που δήλωσαν. Υπάρχει όμως και δεύτερος, και δεν ρωτά πόσα βγάλατε.\n\nΛέγεται **τεκμαρτό εισόδημα** και βγαίνει από πράγματα που έχετε, όχι από πράγματα που κερδίσατε: τα τετραγωνικά της κατοικίας και το αυτοκίνητο — ο αριθμός του οποίου είναι γραμμένος στην ίδια την άδεια. Το ουσιώδες είναι η σύγκριση: ο φόρος δεν υπολογίζεται στο δηλωμένο ούτε στο τεκμαρτό, αλλά στον **μεγαλύτερο των δύο**. Αν το τεκμαρτό βγει μεγαλύτερο, πληρώνετε πάνω στη διαφορά.\n\nΑυτό αλλάζει τη σειρά των ενεργειών. Το τεκμήριο δεν μειώνεται δηλώνοντας λιγότερα — μειώνεται μόνο αν αλλάξουν τα δικά του δεδομένα, δηλαδή η κατοικία και το όχημα. Και επειδή είναι σύγκριση και όχι άθροισμα, αξίζει να το υπολογίσετε **πριν** υποβάλετε, όχι αφού δείτε το αποτέλεσμα: μετά δεν υπάρχει τίποτα να διορθώσετε.\n\nΣε αυτό το short δεν υπάρχει ούτε ένας αριθμός, και είναι σκόπιμο. Οι συντελεστές, οι κλίμακες, τα όρια εκπομπών και τα κυβικά άλλαξαν σε αυτόν τον κύκλο, ισχύουν με ημερομηνία και θα ξανααλλάξουν — ενώ ο κανόνας «δύο αριθμοί, πληρώνεις στον μεγαλύτερο» δεν αλλάζει. Για τον ίδιο λόγο δεν αναφέρουμε ποια ημερομηνία ταξινόμησης κρίνει ποιον πίνακα χρησιμοποιεί το όχημά σας: ο αριθμός που μετράει είναι στο έγγραφο που έχετε στο χέρι.\n\nΟλόκληρος ο πίνακας, η πηγή της αλλαγής και ο υπολογισμός σε τρία βήματα, με χαρτί και στυλό, είναι στο πλήρες βίντεο του καναλιού.\n\n## COMENTARIO FIXADO\nΤο λάθος εδώ δεν είναι στην αριθμητική, είναι στην υπόθεση ότι υπάρχει ΕΝΑΣ αριθμός. Υπάρχουν δύο — το δηλωμένο και το τεκμαρτό — και ο φόρος πάει στον μεγαλύτερο, στη διαφορά. Γι' αυτό το τεκμήριο δεν μειώνεται δηλώνοντας λιγότερα: μειώνεται μόνο αν αλλάξουν τα δεδομένα του, η κατοικία και το όχημα. Να είμαστε δίκαιοι με όσους εκπλήσσονται: δεν είναι απροσεξία, είναι ότι ο δεύτερος αριθμός δεν φαίνεται πουθενά μέχρι να βγει μεγαλύτερος. Σκόπιμα δεν έβαλα ούτε έναν συντελεστή εδώ — οι κλίμακες και τα όρια άλλαξαν σε αυτόν τον κύκλο και θα ξανααλλάξουν, ο κανόνας όχι. Όποιος το υπολόγισε με χαρτί, γράψτε στα σχόλια μόνο αν το τεκμαρτό βγήκε μεγαλύτερο ή μικρότερο — χωρίς ποσά.\n\n## HASHTAGS\n#Τεκμήρια #Φορολογία #ΕπόμενοΕπίπεδο\n\n## TAGS\ntekmarto eisodima, tekmiria diaviosis, forologiki dilosi, antikeimeniki dapani, megalytero ton dyo, texnika tekmiria, katoikia tetragonika, adeia aftokinitou, forologia eisodimatos, ypologismos tekmiriou, dilosi eisodimatos, epomeno epipedo, oikonomika, forotechnika, diafora forou\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Nao cita valor por\nmetro quadrado, faixa de metragem, percentual de reducao, gramas de emissao,\ncilindrada, piso minimo, numero de lei, de FEK ou de artigo, ano fiscal nem a\ndata de corte do registro do veiculo. Conferido a mao campo por campo.\n\nA REGRA (g) MANDA, e aqui ela e quase o tema: a descricao do longo e feita de\nnumeros com data colada, e a tabela inteira foi reduzida neste ciclo. Citar\nqualquer um deles seria publicar um short que fica errado na proxima reforma.\n\nO QUE NAO ENVELHECE, e e o que a peca carrega: existem DOIS numeros, o declarado\ne o presumido; o presumido nao pergunta quanto voce ganhou, e sim onde mora e o\nque dirige; le-se nos proprios documentos; e o imposto vai sobre o MAIOR dos\ndois, na diferenca.\n\nNUMERAIS NA NARRACAO: \"deuteros\" e \"ton dyo\", que descrevem a estrutura do\ncalculo.\n\nDESCARTADO, e vai escrito:\n  (1) tabela de habitacao e proporcoes de zona;\n  (2) limiares de emissao e cilindrada e valores por grama;\n  (3) piso minimo e isencao de dependentes com renda propria;\n  (4) a data de corte do registro, que decide qual tabela se aplica — o short diz\n      em vez disso que o numero esta no documento do proprio carro.\n\n## FONTES\nO longo de onde este short foi extraido (h66MCKjwAJ8) traz a lei, o FEK, o artigo\ndo KFE e a tabela com as datas. Este short nao introduz numero novo sobre o mundo.\n",
+ "paleta": {
+  "ink": "#12263A",
+  "c1": "#2A9D8F",
+  "c2": "#E8A33D",
+  "bg": "#F5F2EC"
+ },
+ "trilha": "Inspired"
+}
