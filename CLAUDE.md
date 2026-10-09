@@ -190,6 +190,41 @@ iguais como N observações.
   experimento 33.
 - `fabrica/ensaio.py` → `ALVO_SHORT` — **onde** mirar dentro da faixa depende da
   VOZ: piso no polonês (resíduo positivo), topo no grego e no pt-BR.
+- `fabrica/ensaio.py` → `ALVO_POR_CANAL` — **a mira é POR CANAL quando o canal
+  mediu que a mira da frota o prejudica.** O `labtreinamento` tem override
+  **(33,0 a 37,0)** desde 09/10: o gatilho do 682 disparou com **idade casada**
+  (views lidas na janela de 9 a 21 h de vida), e as duas peças de mira nova caem
+  **abaixo do mínimo** das oito antigas — 18 e 9 contra 20, 21, 34, 48, 60, 68,
+  173, 196. Isso não depende da conta de poder do 693: sob a nula, uma peça
+  abaixo do mínimo de oito tem ~1/9, e as duas ~1%. **O `ALVO_SHORT` global NÃO
+  mudou**, porque o experimento 38 segue sem leitura nos outros dois canais e
+  mexer no global apagaria o braço inteiro. Aprendizado 698.
+  **E a lição de método: compare peça com peça na MESMA FAIXA DE IDADE**, lendo a
+  janela do próprio `metricas`. Comparar piso atual de peças de idades diferentes
+  é o efeito (D) da rotina, e foi o que viciou as minhas leituras anteriores
+  deste canal.
+
+## O denominador da conversão NÃO é o `viewCount` do canal
+
+**Aprendizado 697, `crítico`.** O `channels.list?part=statistics` devolveu
+`viewCount` **byte a byte idêntico às 10:15 e às 18:10** — oito horas — nos três
+canais, enquanto 17 peças somavam centenas de views. E em dois canais a soma das
+peças da máquina **já é MAIOR** que o `viewCount` do canal: epomeno 15.454 contra
+12.152, kolejny 10.625 contra 8.406. Logo ele não é a soma e não serve de
+denominador (converge com o 638: não conta Shorts).
+
+**O denominador é `sum(views)` das peças da própria máquina, coletadas na hora.**
+Medido em 09/10 18:10, 153 ids em quatro lotes, todos `200`:
+
+| canal | shorts | longos | conversão |
+|---|---|---|---|
+| epomeno | 13.745 (n=32, média 430) | 1.709 (n=18) | 17/15.454 = **1,10 por mil** |
+| kolejny | 9.889 (n=41, média 241) | 736 (n=24) | 8/10.625 = **0,75 por mil** |
+| labtreinamento | 4.165 (n=25, média 167) | 213 (n=13) | **não normalizável** (668) |
+
+Isso retrata os 1,32 e 0,95 por mil que eu usei o dia inteiro. **Canal com acervo
+anterior à máquina não tem normalização possível**, porque o numerador inclui
+plateia que a máquina não trouxe.
 
 ## Antes de citar número de aprendizado
 `select max(id) from aprendizados` no projeto **vevocauwtarctfwngrch**.

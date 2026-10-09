@@ -266,13 +266,50 @@ VIES_SHORT = 1.047
 ALVO_SHORT = (41.5, 43.0)
 
 
-def alvo_short() -> tuple[float, float]:
+# A MIRA E POR CANAL quando o canal MEDIU que a mira global o prejudica.
+#
+# POR QUE ISTO EXISTE (09/10/2026, aprendizado 698). O 682 ficou pre-registrado
+# com um gatilho: se as pecas de mira nova do labtreinamento continuassem baixas
+# na janela de 12 h, desfazer a mira NESTE canal. O gatilho DISPAROU, e com
+# comparacao de IDADE CASADA, que e o que faltava nas leituras anteriores —
+# views lidas na janela de 9 a 21 h de vida, do proprio `metricas`:
+#
+#   mira antiga (32 a 38 s, cinco cenas, n=8)   20  21  34  48  60  68  173  196
+#                                               mediana 54, faixa 20-196
+#   mira nova   (40 a 42 s, cinco cenas, n=2)   18  9
+#
+# As DUAS pecas da mira nova caem ABAIXO DO MINIMO das oito antigas. Isso nao
+# depende da conta de poder do 693: sob a hipotese nula, uma peca cair abaixo do
+# minimo de oito tem probabilidade ~1/9, e as duas, ~1%. E a leitura esta com
+# idade casada, entao nao e o efeito (D).
+#
+# O QUE ISTO **NAO** DIZ: qual dos tres componentes da mira nova responde (mira
+# de duracao, kicker de inscricao no CTA, forma do titulo). O 682 ja dizia que
+# nao da para separar, e por isso o passo e desfazer o PACOTE neste canal e
+# voltar a mudar uma coisa so.
+#
+# POR QUE NAO MEXER NO `ALVO_SHORT` GLOBAL: o experimento 38 esta aberto nos
+# outros dois canais e lá a leitura de 12 h ainda nao existe. Mexer no global
+# apagaria o braco inteiro para consertar um canal. Override por canal preserva
+# os dois.
+ALVO_POR_CANAL = {
+    "labtreinamento": (33.0, 37.0),   # 682/698, idade casada
+}
+
+
+def alvo_short(canal: str | None = None) -> tuple[float, float]:
     """A faixa de estimativa que uma spec de short deve mirar.
 
     Nao e o teto. O teto e de `prontidao` e reprova; esta faixa e onde a peca
     aproveita o tempo que o teto permite. Quem escreve spec confere contra ela
     ANTES de rodar os portoes, que e onde iterar custa um ciclo de build.
+
+    **Passe o canal.** Sem canal devolve a mira da frota, que e o experimento
+    38; com canal devolve o override se o canal tiver um, e e o canal que manda,
+    porque a mira foi medida nele. Ver `ALVO_POR_CANAL` acima.
     """
+    if canal and canal in ALVO_POR_CANAL:
+        return ALVO_POR_CANAL[canal]
     return ALVO_SHORT
 
 
