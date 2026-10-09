@@ -74,3 +74,36 @@ Ou seja: **o 401 é INTERMITENTE, não depende do conjunto** — e é o mesmo mo
 falha que quebrou o `apontar_para_longo` às 18:16 (662). Regra: ler
 `status_code` de CADA requisição antes de somar itens; agregado esconde lote que
 falhou.
+
+---
+
+## Adendo de 09/10/2026 — TAG zero tem a MESMA armadilha que o P0D
+
+Aprendizado 672. Este documento existe porque eu tratava `P0D` como indexacao
+quando ja era defeito. O erro simetrico aconteceu com as TAGS, e no mesmo dia.
+
+A rotina mandava: *"se vier nulo ou 8, o passo falhou — refaca por `pg_net`"*.
+Apliquei ao `cBBYHdP5JYA` (`labtreinamento-s008`), lido com ~1 minuto de vida:
+
+| leitura | req | idade | tags |
+|---|---|---|---|
+| 1 | 716 | ~1 min | **0** |
+| 2 | 717 | ~2,5 min | **15** |
+
+Era a corrida de indexacao do 659. Se eu tivesse obedecido a rotina, teria
+reescrito o snippet de um video que estava **correto** — cometendo o 659 dentro
+da correcao do 662.
+
+**A regra passa a ser, e ela e simetrica a do P0D:**
+
+- **tag nula ANTES de 2 min nao decide nada.** Espere e releia. Nao escreva.
+- **tag nula DEPOIS de 2 min e falha** do passo: refaca por `pg_net` um PUT de
+  `part=snippet` com o snippet INTEIRO e as quinze tags.
+- **OITO tags em qualquer momento** e o defeito antigo do `[:8]` do
+  `publicar.py`, removido em 08/10. Se reaparecer, o codigo regrediu — conserte o
+  codigo, nao o video.
+
+A forma geral das duas regras e a mesma, e vale para qualquer campo que o
+`videos.list` sirva: **uma leitura jovem nao distingue "ainda nao indexou" de
+"nao existe". O que distingue e o RELOGIO, e so ele.** Sem um limiar de idade
+escrito, a leitura unica fabrica as duas conclusoes opostas com igual confianca.
