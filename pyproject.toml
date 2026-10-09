@@ -29,10 +29,19 @@ fabrica = ["cairosvg>=2.7"]
 # pacote. O Gemini virou rede de seguranca em 13/08/2026 — 20 requisicoes/dia
 # do free tier nao cabem seis pacotes diarios.
 gratuito = []
+# Maquina de prospeccao (src/prospeccao): outbound + agendamento de reunioes.
+# Projeto a parte, sem relacao com a pipeline de video acima.
+prospeccao = [
+    "fastapi>=0.111",
+    "uvicorn>=0.30",
+    "playwright>=1.45",
+    "python-multipart>=0.0.9",  # fastapi.Form() no web.py
+]
 
 [project.scripts]
 maquina = "maquina.cli:app"
 maquina-mcp = "maquina.mcp_server:main"
+prospectar = "prospeccao.cli:app"
 
 [build-system]
 requires = ["setuptools>=68"]
