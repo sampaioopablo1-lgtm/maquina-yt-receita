@@ -235,7 +235,14 @@ VIES_SHORT = 1.047
 # declarado com n=2. A leitura certa e CENTRO por voz mais ~2,7 pontos para cada
 # lado, e a LARGURA e parecida nas tres (~5 pontos de ponta a ponta):
 #
-#     centro pl  ~ +2,3     centro el  ~ -2,9     centro pt-BR  ~ -5
+#     centro pl  ~ +2,3     centro el  ~ -3,2     centro pt-BR  ~ -3,7
+#
+# TERCEIRO ponto pt-BR em 09/10 (labtreinamento-s010: 42,2 estimados, 40,63
+# reais, -3,7%). Os tres pt-BR sao -4,2, -3,1 e -3,7 — e o centro que eu tinha
+# escrito como ~-5 era alto em um ponto e meio, puxado por pontos antigos de
+# especs com cena de b-roll. Nos tres shorts soltos de b-roll ZERO a dispersao
+# pt-BR esta em UM ponto, nao cinco. Isso NAO vira faixa estreita no 679: tres
+# pontos num mesmo formato nao prometem o proximo formato.
 #
 # A conduta nao muda e a razao fica mais nitida: em pl mirar 43,0 daria real de
 # 43,6 a 46,3, e 46,3 ESTOURA os 45 — use o PISO em pl. Em el e pt-BR o TOPO
