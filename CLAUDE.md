@@ -290,6 +290,18 @@ Isso retrata os 1,32 e 0,95 por mil que eu usei o dia inteiro. **Canal com acerv
 anterior à máquina não tem normalização possível**, porque o numerador inclui
 plateia que a máquina não trouxe.
 
+**E o contador de canal NÃO é um instrumento uniforme** (aprendizado 703, `alto`,
+medido às 22:10): entre 18:10 e 22:10 o kolejny subiu **+291** e o labtreinamento
+**+358**, enquanto o epomeno ficou byte a byte igual pela **terceira** leitura
+seguida — 10:15, 18:10, 22:10, **doze horas** — e no mesmo intervalo as peças do
+epomeno somaram **+297** ao vivo (só o `ZxHWcfDNovM` indo de 445 a 724). Para o
+epomeno o contador de canal está **parado**, então não lhe dê crédito nem com 4 h
+de intervalo. O labtreinamento mostra o outro lado: canal +358 contra peças +78,
+isto é, o crescimento é do acervo anterior à máquina (668).
+
+Conversão às 22:15, com o denominador certo: epomeno 17/15.751 = **1,08 por mil**,
+kolejny 8/10.830 = **0,74**, labtreinamento **não normalizável**.
+
 ## Antes de citar número de aprendizado
 `select max(id) from aprendizados` no projeto **vevocauwtarctfwngrch**.
 O `APRENDIZADOS.md` do repo está desatualizado contra o banco.
