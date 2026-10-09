@@ -121,6 +121,34 @@ O longo converte ~5x melhor **por view** — o que contradiz "o longo deixou de
 ser alavanca". Amostra pequena e janela de uma coleta só: trate como o melhor
 dado disponível, não como conclusão.
 
+## A variância entre peças decide o que é mensurável — e condena views/peça
+
+**Aprendizado 693, `crítico`.** Dispersão medida DENTRO do mesmo tratamento e
+canal, só peças com ≥12 h e `processed`:
+
+| grupo | pisos | fator | CV |
+|---|---|---|---|
+| epomeno antigo | 218–445 | 2,0 | 0,48 |
+| kolejny antigo | 96–462 | **4,8** | 0,69 |
+| labtreinamento antigo | 41–162 | 4,0 | 0,79 |
+
+**CV médio 0,66.** Com 80% de poder e α 0,05, `n = 2(1,96+0,84)²CV²/d²`:
+
+| detectar | n por braço |
+|---|---|
+| 25% | **109** |
+| 50% | 28 |
+| 100% | 7 |
+
+**Views por peça é cego para qualquer efeito menor que o dobro.** Antes de dizer
+que um tratamento funcionou, calcule o n necessário a partir do CV do próprio
+grupo. Com CV 0,66, **uma peça lendo o dobro da mediana é normal, não sinal** —
+e isso retira a confiança de várias leituras que eu dei como fortes hoje.
+
+O caminho para decidir em tempo útil é **retenção**, medida por view e com
+variância muito menor que contagem de view. É o quarto argumento independente
+para o escopo de analytics.
+
 ## Antes de ler qualquer contador
 
 **Três leituras na mesma rodada, e o estimador é o MÁXIMO declarado como PISO,
