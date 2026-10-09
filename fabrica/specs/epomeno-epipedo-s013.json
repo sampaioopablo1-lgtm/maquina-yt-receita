@@ -1,0 +1,57 @@
+{
+ "slug": "epomeno-epipedo",
+ "pacote": "epomeno-epipedo-s013",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#12263A",
+  "c1": "#2A9D8F",
+  "c2": "#E8A33D",
+  "bg": "#F5F2EC"
+ },
+ "thumb": {
+  "l1": "Βάλε σε σειρά",
+  "l2": "τα δικά σου"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Ψάχνεις καλύτερο επιτόκιο",
+   "sub": "στη λάθος πλευρά",
+   "nar": "Ψάχνεις καλύτερο επιτόκιο για τις καταθέσεις σου, και την ίδια στιγμή κουβαλάς υπόλοιπο στην κάρτα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Δύο νούμερα",
+   "sub": "ίδια τράπεζα",
+   "nar": "Είναι δύο νούμερα από την ίδια τράπεζα, τον ίδιο μήνα, και αυτό που σου χρεώνουν είναι πολλαπλάσιο από αυτό που σου δίνουν.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Το ίδιο ευρώ",
+   "sub": "δύο αποτελέσματα",
+   "nar": "Το ευρώ που ρίχνεις στο ακριβότερο υπόλοιπο σου γλιτώνει το επιτόκιο εκείνου. Το ίδιο ευρώ στην κατάθεση κερδίζει μόνο το δικό της.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Βάλ' τα σε σειρά",
+   "sub": "από το ακριβότερο",
+   "nar": "Γράψε σε ένα χαρτί το επιτόκιο κάθε προϊόντος που έχεις και βάλ' τα σε σειρά, από το ακριβότερο. Αυτή η σειρά είναι όλη η στρατηγική.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Κάνε εγγραφή",
+   "sub": "για τα επόμενα",
+   "nar": "Δεν είναι επένδυση με ρίσκο, είναι αριθμητική. Κάνε εγγραφή για τα επόμενα, και οι τέσσερις κινήσεις είναι στο βίντεο.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "alZ97hpgqXo",
+ "copy": "# epomeno-epipedo-s013\n\n## TITULO\nΒάλε τα Επιτόκιά σου σε Σειρά: Η Μία Κίνηση που Αποφασίζει Πού Πάει το Επόμενο Ευρώ\n\n## TITULO SHORT\nΒάλε τα επιτόκιά σου σε σειρά\n\n## DESCRICAO\nΗ πιο συχνή κίνηση όταν κάποιος αποφασίζει να ασχοληθεί με τα οικονομικά του είναι να ψάξει καλύτερο επιτόκιο για τα λεφτά που έχει στην άκρη. Είναι λογική κίνηση και είναι, συνήθως, η λιγότερο αποδοτική από όσες έχει διαθέσιμες — γιατί γίνεται στη μία πλευρά του ισολογισμού του, ενώ το μεγάλο νούμερο κάθεται στην άλλη.\n\nΣτην ίδια τράπεζα, τον ίδιο μήνα, υπάρχουν δύο επιτόκια που σε αφορούν: αυτό που σου δίνουν για τα χρήματά σου και αυτό που σου χρεώνουν για τα χρήματα που χρωστάς. Το δεύτερο είναι πολλαπλάσιο του πρώτου, και αυτό δεν είναι ανωμαλία ούτε αδικία — είναι ο τρόπος που δουλεύει το προϊόν. Το χρήσιμο δεν είναι να διαμαρτυρηθείς γι' αυτό, είναι να το χρησιμοποιήσεις στη σειρά των αποφάσεών σου.\n\nΑπό εκεί βγαίνει η αριθμητική, και δεν χρειάζεται να πιστέψεις τίποτα για να τη δεις. Ένα ευρώ που ρίχνεις στο ακριβότερο υπόλοιπο που έχεις σου γλιτώνει, μέσα σε έναν χρόνο, το επιτόκιο εκείνου του υπολοίπου. Το ίδιο ευρώ, βαλμένο σε κατάθεση, κερδίζει το επιτόκιο της κατάθεσης. Δεν είναι επένδυση με ρίσκο και προοπτική· είναι σύγκριση δύο αριθμών που και οι δύο είναι γραμμένοι στα δικά σου χαρτιά.\n\nΗ κίνηση, λοιπόν, είναι μία και παίρνει λίγα λεπτά. Γράψε σε ένα χαρτί κάθε προϊόν που έχεις — κάρτα, δάνειο, κατάθεση — και δίπλα του το επιτόκιό του. Δεν χρειάζεται να τα αναζητήσεις πουθενά: είναι στο μηνιαίο εκκαθαριστικό της κάρτας και στη σύμβαση του δανείου. Μετά βάλ' τα σε σειρά, από το ακριβότερο στο φθηνότερο. Αυτή η σειρά είναι όλη η στρατηγική: το επόμενο ευρώ που περισσεύει πηγαίνει στην πρώτη γραμμή.\n\nΔεν γράφω εδώ κανένα ποσοστό, και είναι σκόπιμο: τα επιτόκια αλλάζουν κάθε μήνα, η σειρά όχι — και τα νούμερα που αποφασίζουν είναι τα δικά σου, όχι τα μέσα. Οι τέσσερις κινήσεις ολόκληρες, τι ΔΕΝ πηγαίνει σε προθεσμιακή, γιατί το απόθεμα για τα απρόοπτα μένει έξω, και τα τέσσερα λάθη που ακυρώνουν τη δουλειά — είναι στο πλήρες βίντεο.\n\n## COMENTARIO FIXADO\nΗ κίνηση σε τρία βήματα, για όποιον θέλει να το κάνει τώρα: ΕΝΑ, γράψε κάθε προϊόν που έχεις και δίπλα το επιτόκιό του — είναι στο εκκαθαριστικό της κάρτας και στη σύμβαση του δανείου, δεν χρειάζεται να ρωτήσεις κανέναν. ΔΥΟ, βάλ' τα σε σειρά από το ακριβότερο. ΤΡΙΑ, το επόμενο ευρώ που περισσεύει πάει στην πρώτη γραμμή. Το λάθος που κάνουν οι περισσότεροι δεν είναι λάθος λογαριασμού, είναι λάθος ΠΛΕΥΡΑΣ: ψάχνουν δέκατα στην κατάθεση ενώ το ακριβό νούμερο τρέχει στην κάρτα. Όποιος φτιάξει τη λίστα, ας γράψει στα σχόλια μόνο ποιο προϊόν βγήκε πρώτο — χωρίς ποσοστά και χωρίς ποσά.\n\n## HASHTAGS\n#Επιτόκια #ΠιστωτικήΚάρτα #ΕπόμενοΕπίπεδο\n\n## TAGS\nεπιτοκια, πιστωτικη καρτα, καταθεση, εξοφληση καρτας, σειρα προτεραιοτητας, προσωπικα οικονομικα, ελλαδα, εκκαθαριστικο καρτας, συμβαση δανειου, αριθμητικη, πως να, υπολοιπο, επομενο επιπεδο, νοικοκυριο, αποφαση\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO PERCENTUAL. Nao cita juro de cataderna,\nde cartao nem de aplicacao a prazo, nao cita a distancia entre eles e nao nomeia\no banco central. Conferido a mao campo por campo.\n\nA REGRA (g) MANDA, e com forca: todos esses sao juros de boletim MENSAL, e um\nshort com o numero deste mes fica errado no mes seguinte e continua no ar. E o\nargumento NAO PRECISA deles: \"o euro que poes no saldo mais caro poupa-te o juro\nDESSE saldo, e o mesmo euro na cataderna rende o juro DELA\" e verdadeiro\nqualquer que seja o par, e quem decide e o numero DO ESPECTADOR.\n\nUNICO NUMERAL NA NARRACAO: \"τέσσερις κινήσεις\", nome do capitulo do longo.\n\nO QUE O VIDEO AFIRMA: que o juro cobrado no cartao e multiplo do pago na\ncataderna na mesma banca; que por isso um euro aplicado ao saldo mais caro poupa\nmais do que o mesmo euro rende numa cataderna; e que a ordenacao dos proprios\njuros, do mais caro ao mais barato, e a estrategia inteira. Esta no longo\nepomeno-epipedo-005 (alZ97hpgqXo), capitulos \"Δύο νούμερα\" e \"Τέσσερις κινήσεις\".\n\nDESCARTADO, e vai escrito:\n  (1) todos os percentuais — boletim mensal, envelhecem a peca;\n  (2) a razao entre os dois juros, que muda com eles;\n  (3) a aplicacao a prazo e o aviso sobre o fundo de emergencia, que sao OUTRA\n      decisao e nao se empilham num short de uma conta so.\n\n## FONTES\nO longo de onde este short foi extraido (epomeno-epipedo-005, alZ97hpgqXo) traz\nas fontes. Este short nao introduz numero novo sobre o mundo.\n"
+}
