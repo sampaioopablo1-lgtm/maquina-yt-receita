@@ -317,3 +317,21 @@ runner com `publicar=false`; a publicação é pela ponte. O zip do artefato abr
 ## As travas que não se negociam
 Estão na rotina horária, e nenhuma delas muda por conveniência de uma rodada.
 A que mais custa esquecer: **não apague vídeo publicado sem o dono dizer.**
+
+## A madrugada não produz leitura
+
+**Aprendizado 706, `medio`, medido às 06:09 de 10/10.** O acervo inteiro da frota
+— **153 ids em quatro lotes, os quatro `200`** — andou assim entre 02:10 e 06:09:
+
+| canal | 02:10 | 06:09 | delta em 4 h |
+|---|---|---|---|
+| epomeno | 15.816 | **15.818** | **+2** |
+| kolejny | 10.843 | **10.824** | **−19** (oscilação do 650) |
+| labtreinamento | — | 4.542 | — |
+
+As 17 peças do dia 09/10 somaram **3.085**, byte a byte igual à leitura das 04:08,
+e só o `ZxHWcfDNovM` mudou (+1). Inscritos **17 / 8 / 67**, sem mudança desde
+22:15. **Delta dessa ordem é menor que a oscilação da própria peça**, então a
+janela da madrugada é cega por construção: rodada noturna é de medição e
+engenharia, **nunca de veredito**. Conversão com o denominador certo (697):
+epomeno **1,075 por mil**, kolejny **0,739**, labtreinamento não normalizável.
