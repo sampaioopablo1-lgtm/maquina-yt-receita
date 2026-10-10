@@ -351,3 +351,27 @@ gravou 830.
 2. **Cai a parte do 688 que dizia que a réplica fresca vem na TERCEIRA leitura.**
    Ela pode cair em qualquer uma, e a terceira pode voltar para a atrasada. O que
    sobrevive do 688 é só o estimador: **máximo como piso.**
+
+## A réplica atrasada é por CHAMADA, não por peça
+
+**Aprendizado 708, `alto`, medido às 08:08 de 10/10, e substitui o procedimento
+do 707.** As quatro peças que divergiram entre as três leituras divergiram com a
+**mesma forma — {alto, baixo, alto}**:
+
+| peça | leitura 1 | leitura 2 | leitura 3 |
+|---|---|---|---|
+| `ZxHWcfDNovM` | 833 | **830** | 833 |
+| `aT1y_jxUejM` | 91 | **90** | 91 |
+| `cBBYHdP5JYA` | 23 | **22** | 23 |
+| `JEnKrpgLJ0A` | 22 | **21** | 22 |
+
+As outras dezesseis vieram idênticas nas três. A leitura 2 caiu **inteira** numa
+réplica atrasada: **a réplica é da CHAMADA, não de cada id.**
+
+**Procedimento, e é mais simples que o do 707:** compare a **soma** das três
+chamadas, escolha a de soma máxima e chame `grava_metricas_janela` nessa **uma**
+(um statement, pelo 702). Não cace o máximo peça por peça.
+
+**E isto enterra de vez a "terceira leitura" do 688:** a réplica fresca foi a
+terceira em 09/10, a segunda às 07:09 e a primeira e a terceira às 08:08. A ordem
+não tem regra; só o estimador sobrevive — **máximo como piso.**
