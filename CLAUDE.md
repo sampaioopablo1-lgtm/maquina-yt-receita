@@ -335,3 +335,19 @@ e só o `ZxHWcfDNovM` mudou (+1). Inscritos **17 / 8 / 67**, sem mudança desde
 janela da madrugada é cega por construção: rodada noturna é de medição e
 engenharia, **nunca de veredito**. Conversão com o denominador certo (697):
 epomeno **1,075 por mil**, kolejny **0,739**, labtreinamento não normalizável.
+
+## `grava_metricas_janela` grava a réplica DAQUELA chamada, não o máximo
+
+**Aprendizado 707, `alto`, medido às 07:09 de 10/10, e retrata parte do 688.**
+O estimador é o **máximo** das três leituras (688), mas a gravação recebe **um**
+`req_id`: se o máximo caiu em outra leitura, a tabela guarda a réplica atrasada e
+**subestima para sempre**. No `ZxHWcfDNovM` as três leituras deram
+**830, 833, 830** — o máximo caiu na **segunda**, e o `grava_metricas_janela(901)`
+gravou 830.
+
+**Duas consequências:**
+1. **Descubra qual `req` tem o máximo ANTES de gravar, e grave esse** (em
+   statement próprio, pelo 702).
+2. **Cai a parte do 688 que dizia que a réplica fresca vem na TERCEIRA leitura.**
+   Ela pode cair em qualquer uma, e a terceira pode voltar para a atrasada. O que
+   sobrevive do 688 é só o estimador: **máximo como piso.**
