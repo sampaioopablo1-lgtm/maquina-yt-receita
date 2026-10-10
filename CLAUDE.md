@@ -294,9 +294,12 @@ plateia que a máquina não trouxe.
 medido às 22:10): entre 18:10 e 22:10 o kolejny subiu **+291** e o labtreinamento
 **+358**, enquanto o epomeno ficou byte a byte igual pela **terceira** leitura
 seguida — 10:15, 18:10, 22:10, **doze horas** — e no mesmo intervalo as peças do
-epomeno somaram **+297** ao vivo (só o `ZxHWcfDNovM` indo de 445 a 724). Para o
-epomeno o contador de canal está **parado**, então não lhe dê crédito nem com 4 h
-de intervalo. O labtreinamento mostra o outro lado: canal +358 contra peças +78,
+epomeno somaram **+297** ao vivo (só o `ZxHWcfDNovM` indo de 445 a 724). **CORREÇÃO, às 02:10 (aprendizado 705):** o contador do epomeno **não estava
+parado** — ele saltou de 12.152 para **12.935** (+783) de uma vez, um degrau de
+~12 h. E a leitura se inverteu: agora foram kolejny e labtreinamento que vieram
+byte a byte idênticos. **Cada canal tem o seu degrau e a sua fase, e o degrau
+pode passar de 12 h**, então o contador de canal não serve de denominador nem
+para declarar canal morto. O labtreinamento mostra o outro lado: canal +358 contra peças +78,
 isto é, o crescimento é do acervo anterior à máquina (668).
 
 Conversão às 22:15, com o denominador certo: epomeno 17/15.751 = **1,08 por mil**,
