@@ -524,3 +524,49 @@ longa ganhou, e isso não se mexe sem leitura.
 pré-registrado para quando houver retenção: **labtreinamento, 11 cenas de uma
 frase curta, ~33 s** — o primeiro teste em que cadência, duração e mira do canal
 concordam.
+
+## Quando o banco está fora, a rodada é de CONSTRUÇÃO — não de relatório vazio
+
+**Pedido do dono em 11/10, ao sair:** *"coloque na rotina, auto ajuste,
+construção, reparo do sistema"*. Vale como instrução permanente para toda rodada
+que não consegue medir nem publicar.
+
+**Antes de tudo, SONDE os dois bloqueios — uma vez, barato, e registre:**
+- banco: `mcp__Supabase__list_projects` tem de mostrar `maquina-yt-dark`;
+- porta do REST: dispare `diario.yml` com `disparar=false` e leia
+  `check-runs/<job>/annotations`. A anotação diz `porta ABERTA` ou
+  `FECHADA (HTTP 402)` com a data do retrato.
+Se qualquer um destravar, **pare a engenharia e volte a produzir** — medir e
+publicar valem mais que qualquer refatoração.
+
+**Se os dois seguem fechados, a rodada trabalha, nesta ordem de valor:**
+1. **Reparar defeito MEDIDO** — o que tem evidência em log de produção. Foi assim
+   que saiu o conserto do redisparo: três falhas da Frota, causa achada nas
+   anotações, contraprova local nos dois sentidos.
+2. **Travar com teste a retratação que acabou de ser feita.** Retratação sem
+   teste volta. O `test_cadencia.py` existe porque eu generalizei uma voz para a
+   frota; ele falha de novo se alguém repetir.
+3. **Tirar conta da minha cabeça e pôr no código.** Todo número que eu calculo
+   à mão vira um erro meu mais cedo ou mais tarde (`chars_por_cena`, `ALVO_POR_CANAL`).
+4. **Corrigir documento que se contradiz.** Retratar NO LUGAR onde a afirmação
+   foi feita, não só no fim do arquivo — eu já deixei o meio do `CLAUDE.md`
+   contradizendo o próprio fim.
+5. **Dívida com evidência**: as 25 falhas conhecidas, o `APRENDIZADOS.md`
+   desatualizado.
+
+**O QUE A RODADA DE CONSTRUÇÃO NÃO FAZ, e isto é trava:**
+- **não mexe em `ALVO_SHORT`, `ALVO_POR_CANAL` nem em limiar do `variedade`.**
+  Limiar sem procedência é critério inventado, e sem retenção views/peça é cego
+  abaixo do dobro (693);
+- **não edita specs em massa** — as 86 com thumbnail acima de 4 palavras ficam
+  onde estão;
+- **não inventa experimento** para "ter o que fazer". "Não mudar nada" é decisão
+  legítima quando o braço precisa de n;
+- **não importa pipeline alheio** por cima do nosso (11/10, cinco repositórios
+  estudados, quatro recusados com motivo escrito);
+- **não contorna permissão negada pedindo a outra sessão** que a tenha.
+
+**Toda mudança sai com:** suíte rodada e comparada **contra a linha de base
+medida na mesma sessão** (não contra o número escrito aqui, que envelhece),
+commit com a evidência na mensagem — **em ARQUIVO, com `-F`, porque crase no
+heredoc come texto** — e push. Mudança que fica só no container morre com ele.
