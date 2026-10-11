@@ -461,11 +461,39 @@ def ensaia(spec_caminho: str) -> dict:
     }
 
 
+def plano_de_cadencia(n_cenas: int, total_s: float) -> str:
+    """Tabela de caracteres por cena, por voz da frota, para um esqueleto.
+
+    Existe para que quem escreve spec NAO precise refazer a aritmetica a mao —
+    foi fazendo essa conta de cabeca que eu generalizei a voz polonesa para a
+    frota inteira e registrei um "~1,9 s fixos por cena" que nao existe.
+    """
+    linhas = [f"esqueleto: {n_cenas} cenas em {total_s:.1f}s  "
+              f"-> {total_s / n_cenas:.2f}s por plano",
+              "(UMA frase curta por cena: cena com duas frases paga 2P)",
+              "",
+              f"{'voz':34}{'P':>7}{'chars/cena':>12}"]
+    for voz in sorted(MODELO_VOZ):
+        _, P = MODELO_VOZ[voz]
+        linhas.append(f"{voz:34}{P:7.3f}{chars_por_cena(voz, n_cenas, total_s):12d}")
+    return "\n".join(linhas)
+
+
 def main() -> int:
     alvos = sys.argv[1:]
     if not alvos:
         print(__doc__.strip().splitlines()[-1])
         return 2
+
+    # `cadencia` e um modo de CONSULTA, nao de ensaio: nao renderiza nada e nao
+    # toca em /tmp. Fica aqui, e nao num script novo, porque o modelo de voz
+    # mora neste modulo e separar os dois foi o que deixou a conta na minha
+    # cabeca em vez de no codigo.
+    if alvos[0] == "cadencia":
+        n = int(alvos[1]) if len(alvos) > 1 else 11
+        total = float(alvos[2]) if len(alvos) > 2 else 33.0
+        print(plano_de_cadencia(n, total))
+        return 0
 
     n = trilhas_falsas("/tmp/trilhas")
     print(f"trilhas para o ensaio: {n} faixas em /tmp/trilhas (silencio)\n")

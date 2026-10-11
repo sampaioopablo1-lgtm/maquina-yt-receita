@@ -49,3 +49,20 @@ def test_sao_n_menos_um_intervalos():
 def test_cena_impossivel_devolve_zero_em_vez_de_negativo():
     """Pedir cadencia abaixo do proprio silencio da voz nao pode virar texto."""
     assert E.chars_por_cena(PL, 40, 10.0) == 0
+
+
+def test_o_modo_cadencia_nao_renderiza_e_cobre_a_frota():
+    """`ensaio.py cadencia` e consulta: devolve a tabela, sem tocar em /tmp.
+
+    Cobre as tres vozes da frota porque o erro que esta funcao existe para
+    impedir foi justamente usar UMA voz como se fosse de todas.
+    """
+    texto = E.plano_de_cadencia(11, 33.0)
+    assert "3.00s por plano" in texto
+    for voz in (PT, PL, "el-GR-NestorasNeural"):
+        assert voz in texto
+    # a linha do polones tem de mostrar MENOS caracteres que a do pt-BR
+    def chars(v):
+        linha = next(l for l in texto.splitlines() if l.startswith(v))
+        return int(linha.split()[-1])
+    assert chars(PL) < chars(PT)

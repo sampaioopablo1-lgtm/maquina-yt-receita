@@ -437,12 +437,16 @@ novo sobre o mundo — e isso vai dito, com o id do longo. Respeite `robots=noai
   FAIXA DE IDADE**, lendo a janela do próprio `metricas`; piso atual de peças de
   idades diferentes é o efeito (D) e viciou as minhas leituras do labtreinamento.
 - **ESQUELETO DO SHORT SOLTO: DEZ A ONZE CENAS, mantendo a duração total**
-  (experimento 40). **Onze é o TETO REAL e isso é medido:** há **~1,9 s fixos por
-  cena** no `ensaio` (12 cenas de um caractere já somam 21,9 s), então doze cenas
-  gastariam 22 s só em padding e estourariam o teto de 43,1. **Ponto de
-  equilíbrio: 10 cenas de ~40 caracteres, ou 11 de ~34.** Eu escrevi "dez a
-  CATORZE" nesta mesma rotina sem conferir a sobrecarga, e tive de corrigir na
-  mesma manhã. O esqueleto novo quebra o `39 de 39` idêntico de propósito.
+  (experimento 40). **Onze é o TETO REAL**: doze cenas estouram o teto de 43,1 só
+  em silêncio. Eu escrevi "dez a CATORZE" nesta mesma rotina sem conferir a
+  sobrecarga, e tive de corrigir na mesma manhã.
+  **E CORRIJO DE NOVO em 11/10, o número que eu pus na primeira correção:** não
+  há "~1,9 s fixos por cena". A sobrecarga é `P + 0,300` e **P é por VOZ e por
+  FRASE** — 1,04 s no pt-BR, 1,57 s no grego, 1,72 s no polonês; os 1,9 s eram a
+  voz POLONESA generalizada para a frota, o mesmo erro do 679/698. **Não decore
+  ponto de equilíbrio: use `chars_por_cena(voz, n_cenas, total_s)` de
+  `fabrica/ensaio.py`**, que já conta os `n-1` intervalos. Uma frase curta por
+  cena, porque cena com duas frases paga 2P. O esqueleto novo quebra o `39 de 39` idêntico de propósito.
   **Experimento 40 ainda sem leitura:** na janela de 4 a 8 h do kolejny, dez cenas
   (83, 117, 209) contra cinco (115) — n=1 de um lado.
 - **`prontidao.py <spec.json>`: DOZE portões, ONZE no short solto** (o `capitulos`

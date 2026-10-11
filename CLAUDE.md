@@ -36,10 +36,17 @@ de propósito: ritmo e esqueleto são a mesma mudança de forma, e com a forma n
 o aviso do portão `variedade` para de aparecer.
 
 **CORREÇÃO, e é de uma regra que eu escrevi nesta mesma manhã:** eu havia posto
-"dez a CATORZE" sem conferir a sobrecarga. Há **~1,9 s fixos por cena** no
-`ensaio` (medido: 12 cenas de um caractere já somam 21,9 s). Doze cenas gastariam
-22 s só em padding e estourariam o teto de 43,1. O teto real no alvo atual é
-**onze**, e o ponto de equilíbrio é **10 cenas de ~40 caracteres** ou 11 de ~34.
+"dez a CATORZE" sem conferir a sobrecarga. Doze cenas estourariam o teto de 43,1
+só em silêncio, então o teto real no alvo atual é **onze**.
+
+**SEGUNDA CORREÇÃO, de 11/10, e é do número que eu pus aqui:** eu escrevi
+"~1,9 s fixos por cena" e usei isso como se fosse da frota. **Não é fixo e não é
+da frota** — a sobrecarga é `P + 0,300`, e **P é por VOZ e por FRASE**: 1,04 s no
+pt-BR, 1,57 s no grego, 1,72 s no polonês. Os 1,9 s eram a voz polonesa, a de
+maior P, generalizada para todos — o mesmo erro do 679 e do 698. O ponto de
+equilíbrio também não é um número só: use **`chars_por_cena(voz, n, total)`** de
+`fabrica/ensaio.py`, que faz a conta com os `n-1` intervalos. Ver a seção
+"A sobrecarga por cena é POR VOZ" no fim deste arquivo.
 O `kolejny-poziom-s015` saiu com 10 cenas, 41,8 est, **4,18 s por plano** contra
 8,3 e **20 falas de legenda** contra 5.
 
