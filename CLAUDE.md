@@ -449,6 +449,39 @@ dia. A virada chega com o mesmo 3,7 GB lá dentro.
    anotação como evidência fresca é o efeito do §3.8 — portão verde fabrica
    "está tudo certo".
 
+## A publicação sem banco: o código existe, o SEGREDO está vazio — medido
+
+**11/10, run `38137596808`, e isto corrige duas afirmações minhas.** O dono
+pediu para tirar a dependência da reconexão manual. Medido antes de propor:
+
+1. **O 403 na API de secrets é do PROXY, não de permissão.** A mensagem literal
+   é `"Access to this GitHub Actions path is not permitted through this proxy"`,
+   e ela repete com **`admin: true`** no repo. Minha pendência dizia só "403 em
+   `actions/secrets/public-key`", o que sugeria que credencial melhor resolveria.
+   **Não resolve, e nunca ia.**
+2. **Não existe ponte de Postgres DIRETO** no repo — nenhum `5432`, pooler ou
+   `psycopg`. O 402 é do *gateway*, então conexão direta o contornaria em teoria,
+   mas ela não foi construída e a senha do banco não está ao meu alcance.
+3. **A rota sem banco JÁ EXISTE e está completa** (`retomar.yml`): o segredo
+   `YT_OAUTH_JSON` guarda `{canal: {client_id, client_secret, refresh_token}}` e
+   o runner refresca o access token direto no Google, sem Supabase.
+
+**E a sonda provou que os quatro segredos estão VAZIOS** —
+`YT_OAUTH_JSON` e os três `YT_TOKEN_*`, todos com **0 chars** no runner. Logo
+**não falta código, falta CREDENCIAL**, e nenhuma engenharia inventa um token do
+Google.
+
+**O instrumento ficou:** `fabrica/sonda_oauth.py` + `sonda-oauth.yml` dizem,
+canal por canal, se o refresh vive e quais escopos vieram — **sem imprimir
+refresh token, client_secret nem access token**. Rode depois de qualquer
+colagem, em vez de supor.
+
+**O caminho mínimo para o dono está em `docs/destravar-sem-reconexao.md`:** UMA
+colagem de `YT_OAUTH_JSON`, com a consulta pronta para o SQL Editor do Supabase
+(que **não passa pelo conector nem pelo REST**, então o 402 não atrapalha). Isso
+mata a ponte e tira o Supabase do caminho da publicação. **Reconectar o conector
+é a PIOR das três opções** — devolve o banco mas deixa a ponte e o 402 de pé.
+
 ## O 402 fecha a porta PARA O RUNNER TAMBÉM
 
 **Medido em 11/10**, anotação literal do `diario.yml`:
