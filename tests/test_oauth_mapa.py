@@ -89,3 +89,22 @@ def test_o_retomar_tambem_desembrulha():
     texto = yml.read_text()
     assert "mapa = json.load(sys.stdin)" in texto
     assert "cfg = mapa['$CANAL']" in texto
+
+
+def test_o_retomar_NAO_escapa_o_cifrao_do_ACC():
+    """`\\$ACC` e literal em shell, e isso deixou o token VAZIO em producao.
+
+    Run 38175625236, 11/10/2026: a sonda aprovava os tres canais, o refresh
+    rodava, e mesmo assim o publicar.py falhava — porque o output do passo saia
+    com o TEXTO "$ACC". O sintoma foi "Can't add secret mask for empty string".
+    O defeito sobreviveu desde que a rota nasceu porque o segredo estava vazio:
+    nunca se chegou a exercitar esta linha.
+    """
+    from pathlib import Path
+
+    yml = (Path(__file__).resolve().parents[1]
+           / ".github/workflows/retomar.yml").read_text()
+    corpo = "\n".join(l for l in yml.splitlines() if not l.strip().startswith("#"))
+    assert 'echo "acc=$ACC" >> "$GITHUB_OUTPUT"' in corpo
+    assert "\\$ACC" not in corpo
+    assert "\\$GITHUB_OUTPUT" not in corpo

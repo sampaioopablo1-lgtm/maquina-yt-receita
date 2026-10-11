@@ -138,9 +138,15 @@ jobs:
               sys.exit('concessao sem youtube.force-ssl: o longo subiria sem legenda')
           print(r['access_token'])
           ")
-          echo "::add-mask::\$ACC"
-          echo "acc=\$ACC" >> "\$GITHUB_OUTPUT"
-          echo "token refrescado no runner: \$(printf %s "\$ACC" | wc -c) chars"
+          # SEM barra invertida antes do $. Ela estava aqui desde que esta
+          # rota nasceu e NUNCA foi exercitada, porque o segredo estava vazio:
+          # `\$ACC` e literal em shell, entao o output saia com o texto "$ACC",
+          # o `steps.tok.outputs.acc` chegava VAZIO no passo de publicar, e o
+          # sintoma era "Can't add secret mask for empty string" seguido de
+          # falha do publicar.py. Medido no run 38175625236, 11/10/2026.
+          echo "::add-mask::$ACC"
+          echo "acc=$ACC" >> "$GITHUB_OUTPUT"
+          echo "token refrescado no runner: $(printf %s "$ACC" | wc -c) chars"
 
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
