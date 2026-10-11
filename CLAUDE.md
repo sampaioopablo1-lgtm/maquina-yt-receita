@@ -375,3 +375,69 @@ chamadas, escolha a de soma máxima e chame `grava_metricas_janela` nessa **uma*
 **E isto enterra de vez a "terceira leitura" do 688:** a réplica fresca foi a
 terceira em 09/10, a segunda às 07:09 e a primeira e a terceira às 08:08. A ordem
 não tem regra; só o estimador sobrevive — **máximo como piso.**
+
+## A credencial do GitHub ENTRA em sessão rodando — eu afirmei o contrário o dia todo
+
+**Aprendizado de 11/10, e é uma RETRATAÇÃO minha.** Eu escrevi aqui e na rotina
+que "reconectar no claude.ai NÃO entra numa sessão já rodando; isso pede sessão
+nova", e repeti isso ao dono em várias rodadas. **É falso.** Às 02:40 de 11/10,
+depois de o dono instalar o Claude GitHub App na conta `sampaioopablo1-lgtm`
+(pelo link **"Instalar em outra conta"**, sem desvincular nada), esta mesma
+sessão passou de `imobjazz-eng`/`push: false` para `sampaioopablo1-lgtm`/
+`push: true` e o `git push` funcionou — sem sessão nova.
+
+**O erro de raciocínio:** eu tratei "ficou vinte horas em 403" como prova de que
+a credencial nunca atualiza. Era prova apenas de que ela não atualiza **enquanto
+ninguém reconecta**. Ausência de mudança não é impossibilidade de mudança.
+
+**E o caminho certo não é desvincular:** o bloco *Claude GitHub App* aceita
+**várias contas instaladas ao mesmo tempo**. Instalar na segunda conta não tira
+nada da primeira. Foi o dono quem viu isso na tela e perguntou; eu vinha pedindo
+troca de conta, que era pior e desnecessário.
+
+**O que continua valendo:** o `mcp__github__*` NÃO se recupera — segue com
+`invalid session` depois da troca, e aí a leitura de log de job precisa de outra
+rota (ver abaixo).
+
+## Para ler um job quando o MCP está fora: ANOTAÇÕES
+
+`gh` recusa redirecionamento entre hosts, e o resumo do job (`STEP_SUMMARY`) não
+sai pela API. Mas os `::warning::` e `::notice::` saem, pela própria api.github.com:
+
+    gh api repos/<owner>/<repo>/check-runs/<job_id>/annotations
+
+Foi assim que eu li o ciclo de 02:43 de 11/10 inteiro sem o MCP.
+
+## O 402 fecha a porta PARA O RUNNER TAMBÉM
+
+**Medido em 11/10**, anotação literal do `diario.yml`:
+`porta FECHADA (HTTP 402) — rodando pelo retrato de fabrica/ponte/, gerado em
+2026-10-06`. Eu ia construir um workflow de medição aproveitando
+`SUPABASE_SERVICE_ROLE_KEY` do runner, **e não adianta**: o `402` é da
+organização e alcança o runner igual. A restrição de cobrança da org pessoal é o
+gargalo único — ela bloqueia o REST, bloqueia o runner, e em 11/10 bloqueou até a
+**transferência do projeto** para outra org ("can't be transferred to a Free
+organization while the source organization is in an active grace period").
+
+## O redisparo de pacote já publicado — consertado e verificado em produção
+
+**Causa:** o orquestrador lia duplicata só da lista `videos`, que com a porta
+fechada é o retrato de **06/10** — cego para o que foi publicado a partir de
+07/10. O `prontidao` lia do `corpus_publicados.json`, atualizado a cada
+publicação. **Duas fontes discordantes:** o portão pegava, o orquestrador não, e
+a Frota morria todo ciclo com `kolejny-poziom-016`, `labtreinamento-010` e
+`epomeno-epipedo-015` — 19:27, 22:49 e 01:27.
+
+**Conserto:** `titulos_do_corpus()` entra por parâmetro `titulos_extra` em
+`estado`/`proximo`/`relatorio`, ligado pelo `main`. `titulos_no_ar` continua
+PURA — embutir a leitura nela quebrou quatro testes, incluindo fazer o teste do
+token morto nunca alcançar o motivo do token.
+
+**Verificação em produção:** ciclo `4ba1a12` às 02:43 devolveu **"Nenhum pacote
+pronto"**, contra o `526255e` de 01:27 que disparou a Frota para a falha.
+Confundidor declarado: eu disparei com `disparar=false`, então o que prova é a
+anotação da matriz, não a ausência do run da Frota.
+
+**Fora do escopo, medido:** **86 das 183 specs (47%)** passam de 4 palavras na
+thumbnail. O molde histórico viola o portão `variedade` em metade dos casos —
+spec nova não deve se espelhar nele.
