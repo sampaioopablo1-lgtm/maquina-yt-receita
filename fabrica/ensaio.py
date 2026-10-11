@@ -186,6 +186,49 @@ def duracao_cena(nar: str, voz: str) -> float:
 GAP_CENA_S = 0.300
 
 
+def chars_por_cena(voz: str, n_cenas: int, total_s: float) -> int:
+    """Caracteres por cena para um short de `n_cenas` caber em `total_s`.
+
+    Assume UMA FRASE por cena, e isso nao e detalhe: o termo `P` do
+    `MODELO_VOZ` e silencio por FRASE, nao por cena — cena com duas frases paga
+    2P. Uma frase curta por cena e o que minimiza a sobrecarga.
+
+    POR QUE ISTO EXISTE (11/10/2026, e retrata um numero meu). Eu havia escrito
+    no CLAUDE.md que ha "~1,9 s fixos por cena" e usei isso para declarar que
+    doze cenas estourariam o teto. **Nao ha numero fixo da frota:** a sobrecarga
+    e `P + GAP`, e P e POR VOZ — 0,737 no pt-BR, 1,273 no grego, 1,419 no
+    polones. Os 1,9 s eram a voz POLONESA, a de maior P, generalizada para
+    todos. E o mesmo erro do 679 e do 698: tratar como da frota o que e por voz
+    e por canal.
+
+    A conta, com os `n-1` intervalos que o `GAP_CENA_S` ja explica:
+
+        total = n * (chars/R + P) + (n-1) * GAP
+
+    Serve para desenhar spec contra uma CADENCIA alvo em vez de contra um
+    palpite: `total_s / n_cenas` e o segundo por plano. A leitura externa de
+    11/10 (shorts-playbook, procedencia mista) pede ~3 s por plano, e nos
+    medimos pela fisica do 690 que a alavanca e a duracao da cena — as duas
+    apontam junto. Com 11 cenas isso da 33 s, que cai DENTRO do override medido
+    do labtreinamento (33,0 a 37,0).
+
+    Devolve o piso inteiro: o portao `duracao` recusa acima de 43,1, entao
+    arredondar para baixo e o lado seguro do erro.
+
+    O numero e o `len` da LINHA INTEIRA, pontuacao inclusa — e assim que o
+    `duracao_cena` conta. Escrever o limite e depois somar o ponto final
+    estoura por um caractere em cada cena, que em onze cenas vira meio segundo.
+    """
+    if n_cenas < 1:
+        raise ValueError("n_cenas tem de ser >= 1")
+    R, P = MODELO_VOZ[voz]
+    por_cena = (total_s - (n_cenas - 1) * GAP_CENA_S) / n_cenas
+    fala = por_cena - P
+    if fala <= 0:
+        return 0
+    return int(fala * R)
+
+
 def duracao_estimada(cenas, voz: str) -> float:
     """Duracao do video montado: a fala de cada cena mais os intervalos."""
     return (sum(duracao_cena(c.get("nar", ""), voz) for c in cenas)
