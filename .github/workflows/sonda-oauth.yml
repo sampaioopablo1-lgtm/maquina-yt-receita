@@ -1,0 +1,37 @@
+name: Sonda — o runner publica sem o Supabase?
+
+# A pergunta que decidia se a maquina depende de uma reconexao manual do
+# conector Supabase. O repo JA tem a rota sem banco (`YT_OAUTH_JSON`, ver
+# `retomar.yml`): o runner refresca o access token direto no Google. Faltava
+# saber se o segredo esta preenchido e se o refresh token ainda vive — eles
+# morriam de sete em sete dias (303).
+#
+# NAO publica, NAO apaga, NAO altera video, e NAO imprime segredo. So presenca,
+# contagem de caracteres e o ESCOPO concedido, que nao e segredo. Ver o
+# docstring de `fabrica/sonda_oauth.py`.
+#
+# Sai sempre VERDE de proposito: "o segredo nao existe" e resposta, nao falha de
+# infraestrutura, e vermelho recorrente deixa de ser sinal.
+
+on:
+  workflow_dispatch:
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  sondar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - name: Sondar a rota sem banco
+        env:
+          YT_OAUTH_JSON: ${{ secrets.YT_OAUTH_JSON }}
+          YT_TOKEN_LABTREINAMENTO: ${{ secrets.YT_TOKEN_LABTREINAMENTO }}
+          YT_TOKEN_EPOMENO_EPIPEDO: ${{ secrets.YT_TOKEN_EPOMENO_EPIPEDO }}
+          YT_TOKEN_KOLEJNY_POZIOM: ${{ secrets.YT_TOKEN_KOLEJNY_POZIOM }}
+        run: python3 fabrica/sonda_oauth.py
