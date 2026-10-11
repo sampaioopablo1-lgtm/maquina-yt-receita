@@ -570,3 +570,59 @@ publicar valem mais que qualquer refatoração.
 medida na mesma sessão** (não contra o número escrito aqui, que envelhece),
 commit com a evidência na mensagem — **em ARQUIVO, com `-F`, porque crase no
 heredoc come texto** — e push. Mudança que fica só no container morre com ele.
+
+## O teto automático é 1 peça/dia/canal — e contradiz os 7/dia que o dono pede
+
+**Medido em 11/10, lendo o código, e isto responde "quantos vídeos por dia".**
+
+`orquestra.MAX_POR_DIA_POR_CANAL` é **2** pacotes, mas `TETO_POR_CANAL`
+sobrescreve os três canais da frota para **1**. E o teto conta pela chave
+`pacote` **ou o slug sem `-short`** (`pacotes_na_janela`), então **short solto
+também consome uma unidade**. Logo o disparo automático está limitado a **uma
+peça por canal por dia — três na frota inteira**, contra as 7/dia/canal que o
+dono pede desde o começo.
+
+**Por que isso não apareceu antes:** a **ponte manual não consulta o teto** —
+`conduz.py` e `publicar.py` não mencionam `teto_do_canal`. Foi assim que o dia
+09/10 fechou com ~14 peças com o teto em 1. O teto governa só o caminho
+automático, que é justamente o que volta quando a porta do Supabase reabrir.
+
+**E o próprio comentário do `TETO_POR_CANAL` já previa a revisão, com a condição
+cumprida:** ele diz que o alvo real é *"7 SHORTS/dia por canal com um longo/dia
+só no labtreinamento"*, que o teto de pacote precisava ser baixo **"enquanto o
+SHORT SOLTO não existir"**, e que **"quando ele existir, estes números deixam de
+governar o ritmo"**. O short solto existe (spec com `longo: []`, `SO_SHORT` em
+`etapas.py`). **A condição foi cumprida e o número não foi revisitado.**
+
+**NÃO mexi no teto**, e o motivo é a trava da seção anterior: é parâmetro de
+produção, e o comentário dele carrega medição contrária que continua válida —
+nove de treze longos com zero view, o `captions.insert` comendo ~400 das ~500
+unidades de cota por pacote, e risco de spam não medido num canal de poucos
+inscritos. **Subir isso é decisão do dono**, e tem uma forma barata que respeita
+as duas coisas: subir o teto **só para short solto**, deixando o longo em 1/dia —
+que é literalmente o alvo escrito no comentário.
+
+**E o teste já reclamava disso o tempo todo:** `test_orquestra` diz
+`labtreinamento esta no TETO_POR_CANAL com 1, que nao e maior que o teto geral 2
+— entrada inutil ou erro`. Ele estava certo, estava contado entre "as 25
+conhecidas", e ninguém leu o que ele dizia.
+
+## As 25 falhas da suíte NÃO são o que eu escrevi aqui
+
+**Retratação de 11/10.** Eu descrevi a linha de base como "specs já publicadas
+que o `prontidao` recusa por título duplicado, e fonte Devanagari ausente".
+**Medido, a composição é outra:**
+
+- **15** de `test_narracao_das_specs` — specs que *"sairiam da matriz caladas"*,
+  por **números demais numa frase** e por **capítulo sem margem** (63–64 s contra
+  o piso de 60 s). A maioria é de canal parado, mas há três do epomeno
+  (`-008`, `-009`, `-010`) e uma do labtreinamento (`-005`);
+- **3** de `test_thumbnail_legivel`, **3** de `test_prontidao`;
+- **1** do teto por canal (acima), **1** de acentuação turca, **1** de
+  `ortografia`, **1** de `autor`, **1** de `confere_broll`.
+
+**O remédio que o próprio teste prescreve não é silenciar:** ele existe para que
+*"spec parada que ninguém sabe"* apareça, e aceita o inventário `PARADAS` com o
+motivo escrito. Não preenchi o inventário nesta rodada porque isso são quinze
+julgamentos, um por spec, e três delas são de canal da frota — merece decisão,
+não varredura.
