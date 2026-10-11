@@ -1,0 +1,35 @@
+name: Medir — view e inscrito da frota, sem Supabase
+
+# POR QUE ISTO EXISTE (11/10/2026). Medir dependia do banco por UM motivo: o
+# token OAuth morava em `config.yt_token_<canal>`, atras do 402 da organizacao.
+# Com o segredo `YT_OAUTH_JSON` preenchido, o token nasce no runner — foi assim
+# que o epomeno-epipedo-s016 subiu as 21:17 — e LER a API volta a ser possivel
+# com o gateway fechado. GRAVAR em `metricas` continua fora; por isso o numero
+# sai nas ANOTACOES, que e a rota de leitura que sobrou quando o MCP cai.
+#
+# NAO publica, NAO apaga, NAO altera video, e NAO imprime segredo. Ver o
+# docstring de `fabrica/medir.py` para as regras medidas que ele obedece
+# (688, 708, 665, 697/668).
+#
+# Sai sempre VERDE de proposito: canal sem leitura e resposta, nao falha de
+# infraestrutura, e vermelho recorrente deixa de ser sinal.
+
+on:
+  workflow_dispatch:
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  medir:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - name: Ler a frota
+        env:
+          YT_OAUTH_JSON: ${{ secrets.YT_OAUTH_JSON }}
+        run: python3 fabrica/medir.py
