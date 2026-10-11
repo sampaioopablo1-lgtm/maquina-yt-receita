@@ -303,9 +303,48 @@ def publicados_por_pacote(videos: list[dict]) -> set[str]:
 
 
 def titulos_no_ar(videos: list[dict]) -> set[str]:
-    """Titulos ja publicados, normalizados para comparacao."""
+    """Titulos ja publicados, normalizados para comparacao.
+
+    PURA de proposito: so o argumento decide. Eu tentei dobrar o corpus aqui
+    dentro em 11/10/2026 e os testes pegaram na hora — `titulos_no_ar` e usada
+    com dados sinteticos, e ler arquivo por baixo transforma teste de unidade
+    em teste do acervo real. A segunda fonte entra como ARGUMENTO, em
+    `titulos_do_corpus`, e quem decide em producao e o `main`.
+    """
     return {v["titulo"].strip().casefold()
             for v in videos if v.get("titulo") and v.get("youtube_id")}
+
+
+def titulos_do_corpus() -> set[str]:
+    """Os titulos do `corpus_publicados.json`, normalizados como `titulos_no_ar`.
+
+    POR QUE ESTA SEGUNDA FONTE EXISTE — defeito medido em 11/10/2026. A lista
+    `videos` vem do banco com a porta aberta e do RETRATO
+    `fabrica/ponte/videos.json` com ela fechada, e retrato ENVELHECE: o de
+    06/10 nao conhecia os pacotes publicados a partir de 07/10, o orquestrador
+    os deu por nao publicados e o `Frota` redisparou os MESMOS tres a cada
+    ciclo — `kolejny-poziom-016`, `labtreinamento-010` e `epomeno-epipedo-015`
+    morreram em 19:27 e 22:49 de 10/10, os tres no mesmo portao, por titulo
+    duplicado.
+
+    O corpus nao tem esse problema: e versionado e reescrito a CADA publicacao,
+    inclusive pela ponte, e e contra ele que o `prontidao` ja media duplicata.
+    Era exatamente por isso que o portao pegava e o orquestrador nao — as duas
+    pontas liam fontes diferentes. Com as duas unidas o portao volta a ser a
+    ULTIMA linha de defesa em vez da unica.
+
+    Falha em silencio DE PROPOSITO: e uma fonte A MAIS. Sem o arquivo, o
+    comportamento volta ao de antes em vez de derrubar o ciclo.
+    """
+    raiz = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    try:
+        with open(os.path.join(raiz, "fabrica", "corpus_publicados.json"),
+                  encoding="utf-8") as f:
+            titulos = json.load(f).get("titulos") or []
+    except (OSError, ValueError):
+        return set()
+    return {t.strip().casefold() for t in titulos
+            if isinstance(t, str) and t.strip()}
 
 
 JANELA_H = 24             # a mesma janela movel da v_maquina_fila
@@ -409,10 +448,13 @@ def ja_no_ar(nome: str, sp: dict, por_pacote: set[str], por_titulo: set[str]) ->
     return ""
 
 
-def estado(videos: list[dict]) -> dict:
+def estado(videos: list[dict], titulos_extra: set[str] | None = None) -> dict:
     specs = specs_do_repo()
     ja = publicados_por_pacote(videos)
-    titulos = titulos_no_ar(videos)
+    # `titulos_extra` e a segunda fonte de duplicata (ver `titulos_do_corpus`).
+    # O default None mantem o comportamento puro para teste; producao passa o
+    # corpus pelo `main`.
+    titulos = titulos_no_ar(videos) | (titulos_extra or set())
 
     por_canal = {}
     for c in canais_do_repo():
@@ -507,19 +549,26 @@ def _falhas_baratas(nome: str, sp: dict) -> list[str]:
 
 def proximo(videos: list[dict], n: int,
             com_destino: set[str] | None = None,
-            com_token: set[str] | None = None) -> tuple[list[dict], list[dict]]:
+            com_token: set[str] | None = None,
+            titulos_extra: set[str] | None = None) -> tuple[list[dict], list[dict]]:
     """A matriz do frota.yml, e o motivo de cada spec descartada.
 
     Ordem: canal mais LONGE da meta primeiro. Um canal em zero vale mais que o
     decimo video de um canal que ja tem nove — a meta e por canal, entao o
     ganho marginal e maior onde falta mais.
+
+    `titulos_extra` soma a segunda fonte de duplicata ao que veio em `videos`
+    (ver `titulos_do_corpus`). Fica em parametro, e nao embutido, porque
+    `proximo` e chamada em teste com acervo sintetico — embutir a leitura
+    fazia o teste do token morto nunca chegar ao motivo do token, porque tudo
+    era descartado antes, por titulo.
     """
     import prontidao as P  # noqa: F401  (garante que os portoes importam)
 
     est = estado(videos)
     specs = specs_do_repo()
     ja = publicados_por_pacote(videos)
-    titulos = titulos_no_ar(videos)
+    titulos = titulos_no_ar(videos) | (titulos_extra or set())
 
     escolhidas, descartadas = [], []
     # Semeado com o que o canal JA registrou na janela, nao zerado. Nascendo
@@ -641,9 +690,13 @@ def proximo(videos: list[dict], n: int,
 
 # ------------------------------------------------------------------ relatorio
 
-def relatorio(videos: list[dict]) -> str:
-    est = estado(videos)
-    escolhidas, descartadas = proximo(videos, 10)
+def relatorio(videos: list[dict], titulos_extra: set[str] | None = None) -> str:
+    # O informe e o disparo LEEM A MESMA COISA, e e por isso que `titulos_extra`
+    # chega aqui tambem: foi assim que eu reportei "quinze pacotes prontos" com
+    # dez ja no ar. Informe que conta uma coisa e frota que faz outra e o
+    # defeito que o proprio diario.yml existe para nao repetir.
+    est = estado(videos, titulos_extra)
+    escolhidas, descartadas = proximo(videos, 10, titulos_extra=titulos_extra)
 
     L = []
     pub, meta = est["publicados_total"], est["meta_total"]
@@ -692,17 +745,28 @@ def main() -> int:
                    help="JSON com as linhas de videos (para rodar sem rede)")
     p.add_argument("--canais", default=None,
                    help="JSON com com_destino e com_token (para rodar sem rede)")
+    # LIGADA POR PADRAO: producao quer sempre as duas fontes de duplicata.
+    # O desligamento existe para quem alimenta `--dados` com acervo sintetico e
+    # precisa ver a matriz que AQUELE acervo produz, sem o corpus real por
+    # baixo. Nao use em producao: e o retrato velho que criou o defeito.
+    p.add_argument("--sem-corpus", action="store_true",
+                   help="nao somar corpus_publicados.json as duplicatas (teste)")
     args = p.parse_args()
 
     videos = carrega_videos(args)
+    # A SEGUNDA FONTE DE DUPLICATA ENTRA AQUI, no caminho de producao, e nas
+    # TRES acoes. O `diario.yml` roda `relatorio` e `proximo` no mesmo job: se
+    # so uma recebesse o corpus, o informe e a matriz voltariam a discordar.
+    do_corpus = set() if args.sem_corpus else titulos_do_corpus()
     if args.acao == "estado":
-        print(json.dumps(estado(videos), ensure_ascii=False, indent=1))
+        print(json.dumps(estado(videos, do_corpus), ensure_ascii=False, indent=1))
     elif args.acao == "proximo":
         com_destino, com_token = carrega_canais(args)
-        escolhidas, _ = proximo(videos, args.n, com_destino, com_token)
+        escolhidas, _ = proximo(videos, args.n, com_destino, com_token,
+                                titulos_extra=do_corpus)
         print(json.dumps(escolhidas, ensure_ascii=False))
     else:
-        print(relatorio(videos))
+        print(relatorio(videos, do_corpus))
     return 0
 
 

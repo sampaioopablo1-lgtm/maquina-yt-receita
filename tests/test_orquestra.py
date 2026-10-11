@@ -211,8 +211,15 @@ def test_proximo_imprime_json_limpo_em_stdout(capsys, monkeypatch):
     Um aviso impresso no meio corrompe o JSON e o disparo morre — ou dispara
     errado. Aconteceu: o `ler_copy` avisava "copy.md ausente" em stdout, e as
     specs de producao passam por ele em todo `proximo`.
+
+    `--sem-corpus` porque o que se mede aqui e a LIMPEZA DO STDOUT, e para isso
+    a matriz tem de vir cheia. Desde 11/10/2026 o `main` soma
+    `corpus_publicados.json` as duplicatas, e com o acervo sintetico deste
+    fixture o corpus real descarta tudo — a lista vazia passaria no
+    `json.loads` sem exercitar nada. Producao continua com as duas fontes.
     """
     monkeypatch.setattr(sys, "argv", ["orquestra.py", "proximo", "--n", "3",
+                                      "--sem-corpus",
                                       "--dados", str(RAIZ / "tests" / "dados_videos.json")])
     M.main()
     saida = capsys.readouterr()
