@@ -582,8 +582,11 @@ os três nos dois passos.
 - COTA ~40 vídeos/janela (619). 403 `quota` na legenda → SEGURE o pacote.
   403 `reason=forbidden location=id` → NÃO retente (622).
 - **O AUTO-DISPARO DO `frota.yml` ESTÁ EXPLICADO:** é
-  `.github/workflows/diario.yml`, cron `*/30 * * * *`. Ele guarda contra run em
-  voo e só manda `publicar=true` quando a porta do Supabase está ABERTA — e ela
+  `.github/workflows/diario.yml`, cron `*/30 * * * *` — **mas isso é o PEDIDO,
+  não o que acontece: medido em 100 runs de `schedule` (470 h), o agendador
+  entrega 5,1 disparos/dia, mediana de 287 min entre eles, e os 99 intervalos
+  acima de 2 h. Ritmo garantido só por `workflow_dispatch`.** Ele guarda contra
+  run em voo e só manda `publicar=true` quando a porta do Supabase está ABERTA — e ela
   está FECHADA, então hoje dispara com `publicar=false`. **NÃO MEXA sem o dono**,
   mas pare de reportar como desconhecido.
 - O EXPURGO DO BUCKET NÃO RESOLVE O 402. O proxy recusa `.go.id` e

@@ -216,10 +216,15 @@ iguais como N observações.
 
 ## Antes de dizer que a máquina está sã
 - `python3 -m pytest tests -q --ignore=tests/test_mcp.py --ignore=tests/test_banco_de_pautas.py`
-  Linha de base medida em 09/10/2026: **25 falham, 2.048 passam, 436 skip.**
-  Falha nova é a sua; as 25 são conhecidas (specs já publicadas que o
-  `prontidao` recusa por título duplicado, e fonte Devanagari ausente — as duas
-  são o portão funcionando).
+  Linha de base medida em **11/10/2026: 25 falham, 2.084 passam, 454 skip**
+  (os passam/skip sobem com teste novo; o que importa é o CONJUNTO de falhas).
+  **Falha nova é a sua — e meça a sua própria linha de base ANTES de mexer**,
+  guardando a lista de `FAILED` para comparar depois. O número escrito aqui
+  envelhece; o conjunto, não.
+  **A composição das 25 NÃO é "título duplicado e Devanagari"** — eu escrevi
+  isso e estava errado. São **15** specs que sairiam da matriz CALADAS (números
+  demais numa frase, capítulo sem margem) mais oito espalhadas. Ver a seção
+  "As 25 falhas da suíte NÃO são o que eu escrevi aqui" no fim deste arquivo.
 - `python3 fabrica/prontidao.py fabrica/specs/<spec>.json` — **passe o caminho
   do .json**, não o nome do pacote. São **doze** portões, **onze** no short
   solto (`capitulos` sai de fora em vez de aprovar em silêncio).
