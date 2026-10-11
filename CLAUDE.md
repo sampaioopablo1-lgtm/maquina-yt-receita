@@ -666,9 +666,23 @@ que o `prontidao` recusa por título duplicado, e fonte Devanagari ausente".
 
 **O remédio que o próprio teste prescreve não é silenciar:** ele existe para que
 *"spec parada que ninguém sabe"* apareça, e aceita o inventário `PARADAS` com o
-motivo escrito. Não preenchi o inventário nesta rodada porque isso são quinze
-julgamentos, um por spec, e três delas são de canal da frota — merece decisão,
-não varredura.
+motivo escrito.
+
+**E "são quinze julgamentos" era MEU enquadramento errado — retratado em 11/10,
+com o levantamento em `docs/paradas-a-decidir.md`.** Medido, são **três
+famílias**, e **onze das quinze são a mesma** (capítulo estimado em 61–64 s
+contra o piso de 60 s, com a voz errando até 4,9% nos dois sentidos — o defeito
+que matou o `setiap-level-014` em 01/09). O remédio dessas onze está escrito
+pelo próprio portão e é mecânico: esticar o texto até 64 s estimados. As outras
+quatro são três de "quatro números numa frase" (quebrar em progressão) e uma de
+acentuação.
+
+**E o que mais encurta a decisão: só QUATRO das quinze são de canal da FROTA** —
+`epomeno-epipedo-008`, `-009`, `-010` e `labtreinamento-005`. As outras onze são
+de canal PARADO, onde consertar não produz nada hoje; elas só ocupam a contagem
+das 25. **Eu não conserto sozinho** porque a trava diz que rodada de construção
+não edita specs em massa, e texto de capítulo é conteúdo que vai ao ar em canal
+vivo.
 
 ## O cron `*/30` dispara 5 vezes por dia, não 48 — medido em 100 runs
 
