@@ -458,6 +458,15 @@ pronto"**, contra o `526255e` de 01:27 que disparou a Frota para a falha.
 Confundidor declarado: eu disparei com `disparar=false`, então o que prova é a
 anotação da matriz, não a ausência do run da Frota.
 
+**E agora tem teste, que era o que faltava:**
+`tests/test_duas_fontes_de_duplicata.py` (6 testes). Ele ancora nos TRES
+pacotes que morreram de verdade, confere antes que eles ainda estao no corpus
+(senao passaria por vacuidade), exige que `estado` e `relatorio` leiam a MESMA
+segunda fonte, e exige que o `main` a ligue nas TRES acoes — ligar em duas e
+esquecer a terceira reconstroi o defeito inteiro. Conserto sem teste volta, e
+este voltava CALADO: a lista `videos` so fica cega com a porta fechada, que e
+exatamente quando ninguem esta olhando.
+
 **Fora do escopo, medido:** **86 das 183 specs (47%)** passam de 4 palavras na
 thumbnail. O molde histórico viola o portão `variedade` em metade dos casos —
 spec nova não deve se espelhar nele.
