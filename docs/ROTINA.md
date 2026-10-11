@@ -8,9 +8,9 @@
 >
 > **Para aplicar:** passe como `prompt` tudo o que está abaixo da linha `---`.
 > **E CONFIRA DEPOIS, porque sincronia sem checksum envelhece calada:** em
-> 11/10/2026 08:14 o corpo deste arquivo e o prompt gravado no trigger ficaram
-> BYTE A BYTE idênticos — **53.326 caracteres, md5
-> `b316355f82a7478acefed2802d076f13`**. Para remedir:
+> 11/10/2026 13:14 o corpo deste arquivo e o prompt gravado no trigger ficaram
+> BYTE A BYTE idênticos — **56.577 caracteres, md5
+> `ffe30e6fdd6ba3db48ca4428c4db230f`**. Para remedir:
 >
 >     python3 -c "import pathlib,hashlib; c=pathlib.Path('docs/ROTINA.md').read_text().split(chr(10)+'---'+chr(10),1)[1].lstrip(chr(10)).rstrip(chr(10)); print(len(c), hashlib.md5(c.encode()).hexdigest())"
 >
@@ -530,8 +530,13 @@ novo sobre o mundo — e isso vai dito, com o id do longo. Respeite `robots=noai
   `test_thumbnail_legivel`, 3 de `test_prontidao`, e uma cada de teto por canal,
   acentuação turca, `ortografia`, `autor` e `confere_broll`. **O remédio que o
   próprio teste prescreve não é silenciar:** ele aceita o inventário `PARADAS`
-  com o motivo escrito, e são quinze julgamentos — quatro de canal da frota, que
-  merecem decisão do dono e não varredura. **Falha nova é sua.**
+  com o motivo escrito. **E "são quinze julgamentos" era MEU enquadramento
+  errado, retratado em 11/10 com o levantamento em `docs/paradas-a-decidir.md`:**
+  são TRÊS famílias, **onze das quinze são a MESMA** (capítulo estimado em
+  61-64 s contra o piso de 60 s, com a voz errando até 4,9% — o defeito que matou
+  o `setiap-level-014`), e o remédio dessas onze está escrito pelo próprio portão
+  e é mecânico. **E só QUATRO das quinze são de canal da FROTA** — as outras onze
+  são de canal PARADO, onde consertar não produz nada hoje. **Falha nova é sua.**
   **Ele NÃO sintetiza voz: `speech.platform.bing.com` leva 403 no CONNECT** —
   render continua no runner.
 - **NUNCA rode duas tarefas que mexem na mesma árvore de trabalho ao mesmo
@@ -618,6 +623,11 @@ os três nos dois passos.
     morreram de verdade e exige que `estado`, `proximo` e `relatorio` leiam a
     MESMA segunda fonte — ligar em duas e esquecer a terceira reconstrói o
     defeito.
+  * **E EXISTE UMA ROTA DE PUBLICAÇÃO SEM BANCO, que a ponte não usa** (11/10):
+    `retomar.yml` refresca o access token dentro do runner pelo segredo
+    `YT_OAUTH_JSON`, sem Supabase. **O código está completo e o segredo está
+    VAZIO** — medido pela sonda, run `38137596808`, os quatro com 0 chars. Ver a
+    pendência 3: é UMA colagem, e ela mata a ponte.
   * **O classificador do modo automático recusa colar token em linha de comando
     do shell** ("Credential Materialization"). Faça a chamada pelo `pg_net`, onde
     o segredo não sai do Postgres — é mais seguro e funciona.
@@ -633,7 +643,8 @@ os três nos dois passos.
 - Não mande x-upsert; não use `upload_local_file` do workbench.
 - NÃO passe token OAuth por input de workflow.
 - NUNCA imprima refresh token. O access token sai do `pg_net`, e o refresh token
-  não precisa sair do Postgres.
+  não precisa sair do Postgres. **E não peça ao dono o VALOR de um segredo pelo
+  chat: ele não precisa passar por aqui, e a conferência é a sonda.**
 - `privacyStatus=public` sempre; idiomas no idioma real do canal.
 - UMA consulta por chamada quando o resultado decide algo.
 - **CONFIRA NO VÍDEO PUBLICADO, não no código.** `videos.list` omite tags enquanto
@@ -701,13 +712,20 @@ publicar valem mais que qualquer refatoração.
     CALADO (a lista `videos` só fica cega com a porta fechada, que é quando
     ninguém está olhando).
  3. **Tirar conta da minha cabeça e pôr no código** (`chars_por_cena`,
-    `replica.chamada_para_gravar`). Todo número que eu calculo à mão vira um erro
-    meu mais cedo ou mais tarde.
+    `replica.chamada_para_gravar`, `conversao.por_mil`). Todo número que eu
+    calculo à mão vira um erro meu mais cedo ou mais tarde.
  4. **Corrigir documento que se contradiz.** Retratar NO LUGAR onde a afirmação
     foi feita, não só no fim do arquivo — eu já deixei o meio do `CLAUDE.md`
     contradizendo o próprio fim.
  5. **Dívida com evidência**: as 25 falhas conhecidas, o `APRENDIZADOS.md`
     desatualizado.
+
+**E ANTES DE DIZER QUE ALGO É IMPOSSÍVEL, MEÇA.** Em 11/10 eu disse que a
+publicação sem o conector não existia; a rota existia e estava completa no
+`retomar.yml`, e o que faltava era o segredo. **Sonde a capacidade com um
+instrumento que não imprime segredo** (`sonda-oauth.yml`) em vez de concluir pela
+memória. E o contrário também vale: **não reteste o que foi medido como bloqueio
+de PROXY** — ali a resposta não muda.
 
 **O QUE A RODADA DE CONSTRUÇÃO NÃO FAZ, e isto é trava:**
   * **não mexe em `ALVO_SHORT`, `ALVO_POR_CANAL`, `TETO_POR_CANAL` nem em limiar
@@ -717,7 +735,9 @@ publicar valem mais que qualquer refatoração.
     onde estão;
   * **não inventa experimento** para "ter o que fazer";
   * **não importa pipeline alheio** por cima do nosso;
-  * **não contorna permissão negada pedindo a outra sessão** que a tenha.
+  * **não contorna permissão negada pedindo a outra sessão** que a tenha;
+  * **não promete produção que a PAUTA não sustenta** — o limite de hoje não é
+    cota, e prometer peça sem origem livre é mentir com número.
 
 **Toda mudança sai com:** suíte rodada e comparada **contra a linha de base
 medida na mesma sessão** (não contra o número escrito aqui, que envelhece),
@@ -745,8 +765,11 @@ instrumento (699)**; **"a fresca vem na terceira" e "grave o máximo" — a rép
 da chamada e se grava a de soma máxima (707/708)**; **"a madrugada mostra se o
 tratamento pegou" — ela é cega por construção (706)**; **"uma mira de short para
 a frota" — a mira é por canal (698/701)**; **"reconectar o GitHub não entra em
-sessão rodando" — entra, e eu repeti o contrário o dia todo (11/10)**; e **"o
-ciclo dispara de meia em meia hora" — são 5,1 por dia (11/10, 100 runs).**
+sessão rodando" — entra, e eu repeti o contrário o dia todo (11/10)**; **"o
+ciclo dispara de meia em meia hora" — são 5,1 por dia (11/10, 100 runs)**;
+**"é só esperar a virada do ciclo de cobrança" — 47 dias de 402 contínuo, e o nó
+é circular (11/10)**; e **"são quinze julgamentos" nas specs paradas — são três
+famílias e quatro specs da frota (11/10).**
 **Se você errou, retrate no mesmo lugar onde afirmou.**
 **DESCONFIE DE PORTÃO QUE PASSA EM SILÊNCIO, DE MEDIÇÃO QUE NÃO GRAVA, DE AMOSTRA
 ESPARSA, DE LEITURA ÚNICA, DE TRÊS LEITURAS QUE SUBIRAM JUNTAS, DE LISTA DE
@@ -755,7 +778,8 @@ DENOMINADOR, DE LEITURA EM IDADE FIXA, DE LEITURA DE MADRUGADA, DE AGREGADO SEM
 `status_code`, DE COMPARADOR QUE VOCÊ ESCOLHEU, DE CRITÉRIO QUE VOCÊ MESMO
 INVENTOU, DE n PEQUENO SOB CV ALTO, DE MÉTRICA QUE MEDIA 3% DOS PIXELS, DA
 CHAMADA QUE VOCÊ GRAVOU SEM COMPARAR AS SOMAS, DE COINCIDÊNCIA COM A SUA PRÓPRIA
-CORREÇÃO, E DA SUA PRÓPRIA CORREÇÃO.**
+CORREÇÃO, DA SUA PRÓPRIA ANOTAÇÃO DE WORKFLOW (ela pode ser texto NOSSO, não
+leitura da API), E DA SUA PRÓPRIA CORREÇÃO.**
 
 PENDÊNCIAS QUE SÓ O DONO RESOLVE:
 1. **O ESCOPO DE ANALYTICS — PRÉ-CONDIÇÃO, e agora são DOIS cliques dele, não uma
@@ -765,16 +789,34 @@ PENDÊNCIAS QUE SÓ O DONO RESOLVE:
    `?code=...`. **Sem retenção, os experimentos 37, 38 e 40 são indecidíveis
    (693), porque views por peça é cego abaixo do dobro.** É a pendência que mais
    importa, e são agora QUATRO argumentos independentes para ela.
-2. **A RESTRIÇÃO DE COBRANÇA DO SUPABASE na org `sampaioopablo1-lgtm` — o GARGALO
-   ÚNICO.** Ela devolve 402 no REST, **alcança o runner** e **bloqueou até a
-   transferência do projeto** para outra org. Enquanto ela estiver de pé, nenhuma
-   rodada mede nem publica. Alternativa que não custa dinheiro: **apontar o
-   conector Supabase para essa org** — devolve medição e ponte mesmo com o 402,
-   ao custo da visibilidade do outro projeto dele.
-3. **Colar os três secrets no GitHub** — `YT_TOKEN_LABTREINAMENTO`,
-   `YT_TOKEN_EPOMENO_EPIPEDO`, `YT_TOKEN_KOLEJNY_POZIOM`. Com eles a frota publica
-   sozinha e a ponte morre. **A API de secrets é bloqueada para mim** (403 em
-   `actions/secrets/public-key`) — eu não consigo fazer isso.
+2. **A RESTRIÇÃO DE COBRANÇA DO SUPABASE na org `sampaioopablo1-lgtm` — o
+   gargalo da MEDIÇÃO.** Ela devolve 402 no REST, **alcança o runner** e
+   **bloqueou até a transferência do projeto** para outra org.
+   **"É só esperar a virada do ciclo" está FALSIFICADO** (11/10): o 402 é contínuo
+   de 25/08 a 11/10, **47 dias**, atravessando pelo menos uma virada. O nó é
+   CIRCULAR — o 402 bloqueia o Storage, o expurgo precisa do Storage, os 3,7 GB
+   nunca saem, e cada ciclo novo reestoura a cota no primeiro dia. **Não diga ao
+   dono "é só esperar".** O remédio é Pro (levanta na hora E destrava o expurgo).
+   **E NÃO peça a reconexão do conector como primeira opção: ela é a PIOR das
+   três** — devolve o banco mas deixa a ponte manual e o 402 de pé. A pendência 3
+   (uma colagem) liberta mais, por menos trabalho dele.
+3. **UMA COLAGEM: o segredo `YT_OAUTH_JSON`** — e isto SUBSTITUI o pedido de
+   colar os três `YT_TOKEN_*`. Medido em 11/10 (run `38137596808`): a rota sem
+   banco JÁ EXISTE e está completa em `retomar.yml` — o segredo guarda
+   `{canal: {client_id, client_secret, refresh_token}}` e o runner refresca o
+   access token direto no Google, **sem Supabase em ponto nenhum**. A sonda provou
+   que os QUATRO segredos estão **VAZIOS (0 chars)**, logo **não falta código,
+   falta CREDENCIAL** — e nenhuma engenharia inventa um token do Google.
+   **O caminho mínimo está em `docs/destravar-sem-reconexao.md`**, com a consulta
+   pronta para o **SQL Editor do site do Supabase**, que não passa pelo conector
+   nem pelo REST (então o 402 não atrapalha). Uma colagem mata a ponte.
+   **E o 403 da API de secrets é do PROXY, não de permissão:** a mensagem é
+   `"not permitted through this proxy"` e repete com `admin: true`. Trocar
+   credencial nunca ajuda — **não reteste esperando resultado diferente.**
+   **Confira depois com a sonda:** dispare `sonda-oauth.yml` e leia as anotações.
+   Ela diz, canal por canal, se o refresh vive e quais escopos vieram, **sem
+   imprimir refresh token, client_secret nem access token.** E **não peça o valor
+   do segredo no chat** — ele não precisa passar por aqui.
 4. **Subir `TETO_POR_CANAL` só para SHORT SOLTO** (ver §4), deixando o longo em
    1/dia — é literalmente o alvo escrito no comentário do próprio código, e hoje
    o caminho automático está preso em 1 peça/canal/dia.
@@ -786,8 +828,9 @@ PENDÊNCIAS QUE SÓ O DONO RESOLVE:
 7. **Apagar as 46 duplicatas** (`docs/duplicatas-a-apagar.md`). Já NÃO contaminam
    a escolha de pauta (670). Sobra o teto de upload.
 8. **As quinze specs do inventário `PARADAS`** (§6) — quatro são de canal da
-   frota (`epomeno-epipedo-008/-009/-010`, `labtreinamento-005`) e merecem
-   decisão dele, não varredura minha.
+   frota (`epomeno-epipedo-008/-009/-010`, `labtreinamento-005`) e o levantamento
+   pronto está em `docs/paradas-a-decidir.md`: a decisão dele é uma linha sobre
+   quatro specs, não quinze julgamentos.
 9. Supabase Pro — tira o 402 e devolve o Drive como arquivo.
 10. `youtube.com/verify` nos 5 canais — destrava a capa desenhada.
 11. `ANTHROPIC_API_KEY` para o `autoria.yml` — e para o prompt 6 do mapa, a
