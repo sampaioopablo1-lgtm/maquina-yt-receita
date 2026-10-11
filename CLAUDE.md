@@ -384,6 +384,14 @@ réplica atrasada: **a réplica é da CHAMADA, não de cada id.**
 chamadas, escolha a de soma máxima e chame `grava_metricas_janela` nessa **uma**
 (um statement, pelo 702). Não cace o máximo peça por peça.
 
+**E desde 11/10 isso NÃO se faz mais no olho:** `fabrica/replica.py` tem
+`chamada_para_gravar`, `piso`, `faixa`, `divergentes` e `mesma_forma`, com os
+números reais de 07/10 e 08/10 travados em teste. **Use `mesma_forma` antes de
+gravar:** se os divergentes NÃO compartilham a forma, a divergência não é da
+chamada, a hipótese do 708 não se aplica àquela rodada, e isso vai no relato em
+vez de virar gravação automática. E `piso` não trata id ausente como zero —
+ausência é silêncio, não leitura de zero.
+
 **E isto enterra de vez a "terceira leitura" do 688:** a réplica fresca foi a
 terceira em 09/10, a segunda às 07:09 e a primeira e a terceira às 08:08. A ordem
 não tem regra; só o estimador sobrevive — **máximo como piso.**

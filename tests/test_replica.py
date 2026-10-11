@@ -1,0 +1,79 @@
+"""A escolha entre as tres leituras, travada com os dados REAIS que a mediram.
+
+Os numeros daqui nao sao inventados: sao as leituras de 08/10/2026 que
+produziram o aprendizado 708, e a do `ZxHWcfDNovM` de 07/10 que produziu o 707.
+Se alguem voltar a usar mediana, ou a cacar o maximo peca por peca, estes
+testes caem.
+"""
+
+import sys
+from pathlib import Path
+
+import pytest
+
+RAIZ = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(RAIZ / "fabrica"))
+
+import replica as R  # noqa: E402
+
+# 08/10/2026, 08:08 — quatro pecas divergiram com a forma {alto, baixo, alto},
+# e as outras dezesseis vieram identicas nas tres chamadas (708).
+L1 = {"ZxHWcfDNovM": 833, "aT1y_jxUejM": 91, "cBBYHdP5JYA": 23, "JEnKrpgLJ0A": 22,
+      "estavel": 500}
+L2 = {"ZxHWcfDNovM": 830, "aT1y_jxUejM": 90, "cBBYHdP5JYA": 22, "JEnKrpgLJ0A": 21,
+      "estavel": 500}
+L3 = dict(L1)
+OITO_OITO = [L1, L2, L3]
+
+
+def test_grava_a_chamada_de_soma_maxima_e_nao_a_do_meio():
+    """A leitura 2 caiu INTEIRA numa replica atrasada — ela nao pode ser escolhida."""
+    assert R.chamada_para_gravar(OITO_OITO) == 0
+    assert R.soma(L2) < R.soma(L1)
+
+
+def test_o_piso_e_o_maximo_por_id_e_nao_a_mediana():
+    """Com mediana, `ZxHWcfDNovM` sairia 833 por acaso aqui — mas em 07/10 as
+    leituras foram 830, 833, 830 e a mediana devolveria 830, que foi o numero
+    subestimado que o 707 pegou."""
+    sete_zero_nove = [{"ZxHWcfDNovM": 830}, {"ZxHWcfDNovM": 833},
+                      {"ZxHWcfDNovM": 830}]
+    assert R.piso(sete_zero_nove)["ZxHWcfDNovM"] == 833
+    assert R.chamada_para_gravar(sete_zero_nove) == 1
+
+
+def test_a_faixa_acompanha_o_piso():
+    assert R.faixa(OITO_OITO)["ZxHWcfDNovM"] == (830, 833)
+    assert R.faixa(OITO_OITO)["estavel"] == (500, 500)
+
+
+def test_so_os_divergentes_aparecem():
+    assert set(R.divergentes(OITO_OITO)) == {
+        "ZxHWcfDNovM", "aT1y_jxUejM", "cBBYHdP5JYA", "JEnKrpgLJ0A"}
+
+
+def test_a_assinatura_do_708_e_a_mesma_forma_em_todos():
+    """`833,830,833` e `91,90,91` tem a mesma forma — a replica e da CHAMADA."""
+    assert R.mesma_forma(OITO_OITO)
+
+
+def test_formas_que_discordam_derrubam_a_hipotese_da_chamada():
+    """Se uma peca sobe onde outra desce, a divergencia NAO e da chamada.
+
+    Aqui o relato tem de dizer isso em vez de gravar no automatico — e este
+    teste existe para que a funcao nao devolva True por descuido.
+    """
+    a = [{"x": 10, "y": 5}, {"x": 9, "y": 6}, {"x": 10, "y": 5}]
+    assert not R.mesma_forma(a)
+
+
+def test_id_ausente_nao_vira_zero():
+    """Ausencia e silencio, nao leitura de zero — zerar puxaria o piso."""
+    a = [{"so_na_primeira": 7}, {}, {}]
+    assert R.piso(a)["so_na_primeira"] == 7
+    assert R.faixa(a)["so_na_primeira"] == (7, 7)
+
+
+def test_sem_leitura_nenhuma_levanta_em_vez_de_adivinhar():
+    with pytest.raises(ValueError):
+        R.chamada_para_gravar([])
