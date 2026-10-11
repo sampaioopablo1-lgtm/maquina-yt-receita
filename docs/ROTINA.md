@@ -10,12 +10,11 @@
 > Quando a rotina mudar por `update_trigger`, atualize este arquivo no mesmo
 > passo, senão ele volta a envelhecer (a versão anterior estava parada em 05/08).
 >
-> Última revisão: 2026-10-10 14:11 UTC (merge aplicado por `update_trigger`;
-> confirmado por md5 contra o prompt vivo). Alinha o prompt ao `CLAUDE.md` em cinco pontos:
-> fades desceram na fila (700); `tblend`+`signalstats` no lugar de `mpdecimate`,
-> e a correção do dinamismo funcionou (699); grava-se a chamada de soma máxima,
-> um statement por chamada (702/707/708); mira de duração por canal (698/701);
-> a madrugada não produz leitura (706).
+> Última revisão: 2026-10-11 02:55 UTC. RETRATA a regra da credencial do
+> GitHub (ela ENTRA em sessão rodando; e instala-se em outra conta sem
+> desvincular a primeira), acrescenta o canal de ANOTAÇÕES para ler job sem
+> o MCP, registra que o 402 alcança o runner e bloqueia a transferência de
+> projeto, e documenta o conserto do redisparo de pacote já publicado.
 
 ---
 
@@ -524,15 +523,37 @@ os três nos dois passos.
     mensagem num ARQUIVO e use `-F`.
   * **JSON despejado dentro de um `.build.py` sai com `true`/`false`/`null`
     minúsculos e dá `NameError`.** Converta para `True`/`False`/`None`.
-  * **A CREDENCIAL DO GITHUB É DA SESSÃO E NÃO SE ATUALIZA SOZINHA** (10/10):
-    uma sessão nasceu autenticada numa conta SEM `push` e ficou **vinte horas em
-    403** enquanto eu repetia "reconecte o GitHub" — que não era o conserto.
+  * **A CREDENCIAL DO GITHUB É DA SESSÃO, mas ELA ENTRA EM SESSÃO RODANDO —
+    RETRATAÇÃO de 11/10.** Uma sessão nasceu numa conta SEM `push` e ficou
+    **vinte horas em 403**. Eu concluí daí que "reconectar não entra em sessão já
+    rodando, isso pede sessão nova" e repeti isso ao dono várias vezes: **é
+    FALSO.** Às 02:40 de 11/10, com o dono instalando o Claude GitHub App na
+    conta certa, ESTA MESMA sessão virou `push: true` e o push funcionou, sem
+    sessão nova. O erro de raciocínio: ausência de mudança (ninguém reconectou)
+    não é impossibilidade de mudança.
     **Antes de insistir num 403, leia QUEM você é:** `gh api user` e
-    `gh api repos/<owner>/<repo>` (campo `permissions`). Reconectar no claude.ai
-    **NÃO entra numa sessão já rodando**; isso pede sessão nova. E "conectado"
-    não é o mesmo que "conectado com a conta que pode escrever". O mesmo vale
-    para o `mcp__github__*`: `invalid session` depois de a credencial trocar só
-    morre com sessão nova, e sem ele a URL assinada fica ilegível e a ponte PARA.
+    `gh api repos/<owner>/<repo>` (campo `permissions`). E "conectado" não é o
+    mesmo que "conectado com a conta que pode escrever".
+    **E NÃO MANDE DESVINCULAR:** o bloco *Claude GitHub App* aceita VÁRIAS contas
+    instaladas ao mesmo tempo — o link é **"Instalar em outra conta"**, e instalar
+    na segunda não tira nada da primeira. Eu vinha pedindo troca de conta, que era
+    pior e desnecessário; foi o dono quem viu o link na tela.
+    **O que continua valendo:** o `mcp__github__*` NÃO se recupera — segue
+    `invalid session` depois da troca. Para ler um job sem ele, use as ANOTAÇÕES:
+    `gh api repos/<owner>/<repo>/check-runs/<job_id>/annotations` devolve os
+    `::warning::`/`::notice::` pela própria api.github.com, sem redirecionamento.
+  * **O 402 FECHA A PORTA PARA O RUNNER TAMBÉM** (11/10, anotação literal do
+    `diario.yml`): `porta FECHADA (HTTP 402) — rodando pelo retrato de
+    fabrica/ponte/, gerado em 2026-10-06`. Não adianta montar medição no runner
+    para contornar conector: a restrição é da ORGANIZAÇÃO e alcança os dois. Ela
+    também bloqueia **transferir o projeto** para outra org.
+  * **O RETRATO DA PONTE ENVELHECE E ISSO REDISPARAVA PACOTE PUBLICADO** (11/10,
+    consertado): o orquestrador lia duplicata só de `videos`, que com a porta
+    fechada é o retrato de 06/10; o `prontidao` lia do `corpus_publicados.json`,
+    atualizado a cada publicação. Duas fontes discordantes — a Frota morreu em
+    19:27, 22:49 e 01:27 com os mesmos três pacotes. Agora `titulos_do_corpus()`
+    entra por `titulos_extra` nas três ações do `main`. **`titulos_no_ar` continua
+    PURA**: embutir a leitura nela quebrou quatro testes.
   * **O classificador do modo automático recusa colar token em linha de comando
     do shell** ("Credential Materialization"). Faça a chamada pelo `pg_net`, onde
     o segredo não sai do Postgres — é mais seguro e funciona.
