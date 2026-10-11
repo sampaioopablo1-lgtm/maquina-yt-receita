@@ -29,6 +29,12 @@ on:
     # `concurrency` do frota.yml deixa 1 rodando e 1 pendente, e o terceiro
     # CANCELA o pendente. Com o teto de 25 min por job, 30 min garante que a
     # vaga esteja livre quando o proximo chegar.
+    # E ISTO E O PEDIDO, NAO A ENTREGA (medido em 11/10/2026): nos 100 runs de
+    # evento `schedule` mais recentes, cobrindo 470,5 h, o agendador entregou
+    # 5,1 disparos por dia, mediana de 287 min entre eles, e 99 de 99
+    # intervalos acima de 2 h. Baixar para `*/15` nao resolve — o limite nao e
+    # o que pedimos, e o que o agendador entrega. Ritmo garantido pede
+    # `workflow_dispatch` externo.
     - cron: "*/30 * * * *"
   workflow_dispatch:
     inputs:

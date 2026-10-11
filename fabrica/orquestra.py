@@ -572,9 +572,13 @@ def proximo(videos: list[dict], n: int,
 
     escolhidas, descartadas = [], []
     # Semeado com o que o canal JA registrou na janela, nao zerado. Nascendo
-    # vazio, o teto valia por DISPARO e nao por dia — e o diario.yml dispara
-    # de meia em meia hora. Foi assim que o epomeno-epipedo recebeu um quarto
-    # pacote em 19/08 com a trava de tres "funcionando".
+    # vazio, o teto valia por DISPARO e nao por dia — e o diario.yml PEDE
+    # disparo de meia em meia hora. Foi assim que o epomeno-epipedo recebeu um
+    # quarto pacote em 19/08 com a trava de tres "funcionando".
+    # (O que o agendador ENTREGA e outra coisa — 5,1 por dia, ver o bloco da
+    # hora local abaixo. Nao muda este conserto: semear da tabela e certo em
+    # qualquer cadencia, e cadencia esparsa so tornaria o defeito mais raro, o
+    # que e pior para quem precisa reproduzi-lo.)
     por_canal_hoje: dict[str, int] = dict(pacotes_na_janela(videos))
 
     # HORA LOCAL primeiro, depois distancia da meta.
@@ -590,8 +594,28 @@ def proximo(videos: list[dict], n: int,
     #
     # E PREFERENCIA e nao portao: canal na faixa morta cai para o fim da fila,
     # nao sai dela. Se nao houver mais nada pronto ele dispara igual — frota
-    # parada nao rende nada, e a fila anda de meia em meia hora, entao todo
-    # canal alcanca a propria janela dentro do mesmo dia.
+    # parada nao rende nada.
+    #
+    # ATENCAO, E ISTO RETRATA A JUSTIFICATIVA QUE ESTAVA AQUI (11/10/2026).
+    # Este comentario dizia "a fila anda de meia em meia hora, entao todo canal
+    # alcanca a propria janela dentro do mesmo dia", e usava isso para dizer que
+    # ser preferencia e nao portao sai barato. **A premissa e FALSA.** Medidos os
+    # 100 runs de evento `schedule` mais recentes (470,5 h, 21/09 a 11/10), o
+    # agendador do GitHub Actions entregou 5,1 disparos por dia, mediana de
+    # 287 min (4,8 h) entre eles, menor intervalo 129 min, e 99 dos 99
+    # intervalos acima de 2 h — nem uma vez de meia em meia hora. O `*/30` do
+    # diario.yml e o PEDIDO, nao o que acontece; o agendador e melhor-esforco e
+    # descarta disparo sob carga.
+    #
+    # O que muda: com 4,8 h de mediana, um canal PODE passar o dia sem que
+    # nenhum disparo caia na janela boa dele. Ser preferencia e nao portao
+    # continua certo — ja que portao com fila esparsa pararia a frota — mas
+    # custa mais do que este comentario prometia, e quem quiser ritmo garantido
+    # precisa de `workflow_dispatch` EXTERNO. Remedir:
+    #   gh api 'repos/<owner>/<repo>/actions/workflows/diario.yml/runs
+    #           ?per_page=100&event=schedule' --jq '.workflow_runs[].created_at'
+    # e CONTE `schedule` separado de `workflow_dispatch`: misturar os dois
+    # esconde o defeito, porque disparo manual tapa o buraco do agendador.
     import janela as J
 
     # HORARIO ALEATORIO, mas DENTRO da janela boa do canal — pedido do dono em
