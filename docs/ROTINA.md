@@ -7,6 +7,17 @@
 > prompt vindo dessa sessão.
 >
 > **Para aplicar:** passe como `prompt` tudo o que está abaixo da linha `---`.
+> **E CONFIRA DEPOIS, porque sincronia sem checksum envelhece calada:** em
+> 11/10/2026 08:14 o corpo deste arquivo e o prompt gravado no trigger ficaram
+> BYTE A BYTE idênticos — **53.326 caracteres, md5
+> `b316355f82a7478acefed2802d076f13`**. Para remedir:
+>
+>     python3 -c "import pathlib,hashlib; c=pathlib.Path('docs/ROTINA.md').read_text().split(chr(10)+'---'+chr(10),1)[1].lstrip(chr(10)).rstrip(chr(10)); print(len(c), hashlib.md5(c.encode()).hexdigest())"
+>
+> e compare com o `prompt` que o `get_trigger` devolve. **Divergência significa
+> que um dos dois foi editado sozinho** — era exatamente esse o estado em que eu
+> encontrei os dois em 11/10, com o prompt mandando obedecer quatro afirmações
+> que o arquivo já havia retratado.
 > Quando a rotina mudar por `update_trigger`, atualize este arquivo no mesmo
 > passo, senão ele volta a envelhecer (a versão anterior estava parada em 05/08).
 >
@@ -289,6 +300,12 @@ instrumento é `tblend` + `signalstats`.**
     e as outras dezesseis vieram idênticas. **Procedimento: compare a SOMA das
     três chamadas, escolha a de soma máxima e chame `grava_metricas_janela(<req>)`
     nessa UMA.** Não cace o máximo peça por peça.
+    **E NÃO FAÇA ISSO NO OLHO: `fabrica/replica.py`** tem `chamada_para_gravar`,
+    `piso`, `faixa`, `divergentes` e `mesma_forma`, com os números reais de 07/10
+    e 08/10 travados em `tests/test_replica.py`. **Chame `mesma_forma` ANTES de
+    gravar:** se os divergentes não compartilham a forma, a hipótese do 708 não
+    se aplica àquela rodada e isso vai no RELATO em vez de virar gravação
+    automática. E `piso` não trata id ausente como zero — ausência é silêncio.
     **UM STATEMENT POR CHAMADA** (702): dois `grava_metricas_janela` no mesmo
     statement colidem em `metricas_youtube_id_coletado_em_key`, porque o `now()`
     não avança dentro do statement.
@@ -317,6 +334,10 @@ instrumento é `tblend` + `signalstats`.**
     ficou mandando travar experimentos já abertos.**
     **Confira esta rotina contra o `CLAUDE.md` a cada rodada: em 10/10 ela estava
     atrás dele em cinco pontos (700, 699, 702/707/708, 698/701, 706).**
+    **E a forma BARATA de aplicar, sem transcrever 46 mil caracteres de memória:
+    edite `docs/ROTINA.md`, extraia o corpo depois da linha `---` e passe ESSE
+    texto como `prompt`; depois confira com `get_trigger` que o que ficou gravado
+    bate com o arquivo.** Foi assim em 11/10, e é o que dá checksum à sincronia.
  7. SE UMA MUDANÇA NÃO MOVER O NÚMERO EM TRÊS PACOTES, DESFAÇA — **a menos que o
     instrumento não consiga medir o número, e aí o que se desfaz é o instrumento,
     não a mudança** (686). **E com CV 0,66, três pacotes NÃO medem nada menor que
@@ -347,6 +368,21 @@ instrumento é `tblend` + `signalstats`.**
 =====================================================================
 Short solto: spec com `longo: []`, `etapas.py` marca `SO_SHORT`. ~1.600 de cota
 contra ~2.100 do pacote. O limite é **PAUTA** antes de ser cota.
+
+**E O TETO AUTOMÁTICO É 1 PEÇA/DIA/CANAL — medido em 11/10 lendo o código, e
+contradiz os 7/dia que o dono pede.** `orquestra.MAX_POR_DIA_POR_CANAL` é 2, mas
+`TETO_POR_CANAL` sobrescreve os três canais da frota para **1**, e o teto conta
+pela chave `pacote` ou o slug sem `-short`, então **short solto também consome
+uma unidade**. A **ponte manual NÃO consulta o teto** (`conduz.py` e `publicar.py`
+não mencionam `teto_do_canal`) — foi assim que 09/10 fechou com ~14 peças com o
+teto em 1. **O teto governa só o caminho automático**, que é o que volta quando a
+porta reabrir. O próprio comentário do `TETO_POR_CANAL` já previa a revisão e a
+condição foi cumprida (ele dizia "enquanto o SHORT SOLTO não existir", e ele
+existe). **NÃO mexa nisso sozinho: é parâmetro de produção** e o comentário
+carrega medição contrária que segue válida (nove de treze longos com zero view, o
+`captions.insert` comendo ~400 das ~500 unidades por pacote). **A forma barata que
+respeita as duas coisas é subir o teto SÓ para short solto, deixando o longo em
+1/dia — e isso é decisão do DONO.**
 
 **ESCOLHA DE ORIGEM, em ordem:**
   a) **rode `consultas/estoque.sql`** — nunca lista de memória, nunca lista à mão,
@@ -390,6 +426,13 @@ antes de confiar em lista vazia. **COPIE A FORMA, NUNCA O ASSUNTO.** O chart rep
 direto com a consequência surpreendente**; o GR, **imperativo de segunda pessoa**.
 **Limite de forma que sobreviveu à busca ruim, porque é coerente com a medição:
 quatro a cinco palavras de legenda na tela por vez.**
+**E o que entrou dos cinco repositórios externos que o dono mandou estudar em
+11/10 está em `references/shorts-playbook.md`** — entrou pouco, e **nada por
+autoridade da fonte**: cadência de mudança visual a cada ~3 s (converge com
+690/699), faixa boa de 15 a 60 s (segunda fonte independente contra o 38), e
+conversão de "vídeo relacionado" abaixo de 1% (apoia o 37). **Quatro dos cinco
+foram RECUSADOS com motivo escrito** — não reimporte pipeline alheio por cima do
+nosso.
 PESQUISA DE MÉTODO é outra coisa e o dono pediu: limiar de retenção, mecânica de
 distribuição, requisito de YPP — web e GitHub servem. Traga número e fonte.
 
@@ -460,6 +503,9 @@ novo sobre o mundo — e isso vai dito, com o id do longo. Respeite `robots=noai
   Os limiares 12 e 4 vêm do mapa que o dono trouxe, não de mim — limiar sem
   procedência é critério inventado. **Com o esqueleto de dez a onze cenas o aviso
   para de aparecer.**
+  **E NÃO SE ESPELHE NO MOLDE HISTÓRICO: 86 das 183 specs (47%) passam de 4
+  palavras na thumbnail** (medido em 11/10). O molde viola o portão em metade dos
+  casos. **Não edite as 86 em massa** — spec nova é que não deve copiá-las.
 - TÍTULO PRÓPRIO do short, `## TITULO SHORT`, até 45 caracteres.
 - **NÚMEROS POR EXTENSO — REGRA SEM PORTÃO** (640): o `narracao` conta QUANTIDADES
   por frase (máx. três), NÃO dígito cru. **Confira dígito à mão.**
@@ -473,9 +519,19 @@ novo sobre o mundo — e isso vai dito, com o id do longo. Respeite `robots=noai
   aprovação de pessoa: NÃO use. `vox-motion-graphics` consome crédito: só se o
   dono pedir.
 - **ESTE CONTAINER TEM `pytest`, `httpx`, `ffmpeg`, `imageio-ffmpeg` e `pypdf`.**
-  **Linha de base da suíte em 09/10: 25 falham, 2.048 passam, 436 skip** (as 25
-  são specs já publicadas que o `prontidao` recusa por título duplicado e fonte
-  Devanagari ausente — as duas são o portão funcionando). **Falha nova é sua.**
+  **MEÇA A SUA PRÓPRIA LINHA DE BASE ANTES DE MEXER** e guarde a lista de
+  `FAILED` para comparar depois — o número escrito aqui envelhece, o CONJUNTO
+  não. Em 11/10: **25 falham, 2.103 passam** (passa/skip sobem com teste novo).
+  **E a composição NÃO é "título duplicado e Devanagari" — eu escrevi isso e
+  estava errado** (11/10): são **15** de `test_narracao_das_specs`, specs que
+  sairiam da matriz CALADAS por números demais numa frase e capítulo sem margem
+  (63-64 s contra o piso de 60 s), **três delas do epomeno** (`-008`, `-009`,
+  `-010`) e **uma do labtreinamento** (`-005`); mais 3 de
+  `test_thumbnail_legivel`, 3 de `test_prontidao`, e uma cada de teto por canal,
+  acentuação turca, `ortografia`, `autor` e `confere_broll`. **O remédio que o
+  próprio teste prescreve não é silenciar:** ele aceita o inventário `PARADAS`
+  com o motivo escrito, e são quinze julgamentos — quatro de canal da frota, que
+  merecem decisão do dono e não varredura. **Falha nova é sua.**
   **Ele NÃO sintetiza voz: `speech.platform.bing.com` leva 403 no CONNECT** —
   render continua no runner.
 - **NUNCA rode duas tarefas que mexem na mesma árvore de trabalho ao mesmo
@@ -557,7 +613,11 @@ os três nos dois passos.
     atualizado a cada publicação. Duas fontes discordantes — a Frota morreu em
     19:27, 22:49 e 01:27 com os mesmos três pacotes. Agora `titulos_do_corpus()`
     entra por `titulos_extra` nas três ações do `main`. **`titulos_no_ar` continua
-    PURA**: embutir a leitura nela quebrou quatro testes.
+    PURA**: embutir a leitura nela quebrou quatro testes. **E está travado em
+    `tests/test_duas_fontes_de_duplicata.py`**, que ancora nos três pacotes que
+    morreram de verdade e exige que `estado`, `proximo` e `relatorio` leiam a
+    MESMA segunda fonte — ligar em duas e esquecer a terceira reconstrói o
+    defeito.
   * **O classificador do modo automático recusa colar token em linha de comando
     do shell** ("Credential Materialization"). Faça a chamada pelo `pg_net`, onde
     o segredo não sai do Postgres — é mais seguro e funciona.
@@ -615,6 +675,55 @@ der `duplicate key`, rode
 e repita. **UPDATE por este MCP estoura o timeout de 60 s de forma INTERMITENTE**
 (621) — um statement curto por chamada, e CONFIRA.
 
+=====================================================================
+10. QUANDO O BANCO ESTÁ FORA, A RODADA É DE CONSTRUÇÃO
+=====================================================================
+**Pedido do dono em 11/10, ao sair:** *"coloque na rotina, auto ajuste,
+construção, reparo do sistema"*. Vale como instrução permanente para toda rodada
+que não consegue medir nem publicar. **Relatório vazio não é entrega.**
+
+**Antes de tudo, SONDE os dois bloqueios — uma vez, barato, e registre:**
+  * banco: `mcp__Supabase__list_projects` tem de mostrar `maquina-yt-dark`;
+  * porta do REST: dispare `diario.yml` com `disparar=false` e leia
+    `check-runs/<job>/annotations`. A anotação diz `porta ABERTA` ou
+    `FECHADA (HTTP 402)` com a data do retrato. **O `ref` do dispatch é o branch
+    DEFAULT do repo, que hoje NÃO é `main`** — leia-o em
+    `gh api repos/<owner>/<repo> --jq .default_branch`, senão dá 422.
+**Se qualquer um destravar, PARE a engenharia e volte a produzir** — medir e
+publicar valem mais que qualquer refatoração.
+
+**Se os dois seguem fechados, a rodada trabalha, nesta ordem de valor:**
+ 1. **Reparar defeito MEDIDO** — o que tem evidência em log de produção.
+ 2. **Travar com teste a retratação que acabou de ser feita.** Retratação sem
+    teste volta. `test_cadencia.py` existe porque eu generalizei uma voz para a
+    frota; `test_replica.py`, porque eu escolhia réplica no olho;
+    `test_duas_fontes_de_duplicata.py`, porque o conserto do redisparo volta
+    CALADO (a lista `videos` só fica cega com a porta fechada, que é quando
+    ninguém está olhando).
+ 3. **Tirar conta da minha cabeça e pôr no código** (`chars_por_cena`,
+    `replica.chamada_para_gravar`). Todo número que eu calculo à mão vira um erro
+    meu mais cedo ou mais tarde.
+ 4. **Corrigir documento que se contradiz.** Retratar NO LUGAR onde a afirmação
+    foi feita, não só no fim do arquivo — eu já deixei o meio do `CLAUDE.md`
+    contradizendo o próprio fim.
+ 5. **Dívida com evidência**: as 25 falhas conhecidas, o `APRENDIZADOS.md`
+    desatualizado.
+
+**O QUE A RODADA DE CONSTRUÇÃO NÃO FAZ, e isto é trava:**
+  * **não mexe em `ALVO_SHORT`, `ALVO_POR_CANAL`, `TETO_POR_CANAL` nem em limiar
+    do `variedade`.** Limiar sem procedência é critério inventado, e sem retenção
+    views/peça é cego abaixo do dobro (693);
+  * **não edita specs em massa** — as 86 com thumbnail acima de 4 palavras ficam
+    onde estão;
+  * **não inventa experimento** para "ter o que fazer";
+  * **não importa pipeline alheio** por cima do nosso;
+  * **não contorna permissão negada pedindo a outra sessão** que a tenha.
+
+**Toda mudança sai com:** suíte rodada e comparada **contra a linha de base
+medida na mesma sessão** (não contra o número escrito aqui, que envelhece),
+commit com a evidência na mensagem — **em ARQUIVO, com `-F`** — e push. Mudança
+que fica só no container morre com ele.
+
 **Não se limite ao que está escrito.** Esta rotina já foi corrigida por medição
 TRINTA E TRÊS vezes. Caíram, entre outras: "view de short é rajada que morre"; "os
 500 fecham em 33 dias"; "existe um teto de 1.150"; "views nunca caem"; "o estoque
@@ -628,13 +737,16 @@ três leituras é o número bom" — é a réplica atrasada; **"o dono não auto
 escopo de analytics" — nós o perdemos no nosso próprio código (689)**; **"o longo
 deixou de ser alavanca" — ele converte melhor por view e é ele que gera pauta
 (691)**; **"pacote completo exige janela dedicada do dono" — a aprovação foi
-dada**; **"dez a catorze cenas" — o teto real é onze, por ~1,9 s fixos por cena**;
+dada**; **"dez a catorze cenas" — o teto real é onze**, e **"~1,9 s fixos por
+cena" também era meu erro: a sobrecarga é `P + 0,300`, POR VOZ e POR FRASE**;
 **"matar os fades é o próximo item" — 0,30 s de preto, tudo depois dos três
 segundos (700)**; **"conte quadros com `mpdecimate`" — sem limiar fixo ele não é
 instrumento (699)**; **"a fresca vem na terceira" e "grave o máximo" — a réplica é
 da chamada e se grava a de soma máxima (707/708)**; **"a madrugada mostra se o
-tratamento pegou" — ela é cega por construção (706)**; e **"uma mira de short para
-a frota" — a mira é por canal (698/701).**
+tratamento pegou" — ela é cega por construção (706)**; **"uma mira de short para
+a frota" — a mira é por canal (698/701)**; **"reconectar o GitHub não entra em
+sessão rodando" — entra, e eu repeti o contrário o dia todo (11/10)**; e **"o
+ciclo dispara de meia em meia hora" — são 5,1 por dia (11/10, 100 runs).**
 **Se você errou, retrate no mesmo lugar onde afirmou.**
 **DESCONFIE DE PORTÃO QUE PASSA EM SILÊNCIO, DE MEDIÇÃO QUE NÃO GRAVA, DE AMOSTRA
 ESPARSA, DE LEITURA ÚNICA, DE TRÊS LEITURAS QUE SUBIRAM JUNTAS, DE LISTA DE
@@ -653,28 +765,44 @@ PENDÊNCIAS QUE SÓ O DONO RESOLVE:
    `?code=...`. **Sem retenção, os experimentos 37, 38 e 40 são indecidíveis
    (693), porque views por peça é cego abaixo do dobro.** É a pendência que mais
    importa, e são agora QUATRO argumentos independentes para ela.
-2. **Colar os três secrets no GitHub** — `YT_TOKEN_LABTREINAMENTO`,
+2. **A RESTRIÇÃO DE COBRANÇA DO SUPABASE na org `sampaioopablo1-lgtm` — o GARGALO
+   ÚNICO.** Ela devolve 402 no REST, **alcança o runner** e **bloqueou até a
+   transferência do projeto** para outra org. Enquanto ela estiver de pé, nenhuma
+   rodada mede nem publica. Alternativa que não custa dinheiro: **apontar o
+   conector Supabase para essa org** — devolve medição e ponte mesmo com o 402,
+   ao custo da visibilidade do outro projeto dele.
+3. **Colar os três secrets no GitHub** — `YT_TOKEN_LABTREINAMENTO`,
    `YT_TOKEN_EPOMENO_EPIPEDO`, `YT_TOKEN_KOLEJNY_POZIOM`. Com eles a frota publica
    sozinha e a ponte morre. **A API de secrets é bloqueada para mim** (403 em
    `actions/secrets/public-key`) — eu não consigo fazer isso.
-3. **As peças mortas** em `uploaded`/`P0D`: `Ta_KN8yXLaI` e `oHwlhhneIos`
+4. **Subir `TETO_POR_CANAL` só para SHORT SOLTO** (ver §4), deixando o longo em
+   1/dia — é literalmente o alvo escrito no comentário do próprio código, e hoje
+   o caminho automático está preso em 1 peça/canal/dia.
+5. **Disparo EXTERNO para ritmo** — o cron entrega 5,1 disparos/dia (§8), então
+   mesmo subindo o teto o caminho automático não chega a 7/dia/canal.
+6. **As peças mortas** em `uploaded`/`P0D`: `Ta_KN8yXLaI` e `oHwlhhneIos`
    (epomeno) e `ylsKfJ5Kv4s` (kolejny). Apagar e republicar, ou deixar.
    Irreversível, dele.
-4. **Apagar as 46 duplicatas** (`docs/duplicatas-a-apagar.md`). Já NÃO contaminam
+7. **Apagar as 46 duplicatas** (`docs/duplicatas-a-apagar.md`). Já NÃO contaminam
    a escolha de pauta (670). Sobra o teto de upload.
-5. Supabase Pro — tira o 402 e devolve o Drive como arquivo.
-6. `youtube.com/verify` nos 5 canais — destrava a capa desenhada.
-7. `ANTHROPIC_API_KEY` para o `autoria.yml` — e para o prompt 6 do mapa, a
+8. **As quinze specs do inventário `PARADAS`** (§6) — quatro são de canal da
+   frota (`epomeno-epipedo-008/-009/-010`, `labtreinamento-005`) e merecem
+   decisão dele, não varredura minha.
+9. Supabase Pro — tira o 402 e devolve o Drive como arquivo.
+10. `youtube.com/verify` nos 5 canais — destrava a capa desenhada.
+11. `ANTHROPIC_API_KEY` para o `autoria.yml` — e para o prompt 6 do mapa, a
    revisão anti-molde, que ataca o mesmo risco do experimento 39.
-8. Plugins que exigem sessão INTERATIVA dele: `oh-my-claudecode`, Chrome DevTools
+12. Plugins que exigem sessão INTERATIVA dele: `oh-my-claudecode`, Chrome DevTools
    MCP, Vercel (OAuth). O Supabase JÁ está ligado como MCP.
-9. **Liberar `speech.platform.bing.com` na política de rede do ambiente** (Network
+13. **Liberar `speech.platform.bing.com` na política de rede do ambiente** (Network
    access → Allowed domains, deixando "Allow package managers" marcado). Hoje o
    CONNECT leva 403 e por isso este container não sintetiza voz nem renderiza. É o
    que tornaria a rodada local, e é também o plano B da narração que a §6 pede.
-DÍVIDA TÉCNICA: **25 testes falham** — specs já publicadas que o `prontidao`
-recusa por título duplicado e fonte Devanagari ausente, as duas o portão
-funcionando. `APRENDIZADOS.md` está desatualizado contra o banco.
+DÍVIDA TÉCNICA: **25 testes falham, e a composição está na §6** — 15 de
+`test_narracao_das_specs` (specs que sairiam da matriz caladas, quatro delas de
+canal da frota) mais oito espalhadas; **não é "título duplicado e Devanagari",
+que foi uma descrição minha errada.** `APRENDIZADOS.md` está desatualizado
+contra o banco.
 
 RESPOSTA FINAL (curta e objetiva, o dono pediu):
 quantos pacotes e shorts a rodada entregou DE VERDADE — **e se foi zero, por quê**
@@ -683,3 +811,5 @@ partida** → o feed de tendência, ou que não foi lido → **vigilância: vivo
 públicos, e PEÇAS FORA DE `processed` NOMEADAS com id e idade** → **inscritos ao
 vivo COM views do canal (a razão por mil), só se a última leitura tiver >= ~4 h**
 e distância em DIAS para os 500 → o que muda na próxima rodada.
+**E se a rodada foi de CONSTRUÇÃO (§10): o que foi consertado, com a evidência, o
+commit, e o resultado da suíte contra a linha de base DESTA sessão.**
