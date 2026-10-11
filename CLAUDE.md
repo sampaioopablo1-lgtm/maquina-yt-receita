@@ -626,3 +626,45 @@ que o `prontidao` recusa por título duplicado, e fonte Devanagari ausente".
 motivo escrito. Não preenchi o inventário nesta rodada porque isso são quinze
 julgamentos, um por spec, e três delas são de canal da frota — merece decisão,
 não varredura.
+
+## O cron `*/30` dispara 5 vezes por dia, não 48 — medido em 100 runs
+
+**11/10, e isto derruba uma afirmação que está no `diario.yml`, na rotina e nos
+comentários do `orquestra.py`.** O `diario.yml` declara `cron: "*/30 * * * *"` e
+todo mundo aqui repete "o ciclo dispara de meia em meia hora". **Não dispara.**
+
+Os **100** runs de evento `schedule` mais recentes, cobrindo **470,5 h**
+(21/09 a 11/10):
+
+| | |
+|---|---|
+| disparos por dia, na prática | **5,1** |
+| mediana entre disparos | **287 min (4,8 h)** |
+| menor intervalo observado | **129 min** |
+| maior | **498 min (8,3 h)** |
+| intervalos acima de 2 h | **99 de 99** |
+
+**Nem uma única vez em vinte dias o cron andou de meia em meia hora.** O agendador
+do GitHub Actions é melhor-esforço e atrasa ou descarta disparo sob carga; o nosso
+cai em ~1/10 do declarado.
+
+**Três consequências que importam:**
+1. **O ritmo automático tem outro teto, e é mais apertado que o do `TETO_POR_CANAL`:**
+   ~5 oportunidades de disparo por dia para a frota inteira. Mesmo subindo o teto
+   por canal, o caminho automático não entrega 7/dia/canal.
+2. **A lógica de janela horária fica comprometida.** O comentário do `proximo`
+   diz que a faixa morta é só preferência, "não portão", porque *"a fila anda de
+   meia em meia hora, então todo canal alcança a própria janela dentro do mesmo
+   dia"*. Com mediana de 4,8 h entre disparos, **essa premissa é falsa** — um
+   canal pode passar o dia sem que nenhum disparo caia na janela boa dele.
+3. **Não adianta baixar o cron para `*/15`.** O limite não é o que pedimos, é o
+   que o agendador entrega. Quem quiser ritmo garantido precisa de disparo
+   EXTERNO (`workflow_dispatch`), que é o que eu fiz à mão hoje às 02:43 e 03:37.
+
+**Como remedir, sem depender de mim:**
+
+    gh api 'repos/<owner>/<repo>/actions/workflows/diario.yml/runs?per_page=100&event=schedule' --jq '.workflow_runs[].created_at'
+
+e olhe os intervalos. **Conte disparo de `schedule` separado de
+`workflow_dispatch`** — misturar os dois esconde exatamente este defeito, porque
+os meus disparos manuais tapam os buracos do agendador.
