@@ -112,7 +112,19 @@ jobs:
           fi
           ACC=$(printf %s "$OAUTH" | python3 -c "
           import json, sys, urllib.request
-          cfg = json.load(sys.stdin)['$CANAL']
+          # Desembrulha o que o SQL Editor copia: [{'<coluna>': '<json>'}].
+          # Medido em 11/10 (run 38175092152): sem isto o mapa fica com UM
+          # canal chamado 'jsonb_pretty' e a frota inteira sai de fora.
+          mapa = json.load(sys.stdin)
+          for _ in range(4):
+              if isinstance(mapa, list) and len(mapa) == 1:
+                  mapa = mapa[0]; continue
+              if isinstance(mapa, dict) and len(mapa) == 1:
+                  u = next(iter(mapa.values()))
+                  if isinstance(u, str):
+                      mapa = json.loads(u); continue
+              break
+          cfg = mapa['$CANAL']
           corpo = json.dumps({'client_id': cfg['client_id'],
                               'client_secret': cfg['client_secret'],
                               'refresh_token': cfg['refresh_token'],

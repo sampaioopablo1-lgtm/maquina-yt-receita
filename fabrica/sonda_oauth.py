@@ -33,6 +33,11 @@ import sys
 import urllib.error
 import urllib.request
 
+try:                                        # rodando como pacote
+    from fabrica.oauth_mapa import desembrulha
+except ImportError:                         # rodando o arquivo solto no runner
+    from oauth_mapa import desembrulha
+
 FROTA = ("labtreinamento", "epomeno-epipedo", "kolejny-poziom")
 TOKEN_URI = "https://oauth2.googleapis.com/token"
 
@@ -98,7 +103,10 @@ def main() -> int:
         return 0
 
     try:
-        mapa = json.loads(os.environ["YT_OAUTH_JSON"])
+        # `desembrulha` e nao `json.loads`: o copiar do SQL Editor embrulha o
+        # valor numa coluna so, e em 11/10 isso fez a sonda ler "1 canal" com
+        # os tres dentro (run 38175092152).
+        mapa = desembrulha(os.environ["YT_OAUTH_JSON"])
     except ValueError:
         aviso("YT_OAUTH_JSON nao e JSON valido — formato esperado: "
               '{"<canal>": {"client_id", "client_secret", "refresh_token"}}')
