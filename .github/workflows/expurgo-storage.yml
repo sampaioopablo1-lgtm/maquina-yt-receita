@@ -35,8 +35,24 @@ name: Expurgo — o Storage e passagem, nao arquivo
 #
 # Entao o valor deste workflow e o CICLO SEGUINTE, nao este. Segurando 0,65 GB
 # em vez de 3,7 GB, a queima cai de ~2.750 GB-Hrs/mes (3,7x acima do teto) para
-# ~480 GB-Hrs/mes (dentro do teto). Sem ele, a maquina destrava na virada e
-# reestoura em uma semana. Foi por isso que ele continua valendo a pena.
+# ~480 GB-Hrs/mes (dentro do teto).
+#
+# MAS "A MAQUINA DESTRAVA NA VIRADA" NAO ACONTECEU, e isto corrige o que este
+# proprio arquivo dizia (11/10/2026). O 402 e CONTINUO de 25/08 a 11/10 — 47
+# dias, atravessando pelo menos uma e provavelmente duas viradas de ciclo. A
+# previsao otimista do paragrafo acima esta falsificada pelo RESULTADO.
+#
+# E a explicacao ja estava escrita neste mesmo arquivo, mais abaixo (veja o
+# `::warning::` do 402): o no e CIRCULAR. O 402 bloqueia o Storage, o expurgo
+# precisa do Storage para apagar, entao os 3,7 GB nunca sairam e cada ciclo
+# novo reestoura a cota no primeiro dia. Esperar a virada nao resolve porque a
+# virada chega com o mesmo 3,7 GB la dentro.
+#
+# ENTAO AS DUAS LEITURAS DESTE ARQUIVO NAO ERAM COMPATIVEIS, e a que vale e a
+# circular: **o remedio e humano** — subir para o Pro (que levanta a restricao
+# na hora e deixa o expurgo rodar), ou mover o projeto para outra organizacao.
+# Nao diga ao dono "e so esperar a virada": isso ja foi dito e custou 47 dias.
+# Este workflow continua valendo a pena, mas so DEPOIS que alguem destravar.
 #
 # POR QUE PELA API E NAO POR SQL: tentei apagar `storage.objects` por SQL
 # primeiro. O proprio Supabase barra, com o gatilho `protect_objects_delete`:

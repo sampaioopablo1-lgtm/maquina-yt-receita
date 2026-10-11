@@ -131,6 +131,77 @@ def compara(grupos: dict) -> list[str]:
     return notas
 
 
+# ---------------------------------------------------------------------------
+# A CONVERSAO POR MIL DE UM CANAL, e o denominador que ela NAO usa.
+#
+# Isto esta aqui porque eu fazia no olho toda rodada e errei duas vezes: usei
+# 1,32 e 0,95 por mil o dia 09/10 inteiro, e o numero certo era 1,10 e 0,75.
+#
+# O 697 (`critico`) mediu POR QUE: o `channels.list?part=statistics` NAO serve
+# de denominador. Ele devolveu `viewCount` byte a byte identico as 10:15 e as
+# 18:10 de 09/10 — oito horas — nos tres canais, enquanto 17 pecas somavam
+# centenas de views. E em DOIS canais a soma das pecas da maquina ja era MAIOR
+# que o contador do canal: epomeno 15.454 contra 12.152, kolejny 10.625 contra
+# 8.406. Um total nao pode ser menor que uma de suas partes, entao ele nao e a
+# soma — converge com o 638, que mediu que ele nao conta Shorts.
+#
+# O 703/705 fecharam o caso: o contador de canal anda em DEGRAU, cada canal com
+# a sua fase, e o degrau pode passar de 12 h. O epomeno ficou igual em tres
+# leituras seguidas (10:15, 18:10, 22:10) e depois saltou +783 de uma vez. Logo
+# ele nao serve nem de denominador nem para declarar canal morto.
+#
+# O denominador e `sum(views)` DAS PECAS DA PROPRIA MAQUINA, coletadas na hora.
+
+# Canais cujo acervo COMECA ANTES da maquina. Aprendizado 668: o
+# labtreinamento parecia converter 4x melhor e NAO converte — o canal reporta
+# 74 videos e o banco tem ~36 da maquina, entao os outros trazem plateia que a
+# maquina nao trouxe. O 705 remediu o mesmo efeito pelo outro lado: canal +358
+# contra pecas +78.
+#
+# Nao e lista de conveniencia: canal entra aqui quando a contagem de videos do
+# proprio canal passa do que o banco tem dele.
+CANAIS_COM_ACERVO_ANTERIOR = {"labtreinamento"}
+
+
+def denominador(views_por_peca) -> int:
+    """Soma das views das pecas DA MAQUINA. O unico denominador valido (697).
+
+    Recebe as views peca a peca de proposito: nao existe argumento para passar
+    o `viewCount` do canal, porque ele nao e a soma e nao serve. Se um dia
+    alguem quiser usa-lo, tera de alterar esta funcao e cair no teste.
+    """
+    return sum(int(v) for v in views_por_peca)
+
+
+def por_mil(canal: str, inscritos: int, views_por_peca) -> float | None:
+    """Inscritos por MIL views da maquina, ou None quando nao da para normalizar.
+
+    `None` NAO e zero e nao e falha: e a resposta certa para canal com acervo
+    anterior a maquina (668), onde o numerador inclui plateia que nao veio
+    daqui. Numero absoluto sem denominador fabrica o canal errado, e foi assim
+    que eu elegi o labtreinamento como o melhor da frota por um dia inteiro.
+    """
+    if canal in CANAIS_COM_ACERVO_ANTERIOR:
+        return None
+    v = denominador(views_por_peca)
+    if v <= 0:
+        return None
+    return 1000.0 * int(inscritos) / v
+
+
+def relato_por_mil(canal: str, inscritos: int, views_por_peca) -> str:
+    """Uma linha para o relato da rodada, com o denominador DITO."""
+    r = por_mil(canal, inscritos, views_por_peca)
+    v = denominador(views_por_peca)
+    if r is None and canal in CANAIS_COM_ACERVO_ANTERIOR:
+        return (f"{canal}: {inscritos} inscritos, {v} views da maquina — "
+                f"NAO NORMALIZAVEL (acervo anterior a maquina, 668)")
+    if r is None:
+        return f"{canal}: sem views coletadas — nada a normalizar"
+    return (f"{canal}: {inscritos}/{v} = {r:.3f} por mil "
+            f"(denominador = soma das pecas da maquina, 697)")
+
+
 def main(caminho: str) -> int:
     grupos = json.load(open(caminho, encoding="utf-8"))
     for linha in compara(grupos):

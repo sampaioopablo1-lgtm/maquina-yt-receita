@@ -428,6 +428,27 @@ sai pela API. Mas os `::warning::` e `::notice::` saem, pela própria api.github
 
 Foi assim que eu li o ciclo de 02:43 de 11/10 inteiro sem o MCP.
 
+## "É só esperar a virada do ciclo" — FALSIFICADO, e era afirmação nossa
+
+**11/10, e corrige o que o `expurgo-storage.yml` dizia no próprio topo.** O
+arquivo prometia que "a máquina destrava na virada e reestoura em uma semana",
+e por isso o conselho que saía daqui era esperar. **O 402 é CONTÍNUO de 25/08 a
+11/10 — 47 dias, atravessando pelo menos uma e provavelmente duas viradas de
+ciclo.** A previsão está morta pelo resultado.
+
+**E a explicação já estava escrita no mesmo arquivo, trinta linhas abaixo: o nó
+é CIRCULAR.** O 402 bloqueia o Storage; o expurgo precisa do Storage para
+apagar; os 3,7 GB nunca saíram; cada ciclo novo reestoura a cota no primeiro
+dia. A virada chega com o mesmo 3,7 GB lá dentro.
+
+**Duas consequências:**
+1. **O remédio é humano** — Pro (levanta na hora E deixa o expurgo rodar) ou
+   mover o projeto para outra organização. **Não diga ao dono "é só esperar".**
+2. **A anotação de 402 do ciclo é TEXTO NOSSO, não leitura da API.** Ela vem de
+   `expurgo-storage.yml:118` e repete a conclusão de 25/08. Tratar a própria
+   anotação como evidência fresca é o efeito do §3.8 — portão verde fabrica
+   "está tudo certo".
+
 ## O 402 fecha a porta PARA O RUNNER TAMBÉM
 
 **Medido em 11/10**, anotação literal do `diario.yml`:
