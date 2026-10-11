@@ -441,3 +441,79 @@ anotação da matriz, não a ausência do run da Frota.
 **Fora do escopo, medido:** **86 das 183 specs (47%)** passam de 4 palavras na
 thumbnail. O molde histórico viola o portão `variedade` em metade dos casos —
 spec nova não deve se espelhar nele.
+
+## O que entrou dos cinco projetos externos — e o que NÃO entrou
+
+**11/10. O dono mandou estudar cinco repositórios e aplicar.** Estudados os cinco.
+Entrou pouco, e **nada por autoridade da fonte** — só o que converge com medição
+nossa, que é a mesma régua da §5 da rotina.
+
+**NÃO adotados, com motivo:**
+- `youtube-automation-agent` — pipeline Node completo e paralelo ao nosso. Não
+  tem portão, nem corpus anti-duplicata, nem disciplina de medição. Trocar o
+  nosso por ele seria **regressão**, não ganho.
+- `ai-video-generator-claude` — prompts para Higgsfield. Os shorts soltos têm
+  b-roll ZERO por decisão, e Higgsfield consome crédito: só se o dono pedir.
+- `claude-youtube` (as *skills*) — andaime para criador humano e orientado a
+  LONGO: o `hook.md` pede "gancho de 30 s, ~75 palavras", e o nosso short inteiro
+  tem 41. Os scripts de execução dele usam **a YouTube Analytics API com OAuth**,
+  isto é, o escopo que nós perdemos — **confirmação independente de que o clique
+  de consentimento é o único caminho**, não um atalho.
+- `claude-code-youtube-mcp` — exige Node, chave de API e instalação pelo dono.
+  O que tem de novo e interessante é o **mapa de "most replayed"**, que é proxy
+  de retenção em canal ALHEIO e por dado público. Fica como sugestão ao dono,
+  não como dependência nova.
+- `claude-real-video` — frames + transcrição sincronizada. Nós já fazemos análise
+  de quadro com `ffmpeg`/`signalstats`, e o gargalo não é ler vídeo dos outros.
+
+**ENTROU, por convergência (`references/shorts-playbook.md`):**
+1. **Cadência de mudança visual a cada ~3 s.** Converge com a física que nós
+   medimos sozinhos (690/699: a alavanca é a duração da cena).
+2. **Faixa boa de 15 a 60 s, com picos em 13 s e 60 s.** É a **segunda** fonte
+   independente contra o experimento 38 — a primeira foi o nosso próprio
+   `chart=mostPopular` (10 a 35 s). Não muda `ALVO_SHORT` agora: 38 segue sem
+   leitura de 12 h, e views/peça é cego sob CV 0,66.
+3. **Conversão de "vídeo relacionado" abaixo de 1%.** Apoia o experimento 37
+   (o CTA pedindo inscrição em vez de apontar para o longo).
+
+Procedência declarada e mista: "estudo de 35 bilhões de views" sem nome, `vidIQ`
+que é fornecedor de ferramenta, e Tubefilter/Digital i com nome e data.
+
+## A sobrecarga por cena é POR VOZ, e é P — retrata o meu "~1,9 s fixos"
+
+**Medido em 11/10, e corrige o número que eu mesmo escrevi acima.** Não há 1,9 s
+fixos por cena. A sobrecarga é `P + 0,300`, onde **P é o silêncio de fim de FRASE
+da própria voz** (já medido em `MODELO_VOZ`) e 0,300 s é o intervalo de montagem:
+
+| voz | R | P | sobrecarga/cena |
+|---|---|---|---|
+| `pt-BR-ThalitaMultilingualNeural` | 17,47 | 0,737 | **1,04 s** |
+| `el-GR-NestorasNeural` | 20,61 | 1,273 | **1,57 s** |
+| `pl-PL-MarekNeural` | 20,07 | 1,419 | **1,72 s** |
+
+O "12 cenas somam 21,9 s" que eu medi era a voz POLONESA, a de maior P — eu
+generalizei o pior caso para a frota inteira, que é o mesmo erro do 679/698
+(tratar como da frota o que é por voz/por canal).
+
+**E P é por FRASE, não por cena:** cena com duas frases paga 2P. Logo **uma frase
+curta por cena** é o que minimiza a sobrecarga.
+
+**O que isso abre:** a cadência de 3 s **não** se alcança somando cenas a um short
+de 41 s — ela se alcança ENCURTANDO o total. Com uma frase por cena:
+
+| voz | chars/cena para cadência de 3,0 s | 11 cenas |
+|---|---|---|
+| pt-BR | **34** | **33,0 s** |
+| el-GR | **29** | **33,0 s** |
+| pl-PL | **25** | **33,0 s** |
+
+E **33 s cai dentro do override medido do `labtreinamento` (33,0 a 37,0)**. Ou
+seja, para aquele canal, três coisas apontam para o mesmo ponto: a mira que o
+próprio canal mediu (698), a cadência externa de 3 s, e a faixa curta das duas
+fontes de tendência. **No kolejny o sinal medido é o OPOSTO (701)** — lá a mira
+longa ganhou, e isso não se mexe sem leitura.
+
+**Nada disso muda `ALVO_SHORT` nem `ALVO_POR_CANAL` hoje.** Fica como desenho
+pré-registrado para quando houver retenção: **labtreinamento, 11 cenas de uma
+frase curta, ~33 s** — o primeiro teste em que cadência, duração e mira do canal
+concordam.
