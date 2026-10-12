@@ -439,6 +439,42 @@ isto é, o crescimento é do acervo anterior à máquina (668).
 Conversão às 22:15, com o denominador certo: epomeno 17/15.751 = **1,08 por mil**,
 kolejny 8/10.830 = **0,74**, labtreinamento **não normalizável**.
 
+## O PIPER NARRA 10 A 20% MAIS RÁPIDO QUE O MODELO — e o portão passou peça fora da faixa
+
+**Aprendizado 711, `alto`, medido às 14:1x de 12/10, na primeira medição gravada
+depois do banco destravar.** O `R`/`P` de `MODELO_VOZ` é do **edge-tts** e não
+vale para as vozes do Piper. Duração REAL (`contentDetails.duration`, e o YouTube
+ARREDONDA PARA CIMA) contra `ensaio.duracao_estimada_short` da própria spec:
+
+| peça | voz | est | real | desvio |
+|---|---|---|---|---|
+| `epomeno-epipedo-s016` | el-GR, **edge-tts** | 41,6 | 42 | **+0,9%** |
+| `epomeno-epipedo-s017` | el-GR, Piper | 42,9 | 38 | −11,4% |
+| `epomeno-epipedo-s018` | el-GR, Piper | 41,9 | 35 | −16,6% |
+| `epomeno-epipedo-s019` | el-GR, Piper | 41,6 | 36 | −13,5% |
+| `kolejny-poziom-s018` | pl-PL, Piper | 42,3 | 34 | −19,5% |
+| `kolejny-poziom-s019` | pl-PL, Piper | 42,3 | 38 | −10,2% |
+| `labtreinamento-s013` | pt-BR, Piper | 37,5 | 32 | −14,6% |
+| `labtreinamento-s014` | pt-BR, Piper | 36,2 | **29** | −20,0% |
+| `labtreinamento-s015` | pt-BR, Piper | 36,5 | 30 | −17,9% |
+
+**As oito do Piper são TODAS negativas; a única do edge-tts acerta.** Sob a nula
+de o modelo valer igual, oito de oito negativas dá **1/256**.
+
+**A consequência que importa, e ela já aconteceu:** o portão `duracao` compara o
+**estimado** contra 30,0–43,1 s. Então ele **aprova em silêncio** peça que sai
+fora da faixa — o `labtreinamento-s014` (`K-k8vT0IY2M`) foi ao ar com **29 s
+reais contra um piso de 30**. É o §3.8 na forma mais literal: portão verde
+fabricou "está tudo certo" porque o instrumento media outra coisa.
+
+**Confundidor declarado:** n=1 no braço edge-tts, e as duas `pl-PL` são do mesmo
+canal. O que NÃO é confundido é o sinal: todas as oito na mesma direção.
+
+**Não corrigi `MODELO_VOZ` ainda**, e o motivo é que a spec declara a voz do
+edge-tts mesmo quando o Piper é quem narra — o provedor se decide no runner,
+depois das três tentativas. O conserto certo é a estimativa receber o PROVEDOR,
+não a tabela ser reescrita por baixo. Desenho pré-registrado antes de mexer.
+
 ## Antes de citar número de aprendizado
 `select max(id) from aprendizados` no projeto **vevocauwtarctfwngrch**.
 O `APRENDIZADOS.md` do repo está desatualizado contra o banco.
