@@ -1,0 +1,88 @@
+# O `pipeline_canal_dark_v1.2` — estudado em 12/10/2026, e o que entrou
+
+O dono mandou o zip sem recado, como mandou os cinco repositórios em 11/10.
+A régua é a mesma da §5 da rotina: **entra o que converge com medição nossa, e
+nada por autoridade da fonte.** Este é um produto comercial (tem licença, chave
+e área de membros), para Windows, com Claude Code como assistente — não é um
+repositório público, então nem "muita gente usa" nem "é pago" dizem algo sobre
+se funciona.
+
+## O que ele é
+
+Fábrica de canal dark local: roteiro → narração (`edge-tts`) → cenas animadas
+num navegador → montagem → shorts → thumbnail → postagem. Seis *skills* do
+Claude Code (`comecar`, `produzir-video`, `pauta`, `publicar`, `manutencao`,
+`montar-canal`), `.bat` de dois cliques, esteira por tarefa agendada do Windows.
+
+**Honesto no que importa:** o `LEIA-ME.md` diz, sem rodeio, que vídeo enviado por
+projeto novo da API do YouTube **fica travado como privado** até a auditoria do
+Google, que ela é pedida por formulário e pode levar semanas, e que *"o Pipeline
+não tem como pular essa regra"*. Isso bate com o que nós vivemos — e é um ponto a
+favor da procedência dele.
+
+## O que NÃO entrou, com motivo
+
+- **O pipeline inteiro.** É Windows (`.bat`, `.ps1`, tarefa agendada), roda no PC
+  do dono e é paralelo ao nosso. Trocar o nosso por ele seria regressão: ele não
+  tem corpus anti-duplicata por título, nem `origem_id`, nem `ALVO_POR_CANAL`,
+  nem a disciplina de réplica (688/707/708/720), nem a conta de poder do 693.
+- **O alvo de volume.** Ele mira `loudnorm=I=-14`. **Nós já miramos o mesmo**, e
+  com o pico mais apertado: `TP=-1.5` contra `TP=-6` no mixer dele
+  (`fabrica/fabrica.py:686`). Não havia nada a importar.
+- **A faixa de short de 15 a 58 s** (`motor/shorts.py`). É escolha de projeto num
+  produto, não medição — então **não conta como fonte independente** contra o
+  experimento 38. As duas que contam continuam sendo o nosso `chart=mostPopular`
+  e o `references/shorts-playbook.md`.
+- **O limiar de similaridade de 0,30 (erro) / 0,15 (aviso).** O nosso é 0,65, e
+  vem do mapa que o dono trouxe. O dele não traz procedência nenhuma. **Limiar
+  sem procedência não substitui limiar com procedência** — e a trava da rodada de
+  construção proíbe mexer nisso de qualquer forma.
+- **O checador de pronúncia por `faster-whisper`.** É a melhor ideia do pacote e
+  ataca um buraco real nosso (o `ortografia` mede o TEXTO, nunca o áudio). Mas
+  baixa 200–500 MB de modelo e o render acontece no runner, com minuto contado.
+  **Fica como sugestão ao dono**, não como dependência nova.
+- **`volume_blocos`, `contato`, thumbnail 1280x720, `frases_repetidas`.** Ou já
+  temos equivalente, ou não se aplica a short solto com b-roll zero.
+
+## O que ENTROU, e é UMA coisa
+
+**A CONFERÊNCIA do volume — `fabrica/som.py`.** O que ele tem e nós não tínhamos
+não é o alvo: é **medir o arquivo final**. Nós aplicamos `loudnorm` e nunca
+lemos o resultado. Ter o filtro na linha de comando não é evidência de que a peça
+saiu a −14: o `loudnorm` de uma passada é dinâmico e pode errar o alvo, em
+silêncio. **É a assinatura do §3.8 pela enésima vez** — portão verde fabricando
+"está tudo certo" porque ninguém mediu a saída.
+
+O módulo lê `ebur128` (LUFS, LRA, pico real) e `silencedetect`, e **não reprova
+nada**: sai como `::notice::` no `frota.yml`, depois do render e com
+`continue-on-error`, porque medição nova não pode derrubar publicação. Quando
+houver leitura de peça real o bastante, aí se decide se vira portão.
+
+**Validado com sinal controlado**, neste container, em 12/10:
+
+| sinal | LUFS |
+|---|---|
+| tom de 220 Hz a −30 dB | **−52,0** |
+| o mesmo depois do nosso `loudnorm=I=-14:TP=-1.5:LRA=11` | **−13,9** |
+
+O instrumento responde e o filtro acerta o alvo **num sinal estável**. Isso
+**não** é evidência sobre as peças publicadas: fala com música e corte de cena é
+outro sinal, e é exatamente o que falta medir. Seis testes em
+`tests/test_som.py`, e um deles confere que o `ALVO_LUFS` do módulo continua
+igual ao `loudnorm` de `fabrica.py` — para o número não virar cópia que
+envelhece.
+
+**Uma diferença deliberada:** o piso de silêncio dele é 2,0 s e o nosso é
+**1,0 s**. A razão é medida e é nossa: a sobrecarga por cena é `P + 0,300`, e P
+vai de **1,04 s** no pt-BR a **1,72 s** no polonês. Com piso de 2,0 s o silêncio
+NORMAL de fim de frase da voz polonesa já quase dispara, e a medição não
+separaria defeito de modelo.
+
+## Um fato técnico que vale guardar
+
+`motor/medidas.py` documenta que extrair quadro de vídeo HD (BT.709, faixa
+limitada) para JPEG sem `out_color_matrix=bt601:out_range=pc` deixa **as cores
+puxadas para o verde**. As nossas medições de dinamismo (690/699) usam
+`signalstats` **sobre o vídeo**, não sobre JPEG, então estão a salvo — mas se
+algum dia alguém conferir thumbnail ou quadro por imagem exportada, é por aí que
+o erro entra.

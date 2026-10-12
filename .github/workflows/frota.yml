@@ -342,6 +342,28 @@ jobs:
           KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: python3 fabrica/etapas.py spec.json
 
+      # CONFERIR O SOM DA PECA RENDERIZADA — e isto NAO reprova nada.
+      #
+      # Por que existe: a fabrica aplica `loudnorm=I=-14:TP=-1.5:LRA=11` e nunca
+      # mediu o resultado. Ter o filtro na linha de comando nao e evidencia de
+      # que a peca saiu a -14: o `loudnorm` de UMA passada e dinamico e pode
+      # errar o alvo, em silencio. E o paragrafo 3.8 — portao verde fabricando
+      # "esta tudo certo".
+      #
+      # `continue-on-error` de proposito: medicao nova nao pode derrubar
+      # publicacao. O numero sai como ::notice:: e entra no relato da rodada;
+      # quando houver leitura de peca real o bastante, DAI se decide se vira
+      # portao. Limiar sem procedencia e criterio inventado.
+      - name: Conferir o som (LUFS, pico, silencio)
+        id: som
+        continue-on-error: true
+        run: |
+          for f in /tmp/f/${{ matrix.pacote }}/short.mp4 /tmp/f/${{ matrix.pacote }}/video.mp4; do
+            [ -f "$f" ] || continue
+            J=$(python3 fabrica/som.py "$f" --json || echo '{}')
+            echo "::notice::SOM $(basename "$f") ${{ matrix.pacote }} $J"
+          done
+
       # A ENTREGA NO STORAGE NAO PODE DERRUBAR A PUBLICACAO.
       #
       # Ate 24/08/2026 este passo usava `set -e` + `curl --fail`, entao qualquer
