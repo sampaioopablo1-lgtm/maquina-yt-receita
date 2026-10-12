@@ -105,7 +105,12 @@ jobs:
       - name: Conferir a imagem do que saiu
         run: |
           set +e
-          V=$(find /tmp/teste -name "*.mp4" | head -1)
+          # O render NAO escreve em /tmp/teste: `caminhos.dir_trabalho` poe o
+          # pacote em /tmp/f/<pacote> (RAIZ_PADRAO). No run 38207015136 o passo
+          # "Renderizar" deu SUCCESS e este aqui falhou com "nenhum mp4" —
+          # defeito do teste, procurando no lugar errado. Quarta vez na sessao.
+          V=$(find /tmp/f /tmp/teste -name "*.mp4" 2>/dev/null | head -1)
+          ls -la /tmp/f/_teste-ponta-a-ponta 2>/dev/null | tail -12
           echo "video: $V"
           if [ -z "$V" ]; then echo "::error::nenhum mp4 foi produzido"; exit 1; fi
           ffprobe -v error -show_entries format=duration,size -of default=nw=1 "$V"
@@ -140,6 +145,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: teste-ponta-a-ponta
-          path: /tmp/teste
+          path: |
+            /tmp/teste
+            /tmp/f/_teste-ponta-a-ponta
           retention-days: 7
           if-no-files-found: warn
