@@ -180,7 +180,11 @@ jobs:
           fc-list | wc -l | sed "s/^/fontes instaladas: /"
 
       - name: Instalar fabrica
-        run: pip install -q edge-tts cairosvg pydantic pillow
+        # piper-tts e o FALLBACK de narracao, e sem ele aqui o plano B e
+        # decorativo: no run 38211497370 o edge-tts deu 403, `disponivel()`
+        # devolveu False por falta do pacote, e o erro subiu cru. O codigo
+        # existia e o ambiente que o usa nao o tinha.
+        run: pip install -q edge-tts cairosvg pydantic pillow piper-tts
 
       - name: Baixar spec e trilhas
         env:

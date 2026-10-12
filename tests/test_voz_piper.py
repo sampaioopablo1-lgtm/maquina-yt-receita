@@ -92,3 +92,22 @@ def test_sintetiza_devolve_False_quando_o_modelo_nao_baixa(monkeypatch):
     """Falha de rede nao pode virar mp3 vazio passando por bom."""
     monkeypatch.setattr(VP, "modelo", lambda v: None)
     assert VP.sintetiza("oi", "pt-BR-ThalitaMultilingualNeural", "/tmp/x.mp3") is False
+
+
+def test_o_FROTA_instala_o_piper():
+    """Plano B que a producao nao instala e plano B decorativo.
+
+    Run 38211497370: o edge-tts deu 403 na frota, `VP.disponivel()` devolveu
+    False porque o `frota.yml` instalava so edge-tts/cairosvg/pydantic/pillow,
+    e o erro subiu cru — exatamente a falha que o fallback existe para evitar.
+    O codigo estava certo; o ambiente que o usa nao tinha o pacote.
+    """
+    yml = (RAIZ / ".github/workflows/frota.yml").read_text()
+    linha = next(l for l in yml.splitlines() if "pip install" in l and "edge-tts" in l)
+    assert "piper-tts" in linha, linha
+
+
+def test_o_TESTE_de_ponta_a_ponta_tambem_instala():
+    """Senao o teste exercita um caminho que a producao nao tem."""
+    yml = (RAIZ / ".github/workflows/teste-ponta.yml").read_text()
+    assert "piper-tts" in yml
