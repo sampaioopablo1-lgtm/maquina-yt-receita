@@ -1,0 +1,34 @@
+name: Sonda — quais bancos de imagem o runner alcanca
+
+# POR QUE ISTO EXISTE (12/10/2026). O dono pediu b-roll de banco aberto, e a
+# primeira pergunta nao e qual banco e melhor: e qual deles o RUNNER alcanca.
+# Deste container nenhum abre — o proxy recusa os nove no CONNECT — mas o
+# render nao acontece aqui, acontece no runner, e concluir pelo container
+# seria o erro de sempre (dizer "impossivel" sem medir onde a coisa roda).
+#
+# A sonda tambem separa o que precisa de CHAVE do que nao precisa. Wikimedia,
+# NASA e Openverse servem sem chave nenhuma; Pexels e Pixabay pedem chave
+# gratuita. Isso muda o pedido que eu faco ao dono.
+#
+# NAO baixa midia, NAO publica, NAO gasta cota. So cabecalho e contagem.
+
+on:
+  workflow_dispatch:
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  sondar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - name: Sondar os bancos
+        env:
+          PEXELS_KEY: ${{ secrets.PEXELS_KEY }}
+          PIXABAY_KEY: ${{ secrets.PIXABAY_KEY }}
+        run: python3 fabrica/sonda_bancos.py
