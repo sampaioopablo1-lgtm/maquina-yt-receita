@@ -1,0 +1,80 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-s018",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#22333B",
+  "c1": "#A4243B",
+  "c2": "#D8973C",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Divisível",
+  "l2": "mês a mês"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Não é tudo",
+   "sub": "ou nada",
+   "nar": "Você acha que é tudo ou nada.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O acerto",
+   "nar": "O acerto da contribuição é divisível.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Mês a mês",
+   "nar": "Complemente só os meses que importam.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E aí muda",
+   "sub": "de impossível para escolhível",
+   "nar": "Isso muda de impossível para escolhível.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Porque",
+   "nar": "Você compra exatamente o tempo que precisa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E a pergunta",
+   "nar": "Então a pergunta não é quanto custa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "É quanto",
+   "sub": "esse dinheiro compra",
+   "nar": "É quanto ele compra de benefício.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O cálculo",
+   "nar": "O cálculo do seu caso está no Meu INSS.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "inscreva-se",
+   "nar": "Abra a sua guia e confira. Inscreva-se.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "4OYBkCHFTV8",
+ "copy": "# labtreinamento-s018\n\n## TITULO\nO Acerto Da Contribuição É Divisível — A Pergunta Não É Quanto Custa, É Quanto Ele Compra\n\n## TITULO SHORT\nNão é tudo ou nada\n\n## DESCRICAO\nQuem descobre que escolheu a contribuição mais barata costuma fazer uma coisa só: pede o valor para acertar tudo, vê um número grande, e desiste. A decisão morre ali — e ela morreu por um erro de forma, não de dinheiro.\n\nPorque **o acerto é divisível**. Não precisa ser tudo de uma vez. Dá para complementar **só os meses que fazem diferença** para o seu caso e deixar os outros como estão. E isso costuma mudar a conversa de impossível para escolhível, porque você passa a comprar exatamente o tempo de que precisa — não o passado inteiro.\n\nE é aí que a pergunta muda. Enquanto você pergunta **\"quanto custa?\"**, a resposta é sempre um número grande e sempre desanimador. A pergunta que decide é outra: **quantos meses eu antecipo, e quanto eu recebo a mais por mês depois disso?** Essa é uma razão, não um valor — e razão você compara.\n\nTem um detalhe que trabalha contra quem espera: cada mês que passa encarece o acerto dos meses que já passaram. Não é urgência inventada para te apressar; é como o cálculo funciona.\n\nEste short não diz alíquota nem taxa de juros, de propósito, e o vídeo completo também não: a taxa muda conforme o período, e um número fixo aqui daria uma conta errada para quase todo mundo que assiste. O cálculo certo, mês a mês e para o seu caso, aparece no **Meu INSS** — e ele é gratuito.\n\nO que vale fazer hoje, em dois minutos: abra a sua guia e veja o código. Ele diz qual das opções você está pagando. Essa é a informação que decide, e ela já está na sua mão.\n\nNo vídeo completo: as duas opções e o que a mais barata tira, como se faz o acerto, os três passos para estimar o seu caso, e os dois momentos em que acertar **não** vale a pena.\n\n## COMENTARIO FIXADO\nO que faz tanta gente desistir dessa decisão é a forma da pergunta, não o valor. \"Quanto custa acertar tudo?\" devolve um número grande e encerra o assunto. Mas o acerto é divisível: você pode comprar só os meses que mudam o seu caso. Aí a conta vira uma razão — o que cada mês custa contra o que cada mês compra de benefício depois — e razão é coisa que se compara. De propósito não coloquei aqui alíquota nem taxa de juros: a taxa muda conforme o período, e número fixo daria conta errada para quase todo mundo. O cálculo do seu caso é gratuito no Meu INSS. Conta nos comentários: você já sabe qual código está na sua guia?\n\n## HASHTAGS\n#Autonomo #Previdencia #LabTreinamento\n\n## TAGS\ncontribuicao do autonomo, acerto retroativo, complementacao de contribuicao, meu inss, aposentadoria do autonomo, guia de contribuicao, tempo de contribuicao, decisao previdenciaria, planejamento previdenciario, mei e autonomo, financas para autonomo, beneficio por idade, codigo da guia, contribuinte individual, labtreinamento\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO, ZERO DIGITO e ZERO NUMERAL na narracao — e aqui isso NAO e excesso\nde zelo, ao contrario do que eu vinha fazendo nas pecas de conformidade. Os\nnumeros deste longo sao **aliquota de contribuicao** e **taxa de juros de acerto\nretroativo**, os dois na lista LITERAL da regra (g). O proprio longo recusa dar a\ntaxa, e com a razao certa: *\"ela muda conforme o periodo, e um numero fixo daria\numa conta errada para quase todo mundo que assiste.\"*\n\nA POLITICA DE NUMERO E POR PECA, NAO UM INTERRUPTOR GLOBAL. O `s017` levou\nnumero porque os dele eram de um exemplo aritmetico que nao envelhece (dez por\ncento, sessenta dias). Os deste nao: eles sao norma e taxa.\n\nO QUE A PECA CARREGA, e nao envelhece: o acerto e DIVISIVEL mes a mes, e a\ndecisao e uma RAZAO entre o que cada mes custa e o que cada mes compra — nao um\nnumero absoluto. Esta nos capitulos \"Voce pode consertar em partes\", \"Isso muda a\nconta\", \"Se o conserto custa demais\" e \"A pergunta certa\" do longo `4OYBkCHFTV8`\n(pacote `labtreinamento-006`).\n\nE ELA MANDA O ESPECTADOR AO LUGAR CERTO em vez de inventar numero: o calculo com\njuros, mes a mes e para o caso dele, sai no proprio sistema do INSS, de graca.\n\nSEGUNDO ANGULO, declarado: o short original deste longo usou a escolha da guia e\no conserto da diferenca. Os quatro capitulos acima ele nao usou. O longo tem 62.\n\nREGRA (f) CONFERIDA: o labtreinamento ja teve hoje SUBSTITUICAO QUE NAO SUBSTITUI\n(s014), A GUARDA NAO E A ENTREGA (s015), COMPOSICAO (s016) e PROPORCAO COM O\nPRAZO (s017). Esta e a QUINTA familia distinta do dia no canal.\n\nO QUE SOBRA PARA A PROXIMA: \"Quando nao vale\" + \"Se voce ja esta perto da idade\"\n— a familia QUANDO O CONSERTO NAO COMPRA NADA, o lado oposto desta, e tambem sem\nnumero. Terceiro angulo deste longo.\n\n## FONTES\nO longo de onde este short foi extraido (`labtreinamento-006`, `4OYBkCHFTV8`)\ncarrega a norma com a fonte. Este short NAO introduz numero novo sobre o mundo —\nele nao introduz numero nenhum — entao nao exige fonte institucional nova.\n"
+}
