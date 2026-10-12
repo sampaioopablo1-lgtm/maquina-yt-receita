@@ -1,0 +1,80 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-s019",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#22333B",
+  "c1": "#A4243B",
+  "c2": "#D8973C",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Qual porta",
+  "l2": "chega antes?"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Às vezes",
+   "sub": "não vale consertar",
+   "nar": "Às vezes não vale a pena consertar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E quase",
+   "nar": "E quase ninguém te diz isso.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Você tem",
+   "nar": "Você já tem uma porta de aposentadoria.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E compraria",
+   "sub": "uma outra",
+   "nar": "E o acerto compraria uma segunda.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A pergunta",
+   "nar": "Qual das duas chega primeiro?",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Se for",
+   "nar": "Se a que você já tem chega antes,",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Você paga",
+   "sub": "por tempo que não usa",
+   "nar": "Você paga por tempo que não vai usar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E quem diz",
+   "nar": "Quem diz que sempre vale não fez a conta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "inscreva-se",
+   "nar": "Compare as duas datas antes. Inscreva-se.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "4OYBkCHFTV8",
+ "copy": "# labtreinamento-s019\n\n## TITULO\nQuando Consertar A Contribuição Não Compra Nada — A Porta Que Você Já Tem Pode Chegar Antes\n\n## TITULO SHORT\nQual porta chega antes?\n\n## DESCRICAO\nQuase todo conteúdo sobre acerto de contribuição assume uma coisa: que acertar é sempre bom. Existe um caso em que não é, ele é comum, e quase ninguém fala dele.\n\nVocê já tem uma porta de aposentadoria — a que a sua contribuição atual te dá. O acerto compraria **uma segunda porta**, por outro caminho. E a pergunta que decide não é quanto a segunda custa. É **qual das duas chega primeiro**.\n\nSe a porta que você já tem abre antes da que você compraria, o dinheiro do acerto compra tempo que você nunca vai usar. Não é um mau negócio por ser caro — é um mau negócio por ser **inútil naquele caso específico**. E isso não aparece em nenhuma calculadora que só te mostra o valor do acerto.\n\nDaí a frase que vale guardar: quem te disser que **sempre** vale a pena acertar não fez a conta. Porque a conta tem dois lados, e o lado que quase ninguém mostra é o da data.\n\nO que fazer, então, antes de pagar qualquer coisa: descubra as duas datas. A data em que a porta que você já tem abre, e a data em que a porta comprada abriria. Compare as duas. Só depois olhe o preço — e aí o preço passa a significar algo, porque você sabe o que ele está comprando.\n\nEste short não cita alíquota, taxa de juros nem idade de aposentadoria, de propósito: alíquota e taxa mudam conforme o período, e idade muda por reforma. Um número fixo aqui daria uma conta errada para quase todo mundo que assiste. As duas datas do **seu** caso saem no Meu INSS, que é gratuito.\n\nNo vídeo completo: as duas opções e o que a mais barata tira, como se faz o acerto e por que ele é divisível, os três passos para estimar o seu caso, o outro momento em que não vale, e o meio-termo que serve bem para um perfil e mal para outro.\n\n## COMENTARIO FIXADO\nEsse é o lado da decisão que quase nenhum conteúdo mostra, e não por má-fé: é que mostrar \"quanto custa acertar\" rende um número impressionante, e mostrar \"qual porta chega antes\" dá trabalho. Mas é a segunda que decide. Se a aposentadoria que você já tem direito abre antes da que o acerto compraria, você estaria comprando tempo que nunca ia usar — e isso não tem a ver com o acerto ser caro ou barato. De propósito não coloquei aqui alíquota, taxa nem idade: os três mudam, e número fixo num short vira conta errada. As duas datas do seu caso saem de graça no Meu INSS. Conta nos comentários: você já sabe qual das duas chega primeiro no seu caso?\n\n## HASHTAGS\n#Autonomo #Previdencia #LabTreinamento\n\n## TAGS\nquando nao vale acertar contribuicao, aposentadoria por idade, aposentadoria por tempo de contribuicao, acerto retroativo, meu inss, decisao previdenciaria, planejamento previdenciario, contribuinte individual, autonomo, financas para autonomo, comparar beneficios, data de aposentadoria, erro comum previdencia, labtreinamento, dinheiro proprio\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO, ZERO DIGITO e ZERO NUMERAL na narracao. Os numeros deste longo sao\n**aliquota** e **taxa de juros**, os dois na lista literal da regra (g) — e aqui\nentra um TERCEIRO que eu tambem deixo fora: a **idade de aposentadoria**, que e\nlimite legal e muda por reforma. Um numero fixo daria conta errada para quase\ntodo mundo que assiste, que e a mesma razao pela qual o proprio longo recusa dar\na taxa.\n\nO QUE A PECA CARREGA, e nao envelhece: a comparacao que decide e de DATA DE\nCHEGADA entre duas portas, nao de preco. Esta nos capitulos \"Quando nao vale\",\n\"Se voce ja esta perto da idade\", \"A pergunta certa\" e \"Sem esses dois numeros\"\ndo longo `4OYBkCHFTV8` (pacote `labtreinamento-006`).\n\nTERCEIRO ANGULO, e PRE-REGISTRADO pelo anterior: o AVISO do `s018` nomeou estes\ncapitulos e esta familia antes de ver qualquer resultado.\n\nE ELA E O LADO OPOSTO DO `s018`, DE PROPOSITO. O `s018` disse \"nao desista, o\nconserto e divisivel\". Esta diz \"e ha casos em que ele nao compra nada\". As duas\njuntas sao a decisao inteira; publicar so a primeira seria vender uma metade — o\nque o proprio longo chama de \"a parte que quase nenhum video faz\".\n\nREGRA (f) CONFERIDA: o labtreinamento ja teve hoje SUBSTITUICAO QUE NAO\nSUBSTITUI (s014), A GUARDA NAO E A ENTREGA (s015), COMPOSICAO (s016), PROPORCAO\nCOM O PRAZO (s017) e O CONSERTO E DIVISIVEL (s018). Esta e a SEXTA familia\ndistinta do dia no canal.\n\nO QUE SOBRA PARA A PROXIMA: \"E tem o meio-termo\" + \"Esse caminho serve bem\" +\n\"E serve mal\" — a familia O MEIO-TERMO TEM DONO. Quarto angulo deste longo.\n\n## FONTES\nO longo de onde este short foi extraido (`labtreinamento-006`, `4OYBkCHFTV8`)\ncarrega a norma com a fonte. Este short NAO introduz numero nenhum sobre o\nmundo, entao nao exige fonte institucional nova.\n"
+}
