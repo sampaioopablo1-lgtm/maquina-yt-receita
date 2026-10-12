@@ -1,0 +1,31 @@
+name: Pauta viva — origem livre lida da playlist de uploads
+
+# POR QUE ISTO EXISTE (12/10/2026). A reconstrucao local de pauta le o retrato
+# `fabrica/ponte/videos.json`, de 06/10. Eu escrevi a ressalva certa ("longo
+# publicado depois nao aparece, o numero SUBESTIMA") e depois tratei o numero
+# como se fosse o estoque, por tres rodadas, concluindo "a pauta acabou".
+#
+# O `medir.py` ja lia a playlist de UPLOADS pela API — a lista VIVA, sem banco.
+# Este workflow usa isso para contar origem livre sem retrato nenhum.
+#
+# NAO imprime segredo: o access token nasce e morre dentro do processo.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  contar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - name: Contar origem livre, ao vivo
+        env:
+          YT_OAUTH_JSON: ${{ secrets.YT_OAUTH_JSON }}
+        run: python3 fabrica/pauta_viva.py

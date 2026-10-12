@@ -1,0 +1,156 @@
+#!/usr/bin/env python3
+"""Origem livre lida da PLAYLIST DE UPLOADS, ao vivo. Sem banco e sem retrato.
+
+POR QUE ISTO EXISTE (12/10/2026, e substitui uma reconstrucao que estava CEGA).
+
+Com o gateway do Supabase em 402 eu passei a reconstruir a pauta do retrato
+`fabrica/ponte/videos.json` (`fabrica/pauta_local.py`). Aquele arquivo e de
+**06/10**, e eu escrevi a ressalva certa — "longo publicado depois nao aparece,
+entao o numero SUBESTIMA" — e depois **tratei o numero como se fosse o estoque**,
+tres rodadas seguidas, concluindo "a pauta acabou".
+
+**A ressalva nao era um detalhe: era o buraco.** O `medir.py` ja enumerava a
+playlist de UPLOADS de cada canal pela API (`ids_do_canal`), isto e, a lista VIVA
+do que esta no ar, sem banco e sem retrato. O instrumento certo existia e estava
+a um import de distancia.
+
+Isto e o efeito (C) da rotina na forma mais teimosa: **minha lista mente** — e
+desta vez a lista era um arquivo congelado que eu mesmo sabia estar congelado.
+
+**O QUE ESTE MODULO FAZ, e o que ele NAO resolve:**
+  * ele le titulo, duracao e id de TUDO que esta no ar, agora;
+  * separa LONGO de SHORT pela duracao real (`contentDetails.duration`), nao pelo
+    nome do pacote — nome de pacote erra, duracao nao;
+  * agrupa por TITULO DISTINTO, pela licao do 658/670 e pelo grupo de dez copias
+    que me fez contar dez origens onde havia uma;
+  * subtrai o `longo_existente` que as specs ja consomem.
+  * **NAO substitui `consultas/estoque.sql`** no que a consulta faz melhor: ela
+    exclui grupo duplicado POR CONSTRUCAO e conhece `origem_id`. Aqui a exclusao
+    de duplicata e por titulo, e titulos diferentes para o mesmo conteudo
+    passariam.
+
+Roda no RUNNER, onde o `YT_OAUTH_JSON` vive. Nunca imprime segredo.
+"""
+from __future__ import annotations
+
+import glob
+import json
+import os
+import re
+import sys
+
+RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(RAIZ, "fabrica"))
+
+from medir import (CANAIS, ids_do_canal, nota, aviso,          # noqa: E402
+                   token_do_canal, uma_chamada, uploads_e_estatisticas)
+from oauth_mapa import desembrulha                             # noqa: E402
+
+# Abaixo disto e SHORT. O portao `duracao` recusa short acima de 43,1 s, e o
+# longo mais curto da frota passa de dez minutos — nao ha zona cinzenta real,
+# mas o limiar fica generoso de proposito: classificar longo como short PERDE
+# pauta, e isso e o erro caro aqui.
+SEG_MIN_LONGO = 120
+
+
+def segundos(iso: str | None) -> int | None:
+    """`PT12M31S` -> 751. None quando a duracao nao e legivel (P0D inclusive)."""
+    if not iso or iso == "P0D":
+        return None
+    m = re.fullmatch(r"PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?", iso)
+    if not m:
+        return None
+    h, mi, s = (int(x) if x else 0 for x in m.groups())
+    total = h * 3600 + mi * 60 + s
+    return total or None
+
+
+def origens_usadas(dir_specs: str | None = None) -> set:
+    dir_specs = dir_specs or os.path.join(RAIZ, "fabrica", "specs")
+    fora = set()
+    for p in glob.glob(os.path.join(dir_specs, "*.json")):
+        try:
+            sp = json.load(open(p, encoding="utf-8"))
+        except Exception:                                      # noqa: BLE001
+            continue
+        if sp.get("longo_existente"):
+            fora.add(sp["longo_existente"])
+    return fora
+
+
+def longos_no_ar(canal: str, cfg: dict) -> dict:
+    """{id: (titulo, segundos)} dos LONGOS `processed` daquele canal, ao vivo."""
+    token = token_do_canal(cfg)
+    playlist, _ = uploads_e_estatisticas(CANAIS[canal], token)
+    ids = ids_do_canal(playlist, token)
+    itens = uma_chamada(ids, token)
+    fora = {}
+    for vid, it in itens.items():
+        st = (it.get("status") or {}).get("uploadStatus")
+        dur = segundos((it.get("contentDetails") or {}).get("duration"))
+        # Peca fora de `processed` nao e origem: ela pode nem ficar no ar (665).
+        if st != "processed" or not dur or dur < SEG_MIN_LONGO:
+            continue
+        fora[vid] = ((it.get("snippet") or {}).get("title") or "").strip()
+    return {v: (t, 0) for v, t in fora.items()}
+
+
+def livres(por_canal: dict, usadas: set) -> dict:
+    """{canal: [(titulo, [ids...])]} por TITULO DISTINTO, so o que sobrou.
+
+    Grupo em que QUALQUER copia ja foi usada sai INTEIRO: o titulo ja esta
+    servido, e um short apontando para a copia irma seria a mesma pauta. Foi
+    assim que o `W_iFAIQWvi8` entrou na minha conta errada de 08:2x.
+    """
+    fora = {}
+    for canal, itens in por_canal.items():
+        grupos = {}
+        for vid, (titulo, _) in itens.items():
+            grupos.setdefault(titulo, []).append(vid)
+        fora[canal] = [(t, sorted(ids)) for t, ids in sorted(grupos.items())
+                       if not any(v in usadas for v in ids)]
+    return fora
+
+
+def main() -> int:
+    bruto = os.environ.get("YT_OAUTH_JSON") or ""
+    if not bruto.strip():
+        print("::error::YT_OAUTH_JSON vazio — este modulo roda no RUNNER")
+        return 2
+    mapa = desembrulha(bruto)
+    usadas = origens_usadas()
+
+    por_canal, total_livre, total_ids = {}, 0, 0
+    for canal in CANAIS:
+        cfg = mapa.get(canal)
+        if not cfg:
+            aviso(f"{canal}: sem entrada no YT_OAUTH_JSON — NAO contado, e isso "
+                  f"faz o total SUBESTIMAR")
+            continue
+        try:
+            por_canal[canal] = longos_no_ar(canal, cfg)
+        except Exception as e:                                 # noqa: BLE001
+            # Falha de chamada NAO vira "zero origens" (665): grita e sai de fora
+            # da conta, em vez de virar silencio com cara de estoque vazio.
+            aviso(f"{canal}: leitura FALHOU ({type(e).__name__}) — o total nao "
+                  f"inclui este canal")
+
+    L = livres(por_canal, usadas)
+    for canal, grupos in L.items():
+        total_livre += len(grupos)
+        total_ids += sum(len(i) for _, i in grupos)
+        nota(f"{canal}: {len(por_canal[canal])} longos no ar | "
+             f"{len(grupos)} ORIGENS LIVRES (titulo distinto)")
+        for titulo, ids in grupos:
+            extra = f" [{len(ids)} COPIAS — valem UMA]" if len(ids) > 1 else ""
+            nota(f"  {canal} {ids[0]} {titulo[:70]}{extra}")
+    nota(f"TOTAL: {total_livre} origens livres por titulo distinto, "
+         f"{total_ids} ids, contra {len(usadas)} origens ja usadas por spec")
+    nota("LIDO DA PLAYLIST DE UPLOADS, ao vivo — nao do retrato de 06/10. "
+         "Ressalva que fica: a exclusao de duplicata aqui e por TITULO, nao "
+         "pela construcao de consultas/estoque.sql.")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
