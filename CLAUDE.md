@@ -56,6 +56,48 @@ pede 3.245/dia, que não é. **Então o plano é: uma conversão de ~5 por mil e
 ritmo de 5 a 7 peças/dia CONCENTRADAS num canal.** Tudo o mais é otimização de
 coisa que não move o portão.
 
+### E ÀS 15:1x ISSO FICOU PIOR, porque eu verifiquei o número que o sustentava
+
+**Aprendizado 713, `crítico`, e ele RETRATA o 691, que também era meu e também
+era `crítico`.** O 691 dizia que `kolejny` no short rendia **1,00 inscrito por
+peça** e se chamava *"o kolejny no short é o único caminho à Porta 1"*. Ele
+somava `inscritos_ganhos` ao longo das **LINHAS de `metricas`** — várias coletas
+da MESMA peça — em vez de tomar o **máximo POR PEÇA**. Uma peça coletada cinco
+vezes com 2 ganhos lia 10.
+
+Refeito com `max` por peça, sobre as **161 peças** que têm métrica:
+
+| canal × formato | peças | ganharam algo | total | melhor peça | por peça REAL | o 691 dizia |
+|---|---|---|---|---|---|---|
+| epomeno **longo** | 18 | 4 | 6 | 2 | **0,33** | 1,25 |
+| epomeno shorts | 35 | 3 | 5 | 2 | **0,14** | 0,45 |
+| kolejny shorts | 43 | 3 | 4 | 2 | **0,09** | **1,00** |
+| kolejny longo | 24 | 2 | 2 | 1 | **0,08** | 0,12 |
+| labtreinamento shorts | 28 | 2 | 2 | 1 | **0,07** | 0,29 |
+| labtreinamento longo | 13 | **0** | 0 | 0 | **0,00** | 0,00 |
+
+**Inflado de 3x a 11x, e A ORDEM INVERTE:** o melhor par é **epomeno longo**, e o
+`kolejny` short — que eu chamei de "o único caminho" e deixei governar a escolha
+de canal por três dias — é o **quarto**.
+
+**Três fatos que não se negociam mais:**
+1. **161 peças renderam 19 inscritos.** Só **14 delas (8,7%)** ganharam algo.
+2. **NENHUMA peça da frota jamais trouxe mais de DOIS inscritos.**
+3. As de mais view confirmam a taxa **por view**, não por peça: `P6_FSisOJ3o`
+   1.614 views → 2 inscritos; `VcpxgL981Bk` 1.385 → 2; `DDaZqbcZCTM` 1.132 → 1.
+   Isso é ~1 por mil, e bate com o 668.
+
+**A CONSEQUÊNCIA, e ela é a resposta honesta à pergunta do dono:** no melhor par
+medido (0,33/peça), os 481 que faltam ao epomeno pedem **~1.458 longos**. Por
+view, os 432 do labtreinamento pedem **~360.000 views num canal** — e a frota
+inteira acumulou **~39.000 em toda a sua vida**. **A Porta 1 não é alcançável por
+volume de peça em prazo nenhum que importe.** Só por uma peça que ROMPA para
+dezenas de milhares de views, e isso é distribuição, não produção.
+
+**Logo: parar de somar linha de métrica como se fosse peça, e parar de prometer
+prazo por volume.** A pergunta que vale passa a ser "o que faz uma peça romper",
+e ela só se responde com retenção nos três primeiros segundos.
+
 ## O dinamismo visual — o que mudou em 09/10 e a regra nova
 
 O dono disse que os frames pareciam estáticos. **Medido, e ele estava certo com
