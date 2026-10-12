@@ -1,0 +1,80 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-s020",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#22333B",
+  "c1": "#A4243B",
+  "c2": "#D8973C",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "O meio-termo",
+  "l2": "tem dono"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Existe",
+   "sub": "um meio-termo",
+   "nar": "Existe um meio-termo aqui.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E ele",
+   "nar": "E ele não serve para todo mundo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ele é",
+   "nar": "Ele é: não consertar o passado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Só mudar",
+   "sub": "daqui para frente",
+   "nar": "Só mudar a sua guia daqui para frente.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O tempo novo",
+   "nar": "O tempo novo vale igual, e não tem juro.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Serve bem",
+   "nar": "Serve bem para quem tem anos pela frente.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E serve mal",
+   "sub": "para quem está no fim",
+   "nar": "E serve mal para quem está perto do fim.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Porque",
+   "nar": "Porque não sobra tempo para o novo contar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "inscreva-se",
+   "nar": "Veja quanto tempo você tem. Inscreva-se.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "4OYBkCHFTV8",
+ "copy": "# labtreinamento-s020\n\n## TITULO\nO Meio-Termo Que Quase Ninguém Explica — E Para Quem Ele Serve Mal\n\n## TITULO SHORT\nO meio-termo tem dono\n\n## DESCRICAO\nEntre consertar o passado inteiro e não fazer nada existe um terceiro caminho, e ele quase nunca é explicado: **deixar o passado como está e mudar a sua guia daqui para frente**.\n\nÉ o caminho mais barato dos três, porque não tem juros — o tempo novo entra contando desde já, pelo valor cheio, sem nada atrasado para pagar. E é exatamente por isso que ele parece a resposta óbvia para todo mundo.\n\nNão é. **Esse meio-termo tem dono.** Ele serve bem para quem ainda tem muitos anos de trabalho pela frente, porque o tempo novo precisa de tempo para somar. E serve mal para quem está perto do fim da carreira, porque ali não sobra prazo suficiente para o tempo novo contar — a pessoa paga mais por mês e não chega a abrir a porta que queria abrir.\n\nEntão a pergunta que decide este caminho não é quanto ele custa. É **quantos anos de trabalho você ainda tem pela frente**. Com muitos anos, ele é provavelmente a melhor das três opções. Com poucos, ele é a pior: mais caro todo mês e sem o resultado.\n\nDe propósito este short não cita alíquota, taxa de juros nem idade de aposentadoria. Alíquota e taxa mudam conforme o período, idade muda por reforma, e um número fixo aqui daria uma conta errada para quase todo mundo que assiste.\n\nNo vídeo completo: as duas opções e o que a mais barata tira, como se faz o conserto e por que ele é divisível, os três passos para estimar o seu caso, quando não vale consertar, e este meio-termo com os dois perfis para quem ele serve.\n\n## COMENTARIO FIXADO\nEsse caminho é o que eu mais vejo recomendado por aí sem ressalva nenhuma — \"não mexe no passado, só muda daqui para frente\" — e ele realmente é o mais barato dos três, porque não tem juro. Só que barato não é o mesmo que certo: o tempo novo precisa de TEMPO para somar. Quem tem muitos anos de trabalho pela frente ganha com ele. Quem está perto do fim da carreira paga mais por mês e não chega a abrir a porta — o pior dos dois mundos. Por isso a pergunta aqui não é de preço, é de prazo. De propósito não coloquei alíquota, taxa nem idade: os três mudam, e número fixo num short vira conta errada. Conta nos comentários: quantos anos de trabalho você ainda tem pela frente?\n\n## HASHTAGS\n#Autonomo #Previdencia #LabTreinamento\n\n## TAGS\nmudar de aliquota, meio termo previdencia, complementacao ou mudar, contribuinte individual, autonomo, meu inss, planejamento previdenciario, tempo de contribuicao, aposentadoria por idade, decisao previdenciaria, financas para autonomo, quanto tempo ainda tenho, labtreinamento, dinheiro proprio, guia do autonomo\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO, ZERO DIGITO e ZERO NUMERAL na narracao, pelo mesmo motivo do\n`s019`: os numeros deste longo sao **aliquota** e **taxa de juros**, os dois na\nlista literal da regra (g), mais a **idade de aposentadoria**, que e limite legal\ne muda por reforma.\n\nO QUE A PECA CARREGA, e nao envelhece: o meio-termo (nao consertar o passado,\nmudar a guia daqui para frente) tem DONO — serve bem a quem tem muitos anos pela\nfrente e mal a quem esta perto do fim. A variavel que decide e PRAZO, nao preco.\nEsta nos capitulos \"E tem o meio-termo\", \"Esse caminho serve bem\", \"E serve mal\"\ne \"Assim\" do longo `4OYBkCHFTV8` (pacote `labtreinamento-006`).\n\nQUARTO ANGULO, e PRE-REGISTRADO pelo anterior: o AVISO do `s019` nomeou estes\ntres capitulos e esta familia — O MEIO-TERMO TEM DONO — antes de ver qualquer\nresultado desta linha.\n\nE ELA FECHA A TRINCA DO MESMO LONGO. O `s018` disse \"o conserto e divisivel, nao\ndesista\". O `s019` disse \"e ha casos em que ele nao compra nada\". Esta diz \"e ha\num terceiro caminho, e ele tambem nao serve para todos\". As tres juntas sao a\ndecisao completa, e nenhuma delas isolada seria honesta.\n\nREGRA (f) CONFERIDA: o labtreinamento ja teve hoje SUBSTITUICAO QUE NAO\nSUBSTITUI (s014), A GUARDA NAO E A ENTREGA (s015), COMPOSICAO (s016), PROPORCAO\nCOM O PRAZO (s017), O CONSERTO E DIVISIVEL (s018) e QUANDO O CONSERTO NAO COMPRA\nNADA (s019). Esta e a SETIMA familia distinta do dia no canal.\n\nDURACAO, pelo instrumento do 711/714: estimativa 30,0 s, e com o fator medido do\nPiper em pt-BR (0,821) a previsao e **24,6 s REAIS** — dentro do\n`ALVO_POR_CANAL` de 20,0 a 26,0 deste canal. A estimativa NAO esta na faixa, e\nnao deve estar: o portao compara estimado, e o que vai ao ar e o real.\n\n## FONTES\nO longo de onde este short foi extraido (`labtreinamento-006`, `4OYBkCHFTV8`)\ncarrega a norma com a fonte. Este short NAO introduz numero nenhum sobre o\nmundo, entao nao exige fonte institucional nova.\n"
+}
