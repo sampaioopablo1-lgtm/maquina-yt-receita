@@ -129,3 +129,20 @@ que comparar, em vez de eu reparar no padrão depois e chamar de descoberta.
 intervalo por cena no pt-BR, e o `silencedetect` com piso de 1,0 s não acusa
 nada — ou seja, os intervalos reais ficam logo abaixo de 1,0 s. Perto do
 previsto, e um pouco abaixo.
+
+**Terceira medição, às 23:1x — e ela quebra o padrão de duas:**
+
+| peça | LUFS | desvio | pico | LRA |
+|---|---|---|---|---|
+| `s023` | −14,2 | −0,2 | −1,4 | 2,9 |
+| `s024` | −14,6 | −0,6 | −1,5 | 3,0 |
+| `s025` | **−14,2** | **−0,2** | −1,5 | **2,0** |
+
+O desvio voltou a −0,2. **Então "as duas abaixo" não virou tendência** — três
+peças dão −0,2, −0,6 e −0,2, todas dentro de 1,0 LU e sem direção clara. Eu
+escrevi o aviso antes justamente para não transformar duas leituras num padrão,
+e a terceira mostrou que o aviso era necessário.
+
+O LRA caiu para **2,0** nesta peça, contra 2,9 e 3,0. Faixa dinâmica menor é
+esperada numa peça com mais cenas curtas, mas **n=1 e eu não medi causa** —
+fica anotado, não concluído.
