@@ -59,7 +59,19 @@ entre 13 e 17/08. É um grupo de DUPLICATA, e a regra 658/670 manda contar por
 documento não os pega, então uma reconstrução que só subtrai o documento **conta
 dez origens que não existem**. Era o que a minha conta de ontem fazia.
 
-**Logo a pauta real é TRÊS origens, e não cinco.** Contar id em vez de título
+**TERCEIRA CONTAGEM, 08:4x, e ela corrige a de 08:2x que está três
+parágrafos acima: eram DOIS, não três.** Quando eu pus a conta no código
+(`fabrica/pauta_local.py`), o módulo mostrou que `W_iFAIQWvi8` é uma **segunda
+cópia** de `Próg Podatkowy 120 000 zł`, e que a irmã dela `SP7Vz8qHdRY` já está
+consumida por uma spec — o título já está servido, então aquilo não era origem.
+Errei a mesma conta três vezes no mesmo dia (cinco → três → dois), e o acerto só
+veio quando ela parou de ser um script que eu redigitava.
+
+**Rode `python3 fabrica/pauta_local.py`**, que conta por título distinto, mostra
+quantas cópias cada título tem no ar e imprime as três ressalvas. Depois do
+`epomeno-epipedo-s017` sobra **UMA** origem: o grupo ZUS.
+
+**Logo a pauta real era DUAS origens, e não cinco.** Contar id em vez de título
 distinto é literalmente o efeito (C-2) da rotina: *"ordenar pelo alcance do short
 original PREMIA DUPLICATA"*, na sua forma mais crua — somar duplicata como
 estoque.
