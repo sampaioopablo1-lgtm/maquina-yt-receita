@@ -1,0 +1,80 @@
+{
+  "slug": "labtreinamento",
+  "pacote": "labtreinamento-s025",
+  "idioma": "pt-BR",
+  "voz": "pt-BR-ThalitaMultilingualNeural",
+  "trilha": "Inspired",
+  "paleta": {
+    "ink": "#22333B",
+    "c1": "#A4243B",
+    "c2": "#D8973C",
+    "bg": "#F4F1EA"
+  },
+  "thumb": {
+    "l1": "Não anotou?",
+    "l2": "Reconstrua"
+  },
+  "longo": [],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Você não anotou",
+      "sub": "mas dá para reconstruir",
+      "nar": "Você não anotou as horas.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "A agenda",
+      "nar": "A agenda tem as reuniões, com duração.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "O histórico",
+      "sub": "desenha o período",
+      "nar": "O histórico de mensagens desenha o período.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "E cada versão",
+      "nar": "Cada versão de arquivo é uma revisão.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Some por dia",
+      "sub": "não por tarefa",
+      "nar": "Some por dia, não por tarefa.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "É mais fácil",
+      "nar": "É mais fácil lembrar do dia inteiro.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "E na dúvida",
+      "nar": "E na dúvida, erre para menos.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Se já incomoda",
+      "nar": "Se já incomoda assim, incomoda de verdade.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "LabTreinamento",
+      "sub": "inscreva-se",
+      "nar": "Reconstrua um projeto hoje. Inscreva-se.",
+      "sem_cap": true
+    }
+  ],
+  "longo_existente": "ntrMxq89I4o",
+  "copy": "# labtreinamento-s025\n\n## TITULO\nAs Horas Que Você Não Anotou Estão Gravadas em Outro Lugar — Como Reconstruir\n\n## TITULO SHORT\nNão anotou? Dá para reconstruir\n\n## DESCRICAO\nA conta da sua hora real esbarra sempre no mesmo ponto: **ninguém anotou as horas.** E é aí que a maioria desiste, achando que a conta ficou impossível.\n\nNão ficou. Essas horas **estão gravadas**, só que em outro lugar — e dá para reconstruir com boa precisão, sem planilha nova e sem memória heroica.\n\n**A agenda.** As reuniões daquele período estão marcadas, com duração. Some também o tempo de preparação antes de cada uma e o tempo que você levou para voltar ao que estava fazendo depois.\n\n**O histórico de mensagens ou de e-mail.** As trocas têm data e hora, e elas desenham o período em que aquele trabalho ocupou espaço na sua cabeça — inclusive os dias em que você não sentou para executar nada.\n\n**Os arquivos.** Guardam data de criação e de modificação. **Cada versão nova é uma revisão que aconteceu** — e revisão é justamente a parte que some da memória.\n\nDuas regras que fazem a reconstrução funcionar:\n\n**Some por DIA, não por tarefa.** É muito mais fácil lembrar que uma terça inteira foi embora naquilo do que reconstruir bloco por bloco.\n\n**E na dúvida, erre para menos.** Se a conta já incomoda com uma estimativa conservadora, ela incomoda de verdade — e aí o número que você achou é um piso, não um exagero.\n\nDo próximo trabalho em diante, anote enquanto acontece. Uma linha por dia basta, e ela transforma essa reconstrução inteira numa conta de dois minutos.\n\nNo vídeo completo: a divisão passo a passo, esta reconstrução, o que a conta não pega, o caso do projeto grande, e como ler um projeto como leitura do ano.\n\n## COMENTARIO FIXADO\nEsse é o ponto onde quase todo mundo trava: \"eu não anotei as horas, então não tenho como fazer a conta\". Tem sim — as horas estão gravadas em três lugares que você já usa. A agenda tem as reuniões com duração. O histórico de mensagens tem data e hora, e desenha o período em que o trabalho ocupou espaço na sua cabeça. E os arquivos guardam data de modificação, ou seja, cada versão nova é uma revisão que aconteceu (que é justamente o que some da memória). Duas regras: some por DIA e não por tarefa, porque lembrar do dia inteiro é mais fácil; e na dúvida erre para MENOS, porque aí o número vira piso em vez de exagero. Conta aqui: qual dos três te deu mais hora escondida?\n\n## HASHTAGS\n#Autonomo #Precificacao #LabTreinamento\n\n## TAGS\nreconstruir horas trabalhadas, nao anotei as horas, valor da hora, precificacao para autonomo, agenda e historico, data de modificacao do arquivo, somar por dia, estimativa conservadora, autonomo, prestador de servico, financas para autonomo, quanto cobrar, labtreinamento, dinheiro proprio, controle de tempo\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO, ZERO DIGITO e ZERO NUMERAL na narracao. O capitulo 22 do longo diz\n\"os quinze minutos antes de cada uma\" e \"os quinze depois\"; a narracao NAO repete\nisso, porque e ordem de grandeza do autor e nao norma, e porque a peca nao perde\nnada sem o numero. A DESCRICAO diz \"o tempo de preparacao antes\" e \"o tempo para\nvoltar depois\", que carrega a mesma ideia sem fixar valor.\n\nO QUE A PECA CARREGA, e nao envelhece: as horas que o espectador nao anotou\nESTAO gravadas em tres lugares que ele ja usa — agenda, historico de mensagens e\ndata de modificacao dos arquivos. E as duas regras que fazem funcionar: somar por\nDIA e nao por tarefa, e na duvida errar para MENOS, porque assim o numero vira\nPISO em vez de exagero.\n\nEsta nos capitulos \"Onde achar as horas\", \"A agenda\", \"O historico de mensagens\",\n\"Os arquivos\", \"Some por dia\", \"Erre para menos\" e \"Do proximo em diante\" do\nlongo `ntrMxq89I4o` (pacote `labtreinamento-007`).\n\nQUINTO ANGULO deste longo. Os anteriores: `s002` (o denominador incompleto),\n`s021` (o maior nao e o melhor), `s022` (as consolacoes tem prazo) e `s023`\n(um e caso, tres e padrao). A unidade de pauta e (LONGO x FAMILIA DE CAPITULO).\n\nE ESTA FAMILIA E A MAIS PROXIMA DO PERFIL MEDIDO no 651: \"dinheiro proprio com\npapel na mao\". Aqui o papel sao a agenda, as mensagens e os arquivos DO PROPRIO\nespectador, e o numero que sai e dele. Nao e garantia de nada — o 651 e sobre as\norigens da frota, nao sobre esta peca — mas e a que mais se parece com o que\nmediu melhor.\n\nESQUELETO: `titulo-item-titulo-item-titulo-item-item-item-cta`, diferente do\n`s022`, do `s023` e do `s024`. O esqueleto varia a cada peca desde o achado das\n20:1x, e o portao `variedade` diz quando repetiu.\n\nREGRA (f) CONFERIDA: decima segunda familia distinta do dia no labtreinamento.\n\nDURACAO, pelo instrumento do 711/714: estimativa 29,4 s, previsao **24,1 s\nREAIS** — dentro do `ALVO_POR_CANAL` de 20,0 a 26,0. A primeira versao desta\npeca dava 26,2 previstos, ACIMA do teto, e foi encurtada em tres cenas antes de\nqualquer render. O instrumento serviu para o que foi feito: barrar antes, nao\nexplicar depois.\n\n## FONTES\nO longo de onde este short foi extraido (`labtreinamento-007`, `ntrMxq89I4o`)\ne aritmetica sobre numeros do proprio espectador. Este short NAO introduz numero\nnenhum sobre o mundo, entao nao exige fonte institucional.\n"
+}
