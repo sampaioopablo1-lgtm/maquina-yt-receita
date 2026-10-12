@@ -1,0 +1,99 @@
+{
+ "slug": "epomeno-epipedo",
+ "pacote": "epomeno-epipedo-s019",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#16283C",
+  "c1": "#2E7BB4",
+  "c2": "#E0A02E",
+  "bg": "#F3F7FA"
+ },
+ "thumb": {
+  "l1": "Μία μία",
+  "l2": "μικρές"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Νομίζεις",
+   "sub": "πως δεν έχεις χρέος",
+   "nar": "Νομίζεις πως δεν έχεις κανένα χρέος.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Έχεις όμως",
+   "preco": "πολλές μικρές",
+   "nar": "Έχεις όμως πολλές μικρές δόσεις ανοιχτές.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Καμία",
+   "preco": "δεν φαίνεται βάρος",
+   "nar": "Καμία τους δεν φαίνεται πραγματικό βάρος μόνη της.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Εδώ είναι",
+   "sub": "όλο το κόλπο",
+   "nar": "Και εδώ κρύβεται ακριβώς όλο το κόλπο.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Τις κρίνεις",
+   "preco": "μία μία",
+   "nar": "Τις κρίνεις μία μία, γιατί έτσι ακριβώς έρχονται.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Μαζί όμως",
+   "preco": "μία δόση μεγάλη",
+   "nar": "Μαζί όμως κάνουν μία δόση αρκετά μεγάλη.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Το άθροισμα",
+   "sub": "δεν σου έρχεται ποτέ",
+   "nar": "Το άθροισμα δεν σου έρχεται σε κανένα χαρτί.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Άρα",
+   "preco": "μένει αόρατο",
+   "nar": "Έτσι το ποσό μένει αόρατο για μήνες ολόκληρους.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Η πρώτη κίνηση",
+   "preco": "δεν είναι να πληρώσεις",
+   "nar": "Γι αυτό η πρώτη κίνηση δεν είναι να πληρώσεις.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Γράψ' τις",
+   "sub": "όλες σε μία λίστα",
+   "nar": "Γράψε τις όλες μαζί σε μία λίστα, σήμερα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Επόμενο Επίπεδο",
+   "sub": "κάνε εγγραφή",
+   "nar": "Αν σου άνοιξε τα μάτια, κάνε εγγραφή.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "GwNkPfM9pSY",
+ "copy": "# epomeno-epipedo-s019\n\n## TITULO\nΓράψε Τις Όλες Σε Μία Λίστα: Οι Μικρές Δόσεις Κρίνονται Χωριστά Και Πληρώνονται Μαζί\n\n## TITULO SHORT\nΓράψε τις όλες σε μία λίστα\n\n## DESCRICAO\nΥπάρχει ένα είδος χρέους που οι άνθρωποι ειλικρινά δεν θεωρούν χρέος: οι πολλές μικρές δόσεις. Μια συσκευή σε άτοκες δόσεις, μια συνδρομή, ένα «πλήρωσε αργότερα» στο ταμείο, ένα μικροδάνειο που τελειώνει «σε λίγους μήνες».\n\nΟ λόγος που περνούν απαρατήρητες δεν είναι η αμέλεια — είναι η **μονάδα παρατήρησης**. Κάθε μία εμφανίζεται χωριστά: χωριστή ημερομηνία, χωριστό ποσό, χωριστό μήνυμα. Έτσι την κρίνεις χωριστά, και χωριστά κάθε μία είναι πράγματι αμελητέα.\n\nΜαζί δεν είναι. Μαζί συνθέτουν μία δόση μεγάλη, που θα την αναγνώριζες αμέσως ως βάρος αν σου εμφανιζόταν σε μία γραμμή. **Και δεν σου εμφανίζεται ποτέ σε μία γραμμή:** κανένα έγγραφο, από κανέναν πάροχο, δεν υπολογίζει το άθροισμα των υποχρεώσεών σου προς τρίτους. Γι' αυτό το ποσό μένει αόρατο για μήνες — όχι επειδή κρύβεται, αλλά επειδή κανείς δεν έχει λόγο να το συγκεντρώσει.\n\nΑπό αυτό βγαίνει η πρώτη κίνηση, και δεν είναι να πληρώσεις: είναι να **καταγράψεις**. Μία λίστα, όλες μαζί, με ποσό και ημερομηνία. Η αριθμητική μετά είναι εύκολη· το δύσκολο ήταν να δεις το σύνολο.\n\nΑυτό το short δεν αναφέρει επίτηδες ούτε πόσες δόσεις, ούτε ποσά, ούτε επιτόκια, ούτε μισθό: όλα αυτά είναι του παραδείγματος ή αλλάζουν. Αυτό που δεν αλλάζει είναι ότι πολλές μικρές υποχρεώσεις κρίνονται χωριστά και πληρώνονται μαζί.\n\nΣτο πλήρες βίντεο: η αυστηρή κατανομή του εισοδήματος, η σειρά με την οποία πεθαίνουν τα χρέη, η αυτοματοποίηση των πληρωμών, η διαπραγμάτευση με την τράπεζα, και γιατί η συγκέντρωση χρεών μπορεί να σε βλάψει αν επιμηκύνει τη διάρκεια.\n\n## COMENTARIO FIXADO\nΤο ύπουλο εδώ δεν είναι το επιτόκιο, είναι η μονάδα παρατήρησης: κάθε μικρή δόση φτάνει χωριστά — χωριστή ημερομηνία, χωριστό μήνυμα — άρα την κρίνεις χωριστά, και χωριστά είναι πράγματι αμελητέα. Το άθροισμα δεν σου έρχεται ποτέ σε μία γραμμή, γιατί κανένας πάροχος δεν έχει λόγο να υπολογίσει τι χρωστάς σε όλους τους άλλους. Δεν κρύβεται· απλώς δεν συγκεντρώνεται από κανέναν εκτός από εσένα. Γι' αυτό η πρώτη κίνηση είναι καταγραφή και όχι πληρωμή: η αριθμητική μετά είναι εύκολη. Επίτηδες δεν έβαλα ούτε πόσες δόσεις ούτε ποσά — αυτά είναι του παραδείγματος, και είναι στο βίντεο. Γράψτε πόσες ανοιχτές δόσεις βρήκατε όταν τις βάλατε σε μία λίστα· νομίζω ότι ο αριθμός θα εκπλήξει κι εσάς.\n\n## HASHTAGS\n#Χρέη #Οικονομικά #ΕπόμενοΕπίπεδο\n\n## TAGS\nmikres doseis, atokes doseis, buy now pay later, syndromes, aorata chrei, lista chreon, katagrafi ypochreoseon, diacheirisi chreous, oikonomika nikokyriou, methodos chionostivadas, epomeno epipedo, mikrodaneia, pistotiki karta, prosopikos proypologismos, monada paratirisis\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, ZERO DIGITO e ZERO NUMERAL na narracao.\nConferido campo a campo. Em especial NAO digo quantas parcelas sao nem quanto\nsomam: seria inventar numero, porque o longo da isso como EXEMPLO e nao como\nregra. \"πολλές μικρές\" e \"μία μία\" descrevem a forma, nao a quantidade.\n\nA REGRA (g) tira tudo, e este longo e quase todo numero: o salario de\nreferencia, a reparticao 675/175/50, os 180 dias, os seis meses, o saldo e a\ntaxa de cada divida do exemplo, a parcela mensal, os 300 de liquidez extra, os\n40 por semana de mercado, os 30 da troca de fornecedor, a parcela que sobe para\n205, as 10 horas e os 150 a 200 de trabalho extra, os 60% no quarto mes, os tres\nsalarios de reserva e os 2.700 do fundo.\n\nO QUE A PECA CARREGA, e nao envelhece: varias obrigacoes pequenas somam uma\ngrande, e a pessoa as avalia UMA A UMA porque e assim que elas chegam. Nenhum\ndocumento mostra o agregado — nao porque esteja escondido, mas porque nenhum\nfornecedor tem motivo para somar o que voce deve aos outros. Logo a primeira\nacao e LISTAR, nao pagar. O proprio longo nomeia o mecanismo: \"αόρατα\nαγκίστρια\".\n\nO QUE EU NAO LEVEI, de proposito, e vai escrito para a proxima rodada achar: o\ncapitulo da consolidacao de dividas, que \"so funciona se voce cancelar os\ncartoes e NAO esticar o prazo\". E bom e e regra, mas em quarenta segundos sem\ntaxa e sem prazo viraria conselho de credito sem conta — e fica perto demais do\nMARGINAL contra TOTAL que este mesmo canal publicou hoje.\n\n## FONTES\nO longo de onde este short foi extraido (`GwNkPfM9pSY`, de 12/08) carrega os\nnumeros do exemplo. Este short NAO introduz numero novo sobre o mundo, entao nao\nexige fonte institucional nova.\n\nNOTA DE PROCEDENCIA: o longo NAO tem spec no repositorio e **a descricao dele nao\ntem capitulo nenhum** — sao 600 caracteres de resumo. O texto saiu inteiro da\nfaixa de legenda que a propria maquina subiu, em dezesseis blocos, pelo\n`capitulos_do_longo.py` com `legenda=true`. Nenhuma frase desta peca foi\ninferida de resumo nem de titulo.\n"
+}
