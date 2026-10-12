@@ -39,12 +39,48 @@ RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # teste com fonte e voz diferentes nao testaria o que vai ao ar.
 MOLDE = "fabrica/specs/epomeno-epipedo-s016.json"
 
-# Uma frase por cena, curta — a mesma regra do esqueleto de producao (a
-# sobrecarga por cena e P + 0,300, e P e por VOZ e por FRASE).
-CENAS = [
-    {"layout": "titulo", "kicker": "Teste", "sub": "da linha de montagem",
-     "nar": "Teste da linha de montagem.", "sem_cap": True},
-]
+# DEZ cenas na faixa real, e NAO as tres que o dono pediu de inicio.
+#
+# MEDIDO, run 38206650287: com uma cena de ~2,6 s a cadeia inteira rodou —
+# narracao, SVG, camadas, motion, legenda, trilha com credito e copy — e parou
+# na ULTIMA linha, `assert 20 <= ds <= 60` em etapas.py:377. A trava funcionou
+# duas vezes (portao `duracao` e a assercao), que e o certo: peca de tres
+# segundos nao recebe distribuicao e e o tipo de video que o portao de conteudo
+# INAUTENTICO do YPP existe para barrar.
+#
+# Entao o teste passa a produzir peca na faixa REAL. Ele continua sem publicar
+# — o que se quer provar e o RENDER de ponta a ponta, nao o upload, que ja foi
+# provado em producao (run 38175747708).
+#
+# O tamanho do texto NAO e chutado: sai de `ensaio.chars_por_cena(voz, n,
+# total)`, que ja conta os n-1 intervalos e o P por voz. Numero que eu
+# calcularia a mao viraria erro meu mais cedo ou mais tarde.
+N_CENAS = 10
+ALVO_S = 41.5
+
+# Texto neutro, que declara ser teste em toda cena — nenhum trecho dele pode
+# ser confundido com roteiro aproveitavel.
+BASE = ("Esta e a cena {i} do teste da linha de montagem, "
+        "escrita apenas para medir o render de ponta a ponta.")
+
+
+def cenas(molde: dict) -> list:
+    """Dez cenas de uma frase, cada uma no tamanho que a VOZ pede."""
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import ensaio
+
+    n = ensaio.chars_por_cena(molde.get("voz"), N_CENAS, ALVO_S)
+    fora = []
+    for i in range(N_CENAS):
+        texto = BASE.format(i=i + 1)
+        # Corta no espaco, nunca no meio da palavra: o TTS le fragmento de
+        # palavra com fonema errado, e isso mudaria a duracao medida.
+        if len(texto) > n:
+            texto = texto[:n].rsplit(" ", 1)[0].rstrip(" ,;:") + "."
+        fora.append({"layout": "titulo" if i % 3 == 0 else "item",
+                     "kicker": f"Teste {i + 1}", "sub": "linha de montagem",
+                     "nar": texto, "sem_cap": True})
+    return fora
 
 
 def monta(destino: str) -> dict:
@@ -59,7 +95,7 @@ def monta(destino: str) -> dict:
         "trilha": molde.get("trilha"),
         # `longo: []` e o que marca SO_SHORT em etapas.py.
         "longo": [],
-        "short": CENAS,
+        "short": cenas(molde),
         # Sem `longo_existente`: o teste NAO consome origem de pauta. Origem e
         # recurso escasso (cinco livres medidas em 12/10) e gastar uma num
         # teste seria pagar com pauta o que nao precisa ser pago.
