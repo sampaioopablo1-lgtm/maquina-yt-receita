@@ -1,0 +1,93 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-s014",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#22333B",
+  "c1": "#A4243B",
+  "c2": "#D8973C",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Comunicada",
+  "l2": "não é cumprida"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Alguém comunicou",
+   "sub": "a empresa não cumpriu",
+   "nar": "Alguém comunicou. A empresa não cumpriu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A obrigação",
+   "nar": "A comunicação é obrigação da empresa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Mas",
+   "nar": "Se ela falha, outros podem comunicar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E vale",
+   "sub": "como comunicação",
+   "nar": "E ela vale, para todo efeito.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Aqui mora",
+   "nar": "Aqui mora o engano que custa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Parece",
+   "nar": "Parece obrigação cumprida.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Não foi",
+   "sub": "não para quem a devia",
+   "nar": "Não foi. Não para quem devia cumprir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A lei separa",
+   "nar": "A lei separa as duas de propósito.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Logo",
+   "nar": "Comunicada por outro, segue descumprida.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Confira quem",
+   "sub": "emitiu a sua última",
+   "nar": "Confira quem emitiu a sua última.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "inscreva-se",
+   "nar": "Se isso te poupou um problema, inscreva-se.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "6BeNHqT2okA",
+ "copy": "# labtreinamento-s014\n\n## TITULO\nComunicação Emitida Por Terceiro Vale Como Comunicação — E Não Conserta O Descumprimento Da Empresa\n\n## TITULO SHORT\nQuem emitiu a sua última?\n\n## DESCRICAO\nHá um ponto na comunicação de acidente do trabalho que quase todo procedimento interno trata errado, e o erro não é de prazo nem de formulário: é de **a quem a obrigação pertence**.\n\nA comunicação é obrigação da empresa. Se ela não a cumpre, a lei abre uma segunda via: outras pessoas podem formalizá-la no lugar dela — e essa comunicação **vale**, para todo efeito. O registro existe, o benefício caminha, o fato está documentado.\n\nE é exatamente aí que o engano se instala. Vendo a comunicação emitida e aceita, o procedimento interno conclui que a obrigação foi atendida. **Não foi** — não para quem a devia. A lei separa as duas coisas de propósito: a comunicação feita por terceiro resolve o acesso do trabalhador ao que é dele, e não apaga o descumprimento de quem tinha o dever de comunicar e não comunicou.\n\nA consequência prática é desconfortável e vale ser dita: uma empresa pode ter todas as comunicações em ordem no arquivo e ainda assim estar em falta, se parte delas foi emitida por outra pessoa. O arquivo mostra o documento; ele não mostra **quem** o emitiu.\n\nDaí o teste que fecha o short: abra as últimas comunicações e veja quem as emitiu. Se não foi a empresa, não é um detalhe de procedência — é uma obrigação que ficou aberta e que o próprio documento não denuncia.\n\nEste short não cita prazo, não cita número de artigo, não diz quantos podem comunicar no lugar da empresa e não cita valor de multa: parte disso muda por reforma, e tudo está no vídeo completo com a fonte. O que não muda é o desenho da obrigação.\n\nNo vídeo completo: as três datas candidatas e qual delas conta, a contagem em dia útil, a exceção que não admite prazo, quem exatamente pode comunicar na falta da empresa, e a obrigação de entregar cópia fiel que quase ninguém cumpre.\n\n## COMENTARIO FIXADO\nO detalhe que faz esse erro sobreviver é que ele não deixa rastro no arquivo: a comunicação está lá, aceita e protocolada, e nada no documento diz que foi o trabalhador, o sindicato ou o médico que a emitiu. Então o procedimento interno marca como cumprido. A lei separa as duas coisas de propósito — a comunicação por terceiro resolve o acesso do trabalhador ao que é dele, e não conserta o descumprimento de quem tinha o dever. Ou seja: \"alguém comunicou\" nunca é resposta para \"a empresa cumpriu\". De propósito não coloquei aqui prazo, artigo nem quantas pessoas podem fazê-lo: parte disso muda por reforma e está no vídeo com a fonte. Vale um teste de cinco minutos: nas últimas comunicações do seu arquivo, quem assinou a emissão? Conta nos comentários se você encontrou alguma que não foi emitida pela empresa.\n\n## HASHTAGS\n#SegurancaDoTrabalho #CAT #LabTreinamento\n\n## TAGS\ncomunicacao de acidente, quem emite a cat, obrigacao da empresa, descumprimento, sindicato comunica, medico comunica, trabalhador comunica, previdencia social, procedimento interno de acidente, auditoria de arquivo, seguranca do trabalho, gestao de sst, acidente do trabalho, doenca ocupacional, obrigacao acessoria\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, ZERO DIGITO e ZERO NUMERAL na narracao.\nConferido campo a campo. Em especial:\n  * NAO digo QUANTOS podem comunicar no lugar da empresa. O longo diz cinco;\n    \"cinco\" seria numeral, e a lista pode mudar por reforma. A peca diz\n    \"outros\", que e a regra;\n  * NAO cito numero de artigo nem de paragrafo. Eles nao estao na lista literal\n    da regra (g), mas mudam por reforma legislativa do mesmo jeito, e o longo ja\n    os carrega com fonte;\n  * NAO digo a duracao do prazo, nem a excecao de morte imediata, nem valor de\n    multa — o `s007` descartou os mesmos pela mesma razao: prazo errado num short\n    e pior que prazo nenhum.\n\nO QUE A PECA CARREGA, e nao envelhece: a comunicacao feita por um TERCEIRO vale\ncomo comunicacao, e NAO conserta o descumprimento de quem a devia. Logo \"alguem\ncomunicou\" nao e resposta para \"a empresa cumpriu\". E desenho de obrigacao, nao\ntabela. Esta nos capitulos \"E se a empresa nao comunicar\", \"Cinco podem\nformalizar\", \"E aqui esta o detalhe\", \"O que isso significa\", \"Mas atencao\" e\n\"Traduzindo\" do longo `6BeNHqT2okA` (pacote `labtreinamento-010`).\n\nSEGUNDO ANGULO, declarado: o primeiro short deste longo e o `labtreinamento-s007`,\nque usou DOIS capitulos (\"um dia util, contado a partir de qual data\" e \"tres\ndatas e um dia util\") e carregou a familia UNIDADE. O longo tem 66 capitulos;\nsessenta e quatro nunca foram tocados. Isto NAO e repeticao: familia diferente,\ncapitulos diferentes, e passou o portao `similaridade` contra o mesmo canal.\n\nO QUE EU NAO LEVEI, escrito para a proxima rodada achar: o capitulo da COPIA\nFIEL — a obrigacao de entregar copia ao acidentado e ao sindicato, que \"nao e\naviso, nao e resumo e nao e confirmacao de protocolo\". E outra familia inteira\n(O DOCUMENTO NAO E O AVISO) e da um TERCEIRO angulo deste mesmo longo.\n\n## FONTES\nO longo de onde este short foi extraido (`labtreinamento-010`, `6BeNHqT2okA`)\ncarrega a lei, o artigo e os paragrafos com a fonte. Este short NAO introduz\nnumero novo sobre o mundo, entao nao exige fonte institucional nova — e o que ele\nafirma e NORMA, nao estatistica, pela regra de fonte unica.\n"
+}
