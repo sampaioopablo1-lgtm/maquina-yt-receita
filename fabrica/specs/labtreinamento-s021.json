@@ -1,0 +1,80 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-s021",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#22333B",
+  "c1": "#A4243B",
+  "c2": "#D8973C",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "O maior",
+  "l2": "engana"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "O maior",
+   "sub": "parece o melhor",
+   "nar": "O maior trabalho do ano parece o melhor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Porque",
+   "nar": "Porque foi o maior valor que entrou.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E é dele",
+   "nar": "E é dele que você lembra.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Mas ele",
+   "sub": "comeu mais tempo",
+   "nar": "Mas ele também comeu mais tempo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Mais",
+   "nar": "Mais reunião, mais revisão, mais ajuste.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Então",
+   "nar": "Então faça a divisão nos dois.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "No maior",
+   "sub": "e no menor",
+   "nar": "No maior do ano, e no menor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E repare",
+   "nar": "Não é raro a ordem se inverter.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "inscreva-se",
+   "nar": "Faça nos dois e veja. Inscreva-se.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "ntrMxq89I4o",
+ "copy": "# labtreinamento-s021\n\n## TITULO\nO Maior Trabalho do Ano Engana — Faça a Divisão no Maior e no Menor e Veja Inverter\n\n## TITULO SHORT\nO maior trabalho do ano engana\n\n## DESCRICAO\nO trabalho de maior valor do ano costuma parecer o melhor do ano. Não porque foi, mas porque **o número que entrou foi o maior** — e é dele que você lembra quando alguém pergunta como foi o ano.\n\nSó que ele também foi o que mais consumiu tempo. Mais reunião, mais revisão, mais ajuste depois de você achar que tinha acabado. E a conta que importa não é o que entrou: é **o que entrou dividido pelas horas que saíram de você**.\n\nEntão faça a divisão nos dois extremos: no maior trabalho do ano e no menor. **Não é raro a ordem se inverter** — e quando inverte, o que você descobriu não é que projeto grande é ruim. É que o preço dele foi feito olhando **o tamanho**, e não **as horas**.\n\nE existe o espelho disso, que dói mais: o trabalho pequeno, de preço simbólico, que consumiu um mês em pedaços. Esse nunca ocupou um dia inteiro, então nunca pareceu grande o bastante para você reclamar dele — e é justamente por isso que ele passa batido todas as vezes.\n\nNada aqui decide se você deve cobrar por hora ou por projeto. As duas formas são legítimas, e a certa é a que o seu número apontar. O que não se sustenta é mandar preço por hábito e nunca ter conferido.\n\nEste short não cita valor, preço por hora, imposto nem percentual — de propósito. Os dois números da conta são **seus**, e o resultado é exatamente o que você vai medir.\n\nNo vídeo completo: a divisão passo a passo, onde achar as horas que você não anotou, o que a conta não pega e vale dizer, o caso do projeto grande, e como transformar um projeto em leitura do ano inteiro.\n\n## COMENTARIO FIXADO\nEsse é o truque que a memória joga: a gente guarda o VALOR que entrou, não as horas que saíram. Por isso o maior projeto do ano quase sempre é lembrado como o melhor, mesmo quando foi o pior por hora. O teste é barato e leva dois minutos: divida o líquido pelas horas no maior trabalho do ano, faça o mesmo no menor, e compare os dois resultados. Se a ordem inverter, o problema não é o projeto grande — é que o preço dele foi feito olhando o tamanho em vez das horas. E repare no espelho disso: o trabalho pequeno que consumiu um mês em pedaços nunca parece grande o suficiente para a gente reclamar dele. De propósito não tem valor nenhum neste short: os dois números são seus. Conta aqui — no seu caso, a ordem inverteu?\n\n## HASHTAGS\n#Autonomo #Precificacao #LabTreinamento\n\n## TAGS\nvalor da hora, precificacao para autonomo, cobrar por hora ou por projeto, projeto grande, horas nao faturadas, orcamento de freelancer, quanto cobrar, conta da hora real, autonomo, prestador de servico, financas para autonomo, revisao de preco, labtreinamento, dinheiro proprio, tempo e preco\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO, ZERO DIGITO e ZERO NUMERAL na narracao, e aqui isso nem custa\nesforco: a peca nao tem numero nenhum sobre o mundo. Nao cita valor, preco por\nhora, imposto, aliquota nem taxa. Os dois numeros da conta sao DO ESPECTADOR.\n\nDESCARTADO, e vai escrito:\n  (1) qualquer valor ou preco por hora — varia por pessoa e por mercado;\n  (2) quanto a ordem costuma inverter — e exatamente o que o espectador vai\n      MEDIR, e dar uma fracao aqui seria inventar a resposta dele;\n  (3) o que a conta NAO decide: se vale cobrar por hora ou por projeto. Isso\n      esta no longo, e o short manda para la.\n\nO QUE A PECA CARREGA, e nao envelhece: o maior trabalho do ano parece o melhor\nporque a memoria guarda o VALOR que entrou e nao as horas que sairam; a divisao\nfeita nos DOIS extremos inverte a ordem com frequencia. Esta nos capitulos\n\"O caso que engana\", \"O projeto grande\", \"Mas ele tambem\", \"Faca a divisao nele\",\n\"Se inverteu\" e \"E o contrario existe\" do longo `ntrMxq89I4o` (pacote\n`labtreinamento-007`).\n\nSEGUNDO ANGULO deste longo. O PRIMEIRO foi o `labtreinamento-s002`, e a familia\ndele era OUTRA: o DENOMINADOR incompleto — as horas de proposta nao ganha, com a\ninstrucao de dividir pelo mes inteiro. Esta aqui nao mexe no denominador: ela\ncompara DOIS CASOS EXTREMOS da mesma conta. Familia O MAIOR NAO E O MELHOR.\n\nPOR QUE ESTA ORIGEM, e e a decisao 2 de `docs/decisoes-12-10.md`: o perfil\nmedido do 651 e \"dinheiro PROPRIO com papel na mao\", e aqui o papel e o ultimo\norcamento que o espectador mandou. As tres origens de previdencia do dia\n(`4OYBkCHFTV8` com quatro shorts, `6BeNHqT2okA` com quatro) ja sairam dos dois\nbaldes da pauta viva.\n\nREGRA (f) CONFERIDA: o labtreinamento ja teve hoje SUBSTITUICAO QUE NAO\nSUBSTITUI (s014), A GUARDA NAO E A ENTREGA (s015), COMPOSICAO (s016), PROPORCAO\nCOM O PRAZO (s017), O CONSERTO E DIVISIVEL (s018), QUANDO O CONSERTO NAO COMPRA\nNADA (s019) e O MEIO-TERMO TEM DONO (s020). Esta e a OITAVA familia distinta do\ndia, e a primeira fora de previdencia.\n\nDURACAO, pelo instrumento do 711/714: estimativa 28,0 s, previsao **23,0 s\nREAIS** com o fator pt-BR do Piper (0,821) — dentro do `ALVO_POR_CANAL` de\n20,0 a 26,0 deste canal.\n\nO QUE SOBRA PARA A PROXIMA neste longo: \"O aprendizado\", \"Mas cuidado\", \"O\nportfolio\", \"Tambem tem prazo\" e \"O terceiro\" — a familia AS TRES DESCULPAS\nVENCEM (aprendizado e portfolio tem prazo de validade; so o cliente que nao da\nretrabalho nao vence). Terceiro angulo.\n\n## FONTES\nO longo de onde este short foi extraido (`labtreinamento-007`, `ntrMxq89I4o`)\ne aritmetica sobre numeros do proprio espectador. Este short NAO introduz numero\nnenhum sobre o mundo, entao nao exige fonte institucional.\n"
+}
