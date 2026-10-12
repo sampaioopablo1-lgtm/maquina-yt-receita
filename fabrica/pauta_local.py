@@ -1,5 +1,19 @@
 #!/usr/bin/env python3
-"""Origem livre SEM o banco, contada por TITULO DISTINTO. Nao por id.
+"""Origem livre pelo RETRATO de 06/10. **PREFIRA `pauta_viva.py`.**
+
+SUPERADO EM 12/10, no mesmo dia em que nasceu, e a nota fica no topo porque
+deixar dois modulos de pauta com respostas diferentes e exatamente o defeito das
+"duas fontes discordantes" que matou tres pacotes em 11/10.
+
+`fabrica/pauta_viva.py` le a PLAYLIST DE UPLOADS pela API — a lista viva, sem
+banco e sem retrato — e por isso ve o que este modulo nao pode ver: longo
+publicado depois de 06/10. Medido: este modulo dizia UMA origem livre; o vivo
+achou TRES, duas delas no epomeno.
+
+**Quando este ainda serve:** quando nao ha token (fora do runner) ou a API nao
+responde. Ele e o piso, nao a fonte. E o numero dele SUBESTIMA por construcao.
+
+Origem livre SEM o banco, contada por TITULO DISTINTO. Nao por id.
 
 POR QUE ISTO EXISTE (12/10/2026, e nasce de um erro meu de uma rodada antes).
 
@@ -128,6 +142,10 @@ def relato(caminho: str = RETRATO, dir_specs: str = SPECS) -> str:
         extra = f"  [{len(ids)} COPIAS no ar — valem UMA]" if len(ids) > 1 else ""
         linhas.append(f"  {canal:16} {ids[0]}  {titulo[:58]}{extra}")
     linhas += [
+        "",
+        "ESTE MODULO E O PISO, NAO A FONTE: prefira `fabrica/pauta_viva.py`,",
+        "que le a playlist de uploads ao vivo e ve longo publicado depois de",
+        "06/10. Em 12/10 este disse UMA origem e o vivo achou TRES.",
         "",
         "RESSALVAS, e elas nao saem do relato:",
         "  (1) o retrato e de 06/10 — longo publicado depois nao aparece, entao",

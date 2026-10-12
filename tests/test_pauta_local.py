@@ -113,3 +113,18 @@ def test_o_relato_carrega_as_TRES_ressalvas():
     assert "por TITULO" in r
     assert "estoque.sql" in r, (
         "o relato tem de dizer que NAO substitui a consulta")
+
+
+def test_o_modulo_do_RETRATO_aponta_para_o_VIVO_como_fonte():
+    """Dois modulos de pauta com respostas diferentes e o defeito de 11/10.
+
+    O `pauta_viva.py` nasceu horas depois deste e ve o que ele nao pode ver
+    (longo publicado depois de 06/10): este disse UMA origem livre, o vivo achou
+    TRES. Deixar os dois sem hierarquia escrita reconstroi as "duas fontes
+    discordantes" que mataram tres pacotes.
+    """
+    fonte = (RAIZ / "fabrica/pauta_local.py").read_text()
+    assert "PREFIRA `pauta_viva.py`" in fonte
+    assert "duas fontes discordantes" in fonte
+    # e quem roda o relato tem de VER o aviso, nao so quem le o codigo
+    assert "E O PISO, NAO A FONTE" in PL.relato()
