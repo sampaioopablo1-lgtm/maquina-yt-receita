@@ -64,6 +64,38 @@ jobs:
           # Nao propaga o exit: o relato dos portoes E o resultado deste passo.
           exit 0
 
+      # A SEGUNDA fonte do frota.yml, e so ela: o Storage do Supabase esta em
+      # 402, entao a origem que funciona e o incompetech, onde as tres faixas
+      # do Kevin MacLeod sao CC-BY e publicas. Ir na origem nao e contorno.
+      #
+      # Sem este passo o render morre em "a spec declara a trilha 'Inspired' e
+      # nenhum mp3 valido esta em /tmp/trilhas" — foi o que aconteceu no run
+      # 38202950831, e foi a TERCEIRA vez nesta sessao que o teste divergiu do
+      # frota.yml e acusou defeito que era do teste.
+      #
+      # O teste e DECODIFICAR com ffprobe, nao olhar os primeiros bytes: em
+      # 25/08 um JSON de erro passou por mp3 e o render foi onze minutos antes
+      # de alguem descobrir que nenhuma faixa tocava.
+      - name: Baixar as trilhas CC-BY
+        run: |
+          set +e
+          mkdir -p /tmp/trilhas
+          for faixa in Wholesome Inspired Deliberate_Thought; do
+            nome="${faixa//_/%20}"
+            curl -sSL --max-time 120 \
+              "https://incompetech.com/music/royalty-free/mp3-royaltyfree/$nome.mp3" \
+              -o "/tmp/trilhas/$faixa.mp3"
+            if ffprobe -v error -show_entries format=duration -of csv=p=0 \
+                 "/tmp/trilhas/$faixa.mp3" 2>/dev/null | grep -qE '^[0-9]+'; then
+              echo "::notice::trilha $faixa ok"
+            else
+              rm -f "/tmp/trilhas/$faixa.mp3"
+              echo "::warning::trilha $faixa nao decodifica"
+            fi
+          done
+          echo "trilhas: $(ls /tmp/trilhas/*.mp3 2>/dev/null | wc -l) faixas"
+          exit 0
+
       - name: Renderizar
         run: |
           set -o pipefail
