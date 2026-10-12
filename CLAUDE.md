@@ -712,6 +712,40 @@ ausência é silêncio, não leitura de zero.
 terceira em 09/10, a segunda às 07:09 e a primeira e a terceira às 08:08. A ordem
 não tem regra; só o estimador sobrevive — **máximo como piso.**
 
+### E O "MÁXIMO COMO PISO" CAIU EM 12/10 ÀS 20:1x — aprendizado 720
+
+**Medido, e é a minha própria palavra "piso" que cai.** Quatro peças, quatro
+leituras de hora em hora:
+
+| peça | 17:10 | 18:21 | **19:11** | 20:11 |
+|---|---|---|---|---|
+| `MjeP-_yDni4` | 20 | 20 | **24** | **20** |
+| `O1PNIRYoeGY` | 1 | 1 | **7** | **1** |
+| `xhPyfHdTwds` | 0 | 2 | **8** | **2** |
+| `nUrSPWKHy8I` | — | 114 | 115 | **122** |
+
+Dentro da rodada das 19:11 as três chamadas deram `{20,24,20}`, `{1,7,1}`,
+`{2,8,2}`. O `replica.chamada_para_gravar` escolheu a de soma máxima — como o 708
+manda — e **gravou um PICO em três das quatro peças**: às 20:11 as três chamadas
+devolveram, nas três peças, o valor da **MODA** de 19:11. **A moda acertou três de
+três e o máximo errou três de três.**
+
+**E a MESMA chamada estava CERTA para a quarta peça** (`nUrSPWKHy8I`, 114 → 115 →
+122, subida que persistiu). Logo o veredito é **por peça, não por chamada** — e
+**dentro de uma rodada as duas situações são indistinguíveis**: chamada alta
+solitária pode ser réplica fresca (688) ou pico. **Quem decide é a rodada
+SEGUINTE.**
+
+**O que cai é a palavra PISO, não o 688.** No 688 as dezessete peças subiram *e a
+subida PERSISTIU*. Aqui não persistiu. Então o máximo é o **máximo OBSERVADO** —
+um número que três chamadas depois já não existe não era piso de nada.
+
+**No código:** `replica.moda()` e `replica.veredito_do_pico(leituras, seguinte)`,
+que devolve `fresca` / `pico` / `indeterminado` por peça. Quinze testes, sete
+novos, ancorados nesta série e no caso do 688 (que continua dando `fresca`).
+**A linha de `metricas` de uma rodada de pico NÃO se apaga** — ela é o que a API
+disse; o que se corrige é a leitura que se faz dela.
+
 ## A credencial do GitHub ENTRA em sessão rodando — eu afirmei o contrário o dia todo
 
 **Aprendizado de 11/10, e é uma RETRATAÇÃO minha.** Eu escrevi aqui e na rotina

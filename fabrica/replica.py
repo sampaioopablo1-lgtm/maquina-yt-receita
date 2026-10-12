@@ -107,3 +107,86 @@ def mesma_forma(leituras: list[dict[str, int]]) -> bool:
         ordenados = sorted(set(serie))
         formas.add(tuple(ordenados.index(n) for n in serie))
     return len(formas) <= 1
+
+
+# ===========================================================================
+# O PICO QUE NAO ERA REPLICA FRESCA — medido em 12/10/2026 as 20:1x
+# ===========================================================================
+#
+# O procedimento do 708 (gravar a chamada de SOMA MAXIMA) assume que a chamada
+# alta e a replica FRESCA, e portanto que o maximo e um PISO (688). Em 12/10 as
+# 19:11 eu segui o procedimento com este modulo, e a rodada seguinte mostrou
+# que ele gravou um PICO:
+#
+#     peca            17:10   18:21   19:11   20:11
+#     MjeP-_yDni4        20      20    *24*      20
+#     O1PNIRYoeGY         1       1     *7*       1
+#     xhPyfHdTwds         0       2     *8*       2
+#     nUrSPWKHy8I         -     114     115     122   <- esta subiu de verdade
+#
+# As TRES primeiras subiram so na chamada de soma maxima das 19:11 e voltaram
+# ao valor anterior na rodada seguinte, nas TRES chamadas. Dentro da rodada das
+# 19:11 as leituras eram {20,24,20}, {1,7,1}, {2,8,2}: a MODA acertou as tres e
+# o MAXIMO errou as tres.
+#
+# E ISSO NAO CONTRADIZ O 688 — contradiz a leitura que eu fazia dele. No 688 as
+# seventeen pecas subiram juntas na terceira leitura E a subida PERSISTIU. Hoje
+# a subida nao persistiu. **Dentro de UMA rodada as duas situacoes sao
+# indistinguiveis**: uma chamada alta e solitaria pode ser replica fresca (688)
+# ou pico (hoje). Quem decide e a rodada SEGUINTE.
+#
+# Logo o maximo e o maximo OBSERVADO, nao um piso sobre a verdade. Um numero que
+# tres chamadas depois ja nao existe nao era piso de nada.
+
+
+def moda(leituras: list[dict[str, int]]) -> dict[str, int]:
+    """O valor que a MAIORIA das chamadas da rodada reporta, por peca.
+
+    Sem maioria (todas diferentes), devolve o maximo e deixa o caso para o
+    `veredito_do_pico` da rodada seguinte.
+    """
+    ids = {i for l in leituras for i in l}
+    out = {}
+    for i in ids:
+        vals = [l[i] for l in leituras if i in l]
+        if not vals:
+            continue
+        contagem = {v: vals.count(v) for v in set(vals)}
+        melhor = max(contagem.values())
+        if melhor > 1:
+            # Entre valores empatados em frequencia, o maior.
+            out[i] = max(v for v, c in contagem.items() if c == melhor)
+        else:
+            out[i] = max(vals)
+    return out
+
+
+def veredito_do_pico(leituras_da_rodada: list[dict[str, int]],
+                     seguinte: dict[str, int]) -> dict[str, str]:
+    """Para cada peca divergente, a rodada SEGUINTE diz o que aquilo era.
+
+    - "fresca": a leitura seguinte e >= o maximo da rodada anterior, logo a
+      chamada alta era mesmo a replica fresca (o caso do 688);
+    - "pico": a leitura seguinte voltou para a moda ou abaixo dela, logo o
+      maximo era pico e a gravacao daquela rodada SUPERESTIMA;
+    - "indeterminado": a seguinte caiu entre a moda e o maximo.
+
+    `seguinte` e UMA leitura ja consolidada da rodada seguinte (a moda dela, de
+    preferencia). Peca ausente na seguinte nao recebe veredito: ausencia e
+    silencio, nunca zero.
+    """
+    div = divergentes(leituras_da_rodada)
+    m = moda(leituras_da_rodada)
+    out = {}
+    for i, vals in div.items():
+        if i not in seguinte:
+            continue
+        alto, base = max(vals), m.get(i, max(vals))
+        v = seguinte[i]
+        if v >= alto:
+            out[i] = "fresca"
+        elif v <= base:
+            out[i] = "pico"
+        else:
+            out[i] = "indeterminado"
+    return out

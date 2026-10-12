@@ -77,3 +77,69 @@ def test_id_ausente_nao_vira_zero():
 def test_sem_leitura_nenhuma_levanta_em_vez_de_adivinhar():
     with pytest.raises(ValueError):
         R.chamada_para_gravar([])
+
+
+# ===========================================================================
+# O PICO QUE NAO ERA REPLICA FRESCA — 12/10/2026, e refuta a LEITURA que eu
+# fazia do 688 ("o maximo e um PISO").
+# ===========================================================================
+
+_RODADA_19H11 = [
+    {"MjeP-_yDni4": 20, "O1PNIRYoeGY": 1, "xhPyfHdTwds": 2, "nUrSPWKHy8I": 114},
+    {"MjeP-_yDni4": 24, "O1PNIRYoeGY": 7, "xhPyfHdTwds": 8, "nUrSPWKHy8I": 115},
+    {"MjeP-_yDni4": 20, "O1PNIRYoeGY": 1, "xhPyfHdTwds": 2, "nUrSPWKHy8I": 114},
+]
+# A rodada seguinte, as 20:11, com as TRES chamadas de acordo nas quatro pecas
+# menos a `nUrSPWKHy8I`, que subiu de verdade.
+_RODADA_20H11 = {"MjeP-_yDni4": 20, "O1PNIRYoeGY": 1, "xhPyfHdTwds": 2,
+                 "nUrSPWKHy8I": 122}
+
+
+def test_a_chamada_de_soma_maxima_das_19h11_era_um_PICO_em_tres_pecas():
+    # O procedimento do 708 manda gravar a chamada de soma maxima, e foi o que
+    # eu fiz com este modulo. A rodada seguinte mostrou que ela gravou um pico
+    # em tres das quatro pecas.
+    assert R.chamada_para_gravar(_RODADA_19H11) == 1
+    v = R.veredito_do_pico(_RODADA_19H11, _RODADA_20H11)
+    assert v["MjeP-_yDni4"] == "pico"
+    assert v["O1PNIRYoeGY"] == "pico"
+    assert v["xhPyfHdTwds"] == "pico"
+    # E na QUARTA ela era mesmo a replica fresca. A mesma chamada estava certa
+    # para uma peca e errada para tres — e e por isso que nao se decide dentro
+    # da rodada.
+    assert v["nUrSPWKHy8I"] == "fresca"
+
+
+def test_a_MODA_acertou_as_tres_que_o_MAXIMO_errou():
+    m = R.moda(_RODADA_19H11)
+    p = R.piso(_RODADA_19H11)
+    for i in ("MjeP-_yDni4", "O1PNIRYoeGY", "xhPyfHdTwds"):
+        assert m[i] == _RODADA_20H11[i], i      # a moda bateu com a verdade
+        assert p[i] != _RODADA_20H11[i], i      # o maximo nao bateu
+
+
+def test_o_caso_do_688_continua_dando_fresca():
+    # No 688 as pecas subiram numa chamada E a subida PERSISTIU. O veredito
+    # tem de dizer "fresca" ali, senao o modulo trocaria um erro pelo outro.
+    rodada = [{"a": 830}, {"a": 833}, {"a": 830}]
+    assert R.veredito_do_pico(rodada, {"a": 840}) == {"a": "fresca"}
+    assert R.veredito_do_pico(rodada, {"a": 833}) == {"a": "fresca"}
+
+
+def test_queda_para_entre_a_moda_e_o_maximo_sai_INDETERMINADO():
+    rodada = [{"a": 10}, {"a": 20}, {"a": 10}]
+    assert R.veredito_do_pico(rodada, {"a": 15}) == {"a": "indeterminado"}
+
+
+def test_peca_ausente_na_rodada_seguinte_NAO_recebe_veredito():
+    # Ausencia e silencio, nao zero — o mesmo principio do `piso`.
+    rodada = [{"a": 10, "b": 1}, {"a": 20, "b": 1}, {"a": 10, "b": 1}]
+    assert R.veredito_do_pico(rodada, {}) == {}
+
+
+def test_moda_sem_maioria_cai_no_maximo_e_deixa_para_a_rodada_seguinte():
+    assert R.moda([{"a": 1}, {"a": 2}, {"a": 3}]) == {"a": 3}
+
+
+def test_moda_com_empate_de_frequencia_toma_o_maior():
+    assert R.moda([{"a": 5}, {"a": 5}, {"a": 9}, {"a": 9}]) == {"a": 9}
