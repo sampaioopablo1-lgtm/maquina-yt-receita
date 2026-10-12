@@ -1,0 +1,106 @@
+name: Sonda — a narracao, e se existe um segundo provedor de verdade
+
+# POR QUE ISTO EXISTE (12/10/2026). O teste de ponta a ponta (run 38198482469)
+# mostrou que a narracao falha NO RUNNER: 403 no handshake de
+# wss://speech.platform.bing.com. Eu tratava esse 403 como limitacao do
+# container — "render continua no runner" esta escrito no CLAUDE.md e na
+# rotina — e isso esta FALSO.
+#
+# Ficou escondido porque a Frota falhou nos oito runs desde 09/10 17:14 no
+# passo "Conferir glifos", ANTES do render. Defeito atras de defeito: o
+# primeiro foi consertado e destapou o segundo.
+#
+# Esta sonda responde DUAS perguntas numa rodada so, porque cada run custa
+# minuto e a duvida nao se resolve pela metade:
+#
+#   1. O 403 e de VERSAO ou de IP? Ela imprime a versao instalada do edge-tts,
+#      tenta a sintese com a versao do frota.yml (a mais recente) e tenta de
+#      novo com uma voz diferente. Se as duas falharem igual, versao nao e a
+#      variavel.
+#
+#   2. Existe plano B REAL? A rotina proibe costura vazia: "nao instale plano B
+#      sem um segundo provedor de verdade". O candidato e o Piper — neural,
+#      offline, sem chave, sem rede no momento da sintese, com voz publicada
+#      para pt-BR, grego e polones. Se ele sintetizar aqui, deixa de ser ideia
+#      e vira opcao medida.
+#
+# NAO publica, NAO altera spec, NAO troca o renderizador. So mede.
+
+on:
+  workflow_dispatch:
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  sondar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: edge-tts — versao e duas tentativas
+        run: |
+          set +e
+          pip install -q edge-tts
+          python3 - <<'FIM'
+          import asyncio, importlib.metadata as md
+          try:
+              v = md.version("edge-tts")
+          except Exception:
+              v = "?"
+          print(f"::notice::edge-tts versao {v} (o frota.yml instala a mais recente)")
+
+          async def tenta(voz, texto):
+              import edge_tts
+              n = 0
+              try:
+                  c = edge_tts.Communicate(texto, voz)
+                  async for ch in c.stream():
+                      if ch["type"] == "audio":
+                          n += len(ch["data"])
+                  return f"OK, {n} bytes"
+              except Exception as e:
+                  return f"{type(e).__name__}: {str(e)[:160]}"
+
+          for voz in ("pt-BR-ThalitaMultilingualNeural", "en-US-AriaNeural"):
+              r = asyncio.run(tenta(voz, "teste"))
+              nivel = "notice" if r.startswith("OK") else "warning"
+              print(f"::{nivel}::edge-tts {voz} -> {r}")
+          FIM
+          exit 0
+
+      - name: Piper — existe plano B de verdade?
+        run: |
+          set +e
+          pip install -q piper-tts 2>&1 | tail -2
+          python3 -c "import piper; print('::notice::piper importou')" || \
+            echo "::warning::piper nao importou"
+          # Voz publicada do pt-BR. O download e do HuggingFace, uma vez; na
+          # producao ela viveria em cache do runner ou no proprio repo.
+          B=https://huggingface.co/rhasspy/piper-voices/resolve/main/pt/pt_BR/faber/medium
+          curl -sSLf -o /tmp/v.onnx      "$B/pt_BR-faber-medium.onnx"      && echo "::notice::modelo baixado: $(stat -c%s /tmp/v.onnx) bytes" || echo "::warning::download do modelo FALHOU"
+          curl -sSLf -o /tmp/v.onnx.json "$B/pt_BR-faber-medium.onnx.json" || echo "::warning::download do json FALHOU"
+          if [ -s /tmp/v.onnx ]; then
+            echo "teste da linha de montagem" | python3 -m piper \
+              --model /tmp/v.onnx --output_file /tmp/p.wav 2>&1 | tail -3
+            if [ -s /tmp/p.wav ]; then
+              echo "::notice::PIPER SINTETIZOU: $(stat -c%s /tmp/p.wav) bytes, $(ffprobe -v error -show_entries format=duration -of default=nw=1:nk=1 /tmp/p.wav 2>/dev/null || echo '?') s"
+            else
+              echo "::warning::piper nao produziu wav"
+            fi
+          fi
+          exit 0
+
+      - name: Guardar a amostra
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sonda-voz
+          path: /tmp/p.wav
+          retention-days: 7
+          if-no-files-found: warn
