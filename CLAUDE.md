@@ -780,6 +780,20 @@ rodada, e moda e máximo seguem indistinguíveis dentro dela. **O que cai é a
 acusação de pico.** Duas retratações minhas em noventa minutos, e as duas pelo
 instrumento, não por eu reler.
 
+**E às 22:1x o `monotonia` teve o primeiro uso em produção — aprendizado 722.**
+Somas 252 / 279 / 264, `mesma_forma` **False** (a hipótese do 708 não se
+aplicava). A monotonia contra a rodada anterior resolveu sozinha: **a chamada 1
+foi a única sem violação**, e as outras duas reportaram peça abaixo da leitura de
+uma hora antes. **Dois critérios independentes — soma máxima e monotonia —
+apontaram a MESMA chamada.**
+
+**Mas a chamada escolhida SUBESTIMA peça**, e isso tem de ir dito: `byriXB1gSg8`
+gravou 38 com piso real **41**, e `oAAxm8VzjOc` gravou 11 com piso real **12**.
+A linha **não se corrige**: o `grava_metricas_janela` recebe UM `req_id` e a linha
+é o que aquela chamada disse — inventar número de outra chamada seria fabricar
+leitura que requisição nenhuma devolveu. **Compare `piso(leituras)` com a chamada
+escolhida e declare a diferença.**
+
 ## A credencial do GitHub ENTRA em sessão rodando — eu afirmei o contrário o dia todo
 
 **Aprendizado de 11/10, e é uma RETRATAÇÃO minha.** Eu escrevi aqui e na rotina

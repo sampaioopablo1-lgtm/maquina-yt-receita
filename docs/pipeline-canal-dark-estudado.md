@@ -109,3 +109,23 @@ privado e é onde os segredos da máquina já moram (ao lado de `yt_token_<canal
 **E ela não serve aqui de qualquer forma:** a verificação de licença chama
 `app.ianofacil.com.br`, que o proxy nega no CONNECT. O lugar de uso dela é o PC
 dele, com `canal.bat licenca ativar <chave>`.
+
+
+## As duas primeiras medições de som de PEÇA REAL — 12/10
+
+O instrumento saiu do tom sintético e mediu produção:
+
+| peça | LUFS | desvio do alvo | pico dBTP | LRA | silêncios ≥1 s |
+|---|---|---|---|---|---|
+| `labtreinamento-s023` | **−14,2** | −0,2 | −1,4 | 2,9 | nenhum |
+| `labtreinamento-s024` | **−14,6** | −0,6 | −1,5 | 3,0 | nenhum |
+
+**As duas dentro de 1,0 LU do alvo** — o `loudnorm` de uma passada segura o alvo
+em conteúdo real, não só em tom estável. **E as duas ABAIXO dele.** Dois de dois
+na mesma direção não prova viés; fica escrito para a terceira medição ter com o
+que comparar, em vez de eu reparar no padrão depois e chamar de descoberta.
+
+**O zero silêncio corrobora o modelo de P:** previsto `P + 0,300 = 1,04 s` de
+intervalo por cena no pt-BR, e o `silencedetect` com piso de 1,0 s não acusa
+nada — ou seja, os intervalos reais ficam logo abaixo de 1,0 s. Perto do
+previsto, e um pouco abaixo.
