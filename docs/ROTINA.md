@@ -877,10 +877,22 @@ PENDÊNCIAS QUE SÓ O DONO RESOLVE:
    revisão anti-molde, que ataca o mesmo risco do experimento 39.
 12. Plugins que exigem sessão INTERATIVA dele: `oh-my-claudecode`, Chrome DevTools
    MCP, Vercel (OAuth). O Supabase JÁ está ligado como MCP.
-13. **Liberar `speech.platform.bing.com` na política de rede do ambiente** (Network
-   access → Allowed domains, deixando "Allow package managers" marcado). Hoje o
-   CONNECT leva 403 e por isso este container não sintetiza voz nem renderiza. É o
-   que tornaria a rodada local, e é também o plano B da narração que a §6 pede.
+13. **Liberar hosts na política de rede do ambiente** (Network access → Allowed
+   domains, deixando "Allow package managers" marcado). São DOIS grupos, e o
+   segundo é novo e mais consequente:
+   (a) `speech.platform.bing.com` — hoje o CONNECT leva 403 e por isso este
+       container não sintetiza voz nem renderiza localmente;
+   (b) **as FONTES INSTITUCIONAIS**, medido às 10:15 de 12/10 com `curl -v`:
+       `ec.europa.eu`, `www.statistics.gr`, `api.sejm.gov.pl` e `www.gov.br` —
+       os quatro devolvem **403 ao CONNECT**, confirmado no
+       `__agentproxy/status` como `policy denial`.
+   **E (b) é o que trava o refil da pauta.** Longo carrega número sobre o mundo,
+   número exige duas fontes institucionais (600), e a rota documentada para isso
+   é o `pg_net` — que depende do banco, que está em 402. Logo o 402 não bloqueia
+   só a medição: ele bloqueia **escrever longo novo**, e portanto o refil da
+   pauta. Com ele fechado eu só consigo short de longo JÁ publicado, que não
+   introduz número novo. **Prometer longo novo nesta condição é mentir com
+   número.**
 DÍVIDA TÉCNICA: **25 testes falham, e a composição está na §6** — 15 de
 `test_narracao_das_specs` (specs que sairiam da matriz caladas, quatro delas de
 canal da frota) mais oito espalhadas; **não é "título duplicado e Devanagari",

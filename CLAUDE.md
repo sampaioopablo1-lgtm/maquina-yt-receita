@@ -119,6 +119,45 @@ apagar vídeo publicado e apagar as 46 duplicatas. A trava continua.
 o clique no link de consentimento do Google. Ver
 `docs/reautorizar-analytics.md`.
 
+## REFILAR a pauta exige FONTE, e a fonte está bloqueada na rede — medido em 12/10
+
+**Isto corrige a conclusão da seção seguinte, e é a medição que estava faltando.**
+Eu venho dizendo há dias que "a restrição real é PAUTA" e que "origem só nasce de
+LONGO novo". As duas frases seguem verdadeiras — mas elas deixavam implícito que
+escrever o longo depende de mim, e **não depende**.
+
+Longo carrega número sobre o mundo, e número só entra se bater em **duas fontes
+institucionais** (600). Medido às 10:15 de 12/10, com `curl` e `-v`, o proxy do
+ambiente devolve **403 ao CONNECT** para os quatro hosts que a rotina nomeia:
+
+| host | CONNECT |
+|---|---|
+| `ec.europa.eu` (Eurostat) | **403** |
+| `www.statistics.gr` (ELSTAT) | **403** |
+| `api.sejm.gov.pl` (ELI do Sejm) | **403** |
+| `www.gov.br` | **403** |
+
+Confirmado no `__agentproxy/status`, que lista os quatro em `recentRelayFailures`
+com `"gateway answered 403 to CONNECT (policy denial)"`. **É negação de POLÍTICA,
+não oscilação** — e a rotina manda não reter o que foi medido como bloqueio de
+proxy, porque ali a resposta não muda.
+
+**A rota documentada para fonte é `pg_net`** — a busca acontece dentro do
+Postgres, então o proxy não entra. Só que o `pg_net` depende do banco, e o banco
+está em **402**.
+
+**A consequência que importa:** o gargalo deixou de ser "pauta" e passou a ser
+**um único nó** — o 402 do Supabase bloqueia a medição, bloqueia o registro **e
+bloqueia o refil da pauta**, porque sem ele não há fonte. Enquanto ele estiver
+fechado, eu consigo escrever short de longo JÁ PUBLICADO (que não introduz número
+novo, e por isso não exige fonte nova), e **não** consigo escrever longo novo.
+Prometer longo novo nesta condição seria mentir com número.
+
+**O remédio é humano, e são dois caminhos, não um:** Supabase Pro (devolve o
+`pg_net`) **ou** liberar esses quatro hosts na política de rede do ambiente
+(Network access → Allowed domains), que é a mesma tela da pendência do
+`speech.platform.bing.com`.
+
 ## A restrição real é PAUTA, não cota nem aprovação
 
 Medido em 09/10: **10 origens livres** (epomeno 4, kolejny 4, labtreinamento 2),
