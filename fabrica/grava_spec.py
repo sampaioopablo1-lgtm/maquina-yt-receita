@@ -22,6 +22,7 @@ A REGRA: numero de pacote se CONSULTA, nao se supoe. `proximo_livre()` responde
 olhando o diretorio, e `grava()` recusa apagar spec de outro pacote.
 """
 import json
+import os
 import pathlib
 import re
 import sys
@@ -57,15 +58,42 @@ def _titulo(copy: str) -> str:
     return ""
 
 
-def grava(spec: dict, forcar: bool = False) -> pathlib.Path:
+def grava(spec: dict, caminho: str | None = None, *,
+          forcar: bool = False) -> pathlib.Path:
     """Grava a spec em `specs/<pacote>.json`, recusando trocar de pacote.
 
     Recusa quando ja existe arquivo no destino cujo TITULO e outro — o sinal
     de que o numero pertence a outro video. Reescrever a propria spec (mesmo
     titulo, roteiro revisado) continua livre, que e o caso normal.
+
+    `forcar` E KEYWORD-ONLY DESDE 12/10, E ISSO CONSERTA UM DEFEITO SILENCIOSO
+    QUE DESLIGAVA ESTA TRAVA EM 114 DOS 166 BUILDERS.
+
+    A assinatura antiga era `grava(spec, forcar=False)`, e a convencao dos
+    builders era chamar `grava(SPEC, "fabrica/specs/<pacote>.json")` — passando
+    um CAMINHO na posicao do `forcar`. String nao vazia e verdadeira, logo todos
+    esses builders rodavam com `forcar=True` e **pulavam a conferencia inteira**.
+    Medido em 12/10: 114 de 166. A trava existe por causa do defeito de 19/08,
+    quando o `kolejny-poziom-007` renderizou 89 cenas e dezessete minutos de
+    runner para descobrir que o nome ja pertencia a um video de 11/08 — e ela
+    estava desligada justamente nos builders que a usariam.
+
+    O `caminho` deixou de ser ignorado e passou a ser CONFERIDO contra o destino
+    derivado do `pacote`. Medido antes de mudar: nos 114 builders que o passam, o
+    caminho bate com o derivado em **114 de 114**, entao a conferencia nao
+    quebra ninguem e transforma um argumento inerte em verificacao.
     """
     pacote = spec["pacote"]
     alvo = SPECS / f"{pacote}.json"
+    if caminho is not None:
+        esperado = os.path.join("fabrica", "specs", f"{pacote}.json")
+        dado = os.path.normpath(str(caminho))
+        if os.path.normpath(esperado) != dado and os.path.basename(dado) != alvo.name:
+            raise SystemExit(
+                f"RECUSADO: o caminho passado nao e o destino desta spec.\n"
+                f"  passado:  {caminho}\n"
+                f"  derivado: {esperado}\n"
+                f"  o destino vem do campo `pacote`, nao do argumento.")
     if alvo.exists() and not forcar:
         velho = json.loads(alvo.read_text(encoding="utf-8"))
         tv, tn = _titulo(velho.get("copy", "")), _titulo(spec.get("copy", ""))
