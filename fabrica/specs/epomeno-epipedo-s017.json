@@ -1,0 +1,99 @@
+{
+ "slug": "epomeno-epipedo",
+ "pacote": "epomeno-epipedo-s017",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#16283C",
+  "c1": "#2E7BB4",
+  "c2": "#E0A02E",
+  "bg": "#F3F7FA"
+ },
+ "thumb": {
+  "l1": "Μία έρχεται",
+  "l2": "μόνη"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Δύο μειώσεις",
+   "sub": "στον ίδιο φόρο",
+   "nar": "Στον ίδιο φόρο υπάρχουν δύο διαφορετικές μειώσεις.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Η μία",
+   "preco": "έρχεται μόνη",
+   "nar": "Η μία εφαρμόζεται μόνη της, χωρίς εσένα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Από πού",
+   "preco": "από τα στοιχεία",
+   "nar": "Βγαίνει από στοιχεία που η υπηρεσία έχει ήδη στα χέρια της.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Η άλλη",
+   "sub": "δεν έρχεται ποτέ μόνη",
+   "nar": "Η άλλη δεν έρχεται ποτέ μόνη της.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Χρειάζεται",
+   "preco": "αίτηση",
+   "nar": "Χρειάζεται αίτηση στην πλατφόρμα, από εσένα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Και χωρίς αυτήν",
+   "preco": "δεν υπάρχει",
+   "nar": "Χωρίς την αίτηση μέσα στην προθεσμία δεν υπάρχει.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ακόμα κι αν",
+   "sub": "τα έχεις όλα σωστά",
+   "nar": "Ακόμα κι αν τα έχεις όλα απόλυτα σωστά στα χαρτιά.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ο πιο κρίμα λόγος",
+   "preco": "δικαίωμα χωρίς αίτηση",
+   "nar": "Ο πιο κρίμα λόγος απόρριψης είναι ακριβώς αυτός.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Μην υποθέτεις",
+   "preco": "ότι έρχονται μόνες",
+   "nar": "Μην υποθέτεις πως κάθε μείωση έρχεται μόνη.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Δες το εκκαθαριστικό",
+   "sub": "και ρώτα ποια λείπει",
+   "nar": "Δες το εκκαθαριστικό και ρώτα ποια λείπει.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Επόμενο Επίπεδο",
+   "sub": "κάνε εγγραφή",
+   "nar": "Αν σου φάνηκε χρήσιμο, κάνε εγγραφή.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "uWs-k_Wrn_w",
+ "copy": "# epomeno-epipedo-s017\n\n## TITULO\nΣτον Ίδιο Φόρο Υπάρχουν Δύο Μειώσεις: Η Μία Εφαρμόζεται Μόνη, Η Άλλη Θέλει Αίτηση\n\n## TITULO SHORT\nΔες ποια μείωση λείπει\n\n## DESCRICAO\nΣτον ΕΝΦΙΑ υπάρχουν μειώσεις δύο εντελώς διαφορετικών ειδών, και η διαφορά δεν είναι τεχνική λεπτομέρεια — είναι ο λόγος που χιλιάδες νοικοκυριά χάνουν κάτι που τους ανήκει.\n\nΗ μία εφαρμόζεται **αυτόματα**, από στοιχεία που η υπηρεσία έχει ήδη στη διάθεσή της. Δεν χρειάζεται να κάνεις τίποτα: έρχεται μόνη της στο εκκαθαριστικό.\n\nΗ άλλη **δεν έρχεται ποτέ μόνη**. Προϋποθέτει αίτηση στην πλατφόρμα, μέσα στην προθεσμία, από εσένα. Και εδώ είναι το σημείο που κοστίζει: μπορείς να πληροίς κάθε προϋπόθεση του νόμου, με τα χαρτιά σου απόλυτα εντάξει, και να μην πάρεις τίποτα — απλώς επειδή δεν ζητήθηκε. Αυτός είναι ο πιο κρίμα λόγος απόρριψης, γιατί δεν αφορά δικαιώματα που λείπουν, αλλά μια κίνηση που δεν έγινε.\n\nΤο λάθος που γεννά το πρόβλημα είναι μια υπόθεση: ότι οι μειώσεις έρχονται όλες μόνες τους, όπως η πρώτη. Δεν έρχονται. Και κανένα έγγραφο δεν σου λέει εκ των υστέρων ποια σου έλειπε.\n\nΑυτό το short δεν αναφέρει επίτηδες ούτε ποσοστά, ούτε ποσά, ούτε ημερομηνίες, ούτε πόσοι τη πήραν: όλα αυτά αλλάζουν με απόφαση ή με νόμο, και είναι στο πλήρες βίντεο μαζί με την πηγή τους. Αυτό που δεν αλλάζει είναι ο μηχανισμός — αυτόματο εναντίον αιτούμενου.\n\nΣτο πλήρες βίντεο: ποιες είναι ακριβώς οι προϋποθέσεις, τι καλύψεις ζητούνται, πώς υπολογίζεται η αναλογία, πού γίνεται η αίτηση — και, κυρίως, το κεφάλαιο που λείπει από κάθε βίντεο για εκπτώσεις: πότε η μείωση αυτή **δεν** συμφέρει.\n\n## COMENTARIO FIXADO\nΗ πιο χρήσιμη γραμμή του βίντεου δεν είναι ένα ποσό, είναι μια διάκριση: υπάρχουν μειώσεις που η υπηρεσία εφαρμόζει μόνη της από στοιχεία που έχει, και μειώσεις που δεν υπάρχουν χωρίς αίτηση δική σου. Όποιος υποθέσει ότι ανήκουν όλες στην πρώτη κατηγορία, χάνει τη δεύτερη χωρίς να το μάθει ποτέ — και χάνεται από τους ανθρώπους που ΕΙΧΑΝ το δικαίωμα, όχι από όσους δεν το είχαν. Επίτηδες δεν έβαλα εδώ ποσοστά, ποσά ή προθεσμίες: αλλάζουν με απόφαση, και είναι στο βίντεο με την πηγή τους. Και κάτι που το βίντεο λέει καθαρά, γιατί τα βίντεο για εκπτώσεις συνήθως το κρύβουν: η μείωση δεν είναι από μόνη της λόγος να πάρεις μια ασφάλεια — είναι μπόνους σε μια απόφαση που παίρνεις για άλλον λόγο. Γράψτε μόνο αν βρήκατε μείωση που δεν ζητήσατε ποτέ.\n\n## HASHTAGS\n#ΕΝΦΙΑ #Φόροι #ΕπόμενοΕπίπεδο\n\n## TAGS\nenfia meioseis, ekptosi asfalisi katoikias, myproperty aitisi, automati meiosi, ekkatharistiko enfia, aade platforma, foroi akiniton, prooupotheseis ekptosis, dikaioma xoris aitisi, mixanismos kai oxi tabela, epomeno epipedo, oikonomika nikokyriou, akinita ellada, meiosi 50 oikismoi, enfia odigos\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, ZERO DIGITO e ZERO NUMERAL na narracao.\nConferido a mao campo por campo, porque o portao `narracao` conta QUANTIDADES\npor frase e nao pega digito cru. Nem ordinal entrou: \"η μία\" e \"η άλλη\" no lugar\nde \"πρώτη/δεύτερη\", porque ordinal de contagem ja e quantidade.\n\nA REGRA (g) MANDA, e este longo e um campo minado para ela. Ficaram FORA: o\nENFIA medio do ano, o total arrecadado, o numero de contribuintes, a\npercentagem da deducao, quantos a receberam, o valor medio dela, a razao \"um em\ncatorze\", o teto de valor objetivo do imovel, o minimo por metro quadrado, o\nnumero de dias de seguro, a data limite calculada, o numero de prestacoes, o mes\ndo prazo da plataforma e a percentagem da outra reducao. Todos mudam por ato da\nAADE ou por lei.\n\nO QUE A PECA CARREGA, e nao envelhece: no MESMO imposto ha duas reducoes de\nnatureza diferente — uma o orgao aplica sozinho, dos dados que ja tem; a outra\nnao existe sem PEDIDO. E o motivo mais triste de perder a segunda nao e falta de\ndireito, e falta de pedido. Esta nos capitulos \"Ο τρίτος\", \"Η μείωση των\nοικισμών\", \"Η διαφορά\" e \"Γιατί το ξεχωρίζω\" do longo `uWs-k_Wrn_w`\n(epomeno-epipedo-008).\n\nDESCARTADO POR OUTRO MOTIVO, e vai escrito: o capitulo \"quando a deducao NAO\ncompensa\" e o melhor do longo, mas carregar isso em quarenta segundos sem o valor\ndo premio e da deducao viraria conselho financeiro sem conta — e a conta e\njustamente o que a regra (g) manda deixar no longo. A descricao e o comentario\nfixado apontam para la, sem numero.\n\n## FONTES\nO longo de onde este short foi extraido (epomeno-epipedo-008, uWs-k_Wrn_w) traz a\nanuncio da AADE com data e as condicoes da lei. Este short NAO introduz numero\nnovo sobre o mundo, entao nao exige fonte institucional nova.\n"
+}
