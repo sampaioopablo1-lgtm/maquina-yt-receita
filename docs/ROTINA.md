@@ -540,7 +540,10 @@ novo sobre o mundo — e isso vai dito, com o id do longo. Respeite `robots=noai
 - **ESTE CONTAINER TEM `pytest`, `httpx`, `ffmpeg`, `imageio-ffmpeg` e `pypdf`.**
   **MEÇA A SUA PRÓPRIA LINHA DE BASE ANTES DE MEXER** e guarde a lista de
   `FAILED` para comparar depois — o número escrito aqui envelhece, o CONJUNTO
-  não. Em 12/10, medido nesta sessão: **25 falham, ~2.205 passam** (passam/skip sobem com teste novo; o CONJUNTO é o que importa) (passa/skip sobem com teste novo).
+  não. Em 12/10, medido nesta sessão às 12:5x: **25 falham, 2.234 passam,
+  475 skip** — e o CONJUNTO das 25 é o que importa, porque passam/skip sobem com
+  teste novo. A frase anterior desta linha trazia o parêntese DUAS vezes e um
+  `~2.205` estimado; os dois eram descuido meu de edição.
   **E a composição NÃO é "título duplicado e Devanagari" — eu escrevi isso e
   estava errado** (11/10): são **15** de `test_narracao_das_specs`, specs que
   sairiam da matriz CALADAS por números demais numa frase e capítulo sem margem
