@@ -1,0 +1,99 @@
+{
+ "slug": "kolejny-poziom",
+ "pacote": "kolejny-poziom-s018",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Grudzień",
+  "l2": "zmienia styczeń"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Faktura z grudnia",
+   "sub": "zmienia twój styczeń",
+   "nar": "Faktura z grudnia zmienia twój styczeń.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Na ryczałcie",
+   "preco": "składka stoi",
+   "nar": "Na ryczałcie składka stoi w miejscu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Stoi",
+   "preco": "do progu",
+   "nar": "Stoi, dopóki nie minie próg przychodu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "I wtedy",
+   "sub": "nie od tego miesiąca",
+   "nar": "I wtedy nie rośnie od tego miesiąca.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Przeliczenie",
+   "preco": "cały rok wstecz",
+   "nar": "Przeliczany jest cały rok wstecz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Także",
+   "preco": "miesiące zamknięte",
+   "nar": "Także miesiące już zapłacone i zamknięte.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dopłatę widzisz",
+   "sub": "dopiero w rozliczeniu",
+   "nar": "Dopłatę widzisz dopiero w rozliczeniu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Czyli",
+   "preco": "miesiące później",
+   "nar": "Czyli długo po tej jednej fakturze.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A faktura",
+   "preco": "nie zna roku",
+   "nar": "A faktura nie zna twojego rocznego przychodu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Policz próg",
+   "sub": "zanim wystawisz",
+   "nar": "Policz próg, zanim ją wystawisz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Zasubskrybuj",
+   "sub": "na następne",
+   "nar": "Sprawdź to w grudniu. Zasubskrybuj.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "kDkagIf2isA",
+ "copy": "# kolejny-poziom-s018\n\n## TITULO\nPrzekroczenie Progu Przelicza Cały Rok Wstecz, Także Miesiące Już Zapłacone\n\n## TITULO SHORT\nDlaczego grudzień zmienia styczeń?\n\n## DESCRICAO\nNa ryczałcie składka zdrowotna nie rośnie razem z przychodem — stoi w miejscu wewnątrz progu. Dlatego łatwo pomyśleć, że w najgorszym razie od momentu przekroczenia zacznie się płacić więcej. Tak to nie działa, i to jest cała rzecz w tym filmie.\n\nJeśli roczny przychód przekroczy próg, składka za **miesiące wcześniejsze** nie zostaje taka, jaka była. Cały rok zostaje przeliczony według progu, w którym ostatecznie wylądował przychód — wstecz, razem z miesiącami już zapłaconymi i uznanymi za zamknięte. Różnicy nie dopłacasz w tym samym miesiącu: wychodzi ona w rozliczeniu rocznym, czyli wiele miesięcy po fakturze, która ją spowodowała.\n\nI właśnie tu jest pułapka, która nie ma nic wspólnego z żadną kwotą: decyzja i jej skutek są od siebie oddalone w czasie. W momencie wystawiania faktury nie widać ceny, bo faktura nie wie, ile wynosi twój roczny przychód. Cena pojawia się później, kiedy nie można już nic zmienić.\n\nTen short świadomie nie podaje ani progów, ani stawek, ani terminu rozliczenia. Te liczby zmieniają się — progi są procentem kwoty, którą GUS ogłasza co roku, a terminy zmieniają się ustawą. To, co się nie zmienia, to mechanika: przeliczenie idzie wstecz, a rachunek przychodzi później. Konkretne liczby, z datą i źródłem, są w pełnym filmie.\n\nPełne wyliczenie — trzy progi, kwoty na ten rok, obie granice policzone co do grosza i porównanie z innymi formami opodatkowania — jest w filmie na kanale.\n\n## COMENTARIO FIXADO\nNajdroższy błąd w tej konstrukcji nie jest rachunkowy, jest czasowy. Ludzie zakładają, że przekroczenie progu działa jak schodek: od tego miesiąca płacę więcej. A ono działa wstecz — cały rok liczy się od nowa, razem z miesiącami, które były już zapłacone i uznane za zamknięte. Do tego dopłata nie wychodzi od razu, tylko w rozliczeniu rocznym, więc fakturę wystawiasz w jednym miesiącu, a rachunek za nią widzisz długo później, kiedy nic już nie da się przestawić. Celowo nie ma tu ani jednej liczby: progi są procentem kwoty ogłaszanej co roku przez GUS, a terminy zmieniają się ustawą — pełne wyliczenie z datą i źródłem jest w filmie. Napiszcie tylko, czy sprawdzacie swój przychód przed wystawieniem grudniowej faktury, czy po.\n\n## HASHTAGS\n#Ryczalt #SkladkaZdrowotna #KolejnyPoziom\n\n## TAGS\nryczalt skladka zdrowotna, prog przychodu, przeliczenie wstecz, rozliczenie roczne skladki, faktura w grudniu, moment wystawienia faktury, dzialalnosc gospodarcza, jdg podatki, skladka zdrowotna ryczalt zasady, przekroczenie progu, mechanika a nie tabela, kolejny poziom, finanse firmowe, planowanie przychodu, rok podatkowy\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Conferido a mao campo\npor campo, porque o portao `narracao` conta QUANTIDADES por frase e nao pega\ndigito cru. Nao ha nem numeral por extenso: \"caly rok wstecz\" entrou no lugar de\n\"cala dwunastka\" de proposito.\n\nA REGRA (g) MANDA, e esta origem e a mais perigosa da pauta para ela: o longo\ninteiro e feito de numero que MUDA — tres progs anuais, tres contribuicoes\nmensais, o obwieszczenie do GUS que reajusta a base todo ano, o salario minimo, o\nlimite de deducao do liniowy e o prazo da declaracao.\n\nO QUE A PECA CARREGA, e nao envelhece: a contribuicao nao sobe a partir do mes em\nque o prog e passado — o ano INTEIRO e recalculado para tras, inclusive meses ja\npagos, e a diferenca aparece no acerto anual, meses depois da fatura que a\ncausou. E a MECANICA da norma, nao a tabela dela. Se o GUS reajustar as faixas\namanha, a peca continua verdadeira.\n\nEsta nos capitulos \"Jesli przekroczysz prog\", \"Ona jest przeliczana\", \"I to nie w\ngrudniu\", \"Zwroc uwage na odstep\" e \"I dlatego\" do longo `kDkagIf2isA`\n(kolejny-poziom-010).\n\nDESCARTADO, e vai escrito:\n  (1) os tres progs e as tres contribuicoes mensais — percentuais de uma base\n      que o obwieszczenie do GUS publica todo ano;\n  (2) as contas de \"quase quatro mil\" e \"quase oito mil\" — saem das tabelas\n      acima e envelhecem com elas;\n  (3) o prazo da declaracao, mes e dia — data de vigencia, muda por ato;\n  (4) o salario minimo e o limite de deducao no liniowy, pela mesma razao;\n  (5) a comparacao entre formas de tributacao — depende da tabela do ano.\n\n## FONTES\nO longo de onde este short foi extraido (kolejny-poziom-010, kDkagIf2isA) traz as\nfontes oficiais e as datas. Este short nao introduz numero novo sobre o mundo.\n"
+}
