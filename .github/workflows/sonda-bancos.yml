@@ -29,6 +29,6 @@ jobs:
           python-version: "3.11"
       - name: Sondar os bancos
         env:
-          PEXELS_KEY: ${{ secrets.PEXELS_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           PIXABAY_KEY: ${{ secrets.PIXABAY_KEY }}
         run: python3 fabrica/sonda_bancos.py

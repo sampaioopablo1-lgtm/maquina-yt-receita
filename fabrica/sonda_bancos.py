@@ -96,9 +96,9 @@ def openverse() -> None:
 
 def pexels() -> None:
     """Pexels: chave GRATUITA, obrigatoria. Video tambem."""
-    k = os.environ.get("PEXELS_KEY") or ""
+    k = os.environ.get("PEXELS_API_KEY") or ""
     if not k:
-        nota("pexels: SEM a chave PEXELS_KEY no repo — nao sondado "
+        nota("pexels: SEM a chave PEXELS_API_KEY no repo — nao sondado "
              "(a chave e gratuita em pexels.com/api)")
         return
     st, d = pega("https://api.pexels.com/v1/search?per_page=3&query="
