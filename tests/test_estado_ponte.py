@@ -113,3 +113,49 @@ def test_corpus_sem_a_lista_de_titulos_para_em_vez_de_seguir(tmp_path):
     p.write_text(json.dumps({"titulos": []}))
     with pytest.raises(SystemExit):
         EP.monta(str(p))
+
+
+def test_short_solto_entra_pelo_titulo_do_SHORT_e_nao_pelo_do_longo():
+    """Conferido no corpus real de 12/10, nao no que eu acho que acontece.
+
+    `epomeno-epipedo-s016` e `labtreinamento-s013` estao no corpus pelo titulo
+    do SHORT, e o `## TITULO` de nenhuma das duas esta la — porque elas nao tem
+    longo. Somar o titulo do longo inexistente poria no corpus um titulo que
+    nunca foi ao ar, e a trava barraria uma peca futura sem motivo.
+    """
+    corpus = json.load(open(RAIZ / "fabrica/corpus_publicados.json",
+                            encoding="utf-8"))["titulos"]
+    for pacote in ("epomeno-epipedo-s016", "labtreinamento-s013",
+                   "kolejny-poziom-s018"):
+        caminho = RAIZ / "fabrica/specs" / f"{pacote}.json"
+        sp = json.load(open(caminho, encoding="utf-8"))
+        assert not sp.get("longo"), f"{pacote} deixou de ser short solto"
+        titulos = EP.titulos_da_spec(str(caminho))
+        assert len(titulos) == 1, titulos
+        assert titulos[0] in corpus, (
+            f"{pacote} esta no ar e o titulo dele NAO esta no corpus — a trava "
+            f"anti-duplicata esta cega para ele")
+        longo = sp["copy"].split("## TITULO\n")[1].split("\n")[0]
+        assert longo not in titulos
+        assert longo not in corpus, (
+            f"o titulo do longo de {pacote} entrou no corpus sem nunca ter ido "
+            f"ao ar")
+
+
+def test_adiciona_e_idempotente(tmp_path):
+    alvo = tmp_path / "c.json"
+    alvo.write_text(json.dumps({"titulos": ["zzz"]}, ensure_ascii=False))
+    spec = RAIZ / "fabrica/specs/kolejny-poziom-s018.json"
+    primeiro = EP.adiciona(str(spec), str(alvo))
+    assert primeiro, "nao somou nada na primeira vez"
+    segundo = EP.adiciona(str(spec), str(alvo))
+    assert segundo == [], "somou duas vezes o mesmo titulo"
+    depois = json.load(open(alvo, encoding="utf-8"))["titulos"]
+    assert depois == sorted(depois), "o corpus saiu fora de ordem"
+
+
+def test_spec_sem_titulo_nenhum_para_em_vez_de_somar_vazio(tmp_path):
+    ruim = tmp_path / "s.json"
+    ruim.write_text(json.dumps({"short": [{"nar": "oi"}], "copy": "# nada"}))
+    with pytest.raises(SystemExit):
+        EP.titulos_da_spec(str(ruim))

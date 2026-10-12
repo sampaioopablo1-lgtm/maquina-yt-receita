@@ -98,7 +98,66 @@ def confere(estado: dict) -> list[str]:
     return problemas
 
 
+def titulos_da_spec(caminho_spec: str) -> list[str]:
+    """Os titulos que uma spec coloca NO AR, e so eles.
+
+    Short solto (`longo: []`) poe no ar o `TITULO SHORT` e NAO o `TITULO` — o
+    segundo e a copy do longo que nao existe. Conferido no corpus de 12/10: as
+    pecas `epomeno-epipedo-s016` e `labtreinamento-s013` estao la pelo titulo
+    do SHORT, e o do longo nao esta em nenhuma das duas.
+    """
+    sp = json.load(open(caminho_spec, encoding="utf-8"))
+    copy = sp.get("copy") or ""
+    fora = []
+
+    def _campo(marca):
+        if marca not in copy:
+            return None
+        return copy.split(marca)[1].split("\n")[0].strip() or None
+
+    curto = _campo("## TITULO SHORT\n")
+    longo = _campo("## TITULO\n")
+    if sp.get("short") and curto:
+        fora.append(curto)
+    # So quando ha longo DE VERDADE nesta rodada.
+    if sp.get("longo") and longo:
+        fora.append(longo)
+    if not fora:
+        raise SystemExit(f"{caminho_spec}: nenhum titulo a somar — a copy nao "
+                         f"tem `## TITULO SHORT` nem ha longo nesta spec.")
+    return fora
+
+
+def adiciona(caminho_spec: str, caminho_corpus: str = CORPUS) -> list[str]:
+    """Soma os titulos de uma spec publicada ao corpus. Devolve o que entrou.
+
+    POR QUE ISTO E CODIGO E NAO UM `vim`: nada no repositorio escreve o
+    `corpus_publicados.json` — ele e versionado e mantido a mao. Quando ele fica
+    atras do que esta no ar, a trava anti-duplicata fica CEGA, e foi assim que o
+    `kolejny-poziom-016`, o `labtreinamento-010` e o `epomeno-epipedo-015`
+    morreram em tres ciclos seguidos (19:27, 22:49 e 01:27 de 11/10). Esquecer
+    de somar e o modo de falha, entao a soma deixa de depender de eu lembrar.
+
+    Idempotente: titulo que ja esta nao entra duas vezes. A lista sai ORDENADA,
+    como o arquivo ja e, para o diff ficar legivel.
+    """
+    d = json.load(open(caminho_corpus, encoding="utf-8"))
+    atuais = list(d.get("titulos") or [])
+    entrou = [t for t in titulos_da_spec(caminho_spec) if t not in atuais]
+    if entrou:
+        d["titulos"] = sorted(atuais + entrou)
+        with open(caminho_corpus, "w", encoding="utf-8") as f:
+            json.dump(d, f, ensure_ascii=False, indent=2)
+            f.write("\n")
+    return entrou
+
+
 def main() -> int:
+    if len(sys.argv) > 2 and sys.argv[1] == "adiciona":
+        entrou = adiciona(sys.argv[2])
+        print(f"entraram no corpus: {entrou or 'nada (ja estavam)'}",
+              file=sys.stderr)
+        return 0
     est = monta(sys.argv[1] if len(sys.argv) > 1 else CORPUS)
     ruins = confere(est)
     if ruins:

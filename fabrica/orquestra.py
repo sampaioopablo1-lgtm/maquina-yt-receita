@@ -154,8 +154,17 @@ def teto_do_canal(canal: str) -> int:
 # menos provavel, e nao por confianca — por codigo que nao existia em agosto:
 #   * `ja_no_ar_pelo_titulo` cruza o TITULO contra os publicados, nao so o nome
 #     do pacote, e roda igual no modo ponte;
-#   * `corpus_publicados.json` e versionado e o md5 dele e conferido contra a
-#     tabela `videos` antes de cada publicacao (aprendizado do corpus, 01/09);
+#   * `corpus_publicados.json` e versionado e entra como SEGUNDA fonte de
+#     duplicata em `estado`/`proximo`/`relatorio` (conserto de 11/10, com
+#     teste em `tests/test_duas_fontes_de_duplicata.py`).
+#     RETRATACAO DE 12/10, e e desta linha: ela dizia que "o md5 dele e
+#     conferido contra a tabela `videos` antes de cada publicacao". NAO E.
+#     Procurei: o unico `hashlib.md5` deste arquivo e o da semente de
+#     identidade visual, e nao ha conferencia de md5 do corpus em lugar nenhum
+#     do repositorio. A protecao real e a lista de titulos, nao um hash;
+#   * nada no repositorio ESCREVE o corpus — ele e mantido a mao, e quando fica
+#     atras do que esta no ar a trava fica cega (foi o que matou tres pacotes em
+#     11/10). `fabrica/estado_ponte.py adiciona <spec>` faz essa soma;
 #   * `prontidao.avalia` recusa spec com similaridade alta contra o mesmo canal
 #     antes de gastar render. ATENCAO: esta linha foi FALSA de agosto a
 #     05/10/2026. O portao `similaridade` nao existia em `PORTOES` — a trava
