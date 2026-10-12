@@ -365,6 +365,89 @@ def duracao_estimada_short(cenas, voz: str) -> float:
     return duracao_estimada(cenas, voz) * VIES_SHORT
 
 
+# ===========================================================================
+# O PIPER NARRA MAIS RAPIDO QUE O MODELO — e isso ja pos peca fora da faixa
+#
+# Aprendizado 711, medido as 14:1x de 12/10/2026 na duracao REAL de nove pecas
+# publicadas (`contentDetails.duration`, e o YouTube ARREDONDA PARA CIMA):
+#
+#   edge-tts, n=1 ...... +0,9%   (o modelo ACERTA)
+#   Piper,    n=8 ...... -10,2% a -20,0%, TODAS negativas
+#
+# Sob a nula de o modelo valer igual, oito de oito no mesmo sentido da 1/256.
+#
+# POR QUE ISTO E UMA FUNCAO E NAO UMA TABELA REESCRITA. O `R`/`P` de
+# `MODELO_VOZ` esta CERTO — ele e do edge-tts e foi medido nele. Quem muda e o
+# PROVEDOR, e o provedor se decide no RUNNER, depois de tres tentativas do
+# edge-tts. A spec declara a voz do edge-tts mesmo quando o Piper e quem narra.
+# Logo reescrever `MODELO_VOZ` por baixo estragaria a estimativa no dia em que o
+# edge-tts voltar — e ele volta sozinho, por desenho.
+#
+# E O DANO JA ACONTECEU, por isso isto nao e zelo: o portao `duracao` compara o
+# ESTIMADO contra 30,0-43,1 s, entao ele aprovou em silencio o
+# `labtreinamento-s014` (`K-k8vT0IY2M`), que foi ao ar com 29 s REAIS contra um
+# piso de 30. Portao verde fabricando "esta tudo certo" porque o instrumento
+# media outra coisa.
+#
+# CONFUNDIDOR DECLARADO: n=1 no braco edge-tts, e as duas `pl-PL` sao do mesmo
+# canal. O fator por voz tem n=2 a n=4 — use-o para MIRAR, nunca para afirmar
+# decimo. Remedir com `calibra-piper.yml` ou com a proxima leva publicada.
+# ===========================================================================
+
+FATOR_PIPER = {                      # voz declarada na spec -> real/estimado
+    "pt-BR-ThalitaMultilingualNeural": 0.821,   # n=3, -14,6% a -20,0%
+    "el-GR-NestorasNeural":            0.886,   # n=4, -16,6% a +0,9%(*)
+    "pl-PL-MarekNeural":               0.851,   # n=2, -19,5% a -10,2%
+}
+FATOR_PIPER_FROTA = 0.854            # mediana das oito, para voz nao medida
+
+
+def fator_piper(voz: str) -> float:
+    """Quanto da duracao estimada o Piper REALMENTE entrega, nesta voz.
+
+    (*) No grego a faixa inclui a unica peca de edge-tts (+0,9%); o fator aqui
+    usa so as tres do Piper. Voz fora da tabela cai na mediana da frota, e isso
+    e explicito de proposito: inventar fator por voz nao medida foi o erro do
+    679/698 (generalizar o que e por voz).
+    """
+    return FATOR_PIPER.get(voz, FATOR_PIPER_FROTA)
+
+
+def duracao_real_prevista(cenas, voz: str, provedor: str = "edge") -> float:
+    """A duracao que a peca vai TER, nao a que o modelo calcula.
+
+    `provedor="edge"` devolve a estimativa crua, porque nela o modelo acerta.
+    `provedor="piper"` aplica o fator medido. Qualquer outro valor e erro de
+    quem chama, e levanta — silencio aqui volta a esconder o defeito do 711.
+    """
+    est = duracao_estimada_short(cenas, voz)
+    if provedor == "edge":
+        return est
+    if provedor == "piper":
+        return est * fator_piper(voz)
+    raise ValueError(
+        f"provedor {provedor!r} desconhecido: use 'edge' ou 'piper'. "
+        "O 711 nasceu de estimar sem saber quem narra."
+    )
+
+
+def estimativa_para_real(alvo_real_s: float, voz: str,
+                         provedor: str = "piper") -> float:
+    """A ESTIMATIVA que se deve mirar para a peca sair com `alvo_real_s`.
+
+    E a inversa do `duracao_real_prevista`, e existe porque a mira de canal
+    (`ALVO_POR_CANAL`) foi calibrada em pecas de edge-tts, onde estimado e real
+    coincidem. Com o Piper, mirar a estimativa na faixa do canal poe a peca
+    REAL abaixo dela — foi o que aconteceu com o `s014` e o `s015`.
+
+    ATENCAO: o resultado pode passar do teto do portao `duracao` (43,1 s). Quem
+    chama CONFERE isso em vez de empurrar, porque ali o teto e do YouTube.
+    """
+    if provedor == "edge":
+        return alvo_real_s
+    return alvo_real_s / fator_piper(voz)
+
+
 def _ffmpeg(args: list[str]) -> None:
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", *args], check=True)
 

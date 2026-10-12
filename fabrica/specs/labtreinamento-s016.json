@@ -1,0 +1,93 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-s016",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#22333B",
+  "c1": "#A4243B",
+  "c2": "#D8973C",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Duas obrigações",
+  "l2": "um fluxo"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Um fluxo",
+   "sub": "para duas obrigações",
+   "nar": "Você tem um fluxo. A lei tem duas obrigações.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A primeira",
+   "nar": "Uma comunicação vai à Previdência Social.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A segunda",
+   "nar": "A outra vai, de imediato, à autoridade competente.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Destinos",
+   "sub": "e prazos diferentes",
+   "nar": "Destinos diferentes. E prazos diferentes.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Mas o procedimento",
+   "nar": "Mas o seu procedimento trata as duas igual.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E aí",
+   "nar": "E aí ele cumpre o prazo do caso comum.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E perde",
+   "sub": "o do caso grave",
+   "nar": "E perde o do caso mais grave.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Que é",
+   "nar": "Que é o inverso exato do que a lei pede.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E o texto",
+   "nar": "E o texto nem nomeia quem é essa autoridade.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Resolva antes",
+   "sub": "não durante",
+   "nar": "Então resolva isso antes do acidente, não durante.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "inscreva-se",
+   "nar": "Se isso abriu um buraco no seu procedimento, inscreva-se.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "6BeNHqT2okA",
+ "copy": "# labtreinamento-s016\n\n## TITULO\nSão Duas Comunicações De Acidente, Não Uma — E O Fluxo Único Perde O Prazo Do Caso Mais Grave\n\n## TITULO SHORT\nResolva antes, não durante\n\n## DESCRICAO\nQuase todo procedimento interno de resposta a acidente do trabalho tem um único fluxo. O texto da lei tem **duas obrigações**, com destinos diferentes e prazos diferentes — e é dessa diferença que nasce o erro.\n\nUma é a comunicação à Previdência Social. A outra é a comunicação **imediata** à autoridade competente. Não são duas vias do mesmo papel: são obrigações distintas, e o texto as separa de propósito.\n\nE aqui está a parte desconfortável. Quem trata as duas com o mesmo fluxo tende a cumprir o prazo do caso **mais frequente** — porque é esse que o procedimento foi desenhado para atender — e a perder o do caso **mais grave**, que é exatamente o inverso do que a lei pede. O erro não aparece no dia a dia: ele aparece no pior dia.\n\nHá um detalhe que agrava, e ele está no próprio texto: a lei diz \"autoridade competente\" **sem nomeá-la**. Quem define isso é a norma de cada situação. Ou seja, no momento do acidente grave, alguém vai precisar descobrir para quem comunicar — e esse é o pior momento possível para descobrir.\n\nDaí o teste que fecha o short, e ele é de cinco minutos: abra o seu procedimento de resposta a acidentes e procure se existe um caminho próprio para o caso mais grave, com destinatário nomeado. Se não existe, o procedimento está incompleto — e está incompleto justamente onde custa mais.\n\nEste short não diz qual é o prazo de nenhuma das duas obrigações, não cita artigo nem parágrafo, e não nomeia a autoridade competente: o prazo muda por reforma, e a autoridade o próprio texto não nomeia. Tudo isso está no vídeo completo, com a fonte.\n\nNo vídeo completo: as três datas candidatas e qual delas conta, a contagem em dia útil, a exceção que não admite prazo, quem pode comunicar na falta da empresa, e a obrigação de entregar cópia fiel que quase ninguém cumpre.\n\n## COMENTARIO FIXADO\nO que faz esse erro ser tão difícil de ver é que ele é consequência de uma coisa boa: o procedimento foi otimizado para o caso que acontece toda semana. Só que a lei separou as duas comunicações justamente porque o caso raro exige outro caminho — e um fluxo único sempre acaba servindo o frequente. O teste não é \"temos procedimento?\", é \"existe um caminho próprio, com destinatário nomeado, para o caso mais grave?\". De propósito não coloquei aqui prazo, artigo nem o nome da autoridade: o prazo muda por reforma e a autoridade o próprio texto não nomeia — está no vídeo com a fonte. Conta nos comentários: no seu procedimento, a palavra que descreve o caso mais grave aparece com um fluxo próprio, ou está no mesmo parágrafo de todo o resto?\n\n## HASHTAGS\n#SegurancaDoTrabalho #CAT #LabTreinamento\n\n## TAGS\ncomunicacao de acidente, autoridade competente, comunicacao imediata, previdencia social, procedimento interno de acidente, caso grave, prazo diferente, duas obrigacoes, seguranca do trabalho, gestao de sst, acidente do trabalho, resposta a acidente, auditoria de procedimento, obrigacao acessoria, plano de emergencia\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, ZERO DIGITO e ZERO NUMERAL na narracao.\nConferido campo a campo. Em especial:\n  * NAO digo QUAL e o prazo de nenhuma das duas obrigacoes. E justamente o ponto\n    da peca que elas tem prazos DIFERENTES, e dizer os numeros os faria\n    envelhecer dentro de um short que carrega a REGRA;\n  * NAO cito artigo nem paragrafo — mudam por reforma e o longo os carrega com\n    fonte;\n  * NAO nomeio a autoridade competente, e isso nao e omissao: o PROPRIO texto\n    nao a nomeia, e inventar o nome seria pior do que dizer que ele nao nomeia.\n\nO QUE A PECA CARREGA, e nao envelhece: sao DUAS obrigacoes com destinos\ndiferentes, e um fluxo unico cumpre o prazo do caso frequente e perde o do caso\ngrave — o inverso do que a lei pede. Esta nos capitulos \"Duas vias diferentes\",\n\"Confundir custa\", \"Um teste simples\" e \"Quem e a autoridade competente\" do\nlongo `6BeNHqT2okA` (pacote `labtreinamento-010`).\n\nQUARTO ANGULO, declarado, e PRE-REGISTRADO pelo anterior: o AVISO do `s015`\nescreveu estes tres capitulos e esta familia antes de ver qualquer resultado.\nFamilias ja usadas deste longo: UNIDADE (`s007`), SUBSTITUICAO QUE NAO SUBSTITUI\n(`s014`), A GUARDA NAO E A ENTREGA (`s015`). Esta e COMPOSICAO: DUAS OBRIGACOES\nCONTADAS COMO UMA. O longo tem 66 capitulos.\n\nA MIRA DESTA PECA E DE DURACAO REAL, E ISSO E NOVO (aprendizados 711 e 712).\nMedida a duracao REAL das nove pecas de 12/10, o Piper entrega 10,2% a 20,0%\nMENOS que o modelo estima, e o portao `duracao` compara o ESTIMADO — foi assim\nque o `s014` foi ao ar com 29 s reais contra um piso de 30. Esta peca mira pela\nINVERSA: `estimativa_para_real(35,0, voz)` da 42,6, entao mirei ~42,0 estimados\npara sair em ~34,5 REAIS, dentro da faixa medida do canal (33,0 a 37,0) e abaixo\ndo teto de 43,1 do portao.\n\nE ELA SAI NESTE CANAL POR MEDICAO, nao por preferencia: com o fator do Piper, o\nteto de 43,1 trava a duracao real em 38,2 s no grego e 36,7 s no polones, os\ndois ABAIXO do piso de 41,5 da mira medida do epomeno e do kolejny. Nesses dois\na mira esta inalcancavel enquanto o edge-tts estiver em 403.\n\nO QUE EU NAO LEVEI, escrito para a proxima rodada achar: \"Quem caracteriza\",\n\"A hipotese\", \"De onde sai o nexo\" e \"Pode ser afastado\" — o nexo entre o\ntrabalho e a doenca e PRESUMIDO em certa hipotese e pode ser AFASTADO. Familia\nPRESUNCAO QUE SE INVERTE, e seria o QUINTO angulo deste mesmo longo.\n\n## FONTES\nO longo de onde este short foi extraido (`labtreinamento-010`, `6BeNHqT2okA`)\ncarrega a lei, o artigo e os paragrafos com a fonte. Este short NAO introduz\nnumero novo sobre o mundo, entao nao exige fonte institucional nova — e o que\nele afirma e NORMA, nao estatistica.\n"
+}
