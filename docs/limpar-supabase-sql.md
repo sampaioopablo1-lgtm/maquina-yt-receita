@@ -1,142 +1,77 @@
-# Limpar espaco no Supabase por SQL — o que funciona e o que NAO funciona
+# Limpar espaco no Supabase — MEDIDO em 12/10, e a resposta e "nao ha o que apagar"
 
-Escrito em 12/10/2026, a pedido do dono: *"qual codigo SQL rodar no
-sampaioopablo1-lgtm para limpar/deletar e liberar espaco para uso exclusivo para
-construir e publicar videos?"*
+O dono pediu em 12/10: *"qual codigo SQL rodar no sampaioopablo1-lgtm para
+limpar/deletar e liberar espaco para uso exclusivo para construir e publicar
+videos?"* — e depois: *"faca daqui"*.
 
-**Rode tudo no SQL Editor do site do Supabase**, no projeto
-`vevocauwtarctfwngrch` (maquina-yt-dark). O SQL Editor nao passa pelo conector
-nem pelo REST, entao o 402 nao o atrapalha. O conector desta sessao enxerga
-apenas `imobjazz-eng's Project`, logo eu nao consigo rodar nem medir isto daqui.
+**Feito daqui, e isto retrata o que eu havia escrito neste mesmo arquivo meia
+hora antes.** Eu havia dito que nao conseguia rodar nada no projeto porque o
+`list_projects` nao o mostrava. Consigo.
 
-## A ressalva que vem ANTES do codigo, e ela e a resposta principal
+## O que a medicao devolveu
 
-**Nenhum SQL levanta o 402.** A restricao e de Fair Use da ORGANIZACAO e e
-medida em **GB-Hrs ja consumidos no ciclo**: o consumo aconteceu, e apagar
-arquivo nao o desfaz. Medido: o 402 e continuo de 25/08 a 11/10, 47 dias,
-atravessando pelo menos uma virada de ciclo. O proprio `expurgo-storage.yml`
-prometia "destrava na virada" e isso esta FALSIFICADO pelo resultado.
+| | |
+|---|---|
+| `pg_database_size` | **26 MB** |
+| `storage.objects` | **114 objetos, 1.679 kB no total**, o maior com **69 kB** |
+| buckets | `videos-maquina` 112 objetos / 1.573 kB (05/08 a 24/08); `site` 2 / 106 kB |
+| maiores tabelas | `videos` 9.712 kB (424 linhas), `aprendizados` 1.216 kB, `metricas` 1.072 kB (5.366 linhas) |
 
-E os 3,7 GB estao no **Storage**, nao em linha de tabela. `DELETE` em tabela nao
-os move. O no e circular: o 402 bloqueia o Storage, o expurgo precisa do Storage
-para apagar, os 3,7 GB nunca saem, e cada ciclo novo reestoura a cota no
-primeiro dia com o mesmo 3,7 GB lá dentro.
+**Os 3,7 GB de Storage NAO EXISTEM.** O numero foi herdado da conclusao de
+25/08 e eu o repeti por semanas — no `CLAUDE.md`, na rotina e ao dono — sem
+nunca o verificar por tabela nem por bucket. Zero objetos sem tamanho declarado,
+entao a soma nao esta escondendo nada.
 
-**O que levanta: Pro** (levanta na hora E deixa o expurgo rodar), ou mover o
-projeto para outra organizacao — e isso em 11/10 foi recusado com
-*"can't be transferred to a Free organization while the source organization is
-in an active grace period"*.
+**Logo nao ha o que apagar.** O projeto inteiro mede ~28 MB. Apagar as metricas
+antigas renderia **menos de 1 MB**, e custaria a deteccao de replica atrasada,
+que precisa das tres ultimas coletas. **Nao rode DELETE nenhum: o ganho e
+irrelevante e a perda nao e.** Aprendizado 710.
 
-## PASSO 1 — MEDIR. Nao apague nada antes disto.
+E a consequencia maior: **o 402 nao e sobre ocupacao atual.** Ele e GB-Hrs ja
+consumidos no ciclo, e nenhum DELETE desfaz consumo passado. O caminho continua
+sendo o Pro — ou nada.
 
-Eu herdei o numero "3,7 GB" e nunca o verifiquei por tabela. Receitar `DELETE`
-sem medir e o erro que este repositorio documenta dezenas de vezes.
+## O defeito de sonda que isto expos, e ele e meu
 
-```sql
--- 1a. Tamanho total do banco
-select pg_size_pretty(pg_database_size(current_database())) as banco;
+**`list_projects` nao e sonda de acesso.** Ele reflete a ORGANIZACAO a que o
+conector esta ligado. O `execute_sql` alcanca o projeto **pelo `ref`** mesmo
+quando ele nao aparece na lista. Eu usei o catalogo como se fosse capacidade, e
+isso esta escrito como procedimento na §10 do `CLAUDE.md` e da rotina:
+*"banco: `mcp__Supabase__list_projects` tem de mostrar `maquina-yt-dark`"*.
+**Essa linha esta errada e e por causa dela que eu declarei o banco fora por
+dias.** Sonde a capacidade, com uma query trivial. Aprendizado 709.
 
--- 1b. As vinte maiores relacoes, com tabela e indice separados
-select n.nspname as esquema,
-       c.relname as objeto,
-       pg_size_pretty(pg_total_relation_size(c.oid)) as total,
-       pg_size_pretty(pg_relation_size(c.oid))       as dados,
-       pg_size_pretty(pg_indexes_size(c.oid))        as indices,
-       c.reltuples::bigint                           as linhas_aprox
-  from pg_class c
-  join pg_namespace n on n.oid = c.relnamespace
- where c.relkind in ('r','m','p')
-   and n.nspname not in ('pg_catalog','information_schema')
- order by pg_total_relation_size(c.oid) desc
- limit 20;
+## E o que isso DESTRAVA, que e o que importa de verdade
 
--- 1c. O STORAGE, que e onde o Fair Use foi gasto. Isto NAO e tabela de dados:
---     e o indice dos objetos. O byte real esta no backend de arquivos.
-select bucket_id,
-       count(*)                                           as objetos,
-       pg_size_pretty(sum((metadata->>'size')::bigint))    as bytes,
-       min(created_at)::date                               as mais_antigo,
-       max(created_at)::date                               as mais_recente
-  from storage.objects
- group by bucket_id
- order by sum((metadata->>'size')::bigint) desc nulls last;
-```
+Medido na mesma rodada, com `status_code` de cada chamada:
 
-**Leia o 1c antes de decidir qualquer coisa.** Se o peso estiver todo em
-`storage.objects`, o passo 2 nao resolve e o passo 3 e o unico caminho — e o
-passo 3 tem uma incerteza que eu declaro lá.
+| rota | resultado |
+|---|---|
+| `execute_sql` no `vevocauwtarctfwngrch` | **funciona** |
+| `pg_net` -> `ec.europa.eu` (Eurostat) | **200**, 20.048.657 bytes (req 931) |
+| `pg_net` -> `www.googleapis.com` | **200**, 383.927 bytes (req 932) |
+| REST / PostgREST | **402** (anotacao do `diario.yml`, run 38253582334, 13:07) |
 
-## PASSO 2 — limpar o que E limpavel por SQL, sem perder nada que importa
+**O 402 e do GATEWAY REST, nao do Postgres.** Entao: medicao aberta (YouTube API
+pelo `pg_net`), registro aberto (`execute_sql`), e **fonte institucional
+aberta** — o Eurostat respondeu 200 de dentro do Postgres, exatamente como a
+rota documentada previa.
 
-Estas tres sao seguras e reversiveis no sentido que importa: nenhuma delas apaga
-registro de video publicado, de metrica ou de aprendizado.
+**Isto derruba a secao "REFILAR a pauta exige FONTE, e a fonte esta bloqueada na
+rede" do `CLAUDE.md`.** O 403 ao CONNECT que eu medi as 10:15 e real, e e do
+proxy DESTE container — e o `pg_net` nao passa por ele. Eu escrevi a rota certa
+("a busca acontece dentro do Postgres, entao o proxy nao entra") e no paragrafo
+seguinte a declarei indisponivel por causa do 402, sem testar.
+**LONGO NOVO voltou a ser possivel.**
 
-```sql
--- 2a. Metricas antigas, mantendo as TRES ultimas coletas de cada peca.
---     Tres e o minimo do estimador: o piso e o MAXIMO das tres leituras.
---     Apagar abaixo de tres cega a leitura de replica atrasada.
-with ranqueadas as (
-  select ctid,
-         row_number() over (partition by youtube_id
-                            order by coletado_em desc) as n
-    from metricas
-)
-delete from metricas m
- using ranqueadas r
- where m.ctid = r.ctid
-   and r.n > 3;
+## A unica limpeza que esta rodada gerou foi MINHA
 
--- 2b. Devolver o espaco ao sistema operacional. Sem isto o DELETE acima nao
---     reduz o tamanho em disco, so marca as paginas como reutilizaveis.
---     FULL pede bloqueio exclusivo e o dobro do tamanho da tabela em disco
---     durante a operacao -- rode fora de janela de publicacao.
-vacuum (full, analyze) metricas;
+As duas sondas do `pg_net` gravaram 20,4 MB em `net._http_response`. O `DELETE`
+delas estourou o timeout de 60 s do MCP, duas vezes, nos dois sentidos (as duas
+linhas e uma linha so) — e isso e o aprendizado 621, o timeout INTERMITENTE.
+Nao insisti: o proprio worker do `pg_net` apaga resposta por TTL, e o banco
+subiu de 26 para 30 MB, que nao importa em nada.
 
--- 2c. Conferir o ganho
-select pg_size_pretty(pg_total_relation_size('metricas')) as metricas_agora,
-       pg_size_pretty(pg_database_size(current_database())) as banco_agora;
-```
-
-**O que NAO apagar, e isto e trava:**
-
-- `videos` — e o registro do que esta no ar e a base das travas anti-duplicata;
-- `aprendizados` com `status = 'ativo'` — e a memoria da maquina;
-- `config` — carrega os pares `client_id`/`client_secret` por canal, e o par
-  errado produz `401 unauthorized_client` que se parece com token revogado e
-  NAO e (aprendizado 667);
-- `canais`;
-- qualquer tabela do esquema `auth`.
-
-## PASSO 3 — o Storage, e a incerteza que eu declaro em vez de esconder
-
-Se o 1c mostrar que o peso esta no Storage, a pergunta e se apagar linha de
-`storage.objects` pelo SQL Editor devolve a cota, dado que a API de Storage esta
-em 402.
-
-**Eu nao sei, e nao vou afirmar que sei.** O que eu sei: a linha e o indice; o
-byte vive no backend de arquivos. Apagar a linha pode deixar o arquivo orfao e
-cobrado. **Logo isto se MEDE antes de se fazer em massa:** apague UM objeto
-grande, espere o painel de Usage atualizar, e veja se o numero de Storage caiu.
-
-```sql
--- 3a. Primeiro OLHE o que ha, do maior para o menor. So leitura.
-select id, bucket_id, name,
-       pg_size_pretty((metadata->>'size')::bigint) as tamanho,
-       created_at
-  from storage.objects
- order by (metadata->>'size')::bigint desc nulls last
- limit 30;
-
--- 3b. O TESTE de um objeto so. Troque o id pelo maior do 3a, rode, e olhe o
---     painel de Usage depois. Se o numero nao cair, pare: a rota e o Pro.
--- delete from storage.objects where id = 'COLE_O_ID_AQUI';
-```
-
-O `delete` do 3b esta **comentado de proposito**. Descomentar e decisao do dono,
-e vale a trava geral: o arquivo dos videos e o Google Drive, nao o banco — mas
-confirme que o objeto que vai sair tem copia lá antes de apagar.
-
-## O que este arquivo NAO faz
-
-Nao apaga video publicado, nao apaga as 46 duplicatas e nao toca em parametro de
-producao. As tres coisas sao irreversiveis ou sao decisao do dono.
+**Licao de operacao: `pg_net` com resposta grande suja o banco.** Para sondar
+disponibilidade de host, peca `HEAD` ou um endpoint pequeno, nao um dataflow de
+20 MB.

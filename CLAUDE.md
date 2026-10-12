@@ -192,12 +192,22 @@ não oscilação** — e a rotina manda não reter o que foi medido como bloquei
 proxy, porque ali a resposta não muda.
 
 **A rota documentada para fonte é `pg_net`** — a busca acontece dentro do
-Postgres, então o proxy não entra. Só que o `pg_net` depende do banco, e o banco
-está em **402**.
+Postgres, então o proxy não entra.
 
-**A consequência que importa:** o gargalo deixou de ser "pauta" e passou a ser
-**um único nó** — o 402 do Supabase bloqueia a medição, bloqueia o registro **e
-bloqueia o refil da pauta**, porque sem ele não há fonte. Enquanto ele estiver
+**E ISTO CAIU EM 12/10 ÀS 13:4x, MEDIDO — a frase seguinte era minha e era
+falsa.** Eu escrevia aqui que "o `pg_net` depende do banco, e o banco está em
+402". O **402 é do GATEWAY REST, não do Postgres**: `execute_sql` funciona e o
+`pg_net` responde. Medido com `status_code` de cada chamada:
+`ec.europa.eu` (Eurostat) **200**, 20.048.657 bytes (req 931); `www.googleapis.com`
+**200** (req 932); REST **402** na mesma hora. Eu escrevi a rota certa — "o proxy
+não entra" — e no parágrafo seguinte a declarei indisponível **sem testar**.
+**LONGO NOVO voltou a ser possível.** Ver `docs/limpar-supabase-sql.md`.
+
+**A consequência que importa — E ELA CAIU NA MESMA MEDIÇÃO:** eu escrevia que o
+402 era "um único nó" que bloqueava medição, registro e refil de pauta. **Os
+três estão abertos pelo Postgres** (`execute_sql` + `pg_net`); o que o 402 fecha
+é o REST, o Storage e o runner que fala com o REST. O que segue verdadeiro é o
+seguinte parágrafo apenas na parte do Storage e do `diario.yml`. Enquanto ele estiver
 fechado, eu consigo escrever short de longo JÁ PUBLICADO (que não introduz número
 novo, e por isso não exige fonte nova), e **não** consigo escrever longo novo.
 Prometer longo novo nesta condição seria mentir com número.
@@ -752,7 +762,12 @@ construção, reparo do sistema"*. Vale como instrução permanente para toda ro
 que não consegue medir nem publicar.
 
 **Antes de tudo, SONDE os dois bloqueios — uma vez, barato, e registre:**
-- banco: `mcp__Supabase__list_projects` tem de mostrar `maquina-yt-dark`;
+- banco: **NÃO use `list_projects` — ele MENTIU e eu o usei por dias**
+  (aprendizado 709, `crítico`). Ele reflete a ORGANIZAÇÃO a que o conector está
+  ligado; em 12/10 ele devolveu só `imobjazz-eng's Project` **enquanto o
+  `execute_sql` no `vevocauwtarctfwngrch` funcionava**. A sonda é a CAPACIDADE:
+  `execute_sql` com `select pg_database_size(current_database())`. Catálogo não
+  é acesso;
 - porta do REST: dispare `diario.yml` com `disparar=false` e leia
   `check-runs/<job>/annotations`. A anotação diz `porta ABERTA` ou
   `FECHADA (HTTP 402)` com a data do retrato.
