@@ -113,3 +113,28 @@ def test_json_ilegivel_nao_derruba_o_passo(tmp_path, capsys):
     sys.argv = ["x", str(ruim)]
     assert R.main() == 0, "ler registro corrompido nao pode falhar o job DEPOIS de publicar"
     assert "::warning::" in capsys.readouterr().out
+
+
+# ---------------------------------------------------------------------------
+# `capitulos_do_longo`: a legenda tem de ser lida TAMBEM quando nao ha capitulo
+# ---------------------------------------------------------------------------
+def test_a_legenda_e_lida_mesmo_sem_capitulo_na_descricao():
+    """Defeito meu, 12/10, uma rodada depois de eu escrever o modulo.
+
+    O ramo "nenhum capitulo marcado" tinha um `return 0`, e a leitura da
+    legenda vinha DEPOIS dele — entao o `--legenda` era ignorado exatamente no
+    caso em que a legenda e a UNICA fonte de texto. Medido no `GwNkPfM9pSY`:
+    descricao com 600 chars de resumo, zero capitulo, pedido de legenda
+    silenciosamente nao atendido. O instrumento falhava no caso que ele existe
+    para resolver.
+    """
+    fonte = (RAIZ / "fabrica/capitulos_do_longo.py").read_text()
+    i_sem_cap = fonte.index("NENHUM capitulo marcado")
+    i_legenda = fonte.index('os.environ.get("LEGENDA"')
+    assert i_sem_cap < i_legenda, "a ordem mudou; refaca este teste"
+    # entre o aviso de "sem capitulo" e o bloco da legenda NAO pode haver return
+    trecho = fonte[i_sem_cap:i_legenda]
+    assert "return 0" not in trecho, (
+        "voltou a existir um `return` antes da leitura da legenda — o "
+        "--legenda sera ignorado em longo sem capitulo")
+    assert "roda nos DOIS casos" in fonte

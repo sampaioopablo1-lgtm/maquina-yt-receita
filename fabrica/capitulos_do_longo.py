@@ -117,19 +117,26 @@ def main() -> int:
          f"status {(it.get('status') or {}).get('uploadStatus')} | "
          f"publicado {sn.get('publishedAt')}")
     caps = capitulos(sn.get("description") or "")
-    if not caps:
+    if caps:
+        nota(f"{len(caps)} capitulos:")
+        for quando, nome in caps:
+            nota(f"  {quando}  {nome}")
+    else:
+        # DEFEITO MEU, consertado em 12/10 10:0x: este ramo tinha um `return 0`,
+        # e a leitura da legenda vinha DEPOIS dele. Logo o `--legenda` era
+        # ignorado exatamente no caso em que a legenda e a UNICA fonte de texto
+        # — longo sem capitulo marcado. Medido no `GwNkPfM9pSY`: a descricao tem
+        # 600 chars de resumo, zero capitulo, e o pedido de legenda nao rodou.
+        # O instrumento falhava no caso que ele existe para resolver.
         nota("NENHUM capitulo marcado na descricao — a descricao inteira sai "
              "abaixo, em pedacos, e a leitura e sua")
         texto = (sn.get("description") or "").strip()
         for i in range(0, min(len(texto), 6000), 600):
             nota(f"desc[{i}:{i+600}] {texto[i:i+600]}")
-        return 0
-    nota(f"{len(caps)} capitulos:")
-    for t, nome in caps:
-        nota(f"  {t}  {nome}")
 
-    # A descricao da o TITULO do capitulo, nunca o que ele AFIRMA. Sem o texto,
-    # escrever o short seria inventar conteudo.
+    # A descricao da o TITULO do capitulo, nunca o que ele AFIRMA — e quando nao
+    # ha capitulo nenhum ela nao da nem isso. Sem o texto, escrever o short
+    # seria inventar conteudo. Este bloco roda nos DOIS casos.
     if os.environ.get("LEGENDA", "").lower() in ("1", "true", "sim"):
         try:
             srt = legenda(vid, token)
