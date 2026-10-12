@@ -96,6 +96,27 @@ jobs:
           fi
           exit 0
 
+      # A rotina pede voz para pt-BR, grego e polones. Eu escrevi no
+      # comentario acima que o Piper tem as tres ANTES de conferir — isso era
+      # suposicao minha. Este passo mede, uma HEAD por modelo, sem baixar.
+      - name: Piper tem voz para os TRES idiomas da frota?
+        run: |
+          set +e
+          B=https://huggingface.co/rhasspy/piper-voices/resolve/main
+          conf () {
+            C=$(curl -sS -o /dev/null -w "%{http_code}" -L -I "$B/$2")
+            if [ "$C" = "200" ]; then
+              echo "::notice::$1: voz EXISTE ($2)"
+            else
+              echo "::warning::$1: HTTP $C para $2 — voz NAO confirmada"
+            fi
+          }
+          conf "pt-BR" "pt/pt_BR/faber/medium/pt_BR-faber-medium.onnx"
+          conf "el-GR" "el/el_GR/rapunzelina/low/el_GR-rapunzelina-low.onnx"
+          conf "pl-PL" "pl/pl_PL/darkman/medium/pl_PL-darkman-medium.onnx"
+          conf "pl-PL(2)" "pl/pl_PL/gosia/medium/pl_PL-gosia-medium.onnx"
+          exit 0
+
       - name: Guardar a amostra
         if: always()
         uses: actions/upload-artifact@v4
