@@ -1,0 +1,45 @@
+name: Calibrar R e P do Piper — mede, nao altera nada
+
+# POR QUE ISTO EXISTE (12/10/2026). A peca `byriXB1gSg8` foi ao ar narrada pelo
+# Piper, com o aviso certo de que o `MODELO_VOZ` e do edge-tts. Aviso nao e
+# calibracao: enquanto nao houver R e P do Piper, o portao `duracao` e a mira
+# decidem com a constante de outra voz — o erro do 679/698.
+#
+# ESTE WORKFLOW SO MEDE. Ele imprime o bloco pronto para colar e NAO toca em
+# `ensaio.py`. Trocar constante de producao e decisao; aqui se produz a
+# evidencia dela.
+#
+# Roda no RUNNER porque este container nao tem o piper instalado e porque e o
+# runner que vai usar esses numeros.
+
+on:
+  workflow_dispatch:
+    inputs:
+      max_cenas:
+        description: "Cenas por voz (120 e ~8 min de sintese por voz)"
+        type: string
+        default: "120"
+
+permissions:
+  contents: read
+
+jobs:
+  calibrar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      # A MESMA lista do frota.yml, nao uma montada a mao — quatro vezes nesta
+      # sessao um ambiente de teste divergente acusou defeito que era do teste.
+      - name: Instalar o que o render usa
+        run: |
+          pip install -q edge-tts cairosvg pydantic pillow imageio-ffmpeg piper-tts
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+
+      - name: Medir
+        run: python3 fabrica/calibra_piper.py --max-cenas "${{ inputs.max_cenas }}"
