@@ -38,10 +38,16 @@ jobs:
         with:
           python-version: "3.11"
 
+      # A MESMA lista do frota.yml:183, nao uma montada a mao. Na primeira
+      # tentativa (run 38198375874) eu escrevi a minha e faltou `pydantic`:
+      # o render morreu em ModuleNotFoundError antes de produzir um frame, e o
+      # teste acusou um defeito que era do TESTE, nao da maquina. Ambiente de
+      # teste que diverge do de producao testa outra coisa.
       - name: Instalar o que o render usa
         run: |
-          python3 -m pip install -q cairosvg edge-tts imageio-ffmpeg
-          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu
+          pip install -q edge-tts cairosvg pydantic pillow imageio-ffmpeg
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg fonts-dejavu-core fonts-noto-core
 
       - name: Gerar a spec de teste
         run: python3 fabrica/teste_ponta.py /tmp/teste/spec.json
