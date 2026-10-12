@@ -1,0 +1,93 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-s015",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#22333B",
+  "c1": "#A4243B",
+  "c2": "#D8973C",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Guardar",
+  "l2": "não é entregar"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "A cópia está lá",
+   "sub": "e a obrigação está aberta",
+   "nar": "A cópia está no arquivo. E a obrigação está aberta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O texto diz",
+   "nar": "O texto manda entregar cópia fiel.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Fiel",
+   "nar": "Fiel. Não é aviso, não é resumo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E a quem",
+   "sub": "o texto nomeia",
+   "nar": "Vai ao acidentado e ao sindicato.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Aqui mora",
+   "nar": "Aqui mora o engano de arquivo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Você confere",
+   "nar": "Você confere, acha a cópia, fecha.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Mas guardar",
+   "sub": "não é entregar",
+   "nar": "Mas guardar não é entregar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que fecha",
+   "nar": "O que fecha é o comprovante da entrega.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sem ele",
+   "nar": "Sem ele, a obrigação continua aberta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Procure",
+   "sub": "o comprovante, não a cópia",
+   "nar": "Procure o comprovante, não a cópia.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "inscreva-se",
+   "nar": "Se isso fechou um buraco, inscreva-se.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "6BeNHqT2okA",
+ "copy": "# labtreinamento-s015\n\n## TITULO\nCópia Fiel Guardada No Arquivo Não Fecha A Obrigação — O Que Fecha É O Comprovante De Entrega\n\n## TITULO SHORT\nProcure o comprovante, não a cópia\n\n## DESCRICAO\nHá uma obrigação na comunicação de acidente do trabalho que quase nenhum procedimento interno cumpre, e o motivo é sutil: ela é uma obrigação de **entregar**, e o arquivo é construído para **guardar**.\n\nO texto manda que a comunicação seja entregue em cópia fiel ao acidentado, ou aos seus dependentes, e também ao sindicato da categoria dele. A expressão importa: cópia **fiel** não é aviso, não é resumo e não é confirmação de protocolo — é a mesma comunicação, inteira.\n\nE é aí que a auditoria interna erra, sem má-fé e sem deixar rastro. Quem confere o arquivo procura o documento, encontra o documento, e marca o item como cumprido. Mas o que o texto exige não é que a cópia exista: é que ela tenha **chegado** a quem o texto nomeia. A cópia guardada prova que ela foi feita. Ela não prova que foi entregue.\n\nA consequência prática é desconfortável e vale ser dita: um arquivo impecável pode conviver com a obrigação aberta, e nada no documento denuncia isso. O que fecha o item é o comprovante de entrega.\n\nDaí o teste que fecha o short, e ele leva cinco minutos: na última comunicação emitida, existe registro de entrega da cópia ao trabalhador e ao sindicato? Se não existe, não é formalidade esquecida — é uma obrigação do próprio artigo que ficou aberta. E é fácil de fechar.\n\nE se você é o trabalhador do outro lado dessa conta: essa cópia é sua por previsão do texto. Pedi-la não é favor.\n\nEste short não cita prazo, não cita número de artigo nem de parágrafo, não diz valor de multa e não diz quantos podem comunicar na falta da empresa: parte disso muda por reforma, e tudo está no vídeo completo com a fonte. O que não muda é o desenho da obrigação.\n\nNo vídeo completo: as três datas candidatas e qual delas conta, a contagem em dia útil, a exceção que não admite prazo, quem pode comunicar na falta da empresa, e por que o sindicato aparece no texto junto com o trabalhador.\n\n## COMENTARIO FIXADO\nO que faz esse erro sobreviver é que ele é invisível justamente para quem está conferindo: o arquivo foi desenhado para guardar documento, e a obrigação é de entregar. Então a conferência encontra a cópia, conclui que o item está cumprido, e o documento não tem como denunciar que nunca saiu de lá. Por isso o teste não é \"a cópia existe?\" e sim \"existe comprovante de que ela chegou ao trabalhador e ao sindicato?\". De propósito não coloquei aqui prazo, artigo, parágrafo nem valor de multa: parte disso muda por reforma e está no vídeo com a fonte. Conta nos comentários: no seu arquivo, o que existe é a cópia ou o comprovante de entrega?\n\n## HASHTAGS\n#SegurancaDoTrabalho #CAT #LabTreinamento\n\n## TAGS\ncopia fiel, comunicacao de acidente, entrega ao sindicato, entrega ao acidentado, comprovante de entrega, obrigacao aberta, auditoria de arquivo, procedimento interno de acidente, seguranca do trabalho, gestao de sst, acidente do trabalho, doenca ocupacional, obrigacao acessoria, direito do trabalhador, arquivo de sst\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, ZERO DIGITO e ZERO NUMERAL na narracao.\nConferido campo a campo. Em especial:\n  * NAO cito numero de artigo nem de paragrafo — mudam por reforma legislativa\n    do mesmo jeito que aliquota muda, e o longo ja os carrega com fonte;\n  * NAO digo prazo, nem valor de multa, nem quantos podem comunicar na falta da\n    empresa. O `s007` e o `s014` descartaram os mesmos, pela mesma razao;\n  * NAO digo QUANTOS destinatarios a copia tem. A peca diz QUEM — o acidentado e\n    o sindicato dele — que e a regra, e nao a contagem.\n\nO QUE A PECA CARREGA, e nao envelhece: a obrigacao e de ENTREGAR copia fiel, e o\nque fecha o item no arquivo e o COMPROVANTE DE ENTREGA, nao a copia guardada.\nIsso e desenho de obrigacao, nao tabela. Esta nos capitulos \"A copia fiel\",\n\"Quem recebe\", \"Copia fiel\", \"O teste do arquivo\", \"Se nao existe\", \"Um detalhe\nde arquivo\" e \"E para o trabalhador\" do longo `6BeNHqT2okA` (pacote\n`labtreinamento-010`).\n\nTERCEIRO ANGULO, declarado, e PRE-REGISTRADO pelo anterior: o `s007` usou a\nfamilia UNIDADE (dia util contra dia corrido) e o `s014` a familia SUBSTITUICAO\nQUE NAO SUBSTITUI. O AVISO do `s014` escreveu, antes de ver qualquer resultado,\nque o capitulo da copia fiel daria um terceiro angulo — e e este. O longo tem 66\ncapitulos.\n\nRISCO DECLARADO: esta familia e VIZINHA da do `s014`; as duas terminam em \"o\narquivo parece em ordem e a obrigacao esta aberta\". Elas diferem no OBJETO (quem\nemitiu contra a quem foi entregue) e no teste que o espectador faz. Quem decide\nisso nao sou eu: e o portao `similaridade` contra o mesmo canal.\n\nO QUE EU NAO LEVEI, escrito para a proxima rodada achar: \"Duas vias diferentes\",\n\"Confundir custa\" e \"Um teste simples\" — a comunicacao a Previdencia e a\ncomunicacao imediata a autoridade competente sao DUAS obrigacoes com destinos\ndiferentes, e quem usa um fluxo so cumpre o prazo do caso frequente e perde o do\ncaso grave. Familia COMPOSICAO: DUAS OBRIGACOES CONTADAS COMO UMA, e e o QUARTO\nangulo deste mesmo longo.\n\n## FONTES\nO longo de onde este short foi extraido (`labtreinamento-010`, `6BeNHqT2okA`)\ncarrega a lei, o artigo e os paragrafos com a fonte. Este short NAO introduz\nnumero novo sobre o mundo, entao nao exige fonte institucional nova — e o que ele\nafirma e NORMA, nao estatistica.\n"
+}
