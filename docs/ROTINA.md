@@ -387,6 +387,18 @@ respeita as duas coisas é subir o teto SÓ para short solto, deixando o longo e
 **ESCOLHA DE ORIGEM, em ordem:**
   a) **rode `consultas/estoque.sql`** — nunca lista de memória, nunca lista à mão,
      **e nunca o número que estiver escrito aqui**: ele envelhece a cada publicação;
+  a-2) **com o banco em 402 a consulta não roda, e a fonte é `pauta-viva.yml`**
+     (`fabrica/pauta_viva.py`), que lê a PLAYLIST DE UPLOADS pela API — viva, sem
+     banco e sem retrato. **RETRATAÇÃO de 12/10:** eu reconstruía pelo retrato
+     `fabrica/ponte/videos.json`, de 06/10, escrevi a ressalva certa e tratei o
+     número como estoque por três rodadas, anunciando "a pauta acabou". O vivo
+     achou TRÊS onde o retrato dizia uma. O `pauta_local.py` fica como PISO.
+     **O vivo só conta longo cujo título está no `corpus_publicados.json`:** sem
+     esse filtro ele devolveu 65 "origens" no labtreinamento que eram as AULAS DE
+     CURSO DO DONO (668 na forma de pauta).
+     **Conte por TÍTULO DISTINTO, nunca por id** — em 12/10 eu errei a mesma
+     conta três vezes (cinco → três → dois) porque dez ids eram dez cópias de um
+     título, e uma delas era cópia de origem já consumida;
   b) PRIMEIRO ÂNGULO de longo virgem;
   c) **PERFIL (651)**: longo cujo número é do PRÓPRIO espectador, com papel na
      mão. Dinheiro próprio 1.133 e 1.111; conformidade corporativa 4 a 70.
@@ -405,6 +417,13 @@ respeita as duas coisas é subir o teto SÓ para short solto, deixando o longo e
      pacote de 11/08, anterior à convenção de nome atual): nem por nome de arquivo
      nem por varredura de conteúdo. **Leia os capítulos da DESCRIÇÃO PUBLICADA
      pela `videos.list`** — isso não é motivo para trocar de origem.
+     **MECANIZADO EM 12/10, e com a metade que faltava:** `capitulos.yml` →
+     `fabrica/capitulos_do_longo.py`. E o que faltava é decisivo — **a descrição
+     dá só o TÍTULO do capítulo, nunca o que ele afirma**. Escrever a partir de
+     título de capítulo é INVENTAR conteúdo. O texto sai da faixa de **legenda**
+     que a própria máquina subiu (`legenda=true`), preferindo a faixa NÃO
+     automática. Foi assim que o `eZ697VNYCPU` virou pauta: 75 falas, 9.249
+     caracteres, e nenhuma frase do short inferida de título.
 **AO PUBLICAR, GRAVE `videos.origem_id`** com o `longo_existente` da spec (670).
 
 IDS: labtreinamento `UCtv_ewwSmwdi1ZRALW4_azg`, epomeno `UC1hk4k4QMjbPCfbw-S5xDyQ`,
@@ -521,7 +540,7 @@ novo sobre o mundo — e isso vai dito, com o id do longo. Respeite `robots=noai
 - **ESTE CONTAINER TEM `pytest`, `httpx`, `ffmpeg`, `imageio-ffmpeg` e `pypdf`.**
   **MEÇA A SUA PRÓPRIA LINHA DE BASE ANTES DE MEXER** e guarde a lista de
   `FAILED` para comparar depois — o número escrito aqui envelhece, o CONJUNTO
-  não. Em 11/10: **25 falham, 2.103 passam** (passa/skip sobem com teste novo).
+  não. Em 12/10, medido nesta sessão: **25 falham, ~2.205 passam** (passam/skip sobem com teste novo; o CONJUNTO é o que importa) (passa/skip sobem com teste novo).
   **E a composição NÃO é "título duplicado e Devanagari" — eu escrevi isso e
   estava errado** (11/10): são **15** de `test_narracao_das_specs`, specs que
   sairiam da matriz CALADAS por números demais numa frase e capítulo sem margem
@@ -542,9 +561,22 @@ novo sobre o mundo — e isso vai dito, com o id do longo. Respeite `robots=noai
 - **NUNCA rode duas tarefas que mexem na mesma árvore de trabalho ao mesmo
   tempo:** um `git stash -q -u` de um teste apagou arquivos novos de baixo da
   outra rodada em 09/10. Recuperado com `git stash pop`, mas foi erro meu.
-- **A NARRAÇÃO TEM FORNECEDOR ÚNICO** e isso é um buraco conhecido:
-  `edge_tts.Communicate` em `fabrica.py:598`. Não instale costura de plano B sem
-  um segundo provedor de verdade — costura vazia só adiciona risco.
+- **A NARRAÇÃO JÁ TEM PLANO B, E ELE ESTÁ EM PRODUÇÃO — 12/10.** A frase antiga
+  aqui dizia "fornecedor único ... não instale costura de plano B sem um segundo
+  provedor de verdade". A condição foi cumprida: o `edge_tts` passou a dar **403
+  no handshake DO RUNNER** (runs 38198672898 e 38202568056, versão 7.2.8, duas
+  vozes) e a máquina parou de produzir em qualquer lugar. `fabrica/voz_piper.py`
+  é provedor de verdade — neural, offline, sem chave — e entra **só depois das
+  três tentativas do edge-tts**, para a frota voltar sozinha à voz original
+  quando ele voltar.
+  **O QUE ISSO CUSTA, e vai no relato de toda peça:** o `R` e o `P` de
+  `MODELO_VOZ` são do edge-tts e **não valem** para as vozes do Piper — usá-los
+  é o erro do 679/698. Cada peça narrada por lá sai com `::warning::`, e o
+  instrumento para remedir é `calibra-piper.yml`, que **não escreve** em
+  `ensaio.py`: colar é decisão. **A voz grega do Piper só existe em qualidade
+  `low`**, e isso é diferença real entre canais.
+  Todas as peças de 12/10 saíram pelo Piper: `byriXB1gSg8`, `DQKMvUi2FF4`,
+  `rusVeiFco9Q`.
 
 =====================================================================
 7. ENTREGA — A PONTE
