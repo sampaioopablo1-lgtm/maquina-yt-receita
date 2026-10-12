@@ -213,6 +213,14 @@ iguais como N observações.
   Nenhuma lista de memória, à mão, ou escrita num prompt decide nada.
 - `docs/estoque.md` — por que a lista à mão foi abolida, o aviso de PERFIL e as
   faixas de identidade por canal.
+- **E quando o banco está em 402, a consulta NÃO roda** — escrever aqui só o
+  caminho dela deixava a rodada sem pauta nenhuma. A reconstrução local está em
+  `docs/rotina-ponta-a-ponta.md` (Passo 1b): o retrato
+  `fabrica/ponte/videos.json` mais o `longo_existente` das specs. Ela **não** é
+  a consulta: exclui duplicata por título repetido mais o documento, e não pela
+  mesma construção — foi exatamente aí que nasceu o erro 658. Use-a com as três
+  ressalvas escritas lá, e **confira a origem escolhida contra as specs antes de
+  escrever**, uma a uma.
 
 ## Antes de dizer que a máquina está sã
 - `python3 -m pytest tests -q --ignore=tests/test_mcp.py --ignore=tests/test_banco_de_pautas.py`
@@ -323,8 +331,17 @@ O `APRENDIZADOS.md` do repo está desatualizado contra o banco.
 
 ## Entrega
 `docs/publicar-pela-sandbox.md` e `docs/schema-supabase.md`. O render é no
-runner com `publicar=false`; a publicação é pela ponte. O zip do artefato abre
-**flat** e o `conduz.py` espera `f/<pacote>/`.
+runner com `publicar=false`. O zip do artefato abre **flat** e o `conduz.py`
+espera `f/<pacote>/`.
+
+**RETRATAÇÃO DE 12/10, e é desta frase: "a publicação é pela ponte" deixou de
+ser verdade.** O dono colou o `YT_OAUTH_JSON`, e a publicação passou a sair pelo
+**`retomar.yml`**, que refresca o access token no próprio runner e não toca o
+Supabase. Provado em produção duas vezes no mesmo dia: `epomeno-epipedo-s016` =
+`6TNDVugoz5I` (run `38175747708`) e `labtreinamento-s013` = `byriXB1gSg8`
+(`38211879374`). O `estado_b64` sai do `fabrica/corpus_publicados.json` e tem de
+trazer `titulos_no_ar_n`, senão o runner recusa. A ponte continua existindo; ela
+só não é mais o caminho.
 
 ## As travas que não se negociam
 Estão na rotina horária, e nenhuma delas muda por conveniência de uma rodada.
@@ -470,6 +487,15 @@ pediu para tirar a dependência da reconexão manual. Medido antes de propor:
 `YT_OAUTH_JSON` e os três `YT_TOKEN_*`, todos com **0 chars** no runner. Logo
 **não falta código, falta CREDENCIAL**, e nenhuma engenharia inventa um token do
 Google.
+
+**ISTO CADUCOU EM 12/10, e fica retratado aqui em vez de só no fim do arquivo:**
+o dono colou o `YT_OAUTH_JSON`, a sonda passou a ver os três canais e a
+publicação funcionou. Os três `YT_TOKEN_*` seguem vazios **e não precisam
+existir** — o `retomar.yml` refresca sozinho. O que a credencial colada **não**
+trouxe é o escopo de analytics: a sonda diz `analytics=NAO` nos três, porque
+isso depende do clique de consentimento do Google, não de segredo. Quem lê só o
+parágrafo acima conclui "a máquina está parada por falta de credencial", e ela
+não está.
 
 **O instrumento ficou:** `fabrica/sonda_oauth.py` + `sonda-oauth.yml` dizem,
 canal por canal, se o refresh vive e quais escopos vieram — **sem imprimir

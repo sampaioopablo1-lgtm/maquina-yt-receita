@@ -235,8 +235,21 @@ jobs:
               sys.exit(f'estado TRUNCADO: chegaram {len(titulos)} titulos e o '
                        f'proprio estado declara {n}. A trava por titulo '
                        f'rodaria contra um corpus incompleto.')
+          # A CONFERENCIA DE TAMANHO NAO BASTA, e isto e defeito medido: no run
+          # 38217254505 este passo passou VERDE com `titulos_no_ar` como lista
+          # de STRINGS, e a trava por titulo explodiu em AttributeError no passo
+          # seguinte, depois de baixar o pacote. Contar o tamanho e nao conferir
+          # a FORMA e portao verde fabricando "esta tudo certo".
+          sys.path.insert(0, 'fabrica')
+          from estado_ponte import confere
+          ruins = confere(d)
+          if ruins:
+              for r in ruins:
+                  print(f'::error::estado invalido: {r}')
+              sys.exit('estado invalido — nada foi baixado nem publicado')
           print(f'estado: ja_publicado={d.get("ja_publicado")} | '
-                f'titulos_no_ar={len(titulos)} (declarados {n}, conferem)')
+                f'titulos_no_ar={len(titulos)} (declarados {n}, conferem) | '
+                f'forma conferida por estado_ponte.confere')
           FIM
 
       - name: Publicar pela ponte
@@ -245,13 +258,28 @@ jobs:
         run: |
           set -uo pipefail
           echo "::add-mask::$TOK"
+          # O MOTIVO DA FALHA TEM DE CHEGAR AS ANOTACOES, e isto e conserto
+          # de um defeito medido: no run 38217254505 este passo falhou com um
+          # `AttributeError` dentro da trava por titulo, e NENHUMA anotacao
+          # disse qual era o erro. O log de job nao e legivel por API (o `gh`
+          # recusa redirecionamento entre hosts, e e por isso que as anotacoes
+          # sao o canal — esta escrito no CLAUDE.md). Falha muda custou uma
+          # rodada inteira de adivinhacao.
+          set +e
           python3 fabrica/publicar.py "fabrica/specs/${{ inputs.pacote }}.json" \
             --canal "${{ inputs.canal }}" \
             --idioma "${{ inputs.idioma }}" \
             --access-token "$TOK" \
             --estado-json /tmp/estado.json \
-            --registro-json /tmp/registro.json
-          echo "saida do publicar.py: $?"
+            --registro-json /tmp/registro.json 2>&1 | tee /tmp/publicar.log
+          cod=${PIPESTATUS[0]}
+          if [ "$cod" -ne 0 ]; then
+            # As ultimas linhas, que e onde o SystemExit e o traceback caem.
+            # Numa linha so porque anotacao nao quebra linha.
+            motivo=$(tail -8 /tmp/publicar.log | tr '\n' ' ' | cut -c1-900)
+            echo "::error::publicar.py saiu $cod — $motivo"
+          fi
+          exit "$cod"
 
       - name: Mostrar o registro para entrar no banco
         if: always()
@@ -263,6 +291,23 @@ jobs:
           # defeito ja republicou pacote antes.
           if [ -f /tmp/registro.json ]; then
             echo "=== REGISTRO ==="; cat /tmp/registro.json; echo "=== FIM ==="
+            # TAMBEM em anotacao: o `cat` acima vai para o log, e o log de job
+            # nao e legivel por API daqui. Sem isto, quem dispara a publicacao
+            # nao descobre o youtube_id do que acabou de publicar — foi o que
+            # aconteceu com o `kolejny-poziom-s018` no run 38217420591.
+            # O registro NAO tem segredo: e youtube_id, titulo e duracao.
+            python3 - <<'PYFIM'
+          import json
+          r = json.load(open('/tmp/registro.json'))
+          itens = r if isinstance(r, list) else [r]
+          for it in itens:
+              if not isinstance(it, dict):
+                  continue
+              print(f"::notice::PUBLICADO {it.get('pacote') or ''} "
+                    f"{it.get('formato') or ''} youtube_id="
+                    f"{it.get('youtube_id') or it.get('id') or '?'} "
+                    f"titulo={(it.get('titulo') or '')[:120]}", flush=True)
+          PYFIM
           else
             echo "::warning::nao houve registro — nada foi publicado"
           fi
