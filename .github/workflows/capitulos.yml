@@ -1,0 +1,37 @@
+name: Capitulos de um longo publicado — regra (h)
+
+# A rotina diz desde 09/10 que origem livre pode nao ter spec local, e que nesse
+# caso os capitulos saem da DESCRICAO PUBLICADA. A regra existia; o instrumento
+# nao, e eu montava a chamada a mao cada vez. Em 12/10 o caso voltou duas vezes
+# na mesma hora (eZ697VNYCPU e GwNkPfM9pSY, no epomeno, sem spec no repo).
+
+on:
+  workflow_dispatch:
+    inputs:
+      video_id:
+        description: "id do longo publicado"
+        type: string
+        required: true
+      canal:
+        description: "labtreinamento | epomeno-epipedo | kolejny-poziom"
+        type: string
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  ler:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - name: Ler capitulos
+        env:
+          YT_OAUTH_JSON: ${{ secrets.YT_OAUTH_JSON }}
+          VIDEO_ID: ${{ inputs.video_id }}
+          CANAL: ${{ inputs.canal }}
+        run: python3 fabrica/capitulos_do_longo.py
