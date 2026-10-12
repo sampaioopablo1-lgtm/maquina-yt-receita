@@ -1,0 +1,80 @@
+{
+  "slug": "labtreinamento",
+  "pacote": "labtreinamento-s024",
+  "idioma": "pt-BR",
+  "voz": "pt-BR-ThalitaMultilingualNeural",
+  "trilha": "Inspired",
+  "paleta": {
+    "ink": "#22333B",
+    "c1": "#A4243B",
+    "c2": "#D8973C",
+    "bg": "#F4F1EA"
+  },
+  "thumb": {
+    "l1": "Já sabe?",
+    "l2": "Está vendendo"
+  },
+  "longo": [],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Desconfie",
+      "sub": "de quem já sabe",
+      "nar": "Desconfie de quem já sabe a sua resposta.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Esse assunto",
+      "nar": "Ele atrai quem vende solução pronta.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "E a conta",
+      "nar": "E a conta é sua, com os seus dados.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Ninguém",
+      "nar": "Ninguém calcula sem olhar a sua guia.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Quem diz",
+      "nar": "Quem diz que consegue está vendendo.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "A fonte",
+      "sub": "é de graça",
+      "nar": "A simulação oficial é gratuita.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Comece",
+      "nar": "Comece por ela antes de pagar alguém.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "E vale",
+      "sub": "levar a pergunta certa",
+      "nar": "Vale conversar, levando a pergunta certa.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "LabTreinamento",
+      "sub": "inscreva-se",
+      "nar": "Leve a pergunta, não o susto. Inscreva-se.",
+      "sem_cap": true
+    }
+  ],
+  "longo_existente": "4OYBkCHFTV8",
+  "copy": "# labtreinamento-s024\n\n## TITULO\nQuem Te Dá Um Número Sem Olhar a Sua Guia Está Vendendo, Não Calculando\n\n## TITULO SHORT\nQuem já sabe está vendendo\n\n## DESCRICAO\nAssunto de aposentadoria atrai quem vende solução pronta. E o sinal de alerta é simples, não exige desconfiança de ninguém em particular: **desconfie de quem te dá um número antes de olhar a sua guia.**\n\nA conta depende de coisas que só você tem — o valor que você paga por mês, o código de pagamento, e desde quando você paga assim. Sem esses três, **ninguém consegue calcular**, por mais experiente que seja. Quem afirma que consegue não está calculando: está vendendo.\n\nO caminho é o inverso do que costuma ser oferecido. **A simulação oficial é gratuita e vem da fonte** — é no Meu INSS que o cálculo com juros aparece certo, mês a mês, para o seu caso. Comece por ela. Ela não custa nada e te dá a ordem de grandeza.\n\nSó **depois** disso faz sentido procurar ajuda, se o número pedir. E aí a conversa muda de natureza: você chega com um número na mão e uma pergunta específica, em vez de chegar perguntando \"quanto custa\". Vale conversar com quem calcula isso profissionalmente — o que falta na maioria das vezes não é o profissional, é a **pergunta certa** para levar até ele.\n\nEste short não cita alíquota, taxa de juros nem idade, de propósito: os três mudam, e número fixo aqui daria conta errada para quase todo mundo que assiste.\n\nNo vídeo completo: as duas opções e o que a mais barata tira, como se faz o conserto e por que ele é divisível, os três passos para estimar o seu caso, quando não vale consertar, o meio-termo com os dois perfis, e este cuidado com quem te procura.\n\n## COMENTARIO FIXADO\nEsse aqui não é sobre desconfiar de profissional — é sobre a ORDEM das coisas. A conta depende de três informações que só você tem: o valor da sua guia, o código de pagamento e desde quando você paga assim. Sem elas ninguém calcula, e quem te der um número antes de olhar está vendendo um serviço, não fazendo uma conta. O caminho barato é o contrário do que costumam oferecer: faça primeiro a simulação oficial, que é gratuita e vem da fonte, e só DEPOIS procure ajuda se o número pedir. Aí você chega com um número e uma pergunta específica, em vez de chegar perguntando quanto custa. De propósito não coloquei alíquota, taxa nem idade aqui: os três mudam. Conta nos comentários: já te ofereceram um número sem olhar nada seu?\n\n## HASHTAGS\n#Autonomo #Previdencia #LabTreinamento\n\n## TAGS\ncuidado com golpe previdenciario, numero sem olhar a guia, meu inss gratuito, simulacao oficial, contribuinte individual, autonomo, planejamento previdenciario, pergunta certa para o advogado, decisao previdenciaria, financas para autonomo, codigo de pagamento, guia do autonomo, labtreinamento, dinheiro proprio, antes de pagar alguem\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO, ZERO DIGITO e ZERO NUMERAL na narracao — e aqui nem custa esforco,\nporque a peca nao carrega numero nenhum sobre o mundo. Aliquota, taxa e idade\nficam fora pela regra (g), como nas outras deste longo.\n\nE o nome do orgao NAO entra na NARRACAO (regra 609): a cena diz \"a simulacao\noficial e gratuita\". O nome aparece na DESCRICAO e no comentario fixado, onde a\nregra nao se aplica e onde ele e util para a pessoa achar o caminho.\n\nO QUE A PECA CARREGA, e nao envelhece: a conta depende de tres informacoes que\nSO o espectador tem, logo quem da um numero sem olhar a guia dele esta vendendo,\nnao calculando. E a ORDEM: simulacao oficial gratuita PRIMEIRO, ajuda paga\nDEPOIS, e ai a conversa muda de natureza.\n\nCORRECAO DE UM ERRO MEU, e e de pre-registro: o AVISO do `s023` disse que estes\ncapitulos eram \"deste longo\", referindo-se ao `ntrMxq89I4o`. **ERRADO.** Os\ncapitulos \"Antes disso, um cuidado\", \"Ninguem calcula isso\", \"O Meu INSS e de\ngraca\" e \"Uma conversa vale\" sao do `4OYBkCHFTV8` (pacote `labtreinamento-006`),\nindices 49 a 52. Os indices 49 a 52 do `ntrMxq89I4o` sao outros (\"O que fazer\nhoje\", \"Tres passos\", \"Compare\", \"Se doer\"). Conferido lendo as duas specs, nao\nde memoria.\nA FAMILIA e o ANGULO seguem validos — o que estava errado era o nome do longo.\nE a licao e a mesma de sempre: pre-registro tambem se confere contra a FONTE.\n\nQUINTO ANGULO do `4OYBkCHFTV8`, que ja rendeu `s018` (o conserto e divisivel),\n`s019` (quando ele nao compra nada) e `s020` (o meio-termo tem dono). A unidade\nde pauta e (LONGO x FAMILIA DE CAPITULO), e esta familia e nova.\n\nESQUELETO: `titulo-item-item-item-item-titulo-item-titulo-cta`, diferente do\n`s022` e do `s023`. Pelo achado das 20:1x, forma nova vira molde proprio em um\ndia — o esqueleto varia a cada peca e o portao `variedade` diz quando repetiu.\n\nREGRA (f) CONFERIDA: decima primeira familia distinta do dia no labtreinamento.\n\nDURACAO, pelo instrumento do 711/714: estimativa 30,4 s, previsao **24,9 s\nREAIS** — dentro do `ALVO_POR_CANAL` de 20,0 a 26,0.\n\n## FONTES\nO longo de onde este short foi extraido (`labtreinamento-006`, `4OYBkCHFTV8`)\ncarrega a norma com a fonte. Este short NAO introduz numero nenhum sobre o mundo,\nentao nao exige fonte institucional nova.\n"
+}
