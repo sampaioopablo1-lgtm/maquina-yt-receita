@@ -1,0 +1,80 @@
+{
+  "slug": "labtreinamento",
+  "pacote": "labtreinamento-s022",
+  "idioma": "pt-BR",
+  "voz": "pt-BR-ThalitaMultilingualNeural",
+  "trilha": "Inspired",
+  "paleta": {
+    "ink": "#22333B",
+    "c1": "#A4243B",
+    "c2": "#D8973C",
+    "bg": "#F4F1EA"
+  },
+  "thumb": {
+    "l1": "Desculpa",
+    "l2": "com prazo"
+  },
+  "longo": [],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "As desculpas",
+      "sub": "têm prazo",
+      "nar": "As desculpas de preço têm prazo.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "A primeira",
+      "nar": "A primeira é o aprendizado.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Mas",
+      "nar": "Mas aprender acontece uma vez só.",
+      "sem_cap": true,
+      "sub": "acontece uma vez"
+    },
+    {
+      "layout": "item",
+      "kicker": "A segunda",
+      "nar": "A segunda é o portfólio.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "E se",
+      "nar": "E se a porta não abriu, ela não abre.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "A terceira",
+      "nar": "A terceira dessas nunca vence.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "O cliente",
+      "sub": "que não dá retrabalho",
+      "nar": "É o cliente que não gera retrabalho.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Esse vale",
+      "nar": "Esse vale mais por hora, e se repete.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "LabTreinamento",
+      "sub": "inscreva-se",
+      "nar": "Use as desculpas depois da conta. Inscreva-se.",
+      "sem_cap": true
+    }
+  ],
+  "longo_existente": "ntrMxq89I4o",
+  "copy": "# labtreinamento-s022\n\n## TITULO\nAs Desculpas Que a Gente Dá Para Um Preço Ruim — E Qual Delas Nunca Vence\n\n## TITULO SHORT\nDesculpa de preço tem prazo\n\n## DESCRICAO\nDepois de fazer a conta da sua hora real, aparecem as consolações — e elas são legítimas. O problema é que quase todas **vencem**, e a gente continua usando depois do prazo.\n\n**O aprendizado.** Um trabalho que pagou mal e te deixou sabendo fazer uma coisa nova não foi só prejuízo. Mas aprender acontece **uma vez**: se o mesmo tipo de trabalho já se repetiu várias vezes, esse argumento acabou, e continuar usando ele é só não olhar o número.\n\n**O portfólio.** Um trabalho que abre porta tem valor que não está no preço dele, e às vezes vale mais que o projeto inteiro. Essa também vence: **se a porta não abriu, ela não vai abrir** por causa daquele projeto.\n\n**E a terceira, que não vence nunca:** o cliente que não gera retrabalho vale mais por hora do que a conta mostra, e o que gera vale menos. Essa é a única que **se repete em todo projeto** que você fizer com a mesma pessoa — então é a única que deveria mudar o seu preço de forma permanente.\n\nA ordem importa, e é contraintuitiva: **junte as consolações DEPOIS de fazer a divisão, nunca antes.** Se vierem antes, elas não são contexto — são desculpa para não olhar o número.\n\nEste short não cita valor, preço nem percentual, de propósito: os números da conta são seus.\n\nNo vídeo completo: a divisão passo a passo, onde achar as horas que você não anotou, as três consolações com os prazos de cada uma, o caso do projeto grande, e como ler um projeto como leitura do ano.\n\n## COMENTARIO FIXADO\nA parte que eu mais gosto desse raciocínio é o PRAZO de cada desculpa, porque ninguém costuma pensar nisso. Aprendizado: vale uma vez — na quinta vez que você faz o mesmo tipo de trabalho barato, não está mais aprendendo nada. Portfólio: vale por alguns meses — se a porta não abriu nesse tempo, ela não vai abrir por causa daquele projeto. E a única que não vence é a do cliente que não dá retrabalho, porque essa se repete em cada projeto novo com a mesma pessoa. Daí a regra de ordem: faça a divisão PRIMEIRO, junte as consolações DEPOIS. Invertido, elas deixam de ser contexto e viram motivo para não olhar o número. Conta aqui: qual das três você já usou mais tempo do que devia?\n\n## HASHTAGS\n#Autonomo #Precificacao #LabTreinamento\n\n## TAGS\ndesculpa de preco, aprendizado nao paga conta, portfolio vale quanto, cliente que da retrabalho, valor da hora, precificacao para autonomo, cobrar por hora ou por projeto, autonomo, prestador de servico, financas para autonomo, revisao de preco, quanto cobrar, labtreinamento, dinheiro proprio, tempo e preco\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO, ZERO DIGITO e ZERO NUMERAL na narracao. O longo diz \"tres vezes\" e\n\"alguns meses\" nos capitulos 30 e 32; a narracao troca por \"varias vezes\" e pela\ncondicao (\"se a porta nao abriu\"), porque numeral falado conta como quantidade\npelo 640 e porque os dois sao ordem de grandeza do longo, nao norma.\nO TITULO e a DESCRICAO podem carregar numero — a regra e da NARRACAO — e mesmo\nassim o titulo saiu sem numeral.\n\nO QUE A PECA CARREGA, e nao envelhece: as consolacoes que a gente da a um preco\nruim tem PRAZO. Aprendizado vale uma vez; portfolio vale por um tempo; e so a do\ncliente que nao gera retrabalho NAO vence, porque se repete em cada projeto novo\ncom a mesma pessoa. E a ordem: a divisao vem ANTES, a consolacao DEPOIS.\nEsta nos capitulos \"O que a conta nao pega\", \"O aprendizado\", \"Mas cuidado\",\n\"O portfolio\", \"Tambem tem prazo\", \"O terceiro\" e \"Junte isso\" do longo\n`ntrMxq89I4o` (pacote `labtreinamento-007`).\n\nTERCEIRO ANGULO deste longo, e PRE-REGISTRADO: o AVISO do `s021` nomeou estes\ncapitulos e esta familia — AS TRES DESCULPAS VENCEM — antes de qualquer\nresultado.\n\nAS TRES DO MESMO LONGO, e cada uma e uma peca diferente da decisao:\n  `s002` -- o DENOMINADOR incompleto (as horas de proposta nao ganha)\n  `s021` -- o MAIOR nao e o melhor (comparar os dois extremos)\n  `s022` -- as CONSOLACOES tem prazo, e a ordem e divisao primeiro\n\nREGRA (f) CONFERIDA: o labtreinamento ja teve hoje SUBSTITUICAO QUE NAO\nSUBSTITUI (s014), A GUARDA NAO E A ENTREGA (s015), COMPOSICAO (s016), PROPORCAO\nCOM O PRAZO (s017), O CONSERTO E DIVISIVEL (s018), QUANDO O CONSERTO NAO COMPRA\nNADA (s019), O MEIO-TERMO TEM DONO (s020) e O MAIOR NAO E O MELHOR (s021). Esta\ne a NONA familia distinta do dia no canal.\n\nESQUELETO MUDADO, e foi O PORTAO QUE PEDIU. Na primeira passada o `variedade`\navisou que a sequencia `titulo-item-item-titulo-item-item-titulo-item-cta` seria\na SEXTA identica no canal — as cinco pecas do formato novo de hoje usaram todas\na mesma. A forma nova virou molde proprio em um dia. Esta peca sai com\n`titulo-item-titulo-item-item-item-titulo-item-cta` e o aviso parou.\nIsso NAO mexe em limiar nenhum: a ordem dos layouts e conteudo.\nE RETRATA uma frase que eu escrevi no `CLAUDE.md`: \"com a forma nova o aviso do\nportao variedade para de aparecer\". Para de aparecer por UMA peca; depois a forma\nnova repete como a antiga repetia.\n\nDURACAO, pelo instrumento do 711/714: estimativa 28,3 s, previsao **23,3 s\nREAIS** com o fator pt-BR do Piper (0,821) — dentro do `ALVO_POR_CANAL` de\n20,0 a 26,0 deste canal.\n\nO QUE SOBRA PARA A PROXIMA neste longo: \"De um projeto para o ano\", \"Um\nprojeto\", \"Faca em tres\", \"Se os tres apontam igual\", \"Multiplique\" e \"Compare\ncom algo\" — a familia UM PROJETO NAO E PADRAO, TRES SAO. Quarto angulo.\n\n## FONTES\nO longo de onde este short foi extraido (`labtreinamento-007`, `ntrMxq89I4o`)\ne aritmetica sobre numeros do proprio espectador. Este short NAO introduz numero\nnenhum sobre o mundo, entao nao exige fonte institucional.\n"
+}

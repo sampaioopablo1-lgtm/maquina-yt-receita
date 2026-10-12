@@ -152,6 +152,17 @@ ele ainda não tem leitura de 12 h. O esqueleto novo quebra o `39 de 39` idênti
 de propósito: ritmo e esqueleto são a mesma mudança de forma, e com a forma nova
 o aviso do portão `variedade` para de aparecer.
 
+**E ESTA ÚLTIMA FRASE CAIU EM 12/10 ÀS 20:1x, medida pelo próprio portão.** Ele
+avisou que o `labtreinamento-s022` seria a **SEXTA peça idêntica** em
+`titulo-item-item-titulo-item-item-titulo-item-cta` — as cinco do formato novo de
+hoje usaram todas a mesma sequência. **A forma nova virou molde próprio em um
+dia.** O aviso para de aparecer por UMA peça, não pela forma; depois a forma nova
+repete como a antiga repetia. O `s022` saiu com
+`titulo-item-titulo-item-item-item-titulo-item-cta` e o aviso parou — e **mudar a
+ordem dos layouts não é mexer em limiar, é conteúdo.** A regra que fica: **varie o
+esqueleto a cada peça, e deixe o portão dizer quando ele repetiu**, em vez de
+confiar numa forma por ser nova.
+
 **CORREÇÃO, e é de uma regra que eu escrevi nesta mesma manhã:** eu havia posto
 "dez a CATORZE" sem conferir a sobrecarga. Doze cenas estourariam o teto de 43,1
 só em silêncio, então o teto real no alvo atual é **onze**.
