@@ -584,7 +584,19 @@ def _gate_capitulos(sp):
 
 PISO_LONGO_S = 480     # 8 min: piso duro da rotina
 TETO_LONGO_S = 900     # 15 min, salvo canal escalonado
-SHORT_MIN_S, SHORT_MAX_S = 30, 45
+# O PISO DE 30 s ERA HABITO NOSSO, SEM PROCEDENCIA — baixado a 18 em 12/10.
+#
+# Ele estava aqui como constante nua, sem comentario e sem medicao, e NAO e
+# regra do YouTube: Shorts aceita de ~1 s a 3 min. O teto de 45 (com o 43,1
+# efetivo pela margem) SIM tem procedencia, porque e a faixa de elegibilidade de
+# Short. O piso nao tinha nenhuma, e estava travando a unica coisa que as tres
+# fontes de tendencia apontam e que nunca foi testada: peca curta.
+#
+# 18 e escolhido para dar folga a mira nova do labtreinamento (20 a 26 REAIS,
+# que pedem 24,4 a 31,7 ESTIMADOS com o fator do Piper) sem abrir a porta para
+# peca de cinco segundos entrar por descuido. Se alguem quiser ir abaixo de 18,
+# tem de mexer aqui de proposito e escrever por que.
+SHORT_MIN_S, SHORT_MAX_S = 18, 45
 # Residuo do modelo de voz em SHORT, DEPOIS de corrigido o vies.
 #
 # Esta constante tem uma historia que vale mais que o numero. Ela mudou quatro

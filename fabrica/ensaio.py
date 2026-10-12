@@ -335,8 +335,46 @@ ALVO_SHORT = (41.5, 43.0)
 # outros dois canais e lá a leitura de 12 h ainda nao existe. Mexer no global
 # apagaria o braco inteiro para consertar um canal. Override por canal preserva
 # os dois.
+# =====================================================================
+# MUDANCA DE 12/10 15:3x — O DONO TOMOU A TRAVA E ME DEU O CONTROLE
+#
+# Palavras dele: *"tome decisoes importantes pra revertermos, mudando ate o
+# formato, estilo do canal, tipo de conteudo, etc. Assuma o controle"*. Isso
+# LEVANTA explicitamente a trava que dizia "rodada de construcao nao mexe em
+# ALVO_POR_CANAL". A trava existia porque limiar sem procedencia e critério
+# inventado — e a procedencia agora existe e esta escrita abaixo.
+#
+# POR QUE ENCURTAR, e sao TRES fontes, nenhuma minha:
+#   1. o nosso proprio `chart=mostPopular` (categoria 26, PROXY, 610), lido em
+#      09/10: o que tem milhoes de views dura 10 a 35 s, com MEDIANA DE 26 s NO
+#      BR. Os nossos estavam em 29 a 42 s — ACIMA do topo dessa faixa;
+#   2. o playbook externo (`references/shorts-playbook.md`): faixa boa de 15 a
+#      60 s com PICOS em 13 s e 60 s;
+#   3. e o fato que decide: em 161 pecas, NENHUMA rompeu (713). A melhor da
+#      historia fez 1.614 views. Volume ja foi testado e nao rompe; duracao
+#      curta NUNCA foi testada. O item "short de 22 a 26 s" estava na fila da
+#      rotina como "nao iniciado" havia dias, travado por mim.
+#
+# E a faixa e de duracao REAL, nao estimada (711/712): com o Piper no pt-BR
+# (fator 0,821) isso pede estimativa de 24,4 a 31,7 s. Use
+# `estimativa_para_real(alvo, voz)`, nunca a faixa crua.
+#
+# O QUE EU NAO MEXI, e vai dito: `ALVO_SHORT` global continua 41,5 a 43,0. O
+# experimento 38 segue sem leitura nos outros dois canais, e mexer no global
+# apagaria o braco — a mesma razao do 698. Esta mudanca e DE UM CANAL.
+#
+# A LEITURA QUE A DECIDE: se as pecas de 20-26 s nao romperem em ~10 pecas,
+# duracao nao e a alavanca e o proximo item e o CONTEUDO (ver
+# `docs/decisoes-12-10.md`). "Romper" aqui e um numero declarado antes: UMA peca
+# acima de 5.000 views, que e 3x a melhor da historia.
+# =====================================================================
 ALVO_POR_CANAL = {
-    "labtreinamento": (33.0, 37.0),   # 682/698, idade casada
+    # 20,0 a 26,0 de duracao REAL. Antes era (33,0 a 37,0) pelo 682/698, e
+    # aquela faixa foi medida em pecas de edge-tts contra OITO pecas antigas do
+    # proprio canal — ela media qual duracao era melhor DENTRO de um regime que
+    # nunca rompeu. Ela nao foi falsificada; ela ficou irrelevante, porque o
+    # alvo deixou de ser "a melhor entre as nossas" e passou a ser "romper".
+    "labtreinamento": (20.0, 26.0),
 }
 
 

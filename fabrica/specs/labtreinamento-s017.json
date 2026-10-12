@@ -1,0 +1,80 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-s017",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#22333B",
+  "c1": "#A4243B",
+  "c2": "#D8973C",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "5% custa",
+  "l2": "o dobro"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Cinco por cento",
+   "sub": "custa mais que dez",
+   "nar": "Cinco por cento pode custar mais que dez.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Porque",
+   "nar": "Desconto à vista é empréstimo seu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E o juro",
+   "nar": "E o juro não depende do tamanho dele.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Depende",
+   "sub": "dos dias que você antecipou",
+   "nar": "Depende dos dias que você antecipou.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dez por cento",
+   "nar": "Dez por cento por sessenta dias: cinco ao mês.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Cinco por cento",
+   "nar": "Cinco por cento por quinze dias: dez ao mês.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O menor",
+   "sub": "custou o dobro",
+   "nar": "O desconto menor custou o dobro.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Então divida",
+   "nar": "Divida sempre o desconto pelo prazo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "inscreva-se",
+   "nar": "Faça a conta no seu orçamento. Inscreva-se.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "bQoujWaY7Hw",
+ "copy": "# labtreinamento-s017\n\n## TITULO\nCinco Por Cento Pode Custar O Dobro De Dez — Quem Decide É O Prazo Que Você Antecipou\n\n## TITULO SHORT\n5% custa mais que 10%\n\n## DESCRICAO\nQuando o cliente pede desconto para pagar à vista, você faz um empréstimo sem perceber — e quem paga juros é você. Isso quase todo mundo já ouviu. O que quase ninguém faz é a parte que decide o custo.\n\nPorque o custo **não está no tamanho do desconto**. Está na relação entre ele e o número de dias que você antecipou.\n\nVeja os dois casos, e eles são reais no dia a dia de quem vende a prazo:\n\n- **dez por cento** de desconto para antecipar **sessenta dias** sai por cerca de **cinco por cento ao mês**;\n- **cinco por cento** de desconto para antecipar **quinze dias** sai por cerca de **dez por cento ao mês**.\n\nO desconto que parece metade do outro custou **o dobro**. E ele não aparece em lugar nenhum: desconto não gera fatura, não gera extrato e não entra na sua contabilidade como despesa financeira. Ele só aparece se você fizer a conta.\n\nA conta é proporção, e cabe de cabeça: pegue o juro do período e passe para o mês — multiplique por trinta e divida pelos dias que você antecipou. Se antecipou trinta dias, o número já está pronto. Se antecipou sessenta, divida por dois. Se antecipou quinze, multiplique por dois.\n\nO teste que fecha isso vale cinco minutos e é no seu próprio papel: abra o último orçamento em que você deu desconto para pagamento à vista, veja quantos dias aquilo antecipou de verdade, e faça a proporção. O número que sair é o juro que você cobrou de si mesmo.\n\nEste short não cita a taxa de antecipação de recebíveis de nenhum banco: essa muda, e é exatamente o número que não deve morar num short. Compare com a sua, no seu aplicativo.\n\nNo vídeo completo: a conta passo a passo, por que se divide por noventa e não por cem, os três casos em que vale dar o desconto mesmo assim, e por que desconto padrão na tabela é pior que desconto negociado.\n\n## COMENTARIO FIXADO\nO detalhe que faz esse erro sobreviver é que o desconto não deixa rastro: não há fatura, não há extrato, não há linha de despesa financeira. Então o custo existe e ninguém o vê. E a parte contraintuitiva é a proporção — dois descontos de tamanhos bem diferentes podem custar a mesma coisa, ou se inverter, só pelo prazo. De propósito não coloquei aqui a taxa de antecipação de nenhum banco: essa muda, e a comparação que importa é com a sua. Conta nos comentários: no seu último orçamento com desconto à vista, quantos dias você antecipou, e quanto deu a proporção?\n\n## HASHTAGS\n#FinancasDaEmpresa #FluxoDeCaixa #LabTreinamento\n\n## TAGS\ndesconto a vista, antecipacao de recebiveis, custo do desconto, juro implicito, fluxo de caixa, precificacao, orcamento, prazo de pagamento, capital de giro, financas para autonomo, financas da pequena empresa, negociacao com cliente, matematica financeira, taxa ao mes, labtreinamento\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nAQUI OS NUMEROS ENTRAM, e isso e MUDANCA DE POLITICA DECLARADA. Nas pecas de\nconformidade eu vinha aplicando \"zero numeral\", que e mais estrito que a regra:\na 640 permite ate TRES quantidades por frase, por extenso. Em conteudo de\ndinheiro o numero E a entrega — tirar o numero tiraria o short. Conferido frase a\nfrase, por extenso, no maximo tres por frase.\n\nE ELES NAO ENVELHECEM, que e o que a regra (g) de fato protege: nao ha taxa,\nindice, aliquota, limite anual nem data de vigencia. Sao os numeros de um EXEMPLO\naritmetico (dez por cento, cinco por cento, sessenta dias, quinze dias), e a\nconta que eles ilustram e a mesma em qualquer ano.\n\nO QUE EU NAO LEVEI: a taxa de antecipacao de recebiveis do banco, que o longo usa\ncomo comparador. ESSA muda, e e exatamente o tipo de numero que a regra (g) manda\ndeixar fora de um short. A peca manda o espectador olhar a dele.\n\nANGULO PRE-DECLARADO PELO PROPRIO ORIGINAL: o short original do\n`labtreinamento-008` usou a divisao por noventa e o prazo de trinta dias, e\nfechou dizendo \"no canal tem a conta com OUTROS PRAZOS\". Este e esse angulo.\nCapitulos usados: \"Prazos diferentes\", \"A regra\", \"Antecipou 60 dias\",\n\"Antecipou 15 dias\", \"Repare\" e \"O que pesa\" do longo `bQoujWaY7Hw`.\n\nFAMILIA: PROPORCAO COM O PRAZO — a entrada errada e comparar dois descontos pelo\nTAMANHO quando o que decide e a razao entre o desconto e os dias antecipados.\n\nESTA PECA MUDA TRES COISAS DE UMA VEZ, e o confundidor vai declarado: duracao\n(20 a 26 s REAIS contra 29 a 42 das 161 anteriores), conteudo (dinheiro proprio\ncontra conformidade) e politica de numero. Se ela romper, eu NAO saberei qual das\ntres pesou — e isso e aceito de proposito, porque o que esta em jogo nao e medir\num efeito de 25%, e descobrir se existe rompimento. Ver\n`docs/decisoes-12-10.md`.\n\nA LEITURA DECLARADA ANTES: romper e UMA peca acima de 5.000 views, 3x a melhor\nda historia da frota (1.614).\n\n## FONTES\nO longo de onde este short foi extraido (`labtreinamento-008`, `bQoujWaY7Hw`)\ncarrega a conta inteira. Este short NAO introduz numero novo sobre o mundo — os\nnumeros dele sao de um exemplo aritmetico, nao medidas do mundo — entao nao exige\nfonte institucional nova.\n"
+}
