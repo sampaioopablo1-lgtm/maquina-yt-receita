@@ -607,6 +607,18 @@ async def vozes(cenas, voz, pref, d):
                 except OSError:
                     pass
                 if tentativa == 2:
+                    # FALLBACK, e so depois das tres tentativas do edge-tts.
+                    # Em 12/10/2026 o edge-tts passou a devolver 403 no
+                    # handshake DO RUNNER (runs 38198672898 e 38202568056,
+                    # versao 7.2.8, duas vozes) e a maquina parou de produzir
+                    # em qualquer lugar. O Piper e neural, offline e sem
+                    # chave. Ele entra aqui embaixo de proposito: se o
+                    # edge-tts voltar, a frota volta sozinha a voz original.
+                    import voz_piper as VP
+                    if VP.disponivel() and VP.sintetiza(
+                            c["nar"], voz, alvo, ffmpeg_bin()):
+                        print(VP.aviso_de_calibracao(voz), flush=True)
+                        break
                     raise
 
 

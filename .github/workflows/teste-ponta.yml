@@ -45,7 +45,10 @@ jobs:
       # teste que diverge do de producao testa outra coisa.
       - name: Instalar o que o render usa
         run: |
-          pip install -q edge-tts cairosvg pydantic pillow imageio-ffmpeg
+          # piper-tts entra junto: e o fallback de narracao, e um teste que
+          # nao o instala nao exercita o caminho que a producao vai usar
+          # enquanto o edge-tts estiver em 403.
+          pip install -q edge-tts cairosvg pydantic pillow imageio-ffmpeg piper-tts
           sudo apt-get update -qq
           sudo apt-get install -y -qq ffmpeg fonts-dejavu-core fonts-noto-core
 
