@@ -1,0 +1,104 @@
+name: Teste de ponta a ponta — render completo, SEM publicar
+
+# POR QUE ISTO EXISTE (12/10/2026). O dono pediu um teste de ponta a ponta com
+# um short curto. Ele exercita tudo que a producao exercita — roteiro, voz,
+# SVG, camadas, motion, legenda queimada, montagem, copy e os portoes de
+# imagem — e PARA antes do upload.
+#
+# Parar antes do upload nao e cautela vazia: publicar um video de tres
+# segundos num canal que esta tentando passar pelo portao de conteudo
+# INAUTENTICO do YPP e exatamente a peca que esse portao existe para barrar. E
+# o upload ja foi provado em producao no run 38175747708
+# (epomeno-epipedo-s016 = 6TNDVugoz5I), entao repeti-lo aqui nao acrescenta
+# evidencia nenhuma e acrescenta risco.
+#
+# O `prontidao` roda e e ESPERADO que o portao `duracao` reprove: o teste e
+# mais curto que o piso de 30 s. Isso NAO e falha do teste — e a prova de que
+# o portao funciona. O passo captura a saida em vez de abortar, e o resumo diz
+# quais portoes passaram e qual reprovou, com o motivo.
+
+on:
+  workflow_dispatch:
+    inputs:
+      segundos:
+        description: "Duracao alvo do short de teste (so para o relato)"
+        type: string
+        default: "3"
+
+permissions:
+  contents: read
+
+jobs:
+  testar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Instalar o que o render usa
+        run: |
+          python3 -m pip install -q cairosvg edge-tts imageio-ffmpeg
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu
+
+      - name: Gerar a spec de teste
+        run: python3 fabrica/teste_ponta.py /tmp/teste/spec.json
+
+      - name: Portoes (o `duracao` DEVE reprovar — o teste e curto de proposito)
+        run: |
+          set +e
+          python3 fabrica/prontidao.py /tmp/teste/spec.json > /tmp/teste/portoes.txt 2>&1
+          echo "exit=$? (2 = algum portao travou, esperado neste teste)"
+          cat /tmp/teste/portoes.txt
+          # Nao propaga o exit: o relato dos portoes E o resultado deste passo.
+          exit 0
+
+      - name: Renderizar
+        run: |
+          set -o pipefail
+          cd /tmp/teste
+          python3 "$GITHUB_WORKSPACE/fabrica/etapas.py" /tmp/teste/spec.json 2>&1 | tail -40
+
+      - name: Conferir a imagem do que saiu
+        run: |
+          set +e
+          V=$(find /tmp/teste -name "*.mp4" | head -1)
+          echo "video: $V"
+          if [ -z "$V" ]; then echo "::error::nenhum mp4 foi produzido"; exit 1; fi
+          ffprobe -v error -show_entries format=duration,size -of default=nw=1 "$V"
+          python3 - "$V" <<'FIM'
+          import sys, statistics, subprocess, re
+          sys.path.insert(0, "fabrica")
+          import visual as V
+          v = sys.argv[1]
+          for t in (0.3, 1.0, 2.0):
+              q = V.quadro_em(v, t)
+              if q is None:
+                  continue
+              m = V.analisa(q)
+              ok = "OK" if m["margem"] <= V.MAX_MARGEM else "REPROVA"
+              print(f"::notice::t={t}s tinta={m['tinta']*100:.2f}% "
+                    f"margem={m['margem']*100:.2f}% -> {ok}")
+          out = subprocess.run(
+              ["ffmpeg", "-v", "error", "-i", v, "-vf",
+               "fps=10,format=gray,tblend=all_mode=difference,signalstats,"
+               "metadata=print:file=-", "-f", "null", "-"],
+              capture_output=True, text=True).stdout
+          vals = [float(x) for x in re.findall(r"YAVG=([\d.]+)", out)][1:]
+          if vals:
+              print(f"::notice::dinamismo: mediana {statistics.median(vals):.2f} | "
+                    f"congelados {100*sum(1 for x in vals if x<1.0)/len(vals):.0f}% "
+                    f"(metodo do 690/699, escala 0-255)")
+          FIM
+          exit 0
+
+      - name: Guardar o que saiu
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: teste-ponta-a-ponta
+          path: /tmp/teste
+          retention-days: 7
+          if-no-files-found: warn
