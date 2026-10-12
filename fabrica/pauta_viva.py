@@ -39,9 +39,26 @@ desta vez a lista era um arquivo congelado que eu mesmo sabia estar congelado.
     passariam.
 
 Roda no RUNNER, onde o `YT_OAUTH_JSON` vive. Nunca imprime segredo.
+
+**E A UNIDADE DE PAUTA NAO E O LONGO — e o par (LONGO, FAMILIA DE CAPITULO).**
+Medido em 12/10, e isto retrata "a pauta acabou" pela TERCEIRA vez no mesmo dia:
+das 49 origens que as specs consomem, **48 foram usadas UMA vez e uma foi usada
+DUAS** (`h04-UVlVevs` -> `epomeno-epipedo-s002` e `-s006`, as duas publicadas, com
+entradas erradas diferentes: periodo errado numa, media-contra-marginal na outra).
+
+A regra (e) da rotina ja dizia isso em letra — *"a entrada errada vem do capitulo
+que o short ORIGINAL nao usou"* — o que pressupoe que o mesmo longo rende mais de
+um short. Eu tratei cada longo como uso UNICO por HABITO, nao por regra, e com
+~9 capitulos por longo isso deixou a maior parte da pauta parada.
+
+Por isso o relato traz as DUAS contagens: origem sem nenhum short (o que eu
+chamava de "livre") e origem com UM short, que ainda tem capitulo intocado. A
+segunda nao e automatica — precisa de familia diferente e de passar o
+`similaridade` — mas ela existe e eu nao estava olhando.
 """
 from __future__ import annotations
 
+import collections
 import glob
 import json
 import os
@@ -142,6 +159,39 @@ def livres(por_canal: dict, usadas: set) -> dict:
     return fora
 
 
+def por_uso(por_canal: dict, usadas: set) -> dict:
+    """{canal: {"sem_short": [...], "um_short": [...]}} por titulo distinto.
+
+    `um_short` e a pauta que eu nao estava vendo: longo com um short publicado e
+    capitulos intocados. Ela NAO e automatica — exige familia de entrada errada
+    diferente e passar o `similaridade` contra o mesmo canal — mas o precedente
+    existe e esta no ar (`h04-UVlVevs` rendeu `epomeno-epipedo-s002` e `-s006`).
+    """
+    quantos = collections.Counter()
+    for p in glob.glob(os.path.join(RAIZ, "fabrica", "specs", "*.json")):
+        try:
+            sp = json.load(open(p, encoding="utf-8"))
+        except Exception:                                      # noqa: BLE001
+            continue
+        if sp.get("longo_existente"):
+            quantos[sp["longo_existente"]] += 1
+    fora = {}
+    for canal, itens in por_canal.items():
+        grupos = {}
+        for vid, (titulo, _) in itens.items():
+            grupos.setdefault(titulo, []).append(vid)
+        sem, um = [], []
+        for titulo, ids in sorted(grupos.items()):
+            # MAX e nao soma: o grupo de copias do mesmo titulo conta uma vez.
+            n = max((quantos.get(v, 0) for v in ids), default=0)
+            if n == 0:
+                sem.append((titulo, sorted(ids)))
+            elif n == 1:
+                um.append((titulo, sorted(ids)))
+        fora[canal] = {"sem_short": sem, "um_short": um}
+    return fora
+
+
 def main() -> int:
     bruto = os.environ.get("YT_OAUTH_JSON") or ""
     if not bruto.strip():
@@ -175,8 +225,20 @@ def main() -> int:
         for titulo, ids in grupos:
             extra = f" [{len(ids)} COPIAS — valem UMA]" if len(ids) > 1 else ""
             nota(f"  {canal} {ids[0]} {titulo[:70]}{extra}")
-    nota(f"TOTAL: {total_livre} origens livres por titulo distinto, "
-         f"{total_ids} ids, contra {len(usadas)} origens ja usadas por spec")
+    nota(f"TOTAL: {total_livre} origens SEM NENHUM short, {total_ids} ids, "
+         f"contra {len(usadas)} origens ja usadas por spec")
+
+    # A pauta que eu nao estava vendo: longo com UM short e capitulos intocados.
+    U = por_uso(por_canal, usadas)
+    soma_um = sum(len(v["um_short"]) for v in U.values())
+    for canal, d in U.items():
+        if d["um_short"]:
+            nota(f"{canal}: +{len(d['um_short'])} longos com UM short e "
+                 f"capitulos intocados (pauta de SEGUNDO angulo)")
+    nota(f"SEGUNDO ANGULO: {soma_um} longos ja usados UMA vez. A unidade de "
+         f"pauta e (longo, familia de capitulo), nao o longo — precedente no ar: "
+         f"h04-UVlVevs rendeu epomeno-epipedo-s002 e -s006, familias diferentes. "
+         f"NAO e automatico: exige familia nova e passar o similaridade.")
     nota("LIDO DA PLAYLIST DE UPLOADS, ao vivo — nao do retrato de 06/10. "
          "So conta longo DA MAQUINA (titulo no corpus): acervo anterior a "
          "maquina nao e pauta (668). Ressalva que fica: a exclusao de duplicata "

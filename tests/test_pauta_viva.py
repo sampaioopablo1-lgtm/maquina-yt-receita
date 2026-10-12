@@ -150,3 +150,74 @@ def test_o_workflow_passa_o_segredo_e_nada_mais():
     yml = (RAIZ / ".github/workflows/pauta-viva.yml").read_text()
     assert "YT_OAUTH_JSON: ${{ secrets.YT_OAUTH_JSON }}" in yml
     assert "pauta_viva.py" in yml
+
+
+# ---------------------------------------------------------------------------
+# A unidade de pauta e (longo, familia de capitulo) — nao o longo
+# ---------------------------------------------------------------------------
+def test_longo_com_UM_short_ainda_e_pauta():
+    """Retrata "a pauta acabou" pela TERCEIRA vez no mesmo dia.
+
+    Medido em 12/10: das 49 origens que as specs consomem, 48 foram usadas UMA
+    vez e uma foi usada DUAS — `h04-UVlVevs` rendeu `epomeno-epipedo-s002` e
+    `-s006`, as duas PUBLICADAS, com entradas erradas diferentes (periodo errado
+    numa, media-contra-marginal na outra).
+
+    A regra (e) da rotina ja dizia isso em letra: "a entrada errada vem do
+    capitulo que o short ORIGINAL nao usou" pressupoe que o mesmo longo rende
+    mais de um short. Eu tratava cada longo como uso UNICO por HABITO.
+    """
+    r = {"c": {"eZ697VNYCPU": ("usada uma vez", 0),
+               "zzzzzzzzzzz": ("nunca usada", 0)}}
+    d = PV.por_uso(r, set())["c"]
+    assert [t for t, _ in d["um_short"]] == ["usada uma vez"]
+    assert [t for t, _ in d["sem_short"]] == ["nunca usada"]
+
+
+def test_o_PRECEDENTE_de_dois_shorts_do_mesmo_longo_existe_e_esta_no_ar():
+    """A ancora. Se ela cair, o teste acima nao se apoia em nada real."""
+    import glob
+    usos = []
+    for p in glob.glob(str(RAIZ / "fabrica/specs/*.json")):
+        try:
+            sp = json.load(open(p, encoding="utf-8"))
+        except Exception:                                      # noqa: BLE001
+            continue
+        if sp.get("longo_existente") == "h04-UVlVevs":
+            usos.append(Path(p).stem)
+    assert len(usos) >= 2, (
+        f"o precedente de dois shorts do mesmo longo desapareceu ({usos}) — "
+        f"reveja este teste em vez de afrouxa-lo")
+    corpus = set(json.load(open(RAIZ / "fabrica/corpus_publicados.json",
+                                encoding="utf-8"))["titulos"])
+    for nome in usos:
+        sp = json.load(open(RAIZ / "fabrica/specs" / f"{nome}.json",
+                            encoding="utf-8"))
+        curto = sp["copy"].split("## TITULO SHORT\n")[1].split("\n")[0]
+        assert curto in corpus, (
+            f"{nome} nao esta no corpus — o precedente nao foi publicado, "
+            f"entao nao prova nada")
+
+
+def test_origem_usada_DUAS_vezes_sai_dos_dois_baldes():
+    """Nao e "livre" nem "segundo angulo": ja teve dois angulos."""
+    r = {"c": {"h04-UVlVevs": ("usada duas", 0)}}
+    d = PV.por_uso(r, set())["c"]
+    assert d["um_short"] == [] and d["sem_short"] == []
+
+
+def test_grupo_de_copias_conta_UMA_vez_e_nao_somado():
+    """Dez copias do mesmo titulo com um short nao sao dez segundos angulos."""
+    r = {"c": {"eZ697VNYCPU": ("T", 0), "copia_irma": ("T", 0)}}
+    d = PV.por_uso(r, set())["c"]
+    assert len(d["um_short"]) == 1 and d["um_short"][0][1] == ["copia_irma",
+                                                              "eZ697VNYCPU"]
+
+
+def test_o_relato_do_vivo_DIZ_que_o_segundo_angulo_nao_e_automatico():
+    fonte = (RAIZ / "fabrica/pauta_viva.py").read_text()
+    assert "SEGUNDO ANGULO" in fonte
+    assert "NAO e automatico" in fonte
+    assert "similaridade" in fonte, (
+        "o relato tem de lembrar que o segundo angulo passa pelo portao")
+    assert "h04-UVlVevs" in fonte, "o precedente tem de estar nomeado"

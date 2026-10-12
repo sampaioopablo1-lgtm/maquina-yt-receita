@@ -119,6 +119,28 @@ apagar vídeo publicado e apagar as 46 duplicatas. A trava continua.
 o clique no link de consentimento do Google. Ver
 `docs/reautorizar-analytics.md`.
 
+## A UNIDADE DE PAUTA É (LONGO × FAMÍLIA DE CAPÍTULO), não o longo
+
+**Medido em 12/10, e retrata "a pauta acabou" pela TERCEIRA vez no mesmo dia.**
+Das **49** origens que as specs consomem, **48 foram usadas UMA vez e uma foi
+usada DUAS**: `h04-UVlVevs` rendeu `epomeno-epipedo-s002` e `-s006`, as duas
+**publicadas** e com entradas erradas diferentes — período errado numa,
+média-contra-marginal na outra.
+
+**A regra (e) da rotina já dizia isso em letra:** *"a entrada errada vem do
+capítulo que o short ORIGINAL não usou"* pressupõe que o mesmo longo rende mais
+de um short. Eu tratei cada longo como uso **único por HÁBITO, não por regra**, e
+com ~9 capítulos por longo isso deixou a maior parte da pauta parada enquanto eu
+anunciava que ela tinha acabado.
+
+**O que isso NÃO é:** não é licença para repetir. O segundo ângulo exige
+**família de entrada errada diferente** e tem de passar o `similaridade` (≤0,65
+contra o mesmo canal). E não dispensa a regra (f) dentro do mesmo dia.
+
+`fabrica/pauta_viva.py` passou a relatar as **duas** contagens: origem sem nenhum
+short, e origem com **um** short e capítulos intocados. Grupo de cópias do mesmo
+título conta uma vez, e origem já usada duas vezes sai dos dois baldes.
+
 ## REFILAR a pauta exige FONTE, e a fonte está bloqueada na rede — medido em 12/10
 
 **Isto corrige a conclusão da seção seguinte, e é a medição que estava faltando.**
