@@ -35,6 +35,27 @@ nomear o pacote de origem. E convencao, nao garantia. Quando falha, o modulo diz
 que falhou e manda usar o `capitulos.yml` com `legenda=true`, que nao depende de
 convencao nenhuma.
 
+**E ELE DEU FALSO POSITIVO NA PRIMEIRA VEZ QUE EU O USEI PARA ESCOLHER — medido
+as 12:1x de 12/10, uma rodada depois de eu o escrever.** Tres origens do kolejny
+(`MjI4ZGJAhIo`, `SP7Vz8qHdRY`, `Xgt32iH8Ft8`) resolveram para a spec
+`kolejny-poziom`, que e o SLUG DO CANAL e tem dez cenas de longo. E verdade
+conhecida que isso esta errado em pelo menos um caso: o docstring do
+`kolejny-poziom-s017` diz, escrito por mim em 11/10, que o `Xgt32iH8Ft8` e do
+pacote `kp-plan-9233-20260811` e que **nao tem spec em `fabrica/specs/`**. A
+resposta certa ali e None, e o modulo devolvia um pacote.
+
+Duas causas, e as duas tem conserto:
+  1. **o nome casava sem FRONTEIRA**, entao `kolejny-poziom` casava dentro de
+     `kolejny-poziom-s017`. Agora a busca exige que o nome nao seja seguido nem
+     precedido de `-` ou de caractere de palavra;
+  2. **o slug do canal nao e nome de pacote.** A spec homonima do canal e
+     generica ou legada, e por isso ela sai da lista de candidatos.
+
+**E o que sobra de duvida sai MARCADO, nao escondido:** pacote resolvido com
+menos de VINTE cenas de longo vira `suspeito=True`, porque os longos de verdade
+da frota medem **56 a 90 capitulos** e os unicos casos de dez eram esse falso
+positivo. O limiar e observado, nao inventado, e a procedencia esta nesta linha.
+
 **O QUE ELE NAO FAZ, e nao e timidez:** ele nao escolhe capitulo e nao nomeia familia —
 familia. Capitulo e conteudo que vai ao ar, e a familia de entrada errada e
 julgamento — a regra (e) pede ARITMETICA, a (f) pede familia nao repetida no dia,
@@ -51,21 +72,53 @@ from __future__ import annotations
 import glob
 import json
 import os
+import re
 import sys
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SPECS = os.path.join(RAIZ, "fabrica", "specs")
 
 
+# Cenas de longo abaixo disto: nao e longo, e a resolucao vai MARCADA.
+# OBSERVADO na frota — os longos de verdade medem 56 a 90 capitulos, e os unicos
+# casos de dez eram o falso positivo do slug do canal (12/10 12:1x).
+MIN_CAPITULOS_PLAUSIVEL = 20
+
+
+def slugs_de_canal(dir_specs: str = SPECS) -> set:
+    """Os `slug` que as specs declaram. Slug de canal NAO e nome de pacote."""
+    fora = set()
+    for p in glob.glob(os.path.join(dir_specs, "*.json")):
+        try:
+            sp = json.load(open(p, encoding="utf-8"))
+        except Exception:                                   # noqa: BLE001
+            continue
+        if sp.get("slug"):
+            fora.add(str(sp["slug"]))
+    return fora
+
+
 def nomes_de_spec(dir_specs: str = SPECS) -> list:
     """O vocabulario FECHADO: os nomes de spec que existem no repositorio.
 
+    SEM os nomes que sao slug de canal: a spec homonima do canal e generica ou
+    legada, e foi ela que produziu o falso positivo de 12/10 em tres origens.
     Ordenado do mais longo para o mais curto, para que `labtreinamento-010` case
     antes de um hipotetico `labtreinamento-01`.
     """
+    slugs = slugs_de_canal(dir_specs)
     nomes = [os.path.basename(p)[:-5]
              for p in glob.glob(os.path.join(dir_specs, "*.json"))]
-    return sorted(nomes, key=len, reverse=True)
+    return sorted((n for n in nomes if n not in slugs), key=len, reverse=True)
+
+
+def _casa_inteiro(nome: str, texto: str) -> bool:
+    """O nome aparece como identificador INTEIRO, nao como prefixo de outro.
+
+    Sem isto `kolejny-poziom` casa dentro de `kolejny-poziom-s017`.
+    """
+    return re.search(r"(?<![\w-])" + re.escape(nome) + r"(?![\w-])",
+                     texto, re.IGNORECASE) is not None
 
 
 def pacote_do_id(yid: str, dir_specs: str = SPECS) -> str | None:
@@ -80,9 +133,8 @@ def pacote_do_id(yid: str, dir_specs: str = SPECS) -> str | None:
     """
     vocab = nomes_de_spec(dir_specs)
     for nome, copy in shorts_da_origem(yid, dir_specs):
-        baixa = copy.lower()
         for cand in vocab:
-            if cand == nome or cand.lower() not in baixa:
+            if cand == nome or not _casa_inteiro(cand, copy):
                 continue
             if capitulos_do_pacote(cand, dir_specs):
                 return cand
@@ -132,6 +184,7 @@ def nao_mencionados(yid: str, dir_specs: str = SPECS) -> dict:
             continue
         (men if k.lower() in copys else nao).append(k)
     return {"pacote": pacote, "n_capitulos": len(caps),
+            "suspeito": bool(pacote) and 0 < len(caps) < MIN_CAPITULOS_PLAUSIVEL,
             "shorts": [n for n, _ in usados],
             "mencionados": men, "nao_mencionados": nao}
 
@@ -162,8 +215,10 @@ def main() -> int:
             print(f"{yid}: pacote {d['pacote']} sem cenas de longo na spec — "
                   f"use capitulos.yml com legenda=true.")
             continue
+        marca = "  *** SUSPEITO: poucas cenas para um longo — confira com " \
+                "capitulos.yml antes de usar" if d["suspeito"] else ""
         print(f"{yid} | pacote {d['pacote']} | {d['n_capitulos']} capitulos | "
-              f"shorts: {', '.join(d['shorts']) or 'nenhum'}")
+              f"shorts: {', '.join(d['shorts']) or 'nenhum'}{marca}")
         print(f"   mencionados pela copy ({len(d['mencionados'])}): "
               f"{', '.join(d['mencionados'][:6])}")
         print(f"   NAO mencionados ({len(d['nao_mencionados'])}) — indicio, nao "

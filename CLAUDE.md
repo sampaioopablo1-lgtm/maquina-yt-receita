@@ -119,6 +119,33 @@ apagar vídeo publicado e apagar as 46 duplicatas. A trava continua.
 o clique no link de consentimento do Google. Ver
 `docs/reautorizar-analytics.md`.
 
+## O instrumento do segundo ângulo deu FALSO POSITIVO em três origens
+
+**Medido em 12/10 12:1x, na primeira vez que eu usei o `segundo_angulo.py` para
+escolher — uma rodada depois de escrevê-lo.** Três origens do kolejny
+(`MjI4ZGJAhIo`, `SP7Vz8qHdRY`, `Xgt32iH8Ft8`) resolveram para a spec
+`kolejny-poziom`, que é o **slug do canal** e tem dez cenas de longo.
+
+**É verdade conhecida que estava errado em pelo menos um caso:** o docstring do
+`kolejny-poziom-s017`, escrito por mim em 11/10, diz que o `Xgt32iH8Ft8` é do
+pacote `kp-plan-9233-20260811` e que **não tem spec em `fabrica/specs/`**. A
+resposta certa é **None**, e o módulo devolvia um pacote — mandaria a rodada
+seguinte ler capítulo de outro vídeo.
+
+Duas causas, as duas consertadas com teste: o nome casava **sem fronteira**
+(`kolejny-poziom` dentro de `kolejny-poziom-s017`), e **slug de canal não é nome
+de pacote** — a spec homônima do canal é genérica ou legada e saiu do
+vocabulário.
+
+**E A CONTAGEM QUE EU REPORTEI ESTAVA INFLADA.** Eu disse "47 das 49 origens,
+3.282 capítulos". Depois do conserto: **41 resolvidas, 3.057 capítulos**, e **8
+honestamente reportadas como sem convenção** — para essas, a rota é o
+`capitulos.yml` com `legenda=true`. Seis dos 47 eram o falso positivo do slug.
+
+**O que sobra de dúvida sai MARCADO:** pacote com menos de **20** cenas de longo
+vira `suspeito=True`. O limiar é **observado** — os longos de verdade da frota
+medem **56 a 90** capítulos, e os únicos casos de dez eram esse falso positivo.
+
 ## A UNIDADE DE PAUTA É (LONGO × FAMÍLIA DE CAPÍTULO), não o longo
 
 **Medido em 12/10, e retrata "a pauta acabou" pela TERCEIRA vez no mesmo dia.**
