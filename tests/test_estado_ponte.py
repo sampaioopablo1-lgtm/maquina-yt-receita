@@ -102,10 +102,20 @@ def test_o_motivo_da_falha_do_publicar_chega_as_ANOTACOES():
 
 
 def test_o_youtube_id_do_que_foi_publicado_chega_as_ANOTACOES():
-    """Sem isto, quem publica nao descobre o id — run 38217420591."""
+    """Sem isto, quem publica nao descobre o id — run 38217420591.
+
+    ATUALIZADO em 12/10, e o motivo importa: a primeira versao deste teste
+    exigia a string `::notice::PUBLICADO` DENTRO do `retomar.yml`, porque a
+    primeira versao do conserto era um heredoc inline. Ela passou verde num
+    conserto QUEBRADO — o run 38223514079 publicou com `youtube_id=?` porque o
+    heredoc iterava o topo do registro em vez de `linhas`. Testar onde a string
+    mora nao testa que o id sai.
+    Agora o passo chama `fabrica/registro_anota.py`, e QUEM garante o conteudo e
+    `tests/test_registro_anota.py`, contra a forma real do registro.
+    """
     yml = (RAIZ / ".github/workflows/retomar.yml").read_text()
-    assert "::notice::PUBLICADO" in yml
-    assert "youtube_id=" in yml
+    assert "fabrica/registro_anota.py" in yml
+    assert "PYFIM" not in yml, "logica inline no YAML nao tem teste"
 
 
 def test_corpus_sem_a_lista_de_titulos_para_em_vez_de_seguir(tmp_path):

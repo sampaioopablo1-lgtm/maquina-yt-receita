@@ -296,18 +296,12 @@ jobs:
             # nao descobre o youtube_id do que acabou de publicar — foi o que
             # aconteceu com o `kolejny-poziom-s018` no run 38217420591.
             # O registro NAO tem segredo: e youtube_id, titulo e duracao.
-            python3 - <<'PYFIM'
-          import json
-          r = json.load(open('/tmp/registro.json'))
-          itens = r if isinstance(r, list) else [r]
-          for it in itens:
-              if not isinstance(it, dict):
-                  continue
-              print(f"::notice::PUBLICADO {it.get('pacote') or ''} "
-                    f"{it.get('formato') or ''} youtube_id="
-                    f"{it.get('youtube_id') or it.get('id') or '?'} "
-                    f"titulo={(it.get('titulo') or '')[:120]}", flush=True)
-          PYFIM
+            # O parsing vive em `fabrica/registro_anota.py`, NAO aqui. A
+            # primeira versao disto era um heredoc inline e saiu ERRADA —
+            # iterava o topo do registro em vez de `linhas`, e o run
+            # 38223514079 publicou com `youtube_id=?` na anotacao. Logica
+            # dentro do YAML nao tem teste; em modulo, falha na suite.
+            python3 fabrica/registro_anota.py /tmp/registro.json
           else
             echo "::warning::nao houve registro — nada foi publicado"
           fi
