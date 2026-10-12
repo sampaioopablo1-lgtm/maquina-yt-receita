@@ -1,0 +1,92 @@
+{
+  "slug": "labtreinamento",
+  "pacote": "labtreinamento-s013",
+  "idioma": "pt-BR",
+  "voz": "pt-BR-ThalitaMultilingualNeural",
+  "trilha": "Inspired",
+  "paleta": {
+    "ink": "#22333B",
+    "c1": "#A4243B",
+    "c2": "#D8973C",
+    "bg": "#F4F1EA"
+  },
+  "thumb": {
+    "l1": "Multiplique",
+    "l2": "não some"
+  },
+  "longo": [],
+  "longo_existente": "StQNFMdpGdk",
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Sua planilha de riscos",
+      "sub": "tem duas notas",
+      "nar": "A sua planilha de riscos tem duas notas.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Probabilidade",
+      "nar": "Uma é probabilidade, de um a cinco.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Severidade",
+      "nar": "A outra é severidade, de um a cinco.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "O nível",
+      "nar": "O nível sai das duas, e aqui mora o erro.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Média",
+      "sub": "é a conta errada",
+      "nar": "Muita gente tira a média das duas notas.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Quatro e quatro",
+      "nar": "Duas notas quatro: a média devolve quatro.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "A conta certa",
+      "nar": "Mas o nível é multiplicação, não média.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Dezesseis",
+      "nar": "Quatro vezes quatro dá dezesseis.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "A linha muda de lugar",
+      "nar": "A mesma linha pula de faixa inteira.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Abra a coluna nível",
+      "sub": "e confira o sinal",
+      "nar": "Abra a coluna nível e confira o sinal agora.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "LabTreinamento",
+      "sub": "inscreva-se",
+      "nar": "Se isso te poupou uma discussão, inscreva-se.",
+      "sem_cap": true
+    }
+  ],
+  "copy": "# labtreinamento-s013\n\n## TITULO\nNa Planilha De Riscos, O Nível Sai De Uma Multiplicação — E Quase Todo Mundo Tira Média\n\n## TITULO SHORT\nMultiplique as duas notas, não some\n\n## DESCRICAO\nNa planilha de riscos psicossociais, cada linha recebe duas notas: probabilidade e severidade, cada uma de um a cinco. Probabilidade é a frequência da exposição — nota baixa é situação rara, nota alta é situação presente na rotina, para o grupo inteiro. Severidade é o tamanho da consequência — de desconforto pontual até afastamento, acidente ou saída de gente boa.\n\nO erro que mais aparece é somar as duas e dividir, ou seja, tirar a **média**. Parece inofensivo porque o resultado continua dentro da escala e a planilha não reclama. Mas a média comprime tudo em direção ao meio: duas notas quatro devolvem quatro, enquanto a multiplicação devolve dezesseis. É a mesma linha, com as mesmas duas notas, mudando de faixa inteira.\n\nE a faixa é o que organiza o plano de ação. Se a linha cai mais embaixo do que deveria, ela não entra na fila das primeiras — e o risco que mais pesa fica esperando atrás de coisas menores, sem que ninguém tenha decidido isso.\n\nA conta certa é a multiplicação. Na coluna de nível: igual, célula da probabilidade, asterisco, célula da severidade. Vale também travar as duas colunas de nota com validação de dados aceitando só número inteiro, porque uma nota quebrada digitada por engano faz a classificação parar de fechar sem avisar.\n\nEste short não cita nenhum corte de faixa, e isso é deliberado: o próprio vídeo completo diz que esses cortes são escolha da empresa e que a norma não os dita. Repetir uma escolha como se fosse exigência seria transformar a nossa invenção em norma. O que não envelhece é a aritmética — nível é produto, não média.\n\nA planilha completa, com as quatro abas, o inventário, a matriz e o plano de ação, está no vídeo completo do canal.\n\n## COMENTARIO FIXADO\nO detalhe que faz esse erro sobreviver tanto tempo é que ele não quebra nada: a média devolve um número dentro da escala, a célula fica verde, e ninguém recebe aviso. Só aparece no dia em que alguém pergunta por que a linha mais pesada não estava no topo do plano. Vale uma conferência de trinta segundos: clique numa célula da coluna de nível e olhe a barra de fórmulas. Se tiver MÉDIA, ou uma soma dividida por dois, é esse caso. Se tiver asterisco entre as duas células, está certo. De propósito não citei aqui nenhuma faixa de corte: o vídeo de origem diz com todas as letras que esses cortes são critério da empresa e não da norma, e eu não vou repetir escolha alheia como se fosse exigência. Se a sua planilha já estava multiplicando, conta nos comentários quem montou — vale saber se veio de modelo pronto ou de gente da casa.\n\n## HASHTAGS\n#NR1 #RiscosPsicossociais #LabTreinamento\n\n## TAGS\nriscos psicossociais, planilha de riscos, probabilidade e severidade, matriz de risco, nivel de risco, plano de acao, inventario de riscos, validacao de dados excel, formula de multiplicacao, gestao de riscos ocupacionais, lab treinamento, seguranca do trabalho, avaliacao de riscos, erro de planilha, classificacao de risco\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nA REGRA (g) MANDA AQUI, no caso especial: o proprio longo de origem diz que os\ncortes que separam baixo, medio, alto e critico sao ESCOLHA DA EMPRESA e que a\nnorma nao os dita. Numero que o longo declara ser escolha, e nao norma, NAO\nentra no short de jeito nenhum. Por isso a peca diz que a linha \"pula de faixa\ninteira\" sem citar faixa nenhuma.\n\nO QUE A PECA CARREGA, e nao envelhece: nivel e PRODUTO das duas notas, nao\nmedia. A aritmetica nao muda com edicao de norma.\n\nNUMERAIS: a escala de um a cinco e o exemplo quatro vezes quatro igual a\ndezesseis vem do proprio longo, e vao POR EXTENSO na narracao. Conferido campo\na campo: nenhum digito cru na narracao.\n\nDESCARTADO, e vai escrito:\n  (1) os cortes de faixa — o longo diz que sao criterio da empresa;\n  (2) datas de vigencia da norma — mudam;\n  (3) numero de abas e de colunas da planilha — detalhe de implementacao, nao\n      e a regra que o short carrega.\n\n## FONTES\nNao ha numero novo sobre o mundo nesta peca. A escala e a aritmetica saem do\nlongo ja publicado StQNFMdpGdk, capitulos \"Duas notas\", \"Probabilidade\",\n\"Severidade\" e \"A formula do nivel\". Short de longo ja publicado que nao\nintroduz numero novo nao exige fonte institucional nova.\n"
+}
