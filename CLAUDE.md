@@ -5,6 +5,57 @@ porque número dentro de prompt envelhece e já me fez errar quatro vezes
 (652/655, 658, 682, 685). Aqui não entra contagem de estoque, nem de views, nem
 de inscritos. Entra onde olhar.
 
+## A PERGUNTA QUE ABRE TODA RODADA — pedido do dono, 12/10/2026
+
+Palavras dele: *"informe quadro dos resultados atuais projeção e tendência, de
+quando o canal irá monetizar, e o que é preciso para isso acontecer até fim de
+outubro, mudanças que precisam ser feitas para ter mais resultados. **Em cada
+rodada da rotina este questionamento precisa ser feito**, e ajustado o processo.
+Não me importo do formato, e sim da monetização principalmente, faça mudanças
+que achar necessário."*
+
+**Isto não se responde de cabeça.** Rode:
+
+    python3 fabrica/porta1.py '{"horas":<h>,"canais":{"<canal>":{"antes":N,"agora":M}}}'
+
+com duas leituras de inscritos separadas por **≥ 4 h** (regra H, 686 — abaixo
+disso o degrau devolve ruído). O módulo recusa janela curta em vez de inventar.
+
+**O quadro de 12/10 14:35, medido** (leituras de 10/10 22:15 e 12/10 14:35,
+40,3 h):
+
+| canal | inscritos | /dia | % da Porta 1 | chega em |
+|---|---|---|---|---|
+| labtreinamento | **68** | +0,60 | 13,6% | **2028-10-06** |
+| epomeno-epipedo | **19** | +1,19 | 3,8% | **2027-11-20** |
+| kolejny-poziom | **8** | 0,00 | 1,6% | **nunca** |
+
+Frota inteira: **+1,79 inscrito/dia.**
+
+**A FRASE QUE DECIDE TUDO, e ela é aritmética, não pessimismo: as duas datas
+caem DEPOIS de 1/FEV/2027, quando a barra sobe de 500 para 1.000 inscritos.**
+No ritmo medido a máquina **nunca passa a Porta 1** — a barra se move antes de
+nós chegarmos. Projetar 500 para depois dessa data é prometer uma monetização
+que já não existe, e o `test_porta1.py` falha se eu fizer isso.
+
+**E "até fim de outubro" é impossível por ordem de grandeza, não por pouco.**
+Para fechar os 500 em 19 dias, na conversão MEDIDA de 1,2 por mil:
+**~19.000 views/dia num único canal** — contra ~2.100/dia da frota inteira. É um
+fator 9 no melhor caso, e por canal é pior.
+
+**Logo o volume NÃO é a alavanca, e a conversão é.** O mesmo cálculo a 20 por
+mil pede **1.137 views/dia**, que está dentro do que um canal já faz. Ordem de
+grandeza certa. E a conversão é exatamente o que **não se mede sem os dois
+cliques de consentimento do Google** — por isso essa pendência deixou de ser
+"a mais importante" e passou a ser **a única com o tamanho do problema**.
+
+**O alvo realista, e ele é calculável:** 500 no `labtreinamento` antes de
+1/FEV/2027 são 111 dias e 432 inscritos = **3,9 por dia**. A 5 por mil isso pede
+**~780 views/dia naquele canal** — alcançável com 5 a 7 peças/dia. A 1,2 por mil
+pede 3.245/dia, que não é. **Então o plano é: uma conversão de ~5 por mil e
+ritmo de 5 a 7 peças/dia CONCENTRADAS num canal.** Tudo o mais é otimização de
+coisa que não move o portão.
+
 ## O dinamismo visual — o que mudou em 09/10 e a regra nova
 
 O dono disse que os frames pareciam estáticos. **Medido, e ele estava certo com

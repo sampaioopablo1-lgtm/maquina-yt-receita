@@ -284,6 +284,23 @@ instrumento é `tblend` + `signalstats`.**
 =====================================================================
 3. CORREÇÃO DO MODELO A CADA RODADA — PEDIDO DO DONO, OBRIGATÓRIO
 =====================================================================
+ 0. **O QUADRO DA PORTA 1 — PEDIDO EXPLICITO DO DONO EM 12/10, E ABRE A
+    RODADA.** Palavras dele: *"informe quadro dos resultados atuais projecao e
+    tendencia, de quando o canal ira monetizar, e o que e preciso para isso
+    acontecer ate fim de outubro, mudancas que precisam ser feitas para ter mais
+    resultados. **Em cada rodada da rotina este questionamento precisa ser
+    feito**, e ajustado o processo. Nao me importo do formato, e sim da
+    monetizacao principalmente, faca mudancas que achar necessario."*
+    **NAO responda de cabeca.** Rode
+    `python3 fabrica/porta1.py '{"horas":<h>,"canais":{...}}'` com duas leituras
+    de inscritos separadas por >= 4 h (regra H). O modulo RECUSA janela curta.
+    O quadro sai no relato final, com as tres ressalvas que ele proprio imprime.
+    **E confronte a data projetada com 1/FEV/2027**, quando a barra sobe de 500
+    para 1.000: projecao que passa dessa data NAO fecha a Porta 1.
+    Medido em 12/10: nenhum canal chega antes dela, e "ate fim de outubro" pede
+    ~19.000 views/dia num canal contra ~2.100/dia da frota. **Volume nao e a
+    alavanca; conversao e.**
+
  1. **MEDIR, COLETANDO PRIMEIRO.** Token por `pg_net` (`Content-Type:
     application/json` EXATO; o body vai como `jsonb_build_object`). **O PAR
     client_id/client_secret É DA PRÓPRIA LINHA `yt_token_<canal>` de `config`,
