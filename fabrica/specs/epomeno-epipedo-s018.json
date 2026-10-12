@@ -1,0 +1,99 @@
+{
+ "slug": "epomeno-epipedo",
+ "pacote": "epomeno-epipedo-s018",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#16283C",
+  "c1": "#2E7BB4",
+  "c2": "#E0A02E",
+  "bg": "#F3F7FA"
+ },
+ "thumb": {
+  "l1": "Μόνο η",
+  "l2": "κορυφή"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Σου δίνουν μπόνους",
+   "sub": "και φοβάσαι το σκαλοπάτι",
+   "nar": "Σου δίνουν μπόνους και φοβάσαι το σκαλοπάτι.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ο φόβος",
+   "preco": "βγαίνει λάθος",
+   "nar": "Ο φόβος λέει πως θα βγεις χαμένος συνολικά.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Η κλίμακα",
+   "preco": "δεν είναι ένας φόρος",
+   "nar": "Η κλίμακα δεν φορολογεί τα πάντα μαζί.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Κάθε κομμάτι",
+   "sub": "στο δικό του σκαλοπάτι",
+   "nar": "Κάθε κομμάτι πληρώνει το δικό του σκαλοπάτι.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Άρα",
+   "preco": "μόνο η κορυφή",
+   "nar": "Ακριβαίνει μόνο το κομμάτι πάνω από το όριο.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Τα από κάτω",
+   "preco": "δεν αγγίζονται",
+   "nar": "Όσα είχες από κάτω μένουν όπως ήταν.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Δηλαδή",
+   "sub": "δεν χάνεις ποτέ",
+   "nar": "Δηλαδή δεν παίρνεις ποτέ λιγότερα από πριν.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Το μπόνους",
+   "preco": "αξίζει πάντα",
+   "nar": "Το μπόνους αξίζει πάντα να το πάρεις.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Απλώς",
+   "preco": "όχι ολόκληρο",
+   "nar": "Απλώς δεν φτάνει ολόκληρο στην τσέπη σου.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Μην αρνηθείς",
+   "sub": "υπολόγισε το καθαρό",
+   "nar": "Μην το αρνηθείς. Υπολόγισε το καθαρό του.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Επόμενο Επίπεδο",
+   "sub": "κάνε εγγραφή",
+   "nar": "Αν σου έλυσε μια απορία, κάνε εγγραφή.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "eZ697VNYCPU",
+ "copy": "# epomeno-epipedo-s018\n\n## TITULO\nΤο Μπόνους Δεν Σε Ζημιώνει: Στην Κλίμακα Ακριβαίνει Μόνο Το Κομμάτι Πάνω Από Το Όριο\n\n## TITULO SHORT\nΜην αρνηθείς το μπόνους\n\n## DESCRICAO\nΟ φόβος του σκαλοπατιού είναι ο πιο ακριβός παρεξηγημένος κανόνας στη φορολογία μισθωτού — και είναι ακριβός με τον χειρότερο τρόπο, γιατί δεν σου παίρνει χρήματα: σε κάνει να **αρνηθείς** χρήματα.\n\nΗ λογική του λάθους είναι απλή και λανθασμένη: «αν περάσω στο επόμενο σκαλοπάτι, όλο το εισόδημά μου θα φορολογηθεί με τον νέο, μεγαλύτερο συντελεστή, άρα μπορεί να βγω χαμένος». Από εκεί προκύπτουν οι αποφάσεις που κοστίζουν: αρνούμαι υπερωρίες, ζητώ να πάρω το μπόνους τον επόμενο χρόνο, διστάζω για μια αύξηση.\n\n**Η κλίμακα δεν δουλεύει έτσι.** Δεν φορολογεί όλο το εισόδημα με έναν συντελεστή. Κάθε κομμάτι του εισοδήματος πληρώνει το δικό του σκαλοπάτι: ό,τι είχες από κάτω μένει ακριβώς όπως ήταν, και ο νέος, μεγαλύτερος συντελεστής πιάνει **μόνο** τη φέτα που ξεπερνά το όριο.\n\nΑπό αυτό βγαίνει το συμπέρασμα που λύνει το ζήτημα μια και καλή: περνώντας σκαλοπάτι δεν παίρνεις ποτέ λιγότερα απ' ό,τι έπαιρνες πριν. Το μπόνους και η υπερωρία αξίζουν πάντα — απλώς δεν φτάνουν ολόκληρα στην τσέπη, και αυτό είναι άλλο πράγμα από το «βγαίνω χαμένος».\n\nΑυτό το short δεν αναφέρει επίτηδες ούτε συντελεστές, ούτε όρια σκαλοπατιών, ούτε ποσά, ούτε ηλικιακές ομάδες, ούτε ημερομηνίες: όλα αυτά αλλάζουν με νόμο, και είναι στο πλήρες βίντεο μαζί με την πηγή τους. Η αριθμητική της προοδευτικής κλίμακας δεν αλλάζει.\n\nΣτο πλήρες βίντεο: τα τρία νούμερα της απόδειξης πληρωμής, η κλίμακα με τα όρια και τους συντελεστές του έτους, γιατί δύο συνάδελφοι με τον ίδιο μισθό παίρνουν άλλα καθαρά, οι τρεις παγίδες που εξανεμίζουν το όφελος, και το σχέδιο για να μη σου γλιστρήσει.\n\n## COMENTARIO FIXADO\nΤο λάθος αυτό δεν σου παίρνει χρήματα — σε κάνει να αρνηθείς χρήματα, και γι' αυτό επιβιώνει τόσο: κανένα χαρτί δεν σου έρχεται να σου πει τι έχασες. Η αριθμητική σε μία γραμμή: ο νέος συντελεστής πιάνει μόνο τη φέτα πάνω από το όριο, όχι όλο το εισόδημα, άρα περνώντας σκαλοπάτι δεν παίρνεις ποτέ λιγότερα από πριν. Το μπόνους αξίζει πάντα· απλώς δεν φτάνει ολόκληρο. Επίτηδες δεν έβαλα εδώ ούτε συντελεστή ούτε όριο: αλλάζουν με νόμο και είναι στο βίντεο με την πηγή τους — αυτό που δεν αλλάζει είναι ο τρόπος που δουλεύει η κλίμακα. Γράψτε αν σας έτυχε να διστάσετε για υπερωρία ή μπόνους γι' αυτόν τον λόγο: μαζεύω πραγματικά περιστατικά.\n\n## HASHTAGS\n#Φόροι #Μισθός #ΕπόμενοΕπίπεδο\n\n## TAGS\nforologiki klimaka, oriako skalopati, bonus kai foros, yperories foros, parakratisi forou, apodeixi pliromis, mikto kai kathara, progressive klimaka, foros misthoton, skalopati eisodimatos, epomeno epipedo, oikonomika ellada, misthodosia, arithmitiki tou forou, dilosi eisodimatos\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, ZERO DIGITO e ZERO NUMERAL na narracao.\nConferido a mao campo por campo. Nem ordinal de contagem entrou: \"το επόμενο\nσκαλοπάτι\" e nao \"το δεύτερο\", porque ordinal ja e quantidade e o portao\n`narracao` conta quantidades por frase sem ver digito cru.\n\nA REGRA (g) MANDA, e o longo e feito de numero com data colada. Ficaram FORA: o\nsalario minimo bruto e liquido, os 148 euros de desconto, a data de vigencia do\nminimo, os seis degraus e cada aliquota deles, as aliquotas do ano anterior, os\nlimites de cada degrau, as faixas de idade e o imposto zero delas, os liquidos\ncomparados entre colegas, os ganhos por faixa de renda, os valores mensais, o\nacumulado de cinco anos, o plano de noventa dias e o limite das despesas\neletronicas. Todos mudam por lei ou por ato do ministerio.\n\nO QUE A PECA CARREGA, e nao envelhece: numa escala progressiva a aliquota do\ndegrau novo incide SO na fatia acima do limite, nunca no rendimento inteiro.\nLogo passar de degrau nao faz ninguem receber menos, e o bonus vale sempre — so\nnao vale inteiro. Esta escrito com todas as letras no longo `eZ697VNYCPU`:\n\"η κλίμακα δεν φορολογεί όλο το εισόδημα με έναν συντελεστή. Κάθε κομμάτι\nπληρώνει το δικό του σκαλοπάτι\" e \"το μπόνους αξίζει πάντα, απλώς όχι\nολόκληρο\".\n\nPOR QUE ESTA FAMILIA E A CERTA, e nao e estetica: esta entrada errada nao faz a\npessoa pagar imposto a mais — faz ela RECUSAR dinheiro. Quem acha que o degrau\nincide no total recusa hora extra e pede para adiar o bonus. O custo e invisivel\ne voluntario, e e isso que mantem o erro vivo.\n\n## FONTES\nO longo de onde este short foi extraido (`eZ697VNYCPU`, de 11/08) declara que os\nnumeros dele vem da lei e dos textos oficiais do ministerio. Este short NAO\nintroduz numero novo sobre o mundo, entao nao exige fonte institucional nova.\n\nNOTA DE PROCEDENCIA, porque esta origem e a primeira do seu tipo: o longo NAO tem\nspec no repositorio. Os capitulos sairam da descricao publicada (regra h) e o\nTEXTO saiu da faixa de legenda que a propria maquina subiu — 75 falas, 9.249\ncaracteres, lidos no run do `capitulos.yml` com `legenda=true`. Nenhuma frase\ndesta peca foi inferida de titulo de capitulo.\n"
+}
