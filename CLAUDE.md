@@ -746,6 +746,40 @@ novos, ancorados nesta série e no caso do 688 (que continua dando `fresca`).
 **A linha de `metricas` de uma rodada de pico NÃO se apaga** — ela é o que a API
 disse; o que se corrige é a leitura que se faz dela.
 
+### E UMA HORA DEPOIS O 720 CAIU — aprendizado 721, `crítico`
+
+**Medido às 21:1x, pelo `veredito_do_pico` que eu acabara de escrever para
+sustentar o 720.** Ele devolveu **"fresca" nas quatro peças**:
+
+| peça | 17:10 | 18:21 | 19:11 | **20:11** | 21:1x |
+|---|---|---|---|---|---|
+| `MjeP-_yDni4` | 20 | 20 | 24 | **20** | **40** |
+| `O1PNIRYoeGY` | 1 | 1 | 7 | **1** | **10** |
+| `xhPyfHdTwds` | 0 | 2 | 8 | **2** | **8** |
+| `nUrSPWKHy8I` | — | 114 | 115 | 122 | 122 |
+
+**O 8 do `xhPyfHdTwds` VOLTOU, idêntico, nas três chamadas das 21:1x.** View não
+ressuscita — logo o 8 das 19:11 era verdade, e **a rodada das 20:11 INTEIRA, as
+três chamadas, caiu na réplica atrasada.** Não houve pico nenhum.
+
+**O 708 era mais forte do que eu entendi:** a réplica atrasada não é só da
+CHAMADA, ela pode ser da **RODADA**. E a consequência é dura — **três chamadas de
+acordo NÃO são evidência de verdade.** Concordância dentro da rodada mede uma
+coisa só: que as três caíram na mesma partição.
+
+**O discriminador não está dentro da rodada, está no TEMPO: o contador de view
+não desce.** Leitura mais nova abaixo de leitura mais velha é a **nova** que está
+atrasada, em qualquer rodada e com qualquer concordância. No código:
+`replica.monotonia(serie)` acusa a rodada atrasada peça por peça —
+nos dados reais ele aponta **só o `20:11`, nas três peças** — e
+`replica.piso_por_rodadas(serie)` dá o piso que de fato vale (8, não 2). Vinte
+testes, cinco novos, e um deles **falha se o 720 voltar**.
+
+**O que sobrevive do 720:** a palavra "piso" continua caindo para o máximo de UMA
+rodada, e moda e máximo seguem indistinguíveis dentro dela. **O que cai é a
+acusação de pico.** Duas retratações minhas em noventa minutos, e as duas pelo
+instrumento, não por eu reler.
+
 ## A credencial do GitHub ENTRA em sessão rodando — eu afirmei o contrário o dia todo
 
 **Aprendizado de 11/10, e é uma RETRATAÇÃO minha.** Eu escrevi aqui e na rotina

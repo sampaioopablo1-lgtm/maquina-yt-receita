@@ -143,3 +143,63 @@ def test_moda_sem_maioria_cai_no_maximo_e_deixa_para_a_rodada_seguinte():
 
 def test_moda_com_empate_de_frequencia_toma_o_maior():
     assert R.moda([{"a": 5}, {"a": 5}, {"a": 9}, {"a": 9}]) == {"a": 9}
+
+
+# ===========================================================================
+# A RODADA INTEIRA PODE ESTAR ATRASADA — 21:1x de 12/10, e RETRATA o 720.
+# ===========================================================================
+
+_SERIE_12_10 = [
+    ("17:10", {"MjeP-_yDni4": 20, "O1PNIRYoeGY": 1, "xhPyfHdTwds": 0}),
+    ("18:21", {"MjeP-_yDni4": 20, "O1PNIRYoeGY": 1, "xhPyfHdTwds": 2,
+               "nUrSPWKHy8I": 114}),
+    ("19:11", {"MjeP-_yDni4": 24, "O1PNIRYoeGY": 7, "xhPyfHdTwds": 8,
+               "nUrSPWKHy8I": 115}),
+    ("20:11", {"MjeP-_yDni4": 20, "O1PNIRYoeGY": 1, "xhPyfHdTwds": 2,
+               "nUrSPWKHy8I": 122}),
+    ("21:1x", {"MjeP-_yDni4": 40, "O1PNIRYoeGY": 10, "xhPyfHdTwds": 8,
+               "nUrSPWKHy8I": 122}),
+]
+
+
+def test_a_monotonia_aponta_a_rodada_das_20h11_e_nao_a_das_19h11():
+    # O 720 acusou a rodada das 19:11 de ter gravado um PICO. A monotonia diz o
+    # contrario: quem viola e a de 20:11, em TRES pecas. E as 20:11 as tres
+    # chamadas CONCORDARAM — logo concordancia dentro da rodada nao e evidencia.
+    v = R.monotonia(_SERIE_12_10)
+    assert set(v) == {"MjeP-_yDni4", "O1PNIRYoeGY", "xhPyfHdTwds"}
+    for peca, rotulos in v.items():
+        assert rotulos == ["20:11"], (peca, rotulos)
+
+
+def test_o_veredito_do_pico_RETRATA_o_720_com_a_leitura_seguinte():
+    # O instrumento que eu escrevi para sustentar o 720 derruba o 720 quando
+    # recebe a rodada seguinte. Ele tem de continuar fazendo isso.
+    rodada_19h11 = [
+        {"MjeP-_yDni4": 20, "O1PNIRYoeGY": 1, "xhPyfHdTwds": 2, "nUrSPWKHy8I": 114},
+        {"MjeP-_yDni4": 24, "O1PNIRYoeGY": 7, "xhPyfHdTwds": 8, "nUrSPWKHy8I": 115},
+        {"MjeP-_yDni4": 20, "O1PNIRYoeGY": 1, "xhPyfHdTwds": 2, "nUrSPWKHy8I": 114},
+    ]
+    seguinte = dict(_SERIE_12_10[-1][1])
+    v = R.veredito_do_pico(rodada_19h11, seguinte)
+    assert set(v.values()) == {"fresca"}, v
+
+
+def test_piso_por_rodadas_e_o_maximo_no_TEMPO():
+    p = R.piso_por_rodadas(_SERIE_12_10)
+    assert p["xhPyfHdTwds"] == 8     # nao 2, que foi a ultima leitura atrasada
+    assert p["MjeP-_yDni4"] == 40
+    assert p["nUrSPWKHy8I"] == 122
+
+
+def test_peca_ausente_numa_leitura_NAO_viola_a_monotonia():
+    # Ausencia e silencio (o mesmo principio do `piso`). A `xhPyfHdTwds` nao
+    # existe na primeira leitura da serie e isso nao pode contar como queda.
+    serie = [("a", {"x": 10}), ("b", {}), ("c", {"x": 10})]
+    assert R.monotonia(serie) == {}
+
+
+def test_serie_que_so_sobe_nao_tem_violacao():
+    serie = [("a", {"x": 1}), ("b", {"x": 2}), ("c", {"x": 2}), ("d", {"x": 9})]
+    assert R.monotonia(serie) == {}
+    assert R.piso_por_rodadas(serie) == {"x": 9}

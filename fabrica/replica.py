@@ -190,3 +190,72 @@ def veredito_do_pico(leituras_da_rodada: list[dict[str, int]],
         else:
             out[i] = "indeterminado"
     return out
+
+
+# ===========================================================================
+# A RODADA INTEIRA PODE CAIR NA REPLICA ATRASADA — medido as 21:1x de 12/10,
+# e isto RETRATA a conclusao do 720, que eu escrevi uma hora antes.
+# ===========================================================================
+#
+# O 720 dizia que a chamada de soma maxima das 19:11 tinha gravado um PICO,
+# porque as 20:11 as TRES chamadas devolveram o valor da moda anterior. As 21:1x
+# o `veredito_do_pico` — escrito justamente para isso — devolveu **"fresca" nas
+# quatro pecas**:
+#
+#     peca            17:10  18:21  19:11  20:11  21:1x
+#     MjeP-_yDni4        20     20    *24*     20     40
+#     O1PNIRYoeGY         1      1     *7*      1     10
+#     xhPyfHdTwds         0      2     *8*      2      8
+#     nUrSPWKHy8I         -    114    115     122    122
+#
+# O 8 do `xhPyfHdTwds` **voltou**, identico, nas tres chamadas das 21:1x. View
+# nao ressuscita: logo o 8 das 19:11 era verdade, e **a rodada das 20:11 inteira
+# — as tres chamadas — caiu na replica atrasada.**
+#
+# Entao o 708 era mais forte do que eu entendi: a replica atrasada nao e so da
+# CHAMADA, ela pode ser da RODADA. E a consequencia e dura: **tres chamadas de
+# acordo NAO sao evidencia de verdade.** Concordancia dentro da rodada mede uma
+# coisa so — que as tres cairam na mesma particao.
+#
+# O discriminador nao esta DENTRO da rodada, esta no TEMPO: contador de view nao
+# desce. Leitura mais nova abaixo de leitura mais velha e a NOVA que esta
+# atrasada, em qualquer rodada, com qualquer concordancia.
+
+
+def monotonia(serie: list[tuple[str, dict[str, int]]]) -> dict[str, list[str]]:
+    """Viola a monotonia quem? `serie` = [(rotulo, {peca: views}), ...] em ordem.
+
+    Devolve, por peca, os rotulos das leituras que estao ABAIXO de alguma
+    leitura anterior — isto e, as que sao necessariamente de replica atrasada,
+    porque contador de view nao desce.
+
+    Esta e a unica conferencia de replica que NAO depende de concordancia dentro
+    da rodada, e por isso e a que sobrevive ao caso de 20:11, em que as tres
+    chamadas concordaram e as tres estavam atrasadas.
+
+    Peca ausente numa leitura e SILENCIO: ela nao entra como zero e nao conta
+    como violacao.
+    """
+    out: dict[str, list[str]] = {}
+    maximo: dict[str, int] = {}
+    for rotulo, leitura in serie:
+        for peca, v in leitura.items():
+            if peca in maximo and v < maximo[peca]:
+                out.setdefault(peca, []).append(rotulo)
+            maximo[peca] = max(maximo.get(peca, v), v)
+    return out
+
+
+def piso_por_rodadas(serie: list[tuple[str, dict[str, int]]]) -> dict[str, int]:
+    """O maximo de cada peca ao longo das RODADAS — o piso que de fato vale.
+
+    Diferente do `piso`, que olha as tres chamadas de UMA rodada. Aqui o
+    argumento e temporal e nao estatistico: o contador nao desce, entao o maior
+    valor ja observado e um limite inferior sobre a verdade, venha ele da rodada
+    que vier.
+    """
+    out: dict[str, int] = {}
+    for _, leitura in serie:
+        for peca, v in leitura.items():
+            out[peca] = max(out.get(peca, v), v)
+    return out
