@@ -491,6 +491,19 @@ iguais como N observações.
   é o efeito (D) da rotina, e foi o que viciou as minhas leituras anteriores
   deste canal.
 
+  **E ISSO TAMBÉM SAIU DA MINHA CABEÇA em 12/10: `fabrica/janela_casada.py`.**
+  Ele escolhe a leitura de cada peça dentro da faixa de idade declarada (o
+  MÁXIMO, pelo 688), diz se as faixas dos dois braços se sobrepõem e — o ponto —
+  **recusa chamar de leitura quando se sobrepõem**, em vez de deixar quem lê
+  escolher a mediana que lhe convém. Treze testes, ancorados nos números reais de
+  698, 701 e 12/10.
+  **Dois achados do próprio módulo, e os dois são erros meus:** (1) o "~1%" que
+  eu reportei no 698 está errado — `C(10,2) = 45`, logo **2,2%**; eu usei ~1/9
+  (uma peça abaixo de oito) e tratei as duas como independentes, e elas são
+  escolha SEM reposição. O "1,4%" do 701 está certo. (2) Com os dados de 12/10,
+  **truncar o braço antigo de quatro peças para duas FABRICA uma separação** com
+  p = 1/6 sem nenhum valor mudar — é o 684 em uma linha, e tem teste próprio.
+
 ## A mira de duração tem INTERAÇÃO CANAL × TRATAMENTO — e é por isso que ela é por canal
 
 **Aprendizado 701, `alto`, observado.** Na janela **casada** de 4 a 8 h de vida,
