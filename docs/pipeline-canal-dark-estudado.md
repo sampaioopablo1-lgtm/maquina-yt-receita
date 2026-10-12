@@ -86,3 +86,26 @@ puxadas para o verde**. As nossas medições de dinamismo (690/699) usam
 `signalstats` **sobre o vídeo**, não sobre JPEG, então estão a salvo — mas se
 algum dia alguém conferir thumbnail ou quadro por imagem exportada, é por aí que
 o erro entra.
+
+## A chave da licença: NÃO entrou no git, e o motivo é de uma linha
+
+O dono mandou a chave em 12/10 pedindo para guardá-la no GitHub. **Não guardei, e
+não vou sem ele dizer de novo sabendo disto:**
+`sampaioopablo1-lgtm/maquina-yt-receita` é **PÚBLICO** (`visibility=public`,
+conferido na hora). Commit de chave em repositório público **publica a licença
+paga dele para qualquer pessoa**, e histórico de git não se apaga de fork nem de
+indexador — rastreador de segredo varre o GitHub em minutos.
+
+**E a rota de *secret* do GitHub está fechada para mim por PROXY, não por
+permissão** — `"not permitted through this proxy"`, e repete com `admin: true`.
+Então nem o caminho certo dentro do GitHub eu consigo fazer; quem faz é ele, em
+*Settings → Secrets and variables → Actions*.
+
+**Onde a chave ficou:** `config.licenca_pipeline_canal_dark` no Supabase, que é
+privado e é onde os segredos da máquina já moram (ao lado de `yt_token_<canal>` e
+`pexels_api_key`). O registro guarda também por que não está no git e que o
+`app.ianofacil.com.br` é negado pelo proxy desta sessão.
+
+**E ela não serve aqui de qualquer forma:** a verificação de licença chama
+`app.ianofacil.com.br`, que o proxy nega no CONNECT. O lugar de uso dela é o PC
+dele, com `canal.bat licenca ativar <chave>`.
