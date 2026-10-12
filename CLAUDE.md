@@ -28,9 +28,33 @@ disso o degrau devolve ruído). O módulo recusa janela curta em vez de inventar
 |---|---|---|---|---|
 | labtreinamento | **68** | +0,60 | 13,6% | **2028-10-06** |
 | epomeno-epipedo | **19** | +1,19 | 3,8% | **2027-11-20** |
-| kolejny-poziom | **8** | 0,00 | 1,6% | **nunca** |
+| kolejny-poziom | **8** | 0,00 | 1,6% | **indeterminado** |
 
 Frota inteira: **+1,79 inscrito/dia.**
+
+**CORREÇÃO DE 12/10 ÀS 18:2x, e é desta tabela: eu escrevi "nunca" para o
+kolejny, e "nunca" ali era falsa precisão.** O contador de inscritos anda **de um
+em um**, então numa janela de `h` horas o menor ritmo diferente de zero que ele
+consegue expressar é **24/h por dia** — o *piso de resolução* da janela. Na
+leitura de 40,3 h o piso é **0,60/dia**, e o delta do kolejny foi zero. Isso diz
+"ritmo abaixo de 0,60/dia", **não** "ritmo zero", e portanto não autoriza
+"nunca". Agora é `fabrica/porta1.py → piso_de_resolucao` / `horas_para_resolver`,
+com `ritmo_resolvido` por canal e oito testes.
+
+**E a mesma conta diz que o +0,60/dia do labtreinamento é UMA contagem** — ele
+está exatamente SOBRE o piso daquela janela, logo a incerteza dele é da ordem do
+próprio valor. A projeção de 2028-10-06 continua sendo a melhor que existe, e
+continua sendo de uma contagem só.
+
+**E ISTO ACABOU DE IMPEDIR UM RELATO ERRADO.** Às 18:17 de 12/10 os três
+contadores vieram **byte a byte iguais** aos de 14:35 — 68 / 19 / 8, em 3,7 h. O
+`porta1.py` recusou a janela pela regra H, e se eu tivesse esperado os 4,0 h o
+piso seria **6,00/dia**, três vezes acima do ritmo medido da frota (1,79). **Uma
+janela de 4 h não distingue 1,79/dia de zero.** As ≥ 4 h da regra H bastam para
+pular o DEGRAU da réplica (686/703) e **não** bastam para medir RITMO — eu tratei
+as duas coisas como a mesma por dias. Para resolver 1,79/dia é preciso **~13 h**;
+para resolver 0,60/dia, **~40 h**, que é por que a leitura de 40,3 h funcionou e
+não foi sorte.
 
 **A FRASE QUE DECIDE TUDO, e ela é aritmética, não pessimismo: as duas datas
 caem DEPOIS de 1/FEV/2027, quando a barra sobe de 500 para 1.000 inscritos.**
@@ -583,7 +607,15 @@ ser verdade.** O dono colou o `YT_OAUTH_JSON`, e a publicação passou a sair pe
 Supabase. Provado em produção duas vezes no mesmo dia: `epomeno-epipedo-s016` =
 `6TNDVugoz5I` (run `38175747708`) e `labtreinamento-s013` = `byriXB1gSg8`
 (`38211879374`). O `estado_b64` sai do `fabrica/corpus_publicados.json` e tem de
-trazer `titulos_no_ar_n`, senão o runner recusa. A ponte continua existindo; ela
+trazer `titulos_no_ar_n`, senão o runner recusa.
+
+**E NÃO MONTE O `estado_b64` À MÃO — rode `python3 fabrica/estado_ponte.py`**
+(aprendizado 718). O `titulos_no_ar` é lista de **OBJETOS** com a chave
+`titulo`; lista de strings faz a trava por título levantar `AttributeError` e o
+run morre em *"Conferir o estado antes de publicar"*. Em 12/10 eu montei à mão e
+perdi o run `38290045583` — **e o docstring do próprio `estado_ponte.py` descreve
+exatamente esse erro.** Código e aviso escritos não servem de nada se a rodada
+não os procura antes de improvisar. A ponte continua existindo; ela
 só não é mais o caminho.
 
 ## As travas que não se negociam

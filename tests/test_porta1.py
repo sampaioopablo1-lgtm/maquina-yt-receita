@@ -121,3 +121,73 @@ def test_o_relato_diz_as_tres_ressalvas_em_vez_de_so_o_numero():
         "canal com acervo anterior a maquina tem de carregar a ressalva do 668 "
         "no proprio relato"
     )
+
+
+# ---------------------------------------------------------------------------
+# O PISO DE RESOLUCAO — medido em 12/10/2026 as 18:1x, e e um defeito meu que
+# quase foi ao relato do dono. As >= 4 h da regra H (686) bastam para pular o
+# DEGRAU da replica; eu tratei isso como se bastassem para medir RITMO.
+# ---------------------------------------------------------------------------
+
+def test_o_piso_de_resolucao_de_quatro_horas_e_SEIS_por_dia():
+    # O contador anda de um em um: numa janela de 4 h o menor ritmo diferente
+    # de zero que ele consegue expressar e 24/4 = 6 por dia.
+    assert P.piso_de_resolucao(4.0) == 6.0
+
+
+def test_o_piso_de_quatro_horas_esta_ACIMA_do_ritmo_medido_da_frota():
+    # O ritmo medido da frota inteira em 12/10 foi +1,79/dia. Se o piso de uma
+    # janela de 4 h e 6,00/dia, essa janela NAO distingue 1,79 de zero — e o
+    # relato que dissesse "nunca" a partir dela estaria inventando precisao.
+    assert P.piso_de_resolucao(4.0) > 1.79
+
+
+def test_a_janela_de_quarenta_horas_resolve_o_ritmo_que_ela_mediu():
+    # E por isso que a leitura de 40,3 h funcionou e nao foi sorte: o piso dela
+    # e 0,60/dia, que e exatamente o ritmo que ela mediu no labtreinamento.
+    assert P.piso_de_resolucao(40.3) < 0.61
+
+
+def test_horas_para_resolver_e_a_INVERSA_do_piso():
+    for por_dia in (0.6, 1.79, 6.0):
+        h = P.horas_para_resolver(por_dia)
+        assert abs(P.piso_de_resolucao(h) - por_dia) < 1e-9
+
+
+def test_horas_para_resolver_devolve_None_quando_o_ritmo_e_zero():
+    # Ritmo zero nunca se resolve: nao existe janela que mostre a mudanca que
+    # nao acontece. None, nao infinito e nao um numero grande qualquer.
+    assert P.horas_para_resolver(0.0) is None
+    assert P.horas_para_resolver(-1.0) is None
+
+
+def test_DELTA_ZERO_sai_como_NAO_RESOLVIDO_e_nao_como_nunca():
+    # A leitura REAL de 12/10 as 18:17: os tres contadores byte a byte iguais
+    # aos de 14:35. Se isto virar "nunca" no relato, a maquina mentiu com
+    # numero — e foi o que eu quase reportei.
+    q = P.quadro({"labtreinamento": {"antes": 68, "agora": 68}}, 4.0)
+    linha = q["canais"][0]
+    assert linha["ritmo_resolvido"] is False
+    assert linha["por_dia"] == 0.0
+    texto = P.relato(q)
+    assert "indet" in texto
+    assert "RITMO NAO RESOLVIDO" in texto
+    # A palavra "nunca" nao pode sair para um canal cujo ritmo nao foi resolvido.
+    linha_da_tabela = [x for x in texto.splitlines() if "labtreinamento" in x][0]
+    assert "nunca" not in linha_da_tabela
+
+
+def test_DELTA_POSITIVO_continua_resolvido_e_continua_projetando():
+    # A guarda nova nao pode calar o caso em que o ritmo FOI medido.
+    q = P.quadro({"epomeno-epipedo": {"antes": 17, "agora": 19}}, 40.3)
+    linha = q["canais"][0]
+    assert linha["ritmo_resolvido"] is True
+    assert linha["por_dia"] > 1.0
+    assert linha["data_porta1"] is not None
+
+
+def test_o_quadro_declara_o_proprio_piso():
+    # O numero tem de SAIR no quadro, senao quem le o json nao sabe o que o
+    # delta zero significa.
+    q = P.quadro({"kolejny-poziom": {"antes": 8, "agora": 8}}, 40.3)
+    assert abs(q["piso_de_resolucao_por_dia"] - 0.6) < 0.01
