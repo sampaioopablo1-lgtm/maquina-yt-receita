@@ -24,6 +24,15 @@ desta vez a lista era um arquivo congelado que eu mesmo sabia estar congelado.
   * agrupa por TITULO DISTINTO, pela licao do 658/670 e pelo grupo de dez copias
     que me fez contar dez origens onde havia uma;
   * subtrai o `longo_existente` que as specs ja consomem.
+  * **so conta longo DA MAQUINA**, cruzando o titulo contra o
+    `corpus_publicados.json`. Isto NAO e zelo: na primeira execucao (run
+    38228176339) o modulo devolveu **65 "origens livres" no labtreinamento** —
+    e eram os VIDEOS DE CURSO DO DONO, anteriores a maquina ("1.Seja
+    bem-vindo", "2. Backstage", "Transmissao ao vivo"). E o aprendizado 668 na
+    forma de pauta: aquele canal tem acervo anterior, e tratar acervo alheio
+    como origem produziria short derivado de aula de Microsoft Project.
+    Conferido nos dois sentidos: os tres longos da maquina estao no corpus, os
+    tres videos de curso NAO estao;
   * **NAO substitui `consultas/estoque.sql`** no que a consulta faz melhor: ela
     exclui grupo duplicado POR CONSTRUCAO e conhece `origem_id`. Aqui a exclusao
     de duplicata e por titulo, e titulos diferentes para o mesmo conteudo
@@ -78,8 +87,25 @@ def origens_usadas(dir_specs: str | None = None) -> set:
     return fora
 
 
-def longos_no_ar(canal: str, cfg: dict) -> dict:
-    """{id: (titulo, segundos)} dos LONGOS `processed` daquele canal, ao vivo."""
+def titulos_da_maquina(caminho: str | None = None) -> set:
+    """Os titulos que a MAQUINA publicou. O corpus e a unica lista que sabe isso.
+
+    Sem este filtro o modulo conta o acervo anterior a maquina como pauta — foi
+    o que aconteceu no run 38228176339 com os 65 videos de curso do
+    labtreinamento.
+    """
+    caminho = caminho or os.path.join(RAIZ, "fabrica", "corpus_publicados.json")
+    d = json.load(open(caminho, encoding="utf-8"))
+    t = d.get("titulos")
+    if not isinstance(t, list) or not t:
+        raise SystemExit(f"{caminho} sem a lista `titulos` — sem ela o filtro "
+                         f"de acervo alheio nao existe, e o modulo contaria "
+                         f"video de terceiro como origem.")
+    return {x.strip() for x in t if isinstance(x, str) and x.strip()}
+
+
+def longos_no_ar(canal: str, cfg: dict, da_maquina: set | None = None) -> dict:
+    """{id: (titulo, segundos)} dos LONGOS `processed` DA MAQUINA, ao vivo."""
     token = token_do_canal(cfg)
     playlist, _ = uploads_e_estatisticas(CANAIS[canal], token)
     ids = ids_do_canal(playlist, token)
@@ -91,7 +117,11 @@ def longos_no_ar(canal: str, cfg: dict) -> dict:
         # Peca fora de `processed` nao e origem: ela pode nem ficar no ar (665).
         if st != "processed" or not dur or dur < SEG_MIN_LONGO:
             continue
-        fora[vid] = ((it.get("snippet") or {}).get("title") or "").strip()
+        titulo = ((it.get("snippet") or {}).get("title") or "").strip()
+        # Acervo anterior a maquina NAO e pauta (668).
+        if da_maquina is not None and titulo not in da_maquina:
+            continue
+        fora[vid] = titulo
     return {v: (t, 0) for v, t in fora.items()}
 
 
@@ -119,6 +149,7 @@ def main() -> int:
         return 2
     mapa = desembrulha(bruto)
     usadas = origens_usadas()
+    da_maquina = titulos_da_maquina()
 
     por_canal, total_livre, total_ids = {}, 0, 0
     for canal in CANAIS:
@@ -128,7 +159,7 @@ def main() -> int:
                   f"faz o total SUBESTIMAR")
             continue
         try:
-            por_canal[canal] = longos_no_ar(canal, cfg)
+            por_canal[canal] = longos_no_ar(canal, cfg, da_maquina)
         except Exception as e:                                 # noqa: BLE001
             # Falha de chamada NAO vira "zero origens" (665): grita e sai de fora
             # da conta, em vez de virar silencio com cara de estoque vazio.
@@ -139,7 +170,7 @@ def main() -> int:
     for canal, grupos in L.items():
         total_livre += len(grupos)
         total_ids += sum(len(i) for _, i in grupos)
-        nota(f"{canal}: {len(por_canal[canal])} longos no ar | "
+        nota(f"{canal}: {len(por_canal[canal])} longos DA MAQUINA no ar | "
              f"{len(grupos)} ORIGENS LIVRES (titulo distinto)")
         for titulo, ids in grupos:
             extra = f" [{len(ids)} COPIAS — valem UMA]" if len(ids) > 1 else ""
@@ -147,8 +178,9 @@ def main() -> int:
     nota(f"TOTAL: {total_livre} origens livres por titulo distinto, "
          f"{total_ids} ids, contra {len(usadas)} origens ja usadas por spec")
     nota("LIDO DA PLAYLIST DE UPLOADS, ao vivo — nao do retrato de 06/10. "
-         "Ressalva que fica: a exclusao de duplicata aqui e por TITULO, nao "
-         "pela construcao de consultas/estoque.sql.")
+         "So conta longo DA MAQUINA (titulo no corpus): acervo anterior a "
+         "maquina nao e pauta (668). Ressalva que fica: a exclusao de duplicata "
+         "aqui e por TITULO, nao pela construcao de consultas/estoque.sql.")
     return 0
 
 
