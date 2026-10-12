@@ -1,0 +1,99 @@
+{
+ "slug": "kolejny-poziom",
+ "pacote": "kolejny-poziom-s019",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Nie na",
+  "l2": "oko"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Wybierasz okres",
+   "sub": "patrząc na ratę",
+   "nar": "Wybierasz okres, patrząc tylko na ratę.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dłuższy okres",
+   "preco": "niższa rata",
+   "nar": "Dłuższy okres rzeczywiście obniża ratę.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ale też",
+   "preco": "więcej rat",
+   "nar": "Ale mnoży też liczbę rat, które zapłacisz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A każda",
+   "sub": "nosi odsetki",
+   "nar": "A każda z nich nosi w sobie odsetki.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Więc",
+   "preco": "idą w kontrze",
+   "nar": "Więc te skutki działają przeciwko sobie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlatego",
+   "preco": "nie na oko",
+   "nar": "Dlatego nie da się tego ocenić na oko.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "I w drugą stronę",
+   "sub": "krótszy nie jest darmowy",
+   "nar": "I w drugą stronę: krótszy nie jest darmowy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "On podnosi",
+   "preco": "ratę",
+   "nar": "On podnosi ratę, czasem ponad twój budżet.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Więc to nie",
+   "preco": "rada",
+   "nar": "To nie jest więc rada, żeby brać krócej.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Poproś o cenę",
+   "sub": "obu opcji",
+   "nar": "Poproś bank o cenę obu opcji na piśmie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Zasubskrybuj",
+   "sub": "na następne",
+   "nar": "Jeśli to ci pomogło, zasubskrybuj kanał.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "EwUkhdwyuuo",
+ "copy": "# kolejny-poziom-s019\n\n## TITULO\nOkres Robi Dwie Rzeczy Naraz I Działają Przeciwko Sobie — Dlatego Nie Oceniaj Go Na Oko\n\n## TITULO SHORT\nDlaczego nie na oko?\n\n## DESCRICAO\nPrzy wyborze okresu kredytu prawie wszyscy patrzą na jedną liczbę: ratę. I to jest zrozumiałe, bo rata jest tym, co zobaczysz na koncie co miesiąc. Problem polega na tym, że okres **nie robi jednej rzeczy** — robi dwie, jednocześnie, i te dwie działają w przeciwne strony.\n\nPierwszy skutek widzisz od razu: im dłuższy okres, tym niższa rata. Ta sama kwota rozkłada się na więcej miesięcy.\n\nDrugi skutek nie pojawia się na żadnym wydruku: im dłuższy okres, tym **więcej rat** zapłacisz — a każda z nich nosi w sobie odsetki od tego, co jeszcze zostało do oddania.\n\nZ tego wynika rzecz, która decyduje: skoro jeden skutek działa na twoją korzyść, a drugi przeciwko, **nie da się ocenić wyniku na oko**. Kto wybiera okres patrząc tylko na ratę, podejmuje decyzję nie widząc ceny drugiej strony.\n\nI uwaga w odwrotnym kierunku, bo bez niej to byłaby połowa prawdy: **krótszy okres nie jest darmowy.** On podnosi ratę — czasem na tyle, że przestaje się mieścić w budżecie. To nie jest więc rada, żeby brać krócej. To jest powód, żeby zobaczyć cenę **obu** opcji, zanim wybierzesz jedną.\n\nPraktyczny wniosek jest jednozdaniowy: poproś bank o wyliczenie obu wariantów na piśmie, tego samego dnia i na tych samych warunkach — inaczej porównujesz dwie różne oferty, a nie dwa okresy.\n\nTen short świadomie nie podaje ani rat, ani stawek, ani liczby miesięcy: to liczby przykładu i zmieniają się z ofertą. Nie zmienia się kierunek obu skutków.\n\nW pełnym filmie: skąd dokładnie bierze się ta różnica, rachunek na czterech liczbach, który zrobisz sam na kartce, dlaczego rata spada wolniej niż rośnie okres, i co zrobić, jeśli bank zwleka z wyliczeniem.\n\n## COMENTARIO FIXADO\nSedno nie jest w tym, że dłuższy okres jest zły — jest w tym, że okres robi dwie rzeczy naraz, a one idą w przeciwne strony: obniża ratę i równocześnie mnoży liczbę rat, z których każda nosi odsetki. Dopóki patrzysz tylko na jedną z nich, nie widzisz ceny drugiej, i właśnie dlatego tego nie da się ocenić na oko. Druga połowa prawdy, bez której to byłaby porada, a nie wyjaśnienie: krótszy okres nie jest darmowy — podnosi ratę, czasem ponad budżet. Celowo nie ma tu ani rat, ani stawek, ani miesięcy: to liczby przykładu, są w filmie. Jedna rzecz praktyczna, o którą warto poprosić: wyliczenie obu wariantów na piśmie, tego samego dnia i na tych samych warunkach. Napiszcie, czy bank dał wam kiedyś takie porównanie bez proszenia.\n\n## HASHTAGS\n#Kredyt #Finanse #KolejnyPoziom\n\n## TAGS\nokres kredytu, wysokosc raty, liczba rat, odsetki od kredytu, porownanie wariantow, nadplata kredytu, koszt kredytu, decyzja kredytowa, wyliczenie na pismie, krotszy okres, dluzszy okres, kolejny poziom, finanse osobiste, harmonogram splat, dwa skutki\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, ZERO DIGITO e ZERO NUMERAL na narracao. O longo\nesta cheio de numero de exemplo — parcela, prazo em meses, taxa, saldo, e as\nquatro contas do calculo a mao — e NADA disso entra. A regra nao precisa de\nnumero: ela e sobre a DIRECAO de dois efeitos, nao sobre a magnitude.\n\nEm especial NAO digo \"dois efeitos\": \"dwa\" seria numeral. A peca diz que o prazo\n\"obniża ratę\" e \"mnoży liczbę rat\", e deixa a contagem implicita na estrutura.\n\nO QUE A PECA CARREGA, e nao envelhece: prazo mais longo baixa a parcela E\naumenta o numero de parcelas que carregam juros; os dois se opoem, logo a conta\nnao se faz no olho. Esta nos capitulos \"Co robi okres\", \"Pierwsza rzecz\",\n\"Druga rzecz\" e \"Te dwie ida w kontrze\" do longo `EwUkhdwyuuo` (pacote\n`kolejny-poziom-013`).\n\nA RESSALVA DO LONGO ENTRA NA PECA, e isso nao e enfeite: ele diz\n\"krotszy okres nie jest darmowy\" e \"to nie jest rada, zeby brac krocej\". Sem\nessa linha o short viraria conselho financeiro, e o longo se recusa a dar\nconselho. A peca termina mandando ver o preco das DUAS opcoes.\n\nSEGUNDO ANGULO, declarado: o primeiro short deste longo e o `kolejny-poziom-s011`\n(\"Nadplata skraca okres czy rate?\"). O longo tem 90 capitulos e 84 nao estavam\nmencionados. Familia diferente, capitulos diferentes, e passou o `similaridade`.\n\nO QUE EU NAO LEVEI, escrito para a proxima rodada achar: \"Rata ma dwie czesci\" /\n\"Na poczatku\" — a parcela tem duas partes e no comeco predominam os juros, que e\npor que a parcela cai mais devagar do que o prazo cresce. Outra familia (A PARTE\nQUE DOMINA NO COMECO) e um TERCEIRO angulo. Nao a levei hoje porque ela explica\no MESMO resultado por dentro, e duas pecas no mesmo dia sobre a mesma mecanica\napertariam o `similaridade` sem necessidade.\n\n## FONTES\nO longo de onde este short foi extraido (`kolejny-poziom-013`, `EwUkhdwyuuo`)\ncarrega os numeros do exemplo. Este short NAO introduz numero novo sobre o mundo,\nentao nao exige fonte institucional nova.\n"
+}
