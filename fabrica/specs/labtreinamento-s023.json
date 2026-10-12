@@ -1,0 +1,80 @@
+{
+  "slug": "labtreinamento",
+  "pacote": "labtreinamento-s023",
+  "idioma": "pt-BR",
+  "voz": "pt-BR-ThalitaMultilingualNeural",
+  "trilha": "Inspired",
+  "paleta": {
+    "ink": "#22333B",
+    "c1": "#A4243B",
+    "c2": "#D8973C",
+    "bg": "#F4F1EA"
+  },
+  "thumb": {
+    "l1": "Caso",
+    "l2": "ou padrão?"
+  },
+  "longo": [],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Um projeto",
+      "sub": "não é padrão",
+      "nar": "Um projeto ruim não é padrão.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "É um caso",
+      "nar": "É um caso, e caso acontece.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Então",
+      "nar": "Faça a mesma conta nos três últimos.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "E se",
+      "nar": "Se os três apontam para o mesmo lado,",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Aí não é azar",
+      "sub": "é como você faz preço",
+      "nar": "Aí não é azar: é como você faz preço.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "E ele",
+      "nar": "E ele se repete no próximo.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Multiplique",
+      "nar": "Multiplique pelos trabalhos do ano.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "E compare",
+      "sub": "com um projeto inteiro",
+      "nar": "Compare com um projeto inteiro.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "LabTreinamento",
+      "sub": "inscreva-se",
+      "nar": "Faça nos três e compare. Inscreva-se.",
+      "sem_cap": true
+    }
+  ],
+  "longo_existente": "ntrMxq89I4o",
+  "copy": "# labtreinamento-s023\n\n## TITULO\nUm Projeto Ruim É Um Caso. Três Apontando Igual É o Seu Jeito de Fazer Preço\n\n## TITULO SHORT\nUm é caso, três é padrão\n\n## DESCRICAO\nVocê fez a conta da sua hora real num projeto e o número veio ruim. A reação natural é mudar o preço na hora — e é justamente aí que vale esperar.\n\n**Um projeto ruim é um caso.** A diferença em um trabalho só costuma parecer pequena, a favor ou contra, e é exatamente por isso que ela passa batida todas as vezes. Um número ruim sozinho não prova nada sobre como você faz preço: prova que aquele projeto saiu assim.\n\n**Três apontando para o mesmo lado é outra coisa.** Faça a mesma divisão nos três últimos trabalhos que você entregou e recebeu. Se os três apontam na mesma direção, isso não é azar nem coincidência — é **o seu jeito de montar preço**, e ele vai se repetir no próximo orçamento que você mandar.\n\nAí a conta ganha tamanho: multiplique a diferença média pelo número de trabalhos que você entrega num ano. É o mesmo comportamento, acumulado. E para sentir o tamanho de verdade, **compare com algo que você conhece** — com o valor de um projeto inteiro, por exemplo. Se a diferença acumulada no ano equivale a um projeto que você entregou de graça, isso diz uma coisa. Se equivale a uma tarde de trabalho, diz outra bem diferente, e você pode parar de se preocupar.\n\nA boa notícia é a estrutura da decisão: ela volta inteira no próximo orçamento. Um projeto mal precificado não obriga o seguinte.\n\nE quando mudar, **mude uma coisa só**: ou o preço, ou o que está incluído. Mudar as duas ao mesmo tempo tira de você a chance de saber qual funcionou.\n\nNo vídeo completo: a divisão passo a passo, onde achar as horas que você não anotou, as consolações e os prazos delas, o caso do projeto grande, e este passo de um projeto para o ano.\n\n## COMENTARIO FIXADO\nEsse é o erro que eu mais vejo depois de alguém fazer a conta pela primeira vez: o número vem ruim e a pessoa muda o preço no susto. Só que um projeto é um CASO — a diferença num trabalho só parece pequena, e por isso ela nunca chamou atenção antes. Três apontando para o mesmo lado é que viram diagnóstico: aí não é azar, é o jeito como você monta preço, e ele se repete no próximo. Depois multiplique pelos trabalhos do ano e compare com algo que você conhece, tipo o valor de um projeto inteiro — é assim que a diferença ganha tamanho ou perde importância. E se for mudar, mude uma coisa só: ou o preço, ou o que está incluído. As duas juntas e você nunca sabe qual funcionou. Conta aqui: nos seus três últimos, apontou igual?\n\n## HASHTAGS\n#Autonomo #Precificacao #LabTreinamento\n\n## TAGS\num caso ou padrao, tres ultimos projetos, valor da hora, precificacao para autonomo, mudar preco, diferenca acumulada no ano, orcamento de freelancer, autonomo, prestador de servico, financas para autonomo, revisao de preco, quanto cobrar, labtreinamento, dinheiro proprio, decisao de preco\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nE AQUI EU MUDO O QUE VINHA FAZENDO, e com motivo: esta peca DIZ \"tres\" na\nnarracao, por extenso, uma quantidade por frase. As seis pecas anteriores sairam\ncom ZERO numeral, e eu vinha tratando isso como se fosse a regra — NAO E.\n\nA regra (g) tira do short o numero que MUDA: taxa, indice, aliquota, limite\nanual, data de vigencia. \"Tres ultimos trabalhos\" nao e nada disso: e a\ncontagem do METODO, nao um numero sobre o mundo, e ela nao envelhece. E o portao\n`narracao` (640) conta QUANTIDADES por frase e permite ate tres — aqui ha no\nmaximo UMA por frase.\n\nEntao o zero-numeral das anteriores era consequencia das origens (previdencia,\nonde tudo era aliquota e taxa), nao um padrao a manter. Manter zero aqui\ncustaria a frase que a peca existe para dizer.\n\nO QUE A PECA CARREGA, e nao envelhece: UM projeto ruim e um CASO; TRES apontando\npara o mesmo lado e o seu jeito de montar preco, e ele se repete no proximo\norcamento. Depois: multiplicar pelos trabalhos do ano e comparar com algo\nconhecido. Esta nos capitulos \"De um projeto para o ano\", \"Um projeto\",\n\"Faca em tres\", \"Se os tres apontam igual\", \"Multiplique\", \"Compare com algo\" e\n\"O bom disso\" do longo `ntrMxq89I4o` (pacote `labtreinamento-007`).\n\nQUARTO ANGULO deste longo, PRE-REGISTRADO pelo AVISO do `s022`, que nomeou estes\ncapitulos e esta familia antes de qualquer resultado.\n\nAS QUATRO DO MESMO LONGO, e cada uma e uma peca diferente da mesma decisao:\n  `s002` -- o DENOMINADOR incompleto\n  `s021` -- o MAIOR nao e o melhor\n  `s022` -- as CONSOLACOES tem prazo\n  `s023` -- UM e caso, TRES e padrao\n\nESQUELETO: `titulo-item-item-item-titulo-item-item-titulo-cta`, diferente do\n`s022` e do bloco de cinco de hoje. Pelo achado das 20:1x, a forma nova vira\nmolde proprio em um dia — entao o esqueleto varia a cada peca e o portao\n`variedade` e quem diz quando repetiu.\n\nREGRA (f) CONFERIDA: decima familia distinta do dia no labtreinamento.\n\nDURACAO, pelo instrumento do 711/714: estimativa 28,0 s, previsao **23,0 s\nREAIS** — dentro do `ALVO_POR_CANAL` de 20,0 a 26,0.\n\nO QUE SOBRA PARA A PROXIMA neste longo: \"Antes disso, um cuidado\", \"Ninguem\ncalcula isso\", \"O Meu INSS e de graca\" e \"Uma conversa vale\" — a familia QUEM TE\nDA UM NUMERO SEM OLHAR A SUA GUIA ESTA VENDENDO. Quinto angulo.\n\n## FONTES\nO longo de onde este short foi extraido (`labtreinamento-007`, `ntrMxq89I4o`)\ne aritmetica sobre numeros do proprio espectador. Este short NAO introduz numero\nnenhum sobre o mundo, entao nao exige fonte institucional.\n"
+}
