@@ -14,6 +14,12 @@ repositorio** — elas sao anteriores ou foram publicadas por outro caminho.
 Roda no RUNNER, pelo `YT_OAUTH_JSON`. Nao imprime segredo: o access token nasce
 e morre dentro do processo, como no `medir.py`.
 
+**E a descricao so da os TITULOS dos capitulos, nao o texto.** Medido em 12/10
+com o `eZ697VNYCPU`: nove capitulos, e nenhum deles diz o que o capitulo AFIRMA.
+Escrever um short a partir de titulo de capitulo seria inventar conteudo, que e
+o oposto de extrair de longo publicado. O texto de verdade esta na LEGENDA que a
+propria maquina subiu (`captions`), e e dela que a opcao `--legenda` tira.
+
 **O que ele NAO faz:** nao escolhe capitulo e nao escreve roteiro. Capitulo e
 conteudo que vai ao ar; a leitura e mecanica, a escolha nao.
 """
@@ -40,6 +46,42 @@ def capitulos(descricao: str) -> list[tuple[str, str]]:
         m = MARCA.match(linha)
         if m:
             fora.append((m.group(1), m.group(2)))
+    return fora
+
+
+def faixas(vid: str, token: str) -> list:
+    d = _get(f"{API}/captions?part=snippet&videoId={vid}", token)
+    return d.get("items") or []
+
+
+def legenda(vid: str, token: str) -> str | None:
+    """O texto da legenda da propria maquina. None quando nao ha faixa.
+
+    `captions.download` devolve o corpo do arquivo, nao JSON — entao a leitura
+    aqui e crua de proposito. Preferencia pela faixa NAO automatica: a
+    automatica e transcricao do audio e carrega erro de reconhecimento, e o que
+    se quer e o texto que a maquina escreveu.
+    """
+    import urllib.request
+    itens = faixas(vid, token)
+    if not itens:
+        return None
+    itens.sort(key=lambda i: (i["snippet"].get("trackKind") == "ASR",
+                              i["snippet"].get("name") or ""))
+    cid = itens[0]["id"]
+    url = f"{API}/captions/{cid}?tfmt=srt"
+    req = urllib.request.Request(url, headers={"Authorization": f"Bearer {token}"})
+    with urllib.request.urlopen(req, timeout=120) as r:
+        return r.read().decode("utf-8", "replace")
+
+
+def falas(srt: str) -> list[str]:
+    """As linhas de TEXTO do .srt, sem indice e sem tempo."""
+    fora = []
+    for bloco in (srt or "").strip().split("\n\n"):
+        linhas = [x for x in bloco.strip().splitlines() if x.strip()]
+        if len(linhas) >= 3 and "-->" in linhas[1]:
+            fora.append(" ".join(linhas[2:]).strip())
     return fora
 
 
@@ -85,6 +127,31 @@ def main() -> int:
     nota(f"{len(caps)} capitulos:")
     for t, nome in caps:
         nota(f"  {t}  {nome}")
+
+    # A descricao da o TITULO do capitulo, nunca o que ele AFIRMA. Sem o texto,
+    # escrever o short seria inventar conteudo.
+    if os.environ.get("LEGENDA", "").lower() in ("1", "true", "sim"):
+        try:
+            srt = legenda(vid, token)
+        except Exception as e:                              # noqa: BLE001
+            nota(f"legenda indisponivel ({type(e).__name__}) — sem o texto, o "
+                 f"short NAO pode ser escrito desta origem")
+            return 0
+        if not srt:
+            nota("NENHUMA faixa de legenda neste video — sem o texto, o short "
+                 "NAO pode ser escrito desta origem")
+            return 0
+        f = falas(srt)
+        nota(f"legenda: {len(f)} falas, {sum(len(x) for x in f)} chars")
+        bloco, i = "", 0
+        for x in f:
+            if len(bloco) + len(x) > 700:
+                nota(f"texto[{i}] {bloco}")
+                i += 1
+                bloco = ""
+            bloco += x + " "
+        if bloco.strip():
+            nota(f"texto[{i}] {bloco.strip()}")
     return 0
 
 

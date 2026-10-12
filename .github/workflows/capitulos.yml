@@ -16,6 +16,10 @@ on:
         description: "labtreinamento | epomeno-epipedo | kolejny-poziom"
         type: string
         required: true
+      legenda:
+        description: "tambem imprimir o TEXTO da legenda (a descricao so da os titulos)"
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -34,4 +38,5 @@ jobs:
           YT_OAUTH_JSON: ${{ secrets.YT_OAUTH_JSON }}
           VIDEO_ID: ${{ inputs.video_id }}
           CANAL: ${{ inputs.canal }}
+          LEGENDA: ${{ inputs.legenda }}
         run: python3 fabrica/capitulos_do_longo.py
