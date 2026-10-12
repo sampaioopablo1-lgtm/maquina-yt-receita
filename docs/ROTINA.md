@@ -603,8 +603,16 @@ os três nos dois passos.
     instaladas ao mesmo tempo — o link é **"Instalar em outra conta"**, e instalar
     na segunda não tira nada da primeira. Eu vinha pedindo troca de conta, que era
     pior e desnecessário; foi o dono quem viu o link na tela.
-    **O que continua valendo:** o `mcp__github__*` NÃO se recupera — segue
-    `invalid session` depois da troca. Para ler um job sem ele, use as ANOTAÇÕES:
+    **E CAIU EM 12/10, pelo MESMO raciocínio que esta entrada condena:** eu
+    escrevi "o `mcp__github__*` NÃO se recupera — segue `invalid session`". Na
+    rodada das 08:07 ele reconectou sozinho e devolveu log completo. **Ausência
+    de mudança não é impossibilidade de mudança — e eu apliquei o erro proibido
+    à ferramenta seguinte, dentro da correção dele.** Sonde antes de declarar
+    que não há rota.
+    **A rota das ANOTAÇÕES continua sendo a certa ENQUANTO o MCP estiver fora**,
+    com um limite medido: ela só carrega o que foi emitido como
+    `::warning::`/`::notice::`. Em 12/10 o motivo de uma falha e o `youtube_id`
+    de uma publicação bem-sucedida ficaram invisíveis por isso:
     `gh api repos/<owner>/<repo>/check-runs/<job_id>/annotations` devolve os
     `::warning::`/`::notice::` pela própria api.github.com, sem redirecionamento.
   * **O 402 FECHA A PORTA PARA O RUNNER TAMBÉM** (11/10, anotação literal do

@@ -432,9 +432,23 @@ ninguém reconecta**. Ausência de mudança não é impossibilidade de mudança.
 nada da primeira. Foi o dono quem viu isso na tela e perguntou; eu vinha pedindo
 troca de conta, que era pior e desnecessário.
 
-**O que continua valendo:** o `mcp__github__*` NÃO se recupera — segue com
-`invalid session` depois da troca, e aí a leitura de log de job precisa de outra
-rota (ver abaixo).
+**O que eu escrevi aqui e que CAIU EM 12/10 — e é o MESMO erro de raciocínio
+outra vez, dentro da correção dele.** Eu escrevi "o `mcp__github__*` NÃO se
+recupera — segue com `invalid session` depois da troca". **Falso.** Na rodada das
+08:07 de 12/10 o servidor reconectou sozinho e o `mcp__github__get_job_logs`
+devolveu log completo, incluindo o traceback do `publicar.py:238` e o
+`youtube_id` que a anotação não carregava.
+
+Eu acabara de escrever, nesta mesma seção, que *"ausência de mudança não é
+impossibilidade de mudança"* — e então apliquei exatamente o raciocínio proibido
+à ferramenta seguinte. **Trate indisponibilidade de MCP como estado, nunca como
+propriedade:** sonde antes de dizer que não há rota.
+
+**O que continua valendo:** a rota das ANOTAÇÕES (abaixo) funciona SEM o MCP, e é
+ela que se usa enquanto o MCP estiver fora. Ela só não substitui o log: ela
+carrega os `::warning::`/`::notice::`, e o que não for emitido assim não aparece
+— foi por isso que o motivo da falha de 07:21 e o `youtube_id` de 07:23 ficaram
+invisíveis para mim por uma rodada inteira.
 
 ## Para ler um job quando o MCP está fora: ANOTAÇÕES
 

@@ -37,15 +37,32 @@ exclui origem usada e grupo duplicado **por construção** (670).
 specs reproduz a conta:
 
 ```python
-longos da frota no retrato            52
-menos origens já usadas pelas specs  -44
-menos ids do docs/duplicatas-a-apagar.md
-menos grupo de título repetido
-= 13 livres, das quais 5 TÊM youtube_id publicado
+longos da frota publicados COM youtube_id no retrato   46
+menos origens já usadas pelas specs                   -34
+= 12 ids livres
 ```
 
-**Só as 5 com id servem**, porque o short precisa apontar para um longo que
-existe. As outras 8 são longos sem id no retrato — pauta potencial, não atual.
+**RETRATAÇÃO DE 12/10, 08:2x, e é do número que eu mesmo escrevi aqui ontem
+("13 livres, das quais 5 com id"). Medido agora, os 12 ids livres são TRÊS
+origens, não doze** — porque **dez dos doze carregam o MESMO TÍTULO**,
+`Emerytura z ZUS: 34,4% pensji w 2050 roku`, publicado onze vezes por um cron
+entre 13 e 17/08. É um grupo de DUPLICATA, e a regra 658/670 manda contar por
+**título DISTINTO**:
+
+| origem distinta | canal | id |
+|---|---|---|
+| ΕΝΦΙΑ, a dedução de 20% | epomeno | `uWs-k_Wrn_w` |
+| Emerytura z ZUS (dez cópias no ar, vale UMA) | kolejny | `IjogSl2TE4M` …e nove irmãs |
+| Próg Podatkowy 120 000 zł | kolejny | `W_iFAIQWvi8` |
+
+**E esses dez não estão em `docs/duplicatas-a-apagar.md`** — o filtro daquele
+documento não os pega, então uma reconstrução que só subtrai o documento **conta
+dez origens que não existem**. Era o que a minha conta de ontem fazia.
+
+**Logo a pauta real é TRÊS origens, e não cinco.** Contar id em vez de título
+distinto é literalmente o efeito (C-2) da rotina: *"ordenar pelo alcance do short
+original PREMIA DUPLICATA"*, na sua forma mais crua — somar duplicata como
+estoque.
 
 **As três ressalvas, e elas não saem do relato:**
 - o retrato é de **06/10**: longo publicado depois não aparece, então o número
