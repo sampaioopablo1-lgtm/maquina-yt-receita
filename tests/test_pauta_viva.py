@@ -221,3 +221,50 @@ def test_o_relato_do_vivo_DIZ_que_o_segundo_angulo_nao_e_automatico():
     assert "similaridade" in fonte, (
         "o relato tem de lembrar que o segundo angulo passa pelo portao")
     assert "h04-UVlVevs" in fonte, "o precedente tem de estar nomeado"
+
+
+# ===========================================================================
+# RODAR SEM TOKEN NAO E DEFEITO, E A MENSAGEM NAO PODE DIZER QUE E (12/10)
+#
+# Medido na pele: rodei `pauta_viva.py` no container e recebi
+# `::error::YT_OAUTH_JSON vazio`. Um `::error::` numa rodada que esta apenas no
+# lugar errado fabrica o diagnostico "a maquina quebrou" — o mesmo efeito do
+# §3.8 da rotina, em que o portao verde fabrica "esta tudo certo". A saida tem
+# de dizer qual e a ROTA certa e qual e o PISO.
+# ===========================================================================
+
+
+def _sem_token(monkeypatch, capsys):
+    import os
+    monkeypatch.delenv("YT_OAUTH_JSON", raising=False)
+    cod = PV.main()
+    return cod, capsys.readouterr().out
+
+
+def test_sem_token_nao_emite_error_de_workflow(monkeypatch, capsys):
+    cod, saida = _sem_token(monkeypatch, capsys)
+    assert cod == 2, "continua saindo diferente de zero: nao houve leitura"
+    assert "::error::" not in saida, (
+        "`::error::` aqui fabrica 'a maquina quebrou' quando o que houve foi "
+        "rodar no lugar errado"
+    )
+
+
+def test_sem_token_diz_a_rota_e_o_piso(monkeypatch, capsys):
+    _, saida = _sem_token(monkeypatch, capsys)
+    assert "RUNNER" in saida, "tem de dizer ONDE este modulo roda"
+    assert "pauta-viva.yml" in saida, "tem de nomear o workflow"
+    assert "pauta_local.py" in saida, "tem de nomear o PISO"
+    assert "segundo_angulo.py" in saida, (
+        "capitulo intocado de longo ja usado nao precisa de token nenhum, e a "
+        "rodada de 12/10 so achou isso porque eu me lembrei — a saida lembra"
+    )
+
+
+def test_sem_token_diz_que_o_piso_SUBESTIMA(monkeypatch, capsys):
+    _, saida = _sem_token(monkeypatch, capsys)
+    assert "SUBESTIMA" in saida, (
+        "apontar o piso sem dizer que ele subestima reconstroi o erro de 12/10, "
+        "em que eu tratei o retrato de 06/10 como estoque por tres rodadas e "
+        "anunciei 'a pauta acabou'"
+    )

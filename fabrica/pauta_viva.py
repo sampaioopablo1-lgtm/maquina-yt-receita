@@ -195,7 +195,21 @@ def por_uso(por_canal: dict, usadas: set) -> dict:
 def main() -> int:
     bruto = os.environ.get("YT_OAUTH_JSON") or ""
     if not bruto.strip():
-        print("::error::YT_OAUTH_JSON vazio — este modulo roda no RUNNER")
+        # NAO e `::error::`, e isto foi medido na pele em 12/10 13:2x: rodando
+        # este modulo no container eu recebi "YT_OAUTH_JSON vazio" e por um
+        # instante leio isso como maquina quebrada, que e o mesmo efeito do
+        # §3.8 — a mensagem fabrica o diagnostico errado. Sem segredo nao ha
+        # defeito nenhum: ha a rota errada. Logo a saida diz QUAL e a rota certa
+        # e QUAL e o piso, em vez de so recusar.
+        print("SEM TOKEN AQUI, e isso NAO e defeito.")
+        print("  Este modulo le a playlist de uploads pela API e por isso roda")
+        print("  no RUNNER: dispare `pauta-viva.yml` e leia as anotacoes.")
+        print("  O PISO, que roda sem token e sem banco, e:")
+        print("      python3 fabrica/pauta_local.py")
+        print("  Ele le o retrato de fabrica/ponte/ e por isso SUBESTIMA — em")
+        print("  12/10 o vivo achou tres origens onde o retrato dizia uma.")
+        print("  E para capitulo intocado de longo JA usado, sem token nenhum:")
+        print("      python3 fabrica/segundo_angulo.py <youtube_id>")
         return 2
     mapa = desembrulha(bruto)
     usadas = origens_usadas()
