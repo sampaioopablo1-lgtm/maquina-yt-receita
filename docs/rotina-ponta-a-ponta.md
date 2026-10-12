@@ -93,15 +93,35 @@ Rota provada em 11/10 (run `38175747708`, `epomeno-epipedo-s016` =
 | `pacote`, `canal`, `idioma` | da spec |
 | `run_id` | o run que guarda o artefato do render |
 | `access_token` | **VAZIO** — o runner refresca sozinho pelo `YT_OAUTH_JSON` |
-| `estado_b64` | base64 de `{ja_publicado, titulos_no_ar, titulos_no_ar_n}`, montado do `fabrica/corpus_publicados.json` |
+| `estado_b64` | **`python3 fabrica/estado_ponte.py`** — não monte à mão |
+
+**NÃO MONTE O `estado_b64` À MÃO, e isto é retratação de um parágrafo que estava
+aqui.** Este documento dizia só "base64 de `{ja_publicado, titulos_no_ar,
+titulos_no_ar_n}`", e eu montei duas vezes no mesmo dia seguindo essa frase. Na
+segunda errei a forma: `titulos_no_ar` como lista de **strings**, quando a trava
+`publicar._iguais_no_estado` lê lista de **objetos** com a chave `titulo`. O run
+`38217254505` baixou o pacote, passou pela conferência e morreu em
+`AttributeError`. `fabrica/estado_ponte.py` monta e confere; o `retomar.yml`
+agora chama `estado_ponte.confere` e **para antes de baixar** se a forma
+estiver errada.
 
 O runner confere `titulos_no_ar_n` contra o tamanho da lista e **recusa lista
-truncada** — a trava que nasceu do erro de 26/08.
+truncada** — a trava que nasceu do erro de 26/08. Conferir o tamanho **não
+basta**: era exatamente o que ele fazia quando a forma errada passou verde.
 
-**Depois de publicar, no mesmo passo:** acrescentar o título ao
-`corpus_publicados.json` e commitar. Sem isso a segunda fonte anti-duplicata
-fica atrasada e o ciclo seguinte reoferece o pacote — o defeito consertado em
-11/10.
+**Depois de publicar, no mesmo passo:**
+```
+python3 fabrica/estado_ponte.py adiciona fabrica/specs/<spec>.json
+```
+e commitar. Idempotente, ordenado, e sabe que **short solto entra pelo `##
+TITULO SHORT`, nunca pelo `## TITULO`** — o título do longo nunca foi ao ar.
+Sem essa soma a segunda fonte anti-duplicata fica atrasada e o ciclo seguinte
+reoferece o pacote: foi o defeito consertado em 11/10, e o corpus estava
+atrasado outra vez em 12/10.
+
+**O `youtube_id` sai em `::notice::`** desde 12/10. Antes ele só era impresso no
+log, e log de job não se lê por API daqui — a publicação do `s018` deu certo
+(run `38217420591`) e ficou sem id nomeado por causa disso.
 
 ---
 
@@ -113,6 +133,16 @@ da máquina casadas por título contra o corpus. Primeira rodada: `38186165873`.
 
 **O que ele ainda NÃO faz:** gravar em `metricas`. O número sai em anotação e
 precisa ser recuperado à mão quando a porta reabrir.
+
+**A narração hoje é do PIPER, não do edge-tts.** O `edge_tts` devolve 403 no
+handshake do runner desde 12/10 (runs `38198672898` e `38202568056`, e de novo
+nas duas peças do dia), então `voz_piper` entra como fallback e cada peça sai com
+`::warning::` de calibração. **O `R` e o `P` de `MODELO_VOZ` são do edge-tts e
+não valem para essas vozes** — é o erro do 679/698 se alguém usar o número delas
+para mira ou para o portão `duracao`. O instrumento para remedir é
+`calibra-piper.yml` → `fabrica/calibra_piper.py`, que mede com o texto das specs
+reais e **não escreve em `ensaio.py`**: colar é decisão, e ainda falta decidir o
+que fazer com a tabela quando o edge-tts voltar.
 
 **O que ele ainda não pode medir:** retenção. Depende dos dois cliques de
 consentimento (`docs/reautorizar-analytics.md`), e sem ela os experimentos 37,
