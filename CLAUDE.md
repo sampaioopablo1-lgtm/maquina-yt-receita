@@ -213,14 +213,30 @@ iguais como N observações.
   Nenhuma lista de memória, à mão, ou escrita num prompt decide nada.
 - `docs/estoque.md` — por que a lista à mão foi abolida, o aviso de PERFIL e as
   faixas de identidade por canal.
-- **E quando o banco está em 402, a consulta NÃO roda** — escrever aqui só o
-  caminho dela deixava a rodada sem pauta nenhuma. A reconstrução local está em
-  `docs/rotina-ponta-a-ponta.md` (Passo 1b): o retrato
-  `fabrica/ponte/videos.json` mais o `longo_existente` das specs. Ela **não** é
-  a consulta: exclui duplicata por título repetido mais o documento, e não pela
-  mesma construção — foi exatamente aí que nasceu o erro 658. Use-a com as três
-  ressalvas escritas lá, e **confira a origem escolhida contra as specs antes de
-  escrever**, uma a uma.
+- **E quando o banco está em 402, a consulta NÃO roda.** Nesse caso a fonte é
+  **`pauta-viva.yml` → `fabrica/pauta_viva.py`**, que lê a **playlist de uploads
+  pela API** — a lista viva, sem banco e sem retrato.
+  **RETRATAÇÃO DE 12/10, e é do que estava escrito nesta linha:** eu apontava
+  aqui a reconstrução pelo retrato `fabrica/ponte/videos.json`. Aquele arquivo é
+  de **06/10**; eu escrevi a ressalva certa ("longo publicado depois não
+  aparece") e então tratei o número como estoque por três rodadas, anunciando
+  "a pauta acabou". O vivo achou **três** origens onde o retrato dizia uma, duas
+  delas no epomeno. `fabrica/pauta_local.py` continua existindo como **piso**
+  (sem token, fora do runner) e o relato dele diz isso.
+- **O vivo tem um filtro que não é zelo:** ele só conta longo cujo título está no
+  `corpus_publicados.json`. Sem isso devolveu **65 "origens livres"** no
+  labtreinamento que eram as **aulas de curso do dono**, anteriores à máquina —
+  o 668 reaparecendo como pauta em vez de como denominador.
+- **E origem livre pode não ter spec local** (regra h). Os capítulos saem da
+  descrição publicada por **`capitulos.yml` → `fabrica/capitulos_do_longo.py`**;
+  mas **a descrição dá só o TÍTULO do capítulo**, e escrever a partir de título
+  seria inventar conteúdo. O texto sai da faixa de **legenda** que a própria
+  máquina subiu (`legenda=true`). Foi assim que o `eZ697VNYCPU` virou pauta: 75
+  falas, 9.249 caracteres.
+- Em qualquer caminho, **confira a origem escolhida contra as specs antes de
+  escrever**, uma a uma — e conte por **TÍTULO DISTINTO**, nunca por id: em 12/10
+  eu errei a mesma conta três vezes (cinco → três → dois) porque dez ids livres
+  eram dez cópias de um título.
 
 ## Antes de dizer que a máquina está sã
 - `python3 -m pytest tests -q --ignore=tests/test_mcp.py --ignore=tests/test_banco_de_pautas.py`
