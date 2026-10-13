@@ -1,0 +1,99 @@
+{
+ "slug": "kolejny-poziom",
+ "pacote": "kolejny-poziom-s022",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Podwyżka",
+  "l2": "nic nie dała"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Miesiąc przed",
+   "sub": "nic nie dała",
+   "nar": "Podwyżka miesiąc przed wnioskiem nic nie dała.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bank chce",
+   "preco": "historię dochodu",
+   "nar": "Bank chce historię, nie dobry miesiąc.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Zmiana pracy",
+   "sub": "też nie działa",
+   "nar": "Zmiana pracy przed wnioskiem też nie działa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Okres próbny",
+   "preco": "to ryzyko",
+   "nar": "Świeży okres próbny to dla banku ryzyko.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Nawet",
+   "preco": "na lepiej płatną",
+   "nar": "Nawet jeśli nowa praca płaci lepiej.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Premia raz w roku",
+   "sub": "nie jest dochodem",
+   "nar": "Premia raz w roku to nie dochód.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Nadgodziny",
+   "preco": "tak samo",
+   "nar": "Z nadgodzinami jest tak samo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Nieregularne",
+   "preco": "częściowo albo wcale",
+   "nar": "Dochód nieregularny bank liczy częściowo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Liczy się staż",
+   "sub": "nie szczyt",
+   "nar": "Liczy się staż dochodu, nie jego szczyt.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dlatego",
+   "sub": "nie zmieniaj nic przed",
+   "nar": "Nie zmieniaj nic krótko przed wnioskiem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Kolejny Poziom",
+   "sub": "zasubskrybuj",
+   "nar": "Sprawdź swój staż dochodu i zasubskrybuj.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "42hpD7eaptE",
+ "copy": "# kolejny-poziom-s022\n\n## TITULO\nCo Nie Podnosi Zdolności Kredytowej: Podwyżka, Zmiana Pracy I Premia Raz W Roku\n\n## TITULO SHORT\nPodwyżka przed wnioskiem nic nie dała\n\n## DESCRICAO\nKiedy ktoś chce pożyczyć więcej, zwykle robi jedną z trzech rzeczy: prosi o podwyżkę, zmienia pracę na lepiej płatną, albo dolicza do dochodu premię, którą dostaje raz w roku. Wszystkie trzy wydają się oczywiste i żadna z nich nie działa tak, jak się liczy — a najgorsze jest to, że kosztują czas i nerwy akurat wtedy, kiedy wniosek już leży w banku.\n\nPowód jest jeden i jest wspólny dla wszystkich trzech: **bank nie patrzy na szczyt dochodu, patrzy na jego staż.** Chce zobaczyć historię, a nie jeden dobry miesiąc. Podwyżka sprzed miesiąca jest dla niego jednym punktem, nie trendem.\n\nZmiana pracy jest jeszcze gorsza, i to jest dla wielu zaskoczenie: świeży okres próbny bank czyta jako **ryzyko**, a nie jako awans. Z jego punktu widzenia osoba, która właśnie zmieniła pracodawcę, ma mniej pewny dochód niż przed zmianą — nawet jeśli nowa umowa płaci wyraźnie lepiej.\n\nPremia i nadgodziny mają swój własny problem: to dochód **nieregularny**. Bank przyjmuje go częściowo albo pomija całkowicie, bo nie ma gwarancji, że powtórzy się w kolejnych latach. Doliczanie go do swojego wyliczenia to najczęstszy powód, dla którego czyjaś własna kalkulacja wychodzi znacznie wyżej niż ta z banku.\n\nCo z tego wynika praktycznie: jeżeli planujesz wniosek, **nie zmieniaj nic krótko przed nim.** To jedyny moment, w którym bezczynność jest lepsza od działania. Rzeczy, które faktycznie podnoszą zdolność, działają w drugą stronę — przez stronę kosztów, nie przez stronę dochodu.\n\nW pełnym materiale: bufor, który bank dolicza do raty, ciche obciążenia, cztery dźwignie, które faktycznie działają, i pięć kroków przygotowania przed złożeniem wniosku.\n\n## COMENTARIO FIXADO\nNajdroższy z tych trzech błędów to zmiana pracy, bo jest nieodwracalna w krótkim terminie: okres próbny po prostu musi minąć. Pozostałe dwa kosztują tylko rozczarowanie. Celowo nie podaję tu żadnej stopy, żadnego procentu i żadnej kwoty — te liczby zmieniają się co kilka miesięcy i zrobiłyby z tego materiału coś nieprawdziwego, a sama zasada się nie zmienia: bank liczy staż dochodu, nie jego szczyt. Napiszcie, czy któryś z tych trzech ruchów robiliście przed wnioskiem — podejrzewam, że premia jest najczęstsza.\n\n## HASHTAGS\n#ZdolnośćKredytowa #Kredyt #KolejnyPoziom\n\n## TAGS\nzdolnosc kredytowa, staz dochodu, okres probny, zmiana pracy przed wnioskiem, premia roczna, nadgodziny, dochod nieregularny, historia dochodu, wniosek kredytowy, bufor bankowy, ciche obciazenia, kolejny poziom, co nie dziala, przygotowanie do kredytu, budzet domowy\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Conferido campo a campo.\n\nA REGRA (g) tira, deste longo, tudo o que MUDA: a taxa do banco central, o\nWIBOR, o tamanho do bufor, a margem, as quantias de qualquer exemplo e os prazos\nem meses. Sao numero de politica monetaria -- envelhecem em semanas. Nenhum\nbanco e nomeado e nenhum orgao e citado (regra 609).\n\nOs ordinais nao aparecem: as tres coisas que nao funcionam saem nomeadas (a\nalta recente, a troca de emprego, o bonus anual), sem declarar contagem. O\npacote de origem passou o `contagem_declarada.py` com 0 conflitos.\n\nO QUE A PECA CARREGA, e nao envelhece: o banco olha o STAGIO do rendimento e\nnao o pico dele; periodo de experiencia recente le-se como risco e nao como\npromocao; e rendimento irregular entra parcialmente ou nao entra. Os tres\nsobrevivem a qualquer tabela de juros.\n\nO QUE EU NAO LEVEI, de proposito, e vai escrito para a proxima rodada achar: as\nquatro dzwignie que FUNCIONAM (capitulos 52 a 61). E a familia positiva do mesmo\nlongo, e e boa -- mas o `s010` deste canal ja levou uma delas (\"fecha o limite,\nage como aumento\"), e levar as outras hoje chegaria perto demais da mesma\nfamilia.\n\nMIRA: a voz `pl-PL-MarekNeural` tem centro +2,2% (679), logo a mira e o PISO da\nfaixa. Estimado 41,76 contra `ALVO_SHORT` (41,5 a 43,0) -- deliberadamente no\npiso, nao no meio. Primeira versao dava 45,78.\n\n## FONTES\nO longo de onde este short foi extraido (`42hpD7eaptE`, pacote\nkolejny-poziom-008, 89 capitulos) carrega os numeros. Este short NAO introduz\nnumero novo sobre o mundo, entao nao exige fonte institucional nova.\n\nNOTA DE PROCEDENCIA: o texto saiu dos capitulos 25 e 62 a 64 da spec do proprio\npacote, lidos um a um. Nenhuma frase foi inferida de resumo nem de titulo.\n"
+}

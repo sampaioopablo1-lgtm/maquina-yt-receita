@@ -294,6 +294,15 @@ instrumento é `tblend` + `signalstats`.**
     **NAO responda de cabeca.** Rode
     `python3 fabrica/porta1.py '{"horas":<h>,"canais":{...}}'` com duas leituras
     de inscritos separadas por >= 4 h (regra H). O modulo RECUSA janela curta.
+    **E AS >= 4 h NAO BASTAM PARA MEDIR RITMO** -- elas so pulam o DEGRAU da
+    replica (686). O piso de resolucao da janela e `24/h` por dia, e resolver o
+    ritmo da frota (~1,8/dia) pede ~13 h; o do labtreinamento (~0,6/dia), ~40 h.
+    Use `porta1.horas_para_resolver(<ritmo>)` em vez de calcular de cabeca: eu
+    errei a hora da proxima leitura TRES rodadas seguidas fazendo isso a mao.
+    **E o criterio e DUAS CONTAGENS, nao uma** (723, medido em 13/10 as 09:1x):
+    delta de |1| da |ritmo| == piso, com incerteza da ordem do proprio valor. O
+    modulo aceitava uma contagem para BAIXO e projetou "chega NUNCA" a partir de
+    um 68 -> 67 em 13,6 h. Travado em `tests/test_porta1_uma_contagem.py`.
     O quadro sai no relato final, com as tres ressalvas que ele proprio imprime.
     **E confronte a data projetada com 1/FEV/2027**, quando a barra sobe de 500
     para 1.000: projecao que passa dessa data NAO fecha a Porta 1.

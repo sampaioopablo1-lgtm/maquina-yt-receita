@@ -118,9 +118,22 @@ def quadro(canais: dict, horas: float, hoje: dt.date | None = None) -> dict:
     linhas = []
     for nome, v in canais.items():
         r = ritmo(v["antes"], v["agora"], horas)
-        # Delta zero nao e ritmo zero: e ritmo ABAIXO do piso de resolucao da
-        # janela. A distincao vai para o relato em vez de virar "nunca".
-        resolvido = v["agora"] != v["antes"]
+        # Delta zero nao e ritmo zero, e UMA contagem nao e ritmo medido.
+        #
+        # CORRIGIDO EM 13/10/2026 as 09:1x, por uma leitura de producao, e e a
+        # MESMA assimetria que eu ja havia corrigido para o kolejny em 12/10 --
+        # so que do outro lado do sinal. O critério antigo era
+        # `agora != antes`, isto é: delta ZERO nao resolve, mas delta de UMA
+        # contagem resolve. Nao resolve: o piso da janela E uma contagem, logo
+        # |ritmo| == piso e a incerteza e da ordem do proprio valor. Com isso o
+        # labtreinamento lendo 68 -> 67 em 13,6 h saiu como "-1,76/dia, chega
+        # NUNCA", quando o que a janela permite dizer e so "|ritmo| <= o piso".
+        #
+        # Eu ja tinha escrito exatamente este argumento no CLAUDE.md para o
+        # +0,60/dia ("e UMA contagem, a incerteza e da ordem do valor") e nao o
+        # apliquei ao codigo. Duas contagens sao o minimo para o ritmo sair do
+        # piso, e vale nos dois sentidos.
+        resolvido = abs(v["agora"] - v["antes"]) >= 2
         d = dias_para(PORTA1_INSCRITOS, v["agora"], r)
         no_fim = v["agora"] + r * dias_ate_fim
         data = (hoje + dt.timedelta(days=round(d))) if d is not None else None

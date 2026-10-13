@@ -46,6 +46,25 @@ está exatamente SOBRE o piso daquela janela, logo a incerteza dele é da ordem 
 próprio valor. A projeção de 2028-10-06 continua sendo a melhor que existe, e
 continua sendo de uma contagem só.
 
+**E ISSO VIROU UM DEFEITO MEDIDO EM 13/10 ÀS 09:1x — aprendizado 723, `alto`.**
+Eu escrevi o parágrafo acima e **não o apliquei ao código**. A leitura ao vivo das
+09:0x deu `labtreinamento` **68 → 67** numa janela de 13,6 h, cujo piso é
+**1,76/dia** — e o `porta1.quadro` chamou isso de ritmo RESOLVIDO de −1,76/dia e
+projetou **"chega NUNCA"**. O critério era `agora != antes`: **recusava delta zero
+e aceitava UMA contagem**, assimetria sem justificativa nenhuma. É o mesmo erro
+que eu corrigi para o kolejny em 12/10, do outro lado do sinal.
+
+Agora é `abs(agora - antes) >= 2`, e `tests/test_porta1_uma_contagem.py` tem sete
+testes, um deles ancorado nesta leitura real. **O quadro das 09:1x sai com os TRÊS
+canais em `indeterminado`** — e isso é a leitura honesta: 67 / 19 / 8, com
+|ritmo| ≤ 1,76/dia nos três.
+
+**O que isto NÃO autoriza dizer:** que o labtreinamento está perdendo inscrito. Um
+passo para baixo é o mínimo que o instrumento consegue expressar. **E o que ele
+derruba:** o +0,60/dia que eu vinha usando para projetar 2028-10-06 **não se
+confirmou na leitura seguinte** — ele era uma contagem, e a contagem seguinte foi
+para o outro lado.
+
 **E ISTO ACABOU DE IMPEDIR UM RELATO ERRADO.** Às 18:17 de 12/10 os três
 contadores vieram **byte a byte iguais** aos de 14:35 — 68 / 19 / 8, em 3,7 h. O
 `porta1.py` recusou a janela pela regra H, e se eu tivesse esperado os 4,0 h o
