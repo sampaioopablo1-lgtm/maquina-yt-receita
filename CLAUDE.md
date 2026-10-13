@@ -918,6 +918,52 @@ incluindo a de 39, logo cenas sozinhas não explicam.
 `tests/test_previsao_nao_prediz_nesta_faixa.py`, sete testes, um deles ancorado
 na decisão que falhou.
 
+#### E ÀS 19:1x O 732 CAIU INTEIRO — aprendizado 733, e a medição era BARATA
+
+**O `voz_piper.aviso_de_calibracao` emite `::warning::`, e `::warning::` SAI pelas
+ANOTAÇÕES do job.** Logo o provedor de cada cena é **observável**, sem ler log
+nenhum. Eu passei três rodadas **inferindo** o provedor pela distância entre
+previsão e real, quando bastava contar avisos:
+
+    gh api repos/<owner>/<repo>/check-runs/<job>/annotations \
+      --jq '[.[]|select(.message|test("NARRACAO PELO PIPER"))]|length'
+
+| peça | avisos | provedor | previsão **dele** | real | desvio |
+|---|---|---|---|---|---|
+| `kolejny-poziom-s023` | **10** | **PIPER** | 36,7 | 39 | **+6,4%** |
+| `epomeno-epipedo-s024` | 0 | edge | 43,1 | 44 | +2,1% |
+| `kolejny-poziom-s024` | 0 | edge | 42,9 | 44 | +2,5% |
+| `epomeno-epipedo-s025` | 0 | edge | 42,1 | 44 | +4,5% |
+
+**AS QUATRO CASAM COM O PROVEDOR QUE DE FATO NARROU**, e o viés é sempre
+**positivo**. A frase central do 732 — *"a previsão não prediz"* — vinha de eu
+comparar o real contra o mundo `edge` em **três das quatro** peças sem saber qual
+mundo havia narrado, e numa delas o mundo era o outro. **Comparador escolhido sem
+medir**, que é o efeito (C) da rotina.
+
+**E o "paradoxo" das três previsões com o mesmo real cai pelo §3.8:** as três
+caem dentro de **1,0 s** uma da outra, e o real tem granularidade de **1 s com
+arredondamento para cima**. Três valores num intervalo de um segundo devolvendo o
+mesmo inteiro não é ausência de relação — é **falta de resolução**. Eu chamei de
+achado o limite do instrumento.
+
+**E a terceira afirmação do 732 era comparador escolhido:** eu disse que
+"encurtar 2,2 s não encurtou a peça", comparando o `s025` publicado com OUTRAS
+peças. A primeira versão (edge 44,3) **nunca foi renderizada** — não existe o
+real dela, e eu apresentei uma comparação como se fosse antes-e-depois da mesma
+peça.
+
+**O que sobrevive e sai FORTALECIDO:** o **730** (o provedor não é fixo) agora
+tem prova **direta** — dez avisos num render e zero nos outros três, no mesmo
+dia. E o **731** (viés para cima) volta a valer: mediana **+2,5%** no edge com
+n=3, e **+6,4%** no piper com n=1. O portão nos dois mundos segue certo.
+
+**A REGRA DE MÉTODO QUE FICA: antes de inferir qual provedor narrou, CONTE OS
+AVISOS** — um por cena do Piper, zero se o edge venceu.
+`tests/test_provedor_medido_pela_anotacao.py`, sete testes, e um deles **falha se
+alguém trocar o `::warning::` por `print`**, porque aí o provedor volta a ser
+inferido no olho.
+
 **E UM ERRO DE PROCESSO MEU, NA RODADA ANTERIOR:** eu disse ao dono que a nota do
 731 tinha entrado neste arquivo. **Não tinha.** O meu `t.replace` rodou **sem
 `assert`**, não achou a âncora, e gravou o arquivo inalterado — falha **silenciosa
@@ -932,6 +978,29 @@ descobri porque a edição seguinte estourou o `AssertionError` que eu pus nesta
 edge-tts mesmo quando o Piper é quem narra — o provedor se decide no runner,
 depois das três tentativas. O conserto certo é a estimativa receber o PROVEDOR,
 não a tabela ser reescrita por baixo. Desenho pré-registrado antes de mexer.
+
+## O timeout do `execute_sql` no UPDATE correlaciona com o TAMANHO do texto
+
+**Observado em 13/10, quatro tentativas, e refina o aviso 621 — que eu vinha
+tratando como "intermitente".** Nesta sessão:
+
+| chamada | texto | resultado |
+|---|---|---|
+| `update ... evidencia = evidencia \|\| <jsonb grande>` | ~800 ch | **timeout 60 s** |
+| idem, segunda tentativa | ~700 ch | **timeout 60 s** |
+| `update ... invalidado_motivo = <texto longo>` | ~900 ch | **timeout 60 s** |
+| `update ... status='invalidado'` | ~55 ch | **passou** |
+| `update ... invalidado_motivo = <texto curto>` | ~130 ch | **passou** |
+
+**Quatro de quatro longos estouraram; dois de dois curtos passaram.** E `INSERT`
+com `evidencia` jsonb grande passa sem problema — então **não é o tamanho do
+payload em geral, é o UPDATE com texto longo.** Isto é `observado`, não `medido`:
+n pequeno e eu não controlei a hora nem a carga.
+
+**O procedimento que sai disso:** retratação vai em **dois statements curtos** —
+`status` primeiro, `invalidado_motivo` resumido depois, com o detalhe vivendo no
+registro NOVO. E **confira com `select` depois de cada um**, porque o timeout
+**não** aplica a mudança e eu já relatei como feito o que não tinha sido.
 
 ## Antes de citar número de aprendizado
 `select max(id) from aprendizados` no projeto **vevocauwtarctfwngrch**.
