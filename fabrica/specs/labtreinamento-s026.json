@@ -1,0 +1,80 @@
+{
+  "slug": "labtreinamento",
+  "pacote": "labtreinamento-s026",
+  "idioma": "pt-BR",
+  "voz": "pt-BR-ThalitaMultilingualNeural",
+  "trilha": "Inspired",
+  "paleta": {
+    "ink": "#22333B",
+    "c1": "#A4243B",
+    "c2": "#D8973C",
+    "bg": "#F4F1EA"
+  },
+  "thumb": {
+    "l1": "Mude uma",
+    "l2": "coisa só"
+  },
+  "longo": [],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Mude uma coisa",
+      "sub": "e só uma",
+      "nar": "Quando mudar o preço, mude uma coisa só.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Ou o preço",
+      "nar": "Ou você mexe no preço.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Ou o escopo",
+      "nar": "Ou mexe no que está incluído.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Nunca as duas",
+      "sub": "no mesmo orçamento",
+      "nar": "Nunca as duas no mesmo orçamento.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Porque aí",
+      "nar": "Porque aí você não sabe qual funcionou.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "O cliente",
+      "sub": "também lê isso",
+      "nar": "O cliente também lê as duas juntas como uma coisa.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Uma mudança",
+      "nar": "Uma mudança por orçamento se explica.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "E ensina",
+      "nar": "E a resposta dele te ensina a próxima.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "LabTreinamento",
+      "sub": "inscreva-se",
+      "nar": "Mude uma coisa no próximo. Inscreva-se.",
+      "sem_cap": true
+    }
+  ],
+  "longo_existente": "ntrMxq89I4o",
+  "copy": "# labtreinamento-s026\n\n## TITULO\nQuando For Mudar o Seu Preço, Mude Uma Coisa Só — Ou o Valor, Ou o Que Está Incluído\n\n## TITULO SHORT\nMude uma coisa só no seu preço\n\n## DESCRICAO\nVocê fez a conta, o número doeu, conferiu nos últimos trabalhos e viu que é padrão e não um caso isolado. Agora vem a parte onde quase todo mundo estraga o trabalho que acabou de fazer: **muda tudo de uma vez.**\n\nSobe o preço **e** tira duas coisas do escopo **e** passa a cobrar a reunião à parte. O orçamento novo sai, o cliente responde — e você não tem a menor ideia de qual das três mudanças produziu aquela resposta.\n\n**A regra é simples: uma mudança por orçamento.** Ou o preço, ou o que está incluído. Nunca as duas no mesmo.\n\n**Por que isso importa para você.** Se o preço sobe e o cliente aceita, você aprendeu que havia margem no preço. Se o escopo encolhe e ele aceita, você aprendeu que aquela parte não era o que ele comprava. Mudando as duas juntas, a resposta vira uma só e não ensina nada — e você fica sem saber o que repetir no orçamento seguinte.\n\n**Por que importa para ele.** Do outro lado da mesa, preço maior com escopo menor não chega como dois ajustes: chega como **uma** mudança, e ela parece grande. Uma mudança sozinha se explica em uma frase. Duas juntas pedem defesa.\n\n**O que fazer na prática.** Faça a mudança no próximo orçamento, anote qual foi, e espere a resposta. Ela é o seu dado — e é o único que você vai ter. No orçamento seguinte, se precisar, mude a outra.\n\nIsso é mais devagar do que mudar tudo junto. E é a única forma de, em três ou quatro orçamentos, **saber** em vez de achar.\n\nNo vídeo completo: a divisão passo a passo, como reconstruir as horas que você não anotou, o que a conta não pega, o caso do projeto grande e a leitura do ano inteiro.\n\n## COMENTARIO FIXADO\nEsse é o erro mais caro depois de fazer a conta certa: você descobre que a hora real está abaixo do que cobra, e muda tudo de uma vez — sobe o preço, tira do escopo, passa a cobrar a reunião. O cliente responde, e a resposta não ensina nada, porque você não sabe a qual das três mudanças ela se refere. Uma mudança por orçamento: ou o preço, ou o que está incluído. Se o preço subiu e passou, havia margem no preço. Se o escopo encolheu e passou, aquela parte não era o que ele comprava. E do lado dele as duas juntas chegam como uma mudança só, que parece grande e pede defesa — uma sozinha se explica em uma frase. Conta aqui: qual das duas você mudaria primeiro?\n\n## HASHTAGS\n#Autonomo #Precificacao #LabTreinamento\n\n## TAGS\nmudar o preco, reajuste de preco autonomo, escopo do servico, o que esta incluido, orcamento para cliente, uma mudanca por vez, valor da hora, precificacao para autonomo, autonomo, prestador de servico, financas para autonomo, quanto cobrar, labtreinamento, dinheiro proprio, negociacao com cliente\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO, ZERO DIGITO e ZERO NUMERAL na narracao. O capitulo 50 do longo fala\nem \"primeiro, segundo, terceiro\" e o 52 em \"os tres ultimos\"; a narracao desta\npeca NAO carrega nenhum deles, porque a familia dela e outra. A DESCRICAO diz\n\"tres ou quatro orcamentos\" como ordem de grandeza do autor, nao como norma.\n\nO QUE A PECA CARREGA, e nao envelhece: **uma mudanca por orcamento — ou o preco,\nou o que esta incluido, nunca as duas.** Com os dois motivos, que sao\nindependentes: (1) mudando as duas juntas a resposta do cliente nao diz qual\nfuncionou; (2) do lado DELE preco maior com escopo menor chega como UMA mudanca,\ne ela parece grande.\n\nEsta no capitulo \"E depois\" (indice 53) do longo `ntrMxq89I4o` (pacote\n`labtreinamento-007`), com apoio dos capitulos \"O que fazer hoje\", \"Tres passos\"\ne \"Compare\".\n\nSEXTO ANGULO deste longo. Os anteriores: `s002` (o denominador incompleto),\n`s021` (o maior nao e o melhor), `s022` (as consolacoes tem prazo), `s023` (um e\ncaso, tres e padrao) e `s025` (as horas que voce nao anotou). A unidade de pauta\ne (LONGO x FAMILIA DE CAPITULO), e a familia \"mude uma coisa so\" nao foi usada\npor nenhum deles — o `s023` para em \"faca nos tres ultimos\" e esta peca comeca\nexatamente DEPOIS disso.\n\nE VALE DIZER O QUE ESTA FAMILIA E, porque e a nossa propria disciplina dita para\no espectador: mudar um fator por vez para saber qual produziu o efeito. E o\ndesenho pre-registrado do 698/701 em linguagem de orcamento. Nao escrevi isso na\npeca — seria sobre nos, nao sobre ele.\n\nESQUELETO: `titulo-item-item-titulo-item-titulo-item-item-cta`, diferente do\n`s022`, do `s023`, do `s024` e do `s025`. O esqueleto varia a cada peca desde o\nachado das 20:1x, e o portao `variedade` diz quando repetiu.\n\nREGRA (f) CONFERIDA: decima terceira familia distinta do dia no labtreinamento.\n\nDURACAO, pelo instrumento do 711/714: estimativa **29,8 s**, previsao **24,5 s\nREAIS** — dentro do `ALVO_POR_CANAL` de 20,0 a 26,0, e medido ANTES do render.\n\n## FONTES\nO longo de onde este short foi extraido (`labtreinamento-007`, `ntrMxq89I4o`)\ne aritmetica sobre numeros do proprio espectador. Este short NAO introduz numero\nnenhum sobre o mundo, entao nao exige fonte institucional.\n"
+}
