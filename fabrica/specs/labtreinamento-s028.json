@@ -1,0 +1,80 @@
+{
+  "slug": "labtreinamento",
+  "pacote": "labtreinamento-s028",
+  "idioma": "pt-BR",
+  "voz": "pt-BR-ThalitaMultilingualNeural",
+  "trilha": "Inspired",
+  "paleta": {
+    "ink": "#22333B",
+    "c1": "#A4243B",
+    "c2": "#D8973C",
+    "bg": "#F4F1EA"
+  },
+  "thumb": {
+    "l1": "Parece pouco?",
+    "l2": "Compare"
+  },
+  "longo": [],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Um projeto engana",
+      "sub": "o ano não",
+      "nar": "A diferença em um projeto parece pequena.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Multiplique",
+      "nar": "Multiplique pelos trabalhos do ano.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "É o mesmo",
+      "nar": "É o mesmo comportamento, acumulado.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Mas o número",
+      "nar": "E o número sozinho não diz nada.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Compare",
+      "sub": "com algo que você conhece",
+      "nar": "Compare com algo que você conhece.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Um projeto",
+      "sub": "entregue de graça",
+      "nar": "Se dá um projeto inteiro, isso diz uma coisa.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Ou uma tarde",
+      "nar": "Se dá uma tarde, pode parar de se preocupar.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "E volta inteira",
+      "nar": "E a decisão volta no próximo orçamento.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "LabTreinamento",
+      "sub": "inscreva-se",
+      "nar": "Compare com algo seu. Inscreva-se.",
+      "sem_cap": true
+    }
+  ],
+  "longo_existente": "ntrMxq89I4o",
+  "copy": "# labtreinamento-s028\n\n## TITULO\nA Diferença Em Um Projeto Parece Pequena — Compare o Acumulado Do Ano Com Algo Que Você Conhece\n\n## TITULO SHORT\nCompare com algo que você conhece\n\n## DESCRICAO\nVocê faz a divisão num trabalho, acha a diferença entre a hora real e a hora que diz cobrar, e a sensação é de que **não vale o incômodo.** Num projeto, seja a favor ou contra, a diferença quase sempre parece pequena.\n\n**O tamanho não está no projeto. Está no ano.**\n\nMultiplique a diferença média pelo número de trabalhos que você entrega num ano. Não é pessimismo nem exagero: é **o mesmo comportamento, acumulado** — o mesmo jeito de orçar, repetido o número de vezes que você orça.\n\n**E aí vem a parte que falta na maioria das contas: o número sozinho não diz nada.** Um valor acumulado no ano, solto, não é grande nem pequeno — é só um número. Para sentir o tamanho, **compare com algo que você já conhece de perto.**\n\n**Compare com o valor de um projeto inteiro seu.** Se a diferença acumulada no ano equivale a um projeto que você entregou de graça, isso diz uma coisa, e é uma coisa séria. Se equivale a uma tarde de trabalho, diz outra bem diferente — e aí você pode **parar de se preocupar com isso** e cuidar do que importa mais.\n\nAs duas respostas são úteis. A que não serve para nada é o número sem comparação, porque ele não autoriza decisão nenhuma: nem mudar o preço, nem deixar como está.\n\n**E o lado bom, que quase ninguém diz: a decisão volta no próximo orçamento, e volta inteira.** Um projeto mal precificado não obriga o seguinte. Não existe aqui um erro que trave o ano — existe um padrão que o próximo orçamento pode interromper.\n\nNo vídeo completo: a divisão passo a passo, como reconstruir as horas que você não anotou, o que a conta não pega e o caso do projeto grande.\n\n## COMENTARIO FIXADO\nO erro mais comum depois de fazer a conta é olhar a diferença de UM projeto e concluir que não vale o incômodo. Num projeto ela quase sempre parece pequena — o tamanho está no ano, porque é o mesmo comportamento repetido o número de vezes que você orça. Mas tem um segundo passo que quase ninguém faz: o número acumulado, solto, não é grande nem pequeno. Compare com algo seu. Se equivale a um projeto inteiro entregue de graça, é sério. Se equivale a uma tarde, pode parar de se preocupar — e as duas respostas servem. A que não serve é o número sem comparação, porque não autoriza decisão nenhuma. Conta aqui: no seu caso deu mais perto de um projeto ou de uma tarde?\n\n## HASHTAGS\n#Autonomo #Precificacao #LabTreinamento\n\n## TAGS\ndiferenca acumulada no ano, valor da hora, precificacao para autonomo, quanto perdi no ano, comparar com projeto inteiro, orcamento de autonomo, conta do ano, autonomo, prestador de servico, financas para autonomo, quanto cobrar, labtreinamento, dinheiro proprio, leitura do ano, proximo orcamento\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO, ZERO DIGITO e ZERO NUMERAL na narracao, e aqui isso e mais do que\nregra de forma: a peca fala de MULTIPLICAR pelo numero de trabalhos do ano e NAO\ndiz quantos sao, porque esse numero e do espectador. Inventar \"doze trabalhos\"\nseria por na boca dele um dado que e dele.\n\nO QUE A PECA CARREGA, e nao envelhece: (1) **a diferenca de UM projeto parece\npequena e o tamanho esta no ANO**, porque e o mesmo comportamento acumulado;\n(2) **o numero acumulado SOZINHO nao diz nada** — compare com algo que o\nespectador conhece, um projeto inteiro dele ou uma tarde de trabalho; (3) **as\nduas respostas servem**, inclusive a que manda parar de se preocupar; (4) a\ndecisao volta no proximo orcamento, e volta inteira.\n\nEsta nos capitulos \"Um projeto\" (43), \"Multiplique\" (46), \"Compare com algo\"\n(47) e \"O bom disso\" (48) do longo `ntrMxq89I4o` (pacote `labtreinamento-007`).\n\nOITAVO ANGULO deste longo. Os anteriores: `s002`, `s021`, `s022`, `s023`,\n`s025`, `s026` e `s027`. **A fronteira com o `s023` e o que mais exige cuidado:**\no `s023` carrega \"faca nos TRES ultimos, porque um e caso e tres e padrao\" —\nisto e, como saber se EXISTE padrao. Esta peca comeca depois disso e carrega\n**como medir o TAMANHO do padrao que ja foi confirmado**, e o metodo dela e\ncomparar, nao contar. Pergunta diferente, resposta diferente.\n\nE ELA TEM UMA SAIDA QUE AS OUTRAS NAO TEM: e a unica das oito que pode terminar\nem \"pode parar de se preocupar\". As sete anteriores so sabem apertar. Isso nao\ne simpatia: um instrumento que nunca devolve \"esta tudo bem\" nao esta medindo,\nesta so cobrando — e o nosso proprio metodo tem a mesma regra.\n\nESQUELETO: `titulo-item-item-item-titulo-titulo-item-item-cta`, escolhido da\nlista de sequencias que o canal NUNCA usou, enumerada a partir das specs. Em\n13/10 as 01:0x o portao `variedade` barrou uma escolha minha de cabeca; desde\nentao a sequencia sai da enumeracao, nao da intuicao.\n\nREGRA (f) CONFERIDA: decima quinta familia distinta do dia no labtreinamento.\n\nDURACAO: medida ANTES do render pelo instrumento do 711/714, dentro do\n`ALVO_POR_CANAL` de 20,0 a 26,0.\n\n## FONTES\nO longo de onde este short foi extraido (`labtreinamento-007`, `ntrMxq89I4o`)\ne aritmetica sobre numeros do proprio espectador. Este short NAO introduz numero\nnenhum sobre o mundo, entao nao exige fonte institucional.\n"
+}
