@@ -1,0 +1,80 @@
+{
+  "slug": "labtreinamento",
+  "pacote": "labtreinamento-s031",
+  "idioma": "pt-BR",
+  "voz": "pt-BR-ThalitaMultilingualNeural",
+  "trilha": "Inspired",
+  "paleta": {
+    "ink": "#22333B",
+    "c1": "#A4243B",
+    "c2": "#D8973C",
+    "bg": "#F4F1EA"
+  },
+  "thumb": {
+    "l1": "Não é erro",
+    "l2": "ainda"
+  },
+  "longo": [],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "A conta não bateu",
+      "sub": "e pode estar certa",
+      "nar": "A conta não bateu, e pode estar tudo certo.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Entrou ou saiu",
+      "nar": "Mês de entrada ou saída é proporcional.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Décimo terceiro",
+      "nar": "O décimo terceiro tem depósito próprio.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Afastamento",
+      "nar": "Em afastamento sem remuneração não há base.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Férias mudam a base",
+      "sub": "e o depósito acompanha",
+      "nar": "No mês de férias a base muda de forma.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Folha corrigida",
+      "nar": "E folha corrigida depois acerta depois.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "A resposta",
+      "sub": "está na folha",
+      "nar": "A resposta está na folha daquele mês.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Não no extrato",
+      "nar": "O extrato só mostra o resultado.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "LabTreinamento",
+      "sub": "inscreva-se",
+      "nar": "Descarte os casos primeiro. Inscreva-se.",
+      "sem_cap": true
+    }
+  ],
+  "longo_existente": "dsoEo103l1o",
+  "copy": "# labtreinamento-s031\n\n## TITULO\nA Conta Não Bateu e Pode Estar Tudo Certo — Os Casos Em Que a Diferença É Normal\n\n## TITULO SHORT\nNão é erro ainda: descarte os casos\n\n## DESCRICAO\nVocê fez a conta do mês, comparou com o extrato, e **deu diferença.** A reação natural é concluir que falta dinheiro. Mas antes de concluir qualquer coisa, vale descartar as razões pelas quais a conta **deixa de bater sem que exista nada de errado.**\n\n**O mês em que você entrou ou saiu da empresa.** A remuneração é proporcional aos dias trabalhados, e o depósito acompanha essa proporção.\n\n**O décimo terceiro salário.** Ele gera depósito próprio, em cima do valor dele, e **não se mistura** com o do salário do mês. Quem soma os dois acha diferença onde não há.\n\n**O afastamento.** Em alguns afastamentos não há remuneração no mês — e sem remuneração não há base para o depósito.\n\n**A folha corrigida depois do fechamento.** Se a empresa acertou um valor no mês seguinte, o depósito também se acerta no mês seguinte. A diferença existe, mas ela é de **data**, não de valor.\n\n**O extrato ainda não atualizado.** Depósito feito perto do prazo pode demorar alguns dias para aparecer.\n\n**E o mês de férias**, em que parte da remuneração entra como férias e parte como salário: a base muda de forma e o depósito acompanha.\n\n**Agora o passo que resolve, e é o único que vale decorar: a resposta está na FOLHA daquele mês, não no extrato.** O extrato mostra só o **resultado** — ele nunca diz por quê. A folha mostra a composição, e é nela que você vê se o mês foi proporcional, se teve férias, se teve correção.\n\n**Só depois de descartar esses casos é que uma diferença vira uma pergunta de verdade** para levar a alguém. E aí ela chega com data, com valor e com a folha na mão, que é a forma de pergunta que alguém consegue responder.\n\nNo vídeo completo: onde está a data, como montar a base, a conta do mês, estes casos e a conta do ano.\n\n## COMENTARIO FIXADO\nDeu diferença entre a sua conta e o extrato? Antes de concluir que falta dinheiro, descarte os casos em que a conta não bate E está tudo certo: mês de entrada ou saída (proporcional aos dias), décimo terceiro (gera depósito próprio e não se mistura com o do mês), afastamento sem remuneração (sem base não há depósito), folha corrigida depois do fechamento (acerta no mês seguinte), extrato ainda não atualizado, e mês de férias (a base muda de forma). E o passo que resolve: a resposta está na FOLHA daquele mês, não no extrato — o extrato mostra o resultado e nunca diz por quê. Conta aqui: qual desses casos explicou a sua diferença?\n\n## HASHTAGS\n#DireitosDoTrabalhador #Folha #LabTreinamento\n\n## TAGS\ndiferenca no extrato, conferir o deposito do mes, folha de pagamento, mes proporcional, decimo terceiro deposito proprio, afastamento sem remuneracao, mes de ferias base, extrato nao atualizado, conferir a folha, direitos do trabalhador, labtreinamento, dinheiro proprio, carteira assinada, conta do mes\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO, ZERO DIGITO e ZERO NUMERAL na narracao, e aqui a regra (g) MORDE de\nverdade: o longo trabalha com uma ALIQUOTA (o percentual do deposito) e com a\nDATA limite do mes. As duas sao numero que MUDA por norma, entao nenhuma das\nduas entra — nem na narracao, nem na descricao, nem no titulo. A peca carrega os\nCASOS, que nao envelhecem. Pela regra 609 o titulo tambem nao leva sigla de\norgao nem de fundo.\n\n**E O LONGO TEM UMA INCONSISTENCIA INTERNA QUE EU NAO VOU REPETIR:** ele lista\nSEIS casos (capitulos 28 a 33) e no capitulo 35 diz \"depois de descartar esses\nCINCO casos\". Eu nao sei qual dos dois numeros o autor quis, e inventar um seria\npior que omitir — entao a peca diz \"esses casos\" e \"os casos\", sem contagem. Fica\nregistrado aqui porque e defeito da FONTE e alguem vai tropecar nele de novo.\n\nO QUE A PECA CARREGA, e nao envelhece: (1) **diferenca entre a conta e o extrato\nnao e erro ate os casos serem descartados**, e os casos sao mes proporcional,\ndecimo terceiro com deposito proprio, afastamento sem remuneracao, folha\ncorrigida depois, extrato nao atualizado e mes de ferias; (2) **a resposta esta\nna FOLHA daquele mes, nao no extrato** — o extrato mostra o resultado e nunca diz\npor que.\n\nEsta nos capitulos \"Quando a diferenca e normal\" (27) a \"So depois disso\" (35) do\nlongo `dsoEo103l1o` (pacote `labtreinamento-009`, 72 capitulos).\n\n**ORIGEM NOVA, E ISSO E A DECISAO ESCRITA NA SPEC ANTERIOR SENDO CUMPRIDA.** O\n`s030` registrou que o labtreinamento tinha dez shorts do MESMO longo\n(`ntrMxq89I4o`) e nove origens usadas uma vez so, e que a proxima peca sairia de\noutra origem. Esta sai: o `dsoEo103l1o` tinha UM short (`s005`, sobre a conta do\nano ser amostra de um mes) e setenta e dois capitulos. Rode\n`python3 fabrica/concentracao.py labtreinamento` antes de escolher pauta.\n\nE O PERFIL AQUI E O MELHOR MEDIDO (651): dinheiro PROPRIO com papel na mao — a\nfolha e o extrato sao do proprio espectador, e o numero que sai e dele. As\norigens de dinheiro proprio mediram 1.133 e 1.111 contra 4 a 70 das de\nconformidade corporativa; confundidor declarado, as de conformidade sao as mais\nantigas.\n\nESQUELETO: `titulo-item-item-item-titulo-item-titulo-item-cta`, da enumeracao\ndas sequencias que o canal nunca usou. A primeira versao desta spec repetia a do\n`s030` e o portao NAO avisou (o aviso so dispara na sexta igual) — mas o AVISO\nque eu mesmo escrevi prometia outra sequencia, e deixar o texto contradizer o\narquivo e pior que o aviso do portao. Trocado antes do render.\n\nREGRA (f) CONFERIDA: familia nova, e de outro longo, logo nao colide com nenhuma\ndas dezessete do labtreinamento de hoje.\n\nDURACAO: medida ANTES do render nos DOIS provedores.\n\n## FONTES\nO longo de onde este short foi extraido (`labtreinamento-009`, `dsoEo103l1o`) ja\nesta publicado e carrega as fontes dele. Este short NAO introduz numero novo\nsobre o mundo — ao contrario, ele DESCARTA a aliquota e a data por serem numero\nque muda — entao nao exige fonte institucional nova.\n"
+}
