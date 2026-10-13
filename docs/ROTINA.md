@@ -18,9 +18,9 @@
 > `tests/test_rotina_cabe_no_trigger.py` passou a cobrar.
 >
 > **E CONFIRA DEPOIS, porque sincronia sem checksum envelhece calada:**
-> corpo em 13/10 21:32 = **62773 caracteres, 64501 bytes, md5
-> `4db38df10d4abfd064afe541161fb1e7`**, margem de 1035 bytes. **CONFERIDO contra o
-> que ficou gravado no trigger nesta mesma rodada: IDENTICO byte a byte.** Para remedir:
+> corpo em 13/10 22:25 = **62781 caracteres, 64506 bytes, md5
+> `d03be9a6ff6ab79aee8dfd627faafb7f`**, margem de 1030 bytes. **CONFERIDO contra o
+> prompt gravado na mesma rodada: IDENTICO byte a byte.** Para remedir:
 >
 >     python3 -c "import pathlib,hashlib; c=pathlib.Path('docs/ROTINA.md').read_text().split(chr(10)+'---'+chr(10),1)[1].strip(chr(10)); print(len(c), len(c.encode()), hashlib.md5(c.encode()).hexdigest())"
 >
@@ -519,7 +519,11 @@ novo sobre o mundo — e isso vai dito, com o id do longo. Respeite `robots=noai
 =====================================================================
 6. PRODUÇÃO
 =====================================================================
-- `frota.yml` com `publicar: false` SEMPRE.
+- `frota.yml` com `publicar: false` SEMPRE, e o input `pacotes` e lista de
+  **OBJETOS**: `[{"canal":...,"pacote":...,"idioma":...}]`, como a descricao do
+  proprio input mostra. **Lista de STRINGS passa pelo `preparar` e mata o run
+  depois** (`matrix.pacote` vazio), sem anotacao util — 738, run `38476203962`.
+  COPIE a forma da descricao; e a assinatura do `estado_b64` (718/729).
 - SHORT 9:16, **30 a 45 s**; o portão `duracao` recusa >43,1 s E <30 s.
 - **USE `alvo_short(canal)` de `fabrica/ensaio.py`, NUNCA a constante.** Sem
   canal a função devolve a mira da FROTA, e isso tem de ser escolha, não descuido.
@@ -694,16 +698,11 @@ os três nos dois passos.
     para contornar conector: a restrição é da ORGANIZAÇÃO e alcança os dois. Ela
     também bloqueia **transferir o projeto** para outra org.
   * **O RETRATO DA PONTE ENVELHECE E ISSO REDISPARAVA PACOTE PUBLICADO** (11/10,
-    consertado): o orquestrador lia duplicata só de `videos`, que com a porta
-    fechada é o retrato de 06/10; o `prontidao` lia do `corpus_publicados.json`,
-    atualizado a cada publicação. Duas fontes discordantes — a Frota morreu em
-    19:27, 22:49 e 01:27 com os mesmos três pacotes. Agora `titulos_do_corpus()`
-    entra por `titulos_extra` nas três ações do `main`. **`titulos_no_ar` continua
-    PURA**: embutir a leitura nela quebrou quatro testes. **E está travado em
-    `tests/test_duas_fontes_de_duplicata.py`**, que ancora nos três pacotes que
-    morreram de verdade e exige que `estado`, `proximo` e `relatorio` leiam a
-    MESMA segunda fonte — ligar em duas e esquecer a terceira reconstrói o
-    defeito.
+    consertado e travado em `tests/test_duas_fontes_de_duplicata.py`): duas fontes
+    de duplicata discordando — `videos` (retrato de 06/10 com a porta fechada) e o
+    `corpus_publicados.json`. Agora `titulos_do_corpus()` entra por `titulos_extra`
+    nas TRÊS ações do `main`, e `titulos_no_ar` continua PURA. A história está em
+    `CLAUDE.md`, seção "O redisparo de pacote já publicado".
   * **E EXISTE UMA ROTA DE PUBLICAÇÃO SEM BANCO, que a ponte não usa** (11/10):
     `retomar.yml` refresca o access token dentro do runner pelo segredo
     `YT_OAUTH_JSON`, sem Supabase. **O código está completo e o segredo está

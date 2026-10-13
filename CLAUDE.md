@@ -1022,6 +1022,50 @@ edge-tts mesmo quando o Piper é quem narra — o provedor se decide no runner,
 depois das três tentativas. O conserto certo é a estimativa receber o PROVEDOR,
 não a tabela ser reescrita por baixo. Desenho pré-registrado antes de mexer.
 
+#### E O LIMITE DE 1,9 S DO 734 CAIU NO QUINTO PONTO — aprendizado 739, `alto`
+
+**Medido em 13/10 às 22:2x, no `labtreinamento-s034` (`wWmHRDmQMO4`).** Provedor
+**MEDIDO** pela anotação (zero avisos `NARRACAO PELO PIPER` no job
+`115567940121`, logo **edge**), previsão edge **25,6** e real **28** — resíduo
+**+2,4 s / +9,4%**, acima do maior desvio que eu já tinha visto nos dois eixos.
+
+**E o ponto que mais corta é a comparação com a peça anterior do mesmo canal:** o
+`s033` previa **25,7** e deu **27**; o `s034` previa **25,6** e deu **28**. Mesmo
+canal, mesma voz, mesmas dez cenas, mesmo provedor medido, **previsões a UM
+DÉCIMO de distância e reais diferentes em um segundo inteiro.** Logo **o OFFSET
+constante também não descreve** — ele teria de ser igual nos dois — e o
+percentual tampouco, porque os dois pontos curtos trazem justamente os maiores
+percentuais (5,1% e 9,4%).
+
+**O que sobrevive é o SINAL e o MÉTODO:** cinco de cinco acima da previsão do
+provedor que de fato narrou, e o provedor se conta pela anotação (733), não se
+infere.
+
+**E A CONSEQUÊNCIA ATINGE A MIRA, que é a parte prática:** a mira do
+`labtreinamento` é sobre a duração **REAL** (20,0 a 26,0) e o `mira.py` a cobra
+sobre o **ESTIMADO**. As duas peças narradas pelo edge saíram em **27 e 28
+reais** com o estimado DENTRO — ou seja, **estimado dentro nos dois mundos NÃO põe
+o real dentro da mira.** As sete peças anteriores do canal (s026 a s032) ficaram
+em 21 a 26 reais, e aquelas foram narradas pelo **Piper**.
+
+**NÃO mexi na mira nem no `mira.py`** — n=5, e a trava da §10 vale. Fica dito, com
+teste: `tests/test_residuo_quebra_o_limite_de_dois_segundos.py`, sete testes, um
+deles **falha se o pior resíduo voltar para dentro de 1,9 s**, para que o 734 seja
+relido em vez de reaproveitado.
+
+**E O `pacotes` DO `frota.yml` É LISTA DE OBJETOS — aprendizado 738.** Eu mandei
+`["labtreinamento-s034"]` e o run `38476203962` morreu: o job `preparar` dá
+**SUCCESS** (o `jq` monta `{include:[...]}` de qualquer coisa) e o run dá
+**FAILURE** com `matrix.pacote` vazio e **zero anotação útil**. A forma certa está
+escrita na descrição do próprio input:
+`[{"canal":...,"pacote":...,"idioma":...}]`. **Quarta vez da mesma assinatura** —
+payload montado à mão contra uma forma que o arquivo documenta (718, 729, 702).
+
+**E A LEITURA DE SOM VOLTOU, de graça, na anotação do render:** `labtreinamento-s034`
+com **LUFS −13,7**, LRA 2,8, pico −2,2 dBTP, desvio do alvo 0,3 e **nenhum
+silêncio**. Era um item meu em aberto desde o `s020`, e ele não exigia baixar
+artefato nenhum: sai pelo `::notice:: SOM` do próprio job.
+
 ## O timeout do `execute_sql` no UPDATE correlaciona com o TAMANHO do texto
 
 **Observado em 13/10, quatro tentativas, e refina o aviso 621 — que eu vinha
