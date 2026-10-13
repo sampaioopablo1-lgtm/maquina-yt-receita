@@ -34,21 +34,72 @@ import os
 import re
 import sys
 
-NUMERAL = {"dois": 2, "duas": 2, "tres": 3, "três": 3, "quatro": 4, "cinco": 5,
-           "seis": 6, "sete": 7, "oito": 8, "nove": 9, "dez": 10}
-ORDINAL = ["primeiro", "segundo", "terceiro", "quarto", "quinto", "sexto",
-           "setimo", "sétimo", "oitavo", "nono", "decimo", "décimo"]
+# O VOCABULARIO E POR IDIOMA, e isso e uma CORRECAO de 13/10/2026 as 12:1x.
+#
+# A primeira versao deste modulo era so PORTUGUES, e eu reportei "1 conflito em
+# 207 specs" como se fosse medicao da frota. **Nao era**: as specs do epomeno
+# sao gregas e as do kolejny polonesas, logo "0 conflitos" nelas era VACUO, nao
+# limpo -- o detector nao entendia uma palavra do que lia. O mesmo erro de
+# enquadramento do 679/698: tratar como da frota o que era de uma parte dela.
+#
+# Achado a MAO na mesma rodada, no `epomeno-epipedo-006`: o capitulo 73 declara
+# `Τέσσερα λάθη` (QUATRO erros) e os capitulos enumeram CINCO -- o 79 chega a
+# dizer "Υπάρχει και ένα πέμπτο" ("existe tambem um quinto"). O detector
+# portugues passou isso em silencio.
+NUMERAL = {
+    # pt
+    "dois": 2, "duas": 2, "tres": 3, "três": 3, "quatro": 4, "cinco": 5,
+    "seis": 6, "sete": 7, "oito": 8, "nove": 9, "dez": 10,
+    # el — com as variantes de genero que as fontes usam de verdade
+    "δύο": 2, "δυο": 2, "τρία": 3, "τρεις": 3, "τέσσερα": 4, "τέσσερις": 4,
+    "πέντε": 5, "έξι": 6, "εφτά": 7, "επτά": 7, "οκτώ": 8, "οχτώ": 8,
+    "εννέα": 9, "εννιά": 9, "δέκα": 10,
+    # pl
+    "dwa": 2, "dwie": 2, "trzy": 3, "cztery": 4, "pięć": 5, "piec": 5,
+    "sześć": 6, "szesc": 6, "siedem": 7, "osiem": 8, "dziewięć": 9,
+    "dziesięć": 10,
+}
+ORDINAL = [
+    # pt
+    "primeiro", "segundo", "terceiro", "quarto", "quinto", "sexto",
+    "setimo", "sétimo", "oitavo", "nono", "decimo", "décimo",
+    # el — neutro e masculino, que e como o kicker aparece
+    "πρώτο", "πρώτος", "δεύτερο", "δεύτερος", "τρίτο", "τρίτος",
+    "τέταρτο", "τέταρτος", "πέμπτο", "πέμπτος", "έκτο", "έκτος",
+    "έβδομο", "έβδομος", "όγδοο", "όγδοος", "ένατο", "ένατος",
+    "δέκατο", "δέκατος",
+    # pl
+    "pierwszy", "pierwsze", "drugi", "drugie", "trzeci", "trzecie",
+    "czwarty", "czwarte", "piąty", "piąte", "szósty", "szóste",
+    "siódmy", "siódme", "ósmy", "ósme", "dziewiąty", "dziesiąty",
+]
 
 # Plural -> singular dos substantivos que a fonte costuma enumerar. Fechado de
 # proposito: lista curta e previsivel vale mais que stemmer que erra calado.
-SINGULAR = {"casos": "caso", "passos": "passo", "razoes": "razao",
-            "razões": "razão", "pontos": "ponto", "itens": "item",
-            "motivos": "motivo", "etapas": "etapa", "regras": "regra",
-            "criterios": "critério", "critérios": "critério"}
+SINGULAR = {
+    # pt
+    "casos": "caso", "passos": "passo", "razoes": "razao",
+    "razões": "razão", "pontos": "ponto", "itens": "item",
+    "motivos": "motivo", "etapas": "etapa", "regras": "regra",
+    "criterios": "critério", "critérios": "critério",
+    # el
+    "λάθη": "λάθος", "βήματα": "βήμα", "περιπτώσεις": "περίπτωση",
+    "λόγοι": "λόγος", "λόγους": "λόγο", "κανόνες": "κανόνας",
+    "σημεία": "σημείο", "στήλες": "στήλη", "χρώματα": "χρώμα",
+    # pl
+    "błędy": "błąd", "bledy": "blad", "kroki": "krok",
+    "przypadki": "przypadek", "powody": "powód", "zasady": "zasada",
+    "dźwignie": "dźwignia", "punkty": "punkt",
+}
 
+# O DETERMINANTE E OPCIONAL, e isso tambem e da correcao de 12:1x: em portugues
+# a fonte escreve "esses cinco casos", mas em grego o kicker e so
+# `Τέσσερα λάθη`, sem artigo. Exigir determinante deixava o caso grego passar.
+# O que SEGURA o falso positivo nao e o artigo -- sao as duas travas que ja
+# existiam e continuam: casar o SUBSTANTIVO e exigir PROXIMIDADE.
 _DECL = re.compile(
-    r"(?:esses|estes|essas|estas|os|as)\s+(" + "|".join(NUMERAL) + r")\s+("
-    + "|".join(SINGULAR) + r")\b")
+    r"(?:(?:esses|estes|essas|estas|os|as|τα|τους|τις)\s+)?("
+    + "|".join(NUMERAL) + r")\s+(" + "|".join(SINGULAR) + r")\b")
 
 
 def _norm(s: str) -> str:
@@ -58,39 +109,77 @@ def _norm(s: str) -> str:
 JANELA = 12          # capitulos de distancia que ainda contam como "a mesma lista"
 
 
-def enumerados(longo: list[dict], singular: str, perto_de: int = None) -> int:
-    """Quantos capitulos tem kicker `<ordinal> <singular>` — ou so `<ordinal>`.
+# ORDINAL -> POSICAO na lista, com as variantes de genero colapsadas. Isto
+# entrou em 13/10 as 12:2x e e a SEGUNDA correcao do mesmo modulo na mesma
+# rodada: a primeira so trocou o vocabulario, e com ela a frota saltou de 1 para
+# 13 "conflitos" -- DOZE deles FALSOS. Conferidos a mao: `cztery błędy` com tres
+# kickers `<ordinal> błąd`, `quatro passos` com UM. A causa nao era o idioma: o
+# PRIMEIRO item da lista mora na NARRACAO do capitulo que declara, nao num
+# kicker proprio, entao contar kicker subconta sempre em um.
+#
+# O conserto nao e somar um -- e contar a POSICAO MAIS ALTA alcancada. Se a
+# fonte chega a "quinto", a lista tem pelo menos cinco itens, e isso vale tanto
+# no kicker quanto na narracao.
+_RANK = {}
+for _i in range(0, len(ORDINAL)):
+    pass
+_SEQ = [
+    ("primeiro",), ("segundo",), ("terceiro",), ("quarto",), ("quinto",),
+    ("sexto",), ("setimo", "sétimo"), ("oitavo",), ("nono",),
+    ("decimo", "décimo"),
+]
+_SEQ_EL = [
+    ("πρώτο", "πρώτος"), ("δεύτερο", "δεύτερος"), ("τρίτο", "τρίτος"),
+    ("τέταρτο", "τέταρτος"), ("πέμπτο", "πέμπτος"), ("έκτο", "έκτος"),
+    ("έβδομο", "έβδομος"), ("όγδοο", "όγδοος"), ("ένατο", "ένατος"),
+    ("δέκατο", "δέκατος"),
+]
+_SEQ_PL = [
+    ("pierwszy", "pierwsze"), ("drugi", "drugie"), ("trzeci", "trzecie"),
+    ("czwarty", "czwarte"), ("piąty", "piąte"), ("szósty", "szóste"),
+    ("siódmy", "siódme"), ("ósmy", "ósme"), ("dziewiąty",), ("dziesiąty",),
+]
+for _seq in (_SEQ, _SEQ_EL, _SEQ_PL):
+    for _pos, _formas in enumerate(_seq, start=1):
+        for _f in _formas:
+            _RANK[_f] = _pos
 
-    O casamento do SUBSTANTIVO e o ponto: sem ele, um "Primeiro passo" entra na
-    contagem de "casos" e o detector inventa divergencia. Quando NENHUM kicker
-    traz o substantivo, caimos nos ordinais nus (que e como varios longos
-    escrevem: "Primeiro caso" / "Segundo" / "Terceiro"), e isso vai declarado no
-    retorno como `por_ordinal_nu`.
+
+def enumerados(longo: list[dict], singular: str, perto_de: int = None) -> int:
+    """A POSICAO MAIS ALTA de `<ordinal> <singular>` perto da declaracao.
+
+    Le kicker E narracao, porque o primeiro item costuma estar na narracao do
+    proprio capitulo que declara a contagem (foi o que produziu doze falsos
+    positivos em 13/10). O casamento do SUBSTANTIVO e a PROXIMIDADE continuam
+    sendo as duas travas que impedem o detector de inventar achado.
     """
-    com_sub, nus = 0, []
+    ranks, nus = [], []
     for i, c in enumerate(longo):
-        k = _norm(c.get("kicker"))
-        k = re.sub(r"^(o|a)\s+", "", k)
-        m = re.match(r"(" + "|".join(ORDINAL) + r")\b(.*)$", k)
-        if not m:
+        if perto_de is not None and abs(i - perto_de) > JANELA:
             continue
-        resto = m.group(2).strip()
-        if resto.startswith(singular):
-            com_sub += 1
-        elif not resto:
-            nus.append(i)
-    if com_sub:
-        return com_sub
-    # SEGUNDO FALSO POSITIVO DO MESMO DETECTOR, medido na mesma rodada: no
-    # `labtreinamento-010` a declaracao "os dois casos" esta no capitulo 20 e
-    # fala de dois TIPOS de acidente, enquanto os quatro ordinais nus (59 a 62)
-    # sao um checklist de fechamento — outra lista, outro assunto. Pareei as
-    # duas por proximidade NENHUMA e acusei "dois contra quatro".
-    # Logo o ordinal nu so conta quando esta PERTO da declaracao: no 009 a
-    # declaracao esta no 35 e os casos no 28 a 33.
-    if perto_de is None:
-        return 0
-    return sum(1 for i in nus if abs(i - perto_de) <= JANELA)
+        k = re.sub(r"^(o|a|το|η)\s+", "", _norm(c.get("kicker")))
+        texto = k + " || " + _norm(c.get("nar"))
+        for m in re.finditer(r"\b(" + "|".join(_RANK) + r")\b(?:\s+|\s*)"
+                             + re.escape(singular) + r"\b", texto):
+            ranks.append(_RANK[m.group(1)])
+        m = re.match(r"(" + "|".join(_RANK) + r")\s*$", k)
+        if m:
+            nus.append(_RANK[m.group(1)])
+    if ranks:
+        return max(ranks)
+    # O ORDINAL NU NAO SUSTENTA ACUSACAO, e isto e a QUARTA correcao do mesmo
+    # modulo na mesma rodada (13/10, 12:4x). O detector original o usava como
+    # recurso quando nenhum kicker trazia o substantivo; com a regra da
+    # assimetria ele virou fonte de falso positivo no outro sentido: no
+    # `epomeno-epipedo-003` a declaracao "τις δύο στήλες" (duas colunas, e sao
+    # duas) pareou com `πρώτο/δεύτερο/τρίτο` dos capitulos 71 a 73, que sao OUTRA
+    # lista -- e saiu "2 contra 3". Mesmo acidente no `-011`.
+    #
+    # Um ordinal SEM o substantivo nao carrega evidencia de pertencer a lista
+    # declarada, e proximidade nao supre isso: capitulo vizinho muda de assunto.
+    # Entao ele nao conta. O custo e perder o estilo "Primeiro caso / Segundo /
+    # Terceiro", e eu prefiro perder achado a inventar achado.
+    return 0
 
 
 def divergencias(spec: dict) -> list[dict]:
@@ -106,7 +195,24 @@ def divergencias(spec: dict) -> list[dict]:
             singular = SINGULAR[plural]
             n = enumerados(longo, singular, perto_de=idx)
             chave = (m.group(0), n)
-            if n and declarado != n and chave not in vistos:
+            # SO REPORTA QUANDO A ENUMERACAO PASSA DA DECLARACAO, e a assimetria
+            # e MEDIDA, nao estetica (13/10, 12:3x -- terceira correcao do mesmo
+            # modulo na mesma rodada).
+            #
+            # Conferidos a mao os tres casos de `enumerados < declarado`
+            # (`labtreinamento-004` 4 contra 1, `nivel-do-jogo-008` 3 contra 1,
+            # `kolejny-poziom-012` 4 contra 1): os TRES estavam CERTOS na fonte.
+            # Ela enumera com ordinal NU seguido de dois-pontos ("Primeiro:",
+            # "Drugi:") ou com o numeral DEPOIS do substantivo ("Passo um"), e o
+            # detector nao le nenhuma das duas formas. Logo subcontar e MEU
+            # defeito, e acusar a fonte por isso seria inventar achado.
+            #
+            # O outro lado nao tem esse problema: se a fonte chega a "quinto
+            # erro" tendo declarado quatro, o quinto EXISTE -- achar um item alem
+            # da declaracao nao e artefato de contagem, e prova de que a lista
+            # passou do numero. O detector perde o caso oposto (declarar mais do
+            # que lista), e isso vai dito no relato em vez de ficar implicito.
+            if n and n > declarado and chave not in vistos:
                 vistos.add(chave)
                 out.append({"declaracao": m.group(0), "declarado": declarado,
                             "enumerados": n, "substantivo": singular,

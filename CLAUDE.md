@@ -441,8 +441,50 @@ casos não muda. Número errado no ar com portão verde — §3.8 outra vez.
 **A decisão no `s031` foi OMITIR a contagem**, porque não se sabe qual número o
 autor quis, e inventar um é pior que não dizer.
 
-**No código:** `fabrica/contagem_declarada.py` e nove testes. Medido na frota:
-**1 conflito em 207 specs** (só o `-009`).
+**No código:** `fabrica/contagem_declarada.py` e nove testes.
+
+**E O "1 CONFLITO EM 207 SPECS" QUE EU ESCREVI AQUI ERA ANALFABETO, NÃO LIMPO —
+aprendizado 725, `alto`, medido em 13/10 às 12:1x.** O vocabulário do módulo era
+inteiro em **português**, e as specs do epomeno são **gregas** e as do kolejny
+**polonesas**. Então "0 conflitos" nelas não media nada — e eu reportei o 1 como
+medição da FROTA. É o mesmo erro de enquadramento do 679/698: tratar como da
+frota o que é de um terço dela.
+
+Achado **à mão**, escolhendo pauta: o `epomeno-epipedo-006` declara
+`Τέσσερα λάθη` no capítulo 73 e enumera **CINCO** — o 79 diz literalmente
+*"Υπάρχει και ένα πέμπτο"*.
+
+**Com os três idiomas são QUATRO**, e os quatro têm a MESMA assinatura autoral —
+a fonte declara N e depois acrescenta *"existe também um N+1"*:
+
+| spec | declara | enumera |
+|---|---|---|
+| `epomeno-epipedo-005` | 4 | **5** |
+| `epomeno-epipedo-006` | 4 | **5** |
+| `epomeno-epipedo-014` | 3 | **4** |
+| `labtreinamento-009` | 5 | **6** |
+
+**E O CONSERTO DEU TRÊS FALSOS POSITIVOS ANTES DE FICAR DE PÉ, os três na mesma
+rodada — quatro correções do mesmo módulo em meia hora:**
+1. **só o vocabulário** levou a frota de 1 para **13**, e **doze eram falsos**:
+   `cztery błędy` com três kickers `<ordinal> błąd`, porque o **primeiro item
+   mora na NARRAÇÃO** do capítulo que declara. Conserto: contar a **posição mais
+   alta** alcançada, lendo kicker **e** narração;
+2. ainda sobravam subcontagens (`quatro passos` contra 1): a fonte enumera com
+   ordinal **nu seguido de dois-pontos** (`Primeiro:`, `Drugi:`) ou com o numeral
+   **depois** do substantivo (`Passo um`). Conserto: **a regra é ASSIMÉTRICA** —
+   só reporta quando a enumeração **passa** da declaração. Achar um quinto
+   **prova** que existem cinco; não achar o primeiro prova apenas que eu não leio
+   aquela forma. O módulo perde o caso oposto, e isso vai dito;
+3. o **ordinal nu** acusava no outro sentido: `τις δύο στήλες` (são duas, de
+   fato) pareou com `πρώτο/δεύτερο/τρίτο` de **outra lista** doze capítulos
+   adiante. Conserto: ordinal sem o substantivo **não conta**, nem perto.
+
+`tests/test_contagem_declarada_multilingue.py` tem dez testes — um por falso
+positivo, um por conflito real, e um que **falha se a contagem voltar a UM**
+(isto é, se o grego e o polonês saírem do vocabulário). E **dois testes meus de
+hoje de manhã foram RETRATADOS no lugar**, porque travavam o comportamento
+errado.
 
 **E ELE ME DEU DOIS FALSOS POSITIVOS ANTES DE FICAR DE PÉ, os dois na mesma
 rodada** — e isso é a parte que vale guardar:

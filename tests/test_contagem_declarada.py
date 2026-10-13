@@ -64,28 +64,52 @@ def test_SEGUNDO_falso_positivo_ordinal_nu_LONGE_da_declaracao_nao_conta():
         "ordinal nu a quarenta capitulos de distancia e OUTRA lista")
 
 
-def test_ordinal_nu_PERTO_da_declaracao_CONTA():
+def test_ordinal_nu_NAO_CONTA_MAIS__retratado_em_13_10_as_12_4x():
+    """ESTE TESTE AFIRMAVA O CONTRARIO, e o contrario estava errado.
+
+    Ele travava o recurso do ordinal NU perto da declaracao. Medido na frota as
+    12:4x, esse recurso produziu DOIS falsos positivos no sentido da
+    superenumeracao: no `epomeno-epipedo-003` a declaracao "τις δύο στήλες"
+    (sao duas, de fato) pareou com `πρώτο/δεύτερο/τρίτο` de OUTRA lista doze
+    capitulos adiante, e saiu "2 contra 3". Mesmo acidente no `-011`.
+
+    Um ordinal sem o substantivo nao carrega evidencia de pertencer a lista
+    declarada, e proximidade nao supre isso. O custo e perder o estilo
+    "Primeiro caso / Segundo / Terceiro"; eu prefiro perder achado a inventar
+    achado, e e a mesma regra que justificou os dois consertos de 05:0x.
+    """
     longo = [{"kicker": o, "nar": ""} for o in
              ("Primeiro", "Segundo", "Terceiro")]
     longo.append({"kicker": "Fecha", "nar": "descarte esses dois casos"})
-    d = CD.divergencias({"longo": longo})
-    assert len(d) == 1 and d[0]["declarado"] == 2 and d[0]["enumerados"] == 3
+    assert CD.divergencias({"longo": longo}) == []
 
 
 def test_o_10_real_NAO_aparece_mais():
     assert CD.divergencias(_spec("labtreinamento-010.json")) == []
 
 
-def test_a_frota_tem_UM_conflito_e_este_numero_e_medido():
-    # Medido em 13/10 as 05:2x: 1 spec de 207. Se outra aparecer, este cai e
-    # alguem olha — e e para isso que ele existe.
+def test_o_UM_conflito_era_SO_PORTUGUES__retratado_em_13_10_as_12_1x():
+    """O "1 conflito em 207 specs" que eu reportei as 05:2x era VACUO.
+
+    O vocabulario deste modulo era inteiro em portugues, e as specs do epomeno
+    sao gregas e as do kolejny polonesas -- logo "0 conflitos" nelas nao era
+    limpo, era ANALFABETO. Achado a mao as 12:1x no `epomeno-epipedo-006`:
+    declara `Τέσσερα λάθη` e enumera CINCO.
+
+    Com os tres idiomas sao QUATRO, e a contagem viva esta em
+    `tests/test_contagem_declarada_multilingue.py`, que tambem guarda os tres
+    falsos positivos que o conserto produziu antes de ficar de pe. Este teste
+    fica aqui so para que ninguem releia o 1 como medicao da frota.
+    """
     import glob
     culpados = []
     for f in sorted(glob.glob(os.path.join(SPECS, "*.json"))):
         with open(f, encoding="utf-8") as fh:
             if CD.divergencias(json.load(fh)):
                 culpados.append(os.path.basename(f))
-    assert culpados == ["labtreinamento-009.json"], culpados
+    assert len(culpados) > 1, (
+        "se voltou a UM, o vocabulario de grego e polones saiu do modulo")
+    assert "labtreinamento-009.json" in culpados
 
 
 def test_spec_sem_longo_devolve_vazio_em_vez_de_levantar():
