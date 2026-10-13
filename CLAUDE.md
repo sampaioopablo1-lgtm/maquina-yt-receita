@@ -758,6 +758,42 @@ seguia medindo a coisa errada e acertando por folga. Então isto fecha um buraco
 `tests/test_duracao_dos_dois_provedores.py`, seis testes, e um deles **falha se
 alguém transformar isto em limiar novo**: 18 e 45 não mudaram.
 
+### E EM 13/10 ÀS 10:1x O FATOR DO PIPER FOI VALIDADO — aprendizado 724, `alto`
+
+**Primeira validação contra duração REAL desde que o fator entrou.** Lidas as dez
+peças publicadas hoje numa chamada (`status_code` 200), `contentDetails.duration`
+contra `ensaio.duracao_real_prevista(..., 'piper')`:
+
+| pacote | real | piper | desvio |
+|---|---|---|---|
+| `labtreinamento-s026` a `-s032` | 25, 24, 25, 24, 25, 26, 21 | 24,5 / 24,1 / 25,1 / 24,6 / 25,8 / 25,6 / 20,7 | −3,0% a +2,1% |
+| `epomeno-epipedo-s020` / `-s021` | 37 / 39 | 37,8 / 37,4 | −2,2% / +4,3% |
+| `kolejny-poziom-s022` | 35 | 35,5 | −1,5% |
+
+**Mediana −0,5%, média −0,1%, e NOVE das dez dentro de 1 s** — que é a própria
+granularidade, porque o YouTube arredonda para cima. Contra o 711, onde o
+estimado do edge errava 10 a 20% nas peças do Piper, isto é o fator funcionando.
+
+**E O ACHADO QUE VEM DE GRAÇA É MAIS IMPORTANTE QUE A VALIDAÇÃO: as DEZ casaram
+com o Piper e NENHUMA com o edge** (que previa 25,3 a 42,7 contra 21 a 39 reais).
+Sob a nula de meio a meio, 1/1024. **Em produção é o Piper que narra**, e o braço
+edge-tts do 711 era `n=1`.
+
+**A consequência atinge a mira, e ela é aritmética:** mirar o `ALVO_SHORT` pelo
+**estimado** entrega peça **~12 a 15% mais curta** que a mira. O epomeno mirou
+42,7 e saiu **37 e 39**; o kolejny mirou **41,8, deliberadamente o piso** da faixa,
+e saiu **35** — abaixo do piso. **Eu acertei a mira no instrumento errado.**
+
+**NÃO mexi em `ALVO_SHORT` nem em `ALVO_POR_CANAL`**, e o motivo é a trava da
+§10: é parâmetro de produção, e a mira existe por medição de view que ainda não
+existe. **O desenho pré-registrado é: mirar a faixa no mundo `piper`**, já que é
+ele quem narra — e isso é decisão do dono, porque muda toda a produção.
+`tests/test_fator_piper_contra_real.py`, seis testes, e um deles **falha se o
+provedor do runner mudar** (ele exige edge acima do real em 10 de 10).
+
+**Vigilância do §3.2 na mesma chamada: as dez `processed` e `public`, nenhum
+`P0D`.**
+
 **Não corrigi `MODELO_VOZ` ainda**, e o motivo é que a spec declara a voz do
 edge-tts mesmo quando o Piper é quem narra — o provedor se decide no runner,
 depois das três tentativas. O conserto certo é a estimativa receber o PROVEDOR,
