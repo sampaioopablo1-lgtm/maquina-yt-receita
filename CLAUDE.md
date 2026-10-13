@@ -878,6 +878,52 @@ três** com o edge, e as duas por cima pela mesma margem pequena: **+2,1% e
 **E a consequência prática vai dita em vez de virar limiar:** mirar o TOPO da
 faixa deixa **~1 s de folga** contra o teto de 45 quando é o edge que narra. Não
 mexi na mira, porque é parâmetro de produção e a trava da §10 vale.
+Aprendizado **731**, gravado como registro próprio porque o `UPDATE` no 730
+levou **timeout de 60 s duas vezes** — é o aviso 621, e insistir não é conserto.
+
+#### E ÀS 18:2x O 730 E O 731 CAÍRAM EM PARTE — aprendizado 732, e é duro
+
+**Quatro peças da tarde, uma chamada, `status_code` 200:**
+
+| pacote | edge | piper | REAL | desvio edge |
+|---|---|---|---|---|
+| `epomeno-epipedo-s025` | 42,1 | 37,3 | **44** | +4,5% |
+| `kolejny-poziom-s024` | 42,9 | 36,5 | **44** | +2,6% |
+| `epomeno-epipedo-s024` | 43,1 | 38,2 | **44** | +2,1% |
+| `kolejny-poziom-s023` | 43,1 | 36,7 | **39** | −9,5% |
+
+**TRÊS previsões diferentes devolveram o MESMO real de 44, e a previsão MAIOR
+devolveu o MENOR real.** A ordem de previsto não reproduz a de real em sentido
+nenhum.
+
+**E ISSO FALSIFICA A DECISÃO QUE EU TOMEI NA MESMA RODADA.** Pelo 731 eu
+encurtei o `s025` de edge **44,3 para 42,1** — 2,2 s a menos — para ganhar folga
+contra o teto. **O real deu 44, igual ao das duas peças cuja previsão era
+MAIOR.** Encurtar a previsão em 2,2 s não encurtou a peça em nada.
+
+**O que CAI do 731:** o "viés de ~2,5% para cima no mundo edge". Era n=2; com o
+terceiro ponto virou **+4,5%**, e o desvio **cresce quando a previsão diminui** —
+assinatura de algo que não depende da previsão. **O que CAI do 730:** a frase
+"casa com o EDGE", que descrevia a menor distância entre duas previsões ruins.
+
+**O que SOBREVIVE, e com mais razão:** o provedor não é fixo
+(`fabrica.py:598-620`), e **o portão exigir 18 a 45 s nos DOIS mundos é o que
+está segurando a peça** — a folga larga é necessária justamente porque a previsão
+erra mais do que eu media.
+
+**O que eu NÃO afirmo, pelo §3.8:** que existe teto de 44 s. A peça de 39
+desmente, e n=4. **Hipótese declarada e INCOMPLETA:** a folga por cena imposta
+pelo `-t` do clipe acumularia em dez cenas — mas **as quatro têm dez cenas**,
+incluindo a de 39, logo cenas sozinhas não explicam.
+`tests/test_previsao_nao_prediz_nesta_faixa.py`, sete testes, um deles ancorado
+na decisão que falhou.
+
+**E UM ERRO DE PROCESSO MEU, NA RODADA ANTERIOR:** eu disse ao dono que a nota do
+731 tinha entrado neste arquivo. **Não tinha.** O meu `t.replace` rodou **sem
+`assert`**, não achou a âncora, e gravou o arquivo inalterado — falha **silenciosa
+e no sentido permissivo**, a mesma assinatura do corpus atrasado (726). A regra
+que fica: **todo `replace` em documento leva `assert` antes de gravar**, e eu só
+descobri porque a edição seguinte estourou o `AssertionError` que eu pus nesta.
 
 **Vigilância do §3.2 na mesma chamada: as dez `processed` e `public`, nenhum
 `P0D`.**

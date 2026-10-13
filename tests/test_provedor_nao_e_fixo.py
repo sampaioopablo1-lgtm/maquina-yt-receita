@@ -1,5 +1,14 @@
 """O PROVEDOR DE VOZ NAO E FIXO -- medido em 13/10 as 16:2x, e retrata o 724.
 
+RETRATADO EM PARTE as 18:2x, e a retratacao vive em
+`tests/test_previsao_nao_prediz_nesta_faixa.py`. A frase "casa com o EDGE" e o
+"vies de ~2,5%" deste arquivo descreviam a menor distancia entre DUAS previsoes
+ruins, com n=2. Com o quarto ponto (`epomeno-epipedo-s025`: previsto edge 42,1,
+real 44) ficou medido que **nenhum dos dois mundos prediz** estas pecas: tres
+previsoes diferentes devolveram o mesmo real de 44, e a previsao MAIOR devolveu
+o MENOR real. Os testes abaixo seguem valendo como FATOS sobre as pecas em que
+foram ancorados; o que cai e a leitura que eu fiz deles.
+
 O aprendizado 724 (desta mesma manha) concluiu, das dez pecas publicadas ate as
 10:1x: *"as DEZ casaram com o Piper e NENHUMA com o edge. Sob a nula de meio a
 meio, 1/1024. Em producao e o Piper que narra."*
