@@ -1,0 +1,99 @@
+{
+ "slug": "epomeno-epipedo",
+ "pacote": "epomeno-epipedo-s023",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#16283C",
+  "c1": "#2E7BB4",
+  "c2": "#E0A02E",
+  "bg": "#F3F7FA"
+ },
+ "thumb": {
+  "l1": "Σχετικό",
+  "l2": "όχι απόλυτο"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Το όριο",
+   "sub": "δεν μετράει αυτό",
+   "nar": "Το όριο δεν μετράει αν μπορείς να ζήσεις.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Μετράει",
+   "sub": "απόσταση",
+   "nar": "Μετράει πόσο μακριά είσαι από το μεσαίο σπίτι.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Είναι σχετικό",
+   "preco": "όχι απόλυτο",
+   "nar": "Είναι σχετικός δείκτης, όχι γραμμή επιβίωσης.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Και η χώρα",
+   "preco": "είναι η δική σου",
+   "nar": "Και η σύγκριση γίνεται μέσα στη χώρα σου.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Το παράδοξο",
+   "sub": "πλουσιότερη, ίδιο",
+   "nar": "Μια χώρα πλουταίνει και το ποσοστό μένει ίδιο.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Και αντίστροφα",
+   "preco": "πέφτουν όλοι μαζί",
+   "nar": "Αν πέσουν όλα τα εισοδήματα, πέφτει και η γραμμή.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Άρα",
+   "preco": "το ποσοστό μένει",
+   "nar": "Άρα το ποσοστό μένει, και η ζωή άλλαξε.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Και δεύτερο",
+   "sub": "δεν είναι κριτήριο",
+   "nar": "Δεύτερο: δεν είναι κριτήριο για κανένα επίδομα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Κάθε επίδομα",
+   "preco": "έχει δικά του όρια",
+   "nar": "Κάθε επίδομα έχει τα δικά του όρια.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Σου δίνει",
+   "preco": "μια θέση στον χάρτη",
+   "nar": "Σου δίνει μια θέση σε έναν χάρτη, τίποτα άλλο.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Επόμενο Επίπεδο",
+   "sub": "κάνε εγγραφή",
+   "nar": "Διάβασε τώρα κάθε είδηση αλλιώς, και κάνε εγγραφή.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "eimuyGaCor8",
+ "copy": "# epomeno-epipedo-s023\n\n## TITULO\nΟ Δείκτης Είναι ΣΧΕΤΙΚΟΣ: Τι Δεν Μετράει Το Όριο Και Γιατί Δεν Είναι Κριτήριο Για Επίδομα\n\n## TITULO SHORT\nΤο όριο δεν μετράει αν ζεις\n\n## DESCRICAO\nΚάθε φορά που βγαίνει είδηση με ένα ποσοστό, όλοι το διαβάζουν σαν να μετρά το ίδιο πράγμα: πόσοι άνθρωποι δεν βγάζουν τα βασικά. Δεν μετρά αυτό. Μετρά **απόσταση**, και η διαφορά δεν είναι τεχνική — αλλάζει το συμπέρασμα.\n\nΤο όριο υπολογίζεται σε σχέση με το **μεσαίο νοικοκυριό της χώρας στην οποία ζεις**. Οπότε η ερώτηση που απαντά δεν είναι «φτάνουν τα αγαθά για να ζήσει κανείς», είναι «πόσο μακριά στέκεται αυτό το σπίτι από το μέσο σπίτι εδώ». Είναι σχετικός δείκτης, όχι απόλυτη γραμμή επιβίωσης.\n\nΑπό εκεί βγαίνουν δύο αποτελέσματα που ξαφνιάζουν και είναι, και τα δύο, αριθμητικά αναμενόμενα. Το **πρώτο**: μια χώρα μπορεί να γίνει αισθητά πλουσιότερη και το ποσοστό να μείνει ίδιο, αν τα εισοδήματα ανέβηκαν μαζί. Το **δεύτερο**, που είναι ο καθρέφτης του: αν τα εισοδήματα όλων πέσουν μαζί, το όριο πέφτει μαζί τους και το ποσοστό δεν ανεβαίνει — ενώ η ζωή των ανθρώπων άλλαξε προς το χειρότερο. Ο δείκτης δεν ψεύδεται σε κανένα από τα δύο· απλώς δεν ρωτήθηκε αυτό.\n\nΚαι υπάρχει ένα δεύτερο σημείο, πιο πρακτικό και πιο συχνά παρεξηγημένο: **αυτό το όριο δεν είναι κριτήριο για κανένα επίδομα ή κοινωνικό πρόγραμμα.** Κάθε πρόγραμμα έχει τα δικά του εισοδηματικά όρια, τους δικούς του ορισμούς νοικοκυριού και τις δικές του προθεσμίες. Αν βγεις κάτω από το όριο, αυτό δεν σημαίνει ότι δικαιούσαι κάτι — ούτε το αντίθετο.\n\nΤι σου δίνει τότε; Μία θέση σε έναν χάρτη: πού στέκεται το σπίτι σου σε σχέση με το μεσαίο σπίτι της χώρας. Και μόνο αυτό αρκεί για να διαβάζεις κάθε επόμενη είδηση ξέροντας τι ακριβώς μετρήθηκε — που είναι, τελικά, όλη η διαφορά.\n\nΣτο πλήρες βίντεο: πώς φτιάχνεται ο συντελεστής του νοικοκυριού, γιατί δεν διαιρείς απλώς με τον αριθμό των ατόμων, πού βρίσκεις τα νούμερα, και ο υπολογισμός στα δικά σου.\n\n## COMENTARIO FIXADO\nΤο σημείο που χάνεται πιο συχνά είναι το δεύτερο: ότι αυτό το όριο δεν είναι κριτήριο για κανένα πρόγραμμα. Έχω δει ανθρώπους να υποθέτουν ότι δικαιούνται κάτι επειδή έκαναν αυτόν τον υπολογισμό, και άλλους να μην ρωτήσουν ποτέ επειδή βγήκαν πάνω από το όριο — και τα δύο είναι λάθος συμπεράσματα από έναν σωστό αριθμό. Επίτηδες δεν βάζω εδώ ούτε το ποσοστό του ορίου ούτε κανένα ποσό: αυτά αλλάζουν κάθε χρόνο, και ένα νούμερο που παλιώνει θα έκανε το βίντεο λάθος, ενώ το «σχετικό, όχι απόλυτο» δεν παλιώνει. Γράψτε αν το είχατε διαβάσει ποτέ σαν απόλυτη γραμμή — εγώ το είχα.\n\n## HASHTAGS\n#Δείκτες #Εισόδημα #ΕπόμενοΕπίπεδο\n\n## TAGS\nschetikos deiktis, apoliti grammi, mesaio noikokyrio, diamesos eisodimatos, apostasi eisodimatos, den einai kritirio, epidomata eisodimatika oria, orismos noikokyriou, pos diavazo eidisi, thesi ston charti, epomeno epipedo, oikonomika nikokyriou, statistiki anagnosi, ti den metraei\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Conferido campo a campo.\n\nA REGRA (g) tira, deste longo, tudo o que MUDA: o percentual que define o limiar,\na idade de corte da escala de equivalencia, os pesos de adulto e de crianca, os\ntres valores de exemplo por tipo de familia, e os \"mil euros de diferenca\" do\ncapitulo 51. Sao limiar normativo e valor monetario -- os dois envelhecem por\nrevisao anual. E NENHUM orgao estatistico e nomeado (regra 609), o que neste\nassunto importa mais que de costume.\n\nNUMERAL NA NARRACAO: \"primeiro\"/\"segundo\" como estrutura dos dois resultados, e\nnenhuma quantidade sobre o mundo.\n\nO QUE A PECA CARREGA, e nao envelhece: o indicador mede DISTANCIA dentro do\nproprio pais, nao suficiencia; por isso pais que enriquece junto mantem o\npercentual, e pais que empobrece junto tambem; e o limiar NAO e critério de\nbeneficio, porque cada programa tem os seus proprios. Nada disso depende de\ntabela.\n\nO QUE EU NAO LEVEI, de proposito, e vai escrito para a proxima rodada achar: os\ncapitulos 20 a 28, a escala de equivalencia (por que nao se divide pelo numero\nde pessoas). **Essa familia JA foi usada pelo `s001` deste canal** (\"entrou\nalguem na casa? mudou a linha\"), e e por isso que ela esta fora e nao por falta\nde material.\n\n## FONTES\nO longo de onde este short foi extraido (`eimuyGaCor8`, pacote\nepomeno-epipedo-016, 87 capitulos) carrega os numeros. Este short NAO introduz\nnumero novo sobre o mundo, entao nao exige fonte institucional nova.\n\nNOTA DE PROCEDENCIA: o texto saiu dos capitulos 59 a 67 da spec do proprio\npacote, lidos um a um. Nenhuma frase foi inferida de resumo nem de titulo.\n`contagem_declarada.py` no pacote de origem: 0 conflitos -- e desde 12:4x de hoje\nisso e medicao de verdade em grego, nao silencio de detector analfabeto (725).\n"
+}
