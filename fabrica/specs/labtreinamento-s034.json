@@ -1,0 +1,92 @@
+{
+  "slug": "labtreinamento",
+  "pacote": "labtreinamento-s034",
+  "idioma": "pt-BR",
+  "voz": "pt-BR-ThalitaMultilingualNeural",
+  "trilha": "Inspired",
+  "paleta": {
+    "ink": "#1F2A37",
+    "c1": "#2F6F62",
+    "c2": "#D98C2B",
+    "bg": "#F5F3EE"
+  },
+  "thumb": {
+    "l1": "Treinado",
+    "l2": "não é autorizado"
+  },
+  "longo_existente": "yrWVyqQtw00",
+  "longo": [],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Treinamento",
+      "sub": "é uma camada",
+      "nar": "Treinamento é uma camada.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Autorização",
+      "preco": "é outra",
+      "nar": "Autorização é outra.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "E a empresa",
+      "preco": "esquece a segunda",
+      "nar": "E a segunda falta.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "O que cada uma",
+      "sub": "comprova",
+      "nar": "Comprovam coisas diferentes.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Curso",
+      "preco": "comprova formação",
+      "nar": "O curso comprova formação.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Autorizar",
+      "sub": "é ato da empresa",
+      "nar": "Autorizar é ato da empresa.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Designa",
+      "preco": "a pessoa e o serviço",
+      "nar": "Designa pessoa e serviço.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "A falha",
+      "preco": "não é treinamento",
+      "nar": "A falha não é treinamento.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "É a autorização",
+      "preco": "sem registro",
+      "nar": "É a autorização sem registro.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "LabTreinamento",
+      "sub": "se inscreva",
+      "nar": "Se inscreva se você assina.",
+      "sem_cap": true
+    }
+  ],
+  "copy": "# labtreinamento-s034\n\n## TITULO\nTer Treinamento Não É Estar Autorizado — A Camada Que A Empresa Esquece De Registrar\n\n## TITULO SHORT\nTreinado não é autorizado\n\n## DESCRICAO\nA falha mais comum em trabalho elétrico não é falta de treinamento. É ter o treinamento e **não ter a autorização registrada** — e a diferença entre as duas coisas é a diferença entre uma pasta que se sustenta na auditoria e uma que não se sustenta.\n\nSão duas camadas, e elas comprovam coisas diferentes. **Formação** é o que o curso comprova: ele diz que aquela pessoa foi preparada para aquele tipo de serviço. **Autorização** não vem do curso — ela é um **ato formal da empresa**, designando aquela pessoa para aquele serviço. Ninguém se autoriza por ter estudado.\n\nO vídeo completo separa as categorias de pessoas que a norma reconhece, e a lógica é cumulativa: há quem projete e assine por formação em engenharia com registro no conselho; há quem comprove curso específico reconhecido pelo sistema oficial de ensino; e há quem trabalhe **sob supervisão** de um dos dois — e esse último caso já exige, na própria definição, a autorização da empresa.\n\nA camada que se esquece é justamente a última: o papel que designa. É a mais barata de produzir e a que menos aparece quando alguém procura. O time tem certificado, a parede tem crachá, e o ato que diz \"esta pessoa está designada para este serviço\" nunca foi escrito.\n\nE isso conecta com o resto da adequação: quando trabalhar energizado passa a exigir justificativa registrada, **alguém autorizado precisa estar do outro lado da assinatura**. Sem a designação formal, a justificativa é assinada por quem não tinha o ato que o papel pressupõe.\n\nAqui não há número de norma, data de vigência nem prazo, e isso é deliberado: esses mudam por ato normativo e um short com a data do ano passado fica errado e continua no ar. A distinção entre formação e autorização não muda.\n\nO roteiro do levantamento, as categorias com a definição de cada uma e os prazos com fonte estão no vídeo completo do canal.\n\n## COMENTARIO FIXADO\nO teste de trinta segundos: pegue o nome de quem executa serviço elétrico na sua operação e procure **o papel que designa aquela pessoa para aquele serviço**. Certificado de curso não serve para isso — ele comprova formação, não designação. Se você achar o certificado e não achar a designação, você encontrou uma linha do seu plano, e é a mais barata de resolver. Para ser justo com quem está nessa situação: não é descuido, é que a camada da autorização não gera documento automático nenhum — ela só existe se alguém a escrever. De propósito não citei número de norma, data nem prazo: eles mudam, e essa distinção não. Conta aí se na sua empresa a designação está escrita ou está subentendida.\n\n## HASHTAGS\n#SegurancaDoTrabalho #RiscoEletrico #LabTreinamento\n\n## TAGS\nautorizacao da empresa, trabalhador autorizado, profissional habilitado, qualificado, capacitado, designacao formal, treinamento eletrico, risco eletrico, seguranca do trabalho, auditoria de documentos, trabalho energizado, justificativa registrada, labtreinamento, gestao de riscos, pasta de treinamentos\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Conferido campo a\ncampo.\n\nA REGRA (g) tira o que MUDA: data de vigencia, prazo e numero de ato normativo.\nE A REGRA 609 TIRA O NOME DA NORMA, porque ele carrega um numeral — o capitulo 72\ndo longo a nomeia, e ela nao entra nem no titulo nem na narracao nem na\ndescricao.\n\nE A CONTAGEM SAIU DE PROPOSITO: o longo enumera as categorias de pessoa nos\ncapitulos 73 a 76, e eu NAO digo quantas sao. Pelo aprendizado 725 a fonte desta\ncasa costuma declarar N e acrescentar um N+1, e o `contagem_declarada` nao acusou\nconflito nesta spec — o que prova que ele nao achou um, nao que nao exista. Omitir\na contagem custa nada aqui, porque a peca carrega a DISTINCAO e nao a lista.\n\nO QUE A PECA CARREGA, e nao envelhece: formacao e autorizacao sao camadas\nDIFERENTES; o curso comprova formacao; autorizar e ato FORMAL da empresa que\ndesigna a pessoa para aquele servico; e a falha comum e ter treinamento sem a\nautorizacao registrada. Os quatro sobrevivem a revisao de norma.\n\nFAMILIA DE ENTRADA ERRADA: condicao NECESSARIA tratada como SUFICIENTE (ter o\ncurso tratado como estar autorizado). Ela e diferente da familia do\n`labtreinamento-s010`, o unico outro short deste longo, que carrega ORDEM DE\nCONTRATACAO (pedir o estudo antes do levantamento, capitulos 61 a 64). Regra (f)\nrespeitada: nenhuma outra peca do canal hoje usa esta familia.\n\nO QUE EU NAO LEVEI, e vai escrito para a proxima rodada achar: a justificativa\nescrita do trabalho energizado (capitulos 20 a 27, com o teste do \"sempre foi\nassim\"), o arco eletrico e a categoria do vestuario (29 a 37), e o risco eletrico\ndentro do inventario (43 a 51). As tres livres, no mesmo longo de 81 capitulos.\n\nMIRA: `fabrica/mira.py` reprovou TRES versoes antes desta — edge 30,2, depois\n26,5 e depois 26,1, as tres fora da mira MEDIDA do canal (20,0 a 26,0). A quarta\nsaiu com edge 25,6 e piper 21,0, dentro nos DOIS mundos. O portao `duracao`\nteria aprovado as quatro, porque ele cobra a faixa da FROTA: e o 698 em producao,\npela quarta peca seguida.\n\nE PELO APRENDIZADO 734 o real sai ACIMA do previsto do provedor que de fato\nnarrar, por ATE ~2 segundos — e o provedor se mede CONTANDO OS AVISOS do Piper na\nanotacao do job (733), nao se infere pela distancia. Com edge 25,6 isso projeta\n~26 a 28 s reais, acima do topo da mira e bem dentro do portao. Fica DITO em vez\nde perseguido: a mira e sobre o estimado, e n=4 nao autoriza calibrar nada.\n\n## FONTES\nO longo de onde este short foi extraido (`yrWVyqQtw00`, pacote labtreinamento-004,\n81 capitulos) traz as fontes oficiais, o nome da norma e as datas. Este short NAO\nintroduz numero novo sobre o mundo, logo nao exige fonte institucional nova.\n\nNOTA DE PROCEDENCIA: o texto saiu dos capitulos 71 a 78 da spec do proprio\npacote, lidos um a um. Nenhuma frase foi inferida de titulo de capitulo nem de\nresumo.\n"
+}
