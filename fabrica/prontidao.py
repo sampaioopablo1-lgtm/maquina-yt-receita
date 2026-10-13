@@ -681,6 +681,34 @@ def _gate_duracao(sp):
                           f"{SHORT_MAX_S} s e o residuo do modelo chega a "
                           f"{MARGEM_SHORT:.1%}, entao {teto:.1f} previstos ja e "
                           f"o limite seguro")
+
+        # E O PROVEDOR NAO E CONHECIDO NA HORA DE ESCREVER A SPEC. Aprendizado
+        # 711: `MODELO_VOZ` e do edge-tts, e o Piper narra 10 a 20% mais rapido
+        # (oito pecas, todas negativas, 1/256 sob a nula). Quem decide o
+        # provedor e o RUNNER, depois das tres tentativas do edge — a spec
+        # declara a voz do edge mesmo quando o Piper e que fala.
+        #
+        # Entao o `ds` acima julga UM dos dois mundos possiveis, e foi assim
+        # que o `labtreinamento-s014` (`K-k8vT0IY2M`) foi ao ar com 29 s reais
+        # contra um piso de 30: portao verde fabricando "esta tudo certo"
+        # porque o instrumento media outra coisa.
+        #
+        # A peca tem de caber na faixa SEJA QUEM FOR que narre. Isto NAO e
+        # limiar novo — `SHORT_MIN_S`/`SHORT_MAX_S` sao os mesmos, e o fator do
+        # Piper e medido (`ensaio.FATOR_PIPER`). Medido em 13/10 antes de
+        # ligar: das specs de short com voz modelada, ZERO passavam aqui com o
+        # Piper fora da faixa, logo isto fecha um buraco LATENTE e nao reprova
+        # nada que exista. Fechar antes de doer e o ponto.
+        from ensaio import duracao_real_prevista
+        for provedor in ("edge", "piper"):
+            dr = duracao_real_prevista(short, voz, provedor)
+            if dr < SHORT_MIN_S or dr > SHORT_MAX_S:
+                faltas.append(
+                    f"short com {dr:.1f} s REAIS previstos se quem narrar for "
+                    f"o {provedor} — fora de {SHORT_MIN_S} a {SHORT_MAX_S} s. "
+                    f"O provedor se decide no RUNNER (711), entao a peca tem "
+                    f"de caber na faixa nos DOIS casos; o estimado de "
+                    f"{ds:.1f} s sozinho nao garante isso.")
     return faltas
 
 

@@ -611,6 +611,22 @@ fabricou "está tudo certo" porque o instrumento media outra coisa.
 **Confundidor declarado:** n=1 no braço edge-tts, e as duas `pl-PL` são do mesmo
 canal. O que NÃO é confundido é o sinal: todas as oito na mesma direção.
 
+**CONSERTADO EM 13/10 ÀS 02:1x, e não como eu tinha previsto.** Eu escrevi
+abaixo que o conserto certo era "a estimativa receber o PROVEDOR". O conserto que
+entrou é mais simples e não precisa saber o provedor: **o portão `duracao` passou
+a exigir que a peça caiba na faixa nos DOIS mundos** — `duracao_real_prevista`
+com `edge` e com `piper`, e reprova se qualquer um sair de 18 a 45 s. O provedor
+se decide no runner, então a peça tem de ser segura seja quem narre.
+
+**E a medição ANTES de ligar diz o tamanho honesto do que foi consertado: ZERO
+specs atuais passavam pelo estimado com o Piper fora da faixa.** O buraco que
+matou o `labtreinamento-s014` (29 s reais contra piso de 30) fechou quando a
+faixa virou 18–45, **não porque o portão tenha aprendido o provedor** — ele
+seguia medindo a coisa errada e acertando por folga. Então isto fecha um buraco
+**LATENTE**, e eu digo isso em vez de vender conserto de defeito ativo.
+`tests/test_duracao_dos_dois_provedores.py`, seis testes, e um deles **falha se
+alguém transformar isto em limiar novo**: 18 e 45 não mudaram.
+
 **Não corrigi `MODELO_VOZ` ainda**, e o motivo é que a spec declara a voz do
 edge-tts mesmo quando o Piper é quem narra — o provedor se decide no runner,
 depois das três tentativas. O conserto certo é a estimativa receber o PROVEDOR,

@@ -173,3 +173,10 @@ Faixa de 0,8 LU em torno do alvo, **sem direcao** e nenhuma fora de 1,0 LU. Isto
 e o que o instrumento tinha a dizer, e ele ja disse: o `loudnorm` de uma passada
 segura o alvo em conteudo real. **Nao vira portao** — limiar sem procedencia e
 critério inventado, e aqui nao ha o que reprovar.
+
+**Sexta medicao (`s028`): LUFS −14,2, desvio −0,2, pico −1,3, LRA 2,4.** As seis:
+−0,2, −0,6, −0,2, +0,2, −0,4, −0,2. **Mediana −0,2, faixa de 0,8 LU, nenhuma
+fora de 1,0.** E o LRA, que eu vinha anotando como "caindo" (2,9 → 3,0 → 2,0 →
+1,8), voltou a **2,4** — logo **nao estava caindo**, estava oscilando entre 1,8
+e 3,0. Eu tinha escrito "nao medi causa e nao vou chamar de achado"; a sexta
+leitura mostra que nem o padrao existia.
