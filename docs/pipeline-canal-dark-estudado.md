@@ -210,3 +210,14 @@ respondeu a pergunta que o motivou** (aplicavamos o filtro e nunca liamos o
 resultado) e **a resposta e "esta certo"** — o que e um resultado, nao a ausencia
 de um. Nao vira portao: o limiar de 1,0 do produto alheio reprovaria peca por
 variacao normal deste processo.
+
+**Nona medicao (`s031`): LUFS −14,0, desvio 0,0, pico −1,4, LRA 3,1.** **A
+primeira exatamente no alvo.** As nove: −0,2, −0,6, −0,2, +0,2, −0,4, −0,2, +0,5,
++0,5, **0,0**. Mediana −0,2, amplitude 1,1 LU, nenhuma fora de 1,0.
+
+Com n=9 o retrato esta estavel: o `loudnorm` de uma passada acerta o alvo em
+conteudo real, com dispersao de cerca de 1 LU de amplitude. **O instrumento
+respondeu a pergunta que o motivou** — aplicavamos o filtro e nunca liamos o
+resultado — **e a resposta e "esta certo"**, o que e um resultado e nao a ausencia
+de um. Nao vira portao: o limiar de 1,0 do produto alheio reprovaria peca por
+variacao NORMAL deste processo.
