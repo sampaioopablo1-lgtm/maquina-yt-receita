@@ -634,6 +634,16 @@ os três nos dois passos.
     **Para conferir o md5 ordene em BYTE nos dois lados:**
     `string_agg(titulo, E'\n' order by titulo collate "C")`.
   * as travas anti-duplicata rodam IGUAIS na ponte e PEGAM (641).
+  * **DEPOIS DE PUBLICAR, REGISTRE O TÍTULO NO CORPUS — é passo MEU, e eu o
+    esqueci SETE rodadas seguidas** (13/10, medido). Com o REST em 402 ninguém
+    faz isso por mim: o corpus ficou parado no `labtreinamento-s019` enquanto
+    `s020` a `s026` iam ao ar. **E nada reclamou, porque nenhum portão lê o
+    corpus contra o que está no ar** — corpus atrasado **não barra**, logo a
+    falha é silenciosa e PERMISSIVA, que é o pior sentido. Rode:
+    `<notices do retomar.yml> | python3 fabrica/corpus_atrasado.py --aplicar`
+    **e o corpus guarda o `## TITULO SHORT`, não o `## TITULO` longo** — eu
+    grepei a forma longa, achei zero em dezessete peças e quase relatei que o
+    corpus tinha parado de crescer com a troca de rota.
   * **cuidado com crase em mensagem de commit pelo heredoc do bash**: uma palavra
     entre crases vira substituição de comando e sai do texto, silenciosamente.
     Já aconteceu, e em 09/10 apagou quatro palavras de uma mensagem. Escreva a
@@ -754,7 +764,11 @@ construção, reparo do sistema"*. Vale como instrução permanente para toda ro
 que não consegue medir nem publicar. **Relatório vazio não é entrega.**
 
 **Antes de tudo, SONDE os dois bloqueios — uma vez, barato, e registre:**
-  * banco: `mcp__Supabase__list_projects` tem de mostrar `maquina-yt-dark`;
+  * banco: **NÃO use `list_projects` — ele MENTIU e eu o usei por dias**
+    (709, `critico`). Ele reflete a ORGANIZAÇÃO a que o conector está ligado; em
+    12/10 devolveu só `imobjazz-eng's Project` **enquanto o `execute_sql` no
+    `vevocauwtarctfwngrch` funcionava**. A sonda é a CAPACIDADE: `execute_sql`
+    com `select pg_database_size(current_database())`. **Catálogo não é acesso.**
   * porta do REST: dispare `diario.yml` com `disparar=false` e leia
     `check-runs/<job>/annotations`. A anotação diz `porta ABERTA` ou
     `FECHADA (HTTP 402)` com a data do retrato. **O `ref` do dispatch é o branch

@@ -166,3 +166,10 @@ O LRA continua caindo (2,9 → 3,0 → 2,0 → 1,8) e as duas ultimas sao as pec
 nove cenas curtas. **Nao medi causa e nao vou chamar de achado**: n pequeno, e
 cena curta muda duas coisas ao mesmo tempo (quantidade de emenda e duracao de
 fala). Fica anotado como a proxima pergunta, nao como resposta.
+
+**Quinta medicao, as 01:1x de 13/10 (`s027`): LUFS −14,4, desvio −0,4, pico
+−1,5, LRA 2,0, zero silencios.** As cinco: −0,2, −0,6, −0,2, **+0,2**, −0,4.
+Faixa de 0,8 LU em torno do alvo, **sem direcao** e nenhuma fora de 1,0 LU. Isto
+e o que o instrumento tinha a dizer, e ele ja disse: o `loudnorm` de uma passada
+segura o alvo em conteudo real. **Nao vira portao** — limiar sem procedencia e
+critério inventado, e aqui nao ha o que reprovar.
