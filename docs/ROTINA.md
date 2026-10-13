@@ -1,31 +1,43 @@
 # A rotina horária — texto atual
 
 > Prompt do trigger `trig_01Y6ZvwsrbxteyS933sgzqK4` ("Máquina YT — Porta 1 do
-> YPP antes de fevereiro de 2027", cron `8 * * * *`). Vive aqui para não ser
+> YPP antes de fevereiro de 2027", cron `6 * * * *`). Vive aqui para não ser
 > reconstruído de memória e para que a sessão onde a rotina posta possa
 > aplicá-lo **verbatim** com `update_trigger` — o servidor só aceita a edição do
 > prompt vindo dessa sessão.
 >
 > **Para aplicar:** passe como `prompt` tudo o que está abaixo da linha `---`.
-> **E CONFIRA DEPOIS, porque sincronia sem checksum envelhece calada:** em
-> 11/10/2026 13:14 o corpo deste arquivo e o prompt gravado no trigger ficaram
-> BYTE A BYTE idênticos — **56.577 caracteres, md5
-> `ffe30e6fdd6ba3db48ca4428c4db230f`**. Para remedir:
 >
->     python3 -c "import pathlib,hashlib; c=pathlib.Path('docs/ROTINA.md').read_text().split(chr(10)+'---'+chr(10),1)[1].lstrip(chr(10)).rstrip(chr(10)); print(len(c), hashlib.md5(c.encode()).hexdigest())"
+> **E ISSO TEM TETO: 65.536 BYTES — medido em 13/10 às 21:3x, pela RECUSA do
+> servidor** (`prompt must be at most 65536 bytes (invalid_prompt)`). O corpo
+> estava em **68.118** e cruzou o teto no commit `5eb5ed9`, da rodada anterior
+> (`ab1bcc0` media 65.131). **A rotina não cresce para sempre.** Nesta rodada ela
+> devolveu 4,6 KB migrando HISTÓRIA para o `CLAUDE.md` — o dinamismo visual, a
+> credencial do GitHub, os passos da ponte pelo Composio, a composição das 25 e a
+> lista das quedas — e **nenhuma REGRA nem TRAVA saiu**, o que
+> `tests/test_rotina_cabe_no_trigger.py` passou a cobrar.
+>
+> **E CONFIRA DEPOIS, porque sincronia sem checksum envelhece calada:**
+> corpo em 13/10 21:32 = **62773 caracteres, 64501 bytes, md5
+> `4db38df10d4abfd064afe541161fb1e7`**, margem de 1035 bytes. **CONFERIDO contra o
+> que ficou gravado no trigger nesta mesma rodada: IDENTICO byte a byte.** Para remedir:
+>
+>     python3 -c "import pathlib,hashlib; c=pathlib.Path('docs/ROTINA.md').read_text().split(chr(10)+'---'+chr(10),1)[1].strip(chr(10)); print(len(c), len(c.encode()), hashlib.md5(c.encode()).hexdigest())"
 >
 > e compare com o `prompt` que o `get_trigger` devolve. **Divergência significa
-> que um dos dois foi editado sozinho** — era exatamente esse o estado em que eu
-> encontrei os dois em 11/10, com o prompt mandando obedecer quatro afirmações
-> que o arquivo já havia retratado.
+> que um dos dois foi editado sozinho** — e em 11/10, 12/10 e 13/10 foi SEMPRE o
+> arquivo que andou na frente, porque eu corrigi o arquivo e não chamei o
+> `update_trigger`. Isso é defeito meu e é diferente do teto: pelos commits, o
+> arquivo só passou do teto na última rodada.
 > Quando a rotina mudar por `update_trigger`, atualize este arquivo no mesmo
-> passo, senão ele volta a envelhecer (a versão anterior estava parada em 05/08).
+> passo, senão ele volta a envelhecer.
 >
-> Última revisão: 2026-10-11 02:55 UTC. RETRATA a regra da credencial do
-> GitHub (ela ENTRA em sessão rodando; e instala-se em outra conta sem
-> desvincular a primeira), acrescenta o canal de ANOTAÇÕES para ler job sem
-> o MCP, registra que o 402 alcança o runner e bloqueia a transferência de
-> projeto, e documenta o conserto do redisparo de pacote já publicado.
+> Última revisão: 2026-10-13 21:4x UTC. Retrata, NO LUGAR: o 691 pelo 713 (o
+> inscrito por peça estava inflado de 3x a 11x e a ORDEM inverte) e "a publicação
+> é pela ponte" (ela sai pelo `retomar.yml` desde 12/10). Acrescenta o teto do
+> prompt, o provedor de voz medido pela ANOTAÇÃO (733), o resíduo de ~1 a 2 s
+> (734), a soma máxima cega quando as divergências se cancelam (736), os dois
+> passos do registro (726) e a mira do labtreinamento em 20,0 a 26,0.
 
 ---
 
@@ -182,28 +194,24 @@ PRODUZIU DADO, E CONFIRA A LISTA DE ESCOPOS DO PRÓPRIO CÓDIGO.**
 O que esses 388 dados já dizem, com atribuição POR VÍDEO:
     shorts  retenção **45,1%** (n=72)  / 23 inscritos / 18.693 views / **1,23 por mil**
     longos  retenção **20,9%** (n=103) / 17 inscritos /  2.733 views / **6,22 por mil**
-Por canal e formato (691): epomeno longo **1,25 inscrito/peça**, kolejny short
-1,00, epomeno short 0,45, labtreinamento short 0,29, kolejny longo 0,12,
-labtreinamento longo 0,00. **O longo converte ~5x melhor POR VIEW, e isso é do
-EPOMENO** — não da frota. Amostra pequena, uma coleta só: melhor dado disponível,
-não conclusão.
+**E O INSCRITO POR PEÇA DO 691 ESTÁ RETRATADO PELO 713 (`critico`), que também
+era meu:** eu somava `inscritos_ganhos` ao longo das LINHAS de `metricas` — várias
+coletas da MESMA peça — em vez do MÁXIMO POR PEÇA. **Inflado de 3x a 11x, e A
+ORDEM INVERTE.** Refeito com `max` por peça sobre as 161 peças com métrica: epomeno
+longo **0,33**, epomeno short 0,14, **kolejny short 0,09** (eu o chamei de "o único
+caminho à Porta 1" e deixei isso governar a escolha de canal por três dias — é o
+QUARTO), kolejny longo 0,08, labtreinamento short 0,07, labtreinamento longo 0,00.
+**161 peças renderam 19 inscritos; só 14 (8,7%) ganharam algo, e NENHUMA peça da
+frota jamais trouxe mais de DOIS.** Logo **a Porta 1 não é alcançável por volume de
+peça em prazo nenhum que importe** — só por uma peça que ROMPA, e isso é
+distribuição, não produção. **A pergunta que vale é "o que faz uma peça romper", e
+ela só se responde com retenção nos três primeiros segundos.** O longo converter
+melhor POR VIEW continua de pé, e é do EPOMENO, não da frota.
 
-RETRATAÇÕES QUE FICAM: `viewCount` de `channels.list` não conta Shorts (638); não
-existe teto de 1.150 (646); o "+392 → 525" estava inflado (650); o estoque não é a
-restrição do ritmo (655); a quarta peça do dia recebe distribuição (657); o zero
-de uma peça não é posição no dia (663); "21 entregues" era 20 vivas mais 3 mortas
-(666); o labtreinamento NÃO converte melhor (668); "o CRM alheio desperdiça 1.303
-minutos de Actions" era falso — o repositório é PÚBLICO e Actions é grátis nele;
-"o tratamento novo abriu um buraco de fator 30 no labtreinamento" era comparador
-escolhido a dedo (684); "nove leituras iguais de inscritos" não eram nove
-observações (686); "a mediana de três leituras é o número bom" — ela é a réplica
-atrasada (688); **"o dono não autorizou `yt-analytics.readonly`" era FALSO — o
-escopo foi perdido pelo nosso próprio `ESCOPOS` (689)**; **"o longo deixou de ser
-alavanca" era falso por view, e o "5x melhor" é do epomeno e não da frota (691)**;
-**"matar os fades é o próximo item" — desceu na fila por medição (700)**;
-**"a fresca vem na terceira leitura" — a ordem não tem regra (707/708)**;
-e **a confiança que eu dei a várias leituras de 09/10, retirada retroativamente
-pela conta de poder do 693.**
+RETRATAÇÕES QUE FICAM: a lista inteira vive em `CLAUDE.md` e um resumo das mais
+caras está na §10 — não a reconstrua de memória. **E a confiança que eu
+dei a várias leituras de 09/10 está retirada retroativamente pela conta de poder
+do 693.**
 
 =====================================================================
 2. AS DUAS ALAVANCAS
@@ -241,45 +249,27 @@ lido em 09/10 diz que o que tem milhões de views dura **10 a 35 s** — mediana
 no BR, 35 no PL, 30 no GR. Os nossos estão em 41-42 s porque EU os empurrei.
 **RESSALVA QUE NÃO PODE CAIR: short mais longo não retém igual.**
 
-**EXPERIMENTO 33 (motion) FOI ABORTADO em 09/10.** A própria hipótese dele
-declarava "não mede o que quer medir", e ele travou três testes por dez dias
-enquanto o defeito que deveria medir ficava no ar. **A FILA ESTÁ DESTRAVADA: a
-linha "NÃO abra nenhum antes do 33 fechar" CAIU.** Pode ser reaberto com retenção
-de verdade quando o escopo voltar.
+**EXPERIMENTO 33 (motion) FOI ABORTADO em 09/10** — a própria hipótese dele dizia
+"não mede o que quer medir" e ele travou três testes por dez dias. **A FILA ESTÁ
+DESTRAVADA**; ele volta quando houver retenção de verdade.
 **ABERTOS AGORA: 37, 38, 39 (esqueleto do short) e 40 (dez a onze cenas).**
-Ainda na fila, não iniciados: short de 22 a 26 s; `broll` na cena 1; **matar os
-fades entre cenas — DESCEU NA FILA** (700, medido, e retrata a minha estimativa
-de "~2,2 s de escurecimento"): na peça de dez cenas (1.255 quadros, 30 fps) são
-**nove** quadros de preto puro, **0,30 s** (0,72%), e 45 quadros abaixo de 75% da
-mediana, **1,50 s** (3,6%). **A primeira emenda cai em 4,77 s — FORA dos três
-segundos que decidem**, porque o preto de t=0 da cena zero já foi consertado.
-**Na frente dele: PAUTA (longo novo) e o que acontece DENTRO dos três primeiros
-segundos.**
+Na fila, não iniciados: short de 22 a 26 s; `broll` na cena 1. **Matar os fades
+DESCEU** (700, medido, e retrata a minha estimativa de "~2,2 s"): são 0,30 s de
+preto em 1.255 quadros (0,72%), **e a primeira emenda cai em 4,77 s, FORA dos três
+segundos que decidem.** **Na frente dele: PAUTA (longo novo) e o que acontece
+DENTRO dos três primeiros segundos.**
 
-**O DINAMISMO VISUAL — defeito medido e consertado em 09/10.** O dono disse que os
-frames pareciam estáticos e **ele estava certo com folga**: no
-`labtreinamento-s011`, diferença **mediana** entre quadros consecutivos de
-**0,39** em 0-255, e **375 de 414 quadros (91%) abaixo de 1,0**. A física diz onde
-está a alavanca: `movimento por quadro = amplitude / (duração da cena x fps)`;
-12% de zoom em 8,3 s dá 0,048% por quadro, e aumentar a amplitude corta a borda do
-texto antes de ficar perceptível. **A alavanca é a DURAÇÃO DA CENA.**
-Consertado como DEFEITO, não experimento: `fabrica/legenda.py` (a legenda queimada
-era UMA fala para a cena inteira, ~18 palavras paradas por oito segundos; agora
-são grupos de até QUATRO palavras com tempo proporcional aos caracteres) e
-`motion.filtro_bordas(dur, primeira=True)` (a cena ZERO tinha preto de t=0 a
-t=0,067, dentro do primeiro segundo).
-**A CORREÇÃO FUNCIONOU — medida no mesmo método** (699): com
-`fps=10, tblend=all_mode=difference, signalstats` (o método do 690, escala
-ABSOLUTA 0-255), `labtreinamento-s011` (5 cenas, legenda de uma fala) mediana
-**0,39** e congelados (<1,0) **91%**; `kolejny-poziom-s017` (10 cenas, legenda em
-pedaços) mediana **0,63** e congelados **73%**. Mediana +62%. Confundidor
-declarado: canais e vozes diferentes, n=1 contra n=1, duas mudanças juntas — vale
-mesmo assim porque a escala é absoluta e o efeito é no quadro, não em view.
-**CUIDADO COM A MÉTRICA:** YAVG sobre o quadro inteiro é INSENSÍVEL a legenda (o
-texto é ~3% dos pixels) e me fez ler "92% congelado" antes e depois. **E NÃO use
-`mpdecimate` sem fixar `hi/lo/frac`:** na mesma peça ele devolveu "1.254 de 1.255
-quadros distintos", incomparável com o "3 -> 8 de 273" que eu medi de manhã. **O
-instrumento é `tblend` + `signalstats`.**
+**O DINAMISMO VISUAL — defeito medido e consertado em 09/10, e a física diz onde
+está a alavanca:** `movimento por quadro = amplitude / (duração da cena x fps)`,
+logo **a alavanca é a DURAÇÃO DA CENA**, não a amplitude (aumentá-la corta a borda
+do texto antes de ficar perceptível). Consertado em `fabrica/legenda.py` (legenda
+em grupos de até quatro palavras) e em `motion.filtro_bordas(dur, primeira=True)`
+(a cena ZERO tinha preto dentro do primeiro segundo). **Medido de novo no mesmo
+método e FUNCIONOU** (699). **O instrumento é `tblend` + `signalstats`** — nunca
+YAVG do quadro inteiro (mede 3% dos pixels e me fez ler "92% congelado" antes e
+depois) nem `mpdecimate` sem `hi/lo/frac` fixos. Os números das duas medições
+estão em `CLAUDE.md`, seções "O dinamismo visual" e "A correção do dinamismo
+FUNCIONOU".
 
 =====================================================================
 3. CORREÇÃO DO MODELO A CADA RODADA — PEDIDO DO DONO, OBRIGATÓRIO
@@ -384,6 +374,19 @@ instrumento é `tblend` + `signalstats`.**
     edite `docs/ROTINA.md`, extraia o corpo depois da linha `---` e passe ESSE
     texto como `prompt`; depois confira com `get_trigger` que o que ficou gravado
     bate com o arquivo.** Foi assim em 11/10, e é o que dá checksum à sincronia.
+    **E ESTE PROMPT TEM TETO: 65.536 BYTES, medido em 13/10 às 21:3x porque o
+    `update_trigger` RECUSOU** (`prompt must be at most 65536 bytes`). O corpo
+    estava em **68.118** — 2.582 acima — e cruzou o teto no commit `5eb5ed9`, da
+    rodada anterior (`ab1bcc0` media 65.131, abaixo). **Logo a rotina não cresce
+    para sempre, e a sincronia tem um limite FÍSICO.** Meça ANTES de editar:
+
+        python3 -c "import pathlib;c=pathlib.Path('docs/ROTINA.md').read_text().split(chr(10)+'---'+chr(10),1)[1].strip(chr(10));print(len(c.encode()), 65536-len(c.encode()))"
+
+    e `tests/test_rotina_cabe_no_trigger.py` reprova se o arquivo passar do teto.
+    **Quando a margem acabar, o que sai é HISTÓRIA, nunca REGRA nem TRAVA:** o
+    bloco migra para `CLAUDE.md` e aqui fica a regra com o ponteiro. Foi assim
+    que esta rodada devolveu 4,6 KB (o dinamismo, a credencial do GitHub, os
+    passos da ponte pelo Composio, a composição das 25 e a lista das quedas).
  7. SE UMA MUDANÇA NÃO MOVER O NÚMERO EM TRÊS PACOTES, DESFAÇA — **a menos que o
     instrumento não consiga medir o número, e aí o que se desfaz é o instrumento,
     não a mudança** (686). **E com CV 0,66, três pacotes NÃO medem nada menor que
@@ -597,68 +600,54 @@ novo sobre o mundo — e isso vai dito, com o id do longo. Respeite `robots=noai
   475 skip** — e o CONJUNTO das 25 é o que importa, porque passam/skip sobem com
   teste novo. A frase anterior desta linha trazia o parêntese DUAS vezes e um
   `~2.205` estimado; os dois eram descuido meu de edição.
-  **E a composição NÃO é "título duplicado e Devanagari" — eu escrevi isso e
-  estava errado** (11/10): são **15** de `test_narracao_das_specs`, specs que
-  sairiam da matriz CALADAS por números demais numa frase e capítulo sem margem
-  (63-64 s contra o piso de 60 s), **três delas do epomeno** (`-008`, `-009`,
-  `-010`) e **uma do labtreinamento** (`-005`); mais 3 de
-  `test_thumbnail_legivel`, 3 de `test_prontidao`, e uma cada de teto por canal,
-  acentuação turca, `ortografia`, `autor` e `confere_broll`. **O remédio que o
-  próprio teste prescreve não é silenciar:** ele aceita o inventário `PARADAS`
-  com o motivo escrito. **E "são quinze julgamentos" era MEU enquadramento
-  errado, retratado em 11/10 com o levantamento em `docs/paradas-a-decidir.md`:**
-  são TRÊS famílias, **onze das quinze são a MESMA** (capítulo estimado em
-  61-64 s contra o piso de 60 s, com a voz errando até 4,9% — o defeito que matou
-  o `setiap-level-014`), e o remédio dessas onze está escrito pelo próprio portão
-  e é mecânico. **E só QUATRO das quinze são de canal da FROTA** — as outras onze
-  são de canal PARADO, onde consertar não produz nada hoje. **Falha nova é sua.**
+  **E a composição das 25 NÃO é "título duplicado e Devanagari" — isso foi uma
+  descrição minha errada** (11/10). São **15** de `test_narracao_das_specs` mais
+  oito espalhadas, em **três famílias**, e **só QUATRO das quinze specs são de
+  canal da FROTA** — o remédio das outras é mecânico e está escrito pelo próprio
+  portão, que aceita o inventário `PARADAS` com o motivo escrito em vez de
+  silenciar. Levantamento em `docs/paradas-a-decidir.md`, composição em
+  `CLAUDE.md`, seção "As 25 falhas da suíte NÃO são o que eu escrevi aqui".
+  **Falha nova é sua.**
   **Ele NÃO sintetiza voz: `speech.platform.bing.com` leva 403 no CONNECT** —
   render continua no runner.
 - **NUNCA rode duas tarefas que mexem na mesma árvore de trabalho ao mesmo
   tempo:** um `git stash -q -u` de um teste apagou arquivos novos de baixo da
   outra rodada em 09/10. Recuperado com `git stash pop`, mas foi erro meu.
-- **A NARRAÇÃO JÁ TEM PLANO B, E ELE ESTÁ EM PRODUÇÃO — 12/10.** A frase antiga
-  aqui dizia "fornecedor único ... não instale costura de plano B sem um segundo
-  provedor de verdade". A condição foi cumprida: o `edge_tts` passou a dar **403
-  no handshake DO RUNNER** (runs 38198672898 e 38202568056, versão 7.2.8, duas
-  vozes) e a máquina parou de produzir em qualquer lugar. `fabrica/voz_piper.py`
-  é provedor de verdade — neural, offline, sem chave — e entra **só depois das
-  três tentativas do edge-tts**, para a frota voltar sozinha à voz original
-  quando ele voltar.
-  **O QUE ISSO CUSTA, e vai no relato de toda peça:** o `R` e o `P` de
-  `MODELO_VOZ` são do edge-tts e **não valem** para as vozes do Piper — usá-los
-  é o erro do 679/698. Cada peça narrada por lá sai com `::warning::`, e o
-  instrumento para remedir é `calibra-piper.yml`, que **não escreve** em
-  `ensaio.py`: colar é decisão. **A voz grega do Piper só existe em qualidade
-  `low`**, e isso é diferença real entre canais.
-  Todas as peças de 12/10 saíram pelo Piper: `byriXB1gSg8`, `DQKMvUi2FF4`,
-  `rusVeiFco9Q`.
+- **A NARRAÇÃO TEM PLANO B EM PRODUÇÃO — `fabrica/voz_piper.py`**, neural, offline
+  e sem chave, e ele entra **só depois das TRÊS tentativas do edge-tts** (o
+  `edge_tts` passou a dar 403 no handshake DO RUNNER em 12/10 e a máquina parou de
+  produzir em qualquer lugar). **Logo o provedor se decide POR CENA E POR RUN, nunca
+  por configuração** — veja `fabrica.py:598-620`.
+  **O QUE ISSO CUSTA, e vai no relato de toda peça:** o `R` e o `P` de `MODELO_VOZ`
+  são do edge-tts e **não valem** para as vozes do Piper — usá-los é o erro do
+  679/698. Cada cena narrada por lá emite um `::warning::`, **e é assim que se MEDE
+  qual provedor narrou (733, §3.1) em vez de inferir.** O instrumento de recalibrar
+  é `calibra-piper.yml`, que **não escreve** em `ensaio.py`: colar é decisão. **A voz
+  grega do Piper só existe em qualidade `low`**, e isso é diferença real entre canais.
 
 =====================================================================
 7. ENTREGA — A PONTE
 =====================================================================
 O REST do Supabase devolve **402** desde 25/08 (cota da organização; o projeto
-está `ACTIVE_HEALTHY`, não é pausa). **Render no runner com `publicar=false`,
-publicação pela ponte.** Passo a passo em `docs/publicar-pela-sandbox.md`.
+está `ACTIVE_HEALTHY`, não é pausa). **Render no runner com `publicar=false`. A PUBLICAÇÃO SAI PELO `retomar.yml` —
+"a publicação é pela ponte" está RETRATADO (12/10):** o dono colou o
+`YT_OAUTH_JSON`, o runner refresca o access token no próprio Google e **não toca o
+Supabase**. Provado em produção (`6TNDVugoz5I`, run `38175747708`). Os inputs do
+`retomar.yml` são ESCALARES (`pacote`, `canal`, `idioma`, `run_id`, `estado_b64`) e
+o `estado_b64` sai de `python3 fabrica/estado_ponte.py 2>/dev/null | head -1`,
+**nunca montado à mão** (718/729, três runs mortos por isso). A ponte continua
+existindo como alternativa, com o passo a passo em `docs/publicar-pela-sandbox.md`.
 **A PONTE MORRE NO DIA EM QUE OS TRÊS SECRETS ENTRAREM** (pendência 1):
 `publicar.token_do_canal` já lê `YT_TOKEN_<CANAL>` do ENV antes do REST, recusa
 token que nomeia outro canal (a trava do erro de 14/08) e o `frota.yml` já passa
 os três nos dois passos.
-  * o input do `urlartefato.yml` chama **`artefatos`**, não `ids` (422 se errar).
-  * o `gh` recusa redirecionamento entre hosts: leia a URL assinada com
-    `mcp__github__get_job_logs` e `return_content: true`.
-  * a URL do artefato vive ~10 min e **ESTE CONTAINER NÃO A BAIXA** (403 no
-    CONNECT do Azure). Baixe pela sandbox do Composio, PREPARADA ANTES de pedir a
-    URL. **O `sandbox_id_suffix` muda sem aviso**; se o clone sumiu, refaça em
-    `/home/user/maq` e reconstrua `/home/user/pub/corpus.json` CONFERINDO o md5.
-  * **O CORPUS SAI DO PRÓPRIO `fabrica/corpus_publicados.json` DO CLONE**, e aí
-    não se transcreve título nenhum: basta conferir o md5 em ordem de byte contra
-    o banco. Em 10/10 bateu de primeira, 238 títulos.
-  * **o zip abre FLAT** (`short.mp4`, `thumbnail.png`, `copy.md`) e o `conduz.py`
-    espera `f/<pacote>/`. Descompacte JÁ dentro de `f/<pacote>/`, senão o erro que
-    aparece é "copy ainda tem {TRILHA}" e parece falha de render.
-  * **refaça o `corpus.json` DEPOIS do `git fetch`** do clone, não antes.
-  * `nohup` no `conduz.py` (sandbox mata em 180 s, MCP corta em 60 s).
+  * **os passos da ponte pelo Composio (artefato, sandbox, `conduz.py`, md5 do
+    corpus) estão em `docs/publicar-pela-sandbox.md`** — ela não é mais a rota, e a
+    lista inteira aqui dentro só envelhecia. O que não pode sair de vista: o input
+    do `urlartefato.yml` chama **`artefatos`** (422 se errar), **este container não
+    baixa a URL do artefato** (403 no CONNECT do Azure), **o zip abre FLAT** e o
+    `conduz.py` espera `f/<pacote>/`, e o corpus sai do próprio
+    `fabrica/corpus_publicados.json` do clone, conferido por md5 em ordem de BYTE.
   * **O HTTP 410 no PUT do binário é CAMINHO NORMAL** (654): "0 publicados, 1
     falharam" e o vídeo ESTÁ no ar. **Pergunte ao canal ANTES de retentar.**
   * **CONFIRA `tags` NO VÍDEO depois de publicar** (662). **Tag nula ANTES de
@@ -686,33 +675,19 @@ os três nos dois passos.
     mensagem num ARQUIVO e use `-F`.
   * **JSON despejado dentro de um `.build.py` sai com `true`/`false`/`null`
     minúsculos e dá `NameError`.** Converta para `True`/`False`/`None`.
-  * **A CREDENCIAL DO GITHUB É DA SESSÃO, mas ELA ENTRA EM SESSÃO RODANDO —
-    RETRATAÇÃO de 11/10.** Uma sessão nasceu numa conta SEM `push` e ficou
-    **vinte horas em 403**. Eu concluí daí que "reconectar não entra em sessão já
-    rodando, isso pede sessão nova" e repeti isso ao dono várias vezes: **é
-    FALSO.** Às 02:40 de 11/10, com o dono instalando o Claude GitHub App na
-    conta certa, ESTA MESMA sessão virou `push: true` e o push funcionou, sem
-    sessão nova. O erro de raciocínio: ausência de mudança (ninguém reconectou)
-    não é impossibilidade de mudança.
-    **Antes de insistir num 403, leia QUEM você é:** `gh api user` e
-    `gh api repos/<owner>/<repo>` (campo `permissions`). E "conectado" não é o
-    mesmo que "conectado com a conta que pode escrever".
-    **E NÃO MANDE DESVINCULAR:** o bloco *Claude GitHub App* aceita VÁRIAS contas
-    instaladas ao mesmo tempo — o link é **"Instalar em outra conta"**, e instalar
-    na segunda não tira nada da primeira. Eu vinha pedindo troca de conta, que era
-    pior e desnecessário; foi o dono quem viu o link na tela.
-    **E CAIU EM 12/10, pelo MESMO raciocínio que esta entrada condena:** eu
-    escrevi "o `mcp__github__*` NÃO se recupera — segue `invalid session`". Na
-    rodada das 08:07 ele reconectou sozinho e devolveu log completo. **Ausência
-    de mudança não é impossibilidade de mudança — e eu apliquei o erro proibido
-    à ferramenta seguinte, dentro da correção dele.** Sonde antes de declarar
-    que não há rota.
-    **A rota das ANOTAÇÕES continua sendo a certa ENQUANTO o MCP estiver fora**,
-    com um limite medido: ela só carrega o que foi emitido como
-    `::warning::`/`::notice::`. Em 12/10 o motivo de uma falha e o `youtube_id`
-    de uma publicação bem-sucedida ficaram invisíveis por isso:
-    `gh api repos/<owner>/<repo>/check-runs/<job_id>/annotations` devolve os
-    `::warning::`/`::notice::` pela própria api.github.com, sem redirecionamento.
+  * **A CREDENCIAL DO GITHUB ENTRA EM SESSÃO RODANDO — RETRATAÇÃO de 11/10, e eu
+    repeti o contrário ao dono o dia todo.** **Ausência de mudança não é
+    impossibilidade de mudança** — e eu apliquei o erro proibido à ferramenta
+    seguinte (o `mcp__github__*`, que também se recuperou sozinho) DENTRO da
+    correção dele. **Sonde antes de declarar que não há rota:** `gh api user` e
+    `gh api repos/<owner>/<repo>` (campo `permissions`); "conectado" não é o mesmo
+    que "conectado com a conta que pode escrever". **E NÃO mande desvincular
+    conta** — o bloco *Claude GitHub App* aceita várias instaladas ao mesmo tempo,
+    pelo link "Instalar em outra conta". A história medida está em `CLAUDE.md`,
+    seção "A credencial do GitHub ENTRA em sessão rodando".
+    **A rota das ANOTAÇÕES é a certa ENQUANTO o MCP estiver fora**, com um limite
+    medido: ela só carrega o que foi emitido como `::warning::`/`::notice::`.
+    `gh api repos/<owner>/<repo>/check-runs/<job_id>/annotations`.
   * **O 402 FECHA A PORTA PARA O RUNNER TAMBÉM** (11/10, anotação literal do
     `diario.yml`): `porta FECHADA (HTTP 402) — rodando pelo retrato de
     fabrica/ponte/, gerado em 2026-10-06`. Não adianta montar medição no runner
@@ -875,31 +850,18 @@ commit com a evidência na mensagem — **em ARQUIVO, com `-F`** — e push. Mud
 que fica só no container morre com ele.
 
 **Não se limite ao que está escrito.** Esta rotina já foi corrigida por medição
-TRINTA E TRÊS vezes. Caíram, entre outras: "view de short é rajada que morre"; "os
-500 fecham em 33 dias"; "existe um teto de 1.150"; "views nunca caem"; "o estoque
-é a restrição do ritmo"; "a quarta peça do dia não recebe distribuição"; "P0D é só
-indexação"; "o labtreinamento converte melhor"; "a mira do short é 35 a 37" — era
-hábito meu e custava 19% de watch time por peça; "o resíduo cresce com a narração"
-— é a VOZ; "cinco de quinze em pergunta no BR" — a pergunta é polonesa; "o
-tratamento novo quebrou o labtreinamento" — o comparador era a melhor peça; "nove
-leituras iguais de inscritos" — o contador de canal anda em degrau; "a mediana de
-três leituras é o número bom" — é a réplica atrasada; **"o dono não autorizou o
-escopo de analytics" — nós o perdemos no nosso próprio código (689)**; **"o longo
-deixou de ser alavanca" — ele converte melhor por view e é ele que gera pauta
-(691)**; **"pacote completo exige janela dedicada do dono" — a aprovação foi
-dada**; **"dez a catorze cenas" — o teto real é onze**, e **"~1,9 s fixos por
-cena" também era meu erro: a sobrecarga é `P + 0,300`, POR VOZ e POR FRASE**;
-**"matar os fades é o próximo item" — 0,30 s de preto, tudo depois dos três
-segundos (700)**; **"conte quadros com `mpdecimate`" — sem limiar fixo ele não é
-instrumento (699)**; **"a fresca vem na terceira" e "grave o máximo" — a réplica é
-da chamada e se grava a de soma máxima (707/708)**; **"a madrugada mostra se o
-tratamento pegou" — ela é cega por construção (706)**; **"uma mira de short para
-a frota" — a mira é por canal (698/701)**; **"reconectar o GitHub não entra em
-sessão rodando" — entra, e eu repeti o contrário o dia todo (11/10)**; **"o
-ciclo dispara de meia em meia hora" — são 5,1 por dia (11/10, 100 runs)**;
-**"é só esperar a virada do ciclo de cobrança" — 47 dias de 402 contínuo, e o nó
-é circular (11/10)**; e **"são quinze julgamentos" nas specs paradas — são três
-famílias e quatro specs da frota (11/10).**
+TRINTA E QUATRO vezes, e **a lista inteira do que caiu vive em `CLAUDE.md`** — não
+a reconstrua de memória nem a recopie para cá, porque ela é o que estoura o teto
+deste prompt. As mais caras de esquecer: **"a mira do short é 35 a 37"** (era
+hábito meu); **"uma mira de short para a frota"** (ela é POR CANAL, 698/701);
+**"a mediana de três leituras é o número bom"** (é a réplica atrasada, 688);
+**"grave o máximo"** (grava-se a chamada de soma máxima, 707/708, **e ela é cega
+quando as divergências se cancelam**, 736); **"o dono não autorizou o escopo de
+analytics"** (nós o perdemos no nosso próprio código, 689); **"o kolejny no short
+é o único caminho"** (o número era somado por linha de métrica, 713); **"em
+produção é o Piper que narra"** (o provedor é por cena e por run, 730/733); e
+**"é só esperar a virada do ciclo de cobrança"** (47 dias de 402 contínuo, e o nó
+é circular).
 **Se você errou, retrate no mesmo lugar onde afirmou.**
 **DESCONFIE DE PORTÃO QUE PASSA EM SILÊNCIO, DE MEDIÇÃO QUE NÃO GRAVA, DE AMOSTRA
 ESPARSA, DE LEITURA ÚNICA, DE TRÊS LEITURAS QUE SUBIRAM JUNTAS, DE LISTA DE

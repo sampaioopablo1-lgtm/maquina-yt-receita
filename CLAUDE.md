@@ -1155,6 +1155,42 @@ exatamente esse erro.** Código e aviso escritos não servem de nada se a rodada
 não os procura antes de improvisar. A ponte continua existindo; ela
 só não é mais o caminho.
 
+## O PROMPT DA ROTINA TEM TETO DE 65.536 BYTES — e o arquivo passou dele
+
+**Aprendizado 737, `alto`, medido em 13/10 às 21:3x pela RECUSA do servidor.** Eu
+fui aplicar o `docs/ROTINA.md` corrigido no trigger e levei
+`prompt must be at most 65536 bytes (invalid_prompt)`. O corpo media **68.118
+bytes**, 2.582 acima — e **cruzou o teto no commit `5eb5ed9`, da rodada anterior**
+(o `ab1bcc0` media 65.131). Então a sincronia arquivo↔prompt, que a própria rotina
+manda fazer "passando o corpo depois da linha `---`", tinha um **limite físico que
+ninguém media**.
+
+**O que eu NÃO afirmo, pelo §3.8:** que o teto explica as divergências de 11/10 e
+12/10. Medido pelos commits, o arquivo só passou do teto nesta última rodada;
+aquelas foram eu **não chamar o `update_trigger`**, que é outro defeito e é meu.
+
+**A regra que fica: quando a margem acabar, o que sai do prompt é HISTÓRIA, nunca
+REGRA nem TRAVA.** O bloco migra para cá e no prompt fica a regra com o ponteiro.
+Esta rodada devolveu **4,6 KB** assim — o dinamismo visual, a credencial do
+GitHub, os passos da ponte pelo Composio, a composição das 25 falhas e a lista das
+quedas — e `tests/test_rotina_cabe_no_trigger.py` (oito testes) reprova se o corpo
+passar do teto, se a margem cair abaixo de 500 bytes, **ou se encolher tiver
+removido uma trava, o passo zero do dono ou a autorização permanente.**
+
+**Aplicado e CONFERIDO:** corpo em **64.501 bytes**, md5
+`4db38df10d4abfd064afe541161fb1e7`, e o prompt gravado no trigger voltou
+**idêntico byte a byte** — margem de 1.035 bytes.
+
+**E a rodada achou DOIS documentos que ordenavam coisa errada, os dois meus:**
+1. **a rotina ainda carregava os números do 691**, que o **713** retratou em 12/10
+   — inscrito por peça somado por LINHA de `metricas` em vez do máximo POR PEÇA,
+   inflado de 3x a 11x, **e a ordem inverte**. Quem seguisse a §1 escolheria canal
+   pelo `kolejny` short (que é o QUARTO), exatamente o erro que o 713 corrigiu;
+2. **a §7 ainda dizia "publicação pela ponte"**, retratado em 12/10 — ela sai pelo
+   **`retomar.yml`** desde que o dono colou o `YT_OAUTH_JSON`.
+É o mesmo defeito da mira do labtreinamento das 20:2x: **retratar no banco e no
+`CLAUDE.md` não retrata a ROTINA**, e é a rotina que governa a rodada seguinte.
+
 ## As travas que não se negociam
 Estão na rotina horária, e nenhuma delas muda por conveniência de uma rodada.
 A que mais custa esquecer: **não apague vídeo publicado sem o dono dizer.**
