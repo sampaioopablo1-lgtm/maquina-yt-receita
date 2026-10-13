@@ -1,0 +1,92 @@
+{
+ "slug": "epomeno-epipedo",
+ "pacote": "epomeno-epipedo-s025",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#16283C",
+  "c1": "#2E7BB4",
+  "c2": "#E0A02E",
+  "bg": "#F3F7FA"
+ },
+ "thumb": {
+  "l1": "Η ημερομηνία",
+  "l2": "αποφασίζει"
+ },
+ "longo_existente": "9U2h4HuAzLs",
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Δύο αριθμοί",
+   "sub": "για τον ίδιο μήνα",
+   "nar": "Για τον ίδιο μήνα κυκλοφορούν δύο διαφορετικοί αριθμοί τιμών.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Στο χαρτί",
+   "preco": "μπαίνει ένας",
+   "nar": "Στο μισθωτήριο μπαίνει μόνο ο ένας, ο εθνικός δείκτης.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ο άλλος",
+   "sub": "δεν μπαίνει εκεί",
+   "nar": "Ο άλλος δεν μπαίνει εκεί, όσο κι αν τον ακούς.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Και μετά",
+   "preco": "η ημερομηνία",
+   "nar": "Και μετά αποφασίζει η ημερομηνία, όχι το δελτίο.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Πρώτο βήμα",
+   "preco": "ο μήνας επετείου",
+   "nar": "Βήμα πρώτο: βρες τον μήνα της επετείου του συμβολαίου.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Δεύτερο βήμα",
+   "sub": "εκείνη η ανακοίνωση",
+   "nar": "Βήμα δεύτερο: η ανακοίνωση εκείνου του μήνα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Τελείωσε",
+   "preco": "αυτό ήταν όλο",
+   "nar": "Τελείωσε εκεί, και αυτός είναι όλος ο υπολογισμός.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Το λάθος",
+   "preco": "το φρέσκο δελτίο",
+   "nar": "Το λάθος είναι να πάρεις το πιο φρέσκο νούμερο.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ζυγίζει η ημερομηνία",
+   "sub": "πιο πολύ",
+   "nar": "Η ημερομηνία ζυγίζει πιο πολύ από το νούμερο που θυμάσαι.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Επόμενο Επίπεδο",
+   "sub": "κάνε εγγραφή",
+   "nar": "Γράψε τον μήνα της επετείου σου, και κάνε εγγραφή.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# epomeno-epipedo-s025\n\n## TITULO\nΣτην Αναπροσαρμογή Ενοικίου Αποφασίζει Η Ημερομηνία, Όχι Το Τελευταίο Δελτίο\n\n## TITULO SHORT\nΑποφασίζει η ημερομηνία\n\n## DESCRICAO\nΓια τον ίδιο μήνα κυκλοφορούν **δύο διαφορετικοί αριθμοί** τιμών, και κανένας από τους δύο δεν είναι λάθος — μετρούν άλλα πράγματα, για άλλη χρήση. Το πρόβλημα δεν είναι ότι διαφέρουν. Το πρόβλημα είναι ότι **μόνο ο ένας μπαίνει στο χαρτί σου**, και ο άλλος είναι αυτός που ακούς πιο συχνά.\n\nΣτο μισθωτήριο μπαίνει ο **εθνικός** δείκτης. Ο δεύτερος, ο εναρμονισμένος, φτιάχτηκε για σύγκριση μεταξύ χωρών και για παρακολούθηση σε μεσοπρόθεσμο ορίζοντα — δεν φτιάχτηκε για το συρτάρι σου, και δεν μπαίνει εκεί όσο συχνά κι αν τον ακούσεις στο δελτίο.\n\nΚαι μετά έρχεται το μέρος που σχεδόν όλοι παραλείπουν: **αποφασίζει η ημερομηνία.** Ο υπολογισμός έχει δύο βήματα και τελειώνει. Βήμα πρώτο: βρίσκεις τον μήνα της **επετείου** του συμβολαίου. Βήμα δεύτερο: παίρνεις την **ανακοίνωση εκείνου του μήνα**. Τελείωσε εκεί — αυτός είναι όλος ο υπολογισμός, και είναι ελέγξιμος από τη σελίδα του δείκτη.\n\nΤο λάθος είναι να πάρεις **το πιο φρέσκο νούμερο** που άκουσες, επειδή είναι το πιο πρόσφατο και επειδή μοιάζει πιο «σωστό». Δεν είναι: η ημερομηνία ζυγίζει πιο πολύ από το νούμερο που θυμάσαι. Δύο άνθρωποι με το ίδιο συμβόλαιο και διαφορετικό μήνα επετείου θα καταλήξουν σε άλλο αποτέλεσμα, και **κανένας από τους δύο δεν έκανε λάθος.**\n\nΔεν αναφέρω εδώ κανένα ποσοστό, κανένα έτος βάσης και κανένα θεσμικό όνομα. Αυτά αλλάζουν — οι βάσεις αναπροσαρμόζονται, οι ταξινομήσεις αναθεωρούνται — ενώ η σειρά των δύο βημάτων δεν αλλάζει καθόλου.\n\nΣτο πλήρες βίντεο: γιατί οι δύο δείκτες διαφέρουν στη βάση, στο ποιον μετρούν και στο τι μένει έξω από το καλάθι, και πού είναι δημοσιευμένο καθένα από αυτά.\n\n## COMENTARIO FIXADO\nΗ πιο χρήσιμη δοκιμή είναι αυτή: πριν ψάξεις **ποιο** νούμερο, ψάξε **ποιον μήνα**. Αν δεν ξέρεις τον μήνα της επετείου, το νούμερο δεν σου χρησιμεύει, όποιο κι αν είναι. Επίτηδες δεν γράφω εδώ κανένα ποσοστό και κανένα όνομα φορέα: τα νούμερα ανακοινώνονται κάθε μήνα και θα παλιώσουν μέσα σε εβδομάδες, ενώ η σειρά «πρώτα ο μήνας, μετά ο αριθμός» δεν παλιώνει. Γράψτε τον μήνα της επετείου σας — υποψιάζομαι ότι πολλοί δεν τον έχουν κοιτάξει ποτέ.\n\n## HASHTAGS\n#Ενοίκιο #Αναπροσαρμογή #ΕπόμενοΕπίπεδο\n\n## TAGS\nanaprosarmogi enoikiou, misthotirio, ethnikos deiktis, enarmonismenos deiktis, minas epeteiou, anakoinosi deikti, ypologismos enoikiou, deiktis timon, symvolaio enoikiasis, dyo arithmoi, epomeno epipedo, imerominia, enoikio, oikonomika, dimosieymena stoicheia\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Conferido campo a campo.\n\nA REGRA (g) tira, deste longo, tudo o que MUDA: qualquer percentual, os ANOS DE\nBASE dos dois indices, o codigo de rubrica, o numero e o ano dos regulamentos, e\na data de inicio da classificacao nova. Sao numero de norma e de serie\nestatistica -- envelhecem por revisao.\n\nE A REGRA 609 TIRA OS NOMES: o longo cita DOIS orgaos pelo nome (capitulos 4, 17,\n46, 47, 49) e um acronimo de classificacao (57). Nenhum entra -- a peca diz \"o\nindice nacional\" e \"o harmonizado\", que sao os termos e nao as siglas.\n\nE A CONTAGEM SAIU DE PROPOSITO, pelo aprendizado 725: este longo declara \"treis\ndiafores\" (cap 23), \"treis stoives\" (75) e \"dekatreis anti gia dodeka\" (60).\nNenhuma entra na narracao. Os \"dois passos\" do calculo ficam -- mas eles sao\nENUMERADOS na propria peca (primeiro, segundo), logo a declaracao e verificavel\ndentro do short, que e exatamente o que falta nos quatro casos do 725.\n\nO QUE A PECA CARREGA, e nao envelhece: existem DOIS indices para o mesmo mes e\nnenhum e errado; so o NACIONAL entra no contrato; o calculo tem dois passos e\ntermina (mes da data de aniversario, depois o anuncio DAQUELE mes); e o erro\ncomum e pegar o numero mais FRESCO. Os quatro sobrevivem a qualquer revisao.\n\nO QUE EU NAO LEVEI, de proposito, e vai escrito para a proxima rodada achar: as\ndiferencas de BASE, de populacao coberta e do que fica fora do cesto (capitulos\n23 a 71) -- e material para tres pecas, e nenhuma delas cabe hoje pela regra (f).\nO `epomeno-epipedo-s004` ja levou deste MESMO longo a familia \"o seu indice sai\ndas suas notas fiscais\" (capitulos 73 a 77), que e outra.\n\nE A REGRA (f) FOI CONFERIDA CONTRA AS PECAS DE HOJE deste canal: o `s023` levou\nindicador RELATIVO contra critério de beneficio, o `s024` levou razao contra taxa\n(unidade). Esta leva PERIODO DE REFERENCIA -- familia distinta das duas.\n\nMIRA: a voz `el-GR-NestorasNeural` tem centro -3,2% (679), logo o topo da faixa\ne seguro. `fabrica/mira.py` devolveu edge 42,1 e piper 37,3.\n\nE ESTA PECA FOI ENCURTADA POR MEDICAO, nao por gosto -- primeira vez que o\naprendizado 731 muda uma decisao de producao. A primeira versao dava edge 44,3,\nisto e, 0,7 s de folga contra o teto de 45. Mas as 17:2x foi medido que no mundo\nedge a previsao SUBESTIMA ~2,5% (duas pecas, +2,1% e +2,6%), logo 44,3 previsto\npode sair ~45,4 REAL e estourar o teto. Encurtei para 42,1, que com o mesmo vies\nsai ~43,2. Isto NAO e mexer em parametro: e escolher ONDE dentro da faixa, que e\no que a §6 manda fazer por voz. A segunda versao caiu para 40,9 -- abaixo do piso\ndo `ALVO_SHORT` -- e foi corrigida para cima na terceira.\n\n## FONTES\nO longo de onde este short foi extraido (`9U2h4HuAzLs`, pacote\nepomeno-epipedo-015, 81 capitulos) carrega os numeros e os nomes dos orgaos.\nEste short NAO introduz numero novo sobre o mundo, entao nao exige fonte\ninstitucional nova.\n\nNOTA DE PROCEDENCIA: o texto saiu dos capitulos 0 a 3 e 8 a 15 da spec do\nproprio pacote, lidos um a um. Nenhuma frase foi inferida de resumo nem de\ntitulo.\n"
+}
