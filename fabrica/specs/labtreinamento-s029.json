@@ -1,0 +1,80 @@
+{
+  "slug": "labtreinamento",
+  "pacote": "labtreinamento-s029",
+  "idioma": "pt-BR",
+  "voz": "pt-BR-ThalitaMultilingualNeural",
+  "trilha": "Inspired",
+  "paleta": {
+    "ink": "#22333B",
+    "c1": "#A4243B",
+    "c2": "#D8973C",
+    "bg": "#F4F1EA"
+  },
+  "thumb": {
+    "l1": "O pequeno",
+    "l2": "dói mais"
+  },
+  "longo": [],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Divida os dois",
+      "sub": "o maior e o menor",
+      "nar": "Faça a divisão no maior e no menor.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "A ordem inverte",
+      "sub": "e não é raro",
+      "nar": "Não é raro a ordem se inverter.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "E se inverteu",
+      "nar": "E se inverteu, o problema não é o tamanho.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Foi o preço",
+      "nar": "O preço foi feito olhando o tamanho.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "E não as horas",
+      "nar": "Não as horas que ele consumiu.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "O pequeno",
+      "nar": "E o trabalho pequeno costuma doer mais.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Em pedaços",
+      "nar": "Ele consumiu um mês em pedaços.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Nunca um dia",
+      "sub": "então nunca pareceu grande",
+      "nar": "Nunca ocupou um dia, então nunca pareceu grande.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "LabTreinamento",
+      "sub": "inscreva-se",
+      "nar": "Divida os dois extremos. Inscreva-se.",
+      "sem_cap": true
+    }
+  ],
+  "longo_existente": "ntrMxq89I4o",
+  "copy": "# labtreinamento-s029\n\n## TITULO\nFaça a Divisão No Maior e No Menor Trabalho Do Ano — E o Pequeno Costuma Doer Mais\n\n## TITULO SHORT\nO trabalho pequeno dói mais\n\n## DESCRICAO\nSe você vai conferir a sua hora real em um trabalho só, escolha mal: escolha **dois**, e escolha os extremos — **o maior do ano e o menor.** Não é raro a ordem se inverter, e é a inversão que ensina.\n\n**Se inverteu, o que você descobriu não é que projeto grande é ruim.** É que o preço dele foi feito olhando **o tamanho**, e não **as horas**. São duas coisas diferentes, e elas só coincidem por sorte: um trabalho pode parecer grande porque o escopo é largo, e consumir menos horas do que outro que parecia modesto.\n\n**E o contrário aparece com mais frequência do que se imagina: o trabalho pequeno, de preço simbólico, que consumiu um mês em pedaços.** Meia hora aqui, uma troca de mensagens ali, uma revisão de dez minutos, mais uma pergunta na semana seguinte.\n\n**Esse é o que costuma doer mais — e tem um motivo que vale entender:** ele **nunca ocupou um dia inteiro**, e por isso **nunca pareceu grande o bastante para você reclamar dele.** A sua memória guarda dias, não minutos. O trabalho que come o seu tempo em pedaços é invisível para a memória e perfeitamente visível para a divisão.\n\nÉ exatamente por isso que a conta vale mais que a impressão: ela não tem memória, só tem horas.\n\n**E uma coisa que a conta não decide por você:** cobrar por hora e cobrar por projeto são as duas legítimas, e nenhuma é a certa em geral. A certa é a que o seu número apontar. **O que não vale é mandar preço por hábito e nunca ter conferido.**\n\nNo vídeo completo: a divisão passo a passo, como reconstruir as horas que você não anotou, o que a conta não pega e a leitura do ano inteiro.\n\n## COMENTARIO FIXADO\nSe for conferir um trabalho só, não confira: confira DOIS, o maior do ano e o menor. A ordem inverte com frequência, e é a inversão que ensina — porque se inverteu, o problema não é o tamanho do projeto, é que o preço dele foi feito olhando o tamanho e não as horas. E o lado que quase ninguém olha: o trabalho pequeno de preço simbólico que consumiu um mês em pedaços costuma doer mais que o grande. O motivo é que ele nunca ocupou um dia inteiro, então nunca pareceu grande o bastante para você reclamar. A sua memória guarda dias, não minutos — a divisão guarda minutos. Conta aqui: qual dos seus dois extremos você já desconfia que vai inverter?\n\n## HASHTAGS\n#Autonomo #Precificacao #LabTreinamento\n\n## TAGS\ntrabalho pequeno que consome tempo, preco simbolico, valor da hora, cobrar por hora ou por projeto, maior e menor projeto do ano, precificacao para autonomo, escopo que escapa, autonomo, prestador de servico, financas para autonomo, quanto cobrar, labtreinamento, dinheiro proprio, tempo em pedacos, conferir o preco\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO, ZERO DIGITO e ZERO NUMERAL na narracao. O capitulo 40 do longo diz\n\"um mes em pedacos\", e \"um mes\" ficou SO na descricao e no comentario, onde e\nfigura de linguagem do autor; a narracao diz \"um mes em pedacos\" porque aqui o\nmes NAO e medida, e a unidade da imagem -- e trocar por \"muito tempo\" perderia\nexatamente o contraste com \"nunca ocupou um dia\".\n\nO QUE A PECA CARREGA, e nao envelhece: (1) **confira DOIS trabalhos, os\nextremos**, porque a inversao e que ensina; (2) **se inverteu, o defeito nao e o\ntamanho do projeto -- e que o preco foi feito olhando o TAMANHO e nao as HORAS**;\n(3) **o trabalho pequeno de preco simbolico dói mais**, e o motivo e de memoria:\nele nunca ocupou um dia inteiro, entao nunca pareceu grande o bastante para\nreclamar. A memoria guarda DIAS; a divisao guarda MINUTOS.\n\nEsta nos capitulos \"Faca a divisao nele\" (38), \"Se inverteu\" (39), \"E o\ncontrario existe\" (40) e \"As duas formas servem\" (41) do longo `ntrMxq89I4o`\n(pacote `labtreinamento-007`).\n\nNONO ANGULO deste longo. A fronteira com o `s021` (\"o maior trabalho do ano\nengana\") e o que exige cuidado: o `s021` carrega que o MAIOR engana. Esta peca\ncarrega o **outro extremo e o mecanismo** -- o pequeno doi mais, e doi por uma\nrazao de MEMORIA e nao de dinheiro. O `s021` diz onde olhar; esta diz por que o\nolho erra.\n\nESQUELETO: `titulo-titulo-item-item-item-item-item-titulo-cta`, da lista\nenumerada de sequencias que o canal nunca usou. Duas aberturas em `titulo`\nseguidas e deliberado: as duas primeiras falas sao a INSTRUCAO (\"divida os\ndois\") e o AVISO (\"a ordem inverte\"), e separa-las em dois planos de titulo\npoe a instrucao e o motivo nos tres primeiros segundos.\n\nREGRA (f) CONFERIDA: decima sexta familia distinta do dia no labtreinamento.\n\nDURACAO: medida ANTES do render nos DOIS provedores, pelo portao consertado em\n13/10 as 02:1x -- a peca cabe na faixa seja o edge ou o Piper que narre.\n\n## FONTES\nO longo de onde este short foi extraido (`labtreinamento-007`, `ntrMxq89I4o`)\ne aritmetica sobre numeros do proprio espectador. Este short NAO introduz numero\nnenhum sobre o mundo, entao nao exige fonte institucional.\n"
+}

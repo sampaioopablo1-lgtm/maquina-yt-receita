@@ -56,6 +56,29 @@ as duas coisas como a mesma por dias. Para resolver 1,79/dia é preciso **~13 h*
 para resolver 0,60/dia, **~40 h**, que é por que a leitura de 40,3 h funcionou e
 não foi sorte.
 
+**E EU ERREI A HORA DA PRÓXIMA LEITURA TRÊS RODADAS SEGUIDAS — 13/10 às 03:0x.**
+Nos relatos de 00:07, 01:07 e 02:06 eu disse ao dono que "a próxima leitura
+legítima de ritmo é ~03:30". **Falso, e por mais de cinco horas.** A conta é
+`24 / ritmo`, e da última leitura de inscritos (12/10 19:30) sai:
+
+| ritmo a resolver | horas | primeira leitura que vale |
+|---|---|---|
+| frota, 1,79/dia | 13,4 h | **13/10 08:54 UTC** |
+| epomeno, 1,19/dia | 20,2 h | **13/10 15:40 UTC** |
+| labtreinamento, 0,60/dia | 40,0 h | **14/10 11:30 UTC** |
+
+Os "03:30" vinham de 8 h de janela, cujo piso é 3,0/dia — **acima do ritmo da
+frota**, logo uma janela que não resolve nada. **Eu calculei de cabeça o número
+que o `porta1.horas_para_resolver` devolve pronto**, e é exatamente o item 3 da
+§10 da rotina: toda conta que eu faço à mão vira um erro meu. Use o módulo:
+
+    python3 -c "import sys;sys.path.insert(0,'fabrica');import porta1;print(porta1.horas_para_resolver(1.79))"
+
+**E a consequência prática é maior que o relato errado:** a cada rodada da
+madrugada eu prometia uma leitura para dali a pouco, o que faz a rodada seguinte
+esperar em vez de produzir. **A leitura de ritmo da frota não cabe na madrugada
+inteira** — ela cai depois das 08:54.
+
 **A FRASE QUE DECIDE TUDO, e ela é aritmética, não pessimismo: as duas datas
 caem DEPOIS de 1/FEV/2027, quando a barra sobe de 500 para 1.000 inscritos.**
 No ritmo medido a máquina **nunca passa a Porta 1** — a barra se move antes de
