@@ -1,0 +1,92 @@
+{
+ "slug": "epomeno-epipedo",
+ "pacote": "epomeno-epipedo-s024",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#16283C",
+  "c1": "#2E7BB4",
+  "c2": "#E0A02E",
+  "bg": "#F3F7FA"
+ },
+ "thumb": {
+  "l1": "Ποσοστό",
+  "l2": "όχι επιτόκιο"
+ },
+ "longo_existente": "nttW9fR8wyY",
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Το ποσοστό",
+   "sub": "δεν είναι επιτόκιο",
+   "nar": "Το ποσοστό που βγάζεις από το χαρτί δεν είναι επιτόκιο.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Λείπει ο χρόνος",
+   "preco": "και το επιτόκιο τον θέλει",
+   "nar": "Του λείπει ο χρόνος, και το επιτόκιο τον χρειάζεται.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Τι είναι τότε",
+   "preco": "κόστος διευκόλυνσης",
+   "nar": "Είναι το κόστος της διευκόλυνσης, σε σχέση με την τιμή.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Πού χρησιμεύει",
+   "sub": "σε σύγκριση προσφορών",
+   "nar": "Χρησιμεύει για να συγκρίνεις δύο προσφορές μεταξύ τους.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Με έναν όρο",
+   "preco": "ίδια διάρκεια",
+   "nar": "Με έναν όρο: οι δύο προσφορές να έχουν ίδια διάρκεια.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Αλλιώς",
+   "sub": "άλλο μέτρο",
+   "nar": "Αλλιώς συγκρίνεις δύο πράγματα που δεν μετριούνται ίδια.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Το λάθος",
+   "preco": "σαν ετήσιο νούμερο",
+   "nar": "Το λάθος είναι να το διαβάσεις σαν ετήσιο νούμερο.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Άλλες διάρκειες",
+   "preco": "τότε ευρώ",
+   "nar": "Σε διαφορετικές διάρκειες συγκρίνεις ευρώ, όχι ποσοστά.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Το ευρώ πάντα",
+   "sub": "η αφαίρεση απαντά",
+   "nar": "Το ευρώ της αφαίρεσης απαντά και στις δύο περιπτώσεις.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Επόμενο Επίπεδο",
+   "sub": "κάνε εγγραφή",
+   "nar": "Γράψε αν το μπέρδεψες ποτέ, και κάνε εγγραφή.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# epomeno-epipedo-s024\n\n## TITULO\nΤο Ποσοστό Που Βγάζεις Από Τις Δόσεις Δεν Είναι Επιτόκιο: Του Λείπει Ο Χρόνος\n\n## TITULO SHORT\nΤο ποσοστό δεν είναι επιτόκιο\n\n## DESCRICAO\nΌταν κάνεις τον έλεγχο των δόσεων — πολλαπλασιασμός των δόσεων, αφαίρεση της τιμής μετρητοίς — το νούμερο που μένει είναι σε ευρώ. Και επειδή τα ευρώ δεν συγκρίνονται εύκολα μεταξύ προσφορών με διαφορετική τιμή, το μετατρέπεις σε ποσοστό της τιμής. Εκεί γίνεται το λάθος: το ποσοστό αυτό μοιάζει με επιτόκιο, γράφεται όπως ένα επιτόκιο, και σχεδόν όλοι το διαβάζουν σαν επιτόκιο.\n\n**Δεν είναι, και ο λόγος είναι ένας: του λείπει ο χρόνος.** Ένα επιτόκιο λέει πόσο κοστίζει το χρήμα ανά χρονική μονάδα — ο χρόνος είναι μέσα στον ορισμό του. Το ποσοστό που έβγαλες εσύ λέει μόνο πόσο είναι το κόστος της διευκόλυνσης σε σχέση με την τιμή, χωρίς να λέει σε πόσο διάστημα. Είναι ένας λόγος δύο ποσών, όχι ρυθμός.\n\nΑυτό δεν το κάνει άχρηστο — το κάνει **περιορισμένο, και με όρο**. Χρησιμεύει για να συγκρίνεις δύο προσφορές μεταξύ τους, με τον όρο ότι οι δύο έχουν **ίδια διάρκεια**. Τότε ο χρόνος είναι ο ίδιος και στις δύο, βγαίνει απ' έξω, και η σύγκριση στέκει.\n\nΌταν οι διάρκειες διαφέρουν, το ποσοστό παύει να συγκρίνει: δύο προσφορές με το ίδιο ποσοστό αλλά διαφορετική διάρκεια δεν σου κοστίζουν το ίδιο. **Σε αυτή την περίπτωση συγκρίνεις ευρώ**, δηλαδή το αποτέλεσμα της αφαίρεσης, και όχι ποσοστά. Το ευρώ απαντά και στις δύο περιπτώσεις — γι' αυτό είναι ο αριθμός που αξίζει να γράψεις.\n\nΔεν αναφέρω εδώ κανένα ποσοστό, κανένα ποσό και κανένα κατάστημα. Τα νούμερα των προσφορών αλλάζουν κάθε λίγους μήνες, ενώ η διάκριση ανάμεσα σε λόγο και ρυθμό δεν αλλάζει καθόλου.\n\nΣτο πλήρες βίντεο: ο υπολογισμός βήμα προς βήμα, πού βρίσκεις τους αριθμούς στο χαρτί, η γραμμή των εξόδων που μένει έξω από τις δόσεις, και πού ο υπολογισμός δεν φτάνει.\n\n## COMENTARIO FIXADO\nΗ πιο καθαρή δοκιμή είναι αυτή: ρώτα τον εαυτό σου «ανά τι;». Ένα επιτόκιο απαντά — ανά έτος. Το ποσοστό του χαρτιού δεν απαντά τίποτα, επειδή **ο χρόνος δεν μπήκε ποτέ στον υπολογισμό**. Επίτηδες δεν γράφω εδώ κανένα νούμερο: τα ποσοστά των προσφορών αλλάζουν, η διαφορά ανάμεσα σε λόγο και ρυθμό όχι. Γράψτε αν το είχατε μπερδέψει — υποψιάζομαι ότι είναι το πιο συχνό από όλα.\n\n## HASHTAGS\n#Δόσεις #ΆτοκεςΔόσεις #ΕπόμενοΕπίπεδο\n\n## TAGS\natokes doseis, epitokio, pososto, kostos diefkolinsis, timi metritois, sygkrisi prosforon, idia diarkeia, afairesi, doseis katastimatos, oikonomika, epomeno epipedo, ypologismos doseon, logos kai rythmos, evro, prosfora me doseis\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Conferido campo a campo.\n\nA REGRA (g) tira, deste longo, tudo o que MUDA: qualquer percentual de oferta,\nas quantias do exemplo (que o proprio longo declara INVENTADAS, capitulo 36) e\nos valores de despesa. E a regra 609 tira nome de loja e de orgao -- o longo\ntambem nao nomeia nenhum, de proposito (capitulo 37).\n\nE A CONTAGEM SAIU DE PROPOSITO, pelo aprendizado 725: este longo declara\n\"TESSERIS arithmoi\" (capitulo 17), \"treis periptoseis\" (54) e \"tessera vimata\"\n(71). Nenhuma das tres entra na narracao -- o short nao declara quantidade\nnenhuma, porque o `narracao` conta quantidades por frase e NAO confere se a\nquantidade e verdadeira.\n\nO QUE A PECA CARREGA, e nao envelhece: o percentual que sai da aferiacao e um\nLOGOS (razao entre dois montantes) e nao um RYTHMOS (taxa por unidade de\ntempo); falta-lhe o tempo, que esta na definicao de taxa; ele serve para\ncomparar duas ofertas SO quando as duas tem a mesma duracao; e quando as\nduracoes diferem, compara-se EURO. Os quatro sobrevivem a qualquer tabela.\n\nO QUE EU NAO LEVEI, de proposito, e vai escrito para a proxima rodada achar: a\nlinha de DESPESAS (capitulos 45 a 52) -- e a familia que o `epomeno-epipedo-s005`\nja levou deste MESMO longo, e por isso esta fora pela regra (f). E os LIMITES do\ncalculo (capitulos 53 a 61: preco online, parcela de cartao, duracoes\ndiferentes), que estao livres -- mas a terceira delas se encosta nesta peca, logo\nquem a escrever tem de levar as outras duas.\n\nMIRA: a voz `el-GR-NestorasNeural` tem centro -3,2% (679), logo o topo da faixa\ne seguro. `fabrica/mira.py` devolveu edge 43,1 e piper 38,2 -- os dois dentro de\n18 a 45, que e o que o portao `duracao` cobra nos DOIS mundos desde 13/10.\n\nE A MIRA ESTA NO INSTRUMENTO ERRADO, e isso vai dito em vez de corrigido: pelo\naprendizado 724 e o Piper que narra em producao, logo o numero que importa e\n38,2 e nao 43,1 -- a peca sai ~11% abaixo do `ALVO_SHORT`. NAO mexi em\n`ALVO_SHORT` porque e parametro de producao e a decisao e do dono.\n\n## FONTES\nO longo de onde este short foi extraido (`nttW9fR8wyY`, pacote\nepomeno-epipedo-017, 81 capitulos) carrega os numeros. Este short NAO introduz\nnumero novo sobre o mundo, entao nao exige fonte institucional nova.\n\nNOTA DE PROCEDENCIA: o texto saiu dos capitulos 13 a 16 e 60 a 61 da spec do\nproprio pacote, lidos um a um. Nenhuma frase foi inferida de resumo nem de\ntitulo.\n"
+}
