@@ -1,0 +1,80 @@
+{
+  "slug": "labtreinamento",
+  "pacote": "labtreinamento-s027",
+  "idioma": "pt-BR",
+  "voz": "pt-BR-ThalitaMultilingualNeural",
+  "trilha": "Inspired",
+  "paleta": {
+    "ink": "#22333B",
+    "c1": "#A4243B",
+    "c2": "#D8973C",
+    "bg": "#F4F1EA"
+  },
+  "thumb": {
+    "l1": "Sem retrabalho",
+    "l2": "vale mais"
+  },
+  "longo": [],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "O cliente calmo",
+      "sub": "vale mais por hora",
+      "nar": "O cliente que não gera retrabalho vale mais.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "A conta não mostra",
+      "nar": "A divisão não mostra isso.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "E o outro",
+      "nar": "E quem gera retrabalho vale menos.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Aprendizado",
+      "nar": "Aprendizado acontece uma vez.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Portfólio",
+      "nar": "Porta que não abriu não vai abrir.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Os dois vencem",
+      "nar": "Esses dois vencem com o tempo.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "O calmo não vence",
+      "sub": "ele se repete sempre",
+      "nar": "Já o cliente calmo se repete em todo projeto.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Junte depois",
+      "sub": "nunca antes",
+      "nar": "Junte isso depois da divisão, nunca antes.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "LabTreinamento",
+      "sub": "inscreva-se",
+      "nar": "Olhe o número primeiro. Inscreva-se.",
+      "sem_cap": true
+    }
+  ],
+  "longo_existente": "ntrMxq89I4o",
+  "copy": "# labtreinamento-s027\n\n## TITULO\nO Cliente Que Não Gera Retrabalho Vale Mais Por Hora — E É o Único Valor Que Não Vence\n\n## TITULO SHORT\nCliente sem retrabalho vale mais\n\n## DESCRICAO\nQuando você divide o valor líquido pelas horas e o número vem baixo, aparece logo a vontade de somar o que a conta não pega. Três coisas costumam entrar nessa lista — e **duas delas vencem.**\n\n**O aprendizado vence.** Um trabalho que pagou mal e te ensinou algo novo tem valor real. Mas aprendizado acontece **uma vez**: se o mesmo tipo de trabalho volta pelo mesmo preço, a segunda vez não ensina nada e você está só cobrando pouco.\n\n**O portfólio vence.** Um trabalho que abre porta vale mais do que a divisão mostra. Mas se a porta não abriu em alguns meses, ela não vai abrir — e esse valor sai da conta.\n\n**O terceiro não vence, e é o que quase ninguém soma.** Um cliente que não gera retrabalho — que decide, que responde, que não muda o escopo no meio — **vale mais por hora do que o número mostra**, e um que gera retrabalho vale menos. A diferença é que essa característica **se repete em todos os projetos que você fizer com a mesma pessoa.** Ela não é um bônus de uma vez: é uma taxa permanente, a favor ou contra.\n\nNa prática isso muda o que você faz com a lista de clientes: dois trabalhos com o mesmo preço por hora na planilha podem ter rendimentos bem diferentes, e o que separa os dois não está em lugar nenhum da conta.\n\n**E tem uma regra de ordem que decide se isso ajuda ou atrapalha: junte tudo isso DEPOIS de fazer a divisão, nunca antes.** Se os valores sem número vierem antes, eles viram desculpa para não olhar o número — e aí você fica com a sensação de que está tudo bem sem nunca ter feito a conta.\n\nPrimeiro o número. Depois os ajustes.\n\nNo vídeo completo: a divisão passo a passo, como reconstruir as horas que você não anotou, o caso do projeto grande e a leitura do ano inteiro.\n\n## COMENTARIO FIXADO\nTrês coisas entram na lista do \"o que a conta não pega\", e vale separar: o aprendizado acontece UMA vez (se o mesmo trabalho volta pelo mesmo preço, a segunda vez não ensina nada), a porta do portfólio tem prazo (se não abriu em alguns meses, não vai abrir), mas o cliente que não gera retrabalho é diferente dos dois — ele se repete em TODO projeto que você fizer com a mesma pessoa. Não é bônus de uma vez, é taxa permanente, a favor ou contra. E a regra de ordem importa mais do que parece: junte isso DEPOIS da divisão, nunca antes, porque vindo antes vira desculpa para não olhar o número. Conta aqui: você tem na carteira um cliente que paga igual e custa o dobro?\n\n## HASHTAGS\n#Autonomo #Precificacao #LabTreinamento\n\n## TAGS\ncliente que da retrabalho, valor da hora, o que a conta nao pega, aprendizado e portfolio, precificacao para autonomo, escolher cliente, custo invisivel do cliente, autonomo, prestador de servico, financas para autonomo, quanto cobrar, labtreinamento, dinheiro proprio, carteira de clientes, mudanca de escopo\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO, ZERO DIGITO e ZERO NUMERAL na narracao. O capitulo 32 do longo diz\n\"em alguns meses\" para o prazo da porta; a narracao NAO repete prazo, e a\nDESCRICAO o mantem como ordem de grandeza do autor, nao como norma.\n\nO QUE A PECA CARREGA, e nao envelhece: das tres coisas que a divisao nao pega,\n**duas vencem e uma nao.** Aprendizado acontece UMA vez; porta de portfolio tem\nprazo; mas **o cliente que nao gera retrabalho se repete em TODO projeto com a\nmesma pessoa** — taxa permanente, nao bonus de uma vez. E a regra de ORDEM:\njuntar isso DEPOIS da divisao, porque antes vira desculpa para nao olhar o\nnumero.\n\nEsta nos capitulos \"O terceiro\" (indice 33) e \"Junte isso\" (34) do longo\n`ntrMxq89I4o` (pacote `labtreinamento-007`), com apoio de \"O aprendizado\",\n\"Mas cuidado\", \"O portfolio\" e \"Tambem tem prazo\".\n\nSETIMO ANGULO deste longo. Os anteriores: `s002` (o denominador incompleto),\n`s021` (o maior nao e o melhor), `s022` (as consolacoes tem prazo), `s023` (um e\ncaso, tres e padrao), `s025` (as horas que voce nao anotou) e `s026` (mude uma\ncoisa so).\n\nE A FRONTEIRA COM O `s022` E DELIBERADA, porque as duas familias saem do mesmo\nbloco de capitulos: o `s022` carrega **que aprendizado e portfolio VENCEM**;\nesta peca carrega **que a terceira NAO vence**, e a regra de ordem. Sao a tese\ne a excecao, nao a mesma peca duas vezes — e o `similaridade` contra o canal\nresponde por isso em vez da minha palavra.\n\nESQUELETO: `titulo-item-item-item-item-item-titulo-titulo-cta`. A PRIMEIRA\nversao desta peca usava `titulo-item-item-titulo-item-item-titulo-item-cta` e o\nportao `variedade` AVISOU que seria a SEXTA igual em vinte e sete pecas do\ncanal. Trocado por uma sequencia que o canal nunca usou — achada enumerando as\nspecs, nao escolhida de cabeca — e a narracao foi reordenada para caber nela.\nIsso e conteudo, nao limiar.\n\nREGRA (f) CONFERIDA: decima quarta familia distinta do dia no labtreinamento.\n\nDURACAO, pelo instrumento do 711/714: medida ANTES do render, dentro do\n`ALVO_POR_CANAL` de 20,0 a 26,0.\n\n## FONTES\nO longo de onde este short foi extraido (`labtreinamento-007`, `ntrMxq89I4o`)\ne aritmetica sobre numeros do proprio espectador. Este short NAO introduz numero\nnenhum sobre o mundo, entao nao exige fonte institucional.\n"
+}
