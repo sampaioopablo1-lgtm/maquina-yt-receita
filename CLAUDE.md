@@ -437,6 +437,37 @@ O conserto foi casar o **substantivo** e exigir **proximidade** (`JANELA = 12`).
 Cada falso positivo tem teste próprio, porque **detector que inventa achado é
 pior que não ter detector**.
 
+## PORTÃO VERDE NÃO DISPENSA A MIRA DO CANAL — e o instrumento pegou o autor dele
+
+**Medido em 13/10 às 06:1x, escrevendo o `labtreinamento-s032`.** A spec saiu com
+**27,8 s reais previstos** no Piper. O portão `duracao` aprovou, e **com razão**:
+ele cobra a faixa da FROTA. Mas o `labtreinamento` tem
+`ALVO_POR_CANAL = (20,0 a 26,0)` desde 09/10, **medido** (698) — e 27,8 está fora.
+O portão e a mira respondem perguntas diferentes, e eu vinha confiando no portão
+para as duas.
+
+**E o instrumento pegou a peça do próprio autor um minuto depois de existir:** eu
+encurtei a spec olhando o Piper, e a segunda versão ainda dava **28,5 s no mundo
+`edge`**. Terceira versão: **edge 25,3 e piper 20,7**, os dois dentro. O provedor
+se decide no runner, então a peça tem de cair na mira **seja quem narre** — a
+mesma lógica do conserto do portão às 02:1x.
+
+**No código:** `fabrica/mira.py` (`previsoes`, `confere`, `relato`) e oito testes.
+Rode na spec antes do render:
+
+    python3 fabrica/mira.py fabrica/specs/<spec>.json
+
+**POR QUE NÃO É AVISO DENTRO DO `prontidao`, e a razão é medida:** das specs do
+`labtreinamento` com voz modelada, **44 ficam fora da mira no mundo `edge` e 28
+no `piper`** — quase todas peças históricas, de antes do override. Aviso de portão
+que dispara 44 vezes é aviso que se aprende a ignorar, e aí ele deixa de avisar o
+caso que importa.
+
+**E um teste meu pegou um número meu:** eu havia escrito "(18 a 45)" dentro da
+mensagem do módulo, e o teste que proíbe limiar cravado reprovou — aquele número
+envelhece se a faixa mudar. A mensagem passou a dizer "a faixa da FROTA, que é
+mais larga", sem número.
+
 ## Por que NÃO aumentar o número de canais
 
 O dono deu liberdade para isso. A aritmética diz não: **os 500 inscritos são um

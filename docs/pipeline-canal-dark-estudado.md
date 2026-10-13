@@ -210,3 +210,13 @@ respondeu a pergunta que o motivou** (aplicavamos o filtro e nunca liamos o
 resultado) e **a resposta e "esta certo"** — o que e um resultado, nao a ausencia
 de um. Nao vira portao: o limiar de 1,0 do produto alheio reprovaria peca por
 variacao normal deste processo.
+
+**Decima medicao (`s032`): LUFS −14,2, desvio −0,2, pico −1,9, LRA 1,7.** As dez:
+−0,2, −0,6, −0,2, +0,2, −0,4, −0,2, +0,5, +0,5, 0,0, −0,2. **Mediana −0,2,
+amplitude 1,1 LU, nenhuma fora de 1,0 individualmente** — o mesmo retrato de n=7
+em diante, agora com dez peças.
+
+E o **pico** desta foi **−1,9 dBTP**, o mais baixo das dez (as outras entre −1,3
+e −1,5), com o `TP` do filtro em −1,5. Pico ABAIXO do teto e o filtro cumprindo o
+teto com folga, nao defeito — mas e a primeira vez que ele se afasta tanto, e fica
+anotado sem conclusao: n=1 e eu nao medi causa.

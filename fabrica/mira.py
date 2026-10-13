@@ -61,8 +61,9 @@ def confere(spec: dict) -> dict:
             "previsoes": prev, "fora": fora,
             "motivo": None if not fora else (
                 f"{', '.join(fora)} fora da mira medida {lo} a {hi} s. O portao "
-                "`duracao` cobra a faixa da FROTA (18 a 45) e NAO reprova isto — "
-                "portao verde nao dispensa a mira do canal (698).")}
+                "`duracao` cobra a faixa da FROTA, que e mais larga, e NAO "
+                "reprova isto — portao verde nao dispensa a mira do canal "
+                "(698).")}
 
 
 def relato(caminho: str) -> str:
