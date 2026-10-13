@@ -1,0 +1,92 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-s033",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#1F2A37",
+  "c1": "#2F6F62",
+  "c2": "#D98C2B",
+  "bg": "#F5F3EE"
+ },
+ "thumb": {
+  "l1": "O trabalho",
+  "l2": "não você"
+ },
+ "longo_existente": "XgqPVJuAk3o",
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "O objeto",
+   "sub": "é o trabalho",
+   "nar": "A norma avalia o trabalho.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Não o",
+   "preco": "trabalhador",
+   "nar": "Não o trabalhador.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A diferença",
+   "sub": "é prática",
+   "nar": "A diferença é prática.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Fora",
+   "preco": "diagnóstico",
+   "nar": "Diagnóstico não entra.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Fora",
+   "preco": "perfil de pessoa",
+   "nar": "Perfil de pessoa também não.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que entra",
+   "sub": "a situação posta",
+   "nar": "Entra o trabalho como está posto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Carga",
+   "preco": "e jornada",
+   "nar": "Carga e jornada.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Autonomia",
+   "preco": "e papéis",
+   "nar": "Autonomia e clareza de papel.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Por isso",
+   "sub": "descreva a situação",
+   "nar": "A linha descreve a situação.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "se inscreva",
+   "nar": "Se inscreva se você monta isso.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# labtreinamento-s033\n\n## TITULO\nO Inventário Avalia O Trabalho, Não O Trabalhador — E Isso Muda O Que Você Escreve Na Linha\n\n## TITULO SHORT\nAvalia o trabalho, não a pessoa\n\n## DESCRICAO\nA confusão mais cara do inventário psicossocial não está na conta do nível nem na faixa de corte. Está uma casa antes, no **objeto da avaliação**: a norma pede que você avalie **o trabalho**, e não **o trabalhador**. Parece distinção de vocabulário, e é a diferença entre uma planilha que se sustenta numa auditoria e uma que não se sustenta.\n\nO que isso tira da sua planilha, de imediato: **diagnóstico não entra.** Perfil psicológico de pessoa, triagem de saúde mental individual, nome de colaborador associado a sintoma — nada disso pertence ao inventário, e colocar ali cria um problema maior do que o que resolve. Não é zelo: é que o instrumento não foi feito para isso, e usá-lo assim mistura responsabilidade da empresa com informação clínica do indivíduo.\n\nE o que isso coloca: **como o trabalho está posto.** Carga e jornada. Autonomia para decidir o próprio ritmo. Clareza de papéis — se a pessoa sabe o que é dela e o que não é. Apoio de quem chefia. E a exposição a assédio e a violência, que é condição do ambiente e não característica de quem o ocupa.\n\nA consequência prática aparece **na coluna da situação observada**: ela descreve **o que se observa no trabalho**, não o que se conclui sobre alguém. \"A escala concentra as decisões num turno sem substituto\" é uma situação. \"O operador não lida bem com pressão\" é um julgamento de pessoa, e ele não é verificável, não é acionável por medida de organização, e não deveria estar na planilha.\n\nNão cito aqui número de norma, data de vigência nem prazo. Esses mudam — e a distinção entre avaliar o trabalho e avaliar quem trabalha não muda.\n\nNo vídeo completo: as abas do inventário, as fontes que valem como evidência, a conta do nível, o plano de ação, e os erros que mais derrubam a planilha numa auditoria.\n\n## COMENTARIO FIXADO\nO teste rápido para cada linha: **ela sobreviveria se a pessoa daquele posto fosse trocada?** Se sim, você descreveu o trabalho. Se não, descreveu a pessoa — e aí a linha está no lugar errado. Deixei de fora de propósito qualquer número de norma, data ou prazo: eles mudam, e essa distinção não. Escreva aí se a sua planilha tem alguma linha que não passaria nesse teste — aposto que a maioria tem pelo menos uma.\n\n## HASHTAGS\n#RiscoPsicossocial #SegurançaDoTrabalho #LabTreinamento\n\n## TAGS\ninventario psicossocial, riscos psicossociais, avaliar o trabalho, situacao observada, carga e jornada, autonomia no trabalho, clareza de papeis, assedio e violencia, planilha de inventario, auditoria, labtreinamento, seguranca do trabalho, gestao de riscos, plano de acao, evidencia\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Conferido campo a campo.\n\nA REGRA (g) tira, deste longo, tudo o que MUDA: numero e item de norma, data de\nvigencia, prazo em dias, e as faixas de corte do nivel. E a REGRA 609 tira as\nSIGLAS -- o longo nomeia um documento por sigla no capitulo 1, e ela nao entra\nnem no titulo nem na narracao.\n\nE A CONTAGEM SAIU DE PROPOSITO, pelo aprendizado 725: este longo declara \"os\nTRES primeiros\" (cap 17), \"os outros TRES\" (21), \"QUATRO abas\" (25), \"CINCO\ncolunas\" (51) e \"TRES habitos\" (75). E tem a ASSINATURA do 725 no capitulo 70:\ndeclara \"erro um, dois, tres\" e acrescenta \"E UM QUARTO\". Nenhuma entra.\n\nO QUE A PECA CARREGA, e nao envelhece: o OBJETO da avaliacao e o trabalho e nao\no trabalhador; diagnostico e perfil de pessoa ficam FORA; o que entra e como o\ntrabalho esta posto (carga, jornada, autonomia, clareza de papel); e por isso a\ncoluna da situacao DESCREVE o que se observa, nao conclui sobre alguem. Os\nquatro sobrevivem a qualquer revisao de norma.\n\nO QUE EU NAO LEVEI, de proposito, e vai escrito para a proxima rodada achar: as\nFONTES que valem como evidencia (capitulos 33 a 36) e a verificacao da eficacia\n(61 a 62), as duas livres. O `labtreinamento-s011` ja levou deste MESMO longo a\nfaixa de corte como escolha da empresa (capitulos 43 a 46), que e outra familia.\n\nMIRA: `fabrica/mira.py` reprovou DUAS versoes antes desta -- edge 28,3 e depois\n26,1, as duas fora da mira MEDIDA do canal (20,0 a 26,0). A terceira saiu com\nedge 25,7 e piper 21,1, dentro nos dois mundos. O portao `duracao` teria aprovado\nas tres, porque ele cobra a faixa da FROTA: e o 698 em producao.\n\nE PELO APRENDIZADO 733 o real deve sair ~2,5% acima do estimado se o EDGE narrar,\nisto e ~26,3 -- um decimo acima do topo da mira e bem dentro do portao. Fica\ndito em vez de perseguido: o `CLAUDE.md` proibe prometer precisao de decimo, e a\nmira e sobre o ESTIMADO.\n\n## FONTES\nO longo de onde este short foi extraido (`XgqPVJuAk3o`, pacote\nlabtreinamento-002, 87 capitulos) carrega os numeros e a sigla. Este short NAO\nintroduz numero novo sobre o mundo, entao nao exige fonte institucional nova.\n\nNOTA DE PROCEDENCIA: o texto saiu dos capitulos 12 a 23 e 30 a 32 da spec do\nproprio pacote, lidos um a um. Nenhuma frase foi inferida de resumo nem de\ntitulo.\n"
+}
