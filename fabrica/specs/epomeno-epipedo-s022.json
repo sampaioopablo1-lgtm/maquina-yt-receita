@@ -1,0 +1,99 @@
+{
+ "slug": "epomeno-epipedo",
+ "pacote": "epomeno-epipedo-s022",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#1A1A1A",
+  "c1": "#2E86AB",
+  "c2": "#E4572E",
+  "bg": "#F4F7F9"
+ },
+ "thumb": {
+  "l1": "Κιλοβατώρες",
+  "l2": "όχι ευρώ"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Το νούμερο",
+   "sub": "το έχεις κιόλας",
+   "nar": "Το νούμερο που συγκρίνει το έχεις στο χέρι.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Οι κιλοβατώρες",
+   "preco": "όχι τα ευρώ",
+   "nar": "Είναι οι κιλοβατώρες σου, όχι το τελικό ποσό.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Τα ευρώ",
+   "sub": "δεν συγκρίνονται",
+   "nar": "Τα ευρώ περιέχουν ήδη πάγια και φόρους.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Άρα",
+   "preco": "κρύβουν τη τιμή",
+   "nar": "Άρα κρύβουν την τιμή που ψάχνεις.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Και ένας μήνας",
+   "sub": "δεν σε δείχνει",
+   "nar": "Και ένας μήνας μόνος δεν σε αντιπροσωπεύει.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Η κατανάλωση",
+   "preco": "έχει εποχές",
+   "nar": "Η κατανάλωση κορυφώνεται στο κρύο και στη ζέστη.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Πάρε τον χρόνο",
+   "preco": "και διαίρεσε",
+   "nar": "Πρόσθεσε τις κιλοβατώρες του έτους και διαίρεσε.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Αν δεν τους έχεις",
+   "preco": "δύο αντίθετους",
+   "nar": "Αλλιώς πάρε έναν χειμωνιάτικο και έναν καλοκαιρινό.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Και η περίοδος",
+   "sub": "ίδια και στα δύο",
+   "nar": "Και ίδιο διάστημα στους δύο λογαριασμούς.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Το νούμερο",
+   "preco": "είναι δικό σου",
+   "nar": "Αυτό το νούμερο δεν αλλάζει επειδή άλλαξες τιμολόγιο.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Επόμενο Επίπεδο",
+   "sub": "κάνε εγγραφή",
+   "nar": "Βρες τις κιλοβατώρες σου και κάνε εγγραφή.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "wUHuwyO2HYo",
+ "copy": "# epomeno-epipedo-s022\n\n## TITULO\nΤο Νούμερο Που Συγκρίνει Λογαριασμούς Ρεύματος Είναι Οι Κιλοβατώρες, Όχι Τα Ευρώ\n\n## TITULO SHORT\nΠάρε τις κιλοβατώρες, όχι τα ευρώ\n\n## DESCRICAO\nΌταν κάποιος θέλει να δει αν πληρώνει πολλά για το ρεύμα, κάνει σχεδόν πάντα το ίδιο: κοιτάζει το τελικό ποσό του λογαριασμού και το συγκρίνει με αυτό που λένε οι γνωστοί του. Και οι δύο αριθμοί είναι αληθινοί· η σύγκριση όμως δεν βγάζει τίποτα, για δύο λόγους που δεν φαίνονται.\n\nΟ **πρώτος** είναι τι περιέχει το τελικό ποσό. Μέσα του υπάρχουν πάγια, ρυθμιζόμενες χρεώσεις και φόροι — πράγματα που δεν εξαρτώνται από το πόσο ρεύμα κατανάλωσες, και σε κάποιες περιπτώσεις είναι μεγάλο μέρος του ποσού. Οπότε το ποσό σε ευρώ δεν μετράει ούτε την κατανάλωσή σου ούτε την τιμή που πληρώνεις: μετράει ένα μείγμα των δύο, συν τα πάγια. Το νούμερο που είναι αποκλειστικά **δικό σου** είναι οι κιλοβατώρες, και το καλό είναι ότι δεν το ψάχνεις πουθενά — το έχεις ήδη, τυπωμένο στον λογαριασμό.\n\nΟ **δεύτερος** λόγος είναι ο χρόνος. Ένας μήνας δεν σε αντιπροσωπεύει, επειδή η κατανάλωση ρεύματος έχει έντονη εποχικότητα: κορυφώνεται στο κρύο και στη ζέστη, και πέφτει ανάμεσα. Αν συγκρίνεις πάνω σε έναν μήνα, μπορεί να βγάλεις συμπέρασμα για μια εποχή και να το γενικεύσεις για όλη τη χρονιά.\n\nΗ πράξη είναι απλή. Αν έχεις τους λογαριασμούς μιας χρονιάς, πρόσθεσε τις κιλοβατώρες και διαίρεσε με τους μήνες — αυτός ο μέσος όρος είναι πολύ πιο τίμιος. Αν δεν τους έχεις όλους, πάρε τουλάχιστον δύο αντίθετους, έναν χειμωνιάτικο και έναν καλοκαιρινό, και κάνε την πράξη δύο φορές.\n\nΈνα τελευταίο σημείο προσοχής: τα διαστήματα πρέπει να είναι ίδια. Άλλοι λογαριασμοί καλύπτουν μήνα και άλλοι δίμηνο, και αν τα μπερδέψεις η διαφορά που θα δεις θα είναι του ημερολογίου, όχι της κατανάλωσης.\n\nΣτο πλήρες βίντεο: ποια νούμερα του λογαριασμού χρειάζεσαι, πώς βγαίνει η τιμή που πληρώνεις στην πραγματικότητα, τι κάνεις όταν έχεις χωριστή νυχτερινή μέτρηση, και τι δεν πιάνει αυτή η πράξη.\n\n## COMENTARIO FIXADO\nΤο σημείο που ξεχνιέται πιο εύκολα δεν είναι τα ευρώ — είναι η περίοδος. Άλλοι λογαριασμοί καλύπτουν μήνα και άλλοι δίμηνο, και αν συγκρίνεις ένα μηνιαίο με ένα διμηνιαίο θα δεις μια τεράστια «διαφορά» που είναι απλώς ημερολόγιο. Επίτηδες δεν έβαλα καμία τιμή και κανένα ποσό εδώ: οι τιμές ρεύματος αλλάζουν μέσα στη χρονιά και ένα νούμερο που παλιώνει θα έκανε το βίντεο λάθος, ενώ η λογική — δικές σου κιλοβατώρες, ίδιο διάστημα, ολόκληρη χρονιά — δεν παλιώνει. Γράψτε αν είχατε τους λογαριασμούς ενός έτους διαθέσιμους ή αν χρειάστηκε να πάρετε τους δύο αντίθετους.\n\n## HASHTAGS\n#Ρεύμα #Λογαριασμός #ΕπόμενοΕπίπεδο\n\n## TAGS\nkilovatores, logariasmos reumatos, pagia, rythmizomenes chreoseis, foroi, epochikotita katanalosis, mesos oros etous, cheimonas kalokairi, idio diastima, minaios diminiaios, nychterini metrisi, sygkrisi timologion, prosopikos proypologismos, oikonomika nikokyriou, epomeno epipedo\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Conferido campo a campo.\n\nA REGRA (g) tira, deste longo, tudo o que MUDA: toda tarifa, todo preco por\nkWh, o valor do pagio, as faixas das chamadas reguladas e qualquer quantia de\nexemplo. Preco de energia muda DENTRO da propria temporada -- e o tipo de numero\nque mais envelhece de toda a frota. Nenhuma empresa e nomeada (609).\n\nNUMERAL NA NARRACAO: \"dois\" (um de inverno e um de verao) e \"o ano\". Sao\ninstrucao de PROCEDIMENTO -- quantos extratos pegar -- nao afirmacao sobre o\nmundo, a mesma distincao que o `s011` deste canal ja declarava.\n\nPERFIL (651): este e papel na MAO do espectador no sentido mais literal -- o\nnumero que a peca manda usar esta impresso no proprio extrato dele, e o longo\ndiz isso em letra (\"e o unico numero que voce nao procura em lugar nenhum: voce\nja o tem\").\n\nO QUE A PECA CARREGA, e nao envelhece: o total em euros mistura consumo, preco\ne encargo fixo, logo nao compara; o numero que e so seu e o consumo em kWh; um\nmes nao representa o ano porque o consumo tem estacao; e periodo diferente\nfabrica diferenca de calendario.\n\nO QUE EU NAO LEVEI, de proposito, e vai escrito para a proxima rodada achar: os\ncapitulos 8 a 16, as quatro cores do extrato e o que cada uma entrega. E a\nmelhor familia que resta neste longo, e e visual -- mas depende de nomear\nsecoes de documento que variam por fornecedor, e isso pede conferencia que eu\nnao tenho hoje.\n\n## FONTES\nO longo de onde este short foi extraido (`wUHuwyO2HYo`, pacote\nepomeno-epipedo-012, 90 capitulos) carrega os numeros. Este short NAO introduz\nnumero novo sobre o mundo, entao nao exige fonte institucional nova.\n\nNOTA DE PROCEDENCIA: o texto saiu dos capitulos 26, 28 e 31 a 36 da spec do\nproprio pacote, lidos um a um. Nenhuma frase foi inferida de resumo nem de\ntitulo.\n"
+}
