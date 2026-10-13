@@ -1,0 +1,92 @@
+{
+ "slug": "kolejny-poziom",
+ "pacote": "kolejny-poziom-s023",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Limit dochodu",
+  "l2": "może zniknąć"
+ },
+ "longo_existente": "kWZW-qV4tQc",
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Zła kolejność",
+   "sub": "dochód jako pierwszy",
+   "nar": "Sprawdzasz dochód jako pierwszy, i tam kończysz sprawdzanie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jest ustęp",
+   "preco": "znosi limit",
+   "nar": "Jest jeden ustęp, który znosi limit dochodu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jedno dziecko",
+   "preco": "też się łapie",
+   "nar": "Działa nawet wtedy, gdy masz jedno dziecko.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Orzeczenie",
+   "sub": "o niepełnosprawności",
+   "nar": "Wystarczy orzeczenie o niepełnosprawności dziecka.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Albo renta",
+   "preco": "decyzja rentowa",
+   "nar": "Albo decyzja przyznająca dziecku rentę.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Młodsze dziecko",
+   "sub": "inna forma",
+   "nar": "Dla najmłodszych dzieci orzeczenie ma inną formę.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Wtedy liczysz",
+   "preco": "jak przy dwojgu",
+   "nar": "Wtedy rozliczasz ulgę tak, jakbyś miał dwoje dzieci.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Najczęstszy błąd",
+   "preco": "przestaje czytać",
+   "nar": "Rodzic widzi przekroczenie i przestaje czytać dalej.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Właściwa kolejność",
+   "sub": "dochód na końcu",
+   "nar": "Najpierw orzeczenie, potem liczba dzieci, dochód na końcu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Kolejny Poziom",
+   "sub": "subskrybuj",
+   "nar": "Subskrybuj, jeśli to był twój przypadek.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# kolejny-poziom-s023\n\n## TITULO\nDokument Dziecka, Który Unieważnia Cały Warunek Dochodu — I Właściwa Kolejność Sprawdzania\n\n## TITULO SHORT\nLimit dochodu, który może cię nie dotyczyć\n\n## DESCRICAO\nRodzic jednego dziecka sprawdza ulgę zawsze w tej samej kolejności: najpierw patrzy na swój dochód, widzi, że przekroczył limit, i w tym miejscu kończy czytanie. To najczęstszy sposób, w jaki ta ulga zostaje w urzędzie, a nie u rodziny — i nie dlatego, że ktoś coś ukrywa, tylko dlatego, że kolejność sprawdzania jest odwrotna, niż się wydaje.\n\nW przepisie jest bowiem **ustęp, który limit dochodu po prostu znosi** — i działa także wtedy, gdy masz jedno dziecko, czyli dokładnie w sytuacji, w której limit normalnie obowiązuje. Wystarczy jeden z dokumentów dotyczących dziecka: orzeczenie o niepełnosprawności, decyzja przyznająca rentę, albo orzeczenie wydane dla dziecka najmłodszego, które ma inną formę niż stopień.\n\nKiedy którykolwiek z tych dokumentów jest, **limit przestaje cię dotyczyć** i rozliczasz ulgę tak, jakbyś miał dwoje dzieci, choć masz jedno. To nie jest luka ani sztuczka — to warunek napisany w tym samym przepisie, z którego liczy się limit, tylko kilka ustępów dalej.\n\nDlatego praktyczny wniosek jest o **kolejności, nie o kwotach**: najpierw sprawdź dokumenty dziecka, potem liczbę dzieci, a dochód zostaw na sam koniec. Rodzic, który zaczyna od dochodu, nigdy nie dochodzi do ustępu, który jego dochód unieważnia.\n\nCelowo nie podaję tu żadnej kwoty limitu ani żadnej kwoty odliczenia. Te liczby są w pełnym materiale, bo tam są pokazane razem z rokiem, za który się rozlicza — a wyrwane z kontekstu starzeją się szybciej niż sama zasada, która się nie zmienia.\n\nW pełnym materiale: skąd bierze się limit przy jednym dziecku, dlaczego dochód brutto myli, jak dzieli się ulgę między dwoje rodziców, i kiedy ulga urywa się w trakcie roku.\n\n## COMENTARIO FIXADO\nNajciekawsze w tym przepisie jest to, że **nie trzeba o niego wnioskować osobno** — on nie jest dodatkiem do ulgi, tylko jej częścią. Rodzic po prostu rozlicza się tak, jakby limitu nie było. Świadomie nie podałem tutaj żadnej kwoty: limit i odliczenie zmieniają się w zależności od roku rozliczeniowego, a sama kolejność sprawdzania nie zmienia się wcale. Napiszcie, czy sprawdzaliście kiedyś dochód jako pierwszy — podejrzewam, że prawie wszyscy.\n\n## HASHTAGS\n#UlgaNaDzieci #PIT #KolejnyPoziom\n\n## TAGS\nulga na dziecko, limit dochodu, orzeczenie o niepelnosprawnosci, renta socjalna, renta szkoleniowa, jedno dziecko, ulga prorodzinna, kolejnosc sprawdzania, dochod brutto, rozliczenie roczne, kolejny poziom, pit, dokumenty dziecka, dwoje dzieci, zeznanie podatkowe\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Conferido campo a campo.\n\nA REGRA (g) tira, deste longo, tudo o que MUDA: a quantia do limite de renda, as\nquantias de abatimento por filho, e o ano de referencia. Sao numero de politica\nfiscal -- mudam de exercicio para exercicio. Nenhum orgao e nomeado e nenhuma\nlei e citada por numero (regra 609).\n\nE A CONTAGEM SAIU DE PROPOSITO, pelo aprendizado 725: o capitulo 33 do longo diz\n\"jednego z TRZECH stopni niepelnosprawnosci\" e o capitulo 48 declara \"CZTERY\nkroki\". Nenhuma das duas entra na narracao -- o short nomeia os documentos sem\ndeclarar quantos sao, porque contagem declarada e exatamente o que o\n`narracao` nao confere e o que ja foi achado errado em quatro specs da frota.\n\nO QUE A PECA CARREGA, e nao envelhece: existe um ustep que ANULA o limite de\nrenda mesmo com um filho so; ele se aciona por DOCUMENTO do filho, nao por\nrenda; e portanto a ordem certa de conferencia e documento, numero de filhos, e\nrenda POR ULTIMO. Os tres sobrevivem a qualquer tabela fiscal.\n\nO QUE EU NAO LEVEI, de proposito, e vai escrito para a proxima rodada achar: a\ndivisao da ulga entre os DOIS pais (capitulos 40 a 47) -- e a familia que o\n`kolejny-poziom-s001` ja levou, e por isso ela esta fora pela regra (f). E a\nfamilia de quando a ulga se interrompe no meio do ano (capitulos 21 a 23), que\nesta livre.\n\nMIRA: a voz `pl-PL-MarekNeural` tem centro +2,2% (679), logo a mira e o PISO da\nfaixa. `fabrica/mira.py` devolveu edge 43,1 e piper 36,7 -- os dois dentro de 18\na 45, que e o que o portao `duracao` cobra nos DOIS mundos desde 13/10.\n\nE A MIRA ESTA NO INSTRUMENTO ERRADO, e isso vai dito em vez de corrigido: pelo\naprendizado 724 e o Piper que narra em producao, logo o numero que importa e\n36,7 e nao 43,1 -- a peca sai ~12% abaixo do `ALVO_SHORT`. NAO mexi em\n`ALVO_SHORT` porque e parametro de producao e a decisao e do dono.\n\n## FONTES\nO longo de onde este short foi extraido (`kWZW-qV4tQc`, pacote\nkolejny-poziom-017, 56 capitulos) carrega os numeros. Este short NAO introduz\nnumero novo sobre o mundo, entao nao exige fonte institucional nova.\n\nNOTA DE PROCEDENCIA: o texto saiu dos capitulos 32 a 39 da spec do proprio\npacote, lidos um a um. Nenhuma frase foi inferida de resumo nem de titulo.\n"
+}
