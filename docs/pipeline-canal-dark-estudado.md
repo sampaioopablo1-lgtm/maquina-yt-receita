@@ -180,3 +180,15 @@ fora de 1,0.** E o LRA, que eu vinha anotando como "caindo" (2,9 → 3,0 → 2,0
 1,8), voltou a **2,4** — logo **nao estava caindo**, estava oscilando entre 1,8
 e 3,0. Eu tinha escrito "nao medi causa e nao vou chamar de achado"; a sexta
 leitura mostra que nem o padrao existia.
+
+**Setima medicao (`s029`): LUFS −13,5, desvio +0,5, pico −1,5, LRA 2,4.** As
+sete: −0,2, −0,6, −0,2, +0,2, −0,4, −0,2, **+0,5**. **Esta e a maior em modulo
+das sete, e e para CIMA** — faixa de 1,1 LU entre o extremo baixo (−0,6) e o
+alto (+0,5), com todas dentro de 1,0 LU do alvo individualmente.
+
+**O que isso faz com a ideia de portao:** o pipeline alheio reprova acima de
+1,0 LU, e com sete pecas a nossa dispersao OBSERVADA ja chega a 1,1 LU de
+amplitude. Um portao de 1,0 LU sobre este processo reprovaria peca por variacao
+NORMAL do `loudnorm` de uma passada. **Logo o limiar de 1,0 do produto alheio
+nao se transplanta** — e isto e medicao, nao preferencia. Se um dia virar portao,
+o limiar sai da dispersao medida aqui, com n maior que sete.
