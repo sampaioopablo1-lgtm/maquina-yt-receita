@@ -887,6 +887,47 @@ abortado) **não entra**. Rode depois de publicar:
 
     <notices do retomar.yml> | python3 fabrica/corpus_atrasado.py --aplicar
 
+### E O REGISTRO TEM DOIS PASSOS — eu automatizei um e PERDI o outro
+
+**Aprendizado 726, `alto`, medido em 13/10 às 14:1x.** Eu fui gravar métrica das
+doze peças de hoje e levei:
+
+    violates foreign key constraint "metricas_youtube_id_fkey"
+    Key (youtube_id)=(CdUiplaeP5g) is not present in table "videos"
+
+**As doze peças publicadas hoje não tinham linha em `videos`** — o passo que a
+§9 da rotina pede em letra, *"registro: linha em `videos` COM `origem_id`"*, e
+que eu não fiz nenhuma vez em doze publicações.
+
+**A causa é sobre automatizar pela metade, e é o que vale guardar.** O registro
+manual tinha DOIS passos: o título no `corpus_publicados.json` e a linha em
+`videos`. Medido no banco, as linhas de `videos` existem até o
+`labtreinamento-s025` (12/10 às 23:12) e **param ali — exatamente onde eu escrevi
+o `corpus_atrasado.py`**, às 00:2x de hoje. Dei instrumento a um dos dois passos,
+passei a fazer aquele com disciplina, e **soltei o que não tinha instrumento**.
+
+**E a falha é RUIDOSA, não permissiva** — ao contrário da do corpus. Só que ela
+só levanta **quando alguém tenta medir**, e eu não tentei por catorze horas.
+**Barulho que ninguém ouve é silêncio.**
+
+**E a medição do tamanho quase saiu inflada, pelo efeito (C):** eu montei à mão
+uma lista de pacotes suspeitos e ela trouxe `kolejny-poziom-s020` e `-s021` como
+faltantes. **Esses pacotes não existem** — nem spec, nem publicação. O atraso real
+era exatamente as doze de hoje.
+
+**No código:** `fabrica/registro_videos.py` (`linhas_dos_notices`, `sql_insert`,
+`relato`) e onze testes ancorados nos doze notices reais. Ele lê **a mesma fonte**
+do `corpus_atrasado` — o notice do `retomar.yml` — para que os dois passos não
+divirjam outra vez. E **não executa SQL sozinho**: imprime o `INSERT` para rodar
+por `execute_sql`, com `on conflict (slug) do nothing`. Rode os dois juntos:
+
+    <notices> | python3 fabrica/corpus_atrasado.py --aplicar
+    <notices> | python3 fabrica/registro_videos.py
+
+**Consequência extra que o `origem_id` ausente causava:** sem ele a
+`consultas/estoque.sql` **não sabe que a origem foi consumida** (670) — a trava
+contra reusar origem fica cega pelo mesmo motivo.
+
 **E NÃO MONTE O `estado_b64` À MÃO — rode `python3 fabrica/estado_ponte.py`**
 (aprendizado 718). O `titulos_no_ar` é lista de **OBJETOS** com a chave
 `titulo`; lista de strings faz a trava por título levantar `AttributeError` e o
