@@ -1,0 +1,80 @@
+{
+  "slug": "labtreinamento",
+  "pacote": "labtreinamento-s030",
+  "idioma": "pt-BR",
+  "voz": "pt-BR-ThalitaMultilingualNeural",
+  "trilha": "Inspired",
+  "paleta": {
+    "ink": "#22333B",
+    "c1": "#A4243B",
+    "c2": "#D8973C",
+    "bg": "#F4F1EA"
+  },
+  "thumb": {
+    "l1": "Responda",
+    "l2": "sem decidir"
+  },
+  "longo": [],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Responda",
+      "sub": "sem decidir nada",
+      "nar": "Você pode responder isso sem decidir nada.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Não é sobre caro",
+      "nar": "A conta não é sobre cobrar caro.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "É outra pergunta",
+      "nar": "É quanto você recebeu por hora.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "E mais útil",
+      "nar": "Pergunta diferente, e bem mais útil.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Quem decide antes",
+      "nar": "Quem decide antes de saber está chutando.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Saber não obriga",
+      "sub": "a mudar nada",
+      "nar": "E saber o número não obriga a mudar nada.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "A escolha volta",
+      "sub": "no próximo orçamento",
+      "nar": "A escolha volta no próximo orçamento que você mandar.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Conferir é de graça",
+      "nar": "E conferir não custa orçamento nenhum.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "LabTreinamento",
+      "sub": "inscreva-se",
+      "nar": "Responda antes de decidir. Inscreva-se.",
+      "sem_cap": true
+    }
+  ],
+  "longo_existente": "ntrMxq89I4o",
+  "copy": "# labtreinamento-s030\n\n## TITULO\nA Conta Da Sua Hora Não Manda Você Cobrar Mais Caro — Dá Para Responder Sem Decidir Nada\n\n## TITULO SHORT\nResponda sem decidir nada\n\n## DESCRICAO\nMuita gente nunca faz essa conta, e o motivo quase nunca é preguiça: é que ela **parece** o começo de uma briga. Parece que, se o número vier baixo, você vai ser obrigado a subir o preço, discutir com cliente e arriscar perder trabalho.\n\n**Não é. Esta não é uma conversa sobre cobrar caro.**\n\nA pergunta é outra, e bem mais útil: **quanto você recebeu por hora** no último trabalho que entregou. É uma pergunta de fato, não de estratégia. Ela tem uma resposta, e a resposta não vem acompanhada de nenhuma obrigação.\n\n**Dá para responder sem decidir nada — e é melhor assim.** Primeiro você fica sabendo. Depois, se quiser, decide. Separar as duas coisas é o que torna a conta suportável de fazer: ela deixa de ser um tribunal e passa a ser um instrumento.\n\n**E o contrário é que é ruim: decidir antes de saber.** Mandar preço por hábito, ou subir dez por cento porque alguém disse que era hora, ou aceitar um desconto porque o cliente insistiu — tudo isso é decisão tomada no escuro. O número não garante acerto, mas ele é a diferença entre escolher e chutar.\n\n**E a escolha volta com prazo, o que é a melhor parte:** ela volta no **próximo orçamento que você mandar.** Não é \"semana que vem, em tese\" — é o próximo. Você tem até lá para saber, e nada do que descobrir hoje obriga você a mexer em nada antes disso.\n\n**Conferir não custa orçamento nenhum.** Custa uma divisão.\n\nNo vídeo completo: a divisão passo a passo, como reconstruir as horas que você não anotou, o que a conta não pega e a leitura do ano inteiro.\n\n## COMENTARIO FIXADO\nSe você nunca fez essa conta, provavelmente não foi preguiça: é que ela parece o começo de uma briga — como se descobrir um número baixo obrigasse você a subir preço e discutir com cliente. Não obriga. A pergunta é de FATO, não de estratégia: quanto você recebeu por hora no último trabalho. Dá para responder sem decidir nada, e é melhor assim, porque separar saber de decidir é o que torna a conta suportável de fazer. O ruim é o contrário: mandar preço por hábito, subir porque alguém disse que era hora, aceitar desconto porque insistiram — decisão no escuro. E a escolha volta no PRÓXIMO orçamento, não em tese. Conta aqui: você já deixou de fazer essa conta por medo do resultado?\n\n## HASHTAGS\n#Autonomo #Precificacao #LabTreinamento\n\n## TAGS\nmedo de fazer a conta, valor da hora, nao e sobre cobrar caro, saber antes de decidir, precificacao para autonomo, proximo orcamento, decisao no escuro, autonomo, prestador de servico, financas para autonomo, quanto cobrar, labtreinamento, dinheiro proprio, conferir o preco, orcamento\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO, ZERO DIGITO e ZERO NUMERAL na narracao. A DESCRICAO diz \"dez por\ncento\" como exemplo de reajuste tomado no escuro — e e exemplo do autor, nao\nnorma nem recomendacao; a narracao nao o carrega.\n\nO QUE A PECA CARREGA, e nao envelhece: **a conta NAO obriga a nada.** A pergunta\ne de FATO (\"quanto recebi por hora\"), nao de estrategia; da para responder sem\ndecidir; e o ruim e o contrario — decidir antes de saber, que e mandar preco por\nhabito. E a escolha volta no PROXIMO orcamento, com prazo real.\n\nEsta nos capitulos \"Voce mandou um preco\" (0), \"Nao e sobre cobrar caro\" (1) e\n\"E e escolha sua\" (2) do longo `ntrMxq89I4o` (pacote `labtreinamento-007`).\n\nDECIMO ANGULO deste longo, e ISSO E CONCENTRACAO MINHA, NAO ESCASSEZ DE PAUTA.\nMedido em 13/10 as 04:0x: as specs do labtreinamento consomem TREZE origens, e\n**nove delas foram usadas UMA vez so** — alem de doze specs de longo com 55 a 87\ncapitulos cada. Eu minerei o `-007` dez vezes por habito. O risco disso e o\nportao `similaridade` (<= 0,65 contra o mesmo canal), que e portao de\nMONETIZACAO (conteudo inautentico), nao de estetica. Esta peca passou; a\nproxima deste canal sai de OUTRA origem, e isso vai escrito aqui para a rodada\nseguinte nao reabrir o habito.\n\nE A FAMILIA E A MAIS DIFERENTE DAS DEZ, por uma razao: as nove anteriores\nensinam a OLHAR o numero. Esta diz que **saber nao obriga a agir** — e e a unica\nque responde ao motivo pelo qual a conta nao e feita, que e medo do resultado e\nnao falta de metodo.\n\nESQUELETO: `titulo-item-item-item-item-titulo-titulo-item-cta`, da enumeracao\ndas sequencias que o canal nunca usou.\n\nREGRA (f) CONFERIDA: decima setima familia distinta do dia no labtreinamento.\n\nDURACAO: medida ANTES do render nos DOIS provedores.\n\n## FONTES\nO longo de onde este short foi extraido (`labtreinamento-007`, `ntrMxq89I4o`)\ne aritmetica sobre numeros do proprio espectador. Este short NAO introduz numero\nnenhum sobre o mundo, entao nao exige fonte institucional.\n"
+}
