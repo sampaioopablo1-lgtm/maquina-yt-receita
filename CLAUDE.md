@@ -865,8 +865,19 @@ pré-registrado *"mirar a faixa no mundo `piper`, já que é ele quem narra"* **
 da mesa.** Não se mira um mundo que não se controla. A mira tem de valer nos
 dois, que é o que o `fabrica/mira.py` já relata e o portão já cobra — e isso
 **remove uma das decisões que estavam na fila do dono**.
-`tests/test_provedor_nao_e_fixo.py`, seis testes, e um deles **falha se as duas
-peças passarem a casar com o mesmo mundo**, para que o raciocínio seja relido.
+`tests/test_provedor_nao_e_fixo.py`, **oito** testes, e um deles **falha se
+TODAS as peças passarem a casar com o mesmo mundo**, para que o raciocínio seja
+relido.
+
+**TERCEIRO PONTO às 17:2x, e ele CONFIRMA o 730 em vez de retratá-lo:** o
+`0ZIOD-KOupY` (`kolejny-poziom-s024`) saiu com **44 s reais** contra edge 42,9 e
+piper 36,5 — casa com o **edge**, e outra vez **acima** dele. Agora são **duas de
+três** com o edge, e as duas por cima pela mesma margem pequena: **+2,1% e
++2,6%** — viés de ~2,5% no mundo edge, não ruído.
+
+**E a consequência prática vai dita em vez de virar limiar:** mirar o TOPO da
+faixa deixa **~1 s de folga** contra o teto de 45 quando é o edge que narra. Não
+mexi na mira, porque é parâmetro de produção e a trava da §10 vale.
 
 **Vigilância do §3.2 na mesma chamada: as dez `processed` e `public`, nenhum
 `P0D`.**

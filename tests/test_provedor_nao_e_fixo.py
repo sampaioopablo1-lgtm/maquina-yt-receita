@@ -48,7 +48,17 @@ from prontidao import SHORT_MAX_S, SHORT_MIN_S  # noqa: E402
 REAIS = {
     "epomeno-epipedo-s024": 44,   # 7qreIlqtUIU, publicada 16:12:50Z
     "kolejny-poziom-s023": 39,    # xlQvH6JjrB4, publicada 15:17:19Z
+    # TERCEIRO PONTO, lido as 17:2x na mesma forma (status_code 200). Ele
+    # CONFIRMA o 730 em vez de retrata-lo: real 44 contra edge 42,9 e piper
+    # 36,5 -- casa com o EDGE, e outra vez ACIMA da previsao dele.
+    "kolejny-poziom-s024": 44,    # 0ZIOD-KOupY, publicada 17:13:01Z
 }
+
+# As que casaram com o edge casaram POR CIMA, e pela mesma margem pequena:
+# +2,1% (44 contra 43,1) e +2,6% (44 contra 42,9). Isso e vies de ~2,5% no
+# mundo edge, nao ruido -- e e por que mirar o TOPO da faixa deixa so ~1 s de
+# folga contra o teto de 45 quando o edge narra. Fica DITO, nao convertido em
+# limiar: mexer na mira e parametro de producao (trava da §10).
 
 
 def _spec(pacote):
@@ -84,14 +94,33 @@ def test_o_real_do_s024_ficou_ACIMA_da_previsao_do_edge():
     assert REAIS["epomeno-epipedo-s024"] > edge
 
 
-def test_as_duas_pecas_discordam_entre_si_sobre_qual_mundo_vale():
-    """Uma casa com o edge, a outra nao casa com nenhum de perto. Se as duas
-    passassem a casar com o mesmo mundo, este teste quer ser revisto."""
+def test_as_pecas_NAO_concordam_todas_sobre_qual_mundo_vale():
+    """Duas casam com o edge e uma com nenhum dos dois de perto. Se TODAS
+    passassem a casar com o mesmo mundo, este teste quer ser revisto -- porque
+    ai o provedor teria voltado a ser previsivel e o 730 mudaria de forma."""
     casou_edge = []
     for pacote, real in REAIS.items():
         edge, piper = _prev(pacote)
         casou_edge.append(abs(real - edge) < abs(real - piper))
     assert len(set(casou_edge)) == 2, casou_edge
+
+
+def test_as_que_casam_com_o_edge_casam_POR_CIMA_e_por_pouco():
+    """O vies de ~2,5% no mundo edge, medido nas duas que casaram com ele."""
+    margens = []
+    for pacote, real in REAIS.items():
+        edge, piper = _prev(pacote)
+        if abs(real - edge) < abs(real - piper):
+            margens.append((real - edge) / edge)
+    assert len(margens) >= 2, margens
+    for m in margens:
+        assert 0 < m < 0.05, m
+
+
+def test_nenhuma_das_tres_estourou_o_teto_de_45_no_mundo_edge():
+    """A folga e pequena e isso vai dito: 44 contra 45 e UM segundo."""
+    for pacote, real in REAIS.items():
+        assert real <= SHORT_MAX_S, (pacote, real)
 
 
 def test_as_duas_cabem_na_faixa_do_portao_nos_DOIS_mundos():
