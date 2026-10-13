@@ -146,3 +146,23 @@ e a terceira mostrou que o aviso era necessário.
 O LRA caiu para **2,0** nesta peça, contra 2,9 e 3,0. Faixa dinâmica menor é
 esperada numa peça com mais cenas curtas, mas **n=1 e eu não medi causa** —
 fica anotado, não concluído.
+
+**Quarta medicao, as 00:1x de 13/10 — e ela e a PRIMEIRA ACIMA do alvo:**
+
+| peca | LUFS | desvio | pico | LRA |
+|---|---|---|---|---|
+| `s023` | −14,2 | −0,2 | −1,4 | 2,9 |
+| `s024` | −14,6 | −0,6 | −1,5 | 3,0 |
+| `s025` | −14,2 | −0,2 | −1,5 | 2,0 |
+| `s026` | **−13,8** | **+0,2** | −1,4 | **1,8** |
+
+Quatro pecas: −0,2, −0,6, −0,2, **+0,2**. **Nao ha direcao**, e agora isso esta
+medido nos dois sentidos em vez de so afirmado. Todas dentro de 1,0 LU, nenhuma
+com silencio >= 1,0 s. O `loudnorm` de uma passada segura o alvo em conteudo
+real — o que o instrumento estava la para descobrir, e descobriu sem reprovar
+nada.
+
+O LRA continua caindo (2,9 → 3,0 → 2,0 → 1,8) e as duas ultimas sao as pecas de
+nove cenas curtas. **Nao medi causa e nao vou chamar de achado**: n pequeno, e
+cena curta muda duas coisas ao mesmo tempo (quantidade de emenda e duracao de
+fala). Fica anotado como a proxima pergunta, nao como resposta.

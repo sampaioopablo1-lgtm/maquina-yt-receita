@@ -633,6 +633,35 @@ Supabase. Provado em produção duas vezes no mesmo dia: `epomeno-epipedo-s016` 
 (`38211879374`). O `estado_b64` sai do `fabrica/corpus_publicados.json` e tem de
 trazer `titulos_no_ar_n`, senão o runner recusa.
 
+### E O REGISTRO NO CORPUS É PASSO MEU, E EU O ESQUECI SETE RODADAS SEGUIDAS
+
+**Medido em 13/10 às 00:2x.** Com o REST em 402, quem acrescenta o título
+publicado ao `fabrica/corpus_publicados.json` sou **eu**, lendo o
+`::notice:: PUBLICADO` do `retomar.yml` e comitando. Eu fiz isso até o
+`labtreinamento-s019` (17:13 de 12/10) e **parei** — as sete peças seguintes
+(`s020` a `s026`) foram ao ar e nenhuma entrou no corpus.
+
+**E nada reclamou, porque nenhum portão lê o corpus contra o que está no ar.** O
+`prontidao` usa o corpus para barrar título duplicado, e corpus atrasado
+simplesmente **não barra**: a falha é silenciosa e no sentido **permissivo**, que
+é o pior. Sete rodadas em que a trava por título existia no papel e não existia
+de fato.
+
+**E A PRIMEIRA MEDIÇÃO QUE EU FIZ DISSO ESTAVA ERRADA, por um fator de dezessete
+peças.** Eu grepei o `## TITULO` **longo** da copy, achei zero em todas as
+dezessete publicações do `retomar.yml` e quase relatei que "o corpus parou de
+crescer quando a publicação mudou da ponte para o retomar". **O corpus guarda o
+`## TITULO SHORT`** — o que o YouTube recebe — e por essa forma dezesseis das
+dezessete estavam lá. O atraso real começa exatamente no `s020`, e a causa é
+hábito meu, não mudança de rota.
+
+**No código:** `fabrica/corpus_atrasado.py` (`titulos_dos_notices`, `faltantes`,
+`aplicar`, `relato`) e dez testes ancorados nos sete títulos reais. O
+`titulo=` do próprio notice é a forma certa; linha com `youtube_id=?` (run
+abortado) **não entra**. Rode depois de publicar:
+
+    <notices do retomar.yml> | python3 fabrica/corpus_atrasado.py --aplicar
+
 **E NÃO MONTE O `estado_b64` À MÃO — rode `python3 fabrica/estado_ponte.py`**
 (aprendizado 718). O `titulos_no_ar` é lista de **OBJETOS** com a chave
 `titulo`; lista de strings faz a trava por título levantar `AttributeError` e o
