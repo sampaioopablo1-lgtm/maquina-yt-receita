@@ -662,8 +662,22 @@ iguais como N observações.
 - `fabrica/ensaio.py` → `ALVO_SHORT` — **onde** mirar dentro da faixa depende da
   VOZ: piso no polonês (resíduo positivo), topo no grego e no pt-BR.
 - `fabrica/ensaio.py` → `ALVO_POR_CANAL` — **a mira é POR CANAL quando o canal
-  mediu que a mira da frota o prejudica.** O `labtreinamento` tem override
-  **(33,0 a 37,0)** desde 09/10: o gatilho do 682 disparou com **idade casada**
+  mediu que a mira da frota o prejudica.**
+
+  **ATENÇÃO, E ISTO É UMA CORREÇÃO DE 13/10 ÀS 20:2x: o número desta seção estava
+  ATRASADO contra o código, e a rotina horária também.** O `labtreinamento` tem
+  hoje **(20,0 a 26,0) de duração REAL** — não (33,0 a 37,0). A troca é do commit
+  `5dfc87f` ("ASSUMI O CONTROLE") e o comentário do próprio `ensaio.py` carrega a
+  procedência: a faixa de 33–37 *"não foi falsificada; ela ficou irrelevante,
+  porque o alvo deixou de ser 'a melhor entre as nossas' e passou a ser
+  'romper'"*. **Rode `ensaio.alvo_short(canal)`, nunca o número escrito aqui** —
+  foi exatamente este parágrafo que envelheceu.
+
+  E a divergência **era ativa**: a rotina mandava mirar 33–37, e o `mira.py`
+  reprova 33–37 no `labtreinamento` desde 12/10. Quem seguisse a rotina escrevia
+  peça que o instrumento recusa.
+
+  O histórico de 09/10 fica, porque explica de onde veio o override: o gatilho do 682 disparou com **idade casada**
   (views lidas na janela de 9 a 21 h de vida), e as duas peças de mira nova caem
   **abaixo do mínimo** das oito antigas — 18 e 9 contra 20, 21, 34, 48, 60, 68,
   173, 196. Isso não depende da conta de poder do 693: sob a nula, uma peça

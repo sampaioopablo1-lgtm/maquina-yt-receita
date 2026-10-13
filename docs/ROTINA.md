@@ -337,6 +337,26 @@ instrumento é `tblend` + `signalstats`.**
     não avança dentro do statement.
     **A ordem das réplicas NÃO tem regra** (a fresca já foi a 3ª, a 2ª, a 1ª e a
     3ª): não leia nada na ORDEM. **Nada se conclui abaixo de 6 h.**
+    **E O PROVEDOR DE VOZ SE MEDE, NAO SE INFERE** (733): o
+    `voz_piper.aviso_de_calibracao` emite `::warning::NARRACAO PELO PIPER`, UM POR
+    CENA, e `::warning::` sai pelas ANOTACOES do job. Eu passei tres rodadas
+    inferindo o provedor pela distancia entre previsao e real, e errei duas vezes:
+
+        gh api repos/<owner>/<repo>/check-runs/<job>/annotations \
+          --jq '[.[]|select(.message|test("NARRACAO PELO PIPER"))]|length'
+
+    Zero avisos = o edge narrou. E o residuo e sempre POSITIVO, de ~1 a 2
+    SEGUNDOS (734, n=4) — percentual NAO se distingue de offset nessa amostra,
+    entao quem mira perto do teto de 45 s conta com ~2 s e nao com 2,5%.
+
+    **E A SOMA MAXIMA E CEGA QUANDO AS DIVERGENCIAS SE CANCELAM** (736, medido as
+    20:2x de 13/10): duas chamadas deram soma 113 e 114 enquanto pecas
+    individuais diferiam em ate OITO, uma subindo +8 e outra caindo -5. O piso POR
+    PECA somava 122, que chamada nenhuma devolveu. **Antes de gravar, compare a
+    soma do piso por peca com a da chamada escolhida; acima de ~5% de diferenca,
+    NOMEIE as pecas subestimadas.** E o `mesma_forma` havia devolvido **False** —
+    o instrumento avisou e eu gravei de todo modo.
+
     **O access token NÃO precisa sair do Postgres:** a chamada à API pode ir pelo
     próprio `pg_net` com `'Bearer ' || (content::jsonb)->>'access_token'`, e é
     assim que se lê a descrição de um longo publicado quando a origem não tem
@@ -510,7 +530,14 @@ novo sobre o mundo — e isso vai dito, com o id do longo. Respeite `robots=noai
   O YouTube **ARREDONDA A DURAÇÃO PARA CIMA**.
 - **A MIRA É POR CANAL quando o canal mediu que a da frota o prejudica**
   (`ALVO_POR_CANAL` em `fabrica/ensaio.py`):
-    **labtreinamento: 33,0 a 37,0** desde 09/10 (698). Com IDADE CASADA (views na
+    **labtreinamento: 20,0 a 26,0 de duracao REAL** — e isto e uma CORRECAO de
+    13/10 as 20:2x: este arquivo dizia **33,0 a 37,0** e o codigo diz 20,0 a 26,0
+    desde o commit `5dfc87f`. **A divergencia era ATIVA**: o `mira.py` reprova
+    33-37 neste canal, logo quem seguisse esta rotina escrevia peca que o
+    instrumento recusa. **Rode `ensaio.alvo_short(canal)`, nunca o numero escrito
+    aqui.** O historico do override de 09/10 (698) fica abaixo porque explica de
+    onde ele veio:
+    (09/10, 698, a faixa ANTIGA de 33-37). Com IDADE CASADA (views na
     janela de 9 a 21 h de vida) as duas peças de mira nova caíram ABAIXO do mínimo
     das oito antigas — 18 e 9 contra 20, 21, 34, 48, 60, 68, 173, 196; sob a nula
     ~1/9 cada, ~1% as duas.
@@ -762,8 +789,28 @@ PARCIAL (o número certo, a leitura errada) também vai em `invalidado_motivo`.
 **AS SEQUÊNCIAS DE `id` ESTÃO ATRÁS DO `max(id)` nas duas tabelas** — se o insert
 der `duplicate key`, rode
 `select setval(pg_get_serial_sequence('<tabela>','id'), (select max(id) from <tabela>))`
-e repita. **UPDATE por este MCP estoura o timeout de 60 s de forma INTERMITENTE**
-(621) — um statement curto por chamada, e CONFIRA.
+e repita. **UPDATE por este MCP estoura o timeout de 60 s, e em 13/10 ficou
+OBSERVADO que isso correlaciona com o TAMANHO DO TEXTO** (refina o 621, que eu
+tratava como "intermitente"): quatro de quatro UPDATEs com texto longo (~700 a
+900 ch) estouraram, dois de dois curtos (~55 e ~130 ch) passaram, e INSERT com
+`evidencia` jsonb grande passa sem problema. **Retratacao vai em DOIS statements
+curtos** — `status` primeiro, `invalidado_motivo` resumido depois, com o detalhe
+no registro NOVO — **e CONFIRA com `select` depois de cada um**, porque o timeout
+NAO aplica a mudanca e eu ja relatei como feito o que nao tinha sido.
+
+**E O REGISTRO DE UMA PUBLICACAO TEM DOIS PASSOS, os dois MEUS** (726): o titulo
+no `fabrica/corpus_publicados.json` e a linha em `videos` com `origem_id`. Eu
+automatizei um e PERDI o outro por doze publicacoes. Os dois leem a MESMA fonte —
+o `::notice:: PUBLICADO` do `retomar.yml` — e rodam juntos:
+
+    <notices> | python3 fabrica/corpus_atrasado.py --aplicar
+    <notices> | python3 fabrica/registro_videos.py
+
+O segundo NAO executa SQL: imprime o `INSERT` para rodar por `execute_sql`.
+**A falha do corpus e SILENCIOSA e permissiva; a de `videos` e ruidosa mas so
+levanta quando alguem tenta medir** — barulho que ninguem ouve e silencio.
+E **NAO monte o `estado_b64` a mao nem redirecione stderr para dentro dele**
+(718/729): `python3 fabrica/estado_ponte.py 2>/dev/null | head -1`.
 
 =====================================================================
 10. QUANDO O BANCO ESTÁ FORA, A RODADA É DE CONSTRUÇÃO
