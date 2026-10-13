@@ -960,6 +960,35 @@ n=3, e **+6,4%** no piper com n=1. O portão nos dois mundos segue certo.
 
 **A REGRA DE MÉTODO QUE FICA: antes de inferir qual provedor narrou, CONTE OS
 AVISOS** — um por cena do Piper, zero se o edge venceu.
+
+#### E O NÚMERO DO 733 CAIU NA PRIMEIRA PREVISÃO OUT-OF-SAMPLE — aprendizado 734
+
+Eu escrevi na copy do `labtreinamento-s033`, **antes de publicar**, que o real
+sairia **~26,3** (viés de 2,5% sobre a previsão edge de 25,7). Provedor medido
+**edge** (zero avisos), real **27** — **+5,1%**, acima do maior desvio que eu
+tinha observado.
+
+| pacote | prev edge | real | resíduo | razão |
+|---|---|---|---|---|
+| `epomeno-epipedo-s024` | 43,1 | 44 | **+0,9 s** | +2,1% |
+| `kolejny-poziom-s024` | 42,9 | 44 | **+1,1 s** | +2,5% |
+| `epomeno-epipedo-s025` | 42,1 | 44 | **+1,9 s** | +4,5% |
+| `labtreinamento-s033` | 25,7 | 27 | **+1,3 s** | +5,1% |
+
+**O sinal e o método do 733 ficam de pé** — quatro de quatro acima, e o provedor
+se mede pela anotação. **O que cai é o NÚMERO:** a mediana de +2,5% era de n=3
+com as três na mesma faixa de 42 a 43 s, e não se generalizou para 25,7 s.
+
+**E o ponto de método: com n=4 e granularidade de 1 s, percentual NÃO se distingue
+de OFFSET.** O resíduo vai de **0,9 a 1,9 s** (razão 2,1) e de **2,1% a 5,1%**
+(razão 2,4) — dispersões da mesma ordem, logo os dados não escolhem entre os dois
+modelos. **O que eu afirmo é só o limite: o real ficou sempre acima, por no
+máximo 1,9 s.**
+
+**A consequência prática, e é a única de hoje:** quem mira perto do teto de 45 s
+conta com **~2 s** de resíduo, não com 2,5%. Para 43 s previstos isso dá 45, no
+limite. **Não mexi na mira nem no portão** — n=4, e a trava da §10 vale.
+`tests/test_residuo_e_offset_ou_percentual.py`, seis testes.
 `tests/test_provedor_medido_pela_anotacao.py`, sete testes, e um deles **falha se
 alguém trocar o `::warning::` por `print`**, porque aí o provedor volta a ser
 inferido no olho.
