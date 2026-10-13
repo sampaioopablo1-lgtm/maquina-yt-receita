@@ -833,6 +833,41 @@ ele quem narra — e isso é decisão do dono, porque muda toda a produção.
 `tests/test_fator_piper_contra_real.py`, seis testes, e um deles **falha se o
 provedor do runner mudar** (ele exige edge acima do real em 10 de 10).
 
+#### E ÀS 16:2x DO MESMO DIA A SEGUNDA FRASE DO 724 CAIU — e por medição
+
+**As duas peças de 15:17 e 16:12 falsificam "em produção é o Piper que narra".**
+Duração REAL contra as duas previsões, numa chamada, `status_code` 200:
+
+| peça | real | edge | piper | casa com |
+|---|---|---|---|---|
+| `7qreIlqtUIU` (`epomeno-epipedo-s024`) | **44** | 43,1 | 38,2 | **EDGE** (+2,1% contra +15,2%) |
+| `xlQvH6JjrB4` (`kolejny-poziom-s023`) | **39** | 43,1 | 36,7 | nenhum dos dois de perto |
+
+E o `s024` é o caso duro: **o real ficou ACIMA da previsão do edge** (44 > 43,1),
+que é justamente o que o meu teste das 10:1x declarava não acontecer. **Aquele
+teste segue valendo para as DEZ peças em que foi ancorado e não se generaliza
+para a frota** — o mesmo erro de enquadramento do 679/698/725, cometido por mim
+seis horas antes.
+
+**O código sempre disse isso e eu não li:** `fabrica.py:598-620` tenta o
+`edge_tts` **três** vezes e só cai no Piper na terceira falha. Logo o provedor é
+decidido **por cena e por run**, pelo estado da rede do runner — nunca por
+configuração. As dez peças do 724 mediram um runner em que o edge estava caindo;
+elas **não** mediram uma escolha.
+
+**O que isto CONFIRMA, com motivo mais forte do que o que eu escrevi às 02:1x:**
+o portão exigir a faixa nos DOIS mundos era a decisão certa. Eu escrevi "o
+provedor se decide no runner"; agora está medido que ele se decide **de um run
+para o outro**.
+
+**E O QUE ISTO DERRUBA É UMA PROPOSTA MINHA DESTA MANHÃ:** o desenho
+pré-registrado *"mirar a faixa no mundo `piper`, já que é ele quem narra"* **sai
+da mesa.** Não se mira um mundo que não se controla. A mira tem de valer nos
+dois, que é o que o `fabrica/mira.py` já relata e o portão já cobra — e isso
+**remove uma das decisões que estavam na fila do dono**.
+`tests/test_provedor_nao_e_fixo.py`, seis testes, e um deles **falha se as duas
+peças passarem a casar com o mesmo mundo**, para que o raciocínio seja relido.
+
 **Vigilância do §3.2 na mesma chamada: as dez `processed` e `public`, nenhum
 `P0D`.**
 
