@@ -929,7 +929,21 @@ por `execute_sql`, com `on conflict (slug) do nothing`. Rode os dois juntos:
 contra reusar origem fica cega pelo mesmo motivo.
 
 **E NÃO MONTE O `estado_b64` À MÃO — rode `python3 fabrica/estado_ponte.py`**
-(aprendizado 718). O `titulos_no_ar` é lista de **OBJETOS** com a chave
+(aprendizado 718), **e NÃO redirecione stderr para dentro do payload** — isto é
+de 13/10 às 15:1x e é a TERCEIRA vez que o `estado_b64` montado por mim mata um
+run. O run `38420599010` morreu em `base64: invalid input` porque eu escrevi
+`estado_ponte.py > arq 2>&1`: o `2>&1` anexou ao arquivo a **nota legível** que
+o script escreve em stderr de propósito (`estado: 269 titulos | 29396 chars
+b64`), e o `tr -d '\n'` seguinte colou a nota no fim do base64. **O script já
+estava certo** — eu transformei a ajuda dele em corrupção. A forma é
+
+    python3 fabrica/estado_ponte.py 2>/dev/null | head -1
+
+e `tests/test_estado_ponte_stdout_puro.py` (seis testes, aprendizado **729**) trava a propriedade da
+qual eu dependi sem conferir: stdout é base64 **puro**, uma linha só, decodifica
+sem nenhuma limpeza, e um dos testes **falha se a nota voltar para stdout**.
+
+E o erro de 12/10 fica: o `titulos_no_ar` é lista de **OBJETOS** com a chave
 `titulo`; lista de strings faz a trava por título levantar `AttributeError` e o
 run morre em *"Conferir o estado antes de publicar"*. Em 12/10 eu montei à mão e
 perdi o run `38290045583` — **e o docstring do próprio `estado_ponte.py` descreve
