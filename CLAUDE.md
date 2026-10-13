@@ -406,6 +406,37 @@ alerta, porque 10 não é maior que 10. Eu relato isso em vez de arredondar para
 foi minha, pela contagem das nove, não por um alarme. Há teste travando esse
 caso de fronteira.
 
+## A FONTE DECLARA "esses cinco casos" E ENUMERA SEIS — e nenhum portão barrava
+
+**Medido em 13/10 às 05:0x, escrevendo o `s031` a partir do `labtreinamento-009`
+(`dsoEo103l1o`).** O capítulo 35 diz *"depois de descartar esses CINCO casos"* e
+os capítulos 28 a 33 enumeram **SEIS** — e o mesmo longo diz "os seis casos" em
+outro ponto, contradizendo-se sozinho.
+
+**Por que isso importa mais do que parece:** o short carrega o que o longo diz, e
+**nada nosso barraria "os cinco casos"** num short cujo longo tem seis. O
+`narracao` conta QUANTIDADES por frase e **não confere se a quantidade é
+verdadeira**; a regra (g) tira número que MUDA (alíquota, data), e contagem de
+casos não muda. Número errado no ar com portão verde — §3.8 outra vez.
+
+**A decisão no `s031` foi OMITIR a contagem**, porque não se sabe qual número o
+autor quis, e inventar um é pior que não dizer.
+
+**No código:** `fabrica/contagem_declarada.py` e nove testes. Medido na frota:
+**1 conflito em 207 specs** (só o `-009`).
+
+**E ELE ME DEU DOIS FALSOS POSITIVOS ANTES DE FICAR DE PÉ, os dois na mesma
+rodada** — e isso é a parte que vale guardar:
+1. a primeira versão comparava a declaração com **qualquer** kicker ordinal, e um
+   "Primeiro passo" fazia a conta do `-009` dar **sete**; eu quase relatei dois
+   conflitos inventados e errei o terceiro;
+2. a segunda pareava "os dois casos" do capítulo 20 do `-010` com quatro ordinais
+   **nus** dos capítulos 59 a 62 — outra lista, outro assunto, quarenta capítulos
+   de distância.
+O conserto foi casar o **substantivo** e exigir **proximidade** (`JANELA = 12`).
+Cada falso positivo tem teste próprio, porque **detector que inventa achado é
+pior que não ter detector**.
+
 ## Por que NÃO aumentar o número de canais
 
 O dono deu liberdade para isso. A aritmética diz não: **os 500 inscritos são um
