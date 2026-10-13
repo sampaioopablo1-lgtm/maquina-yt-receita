@@ -379,6 +379,33 @@ Isso converge com o 689: o longo converte ~5x melhor por view **e** gera pauta
 deixa de ser exceção e passa a ser a produção principal** quando a pauta estiver
 baixa.
 
+## A CONCENTRAÇÃO DE PAUTA NUMA ORIGEM SÓ É HÁBITO MEU, e eu só a vi ao contar
+
+**Medido em 13/10 às 04:0x.** O `labtreinamento` tinha **dez** shorts tirados do
+MESMO longo (`ntrMxq89I4o`) — um terço dos trinta do canal — enquanto **nove das
+treze origens foram usadas UMA vez só**, e o canal tem **doze specs de longo com
+55 a 87 capítulos cada**. Não foi escassez de pauta: foi eu ficar no longo que
+estava aberto na minha cabeça, chamando isso de "a unidade de pauta é
+(LONGO × FAMÍLIA)" — que é verdade, e **não é licença para ficar num longo só**.
+
+**E o risco não é estético:** o portão `similaridade` (≤0,65 contra o mesmo
+canal) existe pelo conteúdo **inautêntico** do YPP — *"the substance of each
+video should be materially varied"*. Concentração de origem ataca exatamente o
+portão que estamos tentando passar, e cresce devagar, que é por que precisa de
+contador e não de memória.
+
+**No código:** `fabrica/concentracao.py` (`contagem`, `analise`, `relato`) e oito
+testes. Rode antes de escolher pauta:
+
+    python3 fabrica/concentracao.py labtreinamento
+
+**O limiar de alerta é observado e declarado: MAIS que o dobro da segunda
+origem.** E o caso real ficou **exatamente no limite** — 10 contra 5 **não**
+alerta, porque 10 não é maior que 10. Eu relato isso em vez de arredondar para
+"alertou": o instrumento disse "dentro do dobro", e a decisão de trocar de origem
+foi minha, pela contagem das nove, não por um alarme. Há teste travando esse
+caso de fronteira.
+
 ## Por que NÃO aumentar o número de canais
 
 O dono deu liberdade para isso. A aritmética diz não: **os 500 inscritos são um

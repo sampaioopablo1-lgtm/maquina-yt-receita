@@ -192,3 +192,10 @@ amplitude. Um portao de 1,0 LU sobre este processo reprovaria peca por variacao
 NORMAL do `loudnorm` de uma passada. **Logo o limiar de 1,0 do produto alheio
 nao se transplanta** — e isto e medicao, nao preferencia. Se um dia virar portao,
 o limiar sai da dispersao medida aqui, com n maior que sete.
+
+**Oitava medicao (`s030`): LUFS −13,5, desvio +0,5, pico −1,3, LRA 2,6.**
+Identica em desvio a setima. As oito: −0,2, −0,6, −0,2, +0,2, −0,4, −0,2, +0,5,
++0,5. Mediana −0,1, amplitude **1,1 LU**, nenhuma fora de 1,0 individualmente —
+o mesmo retrato da setima, agora com n=8. **A conclusao contra o portao de 1,0 LU
+do produto alheio se mantem, e agora com duas pecas no extremo alto** em vez de
+uma: nao era ponto solto.
