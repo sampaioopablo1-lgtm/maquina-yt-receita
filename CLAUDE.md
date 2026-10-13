@@ -1053,6 +1053,16 @@ teste: `tests/test_residuo_quebra_o_limite_de_dois_segundos.py`, sete testes, um
 deles **falha se o pior resíduo voltar para dentro de 1,9 s**, para que o 734 seja
 relido em vez de reaproveitado.
 
+**E O BURACO DO 739 FOI FECHADO NO INSTRUMENTO às 23:2x, sem virar portão:** o
+`mira.py` passou a imprimir **onde o REAL deve cair** — a previsão mais a banda
+OBSERVADA de 0,9 a 2,4 s — e a dizer quando ela passa do teto da mira. No
+`labtreinamento-s034` ele agora diz *"se edge narrar, o REAL deve cair entre 26,5
+e 28,0 s — PASSA do teto da mira (26,0)"*, que é exatamente o que aconteceu (real
+28). **Ele INFORMA e NÃO reprova**, e o motivo vai escrito no módulo: com n=5 e
+uma banda que varia por um fator 2,7 sem lei estável, reprovar seria inventar
+portão com cinco pontos. `tests/test_mira_diz_onde_o_real_cai.py`, sete testes, um
+deles **exige que o código de saída continue zero**.
+
 **E O `pacotes` DO `frota.yml` É LISTA DE OBJETOS — aprendizado 738.** Eu mandei
 `["labtreinamento-s034"]` e o run `38476203962` morreu: o job `preparar` dá
 **SUCCESS** (o `jq` monta `{include:[...]}` de qualquer coisa) e o run dá

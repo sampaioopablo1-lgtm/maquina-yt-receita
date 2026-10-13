@@ -22,6 +22,20 @@ isto é um RELATO que se roda na spec que está sendo escrita, como o
 próprio canal, e `ensaio.duracao_real_prevista`, que é o fator do Piper medido no
 711/714. Canal sem override não tem mira própria e o relato diz isso em vez de
 inventar uma.
+
+**E ESTE MÓDULO TINHA UM BURACO MEDIDO EM 13/10 ÀS 22:2x — aprendizado 739.** A
+mira do `labtreinamento` é sobre a duração **REAL**, e o que eu confiro aqui é a
+**PREVISÃO**. As duas peças do canal narradas pelo edge (`s033` e `s034`) passaram
+por esta conferência com a previsão DENTRO e saíram em **27 e 28 s reais** — fora
+da mira. O real fica **sempre acima** da previsão do provedor que de fato narrou
+(5 de 5), por **0,9 a 2,4 s** nas medições que existem.
+
+Então `faixa_real` acrescenta essa banda ao relato: previsão de 25,6 põe o real
+entre 26,5 e 28,0, e o relato DIZ que isso passa do teto da mira. **Ele informa e
+NÃO reprova**, e a razão é a amostra: n=5, a banda vai de 0,9 a 2,4 s sem lei
+estável (duas previsões a um décimo deram reais a um segundo de distância), e
+reprovar por uma banda assim seria inventar portão com cinco pontos. Quem decide
+encurtar é quem escreve a peça, com o número na frente.
 """
 from __future__ import annotations
 
@@ -32,6 +46,19 @@ sys.path.insert(0, __file__.rsplit("/", 1)[0])
 import ensaio  # noqa: E402
 
 PROVEDORES = ("edge", "piper")
+
+# Resíduo OBSERVADO entre a previsão do provedor que de fato narrou (medido pela
+# anotação do job, 733) e a duração REAL. Cinco pontos, 13/10: +0,9 / +1,1 / +1,9
+# / +1,3 / +2,4 s. Todos POSITIVOS. Isto NÃO é limiar — nada reprova por causa
+# dele; ele entra no relato para que quem escreve veja onde o real deve cair.
+RESIDUO_OBSERVADO = (0.9, 2.4)
+RESIDUO_N = 5
+
+
+def faixa_real(estimado: float) -> tuple[float, float]:
+    """Onde o REAL deve cair, dada uma previsão, pela banda OBSERVADA do 739."""
+    lo, hi = RESIDUO_OBSERVADO
+    return (round(estimado + lo, 1), round(estimado + hi, 1))
 
 
 def previsoes(spec: dict) -> dict[str, float]:
@@ -83,6 +110,16 @@ def relato(caminho: str) -> str:
         linhas.append("  >> FORA: " + r["motivo"])
     else:
         linhas.append("  dentro da mira nos dois mundos de provedor.")
+    # o 739: a mira e sobre o REAL e isto acima confere a PREVISAO.
+    teto = r["mira"][1]
+    for prov, d in sorted(r["previsoes"].items()):
+        lo, hi = faixa_real(d)
+        aviso = (" PASSA do teto da mira" if lo > teto
+                 else " pode passar do teto" if hi > teto else " cabe na mira")
+        linhas.append(
+            f"  se {prov} narrar, o REAL deve cair entre {lo} e {hi} s —{aviso}"
+            f" ({teto}). Resíduo OBSERVADO, n={RESIDUO_N} (739): o real ficou"
+            " sempre ACIMA da previsão, por 0,9 a 2,4 s. NAO reprova.")
     return "\n".join(linhas)
 
 
