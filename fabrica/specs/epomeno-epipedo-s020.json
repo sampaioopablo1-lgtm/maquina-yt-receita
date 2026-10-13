@@ -1,0 +1,99 @@
+{
+ "slug": "epomeno-epipedo",
+ "pacote": "epomeno-epipedo-s020",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#1A1A1A",
+  "c1": "#2E86AB",
+  "c2": "#E4572E",
+  "bg": "#F4F7F9"
+ },
+ "thumb": {
+  "l1": "Το ενοίκιο",
+  "l2": "δεν φτάνει"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Το ενοίκιο",
+   "sub": "δεν είναι το κόστος",
+   "nar": "Το ενοίκιο δεν είναι όλο το κόστος της στέγης.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Τα κοινόχρηστα",
+   "preco": "μπαίνουν μέσα",
+   "nar": "Πρόσθεσε πρώτα τα κοινόχρηστα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Η θέρμανση",
+   "preco": "και το ρεύμα",
+   "nar": "Πρόσθεσε μετά τη θέρμανση και το ρεύμα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Η συντήρηση",
+   "preco": "κάθε μήνα",
+   "nar": "Και βάλε ένα ποσό συντήρησης κάθε μήνα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Και η εγγύηση",
+   "preco": "μένει δεσμευμένη",
+   "nar": "Η εγγύηση μένει δεσμευμένη για χρόνια.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Αυτό είναι",
+   "preco": "το πραγματικό κόστος",
+   "nar": "Αυτό το άθροισμα είναι το πραγματικό κόστος στέγης.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ίδιος μισθός",
+   "preco": "άλλη ζωή",
+   "nar": "Δύο άνθρωποι με ίδιο μισθό ζουν πολύ διαφορετικές ζωές.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Η διαφορά",
+   "sub": "δεν είναι το ποσό",
+   "nar": "Η διαφορά δεν είναι στο ποσό που βγάζει ο καθένας.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Είναι ποιος",
+   "sub": "μπορεί να αποταμιεύσει",
+   "nar": "Είναι στο ποιος μένει με κάτι για να αποταμιεύσει.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Η στέγη καθορίζει",
+   "sub": "όλα τα υπόλοιπα",
+   "nar": "Η στέγη καθορίζει όλα τα υπόλοιπα έξοδά σου.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Επόμενο Επίπεδο",
+   "sub": "κάνε εγγραφή",
+   "nar": "Υπολόγισε το δικό σου άθροισμα και κάνε εγγραφή.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "481Zgd4IhsE",
+ "copy": "# epomeno-epipedo-s020\n\n## TITULO\nΤο Ενοίκιο Δεν Είναι Το Κόστος Στέγης: Τι Μένει Μετά Τα Κοινόχρηστα, Τη Θέρμανση Και Την Εγγύηση\n\n## TITULO SHORT\nΤο ενοίκιο δεν είναι το κόστος στέγης\n\n## DESCRICAO\nΌταν κάποιος υπολογίζει πόσο του κοστίζει η στέγη, γράφει ένα νούμερο: το ενοίκιο. Και μετά απορεί γιατί στο τέλος του μήνα δεν μένει τίποτα, αφού «το ενοίκιο βγαίνει άνετα».\n\nΤο ενοίκιο δεν είναι το κόστος στέγης. Είναι η **πρώτη γραμμή** του. Από πάνω του μπαίνουν τα κοινόχρηστα της πολυκατοικίας, η θέρμανση, ο λογαριασμός του ρεύματος, και ένα ποσό συντήρησης που δεν έρχεται κάθε μήνα αλλά υπάρχει κάθε μήνα — μια βλάβη, μια αντικατάσταση, μια επισκευή που κάποιος πρέπει να πληρώσει. Και μπαίνει η εγγύηση, που δεν είναι καν έξοδο: είναι κεφάλαιο δικό σου, που μένει δεσμευμένο για χρόνια χωρίς να σου αποδίδει τίποτα και χωρίς να μπορείς να το χρησιμοποιήσεις.\n\nΤο άθροισμα όλων αυτών είναι το πραγματικό κόστος στέγης, και είναι ο λόγος που δύο άνθρωποι με τον **ίδιο καθαρό μισθό** ζουν δύο πολύ διαφορετικές ζωές. Ο ένας μένει σε μεγάλη πόλη, ο άλλος σε επαρχιακή. Στο χαρτί βγάζουν τα ίδια. Στην πράξη ο ένας μπορεί να αποταμιεύσει και ο άλλος όχι.\n\nΗ διαφορά ανάμεσά τους δεν είναι το ποσό που βγάζει ο καθένας· είναι ποιος μένει στο τέλος του μήνα με κάτι. Και το δίλημμα είναι πραγματικό, γιατί η δουλειά που πληρώνει καλύτερα βρίσκεται συνήθως εκεί όπου η στέγη κοστίζει περισσότερο — δεν διαλέγεις μισθό και κόστος στέγης χωριστά, τα διαλέγεις μαζί.\n\nΓι' αυτό η στέγη δεν είναι ένα έξοδο ανάμεσα στα άλλα: είναι το έξοδο που καθορίζει σιωπηλά όλα τα υπόλοιπα, από το φαγητό μέχρι τη μετακίνηση και την αποταμίευση. Υπολόγισε το δικό σου άθροισμα — όχι το ενοίκιο, το άθροισμα.\n\nΣτο πλήρες βίντεο: η ανάλυση του κόστους στέγης γραμμή προς γραμμή, το παράδειγμα των δύο ανθρώπων με τον ίδιο μισθό, και γιατί σε μια χώρα με τόσα σπίτια δεν υπάρχουν διαθέσιμα.\n\n## COMENTARIO FIXADO\nΤο σημείο που ξεχνιέται πιο εύκολα δεν είναι τα κοινόχρηστα ούτε η θέρμανση — είναι η εγγύηση. Δεν εμφανίζεται σε κανέναν μηνιαίο λογαριασμό, άρα δεν τη θεωρείς κόστος· και όμως είναι δικά σου χρήματα που μένουν δεσμευμένα για χρόνια, χωρίς τόκο και χωρίς να μπορείς να τα αγγίξεις. Επίτηδες δεν έβαλα ποσά σε αυτό το βίντεο: τα ενοίκια και οι μισθοί αλλάζουν ανά περιοχή και ανά χρονιά, και ένα νούμερο που παλιώνει θα έκανε το βίντεο λάθος σε έξι μήνες. Η δομή δεν παλιώνει. Κάντε τον δικό σας υπολογισμό και γράψτε πόσο απέχει το άθροισμα από το ενοίκιο που λέτε στους άλλους ότι πληρώνετε.\n\n## HASHTAGS\n#Στέγη #Ενοίκιο #ΕπόμενοΕπίπεδο\n\n## TAGS\nkostos stegis, enoikio, koinochrista, thermansi, logariasmos reumatos, eggyisi enoikiou, syntirisi katoikias, pragmatiko kostos, idios misthos, apotamievsi, megali poli, eparchia, prosopikos proypologismos, oikonomika nikokyriou, epomeno epipedo\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, ZERO DIGITO e ZERO NUMERAL na narracao.\nConferido campo a campo.\n\nA REGRA (g) tira TODOS os valores em euros do longo, e este trecho e quase todo\nnumero: o salario liquido de referencia, os dois alugueis por regiao, a diferenca\nentre eles, e os dois valores de aluguel do capitulo 19. Sao precos regionais e\nsalario — envelhecem em meses, e numero errado no ar e pior que numero ausente.\n\nO QUE A PECA CARREGA, e nao envelhece: o aluguel e a PRIMEIRA LINHA do custo de\nmoradia, nao o custo; o agregado inclui condominio, energia, manutencao e a\ncaucao imobilizada; e e esse agregado que explica por que dois salarios iguais\ndao vidas diferentes. A estrutura sobrevive a qualquer tabela de preco.\n\nO QUE EU NAO LEVEI, de proposito, e vai escrito para a proxima rodada achar: o\ncapitulo que pergunta por que um pais com tantas casas nao tem casas disponiveis.\nE a melhor familia do longo depois desta, e ela pede numero de estoque — logo\npede fonte institucional, que hoje esta fechada no proxy.\n\n## FONTES\nO longo de onde este short foi extraido (`481Zgd4IhsE`, pacote\nepomeno-epipedo-002, 100 capitulos) carrega os numeros do exemplo. Este short\nNAO introduz numero novo sobre o mundo, entao nao exige fonte institucional nova.\n\nNOTA DE PROCEDENCIA: o texto saiu dos capitulos 19/20, 24 e 26 da spec do proprio\npacote, lidos um a um. Nenhuma frase foi inferida de resumo nem de titulo.\n`contagem_declarada.py` no pacote de origem: 0 conflitos.\n"
+}
