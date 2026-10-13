@@ -1,0 +1,99 @@
+{
+ "slug": "epomeno-epipedo",
+ "pacote": "epomeno-epipedo-s021",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#16283C",
+  "c1": "#2E7BB4",
+  "c2": "#E0A02E",
+  "bg": "#F3F7FA"
+ },
+ "thumb": {
+  "l1": "Τέσσερα λάθη",
+  "l2": "στην αύξηση"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Το ποσοστό",
+   "sub": "δεν είναι το ποσό σου",
+   "nar": "Το ποσοστό της είδησης δεν είναι το ποσό σου.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Πρώτο λάθος",
+   "sub": "να το διαβάσεις ως δικό σου",
+   "nar": "Πρώτο λάθος: να το διαβάσεις σαν δικό σου.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Κοστίζει",
+   "preco": "στον προϋπολογισμό",
+   "nar": "Κοστίζει, γιατί πάνω του φτιάχνεις προϋπολογισμό.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Δεύτερο λάθος",
+   "sub": "ότι πάει χαμένο",
+   "nar": "Δεύτερο λάθος: ότι ό,τι συμψηφίζεται χάνεται.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Δεν χάνεται",
+   "preco": "μικραίνει τη διαφορά",
+   "nar": "Δεν χάνεται, μικραίνει τη διαφορά σου.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Τρίτο λάθος",
+   "sub": "κατάργηση σημαίνει κόψιμο",
+   "nar": "Τρίτο λάθος: να ακούς κατάργηση και να καταλαβαίνεις κόψιμο.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Η λέξη",
+   "preco": "ίδια, αντίθετα πράγματα",
+   "nar": "Η λέξη είναι ίδια, τα πράγματα αντίθετα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Τέταρτο λάθος",
+   "sub": "να μην το ανοίξεις",
+   "nar": "Τέταρτο λάθος: να μην ανοίξεις ποτέ το σημείωμα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Και περιμένεις",
+   "preco": "να σου το πουν",
+   "nar": "Και να περιμένεις να σου το πουν.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Σήμερα",
+   "sub": "άνοιξε και βρες τη γραμμή",
+   "nar": "Σήμερα άνοιξε το σημείωμα και βρες τη γραμμή.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Επόμενο Επίπεδο",
+   "sub": "κάνε εγγραφή",
+   "nar": "Σημείωσε το ποσό σου, κάνε εγγραφή.",
+   "sem_cap": true
+  }
+ ],
+ "longo_existente": "TJZcjE-uv8E",
+ "copy": "# epomeno-epipedo-s021\n\n## TITULO\nΤα Τέσσερα Λάθη Στην Ανάγνωση Μιας Αύξησης: Γιατί Το Ποσοστό Της Είδησης Δεν Είναι Το Ποσό Σου\n\n## TITULO SHORT\nΤο ποσοστό δεν είναι το ποσό σου\n\n## DESCRICAO\nΚάθε φορά που ανακοινώνεται μια αύξηση, συμβαίνει το ίδιο: όλοι ακούν ένα ποσοστό και όλοι υποθέτουν ότι αυτό είναι το δικό τους ποσοστό. Και μετά, όταν ανοίξουν το ενημερωτικό σημείωμα, κάποιοι βρίσκουν λιγότερα από όσα περίμεναν και νομίζουν ότι έγινε λάθος. Δεν έγινε λάθος. Η ανακοίνωση και το δικό σου ποσό απαντούν σε δύο διαφορετικές ερωτήσεις.\n\nΑυτό το βίντεο δεν προσπαθεί να σου πει πόσο θα πάρεις — αυτό εξαρτάται από τη δική σου περίπτωση και φαίνεται μόνο στο δικό σου χαρτί. Προσπαθεί να μαζέψει τα **τέσσερα λάθη** που κάνουν τους περισσότερους να παρεξηγήσουν την ανακοίνωση.\n\nΤο **πρώτο** είναι να διαβάσεις το ποσοστό της είδησης σαν να είναι το ποσό σου: πάνω σε αυτό φτιάχνεις τον προϋπολογισμό της χρονιάς, και σε ένα νοικοκυριό που μετράει τα πάντα η διαφορά ανάμεσα στο ανακοινωμένο και στο πραγματικό μετράει.\n\nΤο **δεύτερο** είναι να νομίζεις ότι το μέρος που συμψηφίζεται πάει χαμένο. Δεν πάει χαμένο: μικραίνει τη διαφορά σου, και η διαφορά είναι ακριβώς αυτό που σε κρατάει πίσω από την πλήρη αύξηση.\n\nΤο **τρίτο** είναι γλωσσικό και είναι το πιο ύπουλο: ακούς «κατάργηση» και καταλαβαίνεις ότι σου κόβουν το ποσό. Καταργείται ο συμψηφισμός, όχι η καταβολή. Η λέξη είναι η ίδια και τα δύο πράγματα είναι αντίθετα.\n\nΤο **τέταρτο** είναι το πιο συνηθισμένο: να μην ανοίξεις ποτέ το ενημερωτικό σημείωμα και να περιμένεις να σου πει κάποιος άλλος τι πήρες.\n\nΑυτό που μπορείς να κάνεις σήμερα είναι ένα και δωρεάν: άνοιξε το σημείωμα, βρες τη γραμμή, σημείωσε το ποσό. Του χρόνου θα έχεις με τι να συγκρίνεις.\n\nΣτο πλήρες βίντεο: πού ακριβώς μπαίνεις, τι ψάχνεις, τι σημαίνει αν η γραμμή λείπει, και η σύγκριση δύο διαδοχικών μηνών που δείχνει τον μηχανισμό στα δικά σου νούμερα.\n\n## COMENTARIO FIXADO\nΤο τρίτο λάθος είναι γλωσσικό και γι' αυτό πιάνει τους πιο προσεκτικούς: η ίδια λέξη περιγράφει δύο αντίθετα πράγματα, και η είδηση σπάνια διευκρινίζει ποιο από τα δύο εννοεί. Επίτηδες δεν έβαλα κανένα ποσοστό, κανένα έτος και κανένα ποσό σε αυτό το βίντεο: αυτά αλλάζουν κάθε χρόνο και ένα νούμερο που παλιώνει θα έκανε το βίντεο λάθος, ενώ τα τέσσερα λάθη δεν παλιώνουν. Γράψτε ποιο από τα τέσσερα σας έχει τύχει — υποψιάζομαι ότι το τέταρτο είναι το πιο συχνό.\n\n## HASHTAGS\n#Σύνταξη #Αύξηση #ΕπόμενοΕπίπεδο\n\n## TAGS\nenimerotiko simeioma, prosopiki diafora, sympsifismos, afxisi, pososto eidisis, anakoinothen kai pragmatiko, grammi tou ekkatharistikou, sygkrisi dyo minon, katargisi sympsifismou, katavoli, prosopikos proypologismos, oikonomika nikokyriou, epomeno epipedo, pos diavazo to simeioma, tessera lathi\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Conferido campo a campo.\n\nA REGRA (g) tira, deste longo, tudo o que MUDA: o percentual do aumento do ano,\no \"dois virgula quatro\", o ano de fim do mecanismo, quantas pessoas estao em cada\nlado, e o valor de qualquer exemplo. Sao numero de vigencia anual -- envelhecem\nem meses. E nenhum orgao e nomeado (regra 609).\n\nOS ORDINAIS DA NARRACAO (primeiro a quarto) sao ESTRUTURA da lista, nao\nafirmacao sobre o mundo. **E eu NAO declaro \"os quatro erros\" dentro do short**,\nembora o longo declare: declarar contagem num short que enumera e o buraco que o\n`contagem_declarada.py` existe para achar, e aqui a enumeracao e a propria peca.\nO pacote de origem passou com 0 conflitos.\n\nO QUE A PECA CARREGA, e nao envelhece: o percentual anunciado nao e o percentual\nde ninguem em particular; a parte compensada reduz a diferenca em vez de sumir;\n\"revogacao\" pode nomear duas coisas opostas; e quem nao abre o proprio papel\ndepende do que outros contam. Os quatro sobrevivem a qualquer tabela.\n\nO QUE EU NAO LEVEI, de proposito, e vai escrito para a proxima rodada achar: os\ncapitulos 40 a 53, as DUAS pessoas que recebem da mesma alta valores diferentes.\nE a melhor familia que resta neste longo, e e aritmetica -- mas e muito proxima\nda composicao do `s020` de hoje, e a regra (f) proibe repetir familia no mesmo\ncanal no mesmo dia.\n\n## FONTES\nO longo de onde este short foi extraido (`TJZcjE-uv8E`, pacote\nepomeno-epipedo-007, 90 capitulos) carrega os numeros. Este short NAO introduz\nnumero novo sobre o mundo, entao nao exige fonte institucional nova.\n\nNOTA DE PROCEDENCIA: o texto saiu dos capitulos 76 a 83 da spec do proprio\npacote, lidos um a um. Nenhuma frase foi inferida de resumo nem de titulo.\n"
+}
