@@ -1,0 +1,92 @@
+{
+ "slug": "kolejny-poziom",
+ "pacote": "kolejny-poziom-s024",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Nie zysk",
+  "l2": "a przychód"
+ },
+ "longo_existente": "kDkagIf2isA",
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Zły licznik",
+   "sub": "zysk zamiast przychodu",
+   "nar": "Liczysz swój zysk, a próg patrzy na zupełnie inną liczbę.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Podstawą jest",
+   "preco": "przychód",
+   "nar": "Podstawą progu jest przychód, a nie zysk firmy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Brzmi jak drobiazg",
+   "sub": "a jest dźwignią",
+   "nar": "Brzmi to jak drobiazg, a w praktyce jest dźwignią.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Co obniża",
+   "preco": "zapłacone składki",
+   "nar": "Zapłacone składki obniżają tę właśnie podstawę.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Druga dźwignia",
+   "preco": "moment zapłaty",
+   "nar": "Druga dźwignia to moment zapłaty twojej faktury.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Łatwo je pomylić",
+   "sub": "to nie to samo",
+   "nar": "To dwie różne dźwignie i bardzo łatwo je pomylić.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Wewnątrz progu",
+   "preco": "nic się nie dzieje",
+   "nar": "Wewnątrz progu nie dzieje się absolutnie nic.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Na granicy",
+   "preco": "wszystko naraz",
+   "nar": "Na samej granicy dzieje się wszystko naraz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Najgorsze miejsce",
+   "sub": "tuż nad granicą",
+   "nar": "Dlatego najgorsze miejsce to jest tuż nad granicą.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Kolejny Poziom",
+   "sub": "subskrybuj",
+   "nar": "Subskrybuj, jeśli liczysz ten próg samodzielnie.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# kolejny-poziom-s024\n\n## TITULO\nPróg Liczy Się Od Przychodu, Nie Od Zysku — I To Zmienia Dwie Twoje Dźwignie\n\n## TITULO SHORT\nPróg liczy przychód, nie zysk\n\n## DESCRICAO\nPrzedsiębiorca, który sprawdza, czy zbliża się do progu, prawie zawsze patrzy na **zysk** — bo to liczba, którą zna najlepiej i którą widzi w swoim rachunku. Tymczasem podstawą progu jest **przychód**. To wygląda jak drobiazg terminologiczny, a jest różnicą, która potrafi przesunąć całą ocenę sytuacji o kilka miesięcy w jedną albo drugą stronę.\n\nPraktyczna konsekwencja jest większa, niż się wydaje, i ma dwie strony. Pierwsza: **zapłacone składki obniżają tę podstawę** — czyli to, co już zapłaciłeś, działa na twoją korzyść przy liczeniu progu. Druga: liczy się **moment zapłaty** faktury. To dwie zupełnie różne dźwignie, działające w różnych miejscach rachunku, i bardzo łatwo je ze sobą pomylić — zwłaszcza pod koniec roku, kiedy obie wydają się robić „to samo”.\n\nDlaczego to w ogóle ma znaczenie: **wewnątrz progu nie dzieje się absolutnie nic.** Niezależnie od tego, gdzie w środku przedziału jesteś, składka jest ta sama. Całe napięcie siedzi w jednym punkcie — **na samej granicy, gdzie dzieje się wszystko naraz.** To nie jest schodek, po którym idzie się płynnie w górę; to pojedynczy skok w jednym miejscu.\n\nStąd wniosek, który brzmi niemal paradoksalnie, a jest po prostu arytmetyczny: **najgorsze miejsce to tuż nad granicą.** Tuż pod nią płacisz mniej. Wyraźnie nad nią — płacisz więcej, ale za przychód, który faktycznie masz. Tuż nad granicą płacisz więcej za kwotę, która niczego nie zmieniła w twojej firmie.\n\nCelowo nie podaję tutaj żadnej kwoty progu, żadnej stawki i żadnego roku. Te liczby są ogłaszane co roku i podane bez kontekstu zestarzałyby się szybciej niż sama zasada, która nie zmienia się wcale.\n\nW pełnym materiale: skąd biorą się kwoty progów, jak przelicza się składkę po przekroczeniu i w jakim terminie, co dokładnie wlicza się do podstawy, oraz jak to wygląda przy innych formach opodatkowania.\n\n## COMENTARIO FIXADO\nNajciekawsze jest to, że **formę opodatkowania wybiera się na początku roku, a próg mija się pod jego koniec** — decyzja i jej skutek są od siebie oddalone o kilka kwartałów, i to jest prawdziwe źródło zaskoczenia, nie same kwoty. Świadomie nie podałem tu żadnej liczby: progi są ogłaszane co roku, a zasada, że podstawą jest przychód i że granica jest punktem a nie zboczem, nie zmienia się. **I to nie zastępuje księgowego** — mówię to serio, nie z ostrożności. Napiszcie, czy liczyliście swój próg od zysku — podejrzewam, że to najczęstszy błąd.\n\n## HASHTAGS\n#Przychód #Składka #KolejnyPoziom\n\n## TAGS\npodstawa progu, przychod a zysk, zaplacone skladki, moment zaplaty faktury, granica progu, wewnatrz progu, forma opodatkowania, ryczalt, skala podatkowa, podatek liniowy, kolejny poziom, przedsiebiorca, rachunek firmy, prog skladkowy, planowanie konca roku\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Conferido campo a campo.\n\nA REGRA (g) tira, deste longo, tudo o que MUDA: as quantias dos tres limiares, a\ndiferenca mensal em zloty, as quantias do exemplo, o limite de abatimento no\nlinear, e o ANO. Sao numero anunciado a cada exercicio -- envelhecem em meses.\nNenhum orgao e nomeado (regra 609), e o longo cita um deles no capitulo 7.\n\nE A CONTAGEM SAIU DE PROPOSITO, pelo aprendizado 725: este longo declara \"trzy\nprogi\" (cap 4), \"trzy kwoty\" (10), \"trzy kroki\" (78), e enumera \"po pierwsze\" a\n\"po czwarte\" (67 a 70). Nenhuma entra na narracao.\n\nO QUE A PECA CARREGA, e nao envelhece: a base do limiar e o PRZYCHOD e nao o\nzysk; as contribuicoes JA PAGAS abaixam essa base; o MOMENTO do pagamento da\nfatura e uma segunda alavanca, distinta da primeira; dentro da faixa nada\nacontece e na fronteira acontece tudo de uma vez; logo o pior lugar e LOGO ACIMA\nda fronteira. Os cinco sobrevivem a qualquer tabela.\n\nO QUE EU NAO LEVEI, de proposito, e vai escrito para a proxima rodada achar: o\nrecalculo da contribuicao depois de passar o limiar e o PRAZO dele (capitulos 19\na 25) -- e a familia que o `kolejny-poziom-s018` ja levou deste MESMO longo. E a\ncomparacao entre formas de tributacao (capitulos 52 a 65), que esta livre e e\nboa, com o achado de que a forma se escolhe em janeiro e o limiar se cruza em\nnovembro.\n\nE A REGRA (f) FOI CONFERIDA CONTRA AS DUAS PECAS DE HOJE deste canal: o `s022`\nlevou composicao/estagio do rendimento, o `s023` levou ordem de conferencia.\nEsta leva BASE DE CALCULO -- familia distinta das duas.\n\nMIRA: a voz `pl-PL-MarekNeural` tem centro +2,2% (679), logo a mira e o PISO da\nfaixa. `fabrica/mira.py` devolveu edge 42,9 e piper 36,5 -- os dois dentro de 18\na 45, que e o que o portao `duracao` cobra nos DOIS mundos desde 13/10.\n\nE ISSO DEIXOU DE SER FORMALIDADE as 16:2x de hoje (aprendizado 730): o provedor\nde voz NAO e fixo. O `edge_tts` e tentado tres vezes por cena e o Piper so entra\nna terceira falha, logo quem narra se decide por RUN. A peca das 16:12 casou com\no EDGE (44 reais contra 43,1 previstos) e a das 15:17 com nenhum dos dois de\nperto. Por isso nao ha mira \"no mundo do Piper\" -- a peca tem de caber nos dois,\ne esta cabe.\n\n## FONTES\nO longo de onde este short foi extraido (`kDkagIf2isA`, pacote\nkolejny-poziom-010, 86 capitulos) carrega os numeros. Este short NAO introduz\nnumero novo sobre o mundo, entao nao exige fonte institucional nova.\n\nNOTA DE PROCEDENCIA: o texto saiu dos capitulos 16, 17, 42 a 48 e 83 da spec do\nproprio pacote, lidos um a um. Nenhuma frase foi inferida de resumo nem de\ntitulo.\n"
+}
