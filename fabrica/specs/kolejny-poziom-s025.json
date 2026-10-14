@@ -1,0 +1,92 @@
+{
+ "slug": "kolejny-poziom",
+ "pacote": "kolejny-poziom-s025",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Nie tabelka",
+  "l2": "a termin"
+ },
+ "longo_existente": "Rj7beZkOeYo",
+ "longo": [],
+ "short": [
+  {
+   "layout": "item",
+   "kicker": "Zły start",
+   "preco": "tabelka ofert",
+   "nar": "Zaczynasz od tabelki, a nie od terminu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Właściwe pytanie",
+   "sub": "kiedy, nie ile",
+   "nar": "Pierwsze pytanie brzmi: kiedy, a nie ile.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Punkt wyjścia",
+   "preco": "twój horyzont",
+   "nar": "Punktem wyjścia jest twój horyzont, nie stawka.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlaczego tak",
+   "preco": "wykup kosztuje",
+   "nar": "Bo wcześniejszy wykup zawsze kosztuje.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kara nie z rynku",
+   "sub": "z twojej decyzji",
+   "nar": "Ta kara nie bierze się z rynku, a z twojej decyzji.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Pieniądze na krótko",
+   "preco": "krótki termin",
+   "nar": "Pieniądze potrzebne wkrótce proszą o krótki termin.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Nawet gdy przegrywa",
+   "sub": "z tabelką",
+   "nar": "Nawet wtedy, gdy w tabelce wygląda najsłabiej.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Prawdziwa alternatywa",
+   "preco": "konto osobiste",
+   "nar": "Alternatywą jest zwykłe konto osobiste.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Pieniądze na lata",
+   "preco": "dłuższy termin",
+   "nar": "Pieniądze na lata dopiero wtedy proszą o dłuższy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Kolejny Poziom",
+   "sub": "subskrybuj",
+   "nar": "Subskrybuj, jeśli wybierasz terminem, nie tabelką.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# kolejny-poziom-s025\n\n## TITULO\nJak Wybrać Termin Obligacji: Zacznij od Własnego Horyzontu, a Nie od Tabelki Ofert\n\n## TITULO SHORT\nWybierasz tabelką czy własnym terminem?\n\n## DESCRICAO\nNajczęstszy sposób wybierania obligacji zaczyna się od tabelki: patrzysz, która pozycja ma najwyższą stawkę, i od niej idziesz dalej. To wygląda rozsądnie, a jednak odwraca kolejność pytań — bo pierwsze pytanie nie dotyczy stawki, tylko ciebie.\n\nPierwsze pytanie brzmi: KIEDY te pieniądze będą potrzebne. Dopóki nie ma na nie odpowiedzi, tabelka nie ma jak pomóc, bo każda pozycja w niej obiecuje coś na inny okres. Stawka jest obietnicą warunkową: obowiązuje, jeśli dotrzymasz terminu.\n\nDlatego kolejność ma skutek, który widać w pieniądzach. Jeśli wybierzesz termin dłuższy od swojego horyzontu, to w momencie, w którym pieniądze będą potrzebne, trzeba będzie wyjść przed czasem — a wcześniejszy wykup kosztuje. I to jest koszt szczególnego rodzaju: nie bierze się z rynku, ze stóp ani z inflacji, a z twojej własnej decyzji podjętej na starcie. Zapłacisz go nawet wtedy, gdy wszystko inne pójdzie dobrze.\n\nZ tej samej kolejności wynika coś, co w tabelce wygląda jak błąd. Jeśli pieniądze są potrzebne wkrótce, właściwy jest termin krótki — nawet jeśli w zestawieniu wygląda najsłabiej. Bo prawdziwą alternatywą dla niego nie jest pozycja o najwyższej stawce z tej samej tabelki, lecz zwykłe konto osobiste, na którym te pieniądze po prostu leżą. Porównanie z pozycją, której nie możesz dotrzymać, nie jest porównaniem. A jeśli horyzont to lata, nie miesiące, dopiero wtedy dłuższy termin daje coś, za co warto zapłacić.\n\nNie ma tu żadnej stawki, żadnej inflacji i żadnego terminu w miesiącach: liczba, która decyduje, jest twoja i nie stoi w żadnej ofercie. Pełna oferta, próg wyjścia na zero, pięć kroków i cztery najczęstsze błędy — są w filmie.\n\n## COMENTARIO FIXADO\nCała kolejność siedzi w jednym pytaniu, i ono nie dotyczy stawki: kiedy te pieniądze będą potrzebne. Odpowiedz najpierw na to, a tabelka sama się skróci do pozycji, których możesz dotrzymać. Wcześniejszy wykup kosztuje, i ten koszt nie bierze się z rynku, a z decyzji podjętej na starcie. Napisz w komentarzu tylko, czy twój horyzont to miesiące czy lata — bez kwot i bez stawek.\n\n## HASHTAGS\n#Obligacje #Oszczednosci #KolejnyPoziom\n\n## TAGS\nobligacje skarbowe, horyzont inwestycyjny, wczesniejszy wykup, kara za wykup, termin obligacji, jak wybrac obligacje, oszczednosci, finanse osobiste, polska, konto osobiste, lokata, plynnosc, kolejny poziom, planowanie, oferta\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO\nPeca escrita na rodada das 17:0x de 14/10, e o motivo de ser NESTE canal esta\nmedido: o `concentracao_frota.py` acusou o DIA em 16 / 1 / 0 — dezesseis pecas no\nlabtreinamento, uma no epomeno e ZERO aqui — contra os 7/dia POR CANAL que o dono\npede (aprendizado 762). A escolha do canal foi do contador, nao do habito.\n\nA origem saiu do `concentracao.py kolejny-poziom`: `Rj7beZkOeYo`\n(kolejny-poziom-006, 85 capitulos) tinha UM short so, o `s008`.\n\n## FAMILIA DE ENTRADA ERRADA\nEscolher o PRAZO pela tabela de ofertas em vez do proprio horizonte — e pagar a\nmulta do resgate antecipado por uma decisao tomada no inicio, nao pelo mercado.\nE familia NOVA neste canal: o `s008`, o unico outro short desta origem, trata de\ncontar as RENOVACOES de um titulo curto contra o prazo de um longo, que e a\ncomparacao entre dois prazos; aqui a entrada errada e a ORDEM das perguntas\n(tabela antes do horizonte). Capitulos 64 a 68 e 77 do longo, nenhum deles usado\npelo `s008`.\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Nao cita\noprocentowanie, nao cita inflacao, nao cita Belka, nao cita prazo em meses ou\nanos, nao cita valor e nao nomeia emissor nem orgao. Conferido a mao campo por\ncampo, porque o portao `narracao` conta quantidades por frase e nao pega digito\ncru (640).\n\nO QUE O VIDEO AFIRMA: que a escolha do prazo comeca pelo horizonte do proprio\npoupador e nao pela tabela de ofertas, porque o resgate antes do vencimento tem\ncusto; e que, para dinheiro de curto prazo, a alternativa real ao titulo curto e\na conta corrente, nao o titulo de maior stawka. Esta no longo kolejny-poziom-006\n(`Rj7beZkOeYo`), capitulos \"Wybieraj horyzontem\", \"Dlaczego tak\", \"Pieniadze na\npol roku\", \"Bo alternatywa\", \"Pieniadze na lata\" e \"Trzeci blad\", com as fontes.\n\nDESCARTADO, e vai escrito:\n  (1) qualquer stawka, a inflacao e a aliquota sobre os juros — estao no longo\n      com fonte e MUDAM a cada emissao (regra g);\n  (2) o limiar \"inflacao dividida por zero oitenta e um\" — e do short original\n      daquele pacote e nao se repete aqui;\n  (3) quantas renovacoes cabem no prazo do longo — e exatamente a familia do\n      `s008` e sairia de conteudo repetido;\n  (4) o tamanho da multa de resgate antecipado, que e numero da oferta do mes.\n\n## MIRA\n`kolejny-poziom` NAO tem override em `ALVO_POR_CANAL`, logo vale o `ALVO_SHORT`\nda frota, que o `ensaio.alvo_short` devolve. Mirado o PISO da faixa, porque no\n`pl-PL-MarekNeural` o residuo do modelo e positivo (679) e porque o residuo\ncontra o REAL e positivo em 22 de 22 pontos (763) — a faixa onde o real deve\ncair vai no relato do `mira.py`, e com a banda observada ela pode passar do teto\nde 45 s se eu mirar o topo.\n\nMEDIDO antes do render: edge 41,2 s e piper 35,1 s estimados — os dois dentro de\n18 a 45, que e o que o portao `duracao` cobra nos DOIS mundos desde 13/10. Com a\nbanda observada de residuo (0,9 a 3,7 s, 22 pontos, 763), se o edge narrar o REAL\ndeve cair entre 42,1 e 44,9 s: dentro do teto de 45 s, mas com pouca folga, e\nisso vai DITO em vez de prometido. Se o piper narrar, o real cai perto de 36 a\n39 s. O provedor se decide no runner e por cena (730), e se mede CONTANDO os\navisos `NARRACAO PELO PIPER` da anotacao do job (733) — nao se infere.\n\n## FONTES\nO longo de onde este short foi extraido (kolejny-poziom-006, `Rj7beZkOeYo`) traz\nas fontes. Este short nao introduz numero novo sobre o mundo.\n"
+}
