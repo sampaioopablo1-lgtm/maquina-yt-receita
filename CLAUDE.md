@@ -1474,6 +1474,27 @@ origens** do `labtreinamento` passaram a ter **pelo menos dois shorts cada** —
 duas que estavam em um uso só eram justamente as sem spec local, que a regra (h)
 já mandava usar.
 
+**E EU IA ESCREVER QUE A BANDA ERA DE UM CANAL — aprendizado 763, `alto`, e quem
+me pegou foi o primeiro teste que eu escrevi para travar a afirmação.** O
+`epomeno-epipedo-s026` (`rbbz6DNuXL4`) foi narrado pelo **edge** (zero avisos no
+job `115963870489`), previa **41,4** e saiu com **43 s reais** — resíduo **+1,6**,
+dentro da banda. Eu ia registrar isso como *"o primeiro ponto FORA do
+labtreinamento"* e travar a série como sendo de um canal. **Falso:** ela tem
+`epomeno-epipedo-s024`, `-s025` e `kolejny-poziom-s024` **desde o 734** — é
+multicanal desde o primeiro dia, e o ponto novo **pertence** a ela.
+`RESIDUO_N` = 22, vinte e dois de vinte e dois acima.
+
+**E o que sobra é melhor do que o que eu ia escrever:** a série é **dominada por
+um canal** (18 de 22) e **bimodal na previsão** — dezoito pontos entre 23 e 26 s,
+quatro entre 41 e 44 — e o teto de **3,7 vem do `labtreinamento-s043`**. Logo
+*"0,9 a 3,7"* é, na prática, **a banda do `labtreinamento` usando crachá de
+frota**, e isso vai dito em vez de desaparecer na contagem.
+
+**A regra que fica: antes de escrever que uma série é de UM canal, CONTE os
+canais dela.** `tests/test_a_banda_e_de_UM_canal.py` guarda os dois fatos — que
+ela é multicanal e que um canal a domina — e **reprova se a dominância cair**,
+para que esta nota seja relida em vez de reaproveitada.
+
 **E O `pacotes` DO `frota.yml` É LISTA DE OBJETOS — aprendizado 738.** Eu mandei
 `["labtreinamento-s034"]` e o run `38476203962` morreu: o job `preparar` dá
 **SUCCESS** (o `jq` monta `{include:[...]}` de qualquer coisa) e o run dá

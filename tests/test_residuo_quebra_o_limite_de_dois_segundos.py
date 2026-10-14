@@ -70,7 +70,11 @@ SERIE = [
     ("labtreinamento-s049", 25.1, 27, "edge"),
     # 760: previsao 24,9 (mira VERDE na PRIMEIRA versao), real 27 — residuo +2,1.
     # Tally a NOVE de doze, e as treze origens do canal passaram a ter >= 2 shorts.
-    ("labtreinamento-s050", 24.9, 27, "edge"),   # 755: +1,4, e o real DENTRO da mira
+    ("labtreinamento-s050", 24.9, 27, "edge"),
+    # 763: o primeiro ponto do epomeno desde o s025 — e ele RECOLOCA a serie
+    # como MULTICANAL, que ela sempre foi (os tres primeiros pontos do 734 sao
+    # do epomeno e do kolejny). Previsao 41,4 no mundo edge, real 43, +1,6.
+    ("epomeno-epipedo-s026", 41.4, 43, "edge"),   # 755: +1,4, e o real DENTRO da mira
 ]
 
 

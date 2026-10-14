@@ -62,7 +62,7 @@ RESIDUO_OBSERVADO = (0.9, 3.7)
 # dela. O piso de 0,9 nao mudou, e a largura passou de 1,5 para 2,8 s — ou seja,
 # a banda agora cobre quase o dobro, o que a torna MENOS util e isso vai dito em
 # vez de escondido.
-RESIDUO_N = 21  # 741 acrescentou o s035 (24,8 -> 27, +2,2): DENTRO da banda,
+RESIDUO_N = 22  # 741 acrescentou o s035 (24,8 -> 27, +2,2): DENTRO da banda,
 #                 logo os LIMITES nao mudaram — so o numero de pontos que a sustenta.
 #                 14/10 06:2x: o s041 (edge 24,6 -> real 27) deu +2,4 — EMPATADO
 #                 com o teto da banda, o decimo segundo ponto e o segundo a tocar
