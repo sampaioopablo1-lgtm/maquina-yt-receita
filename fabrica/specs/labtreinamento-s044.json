@@ -1,0 +1,92 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-s044",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#1F2933",
+  "c1": "#3F6C51",
+  "c2": "#C98B2E",
+  "bg": "#F5F3ED"
+ },
+ "thumb": {
+  "l1": "E quem",
+  "l2": "faltar?"
+ },
+ "longo_existente": "Sr6VhvD_aPE",
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Você comparou",
+   "sub": "as duas cotações",
+   "nar": "Você comparou as cotações?",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Pelo preço",
+   "sub": "e pelo limite",
+   "nar": "Pelo preço e pelo limite?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Falta uma linha",
+   "sub": "e ela custa",
+   "nar": "Falta uma linha ali.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Reposição",
+   "sub": "de quem faltou",
+   "nar": "A reposição de quem faltar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Alguém falta",
+   "sub": "sempre falta",
+   "nar": "E alguém sempre falta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Aí o preço",
+   "sub": "muda depois",
+   "nar": "Aí o preço muda depois.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Pergunte antes",
+   "sub": "está incluída?",
+   "nar": "Pergunte se ela é cobrada.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por pessoa",
+   "sub": "ou por turma",
+   "nar": "Por pessoa ou por turma?",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Anote",
+   "sub": "junto da cotação",
+   "nar": "E anote junto da cotação.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "se inscreva",
+   "nar": "Se inscreva e confira.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# labtreinamento-s044\n\n## TITULO\nA Linha Que Decide O Custo Da Turma Só Aparece Depois, E Quase Ninguém Pergunta Por Ela\n\n## TITULO SHORT\nE quem faltar?\n\n## DESCRICAO\nComparar cotação de treinamento por preço e por limite de vagas parece completo — e deixa de fora **um custo que só nasce depois**: a reposição de quem não apareceu no dia.\n\nEla é diferente dos outros itens porque é **condicional**. Material e certificado ou estão no preço ou não estão, e você vê isso no papel. A reposição só se manifesta quando alguém falta, e alguém falta — doença, escala, viagem, o serviço que não podia parar. Logo não é um detalhe raro: é uma linha que a sua comparação precisa conter **antes** de você escolher.\n\nE o que muda não é só o valor, é **quem paga e como se cobra**. Repor pode vir incluído, pode vir por pessoa, pode vir como turma nova. Três respostas diferentes para a mesma pergunta, e elas invertem a ordem de duas cotações que pareciam próximas.\n\nO procedimento é de uma frase: **pergunte, por escrito, se a reposição é cobrada e em que unidade** — e anote a resposta ao lado dos outros campos da cotação. Pergunta não feita vira presunção, e presumir aqui é o mesmo que escolher no escuro.\n\nAqui não entram preços, valores, número de vagas nem exemplo numérico, e isso é deliberado: o próprio longo diz que os números do exemplo dele são inventados para a conta ficar visível. O que não muda é **qual pergunta falta na sua comparação**.\n\nNo vídeo completo: a divisão que dá o custo por pessoa, por que usar o mesmo número de pessoas nas duas contas, os quatro campos que você precisa ler em cada cotação, e o caso em que a ordem das cotações inverte.\n\n## COMENTARIO FIXADO\nUm sinal de que essa linha existe mesmo sem estar escrita: se a proposta fala em \"turma fechada\" e em deslocamento do instrutor, repor uma pessoa depois quase nunca é de graça — teria de haver outra data. Vale perguntar **junto** da reposição se há prazo para usá-la, porque reposição que vence em poucas semanas, na prática, não existe. Teste: pegue a última cotação que você aprovou e procure a palavra reposição. Se ela não está lá, você não comparou isso — você só não precisou dela ainda.\n\n## AVISO\nNenhum preço, valor, número de vagas ou exemplo numérico entra nesta peça — regra (g), e o caso especial dela: o longo DECLARA que os números do exemplo são inventados para ilustrar, e número que a fonte diz ser ilustração não entra de jeito nenhum.\n\n## HASHTAGS\n#Treinamento #Compras #LabTreinamento\n\n## TAGS\ncotação de treinamento, reposição, turma fechada, custo por pessoa, comparação de propostas, compras, departamento pessoal, treinamento obrigatório, orçamento, limite de vagas, segurança do trabalho, LabTreinamento, proposta comercial, escopo, conferência\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Fora preco, limite de\nvagas e o exemplo inteiro — que o proprio longo declara inventado.\n\n## FAMILIA DE ENTRADA ERRADA\nCUSTO CONDICIONAL omitido da comparacao: o item que so nasce se algo falhar\n(reposicao de quem faltou). Familia nova neste canal — as outras pecas desta\norigem (`Sr6VhvD_aPE`) usam LIMITE tratado como ALVO (`s037`) e o `s006`.\nCapitulos 40 a 44 da origem, que nenhum short havia tocado.\n\n## MIRA — e a POSTURA VOLTOU ATRAS, porque o 751 caiu\nPrevisao edge **24,9** / piper **20,5**: dentro da mira nos dois mundos.\n\nNas duas pecas anteriores eu mirei ABAIXO do piso do piper de proposito, porque o\n`s042` tinha posto o real dentro da mira assim. **O `s043` falsificou isso** (23,3\n-> 27, resíduo +3,7 que FUROU a banda), e com a banda ampliada o real dentro\npassou a exigir edge <= 22,3 — onde o piper cai para ~18,3, longe do piso. **Logo\nnao existe mais o ponto que o 751 parecia oferecer**, e eu volto a manter a mira\nVERDE, que e o instrumento de registro, declarando a exposicao.\n\n**O que isto NAO promete:** se o edge narrar, o real deve cair entre **25,8 e\n28,6 s** — pode passar do teto de 26,0. Se o piper narrar, 21,4 a 24,2, dentro.\nA faixa larga e consequencia do 752, nao descuido meu.\n\n**NADA de parametro mudou** (§10). A decisao do 740/748 segue do dono.\n"
+}

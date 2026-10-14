@@ -90,3 +90,19 @@ def test_canal_sem_mira_nao_recebe_banda_nenhuma():
     spec["slug"] = "kolejny-poziom"   # sem ALVO_POR_CANAL
     r = mira.confere(spec)
     assert r["tem_mira"] is False
+
+
+def test_a_MENSAGEM_do_relato_le_a_banda_da_constante():
+    """752/14-10: a mensagem tinha 0,9 a 2,4 CRAVADO no texto.
+
+    Quando o teto da banda subiu para 3,7, a faixa calculada passou a dizer uma
+    coisa e a frase ao lado dela outra — no mesmo relato, na mesma linha. Defeito
+    meu, de nao ler a propria saida depois de mexer no numero. Este teste exige
+    que os dois numeros da frase venham de `RESIDUO_OBSERVADO`.
+    """
+    t = mira.relato(str(RAIZ / "fabrica/specs/labtreinamento-s034.json"))
+    lo, hi = mira.RESIDUO_OBSERVADO
+    esperado = f"por {lo:.1f} a {hi:.1f} s".replace(".", ",")
+    assert esperado in t.replace(".", ","), (esperado, t)
+    # e o numero antigo nao pode reaparecer em lugar nenhum do relato
+    assert "0,9 a 2,4" not in t and "0.9 a 2.4" not in t

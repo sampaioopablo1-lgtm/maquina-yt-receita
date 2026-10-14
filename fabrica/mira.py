@@ -28,11 +28,14 @@ mira do `labtreinamento` é sobre a duração **REAL**, e o que eu confiro aqui 
 **PREVISÃO**. As duas peças do canal narradas pelo edge (`s033` e `s034`) passaram
 por esta conferência com a previsão DENTRO e saíram em **27 e 28 s reais** — fora
 da mira. O real fica **sempre acima** da previsão do provedor que de fato narrou
-(5 de 5), por **0,9 a 2,4 s** nas medições que existem.
+(14 de 14), pela banda OBSERVADA em `RESIDUO_OBSERVADO` — hoje 0,9 a
+3,7 s (752). O teto dela JA foi ampliado uma vez por medicao; nunca escreva o
+numero em outro lugar do modulo, porque foi exatamente isso que ficou atrasado
+na mensagem do relato e eu so vi na rodada seguinte.
 
 Então `faixa_real` acrescenta essa banda ao relato: previsão de 25,6 põe o real
 entre 26,5 e 28,0, e o relato DIZ que isso passa do teto da mira. **Ele informa e
-NÃO reprova**, e a razão é a amostra: n=5, a banda vai de 0,9 a 2,4 s sem lei
+NÃO reprova**, e a razão é a amostra: n pequeno, e a banda varia sem lei
 estável (duas previsões a um décimo deram reais a um segundo de distância), e
 reprovar por uma banda assim seria inventar portão com cinco pontos. Quem decide
 encurtar é quem escreve a peça, com o número na frente.
@@ -132,7 +135,8 @@ def relato(caminho: str) -> str:
         linhas.append(
             f"  se {prov} narrar, o REAL deve cair entre {lo} e {hi} s —{aviso}"
             f" ({teto}). Resíduo OBSERVADO, n={RESIDUO_N} (739): o real ficou"
-            " sempre ACIMA da previsão, por 0,9 a 2,4 s. NAO reprova.")
+            f" sempre ACIMA da previsão, por {RESIDUO_OBSERVADO[0]:.1f} a"
+            f" {RESIDUO_OBSERVADO[1]:.1f} s. NAO reprova.")
     return "\n".join(linhas)
 
 
