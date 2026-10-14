@@ -1,0 +1,92 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-s037",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#26303A",
+  "c1": "#45635A",
+  "c2": "#CF8A3B",
+  "bg": "#F3F1E9"
+ },
+ "thumb": {
+  "l1": "Vaga sobrando",
+  "l2": "não preencha"
+ },
+ "longo_existente": "Sr6VhvD_aPE",
+ "longo": [],
+ "short": [
+  {
+   "layout": "item",
+   "kicker": "Sobrou vaga?",
+   "sub": "olhe antes",
+   "nar": "Sobrou vaga na turma?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Não preencha",
+   "sub": "com quem não precisa",
+   "nar": "Não preencha por preencher.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O custo é seu",
+   "sub": "e é por pessoa",
+   "nar": "O custo é por pessoa sua.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Gente a mais",
+   "sub": "não baixa nada",
+   "nar": "Gente a mais não baixa nada.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O teto é teto",
+   "sub": "não é meta",
+   "nar": "O limite é teto, não meta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E inverte",
+   "sub": "nos dois sentidos",
+   "nar": "Com muita gente, inverte.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Conte a lista",
+   "sub": "quem precisa de fato",
+   "nar": "Conte quem precisa de fato.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Só então",
+   "sub": "compare",
+   "nar": "Só então compare cotações.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dois campos",
+   "sub": "nunca um só",
+   "nar": "Veja preço e limite juntos.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "se inscreva",
+   "nar": "Se inscreva e confira.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# labtreinamento-s037\n\n## TITULO\nSobrou Vaga Na Turma Do Treinamento? Preencher Com Quem Não Precisa Não Baixa O Seu Custo\n\n## TITULO SHORT\nSobrou vaga? não preencha\n\n## DESCRICAO\nA cotação vem com um limite de pessoas, e quando a sua lista fica abaixo dele a tentação é **preencher as vagas que sobraram**. Parece aproveitamento. Não é.\n\nO que você paga é da **turma**, mas o custo que importa é **por pessoa que precisava do treinamento**. Quem entra só para ocupar vaga não muda o valor da nota e **não entra no denominador** — ele apenas assiste. O custo por pessoa útil continua exatamente o mesmo.\n\n**O limite é teto, não meta.** Ele diz quantos cabem, não quantos devem ir. E a regra vale nos dois sentidos: quando a sua lista é **maior** do que o limite da cotação mais barata, a comparação pode inverter — a turma grande passa a ganhar, mesmo com preço de tabela maior.\n\nEntão a ordem é: **conte quem precisa de fato, e só então compare as cotações** — lendo sempre **dois campos juntos**, o preço e o limite de pessoas. Um campo sozinho não compara nada.\n\nAqui não há preço, limite nem data, e isso é deliberado: esses mudam de cotação para cotação e de ano para ano, e o próprio vídeo longo avisa que os números do exemplo dele são inventados. O que não muda é a ordem das três perguntas.\n\nNo vídeo completo: os quatro campos que toda cotação tem de trazer, o que entra e o que não entra na soma, o exemplo com números redondos e a inversão passo a passo.\n\n## COMENTARIO FIXADO\nTem um caso em que preencher a vaga faz sentido, e ele não é o desta peça: quando **a pessoa ia precisar do treinamento no ciclo seguinte** de qualquer forma. Aí ela não é enchimento, é antecipação — e entra no denominador com todo direito. O teste é de uma pergunta: *se a vaga não existisse, eu ainda mandaria essa pessoa?* Se a resposta é não, ela não baixa o seu custo por pessoa.\n\n## AVISO\nNenhum preço, limite, prazo ou valor entra nesta peça — regra (g), e reforçada aqui porque o próprio longo declara que os números do exemplo dele são inventados. O que vai ao ar é a ORDEM das perguntas, que não muda.\n\n## HASHTAGS\n#Treinamento #Cotacao #LabTreinamento\n\n## TAGS\ncotação de treinamento, custo por pessoa, turma fechada, comparar orçamentos, limite de vagas, treinamento corporativo, departamento pessoal, compras, segurança do trabalho, capacitação, orçamento de treinamento, LabTreinamento, gestão de pessoas, custo por participante, proposta comercial\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Conferido campo a\ncampo. Nenhum numeral aparece na narracao.\n\nA REGRA (g) tira o que MUDA, e neste longo e quase tudo o que tem digito: o\nlimite da turma (capitulo 0), os quatro campos com valores (15 a 22) e as duas\ncotacoes do exemplo (31 a 39) -- que o proprio longo declara INVENTADAS. O que\nNAO muda e a ordem: contar a lista, somar o que esta escrito, dividir e comparar.\n\nE a contagem declarada ficou de fora de proposito: o longo enumera \"quatro\ncampos\" (capitulo 15) e \"quatro passos\" (51 a 54), e esta peca nao promete numero\nde itens nenhum -- e a licao do 725, onde a fonte declara N e enumera N+1.\n\n## FAMILIA DE ENTRADA ERRADA\nO LIMITE tratado como META: preencher vaga que sobrou com quem nao precisa do\ntreinamento, na expectativa de baixar o custo por pessoa. O denominador que\nimporta e \"pessoas que precisavam\", e o enchimento nao entra nele.\n\nNAO e a familia do labtreinamento-s006, o unico outro short desta origem, que\ntrata de SOMAR antes de dividir (o escopo do que entra na soma) e da inversao da\nordem entre duas cotacoes. Regra (e) satisfeita.\n"
+}
