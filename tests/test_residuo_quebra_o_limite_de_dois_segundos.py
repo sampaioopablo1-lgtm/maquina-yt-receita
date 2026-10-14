@@ -83,6 +83,10 @@ SERIE = [
     # (41,4 -> 43) a uma hora de distancia, logo a previsao REPRODUZ nesta
     # faixa, o que o 732 havia negado e o 748 ja tinha visto no lado curto.
     ("epomeno-epipedo-s027", 41.3, 43, "edge"),
+    # 767: previsao 41,6 e real 43 — contra o kolejny-poziom-s025 (41,2 -> 44)
+    # da hora anterior. Previsao MAIOR, real MENOR, mesmo canal e mesma voz:
+    # some o apoio da frase "a previsao REPRODUZ" que eu escrevi no 766.
+    ("kolejny-poziom-s026", 41.6, 43, "edge"),
 ]
 
 

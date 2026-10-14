@@ -1529,7 +1529,16 @@ do melhor par medido no 713.
 **Dois achados, e o segundo é o que importa:**
 1. **A previsão REPRODUZ nesta faixa.** O `s026`, uma hora antes, previa **41,4**
    e deu **43** — mesmo par, mesmo real. É o que o 732 havia negado e o 748 já
-   tinha visto do lado curto.
+   tinha visto do lado curto. **ESTE ITEM PERDEU O APOIO UMA HORA DEPOIS —
+   aprendizado 767, e a retratação vai aqui porque foi aqui que eu afirmei.** Os
+   dois pontos do `kolejny` na MESMA faixa **invertem**: o `s025` previa **41,2**
+   e deu **44**; o `s026` previa **41,6** e deu **43**. Previsão MAIOR, real
+   MENOR, mesmo canal, mesma voz, mesmo provedor medido. Eu generalizei de `n=2`
+   num canal — o erro de enquadramento do 679/698/725 outra vez.
+   **O que eu NÃO afirmo, pelo §3.8:** que a previsão não prediga. A inversão é
+   de **um segundo**, que é exatamente a granularidade do real (o YouTube
+   arredonda para cima), logo ela não prova o contrário — ela só **retira o apoio
+   da minha frase**. O que sobrevive é o sinal, agora com **25 pontos**.
 2. **A frase do 763 perdeu o apoio da CONTAGEM.** Com o `kolejny-poziom-s025` e
    este, a dominância do `labtreinamento` foi de **0,818 → 0,783 → 0,750**,
    saindo do `> 0,75` que eu havia cravado no teste. Seis dos vinte e quatro
@@ -1547,6 +1556,19 @@ impressa no relato do `mira.py`, logo é ela que importa para quem usa a banda.
 sentidos, mais um teste novo que cobra a **largura** em vez da contagem — ele
 falha se um canal não dominante encostar no teto da banda. `RESIDUO_N` = 24;
 os limites da banda seguem intocados.
+
+**E o vigésimo quinto ponto é o do 767:** `kolejny-poziom-s026`
+(`TpqcjfLsreg`), provedor **edge** medido (zero avisos no job `116049268931`),
+previsão **41,6** e real **43** — resíduo **+1,4**, dentro da banda. **Vinte e
+cinco de vinte e cinco acima.** `RESIDUO_N` = 25, limites intocados, e a
+dominância do `labtreinamento` na série caiu a **0,720** — dentro da faixa
+observada (0,60 a 0,82) que o 766 passou a cobrar, em vez de reprovar.
+
+**E o canal saiu do contador pela TERCEIRA rodada seguida** (762/765/767): o
+`concentracao_frota.py` com `por_dia=` deu o dia em **16 / 2 / 1**, e a peça saiu
+do mais baixo. Isso já não é achado, é procedimento — o que vale guardar é que
+ele sobreviveu a três rodadas sem eu voltar ao canal que estava aberto na minha
+cabeça.
 
 **E O `pacotes` DO `frota.yml` É LISTA DE OBJETOS — aprendizado 738.** Eu mandei
 `["labtreinamento-s034"]` e o run `38476203962` morreu: o job `preparar` dá
