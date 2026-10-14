@@ -447,6 +447,48 @@ alerta, porque 10 não é maior que 10. Eu relato isso em vez de arredondar para
 foi minha, pela contagem das nove, não por um alarme. Há teste travando esse
 caso de fronteira.
 
+## E EU REPETI O HÁBITO UMA CAMADA ACIMA: 16 DE 16 PEÇAS NUM CANAL
+
+**Aprendizado 762, `alto`, medido em 14/10 às 16:1x, no banco.** Das peças
+publicadas em 14/10, **DEZESSEIS de dezesseis saíram no `labtreinamento`**, todas
+`shorts`, de 00:12:48 a 15:12:24 — e **zero** no `epomeno-epipedo` e no
+`kolejny-poziom`. O dono pede **7/dia POR CANAL**; dois dos três ficaram em zero o
+dia inteiro.
+
+**O `concentracao.py` não podia acusar isso**, e é por isso que o achado é meu e
+não dele: ele conta origem **DENTRO** do canal. Eu construí o contador do meu
+hábito em 13/10 e **repeti o mesmo hábito uma camada acima**, pela mesma razão —
+era o canal que estava aberto na minha cabeça.
+
+**E o que agrava é a nossa própria medição, o 713:** o par das dezesseis é
+`labtreinamento/shorts`, com **0,07 inscrito/peça** — o penúltimo da lista — e o
+melhor par medido é `epomeno-epipedo/longo`, com **0,33**, onde não saiu nada.
+
+**O que isto NÃO prova, e a ressalva é grande:** que produzir no epomeno renderia
+mais. O **693** diz que views/peça é cego abaixo do dobro, e o 713 é de 161 peças
+para 19 inscritos. **E concentrar é o PLANO** — os 500 são limite POR CANAL, e o
+alvo realista escrito neste arquivo pede *"5 a 7 peças/dia CONCENTRADAS num
+canal"*. **O que o plano não diz é em QUAL canal**, e é essa escolha que nunca foi
+medida: ela foi hábito.
+
+**No código:** `fabrica/concentracao_frota.py` e onze testes. Rode junto com o
+irmão, antes de escolher pauta:
+
+    python3 fabrica/concentracao_frota.py
+
+**E ELE ACHOU UM BURACO DELE MESMO NA PRIMEIRA EXECUÇÃO:** a contagem sai das
+**specs**, que não têm data, logo mede o **ACERVO** — 50 / 25 / 22, que está
+**dentro** do dobro (50 não é maior que 50) e **não alerta**. O **DIA** era
+16 / 0 / 0, e alerta. **Acervo dilui rodada**, e um contador que só vê acervo
+nunca acusaria o dia — a mesma cegueira que ele nasceu para consertar. Por isso o
+`relato` aceita `por_dia=` (lido de `videos.publicado_em`), aplica o **mesmo**
+limiar aos dois níveis, e **sem** esse argumento DIZ que está lendo acervo em vez
+de calar.
+
+**O limiar é o do irmão — mais que o dobro do segundo — e isso é deliberado:**
+limiar novo aqui seria critério sem procedência. E a fronteira exata tem teste,
+como no caso 10-contra-5 de 13/10.
+
 ## A FONTE DECLARA "esses cinco casos" E ENUMERA SEIS — e nenhum portão barrava
 
 **Medido em 13/10 às 05:0x, escrevendo o `s031` a partir do `labtreinamento-009`
