@@ -57,6 +57,7 @@ SERIE = [
     # da banda ampliada, e o real FORA da mira, como a copy declarou.
     ("labtreinamento-s044", 24.9, 27, "edge"),
     ("labtreinamento-s045", 24.5, 27, "edge"),   # 754: +2,5, dentro da banda
+    ("labtreinamento-s046", 24.6, 26, "edge"),   # 755: +1,4, e o real DENTRO da mira
 ]
 
 

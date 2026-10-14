@@ -98,6 +98,28 @@ madrugada eu prometia uma leitura para dali a pouco, o que faz a rodada seguinte
 esperar em vez de produzir. **A leitura de ritmo da frota não cabe na madrugada
 inteira** — ela cai depois das 08:54.
 
+**E A LEITURA DE 14/10 ÀS 11:40 VALEU A JANELA E AINDA ASSIM DEU INDETERMINADO —
+aprendizado 755.** Medido com `pg_net`, `status_code` 200 nos três canais, contra
+a leitura de 13/10 22:1x, **13,4 h** (exatamente o que o
+`porta1.horas_para_resolver(1,79)` pede):
+
+| canal | antes | agora | delta |
+|---|---|---|---|
+| labtreinamento | 67 | **68** | +1 |
+| epomeno-epipedo | 20 | **20** | 0 |
+| kolejny-poziom | 8 | **8** | 0 |
+
+**Os três saem `indeterminado`**, porque o critério do 723 exige **duas
+contagens** e o maior delta foi UMA. E a linha que o módulo imprime —
+*"frota +1,79/dia"* — **é ela mesma uma contagem**: o +1 em 13,4 h está
+exatamente SOBRE o piso de resolução da janela. É a armadilha do 723 outra vez,
+agora no agregado.
+
+**A consequência prática:** a janela que resolve 1,79/dia **não basta quando o
+delta real é de uma unidade**. Para resolver a partir de 13/10 22:1x é preciso
+`|delta| ≥ 2`, o que no ritmo suposto cai perto de **15/10 01:30** — e qualquer
+leitura antes disso só repete "indeterminado" com mais horas.
+
 **A FRASE QUE DECIDE TUDO, e ela é aritmética, não pessimismo: as duas datas
 caem DEPOIS de 1/FEV/2027, quando a barra sobe de 500 para 1.000 inscritos.**
 No ritmo medido a máquina **nunca passa a Porta 1** — a barra se move antes de
