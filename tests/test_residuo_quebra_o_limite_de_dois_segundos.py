@@ -43,6 +43,8 @@ SERIE = [
     ("labtreinamento-s038", 24.4, 26, "edge"),
     # 747: 24,7 deu 27 (FORA) -- 0,3 s de previsao, 1 s de real.
     ("labtreinamento-s039", 24.7, 27, "edge"),
+    # 748: MESMA previsao, MESMO real -- reprodutibilidade, contra o 732.
+    ("labtreinamento-s040", 24.7, 27, "edge"),
 ]
 
 

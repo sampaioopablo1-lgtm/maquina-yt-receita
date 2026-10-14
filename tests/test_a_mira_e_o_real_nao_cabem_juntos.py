@@ -78,4 +78,54 @@ def test_a_mira_do_canal_nao_foi_mexida_nesta_rodada():
 def test_a_banda_do_739_nao_foi_mexida_nesta_rodada():
     assert mira.RESIDUO_OBSERVADO == (0.9, 2.4)
     # 741 somou um ponto DENTRO da banda: n sobe, os LIMITES nao.
-    assert mira.RESIDUO_N == 10
+    assert mira.RESIDUO_N == 11
+
+
+def test_a_pinca_fecha_por_RAZAO_contra_OFFSET_e_nao_por_numero_de_cenas():
+    """748, medido em 14/10 as 05:1x, e e a forma FINAL da contradicao do 740.
+
+    O `labtreinamento-s040` saiu com edge 23,5 / piper **19,3** na primeira
+    versao -- FORA da mira pelo PISO, o lado que eu nunca havia tocado. Alongado
+    para edge 24,7 / piper 20,3, o real deu **27**, igual ao do `s039`, que tinha
+    a MESMA previsao de 24,7.
+
+    E a conta que fecha o caso: o piso do piper e uma RAZAO (piper ~ 0,82 x edge),
+    e o teto do real e um OFFSET (real ~ edge + 0,9 a 2,4). Entao
+
+        piper >= 20,0  <=>  edge >= 24,4
+        real  <= 26,0  <=>  edge <= 26,0 - 2,3 = 23,7
+
+    e as duas faixas **nao se tocam, qualquer que seja o numero de cenas** --
+    porque mudar cenas mexe na sobrecarga, nao na RAZAO entre os dois mundos.
+    Logo nao existe spec deste canal que satisfaca as duas: as saidas sao as que
+    ja estao na fila do dono (mover a mira, ou parar de cobrar REAL no estimado).
+    """
+    import ensaio
+
+    piso, teto = ensaio.alvo_short("labtreinamento")
+    razao = 0.82          # piper/edge, medido
+    residuo_max = 2.4     # banda do 739
+    residuo_min = 0.9
+
+    edge_min_por_piper = piso / razao                  # 24,39
+    edge_max_por_real = teto - residuo_min             # 25,10 (otimista)
+    edge_max_por_real_pessimista = teto - residuo_max  # 23,60
+
+    assert round(edge_min_por_piper, 1) == 24.4
+    assert round(edge_max_por_real_pessimista, 1) == 23.6
+    # no caso PESSIMISTA (o que de fato aconteceu duas vezes) nao ha intersecao:
+    assert edge_min_por_piper > edge_max_por_real_pessimista, (
+        "se as faixas voltarem a se tocar, releia o 748: a pinca teria aberto"
+    )
+    # e no caso OTIMISTA a sala e menor que um segundo -- nada de folga.
+    assert 0 < edge_max_por_real - edge_min_por_piper < 1.0
+
+
+def test_o_mesmo_edge_devolveu_o_mesmo_real_duas_vezes():
+    """Contra o 732 ("a previsao nao prediz"): s039 e s040, ambos 24,7 -> 27."""
+    import importlib
+    m = importlib.import_module("test_residuo_quebra_o_limite_de_dois_segundos")
+    por_prev = {}
+    for pacote, prev, real, _ in m.SERIE:
+        por_prev.setdefault(prev, set()).add(real)
+    assert por_prev.get(24.7) == {27}, por_prev.get(24.7)

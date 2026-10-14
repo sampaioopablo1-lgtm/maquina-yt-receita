@@ -1168,6 +1168,32 @@ pt-BR muda a pronúncia. **Então peça de dez cenas neste canal não cabe nas t
 restrições ao mesmo tempo: previsão na mira, real na mira, e prosódia.** A rotina
 foi corrigida no mesmo passo e a folga vai **declarada na copy**.
 
+**E A PINÇA FECHOU — aprendizado 748, `alto`, e esta é a forma FINAL da
+contradição do 740.** O `labtreinamento-s040` (`R4K0ZJH5J7U`) saiu, na primeira
+versão, com edge 23,5 e **piper 19,3 — FORA da mira pelo PISO**, o lado que eu
+nunca havia tocado em dez peças. Alongada para edge **24,7** / piper 20,3, o real
+deu **27** — **igual ao do `s039`, que tinha a MESMA previsão de 24,7**. Décimo
+primeiro ponto, onze de onze acima.
+
+**E a conta que fecha o caso, porque ela é de FORMA e não de valor:** o piso do
+piper é uma **RAZÃO** (piper ≈ 0,82 × edge) e o teto do real é um **OFFSET**
+(real ≈ edge + 0,9 a 2,4).
+
+    piper ≥ 20,0  ⟺  edge ≥ 24,4
+    real  ≤ 26,0  ⟺  edge ≤ 23,7   (no caso que ocorreu DUAS vezes)
+
+**As duas faixas não se tocam — e mudar o número de cenas NÃO resolve**, porque
+cena mexe na sobrecarga e não na razão entre os dois mundos. Logo **não existe
+spec de dez cenas deste canal que satisfaça as duas**, e também não existe de oito
+nem de doze: a incompatibilidade é estrutural. As saídas seguem sendo as duas que
+já estão na fila do dono — mover a mira para o ESTIMADO descontando o resíduo, ou
+parar de cobrar uma faixa de REAL sobre o estimado.
+
+**E isto REFORÇA o que o 732 havia negado:** a mesma previsão devolveu o mesmo
+real duas vezes. `tests/test_a_mira_e_o_real_nao_cabem_juntos.py` ganhou dois
+testes — um que **falha se as faixas voltarem a se tocar** e um que trava a
+reprodutibilidade.
+
 **E O `pacotes` DO `frota.yml` É LISTA DE OBJETOS — aprendizado 738.** Eu mandei
 `["labtreinamento-s034"]` e o run `38476203962` morreu: o job `preparar` dá
 **SUCCESS** (o `jq` monta `{include:[...]}` de qualquer coisa) e o run dá
