@@ -62,12 +62,28 @@ def test_a_janela_e_MULTICANAL__nao_e_efeito_de_um_canal():
     assert len(canais) >= 2, canais
 
 
-def test_o_real_da_janela_e_quase_CONSTANTE():
-    """Quatro de cinco no mesmo inteiro — o que se espera sob falta de resolucao."""
+def test_o_real_da_janela_ESPALHA_mais_do_que_a_previsao_explica():
+    """E isto FORTALECE o 768 em vez de enfraquece-lo — aprendizado 769.
+
+    Quando este arquivo nasceu (cinco pontos) os reais eram 43, 43, 43, 43 e 44,
+    e eu travei "quase constante". O sexto ponto (`kolejny-poziom-s027`, previsao
+    41,5 e real **42**) espalhou a janela para TRES inteiros — 42, 43 e 44 — com
+    as previsoes ainda dentro de 0,4 s.
+
+    Logo a propriedade certa nao e "o real e quase constante": e que **a
+    dispersao do real nao cabe na largura da previsao**. Uma previsao que varia
+    0,4 s nao pode produzir 2 s de real por relacao nenhuma; o que produz isso e
+    o que a previsao NAO modela. Travar "quase constante" era travar um acidente
+    de amostra pequena, e o proprio teste me obrigou a reler.
+    """
     j = _janela()
     reais = [r for _, _, r in j]
-    moda = max(set(reais), key=reais.count)
-    assert reais.count(moda) >= len(reais) - 1, reais
+    largura_prev = max(p for _, p, _ in j) - min(p for _, p, _ in j)
+    espalhamento = max(reais) - min(reais)
+    assert espalhamento > largura_prev, (
+        f'real espalha {espalhamento} s contra {largura_prev:.1f} s de previsao: '
+        'se o real passar a caber na largura da previsao, a previsao voltou a '
+        'ordenar nesta faixa e o 768/769 tem de ser relido')
 
 
 def test_o_ponto_DIVERGENTE_nao_e_o_de_maior_previsao():

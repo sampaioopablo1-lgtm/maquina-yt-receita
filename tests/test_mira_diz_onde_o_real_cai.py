@@ -41,6 +41,7 @@ RESIDUOS = [(43.1, 44), (42.9, 44), (42.1, 44), (25.7, 27), (25.6, 28),
     (25.0, 27),   # s048, 14/10: +2,0, mira VERDE e o real FORA (758)
     (25.1, 27),   # s049, 14/10: +1,9, mira VERDE e o real FORA (759)
     (24.9, 27),   # s050, 14/10: +2,1, mira VERDE e o real FORA (760)
+    (41.5, 42),   # kolejny-poziom-s027, 14/10: +0,5 — o PISO da banda caiu (769).
     (41.5, 43),   # epomeno-epipedo-s028, 14/10: +1,5 — quinto ponto da janela
                   # de 0,4 s em que a previsao NAO ordena o real (768).
     (41.6, 43),   # kolejny-poziom-s026, 14/10: +1,4 — previsao MAIOR que a do
@@ -69,15 +70,16 @@ def test_a_banda_nao_e_inventada__ela_e_o_minimo_e_o_maximo_observados():
 
 
 def test_faixa_real_e_soma_e_nao_fator():
-    assert mira.faixa_real(25.6) == (26.5, 29.3)
-    assert mira.faixa_real(10.0) == (10.9, 13.7)
+    # 769: o piso da banda caiu a 0,5, logo a soma desce com ele.
+    assert mira.faixa_real(25.6) == (26.1, 29.3)
+    assert mira.faixa_real(10.0) == (10.5, 13.7)
 
 
 def test_o_relato_do_s034_AVISA_que_o_real_passa_do_teto():
     t = mira.relato(str(RAIZ / "fabrica/specs/labtreinamento-s034.json"))
     assert "dentro da mira nos dois mundos" in t, "a previsao estava dentro"
     assert "PASSA do teto da mira" in t, "e o real nao — isto e o 739"
-    assert "26.5 e 29.3" in t
+    assert "26.1 e 29.3" in t
     # o real medido desta peca foi 28, dentro da banda que o relato anuncia
     assert mira.faixa_real(25.6)[0] <= 28 <= mira.faixa_real(25.6)[1]
 
@@ -123,3 +125,5 @@ def test_a_MENSAGEM_do_relato_le_a_banda_da_constante():
     assert esperado in t.replace(".", ","), (esperado, t)
     # e o numero antigo nao pode reaparecer em lugar nenhum do relato
     assert "0,9 a 2,4" not in t and "0.9 a 2.4" not in t
+    # 769: o PISO tambem caiu (0,9 -> 0,5). O par antigo nao pode reaparecer.
+    assert "0,9 a 3,7" not in t and "0.9 a 3.7" not in t

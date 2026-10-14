@@ -1558,6 +1558,31 @@ do melhor par medido no 713.
    `tests/test_a_janela_de_previsao_e_mais_estreita_que_o_instrumento.py`, seis
    testes, e um deles **reprova quando a janela passar de 1 s**, porque aí a série
    passa a poder ordenar e esta nota tem de ser relida.
+
+   **E O SEXTO PONTO DA MESMA JANELA FORTALECEU ISTO, além de derrubar o PISO da
+   banda — aprendizado 769, `alto`.** O `kolejny-poziom-s027` (`djz6oq7m4eE`)
+   previa **41,5** no edge (provedor medido, zero avisos no job `116106368092`) e
+   saiu com **42 s**: resíduo **+0,5 s**, que **quebra o piso de 0,9** que vinte e
+   seis pontos sustentavam. É a **primeira vez que o piso se move** — o teto se
+   moveu no 752. `RESIDUO_OBSERVADO` passou a **(0,5; 3,7)** e a largura foi de
+   2,8 para **3,2 s**: a banda ficou **ainda menos útil** como previsão, e isso
+   vai dito. Vinte e sete de vinte e sete seguem positivos.
+
+   **E o que importa mais é o efeito na janela:** os reais passaram de
+   43/43/43/43/44 para **42/43/43/43/43/44** — **três inteiros de espalhamento
+   contra 0,4 s de largura de previsão**. Logo a propriedade que eu havia travado
+   (*"o real é quase constante"*) era **acidente de amostra pequena**, e a certa é
+   outra: **a dispersão do real não cabe na largura da previsão.** Uma previsão
+   que varia 0,4 s não produz 2 s de real por relação nenhuma — o que produz isso
+   é o que a previsão **não modela**. O teste foi **reescrito no lugar** como
+   `test_o_real_da_janela_ESPALHA_mais_do_que_a_previsao_explica`.
+
+   **E um terceiro efeito, que eu declaro em vez de comemorar:** no 740/748 a
+   janela **otimista** abriu de menos de 1,0 para **1,11 s**, porque ela depende
+   do PISO. Isso **não alivia a contradição** — o caso que de fato ocorreu duas
+   vezes é o **pessimista**, que depende do teto e segue sem interseção.
+   **Quatro testes meus reprovaram** com a queda do piso, e os quatro foram
+   corrigidos no lugar.
 2. **A frase do 763 perdeu o apoio da CONTAGEM.** Com o `kolejny-poziom-s025` e
    este, a dominância do `labtreinamento` foi de **0,818 → 0,783 → 0,750**,
    saindo do `> 0,75` que eu havia cravado no teste. Seis dos vinte e quatro

@@ -92,6 +92,11 @@ SERIE = [
     # INDECIDIVEIS: a janela de previsao tem 0,4 s e a granularidade do real e
     # 1 s. Previsao nao ordena o que o instrumento nao resolve.
     ("epomeno-epipedo-s028", 41.5, 43, "edge"),
+    # 769: o PISO da banda CAIU. Previsao edge 41,5 (o mesmo valor do s028) e
+    # real 42 — residuo +0,5 s, abaixo do 0,9 que vinte e seis pontos
+    # sustentavam. E o SEXTO ponto da janela do 768, que agora tem reais
+    # 42, 43, 43, 43, 43 e 44 contra previsoes dentro de 0,4 s.
+    ("kolejny-poziom-s027", 41.5, 42, "edge"),
 ]
 
 
