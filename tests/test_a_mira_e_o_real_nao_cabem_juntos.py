@@ -79,7 +79,7 @@ def test_a_banda_do_739_nao_foi_mexida_nesta_rodada():
     assert mira.RESIDUO_OBSERVADO == (0.9, 2.4)
     # 741 e o s041 somaram pontos DENTRO da banda: n sobe, os LIMITES nao.
     # O s041 (+2,4) EMPATA o teto — o ponto seguinte acima dele quebra a banda.
-    assert mira.RESIDUO_N == 12
+    assert mira.RESIDUO_N == 13
 
 
 def test_a_pinca_fecha_por_RAZAO_contra_OFFSET_e_nao_por_numero_de_cenas():
@@ -130,3 +130,28 @@ def test_o_mesmo_edge_devolveu_o_mesmo_real_duas_vezes():
     for pacote, prev, real, _ in m.SERIE:
         por_prev.setdefault(prev, set()).add(real)
     assert por_prev.get(24.7) == {27}, por_prev.get(24.7)
+
+
+def test_a_pinca_foi_confirmada_pelos_DOIS_lados_em_14_10():
+    """751: a contradicao do 740/748 deixou de ser so aritmetica.
+
+    Dez pecas escolheram manter a previsao DENTRO da mira nos dois mundos, e o
+    real saiu FORA do teto em quatro das cinco narradas pelo edge. O `s042`
+    inverteu a escolha de proposito — previsao edge 23,4, com o piper em 19,2,
+    ABAIXO do piso, logo `mira.py` reprovando — e o real caiu em 25, DENTRO.
+
+    Logo os dois lados da pinca estao MEDIDOS, nao deduzidos: mira verde entrega
+    real fora, e real dentro exige mira vermelha pelo piso. Este teste falha se
+    alguem apagar um dos dois lados da serie.
+    """
+    piso, teto = ensaio.alvo_short("labtreinamento")
+    # (previsao edge, real, previsao piper)
+    verde_fora = [(25.8, 28), (24.7, 27), (24.6, 27)]   # s037, s039/s040, s041
+    vermelha_dentro = (23.4, 25, 19.2)                   # s042
+    for prev, real in verde_fora:
+        assert prev <= teto, prev            # previsao DENTRO da mira
+        assert real > teto, (prev, real)     # e o real FORA
+    prev, real, prev_piper = vermelha_dentro
+    assert prev_piper < piso, prev_piper     # mira REPROVA pelo piso
+    assert real <= teto, real                # e o real cai DENTRO
+    assert 0.9 <= real - prev <= 2.4, real - prev

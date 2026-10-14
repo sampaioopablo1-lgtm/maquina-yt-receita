@@ -1207,6 +1207,33 @@ pelo edge saíram FORA da mira (s037 28, s038 26 dentro, s039 27, s041 27), as
 quatro com o `mira.py` **verde nos dois mundos**. A decisão do 740/748 segue na
 fila do dono — eu declaro a exposição na copy e não prometo real dentro.
 
+**E A PINÇA FICOU MEDIDA PELOS DOIS LADOS — aprendizado 751, `alto`, e é a
+primeira coisa ACIONÁVEL que sai do 740.** O `labtreinamento-s042`
+(`84JjQ2k0S84`) foi escrito **de propósito** com previsão edge **23,4** e piper
+**19,2** — isto é, com o `mira.py` **REPROVANDO pelo PISO** — e o real deu
+**25 s: DENTRO** da mira (teto 26,0). Provedor **edge** medido (zero avisos no job
+`115728398595`), resíduo **+1,6 s**, décimo terceiro ponto, treze de treze acima.
+
+| escolha | previsão edge | real | mira | real na mira |
+|---|---|---|---|---|
+| manter a mira verde (s037) | 25,8 | 28 | verde | **não** |
+| idem (s039, s040) | 24,7 | 27 | verde | **não** |
+| idem (s041) | 24,6 | 27 | verde | **não** |
+| **inverter (s042)** | **23,4** | **25** | **vermelha (piso)** | **SIM** |
+
+**Logo os dois lados da pinça estão medidos, não deduzidos:** mira verde entrega
+real fora, e real dentro exige mira vermelha pelo piso. **E a TERCEIRA restrição
+do 747 NÃO apertou aqui** — 5,2% de letras acentuadas contra os 2,0% que
+reprovaram a primeira versão do `s039`, com os doze portões do `prontidao`
+verdes. O custo de prosódia do `s039` era das palavras daquela peça, não de
+encurtar até 23,4.
+
+**NADA de parâmetro mudou** (trava da §10): a saída é escolha de REDAÇÃO, e a
+decisão entre as duas saídas do 740 segue na fila do dono — agora com medição
+dos dois lados em vez de aritmética.
+`tests/test_a_mira_e_o_real_nao_cabem_juntos.py` ganhou um teste que **falha se
+um dos dois lados da série desaparecer**.
+
 **E O `pacotes` DO `frota.yml` É LISTA DE OBJETOS — aprendizado 738.** Eu mandei
 `["labtreinamento-s034"]` e o run `38476203962` morreu: o job `preparar` dá
 **SUCCESS** (o `jq` monta `{include:[...]}` de qualquer coisa) e o run dá

@@ -47,6 +47,9 @@ SERIE = [
     ("labtreinamento-s040", 24.7, 27, "edge"),
     # 14/10: s041, outra origem, mesma forma de dez cenas. +2,4 EMPATA o teto.
     ("labtreinamento-s041", 24.6, 27, "edge"),
+    # 751: o OUTRO LADO da pinca — previsao ABAIXO do piso do piper (23,4),
+    # e o real caiu DENTRO da mira (25). Primeira vez em seis pecas do edge.
+    ("labtreinamento-s042", 23.4, 25, "edge"),
 ]
 
 
