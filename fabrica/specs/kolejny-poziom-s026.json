@@ -1,0 +1,92 @@
+{
+ "slug": "kolejny-poziom",
+ "pacote": "kolejny-poziom-s026",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Pakiet",
+  "l2": "czy ty?"
+ },
+ "longo_existente": "-5aMrDsxlZE",
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Zużywasz cały pakiet",
+   "sub": "to brzmi idealnie",
+   "nar": "Zużywasz prawie cały pakiet, więc brzmi to idealnie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sprawdź jedno",
+   "preco": "koniec okresu",
+   "nar": "Sprawdź jedno: co robisz pod koniec okresu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jeśli oszczędzasz",
+   "preco": "świadomie",
+   "nar": "Jeśli świadomie oszczędzasz, to nie jest dopasowanie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Wtedy to nie pakiet",
+   "sub": "to ty",
+   "nar": "Wtedy nie pakiet dopasował się do ciebie, a ty do niego.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "I to ma cenę",
+   "preco": "nie w złotych",
+   "nar": "To również ma cenę, tylko nie w złotych.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Płacisz niewygodą",
+   "sub": "nie kwotą",
+   "nar": "Płacisz ją niewygodą, a nie kwotą z rachunku.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlatego rachunek",
+   "preco": "jej nie widzi",
+   "nar": "Dlatego rachunek tej ceny nie pokaże.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Pytanie brzmi",
+   "preco": "czy się cofasz",
+   "nar": "Pytanie brzmi, czy się pod koniec cofasz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Jeśli tak",
+   "sub": "licz wyżej",
+   "nar": "Jeśli tak, licz wyżej niż to, co zużywasz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Kolejny Poziom",
+   "sub": "subskrybuj",
+   "nar": "Subskrybuj, jeśli liczysz to na własnym rachunku.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# kolejny-poziom-s026\n\n## TITULO\nPakiet Idealnie Dopasowany: Sprawdź, Czy To Nie Ty Dopasowałeś Się do Niego\n\n## TITULO SHORT\nPakiet dopasowany, czy ty do niego?\n\n## DESCRICAO\nNajbardziej uspokajający wynik jest też najłatwiejszy do błędnego odczytania: zużywasz prawie cały pakiet, więc wygląda to na idealne dopasowanie. I bardzo często naprawdę nim jest.\n\nJest jednak jedno pytanie, które to rozstrzyga, i nie dotyczy ono wielkości pakietu. Dotyczy tego, co robisz pod koniec okresu rozliczeniowego. Jeśli wtedy świadomie oszczędzasz — odkładasz aktualizacje, wyłączasz dane, czekasz na nowy okres — to nie pakiet dopasował się do twojego zużycia. To ty dopasowałeś się do pakietu, a zużycie jest wynikiem tego dopasowania, nie jego przyczyną.\n\nI ta różnica ma cenę, tylko nie w złotych. Płacisz ją niewygodą, a niewygoda nie pojawia się w żadnej pozycji rachunku. Dlatego rachunek, który wygląda idealnie, może opisywać sytuację, w której dokładasz coś, czego nikt nie policzył — i właśnie dlatego nie da się tego zobaczyć w samej liczbie zużycia.\n\nZ tego wynika prosta poprawka, która nie wymaga żadnej nowej oferty. Jeśli pod koniec okresu się cofasz, to licz wyżej niż to, co faktycznie zużywasz: twoje prawdziwe zapotrzebowanie jest większe od liczby, którą widzisz, i to ta większa liczba jest podstawą każdego porównania. Jeśli się nie cofasz, dopasowanie jest prawdziwe i nie ma tu nic do zmiany — a to też jest pełna odpowiedź, tylko teraz policzona zamiast wyobrażonej.\n\nNie ma tutaj ani jednej kwoty i ani jednego gigabajta: liczba, która rozstrzyga, jest na twoim rachunku i nie ma jej w żadnej reklamie. Pełna metoda w trzech krokach, przypadek pakietu bez limitu i to, o co zapytać przy przedłużeniu — są w filmie.\n\n## COMENTARIO FIXADO\nCałość sprowadza się do jednego pytania, które nie dotyczy wielkości pakietu: czy pod koniec okresu świadomie oszczędzasz. Jeśli tak, to nie pakiet jest dopasowany — to ty dopasowałeś się do niego, a zapotrzebowanie masz większe niż pokazuje zużycie. Ta cena jest realna, tylko płacona niewygodą, więc na rachunku jej nie znajdziesz. Napisz w komentarzu tylko, czy się cofasz czy nie — bez kwot i bez gigabajtów.\n\n## HASHTAGS\n#Abonament #FinanseOsobiste #KolejnyPoziom\n\n## TAGS\nabonament telefoniczny, pakiet danych, zuzycie danych, dopasowanie pakietu, koniec okresu rozliczeniowego, rachunek za telefon, finanse osobiste, polska, przedluzenie umowy, operator, oszczedzanie danych, ukryty koszt, liczenie, decyzja, kolejny poziom\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO\nTerceira peca seguida em que o CANAL saiu do contador e nao do habito (762/765).\nO `concentracao_frota.py` com `por_dia=` deu o DIA em **16 / 2 / 1**, e o\n`kolejny-poziom` e o mais baixo — contra os 7/dia POR CANAL que o dono pede.\nA origem saiu do `concentracao.py kolejny-poziom`: `-5aMrDsxlZE`\n(kolejny-poziom-014, 84 capitulos) tinha UM short so, o `s005`.\n\n## FAMILIA DE ENTRADA ERRADA\nLer o ZUZYCIO como se fosse a NECESSIDADE: o pacote parece perfeitamente\ndopasowany porque o proprio usuario se ajustou a ele, e o custo desse ajuste e\npago em desconforto, que nao aparece em moeda nenhuma do rachunek. E familia\nNOVA no canal: o `s005`, o unico outro short desta origem, trata de MEDIA contra\nMAXIMO (estatistica errada sobre a mesma serie); aqui a serie e que esta\ncontaminada pelo comportamento de quem a gerou — efeito do observador, nao\nescolha de estimador. O `s013` (\"quanto custa nao fazer nada\") e o custo da\ninercia, outra coisa. Capitulos 45 a 47 do longo, nenhum deles usado pelo `s005`.\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Nao cita valor de\nabonament, nao cita gigabyte, nao cita percentual, nao cita prazo, nao nomeia\noperadora. Conferido a mao campo por campo, porque o portao `narracao` conta\nquantidades por frase e nao pega digito cru (640).\n\nO QUE O VIDEO AFIRMA: que consumo proximo do limite do pacote NAO prova\ndopasowanie, porque quem economiza de proposito no fim do periodo produz esse\nconsumo; e que, nesse caso, a necessidade real e MAIOR que o consumo observado,\nlogo a base de qualquer comparacao tem de ser a maior. Esta no longo\nkolejny-poziom-014 (`-5aMrDsxlZE`), capitulos \"Zuzywasz prawie caly pakiet\",\n\"Ale sprawdz jedno\", \"To tez ma cene\" e \"Tego rachunek nie widzi\", com as fontes.\n\nDESCARTADO, e vai escrito:\n  (1) qualquer valor de abonament, tamanho de pacote ou preco por gigabyte —\n      precos que MUDAM a cada oferta e estao no longo com fonte (regra g);\n  (2) a conta de MEDIA de tres meses e o uso do MAXIMO — e exatamente a familia\n      do `s005` e sairia repetida;\n  (3) o caso do pacote SEM LIMITE e o limiar de reducao de velocidade, que sao\n      material de uma terceira familia ainda nao usada;\n  (4) multiplicar por doze e pelos anos de contrato — e a familia da ESCALA, dos\n      capitulos 55 a 60, e tambem segue livre.\n\n## MIRA\n`kolejny-poziom` NAO tem override em `ALVO_POR_CANAL`, logo vale o `ALVO_SHORT`\nda frota. Mirado o PISO, por duas razoes independentes: no\n`pl-PL-MarekNeural` o centro do modelo corre **+2,2%** (679), e o residuo contra\no REAL e positivo em 24 de 24 pontos. O ponto mais proximo e o\n`kolejny-poziom-s025` de 17:0x, que previa 41,2 e deu **44** (+2,8) — a dois\nsegundos do teto de 45. Mirar o topo aqui furaria o teto com folga.\n\nMEDIDO antes do render: edge **41,6** e piper **35,4** estimados, os dois dentro\nde 18 a 45 nos DOIS mundos. Com a banda observada (0,9 a 3,7 s, 24 pontos), se o\nedge narrar o REAL deve cair entre **42,5 e 45,3 s** — o topo da banda PASSA do\nteto de 45, e isso vai DITO em vez de escondido. O resultado tipico desta faixa\nno canal e 44 (o `s025`), nao 45,3; mas um ponto nao e promessa, e o teto da\nbanda e o maior residuo JA OBSERVADO, nao um limite.\n\n## FONTES\nO longo de onde este short foi extraido (kolejny-poziom-014, `-5aMrDsxlZE`) traz\nas fontes. Este short nao introduz numero novo sobre o mundo.\n"
+}
