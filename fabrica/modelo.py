@@ -28,6 +28,70 @@ import urllib.request
 
 API = os.getenv("ANTHROPIC_BASE_URL", "https://api.anthropic.com")
 
+# ----------------------------------------------------------------------------
+# DUAS CREDENCIAIS, DUAS CARTEIRAS — e a diferenca e de DINHEIRO, nao de gosto.
+#
+# `ANTHROPIC_API_KEY` gasta credito do Console, que e uma carteira separada da
+# assinatura do Claude: quem tem assinatura NAO tem credito de API por isso.
+# `CLAUDE_CODE_OAUTH_TOKEN` (o que o `claude setup-token` emite) autentica
+# contra a ASSINATURA que o dono ja paga. Foi o dono quem apontou isso em
+# 14/10, depois de eu ter recomendado a chave de API olhando so o nome da
+# variavel que este arquivo lia.
+#
+# O que eu NAO AFIRMO, porque nao tenho token para medir: que o token do
+# `setup-token` seja aceito por `POST /v1/messages` chamado deste script. Ele
+# nasceu para autenticar a CLI do Claude Code, e a CLI pode falar por uma rota
+# que nao e esta. O que este modulo garante e so o mapeamento do CABECALHO:
+# chave de API vai em `x-api-key`; token de OAuth vai em `Authorization:
+# Bearer` com o cabecalho de beta. Se o servidor recusar, a mensagem do 401/403
+# aparece inteira pelo caminho de erro que ja existe, e a leitura disso e
+# medicao — nao suposicao minha escrita aqui.
+#
+# A ORDEM e deliberada: a chave de API vem primeiro porque e a rota VERIFICADA.
+# Quem tiver as duas coisas no ambiente usa a que sabemos que funciona.
+# ----------------------------------------------------------------------------
+
+BETA_OAUTH = "oauth-2025-04-20"
+
+
+class Credencial:
+    """O segredo mais a FORMA de apresenta-lo. Nao imprime o valor."""
+
+    def __init__(self, tipo: str, valor: str):
+        self.tipo = tipo          # "api_key" ou "oauth"
+        self.valor = valor
+
+    def __repr__(self) -> str:   # pragma: no cover - so para log acidental
+        return f"Credencial(tipo={self.tipo!r}, valor=<{len(self.valor)} chars>)"
+
+    __str__ = __repr__
+
+
+def credencial(env: dict[str, str] | None = None) -> Credencial:
+    """Le o ambiente e devolve a credencial, ou morre dizendo os DOIS nomes."""
+    env = os.environ if env is None else env
+    chave = (env.get("ANTHROPIC_API_KEY") or "").strip()
+    if chave:
+        return Credencial("api_key", chave)
+    token = (env.get("CLAUDE_CODE_OAUTH_TOKEN") or "").strip()
+    if token:
+        return Credencial("oauth", token)
+    raise SystemExit(
+        "credencial ausente: defina ANTHROPIC_API_KEY (credito do Console) ou "
+        "CLAUDE_CODE_OAUTH_TOKEN (assinatura, pelo `claude setup-token`)")
+
+
+def cabecalhos(cred: Credencial) -> dict[str, str]:
+    """O mapeamento credencial -> cabecalho. E a unica coisa que este modulo
+    afirma sobre o token de OAuth."""
+    base = {"anthropic-version": "2023-06-01", "content-type": "application/json"}
+    if cred.tipo == "api_key":
+        return {**base, "x-api-key": cred.valor}
+    if cred.tipo == "oauth":
+        return {**base, "authorization": f"Bearer {cred.valor}",
+                "anthropic-beta": BETA_OAUTH}
+    raise SystemExit(f"tipo de credencial desconhecido: {cred.tipo!r}")
+
 # US$ por milhao de tokens. Espelha PRECO_ANTHROPIC de
 # src/maquina/providers/reais.py; quando a tabela de precos mudar, muda nos
 # dois — o contador so vale enquanto o preco for o de verdade.
@@ -73,9 +137,7 @@ def chamar(sistema: str, mensagens: list[dict], *, modelo: str,
     Retenta apenas o que faz sentido retentar: erro de transporte e 429/5xx.
     Um 400 e defeito do pedido e repetir tres vezes so gasta tres vezes.
     """
-    chave = os.getenv("ANTHROPIC_API_KEY")
-    if not chave:
-        raise SystemExit("ANTHROPIC_API_KEY ausente")
+    cred = credencial()
 
     corpo = {"model": modelo, "max_tokens": max_tokens, "system": sistema,
              "messages": mensagens, "thinking": {"type": "adaptive"},
@@ -86,7 +148,7 @@ def chamar(sistema: str, mensagens: list[dict], *, modelo: str,
     ultimo = None
     for tentativa in range(TENTATIVAS):
         try:
-            return _uma_vez(corpo, chave, modelo, timeout)
+            return _uma_vez(corpo, cred, modelo, timeout)
         except urllib.error.HTTPError as e:
             if e.code != 429 and e.code < 500:
                 detalhe = e.read().decode("utf-8", "replace")[:500]
@@ -101,11 +163,10 @@ def chamar(sistema: str, mensagens: list[dict], *, modelo: str,
     raise SystemExit(f"API inalcancavel apos {TENTATIVAS} tentativas: {ultimo}")
 
 
-def _uma_vez(corpo: dict, chave: str, modelo: str, timeout: int) -> str:
+def _uma_vez(corpo: dict, cred: Credencial, modelo: str, timeout: int) -> str:
     req = urllib.request.Request(
         f"{API}/v1/messages", data=json.dumps(corpo).encode("utf-8"), method="POST",
-        headers={"x-api-key": chave, "anthropic-version": "2023-06-01",
-                 "content-type": "application/json"})
+        headers=cabecalhos(cred))
     partes, uso = [], {}
     with urllib.request.urlopen(req, timeout=timeout) as r:
         for linha in r:
