@@ -1,0 +1,92 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-s048",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#1F2933",
+  "c1": "#3F6C51",
+  "c2": "#C98B2E",
+  "bg": "#F5F3ED"
+ },
+ "thumb": {
+  "l1": "Pagaria",
+  "l2": "à vista igual"
+ },
+ "longo_existente": "bQoujWaY7Hw",
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "O desconto",
+   "sub": "na tabela",
+   "nar": "O desconto fixo da sua tabela.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ele vale",
+   "sub": "para todos",
+   "nar": "Ele vale para todo cliente.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E é aí",
+   "sub": "que custa",
+   "nar": "E é aí que custa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Você paga",
+   "sub": "a quem já pagaria",
+   "nar": "Você paga a quem já pagaria.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "À vista",
+   "sub": "de qualquer jeito",
+   "nar": "À vista de todo jeito.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Esse",
+   "sub": "não antecipou nada",
+   "nar": "Esse não antecipou nada.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A base",
+   "sub": "está errada",
+   "nar": "A base da conta está errada.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Conte",
+   "sub": "quantos usaram",
+   "nar": "Conte quantos usaram.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Esse",
+   "sub": "é o número",
+   "nar": "Esse é o único número.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "se inscreva",
+   "nar": "Se inscreva e confira.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# labtreinamento-s048\n\n## TITULO\nO Desconto À Vista Que Está Escrito Na Sua Tabela É O Mais Caro De Todos, E Ninguém Negocia Por Ele\n\n## TITULO SHORT\nQuem pagaria à vista igual\n\n## DESCRICAO\nO desconto à vista que você concede **numa negociação** tem um custo que dá para calcular. O que está **escrito na sua tabela**, oferecido a todo cliente antes de qualquer conversa, tem o mesmo custo — e uma diferença que o torna pior: **a base está errada.**\n\nO desconto só compra alguma coisa quando o cliente **antecipa**. Quem pagaria à vista de qualquer jeito não antecipou nada: recebeu a taxa de graça. E quem nunca teria pago à vista também não entra na conta — ele continua pagando a prazo, com o preço cheio que a tabela diz, e o desconto nunca o alcançou.\n\nEntão o desconto padrão **paga a taxa sobre a base inteira** quando o que ele deveria remunerar é só o **incremento**: os clientes que mudaram de comportamento por causa dele. É o mesmo erro de aplicar uma média onde a decisão é marginal, e ele é invisível porque não acontece numa conversa — acontece na impressora.\n\n**A conta que resolve é de contar, não de calcular:** olhe os seus orçamentos fechados e veja em quantos o desconto à vista foi usado. Se quase todos usaram, o seu preço real é o preço com desconto e o preço cheio da tabela é ficção. Se quase ninguém usou, ele não está comprando antecipação nenhuma — está só reduzindo a margem nos poucos casos em que alguém se lembrou de pedir.\n\nAqui não entra nenhuma taxa, nenhum percentual e nenhum prazo: eles são do seu caso, e o vídeo completo mostra a conta.\n\nNo vídeo completo: a divisão que transforma desconto em juro ao mês, a proporção que ajusta para outros prazos, as três situações em que dar desconto é a melhor decisão disponível, e a frase que funciona na negociação.\n\n## COMENTARIO FIXADO\nUm detalhe que muda a leitura dessa contagem: separe os orçamentos em que **o cliente pediu** dos em que **ele só aceitou o que estava escrito**. Os que pediram você já estava negociando de todo modo. Os que apenas aceitaram são os que a tabela entregou sem ninguém pedir — e é esse grupo que mede o custo do desconto padrão.\n\n## AVISO\nNenhuma taxa, percentual, prazo ou valor entra nesta peça — regra (g): todos são do caso de quem assiste, e o longo os trata como exemplo, não como norma. O capítulo 47 da origem manda contar os últimos DEZ orçamentos; a peça diz \"os seus orçamentos fechados\" porque o dez é escolha do autor e não propriedade da conta.\n\n## HASHTAGS\n#Precificacao #GestaoFinanceira #LabTreinamento\n\n## TAGS\ndesconto à vista, tabela de preços, precificação, fluxo de caixa, margem, negociação, custo de capital, orçamento, prestador de serviço, antecipação de recebível, gestão financeira, LabTreinamento, proposta comercial, preço cheio, análise marginal\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO.\n\n## FAMILIA DE ENTRADA ERRADA\nBASE INTEIRA no lugar do INCREMENTO: o desconto padrao paga a taxa sobre TODOS os\nclientes quando so remunera os que de fato antecipam — quem pagaria a vista igual\nrecebeu de graca, e quem nunca pagaria a vista nunca entrou na conta. Familia NOVA\nneste canal; as outras pecas desta origem (`bQoujWaY7Hw`) usam a DIVISAO do\ndesconto em juro ao mes (`s004`, `s017`, `s039`). Capitulos 44 a 49, INTOCADOS.\n\n## MIRA\nPrevisao edge **25,0** / piper **20,5**: dentro nos dois mundos. Postura do 753 —\nmira VERDE com a exposicao declarada: se o edge narrar, o real deve cair entre\n**25,9 e 28,7 s**, logo PODE passar do teto de 26,0 (740/748/757, seis de nove).\nSe o piper narrar, 21,4 a 24,2, dentro. **NADA de parametro mudou** (§10).\n"
+}
