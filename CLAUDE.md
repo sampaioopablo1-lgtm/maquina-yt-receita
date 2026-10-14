@@ -1116,6 +1116,20 @@ continua na fila do dono, com a conta pronta.
 dois pontos novos caíram DENTRO, logo os **LIMITES (0,9 a 2,4) não mudaram** — só
 o número de pontos que os sustenta. A mira e a banda seguem intocadas (§10).
 
+**E O TERCEIRO PONTO OUT-OF-SAMPLE TAMBÉM CAIU DENTRO, mas o que importa agora é
+OUTRA COISA — aprendizado 744.** O `labtreinamento-s037` (`W-SABH2ov_A`) foi
+narrado pelo **edge** (zero avisos no job `115644313606`), previsão **25,8**,
+faixa anunciada antes de publicar **26,7 a 28,2**, real **28**, resíduo **+2,2 s**.
+Oitavo ponto, **oito de oito acima**, e o teste segue **fraco** pelo mesmo motivo.
+
+**O achado é o padrão, não o acerto: as TRÊS peças seguidas do `labtreinamento`
+narradas pelo edge saíram FORA da mira do canal** — `s035` 27, `s036` 27, `s037`
+28, contra um teto de **26,0** — e **as três com o `mira.py` verde nos dois
+mundos**. Isso deixa de ser a aritmética do 740 e passa a ser **três de três
+medidos**: no mundo `edge`, a conferência da previsão **não protege** a mira deste
+canal. `RESIDUO_N` foi para **8**; a mira e os limites da banda seguem intocados
+(§10), porque a saída é decisão do dono.
+
 **E O `pacotes` DO `frota.yml` É LISTA DE OBJETOS — aprendizado 738.** Eu mandei
 `["labtreinamento-s034"]` e o run `38476203962` morreu: o job `preparar` dá
 **SUCCESS** (o `jq` monta `{include:[...]}` de qualquer coisa) e o run dá

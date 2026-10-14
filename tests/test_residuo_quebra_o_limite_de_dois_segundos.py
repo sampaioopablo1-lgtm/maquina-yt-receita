@@ -37,6 +37,8 @@ SERIE = [
     ("labtreinamento-s035", 24.8, 27, "edge"),
     # 742: SEGUNDO ponto out-of-sample da banda, e ela acertou outra vez.
     ("labtreinamento-s036", 25.3, 27, "edge"),
+    # 744: TERCEIRO ponto out-of-sample da banda, dentro outra vez.
+    ("labtreinamento-s037", 25.8, 28, "edge"),
 ]
 
 
