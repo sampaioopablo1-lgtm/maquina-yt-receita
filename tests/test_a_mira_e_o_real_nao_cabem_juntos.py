@@ -78,4 +78,4 @@ def test_a_mira_do_canal_nao_foi_mexida_nesta_rodada():
 def test_a_banda_do_739_nao_foi_mexida_nesta_rodada():
     assert mira.RESIDUO_OBSERVADO == (0.9, 2.4)
     # 741 somou um ponto DENTRO da banda: n sobe, os LIMITES nao.
-    assert mira.RESIDUO_N == 6
+    assert mira.RESIDUO_N == 7

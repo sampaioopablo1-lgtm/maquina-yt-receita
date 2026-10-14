@@ -22,7 +22,9 @@ import mira  # noqa: E402
 # (previsao do provedor que narrou, real) — os cinco pontos do 739
 RESIDUOS = [(43.1, 44), (42.9, 44), (42.1, 44), (25.7, 27), (25.6, 28),
             # 741: primeiro ponto OUT-OF-SAMPLE da banda, e ele caiu dentro.
-            (24.8, 27)]
+            (24.8, 27),
+            # 742: segundo ponto out-of-sample, tambem dentro.
+            (25.3, 27)]
 
 
 def test_a_banda_cobre_os_residuos_medidos():

@@ -35,6 +35,8 @@ SERIE = [
     # de publicar, que o real cairia entre 25,7 e 27,2 se o edge narrasse.
     # Provedor medido edge (zero avisos), real 27 -> residuo +2,2 s, DENTRO.
     ("labtreinamento-s035", 24.8, 27, "edge"),
+    # 742: SEGUNDO ponto out-of-sample da banda, e ela acertou outra vez.
+    ("labtreinamento-s036", 25.3, 27, "edge"),
 ]
 
 

@@ -1097,6 +1097,25 @@ granularidade de 1 s: acertar dentro dela prova pouco, e isso vai dito em vez de
 virar confiança. **E ela confirmou a consequência do 740:** 27 é **um segundo
 acima do teto da mira**, exatamente o que a copy declarou que podia acontecer.
 
+**E O SEGUNDO PONTO OUT-OF-SAMPLE TAMBÉM CAIU DENTRO — aprendizado 742.** O
+`labtreinamento-s036` (`QJBgbHVjh94`) foi narrado pelo **edge** (provedor MEDIDO:
+zero avisos `NARRACAO PELO PIPER` no job `115627232907`), previsão edge **25,3**,
+e a copy anunciou **antes de publicar** que o real cairia entre **26,2 e 27,7**.
+Real **27**, resíduo **+1,7 s**. Sétimo ponto, **sete de sete acima**.
+
+**E o teste continua FRACO pelo motivo do 741**, que vai repetido em vez de
+esquecido: a banda tem **1,5 s de largura** contra granularidade de **1 s**.
+Acertar dentro dela prova pouco.
+
+**E a contradição do 740 se repetiu na mesma peça:** 27 é **um segundo acima do
+teto da mira** (26,0) com o `mira.py` **verde nos dois mundos**. Duas peças
+seguidas confirmam que **mira verde não significa real dentro** — a decisão
+continua na fila do dono, com a conta pronta.
+
+**O que mudou no código, e é só contagem:** `RESIDUO_N` foi de 5 para **7**. Os
+dois pontos novos caíram DENTRO, logo os **LIMITES (0,9 a 2,4) não mudaram** — só
+o número de pontos que os sustenta. A mira e a banda seguem intocadas (§10).
+
 **E O `pacotes` DO `frota.yml` É LISTA DE OBJETOS — aprendizado 738.** Eu mandei
 `["labtreinamento-s034"]` e o run `38476203962` morreu: o job `preparar` dá
 **SUCCESS** (o `jq` monta `{include:[...]}` de qualquer coisa) e o run dá
