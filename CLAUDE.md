@@ -1388,6 +1388,29 @@ vinte acima**, e o real FORA do teto de 26,0 com a mira verde: agora oito fora
 (`s037`, `s039`, `s041`, `s044`, `s045`, `s047`, `s048`, `s049`) contra três
 dentro (`s038`, `s042`, `s046`). `RESIDUO_N` = 20, limites intocados.
 
+**E A IDADE DA PEÇA SE MEDE PELO `now()`, NÃO PELA MINHA NOÇÃO DE QUANTO TEMPO
+PASSOU — aprendizado 760, medido em 14/10 às 15:1x.** O `labtreinamento-s050`
+(`o5BJKDlfVNc`) leu **`tags: 0`** na primeira conferência. O 672 diz que tag nula
+**antes de 2 min não decide nada**, e eu supus pelo MEU relógio que já tinham
+passado ~5 min — ia relatar falha de snippet. O `now()` da própria chamada disse
+**33 SEGUNDOS** desde o `em=` do notice. Cinco minutos depois, a mesma chamada
+devolveu **15 tags**.
+
+**A regra que fica: a idade sai do `now()` da MESMA chamada contra o `em=` do
+notice.** Sem isso o 672 deixa de proteger e passa a fabricar acusação — é o §3.8
+na forma mais barata de evitar, porque o número certo vem de graça no mesmo
+`select`.
+
+**E o vigésimo primeiro ponto levou o tally a NOVE de doze:** previsão edge
+**24,9** (verde nos dois mundos na primeira versão), provedor **edge** medido
+(zero avisos no job `115931257797`), real **27**, resíduo **+2,1**, dentro da
+banda. Vinte e um de vinte e um acima. `RESIDUO_N` = 21, limites intocados.
+
+**E a pauta deste canal fechou um ciclo:** com o `s049` e o `s050` as **treze
+origens** do `labtreinamento` passaram a ter **pelo menos dois shorts cada** — as
+duas que estavam em um uso só eram justamente as sem spec local, que a regra (h)
+já mandava usar.
+
 **E O `pacotes` DO `frota.yml` É LISTA DE OBJETOS — aprendizado 738.** Eu mandei
 `["labtreinamento-s034"]` e o run `38476203962` morreu: o job `preparar` dá
 **SUCCESS** (o `jq` monta `{include:[...]}` de qualquer coisa) e o run dá
