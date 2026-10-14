@@ -1,0 +1,92 @@
+{
+ "slug": "kolejny-poziom",
+ "pacote": "kolejny-poziom-s027",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Jedna składka",
+  "l2": "nie stała"
+ },
+ "longo_existente": "34SgUG7rf0U",
+ "longo": [],
+ "short": [
+  {
+   "layout": "item",
+   "kicker": "Na liście składek",
+   "preco": "jedna nie jest stała",
+   "nar": "Na tej liście jedna pozycja nie jest stała.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Wszystkie inne",
+   "sub": "mają jedną stawkę",
+   "nar": "Wszystkie pozostałe mają jedną stawkę dla każdego.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ta jedna",
+   "preco": "zależy od branży",
+   "nar": "Ta jedna zależy od branży twojego pracodawcy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "I różnica",
+   "sub": "nie jest kosmetyczna",
+   "nar": "A różnica między branżami nie jest kosmetyczna.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Potrafi się różnić",
+   "preco": "kilkukrotnie",
+   "nar": "Potrafi się różnić kilkukrotnie, nie o włos.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Więc kalkulator",
+   "preco": "liczy kogoś innego",
+   "nar": "Kalkulator ze średnią liczy więc kogoś innego.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Twoja liczba",
+   "preco": "jest w twojej firmie",
+   "nar": "Twoja liczba jest w twojej firmie, nie w artykule.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Zapytaj o nią",
+   "sub": "raz",
+   "nar": "Zapytaj o nią raz, a reszta się ułoży.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bo wszystko inne",
+   "preco": "już znasz",
+   "nar": "Bo wszystkie inne pozycje tej listy już znasz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Kolejny Poziom",
+   "sub": "subskrybuj",
+   "nar": "Subskrybuj, jeśli liczysz na własnych stawkach.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# kolejny-poziom-s027\n\n## TITULO\nJedna Pozycja na Liście Składek Nie Jest Stała: Kalkulator ze Średnią Liczy Kogoś Innego\n\n## TITULO SHORT\nJedna składka nie jest stała\n\n## DESCRICAO\nPrawie cała lista obciążeń wynagrodzenia zachowuje się tak samo dla wszystkich: jedna stawka, ten sam procent, niezależnie od tego, gdzie pracujesz. Dlatego łatwo przyjąć, że cała lista jest zbiorem stałych — i policzyć ją raz, z artykułu.\n\nJest jednak jedna pozycja, która tak nie działa: składka wypadkowa. Jej stawka zależy od branży pracodawcy, a nie od ciebie ani od twojej pensji. To znaczy, że dwie osoby z identycznym brutto, w dwóch różnych firmach, mają w tym jednym miejscu różne liczby — i nie jest to różnica o włos, bo między branżami potrafi się różnić kilkukrotnie.\n\nKonsekwencja jest praktyczna i dotyczy każdego kalkulatora, który wpisuje tu wartość typową. Taki kalkulator nie liczy twojego przypadku: liczy przypadek uśredniony, czyli czyjś inny. Dopóki nie podstawisz stawki obowiązującej w twojej firmie, wynik jest szacunkiem o nieznanym znaku błędu — może być wyższy albo niższy od twojego, i sama liczba tego nie zdradza.\n\nDobra wiadomość jest taka, że to jedno pytanie zamyka temat. Wszystkie inne pozycje listy są wspólne i możesz je policzyć samodzielnie; brakuje dokładnie jednej danej, i jest ona u twojego pracodawcy. Jedno zapytanie, raz, i cała reszta rachunku przestaje zależeć od średniej z artykułu.\n\nNie ma tutaj ani jednej stawki i ani jednej kwoty: liczba, która decyduje, jest w twojej firmie, nie w tym tekście. Pełna lista składek, koszt pracodawcy, mediana kontra średnia i uczciwe porównanie etatu z fakturą — są w filmie, ze źródłami.\n\n## COMENTARIO FIXADO\nCała rzecz w jednym pytaniu: jaka stawka wypadkowa obowiązuje w twojej firmie. To jedyna pozycja z listy, która zależy od branży, a nie od ciebie — i potrafi się różnić kilkukrotnie. Każdy kalkulator, który wpisuje tu wartość typową, liczy kogoś innego niż ty. Napisz w komentarzu tylko, czy znałeś tę jedną pozycję — bez stawek i bez kwot.\n\n## HASHTAGS\n#Wynagrodzenie #Skladki #KolejnyPoziom\n\n## TAGS\nskladka wypadkowa, skladki zus, koszt pracodawcy, brutto netto, branza, stawka, kalkulator wynagrodzen, pasek wyplaty, finanse osobiste, polska, pracodawca, wynagrodzenie, kolejny poziom, liczenie, umowa o prace\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO\nQUINTA peca seguida com o canal escolhido pelo contador (762/765/767/768). O\n`concentracao_frota.py` com `por_dia=` deu o DIA em **16 / 3 / 2**, e o\n`kolejny-poziom` e o mais baixo — sem empate para desfazer nesta rodada.\nA origem saiu do `concentracao.py kolejny-poziom`: `34SgUG7rf0U`\n(kolejny-poziom-005, 82 capitulos) tinha UM short so, o `s012`.\n\n## FAMILIA DE ENTRADA ERRADA\nTratar como CONSTANTE o unico item da lista que VARIA — a stawka wypadkowa\ndepende da branza do empregador, e um calculador que preenche ali o valor tipico\nnao calcula o seu caso, calcula o de outra pessoa, com erro de sinal\ndesconhecido. E familia NOVA no canal e no longo: o `s012`, o unico outro short\ndesta origem, trata do BRUTO contra o CUSTO DO EMPREGADOR (dois niveis da mesma\nescada); aqui o erro e de VARIANCIA — um parametro que muda por setor tratado\ncomo numero fixo. O `s005` (media contra maximo) e escolha de ESTIMADOR sobre a\nmesma serie, outra coisa. Capitulos 66 e 74 do longo, nenhum deles usado pelo\n`s012`.\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Nao cita stawka\nnenhuma, nao cita percentual, nao cita brutto, nao cita custo do empregador, nao\ncita salario minimo, medio nem mediana, nao cita teto de contribuicao e nao\nnomeia orgao. Conferido a mao campo por campo, porque o portao `narracao` conta\nquantidades por frase e nao pega digito cru (640).\n\nO QUE O VIDEO AFIRMA: que a stawka wypadkowa e a unica pozycao da lista cuja\ntaxa depende da BRANZA do empregador — todas as outras valem igual para todos —\ne que por isso ela pode diferir varias vezes entre empresas, o que torna\nqualquer calculo com valor tipico um calculo de outra pessoa. Esta no longo\nkolejny-poziom-005 (`34SgUG7rf0U`), capitulos \"I sprawdz stawke wypadkowa\" e\n\"Trzeci blad\", com as fontes.\n\nDESCARTADO, e vai escrito:\n  (1) a propria stawka wypadkowa e a faixa dela — e o numero que MUDA por setor\n      e por ano, e e justamente o que o short manda PERGUNTAR (regra g);\n  (2) o salario minimo, o medio, a mediana e o custo do empregador — todos com\n      ano de vigencia no longo, todos fora;\n  (3) o acrescimo de ~um quinto sobre o bruto — e o nucleo da familia do `s012`\n      e sairia repetido;\n  (4) o teto anual da base de contribuicao e o que acontece acima dele, que e\n      uma terceira familia ainda livre neste longo;\n  (5) a comparacao etat contra fatura, que e uma QUARTA familia livre.\n\n## MIRA\n`kolejny-poziom` NAO tem override em `ALVO_POR_CANAL`, logo vale o `ALVO_SHORT`\nda frota, e mirado o PISO — no `pl-PL-MarekNeural` o centro do modelo corre\n**+2,2%** (679) e o residuo contra o REAL e positivo em 26 de 26 pontos.\n\nMEDIDO antes do render: edge **41,5** — o PISO exato da faixa — e piper **35,3**,\nos dois dentro de 18 a 45 nos DOIS mundos. Com a banda observada (0,9 a 3,7 s),\nse o edge narrar o REAL deve cair entre **42,4 e 45,2 s**: o topo da banda PASSA\ndo teto de 45, e isso vai DITO.\n\nE uma ressalva de METODO que o 768 acabou de medir: os cinco pontos desta faixa\n(41,2 a 41,6) deram 43, 43, 43, 43 e 44 — mas a janela de previsao tem 0,4 s e o\nreal tem passo de 1 s, logo **esta faixa nao consegue ordenar previsao contra\nreal**. Eu NAO estou prevendo 43 porque os outros deram 43; estou dizendo a\nbanda, que e o unico limite que a serie sustenta.\n\nA PRIMEIRA versao desta spec saiu em edge 42,3 e com TITULO de 104 caracteres —\no portao `copy` reprovou pelo titulo (limite 100). Encurtei o titulo e a\nnarracao no mesmo passo, e isso foi o portao funcionando, nao atrapalhando.\n\n## FONTES\nO longo de onde este short foi extraido (kolejny-poziom-005, `34SgUG7rf0U`) traz\nas fontes. Este short nao introduz numero novo sobre o mundo.\n"
+}
