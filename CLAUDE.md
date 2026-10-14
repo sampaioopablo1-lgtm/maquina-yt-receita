@@ -1268,6 +1268,25 @@ existe spec deste canal que satisfaça as duas, e agora com folga maior.
 vão ENCOLHER**, para que isto seja relido em vez de comemorado, e os meus testes
 que cravavam 2,4 foram atualizados no lugar.
 
+**E O RELATO DA MIRA TINHA A BANDA CRAVADA NO TEXTO — aprendizado 753, e o
+defeito durou uma rodada.** Depois de o 752 ampliar `RESIDUO_OBSERVADO` para
+(0,9; 3,7), o `mira.py` seguia imprimindo **"por 0,9 a 2,4 s"** ao lado da faixa
+que ele já calculava com 3,7 — **as duas coisas na MESMA linha do relato**. Eu só
+vi na rodada seguinte, lendo a saída antes de escrever a peça.
+
+**A regra que fica: número que o módulo CALCULA não se repete escrito em string
+nenhuma do mesmo módulo.** E o teste que eu tinha conferia os números da FAIXA,
+não os da FRASE — por isso passou. Agora
+`test_a_MENSAGEM_do_relato_le_a_banda_da_constante` reprova se o par antigo
+reaparecer em qualquer lugar do relato.
+
+**E a POSTURA DE MIRA VOLTOU ATRÁS no `labtreinamento-s044` (`MGe9N8i7fYc`),
+porque o 752 derrubou a saída do 751:** com resíduo de até 3,7 s não existe mais
+o ponto que punha o real dentro, então eu volto a manter a mira **verde** (edge
+24,9 / piper 20,5) e a declarar a exposição. Real **27** — resíduo +2,1, dentro
+da banda, e FORA da mira, exatamente como a copy disse antes de publicar.
+Quinze de quinze acima; `RESIDUO_N` = 15, limites intocados.
+
 **E O `pacotes` DO `frota.yml` É LISTA DE OBJETOS — aprendizado 738.** Eu mandei
 `["labtreinamento-s034"]` e o run `38476203962` morreu: o job `preparar` dá
 **SUCCESS** (o `jq` monta `{include:[...]}` de qualquer coisa) e o run dá

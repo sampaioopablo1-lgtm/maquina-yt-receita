@@ -53,6 +53,9 @@ SERIE = [
     # 752: previsao praticamente IGUAL a do s042 (23,3 contra 23,4) e real DOIS
     # segundos acima — residuo +3,7, que QUEBRA o teto de 2,4 de treze pontos.
     ("labtreinamento-s043", 23.3, 27, "edge"),
+    # 753: de volta a mirar a mira VERDE (24,9). Real 27, residuo +2,1 — DENTRO
+    # da banda ampliada, e o real FORA da mira, como a copy declarou.
+    ("labtreinamento-s044", 24.9, 27, "edge"),
 ]
 
 

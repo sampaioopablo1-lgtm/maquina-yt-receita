@@ -33,6 +33,7 @@ RESIDUOS = [(43.1, 44), (42.9, 44), (42.1, 44), (25.7, 27), (25.6, 28),
             (24.7, 27),
     (24.6, 27),   # s041, 14/10: +2,4, EMPATA o teto da banda
     (23.3, 27),   # s043, 14/10: +3,7 — QUEBROU o teto (752)
+    (24.9, 27),   # s044, 14/10: +2,1, dentro da banda ampliada
     (23.4, 25),   # s042, 14/10: +1,6, e o real DENTRO da mira
             # 748: decimo primeiro ponto, previsao repetida.
             (24.7, 27)]
