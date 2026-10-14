@@ -1,0 +1,92 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-s047",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#1F2933",
+  "c1": "#3F6C51",
+  "c2": "#C98B2E",
+  "bg": "#F5F3ED"
+ },
+ "thumb": {
+  "l1": "Quem",
+  "l2": "pode ser escalado"
+ },
+ "longo_existente": "lau1nnOUm1U",
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Quem entra",
+   "sub": "na sua lista?",
+   "nar": "Quem entra na sua lista?",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Você disse",
+   "sub": "a equipe",
+   "nar": "Você disse: a equipe.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Essa entrada",
+   "sub": "é a errada",
+   "nar": "Essa entrada é errada.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A lista",
+   "sub": "nasce curta",
+   "nar": "A lista nasce curta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Falta quem",
+   "sub": "mudou de função",
+   "nar": "Falta quem mudou de função.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Falta quem",
+   "sub": "voltou",
+   "nar": "Falta quem voltou do afastamento.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Falta",
+   "sub": "o terceirizado",
+   "nar": "Falta o terceirizado da área.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O tempo",
+   "sub": "correu igual",
+   "nar": "O tempo correu igual.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Entra quem",
+   "sub": "pode ser escalado",
+   "nar": "Entra quem pode ser escalado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "se inscreva",
+   "nar": "Se inscreva e confira.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# labtreinamento-s047\n\n## TITULO\nA Lista De Treinamentos Nasce Incompleta Quando Você Decide Quem Entra Nela Pela Escala De Hoje\n\n## TITULO SHORT\nNão é só quem está hoje\n\n## DESCRICAO\nA pergunta parece trivial e é onde a lista inteira se perde: **quem entra no controle de treinamentos?** A resposta automática é \"a minha equipe\", e ela é a entrada errada — porque descreve **a escala de hoje**, não a possibilidade.\n\nQuatro grupos somem com essa entrada, e nenhum deles é exótico:\n\n- **quem mudou de função** — o certificado antigo continua válido para a função antiga, e pode não cobrir a nova;\n- **quem voltou de afastamento longo** — o tempo correu para o certificado dele igual, mesmo sem ele estar trabalhando;\n- **terceirizados e temporários da sua área** — entram no seu controle mesmo quando o treinamento é responsabilidade de outra empresa, porque é você que libera ou não a atividade;\n- **quem está de licença longa** — não sai da lista; recebe uma observação e a linha fica, senão a pessoa volta e ninguém nota que o certificado dela venceu no meio do afastamento.\n\nA regra que substitui a entrada errada é de uma frase: **se a pessoa pode ser escalada para a atividade, ela entra na lista.** Decida pela possibilidade, não pela escala de hoje.\n\nE repare no que essa troca faz com o resto: nada na conta de vencimento muda. O que muda é **quantas linhas existem** — e uma linha que não existe não aparece em nenhuma revisão, por mais bem-feita que ela seja.\n\nAqui não entra periodicidade de treinamento nenhum, nem prazo de afastamento, nem norma: isso muda, e o vídeo completo explica por que a conta usa o número que está no seu próprio papel.\n\nNo vídeo completo: as duas contas do vencimento, os três campos que se leem no certificado, as cinco colunas da lista, a antecedência medida em vez de estimada, e os quatro passos que cabem numa semana.\n\n## COMENTARIO FIXADO\nUm jeito de testar a sua lista sem refazê-la: pegue a escala do mês passado e a deste mês e procure **um nome que esteja numa e não na outra**. Se ele não está na sua lista de controle, a entrada errada está ativa aí dentro. Faça o mesmo com a portaria de entrada de terceirizados, se a sua área tiver uma — é onde os nomes aparecem primeiro.\n\n## AVISO\nNenhuma periodicidade de treinamento, prazo de afastamento, norma ou portaria entra nesta peça — regra (g), porque todos mudam por ato normativo ou por procedimento interno. Os quatro grupos citados são CATEGORIAS que o próprio longo enumera, não números sobre o mundo.\n\n## HASHTAGS\n#SegurancaDoTrabalho #Treinamentos #LabTreinamento\n\n## TAGS\ncontrole de treinamentos, vencimento de treinamento, certificado, terceirizados, mudança de função, retorno de afastamento, escala de trabalho, segurança do trabalho, gestão de equipe, planilha de controle, auditoria, LabTreinamento, organização, prazo, matriz de treinamento\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO.\n\n## FAMILIA DE ENTRADA ERRADA\nPOPULACAO definida pela ESCALA DE HOJE em vez da POSSIBILIDADE: decidir quem entra\nno controle pela equipe escalada agora, perdendo quem mudou de funcao, quem voltou\nde afastamento, o terceirizado da area e quem esta de licenca. Familia NOVA neste\ncanal — as outras pecas desta origem (`lau1nnOUm1U`) usam EMISSAO x REALIZACAO\n(`s040`) e as do `s008`/`s032`. Capitulos 40 a 47 da origem, INTOCADOS.\n\n## MIRA\nPrevisao edge **25,4** / piper **20,9**: dentro nos dois mundos. Postura do 753 —\nmira VERDE com a exposicao declarada: se o edge narrar, o real deve cair entre\n**26,3 e 29,1 s**, logo PASSA do teto de 26,0 (740/748/754, cinco de sete). Se o\npiper narrar, 21,8 a 24,6, dentro. **NADA de parametro mudou** (§10).\n"
+}
