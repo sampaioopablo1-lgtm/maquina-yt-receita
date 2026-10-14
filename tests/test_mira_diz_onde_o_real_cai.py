@@ -4,7 +4,7 @@ As duas pecas do `labtreinamento` narradas pelo edge passaram pelo `mira.py` com
 a previsao DENTRO de 20,0 a 26,0 e sairam em **27 e 28 s reais**, fora. O buraco
 nao era a faixa: era o modulo conferir uma grandeza e a mira cobrar outra.
 
-Agora o relato acrescenta a banda OBSERVADA do residuo (0,9 a 2,4 s acima da
+Agora o relato acrescenta a banda OBSERVADA do residuo (0,9 a 3,7 s acima da
 previsao do provedor que de fato narrou, cinco pontos) e diz quando ela passa do
 teto. **Ele informa e NAO reprova**, porque com n=5 e uma banda que varia por um
 fator 2,7 sem lei estavel, reprovar seria inventar portao.
@@ -32,6 +32,7 @@ RESIDUOS = [(43.1, 44), (42.9, 44), (42.1, 44), (25.7, 27), (25.6, 28),
             # 747: decimo ponto, residuo +2,3.
             (24.7, 27),
     (24.6, 27),   # s041, 14/10: +2,4, EMPATA o teto da banda
+    (23.3, 27),   # s043, 14/10: +3,7 — QUEBROU o teto (752)
     (23.4, 25),   # s042, 14/10: +1,6, e o real DENTRO da mira
             # 748: decimo primeiro ponto, previsao repetida.
             (24.7, 27)]
@@ -51,15 +52,15 @@ def test_a_banda_nao_e_inventada__ela_e_o_minimo_e_o_maximo_observados():
 
 
 def test_faixa_real_e_soma_e_nao_fator():
-    assert mira.faixa_real(25.6) == (26.5, 28.0)
-    assert mira.faixa_real(10.0) == (10.9, 12.4)
+    assert mira.faixa_real(25.6) == (26.5, 29.3)
+    assert mira.faixa_real(10.0) == (10.9, 13.7)
 
 
 def test_o_relato_do_s034_AVISA_que_o_real_passa_do_teto():
     t = mira.relato(str(RAIZ / "fabrica/specs/labtreinamento-s034.json"))
     assert "dentro da mira nos dois mundos" in t, "a previsao estava dentro"
     assert "PASSA do teto da mira" in t, "e o real nao — isto e o 739"
-    assert "26.5 e 28.0" in t
+    assert "26.5 e 29.3" in t
     # o real medido desta peca foi 28, dentro da banda que o relato anuncia
     assert mira.faixa_real(25.6)[0] <= 28 <= mira.faixa_real(25.6)[1]
 

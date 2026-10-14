@@ -2,11 +2,11 @@
 
 Aritmetica, nao opiniao. O `mira.py` confere a PREVISAO contra a mira do canal
 (20,0 a 26,0 no labtreinamento) nos DOIS mundos de provedor. O 739 mediu que o
-REAL fica 0,9 a 2,4 s ACIMA da previsao de quem narra. Com a razao piper/edge
+REAL fica 0,9 a 3,7 s ACIMA da previsao de quem narra (teto ampliado pelo 752). Com a razao piper/edge
 que as specs de dez cenas deste canal produzem (~0,82):
 
   * para a PREVISAO passar:  piper >= 20,0  e  edge <= 26,0  ->  edge em [24,33; 26,00]
-  * para o REAL cair dentro: edge <= 26,0-2,4 = 23,60  e  piper >= 20,0-0,9 = 19,10
+  * para o REAL cair dentro: edge <= 26,0-3,7 = 22,30  e  piper >= 20,0-0,9 = 19,10
                                                         ->  edge em [23,23; 23,60]
 
 As duas janelas NAO se tocam -- vao de 0,73 s. Logo mira verde NAO significa real
@@ -53,9 +53,18 @@ def test_as_duas_janelas_NAO_se_tocam():
     )
 
 
-def test_o_vao_medido_e_de_ordem_0_7_s():
+def test_o_vao_medido_ABRIU_com_o_752():
+    """O vao era de 0,73 s com a banda de 2,4; com 3,7 ele passou a ~2,0 s.
+
+    Isto e PIOR, nao melhor: quanto maior o vao, mais longe esta de existir uma
+    spec que satisfaca a previsao na mira E o real na mira. E mata a saida que o
+    751 parecia abrir, porque real <= 26,0 passou a exigir edge <= 22,3, onde o
+    piper cai para ~18,3 — bem abaixo do piso de 20,0.
+    """
     (a_lo, _), (_, b_hi), _ = _janelas()
-    assert 0.5 < a_lo - b_hi < 1.0, a_lo - b_hi
+    vao = a_lo - b_hi
+    assert 1.5 < vao < 2.5, vao
+    assert vao > 0.73, "se o vao ENCOLHER, releia o 752 antes de comemorar"
 
 
 def test_a_peca_escolhida_fica_na_janela_da_MIRA_e_isso_vai_dito():
@@ -75,11 +84,16 @@ def test_a_mira_do_canal_nao_foi_mexida_nesta_rodada():
     assert ensaio.alvo_short("labtreinamento") == (20.0, 26.0)
 
 
-def test_a_banda_do_739_nao_foi_mexida_nesta_rodada():
-    assert mira.RESIDUO_OBSERVADO == (0.9, 2.4)
-    # 741 e o s041 somaram pontos DENTRO da banda: n sobe, os LIMITES nao.
-    # O s041 (+2,4) EMPATA o teto — o ponto seguinte acima dele quebra a banda.
-    assert mira.RESIDUO_N == 13
+def test_a_banda_e_a_OBSERVADA_e_o_teto_dela_foi_AMPLIADO_pelo_752():
+    """O teto da banda nao e limiar: ele e o maior residuo JA OBSERVADO.
+
+    De 739 a 751 ele foi 2,4 por treze pontos. O `s043` mediu 3,7 e o teto subiu
+    no mesmo passo — e isso e reportar medicao, nao inventar criterio. O piso de
+    0,9 segue intocado, e a largura passou de 1,5 para 2,8 s, o que torna a banda
+    MENOS util como previsao; vai dito em vez de escondido.
+    """
+    assert mira.RESIDUO_OBSERVADO == (0.9, 3.7)
+    assert mira.RESIDUO_N == 14
 
 
 def test_a_pinca_fecha_por_RAZAO_contra_OFFSET_e_nao_por_numero_de_cenas():
@@ -91,7 +105,7 @@ def test_a_pinca_fecha_por_RAZAO_contra_OFFSET_e_nao_por_numero_de_cenas():
     a MESMA previsao de 24,7.
 
     E a conta que fecha o caso: o piso do piper e uma RAZAO (piper ~ 0,82 x edge),
-    e o teto do real e um OFFSET (real ~ edge + 0,9 a 2,4). Entao
+    e o teto do real e um OFFSET (real ~ edge + 0,9 a 3,7). Entao
 
         piper >= 20,0  <=>  edge >= 24,4
         real  <= 26,0  <=>  edge <= 26,0 - 2,3 = 23,7
@@ -105,21 +119,21 @@ def test_a_pinca_fecha_por_RAZAO_contra_OFFSET_e_nao_por_numero_de_cenas():
 
     piso, teto = ensaio.alvo_short("labtreinamento")
     razao = 0.82          # piper/edge, medido
-    residuo_max = 2.4     # banda do 739
+    residuo_max = 3.7     # banda do 739, com o teto ampliado pelo 752
     residuo_min = 0.9
 
     edge_min_por_piper = piso / razao                  # 24,39
     edge_max_por_real = teto - residuo_min             # 25,10 (otimista)
-    edge_max_por_real_pessimista = teto - residuo_max  # 23,60
+    edge_max_por_real_pessimista = teto - residuo_max  # 22,30 depois do 752
 
     assert round(edge_min_por_piper, 1) == 24.4
-    assert round(edge_max_por_real_pessimista, 1) == 23.6
+    assert round(edge_max_por_real_pessimista, 1) == 22.3
     # no caso PESSIMISTA (o que de fato aconteceu duas vezes) nao ha intersecao:
     assert edge_min_por_piper > edge_max_por_real_pessimista, (
         "se as faixas voltarem a se tocar, releia o 748: a pinca teria aberto"
     )
     # e no caso OTIMISTA a sala e menor que um segundo -- nada de folga.
-    assert 0 < edge_max_por_real - edge_min_por_piper < 1.0
+    assert 0 < edge_max_por_real - edge_min_por_piper < 1.0   # caso otimista
 
 
 def test_o_mesmo_edge_devolveu_o_mesmo_real_duas_vezes():
@@ -154,4 +168,4 @@ def test_a_pinca_foi_confirmada_pelos_DOIS_lados_em_14_10():
     prev, real, prev_piper = vermelha_dentro
     assert prev_piper < piso, prev_piper     # mira REPROVA pelo piso
     assert real <= teto, real                # e o real cai DENTRO
-    assert 0.9 <= real - prev <= 2.4, real - prev
+    assert 0.9 <= real - prev <= 3.7, real - prev

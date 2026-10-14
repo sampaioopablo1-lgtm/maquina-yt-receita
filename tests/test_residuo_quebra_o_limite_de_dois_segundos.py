@@ -50,6 +50,9 @@ SERIE = [
     # 751: o OUTRO LADO da pinca — previsao ABAIXO do piso do piper (23,4),
     # e o real caiu DENTRO da mira (25). Primeira vez em seis pecas do edge.
     ("labtreinamento-s042", 23.4, 25, "edge"),
+    # 752: previsao praticamente IGUAL a do s042 (23,3 contra 23,4) e real DOIS
+    # segundos acima — residuo +3,7, que QUEBRA o teto de 2,4 de treze pontos.
+    ("labtreinamento-s043", 23.3, 27, "edge"),
 ]
 
 
@@ -60,7 +63,10 @@ def test_o_sinal_sobrevive__cinco_de_cinco_acima():
 def test_o_limite_de_1_9_s_do_734_CAIU():
     pior = max(real - prev for _, prev, real, _ in SERIE)
     assert pior > 1.9, "se o pior residuo voltar a <=1,9 s, releia o 734 e o 739"
-    assert abs(pior - 2.4) < 0.05, "o pior segue sendo o do s034"
+    # 752: o pior deixou de ser o do s034 (2,4) e passou a ser o do s043 (3,7).
+    # Este teste trava o valor MEDIDO: se ele mudar outra vez, a banda do
+    # `mira.py` tem de mudar no mesmo passo, e nao depois.
+    assert abs(pior - 3.7) < 0.05, pior
 
 
 def test_duas_previsoes_a_um_decimo_dao_reais_diferentes_em_UM_SEGUNDO():

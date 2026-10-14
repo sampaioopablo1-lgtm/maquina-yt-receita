@@ -1234,6 +1234,40 @@ dos dois lados em vez de aritmética.
 `tests/test_a_mira_e_o_real_nao_cabem_juntos.py` ganhou um teste que **falha se
 um dos dois lados da série desaparecer**.
 
+**E O 751 CAIU NA PEÇA SEGUINTE, NA PARTE QUE IMPORTAVA — aprendizado 752,
+`alto`, e com ele CAI O TETO DA BANDA.** O `labtreinamento-s043`
+(`FKQWRA-ll60`) foi escrito **de propósito no mesmo lado** — previsão edge
+**23,3** / piper 19,1, `mira.py` reprovando pelo piso — e a copy anunciou, antes
+de publicar, que o real cairia em **24,2 a 25,7**. Provedor **edge** medido (zero
+avisos no job `115749911129`), real **27**: resíduo **+3,7 s**, que **FURA a banda
+observada de 0,9 a 2,4** que treze pontos sustentavam.
+
+| peça | previsão edge | real | mira (teto 26,0) |
+|---|---|---|---|
+| `s042` | 23,4 | **25** | dentro |
+| `s043` | **23,3** | **27** | **fora** |
+
+**Um décimo de previsão, dois segundos de real.** É a mesma assinatura do 739
+(`s033`/`s034`), agora do lado curto — e ela derruba a parte acionável do 751:
+**mirar abaixo do piso do piper NÃO garante o real dentro da mira.** O que
+sobrevive do 751 é só o par de observações, e o que sobrevive de tudo é o SINAL:
+**quatorze de quatorze acima** da previsão do provedor que de fato narrou.
+
+**No código, e é medição e não limiar novo:** `RESIDUO_OBSERVADO` passou a
+**(0,9; 3,7)** e `RESIDUO_N` a 14. O teto da banda é o maior resíduo **já
+observado**, logo ele se move quando a observação sai dele — e a largura foi de
+1,5 para **2,8 s**, o que torna a banda **menos útil** como previsão. Isso vai
+dito.
+
+**E A PINÇA DO 740/748 ABRIU, o que é PIOR:** com resíduo de até 3,7 s, `real ≤
+26,0` passa a exigir `edge ≤ 22,3`, onde o piper cai para **~18,3** — bem abaixo
+do piso de 20,0. O vão entre as duas janelas foi de **0,73 s para ~2,0 s**. Não
+existe spec deste canal que satisfaça as duas, e agora com folga maior.
+**A decisão do 740 ficou mais urgente, e segue sendo do dono.**
+`tests/test_a_mira_e_o_real_nao_cabem_juntos.py` tem um teste que **falha se o
+vão ENCOLHER**, para que isto seja relido em vez de comemorado, e os meus testes
+que cravavam 2,4 foram atualizados no lugar.
+
 **E O `pacotes` DO `frota.yml` É LISTA DE OBJETOS — aprendizado 738.** Eu mandei
 `["labtreinamento-s034"]` e o run `38476203962` morreu: o job `preparar` dá
 **SUCCESS** (o `jq` monta `{include:[...]}` de qualquer coisa) e o run dá
