@@ -57,7 +57,11 @@ SERIE = [
     # da banda ampliada, e o real FORA da mira, como a copy declarou.
     ("labtreinamento-s044", 24.9, 27, "edge"),
     ("labtreinamento-s045", 24.5, 27, "edge"),   # 754: +2,5, dentro da banda
-    ("labtreinamento-s046", 24.6, 26, "edge"),   # 755: +1,4, e o real DENTRO da mira
+    ("labtreinamento-s046", 24.6, 26, "edge"),
+    # 756: previsao 25,4 (mira VERDE nos dois mundos, postura do 753), real 27 —
+    # residuo +1,6, DENTRO da banda. FORA da mira, como a copy declarou antes de
+    # publicar: o tally do 754 vai a SEIS de oito no mundo edge.
+    ("labtreinamento-s047", 25.4, 27, "edge"),   # 755: +1,4, e o real DENTRO da mira
 ]
 
 

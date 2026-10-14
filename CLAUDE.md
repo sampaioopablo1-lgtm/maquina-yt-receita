@@ -1328,6 +1328,24 @@ seria a **sexta de 45** com a mesma sequência de layouts. Troquei a ordem — q
 conteúdo, não limiar — e o aviso parou. É o defeito de 12/10 às 20:1x
 reaparecendo: a forma nova vira molde próprio se ninguém contar.
 
+**E O TALLY DO 754 FOI A SEIS DE NOVE — aprendizado 757** (o id **756 queimou**
+numa violação de `aprendizados_categoria_check`: a categoria é
+`pauta|roteiro|producao|render|entrega|distribuicao|processo`, e eu mandei
+`medicao`). O `labtreinamento-s047` (`9O8L92gDyYw`) foi narrado pelo **edge**
+(provedor MEDIDO: zero avisos `NARRACAO PELO PIPER` no job `115845575478`),
+previsão edge **25,4** / piper 20,9, `mira.py` **VERDE nos dois mundos**, e a copy
+anunciou antes de publicar que o real cairia entre **26,3 e 29,1 s**. Real **27**
+— resíduo **+1,6**, dentro da banda. Décimo oitavo ponto, **dezoito de dezoito
+acima**.
+
+| real | peças |
+|---|---|
+| **FORA** do teto de 26,0 | `s037` 28, `s039` 27, `s041` 27, `s044` 27, `s045` 27, **`s047` 27** |
+| dentro | `s038` 26, `s042` 25, `s046` 26 |
+
+**Seis de nove, todas com a mira verde.** `RESIDUO_N` = 18; os **limites não
+mudaram**, porque o ponto caiu dentro. A decisão do 740/748 segue do dono.
+
 **E O `pacotes` DO `frota.yml` É LISTA DE OBJETOS — aprendizado 738.** Eu mandei
 `["labtreinamento-s034"]` e o run `38476203962` morreu: o job `preparar` dá
 **SUCCESS** (o `jq` monta `{include:[...]}` de qualquer coisa) e o run dá

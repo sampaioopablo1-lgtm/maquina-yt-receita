@@ -37,6 +37,7 @@ RESIDUOS = [(43.1, 44), (42.9, 44), (42.1, 44), (25.7, 27), (25.6, 28),
     (24.5, 27),   # s045, 14/10: +2,5
     (24.6, 26),   # s046, 14/10: +1,4
     (23.4, 25),   # s042, 14/10: +1,6, e o real DENTRO da mira
+    (25.4, 27),   # s047, 14/10: +1,6, mira VERDE e o real FORA (756)
             # 748: decimo primeiro ponto, previsao repetida.
             (24.7, 27)]
 
