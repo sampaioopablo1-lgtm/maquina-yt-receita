@@ -1,0 +1,92 @@
+{
+ "slug": "kolejny-poziom",
+ "pacote": "kolejny-poziom-s028",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Co roku",
+  "l2": "kontra raz"
+ },
+ "longo_existente": "ef_oZmfmdz4",
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Porównujesz",
+   "sub": "dwie stawki",
+   "nar": "Porównujesz dwie stawki i wybierasz tę niższą.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jedna",
+   "preco": "wraca co roku",
+   "nar": "Jedna z nich wraca co roku, z twojego kapitału.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Druga",
+   "preco": "raz, na końcu",
+   "nar": "Druga przychodzi raz, dopiero przy wypłacie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Zabrana złotówka",
+   "preco": "już nie zarobi",
+   "nar": "Złotówka zabrana dziś nigdy już nie zarobi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "To nie jest",
+   "sub": "ta sama rzecz",
+   "nar": "To naprawdę nie jest ta sama rzecz do liczenia.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ta pierwsza",
+   "preco": "wycina wzrost",
+   "nar": "Ta pierwsza wycina także cały przyszły wzrost.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ta druga",
+   "preco": "bierze z tortu",
+   "nar": "Druga bierze plaster z tortu, który już urósł.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Odwrotność",
+   "sub": "z czasu",
+   "nar": "Odwrotność bierze się z czasu, nie ze stawki.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Więc najpierw",
+   "preco": "opłata roczna",
+   "nar": "Więc najpierw porównaj opłatę roczną obu ofert.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Kolejny Poziom",
+   "sub": "zapisz się",
+   "nar": "Zapisz się, jeśli liczysz własne pieniądze sam.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# kolejny-poziom-s028\n\n## TITULO\nJedna Opłata Wraca Co Roku, Druga Przychodzi Raz: Dlaczego Niższa Stawka Potrafi Kosztować Więcej\n\n## TITULO SHORT\nCo roku kontra raz na końcu\n\n## DESCRICAO\nKiedy ktoś porównuje dwa produkty finansowe, odruch jest zawsze ten sam: szuka dwóch liczb i wybiera tę niższą. Odruch jest sensowny i prowadzi na manowce, bo porównuje stawki, a o wyniku decyduje coś innego — jak często każda z nich wraca.\n\nJeden koszt pobierany jest co roku, z kapitału, który miał dla ciebie pracować. Drugi pojawia się raz, dopiero przy wypłacie, i do tego momentu pracuje dla ciebie cała kwota. To nie są dwie wersje tego samego kosztu. Pierwszy zabiera nie tylko złotówkę, ale też wszystko, co ta złotówka miała jeszcze zarobić przez pozostałe lata. Drugi bierze plaster z tortu, który już urósł.\n\nStąd bierze się wynik, który wygląda na pomyłkę, a pomyłką nie jest: koszt o stawce wielokrotnie niższej potrafi zabrać wielokrotnie więcej pieniędzy. Odwrotność nie bierze się ze stawek — bierze się z czasu. Jeden z nich działa setki razy, drugi jeden raz.\n\nPraktyczny wniosek jest prosty i ma kolejność. Najpierw porównaj koszt, który wraca co roku, i dopiero potem zastanawiaj się nad tym jednorazowym. I zapamiętaj, że działa to też w drugą stronę: każdy obniżony punkt kosztu rocznego pracuje dla ciebie przez wszystkie lata, bez żadnego ryzyka.\n\nNie ma tu ani jednej stawki i ani jednej kwoty: liczby, które decydują, są w twojej własnej umowie. Konkretne stawki, górny limit opłaty i jego źródło, trzy rachunki policzone obok siebie i to, gdzie w dokumentach szukać opłaty — są w filmie, ze źródłami.\n\n## COMENTARIO FIXADO\nCała rzecz sprowadza się do kolejności, i nie potrzebuje żadnej liczby z zewnątrz: najpierw porównaj koszt, który wraca CO ROKU, a dopiero potem ten jednorazowy. Koszt roczny zabiera złotówkę i wszystko, co ta złotówka miała jeszcze zarobić — jednorazowy bierze plaster z tortu, który już urósł. Dlatego niższa stawka potrafi kosztować więcej. Napisz w komentarzu tylko, czy porównywałeś kiedyś same stawki — bez kwot.\n\n## HASHTAGS\n#Oszczędzanie #Inwestowanie #KolejnyPoziom\n\n## TAGS\noplata roczna, podatek od zyskow, koszty funduszu, procent skladany, porownanie ofert, finanse osobiste, polska, oszczedzanie, inwestowanie, umowa, kapital, wyplata, kolejny poziom, dlugi termin, stawka\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO\nSEXTA peca seguida com o canal escolhido pelo contador (762/765/767). O\n`concentracao_frota.py` com `por_dia=` deu o DIA em **16 / 4 / 3** e ALERTOU no\nnivel do dia (16 contra 4 do segundo) — alerta que o contador de ACERVO nao da,\nporque o acervo esta dentro do dobro (50 / 29 / 25). **Sem empate nesta rodada:**\no `kolejny-poziom` e o mais baixo do dia, e foi de lá que a peca saiu. Isso\nimporta porque o 713 poe `kolejny/shorts` em **0,09 inscrito/peca**, o penultimo\nda lista — ou seja, o contador mandou produzir no par PIOR, e eu segui. **A\nressalva vai dita: pelo 693 views/peca e cego abaixo do dobro, logo 0,14 contra\n0,09 nao ordena nada**, e a razao para seguir o contador e o portao ser POR CANAL\n(os 500 sao limite de canal), nao uma aposta de conversao.\n\nA origem saiu do `concentracao.py kolejny-poziom`: `ef_oZmfmdz4`\n(kolejny-poziom-004, **74 capitulos**) tinha UM short so, o `s009`.\n\n## FAMILIA DE ENTRADA ERRADA\nComparar duas cobrancas pela ALIQUOTA quando o que decide e a FREQUENCIA: uma\nvolta todo ano e retira tambem o crescimento futuro daquele dinheiro; a outra vem\numa vez so, no fim, sobre o que ja cresceu. E familia NOVA no canal, e o irmao\ne perto o suficiente para precisar de distincao escrita: o `s009`, o unico outro\nshort desta origem, trata da ORDEM das contribuicoes no tempo (o ano sem o\nbeneficio nao volta). Ali o erro e sobre QUANDO o dinheiro entra; aqui e sobre\nquantas VEZES o custo age — duas coisas que o longo trata em capitulos\ndiferentes. Capitulos 37 a 44 (\"TERAZ WAZNE\", \"Oplata / co roku\", \"Podatek / raz,\nna koncu\", \"Skad ta odwrotnosc\"), nenhum deles usado pelo `s009`.\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Nao cita a aliquota\nda taxa anual, nao cita a do imposto, nao cita o limite superior da taxa, nao\ncita quantos anos, nao cita quantas vezes a taxa age, nao cita valor nenhum e nao\nnomeia orgao, lei nem produto. Conferido a mao campo por campo, porque o portao\n`narracao` conta quantidades por frase e NAO pega digito cru (640).\n\n**E a comparacao numerica — que e o coracao do capitulo — fica FORA de\nproposito.** O longo diz quanto cada custo tirou e quantas vezes cada um agiu, e\nesses sao exatamente os numeros que MUDAM (aliquota, limite por regulamento,\nhorizonte escolhido): regra (g). O short carrega a REGRA, que nao envelhece —\ncusto que volta todo ano retira tambem o crescimento futuro — e nao a conta de um\ncenario. **A unica palavra de quantidade que fica e \"dwie stawki\"**, que e o\nenunciado do erro, nao inventario.\n\nO QUE O VIDEO AFIRMA: que um custo cobrado todo ano sai do capital que ainda ia\nrender, logo retira tambem o rendimento futuro daquele dinheiro, enquanto um\ncusto cobrado uma vez no fim incide sobre o que ja cresceu; e que por isso a\ncomparacao de duas ofertas comeca pelo custo recorrente. Esta no longo\nkolejny-poziom-004 (`ef_oZmfmdz4`), capitulos \"Oplata / co roku\", \"Podatek /\nraz, na koncu\", \"Dlaczego to nie to samo\" e \"Skad ta odwrotnosc\", com as fontes.\n\nDESCARTADO, e vai escrito:\n  (1) as duas aliquotas e a comparacao de quanto cada uma tirou — numeros que\n      mudam e cenario de um horizonte escolhido (regra g);\n  (2) o limite superior da taxa e a procedencia dele em regulamento, mais a data\n      da mudanca — numero com fonte no longo, que muda;\n  (3) os dois produtos com isencao, seus limites anuais e a condicao de idade —\n      tudo numero que muda, e e material de outra familia;\n  (4) a ORDEM das contribuicoes no tempo — e o nucleo da familia do `s009` e\n      sairia repetida.\n\n## MIRA\n`kolejny-poziom` NAO tem override em `ALVO_POR_CANAL`, logo vale o `ALVO_SHORT`\nda frota (41,5 a 43,0). Mirado o PISO, e o motivo e medido: no\n`pl-PL-MarekNeural` o centro do modelo corre **+2,2%** (679), logo e a voz em que\no topo da faixa e mais arriscado. Medido antes do render: edge **41,6** e piper\n**35,4**, os dois dentro de 18 a 45 nos DOIS mundos.\n\nCom a banda observada de residuo e **28 pontos**, se o edge narrar o REAL deve\ncair entre **41,7 e 45,3 s** — e o topo PASSA do teto de 45. Dito antes de\npublicar. Se o piper narrar, 35,5 a 39,1.\n\n**E a banda piorou nesta sessao, duas vezes, as duas por medicao:** o piso caiu a\n0,5 (769) e depois a **0,1** (770), e com isso a largura foi a **3,6 s** contra\numa granularidade de 1 s no real. Ela cobre quase quatro inteiros, logo informa\npouco. **Alem disso o 770 mostrou que o SINAL do residuo so esta estabelecido\nquando `real − previsao > 1,0`** — abaixo disso a previsao cai dentro da janela de\narredondamento do real e o sinal e indecidivel. Dos 28 pontos, **25** estao\nestabelecidos.\n\nE esta previsao e a **SETIMA** da janela de 41 a 42 s, cuja largura (~0,5 s) e\nmenor que o passo do instrumento: pelo 768/769 ela **nao ordena** nada contra as\noutras seis, em sentido nenhum. O provedor se decide no runner e por cena (730) e\nse mede CONTANDO os avisos `NARRACAO PELO PIPER` da anotacao (733).\n\n## FONTES\nO longo de onde este short foi extraido (kolejny-poziom-004, `ef_oZmfmdz4`) traz\nas fontes. Este short nao introduz numero novo sobre o mundo.\n"
+}
