@@ -84,7 +84,10 @@ RESIDUO_OBSERVADO = (0.1, 3.7)
 # O piso daqui segue sendo o MENOR residuo NOMINAL observado (0,1), porque e ele
 # que a `faixa_real` precisa para nao prometer o que nao se mediu — e a largura
 # foi de 3,2 para 3,6 s, o que torna a banda AINDA menos util como previsao.
-RESIDUO_N = 28  # 741 acrescentou o s035 (24,8 -> 27, +2,2): DENTRO da banda,
+# 14/10 23:1x: o `kolejny-poziom-s028` (41,6 -> 43, +1,4) e o 29o ponto e cai
+# DENTRO da banda, logo os LIMITES nao mudam — e o sinal dele esta ESTABELECIDO
+# pelo critério do 770, levando os estabelecidos a 26 de 29.
+RESIDUO_N = 29  # 741 acrescentou o s035 (24,8 -> 27, +2,2): DENTRO da banda,
 #                 logo os LIMITES nao mudaram — so o numero de pontos que a sustenta.
 #                 14/10 06:2x: o s041 (edge 24,6 -> real 27) deu +2,4 — EMPATADO
 #                 com o teto da banda, o decimo segundo ponto e o segundo a tocar

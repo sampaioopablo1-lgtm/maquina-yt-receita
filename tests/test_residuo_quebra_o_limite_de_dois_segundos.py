@@ -101,6 +101,9 @@ SERIE = [
     # piso de 0,5 do 769. E o sinal DESTE ponto nao esta estabelecido: com
     # arredondamento para cima, real 42 significa (41; 42], e 41,9 cai dentro.
     ("epomeno-epipedo-s029", 41.9, 42, "edge"),
+    # 23:1x: 41,6 -> 43, residuo +1,4. Sinal ESTABELECIDO (43-41,6 > 1,0, logo a
+    # janela de arredondamento (42; 43] fica toda acima da previsao — 770).
+    ("kolejny-poziom-s028", 41.6, 43, "edge"),
 ]
 
 

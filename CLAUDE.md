@@ -1621,6 +1621,14 @@ do melhor par medido no 713.
    **não alivia** a contradição — o caso que ocorreu é o pessimista, que depende
    do teto e segue sem interseção.
 
+   **E o 29o ponto, uma hora depois, e ESTABELECIDO:** o `kolejny-poziom-s028`
+   (`lmBOUA-uAgY`) previa **41,6** no edge (provedor medido, zero avisos no job
+   `116154957122`) e saiu com **43 s** — resíduo **+1,4**, dentro da banda, e com
+   `43 − 41,6 > 1,0`, logo a janela de arredondamento fica toda acima da previsão.
+   **Os estabelecidos vão a 26 de 29**, `RESIDUO_N` = 29, limites intocados. Dois
+   testes meus que cravavam 28 foram corrigidos no lugar — é a contagem fazendo o
+   trabalho dela, não achado novo.
+
 2. **A frase do 763 perdeu o apoio da CONTAGEM.** Com o `kolejny-poziom-s025` e
    este, a dominância do `labtreinamento` foi de **0,818 → 0,783 → 0,750**,
    saindo do `> 0,75` que eu havia cravado no teste. Seis dos vinte e quatro
