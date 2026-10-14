@@ -1,0 +1,92 @@
+{
+ "slug": "epomeno-epipedo",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#16283C",
+  "c1": "#2E7BB4",
+  "c2": "#E0A02E",
+  "bg": "#F3F7FA"
+ },
+ "pacote": "epomeno-epipedo-s028",
+ "longo_existente": "jUxJPvmA4Mk",
+ "thumb": {
+  "l1": "Άλλος ρόλος",
+  "l2": "άλλος κανόνας"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "item",
+   "kicker": "Ο φόρος",
+   "preco": "σταματάει σε εσένα",
+   "nar": "Ο φόρος της δικής σου αγοράς σταματάει πάνω σου.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Η επιχείρηση",
+   "preco": "τον συμψηφίζει",
+   "nar": "Η επιχείρηση τον συμψηφίζει, γιατί δεν είναι το τέλος.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Εσύ είσαι",
+   "sub": "το τελευταίο σημείο",
+   "nar": "Εσύ είσαι το τελευταίο σημείο όλης της αλυσίδας.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Εκεί",
+   "preco": "δεν συμψηφίζεται",
+   "nar": "Εκεί δεν συμψηφίζεται απολύτως τίποτα, και μένει.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Γι' αυτό",
+   "sub": "μην δανείζεσαι τον κανόνα",
+   "nar": "Μην δανείζεσαι λοιπόν τον κανόνα κάποιου άλλου.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Άλλος ρόλος",
+   "preco": "άλλος λογαριασμός",
+   "nar": "Άλλος ρόλος στην αλυσίδα σημαίνει και άλλος λογαριασμός.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Το ίδιο τιμολόγιο",
+   "preco": "δύο αναγνώσεις",
+   "nar": "Το ίδιο τιμολόγιο διαβάζεται αλλιώς στις δύο θέσεις.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Και η τιμή",
+   "sub": "φαίνεται ίδια",
+   "nar": "Και η τιμή στη βιτρίνα φαίνεται ακριβώς η ίδια.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ρώτα πρώτα",
+   "preco": "ποιος πληρώνει",
+   "nar": "Ρώτα πρώτα ποιος πληρώνει στο τέλος, και όχι πόσο.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Επόμενο Επίπεδο",
+   "sub": "κάνε εγγραφή",
+   "nar": "Κάνε εγγραφή, αν μετράς τον δικό σου λογαριασμό.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# epomeno-epipedo-s028\n\n## TITULO\nΟ Κανόνας της Επιχείρησης Δεν Είναι ο Κανόνας σου: Γιατί ο Φόρος Σταματάει στο Τελευταίο Σημείο\n\n## TITULO SHORT\nΟ φόρος σταματάει πάνω σου\n\n## DESCRICAO\nΗ πιο συχνή σύγχυση σε αυτό το θέμα δεν είναι αριθμητική. Είναι ρόλων: δανειζόμαστε τον κανόνα κάποιου που βρίσκεται σε άλλη θέση της αλυσίδας και τον εφαρμόζουμε στον δικό μας λογαριασμό.\n\nΗ επιχείρηση που αγοράζει κάτι συμψηφίζει τον φόρο, επειδή δεν είναι το τέλος της διαδρομής: ό,τι πληρώνει το μετακυλίει παρακάτω, και στον δικό της λογαριασμό εκείνο το ποσό δεν μένει. Εσύ, όταν αγοράζεις ως καταναλωτής, είσαι το τελευταίο σημείο. Εκεί δεν συμψηφίζεται τίποτα — ο φόρος σταματάει και μένει.\n\nΓι' αυτό η ίδια απόδειξη διαβάζεται με δύο εντελώς διαφορετικούς τρόπους, ανάλογα με το ποιος την κρατάει. Για τη μία θέση είναι ένα ποσό που περνάει· για την άλλη είναι ένα ποσό που κάθεται. Και το δυσάρεστο είναι ότι η τιμή στη βιτρίνα φαίνεται ακριβώς η ίδια και στις δύο περιπτώσεις, οπότε η διαφορά δεν φαίνεται πουθενά πάνω στο προϊόν.\n\nΑπό εκεί βγαίνει η σωστή σειρά των ερωτήσεων, και δεν αφορά ποσά. Πρώτα: σε ποια θέση της αλυσίδας είμαι εγώ σε αυτή τη συγκεκριμένη αγορά. Μετά: τι σημαίνει αυτό για τον λογαριασμό μου. Αν αρχίσεις από το δεύτερο, μπορεί να κάνεις σωστές πράξεις σε λάθος λογαριασμό — και αυτό είναι χειρότερο από το να μην κάνεις καμία πράξη, γιατί το αποτέλεσμα φαίνεται έγκυρο.\n\nΔεν υπάρχει εδώ ούτε ένας συντελεστής και ούτε μία ημερομηνία: η πληροφορία που αποφασίζει είναι η θέση σου, όχι ένα ποσοστό. Οι τρεις συντελεστές, η μείωση για ορισμένα νησιά με τις προϋποθέσεις της, και η πράξη με την απόδειξη στο χέρι — είναι στο βίντεο, με τις πηγές.\n\n## COMENTARIO FIXADO\nΌλο το θέμα είναι μία ερώτηση που δεν αφορά ποσά: σε ποια θέση της αλυσίδας είσαι σε αυτή την αγορά. Η επιχείρηση συμψηφίζει γιατί δεν είναι το τέλος· εσύ ως καταναλωτής είσαι, και εκεί ο φόρος μένει. Η τιμή στη βιτρίνα δεν δείχνει αυτή τη διαφορά. Γράψε στα σχόλια μόνο αν είχες δανειστεί τον κανόνα της άλλης θέσης — χωρίς ποσά.\n\n## HASHTAGS\n#ΕπόμενοΕπίπεδο #ΠροσωπικάΟικονομικά #Φόροι\n\n## TAGS\nφορος καταναλωσης, συμψηφισμος, αλυσιδα αξιας, τελικος καταναλωτης, αποδειξη, τιμολογιο, ρολος, επιχειρηση, προσωπικα οικονομικα, ελλαδα, τιμη, λογαριασμος, επομενο επιπεδο, αγορες, καταναλωτης\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO\nQUARTA peca seguida com o canal escolhido pelo contador (762/765/767). O\n`concentracao_frota.py` com `por_dia=` deu o DIA em **16 / 2 / 2**, e os dois\ncanais baixos EMPATARAM em duas pecas. O desempate foi por DOIS critérios que\napontam o mesmo lado, e os dois vao escritos: (a) o par medido no 713 —\nepomeno/shorts 0,14 contra kolejny/shorts 0,09; (b) a peca mais ANTIGA do dia —\nepomeno as 18:14 contra kolejny as 19:12. **Ressalva: o 693 diz que views/peca e\ncego abaixo do dobro, e 0,14 contra 0,09 nao e o dobro. Logo o critério (a) e\nordenacao medida, nao prova** — e o (b) e so rotacao, sem conteudo preditivo.\n\nA origem saiu do `concentracao.py epomeno-epipedo`: `jUxJPvmA4Mk`\n(epomeno-epipedo-011, 75 capitulos) tinha UM short so, o `s009`.\n\n## FAMILIA DE ENTRADA ERRADA\nAplicar a si o CANONE DE OUTRO PAPEL na cadeia: a empresa compensa o imposto\nporque nao e o fim do caminho; o consumidor final nao compensa nada, e ali o\nimposto fica. E familia NOVA no canal: o `s009`, o unico outro short desta\norigem, trata de UMA apostila contra o MES (amostra de tamanho errado); aqui o\nerro e de ROLE — a conta pode estar certa e o LOGARITMO ser de outra pessoa.\nCapitulos 52, 53 e 54 do longo, nenhum deles usado pelo `s009`.\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Nao cita\nsynteleste, nao cita percentual, nao cita a reducao das ilhas, nao cita\npopulacao, nao cita data de vigencia, nao cita numero de lei e nao nomeia orgao.\nConferido a mao campo por campo, porque o portao `narracao` conta quantidades por\nfrase e nao pega digito cru (640).\n\nO QUE O VIDEO AFIRMA: que a empresa compensa o imposto da compra porque nao e o\nponto final da cadeia, enquanto o consumidor final nao compensa e ali o imposto\npermanece; e que, por isso, a mesma apostila se le de dois modos conforme quem a\ntem, sem que o preco da vitrine mostre a diferenca. Esta no longo\nepomeno-epipedo-011 (`jUxJPvmA4Mk`), capitulos \"Και κάτι για τους επαγγελματίες\",\n\"Δηλαδή\" e \"Τι δεν κάνει αυτό\", com as fontes.\n\nDESCARTADO, e vai escrito:\n  (1) os tres synteleste e a data de vigencia deles — numeros que MUDAM e estao\n      no longo com DUAS fontes institucionais (regra g);\n  (2) a reducao de trinta por cento em certas ilhas, as regioes nomeadas, o\n      limite de populacao e a data em que passou a valer para mais quatro ilhas —\n      tudo numero que muda, e o proprio longo RECUSA dar o percentual arredondado\n      depois da reducao porque nao o achou em duas fontes;\n  (3) a divisao pelo fator para extrair o imposto da apostila — e o nucleo da\n      familia do `s009` e sairia repetida;\n  (4) a consequencia de viagem (mesma compra, outro lugar do pais) — e uma\n      terceira familia ainda livre neste longo.\n\n## MIRA\n`epomeno-epipedo` NAO tem override em `ALVO_POR_CANAL`, logo vale o `ALVO_SHORT`\nda frota. Mirado o PISO e nao o topo, e o motivo e medido nesta sessao: no\n`el-GR-NestorasNeural` o centro do modelo corre **-3,2%** (679) e por esse eixo o\ntopo seria seguro — mas o eixo do REAL e outro, e com a banda de residuo (0,9 a\n3,7 s, 25 pontos) o topo fura o teto de 45 s. Os dois pontos deste canal hoje\npreviam 41,4 e 41,3 e deram **43** nos dois.\n\nMEDIDO antes do render: edge **41,5** — exatamente o PISO da faixa — e piper\n**36,8**, os dois dentro de 18 a 45 nos DOIS mundos. Com a banda observada, se o\nedge narrar o REAL deve cair entre **42,4 e 45,2 s**: o topo da banda PASSA do\nteto de 45, e isso vai DITO. O resultado tipico deste canal hoje foi 43, mas dois\npontos nao sao promessa — o teto da banda e o maior residuo JA OBSERVADO, nao um\nlimite. O provedor se decide no runner e por cena (730) e se mede CONTANDO os\navisos `NARRACAO PELO PIPER` da anotacao (733).\n\n## FONTES\nO longo de onde este short foi extraido (epomeno-epipedo-011, `jUxJPvmA4Mk`) traz\nas duas fontes institucionais. Este short nao introduz numero novo sobre o mundo.\n"
+}
