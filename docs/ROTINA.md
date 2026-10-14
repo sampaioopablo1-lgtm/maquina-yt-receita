@@ -553,6 +553,12 @@ novo sobre o mundo — e isso vai dito, com o id do longo. Respeite `robots=noai
     1/C(8,4) = 1,4% sob a nula. **CONFUNDIDOR QUE NÃO SAI DO RELATO:** as antigas
     são de 08/10 e as novas de 09/10; crescimento do canal entre os dias explica
     parte ou tudo, e isso NÃO é aleatorizado no tempo.
+  **E MIRE O PISO DA MIRA, NAO O TOPO — 746, medido em 14/10.** No
+  `labtreinamento`, peca narrada pelo edge com previsao perto do TETO sai FORA no
+  REAL (s037: 25,8 -> 28) e com previsao mais baixa sai DENTRO (s038: 24,4 -> 26).
+  A conta do 740 pede edge <= 23,60. **Isso e escolha de REDACAO, nao mudanca de
+  parametro** — e abaixo de ~24 s em dez cenas o `ortografia` reprova por perda de
+  acento, entao DECLARE a folga que sobrar em vez de fingir que nao existe.
   **Não existe "a mira certa do short" — existe a de CADA CANAL**, e é assim que
   `ALVO_POR_CANAL` cresce. **O `ALVO_SHORT` global NÃO muda** — o 38 segue sem
   leitura e mexer no global apagaria o braço. **Compare peça com peça na MESMA

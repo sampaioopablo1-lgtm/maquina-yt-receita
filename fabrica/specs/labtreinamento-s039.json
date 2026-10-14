@@ -1,0 +1,92 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-s039",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#222C33",
+  "c1": "#8C3B3B",
+  "c2": "#C9A227",
+  "bg": "#F5F2EA"
+ },
+ "thumb": {
+  "l1": "Desconto fixo",
+  "l2": "paga todos"
+ },
+ "longo_existente": "bQoujWaY7Hw",
+ "longo": [],
+ "short": [
+  {
+   "layout": "item",
+   "kicker": "O desconto fixo",
+   "sub": "está na tabela",
+   "nar": "Desconto fixo à vista?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ele paga por todos",
+   "sub": "inclusive quem não pediu",
+   "nar": "Você paga por todos.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Quem pagaria igual",
+   "sub": "leva também",
+   "nar": "Até quem já pagaria.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E quem nem pediria",
+   "sub": "leva também",
+   "nar": "E quem nem pediria.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A conta é simples",
+   "sub": "e é dos seus papéis",
+   "nar": "Veja dez propostas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Conte quantas usaram",
+   "sub": "só isso",
+   "nar": "Conte quantas usaram.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Quase todas?",
+   "sub": "então é preço",
+   "nar": "Quase todas? é preço.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Quase nenhuma?",
+   "sub": "então é margem",
+   "nar": "Quase nenhuma? é margem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Decida o campo",
+   "sub": "não herde",
+   "nar": "Decida; não é herança.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "se inscreva",
+   "nar": "Se inscreva e confira.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# labtreinamento-s039\n\n## TITULO\nO Desconto À Vista Fixo Na Sua Tabela Paga A Antecipação Até De Quem Nunca Pediria Desconto\n\n## TITULO SHORT\nDesconto fixo paga por todos\n\n## DESCRICAO\nO desconto à vista negociado caso a caso tem um custo que se calcula. **O desconto fixo escrito na tabela tem um custo que ninguém olha** — e é o pior dos dois.\n\nA razão é de escopo, não de taxa: ele vale para **todo cliente, sempre**, antes de qualquer conversa. Então você paga a antecipação **inclusive para quem pagaria à vista de qualquer jeito** e para quem **nunca teria pedido desconto nenhum**. Você financia quem não precisava ser financiado.\n\nE a conta que resolve isso não precisa de planilha: **pegue as suas últimas dez propostas fechadas e conte em quantas o desconto à vista foi usado.** É o único número que diz se aquele campo serve.\n\n- **Quase todas usaram** → o seu preço real é o preço com desconto, e o preço cheio da tabela é ficção. Então assuma o preço real e pare de chamar de desconto o que é tabela.\n- **Quase nenhuma usou** → ele não está comprando antecipação nenhuma. Está reduzindo a sua margem nos poucos casos em que alguém reparou.\n\nNos dois casos o campo precisa de **uma decisão sua** — não de um número que ficou ali porque alguém copiou de uma proposta antiga.\n\nAqui não há percentual, prazo nem taxa de comparação, e isso é deliberado: esses mudam com o seu custo de capital e com o mês. O que não muda é a pergunta e onde ler a resposta.\n\nNo vídeo completo: a divisão que dá o juro embutido (e por que o divisor é o que sobra, não o total), o efeito do prazo, as três situações em que dar desconto é a decisão certa, e os três passos para a sua proposta.\n\n## COMENTARIO FIXADO\nPara ser justo com o desconto fixo: ele **compra simplicidade**. Ninguém negocia, ninguém pede aprovação, o vendedor não trava. Isso vale dinheiro de verdade e esta peça não nega. O que ela diz é que **esse valor tem de ser comparado com o que o campo custa** — e o custo só aparece depois da contagem das dez propostas. Se você nunca fez essa contagem, o campo não foi uma decisão: foi herança.\n\n## AVISO\nNenhum percentual, prazo ou taxa entra nesta peça — regra (g). E a peça não promete contagem de itens: o longo enumera \"três situações\" e \"três passos\", e aqui nada disso é citado (lição do 725). O \"dez propostas\" NÃO é número sobre o mundo — é o tamanho da amostra que o próprio longo manda olhar nos papéis do espectador, e por isso fica.\n\n## HASHTAGS\n#Financeiro #Precificacao #LabTreinamento\n\n## TAGS\ndesconto à vista, tabela de preços, juro embutido, antecipação de recebível, margem, proposta comercial, precificação, capital de giro, financeiro, departamento comercial, custo de capital, LabTreinamento, política de desconto, orçamento, fluxo de caixa\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO. UM numeral na narracao -- \"dez propostas\" -- e\nele e a AMOSTRA que o proprio longo manda contar nos papeis do espectador\n(capitulo 47), nao um fato sobre o mundo. A regra (g) tirou o percentual do\ndesconto, o juro embutido, os prazos de 60 e 15 dias e a taxa de comparacao.\n\n## MIRA — E ESTA PECA MIRA O PISO, de proposito\nPrimeira peca escrita depois do 746, que mediu o seguinte: no `labtreinamento`,\npeca narrada pelo edge com previsao perto do TETO da mira sai FORA (s037: 25,8\n-> 28), e com previsao mais baixa sai DENTRO (s038: 24,4 -> 26).\n\nE AQUI VAI O LIMITE DESTA PECA, dito em vez de maquiado: a conta do 740 pede\nedge <= 23,60 para o real caber com FOLGA, e esta peca saiu em **24,7** -- mais\nbaixa que o s037 e na mesma vizinhanca do s038, mas ACIMA do ponto seguro. A\nprimeira versao mirava 23,6 e o portao `ortografia` a reprovou: cortando tanto,\na narracao perde os acentos e as frases viram telegrama, e o TTS pt-BR muda a\npronuncia. Entao o real pode passar do teto da mira por ate ~1,1 s, e o relato\ndo `mira.py` diz isso.\n\nIsso e escolha de REDACAO; a mira e a banda nao foram tocadas.\n\n## FAMILIA DE ENTRADA ERRADA\nO ESCOPO do desconto, nao a taxa: o desconto FIXO da tabela paga a antecipacao de\nquem pagaria a vista igual e de quem nunca pediria. O instrumento de decisao e\numa CONTAGEM nos proprios papeis, nao um calculo.\n\nNAO e a familia do labtreinamento-s004 (desconto nao e preco, e o efeito do\nprazo) nem a do -s017 (o divisor do juro embutido e o que SOBRA, nao o total),\nos dois outros shorts desta origem. Capitulos 44 a 50, intocados pelos dois.\n"
+}
