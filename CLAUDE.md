@@ -1626,6 +1626,29 @@ nossa, que é a mesma régua da §5 da rotina.
 - `claude-real-video` — frames + transcrição sincronizada. Nós já fazemos análise
   de quadro com `ffmpeg`/`signalstats`, e o gargalo não é ler vídeo dos outros.
 
+**E ESSE ARQUIVO NÃO EXISTIA — aprendizado 743, `alto`, medido em 14/10 às
+02:3x.** Eu escrevi "está em `references/shorts-playbook.md`" aqui, na rotina, no
+`docs/pipeline-canal-dark-estudado.md` e num comentário do `fabrica/ensaio.py` — e
+**`git log --all -- references` não devolve commit nenhum.** Por três dias quatro
+documentos apontaram para uma fonte inexistente, e um deles é a **procedência da
+faixa `ALVO_POR_CANAL` do `labtreinamento` (20,0 a 26,0)**, que é parâmetro de
+PRODUÇÃO: quem fosse conferir de onde vem o número chegava a um
+`No such file or directory`.
+
+**E O TESTE QUE EU ESCREVI PARA GUARDAR ISSO PASSAVA.** O
+`test_a_PROCEDENCIA_das_decisoes_continua_escrita_no_codigo` exigia que a
+**string** `"shorts-playbook"` estivesse no `ensaio.py` e **nunca abriu o caminho
+citado**. É o §3.8 em forma de documento: portão verde fabricando "a procedência
+está escrita" — ele guardava a CITAÇÃO, não a FONTE.
+
+**Consertado, e a reconstrução vai DECLARADA dentro do próprio arquivo**, porque
+ela é parte do achado: o conteúdo é a transcrição dos três itens que já governam
+o código, com a procedência mista à vista, e o arquivo diz em letra que **não vale
+como leitura fresca** dos repositórios. `tests/test_referencia_citada_existe.py`,
+seis testes, e a contraprova nos dois sentidos: **sem o arquivo, cinco dos seis
+falham**. A regra que fica: **citar caminho é afirmar que o caminho existe**, e o
+teste que guarda procedência tem de ABRIR o arquivo.
+
 **ENTROU, por convergência (`references/shorts-playbook.md`):**
 1. **Cadência de mudança visual a cada ~3 s.** Converge com a física que nós
    medimos sozinhos (690/699: a alavanca é a duração da cena).
