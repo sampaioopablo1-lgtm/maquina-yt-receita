@@ -73,11 +73,24 @@ def test_o_relato_NOMEIA_as_origens_pouco_usadas():
     sem-fonte. A intencao do teste e a mesma — as pouco usadas vao NOMEADAS —
     e por isso ele passou a cobrar a intencao em vez da frase antiga."""
     texto = C.relato("labtreinamento")
-    assert "usadas UMA vez" in texto
     assert "nao reprova" in texto
     a = C.analise(C.contagem("labtreinamento"), "labtreinamento")
-    for o in a["recomendadas"] + a["sem_fonte_local"]:
-        assert o in texto, f"origem pouco usada {o} ficou fora do relato"
+    poucas = a["recomendadas"] + a["sem_fonte_local"]
+    # 761: este teste CRAVAVA a frase "usadas UMA vez", que so existe nos dois
+    # ramos de LISTA do relato. Em 14/10 as 15:2x o canal deixou de ter origem de
+    # um uso so (o s049 e o s050 consumiram as duas ultimas) e o relato passou ao
+    # ramo "nenhuma origem usada UMA vez" — o teste reprovou por uma frase, nao
+    # por uma propriedade. E a propriedade que importa e esta: SE houver pouco
+    # usadas, elas vao NOMEADAS; se nao houver, o relato tem de DIZER isso em vez
+    # de calar. Mesma classe do 743 e do 753: guardar o TEXTO em vez do fato.
+    if poucas:
+        assert "UMA vez" in texto
+        for o in poucas:
+            assert o in texto, f"origem pouco usada {o} ficou fora do relato"
+    else:
+        assert "nenhuma origem usada UMA vez" in texto
+        assert "MENOR contagem" in texto, (
+            "sem origem de um uso so o relato tem de dizer para onde ir")
 
 
 def test_origem_SEM_SPEC_LOCAL_nao_entra_nas_recomendadas(tmp_path):

@@ -654,6 +654,27 @@ iguais como N observações.
   seria inventar conteúdo. O texto sai da faixa de **legenda** que a própria
   máquina subiu (`legenda=true`). Foi assim que o `eZ697VNYCPU` virou pauta: 75
   falas, 9.249 caracteres.
+- **E A FRASE QUE ME FEZ PULAR AS DUAS ERA MINHA, E NUNCA FOI MEDIDA —
+  aprendizado 761, `alto`, medido em 14/10 às 15:2x.** O docstring do
+  `concentracao.py` dizia que `StQNFMdpGdk` e `KRUERlNPzDw` têm *"sete capítulos
+  de TÍTULO e **nenhuma faixa de legenda da máquina** (medido pelo
+  `capitulos.yml`, runs `38504585378` e `38504726301`)"*. **Os dois runs rodaram
+  SEM `legenda=true`**: as anotações deles trazem só os sete títulos e a linha
+  `7 capitulos:`. Eu perguntei pela DESCRIÇÃO e li a resposta como se fosse da
+  LEGENDA — §3.8 na forma mais crua. As duas tinham faixa `standard` com 15.044 e
+  13.941 caracteres, e viraram o `s049` e o `s050`. **Antes de dizer que uma
+  origem não tem legenda, chame `captions?part=snippet&videoId=`** — lista de
+  título de capítulo não responde essa pergunta.
+
+  **E a suíte subiu para 26 na mesma rodada, por um teste MEU:** o
+  `test_o_relato_NOMEIA_as_origens_pouco_usadas` cravava a frase
+  `"usadas UMA vez"`, que só existe nos ramos de LISTA do relato. Quando o canal
+  deixou de ter origem de um uso só — porque eu consumi as duas últimas — o
+  relato passou ao ramo *"nenhuma origem usada UMA vez"* e o teste reprovou **por
+  uma frase, não por uma propriedade**. Mesma classe do 743 e do 753. Agora ele
+  cobra os dois casos: havendo pouco usadas elas vão NOMEADAS; não havendo, o
+  relato tem de **dizer isso e para onde ir**, em vez de calar.
+
 - **E A ROTA DA REGRA (h) EXISTE NESTA SESSÃO, sem runner — aprendizado 759,
   `alto`, medido em 14/10 às 14:1x.** Eu vinha pulando as **duas origens MENOS
   usadas** do `labtreinamento` (`StQNFMdpGdk` e `KRUERlNPzDw`, um short cada) por

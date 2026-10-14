@@ -18,9 +18,29 @@ precisa de contador, não de memória.
 **E ELE RECOMENDAVA PAUTA QUE NÃO SE PODE ESCREVER — medido em 14/10 às 03:1x.**
 Na rodada das 03:06 ele apontou `KRUERlNPzDw` e `StQNFMdpGdk` como "e e daqui que
 a proxima peca deveria sair". As duas são do `labtreinamento`, as duas têm **sete
-capítulos de TÍTULO e nenhuma faixa de legenda da máquina** (medido pelo
-`capitulos.yml`, runs `38504585378` e `38504726301`), e nenhuma das duas tem spec
-local. Pela regra (h) o texto de um capítulo sai da **legenda**, nunca do título —
+capítulos de TÍTULO** e nenhuma das duas tem spec local.
+
+**RETRATAÇÃO DE 14/10 ÀS 15:2x, e é da frase que estava AQUI — aprendizado 761.**
+Eu escrevia neste docstring que as duas têm *"nenhuma faixa de legenda da
+máquina (medido pelo `capitulos.yml`, runs 38504585378 e 38504726301)"*. **Não
+foi medido.** As anotações dos dois runs trazem só os **sete títulos** e a linha
+`7 capitulos:` — eles rodaram **sem `legenda=true`**, logo mediram a DESCRIÇÃO e
+eu concluí sobre a LEGENDA. É o §3.8 na forma mais crua: eu perguntei uma coisa
+ao instrumento e li a resposta como se fosse de outra.
+
+**E o oposto é que está medido.** Em 14/10 às 14:1x e 15:1x, pelo `pg_net`:
+
+    captions?part=snippet&videoId=StQNFMdpGdk -> 200, faixa `standard`,
+      download com tfmt=srt -> 200, 15.044 caracteres  (virou o -s049)
+    captions?part=snippet&videoId=KRUERlNPzDw -> 200, faixa `standard`,
+      download com tfmt=srt -> 200, 13.941 caracteres  (virou o -s050)
+
+**As duas eram escrevíveis todo esse tempo**, e a frase falsa daqui é o que me
+fez pulá-las por dias enquanto eu pegava sempre a banda de três usos. O
+comportamento do módulo já estava certo — ele diz *"sem fonte LOCAL; confira a
+legenda antes de descartar"* — e foi a minha nota que contradizia o próprio
+código.
+ Pela regra (h) o texto de um capítulo sai da **legenda**, nunca do título —
 *"escrever a partir de título seria inventar conteúdo"*. Logo as duas origens que
 ele recomendava eram **impossíveis de escrever**, e eu só descobri isso depois de
 gastar dois runs.
