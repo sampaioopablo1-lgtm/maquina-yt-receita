@@ -92,8 +92,8 @@ def test_a_banda_e_a_OBSERVADA_e_o_teto_dela_foi_AMPLIADO_pelo_752():
     0,9 segue intocado, e a largura passou de 1,5 para 2,8 s, o que torna a banda
     MENOS util como previsao; vai dito em vez de escondido.
     """
-    assert mira.RESIDUO_OBSERVADO == (0.5, 3.7)
-    assert mira.RESIDUO_N == 27
+    assert mira.RESIDUO_OBSERVADO == (0.1, 3.7)
+    assert mira.RESIDUO_N == 28
 
 
 def test_a_pinca_fecha_por_RAZAO_contra_OFFSET_e_nao_por_numero_de_cenas():
@@ -120,7 +120,7 @@ def test_a_pinca_fecha_por_RAZAO_contra_OFFSET_e_nao_por_numero_de_cenas():
     piso, teto = ensaio.alvo_short("labtreinamento")
     razao = 0.82          # piper/edge, medido
     residuo_max = 3.7     # banda do 739, com o teto ampliado pelo 752
-    residuo_min = 0.5     # 769: o piso caiu com o kolejny-poziom-s027
+    residuo_min = 0.1     # 770: o piso caiu outra vez, com o epomeno-epipedo-s029
 
     edge_min_por_piper = piso / razao                  # 24,39
     edge_max_por_real = teto - residuo_min             # 25,10 (otimista)
@@ -134,13 +134,16 @@ def test_a_pinca_fecha_por_RAZAO_contra_OFFSET_e_nao_por_numero_de_cenas():
     )
     # e no caso OTIMISTA a sala e menor que um segundo -- nada de folga.
     # 769: com o piso da banda em 0,5 o caso OTIMISTA abriu — a janela vai de
-    # 24,39 a 25,50, ou seja 1,11 s. Isso NAO alivia a contradicao: o caso que
+    # 24,39 a 25,50, ou seja 1,11 s. 770: o piso caiu a 0,1 e ela
+    # abriu de novo, para 1,51 s — e a leitura segue a mesma: janela otimista
+    # larga nao alivia nada, porque ela cresce justamente quando a banda fica
+    # MENOS informativa. Isso NAO alivia a contradicao: o caso que
     # de fato OCORREU (duas vezes, s039/s040 e s041) e o pessimista, e nele as
     # duas faixas seguem sem intersecao. O otimista e o melhor caso teorico.
     otimista = edge_max_por_real - edge_min_por_piper
-    assert 1.0 < otimista < 1.5, (
-        f'janela otimista em {otimista:.2f} s: se ela ENCOLHER abaixo de 1 s ou \n'
-        'crescer acima de 1,5 s, o piso ou o teto da banda mudou e a conta do \n'
+    assert 1.4 < otimista < 1.8, (
+        f'janela otimista em {otimista:.2f} s: se ela ENCOLHER abaixo de 1,4 s ou \n'
+        'crescer acima de 1,8 s, o piso ou o teto da banda mudou e a conta do \n'
         '740/748 tem de ser relida')
 
 
@@ -176,4 +179,4 @@ def test_a_pinca_foi_confirmada_pelos_DOIS_lados_em_14_10():
     prev, real, prev_piper = vermelha_dentro
     assert prev_piper < piso, prev_piper     # mira REPROVA pelo piso
     assert real <= teto, real                # e o real cai DENTRO
-    assert 0.5 <= real - prev <= 3.7, real - prev
+    assert 0.1 <= real - prev <= 3.7, real - prev

@@ -97,6 +97,10 @@ SERIE = [
     # sustentavam. E o SEXTO ponto da janela do 768, que agora tem reais
     # 42, 43, 43, 43, 43 e 44 contra previsoes dentro de 0,4 s.
     ("kolejny-poziom-s027", 41.5, 42, "edge"),
+    # 770, 22:2x: previsao 41,9 e real 42 — residuo NOMINAL +0,1, que derruba o
+    # piso de 0,5 do 769. E o sinal DESTE ponto nao esta estabelecido: com
+    # arredondamento para cima, real 42 significa (41; 42], e 41,9 cai dentro.
+    ("epomeno-epipedo-s029", 41.9, 42, "edge"),
 ]
 
 

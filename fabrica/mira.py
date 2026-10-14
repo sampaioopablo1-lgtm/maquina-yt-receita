@@ -27,8 +27,10 @@ inventar uma.
 mira do `labtreinamento` é sobre a duração **REAL**, e o que eu confiro aqui é a
 **PREVISÃO**. As duas peças do canal narradas pelo edge (`s033` e `s034`) passaram
 por esta conferência com a previsão DENTRO e saíram em **27 e 28 s reais** — fora
-da mira. O real fica **sempre acima** da previsão do provedor que de fato narrou
-(14 de 14), pela banda OBSERVADA em `RESIDUO_OBSERVADO` — hoje 0,9 a
+da mira. O real ficou acima da previsão do provedor que de fato narrou em **25 dos 28**
+pontos em que o instrumento RESOLVE o sinal — nos outros três a previsão cai
+DENTRO da janela de arredondamento do real, e ali o sinal não está estabelecido
+(770). A banda vive em `RESIDUO_OBSERVADO` — hoje 0,9 a
 3,7 s (752). O teto dela JA foi ampliado uma vez por medicao; nunca escreva o
 numero em outro lugar do modulo, porque foi exatamente isso que ficou atrasado
 na mensagem do relato e eu so vi na rodada seguinte.
@@ -54,7 +56,7 @@ PROVEDORES = ("edge", "piper")
 # anotação do job, 733) e a duração REAL. Cinco pontos, 13/10: +0,9 / +1,1 / +1,9
 # / +1,3 / +2,4 s. Todos POSITIVOS. Isto NÃO é limiar — nada reprova por causa
 # dele; ele entra no relato para que quem escreve veja onde o real deve cair.
-RESIDUO_OBSERVADO = (0.5, 3.7)
+RESIDUO_OBSERVADO = (0.1, 3.7)
 # 752, 14/10 08:2x: o TETO da banda CAIU, e por medicao. O `labtreinamento-s043`
 # previa 23,3 no edge (provedor MEDIDO pela anotacao) e saiu com 27 REAIS —
 # residuo +3,7 s, contra o maximo de 2,4 que treze pontos sustentavam. Isto NAO
@@ -63,7 +65,26 @@ RESIDUO_OBSERVADO = (0.5, 3.7)
 # 2,8 s — ou seja,
 # a banda agora cobre quase o dobro, o que a torna MENOS util e isso vai dito em
 # vez de escondido.
-RESIDUO_N = 27  # 741 acrescentou o s035 (24,8 -> 27, +2,2): DENTRO da banda,
+# 770, 14/10 22:2x: o piso caiu outra vez, de 0,5 para 0,1 — e esta queda vale
+# mais pelo que ela REVELA do que pelo numero. O `epomeno-epipedo-s029` previa
+# 41,9 no edge (provedor MEDIDO: zero avisos no job 116135075389) e saiu com
+# 42 s. O YouTube ARREDONDA PARA CIMA, logo real 42 significa duracao verdadeira
+# em (41; 42], e a previsao de 41,9 cai DENTRO desse intervalo: o residuo
+# verdadeiro esta em (-0,9; +0,1], e o SINAL DELE NAO ESTA ESTABELECIDO.
+#
+# Conferida a serie inteira por esse critério, o sinal so esta estabelecido
+# quando `real - previsao > 1,0` (a janela de arredondamento fica toda acima da
+# previsao). Tres dos 28 pontos NAO passam: o `epomeno-epipedo-s024` (+0,9, que
+# era o PISO original do 734), o `kolejny-poziom-s027` (+0,5, o piso do 769) e
+# este (+0,1). Logo "N de N acima" sempre foi 25 de 28 estabelecidos, e os tres
+# pontos que definiram o piso da banda ao longo do tempo sao exatamente os tres
+# cujo sinal o instrumento nao resolve. Entre os 25 estabelecidos o piso nominal
+# e 1,1.
+#
+# O piso daqui segue sendo o MENOR residuo NOMINAL observado (0,1), porque e ele
+# que a `faixa_real` precisa para nao prometer o que nao se mediu — e a largura
+# foi de 3,2 para 3,6 s, o que torna a banda AINDA menos util como previsao.
+RESIDUO_N = 28  # 741 acrescentou o s035 (24,8 -> 27, +2,2): DENTRO da banda,
 #                 logo os LIMITES nao mudaram — so o numero de pontos que a sustenta.
 #                 14/10 06:2x: o s041 (edge 24,6 -> real 27) deu +2,4 — EMPATADO
 #                 com o teto da banda, o decimo segundo ponto e o segundo a tocar
@@ -136,7 +157,9 @@ def relato(caminho: str) -> str:
         linhas.append(
             f"  se {prov} narrar, o REAL deve cair entre {lo} e {hi} s —{aviso}"
             f" ({teto}). Resíduo OBSERVADO, n={RESIDUO_N} (739): o real ficou"
-            f" sempre ACIMA da previsão, por {RESIDUO_OBSERVADO[0]:.1f} a"
+            f" acima da previsão nos pontos em que o sinal está ESTABELECIDO"
+            f" (770 — nos de resíduo menor que o passo de 1 s do real, não está),"
+            f" por {RESIDUO_OBSERVADO[0]:.1f} a"
             f" {RESIDUO_OBSERVADO[1]:.1f} s. NAO reprova.")
     return "\n".join(linhas)
 

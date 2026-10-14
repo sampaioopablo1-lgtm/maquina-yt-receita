@@ -1583,6 +1583,44 @@ do melhor par medido no 713.
    vezes é o **pessimista**, que depende do teto e segue sem interseção.
    **Quatro testes meus reprovaram** com a queda do piso, e os quatro foram
    corrigidos no lugar.
+   **E ÀS 22:2x A FRASE "N DE N ACIMA" CAIU — aprendizado 770, `alto`, e ela
+   nunca foi inteira.** O `epomeno-epipedo-s029` (`AINVslOwBJM`) previa **41,9**
+   no edge (provedor MEDIDO, zero avisos no job `116135075389`) e saiu com
+   **42 s**: resíduo nominal **+0,1**, que derruba o piso de 0,5 do 769. **E o
+   sinal DESTE ponto não está estabelecido:** o YouTube arredonda **para cima**,
+   logo real 42 significa duração verdadeira em **(41; 42]**, e a previsão de
+   41,9 cai DENTRO desse intervalo — o resíduo verdadeiro está em
+   **(−0,9; +0,1]** e pode ser negativo.
+
+   **O critério é aritmético: o sinal só está estabelecido quando
+   `real − previsão > 1,0`**, porque só aí a janela de arredondamento fica toda
+   acima da previsão. Conferida a série, **três dos 28 pontos não passam** — e
+   são exatamente **os três que definiram o PISO da banda** ao longo do tempo: o
+   `epomeno-epipedo-s024` (+0,9, piso do 734), o `kolejny-poziom-s027` (+0,5,
+   piso do 769) e este (+0,1). Logo o que eu venho escrevendo desde o 734 é, na
+   verdade, **25 de 28 estabelecidos**, e entre esses o piso nominal é **1,1**.
+
+   **É a terceira vez em dois dias que o limite do INSTRUMENTO aparece como se
+   fosse achado** (733, 768, agora este), e a assinatura é a mesma: ler o inteiro
+   como se fosse a medida.
+
+   **O que NÃO cai:** o teto de 3,7 vem do `labtreinamento-s043` (23,3 → 27,
+   folga de 3,7, muito acima de 1,0), logo é ponto **estabelecido**; e cobrar a
+   faixa nos dois mundos segue certo.
+
+   **As duas consequências práticas, e as duas são pioras:** (1) a banda foi a
+   **(0,1; 3,7)**, largura **3,6 s** contra 1 s de granularidade — ela cobre
+   quase quatro inteiros de real e informa cada vez menos; (2) por isso o relato
+   do `labtreinamento-s034` caiu de *"PASSA do teto da mira"* para *"pode passar
+   do teto"* — **o aviso FORTE virou fraco numa peça cujo real foi 28**. As duas
+   vão ditas em vez de escondidas, e há teste cobrando cada uma.
+   `tests/test_o_sinal_do_residuo_nem_sempre_esta_estabelecido.py`, sete testes,
+   um deles **falha se o piso subir** (porque aí alguém o reescreveu à mão) e um
+   **falha se o aviso forte voltar**. Cinco testes meus foram corrigidos no
+   lugar; a janela otimista do 740/748 abriu de 1,11 para **1,51 s**, e isso
+   **não alivia** a contradição — o caso que ocorreu é o pessimista, que depende
+   do teto e segue sem interseção.
+
 2. **A frase do 763 perdeu o apoio da CONTAGEM.** Com o `kolejny-poziom-s025` e
    este, a dominância do `labtreinamento` foi de **0,818 → 0,783 → 0,750**,
    saindo do `> 0,75` que eu havia cravado no teste. Seis dos vinte e quatro
