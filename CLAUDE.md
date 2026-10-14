@@ -1495,6 +1495,28 @@ canais dela.** `tests/test_a_banda_e_de_UM_canal.py` guarda os dois fatos — qu
 ela é multicanal e que um canal a domina — e **reprova se a dominância cair**,
 para que esta nota seja relida em vez de reaproveitada.
 
+**E O CONTADOR ESCOLHEU O CANAL, QUE É O QUE O 762 PEDIA — aprendizado 765** (o
+id **764 queimou** numa violação de not-null: `aprendizados.titulo` é
+obrigatório, e eu mandei o INSERT sem ele). Às 17:0x de 14/10 o
+`concentracao_frota.py` com `por_dia=` acusou o DIA em **16 / 1 / 0** — o
+`kolejny-poziom` em **zero** pelo dia inteiro — e a peça desta rodada saiu *daí*,
+não do canal que estava aberto na minha cabeça. O `kolejny-poziom-s025`
+(`siWX30h6B0A`) veio da origem `Rj7beZkOeYo` (kolejny-poziom-006, 85 capítulos,
+**um** short só), com família de entrada errada nova no canal: **escolher o PRAZO
+pela tabela de ofertas em vez do próprio horizonte**.
+
+Provedor **edge** MEDIDO (zero avisos `NARRACAO PELO PIPER` no job
+`115994083347`), previsão edge **41,2** — o PISO do `ALVO_SHORT` da frota, porque
+`kolejny` **não** tem `ALVO_POR_CANAL` — e real **44**: resíduo **+2,8 s**,
+dentro da banda e o **segundo maior valor dela**. Vinte e três de vinte e três
+acima. `RESIDUO_N` = 23, limites intocados.
+
+**E ele refina o 763 em vez de confirmá-lo:** o maior resíduo **fora** do
+`labtreinamento` passou de 1,6 para **2,8**, e a dominância daquele canal na
+série caiu de 0,818 para **0,783**. Segue acima de 0,75, logo *"0,9 a 3,7"*
+continua sendo a banda do `labtreinamento` com crachá de frota — mas por menos, e
+o teto de 3,7 continua vindo do `s043`.
+
 **E O `pacotes` DO `frota.yml` É LISTA DE OBJETOS — aprendizado 738.** Eu mandei
 `["labtreinamento-s034"]` e o run `38476203962` morreu: o job `preparar` dá
 **SUCCESS** (o `jq` monta `{include:[...]}` de qualquer coisa) e o run dá

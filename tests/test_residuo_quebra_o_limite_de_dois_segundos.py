@@ -75,6 +75,10 @@ SERIE = [
     # como MULTICANAL, que ela sempre foi (os tres primeiros pontos do 734 sao
     # do epomeno e do kolejny). Previsao 41,4 no mundo edge, real 43, +1,6.
     ("epomeno-epipedo-s026", 41.4, 43, "edge"),   # 755: +1,4, e o real DENTRO da mira
+    # 764: o primeiro ponto do KOLEJNY desde o s024, e o maior residuo da serie
+    # FORA do labtreinamento: previsao edge 41,2 (mira da FROTA, piso), real 44,
+    # residuo +2,8 — dentro da banda, e segundo maior valor dela.
+    ("kolejny-poziom-s025", 41.2, 44, "edge"),
 ]
 
 
