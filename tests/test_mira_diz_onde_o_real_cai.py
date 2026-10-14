@@ -26,7 +26,9 @@ RESIDUOS = [(43.1, 44), (42.9, 44), (42.1, 44), (25.7, 27), (25.6, 28),
             # 742: segundo ponto out-of-sample, tambem dentro.
             (25.3, 27),
             # 744: terceiro ponto out-of-sample.
-            (25.8, 28)]
+            (25.8, 28),
+            # 746: nono ponto.
+            (24.4, 26)]
 
 
 def test_a_banda_cobre_os_residuos_medidos():

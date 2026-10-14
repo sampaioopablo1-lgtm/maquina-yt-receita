@@ -39,6 +39,8 @@ SERIE = [
     ("labtreinamento-s036", 25.3, 27, "edge"),
     # 744: TERCEIRO ponto out-of-sample da banda, dentro outra vez.
     ("labtreinamento-s037", 25.8, 28, "edge"),
+    # 746: primeira peca do canal narrada pelo edge a cair DENTRO da mira.
+    ("labtreinamento-s038", 24.4, 26, "edge"),
 ]
 
 
@@ -75,16 +77,45 @@ def test_o_PERCENTUAL_tambem_nao__e_a_dispersao_cresce_no_curto():
 
 
 def test_a_mira_do_canal_e_sobre_o_REAL_e_o_instrumento_cobra_o_ESTIMADO():
+    """RETRATADO em 14/10 as 03:2x pelo `labtreinamento-s038`, e no lugar.
+
+    A versao anterior deste teste exigia `real > teto` em TODAS as pecas do
+    canal. Era verdade com n=3 (27, 27, 28) e o `s038` falsificou: previsao 24,4,
+    real **26**, que e o teto exato. Logo o padrao do 744 ("tres de tres fora")
+    virou **tres de quatro**, e o teste passou a travar o que segue medido em vez
+    do que era conveniente.
+
+    O que NAO muda: o estimado esteve DENTRO da mira nas quatro, logo
+    "mira verde" continua nao garantindo "real dentro" (740).
+    """
     import ensaio
 
     piso, teto = ensaio.alvo_short("labtreinamento")
     assert (piso, teto) == (20.0, 26.0)
-    # as duas pecas narradas pelo edge sairam ACIMA do teto da mira, no REAL,
-    # com o estimado dentro -- e e isso que o relato tem de dizer.
-    for pacote, prev, real, _ in SERIE:
-        if pacote.startswith("labtreinamento"):
-            assert piso <= prev <= teto, "o estimado estava DENTRO"
-            assert real > teto, "e o real saiu FORA"
+    do_canal = [(p, prev, real) for p, prev, real, _ in SERIE
+                if p.startswith("labtreinamento")]
+    assert len(do_canal) >= 4, "a serie do canal encolheu: releia o 744 e o 746"
+    for pacote, prev, real in do_canal:
+        assert piso <= prev <= teto, f"{pacote}: o estimado tem de estar DENTRO"
+    fora = [p for p, _, real in do_canal if real > teto]
+    dentro = [p for p, _, real in do_canal if real <= teto]
+    assert fora, "se NENHUM real sair fora, o 740 deixou de valer — releia"
+    assert dentro, "se TODOS sairem fora, o 746 caiu — releia o padrao"
+
+
+def test_mirar_o_PISO_e_o_que_pos_o_real_DENTRO():
+    """A licao operacional do 746, e ela e aritmetica dos dois pontos vizinhos.
+
+    `s037` previa 25,8 (perto do teto) e deu 28, fora. `s038` previa 24,4 e deu
+    26, dentro. Um segundo e meio de previsao decidiu, e a conta do 740 dizia
+    isso: para o real caber com folga o edge precisa ficar em <= 23,60.
+    """
+    d = {p: (prev, real) for p, prev, real, _ in SERIE}
+    prev37, real37 = d["labtreinamento-s037"]
+    prev38, real38 = d["labtreinamento-s038"]
+    assert prev38 < prev37, "a peca de dentro foi a de previsao MENOR"
+    assert real38 <= 26.0 < real37, "e o real seguiu a previsao menor"
+    assert round(prev37 - prev38, 1) == 1.4
 
 
 def test_o_provedor_de_todas_foi_MEDIDO_e_nao_inferido():

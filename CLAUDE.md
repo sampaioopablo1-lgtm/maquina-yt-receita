@@ -1130,6 +1130,21 @@ medidos**: no mundo `edge`, a conferência da previsão **não protege** a mira 
 canal. `RESIDUO_N` foi para **8**; a mira e os limites da banda seguem intocados
 (§10), porque a saída é decisão do dono.
 
+**E O PADRÃO DO 744 CAIU NA PEÇA SEGUINTE — aprendizado 746, e ele mostra o que
+FAZER.** O `labtreinamento-s038` (`EgcUqRhx9IY`) foi narrado pelo **edge** (zero
+avisos no job do run `38505162272`), previsão **24,4**, banda anunciada **25,3 a
+26,8** — e o real deu **26**, que é **exatamente o teto da mira**. Nono ponto,
+**nove de nove acima** (resíduo +1,6 s), e a **primeira peça deste canal narrada
+pelo edge a cair DENTRO da mira**: agora são três de quatro fora, não três de
+três.
+
+**O que isso ensina, e é operacional:** a diferença entre o `s037` (previsão 25,8
+→ real 28, fora) e o `s038` (24,4 → 26, dentro) é **1,4 s de previsão**. A conta
+do 740 dizia que para o real cair dentro com segurança o edge precisa de
+**≤ 23,60**; 24,4 entregou 26 no limite. Logo **mirar o PISO da mira em vez do
+topo é o que põe o real dentro** — e isso é escolha de redação, não mudança de
+parâmetro. `RESIDUO_N` = 9; mira e banda intocadas.
+
 **E O `pacotes` DO `frota.yml` É LISTA DE OBJETOS — aprendizado 738.** Eu mandei
 `["labtreinamento-s034"]` e o run `38476203962` morreu: o job `preparar` dá
 **SUCCESS** (o `jq` monta `{include:[...]}` de qualquer coisa) e o run dá
