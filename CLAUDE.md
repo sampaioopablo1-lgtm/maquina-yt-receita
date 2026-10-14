@@ -654,6 +654,23 @@ iguais como N observações.
   seria inventar conteúdo. O texto sai da faixa de **legenda** que a própria
   máquina subiu (`legenda=true`). Foi assim que o `eZ697VNYCPU` virou pauta: 75
   falas, 9.249 caracteres.
+- **E A ROTA DA REGRA (h) EXISTE NESTA SESSÃO, sem runner — aprendizado 759,
+  `alto`, medido em 14/10 às 14:1x.** Eu vinha pulando as **duas origens MENOS
+  usadas** do `labtreinamento` (`StQNFMdpGdk` e `KRUERlNPzDw`, um short cada) por
+  não terem spec local, pegando sempre a banda de três usos — e a
+  `concentracao.py` vinha imprimindo isso há dias. **Falta de spec local não é
+  motivo para trocar de origem**, e não precisa do `capitulos.yml`: a legenda sai
+  pelo `pg_net`, com o token de `yt_token_<canal>`:
+
+      captions?part=snippet&videoId=<id>        -> 200, lista as faixas
+      captions/<id do track>?tfmt=srt           -> 200, o texto
+
+  No `StQNFMdpGdk` vieram **duas faixas** — uma `asr` e uma **`standard`**, que é
+  a que a própria máquina subiu — e o download da `standard` deu **15.044
+  caracteres**. O `labtreinamento-s049` (`ufZmycVvTrk`) saiu daí, e **nenhuma
+  frase veio de TÍTULO de capítulo**, que é a metade que a regra (h) chama de
+  inventar conteúdo.
+
 - Em qualquer caminho, **confira a origem escolhida contra as specs antes de
   escrever**, uma a uma — e conte por **TÍTULO DISTINTO**, nunca por id: em 12/10
   eu errei a mesma conta três vezes (cinco → três → dois) porque dez ids livres
@@ -1361,6 +1378,15 @@ virar alarme:** aos ~2 min a peça lia `uploadStatus: uploaded` com
 `P0D`** — a releitura seguinte deu `processed`. O 665 fala de `P0D` **depois de
 2 h**; `uploaded` nos primeiros minutos é o caminho normal, e confundir os dois
 fabricaria peça morta onde não há nenhuma.
+
+**E O VIGÉSIMO PONTO LEVOU O TALLY A OITO DE ONZE — aprendizado 759 (a mesma
+rodada da regra (h)).** O `labtreinamento-s049` (`ufZmycVvTrk`) foi narrado pelo
+**edge** (zero avisos no job `115900510998`), previsão edge **25,1** / piper 20,6
+— e a **primeira versão tinha piper 19,8, FORA pelo PISO**, o lado que o 748
+descreve; foi alongada. Real **27**, resíduo **+1,9**, dentro da banda. **Vinte de
+vinte acima**, e o real FORA do teto de 26,0 com a mira verde: agora oito fora
+(`s037`, `s039`, `s041`, `s044`, `s045`, `s047`, `s048`, `s049`) contra três
+dentro (`s038`, `s042`, `s046`). `RESIDUO_N` = 20, limites intocados.
 
 **E O `pacotes` DO `frota.yml` É LISTA DE OBJETOS — aprendizado 738.** Eu mandei
 `["labtreinamento-s034"]` e o run `38476203962` morreu: o job `preparar` dá

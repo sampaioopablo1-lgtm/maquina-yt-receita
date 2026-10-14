@@ -64,7 +64,10 @@ SERIE = [
     ("labtreinamento-s047", 25.4, 27, "edge"),
     # 758: previsao 25,0 (mira VERDE), real 27 — residuo +2,0, dentro da banda.
     # FORA da mira outra vez: o tally do 754/757 vai a SETE de dez.
-    ("labtreinamento-s048", 25.0, 27, "edge"),   # 755: +1,4, e o real DENTRO da mira
+    ("labtreinamento-s048", 25.0, 27, "edge"),
+    # 759: primeira peca da origem SEM SPEC LOCAL (regra h, legenda pelo pg_net).
+    # Previsao 25,1 (mira VERDE), real 27 — residuo +1,9. Tally a OITO de onze.
+    ("labtreinamento-s049", 25.1, 27, "edge"),   # 755: +1,4, e o real DENTRO da mira
 ]
 
 
