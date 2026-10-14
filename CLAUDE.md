@@ -1194,6 +1194,19 @@ real duas vezes. `tests/test_a_mira_e_o_real_nao_cabem_juntos.py` ganhou dois
 testes — um que **falha se as faixas voltarem a se tocar** e um que trava a
 reprodutibilidade.
 
+**E O DÉCIMO SEGUNDO PONTO EMPATOU O TETO DA BANDA — aprendizado 750.** O
+`labtreinamento-s041` (`qEyrPRd0H6w`) foi narrado pelo **edge** (zero avisos
+`NARRACAO PELO PIPER` no job `115710862870`), previsão edge **24,6**, real **27**
+— resíduo **+2,4 s**, exatamente o teto da banda observada. Doze de doze acima, e
+**os LIMITES seguem intocados porque 2,4 já era o máximo**: o próximo ponto acima
+dele QUEBRA a banda, e o teste do 739 existe para obrigar a reler quando isso
+acontecer. `RESIDUO_N` = 12.
+
+**E o padrão do 744/747 continua:** quatro das cinco peças deste canal narradas
+pelo edge saíram FORA da mira (s037 28, s038 26 dentro, s039 27, s041 27), as
+quatro com o `mira.py` **verde nos dois mundos**. A decisão do 740/748 segue na
+fila do dono — eu declaro a exposição na copy e não prometo real dentro.
+
 **E O `pacotes` DO `frota.yml` É LISTA DE OBJETOS — aprendizado 738.** Eu mandei
 `["labtreinamento-s034"]` e o run `38476203962` morreu: o job `preparar` dá
 **SUCCESS** (o `jq` monta `{include:[...]}` de qualquer coisa) e o run dá

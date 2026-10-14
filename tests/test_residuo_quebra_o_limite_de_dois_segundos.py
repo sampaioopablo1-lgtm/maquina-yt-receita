@@ -45,6 +45,8 @@ SERIE = [
     ("labtreinamento-s039", 24.7, 27, "edge"),
     # 748: MESMA previsao, MESMO real -- reprodutibilidade, contra o 732.
     ("labtreinamento-s040", 24.7, 27, "edge"),
+    # 14/10: s041, outra origem, mesma forma de dez cenas. +2,4 EMPATA o teto.
+    ("labtreinamento-s041", 24.6, 27, "edge"),
 ]
 
 

@@ -31,6 +31,7 @@ RESIDUOS = [(43.1, 44), (42.9, 44), (42.1, 44), (25.7, 27), (25.6, 28),
             (24.4, 26),
             # 747: decimo ponto, residuo +2,3.
             (24.7, 27),
+    (24.6, 27),   # s041, 14/10: +2,4, EMPATA o teto da banda
             # 748: decimo primeiro ponto, previsao repetida.
             (24.7, 27)]
 

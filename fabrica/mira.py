@@ -52,8 +52,13 @@ PROVEDORES = ("edge", "piper")
 # / +1,3 / +2,4 s. Todos POSITIVOS. Isto NÃO é limiar — nada reprova por causa
 # dele; ele entra no relato para que quem escreve veja onde o real deve cair.
 RESIDUO_OBSERVADO = (0.9, 2.4)
-RESIDUO_N = 11  # 741 acrescentou o s035 (24,8 -> 27, +2,2): DENTRO da banda,
+RESIDUO_N = 12  # 741 acrescentou o s035 (24,8 -> 27, +2,2): DENTRO da banda,
 #                 logo os LIMITES nao mudaram — so o numero de pontos que a sustenta.
+#                 14/10 06:2x: o s041 (edge 24,6 -> real 27) deu +2,4 — EMPATADO
+#                 com o teto da banda, o decimo segundo ponto e o segundo a tocar
+#                 o limite superior. Os LIMITES seguem intocados porque 2,4 ja e
+#                 o maximo; o proximo ponto acima dele QUEBRA a banda, e e isso
+#                 que o teste do 739 existe para obrigar a reler.
 
 
 def faixa_real(estimado: float) -> tuple[float, float]:

@@ -77,8 +77,9 @@ def test_a_mira_do_canal_nao_foi_mexida_nesta_rodada():
 
 def test_a_banda_do_739_nao_foi_mexida_nesta_rodada():
     assert mira.RESIDUO_OBSERVADO == (0.9, 2.4)
-    # 741 somou um ponto DENTRO da banda: n sobe, os LIMITES nao.
-    assert mira.RESIDUO_N == 11
+    # 741 e o s041 somaram pontos DENTRO da banda: n sobe, os LIMITES nao.
+    # O s041 (+2,4) EMPATA o teto — o ponto seguinte acima dele quebra a banda.
+    assert mira.RESIDUO_N == 12
 
 
 def test_a_pinca_fecha_por_RAZAO_contra_OFFSET_e_nao_por_numero_de_cenas():
