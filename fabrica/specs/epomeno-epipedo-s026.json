@@ -1,0 +1,92 @@
+{
+ "slug": "epomeno-epipedo",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#16283C",
+  "c1": "#2E7BB4",
+  "c2": "#E0A02E",
+  "bg": "#F3F7FA"
+ },
+ "pacote": "epomeno-epipedo-s026",
+ "longo_existente": "uWs-k_Wrn_w",
+ "longo": [],
+ "thumb": {
+  "l1": "Κατώφλι",
+  "l2": "όχι ποσό"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Πρόσεξε",
+   "sub": "αυτό το σημείο",
+   "nar": "Πρόσεξε αυτό το σημείο, γιατί κοστίζει χρήματα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Υπάρχει",
+   "sub": "ένα ελάχιστο",
+   "nar": "Υπάρχει ένα ελάχιστο διάστημα για να δικαιούσαι την έκπτωση.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Το διαβάζεις",
+   "sub": "σαν ποσό",
+   "nar": "Και σχεδόν όλοι το διαβάζουν σαν να είναι το ποσό.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Δεν είναι",
+   "sub": "ποσό",
+   "nar": "Δεν είναι ποσό. Είναι κατώφλι.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Είναι",
+   "sub": "κατώφλι",
+   "nar": "Το κατώφλι σε βάζει στην πόρτα, δεν σου δίνει τίποτα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Σε βάζει",
+   "sub": "στην πόρτα",
+   "nar": "Το ποσό το δίνει ο χρόνος που τρέχει μέσα στη χρονιά.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Μετά",
+   "sub": "μετράει ο χρόνος",
+   "nar": "Άρα μετράει αναλογικά, και όχι ολόκληρο.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Αναλογικά",
+   "sub": "και όχι ολόκληρο",
+   "nar": "Με το ελάχιστο παίρνεις ένα κομμάτι, όχι την πλήρη έκπτωση.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Για το πλήρες",
+   "sub": "όλη τη χρονιά",
+   "nar": "Για το πλήρες χρειάζεται να τρέχει όλη τη χρονιά.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "epomeno epipedo",
+   "sub": "κάνε εγγραφή",
+   "nar": "Κάνε εγγραφή και δες το αναλυτικά.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# epomeno-epipedo-s026\n\n## TITULO\nΤο Ελάχιστο Διάστημα Σου Δίνει Το ΔΙΚΑΙΩΜΑ Στην Έκπτωση, Δεν Σου Δίνει Το Πλήρες Ποσό\n\n## TITULO SHORT\nΤο κατώφλι δεν είναι ποσό\n\n## DESCRICAO\nΥπάρχει ένα ελάχιστο διάστημα ασφάλισης για να δικαιούσαι την έκπτωση. Και σχεδόν όλοι το διαβάζουν λάθος με τον **ίδιο** τρόπο: σαν να είναι το ποσό.\n\n**Δεν είναι ποσό. Είναι κατώφλι.** Το κατώφλι σε βάζει στην πόρτα — σου δίνει το **δικαίωμα**. Αυτό που καθορίζει το **ποσό** είναι άλλο πράγμα: ο χρόνος που η ασφάλεια τρέχει μέσα στη χρονιά. Άρα η έκπτωση υπολογίζεται **αναλογικά**, και δεν γίνεται ολόκληρη επειδή πέρασες το ελάχιστο.\n\nΗ πρακτική συνέπεια είναι δύο αποφάσεις που μοιάζουν ίδιες και δεν είναι:\n\n- ασφάλεια που ξεκινάει αργά και μόλις πιάνει το ελάχιστο → παίρνεις **ένα κομμάτι** της έκπτωσης;\n- ασφάλεια που τρέχει **όλη** τη χρονιά → παίρνεις το **πλήρες** ποσό.\n\nΚαι οι δύο «δικαιούνται». Μόνο η δεύτερη παίρνει όλα.\n\nΑυτό το μπέρδεμα έχει όνομα και εμφανίζεται παντού: **κριτήριο επιλεξιμότητας διαβασμένο σαν ύψος παροχής**. Μόλις το δεις μία φορά, το αναγνωρίζεις σε κάθε έκπτωση και σε κάθε επίδομα.\n\nΕδώ δεν μπαίνει καμία ημερομηνία, κανένα ποσοστό και κανένας αριθμός ημερών — αλλάζουν με απόφαση, και το σύντομο βίντεο κρατάει τον **κανόνα**. Τα νούμερα είναι στο πλήρες βίντεο, από την ανακοίνωση.\n\nΣτο πλήρες βίντεο: από πού βγαίνει ο μέσος αριθμός, η διαίρεση που δείχνει πόσοι παίρνουν την έκπτωση, η ημερομηνία που βγαίνει με αφαίρεση και όχι από ανακοίνωση, πότε η έκπτωση **δεν** συμφέρει, και τα τέσσερα βήματα της βδομάδας.\n\n## COMENTARIO FIXADO\nΈνας τρόπος να μην το ξεχάσεις: το κατώφλι απαντάει στο **«δικαιούμαι;»** και ο χρόνος απαντάει στο **«πόσο;»**. Δύο διαφορετικές ερωτήσεις, δύο διαφορετικοί αριθμοί. Όποτε δεις ένα ελάχιστο σε οποιαδήποτε έκπτωση, ρώτα ποια από τις δύο απαντάει — συνήθως είναι η πρώτη.\n\n## AVISO\nΚαμία ημερομηνία, ποσοστό, ποσό ή αριθμός ημερών δεν μπαίνει σε αυτό το σύντομο\nβίντεο — κανόνας (g): αλλάζουν με κανονιστική απόφαση και είναι το πιο\nφθαρτό μέρος του πλήρους βίντεο. Το σύντομο κρατάει τη ΔΟΜΗ: κατώφλι\nεπιλεξιμότητας δεν είναι ύψος παροχής. Τα νούμερα διαβάζονται από το πλήρες\nβίντεο, που τα παίρνει από την ανακοίνωση.\n\n## HASHTAGS\n#ΕΝΦΙΑ #Ασφάλιση #epomenoepipedo\n\n## TAGS\nέκπτωση, κατώφλι, επιλεξιμότητα, αναλογικός υπολογισμός, ασφάλιση κατοικίας, φόρος ακινήτων, δικαίωμα, πλήρες ποσό, προϋποθέσεις, φορολογία, epomeno epipedo, οικονομικά, απόφαση, υπολογισμός, παροχή\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. O descarte foi GRANDE:\no longo e construido sobre ponto percentual, numero de dias e data, e nada disso\nentrou.\n\n## FAMILIA DE ENTRADA ERRADA\nCRITERIO DE ELEGIBILIDADE lido como UPSILON DA PAROCHI (kritirio epilexsimotitas\ndiavasmeno san ypsos parochis): o minimo da DIREITO, o tempo decorrido da VALOR,\ne as duas perguntas tem respostas diferentes. Capitulos 47 a 49 da origem\n`uWs-k_Wrn_w`, que a peca anterior dela (`s017`) nao usou.\n\n## POR QUE ESTA PECA E DO EPOMENO, e nao do labtreinamento\nAprendizado **762**, medido nesta rodada: as DEZESSEIS pecas de 14/10 sairam\nTODAS no `labtreinamento`, e o `epomeno-epipedo` e o `kolejny-poziom` ficaram em\nZERO o dia inteiro — contra os 7/dia POR CANAL que o dono pede. O\n`concentracao_frota.py` nasceu disso. Esta peca quebra o 16/0/0; ela NAO decide\nqual canal deve concentrar, que e escolha do dono.\n\n## MIRA\n`ALVO_SHORT` da frota (41,5 a 43,0 ESTIMADOS) — o `epomeno-epipedo` nao tem\noverride em `ALVO_POR_CANAL`. Estimado **41,62**, e o 679 diz que no `el-GR` o\ncentro erra −3,2%, logo o TOPO e seguro. Real previsto: edge **41,4** / piper\n**36,7**, os dois dentro de 18 a 45 nos dois mundos. **A banda de residuo do 739\ne do `labtreinamento` e NAO se generaliza para este canal** — nao prometo real.\n"
+}
