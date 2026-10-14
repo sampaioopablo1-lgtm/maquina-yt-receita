@@ -1,0 +1,92 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-s046",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#1F2933",
+  "c1": "#3F6C51",
+  "c2": "#C98B2E",
+  "bg": "#F5F3ED"
+ },
+ "thumb": {
+  "l1": "Estresse",
+  "l2": "não é situação"
+ },
+ "longo_existente": "XgqPVJuAk3o",
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Você escreveu",
+   "sub": "estresse na equipe",
+   "nar": "Você escreveu \"estresse na equipe\"?",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Isso",
+   "sub": "é conclusão",
+   "nar": "Isso é conclusão.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E o auditor",
+   "sub": "pede o fato",
+   "nar": "O auditor pede o fato.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A coluna",
+   "sub": "quer situação",
+   "nar": "A coluna quer situação.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Com verbo",
+   "sub": "e com quando",
+   "nar": "Com verbo e com quando.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Escala",
+   "sub": "aberta em dois dias",
+   "nar": "Escala aberta em dois dias.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Prazo",
+   "sub": "de quem não executa",
+   "nar": "Prazo de quem não executa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Veja a diferença",
+   "sub": "uma se confere",
+   "nar": "Uma dessas se confere.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A outra",
+   "sub": "é opinião",
+   "nar": "A outra é opinião.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "se inscreva",
+   "nar": "Se inscreva e confira.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# labtreinamento-s046\n\n## TITULO\nEscrever Estresse Na Equipe No Inventário De Riscos Não Descreve Nada Que Alguém Possa Conferir\n\n## TITULO SHORT\nEstresse não é situação\n\n## DESCRICAO\nA coluna que o auditor lê primeiro pede **situação observada** — e a frase que quase todo mundo escreve ali é **uma conclusão**: \"estresse na equipe\", \"clima ruim\", \"sobrecarga\".\n\nA diferença não é de estilo, é de **conferibilidade**. Conclusão não tem como ser verificada por outra pessoa: ou ela acredita em você, ou não. Situação tem **verbo e tem quando** — \"a escala sai com dois dias de antecedência\", \"o prazo é definido por quem não executa a tarefa\", \"a mesma pessoa responde a duas chefias com prioridades diferentes\". Qualquer uma dessas, outra pessoa consegue olhar e dizer se é verdade.\n\nE há uma segunda consequência, que é a que custa caro: **conclusão não gera plano de ação**. Do \"estresse na equipe\" não sai tarefa nenhuma — não há o que mudar. Da escala que sai com dois dias de antecedência sai uma tarefa com responsável e prazo, e é isso que fecha a linha no inventário.\n\nO teste é de uma pergunta: **o que eu escrevi aqui pode ser conferido por alguém que não estava na conversa?** Se a resposta for não, você escreveu o que concluiu, não o que viu.\n\nAqui não entram norma, portaria, data de vigência nem faixa de classificação, e isso é deliberado: esses mudam. O que não muda é **o que vai na coluna**.\n\nNo vídeo completo: as seis famílias de fator que o auditor procura, as quatro abas da planilha, a coluna da fonte que separa inventário defensável de inventário opinativo, e as duas notas que dão o nível.\n\n## COMENTARIO FIXADO\nUm atalho que funciona na hora de reescrever: tome a sua conclusão e pergunte **\"por quê?\"** até a resposta virar um fato com horário, prazo ou número de pessoas. \"Estresse\" → por quê? → \"porque viram a escala em cima da hora\" → por quê? → \"porque a escala sai com dois dias\". Pronto: a última resposta é a linha do inventário, e as anteriores eram o caminho até ela. E guarde a **data** em que você observou isso, porque daqui a um ano a frase sem data não se defende.\n\n## AVISO\nNenhuma norma, portaria, data de vigência ou faixa de classificação entra nesta peça — regra (g), porque todos mudam por ato normativo. As situações citadas (escala com dois dias, prazo de quem não executa, duas chefias) são EXEMPLOS DE FORMA que o próprio longo usa para ilustrar a diferença, não números sobre o mundo.\n\n## HASHTAGS\n#SegurancaDoTrabalho #RiscoPsicossocial #LabTreinamento\n\n## TAGS\ninventário de riscos, risco psicossocial, situação observada, auditoria, PGR, plano de ação, segurança do trabalho, gestão de riscos, escala de trabalho, clareza de papéis, conferibilidade, LabTreinamento, documentação, evidência, organização do trabalho\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Fora a portaria, a\ndata de vigencia e a faixa que separa alto de medio — todos sujeitos a mudar.\n\n## FAMILIA DE ENTRADA ERRADA\nCONCLUSAO no lugar da SITUACAO: escrever o estado inferido (\"estresse na equipe\")\nonde a coluna pede o fato observavel com verbo e quando. Familia nova neste canal\n— as outras pecas desta origem (`XgqPVJuAk3o`) usam A LINHA GENERICA SEM FONTE\n(`s038`) e as do `s011`/`s033`. Capitulos 30 e 31 da origem, intocados.\n\n## MIRA\nPrevisao edge **24,6** / piper **20,2**: dentro nos dois mundos. Postura do 753 —\nmira VERDE com a exposicao declarada: se o edge narrar, o real deve cair entre\n**25,5 e 28,3 s**, logo pode passar do teto de 26,0 (752/754, cinco de sete).\nSe o piper narrar, 21,1 a 23,9, dentro. **NADA de parametro mudou** (§10).\n"
+}
