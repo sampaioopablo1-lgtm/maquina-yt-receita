@@ -1,0 +1,92 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-s043",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#1F2933",
+  "c1": "#3F6C51",
+  "c2": "#C98B2E",
+  "bg": "#F5F3ED"
+ },
+ "thumb": {
+  "l1": "Dias úteis",
+  "l2": "não mês"
+ },
+ "longo_existente": "NNgAQLlpEzg",
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Quantos dias",
+   "sub": "você contou",
+   "nar": "Quantos dias você contou?",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O mês inteiro",
+   "sub": "trinta",
+   "nar": "O mês inteiro?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Não é o mês",
+   "sub": "são os seus",
+   "nar": "São os dias úteis.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Folga",
+   "sub": "não gera passagem",
+   "nar": "Folga não paga passagem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Nem feriado",
+   "sub": "nem férias",
+   "nar": "Nem feriado, nem férias.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E o outro erro",
+   "sub": "é por viagem",
+   "nar": "E tem o outro lado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Baldeação",
+   "sub": "cada embarque",
+   "nar": "Conte cada embarque.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dois ônibus",
+   "sub": "são duas",
+   "nar": "Dois ônibus, duas tarifas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Confira",
+   "sub": "com a tarifa de hoje",
+   "nar": "Use a tarifa de hoje.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "se inscreva",
+   "nar": "Se inscreva e confira.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# labtreinamento-s043\n\n## TITULO\nO Gasto De Transporte Do Mês Não Se Conta Pelo Calendário E Nem Por Viagem Única\n\n## TITULO SHORT\nDias úteis, não mês\n\n## DESCRICAO\nUma das duas contas do vale-transporte **não está em documento nenhum: ela é sua**. E é justamente por isso que ela sai errada — não por cálculo, mas por **contagem**.\n\nO primeiro erro é o número de dias. O mês do calendário não desloca ninguém: o que gera passagem são **os dias em que você efetivamente vai**. Folga, feriado, férias e falta não geram tarifa, e contar o mês cheio infla o seu lado da comparação.\n\nO segundo erro é o oposto e some com mais facilidade: **a conta não é por dia de trabalho, é por embarque pago**. Quem pega um ônibus e depois outro paga duas tarifas na ida e duas na volta. Quem só olha \"ida e volta\" está contando metade do que gasta, e esse é o lado que reduz o seu número.\n\nOs dois erros andam em direções contrárias, e é por isso que o resultado parece plausível mesmo errado: um compensa o outro em parte, e você fica com um valor que não corresponde a nada. **A conta certa é dias em que você vai, vezes embarques que você paga, com a tarifa de hoje** — não a de memória, que atrasa.\n\nDepois disso a comparação é uma linha só, e o vídeo completo a mostra. Aqui não entram percentual, tarifa, valores nem exemplos em reais, e isso é deliberado: eles mudam. O que não muda é **o que se conta**.\n\n## COMENTARIO FIXADO\nUm detalhe que muda a contagem e quase ninguém registra: o trajeto é entre casa e trabalho, **nos dois sentidos** — então a assimetria existe de verdade quando a volta tem um embarque a mais que a ida, por causa de horário ou de linha. Vale contar a ida e a volta separadas, em vez de dobrar a ida. E quem vai de carro ou de moto não está nessa conta de jeito nenhum: ela é de transporte coletivo público. Teste: escreva os embarques de um dia típico, um por um, e veja se o total é o que você vinha usando.\n\n## AVISO\nNenhum percentual, tarifa, valor em reais, número de dias ou exemplo numérico entra nesta peça — regra (g). O próprio longo avisa que os números do exemplo dele são inventados para ilustrar, e por isso eles não teriam lugar aqui nem como ilustração.\n\n## HASHTAGS\n#DepartamentoPessoal #Holerite #LabTreinamento\n\n## TAGS\nvale-transporte, dias úteis, baldeação, embarque, tarifa, holerite, desconto em folha, departamento pessoal, conferência de folha, direitos do trabalhador, transporte coletivo, LabTreinamento, salário básico, folha de pagamento, conferência\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. A regra (g) tirou o\npercentual, a tarifa, os dias e o exemplo inteiro em reais — e o longo DECLARA\nque os numeros do exemplo dele sao inventados, o que e o caso especial da regra\n(g): numero que a fonte diz ser ilustracao nao entra de jeito nenhum.\n\n## FAMILIA DE ENTRADA ERRADA\nCONTAGEM da propria base: contar DIAS DE CALENDARIO em vez de dias em que se vai,\ne contar VIAGEM em vez de EMBARQUE PAGO. Familia nova neste canal — as outras\npecas desta origem (`NNgAQLlpEzg`) usam BASE errada (`s036`: percentual sobre o\nbruto) e `s001`. Capitulos 18 a 20 da origem, que nenhum short havia tocado.\n\n## MIRA — SEGUNDO ponto do lado que o 751 abriu, e e PRE-REGISTRADO\nPrevisao edge **23,3** / piper **19,1**: o `mira.py` REPROVA pelo PISO, como no\n`s042`. Isto e deliberado e tem desenho: o `s042` foi o primeiro ponto em que o\nreal caiu DENTRO da mira (25, com previsao 23,4), e um ponto nao e serie.\n\n**O que eu declaro ANTES de publicar:** se o edge narrar, o real deve cair entre\n**24,2 e 25,7 s** — dentro da mira; se o piper narrar, 20,0 a 21,5 — dentro\ntambem. **Se sair acima de 26,0, o 751 recebe o contraexemplo dele na segunda\npeca**, e isso vai dito com a mesma clareza.\n\n**E a prosodia do 747 foi medida ANTES de cortar:** 4,1% de letras acentuadas,\ncontra os 2,0% que reprovaram a primeira versao do `s039`. Eu troquei palavras\npara manter acento em vez de so encurtar — foi isso que o 751 mostrou ser a\nvariavel, e nao o comprimento.\n\n**NADA de parametro mudou** (trava da §10).\n"
+}
