@@ -1287,6 +1287,25 @@ o ponto que punha o real dentro, então eu volto a manter a mira **verde** (edge
 da banda, e FORA da mira, exatamente como a copy disse antes de publicar.
 Quinze de quinze acima; `RESIDUO_N` = 15, limites intocados.
 
+**E A CONTAGEM DO 744 FOI A SETE — aprendizado 754.** O `labtreinamento-s045`
+(`K0UCkskqpJE`, previsão edge 24,5, provedor **edge** medido, real **27**,
+resíduo +2,5 dentro da banda) é o décimo sexto ponto, dezesseis de dezesseis
+acima. E o que vale guardar é o **tally** deste canal no mundo `edge`:
+
+| real | peças |
+|---|---|
+| **FORA** do teto de 26,0 | `s037` 28, `s039` 27, `s041` 27, `s044` 27, `s045` 27 |
+| dentro | `s038` 26, `s042` 25 |
+
+**Cinco de sete, todas com o `mira.py` verde nos dois mundos.** Isso já não é a
+aritmética do 740: é **frequência medida**. A decisão segue do dono, e eu declaro
+a exposição na copy de cada peça antes de publicar.
+
+**E o portão `variedade` pegou o esqueleto outra vez:** ele avisou que o `s045`
+seria a **sexta de 45** com a mesma sequência de layouts. Troquei a ordem — que é
+conteúdo, não limiar — e o aviso parou. É o defeito de 12/10 às 20:1x
+reaparecendo: a forma nova vira molde próprio se ninguém contar.
+
 **E O `pacotes` DO `frota.yml` É LISTA DE OBJETOS — aprendizado 738.** Eu mandei
 `["labtreinamento-s034"]` e o run `38476203962` morreu: o job `preparar` dá
 **SUCCESS** (o `jq` monta `{include:[...]}` de qualquer coisa) e o run dá

@@ -56,6 +56,7 @@ SERIE = [
     # 753: de volta a mirar a mira VERDE (24,9). Real 27, residuo +2,1 — DENTRO
     # da banda ampliada, e o real FORA da mira, como a copy declarou.
     ("labtreinamento-s044", 24.9, 27, "edge"),
+    ("labtreinamento-s045", 24.5, 27, "edge"),   # 754: +2,5, dentro da banda
 ]
 
 
