@@ -1,0 +1,92 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-s049",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#1F2933",
+  "c1": "#3F6C51",
+  "c2": "#C98B2E",
+  "bg": "#F5F3ED"
+ },
+ "thumb": {
+  "l1": "Organização",
+  "l2": "e não indivíduo"
+ },
+ "longo_existente": "StQNFMdpGdk",
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "A medida",
+   "sub": "que você escreveu",
+   "nar": "A medida que você escreveu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Palestra",
+   "sub": "de saúde mental",
+   "nar": "Palestra de saúde mental.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Nenhuma",
+   "sub": "delas é ruim",
+   "nar": "Nenhuma delas é ruim.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E nenhuma",
+   "sub": "delas responde",
+   "nar": "E nenhuma delas responde.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O risco",
+   "sub": "é da organização",
+   "nar": "O risco é da organização.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A medida",
+   "sub": "é do indivíduo",
+   "nar": "A medida é do indivíduo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A escala",
+   "sub": "sai em cima da hora",
+   "nar": "A escala sai em cima da hora?",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Publique",
+   "sub": "com antecedência",
+   "nar": "Publique com antecedência.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Não ensine",
+   "sub": "a lidar",
+   "nar": "Não ensine a lidar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "se inscreva",
+   "nar": "Se inscreva e confira.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# labtreinamento-s049\n\n## TITULO\nA Palestra De Saúde Mental Não Responde A Um Risco Que Nasce Da Organização Do Trabalho\n\n## TITULO SHORT\nOrganização e não indivíduo\n\n## DESCRICAO\nA coluna **medida de controle** do plano de ação é onde mora o erro mais caro deste tema inteiro, e ele quase sempre tem a mesma cara: palestra sobre saúde mental, aplicativo de meditação, ginástica laboral.\n\n**Nenhuma delas é ruim, e nenhuma delas responde.** O risco que você inventariou nasce da **organização do trabalho** — da escala, do prazo, de quem decide o quê — e a medida que você escreveu é dirigida ao **indivíduo**. Os dois estão em níveis diferentes, e por isso a medida não alcança a causa: ela ensina a pessoa a suportar o que a empresa continua fazendo.\n\nA norma trabalha com **ordem de prioridade**: primeiro eliminar ou reduzir **na fonte**; depois medida **coletiva e organizacional**; só por último a medida voltada ao indivíduo. Quem começa pelo último inverteu a ordem inteira.\n\n**Traduzindo para a planilha:** se a situação observada é \"a escala é publicada com pouca antecedência\", a medida é **publicar com mais antecedência**. Não é ensinar o grupo a lidar com a incerteza. A situação dá a medida — se você precisa de criatividade para preencher essa coluna, é sinal de que a coluna da situação está vaga.\n\nE o teste é de uma pergunta: **se a medida funcionar perfeitamente, o que muda na organização do trabalho?** Se a resposta for \"nada, só as pessoas aguentam melhor\", você escreveu uma medida de último nível para um risco de primeiro.\n\nAqui não entra norma, item, portaria nem faixa de classificação, e isso é deliberado: esses mudam. O que não muda é a **ordem dos níveis**.\n\nNo vídeo completo: as abas da planilha, as duas notas que dão o nível, a faixa que separa alto de crítico (e por que ela é escolha da empresa, não da norma), e as cinco colunas do plano — incluindo a verificação de eficácia, que é a que quase todo mundo deixa vazia.\n\n## COMENTARIO FIXADO\nUm atalho para não cair nisso: escreva a medida **sem usar a palavra \"treinamento\", \"orientação\" ou \"conscientização\"**. Se você não conseguir, o risco que você descreveu provavelmente não é da organização — ou a sua coluna de situação está genérica demais para dizer o que mudar. As duas possibilidades são úteis de descobrir antes da auditoria.\n\n## AVISO\nNenhuma norma, item, portaria ou faixa de classificação entra nesta peça — regra (g), porque todos mudam por ato normativo. A ordem de prioridade citada (fonte, depois coletiva, depois individual) é a ESTRUTURA que o próprio longo explica, não um número sobre o mundo. O exemplo da escala é o exemplo do próprio longo, e vai sem prazo porque o longo trata o prazo como escolha da empresa.\n\n## HASHTAGS\n#SegurancaDoTrabalho #RiscoPsicossocial #LabTreinamento\n\n## TAGS\nplano de ação, medida de controle, risco psicossocial, hierarquia de controle, organização do trabalho, inventário de riscos, PGR, segurança do trabalho, auditoria, escala de trabalho, saúde mental no trabalho, LabTreinamento, eficácia, gestão de riscos, medida coletiva\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO.\n\n## FAMILIA DE ENTRADA ERRADA\nNIVEL ERRADO DA HIERARQUIA: responder com medida dirigida ao INDIVIDUO um risco\nque nasce da ORGANIZACAO do trabalho, invertendo a ordem de prioridade (fonte,\ncoletiva, individual). Familia NOVA neste canal.\n\n## ORIGEM — regra (h), e esta e a primeira vez\n`StQNFMdpGdk` **nao tem spec local**. Os capitulos sairam da faixa de LEGENDA\n`standard` (nao automatica) que a propria maquina subiu, lida pelo `pg_net`:\n`captions?part=snippet&videoId=` deu `status_code` 200 com DUAS faixas (uma `asr`\ne uma `standard`), e o download da `standard` com `tfmt=srt` deu 200 com\n**15.044 caracteres**. Nenhuma frase desta peca saiu de TITULO de capitulo.\nEsta origem estava entre as DUAS menos usadas do canal (UM short cada) e eu a\nvinha pulando por nao ter spec — o que e exatamente o que a regra (h) proibe.\n\n## MIRA\nPrevisao edge **25,1** / piper **20,6**: dentro nos dois mundos. A primeira\nversao tinha piper **19,8**, FORA pelo PISO, e foi ALONGADA. Postura do 753 —\nmira VERDE com a exposicao declarada: se o edge narrar, o real deve cair entre\n**26,0 e 28,8 s**, logo PODE passar do teto de 26,0 (758, sete de dez). Se o\npiper narrar, 21,5 a 24,3, dentro. **NADA de parametro mudou** (§10).\n"
+}
