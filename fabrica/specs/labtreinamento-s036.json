@@ -1,0 +1,92 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-s036",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#232B2B",
+  "c1": "#3D5A80",
+  "c2": "#C9772E",
+  "bg": "#F4F2EC"
+ },
+ "thumb": {
+  "l1": "Desconto oscilando",
+  "l2": "base errada"
+ },
+ "longo_existente": "NNgAQLlpEzg",
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Muda todo mês?",
+   "sub": "olhe o desconto",
+   "nar": "Seu desconto muda todo mês?",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O sinal",
+   "sub": "é a oscilação",
+   "nar": "É o sinal da base errada.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A base certa",
+   "sub": "é uma linha só",
+   "nar": "A base é o salário básico.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O bruto não",
+   "sub": "serve aqui",
+   "nar": "O bruto não serve.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que sai",
+   "sub": "da base",
+   "nar": "Sai hora extra e adicional.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por que infla",
+   "sub": "o adicional pesa",
+   "nar": "O adicional infla o bruto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Base fixa",
+   "sub": "teto fixo",
+   "nar": "Base fixa pede teto fixo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Onde olhar",
+   "sub": "nos proventos",
+   "nar": "Procure a linha do salário.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Compare",
+   "sub": "linha por linha",
+   "nar": "Compare com o desconto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "se inscreva",
+   "nar": "Se inscreva e confira.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# labtreinamento-s036\n\n## TITULO\nO Desconto Do Vale-Transporte Que Muda De Valor Todo Mês — O Sinal De Que A Base Está Errada\n\n## TITULO SHORT\nO desconto que muda todo mês\n\n## DESCRICAO\nExiste um sinal na folha que não precisa de conta nenhuma para ser visto: **o desconto do vale-transporte muda de valor todo mês**.\n\nSe a sua base é fixa, o teto do desconto tem de ser fixo também. Quando ele oscila, quase sempre a causa é a mesma — **o percentual está saindo do total bruto** em vez de sair do salário básico.\n\nA base é o **salário básico sozinho**. Fica de fora hora extra, adicional noturno, insalubridade, periculosidade, gratificação, prêmio e comissão. O bruto soma tudo isso, e é justamente tudo isso que a norma manda excluir — então o desconto cresce junto com o mês em que você fez mais hora extra.\n\nOnde olhar: nos **proventos**, a linha do salário base, que em alguns modelos vem como vencimento. É o número grande que engana, porque o bruto é o que chama atenção.\n\nAqui não há percentual, valor de tarifa nem data, e isso é deliberado: esses mudam, e um short com o número do ano passado fica errado e continua no ar. O que não muda é qual linha do holerite é a base.\n\nNo vídeo completo: a lei e o regulamento, a lista inteira do que sai da base, a exceção de quem é pago por produção ou comissão, as duas contas lado a lado e como levar a conversa com papel.\n\n## COMENTARIO FIXADO\nUm desconto que oscila **não prova** por si só que há erro — quem é pago por tarefa ou por comissão tem a base invertida pelo próprio decreto, e nesse caso oscilar é o certo. O teste é de dez segundos: se o seu salário base é fixo e o desconto não é, há uma pergunta a fazer. Guarde três meses de holerite antes da conversa.\n\n## AVISO\nNenhum percentual, tarifa, valor ou data entra nesta peça — regra (g). O que vai ao ar é qual linha do holerite serve de base, que não muda com ato normativo.\n\n## HASHTAGS\n#Holerite #ValeTransporte #LabTreinamento\n\n## TAGS\nvale-transporte, holerite, folha de pagamento, salário base, desconto em folha, direitos trabalhistas, departamento pessoal, RH, CLT, salário bruto, hora extra, adicional de periculosidade, conferir holerite, LabTreinamento, trabalhador\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Conferido campo a\ncampo. Nenhum numeral aparece na narracao.\n\nA REGRA (g) tira o que MUDA, e neste longo e o principal: o percentual do teto\n(capitulo 0), a tarifa e os dias do mes (capitulos 16 a 22) e o exemplo em reais\n(capitulos 32 a 39). O que NAO muda e qual LINHA do holerite serve de base, e e\nso isso que vai ao ar.\n\nA contagem declarada tambem ficou de fora: o longo enumera o que sai da base em\nlista longa (capitulo 10) e a peca diz \"hora extra e adicional\" sem prometer\nnumero de itens -- e a licao do 725.\n"
+}
