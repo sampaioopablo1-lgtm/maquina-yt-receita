@@ -1,0 +1,92 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-s040",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#1F2933",
+  "c1": "#3F6C51",
+  "c2": "#C98B2E",
+  "bg": "#F5F3ED"
+ },
+ "thumb": {
+  "l1": "Emissão não",
+  "l2": "é realização"
+ },
+ "longo_existente": "lau1nnOUm1U",
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Qual data você usou?",
+   "sub": "olhe a planilha",
+   "nar": "Qual data você usou?",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A da emissão",
+   "sub": "do papel",
+   "nar": "A da emissão do papel?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "É a outra",
+   "sub": "que conta",
+   "nar": "É a outra data que conta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A realização",
+   "sub": "o dia da aula",
+   "nar": "Vale a data da realização.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por que muda",
+   "sub": "a emissão atrasa",
+   "nar": "A emissão vem bem depois.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O prazo encurta",
+   "sub": "e some do radar",
+   "nar": "E o seu prazo já encurta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Onde ler",
+   "sub": "no certificado",
+   "nar": "Está no próprio certificado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Anote qual",
+   "sub": "ao lado da linha",
+   "nar": "E anote qual data usou.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Não chute",
+   "sub": "pergunte",
+   "nar": "Não chute; pergunte.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "se inscreva",
+   "nar": "Se inscreva e confira.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# labtreinamento-s040\n\n## TITULO\nA Data De Emissão Do Certificado Não É A Data Que Conta Para O Vencimento Do Treinamento\n\n## TITULO SHORT\nEmissão não é realização\n\n## DESCRICAO\nA conta do vencimento tem **uma entrada só** — e é nela que o erro mora. A data que vale é a da **realização** do treinamento: o dia em que a pessoa fez. A da **emissão** do certificado é outra, e ela **vem depois**.\n\nPor isso usar a emissão **encurta o seu prazo sem você perceber**: se o papel saiu semanas depois da aula, o vencimento que você calculou cai depois do verdadeiro, e a linha some do radar justamente no mês em que deveria aparecer.\n\nO certificado traz as duas datas, e normalmente a de realização está no corpo do texto enquanto a de emissão está no rodapé ou na assinatura. **Leia qual é qual, e anote ao lado da linha qual delas você usou** — porque daqui a um ano ninguém lembra, e sem essa marca a planilha não se confere.\n\nE se o documento não deixar claro: **não chute, pergunte a quem ministrou**. A data de realização é o único campo que ordena a lista inteira, e um palpite nela desalinha tudo o que vem depois.\n\nAqui não há prazo, periodicidade nem norma citada, e isso é deliberado: esses mudam por ato normativo e por treinamento. O que não muda é **qual data entra na conta**.\n\nNo vídeo completo: as duas contas, os três campos que você precisa ler no certificado, as cinco colunas da lista, quem entra nela e como escolher a antecedência medindo em vez de estimar.\n\n## COMENTARIO FIXADO\nUm caso em que a diferença não aparece: quando o certificado sai no mesmo dia da aula, as duas datas coincidem e usar qualquer uma dá o mesmo vencimento. É justamente por isso que o erro passa tanto tempo invisível — **ele só se manifesta nos certificados que demoraram**, e esses são os que mais importam, porque são os que você vai descobrir em cima da hora. Teste: pegue os certificados mais antigos da pasta e compare as duas datas. Se em algum deles a distância passa de uma semana, a sua planilha já tem linha com vencimento adiado.\n\n## AVISO\nNenhum prazo, periodicidade, norma ou valor entra nesta peça — regra (g), e o próprio longo diz em letra que não dá prazos porque eles mudam. E nenhuma contagem foi prometida: o longo enumera \"três campos\", \"cinco colunas\" e \"quatro passos\", e a peça não cita nenhum desses números.\n\n## HASHTAGS\n#SegurancaDoTrabalho #Treinamento #LabTreinamento\n\n## TAGS\nvencimento de treinamento, data de realização, certificado de treinamento, controle de validade, planilha de treinamentos, reciclagem, segurança do trabalho, departamento pessoal, auditoria, matriz de treinamento, gestão de pessoas, LabTreinamento, periodicidade, conformidade, prazo de validade\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. A regra (g) tirou a\nperiodicidade (capitulo 19), a antecedencia (32 a 39) e o exemplo com data redonda\n(12 e 13). O proprio longo declara no capitulo 54 que NAO da prazos porque eles\nmudam -- entao aqui isso e coerencia com a fonte, nao so cautela minha.\n\n## MIRA — e esta peca ACHOU O OUTRO LADO DA PINCA\nPrevisao edge **24,7** / piper **20,3**: dentro da mira nos dois mundos.\n\nE o numero que eu nao esperava: a PRIMEIRA versao desta peca saiu com edge 23,5 e\n**piper 19,3 -- FORA da mira pelo PISO**, que e um lado que eu nunca havia\ntocado. Ate agora a pinca do 740 so me apertava pelo TETO (o real do edge\npassando de 26,0); aqui ela apertou por baixo, porque a razao piper/edge de ~0,82\npuxa o piper abaixo de 20,0 assim que o edge desce de ~24,4.\n\n**Logo a sala de escrita desta peca, com dez cenas, e de ~0,3 s:** abaixo de\nedge 24,4 o piper fura o piso, e em 24,7 o real do edge passou do teto na peca\nanterior (s039: 24,7 -> 27). **Nenhum ponto dessa faixa garante o real dentro** —\ne isso e a contradicao do 740 medida pelos DOIS lados, nao mais so pela aritmetica.\n\nEu escolhi 24,7, o unico ponto que mantem as duas previsoes dentro, e a folga vai\nDECLARADA: se o edge narrar, o real deve cair entre 25,6 e 27,1. Mira e banda\nintocadas (trava da secao 10).\n\n## FAMILIA DE ENTRADA ERRADA\nA DATA DE EMISSAO no lugar da DATA DE REALIZACAO -- entrada errada na unica\nsubtracao que a conta tem. Aritmetica, e o efeito e sempre no mesmo sentido:\nprazo adiado, linha fora do radar.\n\nNAO e a familia do labtreinamento-s008 (a antecedencia se MEDE, nao se estima --\ncapitulos 32 a 39) nem a do -s032 (QUEM entra na lista -- capitulos 40 a 47), os\ndois outros shorts desta origem. Capitulos 14, 15, 18, 20 e 21, intocados pelos\ndois.\n"
+}
