@@ -1,0 +1,92 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-s050",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#1F2933",
+  "c1": "#3F6C51",
+  "c2": "#C98B2E",
+  "bg": "#F5F3ED"
+ },
+ "thumb": {
+  "l1": "Prazo",
+  "l2": "não é seu"
+ },
+ "longo_existente": "KRUERlNPzDw",
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Você acha",
+   "sub": "que tem prazo",
+   "nar": "Você acha que tem prazo?",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O prazo",
+   "sub": "não é seu",
+   "nar": "O prazo não é seu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A certificação",
+   "sub": "tem ciclo",
+   "nar": "A sua certificação tem ciclo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E o certificador",
+   "sub": "tem agenda",
+   "nar": "E o certificador tem agenda.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Você não",
+   "sub": "escolhe a auditoria",
+   "nar": "Você não escolhe a auditoria.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Duas empresas",
+   "sub": "o mesmo prazo",
+   "nar": "Duas empresas, o mesmo prazo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Uma",
+   "sub": "diagnostica agora",
+   "nar": "Uma diagnostica agora.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E escolhe",
+   "sub": "a data",
+   "nar": "E escolhe a data.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A outra",
+   "sub": "recebe a data",
+   "nar": "A outra recebe a data.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "se inscreva",
+   "nar": "Se inscreva e confira.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# labtreinamento-s050\n\n## TITULO\nO Prazo De Transição Da Norma Não É Seu: Quem Marca A Data É O Ciclo Da Sua Certificação\n\n## TITULO SHORT\nO prazo não é seu\n\n## DESCRICAO\nSai uma versão nova da norma e vem junto uma janela de transição. A leitura confortável é imediata: **\"temos tempo\"**. E é verdade que há tempo — é exatamente por isso que a maioria chega apertada.\n\n**A entrada errada é tratar esse prazo como se fosse seu.** Ele não é. A sua certificação tem **ciclo**, e o organismo certificador tem **agenda**. Você não escolhe em qual auditoria a versão nova vai bater: isso já está decidido por um calendário que não é o seu, e que você só descobre quando ele chega.\n\nDuas empresas com **o mesmo prazo** terminam em situações opostas:\n\n- a que **diagnostica agora** descobre o tamanho da lacuna enquanto ainda tem escolha, e **escolhe** em que auditoria entra com a versão nova;\n- a que **espera** não ganha nada com a espera — ela **recebe** a data, e descobre o tamanho da lacuna no pior momento possível para descobri-lo.\n\nA diferença entre as duas não está no prazo, está em **quem marcou a data**. E a parte que mais engana é que as duas podem dizer, com razão, que estão dentro do prazo.\n\n**E há um caso em que a conta é outra:** quem está implantando agora, sem certificado ainda, não tem transição para fazer — tem uma **escolha de qual versão usar como referência**. Aí a resposta é direta: monte pela versão nova desde já, e não haverá transição nenhuma pela frente.\n\nAqui não entra data nenhuma, nem número de edição, nem quantos anos dura a janela — regra (g), porque tudo isso muda por ato normativo e o short carrega a regra, não o calendário. O vídeo completo traz as datas publicadas.\n\nNo vídeo completo: o que de fato muda na versão nova (e quanto disso é editorial), as quatro abas da pasta de trabalho, coluna por coluna, e por que planilha nenhuma substitui ler a norma publicada.\n\n## COMENTARIO FIXADO\nO jeito mais rápido de descobrir se o prazo é seu ou do certificador: **olhe a data da sua próxima auditoria**, não a data limite da transição. Se a próxima auditoria cai antes de você ter diagnosticado as lacunas, o prazo já não é seu — e nenhuma folga no calendário da norma muda isso.\n\n## AVISO\nNenhuma data, número de edição, duração de janela ou referência de ano entra nesta peça — regra (g), porque todos mudam por ato normativo e são o conteúdo mais perecível do longo. O que a peça carrega é a ESTRUTURA: prazo de terceiro não é prazo próprio. O longo publicado traz as datas, e é dele que elas devem ser lidas.\n\n## HASHTAGS\n#Qualidade #SistemasDeGestao #LabTreinamento\n\n## TAGS\ntransição de norma, certificação, auditoria, sistema de gestão da qualidade, organismo certificador, ciclo de certificação, diagnóstico de lacunas, plano de transição, cronograma, gestão da qualidade, LabTreinamento, prazo, planejamento, implantação, versão da norma\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. E aqui o descarte foi\nMAIOR que o normal: o longo e construido sobre DATAS e numero de edicao, e nada\ndisso entrou.\n\n## FAMILIA DE ENTRADA ERRADA\nPRAZO DE TERCEIRO tratado como PRAZO PROPRIO: ler a janela de transicao como\ncalendario seu quando quem marca a data e o ciclo da certificacao e a agenda do\norganismo certificador. Duas empresas com o mesmo prazo acabam em situacoes\nopostas, e as duas podem dizer com razao que estao dentro do prazo. Familia NOVA\nneste canal.\n\n## ORIGEM — regra (h), segunda vez, mesma rota do 759\n`KRUERlNPzDw` **nao tem spec local**, e era a ULTIMA das duas origens de um uso\nso do canal. Capitulos lidos da faixa de LEGENDA `standard` pelo `pg_net`:\n`captions?part=snippet&videoId=` deu 200 com duas faixas (`standard` pt-BR e\n`asr` pt), e o download da `standard` com `tfmt=srt` deu 200 com **13.941\ncaracteres**. Nenhuma frase desta peca saiu de TITULO de capitulo.\n\n## MIRA\nPrevisao edge **24,9** / piper **20,5**: dentro nos dois mundos na PRIMEIRA\nversao. Postura do 753 — mira VERDE com a exposicao declarada: se o edge narrar,\no real deve cair entre **25,8 e 28,6 s**, logo PODE passar do teto de 26,0 (759,\noito de onze). Se o piper narrar, 21,4 a 24,2, dentro. **NADA mudou** (§10).\n"
+}
