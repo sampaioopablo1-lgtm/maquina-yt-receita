@@ -1,0 +1,92 @@
+{
+  "slug": "labtreinamento",
+  "pacote": "labtreinamento-s035",
+  "idioma": "pt-BR",
+  "voz": "pt-BR-ThalitaMultilingualNeural",
+  "trilha": "Inspired",
+  "paleta": {
+    "ink": "#1F2A37",
+    "c1": "#2F6F62",
+    "c2": "#D98C2B",
+    "bg": "#F5F3EE"
+  },
+  "thumb": {
+    "l1": "Mesmo total",
+    "l2": "outro número"
+  },
+  "longo_existente": "3KtwRYxl7_U",
+  "longo": [],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "São duas",
+      "sub": "multiplicações",
+      "nar": "São duas multiplicações.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "E a ordem",
+      "preco": "não muda o total",
+      "nar": "A ordem não muda o total.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Mas muda",
+      "sub": "o que você vê",
+      "nar": "Muda o que se vê.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Alíquota",
+      "preco": "vezes fator",
+      "nar": "Multiplique a alíquota pelo fator.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Isso dá",
+      "preco": "a efetiva",
+      "nar": "Isso dá a efetiva.",
+      "sem_cap": true
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Só então",
+      "sub": "a folha",
+      "nar": "Só então aplique na folha.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Na outra ordem",
+      "preco": "ela desaparece",
+      "nar": "Na outra ordem ela some.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "E é ela",
+      "preco": "que se confere",
+      "nar": "E é ela que se confere.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "E se contesta",
+      "preco": "com papel",
+      "nar": "E que se contesta.",
+      "sem_cap": true
+    },
+    {
+      "layout": "cta",
+      "kicker": "LabTreinamento",
+      "sub": "se inscreva",
+      "nar": "Se inscreva se confere folha.",
+      "sem_cap": true
+    }
+  ],
+  "copy": "# labtreinamento-s035\n\n## TITULO\nA Ordem Das Duas Multiplicações Não Muda O Total — Muda O Número Que Você Precisa Conferir\n\n## TITULO SHORT\nA ordem não muda o total\n\n## DESCRICAO\nEsta é a parte da conta em que a maioria chega ao valor certo e **perde o número que importa**.\n\nSão duas multiplicações. Primeiro a **alíquota vezes o fator** — e esse resultado tem nome próprio, é a **alíquota efetiva**, a que de fato sai da folha. Depois a efetiva **vezes a folha do mês**, que dá o que o histórico custa.\n\nMultiplicação é comutativa, então **a ordem não muda o total**: aplicar a alíquota na folha e depois multiplicar pelo fator dá exatamente o mesmo valor em reais. Não é disso que se trata, e quem disser que o resultado muda está errado.\n\nO que muda é **o que aparece no caminho**. Na ordem certa, a alíquota efetiva existe como um número que você pode olhar, anotar e comparar. Na outra ordem ela nunca é calculada — você sai com o valor final e sem o intermediário.\n\nE o intermediário é justamente **o que se confere e o que se contesta**. Uma discussão sobre o seu histórico é uma discussão sobre a efetiva, não sobre o total da folha: o total depende da sua folha, que não está em disputa. Quem só tem o valor final não tem o número da conversa.\n\nAqui não há alíquota, grau de risco, data nem valor de folha, e isso é deliberado: esses são definidos por ato normativo e mudam de ano para ano, enquanto a ordem das operações não muda. Um short com o percentual do ano passado fica errado e continua no ar.\n\nNo vídeo completo: onde consultar o seu índice, as duas multiplicações com números redondos, o exemplo em reais nos três cenários, o calendário com as duas datas e o que a contestação alcança — com as fontes oficiais.\n\n## COMENTARIO FIXADO\nPara ser justo com quem faz na outra ordem: **o valor em reais fica igual**, e isso não é um erro de aritmética. O custo é outro — você termina sem a **alíquota efetiva**, que é o número que se compara com o do ano anterior, que se leva para a reunião e que aparece numa contestação. Teste de dez segundos: olhe a sua planilha e veja se existe uma célula com a efetiva. Se o cálculo vai direto da folha para o total, ela não existe — e aí a conta está certa e a conversa fica sem o argumento. De propósito não citei aqui nenhuma alíquota, grau de risco nem data: esses mudam por ato normativo, e a ordem das operações não.\n\n## HASHTAGS\n#FolhaDePagamento #SegurancaDoTrabalho #LabTreinamento\n\n## TAGS\naliquota efetiva, ordem das operacoes, conferir folha, custo do historico de acidentes, multiplicacao, memoria de calculo, contestacao, planilha de folha, departamento pessoal, labtreinamento, gestao de riscos, seguranca do trabalho, folha mensal, indice do estabelecimento, conferencia de calculo\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Conferido campo a\ncampo. UNICO NUMERAL NA NARRACAO: \"duas multiplicacoes\", que e a propria\nestrutura da conta.\n\nA REGRA (g) tira o que MUDA, e neste longo e muita coisa: as tres aliquotas por\ngrau de risco (capitulo 18), as duas datas do calendario (36 e 37) e o exemplo em\nreais (25 a 31). A REGRA 609 tira as SIGLAS -- o longo nomeia a aliquota e o\nfator por sigla, e nenhuma das duas entra no titulo nem na narracao: elas nao\ncarregam significado em vinte e cinco segundos e uma delas e cifra oficial.\n\n**E O QUE A PECA AFIRMA E EXATAMENTE O QUE O CAPITULO 23 DIZ, nem um grau mais:**\n*\"a ordem importa na hora de CONFERIR\"*. Multiplicacao e comutativa e o total NAO\nmuda -- isso vai dito na descricao e no comentario, porque a peca seria falsa se\ndesse a entender o contrario. O que a ordem certa produz e o INTERMEDIARIO, a\naliquota efetiva (capitulos 20 a 22), e e ele que se confere e se contesta\n(capitulos 41 a 50, que o `s009` ja usou por outra familia).\n\nFAMILIA DE ENTRADA ERRADA: **ORDEM DAS OPERACOES que preserva o produto e perde o\nINTERMEDIARIO.** Ela e diferente da familia do `labtreinamento-s009`, o unico\noutro short deste longo, que carrega ORDEM DE ACOES (contestar nao suspende o\npagamento, capitulos 43 a 50). Regra (f) respeitada: dia novo, e nenhuma outra\npeca do canal usa esta familia.\n\nORIGEM ESCOLHIDA PELO CONTADOR, nao pelo habito: o `concentracao.py` listou as\nCINCO origens usadas uma vez so, e esta (`3KtwRYxl7_U`, 67 capitulos) e uma\ndelas. O `yrWVyqQtw00` saiu dessa lista na rodada anterior porque passou a ter\nduas pecas -- o contador reagiu, e eu segui o contador.\n\nMIRA, E AQUI ESTA O ACHADO DESTA RODADA (740): com a banda de residuo medida\n(0,9 a 2,4 s acima da previsao, 739) e a razao piper/edge desta spec (0,822),\n**NAO EXISTE estimativa que ponha a previsao dentro de 20,0 a 26,0 nos dois\nmundos E o REAL dentro da mesma faixa.** A janela da mira no edge e\n[24,33; 26,00] e a janela do real e [23,23; 23,60] -- interseccao VAZIA, com\n0,73 s de vao. Escolhi edge **24,8** e piper **20,4**: previsao dentro nos dois\nmundos, real confortavelmente dentro se o Piper narrar (21,3 a 22,8) e **ate\n1,2 s acima do teto se o edge narrar** (25,7 a 27,2). Isto vai DITO em vez de\nescondido, e a decisao de mexer na mira e do DONO (trava da secao 10).\n\n## FONTES\nO longo de onde este short foi extraido (`3KtwRYxl7_U`, pacote\nlabtreinamento-005, 67 capitulos) traz as aliquotas, as datas, o exemplo em reais\ne as duas fontes institucionais. Este short NAO introduz numero novo sobre o\nmundo, logo nao exige fonte institucional nova.\n\nNOTA DE PROCEDENCIA: o texto saiu dos capitulos 15 a 24 da spec do proprio\npacote, lidos um a um. Nenhuma frase foi inferida de titulo de capitulo.\n"
+}
