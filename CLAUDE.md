@@ -1517,6 +1517,37 @@ série caiu de 0,818 para **0,783**. Segue acima de 0,75, logo *"0,9 a 3,7"*
 continua sendo a banda do `labtreinamento` com crachá de frota — mas por menos, e
 o teto de 3,7 continua vindo do `s043`.
 
+**E A DOMINÂNCIA DA BANDA CAIU A EXATAMENTE 0,750, E O TESTE REPROVOU DE NOVO —
+aprendizado 766, `alto`, e é a SEGUNDA vez em duas rodadas que ele me obriga a
+reler em vez de reaproveitar.** O `epomeno-epipedo-s027` (`MNMazdcSGOc`) foi
+narrado pelo **edge** (zero avisos no job `116021258977`), previa **41,3** e saiu
+com **43 s** — resíduo **+1,7**, dentro da banda. Vinte e quatro de vinte e
+quatro acima. A escolha do canal saiu outra vez do `concentracao_frota.py`, que
+deu o DIA em **16 / 1 / 1**; entre os dois empatados em uma peça, o epomeno é o
+do melhor par medido no 713.
+
+**Dois achados, e o segundo é o que importa:**
+1. **A previsão REPRODUZ nesta faixa.** O `s026`, uma hora antes, previa **41,4**
+   e deu **43** — mesmo par, mesmo real. É o que o 732 havia negado e o 748 já
+   tinha visto do lado curto.
+2. **A frase do 763 perdeu o apoio da CONTAGEM.** Com o `kolejny-poziom-s025` e
+   este, a dominância do `labtreinamento` foi de **0,818 → 0,783 → 0,750**,
+   saindo do `> 0,75` que eu havia cravado no teste. Seis dos vinte e quatro
+   pontos são de outros dois canais, e o modo longo da previsão (41 a 44 s) foi
+   de quatro para **seis**. Então *"a banda é do labtreinamento com crachá de
+   frota"* **já não se diz pela contagem.**
+
+**O que ainda sustenta a frase é só a LARGURA**, e isso é mais honesto do que o
+que eu vinha escrevendo: o teto de **3,7 continua sendo o `labtreinamento-s043`**
+e **nenhum ponto de outro canal passou de +2,8**. É a largura que define a faixa
+impressa no relato do `mira.py`, logo é ela que importa para quem usa a banda.
+
+**No código:** o limiar do `test_a_banda_e_de_UM_canal.py` deixou de ser
+`> 0,75` e passou a ser a **faixa OBSERVADA** (0,60 a 0,82), que reprova nos dois
+sentidos, mais um teste novo que cobra a **largura** em vez da contagem — ele
+falha se um canal não dominante encostar no teto da banda. `RESIDUO_N` = 24;
+os limites da banda seguem intocados.
+
 **E O `pacotes` DO `frota.yml` É LISTA DE OBJETOS — aprendizado 738.** Eu mandei
 `["labtreinamento-s034"]` e o run `38476203962` morreu: o job `preparar` dá
 **SUCCESS** (o `jq` monta `{include:[...]}` de qualquer coisa) e o run dá

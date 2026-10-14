@@ -41,6 +41,8 @@ RESIDUOS = [(43.1, 44), (42.9, 44), (42.1, 44), (25.7, 27), (25.6, 28),
     (25.0, 27),   # s048, 14/10: +2,0, mira VERDE e o real FORA (758)
     (25.1, 27),   # s049, 14/10: +1,9, mira VERDE e o real FORA (759)
     (24.9, 27),   # s050, 14/10: +2,1, mira VERDE e o real FORA (760)
+    (41.3, 43),   # epomeno-epipedo-s027, 14/10: +1,7 — mesmo par que o s026
+                  # (41,4 -> 43): a previsao REPRODUZ nesta faixa (766).
     (41.2, 44),   # kolejny-poziom-s025, 14/10: +2,8 — o maior residuo da serie
                   # FORA do labtreinamento (764).
     (41.4, 43),   # epomeno-epipedo-s026, 14/10: +1,6 — OUTRO canal e OUTRA voz,

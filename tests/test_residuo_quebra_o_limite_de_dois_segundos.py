@@ -79,6 +79,10 @@ SERIE = [
     # FORA do labtreinamento: previsao edge 41,2 (mira da FROTA, piso), real 44,
     # residuo +2,8 — dentro da banda, e segundo maior valor dela.
     ("kolejny-poziom-s025", 41.2, 44, "edge"),
+    # 766: previsao 41,3 e real 43 — o MESMO par do epomeno-epipedo-s026
+    # (41,4 -> 43) a uma hora de distancia, logo a previsao REPRODUZ nesta
+    # faixa, o que o 732 havia negado e o 748 ja tinha visto no lado curto.
+    ("epomeno-epipedo-s027", 41.3, 43, "edge"),
 ]
 
 
