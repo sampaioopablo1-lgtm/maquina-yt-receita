@@ -1063,6 +1063,40 @@ uma banda que varia por um fator 2,7 sem lei estável, reprovar seria inventar
 portão com cinco pontos. `tests/test_mira_diz_onde_o_real_cai.py`, sete testes, um
 deles **exige que o código de saída continue zero**.
 
+**E ÀS 00:3x DE 14/10 ISSO VIROU UMA CONTRADIÇÃO ARITMÉTICA — aprendizado 740,
+`alto`.** Assim que o relato passou a imprimir a banda, ficou visível que as duas
+coisas que eu construí **não cabem na mesma faixa**. Para a PREVISÃO passar a
+conferência da mira nos dois mundos é preciso `piper ≥ 20,0` e `edge ≤ 26,0`, o
+que com a razão piper/edge de ~0,82 põe o edge em **[24,33; 26,00]**. Para o
+**REAL** cair dentro de 20,0 a 26,0 é preciso `edge ≤ 23,60` (teto menos 2,4) e
+`piper ≥ 19,10`, o que põe o edge em **[23,23; 23,60]**.
+
+**As duas janelas não se tocam — vão de 0,73 s.** Logo **mira verde NÃO significa
+real dentro**, e nenhuma spec de dez cenas deste canal satisfaz as duas.
+
+**NÃO resolvi sozinho**, e o motivo é a trava da §10: as duas saídas — mover a
+mira para o ESTIMADO descontando o resíduo, ou parar de conferir estimado contra
+uma faixa de REAL — mexem em parâmetro de produção. Vai para a fila do dono **com
+a conta pronta**. No `labtreinamento-s035` eu escolhi o ponto que mantém a mira
+verde (edge 24,8 / piper 20,4), com o real em 21,3 a 22,8 se o Piper narrar e até
+**1,2 s acima do teto** se o edge narrar — e isso vai **dito na copy**, não
+escondido. `tests/test_a_mira_e_o_real_nao_cabem_juntos.py`, seis testes, e um
+deles **falha se as janelas voltarem a se tocar**, para que a contradição seja
+relida em vez de desaparecer.
+
+**E a procedência dos dois insumos vai junto, porque ela é fraca:** a banda é
+`n=5` e a mira vem do commit `5dfc87f`. A contradição é aritmética **dados esses
+dois números**; se um deles mudar com motivo, ela pode deixar de existir.
+
+**E A BANDA PASSOU O PRIMEIRO TESTE OUT-OF-SAMPLE NA MESMA RODADA — aprendizado
+741, e o teste é FRACO.** A copy do `s035` anunciou, **antes de publicar**, que o
+real cairia entre **25,7 e 27,2** se o edge narrasse. Provedor medido pela
+anotação (zero avisos), real **27** — resíduo **+2,2 s**, dentro. Sexto ponto,
+**seis de seis acima**. Mas a banda tem **1,5 s de largura** e o real tem
+granularidade de 1 s: acertar dentro dela prova pouco, e isso vai dito em vez de
+virar confiança. **E ela confirmou a consequência do 740:** 27 é **um segundo
+acima do teto da mira**, exatamente o que a copy declarou que podia acontecer.
+
 **E O `pacotes` DO `frota.yml` É LISTA DE OBJETOS — aprendizado 738.** Eu mandei
 `["labtreinamento-s034"]` e o run `38476203962` morreu: o job `preparar` dá
 **SUCCESS** (o `jq` monta `{include:[...]}` de qualquer coisa) e o run dá

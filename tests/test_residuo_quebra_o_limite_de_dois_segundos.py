@@ -31,6 +31,10 @@ SERIE = [
     ("epomeno-epipedo-s025", 42.1, 44, "edge"),
     ("labtreinamento-s033", 25.7, 27, "edge"),
     ("labtreinamento-s034", 25.6, 28, "edge"),
+    # 741: PRIMEIRO ponto out-of-sample DA BANDA. A copy do s035 anunciou, antes
+    # de publicar, que o real cairia entre 25,7 e 27,2 se o edge narrasse.
+    # Provedor medido edge (zero avisos), real 27 -> residuo +2,2 s, DENTRO.
+    ("labtreinamento-s035", 24.8, 27, "edge"),
 ]
 
 
@@ -41,7 +45,7 @@ def test_o_sinal_sobrevive__cinco_de_cinco_acima():
 def test_o_limite_de_1_9_s_do_734_CAIU():
     pior = max(real - prev for _, prev, real, _ in SERIE)
     assert pior > 1.9, "se o pior residuo voltar a <=1,9 s, releia o 734 e o 739"
-    assert abs(pior - 2.4) < 0.05
+    assert abs(pior - 2.4) < 0.05, "o pior segue sendo o do s034"
 
 
 def test_duas_previsoes_a_um_decimo_dao_reais_diferentes_em_UM_SEGUNDO():
