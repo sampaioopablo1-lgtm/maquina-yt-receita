@@ -1346,6 +1346,22 @@ acima**.
 **Seis de nove, todas com a mira verde.** `RESIDUO_N` = 18; os **limites não
 mudaram**, porque o ponto caiu dentro. A decisão do 740/748 segue do dono.
 
+**E O DÉCIMO NONO PONTO LEVOU O TALLY A SETE DE DEZ — aprendizado 758.** O
+`labtreinamento-s048` (`OMZT7QPkNMA`) foi narrado pelo **edge** (zero avisos
+`NARRACAO PELO PIPER` no job `115870662966`), previsão edge **25,0** / piper 20,5,
+`mira.py` **verde nos dois mundos**, copy anunciando **25,9 a 28,7 s** antes de
+publicar. Real **27** — resíduo **+2,0**, dentro da banda. **Dezenove de dezenove
+acima.** Sete das dez peças deste canal narradas pelo edge saíram FORA do teto de
+26,0, **as sete com a mira verde**; dentro ficaram só `s038` 26, `s042` 25 e
+`s046` 26. `RESIDUO_N` = 19, limites intocados.
+
+**E a vigilância do §3.2 pegou uma coisa que NÃO é defeito, e vai dita para não
+virar alarme:** aos ~2 min a peça lia `uploadStatus: uploaded` com
+`duration: PT27S`. **Duração presente com `uploaded` é indexação em curso, não
+`P0D`** — a releitura seguinte deu `processed`. O 665 fala de `P0D` **depois de
+2 h**; `uploaded` nos primeiros minutos é o caminho normal, e confundir os dois
+fabricaria peça morta onde não há nenhuma.
+
 **E O `pacotes` DO `frota.yml` É LISTA DE OBJETOS — aprendizado 738.** Eu mandei
 `["labtreinamento-s034"]` e o run `38476203962` morreu: o job `preparar` dá
 **SUCCESS** (o `jq` monta `{include:[...]}` de qualquer coisa) e o run dá
