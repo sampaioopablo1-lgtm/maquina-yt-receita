@@ -41,6 +41,8 @@ SERIE = [
     ("labtreinamento-s037", 25.8, 28, "edge"),
     # 746: primeira peca do canal narrada pelo edge a cair DENTRO da mira.
     ("labtreinamento-s038", 24.4, 26, "edge"),
+    # 747: 24,7 deu 27 (FORA) -- 0,3 s de previsao, 1 s de real.
+    ("labtreinamento-s039", 24.7, 27, "edge"),
 ]
 
 

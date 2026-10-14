@@ -544,21 +544,18 @@ novo sobre o mundo — e isso vai dito, com o id do longo. Respeite `robots=noai
     instrumento recusa. **Rode `ensaio.alvo_short(canal)`, nunca o numero escrito
     aqui.** O historico do override de 09/10 (698) fica abaixo porque explica de
     onde ele veio:
-    (09/10, 698, a faixa ANTIGA de 33-37). Com IDADE CASADA (views na
-    janela de 9 a 21 h de vida) as duas peças de mira nova caíram ABAIXO do mínimo
-    das oito antigas — 18 e 9 contra 20, 21, 34, 48, 60, 68, 173, 196; sob a nula
-    ~1/9 cada, ~1% as duas.
-    **kolejny: sinal OPOSTO** (701, `alto`, observado). Janela casada de 4 a 8 h:
-    mira nova 209, 117, 115, 83 contra antiga 17, 13, 4, 0 — sem sobreposição,
-    1/C(8,4) = 1,4% sob a nula. **CONFUNDIDOR QUE NÃO SAI DO RELATO:** as antigas
-    são de 08/10 e as novas de 09/10; crescimento do canal entre os dias explica
-    parte ou tudo, e isso NÃO é aleatorizado no tempo.
-  **E MIRE O PISO DA MIRA, NAO O TOPO — 746, medido em 14/10.** No
-  `labtreinamento`, peca narrada pelo edge com previsao perto do TETO sai FORA no
-  REAL (s037: 25,8 -> 28) e com previsao mais baixa sai DENTRO (s038: 24,4 -> 26).
-  A conta do 740 pede edge <= 23,60. **Isso e escolha de REDACAO, nao mudanca de
-  parametro** — e abaixo de ~24 s em dez cenas o `ortografia` reprova por perda de
-  acento, entao DECLARE a folga que sobrar em vez de fingir que nao existe.
+    **kolejny: sinal OPOSTO** (701, observado) — e os NUMEROS das duas leituras
+    (698 e 701), com o confundidor de data que nao sai do relato, estao em
+    `CLAUDE.md`. Aqui fica so a regra: a mira e POR CANAL, e o sinal de um canal
+    nao vale no outro.
+  **E A FRONTEIRA E TRIPLA NO `labtreinamento` — 746 e 747, medidos em 14/10, e o
+  747 corrige o 746 QUE EU ESCREVI AQUI UMA HORA ANTES.** Narrada pelo edge:
+  s037 previa 25,8 -> 28 (fora), s038 24,4 -> 26 (dentro), **s039 24,7 -> 27
+  (FORA)**. Logo 0,3 s de previsao virou 1 s de real: **"mirar mais baixo" NAO
+  basta** — so edge <= 23,60 (conta do 740) poria o real dentro, e ali o
+  `ortografia` REPROVA por perda de acento (medido: 2,0% contra 4,5%). Entao a
+  peca de dez cenas deste canal **nao cabe nas tres restricoes ao mesmo tempo**;
+  DECLARE a folga na copy e no relato, e nao prometa real dentro.
   **Não existe "a mira certa do short" — existe a de CADA CANAL**, e é assim que
   `ALVO_POR_CANAL` cresce. **O `ALVO_SHORT` global NÃO muda** — o 38 segue sem
   leitura e mexer no global apagaria o braço. **Compare peça com peça na MESMA

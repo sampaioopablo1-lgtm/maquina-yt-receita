@@ -1145,6 +1145,29 @@ do 740 dizia que para o real cair dentro com segurança o edge precisa de
 topo é o que põe o real dentro** — e isso é escolha de redação, não mudança de
 parâmetro. `RESIDUO_N` = 9; mira e banda intocadas.
 
+**E O 746 CAIU UMA HORA DEPOIS — aprendizado 747, `alto`, e ele corrige o que eu
+tinha ACABADO de escrever na ROTINA.** O `labtreinamento-s039` (`EOzaxvaCJhk`) foi
+narrado pelo **edge** (zero avisos, run `38509958200`), previsão **24,7**, real
+**27** — **FORA** da mira. Décimo ponto, **dez de dez acima** (resíduo +2,3,
+dentro da banda).
+
+| peça | prev edge | real | mira (teto 26,0) |
+|---|---|---|---|
+| `s037` | 25,8 | 28 | fora |
+| `s038` | 24,4 | 26 | **dentro** |
+| `s039` | 24,7 | 27 | fora |
+
+**Zero vírgula três segundos de previsão viraram UM segundo de real.** Logo
+*"mirar mais baixo"* **não basta** — só `edge ≤ 23,60` (a conta do 740) poria o
+real dentro.
+
+**E ali entra a TERCEIRA restrição, que eu descobri tentando:** a primeira versão
+do `s039` mirava 23,6 e o portão **`ortografia` REPROVOU** — cortando tanto, a
+narração perde acento (**2,0% contra 4,5%** das outras specs do canal) e o TTS
+pt-BR muda a pronúncia. **Então peça de dez cenas neste canal não cabe nas três
+restrições ao mesmo tempo: previsão na mira, real na mira, e prosódia.** A rotina
+foi corrigida no mesmo passo e a folga vai **declarada na copy**.
+
 **E O `pacotes` DO `frota.yml` É LISTA DE OBJETOS — aprendizado 738.** Eu mandei
 `["labtreinamento-s034"]` e o run `38476203962` morreu: o job `preparar` dá
 **SUCCESS** (o `jq` monta `{include:[...]}` de qualquer coisa) e o run dá
