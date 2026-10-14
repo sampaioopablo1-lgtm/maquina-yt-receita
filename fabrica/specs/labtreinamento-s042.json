@@ -1,0 +1,92 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-s042",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#1F2933",
+  "c1": "#3F6C51",
+  "c2": "#C98B2E",
+  "bg": "#F5F3ED"
+ },
+ "thumb": {
+  "l1": "Por unidade",
+  "l2": "não CNPJ"
+ },
+ "longo_existente": "3KtwRYxl7_U",
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Você olhou um",
+   "sub": "só um número",
+   "nar": "Você olhou um número só?",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Da empresa",
+   "sub": "o CNPJ inteiro",
+   "nar": "Da empresa inteira?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A unidade",
+   "sub": "é outra",
+   "nar": "A unidade é outra.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Cada endereço",
+   "sub": "tem o seu",
+   "nar": "Cada endereço tem o seu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por que",
+   "sub": "o histórico é local",
+   "nar": "O histórico é local.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Então",
+   "sub": "duas filiais divergem",
+   "nar": "Duas filiais divergem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E a conta",
+   "sub": "é por unidade",
+   "nar": "A conta é por unidade.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que fazer",
+   "sub": "liste os endereços",
+   "nar": "Liste os seus endereços.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Um por um",
+   "sub": "sem média",
+   "nar": "E confira um por um.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "se inscreva",
+   "nar": "Se inscreva e confira.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# labtreinamento-s042\n\n## TITULO\nO Índice Que Multiplica A Sua Contribuição É Por Estabelecimento, Não Pela Empresa Inteira\n\n## TITULO SHORT\nPor unidade, não CNPJ\n\n## DESCRICAO\nA conta começa errada quando a **unidade de medida** está errada. Esse índice não é da empresa: ele é atribuído a **cada estabelecimento**, e duas filiais da mesma empresa podem receber índices diferentes.\n\nO motivo é o que alimenta o cálculo: o histórico que gera o índice é **do local** — o que aconteceu naquele endereço, com aquela gente, naquela operação. Uma unidade com histórico pesado não contamina a outra, e uma unidade boa não salva a outra. **Olhar um número só é olhar uma unidade só**, e quase sempre é a da matriz, porque é a que alguém consultou primeiro.\n\nIsso muda duas coisas na prática. A primeira é o tamanho do impacto: quem tem várias unidades tem **vários custos efetivos diferentes** sobre a mesma folha, e a média entre eles não existe em lugar nenhum — ninguém recolhe pela média. A segunda é onde o seu trabalho rende: a unidade com o índice pior é onde a conferência compensa, e você não sabe qual é até listar todas.\n\nO procedimento é chato e é o certo: **liste os seus estabelecimentos, um por linha, e confira um por um**. Guarde ao lado de cada um o índice e o dia da consulta. Sem essa lista, a frase \"o índice da empresa\" não quer dizer nada.\n\nAqui não entram faixa do índice, alíquotas, datas nem valores em reais, e isso é deliberado: esses mudam por ato normativo e por ano. O que não muda é **qual é a unidade da conta**.\n\nNo vídeo completo: a conta inteira em duas multiplicações, o exemplo em reais que mostra a distância entre o piso e o teto, as duas datas do calendário, por que a contestação não suspende o recolhimento, e as duas fontes oficiais separadas por órgão.\n\n## COMENTARIO FIXADO\nO caso em que o erro desaparece sozinho: empresa de um único estabelecimento. Aí \"o índice da empresa\" e \"o índice da unidade\" são a mesma coisa, e é justamente por isso que o hábito se forma — ele funciona para quem tem uma unidade e quebra calado para quem tem três. Teste: conte quantos CNPJs com endereço próprio a sua empresa tem, e compare com quantos índices você já consultou. Se o segundo número é menor, você está planejando com buraco.\n\n## AVISO\nNenhuma faixa, alíquota, data, valor em reais ou nome de sistema entra nesta peça — regra (g): os quatro primeiros mudam, e o longo cita os dele com as duas fontes oficiais. E nenhuma contagem foi prometida: o longo enumera \"três coisas para esta semana\" e a peça não cita esse número.\n\n## HASHTAGS\n#SegurancaDoTrabalho #DepartamentoPessoal #LabTreinamento\n\n## TAGS\nestabelecimento, matriz e filial, por unidade, contribuição previdenciária, custo de folha, segurança do trabalho, departamento pessoal, conferência, planejamento de caixa, índice por estabelecimento, gestão de unidades, LabTreinamento, auditoria, histórico de acidentes, conformidade\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. A regra (g) tirou a\nfaixa do indice, as tres aliquotas, as duas datas do calendario e todo o exemplo\nem reais — e esses sao a maior parte do longo.\n\n## FAMILIA DE ENTRADA ERRADA\nUNIDADE DE AGREGACAO errada: tratar como da EMPRESA um numero que e atribuido por\nESTABELECIMENTO. Familia nova neste canal — as outras pecas desta origem\n(`3KtwRYxl7_U`) usam EFEITO SUSPENSIVO presumido (`s009`) e ORDEM DAS OPERACOES\n(`s035`). Capitulos 5 e 6 da origem, que nenhum short havia tocado.\n\n## MIRA — E ESTA PECA E O OUTRO LADO DA PINCA, DE PROPOSITO\nPrevisao edge **23,4** / piper **19,2**. O `mira.py` **REPROVA**, e pelo PISO: o\npiper cai abaixo de 20,0. **Eu escolhi este ponto sabendo disso**, e o motivo e\nque ele e o primeiro desta serie em que o REAL deve cair DENTRO da mira nos DOIS\nmundos: **24,3 a 25,8 se o edge narrar** (banda do 739) e 20,1 a 21,6 se o piper\nnarrar, contra um teto de 26,0.\n\nIsto e o teste que a contradicao do 740/748 estava pedindo. Nas dez pecas\nanteriores eu sempre escolhi manter a mira VERDE, e o real saiu FORA em quatro de\ncinco narradas pelo edge. Aqui eu inverto a escolha uma vez, declarando, para que\na serie tenha um ponto do outro lado em vez de dez do mesmo.\n\n**E a TERCEIRA restricao do 747 NAO esta apertando:** cortar para 23,4 custou\nacento nas outras vezes, e aqui a taxa de letras acentuadas e **5,2%**, contra os\n2,0% que reprovaram a primeira versao do `s039` e os ~4,5% tipicos do canal. Os\nDOZE portoes do `prontidao` estao verdes, `ortografia` incluido.\n\n**O que isto NAO e:** mudanca de parametro. `ALVO_POR_CANAL`, `ALVO_SHORT` e a\nbanda seguem intocados (trava da §10). E escolha de REDACAO, e vai medida.\n"
+}
