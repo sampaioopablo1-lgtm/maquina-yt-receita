@@ -1,0 +1,92 @@
+{
+ "slug": "epomeno-epipedo",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#16283C",
+  "c1": "#2E7BB4",
+  "c2": "#E0A02E",
+  "bg": "#F3F7FA"
+ },
+ "pacote": "epomeno-epipedo-s027",
+ "longo_existente": "9Hg5A3H1Qe4",
+ "thumb": {
+  "l1": "Επικεφαλίδα",
+  "l2": "όχι υπόλοιπο"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Η επικεφαλίδα",
+   "sub": "δεν είσαι εσύ",
+   "nar": "Η επικεφαλίδα μιλάει για όλους, όχι για εσένα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Αυτό που δείχνει",
+   "sub": "έναν μέσο όρο",
+   "nar": "Αυτό που δείχνει είναι ένας μέσος όρος μιας χώρας.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Και ο μέσος όρος",
+   "sub": "δεν νοικιάζεται",
+   "nar": "Και τον μέσο όρο της χώρας δεν τον νοικιάζει κανείς.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Εσύ πληρώνεις",
+   "sub": "τη γειτονιά σου",
+   "nar": "Εσύ πληρώνεις τη γειτονιά στην οποία θα ζούσες πραγματικά.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Το ίδιο ισχύει",
+   "sub": "για τον μισθό",
+   "nar": "Το ίδιο ισχύει για τον μισθό της προσφοράς σου.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Άρα η απόφαση",
+   "sub": "θέλει το υπόλοιπο",
+   "nar": "Άρα η απόφαση θέλει το δικό σου υπόλοιπο, όχι τίτλο.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Υπόλοιπο σημαίνει",
+   "sub": "ό,τι μένει",
+   "nar": "Υπόλοιπο σημαίνει ό,τι μένει αφού φύγουν τα πάγια.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Και συγκρίνεται",
+   "sub": "με ίδιες γραμμές",
+   "nar": "Και συγκρίνεται με τις ίδιες γραμμές στις δύο στήλες.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Η γραμμή που λείπει",
+   "sub": "μετράει ως μηδέν",
+   "nar": "Η γραμμή που δεν γράφεις μετράει ως μηδέν.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Επόμενο Επίπεδο",
+   "sub": "κάνε εγγραφή",
+   "nar": "Κάνε εγγραφή, αν μετράς το δικό σου υπόλοιπο.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# epomeno-epipedo-s027\n\n## TITULO\nΜην Αποφασίζεις από την Επικεφαλίδα: ο Μέσος Όρος μιας Χώρας Δεν Είναι το Δικό σου Υπόλοιπο\n\n## TITULO SHORT\nΗ επικεφαλίδα δεν είναι το υπόλοιπό σου\n\n## DESCRICAO\nΗ πιο ακριβή απόφαση δεν παίρνεται από λάθος αριθμό. Παίρνεται από τον σωστό αριθμό κάποιου άλλου — την επικεφαλίδα ενός βίντεο ή ενός άρθρου, που είναι πάντα ένας μέσος όρος μιας ολόκληρης χώρας.\n\nΤο πρόβλημα δεν είναι ότι ο μέσος όρος λέει ψέματα. Λέει την αλήθεια για ένα σύνολο στο οποίο κανένα συγκεκριμένο νοικοκυριό δεν ζει. Τον μέσο όρο της χώρας δεν τον νοικιάζει κανείς: εσύ πληρώνεις το ενοίκιο της γειτονιάς στην οποία θα ζούσες πραγματικά, και το ίδιο ισχύει και από την άλλη πλευρά — δεν σου προσφέρουν έναν μέσο μισθό, σου προσφέρουν ένα συγκεκριμένο συμβόλαιο.\n\nΓι' αυτό η απόφαση δεν συγκρίνει επικεφαλίδες. Συγκρίνει υπόλοιπα: ό,τι μένει αφού φύγουν τα πάγια, στη μία στήλη και στην άλλη, με τις ίδιες γραμμές και στις δύο. Αν η μία στήλη έχει μια γραμμή που η άλλη δεν έχει, η σύγκριση δεν είναι σύγκριση — είναι δύο διαφορετικοί λογαριασμοί δίπλα δίπλα.\n\nΚαι υπάρχει ένα σημείο που φαίνεται μικρό και αποφασίζει: η γραμμή που δεν γράφεις δεν γίνεται ουδέτερη. Γίνεται μηδέν. Το μηδέν είναι μια πολύ δυνατή άποψη που κρύβεται μέσα στη φόρμα, και η πιο συχνή γραμμή που λείπει είναι το κόστος του να γυρίσεις πίσω. Χωρίς αυτήν, η μία επιλογή μοιάζει δωρεάν και η άλλη μοιάζει ήττα, χωρίς να έχει γίνει κανένας υπολογισμός.\n\nΔεν υπάρχει εδώ ούτε ένα ποσό και ούτε ένα ποσοστό: ο αριθμός που αποφασίζει είναι δικός σου και δεν βρίσκεται σε καμία επικεφαλίδα. Οι έξι γραμμές του φύλλου, τα τρία σενάρια και τα τρία λάθη — είναι στο βίντεο.\n\n## COMENTARIO FIXADO\nΌλο το θέμα είναι μία αλλαγή μονάδας: σταμάτα να συγκρίνεις επικεφαλίδες και σύγκρινε υπόλοιπα. Ό,τι μένει στη μία στήλη, ό,τι μένει στην άλλη, με τις ίδιες γραμμές και στις δύο. Και πρόσεξε τη γραμμή που λείπει, γιατί δεν μένει ουδέτερη — μετράει ως μηδέν. Γράψε στα σχόλια μόνο ποια γραμμή είχες ξεχάσει, χωρίς ποσά.\n\n## HASHTAGS\n#ΕπόμενοΕπίπεδο #ΠροσωπικάΟικονομικά #Αποφάσεις\n\n## TAGS\nμεσος ορος, επικεφαλιδα, υπολοιπο, παγια εξοδα, ενοικιο, γειτονια, συγκριση, φυλλο υπολογισμου, προσωπικα οικονομικα, αποφαση, κοστος επιστροφης, δυο στηλες, ελλαδα, μισθος, επομενο επιπεδο\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO\nPeca escrita na rodada das 18:0x de 14/10, e o canal saiu do contador e nao do\nhabito: o `concentracao_frota.py` com `por_dia=` deu o DIA em 16 / 1 / 1 —\ndezesseis pecas no labtreinamento contra UMA em cada um dos outros dois — contra\nos 7/dia POR CANAL que o dono pede (762). Entre os dois canais empatados em uma\npeca, o epomeno-epipedo e o que tem o MELHOR par medido no 713\n(epomeno/longo 0,33 inscrito/peca; epomeno/shorts 0,14, o segundo da lista).\n**Ressalva que vai junto: o 693 diz que views/peca e cego abaixo do dobro, e o\n713 e de 161 pecas para 19 inscritos — isto escolhe o canal por ordenacao\nmedida, nao prova que renderia mais.**\n\nA origem saiu do `concentracao.py epomeno-epipedo`: `9Hg5A3H1Qe4`\n(epomeno-epipedo-003, 81 capitulos) tinha UM short so, o `s008`.\n\n## FAMILIA DE ENTRADA ERRADA\nDecidir pela EPIGRAFE — o numero correto de outra pessoa, que e media de um pais\ninteiro — em vez do proprio resto. E familia NOVA no canal: o `s008`, o unico\noutro short desta origem, trata da COLUNA de custo que falta num lado da\ncomparacao; aqui a entrada errada e trocar a UNIDADE da decisao (epigrafe\nagregada no lugar do resto proprio), e o fecho e o corolario dos capitulos 55 e\n56 — a linha que nao se escreve nao fica neutra, fica zero. Capitulos 51 a 56,\n62, 64, 76 e 47, nenhum deles usado pelo `s008`.\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Nao cita salario, nao\ncita aluguel, nao cita percentual, nao cita horas de contrato, nao nomeia pais\nestrangeiro, nao nomeia orgao nem instituto. Conferido a mao campo por campo,\nporque o portao `narracao` conta quantidades por frase e nao pega digito cru\n(640).\n\nO QUE O VIDEO AFIRMA: que a decisao se toma comparando o RESTO de cada coluna —\no que sobra depois dos gastos fixos — com as MESMAS linhas nos dois lados, e nao\ncomparando epigrafes, porque a epigrafe e media de um pais e ninguem aluga a\nmedia; e que a linha omitida nao fica neutra, entra como zero. Esta no longo\nepomeno-epipedo-003 (`9Hg5A3H1Qe4`), capitulos \"Η σωστή σύγκριση\", \"Οι ίδιες\nγραμμές\", \"Δεν θα σου δώσω\", \"Και η επιστροφή\", \"Αν δεν τη γράψεις\", \"Γραμμή\nτρίτη\", \"Η απάντηση\" e \"Τι να μην κάνεις\", com as fontes.\n\nDESCARTADO, e vai escrito:\n  (1) o salario liquido, o percentual de sobrecarga de moradia da Eurostat, a\n      posicao na Uniao e a media europeia — todos numeros que MUDAM e estao no\n      longo com fonte (regra g);\n  (2) as horas de contrato e o numero de salarios por ano, que sao o nucleo de\n      OUTRA familia daquele longo e nao se repetem aqui;\n  (3) qualquer aluguel medio do pais estrangeiro — o proprio longo recusa dar\n      esse numero, e repeti-lo aqui contrariaria a fonte;\n  (4) a contagem \"tres erros\" do capitulo 70: o `contagem_declarada.py` nao\n      acusou conflito nesta spec, mas a contagem nao entra porque nao e o que o\n      short afirma.\n\n## MIRA\n`epomeno-epipedo` NAO tem override em `ALVO_POR_CANAL`, logo vale o `ALVO_SHORT`\nda frota, que o `ensaio.alvo_short` devolve. Mirado perto do TOPO da faixa,\nporque no `el-GR-NestorasNeural` o centro do modelo corre **-3,2%** (679) e o\ntopo e o lado seguro nessa voz — ao contrario do polones, onde se mira o piso.\n\nMEDIDO antes do render: edge **41,3** e piper **36,6** estimados — os dois dentro\nde 18 a 45, que e o que o portao `duracao` cobra nos DOIS mundos. Com a banda\nobservada de residuo (0,9 a 3,7 s, 23 pontos), se o edge narrar o REAL deve cair\nentre **42,2 e 45,0 s** — isto e, o topo da banda PASSA do teto de 45 s da faixa,\ne isso vai DITO em vez de escondido. Foi por isso que eu desci a previsao de 43,4\npara 41,3 — o PISO da faixa — em vez de mirar o topo: com o topo o teto era furado com folga. O ponto\nmais proximo que existe e o `epomeno-epipedo-s026` de hoje, que previa 41,4 e deu\n43 (residuo +1,6) — mas isso e UM ponto, nao promessa. Se o piper narrar, o real\ncai perto de 37 a 40 s. O provedor se decide no runner e por cena (730), e se mede\nCONTANDO os avisos `NARRACAO PELO PIPER` da anotacao do job (733).\n\n## FONTES\nO longo de onde este short foi extraido (epomeno-epipedo-003, `9Hg5A3H1Qe4`)\ntraz as fontes. Este short nao introduz numero novo sobre o mundo.\n"
+}
