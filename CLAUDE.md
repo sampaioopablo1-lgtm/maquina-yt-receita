@@ -1539,6 +1539,25 @@ do melhor par medido no 713.
    de **um segundo**, que é exatamente a granularidade do real (o YouTube
    arredonda para cima), logo ela não prova o contrário — ela só **retira o apoio
    da minha frase**. O que sobrevive é o sinal, agora com **25 pontos**.
+
+   **E AS DUAS AFIRMAÇÕES — a minha e a retratação dela — ERAM INDECIDÍVEIS:
+   aprendizado 768, `alto`.** O quinto ponto desta faixa (`epomeno-epipedo-s028`,
+   41,5 → **43**) fecha a conta: **as cinco previsões caem numa janela de 0,4 s e
+   o real tem passo de 1 s.** Janela mais estreita que o passo do instrumento
+   **não ordena nada**, em sentido nenhum. Os reais são 43, 43, 43, 43 e **44**, e
+   o único 44 vem da previsão **MENOR** da janela — o oposto de uma relação
+   monótona, o que não prova desordem: prova **falta de resolução**.
+
+   **E o 733 já havia nomeado este erro exato** ao desmontar o "paradoxo" do 732
+   (três previsões dentro de 1,0 s devolvendo o mesmo inteiro). **Eu reapliquei,
+   duas vezes, em duas horas, o erro que aquele aprendizado nomeia.** O que
+   sobrevive dos três é só o **SINAL**: positivo em 26 de 26.
+
+   **A regra que fica: para decidir reprodutibilidade é preciso previsão separada
+   por MAIS de 1 s** — isso é DESENHO, não releitura dos dados que já existem.
+   `tests/test_a_janela_de_previsao_e_mais_estreita_que_o_instrumento.py`, seis
+   testes, e um deles **reprova quando a janela passar de 1 s**, porque aí a série
+   passa a poder ordenar e esta nota tem de ser relida.
 2. **A frase do 763 perdeu o apoio da CONTAGEM.** Com o `kolejny-poziom-s025` e
    este, a dominância do `labtreinamento` foi de **0,818 → 0,783 → 0,750**,
    saindo do `> 0,75` que eu havia cravado no teste. Seis dos vinte e quatro

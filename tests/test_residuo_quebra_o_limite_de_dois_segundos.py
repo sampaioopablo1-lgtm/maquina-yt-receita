@@ -87,6 +87,11 @@ SERIE = [
     # da hora anterior. Previsao MAIOR, real MENOR, mesmo canal e mesma voz:
     # some o apoio da frase "a previsao REPRODUZ" que eu escrevi no 766.
     ("kolejny-poziom-s026", 41.6, 43, "edge"),
+    # 768: o QUINTO ponto na janela de 41,2 a 41,6 — e com ele as duas
+    # afirmacoes das rodadas anteriores (766 "reproduz" e 767 "inverte") ficam
+    # INDECIDIVEIS: a janela de previsao tem 0,4 s e a granularidade do real e
+    # 1 s. Previsao nao ordena o que o instrumento nao resolve.
+    ("epomeno-epipedo-s028", 41.5, 43, "edge"),
 ]
 
 
