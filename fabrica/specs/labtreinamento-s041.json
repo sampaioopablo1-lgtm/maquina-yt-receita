@@ -1,0 +1,92 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-s041",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#1F2933",
+  "c1": "#3F6C51",
+  "c2": "#C98B2E",
+  "bg": "#F5F3ED"
+ },
+ "thumb": {
+  "l1": "Substituiu",
+  "l2": "não emendou"
+ },
+ "longo_existente": "yrWVyqQtw00",
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Você comparou",
+   "sub": "os dois textos",
+   "nar": "Você comparou os dois textos?",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Lado a lado",
+   "sub": "caçando o que mudou",
+   "nar": "Caçando o que mudou?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Essa entrada",
+   "sub": "está errada",
+   "nar": "A entrada está errada.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Não foi emenda",
+   "sub": "foi substituição",
+   "nar": "O texto não foi emendado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Inteiro",
+   "sub": "o anterior saiu",
+   "nar": "Foi substituído por inteiro.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Então o diff",
+   "sub": "não descreve",
+   "nar": "Então o diff não descreve.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que fazer",
+   "sub": "leia como texto novo",
+   "nar": "Leia como texto novo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E compare",
+   "sub": "com a sua instalação",
+   "nar": "Compare com a instalação.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Não com o antigo",
+   "sub": "ele não vale mais",
+   "nar": "Não com o antigo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "se inscreva",
+   "nar": "Se inscreva e confira.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# labtreinamento-s041\n\n## TITULO\nComparar O Texto Novo Com O Antigo É A Entrada Errada Quando A Norma Foi Substituída Por Inteiro\n\n## TITULO SHORT\nSubstituiu, não emendou\n\n## DESCRICAO\nQuando sai texto normativo novo, o reflexo é abrir os dois lado a lado e caçar o que mudou. **Esse é o método certo para uma emenda — e a entrada errada para uma substituição.**\n\nA diferença não é de palavra. Em emenda, o texto antigo continua valendo onde não foi tocado, e então o diff **é** a mudança. Em substituição integral o anterior deixa de valer inteiro, e o diff passa a descrever uma relação entre um texto vivo e um texto morto: **ele não diz o que a sua instalação precisa**, porque o lado antigo da comparação não exige mais nada de ninguém.\n\nO efeito prático é pior do que perder tempo. Lendo por diferença, tudo o que o texto novo escreveu **do mesmo jeito que o antigo** passa como \"não mudou\" e sai da sua lista — mesmo quando é exatamente ali que a sua instalação nunca esteve em conformidade. **O diff esconde o que você já devia e não fez.**\n\nA entrada certa é ler o texto novo **como texto novo** e comparar cada exigência dele com **a sua instalação**, não com a redação anterior. O trabalho fica maior no começo e é o único que produz uma lista de tarefas de verdade.\n\nE tem uma consequência de calendário: parte do que a leitura honesta encontra não se resolve com curso. Pede levantamento em campo, revisão de projeto e decisão de quem assina — coisas que andam em meses, não em semanas.\n\nAqui não entra prazo, data, número de portaria nem quantidade de mudanças, e isso é deliberado: esses mudam, e o longo cita os dele com fonte. O que não muda é **qual pergunta abre a leitura**.\n\n## COMENTARIO FIXADO\nO caso em que o diff ainda serve: quando você quer saber se **a sua própria prática** mudou de status — o que era aceito e deixou de ser. Isso é uma pergunta sobre você, não sobre o texto, e para ela comparar faz sentido. O que o diff nunca responde é \"o que eu preciso fazer\", porque essa resposta depende da sua instalação e não da redação anterior. Teste rápido: abra a sua lista do que \"mudou\" e pergunte, linha por linha, se ela veio da instalação ou da comparação. Se veio só da comparação, ela ainda não é tarefa.\n\n## AVISO\nNenhum prazo, data, número de ato normativo ou contagem de mudanças entra nesta peça — regra (g). O longo declara contagens (\"três mudanças que pesam\", \"quatro passos\") e a peça não cita nenhuma delas, para não repetir o defeito do 725 (fonte que declara N e enumera N+1).\n\n## HASHTAGS\n#SegurancaDoTrabalho #NR10 #LabTreinamento\n\n## TAGS\nnorma substituída, texto normativo novo, adequação, segurança em eletricidade, NR 10, levantamento de campo, conformidade, auditoria, segurança do trabalho, engenharia elétrica, gestão de riscos, LabTreinamento, revisão de projeto, leitura de norma, plano de adequação\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. A regra (g) tirou a\ndata de vigencia, o numero da portaria, a janela de transicao e as contagens de\nmudanca e de passo — todos presentes na fonte e todos sujeitos a mudar.\n\n## FAMILIA DE ENTRADA ERRADA\nSUBSTITUICAO INTEGRAL tratada como EMENDA: usar o diff como metodo quando o texto\nanterior deixou de valer por inteiro. Familia nova neste canal — as outras pecas\ndesta origem (`yrWVyqQtw00`) usam ORDEM DE CONTRATACAO (`s010`: pedir o estudo\nantes do levantamento) e CONDICAO NECESSARIA x SUFICIENTE (`s034`: treinamento\nsem autorizacao). Capitulos 5 a 7 da origem, que nenhum short havia tocado.\n\n## MIRA — e a folga vai DECLARADA, nao escondida\nPrevisao edge **24,6** / piper **20,2**: dentro da mira nos dois mundos.\n\nE o que isso NAO promete, pelo 744/747: se o edge narrar, o real deve cair entre\n**25,5 e 27,0 s** — ou seja, pode passar do teto da mira (26,0). Se o piper\nnarrar, 21,1 a 22,6, dentro. A pinca do 748 e por FORMA (o piso do piper e uma\nRAZAO, o teto do real e um OFFSET), e por isso nao existe ponto desta faixa que\ngaranta as duas coisas. Eu escolhi o ponto que mantem a mira verde e declaro a\nexposicao, em vez de prometer real dentro.\n"
+}
