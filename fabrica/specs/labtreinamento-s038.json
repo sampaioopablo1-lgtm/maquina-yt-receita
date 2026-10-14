@@ -1,0 +1,92 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-s038",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#1E2A32",
+  "c1": "#5B4B8A",
+  "c2": "#D08A2C",
+  "bg": "#F4F2EC"
+ },
+ "thumb": {
+  "l1": "Conclusão",
+  "l2": "não situação"
+ },
+ "longo_existente": "XgqPVJuAk3o",
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Estresse na equipe?",
+   "sub": "olhe essa linha",
+   "nar": "Escreveu estresse na equipe?",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Isso é conclusão",
+   "sub": "não é fato",
+   "nar": "Isso é conclusão, não fato.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Falta o verbo",
+   "sub": "e falta mais",
+   "nar": "Situação pede verbo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E a frequência",
+   "sub": "com que frequência",
+   "nar": "E pede frequência também.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A coluna que decide",
+   "sub": "é a da fonte",
+   "nar": "Depois vem a fonte.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Como soube?",
+   "sub": "é a pergunta",
+   "nar": "Como você soube disso?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Fonte é de grupo",
+   "sub": "nunca de pessoa",
+   "nar": "Fonte boa descreve grupo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Guarde a data",
+   "sub": "junto da fonte",
+   "nar": "Guarde a data da coleta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Quebre em partes",
+   "sub": "uma medida cada",
+   "nar": "Quebre a linha vaga.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "se inscreva",
+   "nar": "Se inscreva e confira.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# labtreinamento-s038\n\n## TITULO\n\"Estresse Na Equipe\" Não É Uma Linha De Inventário — É Uma Conclusão Sem Fonte E Sem Data\n\n## TITULO SHORT\nConclusão não é situação\n\n## DESCRICAO\nExiste uma linha que aparece em quase toda planilha de risco e que **não é inventário nenhum**: \"estresse elevado no setor\". Ela parece preenchimento correto e é **opinião com aparência de documento**.\n\nO problema é o que ela não tem. **Situação precisa de verbo e de frequência** — algo que acontece, e com que regularidade. \"Escala publicada com dois dias de antecedência, toda semana\" é situação. \"Estresse na equipe\" é a conclusão a que alguém chegou olhando a situação, e conclusão **não se age sobre ela nem se verifica depois** se melhorou.\n\nDepois vem a coluna que separa um inventário defensável de um inventário inventado, e ela responde uma pergunta só: **como você soube disso?** Pesquisa anônima, escuta por grupo, absenteísmo, registro de horas extras, canal de denúncia, atas da comissão interna. **Repare no que todas têm em comum: nenhuma é individual.** Todas descrevem grupo — e é por isso que o inventário fica útil sem virar prontuário.\n\nE guarde **a data da coleta junto da fonte**. Daqui a um ano ninguém lembra de que mês veio aquele número.\n\nO conserto da linha genérica é mecânico: **quebre em situações concretas**. Uma linha vaga costuma virar várias linhas específicas, e cada uma pede uma medida diferente — que é exatamente o que a linha vaga impedia.\n\nAqui não há percentual, faixa de corte, prazo nem data de norma, e isso é deliberado: esses mudam. O que não muda é o que faz uma linha ser situação em vez de conclusão.\n\nNo vídeo completo: as quatro abas, a coluna da situação com contraexemplo, as fontes que valem, as duas notas do nível e os erros que o auditor encontra primeiro.\n\n## COMENTARIO FIXADO\nVale dizer o que esta peça **não** está afirmando: que \"estresse na equipe\" é falso. Pode ser a leitura mais certa que existe daquele setor. O ponto é outro — **ela não é acionável nem verificável**, e uma planilha cheia de linhas assim deixa você cego **com** um documento dizendo que está tudo bem, o que é pior que não ter planilha. Teste de dez segundos por linha: tem verbo? tem com que frequência? tem como eu soube? Se faltar uma das três, a linha ainda não está pronta.\n\n## AVISO\nNenhum percentual, faixa, prazo ou data entra nesta peça — regra (g). E nenhuma CONTAGEM foi prometida: o longo enumera \"erro um, dois, três\" e depois acrescenta \"e um quarto\" (capítulos 64 a 70), e a peça não diz quantos são. Conferido com `contagem_declarada.py`: esta spec NÃO tem conflito (o longo fecha em \"a regra que resolve os quatro\"), e a omissão aqui é por escolha de forma, não por defeito da fonte.\n\n## HASHTAGS\n#SegurancaDoTrabalho #GestaoDeRiscos #LabTreinamento\n\n## TAGS\ninventário de riscos, situação observada, fonte do risco, riscos psicossociais, planilha de riscos, plano de ação, auditoria, segurança do trabalho, saúde ocupacional, evidência documental, gestão de riscos, LabTreinamento, comissão interna, pesquisa anônima, absenteísmo\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Conferido campo a\ncampo. Nenhum numeral aparece na narracao.\n\nA REGRA (g) tirou a faixa de classificacao e o corte (capitulos 43 a 46) -- e o\nproprio longo diz que o corte e ESCOLHA e nao norma, que e o caso especial da\nregra (g), ja usado pelo labtreinamento-s011. Tirou tambem os prazos da aba Plano\n(59 a 60).\n\n## FAMILIA DE ENTRADA ERRADA\nA LINHA GENERICA: escrever a CONCLUSAO (estresse elevado) no lugar da SITUACAO\n(verbo + frequencia), e sem a coluna da fonte. O erro e de natureza do dado, nao\nde calculo.\n\nNAO e a familia do labtreinamento-s011 (o corte da faixa e escolha, nao norma --\ncapitulos 43 a 45) nem a do -s033 (o objeto da avaliacao e o trabalho e nao o\ntrabalhador -- capitulos 12 a 23), os dois unicos outros shorts desta origem.\nRegra (e) satisfeita, e as tres familias vem de blocos de capitulo distintos.\n"
+}

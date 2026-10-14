@@ -69,9 +69,62 @@ def test_contagem_le_as_specs_de_verdade_e_acha_o_dominante_do_labtreinamento():
 
 
 def test_o_relato_NOMEIA_as_origens_pouco_usadas():
+    """14/10: o texto mudou porque o relato passou a SEPARAR escrevivel de
+    sem-fonte. A intencao do teste e a mesma — as pouco usadas vao NOMEADAS —
+    e por isso ele passou a cobrar a intencao em vez da frase antiga."""
     texto = C.relato("labtreinamento")
-    assert "origens usadas UMA vez" in texto
+    assert "usadas UMA vez" in texto
     assert "nao reprova" in texto
+    a = C.analise(C.contagem("labtreinamento"), "labtreinamento")
+    for o in a["recomendadas"] + a["sem_fonte_local"]:
+        assert o in texto, f"origem pouco usada {o} ficou fora do relato"
+
+
+def test_origem_SEM_SPEC_LOCAL_nao_entra_nas_recomendadas(tmp_path):
+    """O defeito de 14/10: duas origens recomendadas nao tinham fonte nenhuma.
+
+    `KRUERlNPzDw` e `StQNFMdpGdk` tem SETE capitulos de titulo e nenhuma faixa de
+    legenda (runs 38504585378 e 38504726301) — e a regra (h) proibe escrever a
+    partir de titulo. O modulo apontava as duas como a proxima peca.
+    """
+    (tmp_path / "ch-s001.json").write_text(
+        json.dumps({"longo_existente": "COM_SPEC"}), encoding="utf-8")
+    (tmp_path / "ch-s002.json").write_text(
+        json.dumps({"longo_existente": "SEM_SPEC"}), encoding="utf-8")
+    # so a primeira tem spec de longo com capitulos
+    (tmp_path / "ch-001.json").write_text(
+        json.dumps({"longo_existente": "COM_SPEC",
+                    "longo": [{"nar": "x"}]}), encoding="utf-8")
+    a = C.analise(C.contagem("ch", str(tmp_path)), "ch", str(tmp_path))
+    assert a["recomendadas"] == ["COM_SPEC"]
+    assert a["sem_fonte_local"] == ["SEM_SPEC"]
+
+
+def test_spec_de_longo_VAZIA_nao_conta_como_fonte(tmp_path):
+    """Spec homonima sem `longo` nao da texto nenhum — foi o falso positivo do
+    `segundo_angulo` em 12/10, do outro lado."""
+    (tmp_path / "ch-s001.json").write_text(
+        json.dumps({"longo_existente": "AAA"}), encoding="utf-8")
+    (tmp_path / "ch-001.json").write_text(
+        json.dumps({"longo_existente": "AAA", "longo": []}), encoding="utf-8")
+    assert C.escrevivel("AAA", "ch", str(tmp_path)) is False
+
+
+def test_o_relato_DIZ_que_sem_spec_local_nao_e_inviavel(tmp_path):
+    """Ele nao pode afirmar inviabilidade: a legenda pode existir."""
+    (tmp_path / "ch-s001.json").write_text(
+        json.dumps({"longo_existente": "SEM_SPEC"}), encoding="utf-8")
+    texto = C.relato("ch", str(tmp_path))
+    assert "LEGENDA" in texto and "capitulos.yml" in texto
+    assert "nao escreva a partir de titulo" in texto
+
+
+def test_as_duas_origens_reais_de_14_10_seguem_sem_spec_local():
+    """Ancora: se alguem escrever spec para elas, este teste avisa para reler."""
+    for o in ("KRUERlNPzDw", "StQNFMdpGdk"):
+        assert C.escrevivel(o, "labtreinamento") is False, (
+            f"{o} ganhou spec local: refaca a escolha de pauta, ela virou "
+            "escrevivel")
 
 
 def test_contagem_ignora_short_sem_longo_existente(tmp_path):
