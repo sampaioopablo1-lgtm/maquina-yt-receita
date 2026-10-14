@@ -1,0 +1,92 @@
+{
+ "slug": "epomeno-epipedo",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#16283C",
+  "c1": "#2E7BB4",
+  "c2": "#E0A02E",
+  "bg": "#F3F7FA"
+ },
+ "pacote": "epomeno-epipedo-s029",
+ "longo_existente": "P2q6w9y7j88",
+ "thumb": {
+  "l1": "Κάποιες γραμμές",
+  "l2": "δεν κουνιούνται"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Κλείνεις",
+   "sub": "το κλιματιστικό",
+   "nar": "Κλείνεις το κλιματιστικό και περιμένεις όλη τη σελίδα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Κάποιες γραμμές",
+   "preco": "δεν κουνιούνται",
+   "nar": "Κάποιες γραμμές όμως δεν κουνιούνται καθόλου από εκεί.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Είναι δεμένες",
+   "preco": "στο ακίνητο",
+   "nar": "Είναι δεμένες στο ακίνητο και στη σύνδεση.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Η κατανάλωση",
+   "sub": "δεν τις αγγίζει",
+   "nar": "Η κατανάλωση δεν τις αγγίζει, όσο λίγη κι αν γίνει.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Τα τετραγωνικά",
+   "preco": "μένουν ίδια",
+   "nar": "Τα τετραγωνικά του σπιτιού μένουν ακριβώς τα ίδια πάντα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Σταθερό ποσό",
+   "preco": "ανά λογαριασμό",
+   "nar": "Άλλη γραμμή είναι σταθερό ποσό ανά λογαριασμό.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Δύο λογαριασμοί",
+   "sub": "σε μία σελίδα",
+   "nar": "Κρατάς στα χέρια σου δύο λογαριασμούς τυπωμένους μαζί.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ψάξε πρώτα",
+   "preco": "τι κινείται",
+   "nar": "Ψάξε λοιπόν πρώτα ποιες γραμμές κινούνται με εσένα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Μετά κόψε",
+   "preco": "εκεί που πιάνει",
+   "nar": "Και μετά κόψε μόνο εκεί που η προσπάθεια πιάνει.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Επόμενο Επίπεδο",
+   "sub": "κάνε εγγραφή",
+   "nar": "Κάνε εγγραφή, αν διαβάζεις τον δικό σου λογαριασμό.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# epomeno-epipedo-s029\n\n## TITULO\nΚλείνεις το Κλιματιστικό και Περιμένεις Όλη τη Σελίδα: Ποιες Γραμμές Δεν Κουνιούνται\n\n## TITULO SHORT\nΚάποιες γραμμές δεν κουνιούνται\n\n## DESCRICAO\nΗ προσπάθεια να μειώσεις τον λογαριασμό ξεκινάει σχεδόν πάντα από το ίδιο σημείο: κλείνεις συσκευές, προσέχεις τις ώρες, κόβεις ό,τι μπορείς. Και μετά περιμένεις να πέσει η σελίδα ανάλογα. Η απογοήτευση που ακολουθεί δεν είναι επειδή η προσπάθεια ήταν μικρή — είναι επειδή ένα μέρος της σελίδας δεν ακούει καθόλου την κατανάλωση.\n\nΜέσα στον λογαριασμό συνυπάρχουν γραμμές με διαφορετική φύση. Κάποιες κινούνται με το πόσο καις, και εκεί η προσπάθεια πιάνει. Κάποιες άλλες είναι δεμένες στο ακίνητο και στη σύνδεση: υπολογίζονται στα τετραγωνικά του σπιτιού ή είναι σταθερό ποσό ανά λογαριασμό. Αυτές δεν πέφτουν αν κλείσεις το κλιματιστικό, ούτε αν λείψεις έναν μήνα από το σπίτι.\n\nΑπό εκεί βγαίνει η σωστή σειρά, και δεν χρειάζεται κανένα νούμερο από έξω. Πρώτα ξεχωρίζεις στη σελίδα ποιες γραμμές κινούνται με εσένα και ποιες μένουν ακίνητες. Μετά υπολογίζεις τη μείωση που περιμένεις μόνο πάνω στις πρώτες. Και τέλος συγκρίνεις με το τελικό ποσό. Αλλιώς περιμένεις αποτέλεσμα από ένα κομμάτι που δεν δέχεται την πράξη σου.\n\nΥπάρχει και μια δεύτερη συνέπεια, πιο πρακτική. Κρατάς στα χέρια σου δύο λογαριασμούς τυπωμένους μαζί: έναν της κατανάλωσης και έναν που αφορά το ακίνητο και τη σύνδεση. Το ότι μοιράζονται την ίδια σελίδα δεν τους κάνει ίδιο πράγμα — και το ότι δεν τα παρατηρούμε δεν τα κάνει μικρά.\n\nΔεν υπάρχει εδώ ούτε συντελεστής, ούτε ποσό, ούτε ποσοστό: οι αριθμοί που αποφασίζουν είναι στη δική σου φατούρα. Πόσες επιβαρύνσεις κάθονται τελικά στη σελίδα, ποιες από αυτές είναι σταθερές, πώς μπαίνει ο φόρος πάνω σε χρέωση και τι αλλάζει πραγματικά με τον πάροχο — είναι στο βίντεο, με τις πηγές.\n\n## COMENTARIO FIXADO\nΗ σειρά είναι το παν, και δεν χρειάζεται κανένα νούμερο από έξω: πρώτα ξεχωρίζεις ποιες γραμμές κινούνται με την κατανάλωση, μετά περιμένεις μείωση μόνο σε εκείνες, και στο τέλος κοιτάς το τελικό ποσό. Οι γραμμές που είναι δεμένες στα τετραγωνικά ή στη σύνδεση δεν πέφτουν όσο κι αν κόψεις. Γράψε στα σχόλια μόνο αν περίμενες μείωση από ακίνητη γραμμή — χωρίς ποσά.\n\n## HASHTAGS\n#Ρεύμα #Λογαριασμοί #ΕπόμενοΕπίπεδο\n\n## TAGS\nλογαριασμος ρευματος, σταθερες χρεωσεις, δημοτικα τελη, τελος ακινητης περιουσιας, καταναλωση, μειωση λογαριασμου, παροχος ρευματος, φατουρα, προσωπικα οικονομικα, ελλαδα, τετραγωνικα, συνδεση, επομενο επιπεδο, νοικοκυριο, εξοικονομηση\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO\nQUINTA peca seguida com o canal escolhido pelo contador (762/765/767). O\n`concentracao_frota.py` com `por_dia=` deu o DIA em **16 / 3 / 3** e ALERTOU no\nnivel do DIA (16 contra 3 do segundo) — o alerta que o contador de ACERVO nao da,\nporque o acervo esta dentro do dobro (50 contra 28). Os dois canais baixos\nEMPATARAM em tres pecas, e o desempate vai escrito com os dois critérios:\n(a) a peca mais ANTIGA do dia — epomeno as 20:13 contra kolejny as 21:12;\n(b) o par medido no 713 — epomeno/shorts 0,14 contra kolejny/shorts 0,09.\n**Ressalva repetida de proposito: o 693 diz que views/peca e cego abaixo do\ndobro, e 0,14 contra 0,09 NAO e o dobro.** Logo (b) e ordenacao medida, nao\nprova; e (a) e rotacao, sem conteudo preditivo nenhum.\n\nA origem saiu do `concentracao.py epomeno-epipedo`: `P2q6w9y7j88`\n(epomeno-epipedo-004, **78 capitulos**) tinha UM short so, o `s010`.\n\n## FAMILIA DE ENTRADA ERRADA\nTratar como VARIAVEL com o consumo o que e FIXO por IMOVEL e por CONEXAO:\ncortar consumo e esperar que a pagina inteira caia, quando parte dela esta presa\naos metros quadrados do imovel ou e valor fixo por fatura. E familia NOVA no\ncanal — e e preciso dizer por que, porque o irmao e perto: o `s010`, o unico\noutro short desta origem, trata do DESCONTO que incide na linha da energia e nao\nno total. Ali o erro e sobre a BASE DE UM PERCENTUAL; aqui o erro e sobre a\nNATUREZA da linha — nenhum percentual entra, e a pergunta e se a linha responde\nou nao ao que o espectador faz. Capitulos 37, 38 e 39 do longo\n(\"Τρίτη\", \"Τέταρτη\", \"Το σημαντικό εδώ\"), nenhum deles usado pelo `s010`.\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Nao cita quantas\nrubricas existem, nao cita quantas delas sao fixas, nao cita percentual, nao cita\naliquota, nao cita valor, nao cita area e nao nomeia orgao nem fornecedor.\nConferido a mao campo por campo, porque o portao `narracao` conta quantidades por\nfrase e nao pega digito cru (640).\n\n**E a contagem ficou FORA de proposito, pelo 725.** O capitulo 32 do longo\ndeclara CINCO rubricas e o 39 diz que DUAS delas nao se movem — numeros que o\nlongo sustenta. Mesmo assim a narracao nao os diz, e o motivo nao e medo de\ndigito: o `contagem_declarada.py` achou QUATRO specs da frota em que a fonte\ndeclara N e enumera N+1, e esta origem tem a mesma assinatura autoral (o\ncapitulo 67 declara `Τέσσερα λάθη`). Carregar a contagem para o short seria\ncarregar risco que nenhum portao nosso barra — o `narracao` conta quantidades e\nNAO confere se a quantidade e verdadeira (723/725). A unica frase que mantem\nnumero e \"δύο λογαριασμούς τυπωμένους μαζί\", que e o capitulo 42 e e FIGURA (duas\nnaturezas na mesma pagina), nao inventario de rubricas.\n\nO QUE O VIDEO AFIRMA: que parte das linhas do lado esquerdo da conta esta presa\nao imovel (metros quadrados) ou e valor fixo por fatura, e que por isso ela nao\ncai quando o consumo cai; e que a pagina carrega duas naturezas impressas juntas.\nEsta no longo epomeno-epipedo-004 (`P2q6w9y7j88`), capitulos \"Τρίτη\",\n\"Τέταρτη\", \"Το σημαντικό εδώ\" e \"Το συμπέρασμα\", com as fontes.\n\nDESCARTADO, e vai escrito:\n  (1) quantas rubricas existem e quantas sao fixas — ver o paragrafo acima;\n  (2) a aliquota do IVA, a dos demais tributos e o \"cinco por mil\" do ultimo —\n      numeros que MUDAM, e estao no longo com fonte (regra g);\n  (3) a faixa de quanto da conta e energia — e o nucleo da familia do `s010` e\n      sairia repetida;\n  (4) o imposto que incide SOBRE outras cobrancas (capitulos 34 e 35) — e uma\n      terceira familia ainda livre neste longo, e e boa.\n\n## MIRA\n`epomeno-epipedo` NAO tem override em `ALVO_POR_CANAL`, logo vale o `ALVO_SHORT`\nda frota (41,5 a 43,0). Mirado perto do PISO: edge **41,9** e piper **37,1**, os\ndois dentro de 18 a 45 nos DOIS mundos, e o portao `duracao` cobra os dois.\n\nCom a banda observada de residuo e **27 pontos**, se o edge narrar o REAL deve\ncair entre **42,4 e 45,6 s** — e o topo PASSA do teto de 45. Isso vai DITO antes\nde publicar, nao depois. Se o piper narrar, 37,6 a 40,8.\n\n**E a declaracao que importa mais hoje e o que esta banda NAO faz.** Esta e a\nSETIMA peca cuja previsao cai na janela de 41 a 42 s, e pelo 768/769 essa janela\ntem **largura menor que o passo do instrumento**: as previsoes andam dentro de\n~0,4 s e o real anda de um em um segundo, arredondado para cima. Logo **esta\nprevisao nao ordena nada contra as outras seis** — nem para cima nem para baixo —\ne qualquer leitura de \"reproduziu\" ou \"inverteu\" neste intervalo seria o erro que\no 733 nomeou e que eu repeti duas vezes em duas horas. O que eu afirmo e so o\nSINAL: vinte e sete de vinte e sete reais ficaram ACIMA da previsao do provedor\nque de fato narrou.\n\nO provedor se decide no runner e por cena (730) e se mede CONTANDO os avisos\n`NARRACAO PELO PIPER` da anotacao (733), nunca pela distancia entre previsao e\nreal.\n\n## FONTES\nO longo de onde este short foi extraido (epomeno-epipedo-004, `P2q6w9y7j88`) traz\nas fontes. Este short nao introduz numero novo sobre o mundo.\n"
+}
