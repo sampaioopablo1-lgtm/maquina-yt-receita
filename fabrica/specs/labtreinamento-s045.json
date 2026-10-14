@@ -1,0 +1,92 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-s045",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#1F2933",
+  "c1": "#3F6C51",
+  "c2": "#C98B2E",
+  "bg": "#F5F3ED"
+ },
+ "thumb": {
+  "l1": "Um mês",
+  "l2": "não prova"
+ },
+ "longo_existente": "dsoEo103l1o",
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Conferiu um mês",
+   "sub": "e não bateu",
+   "nar": "Conferiu um mês e não bateu?",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Um mês",
+   "sub": "prova pouco",
+   "nar": "Um mês prova pouco.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que decide",
+   "sub": "é o padrão",
+   "nar": "O que decide é o padrão.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Uma linha",
+   "sub": "por mês",
+   "nar": "Monte uma linha por mês.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Comece",
+   "sub": "pelos meses iguais",
+   "nar": "Comece pelos meses iguais.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sem férias",
+   "sub": "sem atípico",
+   "nar": "Sem férias e sem atípico.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Depois",
+   "sub": "os estranhos",
+   "nar": "Depois vá aos estranhos.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Um de cada vez",
+   "sub": "nunca comparados",
+   "nar": "Um de cada vez.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Aí você vê",
+   "sub": "qual parcela é",
+   "nar": "Aí você vê qual parcela é.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "se inscreva",
+   "nar": "Se inscreva e confira.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# labtreinamento-s045\n\n## TITULO\nUma Conferência De Um Mês Só Não Decide Nada, E O Mês Atípico É O Pior Para Começar\n\n## TITULO SHORT\nUm mês não prova\n\n## DESCRICAO\nAchou diferença conferindo **um** mês e já foi atrás de explicação? Essa é a entrada errada, e ela não é de cálculo: é de **amostra**.\n\nUm mês solto tem muitas causas possíveis para a mesma diferença — e todas plausíveis. O que separa \"erro\" de \"calendário\" não é o valor daquele mês, é **se a diferença se repete**. Diferença que aparece num mês e desaparece no seguinte costuma ser o calendário da folha. Diferença que volta todos os meses, do mesmo tamanho, mora numa **parcela** — e essa você consegue nomear.\n\nPor isso o procedimento é simples e paciente: **uma linha por mês**, com o bruto da folha, o seu número calculado e o valor que apareceu. Em uma folha de papel cabe o ano inteiro, e aí o padrão fica visível sem ninguém precisar explicar.\n\nE tem uma ordem que economiza trabalho: **comece pelos meses em que nada aconteceu** — sem férias, sem parcela extra, sem afastamento. Esses são os que isolam a conta. Só depois vá aos meses atípicos, **um de cada vez**, e nunca compare um mês de férias com um mês comum: comparar coisas diferentes é fabricar a diferença que você está procurando.\n\nAqui não entram percentual, valores, datas nem contagem de casos, e isso é deliberado — inclusive a contagem, porque a própria fonte se contradiz nela, e inventar um número seria pior que omitir. O que não muda é **quantos meses você precisa olhar antes de concluir**.\n\nNo vídeo completo: a conta em quatro passos, os casos normais que explicam diferença sem erro nenhum, e as duas fontes oficiais da regra.\n\n## COMENTARIO FIXADO\nO detalhe que mais encurta o trabalho: na linha de cada mês, anote **o que aconteceu naquele mês** numa quarta coluna curta — férias, parcela extra, afastamento, nada. Sem essa coluna você vai reabrir a dúvida daqui a três meses sem lembrar por que aquele mês era estranho. E se a diferença aparecer **só** nos meses marcados, a sua resposta já está pronta: não é erro, é calendário.\n\n## AVISO\nNenhum percentual, valor, data ou contagem entra nesta peça — regra (g) para os três primeiros, e a contagem fica fora por um motivo medido: esta mesma origem declara um número de casos e enumera OUTRO (aprendizado 724/725 na forma de conteúdo), então repetir qualquer um deles seria pôr número errado no ar.\n\n## HASHTAGS\n#DepartamentoPessoal #Conferencia #LabTreinamento\n\n## TAGS\nconferência de folha, padrão mensal, mês atípico, férias, parcela extra, afastamento, departamento pessoal, holerite, método de conferência, planilha, segurança do trabalho, LabTreinamento, auditoria interna, base de cálculo, amostra\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. E zero CONTAGEM, que\ne mais forte que a regra (g): o `labtreinamento-009` declara \"esses cinco casos\"\nno capitulo 35 e enumera SEIS nos capitulos 28 a 33 — o conflito que o\n`fabrica/contagem_declarada.py` existe para achar. Com a fonte em contradicao,\nqualquer contagem no short seria numero errado no ar.\n\n## FAMILIA DE ENTRADA ERRADA\nAMOSTRA DE UM: tratar a conferencia de UM mes como prova de padrao, e comparar\nmes atipico com mes comum. Familia nova neste canal — as outras pecas desta\norigem (`dsoEo103l1o`) usam PERIODO errado (`s005`) e QUEM ENTRA na lista\n(`s031`, `s032`). Capitulos 36 a 43, intocados.\n\n## MIRA\nPrevisao edge **24,5** / piper **20,1**: dentro da mira nos dois mundos, com o\npiper a um decimo do piso — e isso e a pinca do 748 apertando por baixo.\n\n**O que isto NAO promete:** se o edge narrar, o real deve cair entre **25,4 e\n28,2 s**, logo pode passar do teto de 26,0 (752). Se o piper narrar, 21,0 a 23,8,\ndentro. A postura e a do 753: mira VERDE e exposicao declarada, porque a saida\nque o 751 parecia abrir caiu no 752.\n\n**NADA de parametro mudou** (§10).\n"
+}
