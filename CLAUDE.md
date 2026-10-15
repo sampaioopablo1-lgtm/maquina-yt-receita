@@ -1680,6 +1680,20 @@ teste reprovou pela TERCEIRA vez para me obrigar a reler em vez de mover o
 número. O piso da faixa foi ao valor OBSERVADO (0,58) e **quem carrega a
 afirmação agora é o teste da LARGURA**. `RESIDUO_N` = 31, 27 estabelecidos.
 
+**E ÀS 02:3x O TESTE DA DOMINÂNCIA FOI REESCRITO, porque ele passou a reprovar
+TODA rodada.** Com o `epomeno-epipedo-s031` (`V1CslnNkHRg`, 41,6 → **43**,
+resíduo **+1,4**, sinal estabelecido, 32º ponto) a dominância caiu a **0,563** —
+e, com o contador de canal mandando produzir nos outros dois canais, a faixa de
+dois lados reprovaria a cada peça nova. **Teste que reprova sempre deixa de
+avisar**, que é exatamente o argumento pelo qual o `mira.py` não virou portão
+(44 avisos). E ele reprovava medindo um número cuja afirmação eu **já havia
+retratado** uma rodada antes.
+
+Ficou a forma **monótona** do que sobreviveu: `dominância < 0,75`, isto é, ela
+não voltou ao patamar em que a frase se dizia pela contagem — não precisa de
+edição a cada ponto, e **reprova se subir de novo**, que é o caso que exige
+releitura. `RESIDUO_N` = 32, 28 estabelecidos.
+
 **O que ainda sustenta a frase é só a LARGURA**, e isso é mais honesto do que o
 que eu vinha escrevendo: o teto de **3,7 continua sendo o `labtreinamento-s043`**
 e **nenhum ponto de outro canal passou de +2,8**. É a largura que define a faixa

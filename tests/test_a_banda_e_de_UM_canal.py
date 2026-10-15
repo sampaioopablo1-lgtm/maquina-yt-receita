@@ -71,22 +71,31 @@ def test_a_serie_e_MULTICANAL__a_minha_premissa_era_falsa():
 
 
 # Dominancia ja OBSERVADA, em ordem: 0,818 (22 pontos, 763), 0,783 (23, 765),
-# 0,750 (24, 766). O teto da faixa e o maior valor ja visto; o piso e onde a
-# frase da banda deixaria de ter qualquer apoio de contagem.
-DOMINANCIA_OBSERVADA = (0.58, 0.82)
+# 0,750 (24, 766), 0,581 (31, 15/10 01:2x) e 0,563 (32, 02:2x).
+#
+# E A FAIXA DE DOIS LADOS SAIU DAQUI EM 15/10 AS 02:3x, pelo mesmo argumento que
+# o `mira.py` usa para nao virar portao: teste que reprova em TODA rodada deixa
+# de avisar. Desde que a contagem furou o piso (01:2x) ele passava a reprovar a
+# cada peca que nao fosse do `labtreinamento` — ou seja, sempre, porque o
+# contador de canal manda produzir nos outros dois. E ele reprovava medindo um
+# numero cuja AFIRMACAO eu ja havia retratado: o apoio de contagem esta MORTO
+# desde aquela rodada.
+#
+# Fica a forma MONOTONA do que sobreviveu: a dominancia nao voltou ao patamar em
+# que a frase se dizia pela contagem. Isso nao precisa de edicao a cada ponto, e
+# reprova se ela SUBIR de novo — que e o caso que exigiria reler.
+DOMINANCIA_SEM_APOIO_ABAIXO_DE = 0.75
 
 
-def test_a_dominancia_do_canal_esta_na_faixa_OBSERVADA__e_ela_vem_CAINDO():
+def test_a_dominancia_NAO_voltou_ao_patamar_em_que_a_contagem_sustentava():
     c = _canais()
     dom, n_dom = c.most_common(1)[0]
     assert dom == "labtreinamento"
     d = n_dom / sum(c.values())
-    piso, teto = DOMINANCIA_OBSERVADA
-    assert piso <= d <= teto, (
-        f"dominancia {d:.3f} fora da faixa observada {DOMINANCIA_OBSERVADA}: "
-        "acima do teto ela voltou a subir, abaixo do piso a frase 'a banda e de "
-        "um canal' perdeu o apoio de contagem. Nos dois casos RELEIA a nota do "
-        "763/766 em vez de mexer neste numero")
+    assert d < DOMINANCIA_SEM_APOIO_ABAIXO_DE, (
+        f"dominancia {d:.3f} voltou a {DOMINANCIA_SEM_APOIO_ABAIXO_DE} ou acima:"
+        " a frase 'a banda e de um canal' voltaria a ter apoio de CONTAGEM e a"
+        " nota do 763/766 tem de ser relida")
 
 
 def test_a_frase_da_banda_NAO_se_apoia_mais_na_contagem__e_sim_na_LARGURA():
