@@ -1,0 +1,1 @@
+insert into videos (slug,status,formato,titulo,youtube_id,canal,pacote,origem_id,cenas,publicado_em,trilha) values ('kolejny-poziom-s033-short','publicado','shorts','Prowizję rozłóż na miesiące','gYagMh5WAXA','kolejny-poziom','kolejny-poziom-s033','GUiq15usizw',10,'2026-10-15T11:22:35Z','Wholesome') on conflict (slug) do nothing
