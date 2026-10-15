@@ -111,3 +111,16 @@ uma vez só, e **três delas não têm spec local** — a rota da regra (h)
 (`captions?part=snippet` pelo `pg_net`) depende do banco. Sobrou **uma**
 origem escrevível, e ela foi usada. Se a próxima rodada cair neste canal,
 a pauta dele passa a depender de origem de dois usos.
+
+## Oitava rodada sem o banco — 15/10 às 18:1x
+
+Sonda negada antes e depois de publicar. O `epomeno-epipedo-s037` foi ao ar
+às 18:12 UTC como **`qLg-zNaRKSI`**.
+
+**O pendente foi a OITO linhas**, todas insert.
+
+**E o dia fecha em 4 / 4 / 3 peças** (labtreinamento / epomeno / kolejny),
+contra as 7/dia POR CANAL que o dono pede. O limite de hoje não foi cota nem
+pauta: foi **uma peça por rodada**, porque cada rodada gasta o tempo dela num
+render e numa publicação. Subir isso é a pendência 4 (teto só para short solto)
+mais a 5 (disparo externo), e as duas são decisão do dono.
