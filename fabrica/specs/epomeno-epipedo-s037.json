@@ -1,0 +1,96 @@
+{
+ "slug": "epomeno-epipedo",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#16283C",
+  "c1": "#2E7BB4",
+  "c2": "#E0A02E",
+  "bg": "#F3F7FA"
+ },
+ "pacote": "epomeno-epipedo-s037",
+ "longo_existente": "TJZcjE-uv8E",
+ "thumb": {
+  "l1": "Ακαθάριστο",
+  "l2": "ή καθαρό"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Η αύξηση",
+   "sub": "φαίνεται μικρότερη",
+   "nar": "Η αύξηση στο χαρτί σου φαίνεται μικρότερη απ' όσο ανακοινώθηκε.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Υπολογίζεται",
+   "preco": "στο ακαθάριστο",
+   "nar": "Η αύξηση υπολογίζεται πάνω στο ακαθάριστο ποσό.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Στην τσέπη",
+   "sub": "φτάνει το καθαρό",
+   "nar": "Στην τσέπη όμως φτάνει το καθαρό ποσό.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Οι κρατήσεις",
+   "preco": "δεν σταματούν",
+   "nar": "Οι κρατήσεις συνεχίζουν κανονικά, πάνω στο νέο ποσό.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Το λάθος",
+   "preco": "δύο διαφορετικά μεγέθη",
+   "nar": "Το λάθος είναι να συγκρίνεις δύο εντελώς διαφορετικά μεγέθη.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Η σύγκριση",
+   "itens": [
+    "Νέο καθαρό",
+    "Παλιό καθαρό",
+    "Ίδια γραμμή"
+   ],
+   "nar": "Σύγκρινε καθαρό με καθαρό, από την ίδια γραμμή.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Αλλιώς",
+   "preco": "βγαίνει ψεύτικη",
+   "nar": "Αλλιώς η διαφορά που βρίσκεις δεν υπάρχει πουθενά.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Κανείς",
+   "sub": "δεν έκανε λάθος",
+   "nar": "Κανένα λάθος δεν έγινε στον υπολογισμό της σύνταξης.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Η είδηση",
+   "preco": "μιλά ακαθάριστα",
+   "nar": "Η είδηση μιλάει ακαθάριστα, το χαρτί σου καθαρά.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Επόμενο Επίπεδο",
+   "sub": "κάνε εγγραφή",
+   "nar": "Κάνε εγγραφή και σύγκρινε τις ίδιες γραμμές.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# epomeno-epipedo-s037\n\n## TITULO\nΗ Αύξηση Υπολογίζεται Στο Ακαθάριστο Και Φτάνει Καθαρή: Γιατί Συγκρίνεις Δύο Διαφορετικά Μεγέθη\n\n## TITULO SHORT\nΑκαθάριστο με καθαρό\n\n## DESCRICAO\nΑνοίγεις το χαρτί μετά την αύξηση, βρίσκεις το ποσό που εισπράττεις και το συγκρίνεις με αυτό που περίμενες. Βγαίνει λιγότερο, και το πρώτο συμπέρασμα είναι ότι κάποιος υπολόγισε λάθος. Δεν υπολόγισε.\n\nΗ αύξηση υπολογίζεται πάνω στο **ακαθάριστο** ποσό της σύνταξης. Αυτό που φτάνει στην τσέπη είναι το **καθαρό**, γιατί οι κρατήσεις που ήδη γίνονταν συνεχίζουν να γίνονται — και τώρα πάνω στο νέο, μεγαλύτερο ποσό. Οι δύο αριθμοί δεν είναι ο ίδιος αριθμός σε δύο στιγμές: είναι δύο διαφορετικά μεγέθη, και η σύγκρισή τους δεν απαντάει σε καμία ερώτηση.\n\nΗ συνέπεια είναι πρακτική. Αν συγκρίνεις το ακαθάριστο της ανακοίνωσης με το καθαρό του χαρτιού, η διαφορά που βρίσκεις είναι κατασκευασμένη από τη σύγκριση και όχι από τον υπολογισμό — θα την έβρισκες ακόμη κι αν τα πάντα είχαν γίνει σωστά.\n\nΗ σωστή σύγκριση είναι από την **ίδια γραμμή**: νέο καθαρό με παλιό καθαρό, ή νέο ακαθάριστο με παλιό ακαθάριστο. Δύο αριθμοί από το ίδιο μέγεθος, και η αφαίρεση ξαναγίνεται αυτό που ήθελες να μετρήσεις.\n\nΔεν υπάρχει εδώ ποσοστό, ποσό ούτε ημερομηνία: αυτά αλλάζουν κάθε χρόνο και θα παλιώσουν μέσα στο βίντεο. Πόσο είναι η φετινή αύξηση, ποια γραμμή χωρίζει τις δύο ομάδες και πού ακριβώς το βλέπεις — είναι στο βίντεο.\n\n## COMENTARIO FIXADO\nΤο κλειδί είναι ότι η αύξηση υπολογίζεται στο ΑΚΑΘΑΡΙΣΤΟ και φτάνει ΚΑΘΑΡΗ, γιατί οι κρατήσεις συνεχίζουν πάνω στο νέο ποσό. Άρα αν συγκρίνεις το ακαθάριστο της ανακοίνωσης με το καθαρό του χαρτιού, η διαφορά που βρίσκεις βγαίνει από τη σύγκριση και όχι από τον υπολογισμό. Σύγκρινε καθαρό με καθαρό, ή ακαθάριστο με ακαθάριστο.\n\n## FAMILIA DE ENTRADA ERRADA\nComparar dois números de **grandezas diferentes** — o bruto de um lado e o líquido do outro. Os dois irmãos desta origem foram lidos inteiros antes da escolha, porque nenhum tem o campo `## FAMILIA` (geração anterior) e ausência de campo não é ausência de família (776): o `epomeno-epipedo-s011` ensina a ACHAR a linha da diferença pessoal no documento, e o `-s021` trata ler o percentual da notícia como se fosse o seu valor. Aqui não se discute nem onde olhar nem de quem é o percentual: os dois lados da subtração existem, estão certos, e **não são da mesma grandeza**.\n\n## AVISO SOBRE OS NUMEROS\nFora, pela regra (g): o percentual do aumento, o número de pessoas com diferença pessoal, as datas de vigência e qualquer valor de pensão. Todos mudam de ano para ano e envelheceriam dentro da peça; a regra de bruto contra líquido não muda. O longo (capítulos 29 a 33) diz ele mesmo que o percentual sai de uma fórmula e **muda todo ano**, o que é motivo adicional para não carregá-lo num short.\n\n## MIRA\nPrevisão `edge` **41,6 s** e `piper` **36,9 s**, os dois dentro de 18 a 45 — portão `duracao` verde nos dois mundos. Mirei o **PISO** do `ALVO_SHORT` (41,5 a 43,0) pelo 772; aqui o 679 diria que o topo é seguro nesta voz, e eu escolhi o piso porque é o teto do portão que corre risco, não o piso. Com a banda observada (0,1 a 4,0 s), **se o edge narrar o real deve cair entre 41,7 e 45,6 s — o topo PASSA do teto de 45**, e isso vai declarado antes de publicar. Se o Piper narrar, 37,0 a 40,9.\n\n## HASHTAGS\n#σύνταξη #αύξηση #εκκαθαριστικό #ΕπόμενοΕπίπεδο\n\n## TAGS\nσύνταξη, αύξηση σύνταξης, ακαθάριστο, καθαρό ποσό, κρατήσεις, εκκαθαριστικό, προσωπική διαφορά, συντάξεις, οικονομικά, Ελλάδα, υπολογισμός, ενημερωτικό σημείωμα, συνταξιούχοι, φορολογία, Επόμενο Επίπεδο\n"
+}
