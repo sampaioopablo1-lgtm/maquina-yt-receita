@@ -112,6 +112,7 @@ SERIE = [
     # 15/10 02:2x: 41,6 -> 43, residuo +1,4, sinal ESTABELECIDO.
     ("epomeno-epipedo-s031", 41.6, 43, "edge"),
     ("kolejny-poziom-s030", 41.6, 43, "edge"),
+    ("epomeno-epipedo-s032", 42.5, 46, "edge"),
 ]
 
 

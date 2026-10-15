@@ -98,19 +98,37 @@ def test_a_dominancia_NAO_voltou_ao_patamar_em_que_a_contagem_sustentava():
         " nota do 763/766 tem de ser relida")
 
 
-def test_a_frase_da_banda_NAO_se_apoia_mais_na_contagem__e_sim_na_LARGURA():
-    """O 766: a contagem caiu a 0,750 e o que sobrou foi o teto vir de um canal.
+def test_a_frase_da_banda_NAO_tem_mais_APOIO_NENHUM__nem_contagem_nem_largura():
+    """A AFIRMACAO MORREU INTEIRA, e isto e de 15/10 as 04:2x.
 
-    Nenhum ponto de canal que nao seja o dominante chegou perto do teto da
-    banda — e esse e o unico apoio que a frase ainda tem.
+    A frase era *"0,9 a 3,7 e a banda do `labtreinamento` com cracha de frota"*
+    (763). Ela perdeu o apoio da CONTAGEM em tres rodadas seguidas (0,818 ->
+    0,783 -> 0,750 -> 0,581 -> 0,563), e o que eu escrevi em seguida foi que
+    **o apoio restante era a LARGURA** — o teto de 3,7 vindo do
+    `labtreinamento-s043` e nenhum ponto de outro canal passando de +2,8.
+
+    O `epomeno-epipedo-s032` (42,5 -> **46**, residuo **+3,5**) derruba isso: um
+    ponto de canal NAO dominante encostou no teto da banda, a **0,2 s** dele.
+    Logo nao sobra leitura nenhuma — nem de contagem, nem de largura — que
+    sustente a frase, e o honesto e registrar que ela caiu em vez de mover o
+    numero pela quarta vez.
+
+    **O que sobrevive e so o FATO, sem a interpretacao:** o teto nominal continua
+    vindo do `labtreinamento-s043`, por uma margem que agora e menor que a
+    granularidade de 1 s do proprio instrumento — isto e, uma margem que o
+    instrumento nao resolve (o argumento do 733/768/770 outra vez).
     """
     c = _canais()
     dom = c.most_common(1)[0][0]
     fora = [r[2] - r[1] for r in SERIE if not r[0].startswith(dom)]
     assert fora, "sem ponto de outro canal este teste nao mede nada"
-    assert max(fora) < mira.RESIDUO_OBSERVADO[1] - 0.5, (
-        "se um canal NAO dominante encostar no teto da banda, a largura deixou "
-        "de ser de um canal so e a nota do 763/766 tem de ser relida")
+    maior_fora = max(fora)
+    assert maior_fora > 3.0, (
+        "se o maior residuo de canal NAO dominante voltar a ficar bem abaixo do "
+        "teto, a frase do 763/766 volta a ter apoio de largura e esta nota tem "
+        f"de ser relida. Hoje: {maior_fora:.1f}")
+    # e a margem contra o teto e MENOR que o passo do instrumento
+    assert mira.RESIDUO_OBSERVADO[1] - maior_fora < 1.0
 
 
 def test_o_TETO_da_banda_vem_do_canal_dominante():

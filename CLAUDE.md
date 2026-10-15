@@ -1043,6 +1043,39 @@ terceiro ponto virou **+4,5%**, e o desvio **cresce quando a previsão diminui**
 assinatura de algo que não depende da previsão. **O que CAI do 730:** a frase
 "casa com o EDGE", que descrevia a menor distância entre duas previsões ruins.
 
+#### E EM 15/10 ÀS 04:1x O REAL PASSOU DOS 45 S — aprendizado 772, `alto`
+
+**O `epomeno-epipedo-s032` (`XmSOfi_rnic`) saiu com 46 s reais e o portão estava
+VERDE nos dois mundos:** edge **42,5** e piper **37,7**, os dois dentro de 18 a
+45. Provedor **MEDIDO** pela anotação (zero avisos `NARRACAO PELO PIPER` no job
+`116243667180`), logo foi o edge. Resíduo **+3,5 s**, dentro da banda e com o
+sinal ESTABELECIDO. 34 pontos, 30 estabelecidos.
+
+**Logo "o portão nos dois mundos está segurando a peça" vale para o ESTIMADO e
+não para o REAL** — e a aritmética já estava escrita na própria banda: o resíduo
+vai a **+3,7 s**, logo mirar o topo do `ALVO_SHORT` (43,0) admite real de até
+**~46,7**. O teto do portão é 45. **As duas coisas não cabem juntas, e agora é a
+FROTA, não a mira de um canal** — é o 740/748 um nível acima.
+
+**E a copy declarou isso ANTES de publicar** ("o real deve cair entre 42,6 e
+46,2 s — o topo PASSA do teto de 45"), logo é acerto out-of-sample. O que isso
+NÃO autoriza é confiança: a faixa tem 3,6 s de largura contra 1 s de
+granularidade.
+
+**NADA de parâmetro mudou (§10):** a saída — mirar o piso por padrão, ou
+descontar o resíduo da mira — é parâmetro de produção e vai para a fila do dono
+junto com a decisão do 740/748. O que muda hoje é REDAÇÃO: **mire o PISO do
+`ALVO_SHORT` quando a voz não exigir o topo**, e declare a exposição.
+`tests/test_o_real_passou_do_teto_do_portao.py`, seis testes, e um deles **falha
+se alguém transformar isto em limiar novo**.
+
+**E ISTO MATOU A ÚLTIMA PERNA DA FRASE DO 763.** O apoio que eu dizia restar era
+a LARGURA — *"o teto de 3,7 vem do `labtreinamento-s043` e nenhum ponto de outro
+canal passou de +2,8"*. Este ponto, de outro canal, deu **+3,5**: encostou no
+teto a **0,2 s**, margem menor que o passo de 1 s do instrumento. **Nem contagem
+nem largura sustentam mais "a banda é de um canal"**, e o teste foi reescrito
+para registrar a queda em vez de mover o número pela quarta vez.
+
 **O que SOBREVIVE, e com mais razão:** o provedor não é fixo
 (`fabrica.py:598-620`), e **o portão exigir 18 a 45 s nos DOIS mundos é o que
 está segurando a peça** — a folga larga é necessária justamente porque a previsão
