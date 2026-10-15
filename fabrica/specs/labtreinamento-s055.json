@@ -1,0 +1,96 @@
+{
+ "slug": "labtreinamento",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#1F2933",
+  "c1": "#3F6C51",
+  "c2": "#C98B2E",
+  "bg": "#F5F3ED"
+ },
+ "pacote": "labtreinamento-s055",
+ "longo_existente": "Sr6VhvD_aPE",
+ "thumb": {
+  "l1": "Mesmo",
+  "l2": "denominador"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Duas cotações",
+   "sub": "duas contas",
+   "nar": "Duas cotações, duas contas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Cada uma",
+   "preco": "traz um limite",
+   "nar": "Cada uma tem um limite.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O hábito",
+   "preco": "dividir pelo limite",
+   "nar": "O hábito é dividir por ele.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Aí",
+   "sub": "muda o divisor",
+   "nar": "O divisor muda.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dois números",
+   "preco": "sem comparação",
+   "nar": "Dois números incomparáveis.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "A entrada certa",
+   "itens": [
+    "Sua lista",
+    "Nos dois",
+    "Mesmo número"
+   ],
+   "nar": "Divida as duas pela sua lista.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Esse número",
+   "preco": "é seu",
+   "nar": "Esse número é seu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E a ordem",
+   "sub": "pode inverter",
+   "nar": "A ordem pode inverter.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A mais barata",
+   "preco": "no papel",
+   "nar": "A mais barata pode perder.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Lab Treinamento",
+   "sub": "inscreva-se",
+   "nar": "Inscreva-se e use um divisor só.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# labtreinamento-s055\n\n## TITULO\nCusto Por Pessoa Só Compara Com O Mesmo Divisor: Dividir Pelo Limite De Cada Cotação Inverte A Ordem\n\n## TITULO SHORT\nUse o mesmo divisor\n\n## DESCRICAO\nChegam duas cotações de treinamento, cada uma com preço de turma e um limite de pessoas. O caminho natural é dividir o preço de cada uma pelo limite dela e comparar os dois resultados. Os dois números saem certos, e a comparação entre eles não significa nada.\n\nO motivo é que o divisor mudou de um lado para o outro. Custo por pessoa é uma razão, e razão só se compara quando o denominador é o mesmo nas duas. Dividindo cada preço pelo próprio limite, você produz dois números que respondem a duas perguntas diferentes: quanto custaria *se* você lotasse aquela turma — uma suposição que muda de cotação para cotação.\n\nA entrada certa é um número só, e é o seu: **quantas pessoas você vai mandar de verdade**. Esse número não muda de fornecedor para fornecedor. Com ele nos dois lados, as duas razões voltam a ser comparáveis, e a conta passa a responder à sua pergunta em vez de à do papel.\n\nE a consequência não é teórica: **a ordem pode inverter**. A cotação que parece mais barata quando cada uma é dividida pelo próprio limite pode ser a mais cara quando as duas são divididas pela sua lista — e quem decide pela primeira forma escolhe exatamente ao contrário.\n\nNão há aqui preço, limite nem percentual: o exemplo numérico do vídeo é declarado inventado pelo próprio autor, e número que a fonte diz ser escolha não entra num short. Onde cada campo está no papel e o que fazer quando falta um — está no vídeo.\n\n## COMENTARIO FIXADO\nO ponto é que custo por pessoa é uma RAZÃO, e razão só se compara com o MESMO denominador. Dividindo cada cotação pelo próprio limite, você compara duas suposições diferentes de turma cheia. Use um divisor só — quantas pessoas você vai mandar de verdade — nos dois lados, e repare que a ordem pode inverter.\n\n## FAMILIA DE ENTRADA ERRADA\nComparar duas razões calculadas com **denominadores diferentes** — cada cotação dividida pelo próprio limite em vez de pela mesma lista. Os três irmãos desta origem foram conferidos antes da escolha, e dois deles trazem o campo escrito: o `labtreinamento-s037` trata o LIMITE lido como META (encher vaga com quem não precisa) e o `-s044` trata CUSTO CONDICIONAL omitido (a reposição de quem faltou); o `-s006`, da geração anterior e sem o campo, trata somar as HORAS antes de comparar preço, e foi lido pelo título curto e pela prosa (776). Aqui o preço e o limite estão certos nas duas, nada falta e nada é condicional: o defeito é o divisor trocar de lado.\n\n## AVISO SOBRE OS NUMEROS\nFora, e pelo **caso especial da regra (g)**: o exemplo numérico do longo (capítulos 33 a 39) é declarado inventado pelo próprio autor no capítulo 32 — *\"os números deste exemplo são inventados para a conta ficar visível\"* —, logo número que a fonte diz ser escolha não entra de jeito nenhum. Também ficam fora os percentuais de aumento do capítulo 27, por serem aritmética do exemplo.\n\n## MIRA\nPrevisão `edge` **25,3 s** e `piper` **20,8 s** — `mira.py` **VERDE nos dois mundos** contra a mira medida do canal (20,0 a 26,0). A exposição vai declarada antes de publicar, porque é a contradição do 740/748: com a banda observada (0,1 a 4,0 s), **se o edge narrar o real deve cair entre 25,4 e 29,3 s e pode PASSAR do teto de 26,0**; se o Piper narrar, 20,9 a 24,8, e cabe. O tally deste canal no mundo `edge` está em dez FORA contra três dentro, os dez com a mira verde — mira verde não significa real dentro, e eu não prometo o contrário.\n\n## HASHTAGS\n#treinamento #compras #custoporpessoa #LabTreinamento\n\n## TAGS\ntreinamento, cotação, custo por pessoa, comparar orçamentos, limite de turma, compras, segurança do trabalho, NR, denominador, razão, aritmética, decisão de compra, fornecedor, turma, Lab Treinamento\n"
+}
