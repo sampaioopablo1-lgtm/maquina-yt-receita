@@ -485,6 +485,27 @@ nunca acusaria o dia — a mesma cegueira que ele nasceu para consertar. Por iss
 limiar aos dois níveis, e **sem** esse argumento DIZ que está lendo acervo em vez
 de calar.
 
+**E O CONTADOR DO DIA NÃO ORDENA NADA NA VIRADA DA MEIA-NOITE — aprendizado
+771, `alto`, medido em 15/10 às 00:0x.** Depois de escolher o canal em SEIS
+rodadas seguidas, o `relato(por_dia=...)` devolveu **0 / 0 / 0** — o dia
+calendário acabara de começar — e **não ordenou nada exatamente na rodada que
+precisava escolher.**
+
+**E a cegueira é SIMÉTRICA da que ele nasceu para consertar:** no 762 o ACERVO
+diluía a rodada (50/29/26 está dentro do dobro e não alerta); aqui o dia
+recém-começado **APAGA as últimas horas**. As duas contagens têm janela errada,
+em sentidos opostos.
+
+**A saída é a JANELA MÓVEL, e ela estava medida no mesmo instante:** com
+`publicado_em >= now() - interval '24 hours'` os números eram **16 / 4 / 4**, que
+alerta **e** preserva o empate dos dois canais baixos — a informação que a
+meia-noite jogou fora. `relato` passou a aceitar `janela=` e `janela_h=`, com a
+MESMA `analise` e o MESMO limiar do irmão, e quando o dia vem todo em zero ele
+**diz que não ordena e para onde ir**, em vez de calar ou fingir alerta.
+`tests/test_o_dia_calendario_nao_ordena_na_virada.py`, sete testes, um na
+fronteira exata (8 contra 8 não alerta) e um que **falha se a nota do 762 tiver
+sido apagada pelo conserto**.
+
 **O limiar é o do irmão — mais que o dobro do segundo — e isso é deliberado:**
 limiar novo aqui seria critério sem procedência. E a fronteira exata tem teste,
 como no caso 10-contra-5 de 13/10.
@@ -1620,6 +1641,18 @@ do melhor par medido no 713.
    lugar; a janela otimista do 740/748 abriu de 1,11 para **1,51 s**, e isso
    **não alivia** a contradição — o caso que ocorreu é o pessimista, que depende
    do teto e segue sem interseção.
+
+   **E O 30o PONTO REFINA O 770, corrigindo uma frase minha de uma hora antes.**
+   O `epomeno-epipedo-s030` (`oMQSIMx92c0`) previa **41,6** no edge (provedor
+   medido, zero avisos no job `116175136800`) e saiu com **42 s** — resíduo
+   nominal **+0,4**, dentro da banda, e com o **sinal NÃO estabelecido**
+   (42 − 41,6 ≤ 1,0). **Mas ele NÃO moveu o piso.** Logo a frase que eu escrevi
+   no 770 — que os não-estabelecidos eram *"exatamente os que definiram o PISO"*
+   — era coincidência de três pontos. **A implicação vale de um lado só:**
+   resíduo pequeno o bastante para ser piso é necessariamente pequeno o bastante
+   para não ser estabelecido; a volta não vale. Estabelecidos: **26 de 30**, e o
+   teste foi **reescrito no lugar** para cobrar a implicação num sentido e exigir
+   que exista não-estabelecido que não seja o piso.
 
    **E o 29o ponto, uma hora depois, e ESTABELECIDO:** o `kolejny-poziom-s028`
    (`lmBOUA-uAgY`) previa **41,6** no edge (provedor medido, zero avisos no job

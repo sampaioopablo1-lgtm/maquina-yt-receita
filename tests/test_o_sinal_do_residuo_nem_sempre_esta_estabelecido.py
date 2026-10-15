@@ -60,11 +60,12 @@ def _nao_estabelecidos():
     return [s for s in SERIE if s[2] - s[1] <= GRANULARIDADE_DO_REAL + 1e-9]
 
 
-def test_tres_pontos_da_serie_tem_o_sinal_NAO_estabelecido():
+def test_quatro_pontos_da_serie_tem_o_sinal_NAO_estabelecido():
     nomes = sorted(n for n, _, _, _ in _nao_estabelecidos())
     assert nomes == [
         "epomeno-epipedo-s024",
         "epomeno-epipedo-s029",
+        "epomeno-epipedo-s030",
         "kolejny-poziom-s027",
     ], (
         "o conjunto dos pontos cujo sinal o instrumento NAO resolve mudou; releia"
@@ -72,14 +73,25 @@ def test_tres_pontos_da_serie_tem_o_sinal_NAO_estabelecido():
     )
 
 
-def test_os_tres_sao_exatamente_os_que_definiram_o_PISO_da_banda():
-    """Nao e coincidencia: o piso e o menor residuo nominal, e residuo pequeno e
-    justamente o que cabe dentro da janela de arredondamento."""
+def test_a_implicacao_vale_de_UM_LADO_SO__piso_implica_nao_estabelecido():
+    """REFINADO em 15/10 pelo `epomeno-epipedo-s030`, e a correcao e minha.
+
+    Com tres pontos eu escrevi que os nao-estabelecidos eram "exatamente os que
+    definiram o PISO da banda". O quarto ponto (+0,4) e nao-estabelecido e NAO
+    moveu o piso — logo aquela correspondencia era coincidencia de amostra
+    pequena. O que vale e a implicacao em UM sentido: residuo pequeno o bastante
+    para ser piso e necessariamente pequeno o bastante para nao ser
+    estabelecido; a volta nao vale.
+    """
     nao = {n: _nominal(p, r) for n, p, r, _ in _nao_estabelecidos()}
-    assert sorted(nao.values()) == [0.1, 0.5, 0.9], nao
-    assert mira.RESIDUO_OBSERVADO[0] == min(nao.values()), (
-        "o piso da banda do `mira` deixou de ser o menor residuo nominal da serie"
-    )
+    assert sorted(nao.values()) == [0.1, 0.4, 0.5, 0.9], nao
+    # o piso da banda e um dos nao-estabelecidos (o lado que VALE)
+    assert mira.RESIDUO_OBSERVADO[0] in nao.values()
+    assert mira.RESIDUO_OBSERVADO[0] == min(nao.values())
+    # e existe nao-estabelecido que NAO e o piso (o lado que NAO vale)
+    assert any(v != mira.RESIDUO_OBSERVADO[0] for v in nao.values()), (
+        "se todos os nao-estabelecidos voltarem a ser definidores de piso,"
+        " releia o 770 em vez de restaurar a frase antiga")
 
 
 def test_entre_os_estabelecidos_o_sinal_e_positivo_em_TODOS():
@@ -96,10 +108,10 @@ def test_o_piso_dos_estabelecidos_e_MAIOR_que_o_piso_da_banda():
     assert piso_est > mira.RESIDUO_OBSERVADO[0]
 
 
-def test_a_contagem_de_estabelecidos_e_26_de_29():
-    assert len(SERIE) == mira.RESIDUO_N == 29
+def test_a_contagem_de_estabelecidos_e_26_de_30():
+    assert len(SERIE) == mira.RESIDUO_N == 30
     assert len(_estabelecidos()) == 26
-    assert len(_nao_estabelecidos()) == 3
+    assert len(_nao_estabelecidos()) == 4
 
 
 def test_o_TETO_da_banda_vem_de_um_ponto_ESTABELECIDO():

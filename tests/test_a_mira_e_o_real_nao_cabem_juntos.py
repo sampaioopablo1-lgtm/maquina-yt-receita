@@ -93,7 +93,7 @@ def test_a_banda_e_a_OBSERVADA_e_o_teto_dela_foi_AMPLIADO_pelo_752():
     MENOS util como previsao; vai dito em vez de escondido.
     """
     assert mira.RESIDUO_OBSERVADO == (0.1, 3.7)
-    assert mira.RESIDUO_N == 29
+    assert mira.RESIDUO_N == 30
 
 
 def test_a_pinca_fecha_por_RAZAO_contra_OFFSET_e_nao_por_numero_de_cenas():

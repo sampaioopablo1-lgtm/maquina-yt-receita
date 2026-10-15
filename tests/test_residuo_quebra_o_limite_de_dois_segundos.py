@@ -104,6 +104,9 @@ SERIE = [
     # 23:1x: 41,6 -> 43, residuo +1,4. Sinal ESTABELECIDO (43-41,6 > 1,0, logo a
     # janela de arredondamento (42; 43] fica toda acima da previsao — 770).
     ("kolejny-poziom-s028", 41.6, 43, "edge"),
+    # 15/10 00:2x: 41,6 -> 42, residuo nominal +0,4. DENTRO da banda (0,1; 3,7),
+    # logo os limites nao mudam — e o sinal NAO esta estabelecido (42-41,6 <= 1,0).
+    ("epomeno-epipedo-s030", 41.6, 42, "edge"),
 ]
 
 
