@@ -1,0 +1,96 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-s053",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#1F2933",
+  "c1": "#3F6C51",
+  "c2": "#C98B2E",
+  "bg": "#F5F3ED"
+ },
+ "thumb": {
+  "l1": "Dois papéis",
+  "l2": "um risco"
+ },
+ "longo_existente": "yrWVyqQtw00",
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Dois papéis",
+   "sub": "um risco só",
+   "nar": "Dois papéis, um risco só.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Um diz",
+   "preco": "uma coisa",
+   "nar": "Um classifica de um jeito.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O outro",
+   "preco": "diz outra",
+   "nar": "O outro, de outro.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A pergunta",
+   "sub": "não tem resposta",
+   "nar": "Qual dos dois vale? Nenhum.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Na auditoria",
+   "preco": "aparece",
+   "nar": "Na auditoria isso aparece.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "O que resolve",
+   "itens": [
+    "Uma versão",
+    "Um plano",
+    "Um dono"
+   ],
+   "nar": "Uma versão só da verdade.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O volume",
+   "preco": "não muda",
+   "nar": "O volume de papel não muda.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Não é mais",
+   "sub": "é o mesmo",
+   "nar": "Não é mais documento.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O primeiro passo",
+   "preco": "duas pessoas",
+   "nar": "Junte as duas pessoas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Lab Treinamento",
+   "sub": "se inscreva",
+   "nar": "Se inscreva no canal.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# labtreinamento-s053\n\n## TITULO\nDuas Fontes para o Mesmo Risco: Por Que \"Qual dos Dois Vale\" Não Tem Resposta Boa\n\n## TITULO SHORT\nQual dos dois papéis vale?\n\n## DESCRICAO\nTem uma situação que aparece em auditoria com frequência e que não se resolve discutindo qual lado está certo: o mesmo risco classificado de um jeito no documento da área e de outro jeito no inventário geral da empresa. Dois papéis da mesma empresa, o mesmo item, duas respostas.\n\nA pergunta que vem em seguida é natural — qual dos dois vale? — e ela **não tem resposta boa**. Não porque falte critério técnico, mas porque a estrutura garante o conflito: enquanto o mesmo fato tem duas fontes paralelas, cada uma atualizada por gente diferente e em ritmo diferente, elas vão divergir. A divergência não é o erro; é a consequência.\n\nE a correção não é escolher um dos dois. É fazer o item existir **uma vez**: a mesma classificação, no mesmo inventário, com o mesmo plano de ação. O detalhe que costuma surpreender é que isso **não aumenta o volume de papel** — não é mais documento, é o mesmo documento. O que muda é que passa a existir uma versão só da verdade.\n\nDá trabalho pelo mesmo motivo que o problema existe: se os dois nunca conversaram, alguém vai ter que sentar e conciliar linha por linha. E o primeiro passo é banal e quase sempre pulado — descobrir quem mantém cada um dos dois documentos, porque em muitas empresas não é a mesma pessoa, e colocar as duas na mesma sala. O produto dessa hora não é um plano: é a lista de divergências, que vale mais que qualquer plano escrito antes dela.\n\nNão há aqui nenhum prazo, nenhuma norma citada e nenhum valor: o que decide é o seu caso. Quais são as três mudanças, o que entra na lista de trabalhos energizados, onde falta saber o nível de energia e em que ordem contratar — está no vídeo, com as fontes.\n\n## COMENTARIO FIXADO\nResumo sem citar norma nem prazo: enquanto o mesmo risco tiver DUAS fontes paralelas, elas vão divergir — e \"qual dos dois vale\" não tem resposta boa, porque a pergunta nasce da estrutura e não de um erro de classificação. A correção é o item existir uma vez, no mesmo inventário, com o mesmo plano. Não é mais documento; é o mesmo. Conte nos comentários se na sua empresa as duas pessoas que mantêm esses papéis são a mesma — só isso.\n\n## HASHTAGS\n#SegurançaDoTrabalho #GestãoDeRiscos #LabTreinamento\n\n## TAGS\ninventario de riscos, risco eletrico, pgr, auditoria, divergencia documental, gestao de riscos ocupacionais, plano de acao, conciliacao, seguranca do trabalho, documentacao, lab treinamento, versao unica, responsavel, classificacao de risco\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## AVISO\n**TERCEIRA rodada seguida sem o banco.** A sonda de capacidade\n(`select pg_database_size(current_database())`) foi repetida — uma chamada, como a\n§10 manda — e segue com `MCP error -32600`. ESTADO, nao propriedade: sondo de novo\nna proxima.\n\nCanal pela ULTIMA publicacao, que e o criterio que sobrevive sem banco: epomeno\n12:19, kolejny 11:22, **labtreinamento 10:16**.\n\n**E A ESCOLHA DE ORIGEM TEVE EMPATE DE SEIS, desempatado pelo que E medido.** As\ntreze origens do canal tem **seis empatadas em TRES usos** — e nenhum criterio\nmeu desempata seis. Usei os CAPITULOS LIVRES do `segundo_angulo`, que e medicao:\n`yrWVyqQtw00` (`labtreinamento-004`) tem **73 livres de 81**, a maior folga entre\nas cinco com spec local. As outras duas do empate (`StQNFMdpGdk`, `KRUERlNPzDw`)\nsao da regra (h) e **inacessiveis sem o `pg_net`**, como na rodada passada.\n\n**E O `irmaos_da_origem.py` TEVE O PRIMEIRO USO REAL, uma rodada depois de\nexistir — e funcionou.** Os dois irmaos antigos (`s010` e `s034`) **nao tem** o\ncampo `## FAMILIA DE ENTRADA ERRADA`, exatamente o caso do 776. O modulo achou a\nprosa do `s041` que nomeia as duas: *\"as outras pecas desta origem usam ORDEM DE\nCONTRATACAO (`s010`) e CONDICAO NECESSARIA x SUFICIENTE (`s034`)\"*. **Tres\nfamilias a evitar, e eu as li de um relato em vez de abrir tres copies.**\n\n## FAMILIA DE ENTRADA ERRADA\nDUAS FONTES PARALELAS PARA UM FATO SO, e depois perguntar qual delas vale. O mesmo\nrisco classificado no documento da area E no inventario geral, cada um mantido por\npessoa diferente e em ritmo diferente — a divergencia nao e erro de classificacao,\ne consequencia da estrutura.\n\n**O eixo errado e a CONTAGEM DE FONTES de um unico item**, e a pergunta seguinte\n(\"qual vale\") e indecidivel por construcao, nao por falta de criterio tecnico. A\ncorrecao e o item existir UMA vez, e o que surpreende e que o volume de papel nao\nmuda: nao e mais documento, e o mesmo.\n\nFamilia NOVA no canal, e a distincao das vizinhas vai escrita:\n  * as outras tres pecas desta MESMA origem erram outras coisas, e eu as conheco\n    porque o `irmaos_da_origem` as trouxe: `s010` erra a ORDEM de contratacao,\n    `s034` confunde condicao NECESSARIA com SUFICIENTE, `s041` trata substituicao\n    integral como emenda;\n  * e a mais proxima do canal e o **s052** (uma celula com TRES acoes dentro), de\n    tres horas atras — e ela e o INVERSO desta: lá UM lugar guarda N itens, aqui\n    N lugares guardam UM item. Vale dizer que sao inversas em vez de deixar o\n    leitor achar que e a mesma.\n\nCapitulos 44 a 50 do longo, nenhum usado pelos tres irmaos.\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Nao cita a portaria,\nnao nomeia ministerio nem orgao (609), nao cita o prazo de noventa dias, nao cita\no numero de passos, nao cita o numero de orcamentos a pedir, nao cita preco de\nestudo e nao cita nivel de energia. Conferido a mao campo por campo, porque o\nportao `narracao` conta quantidades por frase e NAO pega digito cru (640).\n\n**\"Dois papeis\" e \"uma versao\" ficaram, e isso e deliberado:** sao a ESTRUTURA do\nerro — a contagem de FONTES de um item — e nao numero sobre o mundo. Eles nao\nenvelhecem com revisao de norma nenhuma.\n\n**E a regra (g) tem aqui um caso que o proprio longo RESOLVE por mim:** no\ncapitulo 40 ele diz que **nao vai dizer quanto custa o estudo**, porque *\"o valor\nvaria com o tamanho da instalacao e com o estado da documentacao, e um numero\nmedio enganaria\"*. A fonte declara o numero como inutil; eu nao tenho o que\ndescartar. Isso vai dito porque e o oposto do caso do `kolejny-poziom-s033` de\nhoje, onde a fonte declarava os numeros INVENTADOS — nos dois a fonte diz algo\nsobre o proprio numero, e nos dois ele fica fora.\n\n**E o `contagem_declarada` tem conflito NESTA origem? Nao — mas vale a\nvigilancia:** o `labtreinamento-009` (`dsoEo103l1o`), que era uma das seis\nempatadas, e justamente a spec do 725 que declara CINCO casos e enumera SEIS. Esta\npeca nao veio dela. E o `labtreinamento-004` declara \"quatro passos\" no capitulo\n54 e enumera quatro (55 a 59) — conferido, sem conflito, e nenhum deles entra na\npeca.\n\nO QUE O VIDEO AFIRMA: que o mesmo risco aparece classificado de formas diferentes\nem dois documentos da mesma empresa, que isso e comum em auditoria, que \"qual dos\ndois vale\" nao tem resposta boa, que a correcao e integrar num inventario so com o\nmesmo plano, que o volume de documento nao aumenta com isso, e que o primeiro\npasso e descobrir quem mantem cada um e juntar as duas pessoas. Esta no longo\n`labtreinamento-004` (`yrWVyqQtw00`), capitulos 44 a 52, com as fontes.\n\nDESCARTADO, e vai escrito:\n  (1) a portaria, o prazo e os passos numerados — norma e cronograma, que mudam\n      (regra g), e o nome do orgao esta fora pela 609;\n  (2) **contratar o estudo ANTES de saber onde ele e preciso** (capitulos 61 a\n      64) — e a familia do `s010` (ordem de contratacao), ja usada nesta origem;\n  (3) **treinamento sem autorizacao** — familia do `s034`;\n  (4) **substituicao integral contra emenda** — familia do `s041`;\n  (5) o preco do estudo — o proprio longo se recusa a dar, ver acima.\n\n## MIRA\n`labtreinamento` TEM override: `ALVO_POR_CANAL` = **(20,0 a 26,0) de duracao\nREAL**, lido por `ensaio.alvo_short('labtreinamento')`. Medido antes do render:\nedge **25,6** e piper **21,0** — o `mira.py` VERDE nos dois mundos.\n\n**E A EXPOSICAO VAI DECLARADA, porque ela e a contradicao do 740/748 e nao se\nresolve por redacao:** com a banda observada e **40 pontos**, se o edge narrar o\nREAL deve cair entre **25,7 e 29,6 s** — isto e, **pode passar do teto de 26,0 da\nmira do canal**. O tally do 754/757/758 esta em **nove de doze**: das doze pecas\ndeste canal narradas pelo edge, nove sairam FORA do teto, as nove com o `mira.py`\nverde; dentro ficaram so `s038` 26, `s042` 25 e `s046` 26.\n\n**E a banda piorou hoje as 10:2x: o 774 ampliou o teto de 3,7 para 4,0**, porque o\n`labtreinamento-s052` previa 25,0 e saiu com **29** — o maior residuo da serie. As\nQUATRO correcoes da banda a ALARGARAM (752, 769, 770, 774), e hoje ela tem\n**3,9 s** contra 1 s de granularidade. Com 4,0 de residuo, `real <= 26,0` exige\n`edge <= 22,0`, onde o piper cai a ~18,0 — bem abaixo do piso de 20,0 da mira.\n**Nao existe spec deste canal que satisfaca as duas**, e por isso eu mantenho a\nmira VERDE e declaro a folga, que e a postura do `s044` em diante.\n\n**O SINAL do residuo so esta estabelecido quando `real − previsao > 1,0`** (770):\ndos 40 pontos, **35** estao estabelecidos. Se o piper narrar, 21,1 a 25,0 —\ndentro.\n\n**E ESTA PECA NAO VAI RENDER PONTO NENHUM, pelo TERCEIRO turno seguido:** ler a\nduracao REAL exige o token do `config` pelo `pg_net`, que roda dentro do Postgres.\nA previsao fica registrada aqui para a primeira rodada que reabrir o banco\nconferir. `RESIDUO_N` segue em 40.\n\nO provedor se decide no runner e por cena (730) e se mede CONTANDO os avisos\n`NARRACAO PELO PIPER` da anotacao (733) — isso **continua** possivel sem o banco.\n\n## FONTES\nO longo de onde este short foi extraido (`labtreinamento-004`, `yrWVyqQtw00`) traz\nas fontes. Este short nao introduz numero novo sobre o mundo.\n"
+}
