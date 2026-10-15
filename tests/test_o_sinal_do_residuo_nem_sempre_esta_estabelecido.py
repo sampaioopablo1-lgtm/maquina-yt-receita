@@ -109,9 +109,9 @@ def test_o_piso_dos_estabelecidos_e_MAIOR_que_o_piso_da_banda():
     assert piso_est > mira.RESIDUO_OBSERVADO[0]
 
 
-def test_a_contagem_de_estabelecidos_e_33_de_38():
-    assert len(SERIE) == mira.RESIDUO_N == 38
-    assert len(_estabelecidos()) == 33
+def test_a_contagem_de_estabelecidos_e_34_de_39():
+    assert len(SERIE) == mira.RESIDUO_N == 39
+    assert len(_estabelecidos()) == 34
     assert len(_nao_estabelecidos()) == 5
 
 
