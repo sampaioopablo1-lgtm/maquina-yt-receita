@@ -1,0 +1,96 @@
+{
+ "slug": "epomeno-epipedo",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#16283C",
+  "c1": "#2E7BB4",
+  "c2": "#E0A02E",
+  "bg": "#F3F7FA"
+ },
+ "pacote": "epomeno-epipedo-s035",
+ "longo_existente": "eimuyGaCor8",
+ "thumb": {
+  "l1": "Εισόδημα",
+  "l2": "ή περιουσία"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Δύο ποσά",
+   "sub": "μετράει ένα",
+   "nar": "Δύο ποσά υπάρχουν εδώ, και μετράει μόνο το ένα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Το εισόδημα",
+   "preco": "μπαίνει",
+   "nar": "Το καθαρό εισόδημα της χρονιάς μπαίνει στον δείκτη.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Η περιουσία",
+   "preco": "δεν μπαίνει",
+   "nar": "Η περιουσία που έχεις δεν μπαίνει πουθενά μέσα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Δεν μετριέται",
+   "itens": [
+    "Αποταμίευση",
+    "Ακίνητο",
+    "Χρέος"
+   ],
+   "nar": "Ούτε η αποταμίευση, ούτε το ακίνητο, ούτε το χρέος.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Γι' αυτό",
+   "sub": "βγαίνει παράδοξο",
+   "nar": "Γι αυτό βγαίνει κάτι που μοιάζει με παράδοξο.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Χωρίς εισόδημα",
+   "preco": "με αποταμιεύσεις",
+   "nar": "Κάποιος χωρίς εισόδημα μετριέται κάτω από τη γραμμή.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Με εισόδημα",
+   "preco": "και χρέη",
+   "nar": "Κάποιος με εισόδημα και χρέη μετριέται πάνω από αυτήν.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ίδια θέση",
+   "sub": "άλλη πλευρά",
+   "nar": "Ίδια πραγματική κατάσταση, και άλλη πλευρά της γραμμής.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Το λάθος",
+   "preco": "ένα ποσό για δύο",
+   "nar": "Το λάθος είναι ένα ποσό για δύο διαφορετικά ερωτήματα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Επόμενο Επίπεδο",
+   "sub": "μείνε στο κανάλι",
+   "nar": "Κάνε εγγραφή και κοίτα πρώτα ποιο ποσό μετρήθηκε.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# epomeno-epipedo-s035\n\n## TITULO\nΕισόδημα ή Περιουσία: Ποιο από τα Δύο Ποσά Μετράει Πραγματικά ο Δείκτης\n\n## TITULO SHORT\nΟ δείκτης δεν βλέπει περιουσία\n\n## DESCRICAO\nΥπάρχει ένα σημείο που ξεχνιέται σχεδόν πάντα, και αλλάζει το πώς διαβάζεις κάθε αριθμό αυτού του είδους: ο δείκτης κοιτάζει ΕΙΣΟΔΗΜΑ, όχι περιουσία.\n\nΜπαίνει το καθαρό εισόδημα της χρονιάς. Δεν μπαίνει η αποταμίευση, δεν μπαίνει το ακίνητο, και δεν μπαίνει το χρέος. Δύο ποσά περιγράφουν την οικονομική σου θέση, και ο δείκτης μετράει μόνο το ένα από τα δύο.\n\nΑπό εκεί βγαίνει κάτι που μοιάζει με παράδοξο και δεν είναι: κάποιος χωρίς εισόδημα αλλά με αποταμιεύσεις μετριέται ΚΑΤΩ από τη γραμμή, και κάποιος με εισόδημα και βαριά χρέη μετριέται ΠΑΝΩ από αυτήν. Οι δύο μπορούν να έχουν την ίδια πραγματική κατάσταση και να βρεθούν σε αντίθετες πλευρές — όχι επειδή ο δείκτης σφάλλει, αλλά επειδή απαντά σε ένα ερώτημα και εσύ του κάνεις ένα άλλο.\n\nΤο λάθος λοιπόν δεν είναι στον αριθμό. Είναι στο να ζητάς από ένα ποσό να απαντήσει σε δύο διαφορετικά ερωτήματα: «πόσο μπαίνει στο σπίτι τη χρονιά» και «τι έχει το σπίτι». Το δεύτερο δεν μετρήθηκε ποτέ.\n\nΔεν υπάρχει εδώ ούτε ένα ποσό, ούτε ένα ποσοστό και ούτε μία χρονιά: τα νούμερα που αποφασίζουν αλλάζουν κάθε έκδοση. Ποιο είναι το όριο για έναν ενήλικα, ποιο για το ζευγάρι, πώς φτιάχνεται η σύνθεση του νοικοκυριού, πόσο διαφέρει η σειρά του μέσου όρου από της διαμέσου και από πού παίρνεις τον πρώτο αριθμό — είναι στο βίντεο, με τις πηγές.\n\n## COMENTARIO FIXADO\nΌλο το θέμα σε μία πρόταση, χωρίς κανένα ποσό: ο δείκτης μετράει εισόδημα, όχι περιουσία — ούτε αποταμίευση, ούτε ακίνητο, ούτε χρέος. Γι' αυτό κάποιος χωρίς εισόδημα και με αποταμιεύσεις βγαίνει κάτω, και κάποιος με εισόδημα και χρέη βγαίνει πάνω. Ίδια κατάσταση, άλλη πλευρά. Γράψε στα σχόλια μόνο αν το ήξερες — χωρίς ποσά.\n\n## HASHTAGS\n#Εισόδημα #Στατιστικά #ΕπόμενοΕπίπεδο\n\n## TAGS\neisodima, periousia, deiktis, ftoheia, diamesos, mesos oros, noikokyrio, statistika, ellada, apotamiefsi, chreos, epomeno epipedo, metrisi, erminia\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO\n**SEGUNDA rodada seguida sem o banco.** A sonda de capacidade\n(`select pg_database_size(current_database())`) foi repetida — uma chamada, como\na §10 manda — e segue recusando com `MCP error -32600`. Trato como ESTADO e nao\npropriedade (a licao de 11/10): sondo de novo na proxima.\n\n**E O BLOQUEIO MUDOU A ESCOLHA DE ORIGEM, de um jeito que vale registrar.** O\n`concentracao.py epomeno-epipedo` aponta DUAS origens de um uso so —\n`h66MCKjwAJ8` e `eZ697VNYCPU` — e **as duas sao da regra (h), sem spec local.** O\n759 diz que falta de spec local NAO e motivo para trocar de origem, porque a\nlegenda sai pelo `pg_net`. **Mas o `pg_net` roda DENTRO do Postgres**, logo sem\n`execute_sql` aquela rota nao existe. Entao aqui nao e preferencia minha, e\n**bloqueio duro** — e e a primeira vez que a regra (h) fica inacessivel. Fui a\nbanda de DOIS usos com spec local, e isso vai dito em vez de parecer que eu voltei\nao habito que o 759 corrigiu.\n\nOrigem: `eimuyGaCor8` (`epomeno-epipedo-016`, **87 capitulos**), com dois shorts —\n`s001` e `s023`.\n\n**E O TITULO DO IRMAO ME SALVOU DE REPETIR FAMILIA.** Eu havia escolhido os\ncapitulos 59 a 62 (o limiar e RELATIVO e nao linha absoluta de sobrevivencia) —\nque e o achado mais forte daquele trecho. Ao conferir os dois shorts anteriores, o\n`s023` se chama **\"Το όριο δεν μετράει αν ζεις\"**, isto e, **ja E essa familia**.\nNenhum dos dois tem `## FAMILIA DE ENTRADA ERRADA` escrito (sao de geracao\nanterior), logo o que me pegou foi **ler o TITULO**, nao um portao. Fica como\nprocedimento: **em origem de geracao antiga, confira o titulo curto dos irmaos**,\nporque o campo que eu usaria para comparar nao existe lá.\n\n## FAMILIA DE ENTRADA ERRADA\nUM POSO PARA DOIS ERRAMENTOS: pedir que uma unica grandeza — o eisodima do ano —\nresponda tambem o que ela nao mede, a periousia. O indicador olha **fluxo** e nao\n**estoque**: aposentacao, imovel e divida ficam inteiros fora dele.\n\n**O eixo errado e QUAL GRANDEZA foi medida**, e a consequencia e aritmetica e\nvisivel: alguem SEM eisodima mas com aposentacao cai ABAIXO da linha, e alguem COM\neisodima e divida pesada cai ACIMA — mesma situacao real, lados opostos. Nao e\ndefeito do indicador; e pergunta trocada.\n\nFamilia NOVA no canal, e a distincao das vizinhas vai escrita porque duas sao\nproximas: o **s023**, da MESMA origem, erra o CARATER do limiar (relativo tratado\ncomo absoluto) — ali as duas grandezas sao a mesma e o que muda e o referencial;\naqui sao DUAS grandezas e so uma entra. O **s001**, tambem desta origem, erra o\nESTIMADOR (media contra diamesos), que e outra escolha sobre o MESMO fluxo. E o\n**s027** erra de QUEM e o numero (a epigrafe de outra pessoa), nao qual grandeza\ne.\n\nCapitulo 68 do longo. **E conferido um por um, nao por contagem:** o `s023` saiu\ndos capitulos **59 a 67** (ele mesmo o declara na nota de procedencia) e o `s001`\ndos capitulos da escala de equivalencia (20 a 28, tambem declarado pelo `s023`).\nO 68 fica fora dos dois intervalos, e e o ULTIMO do bloco — o `s023` parou um\ncapitulo antes dele.\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Nao cita o limite do\nadulto, nao cita o do casal, nao cita a serie da media, nao cita a serie da\ndiamesos, nao cita a diferenca entre as duas, nao cita percentual, nao cita o ano\nda edicao e nao nomeia orgao. Conferido a mao campo por campo, porque o portao\n`narracao` conta quantidades por frase e NAO pega digito cru (640).\n\n**\"Dois ποσά\" e \"dois ερωτήματα\" ficaram, e isso e deliberado:** sao a ESTRUTURA\ndo erro — uma grandeza para duas perguntas — e nao numero sobre o mundo. Eles nao\nenvelhecem quando a edicao mudar.\n\n**O que a regra (g) tirou daqui e grande, e vai nomeado:** os dois limiares em\neuros, a serie inteira do mesos oros, a serie da diamesos, a diferenca entre as\nduas e o ano de referencia. **Todos mudam a cada edicao** — o proprio longo diz\nque ha mais de uma serie publicada ao mesmo tempo, que e exatamente o sinal de\nnumero que nao se carrega para um short.\n\n**E o `contagem_declarada` nao tinha o que dizer, e eu confiro a mao:** a peca nao\ndeclara quantidade de itens enumerados (os tres descartes da lista sao exemplo,\nnao enumeracao fechada), logo nao ha N contra N+1 (725).\n\nO QUE O VIDEO AFIRMA: que o indicador mede eisodima e nao periousia, que\naposentacao, imovel e divida nao entram, e que por isso duas pessoas na mesma\nsituacao real podem cair em lados opostos da linha. Esta no longo\n`epomeno-epipedo-016` (`eimuyGaCor8`), capitulo 68, com as fontes.\n\nDESCARTADO, e vai escrito:\n  (1) os dois limiares, as duas series e a diferenca entre elas — numeros que\n      mudam por edicao (regra g), com fonte no longo;\n  (2) **o limiar nao ser criterio de beneficio nenhum** (capitulos 63 a 65) —\n      **e eu escrevi \"livre\" aqui e estava ERRADO, corrigido antes de publicar:**\n      o `s023` cobre os capitulos 59 a 67 e carrega esse ponto explicitamente\n      (\"auto to orio den einai kritirio gia kanena epidoma\"). Logo ele NAO esta\n      livre, e a proxima peca desta origem tem de olhar fora da faixa 46 a 68;\n  (3) **media contra diamesos** (capitulos 49 a 57) — e o nucleo do `s001`;\n  (4) **o limiar ser RELATIVO** (capitulos 59 a 62) — e o nucleo do `s023`, e eu\n      quase o repeti; ver o AVISO;\n  (5) o controle de consistencia dentro do proprio dado (capitulos 46 e 47) — e\n      metodo do longo, nao entrada errada do espectador.\n\n## MIRA\n`epomeno-epipedo` NAO tem override em `ALVO_POR_CANAL`, logo vale o `ALVO_SHORT`\nda frota (41,5 a 43,0). Mirado perto do **PISO**, pela regra de redacao do 772 — e\n**isto contraria o 679 de proposito**, como no `s034`: no `el-GR-NestorasNeural` o\ncentro do modelo corre −3,2%, logo o TOPO seria o lado seguro *da previsao*. Entre\nproteger a previsao e proteger o real, o real manda, porque e ele que o YouTube ve.\nAs duas regras apontam para lados opostos neste canal, e fica dito.\n\nMedido antes do render: edge **41,8** e piper **37,0**, os dois dentro de 18 a 45\nnos DOIS mundos. **Uma versao recusada pela aritmetica antes desta:** 37,5, FORA\ndo `ALVO_SHORT` pelo PISO. O\n`ensaio.chars_por_cena('el-GR-NestorasNeural', 10, 41.6)` devolve **53 caracteres\npor cena** — foi o modulo que disse, nao eu de cabeca (item 3 da §10).\n\nCom a banda observada e **40 pontos**, se o edge narrar o REAL deve cair entre\n**41,9 e 45,8 s** — o topo PASSA do teto de 45 do portao, e isso vai DITO antes de\npublicar. **E a banda ficou PIOR ha duas horas: o 774 ampliou o teto de 3,7 para\n4,0**, porque o `labtreinamento-s052` previa 25,0 e saiu com 29. As quatro\ncorrecoes da banda a ALARGARAM (752, 769, 770, 774) e hoje ela tem **3,9 s** contra\n1 s de granularidade — cobre quase quatro inteiros. **O SINAL do residuo so esta\nestabelecido quando `real − previsao > 1,0`** (770): dos 40 pontos, **35** estao\nestabelecidos. Se o piper narrar, 37,1 a 41,0.\n\n**E ESTA PECA NAO VAI RENDER PONTO NENHUM, pelo segundo turno seguido:** ler a\nduracao REAL exige o token do `config` pelo `pg_net`, e sem `execute_sql` nao ha\nchamada. A previsao fica registrada aqui para a primeira rodada que reabrir o\nbanco conferir. `RESIDUO_N` segue em 40.\n\nO provedor se decide no runner e por cena (730) e se mede CONTANDO os avisos\n`NARRACAO PELO PIPER` da anotacao (733) — isso **continua** possivel sem o banco,\nporque sai pela API do GitHub.\n\n## FONTES\nO longo de onde este short foi extraido (`epomeno-epipedo-016`, `eimuyGaCor8`) traz\nas fontes. Este short nao introduz numero novo sobre o mundo.\n"
+}
