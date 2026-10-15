@@ -97,3 +97,17 @@ Sem `execute_sql` seguem indisponíveis: leitura de inscritos (Porta 1), leitura
 de duração real (a banda está congelada em `RESIDUO_N = 40`, e agora são **cinco**
 peças sem ponto), as origens da regra (h), e a inserção destas seis linhas em
 `videos`.
+
+## Sétima rodada sem o banco — 15/10 às 17:1x
+
+Sonda negada outra vez, antes e depois de publicar. O
+`kolejny-poziom-s035` foi ao ar às 17:12 UTC como **`pgbq5Lw0aaM`**.
+
+**O pendente foi a SETE linhas**, todas insert, nenhuma de prosa.
+
+E esta rodada mostra o que o banco fechado custa NA PAUTA, não só na
+medição: o `concentracao.py` nomeou **quatro** origens do `kolejny` usadas
+uma vez só, e **três delas não têm spec local** — a rota da regra (h)
+(`captions?part=snippet` pelo `pg_net`) depende do banco. Sobrou **uma**
+origem escrevível, e ela foi usada. Se a próxima rodada cair neste canal,
+a pauta dele passa a depender de origem de dois usos.
