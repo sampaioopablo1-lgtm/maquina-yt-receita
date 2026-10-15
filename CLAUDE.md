@@ -2425,6 +2425,33 @@ que não consegue medir nem publicar.
   `execute_sql` no `vevocauwtarctfwngrch` funcionava**. A sonda é a CAPACIDADE:
   `execute_sql` com `select pg_database_size(current_database())`. Catálogo não
   é acesso;
+
+  **E A TABELA FECHOU EM 15/10 ÀS 14:1x — aprendizado 777, `alto`, e é mais forte
+  que o 709.** Na quarta rodada seguida com o `execute_sql` negado eu fiz as duas
+  chamadas de catálogo: `list_organizations` e `list_projects` devolveram **200**,
+  com uma org e um projeto — `imobjazz-eng's`. Isto é **byte a byte o catálogo de
+  12/10, quando o acesso FUNCIONAVA.** Logo:
+    * **o catálogo não informa acesso em sentido NENHUM.** O 709 provou que ele
+      não prova acesso; o 777 prova que ele também não prova a FALTA dele. Eu
+      concluiria hoje "o escopo mudou" e seria o mesmo erro do outro lado;
+    * **o servidor MCP funciona** — duas chamadas com 200 na mesma rodada em que o
+      `execute_sql` foi negado. A negação **não é servidor caído**, que era a
+      hipótese barata;
+    * **e a causa fica DECLARADA como indeterminada**: conector reapontado para
+      outra org e permissão retirada do projeto produzem o MESMO par de respostas.
+      Escolher uma seria comparador escolhido sem medir (efeito C).
+
+  **E a consequência muda a FILA DO DONO, que é o que importa mais que a
+  diagnose:** a pendência 2 da rotina diz *"não peça a reconexão do conector como
+  primeira opção: ela é a PIOR das três"* — e **essa ordem pressupunha que o banco
+  funcionava**, com só o REST em 402. Sem `execute_sql` não há `pg_net`, logo não
+  há token, leitura de duração real, leitura de inscritos, rota da regra (h) nem
+  registro em `videos`. **A reconexão passou a ser a única que devolve isso.** O
+  que NÃO caiu: a publicação, que sai pelo `retomar.yml` com o `YT_OAUTH_JSON` e
+  não toca o Supabase — quatro peças foram ao ar nestas quatro rodadas.
+  `tests/test_o_catalogo_nao_informa_acesso_em_sentido_NENHUM.py`, oito testes, e
+  um deles **falha se o catálogo deixar de ser igual ao de 12/10**, porque é a
+  igualdade que sustenta a conclusão. Aviso ao dono em `docs/pendente/LEIA.md`;
 - porta do REST: dispare `diario.yml` com `disparar=false` e leia
   `check-runs/<job>/annotations`. A anotação diz `porta ABERTA` ou
   `FECHADA (HTTP 402)` com a data do retrato.

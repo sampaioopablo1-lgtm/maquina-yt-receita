@@ -1,0 +1,96 @@
+{
+ "slug": "kolejny-poziom",
+ "pacote": "kolejny-poziom-s034",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Liczy lata",
+  "l2": "nie złote"
+ },
+ "longo_existente": "iqV7m6tKb5A",
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Warunek liczy",
+   "sub": "lata, nie złote",
+   "nar": "Ten warunek liczy lata, a wcale nie same złote.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Wpłaty",
+   "preco": "w różnych latach",
+   "nar": "Liczy się wpłata w kilku różnych latach kalendarzowych.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kwota",
+   "preco": "nie zastępuje",
+   "nar": "Duża kwota w jednym roku tego nie zastąpi nigdy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Co się liczy",
+   "itens": [
+    "Rok z wpłatą",
+    "I kolejny",
+    "Nie suma"
+   ],
+   "nar": "Liczy się rok z wpłatą, a nie suma wpłat.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Zegar",
+   "sub": "startuje wtedy",
+   "nar": "Zegar startuje dopiero przy twojej pierwszej wpłacie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Nie wtedy",
+   "preco": "gdy decydujesz",
+   "nar": "Nie wtedy, gdy o tym wszystkim decydujesz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Małe konto",
+   "preco": "otwarte wcześnie",
+   "nar": "Małe konto otwarte wcześnie wyprzedza duże.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Duże",
+   "sub": "otwarte późno",
+   "nar": "Duże, ale otwarte późno, już tego nie nadrobi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlatego",
+   "preco": "otwórz teraz",
+   "nar": "Dlatego otwórz je dziś, choćby na drobne.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Kolejny Poziom",
+   "sub": "subskrybuj",
+   "nar": "Subskrybuj i sprawdź dziś swój pierwszy rok.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# kolejny-poziom-s034\n\n## TITULO\nWarunek Liczony w Latach, nie w Złotych: Dlaczego Małe Konto Otwarte Wcześnie Wygrywa\n\n## TITULO SHORT\nWarunek liczy lata, nie złote\n\n## DESCRICAO\nJest warunek wstępny, który prawie każdy czyta jako kwotę — i on kwotą nie jest. Liczy się **wpłata w kilku różnych latach kalendarzowych**, a nie to, ile pieniędzy w sumie wpłaciłeś.\n\nSkutek jest arytmetyczny i zaskakuje: duża kwota wpłacona w jednym roku nie zastępuje małych wpłat rozłożonych na kilka lat. Sumy są nieporównywalne, bo warunek w ogóle nie patrzy na sumę. On zlicza LATA, w których wpłata się zdarzyła.\n\nI stąd wychodzi rzecz, której nie widać przy pierwszym czytaniu: **zegar startuje przy pierwszej wpłacie, nie wtedy, gdy decydujesz.** Konto założone dziś na drobne kwoty jest już w pierwszym roku; konto zaplanowane „na później, kiedy będę mieć więcej\" jest w roku zerowym, niezależnie od tego, ile będzie na nie wpłacone potem. Dlatego małe konto otwarte wcześnie wyprzedza duże otwarte późno — i ta druga sytuacja nie nadrabia tego nigdy, bo nie da się wpłacić wstecz w rok, który już minął.\n\nPraktyczna konsekwencja jest jedna i nie wymaga żadnej decyzji inwestycyjnej: otwórz je, choćby na drobne, żeby rok zaczął się liczyć. To, ile wpłacisz, możesz zmieniać co roku; to, od kiedy liczy się twój pierwszy rok, zmienić się już nie da.\n\nNie ma tu żadnego limitu, żadnej stawki, żadnego wieku i żadnej liczby lat: te wartości są parametrami ustawy i zmieniają się. Jakie są limity obu kont, ile wynosi zwrot, od jakiego wieku jest wypłata, ile lat wymaga warunek i który z dwóch rachunków wybrać — jest w filmie, ze źródłami.\n\n## COMENTARIO FIXADO\nCałość w jednym zdaniu, bez żadnej kwoty: ten warunek zlicza LATA z wpłatą, nie złote. Dlatego duża kwota w jednym roku nie zastępuje małych wpłat w kilku latach, a zegar startuje przy pierwszej wpłacie — nie wtedy, gdy o tym decydujesz. Konta otwartego późno nie da się dogonić, bo nie wpłacisz wstecz w rok, który minął. Napisz w komentarzu tylko, czy twój pierwszy rok już się liczy — bez kwot.\n\n## HASHTAGS\n#Emerytura #IKE #KolejnyPoziom\n\n## TAGS\nike, ikze, konto emerytalne, warunek wstepny, lata kalendarzowe, wplata, limit roczny, emerytura, oszczedzanie, podatek od zysku, kolejny poziom, pierwszy rok, ulga podatkowa, decyzja\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO\n**QUARTA rodada seguida sem o banco, e esta rodada LOCALIZOU o que da para\nlocalizar — aprendizado 777.** Tres chamadas: o `execute_sql` em\n`vevocauwtarctfwngrch` segue negado (`-32600`), e `list_organizations` e\n`list_projects` devolveram **200**, com uma org e um projeto, `imobjazz-eng's`.\n\n**Logo o servidor MCP FUNCIONA** — duas chamadas com 200 na mesma rodada da\nnegacao — e a negacao **nao e servidor caido**, que era a hipotese barata. **Mas o\ncatalogo nao explica nada**, porque ele e indistinguivel do catalogo de 12/10,\nquando o `execute_sql` naquele projeto FUNCIONAVA (o 709). **Fecha a tabela: o\ncatalogo nao informa acesso em sentido NENHUM** — nem que ha, nem que falta. Eu\nconcluiria hoje \"o escopo mudou\" e seria o erro do 709 pelo outro lado. **A causa\nfica DECLARADA como indeterminada**, porque conector reapontado e permissao\nretirada produzem o MESMO par de respostas.\n\n**E isso muda a FILA DO DONO**, que vale mais que a diagnose: a pendencia 2 da\nrotina diz que a reconexao do conector e *\"a PIOR das tres\"* — e aquela ordem\n**pressupunha que o banco funcionava**. Sem `execute_sql` nao ha `pg_net`, logo\nnao ha token, nao ha leitura de duracao real, nao ha leitura de inscritos, nao ha\nrota da regra (h) e nao ha registro em `videos`. Aviso escrito em\n`docs/pendente/LEIA.md`.\n\nCanal pela ULTIMA publicacao: labtreinamento 13:18, epomeno 12:19,\n**kolejny-poziom 11:22**.\n\nOrigem: `iqV7m6tKb5A` (`kolejny-poziom-004`, **74 capitulos**), com **UM** short\nso e **69 capitulos livres** — a de maior folga entre as com spec local. As tres\norigens de um uso so sem spec local (`SP7Vz8qHdRY`, `MjI4ZGJAhIo`,\n`Xgt32iH8Ft8`) seguem inacessiveis, porque a legenda da regra (h) sai pelo\n`pg_net`.\n\n**E O `irmaos_da_origem.py` MANDOU LER A COPY INTEIRA, e eu li.** O unico irmao\n(`s014`) **nao tem** o campo de familia e **nao cita ninguem** — entao o modulo\ndisse, em letra, que *\"o titulo curto e o unico comparador que sobra, e leia a\ncopy do irmao inteira antes de escrever\"*. Lido: o `s014` compara duas cobrancas\npela ALIQUOTA quando o que decide e a FREQUENCIA (a oplata anual tirada do capital\ncontra o podatek uma vez sobre o lucro). **E essa familia ja aparece DUAS vezes\nneste canal** — ela e tambem a do `s028`. Evitadas as duas.\n\n## FAMILIA DE ENTRADA ERRADA\nCONDICAO LIDA COMO VALOR QUANDO ELA CONTA OCORRENCIAS: o warunek wstepny nao olha\nquanto se depositou, ele conta **em quantos anos calendario diferentes houve\ndeposito**. Logo soma grande num ano nao substitui somas pequenas em varios anos —\nas duas quantidades nao sao comparaveis, porque a condicao nao le a soma.\n\n**O eixo errado e QUAL GRANDEZA A CONDICAO CONTA**, e a consequencia e\nirreversivel, o que e raro nesta serie: o relogio comeca na PRIMEIRA wplata, nao\nquando se decide, e **nao se deposita para tras num ano que passou**. Conta\npequena aberta cedo ultrapassa conta grande aberta tarde, e a segunda nao recupera.\n\nFamilia NOVA no canal, e a distincao das vizinhas vai escrita porque varias sao\nproximas:\n  * o **s014** (desta MESMA origem) e o **s028** erram ALIQUOTA contra FREQUENCIA\n    — ali as duas grandezas sao dinheiro e o que muda e quantas vezes incide;\n  * o **s033**, de tres horas atras, erra o PERIODO de um custo (oplata\n    jednorazowa lancada como mensal);\n  * o **s032** erra a UNIDADE DE MEDIDA (procento contra zlotys);\n  * aqui a condicao nao le dinheiro de jeito nenhum — ela conta ANOS, e nenhuma\n    das vizinhas tem uma grandeza NAO MONETARIA do lado que decide.\n\nCapitulo 51 do longo, nao usado pelo `s014` (que saiu dos capitulos 38 a 44, a\ncomparacao oplata/podatek).\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Nao cita o limite do\nIKE, nao cita o do IKZE, nao cita a stawka do podatek, nao cita o ryczalt, nao\ncita os progi podatkowe, nao cita as idades de wyplata, nao cita o numero de anos\ndo warunek, nao cita prazo e nao nomeia orgao. Conferido a mao campo por campo,\nporque o portao `narracao` conta quantidades por frase e NAO pega digito cru (640).\n\n**E AQUI A REGRA (g) CUSTOU O NUMERO CENTRAL DA PECA, e isso vai dito em vez de\nescondido:** o warunek do capitulo 51 e *\"wplaty w co najmniej PIECIU roznych\nlatach kalendarzowych\"*, e **cinco e parametro de ustawa — ele muda por\nrevisao.** Pela regra (g) ele fica fora. Entao a peca carrega a REGRA sem o\nnumero: *\"kilka roznych lat\"*. **A propriedade sobrevive inteira** — a condicao\nconta anos e nao zlotys, e o relogio comeca na primeira wplata — e nenhuma frase\ndepende de quantos anos sao. Quem quiser o numero vai ao longo, onde ele esta com\na fonte.\n\n**\"Jeden rok\" e \"pierwszy rok\" ficaram, e isso e deliberado:** sao a ESTRUTURA do\nerro (um ano contra varios), nao numero sobre o mundo.\n\n**E o `contagem_declarada` nao tinha o que dizer, e eu confiro a mao:** a peca nao\ndeclara quantidade de itens enumerados, logo nao ha N contra N+1 (725).\n\nO QUE O VIDEO AFIRMA: que a condicao de entrada conta anos calendario com\ndeposito e nao o valor depositado, que por isso uma quantia grande num ano nao\nsubstitui quantias pequenas em varios anos, que o relogio comeca no primeiro\ndeposito e nao na decisao, e que conta pequena aberta cedo ultrapassa conta grande\naberta tarde. Esta no longo `kolejny-poziom-004` (`iqV7m6tKb5A`), capitulo 51, com\nas fontes.\n\nDESCARTADO, e vai escrito:\n  (1) o numero de anos do warunek, os limites dos dois contratos, as stawki, o\n      ryczalt, os progi e as idades — parametros de ustawa, que mudam (regra g);\n  (2) **oplata anual contra podatek jednorazowo** (capitulos 38 a 44) — e o\n      nucleo do `s014` DESTA origem e tambem a familia do `s028`; duas vezes no\n      canal;\n  (3) **IKE contra IKZE, qual escolher** (capitulos 53 a 57) — familia distinta e\n      forte, livre para a proxima peca desta origem, e ela erra QUAL CONTA serve\n      a quem, nao o que a condicao conta;\n  (4) **os tres rachunki de trinta anos** (capitulos 59 a 63) — vem com seis\n      valores em zlotys e nao sobrevive a regra (g);\n  (5) **a wyplata antecipada e o que se perde nela** (capitulo 58) — quinta\n      familia, livre.\n\n## MIRA\n`kolejny-poziom` NAO tem override em `ALVO_POR_CANAL`, logo vale o `ALVO_SHORT`\nda frota (41,5 a 43,0). Mirado no **PISO**, e aqui as duas regras CONCORDAM, como\nno `s033`: o **679** diz que no `pl-PL-MarekNeural` o centro do modelo corre\n**+2,2%**, logo o piso e o lado seguro *da previsao*; e o **772** manda mirar o\npiso por causa do REAL. No `epomeno` elas apontam para lados opostos; aqui nao.\n\nMedido antes do render: edge **41,7** e piper **35,5**, os dois dentro de 18 a 45\nnos DOIS mundos. **Tres versoes recusadas pela aritmetica antes desta:** 37,6 e\n40,4 (as duas **FORA pelo PISO**) e 41,4, que falha o piso por **um decimo**. O\n`ensaio.chars_por_cena('pl-PL-MarekNeural', 10, 41.6)` devolve **49 caracteres por\ncena** — foi o modulo que disse, nao eu de cabeca (item 3 da §10).\n\nCom a banda observada e **40 pontos**, se o edge narrar o REAL deve cair entre\n**41,8 e 45,7 s** — o topo PASSA do teto de 45 do portao, e isso vai DITO antes de\npublicar. As QUATRO correcoes da banda a ALARGARAM (752, 769, 770, 774) e hoje ela\ntem **3,9 s** contra 1 s de granularidade — cobre quase quatro inteiros. **O SINAL\ndo residuo so esta estabelecido quando `real − previsao > 1,0`** (770): dos 40\npontos, **35** estao estabelecidos. Se o piper narrar, 35,6 a 39,5.\n\n**E ESTA PECA NAO VAI RENDER PONTO NENHUM, pelo QUARTO turno seguido:** ler a\nduracao REAL exige o token do `config` pelo `pg_net`, que roda dentro do Postgres.\nA previsao fica registrada aqui para a primeira rodada que reabrir o banco\nconferir. `RESIDUO_N` segue em 40 desde as 10:2x.\n\nO provedor se decide no runner e por cena (730) e se mede CONTANDO os avisos\n`NARRACAO PELO PIPER` da anotacao (733) — isso **continua** possivel sem o banco,\nporque sai pela API do GitHub.\n\n## FONTES\nO longo de onde este short foi extraido (`kolejny-poziom-004`, `iqV7m6tKb5A`) traz\nas fontes. Este short nao introduz numero novo sobre o mundo, e descarta\nexplicitamente o numero de anos do proprio warunek por ser parametro de ustawa.\n"
+}

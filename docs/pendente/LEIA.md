@@ -10,6 +10,41 @@ usar em vez do `list_projects`. Logo não é catálogo, é capacidade.
 `mcp__github__*`, que se recuperou sozinho): **sonde antes de dizer que não há
 rota.** A sonda é uma chamada e é barata.
 
+## O QUE SÓ O DONO PODE FAZER, medido em 15/10 às 14:1x (aprendizado 777)
+
+**Quatro rodadas seguidas com o `execute_sql` negado**, e três chamadas desta
+rodada localizam o que dá para localizar:
+
+| chamada | resultado |
+|---|---|
+| `execute_sql` em `vevocauwtarctfwngrch` | **negado** (`-32600`) |
+| `list_organizations` | **200** — uma org, `imobjazz-eng's Org` |
+| `list_projects` | **200** — um projeto, `imobjazz-eng's Project` |
+
+**O servidor MCP funciona** (duas chamadas com 200 na mesma rodada), logo não é
+servidor caído. **E o catálogo não explica a negação**, porque ele é
+*indistinguível* do catálogo de 12/10 — quando o `execute_sql` no
+`vevocauwtarctfwngrch` **funcionava**. Duas leituras compatíveis com o que eu vejo
+(conector reapontado para outra org, ou permissão retirada do projeto) produzem o
+MESMO par de respostas, então **eu não atribuo a causa daqui**.
+
+**O que o dono precisa fazer: reconectar o conector do Supabase escolhendo a
+organização do projeto `maquina-yt-dark` (`vevocauwtarctfwngrch`).**
+
+**E ISTO MUDA A ORDEM DA FILA que a rotina escreve.** A pendência 2 diz *"NÃO
+peça a reconexão do conector como primeira opção: ela é a PIOR das três"* — e
+essa ordem **pressupunha que o banco funcionava** e que só o REST estava em 402.
+Ali a reconexão devolvia o que eu já tinha e deixava o 402 de pé. **Com o
+`execute_sql` negado a premissa caiu:** sem ele não há `pg_net`, logo não há
+token, logo não há leitura de duração real, nem de inscritos, nem a rota da regra
+(h), nem o registro em `videos`.
+
+**O que NÃO caiu, e vai dito para a decisão não sair errada:** a publicação
+continua funcionando — quatro peças foram ao ar nestas quatro rodadas pelo
+`retomar.yml`, que usa o segredo `YT_OAUTH_JSON` e **não toca o Supabase**. A
+pendência 3 já está feita, e é por isso.
+
+
 ## `videos-a-inserir.sql`
 
 São as linhas de `videos` que o `fabrica/registro_videos.py` imprimiu e que **não
