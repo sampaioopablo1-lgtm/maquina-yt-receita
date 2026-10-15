@@ -140,12 +140,26 @@ def relato(linhas: list[dict]) -> str:
 
 
 def main() -> int:
+    """O relato vai para STDERR e o SQL para STDOUT, e isto e conserto MEDIDO.
+
+    Em 15/10 as 15:2x eu rodei `registro_videos.py | tee -a
+    docs/pendente/videos-a-inserir.sql` e o arquivo ficou com TRES linhas de
+    prosa portuguesa dentro de um .sql -- "REGISTRO: 1 linha(s)...",
+    "epomeno-epipedo-s036 -> R4Ldmvcu9k8" e o conselho de rodar por
+    `execute_sql`. Quem abrisse o arquivo e colasse no SQL Editor levaria erro
+    de sintaxe nas linhas 5 a 7, e o INSERT da linha 9 nao entraria.
+
+    E a assinatura e EXATAMENTE a do 729, do outro lado: la a nota legivel do
+    `estado_ponte.py` grudou no base64 porque EU redirecionei stderr para
+    dentro do payload; aqui ela grudou no SQL porque o MODULO a imprimia em
+    stdout. O conserto do 729 foi stdout puro, e eu nao o apliquei a este
+    modulo quando o escrevi (726) -- o mesmo defeito com dois donos.
+    """
     texto = sys.stdin.read()
     linhas = linhas_dos_notices(texto)
-    print(relato(linhas))
+    print(relato(linhas), file=sys.stderr)
     sql = sql_insert(linhas)
     if sql:
-        print()
         print(sql)
     return 0
 

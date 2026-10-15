@@ -61,3 +61,23 @@ vezes não dói.
 consumida (670), e a trava contra reusar origem fica cega. A falha de `videos` é
 ruidosa, mas **só levanta quando alguém tenta medir** — barulho que ninguém ouve
 é silêncio, e foi assim que eu perdi doze publicações em 13/10.
+
+## Quinta rodada sem o banco — 15/10 às 15:2x
+
+A sonda de capacidade (`select pg_database_size(current_database())`) foi feita
+duas vezes nesta rodada, antes e depois de publicar, e foi **negada as duas**.
+Trato isso como ESTADO e não como propriedade, então ela é refeita a cada rodada.
+
+**A produção NÃO parou:** o `epomeno-epipedo-s036` foi ao ar às 15:19 UTC como
+`R4Ldmvcu9k8`, porque a publicação sai pelo `retomar.yml` com o `YT_OAUTH_JSON`
+e não toca o Supabase.
+
+**O que o banco fechado continua custando, e é o mesmo de ontem:**
+- as **cinco** linhas de `videos` seguem parqueadas em
+  `docs/pendente/videos-a-inserir.sql`, e sem `origem_id` em `videos` a
+  `consultas/estoque.sql` não sabe que aquelas cinco origens foram consumidas;
+- **não há leitura de inscritos** (Porta 1), porque ela depende do `pg_net`;
+- **não há leitura de duração real**, logo a banda de resíduo segue congelada em
+  `RESIDUO_N = 40` e já são **cinco** peças sem ponto;
+- as origens da regra (h) — as que só têm legenda e não têm spec local —
+  seguem inalcançáveis.

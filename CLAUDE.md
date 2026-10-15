@@ -1950,6 +1950,30 @@ por `execute_sql`, com `on conflict (slug) do nothing`. Rode os dois juntos:
 `consultas/estoque.sql` **não sabe que a origem foi consumida** (670) — a trava
 contra reusar origem fica cega pelo mesmo motivo.
 
+### E O MESMO DEFEITO DO 729 ESTAVA NO OUTRO MÓDULO, E EU O ESCREVI
+
+**Medido em 15/10 às 15:2x, pelo arquivo no disco.** Eu rodei
+`<notices> | python3 fabrica/registro_videos.py | tee -a docs/pendente/videos-a-inserir.sql`
+e o `.sql` ficou com **três linhas de prosa portuguesa dentro** — `REGISTRO: 1
+linha(s)...`, `epomeno-epipedo-s036 -> R4Ldmvcu9k8` e o conselho de rodar por
+`execute_sql`. Quem abrisse o arquivo e colasse no SQL Editor levaria erro de
+sintaxe nas linhas 5 a 7, e **o INSERT da linha 9 não entraria**.
+
+**É a assinatura do 729 do outro lado.** No 729 a nota legível do
+`estado_ponte.py` grudou no base64 porque **eu** redirecionei stderr para dentro
+do payload; aqui ela grudou no SQL porque o **MÓDULO** a imprimia em stdout. O
+conserto do 729 foi *stdout puro*, com teste — e eu **não o apliquei** ao módulo
+que escrevi no 726, dois dias depois. Mesmo defeito, dois donos.
+
+Agora o `relato` sai por **stderr** e o stdout é SQL que cola sem limpeza.
+`tests/test_o_sql_parqueado_nao_leva_prosa.py`, oito testes, um deles por **AST**
+(porque o docstring do módulo NOMEIA stdout para se explicar, e casar prosa
+pegaria a explicação em vez do código) e um que cobra `origem_id` e
+`on conflict (slug) do nothing` em **toda** linha parqueada, pelo 670.
+
+**E o que isto NÃO conserta:** o pendente continua sendo um ARQUIVO. Sem
+`execute_sql` as cinco linhas não entram em `videos`, e o 726 segue aberto.
+
 **E NÃO MONTE O `estado_b64` À MÃO — rode `python3 fabrica/estado_ponte.py`**
 (aprendizado 718), **e NÃO redirecione stderr para dentro do payload** — isto é
 de 13/10 às 15:1x e é a TERCEIRA vez que o `estado_b64` montado por mim mata um
