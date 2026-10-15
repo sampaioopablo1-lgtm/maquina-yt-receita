@@ -60,12 +60,13 @@ def _nao_estabelecidos():
     return [s for s in SERIE if s[2] - s[1] <= GRANULARIDADE_DO_REAL + 1e-9]
 
 
-def test_quatro_pontos_da_serie_tem_o_sinal_NAO_estabelecido():
+def test_cinco_pontos_da_serie_tem_o_sinal_NAO_estabelecido():
     nomes = sorted(n for n, _, _, _ in _nao_estabelecidos())
     assert nomes == [
         "epomeno-epipedo-s024",
         "epomeno-epipedo-s029",
         "epomeno-epipedo-s030",
+        "epomeno-epipedo-s033",
         "kolejny-poziom-s027",
     ], (
         "o conjunto dos pontos cujo sinal o instrumento NAO resolve mudou; releia"
@@ -84,7 +85,7 @@ def test_a_implicacao_vale_de_UM_LADO_SO__piso_implica_nao_estabelecido():
     estabelecido; a volta nao vale.
     """
     nao = {n: _nominal(p, r) for n, p, r, _ in _nao_estabelecidos()}
-    assert sorted(nao.values()) == [0.1, 0.4, 0.5, 0.9], nao
+    assert sorted(nao.values()) == [0.1, 0.4, 0.4, 0.5, 0.9], nao
     # o piso da banda e um dos nao-estabelecidos (o lado que VALE)
     assert mira.RESIDUO_OBSERVADO[0] in nao.values()
     assert mira.RESIDUO_OBSERVADO[0] == min(nao.values())
@@ -108,10 +109,10 @@ def test_o_piso_dos_estabelecidos_e_MAIOR_que_o_piso_da_banda():
     assert piso_est > mira.RESIDUO_OBSERVADO[0]
 
 
-def test_a_contagem_de_estabelecidos_e_31_de_35():
-    assert len(SERIE) == mira.RESIDUO_N == 35
+def test_a_contagem_de_estabelecidos_e_31_de_36():
+    assert len(SERIE) == mira.RESIDUO_N == 36
     assert len(_estabelecidos()) == 31
-    assert len(_nao_estabelecidos()) == 4
+    assert len(_nao_estabelecidos()) == 5
 
 
 def test_o_TETO_da_banda_vem_de_um_ponto_ESTABELECIDO():
