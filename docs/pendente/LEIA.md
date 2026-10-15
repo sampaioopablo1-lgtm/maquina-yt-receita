@@ -136,3 +136,16 @@ apareceu em **dois dias seguidos**, no `kolejny-poziom-018` (capítulo 32) e no
 `labtreinamento-012` (capítulo 32). Isso é hábito dos nossos longos, não
 coincidência: o autor marca o exemplo numérico como ilustração. Vale como aviso
 de que o short dessas origens nunca carrega o exemplo.
+
+## Décima rodada sem o banco — 15/10 às 20:1x
+
+Sonda negada antes e depois de publicar. O `kolejny-poziom-s036` foi ao ar
+às 20:12 UTC como **`GHxK6JAORYc`**. **O pendente chegou a DEZ linhas**, todas
+insert — e dez linhas de `videos` é o tamanho do que o 670 perde: a
+`estoque.sql` não sabe que essas dez origens foram consumidas.
+
+**E a previsão da rodada das 17:1x se cumpriu:** consumida a única origem
+escrevível do `kolejny`, a pauta dele passou a depender de origem de **dois
+usos**. As três origens de um uso só seguem inalcançáveis porque a rota da
+regra (h) (`captions` pelo `pg_net`) depende do banco. Nenhum canal ficou sem
+pauta hoje, mas a folga do kolejny acabou.
