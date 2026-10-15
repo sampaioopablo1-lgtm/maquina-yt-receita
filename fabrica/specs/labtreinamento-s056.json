@@ -1,0 +1,96 @@
+{
+ "slug": "labtreinamento",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#1F2933",
+  "c1": "#3F6C51",
+  "c2": "#C98B2E",
+  "bg": "#F5F3ED"
+ },
+ "pacote": "labtreinamento-s056",
+ "longo_existente": "NNgAQLlpEzg",
+ "thumb": {
+  "l1": "Teto",
+  "l2": "não é piso"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "O desconto",
+   "sub": "tem um teto",
+   "nar": "O desconto do vale tem teto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A regra",
+   "preco": "vale a menor",
+   "nar": "Vale a menor das duas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Uma",
+   "preco": "parte do básico",
+   "nar": "Uma é parte do básico.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A outra",
+   "sub": "seu gasto real",
+   "nar": "A outra é seu gasto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O erro",
+   "preco": "descontar sempre o teto",
+   "nar": "O erro é descontar sempre o teto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "O sinal",
+   "itens": [
+    "Mesmo valor",
+    "Todo mês",
+    "Todo mundo"
+   ],
+   "nar": "O sinal é valor igual.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Mas",
+   "preco": "o trajeto difere",
+   "nar": "Mas o trajeto difere.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Teto",
+   "sub": "não é piso",
+   "nar": "Teto é limite, não valor fixo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Faça",
+   "preco": "as duas contas",
+   "nar": "Faça as duas contas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Lab Treinamento",
+   "sub": "inscreva-se",
+   "nar": "Inscreva-se e veja a linha.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# labtreinamento-s056\n\n## TITULO\nTeto Não É Valor Fixo: Por Que O Desconto Igual Para Todos Denuncia A Conta Errada\n\n## TITULO SHORT\nTeto não é piso\n\n## DESCRICAO\nO desconto do vale na folha não é um valor que a empresa escolhe: é o **menor** entre duas contas. Uma é uma parte do salário básico; a outra é o seu gasto real do mês com o trajeto. A regra manda valer a menor, e isso faz do primeiro número um **teto**, não uma cobrança.\n\nO erro mais comum é tratar esse teto como se fosse o valor devido e descontá-lo de todo mundo. É mais simples de rodar numa folha grande, e passa despercebido porque o número parece legítimo — ele existe na regra. Só que ele existe como **limite**, e aplicar um limite como valor fixo cobra mais de quem gasta menos.\n\nE esse erro tem um sinal visível, que é o que torna a conferência barata: **o desconto sai igual para todas as pessoas com o mesmo salário**, não importa onde cada uma mora. Se o seu colega mora a dois quarteirões e desconta o mesmo que você, que atravessa a cidade, uma das duas linhas está errada — e não é a sua geografia.\n\nA conferência é você fazer as duas contas e usar a menor. Se a linha impressa for maior que a sua menor, você tem um número para levar, e número conversa melhor que impressão.\n\nNão há aqui percentual, valor de tarifa nem cifra em reais: esses mudam por categoria e por ano, e a regra do menor não muda. As outras duas armadilhas da mesma linha — a base e a exceção de quem é pago por tarefa — estão no vídeo.\n\n## COMENTARIO FIXADO\nO ponto é que a primeira conta é um TETO, não uma cobrança: a regra manda valer o MENOR entre a parte do salário básico e o seu gasto real do mês. Descontar sempre o teto cobra mais de quem gasta menos, e o sinal é visível na folha — desconto igual para todo mundo com o mesmo salário, independente do trajeto de cada um.\n\n## FAMILIA DE ENTRADA ERRADA\nAplicar um **limite superior como valor fixo** — o teto de um par \"vale a menor\" cobrado como se fosse a cobrança. Os três irmãos desta origem foram conferidos antes da escolha: o `labtreinamento-s043` traz o campo escrito e trata a CONTAGEM da própria base (dias de calendário em vez de dias em que se vai); o `-s036` e o `-s001`, da geração anterior e sem o campo, foram lidos pelo título curto e pela prosa (776) — o `s036` trata a BASE errada (desconto saindo do bruto em vez do básico) e o `s001` o desconto contra a distância. Aqui a base está certa e a contagem está certa: o que está errado é o **papel** do número na regra.\n\n## AVISO SOBRE OS NUMEROS\nFora, pela regra (g): o percentual do salário básico, o valor da tarifa, as cifras em reais dos capítulos 38 e 39 e qualquer limite anual. Mudam por categoria e por ano; a regra do menor não muda. E a peça não traz exemplo numérico, porque a regra do papel do teto vale com quaisquer valores.\n\n## MIRA\nPrevisão `edge` **25,2 s** e `piper` **20,7 s** — `mira.py` **VERDE nos dois mundos** contra a mira medida do canal (20,0 a 26,0), e a primeira versão tinha **piper 19,6, FORA pelo PISO**, que é o lado da pinça do 748; foi alongada. A exposição vai declarada antes de publicar: com a banda observada (0,1 a 4,0 s), **se o edge narrar o real deve cair entre 25,3 e 29,2 s e pode PASSAR do teto de 26,0**; se o Piper narrar, 20,8 a 24,7, e cabe. O tally deste canal no mundo `edge` está em onze FORA contra três dentro, os onze com a mira verde.\n\n## HASHTAGS\n#valetransporte #folhadepagamento #direitostrabalhistas #LabTreinamento\n\n## TAGS\nvale transporte, desconto em folha, folha de pagamento, salário básico, teto de desconto, direitos trabalhistas, conferência, holerite, trajeto, benefício, RH, aritmética, departamento pessoal, conta, Lab Treinamento\n"
+}
