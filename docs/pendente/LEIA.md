@@ -170,3 +170,15 @@ Sonda negada antes e depois de publicar. O `labtreinamento-s056` foi ao ar às
 o pico mais alto do dia (os outros ficaram entre −1,5 e −4,1). Não é defeito
 medido e não reprova nada; fica anotado porque é a primeira vez que o pico
 chega tão perto de zero, e se repetir vale olhar o `SOM` antes de supor.
+
+## Décima terceira rodada sem o banco — 15/10 às 23:1x
+
+Sonda negada antes e depois de publicar. O `kolejny-poziom-s037` foi ao ar às
+23:11 UTC como **`LTC9nE-iEE4`**. **O pendente está em TREZE linhas.**
+
+**O dia 15/10 fecha em 6 / 5 / 5** (labtreinamento / epomeno / kolejny), 16 peças
+em 13 rodadas. Nenhum canal ficou sem pauta e nenhum portão reprovou peça
+publicada.
+
+E o pico de som voltou à faixa habitual (−3,4 dBTP) na peça seguinte à de
+−0,6 — então aquilo foi um ponto, não uma tendência, como já estava dito.
