@@ -1,0 +1,96 @@
+{
+ "slug": "kolejny-poziom",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "pacote": "kolejny-poziom-s036",
+ "longo_existente": "vcJf6WipLtY",
+ "thumb": {
+  "l1": "Grosze",
+  "l2": "albo rok"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Grosze",
+   "sub": "wyglądają na nic",
+   "nar": "Grosze na kilowatogodzinie wyglądają na nic wartego uwagi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlatego",
+   "preco": "nie liczysz ich",
+   "nar": "I dlatego najczęściej nie liczysz ich wcale.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ale",
+   "sub": "to cena jednostkowa",
+   "nar": "Ale to jest cena za jednostkę, a nie twoja kwota.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kwota",
+   "preco": "to cena razy zużycie",
+   "nar": "Kwota powstaje dopiero po pomnożeniu przez zużycie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A zużycie",
+   "preco": "liczy się w roku",
+   "nar": "A zużycie liczysz w skali roku, nie jednej godziny.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Dwie skale",
+   "itens": [
+    "Grosz",
+    "Rok",
+    "Inny wniosek"
+   ],
+   "nar": "Dwie skale dają dwa zupełnie różne wnioski.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Błąd",
+   "preco": "ocena w złej skali",
+   "nar": "Błąd to ocenianie wagi liczby w złej skali.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Zamień",
+   "sub": "na złotówki",
+   "nar": "Zamień różnicę na złotówki w roku.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dopiero wtedy",
+   "preco": "widać wagę",
+   "nar": "Dopiero ta kwota mówi, czy warto podpisywać.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Kolejny Poziom",
+   "sub": "subskrybuj",
+   "nar": "Subskrybuj i licz różnicę w skali roku.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# kolejny-poziom-s036\n\n## TITULO\nGrosz Przy Kilowatogodzinie To Nie Kwota: Dlaczego Różnicę Trzeba Przeliczyć Na Rok\n\n## TITULO SHORT\nGrosze albo rok\n\n## DESCRICAO\nPorównujesz dwie oferty prądu i widzisz różnicę kilku groszy na kilowatogodzinie. Wygląda na nic, więc decyzja idzie na wyczucie — i to wyczucie jest systematycznie złe, bo liczba, na którą patrzysz, nie jest tym, co zapłacisz.\n\nCena za kilowatogodzinę jest ceną **jednostkową**. Twoja kwota powstaje dopiero po pomnożeniu jej przez zużycie, a zużycie liczysz w skali roku, nie jednej godziny. Te same grosze w skali rocznego zużycia przestają być groszami — i to samo działa w drugą stronę: różnica, która w reklamie wygląda poważnie, po przeliczeniu bywa warta jednej kolacji.\n\nCzyli błąd nie jest w arytmetyce, a w **skali, w jakiej oceniasz wagę liczby**. Grosz i rok to dwie skale, i prowadzą do dwóch różnych wniosków o tej samej ofercie. Patrząc na pierwszą, decydujesz o drugiej.\n\nPostępowanie jest krótkie: weź różnicę cen za kilowatogodzinę, pomnóż przez swoje roczne zużycie, i dopiero tę kwotę w złotówkach postaw obok tego, co umowa od ciebie wymaga — ile lat wiąże i ile kosztuje wcześniejsze wyjście. Dopiero wtedy wiesz, o czym w ogóle decydujesz.\n\nNie ma tu żadnej ceny, taryfy ani stawki: te liczby zmieniają się co roku i zestarzałyby się w filmie, a sposób przeliczenia nie starzeje się wcale — mówi to sam autor w rozdziałach czterdzieści pięć i siedemdziesiąt osiem. Jak policzyć własną cenę końcową z faktury — jest w filmie.\n\n## COMENTARIO FIXADO\nSedno: cena za kilowatogodzinę to cena JEDNOSTKOWA, a twoja kwota powstaje po pomnożeniu przez roczne zużycie. Grosz i rok to dwie skale i dają dwa różne wnioski o tej samej ofercie. Przelicz różnicę na złotówki w skali roku, i dopiero tę kwotę postaw obok tego, na ile lat umowa cię wiąże.\n\n## FAMILIA DE ENTRADA ERRADA\nJulgar a **magnitude na unidade errada** — ler a diferença na unidade pequena (grosz por kWh) quando a decisão é sobre o total do período (złoty por ano). Os dois irmãos desta origem foram conferidos: o `kolejny-poziom-s030` traz o campo escrito e trata o desconto aplicado à conta inteira quando alcança só metade dela, mais o preço unitário contra uma taxa FIXA; o `-s016`, da geração anterior e sem o campo, trata o cabeçalho da tarifa que pode não te dizer respeito por você estar numa oferta, e foi lido pelo título curto e pela prosa (776). Aqui não há parcela que não se mexe nem documento errado: a conta é uma multiplicação, está certa, e o defeito é a escala em que se lê o resultado.\n\n## AVISO SOBRE OS NUMEROS\nFora, pela regra (g): preço, tarifa, taxa fixa, prazo de contrato e o valor de referência do capítulo 77. E a procedência do descarte é do próprio autor, que diz no capítulo 45 que *\"a liberdade do cabeçalho envelhece em poucos meses, o modo de ler a própria conta não envelhece\"* e repete no 78. Quem carrega o número contraria a fonte.\n\n## MIRA\nPrevisão `edge` **41,5 s** e `piper` **35,3 s**, os dois dentro de 18 a 45 — portão `duracao` verde nos dois mundos. Mirei o **PISO** exato do `ALVO_SHORT` (41,5 a 43,0), com o 679 (voz polonesa, resíduo positivo) e o 772 concordando. Com a banda observada (0,1 a 4,0 s), **se o edge narrar o real deve cair entre 41,6 e 45,5 s — o topo PASSA do teto de 45**, e isso vai declarado antes de publicar. Se o Piper narrar, 35,4 a 39,3.\n\n## HASHTAGS\n#prąd #rachunki #finanseosobiste #KolejnyPoziom\n\n## TAGS\nprąd, cena prądu, kilowatogodzina, rachunek za prąd, zmiana sprzedawcy, oferta, taryfa, zużycie energii, finanse osobiste, oszczędzanie, umowa, opłata handlowa, faktura, licznik, Kolejny Poziom\n"
+}
