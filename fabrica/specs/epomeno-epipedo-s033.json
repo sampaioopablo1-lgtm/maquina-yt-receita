@@ -1,0 +1,96 @@
+{
+ "slug": "epomeno-epipedo",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#16283C",
+  "c1": "#2E7BB4",
+  "c2": "#E0A02E",
+  "bg": "#F3F7FA"
+ },
+ "pacote": "epomeno-epipedo-s033",
+ "longo_existente": "jAWKppvjAG8",
+ "thumb": {
+  "l1": "Δωρεάν χρόνια",
+  "l2": "ή πληρωμένα"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Η πρώτη ερώτηση",
+   "sub": "πόσο κοστίζει",
+   "nar": "Η πρώτη ερώτηση που κάνουν όλοι είναι πόσο κοστίζει.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Δεν αγοράζονται όλα",
+   "preco": "κάποια μετράνε",
+   "nar": "Όμως δεν αγοράζονται όλα τα χρόνια που τελικά μετράνε.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Χωρίς κόστος",
+   "preco": "και όμως μετράνε",
+   "nar": "Κάποια από αυτά προσμετρώνται χωρίς να πληρώσεις τίποτα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Δύο είδη",
+   "sub": "άλλη δουλειά",
+   "nar": "Και τα δύο είδη δεν κάνουν ακριβώς την ίδια δουλειά.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Τα δωρεάν",
+   "preco": "μόνο στα έτη",
+   "nar": "Τα δωρεάν μετράνε μόνο για τη συμπλήρωση των ετών.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Τα πληρωμένα",
+   "preco": "έτη και ποσό",
+   "nar": "Τα πληρωμένα μετράνε και στα έτη και στο ποσό.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Η σειρά",
+   "sub": "αλλάζει τον λογαριασμό",
+   "nar": "Άρα η σειρά της αναζήτησης αλλάζει τον λογαριασμό.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Ψάξε πρώτα",
+   "itens": [
+    "Ό,τι μετράει δωρεάν",
+    "Μετά ό,τι λείπει",
+    "Τέλος η τιμή"
+   ],
+   "nar": "Ψάξε λοιπόν πρώτα ό,τι προσμετράται χωρίς κόστος.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Η τιμή",
+   "preco": "μόνο για τα υπόλοιπα",
+   "nar": "Και μετά ρωτάς την τιμή μόνο για όσα λείπουν.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Επόμενο Επίπεδο",
+   "sub": "μείνε στο κανάλι",
+   "nar": "Κάνε εγγραφή και δες πρώτα τον δικό σου χρόνο.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# epomeno-epipedo-s033\n\n## TITULO\nΔωρεάν ή Πληρωμένα Έτη: Δύο Πράγματα που Μοιάζουν Ίδια και Κάνουν Άλλη Δουλειά\n\n## TITULO SHORT\nΨάξε πρώτα τα δωρεάν χρόνια\n\n## DESCRICAO\nΗ πρώτη ερώτηση που κάνουν σχεδόν όλοι είναι «πόσο κοστίζει». Είναι φυσική, και εδώ είναι πρόωρη — γιατί υποθέτει κάτι που δεν ισχύει: ότι όλα τα χρόνια που μετράνε πρέπει να αγοραστούν.\n\nΔεν πρέπει. Κάποια προσμετρώνται χωρίς να πληρώσεις τίποτα. Και τα δύο είδη μοιάζουν ίδια σε μια λίστα — είναι και τα δύο «χρόνια» — αλλά δεν κάνουν την ίδια δουλειά. Τα δωρεάν μετράνε μόνο για τη ΣΥΜΠΛΗΡΩΣΗ των ετών. Τα πληρωμένα μετράνε και στα έτη ΚΑΙ στο ποσό.\n\nΑπό αυτή την ασυμμετρία βγαίνει μια συνέπεια πρακτική, και δεν χρειάζεται κανένα νούμερο για να τη δεις: η ΣΕΙΡΑ της αναζήτησης αλλάζει τον λογαριασμό. Αν ψάξεις πρώτα ό,τι προσμετράται χωρίς κόστος, μπορεί να διαπιστώσεις ότι σου λείπουν λιγότερα από όσα νόμιζες — και τότε η τιμή αφορά μόνο το υπόλοιπο. Αν ξεκινήσεις από την τιμή, πληρώνεις πιθανότατα για κάτι που ήδη είχες.\n\nΑυτό δεν σημαίνει ότι τα δωρεάν είναι καλύτερα. Σημαίνει ότι είναι ΑΛΛΟ πράγμα: αν αυτό που σου λείπει είναι ποσό και όχι έτη, τα δωρεάν δεν το λύνουν. Οπότε η σωστή ακολουθία είναι τρία βήματα: δες τον πραγματικό σου χρόνο, βρες τι προσμετράται χωρίς κόστος, και μόνο μετά ρώτα την τιμή για όσα λείπουν.\n\nΔεν υπάρχει εδώ ούτε ένα ποσό, ούτε ένα ποσοστό και ούτε μία ημερομηνία: τα νούμερα που αποφασίζουν είναι στον δικό σου φάκελο. Ποια είναι τα όρια ανά κατηγορία, πόσο κοστίζει ο μήνας, τι αλλάζει με τον κατώτατο μισθό και σε πόσα χρόνια γυρίζει η εξαγορά — είναι στο βίντεο, με πηγές.\n\n## COMENTARIO FIXADO\nΌλο το θέμα σε μία πρόταση, χωρίς κανένα ποσό: δεν αγοράζονται όλα τα χρόνια που μετράνε, και τα δωρεάν με τα πληρωμένα δεν κάνουν την ίδια δουλειά — τα πρώτα μετράνε μόνο στα έτη, τα δεύτερα και στο ποσό. Γι' αυτό ψάξε πρώτα ό,τι προσμετράται χωρίς κόστος και ρώτα την τιμή μόνο για όσα λείπουν. Γράψε στα σχόλια μόνο αν ήξερες ότι υπάρχουν χρόνοι που μετράνε δωρεάν — χωρίς ποσά.\n\n## HASHTAGS\n#Ασφάλιση #Σύνταξη #ΕπόμενοΕπίπεδο\n\n## TAGS\nplasmatika eti, exagora, dorean xronia, syntaxi, asfalisi, eti asfalisis, prosmetrisi, finanseis, ellada, katigoria asfalismenou, anergia, epomeno epipedo, kostos exagoras, apofasi\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO\nDECIMA SEGUNDA rodada seguida com o canal escolhido pelo contador, e a PRIMEIRA\nem que o DESEMPATE MEDIDO decidiu de verdade. As 06:0x a janela movel de 24 h\nveio **10 / 7 / 7**: EMPATE no mais baixo entre `epomeno-epipedo` e\n`kolejny-poziom`. O conserto das 04:0x entrou em producao aqui — o relato disse\nque empatou, nomeou os dois, e desempatou pelo `max(publicado_em)`: o epomeno\ntem a peca mais ANTIGA (04:18 contra 05:14). **Antes das 04:0x isso teria sido\ndesempatado pelo ALFABETO**, que daria o MESMO canal por acidente, e eu teria\nchamado de escolha o que era ordem de letra.\n\nO DIA deu **0 / 3 / 3** e aponta o `labtreinamento`, que esta em zero — mas ele\nfez **10 das 24** pecas da janela, todas antes das 15:12 de ontem, e e a JANELA\nque governa a escolha.\n\nA origem saiu do `concentracao.py epomeno-epipedo`: `jAWKppvjAG8`\n(epomeno-epipedo-009, **61 capitulos**) tinha UM short so, o `s015`. **E este\ncanal entrou na ultima origem com spec local de um uso so** — as tres restantes\n(`GwNkPfM9pSY`, `eZ697VNYCPU`, `h66MCKjwAJ8`) sao da regra (h), e a rota delas\npelo `pg_net` esta medida no 759.\n\n## FAMILIA DE ENTRADA ERRADA\nTratar como INTERCAMBIAVEIS duas coisas que a regra conta de formas DIFERENTES —\nos anos que se somam de graca contam so para o TEMPO, os comprados contam para o\ntempo E para o VALOR — e por isso perguntar o preco antes de perguntar o que ja\nse tem. **A ordem da busca muda a conta.** Familia NOVA no canal, e a distincao\ndo irmao vai escrita: o `s015`, o unico outro short desta origem, troca a\npergunta do PRECO pela do RETORNO (em quantos anos a compra volta). Ali o eixo\nerrado e QUAL NUMERO decide; aqui e QUAIS ITENS entram na conta, e o numero nem\naparece. Capitulos 19 a 26 do longo, nenhum usado pelo `s015` (que saiu dos 39 a\n46).\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Nao cita o limite de\nanos do setor privado, nao cita o do publico, nao cita o salario minimo, nao cita\no percentual, nao cita o custo do mes nem do ano, nao cita a data de vigencia e\nnao nomeia orgao. Conferido a mao campo por campo, porque o portao `narracao`\nconta quantidades por frase e NAO pega digito cru (640).\n\n**\"Dois tipos\" e \"tres passos\" ficaram, e isso e deliberado:** sao a ESTRUTURA do\nargumento, nao numero sobre o mundo — eles nao envelhecem quando o custo mudar.\n\n**O que a regra (g) tirou daqui e grande, e vai nomeado:** o salario minimo, o\npercentual da contribuicao, o custo do mes, o custo do ano, o total dos sete anos\ne a DATA a partir da qual o preco novo vale. Todos sao numeros que MUDAM — o\nproprio longo diz que o custo *\"mudou este ano\"* — e todos estao la com fonte. O\nshort carrega so a REGRA (duas especies de ano fazem trabalhos diferentes), que\nnao envelhece.\n\n**E ha um descarte que eu quase nao fiz:** a assimetria entre setor privado e\npublico (capitulos 0 a 5) e o achado mais forte do longo, mas ela depende de DOIS\nlimites em anos, que sao numeros de norma e mudam. Fica fora, e fica dito.\n\nO QUE O VIDEO AFIRMA: que nao todos os anos que contam precisam ser comprados,\nque os que se somam sem pagamento contam apenas para completar os anos, que os\npagos contam tambem para o valor, e que por isso a ordem da busca (primeiro o\ngratuito, depois o preco do que falta) muda o resultado. Esta no longo\nepomeno-epipedo-009 (`jAWKppvjAG8`), capitulos 19 a 26, com as fontes.\n\nDESCARTADO, e vai escrito:\n  (1) os limites por categoria, o salario minimo, o percentual, os custos e a\n      data de vigencia — numeros que mudam (regra g), com fonte no longo;\n  (2) o retorno em anos e as tres situacoes de \"vale ou nao vale\" — e o nucleo do\n      `s015` e sairia repetido;\n  (3) a `διαδοχική ασφάλιση` como terceiro caminho (capitulos 17 e 18) — terceira\n      familia, livre;\n  (4) a data do pedido travar o preco (capitulos 36 a 38) — quarta familia, e ela\n      e boa; ficou fora porque a peca de hoje ja tem a sua assimetria e misturar\n      as duas faria a narracao pagar dois P a mais por cena.\n\n## MIRA\n`epomeno-epipedo` NAO tem override em `ALVO_POR_CANAL`, logo vale o `ALVO_SHORT`\nda frota (41,5 a 43,0). Mirado perto do PISO — **e isto contraria o 679, de\nproposito.** O 679 diz que no `el-GR-NestorasNeural` o centro do modelo corre\n**−3,2%**, logo o TOPO e o lado seguro *da previsao*. Mas o **772, de duas horas\natras e NESTE canal**, mediu o que acontece no REAL: o `s032` mirou 42,5 com o\nportao verde nos dois mundos e saiu com **46 s — acima do teto de 45 do proprio\nportao**. Entre proteger a previsao e proteger o real, o real manda, porque e ele\nque o YouTube ve. Fica dito que as duas regras apontam para lados opostos.\n\nMedido antes do render: edge **41,6** e piper **36,8**, os dois dentro de 18 a 45\nnos DOIS mundos. **Tres versoes recusadas pela aritmetica antes desta:** 39,6\n(**FORA pelo PISO**), 42,1 (dentro, mas longe do piso) e esta. O\n`ensaio.chars_por_cena('el-GR-NestorasNeural', 10, 41.6)` devolve **53\ncaracteres por cena** — foi o modulo que disse, nao eu de cabeca (item 3 da §10).\n\nCom a banda observada e **35 pontos**, se o edge narrar o REAL deve cair entre\n**41,7 e 45,3 s** — o topo PASSA do teto de 45, e isso vai DITO antes de\npublicar. No `s032` essa mesma frase se cumpriu. Se o piper narrar, 36,9 a 40,5.\n\n**E o que a banda NAO faz, repetido porque e o achado das ultimas rodadas:** o\npiso dela caiu duas vezes (769, 770), o teto uma (752), e a largura esta em\n**3,6 s** contra 1 s de granularidade — ela cobre quase quatro inteiros. **O\nSINAL do residuo so esta estabelecido quando `real − previsao > 1,0`** (770): dos\n35 pontos, **31** estao estabelecidos. Esta previsao e a **decima segunda** da\nfaixa de 41 a 44 s, e pelo 768/769 previsoes separadas por menos de 1 s **nao\nordenam** nada contra o real.\n\nO provedor se decide no runner e por cena (730) e se mede CONTANDO os avisos\n`NARRACAO PELO PIPER` da anotacao (733).\n\n## FONTES\nO longo de onde este short foi extraido (epomeno-epipedo-009, `jAWKppvjAG8`) traz\nas fontes. Este short nao introduz numero novo sobre o mundo.\n"
+}
