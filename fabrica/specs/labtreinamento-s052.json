@@ -1,0 +1,96 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-s052",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#1F2933",
+  "c1": "#3F6C51",
+  "c2": "#C98B2E",
+  "bg": "#F5F3ED"
+ },
+ "thumb": {
+  "l1": "Um verbo",
+  "l2": "por linha"
+ },
+ "longo_existente": "KRUERlNPzDw",
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Uma linha",
+   "sub": "três ações",
+   "nar": "Uma linha, três ações.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Revisar",
+   "preco": "treinar, implantar",
+   "nar": "Revisar, treinar, implantar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Parece uma",
+   "preco": "são três",
+   "nar": "Parece uma linha só, e não é.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "O que colapsa",
+   "itens": [
+    "Um prazo",
+    "Um dono",
+    "Uma evidência"
+   ],
+   "nar": "Um prazo cobre as três.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O dono",
+   "sub": "não é o mesmo",
+   "nar": "O dono não é o mesmo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A verificação",
+   "preco": "não fecha",
+   "nar": "A verificação não fecha.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Duas feitas",
+   "preco": "uma parada",
+   "nar": "Duas feitas, uma parada.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A linha",
+   "sub": "fica vermelha",
+   "nar": "A linha fica vermelha.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Um verbo",
+   "preco": "por linha",
+   "nar": "Um verbo por linha, e fecha.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Lab Treinamento",
+   "sub": "se inscreva",
+   "nar": "Se inscreva no canal.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# labtreinamento-s052\n\n## TITULO\nUma Linha com Três Verbos: Por Que o Plano Parece Menor do que Ele É\n\n## TITULO SHORT\nUm verbo por linha do plano\n\n## DESCRICAO\nTem um erro de planilha que não parece erro: escrever \"revisar, treinar e implantar\" dentro de uma célula de ação. Lê-se como uma linha. São três ações.\n\nE a consequência não é estética, é aritmética. A linha tem UM prazo, UM responsável, UMA evidência esperada e UMA verificação — e as três ações que moram ali dentro não têm o mesmo prazo, nem o mesmo dono, nem a mesma prova. Revisar um procedimento é um ato de quem escreve; treinar é de quem conduz a turma; implantar é de quem opera. Pôr os três numa linha obriga a planilha a responder com um único valor uma pergunta que tem três respostas.\n\nO efeito prático aparece no acompanhamento. Duas das três foram feitas, a terceira ficou parada: a linha fica vermelha e não diz qual. Quem lê vê uma pendência; quem executou sabe que são duas e um terço. A verificação, que deveria perguntar se resolveu, não consegue nem perguntar se foi feito — porque \"foi feito\" não tem sujeito único.\n\nE há uma distorção anterior a tudo isso, na contagem: o plano parece menor do que é. Vinte linhas com dois ou três verbos em algumas delas não são vinte ações. Quem dimensiona o projeto pelo número de linhas dimensiona pelo número errado.\n\nA correção é de uma palavra: um verbo no infinitivo por linha, uma ação por linha. O plano cresce no papel e encolhe na prática, porque cada pedaço passa a ter dono, data e prova própria.\n\nNão há aqui nenhuma nota, nenhum peso, nenhum corte de prioridade e nenhuma data: esses números são critério da sua empresa, e a norma não define faixa nenhuma. Quais são as colunas, como se calcula a prioridade, quanto pesa cada lacuna e quais marcos entram no cronograma — está no vídeo, com as fontes.\n\n## COMENTARIO FIXADO\nResumo sem nenhum número: \"revisar, treinar e implantar\" numa célula é uma linha com três ações dentro. A linha tem um prazo, um dono e uma evidência; as três ações não têm. Por isso ela fica vermelha sem dizer qual parou, e o plano parece menor do que é. Um verbo no infinitivo por linha. Conte quantas linhas do seu plano têm mais de um verbo — só o número, sem nomes.\n\n## HASHTAGS\n#Qualidade #PlanoDeAcao #LabTreinamento\n\n## TAGS\nplano de acao, iso 9001, verificacao de eficacia, planilha de qualidade, auditoria interna, lacunas, prioridade, responsavel, prazo, evidencia, sistema de gestao, lab treinamento, diagnostico, acao corretiva\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## AVISO\nDECIMA QUARTA rodada seguida com o canal escolhido pelo contador, e esta foi a\nmais simples: **a janela de 24 h veio 7 / 9 / 8, SEM empate**, e o mais baixo e o\n`labtreinamento`. **O DIA concorda** (1 / 5 / 4), logo os dois niveis apontam o\nmesmo canal — e isso vale dizer porque nas tres rodadas anteriores eles\nDISCORDAVAM e eu tive de escrever qual governa. Aqui nao houve escolha a fazer.\n\nA origem saiu do `concentracao.py labtreinamento`: **`KRUERlNPzDw`, com DOIS\nshorts, a menor contagem das treze origens** (as outras vao de tres a dez, e a\ndominante `ntrMxq89I4o` tem dez). Ela nao tem spec local, e pela regra (h) e pelo\n759 isso NAO e motivo para trocar de origem: medido nesta rodada,\n`captions?part=snippet` deu **200** e a faixa `standard` baixou com **13.941\ncaracteres**. Nenhuma frase desta peca veio de TITULO de capitulo.\n\n**E vale lembrar de onde esta origem vinha:** o 761 mediu que eu a vinha pulando\npor uma frase minha que nunca foi medida — o docstring do `concentracao.py` dizia\nque ela nao tinha faixa de legenda, e aquilo era leitura da DESCRICAO lida como se\nfosse da LEGENDA.\n\n## FAMILIA DE ENTRADA ERRADA\nUMA CELULA COM N ITENS DENTRO: escrever \"revisar, treinar e implantar\" numa\ncelula de acao, de modo que a linha tem UM prazo, UM dono, UMA evidencia e UMA\nverificacao para TRES acoes que nao compartilham nenhum dos quatro. **O eixo\nerrado e a UNIDADE DA LINHA** — e a distorcao e de contagem: vinte linhas com\nverbos acumulados nao sao vinte acoes, logo quem dimensiona o projeto pelo numero\nde linhas usa o numero errado.\n\nFamilia NOVA no canal, e a distincao das vizinhas vai escrita porque elas sao\nproximas: o **s042** erra a unidade de AGREGACAO (tratar como da empresa um numero\natribuido por pessoa) e o **s043** erra a BASE da contagem (dias de calendario em\nvez de dias em que se vai) — nos dois casos a linha e uma e o numero e um. Aqui a\nlinha e uma e os itens sao TRES, e o defeito e a celula conter o que ela nao pode\nresponder. E ela nao e o **s046**/**s051** (conclusao no lugar da situacao), que\nerram o CONTEUDO de uma coluna, nem o **s050** (prazo de terceiro como prazo\nproprio), que erra de QUEM e o prazo.\n\nCapitulo 53 da legenda (fala 53), com o acompanhamento nas falas 59 a 61. Os dois\nshorts anteriores desta origem nao usaram nenhuma delas.\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Nao cita a faixa da\nnota, nao cita a faixa do peso, nao cita o maximo da prioridade, nao cita os\ncortes de baixa/media/alta, nao cita o numero de colunas, nao cita a contagem de\nlinhas de um diagnostico honesto, nao cita a data da publicacao da norma, nao\ncita o ano da transicao e nao nomeia orgao. Conferido a mao campo por campo,\nporque o portao `narracao` conta quantidades por frase e NAO pega digito cru\n(640).\n\n**\"Tres acoes\" e \"um verbo por linha\" ficaram, e isso e deliberado:** o tres e o\nnumero de itens do EXEMPLO, nao um numero sobre o mundo — ele nao envelhece, e sem\nele a peca nao tem assunto. O um e a regra.\n\n**O que a regra (g) tirou daqui, nomeado:** os cortes de prioridade (a propria\nfonte diz, na fala 47, que **sao criterio da empresa e que a norma nao define\nfaixa** — logo pelo caso especial da regra (g) eles nao entram de jeito nenhum),\na escala da nota, a escala do peso, o maximo do produto, as contagens de linhas e\nde lacunas altas, a data de publicacao e o ano-limite da transicao. Todos mudam\nou sao escolha.\n\n**E o `contagem_declarada` nao tinha o que dizer, e eu confiro a mao:** a peca\ndeclara \"tres acoes\" e enumera exatamente tres — revisar, treinar, implantar.\nNao ha N contra N+1 (725). **E isto importa nesta origem**, porque foi num longo\ndeste mesmo canal (`dsoEo103l1o`) que a fonte declarou cinco e enumerou seis.\n\n**E a trava de titulo esta CONSERTADA desde as 08:2x** (773): o\n`prontidao._titulo_do_copy` comparava o `## TITULO` LONGO contra um corpus de\ntitulos CURTOS e nao podia casar nunca — foi assim que o `s051` foi ao ar com o\ntitulo curto do `s038`. Esta peca passou pelo portao JA consertado, que agora le\na lista com o curto primeiro.\n\nO QUE O VIDEO AFIRMA: que uma celula de acao com mais de um verbo e mais de uma\nacao, que a linha oferece um prazo, um dono, uma evidencia e uma verificacao para\ntodas elas, que por isso o acompanhamento nao distingue qual parou, e que contar\nlinhas em vez de acoes subestima o tamanho do plano. Esta na faixa de legenda\n`standard` do longo `KRUERlNPzDw`, com as fontes.\n\nDESCARTADO, e vai escrito:\n  (1) as escalas, os pesos, os cortes de prioridade e as datas — numeros que\n      mudam ou que a propria fonte declara como criterio da empresa (regra g);\n  (2) **quem verifica nao pode ser quem executou** (fala 58) — familia distinta e\n      forte, livre para a proxima peca desta origem; ela erra QUEM observa, nao\n      a unidade da linha;\n  (3) **escrever a evidencia esperada ANTES e nao depois** (falas 54 e 55) —\n      familia de ORDEM, livre, e ela ficou fora tambem porque a peca de hoje do\n      `epomeno-epipedo` (`s034`, 09:2x) e exatamente de ordem; misturar as duas\n      numa rodada confunde a leitura das duas;\n  (4) **prazo e data com dia, trimestre nao e prazo** (fala 60) — e vizinha\n      demais do `s050`, que ja erra prazo neste canal;\n  (5) a conta da lacuna e da prioridade (falas 40 a 44) — e o nucleo numerico do\n      longo e nao sobrevive a regra (g).\n\n## MIRA\n`labtreinamento` TEM override: `ALVO_POR_CANAL` = **(20,0 a 26,0) de duracao\nREAL**, lido por `ensaio.alvo_short('labtreinamento')` e nao do numero escrito em\ndocumento nenhum. Medido antes do render: edge **25,0** e piper **20,6** — o\n`mira.py` VERDE nos dois mundos, e **uma versao recusada antes desta**: edge 24,0\ncom piper **19,7, FORA pelo PISO**, que e o lado do 748 e o mesmo tropeco do\n`s049`.\n\n**E A EXPOSICAO VAI DECLARADA, porque ela e a contradicao do 740/748 e nao se\nresolve por redacao:** com a banda observada e **39 pontos**, se o edge narrar o\nREAL deve cair entre **25,1 e 28,7 s** — isto e, **pode passar do teto de 26,0 da\nmira do canal**. O tally do 754/757/758 e explicito: das onze pecas deste canal\nnarradas pelo edge, **oito sairam FORA do teto, as oito com o `mira.py` verde**;\ndentro ficaram so `s038` 26, `s042` 25 e `s046` 26. **Mira verde NAO significa\nreal dentro**, e eu nao prometo o contrario.\n\n**E a saida do 751 — mirar ABAIXO do piso do piper — esta DERRUBADA pelo 752:**\no `s043` foi escrito de proposito assim (edge 23,3) e deu **27**, furando a banda\nem +3,7. Com resíduo de ate 3,7 s a conta do 752 pede `edge <= 22,3`, onde o\npiper cai a ~18,3 — muito abaixo do piso de 20,0. **O vao entre as duas janelas e\nde ~2,0 s e nao existe spec deste canal que satisfaca as duas**, de dez cenas ou\nde qualquer numero, porque o piso do piper e uma RAZAO e o teto do real e um\nOFFSET. Entao eu volto a manter a mira VERDE, que e a postura do `s044` em\ndiante, e declaro a folga.\n\n**E o que a banda NAO faz:** o piso dela caiu duas vezes (769, 770), o teto uma\n(752), e a largura esta em **3,6 s** contra 1 s de granularidade. **O SINAL do\nresiduo so esta estabelecido quando `real − previsao > 1,0`** (770): dos 39\npontos, **34** estao estabelecidos. Se o piper narrar, 20,7 a 24,3 — dentro.\n\nO provedor se decide no runner e por cena (730) e se mede CONTANDO os avisos\n`NARRACAO PELO PIPER` da anotacao (733), nunca pela distancia entre previsao e\nreal.\n\n## FONTES\nO longo de onde este short foi extraido (`KRUERlNPzDw`) traz as fontes, e ele\n**nao tem spec local** — o texto saiu da faixa de legenda `standard` que a propria\nmaquina subiu, pela rota do 759. Este short nao introduz numero novo sobre o\nmundo.\n"
+}
