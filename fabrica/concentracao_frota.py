@@ -114,8 +114,37 @@ def ranking_713() -> list[tuple[tuple[str, str], float]]:
     return sorted(POR_PECA_713.items(), key=lambda kv: -kv[1])
 
 
+def mais_baixo(contagem_: dict[str, int], ultima: dict = None):
+    """O canal mais baixo da contagem, e a lista dos EMPATADOS com ele.
+
+    MEDIDO em 15/10 as 04:0x, e e uma divergencia doc<->codigo do MEU proprio
+    modulo: o comentario da regra dos dois niveis dizia, desde as 02:0x, que
+    "empate na janela se desfaz pela peca mais ANTIGA" — e o codigo desfazia
+    por `(contagem, c)`, isto e, pelo ALFABETO. A janela desta rodada veio
+    6 / 6 empatada entre `epomeno-epipedo` e `kolejny-poziom`, e o modulo
+    devolveu o epomeno por ele vir antes na ordem alfabetica, chamando isso de
+    "o mais baixo". **Ordem alfabetica nao e critério medido**, e criterio sem
+    procedencia e exatamente o que a §10 proibe.
+
+    Agora o empate vai DITO, e so se desfaz com `ultima=` (o
+    `max(publicado_em)` por canal), que e medido: vence o canal cuja ultima
+    peca e a mais ANTIGA. Sem `ultima=` a funcao NAO escolhe — devolve os
+    empatados para quem chama dizer que nao decidiu.
+    """
+    piso = min(contagem_.get(c, 0) for c in FROTA)
+    empatados = sorted(c for c in FROTA if contagem_.get(c, 0) == piso)
+    if len(empatados) == 1:
+        return empatados[0], empatados
+    if ultima:
+        faltam = [c for c in empatados if ultima.get(c) is None]
+        if not faltam:
+            return min(empatados, key=lambda c: ultima[c]), empatados
+    return None, empatados
+
+
 def relato(raiz: str = None, por_dia: dict[str, int] = None,
-           janela: dict[str, int] = None, janela_h: int = 24) -> str:
+           janela: dict[str, int] = None, janela_h: int = 24,
+           ultima: dict = None) -> str:
     ct = contagem(raiz)
     a = analise(ct)
     linhas = [f"FROTA: {a['total']} shorts sobre {len(FROTA)} canais."]
@@ -190,9 +219,23 @@ def relato(raiz: str = None, por_dia: dict[str, int] = None,
         # saem em `zerados`), logo ler o ultimo da `ordem` NAO da o mais baixo —
         # na primeira versao desta linha o canal em ZERO ficava invisivel e a
         # discordancia nao era detectada. O minimo tem de varrer a FROTA toda.
-        dia_baixo = min(FROTA, key=lambda c: (por_dia.get(c, 0), c))
-        jan_baixo = min(FROTA, key=lambda c: (janela.get(c, 0), c))
-        if dia_baixo != jan_baixo:
+        dia_baixo, dia_emp = mais_baixo({c: por_dia.get(c, 0) for c in FROTA})
+        jan_baixo, jan_emp = mais_baixo(
+            {c: janela.get(c, 0) for c in FROTA}, ultima)
+        if jan_baixo is None:
+            linhas.append(
+                "  A JANELA EMPATOU no mais baixo entre "
+                + ", ".join(jan_emp)
+                + ". ORDEM ALFABETICA NAO DESEMPATA — era o que este modulo "
+                "fazia, e e criterio sem procedencia. Passe `ultima=` com o "
+                "`max(publicado_em)` por canal: vence o de peca mais ANTIGA.")
+        elif len(jan_emp) > 1:
+            linhas.append(
+                "  A JANELA EMPATOU entre " + ", ".join(jan_emp)
+                + f", e o desempate foi MEDIDO: {jan_baixo} tem a peca mais "
+                "ANTIGA (`max(publicado_em)`), nao a primeira do alfabeto.")
+        if jan_baixo is not None and dia_baixo is not None \
+                and dia_baixo != jan_baixo:
             linhas.append(
                 f"  OS DOIS NIVEIS DISCORDAM: o mais baixo do dia e {dia_baixo} "
                 f"e o da janela e {jan_baixo}. Quem governa a ESCOLHA e a "

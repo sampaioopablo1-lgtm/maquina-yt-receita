@@ -1,0 +1,96 @@
+{
+ "slug": "epomeno-epipedo",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#16283C",
+  "c1": "#2E7BB4",
+  "c2": "#E0A02E",
+  "bg": "#F3F7FA"
+ },
+ "pacote": "epomeno-epipedo-s032",
+ "longo_existente": "alZ97hpgqXo",
+ "thumb": {
+  "l1": "Ίδιο πλαστικό",
+  "l2": "δύο συμβάσεις"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Ίδιο πλαστικό",
+   "sub": "δύο συμβάσεις",
+   "nar": "Το ίδιο πλαστικό κρύβει μέσα του δύο διαφορετικές συμβάσεις.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Η πρώτη",
+   "preco": "εξόφληση ολόκληρη",
+   "nar": "Η πρώτη ισχύει όσο εξοφλείς ολόκληρο το υπόλοιπο κάθε μήνα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Η δεύτερη",
+   "preco": "μένει υπόλοιπο",
+   "nar": "Η δεύτερη ξεκινά τη στιγμή που αφήνεις ένα υπόλοιπο πίσω.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Η άτοκη περίοδος",
+   "sub": "υπάρχει και τελειώνει",
+   "nar": "Η άτοκη περίοδος υπάρχει πράγματι, αλλά τελειώνει.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Η ελάχιστη δόση",
+   "preco": "δεν είναι φθηνή",
+   "nar": "Η ελάχιστη δόση δεν είναι η φθηνή επιλογή εδώ.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Είναι η ακριβότερη",
+   "sub": "ο χρόνος δουλεύει αλλού",
+   "nar": "Είναι η πιο ακριβή, γιατί ο χρόνος δουλεύει αλλού.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Κάθε μήνας",
+   "preco": "αγοράζει τόκο",
+   "nar": "Κάθε μήνας καθυστέρησης αγοράζει τόκο, όχι ανάσα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Κοίτα το επιτόκιο",
+   "itens": [
+    "Όχι μόνο τη δόση",
+    "Στο εκκαθαριστικό",
+    "Κάθε μήνα"
+   ],
+   "nar": "Κοίτα το επιτόκιο, ποτέ μόνο το ποσό της δόσης.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ολόκληρη δόση",
+   "sub": "ή το παραπάνω",
+   "nar": "Εξόφληση ολόκληρη, ή ό,τι παραπάνω μπορείς τώρα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Επόμενο Επίπεδο",
+   "sub": "μείνε στο κανάλι",
+   "nar": "Κάνε εγγραφή στο κανάλι και δες το εκκαθαριστικό σου.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# epomeno-epipedo-s032\n\n## TITULO\nΊδιο Πλαστικό, Δύο Συμβάσεις: Γιατί η Ελάχιστη Δόση Είναι η Ακριβότερη Επιλογή\n\n## TITULO SHORT\nΊδιο πλαστικό, δύο συμβάσεις\n\n## DESCRICAO\nΗ κάρτα μοιάζει με ένα προϊόν, γιατί είναι ένα κομμάτι πλαστικό με ένα όνομα. Στην πράξη, όμως, μέσα της ζουν δύο διαφορετικές συμφωνίες — και εσύ επιλέγεις σε ποια βρίσκεσαι, κάθε μήνα, με μία μόνο κίνηση.\n\nΗ πρώτη ισχύει όσο εξοφλείς ολόκληρο το υπόλοιπο μέσα στην προθεσμία. Εκεί η άτοκη περίοδος είναι αληθινή: υπάρχει πράγματι, και κάποια στιγμή τελειώνει. Η δεύτερη ξεκινά τη στιγμή που αφήνεις ένα υπόλοιπο πίσω — και από εκείνη τη στιγμή το ίδιο πλαστικό συμπεριφέρεται σαν άλλο προϊόν.\n\nΑπό εδώ βγαίνει το πιο αντιδιαισθητικό κομμάτι. Η ελάχιστη δόση μοιάζει με τη συγκρατημένη, υπεύθυνη επιλογή, γιατί είναι το μικρότερο νούμερο στη σελίδα. Είναι όμως η ακριβότερη διαθέσιμη, γιατί το μόνο που κάνει είναι να αγοράζει χρόνο — και ο χρόνος, σε αυτή τη σύμβαση, δουλεύει για τον τόκο και όχι για εσένα. Κάθε μήνας καθυστέρησης δεν αγοράζει ανάσα· αγοράζει τόκο.\n\nΗ πρακτική συνέπεια δεν χρειάζεται κανένα νούμερο από τα μέσα ενημέρωσης. Κοίτα το επιτόκιο της κάρτας, ποτέ μόνο το ποσό της δόσης: το ποσό σου λέει τι θα πληρώσεις τον επόμενο μήνα, το επιτόκιο σου λέει τι θα πληρώσεις συνολικά. Και μετά, αν γίνεται, εξόφληση ολόκληρη· αν δεν γίνεται, ό,τι παραπάνω μπορείς τώρα, όχι το ελάχιστο.\n\nΔεν υπάρχει εδώ ούτε ένα επιτόκιο, ούτε ένα περιθώριο και ούτε μία ημερομηνία: το νούμερο που αποφασίζει είναι στο δικό σου εκκαθαριστικό. Πού βρίσκεις το επιτόκιό σου, τι ισχύει για την υπερανάληψη, ποιος πληρώνει τον τόκο στις άτοκες δόσεις και τι ακυρώνει όλη τη δουλειά — είναι στο βίντεο, με πηγές.\n\n## COMENTARIO FIXADO\nΌλο το θέμα σε μία πρόταση, χωρίς κανένα νούμερο: το ίδιο πλαστικό έχει δύο συμβάσεις, και περνάς στη δεύτερη τη στιγμή που αφήνεις υπόλοιπο. Εκεί η ελάχιστη δόση είναι η ακριβότερη επιλογή, επειδή αγοράζει μόνο χρόνο — και ο χρόνος δουλεύει για τον τόκο. Κοίτα το επιτόκιο, όχι μόνο τη δόση. Γράψε στα σχόλια μόνο αν ήξερες ότι είναι δύο συμβάσεις — χωρίς ποσά.\n\n## HASHTAGS\n#Οικονομικά #ΠιστωτικήΚάρτα #ΕπόμενοΕπίπεδο\n\n## TAGS\nπιστωτικη καρτα, ελαχιστη δοση, ατοκη περιοδος, επιτοκιο, υπεραναληψη, προσωπικα οικονομικα, χρεος, εκκαθαριστικο, τραπεζα, ελλαδα, ατοκες δοσεις, δυο συμβασεις, επομενο επιπεδο, τοκος, αποφαση\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO\nDECIMA rodada seguida com o canal escolhido pelo contador — e esta rodada ACHOU\nUM DEFEITO DELE, que e o motivo pelo qual a escolha nao foi minha nem do\nalfabeto. A janela movel de 24 h veio **12 / 6 / 6**: EMPATE no mais baixo entre\n`epomeno-epipedo` e `kolejny-poziom`. O modulo desempatava com\n`min(FROTA, key=lambda c: (contagem, c))`, isto e, **pelo ALFABETO** — e teria\nanunciado o epomeno como \"o mais baixo\" sem ter medido nada.\n\n**E o comentario do proprio modulo dizia a regra certa desde 02:0x:** *\"Empate na\njanela se desfaz pela peca mais ANTIGA\"*. Documento e codigo discordando, com o\ndocumento ADIANTE do codigo — a regra nunca tinha sido implementada. E a mesma\nassinatura da mira de 13/10 as 20:2x, do outro lado.\n\nConsertado: `concentracao_frota.mais_baixo` devolve `None` quando empata sem dado\nde desempate, o relato DIZ que empatou e nomeia os empatados, e com `ultima=` (o\n`max(publicado_em)` por canal) o desempate e o MEDIDO. Aqui ele deu\n**epomeno-epipedo**, cuja ultima peca e de 02:16 contra 03:17 do kolejny — e a\ncontraprova esta no teste: invertendo as HORAS o vencedor inverte, com a ordem\nalfabetica igual. `tests/test_o_empate_da_janela_nao_se_desfaz_pelo_alfabeto.py`,\nsete testes, **e um teste MEU foi corrigido no lugar**: o caso `14 / 5 / 5` que\neu usei para travar a regra dos dois niveis estava ele mesmo EMPATADO, logo\npassava pelo alfabeto.\n\nO DIA deu **0 / 2 / 2** e aponta o `labtreinamento`, que esta em zero — mas ele\nfez **12 das 24** pecas da janela, todas antes das 15:12 de ontem, e e a JANELA\nque governa a escolha.\n\nA origem saiu do `concentracao.py epomeno-epipedo`: `alZ97hpgqXo`\n(epomeno-epipedo-005, **83 capitulos**) tinha UM short so, o `s013`.\n\n## FAMILIA DE ENTRADA ERRADA\nTratar como UM produto o que sao DUAS sumbolaia no mesmo plastico, e por isso ler\na ELACHISTI DOSI como a opcao contida quando ela e a mais cara — porque o unico\nefeito dela e comprar TEMPO, e nesta sumbolaia o tempo trabalha para o juro.\nFamilia NOVA no canal, e a distincao do irmao vai escrita: o `s013`, o unico\noutro short desta origem, poe os PROPRIOS juros em ordem (o que rende contra o\nque cobra). Ali o erro e de ORDEM entre dois numeros do espectador; aqui e de\nIDENTIDADE do produto, e o numero nem aparece. Capitulos 33 a 38 do longo,\nnenhum usado pelo `s013` (que saiu dos 0 a 3 e 55 a 61).\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Nao cita epitokio da\ncartao, nao cita o da katathesi, nao cita a distancia entre os dois, nao cita\nperithorio, nao cita monada basis, nao cita prazo em dias nem em meses e nao\nnomeia banco. Conferido a mao campo por campo, porque o portao `narracao` conta\nquantidades por frase e NAO pega digito cru (640).\n\n**\"Duas sumbolaia\" ficou, e isso e deliberado:** nao e numero sobre o mundo, e a\nESTRUTURA do produto — ela nao envelhece quando o deltio mensal muda.\n\n**E HA UM MOTIVO EXTRA AQUI, medido no 725:** este longo (`epomeno-epipedo-005`)\ne um dos QUATRO da frota em que a fonte **declara N e enumera N+1** — ele diz\n`Τέσσερα λάθη` no capitulo 69 e o capitulo 75 abre com `Πέμπτο λάθος`. Logo\n**contagem declarada deste longo nao entra em short nenhum**, e a peca nao cita\nquantos erros, quantas kiniseis nem quantas grammes existem. O criterio do 731\n(\"omitir quando nao se sabe qual numero o autor quis\") vale igual aqui.\n\nO QUE O VIDEO AFIRMA: que o mesmo cartao carrega duas sumbolaia e que se passa da\nprimeira para a segunda ao deixar saldo, que a atoki periodos existe e termina,\nque a elachisti dosi e a opcao mais cara porque so compra tempo, e que a decisao\nse le no EPITOKIO e nao no valor da dosi. Esta no longo epomeno-epipedo-005\n(`alZ97hpgqXo`), capitulos 33 a 38, com as fontes.\n\nDESCARTADO, e vai escrito:\n  (1) todos os epitokia do deltio mensal e o perithorio — numeros que mudam todo\n      mes, com fonte no longo (regra g);\n  (2) a ordem dos proprios juros e a prothesmiaki — e o nucleo do `s013` e sairia\n      repetido;\n  (3) o stegastiko e o preco do risco (capitulos 41 a 50) — terceira familia,\n      livre;\n  (4) quem paga o juro nas atokes doseis (capitulo 39) — quarta familia, e ela\n      cabe inteira num short proprio;\n  (5) **a contagem de erros do capitulo 69**, pelo 725, porque a propria fonte se\n      contradiz.\n\n## MIRA\n`epomeno-epipedo` NAO tem override em `ALVO_POR_CANAL`, logo vale o `ALVO_SHORT`\nda frota (41,5 a 43,0). Mirado perto do TOPO, e o motivo e medido: no\n`el-GR-NestorasNeural` o centro do modelo corre **−3,2%** (679), logo o topo e o\nlado seguro desta voz. Medido antes do render: edge **42,5** e piper **37,7**,\nos dois dentro de 18 a 45 nos DOIS mundos.\n\n**Duas versoes foram recusadas pela aritmetica do instrumento antes desta**, e\nvao registradas: a primeira dava edge **41,1 — FORA pelo PISO**, e a segunda\n**43,2 — FORA pelo TETO**. A diferenca entre as duas era UMA frase alongada, o\nque mostra a largura do passo nesta voz. O\n`ensaio.chars_por_cena('el-GR-NestorasNeural', 10, 42.0)` devolve **54\ncaracteres por cena** — foi o modulo que disse isso (item 3 da §10).\n\nCom a banda observada e **33 pontos**, se o edge narrar o REAL deve cair entre\n**42,6 e 46,2 s** — o topo PASSA do teto de 45 do portao, e isso vai DITO antes\nde publicar. Se o piper narrar, 37,8 a 41,4.\n\n**E o que a banda NAO faz, repetido porque e o achado das ultimas rodadas:** o\npiso dela caiu duas vezes (769, 770) e a largura esta em **3,6 s** contra 1 s de\ngranularidade — ela cobre quase quatro inteiros. **O SINAL do residuo so esta\nestabelecido quando `real − previsao > 1,0`** (770): dos 33 pontos, **29** estao\nestabelecidos. Esta previsao e a **decima primeira** da faixa de 41 a 44 s, e\npelo 768/769 previsoes separadas por menos de 1 s **nao ordenam** nada contra o\nreal.\n\nO provedor se decide no runner e por cena (730) e se mede CONTANDO os avisos\n`NARRACAO PELO PIPER` da anotacao (733).\n\n## FONTES\nO longo de onde este short foi extraido (epomeno-epipedo-005, `alZ97hpgqXo`) traz\nas fontes. Este short nao introduz numero novo sobre o mundo.\n"
+}

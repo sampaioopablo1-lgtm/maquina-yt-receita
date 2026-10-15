@@ -122,11 +122,20 @@ def test_quando_os_DOIS_NIVEIS_discordam_o_relato_DIZ_quem_governa():
     JANELA, porque este contador nasceu (762) pelo portao do conteudo
     INAUTENTICO, que e sobre acumulo RECENTE; o DIA entra porque o alvo do dono
     e 7/dia POR CANAL e ele diz quem esta ATRASADO.
+    CORRIGIDO EM 15/10 AS 04:0x, e a correcao e do PROPRIO teste: a janela
+    `14 / 5 / 5` que eu usei aqui esta EMPATADA no mais baixo, e o teste passava
+    porque o modulo desempatava pelo ALFABETO — isto e, ele cobrava a regra
+    sobre um caso que o modulo resolvia com criterio sem procedencia. Agora o
+    caso leva `ultima=`, que e o desempate MEDIDO, e o empate sem dado tem teste
+    proprio em `test_o_empate_da_janela_nao_se_desfaz_pelo_alfabeto.py`.
     """
     t = cf.relato(por_dia={"labtreinamento": 0, "epomeno-epipedo": 1,
                            "kolejny-poziom": 1},
                   janela={"labtreinamento": 14, "epomeno-epipedo": 5,
-                          "kolejny-poziom": 5})
+                          "kolejny-poziom": 5},
+                  ultima={"labtreinamento": "2026-10-14T15:12:24",
+                          "epomeno-epipedo": "2026-10-15T01:10:00",
+                          "kolejny-poziom": "2026-10-15T02:20:00"})
     assert "OS DOIS NIVEIS DISCORDAM" in t
     assert "o mais baixo do dia e labtreinamento" in t
     assert "governa a ESCOLHA e a JANELA" in t
