@@ -124,3 +124,15 @@ contra as 7/dia POR CANAL que o dono pede. O limite de hoje não foi cota nem
 pauta: foi **uma peça por rodada**, porque cada rodada gasta o tempo dela num
 render e numa publicação. Subir isso é a pendência 4 (teto só para short solto)
 mais a 5 (disparo externo), e as duas são decisão do dono.
+
+## Nona rodada sem o banco — 15/10 às 19:1x
+
+Sonda negada antes e depois de publicar. O `labtreinamento-s055` foi ao ar
+às 19:12 UTC como **`X7c1utln5yw`**. **O pendente foi a NOVE linhas**, todas
+insert.
+
+E o caso especial da regra (g) — número que a própria fonte declara inventado —
+apareceu em **dois dias seguidos**, no `kolejny-poziom-018` (capítulo 32) e no
+`labtreinamento-012` (capítulo 32). Isso é hábito dos nossos longos, não
+coincidência: o autor marca o exemplo numérico como ilustração. Vale como aviso
+de que o short dessas origens nunca carrega o exemplo.
