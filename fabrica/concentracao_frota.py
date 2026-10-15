@@ -114,7 +114,8 @@ def ranking_713() -> list[tuple[tuple[str, str], float]]:
     return sorted(POR_PECA_713.items(), key=lambda kv: -kv[1])
 
 
-def relato(raiz: str = None, por_dia: dict[str, int] = None) -> str:
+def relato(raiz: str = None, por_dia: dict[str, int] = None,
+           janela: dict[str, int] = None, janela_h: int = 24) -> str:
     ct = contagem(raiz)
     a = analise(ct)
     linhas = [f"FROTA: {a['total']} shorts sobre {len(FROTA)} canais."]
@@ -135,6 +136,15 @@ def relato(raiz: str = None, por_dia: dict[str, int] = None) -> str:
         linhas.append("  ACERVO NAO E O DIA: esta contagem le as specs, que nao tem "
                       "data. A do dia sai de `videos.publicado_em` e passa aqui em "
                       "`por_dia=` — sem ela o acervo DILUI a rodada.")
+    elif sum(por_dia.get(c, 0) for c in FROTA) == 0:
+        # 15/10 as 00:0x: o DIA CALENDARIO zera a meia-noite, e nas primeiras horas
+        # ele devolve 0/0/0 — nao ordena NADA, justamente quando a rodada precisa
+        # escolher. E a cegueira simetrica da que este contador nasceu para
+        # consertar: acervo DILUI a rodada, e dia calendario recem-comecado APAGA
+        # as ultimas horas. A saida e a JANELA MOVEL.
+        linhas.append("  O DIA CALENDARIO ESTA EM ZERO nos tres canais: ele nao "
+                      "ordena nada nas primeiras horas do dia. Passe `janela=` "
+                      f"com as pecas das ultimas {janela_h} h.")
     else:
         b = analise({c: por_dia.get(c, 0) for c in FROTA})
         linhas.append(f"  NO DIA: {b['total']} pecas — "
@@ -144,6 +154,16 @@ def relato(raiz: str = None, por_dia: dict[str, int] = None) -> str:
                           f"{b['n_dominante']} contra {b['n_segunda']} do segundo.")
         if b["zerados"]:
             linhas.append("  SEM NENHUMA PECA HOJE: " + ", ".join(b["zerados"]))
+    if janela is not None:
+        j = analise({c: janela.get(c, 0) for c in FROTA})
+        linhas.append(f"  NAS ULTIMAS {janela_h} H: {j['total']} pecas — "
+                      + ", ".join(f"{c} {n}" for c, n in j["ordem"]))
+        if j["alerta"]:
+            linhas.append(f"  ALERTA DA JANELA: {j['dominante']} com "
+                          f"{j['n_dominante']} contra {j['n_segunda']} do segundo.")
+        if j["zerados"]:
+            linhas.append(f"  SEM NENHUMA PECA NAS ULTIMAS {janela_h} H: "
+                          + ", ".join(j["zerados"]))
     linhas.append("  (CONTA, nao reprova: concentrar e o PLANO, porque os 500 sao "
                   "limite POR CANAL. O que este contador mostra e EM QUAL canal, "
                   "e essa escolha tem de ser medida, nao habito.)")

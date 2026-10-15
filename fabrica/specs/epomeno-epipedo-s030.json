@@ -1,0 +1,92 @@
+{
+ "slug": "epomeno-epipedo",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#16283C",
+  "c1": "#2E7BB4",
+  "c2": "#E0A02E",
+  "bg": "#F3F7FA"
+ },
+ "pacote": "epomeno-epipedo-s030",
+ "longo_existente": "opFSah50OWo",
+ "thumb": {
+  "l1": "Χωρίς χαρτί",
+  "l2": "με κόστος"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "item",
+   "kicker": "Αθροίζεις",
+   "preco": "τις αποδείξεις",
+   "nar": "Αθροίζεις προσεκτικά τις αποδείξεις της χρονιάς σου.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Και βγάζεις",
+   "sub": "ένα νούμερο",
+   "nar": "Και βγάζεις στο τέλος ένα νούμερο που μοιάζει πλήρες.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Λείπει όμως",
+   "preco": "η αξία που χάνει",
+   "nar": "Λείπει όμως η αξία που χάνει το πράγμα μόνο του.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Εκείνη",
+   "preco": "δεν έχει απόδειξη",
+   "nar": "Εκείνη η σταδιακή απώλεια δεν αφήνει καμία απόδειξη.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Δεν έχει χαρτί",
+   "sub": "δεν σημαίνει μηδέν",
+   "nar": "Χωρίς χαρτί δεν σημαίνει ποτέ και χωρίς κόστος.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Το χαρτί",
+   "preco": "δεν ορίζει τι μετράει",
+   "nar": "Το χαρτί δεν ορίζει ποιο κόστος υπάρχει τελικά.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Άρα το νούμερο",
+   "preco": "είναι το κάτω όριο",
+   "nar": "Άρα το νούμερό σου είναι μόνο το κάτω όριο της αλήθειας.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Και ως κάτω όριο",
+   "sub": "είναι χρήσιμο",
+   "nar": "Και σαν κάτω όριο παραμένει απόλυτα χρήσιμο.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Γράψε δίπλα",
+   "preco": "τι λείπει",
+   "nar": "Γράψε δίπλα του μόνο ποια κομμάτια λείπουν από αυτό.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Επόμενο Επίπεδο",
+   "sub": "κάνε εγγραφή",
+   "nar": "Κάνε εγγραφή, αν μετράς μόνος τα δικά σου νούμερα.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# epomeno-epipedo-s030\n\n## TITULO\nΑθροίζεις τις Αποδείξεις και Νομίζεις ότι Είναι το Σύνολο: Το Κόστος Χωρίς Χαρτί\n\n## TITULO SHORT\nΧωρίς απόδειξη, όχι χωρίς κόστος\n\n## DESCRICAO\nΌταν κάποιος αποφασίζει να μετρήσει πόσο του κοστίζει κάτι, κάνει το σωστό πράγμα με τον πιο φυσικό τρόπο: μαζεύει τις αποδείξεις της χρονιάς και τις αθροίζει. Το άθροισμα βγαίνει, το νούμερο μοιάζει πλήρες, και από εκείνη τη στιγμή αποφασίζει με αυτό.\n\nΤο σημείο όπου η μέτρηση σε ξεγελάει δεν είναι η πρόσθεση. Είναι η σιωπηλή υπόθεση ότι ό,τι κοστίζει αφήνει χαρτί. Το πράγμα που αγόρασες χάνει αξία με τον χρόνο, και εκείνη η απώλεια δεν περνάει από κανένα ταμείο: δεν υπάρχει απόδειξη, δεν υπάρχει κίνηση στην κάρτα, και όμως είναι από τα μεγαλύτερα κομμάτια του λογαριασμού σου.\n\nΑπό εδώ βγαίνει η σωστή ανάγνωση, και δεν χρειάζεται κανένα νούμερο από έξω. Το άθροισμα των αποδείξεων δεν είναι το κόστος· είναι το ΚΑΤΩ ΟΡΙΟ του κόστους. Και ως κάτω όριο παραμένει χρήσιμο — σου δείχνει το μέγεθος ενός ποσού που δεν το έβλεπες ολόκληρο. Αυτό που δεν κάνει είναι να σου επιτρέπει να πεις «τόσο μου κοστίζει», λες και το υπόλοιπο δεν υπάρχει επειδή δεν τυπώθηκε.\n\nΥπάρχει και η άλλη πλευρά, για να είναι τίμιο: κάποια πράγματα σου γλιτώνουν χρόνο, και ο χρόνος σου έχει αξία ακόμη κι αν δεν βγαίνει από την τσέπη. Και κάποιες ανάγκες απλώς δεν γίνονται αλλιώς. Η πράξη δεν κρίνει τίποτα από αυτά — δείχνει μέγεθος, και η απόφαση μένει δική σου.\n\nΔεν υπάρχει εδώ ούτε ποσό, ούτε ποσοστό, ούτε έτος: οι αριθμοί που αποφασίζουν είναι στα δικά σου χαρτιά. Η διαίρεση βήμα προς βήμα, πού βρίσκεις τα στοιχεία, τι ακριβώς δεν πιάνει η πράξη και πότε σε ξεγελάει — είναι στο βίντεο.\n\n## COMENTARIO FIXADO\nΜία γραμμή κρατάει όλο το θέμα: το άθροισμα των αποδείξεων είναι το ΚΑΤΩ ΟΡΙΟ του κόστους, όχι το κόστος. Η αξία που χάνει κάτι με τον χρόνο δεν αφήνει χαρτί, και δεν παύει να υπάρχει γι' αυτό. Κράτα το νούμερό σου — είναι χρήσιμο — και γράψε δίπλα του ποια κομμάτια λείπουν. Γράψε στα σχόλια μόνο αν είχες θεωρήσει το άθροισμα πλήρες — χωρίς ποσά.\n\n## HASHTAGS\n#ΠροσωπικάΟικονομικά #Κόστος #ΕπόμενοΕπίπεδο\n\n## TAGS\nκοστος, αποδειξεις, απωλεια αξιας, προσωπικα οικονομικα, ελλαδα, υπολογισμος, κατω οριο, αποφαση, χαρτια, μετρηση, ιδιοκτησια, εξοδα, επομενο επιπεδο, νοικοκυριο, χρονος\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO\nSETIMA rodada seguida com o canal escolhido pelo contador — **e nesta ele\nFALHOU primeiro, o que virou o conserto da rodada.** As 00:0x de 15/10 o\n`concentracao_frota.py` com `por_dia=` devolveu **0 / 0 / 0**, porque o dia\nCALENDARIO acabara de comecar: ele nao ordenou nada exatamente na rodada que\nprecisava escolher. E a cegueira e SIMETRICA da do 762 — ali o ACERVO diluia a\nrodada; aqui o dia recem-comecado APAGA as ultimas horas.\n\nA saida foi medir a JANELA MOVEL de 24 h no mesmo instante: **16 / 4 / 4**, que\nALERTA e empata os dois canais baixos. O desempate vai escrito, com dois\ncritérios: (a) a peca mais ANTIGA entre os empatados — epomeno 22:20 contra\nkolejny 23:14; (b) o par medido no 713 — epomeno/shorts 0,14 contra kolejny\n0,09. **Ressalva repetida: pelo 693 views/peca e cego abaixo do dobro, e 0,14\ncontra 0,09 nao e o dobro**, logo (b) ordena por medicao e nao prova nada.\n\nO `relato` passou a aceitar `janela=` e `janela_h=`, com o MESMO limiar do irmao\n(mais que o dobro do segundo) — limiar novo aqui seria critério sem procedencia.\n`tests/test_o_dia_calendario_nao_ordena_na_virada.py`, sete testes.\n\nA origem saiu do `concentracao.py epomeno-epipedo`: `opFSah50OWo`\n(epomeno-epipedo-013, **66 capitulos**) tinha UM short so, o `s003`.\n\n## FAMILIA DE ENTRADA ERRADA\nMedir so o que tem COMPROVANTE e concluir que o resto nao existe: a perda de\nvalor nao passa por caixa nenhum, logo nao aparece em soma de aposentadoria —\ne e das maiores parcelas. E familia NOVA no canal, e a distincao do irmao vai\nescrita porque ele e perto: o `s003`, o unico outro short desta origem, trata da\nJANELA de doze meses escolhida de modo que a despesa grande caiu fora. Ali o\nerro e de PERIODO, e a despesa existe com apostila; aqui o erro e de\nINSTRUMENTO — a parcela nunca teve apostila nenhuma. Capitulos 33, 34 e 37 do\nlongo (\"Τι δεν πιάνει\", \"Η αξία που χάνει\", \"Η πράξη δεν κρίνει\"), nenhum deles\nusado pelo `s003`.\n\n**E a familia MEDIA-CONTRA-MARGINAL foi deliberadamente evitada**, embora este\nlongo a sirva de prato (capitulos 40 a 46): ela ja esta usada no canal, pelo\n`epomeno-epipedo-s006` — regra (f) e a nota do 12/10.\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Nao cita valor, nao\ncita percentual, nao cita quantos meses, nao cita quantas parcelas a conta\nignora, nao cita ano e nao nomeia orgao, marca nem produto. Conferido a mao\ncampo por campo, porque o portao `narracao` conta quantidades por frase e NAO\npega digito cru (640).\n\n**E a enumeracao do capitulo ficou FORA de proposito, pelo 725.** O capitulo 33\nabre \"o que a conta nao pega\" sem declarar quantidade, e os capitulos 34 a 38\nenumeram QUATRO itens — sendo que o 38 diz literalmente *\"Υπάρχει και ένα\nτέταρτο\"*, que e a mesma assinatura autoral das quatro specs em que a fonte\ndeclara N e acrescenta N+1. Carregar contagem para o short seria carregar risco\nque nenhum portao nosso barra: o `narracao` conta quantidade e NAO confere se a\nquantidade e verdadeira (723/725). A narracao fala de UM item e nao conta lista.\n\nO QUE O VIDEO AFIRMA: que a perda de valor de um bem com o tempo nao gera\ncomprovante e por isso nao entra na soma das apostilas, embora exista; e que por\nisso a soma e o PISO do custo e nao o custo. Esta no longo epomeno-epipedo-013\n(`opFSah50OWo`), capitulos \"Η αξία που χάνει\" e \"Η πράξη δεν κρίνει\".\n\nDESCARTADO, e vai escrito:\n  (1) qualquer valor, percentual ou prazo — o numero que decide e o da propria\n      papelada do espectador (regra g);\n  (2) a divisao passo a passo e as duas pontas dela — e o conteudo do `s003` e\n      sairia repetido;\n  (3) media contra marginal (capitulos 40 a 46) — familia JA usada no canal pelo\n      `s006`, regra (f);\n  (4) o valor do tempo poupado (capitulo 35) — e a outra metade, honesta e\n      distinta, e fica livre para uma terceira peca desta origem.\n\n## MIRA\n`epomeno-epipedo` NAO tem override em `ALVO_POR_CANAL`, logo vale o `ALVO_SHORT`\nda frota (41,5 a 43,0). Medido antes do render: edge **41,6** e piper **36,9**,\nos dois dentro de 18 a 45 nos DOIS mundos.\n\n**A primeira versao desta peca tinha edge 38,4 — FORA pelo PISO** — e a segunda\n43,7, fora pelo TOPO; esta e a terceira. O instrumento pegou as duas, e o\nregistro vai aqui em vez de desaparecer.\n\nCom a banda observada e **29 pontos**, se o edge narrar o REAL deve cair entre\n**41,8 e 45,4 s**: o topo PASSA do teto de 45 do portao, e isso vai DITO antes\nde publicar. Se o piper narrar, 37,1 a 40,7.\n\n**E o que esta banda NAO faz vai repetido, porque e o achado de ontem:** o piso\ndela caiu duas vezes nesta sessao (769, 770) e a largura esta em **3,6 s** contra\n1 s de granularidade do real — ela cobre quase quatro inteiros. **E o SINAL do\nresiduo so esta estabelecido quando `real − previsao > 1,0`** (770): dos 29\npontos, **26** estao estabelecidos. Esta previsao e a **setima** da janela de 41\na 42 s, que pelo 768/769 **nao ordena** nada contra as outras seis.\n\nO provedor se decide no runner e por cena (730) e se mede CONTANDO os avisos\n`NARRACAO PELO PIPER` da anotacao (733), nunca pela distancia entre previsao e\nreal.\n\n## FONTES\nO longo de onde este short foi extraido (epomeno-epipedo-013, `opFSah50OWo`) traz\nas fontes. Este short nao introduz numero novo sobre o mundo.\n"
+}
