@@ -1,0 +1,96 @@
+{
+ "slug": "kolejny-poziom",
+ "pacote": "kolejny-poziom-s031",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Niska cena",
+  "l2": "to okno"
+ },
+ "longo_existente": "wb1RGIx7OJI",
+ "longo": [],
+ "short": [
+  {
+   "layout": "item",
+   "kicker": "Składka spadła",
+   "preco": "dobra wiadomość?",
+   "nar": "Twoja składka spadła, i to brzmi jak dobra wiadomość.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Koszt szkody",
+   "preco": "poszedł w górę",
+   "nar": "W tym samym czasie koszt szkody poszedł w górę.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dwie strzałki",
+   "sub": "w przeciwne strony",
+   "nar": "Dwie strzałki w przeciwne strony nie trwają długo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Co z tego wychodzi",
+   "itens": [
+    "Wpływy stoją",
+    "Wydatki rosną",
+    "Wynik zmienia znak"
+   ],
+   "nar": "Wpływy stoją, wydatki rosną, a wynik zmienia znak.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Taniej dziś",
+   "preco": "walka o klienta",
+   "nar": "Taniej jest dziś, bo trwa walka o klienta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A walka",
+   "sub": "kiedyś się kończy",
+   "nar": "A walka o klienta kiedyś się kończy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Koszt naprawy",
+   "preco": "nie cofnie się",
+   "nar": "Koszt naprawy natomiast nie cofnie się sam z siebie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Niska cena",
+   "preco": "to okno",
+   "nar": "Więc niska cena to okno, a nie nowy poziom.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Data końca polisy",
+   "sub": "tam jest okno",
+   "nar": "Okno wykorzystuje się przed datą końca polisy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Kolejny poziom",
+   "sub": "zostań na kanale",
+   "nar": "Zasubskrybuj i zapisz dziś, ile zapłaciłeś.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# kolejny-poziom-s031\n\n## TITULO\nDlaczego Niższa Składka Jest Oknem, a Nie Nowym Poziomem: Dwie Strzałki w Przeciwne Strony\n\n## TITULO SHORT\nNiższa składka to okno, nie poziom\n\n## DESCRICAO\nKiedy obowiązkowa składka spada, naturalnie czyta się to jako nowy poziom: tak teraz jest i tak zostanie. To jedna z tych sytuacji, w których sama cena nie wystarcza do wniosku — bo druga liczba, ta z drugiej strony rachunku, idzie w przeciwną stronę.\n\nW tym samym czasie koszt naprawy szkody rośnie. Dwie strzałki w przeciwne strony dają układ, który nie trwa długo: wpływy stoją, wydatki rosną, a wynik z samej działalności ubezpieczeniowej zmienia znak. Nie dlatego, że ktoś źle policzył — dlatego, że cena i koszt przestały iść razem.\n\nZ tego wynika wyjaśnienie, dlaczego jest taniej właśnie teraz. Taniej jest, bo trwa walka o klienta: portfel ma rosnąć, a najprostszym narzędziem do zdobycia klienta jest cena. Ta walka kiedyś się kończy, i wtedy nie ma do czego wracać — koszt naprawy nie cofa się sam z siebie. Więc niska cena nie jest nowym poziomem; jest OKNEM.\n\nI okno wykorzystuje się tylko w jednym punkcie: przed datą końca polisy. Nie w ostatnim dniu, kiedy wznowienie dzieje się samo, a kilka tygodni wcześniej — i przy okazji zapisz, ile zapłaciłeś. Za rok porównasz się z sobą, a nie ze średnią, która nigdy nie była twoją ceną.\n\nNie ma tu ani jednej kwoty, ani jednego procentu i ani jednej daty: liczby, które decydują, są na twojej polisie. Ile dokładnie wynosi średnia, co mówi wynik techniczny, jakie są dwa scenariusze końca tego cyklu i pięć wierszy tabeli — są w filmie, ze źródłami.\n\n## COMENTARIO FIXADO\nCałość w jednym zdaniu, bez żadnej kwoty: cena spadła, a koszt szkody wzrósł — i taki układ nie trwa długo, bo koszt nie cofa się sam. Dlatego niższa składka jest OKNEM, nie nowym poziomem, a okno wykorzystuje się przed datą końca polisy, nie w ostatnim dniu. Napisz w komentarzu tylko, czy zapisujesz sobie, ile zapłaciłeś w poprzednim roku — bez kwot.\n\n## HASHTAGS\n#Ubezpieczenia #FinanseOsobiste #KolejnyPoziom\n\n## TAGS\nskladka oc, polisa, wznowienie polisy, koszt szkody, wynik techniczny, walka o klienta, finanse osobiste, polska, data konca polisy, porownywarka, ubezpieczenie komunikacyjne, kolejny poziom, cena a koszt, decyzja\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO\nDECIMA PRIMEIRA rodada seguida com o canal escolhido pelo contador, e a TERCEIRA\npela regra dos dois niveis. As 05:0x o DIA deu **0 / 3 / 2** e a JANELA MOVEL de\n24 h deu **11 / 7 / 6**: o mais baixo do DIA e o `labtreinamento` (zero) e o da\nJANELA e o `kolejny-poziom`, SEM empate. Governou a JANELA, pela regra que entrou\nno modulo as 02:0x — e o desempate por `ultima=` que entrou as 04:0x **nao foi\nnecessario aqui**, o que vai dito para nao parecer que ele decidiu.\n\nA origem saiu do `concentracao.py kolejny-poziom`: `wb1RGIx7OJI`\n(kolejny-poziom-009, **78 capitulos**) tinha UM short so, o `s013`.\n\n## FAMILIA DE ENTRADA ERRADA\nLer um preco BAIXO como NOVO NIVEL quando ele e uma JANELA — isto e, tratar como\npatamar o que e estado transitorio produzido por uma disputa, enquanto o custo\nque o sustenta anda no sentido oposto e nao volta. Familia NOVA no canal, e as\nvizinhancas vao escritas porque elas existem:\n  * o `s013`, o unico outro short desta origem, trata do **bezwlad** (quanto custa\n    nao fazer nada, porque a polisa se renova sozinha). Ali o erro e de INACAO;\n    aqui e de LEITURA — a pessoa pode agir e ainda assim concluir errado;\n  * o `s025` deste canal escolhe o PRAZO pela tabela de ofertas. Ali o eixo\n    trocado e QUAL linha olhar; aqui e QUANTO TEMPO aquela linha dura;\n  * o `s030`, publicado hoje, compara pelo preco unitario quando decide a taxa\n    FIXA. Ali o erro e de BASE; aqui e de HORIZONTE. A regra (f) cobre familia\n    repetida no mesmo dia e esta nao e a mesma.\nCapitulos 49 a 53 do longo, nenhum usado pelo `s013` (que saiu dos 56, 57 e\n68 a 72).\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Nao cita a media da\nskladka, nao cita a media da szkoda, nao cita a razao entre as duas, nao cita\npercentual de variacao, nao cita quantas polisas existem, nao cita o resultado em\nzlotys, nao cita quantos meses nem quantos anos, e nao nomeia orgao nem\nseguradora. Conferido a mao campo por campo, porque o portao `narracao` conta\nquantidades por frase e NAO pega digito cru (640).\n\n**\"Dwie strzalki\" e \"pięć wierszy\" (este so na DESCRICAO) ficaram em sentidos\ndiferentes, e isso e deliberado:** \"duas setas\" e a FORMA do argumento, nao\nnumero sobre o mundo; a mencao das cinco linhas da tabela esta na descricao como\nPONTEIRO para o longo, nao como afirmacao que o short carregue.\n\n**O que a regra (g) tirou daqui e grande, e vai nomeado:** a media da skladka, a\nmedia da szkoda, a razao entre elas, o resultado tecnico do setor e as datas.\nTodos sao numeros que MUDAM a cada divulgacao, e todos estao no longo com fonte.\nO short carrega so a REGRA — preco e custo em sentidos opostos nao duram — que\nnao envelhece quando os numeros mudarem.\n\nO QUE O VIDEO AFIRMA: que a skladka caiu enquanto o custo da szkoda subiu, que\nesse par nao se sustenta porque o resultado da propria atividade muda de sinal,\nque a razao do preco baixo e a disputa por cliente, que essa disputa termina e o\ncusto de reparo nao retrocede sozinho, e que por isso o momento e janela e nao\nnivel. Esta no longo kolejny-poziom-009 (`wb1RGIx7OJI`), capitulos 49 a 53, com\nas fontes.\n\nDESCARTADO, e vai escrito:\n  (1) todas as medias, percentuais e o resultado em zlotys — numeros que mudam\n      (regra g), com fonte no longo;\n  (2) o bezwlad do wznowienie automatico e a tabela de cinco linhas — e o nucleo\n      do `s013` e sairia repetido;\n  (3) a armadilha da oferta mais barata da lista (capitulos 63 a 65) — terceira\n      familia, livre, e eu a deixei de fora de proposito porque ela encosta no\n      `s030` de hoje pela regra (f);\n  (4) os dois cenarios do fim do ciclo (50 e 51) — quarta familia; usar os dois\n      aqui exigiria dizer qual e mais provavel, e o proprio longo se recusa a\n      adivinhar.\n\n## MIRA\n`kolejny-poziom` NAO tem override em `ALVO_POR_CANAL`, logo vale o `ALVO_SHORT`\nda frota (41,5 a 43,0). Mirado perto do PISO, e agora sao DOIS motivos medidos,\nnao um: (a) no `pl-PL-MarekNeural` o centro do modelo corre **+2,2%** (679), logo\ne a voz em que o topo e mais arriscado; (b) **o 772, de uma hora atras** — o\n`epomeno-epipedo-s032` previa 42,5 com o portao VERDE nos dois mundos e saiu com\n**46 s reais, acima do teto de 45 do proprio portao**. Mirar o piso e a UNICA\ncoisa que aquele aprendizado autoriza fazer hoje, porque mexer na faixa e\nparametro de producao (§10).\n\nMedido antes do render: edge **41,8** e piper **35,6**, os dois dentro de 18 a 45\nnos DOIS mundos. **Tres versoes recusadas pela aritmetica antes desta:** 42,3\n(dentro, mas longe do piso), 41,3 (**FORA pelo PISO**) e esta. O\n`ensaio.chars_por_cena('pl-PL-MarekNeural', 10, 41.6)` devolve **49 caracteres\npor cena** — foi o modulo que disse, nao eu de cabeca (item 3 da §10).\n\nCom a banda observada e **34 pontos**, se o edge narrar o REAL deve cair entre\n**41,9 e 45,5 s** — o topo PASSA do teto de 45, e isso vai DITO antes de\npublicar, exatamente como foi dito no `s032`, onde aconteceu. Se o piper narrar,\n35,7 a 39,3.\n\n**E o que a banda NAO faz, repetido porque e o achado das ultimas rodadas:** o\npiso dela caiu duas vezes (769, 770), o teto uma (752), e a largura esta em\n**3,6 s** contra 1 s de granularidade — ela cobre quase quatro inteiros. **O\nSINAL do residuo so esta estabelecido quando `real − previsao > 1,0`** (770): dos\n34 pontos, **30** estao estabelecidos. Esta previsao e a **decima primeira** da\nfaixa de 41 a 44 s, e pelo 768/769 previsoes separadas por menos de 1 s **nao\nordenam** nada contra o real.\n\nO provedor se decide no runner e por cena (730) e se mede CONTANDO os avisos\n`NARRACAO PELO PIPER` da anotacao (733).\n\n## FONTES\nO longo de onde este short foi extraido (kolejny-poziom-009, `wb1RGIx7OJI`) traz\nas fontes. Este short nao introduz numero novo sobre o mundo.\n"
+}
