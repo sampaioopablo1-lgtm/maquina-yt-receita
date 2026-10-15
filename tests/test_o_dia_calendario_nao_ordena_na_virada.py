@@ -110,6 +110,50 @@ def test_com_pecas_SUFICIENTES_o_alerta_do_dia_volta_a_sair():
     assert "ALERTA DO DIA" in t3
 
 
+def test_quando_os_DOIS_NIVEIS_discordam_o_relato_DIZ_quem_governa():
+    """15/10 02:0x, medido, e era eu desempatando a mao.
+
+    A janela de 24 h acusava `labtreinamento` com **14 contra 5** — as dezesseis
+    pecas de ontem ainda estavam dentro dela — enquanto o DIA tinha o MESMO
+    canal em **ZERO**. Os dois niveis apontaram canais diferentes como o mais
+    baixo, e nenhum dos dois esta errado: eles respondem perguntas diferentes.
+
+    A regra vai escrita no modulo, com procedencia: quem governa a ESCOLHA e a
+    JANELA, porque este contador nasceu (762) pelo portao do conteudo
+    INAUTENTICO, que e sobre acumulo RECENTE; o DIA entra porque o alvo do dono
+    e 7/dia POR CANAL e ele diz quem esta ATRASADO.
+    """
+    t = cf.relato(por_dia={"labtreinamento": 0, "epomeno-epipedo": 1,
+                           "kolejny-poziom": 1},
+                  janela={"labtreinamento": 14, "epomeno-epipedo": 5,
+                          "kolejny-poziom": 5})
+    assert "OS DOIS NIVEIS DISCORDAM" in t
+    assert "o mais baixo do dia e labtreinamento" in t
+    assert "governa a ESCOLHA e a JANELA" in t
+    assert "ATRASADO" in t, "o papel do DIA tem de ir dito, nao sumir"
+
+
+def test_concordando_o_relato_NAO_inventa_discordancia():
+    t = cf.relato(por_dia={"labtreinamento": 0, "epomeno-epipedo": 2,
+                           "kolejny-poziom": 1},
+                  janela={"labtreinamento": 1, "epomeno-epipedo": 9,
+                          "kolejny-poziom": 4})
+    assert "OS DOIS NIVEIS DISCORDAM" not in t
+
+
+def test_o_mais_baixo_VARRE_a_frota__canal_em_zero_nao_fica_invisivel():
+    """A primeira versao desta deteccao lia `analise()["ordem"][-1]`, e a
+    `ordem` OMITE canal com zero (eles saem em `zerados`). Com isso o canal em
+    ZERO ficava invisivel e a discordancia passava em branco — o defeito
+    apareceu na propria rodada que criou a regra."""
+    a = cf.analise({"labtreinamento": 0, "epomeno-epipedo": 1,
+                    "kolejny-poziom": 1})
+    assert "labtreinamento" not in [c for c, _ in a["ordem"]], (
+        "se a `ordem` passar a incluir zero, esta protecao pode ser simplificada"
+        " — mas releia o caso antes")
+    assert a["zerados"] == ["labtreinamento"]
+
+
 def test_o_rotulo_da_janela_segue_o_argumento_e_nao_e_cravado():
     t = cf.relato(janela={"labtreinamento": 2, "epomeno-epipedo": 1,
                           "kolejny-poziom": 1}, janela_h=6)

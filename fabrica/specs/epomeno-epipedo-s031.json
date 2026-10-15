@@ -1,0 +1,92 @@
+{
+ "slug": "epomeno-epipedo",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#16283C",
+  "c1": "#2E7BB4",
+  "c2": "#E0A02E",
+  "bg": "#F3F7FA"
+ },
+ "pacote": "epomeno-epipedo-s031",
+ "longo_existente": "os51d8fA0sY",
+ "thumb": {
+  "l1": "Ίδια τιμή",
+  "l2": "λιγότερα"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Η τιμή",
+   "sub": "δεν άλλαξε",
+   "nar": "Η τιμή στο ράφι δεν άλλαξε απολύτως καθόλου φέτος.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Το περιεχόμενο",
+   "preco": "άλλαξε",
+   "nar": "Το περιεχόμενο μέσα όμως άλλαξε κάποια στιγμή.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Η συσκευασία",
+   "preco": "μοιάζει ίδια",
+   "nar": "Η συσκευασία μοιάζει ακριβώς ίδια μέσα στο χέρι σου.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Άρα συγκρίνεις",
+   "sub": "δύο πράγματα",
+   "nar": "Άρα συγκρίνεις στην πράξη δύο διαφορετικά πράγματα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Το ράφι",
+   "preco": "δεν σε προειδοποιεί",
+   "nar": "Το ράφι δεν σου λέει ποτέ απολύτως τίποτα για αυτό.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Και δεν φαίνεται",
+   "preco": "σαν ανατίμηση",
+   "nar": "Και δεν μοιάζει καθόλου με μια κανονική ανατίμηση.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Μία συνήθεια",
+   "sub": "το λύνει",
+   "nar": "Μία μόνο συνήθεια λύνει ολόκληρο αυτό το πρόβλημα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Κοίτα",
+   "preco": "ανά κιλό",
+   "nar": "Κοίτα πάντα την τιμή ανά κιλό, και όχι ανά τεμάχιο.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Είναι γραμμένη",
+   "preco": "στην ετικέτα",
+   "nar": "Είναι ήδη γραμμένη, μικρή, κάπου πάνω στην ετικέτα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Επόμενο Επίπεδο",
+   "sub": "κάνε εγγραφή",
+   "nar": "Κάνε εγγραφή, αν συγκρίνεις τις τιμές μόνος σου.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# epomeno-epipedo-s031\n\n## TITULO\nΊδια Τιμή στο Ράφι, Λιγότερο Μέσα στη Συσκευασία: Η Ανατίμηση που Δεν Φαίνεται\n\n## TITULO SHORT\nΊδια τιμή, λιγότερα γραμμάρια\n\n## DESCRICAO\nΗ σύγκριση τιμών μοιάζει με την πιο απλή πράξη του σούπερ μάρκετ: κοιτάς την τιμή, τη θυμάσαι, και την επόμενη φορά βλέπεις αν ανέβηκε. Το σημείο όπου αυτή η πράξη σπάει δεν είναι η μνήμη σου — είναι η υπόθεση ότι συγκρίνεις το ίδιο πράγμα.\n\nΗ τιμή της συσκευασίας μετράει δύο πράγματα μαζί: πόσο κοστίζει και πόσο έχει μέσα. Αν το δεύτερο αλλάξει χωρίς να το πεις σε κανέναν, το πρώτο μπορεί να μείνει ίδιο και εσύ να πληρώνεις περισσότερο. Ίδια συσκευασία, ίδια τιμή, λιγότερα γραμμάρια: δεν φαίνεται σαν ανατίμηση, και είναι.\n\nΑπό εκεί βγαίνει η διόρθωση, και είναι μία συνήθεια, όχι ένας υπολογισμός. Κοίτα την τιμή ανά κιλό ή ανά λίτρο, όχι ανά συσκευασία. Είναι η μόνη σύγκριση που δεν αλλάζει κάτω από τα πόδια σου, γιατί σε αυτήν η ποσότητα είναι σταθερή εξ ορισμού. Και είναι ήδη γραμμένη, με μικρά γράμματα, πάνω στην ίδια ετικέτα.\n\nΤο ίδιο λάθος εμφανίζεται και αλλιώς, χωρίς να αλλάξει τίποτα μέσα στο προϊόν: όταν συγκρίνεις δύο διαφορετικές συσκευασίες σαν να είναι ίδιες και ονομάζεις προσφορά τη μεγαλύτερη. Η πράξη είναι σωστή και η βάση είναι λάθος — η ποσότητα δεν είναι η ίδια στις δύο πλευρές.\n\nΔεν υπάρχει εδώ ούτε τιμή, ούτε ποσοστό, ούτε προϊόν: οι αριθμοί που αποφασίζουν είναι στις δικές σου αποδείξεις. Πώς φτιάχνεις τον δικό σου δείκτη με δέκα προϊόντα, πόσο συχνά τον μετράς, πού βρίσκεις ιστορικό τιμών και τα λάθη που τον χαλάνε — είναι στο βίντεο, με τις πηγές.\n\n## COMENTARIO FIXADO\nΜία συνήθεια, καμία πράξη: κοίτα την τιμή ανά κιλό ή ανά λίτρο, ποτέ ανά συσκευασία. Είναι η μόνη σύγκριση όπου η ποσότητα δεν αλλάζει κάτω από τα πόδια σου — και είναι ήδη γραμμένη, μικρή, στην ετικέτα. Ίδια τιμή με λιγότερα γραμμάρια δεν φαίνεται σαν ανατίμηση, και είναι. Γράψε στα σχόλια μόνο αν σου έχει συμβεί να το προσέξεις αργά — χωρίς τιμές και χωρίς μάρκες.\n\n## HASHTAGS\n#Τιμές #Σούπερμάρκετ #ΕπόμενοΕπίπεδο\n\n## TAGS\nτιμη ανα κιλο, συρρικνωση, συσκευασια, συγκριση τιμων, σουπερ μαρκετ, προσωπικα οικονομικα, ελλαδα, ετικετα, ποσοτητα, ανατιμηση, καλαθι, αποδειξη, επομενο επιπεδο, αγορες, νοικοκυριο\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO\nNONA rodada seguida com o canal escolhido pelo contador — **e nesta os DOIS\nNIVEIS DISCORDARAM, o que virou o conserto da rodada.** As 02:0x a janela movel\nde 24 h dava **14 / 5 / 5** e ALERTAVA no `labtreinamento` (as dezesseis pecas de\nontem ainda estao dentro dela), enquanto o DIA tinha **o mesmo canal em ZERO** e\nos outros dois com uma peca cada. Os dois apontavam canais DIFERENTES como o mais\nbaixo, e eu estava desempatando isso **a mao**.\n\nA regra passou para o modulo, com procedencia escrita: **quem governa a ESCOLHA e\na JANELA**, porque este contador nasceu (762) pelo portao do conteudo INAUTENTICO,\nque e sobre acumulo RECENTE no canal; **o DIA diz quem esta ATRASADO** nos 7/dia\npor canal, que e outra pergunta. Empate na janela (5 contra 5) desfeito pela peca\nmais ANTIGA: epomeno 00:17 contra kolejny 01:15.\n\n**E a primeira versao da deteccao tinha um falso NEGATIVO**, achado na mesma\nexecucao: ela lia `analise()[\"ordem\"][-1]`, e a `ordem` **OMITE canal com zero**\n(eles saem em `zerados`) — logo o canal em ZERO ficava invisivel e a discordancia\npassava em branco. O minimo passou a varrer a FROTA toda.\n`tests/test_o_dia_calendario_nao_ordena_na_virada.py`, DOZE testes.\n\nA origem saiu do `concentracao.py epomeno-epipedo`: `os51d8fA0sY`\n(epomeno-epipedo-006, **87 capitulos**) tinha UM short so, o `s012`.\n\n## FAMILIA DE ENTRADA ERRADA\nComparar PRECO sem fixar a QUANTIDADE: a etiqueta mede duas coisas ao mesmo\ntempo — quanto custa e quanto vem dentro — e se a segunda muda em silencio a\nprimeira pode ficar igual enquanto se paga mais. E familia NOVA no canal, e a\ndistincao do irmao vai escrita: o `s012`, o unico outro short desta origem, trata\ndo DENOMINADOR do indice (o cesto medio nao e o seu). Ali o erro e sobre QUEM a\nmedia representa; aqui e sobre a UNIDADE da comparacao — nenhuma media entra.\nCapitulos 63, 76 e 77 do longo (\"Sygkrine ana kilo\", \"Trito lathos\",\n\"I syrrikosi\"), nenhum deles usado pelo `s012`.\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Nao cita indice, nao\ncita percentual, nao cita preco, nao cita gramatura, nao cita quantos produtos,\nnao cita mes e nao nomeia orgao, loja nem marca. Conferido a mao campo por campo,\nporque o portao `narracao` conta quantidades por frase e NAO pega digito cru (640).\n\n**E a contagem de erros ficou FORA de proposito, pelo 725 — esta origem e um dos\nQUATRO casos medidos.** O capitulo 73 declara `Tessera lathi` e o 79 diz\nliteralmente `Pempto lathos`: a fonte declara QUATRO e enumera CINCO. Carregar\n\"os quatro erros\" para o short seria carregar numero errado que **nenhum portao\nnosso barra** — o `narracao` conta quantidade e NAO confere se ela e verdadeira.\nA narracao fala de UM erro e nao conta lista.\n\nO QUE O VIDEO AFIRMA: que a etiqueta por embalagem mistura preco e quantidade,\nque por isso mesma embalagem com menos conteudo e ANATIMISI que nao aparece, e\nque a comparacao por quilo ou por litro e a unica em que a quantidade nao muda —\ne ela ja esta impressa na etiqueta. Esta no longo epomeno-epipedo-006\n(`os51d8fA0sY`), capitulos \"Sygkrine ana kilo\", \"Trito lathos\" e \"I syrrikosi\".\n\nDESCARTADO, e vai escrito:\n  (1) todo numero do boletim de precos — indice, variacao, mes de referencia:\n      numeros que MUDAM e estao no longo com fonte (regra g);\n  (2) a contagem de erros do capitulo 73 — ver o paragrafo acima (725);\n  (3) o indice PROPRIO com dez produtos e a conta dele — e o nucleo da familia do\n      `s012` e sairia repetido;\n  (4) a ferramenta de comparacao, quantos produtos ela tem e o alcance dela\n      (capitulos 59 a 71) — e uma terceira familia, e ela mistura numero de\n      audiencia com numero sobre o mundo.\n\n## MIRA\n`epomeno-epipedo` NAO tem override em `ALVO_POR_CANAL`, logo vale o `ALVO_SHORT`\nda frota (41,5 a 43,0). Medido antes do render: edge **41,6** e piper **36,8**,\nos dois dentro de 18 a 45 nos DOIS mundos. A primeira versao dava edge **39,0 —\nFORA pelo PISO** — e foi alongada; vai registrado.\n\nCom a banda observada e **31 pontos**, se o edge narrar o REAL deve cair entre\n**41,7 e 45,3 s**: o topo PASSA do teto de 45, e isso vai DITO antes de publicar.\nSe o piper narrar, 36,9 a 40,5.\n\n**E o que a banda NAO faz segue dito:** largura de **3,6 s** contra 1 s de\ngranularidade depois das duas quedas de piso (769, 770), e o SINAL do residuo so\nesta estabelecido quando `real − previsao > 1,0` — dos 31 pontos, **27**. Esta\nprevisao e a **nona** da janela de 41 a 42 s, que pelo 768/769 **nao ordena** nada\ncontra as outras oito. E o argumento de que a banda \"e de um canal\" perdeu o apoio\nda CONTAGEM na rodada anterior: sobrevive so pela LARGURA (o teto de 3,7 e do\n`labtreinamento-s043`, e nenhum ponto de outro canal passou de +2,8).\n\nO provedor se decide no runner e por cena (730) e se mede CONTANDO os avisos\n`NARRACAO PELO PIPER` da anotacao (733).\n\n## FONTES\nO longo de onde este short foi extraido (epomeno-epipedo-006, `os51d8fA0sY`) traz\nas fontes. Este short nao introduz numero novo sobre o mundo.\n"
+}

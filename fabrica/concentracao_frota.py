@@ -174,6 +174,31 @@ def relato(raiz: str = None, por_dia: dict[str, int] = None,
         if j["zerados"]:
             linhas.append(f"  SEM NENHUMA PECA NAS ULTIMAS {janela_h} H: "
                           + ", ".join(j["zerados"]))
+    if por_dia is not None and janela is not None:
+        # 15/10 02:0x: os dois niveis apontaram canais DIFERENTES como o mais
+        # baixo — a janela de 24 h acusava `labtreinamento` com 14 contra 5
+        # (porque as 16 pecas de ontem ainda estao dentro dela) enquanto o DIA
+        # tinha o mesmo canal em ZERO. Nenhum dos dois esta errado: eles
+        # respondem perguntas diferentes, e eu estava desempatando isso a mao.
+        #
+        # A REGRA, com procedencia: quem governa a ESCOLHA e a JANELA, porque
+        # este contador nasceu (762) pelo portao do conteudo INAUTENTICO, que e
+        # sobre acumulo RECENTE no canal. O DIA entra no relato porque o alvo do
+        # dono e 7/dia POR CANAL, logo ele diz quem esta ATRASADO — que e outra
+        # pergunta. Empate na janela se desfaz pela peca mais ANTIGA.
+        # CUIDADO MEDIDO AQUI: `analise()["ordem"]` OMITE canal com zero (eles
+        # saem em `zerados`), logo ler o ultimo da `ordem` NAO da o mais baixo —
+        # na primeira versao desta linha o canal em ZERO ficava invisivel e a
+        # discordancia nao era detectada. O minimo tem de varrer a FROTA toda.
+        dia_baixo = min(FROTA, key=lambda c: (por_dia.get(c, 0), c))
+        jan_baixo = min(FROTA, key=lambda c: (janela.get(c, 0), c))
+        if dia_baixo != jan_baixo:
+            linhas.append(
+                f"  OS DOIS NIVEIS DISCORDAM: o mais baixo do dia e {dia_baixo} "
+                f"e o da janela e {jan_baixo}. Quem governa a ESCOLHA e a "
+                "JANELA (este contador existe pelo conteudo INAUTENTICO, que e "
+                "acumulo RECENTE); o DIA diz quem esta ATRASADO nos 7/dia por "
+                "canal, que e outra pergunta.")
     linhas.append("  (CONTA, nao reprova: concentrar e o PLANO, porque os 500 sao "
                   "limite POR CANAL. O que este contador mostra e EM QUAL canal, "
                   "e essa escolha tem de ser medida, nao habito.)")
