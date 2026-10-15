@@ -1,0 +1,96 @@
+{
+ "slug": "kolejny-poziom",
+ "pacote": "kolejny-poziom-s033",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Prowizję",
+  "l2": "rozłóż"
+ },
+ "longo_existente": "GUiq15usizw",
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Jedna opłata",
+   "sub": "jeden miesiąc",
+   "nar": "Jedna opłata wpada do rachunku jednego miesiąca.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Prowizja",
+   "preco": "płacona raz",
+   "nar": "Prowizję płacisz tylko raz, a nie co miesiąc.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "W rachunku",
+   "preco": "wygląda jak rata",
+   "nar": "W rachunku wygląda jednak zupełnie jak rata.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Jeden wiersz",
+   "sub": "psuje całość",
+   "nar": "Jeden taki wiersz psuje wynik całego rachunku.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Rozłóż",
+   "preco": "na miesiące",
+   "nar": "Rozłóż ją na tyle miesięcy, ile tam mieszkasz.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Horyzont decyduje",
+   "itens": [
+    "Krótko — boli",
+    "Długo — mało",
+    "Ta sama kwota"
+   ],
+   "nar": "Ta sama kwota waży inaczej przy innym horyzoncie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kaucja",
+   "preco": "nie jest kosztem",
+   "nar": "A kaucja kosztem nie jest, ponieważ ona wraca.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Wraca",
+   "sub": "więc nie liczy się",
+   "nar": "To, co do ciebie wraca, do kosztu nie wchodzi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Reguła",
+   "preco": "wchodzi to, co znika",
+   "nar": "Reguła jest prosta: wchodzi tylko to, co znika.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Kolejny Poziom",
+   "sub": "subskrybuj",
+   "nar": "Subskrybuj i policz najpierw swój horyzont.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# kolejny-poziom-s033\n\n## TITULO\nOpłata Jednorazowa w Rachunku Miesięcznym: Dlaczego Horyzont Zmienia Wynik\n\n## TITULO SHORT\nProwizję rozłóż na miesiące\n\n## DESCRICAO\nW porównaniu najmu z kredytem jest błąd, który nie wygląda na błąd: opłata płacona RAZ wpisana do rachunku jednego miesiąca. Prowizja, opłata dla biura, jednorazowy koszt uruchomienia — wszystkie są prawdziwym wydatkiem, i żaden z nich nie jest wydatkiem miesięcznym.\n\nSkutek jest arytmetyczny, nie estetyczny. Rachunek miesięczny porównuje dwie strony w tej samej jednostce: złote na miesiąc. Jedna liczba w złotych za CAŁOŚĆ, postawiona obok liczb za MIESIĄC, przechyla wynik całkowicie — i przechyla go w stronę, która zależy wyłącznie od tego, w którym miesiącu ją wpisałeś.\n\nPoprawka jest jednym działaniem: rozłóż kwotę na tyle miesięcy, ile planujesz tam mieszkać. I tu pojawia się rzecz, której pierwsza wersja rachunku w ogóle nie widziała — TA SAMA kwota waży zupełnie inaczej przy innym horyzoncie. Krótki pobyt sprawia, że jednorazowa opłata boli; długi rozmywa ją niemal do zera. Horyzont nie jest szczegółem rachunku, on jest jego częścią.\n\nI jest druga strona tej samej reguły, która działa w przeciwnym kierunku: kaucja nie jest kosztem, bo wraca. Pieniądz wyszedł z konta i nie zniknął — a do rachunku kosztów wchodzi tylko to, co znika. Ta jedna reguła rozstrzyga oba przypadki: rozkładasz to, co znika jednorazowo, i nie wpisujesz tego, co do ciebie wróci.\n\nNie ma tu żadnej kwoty, żadnej stawki i żadnej daty: liczby, które decydują, są w twojej ofercie i w twoim harmonogramie. Jaka rata, jakie odsetki pierwszego miesiąca, co jeszcze wchodzi po stronie własności i czego ten rachunek nie rozstrzyga — jest w filmie, ze źródłami.\n\n## COMENTARIO FIXADO\nCałość w jednym zdaniu, bez żadnej kwoty: opłata płacona raz nie jest opłatą miesięczną. Wpisana do jednego miesiąca przechyla rachunek w stronę, która zależy tylko od tego, który to miesiąc. Rozłóż ją na tyle miesięcy, ile tam mieszkasz — i nie wpisuj kaucji, bo ona wraca. Wchodzi tylko to, co znika. Napisz w komentarzu, na ile miesięcy liczysz swój horyzont — bez kwot.\n\n## HASHTAGS\n#Kredyt #Najem #KolejnyPoziom\n\n## TAGS\nkredyt hipoteczny, najem, prowizja, kaucja, harmonogram, odsetki, koszt wlasnosci, rachunek miesieczny, horyzont, porownanie, finanse osobiste, kolejny poziom, oplata jednorazowa, decyzja\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## AVISO\n**ESTA RODADA PERDEU O BANCO, e e a PRIMEIRA desde que a sessao comecou.** O\n`execute_sql` recusou com `MCP error -32600: You do not have permission to\nperform this action` — inclusive na SONDA DE CAPACIDADE\n(`select pg_database_size(current_database())`), que e o teste que o 709 manda\nusar em vez do `list_projects`. Logo nao e catalogo, e capacidade. **Trato como\nESTADO, nao propriedade** (a licao de 11/10 sobre o `mcp__github__*`): sondo de\nnovo na rodada seguinte em vez de declarar morto.\n\n**O que isso custou, item por item, porque a conta honesta importa mais que a\npeca:**\n1. **a escolha do canal nao saiu do contador de 24 h**, porque ele le\n   `videos.publicado_em`. Eu construi uma fonte substituta — o `git log` do\n   `fabrica/corpus_publicados.json`, que e datado e vive no repo — e **ela\n   discordou do banco no sentido que importa**: deu 6 no `labtreinamento` contra\n   os 7 que o banco dera as 10:07, porque o commit do corpus ATRASA contra a\n   publicacao. Um contador que subestima justamente o canal que acabou de\n   produzir mandaria produzir nele outra vez. **Nao usei para escolher, e digo\n   isso em vez de apresentar o numero.**\n2. **a escolha saiu do criterio de desempate, que nao depende do banco:** a\n   ULTIMA publicacao por canal, lida dos `created_at` dos runs do `retomar.yml`.\n   `labtreinamento` 10:16, `epomeno-epipedo` 09:21, `kolejny-poziom` **07:12** —\n   o kolejny e o que esta ha mais tempo sem peca, e na ultima leitura do banco\n   ele estava empatado no fundo da janela.\n3. **nao havera 41o ponto da banda nesta rodada**, porque ler a duracao REAL\n   exige o token, que sai do `config` pelo `pg_net` — e o `pg_net` roda DENTRO do\n   Postgres. Sem `execute_sql` nao ha chamada. A peca sai com a previsao\n   declarada e sem leitura.\n4. **o registro em `videos` fica ATRASADO** — e isso e exatamente o defeito 726,\n   agora por causa externa e nao por esquecimento meu. O `registro_videos.py`\n   imprime o `INSERT`; ele vai GUARDADO no repo para a primeira rodada que\n   reabrir o banco, em vez de virar barulho que ninguem ouve.\n\nA origem saiu do `concentracao.py kolejny-poziom`, que le as SPECS e nao o banco:\n`GUiq15usizw` (pacote `kolejny-poziom-019`, **56 capitulos**) tinha UM short so, o\n`s003` — e e uma das tres origens de um uso so **com spec local**, logo\nescrevivel sem rede nenhuma.\n\n## FAMILIA DE ENTRADA ERRADA\nOPLATA JEDNORAZOWA lancada como oplata MIESIECZNA: pagar a prowizja uma vez e\nescrever o valor inteiro na linha de um mes, dentro de um rachunek cujas duas\ncolunas estao em zlotys POR MES. **O eixo errado e a UNIDADE DE TEMPO do item** —\numa quantia pelo TODO ao lado de quantias pelo MES — e a consequencia e que o\nresultado passa a depender de em QUAL mes a linha foi escrita, o que nao e\npropriedade do negocio.\n\nE a correcao traz de carona uma variavel que a primeira versao do rachunek nao\ntinha: **o HORIZONTE**. A mesma quantia pesa de modo completamente diferente\ndividida por poucos ou por muitos meses, logo o horizonte nao e detalhe do\ncalculo, e parte dele.\n\nFamilia NOVA no canal, e a distincao das oito vizinhas vai escrita: o **s032**\nerra a UNIDADE DE MEDIDA (procento contra zlotys) e o **s028** erra a FREQUENCIA\nde duas cobrancas — os dois ficam dentro do mesmo mes. Aqui o item e UM so e o\nerro e o periodo que ele cobre. O **s031** (janela lida como nivel) e o mais\nproximo, e ele erra a DURACAO DE UM PRECO; este erra a DURACAO DE UM CUSTO JA\nPAGO. E nao e o **s025** (prazo escolhido pela tabela), que erra de QUEM e o\nhorizonte, nao como ele entra na conta.\n\nCapitulos 43 a 46 do longo, **nenhum usado pelo `s003`**, que saiu dos capitulos\nde \"odsetki z ktorego miesiaca\" (a primeira linha do harmonogram).\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Nao cita o valor do\ncredito, nao cita o prazo em anos, nao cita a taxa, nao cita a rata, nao cita os\nodsetki do primeiro mes, nao cita o kapital, nao cita o podatek, o ubezpieczenie\nnem o fundusz remontowy, nao cita o czynsz e nao cita a diferenca. Conferido a\nmao campo por campo, porque o portao `narracao` conta quantidades por frase e NAO\npega digito cru (640).\n\n**E aqui a regra (g) tem um caso ESPECIAL que se aplica inteiro**, e vai nomeado:\no proprio longo declara, no capitulo 31 e de novo no 32, que **os numeros do\nexemplo sao INVENTADOS por ele** — *\"Liczby, ktore teraz usłyszysz, sa wymyslone,\nzeby rachunek byl widoczny. To nie jest cena zadnego mieszkania.\"* A regra (g)\ndiz que numero que o proprio longo chama de ESCOLHA e nao de norma **nao entra de\njeito nenhum**, e e exatamente o caso. Eles ficam fora, e nem como ilustracao.\n\n**\"Jeden miesiac\" e \"jedna oplata\" ficaram, e isso e deliberado:** sao a\nESTRUTURA do erro, nao numero sobre o mundo — um item e um periodo. Eles nao\nenvelhecem com preco nenhum.\n\n**E o `contagem_declarada` nao tinha o que dizer, e eu confiro a mao:** a peca nao\ndeclara quantidade de itens, logo nao ha N contra N+1 (725). **E isto importa\nnesta origem**, porque o `kolejny` e um dos dois canais cujas specs o modulo nao\nlia antes do 725 — o vocabulario era so em portugues.\n\nO QUE O VIDEO AFIRMA: que uma oplata paga UMA vez nao e oplata mensal, que\nescrita na linha de um mes ela faz o resultado depender de qual mes e, que a\ncorrecao e dividi-la pelos meses que se planeja morar ali, que por isso o\nhorizonte entra na conta, e que a kaucja nao e custo porque volta — a regra sendo\n\"entra so o que desaparece\". Esta no longo `kolejny-poziom-019` (`GUiq15usizw`),\ncapitulos 43 a 46, com as fontes.\n\nDESCARTADO, e vai escrito:\n  (1) **o exemplo numerico inteiro** (capitulos 31 a 41) — o longo o declara\n      INVENTADO, e pela regra (g) numero que a fonte chama de escolha nao entra;\n  (2) **a parte kapitalowa ser pequena no inicio e CRESCER** (capitulos 26 a 28) —\n      familia distinta e forte, livre para a proxima peca desta origem; ela erra a\n      DATA da leitura, nao a unidade do item;\n  (3) **nao projetar subida de czynsz nem de preco** (capitulos 29 e 30) — e a\n      mais bonita do longo (*\"rachunek que supoe o futuro deixa de ser rachunek\"*)\n      e e familia de PROGNOSTICO, livre;\n  (4) os custos de propriedade item a item (capitulo 37) — vem com tres valores;\n  (5) o remis do exemplo (capitulo 39) — depende inteiro do item 1.\n\n## MIRA\n`kolejny-poziom` NAO tem override em `ALVO_POR_CANAL`, logo vale o `ALVO_SHORT`\nda frota (41,5 a 43,0). Mirado perto do **PISO**, e aqui as duas regras\nCONCORDAM, o que nao acontecia nas duas pecas anteriores: o **679** diz que no\n`pl-PL-MarekNeural` o centro do modelo corre **+2,2%**, logo o piso e o lado\nseguro *da previsao*; e o **772** manda mirar o piso por causa do REAL. No\n`epomeno` as duas apontavam para lados opostos e eu tive de escolher; aqui nao.\n\nMedido antes do render: edge **41,7** e piper **35,5**, os dois dentro de 18 a 45\nnos DOIS mundos. **Duas versoes recusadas pela aritmetica antes desta:** 37,7\n(**FORA pelo PISO** do `ALVO_SHORT`) e 42,1 (dentro, mas longe do piso). O\n`ensaio.chars_por_cena('pl-PL-MarekNeural', 10, 41.6)` devolve **49 caracteres\npor cena** — foi o modulo que disse, nao eu de cabeca (item 3 da §10).\n\nCom a banda observada e **40 pontos**, se o edge narrar o REAL deve cair entre\n**41,8 e 45,7 s** — o topo PASSA do teto de 45 do portao, e isso vai DITO antes\nde publicar. **E a banda ACABOU DE FICAR PIOR: o 774, de uma hora atras, ampliou\no teto de 3,7 para 4,0** porque o `labtreinamento-s052` previa 25,0 e saiu com\n29. Logo a exposicao desta peca e maior do que seria com a banda de ontem, e o\npiso e menos exposto, nao seguro. Se o piper narrar, 35,6 a 39,5.\n\n**E o que a banda NAO faz:** o piso dela caiu duas vezes (769, 770), o teto DUAS\n(752, 774), e as quatro correcoes a ALARGARAM — hoje **3,9 s** contra 1 s de\ngranularidade do real. Ela cobre quase quatro inteiros. **O SINAL do residuo so\nesta estabelecido quando `real − previsao > 1,0`** (770): dos 40 pontos, **35**\nestao estabelecidos.\n\n**E ESTA PECA NAO VAI RENDER PONTO NENHUM**, porque ler a duracao real exige o\ntoken do `config` pelo `pg_net`, e sem `execute_sql` nao ha chamada. A previsao\nfica registrada aqui para a primeira rodada que reabrir o banco conferir.\n\nO provedor se decide no runner e por cena (730) e se mede CONTANDO os avisos\n`NARRACAO PELO PIPER` da anotacao (733) — isso **continua** possivel sem o banco,\nporque sai pela API do GitHub.\n\n## FONTES\nO longo de onde este short foi extraido (`kolejny-poziom-019`, `GUiq15usizw`) traz\nas fontes. Este short nao introduz numero novo sobre o mundo, e descarta\nexplicitamente o exemplo numerico que o proprio longo declara inventado.\n"
+}
