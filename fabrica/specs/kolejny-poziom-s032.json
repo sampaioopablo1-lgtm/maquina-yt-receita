@@ -1,0 +1,96 @@
+{
+ "slug": "kolejny-poziom",
+ "pacote": "kolejny-poziom-s032",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Procent",
+  "l2": "nie porównuje"
+ },
+ "longo_existente": "nPyVHJmY2HA",
+ "longo": [],
+ "short": [
+  {
+   "layout": "item",
+   "kicker": "Ten sam procent",
+   "preco": "dwie kwoty",
+   "nar": "Ten sam procent daje dwie różne kwoty w złotych.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "U ciebie też",
+   "sub": "inny co miesiąc",
+   "nar": "U ciebie też: inny w styczniu, inny w grudniu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Procent",
+   "preco": "nie porównuje",
+   "nar": "Procentu nie porównasz z ratą ani z rachunkiem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Nie niesprawiedliwość",
+   "sub": "to skala",
+   "nar": "To nie jest niesprawiedliwość, to jest skala.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Złote",
+   "preco": "dają cenę",
+   "nar": "Zamiana na złote daje cenę, którą da się porównać.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "W dwie strony",
+   "sub": "także tanie lata",
+   "nar": "I działa w dwie strony: znajduje też tanie lata.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Zapisuj tak",
+   "itens": [
+    "Kwotę w złotych",
+    "Obok niej miesiąc",
+    "Nigdy sam procent"
+   ],
+   "nar": "Zapisuj kwotę w złotych, nigdy sam procent.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Miesiąc",
+   "preco": "miejsce w roku",
+   "nar": "A obok kwoty zapisz miesiąc, z którego ona jest.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Nie ozdoba",
+   "sub": "część pomiaru",
+   "nar": "Miesiąc nie jest ozdobą, to miejsce w roku.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Kolejny poziom",
+   "sub": "zostań na kanale",
+   "nar": "Zasubskrybuj i zapisz kwotę ze swojego paska.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# kolejny-poziom-s032\n\n## TITULO\nProcent Nie Porównuje Się z Ratą: Dlaczego Koszt Zapisuje Się w Złotych, a Nie w Procentach\n\n## TITULO SHORT\nProcent nie porównuje się z ratą\n\n## DESCRICAO\nProcent wygląda jak najuczciwszy sposób opisania kosztu, bo jest ten sam dla wszystkich. I właśnie dlatego nie odpowiada na pytanie, które zadajesz — bo ten sam procent daje dwie różne kwoty, zależnie od tego, od czego jest liczony.\n\nTo nie dotyczy tylko porównania z kimś innym. Dotyczy ciebie z tobą: ten sam procent to inna kwota w miesiącu bez premii i inna w miesiącu z premią. Więc nawet twoje własne dwa pomiary nie są porównywalne, dopóki zostają procentem.\n\nZ tego wynika rzecz praktyczna. Procentu nie da się postawić obok raty, obok rachunku ani obok żadnej innej pozycji w twoim miesiącu — a to jest dokładnie to porównanie, które decyduje. Zamiana na złote daje cenę: jedną liczbę, którą można położyć obok pozostałych. I to nie jest niesprawiedliwość ani błąd w naliczeniu — to jest skala.\n\nDziała też w drugą stronę, i o tym rzadko się mówi: ta sama zamiana znajduje miesiące, w których koszt jest NISKI. Procent tego nie pokaże, bo w procencie wszystkie miesiące wyglądają identycznie.\n\nDlatego zapis ma dwie części, nie jedną: kwota w złotych, i obok niej miesiąc, z którego ona jest. Miesiąc nie jest ozdobą — jest częścią pomiaru, bo mówi, w którym miejscu roku stałeś. Bez niego za rok porównasz dwie liczby, które nie są porównywalne.\n\nNie ma tu ani jednego procentu, ani jednej kwoty i ani jednej daty: liczby, które decydują, są na twoim pasku. Jak policzyć ten koszt z dwóch wypłat, co wchodzi i co wychodzi, jakie trzy błędy ten rachunek ujawnia i co dokładnie zapisać — są w filmie.\n\n## COMENTARIO FIXADO\nCałość w jednym zdaniu, bez żadnej kwoty: ten sam procent daje różne kwoty, więc procentu nie postawisz obok raty ani rachunku — a to jest porównanie, które decyduje. Zapisuj kwotę w złotych i obok niej miesiąc, bo miesiąc mówi, w którym miejscu roku stałeś. Napisz w komentarzu tylko, czy zapisujesz kwotę czy procent — bez kwot.\n\n## HASHTAGS\n#FinanseOsobiste #PPK #KolejnyPoziom\n\n## TAGS\nprocent a kwota, koszt miesieczny, pasek wyplaty, ppk, porownywalnosc, premia, skala, finanse osobiste, polska, pomiar kosztu, zapis w zlotych, miesiac pomiaru, kolejny poziom, decyzja\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO\nDECIMA TERCEIRA rodada seguida com o canal escolhido pelo contador. As 07:0x a\njanela movel de 24 h deu **9 / 8 / 7** — sem empate, o mais baixo e o\n`kolejny-poziom` — e o DIA deu **0 / 4 / 3**, apontando o `labtreinamento`, que\nesta em zero. Os dois niveis DISCORDARAM e governou a JANELA, pela regra das\n02:0x. O desempate por `ultima=` nao foi necessario, e isso vai dito para nao\nparecer que ele decidiu.\n\nA origem saiu do `concentracao.py kolejny-poziom`: `nPyVHJmY2HA`\n(kolejny-poziom-015, **71 capitulos**) tinha UM short so, o `s006`.\n\n## FAMILIA DE ENTRADA ERRADA\nComparar em PROCENTO o que so e comparavel em ZLOTYS — o percentual e o mesmo\npara todos e por isso NAO responde a pergunta, porque a mesma taxa da duas\nquantias diferentes, inclusive para a MESMA pessoa em dois meses. **A unidade\nerrada apaga a unica comparacao que decide.** Familia NOVA no canal, e as tres\nvizinhancas de hoje vao declaradas, porque a regra (f) e por canal e por DIA:\n  * o `s006`, o unico outro short desta origem, diz que a LINHA da contribuicao\n    nao e o custo (o custo e a diferenca entre duas folhas). Ali o erro e QUAL\n    numero ler; aqui e em QUE UNIDADE escreve-lo;\n  * o `s030` compara pelo preco unitario quando decide a taxa fixa — erro de\n    BASE;\n  * o `s031` le preco baixo como nivel quando e janela — erro de HORIZONTE.\n  Aqui o eixo trocado e a UNIDADE, e as quatro sao distinguiveis uma a uma.\nCapitulos 27 a 33 do longo, nenhum usado pelo `s006` (que saiu dos 0 a 4 e\n17 a 25).\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Nao cita o percentual\nda contribuicao, nao cita o do empregador, nao cita o aporte do Estado, nao cita\nvalor em zlotys, nao cita aliquota de imposto, nao cita a data do reingresso\nautomatico e nao nomeia instituicao. Conferido a mao campo por campo, porque o\nportao `narracao` conta quantidades por frase e NAO pega digito cru (640).\n\n**\"Dwie kwoty\" e \"w dwie strony\" ficaram, e isso e deliberado:** sao a FORMA do\nargumento — a mesma taxa produzindo duas quantias — nao numero sobre o mundo.\nE os meses nomeados (styczen, grudzien) **nao sao data de vigencia**: sao as duas\npontas do ano, usadas para mostrar que o mesmo percentual muda de valor dentro do\nproprio salario. A regra que o short carrega nao envelhece quando a taxa mudar.\n\nO QUE O VIDEO AFIRMA: que a mesma taxa percentual produz quantias diferentes\nconforme a base, que isso vale tambem para a mesma pessoa em meses diferentes,\nque por isso o percentual nao se compara com uma prestacao nem com uma conta, que\na conversao em zlotys produz um preco comparavel, e que o registro precisa do MES\nao lado da quantia porque o mes diz o lugar no ano. Esta no longo\nkolejny-poziom-015 (`nPyVHJmY2HA`), capitulos 27 a 33, com as fontes.\n\nDESCARTADO, e vai escrito:\n  (1) os percentuais das tres contribuicoes, os valores e a data do reingresso —\n      numeros que mudam (regra g), com fonte no longo;\n  (2) a conta das duas folhas e a linha da contribuicao contra o custo real — e o\n      nucleo do `s006` e sairia repetido;\n  (3) o PRAZO da decisao e o silencio como escolha (capitulos 36 a 38) —\n      terceira familia, livre, **e ela encosta no `s029` deste canal** (o fim de\n      uma obrigacao nao se comunica sozinho), logo entra com cuidado;\n  (4) os tres erros que a conta revela (capitulos 45 a 49) — quarta familia, e\n      cada um deles cabe num short proprio.\n\n## MIRA\n`kolejny-poziom` NAO tem override em `ALVO_POR_CANAL`, logo vale o `ALVO_SHORT`\nda frota (41,5 a 43,0). Mirado perto do PISO, com DOIS motivos medidos: o centro\ndo modelo correndo **+2,2%** nesta voz (679) e o **772** — o real passando de 45\ncom previsao em 42,5 e o portao verde nos dois mundos. Medido antes do render:\nedge **41,8** e piper **35,6**, os dois dentro de 18 a 45 nos DOIS mundos. Uma\nversao recusada antes desta (42,7, dentro mas longe do piso), e os 49 caracteres\npor cena sairam do `ensaio.chars_por_cena`.\n\n**E o portao `variedade` pegou a thumbnail:** `Ten sam procent` + `dwie kwoty`\nsomam **CINCO** palavras contra o limite de quatro. Trocada para\n`Procent` / `nie porównuje`. E o limiar e do mapa do dono, nao meu.\n\nCom a banda observada e **37 pontos**, se o edge narrar o REAL deve cair entre\n**41,9 e 45,5 s** — o topo PASSA do teto de 45, e isso vai DITO antes de\npublicar. Se o piper narrar, 35,7 a 39,3.\n\n**E o que a banda NAO faz, repetido porque e o achado das ultimas rodadas:** o\npiso dela caiu duas vezes (769, 770), o teto uma (752), e a largura esta em\n**3,6 s** contra 1 s de granularidade. **O SINAL do residuo so esta estabelecido\nquando `real − previsao > 1,0`** (770): dos 37 pontos, **31** estao\nestabelecidos — e o ponto de 06:1x (`epomeno-epipedo-s033`, 41,6 → 42) e o quinto\nNAO estabelecido, **sem ter movido o piso**, o que confirma a correcao do 30o\nponto. Esta previsao e a **decima terceira** da faixa de 41 a 44 s, e pelo\n768/769 previsoes separadas por menos de 1 s **nao ordenam** nada contra o real.\n\nO provedor se decide no runner e por cena (730) e se mede CONTANDO os avisos\n`NARRACAO PELO PIPER` da anotacao (733).\n\n## FONTES\nO longo de onde este short foi extraido (kolejny-poziom-015, `nPyVHJmY2HA`) traz\nas fontes. Este short nao introduz numero novo sobre o mundo.\n"
+}
