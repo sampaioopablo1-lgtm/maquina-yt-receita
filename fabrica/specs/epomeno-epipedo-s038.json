@@ -1,0 +1,96 @@
+{
+ "slug": "epomeno-epipedo",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#16283C",
+  "c1": "#2E7BB4",
+  "c2": "#E0A02E",
+  "bg": "#F3F7FA"
+ },
+ "pacote": "epomeno-epipedo-s038",
+ "longo_existente": "nttW9fR8wyY",
+ "thumb": {
+  "l1": "Αρνητικό",
+  "l2": "δεν γίνεται"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Βγήκε αρνητικό",
+   "sub": "και χάρηκες",
+   "nar": "Η αφαίρεση των δόσεων βγήκε αρνητική, και εσύ χάρηκες.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Θα σήμαινε",
+   "preco": "κέρδος από δόσεις",
+   "nar": "Θα σήμαινε ότι οι δόσεις σου χάρισαν χρήματα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Κανείς",
+   "sub": "δεν δίνει αυτό",
+   "nar": "Κανένα κατάστημα στον κόσμο δεν σου δίνει αυτό.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Άρα",
+   "preco": "λάθος είσοδος",
+   "nar": "Άρα το λάθος είναι σε αυτό που έβαλες στην πράξη.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Συνήθως",
+   "preco": "η αρχική τιμή",
+   "nar": "Συνήθως πήρες την αρχική τιμή, πριν από την έκπτωση.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Τι ζητάς",
+   "itens": [
+    "Τιμή μετρητοίς",
+    "Μετά έκπτωση",
+    "Γραμμένη"
+   ],
+   "nar": "Ζήτα τη γραμμένη τιμή μετρητοίς, αυτή μετά την έκπτωση.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Το πρόσημο",
+   "preco": "είναι διάγνωση",
+   "nar": "Το πρόσημο δεν είναι εύρημα, είναι διάγνωση της εισόδου.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Σου λέει",
+   "sub": "για το χαρτί",
+   "nar": "Δεν σου λέει για την προσφορά, σου λέει για το χαρτί.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ξανακάνε",
+   "preco": "τη σωστή πράξη",
+   "nar": "Ξανακάνε την ίδια αφαίρεση με τη σωστή τιμή.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Επόμενο Επίπεδο",
+   "sub": "κάνε εγγραφή",
+   "nar": "Κάνε εγγραφή και κοίτα πρώτα το πρόσημο σου.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# epomeno-epipedo-s038\n\n## TITULO\nΑν Η Αφαίρεση Βγει Αρνητική, Το Λάθος Είναι Στην Τιμή Που Έβαλες, Όχι Στην Προσφορά\n\n## TITULO SHORT\nΑρνητικό δεν γίνεται\n\n## DESCRICAO\nΟ έλεγχος των δόσεων είναι δύο πράξεις: δόσεις επί ποσό δόσης, μείον την τιμή μετρητοίς. Ό,τι μένει είναι το κόστος της διευκόλυνσης. Μηδέν σημαίνει πραγματικά άτοκες, θετικός αριθμός σημαίνει πόσο κόστισε.\n\nΚαι υπάρχει ένα τρίτο αποτέλεσμα, που μοιάζει με καλή είδηση και δεν είναι: **αρνητικός αριθμός**. Θα σήμαινε ότι οι δόσεις σου χάρισαν χρήματα — ότι πληρώνοντας σε δόσεις έδωσες λιγότερα από την τιμή μετρητοίς. Κανένα κατάστημα δεν δίνει αυτό, γιατί τότε η διευκόλυνση θα του κόστιζε και δεν θα την πρόσφερε.\n\nΆρα το αρνητικό πρόσημο δεν περιγράφει την προσφορά: **περιγράφει την είσοδο της πράξης**. Σχεδόν πάντα η αιτία είναι η ίδια — πήρες την **αρχική** τιμή, πριν την έκπτωση, αντί της τιμής μετρητοίς που ισχύει. Η αφαίρεση έγινε σωστά, με τον λάθος αριθμό μέσα.\n\nΑυτό είναι χρήσιμο, και είναι το αντίστροφο του να το πετάξεις: το πρόσημο δουλεύει σαν **διάγνωση**. Αρνητικό σημαίνει \"ξαναδιάβασε το χαρτί\", όχι \"βρήκες προσφορά\". Ζήτα τη γραμμένη τιμή μετρητοίς μετά την έκπτωση, κάνε την ίδια αφαίρεση, και τότε το αποτέλεσμα θα λέει κάτι για την προσφορά.\n\nΔεν υπάρχει εδώ ούτε τιμή, ούτε ποσό δόσης, ούτε αριθμός δόσεων: αυτά αλλάζουν ανά κατάστημα και ανά εποχή, και ο έλεγχος δεν αλλάζει. Τα τέσσερα βήματα στο ταμείο, και τι δεν αποφασίζει ο υπολογισμός για λογαριασμό σου — είναι στο βίντεο.\n\n## COMENTARIO FIXADO\nΤο κλειδί: αρνητικό αποτέλεσμα στον έλεγχο των δόσεων δεν υπάρχει στην πραγματικότητα — θα σήμαινε ότι οι δόσεις σου χάρισαν χρήματα. Άρα το πρόσημο δεν μιλάει για την προσφορά, μιλάει για την ΕΙΣΟΔΟ: σχεδόν πάντα πήρες την αρχική τιμή αντί της τιμής μετρητοίς μετά την έκπτωση. Διάγνωση, όχι εύρημα.\n\n## FAMILIA DE ENTRADA ERRADA\nLer como **achado sobre o mundo** um resultado cujo **sinal é impossível** — e portanto é diagnóstico da entrada, não da oferta. Os dois irmãos desta origem foram lidos inteiros antes da escolha, porque nenhum tem o campo `## FAMILIA` (geração anterior) e ausência de campo não é ausência de família (776): o `epomeno-epipedo-s005` trata a linha de despesas que fica FORA da soma das parcelas, e o `-s024` trata o percentual lido como taxa de juros quando lhe falta o tempo. Aqui não falta linha nem sobra interpretação de unidade: a subtração está correta, e o que o resultado denuncia é o número que entrou nela.\n\n## AVISO SOBRE OS NUMEROS\nFora, pela regra (g): preço, valor da parcela, número de parcelas, percentual de desconto e despesas de dossiê. Mudam por loja e por época, e o procedimento não muda. O short também não traz nenhum exemplo numérico — a regra do sinal vale com quaisquer valores, e inventar um só daria à peça uma falsa concretude.\n\n## MIRA\nPrevisão `edge` **41,5 s** e `piper` **36,8 s**, os dois dentro de 18 a 45 — portão `duracao` verde nos dois mundos. Mirei o **PISO** exato do `ALVO_SHORT` pelo 772, e aqui o 679 diria que o topo é seguro nesta voz: escolhi o piso porque o que corre risco é o TETO do portão, não o piso dele. Com a banda observada (0,1 a 4,0 s), **se o edge narrar o real deve cair entre 41,6 e 45,5 s — o topo PASSA do teto de 45**, e isso vai declarado antes de publicar. Se o Piper narrar, 36,9 a 40,8.\n\n## HASHTAGS\n#δόσεις #άτοκες #καταναλωτής #ΕπόμενοΕπίπεδο\n\n## TAGS\nδόσεις, άτοκες δόσεις, τιμή μετρητοίς, έκπτωση, κόστος δόσεων, καταναλωτής, αγορές, οικονομικά, υπολογισμός, έξοδα φακέλου, κατάστημα, προσφορά, αριθμητική, έλεγχος, Επόμενο Επίπεδο\n"
+}
