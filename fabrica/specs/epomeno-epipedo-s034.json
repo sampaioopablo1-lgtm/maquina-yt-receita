@@ -1,0 +1,96 @@
+{
+ "slug": "epomeno-epipedo",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#16283C",
+  "c1": "#2E7BB4",
+  "c2": "#E0A02E",
+  "bg": "#F3F7FA"
+ },
+ "pacote": "epomeno-epipedo-s034",
+ "longo_existente": "GwNkPfM9pSY",
+ "thumb": {
+  "l1": "Μην πληρώνεις",
+  "l2": "ό,τι περισσεύει"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Δεν είναι η θέληση",
+   "sub": "είναι η σειρά",
+   "nar": "Το λάθος δεν είναι η θέληση. Είναι η σειρά.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Πληρώνουν το υπόλοιπο",
+   "preco": "στο τέλος",
+   "nar": "Οι περισσότεροι πληρώνουν ό,τι περισσεύει.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ποτέ τίποτα",
+   "sub": "δεν περισσεύει",
+   "nar": "Όμως στο τέλος του μήνα δεν περισσεύει ποτέ τίποτα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Γίνεται υπόλοιπο",
+   "preco": "και λείπει",
+   "nar": "Έτσι η αποπληρωμή γίνεται υπόλοιπο που λείπει.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Δεν είναι αδυναμία",
+   "preco": "είναι δομή",
+   "nar": "Αυτό δεν είναι αδυναμία. Είναι αποτυχία.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Αλλάζει η σειρά",
+   "itens": [
+    "Πρώτα η αποπληρωμή",
+    "Μετά τα έξοδα",
+    "Ίδιος μισθός"
+   ],
+   "nar": "Η λύση αλλάζει τη σειρά, όχι το ποσό του μισθού.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Απομονώνεται",
+   "preco": "το κεφάλαιο",
+   "nar": "Πρώτα απομονώνεται το κεφάλαιο της αποπληρωμής.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Μετά ζεις",
+   "sub": "με ό,τι μένει",
+   "nar": "Και μετά ζεις με ό,τι μένει, όχι το αντίστροφο.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Την ίδια μέρα",
+   "preco": "της πληρωμής",
+   "nar": "Ο διαχωρισμός γίνεται τη μέρα της πληρωμής.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Επόμενο Επίπεδο",
+   "sub": "μείνε στο κανάλι",
+   "nar": "Κάνε εγγραφή και δες πρώτα τη δική σου ροή.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# epomeno-epipedo-s034\n\n## TITULO\nΗ Αποπληρωμή Δεν Είναι Υπόλοιπο: Γιατί η Σειρά της Ροής Αποφασίζει Πριν το Ποσό\n\n## TITULO SHORT\nΜην πληρώνεις ό,τι περισσεύει\n\n## DESCRICAO\nΣχεδόν όλοι ξεκινάνε από την ίδια λογική: πληρώνω τα έξοδα, και ό,τι περισσεύει στο τέλος του μήνα πάει στα χρέη. Είναι φυσική σκέψη, και είναι η σκέψη που κρατάει το χρέος ζωντανό — γιατί τοποθετεί την αποπληρωμή στην τελευταία θέση της ροής.\n\nΣτην τελευταία θέση δεν φτάνει ποτέ τίποτα. Όταν το εισόδημα είναι σφιχτό, το «υπόλοιπο» δεν είναι ένα μικρό ποσό: είναι μηδέν, κάθε μήνα, με μαθηματική βεβαιότητα. Οπότε το αποτέλεσμα δεν εξαρτάται από πειθαρχία ή θέληση — είναι προδιαγεγραμμένο από τη δομή.\n\nΗ αλλαγή που αλλάζει το αποτέλεσμα δεν είναι ο μισθός και δεν είναι το ποσό. Είναι η ΣΕΙΡΑ. Πρώτα απομονώνεται το κεφάλαιο της αποπληρωμής, και μετά ζεις με ό,τι μένει — το αντίστροφο από αυτό που κάνουν σχεδόν όλοι. Το ίδιο εισόδημα, η ίδια δουλειά, άλλη σειρά.\n\nΚαι υπάρχει μια λεπτομέρεια που κρίνει αν η σειρά θα κρατήσει: ο διαχωρισμός γίνεται την ίδια μέρα που μπαίνει η πληρωμή. Όχι την επόμενη, όχι όταν φανεί πόσα χρειάστηκαν. Αν περιμένεις, η παλιά σειρά επιστρέφει μόνη της.\n\nΔεν υπάρχει εδώ ούτε ένα ποσό, ούτε ένα ποσοστό και ούτε μία προθεσμία: τα νούμερα που αποφασίζουν είναι στον δικό σου λογαριασμό. Ποιο ποσοστό του εισοδήματος αντέχει το σταθερό κόστος, πόσο πρέπει να είναι το μαξιλάρι ασφαλείας, ποια οφειλή πεθαίνει πρώτη και σε πόσες ημέρες — είναι στο βίντεο, με πηγές.\n\n## COMENTARIO FIXADO\nΌλο το θέμα σε μία πρόταση, χωρίς κανένα ποσό: η αποπληρωμή δεν είναι υπόλοιπο. Αν την βάλεις τελευταία στη ροή, δεν θα φτάσει ποτέ τίποτα — όχι από αδυναμία, αλλά από δομή. Πρώτα απομονώνεται, μετά ζεις με ό,τι μένει, και ο διαχωρισμός γίνεται την ίδια μέρα της πληρωμής. Γράψε στα σχόλια μόνο με ποια σειρά το κάνεις σήμερα — χωρίς ποσά.\n\n## HASHTAGS\n#Χρέη #Προϋπολογισμός #ΕπόμενοΕπίπεδο\n\n## TAGS\nchrei, apopliromi, proypologismos, roi chrimaton, pistotiki karta, danio, epitokio, oikonomika, ellada, misthos, maxilari asfaleias, epomeno epipedo, diachorismos, seira\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO\nDECIMA TERCEIRA rodada seguida com o canal escolhido pelo contador, e a SEGUNDA\nem que o desempate MEDIDO decidiu — agora num empate de TRES. As 09:1x a janela\nmovel de 24 h veio **8 / 8 / 8**: os tres canais empatados no mais baixo, o que\npelo alfabeto daria `epomeno-epipedo` e pelo `max(publicado_em)` da **tambem**\n`epomeno-epipedo` (06:12, contra 07:12 do kolejny e 08:14 do labtreinamento).\n**As duas regras coincidem aqui, e isso vai dito em vez de virar validacao:**\ncoincidencia nao e prova de que o desempate medido funciona — a prova foi as\n08:0x, quando ele DIVERGIU do alfabeto.\n\nO DIA deu **1 / 4 / 4** e aponta o `labtreinamento`, e a JANELA governa a escolha\n(771). Os dois niveis discordam, e o relato diz qual responde qual pergunta.\n\nA origem saiu do `concentracao.py epomeno-epipedo`: **as 18 origens do canal\ntinham todas pelo menos um short, e as tres de um uso so sao as SEM SPEC LOCAL**\n— `GwNkPfM9pSY`, `eZ697VNYCPU`, `h66MCKjwAJ8`. Pela regra (h) e pelo 759, falta\nde spec local NAO e motivo para trocar de origem: a legenda sai pelo `pg_net`.\nMedido nesta rodada, `captions?part=snippet` deu **200** nas tres, com faixa\n`standard` em todas; a do `GwNkPfM9pSY` baixou com **21.009 caracteres**, e\n**nenhuma frase desta peca veio de TITULO de capitulo**.\n\n## FAMILIA DE ENTRADA ERRADA\nTratar a aposta como RESIDUO em vez de PRIMEIRA ALOCACAO: pagar o que sobrar no\nfim do mes, quando a estrutura garante que nao sobra nada. **O eixo errado nao e\no VALOR, e a POSICAO na fila do dinheiro** — mesmo salario, mesma despesa, ordem\ninvertida, resultado oposto. Familia NOVA no canal: as treze familias ja\npublicadas aqui erram em QUAL NUMERO decide (s027 epigrafe, s031 preco sem\nquantidade), em QUAIS ITENS entram na conta (s032, s033) ou em QUAL REGRA se\naplica a quem (s028, s029) — nenhuma erra a ORDEM de uma sequencia que, na ordem\ncerta, usa exatamente os mesmos numeros. E a origem e nova no canal: primeira\npeca tirada do `GwNkPfM9pSY`, cujo unico short anterior nao existe.\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Nao cita o salario,\nnao cita o percentual do custo fixo, nao cita o valor do rateio, nao cita o\nmaxilar de seguranca, nao cita o prazo em dias, nao cita o numero de fases, nao\ncita faixa de juros e nao cita valor de divida. Conferido a mao campo por campo,\nporque o portao `narracao` conta quantidades por frase e NAO pega digito cru\n(640).\n\n**E aqui a regra (g) tirou quase tudo o que o longo tem de concreto**, e vai\nnomeado: o salario de referencia, o teto do custo fixo em percentual, os dois\nvalores em que o restante se divide, o piso do maxilar, o limite do\nsupermercado, o limite do aluguel em percentual, os juros das duas dividas do\nexemplo, o prazo total em dias e a duracao de cada fase. **Todos mudam** — sao\nprecos, taxas e limiares de um plano, e a propria fonte os apresenta como\ncalibragem. O short carrega so a REGRA (a aposta vem ANTES, nao DEPOIS), que nao\nenvelhece com nenhum deles.\n\n**\"Prometo que a ordem muda o resultado\" NAO esta na peca, e isso e deliberado:**\na fonte afirma que a sequencia zera a divida num prazo dado, e esse prazo depende\nde todos os numeros descartados. Afirmar o prazo sem eles seria numero sobre o\nmundo sem fonte no short; afirmar a ordem sem o prazo e a regra sozinha, que e o\nque o longo de fato sustenta.\n\n**E o portao `contagem_declarada` nao tinha o que dizer aqui, e eu confiro a\nmao:** a peca nao declara nenhuma quantidade de itens, logo nao ha N contra N+1\n(725). A fonte declara tres fases e enumera tres; a peca nao as cita.\n\nO QUE O VIDEO AFIRMA: que a maioria coloca a aposta no fim da fila do dinheiro,\nque nessa posicao nao sobra nada quando o orcamento e apertado, que isso e\nestrutura e nao falta de vontade, que a correcao e isolar o capital de pagamento\nPRIMEIRO e viver com o restante, e que o rateio tem de acontecer no mesmo dia do\npagamento. Esta na legenda `standard` do longo `GwNkPfM9pSY`, com as fontes.\n\nDESCARTADO, e vai escrito:\n  (1) o salario, os percentuais, os valores do rateio, os limites de aluguel e\n      supermercado, os juros, o prazo e as fases — numeros que mudam (regra g),\n      todos com fonte no longo;\n  (2) a bola de neve MATEMATICA (atacar primeiro o juro mais alto) — familia\n      distinta e forte, livre para a proxima peca desta origem, e ela erra em\n      QUAL DIVIDA decide, nao na ordem do fluxo;\n  (3) o maxilar de seguranca como pre-condicao da bola de neve — depende de um\n      valor-piso, e sem ele a afirmacao fica vazia;\n  (4) a liquidez extraordinaria (vender o que nao se usa, trabalho temporario) —\n      terceira familia, livre;\n  (5) o exemplo numerico das duas dividas — e o nucleo do item 2 e vem com dois\n      juros e dois saldos.\n\n## MIRA\n`epomeno-epipedo` NAO tem override em `ALVO_POR_CANAL`, logo vale o `ALVO_SHORT`\nda frota (41,5 a 43,0). Mirado no **PISO**, e e a regra de redacao que o 772\ndeixou: o `epomeno-epipedo-s032`, desta madrugada e neste canal, mirou 42,5 com o\nportao verde nos DOIS mundos e saiu com **46 s reais — acima do teto de 45 do\nproprio portao**. Entre proteger a previsao e proteger o real, o real manda.\n**E isto contraria o 679 de proposito**, como no `s033`: no\n`el-GR-NestorasNeural` o centro do modelo corre −3,2%, logo o TOPO seria o lado\nseguro *da previsao*. As duas regras apontam para lados opostos, e fica dito.\n\nMedido antes do render: edge **41,7** e piper **36,9**, os dois dentro de 18 a 45\nnos DOIS mundos. **Uma versao recusada pela aritmetica antes desta:** 44,1, que\ne dentro do portao e **FORA do `ALVO_SHORT` pelo TETO** e a 0,9 s do teto de 45 —\nexatamente a exposicao que matou o `s032`. O\n`ensaio.chars_por_cena('el-GR-NestorasNeural', 10, 41.6)` devolve **53\ncaracteres por cena** — foi o modulo que disse, nao eu de cabeca (item 3 da §10).\n\nCom a banda observada e **38 pontos**, se o edge narrar o REAL deve cair entre\n**41,8 e 45,4 s** — o topo PASSA do teto de 45 mesmo mirando o PISO, e isso vai\nDITO antes de publicar. **E essa frase e a aritmetica do 772:** com residuo de\nate 3,7 s, NENHUM ponto do `ALVO_SHORT` da frota garante real abaixo de 45; o\npiso so e menos exposto, nao seguro. Se o piper narrar, 37,0 a 40,6.\n\n**E o que a banda NAO faz, repetido porque e o achado das ultimas rodadas:** o\npiso dela caiu duas vezes (769, 770), o teto uma (752), e a largura esta em\n**3,6 s** contra 1 s de granularidade — ela cobre quase quatro inteiros. **O\nSINAL do residuo so esta estabelecido quando `real − previsao > 1,0`** (770): dos\n38 pontos, **33** estao estabelecidos. Esta previsao e a **decima quarta** da\nfaixa de 41 a 44 s, e pelo 768/769 previsoes separadas por menos de 1 s **nao\nordenam** nada contra o real.\n\nO provedor se decide no runner e por cena (730) e se mede CONTANDO os avisos\n`NARRACAO PELO PIPER` da anotacao (733).\n\n## FONTES\nO longo de onde este short foi extraido (`GwNkPfM9pSY`) traz as fontes, e ele\n**nao tem spec local** — o texto saiu da faixa de legenda `standard` que a\npropria maquina subiu, pela rota do 759. Este short nao introduz numero novo\nsobre o mundo.\n"
+}
