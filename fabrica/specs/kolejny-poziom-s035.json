@@ -1,0 +1,96 @@
+{
+ "slug": "kolejny-poziom",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "pacote": "kolejny-poziom-s035",
+ "longo_existente": "QiaGg03WSR0",
+ "thumb": {
+  "l1": "Najgorszy miesiąc",
+  "l2": "albo każdy"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Pierwsza rata",
+   "sub": "to nie oferta",
+   "nar": "Pierwsza rata to nie cała oferta, to jeden miesiąc.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Malejąca",
+   "preco": "startuje wyżej",
+   "nar": "Rata malejąca startuje wyżej, i to zawsze.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Bo na starcie",
+   "preco": "dług jest pełny",
+   "nar": "Bo na starcie odsetki liczy się od pełnego długu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Na końcu",
+   "sub": "jest odwrotnie",
+   "nar": "Na końcu ta sama rata jest znacznie niższa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Równa",
+   "preco": "ta sama co miesiąc",
+   "nar": "Rata równa jest taka sama w każdym miesiącu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Co porównujesz",
+   "itens": [
+    "Jeden miesiąc",
+    "Pełny okres",
+    "Dwie serie"
+   ],
+   "nar": "Więc co właściwie stawiasz obok siebie?",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Błąd",
+   "preco": "skrajny obok typowego",
+   "nar": "Najgorszy miesiąc jednej serii obok każdego miesiąca drugiej.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "To nie są",
+   "sub": "te same punkty",
+   "nar": "To nie są porównywalne punkty tych serii.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Wejście",
+   "preco": "dwie sumy",
+   "nar": "Porównuj dwie sumy, albo dwa pierwsze miesiące.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Kolejny Poziom",
+   "sub": "subskrybuj",
+   "nar": "Subskrybuj i porównuj serie, nie jeden punkt.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# kolejny-poziom-s035\n\n## TITULO\nPierwsza Rata Nie Porównuje Ofert: Stawiasz Najgorszy Miesiąc Jednej Obok Każdego Miesiąca Drugiej\n\n## TITULO SHORT\nNajgorszy miesiąc obok każdego\n\n## DESCRICAO\nPrzy wyborze między ratą malejącą i równą prawie każdy patrzy najpierw na pierwszą ratę. Liczba jest w ofercie, jest jedna i jest łatwa — i właśnie dlatego prowadzi do porównania, które nie ma sensu.\n\nRata malejąca startuje wyżej, i to zawsze, nie czasami: na starcie odsetki liczy się od pełnej kwoty, bo nic jeszcze nie zostało spłacone. Pod koniec harmonogramu jest odwrotnie — ostatnia rata malejąca jest znacznie niższa, bo dług już prawie nie istnieje. Rata równa natomiast jest taka sama w każdym miesiącu.\n\nZ tego wynika, co robi porównanie na pierwszej racie: stawia **najgorszy miesiąc** jednej serii obok **dowolnego miesiąca** drugiej. Jedna liczba jest skrajna, druga typowa, i żadna informacja nie wychodzi z takiego zestawienia — nie dlatego, że któraś jest zła, a dlatego, że to nie są odpowiadające sobie punkty.\n\nUczciwe wejścia są dwa, i wybór między nimi zależy od pytania. Jeśli pytasz o koszt, porównaj dwie SUMY. Jeśli pytasz, czy udźwigniesz start, porównaj dwa PIERWSZE miesiące — ale wtedy wiedz, że porównujesz start, a nie koszt. Pomieszanie tych dwóch pytań jest tym samym błędem co pomieszanie punktów serii.\n\nNie ma tu żadnego oprocentowania, kwoty ani wysokości raty: te liczby zmieniają się i starzeją w filmie. Pełny rachunek, z mnożnikiem sumy odsetek i przykładem liczbowym, jest w filmie.\n\n## COMENTARIO FIXADO\nRzecz w tym, że porównanie na pierwszej racie stawia NAJGORSZY miesiąc malejącej obok DOWOLNEGO miesiąca równej — jedna liczba skrajna, druga typowa. Malejąca startuje wyżej zawsze, bo na starcie odsetki liczy się od pełnego długu, a na końcu jest odwrotnie. Dlatego porównuj dwie sumy (pytanie o koszt) albo dwa pierwsze miesiące (pytanie o start), i nie mieszaj tych dwóch pytań.\n\n## FAMILIA DE ENTRADA ERRADA\nComparar um ponto EXTREMO de uma série com um ponto TÍPICO de outra — a primeira parcela do decrescente é o máximo da sua própria série, e a do fixo é igual a todas as outras. O irmão único desta origem, `kolejny-poziom-s004`, trata outra coisa: a soma até a ÚLTIMA parcela como custo quando se pretende quitar antes (horizonte errado). Ele foi lido inteiro antes desta escolha, porque não tem o campo `## FAMILIA` (geração anterior) e ausência de campo não é ausência de família (776). Aqui não se discute horizonte: as duas séries vão até o fim, e o erro é escolher QUAL ponto de cada uma entra na comparação.\n\n## AVISO SOBRE OS NUMEROS\nA peça não carrega oprocentowanie, kwota, prazo nem valor de parcela — regra (g), porque mudam. E o exemplo numérico do longo (capítulos 32 a 47) fica fora por um motivo mais forte: **o próprio autor declara no capítulo 32 que as liberdades são inventadas para o cálculo ficar visível e que não é oferta nenhuma**. Número que a fonte diz ser escolha, e não norma, não entra de jeito nenhum.\n\n## MIRA\nPrevisão `edge` **41,8 s** e `piper` **35,6 s**, os dois dentro de 18 a 45 — portão `duracao` verde nos dois mundos. Mirei o **PISO** do `ALVO_SHORT` (41,5 a 43,0) por dois motivos que concordam: o 679 diz que a voz polonesa tem resíduo positivo e pede o piso, e o 772 manda mirar o piso quando a voz não exigir o topo. Com a banda observada (0,1 a 4,0 s), **se o edge narrar o real deve cair entre 41,9 e 45,8 s — o topo PASSA do teto de 45 do portão**, e isso vai declarado antes de publicar. Se o Piper narrar, 35,7 a 39,6.\n\n## HASHTAGS\n#kredyt #ratamalejąca #finanseosobiste #KolejnyPoziom\n\n## TAGS\nkredyt, rata malejąca, rata równa, harmonogram spłat, odsetki, porównanie ofert, koszt kredytu, pierwsza rata, finanse osobiste, budżet domowy, nadpłata, bank, Polska, matematyka kredytu, Kolejny Poziom\n"
+}
