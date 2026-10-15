@@ -1,0 +1,96 @@
+{
+ "slug": "kolejny-poziom",
+ "pacote": "kolejny-poziom-s030",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Niższa cena",
+  "l2": "wyższy rachunek"
+ },
+ "longo_existente": "vcJf6WipLtY",
+ "longo": [],
+ "short": [
+  {
+   "layout": "item",
+   "kicker": "Niższa cena",
+   "preco": "wyższy rachunek",
+   "nar": "Cena niższa, a rachunek i tak wyższy niż był.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dwie części",
+   "sub": "nie jedna",
+   "nar": "Rachunek ma dwie części, a nie tylko jedną.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Druga połowa",
+   "sub": "nie rusza się",
+   "nar": "Dystrybucja zostaje taka sama po każdej zmianie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Upust",
+   "preco": "tylko od połowy",
+   "nar": "Upust dotyczy więc tylko połowy twojego rachunku.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Stała opłata",
+   "preco": "wraca co miesiąc",
+   "nar": "Dochodzi też stała opłata handlowa co miesiąc.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Licz trzy rzeczy",
+   "itens": [
+    "Cena końcowa z faktury",
+    "Stała opłata miesięczna",
+    "Koszt zerwania umowy"
+   ],
+   "nar": "Licz cenę końcową, opłatę i koszt zerwania umowy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Grosze",
+   "sub": "razy cały rok",
+   "nar": "Grosze mnoży się przez całe roczne zużycie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Złotówki",
+   "preco": "mówią o podpisie",
+   "nar": "Dopiero złotówki mówią, czy warto to podpisać.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Gwarancja ceny",
+   "sub": "do końca czy nie",
+   "nar": "Sprawdź, czy cena jest gwarantowana do końca.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Kolejny poziom",
+   "sub": "zostań na kanale",
+   "nar": "Zasubskrybuj i licz zawsze z własnej faktury.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# kolejny-poziom-s030\n\n## TITULO\nZmiana Sprzedawcy Dotyczy Połowy Rachunku: Dlatego Niższa Cena Daje Wyższy Rachunek\n\n## TITULO SHORT\nUpust od połowy rachunku\n\n## DESCRICAO\nOferta obiecuje taniej, podpisujesz, a rachunek wychodzi wyższy niż był. To nie pomyłka w wyliczeniu — to pomyłka w tym, do czego odnosi się obietnica.\n\nRachunek ma dwie części. Jedną płacisz sprzedawcy za energię, drugą operatorowi sieci za jej dostarczenie. Zmieniając sprzedawcę zmieniasz pierwszą; druga zostaje dokładnie taka sama, cokolwiek podpiszesz. Więc upust czytany jako upust od całego rachunku jest czytany źle: dotyczy tylko tej części, którą ta decyzja w ogóle obejmuje.\n\nDo tego dochodzi stała opłata handlowa, która wraca co miesiąc niezależnie od tego, ile zużyjesz. I tu powstaje układ, który wygląda jak sprzeczność: cena za kilowatogodzinę niższa, opłata doliczona, rachunek wyższy. Niższa cena jednostkowa działa przez zużycie, a stała opłata działa bez niego — więc im mniej zużywasz, tym łatwiej ona zje cały upust.\n\nPraktyczny wniosek nie potrzebuje żadnej liczby z reklamy. Porównuj cenę końcową za kilowatogodzinę policzoną z własnej faktury, osobno stałą opłatę miesięczną, i osobno koszt wcześniejszego zerwania umowy. Potem zamień różnicę na złotówki w skali roku — grosze przy kilowatogodzinie wyglądają nieistotnie, dopóki nie pomnożysz ich przez roczne zużycie. Dopiero ta kwota mówi, czy warto podpisywać kolejną wieloletnią umowę. I sprawdź, czy cena jest gwarantowana do końca okresu, czy tylko na początek.\n\nNie ma tu ani jednej stawki, ani jednej taryfy i ani jednej kwoty: liczby, które decydują, są na twojej fakturze. Jak policzyć cenę końcową z odczytu, które pozycje są największe i co dokładnie sprawdzić przed podpisem — jest w filmie.\n\n## COMENTARIO FIXADO\nCała rzecz w jednym zdaniu, bez żadnej kwoty: zmieniając sprzedawcę zmieniasz jedną część rachunku, a druga zostaje taka sama — więc upust nigdy nie dotyczy całości. Policz cenę końcową z własnej faktury, osobno stałą opłatę miesięczną, i zamień różnicę na złotówki na cały rok. Napisz w komentarzu tylko, czy zdarzyło ci się podpisać ofertę, po której rachunek wzrósł — bez kwot.\n\n## HASHTAGS\n#Prad #Rachunki #KolejnyPoziom\n\n## TAGS\nrachunek za prad, zmiana sprzedawcy, oplata handlowa, cena koncowa, dystrybucja, taryfa, oferta, zuzycie energii, finanse osobiste, polska, wczesniejsze zerwanie umowy, gwarancja ceny, kolejny poziom, licznik, faktura\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO\nNONA rodada seguida com o canal escolhido pelo contador, e a SEGUNDA em que a\nregra dos DOIS NIVEIS decidiu. As 03:0x o DIA deu **0 / 2 / 1** e a JANELA MOVEL\nde 24 h deu **13 / 6 / 5**: o mais baixo do DIA e o `labtreinamento` (zero) e o\nmais baixo da JANELA e o `kolejny-poziom`. **Os dois niveis DISCORDARAM**, e quem\ngovernou a escolha foi a JANELA, que e a regra que entrou no modulo na rodada das\n02:0x — o contador existe pelo conteudo INAUTENTICO, que e acumulo RECENTE; o DIA\ndiz quem esta ATRASADO nos 7/dia por canal, que e outra pergunta. **Eu nao\nescolhi: o modulo imprimiu a discordancia e a regra.**\n\nE o `labtreinamento`, que o DIA aponta, esta em zero por um motivo que a janela\nmostra: ele fez **13 das 24** pecas das ultimas 24 h, todas antes das 15:12 de\nontem. Alertar por ele seria reconstruir o 762 ao contrario.\n\nA origem saiu do `concentracao.py kolejny-poziom`: `vcJf6WipLtY`\n(kolejny-poziom-012, **80 capitulos**) tinha UM short so, o `s016`.\n\n## FAMILIA DE ENTRADA ERRADA\nAplicar um upust ao rachunek INTEIRO quando a decisao alcanca so METADE dele — e,\nno mesmo movimento, comparar pelo preco UNITARIO quando o que decide e uma taxa\nFIXA, que age sem passar pelo consumo. Familia NOVA no canal, e as duas\nvizinhancas vao escritas:\n  * o `s016`, o unico outro short desta origem, trata de **taryfa contra oferta**\n    (por que o preco anunciado pelo regulador pode nao ser o seu). Ali o erro e\n    sobre QUAL preco e o seu; aqui e sobre A QUE PARTE da conta o desconto chega;\n  * o `s028` deste canal compara duas cobrancas pela ALIQUOTA quando decide a\n    FREQUENCIA. A proximidade e real e eu a declaro: lá o eixo trocado e o TEMPO,\n    aqui e a BASE (metade do rachunek, e consumo contra taxa fixa).\nCapitulos 1, 2, 15 a 18 e 55 a 62 do longo, nenhum usado pelo `s016` (que saiu\ndos 32 a 39).\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Nao cita stawka, nao\ncita taryfa, nao cita percentual de upust, nao cita valor da opłata handlowa, nao\ncita consumo medio, nao cita preco por kilowatogodzinę e nao nomeia sprzedawca\nnem operador. Conferido a mao campo por campo, porque o portao `narracao` conta\nquantidades por frase e NAO pega digito cru (640).\n\n**\"Dwie czesci\" e \"polowa\" ficaram, e isso e deliberado:** nao sao numero sobre o\nmundo, sao a ESTRUTURA do rachunek — ela nao envelhece quando a stawka muda. Ja a\nmedia nacional do capitulo 74 e o percentual do capitulo 14 ficaram FORA pela\nregra (g): sao numeros que mudam, e estao no longo com fonte.\n\nO QUE O VIDEO AFIRMA: que o rachunek tem duas partes e que trocar de sprzedawca\nalcanca uma so, que por isso um upust nao se aplica ao total, que a opłata\nhandlowa fixa age sem passar pelo consumo e pode consumir o upust inteiro, e que\na comparacao honesta e preco final da PROPRIA fatura mais opłata mais custo de\nrompimento, convertida em zlotys no ano. Esta no longo kolejny-poziom-012\n(`vcJf6WipLtY`), capitulos 1, 2, 15 a 18 e 55 a 62, com as fontes.\n\nDESCARTADO, e vai escrito:\n  (1) a media nacional de preco e o percentual do capitulo 14 — numeros que mudam,\n      com fonte no longo (regra g);\n  (2) taryfa contra oferta e a data de fim do contrato — e o nucleo do `s016` e\n      sairia repetido;\n  (3) as tres contas do odczyt (capitulos 23 a 31) — terceira familia, livre;\n  (4) o mecanismo de teto de 2026 e se ele ainda vale (capitulos 41 a 44) — quarta\n      familia, e ela depende de data, logo exige fonte fresca.\n\n## MIRA\n`kolejny-poziom` NAO tem override em `ALVO_POR_CANAL`, logo vale o `ALVO_SHORT`\nda frota (41,5 a 43,0). Mirado perto do PISO, e o motivo e medido: no\n`pl-PL-MarekNeural` o centro do modelo corre **+2,2%** (679), logo e a voz em que\no topo e mais arriscado. Medido antes do render: edge **41,6** e piper **35,4**,\nos dois dentro de 18 a 45 nos DOIS mundos.\n\n**Tres versoes foram recusadas pela aritmetica do proprio instrumento antes\ndesta**, e vao registradas: a primeira dava edge **62,1** (narracao de ~85\ncaracteres por cena, que e o habito do longo); a segunda **41,1 — FORA pelo PISO**;\na terceira 41,9, dentro mas longe do piso que esta voz pede. O\n`ensaio.chars_por_cena('pl-PL-MarekNeural', 10, 41.7)` devolve **49 caracteres por\ncena** — e foi o modulo que disse isso, nao eu de cabeca (item 3 da §10).\n\nCom a banda observada e **32 pontos**, se o edge narrar o REAL deve cair entre\n**41,7 e 45,3 s** — o topo PASSA do teto de 45 do portao, e isso vai DITO antes\nde publicar. Se o piper narrar, 35,5 a 39,1.\n\n**E o que a banda NAO faz, repetido porque e o achado das ultimas rodadas:** o\npiso dela caiu duas vezes (769, 770) e a largura esta em **3,6 s** contra 1 s de\ngranularidade — ela cobre quase quatro inteiros. **O SINAL do residuo so esta\nestabelecido quando `real − previsao > 1,0`** (770): dos 32 pontos, **28** estao\nestabelecidos. Esta previsao e a **decima** da janela de 41 a 42 s, que pelo\n768/769 **nao ordena** nada contra as outras nove — a largura da janela de\nprevisao e menor que o passo de 1 s do real.\n\nO provedor se decide no runner e por cena (730) e se mede CONTANDO os avisos\n`NARRACAO PELO PIPER` da anotacao (733).\n\n## FONTES\nO longo de onde este short foi extraido (kolejny-poziom-012, `vcJf6WipLtY`) traz\nas fontes. Este short nao introduz numero novo sobre o mundo.\n"
+}
