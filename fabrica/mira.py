@@ -96,7 +96,7 @@ RESIDUO_OBSERVADO = (0.1, 3.7)
 # DENTRO da banda e tem o sinal ESTABELECIDO — 27 de 31.
 # 15/10 02:2x: o `epomeno-epipedo-s031` (41,6 -> 43, +1,4) e o 32o ponto, dentro
 # da banda e com o sinal ESTABELECIDO — 28 de 32.
-RESIDUO_N = 34  # 741 acrescentou o s035 (24,8 -> 27, +2,2): DENTRO da banda,
+RESIDUO_N = 35  # 741 acrescentou o s035 (24,8 -> 27, +2,2): DENTRO da banda,
 #                 logo os LIMITES nao mudaram — so o numero de pontos que a sustenta.
 #                 14/10 06:2x: o s041 (edge 24,6 -> real 27) deu +2,4 — EMPATADO
 #                 com o teto da banda, o decimo segundo ponto e o segundo a tocar

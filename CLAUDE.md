@@ -1062,6 +1062,17 @@ FROTA, não a mira de um canal** — é o 740/748 um nível acima.
 NÃO autoriza é confiança: a faixa tem 3,6 s de largura contra 1 s de
 granularidade.
 
+**E O PRIMEIRO PONTO DEPOIS DA REGRA DE REDAÇÃO CAIU DENTRO, com n=1 de cada
+lado e isso vai dito:** o `kolejny-poziom-s031` (`IqN1fQtcfP0`) foi escrito
+mirando o **PISO** (edge 41,8), provedor **edge** medido (zero avisos no job
+`116258798184`), e o real deu **44** — resíduo +2,2, dentro da banda e **abaixo
+do teto de 45**. Contra o `s032`, que mirou 42,5 e deu 46. **O que isto NÃO é:**
+prova de que o piso protege. São duas peças, de canais e vozes diferentes, e a
+banda de 3,6 s cobre os dois resultados sem distinguir nada — pelo 768/769 uma
+diferença de 0,7 s de previsão não ordena contra um real de passo 1 s. **O que
+é:** a única escolha de redação disponível, aplicada, com o resultado registrado
+para quando houver pontos bastantes.
+
 **NADA de parâmetro mudou (§10):** a saída — mirar o piso por padrão, ou
 descontar o resíduo da mira — é parâmetro de produção e vai para a fila do dono
 junto com a decisão do 740/748. O que muda hoje é REDAÇÃO: **mire o PISO do

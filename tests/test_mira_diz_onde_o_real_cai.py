@@ -53,6 +53,7 @@ RESIDUOS = [(43.1, 44), (42.9, 44), (42.1, 44), (25.7, 27), (25.6, 28),
                   # de 0,4 s em que a previsao NAO ordena o real (768).
     (41.6, 43),
     (41.6, 43),   # kolejny-poziom-s030, 15/10 03:1x: +1,4, dentro da banda
+    (41.8, 44),   # kolejny-poziom-s031, 15/10 05:1x: +2,2, mira no PISO
     (42.5, 46),   # epomeno-epipedo-s032, 15/10 04:1x: +3,5 — e o REAL passou
                   # do teto de 45 do portao, com a previsao DENTRO (772)   # kolejny-poziom-s026, 14/10: +1,4 — previsao MAIOR que a do
                   # s025 (41,2) e real MENOR (43 contra 44). Ver 767.
