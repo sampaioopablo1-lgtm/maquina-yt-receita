@@ -1837,6 +1837,36 @@ crescer quando a publicação mudou da ponte para o retomar". **O corpus guarda 
 dezessete estavam lá. O atraso real começa exatamente no `s020`, e a causa é
 hábito meu, não mudança de rota.
 
+**E ESSA MESMA FRASE ERA UM DEFEITO NO PORTÃO, medido em 15/10 às 08:2x —
+aprendizado 773, `crítico`.** O corpus guarda o `## TITULO SHORT`, e o
+`prontidao._titulo_do_copy` devolvia o `## TITULO` **LONGO**. Logo a trava de
+título idêntico **comparava uma forma contra um corpus da outra, e não podia
+casar nunca** em short solto.
+
+**O custo foi medido e é exatamente UM:** o `labtreinamento-s051`
+(`iRSJ6w03lj0`) foi ao ar com o MESMO título curto do `labtreinamento-s038`
+(`EgcUqRhx9IY`) — *"Conclusão não é situação"* — e com a **mesma família de
+entrada errada**. Os doze portões passaram. Varridas todas as specs, essa é a
+**única** colisão de título curto da frota inteira.
+
+**E a mesma causa cegava um SEGUNDO portão:** o `_titulos_do_canal` atribui canal
+cruzando specs com o corpus, também pelo título longo — **zero** specs do
+`labtreinamento` casavam, logo a similaridade "contra o MESMO canal" comparava só
+títulos de geração antiga, nunca os cinquenta shorts que estão no ar.
+
+**E é a MESMA CLASSE de erro que o docstring daquela função já descrevia**, uma
+camada adiante: a primeira versão dela lia a DESCRIÇÃO pela linha `# `.
+Consertaram a leitura da spec e não a correspondência com o corpus.
+
+Agora `_titulos_do_copy` devolve **lista** (o curto primeiro) e
+`_outra_spec_com_o_titulo` evita reprovar peça publicada contra a própria
+publicação — portão que reprova sempre deixa de avisar, que é o argumento do
+`mira.py`. **Ponto cego declarado no código:** spec nova que copie título de peça
+antiga SEM spec no disco passa, porque o corpus é lista nua e não diz de quem é o
+título. `tests/test_o_corpus_guarda_o_titulo_curto.py`, sete testes.
+
+**A peça publicada NÃO foi apagada** — apagar vídeo publicado exige o dono.
+
 **No código:** `fabrica/corpus_atrasado.py` (`titulos_dos_notices`, `faltantes`,
 `aplicar`, `relato`) e dez testes ancorados nos sete títulos reais. O
 `titulo=` do próprio notice é a forma certa; linha com `youtube_id=?` (run

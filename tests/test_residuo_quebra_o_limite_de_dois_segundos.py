@@ -116,6 +116,7 @@ SERIE = [
     ("kolejny-poziom-s031", 41.8, 44, "edge"),
     ("epomeno-epipedo-s033", 41.6, 42, "edge"),
     ("kolejny-poziom-s032", 41.8, 44, "edge"),
+    ("labtreinamento-s051", 25.3, 27, "edge"),
 ]
 
 

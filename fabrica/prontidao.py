@@ -768,12 +768,47 @@ def _titulo_do_copy(sp) -> str:
     cujo titulo ja estava no corpus: ela leu a descricao, comparou a descricao,
     e nao achou nada. Entao `## TITULO` vem primeiro e o `# ` e so o resto.
     """
+    for t in _titulos_do_copy(sp):
+        return t
+    return ""
+
+
+def _titulos_do_copy(sp) -> list[str]:
+    """TODOS os titulos que esta spec poria no ar, o do SHORT primeiro.
+
+    MEDIDO em 15/10 as 08:2x, e e a MESMA classe de erro que o docstring acima
+    descreve, uma camada adiante. O `_titulo_do_copy` devolvia o `## TITULO`
+    LONGO — e o `corpus_publicados.json` guarda o `## TITULO SHORT`, que e o que
+    o YouTube recebe (nota de 13/10 no `CLAUDE.md`). Logo a trava de titulo
+    IDENTICO comparava uma forma contra um corpus da OUTRA forma, e **nao podia
+    casar nunca** em short solto.
+
+    O custo foi medido e e exatamente UM: o `labtreinamento-s051`
+    (`iRSJ6w03lj0`) foi ao ar com o MESMO `## TITULO SHORT` do
+    `labtreinamento-s038` (`EgcUqRhx9IY`) — "Conclusao nao e situacao" — e com a
+    mesma familia de entrada errada. Varrendo as specs, essa e a UNICA colisao de
+    titulo curto da frota inteira.
+
+    E a mesma causa cegava um SEGUNDO portao: o `_titulos_do_canal` decide de
+    qual canal um titulo e cruzando specs com o corpus, tambem pelo titulo longo
+    — media em ZERO specs deste canal, logo a similaridade contra o MESMO canal
+    comparava so titulos de geracao antiga (a linha `# `), nao os cinquenta
+    shorts que de fato estao no ar.
+
+    Por isso a funcao devolve LISTA: o portao compara tudo que vai ao ar, e o
+    SHORT vem primeiro porque e ele que o espectador le.
+    """
     copy = sp.get("copy") or ""
-    m = re.search(r"^##\s*TITULO\s*$\n+(.+)$", copy, re.M)
-    if m:
-        return m.group(1).strip()
-    m = re.search(r"^#\s*(.+)$", copy, re.M)
-    return m.group(1).strip() if m else ""
+    saida = []
+    for padrao in (r"^##\s*TITULO SHORT\s*$\n+(.+)$",
+                   r"^##\s*TITULO\s*$\n+(.+)$",
+                   r"^#\s*(.+)$"):
+        m = re.search(padrao, copy, re.M)
+        if m:
+            v = m.group(1).strip()
+            if v and v not in saida:
+                saida.append(v)
+    return saida
 
 
 def _titulos_do_corpus(raiz: str) -> list[str]:
@@ -805,10 +840,39 @@ def _titulos_do_canal(raiz: str, slug: str, corpus: set[str]) -> list[str]:
             continue
         if outra.get("slug") != slug:
             continue
-        t = _titulo_do_copy(outra)
-        if t and t in corpus:
+        t = next((x for x in _titulos_do_copy(outra) if x in corpus), "")
+        if t:
             fora.append(t)
     return fora
+
+
+def _outra_spec_com_o_titulo(raiz: str, sp, titulo: str) -> str:
+    """Qual OUTRA spec poria no ar este mesmo titulo? "" se nenhuma.
+
+    O corpus e uma lista NUA de titulos: ele diz que o titulo esta no ar e nao
+    diz de QUEM. Sem isso, cobrar "titulo no corpus" reprovaria toda spec ja
+    publicada contra a propria publicacao dela — e portao que reprova sempre
+    deixa de avisar, que e o mesmo argumento pelo qual o `mira.py` nao virou
+    portao. Entao quem acusa e a COLISAO entre duas specs, que e local e
+    verificavel.
+
+    PONTO CEGO DECLARADO: spec NOVA que copie o titulo de uma peca ANTIGA sem
+    spec no disco passa, porque nao existe segunda spec para apontar. Isso vai
+    dito em vez de resolvido com criterio inventado — o caso que de fato ocorreu
+    (15/10, `s051` contra `s038`) tem as DUAS specs.
+    """
+    meu = sp.get("pacote") or sp.get("slug") or ""
+    for caminho in sorted(glob.glob(os.path.join(raiz, "fabrica/specs/*.json"))):
+        try:
+            with open(caminho, encoding="utf-8") as f:
+                outra = json.load(f)
+        except (OSError, ValueError):
+            continue
+        if (outra.get("pacote") or outra.get("slug") or "") == meu:
+            continue
+        if titulo in _titulos_do_copy(outra):
+            return os.path.basename(caminho)
+    return ""
 
 
 def _gate_similaridade(caminho, sp):
@@ -850,12 +914,24 @@ def _gate_similaridade(caminho, sp):
         return ["corpus_publicados.json ausente ou vazio — sem base para medir "
                 "similaridade; nao posso afirmar que o titulo e inedito"]
 
+    # Os titulos que ESTA spec ja pos no ar nao servem de comparador contra ela
+    # mesma: eles dariam 1,00 por identidade e o portao reprovaria toda peca
+    # publicada. So saem do jogo os que NENHUMA outra spec carrega — se outra
+    # carrega, a trava de identidade acima ja devolveu.
+    proprios = {c for c in _titulos_do_copy(sp)
+                if not _outra_spec_com_o_titulo(raiz, sp, c)}
+    corpus = [x for x in corpus if x not in proprios]
     jogo = set(corpus)
     falhas = []
 
-    if titulo in jogo:
-        return [f"titulo JA PUBLICADO, identico: {titulo!r}. Nao e similaridade "
-                f"alta, e o mesmo pacote indo ao ar de novo."]
+    for cand in _titulos_do_copy(sp):
+        if cand not in jogo:
+            continue
+        outra = _outra_spec_com_o_titulo(raiz, sp, cand)
+        if outra:
+            return [f"titulo JA PUBLICADO, identico: {cand!r} — tambem esta na "
+                    f"spec {outra!r}. Nao e similaridade alta, e o mesmo pacote "
+                    f"indo ao ar de novo."]
 
     do_canal = _titulos_do_canal(raiz, sp.get("slug") or "", jogo)
     if do_canal:
