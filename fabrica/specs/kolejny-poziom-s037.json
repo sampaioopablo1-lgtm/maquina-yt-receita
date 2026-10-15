@@ -1,0 +1,96 @@
+{
+ "slug": "kolejny-poziom",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "pacote": "kolejny-poziom-s037",
+ "longo_existente": "IuBLU-P4Aj8",
+ "thumb": {
+  "l1": "Stawka",
+  "l2": "albo metry"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Kwota wzrosła",
+   "sub": "ale co wzrosło",
+   "nar": "Kwota podatku wzrosła, ale co właściwie wzrosło?",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kwota",
+   "preco": "to iloczyn",
+   "nar": "Ta kwota jest iloczynem dwóch różnych liczb.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Stawka",
+   "preco": "razy metry",
+   "nar": "Stawka za metr razy twoja powierzchnia w metrach.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Wzrost",
+   "sub": "może być z obu",
+   "nar": "Wzrost mógł przyjść z każdej z tych dwóch.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Błąd",
+   "preco": "jeden winny",
+   "nar": "Błąd to z góry obwiniać tylko jedną z nich dwóch.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Rozdziel",
+   "itens": [
+    "Dwie decyzje",
+    "Kwota",
+    "Metry"
+   ],
+   "nar": "Weź dwie decyzje i podziel kwotę przez metry.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dwie stawki",
+   "preco": "twoje własne",
+   "nar": "Masz dwie stawki, swoje własne, nie żadne średnie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Teraz",
+   "sub": "wiesz która",
+   "nar": "Teraz wiesz dokładnie, która liczba się ruszyła.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "I rozmowa",
+   "preco": "ma temat",
+   "nar": "I rozmowa z gminą ma wreszcie jeden temat.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Kolejny Poziom",
+   "sub": "subskrybuj",
+   "nar": "Subskrybuj i policz swoją stawkę za metr.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# kolejny-poziom-s037\n\n## TITULO\nKwota Podatku To Iloczyn Dwóch Liczb: Podziel Ją Przez Metry, Zanim Powiesz Co Wzrosło\n\n## TITULO SHORT\nStawka albo metry\n\n## DESCRICAO\nPrzychodzi decyzja, kwota jest wyższa niż rok temu, i wniosek wyskakuje sam: podnieśli stawki. Może i podnieśli. Ale z samej kwoty tego nie widać, bo kwota nie jest jedną liczbą — jest **iloczynem** stawki za metr i twojej powierzchni.\n\nSkoro to iloczyn, wzrost mógł przyjść z każdego z dwóch czynników, i obwinianie jednego z góry jest zgadywaniem. Zmieniła się stawka? Wtedy zadecydowała o tym uchwała gminy. Zmieniła się powierzchnia albo opis części budynku? Wtedy to twoja decyzja podatkowa opisuje coś innego niż rok temu — i to jest zupełnie inna rozmowa.\n\nRozdzielenie jest jedną operacją i nie wymaga niczego z zewnątrz: weź decyzję za ten rok i za rok poprzedni, z każdej wypisz kwotę i metry, i **podziel kwotę przez metry** osobno dla każdego roku. Dostajesz dwie stawki za metr — swoje własne, nie żadne średnie.\n\nOdczyt jest wtedy jednoznaczny. Stawki równe, a kwota wyższa: ruszyła się powierzchnia albo opis. Stawka wyższa: ruszyła się uchwała. **To rozróżnienie jest całą wartością tego rachunku**, bo bez niego nie wiesz, czy w urzędzie masz rozmawiać o stawce, czy o opisie nieruchomości.\n\nNie ma tu żadnej stawki, kwoty ani terminu: te zmieniają się co roku i zależą od gminy, a sama operacja nie zmienia się wcale. Cztery terminy rat i czternastodniowy obowiązek informacyjny — są w filmie.\n\n## COMENTARIO FIXADO\nSedno: kwota to ILOCZYN stawki za metr i powierzchni, więc z samej kwoty nie widać, który czynnik wzrósł. Podziel kwotę przez metry osobno dla każdego roku — dwie stawki, twoje własne. Stawki równe a kwota wyższa: zmieniła się powierzchnia albo opis. Stawka wyższa: zadecydowała uchwała gminy.\n\n## FAMILIA DE ENTRADA ERRADA\nAtribuir a **UM fator** o aumento de um **produto de dois** — ler a variação do total sem decompô-la. Os dois irmãos desta origem foram conferidos: o `kolejny-poziom-s029` traz o campo escrito e trata supor que o FIM de uma obrigação se comunica sozinho; o `-s002`, da geração anterior e sem o campo, foi lido pelo título curto e pela prosa (776) — ele trata o valor IGUAL ao do ano anterior não ser erro. Aqui nada falta ser comunicado e nada está igual: a conta é uma multiplicação, está certa, e o defeito é ler o resultado sem separar os dois fatores que o formam.\n\n## AVISO SOBRE OS NUMEROS\nFora, pela regra (g): stawka, kwota, powierzchnia, as quatro datas das parcelas e o prazo de catorze dias. Variam por município e por ano — o próprio longo diz no capítulo 62 que comparar com outro município é comparar duas uchwałas diferentes, o que é razão adicional para não carregar número nenhum. A operação da divisão não envelhece.\n\n## MIRA\nPrevisão `edge` **41,6 s** e `piper` **35,4 s**, os dois dentro de 18 a 45 — portão `duracao` verde nos dois mundos. Mirei o **PISO** do `ALVO_SHORT` (41,5 a 43,0), com o 679 (voz polonesa, resíduo positivo) e o 772 concordando. Com a banda observada (0,1 a 4,0 s), **se o edge narrar o real deve cair entre 41,7 e 45,6 s — o topo PASSA do teto de 45**, e isso vai declarado antes de publicar. Se o Piper narrar, 35,5 a 39,4.\n\n## HASHTAGS\n#podatek #nieruchomości #finanseosobiste #KolejnyPoziom\n\n## TAGS\npodatek od nieruchomości, decyzja podatkowa, stawka za metr, powierzchnia, gmina, uchwała, finanse osobiste, rachunek, metr kwadratowy, urząd gminy, raty podatku, obowiązek podatkowy, nieruchomość, iloczyn, Kolejny Poziom\n"
+}
