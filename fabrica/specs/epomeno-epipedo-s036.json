@@ -1,0 +1,96 @@
+{
+ "slug": "epomeno-epipedo",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#16283C",
+  "c1": "#2E7BB4",
+  "c2": "#E0A02E",
+  "bg": "#F3F7FA"
+ },
+ "pacote": "epomeno-epipedo-s036",
+ "longo_existente": "481Zgd4IhsE",
+ "thumb": {
+  "l1": "Απόθεμα",
+  "l2": "ή προσφορά"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Υπάρχουν κατοικίες",
+   "sub": "και όμως τίποτα",
+   "nar": "Υπάρχουν πολλές κατοικίες, και όμως δεν υπάρχει σπίτι.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Το απόθεμα",
+   "preco": "όλες όσες υπάρχουν",
+   "nar": "Το απόθεμα είναι όλες οι κατοικίες που υπάρχουν.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Η προσφορά",
+   "sub": "είναι άλλο πράγμα",
+   "nar": "Η προσφορά είναι άλλο πράγμα από το απόθεμα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Η προσφορά",
+   "preco": "όσες δίνονται",
+   "nar": "Προσφορά είναι μόνο όσες δίνονται για ενοίκιο.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ένα κλειστό",
+   "preco": "μετριέται λάθος",
+   "nar": "Ένα κλειστό σπίτι μετριέται στο απόθεμα, όχι στην προσφορά.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Γιατί κλειστό",
+   "itens": [
+    "Κληρονομιά",
+    "Ανακαίνιση",
+    "Εκκρεμότητα"
+   ],
+   "nar": "Κληρονομιές με πολλούς, ανακαινίσεις, εκκρεμότητες.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Το αποτέλεσμα",
+   "preco": "ίδια προσφορά",
+   "nar": "Έτσι το απόθεμα μεγαλώνει και η προσφορά μένει ίδια.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Το λάθος",
+   "sub": "το σύνολο",
+   "nar": "Το λάθος είναι να μετράς το σύνολο αντί το διαθέσιμο.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Η σωστή είσοδος",
+   "preco": "πόσα δίνονται",
+   "nar": "Η σωστή είσοδος είναι πόσα δίνονται, όχι πόσα υπάρχουν.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Επόμενο Επίπεδο",
+   "sub": "μείνε στο κανάλι",
+   "nar": "Κάνε εγγραφή και μέτρα πρώτα το διαθέσιμο.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# epomeno-epipedo-s036\n\n## TITULO\nΑπόθεμα Δεν Σημαίνει Προσφορά: Γιατί Υπάρχουν Κατοικίες Και Δεν Υπάρχει Σπίτι\n\n## TITULO SHORT\nΑπόθεμα δεν σημαίνει προσφορά\n\n## DESCRICAO\nΚοιτάς τον αριθμό των κατοικιών μιας πόλης και βγάζεις συμπέρασμα για το αν θα βρεις σπίτι. Ο αριθμός υπάρχει, είναι σωστός, και απαντάει σε άλλη ερώτηση από τη δική σου.\n\nΤο απόθεμα είναι όλες οι κατοικίες που υπάρχουν. Η προσφορά είναι μόνο εκείνες που κάποιος δίνει για μακροχρόνιο ενοίκιο. Ένα κλειστό σπίτι μετριέται ολόκληρο μέσα στο πρώτο και καθόλου μέσα στο δεύτερο — και μένει κλειστό για λόγους που δεν έχουν σχέση με τη ζήτηση: κληρονομιές με πολλούς συνιδιοκτήτες που δεν συμφωνούν, ανακαινίσεις που κανείς δεν μπορεί να πληρώσει, εκκρεμότητες που δεν λύνονται.\n\nΗ συνέπεια είναι ότι τα δύο μεγέθη κινούνται χωριστά: το απόθεμα μπορεί να μεγαλώνει ενώ η προσφορά μένει ίδια ή μικραίνει. Οπότε «υπάρχουν κατοικίες» και «δεν υπάρχει σπίτι» δεν είναι αντίφαση. Είναι δύο σωστές φράσεις για δύο διαφορετικά σύνολα, και το ένα περιέχει το άλλο.\n\nΗ λάθος είσοδος είναι να μετράς το σύνολο όταν η απόφασή σου εξαρτάται από το διαθέσιμο. Η σωστή ερώτηση δεν είναι πόσες κατοικίες υπάρχουν· είναι πόσες δίνονται.\n\nΔεν υπάρχει εδώ ούτε ποσοστό, ούτε αριθμός κατοικιών, ούτε ημερομηνία: αυτά αλλάζουν και η λογική δεν αλλάζει. Πόσο μεγάλο είναι το κλειστό κομμάτι, πού πήγε το υπόλοιπο απόθεμα και τι άλλαξε στον νόμο — είναι στο βίντεο.\n\n## COMENTARIO FIXADO\nΤο κλειδί είναι ότι η προσφορά είναι ΥΠΟΣΥΝΟΛΟ του αποθέματος, όχι άλλο όνομα γι' αυτό: ένα κλειστό σπίτι μετριέται στο πρώτο και όχι στο δεύτερο. Γι' αυτό το απόθεμα μπορεί να μεγαλώνει με την προσφορά να μένει ίδια, και γι' αυτό η ερώτηση που αποφασίζει είναι πόσες κατοικίες δίνονται, όχι πόσες υπάρχουν.\n\n## FAMILIA DE ENTRADA ERRADA\nContar o ESTOQUE como se fosse a OFERTA — ler o conjunto inteiro onde a decisão depende do subconjunto disponível. É família NOVA no canal: o `epomeno-epipedo-s007` compara o MÊS em vez do ANO com uma devolução que tem teto, e o `epomeno-epipedo-s020` soma as linhas que faltam ao aluguel para chegar ao custo de habitação. Nenhum dos dois trata conjunto contra subconjunto, e os dois irmãos foram lidos inteiros antes desta escolha (776: ausência do campo `## FAMILIA` na geração antiga NÃO é ausência de família).\n\n## AVISO SOBRE OS NUMEROS\nA peça não carrega nenhum número sobre o mundo — nem percentual de fechadas, nem contagem de domicílios, nem data de lei. Regra (g): número que muda fica fora, e o capítulo 39 do longo cita uma lei por número que eu deliberadamente não trouxe. A contagem \"três razões\" dos capítulos 30/32/35 também fica fora: o short usa UMA delas.\n\n## MIRA\nPrevisão `edge` **41,8 s** e `piper` **37,0 s**, os dois dentro de 18 a 45 — portão `duracao` verde nos dois mundos. Mirei o PISO do `ALVO_SHORT` (41,5 a 43,0), como o 772 manda. Com a banda observada de resíduo (0,1 a 4,0 s), **se o edge narrar o real deve cair entre 41,9 e 45,8 s — o topo PASSA do teto de 45 do portão**, e isso vai declarado antes de publicar em vez de descoberto depois. Se o Piper narrar, 37,1 a 41,0.\n\n## HASHTAGS\n#ενοίκιο #στέγη #κατοικία #ΕπόμενοΕπίπεδο\n\n## TAGS\nενοίκιο, στέγη, κατοικία, απόθεμα κατοικιών, προσφορά ενοικίου, κλειστά σπίτια, αγορά ενοικίου, κόστος στέγης, Ελλάδα, οικονομικά, βραχυχρόνια μίσθωση, μακροχρόνια μίσθωση, ακίνητα, νοίκι, Επόμενο Επίπεδο\n"
+}
