@@ -92,8 +92,8 @@ def test_a_banda_e_a_OBSERVADA_e_o_teto_dela_foi_AMPLIADO_pelo_752():
     0,9 segue intocado, e a largura passou de 1,5 para 2,8 s, o que torna a banda
     MENOS util como previsao; vai dito em vez de escondido.
     """
-    assert mira.RESIDUO_OBSERVADO == (0.1, 3.7)
-    assert mira.RESIDUO_N == 39
+    assert mira.RESIDUO_OBSERVADO == (0.1, 4.0)
+    assert mira.RESIDUO_N == 40
 
 
 def test_a_pinca_fecha_por_RAZAO_contra_OFFSET_e_nao_por_numero_de_cenas():
@@ -179,4 +179,4 @@ def test_a_pinca_foi_confirmada_pelos_DOIS_lados_em_14_10():
     prev, real, prev_piper = vermelha_dentro
     assert prev_piper < piso, prev_piper     # mira REPROVA pelo piso
     assert real <= teto, real                # e o real cai DENTRO
-    assert 0.1 <= real - prev <= 3.7, real - prev
+    assert 0.1 <= real - prev <= 4.0, real - prev

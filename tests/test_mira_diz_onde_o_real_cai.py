@@ -58,6 +58,7 @@ RESIDUOS = [(43.1, 44), (42.9, 44), (42.1, 44), (25.7, 27), (25.6, 28),
     (41.8, 44),   # kolejny-poziom-s032, 15/10 07:1x: +2,2, mira no PISO
     (25.3, 27),   # labtreinamento-s051, 15/10 08:1x: +1,7, FORA da mira (26,0)
     (41.7, 44),   # epomeno-epipedo-s034, 15/10 09:2x: +2,3, mirado no PISO, ABAIXO do teto de 45
+    (25.0, 29),   # labtreinamento-s052, 15/10 10:2x: +4,0 — AMPLIOU o teto da banda (774)
     (42.5, 46),   # epomeno-epipedo-s032, 15/10 04:1x: +3,5 — e o REAL passou
                   # do teto de 45 do portao, com a previsao DENTRO (772)   # kolejny-poziom-s026, 14/10: +1,4 — previsao MAIOR que a do
                   # s025 (41,2) e real MENOR (43 contra 44). Ver 767.
@@ -86,14 +87,14 @@ def test_a_banda_nao_e_inventada__ela_e_o_minimo_e_o_maximo_observados():
 
 def test_faixa_real_e_soma_e_nao_fator():
     # 770: o piso da banda caiu a 0,1, logo a soma desce com ele.
-    assert mira.faixa_real(25.6) == (25.7, 29.3)
-    assert mira.faixa_real(10.0) == (10.1, 13.7)
+    assert mira.faixa_real(25.6) == (25.7, 29.6)
+    assert mira.faixa_real(10.0) == (10.1, 14.0)
 
 
 def test_o_relato_do_s034_AVISA_que_o_real_passa_do_teto():
     t = mira.relato(str(RAIZ / "fabrica/specs/labtreinamento-s034.json"))
     assert "dentro da mira nos dois mundos" in t, "a previsao estava dentro"
-    # 770: com o piso da banda em 0,1 a faixa do s034 (25,7 a 29,3) passou a
+    # 770: com o piso da banda em 0,1 a faixa do s034 passou a
     # ATRAVESSAR o teto de 26,0 em vez de ficar toda acima dele, e por isso o
     # relato caiu de "PASSA do teto" para "pode passar do teto". A piora do
     # AVISO e consequencia direta de a banda ter ficado mais larga, e vai
@@ -102,7 +103,7 @@ def test_o_relato_do_s034_AVISA_que_o_real_passa_do_teto():
     assert "pode passar do teto" in t, "e o real nao — isto e o 739"
     assert "PASSA do teto da mira" not in t, (
         "se o aviso FORTE voltou, o piso da banda subiu — releia o 770")
-    assert "25.7 e 29.3" in t
+    assert "25.7 e 29.6" in t
     # o real medido desta peca foi 28, dentro da banda que o relato anuncia
     assert mira.faixa_real(25.6)[0] <= 28 <= mira.faixa_real(25.6)[1]
 
@@ -152,3 +153,5 @@ def test_a_MENSAGEM_do_relato_le_a_banda_da_constante():
     assert "0,9 a 3,7" not in t and "0.9 a 3.7" not in t
     # 770: idem para o par de 769.
     assert "0,5 a 3,7" not in t and "0.5 a 3.7" not in t
+    # 774: e o par de HOJE tambem nao se escreve a mao em lugar nenhum.
+    assert "0,1 a 3,7" not in t and "0.1 a 3.7" not in t

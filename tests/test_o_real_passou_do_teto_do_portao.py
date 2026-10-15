@@ -80,4 +80,4 @@ def test_os_LIMITES_do_portao_seguem_INTOCADOS():
     """Trava da §10: este aprendizado NAO virou limiar novo."""
     fonte = (RAIZ / "fabrica" / "prontidao.py").read_text()
     assert "45" in fonte
-    assert mira.RESIDUO_OBSERVADO == (0.1, 3.7)
+    assert mira.RESIDUO_OBSERVADO == (0.1, 4.0)

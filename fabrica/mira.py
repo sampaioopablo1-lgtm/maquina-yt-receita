@@ -30,10 +30,11 @@ por esta conferência com a previsão DENTRO e saíram em **27 e 28 s reais** �
 da mira. O real ficou acima da previsão do provedor que de fato narrou em **25 dos 28**
 pontos em que o instrumento RESOLVE o sinal — nos outros três a previsão cai
 DENTRO da janela de arredondamento do real, e ali o sinal não está estabelecido
-(770). A banda vive em `RESIDUO_OBSERVADO` — hoje 0,9 a
-3,7 s (752). O teto dela JA foi ampliado uma vez por medicao; nunca escreva o
-numero em outro lugar do modulo, porque foi exatamente isso que ficou atrasado
-na mensagem do relato e eu so vi na rodada seguinte.
+(770). A banda vive em `RESIDUO_OBSERVADO`, e o NUMERO NAO SE REPETE AQUI —
+esta linha trazia "0,9 a 3,7" e, quando o 770 baixou o piso para 0,1, ela ficou
+atrasada e ninguem viu: o teste do 753 cobra a MENSAGEM do relato e nao o
+docstring. O teto ja foi ampliado DUAS vezes por medicao (752, e o 774 em 15/10
+as 10:2x) e o piso baixou duas (769, 770); por isso leia a constante.
 
 Então `faixa_real` acrescenta essa banda ao relato: previsão de 25,6 põe o real
 entre 26,5 e 28,0, e o relato DIZ que isso passa do teto da mira. **Ele informa e
@@ -56,7 +57,14 @@ PROVEDORES = ("edge", "piper")
 # anotação do job, 733) e a duração REAL. Cinco pontos, 13/10: +0,9 / +1,1 / +1,9
 # / +1,3 / +2,4 s. Todos POSITIVOS. Isto NÃO é limiar — nada reprova por causa
 # dele; ele entra no relato para que quem escreve veja onde o real deve cair.
-RESIDUO_OBSERVADO = (0.1, 3.7)
+RESIDUO_OBSERVADO = (0.1, 4.0)
+# 774, 15/10 10:2x: o TETO da banda CAIU DE NOVO, e e a SEGUNDA ampliacao. O
+# `labtreinamento-s052` previa 25,0 no edge (provedor MEDIDO: zero avisos
+# `NARRACAO PELO PIPER` no job 116368125417) e saiu com 29 REAIS — residuo
+# +4,0 s, contra o maximo de 3,7 que trinta e nove pontos sustentavam. A largura
+# foi de 3,6 para 3,9 s, contra 1 s de granularidade do real: a banda informa
+# cada vez MENOS, e isso vai dito em vez de escondido. E o teto veio OUTRA VEZ do
+# `labtreinamento`, o canal dominante da serie.
 # 752, 14/10 08:2x: o TETO da banda CAIU, e por medicao. O `labtreinamento-s043`
 # previa 23,3 no edge (provedor MEDIDO pela anotacao) e saiu com 27 REAIS —
 # residuo +3,7 s, contra o maximo de 2,4 que treze pontos sustentavam. Isto NAO
@@ -96,7 +104,7 @@ RESIDUO_OBSERVADO = (0.1, 3.7)
 # DENTRO da banda e tem o sinal ESTABELECIDO — 27 de 31.
 # 15/10 02:2x: o `epomeno-epipedo-s031` (41,6 -> 43, +1,4) e o 32o ponto, dentro
 # da banda e com o sinal ESTABELECIDO — 28 de 32.
-RESIDUO_N = 39  # 741 acrescentou o s035 (24,8 -> 27, +2,2): DENTRO da banda,
+RESIDUO_N = 40  # 741 acrescentou o s035 (24,8 -> 27, +2,2): DENTRO da banda,
 #                 logo os LIMITES nao mudaram — so o numero de pontos que a sustenta.
 #                 14/10 06:2x: o s041 (edge 24,6 -> real 27) deu +2,4 — EMPATADO
 #                 com o teto da banda, o decimo segundo ponto e o segundo a tocar

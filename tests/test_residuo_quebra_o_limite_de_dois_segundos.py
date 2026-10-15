@@ -118,6 +118,8 @@ SERIE = [
     ("kolejny-poziom-s032", 41.8, 44, "edge"),
     ("labtreinamento-s051", 25.3, 27, "edge"),
     ("epomeno-epipedo-s034", 41.7, 44, "edge"),
+    # 774: o TETO da banda CAIU DE NOVO, +4,0 s, e outra vez no labtreinamento.
+    ("labtreinamento-s052", 25.0, 29, "edge"),
 ]
 
 
@@ -131,7 +133,7 @@ def test_o_limite_de_1_9_s_do_734_CAIU():
     # 752: o pior deixou de ser o do s034 (2,4) e passou a ser o do s043 (3,7).
     # Este teste trava o valor MEDIDO: se ele mudar outra vez, a banda do
     # `mira.py` tem de mudar no mesmo passo, e nao depois.
-    assert abs(pior - 3.7) < 0.05, pior
+    assert abs(pior - 4.0) < 0.05, pior
 
 
 def test_duas_previsoes_a_um_decimo_dao_reais_diferentes_em_UM_SEGUNDO():

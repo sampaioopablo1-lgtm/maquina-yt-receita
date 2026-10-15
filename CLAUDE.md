@@ -1426,6 +1426,41 @@ observado**, logo ele se move quando a observação sai dele — e a largura foi
 1,5 para **2,8 s**, o que torna a banda **menos útil** como previsão. Isso vai
 dito.
 
+**E ESTE TETO CAIU DE NOVO EM 15/10 ÀS 10:2x — aprendizado 774, `alto`, e é a
+SEGUNDA ampliação.** O `labtreinamento-s052` (`w5a8m3GiQUE`) previa **25,0** no
+edge — provedor **MEDIDO** pela anotação (zero avisos `NARRACAO PELO PIPER` no
+job `116368125417`) — e saiu com **29 s reais**: resíduo **+4,0 s**, contra o
+máximo de 3,7 que **trinta e nove** pontos sustentavam. Sinal estabelecido.
+`RESIDUO_OBSERVADO` está em **(0,1; 4,0)**, `RESIDUO_N` = 40, 35 estabelecidos.
+
+**O que vale guardar não é o número: as QUATRO correções da banda a ALARGARAM.**
+Teto 2,4 → 3,7 (752) → **4,0** (774); piso 0,9 → 0,5 (769) → 0,1 (770). Largura
+de 1,5 para **3,9 s** contra **1 s** de granularidade — ela cobre quase quatro
+inteiros de real. Isso é próprio de um limite definido pelo **extremo
+observado**, e significa que a banda informa cada vez menos. Vai dito em vez de
+escondido.
+
+**E O DEFEITO DO 753 REAPARECEU UMA CAMADA ACIMA, no DOCSTRING do `mira.py`:**
+ele dizia *"a banda vive em `RESIDUO_OBSERVADO` — hoje 0,9 a 3,7 s"* quando a
+constante era `(0.1, 3.7)`. **O piso havia baixado no 770 e a frase ficou atrás
+sem ninguém ver**, porque o teste do 753 cobra a **mensagem do `relato`** e não o
+docstring do módulo. A regra do 753 vale para o módulo INTEIRO, comentário e
+docstring incluídos — agora o docstring manda ler a constante, e há teste que
+reprova se um par antigo voltar a aparecer sem a marca de que é história.
+
+**E DOIS TESTES MEUS REPROVARAM POR IDENTIDADE, não por propriedade** — mesma
+classe do 743/753/761: um cravava `dono == ["labtreinamento-s043"]` (o dono do
+teto trocou de peça, e o que importa é ele ser **estabelecido** e do canal
+dominante) e outro cravava `largura == 3.6`. Corrigidos no lugar, para propriedade
+monótona.
+
+**A pinça do 740/748 PIOROU outra vez:** com resíduo de até 4,0 s, `real ≤ 26,0`
+exige `edge ≤ 22,0`, onde o piper cai a **~18,0** — ainda mais longe do piso de
+20,0. E o tally do 754/757/758 foi a **nove de doze**: o `s052` saiu em 29 contra
+um teto de mira de 26,0, com o `mira.py` **verde nos dois mundos** e a copy
+declarando a exposição antes de publicar.
+`tests/test_o_teto_da_banda_foi_AMPLIADO_a_SEGUNDA_vez.py`, nove testes.
+
 **E A PINÇA DO 740/748 ABRIU, o que é PIOR:** com resíduo de até 3,7 s, `real ≤
 26,0` passa a exigir `edge ≤ 22,3`, onde o piper cai para **~18,3** — bem abaixo
 do piso de 20,0. O vão entre as duas janelas foi de **0,73 s para ~2,0 s**. Não
