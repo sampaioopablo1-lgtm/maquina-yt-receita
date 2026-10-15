@@ -149,3 +149,13 @@ escrevível do `kolejny`, a pauta dele passou a depender de origem de **dois
 usos**. As três origens de um uso só seguem inalcançáveis porque a rota da
 regra (h) (`captions` pelo `pg_net`) depende do banco. Nenhum canal ficou sem
 pauta hoje, mas a folga do kolejny acabou.
+
+## Décima primeira rodada sem o banco — 15/10 às 21:1x
+
+Sonda negada antes e depois de publicar. O `epomeno-epipedo-s038` foi ao ar
+às 21:12 UTC como **`s4KbV20zFbM`**. **O pendente está em ONZE linhas.**
+
+**O dia fecha em 5 / 5 / 4** (labtreinamento / epomeno / kolejny), contra as
+7/dia POR CANAL. Onze peças em onze rodadas, uma por rodada — e o limite não foi
+pauta nem cota: foi **o tempo de uma rodada**, que cabe um render e uma
+publicação. As pendências 4 e 5 são o que destrava isso, e as duas são suas.
