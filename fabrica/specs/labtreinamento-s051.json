@@ -1,0 +1,96 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-s051",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#1F2933",
+  "c1": "#3F6C51",
+  "c2": "#C98B2E",
+  "bg": "#F5F3ED"
+ },
+ "thumb": {
+  "l1": "Conclusão",
+  "l2": "não é situação"
+ },
+ "longo_existente": "StQNFMdpGdk",
+ "longo": [],
+ "short": [
+  {
+   "layout": "item",
+   "kicker": "Estresse na equipe",
+   "preco": "não é situação",
+   "nar": "Estresse na equipe não é situação.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "É conclusão",
+   "sub": "não achado",
+   "nar": "Isso é conclusão.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Situação tem",
+   "itens": [
+    "Verbo",
+    "Frequência",
+    "Grupo"
+   ],
+   "nar": "Situação tem verbo e frequência.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Escala",
+   "preco": "em cima da hora",
+   "nar": "Escala publicada em cima da hora.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Toda semana",
+   "sub": "no mesmo setor",
+   "nar": "Toda semana, no setor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Essa linha",
+   "preco": "dá para conferir",
+   "nar": "Essa linha dá para conferir.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Conclusão",
+   "sub": "não dá",
+   "nar": "Conclusão não dá.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Nome de pessoa",
+   "preco": "fora da coluna",
+   "nar": "Nome de pessoa não entra.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O objeto",
+   "sub": "é o trabalho",
+   "nar": "O objeto é o trabalho.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Inscreva-se",
+   "sub": "laboratório",
+   "nar": "Inscreva-se aqui.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# labtreinamento-s051\n\n## TITULO\nEstresse Na Equipe Não É Uma Situação: É Uma Conclusão, E Sobre Conclusão Não Se Age\n\n## TITULO SHORT\nConclusão não é situação\n\n## DESCRICAO\nA coluna da situação observada é a primeira que o auditor lê, e é também onde o inventário de riscos psicossociais costuma morrer — não por falta de rigor, mas por uma troca que parece inofensiva: escrever o que se concluiu no lugar do que se viu.\n\n**Estresse na equipe** é uma conclusão. Pode até ser verdadeira, e ainda assim não serve naquela coluna, porque não diz o que acontece, com que frequência, nem com qual grupo. Situação é outra coisa: tem **verbo** e tem **frequência**. Escala publicada em cima da hora, toda semana, naquele setor — isso é situação.\n\nA diferença não é de estilo, e aparece em duas horas práticas. A primeira é a ação: sobre \"escala publicada em cima da hora\" dá para agir, porque existe um ato concreto para mudar. Sobre \"estresse na equipe\" não existe ato nenhum — só um sentimento geral, que nenhum plano consegue endereçar. A segunda é a verificação: a linha com verbo e frequência pode ser conferida no ciclo seguinte, e a conclusão não pode, porque ela nunca foi medida.\n\nE há uma consequência que vem de graça quando a coluna é escrita assim: nome de pessoa deixa de caber ali naturalmente. A situação descreve um GRUPO em condições iguais, não um indivíduo — e o objeto da avaliação, nesta norma, é como o trabalho está organizado, não o estado mental de ninguém.\n\nNão há aqui nenhuma data, nenhum número de portaria e nenhuma nota: o que decide está na sua própria planilha. Quais famílias de fator o auditor procura, quais colunas o inventário precisa, como sai a classificação e quais erros custam mais — estão no vídeo, com as fontes.\n\n## COMENTARIO FIXADO\nTudo numa frase, sem nenhum número: \"estresse na equipe\" é conclusão, não situação — e por isso não dá para agir sobre ela nem conferir depois. Situação tem verbo e tem frequência, e descreve um grupo em condições iguais, nunca uma pessoa. Escreva nos comentários apenas se a sua coluna de situação tem verbo — sem citar nomes nem casos.\n\n## HASHTAGS\n#SegurancaDoTrabalho #NR1 #LabTreinamento\n\n## TAGS\nriscos psicossociais, inventario de riscos, situacao observada, nr 1, sst, plano de acao, evidencia, auditor, organizacao do trabalho, grupo de exposicao, coluna de situacao, verbo e frequencia, labtreinamento, gestao de riscos\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO\n**O CONTADOR TROCOU DE CANAL DEPOIS DE TREZE RODADAS, e foi o desempate MEDIDO\nque fez isso.** As 08:0x a janela movel de 24 h veio **8 / 8 / 8** — EMPATE\nTRIPLO — e o `mais_baixo` desempatou pelo `max(publicado_em)`: o\n`labtreinamento` tem a peca mais ANTIGA (14/10 as 15:12 contra 06:12 e 07:12 de\nhoje). **A ordem alfabetica daria `epomeno-epipedo`**, logo o conserto das 04:0x\nMUDOU a resposta aqui — na primeira vez (04:0x) ele coincidiu com o alfabeto, e\nagora divergiu. E a diferenca e grande: eu nao produzia neste canal desde\n14/10 as 15:12.\n\n**E os DOIS NIVEIS CONCORDARAM pela primeira vez em catorze rodadas:** o DIA deu\n**0 / 4 / 4** e aponta o `labtreinamento`; a JANELA aponta o mesmo canal. O que\nmudou e que as **dezesseis pecas de 14/10 sairam da janela de 24 h** — a\nconcentracao que mantinha este canal no topo envelheceu, e com ela o motivo de\nnao produzir aqui.\n\n**O que isto NAO ignora:** o 713 mede `labtreinamento/shorts` em **0,07\ninscrito/peca**, o penultimo da frota. Mas o contador existe pelo portao do\nconteudo INAUTENTICO, que e sobre acumulo recente, nao sobre conversao — e a\nconversao por peca e cega abaixo do dobro (693). Quem decide a ESCOLHA e a\njanela; o 713 entra na decisao do dono sobre em qual canal CONCENTRAR, que segue\naberta.\n\nA origem saiu do `concentracao.py labtreinamento`: **nenhuma origem tem um short\nso**, e a de MENOR contagem e `StQNFMdpGdk` (empatada em dois com a\n`KRUERlNPzDw`). Ela e da **regra (h)** — nao tem spec local — e o texto saiu da\nfaixa de LEGENDA pelo `pg_net`, como o 759 manda: `captions?part=snippet` deu\n**200** com duas faixas (uma `asr` e uma `standard`), e o download da `standard`\ncom `tfmt=srt` deu **200 com 15.044 caracteres**. **Nenhuma frase desta peca\nsaiu de titulo de capitulo.**\n\n## FAMILIA DE ENTRADA ERRADA\nEscrever na coluna da SITUACAO o que e CONCLUSAO — \"estresse na equipe\" — em vez\ndo que se observou, que precisa de VERBO e de FREQUENCIA. **O custo e duplo e\naparece depois: nao ha ato concreto para mudar, e nao ha o que conferir no ciclo\nseguinte.** Familia NOVA no canal, e as duas vizinhancas desta MESMA origem vao\nescritas:\n  * o `s013` trata da MULTIPLICACAO das duas notas (quem tira media erra o\n    nivel). Ali o erro e ARITMETICO, numa coluna calculada;\n  * o `s049` trata do NIVEL DA HIERARQUIA (responder com medida individual um\n    risco que nasce da organizacao). Ali o erro e na coluna da MEDIDA.\n  Aqui o erro e na coluna da SITUACAO, e e de GENERO de frase — conclusao no\n  lugar de observacao. As tres sao colunas diferentes da mesma planilha, e e por\n  isso que a unidade de pauta e (LONGO x FAMILIA).\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Nao cita a data do\nfim do prazo de adaptacao, nao cita o numero da Portaria, nao cita o numero da\nNorma Regulamentadora, nao cita quantas familias de fator existem, nao cita\nquantas colunas tem o inventario, nao cita a escala das notas e nao cita quantos\ndias de antecedencia. Conferido a mao campo por campo, porque o portao `narracao`\nconta quantidades por frase e NAO pega digito cru (640).\n\n**\"Em cima da hora\" substituiu o numero de dias de proposito:** a legenda diz\n\"dois dias de antecedencia\", que e exemplo e nao norma — numero que o proprio\nmaterial apresenta como ILUSTRACAO nao entra (regra g, caso especial). A\nexpressao carrega a mesma ideia sem fixar um numero que varia por empresa.\n\n**E a DATA do fim do prazo ficou fora mesmo sendo o gancho mais forte da fonte:**\nela e data de vigencia, exatamente o que a regra (g) manda tirar. O short carrega\na regra de REDACAO da coluna, que nao envelhece.\n\nO QUE O VIDEO AFIRMA: que \"estresse na equipe\" e conclusao e nao situacao, que\nsituacao exige verbo e frequencia, que sobre conclusao nao se age nem se confere\nno ciclo seguinte, que a situacao descreve um GRUPO em condicoes iguais e nao uma\npessoa, e que o objeto da avaliacao e como o trabalho esta organizado. Esta na\nfaixa de legenda `standard` do longo `StQNFMdpGdk`, com as fontes no proprio\nlongo.\n\nDESCARTADO, e vai escrito:\n  (1) a data do fim do prazo, o numero da Portaria e o da NR — datas e\n      identificadores de norma (regra g), com fonte no longo;\n  (2) a multiplicacao das duas notas e a hierarquia da medida de controle — sao\n      os nucleos do `s013` e do `s049` e sairiam repetidos;\n  (3) **a coluna da FONTE DA EVIDENCIA** (\"como voce soube disso?\"), que e a\n      familia mais forte que sobrou nesta origem — fica para a proxima peca\n      dela, porque juntar duas colunas numa peca de dez cenas obrigaria a cortar\n      o verbo-e-frequencia, que e o que esta aqui;\n  (4) o anonimato da pesquisa deixar de valer apos UMA identificacao — quarta\n      familia, e ela cabe inteira num short proprio.\n\n## MIRA\n`labtreinamento` TEM override: `ALVO_POR_CANAL = (20,0 a 26,0)` de duracao REAL,\nlido pelo `ensaio.alvo_short('labtreinamento')` e nao por numero escrito a mao.\nMedido antes do render: edge **25,3** e piper **20,8** — o `mira.py` diz **dentro\nda mira nos DOIS mundos**.\n\n**E a exposicao vai DECLARADA, porque a pinca do 740/748 nao se resolveu:** se o\nedge narrar, o real deve cair entre **25,4 e 29,0 s**, logo PODE passar do teto\nde 26,0; se o piper narrar, entre **20,9 e 24,5**, que cabe. O tally do 758 esta\nem sete de dez pecas deste canal narradas pelo edge saindo FORA do teto, **as\nsete com a mira verde**. Eu nao prometo real dentro.\n\n**Mirado perto do PISO da janela verde** (o 740 poe o edge em [24,33; 26,00] para\na previsao passar nos dois mundos), que e o que o 772 autoriza como REDACAO.\n**Quatro versoes foram recusadas pela aritmetica antes desta:** 34,8 / 31,0 /\n26,7 / 26,5 — as duas ultimas **acima do teto de 26,0 da mira**. O\n`ensaio.chars_por_cena('pt-BR-ThalitaMultilingualNeural', 10, 24.5)` devolve\n**25 caracteres por cena**, e foi o modulo que disse isso (item 3 da §10).\n\n**E a TERCEIRA restricao do 747 foi conferida, nao assumida:** cortar ate ~25\ncaracteres por cena custa acento, e foi isso que reprovou a primeira versao do\n`s039` (2,0% de letras acentuadas). Esta peca ficou em **6,9%**, acima dos 4,5%\ndas outras specs do canal, e os doze portoes do `prontidao` passaram.\n\nCom a banda observada e **37 pontos**, o SINAL do residuo so esta estabelecido\nquando `real − previsao > 1,0` (770): **32 estabelecidos**. O provedor se decide\nno runner e por cena (730) e se mede CONTANDO os avisos `NARRACAO PELO PIPER` da\nanotacao (733).\n\n## FONTES\nA faixa de legenda `standard` do longo `StQNFMdpGdk` (lida pelo `pg_net`, 200,\n15.044 caracteres) traz o conteudo; as fontes estao no proprio longo publicado.\nEste short nao introduz numero novo sobre o mundo.\n"
+}
