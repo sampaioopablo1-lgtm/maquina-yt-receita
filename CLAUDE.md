@@ -1669,6 +1669,17 @@ do melhor par medido no 713.
    de quatro para **seis**. Então *"a banda é do labtreinamento com crachá de
    frota"* **já não se diz pela contagem.**
 
+**E ÀS 01:2x DE 15/10 O ARGUMENTO DE CONTAGEM MORREU, pelo PISO que eu mesmo
+declarei.** O `kolejny-poziom-s029` (`L0dQBPurBzo`, previsão edge **41,7**,
+provedor medido no job `116192969235`, real **43**, resíduo **+1,3** e sinal
+ESTABELECIDO) é o 31º ponto, e com ele a dominância do `labtreinamento` caiu a
+**0,581** — abaixo do 0,60 da faixa observada. **Treze dos trinta e um pontos
+são de outros dois canais** e o modo longo (41 a 44 s) tem **nove**. Logo não
+existe mais leitura da contagem que sustente *"a banda é de um canal"* — e o
+teste reprovou pela TERCEIRA vez para me obrigar a reler em vez de mover o
+número. O piso da faixa foi ao valor OBSERVADO (0,58) e **quem carrega a
+afirmação agora é o teste da LARGURA**. `RESIDUO_N` = 31, 27 estabelecidos.
+
 **O que ainda sustenta a frase é só a LARGURA**, e isso é mais honesto do que o
 que eu vinha escrevendo: o teto de **3,7 continua sendo o `labtreinamento-s043`**
 e **nenhum ponto de outro canal passou de +2,8**. É a largura que define a faixa

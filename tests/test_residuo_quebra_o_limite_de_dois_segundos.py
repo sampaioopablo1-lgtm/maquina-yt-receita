@@ -107,6 +107,8 @@ SERIE = [
     # 15/10 00:2x: 41,6 -> 42, residuo nominal +0,4. DENTRO da banda (0,1; 3,7),
     # logo os limites nao mudam — e o sinal NAO esta estabelecido (42-41,6 <= 1,0).
     ("epomeno-epipedo-s030", 41.6, 42, "edge"),
+    # 15/10 01:2x: 41,7 -> 43, residuo +1,3. ESTABELECIDO (43-41,7 > 1,0).
+    ("kolejny-poziom-s029", 41.7, 43, "edge"),
 ]
 
 

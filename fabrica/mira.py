@@ -92,7 +92,9 @@ RESIDUO_OBSERVADO = (0.1, 3.7)
 # estabelecido pelo critério do 770, levando os estabelecidos a 26 de 30. E ele
 # REFINA o 770: ser nao-estabelecido NAO implica ter movido o piso (este nao
 # moveu), so a volta vale — piso baixo e necessariamente nao-estabelecido.
-RESIDUO_N = 30  # 741 acrescentou o s035 (24,8 -> 27, +2,2): DENTRO da banda,
+# 15/10 01:2x: o `kolejny-poziom-s029` (41,7 -> 43, +1,3) e o 31o ponto, cai
+# DENTRO da banda e tem o sinal ESTABELECIDO — 27 de 31.
+RESIDUO_N = 31  # 741 acrescentou o s035 (24,8 -> 27, +2,2): DENTRO da banda,
 #                 logo os LIMITES nao mudaram — so o numero de pontos que a sustenta.
 #                 14/10 06:2x: o s041 (edge 24,6 -> real 27) deu +2,4 — EMPATADO
 #                 com o teto da banda, o decimo segundo ponto e o segundo a tocar

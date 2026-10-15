@@ -47,6 +47,7 @@ RESIDUOS = [(43.1, 44), (42.9, 44), (42.1, 44), (25.7, 27), (25.6, 28),
                   # (41; 42] e a previsao cai dentro (770).
     (41.6, 43),   # kolejny-poziom-s028, 14/10 23:1x: +1,4, dentro da banda
     (41.6, 42),   # epomeno-epipedo-s030, 15/10 00:2x: +0,4, dentro da banda
+    (41.7, 43),   # kolejny-poziom-s029, 15/10 01:2x: +1,3, dentro da banda
     (41.5, 43),   # epomeno-epipedo-s028, 14/10: +1,5 — quinto ponto da janela
                   # de 0,4 s em que a previsao NAO ordena o real (768).
     (41.6, 43),   # kolejny-poziom-s026, 14/10: +1,4 — previsao MAIOR que a do
