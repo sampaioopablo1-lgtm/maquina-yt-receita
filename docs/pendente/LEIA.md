@@ -81,3 +81,19 @@ e não toca o Supabase.
   `RESIDUO_N = 40` e já são **cinco** peças sem ponto;
 - as origens da regra (h) — as que só têm legenda e não têm spec local —
   seguem inalcançáveis.
+
+## Sexta rodada sem o banco — 15/10 às 16:1x
+
+Sonda negada outra vez, antes e depois de publicar. O
+`labtreinamento-s054` foi ao ar às 16:12 UTC como **`P_rWsua8Zb0`**, pelo
+`retomar.yml`, que não toca o Supabase.
+
+**O pendente foi a SEIS linhas** — e esta foi a primeira vez que o conserto do
+`registro_videos.py` (relato em stderr, stdout puro) rodou em produção: o
+arquivo ficou com seis inserts e **zero linha de prosa**, contra as três que
+vazaram na rodada anterior.
+
+Sem `execute_sql` seguem indisponíveis: leitura de inscritos (Porta 1), leitura
+de duração real (a banda está congelada em `RESIDUO_N = 40`, e agora são **cinco**
+peças sem ponto), as origens da regra (h), e a inserção destas seis linhas em
+`videos`.
