@@ -159,3 +159,14 @@ Sonda negada antes e depois de publicar. O `epomeno-epipedo-s038` foi ao ar
 7/dia POR CANAL. Onze peças em onze rodadas, uma por rodada — e o limite não foi
 pauta nem cota: foi **o tempo de uma rodada**, que cabe um render e uma
 publicação. As pendências 4 e 5 são o que destrava isso, e as duas são suas.
+
+## Décima segunda rodada sem o banco — 15/10 às 22:1x
+
+Sonda negada antes e depois de publicar. O `labtreinamento-s056` foi ao ar às
+22:11 UTC como **`nkQWSScZXaA`**. **O pendente está em DOZE linhas.**
+
+**O dia fecha em 6 / 5 / 4** (labtreinamento / epomeno / kolejny), 15 peças em
+12 rodadas de hoje. E o LUFS desta peça saiu com **pico −0,6 dBTP** e LRA 3,5 —
+o pico mais alto do dia (os outros ficaram entre −1,5 e −4,1). Não é defeito
+medido e não reprova nada; fica anotado porque é a primeira vez que o pico
+chega tão perto de zero, e se repetir vale olhar o `SOM` antes de supor.
