@@ -1,0 +1,96 @@
+{
+ "slug": "labtreinamento",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#1F2933",
+  "c1": "#3F6C51",
+  "c2": "#C98B2E",
+  "bg": "#F5F3ED"
+ },
+ "pacote": "labtreinamento-s054",
+ "longo_existente": "dsoEo103l1o",
+ "thumb": {
+  "l1": "Depósito",
+  "l2": "outra data"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Dois meses",
+   "sub": "na mesma conta",
+   "nar": "São dois meses na conta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O depósito",
+   "preco": "é deste mês",
+   "nar": "O depósito caiu agora.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Mas a base",
+   "sub": "é de antes",
+   "nar": "A base não é de agora.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A folha",
+   "preco": "é a do mês passado",
+   "nar": "A folha é do mês passado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O erro",
+   "preco": "comparar lado a lado",
+   "nar": "Não compare o mesmo mês.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Quando aparece",
+   "itens": [
+    "Hora extra",
+    "Adicional",
+    "Primeiro mês"
+   ],
+   "nar": "Hora extra num mês só.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Aí",
+   "preco": "a diferença é falsa",
+   "nar": "A diferença não é erro.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Não é valor",
+   "sub": "é data",
+   "nar": "Não é o valor, é a data.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A entrada certa",
+   "preco": "a folha anterior",
+   "nar": "Use a folha anterior.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Lab Treinamento",
+   "sub": "inscreva-se",
+   "nar": "Inscreva-se e veja a data.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# labtreinamento-s054\n\n## TITULO\nO Depósito Deste Mês Não Se Refere a Este Mês: Por Que a Diferença Que Você Vê Pode Ser Só a Data\n\n## TITULO SHORT\nNão é o valor, é a data\n\n## DESCRICAO\nQuem confere o depósito do fundo pela primeira vez quase sempre faz a mesma coisa: abre o extrato, vê o valor que entrou neste mês, pega a folha de pagamento deste mês e compara os dois. A conta é simples, os dois números existem, e ainda assim a comparação está errada — porque os dois números não se referem ao mesmo período.\n\nO depósito que aparece agora foi calculado sobre a folha do mês ANTERIOR. É uma defasagem de um mês embutida na própria regra, e ela não tem nada a ver com erro de ninguém. Quando todos os meses são parecidos, a defasagem passa em branco: os valores batem porque as bases eram quase iguais. Ela só aparece quando um mês é diferente do outro — uma hora extra, um adicional, uma parcela que entrou uma vez — e aí a diferença salta, parece erro, e não é.\n\nÉ por isso que vale separar as duas perguntas antes de somar qualquer coisa. \"O valor está certo?\" é uma pergunta sobre aritmética. \"Estou comparando os dois números certos?\" é uma pergunta sobre data, e ela vem primeiro. Inverter a ordem produz uma diferença inexistente, e o custo disso não é só a conta: é levar adiante uma conversa sobre um erro que não existe.\n\nA entrada certa é a folha ANTERIOR ao depósito que você está olhando. Com ela na mão, a multiplicação volta a significar o que você queria que significasse.\n\nNão há aqui percentual, limite nem data de vigência: esses números mudam e ficariam velhos dentro do vídeo. A base do cálculo, o que entra nela e o que fazer quando ainda assim não bate — está no vídeo completo.\n\n## COMENTARIO FIXADO\nO ponto é a DEFASAGEM: o depósito que entra neste mês foi calculado sobre a folha do mês ANTERIOR. Quando os meses são parecidos ela passa em branco; ela só aparece quando um mês tem hora extra ou adicional. Logo a primeira pergunta não é \"o valor está certo\", é \"estou comparando os dois números do mesmo período\".\n\n## FAMILIA DE ENTRADA ERRADA\nComparar dois números indexados a PERÍODOS DIFERENTES como se fossem do mesmo — a defasagem de um mês entre o depósito e a folha que o gerou. É família NOVA nesta origem, e os três irmãos foram lidos antes da escolha: o `labtreinamento-s005` trata erro pontual contra erro estrutural e a escolha de QUAL mês conferir; o `-s031` (e o `-s032`) tratam QUEM ENTRA na lista de descartes; o `-s045` trata AMOSTRA DE UM. Nenhum deles trata a data de referência dos dois lados da comparação — aqui não se discute qual mês escolher nem o que entra na base, e sim que os dois valores comparados pertencem a meses distintos por construção.\n\n## AVISO SOBRE OS NUMEROS\nA peça não carrega percentual, limite anual nem data de vigência — regra (g), porque mudam. E a contagem de casos do longo fica fora de propósito: o `labtreinamento-009` declara \"cinco casos\" no capítulo 35 e enumera SEIS nos capítulos 28 a 33, contradizendo-se (725), então citar qualquer dos dois números seria carregar o defeito da fonte. Os \"quatro passos\" dos capítulos 63 a 67 também não entram.\n\n## MIRA\nPrevisão `edge` **24,5 s** e `piper` **20,1 s** — `mira.py` **VERDE nos dois mundos** contra a mira medida do canal (20,0 a 26,0). E a exposição vai declarada antes de publicar, porque ela é a contradição do 740/748: com a banda observada de resíduo (0,1 a 4,0 s), **se o edge narrar o real deve cair entre 24,6 e 28,5 s — pode PASSAR do teto da mira de 26,0**; se o Piper narrar, 20,2 a 24,1, e cabe. O tally deste canal no mundo `edge` está em nove FORA contra três dentro, as nove com a mira verde — mira verde não significa real dentro, e eu não prometo o contrário.\n\n## HASHTAGS\n#fgts #folhadepagamento #direitostrabalhistas #LabTreinamento\n\n## TAGS\nfgts, depósito do fundo, folha de pagamento, conferir fgts, extrato fgts, base de cálculo, mês de competência, defasagem, erro de cálculo, salário, trabalho, direitos trabalhistas, conferência, Lab Treinamento, oito por cento\n"
+}
