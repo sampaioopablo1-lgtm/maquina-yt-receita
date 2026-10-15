@@ -1,0 +1,92 @@
+{
+ "slug": "kolejny-poziom",
+ "pacote": "kolejny-poziom-s029",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "thumb": {
+  "l1": "Koniec obowiązku",
+  "l2": "też zgłaszasz"
+ },
+ "longo_existente": "IuBLU-P4Aj8",
+ "longo": [],
+ "short": [
+  {
+   "layout": "item",
+   "kicker": "Sprzedałeś",
+   "preco": "i czekasz",
+   "nar": "Sprzedałeś coś i spokojnie czekasz na ciszę.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Myślisz",
+   "preco": "że urząd wie",
+   "nar": "Myślisz, że urząd dowie się o tym jakoś sam.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Początek",
+   "sub": "zgłaszasz sam",
+   "nar": "Początek obowiązku zgłaszasz przecież zawsze sam.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "I koniec",
+   "preco": "dokładnie tak samo",
+   "nar": "I jego koniec ustawa traktuje dokładnie tak samo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ten sam",
+   "preco": "krótki termin",
+   "nar": "Obowiązuje tu ten sam bardzo krótki termin.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bez zgłoszenia",
+   "sub": "decyzja wraca",
+   "nar": "Bez twojego zgłoszenia decyzja wraca na ciebie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Cisza",
+   "preco": "nie kończy niczego",
+   "nar": "Twoja cisza sama nie kończy tu zupełnie niczego.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "To samo",
+   "preco": "przy zmianie",
+   "nar": "To samo dotyczy zmiany sposobu użycia.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Więc zgłoś",
+   "sub": "każdy koniec",
+   "nar": "Zgłoś więc każdy koniec, tak jak zgłaszasz początek.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Kolejny Poziom",
+   "sub": "zapisz się",
+   "nar": "Zapisz się, jeśli pilnujesz własnych spraw sam.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# kolejny-poziom-s029\n\n## TITULO\nPoczątek Zgłaszasz Sam, a Koniec Myślisz, że Zgłosi Się Sam: Ustawa Traktuje Je Tak Samo\n\n## TITULO SHORT\nKoniec obowiązku też zgłaszasz\n\n## DESCRICAO\nKiedy obowiązek się zaczyna, prawie każdy wie, że trzeba to zgłosić. Kupujesz, wypełniasz, składasz — odruch jest prawidłowy. Problem pojawia się na drugim końcu: kiedy obowiązek się KOŃCZY, ten sam odruch znika, bo intuicja podpowiada, że zniknięcie samo się ogłosi.\n\nUstawa nie dzieli tego na dwa rodzaje zdarzeń. Mówi o okolicznościach, które obowiązek uzasadniają, i tym samym językiem mówi o jego wygaśnięciu — a termin na zgłoszenie jest w obu przypadkach ten sam i jest krótki. To nie jest formalność dla porządku: dopóki nie zgłosisz, urząd nie dowiedział się o tym od ciebie, więc decyzja może dalej przychodzić na twoje nazwisko.\n\nZ tego wynika praktyczny wniosek, i nie potrzebuje żadnej liczby z zewnątrz. Traktuj koniec dokładnie tak, jak traktujesz początek: jedno zgłoszenie, w tym samym krótkim terminie, licząc od dnia zdarzenia, a nie od dnia, w którym sobie o tym przypomnisz. Twoja cisza nie jest informacją — jest brakiem informacji, a to dwie różne rzeczy dla urzędu.\n\nTa sama zasada obejmuje zwykłą zmianę: jeśli zmienił się sposób wykorzystania części budynku, to też jest zdarzenie do zgłoszenia, choć nic się nie zaczęło ani nie skończyło. Reguła dotyczy ZDARZEŃ, nie tylko momentów wejścia i wyjścia.\n\nNie ma tu ani jednej daty i ani jednej kwoty: liczby, które decydują, są w twojej własnej decyzji. Ile dni dokładnie masz, jakie są terminy rat, kto ustala podstawę i co zrobić, gdy decyzja się nie zgadza — jest w filmie, ze źródłami.\n\n## COMENTARIO FIXADO\nJedna zasada, bez żadnej liczby: koniec obowiązku zgłaszasz dokładnie tak samo jak jego początek, w tym samym krótkim terminie, licząc od dnia zdarzenia. Dopóki tego nie zrobisz, urząd nie dowiedział się o niczym od ciebie — a decyzja może dalej przychodzić na ciebie. To samo dotyczy zmiany sposobu wykorzystania. Napisz w komentarzu tylko, czy zakładałeś kiedyś, że koniec ogłosi się sam — bez kwot.\n\n## HASHTAGS\n#Podatki #Nieruchomości #KolejnyPoziom\n\n## TAGS\nobowiazek podatkowy, zgloszenie, wygasniecie obowiazku, sprzedaz nieruchomosci, decyzja podatkowa, termin, formularz, gmina, finanse osobiste, polska, zmiana sposobu wykorzystania, wspolwlasnosc, kolejny poziom, podatek od nieruchomosci, urzad\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO\nOITAVA rodada seguida com o canal escolhido pelo contador, e a PRIMEIRA em que a\n`janela=` do 771 decidiu sozinha. As 01:0x o DIA tinha **1 peca** (epomeno) e os\noutros dois em zero; a JANELA MOVEL de 24 h deu **15 / 5 / 4** e ALERTOU\n(15 contra 5). O mais baixo da janela e o `kolejny-poziom`, e e dele que a peca\nsaiu — sem empate e sem desempate por critério meu.\n\n**E o relato ACUSOU UM ALERTA VAZIO NA MESMA EXECUCAO, consertado aqui:** com uma\npeca no dia ele gritava *\"ALERTA DO DIA: epomeno 1 contra 0\"*. Isso e artefato do\nTOTAL, nao concentracao — **com menos pecas que canais a distribuicao uniforme e\nIMPOSSIVEL**, e a peca tem de cair em algum canal. O limiar NAO mudou (segue o do\nirmao, mais que o dobro do segundo); o que mudou e que agora o relato DIZ que o\nalerta seria artefato, em vez de emiti-lo. E o caso do 762 (16/0/0) segue\nalertando, com teste proprio — senao o conserto apagaria o achado que criou o\ncontador. `tests/test_o_dia_calendario_nao_ordena_na_virada.py`, NOVE testes.\n\nA origem saiu do `concentracao.py kolejny-poziom`: `IuBLU-P4Aj8`\n(kolejny-poziom-016, **64 capitulos**) tinha UM short so, o `s002`.\n\n## FAMILIA DE ENTRADA ERRADA\nSupor que o FIM de uma obrigacao se comunica sozinho, quando a lei trata inicio e\nfim com a MESMA linguagem e o MESMO prazo curto. E familia NOVA no canal, e a\ndistincao do irmao vai escrita: o `s002`, o unico outro short desta origem, trata\ndo VALOR que nao mudou de um ano para o outro (e por que isso nao e erro). Ali o\nerro e sobre o NUMERO da decisao; aqui e sobre um EVENTO que o espectador acha\nque nao precisa declarar. Capitulos 51, 52 e 53 do longo\n(\"Czesc pomijana\", \"Co z tego wynika\", \"Ten sam termin\"), nenhum usado pelo `s002`.\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. Nao cita quantos dias\ntem o prazo, nao cita as datas das parcelas, nao cita quantas parcelas sao, nao\ncita aliquota, nao cita valor, nao cita numero de artigo e nao nomeia orgao nem\nformulario. Conferido a mao campo por campo, porque o portao `narracao` conta\nquantidades por frase e NAO pega digito cru (640).\n\n**O prazo em dias ficou FORA de proposito, e e o numero mais tentador da peca:**\nele e prazo legal, logo numero que MUDA (regra g), e esta no longo com fonte. A\nnarracao diz \"o mesmo prazo curto\", que e a REGRA — ela nao envelhece se o prazo\nfor alterado. Idem as quatro datas de parcela: sao do capitulo 42 e nao entram.\n\nO QUE O VIDEO AFIRMA: que a lei trata o inicio e o FIM do obrigacao com a mesma\nlinguagem e o mesmo prazo de comunicacao, que a falta de comunicacao faz a\ndecisao seguir vindo no nome de quem ja vendeu, e que a mesma regra cobre a\nmudanca de uso de parte do imovel. Esta no longo kolejny-poziom-016\n(`IuBLU-P4Aj8`), capitulos \"Czesc pomijana\", \"Co z tego wynika\" e\n\"Ten sam termin\", com as fontes.\n\nDESCARTADO, e vai escrito:\n  (1) o prazo em dias e as datas das parcelas — prazo legal e calendario, numeros\n      que mudam, com fonte no longo (regra g);\n  (2) quem ESTABELECE a base e como se confere a divisao — e o nucleo da familia\n      do `s002` e sairia repetido;\n  (3) o teto de reajuste e quem o move (capitulos 16 a 24) — terceira familia,\n      ainda livre neste longo;\n  (4) o caso da pessoa juridica, que declara sozinha — assimetria boa, e e uma\n      quarta familia.\n\n## MIRA\n`kolejny-poziom` NAO tem override em `ALVO_POR_CANAL`, logo vale o `ALVO_SHORT`\nda frota (41,5 a 43,0). Mirado o PISO, e o motivo e medido: no\n`pl-PL-MarekNeural` o centro do modelo corre **+2,2%** (679), logo e a voz em que\no topo e mais arriscado. Medido antes do render: edge **41,7** e piper **35,5**,\nos dois dentro de 18 a 45 nos DOIS mundos.\n\n**Duas versoes foram recusadas pelo instrumento antes desta:** a primeira dava\nedge 42,4 (dentro, mas longe do piso que esta voz pede) e a segunda **41,3 —\nFORA pelo PISO da faixa da frota**. Vai registrado em vez de desaparecer.\n\nCom a banda observada e **30 pontos**, se o edge narrar o REAL deve cair entre\n**41,6 e 45,2 s** — o topo PASSA do teto de 45 do portao, e isso vai DITO antes\nde publicar. Se o piper narrar, 35,4 a 39,0.\n\n**E o que a banda NAO faz, repetido porque e o achado das ultimas rodadas:** o\npiso dela caiu duas vezes (769, 770) e a largura esta em **3,6 s** contra 1 s de\ngranularidade — ela cobre quase quatro inteiros. **O SINAL do residuo so esta\nestabelecido quando `real − previsao > 1,0`** (770): dos 30 pontos, **26** estao\nestabelecidos — e o 30o mostrou que ser nao-estabelecido NAO implica ter movido o\npiso, a implicacao vale de um lado so. Esta previsao e a **oitava** da janela de\n41 a 42 s, que pelo 768/769 **nao ordena** nada contra as outras sete.\n\nO provedor se decide no runner e por cena (730) e se mede CONTANDO os avisos\n`NARRACAO PELO PIPER` da anotacao (733).\n\n## FONTES\nO longo de onde este short foi extraido (kolejny-poziom-016, `IuBLU-P4Aj8`) traz\nas fontes. Este short nao introduz numero novo sobre o mundo.\n"
+}

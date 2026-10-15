@@ -77,6 +77,39 @@ def test_sem_janela_e_sem_dia_o_relato_ainda_AVISA_que_le_acervo():
     assert "ACERVO NAO E O DIA" in t
 
 
+def test_alerta_do_dia_com_MENOS_pecas_que_canais_e_ARTEFATO_e_vai_dito():
+    """15/10 01:0x, e e a mesma familia do 771.
+
+    Com UMA peca no dia o relato gritou *"ALERTA DO DIA: epomeno 1 contra 0"*.
+    Isso nao e concentracao: com menos pecas que canais a distribuicao uniforme
+    e IMPOSSIVEL, e a peca tem de cair em algum canal. O limiar nao mudou — o
+    que mudou e que o relato DIZ que o alerta seria artefato do total, em vez de
+    emiti-lo. E aritmetica, nao criterio novo.
+    """
+    t = cf.relato(por_dia={"labtreinamento": 0, "epomeno-epipedo": 1,
+                           "kolejny-poziom": 0})
+    assert "ALERTA DO DIA" not in t
+    assert "artefato do total" in t
+    assert "distribuicao uniforme e IMPOSSIVEL" in t
+    # e ele ainda NOMEIA os canais em zero, que e informacao de verdade
+    assert "SEM NENHUMA PECA HOJE" in t
+    assert "labtreinamento" in t and "kolejny-poziom" in t
+
+
+def test_com_pecas_SUFICIENTES_o_alerta_do_dia_volta_a_sair():
+    """A supressao e so para total < numero de canais. O caso do 762 (16/0/0)
+    tem de seguir alertando, senao o conserto apagaria o achado que criou o
+    contador."""
+    t = cf.relato(por_dia={"labtreinamento": 16, "epomeno-epipedo": 0,
+                           "kolejny-poziom": 0})
+    assert "ALERTA DO DIA" in t
+    assert "artefato do total" not in t
+    # e a fronteira: tres pecas para tres canais ja permite uniforme
+    t3 = cf.relato(por_dia={"labtreinamento": 3, "epomeno-epipedo": 0,
+                            "kolejny-poziom": 0})
+    assert "ALERTA DO DIA" in t3
+
+
 def test_o_rotulo_da_janela_segue_o_argumento_e_nao_e_cravado():
     t = cf.relato(janela={"labtreinamento": 2, "epomeno-epipedo": 1,
                           "kolejny-poziom": 1}, janela_h=6)

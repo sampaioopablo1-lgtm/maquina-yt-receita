@@ -149,7 +149,17 @@ def relato(raiz: str = None, por_dia: dict[str, int] = None,
         b = analise({c: por_dia.get(c, 0) for c in FROTA})
         linhas.append(f"  NO DIA: {b['total']} pecas — "
                       + ", ".join(f"{c} {n}" for c, n in b["ordem"]))
-        if b["alerta"]:
+        if b["alerta"] and b["total"] < len(FROTA):
+            # 15/10 01:0x: com UMA peca no dia o relato gritou "ALERTA DO DIA:
+            # epomeno 1 contra 0". Isso e artefato do TOTAL, nao concentracao:
+            # com menos pecas que canais a distribuicao uniforme e IMPOSSIVEL, e
+            # a peca tem de cair em algum canal. E aritmetica, nao limiar novo —
+            # o limiar segue o do irmao.
+            linhas.append(f"  o dia tem {b['total']} peca(s) para {len(FROTA)} "
+                          "canais, logo distribuicao uniforme e IMPOSSIVEL e o "
+                          "alerta seria artefato do total — nao alerto, e digo "
+                          "por que. Use a janela movel.")
+        elif b["alerta"]:
             linhas.append(f"  ALERTA DO DIA: {b['dominante']} com "
                           f"{b['n_dominante']} contra {b['n_segunda']} do segundo.")
         if b["zerados"]:
