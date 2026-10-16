@@ -233,3 +233,30 @@ kolejny, as 00:1x no epomeno, agora aqui: **o banco fechado empurra a escolha de
 origem para onde ha SPEC, nao para onde ha menos uso.** Nesta peca os capitulos
 35 a 40 estavam intocados pelos tres irmaos, logo nao houve repeticao — mas isso
 foi propriedade da origem, nao do procedimento.
+
+## Decima sexta rodada sem o banco — 16/10, 02:0x
+
+Sonda negada (`-32600`). **Publicado:** `kolejny-poziom-s038` = `fHUBz98PjgA`
+(02:11 UTC), provedor **edge** MEDIDO (zero avisos no job `116774366810`),
+previsao edge 41,6 / piper 35,4 (PISO do ALVO_SHORT, pelo 679 e pelo 772). Som
+LUFS -14,0, desvio **0,0** — o +0,6 da peca anterior era um ponto isolado, como
+eu disse que era.
+
+**Perdido:** 41o ponto da banda (`RESIDUO_N` = 40, **quinze** pecas sem leitura de
+duracao real). Sem vigilancia do §3.2. O `videos-a-inserir.sql` foi a **16 linhas**.
+
+**E O PADRAO DA PAUTA FECHOU OS TRES CANAIS — quarta rodada seguida.** Em nenhum
+dos tres a origem MENOS usada e alcancavel sem banco:
+
+| canal | origens de menor uso | spec local |
+|---|---|---|
+| kolejny-poziom | `SP7Vz8qHdRY`, `MjI4ZGJAhIo`, `Xgt32iH8Ft8` (1 uso) | **nenhuma** |
+| epomeno-epipedo | `eZ697VNYCPU`, `h66MCKjwAJ8` (1 uso) | **nenhuma** |
+| labtreinamento | `StQNFMdpGdk`, `KRUERlNPzDw` (3 usos, as menores) | **nenhuma** |
+
+A rota da regra (h) para todas elas e `captions?part=snippet&videoId=` pelo
+`pg_net`. **Logo o banco fechado nao custa so medicao: ele torna INALCANCAVEL a
+origem menos usada dos TRES canais**, e empurra toda rodada para a banda mais
+usada — o contrario do que a concentracao pede, contra o portao `similaridade`,
+que e o portao que estamos tentando passar. Isto e consequencia da pendencia 2,
+e vale ser dito ao dono como custo, nao como inconveniencia.
