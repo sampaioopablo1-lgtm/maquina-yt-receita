@@ -1,0 +1,96 @@
+{
+ "slug": "kolejny-poziom",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "pacote": "kolejny-poziom-s038",
+ "longo_existente": "EwUkhdwyuuo",
+ "thumb": {
+  "l1": "To zdjęcie",
+  "l2": "nie prognoza"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Policzyłeś",
+   "sub": "dzisiejszą stawką",
+   "nar": "Policzyłeś oba okresy dzisiejszą stawką procentową.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "I odrzuciłeś wynik",
+   "preco": "bo stawka się zmieni",
+   "nar": "I odrzuciłeś wynik, bo stawka się zmieni.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Dwie różne rzeczy",
+   "itens": [
+    "Prognoza",
+    "Porównanie",
+    "To nie to samo"
+   ],
+   "nar": "Prognoza i porównanie to nie to samo pytanie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "To zdjęcie",
+   "sub": "nie prognoza",
+   "nar": "Twój wynik to zdjęcie warunków, nie prognoza.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Prognoza",
+   "preco": "mówi, co będzie",
+   "nar": "Prognoza mówi, co stanie się przez lata.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Porównanie",
+   "preco": "mówi, co wybrać",
+   "nar": "Porównanie mówi tylko, która opcja jest lepsza.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "I dlatego działa",
+   "preco": "obie strony tak samo",
+   "nar": "Działa, bo obie strony obciąża to samo założenie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dostajesz rząd",
+   "sub": "wielkości",
+   "nar": "Dostajesz rząd wielkości, nie ostateczną kwotę.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "I to wystarcza",
+   "preco": "żeby nie zgadywać",
+   "nar": "I to wystarcza, żeby przestać zgadywać na wyczucie.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Kolejny Poziom",
+   "sub": "subskrybuj",
+   "nar": "Subskrybuj i policz obie wersje na kartce.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# kolejny-poziom-s038\n\n## TITULO\nTwój Rachunek Jest Zdjęciem Dzisiejszych Warunków, A Nie Prognozą — I Do Wyboru To Wystarcza\n\n## TITULO SHORT\nTo zdjęcie, a nie prognoza\n\n## DESCRICAO\nLiczysz dwa warianty kredytu dzisiejszą stawką, patrzysz na wynik i **wyrzucasz go do kosza** — bo przecież stawka się zmieni. Zarzut jest prawdziwy. Wniosek z niego jest błędny, i to on kosztuje.\n\nPowód jest prosty: **prognoza i porównanie odpowiadają na dwa różne pytania.**\n\n- **Prognoza** próbuje powiedzieć, ile dokładnie zapłacisz przez lata. Tego twój rachunek nie robi i nie udaje, że robi.\n- **Porównanie** mówi tylko tyle: **który z dwóch wariantów jest lepszy**. I to właśnie robi.\n\nDlaczego porównanie zostaje w mocy, chociaż stawka jest niepewna? Bo **obie strony rachunku obciąża to samo założenie**. Niepewność nie siedzi po jednej stronie — wchodzi do obu kolumn jednakowo, więc **różnica między nimi** przeżywa to, czego **poziom** nie przeżywa.\n\nCo z tego wynika praktycznie:\n\n- wynik traktuj jako **zdjęcie** dzisiejszych warunków, nie jako obietnicę;\n- dostajesz **rząd wielkości**, nie ostateczną kwotę;\n- i rząd wielkości w zupełności wystarcza, żeby **przestać wybierać okres na wyczucie**.\n\nOdrzucenie rachunku „bo stawka się zmieni\" nie daje lepszej wiedzy. Daje **brak wiedzy** — i wybór na oko, który obciąża ta sama niepewność, tylko bez liczby w ręku.\n\nŻadna stawka, żaden procent i żadna kwota nie wchodzi do tego krótkiego filmu — **zasada (g)**: zmieniają się w czasie, a krótki film trzyma **mechanizm**. Liczby są w pełnym filmie, razem z harmonogramem.\n\nW pełnym filmie: z czego składa się rata, dlaczego dłuższy okres przedłuża początek, co z ubezpieczeniem i prowizją, trzecia opcja z nadpłatą i trzy kroki na ten tydzień.\n\n## COMENTARIO FIXADO\nProsty test: zapytaj, czy twoja liczba ma odpowiadać na pytanie **„ile zapłacę\"**, czy na pytanie **„co wybrać\"**. Jeśli na drugie, niepewna stawka jej nie psuje — bo psuje obie kolumny jednocześnie.\n\n## FAMILIA DE ENTRADA ERRADA\nConfundir PREVISAO com COMPARACAO, e por isso DESCARTAR uma conta valida: a taxa de hoje nao prediz o futuro, mas a conta nao foi feita para prever — foi feita para ordenar duas opcoes. A incerteza entra nas DUAS colunas, logo a DIFERENCA sobrevive ao que o NIVEL nao sobrevive. O erro nao e no numero; e no que se pede dele.\nFamilia nova neste canal. Distincao do `s031`, que e o vizinho mais perto: ali o erro e de DURACAO do numero (um preco de janela lido como patamar); aqui o numero nao pretende durar, e o erro e rejeitar a comparacao por uma razao que atinge igualmente os dois lados.\nOs dois irmaos desta origem (`EwUkhdwyuuo`) sao sobre nadplata encurtar prazo ou prestacao (`s011`) e sobre nao decidir no olho (`s019`) — nenhum sobre o que a conta NAO captura, e os capitulos 49 a 60 estavam intocados.\n\n## AVISO SOBRE OS NUMEROS\nNenhuma stawka, percentual, valor ou prazo entra: mudam no tempo (regra g). A fonte enumera o que a conta nao captura com ordinais, e esta peca NAO declara quantos itens sao (725) — ela usa um deles.\n\n## MIRA\nPrevisao no PISO do `ALVO_SHORT` da frota, que e o que a voz pl-PL pede (679, residuo positivo) e o que o 772 pede para ganhar folga contra o teto de 45. A exposicao vai declarada: se o edge narrar, o real cai acima da previsao pela banda observada de 0,1 a 4,0 s.\n\n## HASHTAGS\n#kredyt #rata #finanseosobiste #KolejnyPoziom\n\n## TAGS\nkredyt hipoteczny, okres kredytowania, rata kredytu, nadplata kredytu, oprocentowanie zmienne, harmonogram splat, porownanie ofert, finanse osobiste, rzad wielkosci, decyzja kredytowa, koszt kredytu, Kolejny Poziom\n"
+}
