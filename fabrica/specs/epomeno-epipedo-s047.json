@@ -1,0 +1,80 @@
+{
+ "slug": "epomeno-epipedo",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#16283C",
+  "c1": "#2E7BB4",
+  "c2": "#E0A02E",
+  "bg": "#F3F7FA"
+ },
+ "pacote": "epomeno-epipedo-s047",
+ "longo_existente": "nttW9fR8wyY",
+ "thumb": {
+  "l1": "Ίδια",
+  "l2": "προσφορά"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Λείπει μια τιμή",
+   "sub": "και τη ψάχνεις",
+   "nar": "Το χαρτί δεν γράφει καθόλου την τιμή μετρητοίς.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Το λάθος",
+   "nar": "Το λάθος είναι να τη βρεις αλλού, στο διαδίκτυο ας πούμε."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Γιατί",
+   "sub": "άλλο χαρτί",
+   "nar": "Η τιμή άλλου καταστήματος είναι τελείως άλλο χαρτί."
+  },
+  {
+   "layout": "item",
+   "kicker": "Τι βγαίνει",
+   "nar": "Η αφαίρεση μετρά τότε δύο τελείως διαφορετικά πράγματα."
+  },
+  {
+   "layout": "item",
+   "kicker": "Και το νούμερο",
+   "nar": "Το νούμερο που βγαίνει δεν είναι το κόστος των δόσεων."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Ο έλεγχος θέλει",
+   "itens": [
+    "δύο τιμές",
+    "στην ίδια προσφορά"
+   ],
+   "nar": "Ο έλεγχος δουλεύει με δύο τιμές στην ίδια προσφορά."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Τι κάνεις",
+   "sub": "μία ερώτηση",
+   "nar": "Ρωτάς ποια είναι η τιμή μετρητοίς εδώ, στο ταμείο."
+  },
+  {
+   "layout": "item",
+   "kicker": "Πότε",
+   "nar": "Και τη ρωτάς πριν συζητήσεις καθόλου δόσεις."
+  },
+  {
+   "layout": "item",
+   "kicker": "Είναι θεμιτή",
+   "nar": "Η ερώτηση αυτή είναι θεμιτή σε κάθε κατάστημα."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Ρώτα πρώτα",
+   "nar": "Ρώτα πρώτα την τιμή και γράψου εδώ."
+  }
+ ],
+ "copy": "# epomeno-epipedo-s047\n\n## TITULO\nΟ Έλεγχος Θέλει Δύο Τιμές Στην ΙΔΙΑ Προσφορά — Η Τιμή Άλλου Καταστήματος Είναι Άλλο Χαρτί\n\n## TITULO SHORT\nΊδια προσφορά\n\n## DESCRICAO\nΟ έλεγχος των δόσεων είναι αφαίρεση: σύνολο δόσεων μείον την τιμή μετρητοίς. Και έχει μια προϋπόθεση που σπάνια λέγεται, γιατί συνήθως ισχύει από μόνη της — **οι δύο τιμές πρέπει να είναι στο ίδιο χαρτί.**\n\nΥπάρχει όμως η περίπτωση που το χαρτί **δεν γράφει** την τιμή μετρητοίς: γράφει μόνο δόσεις, ή γράφει «από» κάποιο ποσό. Τότε δεν έχεις δεύτερη τιμή, και η λύση που έρχεται πρώτη στο μυαλό είναι να τη βρεις αλλού — στο διαδίκτυο, σε άλλο κατάστημα, σε μια παλιά απόδειξη.\n\n**Εκεί ο έλεγχος σταματά να μετρά αυτό που νομίζεις.** Η τιμή άλλου καταστήματος είναι άλλο χαρτί, με άλλη πολιτική, άλλο απόθεμα και άλλη ημερομηνία. Η αφαίρεση βγάζει νούμερο — αλλά αυτό το νούμερο είναι **η διαφορά μεταξύ δύο καταστημάτων**, όχι το κόστος των δόσεων. Δύο ερωτήσεις μπήκαν στην ίδια πράξη, και η πράξη δεν ξέρει να τις ξεχωρίσει.\n\nΗ λύση δεν είναι υπολογισμός, είναι **μία ερώτηση**:\n\n- **«ποια είναι η τιμή μετρητοίς εδώ;»** — και τη ρωτάς **πριν** συζητήσεις δόσεις, γιατί μετά η συζήτηση έχει άλλη αφετηρία;\n- και αν δεν σου τη δώσουν, **αυτό είναι το αποτέλεσμα του ελέγχου**: δεν μπορεί να γίνει, και δεν υποθέτεις.\n\nΗ ερώτηση είναι θεμιτή σε κάθε κατάστημα, και δεν σε δεσμεύει σε τίποτα. Το κόστος του να τη ρωτήσεις είναι δέκα δευτερόλεπτα; το κόστος του να μην τη ρωτήσεις είναι ένας υπολογισμός που δείχνει σωστός και απαντά σε άλλο ερώτημα.\n\nΟι τρεις περιπτώσεις που ο υπολογισμός δεν καλύπτει καθόλου είναι στο αναλυτικό βίντεο.\n\n## COMENTARIO FIXADO\nΑν το χαρτί δεν γράφει τιμή μετρητοίς, **ρώτα την** — μην την ψάξεις αλλού. Άλλο κατάστημα, άλλο χαρτί.\n\n## HASHTAGS\n#δόσεις #οικονομικά #αγορές #ΕπόμενοΕπίπεδο #shorts\n\n## TAGS\nδόσεις, άτοκες δόσεις, τιμή μετρητοίς, σύγκριση, κατάστημα, προσφορά, προσωπικά οικονομικά, αγορές, καταναλωτής, Επόμενο Επίπεδο, υπολογισμός\n\n## AVISO\n**ORIGEM: a regra de RECÊNCIA, pela ordem VIVA.** O longo mais novo do canal segue\nsendo `nttW9fR8wyY` (754 s) — pacote `epomeno-epipedo-017`, **81 capítulos**, agora\ncom SEIS usos, e o `segundo_angulo.py` ainda relata a maioria dos capítulos não\nmencionada. A unidade de pauta é (LONGO × FAMÍLIA).\n\n**FAMÍLIA DE ENTRADA ERRADA, nova neste canal:** quando falta a segunda preço no\npapel, buscá-lo **FORA** — noutra loja ou na internet. A subtração devolve número,\ne esse número é a diferença entre duas LOJAS, não o custo das parcelas: duas\nperguntas entraram na mesma operação. Sai dos capítulos 54 a 56 (`Πού δεν φτάνει`,\n`Τι κάνεις τότε`, `Γιατί όχι στο διαδίκτυο`), intocados pelas seis peças\nanteriores, cujas famílias foram: zero → olhar despesas (`s005`), o resto é em\neuros e não taxa (`s024`), negativo não acontece (`s038`), o número não recomenda\n(`s044`), a despesa contada duas vezes (`s045`) e o percentual com número de\nparcelas diferente (`s046`).\n\n**E o short carrega o caso em que o controle NÃO se faz**, que é a parte que o\nlongo chama de limite: se não derem a informação, o resultado do controle é \"não\ndá\", e não se supõe. Isso é a regra (g) na forma mais forte — em vez de descartar\num número que muda, ele descarta a própria suposição.\n\n## CONFIGURACOES DO STUDIO\nShort 9:16, `privacyStatus=public`, trilha `Inspired`, voz `el-GR-NestorasNeural`.\n\n**EXPOSIÇÃO DA DURAÇÃO, declarada ANTES de publicar:** previsão edge **~41 s** e\npiper **~36 s**, os dois dentro de 18 a 45 — mira no PISO do `ALVO_SHORT` (41,5),\npela regra de redação do 772. Com a banda observada, que foi a **(0,0; 4,0)** na\nrodada das 21:2x, **se o edge narrar o REAL deve cair entre ~41 e ~45 s, e o topo\ndessa faixa ENCOSTA no teto de 45 do portão**. Nenhum parâmetro mudou (§10).\n"
+}
