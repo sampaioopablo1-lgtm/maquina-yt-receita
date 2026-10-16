@@ -132,12 +132,41 @@ def test_o_relato_DIZ_que_sem_spec_local_nao_e_inviavel(tmp_path):
     assert "nao escreva a partir de titulo" in texto
 
 
-def test_as_duas_origens_reais_de_14_10_seguem_sem_spec_local():
-    """Ancora: se alguem escrever spec para elas, este teste avisa para reler."""
+def test_as_duas_origens_de_14_10_TINHAM_spec_local__RETRATACAO():
+    """RETRATADO em 16/10 as 11:4x, e o teste e que me obrigou a conferir.
+
+    A versao anterior exigia `escrevivel(...) is False` para `KRUERlNPzDw` e
+    `StQNFMdpGdk`, ancorada na minha afirmacao de 14/10 (aprendizados 759/761)
+    de que as duas nao tinham spec local. **A afirmacao era falsa:** elas sao o
+    `labtreinamento-002` e o `-003`, com **87 e 84** capitulos no disco.
+
+    O que produzia o falso negativo era o resolvedor, nao o dado: o
+    `segundo_angulo.pacote_do_id` le o vinculo `origem -> pacote` da COPY de um
+    short que nomeie o pacote, logo e cego para origem que ainda nao gerou um
+    short com esse texto. O mapa `youtube_id -> pacote` estava no retrato da
+    ponte desde sempre, e agora o `escrevivel` o consulta como ultimo recurso.
+
+    O custo foi real e vai dito: por tres rodadas eu fui pela rota da LEGENDA
+    (regra h) para origens cujo texto estava no disco. A rota funcionou e era
+    legitima — ela so nao era necessaria.
+    """
     for o in ("KRUERlNPzDw", "StQNFMdpGdk"):
-        assert C.escrevivel(o, "labtreinamento") is False, (
-            f"{o} ganhou spec local: refaca a escolha de pauta, ela virou "
-            "escrevivel")
+        assert C.escrevivel(o, "labtreinamento") is True, (
+            f"{o} voltou a NAO ser escrevivel: ou o retrato da ponte saiu do"
+            " caminho, ou a spec de longo perdeu os capitulos — releia o"
+            " aprendizado 759/761 antes de mandar a rodada pela legenda")
+
+
+def test_o_conserto_NAO_devolve_True_para_tudo():
+    """Contraprova: origem sem spec de longo no disco continua False.
+
+    Sem este teste o conserto acima passaria por vacuidade — bastaria
+    `escrevivel` devolver True sempre. O `FtCtIJPsc_Q` e o longo que o dono
+    apontou: ele NAO tem pacote no retrato nem spec de longo local, e a rota
+    dele e de fato a legenda.
+    """
+    assert C.escrevivel("FtCtIJPsc_Q", "labtreinamento") is False
+    assert C.escrevivel("id-que-nao-existe", "labtreinamento") is False
 
 
 def test_contagem_ignora_short_sem_longo_existente(tmp_path):

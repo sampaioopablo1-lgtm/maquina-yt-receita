@@ -439,3 +439,33 @@ e a alavanca continua sendo CONVERSAO, nao volume.
 **Peca publicada:** `Z8KZL5z8nxI` (`labtreinamento-s059`), origem `FtCtIJPsc_Q` —
 o longo que o dono apontou. 23 linhas agora parqueadas em
 `videos-a-inserir.sql`, esperando `execute_sql`.
+
+## 16/10 11:4x — eu fui pela rota LONGA por tres rodadas, e o texto estava no disco
+
+**RETRATACAO medida, e quem me pegou foi um teste meu.** Eu afirmei em 14/10
+(aprendizados 759/761) que `StQNFMdpGdk` e `KRUERlNPzDw` **nao tinham spec
+local**, e por isso usei a rota da LEGENDA (regra h) nelas. Elas sao o
+`labtreinamento-002` e o `-003`, com **87 e 84 capitulos** no disco.
+
+O falso negativo era do RESOLVEDOR, nao do dado: o `segundo_angulo.pacote_do_id`
+le o vinculo `origem -> pacote` da COPY de um short que nomeie o pacote, logo e
+cego para origem que ainda nao gerou short com esse texto. O mapa
+`youtube_id -> pacote` esta no retrato da ponte desde sempre.
+
+**O custo:** tres rodadas pela rota longa para texto que estava a um `json.load`
+de distancia. A rota da legenda funcionou e era legitima — ela so nao era
+necessaria. **Consertado** (`concentracao.escrevivel` consulta o retrato como
+ultimo recurso), com contraprova: `FtCtIJPsc_Q`, que de fato nao tem pacote no
+retrato, continua `False`.
+
+**E O RUN PODE SER MISTO — primeiro medido.** O job `116943785023` devolveu
+**DOIS** avisos `NARRACAO PELO PIPER` em dez cenas: oito pelo edge, duas pelo
+Piper. Eu vinha tratando a contagem como interruptor de duas posicoes (0 ou 10)
+porque todos os pontos anteriores vieram assim. **Consequencia para a banda:**
+run misto nao tem mundo de provedor, logo o ponto NAO entra na serie do residuo
+— nem `edge` nem `piper` descreve a duracao de uma peca narrada pelos dois.
+
+**Inscritos, janela de 28,2 h:** `epomeno-epipedo` de 20 para **21**, o primeiro
+delta nao-zero da sessao. Os outros dois iguais. Piso de resolucao 0,85/dia, logo
+e UMA contagem e sai `indeterminado` (723) — mas diz que o limite de ~0,85/dia
+nao e um zero disfarcado.

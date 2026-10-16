@@ -121,8 +121,50 @@ def escrevivel(origem: str, canal: str, raiz: str = None) -> bool:
         return False
     pacote = segundo_angulo.pacote_do_id(origem)
     if not pacote:
+        # SEGUNDO RESOLVEDOR, e ele retrata uma afirmacao minha de 14/10
+        # (aprendizados 759/761). O `pacote_do_id` resolve o vinculo
+        # `origem -> pacote` lendo a COPY de um short que o nomeie — logo ele e
+        # CEGO para origem que ainda nao gerou short com esse texto, e devolve
+        # False por FALTA DE LINK, nao por falta de capitulo.
+        # Medido em 16/10 as 11:4x: `StQNFMdpGdk` e `KRUERlNPzDw` tem spec local
+        # com **87 e 84** capitulos (`labtreinamento-002` e `-003`), e eu as
+        # chamei de "sem spec local" por tres rodadas, indo pela rota da legenda
+        # (regra h) quando o texto estava no disco. A rota da legenda funcionou e
+        # era REAL; ela so nao era necessaria.
+        # O mapa `youtube_id -> pacote` esta no retrato da ponte desde sempre.
+        # Usa-lo AQUI e legitimo e e diferente de usa-lo como ESTOQUE, que e o
+        # erro retratado em 12/10: aqui ele responde "de que pacote e esta peca
+        # ANTIGA", que e exatamente o que ele registra.
+        pacote = _pacote_pelo_retrato(origem)
+    if not pacote:
         return False
-    return bool(segundo_angulo.capitulos_do_pacote(pacote))
+    if segundo_angulo.capitulos_do_pacote(pacote):
+        return True
+    # O `capitulos_do_pacote` pode nao conhecer o pacote; o criterio que importa
+    # e haver capitulo no disco.
+    alvo = os.path.join(base, f"{pacote}.json")
+    try:
+        with open(alvo, encoding="utf-8") as fh:
+            return bool(json.load(fh).get("longo"))
+    except (OSError, ValueError):
+        return False
+
+
+def _pacote_pelo_retrato(origem: str) -> str | None:
+    """O pacote de uma peca ANTIGA, pelo retrato da ponte.
+
+    NAO e fonte de estoque (12/10) — e tabela de id de peca ja publicada.
+    """
+    alvo = os.path.join(RAIZ, "ponte", "videos.json")
+    try:
+        with open(alvo, encoding="utf-8") as fh:
+            linhas = json.load(fh)
+    except (OSError, ValueError):
+        return None
+    for r in linhas:
+        if r.get("youtube_id") == origem and r.get("pacote"):
+            return r["pacote"]
+    return None
 
 
 def analise(contagens: dict[str, int], canal: str = None,
