@@ -366,3 +366,38 @@ consumidas (670).
 **Storage em 402 outra vez:** `thumbnail.png` e `short.mp4` nao subiram ao
 bucket. A publicacao no YouTube nao depende disso, e a capa propria foi
 confirmada pela rota do sandbox (`maxresdefault` 200, 57 KB; `maxres2` 200).
+
+## 16/10 06:1x — kolejny-poziom-s040 no ar, e o LIMITE da frota aperta
+
+**Peca publicada:** `7KZjro4H8ls` (`kolejny-poziom-s040`), origem `MjI4ZGJAhIo`
+— uma das duas menos usadas do canal, sem spec local, alcancada pela regra (h)
+atraves da legenda `pl` (1.242 palavras). Onze portoes verdes, provedor **edge**
+MEDIDO (zero avisos no job `116839333951`), previsao 41,7.
+
+**LEITURA DE INSCRITOS QUE VALE A JANELA:** 16/10 06:1x contra 15/10 07:13, isto
+e **23,1 h** — **68 / 20 / 8**, delta ZERO nos tres. O piso de resolucao dessa
+janela e **1,04/dia**, logo os tres saem `indeterminado` (criterio do 723: duas
+contagens) e o que se afirma e um LIMITE SUPERIOR: **a frota anda abaixo de
+1,04 inscrito/dia.** E uma cota mais apertada que a de 1,18 da janela de 20,4 h
+de 03:3x, e ela continua derrubando o "+1,79/dia" que eu carreguei desde 12/10.
+
+**O que isto significa para "ate fim de outubro": segue impossivel por ordem de
+grandeza.** O modulo pede, na conversao MEDIDA de 1,2 por mil, de **24.000 a
+27.333 views/dia num unico canal** — contra ~2.100/dia da frota inteira. A 20 por
+mil cairia para 1.440 a 1.640/dia, que e alcancavel; logo a alavanca continua
+sendo CONVERSAO, e conversao nao se mede sem o escopo de analytics.
+
+**A SINCRONIA DA ROTINA COM O PROMPT DO TRIGGER E UM BLOQUEIO, nao um atraso
+meu — e agora esta MEDIDA.** O `get_trigger` devolveu o prompt gravado com
+**64.506 bytes** (md5 `d03be9a6ff6ab79aee8dfd627faafb7f`) contra **64.891** do
+`docs/ROTINA.md` (md5 `45d3629f36fb70a409e8ddede25f7e54`): **238 linhas
+diferentes**, 111 so no prompt e 127 so no arquivo. O que falta no prompt e a
+§6-bis — o processo de producao que o dono pediu em 16/10, as tres rotas do
+sandbox e a tabela de estilo por canal.
+**Por que eu nao aplico:** o `update_trigger` exige o corpo INTEIRO como
+argumento, o que obriga a reproduzir 64.891 bytes pela minha propria saida. Uma
+letra trocada dentro de uma trava e defeito SILENCIOSO e durável, e governaria
+toda rodada futura — a mesma assinatura que matou tres runs no `estado_b64`.
+**Enquanto nao houver caminho que LEIA o arquivo, quem governa e o `CLAUDE.md`**,
+que o proprio prompt manda ler primeiro e que carrega a §6-bis com essa
+declaracao escrita. Eu paro de prometer a sincronia a cada rodada.
