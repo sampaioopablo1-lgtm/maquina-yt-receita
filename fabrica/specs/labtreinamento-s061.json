@@ -1,0 +1,83 @@
+{
+  "slug": "labtreinamento",
+  "idioma": "pt-BR",
+  "voz": "pt-BR-ThalitaMultilingualNeural",
+  "trilha": "Inspired",
+  "paleta": {
+    "ink": "#1F2933",
+    "c1": "#3F6C51",
+    "c2": "#C98B2E",
+    "bg": "#F5F3ED"
+  },
+  "pacote": "labtreinamento-s061",
+  "longo_existente": "FtCtIJPsc_Q",
+  "thumb": {
+    "l1": "Versão de",
+    "l2": "quem abre"
+  },
+  "copy": "# labtreinamento-s061\n\n## TITULO\nA Capacidade da Planilha é de Quem ABRE o Arquivo, Não de Quem Escreveu a Fórmula\n\n## TITULO SHORT\nA versão é de quem abre\n\n## DESCRICAO\nVocê escreveu a fórmula, testou, funcionou. Mandou a planilha para alguém e lá apareceu erro. **A fórmula não mudou no caminho** — e é justamente aí que a conta costuma ser feita errado.\n\nA pergunta que parece certa é *\"a minha versão tem essa função?\"*. A pergunta que decide é outra:\n\n- **quem vai ABRIR o arquivo tem?** — porque é o programa dela que vai calcular;\n- e numa mesma equipe **convivem versões diferentes**, mesmo quando todos recebem o arquivo pelo mesmo canal.\n\nTer a versão certa no seu computador não transfere a capacidade para o arquivo. O arquivo guarda a fórmula; **a capacidade de executá-la fica no computador de quem abre.** É o mesmo tipo de confusão que faz alguém dizer \"no meu funciona\" e parar a investigação ali.\n\nA regra prática, então, é de ENVIO e não de autoria: se o arquivo vai circular por computadores que você não controla, ou se você não sabe quem vai abrir, escolha a construção que funciona em qualquer um deles — e, na dúvida, **pergunte antes de enviar** em vez de descobrir pelo erro do outro.\n\n**NÃO carreguei aqui a lista de quais versões têm a função.** Essa lista envelhece a cada lançamento, e a regra não: ela vale igual daqui a cinco anos. O material de origem dá a lista, se você precisar dela hoje: https://www.youtube.com/watch?v=FtCtIJPsc_Q\n\n## COMENTARIO FIXADO\nJá te aconteceu de a planilha funcionar no seu e quebrar no de outra pessoa? Conta o que era — sem nome de empresa.\n\n## HASHTAGS\n#excel #planilhas #produtividade\n\n## TAGS\nexcel, planilha, compatibilidade, versão do excel, fórmula com erro, trabalho em equipe, enviar planilha, PROCX, PROCV, produtividade, LabTreinamento\n\n## AVISO\n**ORIGEM: a regra de RECÊNCIA, e esta é a terceira peça seguida deste canal a sair do rank mais alto.** Lida a ordem VIVA de uploads pelo `yt-dlp --flat-playlist` (40 itens), o longo mais novo do `labtreinamento` é `FtCtIJPsc_Q` — **rank 12 entre TODOS os uploads**, porque os onze acima dele são shorts nossos. É o mesmo vídeo a que o dono apontou em 16/10 e o mesmo que eu medi quadro por quadro nesta sessão.\n\n**E o item de rank 3 NÃO é longo, embora pareça:** o `8DVWFC5agrg` (`labtreinamento-s058`) tem 124 s, abaixo do teto de 180 s do Short. O `recencia.longos_na_ordem` o exclui pela duração, e isso é o filtro fazendo o trabalho certo — tratá-lo como origem seria usar a nossa própria peça como pauta.\n\n**A ROTA DA LEGENDA ESTAVA ABERTA NESTA RODADA**, e isso é estado e não propriedade: às 07:1x de hoje ela devolvia *\"Sign in to confirm you're not a bot\"*. Agora o `yt-dlp --write-subs` baixou **71 KB** de VTT, **243 falas e 7.360 caracteres**. Nenhuma frase desta peça saiu de TÍTULO de capítulo nem de OCR de slide — saiu da NARRAÇÃO, falas de 396 s a 480 s.\n\n**FAMÍLIA DE ENTRADA ERRADA: ONDE MORA A CAPACIDADE — nova neste canal.** Conferida contra as duas peças que já saíram desta origem: o `s058` usa *ausência lida como neutralidade* (o quarto argumento omitido) e o `s059` usa *posição no lugar de identidade*. Nenhuma das duas trata de onde a capacidade reside. A entrada errada aqui é **atribuir ao ambiente do AUTOR uma propriedade que é do ambiente do LEITOR**.\n\n**REGRA (g) APLICADA, E ELA CUSTOU CONTEÚDO:** a fonte nomeia as versões que têm e não têm a função. **Não entrou nenhuma.** Lista de versões envelhece a cada lançamento — some uma versão nova e a lista fica incompleta sem ninguém notar — enquanto a REGRA (\"a capacidade é de quem abre\") não envelhece nunca. O descarte vai escrito aqui, e a descrição manda ao longo quem precisar da lista de hoje.\n\n**MIRA E EXPOSIÇÃO, declaradas ANTES de publicar:**\n- previsão **edge 25,2** / **piper 20,7** — os dois DENTRO da mira do canal (20,0 a 26,0) e dentro do portão de 18 a 45. A postura é a do 753: manter a mira VERDE e declarar a exposição, porque o 752/774 derrubaram a saída do 751;\n- com a banda observada de **+0,1 a +4,0 s** o real deve cair entre **25,3 e 29,2 s** — **e o topo PASSA do teto da mira (26,0)**. Pela pinça do 740/748/774 não existe spec deste canal que satisfaça previsão e real ao mesmo tempo: `real ≤ 26,0` exigiria `edge ≤ 22,0`, onde o piper cai a ~18,0, abaixo do piso de 20,0. A decisão segue na fila do dono;\n- o provedor **não** se escolhe: ele se decide por cena e por run, e vai MEDIDO pelas anotações do job.\n\n**IDENTIDADE (601):** trilha `Inspired` e a paleta do `labtreinamento-s060`, que é a faixa atual do canal.\n\n**ESQUELETO:** `titulo-item-item-titulo-item-lista-titulo-item-item-cta`, diferente do `s060` (`titulo-item-titulo-item-lista-item-item-titulo-item-cta`) de propósito — a forma nova vira molde próprio em um dia se ninguém contar.\n\n**CTA: experimento 37** — o kicker pede a inscrição e a descrição guarda o caminho do longo.\n\n## CONFIGURACOES DO STUDIO\n- idioma: pt-BR\n- categoria: 26\n- privacidade: public\n",
+  "longo": [],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Testou",
+      "sub": "e funcionou",
+      "nar": "Testou a fórmula e funcionou.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "No seu computador",
+      "sub": "só ali",
+      "nar": "No seu computador."
+    },
+    {
+      "layout": "item",
+      "kicker": "Mandou",
+      "sub": "e lá deu erro",
+      "nar": "Mandou, e lá deu erro."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "A fórmula não mudou",
+      "sub": "o que mudou foi outra coisa",
+      "nar": "A fórmula não mudou."
+    },
+    {
+      "layout": "item",
+      "kicker": "Outra versão",
+      "sub": "quem abriu",
+      "nar": "Quem abriu tem outra versão."
+    },
+    {
+      "layout": "lista",
+      "kicker": "É a dela que decide",
+      "sub": "não a sua",
+      "nar": "É a dela que decide."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Aqui não basta",
+      "sub": "ter a certa no seu",
+      "nar": "Ter a certa aqui não basta."
+    },
+    {
+      "layout": "item",
+      "kicker": "De quem abre",
+      "sub": "a capacidade",
+      "nar": "A capacidade é de quem abre."
+    },
+    {
+      "layout": "item",
+      "kicker": "Na mesma equipe",
+      "sub": "convivem versões",
+      "nar": "Na equipe convivem versões."
+    },
+    {
+      "layout": "cta",
+      "kicker": "Inscreva-se",
+      "sub": "pergunte antes",
+      "nar": "Pergunte antes de enviar."
+    }
+  ]
+}
