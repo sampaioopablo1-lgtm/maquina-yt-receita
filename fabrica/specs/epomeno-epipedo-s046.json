@@ -1,0 +1,80 @@
+{
+ "slug": "epomeno-epipedo",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#16283C",
+  "c1": "#2E7BB4",
+  "c2": "#E0A02E",
+  "bg": "#F3F7FA"
+ },
+ "pacote": "epomeno-epipedo-s046",
+ "longo_existente": "nttW9fR8wyY",
+ "thumb": {
+  "l1": "Σύγκρινε",
+  "l2": "ευρώ"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Δύο προσφορές",
+   "sub": "δύο ποσοστά",
+   "nar": "Έχεις δύο προσφορές με δόσεις και βρήκες δύο ποσοστά.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Το λάθος",
+   "nar": "Το λάθος είναι να διαλέξεις απλώς το μικρότερο ποσοστό."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Γιατί",
+   "sub": "άλλος αριθμός δόσεων",
+   "nar": "Γιατί ο αριθμός των δόσεων δεν είναι ίδιος στις δύο."
+  },
+  {
+   "layout": "item",
+   "kicker": "Άρα",
+   "nar": "Άρα τα δύο ποσοστά δεν συγκρίνονται άμεσα."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Τι συγκρίνεται",
+   "itens": [
+    "το ευρώ",
+    "σε απόλυτο νούμερο"
+   ],
+   "nar": "Συγκρίνεται πάντα το ευρώ, σε απόλυτο νούμερο."
+  },
+  {
+   "layout": "item",
+   "kicker": "Η πράξη",
+   "nar": "Πόσα παραπάνω δίνεις στη μία και πόσα στην άλλη προσφορά."
+  },
+  {
+   "layout": "item",
+   "kicker": "Και μόνο αυτό",
+   "nar": "Αυτό το νούμερο βγαίνει γραμμένο από το κάθε χαρτί χωριστά."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ο έλεγχος",
+   "sub": "μία φορά σε κάθε",
+   "nar": "Κάνε τον ίδιο έλεγχο χωριστά σε κάθε μία προσφορά."
+  },
+  {
+   "layout": "item",
+   "kicker": "Μετά",
+   "nar": "Και μόνο τότε βάλε τα δύο ευρώ δίπλα δίπλα."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Δες τα χαρτιά σου",
+   "nar": "Δες τα δικά σου χαρτιά και γράψου εδώ."
+  }
+ ],
+ "copy": "# epomeno-epipedo-s046\n\n## TITULO\nΔύο Προσφορές με Διαφορετικές Δόσεις Δεν Συγκρίνονται με Ποσοστό — Συγκρίνονται με Ευρώ\n\n## TITULO SHORT\nΣύγκρινε ευρώ\n\n## DESCRICAO\nΈκανες τον έλεγχο σωστά και στις δύο προσφορές: πολλαπλασίασες τις δόσεις, αφαίρεσες την τιμή μετρητοίς, βρήκες πόσο κοστίζει η διευκόλυνση σε καθεμία. Μέχρι εδώ **δεν υπάρχει λάθος**.\n\nΤο λάθος είναι ένα βήμα μετά, και είναι το πιο φυσικό βήμα του κόσμου: μετατρέπεις τα δύο κόστη σε **ποσοστό** και διαλέγεις το μικρότερο. Αυτό δουλεύει μόνο όταν οι δύο προσφορές έχουν τον **ίδιο αριθμό δόσεων** — και σχεδόν ποτέ δεν τον έχουν.\n\nΓιατί το ποσοστό κρύβει πόσους μήνες κρατά η υποχρέωση. Δύο κόστη που φαίνονται παρόμοια σε ποσοστό μπορεί να είναι τελείως διαφορετικά ποσά, και δύο ποσοστά που φαίνονται διαφορετικά μπορεί να δίνουν σχεδόν το ίδιο ευρώ. Η σύγκριση απαντά σε άλλη ερώτηση από αυτή που έκανες.\n\n**Αυτό που συγκρίνεται πάντα είναι το ευρώ**, σε απόλυτο νούμερο: πόσα παραπάνω δίνεις στη μία και πόσα παραπάνω στην άλλη. Το νούμερο αυτό υπάρχει γραμμένο σε κάθε χαρτί χωριστά, δεν χρειάζεται καμία μετατροπή, και δεν εξαρτάται από το πόσοι μήνες είναι.\n\nΗ σειρά που δουλεύει, και είναι δύο κινήσεις:\n\n- **κάνε τον έλεγχο χωριστά** σε κάθε προσφορά, με το δικό της χαρτί;\n- **και μετά βάλε τα δύο ευρώ δίπλα δίπλα**, χωρίς να τα περάσεις από ποσοστό.\n\nΚαι μένει μια ερώτηση που ο υπολογισμός δεν απαντά για σένα: αν η διαφορά αξίζει τους επιπλέον μήνες. Αυτό εξαρτάται από το απόθεμά σου, και γι' αυτό δεν συστήνει τίποτα κανένα νούμερο μόνο του.\n\nΤα όρια αυτού του υπολογισμού, και οι τρεις περιπτώσεις που δεν καλύπτει, είναι στο αναλυτικό βίντεο.\n\n## COMENTARIO FIXADO\nΑν οι δύο προσφορές σου έχουν άλλο αριθμό δόσεων, γράψε τα **ευρώ** της καθεμιάς — όχι τα ποσοστά.\n\n## HASHTAGS\n#δόσεις #οικονομικά #σύγκριση #ΕπόμενοΕπίπεδο #shorts\n\n## TAGS\nδόσεις, άτοκες δόσεις, ποσοστό, σύγκριση προσφορών, τιμή μετρητοίς, κόστος διευκόλυνσης, προσωπικά οικονομικά, ευρώ, υπολογισμός, Επόμενο Επίπεδο, καταναλωτής\n\n## AVISO\n**ORIGEM: a regra de RECÊNCIA, pela ordem VIVA.** O longo mais novo do canal\nsegue sendo `nttW9fR8wyY` (754 s) — pacote `epomeno-epipedo-017`, **81\ncapítulos**. Ele já tinha CINCO usos, e isso não é motivo para pular o topo: a\nunidade de pauta é (LONGO × FAMÍLIA), e o `segundo_angulo.py` relata **63\ncapítulos não mencionados**.\n\n**FAMÍLIA DE ENTRADA ERRADA, nova neste canal:** comparar duas ofertas pelo\n**PERCENTUAL** quando elas têm número de parcelas diferente. Sai dos capítulos 60 e\n61 (`Τρίτη περίπτωση` / `Τι συγκρίνεται`), intocados pelas cinco peças\nanteriores, cujas famílias foram: zero → olhar as despesas (`s005`), o resto é em\neuros e não é taxa (`s024`), negativo não acontece (`s038`), o número não\nrecomenda (`s044`) e a despesa contada duas vezes (`s045`).\n\n**E a regra (g) foi aplicada:** o longo traz o exemplo com valores inventados\n(600, 680, 20 €) — **número que MUDA e que o próprio autor declara inventado**.\nFora do short; ele carrega só a regra.\n\n## CONFIGURACOES DO STUDIO\nShort 9:16, `privacyStatus=public`, trilha `Inspired`, voz `el-GR-NestorasNeural`.\n\n**EXPOSIÇÃO DA DURAÇÃO, declarada ANTES de publicar:** previsão edge **41,3 s** e\npiper **36,6 s**, os dois dentro de 18 a 45 — mira no PISO do `ALVO_SHORT`\n(41,5), pela regra de redação do 772. Com a banda observada (0,1 a 4,0 s), **se o\nedge narrar o REAL deve cair entre ~41,4 e ~45,3 s, e o topo dessa faixa PASSA do\nteto de 45 do portão**. Nenhum parâmetro mudou (§10).\n"
+}
