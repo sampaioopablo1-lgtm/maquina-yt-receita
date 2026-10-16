@@ -175,6 +175,10 @@ SERIE = [
     # 117099160058), previsao 41,8 e real 44 — residuo +2,2, DENTRO da banda,
     # sinal ESTABELECIDO, e ABAIXO do teto de 45 que a copy declarou como risco.
     ("epomeno-epipedo-s045", 41.8, 44, "edge"),
+    # 18:13 de 16/10, mirando o PISO: provedor edge MEDIDO (zero avisos no job
+    # 117122802245), previsao 41,7 e real 43 — residuo +1,3, DENTRO da banda,
+    # sinal ESTABELECIDO, e abaixo do teto de 45 que a copy declarou como risco.
+    ("kolejny-poziom-s044", 41.7, 43, "edge"),
 ]
 
 

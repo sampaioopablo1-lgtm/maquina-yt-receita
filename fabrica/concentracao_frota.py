@@ -315,3 +315,46 @@ def ultima_do_pendente(caminho: str = None) -> dict[str, str]:
             if canal not in fora or datas[-1] > fora[canal]:
                 fora[canal] = datas[-1]
     return fora
+
+
+def contagem_do_pendente(desde: str, caminho: str = None) -> dict[str, int]:
+    """Quantas pecas por canal com `publicado_em >= desde`, nas linhas PARQUEADAS.
+
+    Ele existe porque eu vinha contando o DIA com um regex escrito a mao na
+    linha de comando, a cada rodada — e a §10 da rotina diz, no item 3, que todo
+    numero que eu calculo a mao vira um erro meu mais cedo ou mais tarde. A
+    contagem decide QUAL CANAL produz, logo e exatamente o tipo de numero que
+    nao deve morar num `awk` descartavel.
+
+    `desde` e um prefixo ou um instante ISO em UTC: `"2026-10-16"` conta o dia
+    calendario, e `"2026-10-15T19:00:00Z"` conta a janela movel de 24 h do 771 —
+    **a janela movel e a que ordena na virada da meia-noite**, e por isso o
+    argumento aceita as duas formas em vez de so a data.
+
+    Herda o aviso do irmao acima: e um PISO. Canal que nao aparece sai com
+    ZERO, e zero aqui significa "nenhuma linha PARQUEADA", nao "nao publicou" —
+    quem for desempatar com isso usa o `mais_baixo`, que recusa em vez de
+    inventar. A comparacao e lexicografica, o que vale para ISO em UTC com o
+    mesmo numero de digitos; nao passe data com fuso.
+    """
+    import os
+    import re
+
+    if not desde or not str(desde).startswith("20"):
+        raise ValueError(
+            f"`desde` tem de ser data ou instante ISO em UTC, veio {desde!r}")
+    if caminho is None:
+        caminho = os.path.join(
+            os.path.dirname(os.path.dirname(os.path.abspath(__file__))), PENDENTE)
+    fora: dict[str, int] = {c: 0 for c in FROTA}
+    if not os.path.exists(caminho):
+        return fora
+    with open(caminho, encoding="utf-8") as fh:
+        for linha in fh:
+            canal = next((c for c in FROTA if f"'{c}'" in linha), None)
+            if not canal:
+                continue
+            datas = re.findall(r"'(20\d\d-\d\d-\d\dT[\d:]+Z)'", linha)
+            if datas and datas[-1] >= desde:
+                fora[canal] += 1
+    return fora

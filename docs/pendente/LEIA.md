@@ -640,3 +640,25 @@ Não é — a listagem fecha enquanto três rotas abrem. Detalhe em `CLAUDE.md`.
 continuam fora do banco. E o clique dos dois consentimentos do Google segue sendo
 a ação de maior valor da fila — `relativeRetentionPerformance` é o comparador que
 funciona com **uma peça só**.
+
+## 16/10 18:1x — a peça do kolejny e a contagem que saiu da minha linha de comando
+
+`kolejny-poziom-s044` = `MvmwHqFmYvY`, **43 s reais** contra previsão edge de
+41,7 (provedor **edge** medido, zero avisos no job `117122802245`): resíduo
+**+1,3 s**, dentro da banda e com sinal estabelecido. Mirei o **PISO** do
+`ALVO_SHORT`, que é o que a voz polonesa pede, e a exposição do teto de 45
+declarada na copy **não** se realizou. Som LUFS −13,8, desvio 0,2, zero silêncios.
+
+**E um item de construção que é hábito meu, não defeito de código:** eu vinha
+contando o DIA — o número que escolhe qual canal produz — com um `re` escrito à
+mão na linha de comando, uma vez por rodada. Agora é
+`concentracao_frota.contagem_do_pendente(desde)`, irmão do `ultima_do_pendente`,
+com o mesmo aviso de PISO e seis testes.
+
+**Ele já mostrou a divergência do 771 de graça:** nesta rodada o **dia** dava
+6/7/7 e a **janela móvel de 24 h** dava 8/8/9 — as duas ordenam a frota de formas
+diferentes, e é a móvel que não se apaga na virada da meia-noite.
+
+**Sua, e é a décima primeira negativa seguida:** sem `execute_sql` as **33**
+linhas de `insert into videos` seguem fora do banco, e a Porta 1 continua sem
+poder resolver ritmo (68 / 21 / 8, os três indeterminados em 14,6 h).
