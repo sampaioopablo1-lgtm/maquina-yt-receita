@@ -1,0 +1,96 @@
+{
+ "slug": "kolejny-poziom",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "pacote": "kolejny-poziom-s041",
+ "longo_existente": "SP7Vz8qHdRY",
+ "thumb": {
+  "l1": "Zapowiedź to",
+  "l2": "nie przepis"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Usłyszałeś",
+   "sub": "o nowej skali",
+   "nar": "Usłyszałeś o nowej skali i przeliczyłeś podatek.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Tylko że",
+   "preco": "to zapowiedź",
+   "nar": "Tylko że to była zapowiedź, a nie przepis.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Projekt",
+   "sub": "to nie prawo",
+   "nar": "Projekt i obowiązujące prawo to dwie różne rzeczy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Deklarację",
+   "preco": "liczysz wstecz",
+   "nar": "Deklarację liczysz według zasad roku, którego dotyczy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Nie według",
+   "preco": "dnia składania",
+   "nar": "Nie według tego, co ogłoszono w dniu składania.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Dwie daty",
+   "itens": [
+    "Rok rozliczenia",
+    "Dzień wejścia",
+    "Nie ta sama"
+   ],
+   "nar": "Rok rozliczenia i dzień wejścia to dwie daty.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Zapowiedź",
+   "preco": "może się zmienić",
+   "nar": "Zapowiedź może się zmienić w trakcie prac.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Licz tym",
+   "sub": "co obowiązuje",
+   "nar": "Licz tym, co obowiązuje dla twojego roku.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A zapowiedź",
+   "preco": "zapisz na potem",
+   "nar": "A zapowiedź zapisz sobie na przyszły rok.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Kolejny Poziom",
+   "sub": "zasubskrybuj",
+   "nar": "Zasubskrybuj i sprawdź, która skala cię dotyczy.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# kolejny-poziom-s041\n\n## TITULO\nZapowiedź Nowej Skali Nie Jest Skalą — Twoje Rozliczenie Liczy Się Według Roku, Nie Według Nagłówka\n\n## TITULO SHORT\nZapowiedź to nie przepis\n\n## DESCRICAO\nPrzeczytałeś o nowej skali podatkowej, policzyłeś swój podatek według niej i wyszło inaczej. **Policzyłeś poprawnie — tylko nie tę rzecz, którą składasz.**\n\nTu mieszają się dwie różne daty, i to jest cały mechanizm:\n\n- **rok, którego dotyczy rozliczenie** — on decyduje, jakie zasady stosujesz;\n- **dzień wejścia w życie** nowych zasad — on decyduje, od kiedy one w ogóle istnieją.\n\nDeklaracja, którą składasz, liczy się według zasad **swojego roku**, a nie według tego, co ogłoszono w tygodniu, w którym ją wypełniasz. Zmiana zapowiedziana na przyszły rok podatkowy nie dotyczy rozliczenia za rok, który już się zamknął — niezależnie od tego, jak głośno o niej mówią.\n\nI jest drugie piętro tego samego błędu: **zapowiedź to projekt.** Między propozycją a obowiązującym przepisem jest cała droga, na której liczby się zmieniają, a czasem zmienia się i sam pomysł. Planowanie dzisiejszej decyzji na podstawie projektu to planowanie na podstawie czegoś, co nie ma jeszcze mocy — i nikt ci tego nie zasygnalizuje błędem, bo arytmetyka była poprawna.\n\nPraktycznie wychodzą z tego dwa osobne pytania, i warto je zadawać osobno: **czym liczę to, co składam teraz** i **co może się zmienić na później**. Pomieszanie ich kosztuje albo zdziwienie przy dopłacie, albo decyzję podjętą pod regułę, która nie weszła.\n\nŻadna stawka, żaden próg, żadna kwota wolna i żadna data nie wchodzi do tego krótkiego materiału — **zasada (g)**: zmieniają się decyzją i rokiem, a krótki trzyma **mechanizm**. Liczby są w pełnym filmie, razem ze źródłami.\n\nW pełnym filmie: jak sprawdzić, po której stronie progu jesteś, co dokładnie odejmujesz, zanim porównasz, i co z zapowiedzianej zmiany dotyczyłoby kogo.\n\n## COMENTARIO FIXADO\nJedno pytanie, które porządkuje całość, zanim cokolwiek policzysz: **za który rok** jest to, co właśnie wypełniasz? Potem sprawdzasz zasady **tego** roku — a nie te z nagłówka, który czytałeś dziś.\n\n## FAMILIA DE ENTRADA ERRADA\nLer ANUNCIO como REGRA VIGENTE: aplicar a uma declaracao as regras que foram\nANUNCIADAS, quando o que vale e a regra do ANO a que a declaracao se refere. Sao\nduas datas diferentes — o ano do rozliczenie e o dia de entrada em vigor — e\ntratar as duas como uma so produz conta correta sobre a norma errada. Segundo\npiso do mesmo erro: projeto nao e lei, logo o numero que se usa pode ainda nao\nexistir.\nDistincao dos vizinhos conferidos um a um: o `s031` trata de um preco BAIXO\nTRANSITORIO lido como patamar — ali o estado e real e passageiro; aqui a regra\nnem comecou. O `s038` confunde PREVISAO com COMPARACAO, e a conta sobrevive;\naqui a conta esta certa e a NORMA e que nao se aplica. E o `s040`, de hoje, erra\no DESTINO de uma quantia, nao a sua vigencia.\n**E a familia que a fonte abre — a aliquota maior aplicada a pensao INTEIRA — NAO\nentrou, porque o `s015` deste canal ja a trata** (`Czy cała pensja wchodzi w\nwyższy próg?`). Regra (f) conferida contra as specs, nao de memoria.\nOrigem `SP7Vz8qHdRY`, uma das menos usadas do canal e sem spec local, alcancada\npela regra (h) atraves da legenda `pl` (1.569 palavras).\n\n## AVISO SOBRE OS NUMEROS\nNenhum valor entra, e sao muitos na fonte: o limiar da escala, as duas aliquotas,\na kwota wolna, a kwota zmniejszajaca, os tres limiares e a aliquota intermediaria\nda PROPOSTA, e a media salarial citada. Todos mudam por decisao e por ano\n(regra g) — **e aqui isso e mais que rotina: a propria peca e sobre numeros cuja\nvigencia nao comecou.** Nenhuma data entra tambem, pelo mesmo motivo: a peca\ncarrega a DISTINCAO entre as duas datas, nao os valores delas.\n\n## MIRA\nPrevisao edge **41,6** / piper 35,4 — mirada no PISO do `ALVO_SHORT`, que e onde\na voz polonesa deve mirar (679: centro +2,2%). Exposicao declarada: se o edge\nnarrar, o real cai entre 41,7 e 45,6 s pela banda observada (0,1 a 4,0, n=45) e\no TOPO dessa faixa PASSA do teto de 45 do portao; se o piper narrar, 35,5 a 39,4.\n\n## HASHTAGS\n#podatki #PIT #skalapodatkowa #KolejnyPoziom\n\n## TAGS\nskala podatkowa, próg podatkowy, PIT, rozliczenie roczne, zapowiedź zmian, wejście w życie, rok podatkowy, podatek dochodowy, finanse osobiste, planowanie podatkowe, Kolejny Poziom\n"
+}

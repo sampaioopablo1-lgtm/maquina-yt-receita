@@ -63,6 +63,7 @@ RESIDUOS = [(43.1, 44), (42.9, 44), (42.1, 44), (25.7, 27), (25.6, 28),
     (41.6, 42),   # epomeno-epipedo-s041, 16/10 05:2x: +0,4 — sinal NAO estabelecido
     (41.7, 43),   # kolejny-poziom-s040, 16/10 08:1x: +1,3 — estabelecido
     (41.5, 43),   # epomeno-epipedo-s042, 16/10 08:1x: +1,5 — estabelecido
+    (25.7, 28),   # labtreinamento-s059, 16/10 09:1x: +2,3 — fora do teto da mira
     (42.5, 46),   # epomeno-epipedo-s032, 15/10 04:1x: +3,5 — e o REAL passou
                   # do teto de 45 do portao, com a previsao DENTRO (772)   # kolejny-poziom-s026, 14/10: +1,4 — previsao MAIOR que a do
                   # s025 (41,2) e real MENOR (43 contra 44). Ver 767.

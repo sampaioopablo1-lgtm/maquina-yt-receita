@@ -144,6 +144,13 @@ SERIE = [
     # trouxe DOIS `lengthSeconds` (42 e 43) e vale o MAIOR, pelo arredondamento
     # para cima do `contentDetails.duration`.
     ("epomeno-epipedo-s042", 41.5, 43, "edge"),
+    # 16/10 09:1x: `labtreinamento-s059` (Z8KZL5z8nxI), provedor edge MEDIDO
+    # (zero avisos no job `116878234290`). Previsao 25,7 -> real 28, residuo
+    # +2,3, DENTRO da banda e com o sinal ESTABELECIDO. E ele e o DECIMO de
+    # treze: a peca saiu FORA do teto da mira do canal (26,0) com o `mira.py`
+    # VERDE nos dois mundos — a contradicao do 740/748 outra vez, e a copy
+    # declarou a exposicao antes de publicar.
+    ("labtreinamento-s059", 25.7, 28, "edge"),
 ]
 
 
