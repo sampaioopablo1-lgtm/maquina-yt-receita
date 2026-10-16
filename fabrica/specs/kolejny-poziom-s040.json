@@ -1,0 +1,96 @@
+{
+ "slug": "kolejny-poziom",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "pacote": "kolejny-poziom-s040",
+ "longo_existente": "MjI4ZGJAhIo",
+ "thumb": {
+  "l1": "Decyduje zapis",
+  "l2": "nie kwota"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Nadpłaciłeś",
+   "sub": "i nie wybrałeś",
+   "nar": "Nadpłaciłeś kredyt i nie wybrałeś nic więcej.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A bank",
+   "preco": "czekał na wybór",
+   "nar": "A bank czekał właśnie na jeden twój wybór.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ta sama wpłata",
+   "sub": "dwa zapisy",
+   "nar": "Ta sama wpłata ma w umowie dwa różne zapisy.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Pierwszy",
+   "preco": "obniża ratę",
+   "nar": "Pierwszy zapis obniża twoją miesięczną ratę.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Drugi",
+   "preco": "skraca okres",
+   "nar": "Drugi skraca okres i zostawia ratę bez zmian.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Co decyduje",
+   "itens": [
+    "Nie kwota",
+    "Lecz zapis",
+    "Ten sam złoty"
+   ],
+   "nar": "Decyduje nie kwota, tylko zapis w dyspozycji.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Niższa rata",
+   "preco": "zostawia miesiące",
+   "nar": "Niższa rata zostawia wszystkie miesiące na liczniku.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Krótszy okres",
+   "preco": "usuwa miesiące",
+   "nar": "Krótszy okres usuwa miesiące z końca kredytu.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dlatego pytaj",
+   "sub": "jak bank księguje",
+   "nar": "Dlatego pytaj najpierw, jak bank księguje nadpłatę.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Kolejny Poziom",
+   "sub": "zasubskrybuj",
+   "nar": "Zasubskrybuj i sprawdź swoją dyspozycję dzisiaj.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# kolejny-poziom-s040\n\n## TITULO\nTa Sama Nadpłata, Dwa Różne Zapisy — Dlaczego Decyduje Dyspozycja, A Nie Kwota\n\n## TITULO SHORT\nDecyduje zapis, nie kwota\n\n## DESCRICAO\nWpłacasz nadpłatę i myślisz, że zrobiłeś wszystko. Kwota się zgadza, przelew doszedł, saldo spadło. A jednak **najważniejsza decyzja w całej tej operacji wcale nie dotyczyła kwoty.**\n\nBank może zaksięgować dokładnie tę samą nadpłatę na **dwa sposoby**: obniżyć ratę przy niezmienionym okresie, albo **skrócić okres** przy niezmienionej racie. To jedna dyspozycja, zwykle jedno pole w aplikacji — i ona rozjeżdża wynik na lata.\n\nMechanizm jest arytmetyczny, nie motywacyjny:\n\n- **niższa rata** zostawia **wszystkie miesiące** na liczniku: harmonogram trwa dokładnie tyle, ile trwał, tylko każda rata jest mniejsza;\n- **krótszy okres** usuwa **miesiące z końca** — a to właśnie te miesiące są najdłużej obsługiwane.\n\nDlatego pytanie \"ile nadpłacić\" jest **drugie**. Pierwsze brzmi: **jak bank to zaksięguje**, i czy ustawienie jest jednorazowe, czy trzeba je powtarzać przy każdej wpłacie. Dwie osoby z identyczną nadpłatą i identycznym kredytem kończą w innym miejscu, bo jedna z nich zaznaczyła inne pole.\n\nŻadne oprocentowanie, żadna marża, żadna stawka ani kwota kredytu nie wchodzi do tego krótkiego materiału — **zasada (g)**: zmieniają się decyzją i rokiem, a krótki materiał trzyma **mechanizm**. Liczby są w pełnym filmie, razem ze źródłami.\n\nW pełnym filmie: kiedy nadpłata przegrywa z innym zastosowaniem tych samych pieniędzy, co musi być zrobione **przed** pierwszą nadpłatą, i cztery błędy, które widać najczęściej.\n\n## COMENTARIO FIXADO\nSprawdzenie na dwie minuty, do zrobienia **przed** następną wpłatą: wejdź w dyspozycję nadpłaty i zobacz, które z dwóch pól jest zaznaczone — skrócenie okresu czy obniżenie raty. Jeśli nie wiesz, to znaczy, że wybrał za ciebie ktoś inny.\n\n## FAMILIA DE ENTRADA ERRADA\nLer a nadplata como QUANTIA quando o que decide e o DESTINO dela: a mesma\nquantia, no mesmo kredyt, produz resultado materialmente diferente dependendo de\nqual dos dois assentos o banco usa — obniżenie raty (mantem os meses) ou\nskrocenie okresu (remove meses do fim). O erro nao esta no numero; esta em\ntratar como formalidade o campo que a decisao de fato atravessa.\nDistincao dos vizinhos desta mesma tematica, conferidos um a um: o `s039`\ncompara retorno CERTO com retorno POSSIVEL — dois numeros de naturezas\ndiferentes; o `s038` confunde PREVISAO com COMPARACAO e por isso descarta uma\nconta valida; e o `s033` troca a UNIDADE DE TEMPO de um item. Aqui as duas\nopcoes tem a MESMA natureza, a MESMA unidade e o MESMO numero — o que muda e a\noperacao em que o dinheiro entra.\nOrigem `MjI4ZGJAhIo`, uma das duas MENOS usadas do canal (um short so) e sem\nspec local — alcancada pela regra (h) atraves da legenda (1.242 palavras).\n\n## AVISO SOBRE OS NUMEROS\nNenhum valor entra, e isto cobre todos os da fonte: a taxa de referencia, o\nWIBOR, a marza, o oprocentowanie, o valor e o prazo do kredyt, a rata, o total\nde odsetki, a quantia nadpagada por mes, a media da bolsa, o podatek belki e os\nanos de carencia da prowizja. Todos mudam por decisao e por ano (regra g).\nA fonte declara `cztery bledy` e enumera QUATRO (pierwszy a czwarty) — sem\nconflito pelo 725 — e esta peca nao declara quantidade nenhuma.\n\n## MIRA\nPrevisao edge **41,7**, dentro do `ALVO_SHORT` da frota e junto ao PISO, que e\nonde a voz polonesa deve mirar (679: centro +2,2%). A exposicao vai declarada:\nse o edge narrar, o real cai entre 41,8 e 45,7 s pela banda observada (0,1 a\n4,0) — e o TOPO dessa faixa PASSA do teto de 45 do portao. Se o piper narrar,\n35,6 a 39,5.\n\n## HASHTAGS\n#kredyt #nadpłata #finanseosobiste #KolejnyPoziom\n\n## TAGS\nnadpłata kredytu, skrócenie okresu kredytu, obniżenie raty, dyspozycja nadpłaty, kredyt hipoteczny, harmonogram spłaty, finanse osobiste, oszczędzanie na odsetkach, umowa kredytowa, budżet domowy, Kolejny Poziom\n"
+}
