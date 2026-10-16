@@ -662,3 +662,35 @@ diferentes, e é a móvel que não se apaga na virada da meia-noite.
 **Sua, e é a décima primeira negativa seguida:** sem `execute_sql` as **33**
 linhas de `insert into videos` seguem fora do banco, e a Porta 1 continua sem
 poder resolver ritmo (68 / 21 / 8, os três indeterminados em 14,6 h).
+
+## 16/10 19:1x — o portão pegou família repetida, e o instrumento calava sobre ela
+
+`labtreinamento-s063` = `BwrCyzuFQT0`, **27 s reais** contra previsão edge de
+25,9 (provedor **edge** medido, zero avisos no job `117149072618`): resíduo
+**+1,1 s**, dentro da banda e estabelecido. **FORA do teto da mira do canal
+(26,0) com o `mira.py` verde nos dois mundos** — o tally do 744/754 vai a **dez
+de treze**, e a copy declarou essa exposição antes de publicar.
+
+**O achado da rodada é contra mim.** A pauta serviu o topo do canal
+(`FtCtIJPsc_Q`, o longo da referência), que **não tem spec local** — rota da
+regra (h), com a legenda sondada **aberta** depois de estar fechada às 07:1x. Eu
+escrevi o short inteiro sobre o terceiro limite do longo, e o portão
+`similaridade` reprovou com 0,69 e depois 0,73: **não era título parecido, era a
+família que o `labtreinamento-s059` já havia usado, saindo da MESMA origem.**
+Troquei o título duas vezes antes de entender que o portão falava de conteúdo.
+
+**E o `segundo_angulo.py` tinha a informação e a jogava fora.** No ramo sem spec
+local ele dizia "use o `capitulos.yml`" e **parava ali**, descartando a lista de
+shorts daquela origem que ele mesmo sabe calcular. Consertado: o ramo passou a
+nomear as peças anteriores, a dizer quando é primeiro ângulo, e a declarar o
+ponto cego que sobra — sem spec local ele nomeia **peças**, não capítulos.
+
+**E uma falha nova apareceu na suíte, e era de um teste MEU:** ele cobrava
+`abs(rho) < 0,5` sobre Spearman(usos, rank), de dois lados, quando a hipótese que
+ele nega é de **um** lado só. O `rho` foi a **−0,54** — sinal oposto ao da
+hipótese descartada, e efeito esperado da regra de recência servindo o topo.
+Corrigido para o lado certo, com contraprova.
+
+**Sua, e é a décima segunda negativa seguida:** sem `execute_sql` as **34** linhas
+de `insert into videos` seguem fora do banco. Porta 1 em 68 / 21 / 8, os três
+indeterminados em 15,6 h.

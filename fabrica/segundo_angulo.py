@@ -208,8 +208,25 @@ def main() -> int:
     for yid in alvos:
         d = nao_mencionados(yid)
         if not d["pacote"]:
+            # O ramo SEM spec local — e ele calava sobre os usos ANTERIORES, que
+            # e a informacao que mais importa para nao repetir FAMILIA. Medido em
+            # 16/10 as 19:2x: eu escrevi um short inteiro sobre uma familia que o
+            # `labtreinamento-s059` ja tinha usado, da MESMA origem, e descobri
+            # pelo portao `similaridade` depois de trocar o titulo duas vezes. O
+            # modulo TINHA a lista (`shorts_da_origem`) e o `continue` a jogava
+            # fora junto com o resto.
+            anteriores = [nome for nome, _ in shorts_da_origem(yid)]
             print(f"{yid}: a copy do short nao nomeia nenhuma spec de pacote com "
                   f"cenas de longo. Use capitulos.yml com legenda=true (regra h).")
+            if anteriores:
+                print(f"   ATENCAO: esta origem JA rendeu {len(anteriores)} "
+                      f"short(s) — {', '.join(anteriores)}. Leia a copy de cada "
+                      f"um ANTES de escolher a familia de entrada errada: aqui o "
+                      f"modulo nao sabe quais capitulos foram usados, so quais "
+                      f"PECAS saem daqui.")
+            else:
+                print("   e esta origem ainda nao rendeu short nenhum — primeiro "
+                      "angulo, logo nao ha familia anterior a evitar.")
             continue
         if not d["n_capitulos"]:
             print(f"{yid}: pacote {d['pacote']} sem cenas de longo na spec — "

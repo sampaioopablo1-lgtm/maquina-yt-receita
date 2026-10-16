@@ -179,6 +179,11 @@ SERIE = [
     # 117122802245), previsao 41,7 e real 43 — residuo +1,3, DENTRO da banda,
     # sinal ESTABELECIDO, e abaixo do teto de 45 que a copy declarou como risco.
     ("kolejny-poziom-s044", 41.7, 43, "edge"),
+    # 19:14 de 16/10: provedor edge MEDIDO (zero avisos no job 117149072618),
+    # previsao 25,9 e real 27 — residuo +1,1, DENTRO da banda e ESTABELECIDO.
+    # E FORA do teto da mira do canal (26,0) com o mira.py VERDE nos dois
+    # mundos: o tally do 744/754 vai a DEZ de treze.
+    ("labtreinamento-s063", 25.9, 27, "edge"),
 ]
 
 

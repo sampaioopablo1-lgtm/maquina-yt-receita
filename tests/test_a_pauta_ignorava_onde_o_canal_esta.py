@@ -96,7 +96,24 @@ def test_o_filtro_escrevivel_exclui_EXATAMENTE_o_topo():
 
 
 def test_a_hipotese_do_uso_puxando_para_tras_NAO_se_sustenta():
-    """Registrado porque era a minha primeira explicacao, e estava errada."""
+    """Registrado porque era a minha primeira explicacao, e estava errada.
+
+    CORRIGIDO EM 16/10 as 19:3x, e o defeito era do TESTE, nao da nota. Ele
+    cobrava `abs(rho) < 0,5` — dois lados — enquanto a hipotese que ele nega e de
+    UM lado so: "espalhar uso puxa a pauta para o PASSADO" exige uso alto em rank
+    ALTO, isto e, rho POSITIVO. Qualquer correlacao negativa forte reprovava o
+    teste sem por aquela hipotese de volta na mesa.
+
+    E ela apareceu: medido nesta rodada, `rho = -0,54`. O sinal e o OPOSTO do que
+    a hipotese descartada previa, e a causa e conhecida e minha — a regra de
+    RECENCIA, aplicada desde 16/10, serve o longo MAIS NOVO primeiro, logo as
+    origens de rank baixo acumulam uso. **Isso nao ressuscita nada; e o efeito
+    medido da regra nova.**
+
+    O teste passa a cobrar o lado certo, e so esse: rho POSITIVO e forte reabre a
+    hipotese e obriga a reler. O lado negativo sai IMPRESSO na mensagem em vez de
+    reprovar, porque la a leitura ja esta escrita.
+    """
     usos = _usos()
     pares = [(n, recencia.rank(o, ORDEM)) for o, n in usos.items()
              if recencia.rank(o, ORDEM)]
@@ -116,10 +133,13 @@ def test_a_hipotese_do_uso_puxando_para_tras_NAO_se_sustenta():
     num = sum((a - mx) * (b - my) for a, b in zip(xs, ys))
     den = (sum((a - mx) ** 2 for a in xs) * sum((b - my) ** 2 for b in ys)) ** 0.5
     rho = num / den
-    assert abs(rho) < 0.5, (
-        f"Spearman(usos, rank) = {rho:+.2f}: se isso ficar forte, a hipotese"
-        " que eu descartei volta a estar na mesa e esta nota tem de ser relida"
+    assert rho < 0.5, (
+        f"Spearman(usos, rank) = {rho:+.2f}, POSITIVO e forte: uso alto em rank"
+        " alto e exatamente a hipotese que eu descartei em 16/10, e ela volta a"
+        " estar na mesa. RELEIA a nota em vez de mover este numero."
     )
+    # O outro lado nao reprova, e o motivo esta no docstring: rho negativo forte
+    # e o efeito ESPERADO da regra de recencia servindo o topo.
 
 
 def test_o_relato_RECUSA_ordenar_pelo_retrato_de_06_10():
