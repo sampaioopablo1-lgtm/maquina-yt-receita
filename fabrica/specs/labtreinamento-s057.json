@@ -1,0 +1,96 @@
+{
+ "slug": "labtreinamento",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#1F2933",
+  "c1": "#3F6C51",
+  "c2": "#C98B2E",
+  "bg": "#F5F3ED"
+ },
+ "pacote": "labtreinamento-s057",
+ "longo_existente": "3KtwRYxl7_U",
+ "thumb": {
+  "l1": "Uma informa",
+  "l2": "outra habilita"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "A consulta abriu",
+   "sub": "e você esperou",
+   "nar": "A consulta abriu e você esperou.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O índice apareceu",
+   "preco": "e só isso",
+   "nar": "O índice apareceu, e só.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Duas datas",
+   "itens": [
+    "Abre a consulta",
+    "Corre o prazo",
+    "São diferentes"
+   ],
+   "nar": "São duas datas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Uma informa",
+   "preco": "a outra habilita",
+   "nar": "Uma informa, a outra habilita.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Entre elas",
+   "sub": "a janela",
+   "nar": "Entre elas há uma janela.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "É nela",
+   "preco": "que se confere",
+   "nar": "Nela se confere a conta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Depois",
+   "preco": "não reabre",
+   "nar": "E depois o prazo não reabre.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E o índice",
+   "sub": "vale o ano",
+   "nar": "O índice vale o ano.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Então",
+   "preco": "confira na janela",
+   "nar": "Confira na janela.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "se inscreva",
+   "nar": "Se inscreva e veja as duas.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# labtreinamento-s057\n\n## TITULO\nA Data Que Divulga O Índice Não É A Data Em Que Você Pode Contestar\n\n## TITULO SHORT\nUma data informa, a outra habilita\n\n## DESCRICAO\nO calendário do FAP tem **duas** datas, e elas fazem trabalhos diferentes. Quase todo mundo trata as duas como se fossem uma só — e o efeito prático disso é perder a parte do calendário que mais vale.\n\nA **primeira** data só **informa**: é quando a consulta abre e o índice do ano seguinte aparece. Nada se decide nela. A **segunda** data **habilita**: é a janela em que a contestação pode ser apresentada, e fora dela não pode.\n\nEntre as duas existe um intervalo, e é esse intervalo que importa. Ele é o único momento confortável do calendário inteiro: o número já existe, a memória de cálculo já pode ser conferida, e a decisão de contestar ainda não precisa estar tomada.\n\nQuem trata as duas datas como uma faz uma de duas coisas, e as duas custam:\n\n- vê o índice e **espera** a hora de agir, sem usar o intervalo para conferir;\n- descobre o intervalo **depois** que a janela de contestação fechou.\n\nE a janela que habilita **não reabre**. Fechada ela, o índice divulgado segue valendo pelo período inteiro — a conferência deixa de mudar qualquer coisa naquele ciclo.\n\nNenhuma data, nenhum percentual e nenhum prazo em dias entra neste vídeo curto — **regra (g)**: mudam por norma, e o curto carrega o **padrão**, não o número. As datas estão no vídeo completo, com as duas fontes oficiais citadas separadamente.\n\nNo vídeo completo: de onde sai o índice, as duas multiplicações da conta, por que contestar não suspende a cobrança, as duas fontes institucionais e o roteiro da semana.\n\n## COMENTARIO FIXADO\nUm jeito de não confundir: pergunte de cada data o que ela PERMITE. Se a resposta for \"saber\", ela informa. Se for \"fazer\", ela habilita. Só a segunda tem prazo, e só a segunda fecha.\n\n## FAMILIA DE ENTRADA ERRADA\nTratar como UMA data duas que fazem trabalhos DIFERENTES: a que INFORMA (o numero passa a existir) e a que HABILITA (a acao passa a ser possivel). O erro nao esta em nenhum dos dois numeros; esta em ler as duas como a mesma coisa, e o custo e o intervalo entre elas, que e justamente a unica hora de conferir.\nFamilia nova neste canal. As outras pecas desta origem (`3KtwRYxl7_U`) usam EFEITO SUSPENSIVO presumido (`s009`), ORDEM DAS OPERACOES (`s035`) e UNIDADE DE AGREGACAO (`s042`) -- nenhuma delas e sobre o calendario, e os capitulos 35 a 40 estavam intocados.\nE nao e a familia do `epomeno-epipedo-s025` (a DATA decide qual regra se aplica a um fato passado): ali a data escolhe a regra; aqui as duas datas nao escolhem nada, elas tem FUNCOES distintas.\n\n## AVISO SOBRE OS NUMEROS\nNenhuma data, percentual, valor ou prazo em dias entra: mudam por norma e por ciclo (regra g). A fonte enumera as datas como primeira e segunda, e esta peca mantem a ordem sem dizer quais sao.\n\n## MIRA\nMira do canal (20,0 a 26,0 de duracao REAL) verde nos dois mundos: edge 25,1 / piper 20,6. **A exposicao vai declarada, pelo 740/748/774:** se o edge narrar, o real cai acima da previsao pela banda observada de 0,1 a 4,0 s, logo pode PASSAR do teto de 26,0 -- nove das doze pecas deste canal narradas pelo edge sairam fora, todas com a mira verde. A decisao entre mover a mira ou parar de cobrar real sobre estimado segue na fila do dono.\n\n## HASHTAGS\n#FAP #segurancadotrabalho #folhadepagamento #LabTreinamento\n\n## TAGS\nFAP, fator acidentario de prevencao, RAT, contestacao do FAP, calendario do FAP, prazo de contestacao, memoria de calculo, seguranca do trabalho, folha de pagamento, custo de folha, gestao de riscos, LabTreinamento\n"
+}
