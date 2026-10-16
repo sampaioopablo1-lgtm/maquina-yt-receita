@@ -182,3 +182,30 @@ publicada.
 
 E o pico de som voltou à faixa habitual (−3,4 dBTP) na peça seguinte à de
 −0,6 — então aquilo foi um ponto, não uma tendência, como já estava dito.
+
+## Decima quarta rodada sem o banco — 16/10, 00:1x
+
+Sonda da CAPACIDADE (nao do catalogo, pelo 709/777): `execute_sql` com
+`select pg_database_size(current_database())` em `vevocauwtarctfwngrch` ->
+**negado** (`-32600`), antes e depois de publicar. Decima quarta rodada seguida.
+
+**Publicado:** `epomeno-epipedo-s039` = `idkn35TYGE0` (00:17 UTC), provedor
+**edge** MEDIDO (zero avisos no job `116740973441`), previsao edge 41,5 / piper
+36,7, som LUFS -14,1 e pico -3,0 dBTP.
+
+**Perdido:** 41o ponto da banda — `RESIDUO_N` segue 40, e agora sao **treze**
+pecas sem leitura de duracao real, todas com a previsao escrita na copy. Sem
+vigilancia do §3.2. A linha de `videos` ficou parqueada: o
+`videos-a-inserir.sql` foi a **14 linhas**, cada uma com `origem_id` e
+`on conflict (slug) do nothing`.
+
+**E o custo em PAUTA apareceu outra vez, agora no epomeno.** As duas origens de
+UM uso do canal (`eZ697VNYCPU`, `h66MCKjwAJ8`) nao tem spec local, e a rota da
+regra (h) para elas — `captions?part=snippet&videoId=` — sai pelo `pg_net`, que
+depende do `execute_sql` negado. Tive de pegar a banda de DOIS usos
+(`wUHuwyO2HYo`). Em 15/10 isso aconteceu no `kolejny`; agora no epomeno. **O
+banco fechado ja nao custa so medicao: ele empurra a escolha de origem para a
+banda mais usada, que e o contrario do que a concentracao pede.**
+
+Pendencia 2 segue sendo a unica que destrava isto: reconectar o conector do
+Supabase **escolhendo a org do projeto `vevocauwtarctfwngrch`**.
