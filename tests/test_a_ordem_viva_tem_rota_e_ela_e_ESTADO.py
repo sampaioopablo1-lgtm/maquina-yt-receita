@@ -86,3 +86,39 @@ def test_a_rota_fechada_vai_NOMEADA_no_modulo():
     fonte = open(r.__file__).read()
     assert "videoRenderer" in fonte and "CONSENT" in fonte
     assert "Conte o CAMPO" in fonte
+
+
+# A leitura REAL do `labtreinamento` em 16/10 as 13:1x, os seis primeiros
+# uploads. O terceiro e a NOSSA peca de 2 min (`labtreinamento-s058`), e o
+# primeiro longo de verdade so aparece no rank 12.
+LABTREINAMENTO = """JawBDlwnxzI|27|O corte é seu, não é norma
+Z8KZL5z8nxI|28|Posição não é nome de coisa
+8DVWFC5agrg|124|Faltou o quarto argumento
+n1VJoPqokm8|28|Uma data informa, a outra habilita
+nkQWSScZXaA|27|Teto não é piso
+X7c1utln5yw|28|Use o mesmo divisor"""
+
+
+def test_a_NOSSA_peca_de_2_min_NAO_entra_como_origem():
+    """O caso real: ela esta em rank 3 e PARECE longo, com 124 s.
+
+    Sem o teto de 180 s eu teria usado a nossa propria peca como pauta, que e
+    o erro de 12/10 (retrato como estoque) numa forma nova — e o `s058` nao tem
+    capitulo nenhum para render entrada errada.
+    """
+    assert "8DVWFC5agrg" in LABTREINAMENTO
+    assert r.longos_na_ordem(LABTREINAMENTO) == [], (
+        "nenhum dos seis primeiros uploads deste canal e longo; se algum passar, "
+        "a origem escolhida pode ser uma peca NOSSA"
+    )
+    assert r.topo_de_pauta(LABTREINAMENTO) is None
+
+
+def test_mas_ela_CONTA_para_o_rank_porque_foi_publicada():
+    """O rank mede distancia do ULTIMO VIDEO PUBLICADO — short nosso inclusive."""
+    ordem = r.ordem_viva(LABTREINAMENTO)
+    assert len(ordem) == 6
+    assert r.rank("8DVWFC5agrg", ordem) == 3, (
+        "excluir a peca do RANK esconderia a distancia que o dono apontou; "
+        "ela sai da ORIGEM, nao da contagem"
+    )
