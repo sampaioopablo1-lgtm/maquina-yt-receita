@@ -119,7 +119,7 @@ RESIDUO_OBSERVADO = (0.0, 4.0)
 # DENTRO da banda, e o sinal NAO esta ESTABELECIDO (42 - 41,6 <= 1,0, e o
 # arredondamento e para cima) — 36 de 42 estabelecidos. Os LIMITES nao
 # mudaram: 0,4 nao e menor que o piso de 0,1.
-RESIDUO_N = 55  # 741 acrescentou o s035 (24,8 -> 27, +2,2): DENTRO da banda,
+RESIDUO_N = 56  # 741 acrescentou o s035 (24,8 -> 27, +2,2): DENTRO da banda,
 #                 logo os LIMITES nao mudaram — so o numero de pontos que a sustenta.
 #                 14/10 06:2x: o s041 (edge 24,6 -> real 27) deu +2,4 — EMPATADO
 #                 com o teto da banda, o decimo segundo ponto e o segundo a tocar
@@ -215,3 +215,71 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
+
+def tally_fora_da_mira(serie, provedor: str = "edge") -> dict:
+    """Quantas pecas de cada canal com `ALVO_POR_CANAL` sairam FORA da mira.
+
+    Ele existe porque eu vinha contando isso **a mao** e reportando ao dono a
+    cada rodada — "dez de treze", "onze de quatorze" — o que e exatamente o item
+    3 da §10: todo numero que eu calculo de cabeca vira um erro meu mais cedo ou
+    mais tarde. E este decide se a contradicao do 740/748 esta piorando.
+
+    `serie` e a lista de `(pacote, previsao, real, provedor)`; so entram as pecas
+    narradas pelo `provedor` pedido, porque a previsao de cada mundo e outra.
+
+    **So conta canal que TEM mira propria.** Canal sem `ALVO_POR_CANAL` nao tem
+    teto de canal para furar — contar a faixa da FROTA no lugar seria comparar
+    com outro criterio e inflar o tally, que e o efeito (C) da rotina.
+
+    O que ele NAO responde: se a peca tinha a mira VERDE quando foi escrita. Isso
+    vive na copy de cada uma, e o `relato_do_tally` diz que falta.
+
+    **E A PRIMEIRA EXECUCAO PEGOU UM ERRO MEU, do tamanho que importa:** eu vinha
+    reportando "dez de treze" e "onze de quatorze" ao dono, contados de cabeca a
+    cada rodada. O numero medido e **20 de 23**. Eu estava SUBCONTANDO, porque
+    incrementava o tally da rodada anterior em vez de recontar a serie — e a
+    serie tem pecas antigas do mesmo canal que eu nunca somei. O sentido do erro
+    e o pior: ele fazia a contradicao do 740/748 parecer MENOS frequente do que e.
+
+    **Ressalva que vai junto, porque e um confundidor real:** o tally aplica a
+    mira ATUAL (`ALVO_POR_CANAL`, do commit `5dfc87f`) a TODAS as pecas da serie,
+    inclusive as escritas na fronteira daquele override. Para as pecas de 13/10
+    isso pode ser mira retroativa; para as de 14/10 em diante, nao. O numero
+    continua sendo o melhor que existe, e nao e limpo.
+    """
+    import ensaio
+
+    fora: dict[str, dict] = {}
+    for pacote, prev, real, prov in serie:
+        if prov != provedor:
+            continue
+        canal = pacote.rsplit("-s", 1)[0]
+        if canal not in ensaio.ALVO_POR_CANAL:
+            continue
+        _piso, teto = ensaio.ALVO_POR_CANAL[canal]
+        d = fora.setdefault(canal, {"fora": [], "dentro": [], "teto": teto})
+        d["fora" if real > teto else "dentro"].append((pacote, real))
+    return fora
+
+
+def relato_do_tally(serie, provedor: str = "edge") -> str:
+    t = tally_fora_da_mira(serie, provedor)
+    if not t:
+        return ("TALLY: nenhuma peca de canal com mira propria foi narrada pelo "
+                f"provedor {provedor!r} nesta serie.")
+    linhas = []
+    for canal, d in sorted(t.items()):
+        n_fora, n = len(d["fora"]), len(d["fora"]) + len(d["dentro"])
+        linhas.append(
+            f"TALLY {canal} no mundo {provedor}: {n_fora} de {n} com o REAL "
+            f"FORA do teto da mira ({d['teto']:.1f} s).")
+        if d["fora"]:
+            linhas.append("  fora: " + ", ".join(
+                f"{p} {r}" for p, r in sorted(d["fora"])))
+        if d["dentro"]:
+            linhas.append("  dentro: " + ", ".join(
+                f"{p} {r}" for p, r in sorted(d["dentro"])))
+    linhas.append("  e o que isto NAO diz: se a mira estava VERDE quando a peca "
+                  "foi escrita — isso vive na copy de cada uma.")
+    return "\n".join(linhas)

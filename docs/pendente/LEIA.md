@@ -753,3 +753,32 @@ correlação — hoje **+0,32** com 29 pontos — e reprovar só se ela ficar fo
 
 **Sua, e é a décima quarta negativa:** as **36** linhas de `insert into videos`
 seguem fora do banco. Porta 1 em 68 / 21 / 8, os três indeterminados em 17,6 h.
+
+## 16/10 22:1x — o número que eu vinha te reportando estava SUBCONTADO
+
+`labtreinamento-s064` = `cInP4dHee4s`, **28 s reais** contra previsão edge de 25,9
+(provedor **edge** medido, zero avisos no job `117219367300`): resíduo **+2,1 s**,
+dentro da banda e estabelecido. Som LUFS −13,4, desvio 0,6, zero silêncios.
+
+**E aqui vai uma correção que é minha e é do número que te interessa.** A
+contradição que está na sua fila há dias — previsão **dentro** da mira do canal e
+duração **real fora** dela — eu relatava a cada rodada: *"cinco de sete"*, *"dez
+de treze"*, *"onze de quatorze"*. Esses números saíam da minha cabeça: eu
+incrementava o da rodada anterior em vez de recontar a série.
+
+**Medido agora, pelo código: 20 de 23.** Eu estava subcontando, e no sentido
+pior — o erro fazia o problema parecer **menos frequente** do que é, justamente
+no número que sustenta um pedido a você. Agora é
+`mira.tally_fora_da_mira` / `relato_do_tally`, com sete testes.
+
+**Ressalva que vai junto, porque é confundidor real:** o tally aplica a mira
+**atual** a todas as peças da série, inclusive as escritas na fronteira do
+override de 13/10. Para essas pode ser mira retroativa. O número é o melhor que
+existe e não é limpo.
+
+**O que isso muda na sua fila:** a decisão do 740/748 — mover a mira para o
+estimado descontando o resíduo, ou parar de cobrar uma faixa de real sobre o
+estimado — passa de "acontece em dez de treze" para **"acontece em 20 de 23"**.
+
+**E a décima quinta negativa do `execute_sql`:** as **37** linhas de `insert into
+videos` seguem fora do banco. Porta 1 em 68 / 21 / 8, os três indeterminados.

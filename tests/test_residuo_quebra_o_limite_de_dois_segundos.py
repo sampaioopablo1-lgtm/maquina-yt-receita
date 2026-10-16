@@ -195,6 +195,10 @@ SERIE = [
     # arredondamento para cima, real 41 significa duracao em (40; 41], logo o
     # residuo verdadeiro esta em (-1,0; 0,0] e PODE ser negativo.
     ("kolejny-poziom-s045", 41.0, 41, "edge"),
+    # 22:13 de 16/10: provedor edge MEDIDO (zero avisos no job 117219367300),
+    # previsao 25,9 e real 28 — residuo +2,1, DENTRO da banda e ESTABELECIDO, e
+    # FORA do teto da mira do canal (26,0) com o mira.py VERDE nos dois mundos.
+    ("labtreinamento-s064", 25.9, 28, "edge"),
 ]
 
 
