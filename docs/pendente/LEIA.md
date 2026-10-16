@@ -280,3 +280,29 @@ nao tem spec local e a rota da regra (h) para elas sai pelo `pg_net`.
 epomeno) em quatro rodadas** — uma por rodada, que e o teto real desta condicao.
 O dono pede 7/dia POR CANAL; o que destrava isso sao as pendencias 4 e 5, as
 duas dele.
+
+## 16/10, 03:5x — TRES BLOQUEIOS CAIRAM, e um por rodada nao era o teto
+
+O dono pediu peca de 2 min com capa, publicada, mirando monetizacao. Saiu
+`labtreinamento-s058` = `8DVWFC5agrg`, **124 s reais**, com **capa propria** (a
+primeira da frota: `capa do short: ok`, e o 403 que eu previa por canal nao
+verificado NAO veio).
+
+**O SANDBOX DO COMPOSIO TEM SAIDA PARA A INTERNET, e isso derruba tres coisas
+que eu reportei como bloqueadas por dezessete rodadas:**
+ 1. **MEDICAO** — pagina de watch da `lengthSeconds` e `viewCount`;
+    `/channel/<id>/about` da inscritos. Primeira leitura de Porta 1 em 17
+    rodadas: **68 / 20 / 8** (16/10 03:3x contra 15/10 07:13, 20,4 h, delta ZERO
+    nos tres). E as **17 duracoes reais** parqueadas sairam todas.
+ 2. **REGRA (h)** — `yt-dlp` baixa a faixa de legenda (71 KB, 1.381 palavras).
+    O `timedtext` direto volta vazio; nao insista nele.
+ 3. **FONTES INSTITUCIONAIS** — Sejm e Eurostat devolveram DADO REAL, ELSTAT 200,
+    gov.br 301. **LONGO NOVO voltou a ser possivel**, e com ele o pedido de
+    1 longo + 1 curto por canal por dia deixa de ser promessa vazia.
+
+**E A FROTA ANDA ABAIXO DE 1,18 INSCRITO/DIA** — o "+1,79/dia" que eu carregava
+desde 12/10 preveria ~1,5 inscrito nessas 20,4 h, e o delta foi zero nos tres
+canais. Delta zero nao estabelece ritmo: estabelece um LIMITE SUPERIOR.
+
+Pendencia 2 segue de pe para `execute_sql`/`videos` (18 linhas parqueadas) e a
+pendencia 1 para RETENCAO, que o sandbox nao da (e Analytics, nao publico).

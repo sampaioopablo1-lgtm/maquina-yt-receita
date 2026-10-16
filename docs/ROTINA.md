@@ -237,9 +237,8 @@ lido em 09/10 diz que o que tem milhões de views dura **10 a 35 s** — mediana
 no BR, 35 no PL, 30 no GR. Os nossos estão em 41-42 s porque EU os empurrei.
 **RESSALVA QUE NÃO PODE CAIR: short mais longo não retém igual.**
 
-**EXPERIMENTO 33 (motion) FOI ABORTADO em 09/10** — a própria hipótese dele dizia
-"não mede o que quer medir" e ele travou três testes por dez dias. **A FILA ESTÁ
-DESTRAVADA**; ele volta quando houver retenção de verdade.
+**EXPERIMENTO 33 (motion) FOI ABORTADO em 09/10** (a hipótese dele dizia "não
+mede o que quer medir"); volta quando houver retenção.
 **ABERTOS AGORA: 37, 38, 39 (esqueleto do short) e 40 (dez a onze cenas).**
 Na fila, não iniciados: short de 22 a 26 s; `broll` na cena 1. **Matar os fades
 DESCEU** (700, medido, e retrata a minha estimativa de "~2,2 s"): são 0,30 s de
@@ -247,17 +246,11 @@ preto em 1.255 quadros (0,72%), **e a primeira emenda cai em 4,77 s, FORA dos tr
 segundos que decidem.** **Na frente dele: PAUTA (longo novo) e o que acontece
 DENTRO dos três primeiros segundos.**
 
-**O DINAMISMO VISUAL — defeito medido e consertado em 09/10, e a física diz onde
-está a alavanca:** `movimento por quadro = amplitude / (duração da cena x fps)`,
-logo **a alavanca é a DURAÇÃO DA CENA**, não a amplitude (aumentá-la corta a borda
-do texto antes de ficar perceptível). Consertado em `fabrica/legenda.py` (legenda
-em grupos de até quatro palavras) e em `motion.filtro_bordas(dur, primeira=True)`
-(a cena ZERO tinha preto dentro do primeiro segundo). **Medido de novo no mesmo
-método e FUNCIONOU** (699). **O instrumento é `tblend` + `signalstats`** — nunca
-YAVG do quadro inteiro (mede 3% dos pixels e me fez ler "92% congelado" antes e
-depois) nem `mpdecimate` sem `hi/lo/frac` fixos. Os números das duas medições
-estão em `CLAUDE.md`, seções "O dinamismo visual" e "A correção do dinamismo
-FUNCIONOU".
+**O DINAMISMO VISUAL — a física diz onde está a alavanca:**
+`movimento por quadro = amplitude / (duração da cena x fps)`, logo
+**a alavanca é a DURAÇÃO DA CENA**, não a amplitude. Consertado e remedido em 09/10 (690/699).
+**O instrumento é `tblend` + `signalstats`** — nunca YAVG do quadro inteiro (mede
+3% dos pixels) nem `mpdecimate` sem `hi/lo/frac` fixos. Números em `CLAUDE.md`.
 
 =====================================================================
 3. CORREÇÃO DO MODELO A CADA RODADA — PEDIDO DO DONO, OBRIGATÓRIO
