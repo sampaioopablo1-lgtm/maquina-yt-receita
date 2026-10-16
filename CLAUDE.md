@@ -32,6 +32,18 @@ propriedades do sandbox. Sondadas uma a uma na rodada seguinte:
 | legenda (`yt-dlp`) | abre | **FECHA** | *"Sign in to confirm you're not a bot"* |
 | fontes institucionais | abre | **abre** | Eurostat 200, Sejm 200 |
 
+**E EM 16/10 ÀS 12:2x A TABELA GANHOU UMA QUINTA LINHA, e ela é a pior:**
+`youtube.com/channel/<UC…>/videos` (a LISTAGEM de uploads) devolveu **200 com
+1.196.398 bytes e ZERO `videoRenderer`**, cinco marcadores `CONSENT` e um
+`captcha` — enquanto `/about` (inscritos) e `/watch?v=` (duração, **dois**
+`lengthSeconds`: 530 e 531, use o maior) responderam na mesma rodada. **A rota
+que resolve é `yt-dlp --flat-playlist` na playlist `UU…`** (o id do canal com
+`UC` trocado por `UU`), que devolve a ordem VIVA **com duração**, logo separa
+longo de short numa leitura. Está em `fabrica/recencia.ordem_viva` /
+`topo_de_pauta`, com oito testes — e o primeiro deles exige que saída vazia
+**LEVANTE** dizendo `AUSENCIA DE LEITURA`, porque é aí que o 200-sem-campo
+reaparece disfarçado de canal vazio.
+
 **A rota da duração falha com 200 e página grande**, logo quem não contar o campo
 lê "funcionou". Cookie `CONSENT=YES+1`, `User-Agent` de navegador e `&hl=en` **não
 resolvem** — testados os três. O `oembed` segue em 200, e dá título, não duração.
