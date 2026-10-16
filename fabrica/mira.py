@@ -114,7 +114,12 @@ RESIDUO_OBSERVADO = (0.1, 4.0)
 # para cima. As outras dezessete duracoes parqueadas NAO entraram, porque o
 # provedor delas nao esta medido e comparar contra o mundo `edge` sem contar os
 # avisos e o erro que o 733 nomeia.
-RESIDUO_N = 41  # 741 acrescentou o s035 (24,8 -> 27, +2,2): DENTRO da banda,
+# 42o ponto, 16/10 05:2x: `epomeno-epipedo-s041` (edge 41,6 -> real 42,
+# provedor MEDIDO, zero avisos no job `116823350313`). Residuo nominal +0,4,
+# DENTRO da banda, e o sinal NAO esta ESTABELECIDO (42 - 41,6 <= 1,0, e o
+# arredondamento e para cima) — 36 de 42 estabelecidos. Os LIMITES nao
+# mudaram: 0,4 nao e menor que o piso de 0,1.
+RESIDUO_N = 42  # 741 acrescentou o s035 (24,8 -> 27, +2,2): DENTRO da banda,
 #                 logo os LIMITES nao mudaram — so o numero de pontos que a sustenta.
 #                 14/10 06:2x: o s041 (edge 24,6 -> real 27) deu +2,4 — EMPATADO
 #                 com o teto da banda, o decimo segundo ponto e o segundo a tocar

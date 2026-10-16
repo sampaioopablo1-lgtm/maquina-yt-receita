@@ -125,6 +125,13 @@ SERIE = [
     # `116806511162`. Dos dois `lengthSeconds` da pagina vale o MAIOR (44), pelo
     # arredondamento para cima do `contentDetails.duration`.
     ("kolejny-poziom-s039", 41.5, 44, "edge"),
+    # 16/10 05:2x: `epomeno-epipedo-s041` (QH9xoIC69jM), origem `h66MCKjwAJ8`
+    # destravada pela regra (h) atraves do sandbox. Previsao mirada no PISO
+    # (41,6), provedor edge MEDIDO (zero avisos no job `116823350313`), real 42.
+    # Residuo nominal +0,4: DENTRO da banda, NAO move o piso (0,1 segue sendo o
+    # minimo), e o sinal NAO esta ESTABELECIDO, porque 42 - 41,6 <= 1,0 e o
+    # YouTube arredonda para CIMA — o residuo verdadeiro esta em (-0,6; +0,4].
+    ("epomeno-epipedo-s041", 41.6, 42, "edge"),
 ]
 
 

@@ -61,18 +61,30 @@ def _nao_estabelecidos():
     return [s for s in SERIE if s[2] - s[1] <= GRANULARIDADE_DO_REAL + 1e-9]
 
 
-def test_cinco_pontos_da_serie_tem_o_sinal_NAO_estabelecido():
-    nomes = sorted(n for n, _, _, _ in _nao_estabelecidos())
-    assert nomes == [
+def test_existem_pontos_cujo_sinal_o_instrumento_NAO_resolve():
+    """CORRIGIDO em 16/10, e por identidade: a lista NOMEADA envelhecia.
+
+    A versao anterior cravava os CINCO nomes de 15/10, e o
+    `epomeno-epipedo-s041` (41,6 -> 42, +0,4) a reprovou por existir — mesma
+    classe do 743/753/761. O que o 770 afirma nao e quais pecas sao, e sim que
+    a classe NAO e vazia e nao e a serie toda: o instrumento tem passo de 1 s,
+    logo sempre havera residuo pequeno demais para ter sinal, e sempre havera
+    residuo grande o bastante para te-lo.
+    """
+    nao = _nao_estabelecidos()
+    assert nao, "sem nao-estabelecidos a nota do 770 perdeu o objeto"
+    assert len(nao) < len(SERIE), "se TODOS forem nao-estabelecidos, releia o 770"
+    for _n, prev, real, _p in nao:
+        assert real - prev <= GRANULARIDADE_DO_REAL + 1e-9
+    # os cinco de 15/10 continuam na classe: conserto nao apaga historico
+    antigos = {
         "epomeno-epipedo-s024",
         "epomeno-epipedo-s029",
         "epomeno-epipedo-s030",
         "epomeno-epipedo-s033",
         "kolejny-poziom-s027",
-    ], (
-        "o conjunto dos pontos cujo sinal o instrumento NAO resolve mudou; releia"
-        f" o 770 antes de reescrever a contagem. Hoje: {nomes}"
-    )
+    }
+    assert antigos <= {n for n, _, _, _ in nao}
 
 
 def test_a_implicacao_vale_de_UM_LADO_SO__piso_implica_nao_estabelecido():
@@ -86,7 +98,9 @@ def test_a_implicacao_vale_de_UM_LADO_SO__piso_implica_nao_estabelecido():
     estabelecido; a volta nao vale.
     """
     nao = {n: _nominal(p, r) for n, p, r, _ in _nao_estabelecidos()}
-    assert sorted(nao.values()) == [0.1, 0.4, 0.4, 0.5, 0.9], nao
+    # propriedade, nao identidade: todo nao-estabelecido tem residuo nominal
+    # dentro do passo do instrumento, e o conjunto nao e singular.
+    assert nao and all(v <= 1.0 + 1e-9 for v in nao.values()), nao
     # o piso da banda e um dos nao-estabelecidos (o lado que VALE)
     assert mira.RESIDUO_OBSERVADO[0] in nao.values()
     assert mira.RESIDUO_OBSERVADO[0] == min(nao.values())

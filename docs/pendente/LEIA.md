@@ -342,3 +342,27 @@ e exige escolher a **Conta de Marca** de cada canal. **Nao confirmei que ele
 entrega retencao** — `get_fields` recusa sem conta conectada.
 
 Banco negado: decima oitava rodada. 19 linhas parqueadas.
+
+## 16/10 05:2x — epomeno-epipedo-s041 no ar, e o banco nega pela 20a rodada
+
+`execute_sql` devolveu `-32600` ("You do not have permission") na **20a rodada
+seguida**. Pelo 777 isto NAO diz se o conector foi reapontado ou se a permissao
+do projeto foi retirada — as duas produzem a mesma resposta. O que segue
+funcionando e a publicacao, pelo `retomar.yml` com o `YT_OAUTH_JSON`.
+
+**Peca publicada:** `QH9xoIC69jM` (`epomeno-epipedo-s041`), origem
+`h66MCKjwAJ8` — origem de UM short so e sem spec local, alcancada pela rota do
+sandbox (yt-dlp, 1.208 palavras). Onze portoes verdes, provedor **edge**
+MEDIDO (zero avisos no job `116823350313`), previsao 41,6 no PISO, real **42**.
+
+**O que o dono precisa fazer, e a ordem mudou pelo 777:** reconectar o conector
+do Supabase escolhendo a organizacao do projeto `vevocauwtarctfwngrch`. Sem
+`execute_sql` nao ha `pg_net`, logo nao ha leitura de inscritos, nem duracao
+real pelo banco, nem registro em `videos` — e as **20 linhas** parqueadas em
+`docs/pendente/videos-a-inserir.sql` continuam fora do banco. Sem `origem_id`
+em `videos`, a `consultas/estoque.sql` nao sabe que estas origens foram
+consumidas (670).
+
+**Storage em 402 outra vez:** `thumbnail.png` e `short.mp4` nao subiram ao
+bucket. A publicacao no YouTube nao depende disso, e a capa propria foi
+confirmada pela rota do sandbox (`maxresdefault` 200, 57 KB; `maxres2` 200).
