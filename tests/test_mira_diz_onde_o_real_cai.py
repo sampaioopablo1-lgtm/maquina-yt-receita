@@ -68,8 +68,12 @@ def test_a_banda_nao_e_inventada__ela_e_o_minimo_e_o_maximo_observados():
 
 def test_faixa_real_e_soma_e_nao_fator():
     # 770: o piso da banda caiu a 0,1, logo a soma desce com ele.
-    assert mira.faixa_real(25.6) == (25.7, 29.6)
-    assert mira.faixa_real(10.0) == (10.1, 14.0)
+    lo, hi = mira.RESIDUO_OBSERVADO
+    # Derivado da constante, e nao cravado: este par ja envelheceu DUAS vezes
+    # (quando o piso foi a 0,1 e agora a 0,0), e cravar o numero calculado e o
+    # defeito que o 753 nomeia.
+    assert mira.faixa_real(25.6) == (round(25.6 + lo, 1), round(25.6 + hi, 1))
+    assert mira.faixa_real(10.0) == (round(10.0 + lo, 1), round(10.0 + hi, 1))
 
 
 def test_o_relato_do_s034_AVISA_que_o_real_passa_do_teto():
@@ -84,7 +88,7 @@ def test_o_relato_do_s034_AVISA_que_o_real_passa_do_teto():
     assert "pode passar do teto" in t, "e o real nao — isto e o 739"
     assert "PASSA do teto da mira" not in t, (
         "se o aviso FORTE voltou, o piso da banda subiu — releia o 770")
-    assert "25.7 e 29.6" in t
+    assert "25.6 e 29.6" in t
     # o real medido desta peca foi 28, dentro da banda que o relato anuncia
     assert mira.faixa_real(25.6)[0] <= 28 <= mira.faixa_real(25.6)[1]
 

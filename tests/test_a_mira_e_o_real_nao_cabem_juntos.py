@@ -88,11 +88,18 @@ def test_a_banda_e_a_OBSERVADA_e_o_teto_dela_foi_AMPLIADO_pelo_752():
     """O teto da banda nao e limiar: ele e o maior residuo JA OBSERVADO.
 
     De 739 a 751 ele foi 2,4 por treze pontos. O `s043` mediu 3,7 e o teto subiu
-    no mesmo passo — e isso e reportar medicao, nao inventar criterio. O piso de
-    0,9 segue intocado, e a largura passou de 1,5 para 2,8 s, o que torna a banda
-    MENOS util como previsao; vai dito em vez de escondido.
+    no mesmo passo — e isso e reportar medicao, nao inventar criterio. A largura
+    passou de 1,5 para 2,8 s, o que torna a banda MENOS util como previsao; vai
+    dito em vez de escondido.
+
+    E O PISO JA SE MOVEU QUATRO VEZES, sempre para BAIXO: 0,9 (734) -> 0,5 (769)
+    -> 0,1 (770) -> **0,0** (16/10 as 21:2x, `kolejny-poziom-s045`, previsao 41,0
+    e real 41). A largura esta em 4,0 s contra 1 s de granularidade do real: a
+    banda cobre quatro inteiros e informa cada vez menos. Isso e proprio de um
+    limite definido pelo EXTREMO observado, e o `==` abaixo existe para obrigar a
+    reler a cada movimento em vez de deixar o numero escorregar calado.
     """
-    assert mira.RESIDUO_OBSERVADO == (0.1, 4.0)
+    assert mira.RESIDUO_OBSERVADO == (0.0, 4.0)
     # `>=` e nao `==`: a contagem cresce a cada peca, e cravar o total fez ESTE
     # teste reprovar no 41o ponto, em 16/10 — a QUARTA vez na mesma rodada que um
     # teste meu cobrou IDENTIDADE em vez de propriedade (743/753/761). O que este

@@ -721,3 +721,35 @@ porque uma peça pode estar indexada e ainda fora de `processed` — já medimos
 
 **Sua, e é a décima terceira negativa:** as **35** linhas de `insert into videos`
 seguem fora do banco. Porta 1 em 68 / 21 / 8, os três indeterminados em 16,6 h.
+
+## 16/10 21:1x — o primeiro resíduo ZERO, e quatro testes meus caíram com ele
+
+`kolejny-poziom-s045` = `keI7ycnCSmY`, **41 s reais** contra previsão edge de
+**41,0** (provedor **edge** medido, zero avisos no job `117197352639`): resíduo
+**0,0** — o primeiro da série em 55 pontos. Som LUFS −13,9, desvio 0,1, zero
+silêncios.
+
+**O que isso muda, e vai dito porque é piora:** o piso da banda cai de 0,1 para
+**0,0**, a largura vai a **4,0 s** contra 1 s de granularidade do real, e a frase
+que eu venho escrevendo desde o 734 — *"N de N acima da previsão"* — **cai pela
+quarta vez**. A propriedade que a série sustenta passa a ser **não-negativo**; o
+positivo estrito vale só nos pontos estabelecidos. **Quinta** correção da banda, e
+todas as cinco a alargaram.
+
+**E o sinal deste ponto não está estabelecido:** com arredondamento para cima,
+real 41 significa duração verdadeira em (40; 41], e a previsão de 41,0 cai dentro
+desse intervalo — o resíduo verdadeiro está em (−1,0; 0,0] e **pode ser negativo**.
+
+**Quatro testes meus reprovaram, e os quatro estavam certos em reprovar.** O mais
+útil: um deles cobrava que, na janela de 41–42 s, o real **maior** viesse da
+previsão **menor** — o oposto de uma relação monótona. Com este ponto o extremo
+inferior passou a casar no sentido monótono, e o teste caiu. **Nenhuma das duas
+versões era a propriedade certa:** com 1,0 s de largura de previsão e 1 s de passo
+no real, a janela **não ordena em sentido nenhum**. Reescrito para medir a
+correlação — hoje **+0,32** com 29 pontos — e reprovar só se ela ficar forte.
+
+**E a largura da janela chegou exatamente ao passo do instrumento (1,00 s)**, que
+é a fronteira que o 768 nomeou. Registrada, não suavizada.
+
+**Sua, e é a décima quarta negativa:** as **36** linhas de `insert into videos`
+seguem fora do banco. Porta 1 em 68 / 21 / 8, os três indeterminados em 17,6 h.

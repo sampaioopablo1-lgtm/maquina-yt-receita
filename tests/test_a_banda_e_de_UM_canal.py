@@ -147,9 +147,13 @@ def test_a_serie_e_BIMODAL_na_previsao__nao_e_uma_faixa_so():
         "duas e uma escolha, nao um dado")
 
 
-def test_TODOS_os_residuos_seguem_positivos():
+def test_TODOS_os_residuos_seguem_NAO_NEGATIVOS():
     for pacote, prev, real, _prov in SERIE:
-        assert real - prev > 0, pacote
+        # `>= 0` desde 16/10 as 21:2x: o `kolejny-poziom-s045` previu 41,0 e
+        # deu real 41 — residuo ZERO, que NAO e positivo. A propriedade que a
+        # serie sustenta e NAO-NEGATIVO; o positivo estrito vale apenas nos
+        # pontos ESTABELECIDOS, e quem cobra isso e o teste do 770.
+        assert real - prev >= 0, pacote
     assert mira.RESIDUO_N == len(SERIE)
 
 

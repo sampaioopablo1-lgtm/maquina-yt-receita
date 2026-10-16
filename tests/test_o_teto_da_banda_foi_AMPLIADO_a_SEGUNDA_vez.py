@@ -10,6 +10,8 @@ Sinal ESTABELECIDO (`29 - 25,0 > 1,0`, criterio do 770).
 **E o que vale guardar nao e o numero, sao tres coisas:**
 
 1. **A banda ficou MENOS util outra vez.** A largura foi de 3,6 para **3,9 s**
+   e, em 16/10 as 21:2x, para **4,0 s** — o piso desceu a ZERO no
+   `kolejny-poziom-s045` (41,0 -> 41). **Cinco** correcoes, todas alargando.
    contra **1 s** de granularidade do real: ela cobre quase quatro inteiros. O
    teto subiu duas vezes (752, 774) e o piso baixou duas (769, 770) — **as
    quatro correcoes a ALARGARAM**, nunca a estreitaram, e isso e proprio de um
@@ -70,13 +72,13 @@ def test_o_sinal_deste_ponto_esta_ESTABELECIDO():
     assert REAL - PREV_EDGE > 1.0
 
 
-def test_as_QUATRO_correcoes_da_banda_a_ALARGARAM():
+def test_as_CINCO_correcoes_da_banda_a_ALARGARAM():
     """739 (0,9;2,4) -> 752 teto 3,7 -> 769 piso 0,5 -> 770 piso 0,1 -> 774 teto
     4,0. Nenhuma estreitou, e isso e propriedade de limite por extremo."""
     larguras = [2.4 - 0.9, 3.7 - 0.9, 3.7 - 0.5, 3.7 - 0.1, 4.0 - 0.1]
     assert larguras == sorted(larguras), larguras
     lo, hi = mira.RESIDUO_OBSERVADO
-    assert round(hi - lo, 1) == 3.9
+    assert round(hi - lo, 1) == 4.0
 
 
 def test_a_banda_cobre_quase_QUATRO_inteiros_do_real():
@@ -122,7 +124,7 @@ def test_o_provedor_foi_MEDIDO_e_o_job_fica_registrado():
     assert PACOTE in fonte
 
 
-def test_TODOS_os_40_pontos_seguem_POSITIVOS():
+def test_TODOS_os_pontos_seguem_NAO_NEGATIVOS():
     """O nome diz 40 porque foi quando nasceu; a PROPRIEDADE e que todos sobem.
 
     A versao anterior cravava `== 40`, e em 16/10 ela reprovou no 41o ponto —
@@ -132,4 +134,8 @@ def test_TODOS_os_40_pontos_seguem_POSITIVOS():
     """
     assert len(SERIE) == mira.RESIDUO_N >= 40
     for pacote, prev, real, _p in SERIE:
-        assert real - prev > 0, pacote
+        # `>= 0` desde 16/10 as 21:2x: o `kolejny-poziom-s045` previu 41,0 e
+        # deu real 41 — residuo ZERO, que NAO e positivo. A propriedade que a
+        # serie sustenta e NAO-NEGATIVO; o positivo estrito vale apenas nos
+        # pontos ESTABELECIDOS, e quem cobra isso e o teste do 770.
+        assert real - prev >= 0, pacote

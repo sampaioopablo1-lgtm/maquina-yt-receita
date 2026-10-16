@@ -189,11 +189,26 @@ SERIE = [
     # estabelecido (42 - 41,3 <= 1,0, pelo 770). A pagina trouxe DOIS
     # lengthSeconds, 41 e 42: vale o MAIOR.
     ("epomeno-epipedo-s046", 41.3, 42, "edge"),
+    # 21:12 de 16/10, e o PRIMEIRO residuo ZERO da serie: provedor edge MEDIDO
+    # (zero avisos no job 117197352639), previsao 41,0 e real 41. O piso da banda
+    # cai de 0,1 para 0,0, e o sinal deste ponto NAO esta estabelecido — com
+    # arredondamento para cima, real 41 significa duracao em (40; 41], logo o
+    # residuo verdadeiro esta em (-1,0; 0,0] e PODE ser negativo.
+    ("kolejny-poziom-s045", 41.0, 41, "edge"),
 ]
 
 
 def test_o_sinal_sobrevive__cinco_de_cinco_acima():
-    assert all(real > prev for _, prev, real, _ in SERIE)
+    # CAIU EM 16/10 as 21:2x, e pela QUARTA vez esta frase perde forca. O
+    # `kolejny-poziom-s045` previu 41,0 e deu real 41: residuo ZERO, que nao e
+    # positivo. Logo a propriedade que a serie sustenta e NAO-NEGATIVO, e o
+    # positivo estrito vale so nos pontos ESTABELECIDOS (770).
+    assert all(real >= prev for _, prev, real, _ in SERIE), (
+        "um real ABAIXO da previsao do provedor medido nunca foi observado; se "
+        "aparecer, a serie inteira tem de ser RELIDA")
+    estabelecidos = [(p, pr, r) for p, pr, r, _ in SERIE if r - pr > 1.0]
+    assert all(r > pr for _, pr, r in estabelecidos)
+    assert len(estabelecidos) >= 40, len(estabelecidos)
 
 
 def test_o_limite_de_1_9_s_do_734_CAIU():
