@@ -818,6 +818,52 @@ separadas por uma hora, nos três canais, enquanto peças individuais subiam.
 Compare só leituras separadas por ≥ ~4 h, e nunca conte N leituras horárias
 iguais como N observações.
 
+## A PAUTA IGNORAVA ONDE O CANAL ESTÁ HOJE — pedido do dono, 16/10
+
+Palavras dele: *"Estas produções estão muito distantes do último vídeo produzido
+e publicado no canal labtreinamento"*.
+
+**Medido antes de concordar, porque ele podia estar falando de forma e não de
+assunto.** Rank da origem das dez últimas peças daquele canal, pela playlist de
+uploads VIVA (1 = o longo mais novo):
+
+| peça | s051 | s052 | s053 | s054 | s055 | s056 | s057 | **s058** | **s059** | **s060** |
+|---|---|---|---|---|---|---|---|---|---|---|
+| rank | 14 | 13 | 12 | 7 | 3 | 2 | 11 | **1** | **1** | **14** |
+
+**Duas peças seguidas no topo do canal e a seguinte treze posições atrás.** Ele
+estava certo, e o número diz quanto.
+
+**E A MINHA PRIMEIRA EXPLICAÇÃO ESTAVA ERRADA, o que fica registrado porque
+custou uma conta:** eu supus que espalhar uso entre origens puxaria
+sistematicamente para o passado. **Spearman(usos, rank) = −0,21**, com uso quase
+plano (4 em doze das catorze origens). O critério não puxa para trás em média —
+ele é **CEGO ao tempo**, e com uso empatado o desempate caiu em qualquer lugar.
+
+**A CAUSA ESTRUTURAL é o filtro `escrevivel`, e ela é exata: entre as origens
+recentes, a ÚNICA que ele exclui é o rank 1** — porque longo novo é justamente o
+que ainda não tem spec local. Logo a pauta era empurrada para fora do topo por um
+filtro que fala de **disponibilidade de texto**, não de valor editorial. (Os
+outros `False` são os ranks 15 a 19, cópias do mesmo título, que não disputam
+pauta.)
+
+**A REGRA QUE FICA: a pauta serve o longo MAIS NOVO primeiro, e falta de spec
+local não é motivo para pular o topo** — a rota é a regra (h), e ela está provada
+nesse exato caso: o `s058` e o `s059` saíram do rank 1 por ela.
+
+**No código:** `fabrica/recencia.py` (`ordem_do_retrato`, `rank`,
+`distancia_do_topo`, `analise`, `relato`) e sete testes. Rode junto com os dois
+contadores de concentração, **com a ordem VIVA**:
+
+    python3 -c "import sys;sys.path.insert(0,'fabrica');import recencia;print(recencia.relato(USOS, ORDEM_VIVA, topo_vivo=ID_DO_ULTIMO))"
+
+**E ele RECUSA ordenar pelo retrato de 06/10**, porque o retrato não conhece os
+longos publicados depois — e são eles a pergunta. É a mesma disciplina do
+`porta1` recusando janela curta. **Ele também não escolhe sozinho:** o peso entre
+"pouco usada" e "recente" não está medido, e peso sem procedência é critério
+inventado (§10). Ele imprime as duas coordenadas e o custo em posições da escolha
+cega.
+
 ## Antes de escolher pauta
 - `consultas/estoque.sql` — **rode a consulta.** É a única fonte de origem livre.
   Nenhuma lista de memória, à mão, ou escrita num prompt decide nada.
