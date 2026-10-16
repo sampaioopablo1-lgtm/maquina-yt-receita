@@ -416,3 +416,26 @@ resolvem.
 devolve as duas e a **reconexao do conector do Supabase** na organizacao do
 projeto `vevocauwtarctfwngrch` — com `execute_sql` volta o `pg_net`, e com ele a
 leitura de duracao real e a de legenda pela API, que nao dependem desta rota.
+
+## 16/10 08:2x — a rota VOLTOU, e o limite da frota caiu abaixo de 1/dia
+
+**As rotas que eu medi fechadas as 07:1x voltaram as 08:1x** — `lengthSeconds` e
+`yt-dlp`, as duas. Isso e a propria regra do achado funcionando: rota e ESTADO.
+Com ela vieram os dois reais parqueados: `7KZjro4H8ls` 41,7 -> **43** (+1,3) e
+`stj6tmBAOLI` 41,5 -> **43** (+1,5), os dois com provedor edge MEDIDO e sinal
+estabelecido, os dois DENTRO da banda. `RESIDUO_N` = 44, 38 estabelecidos.
+
+**INSCRITOS, leitura de 25,1 h (16/10 08:2x contra 15/10 07:13): 68 / 20 / 8,
+delta ZERO nos tres.** O piso de resolucao da janela e **0,96/dia**, logo o
+limite superior da frota passou a ser **menos de 1 inscrito por dia** — mais
+apertado que o 1,04 de duas horas antes e que o 1,18 de 03:3x. Os tres canais
+saem `indeterminado` pelo criterio das duas contagens (723).
+
+**O que isto significa, e e aritmetica:** com a frota abaixo de 1/dia, os 432 que
+faltam ao `labtreinamento` levam mais de 450 dias — passando de 1/FEV/2027, quando
+a barra sobe de 500 para 1.000. **Nenhum canal fecha a Porta 1 no ritmo medido**,
+e a alavanca continua sendo CONVERSAO, nao volume.
+
+**Peca publicada:** `Z8KZL5z8nxI` (`labtreinamento-s059`), origem `FtCtIJPsc_Q` —
+o longo que o dono apontou. 23 linhas agora parqueadas em
+`videos-a-inserir.sql`, esperando `execute_sql`.
