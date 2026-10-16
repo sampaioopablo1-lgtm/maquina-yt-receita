@@ -5,6 +5,101 @@ porque número dentro de prompt envelhece e já me fez errar quatro vezes
 (652/655, 658, 682, 685). Aqui não entra contagem de estoque, nem de views, nem
 de inscritos. Entra onde olhar.
 
+## O PROCESSO DE PRODUÇÃO QUE O DONO PEDIU EM 16/10 — E AS TRÊS ROTAS QUE ABRIRAM
+
+Palavras dele: *"crie próximo vídeo melhor de 2 min agora e publique, thumbnail,
+e outras melhorias. Busca monetização dos canais"* e, em seguida, *"insira este
+processo de produção na rotina, com estilo, narração, modelo para todos os canais
+de cada idioma. pelo menos 2 vídeos por dia por canal, 1 vídeo longo e outro
+curto"*.
+
+**ESTÁ EM `docs/ROTINA.md`, §6-bis. E O PROMPT DO TRIGGER ESTÁ ATRÁS DO ARQUIVO** —
+o corpo mede 64.891 bytes (md5 `45d3629f36fb70a409e8ddede25f7e54`) e o
+`update_trigger` exige o texto inteiro como argumento, o que é o mesmo tipo de
+passo que matou três runs no `estado_b64`. **Enquanto a sincronia não for feita,
+é esta seção que governa** — e ela é lida primeiro por ordem do próprio prompt.
+
+### O SANDBOX DO COMPOSIO TEM SAÍDA PARA A INTERNET, e isso derrubou TRÊS bloqueios
+
+Medido em 16/10 às 03:3x–03:4x com `COMPOSIO_REMOTE_BASH_TOOL`. **O proxy DESTA
+sessão nega o youtube.com; o sandbox não.** Sonde-o antes de dizer que não há
+rota — eu reportei estes três como bloqueados por **dezessete rodadas**.
+
+1. **MEDIR, sem Supabase.** `https://www.youtube.com/watch?v=<id>` →
+   `"lengthSeconds"` e `"viewCount"`; `/channel/<UC…>/about` com
+   `Accept-Language: pt-BR` → inscritos. **A página traz DOIS `lengthSeconds`
+   diferentes** (43 e 44 na mesma peça): use o MAIOR, porque a banda foi
+   construída sobre `contentDetails.duration`, que arredonda para cima. **Não dá
+   retenção nem `subscribersGained`** — isso é Analytics, e segue na pendência 1.
+2. **A REGRA (h), sem `pg_net`.** `pip install -q yt-dlp` e
+   `yt-dlp --write-subs --write-auto-subs --sub-langs 'pt-BR,pt' --skip-download
+   --sub-format vtt`. O `timedtext` direto volta **vazio** (o YouTube passou a
+   exigir token); não insista nele. Foi assim que o `FtCtIJPsc_Q` virou pauta:
+   71 KB de VTT, **1.381 palavras**, e nenhuma frase do short saída de TÍTULO.
+3. **AS FONTES INSTITUCIONAIS respondem:** `api.sejm.gov.pl` e
+   `ec.europa.eu/eurostat/api` devolveram **dado real**, `www.statistics.gr` 200,
+   `www.gov.br` 301. **LONGO NOVO voltou a ser possível**, e a regra 600 (duas
+   fontes que batam) volta a ser cumprível — logo o pedido de 1 longo/dia por
+   canal deixa de ser promessa vazia. Isto RETRATA o que eu escrevia aqui: que o
+   402 bloqueava o refil da pauta.
+
+### O que a primeira leitura em dezessete rodadas disse
+
+Inscritos em 16/10 às 03:3x contra 15/10 às 07:13, **20,4 h**: **68 / 20 / 8**,
+delta **zero** nos três, e o piso de resolução da janela é 1,18/dia. **Isso
+derruba o "+1,79 inscrito/dia" da frota que eu carregava desde 12/10** — ele
+preveria ~1,5 inscrito nessa janela. Delta zero não estabelece ritmo: estabelece
+um **limite superior**, e a frota anda **abaixo de 1,18/dia**.
+
+E as **dezessete durações reais** parqueadas saíram todas: resíduo **+0,4 a
++2,9 s**, dezessete de dezessete positivos, todas dentro da banda. **Não atualizei
+`RESIDUO_N`**, porque o provedor só está medido em quatro delas e comparar contra
+o mundo `edge` sem contar os avisos é o erro que o 733 nomeia.
+
+### O FORMATO DE 2 MIN, e o limite que morava em DOIS lugares
+
+`labtreinamento-s058` = `8DVWFC5agrg`, **124 s reais**, 40 cenas, **3,1 s por
+plano** (a cadência medida em 690/699), com **capa própria** — a primeira peça da
+frota com capa desenhada, e o 403 que eu previa por canal não verificado **não
+veio**.
+
+**A faixa do short agora é POR SPEC: `short_alvo_s: [piso, teto]`, e sem o campo
+vale a da frota (18 a 45 s)** — logo nenhuma spec antiga muda de julgamento, e
+isso tem contraprova em teste. A fonte é **única**: `ensaio.faixa_do_short(sp)`.
+**Teto absoluto 180 s**, porque acima disso o YouTube deixa de tratar a peça como
+Short e o único caminho de monetização ainda vivo (3 M de views/90 d) depende
+dessa classificação.
+
+**Por que a fonte é única: eu mudei o portão e esqueci o render.** O run
+`38847013520` passou os doze portões, montou o `short.mp4`, subiu o artefato de
+4,9 MB — e morreu em `etapas.py:377`, num `assert 20 <= ds <= 60` cravado à mão,
+**depois** de o arquivo existir. Mesma regra, dois donos, um atualizado. A peça
+foi publicada do artefato daquele run.
+
+**E a falha deu de graça a primeira medição real do formato:** previsão edge
+**118,8** → real **124** (ffprobe 123,6), resíduo **+4,8 a +5,2 s**, acima do
+teto de 4,0 da banda. **Mas a banda foi construída em peças de 23 a 44 s**, e
+aplicá-la aqui seria o erro de enquadramento do 679/698/725. O que eu afirmo é só
+o limite: **nesta faixa de duração não existe banda medida, e o primeiro ponto
+dela é +4,8 s.**
+
+### RITMO E MODELO POR CANAL
+
+**Alvo: ao menos DOIS por canal por dia — UM LONGO e UM CURTO**, seis na frota. O
+longo gera pauta, satisfaz os 3 uploads/90 d e converte ~5x melhor por view; o
+curto entrega alcance em canal frio. **Rodada que só consegue uma peça diz QUAL
+faltou e por quê.** O teto automático de 1/dia/canal segue sendo pendência 4.
+
+| canal | idioma | voz (edge) | R | P | trilha | mira |
+|---|---|---|---|---|---|---|
+| labtreinamento | pt-BR | Thalita Multilingual | 17,47 | 0,737 | Inspired | 20,0–26,0 REAL |
+| epomeno-epipedo | el | el-GR-Nestoras | 20,61 | 1,273 | Inspired | 41,5–43,0 |
+| kolejny-poziom | pl | pl-PL-Marek | 20,07 | 1,419 | **Wholesome** | 41,5–43,0, mire o PISO |
+
+**Nunca copie trilha nem paleta de outro canal** — eu levei reprovação do portão
+`identidade` em 16/10 por colar `Inspired` no kolejny. `P` é por FRASE: **uma
+frase curta por cena**, e `cenas ≈ total / 3` para manter a cadência.
+
 ## A PERGUNTA QUE ABRE TODA RODADA — pedido do dono, 12/10/2026
 
 Palavras dele: *"informe quadro dos resultados atuais projeção e tendência, de
