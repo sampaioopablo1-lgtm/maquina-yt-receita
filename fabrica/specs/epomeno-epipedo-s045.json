@@ -1,0 +1,80 @@
+{
+ "slug": "epomeno-epipedo",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#16283C",
+  "c1": "#2E7BB4",
+  "c2": "#E0A02E",
+  "bg": "#F3F7FA"
+ },
+ "pacote": "epomeno-epipedo-s045",
+ "longo_existente": "nttW9fR8wyY",
+ "thumb": {
+  "l1": "Μία φορά",
+  "l2": "όχι δύο"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Τα έξοδα μετρούν",
+   "sub": "αλλά μία φορά",
+   "nar": "Η γραμμή των εξόδων μπαίνει στη σύγκριση, μία φορά.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Το λάθος",
+   "nar": "Το λάθος είναι να τα προσθέσεις ξανά, αν είναι ήδη μέσα στη δόση."
+  },
+  {
+   "layout": "item",
+   "kicker": "Τι βγαίνει τότε",
+   "nar": "Τότε το κόστος βγαίνει μεγαλύτερο από αυτό που γράφει το χαρτί."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ο έλεγχος",
+   "sub": "δύο γραμμές, μία πράξη",
+   "nar": "Ο έλεγχος είναι απλός και γίνεται πριν την πρόσθεση."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Κοίτα το χαρτί",
+   "itens": [
+    "το ποσό της δόσης",
+    "τη γραμμή των εξόδων"
+   ],
+   "nar": "Κοίτα αν η δόση γράφεται με τα έξοδα μέσα ή χωρίς."
+  },
+  {
+   "layout": "item",
+   "kicker": "Αν τα έχει μέσα",
+   "nar": "Αν τα έχει μέσα, ο πολλαπλασιασμός τα μέτρησε ήδη."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ο κανόνας",
+   "sub": "γραμμένο, μία φορά",
+   "nar": "Μπαίνει ό,τι γράφεται, και μπαίνει μία φορά."
+  },
+  {
+   "layout": "item",
+   "kicker": "Η δοκιμή",
+   "nar": "Δύο άνθρωποι με το ίδιο χαρτί, ίδιο νούμερο."
+  },
+  {
+   "layout": "item",
+   "kicker": "Αν διαφέρουν",
+   "nar": "Αν βγάζουν άλλο, κάποιος μέτρησε δύο φορές."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Μέτρα το ξανά",
+   "nar": "Μέτρα τη δική σου προσφορά και γράψου εδώ."
+  }
+ ],
+ "copy": "# epomeno-epipedo-s045\n\n## TITULO\nΗ Γραμμή των Εξόδων Μπαίνει στη Σύγκριση Μία Φορά — Όχι Δύο\n\n## TITULO SHORT\nΜία φορά, όχι δύο\n\n## DESCRICAO\nΟ έλεγχος των δόσεων είναι δύο πράξεις: δόσεις επί ποσό δόσης, μείον την τιμή μετρητοίς. Η γραμμή των εξόδων **μπαίνει** σε αυτή τη σύγκριση — και εκεί γεννιέται ένα λάθος που δεν φαίνεται με τίποτα, γιατί δεν αλλάζει το πρόσημο του αποτελέσματος: η ίδια γραμμή μπαίνει **δύο φορές**.\n\nΣυμβαίνει όταν το ποσό της δόσης αναγράφεται στο χαρτί με τα έξοδα ήδη μέσα, και εσύ τα προσθέτεις ξανά από πάνω στο σύνολο. Ο πολλαπλασιασμός των δόσεων τα μέτρησε μία φορά, η πρόσθεσή σου δεύτερη, και το κόστος της διευκόλυνσης βγαίνει μεγαλύτερο από αυτό που γράφει η σελίδα που υπογράφεις. Το νούμερο μοιάζει σωστό, γιατί η πράξη έγινε σωστά — λάθος είναι το τι μπήκε μέσα της.\n\nΟ κανόνας είναι μονόδρομος και είναι δύο μισά, και χρειάζονται και τα δύο:\n\n- **μπαίνει ό,τι είναι γραμμένο** στη σελίδα που υπογράφεις, και τίποτα άγραφο, ούτε ως υπόθεση;\n- **και μπαίνει μία φορά**, όσες φορές και να εμφανίζεται σε διαφορετικές γραμμές του χαρτιού.\n\nΟ έλεγχος είναι μία ματιά, και γίνεται **πριν** την πρόσθεση: κοίτα αν η δόση γράφεται με τα έξοδα μέσα ή χωρίς αυτά. Αν τα έχει μέσα, η δουλειά έχει ήδη γίνει για σένα και δεν ξαναγίνεται.\n\nΚαι η δοκιμή που πιάνει και τα δύο μισά δεν χρειάζεται καθόλου γνώσεις οικονομικών: δύο άνθρωποι με το ίδιο χαρτί πρέπει να βγάλουν το ίδιο νούμερο. Αν βγάζουν άλλο, κάποιος πρόσθεσε μια υπόθεση που δεν είναι γραμμένη, ή μέτρησε μια γραμμή δύο φορές. Αυτός είναι ο λόγος που ο υπολογισμός κρατιέται καθαρός: για να παραμένει **ελέγξιμος** από οποιονδήποτε, όχι μόνο από εκείνον που τον έκανε.\n\nΤο αναλυτικό κεφάλαιο για τη γραμμή των εξόδων, και τους δύο κανόνες μαζί, είναι στο μεγάλο βίντεο του καναλιού.\n\n## COMENTARIO FIXADO\nΚοίτα τη δική σου προσφορά: η δόση γράφεται **με** τα έξοδα μέσα ή **χωρίς**; Αυτή η μία λέξη αλλάζει το νούμερο.\n\n## HASHTAGS\n#δόσεις #άτοκες #οικονομικά #ΕπόμενοΕπίπεδο #shorts\n\n## TAGS\nάτοκες δόσεις, έξοδα, τιμή μετρητοίς, σύγκριση προσφορών, κόστος διευκόλυνσης, προσωπικά οικονομικά, υπολογισμός, καταναλωτής, συμβόλαιο, Επόμενο Επίπεδο\n\n## AVISO\n**ORIGEM: a regra de RECÊNCIA, e pela ordem VIVA.** O `yt-dlp --flat-playlist` na\nplaylist `UU1hk4k4QMjbPCfbw-S5xDyQ` devolveu **77 itens** com duração, e o longo\nmais novo do canal é `nttW9fR8wyY` (754 s) — pacote `epomeno-epipedo-017`, **81\ncapítulos**, spec local no disco. Ele já estava com QUATRO usos (`s005`, `s024`,\n`s038`, `s044`), e isso não é motivo para pular o topo: a unidade de pauta é\n(LONGO × FAMÍLIA DE CAPÍTULO), e o `segundo_angulo.py` relata **66 capítulos não\nmencionados** pelas copies anteriores.\n\n**FAMÍLIA DE ENTRADA ERRADA, nova neste canal:** contar a linha de despesas\n**duas vezes** — somá-la por cima quando ela já está embutida no valor da\nprestação. Ela sai dos capítulos 45 a 52 do longo (`Πρώτος κανόνας` /\n`Δεύτερος κανόνας`), intocados pelas quatro peças anteriores, cujas famílias\nforam: zero → olhar as despesas (`s005`), o resto é em euros e não é taxa\n(`s024`), negativo não acontece (`s038`), o número não recomenda (`s044`).\n\n## CONFIGURACOES DO STUDIO\nShort 9:16, `privacyStatus=public`, trilha `Inspired`, voz `el-GR-NestorasNeural`.\n\n**EXPOSIÇÃO DA DURAÇÃO, declarada ANTES de publicar:** previsão edge **41,8 s** e\npiper **37,0 s**, os dois dentro de 18 a 45 — mira no PISO do `ALVO_SHORT`\n(41,5), pela regra de redação do 772. Com a banda observada (0,1 a 4,0 s), **se\no edge narrar o REAL deve cair entre ~41,9 e ~45,8 s, e o topo dessa faixa PASSA\ndo teto de 45 do portão**. Não mexi em parâmetro nenhum (§10).\n"
+}
