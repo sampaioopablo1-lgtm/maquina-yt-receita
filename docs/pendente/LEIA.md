@@ -260,3 +260,23 @@ origem menos usada dos TRES canais**, e empurra toda rodada para a banda mais
 usada — o contrario do que a concentracao pede, contra o portao `similaridade`,
 que e o portao que estamos tentando passar. Isto e consequencia da pendencia 2,
 e vale ser dito ao dono como custo, nao como inconveniencia.
+
+## Decima setima rodada sem o banco — 16/10, 03:0x
+
+Sonda negada (`-32600`), antes e depois de publicar. **Publicado:**
+`epomeno-epipedo-s040` = `PA4k1nrpMMI` (03:13 UTC), provedor **edge** MEDIDO
+(zero avisos no job `116790708006`), previsao edge 41,7 / piper 37,0 (piso do
+ALVO_SHORT, pelo 772). Som LUFS -14,2, desvio -0,2, pico -3,3 dBTP.
+
+**Perdido:** 41o ponto da banda (`RESIDUO_N` = 40, **dezesseis** pecas sem leitura
+de duracao real). Sem vigilancia do §3.2. O `videos-a-inserir.sql` foi a
+**17 linhas**.
+
+Quinta rodada seguida com a escolha de origem empurrada para a banda mais usada,
+pela causa ja tabelada na rodada das 02:0x: as sete origens de menor uso da frota
+nao tem spec local e a rota da regra (h) para elas sai pelo `pg_net`.
+
+**E o dia 16/10 vai em 4 pecas (1 epomeno + 1 labtreinamento + 1 kolejny + 1
+epomeno) em quatro rodadas** — uma por rodada, que e o teto real desta condicao.
+O dono pede 7/dia POR CANAL; o que destrava isso sao as pendencias 4 e 5, as
+duas dele.
