@@ -163,6 +163,8 @@ SERIE = [
     ("epomeno-epipedo-s043", 41.9, 43, "edge"),
     # 16/10 12:24, job 116969425333: ZERO avisos nos dois jobs do render.
     ("kolejny-poziom-s042", 41.8, 43, "edge"),
+    # 16/10 14:15, jobs 117016350815 e 117016392552: ZERO avisos nos dois.
+    ("epomeno-epipedo-s044", 41.8, 43, "edge"),
 ]
 
 
