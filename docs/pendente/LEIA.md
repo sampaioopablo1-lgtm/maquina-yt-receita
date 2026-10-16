@@ -401,3 +401,18 @@ toda rodada futura — a mesma assinatura que matou tres runs no `estado_b64`.
 **Enquanto nao houver caminho que LEIA o arquivo, quem governa e o `CLAUDE.md`**,
 que o proprio prompt manda ler primeiro e que carrega a §6-bis com essa
 declaracao escrita. Eu paro de prometer a sincronia a cada rodada.
+
+## 16/10 07:1x — as rotas do sandbox DEGRADARAM em quatro horas
+
+Sondadas uma a uma: inscritos (`/channel/<UC…>/about`) **abre**; fontes
+institucionais **abrem** (Eurostat 200, Sejm 200); **duração FECHOU** (o
+`/watch?v=` devolve HTTP 200 com 1,2 MB e ZERO `lengthSeconds`, com marcador
+`CONSENT`); **legenda FECHOU** (`yt-dlp`: *"Sign in to confirm you're not a
+bot"*). Cookie de consentimento, User-Agent de navegador e `&hl=en` nao
+resolvem.
+
+**Consequencia para o dono:** as duracoes reais do `7KZjro4H8ls` e do
+`QH9xoIC69jM` ficaram sem medicao, e a regra (h) voltou a estar fechada. O que
+devolve as duas e a **reconexao do conector do Supabase** na organizacao do
+projeto `vevocauwtarctfwngrch` — com `execute_sql` volta o `pg_net`, e com ele a
+leitura de duracao real e a de legenda pela API, que nao dependem desta rota.

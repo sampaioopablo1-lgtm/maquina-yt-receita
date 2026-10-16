@@ -21,6 +21,37 @@ passo que matou três runs no `estado_b64`. **Enquanto a sincronia não for feit
 
 ### O SANDBOX DO COMPOSIO TEM SAÍDA PARA A INTERNET, e isso derrubou TRÊS bloqueios
 
+**E AS TRÊS ROTAS NÃO SÃO CAPACIDADES, SÃO ESTADOS — medido em 16/10 às 07:1x,
+quatro horas depois de eu as abrir.** Eu escrevi esta seção como se fossem
+propriedades do sandbox. Sondadas uma a uma na rodada seguinte:
+
+| rota | 03:3x | 07:1x | como falha |
+|---|---|---|---|
+| inscritos (`/channel/<UC…>/about`) | abre | **abre** | — |
+| duração (`/watch?v=` → `lengthSeconds`) | abre | **FECHA** | HTTP **200**, 1,2 MB, **zero** `lengthSeconds`, marcador `CONSENT` |
+| legenda (`yt-dlp`) | abre | **FECHA** | *"Sign in to confirm you're not a bot"* |
+| fontes institucionais | abre | **abre** | Eurostat 200, Sejm 200 |
+
+**A rota da duração falha com 200 e página grande**, logo quem não contar o campo
+lê "funcionou". Cookie `CONSENT=YES+1`, `User-Agent` de navegador e `&hl=en` **não
+resolvem** — testados os três. O `oembed` segue em 200, e dá título, não duração.
+
+**Três consequências:**
+1. **A banda do resíduo volta a não ter instrumento** — o `s040` e o `s041`
+   ficaram sem duração real medida, e eu havia anunciado que leria a do `s040`
+   nesta rodada. Fica dito em vez de sumir;
+2. **a regra (h) fecha outra vez**, e com ela a pauta de origem sem spec local;
+3. **a pauta de origem COM spec local continua aberta, e o atalho é o retrato da
+   ponte:** `fabrica/ponte/videos.json` mapeia `youtube_id → pacote`, logo a
+   origem de um short vira o `epomeno-epipedo-0NN.json` com os capítulos no
+   disco. **Isso NÃO é usar o retrato como estoque** — aquilo é o erro retratado
+   em 12/10; é usá-lo como tabela de ids de peça ANTIGA, que é o que ele é.
+
+**A regra que fica, e ela é a do 11/10 ao contrário: rota medida como aberta é
+ESTADO, não propriedade.** Lá eu tratei indisponibilidade como permanente; aqui
+eu tratei disponibilidade como permanente. **Sonde antes de prometer, e conte o
+CAMPO, não o código HTTP.**
+
 Medido em 16/10 às 03:3x–03:4x com `COMPOSIO_REMOTE_BASH_TOOL`. **O proxy DESTA
 sessão nega o youtube.com; o sandbox não.** Sonde-o antes de dizer que não há
 rota — eu reportei estes três como bloqueados por **dezessete rodadas**.

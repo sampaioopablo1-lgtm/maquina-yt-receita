@@ -1,0 +1,96 @@
+{
+ "slug": "epomeno-epipedo",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#16283C",
+  "c1": "#2E7BB4",
+  "c2": "#E0A02E",
+  "bg": "#F3F7FA"
+ },
+ "pacote": "epomeno-epipedo-s042",
+ "longo_existente": "P2q6w9y7j88",
+ "thumb": {
+  "l1": "Δύο λογαριασμοί",
+  "l2": "τρεις αλλαγές"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Σύγκρινες",
+   "sub": "δύο λογαριασμούς",
+   "nar": "Σύγκρινες δύο λογαριασμούς και έβγαλες αμέσως συμπέρασμα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Μόνο που",
+   "preco": "δεν ήταν ίδιοι",
+   "nar": "Μόνο που οι δύο σελίδες δεν κάλυπταν το ίδιο πράγμα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Άλλες μέρες",
+   "preco": "μέσα στην περίοδο",
+   "nar": "Η μία είχε άλλες μέρες μέσα στην περίοδο της χρέωσης.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Και άλλη σεζόν",
+   "sub": "άλλη κατανάλωση",
+   "nar": "Και ήταν άλλη σεζόν, με άλλη κατανάλωση.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Άρα η διαφορά",
+   "preco": "έχει τρεις αιτίες",
+   "nar": "Άρα η διαφορά κρύβει τουλάχιστον τρεις αλλαγές μαζί.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Τι άλλαξε",
+   "itens": [
+    "Οι μέρες",
+    "Η σεζόν",
+    "Η απόφασή σου"
+   ],
+   "nar": "Δεν ξεχωρίζεις ποια από τις τρεις αλλαγές το έκανε.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Η σύγκριση",
+   "preco": "δεν έχει σταθερό",
+   "nar": "Η σύγκριση δεν έχει κανένα σταθερό σημείο αναφοράς.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Σύγκρινε",
+   "sub": "ευρώ ανά κιλοβατώρα",
+   "nar": "Σύγκρινε ευρώ ανά κιλοβατώρα, όχι τελικά ποσά.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Έτσι μένει",
+   "preco": "μία αλλαγή μόνο",
+   "nar": "Έτσι μένει μία αλλαγή και η απάντηση γίνεται καθαρή.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Επόμενο Επίπεδο",
+   "sub": "κάνε εγγραφή",
+   "nar": "Κάνε εγγραφή και υπολόγισε τη δική σου τιμή.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# epomeno-epipedo-s042\n\n## TITULO\nΔύο Λογαριασμοί Ρεύματος Δεν Συγκρίνονται Στο Τελικό Ποσό — Η Διαφορά Κρύβει Τρεις Αλλαγές\n\n## TITULO SHORT\nΗ διαφορά έχει τρεις αιτίες\n\n## DESCRICAO\nΈκανες κάτι για να πέσει ο λογαριασμός — άλλαξες συνήθειες, έκλεισες συσκευές, ή άλλαξες πρόγραμμα. Ήρθε ο επόμενος λογαριασμός, είδες το τελικό ποσό, και βγάλες συμπέρασμα. **Το συμπέρασμα δεν στηρίζεται, και ο λόγος δεν έχει σχέση με το αν έκανες καλά ή άσχημα.**\n\nΟι δύο σελίδες δεν μετρούν το ίδιο πράγμα. Η περίοδος χρέωσης δεν έχει πάντα τον ίδιο αριθμό ημερών. Η σεζόν είναι άλλη, και μαζί της η κατανάλωση. Και μέσα σε όλα αυτά υπάρχει και **η δική σου αλλαγή**. Η διαφορά των δύο ποσών είναι το **άθροισμα** τουλάχιστον τριών αλλαγών, και το άθροισμα δεν σου λέει ποια από τις τρεις το έκανε.\n\nΣτη γλώσσα της μέτρησης αυτό έχει όνομα: **δεν υπάρχει σταθερό σημείο αναφοράς**. Αν αλλάξουν τρία πράγματα μαζί, το αποτέλεσμα δεν αποδίδεται σε κανένα από τα τρία — ακόμη κι όταν η διαφορά είναι μεγάλη και η κατεύθυνση είναι αυτή που ήλπιζες.\n\nΗ σύγκριση που **στέκει** είναι άλλη, και υπάρχει τυπωμένη στην ίδια σελίδα: **ευρώ ανά κιλοβατώρα**, μαζί με το πάγιο. Αυτό το νούμερο δεν εξαρτάται από το πόσες μέρες είχε η περίοδος ούτε από το πόσο ζέστη έκανε. Όταν συγκρίνεις εκεί, μένει **μία** αλλαγή, και η απάντηση γίνεται απάντηση.\n\nΚανένα ποσό, κανένας συντελεστής και κανένα ποσοστό δεν μπαίνει σε αυτό το σύντομο βίντεο — **κανόνας (g)**: αλλάζουν με απόφαση και με τη χρονιά, και το σύντομο κρατάει τον **μηχανισμό**. Τα νούμερα είναι στο πλήρες βίντεο, με τις πηγές τους.\n\nΣτο πλήρες βίντεο: οι τέσσερις οικογένειες χρεώσεων της σελίδας, ποιο κομμάτι είναι όντως ρεύμα, ποιο αλλάζει όταν αλλάζεις πάροχο, και το φύλλο τεσσάρων γραμμών που το δουλεύει με τον δικό σου λογαριασμό.\n\n## COMENTARIO FIXADO\nΈνας έλεγχος που διορθώνει τη σύγκριση σε δύο λεπτά: βρες και στους δύο λογαριασμούς **πόσες μέρες** κάλυψε η περίοδος χρέωσης. Αν δεν είναι ίδιες, τα δύο τελικά ποσά δεν ήταν ποτέ συγκρίσιμα — και η γραμμή που συγκρίνεται είναι η τιμή ανά κιλοβατώρα.\n\n## FAMILIA DE ENTRADA ERRADA\nLer a diferenca entre duas faturas como EFEITO da mudanca que se fez, quando as\nduas faturas nao cobrem o mesmo periodo: o numero de dias muda, a estacao muda, e\na decisao do consumidor muda — tres alteracoes simultaneas, e a diferenca e a\nSOMA delas. Nao ha variavel controlada, logo o resultado nao se atribui a nenhuma\ndas tres, nem quando a direcao e a esperada.\nDistincao dos dois irmaos desta origem (`P2q6w9y7j88`, spec local\n`epomeno-epipedo-004`, 78 capitulos), conferidos um a um: o `s010` trata da BASE\nde um percentual (o desconto incide na linha da energia, nao no total) e o `s029`\ntrata do que e FIXO por imovel contra o que VARIA com o consumo. Os dois erram\nsobre a COMPOSICAO da pagina; este erra sobre a COMPARACAO entre duas paginas —\ne os capitulos 62, 63 e 68, de onde ele sai, estavam intocados.\n\n## AVISO SOBRE OS NUMEROS\nNenhum valor entra: a faixa de quanto da fatura e energia, a aliquota reduzida do\nΦΠΑ, o imposto por quilowatt-hora, a taxa de televisao, os tributos municipais, o\ntele especial e os meses de validade das ofertas de boas-vindas. Todos mudam por\ndecisao e por ano (regra g). A fonte declara `Τέσσερα λάθη` e enumera QUATRO\n(πρώτο a τέταρτο) — sem conflito pelo 725 — e esta peca nao declara quantidade\nde erros; o \"tres\" que ela diz e o numero de coisas que mudam entre duas faturas,\nque e proprio do mecanismo e nao envelhece.\n\n## MIRA\nPrevisao edge **41,5**, exatamente o PISO do `ALVO_SHORT`, pelo 772; piper 36,7.\nA exposicao vai declarada: se o edge narrar, o real cai entre 41,6 e 45,5 s pela\nbanda observada (0,1 a 4,0) — e o TOPO dessa faixa PASSA do teto de 45 do portao.\nSe o piper narrar, 36,8 a 40,7.\n\n## HASHTAGS\n#ρεύμα #λογαριασμός #καταναλωτής #ΕπόμενοΕπίπεδο\n\n## TAGS\nλογαριασμός ρεύματος, σύγκριση λογαριασμών, τιμή ανά κιλοβατώρα, περίοδος χρέωσης, κατανάλωση ρεύματος, αλλαγή παρόχου, πάγιο χρέωσης, οικονομικά σπιτιού, εξοικονόμηση ενέργειας, πώς διαβάζω τον λογαριασμό, Επόμενο Επίπεδο\n"
+}
