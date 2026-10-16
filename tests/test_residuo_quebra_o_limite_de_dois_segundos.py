@@ -161,6 +161,8 @@ SERIE = [
     # dois `lengthSeconds` da pagina): residuo +1,1, DENTRO da banda e com o
     # sinal ESTABELECIDO, por pouco (43 - 41,9 > 1,0).
     ("epomeno-epipedo-s043", 41.9, 43, "edge"),
+    # 16/10 12:24, job 116969425333: ZERO avisos nos dois jobs do render.
+    ("kolejny-poziom-s042", 41.8, 43, "edge"),
 ]
 
 

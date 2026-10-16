@@ -80,3 +80,34 @@ def test_o_relato_NAO_crava_numero_que_ele_mesmo_calcula():
 def test_a_rota_do_video_vai_declarada_como_ESTADO():
     """Ela deu 403 e reabriu uma hora depois, no mesmo sandbox."""
     assert "ESTADO" in vr.__doc__ and "403" in vr.__doc__
+
+
+def test_os_layouts_que_FALTAM_realmente_faltam_no_codigo():
+    """A licao do 743: teste que guarda afirmacao tem de ABRIR o alvo.
+
+    Eu afirmei no commit que o `layout.py` nao tem os cinco layouts da
+    referencia. Isto CONFERE, varrendo os layouts que o render de fato conhece
+    em vez de confiar na minha frase — e reprova se um deles for construido sem
+    sair da lista `LAYOUTS_QUE_FALTAM`, que e como a nota envelheceria calada.
+    """
+    import glob
+    import re
+
+    base = os.path.join(os.path.dirname(vr.__file__), "*.py")
+    conhecidos = set()
+    for caminho in glob.glob(base):
+        with open(caminho, encoding="utf-8") as fh:
+            texto = fh.read()
+        conhecidos |= set(re.findall(
+            r"""layout["']?\s*[=:]=?\s*["']([a-z_]+)["']""", texto))
+
+    assert conhecidos, "varredura vazia nao prova ausencia (o erro do OCR de hoje)"
+    assert "titulo" in conhecidos and "cta" in conhecidos, (
+        f"a varredura nao achou os layouts basicos; ela esta medindo errado: "
+        f"{sorted(conhecidos)}"
+    )
+    for falta in vr.LAYOUTS_QUE_FALTAM:
+        assert falta not in conhecidos, (
+            f"{falta!r} passou a existir no render — tire-o de "
+            f"LAYOUTS_QUE_FALTAM, senao a nota do `video_referencia` mente"
+        )
