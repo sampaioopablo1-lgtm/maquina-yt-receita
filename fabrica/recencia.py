@@ -149,3 +149,97 @@ def relato(usos: dict[str, int], ordem: list[str], topo_vivo: str = None) -> str
         " nao esta medido, e peso sem procedencia e critério inventado.)"
     )
     return "\n".join(out)
+
+
+# ---------------------------------------------------------------------------
+# A ORDEM VIVA, quando a API nao esta disponivel — medido em 16/10 as 12:2x
+# ---------------------------------------------------------------------------
+#
+# ESTE MODULO EXIGIA A ORDEM VIVA POR ARGUMENTO E NAO DIZIA DE ONDE TIRA-LA.
+# Eu o escrevi de manha com a recusa certa — "sem a ordem viva o relato diz o
+# que falta" — e deixei a obtencao de fora, logo a regra dependia de eu lembrar
+# de uma chamada de API que nesta sessao nao existe (o `execute_sql` esta negado
+# pela quinta rodada, logo nao ha `pg_net` nem token).
+#
+# E A ROTA OBVIA FECHOU NA MESMA RODADA, com a assinatura que o `CLAUDE.md`
+# nomeia: `youtube.com/channel/<id>/videos` devolveu **HTTP 200 com 1.196.398
+# bytes e ZERO `videoRenderer`**, com cinco marcadores `CONSENT` e um `captcha`.
+# Quem contasse o codigo HTTP leria "funcionou". **Conte o CAMPO.**
+#
+# A rota que respondeu foi o `yt-dlp` na playlist de uploads — o id do canal com
+# `UC` trocado por `UU` — e ela devolve a ordem VIVA com duracao:
+#
+#     yt-dlp --flat-playlist --print "%(id)s|%(duration)s|%(title).70s" \
+#            -I 1:120 "https://www.youtube.com/playlist?list=UU<resto do id>"
+#
+# Rodou no sandbox do Composio, 84 itens no `kolejny-poziom`. **Nao roda neste
+# container** (o proxy nega o youtube.com), entao o que vive aqui e o PARSER,
+# que e a parte testavel — a chamada fica no sandbox, e a saida entra por aqui.
+
+LIMITE_DE_SHORT_S = 180  # acima disto o YouTube deixa de tratar como Short
+
+
+def playlist_de_uploads(canal_id: str) -> str:
+    """O id da playlist de uploads de um canal: `UC...` -> `UU...`."""
+    if not canal_id.startswith("UC"):
+        raise ValueError(f"id de canal comeca com UC, nao {canal_id[:4]!r}")
+    return "UU" + canal_id[2:]
+
+
+def ordem_viva(saida_do_ytdlp: str) -> list[str]:
+    """A ordem VIVA de uploads, do mais novo para o mais antigo.
+
+    Recebe a saida de `--print "%(id)s|%(duration)s|%(title)s"`. Linha malformada
+    e IGNORADA em silencio de proposito: o `yt-dlp` mistura aviso em stdout em
+    algumas versoes, e abortar por causa de um aviso perderia a ordem inteira.
+    O que NAO se ignora e saida vazia — ela levanta, porque ordem vazia faria o
+    `_cobre_o_topo` recusar com a mensagem errada (diria "a ordem nao alcanca o
+    topo" quando o problema e que nao houve leitura nenhuma).
+    """
+    ids = []
+    for linha in saida_do_ytdlp.splitlines():
+        campos = linha.strip().split("|")
+        if len(campos) < 2 or len(campos[0]) != 11:
+            continue
+        if campos[0] not in ids:
+            ids.append(campos[0])
+    if not ids:
+        raise ValueError(
+            "nenhum id na saida do yt-dlp — isto e AUSENCIA DE LEITURA, nao "
+            "canal vazio; sonde a rota antes de concluir qualquer coisa"
+        )
+    return ids
+
+
+def longos_na_ordem(saida_do_ytdlp: str,
+                    limite_s: int = LIMITE_DE_SHORT_S) -> list[tuple[int, str]]:
+    """Os LONGOS, com o rank entre TODOS os uploads — que e o rank que importa.
+
+    O rank conta shorts tambem, de proposito: a pergunta do dono e sobre
+    distancia do ULTIMO VIDEO PUBLICADO, e o canal publica as duas coisas.
+    """
+    fora = []
+    n = 0
+    for linha in saida_do_ytdlp.splitlines():
+        campos = linha.strip().split("|")
+        if len(campos) < 2 or len(campos[0]) != 11:
+            continue
+        n += 1
+        try:
+            dur = float(campos[1])
+        except ValueError:
+            continue  # duracao ausente (live, privado) nao e longo conhecido
+        if dur > limite_s:
+            fora.append((n, campos[0]))
+    return fora
+
+
+def topo_de_pauta(saida_do_ytdlp: str) -> str | None:
+    """O longo MAIS NOVO — o que a regra de recencia manda servir primeiro.
+
+    `None` quando nao ha longo nenhum na janela lida, e isso NAO e erro: pode
+    ser canal que so publicou shorts ultimamente, e o relato tem de dizer isso
+    em vez de devolver um short como se fosse origem.
+    """
+    longos = longos_na_ordem(saida_do_ytdlp)
+    return longos[0][1] if longos else None
