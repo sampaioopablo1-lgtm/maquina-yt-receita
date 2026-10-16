@@ -132,6 +132,18 @@ SERIE = [
     # minimo), e o sinal NAO esta ESTABELECIDO, porque 42 - 41,6 <= 1,0 e o
     # YouTube arredonda para CIMA — o residuo verdadeiro esta em (-0,6; +0,4].
     ("epomeno-epipedo-s041", 41.6, 42, "edge"),
+    # 16/10 08:1x: os dois pontos que a DEGRADACAO da rota tinha impedido de ler
+    # (ver CLAUDE.md, "AS TRES ROTAS NAO SAO CAPACIDADES, SAO ESTADOS"). A rota
+    # do `lengthSeconds` voltou dentro da MESMA hora em que eu a declarei
+    # fechada, o que e a propria regra funcionando: rota e ESTADO.
+    # `kolejny-poziom-s040` (7KZjro4H8ls), provedor edge MEDIDO (zero avisos no
+    # job `116839333951`): 41,7 -> 43, residuo +1,3, sinal ESTABELECIDO.
+    ("kolejny-poziom-s040", 41.7, 43, "edge"),
+    # `epomeno-epipedo-s042` (stj6tmBAOLI), provedor edge MEDIDO (zero avisos no
+    # job `116858463535`): 41,5 -> 43, residuo +1,5, sinal ESTABELECIDO. A pagina
+    # trouxe DOIS `lengthSeconds` (42 e 43) e vale o MAIOR, pelo arredondamento
+    # para cima do `contentDetails.duration`.
+    ("epomeno-epipedo-s042", 41.5, 43, "edge"),
 ]
 
 

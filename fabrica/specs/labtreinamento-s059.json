@@ -1,0 +1,96 @@
+{
+ "slug": "labtreinamento",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#1F2933",
+  "c1": "#3F6C51",
+  "c2": "#C98B2E",
+  "bg": "#F5F3ED"
+ },
+ "pacote": "labtreinamento-s059",
+ "longo_existente": "FtCtIJPsc_Q",
+ "thumb": {
+  "l1": "Posição não é",
+  "l2": "nome"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "A fórmula",
+   "sub": "continua certa",
+   "nar": "A fórmula está certa e mudou.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Alguém",
+   "preco": "inseriu uma coluna",
+   "nar": "Alguém inseriu uma coluna.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Você pediu",
+   "sub": "a terceira",
+   "nar": "Você pediu a terceira.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Isso é",
+   "preco": "posição",
+   "nar": "Isso é posição, não nome.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A posição",
+   "preco": "anda",
+   "nar": "A posição anda com a tabela.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "O que sobra",
+   "itens": [
+    "Fórmula válida",
+    "Resposta outra",
+    "Nenhum erro"
+   ],
+   "nar": "A planilha não reclama.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Por isso",
+   "preco": "ninguém revisa",
+   "nar": "Ninguém revisa a célula.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Peça pelo nome",
+   "sub": "não pelo lugar",
+   "nar": "Peça pelo nome, não pelo lugar.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Aí mudar",
+   "preco": "deixa de doer",
+   "nar": "Aí mexer não muda nada.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "se inscreva",
+   "nar": "Se inscreva e confira.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# labtreinamento-s059\n\n## TITULO\nO Número da Coluna no PROCV é POSIÇÃO, Não Nome — e Por Isso a Fórmula Certa Passa a Mentir\n\n## TITULO SHORT\nPosição não é nome de coisa\n\n## DESCRICAO\nA fórmula não foi alterada. Ninguém digitou nada de errado. E a resposta que ela devolve hoje não é a mesma de ontem — **sem erro na tela**.\n\nO que aconteceu foi simples: alguém inseriu uma coluna no meio da tabela. E o seu terceiro argumento nunca disse *\"traga o nome\"*. Ele disse **\"traga o que estiver na terceira posição\"**. Posição e nome são coisas diferentes, e a planilha só entende a primeira.\n\nDaí vem a parte que custa caro: **nada fica inválido.** A fórmula continua bem formada, o intervalo continua existindo, a posição pedida continua existindo. Não há `#REF!`, não há aviso, não há célula vermelha. O único sinal de que algo mudou é o próprio valor — e o valor é exatamente o que ninguém confere, porque a fórmula \"já estava funcionando\".\n\nÉ um erro de **referência por lugar**, e ele tem uma assinatura: aparece quando *outra pessoa* mexe na planilha, dias depois, longe de quem escreveu a fórmula. Quem inseriu a coluna não fez nada errado. Quem escreveu a fórmula também não — no dia em que escreveu.\n\nA correção não é conferir mais vezes. É **parar de pedir por posição**: referenciar a coluna pelo nome dela, para que inserir, apagar ou mover colunas deixe de mexer no resultado. A partir daí, mudar a forma da tabela é uma operação segura — e hoje ela não é.\n\nNenhuma versão, data, quantidade de argumentos ou nome de função entra neste vídeo curto — **regra (g)**: mudam com a versão e com o ano, e o curto carrega o **mecanismo**. Os detalhes e as fontes estão no vídeo completo.\n\nNo vídeo completo: os três limites desta função, o que o sucessor dela faz de diferente, e uma regra simples para decidir qual usar em cada planilha.\n\n## COMENTARIO FIXADO\nUm teste de dez segundos na sua própria planilha: insira uma coluna no meio da tabela que a fórmula consulta e veja se a resposta muda. Se mudar, a fórmula está pedindo por **lugar** — e vai mudar de novo, no dia em que você não estiver olhando.\n\n## FAMILIA DE ENTRADA ERRADA\nReferenciar por POSICAO o que se quer por IDENTIDADE: o argumento diz \"o que\nestiver na terceira posicao\", nao \"o nome\", e posicao e uma propriedade da FORMA\nda tabela, nao do dado. Quando a forma muda, a formula continua VALIDA e passa a\nresponder outra coisa — e nada fica invalido, logo nenhum aviso aparece.\nDistincao do irmao unico desta origem, o `s058`: ali o erro esta no que NAO foi\ndigitado (o argumento omitido, com o padrao decidindo por voce); aqui o erro esta\nno que FOI digitado, e ele estava CERTO no dia em que foi escrito. Um e omissao,\no outro e referencia que envelhece — e os dois sao silenciosos por motivos\ndiferentes.\nOrigem `FtCtIJPsc_Q`, o longo que o proprio dono apontou, alcancada pela regra\n(h) atraves da legenda (1.381 palavras); os capitulos do TERCEIRO limite estavam\nintocados.\n\n## AVISO SOBRE OS NUMEROS\nNenhum numero do mundo entra: a versao e a data do anuncio do sucessor, a\nquantidade de argumentos da funcao e a contagem de limites que a fonte declara.\nTodos mudam com a versao e com o ano (regra g). **O \"terceira\" que a peca diz\nNAO e um numero do mundo** — e a posicao do exemplo, e ela E o mecanismo: trocar\npor outra posicao nao muda nada do que a peca afirma. Pelo 725: a fonte declara\n`tres limites` e enumera TRES, sem conflito.\n\n## MIRA\nPrevisao edge **25,7** / piper **21,1**, os dois DENTRO da mira do canal\n(20,0 a 26,0 de duracao REAL) — `mira.py` verde nos dois mundos. **E a exposicao\nvai declarada, porque mira verde nao significa real dentro (740/748):** se o edge\nnarrar, o real cai entre 25,8 e 29,7 s pela banda observada (0,1 a 4,0), logo\nPASSA do teto de 26,0 da mira; se o piper narrar, 21,2 a 25,1 e cai dentro. Nove\ndas doze pecas deste canal narradas pelo edge sairam fora do teto, todas com a\nmira verde — a decisao entre as duas saidas do 740 segue na fila do dono.\n\n## HASHTAGS\n#excel #planilha #procv #LabTreinamento\n\n## TAGS\nPROCV, PROCX, Excel, planilha, fórmula de busca, referência de coluna, erro silencioso, busca exata, produtividade no Excel, tabela estruturada, inserir coluna, LabTreinamento\n"
+}
