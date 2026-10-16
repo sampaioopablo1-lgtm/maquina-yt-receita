@@ -156,6 +156,11 @@ SERIE = [
     # nominal +0,4, DENTRO da banda, NAO move o piso (0,1) e com o sinal NAO
     # estabelecido, porque 42 - 41,6 <= 1,0 e o arredondamento e para cima.
     ("kolejny-poziom-s041", 41.6, 42, "edge"),
+    # 16/10 11:2x: `epomeno-epipedo-s043` (SVOd6xvXE7g), provedor edge MEDIDO
+    # (zero avisos no job `116922358223`). Previsao 41,9 -> real 43 (o MAIOR dos
+    # dois `lengthSeconds` da pagina): residuo +1,1, DENTRO da banda e com o
+    # sinal ESTABELECIDO, por pouco (43 - 41,9 > 1,0).
+    ("epomeno-epipedo-s043", 41.9, 43, "edge"),
 ]
 
 

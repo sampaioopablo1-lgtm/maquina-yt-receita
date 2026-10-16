@@ -1,0 +1,96 @@
+{
+ "slug": "labtreinamento",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#1F2933",
+  "c1": "#3F6C51",
+  "c2": "#C98B2E",
+  "bg": "#F5F3ED"
+ },
+ "pacote": "labtreinamento-s060",
+ "longo_existente": "StQNFMdpGdk",
+ "thumb": {
+  "l1": "O corte",
+  "l2": "é escolha"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Você classificou",
+   "sub": "como alto",
+   "nar": "Você marcou o risco como alto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E o corte",
+   "preco": "quem deu?",
+   "nar": "Mas o corte, quem deu?",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A portaria",
+   "sub": "não dá faixa",
+   "nar": "A portaria não dá essa faixa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O corte",
+   "preco": "é escolha sua",
+   "nar": "O corte é escolha sua.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Sem estar escrito",
+   "itens": [
+    "Outro mês",
+    "Outro corte",
+    "Mesma matriz"
+   ],
+   "nar": "Sem registro, a faixa muda.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Escolha",
+   "preco": "não se decora",
+   "nar": "E escolha não se decora.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E nada",
+   "preco": "acusa a troca",
+   "nar": "E nada acusa a troca.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Escreva o corte",
+   "sub": "com a data",
+   "nar": "Escreva o corte e a data.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Aí a faixa",
+   "preco": "vira critério",
+   "nar": "Aí vira critério, não opinião.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "se inscreva",
+   "nar": "Se inscreva e confira.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# labtreinamento-s060\n\n## TITULO\nA Faixa Que Separa Alto De Médio Não Está Na Portaria — Ela É Sua, E Precisa Estar Escrita Com Data\n\n## TITULO SHORT\nO corte é seu, não é norma\n\n## DESCRICAO\nVocê multiplicou as duas notas, olhou o resultado e marcou **alto**. A pergunta que o auditor faz em seguida é a que quase ninguém tem respondida: **de onde veio o corte do alto?**\n\nA portaria não entrega essa faixa. Ela manda gerenciar o risco; **onde** termina o médio e começa o alto é **decisão de quem monta a matriz**. Isso não é falha da norma — é o espaço que ela deixa para a realidade de cada operação. Mas tem uma consequência que só aparece meses depois: **critério que não está escrito não é critério, é lembrança.**\n\nO custo é duplo e silencioso:\n\n- **dentro da empresa**, a mesma situação cai em faixas diferentes em dois meses diferentes, porque quem classificou mudou — ou mudou de ideia — e nada na planilha registra a troca;\n- **na fiscalização**, um inventário sem o corte escrito não tem como demonstrar que foi aplicado igual a todas as linhas, e a classificação inteira fica sem apoio.\n\nRepare que **nenhum portão da sua planilha acusa isso.** As fórmulas continuam corretas, as colunas continuam preenchidas, a multiplicação continua certa. O que falta não é um valor: é a **procedência** do valor — e ausência de procedência não gera erro de cálculo.\n\nO conserto é pequeno e vale anos: uma aba onde os cortes ficam escritos, **com a data em que foram decididos** e com quem decidiu. A partir daí a faixa deixa de ser opinião e passa a ser critério — e critério aplicado igual é exatamente o que se defende.\n\nNenhuma nota, nenhum corte, nenhum número de portaria e nenhuma data de vigência entra neste vídeo curto — **regra (g)**, e aqui com um motivo mais forte que o de sempre: **a própria fonte diz que a faixa é escolha, e não norma.** Número que o longo chama de escolha não entra de jeito nenhum. Os valores e as fontes estão no vídeo completo.\n\nNo vídeo completo: os seis grupos de fator que o auditor procura, as colunas do inventário, as duas notas e a multiplicação, e as fontes que valem para sustentar cada linha.\n\n## COMENTARIO FIXADO\nUm teste de dois minutos na sua própria planilha: procure **onde está escrito** o corte que separa alto de médio, e a data em que ele foi decidido. Se não achar, a sua classificação não está errada — ela está **sem apoio**, e é a mesma coisa quando alguém pergunta.\n\n## FAMILIA DE ENTRADA ERRADA\nLer como NORMA um corte que e ESCOLHA de quem avalia: a faixa que separa alto de\nmedio nao vem da portaria, e decisao de quem monta a matriz — logo ela precisa de\nREGISTRO e de DATA. Sem isso a mesma situacao muda de faixa entre dois meses e\n**nenhum portao acusa**, porque o que falta nao e um valor e sim a PROCEDENCIA\ndele, e ausencia de procedencia nao gera erro de calculo.\nDistincao dos tres irmaos desta origem (`StQNFMdpGdk`, spec local\n`labtreinamento-002`, 87 capitulos), conferidos um a um: o `s013` trata da\nOPERACAO entre as duas notas (multiplicar, nao somar); o `s049`, do NIVEL da\nhierarquia (organizacao, nao individuo); o `s051`, da coluna da SITUACAO\n(observacao, nao conclusao). Nenhum toca o LIMIAR aplicado ao resultado, e os\ncapitulos 43 e 44 — de onde este sai — estavam intocados.\n\n## AVISO SOBRE OS NUMEROS\nNenhum valor entra: as notas das duas escalas, o produto que define o nivel, os\ncortes das faixas, o numero da portaria e a data em que a fiscalizacao deixou de\nser orientativa. E aqui o motivo e mais forte que a regra (g) de sempre: **a\nfonte declara que a faixa e ESCOLHA e nao norma**, e numero que o proprio longo\nchama de escolha nao entra de jeito nenhum. A peca tambem nao declara quantos sao\nos grupos de fator, pelo 725.\n\n## MIRA\nPrevisao edge **25,6** / piper **21,1**, os dois DENTRO da mira medida do canal\n(20,0 a 26,0 de duracao REAL) — `mira.py` verde nos dois mundos. Exposicao\ndeclarada pelo 740/748: se o edge narrar, o real cai entre 25,7 e 29,6 s pela\nbanda observada (0,1 a 4,0, n=47) e PASSA do teto de 26,0; se o piper narrar,\n21,2 a 25,1 e cabe. Dez das treze pecas deste canal narradas pelo edge sairam\nfora do teto, todas com a mira verde — a decisao do 740 segue na fila do dono.\nEsqueleto variado contra o `s059`, que tinha a mesma sequencia de layouts.\n\n## HASHTAGS\n#NR1 #riscopsicossocial #SST #LabTreinamento\n\n## TAGS\nrisco psicossocial, NR 1, PGR, matriz de risco, inventário de riscos, classificação de risco, probabilidade e severidade, critério documentado, fiscalização do trabalho, SST, LabTreinamento\n"
+}
