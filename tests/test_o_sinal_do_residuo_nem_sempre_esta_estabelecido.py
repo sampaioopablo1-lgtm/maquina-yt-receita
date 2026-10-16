@@ -124,17 +124,28 @@ def test_o_piso_dos_estabelecidos_e_MAIOR_que_o_piso_da_banda():
     assert piso_est > mira.RESIDUO_OBSERVADO[0]
 
 
-def test_a_contagem_de_estabelecidos_e_34_de_39():
-    """O nome e a contagem de quando nasceu; o que se cobra e a PROPORCAO.
+def test_os_estabelecidos_sao_MAIORIA_e_os_outros_nao_desaparecem():
+    """CORRIGIDO DUAS VEZES, e a segunda e a licao: eu troquei uma identidade
+    por outra.
 
-    Cravar o total reprovava a cada peca nova — e reprovou no 41o ponto, em
-    16/10. Mesma classe do 743/753/761. O que importa: a SERIE e o `RESIDUO_N`
-    concordam, os nao-estabelecidos sao POUCOS e nao desaparecem (se
-    desaparecessem, alguem teria reescrito o critério do 770 a mao).
+    Primeiro eu cravava o total (`34 de 39`), que reprovava a cada peca nova.
+    Troquei por `3 <= nao_estabelecidos <= 6` — e isso reprovou no 46o ponto
+    (`kolejny-poziom-s041`, +0,4), porque o TETO de 6 era so a contagem daquele
+    dia com outra roupa. Mesma classe do 743/753/761, aplicada DENTRO da
+    correcao dela.
+
+    A propriedade que de fato importa, e que nao precisa de edicao: os
+    nao-estabelecidos existem (senao alguem reescreveu o critério do 770 a mao)
+    e sao MINORIA (senao a serie nao sustenta mais o sinal).
     """
     assert len(SERIE) == mira.RESIDUO_N >= 40
     assert len(_estabelecidos()) + len(_nao_estabelecidos()) == len(SERIE)
-    assert 3 <= len(_nao_estabelecidos()) <= 6
+    nao = len(_nao_estabelecidos())
+    assert nao > 0, "sem nao-estabelecidos, releia o 770 antes de seguir"
+    assert nao * 2 < len(SERIE), (
+        f"{nao} de {len(SERIE)} nao-estabelecidos: a serie deixou de sustentar"
+        " o sinal pela maioria, e a nota do 770 tem de ser relida"
+    )
 
 
 def test_o_TETO_da_banda_vem_de_um_ponto_ESTABELECIDO():

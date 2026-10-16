@@ -1,0 +1,96 @@
+{
+ "slug": "epomeno-epipedo",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#16283C",
+  "c1": "#2E7BB4",
+  "c2": "#E0A02E",
+  "bg": "#F3F7FA"
+ },
+ "pacote": "epomeno-epipedo-s043",
+ "longo_existente": "jUxJPvmA4Mk",
+ "thumb": {
+  "l1": "Λάθος βάση",
+  "l2": "λάθος φόρος"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Πολλαπλασίασες",
+   "sub": "και βγήκε μεγάλο",
+   "nar": "Πολλαπλασίασες την τιμή με τον συντελεστή του φόρου.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Το νούμερο",
+   "preco": "βγήκε μεγαλύτερο",
+   "nar": "Το νούμερο βγήκε μεγαλύτερο από τον πραγματικό φόρο.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Το λάθος",
+   "sub": "είναι η βάση",
+   "nar": "Το λάθος δεν είναι ο συντελεστής, αλλά η βάση του.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Η τιμή",
+   "preco": "τον έχει μέσα",
+   "nar": "Η τιμή στο ράφι έχει τον φόρο ήδη μέσα της.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ο συντελεστής",
+   "preco": "πέφτει στο καθαρό",
+   "nar": "Ο συντελεστής υπολογίζεται πάνω στην καθαρή τιμή.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Άρα",
+   "itens": [
+    "Όχι πολλαπλασιασμός",
+    "Μία διαίρεση",
+    "Μετά η διαφορά"
+   ],
+   "nar": "Άρα δεν πολλαπλασιάζεις ποτέ — διαιρείς, μία φορά.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Διαιρείς",
+   "preco": "με ένα και κάτι",
+   "nar": "Διαιρείς το ποσό με τη μονάδα συν τον συντελεστή.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Η διαφορά",
+   "sub": "είναι ο φόρος",
+   "nar": "Η διαφορά των δύο τιμών είναι ο φόρος που πλήρωσες.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ίδια πράξη",
+   "preco": "σε κάθε συντελεστή",
+   "nar": "Η ίδια πράξη δουλεύει σε κάθε έναν από τους συντελεστές.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Επόμενο Επίπεδο",
+   "sub": "κάνε εγγραφή",
+   "nar": "Κάνε εγγραφή και δοκίμασέ το σε μια δική σου απόδειξη.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# epomeno-epipedo-s043\n\n## TITULO\nΟ Συντελεστής Δεν Πέφτει Στην Τιμή Που Πλήρωσες — Γι' Αυτό Ο Πολλαπλασιασμός Βγάζει Μεγαλύτερο Φόρο\n\n## TITULO SHORT\nΗ βάση δεν είναι η τιμή σου\n\n## DESCRICAO\nΘέλησες να δεις πόσο φόρο πλήρωσες σε μια απόδειξη, πήρες το ποσό, το πολλαπλασίασες με τον συντελεστή — και βγήκε ένα νούμερο **μεγαλύτερο** από τον αληθινό φόρο. Η αριθμητική σου ήταν σωστή. Η **βάση** ήταν λάθος.\n\nΟ συντελεστής δεν υπολογίζεται πάνω στην τιμή που πλήρωσες. Υπολογίζεται πάνω στην **καθαρή** τιμή, και η τιμή του ραφιού είναι το αποτέλεσμα *μετά* την προσθήκη του φόρου. Πολλαπλασιάζοντας το τελικό ποσό, εφαρμόζεις τον συντελεστή σε μια βάση που **τον περιέχει ήδη** — και χρεώνεις φόρο πάνω στον φόρο.\n\nΓι' αυτό η σωστή πράξη δεν είναι πολλαπλασιασμός αλλά **μία διαίρεση**: το ποσό που πλήρωσες διά τη μονάδα συν τον συντελεστή. Αυτό που βγαίνει είναι η καθαρή τιμή, και η **διαφορά** των δύο είναι ο φόρος που πλήρωσες εσύ, σε εκείνη την αγορά. Η ίδια πράξη δουλεύει σε κάθε έναν από τους συντελεστές — αλλάζει μόνο ο αριθμός με τον οποίο διαιρείς.\n\nΑξίζει να προσέξεις **πόσο** σε παραπλανά ο πολλαπλασιασμός: όσο μεγαλύτερος ο συντελεστής, τόσο μεγαλύτερη η υπερεκτίμηση — γιατί τόσο μεγαλύτερο είναι το κομμάτι του φόρου που ξαναφορολογείς. Το σφάλμα δεν είναι σταθερό, μεγαλώνει μαζί με αυτό που μετράς.\n\nΚανένας συντελεστής και κανένα ποσό δεν μπαίνει σε αυτό το σύντομο βίντεο — **κανόνας (g)**: αλλάζουν με απόφαση και με τη χρονιά, και το σύντομο κρατάει τον **μηχανισμό**. Οι αριθμοί είναι στο πλήρες βίντεο, με τις πηγές τους.\n\nΣτο πλήρες βίντεο: πόσοι συντελεστές υπάρχουν και ποιος αποφασίζει ποιο είδος πάει πού, πού βρίσκεις τη σύνοψη ανά συντελεστή στην απόδειξη, και τι βγαίνει αν κάνεις την ίδια πράξη σε ένα μήνα αποδείξεων.\n\n## COMENTARIO FIXADO\nΈνας έλεγχος που κάνεις μια φορά και τον θυμάσαι για πάντα: κάνε και τις δύο πράξεις στην ίδια απόδειξη — πολλαπλασιασμό και διαίρεση. Αν βγουν διαφορετικά, **σωστό είναι το μικρότερο**: το μεγάλο φορολογεί δεύτερη φορά τον φόρο που ήταν ήδη μέσα στην τιμή.\n\n## FAMILIA DE ENTRADA ERRADA\nAplicar a aliquota sobre uma base que JA CONTEM o imposto: o percentual incide\nsobre o preco LIQUIDO, e a etiqueta e o resultado DEPOIS do imposto — logo\nmultiplicar o total pago aplica a aliquota sobre o proprio imposto e devolve\nnumero maior que o real. O erro nao esta na aliquota nem na conta; esta na BASE,\ne a operacao certa e uma DIVISAO. **E a magnitude do erro cresce com a\naliquota**, porque cresce a parte que se tributa duas vezes.\nDistincao dos dois irmaos desta origem (`jUxJPvmA4Mk`, spec local\n`epomeno-epipedo-011`, 75 capitulos), conferidos um a um: o `s009` trata do\nTAMANHO DA AMOSTRA (uma apostila contra um mes) e o `s028` trata do PAPEL na\ncadeia (quem compensa e quem nao compensa). Nenhum dos dois toca a base do\npercentual, e os capitulos 24 a 27 — de onde este sai — estavam intocados.\nE nao e o `s042` desta rodada da manha, que compara duas faturas de periodos\ndiferentes: la o erro e na COMPARACAO, aqui na BASE de um unico calculo.\n\n## AVISO SOBRE OS NUMEROS\nNenhum valor entra: os tres percentuais, os divisores correspondentes, o ano de\nvigencia do normal, a reducao em certas ilhas e o exemplo redondo da fonte.\nTodos mudam por decisao e por ano (regra g), e a peca carrega so o mecanismo —\nque e o mesmo qualquer que seja o percentual. A peca **nao** declara quantos\nsao os percentuais, pelo 725.\n\n## MIRA\nPrevisao edge **41,9** / piper 37,1, dentro do `ALVO_SHORT` da frota e junto ao\nPISO (772); o canal nao tem `ALVO_POR_CANAL` medido. Exposicao declarada: se o\nedge narrar, o real cai entre 42,0 e 45,9 s pela banda observada (0,1 a 4,0,\nn=46) e o TOPO dessa faixa PASSA do teto de 45 do portao; se o piper narrar,\n37,2 a 41,1.\n\n## HASHTAGS\n#ΦΠΑ #απόδειξη #φόροι #ΕπόμενοΕπίπεδο\n\n## TAGS\nΦΠΑ, συντελεστής ΦΠΑ, καθαρή τιμή, απόδειξη, φόρος κατανάλωσης, πώς υπολογίζω τον ΦΠΑ, τιμή με φόρο, λιανική τιμή, οικονομικά σπιτιού, φορολογικός οδηγός, Επόμενο Επίπεδο\n"
+}

@@ -151,6 +151,11 @@ SERIE = [
     # VERDE nos dois mundos — a contradicao do 740/748 outra vez, e a copy
     # declarou a exposicao antes de publicar.
     ("labtreinamento-s059", 25.7, 28, "edge"),
+    # 16/10 10:1x: `kolejny-poziom-s041` (WxlzxXVcMXI), provedor edge MEDIDO
+    # (zero avisos no job `116899827964`). Previsao 41,6 -> real 42: residuo
+    # nominal +0,4, DENTRO da banda, NAO move o piso (0,1) e com o sinal NAO
+    # estabelecido, porque 42 - 41,6 <= 1,0 e o arredondamento e para cima.
+    ("kolejny-poziom-s041", 41.6, 42, "edge"),
 ]
 
 
