@@ -1,0 +1,80 @@
+{
+ "slug": "kolejny-poziom",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "pacote": "kolejny-poziom-s045",
+ "longo_existente": "GUiq15usizw",
+ "thumb": {
+  "l1": "Kaucja",
+  "l2": "wraca"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Nie każdy wydatek",
+   "sub": "jest kosztem",
+   "nar": "Nie każdy wydatek jest kosztem w tym rachunku.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Kaucja",
+   "nar": "Kaucja wychodzi z twojego konta, ale wróci."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dlatego",
+   "sub": "nie wchodzi",
+   "nar": "Więc nie wpisuj jej po stronie najmu wcale."
+  },
+  {
+   "layout": "item",
+   "kicker": "A prowizja",
+   "nar": "Prowizja dla biura jest kosztem, bo nie wróci."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Pytanie jest jedno",
+   "itens": [
+    "czy ta kwota wraca",
+    "czy nie wraca"
+   ],
+   "nar": "Pytaj tylko, czy ta kwota wróci do ciebie."
+  },
+  {
+   "layout": "item",
+   "kicker": "Jeśli wraca",
+   "nar": "Jeśli wróci, to są tylko zablokowane pieniądze."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "To też się liczy",
+   "sub": "ale osobno",
+   "nar": "To ma znaczenie, ale zapisz je osobno."
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlaczego osobno",
+   "nar": "Bo nie porównuje się z ratą ani z czynszem najmu."
+  },
+  {
+   "layout": "item",
+   "kicker": "Inaczej",
+   "nar": "Inaczej jedna liczba zniekształci cały rachunek."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Sprawdź umowę",
+   "nar": "Sprawdź swoją umowę najmu i zapisz się tutaj."
+  }
+ ],
+ "copy": "# kolejny-poziom-s045\n\n## TITULO\nKaucja Nie Jest Kosztem, Bo Wraca — Prowizja Dla Biura Już Jest\n\n## TITULO SHORT\nKaucja wraca\n\n## DESCRICAO\nPorównujesz najem z kredytem i chcesz zrobić to uczciwie, więc wpisujesz wszystko, co płacisz na starcie. **I tu wchodzi błąd, który nie wygląda na błąd:** nie każdy wydatek jest kosztem.\n\nKaucja wychodzi z twojego konta — to prawda, i czasem jest to kwota większa niż kilka miesięcznych rat. Ale **ona do ciebie wraca** przy wyprowadzce. Wpisana do rachunku jako koszt, zawyża stronę najmu o pieniądze, których nigdy nie oddałeś nikomu na stałe.\n\nProwizja dla biura jest dokładnie odwrotna: ta sama kolejność, ta sama chwila, ten sam przelew — **i nie wraca.** Jest kosztem, i wchodzi do rachunku.\n\nPytanie, które rozdziela te dwie pozycje, jest jedno i nie wymaga wiedzy o finansach:\n\n- **czy ta kwota do mnie wraca?** Jeśli tak — to nie koszt, to **zablokowane pieniądze**;\n- **czy nie wraca?** Jeśli nie — to koszt, i wchodzi do porównania.\n\nI żeby było jasne: to, że kaucja nie jest kosztem, **nie znaczy że nie ma znaczenia**. Kwota zablokowana na kilka lat to pieniądz, który nie pracuje i którego nie masz pod ręką, gdy jest potrzebny. To jest realne — ale **zapisz to osobno**, bo nie porównuje się ani z ratą kredytu, ani z czynszem. To inna wielkość i odpowiada na inne pytanie.\n\nTa sama zasada rządzi każdą opłatą jednorazową na starcie: jeśli jest kosztem, **rozłóż ją na tyle miesięcy, ile planujesz tam mieszkać**. Inaczej jedna liczba, zapisana w jednym miesiącu, zniekształca cały rachunek.\n\nPełny przykład z liczbami i cztery kroki są w dużym materiale na kanale.\n\n## COMENTARIO FIXADO\nZajrzyj do swojej umowy: ile z kwoty, którą płacisz na starcie, **wraca**? Ta część nie jest kosztem.\n\n## HASHTAGS\n#najem #kaucja #finanse #KolejnyPoziom #shorts\n\n## TAGS\nnajem, kaucja, prowizja, koszt, rachunek, kredyt hipoteczny, finanse osobiste, porównanie, umowa najmu, Kolejny Poziom, opłata jednorazowa\n\n## AVISO\n**ORIGEM: a regra de RECÊNCIA, pela ordem VIVA.** O longo mais novo do canal segue\nsendo `GUiq15usizw` (538 s) — pacote `kolejny-poziom-019`, **56 capítulos**, com\nCINCO usos. A unidade de pauta é (LONGO × FAMÍLIA), e o `segundo_angulo.py`\nrelata **43 capítulos não mencionados**.\n\n**FAMÍLIA DE ENTRADA ERRADA, nova neste canal:** tratar como CUSTO um valor que\n**volta** — a caução. Sai do capítulo 44 (`A po stronie najmu`), intocado pelas\ncinco peças anteriores, cujas famílias foram: juros de qual mês (`s003`), despesa\núnica jogada num mês só (`s033`), capital tratado como dinheiro disponível\n(`s042`), item que está nos dois lados (`s043`) e o resultado que vale só para\nhoje (`s044`).\n\n**E ela é distinta da do `s043` de propósito:** lá o item sai da comparação porque\naparece nos DOIS lados; aqui ele sai porque **não é custo de lado nenhum** — é\ndinheiro bloqueado, e o short diz isso em vez de fingir que a quantia não importa.\n\n**Regra (g):** o longo traz valores de exemplo que ele próprio declara inventados\n— ficam fora. O short carrega só a pergunta que separa as duas posições.\n\n## CONFIGURACOES DO STUDIO\nShort 9:16, `privacyStatus=public`, trilha `Wholesome` (identidade do canal, nunca\n`Inspired`), voz `pl-PL-MarekNeural`.\n\n**E o portão `ortografia` REPROVOU a primeira versão**, com 3,3% de letras\nacentuadas contra 6,9% das outras specs deste canal — em polonês isso muda a\npronúncia do TTS. Reescrita a narração com os diacríticos naturais das palavras\n(`wróci`, `pieniądze`, `zniekształci`, `Sprawdź`), os onze portões passaram. É o\nmesmo portão que pegou a primeira versão do `labtreinamento-s039` em 13/10.\n\n**EXPOSIÇÃO DA DURAÇÃO, declarada ANTES de publicar:** previsão edge **41,0 s** e\npiper **34,9 s**, os dois dentro de 18 a 45 — mira no PISO do `ALVO_SHORT`, que é\no que a voz polonesa pede (679). Com a banda observada (0,1 a 4,0 s), **se o edge\nnarrar o REAL deve cair entre ~41,1 e ~45,0 s, encostando no teto de 45 do\nportão**. Nenhum parâmetro mudou (§10).\n"
+}
