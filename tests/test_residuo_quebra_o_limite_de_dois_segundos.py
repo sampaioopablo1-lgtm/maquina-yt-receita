@@ -165,6 +165,11 @@ SERIE = [
     ("kolejny-poziom-s042", 41.8, 43, "edge"),
     # 16/10 14:15, jobs 117016350815 e 117016392552: ZERO avisos nos dois.
     ("epomeno-epipedo-s044", 41.8, 43, "edge"),
+    # 16/10 15:14, jobs 117043841627 e 117043879324: ZERO avisos nos dois.
+    # Previsao EXATA 41,9938 -> residuo 1,0062, logo "estabelecido" por
+    # 0,0062 s de margem sobre o critério do 770. A classificacao e
+    # tecnicamente certa e PRATICAMENTE nao robusta, e isso vai dito.
+    ("kolejny-poziom-s043", 42.0, 43, "edge"),
 ]
 
 
