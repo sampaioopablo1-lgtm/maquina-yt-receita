@@ -1,0 +1,80 @@
+{
+ "slug": "kolejny-poziom",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "pacote": "kolejny-poziom-s044",
+ "longo_existente": "GUiq15usizw",
+ "thumb": {
+  "l1": "Wynik się",
+  "l2": "przesuwa"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Rachunek wyszedł",
+   "sub": "ale na dziś",
+   "nar": "Policzyłeś dobrze, ale wynik jest z dzisiaj.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlaczego",
+   "nar": "Bo część kapitałowa raty rośnie w każdym miesiącu."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Co to znaczy",
+   "sub": "ta sama rata",
+   "nar": "Ta sama rata, mniej kosztu i więcej majątku."
+  },
+  {
+   "layout": "item",
+   "kicker": "Na początku",
+   "nar": "Na początku ta część jest mała, więc błąd jest mały."
+  },
+  {
+   "layout": "item",
+   "kicker": "Po kilku latach",
+   "nar": "Po kilku latach już nie jest mały, a rachunek ten sam."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Więc policz tak",
+   "itens": [
+    "pierwszy wiersz harmonogramu",
+    "i powtórz po roku"
+   ],
+   "nar": "Licz z pierwszego wiersza i powtórz po roku."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Czego nie dodaję",
+   "sub": "żadnej prognozy",
+   "nar": "Nie dodaję wzrostu czynszów ani cen mieszkań."
+  },
+  {
+   "layout": "item",
+   "kicker": "Powód",
+   "nar": "Rachunek z prognozą staje się opinią w cyfrach."
+  },
+  {
+   "layout": "item",
+   "kicker": "Granica",
+   "nar": "On porównuje koszt mieszkania dziś, i tyle."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Policz swoją ratę",
+   "nar": "Policz swoją ratę i zapisz się tutaj."
+  }
+ ],
+ "copy": "# kolejny-poziom-s044\n\n## TITULO\nTen Rachunek Ma Datę Ważności — Liczy Koszt Mieszkania DZISIAJ, Nie Przez Trzydzieści Lat\n\n## TITULO SHORT\nWynik się przesuwa\n\n## DESCRICAO\nRozdzieliłeś odsetki od kapitału, dodałeś podatek, ubezpieczenie i fundusz remontowy, porównałeś obie strony. **Rachunek jest zrobiony poprawnie** — i właśnie dlatego warto wiedzieć, czego on nie mówi.\n\nNie mówi, co się opłaca przez trzydzieści lat. Porównuje koszt mieszkania **dzisiaj**, z pierwszym wierszem harmonogramu, i nie udaje, że mówi więcej.\n\nPowód jest w samej racie, i jest mechaniczny: przy stałej racie część odsetkowa maleje, a część kapitałowa rośnie **w każdym kolejnym miesiącu**. Ta sama kwota wychodzi z konta, ale coraz mniej jest w niej kosztu, a coraz więcej majątku. Na początku długiego kredytu część kapitałowa jest naprawdę mała, więc i błąd pominięcia jest mały — ale rośnie co miesiąc, i po kilku latach przestaje być drobnostką.\n\nStąd dwie zasady, które ratują wynik:\n\n- **licz z pierwszego wiersza harmonogramu**, nie ze średniej z całego okresu;\n- **powtórz rachunek po roku**, bo wynik się przesunął sam, bez żadnej decyzji z twojej strony.\n\nI jedna rzecz, której do tego rachunku nie dodaję: **żadnej prognozy**. Ani wzrostu czynszów, ani wzrostu cen mieszkań, ani spadku. Każde z nich może się zdarzyć i żadnego nie umiem przewidzieć, a dwie prognozy w jednym rachunku dają dwa razy większy błąd. Rachunek, który zakłada przyszłość, przestaje być rachunkiem i staje się opinią zapisaną w cyfrach.\n\nCztery kroki i pełny przykład z liczbami są w dużym materiale na kanale.\n\n## COMENTARIO FIXADO\nZrób ten rachunek dziś, a potem zapisz sobie przypomnienie na przyszły rok. Wynik przesunie się sam.\n\n## HASHTAGS\n#kredyt #najem #finanse #KolejnyPoziom #shorts\n\n## TAGS\nkredyt hipoteczny, najem, rata kredytu, harmonogram, część kapitałowa, odsetki, finanse osobiste, porównanie, koszt mieszkania, Kolejny Poziom, rachunek, prognoza\n\n## AVISO\n**ORIGEM: a regra de RECÊNCIA, pela ordem VIVA.** O `yt-dlp --flat-playlist` na\nplaylist `UUGe6sYpjzKyCC_K22ae1anw` devolveu **86 itens** com duração, e o longo\nmais novo do canal é `GUiq15usizw` (538 s) — pacote `kolejny-poziom-019`, **56\ncapítulos**, spec local no disco. Ele já tinha QUATRO usos, e isso não é motivo\npara pular o topo: a unidade de pauta é (LONGO × FAMÍLIA), e o\n`segundo_angulo.py` relata **49 capítulos não mencionados**.\n\n**FAMÍLIA DE ENTRADA ERRADA, nova neste canal:** tratar o resultado como resposta\ndos trinta anos, quando ele é a foto de **hoje** — a parte capital cresce todo\nmês e o resultado se desloca sozinho. Sai dos capítulos 26 a 28 e 48\n(`Na początku jednak`, `I rośnie z czasem`, `Dlatego rachunek`,\n`Czego nie rozstrzyga`), intocados pelas quatro peças anteriores, cujas famílias\nforam: juros de qual mês (`s003`), despesa única jogada num mês só (`s033`),\ncapital tratado como dinheiro disponível (`s042`) e item que está nos dois lados\n(`s043`).\n\n**E a regra (g) foi aplicada:** o exemplo do longo traz juros de 7% ao ano e\nprestação de 2.662 zł — **número que MUDA**, e que o próprio longo declara\ninventado. Fora do short; ele carrega só a regra.\n\n## CONFIGURACOES DO STUDIO\nShort 9:16, `privacyStatus=public`, trilha `Wholesome` (identidade do canal, nunca\n`Inspired`), voz `pl-PL-MarekNeural`.\n\n**EXPOSIÇÃO DA DURAÇÃO, declarada ANTES de publicar:** previsão edge **41,7 s** e\npiper **35,5 s**, os dois dentro de 18 a 45 — mira no PISO do `ALVO_SHORT`\n(41,5), que é o que a voz polonesa pede (679) e o que a regra de redação do 772\nmanda. Com a banda observada (0,1 a 4,0 s), **se o edge narrar o REAL deve cair\nentre ~41,8 e ~45,7 s, e o topo dessa faixa PASSA do teto de 45 do portão**.\nNenhum parâmetro mudou (§10).\n"
+}
