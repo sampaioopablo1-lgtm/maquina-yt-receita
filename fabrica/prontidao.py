@@ -624,6 +624,43 @@ SHORT_MIN_S, SHORT_MAX_S = 18, 45
 MARGEM_SHORT = 0.043
 
 
+TETO_FORMATO_SHORT_S = 180   # teto do FORMATO Shorts no YouTube, nao nosso
+
+def _faixa_do_short(sp):
+    """A faixa de duracao do short, (piso, teto), POR SPEC quando ela declara.
+
+    Sem `short_alvo_s` devolve a faixa da frota (18 a 45 s), que e o que as 57
+    specs existentes continuam recebendo — a contraprova disso esta no teste, e
+    ela importa: faixa nova que mudasse o julgamento das antigas seria limiar
+    inventado por cima de peca medida.
+
+    COM `short_alvo_s` a spec declara a propria faixa, e a PROCEDENCIA e o
+    pedido do dono de 16/10/2026: uma peca de 2 min. Isso NAO e o `ALVO_SHORT`
+    mudando de valor (experimento 38 segue aberto, §10) — e um FORMATO novo,
+    declarado na peca que o usa, auditavel por quem ler a spec.
+
+    O teto absoluto e 180 s porque acima disso o YouTube deixa de tratar a peca
+    como Short, e o unico caminho de monetizacao ainda vivo (3 M de views de
+    Shorts em 90 dias) depende exatamente dessa classificacao. Peca mais longa
+    que isso e LONGO, e longo tem piso e teto proprios neste mesmo portao.
+    """
+    faixa = sp.get("short_alvo_s")
+    if not faixa:
+        return SHORT_MIN_S, SHORT_MAX_S
+    try:
+        piso, teto = float(faixa[0]), float(faixa[1])
+    except Exception:
+        raise ValueError(f"short_alvo_s mal formado: {faixa!r} — "
+                         f"esperado [piso, teto] em segundos")
+    if not 0 < piso < teto:
+        raise ValueError(f"short_alvo_s com piso >= teto: {faixa!r}")
+    if teto > TETO_FORMATO_SHORT_S:
+        raise ValueError(f"short_alvo_s com teto de {teto:.0f} s — acima dos "
+                         f"{TETO_FORMATO_SHORT_S} s do FORMATO Shorts. Peca "
+                         f"mais longa que isso nao e short, e longo.")
+    return piso, teto
+
+
 def _gate_duracao(sp):
     """Duracao pelos DOIS termos medidos da voz: chars/R + frases*P.
 
@@ -659,6 +696,7 @@ def _gate_duracao(sp):
                           f"em canal escalonado, e o escalonamento vai no config")
     short = sp.get("short") or []
     if short:
+        piso_s, teto_s = _faixa_do_short(sp)
         ds = duracao_estimada_short(short, voz)
         # `duracao_estimada_short` ja aplica `ensaio.VIES_SHORT`, o vies
         # medido do modelo em short. `ds` aqui e previsao CORRIGIDA — o que
@@ -671,14 +709,14 @@ def _gate_duracao(sp):
         #
         # A margem vale so no TETO. No piso o vies ja foi corrigido, e o que
         # sobra e simetrico: nao ha lado seguro para escolher.
-        teto = SHORT_MAX_S / (1 + MARGEM_SHORT)
-        if ds < SHORT_MIN_S:
-            faltas.append(f"short com {ds:.0f} s — abaixo dos {SHORT_MIN_S} s "
-                          f"que a rotina pede")
+        teto = teto_s / (1 + MARGEM_SHORT)
+        if ds < piso_s:
+            faltas.append(f"short com {ds:.0f} s — abaixo dos {piso_s} s "
+                          f"que a faixa desta peca pede")
         elif ds > teto:
             faltas.append(f"short com {ds:.1f} s previstos (ja corrigidos do "
-                          f"vies) — acima de {teto:.1f} s. O teto da rotina e "
-                          f"{SHORT_MAX_S} s e o residuo do modelo chega a "
+                          f"vies) — acima de {teto:.1f} s. O teto desta peca e "
+                          f"{teto_s} s e o residuo do modelo chega a "
                           f"{MARGEM_SHORT:.1%}, entao {teto:.1f} previstos ja e "
                           f"o limite seguro")
 
@@ -702,10 +740,10 @@ def _gate_duracao(sp):
         from ensaio import duracao_real_prevista
         for provedor in ("edge", "piper"):
             dr = duracao_real_prevista(short, voz, provedor)
-            if dr < SHORT_MIN_S or dr > SHORT_MAX_S:
+            if dr < piso_s or dr > teto_s:
                 faltas.append(
                     f"short com {dr:.1f} s REAIS previstos se quem narrar for "
-                    f"o {provedor} — fora de {SHORT_MIN_S} a {SHORT_MAX_S} s. "
+                    f"o {provedor} — fora de {piso_s} a {teto_s} s. "
                     f"O provedor se decide no RUNNER (711), entao a peca tem "
                     f"de caber na faixa nos DOIS casos; o estimado de "
                     f"{ds:.1f} s sozinho nao garante isso.")

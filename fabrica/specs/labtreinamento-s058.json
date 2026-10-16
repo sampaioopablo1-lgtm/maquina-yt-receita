@@ -1,0 +1,318 @@
+{
+ "slug": "labtreinamento",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#1F2933",
+  "c1": "#3F6C51",
+  "c2": "#C98B2E",
+  "bg": "#F5F3ED"
+ },
+ "pacote": "labtreinamento-s058",
+ "longo_existente": "FtCtIJPsc_Q",
+ "short_alvo_s": [
+  95,
+  135
+ ],
+ "thumb": {
+  "l1": "Faltou o quarto",
+  "l2": "argumento"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Três argumentos",
+   "sub": "e o valor sai errado",
+   "nar": "Você escreveu PROCV com três.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Faltou o quarto",
+   "preco": "ele é opcional",
+   "nar": "Faltou o quarto, que é opcional.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A planilha",
+   "preco": "não acusa nada",
+   "nar": "A planilha não acusa nada.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E o valor",
+   "sub": "pode estar errado",
+   "nar": "E o valor devolvido pode estar errado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Não é defeito",
+   "preco": "é o padrão",
+   "nar": "Não é defeito do Excel: é o padrão.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ausência",
+   "sub": "é escolha",
+   "nar": "Deixar vazio também é escolher.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Vazio",
+   "preco": "vira aproximada",
+   "nar": "O quarto vazio vira busca aproximada.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E ela supõe",
+   "preco": "a coluna ordenada",
+   "nar": "E ela supõe a primeira coluna ordenada.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Se não está",
+   "sub": "muda de linha",
+   "nar": "Se não estiver, vem de outra linha.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Sem aviso",
+   "preco": "nenhum",
+   "nar": "E sem aviso nenhum na célula.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Sua tabela",
+   "itens": [
+    "Código na A",
+    "Nome na B",
+    "Setor na C"
+   ],
+   "nar": "Imagine código, nome e setor.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Digitados",
+   "preco": "na ordem de entrada",
+   "nar": "Digitados na ordem de entrada.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ou seja",
+   "preco": "fora de ordem",
+   "nar": "Ou seja, fora de ordem.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Você procura um",
+   "sub": "vem o de outro",
+   "nar": "Procura um e vem o setor de outro.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A fórmula",
+   "preco": "está sem erro",
+   "nar": "A fórmula está lá, sem erro.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Quem",
+   "sub": "vai desconfiar",
+   "nar": "Quem é que vai desconfiar?",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O conserto",
+   "preco": "é pequeno",
+   "nar": "O conserto é pequeno.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Escreva falso",
+   "preco": "no quarto",
+   "nar": "Escreva falso, ou zero, no quarto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Aí a busca",
+   "sub": "passa a ser exata",
+   "nar": "Aí a busca passa a ser exata.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ou acha",
+   "preco": "ou devolve erro",
+   "nar": "Ou acha, ou devolve erro visível.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Erro visível",
+   "sub": "vence o errado",
+   "nar": "Erro visível vence número errado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Parêntese justo",
+   "preco": "a aproximada serve",
+   "nar": "A busca aproximada tem uso real.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Serve",
+   "preco": "para faixas",
+   "nar": "Serve para tabelas de faixas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O problema",
+   "sub": "é ser o padrão",
+   "nar": "O problema é ela ser o padrão.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Os limites",
+   "itens": [
+    "Padrão aproximado",
+    "Só olha à direita",
+    "Coluna por número"
+   ],
+   "nar": "Os limites do PROCV são três.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O segundo",
+   "preco": "só olha à direita",
+   "nar": "O segundo: ele só olha à direita.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O procurado",
+   "preco": "na primeira coluna",
+   "nar": "O procurado tem de estar na primeira.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Se está depois",
+   "sub": "ele não resolve",
+   "nar": "Se estiver depois, ele não resolve.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O terceiro",
+   "preco": "é o mais traiçoeiro",
+   "nar": "O terceiro é o mais traiçoeiro.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A resposta",
+   "preco": "vem por número",
+   "nar": "Você pede a coluna por número.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E o número",
+   "preco": "é fixo",
+   "nar": "E esse número é fixo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Insira uma coluna",
+   "sub": "e ele aponta errado",
+   "nar": "Insira uma coluna e ele aponta errado.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O PROCX",
+   "preco": "separa as colunas",
+   "nar": "O PROCX separa busca e resposta.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Com três",
+   "preco": "já é exata",
+   "nar": "Com três argumentos já é exata.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "E procura",
+   "preco": "nas duas direções",
+   "nar": "E procura nas duas direções.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E a coluna",
+   "sub": "fica escrita",
+   "nar": "E a coluna fica escrita na fórmula.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Mas ele",
+   "preco": "não existe em tudo",
+   "nar": "Mas o PROCX não existe em tudo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O que conta",
+   "preco": "é quem abre",
+   "nar": "Conta a versão de quem abre o arquivo.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "A regra",
+   "itens": [
+    "Versão nova: PROCX",
+    "Vai circular: PROCV",
+    "Sempre com falso"
+   ],
+   "nar": "Daí a regra prática, em duas linhas.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "se inscreva",
+   "nar": "Se inscreva e revise suas planilhas.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# labtreinamento-s058\n\n## TITULO\nO PROCV Erra Em Silêncio Quando Falta O Quarto Argumento\n\n## TITULO SHORT\nFaltou o quarto argumento\n\n## DESCRICAO\nQuem escreve PROCV com **três** argumentos e não quatro pode estar recebendo um valor errado agora mesmo — e a planilha não acusa nada. Não é defeito do Excel: é o **comportamento padrão** da função, e está escrito na documentação oficial.\n\nO ponto que quase ninguém vê é este: **deixar o quarto argumento vazio não é \"não escolher\"**. É escolher o padrão, que é a busca **aproximada**. E a busca aproximada parte do princípio de que a primeira coluna da tabela está **em ordem**. Quando ela não está — e numa planilha real ela quase nunca está, porque os códigos foram digitados conforme as pessoas entraram — a resposta pode vir de **outra linha**, sem erro, sem alerta, sem nada na célula que denuncie.\n\nO conserto é pequeno: escrever **falso** (ou zero) no quarto argumento. Aí a busca passa a ser exata, e o Excel ou encontra exatamente o que você pediu ou devolve um erro **visível**. E erro visível é muito melhor que número errado com cara de certo.\n\nA busca aproximada não é um defeito em si — ela serve para tabelas de **faixas**, quando você quer saber em que faixa um valor se encaixa. O problema é ela ser o **padrão**, quando a maior parte das buscas do dia a dia é por um código ou um nome exato.\n\nNesta peça entram também os outros **dois** limites: o PROCV só olha para a **direita**, e a coluna de resposta é informada por um **número fixo** — que deixa de valer no dia em que alguém insere uma coluna no meio da tabela. E o que o PROCX muda em cada um deles, mais a regra prática para escolher entre os dois sem depender de costume.\n\n**Vídeo completo, com as fontes:** https://www.youtube.com/watch?v=FtCtIJPsc_Q\n\n## COMENTARIO FIXADO\nUma revisão de dois minutos que vale a pena: procure nas suas planilhas os **PROCV com apenas três argumentos**. Para cada um, pergunte se aquela busca deveria ser exata. Se a resposta for sim, acrescente o **falso** — e confira se alguém inseriu colunas na tabela depois que a fórmula foi escrita. São os dois erros que não aparecem.\n\n## FAMILIA DE ENTRADA ERRADA\nLer AUSENCIA como NEUTRALIDADE quando ela e uma ESCOLHA: omitir um argumento opcional nao e \"nao decidir\", e aceitar o padrao — e aqui o padrao e o modo que erra calado. O erro nao esta em nenhum valor digitado; esta no que NAO foi digitado, e por isso nenhum portao da planilha o acusa.\nFamilia nova neste canal, e distinta da vizinha mais perto: o `s057` trata de DUAS datas com FUNCOES diferentes (uma informa, outra habilita), onde os dois numeros existem; aqui o argumento decisivo NAO existe na formula, e a consequencia vem do default.\nE distinta do `s042` (unidade de agregacao) e do `s035` (ordem das operacoes), que sao erros de conta feita; este e erro de conta NAO feita.\n\n## AVISO SOBRE OS NUMEROS\nNenhum valor de celula, aliquota ou data entra (regra g). As versoes do Excel citadas sao nomes de produto, nao numeros que mudam, e so entram no video completo. A fonte declara \"tres limites\" e esta peca mantem a contagem porque ela e VERIFICAVEL na propria fonte, que enumera os tres (725).\n\n## MIRA\nFORMATO NOVO — pedido do dono em 16/10/2026: peca de 2 min. `short_alvo_s` = 95 a 135 s, declarado na spec, e isso NAO mexe em `ALVO_SHORT` (experimento 38 segue aberto). A faixa e larga de proposito, e a razao vai dita: a razao piper/edge e ~0,82, logo os dois mundos nao cabem numa janela estreita (748 em escala de 2 min). **Previsao: edge 118,8 s / piper 97,5 s** — ou seja, ~2 min se o edge narrar e ~1 min 38 s se o Piper assumir, e quem decide e o RUNNER (730/733). Com a banda observada de 0,1 a 4,0 s, o real no mundo edge deve cair entre 118,9 e 122,8 s.\nCadencia: 40 cenas em ~119 s = **~3,0 s por plano**, que e a alavanca medida em 690/699 e a unica coisa que impede comprimento de virar peca parada.\nTeto de formato: 180 s. Acima disso o YouTube deixa de tratar como Short, e o caminho dos 3 M de views em 90 dias depende dessa classificacao.\n\n## HASHTAGS\n#excel #procv #procx #planilha #LabTreinamento\n\n## TAGS\nprocv, procx, vlookup, xlookup, excel, planilha, quarto argumento do procv, busca exata, busca aproximada, erro no procv, procv ou procx, excel para iniciantes, formulas do excel, produtividade, LabTreinamento\n"
+}

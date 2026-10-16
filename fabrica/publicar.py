@@ -1054,6 +1054,34 @@ def main():
             (cp.get("short_tags") or cp.get("tags") or []), idioma)
         sid = subir(acc, curto, meta_short)
         saida["short"] = sid
+
+        # CAPA DO SHORT — pedido do dono em 16/10/2026, e ate aqui o short
+        # subia SEM ela. O `thumbnail.png` ja era gerado pelo render
+        # (`fabrica.py`) e so o LONGO o usava, algumas centenas de linhas
+        # abaixo: o ramo do short nunca chamou `thumbnail()`. Logo cinquenta e
+        # sete shorts foram ao ar com a capa que o YouTube escolhe sozinho.
+        #
+        # No FEED de Shorts a capa quase nao aparece, e por isso isto nao e
+        # uma alavanca de distribuicao — ela aparece na BUSCA, na pagina do
+        # canal e nos sugeridos, que e onde uma peca de 2 min vive depois do
+        # primeiro dia.
+        #
+        # NAO e fatal: 403 aqui significa canal sem verificacao
+        # (youtube.com/verify, pendencia do dono), e nesse caso a peca segue
+        # publicada com a capa automatica. Tratar como erro derrubaria a
+        # publicacao por causa de uma capa, que e o rabo abanando o cachorro.
+        _capa = os.path.join(d, "thumbnail.png")
+        if os.path.exists(_capa):
+            r_capa = thumbnail(acc, sid, _capa)
+            print("  capa do short:", r_capa)
+            if r_capa != "ok":
+                print(f"::warning title=Short com capa automatica::{sid} subiu "
+                      f"sem a capa desenhada ({r_capa}). O PNG existe em "
+                      f"{_capa}; 403 aqui e canal sem verificacao, nao defeito "
+                      f"de codigo.")
+        else:
+            print(f"::warning title=Short sem PNG de capa::{_capa} nao existe, "
+                  f"entao o short subiu com a capa automatica do YouTube.")
         print("SHORT:", sid, "| playlist:", na_playlist(acc, args.playlist, sid))
 
         # SHORT SOLTO: nao ha longo nesta rodada para apontar, e o passo
