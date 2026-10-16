@@ -120,6 +120,11 @@ SERIE = [
     ("epomeno-epipedo-s034", 41.7, 44, "edge"),
     # 774: o TETO da banda CAIU DE NOVO, +4,0 s, e outra vez no labtreinamento.
     ("labtreinamento-s052", 25.0, 29, "edge"),
+    # 41o ponto, 16/10 04:1x, e o PRIMEIRO lido pela rota do SANDBOX (pagina de
+    # watch) em vez do `pg_net`. Provedor edge MEDIDO: zero avisos no job
+    # `116806511162`. Dos dois `lengthSeconds` da pagina vale o MAIOR (44), pelo
+    # arredondamento para cima do `contentDetails.duration`.
+    ("kolejny-poziom-s039", 41.5, 44, "edge"),
 ]
 
 

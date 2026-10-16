@@ -111,9 +111,16 @@ def test_o_piso_dos_estabelecidos_e_MAIOR_que_o_piso_da_banda():
 
 
 def test_a_contagem_de_estabelecidos_e_34_de_39():
-    assert len(SERIE) == mira.RESIDUO_N == 40
-    assert len(_estabelecidos()) == 35
-    assert len(_nao_estabelecidos()) == 5
+    """O nome e a contagem de quando nasceu; o que se cobra e a PROPORCAO.
+
+    Cravar o total reprovava a cada peca nova — e reprovou no 41o ponto, em
+    16/10. Mesma classe do 743/753/761. O que importa: a SERIE e o `RESIDUO_N`
+    concordam, os nao-estabelecidos sao POUCOS e nao desaparecem (se
+    desaparecessem, alguem teria reescrito o critério do 770 a mao).
+    """
+    assert len(SERIE) == mira.RESIDUO_N >= 40
+    assert len(_estabelecidos()) + len(_nao_estabelecidos()) == len(SERIE)
+    assert 3 <= len(_nao_estabelecidos()) <= 6
 
 
 def test_o_TETO_da_banda_vem_de_um_ponto_ESTABELECIDO():

@@ -104,7 +104,17 @@ RESIDUO_OBSERVADO = (0.1, 4.0)
 # DENTRO da banda e tem o sinal ESTABELECIDO — 27 de 31.
 # 15/10 02:2x: o `epomeno-epipedo-s031` (41,6 -> 43, +1,4) e o 32o ponto, dentro
 # da banda e com o sinal ESTABELECIDO — 28 de 32.
-RESIDUO_N = 40  # 741 acrescentou o s035 (24,8 -> 27, +2,2): DENTRO da banda,
+# 16/10 04:1x: o `kolejny-poziom-s039` (`RT_qRi_S1Mw`) e o 41o ponto. Previsao
+# edge 41,5, provedor **edge** MEDIDO (zero avisos `NARRACAO PELO PIPER` no job
+# `116806511162`), real **44** lido no ar: residuo **+2,5**, DENTRO da banda e
+# com o sinal ESTABELECIDO (44 - 41,5 > 1,0) — 36 de 41. Os LIMITES nao mudaram.
+# E ele e o PRIMEIRO ponto lido pela rota do SANDBOX em vez do `pg_net`: a
+# pagina de watch da `lengthSeconds`, e dos dois valores dela vale o MAIOR,
+# porque a banda foi construida sobre `contentDetails.duration`, que arredonda
+# para cima. As outras dezessete duracoes parqueadas NAO entraram, porque o
+# provedor delas nao esta medido e comparar contra o mundo `edge` sem contar os
+# avisos e o erro que o 733 nomeia.
+RESIDUO_N = 41  # 741 acrescentou o s035 (24,8 -> 27, +2,2): DENTRO da banda,
 #                 logo os LIMITES nao mudaram — so o numero de pontos que a sustenta.
 #                 14/10 06:2x: o s041 (edge 24,6 -> real 27) deu +2,4 — EMPATADO
 #                 com o teto da banda, o decimo segundo ponto e o segundo a tocar

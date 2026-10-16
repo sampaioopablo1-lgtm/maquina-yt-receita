@@ -306,3 +306,39 @@ canais. Delta zero nao estabelece ritmo: estabelece um LIMITE SUPERIOR.
 
 Pendencia 2 segue de pe para `execute_sql`/`videos` (18 linhas parqueadas) e a
 pendencia 1 para RETENCAO, que o sandbox nao da (e Analytics, nao publico).
+
+## 16/10, 04:1x — a rota nova mudou a PAUTA, e quatro testes meus cobravam identidade
+
+**Publicado:** `kolejny-poziom-s039` = `RT_qRi_S1Mw`, **43/44 s**, `status OK`,
+12 tags, **capa propria** (`maxres2` conferido no ar) — segunda peca da frota com
+capa desenhada.
+
+**E A ESCOLHA DE PAUTA DEIXOU DE SER EMPURRADA PELO BANCO.** As cinco rodadas
+anteriores foram para a banda mais usada porque a origem de menor uso nao tinha
+spec local e a regra (h) dependia do `pg_net`. Com o `yt-dlp` no sandbox a
+`Xgt32iH8Ft8` — UM short so, pulada por dias — virou pauta: 1.375 palavras.
+
+**41o ponto da banda, o PRIMEIRO lido pelo sandbox:** previsao edge 41,5 ->
+real 44, provedor **edge MEDIDO** (zero avisos no job `116806511162`), residuo
+**+2,5**, sinal ESTABELECIDO. `RESIDUO_N` = 41, 36 estabelecidos, limites
+intocados. As outras 17 duracoes parqueadas NAO entraram: provedor nao medido.
+
+**E QUATRO TESTES MEUS REPROVARAM POR IDENTIDADE na mesma rodada** — `== 40`
+cravado em `test_TODOS_os_40_pontos_seguem_POSITIVOS`,
+`test_a_banda_cobre_os_residuos_medidos`,
+`test_a_contagem_de_estabelecidos_e_34_de_39` e
+`test_a_banda_e_a_OBSERVADA_e_o_teto_dela_foi_AMPLIADO_pelo_752`. Mesma classe do
+743/753/761, e eles iam reprovar **a cada peca nova** — que e o jeito mais rapido
+de um teste deixar de avisar. Reescritos para propriedade monotona.
+
+**O quarto so apareceu na suite INTEIRA** (26 contra a linha de base de 25): os
+tres primeiros sairam no `-k`, e o quarto estava num arquivo que o filtro nao
+pegava. **Rodar o `-k` nao substitui a suite** — foi o que me pegou aqui.
+
+**Windsor: conectado, mas so com o `bling`.** O conector de YouTube (que puxa
+Analytics, a pendencia 1) esta em
+https://onboard.windsor.ai/connect?connector=youtube&next=/youtube/authorize
+e exige escolher a **Conta de Marca** de cada canal. **Nao confirmei que ele
+entrega retencao** — `get_fields` recusa sem conta conectada.
+
+Banco negado: decima oitava rodada. 19 linhas parqueadas.

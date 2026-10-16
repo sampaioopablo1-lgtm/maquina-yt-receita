@@ -93,7 +93,12 @@ def test_a_banda_e_a_OBSERVADA_e_o_teto_dela_foi_AMPLIADO_pelo_752():
     MENOS util como previsao; vai dito em vez de escondido.
     """
     assert mira.RESIDUO_OBSERVADO == (0.1, 4.0)
-    assert mira.RESIDUO_N == 40
+    # `>=` e nao `==`: a contagem cresce a cada peca, e cravar o total fez ESTE
+    # teste reprovar no 41o ponto, em 16/10 — a QUARTA vez na mesma rodada que um
+    # teste meu cobrou IDENTIDADE em vez de propriedade (743/753/761). O que este
+    # teste guarda e a BANDA, nao quantos pontos a sustentam; se os LIMITES
+    # mudarem, o `==` da linha acima reprova, que e exatamente o certo.
+    assert mira.RESIDUO_N >= 40
 
 
 def test_a_pinca_fecha_por_RAZAO_contra_OFFSET_e_nao_por_numero_de_cenas():

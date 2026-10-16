@@ -123,6 +123,13 @@ def test_o_provedor_foi_MEDIDO_e_o_job_fica_registrado():
 
 
 def test_TODOS_os_40_pontos_seguem_POSITIVOS():
-    assert len(SERIE) == mira.RESIDUO_N == 40
+    """O nome diz 40 porque foi quando nasceu; a PROPRIEDADE e que todos sobem.
+
+    A versao anterior cravava `== 40`, e em 16/10 ela reprovou no 41o ponto —
+    mesma classe do 743/753/761: teste por IDENTIDADE em vez de propriedade. O
+    que importa e que a SERIE e o `RESIDUO_N` concordem e que nenhum ponto seja
+    negativo; a contagem cresce a cada peca e nao precisa de edicao.
+    """
+    assert len(SERIE) == mira.RESIDUO_N >= 40
     for pacote, prev, real, _p in SERIE:
         assert real - prev > 0, pacote
