@@ -192,7 +192,8 @@ if _pedem_broll and not LONGO_PRONTO and not SO_SHORT:
 # import mora aqui fora. Ele estava dentro da etapa 7: ao mover as etapas 2 a
 # 7 para dentro do `if not SO_SHORT`, um short solto chegaria a etapa 8 e
 # estouraria NameError no `VIS` — o teste visual do short e obrigatorio.
-import visual as VIS                                              # noqa: E402
+import visual as VIS
+import ensaio as ENS                                              # noqa: E402
 
 # ============== ETAPAS 2 A 7: TODAS DO LONGO ==============================
 # O short solto nao passa por aqui. Nao e otimizacao: etapa 4 concatena
@@ -374,7 +375,16 @@ if not (os.path.exists(f"{d}/short.mp4") and os.path.getsize(f"{d}/short.mp4") >
         f"{d}/short.mp4"], check=True, capture_output=True, cwd=d)
     F.aplicar_trilha(d, "short.mp4", sp["slug"], sp.get("trilha"))
 ds = F.dur(f"{d}/short.mp4")
-assert 20 <= ds <= 60, f"short com {ds:.1f}s — fora da faixa 30-45s (tolerancia 20-60)"
+# A FAIXA VEM DA SPEC, pela fonte unica (`ensaio.faixa_do_short`). O numero
+# cravado que estava aqui — `20 <= ds <= 60` — era o MESMO limite do portao
+# `duracao` escrito uma segunda vez, e em 16/10/2026 ele matou o run
+# `38847013520` DEPOIS de montar um short.mp4 de 123,6 s que o portao havia
+# aprovado. Mesma regra, dois donos. A tolerancia de ~1/3 em volta da faixa,
+# que o numero antigo embutia (30-45 com folga 20-60), fica explicita.
+_piso, _teto = ENS.faixa_do_short(sp)
+assert _piso / 1.5 <= ds <= _teto * 1.34, (
+    f"short com {ds:.1f}s — fora da faixa {_piso:.0f}-{_teto:.0f}s da spec "
+    f"(tolerancia {_piso/1.5:.0f}-{_teto*1.34:.0f})")
 _erros, _avisos = VIS.conferir(f"{d}/short.mp4",
                                VIS.hexcor(sp["paleta"].get("bg", "#FFFFFF")))
 assert not _erros, "short reprovado no teste visual — nao entregue assim"

@@ -306,6 +306,52 @@ VIES_SHORT = 1.047
 # NAO meco retencao — so view. Por isso isto roda como EXPERIMENTO 38 e nao como
 # verdade assentada, e a comparacao e tempo de exibicao por view ao longo de
 # dias, nao a duracao em si.
+TETO_FORMATO_SHORT_S = 180   # teto do FORMATO Shorts no YouTube, nao nosso
+
+
+def faixa_do_short(sp):
+    """A faixa (piso, teto) de duracao do short DESTA spec, em segundos.
+
+    FONTE UNICA, e ela existe porque eu descobri do jeito caro: o limite de
+    duracao do short morava em DOIS lugares — o portao `_gate_duracao` do
+    `prontidao` e um `assert 20 <= ds <= 60` cravado a mao no
+    `etapas.py`, que roda DEPOIS de montar o arquivo. Em 16/10/2026 eu abri a
+    faixa no portao, a spec passou os doze portoes, o render montou o
+    `short.mp4` de 123,6 s e o assert matou o run no fim. Mesma regra, dois
+    donos, um atualizado.
+
+    Sem `short_alvo_s` devolve a faixa da frota (18 a 45 s) — e isso mantem o
+    julgamento de todas as specs antigas, o que tem teste. COM o campo, a spec
+    declara a propria faixa, e a procedencia e o pedido do dono de 16/10/2026
+    (peca de 2 min). Nao e `ALVO_SHORT` mudando: e formato declarado na peca.
+
+    Teto absoluto de 180 s porque acima disso o YouTube deixa de tratar a peca
+    como Short, e o unico caminho de monetizacao ainda vivo (3 M de views de
+    Shorts em 90 dias) depende dessa classificacao.
+    """
+    faixa = (sp or {}).get("short_alvo_s")
+    if not faixa:
+        return 18.0, 45.0
+    # STRING passa pelo `float(faixa[0])` caractere a caractere — "120" viraria
+    # a faixa (1, 2) e o render mediria contra ela. Pego por teste proprio.
+    if isinstance(faixa, str) or not isinstance(faixa, (list, tuple)):
+        raise ValueError(f"short_alvo_s deve ser [piso, teto], nao {faixa!r}")
+    if len(faixa) != 2:
+        raise ValueError(f"short_alvo_s com {len(faixa)} valores: {faixa!r}")
+    try:
+        piso, teto = float(faixa[0]), float(faixa[1])
+    except Exception:
+        raise ValueError(f"short_alvo_s mal formado: {faixa!r} — "
+                         f"esperado [piso, teto] em segundos")
+    if not 0 < piso < teto:
+        raise ValueError(f"short_alvo_s com piso >= teto: {faixa!r}")
+    if teto > TETO_FORMATO_SHORT_S:
+        raise ValueError(f"short_alvo_s com teto de {teto:.0f} s — acima dos "
+                         f"{TETO_FORMATO_SHORT_S} s do FORMATO Shorts. Peca "
+                         f"mais longa que isso nao e short, e longo.")
+    return piso, teto
+
+
 ALVO_SHORT = (41.5, 43.0)
 
 

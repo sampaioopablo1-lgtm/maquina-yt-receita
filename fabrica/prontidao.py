@@ -624,41 +624,15 @@ SHORT_MIN_S, SHORT_MAX_S = 18, 45
 MARGEM_SHORT = 0.043
 
 
-TETO_FORMATO_SHORT_S = 180   # teto do FORMATO Shorts no YouTube, nao nosso
-
 def _faixa_do_short(sp):
-    """A faixa de duracao do short, (piso, teto), POR SPEC quando ela declara.
+    """Delega para `ensaio.faixa_do_short`, que e a FONTE UNICA da faixa.
 
-    Sem `short_alvo_s` devolve a faixa da frota (18 a 45 s), que e o que as 57
-    specs existentes continuam recebendo — a contraprova disso esta no teste, e
-    ela importa: faixa nova que mudasse o julgamento das antigas seria limiar
-    inventado por cima de peca medida.
-
-    COM `short_alvo_s` a spec declara a propria faixa, e a PROCEDENCIA e o
-    pedido do dono de 16/10/2026: uma peca de 2 min. Isso NAO e o `ALVO_SHORT`
-    mudando de valor (experimento 38 segue aberto, §10) — e um FORMATO novo,
-    declarado na peca que o usa, auditavel por quem ler a spec.
-
-    O teto absoluto e 180 s porque acima disso o YouTube deixa de tratar a peca
-    como Short, e o unico caminho de monetizacao ainda vivo (3 M de views de
-    Shorts em 90 dias) depende exatamente dessa classificacao. Peca mais longa
-    que isso e LONGO, e longo tem piso e teto proprios neste mesmo portao.
+    Esta funcao nasceu aqui em 16/10/2026 e durou uma rodada: o `etapas.py`
+    tinha o MESMO limite cravado a mao, e o render morreu depois de montar o
+    arquivo. Faixa de duracao do short se le de UM lugar.
     """
-    faixa = sp.get("short_alvo_s")
-    if not faixa:
-        return SHORT_MIN_S, SHORT_MAX_S
-    try:
-        piso, teto = float(faixa[0]), float(faixa[1])
-    except Exception:
-        raise ValueError(f"short_alvo_s mal formado: {faixa!r} — "
-                         f"esperado [piso, teto] em segundos")
-    if not 0 < piso < teto:
-        raise ValueError(f"short_alvo_s com piso >= teto: {faixa!r}")
-    if teto > TETO_FORMATO_SHORT_S:
-        raise ValueError(f"short_alvo_s com teto de {teto:.0f} s — acima dos "
-                         f"{TETO_FORMATO_SHORT_S} s do FORMATO Shorts. Peca "
-                         f"mais longa que isso nao e short, e longo.")
-    return piso, teto
+    from ensaio import faixa_do_short
+    return faixa_do_short(sp)
 
 
 def _gate_duracao(sp):

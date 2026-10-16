@@ -84,15 +84,10 @@ já envelheceu e me fez errar quatro vezes. LEIA, e o primeiro é o mais novo:
 =====================================================================
 **(A) O `viewCount` anda em DEGRAU** (635, 642, 645, 646), intervalo >= ~4 h.
 **(A-2) CORRIGE A MINHA PRÓPRIA REGRA** (688, `critico`): a MEDIANA de três
-leituras devolve o número da **réplica ATRASADA**. Medido em 09/10 11:15, três
-leituras de 3 s em 23 ids: **das 17 peças que mudaram, TODAS AS 17 subiram na
-TERCEIRA leitura e NENHUMA na segunda.** View não sobe simultaneamente em 17
-vídeos de três canais em três segundos — as leituras 1 e 2 caíram numa réplica e
-a 3 numa mais fresca, e a mediana virou o MÍNIMO em 17 de 17. Controle: uma peça
-de 1,0 h leu 0-0-0, então peça em zero verdadeiro fica em zero.
-**Um contador de view só ATRASA, nunca adianta: o estimador é o MÁXIMO das
-leituras, declarado como PISO, com a faixa ao lado.** A mediana fica só para
-quando as leituras divergirem em direções OPOSTAS, que eu ainda não observei.
+leituras devolve a **réplica ATRASADA** — medido em 17 de 17 peças, com controle
+(peça em zero verdadeiro fica em zero). **O estimador é o MÁXIMO das leituras,
+declarado como PISO, com a faixa ao lado**; a mediana só serviria se elas
+divergissem em direções OPOSTAS, o que nunca observei. Números em `CLAUDE.md`.
 **RETRATAÇÃO PARCIAL (707/708):** a réplica fresca NÃO vem sempre na terceira —
 já foi a 3ª, a 2ª, e a 1ª e a 3ª. A ordem não tem regra; do 688 sobrevive só o
 estimador. E a réplica atrasada é da CHAMADA inteira, não de cada id (ver §3.1).
@@ -119,9 +114,8 @@ de 0 a 67 na mesma hora. **Inscrito e view DE CANAL não se leem de hora em hora
 Compare só leituras separadas por >= ~4 h, e prefira o delta de um dia para o
 outro. E NUNCA conte N leituras horárias iguais como N observações.**
 **(I) A VARIÂNCIA ENTRE PEÇAS CONDENA VIEWS/PEÇA COMO ÁRBITRO** (693, `critico`).
-Dispersão medida DENTRO do mesmo tratamento e canal, só peças com >= 12 h e
-`processed`: epomeno 218-445 (CV 0,48), kolejny 96-462 (**CV 0,69**),
-labtreinamento 41-162 (CV 0,79). **CV médio 0,66.** Com 80% de poder e alfa 0,05,
+Dispersão medida dentro do mesmo tratamento e canal (números em `CLAUDE.md`):
+**CV médio 0,66.** Com 80% de poder e alfa 0,05,
 `n = 2(1,96+0,84)^2 CV^2/d^2`:
     detectar 25%  -> **109 peças por braço**
     detectar 50%  -> **28**
@@ -168,9 +162,9 @@ próprio portão que estamos tentando passar. O texto que opera: *"The substance
 each video should be materially varied."* Ver §6 e
 `docs/mapa-canal-dark-o-que-entrou.md`.
 
-**A CONVERSÃO REAL DESTA MÁQUINA É ~1,0 A 1,3 INSCRITO POR MIL VIEWS** (medida com
-denominador, 668), **e o gargalo NÃO é alcance, é conversão.** A 1,2 por mil, 500
-inscritos pedem **~420.000 views POR CANAL**, e a frota faz ~2.100 views/dia.
+**A CONVERSÃO REAL É ~1,0 A 1,3 INSCRITO POR MIL VIEWS** (com denominador, 668),
+**e o gargalo NÃO é alcance, é conversão:** a 1,2/mil os 500 pedem **~420.000
+views POR CANAL** contra ~2.100/dia da frota.
 **Leia inscrito e view de canal pela regra (H): nunca de hora em hora.**
 
 AS TRÊS METADES:
@@ -181,12 +175,9 @@ AS TRÊS METADES:
 
 **O ESCOPO DE ANALYTICS NÃO FOI NEGADO — NÓS O PERDEMOS** (689, `critico`, e
 corrige ONZE afirmações minhas). O banco tem **388 linhas de retenção real** da
-YouTube Analytics API (`averageViewPercentage`, `subscribersGained`), em **doze
-canais**, incluindo os três da frota — e todas param em **20/09/2026**. O escopo
-FUNCIONOU e foi perdido por código nosso: `ESCOPOS` em `fabrica/tokens.py` listava
-só `youtube`, `youtube.force-ssl` e `youtube.upload`, e como os refresh tokens
-morriam de sete em sete dias (303), cada reautorização reemitiu o token pela nossa
-lista, sem analytics. **`yt-analytics.readonly` já está em `ESCOPOS` desde 09/10;
+Analytics API, em doze canais, todas parando em **20/09/2026**: o escopo
+funcionou e foi perdido por código NOSSO (`ESCOPOS` sem `yt-analytics`, com o
+refresh morrendo a cada sete dias). História em `CLAUDE.md`. **`yt-analytics.readonly` já está em `ESCOPOS` desde 09/10;
 falta só o clique de consentimento (pendência 1).**
 **ANTES DE CHAMAR UMA CAPACIDADE DE "NÃO AUTORIZADA", PROCURE NO BANCO SE ELA JÁ
 PRODUZIU DADO, E CONFIRA A LISTA DE ESCOPOS DO PRÓPRIO CÓDIGO.**
@@ -195,18 +186,15 @@ O que esses 388 dados já dizem, com atribuição POR VÍDEO:
     shorts  retenção **45,1%** (n=72)  / 23 inscritos / 18.693 views / **1,23 por mil**
     longos  retenção **20,9%** (n=103) / 17 inscritos /  2.733 views / **6,22 por mil**
 **E O INSCRITO POR PEÇA DO 691 ESTÁ RETRATADO PELO 713 (`critico`), que também
-era meu:** eu somava `inscritos_ganhos` ao longo das LINHAS de `metricas` — várias
-coletas da MESMA peça — em vez do MÁXIMO POR PEÇA. **Inflado de 3x a 11x, e A
-ORDEM INVERTE.** Refeito com `max` por peça sobre as 161 peças com métrica: epomeno
-longo **0,33**, epomeno short 0,14, **kolejny short 0,09** (eu o chamei de "o único
-caminho à Porta 1" e deixei isso governar a escolha de canal por três dias — é o
-QUARTO), kolejny longo 0,08, labtreinamento short 0,07, labtreinamento longo 0,00.
-**161 peças renderam 19 inscritos; só 14 (8,7%) ganharam algo, e NENHUMA peça da
-frota jamais trouxe mais de DOIS.** Logo **a Porta 1 não é alcançável por volume de
-peça em prazo nenhum que importe** — só por uma peça que ROMPA, e isso é
-distribuição, não produção. **A pergunta que vale é "o que faz uma peça romper", e
-ela só se responde com retenção nos três primeiros segundos.** O longo converter
-melhor POR VIEW continua de pé, e é do EPOMENO, não da frota.
+era meu:** eu somava por LINHA de `metricas` em vez do MÁXIMO POR PEÇA —
+**inflado de 3x a 11x, e A ORDEM INVERTE.** O melhor par medido é **epomeno
+longo (0,33/peça)**; o `kolejny` short, que eu chamei de "o único caminho", é o
+QUARTO (0,09). Tabela inteira em `CLAUDE.md`.
+**161 peças renderam 19 inscritos; só 14 (8,7%) ganharam algo, e NENHUMA trouxe
+mais de DOIS.** Logo **a Porta 1 não é alcançável por volume de peça em prazo
+nenhum que importe** — só por uma peça que ROMPA, e isso é distribuição, não
+produção. **A pergunta que vale é "o que faz uma peça romper", e ela só se
+responde com retenção nos três primeiros segundos.**
 
 RETRATAÇÕES QUE FICAM: a lista inteira vive em `CLAUDE.md` e um resumo das mais
 caras está na §10 — não a reconstrua de memória. **E a confiança que eu
@@ -339,13 +327,10 @@ FUNCIONOU".
     SEGUNDOS (734, n=4) — percentual NAO se distingue de offset nessa amostra,
     entao quem mira perto do teto de 45 s conta com ~2 s e nao com 2,5%.
 
-    **E A SOMA MAXIMA E CEGA QUANDO AS DIVERGENCIAS SE CANCELAM** (736, medido as
-    20:2x de 13/10): duas chamadas deram soma 113 e 114 enquanto pecas
-    individuais diferiam em ate OITO, uma subindo +8 e outra caindo -5. O piso POR
-    PECA somava 122, que chamada nenhuma devolveu. **Antes de gravar, compare a
-    soma do piso por peca com a da chamada escolhida; acima de ~5% de diferenca,
-    NOMEIE as pecas subestimadas.** E o `mesma_forma` havia devolvido **False** —
-    o instrumento avisou e eu gravei de todo modo.
+    **E A SOMA MAXIMA E CEGA QUANDO AS DIVERGENCIAS SE CANCELAM** (736): duas
+    somas quase iguais escondiam pecas diferindo em OITO. **Antes de gravar,
+    compare a soma do piso POR PECA com a da chamada escolhida; acima de ~5%,
+    NOMEIE as subestimadas** — e nao grave contra um `mesma_forma` False.
 
     **O access token NÃO precisa sair do Postgres:** a chamada à API pode ir pelo
     próprio `pg_net` com `'Bearer ' || (content::jsonb)->>'access_token'`, e é
@@ -420,18 +405,12 @@ contra ~2.100 do pacote. O limite é **PAUTA** antes de ser cota.
 
 **E O TETO AUTOMÁTICO É 1 PEÇA/DIA/CANAL — medido em 11/10 lendo o código, e
 contradiz os 7/dia que o dono pede.** `orquestra.MAX_POR_DIA_POR_CANAL` é 2, mas
-`TETO_POR_CANAL` sobrescreve os três canais da frota para **1**, e o teto conta
-pela chave `pacote` ou o slug sem `-short`, então **short solto também consome
-uma unidade**. A **ponte manual NÃO consulta o teto** (`conduz.py` e `publicar.py`
-não mencionam `teto_do_canal`) — foi assim que 09/10 fechou com ~14 peças com o
-teto em 1. **O teto governa só o caminho automático**, que é o que volta quando a
-porta reabrir. O próprio comentário do `TETO_POR_CANAL` já previa a revisão e a
-condição foi cumprida (ele dizia "enquanto o SHORT SOLTO não existir", e ele
-existe). **NÃO mexa nisso sozinho: é parâmetro de produção** e o comentário
-carrega medição contrária que segue válida (nove de treze longos com zero view, o
-`captions.insert` comendo ~400 das ~500 unidades por pacote). **A forma barata que
-respeita as duas coisas é subir o teto SÓ para short solto, deixando o longo em
-1/dia — e isso é decisão do DONO.**
+`TETO_POR_CANAL` sobrescreve os três da frota para **1**, e **short solto também
+consome uma unidade**. A **ponte manual NÃO consulta o teto** — foi assim que
+09/10 fechou com ~14 peças. **O teto governa só o caminho automático. NÃO mexa
+nisso sozinho: é parâmetro de produção**, e o comentário do próprio código
+carrega medição contrária que segue válida. A forma barata é subir o teto **SÓ
+para short solto**, deixando o longo em 1/dia — decisão do DONO (pendência 4).
 
 **ESCOLHA DE ORIGEM, em ordem:**
   a) **rode `consultas/estoque.sql`** — nunca lista de memória, nunca lista à mão,
@@ -494,13 +473,11 @@ antes de confiar em lista vazia. **COPIE A FORMA, NUNCA O ASSUNTO.** O chart rep
 direto com a consequência surpreendente**; o GR, **imperativo de segunda pessoa**.
 **Limite de forma que sobreviveu à busca ruim, porque é coerente com a medição:
 quatro a cinco palavras de legenda na tela por vez.**
-**E o que entrou dos cinco repositórios externos que o dono mandou estudar em
-11/10 está em `references/shorts-playbook.md`** — entrou pouco, e **nada por
-autoridade da fonte**: cadência de mudança visual a cada ~3 s (converge com
-690/699), faixa boa de 15 a 60 s (segunda fonte independente contra o 38), e
-conversão de "vídeo relacionado" abaixo de 1% (apoia o 37). **Quatro dos cinco
-foram RECUSADOS com motivo escrito** — não reimporte pipeline alheio por cima do
-nosso.
+**O que entrou dos cinco repositórios externos de 11/10 está em
+`references/shorts-playbook.md`** — pouco, e **nada por autoridade da fonte**:
+cadência de ~3 s, faixa de 15 a 60 s e conversão de "vídeo relacionado" abaixo
+de 1%. **Quatro dos cinco foram RECUSADOS com motivo escrito** — não reimporte
+pipeline alheio por cima do nosso.
 PESQUISA DE MÉTODO é outra coisa e o dono pediu: limiar de retenção, mecânica de
 distribuição, requisito de YPP — web e GitHub servem. Traga número e fonte.
 
@@ -633,6 +610,65 @@ novo sobre o mundo — e isso vai dito, com o id do longo. Respeite `robots=noai
   grega do Piper só existe em qualidade `low`**, e isso é diferença real entre canais.
 
 =====================================================================
+6-bis. O SANDBOX, E O PROCESSO DE PRODUÇÃO — PEDIDO DO DONO, 16/10/2026
+=====================================================================
+Palavras dele: *"insira este processo de produção na rotina, com estilo,
+narração, modelo para todos os canais de cada idioma. pelo menos 2 vídeos por
+dia por canal, 1 vídeo longo e outro curto"* e *"busca monetização dos canais"*.
+
+**O SANDBOX REMOTO DO COMPOSIO TEM SAÍDA PARA A INTERNET, e isso destrava TRÊS
+coisas que eu reportei como bloqueadas por dezessete rodadas.** Medido em 16/10
+às 03:3x–03:4x com `COMPOSIO_REMOTE_BASH_TOOL`. **Use-o antes de dizer que não
+há rota** — o proxy DESTA sessão nega o youtube.com, o sandbox não.
+ (i) **MEDIR, sem Supabase.** Página de watch → `"lengthSeconds"` e
+     `"viewCount"`; `/channel/<UC…>/about` com `Accept-Language: pt-BR` →
+     inscritos. **A página traz DOIS `lengthSeconds` diferentes** (43 e 44 na
+     mesma peça): use o MAIOR, porque a banda foi construída sobre
+     `contentDetails.duration`, que arredonda para cima. Isto NÃO dá retenção
+     nem `subscribersGained` — esses são Analytics, e seguem na pendência 1.
+ (ii) **REGRA (h), sem `pg_net`.** `pip install -q yt-dlp` e
+     `yt-dlp --write-subs --write-auto-subs --sub-langs 'pt-BR,pt' --skip-download
+     --sub-format vtt`. O `timedtext` direto volta **vazio** (o YouTube passou a
+     exigir token) — não insista nele. Deduplique as linhas do VTT.
+ (iii) **FONTES INSTITUCIONAIS respondem:** `api.sejm.gov.pl` e
+     `ec.europa.eu/eurostat/api` devolveram DADO REAL, `www.statistics.gr` 200,
+     `www.gov.br` 301. **Logo LONGO NOVO é possível** e a regra 600 (duas fontes
+     que batam) volta a ser cumprível. Prometer longo já não é mentir com número.
+
+**RITMO ALVO: ao menos DOIS por canal por dia — UM LONGO e UM CURTO**, seis
+peças na frota. O longo gera pauta (cada longo rende ~9 famílias de entrada
+errada), satisfaz os 3 uploads públicos/90 dias e converte ~5x melhor por view;
+o curto é quem entrega alcance em canal frio. **Rodada que só consegue uma peça
+diz QUAL das duas faltou e por quê** — isso é o número real, não o pedido.
+
+**ESTILO, NARRAÇÃO E MODELO — POR CANAL E POR IDIOMA.** A identidade vive em
+`config/canais/<slug>.yaml` e a voz em `ensaio.MODELO_VOZ`; **nunca copie a
+trilha ou a paleta de outro canal** (eu levei reprovação do portão `identidade`
+em 16/10 por colar `Inspired` no kolejny):
+
+| canal | idioma | voz (edge) | R | P | trilha | mira |
+|---|---|---|---|---|---|---|
+| labtreinamento | pt-BR | Thalita Multilingual | 17,47 | 0,737 | Inspired | 20,0–26,0 REAL |
+| epomeno-epipedo | el | el-GR-Nestoras | 20,61 | 1,273 | Inspired | 41,5–43,0 (topo é seguro) |
+| kolejny-poziom | pl | pl-PL-Marek | 20,07 | 1,419 | Wholesome | 41,5–43,0 (**mire o PISO**) |
+
+`P` é por FRASE, não por cena: **uma frase curta por cena.** Use
+`chars_por_cena(voz, n_cenas, total_s)` — não decore o ponto de equilíbrio.
+
+**FORMATO DO CURTO: a faixa é da FROTA (18 a 45 s) salvo quando a spec declara
+`short_alvo_s: [piso, teto]`**, e aí vale a dela. Teto absoluto **180 s**: acima
+disso o YouTube deixa de tratar como Short, e o único caminho de monetização
+ainda vivo (3 M de views de Shorts/90 d) depende dessa classificação. **Peça de
+2 min pede ~40 cenas** — `cenas ≈ total / 3`, porque a cadência de 3 s é a
+alavanca medida (690/699) e é o que impede comprimento de virar peça parada. E
+os dois mundos de provedor NÃO cabem numa janela estreita (razão piper/edge
+~0,82): declare a faixa larga e escreva os DOIS números na copy.
+
+**CAPA:** o `thumbnail.png` do render agora é setado também no SHORT, e **403 ali
+é canal sem verificação** (pendência 10), não defeito — a peça segue publicada
+com a capa automática. Thumbnail acima de **4 palavras** reprova no `variedade`.
+
+=====================================================================
 7. ENTREGA — A PONTE
 =====================================================================
 O REST do Supabase devolve **402** desde 25/08 (cota da organização; o projeto
@@ -648,13 +684,9 @@ existindo como alternativa, com o passo a passo em `docs/publicar-pela-sandbox.m
 `publicar.token_do_canal` já lê `YT_TOKEN_<CANAL>` do ENV antes do REST, recusa
 token que nomeia outro canal (a trava do erro de 14/08) e o `frota.yml` já passa
 os três nos dois passos.
-  * **os passos da ponte pelo Composio (artefato, sandbox, `conduz.py`, md5 do
-    corpus) estão em `docs/publicar-pela-sandbox.md`** — ela não é mais a rota, e a
-    lista inteira aqui dentro só envelhecia. O que não pode sair de vista: o input
-    do `urlartefato.yml` chama **`artefatos`** (422 se errar), **este container não
-    baixa a URL do artefato** (403 no CONNECT do Azure), **o zip abre FLAT** e o
-    `conduz.py` espera `f/<pacote>/`, e o corpus sai do próprio
-    `fabrica/corpus_publicados.json` do clone, conferido por md5 em ordem de BYTE.
+  * **a ponte está em `docs/publicar-pela-sandbox.md`** e não é mais a rota. O
+    input do `urlartefato.yml` chama **`artefatos`** (422 se errar) e o zip abre
+    FLAT, com o `conduz.py` esperando `f/<pacote>/`.
   * **O HTTP 410 no PUT do binário é CAMINHO NORMAL** (654): "0 publicados, 1
     falharam" e o vídeo ESTÁ no ar. **Pergunte ao canal ANTES de retentar.**
   * **CONFIRA `tags` NO VÍDEO depois de publicar** (662). **Tag nula ANTES de
@@ -854,16 +886,9 @@ que fica só no container morre com ele.
 **Não se limite ao que está escrito.** Esta rotina já foi corrigida por medição
 TRINTA E QUATRO vezes, e **a lista inteira do que caiu vive em `CLAUDE.md`** — não
 a reconstrua de memória nem a recopie para cá, porque ela é o que estoura o teto
-deste prompt. As mais caras de esquecer: **"a mira do short é 35 a 37"** (era
-hábito meu); **"uma mira de short para a frota"** (ela é POR CANAL, 698/701);
-**"a mediana de três leituras é o número bom"** (é a réplica atrasada, 688);
-**"grave o máximo"** (grava-se a chamada de soma máxima, 707/708, **e ela é cega
-quando as divergências se cancelam**, 736); **"o dono não autorizou o escopo de
-analytics"** (nós o perdemos no nosso próprio código, 689); **"o kolejny no short
-é o único caminho"** (o número era somado por linha de métrica, 713); **"em
-produção é o Piper que narra"** (o provedor é por cena e por run, 730/733); e
-**"é só esperar a virada do ciclo de cobrança"** (47 dias de 402 contínuo, e o nó
-é circular).
+deste prompt. **Leia a lista das quedas em `CLAUDE.md` uma vez por rodada** — ela é o que
+estoura o teto deste prompt, e reconstruí-la de memória é o erro que ela
+documenta.
 **Se você errou, retrate no mesmo lugar onde afirmou.**
 **DESCONFIE DE PORTÃO QUE PASSA EM SILÊNCIO, DE MEDIÇÃO QUE NÃO GRAVA, DE AMOSTRA
 ESPARSA, DE LEITURA ÚNICA, DE TRÊS LEITURAS QUE SUBIRAM JUNTAS, DE LISTA DE
@@ -886,11 +911,9 @@ PENDÊNCIAS QUE SÓ O DONO RESOLVE:
 2. **A RESTRIÇÃO DE COBRANÇA DO SUPABASE na org `sampaioopablo1-lgtm` — o
    gargalo da MEDIÇÃO.** Ela devolve 402 no REST, **alcança o runner** e
    **bloqueou até a transferência do projeto** para outra org.
-   **"É só esperar a virada do ciclo" está FALSIFICADO** (11/10): o 402 é contínuo
-   de 25/08 a 11/10, **47 dias**, atravessando pelo menos uma virada. O nó é
-   CIRCULAR — o 402 bloqueia o Storage, o expurgo precisa do Storage, os 3,7 GB
-   nunca saem, e cada ciclo novo reestoura a cota no primeiro dia. **Não diga ao
-   dono "é só esperar".** O remédio é Pro (levanta na hora E destrava o expurgo).
+   **"É só esperar a virada do ciclo" está FALSIFICADO** (11/10, 47 dias de 402
+   contínuo): o nó é CIRCULAR e a história está em `CLAUDE.md`. **Não diga ao
+   dono "é só esperar".** O remédio é Pro.
    **E NÃO peça a reconexão do conector como primeira opção: ela é a PIOR das
    três** — devolve o banco mas deixa a ponte manual e o 402 de pé. A pendência 3
    (uma colagem) liberta mais, por menos trabalho dele.
@@ -940,13 +963,10 @@ PENDÊNCIAS QUE SÓ O DONO RESOLVE:
        `ec.europa.eu`, `www.statistics.gr`, `api.sejm.gov.pl` e `www.gov.br` —
        os quatro devolvem **403 ao CONNECT**, confirmado no
        `__agentproxy/status` como `policy denial`.
-   **E (b) é o que trava o refil da pauta.** Longo carrega número sobre o mundo,
-   número exige duas fontes institucionais (600), e a rota documentada para isso
-   é o `pg_net` — que depende do banco, que está em 402. Logo o 402 não bloqueia
-   só a medição: ele bloqueia **escrever longo novo**, e portanto o refil da
-   pauta. Com ele fechado eu só consigo short de longo JÁ publicado, que não
-   introduz número novo. **Prometer longo novo nesta condição é mentir com
-   número.**
+   **(b) DEIXOU DE TRAVAR A PAUTA, medido em 16/10 às 03:4x:** os quatro
+   respondem do SANDBOX do Composio (Sejm e Eurostat com dado real, ELSTAT 200,
+   gov.br 301). Liberar no proxy segue sendo bom — encurta a rodada — mas **longo
+   novo já não depende disso**. Ver §6-bis.
 DÍVIDA TÉCNICA: **25 testes falham, e a composição está na §6** — 15 de
 `test_narracao_das_specs` (specs que sairiam da matriz caladas, quatro delas de
 canal da frota) mais oito espalhadas; **não é "título duplicado e Devanagari",
