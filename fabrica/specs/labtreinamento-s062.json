@@ -1,0 +1,83 @@
+{
+  "slug": "labtreinamento",
+  "idioma": "pt-BR",
+  "voz": "pt-BR-ThalitaMultilingualNeural",
+  "trilha": "Inspired",
+  "paleta": {
+    "ink": "#1F2933",
+    "c1": "#3F6C51",
+    "c2": "#C98B2E",
+    "bg": "#F5F3ED"
+  },
+  "pacote": "labtreinamento-s062",
+  "longo_existente": "FtCtIJPsc_Q",
+  "thumb": {
+    "l1": "O erro",
+    "l2": "que cala"
+  },
+  "copy": "# labtreinamento-s062\n\n## TITULO\nO Erro que Aparece é o Barato — o Caro é o que Devolve um Número Plausível e Não Avisa Nada\n\n## TITULO SHORT\nO erro que cala custa mais\n\n## DESCRICAO\nA planilha devolveu um erro, você se incomodou, foi lá e corrigiu. **Esse erro foi o barato.** Ele cobrou dez minutos de atenção e, em troca, entregou um aviso: alguma coisa está errada aqui, olhe.\n\nO erro que custa caro é o outro — **o que não aparece.** A fórmula responde, o número tem a cara certa, a planilha segue circulando. E ninguém vai atrás de um problema que não dá sinal, porque não há sinal para seguir. O defeito fica no arquivo, entra em relatório, viaja por e-mail e só é descoberto quando alguém, por outro motivo, reconfere a conta.\n\nIsso inverte uma intuição comum. A gente avalia risco pelo **barulho**: o que grita parece grave, o que cala parece resolvido. Em planilha é o contrário. A falha ruidosa é autolimitada — ela se denuncia e morre na hora. A falha silenciosa é a que se acumula, porque cada cópia do arquivo carrega o erro adiante sem reclamar.\n\n**A consequência prática é uma regra de escolha, não de conserto:** entre duas construções que fazem a mesma coisa, prefira a que **falha alto**. Aquela que, quando a premissa deixar de valer, quebra visivelmente em vez de devolver um resultado parecido com o certo. Você troca um incômodo ocasional por não ter erro invisível — e esse é o lado bom da troca.\n\nÉ o mesmo critério que você usa fora da planilha: um alarme que toca sem necessidade irrita; um alarme que não toca quando devia é o que causa prejuízo.\n\nO raciocínio inteiro, com os casos concretos, está no material: https://www.youtube.com/watch?v=FtCtIJPsc_Q\n\n## COMENTARIO FIXADO\nQual erro de planilha você só descobriu muito depois? Conta o tipo — sem valores e sem nome de empresa.\n\n## HASHTAGS\n#excel #planilhas #produtividade\n\n## TAGS\nexcel, planilha, erro silencioso, conferência, revisão de planilha, qualidade de dados, boas práticas, produtividade, trabalho em equipe, LabTreinamento\n\n## AVISO\n**ORIGEM: a regra de RECÊNCIA, quinta rodada seguida.** O longo mais novo do `labtreinamento` segue sendo `FtCtIJPsc_Q` (rank 12 entre todos os uploads, porque os onze acima são shorts nossos). Quarto short desta origem; a unidade de pauta é (LONGO × FAMÍLIA) e a legenda tem 243 falas.\n\n**CANAL: sem dúvida de critério nesta rodada.** O dia veio **6 / 6 / 5** e o `labtreinamento` é o piso SOZINHO — não houve empate, logo não houve escolha minha. (Na rodada das 15:0x eu declarei o critério porque havia empate; aqui não há o que declarar além da contagem.)\n\n**FAMÍLIA DE ENTRADA ERRADA: AVALIAR RISCO PELO BARULHO — nova neste canal.** Conferida contra as três que já saíram desta origem: `s058` (ausência lida como neutralidade), `s059` (posição no lugar de identidade) e `s061` (a capacidade é de quem abre). Nenhuma trata de confundir *gravidade* com *visibilidade*.\n\n**E EU DESCARTEI A FAMÍLIA MAIS ÓBVIA DO BLOCO QUE LI, de propósito.** As falas de t=204 a 229 tratam do número de coluna que deixa de valer quando alguém insere uma coluna — e isso é **a mesma família do `s059`** (referenciar por posição o que se quer por identidade). Pegar aquilo seria repetir família com roupa nova, que é o que a regra (f) proíbe. A fala que virou esta peça é a de t=242: *\"cada item é uma chance de erro silencioso, e é esse tipo de erro que custa caro, porque ninguém vai atrás de um problema que não aparece\"*.\n\n**REGRA (h):** lida a legenda (243 falas, 7.360 caracteres), falas de t=180 a 265. Nenhuma frase saiu de TÍTULO de capítulo nem de OCR de slide.\n\n**REGRA (g):** nenhum número entrou. A fonte traz \"coluna três\", \"três coisas\" e a data do anúncio do PROCX — **nada disso veio**, porque a regra não precisa de número nenhum e exemplo numérico só ancora a peça a um caso.\n\n**E ESTA PEÇA NÃO CITA FUNÇÃO NENHUMA.** A regra vale para qualquer construção de planilha, e nomear a função a prenderia ao caso do longo. Isso é escolha de alcance, e vai dita.\n\n**MIRA E EXPOSIÇÃO, declaradas ANTES de publicar:**\n- previsão **edge 25,8** / **piper 21,2**, os dois DENTRO da mira do canal (20,0 a 26,0) e do portão (18 a 45). Postura do 753: manter a mira verde e declarar a exposição;\n- com a banda observada de **+0,1 a +4,0 s** o real deve cair entre **25,9 e 29,8 s** — **e o topo PASSA do teto da mira.** Pela pinça do 740/748/774 não existe spec deste canal que satisfaça previsão e real ao mesmo tempo;\n- o provedor **pode ser MISTO**: hoje saíram peças com 2 e 1 avisos de Piper em dez cenas, e nesses casos o ponto **não entra** na banda.\n\n**IDENTIDADE (601):** trilha `Inspired` e a paleta atual do canal.\n\n**ESQUELETO:** `titulo-item-item-titulo-titulo-item-lista-item-titulo-cta`, diferente do `s061`. O limiar do aviso de repetição é **seis** peças iguais (medido hoje, está escrito no `variedade.py`), e esta sequência é nova.\n\n**CTA: experimento 37.**\n\n## CONFIGURACOES DO STUDIO\n- idioma: pt-BR\n- categoria: 26\n- privacidade: public\n",
+  "longo": [],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Deu erro",
+      "sub": "e te incomodou",
+      "nar": "A planilha deu erro e te incomodou.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Apareceu",
+      "sub": "você corrigiu",
+      "nar": "Apareceu, e você corrigiu."
+    },
+    {
+      "layout": "item",
+      "kicker": "Ele avisou",
+      "sub": "cobrou atenção",
+      "nar": "Ele avisou."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "O caro é o outro",
+      "sub": "não este",
+      "nar": "O caro é o outro."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "O que não aparece",
+      "sub": "o que cala",
+      "nar": "O que não aparece."
+    },
+    {
+      "layout": "item",
+      "kicker": "Número plausível",
+      "sub": "e errado",
+      "nar": "A fórmula devolve número plausível."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Ninguém procura",
+      "sub": "o que não sinaliza",
+      "nar": "Ninguém procura o que não sinaliza."
+    },
+    {
+      "layout": "item",
+      "kicker": "O pior é o silencioso",
+      "sub": "defeito sem sinal",
+      "nar": "O pior defeito é o silencioso."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Falha alto",
+      "sub": "prefira isso",
+      "nar": "Prefira o que falha alto."
+    },
+    {
+      "layout": "cta",
+      "kicker": "Inscreva-se",
+      "sub": "erro visível é barato",
+      "nar": "Erro visível é barato."
+    }
+  ]
+}
