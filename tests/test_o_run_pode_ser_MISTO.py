@@ -34,6 +34,9 @@ MEDIDOS = [
     ("labtreinamento-s059", 0, 10),   # job 116878234290: todo edge
     ("kolejny-poziom-s023", 10, 10),  # job do 733: todo Piper
     ("labtreinamento-s060", 2, 10),   # job 116943785023: MISTO, 16/10 11:3x
+    # SEGUNDO misto medido, com UMA cena so: job 116989849294, 16/10 13:2x.
+    # Ele derruba a minha leitura de que o misto fosse acidente de uma peca.
+    ("labtreinamento-s061", 1, 10),
 ]
 
 
