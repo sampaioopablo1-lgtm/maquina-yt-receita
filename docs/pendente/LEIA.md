@@ -209,3 +209,27 @@ banda mais usada, que e o contrario do que a concentracao pede.**
 
 Pendencia 2 segue sendo a unica que destrava isto: reconectar o conector do
 Supabase **escolhendo a org do projeto `vevocauwtarctfwngrch`**.
+
+## Decima quinta rodada sem o banco — 16/10, 01:0x
+
+Sonda da CAPACIDADE negada (`-32600`), antes e depois de publicar. Decima quinta
+rodada seguida.
+
+**Publicado:** `labtreinamento-s057` = `n1VJoPqokm8` (01:12 UTC), provedor **edge**
+MEDIDO (zero avisos no job `116757613240`), previsao edge 25,1 / piper 20,6 —
+mira do canal VERDE nos dois mundos, com a exposicao do 740/748/774 declarada na
+copy antes de publicar. Som LUFS -13,4, desvio **+0,6** (o maior das ultimas
+pecas; com n=1 isso e um ponto, nao achado).
+
+**Perdido:** 41o ponto da banda — `RESIDUO_N` segue 40, e agora sao **quatorze**
+pecas sem leitura de duracao real. Sem vigilancia do §3.2. O
+`videos-a-inserir.sql` foi a **15 linhas**.
+
+**E o custo em PAUTA apareceu pela TERCEIRA rodada seguida, agora no
+labtreinamento.** As tres origens de menor uso do canal empatam em tres shorts, e
+DUAS delas (`StQNFMdpGdk`, `KRUERlNPzDw`) nao tem spec local — a rota da regra (h)
+para elas sai pelo `pg_net`. Sobrou a terceira (`3KtwRYxl7_U`). Em 15/10 foi no
+kolejny, as 00:1x no epomeno, agora aqui: **o banco fechado empurra a escolha de
+origem para onde ha SPEC, nao para onde ha menos uso.** Nesta peca os capitulos
+35 a 40 estavam intocados pelos tres irmaos, logo nao houve repeticao — mas isso
+foi propriedade da origem, nao do procedimento.
