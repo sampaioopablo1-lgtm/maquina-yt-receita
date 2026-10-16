@@ -1,0 +1,96 @@
+{
+ "slug": "epomeno-epipedo",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#16283C",
+  "c1": "#2E7BB4",
+  "c2": "#E0A02E",
+  "bg": "#F3F7FA"
+ },
+ "pacote": "epomeno-epipedo-s041",
+ "longo_existente": "h66MCKjwAJ8",
+ "thumb": {
+  "l1": "Δεν προστίθενται",
+  "l2": "συγκρίνονται"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Δύο αριθμοί",
+   "sub": "και τους πρόσθεσες",
+   "nar": "Είδες δύο αριθμούς στο έντυπο και τους πρόσθεσες μεταξύ τους.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ο ένας",
+   "preco": "το δηλωμένο",
+   "nar": "Ο ένας είναι το εισόδημα που δήλωσες ο ίδιος.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ο άλλος",
+   "preco": "το τεκμαρτό",
+   "nar": "Ο άλλος είναι αυτό που υποθέτει το κράτος για σένα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Δεν προστίθενται",
+   "sub": "συγκρίνονται",
+   "nar": "Αυτοί οι δύο δεν προστίθενται ποτέ, συγκρίνονται.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Δήλωσες πιο πολλά",
+   "preco": "το τεκμήριο σβήνει",
+   "nar": "Αν δήλωσες περισσότερα, το τεκμήριο δεν παίζει.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Δήλωσες λιγότερα",
+   "preco": "πληρώνεις τη διαφορά",
+   "nar": "Αν δήλωσες λιγότερα, πληρώνεις μόνο για τη διαφορά.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Πώς δουλεύει",
+   "itens": [
+    "Ο μεγαλύτερος",
+    "Όχι το άθροισμα",
+    "Φόρος στη διαφορά"
+   ],
+   "nar": "Από τους δύο αριθμούς μετράει μόνο ο μεγαλύτερος.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Μόνο τη διαφορά",
+   "sub": "όχι και τα δύο",
+   "nar": "Πληρώνεις μόνο τη διαφορά, όχι και τους δύο αριθμούς.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Άρα πρώτα",
+   "preco": "δες ποιος είναι μεγαλύτερος",
+   "nar": "Άρα πρώτα κοίτα ποιος από τους δύο βγαίνει μεγαλύτερος.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Επόμενο Επίπεδο",
+   "sub": "κάνε εγγραφή",
+   "nar": "Κάνε εγγραφή και υπολόγισε το δικό σου.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# epomeno-epipedo-s041\n\n## TITULO\nΤο Δηλωμένο Και Το Τεκμαρτό Εισόδημα Δεν Προστίθενται — Το Κράτος Κρατάει Τον Μεγαλύτερο\n\n## TITULO SHORT\nΔεν προστίθενται, συγκρίνονται\n\n## DESCRICAO\nΒλέπεις δύο αριθμούς στο ίδιο έντυπο — το εισόδημα που **δήλωσες** και το εισόδημα που **υποθέτει** το κράτος για σένα — και η πρώτη σκέψη είναι να τους προσθέσεις. Είναι η πιο ακριβή λάθος πράξη σε όλο το έντυπο.\n\nΔεν προστίθενται. **Συγκρίνονται.** Το τεκμαρτό δεν είναι ένα δεύτερο εισόδημα που αποκτήθηκε· είναι ένα **κατώφλι**: το ποσό που, κατά την υπόθεση, χρειάζεσαι για να συντηρείς αυτά που κατέχεις. Η φορολογική βάση δεν είναι το άθροισμα των δύο — είναι ο **μεγαλύτερος** από τους δύο.\n\nΑπό εκεί βγαίνουν δύο διαφορετικές καταστάσεις, και είναι οι μόνες δύο:\n\n- δήλωσες **περισσότερα** από το κατώφλι: το τεκμήριο δεν παίζει κανέναν ρόλο, σαν να μην υπήρχε·\n- δήλωσες **λιγότερα**: φορολογείσαι για τη **διαφορά** ανάμεσα στα δύο, όχι για το τεκμαρτό ολόκληρο και όχι για τα δύο μαζί.\n\nΓι' αυτό η σειρά των πράξεων έχει σημασία περισσότερο από τον κάθε αριθμό χωριστά: **πρώτα** βλέπεις ποιος από τους δύο βγαίνει μεγαλύτερος, και **μετά** υπολογίζεις. Όποιος προσθέτει, φτιάχνει μια βάση που δεν προβλέπεται πουθενά και βγάζει φόβο για ποσό που δεν ζητήθηκε ποτέ.\n\nΚανένα ποσό, κανένα κλιμάκιο και κανένας συντελεστής δεν μπαίνει σε αυτό το σύντομο βίντεο — **κανόνας (g)**: αλλάζουν με απόφαση και με τη χρονιά, και το σύντομο κρατάει τον **μηχανισμό**. Τα νούμερα είναι στο πλήρες βίντεο, με τις πηγές τους.\n\nΣτο πλήρες βίντεο: από πού βγαίνει το κατώφλι, ποια κατοχή το σηκώνει, πώς μειώνεται σε συγκεκριμένες περιπτώσεις, και τι ζητάει το έντυπο για να το αμφισβητήσεις.\n\n## COMENTARIO FIXADO\nΈνας έλεγχος σε δέκα δευτερόλεπτα, πριν φοβηθείς το ποσό: βάλε τους δύο αριθμούς δίπλα-δίπλα και κύκλωσε τον **μεγαλύτερο**. Αν ο μεγαλύτερος είναι αυτό που δήλωσες, το τεκμήριο σβήνει. Αν είναι το άλλο, η διαφορά — και **μόνο** η διαφορά — είναι το θέμα.\n\n## FAMILIA DE ENTRADA ERRADA\nLer como SOMA o que e MAXIMO: dois numeros no mesmo formulario sao tratados como parcelas que se juntam, quando a regra os poe em COMPARACAO e toma o maior. A base nao e declarado + presumido; e max(declarado, presumido), e o imposto incide so na DIFERENCA, e so se a presuncao for maior.\nDistincao dos vizinhos mais perto: no `s040` o numero e PRODUTO de uma suposicao (ele nao existe como dado); aqui os dois numeros existem de verdade e o erro esta na OPERACAO entre eles. No `s037` o erro e bruto-contra-liquido — duas medidas da mesma coisa; aqui sao duas medidas de coisas diferentes, uma delas um limiar. E no `s026` o erro e usar um CRITERIO como se fosse VALOR; aqui o criterio esta correto e a aritmetica e que e inventada.\nOrigem `h66MCKjwAJ8`, que tinha UM short so e nenhuma spec local — alcancada pela regra (h) atraves da legenda (1.208 palavras).\n\n## AVISO SOBRE OS NUMEROS\nNenhum valor entra, e isto cobre TODOS os da fonte: as escalas por metro quadrado, os gramas de CO2 por quilometro, as faixas de cilindrada, o numero da lei, o fator de reducao e os pisos em euro. Todos mudam por decisao e por ano (regra g). A peca NAO declara quantidade de casos (725): a fonte enumera com ordinais e o short fica no mecanismo.\n\n## MIRA\nPrevisao no PISO do `ALVO_SHORT` da frota (41,5 a 43,0), pelo 772, para ganhar folga contra o teto de 45. A exposicao vai declarada: se o edge narrar, o real cai acima da previsao pela banda observada de 0,1 a 4,0 s — isto e, entre 41,7 e 45,6 s, e o topo PASSA do teto do portao. Se o piper narrar, 36,9 a 40,8.\n\n## HASHTAGS\n#φορολογία #τεκμήρια #εισόδημα #ΕπόμενοΕπίπεδο\n\n## TAGS\nτεκμαρτό εισόδημα, τεκμήρια διαβίωσης, δηλωμένο εισόδημα, φορολογική δήλωση, φορολογητέα βάση, διαφορά τεκμηρίου, φόρος εισοδήματος, έντυπο Ε1, αμφισβήτηση τεκμηρίου, οικονομικά σπιτιού, φορολογικός οδηγός, Επόμενο Επίπεδο\n"
+}
