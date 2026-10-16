@@ -37,6 +37,9 @@ MEDIDOS = [
     # SEGUNDO misto medido, com UMA cena so: job 116989849294, 16/10 13:2x.
     # Ele derruba a minha leitura de que o misto fosse acidente de uma peca.
     ("labtreinamento-s061", 1, 10),
+    # TERCEIRO misto, job 117070798289, 16/10 16:2x — e com ele os TRES
+    # mistos do dia caem no MESMO canal. Ver a nota abaixo.
+    ("labtreinamento-s062", 2, 10),
 ]
 
 
@@ -98,3 +101,79 @@ def test_o_emissor_do_aviso_continua_sendo_warning():
         "o aviso do Piper deixou de sair pelas ANOTACOES do job, e sem ele o"
         " regime do run deixa de ser observavel"
     )
+
+
+# =============================================================================
+# OS TRES MISTOS DE 16/10 CAIRAM TODOS NO MESMO CANAL — observado as 16:2x
+# =============================================================================
+#
+# Contados os runs de hoje pelo numero de avisos no job do RENDER:
+#
+#     labtreinamento   s059=0  s060=2  s061=1  s062=2   -> 3 de 4 MISTOS
+#     kolejny-poziom   s042=0  s043=0                    -> 0 de 2
+#     epomeno-epipedo  s044=0                            -> 0 de 1
+#
+# **Tres de quatro num canal, zero de tres nos outros dois.** Fisher exato da
+# p ~ 0,14, logo isto NAO e significativo sozinho — e eu nao o apresento como
+# tal.
+#
+# O QUE FAZ VALER REGISTRAR E A CONVERGENCIA INDEPENDENTE: na pesquisa de voz
+# desta mesma sessao, a `pt-BR-ThalitaMultilingualNeural` devolveu
+# **NoAudioReceived** DUAS vezes no sandbox, com e sem `rate`, enquanto a
+# `pt-BR-FranciscaNeural` sintetizou na mesma chamada. E o `labtreinamento` e
+# justamente o canal que usa a Thalita; os outros dois usam Nestoras e Marek.
+#
+# Logo duas medicoes de natureza diferente apontam para a MESMA voz como a
+# fragil: a taxa de queda do edge no runner e a falha de sintese no sandbox.
+# Confianca: `observado`, nao `medido` — n pequeno e eu nao controlei a hora
+# nem a carga da rede do runner.
+#
+# A CONSEQUENCIA PRATICA, e ela e sobre a BANDA e nao sobre a voz: run misto nao
+# tem mundo de provedor, logo o ponto sai da serie. Se os mistos se concentram
+# num canal, a banda perde pontos **daquele canal preferencialmente** — e e
+# exatamente o canal que domina a serie (18 de 22 no 763). Isso vai dito, porque
+# e um vies de amostragem que eu criei sem querer ao excluir os mistos.
+#
+# O QUE EU NAO FACO: trocar a voz. E parametro de producao (trava da §10), o
+# `R`/`P` da Francisca nao esta medido, e trocar sem medir o R quebraria a mira
+# do canal inteira.
+VOZ_POR_CANAL = {
+    "labtreinamento": "pt-BR-ThalitaMultilingualNeural",
+    "epomeno-epipedo": "el-GR-NestorasNeural",
+    "kolejny-poziom": "pl-PL-MarekNeural",
+}
+MISTOS_DE_16_10 = {"labtreinamento": (3, 4), "kolejny-poziom": (0, 2),
+                   "epomeno-epipedo": (0, 1)}
+
+
+def test_os_mistos_de_hoje_se_concentram_em_UM_canal():
+    """Se eles se espalharem, a convergencia com a voz cai e a nota e relida."""
+    com, total = MISTOS_DE_16_10["labtreinamento"]
+    outros = sum(c for k, (c, _) in MISTOS_DE_16_10.items()
+                 if k != "labtreinamento")
+    assert com >= 3 and outros == 0, (
+        "misto apareceu fora do labtreinamento: a convergencia com a voz "
+        "Multilingual perdeu apoio e esta nota precisa ser relida"
+    )
+
+
+def test_a_nota_declara_que_p_NAO_e_significativo():
+    """Para a rodada seguinte nao citar isto como medido."""
+    fonte = open(__file__, encoding="utf-8").read()
+    assert "NAO e significativo sozinho" in fonte
+    assert "observado" in fonte
+
+
+def test_o_vies_que_EU_criei_vai_declarado():
+    """Excluir mistos tira pontos preferencialmente do canal dominante."""
+    fonte = " ".join(open(__file__, encoding="utf-8").read().split())
+    assert "vies de amostragem que eu criei sem querer" in fonte
+
+
+def test_a_voz_do_canal_NAO_foi_trocada():
+    """Trava da §10: trocar voz sem medir o R quebraria a mira do canal."""
+    import json
+    import pathlib
+    spec = json.loads((RAIZ / "fabrica" / "specs"
+                       / "labtreinamento-s062.json").read_text())
+    assert spec["voz"] == VOZ_POR_CANAL["labtreinamento"]
