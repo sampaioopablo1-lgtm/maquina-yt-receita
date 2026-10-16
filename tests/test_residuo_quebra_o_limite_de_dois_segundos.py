@@ -184,6 +184,11 @@ SERIE = [
     # E FORA do teto da mira do canal (26,0) com o mira.py VERDE nos dois
     # mundos: o tally do 744/754 vai a DEZ de treze.
     ("labtreinamento-s063", 25.9, 27, "edge"),
+    # 20:13 de 16/10: provedor edge MEDIDO (zero avisos no job 117173319353),
+    # previsao 41,3 e real 42 — residuo +0,7, DENTRO da banda e com o sinal NAO
+    # estabelecido (42 - 41,3 <= 1,0, pelo 770). A pagina trouxe DOIS
+    # lengthSeconds, 41 e 42: vale o MAIOR.
+    ("epomeno-epipedo-s046", 41.3, 42, "edge"),
 ]
 
 

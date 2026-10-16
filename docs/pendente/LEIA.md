@@ -694,3 +694,30 @@ Corrigido para o lado certo, com contraprova.
 **Sua, e é a décima segunda negativa seguida:** sem `execute_sql` as **34** linhas
 de `insert into videos` seguem fora do banco. Porta 1 em 68 / 21 / 8, os três
 indeterminados em 15,6 h.
+
+## 16/10 20:1x — o dia fechou em 22 peças, e o "7/7/7" merece uma ressalva
+
+`epomeno-epipedo-s046` = `FmD7olILCwo`, **42 s reais** (a página trouxe dois
+`lengthSeconds`, 41 e 42 — vale o maior) contra previsão edge de 41,3: resíduo
+**+0,7 s**, dentro da banda mas com o sinal **NÃO estabelecido** pelo critério do
+770. Som LUFS −14,0, desvio **0,0**, zero silêncios.
+
+**O dia inteiro:** 22 peças publicadas, **8 / 7 / 7** por canal — e no momento da
+escolha de canal estava **7/7/7**, isto é, o alvo que você pede por canal foi
+atingido nos três.
+
+**E aqui vai a ressalva, porque sem ela o número engana:** essa contagem é de
+peça **publicada**, e o seu alvo é peça **`processed`** (é a regra que nasceu da
+retratação de 08/10). A condição `processed` vive no `videos.list` com
+`part=status`, que pede token, que pede `pg_net`, que pede o `execute_sql` —
+negado em **treze** rodadas seguidas. Então **eu não tenho hoje o número exato
+que você pediu**, e dizer que tenho seria inventar.
+
+**O que eu meço é um PISO, e ele está em `fabrica/vivacidade_publica.py`:** por
+duas rotas públicas sem credencial — `lengthSeconds > 0`, que **nega** o `P0D`, e
+`oembed` em 200, que diz pública e indexada. Medido nas 22 de hoje: **22 de 22 no
+piso, nenhuma `P0D`**. O módulo imprime, em letra, a condição que ele não mede,
+porque uma peça pode estar indexada e ainda fora de `processed` — já medimos isso.
+
+**Sua, e é a décima terceira negativa:** as **35** linhas de `insert into videos`
+seguem fora do banco. Porta 1 em 68 / 21 / 8, os três indeterminados em 16,6 h.
