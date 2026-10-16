@@ -1,0 +1,96 @@
+{
+ "slug": "epomeno-epipedo",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#16283C",
+  "c1": "#2E7BB4",
+  "c2": "#E0A02E",
+  "bg": "#F3F7FA"
+ },
+ "pacote": "epomeno-epipedo-s040",
+ "longo_existente": "9Hg5A3H1Qe4",
+ "thumb": {
+  "l1": "Μηνιαίος",
+  "l2": "πολλαπλασιασμός"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Είδες τον μισθό",
+   "sub": "στην επικεφαλίδα",
+   "nar": "Είδες τον μηνιαίο μισθό γραμμένο στην επικεφαλίδα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Μόνο που",
+   "preco": "δεν είναι νόμος",
+   "nar": "Μόνο που αυτός ο μηνιαίος μισθός δεν είναι νόμος πουθενά.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Είναι πράξη",
+   "sub": "ώρες επί ωρομίσθιο",
+   "nar": "Είναι μια απλή πράξη: ώρες επί το ωρομίσθιο.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Ο νόμος δίνει",
+   "preco": "μόνο την ώρα",
+   "nar": "Ο νόμος εκεί ορίζει μόνο την αμοιβή της ώρας.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Τι ρωτάς πρώτα",
+   "itens": [
+    "Πόσες ώρες",
+    "Γραμμένες",
+    "Στο συμβόλαιο"
+   ],
+   "nar": "Ρώτα λοιπόν πρώτα πόσες ώρες γράφει το χαρτί σου.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Η επικεφαλίδα",
+   "preco": "υποθέτει πλήρες",
+   "nar": "Η επικεφαλίδα υποθέτει σιωπηλά ένα πλήρες ωράριο.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Το συμβόλαιο",
+   "preco": "γράφει λιγότερες",
+   "nar": "Και το συνηθισμένο πλήρες συμβόλαιο γράφει λιγότερες ώρες.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ίδιο ωρομίσθιο",
+   "sub": "άλλος μισθός",
+   "nar": "Ίδια χώρα, ίδιο ωρομίσθιο, εντελώς άλλος μισθός.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Άρα",
+   "preco": "δεν είναι ο μισθός",
+   "nar": "Άρα η πρώτη ερώτηση δεν είναι ποτέ πόσος ο μισθός.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Επόμενο Επίπεδο",
+   "sub": "κάνε εγγραφή",
+   "nar": "Κάνε εγγραφή και ρώτα πρώτα για τις ώρες του χαρτιού.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# epomeno-epipedo-s040\n\n## TITULO\nΟ Μηνιαίος Μισθός Της Επικεφαλίδας Δεν Είναι Νόμος — Είναι Πολλαπλασιασμός Με Μια Υπόθεση\n\n## TITULO SHORT\nΟ μηνιαίος είναι πολλαπλασιασμός\n\n## DESCRICAO\nΒλέπεις έναν μηνιαίο μισθό σε μια επικεφαλίδα, τον συγκρίνεις με τον δικό σου και αποφασίζεις. Το νούμερο υπάρχει. Αυτό που **δεν** υπάρχει είναι ο **νόμος** που το ορίζει.\n\nΣε κάποιες χώρες ο κατώτατος μισθός ορίζεται **ανά ώρα**, και μόνο ανά ώρα. Ο «μηνιαίος» που κυκλοφορεί δεν είναι διάταξη: είναι **πολλαπλασιασμός** — ώρες επί ωρομίσθιο. Και τις ώρες δεν τις γράφει το κράτος· τις γράφει **το συμβόλαιό σου**.\n\nΕδώ είναι η κρυμμένη υπόθεση: η επικεφαλίδα πολλαπλασιάζει με **πλήρες ωράριο**. Όταν το συνηθισμένο συμβόλαιο έχει **λιγότερες ώρες**, το ίδιο ωρομίσθιο βγάζει **άλλον** μηνιαίο μισθό — στην ίδια χώρα, για την ίδια δουλειά. Η διαφορά δεν έρχεται από την αγορά· έρχεται από **μία γραμμή** του χαρτιού που σχεδόν κανείς δεν διαβάζει πριν αποφασίσει.\n\nΗ πράξη είναι απλή, και είναι μία ερώτηση:\n\n- **πόσες ώρες** γράφει το συμβόλαιο, γραμμένες;\n- και μετά πολλαπλασιάζεις **εσύ**, με τις δικές σου ώρες.\n\nΓι' αυτό η πρώτη ερώτηση για μια προσφορά δεν είναι ποτέ πόσος είναι ο μισθός. Είναι **πόσες ώρες** λέει το χαρτί — γιατί χωρίς αυτές ο μηνιαίος αριθμός δεν περιγράφει **κανένα** πραγματικό συμβόλαιο, ούτε το δικό σου ούτε κανενός.\n\nΚανένα ωρομίσθιο, κανένας μισθός και κανένας αριθμός ωρών δεν μπαίνει σε αυτό το σύντομο βίντεο — **κανόνας (g)**: αλλάζουν με απόφαση και με τη χρονιά, και το σύντομο κρατάει τον **μηχανισμό**. Τα νούμερα είναι στο πλήρες βίντεο, με τις πηγές τους.\n\nΣτο πλήρες βίντεο: πού πάει η διαφορά, τα δώρα και το επίδομα που υπάρχουν με νόμο σε μία από τις δύο πλευρές, γιατί ο τίμιος λογαριασμός είναι ο **ετήσιος**, και η στήλη του κόστους που λείπει.\n\n## COMENTARIO FIXADO\nΈνας έλεγχος που κάνεις σε δέκα δευτερόλεπτα: ρώτα ποιο νούμερο είναι γραμμένο στον **νόμο**. Αν είναι το ωρομίσθιο, τότε ο μηνιαίος είναι **δικός σου υπολογισμός** — και αλλάζει με τις ώρες του συμβολαίου σου, όχι με τη χώρα.\n\n## FAMILIA DE ENTRADA ERRADA\nTratar como DADO um numero que e PRODUTO de uma suposicao: o mensal da manchete e horas x valor-hora, e as HORAS sao supostas (jornada cheia), nao normativas. Logo ele nao descreve contrato nenhum — e a diferenca que aparece vem da suposicao, nao do mercado.\nDistincao do vizinho mais perto, o `s027`: ali o erro e usar o numero CORRETO DE OUTRA PESSOA (media de um pais) em vez do proprio; aqui o numero nao e de ninguem — ele e calculado por quem escreve a manchete, com uma jornada que o contrato nao tem. E nao e o `s021` (o percentual nao e o teu valor): la o numero existe e nao se aplica a ti; aqui a propria existencia dele e uma conta.\nOs dois irmaos desta origem (`9Hg5A3H1Qe4`) sao sobre a COLUNA de custo que falta (`s008`) e sobre a EPIGRAFE contra o proprio resto (`s027`, capitulos 51 a 70) — os capitulos 9 a 19 estavam intocados.\n\n## AVISO SOBRE OS NUMEROS\nNenhum valor-hora, salario ou numero de horas entra: mudam por decisao e por ano (regra g). A fonte enumera o que a manchete esconde com ordinais, e esta peca NAO declara quantos sao (725).\n\n## MIRA\nPrevisao no PISO do `ALVO_SHORT` da frota, pelo 772, para ganhar folga contra o teto de 45. A exposicao vai declarada: se o edge narrar, o real cai acima da previsao pela banda observada de 0,1 a 4,0 s.\n\n## HASHTAGS\n#μισθός #εργασία #συμβόλαιο #ΕπόμενοΕπίπεδο\n\n## TAGS\nκατώτατος μισθός, ωρομίσθιο, μηνιαίος μισθός, συμβόλαιο εργασίας, ώρες εργασίας, μερική απασχόληση, προσφορά εργασίας, μετανάστευση για δουλειά, σύγκριση μισθών, καθαρός μισθός, οικονομικά σπιτιού, Επόμενο Επίπεδο\n"
+}
