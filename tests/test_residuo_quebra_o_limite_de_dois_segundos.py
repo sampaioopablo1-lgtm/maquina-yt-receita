@@ -170,6 +170,11 @@ SERIE = [
     # 0,0062 s de margem sobre o critério do 770. A classificacao e
     # tecnicamente certa e PRATICAMENTE nao robusta, e isso vai dito.
     ("kolejny-poziom-s043", 42.0, 43, "edge"),
+    # 17:18 de 16/10, e a rota da DURACAO reabriu na mesma rodada em que a
+    # LISTAGEM segue fechada: provedor edge MEDIDO (zero avisos no job
+    # 117099160058), previsao 41,8 e real 44 — residuo +2,2, DENTRO da banda,
+    # sinal ESTABELECIDO, e ABAIXO do teto de 45 que a copy declarou como risco.
+    ("epomeno-epipedo-s045", 41.8, 44, "edge"),
 ]
 
 

@@ -44,6 +44,25 @@ longo de short numa leitura. Está em `fabrica/recencia.ordem_viva` /
 **LEVANTE** dizendo `AUSENCIA DE LEITURA`, porque é aí que o 200-sem-campo
 reaparece disfarçado de canal vazio.
 
+**E EM 16/10 ÀS 17:2x AS QUATRO ROTAS FORAM SONDADAS NO MESMO MINUTO, e elas
+DIVERGEM — o estado é por ROTA, não do sandbox.** Eu media uma rota por rodada,
+pela rota de que precisava, e atribuía o resultado ao ambiente: isso sustentava,
+sem dizer, a hipótese de uma **maré** que sobe e desce com todas juntas. Na mesma
+chamada de bash, mesma sandbox: `/about` **ABRE**, `/watch?v=` **ABRE** (fechada
+às 07:1x), `yt-dlp` legenda **ABRE** (fechada às 07:1x), e a LISTAGEM **FECHA** —
+200 com 1.132.822 bytes, **zero** `videoRenderer`, um `CONSENT` e um `captcha`.
+
+**Logo sondar uma rota NÃO informa sobre as outras**, e não existe "a maré do
+ambiente" para consultar. As duas que fecharam às 07:1x voltaram **juntas**, e a
+que fechou às 12:2x segue fechada 4,5 h depois — estado de rota tem duração
+própria. **O que isto NÃO prova:** independência; três pontos no tempo e uma
+sonda simultânea não medem correlação, e duas voltarem juntas é compatível com
+dependência parcial. O que está medido é a negação.
+`tests/test_as_rotas_nao_sobem_e_descem_JUNTAS.py`, sete testes — e o primeiro
+assert que eu escrevi nele terminava em `or True`, isto é, passava com qualquer
+tabela: **portão verde fabricado, §3.8, num arquivo escrito para guardar essa
+lição.** Consertado com contraprova nos dois sentidos.
+
 **A rota da duração falha com 200 e página grande**, logo quem não contar o campo
 lê "funcionou". Cookie `CONSENT=YES+1`, `User-Agent` de navegador e `&hl=en` **não
 resolvem** — testados os três. O `oembed` segue em 200, e dá título, não duração.

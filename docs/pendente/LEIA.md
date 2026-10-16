@@ -618,3 +618,25 @@ afirmar sem medir.
 **No código:** `fabrica/retencao.py` e dez testes, incluindo um que reprova se
 alguém chamar o heatmap de "retenção" e um que abre o `tokens.py` para provar
 que o escopo já está lá — ou seja, que a pendência é o clique e não o código.
+
+
+## 16/10 17:2x — a rota da DURAÇÃO reabriu, e a da LISTAGEM não
+
+`epomeno-epipedo-s045` = `53GpMFpGuks`, **44 s reais** contra previsão edge de
+41,8 (provedor **edge** medido, zero avisos no job `117099160058`): resíduo
+**+2,2 s**, dentro da banda e com o sinal estabelecido. A exposição que a copy
+declarou — real podendo passar do teto de 45 — **não se realizou**, e isso fica
+dito porque o acerto é out-of-sample.
+
+**A rota da duração voltou**, logo a banda do resíduo tem instrumento outra vez;
+o `s040` e o `s041` seguem sem leitura, e isso continua devendo.
+
+**E a sonda das quatro rotas no mesmo minuto derrubou uma hipótese minha** que eu
+nunca havia escrito nem testado: a de que o bloqueio era do sandbox, uma maré.
+Não é — a listagem fecha enquanto três rotas abrem. Detalhe em `CLAUDE.md`.
+
+**Sua, e é a décima negativa seguida:** o `execute_sql` segue negado, logo as
+**32** linhas de `insert into videos` em `docs/pendente/videos-a-inserir.sql`
+continuam fora do banco. E o clique dos dois consentimentos do Google segue sendo
+a ação de maior valor da fila — `relativeRetentionPerformance` é o comparador que
+funciona com **uma peça só**.
