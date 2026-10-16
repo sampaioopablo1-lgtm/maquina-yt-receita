@@ -469,3 +469,37 @@ run misto nao tem mundo de provedor, logo o ponto NAO entra na serie do residuo
 delta nao-zero da sessao. Os outros dois iguais. Piso de resolucao 0,85/dia, logo
 e UMA contagem e sai `indeterminado` (723) — mas diz que o limite de ~0,85/dia
 nao e um zero disfarcado.
+
+## 16/10 — O ESTILO MS PAINT: estudado, montado, e BLOQUEADO por credito
+
+O dono trouxe o prompt de geracao de imagem (stickman de MS Paint, um quadro por
+timestamp) e pediu para estudar. Estudado contra o codigo:
+
+**O QUE SO ELE RESOLVE, e e uma linha:** o saldo da Higgsfield esta em **ZERO
+credito, plano free, sem cota de geracao gratuita** (`unlim.available: false`).
+Hoje nao sai **uma** imagem de teste. Custo medido no preflight:
+**0,25 credito por imagem** (`gpt_image_2_5`, a familia "GPT Image" que o
+proprio prompt dele nomeia).
+
+  short de 10 cenas ...........  2,50 cr
+  peca de 2 min (40 cenas) ..... 10,00 cr
+  longo de ~9 min (109 frases) . 27,25 cr
+  no alvo de 7/dia/canal ....... ~52 cr/dia  (~1.575 cr/mes)
+
+**O QUE JA ESTA PRONTO DO NOSSO LADO:** `fabrica/estilo_paint.py` monta o prompt
+POR CENA a partir da fala do narrador, com o bloco de estilo e as proibicoes
+dele inteiras, e `tests/test_estilo_paint.py` (oito testes) trava isso — tudo
+testavel sem gastar credito, porque e transformacao de texto.
+
+**E a rota de render NAO precisa de obra:** cena com `layout: "broll"` e
+`broll_url` ja existe e e nao invasiva — se a imagem falhar, a cena cai no texto
+sobre fundo escuro e o render nao para. Falta so o passo que gera e HOSPEDA os
+PNG, e hospedar depende do Storage, que esta em 402.
+
+**DUAS COISAS QUE EU MUDEI NO PROMPT DELE, com motivo:**
+1. **aspecto por FORMATO**: ele pede 16:9 em toda imagem, o que descreve o
+   LONGO; o short da maquina e 9:16. O estilo atravessa, o aspecto nao.
+2. **imagem SEM TEXTO**: ele admite texto escrito a mao, e dois tercos da frota
+   narram em grego e polones, onde gerador erra diacritico. O nosso texto sai do
+   `cairosvg` e e o que os portoes `ortografia` e `variedade` conferem. Desenho
+   embaixo, texto nosso em cima.
