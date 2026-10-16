@@ -1,0 +1,80 @@
+{
+ "slug": "labtreinamento",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#1F2933",
+  "c1": "#3F6C51",
+  "c2": "#C98B2E",
+  "bg": "#F5F3ED"
+ },
+ "pacote": "labtreinamento-s064",
+ "longo_existente": "FtCtIJPsc_Q",
+ "thumb": {
+  "l1": "Faixa pede",
+  "l2": "aproximada"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "A exata nem sempre",
+   "sub": "é a certa",
+   "nar": "A exata nem sempre é certa.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O caso",
+   "nar": "Sua tabela tem faixas."
+  },
+  {
+   "layout": "item",
+   "kicker": "Por exemplo",
+   "nar": "De tanto a tanto, o valor ao lado."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que acontece",
+   "sub": "com a exata",
+   "nar": "Na exata, o meio não existe."
+  },
+  {
+   "layout": "item",
+   "kicker": "Resultado",
+   "nar": "Vem erro num dado bom."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Então pergunte",
+   "itens": [
+    "é um código?",
+    "ou é uma faixa?"
+   ],
+   "nar": "É código ou faixa?"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Código",
+   "sub": "sempre exata",
+   "nar": "Código pede exata."
+  },
+  {
+   "layout": "item",
+   "kicker": "Faixa",
+   "nar": "Faixa pede a aproximada."
+  },
+  {
+   "layout": "item",
+   "kicker": "A condição",
+   "nar": "Mas a coluna tem de ser ordenada."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Veja a sua",
+   "nar": "Veja o seu caso e inscreva-se."
+  }
+ ],
+ "copy": "# labtreinamento-s064\n\n## TITULO\nA Busca Aproximada Não É Defeito — Ela É a Certa Quando a Sua Tabela É de Faixas\n\n## TITULO SHORT\nFaixa pede aproximada\n\n## DESCRICAO\nDepois de descobrir que a busca aproximada entrega resposta errada sem avisar, a reação natural é escrever **exata** em tudo e nunca mais pensar no assunto. Na maior parte das planilhas isso está certo. **Mas existe um caso em que a exata é que falha**, e ele é comum.\n\nÉ quando a sua tabela não guarda valores, e sim **faixas**: de tanto até tanto, com o resultado ao lado. Alíquota por nível de renda, frete por peso, desconto por quantidade, nota por pontuação. A tabela lista os **inícios** de cada faixa, e não todos os valores possíveis dentro dela.\n\nPeça busca exata nessa tabela e o que acontece é previsível: o valor que você procura quase nunca é exatamente um dos inícios listados. **Você recebe um erro de valor não encontrado — num dado perfeitamente correto.** E aí a tentação é \"consertar\" a tabela listando valor por valor, o que troca um problema pequeno por uma planilha impossível de manter.\n\nA pergunta que resolve vem antes da fórmula, e tem só duas respostas:\n\n- **procuro um código, um nome, um identificador?** Então exata, sempre — é aqui que mora o erro silencioso do modo aproximado;\n- **procuro em qual FAIXA um número se encaixa?** Então aproximada, e é exatamente para isso que ela foi feita.\n\nE a aproximada traz uma condição que não se negocia: **a coluna de faixas tem de estar em ordem crescente.** Essa exigência é a mesma que torna o modo aproximado perigoso no caso do código — a diferença é que numa tabela de faixas ordenar é natural, e numa lista de códigos digitados conforme as pessoas entraram, não é.\n\nO resumo honesto: **o problema nunca foi o modo aproximado existir, foi ele ser o padrão** quando a maior parte das buscas do dia a dia é por código exato.\n\nA demonstração completa, com os três limites e a regra de decisão, está no vídeo longo do canal.\n\n## COMENTARIO FIXADO\nOlhe a sua tabela: ela lista **todos** os valores, ou só o **início** de cada faixa? A resposta decide a fórmula.\n\n## HASHTAGS\n#excel #planilha #produtividade #labtreinamento #shorts\n\n## TAGS\nexcel, planilha, procv, procx, busca aproximada, busca exata, faixas, alíquota, frete, produtividade, lab treinamento, tabela\n\n## AVISO\n**ORIGEM: a regra de RECÊNCIA, pela regra (h) — a origem não tem spec local.** O\nlongo mais novo do canal segue sendo `FtCtIJPsc_Q` (531 s), e o\n`segundo_angulo.py` **nomeou as cinco peças anteriores desta origem** — foi o\nconserto feito na rodada das 19:2x, depois de eu ter repetido família por ele\ncalar nesse exato ramo. Lidas as cinco copies antes de escolher.\n\n**FAMÍLIA DE ENTRADA ERRADA, nova neste canal, e ela é o AVESSO das anteriores:**\ndepois de aprender que o modo aproximado entrega erro silencioso, aplicar exata\nem TUDO — e levar erro num caso de **faixa**, onde a aproximada é a correta. As\ncinco anteriores foram: quarto argumento ausente (`s058`), posição como endereço\n(`s059`), a versão é de quem abre (`s061`), o erro que não aparece (`s062`) e a\nbusca que só olha para um lado (`s063`).\n\n**E a regra (g):** nenhum número do mundo entra — alíquota, frete e desconto\naparecem só como EXEMPLOS de tabela de faixa, sem valor nenhum. O short carrega a\npergunta que decide, que não envelhece.\n\n## CONFIGURACOES DO STUDIO\nShort 9:16, `privacyStatus=public`, trilha `Inspired`, voz\n`pt-BR-ThalitaMultilingualNeural`.\n\n**EXPOSIÇÃO DA DURAÇÃO, declarada ANTES de publicar:** previsão edge **25,9 s** e\npiper **21,3 s**, os dois **dentro** da mira medida do canal (20,0 a 26,0). Com a\nbanda observada, que foi a **(0,0; 4,0)** na rodada das 21:2x, **se o edge narrar\no REAL deve cair entre 25,9 e 29,9 s, logo PODE passar do teto da mira** — é a\npinça do 740/748, e dez das treze peças deste canal narradas pelo edge saíram\nfora com a mira verde. Se o piper narrar, 21,3 a 25,3 cabe. Nenhum parâmetro\nmudou (§10).\n"
+}
