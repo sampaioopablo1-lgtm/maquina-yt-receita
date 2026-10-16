@@ -255,3 +255,63 @@ def main(argv: list[str]) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main(sys.argv[1:]))
+
+
+# ---------------------------------------------------------------------------
+# A FONTE DO `ultima=` QUANDO O BANCO ESTA FORA — medido em 16/10 as 14:2x
+# ---------------------------------------------------------------------------
+#
+# O `mais_baixo` aceita `ultima=` (o `max(publicado_em)` por canal) e sem ele
+# RECUSA desempatar, de proposito. Mas enquanto o `execute_sql` esta negado —
+# setima rodada seguida hoje — esse argumento **nao tinha fonte nenhuma**, e o
+# resultado pratico foi que eu desempatei A MAO.
+#
+# E O QUE EU USEI NAO FOI O CRITERIO DESTE MODULO. Com o dia em 5/5/5 eu
+# escolhi o canal pela tabela do 713 (par com melhor inscrito/peca), que vive em
+# `POR_PECA_713` e em prosa no `CLAUDE.md`. O modulo tem essa tabela e
+# **deliberadamente nao a usa para desempate** — ele usa a peca mais ANTIGA,
+# que e medida e nao depende de uma amostra de 161 pecas para 19 inscritos.
+#
+# OS DOIS CRITERIOS CONCORDARAM nesta rodada (os dois devolvem
+# `epomeno-epipedo`), e isso NAO e evidencia de que algum dos dois esteja certo:
+# e uma coincidencia de uma rodada. O que fica errado e eu nao ter dito QUAL
+# critério estava usando — escolher entre dois criterios sem declarar qual e o
+# efeito (C) da rotina, comparador escolhido sem medir.
+#
+# A fonte que existe sem banco e o PENDENTE: cada linha parqueada em
+# `docs/pendente/videos-a-inserir.sql` tem canal e `publicado_em`, porque o
+# `registro_videos` os escreve. Logo o `ultima=` deixa de ser argumento sem
+# origem.
+
+PENDENTE = "docs/pendente/videos-a-inserir.sql"
+
+
+def ultima_do_pendente(caminho: str = None) -> dict[str, str]:
+    """`max(publicado_em)` por canal, lido das linhas PARQUEADAS.
+
+    E um PISO, nao a verdade: ele so conhece as publicacoes que passaram pelo
+    `registro_videos` desde que o parqueamento comecou. Peca publicada antes
+    disso nao aparece, e por isso um canal AUSENTE do resultado nao vale como
+    "nunca publicou" — vale como "nao sei", e o `mais_baixo` ja trata ausencia
+    recusando o desempate em vez de inventar.
+    """
+    import os
+    import re
+
+    if caminho is None:
+        caminho = os.path.join(
+            os.path.dirname(os.path.dirname(os.path.abspath(__file__))), PENDENTE)
+    fora: dict[str, str] = {}
+    if not os.path.exists(caminho):
+        return fora
+    with open(caminho, encoding="utf-8") as fh:
+        for linha in fh:
+            canal = next((c for c in FROTA if f"'{c}'" in linha), None)
+            if not canal:
+                continue
+            datas = re.findall(r"'(20\d\d-\d\d-\d\dT[\d:]+Z)'", linha)
+            if not datas:
+                continue
+            if canal not in fora or datas[-1] > fora[canal]:
+                fora[canal] = datas[-1]
+    return fora
