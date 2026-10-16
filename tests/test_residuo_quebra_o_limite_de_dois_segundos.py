@@ -199,6 +199,11 @@ SERIE = [
     # previsao 25,9 e real 28 — residuo +2,1, DENTRO da banda e ESTABELECIDO, e
     # FORA do teto da mira do canal (26,0) com o mira.py VERDE nos dois mundos.
     ("labtreinamento-s064", 25.9, 28, "edge"),
+    # 23:13 de 16/10: o SEGUNDO residuo ZERO, e com a MESMA previsao do
+    # primeiro — provedor edge MEDIDO (zero avisos no job 117238298428), 41,0 e
+    # real 41, igual ao `kolejny-poziom-s045` duas horas antes. Sinal NAO
+    # estabelecido nos dois. O piso da banda ja estava em 0,0 e nao se move.
+    ("epomeno-epipedo-s047", 41.0, 41, "edge"),
 ]
 
 

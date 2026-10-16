@@ -782,3 +782,38 @@ estimado — passa de "acontece em dez de treze" para **"acontece em 20 de 23"**
 
 **E a décima quinta negativa do `execute_sql`:** as **37** linhas de `insert into
 videos` seguem fora do banco. Porta 1 em 68 / 21 / 8, os três indeterminados.
+
+## 16/10 23:1x — previsão IDÊNTICA, real diferente em 10 dos 14 grupos
+
+`epomeno-epipedo-s047` = `o88cB0-ml8A`, **41 s reais** contra previsão edge de
+**41,0** — o **segundo resíduo zero**, e com a mesma previsão do primeiro (o
+`kolejny-poziom-s045`, duas horas antes). Som LUFS −14,1, desvio −0,1, zero
+silêncios. O dia fechou **8/8/8** por canal.
+
+**E esse par repetido abriu a medição que faltava.** A reprodutibilidade da
+previsão já foi afirmada e negada três vezes aqui, sempre com o mesmo defeito:
+comparar peças de previsão **próxima**, onde o passo de 1 s do real explica
+qualquer coisa. Agrupei por previsão **idêntica**, que remove esse confundidor:
+
+| | |
+|---|---|
+| grupos de previsão idêntica | **14** |
+| reproduzem o mesmo real | **4** |
+| **divergem** | **10** |
+| maior divergência | **2 inteiros** (25,0 → 27 e 29) |
+
+E o grupo de 41,6 tem **oito** peças, devolvendo 42 e 43.
+
+**Logo a mesma previsão não determina o real** — e isso é mais forte que tudo o
+que eu disse antes sobre isso, porque não depende de janela. **Retrata uma
+afirmação minha:** eu havia escrito que "a mesma previsão devolveu o mesmo real
+duas vezes"; aquele par é um dos quatro que reproduzem, e eu generalizei de **um**
+grupo. O que sobrevive é a aritmética da pinça, que não depende disso.
+
+**O que isso não diz:** que a previsão seja inútil. Ela acerta o inteiro ou erra
+por um na maioria dos grupos. O que cai é a palavra **determina** — e a
+consequência prática é que a faixa que eu anuncio antes de publicar é o melhor
+que existe, e não vai ficar mais estreita por medir mais.
+
+**E a décima sexta negativa:** as **38** linhas de `insert into videos` seguem
+fora do banco. Porta 1 em 68 / 21 / 8, os três indeterminados em 19,6 h.

@@ -119,7 +119,7 @@ RESIDUO_OBSERVADO = (0.0, 4.0)
 # DENTRO da banda, e o sinal NAO esta ESTABELECIDO (42 - 41,6 <= 1,0, e o
 # arredondamento e para cima) — 36 de 42 estabelecidos. Os LIMITES nao
 # mudaram: 0,4 nao e menor que o piso de 0,1.
-RESIDUO_N = 56  # 741 acrescentou o s035 (24,8 -> 27, +2,2): DENTRO da banda,
+RESIDUO_N = 57  # 741 acrescentou o s035 (24,8 -> 27, +2,2): DENTRO da banda,
 #                 logo os LIMITES nao mudaram — so o numero de pontos que a sustenta.
 #                 14/10 06:2x: o s041 (edge 24,6 -> real 27) deu +2,4 — EMPATADO
 #                 com o teto da banda, o decimo segundo ponto e o segundo a tocar
@@ -283,3 +283,51 @@ def relato_do_tally(serie, provedor: str = "edge") -> str:
     linhas.append("  e o que isto NAO diz: se a mira estava VERDE quando a peca "
                   "foi escrita — isso vive na copy de cada uma.")
     return "\n".join(linhas)
+
+
+def grupos_de_previsao_IDENTICA(serie, provedor: str = "edge") -> dict:
+    """{previsao: [(pacote, real)]} para previsoes que aparecem mais de uma vez.
+
+    Isto responde a pergunta da REPRODUTIBILIDADE sem o confundidor que estragou
+    todas as leituras anteriores dela. O 732 disse que "a previsao nao prediz"
+    comparando pecas de previsao PROXIMA; o 733 mostrou que previsoes dentro de
+    1 s nao se distinguem pelo passo do real; o 748 disse que "a mesma previsao
+    devolveu o mesmo real duas vezes" — e eram DOIS pontos, um grupo so.
+
+    Com previsao **identica** a largura da janela sai da conta: se o real
+    divergir, nao foi arredondamento de previsoes diferentes.
+    """
+    import collections
+
+    g = collections.defaultdict(list)
+    for pacote, prev, real, prov in serie:
+        if prov == provedor:
+            g[prev].append((pacote, real))
+    return {k: sorted(v) for k, v in g.items() if len(v) > 1}
+
+
+def reprodutibilidade(serie, provedor: str = "edge") -> dict:
+    """Quantos grupos de previsao identica devolvem o MESMO real, e quantos nao.
+
+    Medido em 16/10 as 23:2x, 57 pontos: **4 reproduzem e 10 DIVERGEM**, e a
+    divergencia chega a 2 inteiros (`labtreinamento-s052` deu 29 contra 27 do
+    `s048`, os dois com previsao 25,0). O grupo de 41,6 tem OITO pecas e devolve
+    42 e 43.
+
+    **Logo a mesma previsao NAO determina o real**, e isso e mais forte do que
+    qualquer leitura anterior porque nao depende de janela. E RETRATA o 748 na
+    parte em que ele dizia o contrario: aquele par era um dos quatro que
+    reproduzem, e eu generalizei de UM grupo.
+
+    O que isto NAO diz: que a previsao nao sirva. Ela acerta o inteiro ou erra
+    por um na maioria dos grupos — o que cai e a palavra "determina".
+    """
+    g = grupos_de_previsao_IDENTICA(serie, provedor)
+    iguais = {k: v for k, v in g.items() if len({r for _, r in v}) == 1}
+    difere = {k: v for k, v in g.items() if len({r for _, r in v}) > 1}
+    pior = 0
+    for v in difere.values():
+        reais = [r for _, r in v]
+        pior = max(pior, max(reais) - min(reais))
+    return {"grupos": len(g), "reproduzem": len(iguais), "divergem": len(difere),
+            "maior_divergencia": pior, "detalhe_divergente": difere}
