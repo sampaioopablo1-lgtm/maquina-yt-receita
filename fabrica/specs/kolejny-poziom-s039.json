@@ -1,0 +1,96 @@
+{
+ "slug": "kolejny-poziom",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "pacote": "kolejny-poziom-s039",
+ "longo_existente": "Xgt32iH8Ft8",
+ "thumb": {
+  "l1": "Pewne bije",
+  "l2": "możliwe"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Porównałeś",
+   "sub": "dwa oprocentowania",
+   "nar": "Porównałeś dwa oprocentowania i wybrałeś większe.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Tylko jedno",
+   "preco": "jest pewne",
+   "nar": "Tylko jedno z nich jest naprawdę pewne.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Nadpłata długu",
+   "preco": "zysk pewny",
+   "nar": "Nadpłata długu daje zysk pewny, równy jego odsetkom.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Inwestycja",
+   "sub": "zysk możliwy",
+   "nar": "A inwestycja daje zysk możliwy, a nie pewny.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "To nie ta sama waga",
+   "itens": [
+    "Pewne",
+    "Możliwe",
+    "Inna waga"
+   ],
+   "nar": "To nie są dwie liczby tej samej wagi.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Mniej, ale pewne",
+   "preco": "bije więcej",
+   "nar": "Mniej, ale pewne, bije więcej, ale tylko możliwe.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Za różnicę",
+   "preco": "płacisz spokojem",
+   "nar": "Za tę różnicę płacisz własnym spokojem, nie złotówkami.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Więc najpierw",
+   "sub": "gasisz pożar",
+   "nar": "Dlatego najpierw gasisz swój najdroższy dług.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "A dopiero potem",
+   "preco": "budujesz",
+   "nar": "A dopiero potem zaczynasz cokolwiek budować.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Kolejny Poziom",
+   "sub": "subskrybuj",
+   "nar": "Subskrybuj i policz oba warianty na kartce.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# kolejny-poziom-s039\n\n## TITULO\nNadpłata Daje Zysk PEWNY, Inwestycja Daje Zysk MOŻLIWY — I To Nie Są Liczby Tej Samej Wagi\n\n## TITULO SHORT\nPewne bije możliwe\n\n## DESCRICAO\nMasz wolne pieniądze i dwie liczby przed sobą: oprocentowanie swojego kredytu i oczekiwaną stopę zwrotu z inwestycji. Patrzysz, która jest większa, i wybierasz ją. **I właśnie tutaj popełniasz błąd, którego nie widać w żadnym kalkulatorze.**\n\nBo te dwie liczby **nie mają tej samej wagi**:\n\n- **nadpłata długu** daje zysk **pewny** — dokładnie równy oprocentowaniu, które przestajesz płacić. Nie prognoza, nie oczekiwanie: pewność;\n- **inwestycja** daje zysk **możliwy** — rozkład wyników, którego średnia nie jest obietnicą.\n\nPorównywanie ich wprost to porównywanie **gwarancji** z **nadzieją** jak dwóch liczb na tej samej skali. Mniejszy, ale pewny zysk potrafi bić większy, ale niepewny — i to nie jest ostrożność, to arytmetyka: za tę różnicę płacisz **ryzykiem**, czyli czymś, co nie wchodzi do porównania, ale wchodzi do twojego życia.\n\nDlatego kolejność nie jest przypadkowa, i nie jest kwestią temperamentu:\n\n- **najpierw** gasisz najdroższy dług — ten, który kosztuje najwięcej procent rocznie;\n- **dopiero potem** budujesz, bo wtedy każda złotówka pracuje, a nie łata.\n\nI jest jeszcze jedna rzecz, której kalkulator nie policzy: **spokojna głowa to też stopa zwrotu**. Kto nie śpi przez swoje osiem procent, dostaje mniej, niż pokazuje tabela.\n\nŻadne oprocentowanie, żadna stopa i żadna kwota nie wchodzi do tego krótkiego filmu — **zasada (g)**: zmieniają się z decyzji na decyzję, a krótki film trzyma **zasadę**. Liczby są w pełnym filmie, razem ze źródłami.\n\nW pełnym filmie: cztery filary, ile naprawdę zostaje z brutto, poduszka bezpieczeństwa, kolejność spłaty długów, obligacje przeciw inflacji i trzy ruchy na ten tydzień.\n\n## COMENTARIO FIXADO\nProsty test przed każdą taką decyzją: zapytaj o **każdą** z dwóch liczb, czy jest **obietnicą** czy **prognozą**. Jeśli jedna jest obietnicą, a druga prognozą, nie wolno ich odejmować — najpierw trzeba wycenić niepewność, a to zwykle oznacza, że pewne wygrywa.\n\n## FAMILIA DE ENTRADA ERRADA\nComparar um retorno CERTO com um retorno POSSIVEL como se fossem numeros da mesma natureza: a nadplata devolve exatamente o juro que se deixa de pagar (garantia), e o investimento devolve uma distribuicao cuja media nao e promessa. O erro nao esta em nenhuma das duas taxas — esta em subtrai-las sem precificar a incerteza, que e a terceira grandeza que nao aparece na conta.\nFamilia nova neste canal. Distincoes: nao e o `s038` (confundir PREVISAO com COMPARACAO, onde o problema e o que se PEDE do numero); nao e o `s031` (preco de janela lido como patamar, que e DURACAO); nao e o `s035` (ponto extremo contra ponto tipico, que e ESCOLHA DE AMOSTRA). Aqui as duas taxas sao corretas, atuais e aplicaveis — e ainda assim nao sao comparaveis.\n\n## AVISO SOBRE OS NUMEROS\nNenhum oprocentowanie, stopa ou kwota entra: mudam de decisao em decisao (regra g). A fonte cita GUS, NBP e Ministerstwo Finansow com valores do trimestre, e NENHUM deles entra nesta peca.\n\n## MIRA\nPrevisao no PISO do `ALVO_SHORT` da frota, que e o que a voz pl-PL pede (679) e o que o 772 pede contra o teto de 45. Exposicao declarada: se o edge narrar, o real cai acima da previsao pela banda observada de 0,1 a 4,0 s.\n\n## HASHTAGS\n#finanse #kredyt #nadplata #oszczedzanie #KolejnyPoziom\n\n## TAGS\nnadplata kredytu, zysk pewny, stopa zwrotu, inwestowanie, kolejnosc splaty dlugow, finanse osobiste, poduszka bezpieczenstwa, obligacje skarbowe, ryzyko inwestycyjne, budzet domowy, oprocentowanie kredytu, Kolejny Poziom\n"
+}
