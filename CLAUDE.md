@@ -131,6 +131,52 @@ faltou e por quê.** O teto automático de 1/dia/canal segue sendo pendência 4.
 `identidade` em 16/10 por colar `Inspired` no kolejny. `P` é por FRASE: **uma
 frase curta por cena**, e `cenas ≈ total / 3` para manter a cadência.
 
+## O LONGO DA REFERÊNCIA, MEDIDO QUADRO POR QUADRO — e a distância NÃO é efeito
+
+**Pedido do dono, 16/10:** *"Preciso que entenda o vídeo publicado de 8 min do
+canal labtreinamento frame por frame."*
+
+**A rota do vídeo deu 403 e reabriu uma hora depois, no MESMO sandbox** — é a
+tabela de rotas outra vez: estado, não propriedade. Eu havia relatado "efeitos
+não medidos" em vez de inventar análise; uma rodada depois o formato 134 baixou.
+
+Medido no `FtCtIJPsc_Q` (530,03 s) com o método do 690/699 — escala absoluta:
+
+| | mediana | congelados |
+|---|---|---|
+| **a REFERÊNCIA** | **0,072** | **96%** |
+| `labtreinamento-s011` (o defeito do 690) | 0,39 | 91% |
+| `kolejny-poziom-s017` (depois do 699) | 0,63 | 73% |
+
+**Ela é 5 a 9 vezes MAIS estática que nós.** Zero b-roll, zero rosto, SATAVG 3,4
+a 5,6 (monocromática), nenhum quadro claro em 530. **O mundo visual dela é o
+nosso** — logo a identidade por canal (601) não muda.
+
+**Então "replicar os efeitos" é pedido sem objeto.** A distância são três coisas,
+e as três são de LONGO:
+
+1. **trilho de capítulos PERMANENTE no topo** (`1 A armadilha | 2 Os três limites
+   | 3 O que o PROCX muda | 4 Quando usar cada um`), com o corrente destacado —
+   e é por isso que **ZERO transições passam de scene 0,15**: o trilho e a marca
+   d\'água nunca saem, só o painel troca;
+2. **18,9 s por plano** (28 transições) contra os **3,1 s** nossos;
+3. **cinco layouts que o `layout.py` não tem**: fórmula anotada argumento por
+   argumento, duas colunas com ✗/✓, cartão de erro (`#REF!`), divisor de parte e
+   cartão de número grande.
+
+**NADA de parâmetro mudou (§10).** 18,9 s por plano não existe em short, e trilho
+num 9:16 de 40 s não tem onde morar — isto especifica o LONGO, que é a metade não
+começada do pedido de 16/10. Construir os layouts é decisão do dono.
+
+**No código:** `fabrica/video_referencia.py` (`cadencia_s`, `mais_estatica_que`,
+`relato`) e oito testes, um deles **falha se uma peça nossa ficar mais estática
+que a referência**, para que a conclusão seja relida em vez de reaproveitada.
+
+**E o método do OCR vale guardar:** `tesseract --psm 6` devolveu **zero texto nos
+18 quadros** e eu quase relatei "o vídeo não tem texto na tela". Painel escuro com
+texto claro precisa de `format=gray,negate` antes, e com `--psm 11` saiu a
+estrutura inteira. **Instrumento que devolve vazio não prova ausência.**
+
 ## A PERGUNTA QUE ABRE TODA RODADA — pedido do dono, 12/10/2026
 
 Palavras dele: *"informe quadro dos resultados atuais projeção e tendência, de

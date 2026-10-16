@@ -503,3 +503,50 @@ PNG, e hospedar depende do Storage, que esta em 402.
    narram em grego e polones, onde gerador erra diacritico. O nosso texto sai do
    `cairosvg` e e o que os portoes `ortografia` e `variedade` conferem. Desenho
    embaixo, texto nosso em cima.
+
+## 16/10 — O LONGO DE 8 MIN, QUADRO POR QUADRO: a distância NÃO é efeito
+
+Você pediu: *"Preciso que entenda o vídeo publicado de 8 min do canal
+labtreinamento frame por frame."* Está medido, e o resultado é o oposto do que eu
+esperava.
+
+**A rota voltou.** Uma hora antes eu lhe disse que os efeitos não estavam
+medidos, porque o download do vídeo dava 403 em quatro clientes. No mesmo
+sandbox, uma hora depois, a lista de formatos abriu inteira e o arquivo baixou em
+menos de um segundo. É a mesma lição da tabela de rotas: **rota é estado.**
+
+**Medido com o método do 690/699** (escala absoluta de 0 a 255):
+
+| | mediana de movimento | quadros congelados |
+|---|---|---|
+| **a referência (este longo de 8 min)** | **0,072** | **96%** |
+| nossa peça pior (`labtreinamento-s011`) | 0,39 | 91% |
+| nossa peça consertada (`kolejny-poziom-s017`) | 0,63 | 73% |
+
+**A referência é 5 a 9 vezes MAIS estática que as nossas peças.** Ela não tem
+b-roll, não tem foto, não tem rosto, é monocromática (saturação 3,4 a 5,6) e
+escura (nenhum quadro claro em 530). O mundo visual dela é exatamente o nosso.
+
+**Então "replicar os efeitos" não é o caminho — nós já temos mais efeito que
+ela.** A distância que você viu é outra, e são três coisas:
+
+1. **Um trilho de capítulos permanente no topo** — `1 A armadilha | 2 Os três
+   limites | 3 O que o PROCX muda | 4 Quando usar cada um`, com o capítulo atual
+   destacado. É por isso que **nenhuma transição é dura**: o trilho e a marca
+   d'água nunca saem da tela, só o painel central troca. O espectador sempre sabe
+   onde está. Nós não temos isso.
+2. **18,9 s por plano** (28 transições em 530 s). A nossa cadência é **3,1 s**.
+   Seis vezes mais tempo por tela é o que dá espaço para mostrar uma fórmula e
+   anotar cada argumento dela — o que em 3 s não cabe.
+3. **Cinco layouts que o nosso `layout.py` não tem**: fórmula anotada argumento
+   por argumento, comparação de duas colunas com ✗/✓, cartão de erro (`#REF!`,
+   `#N/D`), divisor de parte (`PARTE 2`) e cartão de número grande (`2019`).
+
+**E as três são de LONGO, não de short.** 18,9 s por plano não existe num short
+de 40 s, e trilho de capítulo num 9:16 não tem onde morar. Isso cai exatamente na
+**metade do seu pedido de 16/10 que ainda não começou** — *"1 vídeo longo e outro
+curto"* por canal. Não mexi em nenhum parâmetro de short.
+
+**A decisão que é sua:** se eu construo esses cinco layouts e o trilho de
+capítulo para o LONGO. É trabalho de render, não de pauta, e não consome crédito
+de imagem nenhum — é texto em painel, igual ao que já fazemos.
