@@ -20,63 +20,37 @@ sys.path.insert(0, str(RAIZ / "fabrica"))
 import mira  # noqa: E402
 
 # (previsao do provedor que narrou, real) — os cinco pontos do 739
-RESIDUOS = [(43.1, 44), (42.9, 44), (42.1, 44), (25.7, 27), (25.6, 28),
-            # 741: primeiro ponto OUT-OF-SAMPLE da banda, e ele caiu dentro.
-            (24.8, 27),
-            # 742: segundo ponto out-of-sample, tambem dentro.
-            (25.3, 27),
-            # 744: terceiro ponto out-of-sample.
-            (25.8, 28),
-            # 746: nono ponto.
-            (24.4, 26),
-            # 747: decimo ponto, residuo +2,3.
-            (24.7, 27),
-    (24.6, 27),   # s041, 14/10: +2,4, EMPATA o teto da banda
-    (23.3, 27),   # s043, 14/10: +3,7 — QUEBROU o teto (752)
-    (24.9, 27),   # s044, 14/10: +2,1, dentro da banda ampliada
-    (24.5, 27),   # s045, 14/10: +2,5
-    (24.6, 26),   # s046, 14/10: +1,4
-    (23.4, 25),   # s042, 14/10: +1,6, e o real DENTRO da mira
-    (25.4, 27),   # s047, 14/10: +1,6, mira VERDE e o real FORA (756)
-    (25.0, 27),   # s048, 14/10: +2,0, mira VERDE e o real FORA (758)
-    (25.1, 27),   # s049, 14/10: +1,9, mira VERDE e o real FORA (759)
-    (24.9, 27),   # s050, 14/10: +2,1, mira VERDE e o real FORA (760)
-    (41.5, 42),   # kolejny-poziom-s027, 14/10: +0,5 — o PISO da banda caiu (769).
-    (41.9, 42),   # epomeno-epipedo-s029, 14/10: +0,1 — o piso caiu OUTRA vez, e
-                  # este ponto tem o SINAL nao estabelecido: real 42 significa
-                  # (41; 42] e a previsao cai dentro (770).
-    (41.6, 43),   # kolejny-poziom-s028, 14/10 23:1x: +1,4, dentro da banda
-    (41.6, 42),   # epomeno-epipedo-s030, 15/10 00:2x: +0,4, dentro da banda
-    (41.7, 43),   # kolejny-poziom-s029, 15/10 01:2x: +1,3, dentro da banda
-    (41.6, 43),   # epomeno-epipedo-s031, 15/10 02:2x: +1,4, dentro da banda
-    (41.5, 43),   # epomeno-epipedo-s028, 14/10: +1,5 — quinto ponto da janela
-                  # de 0,4 s em que a previsao NAO ordena o real (768).
-    (41.6, 43),
-    (41.6, 43),   # kolejny-poziom-s030, 15/10 03:1x: +1,4, dentro da banda
-    (41.8, 44),   # kolejny-poziom-s031, 15/10 05:1x: +2,2, mira no PISO
-    (41.6, 42),   # epomeno-epipedo-s033, 15/10 06:1x: +0,4, sinal NAO estabelecido
-    (41.8, 44),   # kolejny-poziom-s032, 15/10 07:1x: +2,2, mira no PISO
-    (25.3, 27),   # labtreinamento-s051, 15/10 08:1x: +1,7, FORA da mira (26,0)
-    (41.7, 44),   # epomeno-epipedo-s034, 15/10 09:2x: +2,3, mirado no PISO, ABAIXO do teto de 45
-    (25.0, 29),   # labtreinamento-s052, 15/10 10:2x: +4,0 — AMPLIOU o teto da banda (774)
-    (41.5, 44),   # kolejny-poziom-s039, 16/10 04:1x: +2,5 — 1o ponto lido pelo SANDBOX
-    (41.6, 42),   # epomeno-epipedo-s041, 16/10 05:2x: +0,4 — sinal NAO estabelecido
-    (41.7, 43),   # kolejny-poziom-s040, 16/10 08:1x: +1,3 — estabelecido
-    (41.5, 43),   # epomeno-epipedo-s042, 16/10 08:1x: +1,5 — estabelecido
-    (25.7, 28),   # labtreinamento-s059, 16/10 09:1x: +2,3 — fora do teto da mira
-    (41.6, 42),   # kolejny-poziom-s041, 16/10 10:1x: +0,4 — sinal NAO estabelecido
-    (41.9, 43),   # epomeno-epipedo-s043, 16/10 11:2x: +1,1 — estabelecido por pouco
-    (42.5, 46),   # epomeno-epipedo-s032, 15/10 04:1x: +3,5 — e o REAL passou
-                  # do teto de 45 do portao, com a previsao DENTRO (772)   # kolejny-poziom-s026, 14/10: +1,4 — previsao MAIOR que a do
-                  # s025 (41,2) e real MENOR (43 contra 44). Ver 767.
-    (41.3, 43),   # epomeno-epipedo-s027, 14/10: +1,7 — mesmo par que o s026
-                  # (41,4 -> 43): a previsao REPRODUZ nesta faixa (766).
-    (41.2, 44),   # kolejny-poziom-s025, 14/10: +2,8 — o maior residuo da serie
-                  # FORA do labtreinamento (764).
-    (41.4, 43),   # epomeno-epipedo-s026, 14/10: +1,6 — OUTRO canal e OUTRA voz,
-                  # e a serie sempre foi multicanal (763)
-            # 748: decimo primeiro ponto, previsao repetida.
-            (24.7, 27)]
+# A SERIE TEM UM DONO SO, E ELE NAO E ESTE ARQUIVO — conserto de 16/10 as 15:4x.
+#
+# ATE AGORA ela vivia em DUAS listas: a `SERIE` do
+# `test_residuo_quebra_o_limite_de_dois_segundos` e uma copia `RESIDUOS` aqui.
+# Eu alimentei a primeira em tres rodadas seguidas (s042, s044, s043) e **nao a
+# segunda**, e o `assert mira.RESIDUO_N == len(RESIDUOS)` passou a reprovar com
+# 50 contra 47 — a 26a falha da suite contra a linha de base de 25.
+#
+# E EU SO VI TRES RODADAS DEPOIS, porque entre elas rodei apenas os testes
+# DIRECIONADOS a banda, e os direcionados nao incluiam este arquivo. Quebrou no
+# commit `32321b7` (o `s042`, 12:3x) e a suite inteira anterior era das 12:0x.
+#
+# E a assinatura e a MESMA que matou o run `38847013520` descrito no `CLAUDE.md`:
+# "mesma regra, dois donos, um atualizado". Ali era o teto do short no portao e
+# no render; aqui e a serie do residuo em dois testes.
+#
+# Agora este arquivo DERIVA da `SERIE`, e nao ha o que esquecer de atualizar.
+from test_residuo_quebra_o_limite_de_dois_segundos import SERIE as _SERIE
+
+RESIDUOS = [(prev, real) for _pacote, prev, real, _prov in _SERIE]
+
+
+def test_a_serie_tem_UM_dono_e_este_arquivo_nao_e_ele():
+    """Contraprova do conserto: se a copia voltar, este teste reprova."""
+    fonte = open(__file__, encoding="utf-8").read()
+    corpo = fonte.split('"""', 2)[-1]
+    assert "from test_residuo_quebra" in corpo, (
+        "a RESIDUOS deste arquivo tem de DERIVAR da SERIE; lista propria aqui "
+        "reconstroi o defeito de 16/10 as 15:4x (dois donos, um atualizado)"
+    )
+    assert len(RESIDUOS) == len(_SERIE)
 
 
 def test_a_banda_cobre_os_residuos_medidos():
