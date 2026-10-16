@@ -1,0 +1,83 @@
+{
+  "slug": "kolejny-poziom",
+  "idioma": "pl",
+  "voz": "pl-PL-MarekNeural",
+  "trilha": "Wholesome",
+  "paleta": {
+    "ink": "#1B3A5C",
+    "c1": "#2A9D8F",
+    "c2": "#F5B841",
+    "bg": "#F4F1EA"
+  },
+  "pacote": "kolejny-poziom-s043",
+  "longo_existente": "GUiq15usizw",
+  "thumb": {
+    "l1": "Wypada z",
+    "l2": "porównania"
+  },
+  "copy": "# kolejny-poziom-s043\n\n## TITULO\nLiczba Obecna po Obu Stronach Wypada z Porównania — Dlaczego Dłuższy Rachunek Nie Jest Dokładniejszy\n\n## TITULO SHORT\nWypada z porównania\n\n## DESCRICAO\nPorównujesz najem z kredytem i chcesz zrobić to uczciwie, więc dopisujesz wszystko: media, czynsz administracyjny, każdą pozycję jaką pamiętasz. **Rachunek staje się dłuższy — i wynik nie zmienia się ani trochę.**\n\nMechanizm jest arytmetyczny, nie opiniowy. Media i czynsz administracyjny płacisz **tak samo** w najmie i we własności. Dodane do obu stron, podnoszą obie o tę samą kwotę i **skracają się** przy odejmowaniu. Nie znikają z twojego budżetu — znikają z *porównania*, bo porównanie mierzy różnicę, a nie sumę.\n\nI tu jest pułapka, która nie wygląda jak błąd: **dłuższy rachunek czyta się jak dokładniejszy.** Dziesięć pozycji wygląda poważniej niż cztery, więc człowiek czuje, że pracuje rzetelniej — kiedy w rzeczywistości tylko dodał pracy i okazji do pomyłki. Dokładność rachunku to nie jego długość; to czy liczby, które w nim są, naprawdę coś rozstrzygają.\n\nPo usunięciu tego, co się skraca, zostaje **pięć liczb**, a u wielu osób **cztery**:\n\n- odsetki pierwszego miesiąca z harmonogramu;\n- czynsz najmu, ten płacony właścicielowi;\n- podatek od nieruchomości;\n- ubezpieczenie;\n- fundusz remontowy — jeśli go masz, i dlatego u części osób liczb jest cztery.\n\nPraktyczna kolejność jest więc odwrotna do intuicyjnej: najpierw **usuń** to, co stoi po obu stronach, a dopiero potem licz. Zacznij od wykreślenia każdej pozycji, którą płacisz niezależnie od tego, czy wynajmujesz czy masz swoje — i dopiero na tym, co zostało, rób odejmowanie. Skrócisz rachunek i jednocześnie zmniejszysz liczbę miejsc, w których można się pomylić.\n\nTo samo rozumowanie działa jako test dla każdej pozycji, o którą się wahasz: zapytaj, czy ona wystąpi również po drugiej stronie. Jeśli tak, nie ma po co jej wpisywać.\n\nCała operacja, krok po kroku, jest w materiale źródłowym: https://www.youtube.com/watch?v=GUiq15usizw\n\n## COMENTARIO FIXADO\nIle pozycji miał twój rachunek, zanim usunąłeś to, co się skraca? Tylko liczba pozycji — bez kwot.\n\n## HASHTAGS\n#kredythipoteczny #najem #finanseosobiste\n\n## TAGS\nnajem czy kredyt, kredyt hipoteczny, porównanie kosztów, media, czynsz administracyjny, harmonogram spłat, odsetki, finanse osobiste, Kolejny Poziom\n\n## AVISO\n**ORIGEM: a regra de RECÊNCIA, quarta rodada seguida em que ela governa.** Ordem VIVA pelo `yt-dlp --flat-playlist`: o longo mais novo do `kolejny-poziom` é `GUiq15usizw`, **rank 39 entre todos os uploads**, pacote `kolejny-poziom-019`, 56 capítulos, spec local no disco. Já com TRÊS usos, e isso não é motivo para pular o topo — a unidade de pauta é (LONGO × FAMÍLIA).\n\n**ESCOLHA DE CANAL, e DESTA VEZ EU DIGO QUAL CRITÉRIO USEI** — porque na rodada das 14:0x eu não disse, e o conserto daquela rodada existe por isso. O dia veio **6 / 5 / 5**, com `kolejny-poziom` e `labtreinamento` empatados no piso. Usei o **critério do módulo**: a peça mais ANTIGA, lida pelo `concentracao_frota.ultima_do_pendente()` — kolejny 12:24:36 contra labtreinamento 13:16:24. O critério do 713 daria o mesmo canal (`kolejny/shorts` é o melhor par entre os dois empatados), e **a concordância não é evidência**: é só a razão de o teste de divergência não ter reprovado.\n\n**FAMÍLIA DE ENTRADA ERRADA: SOMAR NOS DOIS LADOS O QUE SE CANCELA — nova neste canal.** Conferida contra as três peças que já saíram desta origem: `s003` (qual mês de juros), `s033` (diluir a comissão nos meses) e `s042` (capital não é dinheiro líquido). Nenhuma trata de itens que aparecem nas duas colunas. Capítulo usado: **21**, intocado pelas três, lido do disco com a narração inteira.\n\n**E a peça carrega um segundo andar que a fonte não nomeia e eu declaro como MEU:** *\"rachunek dłuższy czyta się jak dokładniejszy\"*. Isso é leitura minha sobre por que o erro persiste, não afirmação da fonte — e por isso entra como observação de forma, sem número.\n\n**REGRA (g):** nenhum número que muda. As únicas quantidades são **cinco** e **quatro**, que contam os itens do próprio método e vêm do capítulo 23 literalmente. Não são taxa, índice nem valor.\n\n**CONTAGEM DECLARADA (725):** declaro **cinco** (com quatro para parte das pessoas) e a descrição enumera **exatamente cinco**, com o quinto explicando o quatro. Sem N+1.\n\n**MIRA E EXPOSIÇÃO, declaradas ANTES de publicar:**\n- previsão **edge 42,0** / **piper 35,7**, os dois dentro de 18 a 45, e o edge perto do **PISO** do `ALVO_SHORT` (41,5 a 43,0) — que é o que a voz polonesa pede pelo 679 (centro +2,2%) **e** o que a regra de redação do 772 manda;\n- com a banda observada de **+0,1 a +4,0 s** o real deve cair entre **42,1 e 46,0 s** — **o topo PASSA do teto de 45**;\n- o provedor **pode ser MISTO**: hoje saíram peças com 2 e 1 avisos de Piper em dez cenas. Se este run der misto, o ponto **não entra** na banda.\n\n**IDENTIDADE (601):** trilha `Wholesome` e a paleta atual do canal.\n\n**ESQUELETO:** `titulo-item-item-titulo-lista-item-titulo-item-item-cta` — igual ao do `s042`, e isso é deliberado para o portão `variedade` dizer se repetiu; se ele avisar, eu troco a ordem, que é conteúdo e não limiar.\n\n**CTA: experimento 37.**\n\n## CONFIGURACOES DO STUDIO\n- idioma: pl\n- categoria: 26\n- privacidade: public\n",
+  "longo": [],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Chcesz być dokładny",
+      "sub": "najem kontra kredyt",
+      "nar": "Porównujesz najem z kredytem i chcesz być dokładny.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Dopisujesz media",
+      "sub": "do obu stron",
+      "nar": "Dopisujesz media do obu stron rachunku."
+    },
+    {
+      "layout": "item",
+      "kicker": "I czynsz administracyjny",
+      "sub": "dla pewności",
+      "nar": "I czynsz administracyjny też, dla pewności."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Wynik się nie zmienia",
+      "sub": "ani trochę",
+      "nar": "Rachunek rośnie, a wynik się nie zmienia ani trochę."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Płacisz tak samo",
+      "sub": "w obu przypadkach",
+      "nar": "Bo te liczby płacisz tak samo w obu przypadkach."
+    },
+    {
+      "layout": "item",
+      "kicker": "Po obu stronach",
+      "sub": "skraca się",
+      "nar": "Każda liczba obecna po obu stronach po prostu się skraca."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Wypada z porównania",
+      "sub": "nie z budżetu",
+      "nar": "Wypada z porównania, nie z twojego budżetu."
+    },
+    {
+      "layout": "item",
+      "kicker": "Dokładność nie jest długość",
+      "sub": "to nie to samo",
+      "nar": "Dokładność nie jest tym samym co długość rachunku."
+    },
+    {
+      "layout": "item",
+      "kicker": "Pięć liczb",
+      "sub": "u wielu cztery",
+      "nar": "Zostaje pięć liczb, a u wielu osób cztery."
+    },
+    {
+      "layout": "cta",
+      "kicker": "Policz na swojej ofercie",
+      "sub": "i zapisz się",
+      "nar": "Policz je na swojej ofercie i zapisz się."
+    }
+  ]
+}
