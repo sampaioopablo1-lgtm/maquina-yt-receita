@@ -1,0 +1,83 @@
+{
+  "slug": "kolejny-poziom",
+  "idioma": "pl",
+  "voz": "pl-PL-MarekNeural",
+  "trilha": "Wholesome",
+  "paleta": {
+    "ink": "#1B3A5C",
+    "c1": "#2A9D8F",
+    "c2": "#F5B841",
+    "bg": "#F4F1EA"
+  },
+  "pacote": "kolejny-poziom-s042",
+  "longo_existente": "GUiq15usizw",
+  "thumb": {
+    "l1": "Kapitał to",
+    "l2": "nie gotówka"
+  },
+  "copy": "# kolejny-poziom-s042\n\n## TITULO\nKapitał w Racie to Oszczędzanie, Ale Nie Gotówka — Czego Twój Rachunek Nie Wycenia\n\n## TITULO SHORT\nKapitał to nie gotówka\n\n## DESCRICAO\nPorównałeś czynsz najmu z ratą kredytu, oddzieliłeś część kapitałową od odsetek i zapisałeś ją po stronie oszczędzania. **Policzyłeś to poprawnie.** Błąd przychodzi jedno słowo dalej: w tym, co robisz z tą liczbą potem.\n\nKapitał odłożony w mieszkaniu jest oszczędzaniem — ale oszczędzaniem o **niskiej płynności**. Nie wyjmiesz go w miesiąc, kiedy będzie trzeba. Liczba po tej stronie rachunku i liczba na twoim koncie nie są tym samym rodzajem pieniądza, choć w kolumnie wyglądają identycznie.\n\nI są jeszcze dwie rzeczy, których ten rachunek nie wycenia:\n\n- **wkład własny ma swój koszt** — to pieniądz, który mógł pracować gdzie indziej. Nie wliczam go, bo musiałbym zgadnąć stopę, a zgadywanie nie jest rachunkiem;\n- **najem daje możliwość wyprowadzki w miesiąc.** Dla części osób to warte więcej niż cała różnica w kosztach. Rachunek tego nie liczy — ale ty możesz to wycenić sam, swoją kwotą.\n\nTen rachunek porównuje koszt mieszkania **dzisiaj**. Nie mówi, co się opłaca przez trzydzieści lat, i nie udaje, że mówi.\n\nCały rachunek, krok po kroku, jest w materiale źródłowym: https://www.youtube.com/watch?v=GUiq15usizw\n\nDlatego praktyczna zasada jest prosta: **zapisz część kapitałową osobno, a nie w tej samej kolumnie co pieniądze na koncie.** To dwa różne rodzaje pieniądza, i tylko jeden z nich odbierzesz w tym miesiącu, kiedy zepsuje się samochód albo zmieni się praca. Rachunek nie jest przez to zły — jest po prostu rachunkiem kosztu, a nie rachunkiem dostępności.\n\nPolicz to na swoich kwotach: wypisz czynsz najmu i odsetki pierwszego miesiąca z harmonogramu swojej własnej oferty, dodaj podatek, ubezpieczenie i fundusz remontowy — tylko te, które masz zapisane — a potem część kapitałową zapisz w oddzielnej linii. Powtórz po roku, bo wynik się przesuwa.\n\n## COMENTARIO FIXADO\nKtóra strona wyszła taniej u ciebie — najem czy kredyt? Napisz bez kwot, samą stronę.\n\n## HASHTAGS\n#kredythipoteczny #najem #finanseosobiste\n\n## TAGS\nkredyt hipoteczny, najem czy kredyt, część kapitałowa, odsetki, płynność, wkład własny, oszczędzanie, rata kredytu, finanse osobiste, koszt mieszkania, Kolejny Poziom\n\n## AVISO\n**ORIGEM: a regra de RECÊNCIA desta manhã, aplicada pela primeira vez a este canal.** O pedido do dono de 16/10 (*\"Estas produções estão muito distantes do último vídeo produzido e publicado no canal\"*) virou regra: **a pauta serve o longo MAIS NOVO primeiro.** Lida a ordem VIVA de uploads do `kolejny-poziom` pelo `yt-dlp --flat-playlist` (84 itens), o longo mais novo é `GUiq15usizw` (rank 39 entre todos os uploads, 538 s) — e ele **tem** spec local, `kolejny-poziom-019`, com 56 capítulos. Nenhum rank mais novo é longo.\n\n**E a rota da listagem FECHOU na mesma rodada, o que é a tabela de rotas outra vez:** `youtube.com/channel/<id>/videos` devolveu **HTTP 200 com 1,2 MB e ZERO `videoRenderer`**, com marcador `CONSENT` — o retrato exato do modo de falha que o `CLAUDE.md` nomeia. O `yt-dlp --flat-playlist` na playlist `UU…` respondeu. **Conte o CAMPO, não o código.**\n\n**FAMÍLIA DE ENTRADA ERRADA: LIQUIDEZ — nova neste canal.** Conferido contra as duas peças que já saíram desta origem: `kolejny-poziom-s003` (\"Odsetki z którego miesiąca?\" — qual mês de juros) e `-s033` (\"Prowizję rozłóż na miesiące\" — diluir a comissão). Nenhuma das duas trata de liquidez. Capítulos usados aqui: **49, 50 e 51**, intocados pelas duas.\n\n**REGRA (g):** nenhum número que muda entrou — zero taxa, zero alíquota, zero valor. \"Em um mês\" é a formulação da **própria fonte** (`nie wyjmiesz go w miesiąc`, `wyprowadzić się w miesiąc`), e prazo de aviso não é número que envelhece. O \"trinta anos\" aparece só na descrição, e é citação do capítulo 48, não cálculo nosso.\n\n**REGRA (h): não foi preciso.** A spec local existia no disco com a narração inteira — li os capítulos 47 a 55 do `kolejny-poziom-019.json`, não títulos de capítulo. Nenhuma frase saiu de TÍTULO.\n\n**CONTAGEM DECLARADA (725):** eu declaro **duas** coisas que o rachunek não precifica na descrição, e enumero **duas** (wkład własny, najem). Não há N+1 escondido.\n\n**MIRA E EXPOSIÇÃO, declaradas ANTES de publicar (768/770/772/774):**\n- previsão **edge 41,8** / **piper 35,6** — os dois dentro de 18 a 45, e o edge no **PISO** do `ALVO_SHORT` (41,5 a 43,0), que é a regra de redação do 772 para voz que não exige o topo. O `kolejny-poziom` **não** tem `ALVO_POR_CANAL`;\n- com a banda observada de **+0,1 a +4,0 s**, o real deve cair entre **41,9 e 45,8 s** — e **o topo PASSA do teto de 45 do portão.** Isso vai dito em vez de escondido: é exatamente o caso do `epomeno-epipedo-s032`, que saiu com 46;\n- o provedor **não** se escolhe aqui (730/733): ele se decide por cena e por run, e vai MEDIDO pelas anotações do job.\n\n**IDENTIDADE (601):** trilha `Wholesome` e a paleta do `kolejny-poziom-s041`, que é a faixa atual deste canal. Não copiei `Inspired` do labtreinamento — foi assim que eu levei reprovação do portão `identidade` em 16/10.\n\n**ESQUELETO:** `titulo-item-item-titulo-lista-item-titulo-item-item-cta`, diferente do `s041` (`titulo-item-titulo-item-item-lista-item-titulo-item-cta`) de propósito — a forma nova vira molde próprio em um dia se ninguém contar (12/10 às 20:1x).\n\n**CTA: experimento 37** — o kicker pede a inscrição e a descrição guarda o caminho do longo.\n\n## CONFIGURACOES DO STUDIO\n- idioma: pl\n- categoria: 26\n- privacidade: public\n",
+  "longo": [],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Policzyłeś",
+      "sub": "ratę i czynsz",
+      "nar": "Policzyłeś ratę i czynsz, i wyszło uczciwie.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Oddzieliłeś",
+      "sub": "kapitał od odsetek",
+      "nar": "Oddzieliłeś kapitał od odsetek, i to było dobre."
+    },
+    {
+      "layout": "item",
+      "kicker": "Kapitał",
+      "sub": "to oszczędzanie",
+      "nar": "Kapitał to nie koszt, to twoje oszczędzanie."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Jedno słowo dalej",
+      "sub": "tu jest błąd",
+      "nar": "Błąd jest jedno słowo dalej, a nie w rachunku."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Płynność",
+      "sub": "bardzo niska",
+      "nar": "To oszczędzanie ma bardzo niską płynność."
+    },
+    {
+      "layout": "item",
+      "kicker": "W miesiąc",
+      "sub": "nie wyjmiesz",
+      "nar": "Nie wyjmiesz go w miesiąc, kiedy będzie trzeba."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Wkład własny",
+      "sub": "ma swój koszt",
+      "nar": "Wkład własny też ma swój własny koszt."
+    },
+    {
+      "layout": "item",
+      "kicker": "Mógł pracować",
+      "sub": "gdzie indziej",
+      "nar": "To pieniądz, który mógł pracować gdzie indziej."
+    },
+    {
+      "layout": "item",
+      "kicker": "Najem",
+      "sub": "ma swoją wartość",
+      "nar": "A najem daje to, czego ten rachunek nie wycenia."
+    },
+    {
+      "layout": "cta",
+      "kicker": "Wyceń to sam",
+      "sub": "i zapisz się",
+      "nar": "Wyprowadzisz się w miesiąc, więc wyceń to sam i zapisz się."
+    }
+  ]
+}
