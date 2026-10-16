@@ -1,0 +1,96 @@
+{
+ "slug": "epomeno-epipedo",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#16283C",
+  "c1": "#2E7BB4",
+  "c2": "#E0A02E",
+  "bg": "#F3F7FA"
+ },
+ "pacote": "epomeno-epipedo-s039",
+ "longo_existente": "wUHuwyO2HYo",
+ "thumb": {
+  "l1": "Τιμή υποδοχής",
+  "l2": "όχι τιμολογίου"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Έκανες την πράξη",
+   "sub": "με τιμή που λήγει",
+   "nar": "Έκανες τη σύγκριση με τιμή που έχει ημερομηνία.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Η τιμή υποδοχής",
+   "preco": "ισχύει για λίγο",
+   "nar": "Η χαμηλή τιμή των πρώτων μηνών είναι τιμή υποδοχής.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Δεν είναι",
+   "preco": "του τιμολογίου",
+   "nar": "Δεν είναι η τιμή του τιμολογίου, είναι της υποδοχής.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Και οι δύο",
+   "sub": "αληθινές",
+   "nar": "Και οι δύο τιμές είναι αληθινές, σε άλλη περίοδο.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Τι ρωτάς",
+   "itens": [
+    "Πότε λήγει",
+    "Ποια ισχύει μετά",
+    "Γραμμένη"
+   ],
+   "nar": "Ρώτα πότε λήγει, και ποια τιμή ισχύει μετά, γραμμένη.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Η πράξη",
+   "preco": "με τη μετά τιμή",
+   "nar": "Κάνε τη σύγκριση με την τιμή που θα ισχύει μετά.",
+   "sem_cap": true
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Αν δεν λέγεται",
+   "sub": "κι αυτό μετράει",
+   "nar": "Αν η τιμή μετά δεν λέγεται καθαρά, κι αυτό μετράει.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Το σταθερό",
+   "preco": "έχει ημερομηνία",
+   "nar": "Και η σταθερή περίοδος έχει ημερομηνία λήξης, πάντα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Μετά",
+   "preco": "αλλάζει ο κανόνας",
+   "nar": "Μετά από αυτήν αλλάζει ο κανόνας, όχι μόνο το ποσό.",
+   "sem_cap": true
+  },
+  {
+   "layout": "cta",
+   "kicker": "Επόμενο Επίπεδο",
+   "sub": "κάνε εγγραφή",
+   "nar": "Κάνε εγγραφή και ρώτα πότε λήγει η τιμή σου.",
+   "sem_cap": true
+  }
+ ],
+ "copy": "# epomeno-epipedo-s039\n\n## TITULO\nΗ Τιμή Των Πρώτων Μηνών Δεν Είναι Η Τιμή Του Τιμολογίου\n\n## TITULO SHORT\nΗ τιμή υποδοχής έχει ημερομηνία\n\n## DESCRICAO\nΣυγκρίνεις δύο τιμολόγια ρεύματος, βρίσκεις ένα φθηνότερο και αποφασίζεις. Η τιμή που κοίταξες είναι αληθινή — αλλά σε πολλές περιπτώσεις είναι η **τιμή υποδοχής**: ισχύει για τους πρώτους μήνες και μετά σταματάει.\n\nΟπότε η σύγκριση έγινε ανάμεσα σε δύο πράγματα που δεν είναι ίδια: μια τιμή **με ημερομηνία** από τη μία πλευρά, και μια τιμή **χωρίς** ημερομηνία από την άλλη. Και οι δύο τυπωμένες, και οι δύο σωστές, σε **άλλη περίοδο** η καθεμιά.\n\nΗ διόρθωση είναι μία πράξη και δύο ερωτήσεις:\n\n- **πότε λήγει** η τιμή που σου δίνουν;\n- **ποια τιμή ισχύει μετά**, γραμμένη;\n\nΚάνε τη σύγκριση με τη δεύτερη τιμή, και όχι με την πρώτη. Αν η δεύτερη δεν σου λέγεται καθαρά και γραμμένη, αυτό από μόνο του είναι μια χρήσιμη πληροφορία για την απόφαση που πας να πάρεις σήμερα.\n\nΤο ίδιο ισχύει και για τη λέξη **σταθερό**: η σταθερότητα έχει ημερομηνία, και μετά από αυτήν αλλάζει ο **κανόνας**, όχι μόνο το ποσό.\n\nΚαμία τιμή, κανένα ποσοστό και καμία διάρκεια δεν μπαίνει σε αυτό το σύντομο βίντεο — κανόνας (g): αλλάζουν ανά πάροχο και ανά περίοδο, και το σύντομο κρατάει τον **κανόνα**.\n\nΣτο πλήρες βίντεο: τα χρώματα του τιμολογίου, η πράξη με τις κιλοβατώρες, το πάγιο, οι εκπτώσεις συνέπειας, η διάρκεια δέσμευσης και η ρήτρα αναπροσαρμογής.\n\n## COMENTARIO FIXADO\nΈνας τρόπος να το θυμάσαι: κάθε τιμή που σου δίνουν έχει δύο κομμάτια, το **πόσο** και το **μέχρι πότε**. Αν σου λένε μόνο το πρώτο, η σύγκριση δεν έχει γίνει ακόμα.\n\n## FAMILIA DE ENTRADA ERRADA\nLer a tarifa de INTRODUCAO — valida por um periodo — como se fosse a tarifa do CONTRATO, e comparar essa contra o preco permanente do outro lado. Os dois numeros estao impressos e os dois estao certos, so que em PERIODOS diferentes.\nDistincao dos vizinhos: nao e o s031 (comparar preco sem fixar a QUANTIDADE), nao e o s025 (a DATA decide qual regra se aplica a um fato passado), e nao e o s036 (estoque contado como oferta). Aqui a quantidade e a mesma e a regra e a mesma; o que difere e o PRAZO DE VALIDADE do proprio numero.\nDistincao dos dois irmaos desta origem: o s014 e o s022 sao os dois sobre a UNIDADE do numero (euro contra quilowatt-hora). Esta peca nao toca a unidade.\n\n## AVISO SOBRE OS NUMEROS\nNenhum valor, percentual ou duracao entra: mudam por provedor e por periodo (regra g). E a fonte enumera os itens que a conta nao pega com ordinais — esta peca NAO declara quantos sao, porque a contagem nao e o conteudo (725).\n\n## MIRA\nPrevisao no piso do ALVO_SHORT da frota, por 772. A exposicao vai declarada: se o edge narrar, o REAL deve cair acima da previsao pela banda observada, e o topo dessa faixa passa do teto de 45 do portao.\n\n## HASHTAGS\n#ρεύμα #λογαριασμός #τιμολόγιο #ΕπόμενοΕπίπεδο\n\n## TAGS\nρεύμα, λογαριασμός ρεύματος, τιμολόγιο ρεύματος, τιμή υποδοχής, προσφορά εισαγωγής, σύγκριση παρόχων, κιλοβατώρα, πάγιο, σταθερή τιμή, αλλαγή παρόχου, οικονομικά σπιτιού, Επόμενο Επίπεδο\n"
+}
