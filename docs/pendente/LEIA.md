@@ -550,3 +550,71 @@ curto"* por canal. Não mexi em nenhum parâmetro de short.
 **A decisão que é sua:** se eu construo esses cinco layouts e o trilho de
 capítulo para o LONGO. É trabalho de render, não de pauta, e não consome crédito
 de imagem nenhum — é texto em painel, igual ao que já fazemos.
+
+## 16/10 — PESQUISA: "quero bater recordes, destravar a máquina"
+
+Você pediu para eu estudar GitHub, YouTube, blogs de fora e os artigos mais
+lidos. Estudei. **O resultado é que o destravamento é UM clique seu, e agora eu
+sei exatamente o que ele compra e o que não compra.**
+
+### O que a web deu (quase nada) e o que a fonte primária deu (tudo)
+
+Os blogs sobre "retenção nos três primeiros segundos" devolveram **10–30%,
+15–25%, 30–50% e ">80%"** — quatro fontes, nenhuma oficial, todas se
+contradizendo. Nada disso entrou.
+
+O único item aproveitável foi o **nome** de uma métrica, que me levou à
+documentação oficial da API. E lá estava o que importa:
+
+- **`audienceWatchRatio`** — *"a proporção absoluta de espectadores assistindo
+  ao vídeo em dado ponto"*. **É a curva de retenção, peça por peça.**
+- **`relativeRetentionPerformance`** — *"quão bem o vídeo retém espectadores
+  comparado a TODOS os vídeos do YouTube de duração semelhante"*, de 0 a 1,
+  ponto a ponto.
+
+**O segundo é o achado central de toda a pesquisa**, e a razão é aritmética: ele
+já vem **normalizado contra a população do YouTube**. Isso dispensa construir
+linha de base com 109 peças por braço — que é exatamente o número que hoje torna
+os experimentos indecidíveis. Com ele, **uma peça já diz se o gancho prendeu.**
+
+**A chamada é UMA por vídeo, e o escopo `yt-analytics.readonly` JÁ está no nosso
+código desde 09/10.** Falta só o seu clique nos dois links de
+`docs/reautorizar-analytics.md`.
+
+**E o que o clique NÃO compra, para eu não lhe prometer:** a métrica de swipe
+("Viewed vs swiped away"). Contei na página oficial: `swiped` aparece **zero**
+vezes. Ela é só do Studio, não da API.
+
+### Uma rota grátis que eu achei — e por que ela não nos serve ainda
+
+`yt-dlp --dump-json` entrega um campo `heatmap` com **100 baldes** de 0 a 1, sem
+OAuth, sem banco, sem custo. Funciona.
+
+**Mas é a curva de REPLAY, não de retenção** — marca onde as pessoas VOLTAM, não
+onde ficam. Lidos quatro vencedores do nosso nicho, o pico cai no **meio** da
+peça (11,6 a 36,3 s) e a média dos três primeiros segundos é **menor** que a do
+resto nos quatro. Quem lesse isso como abandono leria ao contrário.
+
+**E ela exige escala que nós não temos.** Medi doze peças do nicho
+`excel/planilha`:
+
+| views | heatmap |
+|---|---|
+| 5.490 / 12.662 / 22.935 / 45.332 | **não** (4 de 4) |
+| 63.492 a 839.127 | **sim** (8 de 8) |
+
+O limiar está entre **45 e 63 mil views** — e não os "~10 mil" que um blog
+afirmava. A melhor peça da frota tem ~1.600 views: estamos um fator ~30 abaixo.
+
+**Para que ela serve, então:** ler a forma dos vídeos do nosso nicho que
+**romperam**. É a única leitura de atenção disponível hoje sem o seu clique.
+
+### O que eu NÃO sei, e vai dito
+
+Se o relatório de retenção cobre **Shorts**. A documentação menciona Shorts, mas
+não consigo testar sem o escopo. Prometer a curva do short antes do clique seria
+afirmar sem medir.
+
+**No código:** `fabrica/retencao.py` e dez testes, incluindo um que reprova se
+alguém chamar o heatmap de "retenção" e um que abre o `tokens.py` para provar
+que o escopo já está lá — ou seja, que a pendência é o clique e não o código.
