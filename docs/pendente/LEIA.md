@@ -924,3 +924,17 @@ regra de redacao do 772.
 
 **47** linhas de `insert into videos` seguem parqueadas em
 `docs/pendente/videos-a-inserir.sql`, e sem `execute_sql` nenhuma entra.
+
+## 17/10 09:1x — decima peca do dia, e a PRIMEIRA leitura de inscritos em 4 h
+`kolejny-poziom-s051` = `RjlCqChKWJo` ("Poproś o harmonogram"), **42 s reais**
+contra previsao edge 41,7 (provedor edge MEDIDO) — residuo +0,3 s, e o sinal
+**NAO esta estabelecido** (abaixo do passo de 1 s do instrumento, pelo 770).
+
+**INSCRITOS AO VIVO: 68 / 21 / 8**, contra os mesmos 68 / 21 / 8 de 05:0x —
+janela de 4,1 h, **delta zero nos tres**. O `porta1.py` devolve os tres como
+**indeterminado**: o piso de resolucao dessa janela e **5,85 inscritos/dia**, tres
+vezes acima do ritmo medido da frota. **Para resolver ritmo nao bastam 4 h.**
+
+**48** linhas de `insert into videos` seguem parqueadas, e sem `execute_sql`
+nenhuma entra. A pendencia que mais vale continua sendo os dois cliques de
+consentimento do Google.

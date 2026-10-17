@@ -84,6 +84,21 @@ sempre o mesmo.
 **A regra que fica: antes de ler leitura vazia como defeito da peça, releia uma
 peça de CONTROLE cujo valor você já conhece.**
 
+**E EM 17/10 ÀS 09:0x EU QUASE DECLAREI A ROTA DOS INSCRITOS FECHADA — e o que
+estava errado era o meu GREP.** Eu sondei os três canais com
+`grep -o '"subscriberCountText":{[^}]*}'` e os três voltaram **VAZIO**. Pela
+tabela de rotas isso se lê como fechamento, e era o que eu ia relatar. Abrindo a
+página (1.189.592 bytes, **um** `CONSENT`, dois `captcha`), o campo
+`subscriberCountText` está lá **uma vez** e o valor sai por
+`grep -o -E '"[0-9,.]+ (inscritos|subscribers)"'`: **68 / 21 / 8**. A rota estava
+ABERTA.
+
+**A regra que fica é a do OCR, aplicada à rota: instrumento que devolve vazio não
+prova ausência — confira o PADRÃO antes de culpar a rota.** O discriminador é
+barato e é o mesmo do controle: contar o campo na página crua em vez de confiar na
+primeira expressão que eu escrevi. A forma do JSON do YouTube muda; o texto
+legível ("N inscritos") sobreviveu a todas as rodadas.
+
 **E ÀS 04:1x A ROTA SEGUIA FECHADA, com a sonda feita ANTES de prometer.** O
 controle (`OhrGlJvnBoM`, 44 s medidos) voltou vazio outra vez, e com ele o
 `labtreinamento-s066` recém-publicado. **Duas peças seguidas sem ponto de
