@@ -1,0 +1,80 @@
+{
+ "slug": "kolejny-poziom",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "pacote": "kolejny-poziom-s052",
+ "longo_existente": "GUiq15usizw",
+ "thumb": {
+  "l1": "Prawie",
+  "l2": "to nie całość"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Na początku",
+   "sub": "prawie cała",
+   "nar": "Na początku kredytu odsetki to prawie cała rata.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "I dlatego",
+   "nar": "I dlatego łatwo policzyć całą ratę jako koszt."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ale",
+   "nar": "Ale prawie cała nie znaczy jednak cała."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "To prawie",
+   "sub": "właśnie decyduje",
+   "nar": "I właśnie to prawie decyduje o całym wyniku."
+  },
+  {
+   "layout": "item",
+   "kicker": "Bo",
+   "nar": "Reszta jest twoim oszczędzaniem, a nie kosztem."
+  },
+  {
+   "layout": "item",
+   "kicker": "Nawet mała",
+   "nar": "Nawet mała część potrafi przesunąć całe porównanie."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Dwa wyniki",
+   "itens": [
+    "cała rata: kredyt droższy",
+    "same odsetki: remis"
+   ],
+   "nar": "Cała rata daje jeden wynik, same odsetki inny."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Nie zaokrąglaj",
+   "sub": "odejmij",
+   "nar": "Nie zaokrąglaj tego w głowie: po prostu odejmij."
+  },
+  {
+   "layout": "item",
+   "kicker": "Zasada",
+   "nar": "Bierz odsetki z harmonogramu, nie całą ratę."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Policz dziś",
+   "nar": "Policz to jeszcze dziś i zasubskrybuj kanał."
+  }
+ ],
+ "copy": "# kolejny-poziom-s052\n\n## TITULO\nNa Początku Odsetki to Prawie Cała Rata, ale Prawie Nie Znaczy Cała i To Prawie Decyduje o Wyniku\n\n## TITULO SHORT\nPrawie to nie całość\n\n## DESCRICAO\nJest jedno zdanie, które brzmi jak drobiazg i jest całym rachunkiem: lektor mówi wprost, że *„na początku kredytu odsetki to prawie cała rata, ale prawie nie znaczy cała, i to prawie decyduje\"*.\n\nBo kiedy odsetki stanowią prawie całość, naturalnym skrótem jest **wziąć całą ratę** i porównać ją z czynszem. Skrót jest wygodny i prawie prawdziwy — i właśnie dlatego kosztowny.\n\nTo, co zostaje po odsetkach, jest **częścią kapitałową**. Nie jest kosztem: to twoja złotówka, która przestaje być gotówką i zaczyna być mieszkaniem. A to oznacza:\n\n- **z całą ratą** kredyt wygląda na droższy od najmu;\n- **z samymi odsetkami** wynik może wyjść remisem — i dodatkowo widzisz, ile miesięcznie odkładasz.\n\nTo nie jest zabawa w zaokrąglenia. **Dwa różne rachunki dają dwa różne wnioski**, a różnica między nimi jest dokładnie tym „prawie\", które skrót wyrzuca.\n\nDobra wiadomość: nic tu nie trzeba szacować. **Odejmij odsetki od całej raty i masz kapitał.** Te dwie liczby zawsze sumują się do raty — to zwykłe odejmowanie, nie prognoza.\n\nZasada, która zostaje: **nie zaokrąglaj „prawie\" do „całości\" — odejmij.**\n\nI jeszcze jedna rzecz, która wychodzi z tego samego odejmowania: część kapitałowa **rośnie z każdym miesiącem**, a odsetkowa maleje. Dlatego skrót, który dziś jest „prawie prawdziwy\", po roku jest już wyraźnie fałszywy — i to jest powód, żeby powtórzyć rachunek, a nie żeby mu zaufać raz na zawsze. Nie musisz niczego przewidywać: wystarczy wziąć nowy wiersz z tego samego harmonogramu, który już masz na papierze.\n\nCałe rozdzielenie raty, z czterema krokami, jest w długim filmie na kanale.\n\n## COMENTARIO FIXADO\nLiczyłeś kiedyś całą ratę jako koszt, czy od razu rozdzieliłeś odsetki od kapitału?\n\n## HASHTAGS\n#kredyt #finanse #mieszkanie #kolejnypoziom #shorts\n\n## TAGS\nodsetki, kapital, rata kredytu, harmonogram splat, najem, porownanie kosztow, kredyt hipoteczny, oszczedzanie, finanse osobiste, kolejny poziom\n\n## AVISO\n**ORIGEM: a regra de RECÊNCIA, com a ordem VIVA sondada nesta rodada.** O\n`yt-dlp --flat-playlist` na playlist `UU…` confirma o `GUiq15usizw` (538 s) como\no longo MAIS NOVO do canal. A legenda saiu pelo `yt-dlp` na sandbox.\n\n**FAMÍLIA DE ENTRADA ERRADA, nova neste canal:** no começo do crédito os juros são\n**quase** toda a prestação, e o atalho é tomar a prestação INTEIRA — mas \"quase\"\nnão é \"toda\", e é exatamente esse \"quase\" que decide o resultado. As dez copies\nanteriores desta origem foram lidas: juros de qual mês (`s003`), diluir a comissão\n(`s033`), capital não é dinheiro vivo (`s042`), cai fora da comparação (`s043`), o\nresultado se desloca (`s044`), a caução volta (`s045`), teria de adivinhar a taxa\n(`s046`), os três números pequenos ficam (`s049`), conta hoje e não trinta anos\n(`s050`) e a fonte é o primeiro wiersz do harmonograma (`s051`).\n\n**A distinção com o `s042` vai escrita, porque é ela que o portão `similaridade`\ntinha de aprovar:** lá o assunto é o que o capital **É** (poupança, não custo);\naqui é o **TAMANHO** dele no começo — pequeno o bastante para ser arredondado\nfora, e grande o bastante para inverter o resultado. Um fala de natureza, o outro\nde magnitude.\n\n**E a regra (g):** nenhum número do mundo entra. Não há taxa, prestação nem prazo\n— só a identidade aritmética de que juros e capital somam a prestação.\n\n## CONFIGURACOES DO STUDIO\nShort 9:16, `privacyStatus=public`, trilha **Wholesome** (identidade deste canal,\n601), voz `pl-PL-MarekNeural`.\n\n**EXPOSIÇÃO DA DURAÇÃO, declarada ANTES de publicar:** previsão edge **41,5 s** e\npiper **35,3 s**, as duas dentro do portão `duracao` (18 a 45 nos dois mundos), e\na peça foi escrita exatamente no **PISO** do `ALVO_SHORT` da frota — o que o 679\nmanda para a voz polonesa e o 772 manda como redação. Com a banda observada\n**(0,0; 4,0)**, n=68: se o edge narrar, o REAL deve cair entre **41,5 e 45,5 s**,\nlogo PODE passar do teto de 45. Nenhum parâmetro mudou (§10).\n\n**E NÃO HAVERÁ PONTO DE RESÍDUO NESTA RODADA, dito ANTES de publicar:** a rota\npública da duração segue **FECHADA**, medida pela peça de CONTROLE `OhrGlJvnBoM`\n(44 s conhecidos, lidos às 10:1x) — e junto com ela o `epomeno-epipedo-s051` da\nrodada anterior, que continua **pendente** no parque. Duas peças seguidas sem\nmedição por falta de instrumento, não de peça.\n"
+}
