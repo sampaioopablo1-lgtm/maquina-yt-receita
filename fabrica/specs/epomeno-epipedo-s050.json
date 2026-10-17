@@ -1,0 +1,80 @@
+{
+ "slug": "epomeno-epipedo",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#16283C",
+  "c1": "#2E7BB4",
+  "c2": "#E0A02E",
+  "bg": "#F3F7FA"
+ },
+ "pacote": "epomeno-epipedo-s050",
+ "longo_existente": "nttW9fR8wyY",
+ "thumb": {
+  "l1": "Όχι η αρχική",
+  "l2": "τιμή"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Δύο τιμές",
+   "sub": "πριν και μετά",
+   "nar": "Στο χαρτί της προσφοράς υπάρχουν δύο τιμές μετρητοίς.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Η πρώτη",
+   "nar": "Η πρώτη είναι η αρχική, πριν από την έκπτωση."
+  },
+  {
+   "layout": "item",
+   "kicker": "Η δεύτερη",
+   "nar": "Η δεύτερη είναι αυτή που θα πλήρωνες όντως σήμερα."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Όχι η αρχική",
+   "sub": "η σημερινή",
+   "nar": "Η βάση του υπολογισμού είναι η σημερινή, όχι η αρχική."
+  },
+  {
+   "layout": "item",
+   "kicker": "Γιατί υπάρχει",
+   "nar": "Η αρχική μπήκε στο χαρτί για να φαίνεται η έκπτωση."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Το λάθος",
+   "itens": [
+    "βάση: η αρχική",
+    "αποτέλεσμα: μικρότερη"
+   ],
+   "nar": "Με την αρχική ως βάση, η επιβάρυνση δείχνει μικρότερη."
+  },
+  {
+   "layout": "item",
+   "kicker": "Και μάλιστα",
+   "nar": "Σε μεγάλη έκπτωση μπορεί να βγει και μηδενική."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Το σημάδι",
+   "sub": "λέξη δόσεις",
+   "nar": "Ψάξε την τιμή που δίνεται χωρίς καμία αναφορά σε δόσεις."
+  },
+  {
+   "layout": "item",
+   "kicker": "Η αρχή",
+   "nar": "Βάση είναι όσα θα έδινες σήμερα, μετά την έκπτωση."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Κοίτα το χαρτί",
+   "nar": "Κοίτα το δικό σου χαρτί και κάνε εγγραφή τώρα."
+  }
+ ],
+ "copy": "# epomeno-epipedo-s050\n\n## TITULO\nΗ Βάση του Υπολογισμού Είναι η Τιμή που Θα Πλήρωνες Σήμερα, Όχι η Αρχική Τιμή Πριν από την Έκπτωση\n\n## TITULO SHORT\nΌχι η αρχική τιμή\n\n## DESCRICAO\nΥπάρχει ένα λάθος που δεν γίνεται στον πολλαπλασιασμό αλλά **πριν από αυτόν**: στην επιλογή της βάσης.\n\nΗ βάση είναι η τιμή μετρητοίς. Και στο ίδιο χαρτί συνήθως υπάρχουν **δύο** τιμές που μοιάζουν με αυτήν: η αρχική, πριν από την έκπτωση, και εκείνη που θα πλήρωνες όντως σήμερα. Η λεζάντα του μεγάλου βίντεο το λέει κυριολεκτικά: *«Μην την μπερδέψεις με την αρχική τιμή πριν την έκπτωση. Θέλεις αυτή που θα πλήρωνες όντως σήμερα, μετά την έκπτωση.»*\n\nΚαι το σημαντικό: **η αρχική τιμή δεν είναι λάθος του χαρτιού.** Μπήκε εκεί για να φαίνεται η έκπτωση — είναι πληροφορία πώλησης, όχι όρος πληρωμής.\n\nΤι γίνεται αν διαλέξεις τη λάθος:\n\n- με **βάση την αρχική**, η διαφορά που βγάζεις είναι μικρότερη από την πραγματική, γιατί συγκρίνεις το σύνολο των δόσεων με ένα ποσό που κανείς δεν σου ζήτησε σήμερα;\n- σε μεγάλη έκπτωση η αφαίρεση μπορεί να βγει **μηδενική ή αρνητική**, και τότε το συμπέρασμα είναι ακριβώς αντίστροφο από το σωστό.\n\nΤο σημάδι για να βρεις τη σωστή είναι απλό και είναι γραμμένο: **η τιμή που δίνεται χωρίς καμία αναφορά σε δόσεις.** Αν το χαρτί γράφει «μετρητοίς», αυτή είναι.\n\nΟ κανόνας που μένει: **βάση είναι όσα θα έδινες σήμερα, μετά την έκπτωση — όχι όσα έγραφε η ετικέτα πριν.**\n\nΟ πλήρης υπολογισμός, με τους τέσσερις αριθμούς και τη μία αφαίρεση, είναι στο μεγάλο βίντεο του καναλιού.\n\n## COMENTARIO FIXADO\nΣτο χαρτί που έχεις μπροστά σου, ποια από τις δύο τιμές χρησιμοποίησες ως βάση;\n\n## HASHTAGS\n#οικονομικα #δοσεις #καταναλωτης #epomenoepipedo #shorts\n\n## TAGS\nατοκες δοσεις, τιμη μετρητοις, αρχικη τιμη, εκπτωση, βαση υπολογισμου, επιβαρυνση, συγκριση προσφορων, καταναλωτης, οικονομικα, epomeno epipedo\n\n## AVISO\n**ORIGEM: a regra de RECÊNCIA, com a ordem VIVA sondada nesta rodada.** O\n`yt-dlp --flat-playlist` na playlist `UU…` do canal confirma o `nttW9fR8wyY`\n(754 s) como o longo MAIS NOVO — rank 1 acima de 180 s. A legenda saiu pelo\n`yt-dlp` na sandbox (21,5 KB de VTT), logo nenhuma frase vem de TÍTULO de\ncapítulo.\n\n**FAMÍLIA DE ENTRADA ERRADA, nova neste canal:** a BASE do cálculo é a tiragem\nde hoje, **não a etiqueta anterior à promoção** — e a etiqueta anterior está no\npapel de propósito, para mostrar o desconto. As seis copies anteriores desta\norigem foram lidas: o número não se apresenta (`s044`), uma vez e não duas\n(`s045`), compare euros (`s046`), a mesma oferta (`s047`), o não escrito não\nentra (`s048`) e dois nomes parecidos, um só certo (`s049`).\n\n**A distinção com o `s046` e com o `s049` vai escrita, porque é ela que o portão\n`similaridade` tinha de aprovar:** o `s046` fala da UNIDADE da comparação\n(euros, não porcentagem) e o `s049` de duas LINHAS de nome parecido; aqui são\nduas TIMES de preço à vista no mesmo papel, e o erro acontece **antes** de\nqualquer multiplicação.\n\n**E a regra (g):** nenhum número que envelhece entra. Não há taxa, percentual\nnem data de vigência — a peça carrega a REGRA de escolher a base, e o desconto\naparece sem valor nenhum.\n\n## CONFIGURACOES DO STUDIO\nShort 9:16, `privacyStatus=public`, trilha `Inspired`, voz `el-GR-NestorasNeural`.\n\n**EXPOSIÇÃO DA DURAÇÃO, declarada ANTES de publicar:** previsão edge **41,8 s** e\npiper **37,0 s**, as duas dentro do portão `duracao` (18 a 45 nos dois mundos). A\nmira é a da FROTA (41,5 a 43,0 estimados), porque este canal **não** tem\n`ALVO_POR_CANAL` medido — e a peça foi escrita mirando o **PISO**, pela regra de\nredação do 772. Com a banda observada **(0,0; 4,0)**, n=65: se o edge narrar, o\nREAL deve cair entre **41,8 e 45,8 s**, logo **PODE passar do teto de 45 do\nportão**, como aconteceu no `epomeno-epipedo-s032` (46 s com o portão verde). Se\no piper narrar, 37,0 a 41,0 cabe com folga. Nenhum parâmetro mudou (§10).\n\n**E a rota da duração foi SONDADA com a peça de CONTROLE antes de prometer:** o\n`OhrGlJvnBoM` devolveu os 44 s conhecidos às 08:1x, logo o ponto de resíduo deve\nexistir. A peça entra no parque de qualquer modo, pelo 726.\n"
+}
