@@ -1178,3 +1178,26 @@ concentracao ataca o portao `similaridade`, que e de monetizacao — mas o peso
 entre as duas coordenadas nao esta medido, e isso fica como escolha, nao regra.
 
 **Parqueadas para `videos`: 61 linhas.** 40a rodada sem `execute_sql`.
+
+## 17/10 23:2x — epomeno-epipedo-s055 no ar, e o SEGUNDO residuo negativo
+
+`Gxg3npta4Zo`, 41 s reais contra previsao edge de 41,5 (provedor MEDIDO, zero
+avisos no job 117529604557): residuo -0,5, estabelecido pelo ramo negativo que
+entrou as 20:1x. Os DOIS negativos da serie sao deste canal, com previsao 41,5 e
+41,6 e real 41 — o negativo e raro (2 de 81) e mora na janela estreita do
+768/769, nao e regime novo.
+
+Rota da duracao ABERTA: a peca de CONTROLE (OhrGlJvnBoM) devolveu os 44 s
+conhecidos na mesma chamada, que e o que separa rota fechada de peca nao
+indexada.
+
+Inscritos 68 / 21 / 8 — os tres `indeterminado`. A proxima leitura que pode
+RESOLVER ritmo precisa de |delta| >= 2, o que no limite medido (abaixo de
+1,18/dia) cai depois de ~41 h: nao antes da manha de 19/10.
+
+O que segue na sua mao, por valor:
+1. os dois cliques de consentimento do Google (`docs/reautorizar-analytics.md`) —
+   e o unico caminho para RETENCAO, que e o que decide o que faz uma peca romper;
+2. reconectar o conector do Supabase — e a unica rota que devolve `execute_sql` /
+   `pg_net`, e com ela as 62 linhas parqueadas em `docs/pendente/videos-a-inserir.sql`;
+3. a decisao do 740/748 (mira contra real), com a conta pronta.

@@ -139,6 +139,24 @@ frase.
 **A regra que fica: critério de sinal tem DOIS ramos, e quem escreve um só o
 escreve no lado em que está olhando.**
 
+**E O SEGUNDO NEGATIVO VEIO NA PEÇA SEGUINTE, no MESMO ponto da janela.** O
+`epomeno-epipedo-s055` (`Gxg3npta4Zo`) previa **41,5** no edge — provedor MEDIDO,
+zero avisos no job `117529604557` — e saiu com **41 s reais**: resíduo **−0,5**,
+estabelecido pelo ramo novo, **dentro** da banda (o piso segue −0,6). `RESIDUO_N`
+= 81.
+
+**O que ele acrescenta não é a contagem, é o LUGAR:** os **dois** negativos são
+do `epomeno-epipedo`, com previsão **41,5 e 41,6** e real **41** — isto é, o
+negativo não está espalhado pela série, está concentrado num ponto da janela de
+previsão. **E é a mesma janela de 0,4 s do 768/769**, onde a previsão não ordena
+nada contra um real de passo 1 s: ali os reais já iam de 41 a 44. Logo o negativo
+é o quarto inteiro dessa janela aparecendo, não um regime novo.
+
+**O que eu NÃO afirmo:** que a voz grega produza resíduo negativo. São dois
+pontos, do mesmo canal e da mesma faixa, e o 679/698/725 nomeia exatamente esse
+enquadramento. O que está medido é que **o negativo existe, é raro (2 de 81) e
+mora na janela estreita.**
+
 **E ÀS 04:1x A ROTA SEGUIA FECHADA, com a sonda feita ANTES de prometer.** O
 controle (`OhrGlJvnBoM`, 44 s medidos) voltou vazio outra vez, e com ele o
 `labtreinamento-s066` recém-publicado. **Duas peças seguidas sem ponto de
