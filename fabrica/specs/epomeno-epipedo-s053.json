@@ -1,0 +1,76 @@
+{
+  "slug": "epomeno-epipedo",
+  "idioma": "el",
+  "voz": "el-GR-NestorasNeural",
+  "trilha": "Inspired",
+  "paleta": {
+    "ink": "#16283C",
+    "c1": "#2E7BB4",
+    "c2": "#E0A02E",
+    "bg": "#F3F7FA"
+  },
+  "pacote": "epomeno-epipedo-s053",
+  "longo_existente": "9U2h4HuAzLs",
+  "thumb": {
+    "l1": "Μετρά έδαφος",
+    "l2": "όχι εσένα"
+  },
+  "longo": [],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Ο αριθμός",
+      "sub": "μετρά έδαφος",
+      "nar": "Ο επίσημος αριθμός μετρά τις τιμές σε ένα έδαφος.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Όχι εσένα",
+      "nar": "Δεν μετρά τις τιμές που πληρώνεις εσύ ο ίδιος."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Μέσα",
+      "sub": "και ξένες αγορές",
+      "nar": "Μέσα στο καλάθι μπαίνουν και αγορές επισκεπτών."
+    },
+    {
+      "layout": "item",
+      "kicker": "Ανθρώπων",
+      "nar": "Ανθρώπων που δεν ζουν εδώ και φεύγουν λίγες μέρες μετά."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Δύο όψεις",
+      "nar": "Το ένα μετριέται σωστά, το άλλο απλώς δεν μπαίνει."
+    },
+    {
+      "layout": "item",
+      "kicker": "Γι' αυτό",
+      "nar": "Γι' αυτό ο αριθμός δεν μοιάζει με τον λογαριασμό σου."
+    },
+    {
+      "layout": "item",
+      "kicker": "Και όμως",
+      "nar": "Και όμως καμία από τις δύο πλευρές δεν έχει κάνει λάθος."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Η ερώτηση",
+      "sub": "ποιον μετρά",
+      "nar": "Πριν διαφωνήσεις με τον αριθμό, ρώτα ποιον μετρά."
+    },
+    {
+      "layout": "item",
+      "kicker": "Μετά",
+      "nar": "Μετά κοίτα αν το δικό σου καλάθι βρίσκεται μέσα σε αυτό."
+    },
+    {
+      "layout": "cta",
+      "kicker": "Ρώτα ποιον",
+      "nar": "Ρώτα ποιον μετρά και κάνε εγγραφή τώρα."
+    }
+  ],
+  "copy": "# epomeno-epipedo-s053\n\n## TITULO\nΟ Επίσημος Δείκτης Μετρά Ένα Έδαφος, Όχι Το Δικό Σου Νοικοκυριό\n\n## TITULO SHORT\nΜετρά έδαφος, όχι εσένα\n\n## DESCRICAO\nΟ επίσημος αριθμός των τιμών δεν είναι λάθος, αλλά η διαφωνία που νιώθεις μαζί του έχει μια αιτία που σχεδόν κανείς δεν λέει: ο δείκτης δεν μετρά ένα νοικοκυριό. Μετρά τις τιμές που πληρώνονται **μέσα στο έδαφος μιας χώρας**, από νοικοκυριά που ζουν εδώ και από νοικοκυριά που δεν ζουν εδώ. Αυτή η δεύτερη λέξη αλλάζει τα πάντα.\n\nΣημαίνει ότι μέσα στο καλάθι υπάρχουν τιμές που εσύ δεν τις πληρώνεις ποτέ. Οι αγορές που κάνουν οι επισκέπτες μέσα στη χώρα μετριούνται κανονικά, μαζί με τις δικές σου. Για μια χώρα με τον τουρισμό της Ελλάδας αυτό δεν είναι λεπτομέρεια μεθοδολογίας: είναι ένα κομμάτι του καλαθιού που κινείται με άλλη λογική από τον δικό σου λογαριασμό.\n\nΚαι εδώ είναι το σημείο που λύνει τη διαφωνία. Όταν ο επίσημος αριθμός δεν μοιάζει με αυτό που νιώθει ο κόσμος, δεν χρειάζεται κάποιος να έχει κάνει λάθος. Το ένα πράγμα μετριέται σωστά — οι τιμές σε ένα έδαφος. Το άλλο, το δικό σου σπίτι, απλώς δεν είναι αυτό που μετρήθηκε. Και οι δύο πλευρές μπορεί να έχουν δίκιο ταυτόχρονα, γιατί δεν μιλούν για το ίδιο πράγμα.\n\nΗ πράξη που βγαίνει από αυτό είναι μια ερώτηση, και μπαίνει **πριν** από οποιαδήποτε διαφωνία με τον αριθμό: ποιον μετρά. Αν η απάντηση είναι «ένα έδαφος» και όχι «ένα νοικοκυριό σαν το δικό σου», τότε ξέρεις γιατί τα δύο νούμερα αποκλίνουν, και σταματάς να ψάχνεις λάθος εκεί που δεν υπάρχει. Μετά κοιτάς αν το δικό σου καλάθι είναι μέσα — και αυτό απαντιέται με τα δικά σου στοιχεία, όχι με δελτίο.\n\nΔεν αναφέρω εδώ κανένα ποσοστό, κανένα έτος βάσης και κανένα όνομα φορέα. Αυτά αλλάζουν με κάθε αναθεώρηση, ενώ η φράση «μετρά ένα έδαφος, όχι ένα νοικοκυριό» δεν αλλάζει.\n\nΣτο πλήρες βίντεο: ποιες κατηγορίες μένουν ονομαστικά έξω από τον δείκτη, γιατί μένουν έξω, και πού είναι δημοσιευμένα όλα αυτά για να τα διαβάσεις μόνος σου.\n\nΕνημερωτικό περιεχόμενο, δεν αποτελεί οικονομική, φορολογική ή νομική συμβουλή.\n\n## COMENTARIO FIXADO\nΗ ερώτηση που αλλάζει τη συζήτηση δεν είναι «πόσο» αλλά «ποιον μετρά». Ο δείκτης μετρά τιμές μέσα σε ένα έδαφος, και σε αυτό το έδαφος αγοράζουν και άνθρωποι που δεν ζουν εδώ. Άρα το καλάθι περιέχει τιμές που εσύ δεν τις πληρώνεις ποτέ — και αυτό δεν είναι σφάλμα, είναι ο ορισμός. Επίτηδες δεν γράφω κανένα ποσοστό και κανένα όνομα φορέα: τα νούμερα παλιώνουν σε εβδομάδες, η σειρά «πρώτα ποιον, μετά πόσο» δεν παλιώνει. Γράψτε αν το είχατε σκεφτεί ποτέ έτσι.\n\n## HASHTAGS\n#Πληθωρισμός #ΤοΚαλάθιΣου #ΕπόμενοΕπίπεδο\n\n## TAGS\ndeiktis timon, edafos, noikokyria, mi katoika, touristes, kalathi, plithorismos, poion metra, egchoria ennoia, prosopika oikonomika, ellada, epomeno epipedo, times, metrisi, dimosieymena stoicheia\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Conferido campo a campo: a peca nao\ndiz percentual, nao diz ano-base, nao diz codigo de rubrica e nao nomeia orgao\nnenhum (regra 609 — o longo cita DOIS pelo nome, nos capitulos 33, 41, 46 e 49,\ne nenhum entra).\n\nA REGRA (g) tira o que MUDA: o codigo da categoria que fica fora do cesto\n(capitulo 42) e qualquer percentual. Codigo de rubrica envelhece por revisao de\nclassificacao, e o proprio longo diz que a classificacao muda.\n\nE A CONTAGEM FICOU FORA, pelo aprendizado 725: este longo declara \"treis\ndiafores\" e enumera a primeira, a segunda e a terceira (capitulos 33 e 40). A\npeca leva UMA delas e NAO diz quantas sao — dizer \"a segunda de tres\" obrigaria\no espectador a aceitar uma contagem que o short nao enumera.\n\nO QUE A PECA CARREGA, e nao envelhece: o indice mede as tiras de preco de um\nTERRITORIO, nao as de um domicilio; nesse territorio compram tambem pessoas que\nnao moram aqui, logo o cesto tem precos que o espectador nunca paga; por isso o\nnumero oficial pode nao parecer com a conta da casa SEM que ninguem tenha\nerrado; e a pergunta util vem ANTES da discordancia — \"quem ele mede\".\n\nA FAMILIA DE ENTRADA ERRADA E: **tomar o indice como se ele medisse VOCE**\n(populacao coberta). Conferida a regra (f) contra as outras duas pecas desta\nMESMA origem: o `epomeno-epipedo-s004` levou \"o seu indice sai das suas notas\nfiscais\" (capitulos 73 a 77), e o `epomeno-epipedo-s025` levou PERIODO DE\nREFERENCIA (o mes da data de aniversario). As tres sao familias distintas.\n\nO QUE EU NAO LEVEI, de proposito, e vai escrito para a proxima rodada achar: o\nbalde \"o que fica FORA do cesto\" — o aluguel imputado do proprietario que mora\nna propria casa, capitulos 41 a 51, incluindo o reconhecimento do proprio orgao\ne o do banco central. E material para pelo menos uma peca, e nao cabe hoje pela\nregra (f): ela e outra familia e merece a peca inteira.\n\nMIRA: a voz `el-GR-NestorasNeural` tem centro -3,2% (679), logo o topo da faixa\nseria seguro — mas pelo 772 eu miro o PISO do `ALVO_SHORT` quando a voz nao\nexige o topo, e esta nao exige. A exposicao vai declarada abaixo.\n\nA EXPOSICAO, dita ANTES de publicar: `fabrica/mira.py` devolveu **edge 41,6** e\n**piper 36,8**, os dois dentro de 18 a 45 nos DOIS mundos, que e o que o portao\ncobra. Com a banda de residuo OBSERVADA de 0,0 a 4,0 s (n=74), se o **edge**\nnarrar o real deve cair entre **41,6 e 45,6 s** — logo PODE passar do teto de 45\ndo proprio portao, que e exatamente o caso medido no 772 (`epomeno-epipedo-s032`,\nmirou 42,5 e saiu 46). Se o **piper** narrar, 36,8 a 40,8 cabe com folga.\n\nE eu NAO encurto para fugir disso: 41,6 ja e o PISO do `ALVO_SHORT`, e descer\ndele seria mexer em parametro de producao, que a trava da §10 proibe. A saida —\ndescontar o residuo da mira, ou parar de cobrar teto de REAL sobre o estimado —\ne a decisao do 740/748 e continua sendo do dono.\n\n## FONTES\nO longo de onde este short foi extraido (`9U2h4HuAzLs`, pacote\nepomeno-epipedo-015, 81 capitulos) carrega os numeros e os nomes dos orgaos.\nEste short NAO introduz numero novo sobre o mundo, entao nao exige fonte\ninstitucional nova.\n\nNOTA DE PROCEDENCIA: o texto saiu dos capitulos 33 a 39 da spec do proprio\npacote, lidos um a um. Nenhuma frase foi inferida de resumo nem de titulo de\ncapitulo.\n"
+}
