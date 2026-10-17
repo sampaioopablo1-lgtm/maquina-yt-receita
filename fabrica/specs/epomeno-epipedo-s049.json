@@ -1,0 +1,80 @@
+{
+ "slug": "epomeno-epipedo",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#16283C",
+  "c1": "#2E7BB4",
+  "c2": "#E0A02E",
+  "bg": "#F3F7FA"
+ },
+ "pacote": "epomeno-epipedo-s049",
+ "longo_existente": "nttW9fR8wyY",
+ "thumb": {
+  "l1": "Δύο ονόματα,",
+  "l2": "ένα σωστό"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Δύο γραμμές",
+   "sub": "παρόμοιο όνομα",
+   "nar": "Στο χαρτί σου υπάρχουν δύο γραμμές με παρόμοιο όνομα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Ποιες",
+   "itens": [
+    "συνολικό ποσό πληρωμής",
+    "συνολικό κόστος"
+   ],
+   "nar": "Συνολικό ποσό πληρωμής και συνολικό κόστος."
+  },
+  {
+   "layout": "item",
+   "kicker": "Η διαφορά",
+   "nar": "Η μία περιέχει το κεφάλαιο, και η άλλη όχι."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Αν μπερδευτείς",
+   "sub": "βγαίνει αρνητικό",
+   "nar": "Αν τις μπερδέψεις, η αφαίρεση βγάζει αρνητικό."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ή χειρότερα",
+   "nar": "Ή η επιβάρυνση φαίνεται μηδενική, ενώ δεν είναι καθόλου."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ο έλεγχος",
+   "nar": "Ο έλεγχος: πολλαπλασίασε τις δόσεις επί το ποσό."
+  },
+  {
+   "layout": "item",
+   "kicker": "Και μετά",
+   "nar": "Κοίτα σε ποια από τις δύο γραμμές πέφτει πιο κοντά."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Εκείνη",
+   "sub": "το σύνολο",
+   "nar": "Εκείνη είναι το συνολικό ποσό της πληρωμής."
+  },
+  {
+   "layout": "item",
+   "kicker": "Η αρχή",
+   "nar": "Γνώρισε κάθε γραμμή από το μέγεθος, όχι από το όνομα."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Δοκίμασέ το",
+   "nar": "Δοκίμασέ το στο δικό σου χαρτί και κάνε εγγραφή τώρα."
+  }
+ ],
+ "copy": "# epomeno-epipedo-s049\n\n## TITULO\nΔύο Γραμμές με Παρόμοιο Όνομα στο Ίδιο Χαρτί: η Μία Περιέχει το Κεφάλαιο, η Άλλη Όχι\n\n## TITULO SHORT\nΔύο ονόματα, ένα σωστό\n\n## DESCRICAO\nΗ προσφορά σου γράφει κάπου ένα σύνολο, και αυτό είναι καλή είδηση: σου γλιτώνει τον πολλαπλασιασμό. **Αλλά υπάρχουν δύο γραμμές με παρόμοιο όνομα**, και αν πάρεις τη λάθος, η αφαίρεση βγάζει αριθμό που δεν σημαίνει τίποτα.\n\nΟι δύο είναι **συνολικό ποσό πληρωμής** και **συνολικό κόστος**. Μοιάζουν, και δεν λένε το ίδιο:\n\n- η μία είναι **ό,τι θα φύγει από το χέρι σου** — περιέχει και το κεφάλαιο, δηλαδή την τιμή του πράγματος;\n- η άλλη είναι **μόνο η επιβάρυνση** — το κεφάλαιο δεν είναι μέσα.\n\nΤώρα σκέψου τι γίνεται αν τις μπερδέψεις. Αφαιρείς την τιμή μετρητοίς από το **κόστος** και βγάζει αρνητικό νούμερο, που δεν υπάρχει. Ή παίρνεις το κόστος σαν να ήταν το σύνολο, και η διευκόλυνση φαίνεται μηδενική ενώ δεν είναι.\n\n**Ο έλεγχος είναι δέκα δευτερόλεπτα και δεν θέλει εμπιστοσύνη σε κανένα όνομα:** πολλαπλασίασε δόσεις επί ποσό δόσης. Το αποτέλεσμα θα είναι κοντά σε μία από τις δύο γραμμές — εκείνη είναι το **σύνολο πληρωμής**. Η άλλη, η πολύ μικρότερη, είναι το κόστος.\n\nΚαι η γενική αρχή, που σε σώζει και σε άλλα χαρτιά: **μην αναγνωρίζεις γραμμή από το όνομά της, αναγνώρισέ τη από το μέγεθός της.** Το όνομα το γράφει κάποιος άλλος; το μέγεθος βγαίνει από τη δική σου πράξη.\n\nΑν η προσφορά γράφει μόνο τη μία, κράτα αυτήν που περιέχει το κεφάλαιο και προχώρα. Αν δεν γράφει καμία, φτιάξε το σύνολο μόνος σου με τον πολλαπλασιασμό.\n\nΟ πλήρης υπολογισμός, με τα τέσσερα νούμερα και την αφαίρεση, είναι στο μεγάλο βίντεο του καναλιού.\n\n## COMENTARIO FIXADO\nΚάνε τον πολλαπλασιασμό πρώτα: σε ποια από τις δύο γραμμές του χαρτιού σου πέφτει κοντά;\n\n## HASHTAGS\n#οικονομικα #δοσεις #υπολογισμος #epomenoepipedo #shorts\n\n## TAGS\nάτοκες δόσεις, συνολικό ποσό πληρωμής, συνολικό κόστος, κεφάλαιο, τιμή μετρητοίς, υπολογισμός, προσφορά, καταναλωτής, οικονομικά, επόμενο επίπεδο\n\n## AVISO\n**ORIGEM: a regra de RECÊNCIA.** O longo mais novo do canal pela ordem VIVA é o\n`nttW9fR8wyY` (754 s), com spec local (`epomeno-epipedo-017`, 81 capítulos) e OITO\nshorts já tirados dele. O `segundo_angulo.py` nomeou os oito e as copies foram\nconferidas.\n\n**FAMÍLIA DE ENTRADA ERRADA, nova neste canal:** confundir **duas linhas de nome\nparecido** no mesmo papel — \"valor total a pagar\" e \"custo total\" — uma contendo o\ncapital e a outra não, e com isso fazer a subtração contra a linha errada. As oito\nanteriores: zero e os custos (`s005`), o percentual não é taxa (`s024`), negativo\nnão acontece (`s038`), o número não decide por você (`s044`), uma vez e não duas\n(`s045`), compare em euros (`s046`), a oferta de outra loja (`s047`) e o que não\nestá escrito não entra (`s048`).\n\n**E a distinção com o `s038` vai dita porque elas se tocam:** lá o achado é que\nresultado negativo **não acontece** se a conta está certa; aqui é a CAUSA de um\nnegativo aparecer — ter subtraído da linha que não contém o capital. O `s038`\ndescreve o sintoma, este descreve a confusão de nomes que o produz.\n\nA base é literal nos capítulos 24 e 25 (*\"Προσοχή σε δύο λέξεις που μοιάζουν:\nσυνολικό ποσό πληρωμής και συνολικό κόστος. Η μία περιέχει το κεφάλαιο, η άλλη\nόχι\"*), que nenhum dos oito usou.\n\n**E a regra (g):** nenhum número do mundo entra. O exemplo numérico do longo é\ndeclaradamente **inventado pelo autor** (capítulos 31 e 32).\n\n## CONFIGURACOES DO STUDIO\nShort 9:16, `privacyStatus=public`, trilha `Inspired`, voz `el-GR-NestorasNeural`.\n\n**EXPOSIÇÃO DA DURAÇÃO, declarada ANTES de publicar:** previsão edge **41,0 s** e\npiper **36,3 s**. Mirei o PISO do `ALVO_SHORT` da frota (41,5 a 43,0) — este canal\nnão tem `ALVO_POR_CANAL` medido. Com a banda observada **(0,0; 4,0)**, agora com\n**62** pontos: se o edge narrar, o REAL deve cair entre **41,0 e 45,0 s**, e o\ntopo PASSA do teto de 45 do portão; se o piper narrar, 36,3 a 40,3 cabe com folga.\nNenhum parâmetro mudou (§10).\n\n**E a rota pública da duração foi SONDADA e está ABERTA nesta rodada** — o\ncontrole do 17/10 03:1x devolveu os 44 s conhecidos, e as duas peças parqueadas\nsaíram. Logo esta peça deve ter ponto de resíduo.\n"
+}
