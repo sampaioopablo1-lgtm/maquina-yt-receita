@@ -938,3 +938,12 @@ vezes acima do ritmo medido da frota. **Para resolver ritmo nao bastam 4 h.**
 **48** linhas de `insert into videos` seguem parqueadas, e sem `execute_sql`
 nenhuma entra. A pendencia que mais vale continua sendo os dois cliques de
 consentimento do Google.
+
+## 17/10 10:1x — decima primeira peca do dia
+`labtreinamento-s068` = `ogYsbBPzG_A` ("Uma fórmula, duas colunas"), **28 s
+reais** contra previsao edge 25,9 (provedor edge MEDIDO), residuo **+2,1 s**,
+dentro da banda e estabelecido. **49** linhas de `insert into videos` parqueadas.
+
+**A pinça do 740/748 esta em 24 de 27** peças deste canal fora do teto da mira no
+mundo edge, TODAS com o `mira.py` verde. Esta e a decisao 3 da sua fila, e ela
+só piora com a contagem.
