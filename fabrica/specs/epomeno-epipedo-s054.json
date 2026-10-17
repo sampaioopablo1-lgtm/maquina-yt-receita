@@ -1,0 +1,76 @@
+{
+  "slug": "epomeno-epipedo",
+  "idioma": "el",
+  "voz": "el-GR-NestorasNeural",
+  "trilha": "Inspired",
+  "paleta": {
+    "ink": "#16283C",
+    "c1": "#2E7BB4",
+    "c2": "#E0A02E",
+    "bg": "#F3F7FA"
+  },
+  "pacote": "epomeno-epipedo-s054",
+  "longo_existente": "eZ697VNYCPU",
+  "thumb": {
+    "l1": "Τα στοιχεία",
+    "l2": "σου"
+  },
+  "longo": [],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Η παρακράτηση",
+      "sub": "από τα στοιχεία",
+      "nar": "Η παρακράτηση του φόρου βγαίνει από τα στοιχεία σου.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Όχι μόνο",
+      "nar": "Δεν βγαίνει μόνο από τον νόμο και τον μισθό σου."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Τι μπαίνει",
+      "sub": "κατάσταση και παιδιά",
+      "nar": "Μπαίνει μέσα η οικογενειακή κατάσταση και τα παιδιά."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Και κάτι ακόμα",
+      "nar": "Μπαίνει και το αν έχεις και δεύτερο εργοδότη."
+    },
+    {
+      "layout": "item",
+      "kicker": "Αν είναι λάθος",
+      "nar": "Αν κάποιο από αυτά είναι λάθος, πληρώνεις λάθος φόρο."
+    },
+    {
+      "layout": "item",
+      "kicker": "Όλον τον χρόνο",
+      "nar": "Και τον πληρώνεις λάθος όλον τον χρόνο, μήνα με μήνα."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Ο λογαριασμός",
+      "sub": "έρχεται μαζεμένος",
+      "nar": "Και η διαφορά έρχεται μαζεμένη μετά, στην εκκαθάριση."
+    },
+    {
+      "layout": "item",
+      "kicker": "Άνοιξε",
+      "nar": "Άνοιξε τη μισθοδοσία και δες τα στοιχεία που έχει."
+    },
+    {
+      "layout": "item",
+      "kicker": "Μία φορά",
+      "nar": "Μία φορά αρκεί για να κλείσει όλη η χρονιά σου."
+    },
+    {
+      "layout": "cta",
+      "kicker": "Δες τα",
+      "nar": "Δες τα δικά σου στοιχεία και κάνε εγγραφή τώρα."
+    }
+  ],
+  "copy": "# epomeno-epipedo-s054\n\n## TITULO\nΗ Παρακράτηση Του Φόρου Βγαίνει Από Τα Στοιχεία Σου, Και Λάθος Εκεί Κρατά Όλη Τη Χρονιά\n\n## TITULO SHORT\nΛάθος στοιχεία, λάθος φόρος\n\n## DESCRICAO\nΥπάρχει μια παγίδα που δεν έχει καμία σχέση με τον νόμο, με τον μισθό σου ή με τη φορολογική κλίμακα — και όμως μπορεί να σου φάει ολόκληρο το όφελος οποιασδήποτε μεταρρύθμισης. Η παγίδα είναι τα **στοιχεία** σου: η παρακράτηση του φόρου κάθε μήνα δεν υπολογίζεται στον αέρα, αλλά πάνω σε ό,τι έχει δηλωθεί για εσένα στη μισθοδοσία.\n\nΕκεί μέσα μπαίνουν πράγματα που αλλάζουν τον υπολογισμό: η οικογενειακή κατάσταση, τα παιδιά, και το αν έχεις και δεύτερο εργοδότη. Κανένα από αυτά δεν είναι λεπτομέρεια γραφείου — όλα περνούν στον μηνιαίο υπολογισμό. Αν κάποιο είναι λάθος ή έχει μείνει πίσω, ο φόρος που κρατιέται από εσένα είναι λάθος **κάθε μήνα**, χωρίς να χτυπήσει κανένα καμπανάκι.\n\nΚαι εδώ είναι το μέρος που κάνει τη ζημιά μεγαλύτερη: το λάθος δεν σταματά μόνο του. Τρέχει όλη τη χρονιά, και η διαφορά δεν εξαφανίζεται — έρχεται **μαζεμένη** στην εκκαθάριση. Δηλαδή το πληρώνεις ή το ζητάς πίσω αργότερα, όλο μαζί, αντί να έχει υπολογιστεί σωστά από την αρχή. Είναι η πιο ήσυχη παγίδα όλων, γιατί τίποτα στην απόδειξη δεν λέει «κάτι εδώ είναι λάθος».\n\nΗ δουλειά για να κλείσει είναι μικρή και γίνεται **μία φορά**: ανοίγεις τη μισθοδοσία, βλέπεις τι στοιχεία έχει καταχωρημένα για εσένα, και τα διορθώνεις αν κάτι έχει αλλάξει. Μία φορά αρκεί για να κλείσει όλη η χρονιά, και όσο πιο νωρίς γίνει, τόσο λιγότεροι μήνες υπολογίζονται πάνω σε λάθος βάση.\n\nΔεν γράφω εδώ κανένα ποσοστό, κανένα ποσό και κανένα έτος. Οι συντελεστές και τα όρια αλλάζουν — η σειρά «τα στοιχεία πρώτα, ο υπολογισμός μετά» δεν αλλάζει.\n\nΣτο πλήρες βίντεο: τα τρία νούμερα της απόδειξης πληρωμής, πώς δουλεύει η κλίμακα ανά κομμάτι εισοδήματος, και οι υπόλοιπες παγίδες μαζί με τις πηγές τους.\n\nΕνημερωτικό περιεχόμενο, δεν αποτελεί φορολογική, λογιστική ή νομική συμβουλή.\n\n## COMENTARIO FIXADO\nΗ πιο ήσυχη παγίδα δεν είναι ο νόμος, είναι τα **στοιχεία** σου: η μηνιαία παρακράτηση υπολογίζεται πάνω σε ό,τι έχει δηλωθεί για εσένα στη μισθοδοσία — οικογενειακή κατάσταση, παιδιά, δεύτερος εργοδότης. Λάθος εκεί σημαίνει λάθος φόρο κάθε μήνα, και η διαφορά έρχεται μαζεμένη στην εκκαθάριση. Η διόρθωση γίνεται μία φορά και πιάνει όλη τη χρονιά. Επίτηδες δεν γράφω ποσοστά ή ποσά: αυτά αλλάζουν, η σειρά «στοιχεία πρώτα» δεν αλλάζει. Γράψτε αν τα έχετε κοιτάξει ποτέ.\n\n## HASHTAGS\n#Μισθοδοσία #Παρακράτηση #ΕπόμενοΕπίπεδο\n\n## TAGS\nparakratisi, misthodosia, stoicheia, oikogeneiaki katastasi, deyteros ergodotis, ekkatharisi, apodeixi pliromis, foros misthou, paidia, elegchos, epomeno epipedo, oikonomika, ellada, misthos, dilomena stoicheia\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Conferido campo a campo: nenhum\npercentual, nenhum valor em euro, nenhum ano, nenhum degrau de tabela e nenhum\norgao nomeado (regra 609).\n\nE ESTE LONGO E O CASO MAIS CARREGADO DE NUMERO QUE A FROTA JA USOU, o que faz a\nregra (g) trabalhar mais do que de costume. A legenda traz salario minimo e\nliquido, a diferenca entre os dois, SEIS degraus de tabela com percentual antigo\ne novo, limites anuais, faixas de idade, beneficios em euro por ano e por mes, e\nprojecao de cinco anos. **NADA disso entra.** Sao numero de politica fiscal e de\nexercicio, e envelhecem por lei nova -- o proprio longo diz que as regras mudaram\neste ano, logo ele mesmo e a prova de que mudam.\n\nA FAMILIA DE ENTRADA ERRADA E: **DADO DE ENTRADA** -- tratar a retencao como se\nela saisse so da lei e do salario, quando ela sai do que esta DECLARADO na folha.\nConferida a regra (f): o `epomeno-epipedo-s018`, a unica peca anterior desta\nMESMA origem, levou a ESCADA PROGRESSIVA (o bonus nao faz voce perder, so a parte\nacima do limite fica mais cara). E a peca de HOJE deste canal, o\n`epomeno-epipedo-s053`, levou POPULACAO COBERTA. As tres sao familias distintas,\ne a regra (f) do mesmo dia esta cumprida.\n\nO QUE A PECA CARREGA, e nao envelhece: a retencao mensal se calcula sobre o que\nesta DECLARADO na folha; estado civil, filhos e segundo empregador entram nesse\ncalculo; dado errado produz imposto errado TODO MES, sem aviso nenhum na\npropria apresentacao; a diferenca nao desaparece, vem junta na liquidacao; e a\nconferencia e UMA, e vale o ano inteiro.\n\n**E A ROTA DA REGRA (h) FOI O QUE TORNOU ESTA PECA POSSIVEL, e ela estava FECHADA\nTRES HORAS ANTES.** Esta origem nao tem spec local, logo o texto so sai da faixa\nde legenda. As 17:0x o `yt-dlp` levou *\"Sign in to confirm you're not a bot\"* e eu\nreportei a origem como fora de alcance por falta de INSTRUMENTO; as 20:1x a mesma\nchamada baixou 18,79 KB de VTT em `el`. Estado de rota, nao propriedade -- e por\nisso a sonda vem ANTES de desistir da origem, nao depois.\n\nO QUE EU NAO LEVEI, de proposito, e vai escrito para a proxima rodada achar: a\npaigida das aquisicoes eletronicas, a dos DOIS empregadores somando degrau, e o\nplano de tres meses para capturar a diferenca. Sao tres familias, e nenhuma cabe\nhoje pela regra (f).\n\nMIRA: a voz `el-GR-NestorasNeural` tem centro -3,2% (679), logo o topo seria\nseguro -- mas pelo 772 eu miro o PISO do `ALVO_SHORT` quando a voz nao exige o\ntopo.\n\nA EXPOSICAO, dita ANTES de publicar: `fabrica/mira.py` devolveu **edge 41,6** e\n**piper 36,8**, os dois dentro de 18 a 45 nos DOIS mundos. Com a banda de residuo\nOBSERVADA de 0,0 a 4,0 s (n=77), se o **edge** narrar o real deve cair entre\n**41,6 e 45,6 s** -- logo PODE passar do teto de 45, que e o caso medido no 772.\nSe o **piper** narrar, 36,8 a 40,8 cabe com folga. A primeira versao dava **38,4**,\nabaixo do piso de 41,5, e foi alongada em treze passos.\n\n## FONTES\nO longo de onde este short foi extraido (`eZ697VNYCPU`) carrega os numeros e as\nfontes -- a propria legenda diz que os valores saem da lei e dos textos oficiais\ndo ministerio. Este short NAO introduz numero novo sobre o mundo, entao nao exige\nfonte institucional nova.\n\nNOTA DE PROCEDENCIA: esta origem NAO tem spec local, e o texto saiu da FAIXA DE\nLEGENDA em `el` baixada por `yt-dlp` (18,79 KB), lida fala por fala. A paigida dos ESTOICHEIA aparece na secao das tres paigidas. Nenhuma frase foi inferida de titulo\nde capitulo nem de resumo -- que e a metade que a regra (h) chama de inventar\nconteudo.\n"
+}
