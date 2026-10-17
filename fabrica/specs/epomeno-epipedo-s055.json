@@ -1,0 +1,76 @@
+{
+  "slug": "epomeno-epipedo",
+  "idioma": "el",
+  "voz": "el-GR-NestorasNeural",
+  "trilha": "Inspired",
+  "paleta": {
+    "ink": "#16283C",
+    "c1": "#2E7BB4",
+    "c2": "#E0A02E",
+    "bg": "#F3F7FA"
+  },
+  "pacote": "epomeno-epipedo-s055",
+  "longo_existente": "h04-UVlVevs",
+  "thumb": {
+    "l1": "Μέτρα",
+    "l2": "δύο φορές"
+  },
+  "longo": [],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Ο αριθμός",
+      "sub": "δεν είναι σταθερός",
+      "nar": "Αυτός ο αριθμός δεν μένει σταθερός μέσα σε μία χρονιά.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Αλλάζει",
+      "nar": "Αλλάζει, και αλλάζει σε στιγμές που προβλέπονται."
+    },
+    {
+      "layout": "item",
+      "kicker": "Γιατί",
+      "nar": "Εξαρτάται από το πόσα έχεις βγάλει ως τώρα μέσα εφέτος."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Άρα",
+      "sub": "δύο μετρήσεις",
+      "nar": "Άρα μία μόνο μέτρηση μέσα στον χρόνο δεν σου αρκεί."
+    },
+    {
+      "layout": "item",
+      "kicker": "Πότε",
+      "nar": "Θέλεις μία στην αρχή και μία κοντά στο τέλος της."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Και η φορά",
+      "nar": "Και η φορά της διαφοράς σου λέει τι έχει συμβεί."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Λιγότερα",
+      "sub": "ή περισσότερα",
+      "nar": "Λιγότερα για την ίδια ώρα σημαίνει επόμενο κλιμάκιο."
+    },
+    {
+      "layout": "item",
+      "kicker": "Το αντίθετο",
+      "nar": "Περισσότερα σημαίνει μάλλον ακριβώς το αντίθετο."
+    },
+    {
+      "layout": "item",
+      "kicker": "Χωρίς τίποτα",
+      "nar": "Και δεν χρειάζεσαι κανέναν συντελεστή για όλο αυτό."
+    },
+    {
+      "layout": "cta",
+      "kicker": "Μέτρα δύο",
+      "nar": "Μέτρα το δύο φορές και κάνε εγγραφή τώρα."
+    }
+  ],
+  "copy": "# epomeno-epipedo-s055\n\n## TITULO\nΟ Αριθμός Σου Δεν Μένει Σταθερός Μέσα Στη Χρονιά — Γι' Αυτό Δύο Μετρήσεις, Όχι Μία\n\n## TITULO SHORT\nΜία μέτρηση δεν αρκεί\n\n## DESCRICAO\nΈστω ότι έκανες σωστά τον υπολογισμό: πήρες καθαρά μηνιάματα, απέφυγες τους μήνες με δώρο ή αναδρομικά, και βγήκε ένας αριθμός. Υπάρχει μια τελευταία παγίδα, και είναι η πιο εύκολη να μη τη δεις: **αυτός ο αριθμός έχει ημερομηνία λήξης μέσα στην ίδια χρονιά.** Δεν είναι λάθος — είναι σωστός για τη στιγμή που τον μέτρησες, και παύει να ισχύει καθώς η χρονιά προχωράει.\n\nΟ λόγος είναι ότι δεν εξαρτάται μόνο από τον μισθό σου, αλλά από το **πόσα έχεις βγάλει αθροιστικά ως τώρα** μέσα στο έτος. Και επειδή αυτό το αθροιστικό ποσό μεγαλώνει με τους μήνες, περνάει κάποια σημεία — και σε κάθε σημείο ο αριθμός αλλάζει. Αυτά τα σημεία δεν είναι τυχαία: είναι προβλέψιμα, γιατί εξαρτώνται από τη δική σου πορεία μέσα στη χρονιά.\n\nΗ πρακτική συνέπεια είναι σύντομη: **μία μέτρηση τον χρόνο δεν αρκεί, και δύο αρκούν για τους περισσότερους.** Μία στην αρχή και μία κοντά στο τέλος — και το τέλος είναι ακριβώς η περίοδος που ζητούνται και οι περισσότερες ώρες, δηλαδή η στιγμή που ο αριθμός μετράει πιο πολύ.\n\nΚαι εδώ είναι το μέρος που κάνει τη δεύτερη μέτρηση να αξίζει διπλά: **η φορά της διαφοράς είναι διάγνωση.** Αν η δεύτερη μέτρηση δίνει **λιγότερα** για την ίδια ώρα, πέρασες σε επόμενο κλιμάκιο. Αν δίνει **περισσότερα**, μάλλον συνέβη ακριβώς το αντίθετο. Δεν χρειάζεται να ξέρεις κανέναν συντελεστή για να το διαβάσεις — αρκεί να έχεις τις δύο δικές σου μετρήσεις να τις συγκρίνεις.\n\nΚαι τα δύο μπορούν να συμβούν στην ίδια χρονιά, με αντίθετη κατεύθυνση. Γι' αυτό μία μέτρηση δεν μπορεί να σου πει σε ποια κατάσταση βρίσκεσαι: χωρίς δεύτερο σημείο δεν υπάρχει φορά, και χωρίς φορά δεν υπάρχει διάγνωση.\n\nΔεν γράφω εδώ κανένα όριο, κανένα ποσοστό και κανένα ποσό. Αυτά αλλάζουν με κάθε χρονιά, ενώ το «δύο μετρήσεις, και η φορά σου λέει» δεν αλλάζει.\n\nΣτο πλήρες βίντεο: πώς βγαίνει ο αριθμός από δύο μισθοδοσίες, γιατί το μέσο ποσοστό δεν κάνει, και τι ΔΕΝ απαντά αυτός ο υπολογισμός.\n\nΕνημερωτικό περιεχόμενο, δεν αποτελεί φορολογική, λογιστική ή νομική συμβουλή.\n\n## COMENTARIO FIXADO\nΗ τελευταία παγίδα δεν είναι στον υπολογισμό, είναι στην **ημερομηνία**: ο αριθμός είναι σωστός για τη στιγμή που τον μέτρησες και παύει να ισχύει καθώς η χρονιά προχωράει, γιατί εξαρτάται από το αθροιστικό εισόδημα. Άρα δύο μετρήσεις — αρχή και τέλος — και η **φορά** της διαφοράς είναι η διάγνωση: λιγότερα για την ίδια ώρα σημαίνει επόμενο κλιμάκιο, περισσότερα μάλλον το αντίθετο. Χωρίς δεύτερο σημείο δεν υπάρχει φορά. Επίτηδες δεν γράφω όρια ούτε ποσοστά: αυτά παλιώνουν κάθε χρονιά. Γράψτε αν είχατε μετρήσει ποτέ δύο φορές.\n\n## HASHTAGS\n#Υπερωρίες #Μισθοδοσία #ΕπόμενοΕπίπεδο\n\n## TAGS\nypervries, metrisi, dyo metriseis, athroistiko eisodima, klimakio, plafon eisforon, arxi kai telos, fora tis diaforas, diagnosi, epomeno epipedo, misthodosia, kathara ana ora, xronia, syntelestis, oikonomika\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Conferido campo a campo: nenhum\nlimite, nenhum percentual, nenhum valor, nenhum degrau nomeado e nenhum orgao\n(regra 609).\n\nA REGRA (g) tira, deste longo, o valor do teto de contribuicoes e os limites dos\ndegraus — numero de politica fiscal, muda por exercicio. **E o proprio longo\ndispensa esses numeros em letra** (capitulo 74: a sua serie mostra qual das\nsituacoes te afeta \"sem precisar saber nenhum coeficiente\"), o que torna o\ndescarte alinhado com a fonte em vez de uma perda.\n\nE A CONTAGEM FICOU FORA, pelo aprendizado 725: o longo declara \"TRES stigmes\"\n(capitulo 66) e enumera tres (67, 68, 69) — declaracao verificavel. A peca carrega\nDUAS delas (o teto e o degrau, as que tem data previsivel pelo capitulo 70) e **nao\ndiz quantas sao**, porque dizer \"duas das tres\" obrigaria o espectador a aceitar\numa contagem que o short nao enumera. A terceira (mudanca de situacao familiar)\nficou fora por nao ter data previsivel, que e justamente o eixo desta peca.\n\nO QUE A PECA CARREGA, e nao envelhece: o numero tem VALIDADE dentro da propria\nchronia porque depende do acumulado do ano, nao do salario do mes; os pontos em\nque ele muda sao previsiveis pela sua propria trajetoria; logo UMA medicao por\nano nao basta e DUAS bastam para a maioria; e a FORA da diferenca entre as duas e\ndiagnostico — menos pela mesma hora aponta degrau novo, mais aponta o contrario.\nSem segundo ponto nao existe fora, e sem fora nao existe diagnostico.\n\nA FAMILIA DE ENTRADA ERRADA E: **VALIDADE TEMPORAL** — tratar como permanente um\nnumero que expira dentro do proprio ano. Conferida a regra (f) contra as DUAS\npecas anteriores desta MESMA origem: o `epomeno-epipedo-s002` levou MES SUJO (o\nmes medido tinha dono ou retroativos, logo a diferenca nao era so hora extra) e o\n`-s006` levou MEDIA CONTRA MARGINAL (o percentual medio da folha esconde a\ndiferenca da hora seguinte). As tres sao distintas, e a distincao com o s002 e a\nque vale dita: la o numero nasceu ERRADO por contaminacao; aqui ele nasceu CERTO\ne envelheceu.\n\n**E esta origem e o PRECEDENTE do 12/10**, o primeiro longo da frota a render dois\nshorts — `-s002` e `-s006`, os dois publicados, com familias diferentes. Esta e a\nterceira, e ela existe porque a unidade de pauta e (LONGO x FAMILIA).\n\nO QUE EU NAO LEVEI, de proposito, e vai escrito para a proxima rodada achar: os\nTRES erros que o numero torna visiveis (capitulos 47 a 50 — multiplicar o salario\npor horas, medir um mes so, olhar o bruto da linha) e o erro CARO dos dois lados\n(52 e 53: muitas horas no ponto errado, ou recusas sem motivo). Sao duas familias\nboas, e nenhuma cabe hoje pela regra (f).\n\nMIRA: a voz `el-GR-NestorasNeural` tem centro -3,2% (679), logo o topo seria\nseguro — mas pelo 772 eu miro o PISO do `ALVO_SHORT` quando a voz nao exige o topo.\n\nA EXPOSICAO, dita ANTES de publicar: `fabrica/mira.py` devolveu **edge 41,5** e\n**piper 36,7**, os dois dentro de 18 a 45 nos DOIS mundos — e 41,5 e EXATAMENTE o\npiso do `ALVO_SHORT`. Com a banda de residuo OBSERVADA de **-0,6 a 4,0 s** (n=80),\nse o **edge** narrar o real deve cair entre **40,9 e 45,5 s** — logo PODE passar\ndo teto de 45, o caso do 772. Se o **piper** narrar, 36,1 a 40,7 cabe. A primeira\nversao dava **37,4**, abaixo do piso, e foi alongada em CINCO passos.\n\n## FONTES\nO longo de onde este short foi extraido (`h04-UVlVevs`, pacote\nepomeno-epipedo-014, 86 capitulos) carrega os limites e as fontes. Este short NAO\nintroduz numero novo sobre o mundo, entao nao exige fonte institucional nova.\n\nNOTA DE PROCEDENCIA: o texto saiu dos capitulos 65 a 74 da spec do proprio\npacote, lidos um a um. Nenhuma frase foi inferida de resumo nem de titulo de\ncapitulo.\n"
+}
