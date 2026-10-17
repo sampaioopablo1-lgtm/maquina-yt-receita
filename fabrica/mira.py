@@ -119,7 +119,7 @@ RESIDUO_OBSERVADO = (0.0, 4.0)
 # DENTRO da banda, e o sinal NAO esta ESTABELECIDO (42 - 41,6 <= 1,0, e o
 # arredondamento e para cima) — 36 de 42 estabelecidos. Os LIMITES nao
 # mudaram: 0,4 nao e menor que o piso de 0,1.
-RESIDUO_N = 59  # 741 acrescentou o s035 (24,8 -> 27, +2,2): DENTRO da banda,
+RESIDUO_N = 60  # 741 acrescentou o s035 (24,8 -> 27, +2,2): DENTRO da banda,
 #                 logo os LIMITES nao mudaram — so o numero de pontos que a sustenta.
 #                 14/10 06:2x: o s041 (edge 24,6 -> real 27) deu +2,4 — EMPATADO
 #                 com o teto da banda, o decimo segundo ponto e o segundo a tocar

@@ -210,6 +210,8 @@ SERIE = [
     ("kolejny-poziom-s046", 40.6, 43, "edge"),
     # 17/10 01:1x — provedor edge MEDIDO (zero avisos no job 117269678180)
     ("labtreinamento-s065", 26.4, 28, "edge"),
+    # 17/10 02:1x — provedor edge MEDIDO (zero avisos no job 117281738012)
+    ("epomeno-epipedo-s048", 41.9, 44, "edge"),
 ]
 
 

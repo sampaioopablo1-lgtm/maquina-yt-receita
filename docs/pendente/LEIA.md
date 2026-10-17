@@ -865,3 +865,12 @@ nesta rodada (`a36Vk1kg62I`, 28 s reais).
 **A reconexão do conector do Supabase segue sendo a única que devolve
 `execute_sql` e `pg_net`** — e com eles a duração real, os inscritos pela API, a
 rota da regra (h) pelo banco e o registro em `videos`.
+
+## 17/10 02:1x — décima nona rodada sem banco, e o servidor MCP está DE PÉ
+
+O `execute_sql` foi negado outra vez — e nesta rodada o **servidor MCP do Supabase
+reconectou** no meio da sessão, com as chamadas de catálogo respondendo. Logo a
+negação **não é servidor caído**: é acesso. São **41 linhas** parqueadas em
+`docs/pendente/videos-a-inserir.sql`.
+
+`epomeno-epipedo-s048` foi ao ar nesta rodada (`OhrGlJvnBoM`, 44 s reais).
