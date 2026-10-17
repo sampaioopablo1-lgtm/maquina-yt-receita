@@ -1,0 +1,81 @@
+{
+ "slug": "epomeno-epipedo",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#16283C",
+  "c1": "#2E7BB4",
+  "c2": "#E0A02E",
+  "bg": "#F3F7FA"
+ },
+ "pacote": "epomeno-epipedo-s051",
+ "longo_existente": "nttW9fR8wyY",
+ "thumb": {
+  "l1": "Κράτα το",
+  "l2": "όνομα"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Η γραμμή",
+   "sub": "αλλάζει όνομα",
+   "nar": "Στο χαρτί της προσφοράς η γραμμή των εξόδων αλλάζει όνομα.",
+   "sem_cap": true
+  },
+  {
+   "layout": "lista",
+   "kicker": "Παραδείγματα",
+   "itens": [
+    "έξοδα φακέλου",
+    "διαχειριστικά",
+    "δαπάνες σύμβασης"
+   ],
+   "nar": "Έξοδα φακέλου, διαχειριστικά ή δαπάνες σύμβασης."
+  },
+  {
+   "layout": "item",
+   "kicker": "Το ποσό",
+   "nar": "Το ποσό της μπαίνει κανονικά μέσα στον λογαριασμό σου."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Κράτα",
+   "sub": "και το όνομα",
+   "nar": "Κράτα όμως και το ακριβές όνομα αυτής της γραμμής."
+  },
+  {
+   "layout": "item",
+   "kicker": "Γιατί",
+   "nar": "Χωρίς το όνομα δεν ξέρεις ποια γραμμή συγκρίνεις."
+  },
+  {
+   "layout": "item",
+   "kicker": "Δύο προσφορές",
+   "nar": "Δύο προσφορές δίνουν δύο διαφορετικά ονόματα για το ίδιο ποσό."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ή το αντίστροφο",
+   "nar": "Ή το ίδιο όνομα με εντελώς άλλο περιεχόμενο μέσα."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Το ποσό",
+   "sub": "δεν αρκεί",
+   "nar": "Το ποσό μόνο δεν αρκεί ποτέ για τη σύγκριση."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ο κανόνας",
+   "nar": "Γράψε τον αριθμό και το όνομα του πάντα μαζί."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Δες το χαρτί",
+   "nar": "Δες το δικό σου χαρτί και κάνε εγγραφή τώρα."
+  }
+ ],
+ "copy": "# epomeno-epipedo-s051\n\n## TITULO\nΗ Γραμμή των Εξόδων Αλλάζει Όνομα από Προσφορά σε Προσφορά, Γι' αυτό Κράτα το Όνομα Μαζί με το Ποσό\n\n## TITULO SHORT\nΚράτα και το όνομα\n\n## DESCRICAO\nΌταν βρίσκεις τη γραμμή των εξόδων στο χαρτί, το φυσικό είναι να κρατήσεις **το ποσό**. Και αυτό είναι το μισό.\n\nΗ λεζάντα του μεγάλου βίντεο λέει κάτι που μοιάζει λεπτομέρεια και δεν είναι: *«Έξοδα φακέλου, διαχειριστικά, δαπάνες σύμβασης: τα ονόματα αλλάζουν. Αν τα βρεις, κράτα και το ακριβές όνομα της γραμμής.»*\n\nΓιατί το όνομα μετράει όσο και ο αριθμός:\n\n- **δύο προσφορές** μπορούν να γράφουν δύο διαφορετικά ονόματα για το **ίδιο** πράγμα — και τότε η σύγκριση είναι έγκυρη, αλλά μόνο αν το ξέρεις;\n- ή να γράφουν **το ίδιο όνομα** για δύο διαφορετικά πράγματα — και τότε η σύγκριση μοιάζει έγκυρη και δεν είναι.\n\nΜε το ποσό μόνο, οι δύο περιπτώσεις είναι **ανεξέταστες**: βλέπεις δύο αριθμούς και δεν έχεις τρόπο να πεις αν αφορούν την ίδια γραμμή.\n\nΚαι υπάρχει και η πρακτική πλευρά: αν ρωτήσεις στο κατάστημα ή στην τράπεζα, η απάντηση έρχεται πιο γρήγορα όταν ονομάζεις τη γραμμή όπως είναι γραμμένη, και όχι όταν λες «εκείνα τα έξοδα».\n\nΟ κανόνας που μένει: **γράψε τον αριθμό και το όνομα πάντα μαζί.** Κοστίζει τρεις λέξεις, και είναι η διαφορά ανάμεσα σε μια σύγκριση που στέκει και σε μια που φαίνεται να στέκει.\n\nΟ πλήρης υπολογισμός, με τους τέσσερις αριθμούς και τη μία αφαίρεση, είναι στο μεγάλο βίντεο του καναλιού.\n\n## COMENTARIO FIXADO\nΣτο χαρτί που έχεις, πώς ονομάζεται ακριβώς η γραμμή των εξόδων;\n\n## HASHTAGS\n#οικονομικα #δοσεις #καταναλωτης #epomenoepipedo #shorts\n\n## TAGS\nεξοδα φακελου, διαχειριστικα, δαπανες συμβασης, ατοκες δοσεις, συγκριση προσφορων, ονομα γραμμης, καταναλωτης, οικονομικα, epomeno epipedo\n\n## AVISO\n**ORIGEM: a regra de RECÊNCIA, com a ordem VIVA sondada nesta rodada.** O\n`yt-dlp --flat-playlist` na playlist `UU…` confirma o `nttW9fR8wyY` (754 s) como\no longo MAIS NOVO do canal. A legenda saiu pelo `yt-dlp` na sandbox.\n\n**FAMÍLIA DE ENTRADA ERRADA, nova neste canal:** o NOME da linha de despesas muda\nde oferta para oferta, logo guardar só o VALOR deixa duas situações\nindistinguíveis — nomes diferentes para a mesma coisa, e o mesmo nome para coisas\ndiferentes. As sete copies anteriores desta origem foram lidas: o número não se\napresenta (`s044`), uma vez e não duas (`s045`), compare euros (`s046`), a mesma\noferta (`s047`), o não escrito não entra (`s048`), dois nomes parecidos e um só\ncerto (`s049`) e não a etiqueta anterior ao desconto (`s050`).\n\n**A distinção com o `s049` vai escrita, porque é ela que o portão `similaridade`\ntinha de aprovar:** lá são duas linhas de TOTAL com nomes parecidos no MESMO\npapel, e o critério é qual delas contém o capital; aqui é a MESMA linha com nomes\ndiferentes em papéis DIFERENTES, e o critério é guardar o nome junto do número.\n\n**E a regra (g):** nenhum número do mundo entra. Não há taxa, valor nem data — só\nos nomes que o próprio longo enumera.\n\n## CONFIGURACOES DO STUDIO\nShort 9:16, `privacyStatus=public`, trilha `Inspired`, voz `el-GR-NestorasNeural`.\n\n**EXPOSIÇÃO DA DURAÇÃO, declarada ANTES de publicar:** previsão edge **41,7 s** e\npiper **37,0 s**, as duas dentro do portão `duracao` (18 a 45 nos dois mundos), e\na peça foi escrita no **PISO** do `ALVO_SHORT` da frota pela regra de redação do\n772 — este canal não tem `ALVO_POR_CANAL` medido. Com a banda observada\n**(0,0; 4,0)**, n=68: se o edge narrar, o REAL deve cair entre **41,7 e 45,7 s**,\nlogo **PODE passar do teto de 45**, como no `epomeno-epipedo-s032` (46 s com o\nportão verde). Nenhum parâmetro mudou (§10).\n\n**E NÃO HAVERÁ PONTO DE RESÍDUO NESTA RODADA, e isto vai dito ANTES de publicar:**\na rota pública da duração **FECHOU**, medida pela peça de CONTROLE `OhrGlJvnBoM`\n(44 s conhecidos) às 11:1x — a página voltou com 1.208.851 bytes e **ZERO**\nocorrências de `lengthSeconds`, um marcador `CONSENT` e dois `captcha`. Peça de\ndias de vida não desindexa, logo o que mudou foi a ROTA e não a peça. A peça entra\nno parque pelo 726 e a medição vem quando a rota reabrir.\n"
+}
