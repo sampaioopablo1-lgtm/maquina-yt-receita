@@ -1,0 +1,80 @@
+{
+ "slug": "epomeno-epipedo",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#16283C",
+  "c1": "#2E7BB4",
+  "c2": "#E0A02E",
+  "bg": "#F3F7FA"
+ },
+ "pacote": "epomeno-epipedo-s048",
+ "longo_existente": "nttW9fR8wyY",
+ "thumb": {
+  "l1": "Άγραφο",
+  "l2": "δεν μπαίνει"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Μια σκέψη",
+   "sub": "πιο ειλικρινής",
+   "nar": "Σου έρχεται μια σκέψη που μοιάζει πιο ειλικρινής.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Η σκέψη",
+   "nar": "Να βάλεις μέσα στην πράξη και τον χρόνο σου."
+  },
+  {
+   "layout": "item",
+   "kicker": "Και",
+   "nar": "Τη διαδρομή, τη βενζίνη, την ουρά στο ταμείο."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Λογικό",
+   "sub": "και χαλάει",
+   "nar": "Είναι λογική σκέψη, και χαλάει τον υπολογισμό."
+  },
+  {
+   "layout": "item",
+   "kicker": "Γιατί",
+   "nar": "Ο λόγος δεν είναι ότι ο χρόνος σου δεν αξίζει."
+  },
+  {
+   "layout": "item",
+   "kicker": "Το κριτήριο",
+   "nar": "Είναι ότι δεν συγκρίνεται με τίποτα πάνω στο χαρτί."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Ο κανόνας",
+   "itens": [
+    "γραμμένο: μπαίνει",
+    "άγραφο: όχι"
+   ],
+   "nar": "Γραμμένο στο χαρτί μπαίνει, άγραφο δεν μπαίνει."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Χωριστά",
+   "sub": "μετά την πράξη",
+   "nar": "Δύο άνθρωποι με το ίδιο χαρτί, το ίδιο νούμερο."
+  },
+  {
+   "layout": "item",
+   "kicker": "Η τάξη",
+   "nar": "Κράτα λοιπόν τον χρόνο σου χωριστά, μετά την πράξη."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Δοκίμασέ το",
+   "nar": "Πρώτα τα ευρώ, ύστερα η δική σου απόφαση. Κάνε εγγραφή."
+  }
+ ],
+ "copy": "# epomeno-epipedo-s048\n\n## TITULO\nΟ Χρόνος Σου και η Βενζίνη Δεν Είναι Γραμμές του Χαρτιού — και Μπαίνοντας στην Πράξη Τη Χαλούν\n\n## TITULO SHORT\nΆγραφο δεν μπαίνει\n\n## DESCRICAO\nΈκανες τη σωστή αφαίρεση και βρήκες πόσο κοστίζει η διευκόλυνση. Και μετά σου έρχεται μια σκέψη που μοιάζει πιο ειλικρινής: **να βάλεις μέσα και τον χρόνο σου.** Τη διαδρομή, τη βενζίνη, την ουρά στο ταμείο, την ενόχληση.\n\nΕίναι λογική σκέψη, και χαλάει την πράξη.\n\nΟ λόγος δεν είναι ότι ο χρόνος σου δεν αξίζει. **Είναι ότι δεν συγκρίνεται με τίποτα πάνω στο χαρτί.** Η αφαίρεση δουλεύει γιατί και οι δύο αριθμοί της βγαίνουν από το ίδιο έγγραφο: η τιμή μετρητοίς και το σύνολο των δόσεων. Βάζοντας έναν τρίτο αριθμό που τον αποφασίζεις εσύ, το αποτέλεσμα σταματά να είναι έλεγχος και γίνεται γνώμη.\n\nΚαι υπάρχει ένα κριτήριο που το κάνει αμέσως φανερό: **δύο άνθρωποι με το ίδιο χαρτί πρέπει να βγάλουν το ίδιο νούμερο.** Αν βγάζουν άλλο, κάποιος πρόσθεσε κάτι που δεν είναι γραμμένο.\n\nΟ κανόνας είναι μονόδρομος και δεν έχει εξαιρέσεις:\n\n- **γραμμένο στο χαρτί σου:** μπαίνει — έξοδα φακέλου, διαχειριστικά, ασφάλιστρα, εγγυήσεις;\n- **άγραφο:** δεν μπαίνει, όσο αληθινό και να είναι.\n\nΑυτό δεν σημαίνει ότι αγνοείς τον χρόνο σου. Σημαίνει ότι τον κρατάς **χωριστά**, ως δική σου απόφαση, μετά την πράξη. Πρώτα μαθαίνεις πόσο κοστίζει η διευκόλυνση σε ευρώ. Ύστερα αποφασίζεις αν τα ευρώ αυτά αξίζουν τη διαδρομή που θα γλιτώσεις.\n\nΗ τάξη αυτή είναι όλη η διαφορά: **η πράξη απαντά σε τι πληρώνεις, όχι σε τι σου αξίζει.** Η δεύτερη ερώτηση είναι δική σου, και δεν βγαίνει από αριθμό.\n\nΟ πλήρης υπολογισμός, με τα τέσσερα νούμερα και την αφαίρεση, είναι στο μεγάλο βίντεο του καναλιού.\n\n## COMENTARIO FIXADO\nΔοκίμασε το κριτήριο: αν κάποιος άλλος έπαιρνε το χαρτί σου, θα έβγαζε το ίδιο νούμερο με εσένα;\n\n## HASHTAGS\n#οικονομικα #δοσεις #υπολογισμος #epomenoepipedo #shorts\n\n## TAGS\nάτοκες δόσεις, τιμή μετρητοίς, έξοδα φακέλου, υπολογισμός, σύγκριση, προσφορά, καταναλωτής, οικονομικά, επόμενο επίπεδο, χαρτί\n\n## AVISO\n**ORIGEM: a regra de RECÊNCIA.** O longo mais novo do canal pela ordem VIVA da\nplaylist `UU…` é o `nttW9fR8wyY` (754 s), que tem spec local\n(`epomeno-epipedo-017`, 81 capítulos) e já rendeu SETE shorts. O\n`segundo_angulo.py` nomeou os sete e as sete copies foram conferidas.\n\n**FAMÍLIA DE ENTRADA ERRADA, nova neste canal:** somar ao cálculo o próprio\ntempo, a gasolina e o incômodo — coisas verdadeiras que **não são linhas do\npapel** — e com isso perder a verificabilidade da conta. A base é literal nos\ncapítulos 51 e 52 do longo (*\"Δεν μετράς τον χρόνο σου, τη βενζίνη ή τη διάθεσή\nσου\"* e *\"δύο άνθρωποι με το ίδιο χαρτί πρέπει να βγάλουν το ίδιο νούμερο\"*), que\nnenhum dos sete shorts usou. As sete anteriores: zero e os custos (`s005`), o\npercentual não é taxa (`s024`), negativo não acontece (`s038`), o número não\ndecide por você (`s044`), uma vez e não duas (`s045`), compare em euros (`s046`) e\na oferta de outra loja (`s047`).\n\n**E a regra (g):** nenhum número do mundo entra. O longo tem um exemplo numérico,\ne ele é declaradamente **inventado pelo próprio autor** (capítulos 36 e 37) — logo\nnão entraria nem como número real. O short carrega só o critério.\n\n## CONFIGURACOES DO STUDIO\nShort 9:16, `privacyStatus=public`, trilha `Inspired`, voz `el-GR-NestorasNeural`.\n\n**EXPOSIÇÃO DA DURAÇÃO, declarada ANTES de publicar:** previsão edge **41,9 s** e\npiper **37,1 s**. Mirei o **PISO** do `ALVO_SHORT` da frota (41,5 a 43,0), que é a\nregra de redação do 772 — este canal não tem `ALVO_POR_CANAL` medido. Com a banda\nobservada **(0,0; 4,0)**, n=59: se o edge narrar o REAL deve cair entre **41,9 e\n45,9 s**, e o topo PASSA do teto de 45 do portão `duracao`; se o piper narrar,\n37,1 a 41,1 cabe com folga. É exatamente o que o 772 descreve, e a exposição vai\ndita em vez de escondida. Nenhum parâmetro mudou (§10).\n"
+}
