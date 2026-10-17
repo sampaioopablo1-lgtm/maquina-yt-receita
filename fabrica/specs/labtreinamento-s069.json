@@ -1,0 +1,80 @@
+{
+ "slug": "labtreinamento",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#1F2933",
+  "c1": "#3F6C51",
+  "c2": "#C98B2E",
+  "bg": "#F5F3ED"
+ },
+ "pacote": "labtreinamento-s069",
+ "longo_existente": "FtCtIJPsc_Q",
+ "thumb": {
+  "l1": "Já salvo",
+  "l2": "fica"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Você decidiu",
+   "sub": "usar a nova",
+   "nar": "Você passou a usar a nova.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Nas próximas",
+   "nar": "Vale para as próximas."
+  },
+  {
+   "layout": "item",
+   "kicker": "E as antigas",
+   "nar": "Os antigos ficaram."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O que já",
+   "sub": "está salvo",
+   "nar": "O que está salvo fica."
+  },
+  {
+   "layout": "item",
+   "kicker": "A varredura",
+   "nar": "Procure as de três."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Duas perguntas",
+   "itens": [
+    "devia ser exata?",
+    "inseriram coluna?"
+   ],
+   "nar": "Devia ser exata? Mexeram?"
+  },
+  {
+   "layout": "item",
+   "kicker": "Se sim",
+   "nar": "Se sim, ponha o quarto."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Não precisa",
+   "sub": "reescrever tudo",
+   "nar": "Não reescreva tudo."
+  },
+  {
+   "layout": "item",
+   "kicker": "A regra",
+   "nar": "Decisão nova não conserta."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Varra uma hoje",
+   "nar": "Varra uma hoje. Inscreva-se."
+  }
+ ],
+ "copy": "# labtreinamento-s069\n\n## TITULO\nTrocar de Função Vale Para as Fórmulas Novas e Não Conserta as Buscas Já Salvas\n\n## TITULO SHORT\nO que já está salvo\n\n## DESCRICAO\nDecidir usar a função nova é a parte fácil, e ela resolve **daqui para frente**. O que fica de fora é tudo o que já está salvo.\n\nO vídeo longo trata isso como passo próprio: *\"para as planilhas que você já tem, vale uma revisão rápida. Procure os PROCV que estão com apenas três argumentos.\"* Não é zelo — é onde o padrão silencioso continua morando, em arquivo que ninguém abriu desde que foi escrito.\n\nA varredura tem duas perguntas, e as duas são rápidas:\n\n- **aquela busca deveria ser exata?** Se sim, acrescente o argumento que diz isso. É uma palavra por fórmula;\n- **alguém inseriu coluna na tabela depois que a fórmula foi escrita?** Se sim, o número de coluna aponta para o lugar errado hoje, e a fórmula continua devolvendo valor sem reclamar.\n\nRepare no que **não** é preciso fazer: reescrever a planilha, trocar todas as fórmulas pela função nova, ou refazer o arquivo. A revisão é cirúrgica — você mexe só nas que têm três argumentos, e deixa as outras em paz.\n\nE há um motivo para fazer isso **agora** em vez de quando der problema: o erro desse tipo não avisa. Ele não gera mensagem, não pinta a célula, não aparece em conferência. Ele só entrega o valor da linha vizinha, e quem olha não tem como saber.\n\nO critério prático: **toda decisão nova sobre como escrever fórmula precisa de um segundo passo sobre o que já está escrito.**\n\nA demonstração completa, com os três limites e a regra de decisão, está no vídeo longo do canal.\n\n## COMENTARIO FIXADO\nQuantos arquivos seus têm busca escrita antes de você saber disso?\n\n## HASHTAGS\n#excel #planilha #produtividade #labtreinamento #shorts\n\n## TAGS\nexcel, planilha, procv, procx, revisao, auditoria de planilha, quarto argumento, busca exata, manutencao, produtividade, lab treinamento\n\n## AVISO\n**ORIGEM: a regra de RECÊNCIA, com a ordem VIVA sondada nesta rodada.** O\n`FtCtIJPsc_Q` (531 s) segue sendo o longo MAIS NOVO do canal, e sem spec local —\na legenda saiu pelo `yt-dlp` na sandbox, pela regra (h).\n\n**FAMÍLIA DE ENTRADA ERRADA, nova neste canal:** trocar de função vale só para o\nque vem DEPOIS — o que já está salvo continua com o padrão silencioso, e precisa\nde uma varredura própria. As dez copies anteriores desta origem foram lidas:\nquarto argumento ausente (`s058`), posição que quebra na inserção (`s059`), a\nversão é de quem abre (`s061`), o erro que não aparece (`s062`), a busca que só\nolha para um lado (`s063`), faixa pede aproximada (`s064`), a primeira linha é a\nmais antiga (`s065`), o custo de legibilidade do número de coluna (`s066`), o\nrecado de \"não encontrado\" é opcional (`s067`) e uma fórmula devolve duas colunas\n(`s068`).\n\n**A distinção com o `s058` vai escrita, porque é ela que o portão `similaridade`\ntinha de aprovar:** lá o assunto é o argumento que falta numa fórmula que você\nestá escrevendo AGORA; aqui é o ACERVO — as fórmulas que já existem e que a sua\ndecisão de hoje não alcança. Um fala de escrita, o outro de revisão.\n\n**E a regra (g):** nenhum número do mundo entra. Não há versão, taxa nem data — a\npeça carrega o procedimento de varredura, que não envelhece.\n\n## CONFIGURACOES DO STUDIO\nShort 9:16, `privacyStatus=public`, trilha `Inspired`, voz\n`pt-BR-ThalitaMultilingualNeural`.\n\n**EXPOSIÇÃO DA DURAÇÃO, declarada ANTES de publicar:** previsão edge **25,8 s** e\npiper **21,2 s**, os dois **dentro** da mira medida do canal (20,0 a 26,0) — o\n`mira.py` verde nos dois mundos, depois de cinco encurtamentos (o primeiro\nrascunho dava edge 32,9). Com a banda observada **(0,0; 4,0)**, n=70: se o edge\nnarrar, o REAL deve cair entre **25,8 e 29,8 s**, logo PODE passar do teto; se o\npiper narrar, 21,2 a 25,2 cabe. É a pinça do 740/748, cuja frequência medida é\n**24 de 27** fora da mira neste canal no mundo edge. Nenhum parâmetro mudou (§10).\n\n**E A ROTA DA DURAÇÃO REABRIU, medida pela peça de CONTROLE nesta rodada:** o\n`OhrGlJvnBoM` devolveu os 44 s conhecidos às 13:0x, depois de duas rodadas\nfechada — e com ela as DUAS peças parqueadas saíram de uma vez. Logo há ponto de\nresíduo nesta rodada.\n"
+}
