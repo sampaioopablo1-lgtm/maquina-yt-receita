@@ -947,3 +947,12 @@ dentro da banda e estabelecido. **49** linhas de `insert into videos` parqueadas
 **A pinça do 740/748 esta em 24 de 27** peças deste canal fora do teto da mira no
 mundo edge, TODAS com o `mira.py` verde. Esta e a decisao 3 da sua fila, e ela
 só piora com a contagem.
+
+## 17/10 11:1x — decima segunda peca do dia, e a rota da duracao FECHOU
+`epomeno-epipedo-s051` = `4v1ttezslTI` ("Κράτα και το όνομα"), publicada e
+indexada. **A duracao REAL nao foi medida**, e o motivo e instrumento, nao peca:
+a rota publica fechou, medida pela peca de CONTROLE `OhrGlJvnBoM` (44 s
+conhecidos) — pagina de 1.208.851 bytes com ZERO `lengthSeconds`. A peca ficou
+PARQUEADA e sai do pendente quando a rota reabrir.
+
+**50** linhas de `insert into videos` parqueadas.
