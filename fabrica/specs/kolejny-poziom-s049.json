@@ -1,0 +1,81 @@
+{
+ "slug": "kolejny-poziom",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "pacote": "kolejny-poziom-s049",
+ "longo_existente": "GUiq15usizw",
+ "thumb": {
+  "l1": "Trzy małe",
+  "l2": "liczby"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Drugi błąd",
+   "sub": "w drugą stronę",
+   "nar": "Jest jeszcze drugi błąd, w przeciwną stronę.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Co zostaje",
+   "nar": "Zostają ci same odsetki kontra sam czynsz najmu."
+  },
+  {
+   "layout": "item",
+   "kicker": "I to",
+   "nar": "I to jeszcze wcale nie jest cały rachunek."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Własność",
+   "sub": "trzy pozycje",
+   "nar": "Po stronie własności zostają trzy małe liczby."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Które",
+   "itens": [
+    "podatek",
+    "ubezpieczenie murów",
+    "fundusz remontowy"
+   ],
+   "nar": "Podatek, ubezpieczenie murów, fundusz remontowy."
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlaczego umykają",
+   "nar": "Każda z nich osobno jest mała, i dlatego umyka."
+  },
+  {
+   "layout": "item",
+   "kicker": "Razem",
+   "nar": "Razem decydują, bo wynik bywa bliski remisu."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Kryterium",
+   "sub": "kto płaci",
+   "nar": "Kryterium jest jedno: kto faktycznie płaci."
+  },
+  {
+   "layout": "item",
+   "kicker": "Jedna zasada",
+   "nar": "Ta sama zasada usuwa jedno, a dodaje drugie."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Sprawdź papiery",
+   "nar": "Sprawdź swoje własne papiery i zasubskrybuj kanał."
+  }
+ ],
+ "copy": "# kolejny-poziom-s049\n\n## TITULO\nOdsetki Kontra Czynsz To Jeszcze Nie Cały Rachunek — Po Stronie Własności Zostają Trzy Małe Liczby\n\n## TITULO SHORT\nTrzy małe liczby zostają\n\n## DESCRICAO\nNauczyłeś się już, że cała rata wprowadza w błąd, i że z rachunku wypada wszystko, co płacisz po obu stronach. Obie rzeczy są prawdziwe. **I razem prowadzą do drugiego błędu, tylko w przeciwną stronę:** zostaje ci sama linia odsetek kontra sam czynsz.\n\nTo za mało, i tym razem wynik przechyla się w stronę **własności**.\n\nBo po stronie własności zostają jeszcze **trzy małe liczby**, których najemca nie płaci wcale:\n\n- **podatek od nieruchomości** — płaci go właściciel, więc w najmie nie widzisz go na swoim rachunku;\n- **ubezpieczenie** — to, które ubezpiecza mury, nie twoje rzeczy;\n- **fundusz remontowy**, jeśli go masz.\n\nKażda z nich osobno jest mała, i właśnie dlatego umykają. Razem potrafią zdecydować o wyniku, bo sam wynik bywa bliski remisu — a wtedy decyduje nie wielka liczba, lecz suma małych.\n\nZwróć uwagę na kryterium, bo ono jest jedno i to samo w obie strony: **do rachunku wchodzi to, co płacisz tylko po jednej stronie.** Media i czynsz administracyjny płacisz w najmie i we własności, więc się skracają. Podatek, ubezpieczenie murów i fundusz remontowy płacisz wyłącznie jako właściciel, więc nie skracają się z niczym.\n\nTa sama zasada usuwa jedno i dodaje drugie. Nie ma tu dwóch reguł — jest jedna, a kierunek wynika z tego, kto faktycznie płaci.\n\nI jeszcze jedno, żeby rachunek był krótki: u wielu osób funduszu remontowego nie ma, więc zostają **cztery liczby, nie pięć**. Policz tyle, ile masz na papierze, i ani jednej więcej.\n\nPełny rachunek, z rozdzieleniem odsetek od kapitału, jest w długim filmie na kanale.\n\n## COMENTARIO FIXADO\nSprawdź w swoich papierach: które z tych trzech pozycji faktycznie płacisz, a których nie masz wcale?\n\n## HASHTAGS\n#finanse #kredyt #najem #kolejnypoziom #shorts\n\n## TAGS\nnajem, kredyt hipoteczny, odsetki, kapitał, podatek od nieruchomości, ubezpieczenie, fundusz remontowy, porównanie, rachunek, finanse osobiste, kolejny poziom\n\n## AVISO\n**ORIGEM: a regra de RECÊNCIA.** O longo mais novo do canal pela ordem VIVA da\nplaylist `UU…` é o `GUiq15usizw` (538 s), com spec local\n(`kolejny-poziom-019`, 56 capítulos) e SETE shorts já tirados dele. O\n`segundo_angulo.py` nomeou os sete e as sete copies foram lidas antes de escolher.\n\n**FAMÍLIA DE ENTRADA ERRADA, nova neste canal, e ela é o AVESSO das anteriores:**\ndepois de aprender a TIRAR coisas da conta (a parte de capital, as despesas que\nse cancelam, a caução que volta), tirar DEMAIS — ficar só com juros contra\naluguel e esquecer os três custos que apenas o proprietário paga. As sete\nanteriores: juros de qual mês (`s003`), comissão diluída nos meses (`s033`),\ncapital não é dinheiro gasto (`s042`), o que se cancela sai (`s043`), o resultado\nse desloca (`s044`), a caução volta (`s045`) e o custo que exigiria adivinhar\n(`s046`). Base literal no capítulo 22 (*\"Zostają trzy małe liczby ze strony\nwłasności: podatek od nieruchomości, ubezpieczenie i fundusz remontowy\"*) e no 23\n(*\"pięć liczb, a u wielu osób cztery\"*), que nenhum dos sete usou.\n\n**E a regra (g):** nenhum número do mundo entra — nem alíquota de IPTU, nem taxa\nde juro. O exemplo numérico do longo é declaradamente **inventado pelo autor**\n(capítulos 31 e 32), logo não entraria nem como número real. O short carrega só o\ncritério de quem paga.\n\n## CONFIGURACOES DO STUDIO\nShort 9:16, `privacyStatus=public`, trilha `Wholesome`, voz `pl-PL-MarekNeural`.\n\n**EXPOSIÇÃO DA DURAÇÃO, declarada ANTES de publicar:** previsão edge **41,5 s** e\npiper **35,3 s**. Mirei o **PISO** do `ALVO_SHORT` da frota (41,5 a 43,0), que é\no que o 679 manda para a voz polonesa (centro +2,2%) e o que a regra de redação\ndo 772 manda para todo mundo. Com a banda observada **(0,0; 4,0)**, n=60: se o\nedge narrar, o REAL deve cair entre **41,5 e 45,5 s**, e o topo PASSA do teto de\n45 do portão `duracao`; se o piper narrar, 35,3 a 39,3 cabe. A exposição vai dita\nem vez de escondida, e nenhum parâmetro mudou (§10).\n",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ }
+}
