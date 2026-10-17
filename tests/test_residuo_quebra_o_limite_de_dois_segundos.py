@@ -204,6 +204,10 @@ SERIE = [
     # real 41, igual ao `kolejny-poziom-s045` duas horas antes. Sinal NAO
     # estabelecido nos dois. O piso da banda ja estava em 0,0 e nao se move.
     ("epomeno-epipedo-s047", 41.0, 41, "edge"),
+    # 00:13 de 17/10, primeira peca do dia novo: provedor edge MEDIDO (zero
+    # avisos no job 117254439119), previsao 40,6 e real 43 — residuo +2,4,
+    # DENTRO da banda e ESTABELECIDO.
+    ("kolejny-poziom-s046", 40.6, 43, "edge"),
 ]
 
 

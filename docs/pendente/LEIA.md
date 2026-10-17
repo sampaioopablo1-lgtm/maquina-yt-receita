@@ -817,3 +817,36 @@ que existe, e não vai ficar mais estreita por medir mais.
 
 **E a décima sexta negativa:** as **38** linhas de `insert into videos` seguem
 fora do banco. Porta 1 em 68 / 21 / 8, os três indeterminados em 19,6 h.
+
+## 17/10 00:1x — a meia-noite zerou o contador, e o conserto de 15/10 funcionou
+
+`kolejny-poziom-s046` = `-j_lMIB5Yt0`, **43 s reais** contra previsão edge de 40,6
+(provedor **edge** medido, zero avisos no job `117254439119`): resíduo **+2,4 s**,
+dentro da banda e estabelecido. Som LUFS −14,0, desvio **0,0**, zero silêncios.
+`RESIDUO_N` = 58.
+
+**E esta rodada foi a primeira verificação em produção de um conserto de 15/10.**
+Naquele dia o contador do dia devolveu 0/0/0 na virada da meia-noite e não ordenou
+nada exatamente na rodada que precisava escolher canal; a saída foi a **janela
+móvel de 24 h**. Depois disso todas as rodadas caíram dentro do dia, e o caso
+nunca se repetiu — até agora:
+
+| contagem | labtreinamento | epomeno | kolejny | ordena? |
+|---|---|---|---|---|
+| dia calendário (17/10) | 0 | 0 | 0 | **não** |
+| janela móvel de 24 h | 8 | 9 | 8 | **sim** |
+
+**Vinte e cinco peças das últimas 24 h sumiriam do critério** se só o dia
+calendário decidisse. A móvel escolheu `kolejny-poziom`, e a peça saiu dali.
+`tests/test_o_contador_do_DIA_zerou_na_virada_E_a_movel_ordenou.py`, seis testes.
+
+**O que isso não reivindica:** que o canal escolhido seja o melhor. O valor do
+conserto não é acertar o canal — é **não ficar sem critério** na única hora do dia
+em que o contador do dia é cego.
+
+**O dia 16/10 fechou em 8 / 9 / 8 por canal** pelas linhas parqueadas — acima dos
+sete que você pede, nos três.
+
+**E a décima sétima negativa:** as **39** linhas de `insert into videos` seguem
+fora do banco. Porta 1 em 68 / 21 / 8, os três indeterminados — e vale a trava da
+madrugada: rodada noturna é de medição e engenharia, nunca de veredito.
