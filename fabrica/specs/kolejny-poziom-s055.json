@@ -1,0 +1,76 @@
+{
+  "slug": "kolejny-poziom",
+  "idioma": "pl",
+  "voz": "pl-PL-MarekNeural",
+  "trilha": "Wholesome",
+  "paleta": {
+    "ink": "#1B3A5C",
+    "c1": "#2A9D8F",
+    "c2": "#F5B841",
+    "bg": "#F4F1EA"
+  },
+  "pacote": "kolejny-poziom-s055",
+  "longo_existente": "nPyVHJmY2HA",
+  "thumb": {
+    "l1": "Milczenie",
+    "l2": "to wybór"
+  },
+  "longo": [],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Rezygnacja",
+      "sub": "nie jest wieczna",
+      "nar": "Twoja rezygnacja z programu nie jest wieczna.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Wraca sama",
+      "nar": "Zapis wróci automatycznie, w dacie zapisanej w ustawie."
+    },
+    {
+      "layout": "item",
+      "kicker": "I powtarza się",
+      "nar": "Ta data nie jest jednorazowa, ona się powtarza."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Więc",
+      "nar": "Jeśli nic nie zrobisz, program po prostu wróci."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Milczenie",
+      "sub": "też jest wyborem",
+      "nar": "Czyli milczenie też jest twoim wyborem."
+    },
+    {
+      "layout": "item",
+      "kicker": "Z kosztem",
+      "nar": "A twój koszt wróci dokładnie razem z tym programem."
+    },
+    {
+      "layout": "item",
+      "kicker": "Policz",
+      "nar": "Dlatego policz swój własny koszt przed tą datą."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Z tego roku",
+      "sub": "nie z poprzedniego",
+      "nar": "I policz go z tego roku, nie z poprzedniego."
+    },
+    {
+      "layout": "item",
+      "kicker": "Bo",
+      "nar": "Przy zmianie pensji stary rachunek nie obowiązuje."
+    },
+    {
+      "layout": "cta",
+      "kicker": "Policz wcześniej",
+      "nar": "Policz wcześniej i zapisz się właśnie teraz."
+    }
+  ],
+  "copy": "# kolejny-poziom-s055\n\n## TITULO\nRezygnacja Z Programu Nie Jest Wieczna — Zapis Wraca Sam, A Milczenie Też Jest Wyborem\n\n## TITULO SHORT\nMilczenie to też wybór\n\n## DESCRICAO\nTa decyzja ma rzadką cechę, o której prawie nikt nie mówi: **ona wraca sama**. Rezygnacja nie jest wieczna — zapis do programu wraca automatycznie, w dacie zapisanej w ustawie, i ta data nie jest jednorazowa. Ona się **powtarza**. Większość ludzi traktuje swoją rezygnację jak decyzję podjętą raz na zawsze, a w rzeczywistości jest to decyzja z terminem ważności.\n\nKonsekwencja jest prosta i niewygodna: **jeśli nic nie zrobisz, program wraca, a twój koszt wraca razem z nim.** Czyli brak działania nie jest neutralny — milczenie też jest wyborem, tylko wyborem podjętym przez kogoś innego za ciebie. Różnica między \"zdecydowałem zostać\" i \"nie zdążyłem nic zrobić\" nie widać na pasku wypłaty; widać ją tylko w tym, czy wcześniej policzyłeś.\n\nA jeśli masz policzyć, to są dwa warunki, żeby liczba była wiarygodna. Pierwszy: twój koszt w złotych mieści się w twoim miesiącu bez zmiany niczego innego — i to ty wiesz, czy się mieści, nikt inny. Drugi, ten częściej pomijany: **liczba musi być z tego roku, nie z poprzedniego.** Przy zmianie pensji albo progu stary rachunek po prostu nie obowiązuje, a ludzie wracają do notatki zrobionej rok temu, jakby nic się od tego czasu nie ruszyło.\n\nDlatego kolejność jest taka: najpierw policz, potem czekaj na datę — nigdy odwrotnie. Jeśli data minie bez twojego rachunku, decyzja i tak zostanie podjęta, tylko bez ciebie. A rachunek zrobiony po fakcie opisuje już stan, którego nie wybrałeś.\n\nNie podaję tu żadnej daty, żadnego procentu i żadnej kwoty. Daty i progi się zmieniają z nowelizacją, natomiast zdanie \"decyzja wraca, więc policz zawczasu\" nie zmienia się wcale.\n\nW pełnym filmie: jak policzyć swój realny koszt z dwóch pasków, dlaczego koszt a nie procent, i gdzie są opublikowane zasady.\n\nTreść informacyjna, nie stanowi porady finansowej, podatkowej ani prawnej.\n\n## COMENTARIO FIXADO\nNajmniej oczywista część tej decyzji: ona ma termin ważności i wraca sama. Rezygnacja nie jest wieczna, zapis wraca w dacie z ustawy, a ta data się powtarza — więc brak działania też jest decyzją, tylko podjętą bez ciebie. I jeszcze jedno: jeśli masz w notatkach swój koszt z poprzedniego roku, on już nie obowiązuje przy zmianie pensji albo progu. Specjalnie nie podaję tu daty ani procentu: te się zmieniają, a kolejność \"najpierw policz, potem data\" nie. Napiszcie, czy wiedzieliście, że to wraca.\n\n## HASHTAGS\n#PPK #Wypłata #KolejnyPoziom\n\n## TAGS\nrezygnacja, ponowny zapis, data z ustawy, milczenie, koszt w zlotych, dwa paski, zmiana pensji, prog, decyzja z terminem, kolejny poziom, wyplata, finanse osobiste, rachunek, nowelizacja, program\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Conferido campo a campo: nenhuma\nDATA, nenhum percentual, nenhuma quantia, nenhum artigo de lei e nenhum orgao\nnomeado (regra 609).\n\nA REGRA (g) tira, deste longo, tudo o que MUDA: a data do reingresso automatico,\nos percentuais da contribuicao e os limites. **E a data e o caso mais claro da\nregra (g) que esta peca ja encontrou**: ela e justamente o assunto do short, e\nainda assim NAO entra — porque data de vigencia muda por nova lei, e o que nao\nmuda e que ela EXISTE e se REPETE. A peca diz \"a data esta na lei e se repete\",\nque sobrevive a qualquer nova data.\n\nE A CONTAGEM FICOU FORA, pelo aprendizado 725: o longo declara \"dwa warunki\"\n(capitulo 38) e \"trzy blendy\" (45). A peca carrega os DOIS condicionantes do\ncapitulo 38 e 40, mas nao diz que sao dois — ela os enuncia e deixa o espectador\ncontar, que e o unico jeito de a declaracao ser verificavel dentro do short.\n\nO QUE A PECA CARREGA, e nao envelhece: a renuncia NAO e eterna; o reingresso\nvolta sozinho numa data da lei, e essa data se REPETE; logo nao agir e uma\nescolha, feita por outra pessoa no seu lugar; o custo volta junto com o\nprograma; e a conta tem de ser DESTE ano, porque mudanca de salario ou de limite\ninvalida a antiga.\n\nA FAMILIA DE ENTRADA ERRADA E: **ACAO POR OMISSAO** -- tratar o silencio como\nneutro quando o padrao da regra se reativa sozinho. Conferida a regra (f) contra\nas DUAS pecas anteriores desta MESMA origem: o `kolejny-poziom-s006` levou \"a\nLINHA da contribuicao nao e o seu custo\" (capitulos 14 e 17 a 24), e o\n`kolejny-poziom-s032` levou \"PERCENTUAL nao se compara com prestacao\" (27 a 32).\nAs tres sao familias distintas.\n\n**E ELA E DISTINTA DO `kolejny-poziom-s025`, que tambem falava de PRAZO**, e isso\nvai dito para nao parecer repeticao: la o erro era escolher o prazo pela tabela\nde ofertas em vez do proprio horizonte -- decisao ATIVA feita pelo instrumento\nerrado. Aqui nao ha decisao nenhuma: o erro e o padrao voltar sozinho enquanto\nninguem decide. Alem disso aquela peca e de outra origem (`Rj7beZkOeYo`).\n\nO QUE EU NAO LEVEI, de proposito, e vai escrito para a proxima rodada achar: as\nTRES entradas que convivem na mesma conta -- a sua, a do empregador e a do\nestado -- e o erro de decidir olhando o SALDO em vez do custo (capitulos 9 a 16 e\n43). E familia propria, e das boas, e nao cabe hoje pela regra (f).\n\nMIRA: a voz `pl-PL-MarekNeural` tem centro **+2,2%** (679), logo a §6 manda MIRAR\nO PISO -- e o 772 diz o mesmo por outro caminho.\n\nA EXPOSICAO, dita ANTES de publicar: `fabrica/mira.py` devolveu **edge 42,2** e\n**piper 35,9**, os dois dentro de 18 a 45 nos DOIS mundos. Com a banda de residuo\nOBSERVADA de **-0,6 a 4,0 s** (n=78), se o **edge** narrar o real deve cair entre\n**41,6 e 46,2 s** -- logo PODE passar do teto de 45, o caso do 772. Se o **piper**\nnarrar, 35,3 a 39,9 cabe.\n\nE O CAMINHO ATE ESTE NUMERO FOI DE VAIVEM, e vai registrado porque mostra as tres\nrestricoes do 747 brigando: a primeira versao dava **40,4**, ABAIXO do piso de\n41,5, e foi alongada; a segunda passou o portao `ortografia`, que reprovou com\n**3,4% de letras acentuadas contra 6,9%** nas outras specs do canal -- em polones\nisso muda a pronuncia do TTS. Reescrita com palavras naturalmente acentuadas\n(5,2%), ela subiu a **43,1**, um decimo ACIMA do topo da faixa; encurtada em tres\ncenas, fechou em 42,2. Prosodia e duracao se empurram, e o unico jeito de achar o\nponto e iterar com os dois instrumentos.\n\n**E o PISO da banda e NEGATIVO desde 17/10 as 20:1x**, pelo `epomeno-epipedo-s054`\n(41,6 -> 41): a faixa anunciada aqui comeca ABAIXO da previsao de proposito, e\nisso nao e erro de conta.\n\n## FONTES\nO longo de onde este short foi extraido (`nPyVHJmY2HA`, pacote\nkolejny-poziom-015, 71 capitulos) carrega as datas, os percentuais e as fontes.\nEste short NAO introduz numero novo sobre o mundo, entao nao exige fonte\ninstitucional nova.\n\nNOTA DE PROCEDENCIA: o texto saiu dos capitulos 36 a 40 da spec do proprio\npacote, lidos um a um. Nenhuma frase foi inferida de resumo nem de titulo de\ncapitulo.\n"
+}
