@@ -1,0 +1,80 @@
+{
+ "slug": "labtreinamento",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#1F2933",
+  "c1": "#3F6C51",
+  "c2": "#C98B2E",
+  "bg": "#F5F3ED"
+ },
+ "pacote": "labtreinamento-s066",
+ "longo_existente": "FtCtIJPsc_Q",
+ "thumb": {
+  "l1": "Quem abrir",
+  "l2": "vai contar"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Ela não diz",
+   "sub": "o que procura",
+   "nar": "Ela não diz o que procura.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Na fórmula",
+   "nar": "Você vê um número no fim."
+  },
+  {
+   "layout": "item",
+   "kicker": "Esse número",
+   "nar": "É a terceira coluna."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Quem abrir",
+   "sub": "vai contar",
+   "nar": "Quem abrir vai contar."
+  },
+  {
+   "layout": "item",
+   "kicker": "E o caro",
+   "nar": "A fórmula está certa."
+  },
+  {
+   "layout": "item",
+   "kicker": "Em três meses",
+   "nar": "Em três meses, é você."
+  },
+  {
+   "layout": "lista",
+   "kicker": "A diferença",
+   "itens": [
+    "posição: onde está",
+    "referência: qual é"
+   ],
+   "nar": "Posição ou referência."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A nova",
+   "sub": "escreve o nome",
+   "nar": "A nova escreve o nome."
+  },
+  {
+   "layout": "item",
+   "kicker": "O critério",
+   "nar": "Se alguém conta, ela contou."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Abra a sua",
+   "nar": "Abra a sua antiga. Inscreva-se."
+  }
+ ],
+ "copy": "# labtreinamento-s066\n\n## TITULO\nO Número da Coluna Obriga Quem Abrir a Planilha a CONTAR Colunas Para Saber o que a Fórmula Procura\n\n## TITULO SHORT\nQuem abrir vai contar\n\n## DESCRICAO\nExiste um custo da busca comum que não aparece em erro nenhum, e por isso não é discutido: **ela não diz o que procura.**\n\nAbra uma planilha que não é sua e encontre uma fórmula que termina em `3`. Esse três é uma **posição** — a terceira coluna a partir de onde a tabela começa. Para saber o que ele devolve, você tem de ir até a tabela, achar a primeira coluna e contar: um, dois, três. Em tabela larga, contar errado é o caminho normal.\n\nE o detalhe que torna isso caro: **a fórmula está certa.** Ninguém vai receber erro, ninguém vai suspeitar. O custo recai inteiro sobre quem for *entender* a planilha depois — e em muitos casos esse alguém é você mesmo, três meses à frente.\n\nA busca nova resolve isso de um jeito que não é truque: **em vez de um número, você aponta a coluna da resposta.** O nome dela fica escrito na própria fórmula. Quem abre bate o olho e entende, sem contar nada.\n\nRepare que isso não é preferência de estilo. São duas coisas diferentes:\n\n- **a posição** descreve onde a coluna está hoje, e não diz nada sobre o que ela contém;\n- **a referência** descreve qual coluna é, e continua dizendo isso depois de qualquer rearranjo.\n\nPor isso o ganho vem em par: a fórmula que se lê sozinha é a mesma que não quebra quando alguém insere uma coluna no meio. **Uma causa, dois efeitos** — e o segundo é o que todo mundo cita, enquanto o primeiro é o que você sente toda vez que abre arquivo alheio.\n\nO critério prático para decidir: **se outra pessoa precisar contar para entender a sua fórmula, a fórmula está contando por você.**\n\nA demonstração completa, com os três limites e a regra de decisão, está no vídeo longo do canal.\n\n## COMENTARIO FIXADO\nAbra uma planilha antiga sua: você sabe, de cabeça, o que o número de coluna daquela fórmula devolve?\n\n## HASHTAGS\n#excel #planilha #produtividade #labtreinamento #shorts\n\n## TAGS\nexcel, planilha, procv, procx, numero de coluna, legibilidade, manutencao, referencia, formula, produtividade, lab treinamento, tabela\n\n## AVISO\n**ORIGEM: a regra de RECÊNCIA, pela regra (h).** O longo mais novo do canal segue\nsendo o `FtCtIJPsc_Q` (531 s), sem spec local, e a legenda saiu pelo `yt-dlp` na\nsandbox — a rota foi SONDADA nesta rodada antes de prometer.\n\n**FAMÍLIA DE ENTRADA ERRADA, nova neste canal:** o custo de LEGIBILIDADE do\nnúmero de coluna — quem abre a planilha tem de contar colunas para saber o que a\nfórmula procura, e nada avisa porque a fórmula está correta. O `segundo_angulo.py`\nnomeou as OITO peças anteriores desta origem e as oito copies foram lidas: quarto\nargumento ausente (`s058`), posição como endereço que QUEBRA na inserção\n(`s059`), a versão é de quem abre (`s061`), o erro que não aparece (`s062`), a\nbusca que só olha para um lado (`s063`), faixa pede aproximada (`s064`) e a\nprimeira linha é a mais antiga (`s065`).\n\n**A distinção com o `s059` vai escrita porque ela é fina, e é ela que o portão\n`similaridade` tinha de aprovar:** lá o assunto é a fórmula **deixar de\nfuncionar** quando a tabela muda; aqui é a fórmula **funcionando** e ninguém\nconseguindo ler. Mesma causa, efeitos diferentes — e a copy diz isso em letra em\nvez de fingir que são a mesma coisa.\n\nA base é literal na legenda: *\"Quando você abre a planilha de outra pessoa e\nencontra um PROCV, precisa contar colunas para descobrir o que aquele número três\nsignifica. No PROCX, a coluna de resposta está escrita na fórmula.\"*\n\n**E a regra (g):** nenhum número do mundo entra. O `3` do exemplo é argumento de\nfórmula, não número sobre o mundo — não envelhece.\n\n## CONFIGURACOES DO STUDIO\nShort 9:16, `privacyStatus=public`, trilha `Inspired`, voz\n`pt-BR-ThalitaMultilingualNeural`.\n\n**EXPOSIÇÃO DA DURAÇÃO, declarada ANTES de publicar:** previsão edge **25,6 s** e\npiper **21,0 s**, os dois **dentro** da mira medida do canal (20,0 a 26,0) — o\n`mira.py` verde nos dois mundos. Com a banda observada **(0,0; 4,0)**, n=60: se o\nedge narrar, o REAL deve cair entre **25,6 e 29,6 s**, logo PODE passar do teto;\nse o piper narrar, 21,0 a 25,0 cabe. É a pinça do 740/748, cuja frequência medida\né **21 de 24** fora da mira neste canal no mundo edge. Nenhum parâmetro mudou\n(§10).\n\n**E NÃO HAVERÁ PONTO DE RESÍDUO se a rota pública da duração seguir fechada** —\nela foi sondada no começo desta rodada com a peça de CONTROLE do 17/10 03:1x e\ncontinua vazia. Isso vai dito antes, não depois.\n"
+}
