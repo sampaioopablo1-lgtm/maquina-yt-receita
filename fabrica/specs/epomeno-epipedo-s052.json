@@ -1,0 +1,80 @@
+{
+ "slug": "epomeno-epipedo",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#16283C",
+  "c1": "#2E7BB4",
+  "c2": "#E0A02E",
+  "bg": "#F3F7FA"
+ },
+ "pacote": "epomeno-epipedo-s052",
+ "longo_existente": "nttW9fR8wyY",
+ "thumb": {
+  "l1": "Το σύνολο",
+  "l2": "φτιάχνεις"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Ψάχνεις",
+   "sub": "το σύνολο",
+   "nar": "Ψάχνεις στο χαρτί της προσφοράς τη γραμμή του συνόλου.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Και συχνά",
+   "nar": "Πολύ συχνά δεν υπάρχει καθόλου γραμμένη πουθενά εκεί."
+  },
+  {
+   "layout": "item",
+   "kicker": "Υπάρχει",
+   "nar": "Υπάρχει μόνο το ποσό της κάθε δόσης ξεχωριστά."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Τότε",
+   "sub": "το φτιάχνεις",
+   "nar": "Τότε το σύνολο το φτιάχνεις εσύ ο ίδιος, με μία πράξη."
+  },
+  {
+   "layout": "item",
+   "kicker": "Πώς",
+   "nar": "Πολλαπλασιάζεις τον αριθμό των δόσεων επί το ποσό."
+  },
+  {
+   "layout": "item",
+   "kicker": "Αυτό αρκεί",
+   "nar": "Αυτό αρκεί, και δεν είναι καθόλου εκτίμηση δική σου."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Δύο δρόμοι",
+   "itens": [
+    "γραμμένο σύνολο",
+    "δικός σου πολλαπλασιασμός"
+   ],
+   "nar": "Γραμμένο σύνολο, ή ο δικός σου πολλαπλασιασμός."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Η απουσία",
+   "sub": "δεν σταματά",
+   "nar": "Η απουσία της γραμμής δεν σταματά καθόλου τη σύγκριση."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ο κανόνας",
+   "nar": "Ό,τι λείπει και βγαίνει με μία πράξη, βγάλ' το."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Δες το χαρτί",
+   "nar": "Δες το δικό σου χαρτί και κάνε εγγραφή τώρα."
+  }
+ ],
+ "copy": "# epomeno-epipedo-s052\n\n## TITULO\nΤο Συνολικό Ποσό Συχνά Δεν Είναι Γραμμένο στο Χαρτί, και Τότε το Φτιάχνεις Εσύ με Μία Πράξη\n\n## TITULO SHORT\nΤο σύνολο το φτιάχνεις\n\n## DESCRICAO\nΥπάρχει μια στιγμή στον υπολογισμό όπου πολλοί σταματούν: ψάχνουν τη γραμμή του **συνολικού ποσού** στο χαρτί και δεν τη βρίσκουν.\n\nΚαι πολύ συχνά δεν θα τη βρουν, γιατί δεν είναι γραμμένη. Η λεζάντα του μεγάλου βίντεο το αντιμετωπίζει ως κανονικό βήμα: *«Αν η προσφορά δίνει μόνο αυτό και όχι το σύνολο, τότε το σύνολο το φτιάχνεις εσύ.»*\n\nΗ πράξη είναι μία: **ο αριθμός των δόσεων επί το ποσό της κάθε δόσης.** Και το σημαντικό είναι τι **δεν** είναι αυτό:\n\n- δεν είναι **εκτίμηση** — και οι δύο αριθμοί είναι γραμμένοι στο χαρτί σου, με τα δικά σου ποσά;\n- δεν είναι **προσέγγιση** — το αποτέλεσμα είναι ακριβώς το ίδιο νούμερο που θα έγραφε η προσφορά αν το έγραφε.\n\nΓι' αυτό η απουσία της γραμμής δεν είναι εμπόδιο, και δεν είναι λόγος να εγκαταλείψεις τη σύγκριση ή να ρωτήσεις κάποιον. Είναι απλώς μία πράξη που δεν την έκανε για σένα το κατάστημα.\n\nΚαι αν η προσφορά **γράφει** κάποιο σύνολο, χρησιμοποίησέ το αυτούσιο: σου γλιτώνει τον πολλαπλασιασμό, και είναι το ίδιο νούμερο.\n\nΟ κανόνας που μένει: **ό,τι λείπει από το χαρτί αλλά βγαίνει με μία πράξη από δύο γραμμένους αριθμούς, βγάλ' το — και μην το μπερδέψεις ποτέ με υπόθεση.**\n\nΟ πλήρης υπολογισμός, με τους τέσσερις αριθμούς και τη μία αφαίρεση, είναι στο μεγάλο βίντεο του καναλιού.\n\n## COMENTARIO FIXADO\nΣτο χαρτί που κρατάς, γράφει συνολικό ποσό ή μόνο τη δόση;\n\n## HASHTAGS\n#οικονομικα #δοσεις #καταναλωτης #epomenoepipedo #shorts\n\n## TAGS\nσυνολικο ποσο, ατοκες δοσεις, αριθμος δοσεων, ποσο δοσης, πολλαπλασιασμος, συγκριση προσφορων, καταναλωτης, οικονομικα, epomeno epipedo\n\n## AVISO\n**ORIGEM: a regra de RECÊNCIA.** O `nttW9fR8wyY` (754 s) segue sendo o longo MAIS\nNOVO do canal, e a legenda saiu pelo `yt-dlp` na sandbox.\n\n**FAMÍLIA DE ENTRADA ERRADA, nova neste canal:** o total pode simplesmente **não\nestar escrito** no papel — e então você o CONSTRÓI com uma multiplicação de dois\nnúmeros que estão escritos. A ausência da linha não é obstáculo, e o resultado não\né estimativa. As oito copies anteriores desta origem foram lidas: o número não se\napresenta (`s044`), uma vez e não duas (`s045`), compare euros (`s046`), a mesma\noferta (`s047`), o não escrito não entra (`s048`), dois nomes parecidos e um só\ncerto (`s049`), não a etiqueta anterior ao desconto (`s050`) e guarde o nome junto\ndo valor (`s051`).\n\n**A distinção com o `s048` vai escrita, porque é ela que o portão `similaridade`\ntinha de aprovar:** lá a regra é **não ADICIONAR** o que não está escrito (o seu\ntempo, a gasolina) — isto é, não inventar parcela; aqui é **DERIVAR** o que não\nestá escrito a partir do que está. Uma proíbe supor, a outra autoriza calcular, e\na fronteira entre as duas é exatamente \"sai de dois números do papel\".\n\n**E a regra (g):** nenhum número do mundo entra. Não há taxa, valor nem data.\n\n## CONFIGURACOES DO STUDIO\nShort 9:16, `privacyStatus=public`, trilha `Inspired`, voz `el-GR-NestorasNeural`.\n\n**EXPOSIÇÃO DA DURAÇÃO, declarada ANTES de publicar:** previsão edge **41,6 s** e\npiper **36,9 s**, as duas dentro do portão `duracao` (18 a 45 nos dois mundos), e\na peça foi escrita no **PISO** do `ALVO_SHORT` da frota pela regra de redação do\n772. Com a banda observada **(0,0; 4,0)**, n=71: se o edge narrar, o REAL deve\ncair entre **41,6 e 45,6 s**, logo **PODE passar do teto de 45**. Nenhum parâmetro\nmudou (§10).\n\n**E A ROTA DA DURAÇÃO FECHOU OUTRA VEZ, medida pela peça de CONTROLE ANTES de\nprometer:** o `OhrGlJvnBoM` (44 s conhecidos, lidos às 13:0x desta mesma tarde)\nvoltou **vazio** às 14:1x. Logo **não haverá ponto de resíduo nesta rodada**, e a\npeça entra no parque pelo 726 — como as duas de 11:1x e 12:1x, que saíram juntas\nquando a rota reabriu às 13:0x.\n\n**E a sonda da mesma chamada mostrou as DUAS rotas DIVERGINDO:** a de inscritos\n(`/about`) respondeu **68 / 21 / 8** no mesmo minuto em que a da duração veio\nvazia. É o estado por ROTA, não do sandbox — medido em 16/10 às 17:2x e\nreconfirmado aqui.\n"
+}
