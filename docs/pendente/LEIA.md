@@ -1066,3 +1066,28 @@ alongada em cinco passos ate 41,8. A exposicao vai declarada na copy: se o edge
 narrar, o real cai entre 41,8 e 45,8 e PODE passar do teto de 45.
 
 **Parqueadas para `videos`: 57 linhas.** 36a rodada seguida sem `execute_sql`.
+
+## 17/10 19:1x — labtreinamento-s071 no ar, e TRES pontos de residuo numa rodada
+
+`yFJUp1xhTe8` ("Fixo é o sinal do erro"), 20a peca do dia. Provedor **edge**
+MEDIDO (zero avisos no job 117479645664). Previsao edge **25,2** / piper 20,7,
+real **27** — residuo **+1,8 s**, dentro da banda e com o sinal ESTABELECIDO.
+
+**A rota da duracao REABRIU pela TERCEIRA vez hoje**, conferida pela peca de
+CONTROLE antes de usar a leitura, e as duas parqueadas sairam JUNTAS:
+`epomeno-epipedo-s053` (41,6 -> 42, +0,4) e `kolejny-poziom-s054` (41,8 -> 42,
++0,2). Os dois sem sinal estabelecido pelo criterio do 770. Com o ponto desta
+peca, **tres pontos numa rodada**. `RESIDUO_N` = **77**, limites intocados.
+
+**E o tally do 740/748 foi a 27 de 30:** 27 s contra um teto de mira de 26,0,
+com o `mira.py` VERDE nos dois mundos e a exposicao declarada antes de publicar.
+A peca nasceu em edge 30,1, FORA da mira, e foi encurtada nas dez cenas de uma
+vez.
+
+A familia nova INVERTE o sinal de uma peca anterior do mesmo canal, e isso vai
+dito na copy: no `s036` o desconto que VARIA e o sinal do erro; aqui o que NAO
+varia e o sinal, porque o grupo tem base variavel por desenho.
+
+**Porta 1 as 19:1x: 68 / 21 / 8**, janela de 10,0 h, indeterminado nos tres
+(piso 2,40/dia). **Parqueadas para `videos`: 58 linhas.** 37a rodada sem
+`execute_sql`.
