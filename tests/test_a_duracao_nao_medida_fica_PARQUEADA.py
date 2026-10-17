@@ -102,3 +102,72 @@ def test_o_arquivo_parqueado_e_JSONL_valido_linha_a_linha():
         for linha in f:
             if linha.strip():
                 json.loads(linha)
+
+
+# ---------------------------------------------------------------------------
+# 17/10 06:1x — o PARQUEAMENTO virou INCONDICIONAL, pela assinatura do 726.
+# ---------------------------------------------------------------------------
+# O passo dependia de eu NOTAR que a rota estava fechada: com ela aberta eu meco
+# na hora e nao parqueio nada, logo o parque so recebia peca nas rodadas em que
+# eu lembrava de olhar o estado. Agora toda peca entra e a medicao vem pelo
+# `resolve`, e o pendente e o que o arquivo ainda nao resolveu — nao o que eu
+# me lembrei de anotar.
+
+
+def test_resolve_grava_o_real_na_linha(tmp_path):
+    p = str(tmp_path / "x.jsonl")
+    dm.parqueia(REG, p)
+    assert dm.resolve("6jHGn7fae4c", 27, p) is True
+    assert dm.carrega(p)[0]["real"] == 27
+
+
+def test_resolve_de_id_ausente_devolve_False_em_vez_de_criar_linha(tmp_path):
+    p = str(tmp_path / "x.jsonl")
+    dm.parqueia(REG, p)
+    assert dm.resolve("naoexiste00", 30, p) is False
+    assert len(dm.carrega(p)) == 1
+
+
+def test_reescrever_com_valor_DIFERENTE_levanta(tmp_path):
+    """Duracao de peca publicada nao muda: duas leituras discordantes sao da ROTA."""
+    p = str(tmp_path / "x.jsonl")
+    dm.parqueia(REG, p)
+    dm.resolve("6jHGn7fae4c", 27, p)
+    assert dm.resolve("6jHGn7fae4c", 27, p) is True, "o MESMO valor e idempotente"
+    with pytest.raises(ValueError) as e:
+        dm.resolve("6jHGn7fae4c", 28, p)
+    assert "CONTROLE" in str(e.value), "o remedio tem de apontar a peca de controle"
+
+
+def test_o_real_GRAVADO_tem_precedencia_sobre_o_argumento(tmp_path):
+    p = str(tmp_path / "x.jsonl")
+    dm.parqueia(REG, p)
+    dm.resolve("6jHGn7fae4c", 27, p)
+    r = dm.residuos({"6jHGn7fae4c": 99}, p)[0]
+    assert r["real"] == 27, "o arquivo e o log; o argumento so cobre o nao resolvido"
+
+
+def test_pendentes_so_traz_o_que_nao_tem_real(tmp_path):
+    p = str(tmp_path / "x.jsonl")
+    dm.parqueia(REG, p)
+    dm.parqueia({**REG, "pacote": "outro-s01", "youtube_id": "aaaaaaaaaaa"}, p)
+    dm.resolve("6jHGn7fae4c", 27, p)
+    assert [r["pacote"] for r in dm.pendentes(p)] == ["outro-s01"]
+
+
+def test_o_cabecalho_do_relato_NAO_diz_esperando_com_tudo_resolvido(tmp_path):
+    """Pego na primeira execucao: o texto dizia 'esperando' com zero pendentes."""
+    p = str(tmp_path / "x.jsonl")
+    dm.parqueia(REG, p)
+    dm.resolve("6jHGn7fae4c", 27, p)
+    t = dm.relato({}, p)
+    assert "0 sem leitura" in t and "1 com duracao REAL" in t
+    assert "esperando" not in t
+
+
+def test_as_QUATRO_pecas_de_17_10_estao_resolvidas_no_arquivo_do_repo():
+    regs = {r["youtube_id"]: r for r in dm.carrega()}
+    assert {"O5o2SnovdEo": 44, "6jHGn7fae4c": 27,
+            "aRCnQj3edKE": 43, "RCSD7Uy4s8g": 43} == {
+        i: regs[i]["real"] for i in
+        ("O5o2SnovdEo", "6jHGn7fae4c", "aRCnQj3edKE", "RCSD7Uy4s8g")}

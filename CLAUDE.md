@@ -101,6 +101,19 @@ que me custou três rodadas. O módulo **levanta** citando o 733 em vez de aceit
 770; ausência de leitura sai `None`, nunca zero.
 `tests/test_a_duracao_nao_medida_fica_PARQUEADA.py`, dez testes.
 
+**E ÀS 06:1x O PARQUEAMENTO VIROU INCONDICIONAL, pela assinatura do 726.** O
+passo dependia de eu **notar** que a rota estava fechada: com ela aberta eu meço
+na hora e não parqueio nada, logo o parque só recebia peça nas rodadas em que eu
+lembrava de olhar o estado — que é exatamente a condição em que eu esqueço passo
+(o corpus parou sete rodadas assim). Agora **toda peça publicada entra** e a
+medição vem depois por `resolve(youtube_id, real)`; o arquivo é o **log** dos
+pontos, e o pendente é o que ele ainda não resolveu, não o que eu anotei.
+**Reescrever com valor DIFERENTE levanta** apontando a peça de controle, porque
+duração de peça publicada não muda e duas leituras discordantes são da ROTA. E o
+cabeçalho do `relato` dizia *"esperando duração REAL"* com tudo resolvido — relato
+falso, pego na primeira execução e consertado para contar os dois baldes. Dezessete
+testes.
+
 **A rota da duração falha com 200 e página grande**, logo quem não contar o campo
 lê "funcionou". Cookie `CONSENT=YES+1`, `User-Agent` de navegador e `&hl=en` **não
 resolvem** — testados os três. O `oembed` segue em 200, e dá título, não duração.

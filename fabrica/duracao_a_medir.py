@@ -87,7 +87,7 @@ def residuos(reais: dict, caminho: str = None) -> list[dict]:
     saida = []
     for r in carrega(caminho):
         prev = r["prev_edge"] if r["provedor"] == "edge" else r["prev_piper"]
-        real = reais.get(r["youtube_id"])
+        real = _real_gravado(r, reais)
         res = None if real is None else round(real - prev, 1)
         saida.append({
             "pacote": r["pacote"], "youtube_id": r["youtube_id"],
@@ -105,7 +105,10 @@ def relato(reais: dict = None, caminho: str = None) -> str:
         return "nenhuma peca parqueada a medir."
     sem = [l for l in linhas if l["real"] is None]
     com = [l for l in linhas if l["real"] is not None]
-    out = [f"PARQUEADAS: {len(linhas)} peca(s) esperando duracao REAL."]
+    # O cabecalho conta os DOIS baldes: dizer "esperando" com tudo resolvido era
+    # um relato falso, e foi pego na primeira execucao depois do `resolve`.
+    out = [f"PARQUE: {len(linhas)} peca(s) — {len(sem)} sem leitura,"
+           f" {len(com)} com duracao REAL."]
     for l in com:
         marca = "estabelecido" if l["estabelecido"] else "sinal NAO estabelecido (770)"
         out.append(f"  {l['pacote']} ({l['provedor']}): {l['previsao']} -> "
@@ -117,3 +120,55 @@ def relato(reais: dict = None, caminho: str = None) -> str:
                    " fechada, e isso se confere com a peca de CONTROLE"
                    " (`vivacidade_publica.veredito_da_rota`).")
     return "\n".join(out)
+
+
+def pendentes(caminho: str = None) -> list[dict]:
+    """So as pecas que ainda NAO tem duracao real gravada."""
+    return [r for r in carrega(caminho) if r.get("real") is None]
+
+
+def resolve(youtube_id: str, real: int, caminho: str = None) -> bool:
+    """Grava a duracao REAL na linha da peca. Devolve False se ela nao esta la.
+
+    MEDIDO como PROCESSO em 17/10 as 06:1x, e e a assinatura do 726: o passo de
+    PARQUEAR dependia de eu notar que a rota estava fechada. Quando ela esta
+    aberta eu meco na hora e nao parqueio nada — logo o parque so recebe peca nas
+    rodadas em que eu LEMBRO de olhar o estado da rota, que e exatamente a
+    condicao em que eu esqueco passo (o corpus parou sete rodadas assim).
+
+    O conserto e tornar o parqueamento INCONDICIONAL: toda peca publicada entra,
+    e a medicao vem depois por aqui. Assim o arquivo e o LOG dos pontos, e o
+    pendente e o que ele ainda nao resolveu — nao o que eu me lembrei de anotar.
+
+    **Reescrever com valor DIFERENTE levanta**, em vez de sobrescrever calado: a
+    duracao de uma peca publicada nao muda, logo duas leituras discordantes sao
+    um problema da ROTA (o 200-sem-campo, o arredondamento) e pedem releitura,
+    nao a ultima resposta. E a mesma disciplina do `controle_divergente`.
+    """
+    caminho = caminho or CAMINHO
+    regs = carrega(caminho)
+    achou = False
+    for r in regs:
+        if r.get("youtube_id") != youtube_id:
+            continue
+        achou = True
+        ja = r.get("real")
+        if ja is not None and ja != real:
+            raise ValueError(
+                f"LEITURA DIVERGENTE em {youtube_id}: gravado {ja}, agora {real}."
+                " Duracao de peca publicada nao muda — releia antes de decidir,"
+                " e confira a rota com a peca de CONTROLE.")
+        r["real"] = real
+    if not achou:
+        return False
+    with open(caminho, "w", encoding="utf-8") as f:
+        for r in regs:
+            f.write(json.dumps(r, ensure_ascii=False, sort_keys=True) + "\n")
+    return True
+
+
+def _real_gravado(reg: dict, reais: dict):
+    """O real do ARQUIVO tem precedencia; `reais` cobre o que ainda nao resolveu."""
+    if reg.get("real") is not None:
+        return reg["real"]
+    return reais.get(reg["youtube_id"])
