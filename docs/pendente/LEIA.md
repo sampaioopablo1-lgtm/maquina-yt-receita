@@ -965,3 +965,15 @@ as 11:1x. As duas ficaram PARQUEADAS e saem do pendente quando a rota reabrir.
 
 **51** linhas de `insert into videos` parqueadas. A pendencia que mais vale
 continua sendo os dois cliques de consentimento do Google.
+
+## 17/10 13:1x — decima quarta peca do dia, e a rota REABRIU
+`labtreinamento-s069` = `7bD9doHFs-U` ("O que já está salvo"), **27 s reais**,
+residuo +1,2 s estabelecido.
+
+**A rota da duracao reabriu as 13:0x e os DOIS parqueados sairam de uma vez** —
+`epomeno-epipedo-s051` (42 s) e `kolejny-poziom-s052` (43 s). Sem o parque esses
+dois pontos estariam perdidos. O parque voltou a ZERO pendente, com onze peças
+resolvidas.
+
+**52** linhas de `insert into videos` parqueadas. A pinça do 740/748 esta em
+**25 de 28** peças deste canal fora do teto da mira no mundo edge.
