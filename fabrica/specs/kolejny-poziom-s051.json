@@ -1,0 +1,80 @@
+{
+ "slug": "kolejny-poziom",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "pacote": "kolejny-poziom-s051",
+ "longo_existente": "GUiq15usizw",
+ "thumb": {
+  "l1": "Poproś o",
+  "l2": "harmonogram"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Nie szacuj",
+   "sub": "przeczytaj",
+   "nar": "Odsetek pierwszego miesiąca nie trzeba szacować.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Gdzie są",
+   "nar": "Są w harmonogramie spłat, w kolumnie odsetki."
+  },
+  {
+   "layout": "item",
+   "kicker": "Który wiersz",
+   "nar": "Bierzesz liczbę z pierwszego wiersza i przepisujesz ją."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bank wydaje go",
+   "sub": "razem z ofertą",
+   "nar": "Bank wydaje harmonogram razem z ofertą kredytu."
+  },
+  {
+   "layout": "item",
+   "kicker": "A jeśli nie masz",
+   "nar": "Jeśli jeszcze go nie masz, poproś o niego."
+  },
+  {
+   "layout": "item",
+   "kicker": "Kiedy",
+   "nar": "Możesz poprosić jeszcze przed podpisaniem umowy."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Dwie drogi",
+   "itens": [
+    "wiersz z harmonogramu",
+    "plan B: szacunek"
+   ],
+   "nar": "Wiersz z papieru albo twój własny szacunek."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Plan B",
+   "sub": "tylko zastępuje",
+   "nar": "Plan B tylko zastępuje, nigdy nie poprawia."
+  },
+  {
+   "layout": "item",
+   "kicker": "Zasada",
+   "nar": "Liczba z papieru bije każdy rachunek z pamięci."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Poproś dziś",
+   "nar": "Poproś o harmonogram i zasubskrybuj kanał."
+  }
+ ],
+ "copy": "# kolejny-poziom-s051\n\n## TITULO\nOdsetek Pierwszego Miesiąca Nie Szacuj: Są w Harmonogramie, Który Bank Wydaje do Oferty\n\n## TITULO SHORT\nPoproś o harmonogram\n\n## DESCRICAO\nJest jeden krok tego rachunku, który najczęściej robi się **z głowy** — i jest to dokładnie ten krok, którego nie trzeba robić z głowy.\n\nOdsetki pierwszego miesiąca to **liczba z papieru**. Lektor mówi to wprost: *„Odsetki pierwszego miesiąca przeczytasz w harmonogramie spłat. Bank podaje go do oferty, i jest tam kolumna odsetki.\"* Bierzesz pierwszy wiersz i przepisujesz go do swojego rachunku. Nic nie szacujesz.\n\nI to jest ważniejsze, niż wygląda:\n\n- **liczba z harmonogramu** jest tą samą liczbą, którą zapłacisz, bo pochodzi z tej samej umowy;\n- **liczba z głowy** jest twoim przybliżeniem, a rachunek, który z niej wyjdzie, też jest przybliżeniem — tylko wygląda tak samo dokładnie.\n\nJeśli harmonogramu jeszcze nie masz, jest **plan B**: kwota kredytu razy oprocentowanie roczne, podzielone przez dwanaście. Ale plan B **zastępuje** harmonogram, nigdy go nie poprawia. Służy do tego, żeby policzyć dziś, a nie do tego, żeby zostać w rachunku na stałe.\n\nA najważniejsze zdanie jest proste: **harmonogram możesz poprosić przed podpisaniem umowy.** To nie jest dokument, na który trzeba czekać do końca — to dokument, który bank wydaje do oferty, i o który wolno zapytać wcześniej.\n\nZasada, która zostaje: **jeśli liczba jest na papierze, nie wpisuj swojej.**\n\nCałe rozdzielenie raty na odsetki i kapitał, z czterema krokami, jest w długim filmie na kanale.\n\n## COMENTARIO FIXADO\nMasz już harmonogram spłat do swojej oferty, czy liczyłeś odsetki z głowy?\n\n## HASHTAGS\n#kredyt #finanse #mieszkanie #kolejnypoziom #shorts\n\n## TAGS\nharmonogram splat, odsetki, pierwszy miesiac, kredyt hipoteczny, oferta kredytu, rata, kapital, najem, finanse osobiste, kolejny poziom\n\n## AVISO\n**ORIGEM: a regra de RECÊNCIA, com a ordem VIVA sondada nesta rodada.** O\n`yt-dlp --flat-playlist` na playlist `UU…` confirma o `GUiq15usizw` (538 s) como\no longo MAIS NOVO do canal — rank 1 acima de 180 s. A legenda saiu pelo `yt-dlp`\nna sandbox, logo nenhuma frase vem de TÍTULO de capítulo.\n\n**FAMÍLIA DE ENTRADA ERRADA, nova neste canal:** a FONTE do número de juros é o\n**primeiro wiersz do harmonograma**, e ele pode ser PEDIDO antes de assinar — o\nplano B substitui, nunca melhora. As nove copies anteriores desta origem foram\nlidas: juros de qual mês (`s003`), diluir a comissão nos meses (`s033`), capital\nnão é dinheiro vivo (`s042`), cai fora da comparação (`s043`), o resultado se\ndesloca (`s044`), a caução volta (`s045`), teria de adivinhar a taxa (`s046`),\nos três números pequenos ficam (`s049`) e conta hoje, não trinta anos (`s050`).\n\n**A distinção com o `s003` vai escrita, porque é ela que o portão `similaridade`\ntinha de aprovar:** lá o assunto é QUAL linha do harmonograma (o primeiro mês, e\nnão a média); aqui é de ONDE vem a linha — papel do banco em vez da cabeça — e a\nconsequência prática é outra: **pedir o documento.**\n\n**E a regra (g):** nenhum número que envelhece entra. Não há taxa, percentual nem\nvalor de prestação — a peça carrega o plano B como FÓRMULA, sem nenhum número do\nmundo.\n\n## CONFIGURACOES DO STUDIO\nShort 9:16, `privacyStatus=public`, trilha **Wholesome** (identidade do canal,\n601 — nunca a trilha de outro canal), voz `pl-PL-MarekNeural`.\n\n**EXPOSIÇÃO DA DURAÇÃO, declarada ANTES de publicar:** previsão edge **41,7 s** e\npiper **35,5 s**, as duas dentro do portão `duracao` (18 a 45 nos dois mundos). A\nmira é a da FROTA (41,5 a 43,0), porque este canal não tem `ALVO_POR_CANAL`\nmedido — e a peça foi escrita no **PISO**, que é o que o 679 manda para a voz\npolonesa e o que o 772 manda como redação. Com a banda observada **(0,0; 4,0)**,\nn=66: se o edge narrar, o REAL deve cair entre **41,7 e 45,7 s**, logo **PODE\npassar do teto de 45**; se o piper narrar, 35,5 a 39,5 cabe com folga. Nenhum\nparâmetro mudou (§10).\n\n**E a rota da duração foi SONDADA com a peça de CONTROLE antes de prometer:** o\n`OhrGlJvnBoM` devolveu os 44 s conhecidos às 09:1x. A peça entra no parque de\nqualquer modo, pelo 726.\n"
+}
