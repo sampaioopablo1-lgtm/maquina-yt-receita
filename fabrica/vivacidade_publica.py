@@ -90,3 +90,58 @@ def relato(leituras: dict) -> str:
             linhas.append(f"  {titulo}: {', '.join(por[chave])}")
     linhas.append(f"  e isto e um PISO: falta medir {FALTA_MEDIR}.")
     return "\n".join(linhas)
+
+
+# A peca de CONTROLE que separa "rota fechada" de "peca nao indexada".
+# Medido em 17/10 as 03:1x: o `O5o2SnovdEo`, publicado dois minutos antes,
+# devolveu 200 com 1.219.721 bytes e ZERO `lengthSeconds`. Sozinha, essa leitura
+# e indistinguivel de peca que ainda nao indexou — e eu ia relatar isso.
+CONTROLE_17_10 = ("OhrGlJvnBoM", 44)
+
+
+def veredito_da_rota(leitura_nova, leitura_controle, valor_conhecido: int):
+    """Diz se a rota FECHOU ou se a peca nova e que nao respondeu.
+
+    MEDIDO em 17/10 as 03:1x. Zero `lengthSeconds` numa peca de dois minutos
+    tem duas explicacoes que a leitura sozinha NAO separa: a rota fechou (o
+    200-com-1,2-MB-e-cinco-CONSENT da tabela do `CLAUDE.md`) ou a peca ainda
+    nao indexou (o caminho normal do 672/758). Escolher uma seria comparador
+    escolhido sem medir — o efeito (C) da rotina.
+
+    **O discriminador e uma peca de CONTROLE cujo valor eu JA medi.** Naquela
+    rodada o `OhrGlJvnBoM` havia lido **44** uma hora antes e voltou **zero** na
+    mesma chamada: peca de uma hora de vida nao "desindexa", logo o que mudou
+    foi a ROTA. Se o controle tivesse respondido 44, a leitura vazia seria da
+    peca nova e o 672 se aplicaria.
+
+    `leitura_nova` e `leitura_controle` sao o que `duracao_do_html` devolveu
+    (int ou None). Devolve 'rota_fechada', 'peca_sem_leitura', 'ok' ou
+    'controle_divergente' — este ultimo quando o controle responde um valor
+    DIFERENTE do conhecido, que nao e caso previsto e nao se resolve calando.
+    """
+    if leitura_controle is None:
+        return "rota_fechada"
+    if leitura_controle != valor_conhecido:
+        return "controle_divergente"
+    if leitura_nova is None:
+        return "peca_sem_leitura"
+    return "ok"
+
+
+def relato_da_rota(leitura_nova, leitura_controle, valor_conhecido: int,
+                   id_novo: str = "<id>") -> str:
+    v = veredito_da_rota(leitura_nova, leitura_controle, valor_conhecido)
+    if v == "rota_fechada":
+        return ("ROTA DA DURACAO FECHADA: o controle, cujo valor medido e"
+                f" {valor_conhecido} s, voltou VAZIO. Logo a leitura vazia de"
+                f" {id_novo} NAO diz nada sobre a peca — nao ha ponto de residuo"
+                " nesta rodada, e isso vai dito em vez de virar acusacao.")
+    if v == "controle_divergente":
+        return (f"CONTROLE DIVERGENTE: esperava {valor_conhecido} s e veio"
+                f" {leitura_controle}. Nao e caso previsto — releia antes de"
+                " concluir qualquer coisa sobre a rota ou sobre a peca.")
+    if v == "peca_sem_leitura":
+        return (f"A ROTA RESPONDE (controle = {valor_conhecido} s) e"
+                f" {id_novo} veio vazio: aqui o 672/758 se aplica — peca nova"
+                " pode estar indexando. Releia, nao acuse.")
+    return f"rota aberta e {id_novo} leu {leitura_nova} s."

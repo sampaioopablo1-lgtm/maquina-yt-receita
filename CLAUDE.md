@@ -63,6 +63,27 @@ assert que eu escrevi nele terminava em `or True`, isto é, passava com qualquer
 tabela: **portão verde fabricado, §3.8, num arquivo escrito para guardar essa
 lição.** Consertado com contraprova nos dois sentidos.
 
+**E EM 17/10 ÀS 03:1x A ROTA DA DURAÇÃO FECHOU DENTRO DA HORA — e eu ia culpar
+a peça.** O `kolejny-poziom-s049` (`O5o2SnovdEo`), publicado dois minutos antes,
+devolveu **200 com 1.219.721 bytes e ZERO `lengthSeconds`**, cinco `CONSENT` e
+dois `captcha`. Sozinha, essa leitura é **indistinguível** de peça que ainda não
+indexou, que é o caminho normal do 672/758 — e era isso que eu ia relatar.
+
+**O discriminador é uma peça de CONTROLE cujo valor eu já medi.** Na mesma
+chamada eu reli o `OhrGlJvnBoM`, que havia lido **44 s** uma hora antes: ele
+também voltou **vazio**. Peça de uma hora de vida não desindexa, logo o que mudou
+foi a **ROTA** — e ela estava ABERTA às 02:1x e às 01:1x da mesma madrugada.
+
+**A consequência vai dita em vez de estimada: não existe ponto de resíduo na
+rodada das 03:06.** `fabrica/vivacidade_publica.veredito_da_rota` /
+`relato_da_rota`, e `tests/test_a_rota_fechada_parece_peca_nao_indexada.py` com
+nove testes — um deles a contraprova no outro sentido (controle responde → a
+leitura vazia é da peça, e aí o 672 se aplica), sem a qual o veredito seria
+sempre o mesmo.
+
+**A regra que fica: antes de ler leitura vazia como defeito da peça, releia uma
+peça de CONTROLE cujo valor você já conhece.**
+
 **A rota da duração falha com 200 e página grande**, logo quem não contar o campo
 lê "funcionou". Cookie `CONSENT=YES+1`, `User-Agent` de navegador e `&hl=en` **não
 resolvem** — testados os três. O `oembed` segue em 200, e dá título, não duração.

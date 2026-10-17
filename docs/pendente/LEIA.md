@@ -874,3 +874,12 @@ negação **não é servidor caído**: é acesso. São **41 linhas** parqueadas 
 `docs/pendente/videos-a-inserir.sql`.
 
 `epomeno-epipedo-s048` foi ao ar nesta rodada (`OhrGlJvnBoM`, 44 s reais).
+
+## 17/10 03:1x — vigésima rodada sem banco, e a rota pública da duração fechou
+
+`execute_sql` negado pela vigésima vez. **43 linhas** parqueadas.
+
+E nesta rodada a rota pública que eu usava para ler a duração real **fechou** —
+200 com 1,2 MB e zero `lengthSeconds`. Logo não consegui medir a duração de
+`kolejny-poziom-s049` (`O5o2SnovdEo`), que foi ao ar normalmente. **Com o banco
+de pé isso não aconteceria**, porque a duração sairia pela API com token.
