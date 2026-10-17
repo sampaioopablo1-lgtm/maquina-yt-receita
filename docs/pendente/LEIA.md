@@ -1046,3 +1046,23 @@ esta sob ALERTA de concentracao (12 de 52 shorts do canal).
 ~1,8/dia medido. A primeira leitura que RESOLVE ritmo cai depois das **22:1x**.
 
 **Parqueadas para `videos`: 56 linhas.** 35a rodada seguida sem `execute_sql`.
+
+## 17/10 18:1x — kolejny-poziom-s054 no ar, e DUAS rodadas sem instrumento de duracao
+
+`LuiLFR92AyQ` ("Nie brutto i nie netto"), 19a peca do dia. Provedor **edge**
+MEDIDO (zero avisos no job 117466655474). Previsao edge **41,8** / piper 35,6.
+
+**A rota da duracao SEGUE FECHADA** — a peca de CONTROLE `OhrGlJvnBoM` voltou
+vazia outra vez, e com ela a peca parqueada da rodada anterior. **Duas peças
+esperando medicao** (`epomeno-epipedo-s053` e esta), as duas por falta de
+INSTRUMENTO e nao de peca. `RESIDUO_N` fica em 74.
+
+**A rota dos INSCRITOS esta aberta: 68 / 21 / 8**, janela de 9,0 h contra as
+09:1x — **indeterminado nos tres**, piso 2,67/dia contra ~1,8/dia medido. A
+primeira leitura que RESOLVE ritmo cai depois das **22:1x**.
+
+A peca nasceu **abaixo** do piso da mira (edge 39,5 contra piso 41,5) e foi
+alongada em cinco passos ate 41,8. A exposicao vai declarada na copy: se o edge
+narrar, o real cai entre 41,8 e 45,8 e PODE passar do teto de 45.
+
+**Parqueadas para `videos`: 57 linhas.** 36a rodada seguida sem `execute_sql`.
