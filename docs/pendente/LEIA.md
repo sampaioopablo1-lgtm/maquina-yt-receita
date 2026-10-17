@@ -883,3 +883,12 @@ E nesta rodada a rota pública que eu usava para ler a duração real **fechou**
 200 com 1,2 MB e zero `lengthSeconds`. Logo não consegui medir a duração de
 `kolejny-poziom-s049` (`O5o2SnovdEo`), que foi ao ar normalmente. **Com o banco
 de pé isso não aconteceria**, porque a duração sairia pela API com token.
+
+## 17/10 04:1x — vigésima primeira negativa, e a rota pública da duração segue fechada
+
+`execute_sql` negado. **43 linhas** parqueadas em `videos-a-inserir.sql`.
+
+E agora há um segundo pendente: `docs/pendente/duracoes-a-medir.jsonl`, com as
+**duas** peças publicadas enquanto a rota pública da duração está fechada
+(`O5o2SnovdEo` e `6jHGn7fae4c`). **Com o banco de pé nenhuma delas estaria aí** —
+a duração real sairia pela API com token, e a série de medição não teria parado.

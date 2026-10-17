@@ -84,6 +84,23 @@ sempre o mesmo.
 **A regra que fica: antes de ler leitura vazia como defeito da peça, releia uma
 peça de CONTROLE cujo valor você já conhece.**
 
+**E ÀS 04:1x A ROTA SEGUIA FECHADA, com a sonda feita ANTES de prometer.** O
+controle (`OhrGlJvnBoM`, 44 s medidos) voltou vazio outra vez, e com ele o
+`labtreinamento-s066` recém-publicado. **Duas peças seguidas sem ponto de
+resíduo** — a série do 739 parou de crescer por falta de instrumento, não de peça.
+
+**E isso virou ARQUIVO, porque em 16/10 as dezessete durações parqueadas saíram
+da minha CABEÇA e não de um instrumento.** `fabrica/duracao_a_medir.py` grava uma
+linha JSON por peça em `docs/pendente/duracoes-a-medir.jsonl`, e **o campo que
+carrega o risco é o PROVEDOR: ele é obrigatório na gravação.** O aviso
+`::warning::NARRACAO PELO PIPER` vive na anotação do JOB, e anotação envelhece —
+parquear sem o provedor obrigaria a rodada futura a **inferir** qual mundo narrou
+pela distância entre previsão e real, que é exatamente o erro que o 733 nomeia e
+que me custou três rodadas. O módulo **levanta** citando o 733 em vez de aceitar.
+`residuos()` compara contra a previsão do provedor GRAVADO e aplica o critério do
+770; ausência de leitura sai `None`, nunca zero.
+`tests/test_a_duracao_nao_medida_fica_PARQUEADA.py`, dez testes.
+
 **A rota da duração falha com 200 e página grande**, logo quem não contar o campo
 lê "funcionou". Cookie `CONSENT=YES+1`, `User-Agent` de navegador e `&hl=en` **não
 resolvem** — testados os três. O `oembed` segue em 200, e dá título, não duração.
