@@ -977,3 +977,15 @@ resolvidas.
 
 **52** linhas de `insert into videos` parqueadas. A pinça do 740/748 esta em
 **25 de 28** peças deste canal fora do teto da mira no mundo edge.
+
+## 17/10 14:1x — decima quinta peca do dia
+`epomeno-epipedo-s052` = `9r82v5RyVa4` ("Το σύνολο το φτιάχνεις"). **Duracao
+REAL nao medida**: a rota fechou outra vez, confirmada pela peca de CONTROLE.
+Parqueada; sai do pendente quando a rota reabrir (hoje ela abriu e fechou tres
+vezes).
+
+**INSCRITOS AO VIVO, janela de 5,0 h: 68 / 21 / 8** — delta ZERO nos tres, os
+tres `indeterminado`. O piso de resolucao dessa janela e 4,8 inscritos/dia contra
+~1,8 medido. **A leitura que de fato resolve ritmo cai depois das 22:1x.**
+
+**53** linhas de `insert into videos` parqueadas.
