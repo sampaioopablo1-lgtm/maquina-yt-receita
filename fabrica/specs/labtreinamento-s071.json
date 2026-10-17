@@ -1,0 +1,76 @@
+{
+  "slug": "labtreinamento",
+  "idioma": "pt-BR",
+  "voz": "pt-BR-ThalitaMultilingualNeural",
+  "trilha": "Inspired",
+  "paleta": {
+    "ink": "#1F2933",
+    "c1": "#3F6C51",
+    "c2": "#C98B2E",
+    "bg": "#F5F3ED"
+  },
+  "pacote": "labtreinamento-s071",
+  "longo_existente": "NNgAQLlpEzg",
+  "thumb": {
+    "l1": "Fixo é",
+    "l2": "o sinal"
+  },
+  "longo": [],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Comissão",
+      "sub": "muda a conta",
+      "nar": "Você é pago por comissão?",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Então",
+      "nar": "Sua base muda todo mês."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Mês cheio",
+      "sub": "base maior",
+      "nar": "Em mês cheio ela sobe."
+    },
+    {
+      "layout": "item",
+      "kicker": "Mês fraco",
+      "nar": "Em mês fraco ela desce."
+    },
+    {
+      "layout": "item",
+      "kicker": "Logo",
+      "nar": "O desconto tinha de acompanhar."
+    },
+    {
+      "layout": "lista",
+      "kicker": "O sinal",
+      "nar": "Valor igual sempre é o alerta."
+    },
+    {
+      "layout": "item",
+      "kicker": "Atenção",
+      "nar": "Aqui o fixo é o erro."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Confira",
+      "sub": "dois papéis",
+      "nar": "Guarde o holerite e a tarifa."
+    },
+    {
+      "layout": "item",
+      "kicker": "Compare",
+      "nar": "Compare três meses."
+    },
+    {
+      "layout": "cta",
+      "kicker": "Compare três",
+      "nar": "Compare e se inscreva."
+    }
+  ],
+  "copy": "# labtreinamento-s071\n\n## TITULO\nQuem É Pago Por Comissão Tem Base Variável — E Aí O Desconto Fixo É Que Está Errado\n\n## TITULO SHORT\nFixo é o sinal do erro\n\n## DESCRICAO\nExiste um grupo para quem o sinal do erro é **invertido**, e quase ninguém olha para isso. Para quem recebe por tarefa, por serviço feito ou só de comissão, a base do cálculo não é um valor estável: ela é o montante percebido naquele período. Num mês cheio ela sobe; num mês fraco ela desce. E se a base desce, **o desconto tinha de descer com ela**.\n\nPor isso, nesse caso específico, o alarme não é o desconto que varia — é o desconto que **não** varia. Um valor idêntico, mês após mês, para quem tem rendimento variável, só pode significar uma de duas coisas: ou a base usada não é a do período, ou o teto está sendo tratado como valor fixo. Qualquer uma das duas é um erro, e os dois erram sempre no mesmo sentido para quem recebe.\n\nEsse é o caso mais difícil de perceber justamente porque ele erra **para os dois lados**. Em mês cheio, o desconto fixo pode cobrar menos do que caberia — e aí ninguém reclama. Em mês fraco, cobra mais do que caberia — e aí a pessoa sente, mas atribui ao próprio mês ruim em vez de à conta. A sensação de \"ganhei pouco esse mês\" cobre o problema.\n\nA verificação é a mesma de sempre e não precisa de ninguém: guarde o **holerite do mês** e o **valor da tarifa daquele mesmo período**, e faça isso por três meses seguidos. Com três pares na mão, a pergunta deixa de ser uma impressão: ou os valores acompanharam o movimento da sua base, ou ficaram parados enquanto ela se movia. Sem esses dois papéis, a conversa vira memória contra memória — e memória não ganha discussão de folha.\n\nUma ressalva que o vídeo completo repete e que vale aqui: esta conta diz **quanto pode ser descontado de você**, e só isso. Ela não diz se você tem direito ao benefício, nem quanto a empresa entrega. São perguntas separadas.\n\nNão cito aqui nenhum percentual, nenhum teto e nenhuma data de vigência. Esses números mudam; a frase \"base variável pede desconto variável\" não muda.\n\nNo vídeo completo: as três armadilhas lado a lado, as duas contas que se comparam, e onde cada regra está publicada.\n\nConteúdo informativo, não é orientação jurídica, contábil ou trabalhista.\n\n## COMENTARIO FIXADO\nA parte contraintuitiva é esta: para quem recebe por comissão, o desconto que NÃO muda é o sinal de erro — e não o que muda. A base desse grupo é o montante do período, então ela se move por desenho. O teste é mecânico: holerite e tarifa do mesmo mês, três meses seguidos, e olhar se os valores acompanharam o movimento. De propósito não escrevo nenhum percentual nem teto: esses números envelhecem, e a frase \"base variável pede desconto variável\" não envelhece. Conta aqui se o seu é fixo há meses.\n\n## HASHTAGS\n#Comissão #Holerite #LabTreinamento\n\n## TAGS\ncomissao, base variavel, holerite, desconto fixo, vale transporte, montante percebido, mes cheio, mes fraco, tres meses, tarifa, conferencia, direitos, folha de pagamento, pagamento por tarefa, labtreinamento\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Conferido campo a campo: nenhum\npercentual, nenhum teto, nenhuma data de vigencia, nenhum orgao nomeado e\nnenhum decreto citado por numero (regra 609).\n\nA REGRA (g) tira, deste longo, tudo o que MUDA: o percentual do desconto, o\nnumero e o ano do decreto, e a data da regra de pagamento antecipado.\n\nE OS NUMEROS DO EXEMPLO DO LONGO FICARAM FORA de proposito: os capitulos 32 a 39\ntrazem um salario redondo e uma tarifa, e o capitulo 32 diz EM LETRA que sao\ninventados. Numero que o proprio longo declara como ILUSTRACAO nao entra num\nshort -- fora do contexto do exemplo ele se le como valor do mundo, que e o caso\nespecial da regra (g).\n\nOs unicos numeros da peca sao \"tres\" (tres meses de conferencia) e \"dois\" (os\ndois papeis), e sao a aritmetica do procedimento.\n\nO QUE A PECA CARREGA, e nao envelhece: para quem recebe por tarefa ou comissao a\nbase e o montante do PERIODO, logo ela se move por desenho; se a base se move, o\ndesconto tinha de se mover; valor identico mes apos mes e, NESSE grupo, o sinal\ndo erro; e o erro vai para os DOIS lados, o que o torna o mais dificil de notar.\n\nA FAMILIA DE ENTRADA ERRADA E: **GRUPO COBERTO** -- aplicar a um rendimento\nvariavel o julgamento que vale para um rendimento estavel. Conferida a regra (f)\ncontra as QUATRO pecas anteriores desta MESMA origem: o `s001` levou \"quem mora\nperto paga menos\", o `s036` levou a armadilha da BASE (bruto em vez de basico),\no `s043` levou DIAS UTEIS em vez de mes cheio, e o `s056` levou TETO tratado como\npiso. As cinco sao familias distintas.\n\nE ESTA PECA INVERTE O SINAL DO `s036`, e isso vai DITO em vez de ficar parecendo\ncontradicao: la o desconto que VARIA e o sinal do erro, porque a base deveria ser\nestavel; aqui o desconto que NAO varia e o sinal, porque a base e variavel por\ndesenho. As duas frases convivem porque o grupo e outro -- e e justamente o grupo\nque o longo trata como EXCECAO (capitulos 44 e 45). A peca nomeia o grupo na\nprimeira cena para que ninguem leve a regra para fora dele.\n\nO QUE EU NAO LEVEI, de proposito, e vai escrito para a proxima rodada achar: o\nque a conta NAO decide (capitulos 48 a 51) -- direito ao beneficio, convencao\ncoletiva, e o caso de vir em dinheiro. E familia propria e nao cabe hoje pela\nregra (f).\n\nMIRA: a voz `pt-BR-Thalita` tem centro -3,7% (679), mas aqui manda o\n`ALVO_POR_CANAL` deste canal, que e de duracao REAL (20,0 a 26,0).\n\nA EXPOSICAO, dita ANTES de publicar: `fabrica/mira.py` devolveu **edge 25,2** e\n**piper 20,7**, os dois DENTRO da mira do canal nos dois mundos. Com a banda de\nresiduo OBSERVADA de 0,0 a 4,0 s (n=76), se o **edge** narrar o real deve cair\nentre **25,2 e 29,2 s** -- logo PODE passar do teto da mira (26,0), que e o\npadrao medido nas 26 de 29 pecas deste canal narradas pelo edge. Se o **piper**\nnarrar, 20,7 a 24,7 cabe. **A primeira versao desta peca dava edge 30,1**, fora\nda mira, e foi encurtada em todas as dez cenas de uma vez.\n\nE o 748 segue valendo: nao existe ponto que ponha a previsao E o real dentro da\nmira ao mesmo tempo neste canal. A decisao e do dono; eu declaro a exposicao.\n\n## FONTES\nO longo de onde este short foi extraido (`NNgAQLlpEzg`, pacote\nlabtreinamento-013, 56 capitulos) carrega os percentuais, o decreto e as fontes.\nEste short NAO introduz numero novo sobre o mundo, entao nao exige fonte\ninstitucional nova.\n\nNOTA DE PROCEDENCIA: o texto saiu dos capitulos 44 a 48 da spec do proprio\npacote, lidos um a um. Nenhuma frase foi inferida de resumo nem de titulo de\ncapitulo.\n"
+}

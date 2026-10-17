@@ -228,6 +228,8 @@ SERIE = [
     ("epomeno-epipedo-s052", 41.6, 44, "edge"),  # job 117416293733
     ("kolejny-poziom-s053", 41.6, 42, "edge"),   # job 117428398684 — sinal NAO estabelecido (770)
     ("labtreinamento-s070", 25.7, 29, "edge"),   # job 117441677715
+    ("epomeno-epipedo-s053", 41.6, 42, "edge"),  # job 117454412202 — sinal NAO estabelecido (770)
+    ("kolejny-poziom-s054", 41.8, 42, "edge"),   # job 117466655474 — sinal NAO estabelecido (770)
 ]
 
 
