@@ -1,0 +1,80 @@
+{
+ "slug": "labtreinamento",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#1F2933",
+  "c1": "#3F6C51",
+  "c2": "#C98B2E",
+  "bg": "#F5F3ED"
+ },
+ "pacote": "labtreinamento-s065",
+ "longo_existente": "FtCtIJPsc_Q",
+ "thumb": {
+  "l1": "Primeira,",
+  "l2": "não última"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Ela para no",
+   "sub": "primeiro acerto",
+   "nar": "Ela para no primeiro acerto.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "O caso",
+   "nar": "O nome repete na lista."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Sua lista",
+   "sub": "cresce por baixo",
+   "nar": "A lista cresce por baixo."
+  },
+  {
+   "layout": "item",
+   "kicker": "Então",
+   "nar": "A primeira é a mais antiga."
+  },
+  {
+   "layout": "item",
+   "kicker": "E o pior",
+   "nar": "Erro nenhum aparece."
+  },
+  {
+   "layout": "item",
+   "kicker": "Vem",
+   "nar": "Vem número plausível de outra época."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Pergunte antes",
+   "itens": [
+    "pode repetir?",
+    "ou é único?"
+   ],
+   "nar": "O valor pode repetir?"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Se repete",
+   "sub": "a direção importa",
+   "nar": "Se repete, a direção conta."
+  },
+  {
+   "layout": "item",
+   "kicker": "A nova",
+   "nar": "A nova começa do fim."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Olhe a sua",
+   "nar": "Olhe a sua. Inscreva-se."
+  }
+ ],
+ "copy": "# labtreinamento-s065\n\n## TITULO\nA Busca Devolve a PRIMEIRA Linha — e Quando o Nome Repete, Ela É a Mais ANTIGA\n\n## TITULO SHORT\nA primeira, não a última\n\n## DESCRICAO\nExiste um caso em que a fórmula está certa, a tabela está certa, e a resposta ainda assim é a errada. **É quando o valor procurado aparece mais de uma vez.**\n\nPense numa lista que cresce por baixo: cada atendimento novo, cada reajuste, cada pedido entra como uma linha nova no fim. O mesmo cliente aparece cinco vezes. Você procura o nome dele e recebe um valor. **Recebe o da PRIMEIRA linha em que o nome aparece — que, numa lista assim, é a mais antiga que existe.**\n\nE o que torna isso caro é o mesmo mecanismo dos outros casos: **ninguém recebe erro.** Vem um número plausível, do cliente certo, da coluna certa. Só é de outra época.\n\nA busca comum varre de cima para baixo e para no primeiro acerto. Não existe, nela, a ideia de \"o mais recente\" — ela não sabe que a sua lista está em ordem de tempo. A saída que as pessoas improvisam é ordenar a tabela ao contrário, o que funciona até alguém reordenar a planilha por outro motivo.\n\nA busca nova resolve isso por argumento, e não por arrumação: **ela aceita começar pelo último item da lista e subir.** Aí o primeiro acerto é o mais recente, e a resposta deixa de depender de como a tabela está ordenada hoje.\n\nA pergunta que separa os dois mundos é só uma, e vale fazer antes de escrever qualquer fórmula:\n\n- **o valor que procuro é único na tabela?** Então tanto faz a direção da varredura;\n- **ele pode repetir?** Então a direção é parte da pergunta, e precisa estar escrita na fórmula.\n\nO resumo honesto: a fórmula nunca prometeu a linha mais recente. **Quem supôs isso fomos nós**, porque a nossa lista cresce por baixo e lemos de cima.\n\nA demonstração completa, com os três limites e a regra de decisão, está no vídeo longo do canal.\n\n## COMENTARIO FIXADO\nNa sua tabela o valor procurado pode repetir? Se puder, a direção da busca faz parte da pergunta.\n\n## HASHTAGS\n#excel #planilha #produtividade #labtreinamento #shorts\n\n## TAGS\nexcel, planilha, procv, procx, primeira ocorrencia, ultima ocorrencia, duplicado, historico, busca, produtividade, lab treinamento, tabela\n\n## AVISO\n**ORIGEM: a regra de RECÊNCIA, pela regra (h) — a origem não tem spec local.** O\nlongo mais novo do canal segue sendo `FtCtIJPsc_Q` (531 s), e a legenda saiu pelo\n`yt-dlp` **na sandbox** (rota sondada ABERTA nesta rodada: 71 KB de VTT, 1.381\npalavras). Nenhuma frase veio de título de capítulo.\n\n**FAMÍLIA DE ENTRADA ERRADA, nova neste canal:** supor que a busca devolve a\nocorrência MAIS RECENTE quando o valor repete, e receber a mais ANTIGA sem aviso\nnenhum. O `segundo_angulo.py` nomeou as SEIS peças anteriores desta origem e as\nseis copies foram lidas: quarto argumento ausente (`s058`), posição como endereço\n(`s059`), a versão é de quem abre (`s061`), o erro que não aparece (`s062`), a\nbusca que só olha para um lado (`s063`) e faixa pede aproximada (`s064`). A\nleitura da legenda que sustenta esta é literal: *\"dá para pesquisar de baixo para\ncima, começando pelo último item da lista, o que é útil quando o que interessa é\na ocorrência mais recente\"*.\n\n**E a regra (g):** nenhum número do mundo entra. Nem versão de Excel, nem data —\no short carrega só o mecanismo de varredura, que não envelhece.\n\n## CONFIGURACOES DO STUDIO\nShort 9:16, `privacyStatus=public`, trilha `Inspired`, voz\n`pt-BR-ThalitaMultilingualNeural`.\n\n**EXPOSIÇÃO DA DURAÇÃO, declarada ANTES de publicar:** previsão edge **26,4 s** e\npiper **21,7 s**. O edge está **0,4 s acima** do teto da mira medida do canal\n(20,0 a 26,0) e o `mira.py` diz FORA — eu mirei o PISO e a sobrecarga de dez\ncenas não deixa descer mais sem o custo de prosódia do 747. Com a banda observada\n**(0,0; 4,0)**, n=58: se o edge narrar, o REAL deve cair entre **26,4 e 30,4 s**,\nlogo PASSA do teto; se o piper narrar, 21,7 a 25,7 cabe. É a pinça do 740/748, e\no tally deste canal no mundo edge está em **20 de 23** fora da mira. Nenhum\nparâmetro mudou (§10).\n"
+}
