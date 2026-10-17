@@ -989,3 +989,13 @@ tres `indeterminado`. O piso de resolucao dessa janela e 4,8 inscritos/dia contr
 ~1,8 medido. **A leitura que de fato resolve ritmo cai depois das 22:1x.**
 
 **53** linhas de `insert into videos` parqueadas.
+
+## 17/10 15:1x — decima sexta peca do dia
+`kolejny-poziom-s053` = `j_MvqNCT2h0` ("Bez kalkulatora"). Duracao REAL nao
+medida — a rota segue fechada, confirmada pelo CONTROLE. **Dois parqueados**
+(`epomeno-epipedo-s052`, `kolejny-poziom-s053`); eles saem juntos quando a rota
+reabrir, como aconteceu as 13:0x.
+
+**54** linhas de `insert into videos` parqueadas. **Dezesseis pecas hoje**, nos
+tres canais, sem uma unica linha gravada em `videos` — e o motivo e a 32a negativa
+seguida do `execute_sql`.
