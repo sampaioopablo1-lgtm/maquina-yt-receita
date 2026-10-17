@@ -850,3 +850,18 @@ sete que você pede, nos três.
 **E a décima sétima negativa:** as **39** linhas de `insert into videos` seguem
 fora do banco. Porta 1 em 68 / 21 / 8, os três indeterminados — e vale a trava da
 madrugada: rodada noturna é de medição e engenharia, nunca de veredito.
+
+## 17/10 01:2x — décima oitava rodada sem banco
+
+`execute_sql` negado outra vez. **São 40 linhas de `insert into videos`
+parqueadas** em `docs/pendente/videos-a-inserir.sql`, e sem o banco eu também
+não consigo ler `uploadStatus: processed`, que é o critério de contagem que o
+dono pediu.
+
+O que continua funcionando sem ele: render, publicação (`retomar.yml` com o
+`YT_OAUTH_JSON`) e as leituras pela sandbox. `labtreinamento-s065` foi ao ar
+nesta rodada (`a36Vk1kg62I`, 28 s reais).
+
+**A reconexão do conector do Supabase segue sendo a única que devolve
+`execute_sql` e `pg_net`** — e com eles a duração real, os inscritos pela API, a
+rota da regra (h) pelo banco e o registro em `videos`.

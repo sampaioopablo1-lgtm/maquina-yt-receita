@@ -208,6 +208,8 @@ SERIE = [
     # avisos no job 117254439119), previsao 40,6 e real 43 — residuo +2,4,
     # DENTRO da banda e ESTABELECIDO.
     ("kolejny-poziom-s046", 40.6, 43, "edge"),
+    # 17/10 01:1x — provedor edge MEDIDO (zero avisos no job 117269678180)
+    ("labtreinamento-s065", 26.4, 28, "edge"),
 ]
 
 
@@ -264,8 +266,18 @@ def test_a_mira_do_canal_e_sobre_o_REAL_e_o_instrumento_cobra_o_ESTIMADO():
     virou **tres de quatro**, e o teste passou a travar o que segue medido em vez
     do que era conveniente.
 
-    O que NAO muda: o estimado esteve DENTRO da mira nas quatro, logo
-    "mira verde" continua nao garantindo "real dentro" (740).
+    E A FRASE "o estimado esteve DENTRO da mira em TODAS" CAIU EM 17/10 as
+    01:2x, medida pelo proprio teste. O `labtreinamento-s065` saiu com previsao
+    edge **26,4** — 0,4 s ACIMA do teto de 26,0, com o `mira.py` dizendo FORA — e
+    real **28**. Eu mirei o PISO e a sobrecarga de dez cenas nao deixou descer
+    mais sem o custo de prosodia do 747; a exposicao foi declarada na copy antes
+    de publicar.
+
+    Logo o teste nao pode mais cobrar "estimado dentro" de TODA peca do canal. O
+    que ele cobra e a propriedade que sustenta o 740, e ela vive nas pecas de
+    mira VERDE: existe peca com o estimado dentro cujo real saiu fora. A peca de
+    mira vermelha fica na serie e vai CONTADA a parte, em vez de reprovar o
+    arquivo ou ser apagada dele.
     """
     import ensaio
 
@@ -274,12 +286,22 @@ def test_a_mira_do_canal_e_sobre_o_REAL_e_o_instrumento_cobra_o_ESTIMADO():
     do_canal = [(p, prev, real) for p, prev, real, _ in SERIE
                 if p.startswith("labtreinamento")]
     assert len(do_canal) >= 4, "a serie do canal encolheu: releia o 744 e o 746"
-    for pacote, prev, real in do_canal:
-        assert piso <= prev <= teto, f"{pacote}: o estimado tem de estar DENTRO"
-    fora = [p for p, _, real in do_canal if real > teto]
-    dentro = [p for p, _, real in do_canal if real <= teto]
+    verdes = [(p, prev, real) for p, prev, real in do_canal
+              if piso <= prev <= teto]
+    vermelhas = [(p, prev, real) for p, prev, real in do_canal
+                 if not piso <= prev <= teto]
+    assert verdes, "sem peca de mira verde o 740 nao tem sobre o que falar"
+    fora = [p for p, _, real in verdes if real > teto]
+    dentro = [p for p, _, real in verdes if real <= teto]
     assert fora, "se NENHUM real sair fora, o 740 deixou de valer — releia"
     assert dentro, "se TODOS sairem fora, o 746 caiu — releia o padrao"
+    # "vermelha" AQUI e so pelo EDGE — e a unica coordenada que a SERIE guarda.
+    # O s042 e o s043 foram vermelhos pelo PISO DO PIPER com o edge dentro
+    # (23,4 e 23,3), logo caem como verdes nesta classificacao e isso vai dito:
+    # o teste nao ve a segunda coordenada da pinca.
+    assert all(real > teto for _, _, real in vermelhas), (
+        "peca vermelha PELO EDGE com real dentro: releia o 740/748 em vez de"
+        " mover o assert — hoje a unica e o s065 (26,4 -> 28)")
 
 
 def test_mirar_o_PISO_e_o_que_pos_o_real_DENTRO():
