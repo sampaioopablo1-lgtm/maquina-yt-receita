@@ -1,0 +1,76 @@
+{
+  "slug": "labtreinamento",
+  "idioma": "pt-BR",
+  "voz": "pt-BR-ThalitaMultilingualNeural",
+  "trilha": "Inspired",
+  "paleta": {
+    "ink": "#1F2933",
+    "c1": "#3F6C51",
+    "c2": "#C98B2E",
+    "bg": "#F5F3ED"
+  },
+  "pacote": "labtreinamento-s072",
+  "longo_existente": "KRUERlNPzDw",
+  "thumb": {
+    "l1": "Quem fez",
+    "l2": "não vê"
+  },
+  "longo": [],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Verificação",
+      "sub": "não é conferência",
+      "nar": "Quem verifica não pode ser quem fez.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Não é desconfiança",
+      "nar": "Não é desconfiança, é cegueira."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Quem fez",
+      "sub": "já sabe o alvo",
+      "nar": "Quem fez já sabe o alvo."
+    },
+    {
+      "layout": "item",
+      "kicker": "Então",
+      "nar": "Vê a ação, não o efeito."
+    },
+    {
+      "layout": "lista",
+      "kicker": "A pergunta",
+      "nar": "Verificar não é ver se foi feito."
+    },
+    {
+      "layout": "item",
+      "kicker": "É outra",
+      "nar": "É ver se resolveu."
+    },
+    {
+      "layout": "item",
+      "kicker": "Diferença",
+      "nar": "Aplicado é conclusão."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Troque",
+      "sub": "o nome da coluna",
+      "nar": "Resolvido é eficácia."
+    },
+    {
+      "layout": "item",
+      "kicker": "Uma linha",
+      "nar": "Troque o nome na coluna."
+    },
+    {
+      "layout": "cta",
+      "kicker": "Troque o nome",
+      "nar": "Troque e se inscreva."
+    }
+  ],
+  "copy": "# labtreinamento-s072\n\n## TITULO\nQuem Executou A Ação Não Pode Ser Quem Verifica — E Não É Desconfiança, É Cegueira\n\n## TITULO SHORT\nQuem fez não verifica\n\n## DESCRICAO\nExiste uma regra de plano de ação que quase todo mundo quebra por economia de gente, e ela não tem nada a ver com confiança: **quem executou a ação não pode ser quem verifica se ela resolveu.** O motivo não é desconfiança — é **cegueira**. Quem fez já sabe o que a ação deveria resolver, e por isso olha para a ação, não para o efeito dela. É a pessoa com menos chance de notar que aquilo não funcionou.\n\nE essa regra só faz sentido junto com uma segunda, que é a distinção que a auditoria de verdade cobra: **verificar não é perguntar se foi feito. É perguntar se resolveu.** São coisas diferentes, e a primeira é confortável porque tem resposta imediata na agenda. \"Treinamento aplicado\" é **conclusão**. Uma amostra de pessoas respondendo certo meses depois é **eficácia**. A planilha costuma ter só a primeira, e é por isso que um plano inteiro pode fechar com todas as linhas verdes e nenhum problema resolvido.\n\nO conserto é barato e é de **nome de coluna**. Se a coluna se chama \"feito\", ela só pode receber \"sim\". Se ela se chama \"resolveu\", quem preenche precisa ir buscar uma evidência de efeito — e quem precisa buscar evidência de efeito não consegue preencher no automático. Uma linha de cabeçalho muda o que a pessoa é obrigada a procurar.\n\nE há uma consequência de pessoal que vem junto: se a sua equipe é pequena e a mesma pessoa executa e verifica, isso não é um problema de planilha, é um problema de desenho. A saída não é fingir independência; é escolher **outra pessoa qualquer** para a verificação — não precisa ser especialista na ação, precisa ser alguém que não sabe de antemão qual era o alvo.\n\nNão cito aqui nenhuma data, nenhuma escala de nota e nenhum corte de prioridade. Essas coisas são **critério da própria empresa** e mudam de uma para outra; já a diferença entre \"foi feito\" e \"resolveu\" não muda em nenhuma.\n\nNo vídeo completo: a planilha inteira, aba por aba, do diagnóstico ao cronograma, com o que cada coluna existe para impedir.\n\nConteúdo informativo, não é consultoria de certificação nem orientação jurídica.\n\n## COMENTARIO FIXADO\nA parte que mais custa: quem fez a ação é a pessoa com MENOS chance de ver que ela não resolveu — não por desonestidade, por cegueira. Ela já sabe qual era o alvo, então olha para a ação e não para o efeito. E isso só funciona junto com a outra metade: verificar é perguntar se RESOLVEU, não se foi feito. \"Aplicado\" é conclusão; amostra respondendo certo meses depois é eficácia. De propósito não escrevo nenhuma escala de nota nem corte de prioridade: esses são critério de cada empresa. Conta aqui quem assina a verificação na sua planilha.\n\n## HASHTAGS\n#PlanoDeAção #Auditoria #LabTreinamento\n\n## TAGS\nverificacao, eficacia, conclusao, plano de acao, independencia, quem executou, coluna, evidencia de efeito, auditoria interna, labtreinamento, planilha, qualidade, responsavel, amostra, criterio\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Conferido campo a campo: nenhuma\ndata, nenhuma escala, nenhum corte, nenhum numero de norma e nenhum orgao\nnomeado (regra 609). A peca nao diz digito nenhum.\n\nA REGRA (g) trabalhou aqui no CASO ESPECIAL dela, e este longo e o melhor exemplo\nque a frota ja teve: a escala de nota, os pesos, os cortes de faixa e o maximo de\nprioridade **o proprio longo declara como CRITERIO DA EMPRESA**, dizendo em letra\nque a norma nao define faixa de prioridade e que se deve escrever na aba quem\ndefiniu e quando. Numero que a fonte declara como ESCOLHA e nao como norma nao\nentra de jeito nenhum -- e o caso especial escrito na regra (g), e aqui ele vale\npara quatro numeros de uma vez.\n\nE AS DATAS TAMBEM FICARAM FORA, pela regra (g) comum: a data de publicacao do\ntexto, o ano do fim do ciclo e as janelas de marco. Sao data de vigencia.\n\nO QUE A PECA CARREGA, e nao envelhece: quem executou a acao e a pessoa com MENOS\nchance de ver que ela nao resolveu, porque ja sabe qual era o alvo; isso e\ncegueira e nao desconfianca; verificar e perguntar se RESOLVEU, nao se foi feito;\n\"aplicado\" e conclusao e amostra de efeito e eficacia; e o conserto e de NOME DE\nCOLUNA, porque coluna chamada \"feito\" so pode receber \"sim\".\n\nA FAMILIA DE ENTRADA ERRADA E: **PAPEL** -- quem ocupa a posicao de verificar.\nConferida a regra (f) contra as TRES pecas anteriores desta MESMA origem: o\n`labtreinamento-s012` e o `-s050` levaram os dois a familia do PRAZO (\"a data que\nobriga voce e outra\" / \"o prazo nao e seu\"), e o `-s052` levou UM VERBO POR LINHA\ndo plano. Nenhuma delas e papel, e nenhuma e a distincao conclusao-contra-eficacia.\n\n**E A ROTA DA REGRA (h) E O QUE TORNOU ESTA PECA POSSIVEL.** Esta origem **nao tem\nspec local** (`segundo_angulo.pacote_do_id` devolve `None`), logo o texto so sai\nda faixa de legenda -- e e exatamente a origem que o 759/761 nomeia como a que eu\nvinha pulando por isso. O `yt-dlp` baixou DUAS faixas: uma `.pt` de 102.267 bytes\n(a automatica) e uma **`.pt-BR` de 13.737** (a que a propria maquina subiu). O\ntexto saiu da SEGUNDA, lida fala por fala, preferindo a NAO automatica como a\nregra (h) manda.\n\n**E O CUSTO DE RECENCIA VAI DECLARADO, porque ele e real:** esta origem e o\n**rank 13 de 14** na ordem viva do canal, isto e, DOZE posicoes atras do topo. O\npedido do dono de 16/10 era servir o longo mais NOVO primeiro. Eu escolhi a origem\nde MENOR contagem (3 usos contra 4 nas onze seguintes e 12 na dominante), porque o\n`concentracao.py` e o portao `similaridade` sao de monetizacao e a recencia e\npreferencia editorial -- mas o peso entre as duas coordenadas **nao esta medido**,\ne o `recencia.py` diz isso em letra. Fica registrado como escolha, nao como regra.\n\nO QUE EU NAO LEVEI, de proposito, e vai escrito para a proxima rodada achar: a\nEVIDENCIA ESPERADA escrita ANTES de comecar a acao (porque escrita depois vira\nprocurar o que ja tem e chamar de prova), e a segunda reprogramacao de prazo\n(\"na segunda, o problema nao e prazo, e a acao\"). Sao duas familias boas, e\nnenhuma cabe hoje pela regra (f).\n\nMIRA: aqui manda o `ALVO_POR_CANAL` deste canal, que e de duracao REAL\n(20,0 a 26,0), e nao o centro por voz do 679.\n\nA EXPOSICAO, dita ANTES de publicar: `fabrica/mira.py` devolveu **edge 25,7** e\n**piper 21,1**, os dois DENTRO da mira nos dois mundos. Com a banda de residuo\nOBSERVADA de **-0,6 a 4,0 s** (n=79), se o **edge** narrar o real deve cair entre\n**25,1 e 29,7 s** -- logo PODE passar do teto de 26,0, que e o padrao medido em\n26 de 29 pecas deste canal narradas pelo edge. Se o **piper** narrar, 20,5 a 25,1\ncabe. A primeira versao dava **33,0**, muito fora, e foi encurtada em TRES passos\nde reescrita inteira, nao de ajuste.\n\n## FONTES\nO longo de onde este short foi extraido (`KRUERlNPzDw`) carrega as datas, a\nescala e os criterios. Este short NAO introduz numero novo sobre o mundo, entao\nnao exige fonte institucional nova.\n\nNOTA DE PROCEDENCIA: esta origem NAO tem spec local, e o texto saiu da FAIXA DE\nLEGENDA `pt-BR` (13.737 bytes, a que a maquina subiu, nao a automatica de\n102.267), lida fala por fala. A regra do verificador independente e a distincao\nconclusao-contra-eficacia aparecem na aba do PLANO. Nenhuma frase foi inferida de\ntitulo de capitulo nem de resumo.\n"
+}
