@@ -914,3 +914,13 @@ de `insert into videos` parqueadas em `docs/pendente/videos-a-inserir.sql`, e se
 `execute_sql` nenhuma entra; (3) a decisao do 740/748 — a mira deste canal
 (20,0 a 26,0) e o real nao cabem juntos, e hoje sao **23 de 26** peças fora do
 teto no mundo edge, todas com o `mira.py` verde.
+
+## 17/10 08:1x — nona peca do dia, e a 25a negativa do banco
+`epomeno-epipedo-s050` = `SFFlpK78uyo` ("Όχι η αρχική τιμή"), **43 s reais**
+contra previsao edge 41,8 (provedor MEDIDO: zero avisos de Piper no job
+`117349192781`), residuo **+1,2 s**, dentro da banda e estabelecido. **A peca
+ficou ABAIXO do teto de 45** — ela foi escrita mirando o PISO da faixa, que e a
+regra de redacao do 772.
+
+**47** linhas de `insert into videos` seguem parqueadas em
+`docs/pendente/videos-a-inserir.sql`, e sem `execute_sql` nenhuma entra.
