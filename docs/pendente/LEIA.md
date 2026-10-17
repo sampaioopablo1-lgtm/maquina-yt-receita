@@ -1019,3 +1019,30 @@ com o `mira.py` VERDE nos dois mundos. A decisao segue sendo sua.
 
 **Parqueadas para `videos`: 55 linhas** em `docs/pendente/videos-a-inserir.sql`,
 esperando o `execute_sql` voltar (34a rodada seguida de negacao).
+
+## 17/10 17:1x — epomeno-epipedo-s053 no ar, e a rota da duracao FECHOU de novo
+
+`WF3684zyRWo` ("Μετρά έδαφος, όχι εσένα"), 18a peca do dia. Provedor **edge**
+MEDIDO (zero avisos no job 117454412202). Previsao edge **41,6** — o PISO do
+`ALVO_SHORT`, pelo 772 — e piper 36,8, os doze portoes verdes.
+
+**NAO HA PONTO DE RESIDUO NESTA RODADA, e a razao e medida.** A peca de CONTROLE
+`OhrGlJvnBoM`, que leu **44 s** uma hora antes, voltou **VAZIA** na mesma
+chamada. Peca de dias de vida nao desindexa, logo o que mudou foi a ROTA — e a
+leitura vazia da peca nova nao diz nada sobre ela. A peca fica PARQUEADA e a
+medicao vem quando a rota reabrir. Terceira vez hoje que ela abre e fecha.
+
+**A ROTA DA LEGENDA ESTA FECHADA e isso custou a origem menos usada do canal.**
+Sondadas na MESMA chamada: `yt-dlp --flat-playlist` devolveu a ordem viva com
+duracao, e o download de legenda levou *"Sign in to confirm you're not a bot"*.
+A regra (h) nao vale nesta rodada, logo o `eZ697VNYCPU` (um uso so, sem spec
+local) ficou de fora por falta de INSTRUMENTO, nao por escolha.
+
+Origem usada: `9U2h4HuAzLs`, rank **3** na ordem viva e **2 usos** — o rank 1
+esta sob ALERTA de concentracao (12 de 52 shorts do canal).
+
+**Porta 1 as 17:1x: 68 / 21 / 8**, janela de 8,0 h contra a leitura das 09:1x,
+**indeterminado nos tres** — o piso de resolucao da janela e 3,00/dia contra
+~1,8/dia medido. A primeira leitura que RESOLVE ritmo cai depois das **22:1x**.
+
+**Parqueadas para `videos`: 56 linhas.** 35a rodada seguida sem `execute_sql`.
