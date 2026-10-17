@@ -1,0 +1,80 @@
+{
+ "slug": "kolejny-poziom",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "pacote": "kolejny-poziom-s050",
+ "longo_existente": "GUiq15usizw",
+ "thumb": {
+  "l1": "Liczy dziś,",
+  "l2": "nie dekady"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Wyszło taniej",
+   "sub": "i co dalej",
+   "nar": "Wyszła jedna strona taniej. I co dalej?",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Błąd",
+   "nar": "Czytasz to jako odpowiedź na trzydzieści lat."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A rachunek",
+   "sub": "liczy dzisiaj",
+   "nar": "A ten rachunek porównuje koszt dzisiaj."
+  },
+  {
+   "layout": "item",
+   "kicker": "Tyle umie",
+   "nar": "Tyle umie, i wcale nie udaje więcej."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Poza nim",
+   "itens": [
+    "płynność kapitału",
+    "wolność wyprowadzki"
+   ],
+   "nar": "Poza nim zostają dwie rzeczy."
+  },
+  {
+   "layout": "item",
+   "kicker": "Kapitał",
+   "nar": "Kapitał jest twój, ale nie wyjmiesz go w miesiąc."
+  },
+  {
+   "layout": "item",
+   "kicker": "Najem",
+   "nar": "Najem daje wyprowadzkę w miesiąc."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ile warte",
+   "sub": "nie wiem",
+   "nar": "Ile są warte? Nie wiem, i nie będę zgadywał."
+  },
+  {
+   "layout": "item",
+   "kicker": "Kolejność",
+   "nar": "Najpierw to, co się liczy, potem to, co się waży."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Zapisz osobno",
+   "nar": "Zapisz je osobno i zasubskrybuj kanał."
+  }
+ ],
+ "copy": "# kolejny-poziom-s050\n\n## TITULO\nTen Rachunek Porównuje Koszt Mieszkania DZISIAJ — Nie Mówi, Co Się Opłaca Przez Trzydzieści Lat\n\n## TITULO SHORT\nLiczy dziś, nie trzydzieści lat\n\n## DESCRICAO\nZrobiłeś rachunek poprawnie: oddzieliłeś odsetki od kapitału, dodałeś trzy małe liczby po stronie własności, wyrzuciłeś to, co się skraca. Wyszła jedna strona taniej. **I tu pojawia się błąd, który nie jest arytmetyczny:** traktujesz ten wynik jako odpowiedź na pytanie o trzydzieści lat.\n\nNie jest. **Ten rachunek porównuje koszt mieszkania DZISIAJ** — w tym jednym miesiącu, przy tych liczbach, które są na twoim papierze. To wszystko, co umie, i nie udaje, że umie więcej.\n\nDwie rzeczy zostają całkowicie poza nim, i obie są prawdziwe:\n\n- **kapitał, który odkładasz, ma niską płynność.** Jest twój, ale nie wyjmiesz go w miesiąc, kiedy będzie potrzebny. Rachunek pokazuje jego wysokość, nie jego dostępność;\n- **najem daje możliwość wyprowadzki w miesiąc.** Dla części osób to warte więcej niż cała różnica, którą właśnie policzyłeś.\n\nZwróć uwagę, że nie mówię ci, ile te dwie rzeczy są warte. **Nie wiem** — zależą od twojej sytuacji, nie od papieru. Gdybym je wycenił, podstawiłbym swoje założenia w miejsce twoich, a wtedy rachunek przestałby być sprawdzalny.\n\nI to jest cała zaleta tej pracy: **masz teraz jedną liczbę, której nikt nie podważy, i osobno listę rzeczy do zważenia samemu.** Przed rachunkiem miałeś wszystko razem — liczby, przewidywania i preferencje — w jednym poczuciu \"chyba lepiej\".\n\nKolejność jest całą różnicą: **najpierw to, co się liczy, potem to, co się waży.** Jeśli odwrócisz, dostaniesz opinię w cyfrach.\n\nPełny rachunek, z czterema krokami, jest w długim filmie na kanale.\n\n## COMENTARIO FIXADO\nPolicz najpierw, a potem zapisz osobno: ile jest dla ciebie warta możliwość wyprowadzki w miesiąc?\n\n## HASHTAGS\n#finanse #kredyt #najem #kolejnypoziom #shorts\n\n## TAGS\nnajem, kredyt hipoteczny, odsetki, kapitał, płynność, wyprowadzka, porównanie, rachunek, decyzja, finanse osobiste, kolejny poziom\n\n## AVISO\n**ORIGEM: a regra de RECÊNCIA.** O longo mais novo do canal pela ordem VIVA é o\n`GUiq15usizw` (538 s), com spec local (`kolejny-poziom-019`, 56 capítulos) e OITO\nshorts já tirados dele. O `segundo_angulo.py` nomeou os oito e as copies foram\nlidas antes de escolher.\n\n**FAMÍLIA DE ENTRADA ERRADA, nova neste canal:** tomar o resultado da conta como\nresposta à decisão de **trinta anos**, quando ela compara o custo de morar\n**hoje**. Base literal nos capítulos 48 a 51 (*\"Ten rachunek porównuje koszt\nmieszkania DZISIAJ. Nie mówi, co się opłaca przez trzydzieści lat\"*, a baixa\nliquidez do capital, e o valor de poder se mudar em um mês), que nenhum dos oito\nusou. As oito anteriores: juros de qual mês (`s003`), comissão diluída (`s033`),\ncapital não é dinheiro gasto (`s042`), o que se cancela sai (`s043`), o resultado\nse desloca (`s044`), a caução volta (`s045`), o custo que exigiria adivinhar\n(`s046`) e as três linhas que só o proprietário paga (`s049`).\n\n**E a distinção com o `s044` vai dita porque elas se tocam:** lá o achado é que a\nconta tem **prazo de validade** e se repete depois de um ano; aqui é que ela tem\n**escopo** — responde \"hoje\", e o que fica fora não é erro dela, é outra pergunta.\nValidade contra escopo.\n\n**E a regra (g):** nenhum número do mundo entra. O capítulo 50 do próprio longo\nrecusa precificar o custo do capital próprio *\"bo musiałbym zgadnąć stopę\"*, e o\nshort mantém essa recusa em vez de inventar um número.\n\n## CONFIGURACOES DO STUDIO\nShort 9:16, `privacyStatus=public`, trilha `Wholesome`, voz `pl-PL-MarekNeural`.\n\n**EXPOSIÇÃO DA DURAÇÃO, declarada ANTES de publicar:** previsão edge **41,6 s** e\npiper **35,4 s**. Mirei o PISO do `ALVO_SHORT` da frota (41,5 a 43,0), que é o que\no 679 manda para a voz polonesa. Com a banda observada **(0,0; 4,0)**, agora com\n**63** pontos: se o edge narrar, o REAL deve cair entre **41,6 e 45,6 s**, e o\ntopo PASSA do teto de 45 do portão; se o piper narrar, 35,4 a 39,4 cabe. Nenhum\nparâmetro mudou (§10).\n\n**E a rota pública da duração será sondada com a peça de CONTROLE antes de eu\nprometer o ponto de resíduo** — às 05:0x ela estava aberta, e isso é ESTADO, não\npropriedade.\n"
+}
