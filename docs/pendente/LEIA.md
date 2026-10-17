@@ -1117,3 +1117,27 @@ regra (h). Estado de ROTA, nao propriedade — a sonda vem antes de desistir.
 
 **Porta 1 as 20:1x: 68 / 21 / 8**, janela de 11,0 h, indeterminado nos tres (piso
 2,18/dia). **Parqueadas para `videos`: 59 linhas.** 38a rodada sem `execute_sql`.
+
+## 17/10 21:1x — kolejny-poziom-s055 no ar, 22a peca do dia
+
+`0DAQxf3d3JY` ("Milczenie to też wybór"), pl. Provedor **edge** MEDIDO (zero
+avisos no job 117504992463). Previsao edge **42,2** / piper 35,9, real **43** —
+residuo **+0,8 s**, dentro da banda e com o sinal NAO estabelecido pelo 770 (o
+intervalo (42; 43] contem a previsao). `RESIDUO_N` = 79, limites intocados.
+Rota aberta, conferida pelo controle (44 s) antes de usar a leitura.
+
+Familia nova: **ACAO POR OMISSAO** — a renuncia nao e eterna, o reingresso volta
+sozinho numa data da lei, e essa data se REPETE; logo nao agir e uma escolha.
+
+**E a DATA e o caso mais claro da regra (g) que esta maquina ja encontrou:** ela e
+o proprio ASSUNTO do short e ainda assim NAO entra, porque data de vigencia muda
+por lei nova. O que nao muda e que ela existe e se repete.
+
+**O caminho ate a duracao foi de vaivem, e as tres restricoes do 747 brigaram:**
+40,4 (abaixo do piso) -> alongada -> o portao `ortografia` REPROVOU (3,4% de
+letras acentuadas contra 6,9% do canal; em polones isso muda a pronuncia do TTS)
+-> reescrita com palavras acentuadas (5,2%) subiu a 43,1, acima do topo ->
+encurtada, fechou em 42,2. Prosodia e duracao se empurram.
+
+**Porta 1 as 21:1x: 68 / 21 / 8**, janela de 12,0 h, indeterminado nos tres (piso
+2,00/dia). **Parqueadas para `videos`: 60 linhas.** 39a rodada sem `execute_sql`.
