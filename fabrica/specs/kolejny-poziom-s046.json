@@ -1,0 +1,80 @@
+{
+ "slug": "kolejny-poziom",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "pacote": "kolejny-poziom-s046",
+ "longo_existente": "GUiq15usizw",
+ "thumb": {
+  "l1": "Musiałbyś",
+  "l2": "zgadywać"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Wkład własny",
+   "sub": "też ma koszt",
+   "nar": "Wkład własny też ma koszt, i to jest prawda.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Jaki",
+   "nar": "To pieniądz, który mógłby pracować gdzie indziej."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "I jednak",
+   "sub": "nie wchodzi",
+   "nar": "Mimo to nie wpisuję go do tego rachunku."
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlaczego",
+   "nar": "Bo musiałbym zgadnąć stopę, którą by zarobił."
+  },
+  {
+   "layout": "item",
+   "kicker": "A zgadnięta",
+   "nar": "A zgadnięta liczba zmienia wynik, nie rachunek."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Zasada jest ta",
+   "itens": [
+    "wchodzi, co zapisane",
+    "nie wchodzi, co zgadnięte"
+   ],
+   "nar": "Wchodzi to, co zapisane; nie to, co zgadnięte."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "To nie znaczy",
+   "sub": "że nie istnieje",
+   "nar": "To nie znaczy, że ten koszt nie istnieje."
+  },
+  {
+   "layout": "item",
+   "kicker": "Co z nim",
+   "nar": "Zapisz go osobno, swoją własną stopą."
+  },
+  {
+   "layout": "item",
+   "kicker": "Wtedy",
+   "nar": "Wtedy wiesz, która liczba jest twoim założeniem."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Rozdziel je",
+   "nar": "Rozdziel te dwie liczby i zapisz się tutaj."
+  }
+ ],
+ "copy": "# kolejny-poziom-s046\n\n## TITULO\nWkład Własny Ma Koszt — i Dlatego Właśnie Nie Wchodzi Do Tego Rachunku\n\n## TITULO SHORT\nMusiałbyś zgadywać\n\n## DESCRICAO\nJest zarzut, który pada zawsze i jest **słuszny**: porównanie najmu z kredytem pomija koszt wkładu własnego. Te pieniądze mogły pracować gdzie indziej — na lokacie, w obligacjach, w czymkolwiek — i to, że leżą w mieszkaniu, kosztuje.\n\n**Zarzut jest trafny, a odpowiedź nie jest \"to nieistotne\".** Odpowiedź jest inna: żeby wpisać ten koszt do rachunku, musiałbym **zgadnąć stopę**, którą te pieniądze by zarobiły. A zgadnięta liczba nie poprawia rachunku — **zmienia wynik**. Przy jednej stopie wygrywa najem, przy innej własność, i obie wersje wyglądają równie poważnie, bo mają tyle samo cyfr.\n\nStąd zasada, która rządzi tym rachunkiem od początku i jest jedna:\n\n- **wchodzi to, co jest zapisane** na papierze, który masz w ręku;\n- **nie wchodzi to, co musiałbyś zgadnąć** — ani stopa zwrotu, ani wzrost czynszów, ani ceny mieszkań za pięć lat.\n\nTo nie jest wygodne. To jest to, co odróżnia rachunek od opinii zapisanej w cyfrach.\n\nI **nie oznacza, że ten koszt znika**. Oznacza, że ma swoje miejsce: **zapisz go osobno**, własną stopą, którą sam wybierasz i o której wiesz, że ją wybrałeś. Wtedy masz dwie liczby i wiesz, która z nich jest **twoim założeniem** — a to jest dokładnie ta wiedza, którą traci się, gdy wszystko wpada do jednej kolumny.\n\nTa sama logika dotyczy remontów, których jeszcze nie było, i twojego czasu: istnieją, ale nie porównują się z niczym na papierze.\n\nPełny rachunek z liczbami i cztery kroki są w dużym materiale na kanale.\n\n## COMENTARIO FIXADO\nJeśli chcesz doliczyć koszt wkładu własnego — **napisz, jaką stopę przyjmujesz**. Ta jedna informacja mówi wszystko.\n\n## HASHTAGS\n#kredyt #najem #finanse #KolejnyPoziom #shorts\n\n## TAGS\nwkład własny, koszt alternatywny, kredyt hipoteczny, najem, rachunek, stopa zwrotu, finanse osobiste, założenie, porównanie, Kolejny Poziom\n\n## AVISO\n**ORIGEM: a regra de RECÊNCIA, pela ordem VIVA.** O longo mais novo do canal segue\nsendo `GUiq15usizw` (538 s) — `kolejny-poziom-019`, **56 capítulos**, com SEIS\nusos e a maioria dos capítulos intocada.\n\n**FAMÍLIA DE ENTRADA ERRADA, nova neste canal:** somar ao rachunho um custo que\n**exige adivinhar uma taxa** — o custo de oportunidade do aporte próprio. O\nreparo não é dizer que ele é irrelevante (ele não é): é que o número adivinhado\n**não melhora a conta, muda o resultado**, e por isso vai registrado **separado**,\ncom a taxa escolhida à vista. Sai do capítulo 50 (`Wkład własny`), intocado pelas\nseis peças anteriores, cujas famílias foram: juros de qual mês (`s003`), despesa\núnica num mês só (`s033`), capital como dinheiro disponível (`s042`), item nos\ndois lados (`s043`), o resultado que vale só para hoje (`s044`) e a caução que\nvolta (`s045`).\n\n**E é a família mais exigente das sete**, porque o short tem de admitir que a\nobjeção está CERTA e ainda assim manter a regra — em vez de descartar a objeção.\n\n## CONFIGURACOES DO STUDIO\nShort 9:16, `privacyStatus=public`, trilha `Wholesome` (identidade do canal, nunca\n`Inspired`), voz `pl-PL-MarekNeural`.\n\n**EXPOSIÇÃO DA DURAÇÃO, declarada ANTES de publicar:** previsão edge **~41 s** e\npiper **~35 s**, os dois dentro de 18 a 45 — mira no PISO do `ALVO_SHORT`, que é o\nque a voz polonesa pede (679). Com a banda observada **(0,0; 4,0)**, se o edge\nnarrar o REAL deve cair entre ~41 e ~45 s, **encostando no teto de 45 do portão**.\nE pela medição das 23:2x de 16/10, **a mesma previsão não determina o real** — 10\ndos 14 grupos de previsão idêntica divergem —, logo esta faixa é o melhor que\nexiste e não vai ficar mais estreita. Nenhum parâmetro mudou (§10).\n"
+}
