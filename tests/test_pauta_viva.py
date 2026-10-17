@@ -167,11 +167,41 @@ def test_longo_com_UM_short_ainda_e_pauta():
     capitulo que o short ORIGINAL nao usou" pressupoe que o mesmo longo rende
     mais de um short. Eu tratava cada longo como uso UNICO por HABITO.
     """
-    r = {"c": {"eZ697VNYCPU": ("usada uma vez", 0),
-               "zzzzzzzzzzz": ("nunca usada", 0)}}
-    d = PV.por_uso(r, set())["c"]
-    assert [t for t, _ in d["um_short"]] == ["usada uma vez"]
-    assert [t for t, _ in d["sem_short"]] == ["nunca usada"]
+    # O id cravado era `eZ697VNYCPU`, uma origem REAL com um short so. Em 17/10
+    # as 20:1x a rota da legenda reabriu, eu escrevi o SEGUNDO short dela, e este
+    # teste reprovou: a fixture dependia de estado VIVO que a producao move —
+    # mesma classe do 761. Trocar por um id sintetico TAMBEM nao serve, porque o
+    # `por_uso` conta os usos nas specs do DISCO, e id inventado tem contagem
+    # zero (ele cairia em `sem_short`).
+    #
+    # O certo e DERIVAR o id da contagem viva, e dizer quando nao existe nenhum
+    # em vez de calar — que e exatamente a licao do 761.
+    import collections, glob, json, os
+    usos = collections.Counter()
+    for caminho in glob.glob(os.path.join(str(RAIZ), "fabrica", "specs", "*.json")):
+        try:
+            sp = json.load(open(caminho, encoding="utf-8"))
+        except Exception:                                      # noqa: BLE001
+            continue
+        if sp.get("longo_existente"):
+            usos[sp["longo_existente"]] += 1
+    de_um = sorted(v for v, n in usos.items() if n == 1)
+    assert usos, "sem spec com `longo_existente` no disco, o teste nao mede nada"
+
+    if de_um:
+        vid = de_um[0]
+        r = {"c": {vid: ("usada uma vez", 0),
+                   "zzzzzzzzzzz": ("nunca usada", 0)}}
+        d = PV.por_uso(r, set())["c"]
+        assert [t for t, _ in d["um_short"]] == ["usada uma vez"]
+        assert [t for t, _ in d["sem_short"]] == ["nunca usada"]
+    else:
+        # Nenhuma origem com UM uso hoje: a propriedade que resta e a do outro
+        # lado — origem de contagem ZERO cai em `sem_short`, e NADA cai em
+        # `um_short`. Isso continua provando que o balde existe e separa.
+        d = PV.por_uso({"c": {"zzzzzzzzzzz": ("nunca usada", 0)}}, set())["c"]
+        assert [t for t, _ in d["sem_short"]] == ["nunca usada"]
+        assert d["um_short"] == []
 
 
 def test_o_PRECEDENTE_de_dois_shorts_do_mesmo_longo_existe_e_esta_no_ar():
@@ -208,10 +238,25 @@ def test_origem_usada_DUAS_vezes_sai_dos_dois_baldes():
 
 def test_grupo_de_copias_conta_UMA_vez_e_nao_somado():
     """Dez copias do mesmo titulo com um short nao sao dez segundos angulos."""
-    r = {"c": {"eZ697VNYCPU": ("T", 0), "copia_irma": ("T", 0)}}
+    # Idem: o id com UM uso sai da contagem viva, nao cravado. Se nao houver
+    # nenhum, a propriedade que se testa e a do grupo de copias com contagem
+    # ZERO — ele tambem tem de contar UMA vez, no outro balde.
+    import collections, glob, json, os
+    usos = collections.Counter()
+    for caminho in glob.glob(os.path.join(str(RAIZ), "fabrica", "specs", "*.json")):
+        try:
+            sp = json.load(open(caminho, encoding="utf-8"))
+        except Exception:                                      # noqa: BLE001
+            continue
+        if sp.get("longo_existente"):
+            usos[sp["longo_existente"]] += 1
+    de_um = sorted(v for v, n in usos.items() if n == 1)
+    vid = de_um[0] if de_um else "zzzzzzzzzzz"
+    balde = "um_short" if de_um else "sem_short"
+    r = {"c": {vid: ("T", 0), "copia_irma": ("T", 0)}}
     d = PV.por_uso(r, set())["c"]
-    assert len(d["um_short"]) == 1 and d["um_short"][0][1] == ["copia_irma",
-                                                              "eZ697VNYCPU"]
+    assert len(d[balde]) == 1
+    assert d[balde][0][1] == sorted(["copia_irma", vid])
 
 
 def test_o_relato_do_vivo_DIZ_que_o_segundo_angulo_nao_e_automatico():

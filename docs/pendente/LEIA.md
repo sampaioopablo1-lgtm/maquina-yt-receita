@@ -1091,3 +1091,29 @@ varia e o sinal, porque o grupo tem base variavel por desenho.
 **Porta 1 as 19:1x: 68 / 21 / 8**, janela de 10,0 h, indeterminado nos tres
 (piso 2,40/dia). **Parqueadas para `videos`: 58 linhas.** 37a rodada sem
 `execute_sql`.
+
+## 17/10 20:1x — epomeno-epipedo-s054 no ar, e o PRIMEIRO residuo NEGATIVO em 78 pontos
+
+`A4M3SLs8FEk` ("Λάθος στοιχεία, λάθος φόρος"), 21a peca do dia. Provedor **edge**
+MEDIDO (zero avisos no job 117492664194). Previsao edge **41,6** e real **41** —
+residuo **−0,6 s**, o primeiro NEGATIVO da serie.
+
+**E o sinal dele ESTA estabelecido, ao contrario do que o meu proprio criterio
+dizia.** O YouTube arredonda PARA CIMA, logo real 41 significa duracao verdadeira
+em (40; 41], e 41,6 esta ACIMA de todo esse intervalo: o residuo verdadeiro vive
+em (−1,6; −0,6] e e estritamente negativo. **O criterio do 770 era de UM LADO SO**
+(`real − previsao > 1,0`) porque foi escrito quando todos os pontos eram
+positivos — consertado para os dois lados, com nove testes.
+
+**E isso derruba a frase "N de N acima" que eu venho escrevendo desde o 734.** Ela
+nao vale mais. O que sobrevive e que a grande maioria e positiva. O piso da banda
+foi a **−0,6**; `RESIDUO_N` = 78.
+
+**E A ROTA DA LEGENDA REABRIU, tres horas depois de eu relatar a origem como fora
+de alcance.** As 17:0x o `yt-dlp` no `eZ697VNYCPU` levou "Sign in to confirm
+you're not a bot"; as 20:1x a MESMA chamada baixou 18,79 KB de VTT. Com isso a
+origem **MENOS USADA do canal** (um short so, sem spec local) virou pauta pela
+regra (h). Estado de ROTA, nao propriedade — a sonda vem antes de desistir.
+
+**Porta 1 as 20:1x: 68 / 21 / 8**, janela de 11,0 h, indeterminado nos tres (piso
+2,18/dia). **Parqueadas para `videos`: 59 linhas.** 38a rodada sem `execute_sql`.

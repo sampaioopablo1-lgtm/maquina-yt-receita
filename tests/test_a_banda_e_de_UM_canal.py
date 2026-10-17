@@ -147,13 +147,22 @@ def test_a_serie_e_BIMODAL_na_previsao__nao_e_uma_faixa_so():
         "duas e uma escolha, nao um dado")
 
 
-def test_TODOS_os_residuos_seguem_NAO_NEGATIVOS():
+def test_o_RESIDUO_NEGATIVO_e_raro_e_cabe_na_banda():
     for pacote, prev, real, _prov in SERIE:
         # `>= 0` desde 16/10 as 21:2x: o `kolejny-poziom-s045` previu 41,0 e
         # deu real 41 — residuo ZERO, que NAO e positivo. A propriedade que a
         # serie sustenta e NAO-NEGATIVO; o positivo estrito vale apenas nos
         # pontos ESTABELECIDOS, e quem cobra isso e o teste do 770.
-        assert real - prev >= 0, pacote
+        # RETRATADO em 17/10 as 20:1x: o `epomeno-epipedo-s054` (41,6 -> 41)
+        # e o PRIMEIRO real ABAIXO da previsao em 78 pontos, e o sinal dele esta
+        # estabelecido para BAIXO (arredondamento para cima: (40; 41] fica todo
+        # abaixo de 41,6). Logo "nenhum ponto e negativo" CAIU. A propriedade que
+        # sobra e que o negativo e RARO, e quem a cobra e
+        # `test_o_sinal_NAO_e_mais_de_N_de_N__e_o_negativo_apareceu`.
+        assert real - prev <= 4.0, pacote
+    negativos = [pk for pk, pr, r, _ in SERIE if r < pr]
+    assert negativos, "o ponto negativo do s054 sumiu da serie"
+    assert len(negativos) <= 0.05 * len(SERIE), negativos
     assert mira.RESIDUO_N == len(SERIE)
 
 

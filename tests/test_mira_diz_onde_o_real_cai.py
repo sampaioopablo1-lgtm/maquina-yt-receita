@@ -88,7 +88,12 @@ def test_o_relato_do_s034_AVISA_que_o_real_passa_do_teto():
     assert "pode passar do teto" in t, "e o real nao — isto e o 739"
     assert "PASSA do teto da mira" not in t, (
         "se o aviso FORTE voltou, o piso da banda subiu — releia o 770")
-    assert "25.6 e 29.6" in t
+    # A faixa NAO vai mais cravada aqui: ela e `previsao + RESIDUO_OBSERVADO`, e
+    # o piso ficou NEGATIVO em 17/10 (o `epomeno-epipedo-s054`, 41,6 -> 41). Esta
+    # linha dizia "25.6 e 29.6" e reprovou quando o piso se moveu — e a regra do
+    # 753 aplicada ao TESTE: numero que o modulo calcula nao se escreve a mao.
+    lo, hi = mira.faixa_real(25.6)
+    assert f"{lo} e {hi}" in t
     # o real medido desta peca foi 28, dentro da banda que o relato anuncia
     assert mira.faixa_real(25.6)[0] <= 28 <= mira.faixa_real(25.6)[1]
 

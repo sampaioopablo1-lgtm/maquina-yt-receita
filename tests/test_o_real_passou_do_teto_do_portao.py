@@ -81,4 +81,7 @@ def test_os_LIMITES_do_portao_seguem_INTOCADOS():
     fonte = (RAIZ / "fabrica" / "prontidao.py").read_text()
     assert "45" in fonte
     # O piso foi a ZERO em 16/10 as 21:2x (`kolejny-poziom-s045`, 41,0 -> 41).
-    assert mira.RESIDUO_OBSERVADO == (0.0, 4.0)
+    # 17/10 20:1x: o piso ficou NEGATIVO (-0,6) com o `epomeno-epipedo-s054`
+    # (41,6 -> 41), o PRIMEIRO ponto abaixo da previsao em 78. O `==` fica, com o
+    # valor novo, porque e ele que obriga a reler a cada movimento da banda.
+    assert mira.RESIDUO_OBSERVADO == (-0.6, 4.0)

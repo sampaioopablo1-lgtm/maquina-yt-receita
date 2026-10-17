@@ -74,15 +74,49 @@ def parqueia(reg: dict, caminho: str = None) -> bool:
     return True
 
 
+def _sinal(real, prev) -> int:
+    """O sinal ESTABELECIDO do residuo, ou 0 quando ele nao esta — ver o
+    docstring de `residuos` para a aritmetica do arredondamento."""
+    if real is None:
+        return 0
+    d = real - prev
+    if d > 1.0:
+        return 1
+    if d < 0:
+        return -1
+    return 0
+
+
 def residuos(reais: dict, caminho: str = None) -> list[dict]:
     """Os residuos das peças parqueadas, contra a previsao do provedor MEDIDO.
 
     `reais` mapeia `youtube_id -> duracao real em segundos`. Peca sem leitura
     sai com `real=None` e `residuo=None` — ausencia e silencio, nunca zero.
 
-    `estabelecido` aplica o criterio aritmetico do 770: so quando
-    `real - previsao > 1,0`, porque o YouTube arredonda PARA CIMA e abaixo disso
-    a janela de arredondamento contem a previsao.
+    `estabelecido` aplica o criterio aritmetico do 770, **agora pelos DOIS
+    lados** — e a primeira versao dele era de um lado so, o que me fez chamar de
+    "nao estabelecido" um ponto cujo sinal NEGATIVO estava provado.
+
+    A aritmetica, e ela e toda a razao: o YouTube arredonda PARA CIMA, logo real
+    `R` significa duracao verdadeira em `(R-1, R]`, e o residuo verdadeiro vive
+    em `(R-1-prev, R-prev]`. Dai:
+
+      * sinal POSITIVO estabelecido  <=>  `R - prev > 1,0`
+        (o piso do intervalo fica acima de zero);
+      * sinal NEGATIVO estabelecido  <=>  `R - prev < 0`
+        (o TETO do intervalo, que e atingido, fica abaixo de zero);
+      * entre os dois o intervalo contem zero, e o sinal NAO esta estabelecido.
+
+    MEDIDO em 17/10 as 20:1x no `epomeno-epipedo-s054` (`A4M3SLs8FEk`): previsao
+    edge 41,6, real **41**, residuo nominal **-0,6**. O criterio antigo
+    (`> 1,0`) devolvia "nao estabelecido" — mas 41,6 esta ACIMA de todo o
+    intervalo `(40; 41]`, logo o residuo verdadeiro esta em `(-1,6; -0,6]` e e
+    **estritamente negativo**. E o PRIMEIRO ponto negativo estabelecido da serie,
+    em 78 pontos, e ele derruba a frase "N de N acima" que eu venho escrevendo
+    desde o 734.
+
+    `sinal` devolve `+1`, `-1` ou `0` (nao estabelecido), para que quem le nao
+    tenha de refazer a conta.
     """
     saida = []
     for r in carrega(caminho):
@@ -93,7 +127,8 @@ def residuos(reais: dict, caminho: str = None) -> list[dict]:
             "pacote": r["pacote"], "youtube_id": r["youtube_id"],
             "provedor": r["provedor"], "previsao": prev, "real": real,
             "residuo": res,
-            "estabelecido": bool(real is not None and (real - prev) > 1.0),
+            "estabelecido": _sinal(real, prev) != 0,
+            "sinal": _sinal(real, prev),
         })
     return saida
 
@@ -110,7 +145,12 @@ def relato(reais: dict = None, caminho: str = None) -> str:
     out = [f"PARQUE: {len(linhas)} peca(s) — {len(sem)} sem leitura,"
            f" {len(com)} com duracao REAL."]
     for l in com:
-        marca = "estabelecido" if l["estabelecido"] else "sinal NAO estabelecido (770)"
+        if l["sinal"] > 0:
+            marca = "estabelecido"
+        elif l["sinal"] < 0:
+            marca = "estabelecido, e NEGATIVO"
+        else:
+            marca = "sinal NAO estabelecido (770)"
         out.append(f"  {l['pacote']} ({l['provedor']}): {l['previsao']} -> "
                    f"{l['real']}, residuo {l['residuo']:+} s — {marca}")
     if sem:

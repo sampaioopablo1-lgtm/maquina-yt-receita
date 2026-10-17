@@ -57,7 +57,21 @@ PROVEDORES = ("edge", "piper")
 # anotação do job, 733) e a duração REAL. Cinco pontos, 13/10: +0,9 / +1,1 / +1,9
 # / +1,3 / +2,4 s. Todos POSITIVOS. Isto NÃO é limiar — nada reprova por causa
 # dele; ele entra no relato para que quem escreve veja onde o real deve cair.
-RESIDUO_OBSERVADO = (0.0, 4.0)
+RESIDUO_OBSERVADO = (-0.6, 4.0)
+# 17/10 20:1x: o PISO DA BANDA FICOU NEGATIVO, e e a PRIMEIRA vez em 78 pontos.
+# O `epomeno-epipedo-s054` (`A4M3SLs8FEk`) previa 41,6 no edge (provedor MEDIDO:
+# zero avisos no job 117492664194) e saiu com **41** reais — residuo -0,6.
+#
+# E o sinal dele ESTA estabelecido, ao contrario do que o meu proprio criterio
+# dizia: o YouTube arredonda PARA CIMA, logo real 41 significa duracao verdadeira
+# em (40; 41], e a previsao de 41,6 esta ACIMA de todo esse intervalo. O residuo
+# verdadeiro vive em (-1,6; -0,6] e e ESTRITAMENTE negativo.
+#
+# O criterio do 770 era de UM LADO SO (`real - previsao > 1,0`) e por isso
+# devolvia "nao estabelecido" aqui — conserto em `duracao_a_medir._sinal`, que
+# agora estabelece os dois lados. **E isto derruba a frase "N de N acima" que eu
+# venho escrevendo desde o 734**: ela nao vale mais, e o que sobrevive e que a
+# grande maioria e positiva.
 # 774, 15/10 10:2x: o TETO da banda CAIU DE NOVO, e e a SEGUNDA ampliacao. O
 # `labtreinamento-s052` previa 25,0 no edge (provedor MEDIDO: zero avisos
 # `NARRACAO PELO PIPER` no job 116368125417) e saiu com 29 REAIS — residuo
@@ -119,7 +133,7 @@ RESIDUO_OBSERVADO = (0.0, 4.0)
 # DENTRO da banda, e o sinal NAO esta ESTABELECIDO (42 - 41,6 <= 1,0, e o
 # arredondamento e para cima) — 36 de 42 estabelecidos. Os LIMITES nao
 # mudaram: 0,4 nao e menor que o piso de 0,1.
-RESIDUO_N = 77  # 741 acrescentou o s035 (24,8 -> 27, +2,2): DENTRO da banda,
+RESIDUO_N = 78  # 741 acrescentou o s035 (24,8 -> 27, +2,2): DENTRO da banda,
 #                 logo os LIMITES nao mudaram — so o numero de pontos que a sustenta.
 #                 14/10 06:2x: o s041 (edge 24,6 -> real 27) deu +2,4 — EMPATADO
 #                 com o teto da banda, o decimo segundo ponto e o segundo a tocar

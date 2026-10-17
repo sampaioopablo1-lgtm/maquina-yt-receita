@@ -72,13 +72,21 @@ def test_o_sinal_deste_ponto_esta_ESTABELECIDO():
     assert REAL - PREV_EDGE > 1.0
 
 
-def test_as_CINCO_correcoes_da_banda_a_ALARGARAM():
+def test_as_SEIS_correcoes_da_banda_a_ALARGARAM():
     """739 (0,9;2,4) -> 752 teto 3,7 -> 769 piso 0,5 -> 770 piso 0,1 -> 774 teto
-    4,0. Nenhuma estreitou, e isso e propriedade de limite por extremo."""
-    larguras = [2.4 - 0.9, 3.7 - 0.9, 3.7 - 0.5, 3.7 - 0.1, 4.0 - 0.1]
+    4,0 -> **17/10 20:1x piso -0,6**. Nenhuma estreitou, e isso e propriedade de
+    limite por extremo observado.
+
+    A sexta e a mais consequente das seis: ela nao so alargou a banda, ela
+    mudou o SINAL do piso, e com isso derrubou a frase "N de N acima" que eu
+    vinha escrevendo desde o 734. O ponto e o `epomeno-epipedo-s054`
+    (`A4M3SLs8FEk`), previsao edge 41,6 e real 41."""
+    larguras = [2.4 - 0.9, 3.7 - 0.9, 3.7 - 0.5, 3.7 - 0.1, 4.0 - 0.1,
+                4.0 - (-0.6)]
     assert larguras == sorted(larguras), larguras
     lo, hi = mira.RESIDUO_OBSERVADO
-    assert round(hi - lo, 1) == 4.0
+    assert round(hi - lo, 1) == 4.6
+    assert lo < 0, "o piso negativo e o achado da sexta correcao"
 
 
 def test_a_banda_cobre_quase_QUATRO_inteiros_do_real():
@@ -138,4 +146,12 @@ def test_TODOS_os_pontos_seguem_NAO_NEGATIVOS():
         # deu real 41 — residuo ZERO, que NAO e positivo. A propriedade que a
         # serie sustenta e NAO-NEGATIVO; o positivo estrito vale apenas nos
         # pontos ESTABELECIDOS, e quem cobra isso e o teste do 770.
-        assert real - prev >= 0, pacote
+        # RETRATADO em 17/10 as 20:1x: o `epomeno-epipedo-s054` (41,6 -> 41)
+        # e o PRIMEIRO real ABAIXO da previsao em 78 pontos, e o sinal dele esta
+        # estabelecido para BAIXO (arredondamento para cima: (40; 41] fica todo
+        # abaixo de 41,6). Logo "nenhum ponto e negativo" CAIU. A propriedade que
+        # sobra e que o negativo e RARO, e quem a cobra e
+        # `test_o_sinal_NAO_e_mais_de_N_de_N__e_o_negativo_apareceu`.
+        assert real - prev <= 4.0, pacote
+    negativos = [pk for pk, pr, r, _ in SERIE if r < pr]
+    assert len(negativos) <= 0.05 * len(SERIE), negativos

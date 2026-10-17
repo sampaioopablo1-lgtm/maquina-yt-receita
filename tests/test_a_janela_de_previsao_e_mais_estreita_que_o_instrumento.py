@@ -129,8 +129,18 @@ def test_a_janela_NAO_ordena__nem_no_sentido_monotono_nem_no_oposto():
         f"{max(prevs) - min(prevs):.1f} s: se ficar FORTE, a previsao passou a "
         "ordenar aqui e o 768/769 tem de ser RELIDO em vez de reaproveitado")
 
-def test_todos_os_residuos_da_janela_seguem_NAO_NEGATIVOS():
+def test_a_janela_e_JUSTAMENTE_onde_o_negativo_apareceu():
     """O que sobrevive dos tres aprendizados e so o SINAL."""
     for p, prev, real in _janela():
         # `>= 0` desde 16/10: o `kolejny-poziom-s045` deu residuo ZERO (41,0 -> 41).
-        assert real - prev >= 0, (p, prev, real)
+        # RETRATADO em 17/10 as 20:1x: o `epomeno-epipedo-s054` (41,6 -> 41)
+        # e o PRIMEIRO real ABAIXO da previsao em 78 pontos, e o sinal dele esta
+        # estabelecido para BAIXO (arredondamento para cima: (40; 41] fica todo
+        # abaixo de 41,6). Logo "nenhum ponto e negativo" CAIU. A propriedade que
+        # sobra e que o negativo e RARO, e quem a cobra e
+        # `test_o_sinal_NAO_e_mais_de_N_de_N__e_o_negativo_apareceu`.
+        assert real - prev <= 4.0, p
+    negativos = [pk for pk, pr, r in _janela() if r < pr]
+    # E ele caiu DENTRO desta janela estreita, que e o ponto do 768/769: uma
+    # previsao que varia menos de 1 s produz real espalhado para os DOIS lados.
+    assert negativos, "o negativo e desta janela; se saiu, releia o 768/769"

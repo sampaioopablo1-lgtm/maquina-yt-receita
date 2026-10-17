@@ -231,23 +231,44 @@ SERIE = [
     ("epomeno-epipedo-s053", 41.6, 42, "edge"),  # job 117454412202 — sinal NAO estabelecido (770)
     ("kolejny-poziom-s054", 41.8, 42, "edge"),   # job 117466655474 — sinal NAO estabelecido (770)
     ("labtreinamento-s071", 25.2, 27, "edge"),  # job 117479645664
+    ("epomeno-epipedo-s054", 41.6, 41, "edge"),  # job 117492664194 — o PRIMEIRO NEGATIVO estabelecido
 ]
 
 
-def test_o_sinal_sobrevive__cinco_de_cinco_acima():
-    # CAIU EM 16/10 as 21:2x, e pela QUARTA vez esta frase perde forca. O
-    # `kolejny-poziom-s045` previu 41,0 e deu real 41: residuo ZERO, que nao e
-    # positivo. Logo a propriedade que a serie sustenta e NAO-NEGATIVO, e o
-    # positivo estrito vale so nos pontos ESTABELECIDOS (770).
-    assert all(real >= prev for _, prev, real, _ in SERIE), (
-        "um real ABAIXO da previsao do provedor medido nunca foi observado; se "
-        "aparecer, a serie inteira tem de ser RELIDA")
+def test_o_sinal_NAO_e_mais_de_N_de_N__e_o_negativo_apareceu():
+    """A QUINTA e ultima queda desta frase, e esta e definitiva.
+
+    A versao anterior deste teste exigia `real >= prev` em TODA a serie e dizia,
+    na propria mensagem, que um real ABAIXO da previsao *nunca foi observado* e
+    que se aparecesse a serie teria de ser RELIDA. **Apareceu**, em 17/10 as
+    20:1x: o `epomeno-epipedo-s054` (`A4M3SLs8FEk`) previa 41,6 no edge — provedor
+    MEDIDO, zero avisos no job 117492664194 — e saiu com **41** reais.
+
+    E o sinal dele esta ESTABELECIDO para baixo: com arredondamento PARA CIMA,
+    real 41 significa duracao verdadeira em (40; 41], toda abaixo de 41,6, logo o
+    residuo verdadeiro esta em (-1,6; -0,6]. Ver
+    `tests/test_o_sinal_tambem_se_estabelece_para_BAIXO.py`.
+
+    O teste foi reescrito em vez de ter o `assert` afrouxado, porque o que mudou
+    nao foi o limiar: foi a AFIRMACAO. O que sobrevive e mais fraco e verdadeiro —
+    a serie e dominada por residuo positivo, e o negativo e raro e NOMEADO."""
+    negativos = [(p, pr, r) for p, pr, r, _ in SERIE if r < pr]
+    # A propriedade nova: existe negativo, e ele e raro. Se desaparecer, alguem
+    # apagou o ponto; se virar maioria, a banda inteira tem de ser relida.
+    assert negativos, (
+        "o ponto negativo do `epomeno-epipedo-s054` sumiu da serie — ele e o que"
+        " derrubou a frase 'N de N acima', e sem ele a nota perde a evidencia")
+    assert len(negativos) <= 0.05 * len(SERIE), (
+        f"{len(negativos)} de {len(SERIE)} negativos: deixou de ser raro, releia")
+    # O positivo estrito segue valendo nos pontos ESTABELECIDOS para cima.
     estabelecidos = [(p, pr, r) for p, pr, r, _ in SERIE if r - pr > 1.0]
     assert all(r > pr for _, pr, r in estabelecidos)
     assert len(estabelecidos) >= 40, len(estabelecidos)
 
 
 def test_o_limite_de_1_9_s_do_734_CAIU():
+    # "pior" aqui e o residuo MAIOR (o teto da banda), e isso continua certo
+    # mesmo com o piso negativo: o teto nao se mede pelo extremo de baixo.
     pior = max(real - prev for _, prev, real, _ in SERIE)
     assert pior > 1.9, "se o pior residuo voltar a <=1,9 s, releia o 734 e o 739"
     # 752: o pior deixou de ser o do s034 (2,4) e passou a ser o do s043 (3,7).

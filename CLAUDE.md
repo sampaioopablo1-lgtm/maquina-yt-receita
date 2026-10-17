@@ -99,6 +99,46 @@ barato e é o mesmo do controle: contar o campo na página crua em vez de confia
 primeira expressão que eu escrevi. A forma do JSON do YouTube muda; o texto
 legível ("N inscritos") sobreviveu a todas as rodadas.
 
+**E EM 17/10 ÀS 20:1x A FRASE "N DE N ACIMA" CAIU, e o que a derrubou foi um
+critério MEU que só olhava um lado.** O `epomeno-epipedo-s054` (`A4M3SLs8FEk`)
+previa **41,6** no edge — provedor MEDIDO, zero avisos no job `117492664194` — e
+saiu com **41 s reais**: resíduo **−0,6**, o primeiro NEGATIVO em 78 pontos.
+
+**E o sinal dele ESTÁ estabelecido, ao contrário do que o `duracao_a_medir` dizia.**
+O YouTube arredonda **para cima**, logo real 41 significa duração verdadeira em
+`(40; 41]`, e 41,6 está **acima de todo** esse intervalo: o resíduo verdadeiro
+vive em `(−1,6; −0,6]` e é estritamente negativo. O critério do 770 era
+`real − previsão > 1,0` — ele estabelece só o lado **positivo**, porque foi
+escrito quando todos os pontos eram positivos, e **um critério sem o ramo que
+falta devolve "não sei" onde a aritmética sabe.**
+
+Agora `_sinal` devolve `+1`, `−1` ou `0`, com os dois ramos: positivo exige
+`real − previsão > 1,0`, negativo exige `real − previsão < 0`, e entre os dois o
+intervalo contém zero. `RESIDUO_OBSERVADO` foi a **(−0,6; 4,0)** — sexta correção
+da banda, e a primeira que muda o SINAL do piso. `RESIDUO_N` = 78.
+
+**O que isto derruba, e vai dito em vez de escorregar:** a frase *"N de N acima"*,
+que eu venho escrevendo desde o 734, **não vale mais**. O que sobrevive é mais
+fraco e verdadeiro: a série é dominada por resíduo positivo, e o negativo é raro.
+**E o ponto caiu dentro da janela estreita do 768/769** — previsão variando menos
+de 1 s produzindo real espalhado para os **dois** lados, que é exatamente o que
+aquela nota afirma.
+
+**Dez testes meus reprovaram com isso, e os dez eram afirmação minha, não
+limiar:** quatro cravavam `RESIDUO_OBSERVADO == (0,0; 4,0)` por identidade
+(743/753/761), três cobravam `real − previsão >= 0` em toda a série, um cravava a
+largura em 4,0, um escrevia a faixa `"25.6 e 29.6"` à mão dentro do teste — o
+defeito do 753 **aplicado ao próprio teste** — e dois do `pauta_viva` ancoravam
+num **id vivo** (`eZ697VNYCPU`) que esta mesma rodada consumiu. Os dois últimos
+passaram a **derivar** o id da contagem viva e a dizer quando não existe nenhum.
+`tests/test_o_sinal_tambem_se_estabelece_para_BAIXO.py`, oito testes — e o
+primeiro que eu escrevi nele **proibia a string** "N de N acima" no módulo, o que
+proibiria também a própria retratação; corrigido para cobrar a QUEDA ao lado da
+frase.
+
+**A regra que fica: critério de sinal tem DOIS ramos, e quem escreve um só o
+escreve no lado em que está olhando.**
+
 **E ÀS 04:1x A ROTA SEGUIA FECHADA, com a sonda feita ANTES de prometer.** O
 controle (`OhrGlJvnBoM`, 44 s medidos) voltou vazio outra vez, e com ele o
 `labtreinamento-s066` recém-publicado. **Duas peças seguidas sem ponto de

@@ -99,7 +99,10 @@ def test_a_banda_e_a_OBSERVADA_e_o_teto_dela_foi_AMPLIADO_pelo_752():
     limite definido pelo EXTREMO observado, e o `==` abaixo existe para obrigar a
     reler a cada movimento em vez de deixar o numero escorregar calado.
     """
-    assert mira.RESIDUO_OBSERVADO == (0.0, 4.0)
+    # 17/10 20:1x: o piso ficou NEGATIVO (-0,6) com o `epomeno-epipedo-s054`
+    # (41,6 -> 41), o PRIMEIRO ponto abaixo da previsao em 78. O `==` fica, com o
+    # valor novo, porque e ele que obriga a reler a cada movimento da banda.
+    assert mira.RESIDUO_OBSERVADO == (-0.6, 4.0)
     # `>=` e nao `==`: a contagem cresce a cada peca, e cravar o total fez ESTE
     # teste reprovar no 41o ponto, em 16/10 — a QUARTA vez na mesma rodada que um
     # teste meu cobrou IDENTIDADE em vez de propriedade (743/753/761). O que este
