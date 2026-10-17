@@ -956,3 +956,12 @@ conhecidos) — pagina de 1.208.851 bytes com ZERO `lengthSeconds`. A peca ficou
 PARQUEADA e sai do pendente quando a rota reabrir.
 
 **50** linhas de `insert into videos` parqueadas.
+
+## 17/10 12:1x — decima terceira peca do dia, e a rota segue fechada
+`kolejny-poziom-s052` = `GOrbPBGeCAY` ("Prawie to nie całość"), publicada.
+**Duas pecas seguidas sem duracao REAL medida**, e a causa e instrumento: o
+controle `OhrGlJvnBoM` (44 s conhecidos) voltou vazio em quatro sondagens desde
+as 11:1x. As duas ficaram PARQUEADAS e saem do pendente quando a rota reabrir.
+
+**51** linhas de `insert into videos` parqueadas. A pendencia que mais vale
+continua sendo os dois cliques de consentimento do Google.
