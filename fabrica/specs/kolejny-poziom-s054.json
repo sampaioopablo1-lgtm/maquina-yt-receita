@@ -1,0 +1,76 @@
+{
+  "slug": "kolejny-poziom",
+  "idioma": "pl",
+  "voz": "pl-PL-MarekNeural",
+  "trilha": "Wholesome",
+  "paleta": {
+    "ink": "#1B3A5C",
+    "c1": "#2A9D8F",
+    "c2": "#F5B841",
+    "bg": "#F4F1EA"
+  },
+  "pacote": "kolejny-poziom-s054",
+  "longo_existente": "kWZW-qV4tQc",
+  "thumb": {
+    "l1": "Nie brutto",
+    "l2": "z paska"
+  },
+  "longo": [],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Porównujesz",
+      "sub": "złą liczbę",
+      "nar": "Z limitem porównujesz zupełnie inną liczbę.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Nie brutto",
+      "nar": "To nie jest twoja pensja brutto z umowy o pracę."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "I nie netto",
+      "sub": "z paska wypłaty",
+      "nar": "I nie jest to kwota netto z paska wypłaty."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Rachunek",
+      "nar": "Bierzesz dochód z roku i odejmujesz składki."
+    },
+    {
+      "layout": "item",
+      "kicker": "Składki",
+      "nar": "Chodzi o składki społeczne zapłacone w tym samym roku."
+    },
+    {
+      "layout": "item",
+      "kicker": "Reszta",
+      "nar": "I dopiero to, co zostaje, porównujesz z limitem."
+    },
+    {
+      "layout": "item",
+      "kicker": "Dlatego",
+      "nar": "Dlatego brutto potrafi wyglądać na przekroczone."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Kolejność",
+      "sub": "najpierw odjęcie",
+      "nar": "Najpierw odejmij, a dopiero potem patrz na limit."
+    },
+    {
+      "layout": "item",
+      "kicker": "Masz to",
+      "nar": "Obie liczby masz już w swoich własnych dokumentach."
+    },
+    {
+      "layout": "cta",
+      "kicker": "Odejmij",
+      "nar": "Odejmij najpierw i zapisz się teraz."
+    }
+  ],
+  "copy": "# kolejny-poziom-s054\n\n## TITULO\nZ Limitem Dochodu Porównujesz Inną Liczbę, Niż Myślisz — Nie Brutto I Nie Netto\n\n## TITULO SHORT\nNie brutto i nie netto\n\n## DESCRICAO\nTo jest najczęściej popełniany błąd przy tej uldze, i nie wynika on z niewiedzy o przepisie — wynika z tego, **którą liczbę bierze się do porównania**. Wielu rodziców patrzy na swoją pensję brutto z umowy, widzi, że wygląda na przekroczoną, i po prostu rezygnuje z ulgi bez sprawdzenia. Inni patrzą na kwotę netto z paska wypłaty, bo to jedyna liczba, którą naprawdę widzą każdego miesiąca. **Żadna z tych dwóch liczb nie jest tą, o której mówi przepis.**\n\nRachunek ma dwa kroki i jedno odjęcie, i nie potrzebuje żadnej aplikacji. Pierwsza liczba to **dochód za cały rok podatkowy** — nie przychód i nie netto. Druga liczba to **suma składek na ubezpieczenie społeczne zapłaconych w tym samym roku podatkowym**. Odejmujesz drugą od pierwszej, i dopiero to, co zostaje, porównujesz z limitem. Kolejność jest tu całą treścią: najpierw odjęcie, potem porównanie.\n\nDlaczego to zmienia wynik, a nie tylko wygląd rachunku? Bo składki społeczne zdejmują z tej liczby realną kwotę, a nie symboliczną. Ktoś, kto patrzy na brutto, może uznać się za przekroczonego zupełnie bez powodu — i to jest sytuacja, w której traci się ulgę, do której się kwalifikowało. Przy działalności opodatkowanej liniowo dochodzi jeszcze jedna pozycja, którą odliczasz od dochodu, więc odjęcie jest tam większe.\n\nObie liczby już masz. Są w twoich własnych dokumentach z rozliczenia albo w systemie urzędu — nie trzeba ich nigdzie szukać ani zgadywać. Cała praca to znaleźć je i wykonać jedno odjęcie, zanim wyciągniesz jakikolwiek wniosek o limicie.\n\nNie podaję tutaj żadnej kwoty, żadnego progu i żadnego roku. Te rzeczy zmieniają się z rozliczenia na rozliczenie, natomiast **kolejność \"najpierw odejmij, potem porównaj\" nie zmienia się wcale**.\n\nW pełnym filmie: od czego zależy, czy limit w ogóle cię dotyczy, co dokładnie odliczasz, i gdzie to wszystko jest opublikowane.\n\nTreść informacyjna, nie stanowi porady podatkowej ani prawnej.\n\n## COMENTARIO FIXADO\nNajtrudniejsza część tej ulgi nie jest w przepisie, a w tym, którą liczbę bierzesz do ręki. Brutto z umowy i netto z paska to dwie liczby, które widzisz najczęściej — i żadna z nich nie jest tą właściwą. Właściwa to dochód roczny minus zapłacone w tym samym roku składki społeczne. Specjalnie nie podaję tu żadnej kwoty ani progu: kwoty starzeją się co rozliczenie, a kolejność \"najpierw odejmij, potem porównaj\" nie starzeje się nigdy. Napiszcie, czy kiedykolwiek robiliście to odjęcie przed sprawdzeniem limitu.\n\n## HASHTAGS\n#UlgaNaDzieci #Dochód #KolejnyPoziom\n\n## TAGS\nulga na dzieci, limit dochodu, dochod a przychod, skladki spoleczne, pensja brutto, pasek wyplaty, odjecie skladek, rozliczenie roczne, dzialalnosc liniowa, kolejny poziom, podatki, rodzina, dokumenty, kolejnosc, dochod roczny\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Conferido campo a campo: a peca nao\ndiz quantia de limite, nao diz quantia de abatimento, nao diz ano de referencia\ne nao nomeia orgao nem lei (regra 609).\n\nA REGRA (g) tira, deste longo, tudo o que MUDA: a quantia do limite de renda, as\nquantias por filho e o ano do exercicio. Sao numero de politica fiscal, e mudam\nde exercicio para exercicio.\n\nE UM NUMERO DO LONGO FICOU FORA por ser VAGO, nao por mudar: o capitulo 14 diz\nque as contribuicoes tiram \"kilka tysiecy zlotych\". Isso e afirmacao de ORDEM DE\nGRANDEZA sobre o mundo, e um short que se propoe a nao ter numero nenhum nao\npode carregar uma estimativa. A peca diz que o desconto e REAL, que e o que o\nlongo sustenta sem a cifra.\n\nE A CONTAGEM SAIU DE PROPOSITO, pelo aprendizado 725: o longo declara \"dwoch\nrzeczy\" e \"dwie liczby\" (capitulos 7 e 8) e tambem \"trzech stopni\" (33) e\n\"cztery kroki\" (48). A peca nomeia o rachunho sem declarar quantas liquidacoes\nsao -- ela diz \"dochod\" e \"skladki\" pelo nome, e o espectador conta sozinho.\n\nO QUE A PECA CARREGA, e nao envelhece: o numero que se compara com o limite NAO\ne a pensao bruta nem o liquido do recibo; e o rendimento do ano MENOS as\ncontribuicoes sociais pagas no MESMO ano; a ordem importa (primeiro o abatimento,\ndepois a comparacao); e quem olha o bruto pode se dar por excedido sem motivo.\nOs quatro sobrevivem a qualquer revisao de quantia.\n\nA FAMILIA DE ENTRADA ERRADA E: **UNIDADE** -- comparar com o limite um numero que\nnao e o numero da regra. Conferida a regra (f) contra as outras duas pecas desta\nMESMA origem: o `kolejny-poziom-s001` levou \"a quantia e por CRIANCA e os pais a\ndividem\" e o `kolejny-poziom-s023` levou \"existe um ustep que ANULA o limite, e\nele se aciona por DOCUMENTO\". As tres sao familias distintas.\n\nO QUE EU NAO LEVEI, de proposito, e vai escrito para a proxima rodada achar: a\ndiferenca de limite entre casado, solteiro e pai solo (capitulos 11 a 13) e as\nduas situacoes em que a ulga se interrompe (21 e 22). Sao duas familias, e\nnenhuma cabe hoje pela regra (f).\n\nMIRA: a voz `pl-PL-MarekNeural` tem centro **+2,2%** (679), logo a §6 manda\nMIRAR O PISO da faixa -- e o 772 diz a mesma coisa por outro caminho. As duas\nregras concordam aqui, o que e raro e vai dito.\n\nA EXPOSICAO, dita ANTES de publicar: `fabrica/mira.py` devolveu **edge 41,8** e\n**piper 35,6**, os dois dentro de 18 a 45 nos DOIS mundos. Com a banda de residuo\nOBSERVADA de 0,0 a 4,0 s (n=74), se o **edge** narrar o real deve cair entre\n**41,8 e 45,8 s** -- logo PODE passar do teto de 45 do proprio portao, que e o\ncaso medido no 772. Se o **piper** narrar, 35,6 a 39,6 cabe com folga. Nao\nencurto para fugir disso porque o piso do `ALVO_SHORT` e 41,5 e a primeira versao\ndesta peca dava 39,5, ABAIXO dele -- ela foi ALONGADA em cinco passos para caber\nna mira, e descer de novo seria mexer em parametro de producao (§10). A saida e a decisao do 740/748, e e\ndo dono.\n\n## FONTES\nO longo de onde este short foi extraido (`kWZW-qV4tQc`, pacote\nkolejny-poziom-017, 56 capitulos) carrega as quantias e as fontes. Este short\nNAO introduz numero novo sobre o mundo, entao nao exige fonte institucional nova.\n\nNOTA DE PROCEDENCIA: o texto saiu dos capitulos 4 a 10, 14 e 15 da spec do\nproprio pacote, lidos um a um. Nenhuma frase foi inferida de resumo nem de\ntitulo de capitulo.\n"
+}
