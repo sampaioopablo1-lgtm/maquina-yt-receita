@@ -901,3 +901,16 @@ Nenhuma medição foi perdida.
 
 `execute_sql` segue negado (22ª vez) e as linhas de `videos` parqueadas vão a
 **44**. Este é o pendente que não tem rota alternativa nenhuma.
+
+## 17/10 07:3x — oitava peca do dia, e a 24a negativa do banco
+`labtreinamento-s067` = `1pe2fp2CxV4` ("O recado é opcional"), **28 s reais**
+contra previsao edge 25,6 (provedor MEDIDO: zero avisos de Piper no job
+`117339028890`), residuo **+2,4 s**, dentro da banda e estabelecido.
+
+**O que depende de voce, por ordem de valor:** (1) os dois cliques de
+consentimento do Google (`docs/reautorizar-analytics.md`) — eles tambem destravam
+a leitura de `processed`; (2) reconectar o conector do Supabase: sao **46** linhas
+de `insert into videos` parqueadas em `docs/pendente/videos-a-inserir.sql`, e sem
+`execute_sql` nenhuma entra; (3) a decisao do 740/748 — a mira deste canal
+(20,0 a 26,0) e o real nao cabem juntos, e hoje sao **23 de 26** peças fora do
+teto no mundo edge, todas com o `mira.py` verde.
