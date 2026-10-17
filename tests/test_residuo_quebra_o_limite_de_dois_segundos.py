@@ -233,6 +233,7 @@ SERIE = [
     ("labtreinamento-s071", 25.2, 27, "edge"),  # job 117479645664
     ("epomeno-epipedo-s054", 41.6, 41, "edge"),  # job 117492664194 — o PRIMEIRO NEGATIVO estabelecido
     ("kolejny-poziom-s055", 42.2, 43, "edge"),   # job 117504992463 — sinal NAO estabelecido (770)
+    ("labtreinamento-s072", 25.7, 28, "edge"),  # job 117517230913
 ]
 
 

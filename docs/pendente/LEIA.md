@@ -1141,3 +1141,40 @@ encurtada, fechou em 42,2. Prosodia e duracao se empurram.
 
 **Porta 1 as 21:1x: 68 / 21 / 8**, janela de 12,0 h, indeterminado nos tres (piso
 2,00/dia). **Parqueadas para `videos`: 60 linhas.** 39a rodada sem `execute_sql`.
+
+## 17/10 22:1x — A LEITURA DE 13 H SAIU, e com ela o limite da frota
+
+**Tres leituras na mesma rodada, as tres identicas: 68 / 21 / 8, delta ZERO nos
+tres.** Janela de **13,0 h** contra as 09:1x — a primeira que o
+`porta1.horas_para_resolver(1,79)` pedia. Piso de resolucao **1,85/dia**, logo o
+que esta medido e um LIMITE SUPERIOR: **o ritmo da frota esta abaixo de
+1,85/dia**. Os tres saem `indeterminado` pelo criterio do 723.
+
+**O que isto NAO autoriza dizer:** que as 23 pecas de hoje trouxeram zero
+inscrito. O contador de canal anda em DEGRAU que pode passar de 12 h (705), logo
+inscrito ganho hoje pode nao ter aparecido ainda. O que esta medido e a JANELA,
+nao a producao.
+
+**O que isto derruba de vez:** o "+1,79/dia da frota" nao se sustenta em janela
+nenhuma. A de 20,4 h de 16/10 ja o punha abaixo de 1,18/dia; esta confirma sem
+contradizer. **O limite que vale e o menor: abaixo de 1,18/dia.** No melhor caso
+isso poe os 432 inscritos que faltam ao labtreinamento a mais de um ano — depois
+de 1/FEV/2027, quando a barra sobe para 1.000.
+
+## A peca da rodada
+
+`labtreinamento-s072` = `0cAcXlsjG3I` ("Quem fez não verifica"), 23a do dia.
+Provedor **edge** MEDIDO, previsao edge **25,7** / piper 21,1, real **28** —
+residuo **+2,3 s**, dentro da banda e ESTABELECIDO. `RESIDUO_N` = 80.
+
+**A origem e a MENOS usada do canal (3 usos) e NAO tem spec local** — a que o
+759/761 nomeia como a que eu vinha pulando. A rota da regra (h) estava aberta e o
+texto saiu da faixa `pt-BR` de 13.737 bytes (a que a maquina subiu), nao da
+automatica de 102.267.
+
+**E o custo de RECENCIA vai declarado:** essa origem e o rank **13 de 14** na
+ordem viva, doze posicoes atras do topo. Escolhi contagem contra recencia porque
+concentracao ataca o portao `similaridade`, que e de monetizacao — mas o peso
+entre as duas coordenadas nao esta medido, e isso fica como escolha, nao regra.
+
+**Parqueadas para `videos`: 61 linhas.** 40a rodada sem `execute_sql`.
