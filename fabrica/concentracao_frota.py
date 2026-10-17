@@ -358,3 +358,46 @@ def contagem_do_pendente(desde: str, caminho: str = None) -> dict[str, int]:
             if datas and datas[-1] >= desde:
                 fora[canal] += 1
     return fora
+
+
+def escolha_do_momento(janela_h: float = 24.0, caminho: str = None,
+                       agora=None) -> dict:
+    """A contagem da janela movel E a escolha, do MESMO instante.
+
+    MEDIDO em 17/10 as 01:1x, e o defeito e de PROCESSO meu, nao do modulo.
+    As 01:09 eu li a janela de 24 h em **8 / 8 / 9** e escolhi
+    `labtreinamento` pelo desempate do `mais_baixo` (empate em 8, vence a
+    peca mais ANTIGA — 22:13). As 01:13, quatro minutos depois, a MESMA
+    janela deu **7 / 8 / 9**: a peca de 16/10 ~01:1x caiu fora do corte, e
+    `labtreinamento` passou a ser minimo ABSOLUTO, sem empate nenhum.
+
+    **A escolha nao mudou; a RAZAO mudou** — e eu relatei ao dono um
+    desempate que, quatro minutos depois, nao existia. Com a frota
+    publicando de hora em hora, a janela de 24 h perde ~1 peca por canal
+    por hora, logo a contagem e funcao do MINUTO em que a pergunta e feita.
+    Ler a contagem numa chamada e decidir noutra e a mesma assinatura do
+    760 (a idade sai do `now()` da MESMA chamada), aqui na contagem.
+
+    Esta funcao fixa `agora` UMA vez e devolve, juntos: o instante, o corte,
+    a contagem, a ultima peca por canal, o escolhido e os empatados. Quem
+    relata cita estes numeros, nao os de uma leitura anterior.
+
+    `agora` existe para teste; em producao fica None e vale o `now()` real.
+    """
+    from datetime import datetime, timedelta, timezone
+    if agora is None:
+        agora = datetime.now(timezone.utc)
+    corte = agora - timedelta(hours=janela_h)
+    cont = contagem_do_pendente(corte.isoformat(), caminho)
+    ult = ultima_do_pendente(caminho)
+    escolhido, empatados = mais_baixo(cont, ult)
+    return {
+        "agora": agora.isoformat(),
+        "corte": corte.isoformat(),
+        "janela_h": janela_h,
+        "contagem": cont,
+        "ultima": ult,
+        "escolhido": escolhido,
+        "empatados": empatados,
+        "houve_empate": len(empatados) > 1,
+    }
