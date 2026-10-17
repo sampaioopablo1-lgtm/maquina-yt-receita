@@ -892,3 +892,12 @@ E agora há um segundo pendente: `docs/pendente/duracoes-a-medir.jsonl`, com as
 **duas** peças publicadas enquanto a rota pública da duração está fechada
 (`O5o2SnovdEo` e `6jHGn7fae4c`). **Com o banco de pé nenhuma delas estaria aí** —
 a duração real sairia pela API com token, e a série de medição não teria parado.
+
+## 17/10 05:1x — a rota pública reabriu, e os dois pendentes de duração saíram
+
+A rota da duração voltou (controle conferido) e as duas peças parqueadas em
+`duracoes-a-medir.jsonl` foram medidas: `O5o2SnovdEo` 44 s e `6jHGn7fae4c` 27 s.
+Nenhuma medição foi perdida.
+
+`execute_sql` segue negado (22ª vez) e as linhas de `videos` parqueadas vão a
+**44**. Este é o pendente que não tem rota alternativa nenhuma.

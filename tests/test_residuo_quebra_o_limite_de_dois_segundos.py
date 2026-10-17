@@ -212,6 +212,11 @@ SERIE = [
     ("labtreinamento-s065", 26.4, 28, "edge"),
     # 17/10 02:1x — provedor edge MEDIDO (zero avisos no job 117281738012)
     ("epomeno-epipedo-s048", 41.9, 44, "edge"),
+    # 17/10 05:0x — os tres pontos que a rota FECHADA havia parqueado e que
+    # sairam juntos quando ela reabriu (duracao_a_medir + a peca de CONTROLE).
+    ("kolejny-poziom-s049", 41.5, 44, "edge"),   # job 117293729800
+    ("labtreinamento-s066", 25.6, 27, "edge"),   # job 117305098967
+    ("epomeno-epipedo-s049", 41.0, 43, "edge"),  # job 117316291107
 ]
 
 
