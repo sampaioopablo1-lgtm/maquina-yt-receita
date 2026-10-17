@@ -999,3 +999,23 @@ reabrir, como aconteceu as 13:0x.
 **54** linhas de `insert into videos` parqueadas. **Dezesseis pecas hoje**, nos
 tres canais, sem uma unica linha gravada em `videos` — e o motivo e a 32a negativa
 seguida do `execute_sql`.
+
+## 17/10 16:2x — labtreinamento-s070 no ar, e a rota da duracao reabriu pela SEGUNDA vez hoje
+
+`KkhV7yI0nGo` ("O padrão trocou de lado"), 17a peca do dia. Provedor **edge**
+MEDIDO (zero avisos `NARRACAO PELO PIPER` no job 117441677715). Previsao edge
+**25,7** / piper 21,1, os doze portoes verdes, e a copy declarou a exposicao
+ANTES de publicar: real entre 25,7 e 29,7 se o edge narrasse.
+
+**Real 29 s** — residuo **+3,3 s**, DENTRO da banda (0,0 a 4,0) e com o sinal
+ESTABELECIDO (29 − 25,7 > 1,0). `RESIDUO_N` = **74**, limites intocados.
+
+A rota foi conferida pela peca de **CONTROLE** `OhrGlJvnBoM` ANTES de usar a
+leitura: ela devolveu os **44 s** conhecidos, logo a rota estava ABERTA e o 29
+e da peca. Parque em zero pendentes, catorze resolvidas.
+
+**E o tally do 740/748 foi a 26 de 29:** 29 s contra um teto de mira de 26,0,
+com o `mira.py` VERDE nos dois mundos. A decisao segue sendo sua.
+
+**Parqueadas para `videos`: 55 linhas** em `docs/pendente/videos-a-inserir.sql`,
+esperando o `execute_sql` voltar (34a rodada seguida de negacao).
