@@ -80,7 +80,13 @@ def _sinal(real, prev) -> int:
     if real is None:
         return 0
     d = real - prev
-    if d > 1.0:
+    # `>=` e nao `>`, e a diferenca e a BORDA do intervalo: o residuo verdadeiro
+    # vive em `(d-1, d]`, ABERTO embaixo, logo ele e todo positivo exatamente
+    # quando `d-1 >= 0`. Com `d == 1,0` o intervalo e `(0, 1]` — estritamente
+    # positivo, e o sinal ESTA estabelecido. A primeira versao deste criterio
+    # (770) escrevia `> 1.0` e perdia justamente a borda; dois pontos da serie
+    # moram nela (`kolejny-poziom-s043` e `-s061`, os dois 42,0 -> 43).
+    if d >= 1.0:
         return 1
     if d < 0:
         return -1

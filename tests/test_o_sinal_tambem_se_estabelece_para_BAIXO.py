@@ -59,8 +59,15 @@ def test_a_fronteira_dos_dois_lados():
     # Exatamente zero: o intervalo (prev-1, prev] encosta em zero pelo teto, e o
     # residuo pode ser zero — logo NAO esta estabelecido.
     assert dm._sinal(41, 41.0) == 0
-    # Exatamente 1,0 de diferenca: o piso do intervalo encosta em zero, idem.
-    assert dm._sinal(42, 41.0) == 0
+    # RETRATADO em 18/10 as 15:2x, e a retratacao fica AQUI porque foi aqui que
+    # eu afirmei: eu escrevi que `d == 1,0` tambem nao estabelece, pelo motivo
+    # "o piso do intervalo encosta em zero". **Encostar nao e conter.** O
+    # intervalo e `(0; 1]`, ABERTO embaixo, logo cada valor dele e estritamente
+    # positivo e o sinal ESTA estabelecido. Ver
+    # `tests/test_o_criterio_do_sinal_perdia_a_BORDA.py`.
+    assert dm._sinal(42, 41.0) == 1
+    # E logo ABAIXO da borda segue indecidivel: (-0,1; +0,9] contem zero.
+    assert dm._sinal(42, 41.1) == 0
     # Um decimo abaixo de zero ja estabelece.
     assert dm._sinal(41, 41.1) == -1
 

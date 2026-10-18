@@ -1609,3 +1609,31 @@ decidindo:**
 
 `execute_sql` negado pela **15a** rodada seguida — **77** linhas de insert
 parqueadas. Suite: 25 / 2.812 / 898, conjunto IDENTICO a linha de base.
+
+## Rodada de 18/10 15:07 — kolejny-poziom-s061 = 7p8S5XIQA0M
+
+Peca publica, 43 s reais, provedor **edge** MEDIDO (zero avisos no job
+117710246704). Som: LUFS -14,0, LRA 2,7, pico -3,6 dBTP, desvio 0,0, zero
+silencios.
+
+Inscritos **68 / 21 / 8** contra 17/10 09:0x (30,1 h): delta ZERO. Porta 1
+`indeterminado` nos tres, teto do ritmo a **0,80 inscrito/dia**.
+
+**E esta peca achou um defeito no MEU proprio criterio de medicao.** Ela previa
+42,0 e saiu com 43: residuo +1,0, e o instrumento disse "sinal nao
+estabelecido". **A aritmetica diz que esta:** real 43 significa duracao
+verdadeira em (42; 43], logo o residuo vive em (0; 1] — intervalo ABERTO
+embaixo, cada valor dele positivo. Eu havia escrito o criterio como
+`real - previsao > 1,0` quando a condicao certa e `>= 1,0`.
+
+**Dois pontos da serie moram nessa borda**, e um deles estava classificado
+errado desde 14/10 — logo a contagem de pontos estabelecidos que eu reportei
+nesses quatro dias estava baixa por um. Consertado, com seis testes novos, e um
+teste MEU de ontem foi retratado no lugar onde eu havia afirmado o contrario.
+`RESIDUO_N` = 97; a banda nao mudou.
+
+Isto e o tipo de coisa que a rodada faz quando nao pode medir mais nada: o
+`execute_sql` segue negado pela **16a** rodada seguida, e sao **78** linhas de
+insert parqueadas esperando por ele.
+
+Suite: 25 / 2.818 / 901, conjunto IDENTICO a linha de base.

@@ -2499,6 +2499,42 @@ essa divergência que revelou tudo —, um proíbe o mesmo job em dois pontos, e
 **falha se a varredura ficar vazia**, porque um regex que deixa de casar faria
 todos passarem.
 
+## O MEU CRITERIO DE SINAL PERDIA A BORDA DO INTERVALO — e ele e do 770
+
+**Medido em 18/10 as 15:2x, no PRIMEIRO ponto que caiu exatamente nela.** O
+`kolejny-poziom-s061` (`7p8S5XIQA0M`) previa **42,0** no edge — provedor MEDIDO
+(zero avisos `NARRACAO PELO PIPER` no job `117710246704`) — e saiu com **43 s
+reais**: residuo nominal **+1,0**, e o `_sinal` devolveu **0**, isto e "nao
+estabelecido".
+
+**E a aritmetica diz que ele ESTA estabelecido.** O YouTube arredonda para cima,
+logo real 43 significa duracao verdadeira em `(42; 43]`, e com previsao 42,0 o
+residuo verdadeiro vive em `(0; 1]` — **cada valor desse intervalo e
+estritamente positivo.** O intervalo e **ABERTO embaixo**, e e exatamente isso
+que o meu criterio nao respeitava: eu escrevi `real - previsao > 1,0` quando a
+condicao certa e `>= 1,0`.
+
+**Logo o criterio do 770 era SUFICIENTE e nao necessario**, e chamava de
+indecidivel um sinal provado. Nao e afrouxamento nem limiar novo: e a mesma
+aritmetica daquele aprendizado com a desigualdade certa na borda do intervalo
+que ele proprio descreve.
+
+**Dois pontos da serie moram nessa borda, e os dois sao `42,0 -> 43`:** este e o
+`kolejny-poziom-s043`, que estava contado como nao estabelecido **desde o 770** —
+logo a contagem de estabelecidos que eu venho reportando estava baixa por um
+desde aquele dia. O ramo NEGATIVO **nao muda**: `(d-1, d]` so e todo negativo
+com `d < 0`, porque com `d == 0` o intervalo e `(-1; 0]` e contem o zero.
+
+**A regra que fica, e e a do 771 numa forma mais fina: criterio sobre INTERVALO
+tem de respeitar de que lado ele esta ABERTO.** No 771 eu escrevi um criterio
+com um ramo so porque estava olhando para um lado; aqui eu escrevi os dois ramos
+e errei a BORDA de um deles.
+`tests/test_o_criterio_do_sinal_perdia_a_BORDA.py`, seis testes — um varre a
+vizinhanca da borda nos dois sentidos, um trava que o ramo negativo nao mudou, um
+**falha se os dois pontos da borda sairem da serie** (sem eles o arquivo nao mede
+nada) e um **falha se o MOTIVO sair do modulo**, porque conserto sem motivo
+escrito volta calado.
+
 ## O timeout do `execute_sql` no UPDATE correlaciona com o TAMANHO do texto
 
 **Observado em 13/10, quatro tentativas, e refina o aviso 621 — que eu vinha
