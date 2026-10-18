@@ -585,12 +585,35 @@ def dur(f):
 def st(x):
     return f"{int(x//3600):02d}:{int(x%3600//60):02d}:{x%60:06.3f}".replace(".",",")
 
+async def _edge_uma_vez(texto, voz, alvo):
+    """UMA tentativa do edge-tts, escrevendo num temporario: True se saiu audio."""
+    tmp = alvo + ".edge.tmp"
+    try:
+        com = edge_tts.Communicate(texto, voz, rate="-4%")
+        await asyncio.wait_for(com.save(tmp), timeout=90)
+        if os.path.getsize(tmp) > 1000:
+            os.replace(tmp, alvo)
+            return True
+    except Exception:
+        pass
+    try:
+        os.remove(tmp)
+    except OSError:
+        pass
+    return False
+
+
 async def vozes(cenas, voz, pref, d):
+    import voz_unica as VU
+    pela_piper = set()
     for i, c in enumerate(cenas):
         alvo = f"{d}/{pref}{i:02d}.mp3"
         # RETOMA: mp3 valido nao se refaz — cada restart pos-crash custava
-        # ~10 min de TTS refeito do zero.
+        # ~10 min de TTS refeito do zero. A marca lateral diz se aquele mp3
+        # saiu do Piper num run anterior (voz_unica.marcar); sem ela e edge.
         if os.path.exists(alvo) and os.path.getsize(alvo) > 1000:
+            if VU.marcado(alvo):
+                pela_piper.add(i)
             continue
         # O websocket do edge-tts ja pendurou sem erro nem timeout (15 min
         # parado na cena 82 do setiap-006). wait_for + 3 tentativas.
@@ -617,9 +640,46 @@ async def vozes(cenas, voz, pref, d):
                     import voz_piper as VP
                     if VP.disponivel() and VP.sintetiza(
                             c["nar"], voz, alvo, ffmpeg_bin()):
-                        print(VP.aviso_de_calibracao(voz), flush=True)
+                        VU.marcar(alvo)
+                        pela_piper.add(i)
                         break
                     raise
+    # UMA VOZ SO POR PECA (voz_unica.py). Em 16/10 tres pecas foram ao ar com
+    # 1-2 cenas pelo Piper (voz masculina) dentro da Thalita (feminina): o
+    # provedor e decidido por cena e ninguem conferia a peca inteira.
+    import voz_piper as VP
+    recuperadas = []
+    if VU.regime(pela_piper, len(cenas)) == "misto":
+        # 1) uma tentativa a mais do edge nas cenas que cairam: a queda medida
+        #    foi de 1-2 em 10, logo o edge estava de pe e a voz do canal
+        #    (identidade, 601) costuma voltar por um timeout de custo.
+        for i in sorted(pela_piper):
+            alvo = f"{d}/{pref}{i:02d}.mp3"
+            if await _edge_uma_vez(cenas[i]["nar"], voz, alvo):
+                VU.desmarcar(alvo)
+                recuperadas.append(i)
+        pela_piper -= set(recuperadas)
+    pl = VU.plano(pela_piper, len(cenas))
+    if pl["regime"] == "misto":
+        # 2) o edge falhou duas rodadas neste run: unifica para o Piper, que
+        #    acabou de funcionar e nao depende da rede.
+        for i in pl["refazer"]:
+            alvo = f"{d}/{pref}{i:02d}.mp3"
+            try:
+                os.remove(alvo)
+            except OSError:
+                pass
+            if not VP.sintetiza(cenas[i]["nar"], voz, alvo, ffmpeg_bin()):
+                raise RuntimeError(
+                    f"UMA VOZ SO: a cena {i} nao pode ser refeita pelo Piper e a "
+                    f"peca ficaria com voz mista ({VU.relato(pela_piper, len(cenas))})")
+            VU.marcar(alvo)
+            pela_piper.add(i)
+    # O aviso do 733 sai UMA vez por cena no estado FINAL: e a contagem dele
+    # que diz ao resto da maquina qual mundo narrou (0 ou N, nunca entre).
+    for i in sorted(pela_piper):
+        print(VP.aviso_de_calibracao(voz), flush=True)
+    print(VU.relato(pela_piper, len(cenas), recuperadas), flush=True)
 
 
 from caminhos import dir_trabalho as _dir_trabalho  # noqa: E402

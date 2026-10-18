@@ -3109,6 +3109,71 @@ exatamente quando ninguem esta olhando.
 thumbnail. O molde histórico viola o portão `variedade` em metade dos casos —
 spec nova não deve se espelhar nele.
 
+## O `pipeline_canal_dark_v2.0` DEU NOME A UM DEFEITO QUE EU JÁ TINHA MEDIDO — 18/10
+
+**O dono mandou o zip 2.0 sem recado, como mandou o 1.2 e os cinco repositórios.**
+Estudado item a item contra o 1.2 em `docs/pipeline-canal-dark-v2-estudado.md`, e
+**entrou UMA coisa, pela mesma régua da §5: a medição é nossa, a fonte só nomeou
+a saída.** A regra dele é *"uma voz só por vídeo: se a online cair no meio, os
+blocos já feitos são refeitos com a que ficou"*. E em 16/10 **três peças do
+`labtreinamento` foram ao ar com 1 a 2 de 10 cenas pelo Piper** (`s060`, `s061`,
+`s062`, contadas pelos avisos do job) — o Piper do pt-BR é `faber`, **masculino**,
+dentro da Thalita, **feminina**. Eu registrei isso em
+`tests/test_o_run_pode_ser_MISTO.py` como problema da **banda** e não li como o
+defeito audível que é. **Portão verde (`identidade` lê a spec, não o áudio) e
+instrumento que media (a contagem de avisos) sem ninguém ler a consequência.**
+
+Agora `fabrica/voz_unica.py` decide o provedor pela **peça**: cena que caiu no
+Piper ganha **uma** tentativa a mais do edge (a queda medida foi de 1–2 em 10,
+logo o edge estava de pé); se sobrar, **todas** as cenas vão para o Piper, e se
+ele falhar o render **levanta** em vez de publicar misto. **A contagem de avisos
+do 733 volta a ser 0 ou N**, impressa no estado FINAL, e a marca `sNN.mp3.piper`
+sobrevive à RETOMA. Nada de parâmetro mudou (§10); as três peças publicadas não
+foram apagadas. Doze testes em `tests/test_uma_voz_so_por_peca.py`.
+
+**O que NÃO entrou, com motivo escrito no doc:** volume em dois passos (as dez
+peças medidas pelo `som.py` já ficam dentro de 1,0 LU), QA de ±1,0 LU (reprovaria
+variação normal), verificador por `faster-whisper` (200–500 MB no runner), limiar
+de similaridade 0,30/0,15 sem procedência, "nunca travessão", trilha a −31 LUFS,
+1 vídeo/dia da esteira. A chave da licença segue fora do git: o repo é público.
+
+## "100% AUTOMÁTICO" — o que saiu da minha mão em 18/10, e o que NÃO tem como sair
+
+**Pedido do dono, 18/10:** *"aplique as melhorias e correções, otimizações, para
+deixar 100 auto"*, sobre o pedido permanente de 09/10. Lido contra este arquivo,
+o que ainda dependia de MIM depois de cada publicação eram **três passos**, e os
+três têm esquecimento MEDIDO: o corpus de títulos (sete rodadas), a linha em
+`videos` (doze publicações, 726) e a duração parqueada (dezessete peças na
+cabeça). **Os três saíram da minha mão:** o `retomar.yml` passou a chamar os
+três instrumentos no mesmo passo que publica e a **comitar** o resultado no
+branch — `corpus_atrasado.py --aplicar`, `registro_videos.py` para o SQL
+parqueado, e `fabrica/pos_publicacao.py`, que parqueia a duração com a previsão
+nos dois mundos e o **provedor MEDIDO** pela contagem de avisos do run do render
+(`fabrica/avisos_do_run.py`, pela API). Contagem ausente ou run misto **não
+parqueia** e avisa, porque inventar o mundo é o erro do 733. Falha no registro
+é aviso, nunca desfaz a publicação. **Consequência para a rodada:** antes de
+disparar, `git pull` — o corpus agora cresce pelo runner, não por mim.
+
+**E o teto do short solto saiu do teto de pacote.** `orquestra.TETO_POR_CANAL` em
+1 contava short solto como pacote, logo o caminho automático ficava em UMA peça
+por canal por dia — contra o alvo escrito no próprio comentário do teto ("7
+shorts/dia por canal com um longo/dia") e o pedido de 16/10. Agora
+`MAX_SHORTS_SOLTOS_POR_DIA_POR_CANAL = 7` (a decisão do dono de 07/10, aplicada
+ao formato que ela sempre mirou), `e_short_solto` (chave `longo` PRESENTE e
+vazia, pela lição do `KeyError`), `shorts_soltos_na_janela`, e o `proximo` conta
+os dois tetos separados. O longo segue em 1/dia pela medição que continua
+valendo. **A condição de parada do comentário de 07/10 vale igual.** O teste
+`test_teto_por_canal_sobrescreve_o_geral`, que reprovava desde 07/10 **com
+razão**, passou a cobrar entrada diferente do geral em vez de maior.
+
+**O que NÃO tem como ser automático daqui, e vai dito em vez de prometido:**
+o cron do GitHub entrega ~5 disparos/dia e não 48 (medido em 100 runs); a
+rotina horária é quem produz, e ela depende do trigger; a leitura de inscritos e
+duração real depende de rota que abre e fecha por hora; e os dois cliques do
+dono (consentimento do Google, secrets) não são aprovação, são credencial.
+`tests/test_registro_automatico_pos_publicacao.py` (dez testes) e
+`tests/test_short_solto_tem_teto_proprio.py` (seis).
+
 ## O que entrou dos cinco projetos externos — e o que NÃO entrou
 
 **11/10. O dono mandou estudar cinco repositórios e aplicar.** Estudados os cinco.

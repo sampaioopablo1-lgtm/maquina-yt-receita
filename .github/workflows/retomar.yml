@@ -56,8 +56,9 @@ on:
         required: true
 
 permissions:
-  contents: read
-  actions: read          # para baixar o artefato do run antigo
+  contents: write        # registrar o publicado (corpus, SQL e duracao parqueados) e comitar
+  actions: read          # para baixar o artefato do run antigo e ler os jobs do render
+  checks: read           # anotacoes do job do render: contagem de avisos do Piper (733)
 
 jobs:
   retomar:
@@ -305,6 +306,48 @@ jobs:
           else
             echo "::warning::nao houve registro — nada foi publicado"
           fi
+
+      # REGISTRO AUTOMATICO — o que ate 18/10 era passo MEU depois de publicar,
+      # e que eu esqueci sete rodadas seguidas (corpus), doze publicacoes
+      # (linha em `videos`, 726) e dezessete pecas (duracao parqueada). O dono
+      # pediu 100% automatico. Os tres instrumentos ja existiam; o que faltava
+      # era o runner chama-los no mesmo passo que publica e COMITAR o resultado,
+      # porque mudanca que fica so no runner morre com ele.
+      #   * corpus_atrasado  -> fabrica/corpus_publicados.json (trava por titulo)
+      #   * registro_videos  -> docs/pendente/videos-a-inserir.sql (726, 670)
+      #   * pos_publicacao   -> docs/pendente/duracoes-a-medir.jsonl, com o
+      #     PROVEDOR medido pela contagem de avisos do run do render (733).
+      #     Contagem ausente ou run misto NAO parqueia, e avisa.
+      # Falha aqui NAO desfaz a publicacao (o video ja esta no ar): sai como
+      # aviso, e a proxima rodada le o notice e faz a mao, como antes.
+      - name: Registrar o publicado e comitar (corpus, SQL parqueado, duracao parqueada)
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -uo pipefail
+          if [ ! -f /tmp/registro.json ]; then
+            echo "::warning::sem registro: nada a registrar"; exit 0
+          fi
+          python3 fabrica/registro_anota.py /tmp/registro.json > /tmp/notices.txt
+          python3 fabrica/corpus_atrasado.py --aplicar < /tmp/notices.txt || echo "::warning::corpus nao atualizado"
+          python3 fabrica/registro_videos.py < /tmp/notices.txt >> docs/pendente/videos-a-inserir.sql || echo "::warning::SQL nao parqueado"
+          CONT=$(python3 fabrica/avisos_do_run.py "${{ inputs.run_id }}" "${{ inputs.pacote }}")
+          echo "avisos do render: $CONT"
+          AV=$(printf %s "$CONT" | python3 -c 'import json,sys;d=json.load(sys.stdin);print("" if d["avisos_piper"] is None else d["avisos_piper"])')
+          JOB=$(printf %s "$CONT" | python3 -c 'import json,sys;d=json.load(sys.stdin);print(d["job"] or "")')
+          python3 fabrica/pos_publicacao.py /tmp/registro.json "fabrica/specs/${{ inputs.pacote }}.json" --avisos "$AV" --job "$JOB" || echo "::warning::duracao nao parqueada (erro no passo)"
+          git config user.name  "maquina-retomar"
+          git config user.email "sampaioopablo@gmail.com"
+          git add fabrica/corpus_publicados.json docs/pendente/videos-a-inserir.sql docs/pendente/duracoes-a-medir.jsonl
+          if git diff --cached --quiet; then
+            echo "::warning::registro nao mudou nenhum arquivo — confira os avisos acima"; exit 0
+          fi
+          git commit -q -m "registro automatico: ${{ inputs.pacote }} publicado (corpus, SQL e duracao parqueados pelo retomar.yml)"
+          for t in 1 2 3 4; do
+            git pull -q --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}" && { echo "::notice::REGISTRADO ${{ inputs.pacote }} no branch ${GITHUB_REF_NAME}"; break; }
+            echo "push falhou, tentativa $t"; sleep $((2 ** t))
+          done
 
       - name: Guardar o registro
         if: always()
