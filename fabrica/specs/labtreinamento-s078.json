@@ -1,0 +1,82 @@
+{
+ "slug": "labtreinamento-s078",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#14213D",
+  "c1": "#2A9D8F",
+  "c2": "#E9C46A",
+  "bg": "#F6F4EF"
+ },
+ "pacote": "labtreinamento-s078",
+ "longo_existente": "dsoEo103l1o",
+ "thumb": {
+  "l1": "Qual regime",
+  "l2": "decide"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Multiplicou",
+   "sub": "e fechou a conta",
+   "nar": "Você multiplicou e fechou."
+  },
+  {
+   "layout": "item",
+   "kicker": "Não é único",
+   "sub": "o percentual",
+   "nar": "Mas o percentual não é único."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Depende",
+   "sub": "do seu regime",
+   "nar": "Ele depende do seu regime."
+  },
+  {
+   "layout": "item",
+   "kicker": "Aprendiz",
+   "sub": "tem o seu",
+   "nar": "Aprendiz tem o seu."
+  },
+  {
+   "layout": "item",
+   "kicker": "Doméstico",
+   "sub": "também",
+   "nar": "Doméstico também."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O geral neles",
+   "sub": "dá outro valor",
+   "nar": "O geral neles dá outro valor."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Veja antes",
+   "sub": "o regime",
+   "nar": "Veja o regime antes de contar."
+  },
+  {
+   "layout": "item",
+   "kicker": "Está na folha",
+   "sub": "escrito",
+   "nar": "Está escrito na sua folha."
+  },
+  {
+   "layout": "item",
+   "kicker": "E atraso",
+   "sub": "muda a conta",
+   "nar": "E atraso muda a conta."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Confira o regime",
+   "sub": "e inscreva-se",
+   "nar": "Confira o regime e inscreva-se."
+  }
+ ],
+ "copy": "# labtreinamento-s078\n\n## TITULO\nO Percentual do Deposito Depende do REGIME do Contrato: Confira o Seu Antes de Multiplicar\n\n## TITULO SHORT\nO percentual não é único\n\n## DESCRICAO\nA conferência do depósito tem um passo que quase todo mundo pula porque **não parece ser um passo**: confirmar a qual **regime de contrato** a sua folha pertence, antes de multiplicar. Quem pega o bruto, aplica o percentual geral e fecha a conta fez a aritmética certa — sobre uma premissa que talvez não seja a dele.\n\nO percentual **não é universal**. O regime do aprendiz tem o seu, e o do empregado doméstico tem o seu. Para quem está num desses contratos, aplicar o percentual geral devolve um valor que **não é o esperado da própria folha** — e a diferença que aparece no extrato depois não é erro do empregador nem do banco: é a conta tendo sido feita com o número de outra categoria.\n\n**Por que esse erro é especialmente difícil de perceber:** ele não dá resultado absurdo. Dá um número plausível, da ordem de grandeza certa, que passa por qualquer conferência de olho. Só aparece quando você compara com o extrato — e aí o instinto é procurar culpa em quem depositou, não na própria premissa.\n\n**E existe um segundo caso que muda a conta pelo outro lado:** depósito **em atraso** não é só o valor que faltou. A mesma lei prevê correção, juros e multa sobre ele. Então uma diferença para cima no extrato pode não ser erro nenhum — pode ser a parcela de atraso de um mês anterior sendo liquidada agora. Quem não sabe que isso existe lê o valor maior como engano.\n\n**A correção é de um minuto e vem antes de qualquer multiplicação:** olhe o campo do regime na sua folha de pagamento — ele está escrito lá, não precisa ser inferido. Confirmado o regime, você sabe qual percentual é o seu; sem isso, você sabe multiplicar mas não sabe por quanto.\n\nNão cito aqui nenhum percentual, nenhuma alíquota e nenhum valor. Esses números são por regime e mudam; o passo de **verificar o regime primeiro** não muda. E há uma razão a mais para eu não citá-los: os percentuais dos outros regimes não estão conferidos em duas fontes oficiais, e número sem duas fontes não entra.\n\nNo material completo: a data que manda, qual bruto entra na base, os cinco casos que explicam diferença sem ser erro, e as duas fontes oficiais para você conferir sozinho.\n\nMaterial informativo, não é orientação jurídica.\n\n## COMENTARIO FIXADO\nO que menos se espera: a diferença pode ser para CIMA e ainda assim estar certa — atraso de mês anterior vem com correção, juros e multa. Você sabe qual é o regime escrito na sua folha?\n\n## HASHTAGS\n#FGTS #folhadepagamento #departamentopessoal #labtreinamento #Shorts\n\n## TAGS\ndeposito mensal, percentual por regime, regime de contrato, aprendiz, empregado domestico, folha de pagamento, extrato, deposito em atraso, correcao juros multa, conferencia aritmetica, departamento pessoal, rotinas trabalhistas, lab treinamento, treinamento corporativo, conferencia de folha\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Conferido cena a cena: nenhum\npercentual, nenhuma aliquota, nenhum valor, nenhum artigo, nenhum ano.\n**E aqui o descarte tem procedencia DUPLA, que e o que torna esta peca segura:**\na regra (g) manda tirar numero que muda, E o proprio longo diz, no capitulo 47,\nque NAO da os percentuais dos outros regimes **porque nao os conferiu em duas\nfontes oficiais** (regra 600). Logo citar qualquer um deles aqui seria introduzir\nnumero que a propria origem recusou publicar. O curto carrega o PASSO — conferir\no regime antes de multiplicar —, que nao envelhece.\nAs unicas quantidades faladas sao estruturais (\"nao e unico\", \"o seu\").\n\nFamilia de entrada errada: ALIQUOTA DE OUTRO REGIME APLICADA A PROPRIA FOLHA —\nfazer a aritmetica certa sobre um percentual que nao e o do seu contrato, e\ndepois ler a diferenca no extrato como erro de quem depositou.\nE familia NOVA nesta origem (`dsoEo103l1o`): as quatro anteriores sao\nlabtreinamento-s005 e -s045 (AMOSTRA DE UM — um mes conferido lido como prova de\npadrao), -s031 (OS CINCO CASOS — declarar erro antes de descartar as explicacoes\nprevistas) e -s054 (PERIODOS DIFERENTES — comparar dois numeros indexados a meses\ndistintos). Nenhuma delas e sobre o PERCENTUAL nao ser o seu, que e o eixo desta.\nRegra (f) conferida contra as quatro.\nE conferida contra as QUATRO pecas de hoje neste canal: -s074 (UNIDADE CONTADA),\n-s075 (CAMPO IRRELEVANTE USADO NA CONTA), -s076 (TETO ALTO LIDO COMO VANTAGEM) e\n-s077 (EXCECAO TRATADA COM O FLUXO DA REGRA). A mais proxima e a **-s077, de\nhoje**, e a distincao vai dita porque as duas falam de caso que nao e o geral: la\no erro e de PROCEDIMENTO (um fluxo so para dois prazos); aqui e de PARAMETRO (um\npercentual so para regimes diferentes). Prazo e aliquota nao sao a mesma\ngrandeza, e um fluxo certo com o parametro errado continua errado.\nE a -s075 e vizinha pelo outro lado: la o campo usado nao pertencia a conta;\naqui o campo que decide a conta nao foi lido.\n\n## EXPOSICAO DECLARADA ANTES DE PUBLICAR\nMira: edge **25,8 s** e piper **21,2 s** — os dois dentro de 18 a 45 s (o portao\n`duracao`, nos DOIS mundos) **e os dois dentro da mira deste canal (20,0 a 26,0\nde duracao REAL), logo o `mira.py` esta VERDE.** Tres versoes: 30,6 / 26,6 /\n25,8, as duas primeiras fora da mira pelo topo.\n**E mira verde NAO significa real dentro — TREZE de dezesseis pecas deste canal\nnarradas pelo edge sairam FORA do teto de 26,0, as treze com a mira verde**\n(740/748/754/757/758/774). Com a banda OBSERVADA de residuo (**-1,2 a +4,0 s,\nn=97**), se o edge narrar o real deve cair entre **24,6 e 29,8 s**. A pinca do\n740 segue sem interseccao: para o real caber na mira o edge precisaria de\n<= 22,0, onde o piper cai a ~18,0, abaixo do piso de 20,0. **Nao existe spec\ndeste canal que satisfaca as duas**, e a saida e decisao do dono.\nA banda tem **5,2 s** de largura contra 1 s de granularidade do real, logo **nao\nprometo nem o valor nem o lado**. O provedor sera MEDIDO pela anotacao do job\n(733).\n\n## FONTES\nOrigem: `dsoEo103l1o` (pacote labtreinamento-009, 73 capitulos), longo JA\nPUBLICADO deste canal, **rank 7** da ordem VIVA de uploads lida nesta rodada. O\nshort nao introduz numero novo sobre o mundo, logo nao exige fonte nova, e o id\ndo longo vai dito aqui.\nAs cenas saem dos capitulos **46 a 48** do pacote (\"Outros regimes\", \"Por que nao\nfalo deles\", \"Atraso\"), que nenhum dos quatro shorts anteriores desta origem\nusou — eles vieram dos capitulos 28-35, 36-39 e 63-67.\nPor que o rank 7 e nao o rank 1: a `concentracao.contagem` deu o topo em **12\nusos** de 77 shorts do canal, contra QUATRO nos ranks 7, 8 e 11 — o habito de\n13/10 visivel na contagem ANTES de escolher. Entre os tres empatados no minimo, o\nrank 7 e o mais RECENTE, que e a regra de 16/10 aplicada DENTRO do grupo menos\nusado.\n**E a origem de ZERO usos foi recusada OUTRA VEZ, com o mesmo motivo medido:** o\nrank 4 (`QiaGg03WSR0`) e a origem **POLONESA** (`language: pl`, medido em 18/10\nas 04:1x e 06:1x). O `origens_sem_uso` a nomeia corretamente — e seguir a\nresposta dele produziria peca de idioma errado, que o portao `identidade`\nreprovaria (601). **Esta e a segunda rodada seguida em que o instrumento VERDE\naponta para ela e a regra do idioma a barra**, o que confirma que a regra precisa\nser aplicada a cada rodada e nao uma vez.\nA leitura devolveu ONZE longos, igual as duas rodadas anteriores — e isso NAO\nprova playlist completa: ela ORDENA e nao ENUMERA, e a omissao varia entre\nleituras, logo onze e um PISO.\n"
+}
