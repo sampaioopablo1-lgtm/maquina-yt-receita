@@ -1,0 +1,82 @@
+{
+ "slug": "kolejny-poziom-s061",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "pacote": "kolejny-poziom-s061",
+ "longo_existente": "kDkagIf2isA",
+ "thumb": {
+  "l1": "Data przelewu",
+  "l2": "nie okres"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Do okresu",
+   "sub": "tak to przypisujesz",
+   "nar": "Odliczasz składkę do miesiąca, którego dotyczy."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ustawa jednak",
+   "sub": "patrzy na inną datę",
+   "nar": "Ustawa patrzy jednak na inną datę."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Moment zapłaty",
+   "sub": "to on się liczy",
+   "nar": "Liczy się moment, w którym faktycznie zapłaciłeś."
+  },
+  {
+   "layout": "item",
+   "kicker": "Nie okres",
+   "sub": "za który była należna",
+   "nar": "Nie okres, za który ta składka była należna."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Grudzień w styczniu",
+   "sub": "liczy się w styczniu",
+   "nar": "Składka za grudzień zapłacona w styczniu liczy się w styczniu."
+  },
+  {
+   "layout": "item",
+   "kicker": "Czyli wybierasz",
+   "sub": "rok odliczenia",
+   "nar": "Czyli rok odliczenia wybierasz terminem przelewu."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Trzy rzeczy",
+   "sub": "pod twoją kontrolą",
+   "nar": "A to jest jedna z trzech rzeczy pod twoją kontrolą."
+  },
+  {
+   "layout": "item",
+   "kicker": "Faktura i forma",
+   "sub": "to pozostałe dwie",
+   "nar": "Obok daty faktury i formy opodatkowania."
+  },
+  {
+   "layout": "item",
+   "kicker": "Sprawdź przelewy",
+   "sub": "nie okresy",
+   "nar": "Sprawdź więc daty przelewów, nie okresy składek."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Policz od nowa",
+   "sub": "i zasubskrybuj",
+   "nar": "Policz to jeszcze raz i zasubskrybuj kanał."
+  }
+ ],
+ "copy": "# kolejny-poziom-s061\n\n## TITULO\nOdliczenie Składki Liczy Się po Dacie Przelewu, a Nie po Okresie, za Ktory Byla Nalezna\n\n## TITULO SHORT\nLiczy się data przelewu\n\n## DESCRICAO\nPrawie każdy, kto odlicza składkę zdrowotną, przypisuje ją **do miesiąca, którego ona dotyczy**. To wydaje się jedyną sensowną kolejnością: skoro składka jest \"za grudzień\", to grudzień jest jej miejscem. Ustawa jednak patrzy na **inną datę** — na moment, w którym składka została **faktycznie zapłacona**.\n\nZ tego wynika rzecz, która nie jest szczegółem technicznym: **składka należna za grudzień, ale przelana w styczniu, wchodzi do odliczenia w styczniu.** Czyli nie \"za okres\", a \"w momencie zapłaty\". A skoro tak, to **rok odliczenia nie jest ci narzucony** — wybierasz go terminem przelewu. To nie jest luka ani sztuczka: to jest treść przepisu, i działa w obie strony. Kto płaci z poślizgiem, przenosi odliczenie na rok następny, nie wiedząc o tym.\n\n**I tu jest druga połowa, ważniejsza od pierwszej:** to należy do bardzo krótkiej listy rzeczy, które przy samej granicy progu faktycznie **kontrolujesz**. Są trzy: **kiedy płacisz składki**, **kiedy wystawiasz fakturę**, i **jaką masz formę opodatkowania**. Wszystko inne — próg, stawka, mechanika przeliczenia wstecz — dzieje się bez twojego udziału. Dlatego warto wiedzieć, która z tych trzech jest jeszcze otwarta, zanim rok się zamknie.\n\nPodkreślam, bo to istotne: mówimy tu wyłącznie o **terminach płatności i fakturowania** — rzeczach jawnych, wpisanych w dokumenty, które i tak wystawiasz. Nie o ukrywaniu przychodu i nie o przesuwaniu go poza rachunki.\n\n**Test jest prosty i możesz go zrobić dzisiaj:** otwórz historię przelewów, nie zestawienie okresów składkowych. Jeśli twoje odliczenie zostało zbudowane z **okresów**, a nie z **dat przelewów**, to jest zbudowane na złej liście. Dwie listy wyglądają podobnie i prawie nigdy nie są takie same, bo pierwszy przelew roku zwykle dotyczy grudnia poprzedniego.\n\nNie podaję tu kwot, progów, stawek ani terminów urzędowych. Te liczby się zmieniają — i w tym temacie zmieniały się już kilka razy. Zasada przypisania po dacie zapłaty nie zmienia się wcale. Liczby weź z własnych dokumentów, nie z tego filmu.\n\nW pełnym materiale: dwa progi i przeliczenie wstecz, dlaczego faktura z grudnia decyduje o koszcie stycznia, oraz dwa różne mechanizmy odliczenia, które łatwo ze sobą pomylić.\n\nMateriał informacyjny, nie stanowi porady podatkowej.\n\n## COMENTARIO FIXADO\nNajmniej oczywiste: ta sama zasada działa w DWIE strony — poślizg w zapłacie przenosi odliczenie na rok następny, a nie znosi go. Twoje odliczenie policzone jest z dat przelewów czy z okresów składkowych?\n\n## HASHTAGS\n#ryczalt #skladkazdrowotna #odliczenie #kolejnypoziom #Shorts\n\n## TAGS\nskladka zdrowotna, odliczenie skladki, data zaplaty, data przelewu, okres skladkowy, ryczalt, forma opodatkowania, prog przychodu, faktura grudniowa, rozliczenie roczne, jednoosobowa dzialalnosc, podatki polska, kolejny poziom, finanse firmowe, ksiegowosc\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Conferido cena a cena: nenhuma\nkwota, nenhum prog em zlotych, nenhum percentual, nenhum ano, nenhum termo\noficial — e o longo cita TODOS esses (498,35 / 830,58 / 60.000 / 300.000 e o\nprazo de 20 de maio). A regra (g) manda isso, e aqui ela tem procedencia dupla:\neste tema JA mudou de valores varias vezes, e o proprio longo diz \"w tym roku\".\n\"Grudzień\" e \"styczeń\" entram como MESES RELATIVOS dentro do exemplo da regra\n(a virada do ano), nao como data de vigencia: sao o que torna a regra visivel, e\nnao envelhecem. As quantidades faladas sao estruturais (\"trzech rzeczy\").\n\nFamilia de entrada errada: SKLADKA PRZYPISANA DO OKRESU, A NIE DO DATY ZAPLATY —\natribuir a contribuicao ao mes a que ela se refere, quando a lei a atribui ao mes\nem que foi PAGA. E familia NOVA nesta origem (`kDkagIf2isA`): as duas anteriores\nsao kolejny-poziom-s018 (DLACZEGO GRUDZIEN ZMIENIA STYCZEN — a fatura de dezembro\nmuda o custo de janeiro) e -s024 (PROG LICZY PRZYCHOD, NIE ZYSK — a base do\nlimiar). Regra (f) conferida contra as duas.\n**E a distincao contra a -s018 vai dita, porque ela e a vizinha PERIGOSA: as duas\nsao sobre tempo.** La o que se move e a data da FATURA, e o efeito e no PROGO\n(quanto voce deve). Aqui o que se move e a data do PRELEVO DA CONTRIBUICAO, e o\nefeito e no ANO DO ABATIMENTO (quando voce desconta). Receita e desconto nao sao\na mesma grandeza, e as duas pecas podem coexistir sem repetir entrada errada.\nE conferida contra as CINCO pecas de hoje neste canal: -s056 (DZIELNIK, KTOREGO\nNIE MA), -s057 (DIREITO QUE EXIGE DECLARACAO), -s058 (ORDEM DE VERIFICACAO\nINVERTIDA), -s059 (ZWLOKA LIDA COMO PERDA PROPORCIONAL) e -s060 (CZTERY RATY\nLIDAS COMO JEDNA DATA). A mais proxima e a -s060, tambem de datas, e a distincao\ne esta: la o erro e QUANTOS prazos existem; aqui e QUAL data conta para atribuir\num valor. Contagem de prazos e criterio de atribuicao nao sao a mesma familia.\n\n## EXPOSICAO DECLARADA ANTES DE PUBLICAR\nMira: edge **42,0 s** e piper **35,8 s** — os dois dentro de 18 a 45 s, que e o\nque o portao `duracao` cobra nos DOIS mundos. Este canal NAO tem\n`ALVO_POR_CANAL` medido, logo vale a mira da frota (41,5 a 43,0), e 42,0 fica na\nMETADE DE BAIXO dela: a voz polonesa tem centro +2,2% (679) e a regra de redacao\ndo 772 manda mirar o piso quando a voz nao exige o topo.\n**E eu NAO fui ate 41,5 de proposito, o que vai dito em vez de escondido:** a\nversao mais curta caia em 41,4 — isto e, FORA da mira pelo piso —, e a diferenca\nentre 42,0 e 41,5 e meio segundo, que pelo 768/769 nao ordena nada contra um real\nde passo 1 s. Preferi ficar dentro da mira a buscar um decimo que o instrumento\nnao resolve.\nCom a banda OBSERVADA de residuo (**-1,2 a +4,0 s, n=96**): se o edge narrar, o\nreal deve cair entre **40,8 e 46,0 s** — logo PODE passar do teto de 45 do\nportao, como no `epomeno-epipedo-s032` (46 s reais com o portao verde, 772). Se o\npiper narrar, entre 34,6 e 39,8 s.\nA banda tem **5,2 s** de largura contra 1 s de granularidade do real: ela cobre\nmais de cinco inteiros, logo **nao prometo nem o valor nem o lado**. O provedor\nsera MEDIDO pela anotacao do job (733), nao inferido.\n\n## FONTES\nOrigem: `kDkagIf2isA` (pacote kolejny-poziom-010, longo JA PUBLICADO deste canal,\n**rank 9** da ordem VIVA de uploads lida nesta rodada). O short nao introduz\nnumero novo sobre o mundo, logo nao exige fonte nova, e o id do longo vai dito\naqui.\nAs cenas saem dos capitulos **48 a 51** do pacote (\"Trzecia rzecz\", \"Co możesz\nkontrolować\", \"I to wystarczy\", \"Podkreślam\"), que nenhum dos dois shorts\nanteriores desta origem usou — eles vieram dos capitulos 23-25 e 42-44.\nPor que o rank 9 e nao o rank 1: a `concentracao.contagem` deu o topo em **12\nusos** contra DOIS nos ranks 9 a 15 — o habito de 13/10 visivel na contagem ANTES\nde escolher. Entre os sete empatados no minimo, o rank 9 e o mais RECENTE, que e\na regra de 16/10 aplicada DENTRO do grupo menos usado.\nE por que nao a origem de zero usos: as unicas de zero uso neste canal sao as\ncopias do grupo das 46 DUPLICATAS (ranks 17 a 20 e 22, mesmo titulo), e a rodada\ndas 12:07 ja consumiu uma delas. Por TITULO DISTINTO isso e **zero origem nova**.\n**E a leitura de hoje devolveu 23 longos**, o mesmo numero da rodada das 12:07 —\no que NAO prova que a playlist esta completa: ela ORDENA e nao ENUMERA, e a\nomissao VARIA entre leituras (18/10 01:2x e 07:0x). Vinte e tres e um PISO.\n"
+}
