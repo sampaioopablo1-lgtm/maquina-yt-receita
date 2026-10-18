@@ -30,14 +30,30 @@ jobs:
           python-version: "3.11"
           cache: pip
 
-      - run: ffmpeg -version | head -1
-
       # tests/test_prontidao.py importa fabrica/layout.py (cairosvg) e confere
       # a fonte Devanagari da spec agla-level-003 — sem isso o "Testes" abaixo
       # quebra em 27 casos. Mesmo pacote que o frota.yml ja instala pro render.
-      - run: sudo apt-get update -qq && sudo apt-get install -y -qq fonts-noto-core fonts-noto-cjk
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-noto-core fonts-noto-cjk
+
+      # Sem `| head -1`: o status de um pipeline e o do ULTIMO comando, entao
+      # `ffmpeg -version | head -1` devolvia 0 mesmo sem ffmpeg instalado. Foi
+      # assim que a ausencia dele passou despercebida — o passo "verificava" o
+      # ffmpeg e nunca podia falhar.
+      - run: ffmpeg -version
 
       - run: pip install -e ".[dev,fabrica]"
+
+      # O gate de copy_md.py exige mp3 valido em /tmp/trilhas: sem faixa, a
+      # suite quebra em 221 casos. As faixas reais nao entram em CI (e o
+      # frota.yml que as baixa pro render), e o ensaio ja tem o equivalente
+      # silencioso com os MESMOS nomes — por isso trilha_do_canal escolhe a
+      # mesma faixa que a producao escolheria. Depende do ffmpeg, ja checado
+      # acima.
+      - name: Trilhas de ensaio (silencio) em /tmp/trilhas
+        run: |
+          python -c "import sys; sys.path.insert(0, 'fabrica'); \
+                     from ensaio import trilhas_falsas; \
+                     print(trilhas_falsas('/tmp/trilhas'), 'faixas')"
 
       # Providers stub: a suite roda inteira sem nenhuma chave de API.
       - name: Testes
