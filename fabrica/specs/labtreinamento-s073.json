@@ -1,0 +1,75 @@
+{
+  "slug": "labtreinamento",
+  "idioma": "pt-BR",
+  "voz": "pt-BR-ThalitaMultilingualNeural",
+  "trilha": "Inspired",
+  "paleta": {
+    "ink": "#1F2933",
+    "c1": "#3F6C51",
+    "c2": "#C98B2E",
+    "bg": "#F5F3ED"
+  },
+  "pacote": "labtreinamento-s073",
+  "longo_existente": "Sr6VhvD_aPE",
+  "thumb": {
+    "l1": "Campo ausente",
+    "l2": "não presuma"
+  },
+  "longo": [],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Quatro campos",
+      "sub": "e um deles falta",
+      "nar": "A cotação tem quatro campos.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "O que falta",
+      "nar": "Falta o terceiro."
+    },
+    {
+      "layout": "item",
+      "kicker": "O incluído",
+      "nar": "Ele diz o que vem incluído."
+    },
+    {
+      "layout": "lista",
+      "kicker": "E decide",
+      "nar": "Cotações iguais incluem menos."
+    },
+    {
+      "layout": "item",
+      "kicker": "Então",
+      "nar": "Então o preço não compara."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Campo ausente",
+      "sub": "não se presume",
+      "nar": "E campo ausente não se presume."
+    },
+    {
+      "layout": "item",
+      "kicker": "Pergunte",
+      "nar": "Pergunte antes, não depois."
+    },
+    {
+      "layout": "item",
+      "kicker": "Custa uma linha",
+      "nar": "Perguntar custa um e-mail."
+    },
+    {
+      "layout": "item",
+      "kicker": "A presunção",
+      "nar": "A presunção custa caro."
+    },
+    {
+      "layout": "cta",
+      "kicker": "Pergunte antes",
+      "nar": "Pergunte e se inscreva."
+    }
+  ],
+  "copy": "# labtreinamento-s073\n\n## TITULO\nO Terceiro Campo da Cotação de Turma: Se Ele Não Está no Papel, Pergunte Antes de Comparar\n\n## TITULO SHORT\nCampo ausente não se presume\n\n## DESCRICAO\nA cotação de treinamento por turma tem quatro campos que decidem a compra, e dois deles passam batido. O primeiro é o preço da turma: o valor que não está multiplicado por nada. O segundo é o limite de pessoas, aquele \"turma de até tantos\". O terceiro é o que já está **incluído** no preço. O quarto é a validade da proposta.\n\nO terceiro é o que quase sempre falta no papel, e é também o que mais muda a conclusão. Duas cotações com preços parecidos podem incluir coisas diferentes: material, certificado, deslocamento do instrutor, reposição de aula. Enquanto você não sabe o que cada uma inclui, o preço sozinho não compara nada — você está colocando dois números lado a lado sem saber se eles medem a mesma coisa.\n\nE aqui está a entrada errada, que não é de conta e sim de atitude: **presumir o campo que falta.** Quem presume escolhe o cenário que lhe parece razoável, e o cenário razoável costuma ser o otimista. O resultado é uma comparação que parece rigorosa, com divisão feita e tudo, assentada sobre um número que ninguém confirmou.\n\nA saída é barata e quase ninguém usa: se algum dos quatro campos não estiver no papel, **pergunte antes de comparar**. A pergunta custa uma linha de e-mail e volta por escrito, o que também resolve a validade. A presunção custa a compra inteira, e o custo só aparece depois, quando o que você supôs incluído vem cobrado à parte.\n\nDepois de ter os quatro campos de cada cotação, anote-os num lugar só. Na próxima compra você compara a cotação nova com a antiga em vez de recomeçar do zero, e aí a divisão — preço da turma dividido pelas pessoas que você vai mandar de verdade — finalmente está medindo a mesma coisa nas duas.\n\nNão cito aqui preço de mercado de treinamento, nem percentual, nem prazo. Esses números mudam por fornecedor e por ano. O que não muda é a regra: campo que não está no papel se pergunta, não se presume.\n\nNo vídeo completo: os quatro campos um por um, onde cada número está na cotação, e por que o limite importa tanto quanto o preço.\n\nConteúdo informativo, não é consultoria de compras.\n\n## COMENTARIO FIXADO\nA parte menos óbvia: o campo que falta não é um detalhe, é um campo. Enquanto ele não está no papel, as duas cotações não são comparáveis — mesmo com a divisão feita certinho. Qual campo costuma faltar nas suas cotações?\n\n## HASHTAGS\n#cotacao #treinamento #compras #labtreinamento #Shorts\n\n## TAGS\ncotacao de turma, quatro campos, o que esta incluido, preco da turma, limite de pessoas, validade da proposta, custo por pessoa, comparar cotacoes, perguntar antes, presumir, compras corporativas, treinamento, orcamento, lab treinamento, material e certificado\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Conferido campo a campo: nenhum\npreco de mercado, nenhum percentual, nenhum prazo e nenhum fornecedor nomeado.\nA regra (g) manda isso — preco de treinamento muda por ano e por fornecedor, e a\nREGRA nao muda. A unica conta do short usa numeros da PROPRIA cotacao do\nespectador.\n\nFamilia de entrada errada: CAMPO AUSENTE PRESUMIDO — supor o conteudo de um\ncampo que nao esta no papel, em vez de perguntar. E familia NOVA neste canal e\nnesta origem: as outras quatro desta mesma origem (Sr6VhvD_aPE) sao\nlabtreinamento-s006 (SOMAR AS HORAS ANTES DE COMPARAR PRECO), -s037 (SOBROU\nVAGA, NAO PREENCHA), -s044 (E QUEM FALTAR) e -s055 (USE O MESMO DIVISOR) — todas\nsobre a CONTA, nenhuma sobre DADO QUE FALTA. Regra (f) conferida contra as\nquatro.\n\n## EXPOSICAO DECLARADA ANTES DE PUBLICAR\nMira: edge 26,0 s (o TETO exato da mira medida deste canal) e piper 21,4 s —\nDENTRO da mira nos dois mundos, e dentro de 18 a 45 nos dois, que e o que o\nportao `duracao` cobra.\nA mira deste canal e sobre a duracao REAL (20,0 a 26,0) e o `mira.py` a cobra\nsobre o ESTIMADO — a contradicao do 740/748, que segue na fila do dono. Com a\nbanda OBSERVADA de residuo (-0,6 a +4,0 s), o real pode passar do teto de 26,0\nmesmo com a mira VERDE nos dois mundos, e isso aconteceu em nove das doze pecas\ndeste canal narradas pelo edge. Concretamente: se o edge narrar, o real deve cair entre 25,4 e 30,0 s, logo PODE\npassar do teto de 26,0; se o piper narrar, entre 20,8 e 25,4 s, e cabe. Vai dito\naqui em vez de prometido, e o provedor\nsera MEDIDO pela anotacao do job (733), nao inferido.\n\n## FONTES\nOrigem: Sr6VhvD_aPE (pacote labtreinamento-012), longo JA PUBLICADO deste canal.\nO short nao introduz numero novo sobre o mundo, logo nao exige fonte nova, e o\nid do longo vai dito aqui.\n"
+}
