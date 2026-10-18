@@ -96,6 +96,26 @@ usei como se fosse o CONJUNTO. Ela dá uma **ordem**; não dá o conjunto comple
 A nota de 16/10 segue valendo para separar longo de short e para ordenar por
 recência — e **não** vale para dizer "estes são os longos do canal".
 
+**E A OMISSÃO *VARIA ENTRE LEITURAS* — medido em 18/10 às 07:0x, três horas
+depois.** A mesma playlist do `labtreinamento` devolveu **DOZE** longos, não
+treze: o `KRUERlNPzDw` saiu. Ele é **público** (`isUnlisted` e `isPrivate`
+falsos), do mesmo canal (`author` LabTreinamento), 823 s, e **já rendeu quatro
+shorts** — não é origem desconhecida. Nada foi publicado nem despublicado entre
+as duas leituras.
+
+**Logo eu estava tratando a omissão como um conjunto FIXO** (*"ela omite esses
+dois"*), e ela não é. O que isto **não** prova: a causa, nem que a omissão seja
+aleatória — duas leituras não medem distribuição. O que está medido é a negação.
+
+**E a consequência bate na regra de 16/10** (*"a pauta serve o longo MAIS NOVO
+primeiro"*): o rank de uma origem, e a própria presença dela, mudam de uma rodada
+para a outra sem nada ter acontecido no canal. Logo **a ordem viva ORDENA, não
+ENUMERA**, e a contagem de longos que ela devolve é um **PISO** em qualquer
+leitura. Antes de dizer que uma origem não existe mais, leia a PÁGINA dela.
+`tests/test_a_omissao_da_playlist_VARIA_entre_leituras.py`, sete testes — um
+deles **falha se as duas leituras voltarem a coincidir**, para que isto seja
+relido em vez de apagado, e um impede que esta nota apague a de 01:2x.
+
 **E ela me deu DOIS falsos positivos na primeira execução de um detector novo.**
 A primeira versão de `concentracao.origem_de_outro_canal` acusava a origem
 **ausente** da playlist, e acusou exatamente esses dois — origens legítimas do

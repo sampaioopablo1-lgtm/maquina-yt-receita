@@ -1,0 +1,75 @@
+{
+  "slug": "labtreinamento",
+  "idioma": "pt-BR",
+  "voz": "pt-BR-ThalitaMultilingualNeural",
+  "trilha": "Inspired",
+  "paleta": {
+    "ink": "#1F2933",
+    "c1": "#3F6C51",
+    "c2": "#C98B2E",
+    "bg": "#F5F3ED"
+  },
+  "pacote": "labtreinamento-s075",
+  "longo_existente": "lau1nnOUm1U",
+  "thumb": {
+    "l1": "Carga horária",
+    "l2": "não decide"
+  },
+  "longo": [],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Três campos",
+      "sub": "e um que não entra",
+      "sem_cap": true,
+      "nar": "São três campos que contam."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Quais",
+      "nar": "Nome, data e periodicidade."
+    },
+    {
+      "layout": "item",
+      "kicker": "O que sobra",
+      "nar": "A carga horária fica fora."
+    },
+    {
+      "layout": "item",
+      "kicker": "E ela chama",
+      "nar": "E é o número maior."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Quem manda",
+      "sub": "periodicidade",
+      "nar": "O prazo vem da periodicidade."
+    },
+    {
+      "layout": "item",
+      "kicker": "Oito ou quarenta",
+      "nar": "Oito ou quarenta vencem igual."
+    },
+    {
+      "layout": "lista",
+      "kicker": "O sinal",
+      "nar": "Sinal: ordenou pelas horas."
+    },
+    {
+      "layout": "item",
+      "kicker": "Então",
+      "nar": "O topo não é o urgente."
+    },
+    {
+      "layout": "item",
+      "kicker": "Reordene",
+      "nar": "Reordene pelo vencimento."
+    },
+    {
+      "layout": "cta",
+      "kicker": "Confira hoje",
+      "nar": "Confira e inscreva-se."
+    }
+  ],
+  "copy": "# labtreinamento-s075\n\n## TITULO\nA Carga Horária Não Decide o Vencimento do Treinamento: Quem Move o Prazo é a Periodicidade\n\n## TITULO SHORT\nCarga horária não decide prazo\n\n## DESCRICAO\nO certificado de treinamento traz vários números, e **só três entram na conta do vencimento**: o nome da pessoa, a data em que o treinamento foi realizado, e a periodicidade — de quanto em quanto tempo ele precisa ser refeito. A carga horária não entra. Ela importa para outras coisas, mas **não muda em nada quando o treinamento vence.**\n\nE ela engana justamente por ser o número que mais chama a atenção no papel: está em destaque, é o maior, e parece medir a importância do treinamento. Daí a entrada errada, que é de **campo** e não de cálculo: usar a carga horária onde a periodicidade devia estar.\n\nDois treinamentos com cargas horárias muito diferentes podem ter exatamente a mesma periodicidade — e aí **vencem no mesmo prazo**, contado da data de realização de cada um. O treinamento mais longo não vence depois por ser mais longo.\n\n**O sinal de que isso aconteceu é visível na sua lista, e é barato de ver:** você ordenou a lista pela carga horária. Se a coluna que define a ordem é a de horas, o topo da lista não é o mais urgente — é o mais pesado. E o topo da lista é exatamente o que você vai olhar primeiro quando revisar, então o erro de ordenação vira erro de prioridade todos os meses.\n\nA correção é uma linha: **reordene pelo vencimento**, do mais próximo para o mais distante. O topo passa a ser quem vence primeiro, e isso costuma surpreender, porque raramente é quem você imaginava.\n\nUm detalhe que vale guardar junto: se a periodicidade não estiver escrita no certificado, **pergunte** a quem ministrou em vez de supor. Ela comanda as duas contas da lista — a data de vencimento e a lista de ação —, então chutá-la move as duas de uma vez.\n\nNão cito aqui carga horária de nenhum treinamento, nem periodicidade de norma nenhuma, nem prazo em dias. Esses números mudam por norma e por ano. O que não muda é qual campo entra na conta.\n\nNo vídeo completo: os três campos um por um, as cinco colunas da lista, e como escolher a antecedência do aviso medindo a sua última turma.\n\nConteúdo informativo, não é orientação de segurança do trabalho.\n\n## COMENTARIO FIXADO\nO detalhe que engana: a carga horária é o número que mais salta aos olhos no certificado e é o único dos grandes que não entra na conta do vencimento. Pela qual coluna a sua lista está ordenada hoje?\n\n## HASHTAGS\n#treinamento #seguranca #gestao #labtreinamento #Shorts\n\n## TAGS\ncarga horaria, periodicidade, vencimento de treinamento, data de realizacao, certificado, lista de controle, ordenar por vencimento, prioridade, revisao mensal, gestao de treinamentos, seguranca do trabalho, controle de certificados, lab treinamento, tres campos, prazo\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Conferido cena a cena: nenhuma carga\nhoraria de treinamento real, nenhuma periodicidade de norma, nenhum prazo em\ndias, nenhuma norma nomeada. A regra (g) manda isso — carga horaria e\nperiodicidade mudam por norma e por ano, e a REGRA DE QUAL CAMPO ENTRA nao muda.\nAs duas quantidades faladas (\"oito ou quarenta\") sao EXEMPLO ARITMETICO de\ncontraste, nao valores de norma: elas existem para mostrar que o prazo nao se\nmove com elas.\n\nFamilia de entrada errada: CAMPO IRRELEVANTE USADO NA CONTA — o campo esta no\npapel, e visivel, e nao pertence ao calculo. E familia NOVA nesta origem\n(`lau1nnOUm1U`): as outras quatro desta mesma origem sao labtreinamento-s008\n(ANTECEDENCIA ESTIMADA EM VEZ DE MEDIDA), -s032 e -s047 (POPULACAO PELA ESCALA DE\nHOJE em vez da POSSIBILIDADE) e -s040 (DATA DE EMISSAO no lugar da DATA DE\nREALIZACAO). Regra (f) conferida contra as quatro.\n\nE conferida contra as DUAS familias que este canal ja usou HOJE, porque a regra\n(f) e por canal e por DIA:\n  * labtreinamento-s074 (04:16) — UNIDADE CONTADA: trajeto em vez de embarque\n    pago. Ali o campo e o CERTO e a unidade dele e errada; aqui o campo e o\n    ERRADO. Distincao escrita porque as duas se parecem de longe;\n  * labtreinamento-s073 (01:15) — CAMPO AUSENTE PRESUMIDO: o campo nao esta no\n    papel e se supoe o conteudo. Aqui e o inverso exato: o campo ESTA no papel,\n    chama mais atencao que os outros, e nao entra na conta.\n\n## EXPOSICAO DECLARADA ANTES DE PUBLICAR\nMira: edge 25,8 s e piper 21,2 s — DENTRO da mira medida deste canal (20,0 a\n26,0) nos dois mundos, e dentro de 18 a 45 nos dois.\nA mira deste canal e sobre a duracao REAL e o `mira.py` a cobra sobre o\nESTIMADO — a contradicao do 740/748, que segue na fila do dono. Com a banda\nOBSERVADA de residuo (-0,6 a +4,0 s, n=88): se o edge narrar, o real deve cair\nentre 25,2 e 29,8 s, logo PODE passar do teto de 26,0; se o piper narrar, entre\n20,6 e 25,4 s, e cabe. Em DEZ das treze pecas deste canal narradas pelo edge o\nreal saiu FORA do teto com a mira VERDE, logo a exposicao vai DITA.\nE a banda tem 4,6 s de largura contra 1 s de granularidade do real: eu NAO\nprometo onde o real cai. Na rodada das 05:1x eu declarei o lado alto de uma faixa\nassim e o real saiu no extremo oposto. O provedor sera MEDIDO pela anotacao do\njob (733), nao inferido.\n\n## FONTES\nOrigem: lau1nnOUm1U (pacote labtreinamento-011, 57 capitulos), longo JA PUBLICADO\ndeste canal. O short nao introduz numero novo sobre o mundo, logo nao exige fonte\nnova, e o id do longo vai dito aqui.\nAs cenas saem dos capitulos 19 a 22 do pacote (os tres campos e a carga horaria\nque fica fora) e do 28 (ordenar pelo vencimento), que nenhum dos quatro shorts\nanteriores desta origem usou.\nPor que esta origem: ela tem quatro usos, o menor do canal entre as origens\nutilizaveis, e e a mais RECENTE desse grupo (rank 5 da ordem viva). O rank 1 esta\nem DOZE usos e o rank 9 em dez — 12 contra 10 NAO alerta pelo limiar do dobro, e\nisso vai dito em vez de arredondado para \"alertou\". A origem de ZERO usos do\ncanal e o longo POLONES, inutilizavel aqui pela identidade (601).\n"
+}
