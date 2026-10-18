@@ -1,0 +1,76 @@
+{
+  "slug": "kolejny-poziom",
+  "idioma": "pl",
+  "voz": "pl-PL-MarekNeural",
+  "trilha": "Wholesome",
+  "paleta": {
+    "ink": "#1B3A5C",
+    "c1": "#2A9D8F",
+    "c2": "#F5B841",
+    "bg": "#F4F1EA"
+  },
+  "pacote": "kolejny-poziom-s056",
+  "longo_existente": "-5aMrDsxlZE",
+  "thumb": {
+    "l1": "Bez limitu",
+    "l2": "ma próg"
+  },
+  "longo": [],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Bez limitu",
+      "sub": "nie ma pakietu",
+      "nar": "W ofercie bez limitu nie ma pakietu.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Więc nie dziel",
+      "nar": "Więc pierwszego dzielenia nie masz czym zrobić."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Zostaje druga",
+      "nar": "Zostaje sama kwota podzielona przez twoje realne zużycie."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "To jedyna cena",
+      "sub": "gigabajta",
+      "nar": "I to jedyna cena gigabajta, jaką płacisz."
+    },
+    {
+      "layout": "item",
+      "kicker": "Porównaj ją",
+      "nar": "Porównaj ją z ofertą z limitem na twoje zużycie."
+    },
+    {
+      "layout": "item",
+      "kicker": "Bywa taniej",
+      "nar": "Bez limitu bywa tańsze, a bywa znacznie droższe."
+    },
+    {
+      "layout": "item",
+      "kicker": "Jest próg",
+      "nar": "Wiele ofert bez limitu zwalnia dopiero po jakimś progu."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "To pakiet",
+      "sub": "pod inną nazwą",
+      "nar": "Taki próg to pakiet, tylko nazwany inaczej."
+    },
+    {
+      "layout": "item",
+      "kicker": "W umowie",
+      "nar": "A ten próg jest w umowie, nie w reklamie."
+    },
+    {
+      "layout": "cta",
+      "kicker": "Sprawdź próg",
+      "nar": "Sprawdź swój własny próg i zapisz się teraz."
+    }
+  ],
+  "copy": "# kolejny-poziom-s056\n\n## TITULO\nBez Limitu Nie Ma Pakietu: Którą Liczbę Policzyć, Gdy Dzielnika Po Prostu Nie Ma\n\n## TITULO SHORT\nBez limitu? Policz drugą liczbę\n\n## DESCRICAO\nRachunek na marnowane gigabajty ma dwa składniki. Pierwszy to cena gigabajta, czyli miesięczna kwota podzielona przez wielkość pakietu. Drugi to ta część pakietu, której nie zużywasz. Mnożysz jedno przez drugie i masz złotówki płacone za dane, których nie użyłeś. Rachunek jest prosty i robi się go raz.\n\nPrzy ofercie bez limitu pierwszy składnik **po prostu nie istnieje**. Nie ma wielkości pakietu, więc nie ma czym dzielić, a mimo to właśnie tam ludzie najczęściej wstawiają jakąś liczbę na siłę: pojemność z poprzedniej umowy, pojemność z reklamy albo liczbę wziętą z pamięci. Wtedy wynik wygląda poważnie, a nie opisuje niczego, bo dzielnik był wymyślony.\n\nZostaje druga liczba, i ona jest dobra: kwota podzielona przez to, ile naprawdę zużywasz. To jedyna cena gigabajta, jaką faktycznie płacisz, i tę liczbę można z czymś porównać — z ceną gigabajta w ofercie z limitem, która pokryłaby twoje zużycie. Bez limitu bywa tańsze, bywa też znacznie droższe. Kierunek pokazuje twoja liczba, nie materiał reklamowy.\n\nJest jeszcze jedna rzecz, i ona zmienia obraz najbardziej: wiele ofert bez limitu **zwalnia transmisję po jakimś progu**. Wtedy masz pakiet, tylko nazwany inaczej. Taki próg stoi w umowie, nie w reklamie, i jeśli go znajdziesz, możesz użyć go jako wielkości pakietu — wtedy pierwsze dzielenie znowu ma sens i wracasz do pełnego rachunku.\n\nKolejność jest więc taka: najpierw sprawdź, czy dzielnik w ogóle istnieje; jeśli nie, licz tylko drugą liczbę; a potem poszukaj progu w umowie. Liczba, którą policzysz, jest twoja własna, z twojego rachunku, i nikt inny jej za ciebie nie zna.\n\nNie podaję tu żadnego progu, żadnej stawki i żadnej ceny. Oferty się zmieniają, natomiast zdanie \"nie dziel przez pakiet, którego nie ma\" nie zmienia się wcale.\n\nW pełnym filmie: oba składniki rachunku krok po kroku, skąd wziąć własne zużycie i kiedy liczba myli.\n\nTreść informacyjna, nie stanowi porady finansowej ani prawnej.\n\n## COMENTARIO FIXADO\nNajmniej oczywista część: \"bez limitu\" bardzo często ma próg zapisany w umowie. Jeśli go znajdziesz, to jest twój pakiet pod inną nazwą — i wtedy liczysz normalnie. Jaki próg masz w swojej umowie?\n\n## HASHTAGS\n#bezlimitu #rachunek #dane #kolejnypoziom #Shorts\n\n## TAGS\nbez limitu, prog w umowie, cena gigabajta, pakiet danych, dzielnik, wlasne zuzycie, rachunek za telefon, oferta z limitem, zwalnianie transmisji, kolejny poziom, finanse osobiste, umowa, operator, policz sam, gigabajt\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Conferido campo a campo: nenhum\nPROGO em gigabytes, nenhuma stawka, nenhuma quantia, nenhuma data e nenhum\noperador nomeado. A regra (g) manda isso, porque oferta muda e a REGRA nao.\nA unica liczba do short e a do PROPRIO espectador, do proprio rachunku dele.\n\nFamilia de entrada errada: DZIELNIK, KTOREGO NIE MA — usar a wielkosc pakietu\nonde pakiet nao existe. Distinta das duas outras desta mesma origem:\nkolejny-poziom-s005 (SREDNIA PRZECIW MAKSIMUM) e kolejny-poziom-s026\n(ODWROCONA PRZYCZYNOWOSC). Regra (f) conferida contra as duas.\n\n## EXPOSICAO DECLARADA ANTES DE PUBLICAR\nMira: edge 41,7 s (logo acima do PISO de 41,5 do ALVO_SHORT, que e onde a voz\npl-PL-Marek deve mirar pelo 679) e piper 35,5 s — os dois dentro de 18 a 45 nos\nDOIS mundos, que e o que o portao `duracao` cobra.\nCom a banda OBSERVADA de residuo (-0,6 a +4,0 s), se o EDGE narrar o real deve\ncair entre 41,1 e 45,7 s — logo PODE passar do teto de 45, o caso do 772. Vai\ndito aqui em vez de prometido, e o provedor sera MEDIDO pela anotacao do job\n(733), nao inferido.\nE a banda tem 4,6 s de largura contra 1 s de granularidade do real: acertar\ndentro dela prova pouco (741/774).\n\n## FONTES\nOrigem: -5aMrDsxlZE (kolejny-poziom-014), longo JA PUBLICADO deste canal.\nO short nao introduz numero novo sobre o mundo, logo nao exige fonte nova\n(regra da secao 5 da rotina), e o id do longo vai dito aqui.\n"
+}
