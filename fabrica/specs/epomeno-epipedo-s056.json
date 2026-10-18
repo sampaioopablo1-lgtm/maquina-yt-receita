@@ -1,0 +1,75 @@
+{
+  "slug": "epomeno-epipedo",
+  "idioma": "el",
+  "voz": "el-GR-NestorasNeural",
+  "trilha": "Inspired",
+  "paleta": {
+    "ink": "#16283C",
+    "c1": "#2E7BB4",
+    "c2": "#E0A02E",
+    "bg": "#F3F7FA"
+  },
+  "pacote": "epomeno-epipedo-s056",
+  "longo_existente": "opFSah50OWo",
+  "thumb": {
+    "l1": "Λίγα χιλιόμετρα",
+    "l2": "ακριβό χιλιόμετρο"
+  },
+  "longo": [],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Λίγα χιλιόμετρα",
+      "sub": "ακριβό χιλιόμετρο",
+      "nar": "Λίγα χιλιόμετρα βγάζουν πάντα πολύ ακριβό χιλιόμετρο.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Γιατί",
+      "nar": "Τα σταθερά έξοδα μοιράζονται σε πολύ λίγη χρήση."
+    },
+    {
+      "layout": "item",
+      "kicker": "Τα σταθερά",
+      "nar": "Τέλη και ασφάλεια πληρώνονται ίδια, όσα κι αν κάνεις."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Δεν φταις",
+      "nar": "Αυτό όμως δεν σημαίνει ότι κάνεις κάτι λάθος εσύ."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Πληρώνεις",
+      "sub": "τη διαθεσιμότητα",
+      "nar": "Πληρώνεις κυρίως για τη διαθεσιμότητα του αυτοκινήτου."
+    },
+    {
+      "layout": "item",
+      "kicker": "Και είναι θεμιτό",
+      "nar": "Και η διαθεσιμότητα είναι απολύτως θεμιτός λόγος δαπάνης."
+    },
+    {
+      "layout": "item",
+      "kicker": "Το αντίστροφο",
+      "nar": "Το αντίστροφο ισχύει: πολλά χιλιόμετρα βγάζουν φθηνό."
+    },
+    {
+      "layout": "item",
+      "kicker": "Ίδιο ποσό",
+      "nar": "Με το ίδιο ακριβώς ποσό στο σύνολο της χρονιάς."
+    },
+    {
+      "layout": "item",
+      "kicker": "Κράτα δύο",
+      "nar": "Γι' αυτό κράτα και τα δύο νούμερα πάντα μαζί."
+    },
+    {
+      "layout": "cta",
+      "kicker": "Κάνε την πράξη",
+      "nar": "Κάνε τη δική σου πράξη και γράψου τώρα."
+    }
+  ],
+  "copy": "# epomeno-epipedo-s056\n\n## TITULO\nΑκριβό Χιλιόμετρο με Λίγες Διαδρομές: Τι Μετράει Πραγματικά Αυτό το Νούμερο\n\n## TITULO SHORT\nΑκριβό χιλιόμετρο; Μετρά διαθεσιμότητα\n\n## DESCRICAO\nΗ πράξη για το κόστος του χιλιομέτρου σου είναι απλή: παίρνεις το σύνολο των εξόδων της χρονιάς και το διαιρείς με τα χιλιόμετρα που έκανες. Το αποτέλεσμα είναι το δικό σου νούμερο, από τα δικά σου στοιχεία, και δεν υπάρχει πουθενά τυπωμένο.\n\nΥπάρχει όμως μία περίπτωση που ξεγελάει σχεδόν τους πάντες, και είναι αυτή: **όποιος κάνει λίγα χιλιόμετρα βγάζει πολύ ακριβό χιλιόμετρο.** Ο λόγος δεν είναι η σπατάλη. Είναι ότι τα σταθερά έξοδα — τέλη και ασφάλεια — πληρώνονται ίδια είτε κάνεις πολλά είτε λίγα, και όταν μοιραστούν σε λίγη χρήση, το ανά χιλιόμετρο ανεβαίνει.\n\nΗ λάθος ανάγνωση είναι να διαβάσεις αυτό το ψηλό νούμερο σαν απόδειξη ότι κάνεις κάτι λάθος. Δεν κάνεις. **Σημαίνει ότι πληρώνεις κυρίως για τη διαθεσιμότητα**, δηλαδή για το να υπάρχει το αυτοκίνητο όταν το χρειαστείς — και η διαθεσιμότητα είναι απολύτως θεμιτός λόγος δαπάνης. Το ζήτημα δεν είναι αν επιτρέπεται, είναι να ξέρεις πόσο κοστίζει.\n\nΤο αντίστροφο ισχύει με την ίδια ακρίβεια: όποιος κάνει πολλά χιλιόμετρα βγάζει φθηνό χιλιόμετρο — **με το ίδιο ακριβώς ποσό στο σύνολο της χρονιάς.** Δύο άνθρωποι μπορούν να πληρώνουν τα ίδια και να έχουν εντελώς διαφορετικό ανά χιλιόμετρο. Άρα το ανά χιλιόμετρο μόνο του δεν συγκρίνει δύο καταστάσεις.\n\nΓι' αυτό κράτα και τα δύο νούμερα μαζί: το **σύνολο της χρονιάς**, που δείχνει το μέγεθος του ποσού, και το **ανά χιλιόμετρο**, που δείχνει τι παίρνεις για αυτό. Το πρώτο απαντά \"πόσο\", το δεύτερο \"για ποιο πράγμα\". Με το ένα μόνο, η απάντηση βγαίνει στρεβλή σε όποια κατεύθυνση κι αν είσαι.\n\nΔεν αναφέρω εδώ ούτε τιμή καυσίμου, ούτε ποσό ασφάλειας, ούτε τέλη. Αυτά αλλάζουν κάθε χρόνο. Αυτό που δεν αλλάζει είναι η πράξη, και το ότι τα σταθερά μοιράζονται στη χρήση.\n\nΣτο πλήρες βίντεο: η πράξη βήμα προς βήμα, πού βρίσκεις τα στοιχεία χωρίς αρχείο, και τι δεν πιάνει αυτός ο υπολογισμός.\n\nΕνημερωτικό περιεχόμενο, δεν αποτελεί οικονομική συμβουλή.\n\n## COMENTARIO FIXADO\nΤο λιγότερο προφανές: δύο άνθρωποι με το ίδιο ετήσιο ποσό βγάζουν εντελώς διαφορετικό ανά χιλιόμετρο. Γι' αυτό τα δύο νούμερα δουλεύουν μόνο μαζί. Εσύ ποιο κρατάς;\n\n## HASHTAGS\n#κόστος #αυτοκίνητο #χιλιόμετρο #epomenoepipedo #Shorts\n\n## TAGS\nκοστος χιλιομετρου, σταθερα εξοδα, τελη κυκλοφοριας, ασφαλεια, διαθεσιμοτητα, λιγα χιλιομετρα, πολλα χιλιομετρα, ετησιο συνολο, δικα σου στοιχεια, προσωπικα οικονομικα, αυτοκινητο, πραξη, epomeno epipedo, δυο νουμερα, συγκριση\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Conferido campo a campo: nenhum\npreco de combustivel, nenhum valor de seguro, nenhum tele de circulacao, nenhuma\naliquota e nenhum orgao nomeado. A regra (g) manda isso — esses valores mudam\ntodo ano, e a PRACA nao muda. A unica conta e a do PROPRIO espectador.\n\nFamilia de entrada errada: CUSTO FIXO DIVIDIDO POR POUCO USO — ler o custo por\nquilometro alto como prova de desperdicio, quando ele mede DISPONIBILIDADE. E\nfamilia NOVA nesta origem: as outras duas sao epomeno-epipedo-s003 (FALTAM\nITENS DE CUSTO — saiu barato porque faltam os pneus) e -s030 (SEM RECIBO NAO E\nSEM CUSTO). As duas falam do NUMERADOR; esta fala do DENOMINADOR. Regra (f)\nconferida contra as duas.\n\n## EXPOSICAO DECLARADA ANTES DE PUBLICAR\nMira: edge 41,5 s — o PISO exato do ALVO_SHORT — e piper 36,7 s, os dois dentro\nde 18 a 45 nos DOIS mundos, que e o que o portao `duracao` cobra. O PISO foi\nescolhido pela regra de redacao do 772, mesmo com o 679 dizendo que o topo e\nseguro na voz grega: foi mirando 42,5 que o `epomeno-epipedo-s032` saiu com 46 s\nREAIS, acima do teto do portao.\nCom a banda OBSERVADA (-0,6 a +4,0 s), se o edge narrar o real deve cair entre\n40,9 e 45,5 s — logo PODE passar do teto de 45, e isso vai dito em vez de\nprometido. O provedor sera MEDIDO pela anotacao do job (733), nao inferido.\nA banda tem 4,6 s de largura contra 1 s de granularidade: acertar dentro dela\nprova pouco (741/774).\n\n## FONTES\nOrigem: opFSah50OWo (pacote epomeno-epipedo-013), longo JA PUBLICADO deste canal.\nO short nao introduz numero novo sobre o mundo, logo nao exige fonte nova, e o id\ndo longo vai dito aqui.\n"
+}
