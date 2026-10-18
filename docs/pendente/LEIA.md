@@ -1554,3 +1554,32 @@ antes de 19/10.
 
 Suite: **25 falham / 2.812 passam / 892 skip** — o conjunto da linha de base,
 nenhuma falha nova.
+
+## Rodada de 18/10 13:07 — labtreinamento-s077 = DgvGXwefhxQ
+
+Peca publica, 28 s reais, provedor **edge** MEDIDO (zero avisos no job
+117684273256). Residuo +2,3 s, estabelecido, DENTRO da banda — `RESIDUO_N`
+= 95, limites intocados. Som: LUFS -14,0, LRA 3,2, pico -1,8 dBTP, desvio
+0,0, zero silencios.
+
+Inscritos **68 / 21 / 8** contra 17/10 09:0x (28,1 h): delta ZERO. Porta 1
+`indeterminado` nos tres, e o teto do ritmo aperta a **0,85 inscrito/dia**.
+
+**E a rodada recusou uma resposta do proprio instrumento, com motivo medido.**
+O `origens_sem_uso` do labtreinamento devolveu UMA origem de zero usos, e ela
+e a **POLONESA** (`QiaGg03WSR0`, `language: pl`). O instrumento esta VERDE e
+seguir a resposta dele produziria peca em idioma errado — o modo de falha mais
+caro que existe aqui. Ele esta certo em nomea-la; ela e que nao serve ao canal
+pt-BR. Conferido ANTES de escrever.
+
+**E o tally da pinca do 740/748 foi a TREZE de dezesseis:** o real de 28 s
+ficou fora do teto da mira deste canal (26,0) com o `mira.py` **VERDE nos dois
+mundos**, exatamente como a copy declarou antes de publicar. Para o real caber
+na mira o edge precisaria de <= 22,0, onde o piper cai a ~18,0 — abaixo do piso
+de 20,0. **Nao existe spec deste canal que satisfaca as duas**, e a saida e sua:
+mover a mira para o ESTIMADO descontando o residuo, ou parar de cobrar uma
+faixa de REAL sobre o estimado.
+
+Parque: 35 pecas, zero sem leitura. `execute_sql` negado pela **14a** rodada —
+**76** linhas de insert parqueadas. Suite: 25 / 2.812 / 895, conjunto IDENTICO
+a linha de base.

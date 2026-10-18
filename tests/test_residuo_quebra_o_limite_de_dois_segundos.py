@@ -248,6 +248,7 @@ SERIE = [
     ("labtreinamento-s076", 26.7, 29, "edge"),  # job 117648410242 — real FORA do teto da mira com o mira.py REPROVANDO o edge por 0,7 s
     ("epomeno-epipedo-s059", 42.2, 41, "edge"),  # job 117660019973 — QUARTO negativo, e o PRIMEIRO fora da janela estreita de 41,4-41,6: fura o piso de -0,6
     ("kolejny-poziom-s060", 41.7, 43, "edge"),  # job 117672928944 — DOIS lengthSeconds (42 e 43), usado o MAIOR; sinal estabelecido, dentro da banda
+    ("labtreinamento-s077", 25.7, 28, "edge"),  # job 117684273256 — DOIS lengthSeconds (27 e 28), usado o MAIOR; real FORA do teto da mira (26,0) com a mira VERDE: 13 de 16
 ]
 
 
