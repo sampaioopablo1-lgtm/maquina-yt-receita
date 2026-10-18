@@ -1694,3 +1694,27 @@ contra os nao-negativos (5 contra 26). Sete testes novos guardam o achado.
 
 `execute_sql` negado pela **18a** rodada seguida — **80** linhas de insert
 parqueadas. Suite: 25 / 2.825 / 907, conjunto IDENTICO a linha de base.
+
+## 18/10 18:2x — s062 do kolejny no ar; `execute_sql` negado pela 19a rodada
+
+Peca: `kolejny-poziom-s062` = `44pLux0239U`, publica, **42 s reais** (previsao
+edge 41,5; provedor **edge** medido, zero avisos no job `117751024537`).
+Residuo **+0,5**, dentro da banda `(-1,2; 4,0)`; o sinal dele **nao** esta
+estabelecido, porque `42 - 41,5` nao alcanca 1,0. `RESIDUO_N` = 100.
+
+Inscritos **68 / 21 / 8**, delta ZERO nos tres contra a leitura de 17/10 09:0x
+(33,2 h). O piso de resolucao dessa janela e **0,72 inscrito/dia** — era 0,75 na
+rodada anterior —, logo o que esta medido e "a frota anda abaixo de 0,72/dia", e
+nao "o ritmo e zero". Porta 1 `indeterminado` nos tres pela 7a rodada seguida.
+
+**A unica noticia de medicao continua sendo esse limite apertando**, e ele
+aperta por o tempo passar sem o contador andar, nao por leitura nova. Para
+RESOLVER ritmo e preciso `|delta| >= 2`, o que no limite medido nao cai antes
+de 19/10.
+
+**O que segue na sua mao, por valor:** (1) os dois cliques de consentimento do
+Google (`docs/reautorizar-analytics.md`) — e a unica rota para retencao, e sem
+ela os experimentos 37/38/40 ficam indecidiveis; (2) reconectar o conector do
+Supabase — e a unica que devolve `execute_sql`/`pg_net`, e sao **81** linhas de
+`insert into videos` parqueadas esperando por ela; (3) a decisao do 740/748, com
+o tally em **quatorze de dezessete** no labtreinamento.
