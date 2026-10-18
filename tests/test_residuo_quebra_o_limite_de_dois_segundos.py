@@ -254,6 +254,7 @@ SERIE = [
     ("labtreinamento-s078", 25.8, 28, "edge"),  # job 117723657331 — DOIS lengthSeconds (27 e 28), usado o MAIOR; real FORA do teto da mira (26,0) com a mira VERDE: 14 de 17
     ("epomeno-epipedo-s061", 41.5, 41, "edge"),  # job 117736668345 — QUINTO negativo estabelecido, e os CINCO sao deste canal; previsao de volta na janela estreita
     ("kolejny-poziom-s062", 41.5, 42, "edge"),  # job 117751024537 — residuo +0,5, sinal NAO estabelecido (770/18-10 15:2x: 42-41,5 < 1,0); dentro da banda
+    ("labtreinamento-s079", 25.8, 27, "edge"),  # job 117763741472 — residuo +1,2, sinal ESTABELECIDO; real FORA do teto da mira (26,0) com a mira VERDE nos dois mundos: 15 de 18
 ]
 
 

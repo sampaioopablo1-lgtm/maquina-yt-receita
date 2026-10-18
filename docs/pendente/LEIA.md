@@ -1718,3 +1718,30 @@ ela os experimentos 37/38/40 ficam indecidiveis; (2) reconectar o conector do
 Supabase — e a unica que devolve `execute_sql`/`pg_net`, e sao **81** linhas de
 `insert into videos` parqueadas esperando por ela; (3) a decisao do 740/748, com
 o tally em **quatorze de dezessete** no labtreinamento.
+
+## 18/10 19:2x — s079 no ar; e o CONTADOR DO KOLEJNY MEXEU: 8 -> 9
+
+Peca: `labtreinamento-s079` = `skQt0Js1t-k`, publica, **27 s reais** (previsao
+edge 25,8; provedor **edge** medido, zero avisos no job `117763741472`).
+Residuo **+1,2**, ESTABELECIDO e dentro da banda. `RESIDUO_N` = 101.
+
+**Inscritos 68 / 21 / 9 — o kolejny subiu UM, o primeiro movimento de contador
+em sete rodadas.** Contra a leitura de 17/10 09:0x, 34,1 h. **E isso NAO e
+ritmo medido:** o piso de resolucao dessa janela e 0,70/dia e o delta vale
+exatamente 0,70/dia, logo e UMA contagem — a incerteza e da ordem do proprio
+valor, e o criterio de duas contagens recusa. O canal sai `indeterminado`.
+
+**O que muda de verdade e o que eu posso DIZER:** por sete rodadas eu escrevi
+"delta zero nos tres, logo a frota anda abaixo de X/dia". Essa frase **cai para
+o kolejny** — ele nao esta mais abaixo do piso, esta EM CIMA dele. Nos outros
+dois ela segue valendo (abaixo de 0,70/dia). Para RESOLVER o kolejny agora basta
+um segundo passo: se ele for a 10, o ritmo fica medido.
+
+Tally do 740/748 em **quinze de dezoito**: o real 27 ficou acima do teto da mira
+(26,0) com o `mira.py` VERDE nos dois mundos, e a exposicao estava declarada na
+copy antes de publicar.
+
+**O que segue na sua mao:** (1) os dois cliques de consentimento do Google; (2)
+reconectar o conector do Supabase — **82** linhas de `insert into videos`
+parqueadas, e o `execute_sql` esta negado pela 20a rodada seguida; (3) a decisao
+do 740/748, agora com quinze de dezoito medidos.
