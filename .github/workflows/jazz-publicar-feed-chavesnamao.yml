@@ -1,0 +1,139 @@
+# Publica o feed do portal Chaves na Mão no Supabase da Jazz.
+#
+# Por que existe: as migrações e funções da Jazz sempre foram aplicadas pelo
+# conector MCP do Supabase, que é autenticação de conta — quando ele cai
+# (`needs_reconnect`), nenhuma sessão consegue publicar, e a entrega fica
+# parada esperando uma pessoa. Este workflow é o caminho que não depende do
+# conector: roda no runner do Actions, que tem rede aberta, e faz os dois
+# passos com credencial própria do repositório.
+#
+# Segredos necessários (Settings → Secrets → Actions), todos do projeto da
+# JAZZ (`cscczluzpblzhvojxanp`), nunca os da máquina de YouTube:
+#
+#   JAZZ_SUPABASE_DB_URL           string de conexão postgres (aplica a migração)
+#   JAZZ_SUPABASE_ACCESS_TOKEN     personal access token do Supabase (deploy da função)
+#   JAZZ_SUPABASE_PUBLISHABLE_KEY  chave publishable (só para a checagem pós-deploy)
+#
+# Sem os dois primeiros o job falha no passo de conferência, de propósito:
+# melhor parar avisando do que publicar meio feed.
+
+name: Jazz — publicar feed Chaves na Mão
+
+on:
+  workflow_dispatch:
+    inputs:
+      etapas:
+        description: "O que publicar"
+        type: choice
+        default: tudo
+        options: [tudo, migracao, funcao]
+      pos_deploy:
+        description: "Depois de publicar"
+        type: choice
+        default: prever
+        options: [prever, precomputar, nada]
+
+concurrency:
+  group: jazz-publicar-feed-chavesnamao
+  cancel-in-progress: false
+
+env:
+  PROJETO: cscczluzpblzhvojxanp
+  FUNCAO: chavesnamao-feed
+  MIGRACAO: jazz/supabase/migrations/20260918_feed_chavesnamao.sql
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Conferir segredos
+        env:
+          DB_URL: ${{ secrets.JAZZ_SUPABASE_DB_URL }}
+          TOKEN: ${{ secrets.JAZZ_SUPABASE_ACCESS_TOKEN }}
+        run: |
+          faltando=""
+          case "${{ inputs.etapas }}" in
+            tudo|migracao) [ -n "$DB_URL" ] || faltando="$faltando JAZZ_SUPABASE_DB_URL" ;;
+          esac
+          case "${{ inputs.etapas }}" in
+            tudo|funcao) [ -n "$TOKEN" ] || faltando="$faltando JAZZ_SUPABASE_ACCESS_TOKEN" ;;
+          esac
+          if [ -n "$faltando" ]; then
+            echo "::error::segredo(s) ausente(s):$faltando — cadastre em Settings → Secrets → Actions"
+            exit 1
+          fi
+          test -f "$MIGRACAO" || { echo "::error::migração não encontrada: $MIGRACAO"; exit 1; }
+
+      # A migração é aplicada por arquivo, com psql, e NÃO com `supabase db push`.
+      # Motivo: o histórico da Jazz nunca passou pela tabela de migrações do CLI
+      # (tudo foi aplicado via MCP), então um `db push` tentaria reaplicar dezenas
+      # de arquivos antigos de uma vez. Aqui roda só o arquivo desta entrega.
+      - name: Aplicar migração
+        if: inputs.etapas == 'tudo' || inputs.etapas == 'migracao'
+        env:
+          PGPASSWORD_HINT: "a senha vai dentro da própria JAZZ_SUPABASE_DB_URL"
+        run: |
+          psql "${{ secrets.JAZZ_SUPABASE_DB_URL }}" \
+            -v ON_ERROR_STOP=1 \
+            --single-transaction \
+            -f "$MIGRACAO"
+          echo "migração aplicada: $MIGRACAO"
+
+      - uses: supabase/setup-cli@v1
+        if: inputs.etapas == 'tudo' || inputs.etapas == 'funcao'
+        with:
+          version: latest
+
+      # O CLI procura `./supabase/functions/<nome>`; as funções da Jazz moram em
+      # `jazz/supabase/functions`, então o deploy roda de dentro de `jazz/`. O
+      # config.toml é gerado aqui, no runner, em vez de versionado: o repositório
+      # é dividido com a máquina de YouTube, e um config.toml na raiz da Jazz
+      # faria o CLI tratar essa pasta como projeto em todo checkout.
+      - name: Publicar Edge Function
+        if: inputs.etapas == 'tudo' || inputs.etapas == 'funcao'
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.JAZZ_SUPABASE_ACCESS_TOKEN }}
+        run: |
+          cd jazz
+          if [ ! -f supabase/config.toml ]; then
+            printf 'project_id = "%s"\n' "$PROJETO" > supabase/config.toml
+          fi
+          supabase functions deploy "$FUNCAO" --project-ref "$PROJETO"
+
+      # `prever` gera o XML inteiro e devolve contagem, bytes e uma amostra SEM
+      # subir arquivo nenhum — é a conferência que decide se vale publicar.
+      # `precomputar` é que escreve em feeds-portais/chavesnamao.xml.
+      - name: Conferir geração (prever/precomputar)
+        if: inputs.pos_deploy != 'nada'
+        env:
+          CHAVE: ${{ secrets.JAZZ_SUPABASE_PUBLISHABLE_KEY }}
+        run: |
+          if [ -z "$CHAVE" ]; then
+            echo "::warning::JAZZ_SUPABASE_PUBLISHABLE_KEY ausente — pulando a checagem pós-deploy"
+            exit 0
+          fi
+          resposta=$(curl -sS -X POST \
+            "https://$PROJETO.supabase.co/functions/v1/$FUNCAO" \
+            -H "apikey: $CHAVE" \
+            -H "Authorization: Bearer $CHAVE" \
+            -H "Content-Type: application/json" \
+            -d "{\"acao\":\"${{ inputs.pos_deploy }}\"}" \
+            --max-time 300)
+          echo "$resposta" | head -c 4000
+          echo
+          echo "$resposta" | grep -q '"ok":true' || { echo "::error::a função respondeu com falha"; exit 1; }
+
+      - name: Resumo
+        if: always()
+        run: |
+          {
+            echo "### Feed Chaves na Mão"
+            echo ""
+            echo "- etapas: \`${{ inputs.etapas }}\`"
+            echo "- pós-deploy: \`${{ inputs.pos_deploy }}\`"
+            echo "- URL do feed: https://$PROJETO.supabase.co/storage/v1/object/public/feeds-portais/chavesnamao.xml"
+          } >> "$GITHUB_STEP_SUMMARY"
