@@ -1,0 +1,82 @@
+{
+  "slug": "labtreinamento-s079",
+  "idioma": "pt-BR",
+  "voz": "pt-BR-ThalitaMultilingualNeural",
+  "trilha": "Inspired",
+  "paleta": {
+    "ink": "#14213D",
+    "c1": "#2A9D8F",
+    "c2": "#E9C46A",
+    "bg": "#F6F4EF"
+  },
+  "pacote": "labtreinamento-s079",
+  "longo_existente": "bQoujWaY7Hw",
+  "thumb": {
+    "l1": "Conte quantos",
+    "l2": "usaram"
+  },
+  "longo": [],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Conte",
+      "sub": "quantos usaram",
+      "nar": "Conte quantos usaram."
+    },
+    {
+      "layout": "item",
+      "kicker": "Dez últimos",
+      "sub": "orçamentos fechados",
+      "nar": "Nos dez últimos fechados."
+    },
+    {
+      "layout": "item",
+      "kicker": "A contagem",
+      "sub": "decide a tabela",
+      "nar": "Ela decide a tabela."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Todos usaram",
+      "sub": "esse é o preço",
+      "nar": "Todos usaram? É o seu preço."
+    },
+    {
+      "layout": "lista",
+      "kicker": "O cheio",
+      "sub": "é ficção",
+      "nar": "O cheio é ficção."
+    },
+    {
+      "layout": "item",
+      "kicker": "Ninguém usou",
+      "sub": "não compra nada",
+      "nar": "Ninguém usou? Não compra nada."
+    },
+    {
+      "layout": "item",
+      "kicker": "Corta margem",
+      "sub": "de quem reparou",
+      "nar": "Só corta margem."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Nos dois casos",
+      "sub": "falta decisão",
+      "nar": "Falta decisão sua."
+    },
+    {
+      "layout": "item",
+      "kicker": "O campo",
+      "sub": "veio de antes",
+      "nar": "O campo veio de antes."
+    },
+    {
+      "layout": "cta",
+      "kicker": "Se inscreva",
+      "sub": "e conte os seus dez",
+      "nar": "Conte os seus dez e se inscreva."
+    }
+  ],
+  "copy": "# labtreinamento-s079\n\n## TITULO\nQuantos Clientes Usaram o Seu Desconto à Vista: a Contagem Que Diz se o Preço Cheio Existe\n\n## TITULO SHORT\nConte quantos usaram o desconto\n\n## DESCRICAO\nQuase toda discussão sobre desconto à vista termina no **custo da taxa** — quanto, em por cento ao mês, você pagou para receber antes. Essa conta é importante e não é a desta peça. Aqui a pergunta é **outra, e é mais barata de responder**: quantos dos seus clientes efetivamente usaram esse desconto?\n\n**Abra os seus dez últimos orçamentos fechados e conte.** Esse é o único número que diz se o campo de desconto à vista da sua tabela serve para alguma coisa — e ele decide em dois sentidos opostos, não em um.\n\n**Se quase todos usaram**, então o preço com desconto **é** o seu preço. O número cheio da tabela não é o valor que você pratica: é um valor de partida que ninguém paga, e a sua margem real é a outra. Isso não é necessariamente ruim — mas é diferente de pensar que você tem um preço cheio e concede exceções.\n\n**Se quase ninguém usou**, o campo não está comprando antecipação de nada. Ele só reduz a sua margem **nos poucos casos em que alguém reparou que ele estava lá** — e você paga por um instrumento que não muda o seu caixa.\n\n**Nos dois resultados a conclusão é a mesma, e é a parte que importa:** esse campo precisa de uma **decisão sua**, não de um número que ficou na tabela porque alguém copiou de uma proposta antiga. Revisar esse campo é provavelmente a coisa mais barata que você faz nesta semana — leva o tempo de contar dez linhas.\n\nNão há aqui taxa de banco, índice nem percentual de referência. Os dois números que a conta usa são **seus**: quantos orçamentos você fechou e em quantos o desconto foi usado.\n\nNo material completo: por que a divisão é pelo que **sobra** dos cem e não pelos cem, como passar o juro do período para o mês, e as três situações em que dar o desconto continua sendo a melhor decisão.\n\nMaterial informativo, não é consultoria financeira.\n\n## COMENTARIO FIXADO\nO menos óbvio: a contagem decide em DOIS sentidos opostos — quase todos usando diz que o preço cheio é ficção, quase ninguém usando diz que o campo não compra nada. Dos seus dez últimos, quantos usaram?\n\n## HASHTAGS\n#orcamento #precificacao #descontoavista #labtreinamento #Shorts\n\n## TAGS\ndesconto a vista, tabela de precos, preco cheio, margem, orcamento fechado, precificacao, antecipacao de recebimento, fluxo de caixa, negociacao com cliente, proposta comercial, gestao financeira, pequena empresa, lab treinamento, contagem de orcamentos, decisao de preco\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Conferido cena a cena: o unico\nnumero que aparece e \"dez\", e ele e a CONTAGEM que o espectador faz nos\nproprios orcamentos — nao e taxa, indice nem aliquota. Os percentuais do longo\n(dez por cento, cinco por cento, onze virgula um por cento ao mes) ficaram\nFORA: o longo diz que sao EXEMPLO do calculo, e numero que o proprio longo\ndeclara ser escolha nao entra de jeito nenhum (regra g, caso especial).\n\n## FONTES\nCapitulos 47 a 49 do longo \"Desconto para Pagar a Vista: Divida por 90 e Veja o\nJuro que Voce Pagou\" (pacote labtreinamento-008, bQoujWaY7Hw, rank 8 da ordem\nviva, 4 usos — o menor patamar de uso utilizavel do canal). As QUATRO familias\nque esta origem ja rendeu sao outras, e todas falam da TAXA: o s004 (mesmo\ndesconto com prazo curto custa mais), o s017 (5% custa mais que 10%), o s039 (o\ndesconto fixo paga por todos) e o s048 (quem pagaria a vista de qualquer jeito).\nEsta e a quinta e nao fala de taxa nenhuma: PRECO CHEIO DA TABELA LIDO COMO O\nPRECO REAL, decidido por CONTAGEM.\n\n## EXPOSICAO\nPrevisao edge 25,8 s e piper 21,2 s — os dois DENTRO da mira medida do canal\n(20,0 a 26,0) e dentro de 18 a 45 nos dois mundos. Levou CINCO versoes para\ncaber: a primeira dava edge 31,1. E a mira verde NAO promete real dentro: pelo\ntally do 744/754/758, quatorze das dezessete pecas deste canal narradas pelo\nedge sairam ACIMA do teto de 26,0 com o `mira.py` verde nos dois mundos. Com a\nbanda em (-1,2; 4,0), se o edge narrar o real cai em algum ponto de (24,6; 29,8)\n— e eu nao digo de que lado, porque 5,2 s de largura contra 1 s de granularidade\nnao preveem nada. A contradicao do 740/748 segue na fila do dono.\n"
+}
