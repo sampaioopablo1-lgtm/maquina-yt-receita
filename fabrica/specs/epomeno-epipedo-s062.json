@@ -1,0 +1,82 @@
+{
+  "slug": "epomeno-epipedo-s062",
+  "idioma": "el",
+  "voz": "el-GR-NestorasNeural",
+  "trilha": "Inspired",
+  "paleta": {
+    "ink": "#1D3557",
+    "c1": "#2A9D8F",
+    "c2": "#E9C46A",
+    "bg": "#F5F3EC"
+  },
+  "pacote": "epomeno-epipedo-s062",
+  "longo_existente": "uWs-k_Wrn_w",
+  "thumb": {
+    "l1": "Μισός χρόνος",
+    "l2": "μισή έκπτωση"
+  },
+  "longo": [],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Μισός χρόνος",
+      "sub": "μισή έκπτωση",
+      "nar": "Η ασφάλεια μισού έτους δεν δίνει όλη την έκπτωση."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Δύο αριθμοί",
+      "sub": "δύο δουλειές",
+      "nar": "Δύο αριθμοί κάνουν δύο διαφορετικές δουλειές εδώ."
+    },
+    {
+      "layout": "item",
+      "kicker": "Το κατώφλι",
+      "sub": "μέσα ή έξω",
+      "nar": "Ο ένας είναι το κατώφλι: σε βάζει μέσα ή σε αφήνει έξω."
+    },
+    {
+      "layout": "item",
+      "kicker": "Ο χρόνος",
+      "sub": "ορίζει το ποσό",
+      "nar": "Ο άλλος είναι ο χρόνος: αυτός ορίζει το ποσό."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Πέρασες",
+      "sub": "μπαίνεις στη λίστα",
+      "nar": "Πέρασες το κατώφλι; Ωραία, μπαίνεις στη λίστα."
+    },
+    {
+      "layout": "item",
+      "kicker": "Η διάρκεια",
+      "sub": "κρίνει το πόσο",
+      "nar": "Το πόσο θα πάρεις το κρίνει η διάρκεια κάλυψης."
+    },
+    {
+      "layout": "item",
+      "kicker": "Μισός χρόνος",
+      "sub": "περίπου μισή",
+      "nar": "Μισός χρόνος ασφάλισης δίνει περίπου μισή έκπτωση."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Οι μήνες",
+      "sub": "δεν χαρίζονται",
+      "nar": "Το κατώφλι δεν σου χαρίζει τους μήνες που λείπουν."
+    },
+    {
+      "layout": "item",
+      "kicker": "Μέτρα",
+      "sub": "τους ενεργούς μήνες",
+      "nar": "Μέτρα τους μήνες που το συμβόλαιο ήταν ενεργό."
+    },
+    {
+      "layout": "cta",
+      "kicker": "Κάνε εγγραφή",
+      "sub": "και μέτρα τους δικούς σου",
+      "nar": "Μέτρησε τους δικούς σου μήνες και κάνε εγγραφή."
+    }
+  ],
+  "copy": "# epomeno-epipedo-s062\n\n## TITULO\nΤο Κατώφλι Σε Βάζει Μέσα, ο Χρόνος Ορίζει το Ποσό: Δύο Αριθμοί, Δύο Δουλειές\n\n## TITULO SHORT\nΜισός χρόνος, περίπου μισή έκπτωση\n\n## DESCRICAO\nΣτην έκπτωση ΕΝΦΙΑ για ασφαλισμένη κατοικία υπάρχουν **δύο αριθμοί που μοιάζουν ομοειδείς και δεν είναι**. Ο ένας είναι **κατώφλι**: μια ελάχιστη διάρκεια κάλυψης μέσα στη χρονιά, που λειτουργεί σαν πόρτα — ή την περνάς ή δεν την περνάς. Ο άλλος είναι **ο χρόνος που το συμβόλαιο ήταν όντως ενεργό**, και αυτός δεν είναι πόρτα: είναι **αναλογία**, και ορίζει το ποσό.\n\n**Η λάθος είσοδος είναι να διαβάσεις το κατώφλι ως το ποσό.** Περνάς την ελάχιστη διάρκεια, βλέπεις το ποσοστό της έκπτωσης στην ανακοίνωση, και υποθέτεις ότι το δικαιούσαι ολόκληρο. Δεν λειτουργεί έτσι: αν η ασφάλεια κράτησε λιγότερο από έναν ολόκληρο χρόνο, **η έκπτωση είναι αναλογική στους μήνες**. Μισός χρόνος κάλυψης δίνει περίπου **μισή** έκπτωση.\n\n**Οι δύο αριθμοί απαντούν σε δύο διαφορετικά ερωτήματα, και με αυτή τη σειρά:** πρώτο, «δικαιούμαι;» — το κρίνει το κατώφλι μαζί με τους υπόλοιπους όρους. Δεύτερο, «πόσο;» — το κρίνει η διάρκεια. Το πρώτο δεν προδικάζει το δεύτερο, και αυτό είναι όλο το λάθος.\n\n**Η πράξη που κάνεις σήμερα:** άνοιξε το συμβόλαιό σου και μέτρα τους μήνες που ήταν **ενεργό μέσα στη χρονιά** — όχι πόσο διαρκεί συνολικά, όχι πότε το υπέγραψες. Αυτός ο αριθμός είναι ο πολλαπλασιαστής σου, και είναι δικός σου: δεν τον διαβάζεις από ανακοίνωση.\n\nΔεν δίνω εδώ ποσοστά, όρια αξίας ούτε ημερομηνίες. Αυτά αλλάζουν και σε αυτό το θέμα έχουν αλλάξει. **Ο μηχανισμός — κατώφλι για το «αν», αναλογία για το «πόσο» — δεν αλλάζει.** Τους αριθμούς πάρ' τους από το δικό σου συμβόλαιο.\n\nΣτο πλήρες υλικό: οι τέσσερις όροι που πρέπει να ισχύουν όλοι μαζί, γιατί η έκπτωση μετριέται ανά ακίνητο, και η δεύτερη μείωση που πολλοί μπερδεύουν με αυτή.\n\nΕνημερωτικό υλικό, δεν αποτελεί φορολογική συμβουλή.\n\n## COMENTARIO FIXADO\nΤο λιγότερο προφανές: το κατώφλι και η διάρκεια απαντούν σε ΔΥΟ διαφορετικά ερωτήματα — «δικαιούμαι» και «πόσο». Πόσους ενεργούς μήνες έχει το δικό σου συμβόλαιο μέσα στη χρονιά;\n\n## HASHTAGS\n#ΕΝΦΙΑ #ασφάλιση #κατοικία #epomenoepipedo #Shorts\n\n## TAGS\nenfia, ekptosi enfia, asfalisi katoikias, diarkeia asfalisis, analogiki ekptosi, katofli, energoi mines, symvolaio asfalisis, forologia akiniton, prosopika oikonomika, ellada, epomeno epipedo, ypologismos ekptosis, dikaiologitika, myproperty\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Conferido cena a cena: nenhuma cena\ncarrega percentual, valor em euro, numero de dias nem data. O longo traz o\nminimo de dias do catafalco de elegibilidade, o percentual da ekptosi e o limite\nde valor objetivo da residencia; os tres ficaram FORA pela regra (g), porque\npercentual, limite e prazo de plataforma mudam por lei. O unico par quantitativo\nda narracao e \"meio ano -> cerca de metade\", que e a propria ARITMETICA da\nproporcao e nao um numero sobre o mundo.\n\n## FONTES\nCapitulo 33 do longo \"ΕΝΦΙΑ: η έκπτωση 20% που παίρνει 1 στους 14 — και η\nημερομηνία\" (pacote epomeno-epipedo-008, uWs-k_Wrn_w, rank 10 da ordem viva,\n2 usos — o menor patamar do canal). As duas familias que esta origem ja rendeu\nsao outras: o s017 pergunta QUAL reducao falta, e o s026 diz que o limiar NAO e\num valor.\n\n**E a distincao contra o s026 vai escrita, porque e fina e eu quase a perdi:**\nlá o numero era o limite de valor objetivo, que e porta e so porta — passa ou nao\npassa. Aqui sao DOIS numeros com papeis OPOSTOS na mesma regra: um e porta (o\nminimo de dias) e o outro e PROPORCAO (os meses ativos). A entrada errada do s026\ne \"tratar porta como valor\"; a desta peca e \"deixar que a porta responda a\npergunta do QUANTO\". Nao e a mesma familia, e se fosse eu teria trocado de\norigem.\n\n## EXPOSICAO\nPrevisao edge 42,1 s e piper 37,3 s — os dois dentro de 18 a 45 nos dois mundos;\no kolejny e o epomeno nao tem ALVO_POR_CANAL, logo vale a mira da frota\n(41,5 a 43,0), e a previsao do edge cai no meio dela. Mirei o MEIO e nao o piso\nde proposito: o achado das 17:2x de hoje mostra que os CINCO residuos negativos\nda serie sao deste canal e os cinco tem real exatamente 41, isto e, o piso do\nespalhamento. Mirar o piso aqui nao encurta a peca — aumenta a chance de o\nresiduo sair NEGATIVO. Com a banda em (-1,2; 4,0), se o edge narrar o real cai\nem algum ponto de (40,9; 46,1), e eu nao digo de que lado.\n"
+}
