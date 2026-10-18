@@ -139,6 +139,30 @@ desconhecido NÃO colapsa com nada**, porque isso inventaria duplicata. E
 `tests/test_origem_sem_uso_contava_ID_e_nao_TITULO.py`, dez testes, com
 contraprova nos dois sentidos.
 
+**E NA PRIMEIRA VEZ QUE ELE ESCOLHEU PAUTA, A ORIGEM QUE ELE DEVOLVEU ERA DE
+OUTRO IDIOMA — medido em 18/10 às 04:1x.** No `labtreinamento` o
+`origens_sem_uso` com o mapa de títulos devolveu **UMA** origem:
+`QiaGg03WSR0`, rank 4 da ordem viva — e o título dela, lido na própria playlist
+de uploads **daquele** canal, é **POLONÊS** (*"Twoja Pierwsza Rata…"*, sobre
+crédito). É o mesmo id que a nota de 01:2x já mostrava declarado por dois shorts
+do kolejny.
+
+**Logo o instrumento está CERTO e a origem NÃO SERVE ao canal, e isso é duas
+coisas, não uma.** Short pt-BR dela reprovaria a identidade (601). Este é o modo
+de falha mais caro que existe aqui: **o instrumento está VERDE e seguir a
+resposta dele produz peça de idioma errado.** Não filtrei idioma dentro dele, e o
+motivo vai escrito no módulo: filtrar **esconderia** a origem em vez de a nomear,
+que é exatamente a cegueira do 762/771 que ele nasceu para desfazer.
+
+**A regra que fica: origem devolvida não é origem utilizável — confira o IDIOMA
+do título antes de escrever.** `tests/test_a_origem_de_zero_usos_e_de_outro_IDIOMA.py`,
+seis testes, com contraprova nos dois sentidos (origem pt-BR de zero usos
+continua saindo) e um que **falha se a nota do idioma for apagada do módulo**.
+
+**E a pauta desta rodada foi ao rank 2 por isso**, não ao rank 1: o topo do canal
+está em **DOZE** usos — o hábito de 13/10 outra vez, agora visível na contagem
+**antes** de escolher.
+
 **E UM TESTE MEU DE 12/10 REPROVOU NA MESMA RODADA, e a retratação é dele.** O
 `test_as_TRES_origens_do_falso_positivo_devolvem_None` cobrava `None` para as
 três origens do falso positivo do `segundo_angulo`, e o `SP7Vz8qHdRY` passou a

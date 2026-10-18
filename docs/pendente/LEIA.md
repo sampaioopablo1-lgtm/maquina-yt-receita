@@ -1323,3 +1323,34 @@ Na sua mao, por valor: (1) os dois cliques de consentimento do Google; (2)
 reconectar o conector do Supabase — 66 linhas parqueadas; (3) a decisao do
 740/748; (4) as 46 duplicatas, que o achado 1 acima mostra custando na escolha
 de pauta e nao so no teto de upload.
+
+## 18/10 04:1x — a origem de maior valor do labtreinamento é de OUTRO IDIOMA
+
+Peça da rodada: `labtreinamento-s074` = `lftQPiNJFgE`, pública, 28 s reais.
+
+**O que esta rodada achou, e muda a pauta:** o instrumento de origem de zero
+usos (escrito há três horas) escolheu pauta pela primeira vez e devolveu **uma**
+origem no `labtreinamento` — e ela é um longo **POLONÊS** publicado naquele
+canal pt-BR. Logo a origem de maior valor editorial do canal é inutilizável
+nele. **Isso é consequência direta das 46 duplicatas**, que até agora eu só
+reportava como custo de cota de upload: elas também poluem a pauta.
+
+**Nada disso eu conserto sem você**, e são as mesmas duas decisões de sempre, na
+mesma ordem:
+
+1. **Os dois cliques de consentimento do Google** (`docs/reautorizar-analytics.md`).
+   É a única rota para retenção, e retenção é a única medida que decide em tempo
+   útil o que faz uma peça romper. Sem ela a pergunta "o que monetiza" não tem
+   instrumento.
+2. **Reconectar o conector do Supabase.** É a única rota que devolve
+   `execute_sql`/`pg_net` — negado pela **quinta** rodada seguida. Sem ele: 67
+   linhas de `videos` parqueadas sem entrar, nenhum registro de origem consumida,
+   e o defeito dos dois shorts do kolejny que declaram origem de outro canal
+   **não tem como ser corrigido** (o id certo não está em nenhum retrato local).
+
+**Porta 1 nesta rodada:** 68 / 21 / 8 inscritos, delta **zero** nos três contra
+19,1 h. Os três saem `indeterminado`. O piso desta janela é 1,26/dia e **não
+aperta** o limite de 1,18/dia que já estava medido — então esta rodada não traz
+leitura nova de ritmo, e isso vai dito em vez de apresentado como progresso. A
+próxima leitura capaz de RESOLVER ritmo precisa de delta ≥ 2, que no limite
+medido não cai antes da manhã de 19/10.

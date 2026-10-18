@@ -118,6 +118,16 @@ def origens_sem_uso(canal: str, ordem_viva, raiz: str = None,
     ele a funcao devolve ids e **avisa no `relato`**, porque recusar seria
     pior: o titulo as vezes nao esta a mao.
 
+    E ELA NAO FILTRA IDIOMA, de proposito — medido em 18/10 as 04:1x, na
+    PRIMEIRA vez que este instrumento escolheu pauta. No `labtreinamento`
+    ele devolveu UMA origem de zero usos, e o titulo dela, lido na propria
+    playlist de uploads do canal, e POLONES: short pt-BR dela reprovaria a
+    identidade (601). O instrumento esta CERTO e a origem NAO SERVE aquele
+    canal — duas coisas distintas. Filtrar idioma aqui ESCONDERIA a origem
+    em vez de a nomear, que e a cegueira do 762/771 que esta funcao desfaz;
+    logo quem escolhe pauta confere o IDIOMA do titulo antes de escrever, e
+    nao supoe que origem devolvida e origem utilizavel.
+
     AUSENCIA DE RETORNO NAO PROVA QUE NAO HA ORIGEM LIVRE: a playlist `UU...`
     OMITE longo publico do canal (ver `origem_de_outro_canal`). Lista
     incompleta devolve lista vazia aqui. Esta funcao NAO decide: ela nomeia.
