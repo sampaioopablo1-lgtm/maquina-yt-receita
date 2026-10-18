@@ -82,10 +82,23 @@ def test_as_SEIS_correcoes_da_banda_a_ALARGARAM():
     vinha escrevendo desde o 734. O ponto e o `epomeno-epipedo-s054`
     (`A4M3SLs8FEk`), previsao edge 41,6 e real 41."""
     larguras = [2.4 - 0.9, 3.7 - 0.9, 3.7 - 0.5, 3.7 - 0.1, 4.0 - 0.1,
-                4.0 - (-0.6)]
+                4.0 - (-0.6), 4.0 - (-1.2)]
     assert larguras == sorted(larguras), larguras
+    # A SETIMA correcao, em 18/10 as 11:1x: o `epomeno-epipedo-s059` previa 42,2
+    # e deu real 41 — residuo -1,2, estabelecido pelo ramo negativo. E o PRIMEIRO
+    # negativo FORA da janela estreita de 41,4 a 41,6 em que moravam os tres
+    # anteriores, logo ele acrescenta ESPALHAMENTO ao negativo e nao so contagem.
+    #
+    # A largura e cobrada por PROPRIEDADE (nao encolheu, e bate com a historia),
+    # nao por identidade: cravar o numero aqui e o defeito do 743/753/761, e este
+    # arquivo ja o cometeu duas vezes.
     lo, hi = mira.RESIDUO_OBSERVADO
-    assert round(hi - lo, 1) == 4.6
+    assert round(hi - lo, 1) >= round(max(larguras), 1), (
+        f"a banda ENCOLHEU para {round(hi - lo, 1)} contra {max(larguras)} de "
+        "historia — limite por extremo observado nao estreita sozinho")
+    assert round(hi - lo, 1) == round(max(larguras), 1), (
+        "a largura da constante nao bate com a ultima correcao da historia: "
+        "acrescente a correcao a lista acima em vez de mover so a constante")
     assert lo < 0, "o piso negativo e o achado da sexta correcao"
 
 

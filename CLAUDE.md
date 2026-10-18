@@ -2436,6 +2436,69 @@ rodada em que eu não consigo medir. Antes do parqueamento incondicional das
 qualquer peça publicada nestas duas rodadas é **ponto futuro**, não ponto. Eu
 não leio resíduo de leitura que a rota não deu.
 
+## O QUARTO NEGATIVO SAIU DA JANELA ESTREITA — e o piso da banda foi a −1,2
+
+**Medido em 18/10 às 11:1x.** O `epomeno-epipedo-s059` (`-zbvpX7peIU`) previa
+**42,2** no edge — provedor MEDIDO (zero avisos `NARRACAO PELO PIPER` no job
+`117660019973`) — e saiu com **41 s reais**: resíduo **−1,2**, **estabelecido**
+pelo ramo negativo (real 41 significa duração em `(40; 41]`, e 42,2 está acima de
+todo esse intervalo).
+
+**É a SÉTIMA correção da banda, e a segunda que move o piso para baixo:**
+`RESIDUO_OBSERVADO` foi a **(−1,2; 4,0)**, largura de 4,6 para **5,2 s** contra
+1 s de granularidade. As sete correções **alargaram** — nenhuma estreitou — e isso
+é propriedade de limite definido pelo extremo observado. A banda informa cada vez
+menos, e isso vai dito.
+
+**O que ele acrescenta não é a contagem, é o LUGAR — e ele derruba uma frase
+minha.** Eu escrevia desde o 17/10 que o negativo *"mora na janela estreita"* de
+41,4 a 41,6. **Este é o primeiro negativo FORA dela:** previsão 42,2, isto é
+0,6 s acima do maior dos três anteriores. Os quatro seguem sendo do
+`epomeno-epipedo`, mas a janela do negativo passou de **0,2 s para 0,8 s**, e o
+que sobra é mais fraco e verdadeiro: **o negativo é raro (4 de 93), é deste
+canal, e não está confinado a um ponto da previsão.**
+
+**E a pinça do 740/748 NÃO melhorou com isso.** O piso mais baixo abre a janela
+otimista, e o caso que de fato ocorreu **doze vezes** é o pessimista, que depende
+do **teto** — intocado em 4,0. `RESIDUO_N` = 93.
+
+## O MEU `replace` CASAVA PREFIXO DE LINHA, e a série do resíduo ganhou um ponto FANTASMA
+
+**Medido em 18/10 às 11:2x, porque `RESIDUO_N` e `len(SERIE)` divergiram: 93
+contra 94.** O `epomeno-epipedo-s058` estava na série **duas vezes**.
+
+A causa é a forma como eu acrescento ponto, e ela é minha:
+
+    t.replace(ancora, ancora + "\n" + linha_nova)
+
+**A âncora que eu escrevo é a linha SEM o comentário de job** — por exemplo
+`("labtreinamento-s075", 25.8, 29, "edge"),` — e a linha no arquivo **TEM**
+comentário. Logo o `replace` casa um **PREFIXO**: a linha nova entra no MEIO da
+antiga, e o comentário que estava no fim dela fica pendurado no fim da NOVA.
+Repetido por seis rodadas, isso acumulou **seis jobs numa linha só**, apagou a
+procedência das linhas anteriores e por fim duplicou um ponto, quando uma âncora
+passou a casar dentro da linha corrompida.
+
+**E o `assert t.count(ancora) == 1` que eu uso para me proteger NÃO pega isso:**
+o prefixo é único mesmo quando a linha inteira não é. A guarda media o que eu
+pedi, e o que eu pedi era insuficiente — a assinatura do §3.8 **dentro da
+própria guarda**, que é a mesma forma do `or True` de 16/10.
+
+**A consequência na medição vai dita:** a banda contava um ponto que não existe.
+Nenhum limite mudou (o duplicado era +0,5, bem dentro), mas **`RESIDUO_N` é
+número que eu reporto ao dono, e ele estava errado por um** desde a rodada das
+09:0x. Agora são **93** pontos, zero repetidos, e os nove comentários de job das
+últimas rodadas foram reconstruídos um a um.
+
+**A regra que fica: âncora de `replace` é a linha INTEIRA, ou insira por LINHA —
+e confira a contagem de pontos DISTINTOS depois de gravar.**
+`tests/test_a_serie_do_residuo_nao_aceita_ponto_DUPLICADO.py`, seis testes: um
+proíbe pacote repetido, um proíbe duas marcas `# job` na mesma linha (o sintoma
+visível antes da duplicata), um exige que `RESIDUO_N` bata com o arquivo — foi
+essa divergência que revelou tudo —, um proíbe o mesmo job em dois pontos, e um
+**falha se a varredura ficar vazia**, porque um regex que deixa de casar faria
+todos passarem.
+
 ## O timeout do `execute_sql` no UPDATE correlaciona com o TAMANHO do texto
 
 **Observado em 13/10, quatro tentativas, e refina o aviso 621 — que eu vinha

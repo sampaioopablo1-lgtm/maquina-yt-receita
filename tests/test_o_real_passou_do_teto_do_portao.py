@@ -80,8 +80,18 @@ def test_os_LIMITES_do_portao_seguem_INTOCADOS():
     """Trava da §10: este aprendizado NAO virou limiar novo."""
     fonte = (RAIZ / "fabrica" / "prontidao.py").read_text()
     assert "45" in fonte
-    # O piso foi a ZERO em 16/10 as 21:2x (`kolejny-poziom-s045`, 41,0 -> 41).
-    # 17/10 20:1x: o piso ficou NEGATIVO (-0,6) com o `epomeno-epipedo-s054`
-    # (41,6 -> 41), o PRIMEIRO ponto abaixo da previsao em 78. O `==` fica, com o
-    # valor novo, porque e ele que obriga a reler a cada movimento da banda.
-    assert mira.RESIDUO_OBSERVADO == (-0.6, 4.0)
+    # A BANDA aqui e CARONA, e em 18/10 as 11:2x isto foi corrigido: este teste
+    # cobrava `RESIDUO_OBSERVADO == (-0,6; 4,0)` por identidade, e o que ele diz
+    # travar e OUTRA coisa — que este aprendizado nao virou limiar novo no
+    # PORTAO. O par exato ja e cobrado por `==` em dois arquivos que SAO donos
+    # da banda (o do teto ampliado e o da pinca), e ter um terceiro so multiplica
+    # a edicao a cada ponto novo. Teste que reprova a cada peca deixa de avisar —
+    # e o argumento pelo qual o `mira.py` nao virou portao (44 avisos).
+    #
+    # O que fica e a PROPRIEDADE que interessa a este arquivo: a banda e por
+    # extremo OBSERVADO, logo o piso nunca sobe e o teto nunca desce sozinhos.
+    # Historico do piso: 0,9 -> 0,5 (769) -> 0,1 (770) -> 0,0 (16/10 21:2x) ->
+    # -0,6 (17/10 20:1x) -> -1,2 (18/10 11:1x). Teto: 2,4 -> 3,7 (752) -> 4,0.
+    lo, hi = mira.RESIDUO_OBSERVADO
+    assert lo <= -0.6, f"o piso da banda SUBIU para {lo} — releia o 769/770/771"
+    assert hi >= 4.0, f"o teto da banda DESCEU para {hi} — releia o 752/774"

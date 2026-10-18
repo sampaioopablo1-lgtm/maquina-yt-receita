@@ -1503,3 +1503,22 @@ Quatro peças publicadas nestas quatro rodadas, todas públicas e medidas.
 * **Inscritos 68 / 21 / 8, delta ZERO em 25,1 h.** Piso de resolução em
   **0,96/dia**: a frota anda abaixo de um inscrito por dia como limite superior.
 
+
+## 18/10 11:1x — a rota reabriu, TRÊS pontos entraram, e achei um erro meu de contagem
+
+* **Peça:** `-zbvpX7peIU`, pública, *"Ο συνάδελφος δεν μετρά"* (epomeno),
+  **41 s reais**. Origem rank 4, família nova — a quarta distinta dessa origem.
+* **A rota da duração REABRIU** depois de duas rodadas fechada, e o parqueamento
+  pagou pela primeira vez: as duas peças que estavam esperando resolveram na
+  mesma chamada (**+2,6** e **+2,3**), mais a desta rodada. Nenhum ponto se
+  perdeu nas duas rodadas em que eu não conseguia medir.
+* **Um erro MEU de contagem, corrigido:** a série do resíduo tinha um ponto
+  **duplicado** e comentários de procedência deslocados, porque o meu `replace`
+  casava o PREFIXO da linha em vez da linha inteira. `RESIDUO_N` estava errado
+  por um desde as 09:0x — nenhum limite mudou, mas o número que eu reportei
+  estava inflado. Agora são **93**, com teste que proíbe a repetição.
+* **O piso da banda foi a −1,2** (sétima correção, todas alargando): o negativo
+  saiu da janela estreita em que eu dizia que ele morava.
+* **`execute_sql` negado pela 12ª rodada seguida** — **74** linhas parqueadas.
+* **Inscritos 68 / 21 / 8, delta ZERO em 26,1 h.** Piso em **0,92/dia**.
+

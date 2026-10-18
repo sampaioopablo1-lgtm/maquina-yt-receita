@@ -102,7 +102,14 @@ def test_a_banda_e_a_OBSERVADA_e_o_teto_dela_foi_AMPLIADO_pelo_752():
     # 17/10 20:1x: o piso ficou NEGATIVO (-0,6) com o `epomeno-epipedo-s054`
     # (41,6 -> 41), o PRIMEIRO ponto abaixo da previsao em 78. O `==` fica, com o
     # valor novo, porque e ele que obriga a reler a cada movimento da banda.
-    assert mira.RESIDUO_OBSERVADO == (-0.6, 4.0)
+    #
+    # 18/10 11:1x: RELIDO, e o piso foi a -1,2 com o `epomeno-epipedo-s059`
+    # (42,2 -> 41). A releitura importa porque muda a PINCA: com o piso mais
+    # baixo a janela otimista do 740 abre mais, e isso NAO alivia a contradicao —
+    # o caso que de fato ocorreu doze vezes e o PESSIMISTA, que depende do teto
+    # (4,0, intocado) e segue sem intersecao. E a largura passou de 4,6 para
+    # 5,2 s contra 1 s de granularidade: a banda informa menos, outra vez.
+    assert mira.RESIDUO_OBSERVADO == (-1.2, 4.0)
     # `>=` e nao `==`: a contagem cresce a cada peca, e cravar o total fez ESTE
     # teste reprovar no 41o ponto, em 16/10 — a QUARTA vez na mesma rodada que um
     # teste meu cobrou IDENTIDADE em vez de propriedade (743/753/761). O que este
