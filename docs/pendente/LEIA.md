@@ -1583,3 +1583,29 @@ faixa de REAL sobre o estimado.
 Parque: 35 pecas, zero sem leitura. `execute_sql` negado pela **14a** rodada —
 **76** linhas de insert parqueadas. Suite: 25 / 2.812 / 895, conjunto IDENTICO
 a linha de base.
+
+## Rodada de 18/10 14:07 — epomeno-epipedo-s060 = pSdQQa5beIw
+
+Peca publica, 42 s reais, provedor **edge** MEDIDO (zero avisos no job
+117697224890). Residuo +0,5, **sinal NAO estabelecido** (real 42 significa
+duracao em (41; 42], e a previsao de 41,5 cai dentro) — `RESIDUO_N` = 96,
+limites intocados. Som: LUFS -14,1, LRA 2,2, pico -3,2 dBTP, desvio -0,1,
+zero silencios.
+
+Inscritos **68 / 21 / 8** contra 17/10 09:0x (29,1 h): delta ZERO. Porta 1
+`indeterminado` nos tres, teto do ritmo a **0,82 inscrito/dia**.
+
+**Duas coisas desta rodada que valem para voce saber como a maquina esta
+decidindo:**
+1. o atalho que resolve a origem (`segundo_angulo.pacote_do_id`) devolveu
+   **None** — a convencao de nome nao foi seguida naquele pacote. Em vez de
+   trocar de origem, o pacote foi achado por BUSCA DE CONTEUDO. Falta de
+   spec local nunca foi motivo para pular origem, e hoje isso foi aplicado;
+2. o `origens_sem_uso` devolveu lista **VAZIA** neste canal — todas as 18
+   origens da ordem viva ja renderam short. **Lista vazia nao prova ausencia
+   de origem livre**, porque a playlist OMITE longo: ela ordena e nao enumera,
+   logo 18 e um PISO. Isso e refil de pauta travado, e o que o destrava e a
+   pendencia da rede (as quatro fontes institucionais) mais o banco.
+
+`execute_sql` negado pela **15a** rodada seguida — **77** linhas de insert
+parqueadas. Suite: 25 / 2.812 / 898, conjunto IDENTICO a linha de base.
