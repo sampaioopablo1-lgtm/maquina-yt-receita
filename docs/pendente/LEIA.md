@@ -1793,3 +1793,32 @@ retencao os experimentos 37/38/40 ficam indecidiveis; (2) reconectar o conector
 do Supabase: **84** linhas de `insert into videos` parqueadas, `execute_sql`
 negado pela 22a rodada seguida; (3) a decisao do 740/748, com quinze de dezoito
 medidos no labtreinamento.
+
+## 18/10 22:2x — s080 no ar; e a ORIGEM foi trocada pela regra (f)
+
+Peca: `labtreinamento-s080` = `16TcSYGClCs`, publica, **27 s reais** (previsao
+edge 25,6; provedor **edge** medido, zero avisos no job `117804130785`).
+Residuo **+1,4**, ESTABELECIDO e dentro da banda. `RESIDUO_N` = 104.
+
+Inscritos **68 / 21 / 9** — quarta leitura seguida com o 9 do kolejny. Contra
+17/10 09:0x sao 37,1 h, piso **0,65/dia**, delta de UMA unidade: os tres saem
+`indeterminado`.
+
+**O que esta rodada mostra sobre a PAUTA, e e o achado dela:** eu escolhi a
+origem pelo contador (rank 5, menor patamar de uso, melhor rank dentro dele) e
+tive de TROCAR, porque a unica familia nao usada daquela origem era de UNIDADE —
+e uma peca de unidade (`s074`) ja saiu neste canal hoje. A escolha pelo contador
+nao e suficiente: ela ordena por USO, e a regra (f) cobra por FAMILIA. Nesta
+rodada as duas discordaram, e a regra (f) ganhou.
+
+**A consequencia pratica para o dono:** com cinco a seis shorts por origem, as
+familias nao usadas comecam a se repetir ENTRE origens do mesmo canal. Isso
+aperta a pauta por um caminho novo — nao por falta de origem, mas por falta de
+familia distinta no mesmo dia. E o reforco mais forte do pedido de LONGO NOVO,
+que hoje esta bloqueado pelo 402.
+
+Tally do 740/748 em **dezesseis de dezenove** no labtreinamento.
+
+**O que segue na sua mao:** (1) os dois cliques do Google; (2) reconectar o
+conector do Supabase — **85** linhas parqueadas, `execute_sql` negado pela 23a
+rodada; (3) a decisao do 740/748.
