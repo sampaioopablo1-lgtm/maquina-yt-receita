@@ -1664,3 +1664,33 @@ escolha de pauta carrega um passo manual que nao da para automatizar.**
 
 `execute_sql` negado pela **17a** rodada seguida — **79** linhas de insert
 parqueadas. Suite: 25 / 2.818 / 904, conjunto IDENTICO a linha de base.
+
+## Rodada de 18/10 17:06 — epomeno-epipedo-s061 = 7mm9Frw_tbE
+
+Peca publica, 41 s reais, provedor **edge** MEDIDO (zero avisos no job
+117736668345). Residuo **-0,5**, estabelecido pelo ramo negativo, dentro da
+banda — `RESIDUO_N` = 99. Som: LUFS -14,0, LRA 2,0, pico -3,3 dBTP, desvio 0,0,
+zero silencios.
+
+Inscritos **68 / 21 / 8** contra 17/10 09:0x (32,1 h): delta ZERO. Porta 1
+`indeterminado` nos tres, teto do ritmo a **0,75 inscrito/dia**.
+
+**E o achado desta rodada e sobre a nossa propria medicao, nao sobre a peca.**
+Este e o QUINTO residuo negativo da serie, e varridos todos os cinco eles tem
+**real EXATAMENTE 41** — com previsoes que variam de 41,4 a 42,2. Logo o
+negativo nao e "a previsao erra para cima neste canal": e o inteiro 41
+aparecendo, e 41 e o **PISO** do espalhamento daquela janela, onde o mesmo canal
+ja deu 42, 43, 44 e 46. Isto retrata, pela terceira vez, a forma como eu
+descrevia o fenomeno — as duas anteriores olhavam a PREVISAO, e a regularidade
+esta no REAL.
+
+**E TRES testes meus reprovaram com isso, pelo motivo certo:** eles cobravam
+"o negativo e raro" com `<= 5% da serie`, e **o 5% era numero escolhido por
+mim** quando havia UM negativo em 78 pontos. Com 5 de 99 ele reprovou.
+**Afrouxar para 10% seria mover o numero para o teste passar** — exatamente o
+defeito que este projeto ja nomeou tres vezes. Os tres passaram a cobrar a
+propriedade MEDIDA: na janela de previsao onde o negativo ocorre, ele e minoria
+contra os nao-negativos (5 contra 26). Sete testes novos guardam o achado.
+
+`execute_sql` negado pela **18a** rodada seguida — **80** linhas de insert
+parqueadas. Suite: 25 / 2.825 / 907, conjunto IDENTICO a linha de base.

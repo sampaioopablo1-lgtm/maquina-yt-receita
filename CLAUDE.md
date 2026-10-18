@@ -2499,6 +2499,53 @@ essa divergência que revelou tudo —, um proíbe o mesmo job em dois pontos, e
 **falha se a varredura ficar vazia**, porque um regex que deixa de casar faria
 todos passarem.
 
+## OS CINCO NEGATIVOS TEM O MESMO REAL, e isso NAO e um regime — e o PISO do espalhamento
+
+**Medido em 18/10 as 17:2x, no QUINTO negativo.** O `epomeno-epipedo-s061`
+(`7mm9Frw_tbE`) previa **41,5** no edge — provedor MEDIDO (zero avisos
+`NARRACAO PELO PIPER` no job `117736668345`) — e saiu com **41 s reais**:
+residuo **-0,5**, estabelecido pelo ramo negativo e **dentro** da banda (o piso
+segue -1,2). `RESIDUO_N` = 99.
+
+**O que ele acrescenta e uma propriedade que eu nao tinha olhado: os CINCO
+negativos tem real EXATAMENTE 41.** Varridos da serie:
+
+| peca | previsao | real | residuo |
+|---|---|---|---|
+| `epomeno-epipedo-s054` | 41,6 | **41** | -0,6 |
+| `epomeno-epipedo-s055` | 41,5 | **41** | -0,5 |
+| `epomeno-epipedo-s057` | 41,4 | **41** | -0,4 |
+| `epomeno-epipedo-s059` | 42,2 | **41** | -1,2 |
+| `epomeno-epipedo-s061` | 41,5 | **41** | -0,5 |
+
+**Logo o negativo nao e "a previsao erra para cima neste canal" — e o inteiro
+41 aparecendo.** As previsoes variam (41,4 a 42,2) e o real nao varia nada: o
+residuo negativo e so a distancia entre uma previsao qualquer da janela e o
+MENOR real que essa janela produz. Nesta mesma janela o canal ja deu 42, 43 e
+44, logo 41 e o **piso do espalhamento** descrito no 769/771, nao um regime
+proprio.
+
+**E isso retrata, pela terceira vez, a forma como eu descrevia a coisa.** No
+17/10 eu escrevi que o negativo *"mora na janela estreita"*; em 18/10 as 11:1x o
+quarto ponto saiu dela e eu escrevi que *"nao esta confinado a um ponto da
+previsao"*. As duas frases olhavam a PREVISAO. **A regularidade esta no REAL**, e
+ela e mais simples: **os cinco negativos sao os cinco casos em que o real deu o
+menor inteiro da janela.**
+
+**O que isto NAO prova:** que o canal grego produza 41 com mais frequencia que
+os outros produziriam, nem que 41 seja um piso fisico. Cinco pontos de um canal,
+e o 679/698/725 nomeia esse enquadramento. **O que esta medido:** o negativo e
+raro (5 de 99), e deste canal, e **em todos os cinco o real e o mesmo inteiro**.
+
+**A consequencia pratica e de redacao, nao de parametro (§10):** mirar o PISO da
+mira neste canal nao reduz o real — ele ja esta no fundo da janela. O que a mira
+baixa faz e aumentar a chance de o residuo sair NEGATIVO, e isso vai declarado
+na copy em vez de vendido como protecao.
+`tests/test_os_cinco_negativos_tem_o_MESMO_real.py`, sete testes — um varre a
+serie e exige que todo negativo tenha real igual, um **falha se aparecer
+negativo com real diferente** (porque ai esta nota tem de ser relida), um trava
+que eles sao do mesmo canal e um **falha se a varredura ficar vazia**.
+
 ## O MEU CRITERIO DE SINAL PERDIA A BORDA DO INTERVALO — e ele e do 770
 
 **Medido em 18/10 as 15:2x, no PRIMEIRO ponto que caiu exatamente nela.** O
