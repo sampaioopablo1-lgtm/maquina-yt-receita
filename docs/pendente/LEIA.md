@@ -1822,3 +1822,31 @@ Tally do 740/748 em **dezesseis de dezenove** no labtreinamento.
 **O que segue na sua mao:** (1) os dois cliques do Google; (2) reconectar o
 conector do Supabase — **85** linhas parqueadas, `execute_sql` negado pela 23a
 rodada; (3) a decisao do 740/748.
+
+## 18/10 23:2x — s063 do epomeno no ar; seis pecas nesta sessao hoje
+
+Peca: `epomeno-epipedo-s063` = `JxnrtPMbHA4`, publica, **43 s reais** (DOIS
+`lengthSeconds` na pagina, 42 e 43, usado o MAIOR; previsao edge 42,2; provedor
+**edge** medido, zero avisos no job `117816895844`). Residuo **+0,8**, dentro da
+banda, sinal NAO estabelecido. `RESIDUO_N` = 105.
+
+Inscritos **68 / 21 / 9** — quinta leitura seguida com o 9. Contra 17/10 09:0x
+sao 38,1 h, piso **0,63/dia**, delta de UMA unidade: os tres `indeterminado`.
+
+Entregues nesta sessao hoje: **SEIS pecas**, uma por canal por rodada —
+`kolejny-poziom-s062`, `labtreinamento-s079`, `epomeno-epipedo-s062`,
+`kolejny-poziom-s063`, `labtreinamento-s080` e `epomeno-epipedo-s063`. Todas
+`processed` e publicas, nenhuma fora de `processed`, nenhum `P0D`. Sao DUAS por
+canal — o pedido de 16/10 ("pelo menos 2 por dia por canal") esta cumprido no
+short; o LONGO de cada canal segue bloqueado pelo 402, porque longo exige numero
+novo sobre o mundo e as fontes institucionais estao fechadas no proxy.
+
+**Uma coisa que esta rodada cortou e que a regra (g) nao pegava:** a narracao
+tinha "ha dois anos" e "duas vezes". Nenhuma das duas e taxa, indice nem data,
+logo passavam pela regra — mas as duas AFIRMAM uma quantidade sobre o mundo que
+eu nao medi. Sairam. Vale como regra: a regra (g) cobre numero que MUDA; o que
+nao muda e tambem nao foi medido continua sendo invencao.
+
+**O que segue na sua mao:** (1) os dois cliques do Google; (2) reconectar o
+conector do Supabase — **86** linhas parqueadas, `execute_sql` negado pela 24a
+rodada seguida; (3) a decisao do 740/748.
