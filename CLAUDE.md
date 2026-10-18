@@ -3109,6 +3109,34 @@ exatamente quando ninguem esta olhando.
 thumbnail. O molde histórico viola o portão `variedade` em metade dos casos —
 spec nova não deve se espelhar nele.
 
+## O `pipeline_canal_dark_v2.0` DEU NOME A UM DEFEITO QUE EU JÁ TINHA MEDIDO — 18/10
+
+**O dono mandou o zip 2.0 sem recado, como mandou o 1.2 e os cinco repositórios.**
+Estudado item a item contra o 1.2 em `docs/pipeline-canal-dark-v2-estudado.md`, e
+**entrou UMA coisa, pela mesma régua da §5: a medição é nossa, a fonte só nomeou
+a saída.** A regra dele é *"uma voz só por vídeo: se a online cair no meio, os
+blocos já feitos são refeitos com a que ficou"*. E em 16/10 **três peças do
+`labtreinamento` foram ao ar com 1 a 2 de 10 cenas pelo Piper** (`s060`, `s061`,
+`s062`, contadas pelos avisos do job) — o Piper do pt-BR é `faber`, **masculino**,
+dentro da Thalita, **feminina**. Eu registrei isso em
+`tests/test_o_run_pode_ser_MISTO.py` como problema da **banda** e não li como o
+defeito audível que é. **Portão verde (`identidade` lê a spec, não o áudio) e
+instrumento que media (a contagem de avisos) sem ninguém ler a consequência.**
+
+Agora `fabrica/voz_unica.py` decide o provedor pela **peça**: cena que caiu no
+Piper ganha **uma** tentativa a mais do edge (a queda medida foi de 1–2 em 10,
+logo o edge estava de pé); se sobrar, **todas** as cenas vão para o Piper, e se
+ele falhar o render **levanta** em vez de publicar misto. **A contagem de avisos
+do 733 volta a ser 0 ou N**, impressa no estado FINAL, e a marca `sNN.mp3.piper`
+sobrevive à RETOMA. Nada de parâmetro mudou (§10); as três peças publicadas não
+foram apagadas. Onze testes em `tests/test_uma_voz_so_por_peca.py`.
+
+**O que NÃO entrou, com motivo escrito no doc:** volume em dois passos (as dez
+peças medidas pelo `som.py` já ficam dentro de 1,0 LU), QA de ±1,0 LU (reprovaria
+variação normal), verificador por `faster-whisper` (200–500 MB no runner), limiar
+de similaridade 0,30/0,15 sem procedência, "nunca travessão", trilha a −31 LUFS,
+1 vídeo/dia da esteira. A chave da licença segue fora do git: o repo é público.
+
 ## O que entrou dos cinco projetos externos — e o que NÃO entrou
 
 **11/10. O dono mandou estudar cinco repositórios e aplicar.** Estudados os cinco.
