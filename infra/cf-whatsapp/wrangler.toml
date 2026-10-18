@@ -1,0 +1,18 @@
+name = "opc-whatsapp"
+main = "src/index.ts"
+compatibility_date = "2026-09-01"
+compatibility_flags = ["nodejs_compat"]
+
+[[kv_namespaces]]
+binding = "KV"
+id = "7b7094b1d1a740558774d9f4acebc458"
+
+[vars]
+CALENDLY_URL = "https://calendly.com/maisvendas/diagnostico-30min"
+OWNER_WHATSAPP = "5512982381407"
+BUFFER_SECONDS = "8"
+CLAUDE_MODEL = "claude-opus-5"
+
+# Segredos (Worker -> Settings -> Variables and Secrets), nunca neste arquivo:
+# META_ACCESS_TOKEN (usuario do sistema, com whatsapp_business_messaging)
+# WA_PHONE_NUMBER_ID, WA_VERIFY_TOKEN, WA_APP_SECRET, ANTHROPIC_API_KEY

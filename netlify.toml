@@ -1,0 +1,7 @@
+# O site oproximocliente serve o relay da Meta (páginas de privacidade e
+# exclusão de dados exigidas pelo app de anúncios) — ele mora em
+# infra/netlify-relay/ e tem o próprio netlify.toml. Sem este apontamento
+# na raiz, o Netlify constrói a partir do repositório inteiro, não acha
+# nada para publicar e o deploy falha.
+[build]
+  base = "infra/netlify-relay"

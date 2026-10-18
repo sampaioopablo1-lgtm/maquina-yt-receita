@@ -152,3 +152,5 @@ com o Supabase.
 ## Próximos passos
 
 Ver [`docs/04-roadmap.md`](docs/04-roadmap.md).
+
+- `base-conhecimento/AGENDOU — API publica (resumo).md` — endpoints do Agendou, bloqueado daqui, usar em ferramenta externa

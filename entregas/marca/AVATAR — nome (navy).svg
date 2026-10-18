@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="O Proximo Cliente">
+  <title>O Próximo Cliente — avatar</title>
+  <rect width="512" height="512" rx="116" fill="#0F2137"/>
+  <g font-family="Montserrat, 'Helvetica Neue', Arial, sans-serif">
+    <text x="91" y="248" font-size="50" font-weight="800" textLength="330" lengthAdjust="spacing" fill="#FAF8F5">O PRÓXIMO</text>
+    <text x="91" y="316" font-size="50" font-weight="300" textLength="330" lengthAdjust="spacing" fill="#FAF8F5">CLIENTE</text>
+  </g>
+  <circle cx="437" cy="240" r="8" fill="#E8A33D"/>
+</svg>

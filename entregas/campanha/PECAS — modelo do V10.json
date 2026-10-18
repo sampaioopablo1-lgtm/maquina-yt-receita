@@ -1,0 +1,61 @@
+[
+  {"slug":"AG01_whatsapp_cheio","conjunto":"LEADS I INTERESSE I FASE 3","fundo":"petroleo",
+   "busca_pexels":"brazilian man smiling at phone morning",
+   "etiqueta":"AGÊNCIA O PRÓXIMO CLIENTE","linha_sans":"acordar com o WhatsApp",
+   "linha_cursiva":"cheio de cliente","linha_apoio":"a gente faz o anúncio, você só atende",
+   "cta":"QUERO ISSO NO MEU NEGÓCIO"},
+
+  {"slug":"AG02_sem_indicacao","conjunto":"LEADS I INTERESSE I FASE 3","fundo":"grafite",
+   "busca_pexels":"small business owner waiting at counter",
+   "etiqueta":"AGÊNCIA O PRÓXIMO CLIENTE","linha_sans":"pare de depender de",
+   "linha_cursiva":"indicação","linha_apoio":"nós anunciamos, o cliente novo chega",
+   "cta":"QUERO CLIENTE TODO DIA"},
+
+  {"slug":"AG03_ninguem_ve","conjunto":"LEADS I INTERESSE I FASE 3","fundo":"escuro",
+   "busca_pexels":"empty shop interior daylight",
+   "etiqueta":"AGÊNCIA O PRÓXIMO CLIENTE","linha_sans":"seu negócio é bom,",
+   "linha_cursiva":"ninguém vê","linha_apoio":"anúncio na internet é como te encontram",
+   "cta":"QUERO APARECER"},
+
+  {"slug":"AG04_quantos_hoje","conjunto":"LEADS I INTERESSE I FASE 3","fundo":"terra",
+   "busca_pexels":"shop owner looking at empty store",
+   "etiqueta":"AGÊNCIA O PRÓXIMO CLIENTE","linha_sans":"quantos clientes novos",
+   "linha_cursiva":"entraram hoje?","linha_apoio":"se a resposta é nenhum, falta anúncio",
+   "cta":"QUERO MUDAR ISSO"},
+
+  {"slug":"AG05_so_anuncia","conjunto":"LEADS I INTERESSE I FASE 3","fundo":"vinho",
+   "busca_pexels":"busy store customers queue",
+   "etiqueta":"AGÊNCIA O PRÓXIMO CLIENTE","linha_sans":"o concorrente não é melhor,",
+   "linha_cursiva":"só anuncia","linha_apoio":"a gente coloca você na frente dele",
+   "cta":"QUERO ANUNCIAR TAMBÉM"},
+
+  {"slug":"AG06_nos_fazemos","conjunto":"LEADS I SEMELHANTE CNAE RJ I FASE 3","fundo":"petroleo",
+   "busca_pexels":"marketing team working laptop office",
+   "etiqueta":"AGÊNCIA O PRÓXIMO CLIENTE","linha_sans":"a gente escreve, publica",
+   "linha_cursiva":"e acompanha","linha_apoio":"você só atende quem chega no WhatsApp",
+   "cta":"QUERO VER COMO FUNCIONA"},
+
+  {"slug":"AG07_no_ar_essa_semana","conjunto":"LEADS I SEMELHANTE CNAE RJ I FASE 3","fundo":"escuro",
+   "busca_pexels":"laptop workspace desk planning","corpo_cursiva":110,
+   "etiqueta":"AGÊNCIA O PRÓXIMO CLIENTE","linha_sans":"seu anúncio pode estar",
+   "linha_cursiva":"no ar essa semana","linha_apoio":"20 minutos para entender o seu negócio",
+   "cta":"QUERO COMEÇAR"},
+
+  {"slug":"AG08_ja_fatura","conjunto":"LEADS I SEMELHANTE CNAE RJ I FASE 3","fundo":"grafite",
+   "busca_pexels":"confident business owner arms crossed shop",
+   "etiqueta":"PARA QUEM JÁ VENDE","linha_sans":"você já fatura,",
+   "linha_cursiva":"falta aparecer","linha_apoio":"para quem tem negócio e quer crescer",
+   "cta":"É O MEU CASO"},
+
+  {"slug":"AG09_cliente_todo_dia","conjunto":"LEADS I SEMELHANTE CNAE RJ I FASE 3","fundo":"petroleo",
+   "busca_pexels":"woman happy receiving message phone",
+   "etiqueta":"AGÊNCIA O PRÓXIMO CLIENTE","linha_sans":"cliente novo",
+   "linha_cursiva":"todo dia","linha_apoio":"anúncios feitos por nós, no seu WhatsApp",
+   "cta":"QUERO CLIENTE TODO DIA"},
+
+  {"slug":"AG10_nao_e_curso","conjunto":"LEADS I SEMELHANTE CNAE RJ I FASE 3","fundo":"roxo",
+   "busca_pexels":"two people business meeting office","corpo_cursiva":118,
+   "etiqueta":"AGÊNCIA O PRÓXIMO CLIENTE","linha_sans":"não é curso,",
+   "linha_cursiva":"é a gente fazendo","linha_apoio":"agência de anúncios, do jeito simples",
+   "cta":"QUERO CONVERSAR 20 MIN"}
+]
