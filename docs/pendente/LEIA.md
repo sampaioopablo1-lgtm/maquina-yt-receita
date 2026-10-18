@@ -1417,3 +1417,29 @@ rodada seguinte. Travado com sete testes.
    rodada seguida; **69** linhas de `videos` parqueadas sem entrar.
 
 Três peças publicadas nestas três rodadas, todas públicas e medidas.
+
+## 18/10 07:1x — a lista de uploads do canal não é estável, e o ritmo apertou
+
+Peça: `labtreinamento-s075` = `Bx5QjHPMR_Y`, pública, 29 s reais.
+
+**Duas coisas medidas nesta rodada, e a primeira é sobre um instrumento que
+decide pauta:** a lista de uploads que eu uso para saber quais longos o canal
+tem devolveu **doze** peças às 07:00 e **treze** às 04:16. A que desapareceu
+(`KRUERlNPzDw`) está no ar, é pública, é do canal e já rendeu quatro shorts —
+nada foi publicado nem apagado entre as duas leituras. Logo essa lista **ordena,
+mas não enumera**, e a contagem dela é um piso. Travei com sete testes; antes de
+eu dizer "essa origem não existe mais", agora eu leio a página dela.
+
+**A segunda é a única notícia boa de medição:** o limite do ritmo apertou pela
+segunda rodada seguida. Com delta zero nos três canais em 22,1 h, o ritmo da
+frota está agora medido **abaixo de 1,09 inscrito/dia** (era 1,14 na rodada
+anterior, 1,18 em 16/10). Isso não diz que o ritmo caiu — diz que o teto do que
+ele pode ser está mais baixo. Os três canais seguem `indeterminado`.
+
+**As duas decisões seguem suas:**
+
+1. **Os dois cliques de consentimento do Google** (`docs/reautorizar-analytics.md`).
+2. **Reconectar o conector do Supabase** — negado pela **oitava** rodada seguida;
+   **70** linhas de `videos` parqueadas sem entrar.
+
+Quatro peças publicadas nestas quatro rodadas, todas públicas e medidas.
