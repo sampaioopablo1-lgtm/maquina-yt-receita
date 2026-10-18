@@ -1388,3 +1388,32 @@ Segui o alerta, porque ele é de monetização: concentração ataca o portão
 **Porta 1:** 68 / 21 / 8, delta **zero** em 20,1 h, três `indeterminado`. O piso
 desta janela é 1,19/dia e **não aperta** o limite de 1,18/dia já medido — por
 0,01. Nenhuma leitura nova de ritmo nesta rodada.
+
+## 18/10 06:1x — o limite do ritmo APERTOU, e um método meu quase fabricou achado
+
+Peça: `kolejny-poziom-s058` = `7ygrC7AbGHE`, pública, 42 s reais.
+
+**A única notícia de medição em várias rodadas, e é pequena mas real:** a janela
+de 21,1 h tem piso de resolução de **1,14 inscrito/dia**, abaixo do 1,18/dia que
+vinha de 16/10. Com delta zero nos três canais, o limite superior do ritmo da
+frota baixou: ela anda **abaixo de 1,14/dia**. Isso não diz que o ritmo caiu —
+diz que agora sabemos um pouco mais sobre quão baixo ele é.
+
+**E uma regra que eu escrevi há duas horas quase me fez relatar coisa falsa.** Eu
+havia escrito "confira o idioma do título antes de escrever" e não disse ONDE
+conferir. A listagem de uploads devolveu os quatro longos mais recentes do canal
+polonês com título em inglês, o que pela minha própria regra se lê como "idioma
+errado". Era o instrumento: o YouTube serve o título traduzido quando a chamada
+não pede idioma. Lido na página com locale polonês, está tudo em polonês.
+
+A conclusão de ontem (a origem livre do labtreinamento é polonesa) **continua
+certa** — conferi pelo método correto —, mas o caminho que a produziu errou na
+rodada seguinte. Travado com sete testes.
+
+**As duas decisões seguem suas, inalteradas:**
+
+1. **Os dois cliques de consentimento do Google** (`docs/reautorizar-analytics.md`).
+2. **Reconectar o conector do Supabase** — `execute_sql` negado pela **sétima**
+   rodada seguida; **69** linhas de `videos` parqueadas sem entrar.
+
+Três peças publicadas nestas três rodadas, todas públicas e medidas.
