@@ -1,0 +1,82 @@
+{
+  "slug": "labtreinamento-s080",
+  "idioma": "pt-BR",
+  "voz": "pt-BR-ThalitaMultilingualNeural",
+  "trilha": "Inspired",
+  "paleta": {
+    "ink": "#14213D",
+    "c1": "#2A9D8F",
+    "c2": "#E9C46A",
+    "bg": "#F6F4EF"
+  },
+  "pacote": "labtreinamento-s080",
+  "longo_existente": "4OYBkCHFTV8",
+  "thumb": {
+    "l1": "A diferença",
+    "l2": "é piso"
+  },
+  "longo": [],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "A diferença",
+      "sub": "não é o custo",
+      "nar": "A diferença não é o custo."
+    },
+    {
+      "layout": "item",
+      "kicker": "Incidem",
+      "sub": "juros de mora",
+      "nar": "Sobre ela incidem juros."
+    },
+    {
+      "layout": "item",
+      "kicker": "É atrasado",
+      "sub": "não é novo",
+      "nar": "É pagamento atrasado."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Cada mês",
+      "sub": "tem preço próprio",
+      "nar": "Cada mês tem preço próprio."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "O mais antigo",
+      "sub": "é o mais caro",
+      "nar": "O mês antigo é o mais caro."
+    },
+    {
+      "layout": "item",
+      "kicker": "Mesmo cálculo",
+      "sub": "outra data",
+      "nar": "Mesmo cálculo, outra data."
+    },
+    {
+      "layout": "item",
+      "kicker": "Adiar",
+      "sub": "encarece",
+      "nar": "Adiar encarece o conserto."
+    },
+    {
+      "layout": "item",
+      "kicker": "A conta de hoje",
+      "sub": "é um piso",
+      "nar": "A conta de hoje é um piso."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Os juros",
+      "sub": "vêm por cima",
+      "nar": "Some os juros por cima."
+    },
+    {
+      "layout": "cta",
+      "kicker": "Se inscreva",
+      "sub": "e faça a sua conta",
+      "nar": "Faça a sua e se inscreva."
+    }
+  ],
+  "copy": "# labtreinamento-s080\n\n## TITULO\nA Diferença Não É o Custo: Por Que Cada Mês Atrasado Tem o Seu Próprio Preço\n\n## TITULO SHORT\nA diferença não é o custo do conserto\n\n## DESCRICAO\nQuando alguém calcula quanto custa complementar uma contribuição paga por alíquota reduzida, a conta que faz é quase sempre a mesma: **a diferença entre o que pagou e o que deveria ter pago**. Essa conta é o começo certo — e **não é o custo**.\n\nFalta uma peça, e ela muda o resultado inteiro: **sobre essa diferença incidem juros de mora**, porque isso é **pagamento atrasado**, não pagamento novo. E juros de atraso não são um valor fixo: eles dependem de **quanto tempo** aquele mês específico ficou para trás.\n\n**Daí sai a consequência que quase ninguém tira:** cada mês tem o **seu próprio preço**. O mesmo cálculo aplicado a um mês antigo e a um mês recente devolve valores diferentes, e **o mês mais antigo é o mais caro**. Não existe \"o custo\" como número único — existe um custo por mês, e eles não são iguais entre si.\n\n**E por isso o tempo trabalha contra, de um jeito específico:** adiar não deixa o conserto parado onde estava. **Cada mês que passa encarece o conserto dos meses anteriores**, porque o atraso de todos eles cresce junto. Quem calculou a diferença há um ano e guardou o número tem hoje um número desatualizado — e desatualizado para cima.\n\n**O que fazer com isso, e dá para fazer hoje:** trate a diferença que você calculou como um **piso**, não como o valor. O número que você obtém na ponta do lápis é o mínimo; o valor real é esse mais os juros, e só o sistema oficial calcula os juros certos, mês a mês. Guarde o seu piso em algum lugar — ele serve para decidir se vale olhar o resto.\n\nNão dou aqui alíquotas, taxa de juros nem percentuais. As alíquotas mudam por norma e a taxa de juros muda conforme o período — **o próprio material completo recusa dar um número fixo para ela, por esse motivo.** O mecanismo — a diferença é um piso, e o atraso de cada mês tem preço próprio — não muda.\n\nNo material completo: onde ler o código da sua guia, como descobrir qual porta você tem hoje, a conta de quantos meses você antecipa, e quando **não** vale a pena consertar.\n\nMaterial informativo, não é consultoria previdenciária.\n\n## COMENTARIO FIXADO\nO menos óbvio: não existe \"o custo\" como número único — existe um custo POR MÊS, e o mês mais antigo é o mais caro. Você calculou a sua diferença há quanto tempo?\n\n## HASHTAGS\n#autonomo #inss #contribuicao #labtreinamento #Shorts\n\n## TAGS\ncontribuicao do autonomo, aliquota reduzida, complementacao, juros de mora, pagamento atrasado, guia de pagamento, codigo de pagamento, aposentadoria por tempo de contribuicao, aposentadoria por idade, planejamento previdenciario, finanzas pessoais, lab treinamento, custo do conserto, piso de calculo, decisao financeira\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Conferido cena a cena: nenhuma cena\ncarrega aliquota, percentual, taxa nem data. O longo traz as duas aliquotas e a\ndiferenca entre elas; as tres ficaram FORA pela regra (g), porque aliquota muda\npor norma. **E a taxa de juros tem um motivo MAIS FORTE para ficar fora: o\nproprio longo se recusa a dar um numero para ela**, dizendo que ela muda\nconforme o periodo — logo nao e so a minha regra, e o autor da fonte declarando\nque o numero nao se fixa.\n\n## FONTES\nCapitulos 19 a 21 do longo \"INSS do Autonomo: 11% ou 20%? A Escolha na Sua Guia\"\n(pacote labtreinamento-006, 4OYBkCHFTV8, rank 10 da ordem viva, 5 usos). As\nCINCO familias que esta origem ja rendeu sao outras: o s003 (ordene os meses), o\ns018 (nao e tudo ou nada), o s019 (qual porta chega antes), o s020 (o meio-termo\ntem dono) e o s024 (quem ja sabe esta vendendo).\n\n**E a origem desta rodada foi TROCADA por causa da regra (f), o que vai escrito\nporque e decisao e nao acidente:** eu havia escolhido o `lau1nnOUm1U` (rank 5,\nmesmo patamar de 5 usos e melhor rank), e a familia nao usada dele — uma linha\npor pessoa E por treinamento, em vez de uma por pessoa — e de UNIDADE. O\n`labtreinamento-s074` de hoje ja e de unidade (contar embarques e nao trajetos),\nlogo as duas colidiriam no mesmo canal no mesmo dia. Troquei de origem em vez de\nescrever a peca.\n\n## EXPOSICAO\nPrevisao edge 25,6 s e piper 21,0 s — os dois DENTRO da mira medida do canal\n(20,0 a 26,0) e dentro de 18 a 45 nos dois mundos; 4,8% de letras acentuadas,\nbem acima dos 2,0% que reprovaram a primeira versao do s039. Duas versoes.\nE a mira verde NAO promete real dentro: pelo tally do 744/754/758, QUINZE das\ndezoito pecas deste canal narradas pelo edge sairam ACIMA do teto de 26,0 com o\n`mira.py` verde nos dois mundos. Com a banda em (-1,2; 4,0), se o edge narrar o\nreal cai em algum ponto de (24,4; 29,6) — e eu nao digo de que lado.\n"
+}
