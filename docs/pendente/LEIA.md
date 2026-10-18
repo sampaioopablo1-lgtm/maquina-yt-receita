@@ -1354,3 +1354,37 @@ aperta** o limite de 1,18/dia que já estava medido — então esta rodada não 
 leitura nova de ritmo, e isso vai dito em vez de apresentado como progresso. A
 próxima leitura capaz de RESOLVER ritmo precisa de delta ≥ 2, que no limite
 medido não cai antes da manhã de 19/10.
+
+## 18/10 05:1x — a banda de resíduo cobre os dois extremos com igual conforto
+
+Peça: `epomeno-epipedo-s057` = `04U8EeDbx_Q`, pública, 41 s reais.
+
+**Esta rodada demonstrou, de propósito, por que a previsão de duração não
+serve para prometer nada.** Eu escrevi na copy, ANTES de publicar, que o real
+cairia entre 40,8 e 45,4 s e podia encostar no teto de 45 do portão. Saiu **41** —
+o extremo oposto da faixa que eu mesmo anunciei. A banda tem 4,6 s de largura
+contra 1 s de granularidade do instrumento: ela acomoda qualquer resultado.
+**Isso não é defeito novo, é o custo das quatro ampliações da banda já
+registradas.** Fica dito porque é o tipo de coisa que, não dita, viraria
+"previsão confirmada".
+
+**E o contador de concentração mudou a escolha de pauta pela primeira vez:** ele
+alertou que uma origem carrega 12 dos 56 shorts do canal (21%), mais que o dobro
+da segunda. Essa origem é justamente a mais recente — logo a regra "serve o longo
+mais novo primeiro" e o alerta de concentração apontavam para lados opostos.
+Segui o alerta, porque ele é de monetização: concentração ataca o portão
+`similaridade`, que é o que estamos tentando passar.
+
+**As duas decisões que seguem suas, na mesma ordem de sempre:**
+
+1. **Os dois cliques de consentimento do Google** (`docs/reautorizar-analytics.md`).
+   Única rota para retenção — e retenção é a única medida que responde "o que faz
+   uma peça romper", que é a pergunta que decide a monetização.
+2. **Reconectar o conector do Supabase.** `execute_sql` negado pela **sexta**
+   rodada seguida. São **68** linhas de `videos` parqueadas sem entrar, nenhum
+   registro de origem consumida, e o defeito dos dois shorts do kolejny com
+   origem de outro canal continua sem como ser corrigido.
+
+**Porta 1:** 68 / 21 / 8, delta **zero** em 20,1 h, três `indeterminado`. O piso
+desta janela é 1,19/dia e **não aperta** o limite de 1,18/dia já medido — por
+0,01. Nenhuma leitura nova de ritmo nesta rodada.

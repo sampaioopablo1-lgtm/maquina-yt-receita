@@ -253,6 +253,27 @@ pontos, do mesmo canal e da mesma faixa, e o 679/698/725 nomeia exatamente esse
 enquadramento. O que está medido é que **o negativo existe, é raro (2 de 81) e
 mora na janela estreita.**
 
+**E O TERCEIRO NEGATIVO VEIO EM 18/10 ÀS 05:1x, e o que ele acrescenta é o
+ESPALHAMENTO, não a contagem.** O `epomeno-epipedo-s057` (`04U8EeDbx_Q`) previa
+**41,4** no edge — provedor MEDIDO, zero avisos no job `117593154113` — e saiu com
+**41 s reais**: resíduo **−0,4**, estabelecido pelo ramo negativo e **dentro** da
+banda (o piso segue −0,6). `RESIDUO_N` = 87.
+
+**Os três negativos são do `epomeno-epipedo` e as três previsões caem em 0,2 s —
+41,4, 41,5 e 41,6.** Isso parece um padrão de canal, e é por isso que vai com a
+ressalva: **na MESMA janela este canal já deu 42, 43 e 44**, logo o que está
+medido não é "o grego encurta", é que **o real desta janela espalha agora por
+QUATRO inteiros (41 a 44) contra meio segundo de previsão.** É o 769 com uma
+unidade a mais de espalhamento, e ele fica mais verdadeiro, não menos.
+
+**E ela foi escrita mirando o PISO de propósito, pela regra de redação do 772 — e
+a exposição que eu declarei não foi a que ocorreu.** A copy dizia, antes de
+publicar, que *"se o edge narrar, o real deve cair entre 40,8 e 45,4 s, logo PODE
+encostar no teto de 45"*. O real saiu **41**, isto é, no extremo OPOSTO da faixa
+anunciada. **Acertar dentro de uma banda de 4,6 s não é previsão**, e declarar o
+lado errado dela de propósito é o que prova isso: a banda cobre os dois extremos
+com igual conforto, que é exactamente a perda de utilidade que o 774 nomeia.
+
 **E ÀS 04:1x A ROTA SEGUIA FECHADA, com a sonda feita ANTES de prometer.** O
 controle (`OhrGlJvnBoM`, 44 s medidos) voltou vazio outra vez, e com ele o
 `labtreinamento-s066` recém-publicado. **Duas peças seguidas sem ponto de

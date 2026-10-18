@@ -239,7 +239,8 @@ SERIE = [
     ("labtreinamento-s073", 26.0, 28, "edge"),   # job 117551494916
     ("epomeno-epipedo-s056", 41.5, 43, "edge"),  # job 117561762560 — DOIS lengthSeconds (42 e 43), usado o MAIOR
     ("kolejny-poziom-s057", 41.5, 42, "edge"),
-    ("labtreinamento-s074", 25.8, 28, "edge"),  # job 117583621587 — real FORA do teto da mira (26,0) com a mira VERDE   # job 117572513678 — sinal NAO estabelecido (770)
+    ("labtreinamento-s074", 25.8, 28, "edge"),
+    ("epomeno-epipedo-s057", 41.4, 41, "edge"),  # job 117593154113 — TERCEIRO negativo estabelecido, mesma janela estreita  # job 117583621587 — real FORA do teto da mira (26,0) com a mira VERDE   # job 117572513678 — sinal NAO estabelecido (770)
 ]
 
 
