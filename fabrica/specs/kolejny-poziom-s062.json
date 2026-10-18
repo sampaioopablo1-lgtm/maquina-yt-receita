@@ -1,0 +1,82 @@
+{
+  "slug": "kolejny-poziom-s062",
+  "idioma": "pl",
+  "voz": "pl-PL-MarekNeural",
+  "trilha": "Wholesome",
+  "paleta": {
+    "ink": "#1B3A5C",
+    "c1": "#2A9D8F",
+    "c2": "#F5B841",
+    "bg": "#F4F1EA"
+  },
+  "pacote": "kolejny-poziom-s062",
+  "longo_existente": "wb1RGIx7OJI",
+  "thumb": {
+    "l1": "Średnia",
+    "l2": "nie twoja cena"
+  },
+  "longo": [],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Średnia",
+      "sub": "to nie twoja cena",
+      "nar": "Średnia z raportu to nie cena twojej polisy."
+    },
+    {
+      "layout": "item",
+      "kicker": "Izba",
+      "sub": "liczy cały portfel",
+      "nar": "Izba liczy wszystkie czynne polisy, także stare."
+    },
+    {
+      "layout": "item",
+      "kicker": "Porównywarka",
+      "sub": "liczy dzisiejszy dzień",
+      "nar": "Porównywarka pokazuje ofertę dla ciebie na dziś."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Dwa pytania",
+      "sub": "dwie odpowiedzi",
+      "nar": "To dwie odpowiedzi na dwa różne pytania."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Stare polisy",
+      "sub": "ciągną w dół",
+      "nar": "Tanie polisy z dawnych lat ciągną średnią w dół."
+    },
+    {
+      "layout": "item",
+      "kicker": "Oferta",
+      "sub": "wychodzi wyżej",
+      "nar": "Dlatego oferta na dziś wychodzi wyraźnie wyżej."
+    },
+    {
+      "layout": "item",
+      "kicker": "Twoja decyzja",
+      "sub": "liczba z porównywarki",
+      "nar": "Do swojej decyzji weź liczbę z porównywarki."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Raport",
+      "sub": "mówi o kierunku",
+      "nar": "Średnia z raportu mówi tylko o kierunku rynku."
+    },
+    {
+      "layout": "item",
+      "kicker": "Pomyłka",
+      "sub": "cudza polisa",
+      "nar": "Pomyl je, i policzysz cudzą polisę zamiast swojej."
+    },
+    {
+      "layout": "cta",
+      "kicker": "Policz",
+      "sub": "i zasubskrybuj",
+      "nar": "Sprawdź swoją ofertę i zasubskrybuj kanał."
+    }
+  ],
+  "copy": "# kolejny-poziom-s062\n\n## TITULO\nŚrednia z Raportu a Oferta na Dziś: Dlaczego To Dwie Różne Liczby o Twojej Polisie\n\n## TITULO SHORT\nŚrednia z raportu to nie twoja cena\n\n## DESCRICAO\nKiedy czytasz nagłówek, że **średnia składka OC spadła**, naturalnie czytasz to jako cenę, którą zapłacisz przy odnowieniu. To jedna z tych pomyłek, w których **obie liczby są prawdziwe**, a mimo to jedna z nich nie odpowiada na twoje pytanie.\n\nIzba liczy średnią ze **WSZYSTKICH czynnych polis** — także tych kupionych dawno i tanio, które nadal biegną i nadal wchodzą do rachunku. Porównywarka liczy coś innego: **ofertę dla kierowcy, który kupuje DZIŚ**. Pierwsza patrzy na cały portfel, druga na jeden dzisiejszy dzień.\n\n**Z tego wynika rzecz, która nie jest szczegółem statystycznym:** stare, tanie polisy ciągną średnią w dół, więc oferta na dziś wychodzi wyraźnie **wyżej** niż liczba z nagłówka. Nie dlatego, że ktoś się myli w rachunku — dlatego, że to są **odpowiedzi na dwa różne pytania**, policzone na dwóch różnych zbiorach.\n\n**Która się liczy?** Do twojej decyzji — ta z porównywarki, bo tylko ona dotyczy umowy, którą podpiszesz. Średnia z raportu ma inne zadanie: pokazuje, **w którą stronę idzie rynek**, a rynek prędzej czy później dogania twoją polisę. Obie są użyteczne, tylko do innych rzeczy.\n\n**Test jest prosty i możesz go zrobić dzisiaj:** zanim porównasz \"swoją\" cenę z tą z wiadomości, sprawdź, czego dotyczy każda z nich. Jeśli twoje porównanie bierze średnią z portfela i stawia ją obok własnej propozycji odnowienia, to porównujesz **cudzą polisę ze swoją** — i wniosek wyjdzie z tego zbioru, nie z twojego.\n\nNie podaję tu kwot w złotych ani procentów. Te liczby zmieniają się co kwartał i w tym temacie zmieniały się już kilka razy. **Zasada — średnia z całego portfela kontra oferta na dziś — nie zmienia się wcale.** Liczby weź z własnej propozycji odnowienia, nie z tego filmu.\n\nW pełnym materiale: dlaczego rachunek ubezpieczycieli nie domyka się od kwartału, co robi średnia szkoda po drugiej stronie tego rachunku, i cztery rzeczy do sprawdzenia przed odnowieniem polisy.\n\nMateriał informacyjny, nie stanowi porady ubezpieczeniowej.\n\n## COMENTARIO FIXADO\nNajmniej oczywiste: to dwie liczby policzone na DWÓCH RÓŻNYCH zbiorach — jedna na całym portfelu, druga na dzisiejszym dniu. Twoja propozycja odnowienia stoi wyżej czy niżej od średniej z nagłówków?\n\n## HASHTAGS\n#OC #ubezpieczenia #polisa #kolejnypoziom #Shorts\n\n## TAGS\noc komunikacyjne, srednia skladka, porownywarka ubezpieczen, oferta na dzis, czynne polisy, odnowienie polisy, cena oc, portfel polis, ubezpieczenie samochodu, finanse osobiste, polska, kolejny poziom, kierunek rynku, skladka ubezpieczeniowa, decyzja zakupowa\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Conferido cena a cena: nenhuma\ncena carrega kwota, procent nem date. O longo traz 551 zl, ~650 zl e 8,8 mln\nde polisas; os tres ficaram FORA pela regra (g), porque media de skladka e\noferta de porownywarka mudam a cada trimestre. O mecanismo — media do portfolio\nINTEIRO contra oferta de hoje — nao muda com eles.\n\n## FONTES\nRozdzialy 14 a 17 do longo \"OC najtansze od dwoch lat. Zobacz to, zanim\nodnowisz polise\" (pacote kolejny-poziom-009, wb1RGIx7OJI, rank 10 da ordem\nviva, 2 usos). As duas familias ja tiradas desta origem sao OUTRAS: o\nkolejny-poziom-s013 e o wznowienie automatyczne (o custo de nao fazer nada) e o\nkolejny-poziom-s031 e a nizsza skladka lida como novo poziom. Esta e a terceira:\nMEDIA DE TODO O PORTFOLIO LIDA COMO O PRECO DE HOJE.\n\n## EXPOSICAO\nPrevisao edge 41,5 s (o PISO exato do ALVO_SHORT da frota; o kolejny nao tem\nALVO_POR_CANAL) e piper 35,3 s — os dois dentro de 18 a 45 nos dois mundos. A\nbanda do residuo esta em (-1,2; 4,0), logo se o edge narrar o real cai em algum\nponto de (40,3; 45,5) — e eu NAO digo de que lado da banda, porque 5,2 s de\nlargura contra 1 s de granularidade nao preveem nada (774). Mirar o piso neste\ncanal nao encurta o real: pelo achado das 17:2x de hoje, ele aumenta a chance de\no residuo sair NEGATIVO, e isso vai declarado em vez de vendido como protecao.\n"
+}
