@@ -1,0 +1,76 @@
+{
+ "slug": "kolejny-poziom",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "pacote": "kolejny-poziom-s059",
+ "longo_existente": "SZV9Vk5YFwI",
+ "longo": [],
+ "thumb": {
+  "l1": "Zwłoka",
+  "l2": "nie dzieli się"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Zwłoka",
+   "sub": "nie dzieli się równo",
+   "sem_cap": true,
+   "nar": "Odkładasz oszczędzanie i myślisz, że tracisz proporcjonalnie."
+  },
+  {
+   "layout": "item",
+   "kicker": "Rachunek w głowie",
+   "nar": "Liczysz: czekam trzy z trzydziestu lat, tracę dziesiątą."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Nie tyle",
+   "sub": "znacznie więcej",
+   "nar": "Tracisz znacznie więcej niż dziesiątą."
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlaczego",
+   "nar": "Bo nie tracisz dowolnych lat, tracisz pierwsze."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Pierwsze lata",
+   "nar": "Pierwsze wpłaty pracują najdłużej i rosną najbardziej."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ostatnie lata",
+   "nar": "Ostatnia wpłata nie ma czasu, żeby urosnąć."
+  },
+  {
+   "layout": "item",
+   "kicker": "Więc",
+   "nar": "Zwłoka ucina tę część, która robi najwięcej."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Zmienna",
+   "sub": "czas, nie kwota",
+   "nar": "Zmienną nie jest kwota, a czas jej pracy."
+  },
+  {
+   "layout": "item",
+   "kicker": "Praktycznie",
+   "nar": "Mała kwota od dziś bije większą zaczętą potem."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Zacznij dziś",
+   "nar": "Zacznij od małej kwoty dziś i zasubskrybuj."
+  }
+ ],
+ "copy": "# kolejny-poziom-s059\n\n## TITULO\nZwłoka w Oszczędzaniu Nie Dzieli Się Proporcjonalnie — Tracisz Pierwsze Lata\n\n## TITULO SHORT\nZwłoka nie dzieli się\n\n## DESCRICAO\nNajczęstszy błąd w myśleniu o długim oszczędzaniu nie dotyczy kwoty ani produktu. Dotyczy **arytmetyki zwłoki**.\n\nKiedy odkładasz decyzję, w głowie dzielisz stratę proporcjonalnie: czekam trzy lata z trzydziestu, więc tracę mniej więcej jedną dziesiątą wyniku. To rachunek, który wygląda uczciwie i jest fałszywy — bo zakłada, że wszystkie lata są wymienne.\n\nNie są. Odkładając start, nie tracisz lat dowolnych: tracisz **pierwsze**. A pierwsza wpłata to ta, która pracuje najdłużej, więc właśnie ona dorzuca do wyniku najwięcej. Ostatnia wpłata, ta sprzed samego końca, nie ma już czasu, żeby cokolwiek urosnąć — trafia do wyniku niemal w nominale.\n\nDlatego zwłoka nie ucina kawałka równego swojej długości. Ucina dokładnie tę część, która robi najwięcej pracy. Proporcja z twojej głowy i proporcja z rachunku to dwie różne liczby, a ta druga jest gorsza.\n\nWniosek jest praktyczny i wygodny, bo zdejmuje presję kwoty. Najważniejszą zmienną nie jest to, ile wpłacasz, ale **jak długo to pracuje**. Mała kwota rozpoczęta dziś bije większą kwotę rozpoczętą później — i to jest cała różnica między tymi dwoma rachunkami.\n\nSprawdzenie zajmuje minutę: nie szukaj najlepszego produktu, tylko najbliższej daty startu. Produkt możesz zmienić po drodze; straconych pierwszych lat nie odzyskasz, bo nie da się ich doliczyć na końcu.\n\n## COMENTARIO FIXADO\nSprawdzenie na minutę: zamiast szukać najlepszego produktu, ustal najbliższą datę startu. Produkt zmienisz po drodze, pierwszych lat nie odzyskasz.\n\n## HASHTAGS\n#oszczedzanie #emerytura #polska #kolejnypoziom #Shorts\n\n## TAGS\nzwloka, oszczedzanie dlugoterminowe, czas pracy kapitalu, pierwsza wplata, ostatnia wplata, proporcja, najwazniejsza zmienna, data startu, male kwoty, emerytura, finanse osobiste, polska, kolejny poziom, zasada, rachunek\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Conferido cena a cena: a peca nao\ndiz taxa de retorno, nao diz valor em zlotys, nao diz limite anual de conta, nao\nnomeia produto nem instituicao e nao cita percentual de stopa zastapienia. A\nregra (g) tira deste longo tudo o que MUDA — e aqui ela tira MUITO, porque o\nlongo e feito de numeros que envelhecem (prognoza do ZUS, mediana de salario,\nlimites de IKE/IKZE/PPK). O unico \"tres de trinta\" que ficou e HIPOTETICO, parte\ndo rachunek errado que a peca desmonta, nao afirmacao sobre o mundo.\n\n## FAMILIA DE ENTRADA ERRADA\nZWLOKA LIDA COMO PERDA PROPORCIONAL — a pessoa divide a perda pelo tempo adiado,\nsupondo que todos os anos sao permutaveis. Distinta das familias que este canal\nusou hoje: o s057 e a ORDEM DE VERIFICACAO (pedir sem inscricao perde o prazo) e\no s058 e a renda conferida POR ULTIMO. Aqui a entrada errada e aritmetica e de\noutra classe: proporcionalidade aplicada a uma serie em que os termos nao valem\no mesmo.\n\n## EXPOSICAO DECLARADA ANTES DE PUBLICAR\nPrevisao edge 42,4 / piper 36,0 — os dois dentro de 18 a 45 s, e o edge dentro\nda mira da frota (41,5 a 43,0). Encurtada em quatro passos a partir de 48,7, com\n`ensaio.chars_por_cena` dando o alvo de 49 caracteres por cena em vez de eu\nestimar o corte. **E eu NAO declaro de que lado da banda o\nreal vai cair.** A banda observada tem (-0,6; 4,0), isto e 4,6 s de largura\ncontra 1 s de granularidade do instrumento: ela cobre os dois extremos com igual\nconforto, e a rodada das 05:1x mediu exatamente isso — copy anunciando o teto e\nreal saindo no piso. Declarar lado seria vender previsao que a banda nao tem.\n\n## FONTES\nO longo de onde este short foi extraido (`SZV9Vk5YFwI`, pacote\nkolejny-poziom-002, 57 capitulos) carrega as prognozas do ZUS, os valores em\nzlotys e os limites das tres contas com ulga. Este short NAO introduz numero novo\nsobre o mundo, entao nao exige fonte institucional nova. Os capitulos de origem\nsao o 35, o 37 e o 38. **E esta e a PRIMEIRA peca tirada desta origem:** ela\ntinha ZERO shorts e saiu do `concentracao.origens_sem_uso` com o mapa de titulos,\nque colapsou o grupo de SEIS copias do mesmo titulo numa origem so.\n"
+}
