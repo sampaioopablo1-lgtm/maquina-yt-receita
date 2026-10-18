@@ -1,0 +1,82 @@
+{
+ "slug": "epomeno-epipedo-s061",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#1D3557",
+  "c1": "#2A9D8F",
+  "c2": "#E9C46A",
+  "bg": "#F5F3EC"
+ },
+ "pacote": "epomeno-epipedo-s061",
+ "longo_existente": "jAWKppvjAG8",
+ "thumb": {
+  "l1": "Η αίτηση",
+  "l2": "κλειδώνει"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Με την πληρωμή",
+   "sub": "έτσι το νομίζεις",
+   "nar": "Νομίζεις ότι η τιμή κλειδώνει τη στιγμή που θα πληρώσεις."
+  },
+  {
+   "layout": "item",
+   "kicker": "Όχι η πληρωμή",
+   "sub": "δεν κρίνει αυτή",
+   "nar": "Η τιμή όμως δεν κρίνεται καθόλου από την πληρωμή σου."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Η αίτηση",
+   "sub": "αυτή κλειδώνει",
+   "nar": "Κρίνεται από τη στιγμή που έκανες την αίτησή σου."
+  },
+  {
+   "layout": "item",
+   "kicker": "Πριν την αλλαγή",
+   "sub": "κρατά την παλιά",
+   "nar": "Όποιος υπέβαλε πριν την αλλαγή κρατά την παλιά τιμή."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ακόμη κι αργότερα",
+   "sub": "η πληρωμή",
+   "nar": "Την κρατά ακόμη και αν πληρώσει πολύ αργότερα."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Η αναμονή",
+   "sub": "δεν κρατά τίποτα",
+   "nar": "Άρα η αναμονή δεν σου κρατάει απολύτως τίποτα πια."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Αντίθετα",
+   "sub": "ακυρώνει",
+   "nar": "Αντίθετα, ακυρώνει την τιμή που είχες κλειδώσει."
+  },
+  {
+   "layout": "item",
+   "kicker": "Δική σου επιλογή",
+   "sub": "η ημερομηνία",
+   "nar": "Η ημερομηνία της αίτησης είναι δική σου επιλογή."
+  },
+  {
+   "layout": "item",
+   "kicker": "Η μόνη μεταβλητή",
+   "sub": "που ελέγχεις",
+   "nar": "Είναι η μόνη μεταβλητή που ελέγχεις σε όλο αυτό."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Δες την ημερομηνία",
+   "sub": "και εγγραφή",
+   "nar": "Δες τη δική σου ημερομηνία και κάνε εγγραφή εδώ."
+  }
+ ],
+ "copy": "# epomeno-epipedo-s061\n\n## TITULO\nΤην Τιμή την Κλειδώνει η Ημερομηνία της ΑΙΤΗΣΗΣ, Όχι η Ημερομηνία που Πληρώνεις\n\n## TITULO SHORT\nΚλειδώνει η αίτηση, όχι η πληρωμή\n\n## DESCRICAO\nΣχεδόν όλοι υποθέτουν ότι η τιμή κλειδώνει **τη στιγμή που πληρώνουν** — και είναι εύλογη υπόθεση, γιατί έτσι δουλεύει σχεδόν κάθε αγορά στη ζωή μας. Εδώ όμως ο νόμος μετρά **άλλη** ημερομηνία: τη στιγμή που **υπέβαλες την αίτηση**.\n\nΗ συνέπεια είναι πολύ πιο μεγάλη από μια τεχνική λεπτομέρεια. **Όποιος υπέβαλε πριν την αλλαγή κρατά την παλιά τιμή — ακόμη και αν πληρώσει πολύ αργότερα.** Και το αντίστροφο: όποιος περίμενε να «μαζέψει τα χρήματα πρώτα» δεν κρατάει τίποτα, γιατί δεν υπάρχει τίποτα κλειδωμένο να κρατήσει. Η αναμονή δεν προστατεύει την τιμή· **την ακυρώνει.**\n\n**Και αυτό αλλάζει τη σειρά των ενεργειών.** Αν η τιμή κλείδωνε με την πληρωμή, θα ήταν λογικό να μαζέψεις πρώτα το ποσό και να κινηθείς μετά. Επειδή κλειδώνει με την αίτηση, η σωστή σειρά είναι η αντίστροφη — και είναι δωρεάν να την κάνεις σωστά, γιατί η αίτηση δεν σου ζητά το ποσό την ίδια μέρα.\n\n**Γιατί αυτό αξίζει να το ξέρεις ειδικά εδώ:** σε αυτό το θέμα η τιμή **έχει αλλάξει**, και όχι μία φορά. Όσο υπάρχει ενδεχόμενο να αλλάξει πάλι, η ημερομηνία της αίτησης δεν είναι γραφειοκρατία: είναι **η μόνη μεταβλητή που ελέγχεις εσύ**. Το ποσοστό, η βάση, τα όρια — τίποτα από αυτά δεν περνά από το χέρι σου. Η ημερομηνία, ναι.\n\n**Ο έλεγχος είναι ενός λεπτού:** βρες πότε υπέβαλες — ή, αν δεν έχεις υποβάλει, σημείωσε ότι μέχρι να υποβάλεις **δεν κρατάς καμία τιμή**, όποια και να άκουσες. Αν νόμιζες ότι κάτι σε περιμένει, η πρώτη πράξη δεν είναι υπολογισμός· είναι να δεις την ημερομηνία.\n\nΔεν αναφέρω εδώ ποσά, ποσοστά, όρια ούτε ημερομηνίες ισχύος. Αυτά είναι ακριβώς τα νούμερα που άλλαξαν και θα αλλάξουν· **ο κανόνας για το ποια ημερομηνία μετράει δεν αλλάζει**. Τα ποσά πάρ' τα από τη δική σου περίπτωση.\n\nΣτο πλήρες υλικό: πώς βγαίνει το κόστος βήμα βήμα, οι τρεις περιπτώσεις στις οποίες η απάντηση είναι διαφορετική, και η μία ερώτηση που κρίνει αν αξίζει — σε πόσα χρόνια επιστρέφει αυτό που πληρώνεις.\n\nΕνημερωτικό υλικό, δεν αντικαθιστά ασφαλιστικό σύμβουλο.\n\n## COMENTARIO FIXADO\nΤο πιο αντιδιαισθητικό: η αναμονή δεν «κρατά» την παλιά τιμή — την ακυρώνει, γιατί τίποτα δεν κλειδώνει πριν την αίτηση. Ξέρεις την ημερομηνία της δικής σου αίτησης;\n\n## HASHTAGS\n#σύνταξη #πλασματικάέτη #εξαγορά #epomenoepipedo #Shorts\n\n## TAGS\nplasmatika etia, exagora, imerominia aitisis, timi, syntaxi, asfalisi, aitisi, EFKA, kleidoma timis, pote plironeis, oikonomika, prosopiki oikonomia, epomeno epipedo, odigos, apofasi\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Conferido cena a cena: nenhum valor\nem euros, nenhum percentual, nenhum limite, nenhum ano — e, de proposito,\n**nenhuma DATA DE VIGENCIA**. O longo cita o salario minimo, o percentual, o\ncusto por mes, por ano, o total dos sete anos e a data em que o preco novo passou\na valer; **tudo isso ficou fora**, e a regra (g) nomeia justamente \"data de\nvigencia\" entre as classes a remover.\n**E aqui ha uma ironia que vai dita em vez de escondida:** a peca FALA de\ndatas — mas de datas como CATEGORIA (a da aitisi contra a da pagamento), nao de\numa data especifica do calendario. Dizer \"pre a alteracao\" sem dizer qual\nalteracao e o que mantem a regra viva depois da proxima mudanca de preco; o\nproprio longo diz no capitulo 47 que os limites e os precos ja mudaram varias\nvezes.\n\nFamilia de entrada errada: DATA DO PAGAMENTO LIDA COMO A DATA QUE FIXA O PRECO —\nsupor que a tarifa se congela quando se paga, e por isso esperar para juntar o\ndinheiro antes de dar entrada. O erro nao e de calculo: e de saber QUAL evento\ncongela o valor.\nE familia NOVA nesta origem (`jAWKppvjAG8`): as duas anteriores sao\nepomeno-epipedo-s015 (EM QUANTOS ANOS RETORNA — avaliar a compra pelo custo em\nvez do prazo de retorno) e -s033 (DUAS COISAS QUE A REGRA CONTA DE FORMA\nDIFERENTE tratadas como intercambiaveis). Nenhuma das duas e sobre o MOMENTO que\nfixa o preco. Regra (f) conferida contra as duas.\nE conferida contra as QUATRO pecas de hoje neste canal: -s057 (LIMITE RELATIVO\nLIDO COMO FIXO), -s058 (CUSTO FORA DO INDICE POR FALTA DE METODO), -s059\n(COMPARACAO COM TERCEIRO NO LUGAR DA PROPRIA FOLHA) e -s060 (TEKMIRIO CALCULADO\nSO PARA SI). A mais proxima e a -s060, tambem de hoje, e a distincao vai dita:\nla o erro e no CONJUNTO medido (quem entra na conta); aqui e no EVENTO que fixa\no parametro (quando o valor congela). Dominio e momento nao sao a mesma coisa.\n\n## EXPOSICAO DECLARADA ANTES DE PUBLICAR\nMira: edge **41,5 s** e piper **36,8 s** — os dois dentro de 18 a 45 s, que e o\nque o portao `duracao` cobra nos DOIS mundos. Este canal NAO tem\n`ALVO_POR_CANAL` medido, logo vale a mira da frota (41,5 a 43,0), e 41,5 e o\nPISO EXATO dela, pela regra de redacao do 772.\n**E a exposicao aqui e para BAIXO, o que vai dito: os QUATRO residuos negativos\nda serie sao TODOS deste canal** (-0,4 a -1,2), logo mirar o piso aqui expoe ao\nlado de baixo e nao ao de cima. A spec passou por quatro versoes de duracao —\n36,6 / 40,3 / 41,1 / 41,5 — e as tres primeiras ficavam ABAIXO do piso da mira:\nescrevo isto porque `chars_por_cena` acerta a ordem de grandeza e nao o decimo.\nCom a banda OBSERVADA de residuo (**-1,2 a +4,0 s, n=98**): se o edge narrar, o\nreal deve cair entre **40,3 e 45,5 s** — logo PODE passar do teto de 45 do\nportao (como no `epomeno-epipedo-s032`, 46 s reais com o portao verde) e PODE\nficar abaixo do piso da mira. A banda tem **5,2 s** de largura contra 1 s de\ngranularidade: ela acomoda os dois extremos com igual conforto, logo **nao\nprometo nem o valor nem o lado**. O provedor sera MEDIDO pela anotacao (733).\n\n## FONTES\nOrigem: `jAWKppvjAG8` (pacote epomeno-epipedo-009, 61 capitulos), longo JA\nPUBLICADO deste canal, **rank 9** da ordem VIVA de uploads lida nesta rodada. O\nshort nao introduz numero novo sobre o mundo, logo nao exige fonte nova, e o id\ndo longo vai dito aqui.\nAs cenas saem dos capitulos **37 e 38** do pacote (\"Και εδώ\" e \"Δηλαδή\"), mais o\n**55** (\"Θυμήσου την ημερομηνία\"), que nenhum dos dois shorts anteriores desta\norigem usou — eles vieram dos capitulos 44-45 e 28-33.\nPor que o rank 9 e nao o rank 1: a `concentracao.contagem` deu o topo em **12\nusos** contra DOIS nos ranks 9, 10, 12, 13, 16 e 17 — o habito de 13/10 visivel\nna contagem ANTES de escolher. Entre os seis empatados no minimo, o rank 9 e o\nmais RECENTE, que e a regra de 16/10 aplicada DENTRO do grupo menos usado.\nE o `origens_sem_uso` devolveu lista **VAZIA** neste canal, como na rodada das\n14:07 — todas as 18 origens da ordem viva ja renderam short. **Lista vazia NAO\nprova ausencia de origem livre**, porque a playlist OMITE longo (18/10 01:2x e\n07:0x): ela ORDENA e nao ENUMERA, logo 18 e um PISO. A leitura de hoje devolveu\nos mesmos 18 da anterior, e isso tambem nao prova completude.\n"
+}
