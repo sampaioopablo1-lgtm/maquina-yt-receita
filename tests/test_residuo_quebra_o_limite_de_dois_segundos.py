@@ -255,6 +255,7 @@ SERIE = [
     ("epomeno-epipedo-s061", 41.5, 41, "edge"),  # job 117736668345 — QUINTO negativo estabelecido, e os CINCO sao deste canal; previsao de volta na janela estreita
     ("kolejny-poziom-s062", 41.5, 42, "edge"),  # job 117751024537 — residuo +0,5, sinal NAO estabelecido (770/18-10 15:2x: 42-41,5 < 1,0); dentro da banda
     ("labtreinamento-s079", 25.8, 27, "edge"),  # job 117763741472 — residuo +1,2, sinal ESTABELECIDO; real FORA do teto da mira (26,0) com a mira VERDE nos dois mundos: 15 de 18
+    ("epomeno-epipedo-s062", 42.1, 43, "edge"),  # job 117777340562 — mira no MEIO da faixa e nao no piso, de proposito (os cinco negativos deste canal tem real 41); residuo +0,9, sinal NAO estabelecido
 ]
 
 

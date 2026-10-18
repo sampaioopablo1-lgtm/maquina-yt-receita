@@ -1745,3 +1745,24 @@ copy antes de publicar.
 reconectar o conector do Supabase — **82** linhas de `insert into videos`
 parqueadas, e o `execute_sql` esta negado pela 20a rodada seguida; (3) a decisao
 do 740/748, agora com quinze de dezoito medidos.
+
+## 18/10 20:2x — s062 do epomeno no ar; o +1 do kolejny SE REPRODUZIU
+
+Peca: `epomeno-epipedo-s062` = `-MEIzb-MSh4`, publica, **43 s reais** (previsao
+edge 42,1; provedor **edge** medido, zero avisos no job `117777340562`).
+Residuo **+0,9**, dentro da banda, sinal NAO estabelecido (43 - 42,1 < 1,0).
+`RESIDUO_N` = 102.
+
+**Inscritos 68 / 21 / 9 — o 9 do kolejny voltou numa SEGUNDA leitura, uma hora
+depois da primeira.** Isso descarta artefato de replica: o passo e real. **E
+continua sendo UMA contagem contra a referencia de 17/10 09:0x (35,1 h), cujo
+piso de resolucao e 0,68/dia** — o delta vale exatamente isso, logo a incerteza
+e da ordem do proprio valor e o canal sai `indeterminado`. Para RESOLVER falta
+um segundo passo: se ele for a 10, o ritmo fica medido.
+
+Os outros dois seguem com delta zero, logo abaixo de 0,68/dia.
+
+**O que segue na sua mao:** (1) os dois cliques de consentimento do Google; (2)
+reconectar o conector do Supabase — **83** linhas de `insert into videos`
+parqueadas e o `execute_sql` negado pela 21a rodada seguida; (3) a decisao do
+740/748, com quinze de dezoito medidos no labtreinamento.
