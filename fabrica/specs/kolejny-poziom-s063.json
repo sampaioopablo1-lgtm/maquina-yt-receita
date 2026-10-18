@@ -1,0 +1,82 @@
+{
+  "slug": "kolejny-poziom-s063",
+  "idioma": "pl",
+  "voz": "pl-PL-MarekNeural",
+  "trilha": "Wholesome",
+  "paleta": {
+    "ink": "#1B3A5C",
+    "c1": "#2A9D8F",
+    "c2": "#F5B841",
+    "bg": "#F4F1EA"
+  },
+  "pacote": "kolejny-poziom-s063",
+  "longo_existente": "42hpD7eaptE",
+  "thumb": {
+    "l1": "Rata testowa",
+    "l2": "wyższa"
+  },
+  "longo": [],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Nie dzisiejsza",
+      "sub": "stawka",
+      "nar": "Bank nie liczy twojej raty z dzisiejszej stawki."
+    },
+    {
+      "layout": "item",
+      "kicker": "Kilka punktów",
+      "sub": "doliczonych",
+      "nar": "Dolicza kilka punktów procentowych i liczy wyższą."
+    },
+    {
+      "layout": "lista",
+      "kicker": "To margines",
+      "sub": "nie kaprys",
+      "nar": "To nie kaprys banku: to margines na wzrost stawki."
+    },
+    {
+      "layout": "item",
+      "kicker": "Rata testowa",
+      "sub": "wyższa od prawdziwej",
+      "nar": "Twoja rata testowa wychodzi wyższa od prawdziwej."
+    },
+    {
+      "layout": "item",
+      "kicker": "Wyższa rata",
+      "sub": "niższa zdolność",
+      "nar": "A wyższa rata daje niższą zdolność."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Twój kalkulator",
+      "sub": "pokazuje więcej",
+      "nar": "Dlatego twój własny kalkulator pokazuje ci więcej."
+    },
+    {
+      "layout": "item",
+      "kicker": "Ty liczyłeś",
+      "sub": "stawką z dzisiaj",
+      "nar": "Liczyłeś stawką z dzisiaj, a bank liczy wyższą."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Bank",
+      "sub": "się nie pomylił",
+      "nar": "Kalkulator banku się tu nie pomylił."
+    },
+    {
+      "layout": "item",
+      "kicker": "Zapytaj",
+      "sub": "o wysokość bufora",
+      "nar": "Zapytaj o wysokość bufora, zanim złożysz wniosek."
+    },
+    {
+      "layout": "cta",
+      "kicker": "Zasubskrybuj",
+      "sub": "i zapytaj o swój bufor",
+      "nar": "Zapytaj o swój własny bufor i zasubskrybuj."
+    }
+  ],
+  "copy": "# kolejny-poziom-s063\n\n## TITULO\nRata Testowa a Rata Prawdziwa: Dlaczego Twój Kalkulator Pokazuje Więcej od Banku\n\n## TITULO SHORT\nBank liczy ratę wyższą od prawdziwej\n\n## DESCRICAO\nPrawie każdy, kto liczy zdolność kredytową sam, liczy ją **dzisiejszą stawką** — bo to jedyna, którą widzi. Bank robi coś innego, i to jest cała różnica między twoją kwotą a jego: **dolicza do oprocentowania kilka punktów procentowych i liczy ratę wyższą niż ta, którą faktycznie zapłacisz.**\n\n**Z tego wynika rzecz, która nie jest szczegółem w tabelce:** rata, którą bank testuje, jest **wyższa** od prawdziwej, a wyższa rata daje **niższą** zdolność. Więc twój kalkulator i kalkulator banku nie liczą tej samej rzeczy — i kiedy twoja kwota wychodzi większa, to nie znaczy, że któryś się pomylił. Znaczy, że liczyliście **dwie różne raty**.\n\n**I to nie jest kaprys banku.** Ten margines jest odpowiedzią na coś, co już się zdarzyło: raty rosną, kiedy rośnie stawka, a bank sprawdza, czy będzie cię na nie stać **wtedy**, nie tylko dziś. Z twojej perspektywy wygląda jak utrudnienie; z perspektywy rachunku jest zapasem na wzrost.\n\n**Praktyczny wniosek, i da się go użyć przed rozmową:** wysokość tego marginesu bywa **różna w różnych bankach**, a przy oprocentowaniu okresowo stałym bywa mniejsza niż przy zmiennym. To znaczy, że **ta sama osoba może dostać różne kwoty w jednym banku**, zależnie od tego, co wybierze. **Zapytaj o wysokość bufora, zanim złożysz wniosek** — to pytanie, które możesz zadać sam, i odpowiedź zmienia liczbę.\n\nNie podaję tu stawek, procentów ani wskaźników. Te liczby zmieniają się i w tym temacie zmieniały się już kilka razy. **Mechanizm — bank testuje ratę wyższą od prawdziwej — nie zmienia się wcale.** Stawkę i bufor weź od swojego banku, nie z tego filmu.\n\nW pełnym materiale: co bank odejmuje zamiast patrzeć na dochód, cztery rzeczy, które obniżają zdolność, choć nikt o nich nie myśli, i dlaczego dwa banki dają dwie różne kwoty tej samej osobie.\n\nMateriał informacyjny, nie stanowi doradztwa kredytowego.\n\n## COMENTARIO FIXADO\nNajmniej oczywiste: kiedy twoja kwota wychodzi większa niż bankowa, nikt się nie pomylił — liczyliście DWIE RÓŻNE raty. Pytałeś kiedyś w banku o wysokość samego bufora?\n\n## HASHTAGS\n#zdolnoscredytowa #kredyt #bufor #kolejnypoziom #Shorts\n\n## TAGS\nzdolnosc kredytowa, bufor na stope, rata testowa, oprocentowanie zmienne, oprocentowanie stale, kalkulator kredytowy, wniosek kredytowy, kredyt hipoteczny, nadwyzka dochodu, finanse osobiste, polska, kolejny poziom, rata kredytu, porownanie bankow, decyzja kredytowa\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Conferido cena a cena: nenhuma cena\ncarrega taxa, percentual nem indice. O longo traz a stopa referencyjna do NBP e\no WIBOR de tres meses, mais a dimensao do buffer em pontos percentuais; os tres\nficaram FORA pela regra (g), porque taxa de referencia muda e o WIBOR muda todo\ndia — e o proprio longo diz que o WIBOR sera substituido pelo POLSTR, isto e, o\nnumero tem data de validade conhecida. A narracao diz \"kilka punktow\", que e a\nFORMA do mecanismo e nao um valor.\n\n## FONTES\nCapitulos 29 a 31 do longo \"Zdolnosc Kredytowa 2026: Ten Sam Dochod, Dwa Banki,\nDwie Rozne Kwoty\" (pacote kolejny-poziom-008, 42hpD7eaptE, rank 11 da ordem\nviva, 2 usos — o menor patamar do canal, e o melhor rank dele). As duas familias\nque esta origem ja rendeu sao outras: o s010 e o limite do cartao que conta mesmo\nsem uso, e o s022 e o aumento pedido pouco antes do pedido de credito.\n\n## EXPOSICAO\nPrevisao edge 41,5 s — o PISO exato do ALVO_SHORT da frota, que e onde a voz\npolonesa deve mirar (o centro dela e +2,2%) — e piper 35,3 s; os dois dentro de\n18 a 45 nos dois mundos. Levou CINCO versoes: a primeira dava edge 38,7, abaixo\ndo piso. Com a banda em (-1,2; 4,0), se o edge narrar o real cai em algum ponto\nde (40,3; 45,5) e eu NAO digo de que lado — 5,2 s de largura contra 1 s de\ngranularidade nao preveem nada. Diferente do epomeno, neste canal mirar o piso\nnao tem o custo do residuo negativo: os CINCO negativos da serie sao todos do\nepomeno.\n"
+}
