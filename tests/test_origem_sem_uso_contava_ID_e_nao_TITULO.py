@@ -29,11 +29,41 @@ AS_SEIS = ["SZV9Vk5YFwI", "qcY5XC1KtlQ", "_M8t8SPC_f0", "jDa9SM8A7os",
            "5gHnniPl0f8", "YLGwalTND7M"]
 TITULO_DE = {i: O_MESMO for i in AS_SEIS}
 
+# E ESTE ARQUIVO REPROVOU EM 18/10 as 09:2x, UM DIA depois de eu o escrever: ele
+# cravava a lista das SEIS por IDENTIDADE e a rodada CONSUMIU a primeira delas
+# (`SZV9Vk5YFwI` virou o `kolejny-poziom-s059`), logo sobram cinco e a que fica e
+# outra. E a classe do 743/753/761 — identidade onde havia propriedade — pela
+# QUARTA vez, agora num arquivo meu de um dia de vida.
+#
+# A propriedade e esta, e nao a lista: das copias do grupo, as que AINDA nao
+# renderam short saem uma a uma sem o mapa de titulos, e colapsam em UMA com
+# ele, que e a PRIMEIRA delas na ordem viva. Isso vale com seis, com cinco e com
+# duas — e quando sobrar UMA so, colapsar deixa de ter o que medir, o que vai
+# DITO em vez de passar por vacuidade.
 
-def test_sem_o_titulo_ele_devolve_SEIS():
-    """O defeito, ancorado: e preciso que ele exista para o conserto valer."""
-    cru = concentracao.origens_sem_uso("kolejny-poziom", ORDEM_VIVA_KOL)
-    assert cru == AS_SEIS
+
+def _livres(titulo_de=None):
+    """As copias do grupo que a producao ainda nao consumiu, na ordem viva."""
+    saida = concentracao.origens_sem_uso(
+        "kolejny-poziom", ORDEM_VIVA_KOL, None, titulo_de
+    )
+    return [i for i in saida if i in AS_SEIS]
+
+
+def test_sem_o_titulo_ele_devolve_UMA_POR_COPIA_LIVRE():
+    """O defeito, ancorado na PROPRIEDADE: sem titulo, cada copia conta.
+
+    Em 03:1x eram as seis; hoje sao as que sobraram. O que o conserto precisa
+    que exista e a INFLACAO — mais de uma saida para um titulo so.
+    """
+    livres = _livres()
+    assert len(livres) >= 2, (
+        "sobrou menos de duas copias livres neste grupo, logo nao ha inflacao "
+        "para medir e este arquivo perdeu a ancora — releia a nota acima em vez "
+        "de apagar o teste"
+    )
+    assert set(livres) <= set(AS_SEIS)
+    assert livres == [i for i in ORDEM_VIVA_KOL if i in livres]
 
 
 def test_com_o_titulo_ele_devolve_UMA():
@@ -48,32 +78,31 @@ def test_e_a_que_sobra_e_a_PRIMEIRA_da_ordem():
     colapsado = concentracao.origens_sem_uso(
         "kolejny-poziom", ORDEM_VIVA_KOL, None, TITULO_DE
     )
-    assert colapsado == ["SZV9Vk5YFwI"]
+    assert colapsado == [_livres()[0]], (
+        "colapsou numa copia que nao e a primeira da ordem viva entre as livres"
+    )
 
 
 def test_o_tamanho_da_inflacao_sai_CONTADO():
     assert concentracao.copias_colapsadas(
         "kolejny-poziom", ORDEM_VIVA_KOL, TITULO_DE
-    ) == 5
+    ) == len(_livres()) - 1
 
 
 def test_titulo_DESCONHECIDO_nao_colapsa_com_nada():
     """Senao dois ids sem titulo virariam um, que e inventar duplicata."""
-    parcial = {"SZV9Vk5YFwI": O_MESMO}   # os outros cinco sem titulo
-    saida = concentracao.origens_sem_uso(
-        "kolejny-poziom", ORDEM_VIVA_KOL, None, parcial
-    )
-    assert len(saida) == 6
-    assert saida[0] == "SZV9Vk5YFwI"
+    livres = _livres()
+    parcial = {livres[0]: O_MESMO}       # as outras livres SEM titulo
+    saida = _livres(parcial)
+    assert len(saida) == len(livres), "titulo desconhecido colapsou com algo"
+    assert saida[0] == livres[0]
 
 
 def test_titulos_DIFERENTES_nao_colapsam():
     """Contraprova no outro sentido: sem copia, nada sai."""
     distintos = {i: f"titulo {n}" for n, i in enumerate(AS_SEIS)}
-    saida = concentracao.origens_sem_uso(
-        "kolejny-poziom", ORDEM_VIVA_KOL, None, distintos
-    )
-    assert saida == AS_SEIS
+    saida = _livres(distintos)
+    assert saida == _livres()
     assert concentracao.copias_colapsadas(
         "kolejny-poziom", ORDEM_VIVA_KOL, distintos
     ) == 0
@@ -81,9 +110,7 @@ def test_titulos_DIFERENTES_nao_colapsam():
 
 def test_mapa_VAZIO_nao_e_tratado_como_mapa():
     """`{}` tem de cair no ramo 'sem titulo', nao colapsar tudo em nada."""
-    assert concentracao.origens_sem_uso(
-        "kolejny-poziom", ORDEM_VIVA_KOL, None, {}
-    ) == AS_SEIS
+    assert _livres({}) == _livres()
 
 
 def test_origem_JA_usada_continua_fora_dos_dois_ramos():
@@ -93,6 +120,8 @@ def test_origem_JA_usada_continua_fora_dos_dois_ramos():
         )
         assert "SP7Vz8qHdRY" not in saida
         assert "GUiq15usizw" not in saida
+        # e a copia que ESTA rodada consumiu tambem saiu dos dois ramos
+        assert "SZV9Vk5YFwI" not in saida
 
 
 def test_a_nota_do_defeito_continua_escrita():

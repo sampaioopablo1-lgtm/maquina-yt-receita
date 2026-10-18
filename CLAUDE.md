@@ -2381,6 +2381,40 @@ assert da contraprova estava ERRADO na primeira execução:** eu escrevi que o
 de `[]`. Quem mascara é o **default** — `get(k, [])` —, e foi corrigido para
 cobrar as três comparações.
 
+## CONSUMIR A PAUTA REPROVA O TESTE QUE ANCORA NELA — medido em 18/10 às 09:2x
+
+**SETE testes meus reprovaram porque a rodada FEZ O QUE ELES MEDIAM**, e nenhum
+deles media um limiar: seis do `test_origem_sem_uso_contava_ID_e_nao_TITULO.py`,
+escrito por mim **um dia antes**, e um do `test_pauta_local.py`.
+
+A causa é uma só. O arquivo das seis cópias cravava a **lista exata** das origens
+de zero usos do `kolejny` e o id da que fica depois do colapso — e esta rodada
+**consumiu a primeira delas** (`SZV9Vk5YFwI` virou o `kolejny-poziom-s059`). Logo
+sobram cinco, a que fica é outra, e a inflação é quatro em vez de cinco. **É a
+classe do 743/753/761 — identidade onde havia propriedade — pela QUARTA vez.**
+
+**A propriedade era outra, e é ela que ficou cobrada:** das cópias do grupo, as
+que **ainda não renderam short** saem uma a uma sem o mapa de títulos e colapsam
+em **UMA** com ele, que é a **primeira delas na ordem viva**. Isso vale com seis,
+com cinco e com duas — e os testes agora **derivam** o conjunto livre em vez de
+listá-lo, com um assert que **falha dizendo que perdeu a âncora** quando sobrar
+menos de duas, em vez de passar por vacuidade.
+
+**E o sétimo é mais interessante, porque o teste estava CERTO ao reprovar.** Ele
+cobrava `ids > grupos` sobre `pauta_local.livres()` e disse *"sem nenhum grupo com
+cópia, este teste não está medindo nada"* — exatamente o que havia acontecido: a
+origem consumida era o último grupo com cópia do retrato de 06/10. **Ele media no
+lugar que o consumo esvazia.** A confusão entre ID e GRUPO que produziu o "cinco"
+de 12/10 mora no **AGRUPAMENTO**, que não depende de a pauta ter andado; sobre
+`livres()` a diferença é consequência. Reescrito para medir no acervo, com o caso
+vazio **dito** em vez de reprovado.
+
+**A regra que fica: teste que ancora em id de origem LIVRE reprova quando a pauta
+for consumida — e consumir pauta é o trabalho.** Ancore na propriedade e derive o
+id do estado vivo, ou o teste passa a punir a produção. A nota de 17/10 às 20:1x
+já descrevia isto nos dois testes do `pauta_viva` que ancoravam no `eZ697VNYCPU`;
+**eu escrevi o arquivo das seis cópias no dia seguinte com o mesmo defeito.**
+
 ## O timeout do `execute_sql` no UPDATE correlaciona com o TAMANHO do texto
 
 **Observado em 13/10, quatro tentativas, e refina o aviso 621 — que eu vinha

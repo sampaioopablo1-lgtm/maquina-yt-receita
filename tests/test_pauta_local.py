@@ -53,14 +53,37 @@ def test_dez_copias_de_um_titulo_valem_UMA_origem():
 
 
 def test_ids_livres_e_origens_livres_sao_numeros_DIFERENTES():
-    """Era exatamente a confusao que produziu o "cinco"."""
+    """Era exatamente a confusao que produziu o "cinco".
+
+    REESCRITO em 18/10 as 09:2x, porque ele reprovou: a propriedade era cobrada
+    sobre `livres()`, e a producao CONSUMIU o ultimo grupo com copia (a origem
+    do ZUS virou o `kolejny-poziom-s059`), logo `livres()` veio vazio e o teste
+    acusou "nao esta medindo nada". Ele estava certo — e media no lugar errado.
+
+    A confusao que produziu o "cinco" e entre ID e GRUPO, e isso existe no
+    AGRUPAMENTO, que nao depende de a pauta ter sido consumida. Sobre `livres()`
+    a diferenca e consequencia, nao propriedade: ela desaparece legitimamente
+    quando as copias livres acabam, e um teste nao pode reprovar por producao
+    ter andado.
+    """
     L = PL.livres()
     ids = sum(len(i) for _, _, i in L)
-    assert ids >= len(L)
-    # no retrato de hoje ha grupo com copia, entao tem de haver diferenca
-    assert ids > len(L), (
-        "sem nenhum grupo com copia, este teste nao esta medindo nada — "
-        "confira a ancora do ZUS")
+    assert ids >= len(L), "menos ids que grupos e impossivel"
+
+    # a propriedade, medida onde ela mora: o acervo agrupa copias por titulo
+    todos = PL.longos_publicados()
+    titulos = {tit for _, tit, _ in todos.values()} if todos and isinstance(
+        next(iter(todos.values())), tuple) else None
+    assert todos, "o leitor do retrato devolveu vazio — isto SIM e defeito"
+    if titulos is not None:
+        assert len(todos) > len(titulos), (
+            "nenhum titulo repetido no acervo inteiro: ou o retrato mudou de "
+            "forma, ou as 46 duplicatas sairam — releia antes de apagar")
+
+    # e quando houver grupo com copia entre as LIVRES, a diferenca aparece
+    if ids == len(L):
+        assert all(len(i) == 1 for _, _, i in L), (
+            "ids == grupos mas algum grupo tem mais de um id — contagem quebrada")
 
 
 def test_grupo_PARCIALMENTE_usado_sai_inteiro():
