@@ -1,0 +1,76 @@
+{
+ "slug": "epomeno-epipedo",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#16283C",
+  "c1": "#2E7BB4",
+  "c2": "#E0A02E",
+  "bg": "#F3F7FA"
+ },
+ "pacote": "epomeno-epipedo-s059",
+ "longo_existente": "h04-UVlVevs",
+ "longo": [],
+ "thumb": {
+  "l1": "Ο συνάδελφος",
+  "l2": "δεν μετρά"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Ίδιος μισθός",
+   "sub": "άλλο καθαρό",
+   "sem_cap": true,
+   "nar": "Δύο συνάδελφοι με τον ίδιο μισθό παίρνουν άλλο καθαρό ποσό."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ίδιος συντελεστής",
+   "nar": "Και συμβαίνει με τον ίδιο συντελεστή υπερωρίας."
+  },
+  {
+   "layout": "item",
+   "kicker": "Οι κρατήσεις",
+   "nar": "Ο λόγος είναι ότι οι κρατήσεις δεν είναι σταθερές για όλους."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Η κλίμακα",
+   "nar": "Εξαρτώνται από το πού βρίσκεται ο καθένας στην κλίμακα.",
+   "sub": "η κλίμακα"
+  },
+  {
+   "layout": "lista",
+   "kicker": "Και στο ίδιο πρόσωπο",
+   "nar": "Και αλλάζουν στο ίδιο πρόσωπο μέσα στη χρονιά."
+  },
+  {
+   "layout": "item",
+   "kicker": "Άρα",
+   "nar": "Άρα ο αριθμός του συναδέλφου δεν λέει τίποτα για σένα."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Δεν είναι αδικία",
+   "nar": "Δεν είναι αδικία ούτε λάθος μέτρησης: είναι η κλίμακα.",
+   "sub": "δεν είναι λάθος"
+  },
+  {
+   "layout": "item",
+   "kicker": "Πού κοιτάς",
+   "nar": "Ο αριθμός που αποφασίζει βρίσκεται στη μισθοδοσία σου."
+  },
+  {
+   "layout": "item",
+   "kicker": "Δική σου",
+   "nar": "Στη δική σου και σε κανενός άλλου."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Δες τη δική σου",
+   "nar": "Δες τη δική σου μισθοδοσία και κάνε εγγραφή τώρα."
+  }
+ ],
+ "copy": "# epomeno-epipedo-s059\n\n## TITULO\nΊδιος Μισθός, Ίδιος Συντελεστής, Άλλο Καθαρό: Γιατί ο Συνάδελφος Δεν Μετρά\n\n## TITULO SHORT\nΟ συνάδελφος δεν μετρά\n\n## DESCRICAO\nΗ πιο κοινή κίνηση όταν θέλεις να κρίνεις μια υπερωρία είναι να ρωτήσεις τον συνάδελφο: *εσένα πόσο σου βγήκε;* Και είναι η λάθος κίνηση, όχι επειδή κρύβει κάτι, αλλά επειδή **μετράει το λάθος νοικοκυριό**.\n\nΔύο άνθρωποι στο ίδιο γραφείο, με τον ίδιο μισθό και τον **ίδιο συντελεστή υπερωρίας**, μπορούν να πάρουν διαφορετικό καθαρό ποσό για την ίδια ώρα. Ο λόγος δεν είναι ο συντελεστής — αυτός είναι αληθινός και είναι ο ίδιος. Ο λόγος είναι ότι οι **κρατήσεις δεν είναι σταθερές**: εξαρτώνται από το πού βρίσκεται ο καθένας στην κλίμακα.\n\nΚαι εδώ είναι το σημείο που κάνει τη σύγκριση άχρηστη ακόμη και με τον εαυτό σου: οι ίδιες κρατήσεις αλλάζουν **μέσα στη χρονιά**. Ο ίδιος συντελεστής δίνει άλλο καθαρό ποσό στην αρχή και άλλο στο τέλος, στο ίδιο πρόσωπο, με το ίδιο χαρτί.\n\nΑυτό δεν είναι αδικία και δεν είναι λάθος. Είναι κλίμακα, και κλίμακα σημαίνει ακριβώς αυτό: ο ίδιος κανόνας δίνει διαφορετικό αποτέλεσμα σε διαφορετικό σημείο. Το λάθος γίνεται μόνο όταν παίρνεις το αποτέλεσμα κάποιου άλλου και το χρησιμοποιείς σαν να ήταν δικό σου.\n\nΟ αριθμός που αποφασίζει υπάρχει, είναι ένας, και δεν τον δίνει κανένας συνάδελφος: βγαίνει από τη **δική σου** μισθοδοσία. Πριν πεις ναι ή όχι στην επόμενη ώρα, δες εκείνη — όχι τη συζήτηση στο διάλειμμα.\n\n## COMENTARIO FIXADO\nΟ έλεγχος: ο αριθμός που αποφασίζει βγαίνει από τη δική σου μισθοδοσία. Ο ίδιος συντελεστής δίνει άλλο καθαρό σε άλλο σημείο της κλίμακας — και αλλάζει μέσα στη χρονιά, στο ίδιο πρόσωπο.\n\n## HASHTAGS\n#οικονομικα #υπερωρια #μισθοδοσια #epomenoepipedo #Shorts\n\n## TAGS\nυπερωρια, καθαρα ανα ωρα, συντελεστης υπερωριας, κρατησεις, κλιμακα, μισθοδοσια, συγκριση με συναδελφο, ιδιος μισθος, διαφορετικο καθαρο, μεσα στη χρονια, οικονομικα ελλαδα, προσωπικα οικονομικα, epomeno epipedo, κανονας\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Conferido cena a cena: a peca nao\ndiz o valor do coeficiente de horas extras, nao diz aliquota, nao diz faixa da\nescala, nao cita valor em euros e nao nomeia orgao. A regra (g) tira deste longo\ntudo o que MUDA — e aqui isso inclui o proprio coeficiente, porque ele e\npercentual com vigencia.\n\n## FAMILIA DE ENTRADA ERRADA\nCOMPARACAO COM TERCEIRO NO LUGAR DA PROPRIA FOLHA — distinta das TRES que esta\norigem ja rendeu: o s002 e o MES errado, o s006 sao DOIS numeros em vez de um\n(liquido/hora contra bruto/hora), e o s055 e uma medicao nao bastar. Aqui a\nentrada errada e de outra classe: o insumo vem da pessoa ERRADA, e por isso\nnenhuma conta feita com ele pode estar certa — mesmo com mesmo salario e mesmo\ncoeficiente, porque a escala muda o resultado por ponto e por mes.\n\n## EXPOSICAO DECLARADA ANTES DE PUBLICAR\nPrevisao edge 42,2 / piper 37,4 — os dois dentro de 18 a 45 s e o edge dentro\nda mira da frota (41,5 a 43,0). Chegou ai por DOIS passos: alongada de 39,3\n(abaixo do piso) e depois encurtada de 43,7 (que o portao `duracao` reprovou\npelo teto de 43,1), com `ensaio.chars_por_cena` dando o alvo de 53 caracteres. **E eu NAO declaro de que lado\nda banda o real vai cair.** A banda esta em (-0,6; 4,0) — 4,6 s de largura\ncontra 1 s de granularidade — e este canal tem os TRES residuos NEGATIVOS da\nserie nesta mesma janela de previsao, ao lado de reais de 42, 43 e 44. Dizer o\nlado seria vender previsao que a banda nao tem.\n\n## FONTES\nO longo de onde este short foi extraido (`h04-UVlVevs`, pacote\nepomeno-epipedo-014, 86 capitulos) carrega os limites, os percentuais e as\nfontes. Este short NAO introduz numero novo sobre o mundo, entao nao exige fonte\ninstitucional nova. Os capitulos de origem sao o 28, o 29, o 30, o 31, o 32 e o\n44.\n"
+}

@@ -243,6 +243,9 @@ SERIE = [
     ("epomeno-epipedo-s057", 41.4, 41, "edge"),
     ("kolejny-poziom-s058", 41.7, 42, "edge"),
     ("labtreinamento-s075", 25.8, 29, "edge"),
+    ("epomeno-epipedo-s058", 41.5, 42, "edge"),  # job 117626313798 — sinal NAO estabelecido (770)
+    ("kolejny-poziom-s059", 42.4, 45, "edge"),  # job 117636903029 — DOIS lengthSeconds (44 e 45), usado o MAIOR; resolvido quando a rota REABRIU, duas rodadas depois
+    ("labtreinamento-s076", 26.7, 29, "edge"),  # job 117648410242 — real FORA do teto da mira (26,0) com o mira.py reprovando o edge por 0,7 s
     ("epomeno-epipedo-s058", 41.5, 42, "edge"),  # job 117626313798 — sinal NAO estabelecido (770); QUARTO ponto seguido deste canal na janela estreita saindo em 41-42  # job 117614283571 — real FORA do teto da mira (26,0) com a mira VERDE  # job 117603600876 — DOIS lengthSeconds (41 e 42), usado o MAIOR; sinal NAO estabelecido (770)  # job 117593154113 — TERCEIRO negativo estabelecido, mesma janela estreita  # job 117583621587 — real FORA do teto da mira (26,0) com a mira VERDE   # job 117572513678 — sinal NAO estabelecido (770)
 ]
 
