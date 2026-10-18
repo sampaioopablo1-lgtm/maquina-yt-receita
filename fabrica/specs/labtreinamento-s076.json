@@ -1,0 +1,76 @@
+{
+ "slug": "labtreinamento",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#1F2933",
+  "c1": "#3F6C51",
+  "c2": "#C98B2E",
+  "bg": "#F5F3ED"
+ },
+ "pacote": "labtreinamento-s076",
+ "longo_existente": "Sr6VhvD_aPE",
+ "longo": [],
+ "thumb": {
+  "l1": "O teto",
+  "l2": "não ajuda"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Teto alto",
+   "sub": "não é desconto",
+   "sem_cap": true,
+   "nar": "Até vinte parece vantagem."
+  },
+  {
+   "layout": "item",
+   "kicker": "Só parece",
+   "nar": "É limite, não é gente."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A conta",
+   "sub": "pela sua lista",
+   "nar": "O custo sai da sua lista."
+  },
+  {
+   "layout": "item",
+   "kicker": "Teto grande",
+   "nar": "Teto grande e lista curta não ajuda."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Teto menor",
+   "nar": "Teto menor e preço menor ganha."
+  },
+  {
+   "layout": "item",
+   "kicker": "Por quê",
+   "nar": "Divida por quem vai mesmo."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A inversão",
+   "sub": "acontece aqui",
+   "nar": "Aqui a mais barata perde."
+  },
+  {
+   "layout": "item",
+   "kicker": "Então",
+   "nar": "Leia o teto com a sua lista."
+  },
+  {
+   "layout": "item",
+   "kicker": "E depois",
+   "nar": "Divida pelo mesmo número."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Leia junto",
+   "nar": "Leia junto e se inscreva."
+  }
+ ],
+ "copy": "# labtreinamento-s076\n\n## TITULO\nTurma de Até Vinte Não É Desconto: o Teto Só Vale Junto com a Sua Lista\n\n## TITULO SHORT\nO teto descreve a sala dele\n\n## DESCRICAO\nA cotação de treinamento quase sempre traz duas coisas: um preço de turma e um limite — *turma de até tantas pessoas*. E o limite alto é lido como vantagem, quase como um desconto embutido. **Não é.**\n\nO teto é um limite, não uma contagem. Ele diz quantas pessoas cabem, nunca quantas você vai mandar. E o número que decide a compra não é o preço nem o teto: é o **custo por pessoa**, que não está impresso em lugar nenhum da proposta e muda conforme a SUA lista.\n\nDaí sai a parte que inverte a comparação. Se a sua lista é curta, o teto grande não baixa nada: você divide o mesmo preço de turma por quem vai de fato, e o custo por pessoa sobe na proporção exata dessa divisão. E o contrário também vale — uma cotação com teto **menor** e preço menor pode terminar à frente, porque o preço dela é menor e o seu divisor é o mesmo nas duas contas.\n\nEsse é o ponto em que a cotação \"mais barata por vaga\" perde. Dividir pelo teto dá o melhor caso possível, aquele que só existe com a turma cheia. Dividir pela sua lista dá o número que você vai pagar. Os dois saem da mesma folha, e só o segundo decide.\n\nO que fazer é curto e cabe em dois passos. Primeiro: conte quantas pessoas você VAI mandar, não quantas cabem — quem está de licença, de férias ou em outro turno não entra. Segundo: divida o preço de cada cotação por esse mesmo número e ordene. O teto continua importando, mas como contexto do preço, nunca sozinho.\n\nE a leitura que sobra é esta: teto alto só é bom quando você tem gente para preencher. Sem isso, ele é um número que descreve a sala do fornecedor, não a sua despesa.\n\n## COMENTARIO FIXADO\nConfira em um minuto: divida o preço de cada cotação pelo número de pessoas que você VAI mandar, o mesmo nas duas. Se a ordem mudar, era o teto enganando.\n\n## HASHTAGS\n#treinamento #gestao #custos #labtreinamento #Shorts\n\n## TAGS\ncusto por pessoa, teto de turma, turma de ate, cotacao de treinamento, preco da turma, divisor, comparar cotacoes, lista de participantes, limite nao e contagem, orcamento, gestao de treinamento, labtreinamento, regra, conferencia\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. O unico numero que a peca diz e o\n\"ate vinte\" do EXEMPLO de teto, que e forma de cotacao e nao preco de mercado —\ne o proprio longo declara, no capitulo 7, que NAO cita quanto custa treinamento\nporque nao tem fonte. Ficaram de fora os valores em reais dos capitulos 31 a 39,\nque o longo marca explicitamente como INVENTADOS para a conta ficar visivel: numero\nque o proprio longo diz ser ilustracao nao entra de jeito nenhum (regra (g),\ncaso especial).\n\n## FAMILIA DE ENTRADA ERRADA\nTETO ALTO LIDO COMO VANTAGEM — distinta das CINCO que esta origem ja rendeu: o\ns006 e somar as horas antes de comparar, o s037 e nao preencher vaga que sobrou,\no s044 e quem faltou, o s055 e usar o MESMO divisor nas duas contas, e o s073 e\ncampo ausente que nao se presume. Aqui a entrada errada e anterior a todas:\ntratar o TETO como beneficio em si, independente da propria lista — e dai sai a\ninversao em que o teto menor com preco menor ganha.\n\n## EXPOSICAO DECLARADA ANTES DE PUBLICAR\nPrevisao edge 26,7 / piper 21,9 — os dois dentro de 18 a 45 s, e o `mira.py`\nreprova o EDGE pelo teto da mira do canal (26,0) por 0,7 s. Encurtada em tres\npassos a partir de 41,5 com `ensaio.chars_por_cena` dando o alvo de 26\ncaracteres por cena. **E a pinca do 740/748\ncontinua valendo: mira VERDE nos dois mundos NAO poe o real dentro do\nALVO_POR_CANAL deste canal (20,0 a 26,0)** — onze das catorze pecas narradas pelo\nedge sairam FORA do teto de 26,0 com a mira verde. Com a banda observada em\n(-0,6; 4,0) eu NAO declaro de que lado o real vai cair: a banda tem 4,6 s de\nlargura contra 1 s de granularidade, e a rodada das 05:1x mediu uma copy que\nanunciou o teto e deu o piso.\n\n## FONTES\nO longo de onde este short foi extraido (`Sr6VhvD_aPE`, pacote\nlabtreinamento-012, 56 capitulos) carrega a conta inteira e declara ele mesmo\nque os valores em reais sao inventados. Este short NAO introduz numero novo\nsobre o mundo, entao nao exige fonte institucional nova. Os capitulos de origem\nsao o 5, o 24, o 28 e o 29.\n"
+}
