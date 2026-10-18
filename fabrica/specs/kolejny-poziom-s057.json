@@ -1,0 +1,76 @@
+{
+  "slug": "kolejny-poziom",
+  "idioma": "pl",
+  "voz": "pl-PL-MarekNeural",
+  "trilha": "Wholesome",
+  "paleta": {
+    "ink": "#1B3A5C",
+    "c1": "#2A9D8F",
+    "c2": "#F5B841",
+    "bg": "#F4F1EA"
+  },
+  "pacote": "kolejny-poziom-s057",
+  "longo_existente": "SP7Vz8qHdRY",
+  "thumb": {
+    "l1": "Nie przepada",
+    "l2": "wraca później"
+  },
+  "longo": [],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Ten odpis",
+      "sub": "nie jest automatyczny",
+      "nar": "Ten miesięczny odpis nie działa zupełnie automatycznie.",
+      "sem_cap": true
+    },
+    {
+      "layout": "item",
+      "kicker": "Musisz zgłosić",
+      "nar": "Musisz go sam zgłosić swojemu pracodawcy, pisemnie."
+    },
+    {
+      "layout": "item",
+      "kicker": "Na papierze",
+      "nar": "Na papierze, nie w rozmowie na korytarzu."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Bez zgłoszenia",
+      "nar": "Bez tego zgłoszenia zaliczka idzie pełną kwotą."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Pieniądze",
+      "sub": "nie przepadają",
+      "nar": "Ale te pieniądze nie przepadają zupełnie nigdzie."
+    },
+    {
+      "layout": "item",
+      "kicker": "Wracają",
+      "nar": "Wracają w zwrocie po rozliczeniu rocznym."
+    },
+    {
+      "layout": "item",
+      "kicker": "Tylko później",
+      "nar": "Tylko rok później, a nie w tym miesiącu."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Tracisz",
+      "sub": "termin, nie kwotę",
+      "nar": "Czyli tracisz termin, a nie samą kwotę."
+    },
+    {
+      "layout": "item",
+      "kicker": "Sprawdź",
+      "nar": "Sprawdź, czy twój pracodawca to zgłoszenie od ciebie ma."
+    },
+    {
+      "layout": "cta",
+      "kicker": "Sprawdź dziś",
+      "nar": "Sprawdź to dzisiaj i zapisz się teraz."
+    }
+  ],
+  "copy": "# kolejny-poziom-s057\n\n## TITULO\nTen Odpis Nie Działa Automatycznie: Bez Zgłoszenia Tracisz Termin, a Nie Kwotę\n\n## TITULO SHORT\nBez zgłoszenia? Tracisz termin\n\n## DESCRICAO\nJest na skali podatkowej mechanizm, który zmniejsza twoją miesięczną zaliczkę — i prawie wszyscy zakładają, że działa sam z siebie. **Nie działa.** Pracodawca stosuje go dopiero wtedy, gdy ma od ciebie pisemne zgłoszenie. Bez tego zgłoszenia zaliczka idzie pełną kwotą, miesiąc po miesiącu, przez cały rok.\n\nI tu jest miejsce, w którym ludzie wyciągają zły wniosek w jedną albo w drugą stronę. Jedni myślą, że skoro nic nie zgłosili, to te pieniądze po prostu **przepadły**. Drudzy myślą, że skoro nie przepadły, to zgłoszenie nic nie zmienia. Oba wnioski są błędne, a prawdziwy jest trzeci.\n\nPieniądze **nie znikają**. Wracają do ciebie w zwrocie, po rozliczeniu rocznym — tylko rok później, a nie w tym miesiącu. Czyli to, co tracisz bez zgłoszenia, nie jest kwotą. Jest **terminem**: ta sama suma dociera do ciebie dużo później i jednorazowo, zamiast rozłożona na twoje miesiące. Dla kogoś, kto układa budżet miesięcznie, ta różnica jest całkiem realna, choć w rocznym rachunku znika.\n\nDlatego rzecz do sprawdzenia nie jest skomplikowana i zajmuje jedną rozmowę: **czy twój pracodawca ma od ciebie to zgłoszenie.** Jeśli masz kilka źródeł wypłaty, ta część daje się podzielić między płatników — ale znowu, tylko na podstawie zgłoszenia, które sam złożysz. Nikt nie zrobi tego domyślnie za ciebie, i to nie jest przeoczenie kadr.\n\nNie podaję tu ani kwoty tego odpisu, ani stawek, ani progów. Te liczby zmieniają się z rokiem i z nowelizacją, a zdanie \"bez zgłoszenia tracisz termin, nie kwotę\" nie zmienia się wcale. Liczba, którą policzysz, jest twoja własna, z twojego paska.\n\nW pełnym filmie: skala krok po kroku, co widać na pasku w miesiącu przekroczenia progu, i czego ten prosty rachunek nie obejmuje.\n\nTreść informacyjna, nie stanowi porady podatkowej ani prawnej.\n\n## COMENTARIO FIXADO\nNajmniej oczywista część: bez zgłoszenia pieniądze nie przepadają — wracają w zwrocie rok później. Tracisz więc termin, nie kwotę. A twój pracodawca ma to zgłoszenie od ciebie?\n\n## HASHTAGS\n#zaliczka #pasek #podatki #kolejnypoziom #Shorts\n\n## TAGS\nzgloszenie u pracodawcy, miesieczna zaliczka, zwrot po rozliczeniu, termin a kwota, skala podatkowa, pasek wyplaty, kilka zrodel, podzial miedzy platnikow, finanse osobiste, budzet miesieczny, kolejny poziom, rozliczenie roczne, wyplata, odpis, oswiadczenie\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. A regra (g) foi aplicada com CORTE\nDECLARADO: o longo da origem traz o valor anual do odpis e a parcela mensal, e os\nDOIS ficaram FORA — sao valores que mudam por ano e por novelizacao. Tambem\nficaram fora as stawki, os progos e o NOME do formulario, pelo 609. A regra\nsobrevive sem eles: \"sem o zgloszenie, voce perde o PRAZO, nao a QUANTIA\".\nA unica conta e a do proprio espectador, no proprio pasek dele.\n\nFamilia de entrada errada: DIREITO QUE EXIGE DECLARACAO — supor que o\nmecanismo se aplica sozinho, e depois concluir OU que o dinheiro se perdeu OU que\no zgloszenie nao muda nada. As duas conclusoes sao falsas e a verdadeira e a\nterceira: muda o TERMINO. As outras tres familias desta origem sao\nkolejny-poziom-s015 (A PENSAO INTEIRA NAO ENTRA NA FAIXA MAIOR — base),\n-s034 (A CONDICAO CONTA ANOS, NAO ZLOTYS — unidade) e -s041 (ANUNCIO NAO E\nNORMA — vigencia). Nenhuma e sobre ATO DO PROPRIO CONTRIBUINTE. Regra (f)\nconferida contra as tres.\n\n## EXPOSICAO DECLARADA ANTES DE PUBLICAR\nMira: edge 41,5 s — o PISO exato do ALVO_SHORT, que e onde a voz pl-PL-Marek\ndeve mirar pelo 679 — e piper 35,3 s; os dois dentro de 18 a 45 nos DOIS mundos.\nCom a banda OBSERVADA (-0,6 a +4,0 s), se o edge narrar o real deve cair entre\n40,9 e 45,5 s, logo PODE passar do teto de 45 (o caso do 772). Vai dito em vez\nde prometido, e o provedor sera MEDIDO pela anotacao do job (733).\nA banda tem 4,6 s de largura contra 1 s de granularidade: acertar dentro dela\nprova pouco (741/774).\n\n## FONTES\nOrigem: SP7Vz8qHdRY (pacote kolejny-poziom-011), longo JA PUBLICADO deste canal.\nO short nao introduz numero novo sobre o mundo — ao contrario, CORTA os que o\nlongo trazia — logo nao exige fonte nova, e o id do longo vai dito aqui.\n"
+}
