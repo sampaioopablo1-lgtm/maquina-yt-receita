@@ -1766,3 +1766,30 @@ Os outros dois seguem com delta zero, logo abaixo de 0,68/dia.
 reconectar o conector do Supabase — **83** linhas de `insert into videos`
 parqueadas e o `execute_sql` negado pela 21a rodada seguida; (3) a decisao do
 740/748, com quinze de dezoito medidos no labtreinamento.
+
+## 18/10 21:2x — s063 do kolejny no ar; o 9 confirmado na TERCEIRA leitura
+
+Peca: `kolejny-poziom-s063` = `Z3vtiXCZlaU`, publica, **43 s reais** (previsao
+edge 41,5 — o PISO exato; provedor **edge** medido, zero avisos no job
+`117790725744`). Residuo **+1,5**, ESTABELECIDO e dentro da banda.
+`RESIDUO_N` = 103.
+
+Inscritos **68 / 21 / 9**. O 9 do kolejny saiu na TERCEIRA leitura seguida, logo
+o passo nao e artefato de replica. Contra a referencia de 17/10 09:0x sao 36,1 h
+e o piso de resolucao e **0,66/dia** — o delta de UMA unidade vale exatamente
+isso, e o criterio de duas contagens recusa. Os tres seguem `indeterminado`.
+
+**A unica coisa que mudou de verdade hoje nesse quadro:** o kolejny deixou de
+estar ABAIXO do piso e passou a estar EM CIMA dele, e isso valeu para as tres
+rodadas seguintes. Nos outros dois a frase antiga continua: abaixo de 0,66/dia.
+
+Entregues HOJE nesta sessao: quatro pecas, uma por canal por rodada —
+`kolejny-poziom-s062`, `labtreinamento-s079`, `epomeno-epipedo-s062` e
+`kolejny-poziom-s063`. Todas `processed` e publicas, nenhuma fora de
+`processed`, nenhum `P0D`.
+
+**O que segue na sua mao:** (1) os dois cliques de consentimento do Google — sem
+retencao os experimentos 37/38/40 ficam indecidiveis; (2) reconectar o conector
+do Supabase: **84** linhas de `insert into videos` parqueadas, `execute_sql`
+negado pela 22a rodada seguida; (3) a decisao do 740/748, com quinze de dezoito
+medidos no labtreinamento.
