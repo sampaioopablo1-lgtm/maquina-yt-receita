@@ -2347,6 +2347,40 @@ com **LUFS −13,7**, LRA 2,8, pico −2,2 dBTP, desvio do alvo 0,3 e **nenhum
 silêncio**. Era um item meu em aberto desde o `s020`, e ele não exigia baixar
 artefato nenhum: sai pelo `::notice:: SOM` do próprio job.
 
+## O PORTÃO NÃO COBRA A CHAVE QUE O RENDER EXIGE — medido em 18/10 às 08:1x
+
+**O `epomeno-epipedo-s058` passou os ONZE portões do `prontidao` e o render morreu
+em `KeyError: 'longo'`.** Eu escrevi a spec de short solto sem o campo
+`"longo": []` — lista VAZIA, porque não há longo a renderizar — e nenhum portão
+olha para isso: eles conferem duração nos dois mundos, identidade, variedade,
+ortografia, título duplicado, similaridade e números. **Nenhum abre a spec como
+o render a abre.**
+
+O custo foi um run inteiro: o `39110638169` instalou o ffmpeg, baixou as **três**
+trilhas do incompetech e só então estourou, com `::warning:: No files were found`
+no lugar de causa. **E o `KeyError` NÃO sai pelas anotações** — o que o job
+emitiu foi o aviso do artefato vazio, que é indistinguível de render que não
+produziu arquivo por outro motivo. A causa saiu do LOG, e nesta sessão o `gh`
+recusa o redirecionamento para o blob (`refusing a redirect to
+productionresultssa14.blob.core.windows.net`), logo a leitura foi `curl -sL` **no
+sandbox do Composio** sobre a URL assinada que o `get_job_logs` devolve. Fica
+registrado porque é a terceira rota para ler job, ao lado do MCP e das anotações.
+
+**A regra que fica: ausência de chave não é valor vazio.** E o portão que nunca
+lê a spec pelo caminho do render não protege contra isso — é o §3.8 outra vez,
+com verde fabricado antes de um `KeyError`.
+
+**NÃO virou portão novo**, e o motivo é o do `mira.py`: varrido o disco, **zero**
+das specs de short solto estão sem a chave, logo o buraco é **LATENTE** e o lugar
+dele é a suíte. `tests/test_o_portao_nao_cobra_a_CHAVE_que_o_render_exige.py`,
+sete testes — um varre toda spec de short solto, um **falha se a varredura ficar
+vazia** (que é o defeito do 743 em forma de glob), um **falha se alguém
+transformar isto em portão**, e um distingue chave ausente de lista vazia. **E o
+assert da contraprova estava ERRADO na primeira execução:** eu escrevi que o
+`.get` mascara a diferença, e o `.get` **nu** devolve `None`, que é distinguível
+de `[]`. Quem mascara é o **default** — `get(k, [])` —, e foi corrigido para
+cobrar as três comparações.
+
 ## O timeout do `execute_sql` no UPDATE correlaciona com o TAMANHO do texto
 
 **Observado em 13/10, quatro tentativas, e refina o aviso 621 — que eu vinha

@@ -1443,3 +1443,23 @@ ele pode ser está mais baixo. Os três canais seguem `indeterminado`.
    **70** linhas de `videos` parqueadas sem entrar.
 
 Quatro peças publicadas nestas quatro rodadas, todas públicas e medidas.
+
+## 18/10 08:2x — epomeno-epipedo-s058 no ar, e um run perdido por chave ausente
+
+* **Peça:** `lXFart_bsg0`, pública, **42 s reais**. Origem: o rank 3 da ordem viva
+  do canal, não o rank 1 — o topo está em DOZE usos contra 4 do segundo, e o
+  portão `similaridade` existe por causa disso.
+* **O `execute_sql` segue negado — NONA rodada seguida.** As **71** linhas de
+  `insert into videos` continuam parqueadas em `docs/pendente/videos-a-inserir.sql`
+  e entram no minuto em que o conector voltar. **Reconectar o conector do Supabase
+  é hoje a única rota que devolve duração real pelo banco, inscritos, a regra (h)
+  e o registro em `videos`** — a ordem antiga da pendência 2 pressupunha um banco
+  que funcionava.
+* **Inscritos 68 / 21 / 8, delta ZERO nos três em 23,2 h.** O limite superior do
+  ritmo da frota aperta para **abaixo de 1,03 inscrito/dia**. Porta 1
+  `indeterminado` nos três canais.
+* **Um run morreu de graça:** a spec saiu sem o campo `"longo": []` e o render
+  estourou em `KeyError` **depois** de baixar as trilhas, com os onze portões
+  verdes. Travado na suíte, não em portão novo — o disco já estava limpo, o
+  buraco era latente.
+
