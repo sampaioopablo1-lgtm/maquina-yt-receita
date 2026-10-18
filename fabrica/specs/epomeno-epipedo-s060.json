@@ -1,0 +1,82 @@
+{
+ "slug": "epomeno-epipedo-s060",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#1D3557",
+  "c1": "#2A9D8F",
+  "c2": "#E9C46A",
+  "bg": "#F5F3EC"
+ },
+ "pacote": "epomeno-epipedo-s060",
+ "longo_existente": "h66MCKjwAJ8",
+ "thumb": {
+  "l1": "Το νοικοκυριό",
+  "l2": "όχι εσένα"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Μόνο εσένα",
+   "sub": "έτσι το μέτρησες",
+   "nar": "Υπολόγισες το τεκμήριο μόνο για τον εαυτό σου."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ο νόμος όμως",
+   "sub": "δεν κοιτάει μόνο εσένα",
+   "nar": "Ο νόμος όμως δεν κοιτάει μόνο εσένα σε αυτόν τον υπολογισμό."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Τη σύζυγο",
+   "sub": "στον ίδιο λογαριασμό",
+   "nar": "Αθροίζει και τη σύζυγο μέσα στον ίδιο λογαριασμό."
+  },
+  {
+   "layout": "item",
+   "kicker": "Τα τέκνα",
+   "sub": "εξαρτώμενα",
+   "nar": "Αθροίζει και τα εξαρτώμενα τέκνα του σπιτιού σου."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Άρα μικρότερο",
+   "sub": "από το σωστό",
+   "nar": "Άρα το δικό σου νούμερο βγαίνει μικρότερο από το σωστό."
+  },
+  {
+   "layout": "item",
+   "kicker": "Και η σύγκριση",
+   "sub": "πέφτει λάθος",
+   "nar": "Και τότε η σύγκριση με το εισόδημα πέφτει λάθος."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Μία εξαίρεση",
+   "sub": "γραμμένη ρητά",
+   "nar": "Υπάρχει μία εξαίρεση, και είναι γραμμένη ρητά."
+  },
+  {
+   "layout": "item",
+   "kicker": "Τέκνο με εισόδημα",
+   "sub": "βγαίνει έξω",
+   "nar": "Τέκνο που έχει δικό του εισόδημα βγαίνει έξω."
+  },
+  {
+   "layout": "item",
+   "kicker": "Μέτρα το σπίτι",
+   "sub": "όχι το άτομο",
+   "nar": "Μέτρα λοιπόν ολόκληρο το νοικοκυριό, και όχι το άτομο."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Ξανά σωστά",
+   "sub": "και εγγραφή",
+   "nar": "Κάνε τον υπολογισμό ξανά και κάνε εγγραφή εδώ."
+  }
+ ],
+ "copy": "# epomeno-epipedo-s060\n\n## TITULO\nΤο Τεκμήριο Δεν Είναι Ατομικό: Ο Υπολογισμός Αθροίζει Σύζυγο και Εξαρτώμενα Τέκνα\n\n## TITULO SHORT\nΜέτρα το νοικοκυριό, όχι εσένα\n\n## DESCRICAO\nΟι περισσότεροι που κάθονται να υπολογίσουν το τεκμαρτό τους κάνουν **έναν σωστό υπολογισμό πάνω σε λάθος σύνολο**: μετρούν τα δικά τους τετραγωνικά και το δικό τους αυτοκίνητο, βγάζουν έναν αριθμό και τον συγκρίνουν με το εισόδημά τους. Η αριθμητική είναι εντάξει. Το **υποκείμενο** δεν είναι.\n\nΟ υπολογισμός δεν κοιτάει μόνο εσένα. **Αθροίζει και τη σύζυγο, και τα εξαρτώμενα τέκνα του σπιτιού, στον ίδιο λογαριασμό.** Αν λοιπόν μετρήσεις μόνο τον εαυτό σου, το νούμερο που βγάζεις είναι μικρότερο από το πραγματικό — και επειδή αυτό το νούμερο μπαίνει σε **σύγκριση** με το δηλωμένο εισόδημα, το λάθος δεν μένει στο τεκμήριο: μεταφέρεται ολόκληρο στο συμπέρασμα. Μπορείς δηλαδή να καταλήξεις ότι \"δεν με πιάνει\" επειδή μέτρησες λιγότερα από όσα μετρά ο νόμος.\n\n**Υπάρχει μία εξαίρεση, και είναι συγκεκριμένη και γραμμένη:** το εξαρτώμενο τέκνο που έχει **δικό του** εισόδημα βγαίνει έξω από αυτό το άθροισμα. Είναι εξαίρεση με όρο, όχι γενική απαλλαγή — και το ότι υπάρχει επιβεβαιώνει τον κανόνα: αν το άθροισμα ήταν ατομικό εξ αρχής, δεν θα χρειαζόταν να εξαιρεθεί κανείς.\n\n**Η διόρθωση είναι μία γραμμή στο χαρτί σου:** πριν συγκρίνεις, γράψε τη λίστα των προσώπων που μπαίνουν στον λογαριασμό — εσύ, η σύζυγος, τα εξαρτώμενα τέκνα χωρίς δικό τους εισόδημα — και μετά μέτρα. Αν η λίστα σου είχε **ένα** όνομα και το σπίτι έχει περισσότερα, ο υπολογισμός σου ήταν για άλλο νοικοκυριό.\n\nΔεν δίνω εδώ ποσά, κλίμακες, συντελεστές ούτε έτη. Αυτά αλλάζουν — και άλλαξαν — και όποιος τα απομνημονεύει μαθαίνει κάτι που λήγει. Το **ποιους** μετράς δεν αλλάζει. Τα ποσά πάρ' τα από τη δική σου δήλωση.\n\nΣτο πλήρες υλικό: οι κλίμακες ανά τετραγωνικό, η ζώνη και η προσαύξηση, το αυτοκίνητο με βάση τις εκπομπές, και ένα παράδειγμα βήμα προς βήμα με χαρτί και στυλό.\n\nΕνημερωτικό υλικό, δεν αποτελεί φορολογική συμβουλή.\n\n## COMENTARIO FIXADO\nΤο λιγότερο προφανές: η εξαίρεση του τέκνου με δικό του εισόδημα **αποδεικνύει** τον κανόνα — αν το άθροισμα ήταν ατομικό, δεν θα χρειαζόταν εξαίρεση. Πόσα ονόματα έχει η δική σου λίστα;\n\n## HASHTAGS\n#τεκμήρια #φορολογικήδήλωση #τεκμαρτόεισόδημα #epomenoepipedo #Shorts\n\n## TAGS\ntekmiria, tekmarto eisodima, forologiki dilosi, exartomena tekna, syzygos, noikokyrio, ypologismos tekmiriou, eisodima, forologia ellada, dilosi eisodimatos, epomeno epipedo, oikonomika, prosopiki oikonomia, forotechnika, odigos\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Conferido cena a cena: nenhuma\nkwota, nenhuma escala por metro quadrado, nenhum percentual, nenhum ano, nenhum\nnumero de lei nem de FEK — e o longo cita TODOS esses. A regra (g) manda isso, e\naqui ela morde mais do que o normal: **este longo e inteiro sobre numeros que\nACABARAM DE MUDAR** (as escalas cairam 30% e o proprio longo diz \"pérsi era\"),\nlogo qualquer valor que o curto falasse envelheceria no ano fiscal seguinte. O\nque o curto carrega e o ESCOPO do calculo — quem entra na conta —, que nao\nmudou com a lei nova.\nAs unicas quantidades faladas sao estruturais (\"so para si\", \"uma excecao\", \"um\nnome\") e descrevem a FORMA da obrigacao, nao um valor.\n\nFamilia de entrada errada: TEKMIRIO CALCULADO SO PARA SI — fazer a aritmetica\ncerta sobre o SUJEITO errado, medindo o individuo onde a lei soma o domicilio.\nE familia NOVA nesta origem (`h66MCKjwAJ8`): as duas anteriores sao\nepomeno-epipedo-s016 (O SEGUNDO NUMERO EXISTE — que o tekmarto nao pergunta\nquanto voce ganhou) e -s041 (NAO SE SOMAM, SE COMPARAM — somar o declarado com o\npresumido em vez de compara-los). Nenhuma das duas e sobre QUEM entra no\ncalculo, que e o eixo desta. Regra (f) conferida contra as duas.\nE conferida contra as QUATRO pecas de hoje neste canal: -s056 (CUSTO FIXO\nDIVIDIDO POR POUCO USO), -s057 (LIMITE RELATIVO LIDO COMO FIXO), -s058 (CUSTO\nFORA DO INDICE POR FALTA DE METODO) e -s059 (COMPARACAO COM TERCEIRO NO LUGAR DA\nPROPRIA FOLHA). A vizinha mais proxima e a -s041, da mesma origem, e a distincao\nvai dita: la a operacao esta errada (somar em vez de comparar); aqui a operacao\nesta certa e o CONJUNTO medido esta errado. Operacao errada e dominio errado nao\nsao a mesma entrada errada.\n\n## EXPOSICAO DECLARADA ANTES DE PUBLICAR\nMira: edge **41,5 s** e piper **36,7 s** — os dois dentro de 18 a 45 s, que e o\nque o portao `duracao` cobra nos DOIS mundos. Este canal NAO tem\n`ALVO_POR_CANAL` medido, logo vale a mira da frota (41,5 a 43,0), e 41,5 e o\nPISO EXATO dela: escolha deliberada pela regra de redacao do 772. **E este canal\ne o unico que ja produziu residuo NEGATIVO** — os QUATRO negativos da serie sao\ndele —, logo mirar o piso aqui expoe ao lado de baixo e nao ao de cima, e isso\nvai dito em vez de escondido.\nA spec passou por SEIS versoes de duracao: 36,9 / 45,6 / 37,6 / 39,0 / 39,8 /\n40,9 e por fim 41,5. A segunda estourava o teto do portao (45,6 contra 43,1) e\nquatro ficavam abaixo do piso da mira — escrevo isto porque a conta de\ncaracteres por cena ACERTA a ordem de grandeza e nao o decimo, e quem confia\nnela sem rodar o `ensaio` publica fora da mira.\nCom a banda OBSERVADA de residuo (**-1,2 a +4,0 s, n=95**): se o edge narrar, o\nreal deve cair entre **40,3 e 45,5 s** — logo PODE passar do teto de 45 do\nportao, como aconteceu no `epomeno-epipedo-s032` (46 s reais com o portao\nverde), e PODE ficar abaixo do piso da mira, como nos quatro negativos deste\ncanal. A banda tem **5,2 s** de largura contra 1 s de granularidade: ela\nacomoda os dois extremos com igual conforto, logo **nao prometo nem o valor nem\no lado**. O provedor sera MEDIDO pela anotacao do job (733).\n\n## FONTES\nOrigem: `h66MCKjwAJ8` (longo JA PUBLICADO deste canal, **rank 8** da ordem VIVA\nde uploads lida nesta rodada). O short nao introduz numero novo sobre o mundo,\nlogo nao exige fonte nova, e o id do longo vai dito aqui.\n**E o caminho ate os capitulos vai declarado, porque o atalho de sempre\nFALHOU:** o `segundo_angulo.pacote_do_id` devolveu **None** para este id — a\nconvencao de nome nao foi seguida, que e o caso previsto no docstring dele. O\npacote e o `epomeno-epipedo-010` (73 capitulos), achado por BUSCA de conteudo na\nspec (a palavra \"Τεκμήρια\"), nao por nome. Isto nao e motivo para trocar de\norigem: e a regra (h) resolvida com spec local em vez de legenda.\nAs cenas saem dos capitulos **8** (\"Και δεν είσαι μόνο εσύ\" — o calculo soma\nconjuge e filhos) e **16** (o filho com renda propria sai da conta), que nenhum\ndos dois shorts anteriores desta origem usou.\nPor que o rank 8 e nao o rank 1: a `concentracao.contagem` deu o topo em **12\nusos** contra DOIS nos ranks 8, 9, 10, 12, 13, 16 e 17 — o habito de 13/10\nvisivel na contagem ANTES de escolher. Entre os sete empatados no minimo, o rank\n8 e o mais RECENTE, que e a regra de 16/10 aplicada DENTRO do grupo menos usado.\n**E o `origens_sem_uso` devolveu lista VAZIA neste canal** — todas as 18 origens\nda ordem viva ja renderam short. Lista vazia **nao prova ausencia de origem\nlivre**, porque a playlist OMITE longo (18/10 01:2x e 07:0x): ela ORDENA e nao\nENUMERA, logo 18 e um PISO.\n"
+}
