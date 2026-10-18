@@ -1227,3 +1227,34 @@ Na sua mao, por valor:
 2. reconectar o conector do Supabase — unica rota que devolve `execute_sql` /
    `pg_net`, e com ela as 63 linhas de `docs/pendente/videos-a-inserir.sql`;
 3. a decisao do 740/748 (mira contra real), com a conta pronta.
+
+## 18/10 01:2x — labtreinamento-s073 no ar, e a playlist de uploads esta INCOMPLETA
+
+`ixqFtjXC_AQ`, 28 s reais contra previsao edge de 26,0 (provedor MEDIDO, zero
+avisos no job 117551494916): residuo +2,0, estabelecido, dentro da banda.
+RESIDUO_N = 83. Rota da duracao ABERTA (controle devolveu 44 s).
+
+TRES achados, e todos sao de instrumento meu:
+
+1. A playlist `UU...` do labtreinamento devolve TREZE longos, e dois outros —
+   StQNFMdpGdk (872 s) e XgqPVJuAk3o (785 s) — foram medidos como longos
+   PUBLICOS do mesmo canal e NAO aparecem nela. O canal tem ao menos QUINZE.
+   Eu vinha chamando essa playlist de "a ordem VIVA" e a usando como se fosse o
+   conjunto completo; ela da a ORDEM, nao o conjunto.
+2. A origem de ZERO usos era invisivel para quem escolhe pauta — o contador
+   conta origem usada. O QiaGg03WSR0 (rank 4) nunca rendeu short e nunca foi
+   oferecido. Instrumento novo: `concentracao.origens_sem_uso`.
+3. DOIS shorts do kolejny (s004 e s035) declaram como origem um longo do
+   LabTreinamento. O id esta errado, nao o conteudo. Consequencia que importa
+   para o senhor: o `videos.origem_id` dessas duas pecas marca como consumida a
+   origem ERRADA, logo a trava contra reusar origem esta cega na verdadeira.
+   NAO corrigi o id, porque o id certo do kolejny-poziom-018 nao esta no retrato
+   de 06/10 e sem `execute_sql` eu o adivinharia.
+
+Inscritos 68 / 21 / 8 — os tres `indeterminado`, janela de 16,0 h (piso
+1,50/dia). O limite mais apertado da frota segue sendo o 1,18/dia de 16/10.
+
+Na sua mao, por valor: (1) os dois cliques de consentimento do Google; (2)
+reconectar o conector do Supabase — 64 linhas parqueadas em
+`docs/pendente/videos-a-inserir.sql`, e sem ele o item 3 acima fica sem conserto;
+(3) a decisao do 740/748.

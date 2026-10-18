@@ -91,6 +91,61 @@ def contagem(canal: str, raiz: str = None) -> dict[str, int]:
     return dict(c)
 
 
+def origens_sem_uso(canal: str, ordem_viva, raiz: str = None) -> list[str]:
+    """Os longos da ordem dada que ainda nao renderam short NENHUM, na ordem.
+
+    Medido em 18/10 as 01:2x, e e um ponto cego que a `contagem` nao podia ter:
+    ela conta origem USADA, logo uma origem de zero usos simplesmente nao
+    aparece nela. O `labtreinamento` tinha QUATORZE origens na contagem e o
+    `QiaGg03WSR0` (rank 4 da ordem viva) nao rendeu short nenhum — invisivel
+    para o instrumento que escolhe pauta.
+
+    A cegueira e da MESMA familia do 762 e do 771: instrumento que ve so o que
+    foi usado nunca aponta o que nunca se usou. Aqui a direcao e a pior, porque
+    a origem de zero usos e justamente a de maior valor editorial.
+
+    AUSENCIA DE RETORNO NAO PROVA QUE NAO HA ORIGEM LIVRE, e o motivo e medido
+    na mesma rodada: a playlist `UU...` OMITE longo publico do canal (ver
+    `origem_de_outro_canal`). Lista incompleta devolve lista vazia aqui.
+    Esta funcao NAO decide: ela nomeia.
+    """
+    usadas = contagem(canal, raiz)
+    return [o for o in ordem_viva if o not in usadas]
+
+
+def origem_de_outro_canal(canal: str, dono_medido: dict, raiz: str = None) -> dict:
+    """{origem: canal_dono} das origens que ESTE canal declara e cujo dono
+    MEDIDO e outro canal.
+
+    `dono_medido` e {youtube_id: canal}, e tem de vir de MEDICAO — o campo
+    `author`/`channelId` da propria pagina do video. Origem ausente do mapa NAO
+    entra: ela e desconhecida, nao de outro canal.
+
+    Medido em 18/10 as 01:2x: `kolejny-poziom-s004` e `-s035` declaram
+    `longo_existente: QiaGg03WSR0`, e esse id foi medido como do LabTreinamento
+    (`author` LabTreinamento, 509 s) — enquanto as FONTES das duas specs dizem
+    que a origem e o `kolejny-poziom-018`. Logo o ID esta errado, nao o
+    conteudo: os dois shorts sao poloneses e sobre credito. Isso custa em dois
+    lugares: a `contagem` credita ao kolejny uma origem que nao e dele, e o
+    `videos.origem_id` dessas pecas marca como consumida a origem ERRADA, logo a
+    trava do 670 fica cega na verdadeira.
+
+    POR QUE NAO SE INFERE DA PLAYLIST, e isto e o achado de metodo: a primeira
+    versao desta funcao acusava a origem AUSENTE da ordem viva, e deu DOIS
+    falsos positivos na primeira execucao — `StQNFMdpGdk` (872 s) e
+    `XgqPVJuAk3o` (785 s), os dois medidos como longos PUBLICOS do
+    LabTreinamento (`isUnlisted: false`) e os dois FORA da playlist `UU...`.
+    Ausencia da playlist nao e prova de nada, e detector que inventa achado e
+    pior que nao ter detector (725).
+    """
+    fora = {}
+    for o in contagem(canal, raiz):
+        dono = dono_medido.get(o)
+        if dono and dono != canal:
+            fora[o] = dono
+    return fora
+
+
 def escrevivel(origem: str, canal: str, raiz: str = None) -> bool:
     """A origem tem spec LOCAL com capítulos, isto é: dá para escrever hoje.
 

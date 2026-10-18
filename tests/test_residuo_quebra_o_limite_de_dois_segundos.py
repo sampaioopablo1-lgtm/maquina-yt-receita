@@ -236,6 +236,7 @@ SERIE = [
     ("labtreinamento-s072", 25.7, 28, "edge"),  # job 117517230913
     ("epomeno-epipedo-s055", 41.5, 41, "edge"),  # job 117529604557 — o SEGUNDO negativo estabelecido
     ("kolejny-poziom-s056", 41.7, 43, "edge"),   # job 117540417103
+    ("labtreinamento-s073", 26.0, 28, "edge"),   # job 117551494916
 ]
 
 

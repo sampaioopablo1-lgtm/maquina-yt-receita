@@ -84,6 +84,46 @@ sempre o mesmo.
 **A regra que fica: antes de ler leitura vazia como defeito da peça, releia uma
 peça de CONTROLE cujo valor você já conhece.**
 
+**E EM 18/10 ÀS 01:2x A PLAYLIST `UU…` MOSTROU-SE INCOMPLETA — e ela é a base da
+"ordem VIVA" que eu escrevi em 16/10.** O `yt-dlp --flat-playlist` na playlist
+de uploads do `labtreinamento` devolveu **treze** longos. Dois outros,
+`StQNFMdpGdk` (872 s) e `XgqPVJuAk3o` (785 s), foram **medidos** como longos do
+mesmo canal (`author` LabTreinamento) e **públicos** (`isUnlisted: false`) — e
+**não aparecem na playlist**. Logo o canal tem ao menos **quinze**, não treze.
+
+**O que isto retrata:** eu escrevi que a playlist *"devolve a ordem VIVA"* e a
+usei como se fosse o CONJUNTO. Ela dá uma **ordem**; não dá o conjunto completo.
+A nota de 16/10 segue valendo para separar longo de short e para ordenar por
+recência — e **não** vale para dizer "estes são os longos do canal".
+
+**E ela me deu DOIS falsos positivos na primeira execução de um detector novo.**
+A primeira versão de `concentracao.origem_de_outro_canal` acusava a origem
+**ausente** da playlist, e acusou exatamente esses dois — origens legítimas do
+próprio canal. Reescrita para exigir **dono MEDIDO** (`{id: canal}`, do campo
+`author` da página), e origem fora do mapa **não entra**: desconhecido não é "de
+outro canal". É a regra do 725 — detector que inventa achado é pior que não ter
+detector — pega antes de relatar.
+
+**E A ORIGEM DE ZERO USOS ERA INVISÍVEL PARA QUEM ESCOLHE PAUTA.** A
+`concentracao.contagem` conta origem **USADA**, logo origem com zero shorts
+simplesmente não aparece nela — e é a de maior valor editorial. O
+`QiaGg03WSR0` (rank 4 da ordem viva do `labtreinamento`) não rendeu short nenhum
+e nunca foi oferecido. **É a cegueira do 762/771 na terceira direção**, e a pior
+das três. Agora `concentracao.origens_sem_uso(canal, ordem)` a nomeia — e avisa
+que **lista vazia não prova ausência**, porque a playlist omite longo.
+
+**E DOIS SHORTS DO KOLEJNY DECLARAM ORIGEM DE OUTRO CANAL.** O
+`kolejny-poziom-s004` e o `-s035` trazem `longo_existente: QiaGg03WSR0`, que é
+**longo do LabTreinamento** — enquanto as FONTES das duas dizem que a origem é o
+`kolejny-poziom-018`. Logo **o ID está errado, não o conteúdo**: os dois shorts
+são poloneses e sobre crédito. Custa em dois lugares: a contagem credita ao
+kolejny uma origem que não é dele, e o `videos.origem_id` dessas peças marca como
+consumida a origem **errada**, logo a trava do 670 fica cega na verdadeira.
+**Não corrigi o id**, porque o id certo do `kolejny-poziom-018` não está no
+retrato de 06/10 e sem `execute_sql` eu não o resolvo sem adivinhar.
+`tests/test_a_origem_de_zero_usos_e_invisivel.py`, dez testes — um deles **falha
+se a nota do falso positivo for apagada**, porque é ela que impede a repetição.
+
 **E EM 17/10 ÀS 09:0x EU QUASE DECLAREI A ROTA DOS INSCRITOS FECHADA — e o que
 estava errado era o meu GREP.** Eu sondei os três canais com
 `grep -o '"subscriberCountText":{[^}]*}'` e os três voltaram **VAZIO**. Pela
