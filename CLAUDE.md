@@ -2415,6 +2415,27 @@ id do estado vivo, ou o teste passa a punir a produção. A nota de 17/10 às 20
 já descrevia isto nos dois testes do `pauta_viva` que ancoravam no `eZ697VNYCPU`;
 **eu escrevi o arquivo das seis cópias no dia seguinte com o mesmo defeito.**
 
+## A SERIE DO RESIDUO PAROU DE CRESCER POR FALTA DE INSTRUMENTO — 18/10, 09:0x e 10:1x
+
+**Duas rodadas seguidas sem ponto de resíduo**, e a causa está medida nas duas:
+o controle `OhrGlJvnBoM` (44 s conhecidos, lido às 08:1x) voltou **vazio** às
+09:0x e outra vez às 10:1x, e com ele as peças recém-publicadas. `RESIDUO_N`
+está congelado em **90** desde o `epomeno-epipedo-s058`.
+
+**O que isto NÃO é:** peça que não indexou. O discriminador do 17/10 às 03:1x é
+exatamente este — peça de minutos e peça de dias falhando na MESMA chamada é a
+rota, não a indexação — e ele foi aplicado antes de concluir nas duas rodadas.
+
+**E o parque está fazendo o trabalho dele:** o `duracao_a_medir` tem **32**
+linhas com **duas** sem leitura, e elas entram na banda no minuto em que a rota
+abrir. Isso é o 726 ao contrário: o passo que **tem** instrumento sobrevive à
+rodada em que eu não consigo medir. Antes do parqueamento incondicional das
+06:1x, estas duas peças teriam saído da série sem registro.
+
+**O que fica dito em vez de estimado:** a banda de `(−0,6; 4,0)` é de ontem, e
+qualquer peça publicada nestas duas rodadas é **ponto futuro**, não ponto. Eu
+não leio resíduo de leitura que a rota não deu.
+
 ## O timeout do `execute_sql` no UPDATE correlaciona com o TAMANHO do texto
 
 **Observado em 13/10, quatro tentativas, e refina o aviso 621 — que eu vinha

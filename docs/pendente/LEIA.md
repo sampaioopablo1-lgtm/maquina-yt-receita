@@ -1485,3 +1485,21 @@ Quatro peças publicadas nestas quatro rodadas, todas públicas e medidas.
   de 1/FEV/2027, quando a barra sobe para 1.000. **O ritmo medido não fecha a
   Porta 1 nem no melhor caso que o instrumento ainda admite.**
 
+
+## 18/10 10:1x — labtreinamento-s076 no ar; rota da duração fechada há duas rodadas
+
+* **Peça:** `TgTa8nUcCpA`, pública, *"O teto descreve a sala dele"*. Origem rank 3
+  (`Sr6VhvD_aPE`, 5 usos), família nova — a sexta distinta dessa origem.
+* **Dois portões REPROVARAM antes de publicar, e isso é o sistema funcionando:**
+  o `similaridade` achou 0,67 contra um short que já está no ar neste canal
+  (teto 0,65), e o `variedade` contou 5 palavras na thumbnail (limite 4). Os dois
+  foram corrigidos; sem o conserto de 15/10 o primeiro não teria comparado contra
+  o que está no ar.
+* **Sem duração real há DUAS rodadas**, com o controle sondado nas duas: a rota
+  do YouTube está fechada, não é defeito das peças. Duas peças parqueadas
+  esperando, e a banda do resíduo congelada em 90 pontos.
+* **`execute_sql` negado pela 11ª rodada seguida** — **73** linhas de
+  `insert into videos` parqueadas.
+* **Inscritos 68 / 21 / 8, delta ZERO em 25,1 h.** Piso de resolução em
+  **0,96/dia**: a frota anda abaixo de um inscrito por dia como limite superior.
+
