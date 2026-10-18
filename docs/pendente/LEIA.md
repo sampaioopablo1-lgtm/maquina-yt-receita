@@ -1522,3 +1522,35 @@ Quatro peças publicadas nestas quatro rodadas, todas públicas e medidas.
 * **`execute_sql` negado pela 12ª rodada seguida** — **74** linhas parqueadas.
 * **Inscritos 68 / 21 / 8, delta ZERO em 26,1 h.** Piso em **0,92/dia**.
 
+
+## Rodada de 18/10 12:07 — kolejny-poziom-s060 = r05_ExUsXyQ
+
+Peca publica, 43 s reais, provedor **edge** MEDIDO (zero avisos no job
+117672928944). Residuo +1,3 s, estabelecido, DENTRO da banda — `RESIDUO_N`
+= 94, limites intocados em (-1,2; 4,0). Som: LUFS -14,0, LRA 2,5, pico
+-3,2 dBTP, desvio do alvo **0,0**, zero silencios.
+
+Inscritos **68 / 21 / 8** contra 17/10 09:0x (27,1 h): delta ZERO nos tres.
+Porta 1 `indeterminado` nos tres canais, e o limite superior do ritmo da
+frota aperta de 0,92 para **0,89 inscrito/dia**. Isto nao e "o canal nao
+cresce": e o teto do que a janela consegue resolver. Para RESOLVER ritmo e
+preciso |delta| >= 2 (criterio do 723), o que no limite medido nao cai
+antes de 19/10.
+
+**O que o dono precisa decidir, e nada disto eu consigo sozinho:**
+1. os dois cliques de consentimento do Google (`docs/reautorizar-analytics.md`)
+   — segue o de maior valor, e o unico caminho a retencao;
+2. reconectar o conector do Supabase — `execute_sql` negado pela **13a**
+   rodada seguida. Sao **75** linhas de `insert into videos` parqueadas em
+   `docs/pendente/videos-a-inserir.sql` esperando por ele, e sem ele o id
+   de origem errado dos `kolejny-poziom-s004`/`-s035` continua sem conserto;
+3. a decisao do 740/748 (mira contra real) — doze de quinze pecas do
+   labtreinamento fora do teto da mira no mundo edge, todas com o portao
+   verde;
+4. as **46 duplicatas**: nesta rodada elas voltaram a poluir a escolha de
+   pauta. O instrumento de origem sem uso devolveu UMA origem, e ela e copia
+   do titulo que a rodada anterior acabou de consumir — por TITULO DISTINTO,
+   zero origem nova no canal.
+
+Suite: **25 falham / 2.812 passam / 892 skip** — o conjunto da linha de base,
+nenhuma falha nova.

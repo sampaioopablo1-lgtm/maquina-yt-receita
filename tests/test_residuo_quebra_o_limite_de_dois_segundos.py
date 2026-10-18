@@ -247,6 +247,7 @@ SERIE = [
     ("kolejny-poziom-s059", 42.4, 45, "edge"),  # job 117636903029 — DOIS lengthSeconds (44 e 45), usado o MAIOR; resolvido quando a rota REABRIU, duas rodadas depois
     ("labtreinamento-s076", 26.7, 29, "edge"),  # job 117648410242 — real FORA do teto da mira com o mira.py REPROVANDO o edge por 0,7 s
     ("epomeno-epipedo-s059", 42.2, 41, "edge"),  # job 117660019973 — QUARTO negativo, e o PRIMEIRO fora da janela estreita de 41,4-41,6: fura o piso de -0,6
+    ("kolejny-poziom-s060", 41.7, 43, "edge"),  # job 117672928944 — DOIS lengthSeconds (42 e 43), usado o MAIOR; sinal estabelecido, dentro da banda
 ]
 
 
