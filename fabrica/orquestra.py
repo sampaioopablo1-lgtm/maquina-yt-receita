@@ -143,6 +143,42 @@ def teto_do_canal(canal: str) -> int:
     """Teto diario de PACOTES do canal, com a sobrescrita do experimento."""
     return TETO_POR_CANAL.get(canal, MAX_POR_DIA_POR_CANAL)
 
+
+# SHORT SOLTO TEM TETO PROPRIO — 18/10/2026, e e a condicao que o comentario
+# acima escreveu em 07/10 ("quando o SHORT SOLTO existir, estes numeros deixam
+# de governar o ritmo"). O short solto existe desde outubro (spec com
+# `longo: []`), o teto de PACOTE continuou em 1 e passou a contar o short
+# solto como pacote: o caminho automatico ficava em UMA peca por canal por dia,
+# contra os "7 shorts/dia por canal com um longo/dia" que o mesmo comentario
+# declara como alvo e contra o pedido do dono de 16/10 ("pelo menos 2 videos
+# por dia por canal, 1 longo e outro curto") e de 18/10 ("100% automatico").
+#
+# O 7 e a decisao do dono de 07/10 para o teto, aplicada ao formato que ela
+# sempre mirou: o short. O longo segue em 1/dia (TETO_POR_CANAL), porque a
+# medicao contra ele continua valendo — nove de treze longos com zero view e o
+# `captions.insert` comendo a cota. Os dois tetos sao contados SEPARADOS:
+# short solto nao consome vaga de pacote, e pacote nao consome vaga de short.
+#
+# A CONDICAO DE PARADA do comentario de 07/10 vale aqui tambem: video removido,
+# aviso no Studio ou queda de alcance por peca contra a media do canal — zere
+# e avise o dono no mesmo relatorio.
+MAX_SHORTS_SOLTOS_POR_DIA_POR_CANAL = 7
+
+
+def teto_short_solto(canal: str) -> int:
+    """Teto diario de SHORTS SOLTOS do canal (separado do teto de pacote)."""
+    return MAX_SHORTS_SOLTOS_POR_DIA_POR_CANAL
+
+
+def e_short_solto(sp: dict) -> bool:
+    """Spec de short solto: `longo` PRESENTE e vazio.
+
+    Chave ausente NAO e lista vazia (licao de 18/10 as 08:1x: o render morre em
+    `KeyError: 'longo'`), entao chave ausente aqui devolve False e a spec segue
+    como pacote — o que a faz cair no teto mais apertado, nunca no mais largo.
+    """
+    return "longo" in sp and not sp["longo"]
+
 # 3 -> 5 em 20/08/2026, 5 -> 1 em 24/08/2026, 1 -> 2 em 04/10/2026, as tres
 # vezes a pedido do dono.
 # O numero conta PACOTE, nao video: cada pacote e um longo mais um short.
@@ -409,6 +445,36 @@ def pacotes_na_janela(videos: list[dict], agora=None,
     return {c: len(p) for c, p in por_canal.items()}
 
 
+def shorts_soltos_na_janela(videos: list[dict], agora=None,
+                            janela_h: int = JANELA_H) -> dict[str, int]:
+    """Pacotes da janela que SO tem linha de short (sem longo): os shorts soltos.
+
+    Mesma janela e mesma chave de `pacotes_na_janela`, de proposito — a
+    diferenca entre os dois e so o formato das linhas. Um pacote com longo E
+    short conta la e nao aqui; um `-sNN` com uma linha `shorts` conta aqui.
+    """
+    import datetime as dt
+    import re
+
+    if agora is None:
+        agora = dt.datetime.now(dt.timezone.utc)
+    corte = agora - dt.timedelta(hours=janela_h)
+    formatos: dict[str, dict[str, set[str]]] = {}
+    for v in videos:
+        canal = v.get("canal")
+        if not canal or v.get("status") in ("erro", "cancelado"):
+            continue
+        quando = _instante(v.get("criado_em"))
+        if quando is None or quando <= corte:
+            continue
+        chave = v.get("pacote") or re.sub(r"-short$", "", v.get("slug") or "")
+        if not chave:
+            continue
+        formatos.setdefault(canal, {}).setdefault(chave, set()).add(v.get("formato") or "")
+    return {c: sum(1 for fs in p.values() if fs and fs <= {"shorts"})
+            for c, p in formatos.items()}
+
+
 def titulo_da_spec(sp: dict) -> str:
     """O titulo que a spec vai publicar, lido do `copy` ANTES do render.
 
@@ -589,6 +655,10 @@ def proximo(videos: list[dict], n: int,
     # qualquer cadencia, e cadencia esparsa so tornaria o defeito mais raro, o
     # que e pior para quem precisa reproduzi-lo.)
     por_canal_hoje: dict[str, int] = dict(pacotes_na_janela(videos))
+    # Shorts soltos contam no teto PROPRIO (teto_short_solto), nao no de
+    # pacote: `pacotes_na_janela` conta os dois juntos, entao o de pacote e a
+    # diferenca. Ver o bloco de MAX_SHORTS_SOLTOS_POR_DIA_POR_CANAL.
+    soltos_hoje: dict[str, int] = dict(shorts_soltos_na_janela(videos))
 
     # HORA LOCAL primeiro, depois distancia da meta.
     #
@@ -691,12 +761,20 @@ def proximo(videos: list[dict], n: int,
                                     "motivo": "token OAuth do canal esta morto — "
                                               "reautorize antes de despachar"})
                 continue
-            teto = teto_do_canal(canal)
-            if por_canal_hoje.get(canal, 0) >= teto:
+            solto = e_short_solto(specs[nome])
+            if solto:
+                teto = teto_short_solto(canal)
+                usados = soltos_hoje.get(canal, 0)
+                rotulo = "shorts soltos"
+            else:
+                teto = teto_do_canal(canal)
+                usados = por_canal_hoje.get(canal, 0) - soltos_hoje.get(canal, 0)
+                rotulo = "pacotes"
+            if usados >= teto:
                 descartadas.append({
                     "spec": nome,
-                    "motivo": f"teto de {teto}/dia no canal "
-                              f"({por_canal_hoje.get(canal, 0)} nas ultimas "
+                    "motivo": f"teto de {teto} {rotulo}/dia no canal "
+                              f"({usados} nas ultimas "
                               f"{JANELA_H}h, contando o que ja esta registrado)"})
                 continue
             faltas = _falhas_baratas(nome, specs[nome])
@@ -718,6 +796,8 @@ def proximo(videos: list[dict], n: int,
                 continue
             escolhidas.append({"canal": canal, "pacote": nome, "idioma": idioma})
             por_canal_hoje[canal] = por_canal_hoje.get(canal, 0) + 1
+            if solto:
+                soltos_hoje[canal] = soltos_hoje.get(canal, 0) + 1
     return escolhidas, descartadas
 
 

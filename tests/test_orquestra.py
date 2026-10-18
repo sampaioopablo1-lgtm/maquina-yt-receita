@@ -158,9 +158,15 @@ def test_teto_por_canal_sobrescreve_o_geral():
     assert M.teto_do_canal("__canal_que_nao_existe__") == M.MAX_POR_DIA_POR_CANAL
     for canal, teto in M.TETO_POR_CANAL.items():
         assert M.teto_do_canal(canal) == teto, canal
-        assert teto > M.MAX_POR_DIA_POR_CANAL, (
-            f"{canal} esta no TETO_POR_CANAL com {teto}, que nao e maior que o "
-            f"teto geral {M.MAX_POR_DIA_POR_CANAL} — entrada inutil ou erro")
+        # Ate 18/10 isto cobrava `teto > geral`, e reprovava desde 07/10 — com
+        # razao: um teto de pacote de 1 que tambem contava short solto deixava
+        # o automatico em UMA peca por canal por dia. Em 18/10 o short solto
+        # ganhou teto proprio (teto_short_solto) e o 1 de pacote passou a ser
+        # restricao DELIBERADA (longo mortos comem cota). O que continua
+        # errado e entrada IGUAL ao geral: ela nao faz nada.
+        assert teto != M.MAX_POR_DIA_POR_CANAL, (
+            f"{canal} esta no TETO_POR_CANAL com {teto}, igual ao teto geral "
+            f"{M.MAX_POR_DIA_POR_CANAL} — entrada inutil ou erro")
         assert canal in M.canais_do_repo(), (
             f"{canal} tem teto proprio e nao existe no repo")
 
