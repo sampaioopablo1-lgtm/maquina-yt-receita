@@ -1,0 +1,75 @@
+{
+  "slug": "kolejny-poziom",
+  "idioma": "pl",
+  "voz": "pl-PL-MarekNeural",
+  "trilha": "Wholesome",
+  "paleta": {
+    "ink": "#1B3A5C",
+    "c1": "#2A9D8F",
+    "c2": "#F5B841",
+    "bg": "#F4F1EA"
+  },
+  "pacote": "kolejny-poziom-s058",
+  "longo_existente": "kWZW-qV4tQc",
+  "thumb": {
+    "l1": "Dochód",
+    "l2": "na końcu"
+  },
+  "longo": [],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Zła kolejność",
+      "sub": "dochód na końcu",
+      "sem_cap": true,
+      "nar": "Większość ludzi sprawdza swój dochód jako pierwszy."
+    },
+    {
+      "layout": "item",
+      "kicker": "I rezygnuje",
+      "nar": "Widzi, że zarabia za dużo, i odpuszcza ulgę."
+    },
+    {
+      "layout": "lista",
+      "kicker": "A limit",
+      "nar": "Limit dochodu działa tylko w jednym przypadku."
+    },
+    {
+      "layout": "item",
+      "kicker": "Jedno dziecko",
+      "nar": "Dotyczy wyłącznie opieki nad jednym dzieckiem."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Odwróć to",
+      "sub": "trzy kroki",
+      "nar": "Odwróć tę kolejność i zrób to w trzech krokach."
+    },
+    {
+      "layout": "item",
+      "kicker": "Najpierw",
+      "nar": "Najpierw sprawdź orzeczenie o niepełnosprawności."
+    },
+    {
+      "layout": "item",
+      "kicker": "Potem",
+      "nar": "Potem policz dzieci pod twoją opieką w roku."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Na końcu",
+      "nar": "Dochód bierz na końcu, i tylko jeśli trzeba."
+    },
+    {
+      "layout": "item",
+      "kicker": "Dlaczego",
+      "nar": "Bo przy dwojgu dzieciach limit po prostu nie istnieje."
+    },
+    {
+      "layout": "cta",
+      "kicker": "Policz od nowa",
+      "nar": "Policz od nowa i zasubskrybuj kanał."
+    }
+  ],
+  "copy": "# kolejny-poziom-s058\n\n## TITULO\nKolejność Sprawdzania Ulgi na Dziecko: Dochód Bierzesz na Końcu, a Nie na Początku\n\n## TITULO SHORT\nDochód sprawdzasz na końcu\n\n## DESCRICAO\nWiększość ludzi sprawdza swój dochód jako **pierwszy** warunek, widzi, że zarabia za dużo, i na tym kończy. To nie jest błąd w liczeniu — to błąd w **kolejności**, i dlatego jest tak tani do naprawienia: te same dane, inna sekwencja, inny wynik.\n\nLimit dochodu w tej uldze nie jest warunkiem ogólnym. Działa **wyłącznie wtedy, gdy opieka dotyczy jednego dziecka**. Przy dwojgu i więcej dzieciach limit po prostu nie istnieje — nieważne, ile zarabiasz. Kto zaczyna od dochodu, odrzuca ulgę w sytuacji, w której dochód nie miał nic do powiedzenia.\n\nJest jeszcze drugie wyjście z tego limitu, i ono też przepada przy złej kolejności: przy jednym dziecku z odpowiednim orzeczeniem albo decyzją rentową limit dochodu też nie wchodzi w grę. Czyli warunek, który odrzuciłeś na wejściu, mógł cię w ogóle nie dotyczyć z dwóch niezależnych powodów.\n\n**Odwrócona kolejność ma trzy kroki, i wszystkie wykonasz dziś:**\n\nKrok pierwszy — sprawdź orzeczenie o niepełnosprawności albo decyzję rentową. To rozstrzyga najwięcej przy jednym dziecku i nie wymaga żadnego liczenia.\n\nKrok drugi — policz dzieci, nad którymi sprawowałeś opiekę w roku. Przy dwojgu i więcej już wiesz, że limit cię nie dotyczy, i możesz pominąć krok trzeci w całości.\n\nKrok trzeci — dopiero teraz weź swój dochód roczny i porównaj go z limitem. Jeśli dotarłeś tutaj, to znaczy, że ten warunek faktycznie o czymś decyduje w twoim przypadku.\n\nSygnał, że zrobiłeś to w złej kolejności, jest prosty do zauważenia: **odrzuciłeś ulgę, nie licząc dzieci.** Jeśli pamiętasz, że „sprawdziłem dochód i odpuściłem\", to właśnie ten przypadek — wróć i zacznij od końca.\n\nNie podaję tu kwot, limitów ani lat. Te liczby zmieniają się i szybko się starzeją; kolejność sprawdzania nie zmienia się wcale. Liczby weź ze swojego rozliczenia, nie z tego filmu.\n\nW pełnym materiale: wszystkie cztery kroki, podział kwoty między dwoje rodziców, i co zrobić, gdy ulga jest wyższa od twojego podatku.\n\nMateriał informacyjny, nie stanowi porady podatkowej.\n\n## COMENTARIO FIXADO\nNajmniej oczywiste w tym wszystkim: warunek dochodu można minąć z dwóch niezależnych powodów, a oba poznasz, zanim w ogóle policzysz dochód. Czy sprawdzałeś kiedyś dochód jako pierwszy i odpuszczałeś?\n\n## HASHTAGS\n#ulganadziecko #podatki #rozliczenie #kolejnypoziom #Shorts\n\n## TAGS\nulga na dziecko, kolejnosc sprawdzania, limit dochodu, jedno dziecko, dwoje dzieci, orzeczenie o niepelnosprawnosci, decyzja rentowa, opieka nad dzieckiem, rozliczenie roczne, dochod roczny, podatki polska, finanse rodzinne, kolejny poziom, trzy kroki, odliczenie\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Conferido cena a cena: nenhuma\nkwota, nenhum limite em zlotych, nenhum ano, nenhuma alinea. A regra (g) manda\nisso — o proprio longo publica o limite de dochodu e a kwota por crianca, e os\ndois ENVELHECEM a cada ano fiscal. O short carrega so o que NAO muda: a ORDEM de\nverificacao e o sinal visivel do erro. As unicas quantidades faladas sao\nestruturais (\"jedno dziecko\", \"dwojgu\", \"trzech krokach\") e nao sao numero sobre\no mundo.\n\nFamilia de entrada errada: ORDEM DE VERIFICACAO INVERTIDA — testar primeiro a\ncondicao que raramente elimina e desistir por ela. A rotina lista ORDEM como\nfamilia distinta de limiar, composicao e unidade. E familia NOVA nesta origem\n(`kWZW-qV4tQc`): as outras tres desta mesma origem sao kolejny-poziom-s001 (A\nKWOTA E POR CRIANCA E OS PAIS DIVIDEM), -s023 (O LIMITE DE RENDA PODE NAO TE\nATINGIR — o limite em si) e -s054 (NEM BRUTO NEM LIQUIDO — a base de calculo).\nNenhuma delas e sobre a SEQUENCIA dos testes, que e o eixo desta. Regra (f)\nconferida contra as tres.\nDistincao do `-s023`, que e a vizinha mais proxima e vai dita: ali o assunto e\nQUE o limite tem excecao; aqui e QUANDO voce olha para ele. Uma peca pode saber\nda excecao e ainda assim desistir cedo, que e o caso retratado nesta.\n\n## EXPOSICAO DECLARADA ANTES DE PUBLICAR\nMira: edge 41,7 s e piper 35,5 s — os dois dentro de 18 a 45 s, que e o que o\nportao `duracao` cobra nos DOIS mundos. Este canal NAO tem `ALVO_POR_CANAL`\nmedido, logo vale a mira da frota (41,5 a 43,0), e 41,7 fica junto ao PISO dela:\nescolha deliberada, porque a voz polonesa tem o centro em +2,2% (679) e a regra\nde redacao do 772 manda mirar o piso quando a voz nao exige o topo.\nCom a banda OBSERVADA de residuo (-0,6 a +4,0 s, n=87): se o edge narrar, o real\ndeve cair entre 41,1 e 45,7 s, logo PODE passar do teto de 45 do portao — foi o\nque aconteceu no `epomeno-epipedo-s032` (46 s reais com o portao verde, 772). Se\no piper narrar, entre 34,9 e 39,5 s.\nA banda tem 4,6 s de largura contra 1 s de granularidade do real, logo ela\nacomoda quase cinco inteiros: NAO prometo onde o real cai. Na rodada anterior eu\ndeclarei o lado alto desta mesma faixa e o real saiu no extremo oposto. O\nprovedor sera MEDIDO pela anotacao do job (733), nao inferido.\n\n## FONTES\nOrigem: kWZW-qV4tQc (pacote kolejny-poziom-017, 56 capitulos), longo JA\nPUBLICADO deste canal, rank 2 da ordem VIVA de uploads. O short nao introduz\nnumero novo sobre o mundo, logo nao exige fonte nova, e o id do longo vai dito\naqui.\nAs cenas saem do capitulo 38 do pacote (\"Kolejnosc sprawdzania\") e dos capitulos\n49 a 51 (os passos), que nenhum dos tres shorts anteriores desta origem usou.\nPor que o rank 2 e nao o rank 1: o `concentracao.py` ALERTOU — o `GUiq15usizw`\ncarrega 12 dos 53 shorts do canal (23%), mais que o dobro da segunda origem.\nE por que nao a origem de ZERO usos: ela e o grupo das 46 DUPLICATAS — seis ids\ncom o MESMO titulo, colapsados em um pelo conserto de 03:1x. Dar pauta a uma\ncopia nao cria origem nova, e e exatamente o caso que aquele instrumento nomeia.\n"
+}

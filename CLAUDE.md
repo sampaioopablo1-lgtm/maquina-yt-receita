@@ -163,6 +163,33 @@ continua saindo) e um que **falha se a nota do idioma for apagada do módulo**.
 está em **DOZE** usos — o hábito de 13/10 outra vez, agora visível na contagem
 **antes** de escolher.
 
+**E DUAS HORAS DEPOIS ESSA REGRA QUASE ME FEZ FABRICAR UM ACHADO, porque ela não
+dizia ONDE ler o idioma — medido em 18/10 às 06:1x.** O `yt-dlp --flat-playlist`
+na playlist do `kolejny-poziom` devolveu os **quatro** longos mais recentes com
+título em **INGLÊS** (*"Renting or a Mortgage?"*, *"Child Tax Credit"*, *"Real
+Estate Tax"*, *"PPK: What Your Contribution Really Costs"*). Pela regra acima
+isso se lê como "o topo de um canal polonês está em idioma errado", e era o que
+eu ia relatar.
+
+**Era o INSTRUMENTO: o título da playlist pode ser uma LOCALIZAÇÃO.** A chamada
+não levava locale, e o YouTube serve o título traduzido. Lidos na página com
+`Accept-Language: pl-PL`, os dois primeiros são poloneses — *"Wynajem czy
+Kredyt?"* e *"Ulga na Dziecko"*.
+
+**E a nota de 04:1x SOBREVIVEU à conferência, o que é sorte e não método:** o
+`QiaGg03WSR0` devolve o **mesmo** título polonês com `Accept-Language` pt-BR,
+pl-PL **e** en-US, e o `yt-dlp -J` declara `language: pl`. Logo a conclusão
+daquela rodada está certa e a origem segue inutilizável no canal pt-BR — mas o
+caminho que a produziu não garantia nada, e na rodada seguinte ele errou.
+
+**A regra ganha o ONDE, que é a parte que faltava: título de playlist NÃO
+estabelece idioma.** O discriminador é o campo `language` do próprio vídeo, ou o
+`<meta name="title">` lido em mais de um `Accept-Language` — se não muda, é o
+original. E **não** filtrei idioma dentro do instrumento, agora com um segundo
+motivo além do 762/771: o campo que ele teria à mão é justamente o que o YouTube
+localiza. `tests/test_o_titulo_da_playlist_pode_ser_LOCALIZACAO.py`, sete testes,
+com contraprova nos dois sentidos.
+
 **E UM TESTE MEU DE 12/10 REPROVOU NA MESMA RODADA, e a retratação é dele.** O
 `test_as_TRES_origens_do_falso_positivo_devolvem_None` cobrava `None` para as
 três origens do falso positivo do `segundo_angulo`, e o `SP7Vz8qHdRY` passou a
