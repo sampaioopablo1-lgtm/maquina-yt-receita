@@ -1,0 +1,40 @@
+{
+  "_leia": "Pacote do criativo 04 (subido em 28/09/2026). Videos na biblioteca da conta.",
+  "ad_account_id": "1695865631502778",
+  "page_id": "1117439194786453",
+  "instagram_user_id": "17841480745368398",
+  "lead_gen_form_id": "2412763482587375",
+  "conjuntos_ativos": {
+    "LEADS I INTERESSE BR I FASE 3": "120247356527930766",
+    "LEADS I PERSONALIZADO CNAE BR I FASE 3": "120247356496360766",
+    "LEADS I NICHO IMOBILIARIA BR I FASE 3": "120247487374980766",
+    "LEADS I NICHO CONTABILIDADE BR I FASE 3": "120247487377260766",
+    "LEADS I NICHO ADVOCACIA BR I FASE 3": "120247487376720766",
+    "LEADS I NICHO HARMONIZACAO BR I FASE 3": "120247470141000766"
+  },
+  "call_to_action": {
+    "type": "SIGN_UP",
+    "value": {
+      "link": "http://fb.me/",
+      "lead_gen_form_id": "2412763482587375"
+    }
+  },
+  "posicionamentos": {
+    "feed_1x1": [
+      "facebook feed",
+      "instagram stream",
+      "instagram explore"
+    ],
+    "reels_9x16": [
+      "facebook story",
+      "facebook_reels",
+      "instagram story",
+      "instagram reels"
+    ]
+  },
+  "videos": {
+    "04_reels_9x16": "28503194819290612",
+    "04_feed_1x1": "1646203037078531"
+  },
+  "textos": "04-lead-de-sabado-textos.md"
+}
