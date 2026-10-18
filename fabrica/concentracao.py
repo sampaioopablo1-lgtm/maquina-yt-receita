@@ -91,7 +91,8 @@ def contagem(canal: str, raiz: str = None) -> dict[str, int]:
     return dict(c)
 
 
-def origens_sem_uso(canal: str, ordem_viva, raiz: str = None) -> list[str]:
+def origens_sem_uso(canal: str, ordem_viva, raiz: str = None,
+                    titulo_de: dict = None) -> list[str]:
     """Os longos da ordem dada que ainda nao renderam short NENHUM, na ordem.
 
     Medido em 18/10 as 01:2x, e e um ponto cego que a `contagem` nao podia ter:
@@ -104,13 +105,49 @@ def origens_sem_uso(canal: str, ordem_viva, raiz: str = None) -> list[str]:
     foi usado nunca aponta o que nunca se usou. Aqui a direcao e a pior, porque
     a origem de zero usos e justamente a de maior valor editorial.
 
-    AUSENCIA DE RETORNO NAO PROVA QUE NAO HA ORIGEM LIVRE, e o motivo e medido
-    na mesma rodada: a playlist `UU...` OMITE longo publico do canal (ver
-    `origem_de_outro_canal`). Lista incompleta devolve lista vazia aqui.
-    Esta funcao NAO decide: ela nomeia.
+    E ELE CONTAVA ID, NAO TITULO — medido as 03:1x de 18/10, na PRIMEIRA vez
+    que ele teve o que dizer. No `kolejny-poziom` devolveu SEIS origens de zero
+    usos (ranks 16 a 20 e 22) e as SEIS tinham o MESMO titulo: sao copias, do
+    grupo das 46 duplicatas. Por TITULO DISTINTO eram ZERO, nao seis. E o
+    efeito (C-2) da rotina ja nomeia isso desde o 658 — contar por id premia
+    duplicata — e eu escrevi o instrumento sem a guarda, duas horas depois de
+    escrever outro que tambem precisou dela.
+
+    Por isso `titulo_de` ({youtube_id: titulo}) e o jeito certo de chamar: com
+    ele, grupo de copias colapsa no PRIMEIRO id da ordem e o resto sai. SEM
+    ele a funcao devolve ids e **avisa no `relato`**, porque recusar seria
+    pior: o titulo as vezes nao esta a mao.
+
+    AUSENCIA DE RETORNO NAO PROVA QUE NAO HA ORIGEM LIVRE: a playlist `UU...`
+    OMITE longo publico do canal (ver `origem_de_outro_canal`). Lista
+    incompleta devolve lista vazia aqui. Esta funcao NAO decide: ela nomeia.
     """
     usadas = contagem(canal, raiz)
-    return [o for o in ordem_viva if o not in usadas]
+    livres = [o for o in ordem_viva if o not in usadas]
+    if not titulo_de:
+        return livres
+    vistos, saida = set(), []
+    for o in livres:
+        tit = titulo_de.get(o)
+        if tit is None:          # titulo desconhecido NAO colapsa com nada
+            saida.append(o)
+            continue
+        if tit in vistos:
+            continue
+        vistos.add(tit)
+        saida.append(o)
+    return saida
+
+
+def copias_colapsadas(canal: str, ordem_viva, titulo_de: dict,
+                      raiz: str = None) -> int:
+    """Quantos ids de zero uso o `titulo_de` colapsou — o tamanho da inflacao.
+
+    Serve para o relato dizer o numero em vez de o leitor comparar listas: no
+    `kolejny-poziom` as 03:1x ele devolve 5 (seis ids, um titulo).
+    """
+    cru = origens_sem_uso(canal, ordem_viva, raiz)
+    return len(cru) - len(origens_sem_uso(canal, ordem_viva, raiz, titulo_de))
 
 
 def origem_de_outro_canal(canal: str, dono_medido: dict, raiz: str = None) -> dict:

@@ -238,6 +238,7 @@ SERIE = [
     ("kolejny-poziom-s056", 41.7, 43, "edge"),   # job 117540417103
     ("labtreinamento-s073", 26.0, 28, "edge"),   # job 117551494916
     ("epomeno-epipedo-s056", 41.5, 43, "edge"),  # job 117561762560 — DOIS lengthSeconds (42 e 43), usado o MAIOR
+    ("kolejny-poziom-s057", 41.5, 42, "edge"),   # job 117572513678 — sinal NAO estabelecido (770)
 ]
 
 

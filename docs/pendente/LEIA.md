@@ -1289,3 +1289,37 @@ Na sua mao, por valor: (1) os dois cliques de consentimento do Google; (2)
 reconectar o conector do Supabase — 65 linhas parqueadas, e sem ele o id errado
 de origem dos dois shorts do kolejny (achado de 01:2x) fica sem conserto; (3) a
 decisao do 740/748.
+
+## 18/10 03:1x — kolejny-poziom-s057 no ar, e o instrumento de ontem errou na primeira vez
+
+`P2UxLtULR9E`, 42 s reais contra previsao edge de 41,5 (provedor MEDIDO, zero
+avisos no job 117572513678): residuo +0,5, dentro da banda, e com o SINAL NAO
+ESTABELECIDO — 42 - 41,5 fica dentro do passo de 1 s do instrumento, logo o
+residuo verdadeiro pode ser negativo. RESIDUO_N = 85.
+
+DOIS achados, e os dois sao de instrumento meu:
+
+1. O `origens_sem_uso` que eu escrevi as 01:2x contava ID, nao TITULO. Neste
+   canal ele devolveu SEIS origens de zero usos, e as SEIS tem o MESMO titulo —
+   sao duplicatas, do grupo das 46 que aguardam a sua decisao. Por titulo
+   distinto eram ZERO. Consertado, com o tamanho da inflacao contado (cinco).
+
+   E ISTO TOCA UMA PENDENCIA SUA: enquanto as 46 duplicatas existirem, qualquer
+   contagem de pauta por ID as conta como origem nova. O conserto do instrumento
+   protege a escolha, mas as copias seguem no canal.
+
+2. Um teste MEU de 12/10 reprovou, e a retratacao e dele, nao do codigo: ele
+   cobrava `None` para tres origens, e uma passou a resolver CERTO — para um
+   pacote de 77 capitulos — porque a copy desta rodada nomeou o pacote, que e
+   exatamente a convencao que a funcao le. Eu havia travado identidade onde
+   havia propriedade.
+
+Suite de volta a 25 falhas, o conjunto da linha de base.
+
+Inscritos 68 / 21 / 8 — os tres `indeterminado`, janela de 18,0 h (piso
+1,33/dia). O limite mais apertado da frota segue sendo o 1,18/dia de 16/10.
+
+Na sua mao, por valor: (1) os dois cliques de consentimento do Google; (2)
+reconectar o conector do Supabase — 66 linhas parqueadas; (3) a decisao do
+740/748; (4) as 46 duplicatas, que o achado 1 acima mostra custando na escolha
+de pauta e nao so no teto de upload.

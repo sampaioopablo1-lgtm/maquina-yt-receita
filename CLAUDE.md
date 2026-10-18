@@ -124,6 +124,38 @@ retrato de 06/10 e sem `execute_sql` eu não o resolvo sem adivinhar.
 `tests/test_a_origem_de_zero_usos_e_invisivel.py`, dez testes — um deles **falha
 se a nota do falso positivo for apagada**, porque é ela que impede a repetição.
 
+**E O INSTRUMENTO DE ZERO USOS CONTAVA ID, NÃO TÍTULO — medido em 18/10 às 03:1x,
+na PRIMEIRA vez que ele teve o que dizer.** No `kolejny-poziom` ele devolveu
+**SEIS** origens de zero usos (ranks 16 a 20 e 22 da ordem viva) — e as **seis
+têm o MESMO título**, medido na página de cada uma. São cópias, do grupo das 46
+duplicatas. **Por TÍTULO DISTINTO eram ZERO origens novas, não seis.**
+
+**E o efeito (C-2) da rotina nomeia isso desde o 658** — contar por id premia
+duplicata — e eu escrevi o instrumento **sem a guarda, duas horas depois** de
+escrever outro que também precisou de uma. Agora `origens_sem_uso` aceita
+`titulo_de` e colapsa grupo de cópias no primeiro id da ordem; **título
+desconhecido NÃO colapsa com nada**, porque isso inventaria duplicata. E
+`copias_colapsadas` diz o tamanho da inflação — cinco, neste caso.
+`tests/test_origem_sem_uso_contava_ID_e_nao_TITULO.py`, dez testes, com
+contraprova nos dois sentidos.
+
+**E UM TESTE MEU DE 12/10 REPROVOU NA MESMA RODADA, e a retratação é dele.** O
+`test_as_TRES_origens_do_falso_positivo_devolvem_None` cobrava `None` para as
+três origens do falso positivo do `segundo_angulo`, e o `SP7Vz8qHdRY` passou a
+resolver para `kolejny-poziom-011`. **Conferido: a resolução está CERTA** —
+aquele pacote tem **77** cenas de longo, e foi dele que saiu o
+`kolejny-poziom-s057`. O que mudou foi a **convenção ter sido seguida**: o
+`pacote_do_id` resolve pela copy do short que declara a origem, e a copy do
+`s057` nomeia o pacote nas FONTES. **O docstring da própria função sempre disse
+isso** — *"devolve None quando a convenção não foi seguida"* — logo `None` era
+retrato de estado, não propriedade.
+
+**A propriedade do falso positivo era OUTRA, e é ela que ficou cobrada:** o erro
+de 12/10 era resolver para o **SLUG do canal** (dez cenas). O teste passou a
+exigir "não é slug" e "tem ao menos 20 cenas de longo" — o limiar observado
+daquela medição —, mais uma contraprova de que as outras duas seguem em `None`.
+**Mesma classe do 743/753/761: eu travei identidade onde havia propriedade.**
+
 **E EM 17/10 ÀS 09:0x EU QUASE DECLAREI A ROTA DOS INSCRITOS FECHADA — e o que
 estava errado era o meu GREP.** Eu sondei os três canais com
 `grep -o '"subscriberCountText":{[^}]*}'` e os três voltaram **VAZIO**. Pela

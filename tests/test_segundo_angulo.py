@@ -125,10 +125,51 @@ def test_o_slug_do_canal_NAO_e_candidato_a_pacote():
     assert not (set(vocab) & slugs), "slug de canal voltou ao vocabulario"
 
 
-def test_as_TRES_origens_do_falso_positivo_devolvem_None():
+def test_nenhuma_das_TRES_resolve_para_o_SLUG_nem_para_pacote_sem_capitulo():
+    """RETRATACAO DE 18/10 as 03:2x, e ela e de um teste MEU.
+
+    A versao anterior cobrava `pacote_do_id(yid) is None` nas tres, e reprovou
+    nesta rodada porque o `SP7Vz8qHdRY` passou a resolver para
+    `kolejny-poziom-011`. **Conferido: a resolucao esta CERTA** — aquele pacote
+    tem 77 cenas de longo, e foi dele que saiu o `kolejny-poziom-s057`.
+
+    O que mudou foi a CONVENCAO ter sido seguida: o `pacote_do_id` resolve pela
+    copy do short que declara a origem, e a copy do `s057` NOMEIA o pacote na
+    secao FONTES. O docstring da propria funcao sempre disse isso — *"devolve
+    None quando a convencao nao foi seguida"* — logo `None` era um retrato do
+    estado, nao uma propriedade.
+
+    A propriedade do falso positivo de 12/10 e OUTRA, e esta e cobrada aqui: o
+    que estava errado era resolver para o SLUG DO CANAL (`kolejny-poziom`, dez
+    cenas). Mesma classe do 743/753/761: eu travei identidade onde havia
+    propriedade.
+    """
+    slugs = SA.slugs_de_canal()
     for yid in FALSOS:
-        assert SA.pacote_do_id(yid) is None, (
-            f"{yid} voltou a resolver para um pacote; era falso positivo")
+        r = SA.pacote_do_id(yid)
+        if r is None:
+            continue
+        assert r not in slugs, f"{yid} resolveu para o SLUG do canal: {r}"
+        caps = SA.capitulos_do_pacote(r)
+        assert len(caps) >= 20, (
+            f"{yid} resolveu para {r}, que tem {len(caps)} cenas de longo — "
+            "o limiar observado do 12/10 e 20, e dez era o falso positivo")
+
+
+def test_e_o_SP7Vz8qHdRY_resolve_porque_a_convencao_foi_SEGUIDA():
+    """Ancora a queda: sem isto a retratacao acima nao tem evidencia."""
+    r = SA.pacote_do_id("SP7Vz8qHdRY")
+    assert r == "kolejny-poziom-011"
+    assert len(SA.capitulos_do_pacote(r)) == 77
+    copy = (RAIZ / "fabrica/specs/kolejny-poziom-s057.json").read_text()
+    assert "kolejny-poziom-011" in copy, (
+        "a copy do s057 e que nomeia o pacote — e o que faz a convencao valer")
+
+
+def test_as_outras_DUAS_seguem_sem_convencao():
+    """Contraprova no outro sentido: a funcao nao passou a resolver tudo."""
+    assert SA.pacote_do_id("Xgt32iH8Ft8") is None
+    assert SA.pacote_do_id("MjI4ZGJAhIo") is None
 
 
 def test_a_VERDADE_CONHECIDA_do_Xgt32iH8Ft8_e_que_nao_ha_spec_local():
