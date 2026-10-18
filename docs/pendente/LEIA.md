@@ -1463,3 +1463,25 @@ Quatro peças publicadas nestas quatro rodadas, todas públicas e medidas.
   verdes. Travado na suíte, não em portão novo — o disco já estava limpo, o
   buraco era latente.
 
+
+## 18/10 09:1x — kolejny-poziom-s059 no ar, e a rota da duração fechou
+
+* **Peça:** `8nCyWQxIRuc`, pública, *"Zwłoka nie dzieli się"*. É a **PRIMEIRA**
+  peça tirada de uma origem que tinha **zero** shorts (`SZV9Vk5YFwI`, o grupo de
+  seis cópias do mesmo título colapsado numa origem só, com 57 capítulos de spec
+  local). O topo do canal está em **doze** usos.
+* **Sem duração real medida nesta rodada**, e o motivo está medido, não suposto:
+  o controle `OhrGlJvnBoM` (44 s conhecidos) voltou **vazio** da mesma chamada,
+  logo a rota fechou — não é defeito da peça. Ela fica parqueada e a medição vem
+  quando a rota abrir.
+* **O `execute_sql` segue negado — DÉCIMA rodada seguida.** São **72** linhas de
+  `insert into videos` parqueadas. **Reconectar o conector do Supabase é a única
+  rota que devolve a leitura de duração pelo banco, inscritos, a regra (h) e o
+  registro em `videos`.**
+* **Inscritos 68 / 21 / 8, delta ZERO em 24,1 h.** O limite superior do ritmo da
+  frota cruzou **1,00 inscrito/dia**. A consequência aritmética, e ela não é
+  nova, só ficou mais larga: mesmo **no teto** desse limite o `labtreinamento`
+  precisaria de 432 dias para os 500 — isto é, **dezembro de 2027**, bem depois
+  de 1/FEV/2027, quando a barra sobe para 1.000. **O ritmo medido não fecha a
+  Porta 1 nem no melhor caso que o instrumento ainda admite.**
+
