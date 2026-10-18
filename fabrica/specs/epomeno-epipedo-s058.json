@@ -1,0 +1,75 @@
+{
+ "slug": "epomeno-epipedo",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#16283C",
+  "c1": "#2E7BB4",
+  "c2": "#E0A02E",
+  "bg": "#F3F7FA"
+ },
+ "pacote": "epomeno-epipedo-s058",
+ "longo_existente": "9U2h4HuAzLs",
+ "thumb": {
+  "l1": "Η στέγη",
+  "l2": "μένει έξω"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Το μεγαλύτερο",
+   "sub": "έξοδο της ζωής",
+   "nar": "Το μεγαλύτερο έξοδο της ζωής σου είναι η στέγη.",
+   "sem_cap": true
+  },
+  {
+   "layout": "item",
+   "kicker": "Και όμως",
+   "nar": "Και όμως μια μορφή της μένει έξω από τον επίσημο δείκτη."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ο ιδιοκτήτης",
+   "sub": "που μένει μέσα",
+   "nar": "Μίλα για όποιον μένει σε σπίτι δικό του."
+  },
+  {
+   "layout": "item",
+   "kicker": "Δεν πληρώνει",
+   "nar": "Αυτός δεν πληρώνει ενοίκιο σε κανέναν κάθε μήνα."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Λογιστικό",
+   "nar": "Το κόστος της στέγης του είναι λογιστικό, όχι πληρωμή."
+  },
+  {
+   "layout": "item",
+   "kicker": "Γι' αυτό",
+   "nar": "Γι' αυτό η κατηγορία αυτή δεν καλύπτεται από τον δείκτη."
+  },
+  {
+   "layout": "item",
+   "kicker": "Όχι αμέλεια",
+   "nar": "Δεν είναι αμέλεια: λείπει κοινή μέθοδος για να μετρηθεί."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Εδώ",
+   "sub": "πάρα πολλά σπίτια",
+   "nar": "Εδώ η ιδιοκατοίκηση αφορά πάρα πολλά νοικοκυριά."
+  },
+  {
+   "layout": "item",
+   "kicker": "Το κενό",
+   "nar": "Άρα το κενό δεν αφορά μια μικρή μειονότητα ανθρώπων."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Δες τι λείπει",
+   "nar": "Δες πρώτα τι λείπει και κάνε εγγραφή τώρα."
+  }
+ ],
+ "copy": "# epomeno-epipedo-s058\n\n## TITULO\nΤο Μεγαλύτερο Έξοδο της Ζωής Σου Μένει Έξω από τον Επίσημο Δείκτη\n\n## TITULO SHORT\nΗ στέγη μένει έξω\n\n## DESCRICAO\nΟ επίσημος δείκτης τιμών δεν καλύπτει όλες τις κατηγορίες κατανάλωσης, και η κατηγορία που λείπει δεν είναι μια λεπτομέρεια: είναι μια μορφή του **μεγαλύτερου εξόδου της ζωής σου**, η στέγη.\n\nΓια όποιον μένει σε σπίτι δικό του, το κόστος της στέγης δεν είναι πληρωμή που φεύγει κάθε μήνα προς κάποιον άλλον. Είναι λογιστικό μέγεθος — αυτό που θα πλήρωνε αν νοίκιαζε το ίδιο σπίτι. Και αυτή η κατηγορία δεν καλύπτεται από τον δείκτη.\n\nΔεν είναι παράλειψη από αμέλεια. Ο λόγος είναι γραμμένος: δεν υπάρχει ακόμη κοινή, εναρμονισμένη μέθοδος για να μετρηθεί με τον ίδιο τρόπο σε όλες τις χώρες.\n\nΤο σημείο που αλλάζει τα πράγματα είναι ποιους αφορά αυτό εδώ. Σε μια χώρα όπου η ιδιοκατοίκηση είναι πολύ διαδεδομένη, το κενό δεν αφορά μια μικρή μειονότητα νοικοκυριών — αφορά πάρα πολλά. Πριν διαφωνήσεις με τον αριθμό, δες τι δεν μπήκε μέσα του.\n\nΑυτό δεν σημαίνει ότι ο δείκτης είναι λάθος ή ότι κάποιος κρύβει κάτι. Σημαίνει\nότι ο αριθμός έχει ένα περίγραμμα, και το περίγραμμα είναι δημοσιευμένο: η\nμεθοδολογία γράφει ονομαστικά ποιες κατηγορίες κατανάλωσης μένουν έξω από τη\nμέτρηση. Το λάθος δεν είναι του δείκτη. Το λάθος είναι να διαβάσεις τον αριθμό\nσαν να κάλυπτε όλη τη ζωή σου, όταν ο ίδιος δηλώνει ότι δεν την καλύπτει.\n\nΚαι υπάρχει μια πρακτική συνέπεια που αξίζει να την κρατήσεις. Αν το κόστος της\nστέγης σου κινηθεί — επισκευές, φόροι κατοικίας, το κόστος του να μένεις στο\nδικό σου σπίτι — αυτή η κίνηση δεν περνάει μέσα στον δείκτη με τον τρόπο που\nφαντάζεσαι. Μπορεί λοιπόν ο επίσημος αριθμός να μένει ήσυχος ενώ ο δικός σου\nπροϋπολογισμός σφίγγει, χωρίς να έχει γίνει κανένα λάθος σε κανένα από τα δύο.\n\nΟ έλεγχος που προτείνει αυτό το βίντεο είναι ένας και γίνεται σε ένα λεπτό:\nπριν συγκρίνεις τον λογαριασμό σου με τον επίσημο αριθμό, δες ποιες κατηγορίες\nδηλώνει ο ίδιος ότι μετρά και ποιες αφήνει έξω. Μετά κοίτα πόσο μεγάλο μέρος\nτου δικού σου μήνα πέφτει στις δεύτερες. Σε ένα νοικοκυριό που μένει σε σπίτι\nδικό του, αυτό το μέρος δεν είναι μικρό.\n\n## COMENTARIO FIXADO\nΟ έλεγχος σε ένα λεπτό: δες ποιες κατηγορίες δηλώνει ο δείκτης ότι μετρά, και\nποιες αφήνει έξω. Μετά κοίτα πόσο του δικού σου μήνα πέφτει στις δεύτερες.\n\n## HASHTAGS\n#οικονομικα #στεγη #ελλαδα #epomenoepipedo #Shorts\n\n## TAGS\nστεγη, ιδιοκατοικηση, τεκμαρτο ενοικιο, κατηγορια εκτος δεικτη, μεθοδολογια, εναρμονισμενος δεικτης, κοστος κατοικιας, λογιστικο μεγεθος, προϋπολογισμος νοικοκυριου, τι λειπει, οικονομικα ελλαδα, προσωπικα οικονομικα, epomeno epipedo, κανονας, ελεγχος\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Conferido campo a campo: a peca\nnao diz percentual, nao diz ano-base, nao diz o CODIGO da rubrica e nao nomeia\norgao. A regra (g) tira deste longo tudo o que MUDA — e o codigo de rubrica\nsaiu tambem, porque classificacao de rubrica JA mudou neste proprio longo\n(capitulos 57 a 59), logo citar o codigo seria afirmar uma versao da\nclassificacao que a peca nao pode garantir.\n\n## FAMILIA DE ENTRADA ERRADA\nCUSTO QUE FICA FORA DO INDICE POR FALTA DE METODO — distinta das tres que esta\norigem ja rendeu: o s004 e a cesta propria contra o indice medio, o s025 e a\nDATA que decide, e o s053 e o TERRITORIO contra o morador (residentes e nao\nresidentes). Aqui a entrada errada e outra: supor que o indice cobre toda a\ndespesa de consumo, quando a propria metodologia declara categorias de fora — e\na que falta e uma forma do maior gasto da vida.\n\n## EXPOSICAO DECLARADA ANTES DE PUBLICAR\nPrevisao edge 41,5 / piper 36,8 — os dois dentro de 18 a 45 s. Com a banda\nobservada de (-0,6; 4,0) o real pode cair entre 40,9 e 45,5 s se o edge narrar,\nlogo PODE passar do teto de 45. E eu NAO declaro de que lado da banda ele vai\ncair: os tres ultimos pontos deste canal, nesta mesma janela de previsao,\nsairam em 41 (residuo NEGATIVO) enquanto a banda admitia ate 45,5 — acertar\ndentro de 4,6 s nao e previsao, e foi exatamente o que a rodada das 05:1x\nmediu.\n\n## FONTES\nO longo de onde este short foi extraido (`9U2h4HuAzLs`, pacote\nepomeno-epipedo-015, 81 capitulos) carrega os numeros, os codigos de rubrica e\nos nomes dos orgaos. Este short NAO introduz numero novo sobre o mundo, entao\nnao exige fonte institucional nova. Os capitulos de origem sao o 41 ao 46.\n"
+}
