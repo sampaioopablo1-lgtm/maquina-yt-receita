@@ -1,0 +1,75 @@
+{
+  "slug": "epomeno-epipedo",
+  "idioma": "el",
+  "voz": "el-GR-NestorasNeural",
+  "trilha": "Inspired",
+  "paleta": {
+    "ink": "#16283C",
+    "c1": "#2E7BB4",
+    "c2": "#E0A02E",
+    "bg": "#F3F7FA"
+  },
+  "pacote": "epomeno-epipedo-s057",
+  "longo_existente": "eimuyGaCor8",
+  "thumb": {
+    "l1": "Η γραμμή",
+    "l2": "κινείται"
+  },
+  "longo": [],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Η γραμμή",
+      "sub": "δεν είναι σταθερή",
+      "sem_cap": true,
+      "nar": "Η γραμμή που σου λέει πού πέφτεις δεν είναι σταθερή."
+    },
+    {
+      "layout": "item",
+      "kicker": "Γιατί",
+      "nar": "Δεν την αποφασίζει κάποιος σε ένα γραφείο κάθε χρόνο."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Πώς",
+      "nar": "Βγαίνει από το μεσαίο εισόδημα ολόκληρης της χώρας σου."
+    },
+    {
+      "layout": "item",
+      "kicker": "Άρα",
+      "nar": "Άρα κινείται κάθε χρόνο μαζί με τη χώρα σου."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Το λάθος",
+      "sub": "παλιά γραμμή",
+      "nar": "Το λάθος είναι να κρατάς την περσινή γραμμή φέτος."
+    },
+    {
+      "layout": "item",
+      "kicker": "Τι συμβαίνει",
+      "nar": "Συγκρίνεις φετινό εισόδημα με όριο άλλης χρονιάς."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Το σημάδι",
+      "nar": "Το σημάδι: ανέβηκες, κι όμως η απάντηση έμεινε ίδια."
+    },
+    {
+      "layout": "item",
+      "kicker": "Η συνέπεια",
+      "nar": "Έτσι η χώρα πλουτίζει και το ποσοστό μένει ίδιο."
+    },
+    {
+      "layout": "item",
+      "kicker": "Μην κρατάς",
+      "nar": "Μην κρατάς ποτέ νούμερο που αλλάζει κάθε χρόνο."
+    },
+    {
+      "layout": "cta",
+      "kicker": "Κράτα τον κανόνα",
+      "nar": "Κράτα τον κανόνα και κάνε εγγραφή τώρα αμέσως."
+    }
+  ],
+  "copy": "# epomeno-epipedo-s057\n\n## TITULO\nΗ Γραμμή Κινδύνου Δεν Είναι Σταθερό Νούμερο: Βγαίνει από το Εισόδημα Όλης της Χώρας\n\n## TITULO SHORT\nΗ γραμμή δεν είναι σταθερή\n\n## DESCRICAO\nΤο όριο που σου λέει σε ποια πλευρά πέφτεις **δεν είναι σταθερό νούμερο και δεν το αποφασίζει κάποιος σε ένα γραφείο**. Προκύπτει από το ίδιο το εισόδημα της χώρας: παίρνεται το μεσαίο εισόδημα όλων των νοικοκυριών και ένα ποσοστό του γίνεται η γραμμή.\n\nΜεσαίο σημαίνει ότι οι μισοί έχουν περισσότερα και οι μισοί λιγότερα — δεν είναι ο μέσος όρος. Και επειδή η γραμμή πατάει σε αυτό το μεσαίο εισόδημα, **κινείται μαζί με τη χώρα**: όταν ανεβαίνει το εισόδημα όλων, ανεβαίνει και το όριο.\n\nΕδώ είναι το λάθος που κάνει η πλειοψηφία, και είναι λάθος **αριθμητικό, όχι γνώσης**: κρατάς τη γραμμή που διάβασες μια χρονιά και τη συγκρίνεις με το φετινό σου εισόδημα. Οι δύο αριθμοί δεν μετρούν την ίδια χρονιά, άρα η σύγκριση δεν απαντά τίποτα — ακόμα κι αν η πράξη σου είναι σωστή μέχρι το τελευταίο λεπτό.\n\nΤο σημάδι είναι ορατό και φτηνό να το δεις: **το εισόδημά σου ανέβηκε και η απάντηση έμεινε ακριβώς η ίδια.** Αν συμβεί αυτό, δεν άλλαξε η θέση σου — έμεινε παγωμένη η γραμμή στο χαρτί σου.\n\nΚαι υπάρχει μια συνέπεια που ξενίζει όταν την ακούς πρώτη φορά: επειδή η γραμμή είναι σχετική, **μια χώρα μπορεί να γίνει συνολικά πλουσιότερη χωρίς το ποσοστό να αλλάξει**. Αν ανέβουν όλα τα εισοδήματα μαζί, ανεβαίνει και το όριο, και η κατανομή μένει όπως ήταν. Αυτό δεν είναι σφάλμα του δείκτη: είναι αυτό που ο δείκτης μετράει εξ αρχής.\n\nΤι να κρατήσεις, λοιπόν: **τον κανόνα, όχι το νούμερο.** Ο κανόνας — μεσαίο εισόδημα της χρονιάς, ένα ποσοστό του — δεν παλιώνει ποτέ. Το νούμερο παλιώνει κάθε χρόνο, και παλιώνει σιωπηλά: δεν σου στέλνει κανείς ειδοποίηση όταν αλλάξει.\n\nΔεν λέω εδώ ποσά, ποσοστά ούτε χρονιές. Αυτά αλλάζουν, και ο σκοπός του σύντομου βίντεο είναι να μη χρειαστεί να το ξαναδείς του χρόνου.\n\nΣτο πλήρες βίντεο: από πού βγαίνει η γραμμή βήμα-βήμα, πώς αλλάζει ανά σύνθεση νοικοκυριού, και ο έλεγχος συνέπειας που μπορείς να κάνεις μόνος σου.\n\nΕνημερωτικό περιεχόμενο, δεν αποτελεί οικονομική συμβουλή.\n\n## COMENTARIO FIXADO\nΤο σημείο που ξαφνιάζει: η χώρα μπορεί να γίνει πλουσιότερη και το ποσοστό να μείνει ίδιο, επειδή η γραμμή ανεβαίνει μαζί. Είχες κρατήσει ποτέ παλιά γραμμή για φετινή σύγκριση;\n\n## HASHTAGS\n#οικονομικα #εισοδημα #ελλαδα #epomenoepipedo #Shorts\n\n## TAGS\nγραμμη κινδυνου, μεσαιο εισοδημα, διαμεσος, σχετικο οριο, εισοδημα νοικοκυριου, συνθεση νοικοκυριου, ποσοστο, δεικτης, ελεγχος συνεπειας, φετινο εισοδημα, περσινο οριο, οικονομικα ελλαδα, προσωπικα οικονομικα, epomeno epipedo, κανονας\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Conferido cena a cena: nenhum valor\nem euros, nenhum percentual, nenhuma data, nenhum ano. A regra (g) manda isso — o\nproprio longo publica tres valores e um percentual, e os quatro ENVELHECEM a cada\npublicacao estatistica. O short carrega so o que NAO muda: a regra de formacao da\nlinha (renda MEDIANA do ano, uma fracao dela) e o sinal visivel do erro. O\ndescarte vai escrito aqui, como a regra (g) pede.\n\nFamilia de entrada errada: LIMITE RELATIVO LIDO COMO FIXO — comparar o\nrendimento deste ano contra um limite de outro ano, porque se tomou como fixo um\nnumero que se recalcula todo ano a partir da propria distribuicao. E familia NOVA\nnesta origem (`eimuyGaCor8`): as outras tres desta mesma origem sao\nepomeno-epipedo-s001 (COMPOSICAO DO DOMICILIO MUDOU E A LINHA MUDOU COM ELA),\n-s023 (O LIMITE NAO MEDE SE DA PARA VIVER — o que o indicador nao diz) e -s035\n(FLUXO LIDO COMO ESTOQUE — o indicador nao ve patrimonio). Nenhuma delas e sobre\na DATA do numero, que e o eixo desta. Regra (f) conferida contra as tres, e\ncontra a familia de hoje neste canal (epomeno-epipedo-s056, CUSTO FIXO DIVIDIDO\nPOR POUCO USO): sao distintas — ali o divisor e pequeno, aqui o numero comparado\ne de outro ano.\n\nConferido tambem contra o titulo curto dos irmaos, que e o procedimento que me\nsalvou de repetir familia no `s035`: o `-s023` chama-se *\"Το όριο δεν μετράει αν\nζεις\"* e esta peca chama-se *\"Η γραμμή δεν είναι σταθερή\"* — uma fala do que o\nlimite NAO mede, a outra de QUANDO ele vale.\n\n## EXPOSICAO DECLARADA ANTES DE PUBLICAR\nMira: edge 41,4 s e piper 36,6 s — os dois dentro de 18 a 45 s, que e o que o\nportao `duracao` cobra nos DOIS mundos de provedor. Este canal NAO tem\n`ALVO_POR_CANAL` medido, logo vale a mira da frota (41,5 a 43,0), e 41,4 e o\nPISO dela: escolha deliberada pela regra de redacao do 772, porque a voz grega\nnao exige o topo.\nCom a banda OBSERVADA de residuo (-0,6 a +4,0 s, n=86): se o edge narrar, o real\ndeve cair entre 40,8 e 45,4 s, logo PODE encostar no teto de 45 do portao — foi\nexatamente isso que aconteceu no `epomeno-epipedo-s032`, que saiu com 46 s reais\ncom o portao VERDE (772). Mirar o piso e o que reduz essa exposicao, e ela vai\nDITA aqui em vez de prometida. Se o piper narrar, entre 36,0 e 40,6 s.\nO provedor sera MEDIDO pela anotacao do job (733), nao inferido.\nE os DOIS unicos residuos NEGATIVOS da serie sao deste canal, com previsao 41,5\ne 41,6 (770/771) — isto e, desta mesma janela de previsao. Logo o real tambem\npode sair ABAIXO de 41.\n\n## FONTES\nOrigem: eimuyGaCor8 (pacote epomeno-epipedo-016, 87 capitulos), longo JA\nPUBLICADO deste canal, rank 2 da ordem VIVA de uploads. O short nao introduz\nnumero novo sobre o mundo, logo nao exige fonte nova, e o id do longo vai dito\naqui.\nAs cenas saem dos capitulos 30 a 37 do pacote (\"Το όριο του εξήντα\" a \"Αυτό έχει\nσυνέπεια\"), que nenhum dos tres shorts anteriores desta origem usou.\nPor que o rank 2 e nao o rank 1: o `concentracao.py` ALERTOU — o\n`nttW9fR8wyY` carrega 12 dos 56 shorts do canal (21%), mais que o dobro da\nsegunda origem. Concentracao de origem ataca o portao `similaridade`, que e de\nmonetizacao.\n"
+}
