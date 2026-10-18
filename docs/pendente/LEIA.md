@@ -1201,3 +1201,29 @@ O que segue na sua mao, por valor:
 2. reconectar o conector do Supabase — e a unica rota que devolve `execute_sql` /
    `pg_net`, e com ela as 62 linhas parqueadas em `docs/pendente/videos-a-inserir.sql`;
 3. a decisao do 740/748 (mira contra real), com a conta pronta.
+
+## 18/10 00:1x — kolejny-poziom-s056 no ar, e o empate triplo chegou a SETE rodadas
+
+`WGP0QtePCMU`, 43 s reais contra previsao edge de 41,7 (provedor MEDIDO, zero
+avisos no job 117540417103): residuo +1,3, estabelecido, dentro da banda.
+RESIDUO_N = 82. Rota da duracao ABERTA (controle OhrGlJvnBoM devolveu 44 s).
+
+O contador de janela movel deu 7 / 7 / 7 — a frota esta perfeitamente
+equilibrada ha sete rodadas, e o desempate vem saindo da peca mais antiga.
+
+E a rodada teve a primeira vez em que as DUAS coordenadas da pauta concordam sem
+desempate cego: a origem escolhida (`-5aMrDsxlZE`) e, ao mesmo tempo, do grupo de
+MENOR uso (2, empatada com onze outras) e a de melhor rank na ordem VIVA (5 de
+23). O peso entre as duas segue nao medido, e aqui nao foi preciso.
+
+Inscritos 68 / 21 / 8 — os tres `indeterminado`. A janela desta rodada (15,0 h,
+piso 1,60/dia) NAO aperta o limite da frota: o mais apertado segue sendo o
+1,18/dia da janela de 20,4 h de 16/10. A proxima leitura que pode RESOLVER
+ritmo precisa de |delta| >= 2, o que nesse limite cai depois de ~41 h — nao
+antes da manha de 19/10.
+
+Na sua mao, por valor:
+1. os dois cliques de consentimento do Google (`docs/reautorizar-analytics.md`);
+2. reconectar o conector do Supabase — unica rota que devolve `execute_sql` /
+   `pg_net`, e com ela as 63 linhas de `docs/pendente/videos-a-inserir.sql`;
+3. a decisao do 740/748 (mira contra real), com a conta pronta.
