@@ -1,0 +1,82 @@
+{
+  "slug": "epomeno-epipedo-s063",
+  "idioma": "el",
+  "voz": "el-GR-NestorasNeural",
+  "trilha": "Inspired",
+  "paleta": {
+    "ink": "#1D3557",
+    "c1": "#2A9D8F",
+    "c2": "#E9C46A",
+    "bg": "#F5F3EC"
+  },
+  "pacote": "epomeno-epipedo-s063",
+  "longo_existente": "os51d8fA0sY",
+  "thumb": {
+    "l1": "Επιβράδυνση",
+    "l2": "όχι πτώση"
+  },
+  "longo": [],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Ο ρυθμός",
+      "sub": "έπεσε, οι τιμές όχι",
+      "nar": "Ο ρυθμός έπεσε, οι τιμές στο ράφι όμως όχι."
+    },
+    {
+      "layout": "item",
+      "kicker": "Επιβράδυνση",
+      "sub": "δεν είναι πτώση",
+      "nar": "Η επιβράδυνση δεν σημαίνει πτώση, ποτέ και πουθενά."
+    },
+    {
+      "layout": "item",
+      "kicker": "Ανεβαίνουν",
+      "sub": "πιο αργά",
+      "nar": "Σημαίνει μόνο ότι οι τιμές ανεβαίνουν πιο αργά τώρα."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Το επίπεδο",
+      "sub": "μένει εκεί",
+      "nar": "Το επίπεδο της τιμής μένει ακριβώς εκεί που έφτασε."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Το φετινό",
+      "sub": "μπαίνει πάνω",
+      "nar": "Και το φετινό ποσοστό μπαίνει πάνω σε αυτό το επίπεδο."
+    },
+    {
+      "layout": "item",
+      "kicker": "Όχι από",
+      "sub": "την παλιά τιμή",
+      "nar": "Δεν ξεκινά από την τιμή που πλήρωνες παλιότερα εσύ."
+    },
+    {
+      "layout": "item",
+      "kicker": "Αλλά από",
+      "sub": "την ανεβασμένη",
+      "nar": "Ξεκινά από την τιμή που έχει ανέβει ήδη από τότε."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Το καλάθι",
+      "sub": "δεν φτηναίνει",
+      "nar": "Γι' αυτό το καλάθι σου δεν φτηναίνει με καλές ειδήσεις."
+    },
+    {
+      "layout": "item",
+      "kicker": "Μικρότερος ρυθμός",
+      "sub": "ακριβότερο ράφι",
+      "nar": "Μικρότερος ρυθμός σημαίνει πιο ακριβό ράφι, όχι φθηνό."
+    },
+    {
+      "layout": "cta",
+      "kicker": "Κάνε εγγραφή",
+      "sub": "και μέτρα το δικό σου",
+      "nar": "Μέτρα το δικό σου καλάθι και κάνε εγγραφή στο κανάλι."
+    }
+  ],
+  "copy": "# epomeno-epipedo-s063\n\n## TITULO\nΕπιβράδυνση Δεν Είναι Πτώση: Γιατί το Καλάθι Δεν Φτηναίνει με Καλές Ειδήσεις\n\n## TITULO SHORT\nΕπιβράδυνση δεν σημαίνει πτώση\n\n## DESCRICAO\nΌταν ανακοινώνεται ότι ο ρυθμός του πληθωρισμού **έπεσε**, η πρώτη ανάγνωση είναι σχεδόν πάντα η ίδια: οι τιμές κατεβαίνουν. **Δεν κατεβαίνουν.** Η επιβράδυνση λέει κάτι πιο στενό και πιο άβολο: οι τιμές **ανεβαίνουν πιο αργά**.\n\n**Δύο πράγματα μπερδεύονται εδώ, και είναι διαφορετικά:** ο **ρυθμός** (πόσο γρήγορα αλλάζει η τιμή) και το **επίπεδο** (πού βρίσκεται η τιμή τώρα). Όταν ο ρυθμός πέφτει, το επίπεδο **δεν γυρίζει πίσω** — μένει ακριβώς εκεί που έφτασε. Το μόνο που αλλάζει είναι η ταχύτητα της επόμενης ανάβασης.\n\n**Και υπάρχει το δεύτερο μισό, που είναι το πιο ακριβό:** το φετινό ποσοστό **δεν εφαρμόζεται στην παλιά τιμή**. Εφαρμόζεται στην τιμή που έχει **ήδη ανέβει**. Κάθε χρονιά ξεκινά από το σημείο που άφησε η προηγούμενη, όχι από την αρχή — και γι' αυτό ένα μικρότερο ποσοστό μπορεί να σημαίνει **μεγαλύτερη αύξηση σε ευρώ** από ένα μεγαλύτερο ποσοστό παλιότερα.\n\n**Το πρακτικό συμπέρασμα:** μια ανακοίνωση επιβράδυνσης δεν είναι λόγος να περιμένεις ότι το καλάθι θα φτηνύνει. Είναι λόγος να περιμένεις ότι θα ακριβύνει **λιγότερο γρήγορα**. Αν θέλεις να ξέρεις τι συμβαίνει στο δικό σου καλάθι, το νούμερο δεν βγαίνει από το δελτίο: βγαίνει από τις **δικές σου αποδείξεις**, για τα προϊόντα που εσύ αγοράζεις.\n\nΔεν δίνω εδώ ποσοστά, δείκτες ούτε ημερομηνίες. Αυτά αλλάζουν κάθε μήνα. **Ο μηχανισμός — ο ρυθμός δεν είναι το επίπεδο, και το φετινό ποσοστό κάθεται πάνω στο περυσινό — δεν αλλάζει.**\n\nΣτο πλήρες υλικό: πώς ένας σταθμισμένος μέσος όρος καταπίνει μια μεγάλη αύξηση, γιατί τα βάρη του δείκτη δεν είναι τα δικά σου, και πώς μετράς το δικό σου καλάθι.\n\nΕνημερωτικό υλικό, δεν αποτελεί οικονομική συμβουλή.\n\n## COMENTARIO FIXADO\nΤο λιγότερο προφανές: το φετινό ποσοστό δεν εφαρμόζεται στην παλιά τιμή — κάθεται πάνω σε αυτήν που ανέβηκε ήδη. Σε ποιο προϊόν το έχεις προσέξει πιο καθαρά;\n\n## HASHTAGS\n#πληθωρισμός #τιμές #καλάθι #epomenoepipedo #Shorts\n\n## TAGS\nplithorismos, epivradynsi, ptosi timon, epipedo timis, rythmos, kalathi, timologisi, agorastiki dynami, deiktis timon, prosopika oikonomika, ellada, epomeno epipedo, apodeixeis, super market, oikonomia\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Conferido cena a cena: nenhuma cena\ncarrega percentual, indice, data nem valor. O longo traz o pliforismos geral, o\nindice de alimentos, o valor do moschari e o do azeite; os quatro ficaram FORA\npela regra (g), porque indice de preco muda a cada MES — e este longo e\njustamente sobre a leitura de um boletim mensal. **A segunda versao da narracao\ntinha \"pri dyo chronia\" e \"dyo fores\"; as duas sairam**, porque mesmo nao sendo\ntaxa elas afirmam uma QUANTIDADE sobre o mundo que eu nao medi.\n\n## FONTES\nCapitulos 40 a 42 do longo \"Plithorismos 3,4% kai Moschari 14,3%: Giati o Mesos\nOros...\" (pacote epomeno-epipedo-006, os51d8fA0sY, rank 12 da ordem viva, 2 usos\n— o menor patamar do canal e o melhor rank dentro dele). As duas familias que\nesta origem ja rendeu sao outras: o s012 (mede o TEU cabaz) e o s031 (mesmo\npreco, menos gramas).\n\n## EXPOSICAO\nPrevisao edge 42,2 s e piper 37,4 s — os dois dentro de 18 a 45 nos dois mundos,\ne a previsao do edge cai no MEIO da mira da frota (41,5 a 43,0; este canal nao\ntem ALVO_POR_CANAL). Mirei o meio e nao o piso pelo mesmo motivo da rodada das\n20:0x: os CINCO residuos negativos da serie sao deste canal e os cinco tem real\nexatamente 41, o piso do espalhamento — mirar o piso aqui nao encurta a peca,\naumenta a chance de residuo negativo. Quatro versoes: a primeira dava edge 33,4.\nCom a banda em (-1,2; 4,0), se o edge narrar o real cai em algum ponto de\n(41,0; 46,2), e eu nao digo de que lado.\n"
+}
