@@ -1,0 +1,26 @@
+# ICP e limites da maquina de prospeccao. Copie/edite os valores abaixo — as
+# etapas da sequencia (dia_offset/canal/template) sao o default do Config em
+# src/prospeccao/config.py; para mudar a cadencia, edite Config.sequencia
+# diretamente ou exponha aqui se precisar editar sem tocar em codigo.
+
+icp:
+  cargos:
+    - "Diretor Comercial"
+    - "Head de Vendas"
+    - "VP Sales"
+  setores:
+    - "Software"
+    - "SaaS"
+  tamanho_empresa: "11-50"
+  localizacao: "Brazil"
+  palavras_chave: []
+
+limites:
+  linkedin_convites_dia: 15
+  linkedin_mensagens_dia: 25
+  email_envios_dia: 40
+  leads_novos_dia: 20
+
+remetente_nome: ""
+remetente_email: ""
+calendly_like_base_url: "http://localhost:8000"
