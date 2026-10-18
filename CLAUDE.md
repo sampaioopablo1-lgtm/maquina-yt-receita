@@ -3129,7 +3129,7 @@ logo o edge estava de pé); se sobrar, **todas** as cenas vão para o Piper, e s
 ele falhar o render **levanta** em vez de publicar misto. **A contagem de avisos
 do 733 volta a ser 0 ou N**, impressa no estado FINAL, e a marca `sNN.mp3.piper`
 sobrevive à RETOMA. Nada de parâmetro mudou (§10); as três peças publicadas não
-foram apagadas. Onze testes em `tests/test_uma_voz_so_por_peca.py`.
+foram apagadas. Doze testes em `tests/test_uma_voz_so_por_peca.py`.
 
 **O que NÃO entrou, com motivo escrito no doc:** volume em dois passos (as dez
 peças medidas pelo `som.py` já ficam dentro de 1,0 LU), QA de ±1,0 LU (reprovaria

@@ -86,7 +86,7 @@ nunca primeira voz (`test_voz_piper.py` continua cobrando isso).
 
 **O que isto NÃO prova:** que o misto não volte por outro caminho. A unificação
 cobre a queda do edge por cena e o restart; não cobre um Piper que falhe no meio
-da unificação (aí o render levanta, de propósito). Onze testes em
+da unificação (aí o render levanta, de propósito). Doze testes em
 `tests/test_uma_voz_so_por_peca.py`, um deles **falha se o aviso do 733 voltar a
 sair antes da unificação** e um **falha se o motivo sair do módulo**.
 
