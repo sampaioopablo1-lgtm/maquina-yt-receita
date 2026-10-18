@@ -1,0 +1,75 @@
+{
+  "slug": "labtreinamento",
+  "idioma": "pt-BR",
+  "voz": "pt-BR-ThalitaMultilingualNeural",
+  "trilha": "Inspired",
+  "paleta": {
+    "ink": "#1F2933",
+    "c1": "#3F6C51",
+    "c2": "#C98B2E",
+    "bg": "#F5F3ED"
+  },
+  "pacote": "labtreinamento-s074",
+  "longo_existente": "NNgAQLlpEzg",
+  "thumb": {
+    "l1": "Conte embarques",
+    "l2": "não trajetos"
+  },
+  "longo": [],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Três entradas",
+      "sub": "uma é contada errada",
+      "sem_cap": true,
+      "nar": "O transporte tem três entradas."
+    },
+    {
+      "layout": "item",
+      "kicker": "A errada",
+      "nar": "A errada é a contagem."
+    },
+    {
+      "layout": "lista",
+      "kicker": "O hábito",
+      "nar": "Todos contam ida e volta."
+    },
+    {
+      "layout": "item",
+      "kicker": "O que se paga",
+      "nar": "Mas se paga cada embarque."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Conte embarques",
+      "sub": "não trajetos",
+      "nar": "Conte embarques, não trajetos."
+    },
+    {
+      "layout": "item",
+      "kicker": "A baldeação",
+      "nar": "Com baldeação, a ida são dois."
+    },
+    {
+      "layout": "item",
+      "kicker": "E a volta",
+      "nar": "E a volta repete."
+    },
+    {
+      "layout": "lista",
+      "kicker": "O efeito",
+      "nar": "Por trajeto, o gasto cai."
+    },
+    {
+      "layout": "item",
+      "kicker": "E então",
+      "nar": "E o desconto parece certo."
+    },
+    {
+      "layout": "cta",
+      "kicker": "Reconte",
+      "nar": "Reconte e inscreva-se."
+    }
+  ],
+  "copy": "# labtreinamento-s074\n\n## TITULO\nA Contagem das Passagens do Vale-Transporte: Embarques Pagos, Não Trajetos Feitos\n\n## TITULO SHORT\nConte embarques, não trajetos\n\n## DESCRICAO\nA conta do vale-transporte tem três entradas, e uma delas quase sempre sai errada — não por cálculo, mas por **unidade**. As três são: o valor da passagem que você paga, quantas você paga por dia, e quantos dias você trabalha no mês. O erro vive na segunda.\n\nO hábito é contar uma ida e uma volta, porque é assim que a gente pensa o deslocamento: eu vou e eu volto. Mas o que sai do seu bolso não é o trajeto, é o **embarque**. Quem pega um ônibus, desce e pega outro paga duas passagens só na ida — e a volta repete a mesma estrutura. Contado por trajeto, o deslocamento de quem faz baldeação aparece pela metade.\n\nE é aqui que a entrada errada se disfarça de conta certa. O gasto do mês sai menor do que ele é, a comparação com o limite do desconto é feita com rigor aparente, e o desconto que aparece na folha parece legítimo — porque ele está sendo comparado contra um gasto que você subestimou com as próprias mãos. A conta está certa; a unidade que entrou nela não estava.\n\nA conferência é barata e você faz sozinho: refaça o percurso de um dia qualquer na cabeça e conte cada vez que você paga para embarcar, não cada vez que você sai de um lugar para outro. Inclua a baldeação na ida e a baldeação na volta. Se o seu percurso muda de dia para dia, conte o dia típico e anote que ele é típico.\n\nFeito isso, você tem a segunda entrada certa, e só então as outras duas valem algo. Com unidade errada, aumentar a precisão das outras duas entradas não melhora o resultado: ela erra o total na mesma proporção, todos os meses, sem nunca dar sinal de que errou.\n\nNão cito aqui valor de tarifa, percentual nem data. Tarifa muda de cidade para cidade e de ano para ano, e a regra de contagem não muda. Os números da sua conta são seus: a sua tarifa, os seus embarques, os seus dias.\n\nNo vídeo completo: as três entradas uma por uma, como comparar o resultado com a linha do holerite, e as três armadilhas que mudam o valor do desconto.\n\nConteúdo informativo, não é orientação jurídica.\n\n## COMENTARIO FIXADO\nA parte que mais engana: a conta pode estar certíssima e o resultado errado, porque o que entrou nela foi trajeto em vez de embarque. Quantos embarques pagos tem o seu dia típico, contando as baldeações?\n\n## HASHTAGS\n#valetransporte #holerite #trabalho #labtreinamento #Shorts\n\n## TAGS\nvale transporte, contagem de passagens, embarque pago, baldeacao, trajeto, desconto na folha, holerite, dias trabalhados, tarifa, conferir o desconto, direitos do trabalhador, folha de pagamento, lab treinamento, conta do transporte, gasto mensal\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Conferido cena a cena: nenhuma\ntarifa, nenhum percentual, nenhuma data, nenhuma cidade. A regra (g) manda isso —\ntarifa muda por cidade e por ano, e a REGRA DE CONTAGEM nao muda. As unicas\nquantidades faladas sao estruturais do proprio percurso do espectador (tres\nentradas; a ida com baldeacao sao dois embarques), e nao sao numero sobre o\nmundo.\n\nFamilia de entrada errada: UNIDADE CONTADA — contar TRAJETO em vez de EMBARQUE\nPAGO. E familia NOVA nesta origem (`NNgAQLlpEzg`): as outras quatro desta mesma\norigem sao labtreinamento-s001 (ELEGIBILIDADE POR DISTANCIA), -s036 (BASE errada\n— percentual sobre o bruto), -s043 (DIAS UTEIS em vez do mes), -s056 (TETO\nTRATADO COMO FIXO) e -s071 (GRUPO COBERTO — base de quem vive de comissao).\nNenhuma delas e sobre a UNIDADE da segunda entrada. Regra (f) conferida contra\nas cinco, e contra a familia de hoje neste canal (labtreinamento-s073, CAMPO\nAUSENTE PRESUMIDO): sao distintas — ali o dado NAO ESTA no papel, aqui ele esta\ne foi contado na unidade errada.\n\n## EXPOSICAO DECLARADA ANTES DE PUBLICAR\nMira: edge 25,8 s e piper 21,2 s — DENTRO da mira medida deste canal (20,0 a\n26,0) nos dois mundos, e dentro de 18 a 45 nos dois, que e o que o portao\n`duracao` cobra.\nA mira deste canal e sobre a duracao REAL e o `mira.py` a cobra sobre o\nESTIMADO — a contradicao do 740/748, que segue na fila do dono. Com a banda\nOBSERVADA de residuo (-0,6 a +4,0 s, n=85): se o edge narrar, o real deve cair\nentre 25,2 e 29,8 s, logo PODE passar do teto de 26,0; se o piper narrar, entre\n20,6 e 25,2 s, e cabe. Em nove das doze pecas deste canal narradas pelo edge o\nreal saiu FORA do teto com a mira VERDE, logo a exposicao vai DITA em vez de\nprometida. O provedor sera MEDIDO pela anotacao do job (733), nao inferido.\n\n## FONTES\nOrigem: NNgAQLlpEzg (pacote labtreinamento-013), longo JA PUBLICADO deste canal,\nrank 2 da ordem VIVA de uploads do canal. O short nao introduz numero novo sobre\no mundo, logo nao exige fonte nova, e o id do longo vai dito aqui.\nA cena da baldeacao sai do capitulo 18 do pacote (\"Conte as baldeacoes\"), que\nnenhum dos cinco shorts anteriores desta origem usou.\n"
+}
