@@ -15,7 +15,8 @@ import { createClient } from "npm:@supabase/supabase-js@2";
 //   chavesnamao.com.br — advertiser.phones.{cellphone,landline} e, melhor
 //                         que os outros dois, advertiser.type ("PJ"/"PF"):
 //                         sinal direto de pessoa física, sem depender só do
-//                         regex de nome.
+//                         regex de nome. EM USO desde 14/09 — ficou um mês
+//                         gravado e ignorado pelo classificador.
 //   olx.com.br          — DE FORA. A listagem (PLP) da OLX não traz telefone
 //                         nem anunciante, só um "professionalAd": bool.
 //                         Telefone só sai na página do anúncio (PDP), que
@@ -124,7 +125,12 @@ function extrairChavesNaMao(itens: any[], cidadeFallback: string) {
       whatsapp: fone(fones.cellphone),
       tem_creci: creci !== null,
       creci,
-      dados: { advertiser_type: texto(ad.type) },
+      // Guarda o anunciante INTEIRO, não só o tipo: é de dentro dele que sai
+      // o sinal de logo (`fn_captacao_anunciante_tem_logo`), e guardar só um
+      // campo escolhido hoje é decidir hoje quais sinais existirão amanhã. O
+      // `advertiser_type` no topo fica por compatibilidade com o que já está
+      // gravado desde 13/08.
+      dados: { advertiser_type: texto(ad.type), advertiser: ad },
     };
   }).filter((l) => l.anuncio_id !== null && l.telefone !== null);
 }

@@ -1,0 +1,20 @@
+# Deploy da JAZZ IMOBILIÁRIA, não da máquina de YouTube.
+#
+# O netlify.toml tem que morar na raiz do repositório — é o único arquivo da
+# Jazz fora de jazz/, e a fronteira que o jazz/README.md descreve continua
+# valendo pro resto. O publish aponta pra dentro de jazz/ justamente pra que
+# nada da máquina (assets, notebooks, specs) suba pra web.
+[build]
+  publish = "jazz/site-busca"
+  command = ""
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    # Página estática, sem script externo e sem chamada de rede: a CSP pode
+    # ser fechada. Quando o front real falar com o Supabase, connect-src
+    # precisa liberar https://cscczluzpblzhvojxanp.supabase.co.
+    Content-Security-Policy = "default-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'unsafe-inline'; img-src 'self' data:; base-uri 'none'; form-action 'none'"

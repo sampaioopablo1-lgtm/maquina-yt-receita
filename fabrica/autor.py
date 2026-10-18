@@ -235,6 +235,21 @@ def densidade(slug: str, bloco: str = "longo", excluir: str = "") -> float:
         short   mediana do canal            4,20%          71,2%   <- melhor
         short   constante do corpus        14,26%          32,5%
 
+    REMEDIDO em 14/09/2026, com o corpus em 105 specs (eram 74), e a resposta
+    do LONGO inverteu — por isso esta funcao hoje devolve a mediana do canal
+    nos dois blocos:
+
+        bloco   fonte da densidade      erro mediano   nascem dentro
+        longo   mediana do canal            3,85%      72/99 = 72,7%   <- melhor
+        longo   constante do corpus         5,04%      66/99 = 66,7%
+        short   mediana do canal            4,24%     74/105 = 70,5%   <- melhor
+        short   constante do corpus        13,17%     36/105 = 34,3%
+
+    O motivo e o que o texto abaixo ja dizia: no longo o canal perdia POR
+    TAMANHO DE AMOSTRA. Os canais encheram (hoje de 2 a 12 specs cada), a
+    mediana parou de balancar, e o que era desvantagem virou vantagem. O short
+    nunca esteve em duvida e segue igual.
+
     No LONGO a mediana do canal PERDE, e perde por tamanho de amostra: um canal
     tem de tres a dezesseis specs, e a mediana de tao pouco balanca mais do que
     a diferenca de estilo que ela tenta capturar. A constante do corpus le
@@ -276,13 +291,13 @@ def densidade(slug: str, bloco: str = "longo", excluir: str = "") -> float:
         idi = N.idioma_de(sp, None)
         frases = sum(len(N.frases((c or {}).get("nar") or "", idi)) for c in cenas)
         vistos.append(frases / len(cenas))
-    if bloco != "short":
-        # Ver a tabela do docstring: no longo a mediana do canal e uma amostra
-        # pequena demais para bater a constante do corpus. Ela continua sendo
-        # calculada acima porque quem afere precisa dos dois numeros, e porque
-        # o dia em que um canal tiver specs suficientes para virar o jogo, a
-        # comparacao tem de estar a mao — nao reescrita do zero.
-        return FRASES_POR_CENA
+    # O dia previsto pelo comentario anterior CHEGOU, e a medida virou nos dois
+    # criterios. Ver a segunda tabela do docstring: com o corpus em 105 specs
+    # (eram 74) a mediana do canal passou a ganhar no longo tambem. Nao e
+    # margem de ruido — sao 99 specs medidas fora da amostra, e o canal ganha
+    # no erro mediano (3,85% contra 5,04%) E no que nasce dentro da tolerancia
+    # (72 contra 66). A causa e a que o texto antigo ja apontava: o canal perdia
+    # POR TAMANHO DE AMOSTRA, e os canais encheram.
     return statistics.median(vistos) if vistos else FRASES_POR_CENA
 
 
