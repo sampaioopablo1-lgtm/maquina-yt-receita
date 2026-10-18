@@ -1637,3 +1637,30 @@ Isto e o tipo de coisa que a rodada faz quando nao pode medir mais nada: o
 insert parqueadas esperando por ele.
 
 Suite: 25 / 2.818 / 901, conjunto IDENTICO a linha de base.
+
+## Rodada de 18/10 16:07 — labtreinamento-s078 = wlwaHALIq7M
+
+Peca publica, 28 s reais, provedor **edge** MEDIDO (zero avisos no job
+117723657331). Residuo +2,2, estabelecido, dentro da banda — `RESIDUO_N` = 98.
+Som: LUFS -14,2, LRA 2,9, pico -1,7 dBTP, desvio -0,2, zero silencios.
+
+Inscritos **68 / 21 / 8** contra 17/10 09:0x (31,1 h): delta ZERO. Porta 1
+`indeterminado` nos tres, teto do ritmo a **0,77 inscrito/dia**.
+
+**O tally da pinca do 740/748 foi a CATORZE de dezessete:** o real de 28 s ficou
+fora do teto da mira deste canal (26,0) com o `mira.py` VERDE nos dois mundos,
+como a copy declarou antes de publicar. Para o real caber na mira o edge
+precisaria de <= 22,0, onde o piper cai a ~18,0 — abaixo do piso de 20,0.
+**Catorze medicoes dizem a mesma coisa, e a saida e sua:** mover a mira para o
+ESTIMADO descontando o residuo, ou parar de cobrar uma faixa de REAL sobre o
+estimado.
+
+**E a origem de ZERO usos deste canal foi recusada pela SEGUNDA rodada seguida**,
+com o mesmo motivo medido: ela e a POLONESA (`QiaGg03WSR0`, `language: pl`). O
+instrumento a nomeia certo; seguir a resposta dele produziria peca de idioma
+errado. Isso significa que a regra do idioma tem de ser aplicada a cada rodada —
+e que **enquanto as 46 duplicatas e essa origem cruzada nao forem resolvidas, a
+escolha de pauta carrega um passo manual que nao da para automatizar.**
+
+`execute_sql` negado pela **17a** rodada seguida — **79** linhas de insert
+parqueadas. Suite: 25 / 2.818 / 904, conjunto IDENTICO a linha de base.

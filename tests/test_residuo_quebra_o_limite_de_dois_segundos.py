@@ -251,6 +251,7 @@ SERIE = [
     ("labtreinamento-s077", 25.7, 28, "edge"),  # job 117684273256 — DOIS lengthSeconds (27 e 28), usado o MAIOR; real FORA do teto da mira (26,0) com a mira VERDE: 13 de 16
     ("epomeno-epipedo-s060", 41.5, 42, "edge"),  # job 117697224890 — mira no PISO EXATO da frota; sinal NAO estabelecido (770)
     ("kolejny-poziom-s061", 42.0, 43, "edge"),  # job 117710246704 — DOIS lengthSeconds (42 e 43), usado o MAIOR; residuo EXATAMENTE +1,0, a BORDA que o criterio do 770 perdia
+    ("labtreinamento-s078", 25.8, 28, "edge"),  # job 117723657331 — DOIS lengthSeconds (27 e 28), usado o MAIOR; real FORA do teto da mira (26,0) com a mira VERDE: 14 de 17
 ]
 
 
