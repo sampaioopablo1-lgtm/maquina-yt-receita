@@ -1,0 +1,82 @@
+{
+ "slug": "labtreinamento-s077",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#14213D",
+  "c1": "#2A9D8F",
+  "c2": "#E9C46A",
+  "bg": "#F6F4EF"
+ },
+ "pacote": "labtreinamento-s077",
+ "longo_existente": "6BeNHqT2okA",
+ "thumb": {
+  "l1": "Dois prazos",
+  "l2": "não um"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "lista",
+   "kicker": "Um prazo só",
+   "sub": "é o que seu fluxo tem",
+   "nar": "Seu fluxo tem um prazo só."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Duas velocidades",
+   "sub": "a lei tem",
+   "nar": "A lei tem duas velocidades."
+  },
+  {
+   "layout": "item",
+   "kicker": "Caso comum",
+   "sub": "dia útil seguinte",
+   "nar": "Caso comum: dia útil."
+  },
+  {
+   "layout": "item",
+   "kicker": "Em caso de morte",
+   "sub": "imediato",
+   "nar": "Em caso de morte: imediato."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Imediato",
+   "sub": "não é prazo curto",
+   "nar": "Imediato não tem dia útil."
+  },
+  {
+   "layout": "item",
+   "kicker": "E o destino muda",
+   "sub": "não é o mesmo canal",
+   "nar": "O destino também muda."
+  },
+  {
+   "layout": "lista",
+   "kicker": "A autoridade",
+   "sub": "o texto não a nomeia",
+   "nar": "Não só a Previdência."
+  },
+  {
+   "layout": "item",
+   "kicker": "Teste hoje",
+   "sub": "um minuto",
+   "nar": "Teste o seu fluxo hoje."
+  },
+  {
+   "layout": "item",
+   "kicker": "Procure a palavra",
+   "sub": "morte",
+   "nar": "Procure a palavra morte."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Não achou?",
+   "sub": "corrija e inscreva-se",
+   "nar": "Não achou? Inscreva-se."
+  }
+ ],
+ "copy": "# labtreinamento-s077\n\n## TITULO\nComunicacao de Acidente Tem DOIS Prazos: o Dia Util do Caso Comum e o Imediato do Caso de Morte\n\n## TITULO SHORT\nA lei tem dois prazos, não um\n\n## DESCRICAO\nQuase todo procedimento interno de resposta a acidente do trabalho guarda **um** prazo: o do caso comum. E a lei tem **dois**. Quem escreveu o fluxo pensando no evento frequente cumpre bem o prazo frequente — e descobre o outro no pior dia possivel, que e justamente o dia em que ele se aplica.\n\nNo caso comum, a comunicacao vai **ate o primeiro dia util seguinte** ao da ocorrencia. Esse e o prazo que todo mundo conhece, e e o que esta escrito nos fluxos. **Em caso de morte, o texto da lei troca de palavra: a comunicacao e de imediato.** E \"imediato\" nao e um prazo curto — e a ausencia de prazo. Nao ha dia util seguinte, nao ha \"na segunda pela manha\", nao ha expediente. Um procedimento que so sabe contar dia util nao tem o que fazer com essa palavra.\n\n**E muda mais do que a velocidade: muda o DESTINO.** No caso comum a comunicacao e dirigida a Previdencia Social. Na excecao, o texto manda comunicar **a autoridade competente** — e deliberadamente nao a nomeia, porque quem define isso e a norma de cada situacao. Logo o fluxo da excecao precisa responder duas perguntas que o fluxo comum nao faz: **quando** (agora) e **para quem** (nao necessariamente o mesmo canal).\n\n**O teste e de um minuto e voce pode fazer hoje:** abra o seu procedimento de resposta a acidentes e **procure a palavra morte**. Se ela nao aparecer com um caminho proprio — contato, canal e quem aciona fora do horario comercial —, o seu fluxo tem um prazo so, e nao e o da excecao. Nao e detalhe de redacao: e a diferenca entre ter procedimento e nao ter, exatamente onde ele mais importa.\n\nE repare em quem fica de plantao: num sabado a noite, quem recebe a noticia precisa saber que **nao pode esperar o expediente**. Isso e desenho de procedimento, nao boa vontade de quem esta de plantao.\n\nNao cito aqui nenhum valor de multa, nenhum piso e nenhuma aliquota. Esses numeros mudam e envelhecem; a diferenca entre \"dia util seguinte\" e \"imediato\" nao muda. No material completo: as tres datas candidatas da doenca ocupacional e qual delas manda, quem mais pode formalizar a comunicacao quando a empresa nao o faz, e a copia fiel que quase nunca e entregue.\n\nMaterial informativo, nao substitui orientacao juridica.\n\n## COMENTARIO FIXADO\nO detalhe menos obvio: na excecao muda a VELOCIDADE e muda o DESTINATARIO, e o texto nao nomeia qual autoridade e — quem define isso e a norma de cada situacao. O seu procedimento tem a palavra morte escrita nele?\n\n## HASHTAGS\n#segurancadotrabalho #acidentedetrabalho #CAT #labtreinamento #Shorts\n\n## TAGS\ncomunicacao de acidente, acidente do trabalho, prazo dia util, caso de morte, imediato, autoridade competente, previdencia social, procedimento interno, plantao, seguranca do trabalho, doenca ocupacional, departamento pessoal, treinamento corporativo, lab treinamento, compliance trabalhista\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Conferido cena a cena: nenhum valor\nde multa, nenhum piso, nenhuma aliquota, nenhum ano — e **nenhum numero de\nartigo**, embora o longo os cite. O curto carrega a diferenca de REGIME entre o\ncaso comum e a excecao, que e o que nao envelhece, e quem quiser a norma vai ao\nlongo. As unicas quantidades faladas sao estruturais (\"um prazo so\", \"duas\nvelocidades\", \"dia util\") e descrevem a FORMA da obrigacao.\n\"Imediato\" vai dito como AUSENCIA de prazo e nao como prazo curto, porque e isso\nque o texto produz na pratica — e e exatamente a leitura que o fluxo comum\nfalha em fazer.\n\nFamilia de entrada errada: EXCECAO TRATADA COM O FLUXO DA REGRA — escrever o\nprocedimento para o evento frequente e aplicar o mesmo prazo e o mesmo destino ao\nevento raro. E familia NOVA nesta origem (`6BeNHqT2okA`): as quatro anteriores\nsao labtreinamento-s007 (DIA UTIL NAO E DIA — contar 24 horas onde o texto diz\nprimeiro dia util seguinte), -s014 (QUEM EMITIU A SUA ULTIMA — supor que so a\nempresa pode formalizar), -s015 (PROCURE O COMPROVANTE, NAO A COPIA — a copia\nfiel do paragrafo primeiro) e -s016 (RESOLVA ANTES, NAO DURANTE). Nenhuma delas e\nsobre a EXCECAO ter regime proprio, que e o eixo desta. Regra (f) conferida\ncontra as quatro.\nE conferida tambem contra as QUATRO pecas de hoje neste canal: -s073 (CAMPO\nAUSENTE PRESUMIDO), -s074 (UNIDADE CONTADA), -s075 (CAMPO IRRELEVANTE USADO NA\nCONTA) e -s076 (TETO ALTO LIDO COMO VANTAGEM). A vizinha mais proxima e a -s007,\nda mesma origem, e a distincao vai dita: la o erro e CONTAR MAL o mesmo prazo;\naqui o erro e nao saber que existe um SEGUNDO prazo, com outro destinatario.\nContar errado e nao ter o que contar nao sao a mesma entrada errada.\n\n## EXPOSICAO DECLARADA ANTES DE PUBLICAR\nMira: edge **25,7 s** e piper **21,1 s** — os dois dentro de 18 a 45 s (o portao\n`duracao`, nos DOIS mundos) **e os dois dentro da mira deste canal (20,0 a 26,0\nde duracao REAL), logo o `mira.py` esta VERDE.** A primeira versao dava edge 33,3\ne a segunda 27,1 — as duas fora da mira pelo topo —, e a terceira ficou em 25,7.\n**E mira verde NAO significa real dentro, e isto esta medido doze vezes neste\ncanal** (740/748/754/757/758/774): com a banda OBSERVADA de residuo\n(**-1,2 a +4,0 s, n=94**), se o edge narrar o real deve cair entre **24,5 e\n29,7 s** — e o teto da mira e 26,0. A pinca do 740 segue sem interseccao: para o\nreal caber na mira o edge precisaria de <= 22,0, onde o piper cai a ~18,0, abaixo\ndo piso de 20,0. **Nao existe spec deste canal que satisfaca as duas**, e a saida\ne decisao do dono.\nA banda tem **5,2 s** de largura contra 1 s de granularidade do real — setima\ncorrecao, e as sete ALARGARAM. Logo **nao prometo onde o real cai nem de que\nlado**: o quarto residuo negativo saiu ontem e fora da janela estreita. O\nprovedor sera MEDIDO pela anotacao do job (733), nao inferido.\n\n## FONTES\nOrigem: `6BeNHqT2okA` (pacote labtreinamento-010, 66 capitulos), longo JA\nPUBLICADO deste canal, **rank 6** da ordem VIVA de uploads lida nesta rodada. O\nshort nao introduz numero novo sobre o mundo, logo nao exige fonte nova, e o id\ndo longo vai dito aqui.\nAs cenas saem dos capitulos **16 a 22** do pacote (\"Uma excecao\", \"Em caso de\nmorte\", \"Por que isso importa\", \"Duas vias diferentes\", \"Confundir custa\", \"Um\nteste simples\", \"E o prazo do resto\") e do **23** (\"Quem e a autoridade\ncompetente\"), que nenhum dos quatro shorts anteriores desta origem usou.\nPor que o rank 6 e nao o rank 1: a `concentracao.contagem` deu o topo em **12\nusos** de 76 shorts do canal, contra 4 nos ranks 6, 7, 8 e 11 — e o alerta do\n13/10 e sobre exatamente esse habito. Entre os quatro empatados em 4, o rank 6 e\no mais RECENTE, que e a regra de 16/10 aplicada DENTRO do grupo menos usado.\n**E por que NAO a origem de zero usos, que e o caso mais caro que existe aqui:**\no `origens_sem_uso` devolveu **uma** (`QiaGg03WSR0`, rank 4) e ela e a origem\n**POLONESA** medida em 18/10 as 04:1x — `language: pl`, com o mesmo titulo em\npt-BR, pl-PL e en-US, logo original e nao localizacao. **O instrumento esta VERDE\ne seguir a resposta dele produziria peca de idioma errado**, que o portao\n`identidade` reprovaria (601). O instrumento esta CERTO em nomea-la; ela e que\nnao serve a este canal.\n**E a contagem de longos desta leitura foi ONZE, nao treze:** a playlist `UU…`\nORDENA e nao ENUMERA (18/10 01:2x e 07:0x), logo onze e um PISO e nao a lista de\nlongos do canal. Isso nao afeta a escolha — o rank 6 esta presente e medido —,\nmas vai dito para que ninguem leia \"o canal tem onze longos\" daqui.\n"
+}
