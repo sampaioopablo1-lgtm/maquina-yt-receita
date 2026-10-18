@@ -1258,3 +1258,34 @@ Na sua mao, por valor: (1) os dois cliques de consentimento do Google; (2)
 reconectar o conector do Supabase — 64 linhas parqueadas em
 `docs/pendente/videos-a-inserir.sql`, e sem ele o item 3 acima fica sem conserto;
 (3) a decisao do 740/748.
+
+## 18/10 02:1x — epomeno-epipedo-s056 no ar, e o contador ordenou SOZINHO
+
+`0lPTFY51IXs`, 43 s reais contra previsao edge de 41,5 (provedor MEDIDO, zero
+avisos no job 117561762560): residuo +1,5, estabelecido, dentro da banda.
+RESIDUO_N = 84. Rota da duracao ABERTA (controle devolveu 44 s).
+
+A janela movel deu 8 / 8 / 7 — o epomeno sozinho no mais baixo, sem empate. E a
+primeira rodada em sete em que o contador escolhe o canal por si, sem o
+desempate pela peca mais antiga.
+
+E a peca usou DUAS leituras de duracao na mesma pagina (42 e 43): foi usada a
+MAIOR, que e a regra de 16/10, porque a banda foi construida sobre uma medida
+que arredonda para cima.
+
+A mira foi ao PISO (41,5) mesmo na voz grega, onde a regra antiga dizia que o
+topo era seguro — porque foi mirando 42,5 que o `epomeno-epipedo-s032` saiu com
+46 s reais, acima do teto do portao. O real deu 43: abaixo de 45.
+
+E o instrumento novo de ontem (`origens_sem_uso`) devolveu LISTA VAZIA para este
+canal — e isso NAO prova que nao ha origem livre, porque a playlist de uploads
+omite longo publico. O proprio modulo avisa isso, e foi por ele que a escolha
+caiu no grupo de uso minimo em vez de parar.
+
+Inscritos 68 / 21 / 8 — os tres `indeterminado`, janela de 17,0 h (piso
+1,41/dia). O limite mais apertado da frota segue sendo o 1,18/dia de 16/10.
+
+Na sua mao, por valor: (1) os dois cliques de consentimento do Google; (2)
+reconectar o conector do Supabase — 65 linhas parqueadas, e sem ele o id errado
+de origem dos dois shorts do kolejny (achado de 01:2x) fica sem conserto; (3) a
+decisao do 740/748.
