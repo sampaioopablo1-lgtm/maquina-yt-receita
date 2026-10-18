@@ -1,0 +1,82 @@
+{
+ "slug": "kolejny-poziom-s060",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "ink": "#1B3A5C",
+  "c1": "#2A9D8F",
+  "c2": "#F5B841",
+  "bg": "#F4F1EA"
+ },
+ "pacote": "kolejny-poziom-s060",
+ "longo_existente": "IuBLU-P4Aj8",
+ "thumb": {
+  "l1": "Cztery raty",
+  "l2": "nie jedna"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Jeden termin",
+   "sub": "tak to pamietasz",
+   "nar": "Większość pamięta jeden termin w roku."
+  },
+  {
+   "layout": "lista",
+   "kicker": "A jest ich cztery",
+   "sub": "tak mowi ustawa",
+   "nar": "Ustawa dzieli ten podatek na cztery osobne raty."
+  },
+  {
+   "layout": "item",
+   "kicker": "Czyli",
+   "sub": "cztery, nie jedna",
+   "nar": "Cztery terminy w roku, a nie jedna data."
+  },
+  {
+   "layout": "item",
+   "kicker": "Co z tego wynika",
+   "sub": "trzy razy",
+   "nar": "Pamiętasz jeden, więc trzy razy jesteś po terminie."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "I nie wiesz o tym",
+   "sub": "nikt nie przypomina",
+   "nar": "Nikt ci tego w trakcie roku nie przypomina."
+  },
+  {
+   "layout": "item",
+   "kicker": "Nie jak firma",
+   "sub": "inny tryb",
+   "nar": "Osoba prawna ma inny tryb i płaci co miesiąc."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Nie mieszaj",
+   "sub": "dwa obowiazki",
+   "nar": "To dwa różne obowiązki, więc nie licz po firmowemu."
+  },
+  {
+   "layout": "item",
+   "kicker": "Gdzie sa daty",
+   "sub": "w decyzji",
+   "nar": "Twoje raty i ich terminy są wypisane w decyzji."
+  },
+  {
+   "layout": "item",
+   "kicker": "To wzorzec",
+   "sub": "nie narracja",
+   "nar": "Wzorcem jest twoja decyzja, a nie moja narracja."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Przepisz je",
+   "sub": "do kalendarza",
+   "nar": "Przepisz te terminy do kalendarza i zasubskrybuj."
+  }
+ ],
+ "copy": "# kolejny-poziom-s060\n\n## TITULO\nPodatek od Nieruchomosci Ma Cztery Terminy, a Nie Jeden: Dlaczego Pamietanie Marca Nie Wystarcza\n\n## TITULO SHORT\nCztery terminy, nie jeden\n\n## DESCRICAO\nTen podatek **nie jest jedna wplata w roku**, choc wiekszosc ludzi tak go pamieta. Ustawa dzieli go dla osoby fizycznej na **cztery osobne raty**, a to znaczy cztery osobne terminy. I tu jest cala rzecz: jesli pamietasz jeden z nich, to **trzy razy w roku jestes po terminie** — i zwykle nie dowiadujesz sie o tym w momencie, w ktorym to sie dzieje.\n\nTo nie jest blad w liczeniu ani brak pieniedzy. To blad w **modelu obowiazku**: traktowanie platnosci ratalnej jak platnosci jednorazowej. Dlatego jest tak tani do naprawienia — nie trzeba niczego przeliczac, trzeba tylko przepisac wiecej niz jedna date.\n\nDrugie zrodlo tego samego nieporozumienia to mieszanie dwoch trybow. **Osoba prawna ma zupelnie inny tryb** — sklada deklaracje i placi co miesiac. To dwa rozne obowiazki, a nie dwie wersje tego samego, i kto slyszal o trybie firmowym, czasem przenosi go na siebie albo odwrotnie. Jesli jestes osoba fizyczna, twoj podatek **ustala organ podatkowy w drodze decyzji** — ty go sobie nie wyliczasz i nie deklarujesz.\n\nZ tego wynika rzecz praktyczna, i jest darmowa: **twoje kwoty rat i twoje terminy sa wypisane w samej decyzji.** Nie w tym filmie, nie w cudzym kalendarzu, nie w pamieci. Wezmij decyzje, znajdz liste rat i przepisz **kazda** z nich do kalendarza, ktory sam ci przypomni. Jesli cokolwiek tutaj nie zgadza sie z twoja decyzja, to **wzorcem jest twoja decyzja**, a nie moja narracja.\n\nSygnal, ze masz ten blad, jest prosty: potrafisz z pamieci podac jeden termin tego podatku i nie potrafisz podac pozostalych. Jesli tak jest, to wlasnie ten przypadek.\n\nNie podaje tu zadnych konkretnych dat ani kwot. Daty i kwoty bierz z decyzji, bo tylko ona dotyczy twojej nieruchomosci. W pelnym materiale: skad bierze sie kwota, jedno dzielenie, ktore pokazuje co faktycznie wzroslo, oraz termin czternastu dni, ktory dotyczy takze sprzedazy.\n\nMaterial informacyjny, nie stanowi porady podatkowej.\n\n## COMENTARIO FIXADO\nNajmniej oczywiste w tym wszystkim: nie dowiadujesz sie o przekroczeniu terminu w momencie, w ktorym go przekraczasz — nikt nie przypomina w trakcie roku. Ile terminow tego podatku potrafisz podac z pamieci?\n\n## HASHTAGS\n#podatekodnieruchomosci #raty #terminy #kolejnypoziom #Shorts\n\n## TAGS\npodatek od nieruchomosci, cztery raty, terminy platnosci, osoba fizyczna, osoba prawna, decyzja podatkowa, organ podatkowy, urzad gminy, kalendarz podatkowy, po terminie, odsetki, deklaracja miesieczna, podatki polska, kolejny poziom, finanse domowe\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Conferido cena a cena: nenhuma\nkwota, nenhum ano, nenhuma alinea — e, de proposito, **nenhuma DATA**. O longo\nfala as quatro datas (pietnasty marca, maja, wrzesnia, listopada) e eu as DEIXEI\nFORA, porque a regra (g) nomeia data como classe a remover e porque a decisao de\ncada contribuinte e que vale como fonte. As unicas quantidades faladas sao\nestruturais (\"cztery raty\", \"jeden termin\", \"trzy razy\", \"co miesiac\") e\ndescrevem a FORMA do obrigacao, nao um valor do mundo.\nO \"marzec\" saiu da cena 3 na segunda versao por isto mesmo: era uma data, e o\ncurto nao precisa dela para dizer que quatro nao e um.\n\nFamilia de entrada errada: CZTERY RATY LIDAS COMO JEDNA DATA — tratar pagamento\nem prestacoes como pagamento unico, e por isso ficar atrasado tres vezes por ano\nsem saber. A rotina lista COMPOSICAO/UNIDADE como familias distintas de ORDEM e\nde LIMIAR; esta e de ESTRUTURA DO PRAZO, que nenhuma peca desta origem tocou.\nE familia NOVA nesta origem (`IuBLU-P4Aj8`): as tres anteriores sao\nkolejny-poziom-s002 (BRAK UCHWALY LIDO COMO ERRO NA DECYZJI — mesma kwota que no\nano passado nao e engano), -s029 (KONIEC OBOWIAZKU TAKZE SIE ZGLASZA — o fim do\ndever tambem exige informacao em 14 dias) e -s037 (KWOTA JEST ILOCZYNEM —\ndividir por metros antes de culpar a stawka). Nenhuma delas e sobre QUANTOS\nprazos existem, que e o eixo desta. Regra (f) conferida contra as tres.\nE conferida tambem contra as QUATRO pecas de hoje neste canal: -s056 (DZIELNIK,\nKTOREGO NIE MA), -s057 (DIREITO QUE EXIGE DECLARACAO), -s058 (ORDEM DE\nVERIFICACAO INVERTIDA) e -s059 (ZWLOKA LIDA COMO PERDA PROPORCIONAL). A vizinha\nmais proxima e a -s029, da mesma origem, e a distincao vai dita: la o prazo e UM\n(catorze dias) e o erro e nao saber que ele existe no fim do dever; aqui os\nprazos sao QUATRO e o erro e achar que e um. Prazo desconhecido e prazo contado\nerrado nao sao a mesma entrada errada.\n\n## EXPOSICAO DECLARADA ANTES DE PUBLICAR\nMira: edge **41,7 s** e piper **35,5 s** — os dois dentro de 18 a 45 s, que e o\nque o portao `duracao` cobra nos DOIS mundos. Este canal NAO tem\n`ALVO_POR_CANAL` medido, logo vale a mira da frota (41,5 a 43,0), e 41,7 fica\njunto ao PISO dela: escolha deliberada pela regra de redacao do 772. A primeira\nversao dava edge 43,3 — dentro do portao e FORA da mira pelo topo —, e foi\nencurtada em 38 caracteres por isso.\nCom a banda OBSERVADA de residuo (**-1,2 a +4,0 s, n=93**): se o edge narrar, o\nreal deve cair entre **40,5 e 45,7 s**, logo PODE passar do teto de 45 do\nportao, como aconteceu no `epomeno-epipedo-s032` (46 s reais com o portao verde,\n772). Se o piper narrar, entre 34,3 e 39,5 s.\nA banda tem **5,2 s** de largura contra 1 s de granularidade do real — setima\ncorrecao, e as sete ALARGARAM. Ela acomoda mais de cinco inteiros, logo **NAO\nprometo onde o real cai, nem de que lado**. O quarto residuo negativo saiu nesta\nmesma rodada anterior e no `epomeno-epipedo`, fora da janela estreita de 41,4 a\n41,6 — o que significa que nem o SINAL esta prometido aqui. O provedor sera\nMEDIDO pela anotacao do job (733), nao inferido.\n\n## FONTES\nOrigem: `IuBLU-P4Aj8` (pacote kolejny-poziom-016, 64 capitulos), longo JA\nPUBLICADO deste canal, **rank 3** da ordem VIVA de uploads lida nesta rodada. O\nshort nao introduz numero novo sobre o mundo, logo nao exige fonte nova, e o id\ndo longo vai dito aqui.\nAs cenas saem dos capitulos **42 a 44** do pacote (\"Cztery raty\", \"Dlaczego to\nwazne\", \"Osoba prawna\") e do **47** (\"Decyzja jest wzorcem\"), que nenhum dos\ntres shorts anteriores desta origem usou — eles vieram dos capitulos 33-35, 10-11\ne 48-53.\nPor que o rank 3 e nao o rank 1: a `concentracao.contagem` deu o topo em **12\nusos** contra 4 do segundo e 3 dos ranks 3 a 8 — e o alerta do 13/10 e sobre\nexatamente esse habito. Entre os empatados em 3, o rank 3 e o mais RECENTE, que\ne a regra de 16/10 (\"a pauta serve o longo mais novo primeiro\") aplicada DENTRO\ndo grupo menos usado.\nE por que nao a origem de zero usos: o `origens_sem_uso` com o mapa de titulos\ndevolveu **uma** (`qcY5XC1KtlQ`, rank 17), e ela e do grupo das 46 DUPLICATAS —\nseis ids com o MESMO titulo, do qual a rodada anterior ja consumiu um\n(`SZV9Vk5YFwI` -> -s059). Por TITULO DISTINTO isso e **zero origem nova**, e dar\npauta a uma copia do titulo que acabou de render short seria o efeito (C-2) do\n658 com portao verde.\n"
+}
