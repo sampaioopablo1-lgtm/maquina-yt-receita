@@ -93,6 +93,59 @@ do dono, e a primeira é uma colagem de `YT_OAUTH_JSON` nova.
 `tests/test_a_sonda_le_o_PROJETO_sem_vazar_credencial.py`, nove testes; o teto e
 a janela em `tests/test_a_janela_de_cota_vira_as_07_UTC.py`.
 
+## EU DISSE AO DONO QUE "LONGO NOVO NÃO É POSSÍVEL" — E A GENERALIZAÇÃO ERA MINHA
+
+**Retratação de 19/10 às 00:4x, provocada por uma CAPTURA DE TELA do dono** — a
+aba *Vídeos* do `labtreinamento` no Studio, que é a lista de LONGOS.
+
+Eu havia respondido que *"não consigo fazer longo novo hoje"*, pela regra 600
+(número sobre o mundo exige duas fontes institucionais, e os quatro hosts estão
+em 403 no proxy). **A frase está certa para UMA classe de longo e eu a escrevi
+para TODAS.**
+
+**O que a tela mostra, e é medição dele, não minha:**
+
+| vídeo | duração | data | views |
+|---|---|---|---|
+| PROCV ou PROCX: qual usar no Excel | **8:51** | 14/out | 14 |
+| Vale-Transporte: 6% de Qual Salário? | **8:40** | 7/out | 33 |
+| Treinamento Cotado por Turma | **8:31** | 7/out | **0** |
+| *Twoja Pierwsza Rata Jest Niższa* (POLONÊS) | — | 7/out | **79** |
+
+**Duas coisas que eu não tinha juntado:**
+
+1. **Os dois de 7/out são NOSSOS** — o de 8:40 é o `labtreinamento-013`
+   (conferido: a copy dele é literalmente *"Vale-Transporte: 6% de Qual
+   Salário?"*). Logo **a máquina já publica longo de ~8 min, inteiro e online**,
+   e a pergunta do dono (*"é possível … de forma online sem ser pelo
+   terminal?"*) já tinha resposta publicada no canal dele.
+2. **O de 14/out é DELE, não nosso.** O `FtCtIJPsc_Q` não é nenhuma spec de longo
+   do disco: ele aparece **só como ORIGEM** de treze shorts nossos (`s058` a
+   `s070`). É a peça que eu medi quadro a quadro em 16/10 e chamei de "a
+   REFERÊNCIA" — e ela é referência porque é **feita à mão pelo dono**, com o
+   trilho de capítulos e os cinco layouts que o `layout.py` não tem. Eu escrevi
+   "a distância são três coisas" sem dizer, em letra, **de quem é a peça do outro
+   lado da distância.**
+
+**A REGRA QUE SAI DISSO, e ela destrava a metade LONGA do pedido de 16/10:**
+a trava de fonte é por **TIPO DE CONTEÚDO**, não por formato. Longo que carrega
+número do mundo que MUDA (os 6% do vale-transporte, alíquota, prazo) exige as
+duas fontes e segue bloqueado. **Longo de PROCEDIMENTO ou FERRAMENTA — PROCV
+contra PROCX, uma função de planilha, um passo de cálculo — não carrega número
+desses e não depende de fonte nenhuma que o proxy bloqueie.** O `-013` é do
+primeiro tipo; o PROCV é do segundo.
+
+**O que isto NÃO autoriza:** inventar número. A regra (g) continua valendo, e
+longo de procedimento que escorregar para "a alíquota é X" volta a precisar das
+duas fontes.
+
+**E um achado da própria tela, que é do dono e não da máquina:** o
+`Twoja Pierwsza Rata Jest Niższa` é **polonês e está no canal pt-BR**, com
+**79 views — mais que os três brasileiros somados (47).** É o `QiaGg03WSR0`, o
+mesmo id que em 18/10 o `origens_sem_uso` me ofereceu como pauta e que eu recusei
+quatro vezes por idioma. A tela confirma, por fora, o que a medição dizia. **Não
+mexi nele** — mover ou apagar vídeo publicado exige o dono.
+
 ## O PROCESSO DE PRODUÇÃO QUE O DONO PEDIU EM 16/10 — E AS TRÊS ROTAS QUE ABRIRAM
 
 Palavras dele: *"crie próximo vídeo melhor de 2 min agora e publique, thumbnail,
