@@ -205,6 +205,65 @@ def confere(spec: dict) -> dict:
                 "(698).")}
 
 
+def orcamento(spec: dict) -> dict | None:
+    """Quantos caracteres por cena a peca precisa para o MEIO da mira do canal.
+
+    POR QUE EXISTE (19/10, 14:2x): o relato dizia se a peca ESTAVA na mira e
+    nunca quanto escrever para ENTRAR. O short do `labtreinamento-014` saiu com
+    edge 38,5 contra uma mira de 20 a 26 porque eu estimei o tamanho da frase de
+    cabeca — e o numero certo ja existia em `ensaio.chars_por_cena` desde 11/10.
+
+    **A conta e DELEGADA**, nao refeita aqui: refazer `P + 0,300` neste modulo
+    criaria o segundo dono da sobrecarga por voz, que e o defeito que congelou a
+    legenda. O alvo e o MEIO da mira porque mirar a borda e o que o 752/774
+    mostra que nao sobrevive ao residuo.
+
+    A FAIXA NAO E SEMPRE A DO CANAL, e isto foi pego pelo teste uma hora depois
+    de o instrumento existir: spec que declara `short_alvo_s` esta em OUTRO
+    formato, e a mira do canal e sobre a duracao real do short ORDINARIO. Das
+    98 specs de canal com mira, DUAS declaram faixa propria — a de 2 min e a de
+    5 s — e contra a mira do canal a de 2 min saia com orcamento ZERO, porque
+    40 cenas nao cabem em 23 s. E o erro de enquadramento do 679/698/725.
+    A faixa desta spec sai de `ensaio.faixa_do_short`, que e a FONTE UNICA dela
+    desde 16/10; `ALVO_POR_CANAL` so entra quando a spec nao declara nada.
+
+    E ZERO CARACTERE NAO E ORCAMENTO, e impossibilidade: quando a contagem de
+    cenas nao cabe no alvo, o `chars_por_cena` devolve 0 e aqui isso sai como
+    RECUSA (`cabe: False`) com o maximo de cenas que cabe, do jeito que o
+    `porta1` recusa janela curta — entregar o 0 como orcamento mandaria
+    escrever cena vazia.
+
+    Devolve None quando nao ha mira do canal, short ou voz modelada — nos tres
+    casos nao existe orcamento a dar, e inventar um seria pior que calar.
+    """
+    import ensaio
+
+    canal_ = canal_da_spec(spec)
+    mira_ = ensaio.ALVO_POR_CANAL.get(canal_)
+    curto = spec.get("short") or []
+    voz = spec.get("voz", "")
+    if not mira_ or not curto or voz not in ensaio.MODELO_VOZ:
+        return None
+    if spec.get("short_alvo_s"):
+        faixa, fonte = ensaio.faixa_do_short(spec), "short_alvo_s da spec"
+    else:
+        faixa, fonte = mira_, "ALVO_POR_CANAL do canal"
+    alvo = (faixa[0] + faixa[1]) / 2.0
+    n = len(curto)
+    hoje = sum(len((c or {}).get("nar") or "") for c in curto) // max(n, 1)
+    chars = ensaio.chars_por_cena(voz, n, alvo)
+    out = {"alvo": alvo, "cenas": n, "chars": chars, "hoje": hoje,
+           "fonte": fonte, "cabe": chars > 0}
+    if chars <= 0:
+        maximo = 0
+        for k in range(1, n):
+            if ensaio.chars_por_cena(voz, k, alvo) <= 0:
+                break
+            maximo = k
+        out["max_cenas"] = maximo
+    return out
+
+
 def relato(caminho: str) -> str:
     with open(caminho, encoding="utf-8") as f:
         spec = json.load(f)
@@ -218,6 +277,29 @@ def relato(caminho: str) -> str:
         linhas.append("  " + r["motivo"])
         return "\n".join(linhas)
     linhas.append(f"  mira medida do canal: {r['mira'][0]} a {r['mira'][1]} s")
+    if spec.get("short_alvo_s"):
+        import ensaio as _E
+        _fx = _E.faixa_do_short(spec)
+        linhas.append(
+            f"  ATENCAO: esta spec declara faixa PROPRIA ({_fx[0]} a {_fx[1]} s), "
+            "logo a mira do canal — que e sobre o short ORDINARIO — nao a "
+            "enquadra, e o veredito abaixo reprova por construcao. Isto vai "
+            "NOMEADO e nao filtrado: silenciar a conferencia e o sentido "
+            "permissivo, que custou seis pecas da `s077` a `s082`.")
+    orc = orcamento(spec)
+    if orc and not orc["cabe"]:
+        linhas.append(
+            f"  ORCAMENTO: {orc['cenas']} cenas NAO CABEM em {orc['alvo']:.1f} s "
+            f"({orc['fonte']}) — a sobrecarga por cena ja consome o alvo. "
+            f"O maximo e {orc['max_cenas']} cenas. Nao ha orcamento a dar, e "
+            "zero caractere por cena seria impossibilidade vendida como numero.")
+    elif orc:
+        linhas.append(
+            f"  ORCAMENTO para o MEIO da faixa ({orc['alvo']:.1f} s, "
+            f"{orc['fonte']}): ~{orc['chars']} caracteres por cena em "
+            f"{orc['cenas']} cenas (hoje: ~{orc['hoje']}). Sai de "
+            "`ensaio.chars_por_cena` — estimar isto de cabeca e o item 3 da §10, "
+            "e foi o que custou uma reescrita no `labtreinamento-014`.")
     if r["fora"]:
         linhas.append("  >> FORA: " + r["motivo"])
     else:

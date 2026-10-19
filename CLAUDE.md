@@ -2810,6 +2810,59 @@ pendente. **Contraprova nos dois sentidos:** desligado o conserto, três dos oit
 falham; e uma cópia CERTA da derivação em outro módulo também reprova, porque o
 que o teste cobra é haver UM dono, não a conta estar certa duas vezes.
 
+## A MIRA DIZIA SE A PEÇA ESTAVA, NUNCA QUANTO ESCREVER PARA ENTRAR
+
+**Medido em 19/10 às 14:2x, escrevendo o short do `labtreinamento-014`.** Ele
+saiu com edge **38,5 s** contra a mira MEDIDA daquele canal (20,0 a 26,0) — a
+mais apertada da frota. Eu escrevi dez cenas de ~50 caracteres quando o
+orçamento é de **26 por cena** para 25 s com dez cenas.
+
+**E o instrumento que dá esse número existe desde 11/10** —
+`ensaio.chars_por_cena`, escrito justamente porque eu havia generalizado a
+sobrecarga de UMA voz para a frota — **e o `mira.py` nunca o chamava.** Ele
+conferia DEPOIS de escrever: respondia *"está na mira?"* e nunca *"quanto
+escrever para entrar?"*. É o item 3 da §10 — o número morava no código e a conta
+continuava na minha cabeça, e custou uma reescrita inteira.
+
+`mira.orcamento(spec)` imprime no relato quantos caracteres por cena a peça
+precisa para o MEIO da faixa, com o que ela tem hoje ao lado. **A conta é
+DELEGADA** — refazer `P + 0,300` ali criaria o segundo dono da sobrecarga por
+voz, que é o defeito que congelou a legenda —, e **o alvo é o MEIO e não a
+borda**, porque mirar a borda é o que o 752/774 mostra que não sobrevive ao
+resíduo.
+
+### E A PRIMEIRA EXECUÇÃO DO TESTE ACHOU DOIS DEFEITOS DELE, UMA HORA DEPOIS
+
+1. **ele mirava a mira do CANAL mesmo na spec que declara a PRÓPRIA faixa.** Das
+   **98** specs de canal com mira, **duas** declaram `short_alvo_s` — a de 2 min
+   (95 a 135 s, 40 cenas) e a de 5 s (3 a 6 s, 2 cenas) — e contra os 23 s da
+   mira do canal a de 2 min saía com orçamento de **ZERO** caractere por cena.
+   É o enquadramento do 679/698/725: a mira do canal é sobre a duração real do
+   short **ORDINÁRIO**. A faixa da spec sai de `ensaio.faixa_do_short`, que é a
+   FONTE ÚNICA dela desde 16/10 — e eu não a chamei;
+2. **zero caractere saía como se fosse orçamento.** Não é orçamento, é
+   **impossibilidade**: agora sai como RECUSA, com o máximo de cenas que cabe,
+   do jeito que o `porta1` recusa janela curta. Entregar o zero mandaria
+   escrever cena vazia.
+
+**E O CONSERTO VALIDOU-SE FORA DA AMOSTRA, o que eu não planejei:** apontado para
+a faixa certa, o orçamento dá **32** caracteres por cena na peça de 2 min, que
+foi escrita com **31**, e **23** na de 5 s, escrita com **21** — as duas medidas
+como corretas em produção, meses antes do instrumento existir.
+
+**E O RELATO PASSOU A NOMEAR o conflito em vez de o filtrar:** spec com faixa
+própria recebe um `ATENCAO` dizendo que a mira do canal não a enquadra, **e o
+veredito continua saindo**. Silenciar a conferência é o sentido PERMISSIVO — foi
+exatamente isso que custou seis peças da `s077` à `s082`.
+
+`tests/test_a_mira_dizia_se_ESTAVA_nunca_quanto_escrever.py`, onze testes: a
+varredura sai do disco e **reprova com menos de 20 specs**, um **falha se nenhuma
+spec declarar faixa própria** (sem ela o arquivo não mede o defeito que o
+produziu), a recusa é cobrada na **FRONTEIRA** (o máximo cabe, o máximo + 1 não),
+a delegação é por **AST** (o docstring cita a fórmula em prosa, e casar prosa
+pegaria a explicação), e há contraprova nos dois sentidos — canal sem mira segue
+sem orçamento, e desligado o conserto **três dos onze falham**.
+
 ## ACRESCENTAR PONTO NA SÉRIE DEIXOU DE SER PASSO MEU
 
 **O terceiro passo manual a menos (§11-bis), e ele é o que já corrompeu dados
@@ -3280,6 +3333,41 @@ contrário do `epomeno-epipedo-s032`, que deu 46 em 15/10. Com a banda chegando 
 +4,0 e a mira do canal no topo (43,0), isso continua sendo a aritmética do 772:
 **o teto do portão e o topo do `ALVO_SHORT` não cabem juntos**, e a decisão
 segue do dono.
+
+### E O TERCEIRO LONGO FECHOU A FROTA — 19/10 às 14:2x
+
+O `labtreinamento-014` saiu no canal que o contador deu como **mínimo absoluto**
+(8 / 9 / 9, sem empate) e que era o **único sem longo novo**. Com ele, os **três
+canais** têm um longo com trilho de capítulos e os cinco layouts.
+
+**DOZE PORTÕES VERDES NA PRIMEIRA TENTATIVA** — a primeira vez num longo. Os
+dois anteriores precisaram de três e duas passadas de conserto, e o que mudou
+não foi sorte: foi a janela segura, a guarda de largura do `formula` e o
+orçamento de caracteres saindo do `ensaio.chars_por_cena` em vez da minha
+cabeça.
+
+**E O SHORT PEGOU A MIRA MAIS APERTADA DA FROTA, que é justamente onde a conta
+de cabeça falha primeiro.** A primeira versão saiu com edge **38,5** contra a
+mira MEDIDA do `labtreinamento` (20,0 a 26,0): eu escrevi dez cenas de ~50
+caracteres quando o orçamento do instrumento é de **26 por cena** para 25 s com
+dez cenas. Reescrito com **nove cenas de ~30 caracteres** — 2,8 s por plano,
+dentro da cadência medida em 690/699 — ficou em edge **25,9** / piper **21,3**,
+dentro da mira nos dois mundos, com a exposição do 740/748 declarada antes de
+publicar.
+
+### E A LEITURA DE INSCRITOS NÃO FOI FEITA, POR ORDEM DO INSTRUMENTO
+
+**É a primeira vez que o `leitura_de_inscritos` me impede de gastar uma
+requisição, e vale registrar porque ele nasceu de eu ter feito o contrário.**
+Às 14:15 faziam **4,12 h** da última leitura — isto é, a regra H (686) passou. A
+versão antiga de mim leria. O instrumento respondeu:
+
+> *"passar a regra H NÃO é resolver ritmo: faltam 22,7 h para o critério do 723.
+> Ler agora devolve `indeterminado` com mais horas, e gasta requisição na rota
+> que fechou por LIMITE em 19/10 às 06:1x."*
+
+**As três portas separadas (§ a nota das 10:0x) são exatamente o que produz essa
+recusa**, e sem elas eu teria repetido a leitura inútil das 10:0x com 4 h.
 
 ## EU ESCREVI UM JOB ID INVENTADO NA PROCEDÊNCIA DA SÉRIE
 
