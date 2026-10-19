@@ -102,12 +102,13 @@ def test_o_render_IMPORTA_o_trilho_de_UM_dono_so():
     """
     suspeitos = []
     for f in glob.glob(os.path.join(RAIZ, "fabrica", "*.py")):
-        if os.path.basename(f) == "trilho.py":
+        if os.path.basename(f) in ("trilho.py", "area_segura.py"):
             continue
         arvore = ast.parse(open(f).read())
         for no in ast.walk(arvore):
             if isinstance(no, ast.Constant) and isinstance(no.value, float):
-                if no.value in (trilho.FAIXA_Y0, trilho.FAIXA_Y1):
+                if no.value in (trilho.REF_Y0, trilho.REF_Y1,
+                                trilho.FAIXA_ALT):
                     suspeitos.append(os.path.basename(f))
     assert not suspeitos, (
         f"a geometria da faixa reaparece fora do trilho.py: {suspeitos}. "

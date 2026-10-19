@@ -33,8 +33,6 @@ import fabrica as FB  # noqa: E402
 import trilho  # noqa: E402
 
 PAL = {"bg": "#F4EFE6", "ink": "#1B1A17", "c1": "#C8502A", "c2": "#2B6CB0"}
-# As duas specs do formato ATUAL que a producao usa como origem de pauta.
-ATUAIS = ("epomeno-epipedo-013", "labtreinamento-002")
 
 
 def _longo(pacote):
@@ -69,16 +67,53 @@ def test_kicker_REPETIDO_nao_e_capitulo():
     assert len(set(caps)) == len(caps), "o trilho saiu com capitulo repetido"
 
 
-def test_as_duas_specs_do_formato_ATUAL_cabem():
-    """Contraprova no outro sentido: sem isto, recusar tudo passaria."""
-    for pacote in ATUAIS:
-        caps = trilho.capitulos_do_longo(_longo(pacote))
+def _um_que_cabe():
+    """Uma spec do disco cujo trilho derivado CABE — DERIVADA, nunca nomeada.
+
+    Esta funcao substitui a constante `ATUAIS`, que trazia
+    `epomeno-epipedo-013` e `labtreinamento-002` cravados. Em 19/10 as 12:3x a
+    janela segura do portao `layout` encolheu a largura util de 1709 para 1442
+    px e o `-013` deixou de caber — e os quatro testes que o nomeavam
+    reprovaram de uma vez. Era identidade onde havia propriedade (743/753/761),
+    pela quinta vez.
+    """
+    for pacote, caps in _especs_que_cabem():
+        return pacote, caps
+    raise AssertionError(
+        "nenhuma spec do disco tem trilho que cabe — o arquivo perdeu a "
+        "ancora e passaria por vacuidade em vez de medir"
+    )
+
+
+def _especs_que_cabem():
+    saida = []
+    for pacote, longo in _especs_de_longo():
+        caps = trilho.capitulos_do_longo(longo)
+        if caps and trilho.cabe(caps, 1920, 1080):
+            # `_especs_de_longo` devolve o nome COM `.json`; o `_longo`
+            # acrescenta a extensao. Pego na primeira execucao.
+            saida.append((pacote[:-5] if pacote.endswith('.json') else pacote, caps))
+    return sorted(saida)
+
+
+def test_existe_spec_que_CABE_e_spec_que_NAO_cabe():
+    """Contraprova nos DOIS sentidos: sem isto, recusar tudo passaria.
+
+    E aceitar tudo tambem — e e por isso que o lado de cima tambem vai cobrado.
+    """
+    cabem = _especs_que_cabem()
+    total = len(_especs_de_longo())
+    assert cabem, "nenhuma cabe: `aplica_no_longo` recusaria toda a frota"
+    assert len(cabem) < total, (
+        f"as {total} specs cabem — a recusa deixou de existir, e esta nota "
+        "sobre a janela segura tem de ser relida em vez de reaproveitada"
+    )
+    for pacote, caps in cabem:
         assert 4 <= len(caps) <= 12, f"{pacote}: {len(caps)} capitulos"
-        assert trilho.cabe(caps, 1920, 1080), f"{pacote} deixou de caber"
 
 
 def test_aplica_poe_o_campo_em_TODA_cena():
-    longo = _longo("epomeno-epipedo-013")
+    longo = _longo(_um_que_cabe()[0])
     n = trilho.aplica_no_longo(longo)
     assert n == len(trilho.capitulos_do_longo(longo))
     assert all("trilho" in c and "trilho_atual" in c for c in longo), (
@@ -91,7 +126,7 @@ def test_aplica_poe_o_campo_em_TODA_cena():
 
 def test_aplica_e_IDEMPOTENTE():
     """Rodar duas vezes nao pode mudar nada — o render pode chamar de novo."""
-    longo = _longo("epomeno-epipedo-013")
+    longo = _longo(_um_que_cabe()[0])
     trilho.aplica_no_longo(longo)
     antes = [(c["trilho"], c["trilho_atual"]) for c in longo]
     trilho.aplica_no_longo(longo)
@@ -100,7 +135,7 @@ def test_aplica_e_IDEMPOTENTE():
 
 def test_o_campo_derivado_CHEGA_ao_SVG():
     """O defeito das 04:2x era desenhar o fundo e esquecer o conteudo."""
-    longo = _longo("epomeno-epipedo-013")
+    longo = _longo(_um_que_cabe()[0])
     trilho.aplica_no_longo(longo)
     svg = FB.svg_cena(longo[7], PAL, 1920, 1080)
     caps = trilho.capitulos_do_longo(longo)

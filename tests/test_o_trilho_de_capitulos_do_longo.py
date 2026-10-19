@@ -74,8 +74,8 @@ def test_a_faixa_fica_DENTRO_da_banda_medida():
     assert ys, "nenhum texto no trilho — o teste deixaria de medir"
     for y in ys:
         # `y` e a linha de base; o topo das maiusculas fica ~0,72 corpo acima
-        assert y - corpo * 0.75 >= H * trilho.FAIXA_Y0 - 1, (y, corpo)
-        assert y <= H * trilho.FAIXA_Y1 + corpo * 0.30, (y, corpo)
+        assert y - corpo * 0.75 >= H * trilho.faixa_y0() - 1, (y, corpo)
+        assert y <= H * trilho.faixa_y1() + corpo * 0.30, (y, corpo)
 
 
 def test_capitulo_corrente_FORA_da_lista_levanta():

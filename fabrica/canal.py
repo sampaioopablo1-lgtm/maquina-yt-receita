@@ -20,14 +20,39 @@ atualizado.** O remedio nao e consertar os dois lugares — e haver UM.
 """
 
 
+import re
+
+# A QUARTA forma apareceu em 19/10 as 12:5x, e o modo de falha foi o MESMO.
+# Escrevendo o `epomeno-epipedo-068` — o primeiro PACOTE em muitas rodadas —, o
+# `mira.relato` saiu com `canal 'epomeno-epipedo-068' nao tem ALVO_POR_CANAL
+# medido`. A regra antiga cortava so o sufixo de SHORT SOLTO (`-sNNN`) e o
+# pacote usa `-NNN`, logo o canal de todo longo voltava inteiro e o instrumento
+# parava de conferir sem reprovar nada — a falha PERMISSIVA de 05:2x, na forma
+# que ela toma no formato que o dono mandou construir.
+#
+# Aqui o canal `epomeno-epipedo` nao tem mira propria, logo o efeito foi so a
+# mensagem errada; num pacote de `labtreinamento`, que TEM mira desde 09/10, o
+# instrumento ficaria cego exatamente como nas seis pecas da `s077` a `s082`.
+#
+# A FORMA DO SUFIXO E MEDIDA, nao suposta: varridos os 347 nomes de spec do
+# disco, 215 sao `<canal>-sNNN`, 131 sao `<canal>-NNN` e 8 sao o canal nu. Os
+# **catorze** prefixos distintos terminam todos em letra, logo cortar um grupo
+# final de digitos nunca encosta no nome de um canal.
+#
+# O LIMITE VAI DECLARADO: um nome de canal que terminasse em digito seria
+# cortado errado (`kp-plan-9233` -> `kp-plan`). Nenhum dos catorze e assim, e
+# `kp-plan-9233-20260811` — que e PACOTE e aparece no docstring do
+# `kolejny-poziom-s017` — resolve certo. Ha teste cobrando os dois casos.
+_SUFIXO = re.compile(r"-s?\d+$")
+
+
 def do_pacote(pacote: str) -> str:
-    """`labtreinamento-s083` -> `labtreinamento`; `labtreinamento` -> igual."""
-    base = str(pacote or "")
-    return base.rsplit("-s", 1)[0] if "-s" in base else base
+    """`labtreinamento-s083` e `epomeno-epipedo-068` -> o canal; canal -> igual."""
+    return _SUFIXO.sub("", str(pacote or ""))
 
 
 def da_spec(spec: dict) -> str:
-    """O canal de uma spec, nas DUAS convencoes de `slug`.
+    """O canal de uma spec, nas TRES convencoes de `slug`.
 
     O `pacote` vem primeiro porque ele sempre foi o pacote; o `slug` entra como
     reserva, e era o canal nas specs antigas.

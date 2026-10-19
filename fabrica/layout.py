@@ -49,7 +49,20 @@ import fabrica as F  # noqa: E402
 #
 # A faixa sai dos parametros REAIS do movimento, e nao de um numero escolhido:
 # se alguem mexer em AMP_ZOOM ou AMP_PAN, esta conta acompanha.
-MARGEM_VISUAL = 0.04     # a mesma faixa que o visual.py chama de borda
+# UM DONO, a partir de 19/10 as 13:0x. O comentario acima sempre disse "a mesma
+# faixa que o visual.py chama de borda" — e era o MESMO numero escrito nos dois
+# modulos. A varredura por AST do
+# `tests/test_o_trilho_e_os_layouts_nao_passavam_no_PORTAO.py` achou os dois na
+# primeira execucao, enquanto eu consertava outro caso de dois donos. O dono e o
+# `visual.MARGEM_PCT`, que foi quem mediu primeiro (17/08), e o import e tardio
+# porque o `visual` carrega ffmpeg e nao deve custar nada em quem so importa este.
+def _margem_do_visual() -> float:
+    import visual
+
+    return visual.MARGEM_PCT
+
+
+MARGEM_VISUAL = _margem_do_visual()
 LIMITE_PCT = 1.0
 TOLERA_COR = 40   # distancia RGB que conta como "diferente do fundo"
 

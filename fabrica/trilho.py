@@ -28,10 +28,46 @@ tema `noite` do pipeline do dono (`paleta_referencia.FONTES_DO_TEMA`), que e a
 ferramenta com que a peca foi produzida.
 """
 
-# Medido por variancia temporal — ver o docstring. Fracoes da ALTURA do quadro.
-FAIXA_Y0 = 0.028
-FAIXA_Y1 = 0.069
-MARGEM_X = 0.055          # recuo lateral, na mesma proporcao do painel
+# MEDIDO por variancia temporal no video DELE — ver o docstring. Estas duas
+# fracoes sao HISTORIA a partir de 19/10 as 12:3x, e ficam escritas porque a
+# ALTURA da faixa sai delas.
+REF_Y0, REF_Y1 = 0.028, 0.069
+FAIXA_ALT = REF_Y1 - REF_Y0          # 0,041 do quadro — a medida que sobrevive
+
+# RETRATACAO DE 19/10 AS 12:3x, E ELA E DE POSICAO, NAO DE MEDIDA.
+# Eu desenhava a faixa em `REF_Y0` e com recuo lateral de 0,055, e na PRIMEIRA
+# spec de longo que declarou o campo o portao `layout` reprovou as 64 cenas:
+# y 30 a 74 px e x 106 px caem DENTRO do que o portao chama de risco (y >= 130,
+# x >= 231 em 1920x1080). A causa esta medida e e de enquadramento — o video do
+# dono tem ZERO zoom e o nosso render aplica Ken Burns em toda cena —, e vai
+# inteira no `fabrica/area_segura.py`. O que atravessa do video dele e a ALTURA
+# da faixa e o fato de ela ser permanente; a POSICAO e nossa, derivada do
+# portao, e vai declarada como tal.
+_AS = None
+
+
+def _area():
+    global _AS
+    if _AS is None:
+        import area_segura
+        _AS = area_segura
+    return _AS
+
+
+def faixa_y0() -> float:
+    """O topo da faixa: o primeiro y que o portao `layout` deixa pintar."""
+    return _area().janela()[0]
+
+
+def faixa_y1() -> float:
+    return faixa_y0() + FAIXA_ALT
+
+
+def margem_x() -> float:
+    """O recuo lateral: o primeiro x que o portao deixa pintar."""
+    return _area().janela()[0]
+
+
 SEPARADOR = "  |  "
 
 
@@ -58,8 +94,8 @@ def corpo_que_cabe(capitulos, W: float, H: float,
     capitulo que some do trilho desfaz a unica funcao dele, que e dizer onde o
     espectador esta.
     """
-    util = W * (1 - 2 * MARGEM_X)
-    teto = corpo_max if corpo_max is not None else (FAIXA_Y1 - FAIXA_Y0) * H
+    util = W * (1 - 2 * margem_x())
+    teto = corpo_max if corpo_max is not None else FAIXA_ALT * H
     piso = corpo_min if corpo_min is not None else teto * 0.45
     linha = texto_do_trilho(capitulos, 0)
     if not linha:
@@ -93,8 +129,8 @@ def faixa(capitulos, atual: int, pal: dict, W: float, H: float) -> str:
             "trilho que destaca o capitulo errado e pior que trilho nenhum"
         )
     corpo = corpo_que_cabe(capitulos, W, H)
-    y = H * (FAIXA_Y0 + FAIXA_Y1) / 2 + corpo * 0.35
-    x = W * MARGEM_X
+    y = H * (faixa_y0() + faixa_y1()) / 2 + corpo * 0.35
+    x = W * margem_x()
     aceso = pal.get("c1") or pal.get("acc") or "#3DDBD9"
     apagado = pal.get("mut") or pal.get("c2") or "#8B95A5"
 
@@ -121,16 +157,17 @@ def faixa(capitulos, atual: int, pal: dict, W: float, H: float) -> str:
 def cabe(capitulos, W: float, H: float) -> bool:
     """O trilho inteiro cabe na largura util com o corpo escolhido?"""
     corpo = corpo_que_cabe(capitulos, W, H)
-    return _largura_estimada(texto_do_trilho(capitulos, 0), corpo) <= W * (1 - 2 * MARGEM_X) + 0.5
+    return _largura_estimada(texto_do_trilho(capitulos, 0), corpo) <= W * (1 - 2 * margem_x()) + 0.5
 
 
 def relato(capitulos, W=1920, H=1080) -> str:
     corpo = corpo_que_cabe(capitulos, W, H)
     larg = _largura_estimada(texto_do_trilho(capitulos, 0), corpo)
     return (f"TRILHO: {len(capitulos)} capitulos, corpo {corpo:.1f}px, "
-            f"largura {larg:.0f} de {W * (1 - 2 * MARGEM_X):.0f} uteis, "
-            f"faixa y {H * FAIXA_Y0:.0f} a {H * FAIXA_Y1:.0f} "
-            f"(medida por variancia temporal no longo da referencia)")
+            f"largura {larg:.0f} de {W * (1 - 2 * margem_x()):.0f} uteis, "
+            f"faixa y {H * faixa_y0():.0f} a {H * faixa_y1():.0f} "
+            f"(ALTURA medida por variancia temporal no longo da referencia; "
+            f"POSICAO derivada do portao `layout`, ver area_segura.py)")
 
 
 if __name__ == "__main__":

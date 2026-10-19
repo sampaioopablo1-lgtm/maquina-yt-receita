@@ -43,6 +43,37 @@ e o defeito do `assert 20 <= ds <= 60`.
 # lado porque o nosso render recebe W e H e nao pode cravar pixel.
 BASE_W, BASE_H = 1920.0, 1080.0
 
+
+# RETRATACAO DE 19/10 AS 12:3x — a geometria abaixo e de QUADRO CHEIO e o nosso
+# render nao mostra o quadro cheio. Na primeira spec de longo que usou estes
+# layouts o portao `layout` reprovou: `comparar` com 20,64% de tinta na borda,
+# `divisor` com 7,57%, `formula` com 2,17%. O motivo e que o nosso render aplica
+# Ken Burns e corta a borda, e o motor do dono (de onde estas coordenadas vem)
+# nao tem zoom nenhum — medido em 16/10. A conta inteira esta em
+# `fabrica/area_segura.py`, que e UM dono lido do proprio portao.
+#
+# `_x` mapeia uma fracao de LARGURA do quadro cheio para dentro da janela
+# segura; `_y` faz o mesmo na ALTURA. A PROPORCAO entre os elementos — que e o
+# que a transcricao carrega de informacao — sobrevive; a posicao absoluta, que e
+# o que o nosso zoom invalida, nao.
+def _AS():
+    import area_segura
+    return area_segura
+
+
+def _x(frac: float) -> float:
+    return _AS().dentro(frac)
+
+
+def _y(frac: float) -> float:
+    return _AS().dentro(frac)
+
+
+def _esc_geo(frac: float) -> float:
+    """Comprimento (largura/altura), nao posicao: so encolhe, nao desloca."""
+    return float(frac) * _AS().escala()
+
+
 # comparar(s): x=130 e x=990, top=170, 800x760, border-top 8px
 COMPARAR = dict(
     x_esq=130 / BASE_W, x_dir=990 / BASE_W, y=170 / BASE_H,
@@ -57,6 +88,34 @@ NUMERO = dict(
     corpo_nota=30 / BASE_H, y_nota=760 / BASE_H,
 )
 ICONE_ERRADO, ICONE_CERTO = "✕", "✓"
+
+# A geometria MAPEADA, cacheada. A regra de qual chave e posicao e qual e
+# comprimento e uniforme e vai escrita porque errar nela desloca o desenho sem
+# avisar: chave que comeca em `x_`/`y_`, ou que e exatamente `x`/`y`, e POSICAO
+# e passa pelo mapeamento; todo o resto — largura, altura, recuo, passo e corpo
+# de fonte — e COMPRIMENTO e so encolhe na mesma escala da janela.
+_GEO: dict = {}
+
+
+def _e_posicao(chave: str) -> bool:
+    return chave in ("x", "y") or chave.startswith(("x_", "y_"))
+
+
+def geo(nome: str) -> dict:
+    """O dict de geometria do layout, ja dentro da janela segura."""
+    if nome not in _GEO:
+        base = globals()[nome]
+        _GEO[nome] = {k: (_x(v) if _e_posicao(k) else _esc_geo(v))
+                      for k, v in base.items()}
+    return _GEO[nome]
+
+
+def janela_x() -> tuple:
+    """(x0, largura) da janela segura, em fracao de LARGURA de quadro."""
+    a = _AS().janela()
+    return a[0], a[1] - a[0]
+
+
 
 
 def _esc(s: str) -> str:
@@ -77,7 +136,7 @@ def comparar(c: dict, pal: dict, W: float, H: float) -> str:
 
     `c` traz `esq` e `dir`, cada um com `titulo` e `itens`.
     """
-    g = COMPARAR
+    g = geo("COMPARAR")
     errado, certo = _cores(pal)
     ink = pal.get("ink", "#EEF1F5")
     painel = pal.get("panel") or pal.get("bg", "#161B24")
@@ -113,7 +172,7 @@ def comparar(c: dict, pal: dict, W: float, H: float) -> str:
 
 def numero(c: dict, pal: dict, W: float, H: float) -> str:
     """Cartao de numero grande: um valor, uma legenda, uma nota."""
-    g = NUMERO
+    g = geo("NUMERO")
     acc = pal.get("acc") or pal.get("c1", "#3DDBD9")
     ink = pal.get("ink", "#EEF1F5")
     mut = pal.get("mut") or pal.get("c2", "#8B95A5")
@@ -186,7 +245,7 @@ def formula(c: dict, pal: dict, W: float, H: float) -> str:
     dono faz isso com posicao por argumento, e NAO temos as coordenadas dele,
     logo aqui elas sao uniformes e isso vai declarado no cabecalho da secao.
     """
-    g = FORMULA
+    g = geo("FORMULA")
     ink = pal.get("ink", "#EEF1F5")
     acc = pal.get("acc") or pal.get("c1", "#3DDBD9")
     mut = pal.get("mut") or pal.get("c2", "#8B95A5")
@@ -214,7 +273,7 @@ def erro(c: dict, pal: dict, W: float, H: float) -> str:
 
     `c` traz `codigo` (ex. `#REF!`), `causa` e `saida`.
     """
-    g = ERRO
+    g = geo("ERRO")
     ink = pal.get("ink", "#EEF1F5")
     vermelho = pal.get("red") or pal.get("c2") or "#FF5A5F"
     painel = pal.get("panel") or pal.get("bg", "#161B24")
@@ -246,13 +305,13 @@ def erro(c: dict, pal: dict, W: float, H: float) -> str:
 
 def divisor(c: dict, pal: dict, W: float, H: float) -> str:
     """Divisor de parte: `parte` (o numero) e `titulo` da parte que comeca."""
-    g = DIVISOR
+    g = geo("DIVISOR")
     ink = pal.get("ink", "#EEF1F5")
     acc = pal.get("acc") or pal.get("c1", "#3DDBD9")
     painel = pal.get("panel") or pal.get("bg", "#161B24")
-    s = [f'<rect x="0" y="{H * g["y_faixa"]:.1f}" width="{W:.1f}" '
+    s = [f'<rect x="{W * janela_x()[0]:.1f}" y="{H * g["y_faixa"]:.1f}" width="{W * janela_x()[1]:.1f}" '
          f'height="{H * g["alt_faixa"]:.1f}" fill="{painel}"/>',
-         f'<rect x="0" y="{H * g["y_faixa"]:.1f}" width="{W:.1f}" '
+         f'<rect x="{W * janela_x()[0]:.1f}" y="{H * g["y_faixa"]:.1f}" width="{W * janela_x()[1]:.1f}" '
          f'height="{H * COMPARAR["barra"]:.1f}" fill="{acc}"/>',
          f'<text x="{W * g["x_num"]:.1f}" '
          f'y="{H * (g["y_faixa"] + g["alt_faixa"] * 0.72):.1f}" '
