@@ -3977,6 +3977,12 @@ prosa que explica por que nao entrou —, e um **falha se qualquer um dos tres
 numeros sair do modulo**. **Contraprova:** religado o import no portao, reprova
 exatamente o teste que o proibe.
 
+**E A SUITE FECHOU DEPOIS DA REVERSAO: 25 falhas, 3.105 passam, 988 skip** —
+conjunto **IDENTICO** a linha de base desta sessao, `comm` vazio nos **dois**
+sentidos. Os dez testes novos entraram sem custo de tempo (405 s contra 426 s da
+rodada anterior), porque este arquivo **nao renderiza** — a conferencia que
+renderizava era a do portao, e ela saiu.
+
 ### A PECA DESSA RODADA — OITO cenas, e a frota nao tinha nenhuma de oito
 
 `labtreinamento-s087` = **`dFrUvuvQ9W0`**, publicado as 20:19:00Z (run
