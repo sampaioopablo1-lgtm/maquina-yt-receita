@@ -12,8 +12,42 @@ minha cabeca.
 
 E O CUSTO NAO E ESTETICO: o TTS le o texto como ele esta escrito. Sem tonos a
 voz grega muda a silaba tonica; sem acento o pt-BR troca a pronuncia da palavra.
-A peca sai narrada errado e **nenhum portao reprova** — e o `copy` so conta
-palavras.
+
+=============================================================================
+RETRATADO EM 19/10 AS 22:3x: A FRASE "NENHUM PORTAO REPROVA" ERA FALSA.
+=============================================================================
+O portao `ortografia` cobra a acentuacao da narracao do SHORT **desde
+25/08/2026** — o docstring dele carrega o incidente que o produziu, e e o MESMO
+que eu descrevi aqui: *"o portao SE CALOU com o short ainda inteiro sem acento.
+So peguei relendo o texto na mao."* Eu escrevi este modulo quatro horas antes de
+ler aquele docstring.
+
+**MEDIDO pelo discriminador — tirar os acentos de uma spec e rodar o portao:**
+
+| idioma | o portao acusa? | |
+|---|---|---|
+| `pt-BR` | **SIM** | 0,0% contra 4,5% das specs de pt que acentuam |
+| `pl` | **SIM** | 0,9% contra 6,8% |
+| `el` | **NAO** (antes de 22:3x) | passava LIMPO |
+
+**Logo este modulo era um SEGUNDO DONO da regra em pt e pl** — a assinatura que
+congelou a legenda —, **e era a unica cobertura em `el`.** A causa do buraco era
+estreita e nomeavel: a tabela `prontidao.DIACRITICOS` tinha `tr`, `pl`, `pt` e
+`es` e **nao tinha `el`**, que e 87 das specs de short da frota e o canal onde a
+falha de fato aconteceu. **E o 725 DENTRO do portao:** vocabulario de alguns
+idiomas reportado como cobertura da frota.
+
+**O `el` entrou na tabela em 22:3x**, medido antes: as 87 specs gregas vao de
+11,34% a 15,36% e **ZERO** fica abaixo do piso, logo aquilo reprova a peca
+quebrada e nenhuma do acervo.
+
+**O QUE ESTE MODULO FAZ, agora com o papel declarado em vez de inventado:** ele
+e INFORMATIVO (codigo de saida sempre zero) e mede por marca combinante do
+Unicode, sem tabela por idioma — logo ele responde tambem nos idiomas que a
+tabela do portao nao tem (`id`, `hi`, `en`), onde o zero e o valor CERTO. **O
+veredito que REPROVA e o do portao.** A sobreposicao em pt, pl e el vai dita
+aqui em vez de escondida: sao duas contas da mesma coisa com definicoes
+diferentes, e quem manda e o portao.
 
 **A REGRA SAI DA MEDICAO, NAO DE UMA LISTA DE IDIOMAS.** Varridas as specs do
 disco, a proporcao de letras acentuadas na narracao do short:

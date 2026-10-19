@@ -308,6 +308,8 @@ SERIE = [
     ("labtreinamento-s087", 25.0, 26, "edge"),  # job 118283444169
     # nove cenas, mirando o PISO
     ("epomeno-epipedo-s070", 41.64, 42, "edge"),  # job 118311143062
+    # onze cenas, PISO exato
+    ("kolejny-poziom-s071", 41.5, 43, "edge"),  # job 118336081807
 ]
 
 

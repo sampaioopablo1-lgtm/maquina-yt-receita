@@ -3894,6 +3894,116 @@ em vez de ficar**), a prova chama o DONO da regra (`publicar.ler_copy`) com uma
 copy renderizada em vez de reimplementar a regex, a contraprova no outro sentido
 cobra a herança do título, e um **falha se o incidente de 01/09 sair da nota**.
 
+## O PORTAO JA COBRAVA O ACENTO DA NARRACAO — e o buraco era o GREGO
+
+**Retratacao de 19/10 as 22:3x, e ela e de uma nota que eu escrevi QUATRO HORAS
+antes.** As 18:2x eu escrevi aqui e no `fabrica/acento.py` que *"nenhum portao
+cobra acento da NARRACAO"*. **Falso.** O portao `ortografia` cobra a acentuacao
+da narracao do SHORT **desde 25/08/2026**, e o docstring dele carrega o MESMO
+incidente que eu usei para justificar o modulo: *"o portao SE CALOU com o short
+ainda inteiro sem acento. So peguei relendo o texto na mao."*
+
+**MEDIDO pelo discriminador — tirar os acentos de uma spec e rodar o portao:**
+
+| idioma | o portao acusa? | medida |
+|---|---|---|
+| `pt-BR` | **SIM** | 0,0% contra 4,5% das specs de pt que acentuam |
+| `pl` | **SIM** | 0,9% contra 6,8% |
+| `el` | **NAO** | passava LIMPO |
+
+**Logo o `acento.py` era SEGUNDO DONO da regra em pt e pl** — a assinatura que
+congelou a legenda — **e era a unica cobertura em `el`.** E a causa do buraco e
+estreita e nomeavel: a tabela `prontidao.DIACRITICOS` tinha `tr`, `pl`, `pt` e
+`es` e **nao tinha `el`** — que e **87** das specs de short da frota, o SEGUNDO
+maior idioma, e o canal onde a falha de fato aconteceu as 15:3x. **E o 725
+DENTRO do portao:** vocabulario de alguns idiomas reportado como cobertura da
+frota, exatamente como o `contagem_declarada` em 13/10.
+
+**O `el` ENTROU, e a conta que autorizou vai antes:** as 87 specs gregas medem
+de **11,34% a 15,36%**, mediana 13,85%, e **ZERO** fica abaixo do
+`PISO_REFERENCIA` de 2%. Logo a entrada reprova a peca quebrada e **nenhuma** do
+acervo — a mesma aritmetica que pos o cartao em branco no portao `layout`.
+Conferido nos dois sentidos: narracao grega sem tonos passa a ser ACUSADA
+(0,0% contra 13,8%), e as pecas reais seguem LIMPAS.
+
+**O que o `acento.py` passa a ser, com o papel declarado em vez de inventado:**
+informativo (saida zero), medindo por marca combinante do Unicode e sem tabela
+por idioma — logo ele responde tambem em `id`, `hi` e `en`, onde **declara que
+NAO discrimina** porque o zero e o valor certo. **Quem REPROVA e o portao.** A
+sobreposicao em pt, pl e el vai dita no modulo em vez de escondida.
+
+`tests/test_o_portao_JA_cobrava_o_acento_e_o_buraco_era_o_GREGO.py`, sete
+testes: a prova chama o DONO (`prontidao._gate_ortografia`) em vez de
+reimplementar a densidade, a contraprova vai nos **dois** sentidos e nos **tres**
+idiomas vivos, um mede que a entrada do grego **nao reprova NENHUMA** spec do
+acervo (com piso de 50 specs contra vacuidade), um **falha se a retratacao sair
+do modulo**, e o ultimo cobra a propriedade que de fato distingue o
+`acento.py` — nos idiomas sem diacritico ele RECUSA com o motivo escrito em vez
+de alarmar. **E a primeira versao desse ultimo teste reprovou cobrando uma chave
+que o modulo nao tem: o teste estava errado, nao o modulo**, e a propriedade
+certa e melhor do que a que eu havia escrito. **Contraprova:** retirado o `el`
+da tabela, tres dos sete falham.
+
+### E EU RODAVA OS MEUS INSTRUMENTOS NO RASCUNHO, NAO O PORTAO
+
+**Medido na mesma rodada, e e a causa de DUAS passadas de conserto seguidas:**
+
+| rodada | o que reprovou | portao | custo medido |
+|---|---|---|---|
+| 21:1x (`epomeno-epipedo-s070`) | gancho com 13 palavras, limite 12 | `variedade` | **0,05 s** |
+| 22:1x (`kolejny-poziom-s071`) | thumbnail com 5 palavras, limite 4 | `variedade` | **0,05 s** |
+
+**Nas duas eu rodei `mira`, `acento` e `gancho` no rascunho e NAO rodei o
+portao** — os instrumentos que eu escolhi rodar foram os que eu mesmo havia
+escrito. **E o custo nao sustenta a escolha**, medido portao por portao: os
+**dez** portoes baratos somam **0,65 s** e o `layout`, que RENDERIZA, custa
+**8,0 s** sozinho. Oito segundos e meio nunca foi barreira; a causa e
+procedural, e e a assinatura de "nao chamar quem ja sabe" aplicada ao meu
+PROCEDIMENTO.
+
+**`fabrica/antes_do_render.py` e UMA chamada para o rascunho:** roda os portoes
+baratos (lidos de `prontidao.PORTOES`, que e o dono deles) e os tres
+instrumentos de redacao pelo `relato` de cada um, em **0,62 s**. **Nao e portao
+e nao reprova**, e o relato diz, em letra, que o `layout` ficou de fora e que o
+`prontidao` inteiro ainda tem de rodar — porque e o `layout` que pega cartao em
+branco e tinta na borda.
+
+`tests/test_eu_rodava_os_MEUS_instrumentos_e_nao_o_portao.py`, seis testes: o
+conjunto sai de `prontidao.PORTOES` por **AST** (lista a mao faria portao novo
+nascer fora da passada), a **cronometragem e reconferida** e reprova se um
+barato passar de 3 s ou o caro cair abaixo de 2 s (753), e a contraprova pega os
+**dois** defeitos reais das duas rodadas e exige que a peca real saia limpa.
+
+### A PECA DESSA RODADA — ONZE cenas, e o PISO exato
+
+`kolejny-poziom-s071` = **`dtghRo9LOi4`**, publicado as 22:15:40Z (run
+`39333640747`), **43 s reais** contra previsao edge **41,50** — residuo
+**+1,5**, **ESTABELECIDO** (1,5 >= 1,0) e dentro da banda. Provedor **edge
+MEDIDO** (zero avisos `NARRACAO PELO PIPER` no job `118336081807`), som
+**-13,8** LUFS, pico -3,1, desvio +0,2, **zero silencios**. Controle
+`OhrGlJvnBoM` conferido em **44 s** na MESMA chamada. `RESIDUO_N` = **128**,
+limites intocados.
+
+**A previsao foi o PISO EXATO da faixa (41,50 de 41,5 a 43,0) e o real caiu no
+TOPO dela (43,0).** Isto e a largura da banda aparecendo de novo: mirar o piso
+nao encurta a peca, so move a exposicao — e a banda de 5,2 s cobre a faixa
+inteira de 1,5 s.
+
+**FAMILIA: QUAIS HORAS entram no divisor** — as do grafik e do dojazd, nao as da
+umowa (capitulos 27 a 31). E a QUARTA familia deste mesmo longo e a **NONA**
+distinta do dia na frota. A origem dominante do canal ficou de fora com o alerta
+na mao: `GUiq15usizw`, **12 de 65** shorts, mais que o dobro da segunda.
+
+**Esqueleto `titulo-item-barras-item-lista-titulo-item-item-barras-item-cta`,
+inedito nas SETE formas de ONZE cenas da frota** — e o `numero` NAO entrou, com
+um `assert` no builder que recusa layout fora do conjunto SONDADO, que e a
+consequencia direta do cartao em branco das 18:18Z.
+
+**A LEITURA DE INSCRITOS FOI RECUSADA PELA SETIMA RODADA SEGUIDA:** 12,0 h, piso
+de resolucao 2,0/dia, faltam **14,8 h** para o criterio do 723. **COTA:**
+dezenove envios na janela de 07:00Z, **30.400** unidades contra o piso MEDIDO de
+**>= 40.000**.
+
 ## O GANCHO TEM DOIS LIMITES NA MESMA CENA, E EU OS CONCILIEI A MAO
 
 **Medido em 19/10 as 21:1x, escrevendo o `epomeno-epipedo-s070`.** O

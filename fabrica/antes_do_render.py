@@ -1,0 +1,145 @@
+# -*- coding: utf-8 -*-
+"""Eu rodava os MEUS instrumentos no rascunho e nao o PORTAO.
+
+MEDIDO em 19/10 as 22:1x, depois de duas rodadas seguidas em que a peca precisou
+de passada de conserto por um limite BARATO:
+
+| rodada | o que reprovou | portao | custo medido |
+|---|---|---|---|
+| 21:1x (`epomeno-epipedo-s070`) | gancho com 13 palavras, limite 12 | `variedade` | **0,05 s** |
+| 22:1x (`kolejny-poziom-s071`) | thumbnail com 5 palavras, limite 4 | `variedade` | **0,05 s** |
+
+**Nas duas eu rodei `mira`, `acento` e (na segunda) `gancho` no rascunho — e NAO
+rodei o portao.** Os instrumentos que eu escolhi rodar foram os que eu mesmo
+havia escrito; o portao que pegaria as duas custa cinquenta milissegundos.
+
+**E o argumento do custo NAO sustenta a minha escolha, e isso vai dito em vez de
+me servir de desculpa.** Medido portao por portao sobre uma peca de verdade:
+
+| | |
+|---|---|
+| os DEZ portoes baratos, somados | **0,65 s** |
+| o portao `layout`, sozinho (ele RENDERIZA) | **8,0 s** |
+| total do `prontidao` | 8,6 s |
+
+Oito segundos e meio nunca foi barreira. **A causa e procedural: eu tratava o
+`prontidao` como passo FINAL** e, antes dele, escolhia a dedo quais instrumentos
+rodar. E a assinatura de "nao chamar quem ja sabe" — a quarta do `mira.py`, a do
+contador de canal que eu reescrevi cinco vezes a mao — agora no meu PROCEDIMENTO
+e nao num modulo.
+
+**O que este modulo e: UMA chamada para o rascunho.** Ele roda os portoes baratos
+(delegando ao `prontidao`, que e o dono deles) e os tres instrumentos de redacao
+(`mira`, `acento`, `gancho`), e imprime tudo junto. **Nao e portao e nao reprova:
+codigo de saida sempre zero** — quem reprova continua sendo o `prontidao`, e ele
+ainda tem de rodar inteiro antes do render, porque o `layout` e o que pega cartao
+em branco e tinta na borda.
+
+**O conjunto CARO vai DECLARADO com a medida ao lado, e o teste o reconfere.**
+Derivar por cronometragem em tempo de execucao seria frageis — maquina ocupada
+mudaria o conjunto. Entao ele e declarado aqui e `tests/` TEMPORIZA os portoes e
+reprova se um barato passar a ser caro ou o contrario: numero medido que ninguem
+reconfere envelhece calado (753).
+"""
+import io
+import json
+import os
+import sys
+import time
+
+RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if os.path.join(RAIZ, "fabrica") not in sys.path:
+    sys.path.insert(0, os.path.join(RAIZ, "fabrica"))
+
+# Portoes que RENDERIZAM, medidos em 19/10 as 22:1x sobre o
+# `kolejny-poziom-s071`: o `layout` levou 8,0 s contra 0,65 s dos outros dez
+# somados. O teste deste arquivo recronometra e reprova se isto mudar.
+PORTOES_CAROS = ("layout",)
+SEGUNDOS_CAROS_MEDIDOS = 8.0
+SEGUNDOS_BARATOS_MEDIDOS = 0.65
+
+# Os instrumentos de REDACAO, cada um dono da sua conta. Eles nao reprovam.
+INSTRUMENTOS = ("mira", "acento", "gancho")
+
+
+def portoes_baratos():
+    """Os portoes que NAO renderizam, lidos do `prontidao` que e o dono deles."""
+    import prontidao
+
+    return [(n, f) for n, f in prontidao.PORTOES if n not in PORTOES_CAROS]
+
+
+def _aplicaveis(nome, sp):
+    import prontidao
+
+    if nome in prontidao.PORTOES_SO_DO_LONGO and not sp.get("longo"):
+        return False
+    return True
+
+
+def portoes(caminho: str) -> dict:
+    """Roda os portoes BARATOS e devolve {portao: [problemas]}."""
+    with open(caminho, encoding="utf-8") as f:
+        sp = json.load(f)
+    fora = {}
+    for nome, fn in portoes_baratos():
+        if not _aplicaveis(nome, sp):
+            continue
+        try:
+            r = fn(caminho, sp)
+        except Exception as e:  # ambiente, nao a spec
+            r = [f"AMBIENTE, nao a spec: {e}"]
+        # alguns portoes devolvem (problemas, avisos)
+        if isinstance(r, tuple):
+            r = list(r[0]) + list(r[1])
+        fora[nome] = list(r or [])
+    return fora
+
+
+def _relato_do_instrumento(nome: str, caminho: str) -> str:
+    """Chama o `relato` do instrumento, que e o dono da conta dele."""
+    mod = __import__(nome)
+    try:
+        return mod.relato(caminho)
+    except Exception as e:
+        return f"{nome}: AMBIENTE, nao a spec: {e}"
+
+
+def relato(caminho: str) -> str:
+    linhas = []
+    t0 = time.time()
+    p = portoes(caminho)
+    dt = time.time() - t0
+    ruins = {k: v for k, v in p.items() if v}
+    linhas.append(
+        "PORTOES BARATOS (%d de %d, em %.2f s — o `layout` NAO entra porque "
+        "renderiza):" % (len(p), len(p) + len(PORTOES_CAROS), dt)
+    )
+    if not ruins:
+        linhas.append("  todos limpos.")
+    for k, v in ruins.items():
+        linhas.append("  %s: %d problema(s)" % (k, len(v)))
+        for x in v:
+            linhas.append("    - " + str(x)[:160])
+    for nome in INSTRUMENTOS:
+        linhas.append("")
+        linhas.append(_relato_do_instrumento(nome, caminho))
+    linhas.append("")
+    linhas.append(
+        ">> ISTO NAO REPROVA e NAO substitui o `prontidao`: o portao `layout` "
+        "renderiza e e ele que pega cartao em branco e tinta na borda. Rode o "
+        "`prontidao` inteiro antes do render."
+    )
+    return "\n".join(linhas)
+
+
+def main() -> int:
+    if len(sys.argv) < 2:
+        print("uso: python3 fabrica/antes_do_render.py <spec.json>")
+        return 0
+    print(relato(sys.argv[1]))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

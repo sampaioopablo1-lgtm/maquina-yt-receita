@@ -303,6 +303,22 @@ DIACRITICOS = {
     "pl": "ąćęłńóśźżĄĆĘŁŃÓŚŹŻ",
     "pt": "áàâãéêíóôõúüçÁÀÂÃÉÊÍÓÔÕÚÇ",
     "es": "áéíóúñüÁÉÍÓÚÑ",
+    # `el` ENTROU EM 19/10 as 22:3x, e a falta dele era o 725 DENTRO do portao:
+    # a tabela cobria quatro idiomas e o portao era reportado como da frota. O
+    # grego e 87 das specs de short — o SEGUNDO maior idioma — e o canal onde a
+    # falha de acento de fato aconteceu (a descricao do `epomeno-epipedo-s068`
+    # subiu sem tonos em 19/10 as 15:3x).
+    #
+    # MEDIDO antes de ligar, pelo discriminador de tirar os acentos de uma spec
+    # e rodar o portao: pt-BR acusava (0,0% contra 4,5%), pl acusava (0,9%
+    # contra 6,8%) e **el passava LIMPO**. Com a tabela, as 87 specs gregas
+    # medem 11,34% a 15,36%, mediana 13,85%, e **ZERO** delas fica abaixo do
+    # PISO_REFERENCIA de 2% — logo isto reprova a peca quebrada e NENHUMA do
+    # acervo, que e a mesma conta que pos o cartao em branco no portao `layout`.
+    #
+    # Sao as vogais com tonos e com dialitika, nas duas caixas. O sigma final e
+    # o acento agudo isolado NAO entram: eles nao sao diacriticos de vogal.
+    "el": "άέήίόύώΆΈΉΊΌΎΏϊϋΐΰΪΫ",
 }
 
 # Abaixo disso o canal nao usa acento o bastante para servir de referencia.
