@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Radar TI</title>
+<meta name="description" content="Painel por cliente lido da planilha do Google a cada 15 minutos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: barra de estado fixa no topo, resumo da frota, depois um cartão por cliente com a tabela dele. */
+:root{
+  --bg:#f3f5f7; --panel:#ffffff; --ink:#15202b; --ink-2:#5b6b7b; --line:#d9e0e6;
+  --accent:#0b7a75; --accent-ink:#ffffff;
+  --ok:#1f8a4c; --ok-bg:#e3f4ea; --warn:#b26a00; --warn-bg:#fff1d6; --bad:#c2321f; --bad-bg:#fde3df;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f151b; --panel:#171f27; --ink:#e7edf2; --ink-2:#97a6b4; --line:#2a3642;
+  --accent:#3fc1b9; --accent-ink:#06211f;
+  --ok:#5fd08a; --ok-bg:#153524; --warn:#f0b24a; --warn-bg:#3a2a0c; --bad:#ff7b66; --bad-bg:#44160f;
+  color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --bg:#0f151b; --panel:#171f27; --ink:#e7edf2; --ink-2:#97a6b4; --line:#2a3642;
+  --accent:#3fc1b9; --accent-ink:#06211f;
+  --ok:#5fd08a; --ok-bg:#153524; --warn:#f0b24a; --warn-bg:#3a2a0c; --bad:#ff7b66; --bad-bg:#44160f;
+  color-scheme:dark;}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:15px/1.45 var(--sans);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 48px}
+a{color:var(--accent)}
+button{font:inherit;color:inherit}
+h1,h2,h3{margin:0;text-wrap:balance}
+.topo{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);
+  display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;padding-block:14px 10px;border-bottom:1px solid var(--line)}
+.marca{display:flex;align-items:center;gap:10px}
+.marca .pulso{width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 0 var(--accent);animation:pulso 2.4s ease-out infinite}
+@keyframes pulso{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 55%,transparent)}100%{box-shadow:0 0 0 14px transparent}}
+@media (prefers-reduced-motion:reduce){.marca .pulso{animation:none}}
+.marca h1{font-size:20px;font-weight:700;letter-spacing:-.01em}
+.estado{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;font-family:var(--mono);font-size:12.5px;color:var(--ink-2);margin-left:auto}
+.estado b{color:var(--ink);font-weight:500}
+.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:999px;padding:2px 10px;background:var(--panel)}
+.chip.ok{border-color:var(--ok);color:var(--ok)} .chip.bad{border-color:var(--bad);color:var(--bad)} .chip.warn{border-color:var(--warn);color:var(--warn)}
+.btn{border:1px solid var(--line);background:var(--panel);border-radius:8px;padding:6px 12px;cursor:pointer}
+.btn:hover{border-color:var(--accent)} .btn:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.btn.primario{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.aviso{margin-top:16px;border:1px solid var(--bad);background:var(--bad-bg);border-radius:10px;padding:14px 16px}
+.aviso.neutro{border-color:var(--line);background:var(--panel)}
+.aviso h2{font-size:16px;margin-bottom:6px}
+.aviso code{font-family:var(--mono);font-size:13px;word-break:break-all}
+.resumo{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:18px}
+.tile{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px;min-width:0}
+.tile .rot{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-2)}
+.tile .num{font-family:var(--mono);font-size:28px;font-weight:500;line-height:1.15;font-variant-numeric:tabular-nums;margin-top:4px}
+.tile.bad .num{color:var(--bad)} .tile.warn .num{color:var(--warn)} .tile.ok .num{color:var(--ok)}
+.ferr{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:18px}
+.ferr input,.ferr select{font:inherit;padding:7px 10px;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--ink);min-width:0}
+.ferr input{flex:1 1 220px}
+.clientes{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px;margin-top:14px}
+@media (max-width:420px){.clientes{grid-template-columns:1fr}}
+.cliente{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;min-width:0;border-left:5px solid var(--line)}
+.cliente.ok{border-left-color:var(--ok)} .cliente.warn{border-left-color:var(--warn)} .cliente.bad{border-left-color:var(--bad)}
+.cliente header{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.cliente h2{font-size:17px;font-weight:600;flex:1 1 auto;min-width:0;overflow-wrap:anywhere}
+.cliente .sub{font-family:var(--mono);font-size:12px;color:var(--ink-2)}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.kpi{border:1px solid var(--line);border-radius:8px;padding:6px 8px;min-width:0}
+.kpi .rot{font-size:11px;color:var(--ink-2);text-transform:uppercase;letter-spacing:.05em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kpi .num{font-family:var(--mono);font-size:20px;font-variant-numeric:tabular-nums}
+.kpi.bad .num{color:var(--bad)} .kpi.warn .num{color:var(--warn)} .kpi.ok .num{color:var(--ok)}
+.barra{display:flex;height:8px;border-radius:4px;overflow:hidden;background:var(--line);margin-top:10px}
+.barra span{display:block;height:100%}
+.legenda{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:12px;color:var(--ink-2);margin-top:6px}
+.legenda i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:4px;vertical-align:-1px}
+details{margin-top:10px} summary{cursor:pointer;color:var(--accent);font-size:13px}
+.tabela{overflow-x:auto;margin-top:8px;border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top;white-space:nowrap;max-width:260px;overflow:hidden;text-overflow:ellipsis}
+th{font-weight:600;color:var(--ink-2);background:var(--bg);position:sticky;top:0}
+tr:last-child td{border-bottom:0}
+.pill{display:inline-block;border-radius:999px;padding:1px 8px;font-size:12px;font-weight:500}
+.pill.ok{background:var(--ok-bg);color:var(--ok)} .pill.warn{background:var(--warn-bg);color:var(--warn)} .pill.bad{background:var(--bad-bg);color:var(--bad)}
+.atrasado{color:var(--bad);font-weight:600}
+.rodape{margin-top:28px;font-size:12.5px;color:var(--ink-2);font-family:var(--mono)}
+.rodape code{word-break:break-all}
+.config{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-top:16px}
+.config .grade{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:10px}
+.config label{display:flex;flex-direction:column;gap:4px;font-size:12.5px;color:var(--ink-2);min-width:0}
+.config input,.config select{font:inherit;padding:6px 9px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+.config .acoes{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<header class="topo">
+  <div class="marca"><span class="pulso" aria-hidden="true"></span><h1>Radar TI</h1></div>
+  <div class="estado">
+    <span id="st-fonte" class="chip">conectando…</span>
+    <span>última leitura <b id="st-ultima">—</b></span>
+    <span>próxima em <b id="st-prox">—</b></span>
+    <button class="btn" id="bt-atualizar" type="button">Atualizar agora</button>
+    <button class="btn" id="bt-config" type="button" aria-expanded="false">Ajustes</button>
+  </div>
+</header>
+
+<section class="config" id="config" hidden>
+  <h2 style="font-size:16px">Ajustes do painel</h2>
+  <p style="margin:6px 0 0;color:var(--ink-2);font-size:13px">Salvo neste navegador. Para fixar para todos, edite o bloco <code>CONFIG</code> no arquivo.</p>
+  <div class="grade">
+    <label>ID da planilha <input id="cf-sheet" spellcheck="false"></label>
+    <label>Abas (gid ou nome, separados por vírgula; vazio = aba principal) <input id="cf-abas" spellcheck="false" placeholder="0  ou  Clientes, Chamados"></label>
+    <label>Coluna de cliente <select id="cf-cliente"></select></label>
+    <label>Coluna de status <select id="cf-status"></select></label>
+    <label>Coluna de prazo / data <select id="cf-prazo"></select></label>
+    <label>Coluna de responsável <select id="cf-resp"></select></label>
+    <label>Intervalo (minutos) <input id="cf-int" type="number" min="1" max="1440"></label>
+  </div>
+  <div class="acoes">
+    <button class="btn primario" id="cf-salvar" type="button">Salvar e recarregar</button>
+    <button class="btn" id="cf-limpar" type="button">Voltar ao padrão</button>
+  </div>
+</section>
+
+<div id="aviso"></div>
+<section class="resumo" id="resumo" aria-label="Resumo"></section>
+<div class="ferr" id="ferr" hidden>
+  <input id="busca" type="search" placeholder="Buscar cliente, item, responsável…" aria-label="Buscar">
+  <select id="f-status" aria-label="Filtrar por status"><option value="">Todos os status</option></select>
+  <select id="f-ordem" aria-label="Ordenar clientes">
+    <option value="risco">Ordenar: mais crítico primeiro</option>
+    <option value="nome">Ordenar: nome</option>
+    <option value="itens">Ordenar: mais itens</option>
+  </select>
+</div>
+<section class="clientes" id="clientes" aria-live="polite"></section>
+<p class="rodape" id="rodape"></p>
+
+<script>
+/* ====== CONFIGURAÇÃO PADRÃO (fonte de verdade para todos os leitores) ====== */
+const CONFIG = {
+  sheetId: "1ZyraQs1xghOxAeOczttstD_MbaAeGncsJepQUU21bBA",
+  abas: [],                 // [] = só a aba principal (gid 0). Ex.: ["0","Chamados"] ou nomes de abas (uma por cliente)
+  intervaloMin: 15,
+  // Mapeamento de colunas: "" = detectar pelo nome do cabeçalho
+  colCliente: "", colStatus: "", colPrazo: "", colResp: "",
+};
+/* Parâmetros na URL sobrepõem (serve para ter um link por cliente): ?sheet=ID&abas=0,Chamados&cliente=Cliente */
+const LS = "radar-ti:v1";
+function lerLocal(){ try{ return JSON.parse(localStorage.getItem(LS)||"{}"); }catch(e){ return {}; } }
+function gravarLocal(o){ try{ localStorage.setItem(LS, JSON.stringify(o)); }catch(e){} }
+function cfg(){
+  const q = new URLSearchParams(location.search), l = lerLocal();
+  const abasQ = q.get("abas"); const abasL = l.abas;
+  return {
+    sheetId: q.get("sheet") || l.sheetId || CONFIG.sheetId,
+    abas: abasQ!=null ? abasQ.split(",").map(s=>s.trim()).filter(Boolean) : (Array.isArray(abasL)? abasL : CONFIG.abas),
+    intervaloMin: +(q.get("min") || l.intervaloMin || CONFIG.intervaloMin) || 15,
+    colCliente: q.get("cliente") ?? l.colCliente ?? CONFIG.colCliente,
+    colStatus: q.get("status") ?? l.colStatus ?? CONFIG.colStatus,
+    colPrazo: q.get("prazo") ?? l.colPrazo ?? CONFIG.colPrazo,
+    colResp: q.get("resp") ?? l.colResp ?? CONFIG.colResp,
+  };
+}
+
+/* ====== LEITURA DA PLANILHA (gviz, CSV, com CORS; exige "qualquer pessoa com o link: leitor") ====== */
+function urlAba(sheetId, aba){
+  const base = `https://docs.google.com/spreadsheets/d/${encodeURIComponent(sheetId)}/gviz/tq?tqx=out:csv&_=${Date.now()}`;
+  if(aba==null || aba==="") return base + "&gid=0";
+  return /^\d+$/.test(aba) ? base + "&gid=" + aba : base + "&sheet=" + encodeURIComponent(aba);
+}
+function parseCSV(t){
+  const rows=[]; let row=[], cur="", q=false;
+  for(let i=0;i<t.length;i++){
+    const c=t[i];
+    if(q){ if(c==='"'){ if(t[i+1]==='"'){cur+='"';i++;} else q=false; } else cur+=c; }
+    else if(c==='"') q=true;
+    else if(c===','){ row.push(cur); cur=""; }
+    else if(c==='\n'){ row.push(cur); rows.push(row); row=[]; cur=""; }
+    else if(c!=='\r') cur+=c;
+  }
+  if(cur!=="" || row.length){ row.push(cur); rows.push(row); }
+  return rows.map(r=>r.map(x=>x.trim()));
+}
+async function lerAba(sheetId, aba){
+  const r = await fetch(urlAba(sheetId, aba), {cache:"no-store"});
+  if(r.status===401 || r.status===403) throw Object.assign(new Error("privada"), {codigo:"privada"});
+  if(!r.ok) throw Object.assign(new Error("HTTP "+r.status), {codigo:"http", status:r.status});
+  const txt = await r.text();
+  if(/<html/i.test(txt.slice(0,200))) throw Object.assign(new Error("privada"), {codigo:"privada"});
+  return parseCSV(txt);
+}
+/* cabeçalho = primeira linha com >=2 células preenchidas e >=50% da largura máxima das linhas seguintes */
+function tabelar(rows, nomeAba){
+  const cheia = r=>r.filter(x=>x!=="").length;
+  const larg = Math.max(1, ...rows.map(cheia));
+  let h = rows.findIndex((r,i)=> cheia(r)>=2 && cheia(r)>=larg*0.5 && i<rows.length-1);
+  if(h<0) h = rows.findIndex(r=>cheia(r)>=1);
+  if(h<0) return {aba:nomeAba, cab:[], linhas:[]};
+  const limpa = c=>{ c=c.replace(/\s+/g," ").trim(); if(c.length>40){ const p=c.split(/[.!?]\s+/).filter(Boolean); c=p[p.length-1].trim(); } return c; };
+  const cab = rows[h].map((c,i)=> limpa(c) || ("col"+(i+1)));
+  const linhas = rows.slice(h+1).filter(r=>cheia(r)>0).map(r=>{ const o={}; cab.forEach((c,i)=>o[c]=r[i]??""); return o; });
+  return {aba:nomeAba, cab, linhas};
+}
+
+/* ====== INTERPRETAÇÃO ====== */
+const RX = {
+  cliente:/^(cliente|conta|empresa|loja|marca|unidade|customer)/i,
+  status:/(status|situa[cç][aã]o|estado|etapa)/i,
+  prazo:/(prazo|vencimento|venc\.|limite|deadline|previs|entrega)/i,
+  prazoFraco:/\bdata\b/i,
+  resp:/(respons|dono|quem|owner|t[eé]cnico|analista|atendente)/i,
+  ok:/(conclu|resolvid|finaliz|fechad|feito|ok\b|pronto|entregue|done|closed|encerrad|cancelad)/i,
+  bad:/(atras|cr[ií]tic|urgente|bloquead|erro|falh|parad|vencid|incidente|p1|alta)/i,
+};
+function acharCol(cab, forcada, rx){ if(forcada && cab.includes(forcada)) return forcada; return cab.find(c=>rx.test(c)) || ""; }
+function dataDe(s){
+  if(!s) return null;
+  let m = s.match(/^(\d{1,2})\/(\d{1,2})(?:\/(\d{2,4}))?/);
+  if(m){ let y = m[3] ? +m[3] : new Date().getFullYear(); if(y<100) y+=2000; const d=new Date(y, +m[2]-1, +m[1]); return isNaN(d)?null:d; }
+  m = s.match(/^(\d{4})-(\d{2})-(\d{2})/); if(m){ return new Date(+m[1], +m[2]-1, +m[3]); }
+  return null;
+}
+function classeStatus(s){ if(!s) return "neutro"; if(RX.bad.test(s)) return "bad"; if(RX.ok.test(s)) return "ok"; return "warn"; }
+function hoje0(){ const d=new Date(); d.setHours(0,0,0,0); return d; }
+
+function montar(tabelas, c){
+  const grupos = new Map(); const statusVistos = new Set(); const cabTodas = new Set();
+  const multiAba = tabelas.length>1;
+  for(const t of tabelas){
+    t.cab.forEach(x=>cabTodas.add(x));
+    const colC = acharCol(t.cab, c.colCliente, RX.cliente);
+    const colS = acharCol(t.cab, c.colStatus, RX.status);
+    const colP = acharCol(t.cab, c.colPrazo, RX.prazo) || acharCol(t.cab, "", RX.prazoFraco);
+    const colR = acharCol(t.cab, c.colResp, RX.resp);
+    for(const l of t.linhas){
+      const nome = (colC && l[colC]) ? l[colC] : (multiAba ? t.aba : (colC ? "(sem cliente)" : "Planilha"));
+      if(!grupos.has(nome)) grupos.set(nome, {nome, itens:[], cab:t.cab, cols:{colC,colS,colP,colR}, abas:new Set()});
+      const g = grupos.get(nome); g.abas.add(t.aba);
+      const st = colS ? l[colS] : ""; if(st) statusVistos.add(st);
+      const prazo = colP ? dataDe(l[colP]) : null;
+      const cls = classeStatus(st);
+      const atrasado = !!(colS && st && prazo && prazo < hoje0() && cls!=="ok"); // sem status, data passada é histórico, não atraso
+      g.itens.push({l, st, cls: atrasado ? "bad" : cls, prazo, atrasado, resp: colR ? l[colR] : ""});
+    }
+  }
+  const lista = [...grupos.values()].map(g=>{
+    const n=g.itens.length, bad=g.itens.filter(i=>i.cls==="bad").length, warn=g.itens.filter(i=>i.cls==="warn").length,
+      ok=g.itens.filter(i=>i.cls==="ok").length, atr=g.itens.filter(i=>i.atrasado).length;
+    const datas=g.itens.map(i=>i.prazo).filter(Boolean);
+    const proximo = datas.filter(d=>d>=hoje0()).sort((a,b)=>a-b)[0] || null;
+    return Object.assign(g, {n,bad,warn,ok,atr,proximo, nivel: bad?"bad":(warn?"warn":(n?"ok":"neutro")), risco: bad*1000+atr*100+warn});
+  });
+  return {grupos:lista, status:[...statusVistos], cab:[...cabTodas]};
+}
+
+/* ====== RENDER ====== */
+const $ = s=>document.querySelector(s);
+const esc = s=>String(s??"").replace(/[&<>"]/g, m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
+const fmtD = d=> d ? d.toLocaleDateString("pt-BR",{day:"2-digit",month:"2-digit"}) : "";
+const fmtH = d=> d.toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit"});
+let MODELO=null, ESTADO={ultima:null, proxima:null, timer:null, dados:null};
+
+function renderResumo(m){
+  const tot=m.grupos.reduce((a,g)=>a+g.n,0), bad=m.grupos.reduce((a,g)=>a+g.bad,0), atr=m.grupos.reduce((a,g)=>a+g.atr,0),
+    warn=m.grupos.reduce((a,g)=>a+g.warn,0), ok=m.grupos.reduce((a,g)=>a+g.ok,0), cri=m.grupos.filter(g=>g.nivel==="bad").length;
+  $("#resumo").innerHTML = [
+    ["Clientes", m.grupos.length, ""], ["Itens", tot, ""], ["Críticos", bad, bad?"bad":""],
+    ["Atrasados", atr, atr?"bad":""], ["Em andamento", warn, warn?"warn":""], ["Concluídos", ok, ok?"ok":""],
+    ["Clientes em alerta", cri, cri?"bad":"ok"],
+  ].map(([r,n,k])=>`<div class="tile ${k}"><div class="rot">${r}</div><div class="num">${n}</div></div>`).join("");
+}
+function renderClientes(m){
+  const q = ($("#busca").value||"").toLowerCase(), fs = $("#f-status").value, ord = $("#f-ordem").value;
+  let gs = m.grupos.slice();
+  if(ord==="nome") gs.sort((a,b)=>a.nome.localeCompare(b.nome,"pt-BR")); else if(ord==="itens") gs.sort((a,b)=>b.n-a.n); else gs.sort((a,b)=>b.risco-a.risco || a.nome.localeCompare(b.nome,"pt-BR"));
+  const html = gs.map(g=>{
+    let itens = g.itens;
+    if(fs) itens = itens.filter(i=>i.st===fs);
+    if(q) itens = itens.filter(i=> (g.nome+" "+Object.values(i.l).join(" ")).toLowerCase().includes(q));
+    if((q||fs) && !itens.length) return "";
+    const cols = g.cab.slice(0,8);
+    const linhas = itens.slice(0,200).map(i=>`<tr>${cols.map(c=>{
+      let v=i.l[c]??"";
+      if(c===g.cols.colS && v) v=`<span class="pill ${i.cls}">${esc(v)}</span>`;
+      else if(c===g.cols.colP && i.prazo) v=`<span class="${i.atrasado?"atrasado":""}">${esc(i.l[c])}</span>`;
+      else v=esc(v);
+      return `<td title="${esc(i.l[c])}">${v}</td>`; }).join("")}</tr>`).join("");
+    const pct = k=> g.n? (g[k]/g.n*100).toFixed(1)+"%" : "0%";
+    return `<article class="cliente ${g.nivel}">
+      <header><h2>${esc(g.nome)}</h2><span class="sub">${g.n} ${g.n===1?"item":"itens"}${g.proximo?" · próximo prazo "+fmtD(g.proximo):""}</span></header>
+      <div class="kpis">
+        <div class="kpi ${g.bad?"bad":""}"><div class="rot">Críticos</div><div class="num">${g.bad}</div></div>
+        <div class="kpi ${g.atr?"bad":""}"><div class="rot">Atrasados</div><div class="num">${g.atr}</div></div>
+        <div class="kpi ${g.warn?"warn":""}"><div class="rot">Andamento</div><div class="num">${g.warn}</div></div>
+      </div>
+      <div class="barra" role="img" aria-label="críticos ${g.bad}, em andamento ${g.warn}, concluídos ${g.ok}">
+        <span style="width:${pct("bad")};background:var(--bad)"></span><span style="width:${pct("warn")};background:var(--warn)"></span><span style="width:${pct("ok")};background:var(--ok)"></span></div>
+      <div class="legenda"><span><i style="background:var(--bad)"></i>críticos ${g.bad}</span><span><i style="background:var(--warn)"></i>em andamento ${g.warn}</span><span><i style="background:var(--ok)"></i>concluídos ${g.ok}</span>${g.cols.colR?`<span>responsáveis: ${esc([...new Set(g.itens.map(i=>i.resp).filter(Boolean))].slice(0,4).join(", "))}</span>`:""}</div>
+      <details ${(q||fs)?"open":""}><summary>Ver ${itens.length} ${itens.length===1?"linha":"linhas"}${itens.length>200?" (mostrando 200)":""}</summary>
+        <div class="tabela"><table><thead><tr>${cols.map(c=>`<th>${esc(c)}</th>`).join("")}</tr></thead><tbody>${linhas}</tbody></table></div>
+      </details>
+    </article>`;
+  }).join("");
+  $("#clientes").innerHTML = html || `<p style="color:var(--ink-2)">Nenhum item casa com o filtro.</p>`;
+}
+function renderFiltros(m){
+  const sel=$("#f-status"), atual=sel.value;
+  sel.innerHTML = `<option value="">Todos os status</option>` + m.status.sort().map(s=>`<option ${s===atual?"selected":""}>${esc(s)}</option>`).join("");
+  $("#ferr").hidden = false;
+}
+function renderAviso(tipo, c, extra){
+  const url = `https://docs.google.com/spreadsheets/d/${esc(c.sheetId)}/edit`;
+  const box=$("#aviso");
+  if(tipo==="privada") box.innerHTML = `<div class="aviso"><h2>A planilha está privada para quem não está logado</h2>
+    <p>O painel lê a planilha sem senha, então ela precisa estar com acesso de leitura por link. Na planilha: <b>Compartilhar → Acesso geral → Qualquer pessoa com o link → Leitor</b>. Nada mais muda e ninguém consegue editar.</p>
+    <p><a href="${url}" target="_blank" rel="noopener">Abrir a planilha</a> · ID lido: <code>${esc(c.sheetId)}</code></p></div>`;
+  else if(tipo==="rede") box.innerHTML = `<div class="aviso"><h2>Falha ao ler a planilha</h2><p>${esc(extra||"")}. ${ESTADO.dados?"Mostrando a última leitura boa.":"Sem dados anteriores."}</p></div>`;
+  else if(tipo==="vazia") box.innerHTML = `<div class="aviso neutro"><h2>A planilha abriu, mas não achei uma tabela</h2><p>Confira a aba em Ajustes: a primeira linha com dois ou mais títulos vira o cabeçalho.</p></div>`;
+  else box.innerHTML = "";
+}
+function renderEstado(ok, msg){
+  const f=$("#st-fonte"); f.className="chip "+(ok?"ok":"bad"); f.textContent=msg;
+  $("#st-ultima").textContent = ESTADO.ultima ? fmtH(ESTADO.ultima) : "—";
+}
+function tick(){
+  if(!ESTADO.proxima) return;
+  const s = Math.max(0, Math.round((ESTADO.proxima - Date.now())/1000));
+  $("#st-prox").textContent = `${String(Math.floor(s/60)).padStart(2,"0")}:${String(s%60).padStart(2,"0")}`;
+}
+setInterval(tick, 1000);
+
+async function carregar(manual){
+  const c = cfg();
+  const bt=$("#bt-atualizar"); bt.disabled=true; bt.textContent="Lendo…";
+  try{
+    const abas = c.abas.length ? c.abas : [""];
+    const brutos = await Promise.all(abas.map(a=>lerAba(c.sheetId,a).then(rows=>tabelar(rows, a||"principal"))));
+    if(!brutos.some(t=>t.linhas.length)) { renderAviso("vazia", c); }
+    else renderAviso("", c);
+    ESTADO.dados = brutos; ESTADO.ultima = new Date();
+    try{ localStorage.setItem(LS+":cache", JSON.stringify({em:ESTADO.ultima, brutos})); }catch(e){}
+    MODELO = montar(brutos, c);
+    renderResumo(MODELO); renderFiltros(MODELO); renderClientes(MODELO); preencherConfig(MODELO, c);
+    renderEstado(true, `planilha OK · ${brutos.reduce((a,t)=>a+t.linhas.length,0)} linhas`);
+  }catch(e){
+    if(e.codigo==="privada") renderAviso("privada", c); else renderAviso("rede", c, e.message);
+    renderEstado(false, e.codigo==="privada" ? "sem acesso à planilha" : "erro de leitura");
+    if(ESTADO.dados===null){ try{ const cache=JSON.parse(localStorage.getItem(LS+":cache")||"null"); if(cache){ ESTADO.dados=cache.brutos; ESTADO.ultima=new Date(cache.em); MODELO=montar(cache.brutos,c); renderResumo(MODELO); renderFiltros(MODELO); renderClientes(MODELO); $("#st-ultima").textContent=fmtH(ESTADO.ultima)+" (cache)"; } }catch(x){} }
+  }finally{
+    bt.disabled=false; bt.textContent="Atualizar agora";
+    agendar(c.intervaloMin);
+    $("#rodape").innerHTML = `Fonte: <code>docs.google.com/spreadsheets/d/${esc(c.sheetId)}</code> · abas: ${esc((c.abas.length?c.abas:["gid 0"]).join(", "))} · leitura automática a cada ${c.intervaloMin} min, sem servidor no meio: o navegador lê a planilha direto.`;
+  }
+}
+function agendar(min){
+  clearTimeout(ESTADO.timer);
+  ESTADO.proxima = Date.now() + min*60*1000;
+  ESTADO.timer = setTimeout(()=>carregar(false), min*60*1000);
+  tick();
+}
+document.addEventListener("visibilitychange", ()=>{ if(!document.hidden && ESTADO.proxima && ESTADO.proxima < Date.now()) carregar(false); });
+
+/* ====== AJUSTES ====== */
+function preencherConfig(m, c){
+  const ops = (sel, forc, rx)=>{ const el=$(sel); const at = forc || (m? acharCol(m.cab, "", rx):"");
+    el.innerHTML = `<option value="">(detectar automaticamente)</option>` + (m?m.cab:[]).map(x=>`<option ${x===at?"selected":""}>${esc(x)}</option>`).join(""); if(!at) el.value=""; };
+  $("#cf-sheet").value=c.sheetId; $("#cf-abas").value=c.abas.join(", "); $("#cf-int").value=c.intervaloMin;
+  ops("#cf-cliente", c.colCliente, RX.cliente); ops("#cf-status", c.colStatus, RX.status); ops("#cf-prazo", c.colPrazo || (m?acharCol(m.cab,"",RX.prazo):""), RX.prazoFraco); ops("#cf-resp", c.colResp, RX.resp);
+}
+$("#bt-config").addEventListener("click", ()=>{ const s=$("#config"); s.hidden=!s.hidden; $("#bt-config").setAttribute("aria-expanded", String(!s.hidden)); if(!s.hidden) preencherConfig(MODELO, cfg()); });
+$("#cf-salvar").addEventListener("click", ()=>{
+  const id = ($("#cf-sheet").value.match(/[-\w]{25,}/)||[""])[0];
+  gravarLocal({ sheetId:id, abas:$("#cf-abas").value.split(",").map(s=>s.trim()).filter(Boolean), intervaloMin:+$("#cf-int").value||15,
+    colCliente:$("#cf-cliente").value, colStatus:$("#cf-status").value, colPrazo:$("#cf-prazo").value, colResp:$("#cf-resp").value });
+  history.replaceState(null,"",location.pathname); location.reload();
+});
+$("#cf-limpar").addEventListener("click", ()=>{ try{localStorage.removeItem(LS);}catch(e){} history.replaceState(null,"",location.pathname); location.reload(); });
+$("#bt-atualizar").addEventListener("click", ()=>carregar(true));
+$("#busca").addEventListener("input", ()=>MODELO&&renderClientes(MODELO));
+$("#f-status").addEventListener("change", ()=>MODELO&&renderClientes(MODELO));
+$("#f-ordem").addEventListener("change", ()=>MODELO&&renderClientes(MODELO));
+carregar(true);
+</script>
+</body>
+</html>
