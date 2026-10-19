@@ -68,6 +68,17 @@ RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # que a licenca NAO entra nesta lista.
 SECOES_EXIGIDAS = ("COMENT", "HASHTAG")
 
+# CORRECAO de 19/10 (rotina de continuidade): o "322 de 322 comecam por COMENT"
+# valia so para o cabecalho em caractere latino do pt-BR/es. As specs antigas
+# dos outros idiomas declaram o cabecalho LOCALIZADO — grego `SXOLIO`, polones
+# `KOMENTARZ`, turco `YORUM`, indonesio `KOMENTAR`, ingles `PINNED COMMENT`, hindi `TIPPANI` — e 31 delas reprovavam em
+# `test_toda_spec_com_copy_real_passa_no_portao_copy`. O portao tambem
+# reprovaria copy nova do epomeno ou do kolejny escrita no cabecalho nativo.
+# As alternativas abaixo saem da varredura dos cabecalhos `## ` do disco.
+_ALTERNATIVAS = {
+    "COMENT": r"(?:COMENT|COMMENT|PINNED[ ]COMMENT|टिप्पणी|KOMENT|\u03a3\u03a7\u039f\u039b|[^\n]*YORUM)",
+}
+
 _LICENCA_DE_SONDA = (
     "Inspired by Kevin MacLeod | incompetech.com\n"
     "Licensed under Creative Commons: By Attribution 4.0\n"
@@ -78,7 +89,7 @@ _LICENCA_DE_SONDA = (
 def declaradas(texto: str) -> dict:
     """Quais das secoes exigidas o texto da copy DECLARA por cabecalho."""
     return {
-        s: bool(re.search(r"^##\s*" + s, texto or "", re.M | re.I))
+        s: bool(re.search(r"^##\s*" + _ALTERNATIVAS.get(s, s), texto or "", re.M | re.I))
         for s in SECOES_EXIGIDAS
     }
 
