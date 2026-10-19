@@ -3240,8 +3240,40 @@ defeito que eu só veria depois.
 **O resíduo do longo NÃO entra na série do `mira.py`**, e o motivo é o
 679/698/725: ela é construída em peças de 23 a 44 s, e somar um ponto de 537 s
 ali é o mesmo erro de enquadramento que deixou de fora a peça de 2 min (+4,8) e
-a de 5 s (+0,63). **Nesta faixa a banda tem UM ponto, e ele é este.**
-`RESIDUO_N` segue 118.
+a de 5 s (+0,63).
+
+### E O SEGUNDO PONTO DO LONGO VEIO NA HORA SEGUINTE — e o SINAL é o oposto
+
+**Medido em 19/10 às 13:5x.** O `kolejny-poziom-020` (`GtmoaQMr_1c`, **9:20
+reais**) previa **570,0** no edge e saiu com **560** — resíduo **−10,0 s
+(−1,8%)**.
+
+| peça | previsão edge | real | resíduo |
+|---|---|---|---|
+| `epomeno-epipedo-068` | 551,7 | 537 | **−14,7 s** (−2,7%) |
+| `kolejny-poziom-020` | 570,0 | 560 | **−10,0 s** (−1,8%) |
+
+**OS DOIS SÃO NEGATIVOS, e a série do short é dominada por POSITIVO** — 119
+pontos, banda `(−1,2; 4,0)`. Logo o erro do modelo **troca de sinal entre os
+dois formatos**.
+
+**O que eu NÃO afirmo:** que exista banda de longo. São DOIS pontos, de dois
+canais e duas vozes, e o percentual é pequeno o bastante para ser qualquer
+coisa. **O que está medido é a negação: não se pode usar a banda do short para
+prever um longo, porque nos dois pontos que existem ela erra o LADO.**
+
+**A CONSEQUÊNCIA É PRÁTICA E É UMA: no longo a previsão é LIMITE SUPERIOR.**
+Peça mirada em 8:00 exatos pode sair **abaixo** de oito minutos — e abaixo de
+oito minutos o YouTube não dá anúncio mid-roll, que é a única receita que o
+formato longo acrescenta. As duas saíram em 8:57 e 9:20 porque foram escritas
+com folga; a próxima, mirada no limite, não teria.
+
+**A regra que fica: longo mira com FOLGA sobre os 8 min, nunca em cima deles.**
+`tests/test_no_LONGO_a_previsao_erra_para_CIMA.py`, sete testes — a varredura sai
+do PARQUE e reprova com menos de dois pontos, um **falha se aparecer resíduo
+positivo** (para a nota ser relida em vez de reaproveitada), um cobra que os
+pontos de longo **não entrem** na série do short, e um cobra que a ressalva
+continue escrita.
 
 **E o short caiu EXATAMENTE no teto do portão (45,0 s)** — não passou dele, ao
 contrário do `epomeno-epipedo-s032`, que deu 46 em 15/10. Com a banda chegando a

@@ -58,3 +58,5 @@
 {"canal": "labtreinamento", "em": "2026-10-19T11:21:48Z", "job": "118029346097", "pacote": "labtreinamento-s085", "prev_edge": 25.2, "prev_piper": 20.7, "provedor": "edge", "real": 28, "youtube_id": "aqNm2gIccW8"}
 {"canal": "epomeno-epipedo", "em": "2026-10-19T12:58:55Z", "job": "118066106680", "pacote": "epomeno-epipedo-068", "prev_edge": 42.4, "prev_piper": 37.6, "provedor": "edge", "real": 45, "youtube_id": "BaLtIWzaN84"}
 {"canal": "epomeno-epipedo", "em": "2026-10-19T12:58:55Z", "job": "118066106680", "pacote": "epomeno-epipedo-068-longo", "prev_edge": 551.7, "prev_piper": 488.8, "provedor": "edge", "real": 537, "youtube_id": "pqTc8jBrq0E"}
+{"canal": "kolejny-poziom", "em": "2026-10-19T13:49:31Z", "job": "118090146286", "pacote": "kolejny-poziom-020", "prev_edge": 41.9, "prev_piper": 35.7, "provedor": "edge", "real": 43, "youtube_id": "9zfF0f4aDQM"}
+{"canal": "kolejny-poziom", "em": "2026-10-19T13:49:31Z", "job": "118090146286", "pacote": "kolejny-poziom-020-longo", "prev_edge": 570.0, "prev_piper": 485.0, "provedor": "edge", "real": 560, "youtube_id": "GtmoaQMr_1c"}
