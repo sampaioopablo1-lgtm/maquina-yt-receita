@@ -124,3 +124,46 @@ def test_fundo_escuro_usa_o_MESMO_limiar_do_paleta_referencia():
     assert TD.fundo_escuro("labtreinamento") is True
     assert TD.fundo_escuro("kolejny-poziom") is True
     assert TD.fundo_escuro("epomeno-epipedo") is False  # `papel` e claro de proposito
+
+
+def test_toda_spec_NOVA_usa_a_paleta_do_proprio_canal():
+    """De `s064` em diante a paleta sai do modulo, nunca escrita na spec.
+
+    Por que a partir dali e nao de todas: as 205 anteriores foram publicadas com
+    a paleta antiga, e reescrever spec publicada em massa e o que a §10 proibe.
+    O corte e a peca em que o tema entrou em cada canal.
+
+    E por que isto e TESTE e nao PORTAO: portao que reprova 205 vezes deixa de
+    avisar -- o mesmo argumento pelo qual o `mira.py` nunca virou portao.
+    """
+    import glob
+    import json
+    import re
+
+    # O corte e POR CANAL, porque o tema entrou em cada um numa peca diferente:
+    # o labtreinamento no `s082` (19/10 01:3x, depois de o dono apontar a
+    # distancia para o longo dele), o kolejny no `s064` (19/10 02:4x) e o
+    # epomeno a partir do `s065` -- o `s064` dele foi publicado as 02:30, uma
+    # hora ANTES de o tema existir, e reescrever spec publicada e o que a §10
+    # proibe. Um corte unico aqui seria numero meu em cima de historia real.
+    CORTE = {"labtreinamento": 82, "kolejny-poziom": 64, "epomeno-epipedo": 65}
+    vistas = 0
+    for f in sorted(glob.glob(str(RAIZ / "fabrica" / "specs" / "*-s*.json"))):
+        nome = pathlib.Path(f).stem
+        m = re.match(r"(labtreinamento|epomeno-epipedo|kolejny-poziom)-s(\d+)$", nome)
+        if not m or int(m.group(2)) < CORTE[m.group(1)]:
+            continue
+        canal = m.group(1)
+        pal = json.loads(pathlib.Path(f).read_text(encoding="utf-8")).get("paleta") or {}
+        do_tema = TD.paleta_do_canal(canal)
+        vistas += 1
+        for chave in ("bg", "ink", "c1", "c2"):
+            assert pal.get(chave) == do_tema[chave], (
+                f"{nome}: {chave} e {pal.get(chave)!r} e o tema do canal pede "
+                f"{do_tema[chave]!r} — a paleta tem de vir de "
+                "temas_do_dono.paleta_do_canal, nunca escrita a mao"
+            )
+    assert vistas, (
+        "nenhuma spec de s064 em diante: a varredura ficou vazia e este teste "
+        "deixaria de medir"
+    )
