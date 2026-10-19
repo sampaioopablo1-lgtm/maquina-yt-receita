@@ -109,7 +109,8 @@ CONTROLE_17_10 = ("OhrGlJvnBoM", 44)
 SORRY = "google.com/sorry"
 
 
-def modo_de_fechamento(corpo: str, location: str = "") -> str:
+def modo_de_fechamento(corpo: str, location: str = "",
+                       neutro_respondeu: bool | None = None) -> str:
     """Por que a rota da duracao fechou — 'limite', 'consentimento' ou 'aberta'.
 
     Os dois modos pedem coisas DIFERENTES de quem lê, e e por isso que vale
@@ -128,13 +129,35 @@ def modo_de_fechamento(corpo: str, location: str = "") -> str:
         `CONSENT`/`captcha`, e nao ha o que economizar — ela nao responde a
         volume nenhum.
 
+    **E HA UM TERCEIRO MODO, medido em 19/10 as 23:4x: `sem_egresso`.** A
+    leitura da peca nova e a do CONTROLE voltaram as duas com **HTTP 000 e ZERO
+    byte** — e o `example.com`, na mesma chamada, tambem. Logo nao foi a rota do
+    YouTube: foi o **sandbox sem rede**. Sem esse ramo esta funcao devolvia
+    `consentimento` para corpo VAZIO — isto e, uma afirmacao sobre a parede do
+    `CONSENT` do YouTube a partir de uma falha em que o YouTube nunca foi
+    alcancado. A parede vem com **1,2 MB**; zero byte nao e parede nenhuma.
+
+    **O discriminador e um HOST NEUTRO na mesma chamada**, e e tao barato quanto
+    o da peca de controle: ele separa *"a minha rede nao sai"* de *"o YouTube
+    nao me responde"*. Sem ele os dois sao indistinguiveis, e o ramo devolve
+    `indeterminado` em vez de escolher — do jeito que o `porta1` recusa janela
+    curta. **Nao existe aqui um modo "recusa do YouTube"**, porque esse caso
+    (neutro responde e o YouTube nao) eu ainda nao medi; inventa-lo seria
+    limiar sem procedencia.
+
     **O que isto NAO muda:** o discriminador do 17/10 continua sendo a peca de
-    CONTROLE. Saber o modo nao substitui reler o controle, porque nos dois modos
-    a leitura da peca nova vem vazia do mesmo jeito.
+    CONTROLE. Saber o modo nao substitui reler o controle, porque nos modos de
+    rota a leitura da peca nova vem vazia do mesmo jeito.
     """
     if SORRY in (location or "") or SORRY in (corpo or ""):
         return "limite"
-    if duracao_do_html(corpo or "") is None:
+    if not (corpo or "").strip():
+        # NENHUMA pagina voltou. Isto nao e a parede do CONSENT, que vem com
+        # 1,2 MB, e nao e recusa do YouTube: pode ser o sandbox sem egresso.
+        if neutro_respondeu is None:
+            return "indeterminado"
+        return "sem_egresso" if not neutro_respondeu else "indeterminado"
+    if duracao_do_html(corpo) is None:
         return "consentimento"
     return "aberta"
 

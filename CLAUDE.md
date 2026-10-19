@@ -4033,6 +4033,117 @@ de resolucao 2,0/dia, faltam **14,8 h** para o criterio do 723. **COTA:**
 dezenove envios na janela de 07:00Z, **30.400** unidades contra o piso MEDIDO de
 **>= 40.000**.
 
+## O PASSO ZERO TINHA TRES DONOS E EU CHAMEI DOIS — e o terceiro zeraria as 00:07
+
+**Medido em 19/10 as 23:3x.** Nesta rodada eu pedi inscritos ao
+`leitura_de_inscritos` e o canal ao `concentracao_frota`, e contei a **COTA**
+com um laco Python descartavel sobre o `duracoes-a-medir.jsonl`, **com o corte
+das 07:00 digitado com a data de hoje.** O `fabrica/janela_de_cota.py` existe
+desde a manha de hoje e o teste dele se chama literalmente
+`test_contar_a_janela_de_cota_deixou_de_ser_de_cabeca`.
+
+**E o defeito das 11:2x na SEGUNDA dimensao:** la foi a contagem de CANAL, cujo
+instrumento eu reescrevi a mao cinco rodadas seguidas; aqui foi a de COTA. Nos
+dois casos o instrumento existia e quem nao o chamou fui **eu, o autor**.
+
+**E O CUSTO ESTA MEDIDO, e nao e estetico — a rodada SEGUINTE a esta cai na
+banda em que o laco a mao erra:**
+
+| | as 23:1x de 19/10 | as 00:07 de 20/10 |
+|---|---|---|
+| a mao, data de hoje digitada | 19 envios, 30.400 | **ZERO envios, 0 unidades** |
+| `janela_de_cota` | 19 envios, 30.400 | **19 envios, 30.400** |
+
+Entre **00:00 e 07:00 UTC** a janela corrente abriu no dia **ANTERIOR**. Com a
+data de hoje no corte eu relataria *"a janela esta livre"* com **30.400 unidades
+dentro dela** — e e o **771** outra vez, na direcao que apaga as ultimas horas.
+Hoje os dois numeros bateram, **e isso foi sorte**: as 23:10 as duas contas
+concordam por acidente de hora.
+
+**`fabrica/passo_zero.py` responde as tres perguntas numa chamada, e NAO refaz
+conta nenhuma:** inscritos sai de `leitura_de_inscritos.relato` (que delega o
+piso ao `porta1`), canal de `concentracao_frota.escolha_do_momento`, cota de
+`janela_de_cota.relato` (que DERIVA a abertura das 07:00). Refazer qualquer uma
+delas ali criaria o segundo dono — a assinatura que congelou a legenda, parou a
+mira por seis pecas e pos job inventado na serie. **Nao e portao** e o codigo de
+saida e sempre zero.
+
+    python3 fabrica/passo_zero.py
+
+`tests/test_o_passo_zero_tinha_TRES_donos_e_eu_chamei_dois.py`, nove testes: a
+delegacao e cobrada por **AST** (o docstring CITA os nomes dos donos na prosa, e
+casar prosa pegaria a explicacao), `open()` no corpo **reprova**, o defeito da
+janela e medido com um parque **PROPRIO** em vez do arquivo vivo — ancorar no
+vivo seria identidade onde ha propriedade (743/753/761, **nona** vez) —, a
+contraprova vai nos **dois** sentidos (fora da banda as duas contas CONCORDAM,
+senao *"o laco a mao erra sempre"* passaria por qualquer motivo), e um
+**reprova se o custo medido sair do modulo**.
+
+**E O PARQUE DE TESTE NASCEU ERRADO, pego na primeira execucao:** eu pus uma
+linha no FUTURO dos dois instantes, e **nem o laco a mao nem o
+`janela_de_cota.envios` tem limite de CIMA** — que e outro defeito, medido as
+13:2x no irmao `concentracao_frota`. Com ela dentro, o arquivo mediria duas
+coisas e provaria nenhuma. Retirada, com o motivo escrito no docstring do
+proprio helper.
+
+### A PECA DESSA RODADA — SETE cenas, e SEM ponto de residuo
+
+`labtreinamento-s088` = **`OHSGYkkkvtk`**, publicado as 23:18:02Z (run
+`39340670452`), **ONZE PORTOES VERDES NA PRIMEIRA TENTATIVA** — e e o conserto
+das 22:1x em uso: o `antes_do_render.py` rodou os dez portoes baratos mais
+`mira`, `acento` e `gancho` numa chamada, em **0,78 s**, ANTES do render. Nas
+duas rodadas anteriores o `variedade` reprovou duas vezes porque eu rodei so os
+meus instrumentos.
+
+Provedor **edge MEDIDO** (zero avisos `NARRACAO PELO PIPER` nos dois jobs,
+`118359812062` e `118361126942`), som **-13,1** LUFS, pico -1,6, desvio +0,9,
+**zero silencios**. Previsao edge **25,15** / piper **20,64**, os dois dentro da
+mira medida do canal (20,0 a 26,0).
+
+**E NAO EXISTE PONTO DE RESIDUO NESTA RODADA, e o motivo e o modo novo:** a
+leitura da peca e a do controle `OhrGlJvnBoM` voltaram as duas com HTTP 000 e
+zero byte, e o `example.com` tambem — **sandbox sem egresso**, nao rota fechada.
+A peca esta PARQUEADA no `duracoes-a-medir.jsonl` com o provedor MEDIDO, e a
+medicao vem por `resolve(youtube_id, real)` quando houver rede. `RESIDUO_N`
+segue **128**. Isto e o parqueamento incondicional de 18/10 as 06:1x fazendo o
+trabalho dele: o passo que TEM instrumento sobrevive a rodada em que eu nao
+consigo medir.
+
+**ESQUELETO DE SETE CENAS**, `titulo-lista-item-barras-titulo-item-cta`, inedito
+nas **116** formas da frota — e o tamanho tem **um** exemplar so em toda ela (o
+`epomeno-epipedo-009`). Todo layout saiu do conjunto SONDADO, com um `assert` no
+builder que recusa layout fora dele.
+
+**ORCAMENTO NOS DOIS MUNDOS:** para SETE cenas nesta mira o
+`mira.janela_dos_dois_mundos` devolve **41 a 44** caracteres por cena — a janela
+mais LARGA de todas as contagens de cena deste canal (com dez cenas ela cai a 24
+a 25), e a peca foi escrita com media **42,6**. O orcamento do MEIO daria 37, que
+poria o piper em **18,7** — FORA do piso —, e o instrumento NOMEIA isso em vez
+de filtrar.
+
+**PAUTA:** `POBNoY16wG8` (o longo publicado neste canal hoje), rank 1 e a origem
+de **MENOR** contagem do canal (2 shorts contra 13 da dominante). A dominante
+`FtCtIJPsc_Q` (13 de 87, 15% contra 10 da segunda) ficou de fora **com a
+contagem na mao e SEM alerta** — 13 nao e maior que o dobro de 10.
+
+**FAMILIA: a META REDONDA e a LISTA DE NOMES** (capitulos 48 a 55) — cem por
+cento com folga pede olhar a lista antes do treino, e indicador que nao produz
+lista de nomes e relatorio, nao ferramenta. E a **QUARTA** familia deste mesmo
+longo e a **DECIMA** distinta do dia na frota. **Seis pecas hoje neste canal e
+dez familias distintas na frota**, e o `similaridade` nao pegaria repeticao
+entre canais porque compara contra o MESMO canal.
+
+**E O TITULO DO SHORT SAIU CERTO, pela regra de redacao de 14:4x:** a copy leva
+`## TITULO SHORT`, e o notice confirma `titulo=Cem por cento com folga e
+suspeito` — 34 caracteres, contra os 62 do longo que os tres pacotes de hoje
+herdaram por eu nao ter escrito a secao.
+
+**A LEITURA DE INSCRITOS FOI RECUSADA PELA OITAVA RODADA SEGUIDA:** 13,03 h,
+piso de resolucao 1,84/dia, faltam **13,8 h** para o criterio do 723. **COTA:**
+**vinte** envios na janela de 07:00Z, **32.000** unidades contra o piso MEDIDO
+de **>= 40.000** — e o numero sai do `janela_de_cota`, nao de um laco escrito na
+hora.
+
 ## O GANCHO TEM DOIS LIMITES NA MESMA CENA, E EU OS CONCILIEI A MAO
 
 **Medido em 19/10 as 21:1x, escrevendo o `epomeno-epipedo-s070`.** O
@@ -4373,6 +4484,45 @@ MESMA passagem.**
 `tests/test_a_rota_fechou_por_LIMITE_e_nao_por_consentimento.py`, sete testes —
 um deles cobra que a hipótese **continue escrita como hipótese**, e um que saber
 o modo **não substitui** reler a peça de controle.
+
+### E AS 23:4x APARECEU O TERCEIRO MODO, e o instrumento o chamava de CONSENTIMENTO
+
+**Medido na peca desta rodada.** A leitura do `OHSGYkkkvtk`, publicado dois
+minutos antes, e a da peca de CONTROLE (`OhrGlJvnBoM`, 44 s conhecidos)
+voltaram as duas com **HTTP 000 e ZERO byte**. Pelo discriminador do 17/10 isso
+le como ROTA e nao como peca — e eu ia escrever que a rota da duracao fechou.
+
+**O `example.com`, na MESMA chamada, tambem devolveu 000.** Logo nao foi a rota
+do YouTube: foi o **sandbox sem egresso**, que e um modo que a tabela de rotas
+nao tinha.
+
+**E o `modo_de_fechamento` dizia `consentimento`** — conferido, rodando a funcao
+sobre o que eu recebi —, porque o ramo final dele pergunta se o corpo tem
+`lengthSeconds` e corpo VAZIO nao tem. Isto e uma afirmacao sobre a parede do
+`CONSENT` **do YouTube** a partir de uma falha em que o YouTube nunca foi
+alcancado. E a parede, medida em 16/10, vem com **1,2 MB**: zero byte nao e
+parede nenhuma.
+
+**A REGRA QUE FICA, e ela e tao barata quanto a da peca de controle: antes de
+dizer que a rota fechou, sonde um HOST NEUTRO na mesma chamada.** Ele separa *"a
+minha rede nao sai"* de *"o YouTube nao me responde"* — e sem ele os dois sao
+indistinguiveis, do mesmo jeito que peca-nao-indexada e rota-fechada eram antes
+do controle.
+
+**E o quarto modo NAO entrou, de proposito:** o caso "neutro responde e o
+YouTube nao" eu ainda nao medi, e nomea-lo seria limiar sem procedencia (§10).
+Sem o discriminador na mao a funcao devolve **`indeterminado`** em vez de
+escolher, do jeito que o `porta1` recusa janela curta.
+`tests/test_a_rota_NAO_fechou_o_sandbox_e_que_nao_tinha_rede.py`, oito testes:
+um proibe por **AST** que apareca modo que eu nao medi, a contraprova no outro
+sentido exige que a PAREDE (corpo GRANDE) continue saindo `consentimento`, e um
+**falha se o incidente medido sair do modulo**. **Contraprova:** retirado o
+ramo novo, quatro dos oito falham.
+
+**E A PRIMEIRA VERSAO DO TESTE DO AST ESTAVA ERRADA, e o errado era o TESTE:**
+ele casava `Return -> Constant` e perdia o `sem_egresso`, que mora num
+ternario. A propriedade certa e mais larga e melhor — **todo literal de texto
+dentro de um `return` e um valor devolvido**, e num ternario os dois ramos sao.
 
 ## O PORTÃO NÃO COBRA A CHAVE QUE O RENDER EXIGE — medido em 18/10 às 08:1x
 
