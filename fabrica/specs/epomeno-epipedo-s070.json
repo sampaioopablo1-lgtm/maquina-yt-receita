@@ -1,0 +1,104 @@
+{
+ "slug": "epomeno-epipedo-s070",
+ "pacote": "epomeno-epipedo-s070",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "longo_existente": "pqTc8jBrq0E",
+ "longo": [],
+ "thumb": {
+  "l1": "Ένας μήνας",
+  "l2": "λάθος διαιρέτης"
+ },
+ "paleta": {
+  "bg": "#F4EFE6",
+  "ink": "#1B1A17",
+  "c1": "#C8502A",
+  "c2": "#2B6CB0",
+  "red": "#B83227",
+  "ok": "#2E8B57",
+  "panel": "#FFFFFF",
+  "mut": "#7A7263",
+  "acc": "#C8502A"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Ένας μήνας",
+   "sub": "τρεις απαντήσεις",
+   "nar": "Ο ένας μήνας κρύβει την τρίμηνη και την ετήσια πληρωμή."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Τρία χαρτιά και τελείωσε",
+   "itens": [
+    "Η κίνηση",
+    "Οι λογαριασμοί",
+    "Το υπόλοιπο"
+   ],
+   "nar": "Τρεις πηγές φτάνουν, και καμία δεν θέλει μαντεψιά."
+  },
+  {
+   "layout": "item",
+   "kicker": "Τρεις μήνες, όχι ένας",
+   "nar": "Πάρε τρεις μήνες κίνηση και μην κρίνεις μόνο από τον τελευταίο."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Ο ίδιος άνθρωπος",
+   "barras": [
+    {
+     "rotulo": "Μήνας Α",
+     "valor": 4
+    },
+    {
+     "rotulo": "Μήνας Β",
+     "valor": 7
+    },
+    {
+     "rotulo": "Μέσος τριών",
+     "valor": 5
+    }
+   ],
+   "nar": "Ο ίδιος άνθρωπος βγάζει άλλους μήνες με κάθε μήνα που θα διαλέξει."
+  },
+  {
+   "layout": "item",
+   "kicker": "Σημάδεψε ότι επαναλαμβάνεται",
+   "nar": "Κρατάς μόνο ό,τι εμφανίζεται και στους τρεις μήνες μαζί, χωρίς εξαίρεση."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Μία φορά σημαίνει όχι",
+   "sub": "έξω από τον διαιρέτη",
+   "nar": "Μία μεγάλη πληρωμή που έγινε μία φορά δεν μπαίνει ποτέ κάτω."
+  },
+  {
+   "layout": "item",
+   "kicker": "Στο ίδιο χαρτί",
+   "nar": "Το πάνω νούμερο είναι στην πρώτη γραμμή της ίδιας κίνησης."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Μισή ώρα, μία φορά",
+   "barras": [
+    {
+     "rotulo": "Με ένα μήνα",
+     "valor": 9
+    },
+    {
+     "rotulo": "Με τρεις",
+     "valor": 3
+    }
+   ],
+   "nar": "Η λίστα γράφεται μία φορά και μετά μένει ακριβώς όπως είναι."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Πόσους μήνες βρήκες",
+   "sub": "γράψε εδώ",
+   "nar": "Γράψε από κάτω από πόσους μήνες κίνηση το έβγαλες."
+  }
+ ],
+ "copy": "# epomeno-epipedo-s070\n\n## TITULO\nΓιατί Ένας Μήνας Κίνησης Δίνει Λάθος Διαιρέτη Στο Απόθεμα Ασφαλείας\n\n## TITULO SHORT\nΈνας μήνας, λάθος διαιρέτης\n\n## DESCRICAO\nΓια να μετατρέψεις το απόθεμα σε μήνες χρειάζεσαι το κάτω νούμερο: τα πάγια του μήνα. Και σχεδόν όλοι το βγάζουν από **έναν** μήνα κίνησης — τον τελευταίο, γιατί είναι ο πιο πρόσφατος και ο πιο εύκολος να ανοίξει.\n\n**Ο ένας μήνας κρύβει ό,τι πληρώνεται μία φορά στο τρίμηνο ή μία φορά τον χρόνο.** Αν ο μήνας που διάλεξες δεν είχε τέτοια πληρωμή, ο διαιρέτης βγαίνει μικρότερος απ' όσο είναι και οι μήνες βγαίνουν περισσότεροι. Αν είχε δύο, βγαίνει μεγαλύτερος και οι μήνες λιγότεροι. **Στις δύο περιπτώσεις η πράξη βγάζει κανονικό αποτέλεσμα και κανείς δεν σου λέει ότι το κάτω νούμερο είναι λάθος.**\n\n**Η διόρθωση δεν θέλει κανένα στοιχείο που δεν έχεις: πάρε τρεις μήνες κίνηση και σημάδεψε ό,τι εμφανίζεται και στους τρεις.** Αυτό που λείπει από έναν από τους τρεις δεν είναι πάγιο. Μία μεγάλη πληρωμή που έγινε μία φορά μένει έξω, ακόμη κι αν σου χάλασε τον μήνα — γιατί δεν θα ξανάρθει με ημερομηνία.\n\n**Τρία χαρτιά φτάνουν και τα έχεις όλα:** η κίνηση δείχνει τι φεύγει κάθε μήνα, οι λογαριασμοί δείχνουν ποιες γραμμές έρχονται με ημερομηνία, και το διαθέσιμο υπόλοιπο είναι στην πρώτη γραμμή της ίδιας κίνησης. Όλη η δουλειά είναι περίπου μισή ώρα και γίνεται μία φορά στη ζωή της λίστας.\n\n**Τι να κάνεις σήμερα:** άνοιξε την κίνηση τριών μηνών, όχι ενός, και κράτα γραμμένο το κάτω νούμερο δίπλα στο αποτέλεσμα. Χωρίς αυτό, σε τρεις μήνες δεν θα θυμάσαι από πού βγήκε, και δεν θα μπορείς να συγκρίνεις ούτε με τον εαυτό σου.\n\nΔεν δίνω εδώ ποσά, ποσοστά, προθεσμίες ούτε στόχο μηνών. Αυτά αλλάζουν και μένουν έξω. Ο μηχανισμός είναι αυτός που μετράει: το αποτέλεσμα δεν εξαρτάται από την διαίρεση, εξαρτάται από τη λίστα.\n\n## COMENTARIO FIXADO\nΤο λιγότερο προφανές: ο μήνας που σου φαίνεται «κανονικός» είναι συνήθως αυτός χωρίς τρίμηνη πληρωμή. Από πόσους μήνες κίνηση έβγαλες το κάτω νούμερό σου;\n\n## HASHTAGS\n#οικονομικα #αποθεματικο #προυπολογισμος #epomenoepipedo #Shorts\n\n## TAGS\nαποθεμα ασφαλειας, παγια εξοδα, διαιρετης, κινηση λογαριασμου, τρεις μηνες, μηνες αντοχης, προσωπικα οικονομικα, υπολογισμος, ρευστοτητα, οικογενειακος προυπολογισμος, epomeno epipedo, λογαριασμοι, ετησιες πληρωμες, επαναλαμβανομενα εξοδα, οικονομικη ασφαλεια\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Os unicos numeros falados sao\n\"tres\" (os meses de extrato e os tres papeis) e \"uma vez\", e os dois sao\ncontagem do proprio procedimento. Os valores das barras sao ILUSTRACAO da\naritmetica do divisor — um mes sem pagamento trimestral da divisor menor, logo\nmais meses — e NAO sao falados nem medidos de ninguem. Prazo, aliquota,\npercentual e alvo de meses ficaram FORA pela regra (g).\n\n## FONTES\nA spec local `epomeno-epipedo-068`, que e o pacote do longo `pqTc8jBrq0E`,\npublicado NESTE canal hoje as 12:58:55Z — rank 1 da ordem viva e a origem de\nMENOR contagem do canal. A familia desta peca sai dos capitulos 24 a 31:\n*\"κανενα απο τα δυο νουμερα δεν το μαντευεις\"*, *\"τρια χαρτια και τελειωσε\"*,\n*\"τρεις μηνες, οχι ενας — ενας μηνας μονος κρυβει ο,τι πληρωνεται\"*,\n*\"σημαδεψε τα επαναλαμβανομενα\"*, *\"μια φορα σημαινει οχι\"* e *\"το αποθεμα στο\nιδιο χαρτι\"*. Nenhuma frase desta peca saiu de TITULO de capitulo.\n\n**E ELA E A QUARTA FAMILIA DESTE MESMO LONGO, de proposito.** O short do pacote\n(`BaLtIWzaN84`) usou o DENOMINADOR, o `s068` (`yj-ZS7OqG7M`) o ALVO em meses, e\no `s069` (`ZySLot-Cvo4`) a UNIDADE do resultado. Esta usa de ONDE sai o divisor\n— tres meses de extrato e nao um —, que nenhum short do canal tocou.\n\n**E E A OITAVA FAMILIA DISTINTA DO DIA NA FROTA.** As outras sete: o\ndenominador, o alvo em meses, qual despesa medir primeiro, a janela do periodo,\na unidade do resultado, os dois erros que deixam a conta mais bonita e a\ncomparacao com numero de fora. Repetir angulo entre canais seria o habito do\n762 numa dimensao nova, e o `similaridade` NAO pegaria, porque compara contra o\nMESMO canal.\n\n**E A ORIGEM DOMINANTE DESTE CANAL FICOU DE FORA, com o alerta na mao:** o\n`concentracao.py` acusou `nttW9fR8wyY` com **12 de 69** shorts, mais que o dobro\nda segunda (4). O portao `similaridade` e de MONETIZACAO, e concentracao de\norigem ataca justamente ele.\n\n## EXPOSICAO\n**ESQUELETO `titulo-lista-item-barras-item-titulo-item-barras-cta`, inedito nas\ncatorze formas de NOVE cenas da frota.** Varrido o disco antes de escrever, e\n**todo layout saiu do conjunto SONDADO** pelo `layouts_do_short.desenham()` —\nbarras, cta, item, lista e titulo —, que e consequencia do cartao em branco que\neu publiquei as 18:18Z.\n\n**E as barras sao argumento e nao enfeite:** a cena 3 desenha o MESMO divisor\nsaindo diferente conforme o mes que se escolhe, e a cena 7 desenha a diferenca\nentre decidir com um mes e com tres. Quem assistir sem som ve a tese.\n\n**O ORCAMENTO SAIU DO INSTRUMENTO, e ele disse que NENHUM numero serve aos dois\nmundos.** Para nove cenas no `ALVO_SHORT` da frota (41,5 a 43,0) o\n`mira.janela_dos_dois_mundos` devolve **None**: a razao piper/edge desta voz e\n0,886 e o vao entre os dois provedores vale ~4,7 s contra 1,5 s de faixa. E a\npinca do 740/748 aparecendo dentro do instrumento, e a decisao de alargar a\nfaixa ou mirar um mundo so e do dono (§10).\n\nMirei o **PISO** pela regra de redacao do 772, com o orcamento de **59**\ncaracteres por cena que o instrumento deu — nao de cabeca. A exposicao vai\ndeclarada: se o edge narrar, o real cai em algum ponto da banda de (−1,2; 4,0)\nsobre a previsao, e eu **nao** digo de que lado, porque a banda tem 5,2 s de\nlargura contra 1 s de granularidade e declarar um lado dela nao e previsao\n(774).\n"
+}
