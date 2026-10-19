@@ -4138,6 +4138,11 @@ entre canais porque compara contra o MESMO canal.
 suspeito` — 34 caracteres, contra os 62 do longo que os tres pacotes de hoje
 herdaram por eu nao ter escrito a secao.
 
+**A SUITE FECHOU: 25 falhas, 3.146 passam, 997 skip** — conjunto **IDENTICO** a
+linha de base desta sessao, `comm` vazio nos **dois** sentidos, em 400 s. Os
+dezessete testes novos entraram sem custo de tempo (400 s contra 412 s da rodada
+anterior), porque nenhum dos dois arquivos renderiza.
+
 **A LEITURA DE INSCRITOS FOI RECUSADA PELA OITAVA RODADA SEGUIDA:** 13,03 h,
 piso de resolucao 1,84/dia, faltam **13,8 h** para o criterio do 723. **COTA:**
 **vinte** envios na janela de 07:00Z, **32.000** unidades contra o piso MEDIDO
