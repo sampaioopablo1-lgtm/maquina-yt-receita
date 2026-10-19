@@ -125,7 +125,14 @@ def test_O_DEFEITO_JA_ESTAVA_NO_AR_em_tres_specs_do_nivel_do_jogo():
         if "ink" in pal and pr.luma(pal["ink"]) >= 128 and historicas != do_tema:
             claras.append(pathlib.Path(f).stem)
     assert claras, "a varredura ficou vazia — este teste deixaria de medir"
-    assert all(n.startswith("nivel-do-jogo") for n in claras), claras
+    # As TRES do `nivel-do-jogo` sao o caso historico e tem de continuar na
+    # varredura; cravar que SO elas aparecem era IDENTIDADE, e caiu no dia em
+    # que o `kolejny-poziom` recebeu o tema `misterio` (tinta clara tambem).
+    # 743/753/761 pela QUINTA vez. A propriedade e: toda spec de tinta clara
+    # tem de ser atendida pelo conserto, seja de que canal for.
+    historicas = [n for n in claras if n.startswith("nivel-do-jogo")]
+    assert len(historicas) >= 3, (
+        f"as specs do caso historico sumiram da varredura: {claras}")
     # e o conserto as atende tambem: cartao escuro, contraste alto
     for n in claras:
         pal = json.loads((RAIZ / "fabrica" / "specs" / f"{n}.json").read_text(

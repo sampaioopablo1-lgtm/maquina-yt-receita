@@ -46,9 +46,21 @@ def test_o_prontidao_DELEGA_em_vez_de_ter_a_propria_copia():
 def test_o_etapas_NAO_tem_mais_o_limite_cravado():
     """O assert do render le a faixa da spec, nao um par de numeros escrito."""
     fonte = (RAIZ / "fabrica" / "etapas.py").read_text(encoding="utf-8")
-    assert "assert 20 <= ds <= 60" not in fonte, (
-        "o limite cravado voltou ao etapas.py — e ele roda DEPOIS de montar o "
-        "arquivo, entao mata o run com o video pronto")
+    # Pela AST, nao por texto. Este teste reprovou em 19/10 contra um COMENTARIO
+    # que CITAVA o limite para explicar de onde veio o defeito da legenda: casar
+    # prosa pega a explicacao em vez do codigo, e ai o conserto fica sem poder
+    # ser explicado no lugar. Mesma licao do teste do `estado_ponte`.
+    for no in ast.walk(ast.parse(fonte)):
+        if not isinstance(no, ast.Assert):
+            continue
+        teste = no.test
+        if not isinstance(teste, ast.Compare):
+            continue
+        nums = [x.value for x in [teste.left, *teste.comparators]
+                if isinstance(x, ast.Constant) and isinstance(x.value, (int, float))]
+        assert not (20 in nums and 60 in nums), (
+            "o limite cravado voltou ao etapas.py — e ele roda DEPOIS de montar "
+            "o arquivo, entao mata o run com o video pronto")
     assert "faixa_do_short(sp)" in fonte, (
         "o etapas.py tem de ler a faixa da mesma fonte que o portao")
 
