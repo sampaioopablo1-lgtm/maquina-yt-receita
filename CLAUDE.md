@@ -5,6 +5,72 @@ porque número dentro de prompt envelhece e já me fez errar quatro vezes
 (652/655, 658, 682, 685). Aqui não entra contagem de estoque, nem de views, nem
 de inscritos. Entra onde olhar.
 
+## A LEGENDA DO SHORT SOLTO ESTAVA CONGELADA — e é o caminho de TODA peça
+
+**Pedido do dono em 19/10:** *"os vídeos publicados, me parecem todos a mesma
+dinâmica, imagens, formas, estilo. Em todos os canais. Ajuste. Explore a
+documentação."*
+
+**MEDIDO ANTES DE CONCORDAR**, varrendo as 205 specs de short da frota:
+
+| | |
+|---|---|
+| layouts que existem no short | **4** (titulo, item, lista, cta) |
+| cenas em `item` + `titulo` | **1.554 de 1.667 = 93%** |
+| esqueleto mais repetido | `titulo-titulo-titulo-titulo-cta`, **o MESMO nos três canais** |
+| fundos | `#F3F7FA`, `#F4F1EA`, `#F5F3ED` — três claros quase iguais |
+| `barras` | existe no render e foi usada **0 vezes em 205** |
+
+**E o pior não estava na contagem: a legenda queimada do short SOLTO era a fala
+INTEIRA, congelada pela cena toda.** Medido no próprio arquivo publicado
+(`ANxWQYgtUAY`), baixado e lido quadro a quadro: a faixa escura da legenda vai de
+**y=471 a y=562** num quadro de 360×640 — 91 px, **14% da altura, três linhas** —
+e o perfil de pixels escuros por linha é **IDÊNTICO em t=1,0 s e t=2,8 s**.
+
+**A causa é a assinatura que o próprio `etapas.py` já carrega: DOIS DONOS DA
+MESMA REGRA, UM ATUALIZADO.** O `legenda.py` foi escrito em 09/10 porque ~18
+palavras paradas por oito segundos deixavam 91% dos quadros congelados; o
+conserto entrou no `fabrica.py:862` e **não entrou no `etapas.py:363`** — que é o
+caminho do SHORT SOLTO, isto é, de praticamente toda peça da frota. É a mesma
+forma do `assert 20 <= ds <= 60` cravado nesse mesmo arquivo, que em 16/10 matou
+o run `38847013520`.
+
+**CONSERTADO e MEDIDO no ar:** o `kolejny-poziom-s064` (`GESLIl-iUeo`) tem o
+perfil da legenda **mudando dentro da mesma cena** (igual em 0,8/1,6/2,4 s e
+DIFERENTE em 3,2 s), contra o perfil imóvel da peça anterior.
+`tests/test_a_legenda_do_short_SOLTO_estava_congelada.py`, sete testes, com
+contraprova no outro sentido — frase curta continua em UM bloco, porque quebrar
+duas palavras em duas piscaria a tela sem motivo.
+
+### E CADA CANAL PASSA A TER A PRÓPRIA IDENTIDADE, TIRADA DA DOCUMENTAÇÃO DELE
+
+`fabrica/temas_do_dono.py` copia os **quatro** temas do `motor/config.py` do
+pipeline que ele mandou, com a descrição escrita por ele, e atribui um por canal:
+
+| canal | tema | procedência |
+|---|---|---|
+| labtreinamento | `noite` | **MEDIDO** — é a paleta do longo de referência dele |
+| epomeno-epipedo | `papel` | a descrição DELE nomeia *"finanças pessoais"* |
+| kolejny-poziom | `misterio` | **ELIMINAÇÃO**, e vai declarado como tal |
+
+**A FONTE de cada tema NÃO atravessa, e o motivo vai escrito:** trocar família
+arrisca glifo ausente em grego e polonês, e isso só aparece **depois** de
+publicar. Fica como passo medido — conferir o que o runner tem instalado antes.
+
+**E o `paleta_referencia.py` passou a LER do `temas_do_dono`** em vez de repetir
+os hex: era o mesmo defeito de dois donos que congelou a legenda, agora pego
+antes. O ajuste do `c2` do labtreinamento (painel em vez de acento, pelo SATAVG
+medido nos 530 quadros) virou entrada explícita em `AJUSTES`, com a medida ao
+lado. `tests/test_cada_canal_tem_a_PROPRIA_identidade.py`, doze testes — e
+**canal desconhecido LEVANTA em vez de cair num padrão**, porque padrão
+silencioso foi exatamente como os três fundos convergiram. O teste da fonte única
+é por **AST**, porque o módulo CITA um hex na prosa para explicar a medida da
+capa, e casar prosa pegaria a explicação em vez do código.
+
+**O que isto NÃO conserta, e vai dito:** as 205 peças já publicadas seguem com a
+legenda congelada e com a paleta antiga. Apagar ou substituir peça publicada
+exige o dono. O conserto vale da `s064` em diante.
+
 ## E ESSA SEÇÃO ABAIXO FICOU OBSOLETA EM 19/10 — O PROMPT DEIXOU DE SER CÓPIA
 
 **Pedido do dono em 19/10:** *"Não esqueça de otimizar a rotina YT, diretamente,
@@ -176,9 +242,10 @@ produção, não por leitura de console.
 JANELA, por produção e não por leitura:** o `labtreinamento-s082` (`84ADS0YGdog`,
 01:37:45Z) foi a OITAVA e o `epomeno-epipedo-s064` (`ANxWQYgtUAY`, 02:30:25Z) a
 NONA — as duas sem `403 quota`. Logo **a cota é ≥ 14.400**, isto é ≥ 9 envios por
-janela na frota. O teto verdadeiro segue desconhecido, e quem o descobre é o
-primeiro `403 quota` numa rodada normal, que não custa nada porque requisição
-recusada não consome cota. **O teto verdadeiro segue desconhecido**,
+janela na frota. **E a DÉCIMA passou às 02:48:23Z** (`kolejny-poziom-s064`,
+`GESLIl-iUeo`), logo **a cota é ≥ 16.000**. O teto verdadeiro segue desconhecido,
+e quem o descobre é o primeiro `403 quota` numa rodada normal, que não custa nada
+porque requisição recusada não consome cota. **O teto verdadeiro segue desconhecido**,
 e dizer "agora são N" seria trocar um número suposto por outro. Quem o
 descobre é a produção: o primeiro `403 quota` numa rodada normal marca o limite,
 e isso não custa nada porque a requisição recusada não consome cota.
