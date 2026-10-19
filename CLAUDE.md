@@ -3025,6 +3025,49 @@ passaria), um cobra que a conta do piso seja **delegada** ao `porta1` por AST, e
 um cobra que o 1,79 vá declarado como **SUPOSIÇÃO** e não como medida — porque o
 755 já mostrou que ele mesmo era uma contagem.
 
+
+## O CONTADOR DE CANAL JÁ EXISTIA E EU CONTEI A MÃO CINCO RODADAS SEGUIDAS
+
+**Medido em 19/10 às 11:2x.** O `concentracao_frota.escolha_do_momento(janela_h)`
+conta a janela móvel de 24 h por canal, **desempata pelo que está há mais tempo
+sem publicar** e devolve `escolhido`. Nas rodadas das 08:0x, 09:0x, 10:0x e 11:1x
+eu escrevi, em vez de o chamar, um laço Python descartável sobre o
+`duracoes-a-medir.jsonl`.
+
+**E o docstring do próprio módulo diz a razão de ele existir, em letra:** *"ele
+existe porque eu vinha contando o DIA com um regex escrito a mão na linha de
+comando, a cada rodada — e a §10 da rotina diz, no item 3, que todo número que eu
+calculo a mão vira um erro meu"*. **Logo eu cometi, dentro do conserto do item 3,
+exatamente o defeito que ele conserta.** É a classe dos layouts mortos virada do
+avesso: lá o código não era chamado por ninguém; aqui ele não era chamado **pelo
+próprio autor**.
+
+**E OS DOIS NÚMEROS BATERAM, o que é SORTE e não método** — eles vêm de arquivos
+DIFERENTES, cada um gravado por um passo meu diferente:
+
+| arquivo | quem grava | quem lia |
+|---|---|---|
+| `docs/pendente/videos-a-inserir.sql` | `registro_videos` | o INSTRUMENTO |
+| `docs/pendente/duracoes-a-medir.jsonl` | `duracao_a_medir` | a minha conta |
+
+**Dois donos do mesmo fato** — a assinatura que congelou a legenda, parou a mira
+de conferir por seis peças e pôs job inventado na série. Se eu esquecer UM dos
+dois passos do registro numa rodada, os arquivos divergem **em silêncio** e a
+escolha de canal passa a sair de um parque incompleto.
+
+**A REGRA QUE FICA, e ela é de procedimento: a escolha do canal sai de
+`escolha_do_momento`, nunca de um laço escrito na hora.**
+
+    python3 -c "import sys;sys.path.insert(0,'fabrica');import concentracao_frota as CF;print(CF.escolha_do_momento(24.0))"
+
+`tests/test_o_contador_de_canal_JA_EXISTIA_e_eu_contei_a_mao.py`, seis testes —
+ele **cruza os dois donos** e reprova quando divergem (como o teste do job faz
+com a série), **reprova se a janela tiver menos de três peças** (vacuidade), trava
+que o desempate é pelo mais antigo, exige que a janela de 1 h devolva menos que a
+de 24 h (senão o contador voltou a medir ACERVO, a cegueira do 762), cobra que o
+motivo continue escrito no módulo, e **reprova se esta nota sair do `CLAUDE.md`** —
+porque sem ela a rodada seguinte reescreve o laço, como eu fiz cinco vezes.
+
 ## EU ESCREVI UM JOB ID INVENTADO NA PROCEDÊNCIA DA SÉRIE
 
 **Medido em 19/10 às 07:2x, e é defeito meu de duas camadas.** Ao acrescentar o
