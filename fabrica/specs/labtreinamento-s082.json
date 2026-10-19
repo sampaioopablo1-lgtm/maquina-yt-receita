@@ -1,0 +1,82 @@
+{
+  "slug": "labtreinamento-s082",
+  "idioma": "pt-BR",
+  "voz": "pt-BR-ThalitaMultilingualNeural",
+  "trilha": "Inspired",
+  "paleta": {
+    "bg": "#0E1117",
+    "ink": "#EEF1F5",
+    "c1": "#3DDBD9",
+    "c2": "#1E2430"
+  },
+  "pacote": "labtreinamento-s082",
+  "longo_existente": "FtCtIJPsc_Q",
+  "thumb": {
+    "l1": "Aproximada",
+    "l2": "virou escolha"
+  },
+  "longo": [],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Antes",
+      "sub": "vinha sozinha",
+      "nar": "No PROCV ela vinha sozinha."
+    },
+    {
+      "layout": "item",
+      "kicker": "Bastava",
+      "sub": "deixar vazio",
+      "nar": "Bastava deixar vazio."
+    },
+    {
+      "layout": "item",
+      "kicker": "Sem aviso",
+      "sub": "nenhum",
+      "nar": "E nenhum aviso aparecia."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "No PROCX",
+      "sub": "você escreve",
+      "nar": "No PROCX você escreve ela."
+    },
+    {
+      "layout": "item",
+      "kicker": "Um argumento",
+      "sub": "só para isso",
+      "nar": "Há um argumento só para isso."
+    },
+    {
+      "layout": "item",
+      "kicker": "Exata",
+      "sub": "é o padrão",
+      "nar": "Exata é o padrão dele."
+    },
+    {
+      "layout": "item",
+      "kicker": "Ou o menor",
+      "sub": "mais próximo",
+      "nar": "Ou o próximo item menor."
+    },
+    {
+      "layout": "item",
+      "kicker": "Ou o maior",
+      "sub": "mais próximo",
+      "nar": "Ou o próximo item maior."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Mudou",
+      "sub": "a natureza",
+      "nar": "Mudou a natureza dela."
+    },
+    {
+      "layout": "cta",
+      "kicker": "Deixa de ser",
+      "sub": "acidente",
+      "nar": "Deixa de ser acidente."
+    }
+  ],
+  "copy": "# labtreinamento-s082\n\n## TITULO\nNo PROCX a Busca Aproximada Deixou de Ser Acidente: Ela Virou um Argumento Que Você Declara\n\n## TITULO SHORT\nAproximada virou escolha\n\n## DESCRICAO\nNo PROCV a busca aproximada acontece **por omissão**: você deixa o quarto argumento vazio e ela entra sozinha, sem avisar. É por isso que ela tem fama de armadilha.\n\nNo PROCX a mesma busca continua existindo — e mudou de natureza. **Ela passou a ser um argumento que você escreve**, com modos declarados: exata, exata ou o próximo item menor, exata ou o próximo item maior, e busca com curingas.\n\n**A consequência que quase ninguém tira:** a aproximada não é o problema. O problema sempre foi ela chegar sem ser chamada. Quando ela é escolhida, ela resolve casos em que a correspondência exata não existe — faixa de valor é o exemplo que a própria documentação usa.\n\n**O que fazer com isso, e dá para fazer hoje:** quando precisar de aproximada, escreva o argumento. Quem lê a fórmula depois vê a intenção na própria linha, em vez de ter que adivinhar se a omissão foi decisão ou descuido.\n\nNão dou aqui versões, percentuais nem datas. Versão muda por release e fica fora. O mecanismo — omissão vira declaração — não muda.\n\nNo material completo: os três limites do PROCV, o que o PROCX faz diferente e a regra para escolher entre os dois.\n\nMaterial informativo.\n\n## COMENTARIO FIXADO\nO menos óbvio: a busca aproximada nunca foi o defeito. O defeito era ela entrar sem ninguém pedir. Você já escreveu uma aproximada de propósito?\n\n## HASHTAGS\n#excel #procv #procx #labtreinamento #Shorts\n\n## TAGS\nexcel, procv, procx, busca aproximada, correspondencia exata, planilha, formula, produtividade, lab treinamento, analise de dados, funcao de busca, excel avancado, departamento pessoal, controladoria, rotinas de planilha\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. As VERSOES do Excel que o longo cita\n(2016, 2019, 2021, 2024, 365) ficaram FORA pela regra (g), porque mudam por\nrelease — e elas ja renderam o `s061`. A contagem \"quatro modos\" e do PROPRIO\nlongo e e estrutura da funcao, nao numero do mundo: ela nao muda por norma.\n\n## FONTES\nA faixa de legenda `pt-BR` do longo \"PROCV ou PROCX: qual usar no Excel (e\nquando)\" (`FtCtIJPsc_Q`), lida pela regra (h) — 1.404 palavras, e NENHUMA frase\ndesta peca saiu de titulo de capitulo. O trecho e o do quinto argumento.\n\n**Esta origem esta em DOZE usos e e a dominante do canal**, e a escolha vai\ndeclarada porque contraria o contador: o dono pediu, em 16/10 e outra vez em\n19/10, que a pauta sirva o video MAIS RECENTE do canal, e este e ele. O\n`concentracao_frota` deu o dia em 8/8/7 — empate tecnico que NAO ordena. As doze\nfamilias ja usadas sao outras; esta e o QUINTO argumento do PROCX e os quatro\nmodos declarados, que nenhuma delas tocou.\n\n## EXPOSICAO\n**Primeira peca na paleta NOVA do canal**, que e o tema `noite` do pipeline do\nproprio dono (fundo `#0E1117`, texto `#EEF1F5`, destaque `#3DDBD9`) — a correcao\nde 19/10, depois de ele apontar que as pecas nao tinham nada a ver com o estilo\ndo longo de 8 min. O que isto NAO fecha: trilho de capitulos, 18,9 s por plano e\nquatro dos cinco layouts. Cor e uma das tres distancias, e a mais barata.\n\nPrevisao edge **24,9 s** e piper **20,4 s** — os dois DENTRO da mira medida do\ncanal (20,0 a 26,0) e dentro de 18 a 45 nos dois mundos.\nE a mira verde NAO promete real dentro: pelo tally do 744/754/758, DEZESSEIS das\ndezenove pecas deste canal narradas pelo edge sairam ACIMA do teto de 26,0 com o\n`mira.py` verde. Com a banda em (-1,2; 4,0), se o edge narrar o real cai em\nalgum ponto de (23,7; 28,9) — e eu nao digo de que lado.\n"
+}
