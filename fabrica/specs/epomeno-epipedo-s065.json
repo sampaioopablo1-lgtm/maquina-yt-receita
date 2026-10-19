@@ -1,0 +1,91 @@
+{
+ "slug": "epomeno-epipedo-s065",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "bg": "#F4EFE6",
+  "ink": "#1B1A17",
+  "c1": "#C8502A",
+  "c2": "#2B6CB0",
+  "red": "#B83227",
+  "ok": "#2E8B57",
+  "panel": "#FFFFFF",
+  "mut": "#7A7263",
+  "acc": "#C8502A"
+ },
+ "pacote": "epomeno-epipedo-s065",
+ "longo_existente": "GwNkPfM9pSY",
+ "thumb": {
+  "l1": "Το δώρο",
+  "l2": "κόβει χρόνο"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Το δώρο",
+   "sub": "δεν είναι έξτρα",
+   "nar": "Το δώρο και η επιστροφή φόρου δεν είναι έξτρα λεφτά"
+  },
+  {
+   "layout": "item",
+   "kicker": "Το λάθος",
+   "preco": "έξω από το πλάνο",
+   "nar": "Το λάθος είναι να τα βάζεις έξω από το πλάνο σου"
+  },
+  {
+   "layout": "item",
+   "kicker": "Ο εγκέφαλος",
+   "preco": "τα λέει κέρδος",
+   "nar": "Ο εγκέφαλος τα διαβάζει ως κέρδος και όχι ως ροή χρήματος"
+  },
+  {
+   "layout": "lista",
+   "kicker": "Πού καταλήγουν",
+   "itens": [
+    "σε μια αγορά",
+    "σε ένα ταξίδι",
+    "σε τίποτα"
+   ],
+   "nar": "Έτσι καταλήγουν σε μια αγορά και μετά σε τίποτα"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Η αλήθεια",
+   "sub": "είναι αριθμητική",
+   "nar": "Η αλήθεια όμως είναι καθαρά αριθμητική και απλή"
+  },
+  {
+   "layout": "item",
+   "kicker": "Κόβουν χρόνο",
+   "preco": "όχι ποσό",
+   "nar": "Τα έκτακτα δεν κόβουν ποσό από το χρέος, κόβουν χρόνο"
+  },
+  {
+   "layout": "item",
+   "kicker": "Ένας μήνας",
+   "preco": "λιγότερος",
+   "nar": "Ένα δώρο μπορεί να σβήσει έναν ολόκληρο μήνα πλάνου"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Γι' αυτό",
+   "sub": "πάνε ακέραια",
+   "nar": "Γι' αυτό πηγαίνουν ακέραια στην αποπληρωμή, όχι μισά"
+  },
+  {
+   "layout": "item",
+   "kicker": "Ούτε ένα ευρώ",
+   "preco": "δεν μένει πίσω",
+   "nar": "Ούτε ένα ευρώ δεν μένει πίσω για ανταμοιβή τώρα"
+  },
+  {
+   "layout": "cta",
+   "kicker": "Κάνε εγγραφή",
+   "sub": "και κράτα το πλάνο",
+   "nar": "Κράτα το πλάνο ακέραιο και κάνε εγγραφή στο κανάλι"
+  }
+ ],
+ "copy": "# epomeno-epipedo-s065\n\n## TITULO\nΤο Δώρο Δεν Είναι Έξτρα: Γιατί το Έκτακτο Εισόδημα Κόβει Χρόνο και Όχι Ποσό\n\n## TITULO SHORT\nΤο δώρο δεν είναι έξτρα\n\n## DESCRICAO\nΥπάρχει μια κατηγορία χρημάτων που σχεδόν κανείς δεν βάζει στο πλάνο του: το δώρο, η επιστροφή φόρου, ένα απρόσμενο μπόνους, μια πληρωμή που άργησε και ήρθε μαζεμένη. Επειδή δεν εμφανίζονται στον μηνιαίο προϋπολογισμό, ο εγκέφαλος τα διαβάζει ως κέρδος — κάτι που ήρθε από έξω και επιτρέπεται να ξοδευτεί από έξω.\n\nΗ λογική είναι κατανοητή και είναι ακριβώς αυτή που κρατάει ένα πλάνο αποπληρωμής ζωντανό για χρόνια. Όταν ένα έκτακτο ποσό φεύγει σε μια αγορά ή σε ένα ταξίδι, δεν χάνεται απλώς το ποσό. Χάνεται η θέση του μέσα στο χρονοδιάγραμμα.\n\nΚαι εδώ είναι το σημείο που αλλάζει τη σκέψη: το έκτακτο εισόδημα δεν κόβει ποσό από το χρέος, κόβει χρόνο από το πλάνο. Ένα μεγάλο εφάπαξ ποσό μπορεί να σβήσει ολόκληρο μήνα προσπάθειας — μήνα που αλλιώς θα τον ζούσες με περιορισμό, με άγχος και με την ίδια πίεση που ήδη ξέρεις. Αυτό που κερδίζεις δεν είναι μια γραμμή λιγότερη στο εκκαθαριστικό. Είναι τριάντα μέρες της ζωής σου πίσω.\n\nΗ πρακτική συνέπεια είναι μία και είναι άβολη, γιατί δεν αφήνει περιθώριο διαπραγμάτευσης με τον εαυτό σου: το έκτακτο πηγαίνει ακέραιο στην αποπληρωμή, όχι μισό και όχι «ό,τι περισσέψει». Η ανταμοιβή δεν ακυρώνεται — μετατίθεται, και έρχεται νωρίτερα από όσο νομίζεις, ακριβώς επειδή το πλάνο τελειώνει νωρίτερα.\n\n## COMENTARIO FIXADO\nΤο έκτακτο δεν κόβει ποσό, κόβει χρόνο. Γράψε στα σχόλια πόσους μήνες θα έσβηνε το επόμενο δώρο σου.\n\n## HASHTAGS\n#χρέη #αποπληρωμή #δώρο #epomenoepipedo #Shorts\n\n## TAGS\nchrei, apopliromi, dvro, epistrofi forou, ektakto eisodima, plano apopliromis, prosopika oikonomika, ellada, epomeno epipedo, chronodiagramma, bonus, oikonomiki eleftheria, provlepsimotita, roi chrimatos\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao, pela regra (g). A origem traz 900\neuros de salario, 160 de supermercado, 300 de colchao, 675/175/50 da equacao,\n400 de presente e 2.700 de fundo — TODOS ficaram fora, porque sao de um caso\nespecifico e mudam. O que entra e a ESTRUTURA: extraordinario corta TEMPO.\nA unica quantidade na copy e \"trinta dias\", que e a definicao de um mes.\n\n## FONTES\nOrigem: `GwNkPfM9pSY`, lida pela REGRA (h) — nao ha spec local deste longo, e a\nlegenda saiu pelo `yt-dlp --write-subs --sub-langs el` no sandbox do Composio:\n28.457 bytes de VTT, 1.635 palavras. **Nenhuma frase saiu de TITULO de capitulo**,\nque e a metade que a regra (h) chama de inventar conteudo.\nFamilia de entrada errada NOVA no canal: tratar o dinheiro de FORA do mes como\nganho a gastar, em vez de como tempo a cortar do plano. As familias ja usadas\ndesta origem sao outras: o `s019` poe todas as pequenas prestacoes numa lista e o\n`s034` ataca a ORDEM do mes (divida primeiro, nao o que sobra).\n\n## IDENTIDADE\n**Primeira peca do `epomeno-epipedo` no tema `papel` do pipeline do dono**\n(`motor/config.py` do zip de 12/10), lido de `temas_do_dono.paleta_do_canal` e\nnunca escrito a mao. A descricao do tema, escrita por ELE, nomeia o caso:\n*\"Para historia, educacao, biografias, financas pessoais.\"*\nCom esta peca os TRES canais passam a ter identidade propria — `noite` no\nlabtreinamento, `papel` aqui, `misterio` no kolejny — que e o que o dono pediu em\n19/10 ao dizer que as pecas pareciam \"todas a mesma dinamica, imagens, formas,\nestilo. Em todos os canais.\"\n\n## EXPOSICAO DECLARADA ANTES DE PUBLICAR\nPrevisao nos dois mundos dentro de 18 a 45 s. Com a banda observada de\n(-1,2; 4,0) o real pode cair ate 4 s acima da previsao e ate 1,2 s abaixo — uma\nfaixa de 5,2 s contra 1 s de granularidade, logo isto e LIMITE e nao previsao.\n"
+}
