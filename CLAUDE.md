@@ -3894,6 +3894,96 @@ em vez de ficar**), a prova chama o DONO da regra (`publicar.ler_copy`) com uma
 copy renderizada em vez de reimplementar a regex, a contraprova no outro sentido
 cobra a herança do título, e um **falha se o incidente de 01/09 sair da nota**.
 
+## O GANCHO TEM DOIS LIMITES NA MESMA CENA, E EU OS CONCILIEI A MAO
+
+**Medido em 19/10 as 21:1x, escrevendo o `epomeno-epipedo-s070`.** O
+`mira.orcamento` deu **59 caracteres por cena** para nove cenas no `ALVO_SHORT`
+da frota. Escrevi a cena 0 nesse orcamento e o portao `variedade` **reprovou**:
+*"a primeira frase da cena 1 tem 13 palavras e o limite e 12"*. Encurtei o
+gancho, a previsao caiu de 41,6 para **41,0** — abaixo do piso da faixa — e eu
+recuperei o comprimento em duas cenas do meio **somando de cabeca**, em QUATRO
+passadas:
+
+| passada | media de caracteres | previsao edge |
+|---|---|---|
+| 1 | 56,8 | 40,5 |
+| 2 | 62,3 | **43,0** (topo, nao piso) |
+| 3 | 58,8 | 41,4 (0,1 abaixo do piso) |
+| 4 | 59,3 | **41,6** |
+
+**Sao DOIS limites sobre a MESMA cena e nenhum instrumento os mostrava juntos:
+o orcamento fala em CARACTERES e o portao fala em PALAVRAS.** E o item 3 da
+§10 — todo numero que eu calculo a mao vira um erro meu —, e aqui ele custou
+quatro passadas e um portao vermelho.
+
+**`fabrica/gancho.py`**, e as duas disciplinas que ele segue sao as da semana:
+o limite vem **LIDO** de `variedade.GANCHO_MAX_PALAVRAS` e a contagem de
+`variedade.primeira_frase` (copiar o 12 aqui seria o quinto caso de dois donos
+da semana), e a previsao e **DELEGADA** a `ensaio.duracao_real_prevista`, que e
+a funcao que a mira e o portao cobram. O `custo_do_encurtamento` responde, numa
+chamada, o que eu calculei em quatro: *"o gancho passa em 1 palavra; cortar tira
+7 caracteres e derruba a previsao em 0,36 s, que se recupera com ~1,0 caractere
+por cena nas outras 8"*.
+
+**E O TETO EM CARACTERES VAI COMO ORIENTACAO, com a razao escrita de por que
+nao serve de limite.** Medida no disco a mediana de caracteres por palavra da
+primeira frase: `el` **5,78** (n=726), `pl` **6,22** (n=678), `pt-BR` **5,25**
+(n=989), `id` 6,33, `tr` 6,25 — isto e, doze palavras costumam caber em ~69
+caracteres no grego e ~63 no pt-BR. **E a mediana NAO teria pegado o meu caso:**
+a frase reprovada tinha **68** caracteres, ABAIXO dos 69, e ainda assim 13
+palavras, porque usou palavras curtas. Logo o teto orienta a redacao e **quem
+decide e a contagem exata**.
+
+**NAO virou portao** — quem reprova o gancho e o `variedade`, e o docstring dele
+mede **14 de 39** shorts soltos passando do limite no acervo. Este informa
+ANTES do render, codigo de saida sempre zero.
+
+`tests/test_o_gancho_tem_DOIS_limites_na_mesma_cena.py`, dez testes: a varredura
+sai do DISCO e **reprova com menos de 150 specs**, o limite e a contagem sao
+cobrados por **AST** (e um teste **reprova se aparecer qualquer limite cravado**
+no modulo), a tabela de caracteres por palavra e **reconferida contra o disco** e
+reprova se divergir mais de 0,35 (numero medido que ninguem reconfere envelhece
+calado — 753), um cobra a guarda do **725** (mais de um idioma, e idioma sem
+medida devolve `None` em vez de numero inventado), um **falha se o teto
+estatistico passar a pegar o meu caso** — porque ai a nota se rele —, e a
+contraprova vai nos **dois** sentidos. **Contraprova:** cravado o limite no
+modulo, reprova exatamente o teste que o proibe.
+
+### A PECA DESSA RODADA — a QUARTA familia do MESMO longo
+
+`epomeno-epipedo-s070` = **`dZB2UWpw4x4`**, publicado as 21:16:44Z (run
+`39326183862`), **42 s reais** contra previsao edge **41,64** — residuo
+**+0,4**, com o sinal **NAO estabelecido** (0,4 < 1,0) e dentro da banda.
+Provedor **edge MEDIDO** (zero avisos `NARRACAO PELO PIPER` no job
+`118311143062`), som **-14,1** LUFS, pico -3,4, desvio -0,1, **zero silencios**.
+Controle `OhrGlJvnBoM` conferido em **44 s** na MESMA chamada. `RESIDUO_N` =
+**127**, limites intocados.
+
+**MIRAR O PISO POS O REAL DENTRO DA FAIXA PELA TERCEIRA VEZ** — 42 em 41,5 a
+43,0, depois do `s068` (42 contra 41,71) e do `kolejny-poziom-s068` (42 contra
+41,58). **E prova pouco**, pelo mesmo motivo de sempre: a banda tem 5,2 s de
+largura contra 1 s de granularidade, e os tres pontos sao do mesmo modo da
+previsao. Fica registrado como trio, nao como regra.
+
+**E A ORIGEM DOMINANTE DO CANAL FICOU DE FORA COM O ALERTA NA MAO:** o
+`concentracao.py` acusou `nttW9fR8wyY` com **12 de 69** shorts, mais que o dobro
+da segunda (4), e a peca saiu do `pqTc8jBrq0E` — rank 1 e a de MENOR contagem
+(2). **E a QUARTA familia deste mesmo longo** (denominador, alvo em meses,
+unidade do resultado, e agora de ONDE sai o divisor: tres meses de extrato e nao
+um) **e a OITAVA familia distinta do dia na frota**.
+
+**Esqueleto `titulo-lista-item-barras-item-titulo-item-barras-cta`, inedito nas
+catorze formas de NOVE cenas da frota**, e todo layout saiu do conjunto SONDADO.
+
+**E o orcamento disse que NENHUM numero serve aos dois mundos** com nove cenas:
+razao piper/edge 0,886 e vao de ~4,7 s contra 1,5 s de faixa. A pinca do 740/748
+dentro do instrumento, com a exposicao declarada na copy antes de publicar.
+
+**A LEITURA DE INSCRITOS FOI RECUSADA PELA SEXTA RODADA SEGUIDA:** 10,98 h, piso
+de resolucao 2,19/dia, faltam **15,8 h** para o criterio do 723. **COTA:**
+dezoito envios na janela de 07:00Z, **28.800** unidades contra o piso MEDIDO de
+**>= 40.000**.
+
 ## O PORTAO DIZIA "SEM COMENTARIO FIXADO" E NUNCA PODIA DIZER
 
 **Medido em 19/10 as 20:3x, na copy que eu mesmo acabei de escrever.** Entreguei

@@ -306,6 +306,8 @@ SERIE = [
     ("kolejny-poziom-s069", 41.68, 44, "edge"),  # job 118257731099
     # oito cenas, orcamento dos DOIS mundos
     ("labtreinamento-s087", 25.0, 26, "edge"),  # job 118283444169
+    # nove cenas, mirando o PISO
+    ("epomeno-epipedo-s070", 41.64, 42, "edge"),  # job 118311143062
 ]
 
 
