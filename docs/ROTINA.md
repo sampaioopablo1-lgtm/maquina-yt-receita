@@ -71,6 +71,8 @@ já envelheceu e me fez errar quatro vezes. LEIA, e o primeiro é o mais novo:
     faixas de identidade. **Ele NÃO carrega mais lista nenhuma.**
   `docs/mapa-canal-dark-o-que-entrou.md` — o portão `variedade`, de onde vêm os
     limiares dele, e as três afirmações erradas do mapa que o dono trouxe.
+  `docs/pipeline-canal-dark-v2-o-que-entrou.md` — o ZIP v2.0: a cota de ~6/dia
+    que corrige a nossa, e o que a nossa produção falsifica nele.
   `docs/reautorizar-analytics.md` — os dois links de consentimento e por que a
     troca do `?code=` vai por `pg_net` e não por `tokens.py trocar`.
   `docs/665-p0d-nao-e-indexacao.md` — por que P0D é defeito, e o 401 intermitente.
@@ -512,19 +514,15 @@ novo sobre o mundo — e isso vai dito, com o id do longo. Respeite `robots=noai
     desde o commit `5dfc87f`. **A divergencia era ATIVA**: o `mira.py` reprova
     33-37 neste canal, logo quem seguisse esta rotina escrevia peca que o
     instrumento recusa. **Rode `ensaio.alvo_short(canal)`, nunca o numero escrito
-    aqui.** O historico do override de 09/10 (698) fica abaixo porque explica de
-    onde ele veio:
+    aqui.**
     **kolejny: sinal OPOSTO** (701, observado) — e os NUMEROS das duas leituras
     (698 e 701), com o confundidor de data que nao sai do relato, estao em
     `CLAUDE.md`. Aqui fica so a regra: a mira e POR CANAL, e o sinal de um canal
     nao vale no outro.
-  **E A FRONTEIRA E TRIPLA NO `labtreinamento` — 746 e 747, medidos em 14/10, e o
-  747 corrige o 746 QUE EU ESCREVI AQUI UMA HORA ANTES.** Narrada pelo edge:
-  s037 previa 25,8 -> 28 (fora), s038 24,4 -> 26 (dentro), **s039 24,7 -> 27
-  (FORA)**. Logo 0,3 s de previsao virou 1 s de real: **"mirar mais baixo" NAO
-  basta** — so edge <= 23,60 (conta do 740) poria o real dentro, e ali o
-  `ortografia` REPROVA por perda de acento (medido: 2,0% contra 4,5%). Entao a
-  peca de dez cenas deste canal **nao cabe nas tres restricoes ao mesmo tempo**;
+  **E A FRONTEIRA E TRIPLA NO `labtreinamento`** (746/747): previsao na mira,
+  real na mira e PROSODIA nao cabem juntas em peca de dez cenas — "mirar mais
+  baixo" NAO basta, e cortar ate caber faz o `ortografia` reprovar por perda de
+  acento. Os numeros das tres leituras estao em `CLAUDE.md`. Aqui fica a regra:
   DECLARE a folga na copy e no relato, e nao prometa real dentro.
   **Não existe "a mira certa do short" — existe a de CADA CANAL**, e é assim que
   `ALVO_POR_CANAL` cresce. **O `ALVO_SHORT` global NÃO muda** — o 38 segue sem
@@ -575,9 +573,7 @@ novo sobre o mundo — e isso vai dito, com o id do longo. Respeite `robots=noai
   `FAILED` para comparar depois — o número escrito aqui envelhece, o CONJUNTO
   não. Em 12/10, medido nesta sessão às 12:5x: **25 falham, 2.234 passam,
   475 skip** — e o CONJUNTO das 25 é o que importa, porque passam/skip sobem com
-  teste novo. A frase anterior desta linha trazia o parêntese DUAS vezes e um
-  `~2.205` estimado; os dois eram descuido meu de edição.
-  **E a composição das 25 NÃO é "título duplicado e Devanagari" — isso foi uma
+  teste novo.  **E a composição das 25 NÃO é "título duplicado e Devanagari" — isso foi uma
   descrição minha errada** (11/10). São **15** de `test_narracao_das_specs` mais
   oito espalhadas, em **três famílias**, e **só QUATRO das quinze specs são de
   canal da FROTA** — o remédio das outras é mecânico e está escrito pelo próprio
@@ -758,7 +754,12 @@ os três nos dois passos.
 - **CONFIRA NO VÍDEO PUBLICADO, não no código.** `videos.list` omite tags enquanto
   indexa; `processingDetails` dá 403 em token de outro canal. **E `P0D` só é
   indexação nos primeiros minutos — depois de 2 h é defeito (665).**
-- COTA ~40 vídeos/janela (619). 403 `quota` na legenda → SEGURE o pacote.
+- **COTA: ~6 ENVIOS DE VÍDEO/DIA POR PROJETO** (`10.000/1.600`), CORREÇÃO de
+  18/10 — a linha dizia "~40/janela" e errava ~4x contra a nossa §4. **Limita os
+  7/dia/canal por uma via TERCEIRA**, que não é o `TETO_POR_CANAL` nem o cron:
+  pede extensão de cota. Por canal ou da frota é INDETERMINADO e se lê no banco.
+  Prova em `docs/pipeline-canal-dark-v2-o-que-entrou.md`.
+  403 `quota` na legenda → SEGURE o pacote.
   403 `reason=forbidden location=id` → NÃO retente (622).
 - **O AUTO-DISPARO DO `frota.yml` ESTÁ EXPLICADO:** é
   `.github/workflows/diario.yml`, cron `*/30 * * * *` — **mas isso é o PEDIDO,

@@ -5,6 +5,50 @@ porque número dentro de prompt envelhece e já me fez errar quatro vezes
 (652/655, 658, 682, 685). Aqui não entra contagem de estoque, nem de views, nem
 de inscritos. Entra onde olhar.
 
+## A COTA DO PROMPT QUE VOCÊ ACABOU DE LER ESTÁ CORRIGIDA — E A CORREÇÃO É DAQUI
+
+**Se o prompt que disparou esta rodada disser "COTA ~40 vídeos/janela (619)",
+ele está DESATUALIZADO nessa linha.** O `docs/ROTINA.md` já foi corrigido em
+18/10 às 23:4x; **a sincronia com o trigger NÃO foi feita**, e o motivo vai
+escrito porque é decisão e não esquecimento: o `update_trigger` substitui o
+prompt INTEIRO, logo aplicar exigiria reproduzir ~65 KB de markdown cheio de
+travas byte a byte, e a conferência por md5 só acusaria o erro **depois** de o
+texto gravado já ter sido trocado. Trava corrompida em silêncio é pior que número
+velho documentado. **Enquanto isso, esta seção governa**, e ela é lida primeiro
+por ordem do próprio prompt.
+
+**O número certo: ~6 ENVIOS DE VÍDEO POR DIA POR PROJETO**, de `10.000 / 1.600`.
+`videos.insert` custa **1.600** unidades, `captions.insert` **400**, e a cota
+padrão de um projeto é **10.000/dia**. Os "~40 vídeos/janela" pediriam 64.000
+unidades — 6,4x a cota.
+
+**A conferência não dependeu de fonte externa**, e isso é o que a torna barata:
+a contradição era entre dois documentos NOSSOS. A §4 da rotina sempre disse
+*"~1.600 de cota"* para o short solto e *"~2.100"* para o pacote, enquanto o
+`orquestra.py` dizia *"~500 unidades de um pacote"* — e um pacote não pode custar
+menos que um short solto. Quem me fez olhar foi o guia do ZIP v2.0 que o dono
+trouxe; o que provou foi a nossa própria aritmética.
+
+**A CONSEQUÊNCIA ATINGE O PEDIDO DE 7/dia/canal, por uma via TERCEIRA.** As duas
+que eu já reportava eram nossas ou do agendador: o `TETO_POR_CANAL` em 1/dia (que
+o dono pode mudar) e o cron entregando 5,1 disparos/dia. **Esta não se resolve com
+decisão nossa** — pede extensão de cota ao YouTube, pelo formulário de auditoria.
+
+**E o que eu NÃO sei vai declarado: se a cota é por canal ou da frota inteira.**
+Seis envios/dia por canal são dezoito na frota; seis para os três juntos são seis.
+Depende de os três usarem UM projeto do Google Cloud ou três — o 667 diz que o par
+`client_id`/`client_secret` é da linha `yt_token_<canal>`, mas o
+`fabrica/tokens.py:205-206` mina token novo copiando o par de um **MODELO**, logo
+pode ter propagado o mesmo projeto. Isso se lê no banco, e o `execute_sql` está
+negado. **Em 18/10 a frota fechou o dia em seis peças — 9.600 de 10.000 —, logo se
+o projeto for um só, a sétima teria levado `403 quota`.** Não publiquei uma sétima
+para testar: gastar cota do dono num experimento que eu inventei é o que a §10
+proíbe.
+
+A conta inteira, a prova de que as peças são públicas e os quatro layouts do longo
+estão em `docs/pipeline-canal-dark-v2-o-que-entrou.md`. Travado em
+`tests/test_a_cota_de_40_videos_estava_errada.py`, nove testes.
+
 ## O PROCESSO DE PRODUÇÃO QUE O DONO PEDIU EM 16/10 — E AS TRÊS ROTAS QUE ABRIRAM
 
 Palavras dele: *"crie próximo vídeo melhor de 2 min agora e publique, thumbnail,

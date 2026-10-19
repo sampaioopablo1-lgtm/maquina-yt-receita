@@ -95,10 +95,35 @@ MAX_POR_DIA_POR_CANAL = 2  # PACOTES/dia/canal — 2 longos + 2 shorts por dia
 # carrega um longo que nao e lido: dos treze pacotes publicados nas 72 h
 # anteriores a esta linha, NOVE tem o longo com zero view e onze com no maximo
 # uma. Sete pacotes/dia sao quatorze videos/dia, dos quais sete sao longos
-# mortos que comem o render e quase toda a cota de escrita (o `captions.insert`
-# e ~400 das ~500 unidades de um pacote, e o teto medido e 40 videos por
-# janela) — e quatorze videos/dia num canal de sete inscritos e risco de spam
-# nao medido.
+# mortos que comem o render e quase toda a cota de escrita — e quatorze
+# videos/dia num canal de sete inscritos e risco de spam nao medido.
+#
+# CORRECAO DE 18/10/2026, e e desta linha: ela dizia que o `captions.insert` e
+# "~400 das ~500 unidades de um pacote" e que "o teto medido e 40 videos por
+# janela". **Os dois numeros estavam errados por um fator de ~4**, e quem me fez
+# olhar foi o guia do zip v2.0 que o dono trouxe ("~6 envios de video por dia na
+# cota padrao").
+#
+# A conferencia NAO depende da fonte dele, porque a contradicao era entre dois
+# documentos NOSSOS: a §4 da ROTINA sempre disse "~1.600 de cota" para o short
+# solto e "~2.100" para o pacote, e um pacote nao pode custar ~500 se um short
+# solto custa 1.600. A aritmetica publicada confirma a §4: `videos.insert` custa
+# 1.600 unidades, `captions.insert` custa 400, e a cota padrao de um projeto e
+# 10.000 unidades/dia.
+#
+# LOGO O TETO E `10.000 / 1.600` = **6 envios de video por dia por projeto**, e
+# nao 40. "40 videos por janela" pediria 64.000 unidades.
+#
+# E A CONSEQUENCIA ATINGE O PEDIDO DO DONO: 7 shorts/dia/canal esta ACIMA do teto
+# de cota. Isso e uma restricao TERCEIRA, independente deste `TETO_POR_CANAL`
+# (que e nosso) e do cron entregar 5,1 disparos/dia (que e do agendador). Esta
+# nao se resolve com decisao nossa: pede extensao de cota ao YouTube.
+#
+# O QUE EU NAO SEI, declarado: se os tres canais usam UM projeto do Google Cloud
+# ou tres. O 667 diz que o par client_id/secret e da linha `yt_token_<canal>`,
+# mas `tokens.py:205-206` mina token novo copiando o par de um MODELO, logo pode
+# ter propagado o mesmo projeto. Isso se le no banco, e o `execute_sql` esta
+# negado. Ver `docs/pipeline-canal-dark-v2-o-que-entrou.md`.
 #
 # O ALVO DE RITMO NAO E ESTE NUMERO. O alvo e 7 SHORTS/dia por canal com um
 # longo/dia so no labtreinamento, porque a porta do YPP que esta perto e a
