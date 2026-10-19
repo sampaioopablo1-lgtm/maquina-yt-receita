@@ -1,6 +1,7 @@
 import json, subprocess, sys, os, asyncio
 import cairosvg, edge_tts
 import legenda as LG
+import layouts_longo as LL
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
 from maquina.media import duracao as _duracao, ffmpeg_bin  # fallback pro binario estatico do imageio-ffmpeg
@@ -524,6 +525,19 @@ def svg_cena(c, pal, W, H, camada=None):
             s += tsp(c['sub'], W*0.11, H*0.825, H*0.042, c2, n=42,
                      anchor='start', largura=W*0.78)
         return s + '</svg>'
+    # OS LAYOUTS DE LONGO, e eles estavam escritos e MORTOS. O
+    # `layouts_longo.py` (coordenadas copiadas do `motor/scenes.html` do
+    # pipeline do dono) existia desde 19/10 com `comparar` e `numero`, e
+    # NENHUM caminho do render os alcancava: o despacho abaixo so conhece
+    # titulo/cta/lista/barras/item, logo uma cena `comparar` caia no ramo
+    # final e saia como fundo vazio. Codigo escrito que ninguem chama e a
+    # mesma classe do `legenda.py` consertado em UM dos dois donos — ele
+    # parece pronto e nao esta no ar.
+    # So no 16:9: a geometria dele e em 1920x1080 e o retrato tem conta
+    # propria (`svg_cena_retrato`), que e por que o short nao recebe isto.
+    frag = LL.desenha(c, pal, W, H)
+    if frag is not None:
+        return s + frag + '</svg>'
     if lay in ('titulo','cta'):
         fg = c1 if lay=='titulo' else c2
         # sub_fg era branco no cta — o que so funcionava com o fundo invertido.

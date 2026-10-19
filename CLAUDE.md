@@ -71,6 +71,38 @@ capa, e casar prosa pegaria a explicação em vez do código.
 legenda congelada e com a paleta antiga. Apagar ou substituir peça publicada
 exige o dono. O conserto vale da `s064` em diante.
 
+## OS LAYOUTS DO LONGO ESTAVAM ESCRITOS E MORTOS — medido em 19/10 às 04:2x
+
+O `fabrica/layouts_longo.py` nasceu na madrugada com `comparar` e `numero`,
+coordenadas copiadas do `motor/scenes.html` do pipeline do dono — e **nenhum
+caminho do render os alcançava.** O despacho do `svg_cena` (16:9) conhecia
+`broll`, `titulo`, `cta`, `lista`, `barras` e `item`; cena com `layout:
+comparar` caía no ramo final e saía **como fundo vazio**. Sem erro, sem aviso:
+um cartão em branco no meio do vídeo.
+
+**É a mesma classe do defeito da legenda, pego três horas antes: código escrito
+que ninguém chama PARECE pronto e não está no ar.** Lá eram dois donos da mesma
+regra com um atualizado; aqui é um dono só, sem ninguém chamando. A diferença
+prática é nenhuma — nos dois casos eu reportei a capacidade como existente.
+
+**Consertado:** `svg_cena` chama `LL.desenha` logo depois do `broll`, e os dois
+layouts desenham. **Só no 16:9** — a geometria deles é 1920×1080 e o retrato tem
+conta própria, e há teste que **falha se o despacho entrar no
+`svg_cena_retrato`**, porque ali ele produziria tinta na borda (o defeito do
+`kp-plan-9233`).
+
+`tests/test_os_layouts_de_longo_estavam_MORTOS.py`, sete testes, e o que vale é
+a forma de dois deles: a varredura sai de **`LAYOUTS`**, não de uma lista minha
+— layout novo entra na cobertura sozinho e **reprova se não tiver cena de
+exemplo** —, e um cobra que o CONTEÚDO da cena chega ao SVG, porque o defeito
+não era "não desenha", era "desenha o fundo e esquece a cena". Contraprova nos
+dois sentidos: desligado o despacho, dois dos sete falham.
+
+**O que isto NÃO faz:** não produz longo nenhum. Faltam os três layouts que a
+medição do vídeo de referência nomeia (fórmula anotada, cartão de erro, divisor
+de parte), a cadência de plano de ~18,9 s e o trilho de capítulos ligado ao
+render. O que mudou é que dois dos cinco deixaram de ser promessa.
+
 ## E ESSA SEÇÃO ABAIXO FICOU OBSOLETA EM 19/10 — O PROMPT DEIXOU DE SER CÓPIA
 
 **Pedido do dono em 19/10:** *"Não esqueça de otimizar a rotina YT, diretamente,
