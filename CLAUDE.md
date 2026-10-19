@@ -2813,6 +2813,62 @@ linha só e o comentário anterior intacto.
 `tests/test_a_serie_do_residuo_deixou_de_ser_passo_meu.py`, onze testes, um deles
 gravando numa CÓPIA para provar a inserção sem tocar o arquivo real.
 
+## OS TRÊS LAYOUTS QUE FALTAVAM AO LONGO ENTRARAM — e a geometria é NOSSA
+
+**19/10 às 07:2x.** `formula` (fórmula anotada argumento por argumento), `erro`
+(cartão de erro, `#REF!`) e `divisor` (divisor de parte) estão em `LAYOUTS` e
+desenham. Com os dois de 04:2x, **os cinco que a medição do vídeo de referência
+nomeia existem** — era a metade do pedido de 16/10 que nunca tinha começado.
+
+**E a procedência vai dita no lugar certo: a geometria destes três é DERIVADA da
+nossa própria grade**, reusando as frações que `comparar` e `numero` já fixaram
+(`y=170/1080`, `alt=760/1080`, `rx=0,018H`, barra de 8/1080, corpos de 56 e 36
+sobre H). **Não é cópia do `motor/scenes.html`, porque aquele arquivo não está em
+lugar nenhum** — é a opção 1 do `docs/pacote-do-dono-NAO-esta-no-repo.md`, e há
+teste que reprova se o módulo deixar de declarar isso. O que a medição DELE
+sustenta é só que os três existem como FORMA.
+
+**E O TESTE DE 04:2x FUNCIONOU COMO FOI ESCRITO PARA FUNCIONAR:** ele varre
+`LAYOUTS`, e no instante em que os três entraram ele **reprovou** pedindo cena de
+exemplo — *"sem exemplo ele volta a não ser exercitado por ninguém"*. Isso é a
+diferença entre cobrir por lista e cobrir por varredura, e foi a varredura que
+cobrou. `tests/test_os_layouts_de_longo_estavam_MORTOS.py` foi a **dez** testes:
+três cenas de exemplo, um que cobra o CONTEÚDO dos três no SVG (um layout que
+desenhasse só o kicker passaria na varredura), um que exige a geometria declarada
+como nossa, e um que **falha se o despacho entrar no retrato**. Contraprova:
+retirado um dos três de `LAYOUTS`, o teste do conteúdo falha.
+
+**O que isto NÃO faz, e segue dito:** não produz longo nenhum. Falta a cadência
+de plano de ~18,9 s e o `fabrica/trilho.py` ligado ao render. O que mudou é que
+**cinco de cinco layouts deixaram de ser promessa**.
+
+## EU ESCREVI UM JOB ID INVENTADO NA PROCEDÊNCIA DA SÉRIE
+
+**Medido em 19/10 às 07:2x, e é defeito meu de duas camadas.** Ao acrescentar o
+ponto do `epomeno-epipedo-s066` eu montei a nota com `python3 -c` dentro do bash,
+e (1) **a crase do heredoc comeu texto** — o aviso está neste arquivo desde 11/10
+e é a segunda vez que me pega hoje — e (2) no lugar do job verdadeiro
+(`117916386985`) eu escrevi **`117928061886`, que não existe.**
+
+**E a nota garbled passava em tudo.** Nenhum teste cruzava a marca `# job` da
+série com o campo `job` do PARQUE — e o parque é a fonte de verdade, porque
+recebe o job na publicação, quando ele ainda está na mão. Eu só vi porque fui
+conferir o id por outro motivo.
+
+**Procedência inventada é PIOR que procedência ausente**, porque ela convida a
+conferir no lugar errado: quem abrisse as anotações do `117928061886` levaria 404
+e concluiria que o provedor não foi medido.
+
+Consertado no lugar (nota reescrita, job certo) e travado:
+`tests/test_o_job_citado_na_serie_bate_com_o_PARQUE.py`, seis testes — ele cruza
+os **dois donos do mesmo fato** e reprova quando divergem (hoje: 53 pacotes em
+comum, zero divergências), **reprova se a varredura encolher**, proíbe marca de
+job sem ponto na mesma linha (o sintoma do `replace` por prefixo do 18/10), e
+**exige que o aviso da crase continue escrito aqui**.
+
+**A regra que fica: nota com crase sai de ARQUIVO, nunca de heredoc** — e todo id
+que entra como procedência se confere contra quem o gravou primeiro.
+
 ## O PACOTE DO DONO NÃO ESTÁ NO REPO — e DEZ citações apontavam para dentro dele
 
 **Medido em 19/10 às 06:1x, varrendo os caminhos citados entre crases.** Dois

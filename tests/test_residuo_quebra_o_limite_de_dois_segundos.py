@@ -269,6 +269,19 @@ SERIE = [
     # da banda. Primeiro ponto acrescentado pelo serie_residuo em vez de por
     # replace a mao, que e o passo que criou o ponto fantasma de 18/10.
     ("labtreinamento-s083", 25.1, 29, "edge"),  # job 117902066228
+    # 19/10 as 07:2x: previsao edge 41,9 e real 43 -> residuo +1,1,
+    # ESTABELECIDO pela borda do 18/10 (>= 1,0). Provedor MEDIDO: zero avisos
+    # NARRACAO PELO PIPER nas anotacoes do job 117916386985.
+    # Lido na MESMA passagem do controle OhrGlJvnBoM (44 s conhecidos) e da
+    # peca seguinte, que e a consequencia pratica do modo de fechamento por
+    # LIMITE medido as 06:14 (302 para google.com/sorry).
+    ("epomeno-epipedo-s066", 41.9, 43, "edge"),  # job 117916386985
+    # 19/10 as 07:2x: previsao edge 41,8 e real 44 (a pagina trouxe DOIS
+    # lengthSeconds, 43 e 44, e vale o MAIOR) -> residuo +2,2, ESTABELECIDO.
+    # Provedor MEDIDO: zero avisos NARRACAO PELO PIPER nas anotacoes do job
+    # 117935935876. Mirei o PISO da faixa da frota, que e a redacao registrada
+    # para este canal, e o real saiu a 1 s do teto do portao.
+    ("kolejny-poziom-s066", 41.8, 44, "edge"),  # job 117935935876
 ]
 
 

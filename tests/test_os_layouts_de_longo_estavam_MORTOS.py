@@ -33,6 +33,18 @@ CENAS = {
                  "dir": {"titulo": "PROCX", "itens": ["acha de tras", "sobrevive"]}},
     "numero": {"layout": "numero", "valor": "3x", "legenda": "mais caro",
                "nota": "mesmo cliente, mesmo dia"},
+    # Os tres de 19/10 as 07:2x. Eles entraram em LAYOUTS e este arquivo
+    # REPROVOU na hora, pedindo exemplo — que e a forma que ele foi escrito para
+    # ter. A geometria deles e DERIVADA da nossa grade, nao copiada: ver
+    # `docs/pacote-do-dono-NAO-esta-no-repo.md`.
+    "formula": {"layout": "formula", "formula": "=PROCX(valor; onde; devolve)",
+                "notas": ["o que procurar", "em que coluna",
+                          "o que trazer de volta"]},
+    "erro": {"layout": "erro", "codigo": "#REF!",
+             "causa": "a coluna que a formula apontava foi apagada",
+             "saida": "aponte por nome, nao por posicao"},
+    "divisor": {"layout": "divisor", "parte": "2",
+                "titulo": "Os tres limites do PROCV"},
 }
 
 
@@ -48,6 +60,47 @@ def test_TODO_layout_declarado_e_alcancavel_pelo_render():
         )
         svg = F.svg_cena(cena, PAL, 1920, 1080)
         assert "<text" in svg, f"{nome} nao desenhou texto nenhum"
+
+
+def test_o_CONTEUDO_dos_TRES_novos_tambem_chega():
+    """Mesma cobranca do teste seguinte, estendida aos tres de 19/10.
+
+    Vale a pena ser explicito aqui em vez de confiar na varredura: a varredura
+    cobra `<text` no svg, e um layout que desenhe so o kicker passaria nela com
+    a lista de argumentos sumida — que e exatamente a forma do defeito original
+    ('desenha o fundo e esquece a cena')."""
+    esperado = {
+        "formula": ("=PROCX(valor; onde; devolve)", "o que procurar",
+                    "em que coluna", "o que trazer de volta"),
+        "erro": ("#REF!", "foi apagada", "aponte por nome"),
+        "divisor": ("2", "Os tres limites do PROCV"),
+    }
+    for nome, pedacos in esperado.items():
+        svg = F.svg_cena(CENAS[nome], PAL, 1920, 1080)
+        for pedaco in pedacos:
+            assert pedaco in svg, f"{nome}: {pedaco!r} nao chegou ao svg"
+
+
+def test_a_GEOMETRIA_dos_tres_novos_vai_declarada_como_NOSSA():
+    """O pacote do dono nao esta no repo (medido em 19/10 as 06:1x), logo estes
+    tres nao podem vestir procedencia que nao existe. O modulo tem de dizer
+    isso, e apontar para o documento que explica."""
+    import os
+    with open(os.path.join(RAIZ, "fabrica", "layouts_longo.py"),
+              encoding="utf-8") as f:
+        texto = " ".join(f.read().split())
+    assert "DERIVADA da nossa propria grade" in texto
+    assert "docs/pacote-do-dono-NAO-esta-no-repo.md" in texto
+    assert "nao ha de onde copiar" in texto
+
+
+def test_os_tres_novos_tambem_NAO_entram_no_retrato():
+    """A geometria e 1920x1080; no 9:16 ela produziria tinta na borda."""
+    for nome in ("formula", "erro", "divisor"):
+        svg = F.svg_cena_retrato(CENAS[nome], PAL, 1080, 1920)
+        for pedaco in ("#REF!", "=PROCX", "Os tres limites"):
+            assert pedaco not in svg, (
+                f"o despacho de longo entrou no retrato por {nome}")
 
 
 def test_o_conteudo_da_cena_CHEGA_ao_svg():

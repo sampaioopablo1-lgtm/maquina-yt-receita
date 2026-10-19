@@ -139,7 +139,136 @@ def numero(c: dict, pal: dict, W: float, H: float) -> str:
     return "".join(s)
 
 
-LAYOUTS = {"comparar": comparar, "numero": numero}
+# ---------------------------------------------------------------------------
+# OS TRES QUE FALTAVAM — e a GEOMETRIA DELES E NOSSA, nao copiada
+#
+# A medicao de 16/10 no video do dono nomeia cinco layouts que o `layout.py` nao
+# tinha. Dois entraram em 19/10 as 04:2x com coordenadas transcritas do
+# `motor/scenes.html`. **Em 19/10 as 06:1x ficou medido que aquele arquivo nao
+# esta no repo** — nem no historico, nem no conteiner, nem no sandbox: ver
+# `docs/pacote-do-dono-NAO-esta-no-repo.md`.
+#
+# Logo estes tres NAO podem dizer "copiado de la", porque nao ha de onde copiar.
+# **A geometria abaixo e DERIVADA da nossa propria grade**, reusando as fracoes
+# que os dois primeiros ja fixaram — `y=170/1080` de topo, `alt=760/1080` de
+# painel, `rx=0,018H`, a barra de 8/1080 e os corpos de 56 e 36 sobre H. Isso e
+# escolha nossa e vai dita, em vez de vestir procedencia que nao existe.
+#
+# **O que a medicao do video DELE sustenta, e e so isto:** que os tres existem
+# como FORMA (formula anotada argumento por argumento, cartao de erro, divisor
+# de parte) e que o mundo visual e monocromatico e estatico — mediana 0,072 e
+# 96% de quadros congelados em 530 s. Nenhum pixel de posicao vem de la.
+FORMULA = dict(
+    y_linha=300 / BASE_H, corpo_linha=96 / BASE_H,
+    y_primeira_nota=470 / BASE_H, corpo_nota=34 / BASE_H,
+    passo_nota=64 / BASE_H, x_nota=240 / BASE_W, recuo_seta=40 / BASE_W,
+)
+# cartao de erro: o painel do `comparar` centrado, com o codigo grande em cima
+ERRO = dict(
+    larg=900 / BASE_W, y=200 / BASE_H, alt=620 / BASE_H,
+    corpo_codigo=180 / BASE_H, y_codigo=300 / BASE_H,
+    corpo_causa=44 / BASE_H, y_causa=560 / BASE_H,
+    corpo_saida=34 / BASE_H, y_saida=680 / BASE_H,
+)
+# divisor de parte: faixa fina no meio da tela, numero da parte a esquerda
+DIVISOR = dict(
+    y_faixa=470 / BASE_H, alt_faixa=140 / BASE_H,
+    corpo_num=120 / BASE_H, corpo_titulo=64 / BASE_H,
+    x_num=200 / BASE_W, x_titulo=400 / BASE_W,
+)
+
+
+def formula(c: dict, pal: dict, W: float, H: float) -> str:
+    """Formula anotada argumento por argumento.
+
+    `c` traz `formula` (o texto da linha) e `notas` (lista de str, uma por
+    argumento). A anotacao e uma seta curta e o texto, empilhados — o motor do
+    dono faz isso com posicao por argumento, e NAO temos as coordenadas dele,
+    logo aqui elas sao uniformes e isso vai declarado no cabecalho da secao.
+    """
+    g = FORMULA
+    ink = pal.get("ink", "#EEF1F5")
+    acc = pal.get("acc") or pal.get("c1", "#3DDBD9")
+    mut = pal.get("mut") or pal.get("c2", "#8B95A5")
+    s = [f'<text x="{W * 0.5:.1f}" y="{H * g["y_linha"]:.1f}" '
+         f'text-anchor="middle" font-size="{H * g["corpo_linha"]:.1f}" '
+         f'fill="{ink}" font-weight="700" '
+         f'font-family="DejaVu Sans Mono, monospace">'
+         f'{_esc(c.get("formula", ""))}</text>']
+    y = H * g["y_primeira_nota"]
+    for nota in (c.get("notas") or []):
+        s.append(f'<text x="{W * g["x_nota"]:.1f}" y="{y:.1f}" '
+                 f'font-size="{H * g["corpo_nota"]:.1f}" fill="{acc}" '
+                 f'font-family="Inter, DejaVu Sans, sans-serif">&#8627;</text>')
+        s.append(f'<text x="{W * (g["x_nota"]) + W * g["recuo_seta"]:.1f}" '
+                 f'y="{y:.1f}" font-size="{H * g["corpo_nota"]:.1f}" '
+                 f'fill="{mut}" '
+                 f'font-family="Inter, DejaVu Sans, sans-serif">'
+                 f'{_esc(nota)}</text>')
+        y += H * g["passo_nota"]
+    return "".join(s)
+
+
+def erro(c: dict, pal: dict, W: float, H: float) -> str:
+    """Cartao de erro: o codigo que a tela mostra, a causa e a saida.
+
+    `c` traz `codigo` (ex. `#REF!`), `causa` e `saida`.
+    """
+    g = ERRO
+    ink = pal.get("ink", "#EEF1F5")
+    vermelho = pal.get("red") or pal.get("c2") or "#FF5A5F"
+    painel = pal.get("panel") or pal.get("bg", "#161B24")
+    mut = pal.get("mut") or pal.get("c2", "#8B95A5")
+    x = (W - W * g["larg"]) / 2
+    s = [f'<rect x="{x:.1f}" y="{H * g["y"]:.1f}" width="{W * g["larg"]:.1f}" '
+         f'height="{H * g["alt"]:.1f}" rx="{H * 0.018:.1f}" fill="{painel}"/>',
+         f'<rect x="{x:.1f}" y="{H * g["y"]:.1f}" width="{W * g["larg"]:.1f}" '
+         f'height="{H * COMPARAR["barra"]:.1f}" fill="{vermelho}"/>',
+         f'<text x="{W * 0.5:.1f}" y="{H * g["y_codigo"]:.1f}" '
+         f'text-anchor="middle" font-size="{H * g["corpo_codigo"]:.1f}" '
+         f'fill="{vermelho}" font-weight="700" '
+         f'font-family="DejaVu Sans Mono, monospace">'
+         f'{_esc(c.get("codigo", ""))}</text>']
+    if c.get("causa"):
+        s.append(f'<text x="{W * 0.5:.1f}" y="{H * g["y_causa"]:.1f}" '
+                 f'text-anchor="middle" font-size="{H * g["corpo_causa"]:.1f}" '
+                 f'fill="{ink}" font-weight="700" '
+                 f'font-family="Inter, DejaVu Sans, sans-serif">'
+                 f'{_esc(c["causa"])}</text>')
+    if c.get("saida"):
+        s.append(f'<text x="{W * 0.5:.1f}" y="{H * g["y_saida"]:.1f}" '
+                 f'text-anchor="middle" font-size="{H * g["corpo_saida"]:.1f}" '
+                 f'fill="{mut}" '
+                 f'font-family="Inter, DejaVu Sans, sans-serif">'
+                 f'{_esc(c["saida"])}</text>')
+    return "".join(s)
+
+
+def divisor(c: dict, pal: dict, W: float, H: float) -> str:
+    """Divisor de parte: `parte` (o numero) e `titulo` da parte que comeca."""
+    g = DIVISOR
+    ink = pal.get("ink", "#EEF1F5")
+    acc = pal.get("acc") or pal.get("c1", "#3DDBD9")
+    painel = pal.get("panel") or pal.get("bg", "#161B24")
+    s = [f'<rect x="0" y="{H * g["y_faixa"]:.1f}" width="{W:.1f}" '
+         f'height="{H * g["alt_faixa"]:.1f}" fill="{painel}"/>',
+         f'<rect x="0" y="{H * g["y_faixa"]:.1f}" width="{W:.1f}" '
+         f'height="{H * COMPARAR["barra"]:.1f}" fill="{acc}"/>',
+         f'<text x="{W * g["x_num"]:.1f}" '
+         f'y="{H * (g["y_faixa"] + g["alt_faixa"] * 0.72):.1f}" '
+         f'font-size="{H * g["corpo_num"]:.1f}" fill="{acc}" '
+         f'font-weight="700" font-family="Anton, DejaVu Sans, sans-serif">'
+         f'{_esc(c.get("parte", ""))}</text>',
+         f'<text x="{W * g["x_titulo"]:.1f}" '
+         f'y="{H * (g["y_faixa"] + g["alt_faixa"] * 0.66):.1f}" '
+         f'font-size="{H * g["corpo_titulo"]:.1f}" fill="{ink}" '
+         f'font-weight="700" font-family="Inter, DejaVu Sans, sans-serif">'
+         f'{_esc(c.get("titulo", ""))}</text>']
+    return "".join(s)
+
+
+LAYOUTS = {"comparar": comparar, "numero": numero,
+           "formula": formula, "erro": erro, "divisor": divisor}
 
 
 def desenha(c: dict, pal: dict, W: float, H: float):
