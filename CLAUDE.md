@@ -3133,6 +3133,95 @@ afrouxar a guarda na mesma rodada em que eu a disparo é o avesso do trabalho.
 texto que o módulo imprime.** Dois testes novos travam isso, com contraprova no
 outro sentido — sem ela bastaria devolver sempre zero.
 
+## O ACENTO DA NARRAÇÃO ERA CONFERIDO NO OLHO — e falhou DUAS rodadas seguidas
+
+**19/10 às 18:2x, e é o §11-bis desta rodada.** Em 15:3x a descrição grega do
+`epomeno-epipedo-s068` subiu **sem tonos**; em 17:2x a primeira versão do
+`labtreinamento-s086` trazia *"O mesmo treino da tres"*, *"todo o historico"*,
+*"voce usou"*. **Nas duas vezes quem pegou fui eu RELENDO**, e nas duas eu
+escrevi aqui a mesma frase — *"o acento é passo de REDAÇÃO e não tem
+instrumento"*. Duas vezes com a mesma assinatura é o item 3 da §10.
+
+**E o custo não é estético:** o TTS lê o texto como está escrito. Sem tonos a voz
+grega muda a sílaba tônica; sem acento o pt-BR troca a pronúncia. **A peça sai
+narrada errado e nenhum portão reprova** — o `copy` só conta palavras.
+
+**E O CRITÉRIO SAI DA MEDIÇÃO, NÃO DE UMA LISTA DE IDIOMAS**, porque lista de
+idioma é limiar sem procedência (§10). Varridas as specs do disco:
+
+| idioma | n (short) | com ZERO acento |
+|---|---|---|
+| `el` | 86 | **0** |
+| `tr` | 10 | **0** |
+| `pl` | 81 | 2 |
+| `pt-BR` | 120 | 5 |
+| `en` / `id` / `hi` | 16 / 23 / 8 | **todas** |
+
+**Logo não existe limiar universal:** em `en`, `id` e `hi` o zero é o valor
+CERTO, e alarmar ali seria detector que inventa achado (725). Quem decide é a
+distribuição do PRÓPRIO idioma, lida do disco — idioma cuja maioria está em zero
+**não discrimina**, e isso sai como RECUSA com o motivo, do jeito que o `porta1`
+recusa janela curta.
+
+**E A VARREDURA ACHOU SETE NO ACERVO, dito sem inflar:** `labtreinamento-002`,
+`-003`, `seja-mais-magra-004`, `sx-educacao-001`, `-002` (pt-BR) e
+`kolejny-poziom-003`, `-004` (pl) têm a narração do short em ZERO acento — e duas
+são de canal VIVO da frota. **O que eu NÃO afirmo:** que foram publicadas assim,
+nem que é o mesmo defeito das duas peças de hoje; a narração gravada vive no
+vídeo e eu não a reli. O que está medido é que a spec no disco não tem acento.
+
+**NÃO virou portão**, pelo argumento do `mira.py`: ele reprovaria essas sete, que
+são acervo e não produção. `fabrica/acento.py` (`proporcao`, `sem_acento`,
+`distribuicao`, `veredito`, `relato`), e o código de saída é **sempre zero**.
+
+`tests/test_o_acento_da_narracao_era_conferido_no_OLHO.py`, dez testes: a
+varredura sai do DISCO e **reprova com menos de 50 specs**, um exige que os DOIS
+lados existam (idioma que discrimina e idioma que não — sem eles recusar sempre
+passaria), um **falha se aparecer spec grega sem tonos** (é a base da conclusão),
+a contraprova **retira os tonos da peça de hoje e exige que o instrumento
+acuse**, um cobra que as acusadas do acervo sejam MINORIA (alarme de massa deixa
+de avisar), um trava que ausência de narração **não é zero**, e o critério é
+cobrado por **AST** — idioma cravado dentro de `distribuicao` reprova.
+
+**E O PRÓPRIO TESTE ME PEGOU NA PRIMEIRA EXECUÇÃO, no defeito que o módulo
+descreve:** o `test_NAO_virou_portao` cobrava `"acento." not in prontidao.py`, e
+o `prontidao.py` **cita a palavra na prosa** (*"sem acento. Só peguei relendo o
+texto na mão"*). Casar prosa pegou a explicação em vez do código — exatamente a
+razão pela qual os outros testes desta semana são por AST. Reescrito por AST.
+
+### A PEÇA DESSA RODADA — a TERCEIRA família do mesmo longo, e o PISO outra vez
+
+`epomeno-epipedo-s069` = **`ZySLot-Cvo4`**, publicado às 18:18:45Z (run
+`39301401094`), **42 s reais** contra previsão edge **41,66** — resíduo
+**+0,3**, com o sinal **NÃO estabelecido** (0,3 < 1,0) e dentro da banda.
+Provedor **edge MEDIDO** (zero avisos `NARRACAO PELO PIPER` no job
+`118225100775`), som **−14,1** LUFS, pico −3,0, desvio −0,1, **zero silêncios**.
+Controle `OhrGlJvnBoM` conferido em **44 s** na MESMA chamada. `RESIDUO_N` =
+**124**, limites intocados.
+
+**É a TERCEIRA família do longo publicado hoje neste canal** (`pqTc8jBrq0E`): o
+short do pacote usou o DENOMINADOR, o `s068` o ALVO em meses, e esta a **UNIDADE
+do resultado** — reportar a reserva em EUROS em vez de MESES, porque euro compara
+com gente que você não conhece e mês compara com o seu próprio mês (capítulos
+20, 21 e 40 a 47). Dez cenas, esqueleto
+`titulo-numero-item-lista-item-barras-titulo-item-item-cta`, **inédito nas 111
+formas da frota**, com `numero` na segunda cena.
+
+**E A PAUTA NÃO ATRAVESSOU CANAL PELA QUARTA PEÇA SEGUIDA** — quatro peças,
+quatro famílias, nos três canais. O `similaridade` não pegaria isso, porque
+compara contra o MESMO canal.
+
+**E O INSTRUMENTO DE 17:2x FEZ O TRABALHO NA PRIMEIRA PEÇA DEPOIS DELE:** o
+relato disse, em letra, que **NENHUM orçamento põe os dois mundos dentro de 41,5
+a 43,0 com dez cenas** — a razão piper/edge desta voz é 0,886 e o vão vale ~4,7 s
+contra 1,5 s de faixa. Mirei o PISO (41,66, dentro do `ALVO_SHORT`) e declarei a
+exposição em vez de reconferir de cabeça.
+
+**E A LEITURA DE INSCRITOS FOI RECUSADA PELA TERCEIRA RODADA SEGUIDA:** 8,03 h,
+piso de resolução 2,99/dia, faltam 18,8 h para o critério do 723. **COTA:**
+catorze envios na janela de 07:00Z, 22.400 unidades contra o piso MEDIDO de
+≥ 40.000.
+
 ## ACRESCENTAR PONTO NA SÉRIE DEIXOU DE SER PASSO MEU
 
 **O terceiro passo manual a menos (§11-bis), e ele é o que já corrompeu dados
