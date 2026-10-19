@@ -52,6 +52,11 @@ um padrao -- padrao silencioso e como os tres fundos ficaram iguais.
 from __future__ import annotations
 
 # Copiado de motor/config.py do pipeline do dono, tema por tema, sem mudanca.
+# E ESSE ARQUIVO NAO ESTA NO REPO (medido em 19/10 as 06:1x): o ZIP foi lido numa
+# sessao anterior e nao foi comitado, logo isto e TRANSCRICAO. O que salva estes
+# hex de terem apoio unico e a medicao independente no video publicado dele —
+# luminancia 37 do fundo e o SATAVG dos 530 quadros, em
+# `fabrica/video_referencia.py`. Ver `docs/pacote-do-dono-NAO-esta-no-repo.md`.
 TEMAS = {
     "noite": dict(
         descricao="Escuro azulado com destaque turquesa. Serve para quase tudo: "

@@ -285,10 +285,14 @@ e o erro é de JANELA, que é o erro que esta mesma seção nomeia.** Eu contei 
 peças a partir das 18:16 de 18/10 e escrevi *"ontem a frota fechou o dia em seis
 peças"*, quando a janela abriu às **07:00 UTC** daquele dia. Varrido o
 `docs/pendente/duracoes-a-medir.jsonl`, que grava toda peça publicada com
-`youtube_id`, a janela de 18/10 07:00 a 19/10 07:00 tem **24 envios, 24 ids
-DISTINTOS, nenhum repetido** — de `labtreinamento-s075` às 07:15 até
-`labtreinamento-s083` às 05:19. **Logo o piso é ≥ 38.400 unidades**, não 19.200,
-e as "seis peças de 18/10" eram as seis ÚLTIMAS de dezessete.
+`youtube_id`, a janela de 18/10 07:00 a 19/10 07:00 tem **25 envios, todos com
+id DISTINTO** — de `labtreinamento-s075` às 07:15 até `epomeno-epipedo-s066` às
+06:13. **Logo o piso é ≥ 40.000 unidades**, não 19.200, e as "seis peças de
+18/10" eram as seis ÚLTIMAS de dezessete.
+
+**E a contagem agora sai de uma VARREDURA, não da minha memória** — é o
+`docs/pendente/duracoes-a-medir.jsonl`, que grava toda peça publicada com
+`youtube_id`, e foi contar de cabeça que produziu os dois números baixos.
 
 **E é o 771 outra vez, na direção que eu já havia corrigido:** eu escrevi, nesta
 seção, *"conte as peças da JANELA (desde 07:00 UTC), não do dia calendário"* — e
@@ -2808,6 +2812,60 @@ contas da mesma coisa têm de concordar.
 linha só e o comentário anterior intacto.
 `tests/test_a_serie_do_residuo_deixou_de_ser_passo_meu.py`, onze testes, um deles
 gravando numa CÓPIA para provar a inserção sem tocar o arquivo real.
+
+## O PACOTE DO DONO NÃO ESTÁ NO REPO — e DEZ citações apontavam para dentro dele
+
+**Medido em 19/10 às 06:1x, varrendo os caminhos citados entre crases.** Dois
+caminhos aparecem em **dez citações** em oito arquivos, e **nenhum dos dois
+existe** — não no repo, não no `git log --all`, não neste contêiner e não no
+sandbox: `motor/config.py`, que é a procedência declarada dos quatro temas e
+portanto **da paleta dos três canais**, e `motor/scenes.html`, que é a das
+**coordenadas** dos layouts `comparar` e `numero`.
+
+**É o 743 pela SEGUNDA vez** — lá foi o `references/shorts-playbook.md` citado em
+quatro documentos por três dias —, e agora na procedência da identidade visual da
+frota. **E o teste que eu escrevi para guardar aquilo não podia pegar estes:** ele
+abre **UM caminho cravado à mão**, que é identidade onde havia propriedade
+(743/753/761), e por isso passava verde.
+
+**A distinção que importa, e ela é desigual:** as **cores** têm segunda fonte
+independente do pacote — luminância 37 do fundo e o SATAVG dos 530 quadros do
+vídeo publicado dele, em `fabrica/video_referencia.py`; as **coordenadas** têm
+apoio **ÚNICO**, a transcrição. Nada confirma `x=130` ou `800x760` além do nosso
+código.
+
+**A trava que sai disso: layout NOVO de longo não se escreve "copiando do
+`motor/scenes.html`"**, porque não há de onde. As duas saídas honestas são
+derivar da nossa própria grade **dizendo que é derivação nossa**, ou pedir o
+pacote ao dono e comitá-lo no mesmo passo.
+`docs/pacote-do-dono-NAO-esta-no-repo.md` e
+`tests/test_todo_caminho_CITADO_existe.py`, sete testes: a varredura sai do
+disco, **reprova listando o que falta**, as duas exceções são DECLARADAS e
+apontam para o documento, e um teste **reprova se uma exceção passar a existir** —
+porque aí a citação volta a conferir e a mentira é manter a exceção.
+
+## A ROTA DA DURAÇÃO FECHOU POR LIMITE, NÃO POR CONSENTIMENTO — modo novo
+
+**Medido em 19/10 às 06:1x.** A leitura do `kLsLXWCeI8Q` voltou com **402 bytes**,
+e o controle `OhrGlJvnBoM` (44 s conhecidos) **igual na mesma chamada** — logo
+ROTA e não peça, pelo discriminador do 17/10.
+
+**O que é novo é o MODO: 302 para `google.com/sorry/index`**, não a parede de
+consentimento que a tabela de rotas descreve (200, 1,2 MB, zero
+`lengthSeconds`). E a diferença é acionável: a parede **não** responde a volume
+(cookie, User-Agent e `&hl=en` testados em 16/10), e o limite responde.
+
+**A causa vai como HIPÓTESE:** as seis requisições que eu mesmo fiz nos sete
+minutos anteriores são o candidato óbvio, e uma rodada **não** separa a minha
+carga da de todo o resto que sai deste IP. **O que está medido é a sequência:**
+200 com 1,2 MB às 05:3x, 302 às 06:14. **A consequência prática vale mesmo se a
+hipótese cair: gaste menos requisição por rodada, e leia inscritos e duração na
+MESMA passagem.**
+
+`fabrica/vivacidade_publica.modo_de_fechamento` e
+`tests/test_a_rota_fechou_por_LIMITE_e_nao_por_consentimento.py`, sete testes —
+um deles cobra que a hipótese **continue escrita como hipótese**, e um que saber
+o modo **não substitui** reler a peça de controle.
 
 ## O PORTÃO NÃO COBRA A CHAVE QUE O RENDER EXIGE — medido em 18/10 às 08:1x
 

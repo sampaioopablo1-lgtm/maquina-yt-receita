@@ -30,6 +30,15 @@ passar — reimplementar o relogio dele seria duas regras para a mesma coisa, qu
 e o defeito do `assert 20 <= ds <= 60`.
 """
 
+# ATENCAO (19/10, 06:1x): o `motor/scenes.html` NAO ESTA NO REPO — nem no
+# historico, nem neste conteiner, nem no sandbox. O pacote ZIP do dono foi lido
+# numa sessao anterior e nunca foi comitado, logo o que esta abaixo e uma
+# TRANSCRICAO que NAO SE RECONFERE aqui. Ela e o apoio UNICO destas coordenadas:
+# ao contrario das cores (que tem a medicao do video publicado como segunda
+# fonte), nao existe nada que confirme `x=130` ou `800x760` alem deste codigo.
+# O motivo e a consequencia — layout NOVO de longo nao se escreve "copiando de
+# la", porque nao ha de onde — estao em
+# `docs/pacote-do-dono-NAO-esta-no-repo.md`.
 # Coordenadas do `motor/scenes.html`, em quadro de 1920x1080. A fracao vai ao
 # lado porque o nosso render recebe W e H e nao pode cravar pixel.
 BASE_W, BASE_H = 1920.0, 1080.0

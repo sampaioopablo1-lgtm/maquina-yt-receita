@@ -99,6 +99,46 @@ def relato(leituras: dict) -> str:
 CONTROLE_17_10 = ("OhrGlJvnBoM", 44)
 
 
+# O modo de fechamento da rota da duracao. MEDIDO em 19/10 as 06:1x, e e um
+# estado NOVO: ate aqui a tabela do `CLAUDE.md` so conhecia o
+# "200 com 1,2 MB e zero `lengthSeconds`", a parede de consentimento — e ela
+# nao se resolve com cookie, User-Agent de navegador nem `&hl=en` (os tres
+# testados em 16/10). Nesta rodada a rota devolveu **302 para
+# `google.com/sorry/index`** com 402 bytes de corpo, no `kLsLXWCeI8Q` e no
+# controle `OhrGlJvnBoM` na mesma chamada — logo ROTA, nao peca.
+SORRY = "google.com/sorry"
+
+
+def modo_de_fechamento(corpo: str, location: str = "") -> str:
+    """Por que a rota da duracao fechou — 'limite', 'consentimento' ou 'aberta'.
+
+    Os dois modos pedem coisas DIFERENTES de quem lê, e e por isso que vale
+    separa-los em vez de contar os dois como "fechada":
+
+      * `limite` (302 para `/sorry/index`): e recusa por VOLUME de requisicao.
+        **HIPOTESE DECLARADA, e vai como hipotese:** as seis requisicoes que eu
+        mesmo fiz nos sete minutos anteriores (tres `/about`, duas `/watch` e um
+        `yt-dlp`) sao o candidato obvio a causa, e eu NAO medi isso — uma
+        rodada nao separa a minha carga da carga de todo o resto que sai deste
+        IP. O que esta medido e a sequencia: a rota deu 200 com 1,2 MB as 05:3x
+        e 302 as 06:14. A consequencia pratica e barata e vale mesmo se a
+        hipotese estiver errada: **gaste menos requisicao por rodada, e leia
+        inscritos e duracao na MESMA passagem** em vez de uma por vez;
+      * `consentimento` (200, pagina grande, zero campo): e a parede do
+        `CONSENT`/`captcha`, e nao ha o que economizar — ela nao responde a
+        volume nenhum.
+
+    **O que isto NAO muda:** o discriminador do 17/10 continua sendo a peca de
+    CONTROLE. Saber o modo nao substitui reler o controle, porque nos dois modos
+    a leitura da peca nova vem vazia do mesmo jeito.
+    """
+    if SORRY in (location or "") or SORRY in (corpo or ""):
+        return "limite"
+    if duracao_do_html(corpo or "") is None:
+        return "consentimento"
+    return "aberta"
+
+
 def veredito_da_rota(leitura_nova, leitura_controle, valor_conhecido: int):
     """Diz se a rota FECHOU ou se a peca nova e que nao respondeu.
 

@@ -735,8 +735,8 @@ os três nos dois passos.
 - **CONFIRA NO VÍDEO PUBLICADO, não no código.** `videos.list` omite tags enquanto
   indexa; `processingDetails` dá 403 em token de outro canal. **E `P0D` só é
   indexação nos primeiros minutos — depois de 2 h é defeito (665).**
-- **COTA: teto DESCONHECIDO; piso MEDIDO ≥ 24 envios/janela na FROTA** (≥ 38.400
-  unidades a 1.600 cada), contados em 19/10 às 05:4x na janela 18/10 07:00 →
+- **COTA: teto DESCONHECIDO; piso MEDIDO ≥ 25 envios/janela na FROTA** (≥ 40.000
+  unidades a 1.600 cada), contados em 19/10 às 06:1x na janela 18/10 07:00 →
   19/10 07:00, sem um `403 quota`. O "~6/dia" caiu em 00:4x quando a sétima peça
   passou, e o "≥ 7" e o "≥ 19.200" que eu escrevi depois estavam BAIXOS porque eu
   contei um SUB-INTERVALO da janela. **Não troque o número por outro suposto:**
