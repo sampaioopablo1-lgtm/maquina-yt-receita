@@ -1,0 +1,38 @@
+{
+  "slug": "labtreinamento-s081",
+  "idioma": "pt-BR",
+  "voz": "pt-BR-ThalitaMultilingualNeural",
+  "trilha": "Inspired",
+  "paleta": {
+    "ink": "#14213D",
+    "c1": "#2A9D8F",
+    "c2": "#E9C46A",
+    "bg": "#F6F4EF"
+  },
+  "pacote": "labtreinamento-s081",
+  "longo_existente": "3KtwRYxl7_U",
+  "short_alvo_s": [
+    3.0,
+    6.0
+  ],
+  "thumb": {
+    "l1": "Nunca viu",
+    "l2": "seu FAP?"
+  },
+  "longo": [],
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Nunca viu",
+      "sub": "o seu FAP?",
+      "nar": "Nunca viu o seu FAP?"
+    },
+    {
+      "layout": "item",
+      "kicker": "Ele já está",
+      "sub": "calculado",
+      "nar": "Ele já está calculado."
+    }
+  ],
+  "copy": "# labtreinamento-s081\n\n## TITULO\nNunca Viu o Seu FAP? Ele Já Está Calculado e Já Vale Para a Sua Guia\n\n## TITULO SHORT\nNunca viu o seu FAP?\n\n## DESCRICAO\nEsta peça é um **teste de formato**: cinco segundos, uma pergunta e uma resposta. O conteúdo é verdadeiro e sai do material completo; o que está sendo testado é a duração.\n\nO ponto é simples e vale para qualquer empresa: **o seu multiplicador não espera você consultar.** Ele é calculado por fora, fica disponível num sistema oficial, e **já entra na conta da sua contribuição** tenha você aberto o sistema ou não.\n\n**A consequência que quase ninguém tira:** não consultar não adia nada. Quem nunca abriu paga pelo número que já existe — e descobre o valor pela guia, que é o pior lugar para descobrir, porque ali ele já é cobrança e não mais informação.\n\n**O que fazer com isso, e dá para fazer hoje:** abra o sistema uma vez e anote o seu número junto com a memória de cálculo. Isso não custa nada e troca uma surpresa por uma conta.\n\nNão dou aqui percentuais, faixas nem datas. Faixa e calendário mudam por norma, e por isso ficam fora. O mecanismo — o índice existe antes de você olhar — não muda.\n\nNo material completo: onde ver o seu, a memória de cálculo, como transformar o índice em reais e o que o calendário habilita em cada data.\n\nMaterial informativo, não é consultoria previdenciária.\n\n## COMENTARIO FIXADO\nO menos óbvio: não consultar não adia nada. O número já existe e já está na sua guia. Você já abriu o seu alguma vez?\n\n## HASHTAGS\n#fap #inss #folhadepagamento #labtreinamento #Shorts\n\n## TAGS\nfap, fator acidentario de prevencao, inss, contribuicao patronal, folha de pagamento, departamento pessoal, rat, memoria de calculo, consulta fap, gestao de pessoas, lab treinamento, custo de folha, indice previdenciario, compliance trabalhista, rotinas de dp\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Conferida cena a cena: nenhuma das\nduas carrega faixa, percentual, data nem valor. O longo traz a faixa do indice e\no calendario de duas datas; as duas ficaram FORA pela regra (g), porque mudam\npor norma. E a peca NAO declara quantidade nenhuma, logo o efeito (C-2) e a\ncontagem declarada nao se aplicam.\n\n## FONTES\nCapitulos 9 a 15 do longo \"FAP: O Multiplicador Que Ja Esta Calculado\"\n(pacote labtreinamento-005, 3KtwRYxl7_U, 4 usos — o PATAMAR MAIS BAIXO do canal\njunto com outras quatro origens). As QUATRO familias que esta origem ja rendeu\nsao outras: o s009 (contestar nao suspende a cobranca), o s035 (a ordem das duas\nmultiplicacoes), o s042 (o indice e por estabelecimento) e o s057 (a data que\ndivulga nao e a data que habilita). A familia desta peca — **o indice existe\nantes de voce olhar** — sai do capitulo 14 (\"Quem nao consulta\") e do 7 (\"E ele\nja esta pronto\"), e nao foi usada.\n\n## EXPOSICAO\n**Esta e uma peca de TESTE DE FORMATO, pedida pelo dono em 19/10: \"video de ate\n5 segundos\", alta qualidade, com narracao.** O que ela testa e a duracao; o que\nela NAO muda e parametro nenhum (§10).\n\nA faixa vai declarada NA SPEC, em `short_alvo_s: [3.0, 6.0]`, que e o campo que\nexiste para formato declarado desde a peca de 2 min de 16/10. **O `ALVO_SHORT`\nda frota (41,5 a 43,0) e o `ALVO_POR_CANAL` deste canal (20,0 a 26,0) seguem\nintocados**, e por isso o `mira.py` vai reprovar esta peca pelo PISO — isso e\nesperado e nao e defeito: a mira compara contra a faixa do canal, e esta peca\ndeclarou outra.\n\nPrevisao edge **4,37 s** e piper **3,59 s** — as duas dentro de [3,0; 6,0] nos\ndois mundos, que e o que o portao `duracao` cobra. Duas cenas, logo **~2,2 s por\nplano**, mais rapido que os 3,1 s da nossa cadencia medida.\n\n**E o resido eu NAO prometo, porque nao existe banda medida nesta faixa.** A\nbanda de (-1,2; 4,0) foi construida em pecas de 23 a 44 s, e aplica-la a uma de\n4,4 s e o erro de enquadramento do 679/698/725. O unico ponto que existe fora da\nfaixa curta e o da peca de 2 min, que deu +4,8 s. **Logo o real desta peca e\ndesconhecido**, e e por isso que ela e um teste: o numero que sair e o primeiro\nponto da faixa de 5 s.\n"
+}
