@@ -3944,6 +3944,35 @@ que o modulo nao tem: o teste estava errado, nao o modulo**, e a propriedade
 certa e melhor do que a que eu havia escrito. **Contraprova:** retirado o `el`
 da tabela, tres dos sete falham.
 
+**E A SUITE ACUSOU UMA FALHA NOVA, que era MINHA — e o errado era um TESTE de
+20/08, nao o conserto.** O `test_escrita_nao_latina_fica_de_fora` cravava
+`"el" not in DIACRITICOS` com esta razao escrita: *"grego e devanagari ja sao
+pegos pelo portao de idioma — la a falta de acento nem existe, o alfabeto
+inteiro seria outro."* **Medido nos DOIS casos que ela nomeia, a razao e falsa
+nos dois:** o `_gate_idioma` passa LIMPO com narracao grega sem tonos
+(`O enas minas kryvei...`) e passa LIMPO com devanagari sem as marcas `Mn`
+(`raasata`, `bad`, `nahee` no lugar de rasta, band, nahin). Letra grega sem
+tonos continua sendo letra grega; devanagari sem virama continua sendo
+devanagari, so virou outra palavra. **A assercao era IDENTIDADE onde a
+afirmacao era PROPRIEDADE — a classe 743/753/761, agora num teste que eu nao
+escrevi.**
+
+**Retratado no lugar, e o `hi` FICA DE FORA pela razao MEDIDA:** as marcas de
+vogal do devanagari sao em boa parte `Mc` (espacejantes) e nao `Mn`, logo
+"quanto esta spec acentua" e outra pergunta naquele script — e **eu nao medi** o
+acervo `hi` contra o piso. Entrar sem a medicao seria ligar portao que pode
+reprovar o parque. **E entrou o teste que a razao antiga tentava proteger de
+verdade:** o que esta na TABELA nao reprova o acervo, varrido do disco por
+idioma, com o debito conhecido de pt e pl declarado como excecao.
+
+**E uma conferencia ANTES de chamar de regressao:** o
+`test_o_caso_que_criou_o_portao`, que tambem reprova naquele arquivo, **ja esta
+na linha de base desta sessao** — e a falha de acentuacao turca que este arquivo
+nomeia entre as 25.
+
+**A SUITE FECHOU: 25 falhas, 3.129 passam, 994 skip** — conjunto **IDENTICO** a
+linha de base desta sessao, `comm` vazio nos **dois** sentidos, em 412 s.
+
 ### E EU RODAVA OS MEUS INSTRUMENTOS NO RASCUNHO, NAO O PORTAO
 
 **Medido na mesma rodada, e e a causa de DUAS passadas de conserto seguidas:**
