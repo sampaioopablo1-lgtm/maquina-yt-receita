@@ -284,6 +284,7 @@ SERIE = [
     ("kolejny-poziom-s066", 41.8, 44, "edge"),  # job 117935935876
     ("labtreinamento-s084", 24.6, 27, "edge"),  # job 117957434818
     ("epomeno-epipedo-s067", 41.9, 44, "edge"),  # job 117979815554
+    ("kolejny-poziom-s067", 41.9, 43, "edge"),  # job 118003944726
 ]
 
 

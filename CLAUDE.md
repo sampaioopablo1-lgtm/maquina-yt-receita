@@ -934,6 +934,12 @@ disso o degrau devolve ruído). O módulo recusa janela curta em vez de inventar
 
 Frota inteira: **+1,79 inscrito/dia.**
 
+**ESTE NÚMERO TEM AGORA UM LIMITE SUPERIOR MEDIDO, e ele é a METADE dele:** na
+janela de 49,0 h de 17/10 09:0x a 19/10 10:0x a frota ganhou **+2** no total,
+isto é **abaixo de ~0,98/dia**, com o `labtreinamento` abaixo de 0,49/dia. Segue
+`indeterminado` pelo critério do 723 (o maior delta é UM), logo é LIMITE e não
+ritmo. Ver a seção "EU LI INSCRITOS COM 4 h".
+
 **CORREÇÃO DE 12/10 ÀS 18:2x, e é desta tabela: eu escrevi "nunca" para o
 kolejny, e "nunca" ali era falsa precisão.** O contador de inscritos anda **de um
 em um**, então numa janela de `h` horas o menor ritmo diferente de zero que ele
@@ -2952,6 +2958,72 @@ a maioria passar a caber, esta nota se relê em vez de o número ser movido.
 **O que isto NÃO faz:** não produz longo nenhum. O que mudou é que o trilho deixou
 de depender de eu escrever o campo em 66 cenas à mão — o terceiro passo manual a
 menos desta madrugada.
+
+
+## EU LI INSCRITOS COM 4 h E A LEITURA ERA PREVISIVELMENTE INÚTIL — 19/10 às 10:0x
+
+**E o número que provava isso já estava no módulo.** Eu li os três canais porque
+a leitura anterior tinha **4 h** — a regra H (686) — e o quadro saiu com os três
+em `indeterminado`, como tinha de sair: numa janela de 4 h o piso de resolução é
+**6,00 inscritos/dia**, contra o ritmo suposto de ~1,8. O docstring do
+`porta1.piso_de_resolucao` **diz essa frase em letra desde 12/10**: as ≥ 4 h
+bastam para pular o DEGRAU da réplica e **não** bastam para medir ritmo.
+
+**Logo o número estava no código e a DECISÃO continuava na minha cabeça** — item
+3 da §10. E custou três requisições na mesma madrugada em que a rota fechou por
+LIMITE (06:1x), cuja consequência escrita é *"gaste menos requisição por rodada"*.
+
+**E as leituras não moravam em lugar nenhum:** elas viviam no relato de cada
+rodada e na minha memória, logo *"quando foi a última?"* era pergunta para mim —
+a assinatura do 726, o passo sem instrumento é o passo que eu solto.
+
+**`fabrica/leitura_de_inscritos.py`** grava as leituras em
+`docs/pendente/inscritos-lidos.jsonl` (com PROCEDÊNCIA obrigatória, e regravar o
+mesmo instante com valor DIFERENTE **levanta**) e responde a pergunta que eu
+vinha respondendo de cabeça, **separando as três portas que eu confundia**:
+
+| porta | horas | o que ela libera |
+|---|---|---|
+| regra H (686) | **≥ 4** | pular o degrau da réplica |
+| resolução | **24/ritmo** → 13,4 | poder FALAR de ritmo |
+| critério do 723 | **o dobro** → 26,8 | `\|delta\| ≥ 2`, que é o que o módulo exige |
+
+Rodado sobre o estado de antes da leitura, ele diria: *"4,0 h, piso 6,0/dia —
+degrau SIM, resolve ritmo NÃO, resolve o 723 NÃO, faltam 22,8 h"*.
+
+### E A JANELA LONGA DEU UM NÚMERO QUE DERRUBA O +1,79/dia QUE EU CARREGO
+
+**Com a âncora certa — 17/10 09:0x contra 19/10 10:0x, 49,0 h — o piso cai a
+0,49/dia e a leitura passa a dizer algo:**
+
+| canal | antes | agora | delta | /dia |
+|---|---|---|---|---|
+| labtreinamento | 68 | **68** | 0 | abaixo de 0,49 |
+| epomeno-epipedo | 21 | **22** | +1 | 0,49 |
+| kolejny-poziom | 8 | **9** | +1 | 0,49 |
+| **frota** | | | **+2** | **0,98** |
+
+**Os três seguem `indeterminado` pelo critério do 723** (o maior delta é UM), e
+é por isso que o que sai daqui é **LIMITE SUPERIOR e não ritmo**: a frota anda
+**abaixo de ~0,98/dia**, isto é, cerca de METADE do +1,79/dia que eu venho
+repetindo desde 12/10 — e o `labtreinamento`, que é o canal do plano, abaixo de
+0,49/dia.
+
+**A consequência para a Porta 1 é aritmética e é pior do que eu dizia:** a 0,49/dia
+os 478 que faltam ao epomeno pedem **~975 dias**, e os 432 do labtreinamento não
+têm prazo nenhum porque o delta é zero. As duas datas seguem **depois de
+1/FEV/2027**, quando a barra sobe para 1.000 — e agora com folga maior.
+**Isto não é pessimismo novo: é o mesmo 713 com o denominador certo.** O que
+muda a distância é conversão, e conversão só se mede com os dois cliques de
+consentimento do Google.
+
+`tests/test_a_leitura_de_4h_era_previsivelmente_INUTIL.py`, oito testes — um
+trava que as três portas são **crescentes e distintas** (juntá-las foi o defeito),
+um ancora no caso real de 4 h e **exige que o aviso continue no relato**, um é
+**contraprova no outro sentido** (a janela de 49 h RESOLVE, senão recusar sempre
+passaria), um cobra que a conta do piso seja **delegada** ao `porta1` por AST, e
+um cobra que o 1,79 vá declarado como **SUPOSIÇÃO** e não como medida — porque o
+755 já mostrou que ele mesmo era uma contagem.
 
 ## EU ESCREVI UM JOB ID INVENTADO NA PROCEDÊNCIA DA SÉRIE
 
