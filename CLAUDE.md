@@ -3949,6 +3949,39 @@ estatistico passar a pegar o meu caso** — porque ai a nota se rele —, e a
 contraprova vai nos **dois** sentidos. **Contraprova:** cravado o limite no
 modulo, reprova exatamente o teste que o proibe.
 
+### E O MEU `2>&1` DESFEZ O CONSERTO DE 15/10 — TERCEIRA vez da assinatura
+
+**Pego pela suite desta rodada, e o teste que o pegou nasceu desse defeito.**
+Eu rodei
+
+    python3 fabrica/registro_videos.py >> docs/pendente/videos-a-inserir.sql 2>&1
+
+e o `2>&1` levou a nota legivel do modulo PARA DENTRO do SQL: tres linhas de
+prosa portuguesa no arquivo parqueado, e quem colasse no SQL Editor levaria erro
+de sintaxe. O `test_o_sql_parqueado_nao_leva_prosa` reprovou os dois testes dele
+— as **duas unicas** falhas novas contra a base de 25.
+
+**E o conserto ja existia:** em 15/10 as 15:2x o `relato` do `registro_videos`
+passou a sair por **stderr** exatamente para o stdout ser SQL puro, com teste. O
+modulo esta certo; **a minha linha de comando desfez o conserto dele.** Na rodada
+anterior (a `s087`) eu usei `2>/tmp/.../reg.err` e o arquivo saiu limpo — nesta
+eu escrevi `2>&1`.
+
+**E a assinatura e a MESMA tres vezes:** em 13/10 o `estado_b64` morreu em
+`base64: invalid input` porque eu escrevi `estado_ponte.py > arq 2>&1`; em 15/10
+a prosa grudou no SQL porque o MODULO a imprimia em stdout; hoje ela grudou
+porque **eu** a redirecionei para la. Conserto no modulo nao protege contra a
+invocacao.
+
+**A REGRA QUE FICA: `2>&1` NUNCA em cima de arquivo que outro programa vai
+consumir** — nem SQL, nem base64, nem JSONL. O stderr vai para um arquivo
+PROPRIO ou para `/dev/null`.
+
+**E o que guarda isso e o TESTE, nao a minha memoria**, e e por isso que ele
+existe desde 15/10: ele le o ARQUIVO no disco e reprova se houver linha que nao
+comece por `insert into videos`. Foi ele que pegou, no mesmo ciclo, e as tres
+linhas foram removidas com a do `s070` conferida como presente antes de gravar.
+
 ### A PECA DESSA RODADA — a QUARTA familia do MESMO longo
 
 `epomeno-epipedo-s070` = **`dZB2UWpw4x4`**, publicado as 21:16:44Z (run
