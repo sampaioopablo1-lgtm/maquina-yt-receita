@@ -120,7 +120,14 @@ def test_o_piso_dos_estabelecidos_e_MAIOR_que_o_piso_da_banda():
     """A banda e mais larga do que a evidencia estabelecida justifica, e isso vai
     MEDIDO em vez de dito de memoria."""
     piso_est = min(_nominal(p, r) for _, p, r, _ in _estabelecidos())
-    assert piso_est == 1.1, piso_est
+    # Era `== 1.1`, e caiu em 19/10 quando o `labtreinamento-s082` (24,99 -> 26)
+    # entrou com nominal 1,0: ele e ESTABELECIDO pela BORDA (o criterio certo e
+    # `>= 1,0`, a correcao de 18/10 as 15:2x) e virou o menor estabelecido da
+    # serie. Identidade outra vez onde havia propriedade — 743/753/761.
+    # A propriedade: o piso dos ESTABELECIDOS fica estritamente ACIMA do piso da
+    # banda, e nao desce abaixo da borda do criterio.
+    assert piso_est >= 1.0, piso_est
+    assert piso_est > mira.RESIDUO_OBSERVADO[0], (piso_est, mira.RESIDUO_OBSERVADO)
     assert piso_est > mira.RESIDUO_OBSERVADO[0]
 
 

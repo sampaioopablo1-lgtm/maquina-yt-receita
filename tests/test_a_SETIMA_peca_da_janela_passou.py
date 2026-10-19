@@ -94,10 +94,17 @@ def test_a_peca_de_5s_NAO_entrou_na_serie_do_mira():
     assert "labtreinamento-s081" not in serie, (
         "a peca de 5 s entrou na banda de 23 a 44 s"
     )
+    # `RESIDUO_N == 105` era IDENTIDADE, e ela caiu no primeiro ponto novo
+    # (o `labtreinamento-s082`, duas horas depois). A propriedade e que a
+    # contagem BATE com o arquivo — 743/753/761 pela quinta vez, desta vez num
+    # teste que eu tinha acabado de escrever.
+    import re
     import sys
     sys.path.insert(0, str(RAIZ / "fabrica"))
     import mira
-    assert mira.RESIDUO_N == 105, mira.RESIDUO_N
+    pontos = re.findall(r'\("([a-z\-]+-s\d+)", ', serie)
+    assert mira.RESIDUO_N == len(pontos), (mira.RESIDUO_N, len(pontos))
+    assert len(pontos) == len(set(pontos)), "ponto DUPLICADO na serie"
     assert "UM ponto, e ele é este" in CLAUDE
 
 
