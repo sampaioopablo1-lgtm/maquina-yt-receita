@@ -259,6 +259,7 @@ SERIE = [
     ("kolejny-poziom-s063", 41.5, 43, "edge"),  # job 117790725744 — mira no PISO exato da frota (voz polonesa, centro +2,2%); residuo +1,5, sinal ESTABELECIDO
     ("labtreinamento-s080", 25.6, 27, "edge"),  # job 117804130785 — residuo +1,4, sinal ESTABELECIDO; real FORA do teto da mira (26,0) com a mira VERDE nos dois mundos: 16 de 19
     ("labtreinamento-s082", 24.99, 26, "edge"),  # job 117848486726 — residuo +1,01, sinal ESTABELECIDO pela BORDA (>= 1,0); real DENTRO do teto da mira (26,0), e e a QUARTA deste canal no mundo edge a cair dentro: 16 de 20
+    ("epomeno-epipedo-s064", 41.6, 44, "edge"),  # job 117861303311 — residuo +2,4, sinal ESTABELECIDO; real no TOPO da janela de 41,4 a 42,2 deste canal, onde os cinco negativos deram 41 — logo aquele 41 era o piso do espalhamento (18/10 17:2x), nao um regime
     ("epomeno-epipedo-s063", 42.2, 43, "edge"),  # job 117816895844 — DOIS lengthSeconds (42 e 43), usado o MAIOR; residuo +0,8, sinal NAO estabelecido; mira no MEIO da faixa de proposito
 ]
 

@@ -172,7 +172,13 @@ não verificada ("extensão eu não consigo ler") e ela foi falsificada pela
 produção, não por leitura de console.
 
 **O que isto estabelece é um PISO, não um teto: a cota é ≥ 11.200**, isto é,
-≥ 7 envios por janela na frota inteira. **O teto verdadeiro segue desconhecido**,
+≥ 7 envios por janela na frota inteira. **E O PISO SUBIU DUAS VEZES NA MESMA
+JANELA, por produção e não por leitura:** o `labtreinamento-s082` (`84ADS0YGdog`,
+01:37:45Z) foi a OITAVA e o `epomeno-epipedo-s064` (`ANxWQYgtUAY`, 02:30:25Z) a
+NONA — as duas sem `403 quota`. Logo **a cota é ≥ 14.400**, isto é ≥ 9 envios por
+janela na frota. O teto verdadeiro segue desconhecido, e quem o descobre é o
+primeiro `403 quota` numa rodada normal, que não custa nada porque requisição
+recusada não consome cota. **O teto verdadeiro segue desconhecido**,
 e dizer "agora são N" seria trocar um número suposto por outro. Quem o
 descobre é a produção: o primeiro `403 quota` numa rodada normal marca o limite,
 e isso não custa nada porque a requisição recusada não consome cota.
@@ -2806,6 +2812,17 @@ menor inteiro da janela.**
 os outros produziriam, nem que 41 seja um piso fisico. Cinco pontos de um canal,
 e o 679/698/725 nomeia esse enquadramento. **O que esta medido:** o negativo e
 raro (5 de 99), e deste canal, e **em todos os cinco o real e o mesmo inteiro**.
+
+**E EM 19/10 ÀS 02:3x ISTO FOI CONFIRMADO PELO OUTRO LADO DA JANELA.** O
+`epomeno-epipedo-s064` (`ANxWQYgtUAY`) previa **41,6** no edge — provedor MEDIDO
+(zero avisos `NARRACAO PELO PIPER` no job `117861303311`) — e saiu com **44 s
+reais**: resíduo **+2,4**, **estabelecido** e dentro da banda. **Mesma janela de
+previsão dos cinco negativos (41,4 a 42,2), e o real deu o MAIOR inteiro dela.**
+Logo o 41 dos negativos é o **piso do espalhamento**, não regime do canal — que é
+exatamente o que a nota acima afirma, agora com o ponto do outro extremo.
+`RESIDUO_N` = 107, limites intocados. **E a copy declarou a exposição antes de
+publicar** (40,4 a 45,6): o real caiu dentro, e isso **prova pouco**, porque a
+banda tem 5,2 s de largura contra 1 s de granularidade.
 
 **A consequencia pratica e de redacao, nao de parametro (§10):** mirar o PISO da
 mira neste canal nao reduz o real — ele ja esta no fundo da janela. O que a mira
