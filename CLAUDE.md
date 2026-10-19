@@ -49,6 +49,50 @@ A conta inteira, a prova de que as peças são públicas e os quatro layouts do 
 estão em `docs/pipeline-canal-dark-v2-o-que-entrou.md`. Travado em
 `tests/test_a_cota_de_40_videos_estava_errada.py`, nove testes.
 
+### E EM 19/10 ÀS 00:2x ISSO FOI MEDIDO, e caiu no PIOR dos dois ramos
+
+**Os três canais COMPARTILHAM um projeto do Google Cloud: `777159180424`.**
+Medido pela `sonda_oauth` no runner (job `117829119323`), que passou a extrair o
+número do projeto do `client_id` — número que não é segredo, ao contrário do
+resto dele. **Logo o teto é ~6 vídeos/dia NA FROTA INTEIRA**, não por canal, e os
+7/dia/canal que o dono pede são **21/dia = 33.600 unidades = 3,4x a cota.**
+
+**E a consequência era imediata, não teórica.** A cota da YouTube Data API zera à
+**meia-noite do Pacífico**, não em UTC — em outubro de 2026 isso é PDT, logo a
+janela corre de **07:00 UTC a 07:00 UTC**. As seis peças de 18/10 saíram entre
+18:16 e 23:13 UTC, **todas dentro da janela que só fecha às 07:00 de 19/10**:
+
+| | |
+|---|---|
+| usado na janela | 6 × 1.600 = **9.600 de 10.000** |
+| sobra | **400 unidades** |
+| um `videos.insert` | **1.600** |
+| cabe? | **NÃO** |
+
+**Logo a rodada das 00:07 não publicou, e isso é aritmética e não escolha** — a
+sétima peça da janela levaria `403 quota`. Ontem a frota fechou o dia a **96% da
+cota sem ninguém saber**, e uma peça a mais em qualquer rodada teria falhado.
+
+**A REGRA OPERACIONAL QUE SAI DISSO, e ela é nova: a janela de cota vira às
+07:00 UTC, não à meia-noite.** Rodada entre 00:00 e 07:00 UTC herda a cota do dia
+anterior; se o dia anterior entregou seis peças, essas rodadas são de
+**ENGENHARIA por aritmética**, e a produção volta às 07:0x. Isso não substitui a
+contagem — **conte as peças da JANELA (desde 07:00 UTC), não do dia calendário**,
+que é a mesma classe de erro do 771, onde o dia calendário apagava as últimas
+horas.
+
+**O que isto NÃO afirma:** que a cota deste projeto é 10.000. Esse é o padrão, e
+extensão eu não consigo ler (uso de cota só aparece no console do Cloud). Se um
+envio passar com a janela nesta conta, **é prova de que o projeto tem extensão** —
+e aí o teto sobe e isto se relê.
+
+**As duas saídas, e agora com a ordem decidida pela medição:** separar em três
+projetos do Cloud multiplica por três **sem depender de aprovação de ninguém** e
+passa na frente da extensão de cota, que depende de prazo do YouTube. As duas são
+do dono, e a primeira é uma colagem de `YT_OAUTH_JSON` nova.
+`tests/test_a_sonda_le_o_PROJETO_sem_vazar_credencial.py`, nove testes; o teto e
+a janela em `tests/test_a_janela_de_cota_vira_as_07_UTC.py`.
+
 ## O PROCESSO DE PRODUÇÃO QUE O DONO PEDIU EM 16/10 — E AS TRÊS ROTAS QUE ABRIRAM
 
 Palavras dele: *"crie próximo vídeo melhor de 2 min agora e publique, thumbnail,

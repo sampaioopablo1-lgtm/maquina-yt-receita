@@ -1850,3 +1850,37 @@ nao muda e tambem nao foi medido continua sendo invencao.
 **O que segue na sua mao:** (1) os dois cliques do Google; (2) reconectar o
 conector do Supabase — **86** linhas parqueadas, `execute_sql` negado pela 24a
 rodada seguida; (3) a decisao do 740/748.
+
+## 19/10 00:2x — MEDIDO: a cota é ~6/dia na FROTA, não por canal
+
+**Os três canais compartilham UM projeto do Google Cloud: `777159180424`.**
+Medido pela sonda no runner (job `117829119323`), lendo o número do projeto do
+`client_id` — número que não é segredo. Logo o teto de `10.000/1.600` = **6
+envios de vídeo por dia vale para a frota inteira.**
+
+**E a consequência era imediata.** A cota zera à meia-noite do **Pacífico**, logo
+a janela corre de **07:00 UTC a 07:00 UTC**. As seis peças de ontem (18:16 a
+23:13 UTC) estão TODAS na janela que só fecha às 07:00 de hoje: **9.600 de
+10.000 usadas, sobram 400, e um envio custa 1.600.**
+
+**Por isso esta rodada NÃO publicou** — a sétima peça da janela levaria
+`403 quota`. Não é escolha, é aritmética. E ontem a frota fechou o dia a **96%
+da cota sem ninguém saber**: uma peça a mais em qualquer rodada teria falhado.
+
+**O que isto significa para os seus 7/dia/canal:** são 21 envios = 33.600
+unidades = **3,4x a cota**. O ritmo ATUAL (2/dia/canal) já bate no teto.
+
+**As duas saídas, e a ordem mudou com a medição:**
+1. **Separar em TRÊS projetos do Cloud** — multiplica o teto por três (6 → 18/dia)
+   e **não depende de aprovação de ninguém**. Custa você criar dois projetos no
+   console e colar um `YT_OAUTH_JSON` novo. **Esta passou na frente.**
+2. **Extensão de cota** pelo formulário de auditoria do YouTube — levanta o teto
+   dentro de um projeto, é grátis, e a resposta leva dias ou semanas.
+
+**E uma regra operacional nova:** a janela de cota vira às 07:00 UTC, então
+rodada entre 00:00 e 07:00 depois de um dia cheio é de engenharia por aritmética.
+A produção volta às 07:0x.
+
+Inscritos **68 / 21 / 9**, sexta leitura seguida com o 9; os três `indeterminado`.
+`execute_sql` negado pela 25ª rodada; **86** linhas de `insert into videos`
+parqueadas.

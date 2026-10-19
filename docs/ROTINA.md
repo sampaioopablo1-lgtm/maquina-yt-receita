@@ -90,10 +90,10 @@ leituras devolve a **réplica ATRASADA** — medido em 17 de 17 peças, com cont
 (peça em zero verdadeiro fica em zero). **O estimador é o MÁXIMO das leituras,
 declarado como PISO, com a faixa ao lado**; a mediana só serviria se elas
 divergissem em direções OPOSTAS, o que nunca observei. Números em `CLAUDE.md`.
-**RETRATAÇÃO PARCIAL (707/708):** a réplica fresca NÃO vem sempre na terceira —
-já foi a 3ª, a 2ª, e a 1ª e a 3ª. A ordem não tem regra; do 688 sobrevive só o
-estimador. E a réplica atrasada é da CHAMADA inteira, não de cada id (ver §3.1).
-**(B) E OSCILA POR DEZENAS** (650): `u-vIsXaKjcM` voltou a 491 quatro vezes.
+**RETRATAÇÃO PARCIAL (707/708):** a réplica fresca não tem ORDEM — já foi a 1ª,
+a 2ª e a 3ª. Do 688 sobrevive só o estimador, e a réplica atrasada é da CHAMADA
+inteira, não de cada id (§3.1).
+**(B) E OSCILA POR DEZENAS** (650): a mesma peça voltou ao mesmo valor 4 vezes.
 **(C) MINHA LISTA MENTE** (652/655/670): "estoque zero" com 55 longos no banco; e
 em 09/10 a lista à mão dizia **27 origens livres** quando a consulta dizia **23**.
 **(C-2) E O PROXY QUE EU INVENTO PARA ORDENAR TAMBÉM MENTE** (658): ordenar pelo
@@ -243,10 +243,9 @@ no BR, 35 no PL, 30 no GR. Os nossos estão em 41-42 s porque EU os empurrei.
 mede o que quer medir"); volta quando houver retenção.
 **ABERTOS AGORA: 37, 38, 39 (esqueleto do short) e 40 (dez a onze cenas).**
 Na fila, não iniciados: short de 22 a 26 s; `broll` na cena 1. **Matar os fades
-DESCEU** (700, medido, e retrata a minha estimativa de "~2,2 s"): são 0,30 s de
-preto em 1.255 quadros (0,72%), **e a primeira emenda cai em 4,77 s, FORA dos três
-segundos que decidem.** **Na frente dele: PAUTA (longo novo) e o que acontece
-DENTRO dos três primeiros segundos.**
+DESCEU** (700, medido): mexe em 3,6% dos quadros e a primeira emenda cai FORA dos
+três segundos que decidem. **Na frente dele: PAUTA (longo novo) e o que acontece
+DENTRO dos três primeiros segundos.** Números em `CLAUDE.md`.
 
 **O DINAMISMO VISUAL — a física diz onde está a alavanca:**
 `movimento por quadro = amplitude / (duração da cena x fps)`, logo
@@ -754,11 +753,13 @@ os três nos dois passos.
 - **CONFIRA NO VÍDEO PUBLICADO, não no código.** `videos.list` omite tags enquanto
   indexa; `processingDetails` dá 403 em token de outro canal. **E `P0D` só é
   indexação nos primeiros minutos — depois de 2 h é defeito (665).**
-- **COTA: ~6 ENVIOS DE VÍDEO/DIA POR PROJETO** (`10.000/1.600`), CORREÇÃO de
-  18/10 — a linha dizia "~40/janela" e errava ~4x contra a nossa §4. **Limita os
-  7/dia/canal por uma via TERCEIRA**, que não é o `TETO_POR_CANAL` nem o cron:
-  pede extensão de cota. Por canal ou da frota é INDETERMINADO e se lê no banco.
-  Prova em `docs/pipeline-canal-dark-v2-o-que-entrou.md`.
+- **COTA: ~6 ENVIOS/DIA NA FROTA INTEIRA** (`10.000/1.600`), MEDIDO em 19/10 —
+  os três canais compartilham um projeto, logo o teto NÃO é por canal. **E A
+  JANELA VIRA ÀS 07:00 UTC** (meia-noite do Pacífico): **CONTE AS PEÇAS DA
+  JANELA, nunca do dia calendário** — às 00:2x o dia dizia ZERO e a janela SEIS
+  (9.600/10.000), e a sétima levaria `403 quota`; classe do 771. Rodada entre
+  00:00 e 07:00 UTC após um dia de seis peças é de ENGENHARIA por aritmética. Os
+  7/dia/canal são 3,4x a cota. Prova, id do projeto e saídas no `CLAUDE.md`.
   403 `quota` na legenda → SEGURE o pacote.
   403 `reason=forbidden location=id` → NÃO retente (622).
 - **O AUTO-DISPARO DO `frota.yml` ESTÁ EXPLICADO:** é
