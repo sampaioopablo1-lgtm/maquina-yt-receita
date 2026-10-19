@@ -1,0 +1,100 @@
+{
+ "slug": "kolejny-poziom-s067",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "bg": "#0B0B0C",
+  "ink": "#F2EEE8",
+  "c1": "#E23B3B",
+  "c2": "#D9C7A7",
+  "red": "#FF4D4D",
+  "ok": "#7FB77E",
+  "panel": "#151517",
+  "mut": "#8F877C",
+  "acc": "#E23B3B"
+ },
+ "pacote": "kolejny-poziom-s067",
+ "longo_existente": "ef_oZmfmdz4",
+ "thumb": {
+  "l1": "Zmiana",
+  "l2": "to sprzedaż"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Zmieniasz fundusz",
+   "nar": "Zmieniasz fundusz i myślisz, że to nic nie kosztuje.",
+   "sub": "i myślisz, że to darmowe"
+  },
+  {
+   "layout": "item",
+   "kicker": "Dopóki trzymasz",
+   "nar": "Dopóki nie sprzedajesz, podatek nie istnieje."
+  },
+  {
+   "layout": "item",
+   "kicker": "Zmiana to sprzedaż",
+   "nar": "Ale zmiana produktu to po prostu sprzedaż."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Kiedy go płacisz",
+   "nar": "Zmiana realizuje zysk i podatek staje się dziś.",
+   "itens": [
+    "trzymasz",
+    "zmieniasz"
+   ],
+   "alturas": [
+    1,
+    8
+   ]
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Nie stawka",
+   "nar": "Zmienia się nie stawka, tylko termin zapłaty.",
+   "sub": "a termin"
+  },
+  {
+   "layout": "lista",
+   "kicker": "Co tracisz",
+   "nar": "Pieniądze wychodzą wcześniej i przestają pracować.",
+   "itens": [
+    "pieniądze wychodzą wcześniej",
+    "i przestają pracować"
+   ]
+  },
+  {
+   "layout": "item",
+   "kicker": "Przez resztę lat",
+   "nar": "A reszta lat pracuje już mniejszym kapitałem."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Ten sam zysk",
+   "nar": "Ten sam zysk, a koszt zależy od liczby zmian.",
+   "itens": [
+    "raz na końcu",
+    "przy każdej zmianie"
+   ],
+   "alturas": [
+    3,
+    8
+   ]
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlatego podwójnie",
+   "nar": "Dlatego częsta zmiana funduszu kosztuje podwójnie."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Policz zmiany",
+   "nar": "Policz swoje zmiany, zanim zrobisz następną.",
+   "sub": "zanim zrobisz kolejną"
+  }
+ ],
+ "copy": "# kolejny-poziom-s067\n\n## TITULO\nZmiana Funduszu Nie Jest Darmowa: To Sprzedaż, Która Przyspiesza Termin Podatku\n\n## TITULO SHORT\nZmiana to sprzedaż\n\n## DESCRICAO\nPrzenosisz pieniądze z jednego produktu do drugiego i wygląda to na ruch neutralny — te same pieniądze, inne opakowanie. **Tylko że przeniesienie jest sprzedażą.**\n\n**Dopóki nie sprzedajesz, podatek od zysku nie istnieje na twoim rachunku.** Zysk jest na papierze i cały kapitał dalej pracuje. W momencie zmiany zysk zostaje zrealizowany, a zapłata przestaje być kwestią przyszłości.\n\n**I tu jest rzecz, którą łatwo przeoczyć: nie zmienia się stawka, zmienia się TERMIN.** Pieniądze wychodzą z rachunku wcześniej, niż musiały, i przez całą resztę lat pracuje już mniejszy kapitał. Ten sam zysk kosztuje więcej albo mniej w zależności od tego, ile razy go zrealizowałeś po drodze.\n\n**Dlatego częsta zmiana funduszu kosztuje podwójnie:** raz przez samą zapłatę przyspieszoną o lata, a drugi raz przez to, czego ten ubytek nie zarobi już do końca.\n\n**Co zrobić z tym dzisiaj:** policz, ile razy przenosiłeś pieniądze między produktami. Każda z tych zmian przesunęła termin do przodu, i tego nie widać na żadnym wyciągu.\n\nNie podaję tu stawek, limitów ani dat. Liczba państwowa zmienia się rozporządzeniem; mechanizm — sprzedaż realizuje zysk — nie zmienia się.\n\nW pełnym materiale: opłata za zarządzanie liczona co roku, podatek liczony raz, i dlaczego kolejność ma większe znaczenie niż sama stawka.\n\n## COMENTARIO FIXADO\nNajmniej oczywiste: zmiana nie podnosi stawki, tylko przesuwa termin — a przesunięty termin zabiera lata pracy kapitału. Ile razy zmieniałeś produkt?\n\n## HASHTAGS\n#finanse #inwestowanie #podatki #kolejnypoziom #Shorts\n\n## TAGS\npodatek od zysku, zmiana funduszu, oplata za zarzadzanie, procent skladany, inwestowanie dlugoterminowe, finanse osobiste, oszczedzanie, emerytura, ike, ikze, fundusz inwestycyjny, kolejny poziom, planowanie finansowe, koszty inwestowania, realizacja zysku\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. O longo cita a aliquota do imposto\nsobre ganho, o teto legal da taxa de administracao e os limites anuais de IKE e\nIKZE: todos FORA pela regra (g), porque mudam por rozporzadzenie. A peca tambem\nNAO diz quantas vezes alguem trocou de produto nem quanto isso custou — esses\nsao numeros DO ESPECTADOR. O que ela carrega e uma propriedade de FORMA: enquanto\nnao se vende, o ganho e de papel; vender realiza, e realizar ANTECIPA a data da\nsaida do dinheiro.\n\n## FONTES\nA spec local `kolejny-poziom-004`, que e o pacote do longo `ef_oZmfmdz4` (taxas e\nimposto sobre 200 zl por mes durante trinta anos, 74 cenas de longo no disco). A\nfamilia desta peca sai das cenas 30, 34 e 35 — *\"Placisz go w momencie sprzedazy.\nDopoki nie sprzedajesz, podatek nie istnieje na twoim rachunku\"*, *\"Kazde\nprzelozenie pieniedzy z produktu do produktu realizuje podatek\"* e *\"Dlatego\nczesta zmiana funduszu kosztuje podwojnie\"*. Nenhuma frase desta peca saiu de\nTITULO de capitulo.\n\n**A origem esta em DOIS usos — a MENOR contagem do canal**, empatada com outras\ncinco, e entre as empatadas eu escolhi esta porque ela e de MECANISMO (quando o\nganho se realiza), nao de numero do mundo que muda: a candidata da `placa\nminimalna` (`34SgUG7rf0U`) e feita inteira de valores que mudam por lei, e a de\nIKE contra IKZE (`iqV7m6tKb5A`) depende de limite anual e de faixa de imposto.\nNenhuma das duas sobreviveria a regra (g) sem ficar sem conteudo.\n\n**As duas familias ja usadas desta origem sao OUTRAS, conferidas antes de\nescrever:** a mesma contribuicao em ordem diferente (`s009`) e comparar duas\ncobrancas pela ALIQUOTA quando o que decide e a FREQUENCIA (`s028`). Esta — a\ntroca de produto ANTECIPA o termo do imposto — nenhuma tocou.\n\n**E ela NAO e a familia do horizonte** que eu usei no `epomeno-epipedo-s067` uma\nhora antes (julgar o numero por UM ano em vez dos anos de posse). Ali o erro e de\nJANELA de leitura; aqui o erro e de ATO — a troca muda a data em que o dinheiro\nsai. Vai dito porque escolher duas vezes a mesma ideia em canais diferentes e\nexatamente o habito que o `concentracao_frota` nasceu para pegar, e neste caso o\ncontador nao o pegaria: ele conta origem, nao ideia.\n\n## EXPOSICAO\n**Esqueleto NOVO, e ele nao existe em nenhuma das 105 formas da frota:**\n`titulo-item-item-barras-titulo-lista-item-barras-item-cta`. Varrido o disco antes\nde escrever. `barras` duas vezes e `lista` na sexta cena.\n\n**E as barras sao o argumento:** a cena 4 desenha QUANDO se paga (segurando, quase\nnada; trocando, hoje) e a cena 8 desenha o mesmo ganho custando diferente conforme\no numero de trocas. Quem assistir sem som ve a tese nos dois graficos.\n\nPrevisao edge **41,9 s** e piper **35,7 s**, os dois dentro de 18 a 45, e o edge\ndentro do `ALVO_SHORT` da frota (41,5 a 43,0) e **na metade de baixo dela**, que e\no que a tabela do `CLAUDE.md` manda para este canal (*\"mire o PISO\"*). Este canal\n**nao tem `ALVO_POR_CANAL` medido** e o `mira.py` diz isso em vez de inventar\nfaixa.\n\n**A exposicao vai declarada antes de publicar:** com a banda em (−1,2; 4,0), se o\nedge narrar o real cai em algum ponto de **(40,7; 45,9)** — e o topo PASSA do teto\nde 45 do portao, como aconteceu com o `epomeno-epipedo-s032` (46 s reais, portao\nverde nos dois mundos). **Eu nao digo de que lado ele vai cair**, porque a banda\ntem 5,2 s de largura contra 1 s de granularidade e escolher um lado nao e previsao\n(774). O que esta medido deste canal e que ele nunca deu resíduo negativo — os\ncinco da serie inteira sao do `epomeno-epipedo`.\n"
+}
