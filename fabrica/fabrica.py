@@ -311,6 +311,32 @@ def geometria_thumb(th, H=720):
     }
 
 
+def _luma(hexa: str) -> float:
+    """Luminancia BT.601 de um "#RRGGBB". Fonte unica desta conta no modulo."""
+    h = (hexa or "#000000").lstrip("#")
+    r, g, b = int(h[0:2], 16), int(h[2:4], 16), int(h[4:6], 16)
+    return 0.299 * r + 0.587 * g + 0.114 * b
+
+
+def _caixa_da_capa(pal: dict) -> str:
+    """A cor do cartao da capa, pela POLARIDADE da tinta.
+
+    Era `#FFFFFF` CRAVADO, e isso assume em silencio que `ink` e escura.
+    Medido em 19/10/2026: ao derivar a paleta do `labtreinamento` do longo da
+    referencia do dono (fundo com YAVG 37,3), a `ink` virou CLARA e a capa saiu
+    com texto quase branco sobre cartao branco — ILEGIVEL. Nenhum portao via:
+    o `layout.analisa_thumb` mede COLISAO e TRANSBORDO, e o `visual` amostra o
+    VIDEO; nenhum dos dois mede CONTRASTE entre tinta e fundo.
+
+    E a mesma assinatura do `assert 20 <= ds <= 60` do `etapas.py`: a regra
+    morava em dois lugares e so um sabia da mudanca.
+
+    Com tinta ESCURA devolve branco, que e byte a byte o que saia antes — logo
+    nenhuma capa da frota muda de aparencia, e isso tem contraprova em teste.
+    """
+    return "#FFFFFF" if _luma(pal.get("ink", "#000000")) < 128 else pal["bg"]
+
+
 def svg_thumb(th, pal, W=1280, H=720):
     """A thumbnail, com as duas linhas posicionadas por CALCULO.
 
@@ -334,7 +360,7 @@ def svg_thumb(th, pal, W=1280, H=720):
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}">'
         f'<rect width="{W}" height="{H}" fill="{pal["c1"]}"/>'
         f'<rect x="{MARGEM}" y="{MARGEM}" width="{W - 2 * MARGEM}" '
-        f'height="{H - 2 * MARGEM}" fill="#FFFFFF"/>'
+        f'height="{H - 2 * MARGEM}" fill="{_caixa_da_capa(pal)}"/>'
         # As LINHAS vem da geometria, nao de um `wrap` repetido aqui com outro
         # `n`. Era assim antes (n=12 e n=16) e funcionava por coincidencia: bastava
         # a conta e o desenho discordarem de uma linha para o portao aprovar uma
