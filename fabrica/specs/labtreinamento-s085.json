@@ -1,0 +1,100 @@
+{
+ "slug": "labtreinamento-s085",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "bg": "#0E1117",
+  "ink": "#EEF1F5",
+  "c1": "#3DDBD9",
+  "c2": "#1E2430",
+  "red": "#FF5A5F",
+  "ok": "#3CCB7F",
+  "panel": "#161B24",
+  "mut": "#8B95A5",
+  "acc": "#3DDBD9"
+ },
+ "pacote": "labtreinamento-s085",
+ "longo_existente": "KRUERlNPzDw",
+ "thumb": {
+  "l1": "Sem registro",
+  "l2": "nota zero"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Você deu uma nota",
+   "nar": "Você deu uma nota.",
+   "sub": "sem ter onde apontar"
+  },
+  {
+   "layout": "item",
+   "kicker": "De onde ela saiu",
+   "nar": "Ela saiu da percepção."
+  },
+  {
+   "layout": "barras",
+   "kicker": "O que sustenta a nota",
+   "nar": "Percepção não sustenta.",
+   "itens": [
+    "percepção",
+    "registro"
+   ],
+   "alturas": [
+    1,
+    9
+   ]
+  },
+  {
+   "layout": "item",
+   "kicker": "A coluna da evidência",
+   "nar": "A coluna pede a evidência."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Sem onde apontar",
+   "nar": "Sem onde apontar, a nota é zero.",
+   "sub": "a nota é zero"
+  },
+  {
+   "layout": "lista",
+   "kicker": "O que serve",
+   "nar": "Serve ata ou indicador.",
+   "itens": [
+    "ata, registro",
+    "indicador com série"
+   ]
+  },
+  {
+   "layout": "item",
+   "kicker": "Não é rigor",
+   "nar": "Não é rigor, é a diferença."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Diagnóstico ou opinião",
+   "nar": "Com evidência é diagnóstico.",
+   "itens": [
+    "com evidência",
+    "sem evidência"
+   ],
+   "alturas": [
+    8,
+    2
+   ]
+  },
+  {
+   "layout": "item",
+   "kicker": "Sem ela é opinião",
+   "nar": "Sem ela, é opinião."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Confira a coluna",
+   "nar": "Confira a evidência antes.",
+   "sub": "antes da nota"
+  }
+ ],
+ "copy": "# labtreinamento-s085\n\n## TITULO\nA Nota do Diagnóstico Sem Coluna de Evidência É Opinião com Número do Lado\n\n## TITULO SHORT\nSem registro, nota zero\n\n## DESCRICAO\nVocê abriu a aba de diagnóstico, olhou um eixo e escreveu uma nota. **A pergunta que decide se aquilo vale é a seguinte: de onde veio esse número?**\n\nSe ele veio da percepção da equipe — \"aqui a liderança participa pouco\", \"isso a gente já faz\" —, então a planilha não está medindo nada. **Percepção não sustenta nota.** Ela sustenta uma conversa, que é outra coisa.\n\n**É por isso que existe a coluna da evidência, e é ela que separa diagnóstico de opinião.** Ela pergunta uma coisa só: onde está o documento que sustenta essa frase. Ata de análise crítica, registro de treinamento, indicador com série histórica, procedimento publicado.\n\n**E a regra que quase ninguém aplica: se não há onde apontar, a nota daquela linha é zero.** Não é \"média\", não é \"três\". Zero — porque zero é exatamente o que a palavra significa ali: não existe de forma verificável. Arredondar isso para cima é o que faz uma aba inteira parecer pronta e depois não sustentar nada na auditoria.\n\n**O que fazer com isso hoje:** passe o olho na sua coluna de evidência e conte quantas linhas estão vazias com nota preenchida do lado. Cada uma delas é uma opinião com número.\n\nNão dou aqui datas, prazos nem versões de norma. Número de norma muda por publicação e fica fora. O mecanismo — sem onde apontar, não há o que medir — não muda.\n\nNo material completo: as quatro abas, as cinco colunas do diagnóstico, a conta da prioridade e a verificação de eficácia.\n\n## COMENTARIO FIXADO\nO menos obvio: a nota generosa não é otimismo, é o que faz a aba PARECER pronta. Quantas linhas suas têm nota e a coluna de evidência vazia?\n\n## HASHTAGS\n#iso9001 #qualidade #gestao #labtreinamento #Shorts\n\n## TAGS\niso 9001, sistema de gestao da qualidade, diagnostico de lacunas, evidencia objetiva, auditoria interna, analise critica, indicador de desempenho, plano de acao, transicao de norma, gestao da qualidade, lab treinamento, planilha de diagnostico, verificacao de eficacia, registro de treinamento, qualidade\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. O longo cita a data de publicacao da\nedicao nova, a janela de transicao em anos e o ano em que ela fecha: os tres\nficaram FORA pela regra (g), porque mudam por publicacao de norma. **E a escala da\nnota tambem ficou fora da narracao** — ela e convencao da planilha, como as notas\nda matriz de risco do `s083`, e cravar a faixa aqui seria repetir numero que o\nproprio video pode mudar. O unico numero que a peca diz e o ZERO, e ele nao e\nescala: e o que a ausencia de evidencia significa.\n\n## FONTES\nA spec local `labtreinamento-003`, que e o pacote do longo `KRUERlNPzDw`\n(planilha de transicao da ISO 9001, 84 cenas de longo no disco). A familia desta\npeca sai das cenas 30, 31 e 32 — *\"Evidencia e a coluna que separa diagnostico de\nopiniao\"*, a lista do que serve, e *\"Nao serve a percepcao da equipe sem registro.\nSe nao ha onde apontar, a nota daquela linha e zero.\"* Nenhuma frase desta peca\nsaiu de TITULO de capitulo.\n\n**A origem esta em QUATRO usos — a MENOR contagem do canal**, empatada com\n`yrWVyqQtw00`. Entre as duas eu escolhi esta porque ela e de PROCEDIMENTO (uma\ncoluna de planilha, uma regra de preenchimento) e a outra e a NR-10, cujo\nconteudo e prazo e exigencia que mudam por norma — a distincao escrita no\n`CLAUDE.md` desde 19/10, e a mesma razao pela qual eu escolhi assim nas tres\nrodadas anteriores.\n\n**As quatro familias ja usadas desta origem sao OUTRAS, conferidas uma a uma\nantes de escrever:** a data que obriga voce e outra (`s012`), prazo de terceiro\ntratado como proprio (`s050`), uma celula com N itens dentro (`s052`) e quem fez\nnao verifica (`s072`). Esta — dar nota sem ter onde apontar — nenhuma tocou.\n\n## EXPOSICAO\n**Esqueleto NOVO, inedito nas 106 formas da frota:**\n`titulo-item-barras-item-titulo-lista-item-barras-item-cta`. Varrido o disco antes\nde escrever. `barras` duas vezes e `lista` na sexta cena.\n\n**E as barras sao o argumento:** a cena 3 desenha o que cada coisa SUSTENTA\n(percepcao quase nada, registro tudo) e a cena 8 desenha o que a planilha E com e\nsem a coluna preenchida. Quem assistir sem som ve a tese nos dois graficos.\n\nPrevisao edge **25,2 s** e piper **20,7 s**, os dois DENTRO da mira medida do\ncanal (20,0 a 26,0) e dentro de 18 a 45 nos dois mundos — conferido pelo\n`fabrica/mira.py`, nao de cabeca. A primeira versao previa **28,8 s** no edge e o\ninstrumento REPROVOU; foi encurtada.\n\n**A mira verde NAO promete real dentro, e a frequencia esta medida:** pelo tally\ndo 744/754/758, trinta e oito das quarenta e duas pecas deste canal narradas pelo\nedge sairam ACIMA do teto de 26,0 com o `mira.py` verde nos dois mundos. Com a\nbanda em (−1,2; 4,0), se o edge narrar o real cai em algum ponto de\n**(24,0; 29,2)** — e eu nao digo de que lado, porque a banda tem 5,2 s de largura\ncontra 1 s de granularidade e declarar um lado dela nao e previsao (774).\n"
+}
