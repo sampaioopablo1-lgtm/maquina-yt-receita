@@ -2863,6 +2863,79 @@ a delegação é por **AST** (o docstring cita a fórmula em prosa, e casar pros
 pegaria a explicação), e há contraprova nos dois sentidos — canal sem mira segue
 sem orçamento, e desligado o conserto **três dos onze falham**.
 
+### E ÀS 15:2x ELE TINHA MAIS DOIS, os dois medidos na PRIMEIRA peça fora do labtreinamento
+
+**A rodada das 15:06 foi a primeira em que o contador escolheu outro canal**
+(10/9/9, empate em 9 desempatado pelo mais antigo → `epomeno-epipedo`), e o
+instrumento quebrou de duas formas mais:
+
+3. **ELE COBRIA UM CANAL DE TRÊS.** Lia `ensaio.ALVO_POR_CANAL.get()` direto, e
+   esse dicionário tem **uma** entrada. Nos outros dois canais da frota — os que
+   usam o `ALVO_SHORT` (41,5 a 43,0) — devolvia `None`. **E o acessor de fonte
+   única existe e eu não o chamei:** `ensaio.alvo_short(canal)` resolve mira do
+   canal OU faixa da frota, a MESMA forma do `faixa_do_short(sp)` que o conserto
+   de uma hora antes passou a usar. **Terceira vez seguida, no mesmo
+   instrumento, do mesmo defeito: não chamar quem já sabe.** Medido depois:
+   **355 de 355** specs com short recebem orçamento, zero `None`. A precedência
+   fica declarada — **faixa DECLARADA na spec > mira do canal > faixa da
+   FROTA**, as duas últimas pelo mesmo acessor;
+4. **ELE MIRAVA A ESTIMATIVA E TODO MUNDO LÊ A PREVISÃO REAL.** Pedi o orçamento
+   para o piso (41,5), escrevi dez cenas com a média EXATA que ele deu (53
+   caracteres) e o resultado foi:
+
+| | |
+|---|---|
+| `ensaio.duracao_estimada` | **41,44** — o que o `chars_por_cena` mira |
+| `ensaio.duracao_real_prevista` | **43,38** — o que a mira e o portão COBRAM |
+
+   **1,94 s de diferença, que é o fator do provedor.** Logo ele dizia *"mirei o
+   piso"* e entregava peça **0,4 s ACIMA do topo** do `ALVO_SHORT`. Duas
+   grandezas com o mesmo nome `alvo` dentro do mesmo relato — o **753 em forma
+   de UNIDADE**. O conserto NÃO reescreve a fórmula: `_chars_para_o_real`
+   **INVERTE numericamente** a função que já é dona dela, e o mundo é o `edge`
+   por MEDIÇÃO (43,38 contra 38,44 no piper na mesma peça), porque é ele que
+   encosta no teto.
+
+**E o RELATO não imprimia o orçamento no canal sem mira própria**, porque o
+bloco ficou **depois do `return`** do ramo *"não tem mira"*: instrumento
+consertado que o chamador não alcança é a classe dos layouts mortos, **dentro do
+conserto dela**. A frase passou a ter UM dono (`_linha_do_orcamento`) — ela havia
+nascido duplicada e a segunda cópia ficou citando `chars_por_cena` depois de a
+conta mudar, que é o 753 em procedência.
+
+`tests/test_a_mira_dizia_se_ESTAVA_nunca_quanto_escrever.py` foi a **treze**
+testes, e **o que cobrava `None` para canal sem mira foi RETRATADO no lugar** —
+era ele a razão de o instrumento cobrir um canal só. Entraram a precedência nos
+três níveis, a **INVERSÃO cobrada dos dois lados** (o valor devolvido cabe no
+alvo e o seguinte NÃO cabe), a contraprova certa (voz fora do `MODELO_VOZ` e spec
+sem short seguem em `None`) e a frase com um dono. **Contraprova:** desligada a
+inversão, reprova exatamente o teste que a mede.
+
+### A PEÇA DESSA RODADA — e ela caiu DENTRO do `ALVO_SHORT` em REAL
+
+`epomeno-epipedo-s068` = **`yj-ZS7OqG7M`**, publicado às 15:34:40Z (run
+`39279037135`), **42 s reais** contra previsão edge **41,71** — resíduo **+0,3**,
+com o sinal **NÃO estabelecido** (0,3 < 1,0) e dentro da banda. Provedor **edge
+MEDIDO** (zero avisos no job `118145935095`), som **−13,9** LUFS, pico −2,7,
+desvio do alvo 0,1, **zero silêncios**. Controle `OhrGlJvnBoM` conferido em 44 s
+na mesma chamada. `RESIDUO_N` = **121**, limites intocados.
+
+**É SEGUNDO ÂNGULO do longo publicado hoje** (`pqTc8jBrq0E`, rank 1 do canal,
+ZERO shorts declarados): o short que saiu NO pacote usou a família do
+DENOMINADOR, e este usa o **ALVO em meses** e a assimetria entre o primeiro e o
+décimo mês (capítulos 48 a 55). Dez cenas, esqueleto
+`titulo-item-lista-item-barras-titulo-item-item-item-cta`, média **50**
+caracteres contra os 49 do orçamento para o piso.
+
+**Mirar o PISO (772) pôs o real DENTRO da faixa** — 42 em 41,5 a 43,0 —, e isso
+**prova pouco**, porque a banda tem 5,2 s de largura contra 1 s de
+granularidade; vai registrado para quando houver pontos bastantes.
+
+**E a descrição foi reescrita porque eu a havia escrito SEM ACENTO grego.** O
+portão `copy` só cobra 200 palavras, e texto sem tonos está errado para quem lê
+o canal — 226 palavras e 151 letras acentuadas na versão que subiu. **Portão
+verde não cobre o que ele não mede**, e aqui quem mediu fui eu relendo.
+
 ## ACRESCENTAR PONTO NA SÉRIE DEIXOU DE SER PASSO MEU
 
 **O terceiro passo manual a menos (§11-bis), e ele é o que já corrompeu dados

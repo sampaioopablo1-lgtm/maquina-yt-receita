@@ -295,6 +295,9 @@ SERIE = [
     # primeira peca escrita com o ORCAMENTO do `mira.orcamento` em vez de conta
     # de cabeca; FORA da mira do canal (teto 26,0), exposicao declarada antes
     ("labtreinamento-014", 25.9, 27, "edge"),  # job 118112095620
+    # # 42 reais, residuo +0,3 NAO estabelecido (770) — mirou o PISO pela
+    # regra do 772, e caiu DENTRO do ALVO_SHORT em real
+    ("epomeno-epipedo-s068", 41.71, 42, "edge"),  # job 118145935095
 ]
 
 
