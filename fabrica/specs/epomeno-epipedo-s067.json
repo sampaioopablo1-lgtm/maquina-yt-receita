@@ -1,0 +1,98 @@
+{
+ "slug": "epomeno-epipedo-s067",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "bg": "#F4EFE6",
+  "ink": "#1B1A17",
+  "c1": "#C8502A",
+  "c2": "#2B6CB0",
+  "red": "#B83227",
+  "ok": "#2E8B57",
+  "panel": "#FFFFFF",
+  "mut": "#7A7263",
+  "acc": "#C8502A"
+ },
+ "pacote": "epomeno-epipedo-s067",
+ "longo_existente": "opFSah50OWo",
+ "thumb": {
+  "l1": "Ένας χρόνος",
+  "l2": "δεν φτάνει"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Ένας χρόνος",
+   "nar": "Έβγαλες το κόστος του αυτοκινήτου για έναν χρόνο.",
+   "sub": "φαίνεται λογικός"
+  },
+  {
+   "layout": "item",
+   "kicker": "Και πέρασε",
+   "nar": "Το νούμερο φάνηκε λογικό και πέρασε χωρίς ερώτηση."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Ένας χρόνος μόνος",
+   "nar": "Ένας χρόνος φαίνεται πάντα λογικός, όποιο κι αν είναι.",
+   "itens": [
+    "ένας χρόνος"
+   ],
+   "alturas": [
+    2
+   ]
+  },
+  {
+   "layout": "item",
+   "kicker": "Εκεί το λάθος",
+   "nar": "Εκεί είναι το λάθος: τον κρίνεις μόνο, έναν χρόνο."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Πολλαπλασίασε",
+   "nar": "Πολλαπλασίασε με τα χρόνια που έχεις αυτό το αυτοκίνητο.",
+   "sub": "με τα χρόνια"
+  },
+  {
+   "layout": "lista",
+   "kicker": "Ίδια συνήθεια",
+   "nar": "Ίδια συμπεριφορά, αθροισμένη σε όλα εκείνα τα χρόνια.",
+   "itens": [
+    "ίδια συμπεριφορά",
+    "αθροισμένη"
+   ]
+  },
+  {
+   "layout": "barras",
+   "kicker": "Τα χρόνια μαζί",
+   "nar": "Τώρα το μέγεθος φαίνεται, και δεν ήταν ποτέ κρυμμένο.",
+   "itens": [
+    "ένας χρόνος",
+    "όλα τα χρόνια"
+   ],
+   "alturas": [
+    2,
+    9
+   ]
+  },
+  {
+   "layout": "item",
+   "kicker": "Σύγκρινε με κάτι",
+   "nar": "Σύγκρινέ το με μήνες ενοικίου ή με χρόνια τελών."
+  },
+  {
+   "layout": "item",
+   "kicker": "Και επιστρέφει",
+   "nar": "Και η απόφαση επιστρέφει κάθε χρόνο, ολόκληρη."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Πολλαπλασίασε",
+   "nar": "Πολλαπλασίασε πρώτα, και μετά κρίνε το νούμερο.",
+   "sub": "πριν κρίνεις"
+  }
+ ],
+ "copy": "# epomeno-epipedo-s067\n\n## TITULO\nΈνας Χρόνος Φαίνεται Πάντα Λογικός — Πολλαπλασίασε με τα Χρόνια Πριν Κρίνεις το Νούμερο\n\n## TITULO SHORT\nΈνας χρόνος δεν είναι όλα\n\n## DESCRICAO\nΈκανες την πράξη: πρόσθεσες ό,τι πλήρωσες για το αυτοκίνητο σε δώδεκα μήνες και το διαίρεσες με τα χιλιόμετρα. Βγήκε ένα νούμερο. **Και φάνηκε λογικό.**\n\n**Αυτό είναι το σημείο που ξεγελάει, και δεν είναι η πράξη — είναι ο ορίζοντας.** Ένας χρόνος φαίνεται λογικός όποιο κι αν είναι το νούμερο, γιατί ένας χρόνος είναι μικρός. Γι' αυτό περνάει κάθε φορά χωρίς ερώτηση.\n\n**Πολλαπλασίασε με τα χρόνια που έχεις αυτό το αυτοκίνητο.** Ίδια συμπεριφορά, αθροισμένη. Τίποτα δεν άλλαξε στα δικά σου νούμερα — άλλαξε μόνο το παράθυρο μέσα από το οποίο τα βλέπεις, και το μέγεθος που ήταν πάντα εκεί γίνεται ορατό.\n\n**Και για να το νιώσεις, σύγκρινέ το με κάτι γνωστό:** με πόσους μήνες ενοικίου, ή με πόσα χρόνια τελών. Το νούμερο μόνο του δεν λέει τίποτα· δίπλα σε κάτι που ξέρεις, λέει.\n\n**Το καλό είναι ότι η απόφαση επιστρέφει κάθε χρόνο, ολόκληρη.** Μια χρονιά που πέρασε δεν δεσμεύει την επόμενη, και μπορεί να βγει μικρό και να μη χρειάζεται να αλλάξει τίποτα — αυτή είναι ολόκληρη απάντηση.\n\nΔεν δίνω εδώ τιμές, ποσοστά ούτε ημερομηνίες. Το νούμερο του κράτους αλλάζει· η αριθμητική όχι.\n\nΣτο πλήρες υλικό: η πράξη βήμα προς βήμα, πού βρίσκεις τα στοιχεία χωρίς αρχείο, και τα τέσσερα πράγματα που η πράξη δεν πιάνει.\n\n## COMENTARIO FIXADO\nΤο λιγότερο προφανές: η πράξη ήταν σωστή και το συμπέρασμα λάθος, επειδή ο ορίζοντας ήταν ένας χρόνος. Πόσα χρόνια έχεις το δικό σου;\n\n## HASHTAGS\n#οικονομικα #αυτοκινητο #κοστος #epomenoepipedo #Shorts\n\n## TAGS\nκοστος αυτοκινητου, κοστος ανα χιλιομετρο, προσωπικα οικονομικα, τελη κυκλοφοριας, ασφαλεια αυτοκινητου, καυσιμα, προυπολογισμος, αποταμιευση, οικονομια νοικοκυριου, χιλιομετρητης, σταθερα κοστη, epomeno epipedo, οικονομικος σχεδιασμος, εξοδα μεταφορας, υπολογισμος κοστους\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. O longo cita valores de tele\nkykloforias, precos e datas de renovacao: todos FORA pela regra (g), porque mudam\npor lei. A peca tambem NAO diz quantos anos alguem tem o carro nem quanto custa o\nquilometro — esses sao numeros DO ESPECTADOR, e cravar um aqui seria inventar o\ncaso dele. O que ela carrega e uma propriedade de ESCALA: o mesmo valor anual\nmultiplicado pelos anos de posse e o mesmo comportamento somado, e so o tamanho\nmuda de aparencia.\n\n## FONTES\nA spec local `epomeno-epipedo-013`, que e o pacote do longo `opFSah50OWo` (quanto\ncusta de verdade o seu quilometro, 66 cenas de longo no disco). A familia desta\npeca sai das cenas 50 a 53 — *\"Ένας χρόνος φαίνεται λογικός, όποιο κι αν είναι το\nνούμερο\"*, *\"Πολλαπλασίασε με τα χρόνια που έχεις αυτό το αυτοκίνητο\"* e\n*\"σύγκρινέ το με κάτι γνωστό\"*. Nenhuma frase desta peca saiu de TITULO de\ncapitulo.\n\n**A origem esta em TRES usos — a MENOR contagem do canal**, empatada com outras\nsete, e eu escolhi esta entre as empatadas porque ela e de PROCEDIMENTO e CALCULO\n(uma soma, uma divisao, uma multiplicacao), nao de numero do mundo que muda — a\ndistincao escrita no `CLAUDE.md` desde 19/10. As candidatas de tarifa de luz\n(`P2q6w9y7j88`) e de IVA (`jUxJPvmA4Mk`) carregam exatamente o tipo de numero que\na regra (g) manda deixar fora.\n\n**As tres familias ja usadas desta origem sao OUTRAS, conferidas uma a uma antes\nde escrever:** esqueci os custos que nao vem todo mes (`s003`), medir so o que tem\ncomprovante (`s030`), e quilometro caro nao e erro, e disponibilidade (`s056`).\nEsta — julgar o numero por UM ano, quando o horizonte sao os anos de posse —\nnenhuma tocou. **E ela NAO e a familia de \"periodo errado\"** do\n`epomeno-epipedo-s002`, que era misturar doze meses de um lado com um mes do\noutro DENTRO da mesma divisao; aqui a pratica esta certa e o que falha e a JANELA\nem que o resultado e lido.\n\n## EXPOSICAO\n**Esqueleto NOVO, e ele nao existe em nenhuma das 104 formas da frota:**\n`titulo-item-barras-item-titulo-lista-barras-item-item-cta`. Varrido o disco antes\nde escrever. `barras` duas vezes — o layout que tinha ZERO uso em 205 specs antes\nde 19/10 — e `lista` na sexta cena.\n\n**E as barras sao o argumento, nao enfeite:** a cena 3 desenha UMA barra baixa\nsozinha (um ano, que parece razoavel por nao ter com que se comparar) e a cena 7\npoe a mesma barra ao lado dos anos somados. **A tese da peca E a diferenca entre\nos dois graficos**, e quem assistir sem som a ve.\n\nPrevisao edge **41,9 s** e piper **37,1 s**, os dois dentro de 18 a 45 nos dois\nmundos, e o edge dentro do `ALVO_SHORT` da frota (41,5 a 43,0). Este canal **nao\ntem `ALVO_POR_CANAL` medido** e o `mira.py` diz isso em vez de inventar faixa.\n\n**A exposicao vai declarada antes de publicar, e neste canal ela tem lado\nconhecido:** com a banda em (−1,2; 4,0), se o edge narrar o real cai em algum\nponto de **(40,7; 45,9)** — e o topo PASSA do teto de 45 do portao, que foi\nexatamente o que aconteceu com o `epomeno-epipedo-s032` (46 s reais, portao verde\nnos dois mundos). **Eu nao digo de que lado da banda ele vai cair**, porque ela\ntem 5,2 s de largura contra 1 s de granularidade e escolher um lado nao e previsao\n(774). O que esta medido deste canal e que os **cinco residuos negativos da serie\ninteira sao dele e os cinco deram real 41** — o piso do espalhamento desta janela,\nnao um regime do canal, porque na mesma janela ele ja deu 42, 43 e 44.\n"
+}
