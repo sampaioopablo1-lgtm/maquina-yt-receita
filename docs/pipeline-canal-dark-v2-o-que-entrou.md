@@ -74,6 +74,25 @@ responde sozinha** — e eu **não** vou publicar uma sétima peça para testar,
 porque gastar cota do dono num experimento que eu inventei é exatamente o que a
 §10 proíbe. A próxima rodada (00:0x) cai em outro dia UTC e zera a conta.
 
+### E EM 19/10 ÀS 00:4x O "~6/DIA" CAIU — a produção falsificou a PREMISSA
+
+A conta desta seção (`10.000/1.600` = 6) está certa. **A premissa não: a cota
+deste projeto não é a padrão de 10.000.** Às 00:49:51 UTC a **SÉTIMA** peça da
+janela que abriu às 07:00 de 18/10 foi publicada **sem `403 quota`** — 7 × 1.600
+= **11.200**, acima dos 10.000. É o discriminador que eu havia escrito em letra,
+executado pela produção normal e não por experimento inventado.
+
+**O que fica medido é um PISO: a cota é ≥ 11.200.** O teto segue desconhecido, e
+trocar o 6 por outro número suposto repetiria o erro com outro dígito. Quem o
+acha é o primeiro `403 quota` de uma rodada normal — e requisição recusada não
+consome cota, logo descobrir é de graça.
+
+**E isto apaga a pendência 1 do item 6 abaixo:** a extensão de cota pelo
+formulário de auditoria deixou de ser o que destrava os 7/dia/canal, porque o
+projeto já tem extensão. O que falta saber é de quanto.
+
+---
+
 ---
 
 ## 2. O que o documento deles afirma e a NOSSA PRODUÇÃO FALSIFICA

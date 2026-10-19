@@ -753,13 +753,13 @@ os três nos dois passos.
 - **CONFIRA NO VÍDEO PUBLICADO, não no código.** `videos.list` omite tags enquanto
   indexa; `processingDetails` dá 403 em token de outro canal. **E `P0D` só é
   indexação nos primeiros minutos — depois de 2 h é defeito (665).**
-- **COTA: ~6 ENVIOS/DIA NA FROTA INTEIRA** (`10.000/1.600`), MEDIDO em 19/10 —
-  os três canais compartilham um projeto, logo o teto NÃO é por canal. **E A
-  JANELA VIRA ÀS 07:00 UTC** (meia-noite do Pacífico): **CONTE AS PEÇAS DA
-  JANELA, nunca do dia calendário** — às 00:2x o dia dizia ZERO e a janela SEIS
-  (9.600/10.000), e a sétima levaria `403 quota`; classe do 771. Rodada entre
-  00:00 e 07:00 UTC após um dia de seis peças é de ENGENHARIA por aritmética. Os
-  7/dia/canal são 3,4x a cota. Prova, id do projeto e saídas no `CLAUDE.md`.
+- **COTA: teto DESCONHECIDO; piso MEDIDO ≥ 7 envios/janela na FROTA.** Em 19/10
+  às 00:4x a SÉTIMA peça passou sem `403` — 11.200 contra a cota "padrão" de
+  10.000 —, logo o projeto TEM extensão e o "~6/dia" CAIU. **Não troque 6 por
+  outro número suposto:** quem acha o teto é o primeiro `403 quota` de rodada
+  normal, e recusa não gasta. Um projeto para os três, logo o teto é da frota.
+  **E A JANELA VIRA ÀS 07:00 UTC** (meia-noite do Pacífico): **CONTE AS PEÇAS DA
+  JANELA, nunca do dia calendário** — classe do 771. Prova no `CLAUDE.md`.
   403 `quota` na legenda → SEGURE o pacote.
   403 `reason=forbidden location=id` → NÃO retente (622).
 - **O AUTO-DISPARO DO `frota.yml` ESTÁ EXPLICADO:** é

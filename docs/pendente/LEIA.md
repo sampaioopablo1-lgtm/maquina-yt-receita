@@ -1884,3 +1884,28 @@ A produção volta às 07:0x.
 Inscritos **68 / 21 / 9**, sexta leitura seguida com o 9; os três `indeterminado`.
 `execute_sql` negado pela 25ª rodada; **86** linhas de `insert into videos`
 parqueadas.
+
+## 19/10 às 00:5x — o teto de 6 envios/dia CAIU, e isso muda a sua decisão
+
+Você decidiu "vamos manter os 6 por enquanto" sobre um número meu. **O número
+caiu na rodada seguinte, pela própria produção.**
+
+A sétima peça da janela foi publicada às 00:49:51 UTC **sem erro de cota** —
+7 x 1.600 = 11.200 unidades, contra uma cota "padrão" de 10.000. **Logo o
+projeto do Google Cloud já tem cota estendida.**
+
+Três consequências para você:
+
+1. **as duas saídas que eu te ofereci ficaram desnecessárias** — dividir em três
+   projetos do Cloud e o formulário de extensão do YouTube. Nenhuma das duas é
+   preciso;
+2. **o teto verdadeiro eu não sei**, e não vou inventar outro número. O que está
+   medido é um piso: pelo menos 7 envios por janela na frota. Quem acha o teto é
+   o primeiro erro de cota numa rodada normal, e esse erro não custa nada;
+3. **os 7/dia/canal que você pede voltaram a ser possíveis pela cota.** O que
+   ainda limita é nosso: o teto interno de 1 peça/dia/canal e o agendador do
+   GitHub, que entrega ~5 disparos/dia em vez de 48. As duas são decisão sua e
+   seguem na fila.
+
+E a peça de teste que você pediu está no ar: `a5BV9xEQKvw`, **5 segundos reais**,
+narração, som dentro do alvo, canal LabTreinamento.

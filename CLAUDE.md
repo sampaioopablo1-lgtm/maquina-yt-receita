@@ -93,6 +93,80 @@ do dono, e a primeira é uma colagem de `YT_OAUTH_JSON` nova.
 `tests/test_a_sonda_le_o_PROJETO_sem_vazar_credencial.py`, nove testes; o teto e
 a janela em `tests/test_a_janela_de_cota_vira_as_07_UTC.py`.
 
+### E ÀS 00:4x A SÉTIMA PEÇA DA JANELA PASSOU — O TETO DE 6/DIA CAIU
+
+**Medido em 19/10 às 00:49:51 UTC, e é o discriminador que a seção acima
+declarou:** *"Se um envio passar com a janela nesta conta, é prova de que o
+projeto tem extensão — e aí o teto sobe e isto se relê."* Ele passou.
+
+O `labtreinamento-s081` (`a5BV9xEQKvw`) foi publicado pelo `retomar.yml`
+(run `39182513094`, job `117838091540`) com `::notice:: PUBLICADO` e **sem
+`403 quota`**. Ele é a **SÉTIMA** peça da janela que abriu às 07:00 UTC de 18/10:
+
+| | |
+|---|---|
+| peças na janela | 6 de 18/10 (18:16 a 23:13) + esta | **7** |
+| custo, a 1.600 cada | | **11.200** |
+| cota padrão de um projeto | | **10.000** |
+| passou? | | **SIM** |
+
+**Logo o projeto `777159180424` NÃO tem a cota padrão.** A aritmética de
+`10.000/1.600` = 6 continua certa como conta; **o que estava errado era a
+premissa de que a cota deste projeto é 10.000.** Eu declarei essa premissa como
+não verificada ("extensão eu não consigo ler") e ela foi falsificada pela
+produção, não por leitura de console.
+
+**O que isto estabelece é um PISO, não um teto: a cota é ≥ 11.200**, isto é,
+≥ 7 envios por janela na frota inteira. **O teto verdadeiro segue desconhecido**,
+e dizer "agora são N" seria trocar um número suposto por outro. Quem o
+descobre é a produção: o primeiro `403 quota` numa rodada normal marca o limite,
+e isso não custa nada porque a requisição recusada não consome cota.
+
+**E a consequência atinge DUAS coisas que eu disse ao dono:**
+
+1. **a rodada das 00:07 de 19/10 NÃO precisava ter sido de engenharia.** Eu
+   escrevi que ela "não publicou, e isso é aritmética e não escolha". **Era
+   escolha**, tomada sobre uma premissa não verificada que eu apresentei como
+   conta. A regra da janela de 07:00 UTC **continua valendo** — ela é sobre
+   QUANDO contar, não sobre quanto cabe — e o que cai é o número 6;
+2. **a decisão dele de "manter os 6 por enquanto" foi tomada sobre esse
+   número.** Ela fica retratada aqui para que a rodada seguinte não a use como
+   teto: o que ele decidiu foi não perseguir a divisão em três projetos nem o
+   formulário de extensão, e **essas duas seguem desnecessárias por outro
+   motivo** — o projeto já tem extensão.
+
+**O que NÃO cai:** que os três canais compartilham o projeto `777159180424`
+(medido, job `117829119323`), e que a janela vira às 07:00 UTC. As duas seguem.
+
+`tests/test_a_SETIMA_peca_da_janela_passou.py`.
+
+### E A PEÇA DE 5 s É O PRIMEIRO PONTO DESSA FAIXA — pedido do dono em 19/10
+
+Palavras dele: *"produza e publique vídeo teste, mas de alta qualidade e
+performance, narração e poste agora. Vídeo de até 5 segundos."*
+
+O `labtreinamento-s081` tem **duas cenas**, `short_alvo_s: [3.0, 6.0]` declarado
+NA SPEC (o campo do formato de 2 min, de 16/10), previsão edge **4,37** e piper
+**3,59** — e **5 s REAIS**, lidos com o controle `OhrGlJvnBoM` conferido em 44 s
+na mesma chamada. Provedor **edge** MEDIDO (zero avisos no job `117837682861`).
+Som `-14,1` LUFS, pico `-3,2` dBTP, zero silêncios. **2,2 s por plano**, mais
+rápido que os 3,1 s da cadência medida.
+
+**O resíduo é +0,63 e o SINAL NÃO ESTÁ ESTABELECIDO:** real 5 significa duração
+verdadeira em `(4; 5]`, e a previsão de 4,37 cai DENTRO desse intervalo. Pelo
+critério do 770 com a borda do 18/10, `5 − 4,37 = 0,63 < 1,0`.
+
+**E ele NÃO entra na série do `mira.py`**, que é construída em peças de 23 a 44 s:
+somar um ponto de 4,4 s ali é o erro de enquadramento do 679/698/725, o mesmo
+motivo pelo qual a peça de 2 min (+4,8) ficou de fora. **Nesta faixa a banda tem
+UM ponto, e ele é este.** `RESIDUO_N` segue 105.
+
+**NADA de parâmetro mudou (§10):** `ALVO_SHORT` (41,5 a 43,0) e
+`ALVO_POR_CANAL` do canal (20,0 a 26,0) estão intocados, e é por isso que o
+`mira.py` reprova esta peça pelo PISO — esperado, porque ela declarou outra
+faixa. O que ela testa é formato, e o veredito de desempenho dela é view, que
+ainda não existe.
+
 ## EU DISSE AO DONO QUE "LONGO NOVO NÃO É POSSÍVEL" — E A GENERALIZAÇÃO ERA MINHA
 
 **Retratação de 19/10 às 00:4x, provocada por uma CAPTURA DE TELA do dono** — a
