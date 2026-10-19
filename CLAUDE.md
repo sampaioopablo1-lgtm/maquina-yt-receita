@@ -3894,6 +3894,108 @@ em vez de ficar**), a prova chama o DONO da regra (`publicar.ler_copy`) com uma
 copy renderizada em vez de reimplementar a regex, a contraprova no outro sentido
 cobra a herança do título, e um **falha se o incidente de 01/09 sair da nota**.
 
+## O PORTAO DIZIA "SEM COMENTARIO FIXADO" E NUNCA PODIA DIZER
+
+**Medido em 19/10 as 20:3x, na copy que eu mesmo acabei de escrever.** Entreguei
+a copy do `labtreinamento-s087` sem a secao `## COMENTARIO FIXADO` e sem a
+`## HASHTAGS`, e o portao `copy` reprovou com **UM** problema:
+
+    copy: 1 problema(s)
+      - sem hashtags
+
+**e deu VERDE no comentario, que tambem faltava.** A causa esta no
+`publicar.ler_copy`: o `comentario` e um **balde PEGA-TUDO** — o ultimo `elif`
+da classificacao de secoes leva a primeira secao que nao casou com licenca,
+capitulos, hashtags nem tags. Sem a secao propria, quem caiu ali foi o bloco
+`## CONFIGURACOES DO STUDIO`. **Reproduzido: `privacyStatus: public` e companhia
+iriam ao ar como COMENTARIO FIXADO do video**, e a conferencia
+`if not cp.get("comentario")` do portao **e incapaz de pegar isso** — ela
+pergunta se o balde esta cheio, e o pega-tudo sempre o enche. Falha
+**PERMISSIVA**, a mesma classe da mira que parou de conferir por seis pecas.
+
+**O BALDE NAO SE TIRA, e o motivo e medido e nao e meu:** o comentario do
+proprio `ler_copy` conta que em 25/08 a secao da LICENCA era descartada em
+silencio pela ORDEM dos baldes, e que por isso ela passou a ser detectada pelo
+**CONTEUDO** — *"o titulo muda de spec para spec e de idioma para idioma"*. Mexer
+na classificacao arriscaria repetir aquilo em outro idioma.
+
+**O que se faz e perguntar OUTRA COISA: nao "o balde esta cheio?", e sim "existe
+secao DECLARANDO o comentario?"** — e essa pergunta tem procedencia medida,
+porque este titulo NAO varia: das **322** specs com copy no disco, **322 de 322**
+declaram um cabecalho que comeca por `COMENT`, e **316** declaram `HASHTAG` (as
+seis que faltam ja levam o "sem hashtags", que e falha RUIDOSA e correta).
+
+**E O BURACO E LATENTE: zero das 322 vaza hoje.** Pelo argumento do `mira.py`
+isto iria para a suite; mas a conferencia reprova **exatamente** a copy quebrada
+e **nenhuma** spec do disco, que e a mesma conta que pos o cartao em branco no
+portao `layout` as 19:1x. Entao vai no portao, e `fabrica/copy_secoes.py` delega
+a leitura ao `ler_copy` em vez de reclassificar secao — segundo dono e a
+assinatura que congelou a legenda.
+
+**E A MINHA PRIMEIRA MEDICAO DISTO FOI VACUA, e essa e a licao mais barata do
+dia.** Eu varri 326 specs chamando `ler_copy(texto)` — assinatura errada, ela
+recebe a SPEC e o workdir — dentro de um `except Exception: continue`. **As 326
+levantaram, o contador ficou em zero, e eu quase relatei "zero vazamentos" como
+medicao.** Corrigida a assinatura, ela ainda levantava, agora no placeholder
+`{TRILHA}`. E o `or True` de 16/10 em outra forma: **varredura que volta vazia
+tem de REPROVAR**, e e por isso que o teste tem piso de specs e cobra os dois
+lados.
+
+`tests/test_o_comentario_fixado_saia_de_um_BALDE_pega_tudo.py`, oito testes: a
+varredura sai do DISCO e **reprova com menos de 150 specs**, um cobra que o
+titulo da secao continue invariante no acervo (e a procedencia de detectar por
+cabecalho), um **falha se o acervo passar a vazar** — porque ai a conferencia
+deixa de reprovar so a peca quebrada —, a contraprova vai nos **dois** sentidos,
+a delegacao e por **AST** (o docstring cita o ramo `elif not comentario` para se
+explicar, e casar prosa pegaria a explicacao), a fiacao do portao e cobrada por
+**PROPRIEDADE sobre o disco** e nao nomeando a `s087`, e um **falha se a licao da
+medicao vacua sair do modulo**. **Contraprova:** desligada a fiacao, reprova
+exatamente o teste que a mede.
+
+### A PECA DESSA RODADA — OITO cenas, e a frota nao tinha nenhuma de oito
+
+`labtreinamento-s087` = **`dFrUvuvQ9W0`**, publicado as 20:19:00Z (run
+`39318236206`), **26 s reais** contra previsao edge **25,0** — residuo **+1,0**,
+e **ESTABELECIDO pela BORDA** do intervalo: real 26 significa duracao em
+`(25; 26]`, logo `26 - 25,0 = 1,0 >= 1,0` e todo o intervalo fica acima da
+previsao. **E o TERCEIRO ponto a cair exatamente nessa borda** — os outros dois
+sao `42,0 -> 43` —, isto e, o conserto de 18/10 as 15:2x segue sendo o que
+estabelece o sinal dele. Provedor **edge MEDIDO** (zero avisos
+`NARRACAO PELO PIPER` no job `118283444169`), som **-13,8** LUFS, pico -1,6,
+desvio +0,2, **zero silencios**. Controle `OhrGlJvnBoM` conferido em **44 s** na
+MESMA chamada. `RESIDUO_N` = **126**, limites intocados.
+
+**E O REAL CAIU DENTRO DA MIRA, no teto exato (26,0).** O tally do 744/754/758
+foi a **41 fora de 46**, e esta entrou entre as **cinco** de dentro. **Prova
+pouco e vai dito:** a banda tem 5,2 s de largura contra 1 s de granularidade, e
+as duas ultimas de dentro vem da mesma previsao de ~25,0 — n pequeno e mesma
+faixa.
+
+**ESQUELETO DE OITO CENAS, inedito por duas razoes ao mesmo tempo:** varridas as
+**113** formas de short do disco, **ZERO** tem oito cenas. A forma
+`titulo-item-lista-item-barras-item-titulo-cta` e nova pela sequencia e pelo
+TAMANHO, e **todo layout dela saiu do conjunto SONDADO** — consequencia direta do
+cartao em branco que eu publiquei as 18:18Z.
+
+**E O ORCAMENTO SAIU DO INSTRUMENTO NOS DOIS MUNDOS, que e o conserto de 17:2x
+em uso:** para oito cenas na mira deste canal o
+`mira.janela_dos_dois_mundos` devolve **34 a 36** caracteres por cena — o
+orcamento do MEIO no mundo edge daria 30 e o piper cairia a **18,7**, FORA do
+piso. Escrita com media **34,6**: edge 25,0 e piper 20,5, os dois dentro.
+
+**E a familia e a TERCEIRA deste mesmo longo e a SETIMA do dia na frota**: o
+short do pacote usou o DENOMINADOR, o `s086` a JANELA do periodo, e esta a
+**COMPARACAO COM NUMERO DE FORA** (capitulos 40 a 47) — percentual de outra area
+ou media de setor nao serve porque responde a outro denominador. Cinco pecas
+hoje com cinco familias distintas, nos tres canais, e o `similaridade` nao
+pegaria repeticao entre canais porque compara contra o MESMO canal.
+
+**A LEITURA DE INSCRITOS FOI RECUSADA PELA QUINTA RODADA SEGUIDA:** 10,03 h,
+piso de resolucao 2,39/dia, faltam **16,8 h** para o criterio do 723. **COTA:**
+dezessete envios na janela de 07:00Z, **27.200** unidades contra o piso MEDIDO de
+**>= 40.000** — e o numero sai da varredura do `duracoes-a-medir.jsonl`, nao da
+minha memoria.
+
 ## EU ESCREVI UM JOB ID INVENTADO NA PROCEDÊNCIA DA SÉRIE
 
 **Medido em 19/10 às 07:2x, e é defeito meu de duas camadas.** Ao acrescentar o

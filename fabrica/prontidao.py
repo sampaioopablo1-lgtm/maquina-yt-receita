@@ -174,6 +174,17 @@ def _gate_copy(sp):
         faltas.append("sem hashtags")
     if not cp.get("comentario"):
         faltas.append("sem comentario fixado")
+    # E A LINHA ACIMA NAO PODE PEGAR A AUSENCIA DA SECAO, medido em 19/10 as
+    # 20:3x na copy que eu mesmo escrevi: o `comentario` do `ler_copy` e um
+    # balde PEGA-TUDO (o ultimo `elif` da classificacao de secoes), logo sem a
+    # secao propria quem vai ao ar como comentario fixado e a primeira secao
+    # que sobrou — na minha copy, o bloco de CONFIGURACOES DO STUDIO. O portao
+    # reprovou so o "sem hashtags" e deu verde nesta. Ver fabrica/copy_secoes.
+    try:
+        import copy_secoes
+        faltas.extend(copy_secoes.avisos(sp))
+    except Exception as e:  # ambiente, nao a spec
+        faltas.append(f"AMBIENTE, nao a spec: a sonda das secoes falhou: {e}")
     return faltas
 
 
