@@ -243,7 +243,9 @@ JANELA, por produção e não por leitura:** o `labtreinamento-s082` (`84ADS0YGd
 01:37:45Z) foi a OITAVA e o `epomeno-epipedo-s064` (`ANxWQYgtUAY`, 02:30:25Z) a
 NONA — as duas sem `403 quota`. Logo **a cota é ≥ 14.400**, isto é ≥ 9 envios por
 janela na frota. **E a DÉCIMA passou às 02:48:23Z** (`kolejny-poziom-s064`,
-`GESLIl-iUeo`), logo **a cota é ≥ 16.000**. O teto verdadeiro segue desconhecido,
+`GESLIl-iUeo`) **e a DÉCIMA PRIMEIRA às 03:12:04Z** (`epomeno-epipedo-s065`,
+`pHtvqUUN4G8`), logo **a cota é ≥ 17.600** — onze envios a 1.600 numa janela, sem
+nenhum `403 quota`. O teto verdadeiro segue desconhecido,
 e quem o descobre é o primeiro `403 quota` numa rodada normal, que não custa nada
 porque requisição recusada não consome cota. **O teto verdadeiro segue desconhecido**,
 e dizer "agora são N" seria trocar um número suposto por outro. Quem o

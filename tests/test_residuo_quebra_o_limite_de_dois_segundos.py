@@ -261,6 +261,7 @@ SERIE = [
     ("labtreinamento-s082", 24.99, 26, "edge"),  # job 117848486726 — residuo +1,01, sinal ESTABELECIDO pela BORDA (>= 1,0); real DENTRO do teto da mira (26,0), e e a QUARTA deste canal no mundo edge a cair dentro: 16 de 20
     ("epomeno-epipedo-s064", 41.6, 44, "edge"),  # job 117861303311 — residuo +2,4, sinal ESTABELECIDO; real no TOPO da janela de 41,4 a 42,2 deste canal, onde os cinco negativos deram 41 — logo aquele 41 era o piso do espalhamento (18/10 17:2x), nao um regime
     ("kolejny-poziom-s064", 41.7, 43, "edge"),  # job 117865582432 — residuo +1,3, sinal ESTABELECIDO; primeira peca da frota com a legenda em PEDACOS de verdade no short solto e com o tema misterio do pipeline do dono
+    ("epomeno-epipedo-s065", 41.7, 42, "edge"),  # job 117871247599 — residuo +0,3, sinal NAO estabelecido (42 - 41,7 < 1,0); dentro da banda; primeira peca do canal no tema papel e com a legenda em PEDACOS
     ("epomeno-epipedo-s063", 42.2, 43, "edge"),  # job 117816895844 — DOIS lengthSeconds (42 e 43), usado o MAIOR; residuo +0,8, sinal NAO estabelecido; mira no MEIO da faixa de proposito
 ]
 
