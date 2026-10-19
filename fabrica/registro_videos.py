@@ -89,16 +89,30 @@ def linhas_dos_notices(texto: str, raiz: str = None) -> list[dict]:
             continue
         with open(caminho, encoding="utf-8") as f:
             spec = json.load(f)
+        # O FORMATO decide o slug e a contagem de cenas, e a forma e a do
+        # `publicar.py:524-534`, que e quem grava quando o banco esta aberto:
+        #   longo  -> slug = pacote,            cenas = len(longo)
+        #   shorts -> slug = pacote + "-short", cenas = len(short)
+        #
+        # MEDIDO EM 19/10 AS 13:0x, no PRIMEIRO pacote publicado desde que este
+        # modulo nasceu (13/10). Ele cravava `-short` e `len(short)` para
+        # QUALQUER notice, porque todas as peças de seis dias foram short solto.
+        # Com o `execute_sql` aberto, as duas linhas do `epomeno-epipedo-068`
+        # teriam o MESMO slug e o `on conflict (slug) do nothing` descartaria a
+        # do LONGO em silencio — a falha permissiva outra vez, e no registro.
+        e_longo = formato == "longo"
         out.append({
-            "slug": f"{pacote}-short",
+            "slug": pacote if e_longo else f"{pacote}-short",
             "status": "publicado",
             "formato": formato,
-            "titulo": titulo_short(spec) or titulo,
+            "titulo": titulo if e_longo else (titulo_short(spec) or titulo),
             "youtube_id": yid,
             "canal": canal.da_spec({"pacote": pacote, **spec}),
             "pacote": pacote,
-            "origem_id": spec.get("longo_existente"),
-            "cenas": len(spec.get("short") or []),
+            # Longo NAO tem origem: ele E a origem. `None` aqui e o valor certo,
+            # e o aviso do 670 vale so para short.
+            "origem_id": None if e_longo else spec.get("longo_existente"),
+            "cenas": len(spec.get("longo" if e_longo else "short") or []),
             "publicado_em": em,
             "trilha": spec.get("trilha"),
         })
@@ -130,7 +144,9 @@ def relato(linhas: list[dict]) -> str:
         return ("REGISTRO: nenhum notice de publicacao reconhecido. Se houve "
                 "publicacao, a linha de `videos` NAO existe e a metrica daquela "
                 "peca vai levantar chave estrangeira quando alguem tentar medir.")
-    sem_origem = [l["slug"] for l in linhas if not l["origem_id"]]
+    # O aviso do 670 e so para SHORT: longo nao tem origem, ele E a origem.
+    sem_origem = [l["slug"] for l in linhas
+                  if not l["origem_id"] and l["formato"] != "longo"]
     fora = [f"{l['pacote']} -> {l['youtube_id']}" for l in linhas]
     linhas_txt = [f"REGISTRO: {len(linhas)} linha(s) de `videos` a inserir."]
     linhas_txt += [f"  {x}" for x in fora]

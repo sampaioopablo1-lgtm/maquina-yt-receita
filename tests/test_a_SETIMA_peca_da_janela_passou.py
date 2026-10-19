@@ -102,7 +102,9 @@ def test_a_peca_de_5s_NAO_entrou_na_serie_do_mira():
     import sys
     sys.path.insert(0, str(RAIZ / "fabrica"))
     import mira
-    pontos = re.findall(r'\("([a-z\-]+-s\d+)", ', serie)
+    # `-s?\d+`: o pacote usa `-NNN` e o short solto `-sNNN`. Com `-s\d+`
+    # cravado, o primeiro ponto de PACOTE ficava invisivel aqui (19/10, 13:1x).
+    pontos = re.findall(r'\("([a-z\-]+-s?\d+)", ', serie)
     assert mira.RESIDUO_N == len(pontos), (mira.RESIDUO_N, len(pontos))
     assert len(pontos) == len(set(pontos)), "ponto DUPLICADO na serie"
     assert "UM ponto, e ele é este" in CLAUDE

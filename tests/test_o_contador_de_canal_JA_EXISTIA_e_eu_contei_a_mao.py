@@ -61,11 +61,24 @@ def _do_parque(janela_h=24.0, agora=AGORA):
         if not yid or not em or yid in vistos:
             continue
         t = datetime.datetime.fromisoformat(em.replace("Z", "+00:00"))
-        if t >= corte:
+        # A janela tem DOIS limites. Escrita so com `t >= corte`, ela
+        # deixava entrar peca publicada DEPOIS de `AGORA` — e como `AGORA`
+        # e fixo para o teste ser reproduzivel, toda rodada seguinte
+        # inflava este lado e os dois donos divergiam sem defeito nenhum.
+        # E o erro de JANELA do 771 dentro do instrumento que eu escrevi
+        # para cruzar donos, no mesmo dia.
+        if corte <= t <= agora:
             vistos.add(yid)
-            canal = str(d.get("pacote", "")).rsplit("-s", 1)[0]
-            if canal in fora:
-                fora[canal] += 1
+            # O parque GRAVA o canal. Ler o campo e melhor que derivar do
+            # nome: esta linha dizia `.rsplit("-s", 1)[0]` — uma SEXTA
+            # derivacao a mao, dentro do arquivo cujo assunto e nao
+            # re-derivar. Ela atribuia o LONGO de um pacote
+            # (`<pacote>-longo`, sem digito final) a um canal inexistente,
+            # e os dois donos divergiam por isso e nao por passo perdido.
+            import canal as _canal
+            ch = d.get("canal") or _canal.do_pacote(d.get("pacote", ""))
+            if ch in fora:
+                fora[ch] += 1
     return fora
 
 

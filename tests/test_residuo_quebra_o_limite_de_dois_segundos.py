@@ -287,6 +287,8 @@ SERIE = [
     ("kolejny-poziom-s067", 41.9, 43, "edge"),  # job 118003944726
     # 28 reais, residuo +2,8 estabelecido, dentro da banda
     ("labtreinamento-s085", 25.2, 28, "edge"),  # job 118029346097
+    # 45 reais, residuo +2,6 estabelecido — EXATAMENTE o teto do portao (45,0)
+    ("epomeno-epipedo-068", 42.4, 45, "edge"),  # job 118066106680
 ]
 
 

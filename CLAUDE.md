@@ -3070,6 +3070,35 @@ escolha de canal passa a sair de um parque incompleto.
 **A REGRA QUE FICA, e ela é de procedimento: a escolha do canal sai de
 `escolha_do_momento`, nunca de um laço escrito na hora.**
 
+### E O INSTRUMENTO TINHA DOIS DEFEITOS DE JANELA — medidos às 13:2x, pelo teste
+
+**E os dois são do 771, que é o aprendizado sobre janela, e eu os escrevi no
+mesmo dia em que escrevi o teste que os pegou.**
+
+1. **SEM LIMITE DE CIMA.** O `contagem_do_pendente` cobrava só `>= desde`, logo
+   com `agora` fixo ele contava peça publicada **depois** dele. Em produção
+   `agora` é o instante da chamada e isso nunca aparece; com `agora` fixo — que é
+   como se testa — toda rodada seguinte inflava o lado do `.sql`. **Eu cometi o
+   mesmo erro dos DOIS lados:** o teste que eu escrevi para cruzar os donos tinha
+   a janela de um lado só também.
+2. **UM PACOTE CONTAVA UMA PEÇA, E SÃO DUAS.** O `registro_videos` escreve UM
+   `insert` com uma tupla por peça, e a contagem era por LINHA. O
+   `epomeno-epipedo-068`, que publicou longo **e** short, entrava como uma — e a
+   contagem decide QUAL CANAL produz, logo subcontar pacote empurra produção
+   para o canal que acabou de receber duas peças.
+
+**E A CONSEQUÊNCIA ATINGE A ESCOLHA DESTA RODADA, e vai dita em vez de
+escorregar:** eu escolhi `epomeno-epipedo` com o contador **antes** do conserto.
+Rodado depois, no mesmo instante (12:14), ele devolve a MESMA contagem (9/8/8) e
+o MESMO empate em 8 — e o desempate vira para **`kolejny-poziom`**. Logo a peça
+saiu de uma escolha que o instrumento consertado não repetiria. **O que não muda
+é a contagem**, e o `epomeno-epipedo/longo` é o melhor par medido no 713
+(0,33 inscrito/peça), mas isso é justificativa posterior e não foi o critério.
+
+**Os dois donos voltaram a concordar** — 8/9/8 nos dois lados às 11:14, idêntico
+ao número da manhã, que é a reprodutibilidade pela qual o `AGORA` do teste é
+fixo.
+
     python3 -c "import sys;sys.path.insert(0,'fabrica');import concentracao_frota as CF;print(CF.escolha_do_momento(24.0))"
 
 `tests/test_o_contador_de_canal_JA_EXISTIA_e_eu_contei_a_mao.py`, seis testes —
@@ -3153,6 +3182,49 @@ forma de slug.
 referência do dono também não tem veredito medido. O que mudou é que **a peça
 existe e passa os doze portões** — antes disso, nenhum longo com trilho podia
 ser renderizado, e eu havia reportado o contrário três vezes.
+
+### E O REGISTRO IA PERDER A LINHA DO LONGO EM SILÊNCIO
+
+**Medido em 19/10 às 13:0x, no PRIMEIRO pacote publicado desde que o
+`registro_videos.py` nasceu (13/10).** Ele cravava `slug = pacote + "-short"` e
+`cenas = len(short)` para **qualquer** notice, porque as peças de seis dias
+foram todas short solto. Com um pacote, as duas linhas — a do `longo` e a do
+`shorts` — saíam com o **MESMO slug**, e o `on conflict (slug) do nothing`
+descartaria a do longo **sem dizer nada**.
+
+A forma certa está no `publicar.py:524-534`, que é quem grava quando o banco
+está aberto: longo usa `slug = pacote` e `cenas = len(longo)`; short usa
+`slug = pacote + "-short"`. **E o aviso do 670 passou a valer só para short** —
+longo não tem origem, ele É a origem, e `origem_id` nulo ali é o valor certo.
+
+**Isto não chegou ao banco porque o `execute_sql` está negado, e isso é sorte e
+não método** — pela terceira vez na mesma semana é o parque que me salva de um
+defeito que eu só veria depois.
+
+### A PEÇA, MEDIDA — e o longo tem banda PRÓPRIA, com UM ponto
+
+`epomeno-epipedo-068`: **longo `pqTc8jBrq0E`** (8:57 reais) e **short
+`BaLtIWzaN84`** (45 s reais), publicados às 12:58:55Z no mesmo run, sem
+`403 quota`. Provedor **edge MEDIDO** (zero avisos `NARRACAO PELO PIPER` no job
+`118066106680`). Som: longo −14,0 LUFS com dois silêncios de ~1,1 s, short
+−14,1 e zero silêncios.
+
+| | previsão edge | real | resíduo |
+|---|---|---|---|
+| short | 42,4 | **45** | **+2,6**, estabelecido, dentro da banda |
+| **longo** | 551,7 | **537** | **−14,7 s (−2,7%)** |
+
+**O resíduo do longo NÃO entra na série do `mira.py`**, e o motivo é o
+679/698/725: ela é construída em peças de 23 a 44 s, e somar um ponto de 537 s
+ali é o mesmo erro de enquadramento que deixou de fora a peça de 2 min (+4,8) e
+a de 5 s (+0,63). **Nesta faixa a banda tem UM ponto, e ele é este.**
+`RESIDUO_N` segue 118.
+
+**E o short caiu EXATAMENTE no teto do portão (45,0 s)** — não passou dele, ao
+contrário do `epomeno-epipedo-s032`, que deu 46 em 15/10. Com a banda chegando a
++4,0 e a mira do canal no topo (43,0), isso continua sendo a aritmética do 772:
+**o teto do portão e o topo do `ALVO_SHORT` não cabem juntos**, e a decisão
+segue do dono.
 
 ## EU ESCREVI UM JOB ID INVENTADO NA PROCEDÊNCIA DA SÉRIE
 

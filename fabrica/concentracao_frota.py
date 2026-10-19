@@ -317,7 +317,8 @@ def ultima_do_pendente(caminho: str = None) -> dict[str, str]:
     return fora
 
 
-def contagem_do_pendente(desde: str, caminho: str = None) -> dict[str, int]:
+def contagem_do_pendente(desde: str, caminho: str = None,
+                         ate: str = None) -> dict[str, int]:
     """Quantas pecas por canal com `publicado_em >= desde`, nas linhas PARQUEADAS.
 
     Ele existe porque eu vinha contando o DIA com um regex escrito a mao na
@@ -351,12 +352,21 @@ def contagem_do_pendente(desde: str, caminho: str = None) -> dict[str, int]:
         return fora
     with open(caminho, encoding="utf-8") as fh:
         for linha in fh:
-            canal = next((c for c in FROTA if f"'{c}'" in linha), None)
-            if not canal:
-                continue
-            datas = re.findall(r"'(20\d\d-\d\d-\d\dT[\d:]+Z)'", linha)
-            if datas and datas[-1] >= desde:
-                fora[canal] += 1
+            # Uma TUPLA por peca, nao uma linha por peca: o `registro_videos`
+            # escreve `values (...),(...)` quando um PACOTE publica longo e
+            # short no mesmo run, e contar por linha faria as duas pecas
+            # valerem uma. Medido no `epomeno-epipedo-068` em 19/10 as 13:2x.
+            for pedaco in re.split(r"\),\s*\(", linha):
+                canal = next((c for c in FROTA if f"'{c}'" in pedaco), None)
+                if not canal:
+                    continue
+                datas = re.findall(r"'(20\d\d-\d\d-\d\dT[\d:]+Z)'", pedaco)
+                if not datas:
+                    continue
+                # A janela tem DOIS limites. Sem o de cima, `agora` fixo conta
+                # peca publicada depois dele — o erro de janela do 771.
+                if datas[-1] >= desde and (ate is None or datas[-1] <= ate):
+                    fora[canal] += 1
     return fora
 
 
@@ -388,7 +398,8 @@ def escolha_do_momento(janela_h: float = 24.0, caminho: str = None,
     if agora is None:
         agora = datetime.now(timezone.utc)
     corte = agora - timedelta(hours=janela_h)
-    cont = contagem_do_pendente(corte.isoformat(), caminho)
+    cont = contagem_do_pendente(corte.isoformat(), caminho,
+                                ate=agora.isoformat())
     ult = ultima_do_pendente(caminho)
     escolhido, empatados = mais_baixo(cont, ult)
     return {

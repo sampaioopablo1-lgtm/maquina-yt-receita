@@ -40,7 +40,11 @@ import mira  # noqa: E402
 
 ARQ = os.path.join(os.path.dirname(__file__),
                    "test_residuo_quebra_o_limite_de_dois_segundos.py")
-LINHA = re.compile(r'^\s*\("([a-z-]+-s\d+)",\s*([\d.]+),\s*(\d+),\s*"(\w+)"\),')
+# `-s?\d+`: o sufixo de SHORT SOLTO e `-sNNN` e o de PACOTE e `-NNN`. A
+# forma antiga, com `-s\d+` cravado, deixava o PRIMEIRO ponto de pacote
+# (`epomeno-epipedo-068`, 19/10 as 13:1x) INVISIVEL para esta varredura — e
+# ponto invisivel nao e so contagem errada: ele sai da medicao sem avisar.
+LINHA = re.compile(r'^\s*\("([a-z-]+-s?\d+)",\s*([\d.]+),\s*(\d+),\s*"(\w+)"\),')
 
 
 def _pontos():
