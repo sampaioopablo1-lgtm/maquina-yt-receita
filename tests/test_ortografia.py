@@ -12,6 +12,7 @@ polones, e seja-mais-magra-004 em portugues, publicada nesta mesma manha.
 from __future__ import annotations
 
 import json
+import os
 import sys
 import unicodedata
 from pathlib import Path
@@ -66,11 +67,82 @@ def test_lingua_sem_diacritico_nao_e_avaliada():
         assert P._gate_ortografia(str(SPECS / f"{nome}.json"), sp) == []
 
 
-def test_escrita_nao_latina_fica_de_fora():
-    """Grego e devanagari ja sao pegos pelo portao de idioma — la a falta de
-    acento nem existe, o alfabeto inteiro seria outro."""
-    assert "el" not in P.DIACRITICOS
-    assert "hi" not in P.DIACRITICOS
+def test_escrita_nao_latina__a_RAZAO_deste_teste_era_FALSA_para_o_GREGO():
+    """RETRATADO em 19/10 as 22:4x, e a razao caiu nos DOIS casos que citava.
+
+    O teste dizia: *"Grego e devanagari ja sao pegos pelo portao de idioma — la
+    a falta de acento nem existe, o alfabeto inteiro seria outro."* **Medido, o
+    portao `idioma` NAO pega nenhum dos dois:**
+
+        narracao grega sem tonos   -> `_gate_idioma` LIMPO
+          "O enas minas kryvei tin trimini kai tin etisia pliromi."
+          (letras gregas sem tonos seguem sendo letras gregas)
+        devanagari sem as marcas Mn -> `_gate_idioma` LIMPO
+          "aaiteeaar kee taareekh nikal gaee, par raasata bad nahee haa."
+          (virama e anusvara caem, a palavra vira outra, e o script continua
+           devanagari)
+
+    Logo a assercao era IDENTIDADE (`"el" not in DIACRITICOS`) onde a afirmacao
+    era PROPRIEDADE (*"o portao de idioma pega"*) — a classe 743/753/761.
+
+    **O `el` ENTROU em 19/10 as 22:3x, com a conta antes:** as 87 specs gregas
+    de short medem 11,34% a 15,36% e ZERO fica abaixo do `PISO_REFERENCIA`,
+    logo a entrada reprova a peca quebrada e nenhuma do acervo. E ela fechou um
+    buraco real: a descricao grega do `epomeno-epipedo-s068` subiu sem tonos em
+    19/10 as 15:3x e quem pegou fui eu relendo.
+
+    **O `hi` FICA DE FORA, e agora pela razao MEDIDA e nao pela falsa:** as
+    marcas de vogal do devanagari sao em boa parte `Mc` (espacejantes), nao
+    `Mn`, logo "quanto esta spec acentua" e outra pergunta naquele script — e eu
+    **nao medi** o acervo `hi` contra um piso. Entrar sem essa medicao seria
+    ligar portao que pode reprovar o parque, que e o argumento do `mira.py`.
+    """
+    assert "el" in P.DIACRITICOS, (
+        "o `el` saiu da tabela: o portao volta a CALAR no segundo maior idioma "
+        "da frota, e foi assim que o grego ficou descoberto de 20/08 a 19/10"
+    )
+    assert "hi" not in P.DIACRITICOS, (
+        "o `hi` entrou sem a medicao do acervo contra o piso — meca primeiro"
+    )
+
+
+def test_o_que_esta_na_TABELA_nao_reprova_o_acervo():
+    """A propriedade que a razao antiga tentava proteger, cobrada de verdade.
+
+    Entrar na tabela e autorizado pela conta: a densidade das specs daquele
+    idioma tem de ficar ACIMA do piso, senao o portao passa a reprovar o parque.
+    """
+    import collections
+    import glob
+
+    por_idioma = collections.defaultdict(list)
+    for caminho in glob.glob(str(SPECS / "*.json")):
+        try:
+            with open(caminho, encoding="utf-8") as f:
+                sp = json.load(f)
+        except Exception:
+            continue
+        base = (sp.get("idioma") or "").split("-")[0]
+        tabela = P.DIACRITICOS.get(base)
+        if not tabela or not sp.get("short"):
+            continue
+        d = P._densidade_diacritica(sp["short"], tabela)
+        if d is not None and P._letras(sp["short"]) >= P.MINIMO_LETRAS_MEDIDAS:
+            por_idioma[base].append((os.path.basename(caminho), d))
+
+    assert por_idioma, "nenhuma spec medivel — este teste passa por vacuidade"
+    for base, vals in sorted(por_idioma.items()):
+        abaixo = [(n, round(d * 100, 2)) for n, d in vals
+                  if d < P.PISO_REFERENCIA]
+        # o acervo de `pt` e `pl` tem specs da fase ASCII, e elas sao a DIVIDA
+        # conhecida das 25 falhas; o que este teste cobra e que um idioma NOVO
+        # na tabela nao traga parque abaixo do piso junto com ele.
+        if base in ("pt", "pl", "tr", "es"):
+            continue
+        assert not abaixo, (
+            f"`{base}` esta na tabela e tem spec do acervo abaixo do piso: "
+            f"{abaixo[:6]} — a entrada dele passou a reprovar o parque"
+        )
 
 
 def test_o_portao_esta_na_lista():
