@@ -3982,6 +3982,10 @@ existe desde 15/10: ele le o ARQUIVO no disco e reprova se houver linha que nao
 comece por `insert into videos`. Foi ele que pegou, no mesmo ciclo, e as tres
 linhas foram removidas com a do `s070` conferida como presente antes de gravar.
 
+**E A SUITE FECHOU: 25 falhas, 3.115 passam, 991 skip** — conjunto **IDENTICO**
+a linha de base desta sessao, `comm` vazio nos **dois** sentidos, em 410 s. Os
+dez testes do gancho entraram sem custo de tempo, porque eles nao renderizam.
+
 ### A PECA DESSA RODADA — a QUARTA familia do MESMO longo
 
 `epomeno-epipedo-s070` = **`dZB2UWpw4x4`**, publicado as 21:16:44Z (run
