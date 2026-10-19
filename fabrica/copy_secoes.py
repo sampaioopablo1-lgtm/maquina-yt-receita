@@ -1,60 +1,73 @@
 # -*- coding: utf-8 -*-
-"""O `comentario` da copy e um BALDE PEGA-TUDO, e o portao nao via a ausencia.
+"""O `comentario` da copy e um BALDE PEGA-TUDO — e eu NAO achei o discriminador.
 
-MEDIDO em 19/10 as 20:3x, na copy que eu mesmo acabei de escrever. Eu
-entreguei a copy do `labtreinamento-s087` SEM a secao `## COMENTARIO FIXADO`
-e SEM a `## HASHTAGS`. O portao `copy` reprovou com UM problema so:
-
-    copy: 1 problema(s)
-      - sem hashtags
-
-e NAO disse nada sobre o comentario fixado, que tambem faltava. O motivo
-esta no `publicar.ler_copy`: o ultimo ramo da classificacao de secoes e
+O ACHADO, que e real e esta REPRODUZIDO (19/10 as 20:3x). Eu entreguei a copy
+do `labtreinamento-s087` sem a secao `## COMENTARIO FIXADO` e sem a
+`## HASHTAGS`. O portao `copy` reprovou UM problema — "sem hashtags" — e deu
+VERDE no comentario, que tambem faltava. O motivo esta no `publicar.ler_copy`:
+o ultimo ramo da classificacao de secoes e
 
     elif not comentario and not corpo.startswith("-"):
         comentario = corpo
 
-isto e, a PRIMEIRA secao depois da DESCRICAO que nao casa com licenca, com
-capitulos, com hashtags nem com tags cai no comentario. Sem a secao propria,
-quem caiu ali foi a `## CONFIGURACOES DO STUDIO`. Reproduzido:
+isto e, a PRIMEIRA secao depois da descricao que nao casa com licenca,
+capitulos, hashtags nem tags cai no comentario. Sem a secao propria, quem caiu
+ali foi o bloco `## CONFIGURACOES DO STUDIO`:
 
-    comentario: '# NOTA: `categoryId` aqui e DECLARATIVO ... privacyStatus: public
-                 defaultLanguage: pt-BR ...'
+    comentario: '# NOTA: `categoryId` aqui e DECLARATIVO ... privacyStatus:
+                 public  defaultLanguage: pt-BR ...'
 
 **Logo o bloco de configuracao do Studio iria ao ar como COMENTARIO FIXADO do
 video, e a conferencia `if not cp.get("comentario")` do portao e INCAPAZ de
 pegar isso** — ela pergunta se o balde esta cheio, e o pega-tudo sempre o
-enche. Falha PERMISSIVA, que e o pior sentido, a mesma do corpus atrasado e a
-mesma da mira que parou de conferir por seis pecas.
+enche. Falha PERMISSIVA. Isso esta reproduzido por `vazamento_simulado` abaixo.
 
-O BALDE PEGA-TUDO NAO SE TIRA, e o motivo e medido e anterior a mim: o
-comentario do proprio `ler_copy` conta que em 25/08 a secao da licenca era
-descartada em silencio por causa da ORDEM dos baldes, e que por isso a deteccao
-dela passou a ser pelo CONTEUDO — "o titulo muda de spec para spec e de idioma
-para idioma". Mexer na classificacao para exigir titulo arriscaria repetir
-aquilo nas specs de outros idiomas.
+O BALDE NAO SE TIRA, e o motivo e anterior a mim: o comentario do proprio
+`ler_copy` conta que em 25/08 a secao da LICENCA era descartada em silencio
+pela ORDEM dos baldes, e que por isso ela passou a ser detectada pelo CONTEUDO
+— "o titulo muda de spec para spec e de idioma para idioma".
 
-O QUE SE FAZ E PERGUNTAR OUTRA COISA: nao "o balde esta cheio?", e sim "existe
-secao DECLARANDO o comentario?". E essa pergunta tem procedencia medida, porque
-o titulo desta secao especifica NAO varia: varridas as **322** specs com copy
-no disco, **322 de 322** declaram uma secao que comeca por `COMENT` — e
-**316** declaram `HASHTAG`, logo as seis que faltam ja levam o "sem hashtags"
-do portao, que e falha RUIDOSA e correta.
+=============================================================================
+E AS TRES TENTATIVAS DE DISCRIMINADOR FALHARAM. Os numeros ficam aqui para que
+a rodada seguinte NAO as repita.
+=============================================================================
 
-E O BURACO E LATENTE: **zero** das 322 vaza hoje. Pelo argumento do `mira.py`
-— aviso que reprova o acervo deixa de avisar — o lugar disto seria a suite; mas
-aqui a conferencia reprova EXATAMENTE a copy quebrada e NENHUMA spec do disco,
-que e a mesma conta que pos o cartao em branco no portao `layout` as 19:1x.
-Entao vai no portao.
+**(1) POR CABECALHO — e a medicao que a autorizou era CIRCULAR.** Eu varri as
+specs do disco filtrando por `'## DESCRICAO' in copy`, contei "322 de 322
+declaram cabecalho que comeca por COMENT" e liguei a conferencia no portao. A
+suite reprovou **47 testes**. O filtro era o cabecalho em PORTUGUES, logo a
+amostra NAO PODIA conter contraexemplo. Varrido sem filtro: **360** specs com
+copy seccionada, **32** nao usam o cabecalho portugues, e o cabecalho do
+comentario aparece como `KOMENTARZ`, `KOMENTARZ PRZYPIETY`, `KOMENTAR
+DISEMATKAN`, `SXOLIO` (grego), `SABITLENEN YORUM`, `PINNED COMMENT` e em
+devanagari. **E o 725 com vocabulario de um idioma reportado como medicao da
+frota**, e o comentario do `ler_copy` ja dizia isso em letra.
 
-E A MINHA PRIMEIRA MEDICAO DISTO FOI VACUA, e essa e a licao mais barata do
-dia: eu varri as 326 specs chamando `ler_copy(texto)` — assinatura errada, ela
-recebe a SPEC e o workdir — dentro de um `except Exception: continue`. As 326
-levantaram, o contador ficou em zero e eu quase relatei "zero vazamentos" como
-medicao. Depois de corrigir a assinatura ela ainda levantava, agora no
-placeholder `{TRILHA}`. **Varredura que volta vazia tem de REPROVAR**, e e por
-isso que o teste deste arquivo tem piso de specs e exige que os dois lados
-existam.
+**(2) PELAS CHAVES DO BLOCO DO STUDIO** (`privacyStatus`, `categoryId`,
+`madeForKids`, `defaultLanguage`), que sao nomes de campo da API e nao
+traduzem. Elas nao sao universais entre GERACOES: **183 das 360** specs nao tem
+as quatro. Discriminador que depende delas acusa por geracao, nao por defeito.
+
+**(3) PELA FORMA DAS LINHAS** — fracao de linhas do balde que casam
+`^(#|palavra:)`, porque o bloco do Studio e `chave: valor` e um comentario
+fixado e PROSA. Deu **SEIS falsos positivos** no acervo, e os seis sao
+comentarios legitimos: prosa em polones e indonesio comeca com "Rachunek:",
+"Sedno:", "Szczerze:", "Jujur:". **Detector que inventa achado e pior que nao
+ter detector** (725) — pego antes de relatar, desta vez.
+
+**LOGO NAO HA PORTAO, e isso vai dito em vez de disfarcado.** Uma conferencia
+confiavel exige que a copy DECLARE qual secao e o comentario de um jeito que
+nao dependa de idioma — mudanca de FORMATO de copy, que e decisao do dono
+(§10), nao coisa para inventar numa rodada. Este modulo e INSTRUMENTO: ele
+reproduz o vazamento e nao acusa ninguem. Codigo de saida sempre zero.
+
+**E A MINHA PRIMEIRA MEDICAO DE TUDO ISSO FOI VACUA**, que fecha a conta de
+tres erros de medicao na mesma hora: eu varri 326 specs chamando
+`ler_copy(texto)` — assinatura errada, ela recebe a SPEC e o workdir — dentro
+de um `except Exception: continue`. As 326 levantaram, o contador ficou em zero
+e eu quase relatei "zero vazamentos" como medicao. Corrigida a assinatura ela
+ainda levantava, no placeholder `{TRILHA}`. Varredura que volta vazia tem de
+REPROVAR.
 """
 import os
 import re
@@ -62,11 +75,14 @@ import sys
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# O titulo e a chave aqui de PROPOSITO, e a procedencia esta no docstring:
-# 322 de 322 specs do disco declaram uma secao que comeca por COMENT. Para a
-# LICENCA isto seria errado (a medicao de 25/08 diz o contrario) e e por isso
-# que a licenca NAO entra nesta lista.
-SECOES_EXIGIDAS = ("COMENT", "HASHTAG")
+# Os cabecalhos de comentario fixado MEDIDOS no disco, nos sete idiomas. Esta
+# lista NAO e um discriminador — ela existe para a REPRODUCAO do vazamento e
+# para o teste provar que o cabecalho traduz. Usa-la para acusar seria repetir
+# a tentativa (1).
+CABECALHOS_MEDIDOS = (
+    "COMENT", "KOMENTAR", "KOMENTARZ", "ΣΧΟΛΙΟ",
+    "YORUM", "PINNED COMMENT", "टिप्पणी",
+)
 
 _LICENCA_DE_SONDA = (
     "Inspired by Kevin MacLeod | incompetech.com\n"
@@ -75,76 +91,93 @@ _LICENCA_DE_SONDA = (
 )
 
 
-def declaradas(texto: str) -> dict:
-    """Quais das secoes exigidas o texto da copy DECLARA por cabecalho."""
-    return {
-        s: bool(re.search(r"^##\s*" + s, texto or "", re.M | re.I))
-        for s in SECOES_EXIGIDAS
-    }
+def cabecalhos(texto: str) -> list:
+    """Todos os `## ...` da copy, na ordem."""
+    return [h.strip() for h in re.findall(r"^##\s*(.+)$", texto or "", re.M)]
+
+
+def cabecalho_do_comentario(texto: str):
+    """O cabecalho que DECLARA o comentario fixado, em qualquer dos idiomas.
+
+    Devolve None quando nenhum casa — e isso NAO significa que a secao falta:
+    significa que esta lista nao conhece aquele idioma, que e exatamente por
+    que ela nao serve para acusar.
+    """
+    for h in cabecalhos(texto):
+        for c in CABECALHOS_MEDIDOS:
+            if h.upper().startswith(c.upper()):
+                return h
+    return None
 
 
 def _sem_placeholder(texto: str) -> str:
-    """Enche os placeholders que o RENDER preencheria.
+    """Enche o que o RENDER preencheria.
 
-    O `ler_copy` LEVANTA com `{TRILHA}` ou `{CAPITULOS}` no texto, e com razao
-    — publicar assim poria o placeholder na descricao. Fora do runner isso
-    impede qualquer sonda, e foi o que tornou a minha primeira medicao vacua.
+    O `ler_copy` LEVANTA com `{TRILHA}` ou `{CAPITULOS}` no texto, e com razao.
+    Fora do runner isso impede qualquer sonda, e foi o que tornou a minha
+    primeira medicao vacua.
     """
     return (texto or "").replace("{TRILHA}", _LICENCA_DE_SONDA).replace(
         "{CAPITULOS}", "0:00 Inicio\n1:00 Meio"
     )
 
 
-def comentario_vazado(spec: dict, workdir: str = ".") -> dict:
-    """O comentario fixado veio da secao DECLARADA ou do balde pega-tudo?
+def _ler(spec: dict, texto: str, workdir: str = "."):
+    """Delega ao `publicar.ler_copy`, que e o DONO da classificacao.
 
-    A leitura e DELEGADA ao `publicar.ler_copy`, que e o dono da regra. Refazer
-    a classificacao de secoes aqui criaria o segundo dono dela — a assinatura
-    que congelou a legenda e matou os layouts de longo.
+    Refazer a classificacao de secoes aqui criaria o segundo dono dela — a
+    assinatura que congelou a legenda e matou os layouts de longo.
     """
-    if "fabrica" not in sys.path:
+    if os.path.join(RAIZ, "fabrica") not in sys.path:
         sys.path.insert(0, os.path.join(RAIZ, "fabrica"))
     import publicar
 
-    texto = spec.get("copy")
-    if not isinstance(texto, str) or not texto.strip():
-        return {"tem_secao": False, "comentario": "", "vazado": False,
-                "motivo": "spec sem copy em texto"}
-
     q = dict(spec)
     q["copy"] = _sem_placeholder(texto)
-    cp = publicar.ler_copy(q, workdir)
-    com = (cp.get("comentario") or "").strip()
-    tem = declaradas(texto)["COMENT"]
-    return {
-        "tem_secao": tem,
-        "comentario": com,
-        "vazado": bool(com) and not tem,
-        "motivo": (
-            "o comentario fixado saiu do balde PEGA-TUDO: nenhuma secao o "
-            "declara, logo o que vai ao ar e a primeira secao que sobrou"
-            if (com and not tem) else ""
-        ),
-    }
+    return publicar.ler_copy(q, workdir)
 
 
-def avisos(spec: dict, workdir: str = ".") -> list:
-    """Um problema por secao exigida que falta, mais o vazamento se houver."""
+def comentario_de(spec: dict, workdir: str = ".") -> str:
+    """O que ESTA copy poria como comentario fixado do video."""
     texto = spec.get("copy")
     if not isinstance(texto, str) or not texto.strip():
-        return []
-    fora = []
-    v = comentario_vazado(spec, workdir)
-    if v["vazado"]:
-        primeira = v["comentario"].split("\n")[0][:70]
-        fora.append(
-            "sem a secao do COMENTARIO FIXADO, e o balde pega-tudo do "
-            "`ler_copy` encheu com outra secao — iria ao ar: "
-            f"{primeira!r}"
-        )
-    elif not v["tem_secao"] and not v["comentario"]:
-        fora.append("sem a secao do COMENTARIO FIXADO")
-    return fora
+        return ""
+    return (_ler(spec, texto, workdir).get("comentario") or "").strip()
+
+
+def vazamento_simulado(spec: dict, workdir: str = ".") -> dict:
+    """REPRODUZ o defeito: tira a secao do comentario e ve o que sobe no lugar.
+
+    Isto e a prova, nao a conferencia. Ele nao julga spec nenhuma do disco —
+    ele mostra, numa spec qualquer, o que acontece com quem escrever a copy sem
+    a secao, que foi o que eu fiz nesta hora.
+    """
+    texto = spec.get("copy")
+    if not isinstance(texto, str) or not texto.strip():
+        return {"possivel": False, "motivo": "spec sem copy em texto"}
+    cab = cabecalho_do_comentario(texto)
+    if not cab:
+        return {"possivel": False,
+                "motivo": "nenhum cabecalho conhecido declara o comentario"}
+    i = texto.index("## " + cab)
+    j = texto.find("\n## ", i + 1)
+    if j < 0:
+        return {"possivel": False, "motivo": "a secao do comentario e a ultima"}
+    antes = comentario_de(spec, workdir)
+    q = dict(spec)
+    q["copy"] = texto[:i] + texto[j + 1:]
+    depois = (_ler(q, q["copy"], workdir).get("comentario") or "").strip()
+    return {
+        "possivel": True,
+        "cabecalho": cab,
+        "antes": antes,
+        "depois": depois,
+        "vazou": bool(depois) and depois != antes,
+        "motivo": (
+            "retirada a secao, o balde PEGA-TUDO encheu com outra e o portao "
+            "segue verde no comentario" if (depois and depois != antes) else ""
+        ),
+    }
 
 
 def relato(caminho: str) -> str:
@@ -152,18 +185,23 @@ def relato(caminho: str) -> str:
 
     with open(caminho, encoding="utf-8") as f:
         sp = json.load(f)
-    d = declaradas(sp.get("copy") or "")
     linhas = ["SECOES DA COPY de %s:" % sp.get("slug", caminho)]
-    for s, ok in d.items():
-        linhas.append("  %-8s declarada: %s" % (s, "SIM" if ok else "NAO"))
-    v = comentario_vazado(sp)
-    if v["vazado"]:
-        linhas.append("  >> VAZAMENTO: " + v["motivo"])
-        linhas.append("     iria ao ar: " + repr(v["comentario"][:90]))
+    texto = sp.get("copy") or ""
+    linhas.append("  cabecalhos: " + ", ".join(cabecalhos(texto)))
+    cab = cabecalho_do_comentario(texto)
+    linhas.append("  cabecalho do comentario: %s" % (cab or "NENHUM conhecido"))
+    v = vazamento_simulado(sp)
+    if v["possivel"]:
+        linhas.append("  SIMULACAO (tirando a secao):")
+        linhas.append("    vazou: %s" % ("SIM" if v["vazou"] else "nao"))
+        if v["vazou"]:
+            linhas.append("    iria ao ar: " + repr(v["depois"][:90]))
     else:
-        linhas.append("  comentario fixado sai da secao declarada.")
+        linhas.append("  sem simulacao: " + v["motivo"])
     linhas.append(
-        "  isto INFORMA aqui; quem reprova e o portao `copy` do prontidao."
+        "  ISTO NAO ACUSA NINGUEM: as tres tentativas de discriminador "
+        "falharam, e os numeros estao no docstring deste modulo. Sem "
+        "procedencia nao ha portao."
     )
     return "\n".join(linhas)
 
@@ -171,7 +209,7 @@ def relato(caminho: str) -> str:
 def main() -> int:
     if len(sys.argv) < 2:
         print("uso: python3 fabrica/copy_secoes.py <spec.json>")
-        return 2
+        return 0
     print(relato(sys.argv[1]))
     return 0
 

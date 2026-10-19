@@ -174,17 +174,16 @@ def _gate_copy(sp):
         faltas.append("sem hashtags")
     if not cp.get("comentario"):
         faltas.append("sem comentario fixado")
-    # E A LINHA ACIMA NAO PODE PEGAR A AUSENCIA DA SECAO, medido em 19/10 as
-    # 20:3x na copy que eu mesmo escrevi: o `comentario` do `ler_copy` e um
-    # balde PEGA-TUDO (o ultimo `elif` da classificacao de secoes), logo sem a
-    # secao propria quem vai ao ar como comentario fixado e a primeira secao
-    # que sobrou — na minha copy, o bloco de CONFIGURACOES DO STUDIO. O portao
-    # reprovou so o "sem hashtags" e deu verde nesta. Ver fabrica/copy_secoes.
-    try:
-        import copy_secoes
-        faltas.extend(copy_secoes.avisos(sp))
-    except Exception as e:  # ambiente, nao a spec
-        faltas.append(f"AMBIENTE, nao a spec: a sonda das secoes falhou: {e}")
+    # E A LINHA ACIMA NAO PEGA A AUSENCIA DA SECAO, e eu NAO consegui fazer
+    # com que pegasse — medido em 19/10 as 20:3x e RETRATADO as 20:5x. O
+    # `comentario` do `ler_copy` e um balde PEGA-TUDO, logo sem a secao propria
+    # o que vai ao ar como comentario fixado e a primeira secao que sobrou.
+    # Eu liguei aqui uma conferencia por CABECALHO e a suite reprovou 47 testes:
+    # o cabecalho TRADUZ (KOMENTARZ, ΣΧΟΛΙΟ, SABITLENEN YORUM, टिप्पणी) e a
+    # minha medicao de "322 de 322" tinha filtrado por `## DESCRICAO`, isto e,
+    # pelo cabecalho em portugues — amostra que nao podia conter contraexemplo.
+    # As outras duas tentativas tambem falharam, e os numeros estao em
+    # fabrica/copy_secoes.py. SEM discriminador com procedencia, nao ha portao.
     return faltas
 
 

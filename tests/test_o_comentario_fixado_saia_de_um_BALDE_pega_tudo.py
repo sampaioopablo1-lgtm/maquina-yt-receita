@@ -1,30 +1,25 @@
 # -*- coding: utf-8 -*-
-"""O portao dizia "sem comentario fixado" e NUNCA podia dizer.
+"""O portao da verde no comentario fixado, e eu NAO achei como fazer pegar.
 
-MEDIDO em 19/10 as 20:3x, na copy que eu mesmo escrevi nesta hora. Entreguei a
-copy do `labtreinamento-s087` sem a secao `## COMENTARIO FIXADO` e sem a
-`## HASHTAGS`, e o portao `copy` reprovou com UM problema — "sem hashtags" — e
-deu VERDE no comentario, que tambem faltava. O `comentario` do
-`publicar.ler_copy` e um balde PEGA-TUDO: a primeira secao que nao casa com
-licenca, capitulos, hashtags nem tags cai nele. Sem a secao propria, quem foi
-para la foi o bloco `## CONFIGURACOES DO STUDIO`, isto e, `privacyStatus:
-public` e companhia iriam ao ar como COMENTARIO FIXADO do video.
+O ACHADO, reproduzido: entreguei a copy do `labtreinamento-s087` sem a secao
+`## COMENTARIO FIXADO` e o portao `copy` reprovou UM problema — "sem
+hashtags" — e deu VERDE no comentario, que tambem faltava. O `comentario` do
+`publicar.ler_copy` e um balde PEGA-TUDO, e quem subiria como comentario
+fixado do video era o bloco `## CONFIGURACOES DO STUDIO`.
 
-Falha PERMISSIVA, a mesma classe da mira que parou de conferir por seis pecas.
+E AS TRES TENTATIVAS DE DISCRIMINADOR FALHARAM. Este arquivo guarda os tres
+numeros para que a rodada seguinte nao as repita, e guarda a REPRODUCAO, que e
+a unica coisa com procedencia aqui.
 
-E A MINHA PRIMEIRA MEDICAO DISTO FOI VACUA: eu varri 326 specs chamando
-`ler_copy(texto)` — assinatura errada — dentro de um `except Exception:
-continue`, as 326 levantaram, e o contador ficou em zero. Depois de corrigir a
-assinatura ela ainda levantava, no placeholder `{TRILHA}`. "Zero vazamentos"
-nao mediu nada, e e por isso que este arquivo tem piso de specs e cobra os dois
-lados.
+O que este arquivo NAO faz: cobrar portao. Nao ha portao — a conferencia por
+cabecalho reprovou 47 testes da suite porque o cabecalho TRADUZ, e a minha
+medicao que a autorizou tinha filtrado a amostra pelo cabecalho em portugues.
 """
 import ast
 import glob
 import json
 import os
 import re
-import subprocess
 import sys
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -33,9 +28,16 @@ sys.path.insert(0, os.path.join(RAIZ, "fabrica"))
 import copy_secoes as CS  # noqa: E402
 
 PISO_DE_SPECS = 150
+PISO_DE_IDIOMAS = 4
 
 
-def _specs_com_copy():
+def _specs():
+    """TODA spec com copy seccionada — SEM filtrar por cabecalho.
+
+    Filtrar por `## DESCRICAO` foi o erro que produziu o "322 de 322": a
+    amostra ficava restrita ao cabecalho em portugues, logo nao podia conter
+    contraexemplo. E o 725, e o filtro e a causa.
+    """
     fora = []
     for p in sorted(glob.glob(os.path.join(RAIZ, "fabrica", "specs", "*.json"))):
         try:
@@ -44,155 +46,167 @@ def _specs_com_copy():
         except Exception:
             continue
         t = sp.get("copy")
-        if isinstance(t, str) and "## DESCRICAO" in t.upper():
+        if isinstance(t, str) and "##" in t:
             fora.append((os.path.basename(p), sp))
     return fora
 
 
 def test_a_varredura_sai_do_DISCO_e_reprova_se_encolher():
-    """Vacuidade e o defeito do 743 em forma de glob."""
-    specs = _specs_com_copy()
+    specs = _specs()
     assert len(specs) >= PISO_DE_SPECS, (
-        f"so {len(specs)} specs com copy no disco — abaixo do piso de "
-        f"{PISO_DE_SPECS} este arquivo passa por VACUIDADE e nao mede nada"
+        f"so {len(specs)} specs com copy seccionada — abaixo do piso de "
+        f"{PISO_DE_SPECS} este arquivo passa por VACUIDADE"
     )
 
 
-def test_o_titulo_da_secao_do_COMENTARIO_nao_varia_no_disco():
-    """E a procedencia de detectar por CABECALHO em vez de por conteudo.
+def test_a_varredura_cobre_MAIS_DE_UM_IDIOMA__que_e_a_guarda_do_725():
+    """Sem esta guarda eu media vocabulario de um idioma e chamava de frota."""
+    specs = _specs()
+    idiomas = {sp.get("idioma", "?") for _, sp in specs}
+    assert len(idiomas) >= PISO_DE_IDIOMAS, (
+        f"a varredura ve so {sorted(idiomas)} — com menos de "
+        f"{PISO_DE_IDIOMAS} idiomas ela nao pode achar o contraexemplo que "
+        "derrubou a conferencia por cabecalho"
+    )
 
-    Para a LICENCA isso seria errado — a medicao de 25/08 que esta no
-    `ler_copy` diz que o titulo dela muda de spec e de idioma. Para esta, 322
-    de 322 usam um cabecalho que comeca por COMENT, e e esse numero que
-    autoriza a conferencia. Se ele cair, a conferencia perde a procedencia.
+
+def test_o_cabecalho_do_comentario_TRADUZ__e_e_por_isso_que_nao_ha_portao():
+    """A medicao que derrubou a tentativa (1), e ela reprova se for apagada."""
+    specs = _specs()
+    sem_portugues = [
+        (n, CS.cabecalho_do_comentario(sp["copy"]))
+        for n, sp in specs
+        if not re.search(r"^##\s*COMENT", sp["copy"], re.M | re.I)
+    ]
+    assert len(sem_portugues) >= 10, (
+        "menos de dez specs sem o cabecalho portugues — se o acervo foi "
+        "uniformizado, releia a nota: a conferencia por cabecalho volta a ser "
+        f"possivel. Hoje: {len(sem_portugues)}"
+    )
+    traduzidos = {c for _, c in sem_portugues if c}
+    assert traduzidos, (
+        "nenhum dos cabecalhos traduzidos foi reconhecido — a lista "
+        "CABECALHOS_MEDIDOS perdeu os idiomas, e com ela a REPRODUCAO"
+    )
+
+
+def test_a_tentativa_das_CHAVES_do_studio_nao_e_universal():
+    """Tentativa (2): as chaves da API nao traduzem, mas faltam por geracao."""
+    specs = _specs()
+    chaves = ("privacyStatus", "categoryId", "madeForKids", "defaultLanguage")
+    sem = [n for n, sp in specs if not all(k in sp["copy"] for k in chaves)]
+    assert len(sem) >= 50, (
+        "as quatro chaves do Studio passaram a estar em quase toda spec — "
+        f"hoje faltam em {len(sem)}; se isso mudar, a tentativa (2) volta a "
+        "poder ser avaliada e esta nota tem de ser relida"
+    )
+
+
+def test_a_tentativa_da_FORMA_das_linhas_da_FALSO_POSITIVO():
+    """Tentativa (3): prosa em polones e indonesio comeca com "Palavra:".
+
+    Detector que inventa achado e pior que nao ter detector (725). Este teste
+    guarda os falsos positivos para que ninguem readote a forma.
     """
-    specs = _specs_com_copy()
-    declaram = [n for n, sp in specs if CS.declaradas(sp["copy"])["COMENT"]]
-    assert len(declaram) == len(specs), (
-        "specs que NAO declaram a secao do comentario: "
-        + ", ".join(n for n, _ in specs if n not in set(declaram))
-        + " — se isso passar a existir no acervo, releia a nota em vez de "
-          "afrouxar a conferencia"
+    chave = re.compile(r"^\s*(?:#|[A-Za-z_][A-Za-z0-9_]*\s*:\s*\S)")
+    falsos = []
+    for n, sp in _specs():
+        com = CS.comentario_de(sp)
+        linhas = [x for x in com.split("\n") if x.strip()]
+        if not linhas:
+            continue
+        frac = sum(1 for x in linhas if chave.match(x)) / len(linhas)
+        if frac > 0.5 and "privacyStatus" not in com:
+            falsos.append(n)
+    assert falsos, (
+        "a forma `palavra:` deixou de dar falso positivo no acervo — se isso "
+        "for verdade, a tentativa (3) volta a mesa; confira antes de readotar"
     )
 
 
-def test_o_acervo_NAO_vaza_hoje__e_falha_se_passar_a_vazar():
-    """O buraco e LATENTE, e e isso que justifica o portao em vez da suite."""
-    specs = _specs_com_copy()
-    vazam = [n for n, sp in specs if CS.comentario_vazado(sp)["vazado"]]
-    assert not vazam, (
-        "o acervo passou a VAZAR comentario fixado em: " + ", ".join(vazam)
-        + " — aqui o certo e reler a nota: com o acervo vazando, a conferencia "
-          "deixa de reprovar so a peca quebrada e passa a reprovar o parque, "
-          "que e o argumento pelo qual o `mira.py` nao e portao"
+def test_a_REPRODUCAO_do_vazamento_funciona__e_e_a_unica_prova_daqui():
+    """Retirada a secao, o balde pega-tudo enche com outra secao."""
+    vazou = [
+        n for n, sp in _specs()
+        if CS.vazamento_simulado(sp).get("vazou")
+    ]
+    assert len(vazou) >= 50, (
+        "a simulacao do vazamento parou de reproduzir em quase toda spec — "
+        f"hoje {len(vazou)}. Sem ela este arquivo nao prova o defeito"
     )
 
 
-def _quebra(sp):
-    """Devolve a mesma spec sem a secao do comentario. Os DOIS lados."""
-    t = sp["copy"]
-    i = t.index("## COMENTARIO FIXADO")
-    j = t.index("## TAGS", i)
-    q = dict(sp)
-    q["copy"] = t[:i] + t[j:]
-    return q
-
-
-def _uma_spec_com_as_duas_secoes():
-    for n, sp in _specs_com_copy():
-        t = sp["copy"]
-        if "## COMENTARIO FIXADO" in t and "## TAGS" in t and (
-                t.index("## TAGS") > t.index("## COMENTARIO FIXADO")):
-            return n, sp
+def test_a_simulacao_mostra_o_BLOCO_DO_STUDIO_subindo_como_comentario():
+    """O caso concreto que eu publiquei: nao basta "vazou", importa O QUE."""
+    for n, sp in _specs():
+        v = CS.vazamento_simulado(sp)
+        if v.get("vazou") and "privacyStatus" in (v.get("depois") or ""):
+            return
     raise AssertionError(
-        "nenhuma spec do disco tem a secao do comentario ANTES da de tags — "
-        "sem ela a contraprova nao se monta e este arquivo nao mede nada"
+        "nenhuma spec do disco reproduz o caso em que o bloco de "
+        "CONFIGURACOES DO STUDIO sobe como comentario fixado — e esse e o "
+        "caso que eu de fato escrevi nesta hora"
     )
 
 
-def test_CONTRAPROVA_sem_a_secao_o_instrumento_ACUSA():
-    _, sp = _uma_spec_com_as_duas_secoes()
-    v = CS.comentario_vazado(_quebra(sp))
-    assert v["vazado"], "retirada a secao, o instrumento tinha de acusar"
-    assert v["comentario"], (
-        "e o que ele acusa e o balde CHEIO: comentario vazio nao prova o "
-        "pega-tudo, prova so a ausencia"
+def test_NAO_virou_portao__cobrado_por_AST():
+    """Sem discriminador com procedencia nao ha portao (§10).
+
+    Por AST e nao por texto porque o `prontidao.py` CITA o nome do modulo na
+    prosa do comentario que explica por que a conferencia nao entrou — casar
+    prosa pegaria a explicacao em vez do codigo.
+    """
+    caminho = os.path.join(RAIZ, "fabrica", "prontidao.py")
+    with open(caminho, encoding="utf-8") as f:
+        arvore = ast.parse(f.read())
+    importa = [
+        a.name for n in ast.walk(arvore) if isinstance(n, ast.Import)
+        for a in n.names
+    ] + [
+        n.module for n in ast.walk(arvore) if isinstance(n, ast.ImportFrom)
+    ]
+    assert "copy_secoes" not in importa, (
+        "o `prontidao` voltou a importar o `copy_secoes`: a conferencia por "
+        "cabecalho reprova 47 testes, e nenhuma das tres tentativas tem "
+        "procedencia"
     )
-    assert not v["tem_secao"]
-
-
-def test_CONTRAPROVA_no_outro_sentido_com_a_secao_ele_CALA():
-    """Sem este, um instrumento que acusa sempre passaria."""
-    _, sp = _uma_spec_com_as_duas_secoes()
-    v = CS.comentario_vazado(sp)
-    assert v["tem_secao"] and not v["vazado"]
-    assert v["comentario"], "a secao declarada tem de chegar ao comentario"
+    chamadas = [
+        ast.unparse(n.func) for n in ast.walk(arvore) if isinstance(n, ast.Call)
+    ]
+    assert not any("copy_secoes" in c for c in chamadas)
 
 
 def test_a_leitura_e_DELEGADA_ao_publicar__cobrado_por_AST():
-    """Refazer a classificacao de secoes aqui criaria o SEGUNDO dono dela.
-
-    Por AST e nao por texto porque o docstring do modulo CITA o ramo
-    `elif not comentario` para se explicar, e casar prosa pegaria a
-    explicacao em vez do codigo.
-    """
     caminho = os.path.join(RAIZ, "fabrica", "copy_secoes.py")
     with open(caminho, encoding="utf-8") as f:
         arvore = ast.parse(f.read())
     chamadas = [
-        ast.unparse(n.func) for n in ast.walk(arvore)
-        if isinstance(n, ast.Call)
+        ast.unparse(n.func) for n in ast.walk(arvore) if isinstance(n, ast.Call)
     ]
     assert any("ler_copy" in c for c in chamadas), (
-        "o modulo nao CHAMA o publicar.ler_copy — se ele reimplementa a "
-        "classificacao de secoes, os dois donos divergem em silencio"
+        "o modulo nao CHAMA o publicar.ler_copy — reimplementar a "
+        "classificacao criaria o segundo dono dela"
     )
-    # e nao pode ter um segundo classificador: nenhuma atribuicao a uma
-    # variavel chamada `comentario` dentro deste modulo.
     nomes = [
         t.id for n in ast.walk(arvore) if isinstance(n, ast.Assign)
         for t in n.targets if isinstance(t, ast.Name)
     ]
-    assert "comentario" not in nomes, (
-        "ha um `comentario = ...` aqui: isto e o segundo dono do balde"
-    )
+    assert "comentario" not in nomes, "ha um segundo dono do balde aqui"
 
 
-def test_o_PORTAO_esta_fiado__por_PROPRIEDADE_sobre_o_disco():
-    """Nomear a `s087` seria identidade onde ha propriedade (743/753/761)."""
-    _, sp = _uma_spec_com_as_duas_secoes()
-    quebrada = _quebra(sp)
-    quebrada["slug"] = "zz-teste-balde-pega-tudo"
-    quebrada["pacote"] = "zz-teste-balde-pega-tudo"
-    destino = os.path.join(
-        RAIZ, "fabrica", "specs", "zz-teste-balde-pega-tudo.json")
-    with open(destino, "w", encoding="utf-8") as f:
-        json.dump(quebrada, f, ensure_ascii=False)
-    try:
-        r = subprocess.run(
-            [sys.executable, os.path.join(RAIZ, "fabrica", "prontidao.py"),
-             destino],
-            capture_output=True, text=True, cwd=RAIZ, timeout=1800,
-        )
-        saida = r.stdout + r.stderr
-    finally:
-        os.remove(destino)
-    assert "COMENTARIO FIXADO" in saida, (
-        "o portao `copy` nao cobra a ausencia da secao — ele pergunta se o "
-        "balde esta cheio, e o pega-tudo sempre o enche:\n" + saida[-1500:]
-    )
-
-
-def test_a_licao_da_medicao_VACUA_continua_escrita():
-    """Conserto sem o motivo escrito volta calado."""
-    caminho = os.path.join(RAIZ, "fabrica", "copy_secoes.py")
-    with open(caminho, encoding="utf-8") as f:
+def test_as_TRES_tentativas_e_a_medicao_VACUA_continuam_escritas():
+    """Conserto sem o motivo escrito volta calado — e aqui nao houve conserto."""
+    with open(os.path.join(RAIZ, "fabrica", "copy_secoes.py"),
+              encoding="utf-8") as f:
         t = f.read()
-    assert re.search(r"VAC[UÚ]A|vacu", t, re.I), (
-        "a nota de que a PRIMEIRA medicao disto foi vacua saiu do modulo — "
-        "e ela e a licao, nao o conserto"
-    )
-    assert "{TRILHA}" in t, (
-        "o motivo de haver substituicao de placeholder saiu do modulo: foi "
-        "ele que fez a varredura levantar em silencio"
-    )
+    for marca, o_que in (
+            ("CIRCULAR", "a medicao que autorizou a tentativa (1)"),
+            ("183", "as specs sem as chaves do Studio, tentativa (2)"),
+            ("SEIS falsos positivos", "os falsos positivos da tentativa (3)"),
+            ("vacu", "a primeira medicao, que foi vacua"),
+            ("47", "os testes que a suite reprovou"),
+    ):
+        assert re.search(marca, t, re.I), (
+            f"saiu do modulo: {o_que} (marca {marca!r}) — e sao eles que "
+            "impedem a rodada seguinte de repetir a tentativa"
+        )

@@ -3919,38 +3919,63 @@ silencio pela ORDEM dos baldes, e que por isso ela passou a ser detectada pelo
 **CONTEUDO** — *"o titulo muda de spec para spec e de idioma para idioma"*. Mexer
 na classificacao arriscaria repetir aquilo em outro idioma.
 
-**O que se faz e perguntar OUTRA COISA: nao "o balde esta cheio?", e sim "existe
-secao DECLARANDO o comentario?"** — e essa pergunta tem procedencia medida,
-porque este titulo NAO varia: das **322** specs com copy no disco, **322 de 322**
-declaram um cabecalho que comeca por `COMENT`, e **316** declaram `HASHTAG` (as
-seis que faltam ja levam o "sem hashtags", que e falha RUIDOSA e correta).
+**EU LIGUEI NO PORTAO UMA CONFERENCIA POR CABECALHO, E A SUITE REPROVOU 47
+TESTES — retratado as 20:5x, na mesma hora.** Eu varri as specs filtrando por
+`'## DESCRICAO' in copy`, contei *"322 de 322 declaram cabecalho que comeca por
+COMENT"* e tratei isso como procedencia. **O filtro era o cabecalho em
+PORTUGUES, logo a amostra NAO PODIA conter contraexemplo.** Varrido sem filtro:
+**360** specs com copy seccionada, **32** sem o cabecalho portugues, e o do
+comentario aparece como `KOMENTARZ PRZYPIETY`, `KOMENTAR DISEMATKAN`,
+`ΣΧΟΛΙΟ ΚΑΡΦΙΤΣΩΜΕΝΟ`, `SABITLENEN YORUM`, `PINNED COMMENT` e em
+devanagari. **E o 725 — vocabulario de um idioma reportado como medicao da
+frota — e o comentario do proprio `ler_copy` ja dizia isso em letra:** *"o
+titulo muda de spec para spec e de idioma para idioma"*. Eu li a licao, escrevi
+a excecao dela no meu modulo, e a medicao que me autorizou era CIRCULAR.
 
-**E O BURACO E LATENTE: zero das 322 vaza hoje.** Pelo argumento do `mira.py`
-isto iria para a suite; mas a conferencia reprova **exatamente** a copy quebrada
-e **nenhuma** spec do disco, que e a mesma conta que pos o cartao em branco no
-portao `layout` as 19:1x. Entao vai no portao, e `fabrica/copy_secoes.py` delega
-a leitura ao `ler_copy` em vez de reclassificar secao — segundo dono e a
-assinatura que congelou a legenda.
+**E AS OUTRAS DUAS TENTATIVAS TAMBEM FALHARAM. Os numeros ficam para a rodada
+seguinte nao as repetir:**
 
-**E A MINHA PRIMEIRA MEDICAO DISTO FOI VACUA, e essa e a licao mais barata do
-dia.** Eu varri 326 specs chamando `ler_copy(texto)` — assinatura errada, ela
-recebe a SPEC e o workdir — dentro de um `except Exception: continue`. **As 326
-levantaram, o contador ficou em zero, e eu quase relatei "zero vazamentos" como
-medicao.** Corrigida a assinatura, ela ainda levantava, agora no placeholder
-`{TRILHA}`. E o `or True` de 16/10 em outra forma: **varredura que volta vazia
-tem de REPROVAR**, e e por isso que o teste tem piso de specs e cobra os dois
-lados.
+| tentativa | por que cai |
+|---|---|
+| cabecalho `COMENT*` | o cabecalho TRADUZ — 32 de 360, em sete idiomas |
+| chaves do Studio (`privacyStatus`, `categoryId`…) | nao traduzem, mas faltam por GERACAO: **183 de 360** nao tem as quatro |
+| forma das linhas (`^palavra:`) | **SEIS falsos positivos** — prosa em polones e indonesio comeca com *"Rachunek:"*, *"Sedno:"*, *"Jujur:"* |
 
-`tests/test_o_comentario_fixado_saia_de_um_BALDE_pega_tudo.py`, oito testes: a
-varredura sai do DISCO e **reprova com menos de 150 specs**, um cobra que o
-titulo da secao continue invariante no acervo (e a procedencia de detectar por
-cabecalho), um **falha se o acervo passar a vazar** — porque ai a conferencia
-deixa de reprovar so a peca quebrada —, a contraprova vai nos **dois** sentidos,
-a delegacao e por **AST** (o docstring cita o ramo `elif not comentario` para se
-explicar, e casar prosa pegaria a explicacao), a fiacao do portao e cobrada por
-**PROPRIEDADE sobre o disco** e nao nomeando a `s087`, e um **falha se a licao da
-medicao vacua sair do modulo**. **Contraprova:** desligada a fiacao, reprova
-exatamente o teste que a mede.
+**LOGO NAO HA PORTAO, e vai dito em vez de disfarcado.** Conferencia confiavel
+exige que a copy DECLARE qual secao e o comentario de um jeito que nao dependa
+de idioma — mudanca de FORMATO de copy, que e decisao do dono (§10), e entra na
+fila dele. O `fabrica/copy_secoes.py` ficou como INSTRUMENTO: ele REPRODUZ o
+vazamento (`vazamento_simulado`) e **nao acusa ninguem**, codigo de saida sempre
+zero.
+
+**TRES ERROS DE MEDICAO NA MESMA HORA, no MESMO achado, e e isto o §11-bis desta
+rodada:**
+
+1. **VACUA** — varri 326 specs chamando `ler_copy(texto)` (assinatura errada:
+   ela recebe a SPEC e o workdir) dentro de um `except Exception: continue`. As
+   326 levantaram, o contador ficou em zero, e eu quase relatei *"zero
+   vazamentos"* como medicao. E o `or True` de 16/10 em outra forma;
+2. **CIRCULAR** — a amostra selecionada pela propriedade que eu media;
+3. **INVENTADO** — o discriminador por forma de linha, com seis falsos
+   positivos, **pego antes de relatar** porque o 725 manda conferir.
+
+**E quem me pegou foi a SUITE, nao eu relendo:** 72 falhas contra a base de 25,
+**zero desaparecidas**, as 47 novas todas minhas. Comparar contra a linha de
+base medida na PROPRIA sessao e o que impediu isto de ficar no `prontidao` vivo
+— e o commit que ja estava no ar foi retratado no seguinte, nao escondido.
+
+`tests/test_o_comentario_fixado_saia_de_um_BALDE_pega_tudo.py`, dez testes, e a
+forma deles e o que vale: a varredura **nao filtra por cabecalho** e **reprova
+com menos de quatro idiomas** (a guarda que a minha medicao nao tinha), um
+**falha se o acervo for uniformizado** — porque ai a conferencia por cabecalho
+volta a ser possivel e esta nota tem de ser relida —, um guarda os **falsos
+positivos** da tentativa (3) para que ninguem a readote, um exige que a
+REPRODUCAO continue reproduzindo e um que ela mostre o **bloco do Studio**
+subindo (nao basta "vazou", importa O QUE sobe), um **falha se o `prontidao`
+voltar a importar o modulo** — por AST, porque o `prontidao` cita o nome dele na
+prosa que explica por que nao entrou —, e um **falha se qualquer um dos tres
+numeros sair do modulo**. **Contraprova:** religado o import no portao, reprova
+exatamente o teste que o proibe.
 
 ### A PECA DESSA RODADA — OITO cenas, e a frota nao tinha nenhuma de oito
 
