@@ -360,8 +360,18 @@ if not (os.path.exists(f"{d}/short.mp4") and os.path.getsize(f"{d}/short.mp4") >
         if arquivo_valido(saida, 10000):
             continue
         dd = F.dur(f"{d}/s{i:02d}.mp3") + 0.5
+        # A LEGENDA EM PEDACOS, pela MESMA fonte do `fabrica.clipe_cena`.
+        # Aqui estava a fala INTEIRA congelada pela cena toda — exatamente o
+        # defeito que o `legenda.py` foi escrito para consertar em 09/10 e que
+        # foi consertado so no `fabrica.py:862`. Dois donos da mesma regra, um
+        # atualizado: a MESMA assinatura do `assert 20 <= ds <= 60` que matou o
+        # run 38847013520, neste mesmo arquivo. O short solto e o caminho de
+        # TODA peca da frota, logo as 205 publicadas sairam com ~8 a 20
+        # palavras paradas na regiao que o olho LE — medido em 19/10 no
+        # `ANxWQYgtUAY`: a faixa escura de y=471 a 562 (3 linhas, 14% da
+        # altura) tem perfil IDENTICO em t=1,0 s e t=2,8 s.
         with open(f"{d}/s{i:02d}.srt", "w") as srt:
-            srt.write(f"1\n{F.st(0.2)} --> {F.st(dd - 0.15)}\n{c['nar']}\n")
+            srt.write(F.LG.srt(c["nar"], dd))
         nf = max(int(dd * 30), 1)
         F.clipe_cena(d, "s", i, c, dd, nf, SRW, SRH,
                      motion=F.M.motion_ligado(sp, "s"))

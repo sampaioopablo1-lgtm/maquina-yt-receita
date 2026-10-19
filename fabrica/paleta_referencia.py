@@ -68,34 +68,20 @@ CAPA_FRACAO_CLARA = 2.2  # % de pixels com Y > 180
 # distancia e de quantizacao de JPEG, logo a leitura estava certa — mas usar o
 # valor do arquivo do dono e melhor que usar a minha reconstrucao dele.
 TEMA_DO_DONO = "noite"
-CORES_DO_TEMA = {  # motor/config.py do pipeline, tema `noite`, copiado sem mudar
-    "bg": "#0E1117", "panel": "#161B24", "panel2": "#1E2430", "line": "#2C3442",
-    "txt": "#EEF1F5", "txt2": "#C9D1DC", "mut": "#8B95A5",
-    "acc": "#3DDBD9", "acc2": "#F5A524", "red": "#FF5A5F", "ok": "#3CCB7F",
-}
-FONTES_DO_TEMA = ("Anton", "Inter")  # titulo, texto — e `maiusculas=True`
 
-# O nosso render tem QUATRO campos; o tema dele tem onze. O mapeamento vai
-# escrito porque ele e escolha e nao traducao automatica.
-PALETA = {
-    "bg":  CORES_DO_TEMA["bg"],      # o fundo dele, sem mudar
-    "ink": CORES_DO_TEMA["txt"],     # o texto dele, sem mudar
-    "c1":  CORES_DO_TEMA["acc"],     # o turquesa de destaque, sem mudar
-    # Os layouts de LONGO (`layouts_longo.py`) pedem o par errado/certo e o
-    # painel, que o render do SHORT nunca usou. Eles entram com o NOME do tema,
-    # e as quatro chaves historicas ficam como estao — chave a mais nao muda o
-    # short, que le so `bg`, `ink`, `c1` e `c2`.
-    "red":   CORES_DO_TEMA["red"],
-    "ok":    CORES_DO_TEMA["ok"],
-    "panel": CORES_DO_TEMA["panel"],
-    "mut":   CORES_DO_TEMA["mut"],
-    "acc":   CORES_DO_TEMA["acc"],
-    "c2":  CORES_DO_TEMA["panel2"],  # ESCOLHA: o nosso `c2` preenche forma, e
-                                     # no video dele forma e PAINEL, nao acento.
-                                     # `acc2` (#F5A524) existe no tema e ficou de
-                                     # fora de proposito: ele e laranja saturado
-                                     # e romperia o SATAVG medido nos quadros.
-}
+# FONTE UNICA das cores: `temas_do_dono.py`, que copia os QUATRO temas do
+# `motor/config.py` dele. Aqui ficou so a PROCEDENCIA medida do labtreinamento;
+# ter os hex escritos nos dois arquivos era o defeito dos "dois donos da mesma
+# regra" que em 19/10 deixou a legenda do short solto congelada por catorze
+# dias. O ajuste do `c2` (painel em vez de acento, pelo SATAVG) mora no
+# `temas_do_dono.AJUSTES`, com a medida ao lado.
+import temas_do_dono as TD
+
+CORES_DO_TEMA = TD.TEMAS[TEMA_DO_DONO]["cores"]
+FONTES_DO_TEMA = (TD.TEMAS[TEMA_DO_DONO]["fonte_titulo"],
+                  TD.TEMAS[TEMA_DO_DONO]["fonte_texto"])  # e `maiusculas=True`
+
+PALETA = TD.paleta_do_canal("labtreinamento")
 
 # A que a frota usava, guardada para a comparacao nao depender de memoria.
 PALETA_ANTIGA = {"ink": "#14213D", "c1": "#2A9D8F", "c2": "#E9C46A", "bg": "#F6F4EF"}
