@@ -56,11 +56,36 @@ CAPA_DOMINANTES = ("#546C6C", "#3C5454", "#0C0C24", "#3C2424", "#242424",
 CAPA_LUMA_MEDIANA = 69.2
 CAPA_FRACAO_CLARA = 2.2  # % de pixels com Y > 180
 
+# A FONTE VERDADEIRA, achada em 19/10 as 01:3x: o dono disse "assista o video e
+# como foi produzido, LOCALMENTE (Meu PC)", e o elo era o ZIP que ele mesmo
+# mandou. O `pipeline_canal_dark_v1.2.zip` chegou em 12/10; o longo foi
+# publicado em 14/10. O `motor/config.py` do pacote traz quatro temas prontos, e
+# o `noite` e descrito como *"Escuro azulado com destaque turquesa"* — que e
+# exatamente o que eu medi na capa.
+#
+# **ISTO VALIDA A MEDICAO E A SUBSTITUI.** Eu havia derivado o acento como
+# `#3CE4E4` lendo a capa comprimida; o valor REAL do tema e `#3DDBD9`. A
+# distancia e de quantizacao de JPEG, logo a leitura estava certa — mas usar o
+# valor do arquivo do dono e melhor que usar a minha reconstrucao dele.
+TEMA_DO_DONO = "noite"
+CORES_DO_TEMA = {  # motor/config.py do pipeline, tema `noite`, copiado sem mudar
+    "bg": "#0E1117", "panel": "#161B24", "panel2": "#1E2430", "line": "#2C3442",
+    "txt": "#EEF1F5", "txt2": "#C9D1DC", "mut": "#8B95A5",
+    "acc": "#3DDBD9", "acc2": "#F5A524", "red": "#FF5A5F", "ok": "#3CCB7F",
+}
+FONTES_DO_TEMA = ("Anton", "Inter")  # titulo, texto — e `maiusculas=True`
+
+# O nosso render tem QUATRO campos; o tema dele tem onze. O mapeamento vai
+# escrito porque ele e escolha e nao traducao automatica.
 PALETA = {
-    "ink": "#ECF1F2",   # texto CLARO — a referencia e painel escuro com texto claro
-    "c1":  "#5FA8A8",   # o ciano da capa, rebaixado para caber no SATAVG dos quadros
-    "c2":  "#8FB3B3",   # o slate `#546C6C` clareado, para segundo plano legivel
-    "bg":  "#232A2B",   # Y = 40,0 e chroma = 3,96 — dentro da faixa medida
+    "bg":  CORES_DO_TEMA["bg"],      # o fundo dele, sem mudar
+    "ink": CORES_DO_TEMA["txt"],     # o texto dele, sem mudar
+    "c1":  CORES_DO_TEMA["acc"],     # o turquesa de destaque, sem mudar
+    "c2":  CORES_DO_TEMA["panel2"],  # ESCOLHA: o nosso `c2` preenche forma, e
+                                     # no video dele forma e PAINEL, nao acento.
+                                     # `acc2` (#F5A524) existe no tema e ficou de
+                                     # fora de proposito: ele e laranja saturado
+                                     # e romperia o SATAVG medido nos quadros.
 }
 
 # A que a frota usava, guardada para a comparacao nao depender de memoria.

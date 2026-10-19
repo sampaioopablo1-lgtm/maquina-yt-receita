@@ -43,13 +43,35 @@ def test_o_fundo_ANTIGO_era_quadro_claro_pela_NOSSA_propria_regua():
     assert pr.luma(pr.PALETA_ANTIGA["bg"]) / pr.ALVO_LUMA_FUNDO > 5
 
 
-def test_a_paleta_NOVA_acerta_o_alvo_MEDIDO_do_fundo():
-    """Derivada, nao escolhida: luminancia perto da mediana e chroma na faixa."""
-    y = pr.luma(pr.PALETA["bg"])
-    assert abs(y - pr.ALVO_LUMA_FUNDO) <= 5.0, y
+def test_a_paleta_e_a_DO_DONO_e_nao_a_minha_reconstrucao():
+    """A fonte e o `motor/config.py` do pipeline dele, tema `noite`.
+
+    Eu havia DERIVADO a paleta da capa comprimida; o dono apontou que o video
+    foi produzido no PC dele, e o pacote que ele mesmo mandou traz o tema. Usar
+    o arquivo dele e melhor que usar a minha leitura dele.
+    """
+    assert pr.PALETA["bg"] == pr.CORES_DO_TEMA["bg"] == "#0E1117"
+    assert pr.PALETA["ink"] == pr.CORES_DO_TEMA["txt"] == "#EEF1F5"
+    assert pr.PALETA["c1"] == pr.CORES_DO_TEMA["acc"] == "#3DDBD9"
+    assert pr.TEMA_DO_DONO == "noite"
+    # e o fundo dele e MAIS escuro ainda que a mediana dos quadros, porque a
+    # mediana inclui painel e texto. As duas medidas sao coerentes.
+    assert pr.luma(pr.PALETA["bg"]) < pr.ALVO_LUMA_FUNDO
     assert not pr.e_quadro_claro(pr.PALETA["bg"])
-    c = pr.chroma(pr.PALETA["bg"])
-    assert pr.ALVO_CHROMA[0] <= c <= pr.ALVO_CHROMA[1], c
+
+
+def test_a_MINHA_leitura_da_capa_bateu_com_o_valor_REAL():
+    """O que torna a medicao confiavel: ela recuperou o acento sozinha.
+
+    Lendo a capa quantizada eu obtive `#3CE4E4`; o tema declara `#3DDBD9`. A
+    diferenca e de quantizacao de JPEG. Falha se a distancia crescer, porque ai
+    a minha rota de medicao deixou de valer.
+    """
+    medido, real = "#3CE4E4", pr.CORES_DO_TEMA["acc"]
+    assert medido in pr.CAPA_DOMINANTES
+    d = max(abs(int(medido[i:i+2], 16) - int(real.lstrip("#")[i-1:i+1], 16))
+            for i in (1, 3, 5))
+    assert d <= 12, (medido, real, d)
 
 
 def test_a_tinta_NOVA_contrasta_com_o_fundo_NOVO():
