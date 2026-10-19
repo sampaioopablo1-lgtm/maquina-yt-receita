@@ -5,6 +5,61 @@ porque número dentro de prompt envelhece e já me fez errar quatro vezes
 (652/655, 658, 682, 685). Aqui não entra contagem de estoque, nem de views, nem
 de inscritos. Entra onde olhar.
 
+## E ESSA SEÇÃO ABAIXO FICOU OBSOLETA EM 19/10 — O PROMPT DEIXOU DE SER CÓPIA
+
+**Pedido do dono em 19/10:** *"Não esqueça de otimizar a rotina YT, diretamente,
+já ativa"* e, depois, *"já deixe este aprendizado na rotina, para ficar 100% auto,
+após as correções. Na rotina também importante ter, para evolução do sistema."*
+
+**O prompt do gatilho `trig_01Y6ZvwsrbxteyS933sgzqK4` é agora um NÚCLEO de 10 KB
+que manda ler `docs/ROTINA.md`** — aplicado às 02:08:48Z e reemitido às 02:22:16Z,
+com o `derived_state.prompt` voltando idêntico nas duas vezes. A cópia versionada
+dele é `docs/ROTINA-NUCLEO.md`.
+
+**Logo a seção seguinte — que existia para governar enquanto a sincronia não
+fosse feita — perdeu o objeto.** O número da cota que ela corrige segue valendo
+(e foi ele mesmo retratado depois, pela sétima peça da janela); o que caiu é a
+PREMISSA dela: *"a sincronia com o trigger NÃO foi feita, e o motivo é que o
+`update_trigger` substitui o prompt INTEIRO, logo aplicar exigiria reproduzir
+~65 KB byte a byte"*. **Esse motivo estava certo e a saída era outra: parar de
+pôr procedimento no prompt.** Eu tratei o teto como restrição a contornar por
+seis dias, quando ele era o sintoma de um desenho errado.
+
+**As três medições que derrubaram a cópia** estão na §11 do `docs/ROTINA.md`: a
+cópia divergia (11, 12 e 13/10, mandando a mira "33 a 37" e a cota "~40
+vídeos/janela" já retratadas), o teto de 65.536 bytes transformava correção em
+migração de história, e a sincronia não cabia numa chamada (~32 mil tokens).
+
+**O que FICOU no núcleo**, porque não pode se perder se o repo não abrir: a frota
+e os ids, a autorização permanente **com o ciclo inteiro em letra** (terminar uma
+correção NÃO é terminar a rodada), as travas, o passo zero da Porta 1, o formato
+da resposta e a disciplina do instrumento. **O `update_trigger` só se chama
+quando uma TRAVA, a AUTORIZAÇÃO, o PASSO ZERO ou o FORMATO mudarem** — nunca por
+achado nem por número.
+
+**E A EVOLUÇÃO DO SISTEMA VIROU PASSO DE TODA RODADA, não só da de construção**
+(§11-bis): um instrumento no lugar de uma conta feita de cabeça, uma retratação
+travada com teste que cobra PROPRIEDADE e não identidade, e um passo manual a
+menos. **A medida de que evoluiu é UMA e é externa: a distância em DIAS para os
+500 inscritos.** Instrumento que não muda essa distância é dívida com nome bonito.
+
+**PONTO CEGO DECLARADO, e é da mesma classe do que ele conserta: nenhum teste
+alcança o prompt VIVO.** `tests/test_rotina_cabe_no_trigger.py` (13 testes,
+reescrito — ele cobrava o teto de 65.536 no corpo da rotina, que hoje tem 69.742
+bytes de propósito) prova que o núcleo ESCRITO carrega as travas; que o gravado é
+igual a ele depende de quem editar chamar o `update_trigger` no mesmo passo. A
+diferença contra o desenho antigo é o TAMANHO do que precisa dessa disciplina:
+10 KB que mudam quando uma trava muda, em vez de 64 KB que mudavam toda rodada.
+
+**E O `comm` CONTRA A LINHA DE BASE PRECISA DO MESMO FORMATO NOS DOIS LADOS —
+medido nesta rodada.** O `pytest -q` trunca a linha do `FAILED` com
+` - AssertionEr...`; a base desta sessão tinha a linha inteira. O `comm` acusou
+**duas falhas novas e duas desaparecidas que eram o MESMO teste nos dois lados.**
+Normalize antes (`sed 's/ - .*$//' | sort`), senão o instrumento fabrica
+regressão — a mesma classe do grep de 17/10 que quase me fez declarar a rota dos
+inscritos fechada. Conferido assim: **25 falham, idêntico à base, nos dois
+sentidos do `comm`.**
+
 ## A COTA DO PROMPT QUE VOCÊ ACABOU DE LER ESTÁ CORRIGIDA — E A CORREÇÃO É DAQUI
 
 **Se o prompt que disparou esta rodada disser "COTA ~40 vídeos/janela (619)",

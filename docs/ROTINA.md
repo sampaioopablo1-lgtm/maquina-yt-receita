@@ -1,43 +1,34 @@
-# A rotina horária — texto atual
+# A rotina horária — o PROCEDIMENTO
 
-> Prompt do trigger `trig_01Y6ZvwsrbxteyS933sgzqK4` ("Máquina YT — Porta 1 do
-> YPP antes de fevereiro de 2027", cron `6 * * * *`). Vive aqui para não ser
-> reconstruído de memória e para que a sessão onde a rotina posta possa
-> aplicá-lo **verbatim** com `update_trigger` — o servidor só aceita a edição do
-> prompt vindo dessa sessão.
+> **Este arquivo DEIXOU DE SER uma cópia do prompt em 19/10/2026.** Ele passou a
+> ser a FONTE ÚNICA, e o prompt do trigger `trig_01Y6ZvwsrbxteyS933sgzqK4`
+> virou um NÚCLEO curto que manda ler este arquivo antes de tudo.
 >
-> **Para aplicar:** passe como `prompt` tudo o que está abaixo da linha `---`.
+> **Por que, e são três motivos medidos, não preferência:**
 >
-> **E ISSO TEM TETO: 65.536 BYTES — medido em 13/10 às 21:3x, pela RECUSA do
-> servidor** (`prompt must be at most 65536 bytes (invalid_prompt)`). O corpo
-> estava em **68.118** e cruzou o teto no commit `5eb5ed9`, da rodada anterior
-> (`ab1bcc0` media 65.131). **A rotina não cresce para sempre.** Nesta rodada ela
-> devolveu 4,6 KB migrando HISTÓRIA para o `CLAUDE.md` — o dinamismo visual, a
-> credencial do GitHub, os passos da ponte pelo Composio, a composição das 25 e a
-> lista das quedas — e **nenhuma REGRA nem TRAVA saiu**, o que
-> `tests/test_rotina_cabe_no_trigger.py` passou a cobrar.
+> 1. **a cópia divergia.** Em 11, 12 e 13/10 o arquivo andou na frente e o prompt
+>    ficou mandando coisa já retratada — a mira "33 a 37" que o `mira.py` reprova
+>    desde 12/10, e a cota "~40 vídeos/janela" que é ~4x errada. Toda vez a causa
+>    foi a mesma: eu corrigi o arquivo e não chamei o `update_trigger`;
+> 2. **a cópia tinha TETO.** 65.536 bytes, medido em 13/10 pela RECUSA do
+>    servidor. A partir dali, toda correção exigia migrar história para abrir
+>    espaço — trabalho que não produz vídeo nenhum;
+> 3. **e a sincronia não cabia numa chamada.** Medido em 19/10: o corpo tem
+>    ~64 KB e ~32 mil tokens; ler e reemitir byte a byte estoura o limite de uma
+>    resposta, logo a sincronia nunca se fechava e um envio truncado corromperia
+>    o texto que comanda a máquina.
 >
-> **E CONFIRA DEPOIS, porque sincronia sem checksum envelhece calada:**
-> corpo em 13/10 22:25 = **62781 caracteres, 64506 bytes, md5
-> `d03be9a6ff6ab79aee8dfd627faafb7f`**, margem de 1030 bytes. **CONFERIDO contra o
-> prompt gravado na mesma rodada: IDENTICO byte a byte.** Para remedir:
+> **A regra já estava escrita aqui e não valia para ela mesma:** *"o detalhe
+> técnico estável mora no repo, não aqui — lista dentro deste prompt já
+> envelheceu e me fez errar quatro vezes."*
 >
->     python3 -c "import pathlib,hashlib; c=pathlib.Path('docs/ROTINA.md').read_text().split(chr(10)+'---'+chr(10),1)[1].strip(chr(10)); print(len(c), len(c.encode()), hashlib.md5(c.encode()).hexdigest())"
+> **O que FICOU no núcleo**, porque não pode se perder se o repo não abrir: a
+> frota e os ids, a autorização permanente do dono, as travas que não se
+> negociam, o passo zero (o quadro da Porta 1) e o formato da resposta final.
+> `tests/test_rotina_cabe_no_trigger.py` cobra isso.
 >
-> e compare com o `prompt` que o `get_trigger` devolve. **Divergência significa
-> que um dos dois foi editado sozinho** — e em 11/10, 12/10 e 13/10 foi SEMPRE o
-> arquivo que andou na frente, porque eu corrigi o arquivo e não chamei o
-> `update_trigger`. Isso é defeito meu e é diferente do teto: pelos commits, o
-> arquivo só passou do teto na última rodada.
-> Quando a rotina mudar por `update_trigger`, atualize este arquivo no mesmo
-> passo, senão ele volta a envelhecer.
->
-> Última revisão: 2026-10-13 21:4x UTC. Retrata, NO LUGAR: o 691 pelo 713 (o
-> inscrito por peça estava inflado de 3x a 11x e a ORDEM inverte) e "a publicação
-> é pela ponte" (ela sai pelo `retomar.yml` desde 12/10). Acrescenta o teto do
-> prompt, o provedor de voz medido pela ANOTAÇÃO (733), o resíduo de ~1 a 2 s
-> (734), a soma máxima cega quando as divergências se cancelam (736), os dois
-> passos do registro (726) e a mira do labtreinamento em 20,0 a 26,0.
+> **Este arquivo não tem mais teto de tamanho.** Corrija-o livremente; o que
+> precisa de `update_trigger` é só o NÚCLEO, e só quando uma TRAVA mudar.
 
 ---
 
@@ -953,6 +944,91 @@ PENDÊNCIAS QUE SÓ O DONO RESOLVE:
    respondem do SANDBOX do Composio (Sejm e Eurostat com dado real, ELSTAT 200,
    gov.br 301). Liberar no proxy segue sendo bom — encurta a rodada — mas **longo
    novo já não depende disso**. Ver §6-bis.
+=====================================================================
+11. O PROMPT NAO CARREGA MAIS PROCEDIMENTO — E E ISSO QUE MANTEM O 100% AUTO
+=====================================================================
+**Pedido do dono em 19/10:** *"Não esqueça de otimizar a rotina YT, diretamente,
+já ativa"* e, em seguida, *"já deixe este aprendizado na rotina, para ficar 100%
+auto, após as correções. Na rotina também importante ter, para evolução do
+sistema."*
+
+**O prompt do gatilho é um NÚCLEO curto; o procedimento é ESTE arquivo.** A cópia
+versionada do núcleo está em `docs/ROTINA-NUCLEO.md`, travada por
+`tests/test_rotina_cabe_no_trigger.py` (13 testes).
+
+**NÃO VOLTE A COLAR ESTE ARQUIVO DENTRO DO PROMPT.** Três medições dizem por quê,
+e as três são defeito que já ocorreu:
+  1. **a cópia divergia** — em 11, 12 e 13/10 ela mandou coisa já retratada: a
+     mira "33 a 37" que o `mira.py` reprova desde 12/10, e a cota "~40
+     vídeos/janela" que é ~4x errada. A causa foi sempre a mesma: eu corrigi o
+     arquivo e não chamei o `update_trigger`;
+  2. **o teto de 65.536 bytes** (medido em 13/10 pela RECUSA do servidor)
+     transformava cada achado novo em migração de história — trabalho que não
+     produz vídeo nenhum;
+  3. **a sincronia não cabia numa chamada** — ~64 KB e ~32 mil tokens, e a
+     conferência por md5 só acusaria o erro DEPOIS de o texto gravado já ter
+     sido trocado. **Trava corrompida em silêncio é pior que arquivo grande.**
+
+**O `update_trigger` só se chama quando uma TRAVA, a AUTORIZAÇÃO, o PASSO ZERO ou
+o FORMATO DA RESPOSTA mudarem** — nunca por achado, nunca por número. Corrija
+este arquivo livremente: ele é lido fresco a cada rodada e **não tem teto**.
+
+**PONTO CEGO DECLARADO:** nenhum teste alcança o prompt VIVO. O verde da suíte
+prova que o núcleo ESCRITO carrega as travas, **não** que o gravado é igual a
+ele — quem editar `docs/ROTINA-NUCLEO.md` tem de chamar o `update_trigger` no
+MESMO passo. É a assinatura do §3.8, e vai dita em vez de escondida.
+
+O 100% AUTO, EM LETRA: A RODADA NAO PARA DEPOIS DE CORRIGIR
+  **A autorização de 09/10 e a reafirmação de 19/10 cobrem o ciclo inteiro**, e é
+  aqui que elas se aplicam ao caso novo: **terminar uma correção NÃO é terminar a
+  rodada.** Depois de consertar, a rodada **volta a produzir na mesma execução** —
+  pauta, render, publicação —, sem perguntar e sem empurrar para a rodada
+  seguinte. **Rodada que só conserta e vai dormir desperdiçou a janela.**
+  O único freio é o portão: os parâmetros mínimos são os do `prontidao.py`. O que
+  a autorização NÃO cobre segue sendo apagar ou mover vídeo publicado e apagar as
+  46 duplicatas.
+
+=====================================================================
+11-bis. A EVOLUCAO DO SISTEMA — O QUE TODA RODADA DEIXA MELHOR QUE ACHOU
+=====================================================================
+Pedido do dono, 19/10: *"Na rotina também importante ter, para evolução do
+sistema."* **Isto NÃO é a §10**, que diz o que fazer quando não se pode medir nem
+publicar. Isto vale **em toda rodada, inclusive nas que publicam**, e responde
+"o sistema está melhor do que ontem?".
+
+**TRÊS entregas, nesta ordem, e cada uma cabe numa rodada:**
+  1. **UM instrumento novo, ou uma conta que saiu da minha cabeça.** Todo número
+     que eu calculo à mão vira um erro meu — 652/655, 658, 682, 685, 713, 723,
+     755. Se nesta rodada eu calculei algo de cabeça, o módulo que faz essa conta
+     é a entrega;
+  2. **UMA retratação travada com teste.** Retratação sem teste volta. E o teste
+     cobra **PROPRIEDADE, não identidade** — cravar id, lista ou número exato
+     reprova quando a produção andar, que é o defeito 743/753/761 e já se repetiu
+     quatro vezes;
+  3. **UM passo manual a menos.** O que depende de eu LEMBRAR falha justamente na
+     rodada em que eu esqueço — o corpus parou sete rodadas assim (726). Passo
+     com instrumento sobrevive à rodada ruim: o parqueamento incondicional de
+     duração é a prova (18/10).
+
+**O QUE A EVOLUÇÃO NÃO É, e isto é trava:** não é mexer em parâmetro de produção
+(§10), não é refatorar código que funciona, não é inventar experimento para "ter
+o que fazer", e **não é instrumento novo em cima de instrumento que ninguém
+roda**. Antes de escrever um detector, pergunte se ele pode produzir **falso
+positivo** — detector que inventa achado é pior que não ter detector (725), e os
+meus deram falso positivo na primeira execução **cinco** vezes.
+
+**E a medida de que o sistema evoluiu é UMA, e é externa: a distância em DIAS
+para os 500 inscritos**, calculada no passo zero. Instrumento que não muda essa
+distância é dívida com nome bonito.
+
+**E O `comm` CONTRA A LINHA DE BASE PRECISA DO MESMO FORMATO NOS DOIS LADOS —
+medido em 19/10 nesta própria rodada.** O `pytest -q` trunca a linha do `FAILED`
+com ` - AssertionEr...`; a base desta sessão tinha a linha inteira. O `comm`
+acusou **duas falhas novas e duas desaparecidas** que eram **o MESMO teste nos
+dois lados**. Normalize antes de comparar (`sed 's/ - .*$//' | sort`), senão o
+instrumento fabrica regressão — a mesma classe do grep de 17/10 que quase me fez
+declarar a rota dos inscritos fechada.
+
 DÍVIDA TÉCNICA: **25 testes falham, e a composição está na §6** — 15 de
 `test_narracao_das_specs` (specs que sairiam da matriz caladas, quatro delas de
 canal da frota) mais oito espalhadas; **não é "título duplicado e Devanagari",
