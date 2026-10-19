@@ -1,0 +1,114 @@
+{
+ "slug": "kolejny-poziom-s071",
+ "pacote": "kolejny-poziom-s071",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "longo_existente": "GtmoaQMr_1c",
+ "longo": [],
+ "thumb": {
+  "l1": "Godziny z umowy",
+  "l2": "kłamią"
+ },
+ "paleta": {
+  "bg": "#0B0B0C",
+  "ink": "#F2EEE8",
+  "c1": "#E23B3B",
+  "c2": "#D9C7A7",
+  "red": "#FF4D4D",
+  "ok": "#7FB77E",
+  "panel": "#151517",
+  "mut": "#8F877C",
+  "acc": "#E23B3B"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Godziny z umowy",
+   "sub": "nie twoje",
+   "nar": "Umowa nie wie, ile czasu naprawdę dajesz."
+  },
+  {
+   "layout": "item",
+   "kicker": "Liczba z papieru",
+   "nar": "W umowie masz godziny, ale nie swoje."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Umowa i grafik",
+   "barras": [
+    {
+     "rotulo": "Z umowy",
+     "valor": 160
+    },
+    {
+     "rotulo": "Z grafiku",
+     "valor": 178
+    },
+    {
+     "rotulo": "Z dojazdem",
+     "valor": 200
+    }
+   ],
+   "nar": "Grafik pokazuje całkiem inną liczbę godzin."
+  },
+  {
+   "layout": "item",
+   "kicker": "Dojazd też jest czasem",
+   "nar": "Dojazd też przepracowujesz, i to co dnia."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Skąd brać godziny",
+   "itens": [
+    "Grafik",
+    "Własne zapiski",
+    "Historia tras"
+   ],
+   "nar": "Trzy miejsca dają prawdziwe godziny."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Stawka spada",
+   "sub": "godziny rosną",
+   "nar": "Więcej godzin na dole, mniejsza stawka."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ten sam rachunek",
+   "nar": "Ten sam rachunek kosztuje więcej godzin."
+  },
+  {
+   "layout": "item",
+   "kicker": "Nie z umowy",
+   "nar": "Nie bierz dolnej liczby wprost z umowy."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Z dojazdem i bez",
+   "barras": [
+    {
+     "rotulo": "Bez dojazdu",
+     "valor": 30
+    },
+    {
+     "rotulo": "Z dojazdem",
+     "valor": 24
+    }
+   ],
+   "nar": "Z dojazdem stawka netto jest niższa."
+  },
+  {
+   "layout": "item",
+   "kicker": "Pół godziny roboty",
+   "nar": "Policzysz to raz, w pół godziny."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Ile wyszło u ciebie",
+   "sub": "napisz pod spodem",
+   "nar": "Napisz, ile godzin wyszło na rachunek."
+  }
+ ],
+ "copy": "# kolejny-poziom-s071\n\n## TITULO\nDlaczego Godziny z Umowy Dają Złą Stawkę Netto Za Godzinę Twojego Czasu\n\n## TITULO SHORT\nGodziny z umowy nie są twoje\n\n## DESCRICAO\nŻeby przeliczyć kwotę na godziny, potrzebujesz dolnej liczby: swojej stawki netto za godzinę. Prawie każdy bierze ją z umowy — wypłata podzielona przez godziny zapisane w papierze. **I to jest właśnie ta jedna liczba, która psuje całe działanie.**\n\n**Umowa mówi, ile godzin jesteś zobowiązany pracować. Nie mówi, ile czasu rzeczywiście oddajesz.** Nadgodziny, dyżury i dojazd nie siedzą w umowie, a siedzą w twoim dniu. Jeśli dolna liczba jest mniejsza, niż naprawdę jest, stawka wychodzi wyższa, niż naprawdę jest — a wtedy każdy rachunek przeliczony przez tę stawkę wychodzi na mniej godzin, niż kosztuje. **Działanie wychodzi, liczba jest okrągła, i nikt ci nie powie, że dół jest zły.**\n\n**Poprawka nie wymaga niczego, czego nie masz: godziny bierzesz z grafiku albo z własnych zapisków, a czas dojazdu z historii tras w telefonie.** Umowa zostaje tam, gdzie jest. Weź trzy miesiące, nie ostatni — jeden miesiąc ukrywa nadgodziny i premie, które zmieniają obie liczby naraz.\n\n**I tu jest rzecz, która boli najbardziej: dojazd liczy się w obie strony i wraca codziennie.** Godzina dziennie to dwadzieścia godzin w miesiącu, których umowa nie widzi. To one obniżają twoją prawdziwą stawkę netto, i to przez nie ten sam rachunek kosztuje cię więcej godzin, niż myślisz.\n\n**Co zrobić dzisiaj:** weź ostatni grafik, dopisz do niego dojazd, i podziel wypłatę netto przez tę sumę. Zapisz wynik obok daty. Cała robota to pół godziny i robi się ją raz na całe życie tej stawki — zmienia się tylko wtedy, gdy zmieni się umowa albo dojazd.\n\nNie podaję tu kwot, stawek minimalnych, składek ani progów podatkowych. To się zmienia i zostaje poza nagraniem. Mechanizm jest tym, co się liczy: wynik nie zależy od dzielenia, zależy od dolnej liczby.\n\n## COMENTARIO FIXADO\nNajmniej oczywiste: godziny z umowy są wygodne właśnie dlatego, że dają ładniejszą stawkę. Z ilu godzin policzyłeś swoją stawkę netto?\n\n## HASHTAGS\n#finanse #budzet #czaspracy #kolejnypoziom #Shorts\n\n## TAGS\nstawka netto za godzine, godziny pracy, grafik, dojazd do pracy, czas pracy, przeliczanie cen na godziny, finanse osobiste, budzet domowy, mianownik, pasek wyplaty, nadgodziny, kolejny poziom, obliczenia, wartosc czasu, koszt zakupu\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Os unicos numeros falados sao\n\"tres\" (as fontes das horas) e \"uma vez\"/\"meia hora\" (o custo do trabalho), e\nos dois sao contagem do proprio procedimento. Os valores das barras (160, 178,\n200 e 30/24) sao ILUSTRACAO da aritmetica do divisor — mais horas embaixo da\nmesma wyplata da stawka menor — e NAO sao falados nem medidos de ninguem.\nStawka minimalna, composicao de encargos e faixa de imposto ficaram FORA pela\nregra (g), porque mudam por publicacao.\n\n## FONTES\nA spec local `kolejny-poziom-020`, que e o pacote do longo `GtmoaQMr_1c`,\npublicado NESTE canal hoje as 13:5x — rank 1 da ordem viva e a origem de MENOR\ncontagem do canal (2). A familia desta peca sai dos capitulos 27 a 31, em\nespecial o 28 e o 29: *\"godziny bierzesz z grafiku albo z wlasnych zapiskow,\nnie z umowy — umowa mowi, ile masz pracowac\"* e *\"czas dojazdu masz w\ntelefonie, w historii tras\"*, mais *\"wez trzy paski, a nie ostatni\"* e *\"cala\nrobota to pol godziny\"*. Nenhuma frase desta peca saiu de TITULO de capitulo.\n\n**E ELA E A QUARTA FAMILIA DESTE MESMO LONGO, de proposito.** O short do pacote\n(`9zfF0f4aDQM`) usou o DENOMINADOR em geral, o `s068` (`8ZvPC95UDNI`) QUAL\ndespesa medir primeiro, e o `s069` (`y6x88wc3-QQ`) os DOIS ERROS que deixam a\nconta mais bonita. Esta usa QUAIS HORAS entram no divisor — as do grafik e do\ndojazd, nao as da umowa —, que nenhum short do canal tocou.\n\n**E E A NONA FAMILIA DISTINTA DO DIA NA FROTA.** As outras oito: o denominador,\no alvo em meses, qual despesa medir primeiro, a janela do periodo, a unidade do\nresultado, os dois erros, a comparacao com numero de fora e de onde sai o\ndivisor (tres meses de extrato). Repetir angulo entre canais seria o habito do\n762 numa dimensao nova, e o `similaridade` NAO pegaria, porque compara contra o\nMESMO canal.\n\n**E A ORIGEM DOMINANTE DESTE CANAL FICOU DE FORA, com o alerta na mao:** o\n`concentracao.py` acusou `GUiq15usizw` com **12 de 65** shorts, mais que o dobro\nda segunda (4). O portao `similaridade` e de MONETIZACAO, e concentracao de\norigem ataca justamente ele.\n\n## EXPOSICAO\n**ONZE CENAS, e o esqueleto\n`titulo-item-barras-item-lista-titulo-item-item-barras-item-cta` e inedito nas\nSETE formas de onze cenas da frota.** Varrido o disco antes de escrever.\n\n**E `numero` NAO entrou, de proposito:** o `layouts_do_short.desenham()` sonda o\nproprio render e devolve `barras`, `cta`, `item`, `lista` e `titulo` — cinco de\nonze candidatos. O `numero` e um dos que o retrato NAO desenha, e foi\nexatamente ele que eu publiquei como cartao em branco no `epomeno-epipedo-s069`\nas 18:18Z de hoje. Todo layout desta peca saiu do conjunto sondado, e o portao\n`layout` confere isso cena por cena.\n\n**E as barras sao argumento e nao enfeite:** a cena 2 desenha as mesmas horas\ncontadas de tres jeitos (umowa, grafik, com dojazd) e a cena 8 desenha a stawka\ncaindo quando o dojazd entra embaixo. Quem assistir sem som ve a tese nos dois\ngraficos.\n\n**O ORCAMENTO SAIU DO INSTRUMENTO: 38 caracteres por cena** para onze cenas\nmirando o PISO do `ALVO_SHORT` da frota (41,5 a 43,0). A peca foi escrita com\nmedia proxima disso, e a cadencia sai em **3,8 s por plano**.\n\n**E O INSTRUMENTO DISSE QUE NENHUM NUMERO SERVE AOS DOIS MUNDOS:** o\n`mira.janela_dos_dois_mundos` devolve **None** para onze cenas nesta faixa — a\nrazao piper/edge desta voz e 0,851 e o vao entre os provedores vale varias vezes\na largura de 1,5 s da faixa. E a pinca do 740/748 aparecendo dentro do\ninstrumento, e alargar a faixa ou mirar um mundo so e decisao do dono (§10).\nMirei o PISO pela regra do 772 e declaro a exposicao: se o edge narrar, o real\ncai em algum ponto da banda de (−1,2; 4,0) sobre a previsao, e eu **nao** digo de\nque lado, porque a banda tem 5,2 s de largura contra 1 s de granularidade (774).\n\n**E O GANCHO FOI CONFERIDO PELO INSTRUMENTO NOVO, nao no olho:** o\n`fabrica/gancho.py`, escrito as 21:2x depois de eu conciliar os dois limites a\nmao em quatro passadas, le o limite de `variedade.GANCHO_MAX_PALAVRAS` e conta\npela `variedade.primeira_frase`. Esta e a primeira peca escrita com ele na mesa.\n"
+}
