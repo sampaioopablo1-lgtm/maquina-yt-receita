@@ -1,0 +1,101 @@
+{
+ "slug": "kolejny-poziom-s068",
+ "pacote": "kolejny-poziom-s068",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "longo_existente": "GtmoaQMr_1c",
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Duża czy mała",
+   "sub": "to złe pytanie",
+   "nar": "Duża czy mała to nie jest to właściwe pytanie."
+  },
+  {
+   "layout": "item",
+   "kicker": "Jedna duża kwota",
+   "preco": "raz w roku",
+   "nar": "Duży wydatek raz w roku widzisz i go pamiętasz."
+  },
+  {
+   "layout": "item",
+   "kicker": "Mała kwota",
+   "preco": "dwanaście razy",
+   "nar": "Mała kwota wraca co miesiąc i wcale nie boli."
+  },
+  {
+   "layout": "barras",
+   "kicker": "To samo w godzinach",
+   "barras": [
+    {
+     "rotulo": "Raz",
+     "valor": 3
+    },
+    {
+     "rotulo": "Co miesiąc",
+     "valor": 12
+    }
+   ],
+   "nar": "W godzinach ta mała wychodzi znacznie gorzej."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Mnożnik",
+   "sub": "to dwanaście",
+   "nar": "Ukryty mnożnik jest jeden i wynosi dwanaście."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Tu liczba boli",
+   "itens": [
+    "Abonamenty",
+    "Dojazd",
+    "Drobne raty",
+    "Opłaty stałe"
+   ],
+   "nar": "Cztery rzeczy wychodzą gorzej, niż wyglądają."
+  },
+  {
+   "layout": "item",
+   "kicker": "Policz w godzinach",
+   "preco": "nie w złotych",
+   "nar": "Przelicz każdą z nich na swoje godziny pracy."
+  },
+  {
+   "layout": "item",
+   "kicker": "Potem porównaj",
+   "preco": "z jedną dużą",
+   "nar": "Dopiero wtedy porównaj je z tą jedną dużą kwotą."
+  },
+  {
+   "layout": "item",
+   "kicker": "Kolejność",
+   "preco": "najpierw licz",
+   "nar": "Najpierw licz, a granicę wyznaczaj na końcu."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Która wyszła gorzej",
+   "sub": "napisz pod spodem",
+   "nar": "Napisz pod spodem, która wyszła u ciebie gorzej."
+  }
+ ],
+ "thumb": {
+  "l1": "Mała kwota",
+  "l2": "boli dłużej"
+ },
+ "paleta": {
+  "bg": "#0B0B0C",
+  "ink": "#F2EEE8",
+  "c1": "#E23B3B",
+  "c2": "#D9C7A7",
+  "red": "#FF4D4D",
+  "ok": "#7FB77E",
+  "panel": "#151517",
+  "mut": "#8F877C",
+  "acc": "#E23B3B"
+ },
+ "copy": "# kolejny-poziom-s068\n\n## TITULO\nDuża Kwota Raz w Roku czy Mała co Miesiąc: Która Naprawdę Kosztuje Cię Więcej Godzin\n\n## TITULO SHORT\nMała kwota boli dłużej\n\n## DESCRICAO\nPatrzysz na wydatek i oceniasz go po wielkości kwoty. **A w godzinach pracy decyduje nie wielkość, tylko powtarzalność.**\n\nDuży wydatek raz w roku widzisz, pamiętasz i zwykle się nad nim zastanawiasz. Mała kwota, która wraca co miesiąc, nie boli w momencie zapłaty — i właśnie dlatego nikt jej nie przelicza. Tymczasem ma ukryty mnożnik, i ten mnożnik wynosi dwanaście.\n\n**Cztery rzeczy wychodzą w godzinach znacznie gorzej, niż wyglądają w złotych:** abonamenty, dojazd, drobne raty i opłaty stałe. Łączy je jedno — są małe i comiesięczne. Każda z nich osobno wygląda na drobiazg, a razem zajmują miejsce, którego nie widzisz, dopóki nie przeliczysz ich na czas.\n\nDziałanie jest to samo co w całym tym cyklu: **kwotę dzielisz przez swoją stawkę netto za godzinę** — tę z przelewu, nie tę z umowy — i dopiero potem porównujesz. Najpierw przelicz każdą małą pozycję, policz ją dwanaście razy, i wtedy postaw ją obok tego jednego dużego wydatku, o którym myślisz cały rok.\n\nI kolejność ma znaczenie: **najpierw liczysz, a granicę wyznaczasz na końcu.** Granica postawiona przed liczeniem jest życzeniem, a życzenie nie ma mianownika. Pierwsza odzyskana godzina zmienia najwięcej — dziesiąta już prawie nic.\n\nNie ma tu żadnej mojej liczby: ani kwot, ani procentów, ani średniej krajowej. Wszystko wychodzi z twojego przelewu i twojej listy opłat.\n\n## COMENTARIO FIXADO\nPrzelicz dwie pozycje — jedną dużą i jedną małą comiesięczną — i napisz pod spodem tylko jedno: która wyszła gorzej w godzinach. Bez kwot i bez nazw firm.\n\n## HASHTAGS\n#FinanseOsobiste #BudzetDomowy #KolejnyPoziom\n\n## TAGS\nkoszt w godzinach, stawka netto za godzine, abonamenty, oplaty stale, drobne raty, dojazd do pracy, budzet domowy, finanse osobiste, policz sam, mnoznik dwanascie\n\n## CONFIGURACOES DO STUDIO\n- Idioma: Polones (pl) | Categoria: Educacao (27)\n- Nao feito para criancas\n- Divulgacao de conteudo sintetico: SIM (voz gerada por IA)\n- Licenca padrao do YouTube\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nEste short NAO cita nenhum numero meu e NAO faz afirmacao institucional nenhuma.\nNao cita valor de abonamento, nao cita stawka, nao cita percentual e nao cita\nmedia nacional. O unico numero que aparece e DOZE, que e a quantidade de meses no\nano — nao e estimativa, e calendario. Os quatro grupos que saem pior em horas\nvem do longo `GtmoaQMr_1c` deste canal, e a conta sai do proprio extrato de quem\nassiste. Classe PROCEDIMENTO: a trava de duas fontes institucionais (600) vale\npara numero sobre o MUNDO que muda, e aqui nao existe nenhum. DELIBERADAMENTE DE\nFORA: qualquer valor de referencia de assinatura, e qualquer stawka media por\nsetor.\n\n## FONTES\nOrigem: `GtmoaQMr_1c` (`kolejny-poziom-020`, publicado em 19/10/2026 as 13:49Z,\n64 cenas de longo). Capitulos 51 e 52. Familia de entrada errada: julgar a\ndespesa pelo tamanho do valor UNICO, quando o que pesa e a repeticao mensal.\nO short que saiu NO pacote usou outra familia — a do DENOMINADOR (a stawka netto\npor hora) —, logo este e SEGUNDO ANGULO e nao repeticao. E ela e diferente da\nque o `epomeno-epipedo-s068` usou na rodada anterior (o ALVO em meses), de\nproposito: mesma pauta atravessando canal seria o habito do 762 numa dimensao\nnova.\n\n## EXPOSICAO\nMirado no PISO da faixa da frota, pela regra de redacao do 772, com o orcamento\ndo `mira.orcamento` em 45 caracteres por cena para dez cenas — a voz polonesa\ntem `P` maior, logo cabe menos texto que no grego (55) e no pt-BR. O numero sai\nda PREVISAO REAL invertida, nao da estimativa, pelo conserto das 15:2x.\nSe o edge narrar, o REAL deve cair entre 40,3 e 45,5 s pela banda OBSERVADA\n(-1,2 a 4,0; n=121), logo PODE encostar no teto de 45 do portao.\nE a ressalva do canal vai declarada: o `kolejny-poziom` NAO tem `ALVO_POR_CANAL`\nmedido, logo a faixa e a da FROTA, e o 701 mediu que neste canal a mira LONGA\nganhou — o oposto do labtreinamento. Mirar o piso aqui e a regra de redacao, nao\numa otimizacao medida.\n"
+}
