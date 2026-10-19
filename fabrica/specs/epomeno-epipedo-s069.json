@@ -1,0 +1,106 @@
+{
+ "slug": "epomeno-epipedo-s069",
+ "pacote": "epomeno-epipedo-s069",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "longo_existente": "pqTc8jBrq0E",
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Ίδιο ποσό",
+   "sub": "άλλη απάντηση",
+   "nar": "Το ίδιο ποσό δίνει δύο εντελώς διαφορετικές απαντήσεις."
+  },
+  {
+   "layout": "numero",
+   "kicker": "Η μονάδα",
+   "valor": "μήνες",
+   "sub": "όχι ευρώ",
+   "nar": "Το λάθος δεν είναι στην πράξη, είναι στη μονάδα της."
+  },
+  {
+   "layout": "item",
+   "kicker": "Αν βγει σε ευρώ",
+   "preco": "κάτι πήγε λάθος",
+   "nar": "Αν το αποτέλεσμα βγαίνει σε ευρώ, κάτι πήγε λάθος."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Τα ευρώ σε συγκρίνουν",
+   "itens": [
+    "Με τον γείτονα",
+    "Με μέσους όρους",
+    "Με άρθρα",
+    "Με κανέναν δικό σου"
+   ],
+   "nar": "Τα ευρώ σε συγκρίνουν με ανθρώπους που δεν ξέρεις."
+  },
+  {
+   "layout": "item",
+   "kicker": "Οι μήνες",
+   "preco": "μόνο με εσένα",
+   "nar": "Οι μήνες σε συγκρίνουν μόνο με τον δικό σου μήνα."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Ίδιο υπόλοιπο",
+   "barras": [
+    {
+     "rotulo": "Α",
+     "valor": 9
+    },
+    {
+     "rotulo": "Β",
+     "valor": 5
+    },
+    {
+     "rotulo": "Γ",
+     "valor": 2
+    }
+   ],
+   "nar": "Τρεις άνθρωποι, ίδιο υπόλοιπο, τρεις απαντήσεις."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Τα πάγια",
+   "sub": "αυτά αλλάζουν",
+   "nar": "Αυτό που αλλάζει είναι μόνο τα πάγια του κάθε μήνα."
+  },
+  {
+   "layout": "item",
+   "kicker": "Μισά πάγια",
+   "preco": "διπλοί μήνες",
+   "nar": "Με τα μισά πάγια βγαίνουν ακριβώς οι διπλοί μήνες."
+  },
+  {
+   "layout": "item",
+   "kicker": "Το ποσό άλλου",
+   "preco": "δεν σου κάνει",
+   "nar": "Κανένα ποσό που ακούς από άλλον δεν σου κάνει εδώ."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Πόσοι μήνες",
+   "sub": "γράψε από κάτω",
+   "nar": "Γράψε από κάτω πόσους μήνες βγάζεις εσύ σήμερα."
+  }
+ ],
+ "thumb": {
+  "l1": "Ίδιο ποσό",
+  "l2": "άλλοι μήνες"
+ },
+ "paleta": {
+  "bg": "#F4EFE6",
+  "ink": "#1B1A17",
+  "c1": "#C8502A",
+  "c2": "#2B6CB0",
+  "red": "#B83227",
+  "ok": "#2E8B57",
+  "panel": "#FFFFFF",
+  "mut": "#7A7263",
+  "acc": "#C8502A"
+ },
+ "copy": "# epomeno-epipedo-s069\n\n## TITULO\nΤο Απόθεμα σε Ευρώ Σε Συγκρίνει με Άλλους — σε Μήνες Σε Συγκρίνει με Εσένα\n\n## TITULO SHORT\nΊδιο ποσό, άλλοι μήνες\n\n## DESCRICAO\nΞέρεις απ' έξω πόσα έχεις στην άκρη. **Και όμως αυτό το νούμερο, μόνο του, δεν απαντάει στην ερώτηση που έχει σημασία:** πόσο κρατάει.\n\n**Το λάθος δεν είναι στην πράξη, είναι στη μονάδα του αποτελέσματος.** Αν το νούμερο που γράφεις βγαίνει σε ευρώ, τότε δεν μέτρησες πόσο κρατάει το απόθεμα — μέτρησες πόσο είναι. Είναι δύο διαφορετικά πράγματα, και το δεύτερο δεν σου λέει τίποτα για το πρώτο.\n\n**Και η διαφορά δεν είναι θεωρητική, είναι πρακτική:** τα ευρώ σε βάζουν σε σύγκριση με ανθρώπους που δεν ξέρεις — με τον γείτονα, με έναν μέσο όρο, με ένα άρθρο. Οι μήνες σε συγκρίνουν μόνο με τον δικό σου μήνα, που είναι ο μόνος που πληρώνεις.\n\n**Το ίδιο υπόλοιπο σε δύο ανθρώπους δεν σημαίνει το ίδιο πράγμα**, και αυτό που κάνει τη διαφορά είναι το κάτω νούμερο: τα πάγια του κάθε μήνα. Με τα μισά πάγια βγαίνουν ακριβώς οι διπλοί μήνες, με το ίδιο ποσό στα χέρια. Γι' αυτό κανένα ποσό που ακούς από άλλον δεν σου κάνει: το νούμερό του έχει τον δικό του διαιρέτη, όχι τον δικό σου.\n\n**Τι να κάνεις σήμερα:** πάρε το νούμερο που θυμάσαι απ' έξω, γράψε δίπλα τα πάγια ενός μήνα, και κάνε μία διαίρεση. Το αποτέλεσμα είναι σε μήνες, και είναι δικό σου.\n\nΔεν δίνω εδώ ποσά, επιτόκια, προθεσμίες ούτε στόχους σε ευρώ. Αυτά αλλάζουν και μένουν έξω. Ο μηχανισμός — η μονάδα είναι ο μήνας, όχι το ευρώ — δεν αλλάζει.\n\nΣτο πλήρες υλικό: πώς φτιάχνεται το κάτω νούμερο γραμμή προς γραμμή, τα δύο λάθη που ομορφαίνουν την πράξη, ο έλεγχος με την αντίστροφη πολλαπλασίαση και πώς βγάζεις τον δικό σου στόχο.\n\n## COMENTARIO FIXADO\nΤο λιγότερο προφανές: τα δύο νούμερα δεν ζουν στο ίδιο μέρος. Το πάνω είναι στην πρώτη γραμμή της κίνησης, το κάτω θέλει τρεις μήνες. Πόσοι μήνες σου βγήκαν;\n\n## HASHTAGS\n#οικονομικα #αποθεματικο #προσωπικαοικονομικα #epomenoepipedo #Shorts\n\n## TAGS\nαποθεματικο, ταμειακο αποθεμα, προσωπικα οικονομικα, παγια εξοδα, μηνες καλυψης, διαιρετης, προυπολογισμος, οικογενειακος προυπολογισμος, ρευστοτητα, οικονομικη ασφαλεια, μετρηση σε μηνες, επομενο επιπεδο, διαχειριση χρηματων, σταθερα εξοδα, υπολοιπο\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. O longo nao cita aliquota nem prazo,\ne esta peca tambem nao: os unicos numeros que ela diz sao \"dois\", \"tres\",\n\"metade\" e \"dobro\", e os quatro sao a ESTRUTURA da propria conta, nao fato sobre\no mundo. Alvo em euros, meta de meses e taxa de juro ficaram FORA pela regra (g).\nAs barras da cena 6 nao carregam unidade de dinheiro — elas desenham MESES, que\ne exatamente a tese da peca.\n\n## FONTES\nA spec local `epomeno-epipedo-068`, que e o pacote do longo `pqTc8jBrq0E`,\npublicado NESTE canal hoje as 12:58:55Z — rank 1 da ordem viva e a UNICA origem\nde um uso so que o `concentracao.py` nomeia hoje como escrevivel neste canal. A\nfamilia desta peca sai dos capitulos 20, 21 e 40 a 47: *\"Προσεξε τη μοναδα. Αν\nτο αποτελεσμα βγαινει σε ευρω, κατι εκανες λαθος\"*, *\"η μετρηση σε ευρω σε βαζει\nσε συγκριση με αλλους, η μετρηση σε μηνες σε βαζει σε συγκριση με τον εαυτο\nσου\"*, *\"αν ο ενας εχει τα μισα παγια, εχει τους διπλους μηνες\"* e *\"τρεις\nανθρωποι, το ιδιο υπολοιπο, τρεις διαφορετικες απαντησεις\"*. Nenhuma frase desta\npeca saiu de TITULO de capitulo.\n\n**E E A TERCEIRA FAMILIA DESTA ORIGEM, todas conferidas antes de escrever.** O\nshort que saiu NO pacote (`BaLtIWzaN84`) usou o DENOMINADOR — o que entra no\nnumero de baixo. O `s068` (`yj-ZS7OqG7M`) usou o ALVO em meses, dos capitulos 48 a 55. Esta usa a UNIDADE do resultado, que nenhuma das\nduas tocou.\n\n**E E DIFERENTE DAS DUAS QUE SAIRAM NOS OUTROS CANAIS HOJE**, de proposito: no\nkolejny foi QUAL despesa medir primeiro e no labtreinamento a JANELA do periodo.\nQuatro peças, quatro familias, nos tres canais — escrever o mesmo angulo em\nsequencia seria o habito do 762 numa dimensao nova, e o portao `similaridade`\nNAO pegaria, porque compara contra o MESMO canal.\n\n**E A CONCENTRACAO DESTE CANAL ESTA EM ALERTA, e vai dito:** o\n`concentracao.py` acusa que a origem `nttW9fR8wyY` carrega DOZE dos 68 shorts,\nmais que o dobro da segunda (quatro). Esta peca NAO alimenta essa dominancia —\nela vem da origem de hoje, que tem um uso so.\n\n## EXPOSICAO\n**Esqueleto NOVO, inedito nas 111 formas da frota:**\n`titulo-numero-item-lista-item-barras-titulo-item-item-cta`. Varrido o disco\nantes de escrever, e com `numero` na segunda cena — o layout que o short quase\nnunca usa.\n\n**E as barras da cena 6 sao o argumento:** tres pessoas com o MESMO saldo e\ntres alturas diferentes, medidas em MESES. Quem assistir sem som ve a tese no\ngrafico.\n\n**O ORCAMENTO SAIU DO INSTRUMENTO.** O `mira.orcamento` da **51** caracteres por\ncena para dez cenas no MEIO da faixa da frota (42,2 s). Esta peca mira o **PISO**\npela regra de redacao do 772, com media **50**: previsao edge **41,66** —\nDENTRO do `ALVO_SHORT` (41,5 a 43,0) — e piper **36,91**.\n\n**E O PIPER FICA FORA DA FAIXA POR ARITMETICA, nao por descuido — medido em\n19/10 as 17:2x.** A razao piper/edge desta voz e **0,886**, logo o vao entre os\ndois mundos vale ~4,7 s em 42 s, contra **1,5 s** de largura da faixa: **NENHUM\norcamento poe os dois mundos dentro do `ALVO_SHORT`, em contagem de cenas\nnenhuma.** O `mira.janela_dos_dois_mundos` diz isso em letra agora. O que o\nportao cobra — 18 a 45 s nos dois mundos — esta satisfeito com folga.\n\n**A exposicao que fica, e ela e a do 772:** com a banda em (−1,2; 4,0), se o edge\nnarrar o real cai em algum ponto de **(40,5; 45,7)**, isto e **pode encostar no\nteto de 45 do portao**, como aconteceu com o `epomeno-epipedo-s032` (46 s em\n15/10). Nao digo de que lado, porque a banda tem 5,2 s de largura contra 1 s de\ngranularidade e declarar um lado dela nao e previsao (774). Mirar o piso e a\nunica escolha de redacao disponivel, e ela ja foi aplicada: a primeira versao\nprevia 41,96 e foi encurtada.\n"
+}

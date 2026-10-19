@@ -1,0 +1,108 @@
+# epomeno-epipedo-s069
+
+## TITULO
+Το Απόθεμα σε Ευρώ Σε Συγκρίνει με Άλλους — σε Μήνες Σε Συγκρίνει με Εσένα
+
+## TITULO SHORT
+Ίδιο ποσό, άλλοι μήνες
+
+## DESCRICAO
+Ξέρεις απ' έξω πόσα έχεις στην άκρη. **Και όμως αυτό το νούμερο, μόνο του, δεν απαντάει στην ερώτηση που έχει σημασία:** πόσο κρατάει.
+
+**Το λάθος δεν είναι στην πράξη, είναι στη μονάδα του αποτελέσματος.** Αν το νούμερο που γράφεις βγαίνει σε ευρώ, τότε δεν μέτρησες πόσο κρατάει το απόθεμα — μέτρησες πόσο είναι. Είναι δύο διαφορετικά πράγματα, και το δεύτερο δεν σου λέει τίποτα για το πρώτο.
+
+**Και η διαφορά δεν είναι θεωρητική, είναι πρακτική:** τα ευρώ σε βάζουν σε σύγκριση με ανθρώπους που δεν ξέρεις — με τον γείτονα, με έναν μέσο όρο, με ένα άρθρο. Οι μήνες σε συγκρίνουν μόνο με τον δικό σου μήνα, που είναι ο μόνος που πληρώνεις.
+
+**Το ίδιο υπόλοιπο σε δύο ανθρώπους δεν σημαίνει το ίδιο πράγμα**, και αυτό που κάνει τη διαφορά είναι το κάτω νούμερο: τα πάγια του κάθε μήνα. Με τα μισά πάγια βγαίνουν ακριβώς οι διπλοί μήνες, με το ίδιο ποσό στα χέρια. Γι' αυτό κανένα ποσό που ακούς από άλλον δεν σου κάνει: το νούμερό του έχει τον δικό του διαιρέτη, όχι τον δικό σου.
+
+**Τι να κάνεις σήμερα:** πάρε το νούμερο που θυμάσαι απ' έξω, γράψε δίπλα τα πάγια ενός μήνα, και κάνε μία διαίρεση. Το αποτέλεσμα είναι σε μήνες, και είναι δικό σου.
+
+Δεν δίνω εδώ ποσά, επιτόκια, προθεσμίες ούτε στόχους σε ευρώ. Αυτά αλλάζουν και μένουν έξω. Ο μηχανισμός — η μονάδα είναι ο μήνας, όχι το ευρώ — δεν αλλάζει.
+
+Στο πλήρες υλικό: πώς φτιάχνεται το κάτω νούμερο γραμμή προς γραμμή, τα δύο λάθη που ομορφαίνουν την πράξη, ο έλεγχος με την αντίστροφη πολλαπλασίαση και πώς βγάζεις τον δικό σου στόχο.
+
+## COMENTARIO FIXADO
+Το λιγότερο προφανές: τα δύο νούμερα δεν ζουν στο ίδιο μέρος. Το πάνω είναι στην πρώτη γραμμή της κίνησης, το κάτω θέλει τρεις μήνες. Πόσοι μήνες σου βγήκαν;
+
+## HASHTAGS
+#οικονομικα #αποθεματικο #προσωπικαοικονομικα #epomenoepipedo #Shorts
+
+## TAGS
+αποθεματικο, ταμειακο αποθεμα, προσωπικα οικονομικα, παγια εξοδα, μηνες καλυψης, διαιρετης, προυπολογισμος, οικογενειακος προυπολογισμος, ρευστοτητα, οικονομικη ασφαλεια, μετρηση σε μηνες, επομενο επιπεδο, διαχειριση χρηματων, σταθερα εξοδα, υπολοιπο
+
+## CONFIGURACOES DO STUDIO
+# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27
+# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.
+privacyStatus: public
+defaultLanguage: el
+defaultAudioLanguage: el
+categoryId: 27
+madeForKids: false
+
+## MUSICA / LICENCA
+{TRILHA}
+
+## AVISO SOBRE OS NUMEROS
+ZERO NUMERO NOVO SOBRE O MUNDO na narracao. O longo nao cita aliquota nem prazo,
+e esta peca tambem nao: os unicos numeros que ela diz sao "dois", "tres",
+"metade" e "dobro", e os quatro sao a ESTRUTURA da propria conta, nao fato sobre
+o mundo. Alvo em euros, meta de meses e taxa de juro ficaram FORA pela regra (g).
+As barras da cena 6 nao carregam unidade de dinheiro — elas desenham MESES, que
+e exatamente a tese da peca.
+
+## FONTES
+A spec local `epomeno-epipedo-068`, que e o pacote do longo `pqTc8jBrq0E`,
+publicado NESTE canal hoje as 12:58:55Z — rank 1 da ordem viva e a UNICA origem
+de um uso so que o `concentracao.py` nomeia hoje como escrevivel neste canal. A
+familia desta peca sai dos capitulos 20, 21 e 40 a 47: *"Προσεξε τη μοναδα. Αν
+το αποτελεσμα βγαινει σε ευρω, κατι εκανες λαθος"*, *"η μετρηση σε ευρω σε βαζει
+σε συγκριση με αλλους, η μετρηση σε μηνες σε βαζει σε συγκριση με τον εαυτο
+σου"*, *"αν ο ενας εχει τα μισα παγια, εχει τους διπλους μηνες"* e *"τρεις
+ανθρωποι, το ιδιο υπολοιπο, τρεις διαφορετικες απαντησεις"*. Nenhuma frase desta
+peca saiu de TITULO de capitulo.
+
+**E E A TERCEIRA FAMILIA DESTA ORIGEM, todas conferidas antes de escrever.** O
+short que saiu NO pacote (`BaLtIWzaN84`) usou o DENOMINADOR — o que entra no
+numero de baixo. O `s068` (`yj-ZS7OqG7M`) usou o ALVO em meses, dos capitulos 48 a 55. Esta usa a UNIDADE do resultado, que nenhuma das
+duas tocou.
+
+**E E DIFERENTE DAS DUAS QUE SAIRAM NOS OUTROS CANAIS HOJE**, de proposito: no
+kolejny foi QUAL despesa medir primeiro e no labtreinamento a JANELA do periodo.
+Quatro peças, quatro familias, nos tres canais — escrever o mesmo angulo em
+sequencia seria o habito do 762 numa dimensao nova, e o portao `similaridade`
+NAO pegaria, porque compara contra o MESMO canal.
+
+**E A CONCENTRACAO DESTE CANAL ESTA EM ALERTA, e vai dito:** o
+`concentracao.py` acusa que a origem `nttW9fR8wyY` carrega DOZE dos 68 shorts,
+mais que o dobro da segunda (quatro). Esta peca NAO alimenta essa dominancia —
+ela vem da origem de hoje, que tem um uso so.
+
+## EXPOSICAO
+**Esqueleto NOVO, inedito nas 111 formas da frota:**
+`titulo-numero-item-lista-item-barras-titulo-item-item-cta`. Varrido o disco
+antes de escrever, e com `numero` na segunda cena — o layout que o short quase
+nunca usa.
+
+**E as barras da cena 6 sao o argumento:** tres pessoas com o MESMO saldo e
+tres alturas diferentes, medidas em MESES. Quem assistir sem som ve a tese no
+grafico.
+
+**O ORCAMENTO SAIU DO INSTRUMENTO.** O `mira.orcamento` da **51** caracteres por
+cena para dez cenas no MEIO da faixa da frota (42,2 s). Esta peca mira o **PISO**
+pela regra de redacao do 772, com media **50**: previsao edge **41,66** —
+DENTRO do `ALVO_SHORT` (41,5 a 43,0) — e piper **36,91**.
+
+**E O PIPER FICA FORA DA FAIXA POR ARITMETICA, nao por descuido — medido em
+19/10 as 17:2x.** A razao piper/edge desta voz e **0,886**, logo o vao entre os
+dois mundos vale ~4,7 s em 42 s, contra **1,5 s** de largura da faixa: **NENHUM
+orcamento poe os dois mundos dentro do `ALVO_SHORT`, em contagem de cenas
+nenhuma.** O `mira.janela_dos_dois_mundos` diz isso em letra agora. O que o
+portao cobra — 18 a 45 s nos dois mundos — esta satisfeito com folga.
+
+**A exposicao que fica, e ela e a do 772:** com a banda em (−1,2; 4,0), se o edge
+narrar o real cai em algum ponto de **(40,5; 45,7)**, isto e **pode encostar no
+teto de 45 do portao**, como aconteceu com o `epomeno-epipedo-s032` (46 s em
+15/10). Nao digo de que lado, porque a banda tem 5,2 s de largura contra 1 s de
+granularidade e declarar um lado dela nao e previsao (774). Mirar o piso e a
+unica escolha de redacao disponivel, e ela ja foi aplicada: a primeira versao
+previa 41,96 e foi encurtada.
