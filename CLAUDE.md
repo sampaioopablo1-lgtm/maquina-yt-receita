@@ -2986,6 +2986,153 @@ isso que provou, um minuto depois, que ele estava.
 **A regra que fica: antes de dizer que uma execução morreu, pergunte ao SISTEMA
 se o processo existe** — não ao arquivo que ela ainda não terminou de escrever.
 
+### E ÀS 17:2x ELE TINHA O QUARTO: MIRAVA UM MUNDO, E A MIRA COBRA OS DOIS
+
+**Medido escrevendo o `labtreinamento-s086`, no canal de mira mais apertada.** O
+`mira.orcamento` deu **25** caracteres por cena para nove cenas no MEIO da mira
+medida daquele canal (23,0 de 20,0 a 26,0). Escrita assim, a peça saiu com edge
+**22,6** e **piper 18,6 — abaixo do piso de 20,0**. Isto é: **a própria
+`mira.confere` REPROVA a resposta que o `mira.orcamento` acabou de dar**, porque
+ela cobra os DOIS mundos desde 13/10 às 02:1x (o provedor se decide no runner,
+por cena e por run — 730/733) e o orçamento invertia só o `edge`.
+
+**É a QUARTA vez, no MESMO instrumento, do MESMO defeito: não chamar quem já
+sabe.** A faixa própria da spec, o acessor do canal, a grandeza que o portão
+cobra — e agora o número de MUNDOS que a conferência confere.
+
+**O tamanho vai medido, e são DUAS coisas que não se confundem:**
+
+| | |
+|---|---|
+| specs do `labtreinamento` com orçamento | **99** |
+| orçamento do MEIO **reprovado** pela própria mira | **98** |
+| janela que serve, para nove cenas | **28 a 30** caracteres — o **TOPO**, não o meio |
+| razão piper/edge medida (grego, polonês, pt-BR) | 0,886 / 0,851 / **0,821** |
+| vão entre os mundos em 42 s | **4,6 a 7,5 s** |
+| largura do `ALVO_SHORT` da frota | **1,5 s** |
+
+**E daí sai um fato novo e aritmético: o `ALVO_SHORT` da frota (41,5 a 43,0) NÃO
+PODE conter os dois mundos em contagem de cenas nenhuma, em nenhuma das três
+vozes.** O vão entre os provedores é de três a cinco vezes a largura da faixa.
+Varrido de 1 a 40 cenas nas três vozes: zero janelas.
+
+**O que isto NÃO afirma, e a ressalva é grande:** que alguma peça foi publicada
+errada por isso. Nos dois canais sem mira própria o `confere` devolve
+`tem_mira: False` e o portão `duracao` cobra 18 a 45 s, que os dois mundos
+satisfazem — nada quebrou. **O que estava errado era o CONSELHO**, e conselho que
+a conferência reprova é pior que conselho ausente, porque convida a escrever a
+peça errada. Foi exatamente o que eu ia fazer nesta rodada.
+
+**Consertado:** `mira.janela_dos_dois_mundos(voz, n, faixa)` devolve a janela de
+caracteres em que os DOIS mundos cabem, e o relato passa a dizer, ao lado do
+orçamento, que o outro mundo sai fora e qual é a janela que serve — ou que
+**NENHUMA** serve, que é a pinça do 740/748 aparecendo dentro do instrumento.
+Ele **NOMEIA e não filtra**, como o `origens_sem_uso` nomeia origem inutilizável
+em vez de a esconder; e **não** mexe em parâmetro: alargar o `ALVO_SHORT` ou
+mirar um mundo só é decisão do dono (§10), e entra na fila ao lado do 740/748.
+
+`tests/test_o_orcamento_mirava_UM_mundo_e_a_mira_cobra_os_DOIS.py`, dez testes:
+a varredura sai do DISCO e **reprova com menos de 50 specs**, a janela é cobrada
+na **FRONTEIRA** (o que ela devolve cabe, um caractere fora não), há contraprova
+nos dois sentidos — um caso com janela ABERTA e um FECHADO, porque função que
+devolve sempre `None` não mede nada —, um **falha se a pinça da frota abrir**,
+um mede o vão contra a largura em vez de o deduzir, a delegação é por **AST** (o
+docstring cita a fórmula em prosa), e um exige que os **dois** mundos continuem
+citados dentro da função. **Contraprova:** devolvida a janela a medir só o
+`edge`, três dos dez falham.
+
+### E A NARRAÇÃO SAIU SEM ACENTO, pela segunda rodada seguida
+
+A primeira versão da `s086` trazia *"O mesmo treino da tres"*, *"todo o
+historico"*, *"voce usou"*. **Nenhum portão cobra acento da NARRAÇÃO** — o
+`ortografia` olha a spec por outro ângulo e o `copy` conta palavras —, e TTS
+pt-BR sem acento muda a pronúncia. Corrigido antes de renderizar: **3,9%** de
+letras acentuadas.
+
+**É a mesma assinatura de uma hora antes**, quando a descrição grega do
+`epomeno-epipedo-s068` subiu sem tonos e quem pegou fui eu relendo. **Portão
+verde não cobre o que ele não mede**, e duas vezes seguidas deixa de ser acidente:
+o acento é passo de REDAÇÃO e não tem instrumento.
+
+### A PEÇA DESSA RODADA, MEDIDA — e a leitura de inscritos foi RECUSADA de novo
+
+`labtreinamento-s086` = **`X6SkkBRlACY`**, publicado às 17:20:22Z (run
+`39293216241`), **27 s reais** contra previsão edge **24,86** — resíduo
+**+2,1**, **estabelecido** (2,1 > 1,0) e dentro da banda. Provedor **edge
+MEDIDO** (zero avisos `NARRACAO PELO PIPER` no job `118197015681`), som
+**−14,7** LUFS, pico −2,9, desvio −0,7, **zero silêncios**. Controle
+`OhrGlJvnBoM` conferido em **44 s** na MESMA chamada. `RESIDUO_N` = **123**,
+limites intocados.
+
+**É SEGUNDO ÂNGULO do longo publicado hoje neste canal** (`POBNoY16wG8`, rank 1,
+zero shorts declarados): o short que saiu NO pacote usou a família do
+DENOMINADOR — quem teve chance de treinar —, e este usa a **JANELA do período**,
+dos capítulos 16 a 23: somar os treinados do histórico INTEIRO e dividir pelas
+pessoas de HOJE. Nove cenas, esqueleto
+`titulo-item-lista-barras-titulo-item-barras-item-cta`, **inédito nas 110 formas
+da frota**.
+
+**E A PAUTA NÃO ATRAVESSOU CANAL pela terceira peça seguida**, de propósito: no
+epomeno foi o ALVO em meses, no kolejny QUAL despesa medir primeiro, aqui a
+JANELA do período. Mesmo ângulo nos três canais seguidos seria o 762 numa
+dimensão nova, e o `similaridade` **não pegaria**, porque compara contra o MESMO
+canal.
+
+**O tally do 744/754/758 foi a 41 de 45** — lido do `mira.relato_do_tally`, não
+contado de cabeça: 27 contra um teto de mira de 26,0, com o `mira.py` verde nos
+dois mundos e a exposição declarada antes de publicar. A decisão do 740/748
+segue do dono.
+
+**E A LEITURA DE INSCRITOS FOI RECUSADA PELO INSTRUMENTO, pela segunda rodada
+seguida** — e é esse o valor dele. Faziam **7,03 h** da última, isto é a regra H
+(686) passou com folga; o piso de resolução da janela é **3,41/dia** contra o
+ritmo suposto de 1,79, e faltam **19,8 h** para o critério do 723. Ler agora
+devolveria `indeterminado` com mais horas e gastaria requisição na rota que
+fechou por LIMITE às 06:1x. **As três portas separadas são exactamente o que
+produz essa recusa.**
+
+**COTA:** treze envios na janela que abriu às 07:00Z, **20.800** unidades contra
+o piso MEDIDO de **≥ 40.000** de ontem — e o número sai da varredura do
+`duracoes-a-medir.jsonl`, não da minha memória das últimas rodadas, que é o erro
+de 05:4x.
+
+### E O CONSERTO QUEBROU O CÓDIGO DE SAÍDA — porque ele saía de um GREP NA PROSA
+
+**Pego pela suíte na mesma rodada, e é o achado mais barato do dia.** Depois de o
+orçamento passar a dizer *"o OUTRO mundo (piper) sai em 18.5 s, FORA de 20.0 a
+26.0"*, o `python3 fabrica/mira.py <spec>` começou a devolver **1 para peça que
+está DENTRO da mira**. A causa estava no `main`:
+
+    if "FORA" in t:   ruim += 1
+
+**um grep no texto que o próprio módulo acabara de imprimir.** A decisão tinha
+DOIS donos — `confere()["fora"]`, que é o veredito, e a palavra dentro da frase —
+e o segundo não é dono de nada. É a assinatura do 753 (número calculado e
+reescrito em string) com o grep de 17/10 por cima: **instrumento que lê a própria
+saída em vez do estado.**
+
+**Consertado:** o `main` passou a ler `confere(spec)["fora"]`. Conferido nos dois
+sentidos — `s034`, dentro, devolve **0**; peça fora pelo veredito devolve **1**.
+
+**E UM TESTE MEU FOI RETRATADO NO LUGAR, pela SEXTA vez da mesma classe
+(743/753/761).** O `test_ele_INFORMA_e_NAO_reprova` cobrava
+`assert "FORA" not in r.stdout` — a **ausência de uma palavra** como prova de que
+o instrumento não reprova. Quando o orçamento passou a INFORMAR que o outro mundo
+sai fora, ele reprovou um comportamento **correto**. A propriedade é outra e é a
+que ficou cobrada: código de saída zero, veredito do `confere` sem mundo fora, e
+o relato **sem a LINHA** de reprovação — que tem um dono só, o prefixo `>> FORA:`.
+Palavra solta aparece em frase informativa; a linha, não.
+
+**E o `test_os_numeros_vem_de_ensaio` também reprovou, e esse estava CERTO:** ele
+proíbe a forma `18,` no corpo do `mira.py` para que a faixa da frota não volte
+cravada à mão, e o meu docstring novo citava *"piper 18,6"* em prosa. **Não
+afrouxei o teste** — reescrevi a prosa (*"o piper a 18 s e meio"*), porque
+afrouxar a guarda na mesma rodada em que eu a disparo é o avesso do trabalho.
+
+**A regra que fica: código de saída, contagem e veredito saem do ESTADO, nunca do
+texto que o módulo imprime.** Dois testes novos travam isso, com contraprova no
+outro sentido — sem ela bastaria devolver sempre zero.
+
 ## ACRESCENTAR PONTO NA SÉRIE DEIXOU DE SER PASSO MEU
 
 **O terceiro passo manual a menos (§11-bis), e ele é o que já corrompeu dados

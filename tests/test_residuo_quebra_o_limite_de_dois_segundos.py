@@ -301,6 +301,7 @@ SERIE = [
     # # 42 reais, residuo +0,4 NAO estabelecido (770) — mirou o PISO e caiu
     # DENTRO do ALVO_SHORT, o SEGUNDO seguido assim
     ("kolejny-poziom-s068", 41.58, 42, "edge"),  # job 118167604082
+    ("labtreinamento-s086", 24.86, 27, "edge"),  # job 118197015681
 ]
 
 

@@ -133,7 +133,7 @@ RESIDUO_OBSERVADO = (-1.2, 4.0)
 # DENTRO da banda, e o sinal NAO esta ESTABELECIDO (42 - 41,6 <= 1,0, e o
 # arredondamento e para cima) — 36 de 42 estabelecidos. Os LIMITES nao
 # mudaram: 0,4 nao e menor que o piso de 0,1.
-RESIDUO_N = 122  # 741 acrescentou o s035 (24,8 -> 27, +2,2): DENTRO da banda,
+RESIDUO_N = 123  # 741 acrescentou o s035 (24,8 -> 27, +2,2): DENTRO da banda,
 #                 logo os LIMITES nao mudaram — so o numero de pontos que a sustenta.
 #                 14/10 06:2x: o s041 (edge 24,6 -> real 27) deu +2,4 — EMPATADO
 #                 com o teto da banda, o decimo segundo ponto e o segundo a tocar
@@ -234,6 +234,44 @@ def _chars_para_o_real(voz: str, n_cenas: int, alvo_s: float,
     return 0
 
 
+def janela_dos_dois_mundos(voz: str, n_cenas: int,
+                           faixa: tuple) -> tuple[int, int] | None:
+    """Caracteres por cena em que os DOIS mundos de provedor cabem na faixa.
+
+    POR QUE EXISTE (19/10, 17:2x, e e o QUARTO defeito do mesmo instrumento):
+    o `_chars_para_o_real` mira o `edge`, porque e ele que encosta no teto. Mas
+    **a mira e o portao cobram os DOIS mundos** desde 13/10 as 02:1x — o
+    provedor se decide no runner, por cena e por run (730/733). Logo o orcamento
+    respondia uma pergunta e a conferencia fazia outra.
+
+    MEDIDO no `labtreinamento-s086`: para nove cenas o orcamento do MEIO da
+    mira (23,0) deu **25** caracteres, e com 25 a peca sai em edge 22,6 e o
+    **piper a 18 s e meio — abaixo do piso de 20,0**. Isto e, a mira REPROVA a
+    resposta que o orcamento acabou de dar. A janela que satisfaz os dois e
+    **28 a 30**, e ela mora no TOPO da faixa e nao no meio: e a pinca do
+    740/748 aparecendo DENTRO do instrumento, porque o piso do piper e uma
+    RAZAO e o teto do edge e outro ponto da mesma faixa.
+
+    Devolve None quando nenhum orcamento satisfaz os dois — e ai a pinca esta
+    FECHADA para essa contagem de cenas, que e informacao e nao erro. Nao
+    filtra nem escolhe: NOMEIA, como o `origens_sem_uso` nomeia em vez de
+    esconder.
+    """
+    if n_cenas < 1:
+        return None
+    piso, teto = float(faixa[0]), float(faixa[1])
+    ok = []
+    for c in range(1, 241):
+        cenas = [{"nar": "x" * c} for _ in range(n_cenas)]
+        e = ensaio.duracao_real_prevista(cenas, voz, "edge")
+        p = ensaio.duracao_real_prevista(cenas, voz, "piper")
+        if e > teto:
+            break
+        if piso <= e <= teto and piso <= p <= teto:
+            ok.append(c)
+    return (ok[0], ok[-1]) if ok else None
+
+
 def _linha_do_orcamento(spec: dict) -> list:
     """A frase do orcamento, com UM dono.
 
@@ -253,13 +291,34 @@ def _linha_do_orcamento(spec: dict) -> list:
             f"({orc['fonte']}) — a sobrecarga por cena ja consome o alvo. "
             f"O maximo e {orc['max_cenas']} cenas. Nao ha orcamento a dar, e "
             "zero caractere por cena seria impossibilidade vendida como numero."]
-    return [
+    linhas = [
         f"  ORCAMENTO para o MEIO da faixa ({orc['alvo']:.1f} s, {orc['fonte']}): "
         f"~{orc['chars']} caracteres por cena em {orc['cenas']} cenas para a "
         f"PREVISAO do {orc['mundo']} caber nela (hoje: ~{orc['hoje']}). Sai de "
         "`ensaio.duracao_real_prevista` INVERTIDA, nao da estimativa — mirar a "
         "estimativa entregou peca 0,4 s acima do topo da faixa em 19/10 as "
         "15:2x. Estimar isto de cabeca e o item 3 da §10."]
+    jan = orc.get("janela_dos_dois")
+    if not orc.get("cabe_nos_dois"):
+        if jan:
+            linhas.append(
+                f"  ATENCAO: com ~{orc['chars']} o OUTRO mundo (piper) sai em "
+                f"{orc['outro_mundo']:.1f} s, FORA de {orc['faixa'][0]:.1f} a "
+                f"{orc['faixa'][1]:.1f} — a mira cobra os DOIS mundos (730/733), "
+                f"logo este orcamento ela REPROVA. A janela que satisfaz os "
+                f"dois e {jan[0]} a {jan[1]} caracteres por cena.")
+        else:
+            linhas.append(
+                f"  ATENCAO: NENHUM orcamento poe os dois mundos dentro de "
+                f"{orc['faixa'][0]:.1f} a {orc['faixa'][1]:.1f} com "
+                f"{orc['cenas']} cenas — a pinca do 740/748 esta FECHADA aqui. "
+                "Mude a contagem de cenas ou declare a exposicao; afrouxar a "
+                "mira e parametro de producao e nao se faz sozinho (§10).")
+    elif jan:
+        linhas.append(
+            f"  e os DOIS mundos cabem na faixa entre {jan[0]} e {jan[1]} "
+            f"caracteres por cena.")
+    return linhas
 
 
 def orcamento(spec: dict) -> dict | None:
@@ -317,7 +376,14 @@ def orcamento(spec: dict) -> dict | None:
     hoje = sum(len((c or {}).get("nar") or "") for c in curto) // max(n, 1)
     chars = _chars_para_o_real(voz, n, alvo)
     out = {"alvo": alvo, "cenas": n, "chars": chars, "hoje": hoje,
-           "fonte": fonte, "mundo": "edge", "cabe": chars > 0}
+           "fonte": fonte, "mundo": "edge", "cabe": chars > 0,
+           "faixa": (float(faixa[0]), float(faixa[1]))}
+    if chars > 0:
+        cen = [{"nar": "x" * chars} for _ in range(n)]
+        outro = ensaio.duracao_real_prevista(cen, voz, "piper")
+        out["outro_mundo"] = outro
+        out["cabe_nos_dois"] = float(faixa[0]) <= outro <= float(faixa[1])
+        out["janela_dos_dois"] = janela_dos_dois_mundos(voz, n, faixa)
     if chars <= 0:
         maximo = 0
         for k in range(1, n):
@@ -384,9 +450,18 @@ def main() -> int:
         return 2
     ruim = 0
     for a in sys.argv[1:]:
-        t = relato(a)
-        print(t)
-        if "FORA" in t:
+        print(relato(a))
+        # O CODIGO DE SAIDA SAI DO VEREDITO, NAO DE UM GREP NA PROSA.
+        # Medido em 19/10 as 17:4x: ele era `if "FORA" in t`, isto e, um grep no
+        # texto que o proprio modulo acabara de imprimir. Quando o orcamento
+        # passou a dizer "o OUTRO mundo sai FORA de 20,0 a 26,0", o `mira.py`
+        # comecou a devolver 1 para peca que esta DENTRO da mira — a decisao
+        # tinha DOIS donos, `confere()["fora"]` e a palavra na frase, e o
+        # segundo nao e dono de nada. E a mesma assinatura do 753 (numero
+        # calculado e reescrito em string) e do grep de 17/10.
+        with open(a, encoding="utf-8") as _f:
+            _sp = json.load(_f)
+        if confere(_sp)["fora"]:
             ruim += 1
     return 1 if ruim else 0
 

@@ -99,12 +99,31 @@ def test_o_relato_do_s034_AVISA_que_o_real_passa_do_teto():
 
 
 def test_ele_INFORMA_e_NAO_reprova__o_codigo_de_saida_continua_zero():
+    """RETRATADO NO LUGAR em 19/10 as 17:4x — ele cobrava uma PALAVRA.
+
+    A segunda linha era `assert "FORA" not in r.stdout`, isto e, a AUSENCIA da
+    palavra no texto como prova de que o instrumento nao reprova. Quando o
+    orcamento passou a INFORMAR que o outro mundo de provedor sai FORA da faixa
+    — informacao, nao reprovacao —, o teste reprovou um comportamento correto.
+    E o 743/753/761 pela SEXTA vez: identidade onde havia propriedade.
+
+    A propriedade e outra e esta cobrada agora: o codigo de saida e ZERO, o
+    veredito do `confere` nao tem mundo FORA, e o relato nao carrega a LINHA de
+    reprovacao — que tem um dono so, o prefixo `>> FORA:` do `relato`. A palavra
+    solta pode aparecer em qualquer frase informativa; a linha, nao.
+    """
     r = subprocess.run(
         [sys.executable, str(RAIZ / "fabrica/mira.py"),
          str(RAIZ / "fabrica/specs/labtreinamento-s034.json")],
         capture_output=True, text=True)
     assert r.returncode == 0, "banda com n=5 nao vira portao"
-    assert "FORA" not in r.stdout
+    spec = json.loads(
+        (RAIZ / "fabrica/specs/labtreinamento-s034.json").read_text())
+    assert not mira.confere(spec)["fora"], (
+        "o veredito desta peca deixou de ser DENTRO: releia em vez de mover")
+    assert ">> FORA:" not in r.stdout, (
+        "o relato passou a carregar a LINHA de reprovacao numa peca dentro da "
+        "mira — a banda virou portao, que e o que este arquivo proibe")
 
 
 def test_a_spec_que_a_PREVISAO_reprova_continua_reprovando():
