@@ -1,0 +1,82 @@
+{
+ "slug": "epomeno-epipedo-s064",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "ink": "#1D3557",
+  "c1": "#2A9D8F",
+  "c2": "#E9C46A",
+  "bg": "#F5F3EC"
+ },
+ "pacote": "epomeno-epipedo-s064",
+ "longo_existente": "alZ97hpgqXo",
+ "thumb": {
+  "l1": "Ο ίδιος",
+  "l2": "δύο τιμές"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Ο ίδιος",
+   "sub": "δύο τιμές",
+   "nar": "Ο ίδιος άνθρωπος παίρνει δύο εντελώς διαφορετικές τιμές"
+  },
+  {
+   "layout": "item",
+   "kicker": "Ίδια μέρα",
+   "sub": "ίδια τράπεζα",
+   "nar": "Ίδιο εισόδημα, ίδια μέρα, ίδια τράπεζα, άλλο επιτόκιο"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Το λάθος",
+   "sub": "να το χρεώνεις σε σένα",
+   "nar": "Το λάθος είναι να νομίζεις ότι η τιμή μιλάει για σένα"
+  },
+  {
+   "layout": "item",
+   "kicker": "Δεν μιλάει",
+   "sub": "για το πρόσωπο",
+   "nar": "Δεν μιλάει για το πρόσωπο αλλά για το τι υπάρχει πίσω"
+  },
+  {
+   "layout": "item",
+   "kicker": "Πίσω από το στεγαστικό",
+   "sub": "ένα ακίνητο",
+   "nar": "Πίσω από το στεγαστικό στέκεται πάντα ένα ακίνητο"
+  },
+  {
+   "layout": "item",
+   "kicker": "Πίσω από την κάρτα",
+   "sub": "τίποτα",
+   "nar": "Πίσω από την κάρτα δεν στέκεται απολύτως τίποτα"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Άρα",
+   "sub": "πληρώνεις το ρίσκο",
+   "nar": "Άρα η διαφορά είναι το κόστος του ρίσκου"
+  },
+  {
+   "layout": "item",
+   "kicker": "Το μέγεθος",
+   "sub": "μετράει κι αυτό",
+   "nar": "Μετράει και το μέγεθος, τα μικρά βγαίνουν ακριβότερα"
+  },
+  {
+   "layout": "item",
+   "kicker": "Οπότε",
+   "sub": "ρώτα τι εγγυάται",
+   "nar": "Οπότε μη ρωτάς πόσο, ρώτα τι εγγυάται το δάνειο"
+  },
+  {
+   "layout": "cta",
+   "kicker": "Κάνε εγγραφή",
+   "sub": "και δες τι υπάρχει πίσω",
+   "nar": "Κάνε εγγραφή και δες τι υπάρχει πίσω από κάθε δάνειο"
+  }
+ ],
+ "copy": "# epomeno-epipedo-s064\n\n## TITULO\nΟ Ίδιος Άνθρωπος, Δύο Τιμές: Γιατί το Επιτόκιο Δεν Μιλάει για Σένα αλλά για το Τι Υπάρχει Πίσω\n\n## TITULO SHORT\nΟ ίδιος άνθρωπος, δύο τιμές\n\n## DESCRICAO\nΤην ίδια μέρα, στην ίδια τράπεζα, με το ίδιο εισόδημα, ο ίδιος άνθρωπος παίρνει δύο εντελώς διαφορετικές τιμές. Η συνηθισμένη εξήγηση είναι ότι κάτι φταίει σε αυτόν — το προφίλ του, η τράπεζά του, η διαπραγμάτευσή του, η στιγμή που ρώτησε. Η εξήγηση είναι αλλού, και είναι δομική: δεν αφορά το πρόσωπο.\n\nΤο επιτόκιο δεν περιγράφει αυτόν που δανείζεται. Περιγράφει τι στέκεται πίσω από το δάνειο αν σταματήσουν οι πληρωμές. Πίσω από το στεγαστικό υπάρχει ένα ακίνητο, άρα ο δανειστής δεν μένει με τίποτα στο χέρι. Πίσω από την κάρτα δεν υπάρχει τίποτα — υπάρχει μόνο μια υπόσχεση. Αυτή η απόσταση κοστολογείται, και εμφανίζεται ως διαφορά επιτοκίου ανάμεσα σε δύο προϊόντα του ίδιου καταστήματος, την ίδια μέρα, για τον ίδιο πελάτη.\n\nΤο ίδιο μοτίβο δουλεύει και μέσα στο ίδιο προϊόν. Δεν αλλάζει μόνο το είδος του δανείου την τιμή: αλλάζει και το μέγεθός του, με τα μικρότερα δάνεια να βγαίνουν κατά μέσο όρο ακριβότερα από τα μεγάλα. Και όταν το επιτόκιο είναι κυμαινόμενο, η τιμή δεν μένει εκεί που την υπέγραψες: κινείται και προς τα πάνω, χωρίς να σε ρωτήσει. Το σταθερό ξεκινάει συνήθως ακριβότερα και σου πουλάει ησυχία· το κυμαινόμενο ξεκινάει φθηνότερα και σου αφήνει το ρίσκο στα χέρια.\n\nΗ πρακτική συνέπεια είναι μία ερώτηση που αλλάζει σειρά. Πριν ρωτήσεις πόσο κοστίζει, ρώτα τι εγγυάται. Η απάντηση σε αυτό προβλέπει την τιμή πολύ καλύτερα από οποιαδήποτε διαπραγμάτευση, και εξηγεί γιατί η ιεραρχία της αποπληρωμής ξεκινάει πάντα από εκεί που δεν υπάρχει καμία εγγύηση πίσω.\n\n## COMENTARIO FIXADO\nΜία ερώτηση πριν από κάθε δάνειο: τι εγγυάται; Γράψε στα σχόλια ποιο δάνειο σε έκπληξε περισσότερο όταν το κοίταξες έτσι.\n\n## HASHTAGS\n#επιτόκιο #δάνειο #στεγαστικό #epomenoepipedo #Shorts\n\n## TAGS\nepitokio, daneio, stegastiko, pistotiki karta, kostos riskou, engyisi, ypothiki, kymainomeno epitokio, statheró epitokio, prosopika oikonomika, ellada, epomeno epipedo, ierarchia apoplirominis, trapeza, megethos daneiou\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Conferido cena a cena: nenhuma das\ndez cenas carrega percentual, indice, data nem valor.\n\n## FONTES\nOrigem: `alZ97hpgqXo` (`epomeno-epipedo-005`), capítulos 43 a 52 — o bloco do\nestegastiko. Família de entrada errada NOVA no canal: tratar o juro como\npropriedade da PESSOA em vez de propriedade do que está por trás do empréstimo.\nAs duas famílias já usadas desta origem são outras: `s013` põe os juros em ordem\n(depósito contra dívida) e `s032` é o mesmo plástico com dois contratos.\n\n**NÚMERO NENHUM DO MUNDO ENTROU, pela regra (g):** o capítulo 44 diz \"quase onze\npontos percentuais\", o 46 diz \"quatro vírgula noventa e cinco\" e o 47 \"três\nvírgula sessenta e seis\". Esses mudam com o boletim do Banco da Grécia, logo\nficam fora do short — o que entra é a ESTRUTURA (há garantia atrás, ou não há).\n\n**E a contagem declarada desta origem é conflitante (725):** o capítulo 69\ndeclara \"Τέσσερα λάθη\" e a enumeração chega ao \"Πέμπτο λάθος\" (cap. 75). Não\ntoquei nessa família e não carrego contagem nenhuma.\n\n## EXPOSICAO DECLARADA ANTES DE PUBLICAR\nMirei o PISO da faixa do canal (41,5), e **declaro que isso não protege**: pelo\nmedido em 18/10 às 17:2x, os CINCO resíduos negativos da série são deste canal e\ntêm real exatamente **41**. Mirar o piso aqui não encurta a peça — ela já está no\nfundo da janela — e aumenta a chance de o resíduo sair NEGATIVO.\nPrevisão edge **41,6** / piper **36,9**, as duas dentro de 18 a 45 nos dois\nmundos. Com a banda observada de (−1,2; 4,0), se o edge narrar o real deve cair\nentre **40,4 e 45,6 s** — o topo da faixa PASSA do teto de 45 do portão, e a\nlargura de 5,2 s contra 1 s de granularidade significa que isto não é previsão,\né limite.\n"
+}
