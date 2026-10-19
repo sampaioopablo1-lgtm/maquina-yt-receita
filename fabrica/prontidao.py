@@ -186,17 +186,36 @@ def _gate_narracao(caminho):
 
 
 def _gate_layout(sp):
-    import layout
+    """Tinta na borda (o `layout.analisa`) E cena de short em BRANCO.
 
+    O segundo entrou em 19/10 as 19:1x, por um defeito MEU que foi ao ar: o
+    `epomeno-epipedo-s069` publicou uma cena `numero` num short, e o
+    `svg_cena_retrato` desenha so `titulo`/`cta`, `item`, `lista` e `barras` —
+    o resto volta como fundo vazio, SEM erro e SEM aviso. Medido: 146 bytes e
+    zero `<text>` naquela cena, contra 600 a 1.500 nas outras.
+
+    E ele entra como PORTAO, nao como aviso de suite, porque o argumento do
+    `mira.py` nao se aplica: de 2.750 cenas de short no disco exatamente UMA
+    reprova, e e a quebrada. Aviso que reprova o acervo deixa de avisar; este
+    reprova so o defeito.
+    """
+    import layout
+    import layouts_do_short as LS
+
+    vazias = []
     try:
-        return layout.analisa(sp)
+        vazias = LS.avisos(sp)
+    except Exception as e:  # sonda do render nunca derruba o portao inteiro
+        vazias = [f"AMBIENTE, nao a spec: a sonda do retrato falhou: {e}"]
+    try:
+        return list(layout.analisa(sp)) + vazias
     except RuntimeError as e:
         # `usar_fonte` aborta quando a fonte do canal nao esta na maquina — o
         # agla-level pede Noto Sans Devanagari. Isso e defeito do AMBIENTE, nao
         # da spec, e reprovar a spec por isso esconderia o que ela tem de bom.
         # (O frota.yml instala fonts-noto-core, que traz Devanagari; medido em
         # 13/08/2026 — quatro familias apos o apt-get.)
-        return [f"AMBIENTE, nao a spec: {e}"]
+        return [f"AMBIENTE, nao a spec: {e}"] + vazias
 
 
 _COBERTURA: dict[int, int] = {}

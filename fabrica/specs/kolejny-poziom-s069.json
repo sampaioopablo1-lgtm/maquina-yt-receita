@@ -1,0 +1,110 @@
+{
+ "slug": "kolejny-poziom-s069",
+ "pacote": "kolejny-poziom-s069",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "longo_existente": "GtmoaQMr_1c",
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Dwa błędy",
+   "sub": "żadnego nie widać",
+   "nar": "Dwa błędy psują ten rachunek, i żadnego nie widać."
+  },
+  {
+   "layout": "item",
+   "kicker": "Pierwszy błąd",
+   "preco": "brutto u góry",
+   "nar": "Pierwszy błąd: u góry stawki wpisujesz brutto."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Stawka w górę, godziny w dół",
+   "barras": [
+    {
+     "rotulo": "Brutto",
+     "valor": 3
+    },
+    {
+     "rotulo": "Netto",
+     "valor": 5
+    }
+   ],
+   "nar": "Wtedy stawka rośnie, a godzin wychodzi mniej."
+  },
+  {
+   "layout": "item",
+   "kicker": "Drugi błąd",
+   "preco": "droższy od tego",
+   "nar": "Drugi błąd jest droższy, bo dotyczy dołu."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "W mianowniku",
+   "sub": "same godziny z umowy",
+   "nar": "W mianowniku zostają same godziny z umowy."
+  },
+  {
+   "layout": "lista",
+   "kicker": "To wypada z rachunku",
+   "itens": [
+    "Dojazd",
+    "Czekanie",
+    "Przebranie",
+    "Dyżur pod telefonem"
+   ],
+   "nar": "Dojazd i czekanie po prostu wypadają z rachunku."
+  },
+  {
+   "layout": "item",
+   "kicker": "I w obu razach",
+   "preco": "wynik wygląda dobrze",
+   "nar": "W obu przypadkach wynik wychodzi normalnie."
+  },
+  {
+   "layout": "item",
+   "kicker": "Nikt nie ostrzeże",
+   "preco": "liczba jest ładna",
+   "nar": "Nikt ci nie powie, że ta liczba jest za ładna."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Sprawdzenie",
+   "barras": [
+    {
+     "rotulo": "Stawka × godziny",
+     "valor": 6
+    },
+    {
+     "rotulo": "Wypłata",
+     "valor": 6
+    }
+   ],
+   "nar": "Sprawdzasz to, mnożąc stawkę przez swoje godziny."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Co masz w mianowniku",
+   "sub": "napisz pod spodem",
+   "nar": "Napisz pod spodem, co dokładnie masz w mianowniku."
+  }
+ ],
+ "thumb": {
+  "l1": "Ładna liczba",
+  "l2": "zły mianownik"
+ },
+ "paleta": {
+  "bg": "#0B0B0C",
+  "ink": "#F2EEE8",
+  "c1": "#E23B3B",
+  "c2": "#D9C7A7",
+  "red": "#FF4D4D",
+  "ok": "#7FB77E",
+  "panel": "#151517",
+  "mut": "#8F877C",
+  "acc": "#E23B3B"
+ },
+ "copy": "# kolejny-poziom-s069\n\n## TITULO\nDwa Błędy, Które Robią Twoją Stawkę Ładniejszą — i Żadnego Nie Widać w Wyniku\n\n## TITULO SHORT\nŁadna liczba, zły mianownik\n\n## DESCRICAO\nPoliczyłeś, ile godzin twojej pracy stoi za jakimś rachunkiem. Wynik wyszedł okrągły, działanie się zgadza — **i właśnie dlatego nikt ci nie powie, że jest za ładny.**\n\n**Dwa błędy psują tę liczbę, i oba psują ją w tę samą stronę: do góry.**\n\n**Pierwszy jest w liczniku stawki.** Wpisujesz tam kwotę z umowy, a nie tę, która wpływa na konto. Stawka za godzinę od razu rośnie, a skoro dzielisz przez większą stawkę, to godzin wychodzi mniej. Ten sam rachunek wygląda tanio, bo policzyłeś go pieniędzmi, których nigdy nie zobaczyłeś.\n\n**Drugi jest w mianowniku i jest droższy.** Zostawiasz tam tylko godziny z umowy. Wypada dojazd, wypada czekanie, wypada przebranie i dyżur pod telefonem — a to wszystko są godziny, których nie masz dla siebie z powodu tej pracy. Mianownik maleje, stawka znowu rośnie, i liczba znowu wygląda lepiej.\n\n**I to jest najgorsza część: w obu przypadkach działanie wychodzi normalnie.** Dzielenie nigdy nie zawodzi. Zawodzi zawsze lista, i tylko ty ją widzisz.\n\n**Sprawdzenie jest jedno i robi się je na palcach: pomnóż swoją stawkę przez swoje godziny.** Jeśli nie wychodzi kwota, którą naprawdę dostajesz na konto, to jedna z dwóch liczb jest nie ta.\n\n**Co zrobić dzisiaj:** weź swoją zapisaną stawkę i odpowiedz na dwa pytania osobno. Czy u góry jest kwota z przelewu? Czy u dołu są wszystkie godziny, nie tylko te z umowy? Jeśli na którekolwiek odpowiadasz „nie”, twoja liczba jest ładniejsza niż twoje życie.\n\nNie podaję tu kwot, stawek, progów ani procentów. To się zmienia i zostaje poza nagraniem. Mechanizm — brutto u góry i same godziny z umowy u dołu — nie zmienia się nigdy.\n\nW pełnym materiale: jak zbudować mianownik linijka po linijce, trzy źródła, które wystarczą, i jak wyznaczyć własną granicę.\n\n## COMENTARIO FIXADO\nNajmniej oczywiste: oba błędy ciągną liczbę w TĘ SAMĄ stronę, więc nie znoszą się wzajemnie. Co masz u siebie w mianowniku?\n\n## HASHTAGS\n#finanse #budzet #stawkagodzinowa #kolejnypoziom #Shorts\n\n## TAGS\nstawka godzinowa, stawka netto, mianownik, brutto netto, czas pracy, dojazd do pracy, koszt w godzinach, budzet domowy, finanse osobiste, wyplata, godziny nadliczbowe, przeliczanie ceny na godziny, kolejny poziom, wydatki, zarzadzanie czasem\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Nao entra stawka, nao entra valor,\nnao entra percentual nem prazo — e o longo tambem nao os cita. Os unicos numeros\nda peca sao \"dois\" (os dois erros, que e a propria estrutura) e as alturas das\nbarras, que sao RELATIVAS e sem unidade de dinheiro: a cena 3 desenha stawka\ncontra godziny e a cena 9 desenha a conferencia batendo. Brutto e netto entram\ncomo CONCEITO, nao como numero, que e exatamente o que a regra (g) permite.\n\n## FONTES\nA spec local `kolejny-poziom-020`, que e o pacote do longo `GtmoaQMr_1c`,\npublicado NESTE canal hoje as 13:49Z — e a UNICA origem de um uso so que o\n`concentracao.py` nomeia hoje aqui como escrevivel. A familia desta peca sai dos\ncapitulos 32 a 39: *\"Dwa bledy psuja to dzialanie, i zadnego z nich nie widac w\nwyniku\"*, *\"Pierwszy blad: na gorze stawki stawiasz brutto\"*, *\"Drugi blad, ten\ndroszy: w mianowniku zostawiasz tylko godziny z umowy\"*, *\"W obu przypadkach\ndzialanie wychodzi normalnie\"* e *\"Sprawdzenie polega na odwroceniu dzialania\"*.\nNenhuma frase desta peca saiu de TITULO de capitulo.\n\n**E E A TERCEIRA FAMILIA DESTA ORIGEM, conferidas uma a uma:** o short do pacote\n(`9zfF0f4aDQM`) usou o DENOMINADOR — como se monta a stawka —, o `s068`\n(`8ZvPC95UDNI`) usou QUAL despesa medir primeiro, e esta usa os DOIS ERROS que\nnenhuma das duas tocou.\n\n**E E DIFERENTE DAS DUAS QUE SAIRAM NOS OUTROS CANAIS HOJE:** no labtreinamento\nfoi a JANELA do periodo e no epomeno a UNIDADE do resultado. Cinco pecas, cinco\nfamilias, nos tres canais — escrever o mesmo angulo em sequencia seria o habito\ndo 762 numa dimensao nova, e o `similaridade` NAO pegaria, porque compara contra\no MESMO canal.\n\n**E A CONCENTRACAO DESTE CANAL ESTA EM ALERTA, e vai dito:** o\n`concentracao.py` acusa que a origem `GUiq15usizw` carrega DOZE dos 64 shorts,\nmais que o dobro da segunda (quatro). Esta peca NAO alimenta essa dominancia.\n\n## EXPOSICAO\n**O ESQUELETO USA SO LAYOUT QUE O RETRATO DESENHA, e isso e consequencia de um\ndefeito MEU que foi ao ar nesta hora.** O `epomeno-epipedo-s069`\n(`ZySLot-Cvo4`, publicado as 18:18:45Z) levou uma cena `numero` num short, e o\n`svg_cena_retrato` despacha so `titulo`/`cta`, `item`, `lista` e `barras`: a\ncena saiu com **146 bytes e ZERO `<text>`**, isto e, cartao em branco. Medido no\ndisco, era **1 de 2.750** cenas de short — defeito meu desta hora, nao do\nacervo. Agora o portao `layout` reprova isso, e esta peca foi escrita contra o\nconjunto SONDADO do render.\n\n**Esqueleto NOVO, inedito nas 112 formas da frota:**\n`titulo-item-barras-item-titulo-lista-item-item-barras-cta`. Varrido o disco\nantes de escrever, com `barras` DUAS vezes e as duas carregando argumento: a\ncena 3 desenha a stawka subindo e as godziny caindo, e a cena 9 desenha a\nconferencia batendo. Quem assistir sem som ve o mecanismo nos dois graficos.\n\n**O ORCAMENTO SAIU DO INSTRUMENTO.** Dez cenas no PISO desta voz pedem **46**\ncaracteres por cena, e a peca foi escrita com media **46**: previsao edge\n**41,68** — o PISO do `ALVO_SHORT` (41,5 a 43,0) — e piper **35,47**. A primeira\nversao previa 42,46 e foi encurtada; a segunda caiu a 41,37, abaixo do piso, e\nfoi alongada em uma palavra.\n\n**E O PIPER FICA FORA DA FAIXA POR ARITMETICA, nao por descuido** — medido em\n19/10 as 17:2x: a razao piper/edge desta voz e **0,851**, logo o vao entre os\nmundos vale ~6,3 s em 42 s contra **1,5 s** de largura da faixa, e NENHUM\norcamento poe os dois dentro do `ALVO_SHORT`. O que o portao cobra — 18 a 45 s\nnos dois mundos — esta satisfeito com folga.\n\n**A exposicao do 772:** com a banda em (−1,2; 4,0), se o edge narrar o real cai\nem algum ponto de **(40,5; 45,7)**, isto e **pode encostar no teto de 45**. Nao\ndigo de que lado, porque a banda tem 5,2 s de largura contra 1 s de\ngranularidade e declarar um lado dela nao e previsao (774).\n"
+}
