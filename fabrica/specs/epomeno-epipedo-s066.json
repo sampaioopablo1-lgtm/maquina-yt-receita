@@ -1,0 +1,110 @@
+{
+ "slug": "epomeno-epipedo-s066",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "bg": "#F4EFE6",
+  "ink": "#1B1A17",
+  "c1": "#C8502A",
+  "c2": "#2B6CB0",
+  "red": "#B83227",
+  "ok": "#2E8B57",
+  "panel": "#FFFFFF",
+  "mut": "#7A7263",
+  "acc": "#C8502A"
+ },
+ "pacote": "epomeno-epipedo-s066",
+ "longo_existente": "eZ697VNYCPU",
+ "thumb": {
+  "l1": "Δύο κρατήσεις",
+  "l2": "όχι μία"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Δύο κρατήσεις",
+   "sub": "όχι μία",
+   "nar": "Στην απόδειξη πληρωμής υπάρχουν δύο κρατήσεις, και όχι μία."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Η σειρά μετράει",
+   "itens": [
+    "μικτός",
+    "εισφορές",
+    "φόρος",
+    "καθαρά"
+   ],
+   "alturas": [
+    10,
+    3,
+    2,
+    7
+   ],
+   "nar": "Και η σειρά με την οποία φεύγουν αλλάζει το αποτέλεσμα."
+  },
+  {
+   "layout": "item",
+   "kicker": "Πρώτα",
+   "preco": "οι εισφορές",
+   "nar": "Πρώτα φεύγουν οι ασφαλιστικές εισφορές, πριν από τον φόρο."
+  },
+  {
+   "layout": "item",
+   "kicker": "Μετά",
+   "preco": "ο φόρος",
+   "nar": "Και μόνο μετά από αυτές υπολογίζεται ο φόρος."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Όχι στον μικτό",
+   "sub": "σε ό,τι μένει",
+   "nar": "Ο φόρος δεν πέφτει στον μικτό, αλλά σε ό,τι μένει."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Το λάθος",
+   "itens": [
+    "μία κράτηση",
+    "φόρος στον μικτό"
+   ],
+   "nar": "Το λάθος είναι να τις βλέπεις σαν μία κράτηση."
+  },
+  {
+   "layout": "item",
+   "kicker": "Έτσι βγαίνει",
+   "preco": "φόρος πιο μεγάλος",
+   "nar": "Έτσι ο φόρος βγαίνει πιο μεγάλος απ' όσο είναι."
+  },
+  {
+   "layout": "item",
+   "kicker": "Οι εισφορές",
+   "preco": "δεν χάνονται",
+   "nar": "Και οι εισφορές δεν είναι χαμένα χρήματα."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Τι αγοράζουν",
+   "itens": [
+    "σύνταξη",
+    "υγεία",
+    "ανεργία"
+   ],
+   "alturas": [
+    9,
+    6,
+    4
+   ],
+   "nar": "Είναι σύνταξη, γιατρός και ταμείο ανεργίας προπληρωμένα."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Κοίτα τρία",
+   "sub": "όχι ένα",
+   "nar": "Κοίτα και τα τρία νούμερα, όχι μόνο το τελευταίο."
+  }
+ ],
+ "copy": "# epomeno-epipedo-s066\n\n## TITULO\nΣτην Απόδειξη Πληρωμής Υπάρχουν Δύο Κρατήσεις και Όχι Μία — και η Σειρά Τους Αλλάζει τον Φόρο\n\n## TITULO SHORT\nΔύο κρατήσεις, όχι μία\n\n## DESCRICAO\nΟι περισσότεροι κοιτάνε ένα νούμερο στην απόδειξη πληρωμής: αυτό που φτάνει στον λογαριασμό. **Τα λάθη, όμως, κρύβονται στα δύο πρώτα** — στον μικτό και στις κρατήσεις.\n\nΚαι οι κρατήσεις **δεν είναι μία, είναι δύο**: οι ασφαλιστικές εισφορές και η παρακράτηση φόρου. **Η σειρά τους δεν είναι λεπτομέρεια.** Οι εισφορές φεύγουν πρώτες, και ο φόρος υπολογίζεται πάνω σε ό,τι μένει — όχι πάνω στον μικτό.\n\n**Τι χαλάει αν τις δεις ως μία:** βγάζεις τον φόρο πιο μεγάλο απ' όσο είναι στην πραγματικότητα, και μετά δεν αναγνωρίζεις το ποσό που βλέπεις στην απόδειξη. Η αριθμητική δεν βγαίνει, και η εξήγηση δεν είναι ο νόμος — είναι η σειρά των δύο πράξεων.\n\n**Και οι εισφορές δεν είναι χαμένα χρήματα.** Είναι η σύνταξή σου, ο γιατρός σου και το ταμείο ανεργίας σου, προπληρωμένα. Είναι η μόνη κράτηση που αγοράζει κάτι με το όνομά σου πάνω.\n\n**Τι να κάνεις σήμερα:** άνοιξε την τελευταία σου απόδειξη και βρες τρία νούμερα, όχι ένα — μικτό, εισφορές, φόρο. Αν τα δύο πρώτα δεν τα έχεις δει ποτέ, δεν ξέρεις τι πληρώνεις.\n\nΔεν δίνω εδώ ποσοστά, όρια ούτε ημερομηνίες: αυτά αλλάζουν με τον νόμο και μένουν έξω. Ο μηχανισμός — πρώτα οι εισφορές, μετά ο φόρος σε ό,τι μένει — δεν αλλάζει.\n\nΣτο πλήρες υλικό: τα τρία νούμερα της απόδειξης, τι είναι η κάθε κράτηση και γιατί δύο συνάδελφοι με τον ίδιο μισθό παίρνουν διαφορετικά καθαρά.\n\nΕνημερωτικό υλικό.\n\n## COMENTARIO FIXADO\nΤο λιγότερο προφανές: η σειρά των δύο κρατήσεων δεν είναι λογιστική λεπτομέρεια, είναι ο λόγος που η αριθμητική σου δεν έβγαινε. Είχες κοιτάξει ποτέ και τα τρία νούμερα;\n\n## HASHTAGS\n#μισθος #αποδειξηπληρωμης #εισφορες #epomenoepipedo #Shorts\n\n## TAGS\nαποδειξη πληρωμης, μικτος μισθος, καθαρα, ασφαλιστικες εισφορες, παρακρατηση φορου, φορολογια μισθωτου, συνταξη, ταμειο ανεργιας, προσωπικα οικονομικα, μισθοδοσια, εργασια, ελλαδα, οικονομικα, φορος εισοδηματος, επομενο επιπεδο\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. A origem e cheia deles — salario\nminimo, seis degraus da escala, cinco percentuais e duas datas de vigencia — e\nos treze ficaram FORA pela regra (g), porque mudam por lei. O que a peca carrega\ne a ORDEM de duas operacoes, que e mecanismo e nao numero: as contribuicoes\nsaem primeiro e o imposto incide sobre o resto. A palavra \"tres numeros\" conta\nos CAMPOS da propria folha de pagamento, nao um valor do mundo.\n\n## FONTES\nA faixa de legenda `el` do longo sobre o salario liquido (`eZ697VNYCPU`), lida\npela regra (h) no sandbox do Composio — 1.510 palavras, e NENHUMA frase desta\npeca saiu de titulo de capitulo. O trecho e o do miolo: *\"Οι εισφορές φεύγουν\nπρώτες, πριν καν υπολογιστεί ο φόρος. Ο φόρος υπολογίζεται σε ό,τι μένει\"* e\n*\"Οι εισφορές είναι η σύνταξή σου, το ταμείο ανεργίας σου και ο γιατρός σου,\nπροπληρωμένα\"*.\n\n**A origem esta em DOIS usos — a MENOR contagem do canal**, contra tres das\ndemais e dezoito origens no total. As duas familias dela ja usadas sao outras:\no medo do degrau, isto e recusar o bonus (`s018`), e dados errados produzindo\nimposto errado (`s054`). **E a palavra `εισφορ` nao aparece em NENHUMA das 65\nspecs deste canal** — conferido por varredura, logo a familia e nova no canal e\nnao so nesta origem.\n\n## EXPOSICAO\n**Esqueleto NOVO, e com `barras` DUAS vezes** —\n`titulo-barras-item-item-titulo-lista-item-item-barras-cta`, que nao existe em\nnenhuma spec da frota. Isto continua a correcao de 19/10, depois de o dono\napontar que as pecas pareciam todas iguais: `item` e `titulo` eram 93% das\n1.667 cenas e `barras` tinha ZERO uso em 205 specs. E aqui as barras sao o\nargumento: a cena 2 desenha a SEQUENCIA da folha (mikto, eisfores, foros,\nkathara) e a cena 9 desenha o que as contribuicoes compram.\n\nPrevisao edge **41,9 s** e piper **37,1 s** — dentro de 18 a 45 nos DOIS\nmundos, e o edge DENTRO da faixa da frota (41,5 a 43,0). **O `epomeno-epipedo`\nnao tem `ALVO_POR_CANAL`**, e o `mira.py` diz isso em letra em vez de calar —\nque e o conserto desta madrugada: ate hoje ele dizia a mesma frase para o\n`labtreinamento`, que TEM mira, porque lia o `slug` como canal.\n**E a exposicao vai declarada sem escolher lado:** com a banda em (-1,2; 4,0),\nse o edge narrar o real cai em algum ponto de (40,7; 45,9) — e o teto do portao\ne 45. Pelo medido em 18/10 e 19/10, ESTE canal ja deu 41 (o piso do\nespalhamento, nos cinco negativos) e 44 (o teto, no `s064`) com previsao na\nMESMA janela de 0,8 s. Logo eu nao digo de que lado, porque a banda tem 5,2 s de\nlargura contra 1 s de granularidade e declarar um lado dela nao e previsao (774).\n"
+}
