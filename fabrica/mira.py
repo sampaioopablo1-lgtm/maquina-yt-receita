@@ -157,13 +157,35 @@ def previsoes(spec: dict) -> dict[str, float]:
             for p in PROVEDORES}
 
 
+def canal_da_spec(spec: dict) -> str:
+    """O CANAL de uma spec — a UNICA fonte, e ela existe porque havia duas.
+
+    MEDIDO em 19/10 as 05:2x. O `confere` lia `spec["slug"]` como se fosse o
+    canal, e o `tally_fora_da_mira` derivava com `pacote.rsplit("-s", 1)[0]`.
+    Enquanto a spec de short solto trazia `slug: "labtreinamento"` as duas
+    concordavam por acidente; quando o `slug` passou a ser o PACOTE
+    (`labtreinamento-s077` em diante), o `confere` deixou de achar o canal no
+    `ALVO_POR_CANAL` e passou a devolver `tem_mira: False` — isto e, **o
+    instrumento parou de conferir a mira e disse que nao havia mira a conferir**.
+    SEIS pecas publicadas (`s077` a `s082`) sairam assim, e eu reportei
+    "mira verde nos dois mundos" nas seis fazendo a conta de cabeca, que e
+    exatamente o item 3 da §10.
+
+    E a assinatura e a do `assert 20 <= ds <= 60` e a da legenda congelada:
+    DOIS DONOS DA MESMA REGRA, UM ATUALIZADO. A falha e no sentido
+    PERMISSIVO — ela nao reprova nada, so para de avisar.
+    """
+    base = spec.get("pacote") or spec.get("slug") or ""
+    return base.rsplit("-s", 1)[0] if "-s" in base else base
+
+
 def confere(spec: dict) -> dict:
     """A peça cai na mira MEDIDA do canal, nos dois mundos de provedor?
 
     `tem_mira` é False quando o canal não tem override — e aí não há o que
     conferir, porque a mira da frota é o que o portão já cobra.
     """
-    canal = spec.get("slug") or ""
+    canal = canal_da_spec(spec)
     prev = previsoes(spec)
     if canal not in ensaio.ALVO_POR_CANAL:
         return {"canal": canal, "tem_mira": False, "previsoes": prev,
@@ -268,7 +290,7 @@ def tally_fora_da_mira(serie, provedor: str = "edge") -> dict:
     for pacote, prev, real, prov in serie:
         if prov != provedor:
             continue
-        canal = pacote.rsplit("-s", 1)[0]
+        canal = canal_da_spec({"pacote": pacote})
         if canal not in ensaio.ALVO_POR_CANAL:
             continue
         _piso, teto = ensaio.ALVO_POR_CANAL[canal]

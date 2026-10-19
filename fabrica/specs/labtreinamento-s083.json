@@ -1,0 +1,95 @@
+{
+ "slug": "labtreinamento-s083",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "bg": "#0E1117",
+  "ink": "#EEF1F5",
+  "c1": "#3DDBD9",
+  "c2": "#1E2430"
+ },
+ "pacote": "labtreinamento-s083",
+ "longo_existente": "XgqPVJuAk3o",
+ "thumb": {
+  "l1": "A soma",
+  "l2": "empata"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Somei as duas",
+   "sub": "notas da matriz",
+   "nar": "Você somou as duas notas."
+  },
+  {
+   "layout": "item",
+   "kicker": "Probabilidade",
+   "nar": "Uma é a probabilidade."
+  },
+  {
+   "layout": "item",
+   "kicker": "Severidade",
+   "nar": "A outra é a severidade."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Somando, empata",
+   "itens": [
+    "raro e grave",
+    "semanal e leve"
+   ],
+   "alturas": [
+    6,
+    6
+   ],
+   "nar": "Somando, os dois empatam."
+  },
+  {
+   "layout": "lista",
+   "kicker": "O que a soma perde",
+   "itens": [
+    "o raro que afasta",
+    "o leve que incomoda"
+   ],
+   "nar": "A soma perde a diferença."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Multiplique",
+   "sub": "em vez de somar",
+   "nar": "A matriz manda multiplicar."
+  },
+  {
+   "layout": "item",
+   "kicker": "O raro grave",
+   "nar": "O raro e grave sobe."
+  },
+  {
+   "layout": "item",
+   "kicker": "O leve sai",
+   "nar": "O frequente desce."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Multiplicando, separa",
+   "itens": [
+    "raro e grave",
+    "semanal e leve"
+   ],
+   "alturas": [
+    9,
+    3
+   ],
+   "nar": "Multiplicando, a ordem sai."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Confira a conta",
+   "sub": "antes do corte",
+   "nar": "Confira a conta antes do nível."
+  }
+ ],
+ "copy": "# labtreinamento-s083\n\n## TITULO\nSomar as Duas Notas da Matriz de Risco Empata o Raro Grave com o Frequente Leve\n\n## TITULO SHORT\nSoma empata, produto separa\n\n## DESCRICAO\nA matriz de risco pede duas notas: **probabilidade** e **severidade**. O que acontece com elas depois e o ponto em que muita planilha se perde — porque somar parece a mesma coisa que multiplicar, e nao e.\n\n**Some, e os dois casos opostos empatam.** O evento raro que afasta alguem e o evento semanal que apenas incomoda chegam ao mesmo total, e a coluna de nivel passa a nao ordenar nada. **Multiplique, e a ordem aparece**: o raro grave sobe, o frequente leve desce, e a fila de tratamento sai da propria conta.\n\n**Por que a multiplicacao e a conta certa, em uma frase:** ela faz as duas notas se reforcarem. Dobrar a severidade dobra o risco inteiro; na soma, dobrar a severidade move o total so um pouco. Um evento raro e catastrofico precisa pesar diferente de um frequente e leve, e a soma trata os dois igual.\n\n**O que fazer com isso, e da para fazer hoje:** abra a sua matriz e confira a formula da coluna de nivel antes de discutir faixa de corte. Se ali houver um sinal de mais, o resto da discussao e sobre um numero que nao separa nada.\n\nNao dou aqui prazos, multas nem datas. Numero de norma muda por portaria e fica fora. O mecanismo — soma empata, produto separa — nao muda.\n\nNo material completo: as nove colunas do inventario, como ancorar as duas notas sem chute e a ordem de preferencia das medidas.\n\nMaterial informativo.\n\n## COMENTARIO FIXADO\nO menos obvio: a conta nao e detalhe de planilha, e o que decide a FILA. Com soma, a fila sai embaralhada e a culpa cai na faixa de corte. Qual conta esta na sua coluna de nivel?\n\n## HASHTAGS\n#nr1 #riscopsicossocial #seguranca #labtreinamento #Shorts\n\n## TAGS\nnr 1, riscos psicossociais, matriz de risco, probabilidade e severidade, nivel de risco, inventario de riscos, gerenciamento de riscos ocupacionais, sesmt, seguranca do trabalho, departamento pessoal, plano de acao, lab treinamento, auditoria trabalhista, saude ocupacional, planilha de risco\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. O longo cita portaria, data de\ninicio da fiscalizacao e piso de multa: os tres ficaram FORA pela regra (g),\nporque mudam por norma. As notas de um a cinco e o corte de quinze tambem nao\nentram na narracao — eles sao convencao de matriz e ja renderam o `s060`, cuja\nfamilia e outra (de onde vem o corte do alto). O que esta peca carrega e uma\npropriedade da ARITMETICA: soma e comutativa e aditiva, produto nao.\n\n## FONTES\nA faixa de legenda `pt-BR` do longo sobre riscos psicossociais na NR-1\n(`XgqPVJuAk3o`), lida pela regra (h) no sandbox do Composio — 1.980 palavras, e\nNENHUMA frase desta peca saiu de titulo de capitulo. O trecho e o do miolo da\nplanilha, onde o proprio longo diz \"multiplicar e nao somar porque um evento raro\ne catastrofico precisa pesar diferente de um evento frequente e leve, e a soma\ntrata os dois igual\".\n\n**A origem esta em QUATRO usos — empatada na MENOR contagem do canal** com\n`StQNFMdpGdk`, `yrWVyqQtw00` e `KRUERlNPzDw`, contra treze da dominante. As\nquatro familias ja usadas dela sao outras: a faixa de corte e da empresa\n(`s011`), avalia o trabalho e nao o trabalhador (`s033`), e conclusao nao e\nsituacao (`s038` e `s046`). Esta — somar no lugar de multiplicar — nenhuma\ntocou, e eu conferi uma a uma antes de escrever.\n\n**E ela NAO e a familia do `s049`** (palestra nao trata risco de organizacao),\nque e da hierarquia de medidas e de outra origem.\n\n## EXPOSICAO\n**Esqueleto NOVO e com os layouts que a frota nao usava.** Depois de o dono\napontar em 19/10 que as pecas pareciam todas iguais, eu medi: `item` e `titulo`\neram 93% das 1.667 cenas da frota e `barras` tinha ZERO uso em 205 specs. Esta\npeca usa `barras` DUAS vezes e `lista` uma, no esqueleto\n`titulo-item-item-barras-lista-titulo-item-item-barras-cta`, que nao existe em\nnenhuma spec da frota. E as barras aqui nao sao enfeite: a cena 4 desenha o\nempate que a soma produz e a cena 9 desenha a separacao que o produto produz —\n**o argumento da peca E o grafico**.\n\nPrevisao edge **25,1 s** e piper **20,6 s** — os dois DENTRO da mira medida do\ncanal (20,0 a 26,0), e dentro de 18 a 45 nos dois mundos. **E esta e a primeira\npeca em SETE em que o instrumento de fato conferiu isso**: o `mira.confere` lia\no `slug` como canal, e desde o `s077` o slug passou a ser o PACOTE — logo ele\ndizia \"este canal nao tem mira\" e eu fazia a conta de cabeca. Consertado nesta\nrodada, com uma fonte unica para o canal da spec, e ele REPROVOU a primeira\nversao desta peca (edge 26,1) antes de eu renderizar.\nE a mira verde NAO promete real dentro: pelo tally do 744/754/758, a maioria das\npecas deste canal narradas pelo edge saiu ACIMA do teto de 26,0 com o `mira.py`\nverde. Com a banda em (-1,2; 4,0), se o edge narrar o real cai em algum ponto de\n(23,8; 29,0) — e eu nao digo de que lado, porque a banda tem 5,2 s de largura\ncontra 1 s de granularidade e declarar um lado dela nao e previsao (774).\n"
+}
