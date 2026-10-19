@@ -3222,6 +3222,99 @@ piso de resolução 2,99/dia, faltam 18,8 h para o critério do 723. **COTA:**
 catorze envios na janela de 07:00Z, 22.400 unidades contra o piso MEDIDO de
 ≥ 40.000.
 
+## EU PUBLIQUEI UM CARTÃO EM BRANCO — o retrato do SHORT desenha QUATRO layouts
+
+**Medido em 19/10 às 19:1x, numa peça que eu publiquei QUARENTA MINUTOS antes.**
+O `epomeno-epipedo-s069` (`ZySLot-Cvo4`, no ar às 18:18:45Z) tem a cena 1 com
+`layout: numero`, e o `fabrica.svg_cena_retrato` despacha **só** `titulo`/`cta`,
+`item`, `lista` e `barras`. Medido na própria spec, cena por cena:
+
+| cena | layout | `<text>` no SVG | bytes |
+|---|---|---|---|
+| 0 | `titulo` | 2 | 615 |
+| **1** | **`numero`** | **0** | **146** |
+| 3 | `lista` | 5 | 1333 |
+| 5 | `barras` | 5 | 1494 |
+
+**Logo aquela cena está no ar como cartão em branco** — o retângulo do fundo e
+mais nada, por ~4 s de narração. A legenda queimada continua aparecendo, porque é
+outro caminho; o cartão é que não tem nada.
+
+**E A CLASSE ESTÁ ESCRITA NESTE ARQUIVO DESDE 04:2x DO MESMO DIA** — os layouts
+de longo *"escritos e MORTOS"*, cena que *"caía no ramo final e saía como fundo
+vazio. Sem erro, sem aviso: um cartão em branco no meio do vídeo."* **Lá o render
+não chamava o código; aqui eu chamei um layout que o render do SHORT não
+conhece.** A diferença prática é nenhuma, e nenhum portão disse nada.
+
+**O TAMANHO VAI MEDIDO E ELE É UM: de 2.750 cenas de short no disco, exatamente
+UMA** tem layout que o retrato não desenha — a que eu escrevi nesta hora. Logo
+isto **não** é buraco do acervo, e é por isso que aqui o lugar certo é o **PORTÃO**
+e não a suíte: o argumento do `mira.py` — *aviso que reprova 105 specs deixa de
+avisar* — não se aplica a um aviso que reprova exatamente a peça quebrada.
+
+**Consertado:** `fabrica/layouts_do_short.py` **SONDA o próprio render** — monta
+uma cena com todos os campos e pergunta se saiu `<text>` — e o portão `layout`
+passou a carregar um aviso por cena em branco. **O conjunto NÃO é lista escrita à
+mão**, de propósito: lista aqui seria um SEGUNDO dono do despacho, que é a
+assinatura que congelou a legenda e matou os layouts de longo. Quando alguém
+ensinar o retrato a desenhar `numero`, o instrumento aceita `numero` **sem
+ninguém editar nada**. Sondado: ele desenha `barras`, `cta`, `item`, `lista` e
+`titulo` — **cinco de onze** candidatos.
+
+**E A SONDA GANHOU MEMÓRIA, por um defeito de performance que o teste mostrou:**
+sem cache ela varria as ~350 specs e montava um SVG por candidato a cada cena de
+cada spec, e o portão ficava lento o bastante para ninguém o chamar —
+**instrumento que não se chama é a classe dos layouts mortos outra vez.**
+
+`tests/test_o_retrato_do_SHORT_desenha_QUATRO_layouts.py`, nove testes: a
+varredura sai do DISCO e reprova com menos de 1.000 cenas, um exige que os DOIS
+lados existam e **falha se o retrato passar a desenhar TUDO** (aí o buraco fechou
+e a nota se relê), o critério do `<text>` é medido nos dois ramos, a contraprova
+troca **só o layout** da mesma cena, a fiação do portão é cobrada por
+**PROPRIEDADE sobre o disco** — nomear a `s069` seria identidade onde há
+propriedade (743/753/761, **oitava** vez) —, a derivação é cobrada por **AST**, e
+a cena de sonda tem de entregar todos os campos, senão confunde *"não desenha"*
+com *"faltou o campo"*.
+
+**O QUE NÃO FOI FEITO, e vai dito:** a peça publicada segue no ar com o cartão em
+branco. Substituir ou apagar vídeo publicado exige o dono, e a autorização de
+09/10 não nomeia isso. O conserto vale da peça seguinte em diante.
+
+**A REGRA QUE FICA, e ela é de redação: layout de short sai do conjunto que o
+RENDER desenha, não da lista de `LAYOUTS`** — aquela é do 16:9, e os cinco
+layouts de longo que entraram hoje às 04:2x e 07:2x **não** existem no retrato.
+
+### A PEÇA DESSA RODADA — escrita CONTRA o conjunto sondado
+
+`kolejny-poziom-s069` = **`y6x88wc3-QQ`**, publicado às 19:23:48Z (run
+`39310590109`), **44 s reais** contra previsão edge **41,68** — resíduo
+**+2,3**, **estabelecido** (2,3 > 1,0) e dentro da banda. Provedor **edge
+MEDIDO** (zero avisos `NARRACAO PELO PIPER` no job `118257731099`), som
+**−13,8** LUFS, pico −3,5, desvio +0,2, **zero silêncios**. Controle
+`OhrGlJvnBoM` conferido em **44 s** na MESMA chamada (a página trouxe 43 e 44 —
+usei o MAIOR, como a nota de 16/10 manda). `RESIDUO_N` = **125**, limites
+intocados.
+
+**É a TERCEIRA família do longo deste canal de hoje** (`GtmoaQMr_1c`): o short do
+pacote usou o DENOMINADOR, o `s068` QUAL despesa medir primeiro, e esta os **DOIS
+ERROS que deixam a conta mais bonita** — brutto em cima da stawka e só as horas do
+contrato embaixo, capítulos 32 a 39. Nos dois casos o resultado sai normal: a
+divisão nunca falha, falha sempre a lista.
+
+**Esqueleto `titulo-item-barras-item-titulo-lista-item-item-barras-cta`**,
+inédito nas 112 formas da frota, **com `barras` DUAS vezes e as duas carregando
+argumento** — a cena 3 desenha a stawka subindo e as horas caindo, a cena 9
+desenha a conferência batendo. E **todo layout dela saiu do conjunto SONDADO**,
+que é a consequência direta do cartão em branco de 40 minutos antes.
+
+**Cinco peças hoje, cinco famílias, nos três canais** — o `similaridade` não
+pegaria repetição entre canais, porque compara contra o MESMO canal.
+
+**E A LEITURA DE INSCRITOS FOI RECUSADA PELA QUARTA RODADA SEGUIDA:** 9,03 h,
+piso de resolução 2,66/dia, faltam 17,8 h para o critério do 723. **COTA:**
+quinze envios na janela de 07:00Z, 24.000 unidades contra o piso MEDIDO de
+≥ 40.000.
+
 ## ACRESCENTAR PONTO NA SÉRIE DEIXOU DE SER PASSO MEU
 
 **O terceiro passo manual a menos (§11-bis), e ele é o que já corrompeu dados
