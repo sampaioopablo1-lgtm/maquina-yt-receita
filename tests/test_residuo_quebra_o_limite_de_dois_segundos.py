@@ -298,6 +298,9 @@ SERIE = [
     # # 42 reais, residuo +0,3 NAO estabelecido (770) — mirou o PISO pela
     # regra do 772, e caiu DENTRO do ALVO_SHORT em real
     ("epomeno-epipedo-s068", 41.71, 42, "edge"),  # job 118145935095
+    # # 42 reais, residuo +0,4 NAO estabelecido (770) — mirou o PISO e caiu
+    # DENTRO do ALVO_SHORT, o SEGUNDO seguido assim
+    ("kolejny-poziom-s068", 41.58, 42, "edge"),  # job 118167604082
 ]
 
 

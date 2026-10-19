@@ -2936,6 +2936,56 @@ portão `copy` só cobra 200 palavras, e texto sem tonos está errado para quem 
 o canal — 226 palavras e 151 letras acentuadas na versão que subiu. **Portão
 verde não cobre o que ele não mede**, e aqui quem mediu fui eu relendo.
 
+### E O ORÇAMENTO É POR VOZ — medido às 16:1x, na terceira peça seguida com ele
+
+`kolejny-poziom-s068` = **`8ZvPC95UDNI`**, publicado às 16:46:11Z, **42 s reais**
+contra previsão edge **41,58** — resíduo **+0,4**, sinal **não** estabelecido e
+dentro da banda. Provedor **edge MEDIDO** (zero avisos no job `118167604082`),
+som **−14,1** LUFS, pico −2,8, desvio −0,1, **zero silêncios**. Controle
+`OhrGlJvnBoM` em 44 s na mesma chamada. `RESIDUO_N` = **122**.
+
+**Para DEZ cenas no MESMO piso o orçamento dá números diferentes por canal:**
+
+| voz | caracteres por cena |
+|---|---|
+| `el-GR-Nestoras` (epomeno) | **55** |
+| `pl-PL-Marek` (kolejny) | **45** |
+| `pt-BR-Thalita` (labtreinamento, mira própria) | 20 a 22 |
+
+Isso é o **11/10** aparecendo no instrumento: `P` é por VOZ, e o polonês tem o
+maior dos três, logo cabe menos texto no mesmo tempo. **Era exatamente esta
+conta que eu fazia de cabeça** — e os 1,9 s "da frota" de 11/10 eram a voz
+polonesa generalizada.
+
+**E MIRAR O PISO PÔS O REAL DENTRO DA FAIXA DUAS VEZES SEGUIDAS** — 42 contra
+41,71 no epomeno e 42 contra 41,58 aqui. **Prova pouco e vai dito:** a banda tem
+5,2 s de largura contra 1 s de granularidade, e os dois pontos são do mesmo
+modo da previsão. Fica registrado como par, não como regra nova.
+
+**E A PAUTA NÃO ATRAVESSOU CANAL, de propósito.** As duas peças saíram do longo
+publicado no próprio canal hoje (rank 1, zero shorts declarados), mas com
+famílias DIFERENTES: no epomeno o **alvo em meses**, aqui **qual despesa medir
+primeiro** (a pequena e mensal, que multiplica por doze). Escrever o mesmo
+ângulo nos três canais seguidos seria o hábito do **762 numa dimensão nova** — e
+o portão `similaridade` **não pegaria**, porque ele compara contra o MESMO canal.
+O motivo vai escrito nas FONTES de cada copy.
+
+### E EU DECLAREI MORTA UMA SUÍTE QUE ESTAVA VIVA — 19/10 às 16:2x
+
+Eu disse, no relato da rodada, que a passada anterior *"morreu a 85%"*. **Falso.**
+Eu li o arquivo **no meio da escrita** — o `tee` grava enquanto o pytest anda —
+e o `.norm` ainda não existia porque **é a SEGUNDA passada que o grava**. A
+suíte terminou normal, com 25 falhas e conjunto idêntico, e a notificação dela
+chegou depois de eu já ter escrito que ela havia morrido.
+
+**É a assinatura do grep de 17/10: instrumento que devolve vazio não prova
+ausência** — e aqui o vazio era só o arquivo ainda não escrito. O discriminador
+é barato e eu não o usei: `pgrep -fa pytest` diz se o processo está vivo, e foi
+isso que provou, um minuto depois, que ele estava.
+
+**A regra que fica: antes de dizer que uma execução morreu, pergunte ao SISTEMA
+se o processo existe** — não ao arquivo que ela ainda não terminou de escrever.
+
 ## ACRESCENTAR PONTO NA SÉRIE DEIXOU DE SER PASSO MEU
 
 **O terceiro passo manual a menos (§11-bis), e ele é o que já corrompeu dados
