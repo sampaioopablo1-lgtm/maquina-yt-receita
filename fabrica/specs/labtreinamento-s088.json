@@ -1,0 +1,80 @@
+{
+ "slug": "labtreinamento-s088",
+ "pacote": "labtreinamento-s088",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "longo_existente": "POBNoY16wG8",
+ "longo": [],
+ "thumb": {
+  "l1": "Cem por cento",
+  "l2": "suspeito"
+ },
+ "paleta": {
+  "bg": "#0E1117",
+  "ink": "#EEF1F5",
+  "c1": "#3DDBD9",
+  "c2": "#1E2430",
+  "red": "#FF5A5F",
+  "ok": "#3CCB7F",
+  "panel": "#161B24",
+  "mut": "#8B95A5",
+  "acc": "#3DDBD9"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Cem por cento",
+   "sub": "com folga",
+   "nar": "Cem por cento com folga pede uma olhada."
+  },
+  {
+   "layout": "lista",
+   "kicker": "O que encurta a lista",
+   "itens": [
+    "Quem entrou depois",
+    "Quem saiu no meio",
+    "Quem ficou afastado"
+   ],
+   "nar": "Três coisas encurtam a lista de baixo."
+  },
+  {
+   "layout": "item",
+   "kicker": "A conquista foi na lista",
+   "nar": "Às vezes o ganho veio da lista, não do treino."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Mesma turma, duas listas",
+   "barras": [
+    {
+     "rotulo": "Lista inteira",
+     "valor": 62
+    },
+    {
+     "rotulo": "Lista encurtada",
+     "valor": 100
+    }
+   ],
+   "nar": "A mesma turma virou dois números bem diferentes."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ele não diz o nome",
+   "sub": "de quem falta",
+   "nar": "O percentual nunca diz quem ainda falta."
+  },
+  {
+   "layout": "item",
+   "kicker": "Relatório ou ferramenta",
+   "nar": "Indicador que não produz nome é relatório."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Quem falta primeiro",
+   "sub": "escreva o nome",
+   "nar": "Escreva o nome da primeira pessoa que falta."
+  }
+ ],
+ "copy": "# labtreinamento-s088\n\n## TITULO\nPor Que Cem Por Cento de Treinados Com Folga Pede Que Você Olhe a Lista Antes de Comemorar\n\n## TITULO SHORT\nCem por cento com folga é suspeito\n\n## DESCRICAO\nQuando uma área bate cem por cento de treinados com folga, a primeira coisa a olhar não é o treino. **É a lista de baixo.** Percentual é a razão entre dois números, e o de baixo é escolha de quem calcula — então um número redondo pode ter vindo de uma lista que encurtou, não de gente a mais treinada.\n\nTrês coisas encurtam a lista de elegíveis dentro do período: quem entrou depois do treino, quem saiu no meio e quem ficou afastado. Nenhuma delas tem a ver com empenho. A mesma turma, com a lista inteira embaixo, produz um indicador; com a lista encurtada, produz outro bem mais alto — e ninguém treinou uma pessoa a mais.\n\n**E aí está o problema que o percentual nunca resolve: ele não diz o nome de quem falta.** Um número redondo e uma lista de três faltantes nomeados respondem perguntas diferentes. O número serve para o relatório; o nome serve para a ação de amanhã.\n\n**Daí sai o critério de utilidade, e ele é simples: o indicador que não produz uma lista de nomes é relatório, não é ferramenta.** Se o seu acompanhamento de treinamento termina num percentual e não termina numa lista de quem ainda não treinou, ele informa e não resolve.\n\n**O que fazer com isso hoje:** antes de comemorar o percentual, abra a lista. Conte quantas pessoas estão embaixo, confira se alguém saiu da lista no meio do período, e escreva o nome da primeira pessoa que ainda falta. Esse nome é a única parte do indicador em que você pode agir.\n\nNão dou aqui meta de percentual, prazo legal nem periodicidade obrigatória. Isso muda por publicação e fica fora.\n\n## COMENTARIO FIXADO\nO menos óbvio: a área com o percentual mais alto pode ser a que perdeu mais gente da lista. Qual é o nome da primeira pessoa que falta na sua?\n\n## HASHTAGS\n#indicadores #treinamento #gestao #labtreinamento #Shorts\n\n## TAGS\nindicador de treinamento, percentual de treinados, cem por cento, lista de elegiveis, denominador, faltantes, lista de nomes, meta de treinamento, acompanhamento de treinamento, gestao de treinamento, lab treinamento, calculo de indicador, recursos humanos, indicador acionavel, relatorio ou ferramenta\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Os unicos numeros falados sao \"cem\npor cento\" — que e o alvo redondo de que a peca fala, nao medicao de area\nnenhuma — e \"tres\", que e a contagem dos proprios itens da cena 2. Os valores das\nbarras (62 e 100) sao ILUSTRACAO da aritmetica do denominador e NAO sao falados.\nMeta de percentual, prazo legal e periodicidade de norma ficaram FORA pela regra\n(g), porque mudam por publicacao.\n\n## FONTES\nA spec local `labtreinamento-014`, que e o pacote do longo `POBNoY16wG8`,\npublicado NESTE canal hoje as 14:37:18Z — rank 1 da ordem viva e a origem de\nMENOR contagem do canal (2 shorts, contra 13 da dominante). A familia desta peca\nsai dos capitulos 48 a 55: *\"quando alguem bate cem por cento com folga, vale\nolhar o denominador antes de comemorar — muitas vezes a conquista foi na lista\"*,\n*\"quatro coisas tornam a meta mais dificil, e nenhuma delas tem a ver com\nempenho\"*, *\"o que muda mais e saber o nome da primeira pessoa que falta — o\npercentual nao diz isso\"* e *\"o indicador serve para produzir uma lista de nomes;\nse ele nao produz essa lista, ele e relatorio e nao e ferramenta\"*. Nenhuma frase\ndesta peca saiu de TITULO de capitulo.\n\n**E ELA E A QUARTA FAMILIA DESTE MESMO LONGO, de proposito.** O short que saiu no\npacote (`HdzEm86V1HU`) usou o DENOMINADOR, capitulos 0 a 15; o `s086`\n(`X6SkkBRlACY`) usou a JANELA do periodo, capitulos 16 a 23; o `s087`\n(`dFrUvuvQ9W0`) usou a COMPARACAO COM NUMERO DE FORA, capitulos 40 a 47. Esta usa\na META REDONDA e a LISTA DE NOMES, que nenhum short do canal tocou.\n\n**E E A DECIMA FAMILIA DISTINTA DO DIA NA FROTA**, tambem de proposito: as outras\nnove foram o denominador, o alvo em meses, qual despesa medir primeiro, a janela\ndo periodo, a unidade do resultado, os dois erros que deixam a conta mais bonita,\na comparacao com numero de fora, tres meses de extrato e quais horas entram no\ndivisor. Escrever o mesmo angulo em canais seguidos seria o habito do 762 numa\ndimensao nova, e o portao `similaridade` NAO pegaria, porque ele compara contra o\nMESMO canal.\n\n**A origem dominante do canal ficou de fora, com a contagem na mao:** o\n`concentracao.py` deu `FtCtIJPsc_Q` com 13 de 87 shorts (15%) contra 10 da\nsegunda — dentro do dobro, logo SEM alerta, e a escolha saiu da origem de menor\ncontagem pela regra (a), nao de um alarme.\n\n## EXPOSICAO\n**ESQUELETO DE SETE CENAS, e a frota tem UMA forma de sete:** varridas as 116\nformas de short do disco, a unica de sete cenas e\n`titulo-item-item-barras-item-lista-cta`, do `epomeno-epipedo-009`. A forma desta\npeca, `titulo-lista-item-barras-titulo-item-cta`, e inedita — e o tamanho tem um\nexemplar so na frota inteira.\n\n**E TODO LAYOUT SAIU DO CONJUNTO SONDADO.** O `layouts_do_short.desenham()` sonda\no proprio render e devolve `barras`, `cta`, `item`, `lista` e `titulo`; o builder\ndesta spec tem um `assert` que recusa layout fora desse conjunto, e e consequencia\ndireta do cartao em branco que eu publiquei as 18:18Z.\n\n**O ORCAMENTO SAIU DO INSTRUMENTO, NOS DOIS MUNDOS.** Para SETE cenas na mira\nmedida deste canal (20,0 a 26,0) o `mira.janela_dos_dois_mundos` devolve **41 a\n44 caracteres por cena** — a janela mais larga de todas as contagens de cena\ndeste canal (com dez cenas ela cai a 24 a 25). A peca foi escrita com media\n**42,6**.\n\n**A cadencia e ~3,3 s por plano** com sete cenas no meio da mira, acima dos ~3,1 s\nmedidos em 690/699 e muito abaixo dos 8,3 s que foram o defeito do 690. O que\nsustenta a cadencia e a contagem de cenas, nao a amplitude de zoom — essa e a\nconta do 690.\n\n**A mira verde NAO promete real dentro, e a frequencia esta medida:** pelo tally\ndo 744/754/758, quarenta e uma das quarenta e seis pecas deste canal narradas\npelo edge sairam ACIMA do teto de 26,0. Com a banda em (−1,2; 4,0), se o edge\nnarrar o real cai em algum ponto da faixa que o `mira.py` imprime — e eu nao digo\nde que lado, porque a banda tem 5,2 s de largura contra 1 s de granularidade, e\ndeclarar um lado dela nao e previsao (774).\n"
+}
