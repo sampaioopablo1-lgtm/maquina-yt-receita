@@ -71,7 +71,7 @@ def margem_x() -> float:
 SEPARADOR = "  |  "
 
 
-def _largura_estimada(texto: str, corpo: float) -> float:
+def largura_estimada(texto: str, corpo: float) -> float:
     """Largura aproximada de uma linha, em unidades de quadro.
 
     0,52 por caractere e a razao largura/corpo de uma sem-serifa de peso medio.
@@ -79,6 +79,12 @@ def _largura_estimada(texto: str, corpo: float) -> float:
     corpo que cabe, e o teste cobra a propriedade (cabe), nao o numero.
     """
     return len(texto) * corpo * 0.52
+
+
+# O nome antigo fica como apelido: o `layouts_longo` passou a usar o PUBLICO em
+# 19/10 as 13:3x, e trocar os chamadores internos de uma vez seria mexer no que
+# funciona sem motivo.
+_largura_estimada = largura_estimada
 
 
 def texto_do_trilho(capitulos, atual: int) -> str:

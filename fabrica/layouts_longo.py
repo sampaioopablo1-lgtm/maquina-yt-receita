@@ -237,6 +237,36 @@ DIVISOR = dict(
 )
 
 
+# A monospace e MAIS LARGA que a sem-serifa do estimador: 0,60 por caractere
+# contra 0,52. O fator vai aqui porque e desta fonte, e nao do estimador.
+RAZAO_MONO = 0.60 / 0.52
+
+
+def _corpo_que_cabe(texto: str, corpo: float, W: float,
+                    piso: float = 0.45) -> float:
+    """O corpo que mantem a linha DENTRO da janela segura, encolhendo so o
+    necessario.
+
+    MEDIDO em 19/10 as 13:3x: sem isto, formula longa transbordava e o portao
+    `layout` reprovava a cena — 1,32% de tinta na borda no
+    `kolejny-poziom-020`. O estimador de largura e o do `trilho`, que e UM dono,
+    e nao uma copia nascida aqui.
+
+    Encolhe com PISO: abaixo dele devolve o piso e deixa o portao reprovar, em
+    vez de fabricar formula ilegivel para a peca passar (§3.8).
+    """
+    import trilho
+
+    util = W * _AS().escala()
+    atual = float(corpo)
+    minimo = atual * piso
+    while atual > minimo:
+        if trilho.largura_estimada(texto, atual) * RAZAO_MONO <= util:
+            return atual
+        atual -= 1.0
+    return minimo
+
+
 def formula(c: dict, pal: dict, W: float, H: float) -> str:
     """Formula anotada argumento por argumento.
 
@@ -249,8 +279,9 @@ def formula(c: dict, pal: dict, W: float, H: float) -> str:
     ink = pal.get("ink", "#EEF1F5")
     acc = pal.get("acc") or pal.get("c1", "#3DDBD9")
     mut = pal.get("mut") or pal.get("c2", "#8B95A5")
+    corpo = _corpo_que_cabe(c.get("formula", ""), H * g["corpo_linha"], W)
     s = [f'<text x="{W * 0.5:.1f}" y="{H * g["y_linha"]:.1f}" '
-         f'text-anchor="middle" font-size="{H * g["corpo_linha"]:.1f}" '
+         f'text-anchor="middle" font-size="{corpo:.1f}" '
          f'fill="{ink}" font-weight="700" '
          f'font-family="DejaVu Sans Mono, monospace">'
          f'{_esc(c.get("formula", ""))}</text>']
