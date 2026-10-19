@@ -878,10 +878,21 @@ e as três são de LONGO:
    | 3 O que o PROCX muda | 4 Quando usar cada um`), com o corrente destacado —
    e é por isso que **ZERO transições passam de scene 0,15**: o trilho e a marca
    d\'água nunca saem, só o painel troca;
-2. **18,9 s por plano** (28 transições) contra os **3,1 s** nossos;
+2. **18,9 s por plano** (28 transições) — e **o "contra os 3,1 s nossos" que
+   esta linha dizia CAIU em 19/10 às 08:1x, por enquadramento:** os 3,1 s são a
+   cadência do SHORT e isto é um LONGO. Medido com instrumento sobre as 131
+   specs de longo da frota, a mediana nossa é **9,4 s por plano** (7,1 a 16,7),
+   logo a distância é um fator ~2 e não ~6. Ver a seção "O TRILHO ERA O SEGUNDO
+   MÓDULO ESCRITO E MORTO";
 3. **cinco layouts que o `layout.py` não tem**: fórmula anotada argumento por
    argumento, duas colunas com ✗/✓, cartão de erro (`#REF!`), divisor de parte e
    cartão de número grande.
+
+**AS TRÊS DEIXARAM DE SER PROMESSA EM 19/10, e a lista acima é o RETRATO da
+medição, não o estado de hoje:** os cinco layouts entraram às 04:2x e 07:2x, o
+trilho foi ligado ao render às 08:1x, e a cadência ganhou instrumento na mesma
+rodada. **O que falta é montar e publicar a peça** — e isso custa
+`videos.insert` como qualquer outra.
 
 **NADA de parâmetro mudou (§10).** 18,9 s por plano não existe em short, e trilho
 num 9:16 de 40 s não tem onde morar — isto especifica o LONGO, que é a metade não
@@ -2841,6 +2852,63 @@ retirado um dos três de `LAYOUTS`, o teste do conteúdo falha.
 **O que isto NÃO faz, e segue dito:** não produz longo nenhum. Falta a cadência
 de plano de ~18,9 s e o `fabrica/trilho.py` ligado ao render. O que mudou é que
 **cinco de cinco layouts deixaram de ser promessa**.
+
+
+## O TRILHO ERA O SEGUNDO MÓDULO ESCRITO E MORTO — e a cadência era conta de cabeça
+
+**19/10 às 08:1x.** O `fabrica/trilho.py` existe desde 01:4x, com a geometria
+**medida** por variância temporal no longo da referência (linhas 4 a 9 de 144), e
+**nenhum caminho do render o alcançava.** É a mesma classe dos `layouts_longo`,
+que eu consertei **no mesmo arquivo três horas antes**, e do `legenda.py` com dois
+donos e um atualizado: código que ninguém chama PARECE pronto e não está no ar.
+
+**Consertado:** `svg_cena` chama `trilho.faixa` logo depois do fundo, **só no
+16:9** e **só na camada do que NÃO se move** — o trilho é permanente por
+definição (zero transições acima de `scene 0,15` na referência), logo pertence ao
+mobiliário e não a elemento que entra no tempo da fala. Cena sem o campo
+`trilho` não ganha tinta nenhuma, e há teste nos dois sentidos.
+
+### E A FRASE "18,9 s CONTRA OS 3,1 s NOSSOS" COMPARAVA FORMATOS DIFERENTES
+
+**Eu venho escrevendo isso desde 16/10 e é erro de enquadramento — o 679/698/725
+outra vez.** Os **3,1 s** são a cadência do **SHORT**, medida em 690/699; a
+referência é um **LONGO** de 8:50. Medido agora com instrumento sobre as **131
+specs de longo** da frota que têm voz modelada:
+
+| | |
+|---|---|
+| mediana nossa | **9,4 s por plano** |
+| faixa | 7,1 a 16,7 |
+| referência (DERIVADO de 530,03 / 28) | **18,9** |
+| alguma spec nossa alcança | **nenhuma** |
+
+**Logo a distância é um fator ~2, não ~6.** O que sobrevive da afirmação é mais
+fraco e verdadeiro: **toda** peça de longo nossa está abaixo da cadência dela, e
+a mais lenta (`nivel-do-jogo-002`, 16,7) ainda não a encosta.
+
+**E o número que faltava não era o 18,9, era o OUTRO lado da conta:** para bater
+aquela cadência a voz pt-BR precisa de **~317 caracteres por cena de UMA frase**.
+Cadência longa **não se obtém tirando cena** — obtém-se escrevendo mais por cena,
+e isso é por VOZ, não da frota (o polonês e o grego cabem menos, porque `P` é
+maior).
+
+**`fabrica/cadencia_longo.py`**, e ele **não decide o alvo**: a referência é UMA
+peça feita à mão pelo dono e o veredito dela é view, que não medimos sem o escopo
+de analytics. Chamar 18,9 de alvo seria limiar sem procedência (§10). **E não é
+portão**, pelo argumento do `mira.py`: as 131 estão todas a mais de 2 s de
+distância, logo um portão aqui reprovaria tudo.
+`tests/test_a_cadencia_do_longo_era_conta_de_CABECA.py`, onze testes — a
+varredura sai do DISCO e **reprova se ficar com menos de 50 specs** (vacuidade é
+o defeito do 743 em forma de glob), um **falha se uma spec nossa alcançar a
+referência**, um cobra que a conta dos caracteres seja **delegada** ao `ensaio`
+por AST (refazer `P + 0,300` aqui criaria o segundo dono), e um varre a fábrica
+procurando quem redesenhe a faixa do trilho por conta própria. **Contraprova:**
+desligado o despacho do trilho, dois dos onze falham.
+
+**O que isto NÃO faz:** não produz longo nenhum. Com os cinco layouts, o trilho
+ligado e a cadência medida, as **três** distâncias que a medição de 16/10 nomeia
+deixaram de ser promessa — falta montar a peça e publicá-la, e ela custa
+`videos.insert` como qualquer outra.
 
 ## EU ESCREVI UM JOB ID INVENTADO NA PROCEDÊNCIA DA SÉRIE
 

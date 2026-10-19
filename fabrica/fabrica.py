@@ -2,6 +2,7 @@ import json, subprocess, sys, os, asyncio
 import cairosvg, edge_tts
 import legenda as LG
 import layouts_longo as LL
+import trilho
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
 from maquina.media import duracao as _duracao, ffmpeg_bin  # fallback pro binario estatico do imageio-ffmpeg
@@ -509,6 +510,19 @@ def svg_cena(c, pal, W, H, camada=None):
     # texto branco sobre preto le, entao o degrade e o pior caso aceitavel.
     if fundo and lay != 'broll':
         s += f'<rect width="{W}" height="{H}" fill="{bg}"/>'
+    # O TRILHO DE CAPITULOS, e ele era o SEGUNDO modulo escrito e morto. O
+    # `fabrica/trilho.py` existe desde 19/10 as 01:4x com a geometria MEDIDA por
+    # variancia temporal no longo da referencia (linhas 4 a 9 de 144), e nenhum
+    # caminho do render o alcancava — exatamente o defeito que eu consertei nos
+    # `layouts_longo` as 04:2x, no mesmo arquivo, tres horas antes. Codigo que
+    # ninguem chama PARECE pronto e nao esta no ar.
+    # So no 16:9 e so na camada do que NAO se move: o trilho e permanente por
+    # definicao (zero transicoes acima de scene 0,15 na referencia), logo ele
+    # pertence ao mobiliario da cena e nao a nenhum elemento que entra no tempo
+    # da fala. E o short nao recebe isto: trilho num 9:16 de 40 s nao tem onde
+    # morar, e a faixa de 0,028H a 0,069H cairia sobre a legenda queimada.
+    if fundo and c.get('trilho'):
+        s += trilho.faixa(c['trilho'], c.get('trilho_atual', 0), pal, W, H)
     cx = W//2
     if lay == 'broll':
         # Cartao flutuante, NAO faixa ate a borda: o portao do prontidao.py

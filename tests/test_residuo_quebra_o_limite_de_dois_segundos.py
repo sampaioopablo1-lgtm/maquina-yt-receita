@@ -282,6 +282,7 @@ SERIE = [
     # 117935935876. Mirei o PISO da faixa da frota, que e a redacao registrada
     # para este canal, e o real saiu a 1 s do teto do portao.
     ("kolejny-poziom-s066", 41.8, 44, "edge"),  # job 117935935876
+    ("labtreinamento-s084", 24.6, 27, "edge"),  # job 117957434818
 ]
 
 
