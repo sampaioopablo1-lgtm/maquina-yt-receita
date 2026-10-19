@@ -291,6 +291,10 @@ SERIE = [
     ("epomeno-epipedo-068", 42.4, 45, "edge"),  # job 118066106680
     # 43 reais, residuo +1,1 estabelecido — mirou o PISO pela regra do 772
     ("kolejny-poziom-020", 41.9, 43, "edge"),  # job 118090146286
+    # 27 reais, residuo +1,1 estabelecido — o short do TERCEIRO longo, e a
+    # primeira peca escrita com o ORCAMENTO do `mira.orcamento` em vez de conta
+    # de cabeca; FORA da mira do canal (teto 26,0), exposicao declarada antes
+    ("labtreinamento-014", 25.9, 27, "edge"),  # job 118112095620
 ]
 
 

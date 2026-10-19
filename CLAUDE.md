@@ -3369,6 +3369,79 @@ versão antiga de mim leria. O instrumento respondeu:
 **As três portas separadas (§ a nota das 10:0x) são exatamente o que produz essa
 recusa**, e sem elas eu teria repetido a leitura inútil das 10:0x com 4 h.
 
+### A PEÇA, MEDIDA — e o TERCEIRO ponto do longo é o MAIOR negativo
+
+`labtreinamento-014`: **longo `POBNoY16wG8`** (545 s reais) e **short
+`HdzEm86V1HU`** (27 s reais), publicados às 14:37:18Z no mesmo run
+(`39270556182`), sem `403 quota`. Provedor **edge MEDIDO** (zero avisos
+`NARRACAO PELO PIPER` no job `118112095620`). Som: longo **−14,0** LUFS, pico
+−3,2, desvio do alvo **0,0** e **ZERO silêncios** — melhor que os dois longos
+anteriores, que tiveram silêncios de ~1,1 s. Short −13,8, zero silêncios.
+Duração lida com o controle `OhrGlJvnBoM` conferido em **44 s** na mesma chamada.
+
+| | previsão edge | real | resíduo |
+|---|---|---|---|
+| short | 25,9 | **27** | **+1,1**, estabelecido, dentro da banda |
+| **longo** | 574,2 | **545** | **−29,2 s (−5,1%)** |
+
+**E o terceiro ponto do longo é o MAIOR negativo dos três:**
+
+| peça | previsão | real | resíduo |
+|---|---|---|---|
+| `epomeno-epipedo-068` | 551,7 | 537 | −14,7 s (−2,7%) |
+| `kolejny-poziom-020` | 570,0 | 560 | −10,0 s (−1,8%) |
+| **`labtreinamento-014`** | **574,2** | **545** | **−29,2 s (−5,1%)** |
+
+**Logo a regra de 13:5x fica mais forte, não mais fraca: no longo a previsão é
+LIMITE SUPERIOR, e a folga que ela pede é de MEIA MINUTO, não de dez segundos.**
+Peça mirada em 8:00 exatos com este erro sairia em **~7:31** — abaixo dos oito
+minutos, e aí o YouTube não dá mid-roll, que é a única receita que o formato
+longo acrescenta. As três saíram acima porque foram escritas com folga.
+**O que eu NÃO afirmo:** que exista banda de longo. São três pontos, de três
+canais e três vozes; o que está medido é o SINAL (três de três negativos) e que
+a banda do short erra o LADO aqui.
+
+`RESIDUO_N` = **120**, limites intocados (−1,2; 4,0). E o short entrou no tally
+do 744/747 pelo lado de FORA: **40 fora contra 4 dentro** no `labtreinamento`
+(27 contra um teto de mira de 26,0), com o `mira.py` verde nos dois mundos e a
+exposição declarada antes de publicar. A decisão do 740/748 segue do dono.
+
+### E O SHORT DO PACOTE SUBIU COM O TÍTULO DO LONGO — e a máquina sabia fazer certo
+
+**Medido em 19/10 às 14:4x, na PÁGINA publicada das três peças de hoje.** O
+`<meta name="title">` do short e do longo é **byte a byte o mesmo** nos TRÊS
+pacotes — `pqTc8jBrq0E`/`BaLtIWzaN84`, `GtmoaQMr_1c`/`9zfF0f4aDQM` e
+`POBNoY16wG8`/`HdzEm86V1HU`, este último com **62 caracteres**.
+
+**E a causa é MINHA, não do código.** O `publicar.ler_copy` lê o
+`## TITULO SHORT` **pelo CABEÇALHO** desde 01/09/2026, e a nota dele carrega o
+incidente que o produziu: o `kolejny-poziom-014` publicou o short `lCXwLaqUHJI`
+com os **68 caracteres** do título do longo, **num formato onde o feed vertical
+corta o título antes da metade**. A máquina sabe fazer certo, o caminho está
+vivo e testado — **e eu escrevi três copies sem a seção**.
+
+**É a classe do trilho das 09:2x invertida outra vez:** lá o código era chamado
+e nunca recebia dado; aqui o código é chamado, sabe ler, e quem não forneceu o
+dado fui eu. Medido no disco: dos **140** pacotes, só **35** trazem a seção e
+**105** não.
+
+**NÃO virou portão, e o motivo é o número acima:** reprovaria 105 specs, que é
+exatamente o argumento pelo qual o `mira.py` não é portão. O buraco é LATENTE no
+acervo e o lugar dele é a suíte.
+
+**O que NÃO foi feito, e vai dito:** os três shorts estão no ar com o título do
+longo. Trocar título de peça publicada é mudança para FORA que a autorização de
+09/10 não nomeia, custa cota, e o `publicar.py:371` avisa que o `videos.update`
+exige o snippet INTEIRO — mandar só um campo apaga os outros.
+
+**A REGRA QUE FICA É DE REDAÇÃO: todo pacote novo leva `## TITULO SHORT` na
+copy.** `tests/test_o_SHORT_do_pacote_subiu_com_o_titulo_do_LONGO.py`, oito
+testes — a varredura sai do disco e reprova com menos de 50 pacotes, um exige que
+os DOIS lados existam (**se a maioria passar a trazer a seção, esta nota se relê
+em vez de ficar**), a prova chama o DONO da regra (`publicar.ler_copy`) com uma
+copy renderizada em vez de reimplementar a regex, a contraprova no outro sentido
+cobra a herança do título, e um **falha se o incidente de 01/09 sair da nota**.
+
 ## EU ESCREVI UM JOB ID INVENTADO NA PROCEDÊNCIA DA SÉRIE
 
 **Medido em 19/10 às 07:2x, e é defeito meu de duas camadas.** Ao acrescentar o
