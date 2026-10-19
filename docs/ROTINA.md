@@ -363,9 +363,7 @@ DENTRO dos três primeiros segundos.** Números em `CLAUDE.md`.
 
     e `tests/test_rotina_cabe_no_trigger.py` reprova se o arquivo passar do teto.
     **Quando a margem acabar, o que sai é HISTÓRIA, nunca REGRA nem TRAVA:** o
-    bloco migra para `CLAUDE.md` e aqui fica a regra com o ponteiro. Foi assim
-    que esta rodada devolveu 4,6 KB (o dinamismo, a credencial do GitHub, os
-    passos da ponte pelo Composio, a composição das 25 e a lista das quedas).
+    bloco migra para `CLAUDE.md` e aqui fica a regra com o ponteiro.
  7. SE UMA MUDANÇA NÃO MOVER O NÚMERO EM TRÊS PACOTES, DESFAÇA — **a menos que o
     instrumento não consiga medir o número, e aí o que se desfaz é o instrumento,
     não a mudança** (686). **E com CV 0,66, três pacotes NÃO medem nada menor que
@@ -508,12 +506,9 @@ novo sobre o mundo — e isso vai dito, com o id do longo. Respeite `robots=noai
   O YouTube **ARREDONDA A DURAÇÃO PARA CIMA**.
 - **A MIRA É POR CANAL quando o canal mediu que a da frota o prejudica**
   (`ALVO_POR_CANAL` em `fabrica/ensaio.py`):
-    **labtreinamento: 20,0 a 26,0 de duracao REAL** — e isto e uma CORRECAO de
-    13/10 as 20:2x: este arquivo dizia **33,0 a 37,0** e o codigo diz 20,0 a 26,0
-    desde o commit `5dfc87f`. **A divergencia era ATIVA**: o `mira.py` reprova
-    33-37 neste canal, logo quem seguisse esta rotina escrevia peca que o
-    instrumento recusa. **Rode `ensaio.alvo_short(canal)`, nunca o numero escrito
-    aqui.**
+    **labtreinamento: 20,0 a 26,0 de duracao REAL.** **Rode
+    `ensaio.alvo_short(canal)`, nunca o numero escrito aqui** — foi este
+    paragrafo que ja envelheceu uma vez (historia no `CLAUDE.md`).
     **kolejny: sinal OPOSTO** (701, observado) — e os NUMEROS das duas leituras
     (698 e 701), com o confundidor de data que nao sai do relato, estao em
     `CLAUDE.md`. Aqui fica so a regra: a mira e POR CANAL, e o sinal de um canal
@@ -552,9 +547,8 @@ novo sobre o mundo — e isso vai dito, com o id do longo. Respeite `robots=noai
   Os limiares 12 e 4 vêm do mapa que o dono trouxe, não de mim — limiar sem
   procedência é critério inventado. **Com o esqueleto de dez a onze cenas o aviso
   para de aparecer.**
-  **E NÃO SE ESPELHE NO MOLDE HISTÓRICO: 86 das 183 specs (47%) passam de 4
-  palavras na thumbnail** (medido em 11/10). O molde viola o portão em metade dos
-  casos. **Não edite as 86 em massa** — spec nova é que não deve copiá-las.
+  **NÃO SE ESPELHE NO MOLDE HISTÓRICO:** 47% das specs antigas violam o portão
+  da thumbnail. **Não as edite em massa** — spec nova é que não deve copiá-las.
 - TÍTULO PRÓPRIO do short, `## TITULO SHORT`, até 45 caracteres.
 - **NÚMEROS POR EXTENSO — REGRA SEM PORTÃO** (640): o `narracao` conta QUANTIDADES
   por frase (máx. três), NÃO dígito cru. **Confira dígito à mão.**
@@ -568,11 +562,8 @@ novo sobre o mundo — e isso vai dito, com o id do longo. Respeite `robots=noai
   aprovação de pessoa: NÃO use. `vox-motion-graphics` consome crédito: só se o
   dono pedir.
 - **ESTE CONTAINER TEM `pytest`, `httpx`, `ffmpeg`, `imageio-ffmpeg` e `pypdf`.**
-  **MEÇA A SUA PRÓPRIA LINHA DE BASE ANTES DE MEXER** e guarde a lista de
-  `FAILED` para comparar depois — o número escrito aqui envelhece, o CONJUNTO
-  não. Em 12/10, medido nesta sessão às 12:5x: **25 falham, 2.234 passam,
-  475 skip** — e o CONJUNTO das 25 é o que importa, porque passam/skip sobem com
-  teste novo.  **E a composição das 25 NÃO é "título duplicado e Devanagari" — isso foi uma
+  **MEÇA A SUA PRÓPRIA LINHA DE BASE ANTES DE MEXER** e compare com `comm` — o
+  número envelhece, o CONJUNTO não. São **25** falhas conhecidas.  **E a composição das 25 NÃO é "título duplicado e Devanagari" — isso foi uma
   descrição minha errada** (11/10). São **15** de `test_narracao_das_specs` mais
   oito espalhadas, em **três famílias**, e **só QUATRO das quinze specs são de
   canal da FROTA** — o remédio das outras é mecânico e está escrito pelo próprio
