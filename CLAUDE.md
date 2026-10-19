@@ -103,6 +103,10 @@ medição do vídeo de referência nomeia (fórmula anotada, cartão de erro, di
 de parte), a cadência de plano de ~18,9 s e o trilho de capítulos ligado ao
 render. O que mudou é que dois dos cinco deixaram de ser promessa.
 
+**E ISTO NÃO PASSAVA NO PORTÃO — medido em 19/10 às 12:3x, na PRIMEIRA
+spec de longo que os declarou: 64 cenas reprovadas de 64 pelo `layout`.**
+Ver a seção "O TRILHO E OS CINCO LAYOUTS NÃO PASSAVAM NO PORTÃO".
+
 ## E ESSA SEÇÃO ABAIXO FICOU OBSOLETA EM 19/10 — O PROMPT DEIXOU DE SER CÓPIA
 
 **Pedido do dono em 19/10:** *"Não esqueça de otimizar a rotina YT, diretamente,
@@ -2859,6 +2863,10 @@ retirado um dos três de `LAYOUTS`, o teste do conteúdo falha.
 de plano de ~18,9 s e o `fabrica/trilho.py` ligado ao render. O que mudou é que
 **cinco de cinco layouts deixaram de ser promessa**.
 
+**E ISTO NÃO PASSAVA NO PORTÃO — medido em 19/10 às 12:3x, na PRIMEIRA
+spec de longo que os declarou: 64 cenas reprovadas de 64 pelo `layout`.**
+Ver a seção "O TRILHO E OS CINCO LAYOUTS NÃO PASSAVAM NO PORTÃO".
+
 
 ## O TRILHO ERA O SEGUNDO MÓDULO ESCRITO E MORTO — e a cadência era conta de cabeça
 
@@ -2958,6 +2966,10 @@ a maioria passar a caber, esta nota se relê em vez de o número ser movido.
 **O que isto NÃO faz:** não produz longo nenhum. O que mudou é que o trilho deixou
 de depender de eu escrever o campo em 66 cenas à mão — o terceiro passo manual a
 menos desta madrugada.
+
+**E ISTO NÃO PASSAVA NO PORTÃO — medido em 19/10 às 12:3x, na PRIMEIRA
+spec de longo que os declarou: 64 cenas reprovadas de 64 pelo `layout`.**
+Ver a seção "O TRILHO E OS CINCO LAYOUTS NÃO PASSAVAM NO PORTÃO".
 
 
 ## EU LI INSCRITOS COM 4 h E A LEITURA ERA PREVISIVELMENTE INÚTIL — 19/10 às 10:0x
@@ -3067,6 +3079,80 @@ que o desempate é pelo mais antigo, exige que a janela de 1 h devolva menos que
 de 24 h (senão o contador voltou a medir ACERVO, a cegueira do 762), cobra que o
 motivo continue escrito no módulo, e **reprova se esta nota sair do `CLAUDE.md`** —
 porque sem ela a rodada seguinte reescreve o laço, como eu fiz cinco vezes.
+
+
+## O TRILHO E OS CINCO LAYOUTS NÃO PASSAVAM NO PORTÃO — e o longo saiu daí
+
+**Medido em 19/10 às 12:3x, na PRIMEIRA spec de longo que os declarou.** Eu
+relatei em TRÊS rodadas seguidas que eles *"deixaram de ser promessa"* — 04:2x
+(`comparar`, `numero`), 07:2x (`formula`, `erro`, `divisor`), 08:1x (trilho
+ligado ao render) e 09:2x (trilho alimentado pela spec). **Em nenhuma delas eu
+rodei o portão sobre uma PEÇA, porque não havia peça.** Quando houve:
+
+| | cenas reprovadas |
+|---|---|
+| geometria de quadro cheio | **64 de 64** |
+| só o trilho, sem os layouts | **64** (1,44% de tinta na borda) |
+| só os layouts, sem o trilho | **7** (`comparar` 20,64%, `divisor` 7,57%, `formula` 2,17%) |
+| depois do conserto | **0** |
+
+**A CAUSA É DE ENQUADRAMENTO — o 679/698/725 em geometria.** A posição do trilho
+é MEDIDA por variância temporal no longo do dono, e **aquele vídeo tem ZERO
+zoom** (medido em 16/10: mediana 0,072 e nenhuma transição acima de `scene
+0,15`). O nosso render aplica Ken Burns em toda cena e corta **8,04%** de um dos
+lados antes de mostrar qualquer coisa. Eu transplantei uma posição medida num
+quadro que **não se move** para um render que **se move**.
+
+**E O PORTÃO ESTÁ CERTO:** ele existe porque o `kp-plan-9233` foi pego com 6/6
+quadros com tinta na borda e o `seviye-seviye-010` reprovou em t=333,9 s.
+Afrouxar `MARGEM_VISUAL` para a peça caber seria limiar sem procedência (§10)
+e, pior, **afrouxar o portão para salvar a peça**, que é o avesso do trabalho.
+
+**O conserto é `fabrica/area_segura.py`, e ele é estrutural e não remendo:** a
+janela deixa de ser número escrito em dois lugares e passa a ser **LIDA do
+próprio portão**. O trilho mantém a **ALTURA** medida (0,041 do quadro) e a
+**POSIÇÃO** passa a ser derivada daqui, declarada como nossa.
+
+**O CUSTO VAI DITO: a largura útil do trilho caiu de 1709 para 1442 px (−16%),
+logo cabem MENOS capítulos.** O `epomeno-epipedo-013` **deixou de caber**, e
+quatro testes meus reprovaram por isso — eles **nomeavam** aquela spec, que é
+identidade onde havia propriedade (743/753/761, **quinta vez**). Reescritos para
+DERIVAR do disco, com contraprova nos dois sentidos: **18 das 138** specs de
+longo cabem, 120 não.
+
+**E A VARREDURA POR AST ACHOU UM QUINTO CASO DE DOIS DONOS na primeira
+execução:** a faixa de 4% estava escrita no `visual.py` **e** no `layout.py`,
+cujo próprio comentário dizia *"a mesma faixa que o visual.py chama de borda"*.
+O `layout` passou a lê-la do `visual`, que é quem mediu primeiro (17/08).
+
+### E A MIRA ERROU O CANAL OUTRA VEZ, NA QUARTA FORMA DE SLUG
+
+O `canal.do_pacote` — o dono ÚNICO criado às 05:2x justamente para isso —
+cortava só o sufixo de short solto (`-sNNN`), e **o pacote usa `-NNN`**. Logo o
+canal de todo LONGO voltava inteiro e o `mira.relato` saiu com
+`canal 'epomeno-epipedo-068' nao tem ALVO_POR_CANAL medido`. **A falha é
+PERMISSIVA outra vez:** aqui o epomeno não tem mira própria, logo o efeito foi
+só a mensagem; num pacote de `labtreinamento`, que TEM mira desde 09/10, o
+instrumento ficaria cego exatamente como nas seis peças da `s077` à `s082`.
+
+**A forma do sufixo é MEDIDA e não suposta:** dos **347** nomes de spec do
+disco, 215 são `<canal>-sNNN`, 131 são `<canal>-NNN` e 8 são o canal nu — e os
+**catorze** prefixos distintos terminam **todos em letra**, logo cortar um grupo
+final de dígitos nunca encosta no nome de um canal. **O limite vai declarado:**
+canal que terminasse em dígito seria cortado errado, e há teste que reprova se
+um prefixo assim aparecer no disco.
+
+`tests/test_o_trilho_e_os_layouts_nao_passavam_no_PORTAO.py`, dez testes: a
+janela é lida do portão, a varredura por AST proíbe recopiar a margem, o portão
+roda sobre peça **DE VERDADE** e **reprova se nenhuma spec do disco declarar
+trilho** (que é como o defeito durou três rodadas), contraprova desligando o
+mapeamento, a varredura dos layouts sai de `LAYOUTS`, e dois cobram a quarta
+forma de slug.
+
+**O que isto NÃO faz, e é a parte honesta:** o longo ainda não tem view, e a
+referência do dono também não tem veredito medido. O que mudou é que **a peça
+existe e passa os doze portões** — antes disso, nenhum longo com trilho podia
+ser renderizado, e eu havia reportado o contrário três vezes.
 
 ## EU ESCREVI UM JOB ID INVENTADO NA PROCEDÊNCIA DA SÉRIE
 

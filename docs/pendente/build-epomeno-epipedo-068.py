@@ -270,7 +270,11 @@ Este video NAO cita nenhum numero meu e NAO faz nenhuma afirmacao institucional.
 """
 
 sp = {
-    "slug": "epomeno-epipedo-068",
+    # Em PACOTE o `slug` e o CANAL (as 131 specs de longo do disco sao
+    # assim) e em short solto ele e o pacote. O `publicar.idioma_do_canal`
+    # le o slug, logo errar aqui tira o idioma do canal da peca — pego
+    # pela suite antes de publicar, nao por mim.
+    "slug": "epomeno-epipedo",
     "pacote": "epomeno-epipedo-068",
     "idioma": "el",
     "voz": "el-GR-NestorasNeural",
