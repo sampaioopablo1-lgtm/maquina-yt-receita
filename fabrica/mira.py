@@ -205,6 +205,63 @@ def confere(spec: dict) -> dict:
                 "(698).")}
 
 
+def _chars_para_o_real(voz: str, n_cenas: int, alvo_s: float,
+                       provedor: str = "edge") -> int:
+    """Caracteres por cena para a PREVISAO REAL caber em `alvo_s`.
+
+    POR QUE NAO E O `chars_por_cena` DIRETO (19/10, 15:2x): aquele mira a
+    `duracao_estimada`, e a mira e o portao cobram a `duracao_real_prevista`.
+    Medido no `epomeno-epipedo-s068`: 53 caracteres por cena dao estimativa
+    41,44 e previsao real 43,38 — 1,94 s de diferenca, que e o fator do
+    provedor. Dizer "mirei o piso" e entregar peca acima do TOPO e o 753 em
+    forma de unidade: duas grandezas com o mesmo nome dentro do mesmo relato.
+
+    A conta NAO se refaz aqui: isto INVERTE numericamente a funcao que ja e
+    dona dela. O chute inicial sai do `chars_por_cena` (que erra para cima, por
+    medida) e desce de um em um ate a previsao caber — no maximo algumas
+    iteracoes, porque a distancia e o fator do provedor.
+
+    O mundo e o `edge` por MEDIcao: ele e o maior dos dois (43,38 contra 38,44
+    na mesma peca), logo e ele que encosta no teto do portao e no topo da mira.
+    """
+    if n_cenas < 1:
+        return 0
+    chute = ensaio.chars_por_cena(voz, n_cenas, alvo_s)
+    for c in range(chute, 0, -1):
+        cenas = [{"nar": "x" * c} for _ in range(n_cenas)]
+        if ensaio.duracao_real_prevista(cenas, voz, provedor) <= alvo_s:
+            return c
+    return 0
+
+
+def _linha_do_orcamento(spec: dict) -> list:
+    """A frase do orcamento, com UM dono.
+
+    Ela nasceu duplicada: um ramo para o canal com mira propria e outro para o
+    que usa a faixa da frota, e o segundo ficou com a procedencia ERRADA
+    (`chars_por_cena`) depois de a conta passar a inverter a previsao real. E o
+    753 outra vez — numero que o modulo calcula nao se repete escrito com outro
+    sentido. Agora a frase existe uma vez e cita a funcao que de fato faz a
+    conta.
+    """
+    orc = orcamento(spec)
+    if not orc:
+        return []
+    if not orc["cabe"]:
+        return [
+            f"  ORCAMENTO: {orc['cenas']} cenas NAO CABEM em {orc['alvo']:.1f} s "
+            f"({orc['fonte']}) — a sobrecarga por cena ja consome o alvo. "
+            f"O maximo e {orc['max_cenas']} cenas. Nao ha orcamento a dar, e "
+            "zero caractere por cena seria impossibilidade vendida como numero."]
+    return [
+        f"  ORCAMENTO para o MEIO da faixa ({orc['alvo']:.1f} s, {orc['fonte']}): "
+        f"~{orc['chars']} caracteres por cena em {orc['cenas']} cenas para a "
+        f"PREVISAO do {orc['mundo']} caber nela (hoje: ~{orc['hoje']}). Sai de "
+        "`ensaio.duracao_real_prevista` INVERTIDA, nao da estimativa — mirar a "
+        "estimativa entregou peca 0,4 s acima do topo da faixa em 19/10 as "
+        "15:2x. Estimar isto de cabeca e o item 3 da §10."]
+
+
 def orcamento(spec: dict) -> dict | None:
     """Quantos caracteres por cena a peca precisa para o MEIO da mira do canal.
 
@@ -233,31 +290,38 @@ def orcamento(spec: dict) -> dict | None:
     `porta1` recusa janela curta — entregar o 0 como orcamento mandaria
     escrever cena vazia.
 
-    Devolve None quando nao ha mira do canal, short ou voz modelada — nos tres
-    casos nao existe orcamento a dar, e inventar um seria pior que calar.
+    A PRECEDENCIA, e as duas ultimas saem do MESMO acessor: faixa DECLARADA na
+    spec (`ensaio.faixa_do_short`) > mira do canal > faixa da FROTA, as duas por
+    `ensaio.alvo_short(canal)`. Medido em 19/10 as 15:1x: ler o
+    `ALVO_POR_CANAL` direto cobria UM canal de tres, porque o dicionario tem uma
+    entrada so — e os outros dois da frota ficavam sem orcamento nenhum.
+
+    Devolve None quando nao ha short ou a voz nao esta no `MODELO_VOZ` — sem `R`
+    e `P` medidos a conta nao existe, e inventar um seria pior que calar.
     """
     import ensaio
 
     canal_ = canal_da_spec(spec)
-    mira_ = ensaio.ALVO_POR_CANAL.get(canal_)
     curto = spec.get("short") or []
     voz = spec.get("voz", "")
-    if not mira_ or not curto or voz not in ensaio.MODELO_VOZ:
+    if not curto or voz not in ensaio.MODELO_VOZ:
         return None
     if spec.get("short_alvo_s"):
         faixa, fonte = ensaio.faixa_do_short(spec), "short_alvo_s da spec"
+    elif canal_ in ensaio.ALVO_POR_CANAL:
+        faixa, fonte = ensaio.alvo_short(canal_), "ALVO_POR_CANAL do canal"
     else:
-        faixa, fonte = mira_, "ALVO_POR_CANAL do canal"
+        faixa, fonte = ensaio.alvo_short(canal_), "ALVO_SHORT da frota"
     alvo = (faixa[0] + faixa[1]) / 2.0
     n = len(curto)
     hoje = sum(len((c or {}).get("nar") or "") for c in curto) // max(n, 1)
-    chars = ensaio.chars_por_cena(voz, n, alvo)
+    chars = _chars_para_o_real(voz, n, alvo)
     out = {"alvo": alvo, "cenas": n, "chars": chars, "hoje": hoje,
-           "fonte": fonte, "cabe": chars > 0}
+           "fonte": fonte, "mundo": "edge", "cabe": chars > 0}
     if chars <= 0:
         maximo = 0
         for k in range(1, n):
-            if ensaio.chars_por_cena(voz, k, alvo) <= 0:
+            if _chars_para_o_real(voz, k, alvo) <= 0:
                 break
             maximo = k
         out["max_cenas"] = maximo
@@ -275,6 +339,12 @@ def relato(caminho: str) -> str:
         f"{p} {d} s" for p, d in sorted(r["previsoes"].items()))]
     if not r["tem_mira"]:
         linhas.append("  " + r["motivo"])
+        # O ORCAMENTO SAI AQUI TAMBEM, e isto foi defeito meu de minutos:
+        # consertei a funcao para cobrir os tres canais as 15:1x e deixei o
+        # relato com o bloco DEPOIS deste `return`, logo o canal sem mira
+        # propria seguia sem ver numero nenhum. Instrumento consertado que o
+        # chamador nao alcanca e a classe dos layouts mortos.
+        linhas.extend(_linha_do_orcamento(spec))
         return "\n".join(linhas)
     linhas.append(f"  mira medida do canal: {r['mira'][0]} a {r['mira'][1]} s")
     if spec.get("short_alvo_s"):
@@ -286,20 +356,7 @@ def relato(caminho: str) -> str:
             "enquadra, e o veredito abaixo reprova por construcao. Isto vai "
             "NOMEADO e nao filtrado: silenciar a conferencia e o sentido "
             "permissivo, que custou seis pecas da `s077` a `s082`.")
-    orc = orcamento(spec)
-    if orc and not orc["cabe"]:
-        linhas.append(
-            f"  ORCAMENTO: {orc['cenas']} cenas NAO CABEM em {orc['alvo']:.1f} s "
-            f"({orc['fonte']}) — a sobrecarga por cena ja consome o alvo. "
-            f"O maximo e {orc['max_cenas']} cenas. Nao ha orcamento a dar, e "
-            "zero caractere por cena seria impossibilidade vendida como numero.")
-    elif orc:
-        linhas.append(
-            f"  ORCAMENTO para o MEIO da faixa ({orc['alvo']:.1f} s, "
-            f"{orc['fonte']}): ~{orc['chars']} caracteres por cena em "
-            f"{orc['cenas']} cenas (hoje: ~{orc['hoje']}). Sai de "
-            "`ensaio.chars_por_cena` — estimar isto de cabeca e o item 3 da §10, "
-            "e foi o que custou uma reescrita no `labtreinamento-014`.")
+    linhas.extend(_linha_do_orcamento(spec))
     if r["fora"]:
         linhas.append("  >> FORA: " + r["motivo"])
     else:

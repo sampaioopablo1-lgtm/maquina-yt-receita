@@ -131,14 +131,61 @@ def test_CONTRAPROVA_sem_faixa_declarada_a_fonte_e_o_CANAL():
         assert orc["fonte"] == "ALVO_POR_CANAL do canal", (pacote, orc)
 
 
-def test_CONTRAPROVA_canal_sem_mira_nao_recebe_orcamento():
-    """Inventar orçamento onde não há mira seria pior que calar."""
+def test_o_canal_SEM_mira_propria_recebe_a_faixa_da_FROTA():
+    """RETRATAÇÃO de 19/10 às 15:1x, e é do teste que estava aqui.
+
+    Ele cobrava `None` para canal sem `ALVO_POR_CANAL` — e com isso o orçamento
+    cobria UM canal de três. A faixa da frota é medida e tem dono único
+    (`ensaio.alvo_short`), logo devolvê-la não é inventar: é a precedência
+    certa. O que fica cobrado é a PRECEDÊNCIA, não a ausência.
+    """
     sem = [(p, sp) for p, sp in _especs()
-           if canal.da_spec(sp) not in ensaio.ALVO_POR_CANAL]
-    assert sem, "nenhuma spec de canal SEM mira — a contraprova perdeu o objeto"
-    for pacote, sp in sem[:40]:
-        assert mira.orcamento(sp) is None, (
-            f"{pacote}: orçamento inventado para canal sem mira medida"
+           if canal.da_spec(sp) not in ensaio.ALVO_POR_CANAL
+           and not sp.get("short_alvo_s")]
+    assert len(sem) > 20, f"só {len(sem)} — a varredura encolheu"
+    for pacote, sp in sem[:60]:
+        orc = mira.orcamento(sp)
+        assert orc, f"{pacote}: canal sem mira própria e sem orçamento nenhum"
+        assert orc["fonte"] == "ALVO_SHORT da frota", (pacote, orc)
+        assert orc["alvo"] == pytest.approx(
+            sum(ensaio.alvo_short(canal.da_spec(sp))) / 2.0), (pacote, orc)
+
+
+def test_CONTRAPROVA_voz_FORA_do_modelo_nao_recebe_orcamento():
+    """Sem `R` e `P` medidos a conta não existe — e aí calar é o certo."""
+    base = dict(_com_mira_propria()[-1][1])
+    base["voz"] = "xx-XX-VozQueNaoExiste"
+    assert mira.orcamento(base) is None, "orçamento inventado sem R e P medidos"
+    base2 = dict(_com_mira_propria()[-1][1])
+    base2["short"] = []
+    assert mira.orcamento(base2) is None, "orçamento inventado sem short"
+
+
+def test_o_orcamento_mira_a_PREVISAO_REAL_e_nao_a_estimativa():
+    """MEDIDO em 19/10 às 15:2x: as duas diferem pelo fator do provedor.
+
+    Pedi o orçamento para o piso (41,5), escrevi dez cenas com a média exata
+    que ele deu e a peça saiu com previsão **43,38** — 0,4 s ACIMA do topo da
+    faixa — porque o `chars_por_cena` mira a `duracao_estimada` e a mira e o
+    portão cobram a `duracao_real_prevista`. Duas grandezas, um nome.
+
+    A propriedade cobrada é a da INVERSÃO, e ela é dos dois lados: o valor
+    devolvido CABE no alvo, e o valor seguinte NÃO cabe.
+    """
+    for pacote, sp in _com_mira_propria()[-12:]:
+        orc = mira.orcamento(sp)
+        if not orc or not orc["cabe"]:
+            continue
+        n, c, alvo = orc["cenas"], orc["chars"], orc["alvo"]
+        cabe = [{"nar": "x" * c} for _ in range(n)]
+        passa = [{"nar": "x" * (c + 1)} for _ in range(n)]
+        voz = sp["voz"]
+        assert ensaio.duracao_real_prevista(cabe, voz, "edge") <= alvo, (
+            f"{pacote}: o orçamento devolveu {c} e a PREVISÃO não cabe em {alvo}"
+        )
+        assert ensaio.duracao_real_prevista(passa, voz, "edge") > alvo, (
+            f"{pacote}: {c + 1} ainda cabe — o orçamento não está no limite, "
+            "logo ele não inverte a previsão real"
         )
 
 
@@ -154,9 +201,10 @@ def test_cena_demais_RECUSA_em_vez_de_devolver_zero():
     assert orc["cabe"] is False, orc
     assert orc["chars"] == 0, orc
     assert orc["max_cenas"] > 0, orc
-    # e o maximo e a FRONTEIRA, nao um numero qualquer
-    assert ensaio.chars_por_cena(base["voz"], orc["max_cenas"], alvo) > 0, orc
-    assert ensaio.chars_por_cena(base["voz"], orc["max_cenas"] + 1, alvo) <= 0, orc
+    # e o maximo e a FRONTEIRA medida pelo MESMO inversor que da o orcamento —
+    # cobrar aqui o `chars_por_cena` mediria a grandeza errada (19/10, 15:2x)
+    assert mira._chars_para_o_real(base["voz"], orc["max_cenas"], alvo) > 0, orc
+    assert mira._chars_para_o_real(base["voz"], orc["max_cenas"] + 1, alvo) <= 0, orc
 
 
 def test_o_orcamento_e_DELEGADO_ao_ensaio_por_AST():
@@ -171,17 +219,33 @@ def test_o_orcamento_e_DELEGADO_ao_ensaio_por_AST():
                  if isinstance(n, ast.FunctionDef) and n.name == "orcamento"), None)
     assert alvo is not None, "a função `orcamento` desapareceu do mira.py"
 
-    chamadas = {ast.unparse(n.func) for n in ast.walk(alvo)
-                if isinstance(n, ast.Call)}
-    assert any("chars_por_cena" in c for c in chamadas), (
-        f"o orçamento deixou de delegar ao ensaio: {sorted(chamadas)}"
+    inversor = next((n for n in ast.walk(arvore)
+                     if isinstance(n, ast.FunctionDef)
+                     and n.name == "_chars_para_o_real"), None)
+    assert inversor is not None, (
+        "o inversor da previsão real desapareceu — sem ele o orçamento volta a "
+        "mirar a ESTIMATIVA, que é 1,94 s menor (19/10, 15:2x)"
+    )
+
+    chamadas = {ast.unparse(n.func) for alvo_n in (alvo, inversor)
+                for n in ast.walk(alvo_n) if isinstance(n, ast.Call)}
+    assert any("_chars_para_o_real" in c for c in chamadas), (
+        f"o orçamento deixou de passar pelo inversor: {sorted(chamadas)}"
+    )
+    assert any("duracao_real_prevista" in c for c in chamadas), (
+        "a conta deixou de sair da função do `ensaio` que a mira COBRA: "
+        f"{sorted(chamadas)}"
+    )
+    assert any("alvo_short" in c for c in chamadas), (
+        "a faixa do canal deixou de sair do acessor de FONTE ÚNICA "
+        f"(`ensaio.alvo_short`) — foi o defeito das 15:1x: {sorted(chamadas)}"
     )
     assert any("faixa_do_short" in c for c in chamadas), (
         "a faixa da spec deixou de sair da FONTE ÚNICA (`ensaio.faixa_do_short`) "
         f"— e ela existe desde 16/10 justamente por isso: {sorted(chamadas)}"
     )
-    # e a sobrecarga NAO se recalcula aqui
-    numeros = {n.value for n in ast.walk(alvo)
+    # e a sobrecarga NAO se recalcula em nenhum dos dois
+    numeros = {n.value for alvo_n in (alvo, inversor) for n in ast.walk(alvo_n)
                if isinstance(n, ast.Constant) and isinstance(n.value, float)}
     assert 0.300 not in numeros and 0.3 not in numeros, (
         f"o intervalo de montagem reapareceu dentro do orçamento: {numeros}. "
@@ -195,11 +259,17 @@ def test_o_RELATO_imprime_o_orcamento_e_diz_de_onde_vem():
     caminho = os.path.join(SPECS, especs[-1][0] + ".json")
     r = mira.relato(caminho)
     assert "ORCAMENTO" in r, r[:200]
-    assert "chars_por_cena" in r, (
+    assert "duracao_real_prevista" in r, (
         "o relato não diz de onde o número sai — procedência ausente convida a "
-        "refazer a conta à mão"
+        "refazer a conta à mão, e citar o `chars_por_cena` aqui citaria a "
+        "grandeza ERRADA (a estimativa, 1,94 s menor)"
     )
     assert "caracteres por cena" in r, r[:200]
+    # a frase tem UM dono: ela nao pode aparecer duas vezes com procedencias
+    # diferentes, que foi o defeito do 753
+    assert r.count("Sai de") == 1, (
+        "a frase do orçamento voltou a ter dois donos no mesmo relato"
+    )
 
 
 def test_o_relato_NOMEIA_a_faixa_declarada_em_vez_de_filtrar():
