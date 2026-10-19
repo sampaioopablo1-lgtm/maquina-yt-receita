@@ -1,0 +1,91 @@
+{
+ "slug": "kolejny-poziom-s065",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "bg": "#0B0B0C",
+  "ink": "#F2EEE8",
+  "c1": "#E23B3B",
+  "c2": "#D9C7A7",
+  "red": "#FF4D4D",
+  "ok": "#7FB77E",
+  "panel": "#151517",
+  "mut": "#8F877C",
+  "acc": "#E23B3B"
+ },
+ "pacote": "kolejny-poziom-s065",
+ "longo_existente": "MjI4ZGJAhIo",
+ "thumb": {
+  "l1": "Rata spadła",
+  "l2": "ryzyko"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Rata spadła",
+   "sub": "i to jest ryzyko",
+   "nar": "Rata właśnie spadła i to jest moment ryzyka"
+  },
+  {
+   "layout": "item",
+   "kicker": "Czytasz to",
+   "preco": "jak ulgę",
+   "nar": "Czytasz tę zmianę jak ulgę i tam jest błąd"
+  },
+  {
+   "layout": "item",
+   "kicker": "Kiedy boli",
+   "preco": "nadpłacasz",
+   "nar": "Kiedy rata boli, znajdujesz pieniądze na nadpłatę"
+  },
+  {
+   "layout": "item",
+   "kicker": "Kiedy nie boli",
+   "preco": "przestajesz",
+   "nar": "Kiedy przestaje boleć, nadpłata po cichu znika"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Nie kwota",
+   "sub": "tylko presja",
+   "nar": "Nadpłatę finansowała presja, a nie twoja kwota"
+  },
+  {
+   "layout": "lista",
+   "kicker": "Co znika razem z nią",
+   "itens": [
+    "dyscyplina",
+    "termin",
+    "spokój"
+   ],
+   "nar": "Razem z presją znika dyscyplina i krótszy termin"
+  },
+  {
+   "layout": "item",
+   "kicker": "Niższa rata",
+   "preco": "kusi",
+   "nar": "Niższa rata kusi, żeby różnicę przejadać"
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Krótszy okres",
+   "sub": "nie pyta o zdanie",
+   "nar": "Krótszy okres pracuje w tle i nie pyta o zdanie"
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlatego",
+   "preco": "ustaw to raz",
+   "nar": "Dlatego ustaw nadpłatę, zanim przestanie boleć"
+  },
+  {
+   "layout": "cta",
+   "kicker": "Subskrybuj",
+   "sub": "i ustaw to dziś",
+   "nar": "Ustaw to jeszcze dziś i zasubskrybuj ten kanał"
+  }
+ ],
+ "copy": "# kolejny-poziom-s065\n\n## TITULO\nRata Spadła i To Jest Moment Ryzyka: Dlaczego Nadpłatę Finansuje Presja, a Nie Kwota\n\n## TITULO SHORT\nRata spadła, czyli moment ryzyka\n\n## DESCRICAO\nKiedy rata kredytu spada, odruch jest jeden: ulga. Wygląda to jak wygrana — mniej pieniędzy wychodzi z konta co miesiąc, budżet oddycha, nic nie trzeba robić. I właśnie dlatego jest to najniebezpieczniejszy moment całego kredytu, choć nic złego się pozornie nie wydarzyło.\n\nPowód jest behawioralny, nie arytmetyczny. Kiedy rata boli, pieniądze na nadpłatę znajdują się same: rezygnujesz z czegoś, przesuwasz coś, pilnujesz. Kiedy rata przestaje boleć, ta sama kwota przestaje mieć powód, żeby istnieć. Nadpłatę finansowała presja, a nie decyzja — i to presja, a nie kwota, właśnie zniknęła.\n\nKonsekwencja widać dopiero po latach. Niższa rata kusi, żeby różnicę po prostu przejeść, i zwykle tak się dzieje, bo nikt nie podejmuje świadomej decyzji o rezygnacji z nadpłacania. Krótszy okres działa odwrotnie: raz ustawiony, pracuje w tle i nie pyta cię o zdanie w miesiącu, w którym akurat brakuje motywacji.\n\nPraktyczny wniosek jest prosty i niewygodny: ustaw nadpłatę wtedy, kiedy jeszcze boli. Decyzja podjęta pod presją, ale zapisana jako stałe zlecenie, przetrwa moment, w którym presja zniknie. Decyzja odłożona na „kiedy będzie luźniej\" nie przetrwa, bo kiedy jest luźniej, nikt już o niej nie pamięta.\n\n## COMENTARIO FIXADO\nNadpłatę finansuje presja, nie kwota. Napisz w komentarzu, czy twoja nadpłata przetrwała ostatni spadek raty.\n\n## HASHTAGS\n#kredyt #nadpłata #rata #kolejnypoziom #Shorts\n\n## TAGS\nkredyt hipoteczny, nadplata, rata, skracanie okresu, dyscyplina finansowa, stale zlecenie, finanse osobiste, polska, kolejny poziom, budzet domowy, oprocentowanie, splata kredytu, automatyzacja, presja\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao, pela regra (g). A origem traz a\nstopa referencyjna de 3,75%, os 6% / 8% / 12% / -20% dos cenarios, a marza de\n2,5%, os 500 zl, os 30.000 e os 200 zl — TODOS ficaram fora, porque mudam com o\nmes e com o contrato. O que entra e a ESTRUTURA: a presao e que financiava a\nnadplata.\n\n## FONTES\nOrigem: `MjI4ZGJAhIo`, lida pela REGRA (h) — nao ha spec local deste longo, e a\nlegenda saiu pelo `yt-dlp --write-subs --sub-langs pl` no sandbox do Composio:\n2.448 palavras. **Nenhuma frase saiu de TITULO de capitulo.**\nFamilia de entrada errada NOVA no canal: ler a QUEDA da parcela como alivio, em\nvez de como o momento em que a disciplina que pagava a nadplata deixa de existir.\nAs tres familias ja usadas desta origem sao outras: o `s007` compara lucro\nliquido contra bruto, o `s034` mostra que a condicao conta ANOS e nao zlotys, e o\n`s040` e sobre COMO o banco lanca a nadplata (parcela menor contra prazo menor).\nEsta peca fala da PRESSAO que some, nao do lancamento.\n\n## IDENTIDADE\nTema `misterio` do pipeline do dono, lido de `temas_do_dono.paleta_do_canal`.\nEsqueleto novo, com `lista` — que aparece em 37 de 1.667 cenas da frota.\n\n## EXPOSICAO DECLARADA ANTES DE PUBLICAR\nMirei o PISO da faixa, como a nota do canal manda. Com a banda observada de\n(-1,2; 4,0) o real pode cair ate 4 s acima e 1,2 s abaixo da previsao — faixa de\n5,2 s contra 1 s de granularidade, logo isto e LIMITE e nao previsao.\n"
+}
