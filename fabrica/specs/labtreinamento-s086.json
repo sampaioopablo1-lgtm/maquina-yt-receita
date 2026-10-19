@@ -1,0 +1,108 @@
+{
+ "slug": "labtreinamento-s086",
+ "pacote": "labtreinamento-s086",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "longo_existente": "POBNoY16wG8",
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Mesmo treino",
+   "sub": "três números",
+   "nar": "O mesmo treino dá três números."
+  },
+  {
+   "layout": "item",
+   "kicker": "Só muda a janela",
+   "preco": "da conta",
+   "nar": "Só muda a janela da conta."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Todas valem",
+   "itens": [
+    "Ano corrido",
+    "Ano fechado",
+    "Trimestre",
+    "Mês a mês"
+   ],
+   "nar": "Nenhuma dessas janelas é errada."
+  },
+  {
+   "layout": "barras",
+   "kicker": "A mesma turma",
+   "barras": [
+    {
+     "rotulo": "Ano corrido",
+     "valor": 62
+    },
+    {
+     "rotulo": "Ano fechado",
+     "valor": 78
+    },
+    {
+     "rotulo": "Trimestre",
+     "valor": 91
+    }
+   ],
+   "nar": "O percentual muda junto com ela."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O erro",
+   "sub": "é usar duas",
+   "nar": "O erro é usar duas delas."
+  },
+  {
+   "layout": "item",
+   "kicker": "Em cima",
+   "preco": "o histórico",
+   "nar": "Em cima, todo o histórico."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Janelas diferentes",
+   "barras": [
+    {
+     "rotulo": "Cima",
+     "valor": 100
+    },
+    {
+     "rotulo": "Baixo",
+     "valor": 40
+    }
+   ],
+   "nar": "Embaixo, a folha de hoje."
+  },
+  {
+   "layout": "item",
+   "kicker": "A regra",
+   "preco": "uma janela",
+   "nar": "A mesma janela nos dois lados."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Qual janela",
+   "sub": "escreva aqui",
+   "nar": "Qual janela você usou embaixo?"
+  }
+ ],
+ "thumb": {
+  "l1": "Duas janelas",
+  "l2": "numero falso"
+ },
+ "paleta": {
+  "bg": "#0E1117",
+  "ink": "#EEF1F5",
+  "c1": "#3DDBD9",
+  "c2": "#1E2430",
+  "red": "#FF5A5F",
+  "ok": "#3CCB7F",
+  "panel": "#161B24",
+  "mut": "#8B95A5",
+  "acc": "#3DDBD9"
+ },
+ "copy": "# labtreinamento-s086\n\n## TITULO\nO Percentual de Treinados Com Uma Janela Em Cima e Outra Embaixo Não Mede Nada\n\n## TITULO SHORT\nDuas janelas, um número falso\n\n## DESCRICAO\nVocê somou todos os treinados que já passaram pelo treinamento e dividiu pelas pessoas que estão hoje na folha. **A conta fecha, o número sai alto, e ele não mede nada** — porque em cima está o histórico inteiro e embaixo está um retrato de hoje.\n\n**O defeito não é a divisão. É haver duas janelas na mesma conta.** O que está em cima pertence a um período; o que está embaixo pertence a outro. Qualquer percentual que saia daí é a razão entre duas coisas que não se referem ao mesmo intervalo de tempo.\n\n**E o mais incômodo: as janelas possíveis são todas legítimas.** Ano corrido, ano fechado, trimestre, mês a mês — nenhuma delas está errada por si. O mesmo grupo de pessoas treinadas produz percentuais bem diferentes em cada uma, e isso é esperado. O que não é legítimo é usar uma em cima e outra embaixo.\n\n**A regra prática é de uma linha: escolha a janela, escreva qual é, e aplique a mesma nos dois lados.** Em cima, quem concluiu dentro dela. Embaixo, quem era elegível dentro dela. Se você mudar a janela depois, mude nos dois lados e recalcule o histórico pela regra nova — senão a série que você compara deixa de ser uma série.\n\n**O que fazer com isso hoje:** pegue o último percentual que você reportou e responda duas perguntas separadas. De que período é o número de cima? De que período é o número de baixo? Se as duas respostas não forem iguais, o indicador não é comparável nem com ele mesmo.\n\nNão dou aqui prazo legal, periodicidade obrigatória nem exigência de norma. Isso muda por publicação e fica fora. O mecanismo — a mesma janela nos dois lados — não muda.\n\nNo material completo: como montar o número de baixo caso a caso, os dois erros que deixam a conta mais bonita, a conferência pela multiplicação inversa e por que percentual de fora não serve para você.\n\n## COMENTARIO FIXADO\nO menos obvio: as duas janelas nunca aparecem juntas na planilha. Uma mora na aba de presença e a outra na folha. De que período é o seu número de baixo?\n\n## HASHTAGS\n#indicadores #treinamento #gestao #labtreinamento #Shorts\n\n## TAGS\nindicador de treinamento, percentual de treinados, denominador, janela do periodo, ano corrido, ano fechado, elegiveis, lista de presenca, folha de pagamento, indicador comparavel, serie historica, gestao de treinamento, lab treinamento, calculo de indicador, recursos humanos\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. O longo nomeia janelas concretas\n(doze meses corridos, ano fechado) e eu as cito na DESCRICAO como convencao de\nplanilha, nao como exigencia — e na NARRACAO elas entram so como nome de janela,\nsem prazo nem periodicidade obrigatoria. Prazo legal e periodicidade de norma\nficaram FORA pela regra (g), porque mudam por publicacao. O unico numero que a\npeca diz e \"tres\", e ele e a contagem dos proprios graficos dela.\n\n## FONTES\nA spec local `labtreinamento-014`, que e o pacote do longo `POBNoY16wG8`,\npublicado NESTE canal hoje as 14:37:18Z — rank 1 da ordem viva e com ZERO shorts\ndeclarados. A familia desta peca sai dos capitulos 16 a 23: *\"a escolha do\nperiodo muda o indicador todo\"*, *\"o erro mais comum e somar os treinados de todo\no historico e dividir pelas pessoas de hoje\"*, *\"a mesma janela em cima e\nembaixo\"* e *\"os mesmos treinados dao tres percentuais bem diferentes em tres\njanelas\"*. Nenhuma frase desta peca saiu de TITULO de capitulo.\n\n**E ELA E DIFERENTE DA DO SHORT QUE SAIU NO PACOTE, de proposito.** Aquele\n(`HdzEm86V1HU`) usou a familia do DENOMINADOR — quem teve chance de treinar, os\ncapitulos 0 a 15. Esta usa a JANELA do periodo, que nenhum short do canal tocou.\n\n**E E DIFERENTE DAS DUAS QUE EU ESCREVI NOS OUTROS CANAIS HOJE**, tambem de\nproposito: no epomeno foi o ALVO em meses e no kolejny QUAL despesa medir\nprimeiro. Escrever o mesmo angulo nos tres canais seguidos seria o habito do 762\nnuma dimensao nova — mesma pauta atravessando canal —, e o portao `similaridade`\nNAO pegaria, porque ele compara contra o MESMO canal.\n\n**A origem esta em ZERO usos declarados, a MENOR contagem do canal** — a\ndominante segue sendo o `FtCtIJPsc_Q` com treze de oitenta e cinco.\n\n## EXPOSICAO\n**Esqueleto NOVO, inedito nas 110 formas da frota:**\n`titulo-item-lista-barras-titulo-item-barras-item-cta`. Varrido o disco antes de\nescrever.\n\n**E as barras sao o argumento, nao enfeite:** a cena 4 desenha o MESMO grupo de\ntreinados saindo em tres percentuais diferentes conforme a janela, e a cena 7\ndesenha o que acontece quando as duas janelas sao diferentes. Quem assistir sem\nsom ve a tese nos dois graficos.\n\n**O ORCAMENTO SAIU DO INSTRUMENTO — E A RESPOSTA DELE NAO CABIA, o que e o\nachado desta rodada.** O `mira.orcamento` da **25 caracteres por cena** para nove\ncenas, mirando o MEIO da mira medida deste canal (23,0 de 20,0 a 26,0) **no mundo\nEDGE**. Escrita assim, a peca saiu com edge 22,6 e **piper 18,6 — ABAIXO do piso\nde 20,0**, isto e, a propria mira REPROVA a resposta do orcamento. Varrido o\norcamento nos DOIS mundos, a janela que satisfaz os dois para nove cenas e de\n**28 a 30 caracteres**, e ela mora no TOPO da faixa e nao no meio — a pinca do 748\naparecendo dentro do instrumento.\n\nA peca foi escrita com media **28**: previsao edge **24,9 s** e piper **20,4 s**,\nos dois DENTRO da mira e dentro de 18 a 45 nos dois mundos. Conferido pelo\n`fabrica/mira.py`, nao de cabeca.\n\n**A mira verde NAO promete real dentro, e a frequencia esta medida:** pelo tally\ndo 744/754/758, quarenta das quarenta e quatro pecas deste canal narradas pelo\nedge sairam ACIMA do teto de 26,0. Com a banda em (−1,2; 4,0), se o edge narrar o\nreal cai em algum ponto de **(23,7; 28,9)** — e eu nao digo de que lado, porque a\nbanda tem 5,2 s de largura contra 1 s de granularidade e declarar um lado dela\nnao e previsao (774).\n"
+}
