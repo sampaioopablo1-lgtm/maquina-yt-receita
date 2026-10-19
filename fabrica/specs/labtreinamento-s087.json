@@ -1,0 +1,89 @@
+{
+ "slug": "labtreinamento-s087",
+ "pacote": "labtreinamento-s087",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "longo_existente": "POBNoY16wG8",
+ "longo": [],
+ "thumb": {
+  "l1": "Mesma turma",
+  "l2": "três números"
+ },
+ "paleta": {
+  "bg": "#0E1117",
+  "ink": "#EEF1F5",
+  "c1": "#3DDBD9",
+  "c2": "#1E2430",
+  "red": "#FF5A5F",
+  "ok": "#3CCB7F",
+  "panel": "#161B24",
+  "mut": "#8B95A5",
+  "acc": "#3DDBD9"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Mesma turma",
+   "sub": "três áreas",
+   "nar": "A mesma turma deu três percentuais."
+  },
+  {
+   "layout": "item",
+   "kicker": "Não foi o esforço",
+   "nar": "A diferença não estava no esforço."
+  },
+  {
+   "layout": "lista",
+   "kicker": "O que muda embaixo",
+   "itens": [
+    "Quem entrou",
+    "Quem saiu",
+    "Quem ficou afastado"
+   ],
+   "nar": "Três coisas mexem no de baixo hoje."
+  },
+  {
+   "layout": "item",
+   "kicker": "Metade do de baixo",
+   "nar": "Com metade embaixo, o número dobra."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Mesma turma, três áreas",
+   "barras": [
+    {
+     "rotulo": "Sem troca",
+     "valor": 48
+    },
+    {
+     "rotulo": "Troca media",
+     "valor": 64
+    },
+    {
+     "rotulo": "Metade trocou",
+     "valor": 96
+    }
+   ],
+   "nar": "Ninguém treinou uma pessoa a mais."
+  },
+  {
+   "layout": "item",
+   "kicker": "Não se empresta",
+   "nar": "O percentual de fora não serve aqui."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A regra escrita",
+   "sub": "compara com você",
+   "nar": "Com a regra, você compara consigo."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Qual o seu denominador",
+   "sub": "escreva aqui",
+   "nar": "Escreva qual regra você usou hoje."
+  }
+ ],
+ "copy": "# labtreinamento-s087\n\n## TITULO\nPor Que o Percentual de Treinados de Outra Área Não Serve Como Referência Para o Seu\n\n## TITULO SHORT\nO percentual de fora não é seu\n\n## DESCRICAO\nDuas áreas fazem o mesmo treinamento, com a mesma turma, no mesmo período — e reportam percentuais bem diferentes. **A diferença não está no esforço de treinar. Está no número de baixo.**\n\nUma área que trocou metade da equipe no período tem um denominador menor que a área que não trocou ninguém. Com metade das pessoas elegíveis embaixo, o mesmo grupo de treinados vira o dobro do indicador — e ninguém treinou uma pessoa a mais. O número subiu porque o de baixo encolheu.\n\n**Daí sai a consequência prática, e ela é desconfortável: nenhum percentual que você ouve de fora serve como referência para o seu.** O número da outra área responde ao denominador dela, não ao seu. O mesmo vale para qualquer média de setor que circula por aí: é percentual sem regra de denominador escrita, logo é um número que não se pode comparar com nada. Não é que a média esteja errada — é que ela não responde à sua pergunta.\n\n**O que serve de referência é você mesmo, pela mesma regra.** Compare o seu percentual deste período com o seu do período anterior, calculado com a mesma regra de denominador. Se a regra mudou, recalcule o histórico pela regra nova antes de comparar; série com duas regras diferentes deixa de ser série.\n\n**O que fazer com isso hoje:** antes de usar qualquer percentual de fora como meta, faça uma pergunta só — qual era o denominador dele? Se não houver resposta escrita, o número não é comparável, e adotá-lo como alvo é mirar numa conta que você não viu.\n\nNão dou aqui meta de percentual, prazo legal nem periodicidade obrigatória. Isso muda por publicação e fica fora. O mecanismo é o que importa, e ele não depende de número nenhum: o percentual é a razão entre dois números, e o de baixo é escolha de quem calcula.\n\n## COMENTARIO FIXADO\nO menos óbvio: a área com o indicador mais alto pode ser a que perdeu mais gente. Qual era o denominador do número que te serviram de meta?\n\n## HASHTAGS\n#indicadores #treinamento #gestao #labtreinamento #Shorts\n\n## TAGS\nindicador de treinamento, percentual de treinados, denominador, elegiveis, rotatividade, media do setor, benchmark de treinamento, comparacao de indicador, serie historica, regra de denominador, gestao de treinamento, lab treinamento, calculo de indicador, recursos humanos, indicador comparavel\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. O unico numero falado e \"tres\", e\nele e a contagem dos proprios graficos da peca. Os valores das barras (48, 64 e\n96) sao ILUSTRACAO da aritmetica do denominador — metade do de baixo dobra o\npercentual — e nao medicao de area nenhuma; eles nao sao falados. Meta de\npercentual, prazo legal e periodicidade de norma ficaram FORA pela regra (g),\nporque mudam por publicacao.\n\n## FONTES\nA spec local `labtreinamento-014`, que e o pacote do longo `POBNoY16wG8`,\npublicado NESTE canal hoje as 14:37:18Z — rank 1 da ordem viva. A familia desta\npeca sai dos capitulos 40 a 47: *\"duas areas com o mesmo treinamento podem dar\nindicadores bem diferentes\"*, *\"com metade do denominador, o mesmo treinamento\nvira o dobro do indicador\"*, *\"nenhum percentual que voce ouve de fora serve para\nvoce\"*, *\"o mesmo vale para qualquer media de mercado que circula\"* e *\"comparar\ncom media de fora nao diz nada\"*. Nenhuma frase desta peca saiu de TITULO de\ncapitulo.\n\n**E ELA E A TERCEIRA FAMILIA DESTE MESMO LONGO, de proposito.** O short que saiu\nno pacote (`HdzEm86V1HU`) usou o DENOMINADOR — quem teve chance de treinar,\ncapitulos 0 a 15. O `s086` (`X6SkkBRlACY`) usou a JANELA do periodo, capitulos 16\na 23. Esta usa a COMPARACAO COM NUMERO DE FORA, que nenhum short do canal tocou.\n\n**E E A SETIMA FAMILIA DISTINTA DO DIA NA FROTA**, tambem de proposito: as outras\nseis foram o denominador, o alvo em meses, qual despesa medir primeiro, a janela\ndo periodo, a unidade do resultado e os dois erros que deixam a conta mais\nbonita. Escrever o mesmo angulo em canais seguidos seria o habito do 762 numa\ndimensao nova, e o portao `similaridade` NAO pegaria, porque ele compara contra o\nMESMO canal.\n\n## EXPOSICAO\n**ESQUELETO DE OITO CENAS, e a frota nao tem nenhum:** varridas as 113 formas de\nshort do disco, **zero** tem oito cenas. A forma\n`titulo-item-lista-item-barras-item-titulo-cta` e inedita por duas razoes ao\nmesmo tempo — pela sequencia e pelo tamanho.\n\n**E TODO LAYOUT SAIU DO CONJUNTO SONDADO**, que e consequencia do cartao em\nbranco que eu publiquei as 18:18Z: o `layouts_do_short.desenham()` sonda o\nproprio render e devolve `barras`, `cta`, `item`, `lista` e `titulo`. Nada fora\ndesses cinco entrou na peca, e o portao `layout` confere isso cena por cena.\n\n**O ORCAMENTO SAIU DO INSTRUMENTO, NOS DOIS MUNDOS.** Para OITO cenas na mira\nmedida deste canal (20,0 a 26,0) o `mira.janela_dos_dois_mundos` devolve **34 a\n36 caracteres por cena** — o orcamento do MEIO no mundo edge daria 30, e o piper\ncairia abaixo do piso de 20,0. A peca foi escrita com media **34,6**.\n\n**A cadencia e 2,9 s por plano** com oito cenas no meio da mira, dentro dos ~3 s\nmedidos em 690/699 — e a contagem de cenas e o que a sustenta, nao a amplitude de\nzoom, que e a conta do 690.\n\n**A mira verde NAO promete real dentro, e a frequencia esta medida:** pelo tally\ndo 744/754/758, quarenta e uma das quarenta e cinco pecas deste canal narradas\npelo edge sairam ACIMA do teto de 26,0. Com a banda em (−1,2; 4,0), se o edge\nnarrar o real cai em algum ponto da faixa que o `mira.py` imprime — e eu nao digo\nde que lado, porque a banda tem 5,2 s de largura contra 1 s de granularidade, e\ndeclarar um lado dela nao e previsao (774).\n"
+}
