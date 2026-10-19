@@ -278,7 +278,25 @@ janela na frota. **E a DÉCIMA passou às 02:48:23Z** (`kolejny-poziom-s064`,
 `GESLIl-iUeo`) **a DÉCIMA PRIMEIRA às 03:12:04Z** (`epomeno-epipedo-s065`,
 `pHtvqUUN4G8`) **e a DÉCIMA SEGUNDA às 04:12:14Z** (`kolejny-poziom-s065`,
 `cq2Ws82UsZI`), logo **a cota é ≥ 19.200** — doze envios a 1.600 numa janela, sem
-nenhum `403 quota`. O teto verdadeiro segue desconhecido,
+nenhum `403 quota`.
+
+**E ESSA CONTAGEM DE DOZE ESTAVA ERRADA PELA METADE — medido em 19/10 às 05:4x,
+e o erro é de JANELA, que é o erro que esta mesma seção nomeia.** Eu contei as
+peças a partir das 18:16 de 18/10 e escrevi *"ontem a frota fechou o dia em seis
+peças"*, quando a janela abriu às **07:00 UTC** daquele dia. Varrido o
+`docs/pendente/duracoes-a-medir.jsonl`, que grava toda peça publicada com
+`youtube_id`, a janela de 18/10 07:00 a 19/10 07:00 tem **24 envios, 24 ids
+DISTINTOS, nenhum repetido** — de `labtreinamento-s075` às 07:15 até
+`labtreinamento-s083` às 05:19. **Logo o piso é ≥ 38.400 unidades**, não 19.200,
+e as "seis peças de 18/10" eram as seis ÚLTIMAS de dezessete.
+
+**E é o 771 outra vez, na direção que eu já havia corrigido:** eu escrevi, nesta
+seção, *"conte as peças da JANELA (desde 07:00 UTC), não do dia calendário"* — e
+então contei um SUB-INTERVALO da janela. A regra estava certa e eu não a apliquei
+ao meu próprio número. O instrumento existia: a contagem sai de uma varredura do
+parque, não da minha memória das últimas rodadas.
+
+O teto verdadeiro segue desconhecido,
 e quem o descobre é o primeiro `403 quota` numa rodada normal, que não custa nada
 porque requisição recusada não consome cota. **O teto verdadeiro segue desconhecido**,
 e dizer "agora são N" seria trocar um número suposto por outro. Quem o
@@ -2724,6 +2742,72 @@ payload montado à mão contra uma forma que o arquivo documenta (718, 729, 702)
 com **LUFS −13,7**, LRA 2,8, pico −2,2 dBTP, desvio do alvo 0,3 e **nenhum
 silêncio**. Era um item meu em aberto desde o `s020`, e ele não exigia baixar
 artefato nenhum: sai pelo `::notice:: SOM` do próprio job.
+
+## A MIRA PAROU DE CONFERIR E DISSE QUE NÃO HAVIA MIRA — e eram TRÊS donos do canal
+
+**Medido em 19/10 às 05:2x, escrevendo o `labtreinamento-s083`.** O relato do
+`mira.py` saiu com `canal 'labtreinamento-s083' nao tem ALVO_POR_CANAL medido` —
+e aquele canal TEM mira medida desde 09/10 (20,0 a 26,0).
+
+**A causa é a assinatura de sempre: `mira.confere` lia `spec["slug"]` como se
+fosse o canal.** Enquanto a spec de short solto trazia `slug: "labtreinamento"`
+as duas coisas coincidiam por acidente; quando o `slug` passou a ser o PACOTE, o
+canal deixou de ser achado no `ALVO_POR_CANAL` e o instrumento passou a devolver
+`tem_mira: False`. **A falha é PERMISSIVA — ele não reprova nada, só para de
+avisar**, que é o pior sentido, o mesmo do corpus atrasado.
+
+**O custo está medido e é de SEIS peças:** da `s077` à `s082`, publicadas com a
+mira nunca conferida — e nas seis eu escrevi na copy *"os dois DENTRO da mira
+medida do canal"* **fazendo a conta de cabeça**. É literalmente o item 3 da §10:
+toda conta que eu faço à mão vira um erro meu.
+
+**E eram TRÊS donos da mesma regra, não dois.** O `tally_fora_da_mira`, escrito
+depois, derivava CERTO com `pacote.rsplit("-s", 1)[0]`. E o
+`registro_videos.linhas_dos_notices` lia o `slug` para a coluna `canal` de
+`videos`: varrido o pendente, **DEZENOVE linhas parqueadas estavam com
+`canal = '<canal>-s0NN'`, nos TRÊS canais** — de `kolejny-poziom-s060`,
+`epomeno-epipedo-s060` e `labtreinamento-s077` em diante. **Elas não chegaram ao
+banco porque o `execute_sql` está negado, e isso é sorte e não método:** com elas
+dentro, a coluna que o `concentracao_frota` e a `estoque.sql` agrupam ficaria
+cega. As dezenove foram reconstruídas.
+
+**Consertado com UM dono: `fabrica/canal.py`**, com `da_spec` e `do_pacote`, e os
+dois chamadores passaram a usá-lo. **E ele reprovou a primeira versão da `s083`
+(edge 26,1 contra teto 26,0) antes do render** — a primeira peça em sete em que o
+instrumento de fato conferiu.
+`tests/test_a_mira_deixou_de_conferir_quando_o_slug_virou_PACOTE.py`, oito
+testes: a varredura sai do DISCO e **reprova se ficar vazia**, um exige que a
+convenção NOVA de slug continue existindo (senão o arquivo passa por vacuidade),
+um é contraprova no outro sentido — **canal sem mira segue sem mira**, porque
+inventar faixa seria pior que a cegueira —, um varre a fábrica INTEIRA por AST
+procurando quem volte a derivar canal sozinho, e um cobra a coluna `canal` do
+pendente. **Contraprova nos dois sentidos:** desligado o conserto, três dos oito
+falham; e uma cópia CERTA da derivação em outro módulo também reprova, porque o
+que o teste cobra é haver UM dono, não a conta estar certa duas vezes.
+
+## ACRESCENTAR PONTO NA SÉRIE DEIXOU DE SER PASSO MEU
+
+**O terceiro passo manual a menos (§11-bis), e ele é o que já corrompeu dados
+DUAS vezes.** Acrescentar um ponto de resíduo era eu editar dois arquivos à mão:
+a lista `SERIE` dentro do teste que a ancora e o `RESIDUO_N` no `mira.py`. Foi
+assim que nasceu o ponto FANTASMA de 18/10 às 11:2x — `replace` casando PREFIXO
+de linha, porque a âncora que eu escrevia não tinha o comentário `# job` que a
+linha no arquivo tem.
+
+`fabrica/serie_residuo.py` lê a série por **AST** (e **não a migra**: mover a
+lista para um `.json` criaria um terceiro dono e perderia os comentários de
+procedência, que são o que distingue ponto medido de número escrito), insere por
+**LINHA INTEIRA**, **recusa** pacote repetido, job repetido e provedor não
+MEDIDO (733), e **sincroniza o `RESIDUO_N` no mesmo passo** — logo os dois não
+podem mais divergir. O `limites()` **deriva** a banda da série, e há teste que
+reprova se ela divergir do `RESIDUO_OBSERVADO` escrito à mão no `mira.py`: duas
+contas da mesma coisa têm de concordar.
+
+**Primeira execução em produção foi o ponto da `s083`** (25,1 → 29, resíduo
+**+3,9**, estabelecido, **a 0,1 s do teto da banda**), e o diff saiu com uma
+linha só e o comentário anterior intacto.
+`tests/test_a_serie_do_residuo_deixou_de_ser_passo_meu.py`, onze testes, um deles
+gravando numa CÓPIA para provar a inserção sem tocar o arquivo real.
 
 ## O PORTÃO NÃO COBRA A CHAVE QUE O RENDER EXIGE — medido em 18/10 às 08:1x
 

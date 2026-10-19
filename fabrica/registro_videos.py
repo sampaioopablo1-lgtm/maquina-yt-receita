@@ -47,6 +47,8 @@ import os
 import re
 import sys
 
+import canal
+
 SPECS = os.path.join(os.path.dirname(__file__), "specs")
 
 # A mesma forma do notice que o `corpus_atrasado` le, e de proposito: uma fonte
@@ -93,7 +95,7 @@ def linhas_dos_notices(texto: str, raiz: str = None) -> list[dict]:
             "formato": formato,
             "titulo": titulo_short(spec) or titulo,
             "youtube_id": yid,
-            "canal": spec.get("slug"),
+            "canal": canal.da_spec({"pacote": pacote, **spec}),
             "pacote": pacote,
             "origem_id": spec.get("longo_existente"),
             "cenas": len(spec.get("short") or []),

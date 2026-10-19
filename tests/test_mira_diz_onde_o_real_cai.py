@@ -120,7 +120,13 @@ def test_a_spec_que_a_PREVISAO_reprova_continua_reprovando():
 def test_canal_sem_mira_nao_recebe_banda_nenhuma():
     spec = json.loads(
         (RAIZ / "fabrica/specs/labtreinamento-s034.json").read_text())
-    spec["slug"] = "kolejny-poziom"   # sem ALVO_POR_CANAL
+    # O canal se troca pelo PACOTE, nao pelo `slug`: em 19/10 as 05:2x ficou
+    # medido que o `confere` lia o `slug` como canal e que isso o fez parar de
+    # conferir a mira desde a `s077`, quando o slug passou a ser o pacote. Este
+    # teste mexia justamente na alavanca defeituosa — a INTENCAO dele (canal sem
+    # mira nao recebe banda) continua valendo e e ela que fica cobrada.
+    spec["pacote"] = "kolejny-poziom-s001"   # canal sem ALVO_POR_CANAL
+    spec["slug"] = "kolejny-poziom-s001"
     r = mira.confere(spec)
     assert r["tem_mira"] is False
 

@@ -133,7 +133,7 @@ RESIDUO_OBSERVADO = (-1.2, 4.0)
 # DENTRO da banda, e o sinal NAO esta ESTABELECIDO (42 - 41,6 <= 1,0, e o
 # arredondamento e para cima) — 36 de 42 estabelecidos. Os LIMITES nao
 # mudaram: 0,4 nao e menor que o piso de 0,1.
-RESIDUO_N = 110  # 741 acrescentou o s035 (24,8 -> 27, +2,2): DENTRO da banda,
+RESIDUO_N = 111  # 741 acrescentou o s035 (24,8 -> 27, +2,2): DENTRO da banda,
 #                 logo os LIMITES nao mudaram — so o numero de pontos que a sustenta.
 #                 14/10 06:2x: o s041 (edge 24,6 -> real 27) deu +2,4 — EMPATADO
 #                 com o teto da banda, o decimo segundo ponto e o segundo a tocar
@@ -158,7 +158,7 @@ def previsoes(spec: dict) -> dict[str, float]:
 
 
 def canal_da_spec(spec: dict) -> str:
-    """O CANAL de uma spec — a UNICA fonte, e ela existe porque havia duas.
+    """O CANAL de uma spec. Delega ao `fabrica/canal.py`, que e o dono UNICO.
 
     MEDIDO em 19/10 as 05:2x. O `confere` lia `spec["slug"]` como se fosse o
     canal, e o `tally_fora_da_mira` derivava com `pacote.rsplit("-s", 1)[0]`.
@@ -171,12 +171,15 @@ def canal_da_spec(spec: dict) -> str:
     "mira verde nos dois mundos" nas seis fazendo a conta de cabeca, que e
     exatamente o item 3 da §10.
 
-    E a assinatura e a do `assert 20 <= ds <= 60` e a da legenda congelada:
-    DOIS DONOS DA MESMA REGRA, UM ATUALIZADO. A falha e no sentido
-    PERMISSIVO — ela nao reprova nada, so para de avisar.
+    E eram TRES, nao dois: o `registro_videos` fazia o mesmo para a coluna
+    `canal` de `videos`, e DEZENOVE linhas parqueadas sairam com o pacote no
+    lugar do canal. E a assinatura e a do `assert 20 <= ds <= 60` e a da legenda
+    congelada: DOIS DONOS DA MESMA REGRA, UM ATUALIZADO. A falha e no sentido
+    PERMISSIVO — ela nao reprova nada, so para de avisar. **O motivo pelo qual
+    esta funcao nao faz a conta aqui e esse mesmo:** o dono mora em `canal.py`.
     """
-    base = spec.get("pacote") or spec.get("slug") or ""
-    return base.rsplit("-s", 1)[0] if "-s" in base else base
+    import canal as _canal
+    return _canal.da_spec(spec)
 
 
 def confere(spec: dict) -> dict:

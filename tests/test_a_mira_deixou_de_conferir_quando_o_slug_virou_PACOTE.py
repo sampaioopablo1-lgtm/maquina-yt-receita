@@ -22,6 +22,7 @@ import ast
 import glob
 import json
 import os
+import re
 import sys
 
 import pytest
@@ -95,27 +96,60 @@ def test_canal_SEM_mira_continua_sem_mira():
         assert canal in r["motivo"]
 
 
-def test_o_canal_tem_UM_dono_so():
-    """Nenhuma outra funcao do modulo deriva canal por conta propria.
+def test_o_canal_tem_UM_dono_so_na_FABRICA_INTEIRA():
+    """Nenhum outro modulo da fabrica deriva o canal por conta propria.
 
-    Por AST, porque o docstring do `canal_da_spec` CITA o `rsplit` antigo para
-    se explicar — casar a prosa pegaria a explicacao em vez do codigo, que e a
+    Eram TRES donos, nao dois: `mira.confere` (slug), `mira.tally_fora_da_mira`
+    (rsplit, certo) e `registro_videos` (slug, para a coluna `canal` de
+    `videos`). O dono passou a ser `fabrica/canal.py`.
+
+    Por AST, porque o docstring do `canal.py` CITA o `rsplit` antigo para se
+    explicar — casar a prosa pegaria a explicacao em vez do codigo, que e a
     licao do teste do `estado_ponte` e do da paleta."""
-    with open(os.path.join(RAIZ, "fabrica", "mira.py"), encoding="utf-8") as f:
-        arvore = ast.parse(f.read())
     culpados = []
-    for no in ast.walk(arvore):
-        if not isinstance(no, ast.FunctionDef) or no.name == "canal_da_spec":
+    for caminho in sorted(glob.glob(os.path.join(RAIZ, "fabrica", "*.py"))):
+        if os.path.basename(caminho) == "canal.py":
             continue
-        for d in ast.walk(no):
+        with open(caminho, encoding="utf-8") as f:
+            arvore = ast.parse(f.read())
+        for d in ast.walk(arvore):
             if (isinstance(d, ast.Call) and isinstance(d.func, ast.Attribute)
                     and d.func.attr == "rsplit"
-                    and any(isinstance(a, ast.Constant) and a.value == "-s"
-                            for a in d.args)):
-                culpados.append(no.name)
+                    and any(isinstance(x, ast.Constant) and x.value == "-s"
+                            for x in d.args)):
+                culpados.append(os.path.basename(caminho))
     assert not culpados, (
-        "estas funcoes voltaram a derivar o canal sozinhas, que e o defeito de "
-        f"dois donos que este arquivo guarda: {culpados}")
+        "estes modulos voltaram a derivar o canal sozinhos, que e o defeito de "
+        f"donos demais que este arquivo guarda: {sorted(set(culpados))}")
+
+
+def test_o_canal_da_coluna_de_videos_NAO_e_o_pacote():
+    """O terceiro dono, medido no arquivo que ele ja tinha escrito.
+
+    O `registro_videos` punha `spec["slug"]` na coluna `canal`, e DEZENOVE
+    linhas parqueadas sairam com `canal = '<canal>-s0NN'`, nos TRES canais.
+    Elas nao chegaram ao banco porque o `execute_sql` esta negado — sorte, nao
+    metodo: com elas dentro, a coluna que o `concentracao_frota` e a
+    `estoque.sql` agrupam ficaria cega."""
+    import canal as canal_mod
+    import registro_videos as RV
+    notice = ("notice: PUBLICADO labtreinamento-s083 shorts "
+              "youtube_id=zzzzzzzzzzz titulo=X em=2026-10-19T05:19:39Z")
+    linhas = RV.linhas_dos_notices(notice)
+    assert linhas, "o notice deixou de ser lido — o teste nao mede nada"
+    for l in linhas:
+        assert l["canal"] == canal_mod.do_pacote(l["pacote"]), l
+        assert "-s" not in l["canal"], l
+
+    sql = os.path.join(RAIZ, "docs", "pendente", "videos-a-inserir.sql")
+    if not os.path.exists(sql):
+        pytest.skip("sem pendente parqueado")
+    with open(sql, encoding="utf-8") as f:
+        texto = f.read()
+    assert texto.count("insert into videos") >= 90, (
+        "o pendente encolheu — releia antes de apagar este teste")
+    ruins = re.findall(r"','([a-z-]+-s\d+)','\1'", texto)
+    assert not ruins, f"linha parqueada com canal = pacote: {sorted(set(ruins))[:5]}"
 
 
 def test_o_MOTIVO_do_conserto_continua_escrito():

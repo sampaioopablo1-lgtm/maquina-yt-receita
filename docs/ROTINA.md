@@ -735,13 +735,19 @@ os três nos dois passos.
 - **CONFIRA NO VÍDEO PUBLICADO, não no código.** `videos.list` omite tags enquanto
   indexa; `processingDetails` dá 403 em token de outro canal. **E `P0D` só é
   indexação nos primeiros minutos — depois de 2 h é defeito (665).**
-- **COTA: teto DESCONHECIDO; piso MEDIDO ≥ 7 envios/janela na FROTA.** Em 19/10
-  às 00:4x a SÉTIMA peça passou sem `403` — 11.200 contra a cota "padrão" de
-  10.000 —, logo o projeto TEM extensão e o "~6/dia" CAIU. **Não troque 6 por
-  outro número suposto:** quem acha o teto é o primeiro `403 quota` de rodada
-  normal, e recusa não gasta. Um projeto para os três, logo o teto é da frota.
+- **COTA: teto DESCONHECIDO; piso MEDIDO ≥ 24 envios/janela na FROTA** (≥ 38.400
+  unidades a 1.600 cada), contados em 19/10 às 05:4x na janela 18/10 07:00 →
+  19/10 07:00, sem um `403 quota`. O "~6/dia" caiu em 00:4x quando a sétima peça
+  passou, e o "≥ 7" e o "≥ 19.200" que eu escrevi depois estavam BAIXOS porque eu
+  contei um SUB-INTERVALO da janela. **Não troque o número por outro suposto:**
+  quem acha o teto é o primeiro `403 quota` de rodada normal, e recusa não gasta.
+  Um projeto para os três (`777159180424`), logo o teto é da frota.
   **E A JANELA VIRA ÀS 07:00 UTC** (meia-noite do Pacífico): **CONTE AS PEÇAS DA
-  JANELA, nunca do dia calendário** — classe do 771. Prova no `CLAUDE.md`.
+  JANELA, nunca do dia calendário** — classe do 771. **E CONTE COM O
+  INSTRUMENTO, não de cabeça:** a varredura é do
+  `docs/pendente/duracoes-a-medir.jsonl`, que grava toda peça publicada com
+  `youtube_id`; foi contar de memória que produziu os dois números baixos.
+  Prova no `CLAUDE.md`.
   403 `quota` na legenda → SEGURE o pacote.
   403 `reason=forbidden location=id` → NÃO retente (622).
 - **O AUTO-DISPARO DO `frota.yml` ESTÁ EXPLICADO:** é
