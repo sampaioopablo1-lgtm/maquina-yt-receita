@@ -2910,6 +2910,49 @@ ligado e a cadência medida, as **três** distâncias que a medição de 16/10 n
 deixaram de ser promessa — falta montar a peça e publicá-la, e ela custa
 `videos.insert` como qualquer outra.
 
+
+### E O TRILHO ESTAVA LIGADO COM NADA O ALIMENTANDO — 19/10 às 09:2x
+
+**Uma hora depois de ligar o despacho, a medição seguinte: nenhuma spec de longo
+do disco declara o campo `trilho`.** Logo o conserto das 08:1x era alcançável e
+**sem dado** — é a mesma classe do defeito que ele conserta, uma camada acima: às
+04:2x o código não era chamado; aqui ele é chamado e nunca recebe nada.
+
+**`trilho.aplica_no_longo` DERIVA os capítulos da própria spec**, e a regra do
+separador é MEDIDA e não escolhida: capítulo é cena de layout `titulo`, e **kicker
+que aparece mais de uma vez não é capítulo, é separador** — medido no
+`labtreinamento-002`, cujas **treze** cenas `titulo` são **sete** capítulos
+intercalados por **seis** cenas chamadas *"Ponte"*. Sem essa regra o trilho sairia
+com treze entradas e seis iguais.
+
+**E ELE RECUSA EM VEZ DE ENCOLHER A FONTE, e o tamanho da recusa vai dito:**
+
+| | |
+|---|---|
+| specs de longo da frota com voz modelada | **131** |
+| trilho derivado CABE | **17** |
+| **não cabe** | **114** |
+| `epomeno-epipedo-013` / `labtreinamento-002` (formato atual) | **8 / 7 capítulos, cabem** |
+
+As 114 são da geração em que **quase toda cena é `titulo`** — há specs com
+oitenta e uma. Trilho de quarenta entradas não é trilho, é uma linha de ruído, e
+encolher a fonte até caber seria o §3.8 em forma de tipografia: a faixa existiria
+e ninguém leria. **Ele levanta citando o caso**, como o `porta1` recusa janela
+curta.
+
+`tests/test_o_trilho_era_campo_escrito_a_MAO.py`, nove testes — a varredura sai do
+DISCO e **reprova se ficar com menos de 50 specs**, um exige que as cenas "Ponte"
+continuem no `labtreinamento-002` (sem elas o arquivo não mede a regra e passa por
+vacuidade), um é **contraprova no outro sentido** — as duas specs do formato atual
+continuam cabendo, senão recusar tudo passaria —, um cobra que o campo derivado
+CHEGUE ao SVG (o defeito das 04:2x era desenhar o fundo e esquecer a cena), um
+trava a **idempotência** e um cobra que **os dois lados da varredura existam**: se
+a maioria passar a caber, esta nota se relê em vez de o número ser movido.
+
+**O que isto NÃO faz:** não produz longo nenhum. O que mudou é que o trilho deixou
+de depender de eu escrever o campo em 66 cenas à mão — o terceiro passo manual a
+menos desta madrugada.
+
 ## EU ESCREVI UM JOB ID INVENTADO NA PROCEDÊNCIA DA SÉRIE
 
 **Medido em 19/10 às 07:2x, e é defeito meu de duas camadas.** Ao acrescentar o

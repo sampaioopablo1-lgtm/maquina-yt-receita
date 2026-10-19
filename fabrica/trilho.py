@@ -136,3 +136,89 @@ def relato(capitulos, W=1920, H=1080) -> str:
 if __name__ == "__main__":
     print(relato(["A armadilha", "Os três limites", "O que o PROCX muda",
                   "Quando usar cada um"]))
+
+
+# ---------------------------------------------------------------------------
+# O TRILHO DEIXOU DE SER CAMPO ESCRITO A MAO — 19/10 as 09:2x
+#
+# As 08:1x o despacho do render passou a desenhar a faixa, e no mesmo passo
+# ficou visivel que NADA a alimentava: nenhuma spec de longo do disco declara o
+# campo `trilho`, logo o conserto daquela hora era reachable e **sem dado**. E a
+# mesma classe do defeito que ele conserta, uma camada acima: la o codigo nao
+# era chamado, aqui ele e chamado e nunca recebe nada. Escrever `trilho` a mao
+# em 66 cenas seria o passo manual que a §11-bis manda tirar — e seria eu
+# repetindo, cena por cena, uma lista que a propria spec ja carrega.
+#
+# A DERIVACAO, e a regra do separador e MEDIDA, nao escolhida: capitulo e cena
+# de layout `titulo`, e kicker que aparece MAIS DE UMA VEZE nao e capitulo, e
+# separador. Medido no `labtreinamento-002`, cujas treze cenas `titulo` sao sete
+# capitulos intercalados por seis cenas chamadas "Ponte"; sem essa regra o
+# trilho sairia com treze entradas e seis delas iguais.
+#
+# E ELE RECUSA EM VEZ DE ENCOLHER. Varridas as 131 specs de longo da frota com
+# voz modelada, o trilho derivado CABE em **17** e nao cabe em **114** — porque
+# na geracao antiga quase toda cena e `titulo` (ha specs com 81 delas), e um
+# trilho de quarenta entradas nao e um trilho, e uma linha de ruido. Encolher a
+# fonte ate caber seria o portao verde fabricado do §3.8: a faixa existiria e
+# ninguem leria. As duas specs do formato atual que eu de fato uso como origem
+# — `epomeno-epipedo-013` (8) e `labtreinamento-002` (7) — cabem.
+
+
+def capitulos_do_longo(cenas) -> list:
+    """Os capitulos de uma spec de longo, DERIVADOS das cenas `titulo`.
+
+    Kicker repetido NAO entra: ele e separador, nao capitulo (medido no
+    `labtreinamento-002`, seis cenas "Ponte"). Kicker vazio tambem nao.
+    """
+    pela_ordem = [(i, (c.get("kicker") or "").strip())
+                  for i, c in enumerate(cenas)
+                  if c.get("layout") == "titulo"]
+    vezes = {}
+    for _, k in pela_ordem:
+        vezes[k] = vezes.get(k, 0) + 1
+    return [k for _, k in pela_ordem if k and vezes[k] == 1]
+
+
+def _indices_dos_capitulos(cenas, caps) -> list:
+    restantes = list(caps)
+    saida = []
+    for i, c in enumerate(cenas):
+        k = (c.get("kicker") or "").strip()
+        if c.get("layout") == "titulo" and restantes and k == restantes[0]:
+            saida.append(i)
+            restantes.pop(0)
+    return saida
+
+
+def aplica_no_longo(cenas, W: float = 1920, H: float = 1080) -> int:
+    """Poe `trilho` e `trilho_atual` em TODA cena, e devolve quantos capitulos.
+
+    LEVANTA em vez de produzir faixa ilegivel:
+      * zero capitulos derivados — nao ha o que desenhar, e inventar seria pior;
+      * trilho que nao CABE na largura — encolher a fonte ate caber e o portao
+        verde fabricado do §3.8. Varrida a frota, isso acontece em 114 das 131
+        specs de longo, todas da geracao em que quase toda cena e `titulo`.
+
+    Muta as cenas no lugar, porque o render le a cena; e idempotente.
+    """
+    caps = capitulos_do_longo(cenas)
+    if not caps:
+        raise ValueError(
+            "ZERO capitulos derivados: nenhuma cena `titulo` com kicker proprio. "
+            "Trilho de nada nao e trilho vazio, e ausencia de leitura (739)."
+        )
+    if not cabe(caps, W, H):
+        raise ValueError(
+            f"o trilho de {len(caps)} capitulos NAO cabe em {W:.0f}px: "
+            f"{relato(caps, W, H)}. Encolher a fonte ate caber e fabricar faixa "
+            "ilegivel — o §3.8. Esta spec e da geracao em que quase toda cena e "
+            "`titulo`, e ela precisa de capitulos de verdade antes do trilho."
+        )
+    marcos = _indices_dos_capitulos(cenas, caps)
+    atual = 0
+    for i, c in enumerate(cenas):
+        while atual + 1 < len(marcos) and i >= marcos[atual + 1]:
+            atual += 1
+        c["trilho"] = list(caps)
+        c["trilho_atual"] = atual
+    return len(caps)
