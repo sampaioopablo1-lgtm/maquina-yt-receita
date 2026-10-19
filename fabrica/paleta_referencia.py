@@ -81,6 +81,15 @@ PALETA = {
     "bg":  CORES_DO_TEMA["bg"],      # o fundo dele, sem mudar
     "ink": CORES_DO_TEMA["txt"],     # o texto dele, sem mudar
     "c1":  CORES_DO_TEMA["acc"],     # o turquesa de destaque, sem mudar
+    # Os layouts de LONGO (`layouts_longo.py`) pedem o par errado/certo e o
+    # painel, que o render do SHORT nunca usou. Eles entram com o NOME do tema,
+    # e as quatro chaves historicas ficam como estao — chave a mais nao muda o
+    # short, que le so `bg`, `ink`, `c1` e `c2`.
+    "red":   CORES_DO_TEMA["red"],
+    "ok":    CORES_DO_TEMA["ok"],
+    "panel": CORES_DO_TEMA["panel"],
+    "mut":   CORES_DO_TEMA["mut"],
+    "acc":   CORES_DO_TEMA["acc"],
     "c2":  CORES_DO_TEMA["panel2"],  # ESCOLHA: o nosso `c2` preenche forma, e
                                      # no video dele forma e PAINEL, nao acento.
                                      # `acc2` (#F5A524) existe no tema e ficou de

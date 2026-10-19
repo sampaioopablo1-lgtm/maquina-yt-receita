@@ -115,7 +115,14 @@ def test_O_DEFEITO_JA_ESTAVA_NO_AR_em_tres_specs_do_nivel_do_jogo():
     claras = []
     for f in sorted(glob.glob(str(RAIZ / "fabrica" / "specs" / "*.json"))):
         pal = json.loads(pathlib.Path(f).read_text(encoding="utf-8")).get("paleta") or {}
-        if "ink" in pal and pr.luma(pal["ink"]) >= 128 and pal != pr.PALETA:
+        # `pal != pr.PALETA` era IDENTIDADE e caiu no mesmo dia: a PALETA ganhou
+        # `red`, `ok`, `panel`, `mut` e `acc` para os layouts de LONGO, e a spec
+        # do `s082` guarda so as quatro historicas. A propriedade e "esta spec
+        # usa o tema novo", e isso se decide pelas QUATRO chaves que o render do
+        # short le. 743/753/761 outra vez.
+        historicas = {k: pal.get(k) for k in ("bg", "ink", "c1", "c2")}
+        do_tema = {k: pr.PALETA[k] for k in ("bg", "ink", "c1", "c2")}
+        if "ink" in pal and pr.luma(pal["ink"]) >= 128 and historicas != do_tema:
             claras.append(pathlib.Path(f).stem)
     assert claras, "a varredura ficou vazia — este teste deixaria de medir"
     assert all(n.startswith("nivel-do-jogo") for n in claras), claras
