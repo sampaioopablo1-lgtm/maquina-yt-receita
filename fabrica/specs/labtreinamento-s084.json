@@ -1,0 +1,95 @@
+{
+ "slug": "labtreinamento-s084",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "bg": "#0E1117",
+  "ink": "#EEF1F5",
+  "c1": "#3DDBD9",
+  "c2": "#1E2430"
+ },
+ "pacote": "labtreinamento-s084",
+ "longo_existente": "StQNFMdpGdk",
+ "thumb": {
+  "l1": "Contínuo",
+  "l2": "não vence"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Prazo: contínuo",
+   "sub": "foi o que você escreveu",
+   "nar": "Você escreveu contínuo."
+  },
+  {
+   "layout": "lista",
+   "kicker": "O que contínuo faz",
+   "itens": [
+    "nunca vence",
+    "nunca cobra"
+   ],
+   "nar": "Contínuo nunca vence."
+  },
+  {
+   "layout": "item",
+   "kicker": "Imediato também não",
+   "nar": "Imediato não é data."
+  },
+  {
+   "layout": "barras",
+   "kicker": "O que a coluna cobra",
+   "itens": [
+    "contínuo",
+    "uma data"
+   ],
+   "alturas": [
+    1,
+    9
+   ],
+   "nar": "Sem data, nada cobra."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ponha uma data",
+   "nar": "Escreva uma data."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Data que passou",
+   "sub": "vale mais",
+   "nar": "Data que passou vale mais."
+  },
+  {
+   "layout": "item",
+   "kicker": "Que prazo que não chega",
+   "nar": "Mais que prazo sem fim."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Com data, aparece",
+   "itens": [
+    "no prazo",
+    "atrasado"
+   ],
+   "alturas": [
+    5,
+    8
+   ],
+   "nar": "Com data, o atrasado aparece."
+  },
+  {
+   "layout": "item",
+   "kicker": "Uma fórmula com HOJE",
+   "nar": "A fórmula com HOJE marca."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Troque contínuo",
+   "sub": "por uma data",
+   "nar": "Troque contínuo por uma data."
+  }
+ ],
+ "copy": "# labtreinamento-s084\n\n## TITULO\nContínuo Não É Prazo: a Coluna do Plano de Ação Que Nunca Cobra Nada de Ninguém\n\n## TITULO SHORT\nContínuo nunca vence\n\n## DESCRICAO\nO plano de ação tem uma coluna de prazo, e o que entra nela decide se o plano cobra ou só enfeita. **Contínuo não vence.** Imediato também não. As duas palavras parecem compromisso e não são: nenhuma delas tem um dia no calendário, logo nenhuma delas chega nunca.\n\n**Uma data que já passou vale mais que um prazo que nunca chega** — porque a data que passou aparece, incomoda e entra em pauta, e o contínuo some. A diferença não é de rigor, é de mecânica: prazo é um ponto no tempo, e estado não é ponto.\n\n**E com data o plano passa a cobrar sozinho:** uma coluna que compara o prazo com a função HOJE e marca atrasado quando a data passou e a ação ainda não está concluída faz o trabalho de lembrar por você. Sem data, essa fórmula não tem o que comparar — ela devolve vazio, e a planilha segue verde com tudo parado dentro.\n\n**O que fazer com isso hoje:** abra a sua coluna de prazo e conte quantas linhas têm uma palavra no lugar de um dia. Cada uma delas é uma ação que ninguém vai cobrar.\n\nNão dou aqui prazo de norma, multa nem data de fiscalização. Número de norma muda por portaria e fica fora. O mecanismo — estado não é data, e sem data nada cobra — não muda.\n\nNo material completo: as quatro abas, as nove colunas do inventário e a verificação de eficácia, que é a coluna que mais falta nos planos.\n\n## COMENTARIO FIXADO\nO menos obvio: a coluna de prazo preenchida com \"contínuo\" deixa o plano VERDE — nada vence, então nada atrasa. Quantas linhas da sua têm palavra em vez de dia?\n\n## HASHTAGS\n#planodeacao #nr1 #seguranca #labtreinamento #Shorts\n\n## TAGS\nplano de acao, prazo, coluna de prazo, funcao hoje, excel, nr 1, riscos psicossociais, gerenciamento de riscos ocupacionais, sesmt, seguranca do trabalho, departamento pessoal, verificacao de eficacia, lab treinamento, auditoria trabalhista, planilha de risco\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. O longo cita portaria, data de\ninicio da fiscalizacao e piso de multa: os tres ficaram FORA pela regra (g),\nporque mudam por norma. A peca nao diz quantos dias um prazo deve ter — isso e\ndecisao de quem planeja, e cravar um numero aqui seria inventar criterio. O que\nela carrega e uma propriedade de FORMA: data e um ponto no calendario, estado\nnao e, e formula de comparacao precisa de ponto.\n\n## FONTES\nA spec local `labtreinamento-002`, que e o pacote do longo `StQNFMdpGdk`\n(planilha de riscos psicossociais da NR-1, 87 cenas de longo no disco). A\nfamilia desta peca sai das cenas 59 a 62 — Prazo, a coluna do atrasado,\nVerificacao da eficacia e Como verificar — e a frase que a ancora e do proprio\nlongo: \"Continuo nao e prazo. Imediato tambem nao. Data que passou vale mais que\nprazo que nunca chega.\" Nenhuma frase desta peca saiu de TITULO de capitulo.\n\n**A origem esta em QUATRO usos — empatada na MENOR contagem do canal** com\n`yrWVyqQtw00` e `KRUERlNPzDw`, contra treze da dominante `FtCtIJPsc_Q`. Entre as\ntres empatadas eu escolhi esta porque ela e de PROCEDIMENTO e FERRAMENTA (uma\ncoluna de planilha, uma formula), e nao de numero do mundo que muda — a distincao\nque esta escrita no `CLAUDE.md` desde 19/10 e que a `yrWVyqQtw00` (prazo de norma)\nnao satisfaz.\n\n**As quatro familias ja usadas desta origem sao OUTRAS, e eu conferi uma a uma\nantes de escrever:** multiplicar em vez de somar as duas notas (`s013`), nivel\nerrado da hierarquia de medidas (`s049`), conclusao escrita no lugar da situacao\n(`s051`) e o corte da faixa como norma em vez de escolha (`s060`). Esta — estado\nno lugar de data na coluna de prazo — nenhuma tocou.\n\n## EXPOSICAO\n**Esqueleto NOVO, e ele nao existe em nenhuma das 103 formas da frota:**\n`titulo-lista-item-barras-item-titulo-item-barras-item-cta`. Varrido o disco\nantes de escrever. Ele usa `barras` DUAS vezes, que e o layout que tinha ZERO uso\nem 205 specs antes de 19/10, e `lista` na segunda cena — posicao em que a frota\nnunca a pos.\n\n**E as barras aqui sao o argumento, nao enfeite:** a cena 4 desenha o que cada\npreenchimento COBRA (contínuo quase nada, uma data tudo) e a cena 8 desenha o que\naparece depois que a data existe (no prazo contra atrasado). Quem assistir sem\nsom ve a tese nos dois graficos.\n\nPrevisao edge **24,6 s** e piper **20,2 s** — os dois DENTRO da mira medida do\ncanal (20,0 a 26,0), conferidos pelo `fabrica/mira.py` e nao de cabeca. A\nprimeira versao previa **30,0 s** no edge e o instrumento REPROVOU; a segunda,\n**25,9**, passava a 0,1 s do teto, e eu encurtei mais pela regra de redacao do\n772 — mirar o PISO quando a voz nao exige o topo.\n\n**A mira verde NAO promete real dentro**, e isso vai dito antes de publicar: pelo\ntally do 744/754/758 a maioria das pecas deste canal narradas pelo edge saiu\nACIMA do teto de 26,0 com o `mira.py` verde. Com a banda em (−1,2; 4,0), se o\nedge narrar o real cai em algum ponto de **(23,4; 28,6)** — e eu nao digo de que\nlado, porque a banda tem 5,2 s de largura contra 1 s de granularidade, e declarar\num lado dela nao e previsao (774).\n\nMaterial informativo.\n"
+}
