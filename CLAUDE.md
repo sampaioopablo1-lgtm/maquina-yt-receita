@@ -3183,6 +3183,29 @@ referência do dono também não tem veredito medido. O que mudou é que **a pe�
 existe e passa os doze portões** — antes disso, nenhum longo com trilho podia
 ser renderizado, e eu havia reportado o contrário três vezes.
 
+### E O `formula` NÃO TINHA GUARDA DE LARGURA — pego uma hora depois, em POLONÊS
+
+**Medido em 19/10 às 13:3x, no `kolejny-poziom-020`.** Com a geometria **já**
+dentro da janela segura, as cenas 17 e 36 — as duas `formula` — saíram com
+**1,32% e 1,02%** de tinta na borda. A causa não é a posição, é o **CORPO**: a
+linha é desenhada centrada com corpo FIXO, e fórmula longa transborda para os
+lados.
+
+**As fórmulas gregas do `epomeno-epipedo-068` eram curtas e passaram por folga**,
+logo o buraco estava **LATENTE** e só apareceu num idioma de palavra comprida.
+É a terceira vez na mesma semana que o buraco é latente e o que o revela é
+simplesmente escrever a peça seguinte.
+
+**E o trilho resolve isto desde que nasceu, com `corpo_que_cabe` — o `formula`
+foi escrito sem olhar para o irmão.** Agora o estimador de largura tem **UM
+dono**, `trilho.largura_estimada` (deixou de ser privado), em vez de nascer um
+segundo no `layouts_longo`. O fator da monospace (0,60 contra 0,52 por
+caractere) fica no layout, porque é da FONTE e não do estimador.
+
+**E ele encolhe COM PISO:** abaixo de 45% do corpo devolve o piso e **deixa o
+portão reprovar**, em vez de fabricar fórmula ilegível para a peça passar — que
+seria o §3.8 em tipografia, igual a encolher a fonte do trilho até caber.
+
 ### E O REGISTRO IA PERDER A LINHA DO LONGO EM SILÊNCIO
 
 **Medido em 19/10 às 13:0x, no PRIMEIRO pacote publicado desde que o
