@@ -1,0 +1,106 @@
+{
+ "slug": "kolejny-poziom-s066",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "bg": "#0B0B0C",
+  "ink": "#F2EEE8",
+  "c1": "#E23B3B",
+  "c2": "#D9C7A7",
+  "red": "#FF4D4D",
+  "ok": "#7FB77E",
+  "panel": "#151517",
+  "mut": "#8F877C",
+  "acc": "#E23B3B"
+ },
+ "pacote": "kolejny-poziom-s066",
+ "longo_existente": "Rj7beZkOeYo",
+ "thumb": {
+  "l1": "Sześć ofert",
+  "l2": "dwie rodziny"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Sześć ofert",
+   "sub": "dwie rodziny",
+   "nar": "W tabelce ofert jest sześć, ale rodziny są tylko dwie."
+  },
+  {
+   "layout": "item",
+   "kicker": "Pierwsza",
+   "preco": "stawka z góry",
+   "nar": "W pierwszej rodzinie stawkę znasz od razu."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Wiesz ile dostaniesz",
+   "itens": [
+    "dziś",
+    "za rok",
+    "za dwa"
+   ],
+   "alturas": [
+    5,
+    5,
+    5
+   ],
+   "nar": "Ta sama kwota, bez względu na to, co się stanie."
+  },
+  {
+   "layout": "item",
+   "kicker": "Druga",
+   "preco": "goni inflację",
+   "nar": "Druga rodzina goni inflację, powiększoną o marżę."
+  },
+  {
+   "layout": "item",
+   "kicker": "Nie wiesz ile",
+   "preco": "ale nie zostajesz w tyle",
+   "nar": "Tu nie wiesz ile, ale nie zostajesz w tyle."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Oś wyboru",
+   "itens": [
+    "pewność kwoty",
+    "ochrona wartości"
+   ],
+   "nar": "I to jest cała różnica między tymi dwiema rodzinami."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Jedno kosztuje drugie",
+   "itens": [
+    "pewność",
+    "ochrona"
+   ],
+   "alturas": [
+    8,
+    8
+   ],
+   "nar": "Nie ma wiersza, który daje oba naraz."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Błąd",
+   "sub": "czytać to jak ranking",
+   "nar": "Błąd to czytać sześć wierszy jako jeden ranking."
+  },
+  {
+   "layout": "item",
+   "kicker": "To nie ranking",
+   "preco": "to dwie obietnice",
+   "nar": "To nie ranking, to dwie różne obietnice."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Najpierw rodzina",
+   "sub": "potem termin",
+   "nar": "Najpierw wybierz rodzinę, a dopiero potem termin."
+  }
+ ],
+ "copy": "# kolejny-poziom-s066\n\n## TITULO\nOfert Jest Sześć, Ale Rodziny Są Dwie — i Wybór Nie Jest Rankingiem, Tylko Osią\n\n## TITULO SHORT\nSześć ofert, dwie rodziny\n\n## DESCRICAO\nTabelka pokazuje sześć wierszy, jeden pod drugim, i czyta się je jak **ranking**:\nod najgorszego do najlepszego. To jest najdroższy błąd w tej tabelce, bo te\nwiersze nie są sześcioma wersjami tej samej rzeczy.\n\n**Rodziny są dwie.** W jednej oprocentowanie jest **ustalone z góry**: wiesz od\nrazu, ile dostaniesz. W drugiej oprocentowanie **goni inflację**, powiększoną o\nmarżę: nie wiesz ile, ale wiesz, że nie zostaniesz w tyle.\n\n**I to jest cała różnica między nimi: pewność kwoty albo ochrona wartości.**\nJedno kosztuje drugie — nie ma wiersza, który daje oba. Dlatego porównywanie\nich jednym spojrzeniem na kolumnę z procentem nie odpowiada na pytanie, które\nmasz przed sobą.\n\n**Co z tym zrobić dziś:** najpierw wybierz **rodzinę**, a dopiero potem termin.\nRodzina odpowiada na pytanie \"czego się boję bardziej\" — tego, że kwota będzie\nniższa, niż liczyłem, czy tego, że ta sama kwota kupi mniej. Termin odpowiada na\ninne pytanie i jest drugi w kolejności.\n\nNie podaję tu procentów, marż ani dat: to zmienia się z emisją i zostaje poza\nmateriałem. Mechanizm — dwie rodziny, jedna oś, jedno kosztuje drugie — nie\nzmienia się.\n\nW pełnym materiale: czym te obligacje są, sześć ofert po kolei, dwa odejmowania\ni próg, oraz która przegrywa i dlaczego.\n\nMateriał informacyjny.\n\n## COMENTARIO FIXADO\nNajmniej oczywiste: tabelka nie jest rankingiem, bo jej wiersze obiecują dwie\nróżne rzeczy. Która obietnica jest twoja — pewność kwoty czy ochrona wartości?\n\n## HASHTAGS\n#obligacje #oszczednosci #inflacja #kolejnypoziom #Shorts\n\n## TAGS\nobligacje skarbowe, obligacje oszczednosciowe, oprocentowanie stale, obligacje indeksowane inflacja, ochrona wartosci, pewnosc kwoty, oszczedzanie, finanse osobiste, lokata czy obligacje, skarb panstwa, marza, inflacja, budzet domowy, kolejny poziom, jak oszczedzac\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. O longo e cheio deles — seis\npercentuais de oferta, o imposto de 19%, a inflacao do mes segundo o GUS, o preco\nde 100 zl por titulo, duas datas e o volume de compra do mes — e TODOS ficaram\nFORA pela regra (g), porque mudam por emissao e por leitura do GUS. O \"seis\" e o\n\"duas\" contam LINHAS E FAMILIAS da propria tabela do Ministerio, que e estrutura\nda oferta e nao numero do mundo; e a peca nao diz qual oferta e qual.\n\n## FONTES\nA spec local `fabrica/specs/kolejny-poziom-006.json`, 85 capitulos, que e a\norigem `Rj7beZkOeYo`. O trecho sao os capitulos 19 a 22, nesta ordem:\n*\"Ofert jest szesc, ale rodziny sa dwie\"*, *\"W tych pierwszych wiesz od razu,\nile dostaniesz\"*, *\"W tych drugich, od drugiego roku, dostajesz inflacje\npowiekszona o marze\"* e *\"Pewnosc kwoty albo ochrona wartosci. Jedno kosztuje\ndrugie\"*. **Nenhuma frase desta peca saiu de TITULO de capitulo** — as quatro\nvem da NARRACAO.\n\n**A origem esta em DOIS usos — a MENOR contagem do canal**, empatada com outras\nseis das dezenove origens, e foi escolhida entre as empatadas por ter 85\ncapitulos (a maior reserva de familias) e por NAO ser a `QiaGg03WSR0`, que o\n`CLAUDE.md` registra como id errado declarado por duas specs deste canal.\n\n**As duas familias dela ja usadas sao de OUTRO eixo:** *\"krotka czy dluga, policz\nodnowienia\"* (`s008`) e *\"wybierasz tabelka czy wlasnym terminem\"* (`s025`) falam\nas duas de PRAZO. Esta fala de TIPO DE OPROCENTOWANIE — fixo contra indexado —,\nque e o eixo perpendicular, e por isso ela nao repete nenhuma das duas. A\ndistincao vai escrita porque a `s025` e a mais proxima: ela diz \"nao escolha pela\ntabela, escolha pelo seu horizonte\"; esta diz \"antes do horizonte, escolha a\nFAMILIA\".\n\n## EXPOSICAO\n**Esqueleto NOVO:** `titulo-item-barras-item-item-lista-barras-titulo-item-cta`,\nque nao existe em nenhuma spec da frota, com `barras` DUAS vezes. Isto segue a\ncorrecao de 19/10, depois de o dono apontar que as pecas pareciam todas iguais —\n`item` e `titulo` eram 93% das 1.667 cenas e `barras` tinha ZERO uso em 205\nspecs. E as barras carregam o argumento: a cena 3 desenha a quantia que NAO varia\ne a cena 7 desenha as duas promessas do mesmo tamanho, que e o \"jedno kosztuje\ndrugie\".\n\nPrevisao edge **41,8 s** e piper **35,6 s** — dentro de 18 a 45 nos DOIS\nmundos, e o edge junto ao PISO da faixa da frota. O `kolejny-poziom` **nao** tem\n`ALVO_POR_CANAL`, logo a faixa e a da frota (41,5 a 43,0) e o portao cobra 18 a\n45 nos DOIS mundos. **Mirei o PISO**, que e a redacao que o `CLAUDE.md` registra\npara este canal.\n**E a exposicao vai declarada sem escolher lado:** com a banda em (-1,2; 4,0), se\no edge narrar o real cai em algum ponto de (40,6; 45,8) — e o teto do portao e\n45. Eu nao digo de que lado, porque a banda tem 5,2 s de largura contra 1 s de\ngranularidade e declarar um lado dela nao e previsao (774).\n"
+}
