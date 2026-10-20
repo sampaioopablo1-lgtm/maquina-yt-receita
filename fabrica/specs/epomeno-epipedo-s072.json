@@ -1,0 +1,131 @@
+{
+ "slug": "epomeno-epipedo-s072",
+ "pacote": "epomeno-epipedo-s072",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "longo_existente": "os51d8fA0sY",
+ "longo": [],
+ "thumb": {
+  "l1": "Άλλαξε τιμή",
+  "l2": "ή μαγαζί;"
+ },
+ "paleta": {
+  "bg": "#F4EFE6",
+  "ink": "#1B1A17",
+  "c1": "#C8502A",
+  "c2": "#2B6CB0",
+  "red": "#B83227",
+  "ok": "#2E8B57",
+  "panel": "#FFFFFF",
+  "mut": "#7A7263",
+  "acc": "#C8502A"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Δύο αλλαγές μαζί",
+   "sub": "μία μέτρηση",
+   "nar": "Άλλαξε η τιμή ή άλλαξες μαγαζί;"
+  },
+  {
+   "layout": "item",
+   "kicker": "Το ίδιο προϊόν",
+   "nar": "Ίδιο προϊόν, άλλη τιμή αλλού."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Τρεις στήλες",
+   "itens": [
+    "Το προϊόν",
+    "Η τιμή",
+    "Το μαγαζί"
+   ],
+   "nar": "Τρεις στήλες, όχι δύο."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Ίδιο ψωμί, άλλο ταμείο",
+   "barras": [
+    {
+     "rotulo": "Μαγαζί Α",
+     "valor": 5
+    },
+    {
+     "rotulo": "Μαγαζί Β",
+     "valor": 7
+    }
+   ],
+   "nar": "Ίδιο ψωμί, δύο ταμεία."
+  },
+  {
+   "layout": "item",
+   "kicker": "Χωρίς τη στήλη",
+   "nar": "Χωρίς τη στήλη, μαντεύεις."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Η απόδειξη",
+   "sub": "όχι η μνήμη",
+   "nar": "Γράψε από απόδειξη, όχι μνήμη."
+  },
+  {
+   "layout": "item",
+   "kicker": "Η μνήμη έχει διάθεση",
+   "nar": "Θυμωμένοι, στρογγυλεύουμε πάνω."
+  },
+  {
+   "layout": "item",
+   "kicker": "Και ανάποδα",
+   "nar": "Ήσυχοι, στρογγυλεύουμε κάτω."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Τι μένει σταθερό",
+   "itens": [
+    "Τα δέκα προϊόντα",
+    "Το μαγαζί",
+    "Η μέρα"
+   ],
+   "nar": "Κράτα σταθερά τα ίδια δέκα."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Αλλάζει ένα, μόνο",
+   "barras": [
+    {
+     "rotulo": "Ίδιο μαγαζί",
+     "valor": 4
+    },
+    {
+     "rotulo": "Άλλο μαγαζί",
+     "valor": 8
+    }
+   ],
+   "nar": "Αλλάζεις ένα πράγμα τη φορά."
+  },
+  {
+   "layout": "item",
+   "kicker": "Η προσφορά",
+   "nar": "Η προσφορά δεν είναι τιμή."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ο δικός σου ρυθμός",
+   "sub": "μία διαίρεση",
+   "nar": "Η διαφορά διά το πρώτο."
+  },
+  {
+   "layout": "item",
+   "kicker": "Μη γίνει εμμονή",
+   "nar": "Μία φορά τον μήνα αρκεί."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Γράψε το μαγαζί",
+   "sub": "δίπλα στην τιμή",
+   "nar": "Βάλε τη στήλη του μαγαζιού."
+  }
+ ],
+ "copy": "# epomeno-epipedo-s072\n\n## TITULO\nGiati i Stili tou Magaziou Allazei to Noumero tou Kalathiou Sou\n\n## TITULO SHORT\nΆλλαξε η τιμή ή το μαγαζί;\n\n## DESCRICAO\nΤο δικό σου καλάθι μετριέται με δέκα προϊόντα και δύο αθροίσματα, έναν μήνα\nμακριά. Και σχεδόν όλοι γράφουν δύο στήλες: το προϊόν και την τιμή.\n\n**Λείπει η τρίτη, και είναι το μαγαζί.** Χωρίς αυτήν, τον επόμενο μήνα δεν\nξέρεις αν άλλαξε η τιμή ή αν άλλαξες εσύ κατάστημα. Το ίδιο ψωμί έχει άλλη\nτιμή σε άλλο ταμείο, άρα το δεύτερο άθροισμα μπορεί να ανέβει χωρίς να ανεβεί\nτίποτα — και η πράξη βγάζει κανονικό αποτέλεσμα, που κανείς δεν σου λέει ότι\nμετράει άλλο πράγμα.\n\n**Η διόρθωση δεν θέλει κανένα στοιχείο που δεν έχεις: μία στήλη παραπάνω στο\nίδιο φύλλο.** Και η τιμή γράφεται από την απόδειξη, όχι από μνήμη: η μνήμη\nστρογγυλεύει προς τα πάνω όταν είμαστε θυμωμένοι και προς τα κάτω όταν\nείμαστε ήσυχοι. Η απόδειξη δεν έχει διάθεση.\n\n**Ο κανόνας είναι ένας και είναι γενικός: αλλάζεις ένα πράγμα τη φορά.** Ίδια\nδέκα προϊόντα, ίδιο μαγαζί, ίδια μέρα του μήνα. Και η προσφορά δεν είναι η\nτιμή — αν το ένα άθροισμα έπεσε χάρη σε μία προσφορά, δεν έπεσε ο δικός σου\nρυθμός, έπεσε εκείνη η εβδομάδα.\n\n**Τι να κάνεις σήμερα:** άνοιξε το φύλλο και βάλε τη στήλη του μαγαζιού δίπλα\nστην τιμή. Μία φορά τον μήνα αρκεί, και δεν χρειάζεται να γίνει εμμονή.\n\nΔεν δίνω εδώ τιμές, ποσοστά ούτε στόχο. Αυτά αλλάζουν και μένουν έξω. Ο\nμηχανισμός είναι αυτός που μετράει: η σύγκριση ισχύει μόνο όταν αλλάζει ένα\nπράγμα.\n\n## COMENTARIO FIXADO\nΤο λιγότερο προφανές: αν γράφεις τιμές από δύο διαφορετικά μαγαζιά, το νούμερο\nπου βγαίνει δεν είναι ο πληθωρισμός σου — είναι η διαφορά των δύο ταμείων.\nΈχεις τη στήλη του μαγαζιού στο φύλλο σου;\n\n## HASHTAGS\n#οικονομικα #πληθωρισμος #καλαθι #epomenoepipedo #Shorts\n\n## TAGS\nκαλαθι, τιμες, πληθωρισμος, αποδειξη, μαγαζι, συγκριση, δεκα προιοντα, προσωπικα οικονομικα, φυλλο, μετρηση, epomeno epipedo, σουπερμαρκετ, προσφορα, μηνιαια μετρηση, οικογενειακος προυπολογισμος\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Os unicos numeros falados sao\n\"τρεις\" (as colunas), \"δύο\" (os caixas e as colunas antigas), \"δέκα\" (os\nprodutos) e \"μία φορά τον μήνα\" — todos contagem do PROPRIO procedimento, que a\nspec de origem ja fixa. Os valores das barras sao ILUSTRACAO da aritmetica\n(mesmo pao, dois caixas diferentes) e NAO sao falados nem medidos de ninguem.\nPreco, percentual e prazo ficaram FORA pela regra (g).\n\n## FONTES\nA spec local `epomeno-epipedo-006`, que e o pacote do longo `os51d8fA0sY` — 87\ncapitulos, **80 NAO MENCIONADOS** pelos tres shorts anteriores, medido pelo\n`segundo_angulo.nao_mencionados`. A familia desta peca sai dos capitulos 45 a\n52 e 62: *\"γράψε δίπλα και το μαγαζί — χωρίς αυτό, τον επόμενο μήνα δεν θα\nξέρεις αν άλλαξε η τιμή ή αν άλλαξες εσύ κατάστημα\"*, *\"η μνήμη στρογγυλεύει\nπρος τα πάνω όταν είμαστε θυμωμένοι… η απόδειξη δεν έχει διάθεση\"*, *\"τα ίδια\nδέκα προϊόντα\"* e *\"ο δικός σου ρυθμός\"*. Nenhuma frase desta peca saiu de\nTITULO de capitulo.\n\n**E ELA E A QUARTA FAMILIA DESTE MESMO LONGO, de proposito.** O `s012` mede o\nTEU cabaz, o `s031` e mesmo preco com menos gramas, o `s063` e desaceleracao\nnao e queda. Esta usa a **COLUNA DO MAGAZIN** — isto e, a comparacao que troca\nDUAS coisas ao mesmo tempo —, que nenhum short do canal tocou.\n\n**E A CONTAGEM DECLARADA DO LONGO FICOU DE FORA, de proposito:** o\n`epomeno-epipedo-006` declara *\"Τέσσερα λάθη\"* no capitulo 73 e enumera CINCO\n(o 79 diz *\"Υπάρχει και ένα πέμπτο\"*). E um dos quatro conflitos que o\n`contagem_declarada.py` nomeia, e carregar a contagem seria por numero errado\nno ar com portao verde.\n\n**E A ORIGEM DOMINANTE DESTE CANAL FICOU DE FORA, com o alerta na mao:** o\n`concentracao.py` acusou `nttW9fR8wyY` com **12 de 71** shorts (17%), mais que o\ndobro da segunda (4). O portao `similaridade` e de MONETIZACAO, e concentracao\nde origem ataca justamente ele.\n\n## EXPOSICAO\n**CATORZE CENAS, e a frota NAO TINHA NENHUMA.** As contagens existentes eram 2,\n4, 5, 6, 7, 8, 9, 10, 11, 12, 13 e 40 — medido pelo\n`esqueleto_entre_canais.varre()`, nao por um laco escrito na hora. O catorze e\no UNICO numero ausente entre 2 e 15, e 15 e o teto MEDIDO desta voz\n(`mira.teto_de_cenas`).\n\n**E A CONTAGEM SAIU DO INSTRUMENTO, nao da minha cabeca:** o\n`contagem_de_cenas.py` recusou escolher — NENHUMA contagem de 2 a 20 abre\njanela nos dois mundos no `ALVO_SHORT` da frota, que e a pinca do 740/748 — e\ndevolveu a cadencia de cada uma. Catorze cenas dao **2,98 s por plano** contra\n3,19 de treze; a distancia dos ~3,1 s medidos em 690/699 e **0,12 contra 0,09**,\nisto e, 0,03 s por plano, muito abaixo de qualquer resolucao. Escolhi o catorze\npela NOVIDADE de forma, que e o que o dono pediu em 19/10 — e digo que a\ncadencia nao distingue as duas, em vez de a vender como critério.\n\n**ORCAMENTO: 26 caracteres por cena** para o PISO da faixa (41,5), do\n`mira._chars_para_o_real` invertendo a previsao REAL do edge. O piso OBSERVADO\nde caracteres por cena da frota e 21, logo 26 nao e grego telegrafico — mas e a\npeca de MENOR media deste canal, **26,7 contra 37,2 da segunda**, e isso vai\ndito. A forma e inedita nas **120** formas da frota, e o TAMANHO tambem.\n\n**E NENHUM orcamento poe os dois mundos na faixa**, em contagem de cena\nnenhuma: a razao piper/edge desta voz e 0,886 e o vao vale ~4,7 s contra 1,5 s\nde faixa. Mirei o PISO pela regra de redacao do 772 e declaro a exposicao em\nvez de prometer o real dentro.\n\n**TODO LAYOUT SAIU DO CONJUNTO SONDADO** pelo `layouts_do_short.desenham()`,\ncom um `assert` no builder que recusa layout fora dele — consequencia direta do\ncartao em branco que foi ao ar no `ZySLot-Cvo4`.\n"
+}
