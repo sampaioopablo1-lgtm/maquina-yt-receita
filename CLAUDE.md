@@ -4895,6 +4895,49 @@ mao (o parque tem **onze** sem leitura) — e `RESIDUO_N` segue **128**.
 **COTA: TRES envios na janela aberta as 07:00Z**, 4.800 unidades, contra o piso
 MEDIDO de **>= 41.600** que a janela anterior fechou.
 
+### E A SUITE ACUSOU DUAS FALHAS NOVAS — porque o instrumento FUNCIONOU
+
+**As duas eram do `test_ele_nao_sabia_o_que_o_canal_ACABOU_de_publicar.py`, que
+eu escrevi as 05:2x de hoje**, e as duas liam o parque **VIVO** exigindo que
+ALGUM dos tres canais colidisse em tamanho de cena com as suas duas ultimas
+pecas. Medido: **nenhum dos tres colide mais** — `labtreinamento` False,
+`epomeno-epipedo` False, `kolejny-poziom` False.
+
+**A causa e que eu segui o instrumento tres rodadas seguidas.** A escolha por
+`por_cadencia_sem_repetir` / `por_cadencia_servivel` espalhou os tamanhos (8, 6,
+13, 11, 12 nas ultimas), e com eles espalhados a colisao deixa de ocorrer. **Logo
+o teste passou a reprovar porque o defeito que ele mede foi consertado e o
+conserto foi usado** — e exigir que o defeito continue aparecendo e punir o
+acerto.
+
+**E a licao e a de 18/10 as 09:2x, com a colisao no lugar da origem:** *"teste que
+ancora em id de origem LIVRE reprova quando a pauta for consumida — e consumir
+pauta e o trabalho"*. O proprio docstring daquele arquivo ja carregava a
+disciplina certa para o outro teste dele — *"a janela do `K` e cobrada na
+FRONTEIRA, com parque proprio: ancorar no vivo seria identidade onde ha
+propriedade (743/753/761)"* — e **os dois testes que reprovaram eram exatamente
+os dois que a quebravam.** Decima primeira vez da classe.
+
+**RETRATADOS NO LUGAR, e o que ficou cobrado e mais forte:** a propriedade e que
+a FUNCAO discrimina — com um parque PROPRIO construido para colidir ela acusa, e
+sem recencia nenhuma ela nao acusa —, agora cobrada **nos tres canais** em vez de
+em um; e o vivo recebe **veredito para TODO canal** (campo presente e booleano),
+podendo legitimamente nao colidir, **com a frase da alternativa cobrada apenas SE
+ele voltar a colidir** — propriedade condicional, que nao pune o acerto.
+
+**E o teste chamou o DONO da frase, nao o `relato`:** o `relato` le o parque vivo
+por conta propria e nao aceita `recentes=`, logo a conferencia passou por
+`_linha_da_recencia(e)`. Reescrever a linha dentro do teste criaria o segundo
+dono dela — e e o mesmo tropeco que eu tive as 07:4x com o `_linha_da_folga`.
+
+**A PASSADA DE CONFIRMACAO AINDA ESTAVA RODANDO quando este commit foi feito, e
+o numero vai DITO como ausente em vez de afirmado** — a licao de 20/10 as 01:4x.
+O que esta medido e a passada ANTERIOR, antes da retratacao: **27 falhas**, com o
+`comm` acusando exatamente estas duas como novas e **zero desaparecidas**, e o
+arquivo retratado passando isolado em **12 de 12**. O conjunto contra a linha de
+base desta sessao (25) entra no relato assim que a passada fechar, medida pelo
+`processo_vivo` e nao pelo `pgrep`.
+
 ## A PAUTA ERA A QUARTA PERGUNTA DO PASSO ZERO, E NAO TINHA DONO
 
 **Medido em 20/10 as 08:2x, escrevendo o `labtreinamento-s091`.** O
