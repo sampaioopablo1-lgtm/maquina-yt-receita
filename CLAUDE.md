@@ -1143,6 +1143,31 @@ confiar numa forma por ser nova.
 "dez a CATORZE" sem conferir a sobrecarga. Doze cenas estourariam o teto de 43,1
 só em silêncio, então o teto real no alvo atual é **onze**.
 
+**E ESSA CORREÇÃO FOI RETRATADA EM 20/10 ÀS 00:3x — o ONZE era de UM CANAL.**
+Medido com o `ensaio`, SÓ de silêncio: doze cenas custam **20,06 s** na voz
+grega, **21,91** na polonesa e **13,43** no pt-BR — menos da METADE do teto. A
+frase acima estava certa no QUADRO dela e errada como frase da frota, que é a
+assinatura do 679/698/725:
+
+| voz | faixa | teto MEDIDO de cenas |
+|---|---|---|
+| `pt-BR` | mira do `labtreinamento` (20,0 a 26,0) | **11** |
+| `el-GR` | `ALVO_SHORT` da frota (41,5 a 43,0) | **15** |
+| `pl-PL` | idem | **14** |
+
+**E o custo foi de VARIEDADE:** eu limitei todo esqueleto a onze cenas por causa
+desse número, e a frota não tinha **nenhuma** peça de doze até a desta rodada. O
+teto só faz sentido com um piso de caracteres, e o piso é **OBSERVADO** — 21, a
+média por cena do `labtreinamento-s081`, a menor do disco —, não escolhido.
+`mira.teto_de_cenas(voz, faixa)`, e
+`tests/test_o_teto_de_ONZE_cenas_era_de_UM_canal.py` com sete testes: o teto é
+cobrado na **FRONTEIRA** (o teto cabe, o teto + 1 não), um exige que os três
+quadros **DIVIRJAM** — se convergirem volta a existir teto de frota e isto se
+relê —, um **guarda que o onze estava CERTO no quadro dele** (senão a retratação
+viraria "o número era lixo"), o piso é **reconferido contra o disco** (753), a
+conta é delegada ao `ensaio` por AST, e um **falha se a peça de doze cenas sair
+do disco**.
+
 **SEGUNDA CORREÇÃO, de 11/10, e é do número que eu pus aqui:** eu escrevi
 "~1,9 s fixos por cena" e usei isso como se fosse da frota. **Não é fixo e não é
 da frota** — a sobrecarga é `P + 0,300`, e **P é por VOZ e por FRASE**: 1,04 s no
@@ -4148,6 +4173,55 @@ piso de resolucao 1,84/dia, faltam **13,8 h** para o criterio do 723. **COTA:**
 **vinte** envios na janela de 07:00Z, **32.000** unidades contra o piso MEDIDO
 de **>= 40.000** — e o numero sai do `janela_de_cota`, nao de um laco escrito na
 hora.
+
+## EU ESCREVI A PALETA A MAO E OS DEZ PORTOES PASSARAM LIMPOS
+
+**Medido em 20/10 as 00:3x, na peca que eu estava escrevendo.** Inventei a paleta
+do `epomeno-epipedo-s071` de cabeca, e as **NOVE** chaves contradiziam a do
+canal. E este arquivo diz, em letra, desde 19/10: a identidade visual sai de
+`fabrica/paleta_referencia.PALETA` / `temas_do_dono.paleta_do_canal`, **"nunca
+escrita a mao"**.
+
+**E O `antes_do_render` RODOU OS DEZ PORTOES BARATOS LIMPOS COM A PALETA ERRADA**
+— medido, nao suposto: o `identidade` confere trilha e faixa do canal, e **nao
+compara a paleta com a do dono**. Eu so vi porque fui conferir contra a spec
+anterior.
+
+**E o custo e exatamente o que o dono reclamou:** *"os videos publicados me
+parecem todos a mesma dinamica, imagens, formas, estilo. Em todos os canais.
+Ajuste."* Peca com identidade inventada por mim, com portao verde, e a falha que
+ele nomeou.
+
+**POR QUE NAO VIROU PORTAO, e o numero vem antes da decisao:** varridas as specs
+dos tres canais vivos, **252 CONTRADIZEM** a paleta do dono e **23** sao
+compativeis. A maioria e a geracao anterior a 19/10, quando a paleta trocou —
+portao aqui reprovaria o parque, que e o argumento pelo qual o `mira.py` tambem
+nao e portao. `fabrica/paleta_da_spec.py` entrou como **quarto instrumento do
+`antes_do_render`**, com codigo de saida sempre zero.
+
+**E A MINHA PRIMEIRA CONTAGEM ESTAVA INFLADA, do jeito que o 725 descreve:** eu
+comparei os dicionarios com `==` e contei **255**. Tres delas so tinham MENOS
+chaves, com todos os valores iguais — **subconjunto nao e contradicao**. Pego
+antes de relatar, porque detector que inventa achado e pior que nao ter detector.
+
+`tests/test_eu_escrevi_a_PALETA_a_mao_e_o_portao_passou_limpo.py`, nove testes: a
+varredura sai do DISCO e reprova com menos de 100 specs, a contraprova vai nos
+**dois** sentidos (a peca certa sai compativel, e UMA chave trocada ja e
+acusada), um trava que **subconjunto nao acusa**, um **falha se os portoes
+passarem a pegar paleta errada** (porque ai esta nota se rele), a delegacao e
+cobrada por **AST** e **nenhum hex pode morar no modulo** — copiar hex ali criaria
+o TERCEIRO dono da identidade visual.
+
+**E UM TESTE MEU DA VESPERA REPROVOU, pela DECIMA vez da classe 743/753/761:** o
+`test_ele_chama_os_TRES_instrumentos` cravava
+`set(INSTRUMENTOS) == {"mira","acento","gancho"}` — identidade onde a afirmacao
+era propriedade. Quando o quarto instrumento entrou, ele reprovou um
+comportamento CORRETO. Retratado no lugar: a propriedade e que **todo nome de
+`INSTRUMENTOS` e chamado pelo `relato` DELE** e a marca de cada um aparece no
+relato, derivada da constante. **E a primeira versao do meu teste novo tambem
+estava errada** — ele gravava a spec torta com outro NOME de arquivo, e o
+`identidade` reprovou por `pacote != nome do arquivo`: era o teste errado, nao o
+modulo, e a reprovacao nao era o portao pegando a paleta.
 
 ## O GANCHO TEM DOIS LIMITES NA MESMA CENA, E EU OS CONCILIEI A MAO
 

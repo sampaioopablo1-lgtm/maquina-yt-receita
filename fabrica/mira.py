@@ -272,6 +272,57 @@ def janela_dos_dois_mundos(voz: str, n_cenas: int,
     return (ok[0], ok[-1]) if ok else None
 
 
+CHARS_MINIMOS_OBSERVADOS = 21   # media por cena do `labtreinamento-s081`, a
+                                # MENOR do disco (a peca de 5 s, 2 cenas).
+                                # Nao e limiar escolhido: e o piso que a
+                                # producao real ja usou e que foi medido como
+                                # correto. Quem o reconfere e o teste, varrendo
+                                # o disco — numero medido que ninguem reconfere
+                                # envelhece calado (753).
+
+
+def teto_de_cenas(voz: str, faixa: tuple,
+                  chars_minimos: int = CHARS_MINIMOS_OBSERVADOS) -> dict:
+    """Quantas cenas AINDA cabem na faixa, nesta voz, com texto legivel.
+
+    POR QUE EXISTE (20/10, 00:3x). O `CLAUDE.md` dizia, desde 11/10, que *"doze
+    cenas estourariam o teto de 43,1 so em silencio, entao o teto real no alvo
+    atual e onze"*. **Medido, doze cenas custam 20,06 s de silencio na voz
+    grega** — menos da METADE do teto — e o numero de 11/10 foi generalizado de
+    UMA voz e de um alvo que mudou depois. Eu venho limitando o esqueleto a onze
+    cenas por causa dele, e por isso a frota nao tinha nenhuma peca de doze.
+
+    **A sobrecarga por cena e `P + 0,300` e P e por VOZ** (nota de 11/10), logo o
+    teto nao pode ser um numero da frota: ele e 15 na voz grega, 14 na polonesa
+    e maior no pt-BR, para a faixa da frota.
+
+    O teto SO faz sentido com um piso de caracteres, senao a resposta e "cenas
+    de um caractere", que nao e peca. O piso e OBSERVADO
+    (`CHARS_MINIMOS_OBSERVADOS`), nao escolhido.
+
+    Devolve `teto`, a `janela` de caracteres nesse teto, e o `silencio` — o
+    quanto a contagem custa sem texto nenhum, que e a conta que o numero de
+    11/10 errou.
+    """
+    piso, teto_s = float(faixa[0]), float(faixa[1])
+    maior, janela = None, None
+    for n in range(1, 61):
+        so_silencio = ensaio.duracao_real_prevista(
+            [{"nar": "x"} for _ in range(n)], voz, "edge")
+        if so_silencio > teto_s:
+            break
+        ok = [c for c in range(int(chars_minimos), 241)
+              if piso <= ensaio.duracao_real_prevista(
+                  [{"nar": "x" * c} for _ in range(n)], voz, "edge") <= teto_s]
+        if ok:
+            maior, janela = n, (ok[0], ok[-1])
+    return {"voz": voz, "faixa": (piso, teto_s), "chars_minimos": int(chars_minimos),
+            "teto": maior, "janela": janela,
+            "silencio_no_teto": None if maior is None else round(
+                ensaio.duracao_real_prevista(
+                    [{"nar": "x"} for _ in range(maior)], voz, "edge"), 2)}
+
+
 def _linha_do_orcamento(spec: dict) -> list:
     """A frase do orcamento, com UM dono.
 
