@@ -90,6 +90,49 @@ apresenta-la como a do defeito.
 como SEGUNDA. Irmao COM o campo **nao** recebe esse bloco: o campo e o dono
 quando existe, e imprimir as duas coisas criaria o segundo dono da familia.
 
+**E EM 20/10 AS 17:4x ELE REPORTAVA COMO DECLARADO O CAPITULO QUE O IRMAO DIZ
+NAO TER LEVADO.** O `_capitulos_declarados` casava `capitulos N a M` em QUALQUER
+lugar da copy, e a geracao antiga escreve, em prosa, um bloco
+*"O QUE EU NAO LEVEI, de proposito, e vai escrito para a proxima rodada achar:
+as quatro dzwignie que FUNCIONAM (capitulos 52 a 61)"*. O relato saia dizendo
+*"capitulos que ele declara: 52 a 61"* — **o oposto do que a frase diz**, e no
+`kolejny-poziom-s022` esse bloco e a UNICA citacao de capitulo da copy, logo
+**10 de 10** dos "declarados" dele eram negados.
+
+**E o custo e de PAUTA, nao de relato: capitulo que o irmao deixou de proposito
+aparecia como consumido**, e e justamente a reserva que ele escreveu para a
+rodada seguinte achar. Medido nas specs de SHORT SOLTO com copy, que e a
+populacao que este modulo serve: **15 de 242** tinham capitulo negado contado
+como declarado, e em duas delas (`kolejny-poziom-s022` e
+`epomeno-epipedo-s022`) era a lista INTEIRA.
+
+**TRES DETECTORES MEUS ERRARAM ANTES DO QUE MEDE, e os tres vao escritos porque
+cada um erra de um jeito diferente:** por LINHA achei **1** caso (a negacao mora
+uma linha acima da citacao); por PARAGRAFO, aceitando co-ocorrencia, achei
+**37** (a maioria era bloco de numero `DESCARTADO` e contagem de reserva das
+`## FONTES` — co-ocorrencia nao e negacao); e exigindo o marcador em **negrito**
+achei **ZERO**, porque no acervo ele e prosa nua. O terceiro e o 17/10 outra vez:
+instrumento que devolve vazio nao prova ausencia, e eu quase relatei que o
+defeito nao existia depois de o ter visto na peca.
+
+**O MARCADOR E UM SO E E MEDIDO, e os outros TRES ficaram de fora com o motivo:**
+`DESCARTADO` (73 blocos), `ficaram FORA` (41) e `ficou FORA` (17) tambem citam
+capitulo, e ali o capitulo e em boa parte a **PROCEDENCIA da recusa** — o
+`kolejny-poziom-s074` cita os capitulos 9 e 12 para dizer por que o numero deles
+nao entrou, isto e, ele LEU os dois. Excluir esses faria o contrario do conserto:
+capitulo consumido voltaria a parecer livre, e a trava da regra (f) ficaria cega.
+Seria detector que inventa achado (725), e por isso o conjunto e `MARCAS_DE_NEGACAO`
+com UMA entrada e a medida ao lado.
+
+**PONTO CEGO DECLARADO:** a negacao e PROSA, logo irmao que a escreva com outras
+palavras nao e pego — e eu nao sei quantos sao, porque sabe-lo exigiria ler as
+242 copies. O que esta medido e o marcador que o acervo repete.
+
+**E NOMEAR EM VEZ DE FILTRAR:** o negado nao desaparece, sai em linha PROPRIA do
+relato como RESERVA que o irmao deixou escrita — e irmao cujo declarado fica
+VAZIO depois da exclusao **diz isso**, em vez de a linha sumir, porque linha que
+desaparece se le como "ele nao declarou capitulo nenhum".
+
 **O que ele NAO faz:** decidir se duas familias sao a mesma. Isso e leitura, e
 nenhum limiar de similaridade de string distingue "o limiar e relativo" de "o
 indicador mede renda e nao patrimonio" — as duas frases falam do mesmo limiar.
@@ -106,6 +149,11 @@ RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CAMPO_FAMILIA = "FAMILIA DE ENTRADA ERRADA"
 # A geracao antiga nao tinha o campo e registrava em prosa nestes blocos.
 BLOCOS_DE_PROSA = ("O QUE EU NAO LEVEI", "AVISO SOBRE OS NUMEROS", "AVISO")
+# Marcador MEDIDO do bloco em que o irmao declara o que NAO levou: 19 ocorrencias
+# nas 242 specs de short solto com copy. `DESCARTADO` (73 blocos), `ficaram FORA`
+# (41) e `ficou FORA` (17) ficam de FORA de proposito — ali o capitulo citado e em
+# boa parte a PROCEDENCIA da recusa de um NUMERO, isto e, capitulo que a peca LEU.
+MARCAS_DE_NEGACAO = ("O QUE EU NAO LEVEI",)
 
 
 def _secao(copy: str, nome: str) -> str:
@@ -123,8 +171,14 @@ def _narracao(spec: dict) -> list:
     """A narracao do short do irmao, cena por cena — a fonte de PRIMEIRA mao.
 
     Ela e o que foi AO AR, e por isso nao depende de o autor ter escrito campo
-    nem bloco de prosa. Medido em 20/10: 66 das 379 specs de short com copy nao
-    tem campo nem prosa, e as 66 tem narracao.
+    nem bloco de prosa.
+
+    **O numero que morava aqui — "66 das 379 specs" — e o que o docstring do
+    modulo RETRATA: as 66 eram PACOTES, que `irmaos()` nem considera irmao.**
+    Ele ficou nesta funcao depois de retratado la em cima, o que e o 753 em
+    forma de docstring: duas contas da mesma coisa, uma corrigida. Na populacao
+    certa sao **242** specs de short solto com copy e **ZERO** ficam so com o
+    titulo. Quem recontra isso e o teste, nao esta frase.
     """
     saida = []
     for c in (spec.get("short") or []):
@@ -134,16 +188,55 @@ def _narracao(spec: dict) -> list:
     return saida
 
 
-def _capitulos_declarados(copy: str) -> list:
-    """Numeros que a copy diz ter usado — a geracao antiga os escreve em prosa."""
+def _citados(trecho: str) -> set:
+    """Todo capitulo que um trecho de prosa cita — sem julgar o sinal."""
     achados = set()
-    for m in re.finditer(r"capitulos?\s+(\d{1,3})\s*a\s*(\d{1,3})", copy, re.I):
+    for m in re.finditer(r"capitulos?\s+(\d{1,3})\s*a\s*(\d{1,3})", trecho, re.I):
         a, b = int(m.group(1)), int(m.group(2))
         if a <= b and b - a < 60:
             achados.update(range(a, b + 1))
-    for m in re.finditer(r"[Cc]apitulo\s+(\d{1,3})\b", copy):
+    for m in re.finditer(r"[Cc]apitulo\s+(\d{1,3})\b", trecho):
         achados.add(int(m.group(1)))
-    return sorted(achados)
+    return achados
+
+
+def _blocos_de_negacao(copy: str) -> list:
+    """Os intervalos de texto em que o irmao declara o que NAO levou.
+
+    O marcador e PROSA NUA no acervo (exigir negrito devolveu ZERO), e o bloco
+    vai dele ate o fim do PARAGRAFO — por linha a negacao fica de fora, porque
+    ela mora uma linha acima da citacao.
+    """
+    saida = []
+    for marca in MARCAS_DE_NEGACAO:
+        for m in re.finditer(r"\*{0,2}" + re.escape(marca), copy, re.I):
+            resto = copy[m.end():]
+            fim = re.search(r"\n\s*\n|\n##\s", resto)
+            saida.append((m.start(),
+                          m.end() + (fim.start() if fim else len(resto))))
+    return saida
+
+
+def capitulos_negados(copy: str) -> list:
+    """Os capitulos que a copy diz, em letra, NAO ter levado.
+
+    Eles sao a RESERVA que o irmao deixou escrita para a rodada seguinte achar,
+    e e por isso que saem NOMEADOS em vez de apenas descontados.
+    """
+    negados = set()
+    for a, b in _blocos_de_negacao(copy):
+        negados |= _citados(copy[a:b])
+    return sorted(negados)
+
+
+def _capitulos_declarados(copy: str) -> list:
+    """Numeros que a copy diz ter USADO — a geracao antiga os escreve em prosa.
+
+    Capitulo citado dentro de um bloco de negacao **nao entra**: ate 20/10 as
+    17:4x entrava, e o relato dizia *"capitulos que ele declara: 52 a 61"* de um
+    bloco cuja frase e *"o que eu NAO levei"*.
+    """
+    return sorted(_citados(copy) - set(capitulos_negados(copy)))
 
 
 def frases_que_citam_irmao(copy: str, pacotes: list) -> list:
@@ -186,6 +279,9 @@ def irmaos(origem: str, raiz=None) -> list:
             "prosa": {b: _secao(copy, b) for b in BLOCOS_DE_PROSA
                       if _secao(copy, b)},
             "capitulos_declarados": _capitulos_declarados(copy),
+            # A reserva que ele deixou ESCRITA. Ate 20/10 as 17:4x ela entrava
+            # em `capitulos_declarados`, isto e, aparecia como consumida.
+            "capitulos_negados": capitulos_negados(copy),
             # PRIMEIRA mao: o que a peca do irmao de fato fala. Sem isto o
             # irmao de geracao antiga entregava so o titulo (20/10, 15:3x).
             "narracao": _narracao(d),
@@ -197,6 +293,28 @@ def irmaos(origem: str, raiz=None) -> list:
 def sem_campo(origem: str, raiz=None) -> list:
     return [i["pacote"] for i in irmaos(origem, raiz)
             if not i["tem_campo_familia"]]
+
+
+def _linha_dos_capitulos(i: dict) -> str:
+    """A linha dos capitulos declarados, com UM dono.
+
+    O ramo vazio existe porque ele e o caso MEDIDO: no `kolejny-poziom-s022` a
+    unica citacao de capitulo da copy mora dentro do bloco de negacao, logo
+    depois do conserto o declarado dele e VAZIO. Deixar a linha desaparecer ali
+    se leria como "ele nao declarou capitulo nenhum", que e o sentido
+    PERMISSIVO: quem lesse concluiria que a origem esta livre.
+    """
+    cs = i["capitulos_declarados"]
+    if cs:
+        return (f"    capitulos que ele declara: {cs[0]} a {cs[-1]}"
+                f" ({len(cs)} citados)")
+    if i["capitulos_negados"]:
+        return ("    capitulos que ele declara: NENHUM — toda citacao de"
+                " capitulo da copy dele esta dentro do bloco do que ele NAO"
+                " levou, logo a familia dele sai do TITULO, da PROSA e da"
+                " NARRACAO, nao dos capitulos.")
+    return ("    capitulos que ele declara: nenhum citado na copy — compare"
+            " pelo TITULO e pela NARRACAO.")
 
 
 def relato(origem: str, raiz=None, excluir=()) -> str:
@@ -215,10 +333,14 @@ def relato(origem: str, raiz=None, excluir=()) -> str:
         else:
             faltam.append(i["pacote"])
             linhas.append("    familia (campo): **AUSENTE** — geracao anterior")
-        if i["capitulos_declarados"]:
-            cs = i["capitulos_declarados"]
-            linhas.append(f"    capitulos que ele declara: {cs[0]} a {cs[-1]}"
-                          f" ({len(cs)} citados)")
+        linhas.append(_linha_dos_capitulos(i))
+        if i["capitulos_negados"]:
+            ns = i["capitulos_negados"]
+            linhas.append(
+                f"    capitulos que ele diz NAO ter levado: {ns[0]} a {ns[-1]}"
+                f" ({len(ns)} citados) — RESERVA que ele deixou escrita para a"
+                " rodada seguinte achar, e que ate 20/10 as 17:4x este relato"
+                " contava como DECLARADA.")
     if faltam:
         linhas.append(
             "  ATENCAO: " + ", ".join(faltam) + " NAO tem o campo"
