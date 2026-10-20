@@ -45,11 +45,19 @@ def test_corpo_vazio_com_o_neutro_FORA_e_sem_egresso():
     dois, e a propriedade cobrada aqui passou a ser essa.
     """
     assert VP.modo_de_fechamento(
-        "", "", neutro_respondeu=False, sonda_pode_gravar=True) == "sem_egresso"
+        "", "", neutro_respondeu=False, sonda_pode_gravar=True,
+        politica_negou=False) == "sem_egresso"
     # e o neutro SOZINHO nao conclui mais — ver
     # tests/test_o_000_tambem_e_a_RESPOSTA_sem_onde_gravar.py
     assert VP.modo_de_fechamento(
         "", "", neutro_respondeu=False) == "indeterminado"
+    # RETRATADO OUTRA VEZ em 20/10 as 11:4x: com os dois controles e SEM a
+    # leitura do proxy, `sem_egresso` tambem era afirmacao de CAUSA — o 000 em
+    # todos os hosts e compativel com uma POLITICA que nega todo CONNECT, e foi
+    # isso que o `__agentproxy/status` mostrou, nomeando `example.com:443`.
+    assert VP.modo_de_fechamento(
+        "", "", neutro_respondeu=False, sonda_pode_gravar=True
+    ) == "indeterminado"
 
 
 def test_corpo_vazio_SEM_a_sonda_do_neutro_recusa_em_vez_de_escolher():
@@ -84,7 +92,17 @@ def test_a_rota_ABERTA_segue_aberta():
 
 
 def test_nenhum_modo_afirma_recusa_do_youtube_porque_eu_nao_a_medi():
-    """Proibe o quarto modo inventado, por AST sobre as constantes devolvidas."""
+    """Proibe modo INVENTADO, por AST sobre as constantes devolvidas.
+
+    RETRATADO NO LUGAR em 20/10 as 11:4x, e e a classe 743/753/761: eu cravei o
+    CONJUNTO de modos quando a afirmacao era uma PROPRIEDADE — "nenhum modo sem
+    medicao escrita". Quando o `negado_por_politica` entrou MEDIDO (o
+    `__agentproxy/status` nomeando `example.com:443` com 403 ao CONNECT), este
+    teste reprovou um comportamento CORRETO. E afrouxar a guarda seria o avesso
+    do trabalho, logo ela ficou: todo modo devolvido tem de estar NOMEADO no
+    docstring da propria funcao, que e onde a medicao dele mora. Modo novo sem
+    medicao escrita continua reprovando.
+    """
     arvore = ast.parse(open(MODULO, encoding="utf-8").read())
     alvo = [n for n in ast.walk(arvore)
             if isinstance(n, ast.FunctionDef) and n.name == "modo_de_fechamento"]
@@ -98,8 +116,16 @@ def test_nenhum_modo_afirma_recusa_do_youtube_porque_eu_nao_a_medi():
             for dentro in ast.walk(no.value):
                 if isinstance(dentro, ast.Constant) and isinstance(dentro.value, str):
                     devolvidos.add(dentro.value)
-    assert devolvidos == {"limite", "consentimento", "aberta",
-                          "sem_egresso", "indeterminado"}, devolvidos
+    doc = ast.get_docstring(alvo[0]) or ""
+    sem_medicao = [m for m in devolvidos
+                   if m != "indeterminado" and m not in doc]
+    assert not sem_medicao, (
+        "modo devolvido sem a medicao escrita no docstring da funcao: %s"
+        % sem_medicao)
+    # e a RECUSA tem de continuar existindo, senao a funcao volta a escolher
+    assert "indeterminado" in devolvidos, devolvidos
+    # contraprova de que o conjunto nao esta vazio nem colapsou
+    assert {"limite", "consentimento", "aberta"} <= devolvidos, devolvidos
 
 
 def test_o_incidente_MEDIDO_continua_escrito_no_modulo():

@@ -111,7 +111,8 @@ SORRY = "google.com/sorry"
 
 def modo_de_fechamento(corpo: str, location: str = "",
                        neutro_respondeu: bool | None = None,
-                       sonda_pode_gravar: bool | None = None) -> str:
+                       sonda_pode_gravar: bool | None = None,
+                       politica_negou: bool | None = None) -> str:
     """Por que a rota da duracao fechou — 'limite', 'consentimento' ou 'aberta'.
 
     Os dois modos pedem coisas DIFERENTES de quem lê, e e por isso que vale
@@ -168,6 +169,33 @@ def modo_de_fechamento(corpo: str, location: str = "",
     daquelas rodadas nao muda** — nao havia leitura, logo nao havia ponto de
     residuo e a peca foi parqueada —, o que cai e a certeza sobre a CAUSA.
 
+    **E O `sem_egresso` ERA ELE MESMO DOIS MODOS — medido em 20/10 as 11:4x, no
+    container desta sessao.** Com o controle de escrita passando (`escrita OK`),
+    os TRES hosts — a peca, o controle e o NEUTRO `example.com` — voltaram 000
+    sem arquivo, que por este ramo le `sem_egresso`, isto e *"a minha rede nao
+    sai"*. **O proxy do proprio ambiente diz outra coisa**, e diz nomeando o
+    host: o `__agentproxy/status` lista `www.youtube.com:443` **e**
+    `example.com:443` em `recentRelayFailures` com
+    `"gateway answered 403 to CONNECT (policy denial or upstream failure)"`.
+
+    **Logo o 000 em TODOS os hosts, inclusive o neutro, nao estabelece ausencia
+    de rede: ele e compativel com uma POLITICA que nega todo CONNECT — e esse e
+    o quinto modo, `negado_por_politica`.** A
+    consequencia pratica e a mesma — nao ha leitura, logo nao ha ponto de
+    residuo e a peca vai parqueada —, e o REMEDIO e diferente, que e a mesma
+    razao pela qual `limite` e `consentimento` vivem separados: negacao por
+    politica e do dono (a tela de Network access, a mesma dos quatro hosts
+    institucionais); rede ausente nao se conserta.
+
+    **O discriminador e o STATUS DO PROPRIO PROXY na mesma rodada** — ele nomeia
+    o host e o motivo —, e sem ele este ramo devolve `indeterminado` em vez de
+    escolher, do jeito que o `porta1` recusa janela curta. **Isto RETRATA o
+    rotulo `sem_egresso` que eu escrevi nas rodadas anteriores, inclusive a das
+    09:3x**: o controle de escrita estabeleceu que a resposta tinha onde ser
+    gravada, e NAO que a causa fosse ausencia de rede. **E a mesma classe do
+    09:3x uma camada para fora** — o 000 segue ambiguo, agora entre rede ausente
+    e politica que nega.
+
     **O que isto NAO muda:** o discriminador do 17/10 continua sendo a peca de
     CONTROLE. Saber o modo nao substitui reler o controle, porque nos modos de
     rota a leitura da peca nova vem vazia do mesmo jeito.
@@ -184,6 +212,14 @@ def modo_de_fechamento(corpo: str, location: str = "",
         # ser gravada" (medido em 20/10 as 09:3x).
         if not sonda_pode_gravar:
             return "indeterminado"
+        # O neutro calou E a resposta tinha onde ser gravada. Falta UMA coisa:
+        # de QUEM e o silencio. O proxy do ambiente nega CONNECT por POLITICA
+        # tambem para o host neutro (medido em 20/10 as 11:4x), logo sem essa
+        # leitura os dois modos sao indistinguiveis.
+        if politica_negou is None:
+            return "indeterminado"
+        if politica_negou:
+            return "negado_por_politica"
         return "sem_egresso"
     if duracao_do_html(corpo) is None:
         return "consentimento"

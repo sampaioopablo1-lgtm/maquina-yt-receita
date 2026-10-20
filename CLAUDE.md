@@ -4842,16 +4842,84 @@ uma a uma pelo `irmaos_da_origem` e nao pela minha leitura — e **nenhuma das
 cinco anteriores fala de ORDEM**; tres delas nao tem o campo
 `## FAMILIA DE ENTRADA ERRADA`, logo a comparacao foi pela PROSA (776).
 
-**NAO EXISTE PONTO DE RESIDUO, e `sem_egresso` esta MEDIDO com o controle de
-escrita:** o `touch` passou (`escrita OK`) e os tres hosts — a peca, o controle
-`OhrGlJvnBoM` e o NEUTRO — voltaram **000 sem arquivo**. A peca esta PARQUEADA
-pelo `do_registro` (o parque tem **treze** sem leitura) e `RESIDUO_N` segue
-**128**.
+**NAO EXISTE PONTO DE RESIDUO, e o rotulo CAIU meia hora depois:** o `touch`
+passou (`escrita OK`) e os tres hosts — a peca, o controle `OhrGlJvnBoM` e o
+NEUTRO — voltaram **000 sem arquivo**, o que eu escrevi aqui como *"`sem_egresso`
+esta MEDIDO"*. **Esta retratado logo abaixo: era `negado_por_politica`.** A peca
+esta PARQUEADA pelo `do_registro` (o parque tem **treze** sem leitura) e
+`RESIDUO_N` segue **128**.
 
 **A LEITURA DE INSCRITOS FOI RECUSADA PELA VIGESIMA RODADA SEGUIDA:** 25,05 h,
 piso de resolucao 0,96/dia, **faltam 1,8 h** para o criterio do 723 — isto e, a
 primeira leitura que vale cai perto das **13:00Z**. **COTA: CINCO** envios na
 janela aberta as 07:00Z, 8.000 unidades, contra o piso MEDIDO de **>= 41.600**.
+
+### E O `sem_egresso` ERAM DOIS MODOS — e um deles e POLITICA que nega CONNECT
+
+**Medido em 20/10 as 11:4x, no container DESTA sessao, meia hora depois de eu
+escrever acima que `sem_egresso` estava medido.** Com o controle de escrita
+passando (`escrita OK`), os TRES hosts — a peca, o controle `OhrGlJvnBoM` e o
+NEUTRO `example.com` — voltaram **000 sem arquivo**, que pelo ramo de 09:3x le
+`sem_egresso`, isto e *"a minha rede nao sai"*.
+
+**O proxy do proprio ambiente diz outra coisa, e diz NOMEANDO O HOST.** O
+`$HTTPS_PROXY/__agentproxy/status` lista, em `recentRelayFailures`:
+
+| ts | host | motivo |
+|---|---|---|
+| 11:24:07.8Z | `www.youtube.com:443` | `gateway answered 403 to CONNECT (policy denial...)` |
+| 11:24:08.4Z | **`example.com:443`** | **o mesmo 403 ao CONNECT** |
+
+**Logo o 000 em TODOS os hosts, o neutro inclusive, nao estabelece ausencia de
+rede: ele e compativel com uma POLITICA que nega todo CONNECT.** E o neutro,
+que era o discriminador de 23:4x, **cai junto** — negado pela mesma politica.
+
+**A CONSEQUENCIA PRATICA NAO MUDA e o REMEDIO MUDA**, e e por isso que vale
+separar, exactamente como `limite` e `consentimento`: sem leitura nao ha ponto
+de residuo e a peca vai parqueada em qualquer dos dois; mas **negacao por
+politica e do DONO** — a tela de Network access, a mesma dos quatro hosts
+institucionais —, e rede ausente nao se conserta.
+
+**E a FAMILIA ganhou o quinto membro, com a mesma assinatura:**
+
+| | |
+|---|---|
+| 17/10 | instrumento que devolve **VAZIO** nao prova ausencia (o grep dos inscritos) |
+| 19/10 | arquivo **VAZIO** nao prova morte (o `.norm` a meio de escrever) |
+| 20/10 01:4x | instrumento **CHEIO** nao prova presenca (o `pgrep` se vendo) |
+| 20/10 09:3x | **000** nao diz de QUEM e o zero (a resposta sem onde gravar) |
+| **20/10 11:4x** | **000 em TODO host nao diz se o silencio e da REDE ou da POLITICA** |
+
+**Consertado:** `modo_de_fechamento` ganhou `politica_negou` e o quinto modo
+`negado_por_politica`; **sem a leitura do proxy ele devolve `indeterminado`**, do
+jeito que o `porta1` recusa janela curta. O modo entrou porque foi MEDIDO —
+inventa-lo seria limiar sem procedencia (§10) —, e o quarto modo (neutro responde
+e o YouTube nao) **segue sem nome**, porque esse eu continuo nao tendo medido.
+
+**O QUE ISTO RETRATA, e a retratacao e minha e e de hoje:** o rotulo
+`sem_egresso` que eu escrevi nas rodadas anteriores, **a das 09:3x inclusive** —
+aquela que acrescentou o controle de escrita. O controle estabeleceu que a
+resposta tinha onde ser gravada, e **nao** que a causa fosse ausencia de rede.
+**O que NAO cai:** a consequencia daquelas rodadas, que era nao haver leitura.
+
+**E CINCO TESTES MEUS REPROVARAM, os cinco por IDENTIDADE onde havia
+PROPRIEDADE** (743/753/761, **decima terceira** vez) — dois deles eram as
+GUARDAS contra modo inventado, e elas cravavam o CONJUNTO de modos quando a
+afirmacao era *"nenhum modo sem medicao escrita"*. **Afrouxar a guarda na mesma
+rodada em que ela dispara seria o avesso do trabalho**, logo ela ficou na forma
+que importa: todo modo devolvido tem de estar NOMEADO no docstring da propria
+funcao, que e onde a medicao dele mora — e ela me **reprovou uma vez** antes de
+passar, porque eu havia escrito a medicao sem nomear o modo.
+
+`tests/test_o_sem_egresso_eram_DOIS_modos_e_um_e_POLITICA.py`, nove testes: o
+caso MEDIDO sai `negado_por_politica`, a contraprova no outro sentido exige que
+o MESMO 000 com a politica limpa saia `sem_egresso` (senao o modo novo sairia
+sempre), **os TRES controles tem de falar e nenhum PAR basta**, a politica **nao
+atropela** `limite` nem `consentimento` (se atropelasse, a parede do CONSENT
+passaria a se chamar politica), o quarto modo segue sem nome, o parametro e
+cobrado na **ASSINATURA** por AST e os tres controles seguem OPCIONAIS, e um
+**falha se a medicao sair do modulo**. **Contraprova:** desligado o ramo, **tres
+dos nove** falham.
 
 ## O MAPA DE DONO MEDIDO VIVIA SO EM PROSA — e ele DECIDIU a pauta desta rodada
 
