@@ -4876,6 +4876,19 @@ muita folga.
 **COTA: DOIS envios na janela que abriu as 07:00Z**, 3.200 unidades, contra o
 piso MEDIDO de **>= 41.600** que a janela anterior fechou.
 
+**A SUITE FECHOU: 25 falhas, 3.261 passam, 1.024 skip em 764 s** — conjunto
+**IDENTICO** a linha de base desta sessao, `comm` vazio nos **dois** sentidos,
+com o `sed 's/ - .*$//' | sort` nos dois lados. **E os doze testes novos
+CUSTARAM tempo, ao contrario dos arquivos das rodadas anteriores: 764 s contra
+690 s**, porque tres deles chamam o `segundo_angulo.nao_mencionados` sobre as 15
+origens de um canal e ele le a copy de cada short. Vai dito em vez de repetido
+por habito — *"entraram sem custo de tempo"* era verdade dos arquivos que nao
+varrem copy, e nao e desta.
+
+**E o commit da peca saiu ANTES deste numero, com ele declarado como AUSENTE em
+vez de afirmado** — a licao de 20/10 as 01:4x, onde eu comitei dizendo que o
+numero faltava em vez de o inventar.
+
 ## O `pgrep -f` CASAVA A PROPRIA LINHA DE COMANDO — e eu disse "VIVO" tres vezes
 
 **Medido em 20/10 as 01:4x, e e o ESPELHO EXATO do defeito de 19/10 as 16:2x,
