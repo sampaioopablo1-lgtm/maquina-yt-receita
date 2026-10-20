@@ -1,0 +1,114 @@
+{
+ "slug": "kolejny-poziom-s077",
+ "pacote": "kolejny-poziom-s077",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "longo_existente": "42hpD7eaptE",
+ "longo": [],
+ "thumb": {
+  "l1": "Granica",
+  "l2": "to nie cel"
+ },
+ "paleta": {
+  "bg": "#0B0B0C",
+  "ink": "#F2EEE8",
+  "c1": "#E23B3B",
+  "c2": "#D9C7A7",
+  "red": "#FF4D4D",
+  "ok": "#7FB77E",
+  "panel": "#151517",
+  "mut": "#8F877C",
+  "acc": "#E23B3B"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Bank podał kwotę",
+   "sub": "i stała się celem",
+   "nar": "Bank podał ci kwotę i od razu stał się cel."
+  },
+  {
+   "layout": "item",
+   "kicker": "To nie rekomendacja",
+   "nar": "Ta kwota to nie jest żadna rekomendacja."
+  },
+  {
+   "layout": "item",
+   "kicker": "To granica",
+   "nar": "To granica, w której bank przestaje pożyczać."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Granica a cel",
+   "barras": [
+    {
+     "rotulo": "Granica banku",
+     "valor": 100
+    },
+    {
+     "rotulo": "Twoj cel",
+     "valor": 100
+    }
+   ],
+   "nar": "Granica i cel to dwie różne rzeczy."
+  },
+  {
+   "layout": "item",
+   "kicker": "Rata testowa",
+   "nar": "Bank testuje twoją ratę wyższą stawką."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Po co ten bufor",
+   "itens": [
+    "Gdy rata wzrośnie",
+    "Gdy stawka skoczy",
+    "Gdy budżet się zmieni"
+   ],
+   "nar": "Bufor to margines na wypadek wzrostu raty."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ten margines jest twój",
+   "sub": "nie banku",
+   "nar": "Ten margines jest twój, a nie banku."
+  },
+  {
+   "layout": "item",
+   "kicker": "Maksimum go zużywa",
+   "nar": "Brać maksimum to zużyć cały ten margines."
+  },
+  {
+   "layout": "item",
+   "kicker": "Odwrotna kolejność",
+   "nar": "Policz najpierw ratę, którą chcesz płacić."
+  },
+  {
+   "layout": "barras",
+   "kicker": "I dopiero potem",
+   "barras": [
+    {
+     "rotulo": "Granica",
+     "valor": 100
+    },
+    {
+     "rotulo": "Twoja rata",
+     "valor": 72
+    },
+    {
+     "rotulo": "Sufit",
+     "valor": 100
+    }
+   ],
+   "nar": "Potem sprawdź, czy mieści się w limicie."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Kolejny Poziom",
+   "sub": "subskrybuj",
+   "nar": "Pytaj o swoją kwotę, nie o maksimum."
+  }
+ ],
+ "copy": "# kolejny-poziom-s077\n\n## TITULO\nDlaczego Maksymalna Zdolność Kredytowa Jest Granicą Banku, a Nie Celem Dla Ciebie\n\n## TITULO SHORT\nMaksymalna zdolność to granica, nie cel\n\n## DESCRICAO\nPytasz bank o zdolność kredytową, dostajesz kwotę — i od tej sekundy ta kwota jest celem. Szukasz mieszkania do tej liczby, układasz budżet do tej liczby, i negocjujesz, żeby się w nią zmieścić. **To jest ta sama liczba, tylko przeczytana odwrotnie.**\n\nKwota, którą podaje bank, nie jest rekomendacją. Jest **granicą** — punktem, w którym bank przestaje pożyczać, bo dalej uznaje ryzyko za zbyt duże. Granica opisuje, gdzie kończy się cierpliwość drugiej strony. Cel opisuje, co jest dobre dla ciebie. To dwie różne rzeczy i nikt nie ma obowiązku ci tego powiedzieć.\n\n**I jest jeszcze druga połowa, która boli bardziej.** Bank nie liczy raty z dzisiejszego oprocentowania. Dolicza kilka punktów i sprawdza, czy udźwigniesz ratę wyższą od tej, którą faktycznie zapłacisz w pierwszym miesiącu. Ten dodatek nazywa się buforem i brzmi jak utrudnienie — ale to margines na wypadek, gdyby rata wzrosła. **A płacić będziesz ty.**\n\nJeśli weźmiesz maksimum, zużywasz ten margines na starcie. Zabezpieczenie, które istniało po to, żeby chronić twój budżet przy wzroście stawki, zostaje wydane na większe mieszkanie. Formalnie nic nie pękło: bank policzył swój bufor i go uszanował. Tylko że od tej chwili nie masz już własnego.\n\n**Kolejność, która działa, jest odwrotna.** Najpierw policz ratę, którą chcesz płacić przy swoim budżecie — nie najwyższą, jaką udźwigniesz. Potem sprawdź, czy ta rata mieści się w granicy banku. Jeśli tak, granica przestaje mieć znaczenie i staje się tym, czym jest: sufitem, pod którym się poruszasz. Pytaj o swoją kwotę, a nie o maksimum, i poproś o wyliczenie z zapisanymi założeniami, żebyś miał co porównać.\n\n## COMENTARIO FIXADO\nNajmniej oczywiste: bufor banku i twoja własna rezerwa to nie to samo zabezpieczenie, nawet jeśli liczy się je z tej samej raty. Jaką ratę wpisałeś jako swoją, przed rozmową z bankiem?\n\n## HASHTAGS\n#zdolnosckredytowa #kredyt #finanse #kolejnypoziom #Shorts\n\n## TAGS\nzdolnosc kredytowa, maksymalna zdolnosc, bufor banku, rata testowa, granica kredytu, wlasna rata, budzet domowy, kredyt hipoteczny, wyliczenie zdolnosci, zalozenia banku, planowanie kredytu, kolejny poziom, oprocentowanie, nadwyzka, porownanie bankow\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\n**ZERO numero novo sobre o mundo, e a narracao nao fala numero nenhum** — nem\nstopa referencyjna, nem WIBOR, nem o tamanho do bufor, nem margem, nem prazo em\nmeses, nem valor de rata ou de imovel. Nenhum banco e nomeado e nenhum orgao e\ncitado (609).\n\n**E a PROPRIA origem escreve o motivo da recusa**, no capitulo 83: *\"Konkretne\nprogi, bufory i koszty utrzymania sa wewnetrzne dla kazdego banku i zmieniaja\nsie w czasie\"* — isto e, os numeros que eu poderia dar sao internos de cada\ninstituicao e mudam. A regra (g) nao abre excecao para numero conveniente, e aqui\no conveniente seria justamente dizer quantos pontos o bufor acrescenta.\n\nAs barras (100/100 na cena 3 e 100/72/100 na cena 9) sao **ILUSTRACAO\nqualitativa** da forma do argumento — duas leituras do MESMO numero, e uma\nparcela escolhida que cabe sob o teto — e **NAO sao faladas**. Elas nao medem\nbanco nenhum, e a rodada seguinte nao deve le-las de volta como dado.\n\n## FONTES\nOrigem: `42hpD7eaptE` (`kolejny-poziom-008`, 89 capitulos), escolhida pelo\n`pauta_do_momento.py` — 3 usos, empatada com **onze** outras origens e\ndesempatada pela MAIOR reserva, **73 capitulos NAO MENCIONADOS de 89**. A\ndominante do canal (`GUiq15usizw`) ficou de fora, e quem conta e o\n`concentracao.py`. **E o `QiaGg03WSR0` saiu NOMEADO e nao filtrado**, pelo mapa\nde dono MEDIDO: ele e longo do LabTreinamento declarado por engano em dois shorts\ndeste canal, logo nao disputa pauta aqui.\n\nCapitulos desta peca: **79, 38, 32 e 82** (*\"Trzeci blad\"*, *\"Bufor dziala tez\ndla ciebie\"*, *\"Skala jest odczuwalna\"* e *\"Wspolny mianownik\"*). O 79 diz em\nletra: *\"Traktowanie maksymalnej zdolnosci jako celu. To jest granica, a nie\nrekomendacja\"*, e o 38: *\"to jest margines na wypadek, gdyby rata wzrosla. A\nplacic bedziesz ty\"*.\n\n**FAMILIA DE ENTRADA ERRADA: LER UMA GRANICA COMO SE FOSSE UM ALVO** — tomar a\ncapacidade maxima do banco como meta, quando ela descreve onde a paciencia da\nOUTRA parte termina e nao o que serve a quem paga. E a segunda metade e o que\ncusta: o bufor que o banco acrescenta a taxa para testar a parcela e **margem\npara o caso de a rata subir, e quem paga a rata e voce**. Tomar o maximo gasta\nessa margem no primeiro dia — formalmente nada se rompeu, o banco calculou o\nbufor dele e o respeitou; o que deixou de existir e o SEU.\n\n**A DISTINCAO DOS TRES IRMAOS VAI ESCRITA, e eles vieram do `irmaos_da_origem`,\nnao da minha leitura** — e **nenhum dos tres** tem o campo\n`## FAMILIA DE ENTRADA ERRADA`, logo a comparacao foi pela PROSA e pela NARRACAO\nque o conserto de 20/10 as 15:3x passou a imprimir:\n\n* `s010` — **fechar o limite do cartao age como aumento**: o banco calcula sobre\n  o que SOBRA e subtrai o limite nao usado. **E a vizinha mais perigosa, porque\n  tambem fala da aritmetica do banco, e a diferenca vai dita: la o eixo e COMO o\n  numero e calculado; aqui e o que o numero SIGNIFICA depois de calculado.** Uma\n  peca ensina a mover o numero, esta ensina a nao persegui-lo;\n* `s022` — **o banco olha o ESTAGIO do rendimento e nao o pico dele**: aumento\n  recente, troca de emprego e bonus anual nao funcionam;\n* `s063` — **o banco calcula uma parcela MAIOR que a verdadeira** (capitulos 29 a\n  31). Esta peca toca o MESMO mecanismo do bufor e vai no sentido contrario: la o\n  achado e que a parcela testada nao e a que se paga; aqui e que a folga entre as\n  duas **e sua** e se gasta ao tomar o maximo.\n\nNenhum dos tres toca os capitulos 79 e 38 — conferido short por short.\n\n## EXPOSICAO\n**ONZE CENAS, e a recusa nao foi minha.** O `contagem_de_cenas.py` deu\n**catorze** como melhor cadencia (3,02 s), ela **nao** repetia tamanho recente —\ne foi recusada pela FOLGA: o orcamento ali cai a **22** caracteres por cena,\na UM do piso OBSERVADO de 21. Onze e a melhor que SERVE pelos tres filtros da\nchave `por_cadencia_servivel`, com folga **+17**.\n\n**E O ORCAMENTO SAIU DO INSTRUMENTO CONSERTADO UMA HORA ANTES, e o numero MUDOU\npor causa do conserto.** O inversor publico (`mira.chars_no_alvo`) responde o\npiso de 41,5 com **38** caracteres por cena — e 38 preve **abaixo** do piso, o\ndefeito medido em 54 de 54 pares as 16:4x. O piso EXECUTAVEL e o primeiro\nelemento do `mira.janela_do_mundo`, que para onze cenas nesta voz da **39**; a\npeca foi escrita com media **39,9**, dentro da janela (39 a 40).\n\n**ESQUELETO `titulo-item-item-barras-item-lista-titulo-item-item-barras-cta`,\ninedito na frota** — numero do `esqueleto_entre_canais`, com a propria peca FORA\nda varredura pelo `exceto`. `barras` entra DUAS vezes e as duas carregam\nargumento: a cena 3 mostra as duas leituras do MESMO numero, e a cena 9 mostra a\nparcela escolhida cabendo sob o teto. Todo layout saiu do conjunto **SONDADO**\n(`layouts_do_short.desenham()`), com `assert` no construtor.\n\n**A PINCA DO 740/748 ESTA FECHADA AQUI, com a exposicao declarada ANTES de\npublicar:** nesta voz o `mira.janela_dos_dois_mundos` devolve **NENHUMA** janela\ncom onze cenas (razao piper/edge 0,851), logo o piper sai FORA pelo piso. O\nportao `duracao` cobra 18 a 45 s, que os dois mundos satisfazem.\n\n**Com a banda em (−1,2; 4,0) o real cai em algum ponto da faixa que o `mira.py`\nimprime, e eu nao digo de que lado** — ela tem 5,2 s de largura contra 1 s de\ngranularidade, e declarar um lado dela nao e previsao (774).\n"
+}
