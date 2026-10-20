@@ -1,0 +1,74 @@
+{
+ "slug": "labtreinamento-s094",
+ "pacote": "labtreinamento-s094",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "longo_existente": "StQNFMdpGdk",
+ "longo": [],
+ "thumb": {
+  "l1": "Nome não",
+  "l2": "entra"
+ },
+ "paleta": {
+  "bg": "#0E1117",
+  "ink": "#EEF1F5",
+  "c1": "#3DDBD9",
+  "c2": "#1E2430",
+  "red": "#FF5A5F",
+  "ok": "#3CCB7F",
+  "panel": "#161B24",
+  "mut": "#8B95A5",
+  "acc": "#3DDBD9"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "O nome na linha",
+   "sub": "parece precisão",
+   "nar": "Na planilha de risco, alguém pôs o nome da pessoa."
+  },
+  {
+   "layout": "item",
+   "kicker": "Identifica o caso exato",
+   "nar": "Parece precisão: identifica exatamente de quem se fala."
+  },
+  {
+   "layout": "lista",
+   "kicker": "O que nunca entra",
+   "itens": [
+    "Nome de pessoa",
+    "Diagnóstico",
+    "Atestado"
+   ],
+   "nar": "Só que nome, diagnóstico e atestado nunca entram ali."
+  },
+  {
+   "layout": "barras",
+   "kicker": "As duas chegam cheias",
+   "barras": [
+    {
+     "rotulo": "Coleta antes",
+     "valor": 100
+    },
+    {
+     "rotulo": "Coleta depois",
+     "valor": 100
+    }
+   ],
+   "nar": "O preço disso não é a multa, e sim a coleta seguinte."
+  },
+  {
+   "layout": "item",
+   "kicker": "Cego com as células cheias",
+   "nar": "Identificado uma vez, ninguém mais responde a verdade."
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "inscreva-se",
+   "nar": "A linha descreve a situação de trabalho, nunca a pessoa."
+  }
+ ],
+ "copy": "# labtreinamento-s094\n\n## TITULO\nPor Que Nome de Pessoa na Planilha de Risco Psicossocial Cega o Seu Inventário\n\n## TITULO SHORT\nNome na linha cega a planilha\n\n## DESCRICAO\nAlguém monta o inventário de risco psicossocial com cuidado, escreve a situação com verbo e frequência, anota a fonte da evidência — e, para \"não perder o contexto\", põe o nome da pessoa na linha. **Parece a coluna mais precisa da planilha.** Ela identifica exatamente de quem se fala, e numa auditoria isso soa como rastreabilidade.\n\nÉ o contrário. A avaliação não pede o estado mental de ninguém: ela pede como o trabalho está organizado. Nome de pessoa, diagnóstico e atestado ficam de fora do inventário — dado de saúde tem regra própria e outro lugar —, e o que entra é a situação: prazo definido por quem não executa, escala publicada em cima da hora, meta que muda sem aviso. **Cada linha descreve um grupo que trabalha nas mesmas condições, nunca um indivíduo.**\n\nE o preço de errar essa coluna não é a multa. É a **coleta seguinte**. A pesquisa anônima só produz dado verdadeiro enquanto for anônima de verdade: basta identificar uma vez para a notícia correr, e a rodada seguinte volta respondida com o que não compromete ninguém. As células continuam cheias, as fórmulas continuam calculando, a classificação continua saindo — e nada daquilo descreve mais o trabalho. **Ficar cego com uma planilha cheia é pior que não ter planilha**, porque agora existe um documento dizendo que está tudo sob controle.\n\nO conserto é de uma linha e não custa nada: troque o nome por setor ou grupo, e deixe a situação fazer o trabalho que o nome parecia fazer. Se a situação está escrita com verbo e frequência, ela já identifica o que precisa ser mudado — e é isso que a medida de controle vai atacar. **Nome identifica pessoa; situação identifica trabalho.** Só a segunda pode ser corrigida por uma decisão da empresa.\n\n## COMENTARIO FIXADO\nO menos óbvio: a coluna do nome não derruba a linha dela, derruba a FONTE de todas as outras. Depois de uma identificação, a próxima pesquisa mede o medo, não o trabalho. Quantas linhas do seu inventário apontam para um grupo, e quantas apontam para alguém?\n\n## HASHTAGS\n#riscopsicossocial #pgr #sst #labtreinamento #Shorts\n\n## TAGS\nrisco psicossocial, inventario de risco, nome de pessoa, dado de saude, pesquisa anonima, anonimato, planilha de risco, situacao observada, fonte da evidencia, setor ou grupo, seguranca do trabalho, pgr, sst, labtreinamento, coleta de dados\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\n**ZERO numero novo sobre o mundo, e a narracao nao fala numero nenhum** — nem\nnumero de portaria, nem data de vigencia, nem valor de multa, nem intervalo de\nrevisao, nem nota de probabilidade ou severidade. Conferido campo a campo:\nnenhum digito cru na narracao.\n\n**E a PROPRIA origem escreve o motivo em dois lugares:** o capitulo 43 diz que a\nfaixa que separa alto de medio *\"e escolha da empresa\"* e nao da portaria, e o 80\ndiz que o intervalo de revisao *\"esta escrito na propria norma e e la que voce\nconfere\"*. Numero que a lei move e numero que envelhece na peca, e a regra (g) nao\nabre excecao para numero conveniente — aqui o conveniente seria dizer quantas\ncoletas depois o dado estraga, e isso eu nao sei.\n\nAs barras (100 e 100 na cena 3) sao **ILUSTRACAO qualitativa** de uma coleta antes\ne depois da identificacao — as duas chegam CHEIAS, e e esse o argumento inteiro —\ne **NAO sao faladas**. Elas nao medem pesquisa nenhuma, e a rodada seguinte nao\ndeve le-las de volta como dado.\n\n## FAMILIA DE ENTRADA ERRADA\n**POR NOME DE PESSOA NA LINHA, e o custo nao e na linha: e na FONTE de todas as\noutras.** Nome parece a coluna mais precisa do inventario, porque identifica o\ncaso exato — e o objeto da avaliacao nao e a pessoa, e a organizacao do trabalho.\nIdentificado uma vez, a coleta seguinte volta respondida com o que nao\ncompromete, e a planilha fica **cega com as celulas cheias**: as formulas\ncalculam, a classificacao sai, e nada daquilo descreve mais o trabalho.\n**E uma entrada errada que destroi o INSTRUMENTO, nao so o registro.**\n\n## FONTES\nOrigem: `StQNFMdpGdk` (`labtreinamento-002`, 87 capitulos), escolhida pelo\n`pauta_do_momento.py` — 5 usos, empatada com **sete** outras origens e\ndesempatada pela MAIOR reserva, **62 capitulos NAO MENCIONADOS de 87**. A\ndominante do canal (`FtCtIJPsc_Q`) ficou de fora, e quem conta e o\n`concentracao.py`.\n\nCapitulos desta peca: **14, 35, 70, 71 e 72** (*\"O que nunca entra\"*, *\"A pesquisa\nanonima\"*, *\"E um quarto\"*, *\"O custo real\"* e *\"Cego e pior que sem planilha\"*).\nO 14 diz em letra: *\"Nome de pessoa nao entra. Diagnostico nao entra. Atestado nao\nentra\"*; o 35: *\"basta uma vez identificar\"*; e o 72: *\"ficar cego com uma\nplanilha cheia e pior que nao ter planilha nenhuma\"*.\n\n**A DISTINCAO DOS CINCO IRMAOS VAI ESCRITA, e eles vieram do `irmaos_da_origem`,\nnao da minha leitura** — tres tem o campo da familia e **dois nao**, logo para\nesses a comparacao foi pela PROSA e pela NARRACAO que o conserto de 20/10 as 15:3x\npassou a imprimir:\n\n* `s013` — **o nivel e PRODUTO das duas notas, nao media** (capitulos 38 a 42). A\n  narracao dele e de aritmetica de coluna; aqui nenhuma nota e calculada;\n* `s049` — **nivel errado da hierarquia**: medida dirigida ao individuo para risco\n  que nasce da organizacao (54 a 57). **E a vizinha mais perigosa, porque tambem\n  separa individuo de organizacao, e a diferenca vai dita: la o erro esta na\n  MEDIDA (o que se faz a respeito); aqui esta na COLUNA (o que se escreve), e o\n  dano nao e o plano nao funcionar, e a fonte parar de dizer a verdade**;\n* `s051` — **conclusao no lugar da situacao** (30 e 31): a coluna precisa de verbo\n  e de frequencia. Fala da MESMA coluna por outro eixo — redacao, nao\n  identificacao;\n* `s060` — **o corte de faixa e escolha de quem avalia, nao norma** (43 a 45);\n* `s084` — **continuo nao e prazo** (59), e e do Plano, nao do Inventario.\n\nNenhum dos cinco toca os capitulos 14, 35 e de 70 a 72 — conferido short por\nshort.\n\n## EXPOSICAO\n**SEIS CENAS, e nenhuma das tres recusas foi minha.** O `contagem_de_cenas.py`\ndeu **sete** como melhor cadencia (3,29 s) e **acusou sozinho** que a `s092` tem\nsete; oito tambem repete, porque e a `s093`; e as contagens **9, 10 e 11** sairam\n**NOMEADAS e nao filtradas**, porque nelas o PISO da faixa nao e alcancavel com\ntexto legivel. Seis e a melhor que SERVE pelos tres filtros da chave\n`por_cadencia_servivel`, com folga **+17**.\n\n**E OS DOIS MUNDOS CABEM AQUI, o que so acontece neste canal:** o\n`mira.janela_dos_dois_mundos` devolve **51 a 55** caracteres por cena com seis\ncenas, e a peca foi escrita com media **53,5** — logo edge **e** piper caem dentro\nda mira MEDIDA do canal (20,0 a 26,0) e nao ha exposicao de mundo a declarar. Nos\noutros dois canais essa janela nao existe em contagem nenhuma, porque o\n`ALVO_SHORT` da frota tem 1,5 s de largura contra um vao de ~6 s entre os\nprovedores (a pinca do 740/748).\n\n**ESQUELETO `titulo-item-lista-barras-item-cta`, inedito nas 135 formas da\nfrota** — numero do `esqueleto_entre_canais`, com a propria peca FORA da\nvarredura pelo `exceto`. A frota tem **seis** formas de seis cenas e esta nao e\nnenhuma delas. Todo layout saiu do conjunto **SONDADO**\n(`layouts_do_short.desenham()`), com `assert` no construtor, e a paleta foi\n**LIDA** de `temas_do_dono.paleta_do_canal`.\n\n**A mira verde NAO promete real dentro:** 41 das 46 pecas deste canal narradas\npelo edge sairam FORA do teto de 26,0 (o tally do 744/754/758, lido do\n`mira.relato_do_tally`). E **eu nao digo de que lado da banda o real cai** — ela\ntem 5,2 s de largura contra 1 s de granularidade, e declarar um lado dela nao e\nprevisao (774).\n"
+}
