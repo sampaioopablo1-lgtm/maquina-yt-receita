@@ -4144,6 +4144,15 @@ renderiza. **E eu comitei a peca ANTES de ter esse numero, dizendo na mensagem
 que ele estava faltando** em vez de o afirmar — que e o que esta nota torna
 desnecessario na rodada seguinte.
 
+**E A PASSADA DE CONFIRMACAO, medida pelo instrumento deste commit e nao pelo
+`pgrep`, fechou em 25 falhas, 3.186 passam, 1.003 skip em 393 s** — conjunto
+**IDENTICO** a base, `comm` vazio nos **dois** sentidos. Os onze testes novos
+entraram **sem custo de tempo** (393 s contra 401 s), porque nem este arquivo
+nem o do esqueleto renderizam. **E o instrumento respondeu certo nos DOIS
+estados** na sua primeira vez em producao: VIVO com a suite rodando (um
+processo python, dois espelhos de shell nomeados ao lado) e NAO quando ela
+saiu — que e a contraprova que o `pgrep` nunca me deu.
+
 ## O ESQUELETO ATRAVESSA CANAL, E O PORTAO COMPARA DENTRO DE UM
 
 **Medido em 20/10 as 01:3x, e a pergunta que o instrumento responde e
