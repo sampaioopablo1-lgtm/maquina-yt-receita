@@ -213,6 +213,22 @@ def chars_no_alvo(voz: str, n_cenas: int, alvo_s: float,
     caracteres a peca precisa para encostar no PISO da faixa — e a alternativa
     era refazer a inversao la, que seria o segundo dono da conta (a assinatura
     que congelou a legenda). Nenhuma logica mora aqui: isto delega.
+
+    **E ELE NAO RESPONDE "MIRE O PISO DA FAIXA" — medido em 20/10 as 16:4x.**
+    O `_chars_para_o_real` desce ate a previsao caber `<= alvo_s`, logo com o
+    PISO no lugar do alvo ele devolve o maior numero que fica **ABAIXO** dele.
+    Varridos os 54 pares (canal, n) da frota com resposta para o piso, a
+    previsao da resposta cai FORA da faixa em **54 de 54**, e nos 54 pelo lado
+    de BAIXO: na voz grega com doze cenas ele devolve 36, que preve **41,39**
+    contra um piso de 41,5. **Logo a regra de redacao do 772 — "mire o PISO" —
+    era inexecutavel por este caminho**, e eu a vinha cumprindo somando de
+    cabeca, que e o item 3 da §10.
+
+    O docstring do `_chars_para_o_real` guardava o outro lado desta mesma
+    armadilha (*"dizer 'mirei o piso' e entregar peca acima do TOPO"*) e nao
+    este — a assinatura do 771: criterio escrito so no lado em que eu estava
+    olhando. Quem responde "mire o piso" e o `janela_do_mundo`, cujo PRIMEIRO
+    elemento e a menor media que fica DENTRO da faixa.
     """
     return _chars_para_o_real(voz, n_cenas, alvo_s, provedor)
 
@@ -246,6 +262,62 @@ def _chars_para_o_real(voz: str, n_cenas: int, alvo_s: float,
     return 0
 
 
+MAX_CHARS_VARRIDOS = 240   # teto do varrimento de media por cena, herdado do
+                           # `janela_dos_dois_mundos` de 19/10. Ele NAO e um
+                           # limite de redacao: e onde o laco para. Com poucas
+                           # cenas a janela ENCOSTA nele — medido em 20/10 as
+                           # 16:5x, no polones com TRES cenas, cuja janela sai
+                           # (233, 240) quando 241 e 242 ainda cabem. Logo o
+                           # MAIOR da janela e a borda do laco, nao a da faixa,
+                           # quando ele chega aqui. Quem precisa da fronteira de
+                           # cima confere se o maior e menor que isto.
+
+
+def _janela(voz: str, n_cenas: int, faixa: tuple,
+            provedores: tuple) -> tuple[int, int] | None:
+    """UM dono do varrimento: as medias em que TODOS os `provedores` cabem.
+
+    Nasceu em 20/10 as 16:4x, quando o `janela_do_mundo` precisou do MESMO
+    laco que o `janela_dos_dois_mundos` ja tinha. Escrever o laco duas vezes
+    seria o segundo dono do varrimento — a assinatura que congelou a legenda,
+    parou a mira de conferir por seis pecas e pos job inventado na serie.
+
+    Ele varre em vez de inverter de proposito: inverter devolve UM ponto e
+    arredonda para um lado, e foi assim que a resposta do PISO passou a cair
+    FORA da faixa em 54 de 54 pares. Varrer responde com o CONJUNTO que de
+    fato cabe, e ai o piso executavel e o primeiro elemento dele.
+    """
+    if n_cenas < 1 or not provedores:
+        return None
+    piso, teto = float(faixa[0]), float(faixa[1])
+    ok = []
+    for c in range(1, MAX_CHARS_VARRIDOS + 1):
+        cenas = [{"nar": "x" * c} for _ in range(n_cenas)]
+        ds = [ensaio.duracao_real_prevista(cenas, voz, p) for p in provedores]
+        if min(ds) > teto:
+            break
+        if all(piso <= d <= teto for d in ds):
+            ok.append(c)
+    return (ok[0], ok[-1]) if ok else None
+
+
+def janela_do_mundo(voz: str, n_cenas: int, faixa: tuple,
+                    provedor: str = "edge") -> tuple[int, int] | None:
+    """Caracteres por cena em que UM mundo de provedor cabe na faixa.
+
+    POR QUE EXISTE (20/10, 16:4x): a regra de redacao do 772 manda **mirar o
+    PISO**, e o inversor publico (`chars_no_alvo`) responde o piso com um valor
+    cuja previsao cai ABAIXO dele — 54 de 54 pares medidos. O primeiro elemento
+    desta janela e a resposta executavel: a MENOR media que fica DENTRO.
+
+    **Ele nao substitui o `janela_dos_dois_mundos`, e isso vai dito:** a mira e
+    o portao cobram os DOIS mundos (730/733), logo quem usa este sabe que esta
+    declarando exposicao no outro — e nos dois canais da pinca (740/748) e a
+    unica coisa que se pode fazer, porque lá a janela dos dois e sempre vazia.
+    """
+    return _janela(voz, n_cenas, faixa, (provedor,))
+
+
 def janela_dos_dois_mundos(voz: str, n_cenas: int,
                            faixa: tuple) -> tuple[int, int] | None:
     """Caracteres por cena em que os DOIS mundos de provedor cabem na faixa.
@@ -269,19 +341,7 @@ def janela_dos_dois_mundos(voz: str, n_cenas: int,
     filtra nem escolhe: NOMEIA, como o `origens_sem_uso` nomeia em vez de
     esconder.
     """
-    if n_cenas < 1:
-        return None
-    piso, teto = float(faixa[0]), float(faixa[1])
-    ok = []
-    for c in range(1, 241):
-        cenas = [{"nar": "x" * c} for _ in range(n_cenas)]
-        e = ensaio.duracao_real_prevista(cenas, voz, "edge")
-        p = ensaio.duracao_real_prevista(cenas, voz, "piper")
-        if e > teto:
-            break
-        if piso <= e <= teto and piso <= p <= teto:
-            ok.append(c)
-    return (ok[0], ok[-1]) if ok else None
+    return _janela(voz, n_cenas, faixa, ("edge", "piper"))
 
 
 CHARS_MINIMOS_OBSERVADOS = 21   # media por cena do `labtreinamento-s081`, a
@@ -381,6 +441,24 @@ def _linha_do_orcamento(spec: dict) -> list:
         linhas.append(
             f"  e os DOIS mundos cabem na faixa entre {jan[0]} e {jan[1]} "
             f"caracteres por cena.")
+    # O PISO EXECUTAVEL, porque a regra de redacao do 772 manda mirar o piso e
+    # o inversor nao responde isso: perguntado pelo piso ele devolve um valor
+    # ABAIXO dele, em 54 de 54 pares medidos (20/10, 16:4x). Instrumento que o
+    # relato nao chama e a classe dos layouts mortos, e e por isso que a linha
+    # entra aqui e nao fica so na funcao.
+    um = janela_do_mundo(orc["voz"], orc["cenas"], orc["faixa"], orc["mundo"])
+    if um:
+        linhas.append(
+            f"  PISO EXECUTAVEL da faixa, pela regra de redacao do 772: "
+            f"{um[0]} caracteres por cena ({orc['mundo']}), e nao o que o "
+            f"inversor devolve para o piso — perguntado pelo piso ele responde "
+            f"com um valor cuja previsao cai ABAIXO dele (54 de 54 pares). "
+            f"Acima de {um[1]} a peca sai do topo.")
+    else:
+        linhas.append(
+            "  e NAO existe piso executavel: nenhuma media por cena poe nem o "
+            f"mundo {orc['mundo']} dentro de {orc['faixa'][0]:.1f} a "
+            f"{orc['faixa'][1]:.1f} com {orc['cenas']} cenas.")
     return linhas
 
 
@@ -439,7 +517,7 @@ def orcamento(spec: dict) -> dict | None:
     hoje = sum(len((c or {}).get("nar") or "") for c in curto) // max(n, 1)
     chars = _chars_para_o_real(voz, n, alvo)
     out = {"alvo": alvo, "cenas": n, "chars": chars, "hoje": hoje,
-           "fonte": fonte, "mundo": "edge", "cabe": chars > 0,
+           "fonte": fonte, "mundo": "edge", "voz": voz, "cabe": chars > 0,
            "faixa": (float(faixa[0]), float(faixa[1]))}
     if chars > 0:
         cen = [{"nar": "x" * chars} for _ in range(n)]

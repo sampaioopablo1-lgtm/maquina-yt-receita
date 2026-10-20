@@ -166,25 +166,51 @@ def test_a_razao_entre_os_mundos_e_MAIOR_que_a_largura_da_faixa_da_frota():
 def test_a_conta_e_DELEGADA_e_nao_nasce_um_segundo_dono_da_sobrecarga():
     """Refazer `P + 0,300` aqui e o defeito que congelou a legenda.
 
-    Por AST, porque o docstring do modulo CITA a formula em prosa para se
-    explicar, e casar prosa pegaria a explicacao em vez do codigo.
+    **RETRATADO EM 20/10 as 16:4x, e o defeito era MEU e era do teste.** A
+    primeira versao exigia que a chamada a `duracao_real_prevista` estivesse
+    DENTRO do `janela_dos_dois_mundos` — isto e, travava em QUE funcao o
+    varrimento mora, quando a afirmacao e que a sobrecarga por voz **nao se
+    reimplementa**. Quando o laco ganhou UM dono (`_janela`, porque o
+    `janela_do_mundo` precisou do mesmo), ela reprovou um comportamento
+    CORRETO: a classe 743/753/761, identidade onde havia propriedade.
+
+    A propriedade e esta, e ela sobrevive a mudanca de lugar: seguindo a CADEIA
+    de chamadas a partir da janela, dentro do proprio modulo, chega-se a
+    `ensaio.duracao_real_prevista`, e **nenhum elo da cadeia** carrega a
+    formula. Por AST, porque o docstring do modulo CITA a formula em prosa para
+    se explicar, e casar prosa pegaria a explicacao em vez do codigo.
     """
     fonte = open(os.path.join(RAIZ, "fabrica", "mira.py"), encoding="utf-8").read()
     arv = ast.parse(fonte)
-    alvo = None
-    for n in ast.walk(arv):
-        if isinstance(n, ast.FunctionDef) and n.name == "janela_dos_dois_mundos":
-            alvo = n
-    assert alvo is not None, "`janela_dos_dois_mundos` desapareceu do modulo"
-    chamadas = [ast.unparse(c.func) for c in ast.walk(alvo)
-                if isinstance(c, ast.Call)]
+    defs = {n.name: n for n in ast.walk(arv) if isinstance(n, ast.FunctionDef)}
+    assert "janela_dos_dois_mundos" in defs, (
+        "`janela_dos_dois_mundos` desapareceu do modulo")
+
+    vistos, fila, cadeia = set(), ["janela_dos_dois_mundos"], []
+    while fila:
+        nome = fila.pop()
+        if nome in vistos or nome not in defs:
+            continue
+        vistos.add(nome)
+        cadeia.append(nome)
+        for c in ast.walk(defs[nome]):
+            if isinstance(c, ast.Call):
+                alvo_c = ast.unparse(c.func)
+                fila.append(alvo_c.rsplit(".", 1)[-1])
+
+    chamadas = []
+    for nome in cadeia:
+        chamadas += [ast.unparse(c.func) for c in ast.walk(defs[nome])
+                     if isinstance(c, ast.Call)]
     assert any("duracao_real_prevista" in c for c in chamadas), (
-        "a janela deixou de delegar ao `ensaio.duracao_real_prevista`: ela "
-        f"chama {chamadas}")
-    corpo = ast.unparse(alvo)
-    for proibido in ("0.300", "0.3 +", "+ 0.3"):
-        assert proibido not in corpo, (
-            f"{proibido!r} dentro da funcao: segundo dono da sobrecarga por voz")
+        "a cadeia %s deixou de delegar ao `ensaio.duracao_real_prevista`: ela "
+        "chama %s" % (cadeia, chamadas))
+    for nome in cadeia:
+        corpo = ast.unparse(defs[nome])
+        for proibido in ("0.300", "0.3 +", "+ 0.3"):
+            assert proibido not in corpo, (
+                "%r dentro de %s: segundo dono da sobrecarga por voz"
+                % (proibido, nome))
 
 
 def test_os_DOIS_mundos_sao_exercitados_e_nao_so_o_edge():
