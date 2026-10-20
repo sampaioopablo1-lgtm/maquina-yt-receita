@@ -4178,6 +4178,15 @@ regra H passou, *"resolve ritmo de 1,79/dia"* tambem, e o criterio do 723 pede
 26,8 h — **faltam 10,8 h**. **COTA: vinte e tres** envios na janela de 07:00Z,
 **36.800** unidades contra o piso MEDIDO de **>= 40.000**.
 
+**A SUITE FECHOU: 25 falhas, 3.196 passam, 1.006 skip em 403 s** — conjunto
+**IDENTICO** a linha de base desta sessao, `comm` vazio nos **dois** sentidos,
+com o `sed 's/ - .*$//' | sort` nos dois lados. Os dez testes novos entraram
+**sem custo de tempo** (403 s contra 393 s da passada anterior), porque o
+arquivo nao renderiza. **E a liveness saiu do `processo_vivo` e nao do
+`pgrep`** — segunda rodada seguida usando o instrumento de 01:5x, e o `until`
+dele nao se ve no espelho porque a linha de comando cita `processo_vivo.py` e o
+filtro e pelo EXECUTAVEL.
+
 ## O `pgrep -f` CASAVA A PROPRIA LINHA DE COMANDO — e eu disse "VIVO" tres vezes
 
 **Medido em 20/10 as 01:4x, e e o ESPELHO EXATO do defeito de 19/10 as 16:2x,
