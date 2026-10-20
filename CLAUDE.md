@@ -4174,6 +4174,58 @@ piso de resolucao 1,84/dia, faltam **13,8 h** para o criterio do 723. **COTA:**
 de **>= 40.000** — e o numero sai do `janela_de_cota`, nao de um laco escrito na
 hora.
 
+### A PECA DESSA RODADA — DOZE cenas, a primeira da frota, e o instrumento da COTA provando-se
+
+`epomeno-epipedo-s071` = **`pT6MMEHEx3w`**, publicado as 00:22:34Z (run
+`39347232492`), **DOZE PORTOES VERDES NA PRIMEIRA TENTATIVA**. Provedor **edge
+MEDIDO** (zero avisos `NARRACAO PELO PIPER` no job `118381418622`), som
+**-13,6** LUFS, pico -1,5, desvio +0,4, **zero silencios**. Previsao edge
+**42,16** / piper **37,35**.
+
+**E O INSTRUMENTO DA COTA PROVOU-SE NA PRIMEIRA RODADA DEPOIS DE EXISTIR, no caso
+exato que ele previu.** Esta rodada caiu as 00:07 — dentro da banda 00:00-07:00
+em que a janela corrente abriu no dia ANTERIOR. O `janela_de_cota` devolveu
+**20 envios, 32.000 unidades** da janela que abriu as 07:00Z de 19/10; o laco que
+eu escrevia a mao, com a data de hoje no corte, devolveria **ZERO** e eu
+relataria *"a janela esta livre"*. Depois desta peca sao **21 envios, 33.600
+unidades** contra o piso MEDIDO de >= 40.000.
+
+**E NAO EXISTE PONTO DE RESIDUO, pelo mesmo modo de fechamento de uma hora
+antes:** o host NEUTRO (`example.com`) devolveu **000** na sonda desta rodada,
+logo e `sem_egresso` e nao rota do YouTube. A peca esta PARQUEADA com o provedor
+MEDIDO — o parque tem **duas** sem leitura agora — e `RESIDUO_N` segue **128**.
+
+**ESQUELETO DE DOZE CENAS, e a frota nao tinha NENHUMA:** as contagens existentes
+eram 2, 4, 5, 6, 7, 8, 9, 10, 11 e 40. A forma
+`titulo-item-lista-item-barras-item-titulo-item-lista-item-barras-cta` e inedita
+pela sequencia e pelo TAMANHO, com `barras` duas vezes carregando argumento, e
+todo layout saiu do conjunto SONDADO. **Cadencia 3,5 s por plano** — a mais
+rapida da frota fora a peca de 5 s, e mais perto dos ~3,1 s de 690/699 que os
+3,8 s de onze cenas.
+
+**ORCAMENTO: 37 caracteres por cena**, do `mira` invertendo a previsao REAL do
+edge; escrita com media **37,2**. **A granularidade de UM caractere vale 0,6 s
+com doze cenas**, logo o piso exato (41,5) nao e alcancavel — 36 dao 41,39
+(abaixo) e 37 dao 42,0. Isso vai dito em vez de eu chamar 42,16 de "piso".
+E **nenhum** orcamento poe os dois mundos na faixa em contagem de cena nenhuma
+(6 a 13 testadas), porque o vao piper/edge vale ~4,7 s contra 1,5 s de faixa — a
+pinca do 740/748 dentro do instrumento, com a exposicao declarada antes de
+publicar.
+
+**PAUTA:** `481Zgd4IhsE` (`epomeno-epipedo-002`), 100 capitulos e **79 NAO
+MENCIONADOS** pelos tres shorts anteriores, medido pelo
+`segundo_angulo.nao_mencionados`. A origem dominante ficou de fora **com o ALERTA
+na mao**: `nttW9fR8wyY`, 12 de 70 shorts (17%), mais que o dobro da segunda (4).
+
+**FAMILIA: O ALUGUEL E UM DE CINCO TERMOS** — condominio, aquecimento, energia,
+manutencao, e a caucao, que nem e despesa: e dinheiro PRESO, logo nao aparece no
+custo mensal nem na poupanca. Familia nova no canal e a **primeira do dia 20/10**
+na frota.
+
+**A LEITURA DE INSCRITOS FOI RECUSADA PELA NONA RODADA SEGUIDA:** 14,01 h, piso
+de resolucao 1,71/dia, faltam **12,8 h** para o criterio do 723. E a regra H
+passou com folga, o que e exatamente o caso em que a versao antiga de mim leria.
+
 ## EU ESCREVI A PALETA A MAO E OS DEZ PORTOES PASSARAM LIMPOS
 
 **Medido em 20/10 as 00:3x, na peca que eu estava escrevendo.** Inventei a paleta
