@@ -1,0 +1,134 @@
+{
+ "slug": "epomeno-epipedo-s078",
+ "pacote": "epomeno-epipedo-s078",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "longo_existente": "h66MCKjwAJ8",
+ "longo": [],
+ "thumb": {
+  "l1": "Η εξαίρεση",
+  "l2": "δεν σβήνει"
+ },
+ "paleta": {
+  "bg": "#F4EFE6",
+  "ink": "#1B1A17",
+  "c1": "#C8502A",
+  "c2": "#2B6CB0",
+  "red": "#B83227",
+  "ok": "#2E8B57",
+  "panel": "#FFFFFF",
+  "mut": "#7A7263",
+  "acc": "#C8502A"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Όχημα με εξαίρεση",
+   "sub": "και ήσυχος",
+   "nar": "Έχεις όχημα με εξαίρεση."
+  },
+  {
+   "layout": "item",
+   "kicker": "Νόμισες ότι γλιτώνεις",
+   "nar": "Νόμισες ότι γλιτώνεις."
+  },
+  {
+   "layout": "item",
+   "kicker": "Είναι μία γραμμή",
+   "nar": "Η εξαίρεση είναι μία γραμμή."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Σβήνει μία γραμμή",
+   "barras": [
+    {
+     "rotulo": "Με το όχημα",
+     "valor": 100
+    },
+    {
+     "rotulo": "Χωρίς αυτό",
+     "valor": 62
+    }
+   ],
+   "nar": "Σβήνει τη γραμμή του οχήματος."
+  },
+  {
+   "layout": "item",
+   "kicker": "Όχι το τεκμήριο",
+   "nar": "Δεν σβήνει το τεκμήριό σου."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Τρία κομμάτια",
+   "itens": [
+    "Κατοικία",
+    "Όχημα",
+    "Δάπεδο"
+   ],
+   "nar": "Γιατί υπάρχει και ένα δάπεδο."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Το δάπεδο",
+   "sub": "δεν είναι γραμμή",
+   "nar": "Δεν εξαρτάται από γραμμές."
+  },
+  {
+   "layout": "item",
+   "kicker": "Χωρίς σπίτι και όχημα",
+   "nar": "Ισχύει χωρίς σπίτι και όχημα."
+  },
+  {
+   "layout": "item",
+   "kicker": "Δεν μηδενίζεται",
+   "nar": "Άρα δεν μηδενίζεται ποτέ."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Αφαιρείς μέρος",
+   "barras": [
+    {
+     "rotulo": "Σύνολο",
+     "valor": 100
+    },
+    {
+     "rotulo": "Μετά",
+     "valor": 62
+    },
+    {
+     "rotulo": "Δάπεδο",
+     "valor": 40
+    }
+   ],
+   "nar": "Οι εξαιρέσεις αφαιρούν μέρος."
+  },
+  {
+   "layout": "item",
+   "kicker": "Το κατώτατο μένει",
+   "nar": "Το κατώτατο μένει πάντα εκεί."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Η πράξη σου",
+   "itens": [
+    "Βγάλε τη γραμμή",
+    "Άθροισε ξανά",
+    "Κράτα το δάπεδο"
+   ],
+   "nar": "Αφαίρεσε μόνο τη γραμμή σου."
+  },
+  {
+   "layout": "item",
+   "kicker": "Σύγκρινε ξανά",
+   "nar": "Σύγκρινε ξανά με το δηλωμένο."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Επόμενο Επίπεδο",
+   "sub": "κάνε εγγραφή",
+   "nar": "Κάνε την πράξη και εγγραφή."
+  }
+ ],
+ "copy": "# epomeno-epipedo-s078\n\n## TITULO\nΓιατί η Εξαίρεση του Οχήματος Δεν Μηδενίζει το Τεκμαρτό Εισόδημά Σου\n\n## TITULO SHORT\nΗ εξαίρεση δεν σβήνει το τεκμήριο\n\n## DESCRICAO\nΜαθαίνεις ότι το όχημά σου εξαιρείται από την αντικειμενική δαπάνη — συλλεκτικό με πιστοποιητικό αυθεντικότητας, ή ειδικά διασκευασμένο για κινητική αναπηρία — και βγάζεις το συμπέρασμα που βγάζουν σχεδόν όλοι: **ότι το τεκμήριο δεν σε αφορά πια.** Είναι το σωστό γεγονός με το λάθος συμπέρασμα, και κοστίζει στη δήλωση.\n\nΗ εξαίρεση είναι **μία γραμμή**, όχι ο λογαριασμός. Το τεκμαρτό εισόδημα βγαίνει από κομμάτια που αθροίζονται: την κατοικία, το όχημα, και όποιο άλλο στοιχείο ορίζει ο νόμος. Όταν μια εξαίρεση ισχύει, φεύγει **ολόκληρη η γραμμή του οχήματος** — και αυτό όντως αλλάζει το άθροισμα. Αλλάζει το άθροισμα· δεν το μηδενίζει.\n\n**Και υπάρχει ένα δάπεδο που δεν είναι γραμμή.** Είναι ένα κατώτατο τεκμαρτό που ισχύει ανεξάρτητα από το τι έχεις: ισχύει και χωρίς σπίτι, και χωρίς όχημα, και με κάθε εξαίρεση ενεργή. Γι' αυτό καμία εξαίρεση δεν μπορεί να το φέρει στο μηδέν — δεν αφαιρείται, επειδή δεν προέρχεται από κάποια γραμμή. Το ποσό του δεν το λέμε εδώ, και ο λόγος είναι ότι είναι γραμμένο στον νόμο και αλλάζει με αυτόν.\n\n**Η πράξη που βγάζει το σωστό νούμερο έχει τρία βήματα και είναι η ίδια κάθε χρόνο.** Βγάλε από το άθροισμα μόνο τη γραμμή που η εξαίρεση αφορά. Άθροισε ξανά όσα μένουν. Κράτα το δάπεδο ως κατώτατο, και σύγκρινε αυτό το νούμερο με το εισόδημα που δήλωσες. Αν το δηλωμένο είναι μεγαλύτερο, το τεκμήριο δεν σε επηρεάζει· αν είναι μικρότερο, η διαφορά είναι ακριβώς το σημείο όπου μπαίνει επιπλέον φόρος.\n\n**Μία εξαίρεση αλλάζει ένα κομμάτι της πράξης, ποτέ την υποχρέωση να την κάνεις.** Οι ακριβείς κλίμακες, τα ποσά και τα όρια είναι στον νόμο και στο υπουργείο, και άλλαξαν — η δομή του υπολογισμού δεν άλλαξε.\n\n## COMENTARIO FIXADO\nΤο λιγότερο προφανές: το δάπεδο δεν είναι «η μικρότερη γραμμή», είναι κατώτατο ΕΚΤΟΣ των γραμμών — γι' αυτό καμία αφαίρεση δεν το αγγίζει. Εσύ πόσες γραμμές έχεις στο άθροισμά σου, και ξέρεις ποια από αυτές αφορά η εξαίρεσή σου;\n\n## HASHTAGS\n#τεκμαρτό #φορολογία #επόμενοεπίπεδο #δήλωση #Shorts\n\n## TAGS\nτεκμαρτο εισοδημα, αντικειμενικη δαπανη, εξαιρεση οχηματος, συλλεκτικο αυτοκινητο, κινητικη αναπηρια, δαπεδο τεκμηριου, κατωτατο τεκμηριο, φορολογικη δηλωση, υπολογισμος τεκμηριου, κατοικια, οχημα, επομενο επιπεδο, φορος, εισοδημα, δηλωμενο εισοδημα\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\n**ZERO numero novo sobre o mundo, e a narracao nao fala numero nenhum** — nem o\nvalor do dapedo, nem escala por metro quadrado, nem zona, nem gramas de emissao,\nnem cilindrada, nem percentual de reducao, nem numero de lei, de FEK ou de\nartigo, nem ano fiscal, nem a data de corte do registro, nem o percentual de\ninvalidez que a excecao exige. Conferido cena a cena: nenhum digito cru.\n\n**E a regra (g) morde mais forte aqui do que de costume: este longo e inteiro\nfeito de numeros que ACABARAM DE MUDAR** — o proprio capitulo 24 diz que cada\nescala caiu *\"exatamente trinta por cento\"* e o 50 diz que a tabela antiga foi\n*\"cortada ao meio\"*. Qualquer valor que a peca falasse ficaria errado na proxima\nreforma. **O que ela carrega e a ESTRUTURA do calculo**, que a reforma nao\nmexeu: existem parcelas, existe um dapedo FORA das parcelas, e excecao retira\nparcela.\n\n**E o numero conveniente ficou de fora junto com os outros:** o valor do dapedo\ne exatamente o que daria a peca um fecho redondo, e ele esta no capitulo 3 e no\n60 — e muda com a lei. A regra (g) nao abre excecao para numero conveniente.\n\nAs barras (100/62 na cena 3 e 100/62/40 na cena 9) sao **ILUSTRACAO qualitativa**\nda FORMA do argumento — uma parcela sai e o total cai, e abaixo dele existe um\npiso que nao sai — e **NAO sao faladas**. Elas nao medem escala nenhuma do\nimposto, e a rodada seguinte nao deve le-las de volta como dado.\n\n## FAMILIA DE ENTRADA ERRADA\n**A EXCECAO REMOVE A PARCELA, NAO A OBRIGACAO** — ler um direito de isencao como\nse ele zerasse o calculo inteiro, quando ele apaga UMA linha de uma soma que tem\noutras e, abaixo de todas, um minimo que nao vem de linha nenhuma. O fato esta\ncerto (a excecao retira o tekmirio do veiculo INTEIRO, e o capitulo 59 diz isso\nem letra) e o SALTO esta errado: de \"a minha linha saiu\" para \"nao tenho\ntekmirio\". **O custo e o oposto do que se espera de uma isencao: quem acredita\nnela deixa de fazer a pratica, e e justamente a pratica que mostra que o dapedo\ncontinua.**\n\n## FONTES\nOrigem: `h66MCKjwAJ8` (`epomeno-epipedo-010`, 73 capitulos), escolhida pelo\n`pauta_do_momento.py` — 3 usos, empatada com **quatro** outras origens e\ndesempatada pela MAIOR reserva, **62 capitulos NAO MENCIONADOS de 73**. A\ndominante do canal (`nttW9fR8wyY`) ficou de fora, e quem conta e o\n`concentracao.py`.\n\nCapitulos desta peca: **55, 56, 57, 59, 60 e 67** (*\"Δύο εξαιρέσεις\"*,\n*\"Πρώτη\"*, *\"Δεύτερη\"*, *\"Γιατί τις λέω\"*, *\"Το δάπεδο μένει\"* e\n*\"Μην ξεχάσεις το δάπεδο\"*). O 59 diz em letra que as duas excecoes\n*\"αφαιρούν ολόκληρο το τεκμήριο του αυτοκινήτου, και αυτό αλλάζει το άθροισμα\"*;\no 60 que *\"αυτό που δεν αφαιρείται ποτέ είναι το δάπεδο\"*; e o 67 que ele vale\n*\"ακόμη και χωρίς σπίτι και χωρίς αυτοκίνητο\"*.\n\n**A DISTINCAO DOS TRES IRMAOS VAI ESCRITA, e eles vieram do `irmaos_da_origem`,\nnao da minha leitura** — e **dois dos tres** nao tem o campo da familia, logo\npara esses a comparacao foi pela PROSA e pela NARRACAO que o conserto de 20/10 as\n15:3x passou a imprimir:\n\n* `s016` — **O SEGUNDO NUMERO EXISTE**: o tekmarto nao pergunta quanto voce\n  ganhou, pergunta onde mora e o que dirige. Fala da EXISTENCIA do numero; esta\n  peca supoe que ele existe e fala do que o reduz;\n* `s041` — **NAO SE SOMAM, SE COMPARAM**: a base e `max(declarado, presumido)` e\n  nao a soma dos dois. **E a vizinha mais perigosa, porque tambem e sobre uma\n  operacao aritmetica da mesma conta, e a diferenca vai dita: la o erro esta na\n  operacao ENTRE os dois numeros; aqui esta DENTRO de um deles — quais parcelas\n  compoem o presumido, e o que uma excecao faz com elas**;\n* `s060` — **TEKMIRIO CALCULADO SO PARA SI**: a lei soma o domicilio, nao o\n  individuo. Ele muda o CONJUNTO medido; esta peca mantem o conjunto e mexe nas\n  PARCELAS dele. Operacao errada, dominio errado e parcela errada sao tres\n  entradas diferentes.\n\nNenhum dos tres toca os capitulos 55 a 60 nem o 67 — conferido short por short.\n\n## EXPOSICAO\n**CATORZE CENAS, e a recusa nao foi minha.** O `contagem_de_cenas.py` deu catorze\ncomo melhor cadencia (3,02 s), ela **nao** repete tamanho recente (as duas\nultimas deste canal tem doze e treze) e alcanca o piso com folga **+5**. O TETO\nMEDIDO desta voz (quinze) saiu **NOMEADO e nao filtrado**: ele e inedito na frota\n— seria novidade de TAMANHO — e foi recusado pela FOLGA, porque ali o orcamento\ncai a dois caracteres do piso OBSERVADO.\n\n**E O PISO EXATO NAO E ALCANCAVEL, dito em vez de eu chamar 42,15 de piso:** com\ncatorze cenas UM caractere por cena vale **~0,72 s**, logo 27 caracteres uniformes\ndao 41,95 e 26 dao 41,23 — **abaixo** da faixa. A peca saiu com media **27,29** e\nprevisao edge **42,15**, dentro do `ALVO_SHORT` (41,5 a 43,0), e o piso\nEXECUTAVEL desta voz com catorze cenas e **27** (`mira.janela_do_mundo`), nao o\n26 que o inversor devolve para o piso — o defeito medido em 54 de 54 pares as\n16:4x.\n\n**E UMA FRASE POR CENA, e isto nao e estilo: e a conta.** A primeira versao punha\nduas frases na cena do CTA, e `P` e por FRASE e nao por cena (11/10) — 1,27 s a\nmais na voz grega levaram a previsao de 42,15 para **43,18**, isto e FORA da\nfaixa, com a mesma media de caracteres. Ha `assert` no construtor cobrando uma\nfrase por cena.\n\n**ESQUELETO\n`titulo-item-item-barras-item-lista-titulo-item-item-barras-item-lista-item-cta`,\ninedito na frota** — numero do `esqueleto_entre_canais`, com a propria peca FORA\nda varredura pelo `exceto`. A frota tem **DUAS** formas de catorze cenas e esta\nnao e nenhuma delas; `barras` e `lista` entram duas vezes cada e as quatro\ncarregam argumento. Todo layout saiu do conjunto **SONDADO**\n(`layouts_do_short.desenham()`), e a paleta foi **LIDA** de\n`temas_do_dono.paleta_do_canal`.\n\n**A PINCA DO 740/748 ESTA FECHADA AQUI, com a exposicao declarada ANTES de\npublicar:** o `mira.janela_dos_dois_mundos` devolve **NENHUMA** janela nesta voz\ncom catorze cenas, logo o piper sai em 37,34 — FORA do `ALVO_SHORT` pelo piso. O\nportao `duracao` cobra 18 a 45 s, que os dois mundos satisfazem.\n\n**Com a banda em (−1,2; 4,0) o real cai em algum ponto da faixa que o `mira.py`\nimprime, e eu nao digo de que lado** — ela tem 5,2 s de largura contra 1 s de\ngranularidade, e declarar um lado dela nao e previsao (774).\n"
+}
