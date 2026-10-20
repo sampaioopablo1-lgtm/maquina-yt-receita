@@ -1,0 +1,120 @@
+{
+ "slug": "kolejny-poziom-s073",
+ "pacote": "kolejny-poziom-s073",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "longo_existente": "vcJf6WipLtY",
+ "longo": [],
+ "thumb": {
+  "l1": "Druga połowa",
+  "l2": "nie reaguje"
+ },
+ "paleta": {
+  "bg": "#0B0B0C",
+  "ink": "#F2EEE8",
+  "c1": "#E23B3B",
+  "c2": "#D9C7A7",
+  "red": "#FF4D4D",
+  "ok": "#7FB77E",
+  "panel": "#151517",
+  "mut": "#8F877C",
+  "acc": "#E23B3B"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Dwie połowy",
+   "sub": "tylko jedna reaguje",
+   "nar": "Twój rachunek ma dwie połowy."
+  },
+  {
+   "layout": "item",
+   "kicker": "Pierwsza to prąd",
+   "nar": "Pierwsza to prąd, który zużyłeś."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Co reaguje na oszczędzanie",
+   "barras": [
+    {
+     "rotulo": "Prąd",
+     "valor": 6
+    },
+    {
+     "rotulo": "Sieć",
+     "valor": 1
+    }
+   ],
+   "nar": "Druga to sieć, a nie sam prąd."
+  },
+  {
+   "layout": "item",
+   "kicker": "Opłata za sieć",
+   "nar": "Płacisz za linie oraz za stacje."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Co kryje dystrybucja",
+   "itens": [
+    "Linie i stacje",
+    "Straty po drodze",
+    "Moc przyłącza"
+   ],
+   "nar": "I za moc, którą masz przypisaną."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Spora część",
+   "sub": "bez związku z zużyciem",
+   "nar": "Część z niej nie zależy od zużycia."
+  },
+  {
+   "layout": "item",
+   "kicker": "Nawet gdy wyjedziesz",
+   "nar": "Zapłacisz ją, nawet gdy wyjedziesz."
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlatego gaszenie światła",
+   "nar": "Gaszenie światła tnie jedną połowę."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Zmiana sprzedawcy",
+   "barras": [
+    {
+     "rotulo": "Przed",
+     "valor": 7
+    },
+    {
+     "rotulo": "Po",
+     "valor": 6
+    }
+   ],
+   "nar": "Druga połowa stoi w miejscu."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Czego zmiana nie rusza",
+   "itens": [
+    "Operatora sieci",
+    "Taryfy za sieć",
+    "Drugiej połowy"
+   ],
+   "nar": "Sprzedawcę zmieniasz, a sieci nie."
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlatego najpierw",
+   "nar": "Dlatego najpierw policz obie połowy."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Weź rachunek",
+   "sub": "i rozdziel dwie połowy",
+   "nar": "Rozdziel je na swoim rachunku."
+  }
+ ],
+ "copy": "# kolejny-poziom-s073\n\n## TITULO\nDlaczego Oszczedzanie Pradu Obniza Tylko Polowe Twojego Rachunku\n\n## TITULO SHORT\nDruga połowa nie reaguje\n\n## DESCRICAO\nRachunek za prąd ma **dwie połowy**, i prawie wszyscy patrzą tylko na jedną:\nna prąd, który zużyli. Druga połowa to dystrybucja — i to **nie jest opłata za\nprąd, to opłata za sieć, którą on płynie**: za utrzymanie linii i stacji, za\nenergię, która ginie po drodze, oraz za moc przypisaną do twojego przyłącza.\n\n**I tu jest sedno: spora część tej drugiej połowy nie zależy od tego, ile\nprądu zużyjesz.** Zapłacisz ją nawet wtedy, gdy wyjedziesz na miesiąc i nie\nwłączysz niczego. Dlatego gaszenie światła obniża **jedną** połowę rachunku, a\ndruga stoi w miejscu niezależnie od twoich starań — i to nie jest błąd\nwyliczenia, to budowa rachunku.\n\n**Druga konsekwencja jest jeszcze mniej oczywista: zmieniając sprzedawcę nie\nzmieniasz operatora sieci.** Sprzedawca to umowa na towar; operator to umowa na\ndrogę, po której ten towar jedzie, i on obsługuje cały twój region. Więc nowa\noferta rusza pierwszą połowę i **zostawia drugą dokładnie taką samą**.\n\n**Co zrobić dzisiaj:** weź jeden rachunek i rozdziel go na dwie kwoty — za\nenergię i za sieć. Dopiero wtedy wiesz, która połowa jest większa u ciebie, i\nktóra w ogóle reaguje na to, co robisz w domu. Bez tego porównujesz ofertę z\nrachunkiem, a to dwie różne rzeczy.\n\nNie podaję tu stawek, taryf ani procentów. Taryfa za sieć zależy od operatora\ntwojego regionu, więc jedna liczba byłaby nieprawdziwa dla większości\nsłuchających — a to, co się nie zmienia, to mechanizm: jedna połowa reaguje na\nzużycie, druga nie.\n\n## COMENTARIO FIXADO\nNajmniej oczywiste: jeśli ścięłeś zużycie o dużo, a rachunek spadł o mało, to\nzwykle nie pomyłka — to druga połowa, która nie reaguje. Rozdzieliłeś już swój\nrachunek na dwie kwoty?\n\n## HASHTAGS\n#finanse #rachunki #prad #kolejnypoziom #Shorts\n\n## TAGS\nrachunek za prad, dystrybucja, oplata za siec, operator sieci, taryfa dystrybucyjna, zmiana sprzedawcy, oszczedzanie pradu, moc przylacza, finanse osobiste, dwie polowy rachunku, kolejny poziom, zuzycie energii, stale oplaty, faktura za prad, domowy budzet\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Os unicos numeros falados sao\n\"dwie polowy\" (as duas metades) e \"miesiac\" (o mes de ausencia) — os dois sao\ncontagem do PROPRIO mecanismo, que a spec de origem fixa. **Stawka, taryfa e\npercentual ficaram FORA pela regra (g)**, e o motivo e o da PROPRIA origem: o\ncapitulo 21 dela diz, em letra, que a taryfa de distribuicao depende do\noperador do regiao e que *\"nie podam ci tu jednej liczby, bo bylaby\nnieprawdziwa dla wiekszosci sluchajacych\"*. Os valores das barras sao\nILUSTRACAO do mecanismo (uma metade responde ao consumo, a outra quase nao) e\nNAO sao falados nem medidos de ninguem.\n\n## FONTES\nA spec local `kolejny-poziom-012`, que e o pacote do longo `vcJf6WipLtY` — 80\ncapitulos e **74 NAO MENCIONADOS** pelos tres shorts anteriores, medido pelo\n`segundo_angulo.nao_mencionados`: a MAIOR reserva do canal. A familia desta peca\nsai dos capitulos 15 a 18, 20 e 62: *\"dystrybucja to nie jest oplata za prad, to\noplata za siec, ktora on plynie\"*, *\"spora czesc tej oplaty nie zalezy od tego,\nile pradu zuzyjesz — zaplacisz ja nawet wtedy, gdy wyjedziesz na miesiac\"*,\n*\"gaszenie swiatla obniza tylko jedna polowe twojego rachunku\"* e *\"zmieniajac\nsprzedawce nie zmieniasz operatora sieci\"*. Nenhuma frase desta peca saiu de\nTITULO de capitulo.\n\n**FAMILIA NOVA NO CANAL: A SEGUNDA METADE NAO REAGE.** As familias deste canal\nhoje foram outras — quais horas entram no divisor (`s071`), a media nao descreve\nninguem (`s072`) — e esta e a primeira que fala de uma conta com DUAS metades\ncujo comportamento difere: uma responde ao que voce faz em casa, a outra nao.\n\n**E A ORIGEM DOMINANTE DO CANAL FICOU DE FORA, com o alerta na mao:** o\n`concentracao.py` acusou `GUiq15usizw` com **12 de 67** shorts (18%), mais que o\ndobro da segunda (4). O portao `similaridade` e de MONETIZACAO, e concentracao\nde origem ataca justamente ele.\n\n## EXPOSICAO\n**DOZE CENAS, e a escolha vai com o motivo porque o instrumento recomendou\nQUINZE — acima do teto MEDIDO desta voz.** O `contagem_de_cenas` ordena por\ncadencia e nomeia os tamanhos que a frota nunca usou, e nesta rodada ele deu\n**15** como \"melhor cadencia entre as INEDITAS\". **O `mira.teto_de_cenas` mede o\nteto da voz polonesa em 14**, logo 15 nao cabe — e isso ficou consertado nesta\nmesma rodada, com o numero medido ao lado.\n\n**Dentro do teto, a escolha e entre tres, e as tres vao ditas:**\n\n| cenas | orcamento no piso | cadencia | exemplares na frota |\n|---|---|---|---|\n| 14 (teto medido) | **22** caracteres | 2,96 s | 1 |\n| 13 | 27 | 3,19 s | 1 — **publicado NESTE canal as 01:17Z** |\n| **12** | **32** | **3,46 s** | 1, e em OUTRO canal |\n\n**O 14 foi recusado pelo mesmo motivo de 01:1x:** 22 caracteres fica a UM do\npiso OBSERVADO de 21, logo seria polones telegrafico. **O 13 tem a melhor\ncadencia dos tres** (|dif| 0,09) **e foi recusado por REPETICAO**: o\n`kolejny-poziom-s072` de tres horas antes tem esse tamanho, e repetir tamanho no\nmesmo canal em duas rodadas seguidas e exatamente o que o dono reclamou em\n19/10. Fica dito que a cadencia nao foi o critério vencedor aqui.\n\n**Esqueleto `titulo-item-barras-item-lista-titulo-item-item-barras-lista-item-cta`**,\ninedito nas formas da frota — a unica peca de DOZE cenas que existia e o\n`epomeno-epipedo-s071`, com sequencia diferente. E **todo layout saiu do\nconjunto SONDADO** pelo `layouts_do_short.desenham()`, com um `assert` no\nbuilder que recusa layout fora dele.\n\n**E NENHUM orcamento poe os dois mundos dentro de 41,5 a 43,0** em contagem de\ncena nenhuma de 2 a 20: a razao piper/edge desta voz e 0,851 e o vao vale ~6 s\ncontra 1,5 s de faixa — a pinca do 740/748. Mirei o PISO pela regra de redacao\ndo 772 e **declaro a exposicao** em vez de prometer o real dentro.\n"
+}
