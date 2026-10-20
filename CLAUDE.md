@@ -4058,6 +4058,126 @@ de resolucao 2,0/dia, faltam **14,8 h** para o criterio do 723. **COTA:**
 dezenove envios na janela de 07:00Z, **30.400** unidades contra o piso MEDIDO de
 **>= 40.000**.
 
+## A CONTAGEM DE CENAS TEM DOIS CRITERIOS OPOSTOS, e eu os conciliei de cabeca
+
+**Medido em 20/10 as 02:2x, escrevendo o `labtreinamento-s089`.** Para escolher
+quantas cenas a peca teria eu escrevi, na linha de comando, um laco sobre
+`range(6, 13)` chamando o `mira.janela_dos_dois_mundos` e comparando a cadencia
+resultante com os ~3,1 s de 690/699. **E a TERCEIRA dimensao da mesma
+assinatura:** as 11:2x de 19/10 foi a contagem de CANAL (instrumento que eu
+reescrevi a mao cinco rodadas seguidas) e as 23:3x a de COTA.
+
+**E o laco mostrou um TRADE-OFF que nenhum documento nosso tinha escrito.**
+Medido no `labtreinamento`, o unico canal cuja mira e larga o bastante (6,0 s
+contra 1,5 s da frota) para abrir janela nos dois mundos:
+
+| cenas | janela dos dois mundos | largura | cadencia |
+|---|---|---|---|
+| 2 | 188 a 201 | **14** | 11,50 s |
+| 6 | 51 a 55 | 5 | 3,83 s |
+| **7** | **41 a 44** | **4** | **3,29 s** |
+| 8 | 34 a 36 | 3 | 2,88 s |
+| 11 | 20 a 21 | 2 | 2,09 s |
+| 20 | 3 a 3 | 1 | 1,15 s |
+
+**A janela mais LARGA esta em DUAS cenas e a melhor CADENCIA em SETE, e elas
+nunca coincidem.** Escolher a cadencia medida custa **dez caracteres** de
+latitude de escrita: em sete cenas a janela tem **quatro**.
+
+**E nos outros dois canais NAO EXISTE escolha:** com o `ALVO_SHORT` da frota
+(41,5 a 43,0), **nenhuma** contagem de 2 a 20 abre janela nos dois mundos, nas
+duas vozes — a pinca do 740/748, que a nota de 19/10 as 17:2x ja mede de 1 a 40.
+Ali o que se escolhe e a EXPOSICAO declarada, e o instrumento **recusa nomeando
+a pinca** em vez de devolver vazio.
+
+**E A CADENCIA DE 3,1 s NAO TINHA DONO NO CODIGO** — ela morava so na PROSA do
+`video_referencia.py`. Agora e `contagem_de_cenas.CADENCIA_MEDIDA_S`, com a
+procedencia (690/699) escrita ao lado e **declarada como MEDIDA e nao como
+alvo**: ela ORDENA contagens por distancia, e chamar de alvo seria limiar sem
+procedencia (§10).
+
+**DUAS AFIRMACOES MINHAS CAIRAM AQUI, as duas antes de eu as relatar:**
+
+1. **eu supus que a UNIDADE trocaria a resposta.** O `cadencia_longo.cadencia_s`
+   mede pela duracao **ESTIMADA**, e a mira, o portao e o orcamento leem a
+   **REAL PREVISTA** — duas grandezas com o mesmo nome `cadencia`, que e o 753
+   em forma de UNIDADE. Medido na peca: o vao e **1,14 s no total e 0,16 s por
+   plano**, e as duas escolhem a **MESMA** contagem (sete, |dif| 0,19 pela real
+   e 0,04 pela estimada). **Logo a diferenca existe e NAO move a escolha neste
+   caso**, e isso vai registrado em vez de inflado;
+2. **eu escrevi "a largura cai MONOTONAMENTE" e a propria saida do modulo me
+   desmentiu:** 17 cenas da largura 1, 18 da 2, 19 da 1 — a janela e INTEIRA e o
+   arredondamento oscila. A tendencia de queda existe (14 para 1 ou 2); a
+   monotonia nao. Corrigido no docstring, e **ha teste que exige que exista ao
+   menos uma subida**, porque enquanto ela existir a palavra e falsa.
+
+**NAO E PORTAO**, pelo argumento do `mira.py`: reprovaria quase toda spec do
+acervo, escrita antes de a janela dos dois mundos existir. Codigo de saida
+**sempre zero**.
+
+`tests/test_a_contagem_de_cenas_tinha_DOIS_criterios_opostos.py`, dez testes: a
+delegacao da janela e da faixa e cobrada por **AST**, um exige que o canal de
+mira larga ABRA janela e um **contraprova no outro sentido** que os outros dois
+NAO abrem nenhuma (sem ele "abre janela" passaria sempre), um **falha se os dois
+criterios passarem a coincidir** — porque ai o trade-off desapareceu —, um cobra
+as **duas** metades da frase da largura (a tendencia E a ausencia de monotonia),
+um ancora a cadencia no valor da REAL e **falha se ela cair para o da
+estimada**, um exige que o 3,1 apareca **uma vez so** no corpo (753), e um
+**confirma que o instrumento reproduz a escolha de SETE que eu fiz de cabeca** —
+sem ele a nota nao prova que ele serve para a decisao que de fato foi tomada.
+**Contraprova:** trocada a unidade para a estimada, reprova exatamente o teste
+que a mede; cravada a janela em vez de delegada, **seis dos dez** falham.
+
+### A PECA DESSA RODADA — SETE cenas, e o instrumento pegou DOIS defeitos meus
+
+`labtreinamento-s089` = **`_jWARGoUpJs`**, publicado as 02:13:52Z (run
+`39357763896`), **ONZE PORTOES VERDES** depois de duas correcoes que o
+`antes_do_render` e o meu proprio builder pegaram ANTES do portao:
+
+1. **a thumbnail saiu com CINCO palavras** (*"A regra mudou"* + *"no meio"*)
+   contra o limite de 4 — o **MESMO** defeito que reprovou o
+   `kolejny-poziom-s071` as 22:1x de 19/10. Corrigida para *"Regra trocada no
+   meio"*;
+2. **o edge saiu em 26,0 — EXATAMENTE o teto da mira.** Nao reprova, mas e a
+   fronteira em que a primeira versao da `s083` foi reprovada por 0,1 s.
+   Encurtei UMA cena: edge **25,5** / piper **20,9**, os dois dentro, com a
+   media ainda na janela dos dois mundos (41,6 de 41 a 44).
+
+Provedor **edge MEDIDO** (zero avisos `NARRACAO PELO PIPER` no job
+`118415757633`), som **-14,2** LUFS, LRA 3,1, pico -2,7, desvio -0,2, **zero
+silencios**.
+
+**E NAO EXISTE PONTO DE RESIDUO, pelo modo `sem_egresso` na QUARTA rodada
+seguida:** o host NEUTRO devolveu **000 com zero byte** na mesma chamada que a
+peca e o controle `OhrGlJvnBoM`. A peca esta PARQUEADA com o provedor MEDIDO (o
+parque tem **quatro** sem leitura agora) e `RESIDUO_N` segue **128**.
+
+**ESQUELETO `titulo-barras-item-lista-titulo-item-cta`** — a frota tinha apenas
+**DUAS** formas de sete cenas e esta nao e nenhuma delas. Todo layout saiu do
+conjunto SONDADO, com `assert` no builder.
+
+**PAUTA:** `POBNoY16wG8` (`labtreinamento-014`), a origem de **MENOR** contagem
+do canal (3 de 88) com **43 dos 64 capitulos NAO MENCIONADOS**. A dominante
+`FtCtIJPsc_Q` (13 contra 10 da segunda) ficou de fora **com a contagem na mao e
+SEM alerta** — 13 nao e maior que o dobro de 10.
+
+**FAMILIA: A REGRA MUDOU NO MEIO DA SERIE** (capitulos 57 a 60, mais o 38) — e a
+**QUINTA** familia distinta deste mesmo longo e **a primeira que nao fala do
+conteudo do denominador: fala da SERIE no tempo.** O capitulo 60 diz em letra
+que *"serie com duas regras no meio nao compara nada"*, e o que a peca carrega e
+que a troca de regra faz o numero **SUBIR sem ninguem treinar** — sem aviso.
+
+**E EU SONDEI o `execute_sql` outra vez**, porque o servidor MCP do Supabase
+reconectou nesta rodada: segue **NEGADO** (`-32600`). **Isto e o 777 em uso — o
+catalogo voltar nao informa acesso em sentido nenhum.** As **113** linhas de
+`videos` seguem parqueadas em arquivo.
+
+**A LEITURA DE INSCRITOS FOI RECUSADA PELA DECIMA PRIMEIRA RODADA SEGUIDA:**
+15,99 h, piso de resolucao 1,5/dia. E o instrumento separa as tres portas: a
+regra H passou, *"resolve ritmo de 1,79/dia"* tambem, e o criterio do 723 pede
+26,8 h — **faltam 10,8 h**. **COTA: vinte e tres** envios na janela de 07:00Z,
+**36.800** unidades contra o piso MEDIDO de **>= 40.000**.
+
 ## O `pgrep -f` CASAVA A PROPRIA LINHA DE COMANDO — e eu disse "VIVO" tres vezes
 
 **Medido em 20/10 as 01:4x, e e o ESPELHO EXATO do defeito de 19/10 as 16:2x,
