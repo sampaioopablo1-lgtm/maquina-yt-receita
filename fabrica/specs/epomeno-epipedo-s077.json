@@ -1,0 +1,119 @@
+{
+ "slug": "epomeno-epipedo-s077",
+ "pacote": "epomeno-epipedo-s077",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "longo_existente": "P2q6w9y7j88",
+ "longo": [],
+ "thumb": {
+  "l1": "Έναντι ή",
+  "l2": "εκκαθαριστικός"
+ },
+ "paleta": {
+  "bg": "#F4EFE6",
+  "ink": "#1B1A17",
+  "c1": "#C8502A",
+  "c2": "#2B6CB0",
+  "red": "#B83227",
+  "ok": "#2E8B57",
+  "panel": "#FFFFFF",
+  "mut": "#7A7263",
+  "acc": "#C8502A"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Το ποσοστό βγήκε ψηλά",
+   "sub": "και έτρεξες",
+   "nar": "Το ποσοστό σου βγήκε ψηλά και έτρεξες."
+  },
+  {
+   "layout": "item",
+   "kicker": "Μην τρέξεις",
+   "nar": "Μην τρέξεις να αλλάξεις πάροχο τώρα."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ποιο χαρτί κρατάς",
+   "nar": "Κοίτα πρώτα ποιο χαρτί κρατάς στο χέρι."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Δύο χαρτιά, ίδιο όνομα",
+   "barras": [
+    {
+     "rotulo": "Enanti",
+     "valor": 100
+    },
+    {
+     "rotulo": "Ekkatharistikos",
+     "valor": 100
+    }
+   ],
+   "nar": "Δύο χαρτιά έρχονται με το ίδιο όνομα."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ο έναντι",
+   "nar": "Ο έναντι λογαριασμός βγαίνει με εκτίμηση."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Τι δεν είδε η εκτίμηση",
+   "itens": [
+    "Τον μετρητή σου",
+    "Τον μήνα σου",
+    "Το σπίτι σου"
+   ],
+   "nar": "Η εκτίμηση δεν είδε ποτέ τον μετρητή."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Λάθος αφετηρία",
+   "sub": "όχι λάθος νούμερο",
+   "nar": "Λάθος αφετηρία, όχι λάθος νούμερο."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ο εκκαθαριστικός",
+   "nar": "Ο εκκαθαριστικός βγαίνει με μέτρηση."
+  },
+  {
+   "layout": "item",
+   "kicker": "Διορθώνεται μόνος",
+   "nar": "Η εκτίμηση διορθώνεται στον επόμενο."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Και προς τα δύο",
+   "barras": [
+    {
+     "rotulo": "Metrisi",
+     "valor": 100
+    },
+    {
+     "rotulo": "Pros kato",
+     "valor": 88
+    },
+    {
+     "rotulo": "Pros pano",
+     "valor": 112
+    }
+   ],
+   "nar": "Και η διόρθωση πάει και προς τα κάτω."
+  },
+  {
+   "layout": "item",
+   "kicker": "Πού μετράει",
+   "nar": "Το ποσοστό μετράει μόνο σε εκκαθαριστικό."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Επόμενο Επίπεδο",
+   "sub": "κάνε εγγραφή",
+   "nar": "Δες ποιο χαρτί κρατάς πριν κρίνεις."
+  }
+ ],
+ "copy": "# epomeno-epipedo-s077\n\n## TITULO\nΓιατί το Ποσοστό του Λογαριασμού Μετράει Μόνο Πάνω σε Εκκαθαριστικό και Όχι σε Έναντι\n\n## TITULO SHORT\nΤο ποσοστό μετράει μόνο σε εκκαθαριστικό\n\n## DESCRICAO\nΈκανες τη πράξη, βρήκες πόσο του λογαριασμού σου είναι όντως ρεύμα, και το ποσοστό βγήκε πολύ πιο ψηλά από τα συνηθισμένα. Η πρώτη σκέψη είναι πάντα η ίδια: κάτι πήγε λάθος, πρέπει να αλλάξω πάροχο. **Πριν τρέξεις, κοίτα ποιο χαρτί κρατάς στο χέρι.**\n\nΔύο διαφορετικά έγγραφα έρχονται με το ίδιο όνομα στο ταχυδρομείο. Ο **έναντι** λογαριασμός βγαίνει με εκτίμηση: κανείς δεν διάβασε τον μετρητή σου για εκείνον τον μήνα, και το ποσό υπολογίστηκε από το μοτίβο του παρελθόντος. Ο **εκκαθαριστικός** βγαίνει με πραγματική μέτρηση.\n\n**Εδώ είναι η εσφαλμένη αφετηρία, και δεν είναι λάθος αριθμητική: είναι λάθος ΧΑΡΤΙ.** Το ποσοστό που υπολογίζεις πάνω σε έναν έναντι δεν σου λέει τι συνέβη στο σπίτι σου. Σου λέει τι υπέθεσε κάποιος άλλος ότι συνέβη. Δεν είναι ανακριβές νούμερο — δεν είναι μέτρηση καθόλου.\n\nΚαι υπάρχει ένα δεύτερο σημείο που κάνει τη βιασύνη ακριβή: **η εκτίμηση διορθώνεται μόνη της στον επόμενο εκκαθαριστικό, και η διόρθωση πάει και προς τα κάτω.** Αν η εκτίμηση ήταν γενναιόδωρη, ο επόμενος λογαριασμός αφαιρεί. Αν ήταν τσιγκούνικη, προσθέτει. Όποιος αλλάζει πάροχο πάνω σε μία κορυφή που δεν ήταν μέτρηση, αλλάζει πάροχο για να διορθώσει κάτι που θα διορθωνόταν χωρίς αυτόν.\n\n**Η πρακτική συνέπεια είναι μία γραμμή στο φύλλο σου:** πριν συγκρίνεις ποσοστά, γράψε δίπλα σε κάθε αριθμό αν ο λογαριασμός ήταν έναντι ή εκκαθαριστικός. Οι γραμμές από έναντι δεν μπαίνουν στη σύγκριση. Μένουν στο χαρτί ως υπενθύμιση, όχι ως δεδομένο.\n\n## COMENTARIO FIXADO\nΤο λιγότερο προφανές: ένας πολύ ΧΑΜΗΛΟΣ λογαριασμός μπορεί επίσης να είναι έναντι, και τότε η καλή είδηση είναι κι αυτή εκτίμηση. Ποιο από τα δύο χαρτιά κρατάς αυτή τη στιγμή;\n\n## HASHTAGS\n#λογαριασμος #ρευμα #οικονομικα #epomenoepipedo #Shorts\n\n## TAGS\nεναντι λογαριασμος, εκκαθαριστικος, μετρητης ρευματος, εκτιμηση καταναλωσης, λογαριασμος ρευματος, ποσοστο ενεργειας, αλλαγη παροχου, συγκριση λογαριασμων, καταναλωση κιλοβατωρες, διορθωση εκτιμησης, οικονομικα σπιτιου, επομενο επιπεδο, αναγνωση λογαριασμου, παγιο, χρεωσεις δικτυου\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\n**ZERO numero novo sobre o mundo, e a narracao nao fala numero nenhum** — nem\npercentual, nem euro, nem quilowatt-hora, nem prazo, nem nome de fornecedor ou\nde orgao. A faixa de quanto da conta e energia, os cinco tributos, o coeficiente\ndas renovaveis e qualquer percentual de desconto ficaram FORA pela regra (g):\nos quatro mudam por publicacao e por oferta.\n\n**E a PROPRIA origem escreve a regra que eu sigo aqui:** o capitulo 7\n(*\"Ο κανόνας του καναλιού\"*) manda *\"numeros com fonte e data, e uma conta que\nvoce refaz sozinho na mesa da cozinha\"*. Esta peca nao traz numero nenhum, logo\nnao precisa de fonte nenhuma — ela traz a distincao entre dois documentos.\n\nAs barras (100/100 na cena 3 e 100/88/112 na cena 9) sao **ILUSTRACAO\nqualitativa** da forma do argumento — dois papeis do mesmo tamanho aparente, e\numa correcao que anda para os dois lados — e **NAO sao faladas**. Elas nao medem\nfatura nenhuma, e a rodada seguinte nao deve le-las de volta como dado.\n\n## FONTES\nOrigem: `P2q6w9y7j88` (`epomeno-epipedo-004`, 78 capitulos), escolhida pelo\n`pauta_do_momento.py` — 3 usos, empatada com cinco outras origens e desempatada\npela MAIOR reserva, **62 capitulos NAO MENCIONADOS de 78**. A dominante do canal\n(`nttW9fR8wyY`) ficou de fora, e quem conta e o `concentracao.py`.\n\nCapitulos desta peca: **62 e 72** (*\"Αν το ποσοστό βγει πολύ ψηλά\"* e\n*\"Και μία επιπλέον προσοχή\"*), com o apoio do 61 (*\"Τι κάνεις με το ποσοστό\"*).\nO 72 diz em letra: *\"Τα ποσοστά που υπολογίζεις έχουν νόημα μόνο πάνω σε\nεκκαθαριστικό\"*, e o 62: *\"μην τρέξεις να αλλάξεις πάροχο. Πρώτα κοίτα αν ο\nλογαριασμός ήταν έναντι\"*.\n\n**FAMILIA DE ENTRADA ERRADA: LER UM NUMERO QUE E ESTIMATIVA COMO SE FOSSE\nMEDICAO** — tirar o percentual de um `έναντι` e decidir sobre ele. Nao e\naritmetica errada nem numero impreciso: e o PAPEL errado. O numero descreve o\nque outra pessoa SUPOS que aconteceu em casa, nao o que o medidor viu. E o\nsegundo lado e o que torna a pressa caro: a estimativa se corrige sozinha no\n`εκκαθαριστικός` seguinte, **e a correcao anda para os DOIS lados** — logo quem\ntroca de fornecedor sobre um pico que nao era medicao troca para consertar algo\nque se consertava sem ele.\n\n**A DISTINCAO DOS TRES IRMAOS VAI ESCRITA, e eles vieram do `irmaos_da_origem`,\nnao da minha leitura** — e o `s010` **nao tem** o campo da familia, logo a\ncomparacao dele foi pela PROSA e pela NARRACAO (776, e o conserto de 20/10 as\n15:3x, que passou a imprimir as duas):\n\n* `s010` — **a BASE de um percentual**: o desconto do fornecedor cai na linha da\n  energia e nao no total, logo o mesmo percentual rende diferente em cada\n  fatura. Aqui nao se discute base nenhuma: discute-se se o documento e medicao;\n* `s029` — **FIXO por imovel e por conexao contra VARIAVEL com o consumo**:\n  cortar consumo e esperar que a pagina inteira caia;\n* `s042` — **a vizinha mais perigosa, e a diferenca vai dita**: ela compara DUAS\n  faturas de periodos diferentes (dias, estacao e decisao mudam juntos). **La o\n  defeito e o par; aqui e UMA fatura, e o defeito e a PROCEDENCIA do numero\n  dela.** Uma peca fala de comparacao, a outra de medicao.\n\nNenhuma das tres toca os capitulos 62 e 72 — conferido short por short.\n\n## EXPOSICAO\n**DOZE CENAS, e as duas recusas sairam do instrumento, nao de mim.** O\n`contagem_de_cenas.py` deu **catorze** como melhor cadencia (3,02 s) e **acusou\nsozinho** que a `s075` — duas pecas atras neste canal — tem catorze; e **quinze**\ne o teto MEDIDO desta voz **e inedito na frota**, mas foi recusado pela FOLGA,\nporque o orcamento ali cai a dois caracteres do piso OBSERVADO de 21. Doze e a\nmelhor que SERVE pelos tres filtros da chave `por_cadencia_servivel` (cabe na\nvoz, nao repete tamanho recente, alcanca o piso com folga **+15**).\n\n**ESQUELETO `titulo-item-item-barras-item-lista-titulo-item-item-barras-item-cta`,\ninedito nas 133 formas da frota** — numero do `esqueleto_entre_canais`, com a\npropria peca FORA da varredura pelo `exceto`. `barras` entra DUAS vezes e as duas\ncarregam argumento: a cena 3 mostra os dois papeis do mesmo tamanho aparente, e\na cena 9 mostra a correcao andando para os dois lados. Todo layout saiu do\nconjunto **SONDADO** (`layouts_do_short.desenham()`), com `assert` no construtor.\n\n**A PINCA DO 740/748 ESTA FECHADA AQUI, e a exposicao vai declarada ANTES de\npublicar:** nesta voz o `mira.janela_dos_dois_mundos` devolve **NENHUMA** janela\nem contagem de cena alguma, porque a razao piper/edge e 0,886 e o vao vale ~4,7 s\ncontra 1,5 s de faixa. Logo mirei o PISO do `ALVO_SHORT` pela regra de redacao do\n772, e o piper sai FORA pelo piso. Nos dois canais sem mira propria o portao\n`duracao` cobra 18 a 45 s, que os dois mundos satisfazem.\n\n**E O PISO EXATO NAO E ALCANCAVEL com doze cenas, dito em vez de eu chamar a\nprevisao de piso:** um caractere por cena vale ~0,60 s nesta voz, logo a media\ninteira mais proxima cai acima de 41,5 e nao nele. **Com a banda em (−1,2; 4,0) o\nreal cai em algum ponto da faixa que o `mira.py` imprime, e eu nao digo de que\nlado** — ela tem 5,2 s de largura contra 1 s de granularidade, e declarar um lado\nnao e previsao (774).\n"
+}
