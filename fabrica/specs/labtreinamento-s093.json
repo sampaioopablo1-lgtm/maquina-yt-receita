@@ -1,0 +1,89 @@
+{
+ "slug": "labtreinamento-s093",
+ "pacote": "labtreinamento-s093",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "longo_existente": "yrWVyqQtw00",
+ "longo": [],
+ "thumb": {
+  "l1": "O número",
+  "l2": "não vem"
+ },
+ "paleta": {
+  "bg": "#0E1117",
+  "ink": "#EEF1F5",
+  "c1": "#3DDBD9",
+  "c2": "#1E2430",
+  "red": "#FF5A5F",
+  "ok": "#3CCB7F",
+  "panel": "#161B24",
+  "mut": "#8B95A5",
+  "acc": "#3DDBD9"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Esperando o número",
+   "sub": "para planejar",
+   "nar": "Você espera o número para planejar."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ele vem depois",
+   "nar": "Ele só aparece depois do levantamento."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Onde a janela foi",
+   "barras": [
+    {
+     "rotulo": "Esperando",
+     "valor": 70
+    },
+    {
+     "rotulo": "Medindo",
+     "valor": 22
+    },
+    {
+     "rotulo": "Fazendo",
+     "valor": 8
+    }
+   ],
+   "nar": "A espera consome a janela inteira."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Entrada errada",
+   "sub": "o número não é gatilho",
+   "nar": "Essa entrada está errada no plano."
+  },
+  {
+   "layout": "lista",
+   "kicker": "O que não vem escrito",
+   "itens": [
+    "O preço",
+    "O prazo da obra",
+    "Quando a cobrança aperta"
+   ],
+   "nar": "Três coisas ninguém vai te entregar."
+  },
+  {
+   "layout": "item",
+   "kicker": "Palpite firme",
+   "nar": "Palpite com voz firme vira informação."
+  },
+  {
+   "layout": "item",
+   "kicker": "A ordem que funciona",
+   "nar": "Planeje pela data que está escrita."
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "se inscreva",
+   "nar": "Se inscreva e meça o resto hoje."
+  }
+ ],
+ "copy": "# labtreinamento-s093\n\n## TITULO\nPor Que Esperar o Orçamento Para Montar o Cronograma Consome a Janela Inteira\n\n## TITULO SHORT\nO número não vem antes do plano\n\n## DESCRICAO\nChegou a norma nova e a primeira pergunta é **quanto vai custar**. A resposta honesta é que ninguém sabe ainda — e é aí que o plano trava, porque o número virou o gatilho do cronograma.\n\n**A entrada errada é esta: esperar o número para começar a planejar.** O valor depende do tamanho da instalação e do estado da documentação, logo ele só existe depois do levantamento. Enquanto se espera por ele, o calendário anda — e o que a espera consome é exactamente a janela que havia para fazer a adequação.\n\nE tem o lado pior, que é o atalho. Um palpite dito com voz firme soa igual a informação: entra na célula da planilha, e três reuniões depois ninguém lembra que aquilo era chute. A decisão de orçamento passa a se apoiar num número que nenhuma medição sustenta.\n\n**A ordem que funciona é a inversa: planeje pela data que está escrita, e trate o resto como medição que você deve.** A data de vigência é a única coisa publicada; o preço, o prazo da obra e o momento em que a cobrança aperta não são prazos pelos quais se possa esperar — são coisas a medir. Quem planeja pela data escrita começa o levantamento e descobre o número no caminho. Quem espera o número descobre a data no fim.\n\n## COMENTARIO FIXADO\nO menos óbvio: a incerteza não atrasa o plano, ela decide qual é o primeiro passo dele. Qual número você está esperando antes de começar?\n\n## HASHTAGS\n#norma #planejamento #gestao #labtreinamento #Shorts\n\n## TAGS\ncronograma de adequacao, orcamento de estudo, levantamento, data de vigencia, planejamento de norma, incerteza de custo, estimativa sem base, gestao de prazo, ordem do planejamento, premissa de planilha, lab treinamento, adequacao eletrica, planejamento de obra, gestao de seguranca, primeiro passo\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\n**ZERO numero novo sobre o mundo, e a narracao nao fala numero nenhum** — nem\npreco, nem prazo, nem data, nem percentual. O preco do estudo, a data de\nvigencia, o prazo da obra e o momento da fiscalizacao ficaram FORA pela regra\n(g), e **a procedencia da recusa esta na PROPRIA origem**: os capitulos 65 a 69\ndo `labtreinamento-004` dizem, em letra, que o autor NAO vai dar o preco porque\n*\"um numero medio aqui enganaria mais do que ajudaria\"* e que um palpite\n*\"soaria bem, porque palpite dito com voz firme soa igual a informacao\"*.\n\nAs barras (70 / 22 / 8) sao **ILUSTRACAO qualitativa** de como a janela se\nreparte quando a espera manda, e NAO sao faladas. Elas nao medem nenhuma obra,\nnenhuma pesquisa e nenhum caso real — a rodada seguinte nao deve le-las de volta\ncomo se fossem dado.\n\n## FONTES\nOrigem: `yrWVyqQtw00` (`labtreinamento-004`, 81 capitulos), escolhida pelo\n`pauta_do_momento.py` — 5 usos, empatada com oito outras origens e desempatada\npela MAIOR reserva, **66 capitulos NAO MENCIONADOS de 81**. A dominante do canal\n(`FtCtIJPsc_Q`) ficou de fora, e quem conta e o `concentracao.py`.\n\nCapitulos desta peca: **65 a 70** (*\"O que eu nao vou te dizer\"*, *\"Primeira\"*,\n*\"Segunda\"*, *\"Terceira\"*, *\"Por que nao estimo isso\"*, *\"O que fazer com a\nincerteza\"*), com o apoio do 7 (*\"Quanto tempo isso leva\"*) e do 11 (*\"A conta\ndo calendario\"*).\n\n**FAMILIA DE ENTRADA ERRADA: ESPERAR O NUMERO PARA COMECAR A PLANEJAR** — tratar\n*\"nao tenho o preco\"* como *\"nao tenho prazo\"*, quando o preco so existe depois\ndo levantamento e a data e a unica coisa escrita. O atalho que aparece quando a\nespera incomoda e pior que a espera: palpite com voz firme entra na planilha como\npremissa e ninguem lembra depois que era chute.\n\n**A DISTINCAO DAS CINCO IRMAS VAI ESCRITA, e elas vieram do `irmaos_da_origem`,\nnao da minha leitura** — tres delas (`s010`, `s034`, `s090`) **nao tem** o campo\n`## FAMILIA DE ENTRADA ERRADA`, que e o caso do 776, logo a comparacao foi pela\nPROSA:\n\n* `s010` — **ORDEM DE CONTRATACAO**: pedir o estudo antes de levantar, e por isso\n  receber o escopo da instalacao inteira. **E a vizinha mais perigosa, e a\n  diferenca vai dita: lá o eixo e o ESCOPO do orcamento** (o preco cai porque o\n  escopo encolheu); **aqui o eixo e o GATILHO do cronograma** — nao se discute\n  escopo nenhum, discute-se o que dispara o primeiro passo;\n* `s034` — **TREINADO NAO E AUTORIZADO**: condicao necessaria tomada por\n  suficiente;\n* `s041` — **SUBSTITUICAO INTEGRAL tratada como EMENDA**: usar o diff quando o\n  texto anterior deixou de valer por inteiro;\n* `s053` — **DUAS FONTES PARALELAS PARA UM FATO SO**: o mesmo risco mantido em\n  dois documentos, por pessoas diferentes;\n* `s090` — **ARCO ELETRICO NAO E CHOQUE**: protecao que deixa de ser sim-ou-nao e\n  passa a ser por NIVEL.\n\nNenhuma das cinco fala de INCERTEZA nem de ordem de planejamento, e nenhuma toca\nos capitulos 65 a 70 — conferido short por short.\n\n## EXPOSICAO\n**OITO CENAS, e a recusa do SETE nao foi minha.** O `contagem_de_cenas.py` deu\nsete como a melhor cadencia (3,29 s, |dif| 0,19) e **acusou sozinho que as duas\npecas anteriores deste canal repetem esse tamanho** — a `s092` tem sete e a\n`s091` tem seis. Oito e a melhor que SERVE pelos tres filtros ao mesmo tempo\n(cabe no teto MEDIDO de 11 desta voz, nao repete tamanho recente, alcanca o piso\ncom folga +3), que e a chave `por_cadencia_servivel` de 20/10 as 07:4x. As\ncontagens **9, 10 e 11** sairam NOMEADAS e nao filtradas, porque nelas o PISO da\nfaixa nao e alcancavel com texto legivel.\n\n**ESQUELETO `titulo-item-barras-titulo-lista-item-item-cta`, a TERCEIRA forma de\noito cenas da frota** — as outras duas sao `titulo-item-lista-barras-item-titulo-item-cta`\ne `titulo-item-lista-item-barras-item-titulo-cta`, e esta nao e nenhuma delas.\nInedita tambem nas 132 formas da frota inteira, pelo `esqueleto_entre_canais`\ncom a propria peca FORA da varredura (`exceto`).\n\n**TODO LAYOUT SAIU DO CONJUNTO SONDADO** (`barras`, `cta`, `item`, `lista`,\n`titulo`), com `assert` no construtor — consequencia direta do cartao em branco\npublicado em 19/10 as 18:18Z.\n\n**O ORCAMENTO SAIU DO INSTRUMENTO, NOS DOIS MUNDOS.** Para OITO cenas na mira\nMEDIDA deste canal (20,0 a 26,0) o `mira.janela_dos_dois_mundos` devolve **34 a\n36 caracteres por cena**, e a peca foi escrita na media da janela. **Este canal e\no unico da frota em que a pinca do 740/748 nao esta fechada** — nos outros dois o\n`ALVO_SHORT` tem 1,5 s de largura contra um vao de ~6 s entre os provedores.\n\n**A mira verde NAO promete real dentro, e a frequencia esta MEDIDA:** pelo tally\ndo 744/754/758, quarenta e uma das quarenta e seis pecas deste canal narradas\npelo edge sairam ACIMA do teto de 26,0. Com a banda em (−1,2; 4,0) o real cai em\nalgum ponto da faixa que o `mira.py` imprime, e **eu nao digo de que lado**,\nporque a banda tem 5,2 s de largura contra 1 s de granularidade — declarar um\nlado dela nao e previsao (774). A decisao do 740/748 segue sendo do dono.\n"
+}
