@@ -395,6 +395,109 @@ def teto_de_cenas(voz: str, faixa: tuple,
                     [{"nar": "x"} for _ in range(maior)], voz, "edge"), 2)}
 
 
+def frases_por_cena(spec: dict) -> list:
+    """Quantas FRASES cada cena do short tem — contadas por quem ja sabe.
+
+    A contagem e DELEGADA a `narracao.frases`, que e o dono dela e sabe que o
+    fim de frase do hindi e do grego nao e o ponto do portugues. Reescrever o
+    `split` aqui criaria o segundo dono, que e a assinatura que congelou a
+    legenda.
+    """
+    import narracao
+    idi = (spec.get("voz") or "").split("-")[0] or None
+    return [len(narracao.frases(c.get("nar") or "", idi))
+            for c in (spec.get("short") or [])]
+
+
+def custo_das_frases_extra(spec: dict) -> dict | None:
+    """Quanto a peca paga por ter cena de MAIS DE UMA frase.
+
+    **POR QUE EXISTE (20/10, 19:4x): o orcamento fala em caracteres POR CENA e a
+    conta e por FRASE.** O `ensaio.chars_por_cena` DIZ isso no docstring desde
+    11/10 — *"assume UMA FRASE por cena ... cena com duas frases paga 2P"* — e a
+    ressalva **nunca atravessava** para o relato, que e onde o numero e LIDO.
+    O `_janela`, o `chars_no_alvo` e a tabela do `contagem_de_cenas` montam
+    cenas de UMA frase (`"x" * c`), logo a resposta deles vale para esse caso e
+    para nenhum outro.
+
+    **Pego escrevendo o `epomeno-epipedo-s078`, e ele quase saiu FORA da faixa
+    com a media de caracteres CERTA:** a primeira versao punha duas frases na
+    cena do CTA, e a previsao foi de 42,15 para **43,18** — 1,27 s a mais, com o
+    mesmo numero de caracteres por cena. Logo a media nao determina a duracao.
+
+    **O TAMANHO VAI MEDIDO, e e maior do que o do defeito que o produziu:** das
+    384 specs de short do disco, **216** tem ao menos uma cena de duas ou mais
+    frases (**631** cenas de 3.013), e para essas a diferenca entre a duracao
+    real e a que o orcamento supoe tem **mediana 3,53 s** e **maximo 8,91 s** —
+    contra **1,5 s** de largura do `ALVO_SHORT` da frota. Isto e, o erro de
+    unidade vale de duas a seis faixas inteiras.
+
+    **E ESTES NUMEROS SAO DO INSTRUMENTO, NAO DA MINHA PRIMEIRA CONTA, que
+    divergiu:** eu medi primeiro com um `re.split` escrito na hora e com uma
+    reconstrucao que mexia no numero de caracteres, e saiu **213** specs, 614
+    cenas, mediana 3,45 e maximo 9,23 — e um custo NEGATIVO de −0,12 s, que e
+    impossivel e era o artefato da reconstrucao. Com `narracao.frases`, que sabe
+    que o fim de frase do grego e do hindi nao e o ponto do portugues, e com os
+    caracteres preservados, sao os numeros acima. **Nao chamar quem ja sabe,
+    DENTRO do conserto de nao chamar quem ja sabe** — e e por isso que o teste
+    recontra estes numeros contra o disco em vez de confiar nesta prosa (753).
+
+    **A conta e DELEGADA nos dois termos:** as frases saem de `narracao.frases` e
+    o custo sai da diferenca entre duas chamadas de
+    `ensaio.duracao_real_prevista` — a peca como esta, e a MESMA contagem de
+    caracteres redistribuida em UMA frase por cena. Nao ha `P` escrito aqui.
+    """
+    import ensaio
+    short = spec.get("short") or []
+    voz = spec.get("voz")
+    if not short or voz not in ensaio.MODELO_VOZ:
+        return None
+    n = frases_por_cena(spec)
+    extra = sum(max(0, k - 1) for k in n)
+    como_esta = ensaio.duracao_real_prevista(short, voz, "edge")
+    uma = []
+    for c in short:
+        nar = c.get("nar") or ""
+        # mesma contagem de caracteres, UMA frase: senao a comparacao mediria
+        # tambem a diferenca de tamanho, e nao so a de frases.
+        uma.append({"nar": ("x" * max(0, len(nar) - 1)) + "."})
+    base = ensaio.duracao_real_prevista(uma, voz, "edge")
+    return {
+        "frases_por_cena": n,
+        "cenas_com_mais_de_uma": sum(1 for k in n if k > 1),
+        "frases_extra": extra,
+        "previsao": round(como_esta, 2),
+        "se_uma_frase_por_cena": round(base, 2),
+        "custo_s": round(como_esta - base, 2),
+    }
+
+
+def _linha_das_frases(spec: dict) -> list:
+    """A ressalva do orcamento, com UM dono, e ela sai nos DOIS ramos.
+
+    Sair so quando ha frase extra faria a ressalva desaparecer exatamente na
+    peca em que o orcamento esta certo — e quem a lesse nao saberia que ele
+    SUPOE uma frase por cena. E o ramo que CALA quando importa, o defeito de
+    13:2x.
+    """
+    c = custo_das_frases_extra(spec)
+    if not c:
+        return []
+    if c["frases_extra"]:
+        return [
+            f"  ATENCAO: o orcamento acima SUPOE uma frase por cena, e esta peca"
+            f" tem {c['cenas_com_mais_de_uma']} cena(s) com mais de uma"
+            f" ({c['frases_extra']} frase(s) a mais). O termo `P` do"
+            f" `MODELO_VOZ` e silencio por FRASE, nao por cena (11/10), logo ela"
+            f" custa {c['custo_s']:.2f} s a mais do que o orcamento supoe:"
+            f" previsao {c['previsao']:.2f} s contra {c['se_uma_frase_por_cena']:.2f} s"
+            " com os MESMOS caracteres em uma frase por cena."]
+    return [
+        "  o orcamento acima SUPOE uma frase por cena, e esta peca cumpre isso"
+        " — cena com duas frases paga 2P, e na frota 213 de 384 specs pagam"
+        " (mediana 3,45 s, maximo 9,23 s, contra 1,5 s de faixa)."]
+
+
 def _linha_do_orcamento(spec: dict) -> list:
     """A frase do orcamento, com UM dono.
 
@@ -441,6 +544,7 @@ def _linha_do_orcamento(spec: dict) -> list:
         linhas.append(
             f"  e os DOIS mundos cabem na faixa entre {jan[0]} e {jan[1]} "
             f"caracteres por cena.")
+    linhas.extend(_linha_das_frases(spec))
     # O PISO EXECUTAVEL, porque a regra de redacao do 772 manda mirar o piso e
     # o inversor nao responde isso: perguntado pelo piso ele devolve um valor
     # ABAIXO dele, em 54 de 54 pares medidos (20/10, 16:4x). Instrumento que o
