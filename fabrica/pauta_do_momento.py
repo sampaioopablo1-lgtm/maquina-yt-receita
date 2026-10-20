@@ -33,6 +33,15 @@ seguinte perguntar por que a lista encurtou, que e a cegueira que o
 `origens_sem_uso` nasceu para desfazer. Sem mapa de dono MEDIDO ele **diz que o
 mapa falta** — ausencia de medicao nao e ausencia de problema.
 
+**E O MAPA PASSOU A TER DONO EM 20/10 as 10:1x, porque ele nao existia como
+DADO.** Nas duas primeiras rodadas deste modulo o relato saiu com *"mapa de dono
+MEDIDO ausente"* — e a medicao existia, escrita em PROSA no `CLAUDE.md` e nos
+docstrings deste modulo e do `concentracao`. O custo foi de ESCOLHA: nesta
+rodada ele deu o `QiaGg03WSR0` como ESCOLHIDA no `kolejny-poziom`, e com o mapa
+a vez passa ao `SZV9Vk5YFwI`. Agora o padrao e `dono_medido.mapa()`, e **quem
+quiser medir o modulo SEM mapa passa `{}` explicitamente** — os dois ramos
+continuam existindo e testaveis.
+
 **NAO E PORTAO** e nao escolhe familia: capitulo livre NAO e familia livre (776),
 e nenhum limiar de string distingue duas frases sobre o mesmo limiar. Codigo de
 saida sempre zero.
@@ -40,8 +49,21 @@ saida sempre zero.
 import sys
 
 import concentracao as CO
+import dono_medido as DM
 import irmaos_da_origem as IO
 import segundo_angulo as SA
+
+
+def _resolve_mapa(dono_medido):
+    """UM dono da regra: `None` = use o mapa MEDIDO, `{}` = sem mapa.
+
+    A primeira versao deste conserto resolvia dentro do `quadro` e deixava a
+    FLAG do relato ser calculada no `escolha` a partir do argumento nao
+    resolvido — dois donos do mesmo fato, que e a assinatura que congelou a
+    legenda, aparecendo DENTRO do conserto dela. O relato dizia "mapa ausente"
+    com a suspeita ja NOMEADA na lista acima.
+    """
+    return DM.mapa() if dono_medido is None else dono_medido
 
 
 def quadro(canal: str, dono_medido=None, exceto: str = "") -> list[dict]:
@@ -54,6 +76,7 @@ def quadro(canal: str, dono_medido=None, exceto: str = "") -> list[dict]:
     # O `exceto` vai ao DONO da contagem: filtrar aqui seria recontar o disco,
     # que e o segundo dono que congelou a legenda.
     usos = CO.contagem(canal, exceto=exceto)
+    dono_medido = _resolve_mapa(dono_medido)
     fora = {}
     if dono_medido:
         fora = CO.origem_de_outro_canal(canal, dono_medido) or {}
@@ -81,6 +104,7 @@ def escolha(canal: str, dono_medido=None, exceto: str = "") -> dict:
     Devolve `None` em `escolhida` quando nao sobra origem — e NAO inventa uma,
     do jeito que o `porta1` recusa janela curta.
     """
+    dono_medido = _resolve_mapa(dono_medido)
     q = quadro(canal, dono_medido=dono_medido, exceto=exceto)
     # A suspeita de outro canal EXCLUI da escolha e NAO da lista: ela so entra
     # aqui porque foi MEDIDA (o mapa de dono), nunca por palpite.
@@ -111,13 +135,15 @@ def _linha_do_mapa(e: dict) -> str:
                 "de outro canal, e isso NAO prova que nao haja — o "
                 "`QiaGg03WSR0` do kolejny e o caso medido (18/10 as 01:2x). "
                 "Ausencia de medicao nao e ausencia de problema.")
-    return ("  mapa de dono MEDIDO presente: %d origem(ns) NOMEADA(s) como de "
-            "outro canal, e elas saem da escolha sem sair da lista."
-            % len(e["nomeados_como_suspeitos"]))
+    return ("  mapa de dono MEDIDO presente (%d entrada(s) no `dono_medido.py`): "
+            "%d origem(ns) NOMEADA(s) como de outro canal, e elas saem da "
+            "escolha sem sair da lista. O mapa NAO e exaustivo: origem fora "
+            "dele e DESCONHECIDA, nunca do proprio canal."
+            % (len(DM.MEDIDOS), len(e["nomeados_como_suspeitos"])))
 
 
 def relato(canal: str, dono_medido=None, exceto: str = "") -> str:
-    e = escolha(canal, dono_medido=dono_medido, exceto=exceto)
+    e = escolha(canal, dono_medido=_resolve_mapa(dono_medido), exceto=exceto)
     q = e["quadro"]
     L = ["PAUTA DO MOMENTO em %s: %d origens." % (canal, len(q))]
     for x in q[:6]:

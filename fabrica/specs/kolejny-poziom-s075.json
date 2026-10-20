@@ -1,0 +1,125 @@
+{
+ "slug": "kolejny-poziom-s075",
+ "pacote": "kolejny-poziom-s075",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "longo_existente": "SZV9Vk5YFwI",
+ "longo": [],
+ "thumb": {
+  "l1": "Nie saldo,",
+  "l2": "a warunek"
+ },
+ "paleta": {
+  "bg": "#0B0B0C",
+  "ink": "#F2EEE8",
+  "c1": "#E23B3B",
+  "c2": "#D9C7A7",
+  "red": "#FF4D4D",
+  "ok": "#7FB77E",
+  "panel": "#151517",
+  "mut": "#8F877C",
+  "acc": "#E23B3B"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Nie saldo decyduje",
+   "sub": "a warunek",
+   "nar": "Nie saldo decyduje, a warunek."
+  },
+  {
+   "layout": "item",
+   "kicker": "Trzy konta",
+   "nar": "Są trzy konta z ulgą."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Każde inaczej",
+   "itens": [
+    "IKE",
+    "IKZE",
+    "PPK"
+   ],
+   "nar": "Każde z nich działa inaczej."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Gdzie leży zysk",
+   "barras": [
+    {
+     "rotulo": "Saldo",
+     "valor": 40
+    },
+    {
+     "rotulo": "Ulga",
+     "valor": 60
+    }
+   ],
+   "nar": "Zysk nie leży w saldzie."
+  },
+  {
+   "layout": "item",
+   "kicker": "IKE",
+   "nar": "W IKE zysk bez podatku."
+  },
+  {
+   "layout": "item",
+   "kicker": "IKZE",
+   "nar": "W IKZE odliczasz od razu."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Jest haczyk",
+   "sub": "to warunek wieku",
+   "nar": "Obie ulgi mają warunek wieku."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Wypłata przed wiekiem",
+   "itens": [
+    "Ulga wraca",
+    "IKE: podatek",
+    "IKZE: odliczenia"
+   ],
+   "nar": "Wypłata przed wiekiem ją cofa."
+  },
+  {
+   "layout": "item",
+   "kicker": "Czyli",
+   "nar": "Oddajesz to, po co weszłeś."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Zła kolejność",
+   "barras": [
+    {
+     "rotulo": "Wielkość ulgi",
+     "valor": 25
+    },
+    {
+     "rotulo": "Czy nie ruszysz",
+     "valor": 75
+    }
+   ],
+   "nar": "Nie wybieraj po wielkości ulgi."
+  },
+  {
+   "layout": "item",
+   "kicker": "Patrz na trzy rzeczy",
+   "nar": "Niskie opłaty, szerokość, rytm."
+  },
+  {
+   "layout": "item",
+   "kicker": "Dobre konto",
+   "nar": "Dobre to takie, którego nie ruszysz."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Zamroź te pieniądze",
+   "sub": "sprawdź przepisy",
+   "nar": "Potraktuj je jak zamrożone."
+  }
+ ],
+ "copy": "# kolejny-poziom-s075\n\n## TITULO\nNie Saldo, a Warunek: Dlaczego Konto z Ulgą Traci Sens, Gdy Wypłacisz Za Wcześnie\n\n## TITULO SHORT\nNie saldo, a warunek\n\n## DESCRICAO\nKonta emerytalne z przewagą podatkową wybiera się najczęściej po jednym kryterium: **która ulga jest większa.** To złe pytanie, i nie dlatego, że ulga jest nieważna — dlatego, że przewaga tych kont nie leży w saldzie. Leży w **warunku**.\n\nIKE i IKZE działają odwrotnie, ale obie korzyści są warunkowe. **W IKE nie płacisz podatku od zysków — przy wypłacie po osiągnięciu wieku. W IKZE odliczasz wpłatę od podstawy już teraz — a podatek płacisz dopiero przy wypłacie.** W obu zdaniach jest ten sam przecinek, i to on decyduje: korzyść nie jest własnością konta, jest własnością dotrzymanego warunku.\n\n**Dlatego najdroższy błąd na tych kontach to wypłata przed osiągnięciem wieku.** Nie tracisz wtedy „części zysku\" — oddajesz dokładnie to, po co to konto zakładałeś: przy IKE wraca podatek od zysków, przy IKZE oddajesz odliczenia, które już wziąłeś. Konto nie przestaje istnieć; przestaje być tym kontem.\n\n**Z tego wychodzi inna kolejność wyboru, i to jest cała treść tego materiału.** Najpierw pytanie, czy przez trzydzieści lat tych pieniędzy nie ruszysz. Potem kryteria, które są te same niezależnie od konta: niskie opłaty, szeroka dywersyfikacja, regularność. Wielkość ulgi jest ostatnia, nie pierwsza. **Najlepsze konto to takie, którego nie ruszysz** — bo tylko ono dostaje tę korzyść, dla której powstało.\n\n**Co warto zrobić dziś, i nic to nie kosztuje:** zanim porównasz ulgi, odpowiedz sobie na pytanie o horyzont. Jeśli odpowiedź jest „nie wiem, czy nie będę musiał wyjąć\", to jest ważniejsza informacja niż każda tabela limitów.\n\nTo nie jest porada inwestycyjna. Nie podaję tu limitów wpłat, stawek podatku ani kwot — limity i zasady zmieniają się co roku, a twoja sytuacja jest twoja. Sprawdź aktualne przepisy, zanim cokolwiek podpiszesz. Mechanizm jest tematem, i on nie zależy od żadnej liczby: korzyść jest warunkowa, a warunkiem jest czas.\n\n## COMENTARIO FIXADO\nNajmniej oczywiste: wypłata przed wiekiem nie zabiera ci części zysku — zabiera dokładnie tę korzyść, dla której konto powstało. Sprawdziłeś kiedyś swój horyzont, zanim porównałeś ulgi?\n\n## FAMILIA DE ENTRADA ERRADA\nWybieram konto po WIELKOŚCI ulgi i traktuję je jak zwykły rachunek, z którego w razie potrzeby można wyjąć. Przewaga tych kont jest WARUNKOWA — warunkiem jest wiek wypłaty — więc wypłata przed czasem nie obcina korzyści proporcjonalnie, tylko ją ODDAJE w całości: przy IKE wraca podatek od zysków, przy IKZE oddajesz wzięte odliczenia.\nDistincao dos dois irmaos desta origem: o `s059` e a aritmetica da ZWLOKA (dividir a perda pelo tempo adiado, supondo anos permutaveis) e o `s064` e o DIVISOR que cresce sem ninguem o escolher. Aqui nao se fala de tempo adiado nem de divisor: fala-se de uma corrente que e CONDICIONAL, e da ordem em que se escolhe a conta.\n\n## HASHTAGS\n#emerytura #IKE #IKZE #kolejnypoziom #Shorts\n\n## TAGS\nike, ikze, ppk, konto emerytalne, ulga podatkowa, emerytura, wyplata przed wiekiem, oplaty, dywersyfikacja, regularnosc, finanse osobiste, kolejny poziom, oszczedzanie, trzeci filar, horyzont inwestycyjny\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao, e ela nao fala numero nenhum — nem\n\"tres\" das contas, que aparece so no kicker e na lista escrita. Os valores das\nbarras sao ILUSTRACAO da ORDEM de decisao — a cena 3 mostra que o peso esta na\nulga e nao no saldo, a cena 9 mostra a ordem INVERTIDA que a peca propoe (a\npergunta do horizonte antes do tamanho da ulga) — e **nao sao medicao de conta\nnenhuma**; nao sao faladas e os rotulos nao citam norma. **Ficaram FORA pela\nregra (g), e sao QUATRO:** o limite anual de aporte, a aliquota do imposto, a\ntaxa do ryczalt do IKZE e qualquer valor em zloty. Os quatro mudam por ano\nfiscal — e **a propria origem escreve o mesmo motivo** no capitulo 41: *\"cada uma\ntem limite anual que muda todo ano, por isso nao dou valores, so o mecanismo\"*,\ne no 47: *\"limites, taxas e regras mudam todo ano\"*.\n\n## FONTES\nA spec local `kolejny-poziom-002`, que e o pacote do longo `SZV9Vk5YFwI` deste\ncanal. A familia sai dos capitulos 42, 43, 45 e 46: *\"no IKE aportas com dinheiro\nja tributado, mas na retirada depois de atingir a idade nao pagas imposto sobre o\nlucro\"*, *\"o IKZE funciona ao contrario: deduzes o aporte da base ja neste ano, e\no imposto pagas na retirada\"*, *\"independentemente da conta, os criterios sao os\nmesmos: taxas baixas, diversificacao ampla e regularidade\"* e — o eixo da peca —\n*\"o erro mais caro nestas contas e a retirada antes de atingir a idade: perdes\ntoda a vantagem fiscal pela qual abriste a conta; no IKE pagas o imposto sobre os\nlucros, no IKZE devolves as deducoes\"*, com o fechamento *\"trata o dinheiro da\naposentadoria como congelado\"*. Nenhuma frase saiu de TITULO de capitulo.\n\n**A ORIGEM SAIU DO MAPA DE DONO MEDIDO, e isto e o achado desta rodada.** O\n`pauta_do_momento.py` deu, na primeira chamada, o `QiaGg03WSR0` como ESCOLHIDA —\n2 usos e **52 de 56** capitulos intocados, a maior reserva do empate. **Esse id\nfoi MEDIDO em 18/10 como longo do LabTreinamento** (campo `author` da propria\npagina), e dois shorts deste canal o declaram por engano. Com o mapa ligado\n(`fabrica/dono_medido.py`) ele sai NOMEADO e a vez passa ao `SZV9Vk5YFwI`\n(`kolejny-poziom-002`), 2 usos e **49 de 57** intocados. A dominante\n`GUiq15usizw` ficou de fora **COM O ALERTA DISPARADO**: 12 de 69 shorts (17%),\nmais que o dobro da segunda.\n\n**E A FAMILIA NAO TOCA NENHUMA DAS DUAS DESTA ORIGEM, e a lista saiu do\n`irmaos_da_origem`:** o `s059` e a aritmetica da ZWLOKA e o `s064` e o DIVISOR\nque cresce sem ninguem o escolher. Os capitulos 41 a 47 — as contas com vantagem\nfiscal e a CONDICAO delas — nunca foram usados.\n\n## EXPOSICAO\n**TREZE CENAS, e a recusa vai escrita porque ela nao foi minha.** O\n`contagem_de_cenas.py` ordenou e a chave `por_cadencia_servivel` decidiu:\n\n    14 (teto MEDIDO da voz) -> melhor cadencia 3,02 s, RECUSADA pela FOLGA:\n                               orcamento de 22 caracteres por cena, a UM do piso\n                               OBSERVADO de 21\n    13                      -> escolhida, orcamento 27 no piso, folga +6,\n                               cadencia 3,25 s (|dif| 0,15 dos ~3,1 s medidos)\n\n**E A NOVIDADE DESTE CANAL NAO E DE TAMANHO, medido:** abaixo do teto de 14 o\nunico tamanho que a frota nunca usou e **TRES**, cuja cadencia fica a 10,98 s dos\n~3,1 s de 690/699. Logo a novidade aqui e de **FORMA** — o esqueleto\n`titulo-item-lista-barras-item-item-titulo-lista-item-barras-item-item-cta` e\ninedito nas **127** formas da frota e nas DUAS de treze cenas que existem\n(`kolejny-poziom-s072` e `epomeno-epipedo-s073`, as duas com outra sequencia).\n**Com `barras` DUAS vezes e as duas carregando argumento:** a cena 3 mostra que o\npeso esta na ulga e nao no saldo, a cena 9 mostra a ORDEM invertida que a peca\npropoe. Todo layout saiu do conjunto **SONDADO**, com `assert` no builder.\n\n**O ORCAMENTO SAIU DO INSTRUMENTO, e o PISO EXATO nao e alcancavel:** com treze\ncenas UM caractere por cena vale **~0,63 s**, logo 27 caracteres dao ~41,5 e 28\ndao ~42,1. A peca foi escrita com media **27,8** e previsao edge **41,97** — isto\ne, **meio segundo acima do piso**, e eu digo isso em vez de chamar 41,97 de piso.\n\n**E A PINCA DO 740/748 ESTA FECHADA AQUI, com a exposicao declarada antes de\npublicar:** nenhuma contagem de 2 a 20 poe os dois mundos dentro de 41,5 a 43,0\nnesta voz (razao piper/edge 0,851, vao de ~6 s contra 1,5 s de faixa), logo o\npiper sai em **35,71**, FORA pelo piso. Aqui nao se escolhe contagem pela janela\n— declara-se a exposicao, e a decisao segue na fila do dono.\n\n**E nao digo de que lado o real vai cair:** a banda esta em (−1,2; 4,0), isto e\n5,2 s de largura contra 1 s de granularidade, e declarar um lado de uma banda que\ncobre a faixa inteira nao e previsao (774).\n"
+}

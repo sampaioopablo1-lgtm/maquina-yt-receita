@@ -116,12 +116,24 @@ def test_a_suspeita_e_NOMEADA_e_nao_filtrada():
 
 
 def test_sem_mapa_ele_DIZ_que_o_mapa_falta():
-    """Ausencia de medicao nao e ausencia de problema."""
-    r = PM.relato(CANAL)
+    """Ausencia de medicao nao e ausencia de problema.
+
+    RETRATADO NO LUGAR em 20/10 as 10:1x: a versao original chamava
+    `PM.relato(CANAL)` SEM mapa e cobrava a frase "ausente" — isto e, ela
+    travava o estado DEFEITUOSO, em que a medicao do dono existia so em PROSA e
+    o instrumento nao podia le-la. O padrao passou a ser `dono_medido.mapa()`, e
+    o ramo "sem mapa" segue existindo para quem passar `{}` de proposito. A
+    propriedade cobrada e que o ramo EXISTE e diz o que falta, nao que ele e o
+    padrao.
+    """
+    r = PM.relato(CANAL, dono_medido={})
     assert "mapa de dono MEDIDO ausente" in r
-    e = PM.escolha(CANAL)
+    e = PM.escolha(CANAL, dono_medido={})
     assert e["sem_mapa_de_dono"] is True
     assert e["nomeados_como_suspeitos"] == []
+    # e o PADRAO agora traz o mapa — ver
+    # tests/test_o_mapa_de_dono_MEDIDO_vivia_so_em_PROSA.py
+    assert PM.escolha(CANAL)["sem_mapa_de_dono"] is False
 
 
 def test_a_frase_do_mapa_tem_UM_dono():
