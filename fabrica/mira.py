@@ -472,6 +472,93 @@ def custo_das_frases_extra(spec: dict) -> dict | None:
     }
 
 
+def quanto_falta(spec: dict, provedor: str = "edge") -> dict | None:
+    """Quantos CARACTERES mover para a previsao entrar na faixa.
+
+    **POR QUE EXISTE (20/10 as 22:3x).** O `orcamento` diz quanto escrever
+    ANTES de escrever, e o `janela_do_mundo` diz a janela — e nenhum dos dois
+    responde a pergunta em que eu de fato estou toda rodada: **a peca JA esta
+    escrita e a previsao caiu fora; quantos caracteres faltam?**
+
+    **Medido na peca desta rodada:** a primeira versao do `epomeno-epipedo-s079`
+    saiu com previsao **41,31** contra um piso de 41,5, isto e **4 caracteres**
+    de distancia. Eu somei de cabeca e acrescentei **15** — um fator **3,7**.
+    A peca ficou dentro (42,08) e por isso o erro nao apareceu: **conta de
+    cabeca que acerta o lado e erra a magnitude e a mais facil de nao ver**, e e
+    o item 3 da §10.
+
+    **O TAMANHO DA PERGUNTA VAI MEDIDO:** das 387 specs com voz modelada, **192**
+    tem a previsao do edge FORA do alvo do proprio canal, a uma distancia mediana
+    de **79 caracteres** (maxima 1.621). A maioria e acervo escrito antes de a
+    mira existir, logo **isto nao e defeito do parque** — e a medida de quantas
+    vezes a pergunta se faz.
+
+    **A conta e DELEGADA:** o `R` da voz sai do `ensaio.MODELO_VOZ` por meio da
+    propria `duracao_real_prevista`, chamada duas vezes — a peca como esta e a
+    peca com um caractere a mais —, e a razao entre as duas da o segundo por
+    caractere. Escrever `len(nar) / R` aqui criaria o segundo dono da
+    sobrecarga por voz, que e a assinatura que congelou a legenda.
+    """
+    import ensaio
+
+    short = spec.get("short") or []
+    voz = spec.get("voz")
+    if not short or voz not in ensaio.MODELO_VOZ:
+        return None
+    faixa = _faixa_da_peca(spec)
+    if not faixa:
+        return None
+    lo, hi = float(faixa[0]), float(faixa[1])
+    agora = ensaio.duracao_real_prevista(short, voz, provedor)
+    # segundos por caractere, MEDIDO pelo dono: um caractere a mais na cena 0
+    mais = [dict(c) for c in short]
+    mais[0]["nar"] = (mais[0].get("nar") or "") + "x"
+    por_char = ensaio.duracao_real_prevista(mais, voz, provedor) - agora
+    if por_char <= 0:
+        return None
+    if agora < lo:
+        falta = int(_ceil((lo - agora) / por_char))
+        sentido = "ACRESCENTAR"
+    elif agora > hi:
+        falta = int(_ceil((agora - hi) / por_char))
+        sentido = "CORTAR"
+    else:
+        falta, sentido = 0, "DENTRO"
+    return {
+        "previsao": round(agora, 2),
+        "faixa": (lo, hi),
+        "provedor": provedor,
+        "segundos_por_caractere": round(por_char, 4),
+        "caracteres": falta,
+        "sentido": sentido,
+        "cenas": len(short),
+        "por_cena": (round(falta / float(len(short)), 1) if falta else 0.0),
+    }
+
+
+def _linha_do_quanto_falta(spec: dict) -> list:
+    """A frase do `quanto_falta`, com UM dono, e ela sai nos DOIS ramos.
+
+    Sair so quando a peca esta fora faria a linha CALAR na peca que esta dentro
+    — e e ali que quem le precisa saber que a margem existe e qual e. E o ramo
+    que cala quando importa, o defeito de 13:2x.
+    """
+    q = quanto_falta(spec)
+    if not q:
+        return []
+    if q["sentido"] == "DENTRO":
+        return [f"  QUANTO FALTA: nada — a previsao {q['previsao']:.2f} s esta"
+                f" dentro de {q['faixa'][0]:.1f} a {q['faixa'][1]:.1f}."
+                f" Um caractere vale {q['segundos_por_caractere']:.3f} s nesta"
+                " voz, e e esse o passo de qualquer ajuste."]
+    return [f"  QUANTO FALTA: {q['sentido']} ~{q['caracteres']} caractere(s) no"
+            f" TOTAL ({q['por_cena']} por cena em {q['cenas']}) para a previsao"
+            f" {q['previsao']:.2f} s entrar em {q['faixa'][0]:.1f} a"
+            f" {q['faixa'][1]:.1f}. Um caractere vale"
+            f" {q['segundos_por_caractere']:.3f} s nesta voz — somar isto de"
+            " cabeca me fez acrescentar 15 onde faltavam 4 em 20/10 as 22:3x."]
+
+
 def _linha_das_frases(spec: dict) -> list:
     """A ressalva do orcamento, com UM dono, e ela sai nos DOIS ramos.
 
@@ -498,6 +585,29 @@ def _linha_das_frases(spec: dict) -> list:
         " A medida vive no docstring de `custo_das_frases_extra`, que o teste"
         " recontra contra o disco: repeti-la aqui foi o 753 na primeira versao"
         " desta linha, e ela ja divergiu do docstring em uma hora."]
+
+
+def _ceil(x: float) -> int:
+    """Teto inteiro sem importar `math` so para isto."""
+    n = int(x)
+    return n if n >= x else n + 1
+
+
+def _faixa_da_peca(spec: dict):
+    """A faixa que a peca paga: a DECLARADA, senao a do canal, senao a frota.
+
+    DELEGADA ao `ensaio`, que e o dono da precedencia desde 16/10 — repeti-la
+    aqui foi o terceiro defeito do `orcamento` em 19/10 as 15:2x.
+    """
+    import ensaio
+    import canal as CN
+
+    if spec.get("short_alvo_s"):
+        return ensaio.faixa_do_short(spec)
+    try:
+        return ensaio.alvo_short(CN.da_spec(spec))
+    except Exception:
+        return ensaio.faixa_do_short(spec)
 
 
 def _linha_do_orcamento(spec: dict) -> list:
@@ -547,6 +657,7 @@ def _linha_do_orcamento(spec: dict) -> list:
             f"  e os DOIS mundos cabem na faixa entre {jan[0]} e {jan[1]} "
             f"caracteres por cena.")
     linhas.extend(_linha_das_frases(spec))
+    linhas.extend(_linha_do_quanto_falta(spec))
     # O PISO EXECUTAVEL, porque a regra de redacao do 772 manda mirar o piso e
     # o inversor nao responde isso: perguntado pelo piso ele devolve um valor
     # ABAIXO dele, em 54 de 54 pares medidos (20/10, 16:4x). Instrumento que o
