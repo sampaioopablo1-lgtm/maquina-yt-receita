@@ -4930,13 +4930,23 @@ por conta propria e nao aceita `recentes=`, logo a conferencia passou por
 `_linha_da_recencia(e)`. Reescrever a linha dentro do teste criaria o segundo
 dono dela — e e o mesmo tropeco que eu tive as 07:4x com o `_linha_da_folga`.
 
-**A PASSADA DE CONFIRMACAO AINDA ESTAVA RODANDO quando este commit foi feito, e
-o numero vai DITO como ausente em vez de afirmado** — a licao de 20/10 as 01:4x.
-O que esta medido e a passada ANTERIOR, antes da retratacao: **27 falhas**, com o
-`comm` acusando exatamente estas duas como novas e **zero desaparecidas**, e o
-arquivo retratado passando isolado em **12 de 12**. O conjunto contra a linha de
-base desta sessao (25) entra no relato assim que a passada fechar, medida pelo
-`processo_vivo` e nao pelo `pgrep`.
+**A SUITE FECHOU: 25 falhas, 3.280 passam, 1.027 skip em 745 s** — conjunto
+**IDENTICO** a linha de base desta sessao, `comm` vazio nos **dois** sentidos,
+com o `sed 's/ - .*$//' | sort` nos dois lados. A passada ANTERIOR, antes da
+retratacao, deu **27**, com o `comm` acusando exatamente estas duas como novas e
+**zero desaparecidas** — logo as duas eram minhas e nenhuma outra se mexeu.
+
+**E o custo de tempo vai medido em vez de repetido por habito:** 745 s contra
+721 s da passada anterior e 764 s da rodada das 08:07. Os dezoito testes novos
+desta rodada passam isolados em **0,08 s** — nenhum dos dois arquivos renderiza
+nem varre o disco —, logo a diferenca nao e deles: ela esta no arquivo da
+recencia, cujos testes retratados passaram a chamar `CC.escolha` nos **TRES**
+canais em vez de num, e esse e o preco da cobertura mais larga. Dito assim
+porque *"entraram sem custo de tempo"* e verdade de uns arquivos e nao de todos.
+
+**E a liveness saiu do `processo_vivo` e nao do `pgrep`** — ele respondeu certo
+nos dois estados outra vez, e o `until` dele nao se ve no espelho porque o filtro
+e pelo EXECUTAVEL.
 
 ## A PAUTA ERA A QUARTA PERGUNTA DO PASSO ZERO, E NAO TINHA DONO
 
