@@ -85,8 +85,49 @@ SPECS = os.path.join(RAIZ, "fabrica", "specs")
 MIN_CAPITULOS_PLAUSIVEL = 20
 
 
+
+def _dir_valido(dir_specs: str) -> str:
+    """O UM dono da conferencia do diretorio — e ele LEVANTA em vez de calar.
+
+    MEDIDO em 20/10 as 12:3x, escrevendo o `epomeno-epipedo-s075`. Eu chamei
+    `nao_mencionados('9Hg5A3H1Qe4', 'epomeno-epipedo')` passando o CANAL na
+    posicao do `dir_specs`, e a funcao devolveu uma resposta bem formada e
+    VAZIA:
+
+        {'pacote': None, 'n_capitulos': 0, 'shorts': [], 'nao_mencionados': []}
+
+    As cinco funcoes deste modulo varrem com
+    `glob.glob(os.path.join(dir_specs, '*.json'))`, e `glob` de caminho que nao
+    existe devolve `[]` sem levantar nada.
+
+    **E o que torna isto pior que o 000 do `curl`: o vazio aqui e CAMUFLADO por
+    um estado LEGITIMO que o proprio modulo reporta.** `pacote: None` significa,
+    pelo docstring do `pacote_do_id`, *"a convencao nao foi seguida"* — isto e,
+    origem sem spec local, que e a regra (h) e acontece de verdade. Logo
+    "diretorio errado" e "origem sem spec" sao INDISTINGUIVEIS pela saida, e eu
+    passei varias chamadas atras do motivo de o `pauta_do_momento` ver 63
+    capitulos onde eu via zero.
+
+    E a familia e a de sempre, agora com o SEXTO membro: instrumento que
+    devolve VAZIO nao prova ausencia (17/10, o grep dos inscritos); arquivo
+    vazio nao prova morte (19/10, o `.norm` a meio de escrever); instrumento
+    CHEIO nao prova presenca (20/10 as 01:4x, o `pgrep` se vendo); 000 nao diz
+    de QUEM e o zero (09:3x); 000 em todo host nao separa rede de POLITICA
+    (11:4x); e aqui, vazio CAMUFLADO por um estado legitimo do proprio
+    instrumento. O conserto e o do `porta1` — recusar com o motivo em vez de
+    responder zero.
+    """
+    if not os.path.isdir(dir_specs):
+        raise ValueError(
+            "dir_specs nao e um diretorio: %r. Varredura em caminho inexistente "
+            "devolveria resposta VAZIA e bem formada, indistinguivel de origem "
+            "sem spec local (regra h) — medido em 20/10 as 12:3x." % (dir_specs,))
+    return dir_specs
+
+
 def slugs_de_canal(dir_specs: str = SPECS) -> set:
     """Os `slug` que as specs declaram. Slug de canal NAO e nome de pacote."""
+    _dir_valido(dir_specs)
     fora = set()
     for p in glob.glob(os.path.join(dir_specs, "*.json")):
         try:
@@ -174,6 +215,7 @@ def nao_mencionados(yid: str, dir_specs: str = SPECS) -> dict:
     conteudo sem citar o kicker. A saida devolve as duas listas para que quem
     escreve decida olhando, em vez de confiar num rotulo.
     """
+    _dir_valido(dir_specs)
     pacote = pacote_do_id(yid, dir_specs)
     caps = capitulos_do_pacote(pacote, dir_specs) if pacote else []
     usados = shorts_da_origem(yid, dir_specs)

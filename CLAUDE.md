@@ -4745,6 +4745,114 @@ parque tem **nove** sem leitura) e `RESIDUO_N` segue **128**.
 fechou. O numero sai do `janela_de_cota`, e contado a mao com a data de hoje
 daria o mesmo por acidente de hora, que e o erro de 23:3x.
 
+## O `dir_specs` ERRADO DEVOLVIA RESPOSTA VAZIA E BEM FORMADA
+
+**Medido em 20/10 as 12:3x, escrevendo o `epomeno-epipedo-s075`.** Eu chamei
+`segundo_angulo.nao_mencionados('9Hg5A3H1Qe4', 'epomeno-epipedo')` — o CANAL na
+posicao do `dir_specs` — e a funcao devolveu uma resposta **bem formada e
+VAZIA**:
+
+    {'pacote': None, 'n_capitulos': 0, 'shorts': [], 'nao_mencionados': []}
+
+As cinco funcoes do modulo varrem com `glob.glob(os.path.join(dir_specs,
+'*.json'))`, e `glob` de caminho inexistente devolve `[]` **sem levantar nada**.
+
+**E o que torna isto PIOR que o 000 do `curl`: o vazio aqui e CAMUFLADO por um
+estado LEGITIMO que o proprio instrumento reporta.** `pacote: None` significa,
+pelo docstring do `pacote_do_id`, *"a convencao nao foi seguida"* — isto e,
+origem sem spec local, que e a **regra (h)** e acontece de verdade. Logo
+*"diretorio errado"* e *"origem sem spec"* eram **indistinguiveis pela saida**, e
+eu gastei varias chamadas atras do motivo de o `pauta_do_momento` ver 63
+capitulos onde eu via zero.
+
+**E a FAMILIA ganhou o SEXTO membro, com a mesma assinatura:**
+
+| | |
+|---|---|
+| 17/10 | instrumento que devolve **VAZIO** nao prova ausencia (o grep dos inscritos) |
+| 19/10 | arquivo **VAZIO** nao prova morte (o `.norm` a meio de escrever) |
+| 20/10 01:4x | instrumento **CHEIO** nao prova presenca (o `pgrep` se vendo) |
+| 20/10 09:3x | **000** nao diz de QUEM e o zero (a resposta sem onde gravar) |
+| 20/10 11:4x | **000 em TODO host** nao separa REDE de POLITICA |
+| **20/10 12:3x** | **vazio CAMUFLADO por um estado legitimo do proprio instrumento** |
+
+**Consertado com UM dono: `segundo_angulo._dir_valido`**, que **LEVANTA** com o
+motivo em vez de responder zero — do jeito que o `porta1` recusa janela curta —,
+chamado pelas DUAS portas publicas que recebem `dir_specs` de fora. **E o ramo
+legitimo FICOU:** origem que nao resolve para pacote continua devolvendo
+`pacote: None` com listas vazias, porque isso e a regra (h) e nao e defeito —
+trocar uma cegueira por outra seria o avesso do conserto.
+
+`tests/test_o_dir_errado_devolvia_resposta_VAZIA_e_bem_formada.py`, nove testes:
+a varredura sai do DISCO e **reprova com menos de 200 specs**, a origem de prova
+e **DERIVADA** (nomear um id seria identidade onde ha propriedade, e consumir
+pauta e o trabalho — 18/10 as 09:2x), a contraprova no outro sentido exige que o
+dir CERTO continue respondendo (senao bastaria levantar sempre), um exige que o
+**estado legitimo SOBREVIVA**, um **reproduz a indistinguibilidade** com a
+varredura crua e **se rele se ela deixar de bater**, o dono e cobrado por **AST**
+nos dois sentidos (so ele confere diretorio, e as duas portas o chamam), e dois
+cobram que a familia e o motivo continuem escritos. **Contraprova:** desligada a
+guarda, reprova exatamente o teste que a mede.
+
+### A PECA DESSA RODADA — CATORZE cenas, e o numero que me convinha ficou FORA
+
+`epomeno-epipedo-s075` = **`vwpu6MFLSiU`**, publicado as 12:21:00Z (run
+`39421539688`), **ONZE PORTOES VERDES** (11,3 s) — e o `antes_do_render` pegou o
+unico defeito antes do render, em 0,66 s: **thumbnail com CINCO palavras** contra
+o limite de 4, o MESMO defeito do `kolejny-poziom-s071` e da primeira versao da
+`s089`, agora a **terceira** vez. Provedor **edge MEDIDO** (zero avisos
+`NARRACAO PELO PIPER` no job `118622083396`), som **-13,9** LUFS, LRA 2,4, pico
+-1,2, desvio +0,1, **zero silencios**.
+
+**PREVISAO edge 41,59 — 0,09 acima do PISO da faixa**, pela regra de redacao do
+772 — e piper 36,85. **A pinca do 740/748 esta FECHADA aqui**, e a exposicao foi
+declarada na copy ANTES de publicar: o `mira.janela_dos_dois_mundos` devolve
+NENHUMA janela para esta voz nesta faixa, logo o piper sai FORA pelo piso.
+
+**A CONTAGEM saiu da chave `por_cadencia_servivel`** e o **teto da voz (15) saiu
+NOMEADO e nao filtrado**: ele e INEDITO na frota — seria novidade de TAMANHO — e
+foi recusado pela FOLGA, 22 caracteres por cena contra o piso OBSERVADO de 21.
+**Foi a MESMA conta que eu recusei A MAO em 04:1x e 06:2x**, e e por isso que ela
+deixou de morar na minha cabeca. **ESQUELETO
+`titulo-item-barras-item-lista-item-titulo-item-barras-lista-item-item-titulo-cta`,
+inedito nas 129 formas da frota** — a frota tem UMA forma de catorze cenas (o
+`s072`) e esta nao e ela. Todo layout saiu do conjunto **SONDADO**.
+
+**PAUTA:** `9Hg5A3H1Qe4` (`epomeno-epipedo-003`), 3 usos empatados com sete
+outras e desempatada pela MAIOR reserva — **63 dos 81 capitulos NAO
+MENCIONADOS**. **FAMILIA: A UNIDADE DA PERIODO** (capitulos 25, 26 e 31) —
+comparar mensal com mensal quando o mes **nao e o mesmo diastema do ano** nos
+dois lados: num deles a lei preve pagamentos ALEM dos meses, no outro nao. Os
+dois numeros estao certos e impressos; o que esta errado e o **intervalo** que
+cada um cobre. A unidade que compara e a ANUAL, e a razao entre os dois lados
+ENCOLHE quando se passa a ela — de uma razao sai uma decisao, da outra sai outra.
+**E a distincao dos TRES irmaos veio do `irmaos_da_origem`:** o `s008` fala de
+coluna AUSENTE, o `s027` de decidir pelo numero de OUTRA pessoa, o `s040` do
+mensal como PRODUTO de horas supostas. Aqui nada falta e nada e suposto: o eixo
+e o diastema, e e novo nesta origem.
+
+**ZERO numero novo sobre o mundo, E A RECUSA INCLUIU O NUMERO QUE ME
+CONVINHA:** a narracao nao fala euros, percentual, ordenado minimo, hora **nem
+QUANTAS sao as pagas extra do ano** — e essa ultima e o coracao da familia.
+Ficou FORA porque e contagem legal que muda por publicacao, e **a regra (g) nao
+abre excecao para numero conveniente**. As barras (100/72 e 100/64) sao
+ILUSTRACAO qualitativa, nao faladas, e a copy diz **em letra** que elas NAO sao
+a contagem legal nem a razao MEDIDA do longo — para a rodada seguinte nao as ler
+de volta das barras.
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica`** — o conserto
+de 11:4x em uso na primeira rodada depois dele: o `touch` passou, os TRES hosts
+voltaram 000 sem arquivo, e o `__agentproxy/status` nomeou
+`www.youtube.com:443` **e** `example.com:443` com 403 ao CONNECT as 12:21:3xZ. A
+peca esta PARQUEADA pelo `do_registro` (o parque tem **catorze** sem leitura) e
+`RESIDUO_N` segue **128**.
+
+**A LEITURA DE INSCRITOS FOI RECUSADA PELA VIGESIMA PRIMEIRA RODADA SEGUIDA:**
+26,06 h, piso de resolucao 0,92/dia, **faltam 0,8 h** para o criterio do 723 —
+isto e, a primeira leitura que vale cai perto das **13:00Z**, e ela so vale se a
+rota abrir. **COTA: SEIS** envios na janela aberta as 07:00Z, 9.600 unidades,
+contra o piso MEDIDO de **>= 41.600**.
+
 ## O `exceto` TINHA DUAS CONVENCOES, E ERRAR A CONVENCAO CALAVA
 
 **Medido em 20/10 as 11:3x, escrevendo o `labtreinamento-s092`.** Cinco funcoes
