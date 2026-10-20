@@ -290,6 +290,92 @@ def irmaos(origem: str, raiz=None) -> list:
     return saida
 
 
+def cobertura_dos_capitulos(origem: str, meus=(), raiz=None, excluir=()) -> dict:
+    """Em quantos irmaos a conferencia por CAPITULO e mecanica, e em quantos nao.
+
+    **POR QUE EXISTE (20/10 as 23:4x).** Eu escrevo em TODA copy uma frase da
+    forma *"nenhum dos tres toca os capitulos 38 a 45 — conferido short por
+    short"*. Ela soa como verificacao uniforme, e nao e: o capitulo declarado
+    sai da PROSA da copy do irmao, e **146 das 248 specs de short solto do disco
+    nao declaram capitulo nenhum**. Para essas a unica rota e LER a narracao e
+    julgar — o que e legitimo e e outro ato.
+
+    **Medido nas cinco origens que esta sessao usou:** dos irmaos delas, so
+    **1 de 4**, 2 de 4, 4 de 6, 2 de 4 e 1 de 4 tem capitulo declarado. Isto e,
+    na maioria dos casos a frase que eu escrevo cobre uma MINORIA dos irmaos
+    pela rota mecanica, e o resto pela leitura.
+
+    **O que ele NAO faz, e a trava e a do 776:** sobreposicao de capitulo NAO e
+    familia repetida — *capitulo livre nao e familia livre*, e a reciproca
+    tambem nao vale. Ele devolve a sobreposicao como MOTIVO PARA LER, nunca como
+    veredito, e quem decide familia sou eu lendo. Ele tambem nao conta como
+    "sem sobreposicao" o irmao cujos capitulos sao DESCONHECIDOS: ausencia de
+    dado nao e ausencia de colisao, que e o erro que custou o 761.
+    """
+    meus = set(int(x) for x in (meus or ()))
+    saida = {"conhecidos": [], "desconhecidos": [], "colidem": []}
+    # `excluir` NAO e conveniencia: a spec desta rodada ja esta no disco quando
+    # eu pergunto, logo sem ele a peca aparece como irma de si mesma e colide
+    # com os PROPRIOS capitulos. E a QUINTA vez desta assinatura — o
+    # `variedade._especs_do_canal`, o `concentracao.contagem`, o
+    # `esqueleto_entre_canais.novidade` e o `segundo_angulo` carregam o mesmo
+    # parametro pelo mesmo motivo, e o `relato` daqui o chama de `excluir`.
+    for i in irmaos(origem, raiz):
+        if i["pacote"] in excluir:
+            continue
+        caps = set(i["capitulos_declarados"])
+        if not caps:
+            saida["desconhecidos"].append(i["pacote"])
+            continue
+        saida["conhecidos"].append(i["pacote"])
+        inter = sorted(caps & meus)
+        if inter:
+            saida["colidem"].append({"pacote": i["pacote"], "capitulos": inter})
+    n = len(saida["conhecidos"]) + len(saida["desconhecidos"])
+    saida["irmaos"] = n
+    saida["fracao_mecanica"] = (len(saida["conhecidos"]) / float(n)) if n else 0.0
+    return saida
+
+
+def _linha_da_cobertura(origem: str, meus=(), raiz=None, excluir=()) -> list:
+    """A frase da cobertura, com UM dono, e ela sai nos DOIS ramos.
+
+    Sair so quando ha irmao desconhecido faria a linha CALAR na origem em que a
+    conferencia E mecanica — e e ali que a frase da copy pode ser escrita sem
+    ressalva. E o ramo que cala quando importa (13:2x).
+    """
+    c = cobertura_dos_capitulos(origem, meus, raiz, excluir)
+    if not c["irmaos"]:
+        return []
+    L = [f"  COBERTURA POR CAPITULO: {len(c['conhecidos'])} de {c['irmaos']}"
+         f" irmao(s) declaram capitulo, logo a conferencia mecanica alcanca"
+         f" {100 * c['fracao_mecanica']:.0f}% deles."]
+    if c["desconhecidos"]:
+        L.append("    sem capitulo declarado (so por LEITURA da narracao): "
+                 + ", ".join(c["desconhecidos"])
+                 + ". Nao conte estes como 'sem sobreposicao': ausencia de dado"
+                   " nao e ausencia de colisao (761).")
+    else:
+        L.append("    TODOS declaram, logo aqui a frase da copy pode dizer"
+                 " 'conferido por capitulo' sem ressalva.")
+    if c["colidem"]:
+        for x in c["colidem"]:
+            L.append(f"    SOBREPOSICAO com {x['pacote']}: capitulos"
+                     f" {x['capitulos'][0]} a {x['capitulos'][-1]}. Isto e"
+                     " MOTIVO PARA LER, nao veredito — capitulo livre nao e"
+                     " familia livre, e a reciproca tambem nao (776).")
+    elif not meus:
+        # Sem `meus` nao existe sobreposicao a declarar, e dizer "nenhuma"
+        # aqui seria afirmar sobre um conjunto vazio — o verde fabricado do
+        # §3.8 na forma mais barata.
+        L.append("    sobreposicao NAO conferida: a pauta ainda nao escolheu"
+                 " capitulo, e com `meus` vazio dizer 'nenhuma' seria afirmar"
+                 " sobre conjunto vazio.")
+    elif c["conhecidos"]:
+        L.append("    nenhuma sobreposicao entre os declarados e os seus.")
+    return L
+
+
 def sem_campo(origem: str, raiz=None) -> list:
     return [i["pacote"] for i in irmaos(origem, raiz)
             if not i["tem_campo_familia"]]
@@ -317,7 +403,7 @@ def _linha_dos_capitulos(i: dict) -> str:
             " pelo TITULO e pela NARRACAO.")
 
 
-def relato(origem: str, raiz=None, excluir=()) -> str:
+def relato(origem: str, raiz=None, excluir=(), meus=()) -> str:
     todos = [i for i in irmaos(origem, raiz) if i["pacote"] not in excluir]
     if not todos:
         return (f"IRMAOS de {origem}: NENHUM. Origem virgem — a regra (f) nao tem"
@@ -394,6 +480,7 @@ def relato(origem: str, raiz=None, excluir=()) -> str:
                 "    nenhum irmao CITA outro pelo nome — entao o titulo curto e"
                 " o unico comparador que sobra, e leia a copy do irmao inteira"
                 " antes de escrever.")
+    linhas.extend(_linha_da_cobertura(origem, meus, raiz, excluir))
     linhas.append(
         "  (isto NAO decide se duas familias sao a mesma: nenhum limiar de"
         " string distingue duas frases sobre o MESMO limiar. Poe o material na"
