@@ -9,11 +9,21 @@ Medido pelo discriminador — tirar os acentos de uma spec e rodar o portao:
 pt-BR acusava, pl acusava, e **el passava LIMPO**. A causa era a tabela
 `prontidao.DIACRITICOS` nao ter `el`, que e 87 das specs de short da frota e o
 canal onde a falha de fato aconteceu. E o 725 DENTRO do portao.
+
+**E O DISCRIMINADOR TINHA UM BURACO PROPRIO, retratado em 20/10 as 21:0x:**
+"tirar os acentos" era NFD + descartar `Mn`, e isso nao alcanca letra cujo sinal
+nao decompoe — o `l` com traco do polones sobrevive. Em 20/10 este teste
+REPROVOU acusando o portao de calar em `pl`, e o portao estava certo: onze das
+34 letras acentuadas da narracao tinham sobrevivido a "remocao". O conserto esta
+no `_sem_acento`, que agora DERIVA a base da letra do nome Unicode dela e
+**confere** que nao sobrou nenhuma letra da tabela do idioma antes de julgar o
+portao.
 """
 import glob
 import json
 import os
 import sys
+import re
 import unicodedata
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,11 +35,48 @@ import prontidao as P  # noqa: E402
 PISO_DE_SPECS_EL = 50
 
 
-def _sem_acento(texto: str) -> str:
-    return "".join(
+def _base_da_letra(c: str) -> str:
+    """A letra sem o sinal, para o caractere que NAO decompoe.
+
+    `unicodedata.name('l')` do `l` com traco e
+    *"LATIN SMALL LETTER L WITH STROKE"* — a base esta no proprio nome, e por
+    isso ela e DERIVADA em vez de escrita numa tabela minha.
+    """
+    try:
+        nome = unicodedata.name(c)
+    except ValueError:
+        return ""
+    m = re.search(r"LETTER ([A-Z]) WITH ", nome)
+    if not m:
+        return ""
+    base = m.group(1)
+    return base.lower() if "SMALL" in nome else base
+
+
+def _sem_acento(texto: str, idi: str = None) -> str:
+    """Tira o sinal, e **conferindo que tirou**.
+
+    **RETRATADO EM 20/10 as 21:0x, e o errado era este helper, nao o portao.**
+    A versao anterior era NFD + descartar `Mn`, e isso NAO alcanca letra cujo
+    sinal nao decompoe: o `l` com traco do polones (U+0142) sobrevive intacto.
+    Medido no `kolejny-poziom-s078`, a primeira peca `pl` cujo orcamento de
+    acento e carregado por ele: das 34 letras acentuadas da narracao, **ONZE
+    sobreviviam** a "remocao", e o portao — corretamente — nao acusava.
+
+    Logo o teste acusava o portao de CALAR quando o que falhava era a entrada
+    dele. **E a familia de 17/10: instrumento que devolve vazio nao prova
+    ausencia** — aqui, "o portao nao acusou" nao provava que a narracao estava
+    sem acento. O discriminador e barato e agora e obrigatorio: conferir, no
+    PROPRIO texto, que nao sobrou nenhuma letra da tabela do idioma.
+    """
+    saida = "".join(
         c for c in unicodedata.normalize("NFD", texto or "")
         if unicodedata.category(c) != "Mn"
     )
+    tabela = (P.DIACRITICOS.get(idi) or "") if idi else ""
+    if tabela:
+        saida = "".join(_base_da_letra(c) if c in tabela else c for c in saida)
+    return saida
 
 
 def _specs(idioma: str):
@@ -78,7 +125,15 @@ def test_CONTRAPROVA_o_portao_ACUSA_narracao_sem_acento_nos_tres_idiomas_vivos()
         nome, sp = specs[-1]
         q = json.loads(json.dumps(sp))
         for c in q["short"]:
-            c["nar"] = _sem_acento(c["nar"])
+            c["nar"] = _sem_acento(c["nar"], idi)
+        # CONFERIR a entrada antes de julgar a saida: "o portao nao acusou" nao
+        # prova que a narracao esta sem acento (20/10, 21:0x).
+        tabela = P.DIACRITICOS.get(idi) or ""
+        resto = sorted({c for c in "".join(x["nar"] for x in q["short"])
+                        if c in tabela})
+        assert not resto, (
+            "o helper nao tirou %r da narracao de `%s` (%s): o teste mediria o"
+            " PROPRIO stripper em vez do portao" % (resto, idi, nome))
         vistos[idi] = _roda_o_portao(nome, q)
         assert vistos[idi], (
             f"o portao CALOU com a narracao de `{idi}` sem acento ({nome}) — "
