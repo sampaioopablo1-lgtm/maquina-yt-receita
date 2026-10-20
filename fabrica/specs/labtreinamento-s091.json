@@ -1,0 +1,74 @@
+{
+ "slug": "labtreinamento-s091",
+ "pacote": "labtreinamento-s091",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "longo_existente": "POBNoY16wG8",
+ "longo": [],
+ "thumb": {
+  "l1": "Inscrito não",
+  "l2": "é presente"
+ },
+ "paleta": {
+  "bg": "#0E1117",
+  "ink": "#EEF1F5",
+  "c1": "#3DDBD9",
+  "c2": "#1E2430",
+  "red": "#FF5A5F",
+  "ok": "#3CCB7F",
+  "panel": "#161B24",
+  "mut": "#8B95A5",
+  "acc": "#3DDBD9"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Três fontes bastam",
+   "sub": "e nenhuma delas se estima",
+   "nar": "Esse número não se estima: ele sai de três documentos."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Onde eles já estão",
+   "itens": [
+    "Lista de presença",
+    "Movimentação de pessoal",
+    "Descrição da função"
+   ],
+   "nar": "A presença dá o de cima; a movimentação dá o de baixo."
+  },
+  {
+   "layout": "item",
+   "kicker": "Concluiu, não inscreveu",
+   "nar": "Em cima entra quem concluiu, e não quem se inscreveu."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Por que a troca infla",
+   "barras": [
+    {
+     "rotulo": "Inscritos",
+     "valor": 9
+    },
+    {
+     "rotulo": "Concluíram",
+     "valor": 6
+    }
+   ],
+   "nar": "A lista de inscritos é maior, e usar ela infla tudo."
+  },
+  {
+   "layout": "item",
+   "kicker": "A função, não o cargo",
+   "nar": "Quem precisava sai da função, nunca do organograma."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Abra os três",
+   "sub": "antes de dividir",
+   "nar": "Abra os três antes de dividir, e guarde os nomes."
+  }
+ ],
+ "copy": "# labtreinamento-s091\n\n## TITULO\nDe Onde Sai o Percentual de Treinamento: Tres Fontes e Nenhuma Estimativa\n\n## TITULO SHORT\nInscrito não é presente\n\n## DESCRICAO\nO percentual de treinamento **não se estima**. Ele sai de três documentos que já\nestão na sua mesa, e cada um responde uma pergunta diferente: a **lista de\npresença** dá o número de cima, a **movimentação de pessoal** dá o de baixo, e a\n**descrição da função** diz quem precisava daquele treinamento.\n\n**E aqui está o erro que mais infla o indicador: em cima entra quem CONCLUIU, não\nquem se inscreveu.** A lista de inscritos é sempre maior que a de concluintes —\ntem quem desistiu, quem faltou, quem trocou de turno. Trocar uma pela outra faz o\nseu percentual subir sem ninguém ter treinado, e não existe aviso nenhum: a\ndivisão fecha, o número sai redondo, e o relatório parece correto.\n\n**A terceira fonte é a menos óbvia e a que resolve mais discussão: quem precisava\ndo treinamento sai da DESCRIÇÃO DA FUNÇÃO, não do cargo no organograma.** Dois\ncargos com o mesmo nome podem ter requisitos diferentes, porque o que obriga o\ntreinamento é a atividade, não o título. Enquanto o denominador sair do\norganograma, você vai discutir nome de cargo em vez de discutir exposição.\n\n**E a movimentação entra por causa das datas.** Cada admissão e cada desligamento\ntem uma data, e é comparando essas datas com a sua janela que você decide o caso\nde quem entrou no meio do período, de quem saiu, de quem estava afastado e de\nquem treinou duas vezes.\n\n**O que fazer hoje:** abra os três documentos antes de dividir, e guarde ao lado\ndo percentual a lista de nomes que entrou no de baixo. Sem essa lista, em três\nmeses você não consegue explicar o seu próprio número — e um indicador que não se\nexplica não decide nada.\n\nNão cito aqui prazo de norma, percentual de meta nem valor nenhum. O que não\nmuda é o mecanismo: três fontes, presença e não inscrição, função e não cargo.\n\n## COMENTARIO FIXADO\nO menos obvio: se o seu percentual subiu sem ninguem ter treinado, confira se\nalguem trocou a lista de concluintes pela de inscritos. De onde saiu o seu\ndenominador?\n\n## HASHTAGS\n#treinamento #indicadores #segurancadotrabalho #labtreinamento #Shorts\n\n## TAGS\nindicador de treinamento, percentual de treinados, lista de presenca, movimentacao de pessoal, descricao de funcao, denominador, concluintes, inscritos, gestao de treinamento, seguranca do trabalho, planilha de indicadores, RH, auditoria, dados de pessoal, labtreinamento\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. O unico numero falado e \"tres\", que\ne a contagem das PROPRIAS fontes e sai em letra do capitulo 26 da origem\n(*\"Tres fontes bastam\"*). Prazo de norma, percentual de meta, quantidade de\ntreinados e qualquer valor ficaram FORA pela regra (g). Os valores das barras\n(9 e 6) sao ILUSTRACAO de que a lista de inscritos e maior que a de concluintes\ne **nao sao falados** nem medidos de ninguem.\n\n## FONTES\nA spec local `labtreinamento-014`, que e o pacote do longo `POBNoY16wG8` — 64\ncapitulos e **42 NAO MENCIONADOS** pelos shorts anteriores, medido pelo\n`segundo_angulo.nao_mencionados`. Ela e a origem de **MENOR contagem** do canal\n(4 de 90 shorts) contra 13 da dominante. A familia desta peca sai dos capitulos\n7, 24 e 26 a 30: *\"a lista de presenca de um lado e a folha de pessoal do\noutro\"*, *\"nenhum dos dois numeros se estima — os dois estao escritos em\ndocumentos que ja existem na sua mesa\"*, *\"tres fontes bastam: a presenca da o\nde cima, a movimentacao da o de baixo, e a descricao de funcao diz quem\nprecisava do treinamento\"*, *\"em cima entra quem concluiu, nao quem se\ninscreveu — a lista de inscritos sempre e maior, e usar ela infla o seu\nnumero\"*, *\"cada admissao e cada desligamento tem uma data\"* e *\"quem precisa do\ntreinamento sai da descricao da funcao, e nao do cargo no organograma\"*.\nNenhuma frase desta peca saiu de TITULO de capitulo.\n\n**SEXTA FAMILIA DESTE MESMO LONGO, e a primeira que fala da PROCEDENCIA do\ndado.** Conferido short por short: o short do pacote usou o que o DENOMINADOR\nsignifica, a `s086` a JANELA do periodo, a `s087` a comparacao com numero de\nFORA, a `s088` a meta redonda e a lista de nomes, e a `s089` a regra que mudou no\nmeio da serie. **Nenhuma das cinco diz de ONDE o numero sai**, e e essa a\npergunta desta.\n\n**E A DOMINANTE FICOU DE FORA com a contagem na mao e SEM alerta:** o\n`concentracao.py` da `FtCtIJPsc_Q` em 13 de 90 (14%) contra 10 da segunda — 13\nnao e maior que o dobro de 10, logo nao ha alerta, e a escolha saiu da contagem\nMINIMA e nao de um alarme.\n\n## EXPOSICAO\n**SEIS CENAS, e esta e a primeira rodada em que a escolha saiu da chave NOVA do\ninstrumento — a que aplica os TRES filtros juntos**, consertada na rodada\nanterior (07:4x). Os tres falaram:\n\n| cenas | cadencia | por que |\n|---|---|---|\n| 7 | **3,29 s** (a melhor) | RECUSADO por REPETICAO — a `s089` tem sete |\n| 8 | 2,88 s | RECUSADO por REPETICAO — a `s090` tem oito |\n| 9, 10, 11 | 2,56 a 2,09 s | RECUSADOS pela FOLGA: o PISO da mira **nao e alcancavel** com texto legivel (orcamento de 19, 15 e 12 caracteres contra o piso OBSERVADO de 21) |\n| **6** | **3,83 s** | escolhido, orcamento de 38 no piso, folga **+17** |\n\n**E a chave ANTIGA (`por_cadencia_sem_repetir`) devolvia NOVE** — isto e, a\ncontagem cujo piso o proprio modulo declara inalcancavel. Esta e a primeira peca\nescrita depois de o defeito ser consertado, e e por isso que a escolha vai com a\ntabela inteira em vez de um numero.\n\n**E AQUI A PINCA DO 740/748 NAO ESTA FECHADA, o que e raro:** com seis cenas o\n`mira.janela_dos_dois_mundos` devolve **51 a 55** caracteres por cena — isto e,\nexiste orcamento que poe o edge **e** o piper dentro da mira medida deste canal\n(20,0 a 26,0). Escrita na janela, a peca nao precisa declarar exposicao de mundo\nnenhum: os dois cabem. Nos outros dois canais da frota isso **nao existe** em\ncontagem de cena alguma, porque o `ALVO_SHORT` da frota tem 1,5 s de largura\ncontra um vao de ~6 s entre os provedores.\n\n**ESQUELETO `titulo-lista-item-barras-item-cta`, inedito nas CINCO formas de seis\ncenas da frota** (as existentes sao `titulo-item-barras-item-item-cta`,\n`titulo-item-item-barras-item-cta`, `titulo-item-item-item-item-cta`,\n`titulo-titulo-titulo-titulo-titulo-cta` e\n`titulo-titulo-titulo-titulo-titulo-titulo`) — nenhuma delas usa `lista`. Todo\nlayout saiu do conjunto **SONDADO** pelo `layouts_do_short.desenham()`, com um\n`assert` no builder que recusa layout fora dele.\n\n**O que a banda do residuo diz, e vai dito em vez de prometido:** com\n`RESIDUO_OBSERVADO` em (-1,2; +4,0) o real pode cair de ~1,2 s abaixo a ~4,0 s\nacima da previsao do mundo que de fato narrar. Logo caber nos dois mundos **nao\ngarante** o real dentro da mira — e o tally do 744/754/758 mede isso em 41 de 46\npeças deste canal.\n"
+}
