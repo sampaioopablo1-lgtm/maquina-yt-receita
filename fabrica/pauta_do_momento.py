@@ -51,6 +51,7 @@ import sys
 import concentracao as CO
 import dono_medido as DM
 import irmaos_da_origem as IO
+import reservas_escritas as RE
 import segundo_angulo as SA
 
 
@@ -185,10 +186,16 @@ def relato(canal: str, dono_medido=None, exceto: str = "") -> str:
         L.append("")
         L.append(IO.relato(e["escolhida"]["origem"],
                            excluir=(exceto,) if exceto else ()))
+        # A RESERVA ESCRITA entra aqui porque e aqui que a pauta se escolhe:
+        # ela existia em prosa em 24 pecas e nenhum instrumento a alcancava, e
+        # a peca de 20/10 as 20:1x achou a dela por ACIDENTE (20:4x).
+        L.append("")
+        L.append(RE.relato(e["escolhida"]["origem"]))
     L.append("")
     L.append("  isto NAO decide FAMILIA: capitulo livre nao e familia livre "
              "(776). As quatro contas sao dos donos — `concentracao`, "
-             "`segundo_angulo`, `irmaos_da_origem` — e nenhuma e daqui.")
+             "`segundo_angulo`, `irmaos_da_origem`, `reservas_escritas` — "
+             "e nenhuma e daqui.")
     return "\n".join(L)
 
 
