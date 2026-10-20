@@ -4222,6 +4222,12 @@ manutencao, e a caucao, que nem e despesa: e dinheiro PRESO, logo nao aparece no
 custo mensal nem na poupanca. Familia nova no canal e a **primeira do dia 20/10**
 na frota.
 
+**A SUITE FECHOU: 25 falhas, 3.162 passam, 1.000 skip** — conjunto **IDENTICO**
+a linha de base desta sessao, `comm` vazio nos **dois** sentidos, em 411 s. Os
+dezesseis testes novos entraram sem custo de tempo (411 s contra 400 s da rodada
+anterior), e o `teto_de_cenas` varre 60 contagens de cena em tres vozes sem
+renderizar.
+
 **A LEITURA DE INSCRITOS FOI RECUSADA PELA NONA RODADA SEGUIDA:** 14,01 h, piso
 de resolucao 1,71/dia, faltam **12,8 h** para o criterio do 723. E a regra H
 passou com folga, o que e exatamente o caso em que a versao antiga de mim leria.
