@@ -135,6 +135,39 @@ relato, com a colisao ao lado e com a melhor que NAO repete logo embaixo. Filtra
 esconderia a contagem que a cadencia escolhe, e seria a cegueira que o
 `origens_sem_uso` nasceu para desfazer.
 
+**E O "MIRE O PISO" DO 772 NAO E APLICAVEL EM TODA CONTAGEM — medido em 20/10
+as 06:3x, depois de eu recusar o TETO da voz a mao pela SEGUNDA vez.** As 04:1x
+eu recusei catorze cenas no `kolejny` porque o orcamento ali dava 22 caracteres,
+UM acima do piso OBSERVADO; as 06:2x recusei quinze no `epomeno` pela conta
+identica. **Duas recusas a mao, com a mesma aritmetica, e o `cabe_na_voz` deste
+modulo e um BOOLEANO: ele diz que cabe e nao diz com quanta folga.**
+
+E ao medir a folga apareceu um fato que nenhum documento nosso tinha: **em tres
+dos 37 pares (canal, contagem) abaixo do teto, o PISO da faixa nao e alcancavel
+com texto legivel** — a conta pede MENOS caracteres por cena que o piso
+observado:
+
+    | canal           | cenas | chars para o PISO | folga |
+    |---|---|---|---|
+    | labtreinamento  | 8  | 24 | 3 |
+    | labtreinamento  | **9**  | **19** | **-2** |
+    | labtreinamento  | **10** | **15** | **-6** |
+    | labtreinamento  | **11** | **12** | **-9** |
+    | epomeno-epipedo | 15 (teto) | 22 | **1** |
+    | kolejny-poziom  | 14 (teto) | 22 | **1** |
+
+**E o caso do meio e o mais usado da frota: DEZ cenas, 149 pecas.** Naquele canal
+e naquela contagem, *"mire o piso"* pede cena de quinze caracteres — logo a regra
+de redacao do 772 **nao se aplica ali**, e o `teto_de_cenas` nao contradiz isso:
+ele pergunta se ALGUM numero de caracteres cai DENTRO da faixa, nao se o piso
+dela e alcancavel. **As duas perguntas sao diferentes e eu as tratei como uma.**
+
+O `folga_no_piso` entra como COLUNA e o relato NOMEIA os dois casos — piso
+inalcancavel e folga rente — em vez de filtrar contagem nenhuma. A conta e
+DELEGADA ao `mira.chars_no_alvo` e o piso de caracteres ao
+`mira.teto_de_cenas(...)["chars_minimos"]`: refazer qualquer uma aqui criaria o
+segundo dono.
+
 NAO E PORTAO, pelo argumento do `mira.py`: ele reprovaria quase toda spec do
 acervo, que foi escrita antes de a janela dos dois mundos existir. Codigo de
 saida SEMPRE zero.
@@ -174,6 +207,16 @@ MIN_CENAS, MAX_CENAS = 2, 20
 # nao reprova nada: quem decide e quem escreve a peca.
 RECENTES_K = 2
 
+# Quando a folga de caracteres sobre o piso OBSERVADO conta como "rente".
+#
+# REDACAO DECLARADA, nao medida: o 2 e o menor valor que exclui as DUAS recusas
+# que eu fiz a mao — o teto do `kolejny` as 04:1x e o do `epomeno` as 06:2x, as
+# duas com folga de UM caractere. **E a faixa de 2 a 4 nunca foi observada**: as
+# contagens que eu aceitei tem folga 5, 9, 10, 11 e 15, logo nenhum dado escolhe
+# dentro dela, e por isso isto e parametro e o instrumento NOMEIA em vez de
+# filtrar.
+FOLGA_RENTE = 2
+
 
 def quadro(canal: str, voz: str, faixa=None, por_contagem=None,
            exceto: str = "", recentes=None) -> list[dict]:
@@ -208,6 +251,8 @@ def quadro(canal: str, voz: str, faixa=None, por_contagem=None,
     if recentes is None:
         recentes = recentes_do_canal(canal)
     rec_cenas = [r["cenas"] for r in recentes if r["cenas"]]
+    # O PISO de caracteres por cena e do dono do teto — nunca o literal daqui.
+    piso_chars = int(mira.teto_de_cenas(voz, faixa)["chars_minimos"])
     saida = []
     for n in range(MIN_CENAS, MAX_CENAS + 1):
         j = mira.janela_dos_dois_mundos(voz, n, faixa)
@@ -223,6 +268,13 @@ def quadro(canal: str, voz: str, faixa=None, por_contagem=None,
             "tamanho_inedito": exemplares == 0,
             "cabe_na_voz": n <= teto,
             "repete_recente": n in rec_cenas,
+            # Quantos caracteres por cena a peca precisa para encostar no PISO
+            # da faixa, e quanto isso sobra do piso OBSERVADO de caracteres.
+            # NEGATIVO significa que o piso da faixa NAO e alcancavel com texto
+            # legivel — e ai a regra de redacao do 772 nao se aplica.
+            "chars_no_piso": mira.chars_no_alvo(voz, n, faixa[0] + 0.05),
+            "folga_no_piso": mira.chars_no_alvo(voz, n, faixa[0] + 0.05)
+                             - piso_chars,
             "recentes_com_esse_tamanho": [r["pacote"] for r in recentes
                                           if r["cenas"] == n],
         })
@@ -375,6 +427,39 @@ def _linha_do_teto(e: dict) -> str:
     return s
 
 
+def _linha_da_folga(q: list[dict], e: dict) -> str:
+    """A linha que NOMEIA onde o PISO da faixa nao e alcancavel, ou e rente.
+
+    UM dono, e ela sai nos DOIS ramos do relato — a frase do teto nasceu
+    duplicada e foi isso que a fez divergir (753).
+    """
+    cabem = [x for x in q if x["cabe_na_voz"]]
+    inalc = [x["cenas"] for x in cabem if x["folga_no_piso"] < 0]
+    rente = [x["cenas"] for x in cabem
+             if 0 <= x["folga_no_piso"] <= FOLGA_RENTE]
+    L = ["  FOLGA DE CARACTERES no PISO da faixa (piso OBSERVADO do "
+         "`mira.teto_de_cenas`):"]
+    if inalc:
+        L.append(f"  >> em {inalc} o PISO da faixa NAO e alcancavel com texto "
+                 "legivel — a regra de redacao do 772 (`mire o PISO`) nao se "
+                 "aplica nessas contagens, e o `teto_de_cenas` nao contradiz "
+                 "isso: ele pergunta se ALGUM numero de caracteres cai DENTRO "
+                 "da faixa.")
+    if rente:
+        L.append(f"  >> em {rente} a folga e de ate {FOLGA_RENTE} caractere(s) "
+                 "— foi por essa conta que o teto da voz foi recusado a mao em "
+                 "04:1x e 06:2x. O numero e REDACAO declarada, nao medida.")
+    if not inalc and not rente:
+        L.append("  todas as contagens que cabem na voz alcancam o piso com "
+                 "folga — nada a nomear aqui.")
+    x = e.get("por_cadencia_geral")
+    if x:
+        L.append(f"  a escolha por cadencia ({x['cenas']} cenas) pede "
+                 f"{x['chars_no_piso']} caractere(s) por cena no piso "
+                 f"(folga {x['folga_no_piso']:+d}).")
+    return "\n".join(L)
+
+
 def _linha_da_recencia(e: dict) -> str:
     """A linha que NOMEIA a repeticao de tamanho no proprio canal.
 
@@ -449,6 +534,8 @@ def relato(canal: str = "labtreinamento", voz: str = None,
         L.append("")
         L.append(_linha_do_teto(e))
         L.append(_linha_da_recencia(e))
+        L.append(_linha_da_folga(
+            quadro(canal, voz, por_contagem=por_contagem), e))
         L.append("  a contagem da frota e do `esqueleto_entre_canais`, e o teto")
         L.append("  da voz e do `mira.teto_de_cenas` — nenhum dos dois e daqui.")
         return "\n".join(L)
@@ -472,6 +559,7 @@ def relato(canal: str = "labtreinamento", voz: str = None,
              f"({e['por_largura']['largura']} caractere(s))")
     L.append(_linha_do_teto(e))
     L.append(_linha_da_recencia(e))
+    L.append(_linha_da_folga(quadro(canal, voz, por_contagem=por_contagem), e))
     if e["por_novidade"]:
         L.append("  melhor cadencia entre as INEDITAS na frota: "
                  f"{e['por_novidade']['cenas']} cenas "

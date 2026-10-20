@@ -205,6 +205,18 @@ def confere(spec: dict) -> dict:
                 "(698).")}
 
 
+def chars_no_alvo(voz: str, n_cenas: int, alvo_s: float,
+                  provedor: str = "edge") -> int:
+    """O nome PUBLICO do inversor, para quem precisa dele de fora.
+
+    Ele existe porque o `contagem_de_cenas` passou a perguntar quantos
+    caracteres a peca precisa para encostar no PISO da faixa — e a alternativa
+    era refazer a inversao la, que seria o segundo dono da conta (a assinatura
+    que congelou a legenda). Nenhuma logica mora aqui: isto delega.
+    """
+    return _chars_para_o_real(voz, n_cenas, alvo_s, provedor)
+
+
 def _chars_para_o_real(voz: str, n_cenas: int, alvo_s: float,
                        provedor: str = "edge") -> int:
     """Caracteres por cena para a PREVISAO REAL caber em `alvo_s`.

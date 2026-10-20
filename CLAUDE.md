@@ -4516,6 +4516,124 @@ piso MEDIDO da cota deste projeto**, que estava em >= 40.000 desde a janela de
 e quem o acha e o primeiro `403` de rodada normal, que nao custa nada porque
 requisicao recusada nao consome cota.
 
+## O "MIRE O PISO" NAO E APLICAVEL EM TODA CONTAGEM — e dez cenas e o caso pior
+
+**Medido em 20/10 as 06:3x, depois de eu recusar o TETO da voz A MAO pela SEGUNDA
+vez.** As 04:1x eu recusei catorze cenas no `kolejny` porque o orcamento no piso
+dava **22 caracteres por cena**, UM acima do piso OBSERVADO de 21; as 06:2x
+recusei quinze no `epomeno` pela conta IDENTICA. **Duas recusas a mao com a mesma
+aritmetica — e o `cabe_na_voz` do `contagem_de_cenas` e um BOOLEANO: ele diz que
+cabe e nao diz com quanta folga.**
+
+**E ao medir a folga apareceu um fato que nenhum documento nosso tinha.** Dos
+**37** pares (canal, contagem) abaixo do teto da propria voz, **TRES tem o PISO
+da faixa INALCANCAVEL com texto legivel** — a conta pede menos caracteres por
+cena que o piso observado:
+
+| canal | cenas | chars para o PISO | folga |
+|---|---|---|---|
+| labtreinamento | 8 | 24 | +3 |
+| labtreinamento | **9** | **19** | **−2** |
+| labtreinamento | **10** | **15** | **−6** |
+| labtreinamento | **11** | **12** | **−9** |
+| epomeno-epipedo | 15 (teto) | 22 | **+1** |
+| kolejny-poziom | 14 (teto) | 22 | **+1** |
+
+**E o caso do meio e a forma MAIS USADA DA FROTA: dez cenas, 149 pecas.** Naquele
+canal, com dez cenas, *"mire o piso"* pede cena de **quinze** caracteres — logo a
+regra de redacao do **772** simplesmente **nao se aplica ali**, e eu venho
+escrevendo "mirei o piso" como se ela fosse universal.
+
+**E o `teto_de_cenas` NAO contradiz isso — sao DUAS PERGUNTAS e eu as tratei como
+uma:** ele pergunta se ALGUM numero de caracteres cai DENTRO da faixa (e com 21
+caracteres em dez cenas a previsao cai dentro, só mais perto do topo); a pergunta
+nova e se o PISO dela e alcancavel. A primeira autoriza a contagem; a segunda
+decide se existe a escolha de redacao.
+
+**No codigo:** `mira.chars_no_alvo` (o nome PUBLICO do inversor, delegando ao
+privado — a alternativa era refazer a inversao no outro modulo, que seria o
+segundo dono) e as colunas `chars_no_piso` / `folga_no_piso` no `quadro`, com o
+piso de caracteres **LIDO** de `mira.teto_de_cenas(...)["chars_minimos"]`. O
+relato **NOMEIA** os dois casos — piso inalcancavel e folga rente — e **nao
+filtra contagem nenhuma**.
+
+**O `FOLGA_RENTE = 2` vai DECLARADO como redacao e nao como medida:** e o menor
+valor que exclui as duas recusas a mao (folga 1 nas duas), e **a faixa de 2 a 4
+nunca foi observada** — as contagens que eu aceitei tem folga 5, 9, 10, 11 e 15,
+logo nenhum dado escolhe dentro dela.
+
+`tests/test_o_mire_o_PISO_nao_e_aplicavel_em_toda_contagem.py`, dez testes: a
+delegacao e por **AST** nos dois lados (o inversor publico tem de chamar o
+privado, e os dois tem de devolver o MESMO valor), um exige que os **DOIS** lados
+existam e **falha se nenhuma contagem ficar inalcancavel OU se a maioria ficar**,
+um prova que as **duas perguntas divergem** chamando os dois donos na mesma
+contagem, a **FRONTEIRA** reproduz as duas recusas (o teto sai rente, a contagem
+que eu aceitei nao), um cobra que a coluna **nao mexe** na escolha por cadencia,
+a frase tem **UM dono** e sai nos dois ramos, e um **RECONFERE contra o disco**
+que dez cenas e a forma mais usada da frota — o numero que torna o achado grave
+nao pode envelhecer calado (753). **Contraprova:** achatada a folga em zero,
+**cinco dos dez** falham.
+
+### A PECA DESSA RODADA — TREZE cenas, e a RECENCIA escolheu
+
+`epomeno-epipedo-s073` = **`QZPfFdQ7xio`**, publicado as 06:18:05Z (run
+`39379563025`), **ONZE PORTOES VERDES NA PRIMEIRA TENTATIVA** — e o
+`antes_do_render` rodou os dez baratos mais os quatro instrumentos em **0,67 s**,
+todos limpos. Provedor **edge MEDIDO** (zero avisos `NARRACAO PELO PIPER` no job
+`118484312314`), som **−13,9** LUFS, LRA 4,3, pico −1,3, desvio +0,1, **zero
+silencios**. Previsao edge **42,0** / piper **37,2**.
+
+**O CONSERTO DA RECENCIA, de uma hora antes, FEZ O TRABALHO NA PRIMEIRA RODADA
+DEPOIS DE EXISTIR:** o instrumento deu **catorze** como melhor cadencia (3,02 s)
+e **acusou sozinho** que a `s072` — a peca anterior DESTE canal — tem catorze.
+Treze e a melhor que nao repete (3,25 s), e foi ela.
+
+**E O TETO DA VOZ (quinze) FICOU DE FORA, que e o achado desta rodada:** ele e
+INEDITO na frota — seria novidade de TAMANHO — e o orcamento ali cai a 22
+caracteres, rente ao piso. Foi a MESMA conta do catorze do `kolejny` as 04:1x, e
+e por isso que ela deixou de morar na minha cabeca.
+
+**ESQUELETO `titulo-item-item-lista-item-barras-titulo-item-lista-item-item-titulo-cta`,
+inedito nas 123 formas da frota**, com `lista` DUAS vezes carregando argumento —
+a cena 3 e o que FIZERAM entao, a cena 8 e o que a linha NAO significa. Todo
+layout saiu do conjunto SONDADO, com `assert` no builder.
+
+**E O PISO EXATO NAO ERA ALCANCAVEL, dito em vez de eu chamar 42,0 de piso:** com
+treze cenas UM caractere por cena vale **~0,67 s**, logo 31 caracteres dao 41,6 e
+32 dao 42,0. A peca saiu em **42,0**, meio segundo acima do piso.
+
+**PAUTA:** `TJZcjE-uv8E` (`epomeno-epipedo-007`). **Doze** origens empatadas em
+**3 de 72** shorts, e o desempate saiu do `segundo_angulo.nao_mencionados`: ela
+tem **79 capitulos nao mencionados de 90**, a maior reserva do canal (as outras
+ficam entre 45 e 72). **E a dominante ficou de fora COM O ALERTA DISPARADO** —
+`nttW9fR8wyY`, 12 de 72 (17%), mais que o dobro da segunda.
+
+**FAMILIA: A DIFERENCA PESSOAL E UMA PONTE, NAO UMA PUNICAO** (capitulos 17 a 20
+e 27) — quando o modo de calculo mudou, para alguns o novo dava MENOS do que ja
+recebiam; nao reduziram a pensao, mantiveram no montante antigo e registraram a
+diferenca a parte. Logo a linha no extrato nao significa erro de calculo, nem
+divida, nem pena. Conferido short por short: nenhuma das tres familias anteriores
+desta origem (achar a linha, os quatro erros de leitura, bruto contra liquido)
+toca esses capitulos.
+
+**ZERO numero novo sobre o mundo e a narracao nao fala numero nenhum:** o
+percentual de reajuste, as datas, o numero de pensionistas e qualquer valor em
+euros ficaram FORA pela regra (g) — os quatro mudam por publicacao, e **o
+capitulo 14 da propria origem escreve o mesmo motivo**. As barras (100/85/15) sao
+ilustracao da aritmetica da ponte, nao faladas.
+
+**E NAO EXISTE PONTO DE RESIDUO, pelo modo `sem_egresso` na OITAVA rodada
+seguida:** o host NEUTRO devolveu **000 com zero byte** na MESMA chamada que a
+peca e o controle `OhrGlJvnBoM`. A peca esta PARQUEADA com o provedor MEDIDO (o
+parque tem **oito** sem leitura) e `RESIDUO_N` segue **128**.
+
+**A LEITURA DE INSCRITOS FOI RECUSADA PELA DECIMA QUINTA RODADA SEGUIDA:**
+20,03 h, piso de resolucao 1,2/dia, faltam **6,8 h** para o criterio do 723.
+
+**COTA: VINTE E SETE envios na janela de 07:00Z, 43.200 unidades — e isto SOBE o
+piso MEDIDO outra vez**, depois de 41.600 as 05:17Z. A janela vira as 07:00Z, isto
+e dentro de uma hora, e nenhum `403 quota` apareceu em vinte e sete envios.
+
 ## O `pgrep -f` CASAVA A PROPRIA LINHA DE COMANDO — e eu disse "VIVO" tres vezes
 
 **Medido em 20/10 as 01:4x, e e o ESPELHO EXATO do defeito de 19/10 as 16:2x,
