@@ -4058,6 +4058,133 @@ de resolucao 2,0/dia, faltam **14,8 h** para o criterio do 723. **COTA:**
 dezenove envios na janela de 07:00Z, **30.400** unidades contra o piso MEDIDO de
 **>= 40.000**.
 
+## O ESQUELETO ATRAVESSA CANAL, E O PORTAO COMPARA DENTRO DE UM
+
+**Medido em 20/10 as 01:3x, e a pergunta que o instrumento responde e
+literalmente a do DONO.** Palavras dele em 19/10: *"os videos publicados me
+parecem todos a mesma dinamica, imagens, formas, estilo. **EM TODOS OS
+CANAIS.** Ajuste."* Esse **em todos os canais** e uma dimensao que o portao
+`variedade` **NAO PODE** ver: o `_especs_do_canal` dele filtra
+`slug == slug`, logo ele conta esqueleto repetido DENTRO do canal.
+
+| | |
+|---|---|
+| specs com short no disco | **366** |
+| formas DISTINTAS de esqueleto | **119** |
+| formas presentes em MAIS DE UM canal | **34** |
+| pecas nessas formas | **271 = 74%** |
+| a mais repetida, `titulo-titulo-titulo-titulo-cta` | **82 pecas, ONZE canais** |
+
+**E o numero agudo nao e a fracao, e a CEGUEIRA: das 34 formas que atravessam
+canal, 33 sao INVISIVEIS ao portao**, porque ele avisa a partir de SEIS
+iguais dentro de um canal — e forma que aparece uma vez em cada de oito
+canais nunca o faz disparar. Elas levam **189 pecas**. A unica que ele ve
+(`titulo-titulo-titulo-titulo-cta`) dispara **por acidente**, porque tambem
+repete dentro do canal.
+
+**Nos tres canais VIVOS o quadro nao se dissolve** — 276 pecas, 106 formas, 26
+atravessando e **186 pecas (67%)** nelas, com a mesma forma no topo (58
+pecas, os tres canais). Isto e o **762 numa dimensao nova**: la eu concentrei
+producao num canal sem ver; aqui a FORMA atravessa os canais sem ninguem
+contar. E e por isso que eu venho escrevendo em cada rodada *"o
+`similaridade` nao pegaria repeticao entre canais, porque compara contra o
+MESMO canal"* — a frase estava certa e **nao tinha numero ao lado**.
+
+**E A SEGUNDA RAZAO DO INSTRUMENTO E O ITEM 3 DA §10.** Eu venho escrevendo
+*"esqueleto inedito nas 116 formas da frota"* e *"a frota nao tinha nenhuma
+peca de doze cenas"* em cada relato, e cada uma dessas frases saiu de um
+**laco Python descartavel escrito na hora**. **Conferido, os numeros estavam
+CERTOS** (113 as 20:1x de 19/10, 116 as 23:1x, 119 hoje, e as tres contas
+fecham com as pecas publicadas no meio), logo o defeito **nao e numero
+errado**: e que a pergunta era digitada junto com o laco, e por isso eu so
+respondia a pergunta que me ocorria digitar. A do dono nunca me ocorreu.
+
+**O que isto NAO afirma:** que forma compartilhada seja defeito por si. Peca
+de cinco cenas tem poucas sequencias possiveis e `titulo-...-cta` e a moldura
+de todas. **O que esta medido e a NEGACAO da leitura confortavel:** nao se
+pode dizer "o esqueleto esta variado" olhando o aviso verde do portao, porque
+ele mede outra coisa.
+
+**NAO virou portao**, pelo argumento do `mira.py`: reprovaria **271** specs de
+acervo, e aviso que reprova 271 vezes deixa de avisar. `fabrica/
+esqueleto_entre_canais.py` (`varre`, `quadro`, `novidade`,
+`cegas_para_o_portao`, `relato`), codigo de saida **sempre zero**. A
+assinatura sai de `variedade.esqueleto` e o limiar de
+`variedade.ESQUELETO_AVISA_EM` — os dois **LIDOS** do dono, nunca copiados.
+
+**E A PRIMEIRA EXECUCAO ACHOU UM DEFEITO DELE:** sem excluir a propria peca,
+a spec da rodada ja esta no disco quando eu pergunto, logo *"inedito"* nunca
+podia ser verdade e o relato dizia *"JA EXISTE: 1 exemplar"* de uma peca que
+e o proprio unico exemplar. O `variedade._especs_do_canal` carrega o
+parametro `exceto` **pela mesma razao**, e foi dele que eu copiei a forma —
+depois de o instrumento me mostrar o defeito.
+
+`tests/test_o_esqueleto_repete_ENTRE_canais_e_o_portao_ve_DENTRO.py`, treze
+testes: a varredura sai do DISCO e **reprova com menos de 200 specs**, a
+delegacao e por **AST** (e `"-".join` no corpo **reprova**, porque isso seria
+o segundo dono), um exige que os **DOIS** lados existam e **falha se TODA
+forma passar a atravessar canal**, um **falha se a fracao desabar** — para a
+nota ser relida em vez de o numero ser movido —, um **falha se o portao
+passar a ver a maioria delas** (ai ele cobriu a dimensao e isto perde a razao
+de existir), a cegueira e provada chamando o **DONO** (`variedade.analisa`
+numa peca real cuja forma vive em 3+ canais com um exemplar em cada) com
+contraprova no outro sentido, e o `exceto` e cobrado nos **dois** sentidos.
+**Contraprova:** desligado o `exceto`, reprova o teste que o mede; e uma
+copia **CERTA** da assinatura em vez da delegacao tambem reprova, porque o
+que o teste cobra e haver UM dono, nao a conta estar certa duas vezes.
+
+### A PECA DESSA RODADA — TREZE cenas, a primeira da frota
+
+`kolejny-poziom-s072` = **`jP9oSGODHKI`**, publicado as 01:17:14Z (run
+`39352564653`), **ONZE PORTOES VERDES NA PRIMEIRA TENTATIVA** — e o
+`antes_do_render` rodou os dez baratos mais os quatro instrumentos de redacao
+em **0,73 s** antes do render, pela quarta rodada seguida. Provedor **edge
+MEDIDO** (zero avisos `NARRACAO PELO PIPER` no job `118398923317`), som
+**-13,8** LUFS, pico -1,5, desvio +0,2, **zero silencios**. Previsao edge
+**41,65** — 0,15 s acima do PISO do `ALVO_SHORT`, pela regra de redacao do
+772 — e piper **35,45**.
+
+**E NAO EXISTE PONTO DE RESIDUO, pelo modo `sem_egresso` na TERCEIRA rodada
+seguida:** o host NEUTRO (`example.com`) devolveu **000 com zero byte** na
+mesma chamada que a peca e o controle `OhrGlJvnBoM`, logo nao e rota do
+YouTube — e o sandbox sem rede. A peca esta PARQUEADA com o provedor MEDIDO
+(o parque tem **tres** sem leitura agora) e `RESIDUO_N` segue **128**.
+
+**ESQUELETO DE TREZE CENAS, e a frota nao tinha nenhuma:** as contagens
+existentes eram 2, 4, 5, 6, 7, 8, 9, 10, 11, 12 e 40. A forma
+`titulo-item-lista-item-barras-item-titulo-item-lista-item-barras-item-cta` e
+inedita nas **118** formas anteriores — e o numero sai do instrumento desta
+rodada, nao de um laco escrito na hora. Todo layout saiu do conjunto
+**SONDADO**, com um `assert` no builder que recusa layout fora dele.
+**Cadencia 3,23 s por plano, a mais proxima dos ~3,1 s de 690/699 em toda a
+frota.**
+
+**CATORZE e o teto MEDIDO desta voz** (`mira.teto_de_cenas`) **e nao foi
+usado:** o orcamento dele (23 a 24 caracteres) fica no piso OBSERVADO de
+caracteres por cena, logo seria polones telegrafico. Recusado como
+experimento meu, com o motivo escrito na copy.
+
+**PAUTA:** `34SgUG7rf0U` (`kolejny-poziom-005`), 82 capitulos e **SETENTA nao
+mencionados**, medido pelo `segundo_angulo.nao_mencionados`. A origem
+dominante ficou de fora **com o ALERTA na mao**: `GUiq15usizw`, 12 de 66
+shorts (18%), mais que o dobro da segunda (4). E o `QiaGg03WSR0` tambem
+ficou de fora, porque este arquivo registra que ele e longo do
+LabTreinamento declarado por engano em dois shorts deste canal.
+
+**FAMILIA: A MEDIA NAO DESCREVE NINGUEM** (capitulos 44 a 48) — a media soma
+e divide, logo poucos salarios altos a puxam para cima; a mediana enfileira
+as pessoas e aponta o meio. Familia nova no canal. **Todo valor em zloty
+ficou FORA pela regra (g)**, inclusive o que a propria spec de origem retrata
+no capitulo 41.
+
+**A LEITURA DE INSCRITOS FOI RECUSADA PELA DECIMA RODADA SEGUIDA:** 15,0 h,
+piso de resolucao 1,6/dia, faltam **11,8 h** para o criterio do 723 — e a
+regra H (686) passou com folga, que e exactamente o caso em que a versao
+antiga de mim leria. **COTA: vinte e dois** envios na janela de 07:00Z,
+**35.200** unidades contra o piso MEDIDO de **>= 40.000**, pelo
+`janela_de_cota` (contado a mao com a data de hoje daria ZERO, que e o 771 na
+direcao que apaga as ultimas horas).
+
 ## O PASSO ZERO TINHA TRES DONOS E EU CHAMEI DOIS — e o terceiro zeraria as 00:07
 
 **Medido em 19/10 as 23:3x.** Nesta rodada eu pedi inscritos ao
