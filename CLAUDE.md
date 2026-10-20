@@ -4806,6 +4806,21 @@ o provedor nao foi medido"*.
 
 **Corrigido no parque no mesmo passo**, com `assert` sobre o valor antigo antes
 de gravar, e o `test_o_job_citado_na_serie_bate_com_o_PARQUE` conferido depois.
+
+**A SUITE FECHOU: 25 falhas, 3.338 passam, 1.042 skip em 835 s** — conjunto
+**IDENTICO** a linha de base desta sessao, `comm` vazio nos **dois** sentidos,
+com o `sed 's/ - .*$//' | sort` nos dois lados. **E o tempo vai MEDIDO:** 835 s
+contra 822 s da passada anterior, e os nove testes novos custam **23,6 s
+isolados** — isto e, eles moveram **menos** do que custam, porque a leitura de
+copy que eles fazem ja era feita por outro arquivo da suite. Dito assim porque
+*"entraram sem custo"* e afirmacao sobre o TOTAL, e e o total que se mede.
+
+**E A ESPERA EM SEGUNDO PLANO FOI INTERROMPIDA PELO LIMITE DELA, nao a suite** —
+e quem separou as duas coisas foi o `processo_vivo`, que respondeu VIVO com o
+arquivo a 39%. Pelo defeito de 19/10 as 16:2x eu teria lido o arquivo incompleto
+e declarado a execucao morta; pelo de 20/10 as 01:4x o `pgrep` teria respondido
+com a minha propria linha de espera. **O instrumento distinguiu "a minha espera
+acabou" de "a execucao acabou"**, que e a terceira forma da mesma familia.
 **O que isto mostra sobre o instrumento:** o `do_registro` **exige** provedor e
 job (733) e por isso nunca parqueia calado — mas ele **nao pode conferir se o
 job EXISTE**, e eu digitei um numero plausivel. A guarda certa e a do 19/10: todo
