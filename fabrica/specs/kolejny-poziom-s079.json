@@ -1,0 +1,124 @@
+{
+ "slug": "kolejny-poziom-s079",
+ "pacote": "kolejny-poziom-s079",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "longo_existente": "SP7Vz8qHdRY",
+ "longo": [],
+ "thumb": {
+  "l1": "Liczyłeś",
+  "l2": "tylko siebie"
+ },
+ "paleta": {
+  "bg": "#0B0B0C",
+  "ink": "#F2EEE8",
+  "c1": "#E23B3B",
+  "c2": "#D9C7A7",
+  "red": "#FF4D4D",
+  "ok": "#7FB77E",
+  "panel": "#151517",
+  "mut": "#8F877C",
+  "acc": "#E23B3B"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Policzyłeś podstawę",
+   "sub": "i wyszło nad progiem",
+   "nar": "Policzyłeś swoją roczną podstawę."
+  },
+  {
+   "layout": "item",
+   "kicker": "Nad progiem",
+   "nar": "I wyszło ci, że jesteś nad progiem."
+  },
+  {
+   "layout": "item",
+   "kicker": "Tylko samego siebie",
+   "nar": "Ale liczyłeś tylko samego siebie."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Warunki wspólnego",
+   "itens": [
+    "Małżeństwo",
+    "Wspólność majątkowa",
+    "Cały rok podatkowy"
+   ],
+   "nar": "Rozliczenie bywa jednak wspólne."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Podstawy razem",
+   "barras": [
+    {
+     "rotulo": "Twoja",
+     "valor": 100
+    },
+    {
+     "rotulo": "Małżonka",
+     "valor": 42
+    },
+    {
+     "rotulo": "Razem",
+     "valor": 142
+    }
+   ],
+   "nar": "Wtedy obie podstawy się sumują."
+  },
+  {
+   "layout": "item",
+   "kicker": "Suma na połowę",
+   "nar": "I dzieli się tę sumę na połowę."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Od połowy",
+   "sub": "liczy się podatek",
+   "nar": "Podatek liczy się od tej połowy."
+  },
+  {
+   "layout": "barras",
+   "kicker": "I razy dwa",
+   "barras": [
+    {
+     "rotulo": "Od połowy",
+     "valor": 50
+    },
+    {
+     "rotulo": "Razy dwa",
+     "valor": 100
+    }
+   ],
+   "nar": "A potem mnoży się go przez dwa."
+  },
+  {
+   "layout": "item",
+   "kicker": "Próg działa inaczej",
+   "nar": "Próg zachowuje się więc inaczej."
+  },
+  {
+   "layout": "item",
+   "kicker": "Jakby był wyższy",
+   "nar": "Dla pary działa jakby był wyższy."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Prawo, nie obowiązek",
+   "itens": [
+    "Wniosek w zeznaniu",
+    "Prawo, nie obowiązek",
+    "Liczysz obie wersje"
+   ],
+   "nar": "To jest prawo, a nie twój obowiązek."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Kolejny Poziom",
+   "sub": "subskrybuj",
+   "nar": "Policz obie wersje, a nie jedną."
+  }
+ ],
+ "copy": "# kolejny-poziom-s079\n\n## TITULO\nPróg Podatkowy Dla Dwojga: Dlaczego Policzenie Siebie Samego Daje Zły Wynik\n\n## TITULO SHORT\nLiczyłeś próg tylko dla siebie\n\n## DESCRICAO\nZrobiłeś pracę domową: wziąłeś miesięczne brutto, pomnożyłeś przez dwanaście, odjąłeś składki społeczne — i porównałeś wynik z progiem. Wyszło nad progiem. **I ten wynik może być po prostu nie twój**, bo liczyłeś jedną osobę, a podatek nie zawsze liczy jedną osobę.\n\nPrzy **wspólnym rozliczeniu z małżonkiem** mechanizm jest inny i wart znajomości: obie podstawy się sumują, suma dzieli się na połowę, podatek liczy się od tej połowy — **a potem mnoży się przez dwa**. Nie jest to uśrednianie dla ozdoby: to zmienia stronę progu, na której stoisz. W praktyce dla pary próg zachowuje się tak, jakby był wyższy, bo to połowa wspólnej podstawy jest z nim porównywana, a nie twoja własna.\n\n**Efekt jest największy wtedy, gdy zarobki są nierówne** — jedno z małżonków zarabia dużo, a drugie mało albo nic. Wtedy część podstawy osoby zarabiającej więcej „przechodzi\" na stronę niższej stawki. Gdy oboje zarabiają podobnie, efekt jest znikomy albo żaden: przeliczenie nic nie zmienia, i to też jest wynik wart zapisania.\n\n**To prawo, a nie obowiązek, i ma warunki.** Trzeba pozostawać w małżeństwie i we wspólności majątkowej przez cały rok podatkowy, a wniosek składa się w samym zeznaniu — nie dzieje się z automatu i nikt nie zrobi tego za ciebie. Dlatego praktyczny krok nie jest skomplikowany: **policz obie wersje, nie jedną.** Osobno i wspólnie, na tej samej kartce, i porównaj dwie liczby.\n\nI jeszcze jedno, bo to jest sedno: **to jedyna rzecz w całym temacie progu, która potrafi przenieść cię na drugą stronę** bez żadnej zmiany w twojej pensji. Wszystko inne wokół progu opisuje, ile zapłacisz na danej stronie. To opisuje, po której jesteś.\n\n## COMENTARIO FIXADO\nNajmniej oczywiste: wspólne rozliczenie nie „obniża podatku\" samo z siebie — ono zmienia, CO jest porównywane z progiem. Przy równych zarobkach nie zmienia nic. Policzyłeś kiedyś obie wersje na jednej kartce, czy tylko jedną?\n\n## HASHTAGS\n#podatki #prog #wspolnerozliczenie #kolejnypoziom #Shorts\n\n## TAGS\nprog podatkowy, wspolne rozliczenie, malzonek, podstawa opodatkowania, skala podatkowa, zeznanie roczne, wspolnosc majatkowa, polowa podstawy, nierowne zarobki, pit, rozliczenie roczne, kolejny poziom, finanse osobiste, podatek dochodowy, dwie wersje\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\n**ZERO numero novo sobre o mundo, e ZERO digito na narracao** — nem o valor do\nprog, nem as duas stawki, nem a kwota wolna, nem a kwota zmniejszajaca, nem o\nteto da proposta nova, nem a media nacional, nem o numero de contribuintes.\nConferido cena a cena.\n\n**OS UNICOS NUMERAIS SAO ESTRUTURAIS e descrevem a OPERACAO:** *\"na polowe\"* e\n*\"przez dwa\"*. Eles sao o mecanismo que o capitulo 40 declara em letra —\n*\"podatek ustala sie wtedy w podwojnej wysokosci podatku obliczonego od polowy\nlacznej podstawy\"* — e nao afirmacao sobre o mundo, do mesmo jeito que o\n`epomeno-epipedo-s016` usou *\"ton dyo\"* e o `kolejny-poziom-s078` usou\n*\"dwie czesci\"*.\n\n**E A REGRA (g) MORDE FORTE NESTA ORIGEM, porque ela e feita de numero que esta\nMUDANDO:** o longo descreve uma PROPOSTA de mudanca da skala, e o capitulo 20 diz\nem letra *\"to jest projekt i zapowiedz, nie jest to jeszcze obowiazujace prawo\"*.\nCitar qualquer um daqueles valores seria publicar peca que erra na primeira\npublicacao — **e e exatamente a familia do irmao `s041`**, que carrega ler\nANUNCIO como REGRA. Esta peca nao toca a proposta.\n\nAs barras (100/42/142 na cena 4 e 50/100 na cena 7) sao **ILUSTRACAO qualitativa**\nda FORMA da operacao — duas podstawy que somam, e a metade que depois dobra — e\n**NAO sao faladas**. Elas nao medem salario nenhum.\n\n## FAMILIA DE ENTRADA ERRADA\n**MEDIR O PROG SOBRE A PROPRIA BASE QUANDO A BASE QUE VALE PODE SER OUTRA** —\nfazer a conta certa (brutto por doze, menos as skladki) e comparar com o prog,\nquando no rozliczenie wspolne o que se compara e a METADE da soma do casal. O\ncalculo esta correto e o SUJEITO dele esta errado, logo o resultado responde uma\npergunta que nao e a sua. **E o que a torna a familia mais consequente desta\norigem e o proprio longo quem diz, no capitulo 45: e a UNICA coisa do video que\npode mudar o lado do prog em que voce esta** — sem nenhuma mudanca na pensao.\nTodo o resto descreve QUANTO se paga de um lado; isto descreve DE QUE lado.\n\n## FONTES\nOrigem: `SP7Vz8qHdRY` (`kolejny-poziom-011`, 77 capitulos), escolhida pelo\n`pauta_do_momento.py` — 3 usos e **71 capitulos NAO MENCIONADOS de 77**, a maior\nreserva do empate. **O `QiaGg03WSR0` tem contagem MENOR (2 usos) e saiu NOMEADO e\nnao filtrado** pelo mapa de dono MEDIDO: ele e longo do LabTreinamento declarado\npor engano em dois shorts deste canal. E o `reservas_escritas.py` disse que esta\norigem NAO tem reserva escrita por irmao nenhum — ele NOMEIA a ausencia.\n\nCapitulos desta peca: **38 a 45** (*\"Dwoje ludzi\"*, *\"Wspolne rozliczenie\"*,\n*\"Jak liczy sie podatek\"*, *\"Co to daje\"*, *\"Konkret\"*, *\"Kiedy to dziala\"*,\n*\"Warunki\"* e *\"Dlaczego o tym mowie\"*). O 40 diz em letra como o imposto se\napura; o 41 que *\"dla pary prog zachowuje sie tak, jakby byl dwa razy wyzszy\"*; o\n43 que o efeito e maior quando os ganhos sao desiguais; e o 45 que esta e a UNICA\ncoisa do video capaz de mudar o lado do prog.\n\n**A DISTINCAO DOS TRES IRMAOS VAI ESCRITA, e eles vieram do `irmaos_da_origem`**\n— e **dois dos tres** nao tem o campo da familia:\n\n* `s015` — **a pensao INTEIRA entra na stawka mais alta?** Nao: so a nadwyzka. E\n  sobre O QUE e tributado de um lado do prog;\n* `s041` — **anuncio nao e regra vigente**: aplicar a uma declaracao as regras\n  ANUNCIADAS em vez das do ano a que ela se refere. E sobre QUAL regra vale, e e\n  por isso que esta peca nao toca a proposta descrita no longo;\n* `s057` — **sem a declaracao PIT-2 voce perde o prazo**: e sobre a zaliczka\n  MENSAL, nao sobre o prog anual.\n\nNenhum dos tres toca os capitulos 38 a 45 — conferido short por short.\n\n## EXPOSICAO\n**DOZE CENAS, e a recusa nao foi minha.** O `contagem_de_cenas.py` deu catorze\ncomo melhor cadencia e ela e o TETO MEDIDO desta voz — saiu **NOMEADA e nao\nfiltrada**, recusada pela FOLGA, porque o orcamento ali cai rente ao piso\nOBSERVADO de caracteres. Treze repete a `s078`, a peca anterior deste canal. Doze\ne a melhor que SERVE pelos tres filtros da chave `por_cadencia_servivel`, com\nfolga **+11**.\n\n**E O `quanto_falta`, O INSTRUMENTO DE 22:3x, FEZ O TRABALHO NA PRIMEIRA PECA\nDEPOIS DE EXISTIR:** a primeira versao saiu com previsao **39,54** contra um piso\nde 41,5, e ele disse, em letra, *\"ACRESCENTAR ~38 caracteres no TOTAL (3,2 por\ncena em 12)\"*. Alongada assim, a peca ficou em **41,68** — e ele passou a dizer\n*\"nada\"*. Na rodada passada eu tinha feito essa conta de cabeca e errado a\nmagnitude por um fator 3,7.\n\n**ESQUELETO\n`titulo-item-item-lista-barras-item-titulo-barras-item-item-lista-cta`, inedito\nna frota** — a frota tem **CINCO** formas de doze cenas e esta nao e nenhuma\ndelas, numero do `esqueleto_entre_canais` com a propria peca FORA pelo `exceto`.\nTodo layout saiu do conjunto **SONDADO**, e a paleta foi **LIDA** de\n`temas_do_dono.paleta_do_canal`.\n\n**UMA FRASE POR CENA**, conferida pelo DONO da contagem (`narracao.frases`), com\n`assert` no construtor: `P` vale 1,42 s nesta voz, a maior da frota.\n\n**A PINCA DO 740/748 ESTA FECHADA AQUI, com a exposicao declarada ANTES de\npublicar:** o piper sai em 35,47 — FORA do `ALVO_SHORT` pelo piso. O portao\n`duracao` cobra 18 a 45 s, que os dois mundos satisfazem.\n\n**Com a banda em (−1,2; 4,0) o real cai em algum ponto da faixa que o `mira.py`\nimprime, e eu nao digo de que lado** (774).\n"
+}
