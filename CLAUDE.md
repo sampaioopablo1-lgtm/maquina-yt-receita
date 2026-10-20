@@ -4745,6 +4745,117 @@ parque tem **nove** sem leitura) e `RESIDUO_N` segue **128**.
 fechou. O numero sai do `janela_de_cota`, e contado a mao com a data de hoje
 daria o mesmo por acidente de hora, que e o erro de 23:3x.
 
+## O MAPA DE DONO MEDIDO VIVIA SO EM PROSA — e ele DECIDIU a pauta desta rodada
+
+**Medido em 20/10 as 10:1x, e e a primeira vez que um achado destes muda a PECA e
+nao so o relato.** O `pauta_do_momento.py` deu, na primeira chamada, o
+`QiaGg03WSR0` como **ESCOLHIDA** no `kolejny-poziom` — 2 usos e **52 de 56**
+capitulos intocados, a maior reserva do empate. **Esse id foi MEDIDO em 18/10 as
+01:2x como longo do LabTreinamento** (campo `author` da propria pagina, 509 s), e
+dois shorts deste canal o declaram por engano.
+
+**E o relato dizia `mapa de dono MEDIDO ausente` nas DUAS rodadas em que este
+modulo teve o que dizer** — porque o mapa **nao existia como DADO em lugar
+nenhum.** O `concentracao.origem_de_outro_canal` exige um `dono_medido` desde
+18/10, em letra: *"{youtube_id: canal}, e tem de vir de MEDICAO"*. **E a medicao
+existia, escrita em PROSA:** no `CLAUDE.md`, no docstring do `concentracao.py` e
+no do proprio `pauta_do_momento.py` — **em nenhum lugar que um instrumento
+pudesse LER.**
+
+**E eu a apliquei A MAO tres vezes.** Nas rodadas de 01:3x e 07:4x eu escrevi na
+copy que *"o `QiaGg03WSR0` tambem ficou de fora, porque este arquivo registra que
+ele e longo do LabTreinamento"*, e nesta rodada ia fazer a mesma coisa. **E o item
+3 da §10 na QUINTA dimensao** — canal (19/10 as 11:2x), cota (23:3x), cenas
+(02:2x), pauta (08:2x) e agora o DONO da origem. **E e a classe dos layouts
+mortos numa forma nova:** la o codigo existia e ninguem o chamava; aqui o DADO
+existia e ninguem podia chama-lo.
+
+**`fabrica/dono_medido.py` poe o mapa como dado, com PROCEDENCIA obrigatoria por
+entrada** — entrada sem ela **LEVANTA**, a mesma disciplina do `provedor`
+obrigatorio no parque (733), porque mapa de dono sem medicao ao lado e palpite com
+cara de dado. **O criterio de entrada e estreito de proposito:** so id cujo dono
+foi medido na PAGINA do proprio video. Palpite e ausencia da playlist **nao
+entram** — a primeira versao do `origem_de_outro_canal` acusava origem ausente da
+playlist e deu DOIS falsos positivos (725), e um mapa frouxo reintroduz isso agora
+como dado compartilhado. **E o mapa NAO e exaustivo, e o relato diz isso:** origem
+fora dele e **DESCONHECIDA**, nunca do proprio canal.
+
+**E A PRIMEIRA VERSAO DO CONSERTO TINHA DOIS DONOS DO MESMO FATO, dentro do
+conserto da mesma assinatura:** eu resolvia o mapa no `quadro` e deixava a FLAG do
+relato ser calculada no `escolha` a partir do argumento **nao resolvido**. O
+relato saia com *"mapa ausente"* com a suspeita **ja NOMEADA** na lista acima.
+Consertado com UM dono, `_resolve_mapa`.
+
+`tests/test_o_mapa_de_dono_MEDIDO_vivia_so_em_PROSA.py`, nove testes: o mapa
+**reprova se ficar vazio** (vacuidade), toda entrada carrega procedencia e quatro
+formas tortas **LEVANTAM**, id fora do mapa segue **DESCONHECIDO**, o defeito e
+cobrado por **PROPRIEDADE e nao pelo id da escolha nova** (que muda com a
+contagem — 743/753/761), a origem e cobrada **NOMEADA e nao filtrada**, os **DOIS
+ramos** existem (`None` = mapa medido, `{}` = sem mapa) com a resolucao tendo
+**UM dono por AST**, e o modulo de dado **nao reimplementa a deteccao** (por AST:
+`contagem`, `origem_de_outro_canal`, `glob`, `listdir` e `open` proibidos no
+corpo). **Contraprova:** desligado o mapa, **cinco dos vinte e um** falham.
+
+**E UM TESTE MEU FOI RETRATADO NO LUGAR, pela DECIMA SEGUNDA vez da classe:** o
+`test_sem_mapa_ele_DIZ_que_o_mapa_falta` chamava o relato SEM mapa e cobrava a
+frase *"ausente"* — isto e, **travava o estado DEFEITUOSO**, em que a medicao
+vivia so em prosa. A propriedade passou a ser que o ramo EXISTE para quem passar
+`{}` de proposito, e que o **PADRAO traz o mapa**.
+
+### A PECA DESSA RODADA — TREZE cenas, e a vantagem e CONDICIONAL
+
+`kolejny-poziom-s075` = **`KWS31RWn5KM`**, publicado as 10:17:52Z (run
+`39406904212`), **ONZE PORTOES VERDES NA PRIMEIRA TENTATIVA** — e o
+`antes_do_render` rodou os dez baratos mais os quatro instrumentos de redacao em
+**0,78 s**, todos limpos. Provedor **edge MEDIDO** (zero avisos
+`NARRACAO PELO PIPER` no job `118574005044`), som **-14,3** LUFS, LRA 3,8, pico
+-2,8, desvio -0,3, **zero silencios**. Previsao edge **41,97** / piper **35,71**.
+
+**PAUTA:** `SZV9Vk5YFwI` (`kolejny-poziom-002`), 2 usos e **49 de 57** capitulos
+NAO MENCIONADOS — a segunda do empate, porque a primeira saiu pelo mapa de dono.
+A dominante `GUiq15usizw` ficou de fora **COM O ALERTA DISPARADO**: 12 de 69
+shorts (17%), mais que o dobro da segunda.
+
+**FAMILIA: A VANTAGEM E CONDICIONAL, E O WARUNEK E A IDADE** (capitulos 41 a 47).
+As contas com vantagem fiscal sao escolhidas pela PERGUNTA ERRADA — qual ulga e
+maior — quando a vantagem delas **nao esta no saldo, esta num warunek**: no IKE o
+lucro sai sem imposto NA RETIRADA depois da idade, no IKZE a deducao vem agora e o
+imposto vem NA RETIRADA. Logo a retirada antecipada **nao corta a vantagem
+proporcionalmente: ela a DEVOLVE inteira** — no IKE volta o imposto sobre o lucro,
+no IKZE devolvem-se as deducoes tomadas. Dai sai outra ORDEM de escolha: primeiro
+o horizonte, depois taxas, amplitude e regularidade, e o tamanho da ulga por
+ultimo. **A melhor conta e a que voce nao toca.** Conferido pelo
+`irmaos_da_origem` e nao pela minha leitura: as duas familias anteriores desta
+origem sao o `s059` (a aritmetica da ZWLOKA) e o `s064` (o DIVISOR que cresce sem
+ninguem o escolher).
+
+**TREZE CENAS, e a recusa nao foi minha:** o teto MEDIDO da voz (14) foi RECUSADO
+pela FOLGA — orcamento de 22 caracteres por cena, a UM do piso OBSERVADO de 21 —,
+e treze e a melhor que SERVE (27 no piso, folga +6, cadencia 3,25 s). **ESQUELETO
+`titulo-item-lista-barras-item-item-titulo-lista-item-barras-item-item-cta`,
+inedito nas 127 formas da frota** e nas DUAS de treze cenas que existem, com
+`barras` duas vezes e as duas carregando argumento. Todo layout saiu do conjunto
+**SONDADO**, com `assert` no builder.
+
+**E O PISO EXATO NAO E ALCANCAVEL, dito em vez de eu chamar 41,97 de piso:** com
+treze cenas UM caractere por cena vale **~0,63 s**, logo 27 dao ~41,5 e 28 dao
+~42,1. A peca saiu com media **27,8** — meio segundo acima do piso. E a pinca do
+740/748 esta **FECHADA** aqui (razao piper/edge 0,851), logo o piper sai FORA pelo
+piso, com a exposicao declarada antes de publicar.
+
+**NAO EXISTE PONTO DE RESIDUO, e com o controle de escrita de 09:3x na mao:** o
+`touch` passou (`escrita OK`) e os tres hosts — a peca, o controle `OhrGlJvnBoM` e
+o NEUTRO — voltaram **000 sem arquivo**, logo `sem_egresso` esta **MEDIDO**. A
+peca esta PARQUEADA pelo `do_registro` (o parque tem **doze** sem leitura) e
+`RESIDUO_N` segue **128**.
+
+**A LEITURA DE INSCRITOS FOI RECUSADA PELA DECIMA NONA RODADA SEGUIDA:** 24,0 h,
+piso de resolucao 1,0/dia, **faltam 2,8 h** para o criterio do 723 — isto e, a
+primeira leitura que vale cai perto das **13:00Z**.
+
+**COTA: QUATRO envios na janela aberta as 07:00Z**, 6.400 unidades, contra o piso
+MEDIDO de **>= 41.600** que a janela anterior fechou.
+
 ## O 000 TAMBEM E "A RESPOSTA NAO TINHA ONDE SER GRAVADA"
 
 **Medido em 20/10 as 09:3x, na DECIMA PRIMEIRA rodada seguida em que eu escrevi
