@@ -1,0 +1,121 @@
+{
+ "slug": "epomeno-epipedo-s071",
+ "pacote": "epomeno-epipedo-s071",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "longo_existente": "481Zgd4IhsE",
+ "longo": [],
+ "thumb": {
+  "l1": "Το νοίκι",
+  "l2": "δεν αρκεί"
+ },
+ "paleta": {
+  "bg": "#F4EFE6",
+  "ink": "#1B1A17",
+  "c1": "#C8502A",
+  "c2": "#2B6CB0",
+  "red": "#B83227",
+  "ok": "#2E8B57",
+  "panel": "#FFFFFF",
+  "mut": "#7A7263",
+  "acc": "#C8502A"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Το νοίκι δεν είναι το κόστος",
+   "sub": "λείπουν τέσσερα",
+   "nar": "Το νοίκι δεν είναι όλο το κόστος σου."
+  },
+  {
+   "layout": "item",
+   "kicker": "Τι προστίθεται",
+   "nar": "Κάθε μήνα μπαίνουν και άλλα ποσά δίπλα."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Τι μπαίνει κάθε μήνα",
+   "itens": [
+    "Κοινόχρηστα",
+    "Θέρμανση",
+    "Ρεύμα",
+    "Συντήρηση"
+   ],
+   "nar": "Τέσσερα ποσά μπαίνουν εκτός από αυτό."
+  },
+  {
+   "layout": "item",
+   "kicker": "Η εγγύηση",
+   "nar": "Και η εγγύηση μένει δεσμευμένη χρόνια."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Νοίκι ή συνολικό κόστος",
+   "barras": [
+    {
+     "rotulo": "Μονο noiki",
+     "valor": 55
+    },
+    {
+     "rotulo": "Me ta ypoloipa",
+     "valor": 100
+    }
+   ],
+   "nar": "Το ίδιο σπίτι δίνει δύο διαφορετικά ποσά."
+  },
+  {
+   "layout": "item",
+   "kicker": "Δεν είναι δαπάνη",
+   "nar": "Δεσμευμένο χρήμα δεν είναι μηνιαία δαπάνη."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Η σύγκριση",
+   "sub": "ένα από τα πέντε",
+   "nar": "Συγκρίνεις ένα νούμερο από τα πέντε."
+  },
+  {
+   "layout": "item",
+   "kicker": "Το λάθος",
+   "nar": "Έτσι το φθηνό βγαίνει ακριβότερο."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Τι να ρωτήσεις",
+   "itens": [
+    "Ποιος πληρώνει τι",
+    "Πόση εγγύηση",
+    "Πότε επιστρέφεται"
+   ],
+   "nar": "Τρεις ερωτήσεις πριν βάλεις υπογραφή."
+  },
+  {
+   "layout": "item",
+   "kicker": "Στο συμβόλαιο",
+   "nar": "Αν δεν γράφεται, ζήτα να γραφτεί."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Πριν και μετά την υπογραφή",
+   "barras": [
+    {
+     "rotulo": "Prin",
+     "valor": 90
+    },
+    {
+     "rotulo": "Meta",
+     "valor": 25
+    }
+   ],
+   "nar": "Μετά την υπογραφή αλλάζει πολύ λίγο."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Το δικό σου συνολικό",
+   "sub": "γράψε το",
+   "nar": "Γράψε εδώ το δικό σου συνολικό κόστος."
+  }
+ ],
+ "copy": "# epomeno-epipedo-s071\n\n## TITULO\nΓιατί το Νοίκι Δεν Είναι το Κόστος Στέγης — και Ποια Τέσσερα Ποσά Λείπουν από τη Σύγκρισή σου\n\n## TITULO SHORT\nΤο νοίκι δεν είναι το κόστος\n\n## DESCRICAO\nΌταν συγκρίνεις δύο σπίτια, συγκρίνεις συνήθως ένα νούμερο: το νοίκι. **Και το νοίκι είναι ένα από πέντε.** Δίπλα του μπαίνουν κάθε μήνα τα κοινόχρηστα, η θέρμανση, το ρεύμα και ένα ποσό συντήρησης — και κανένα από αυτά δεν φαίνεται στην αγγελία.\n\n**Το πέμπτο δεν είναι ούτε δαπάνη: είναι η εγγύηση.** Μένει δεσμευμένη για όσο διαρκεί το μισθωτήριο, δηλαδή βγαίνει από την τσέπη σου μία φορά και δεν επιστρέφεται μηνιαία. Γι' αυτό δεν εμφανίζεται στο μηνιαίο κόστος **και δεν εμφανίζεται ούτε στην αποταμίευσή σου** — είναι χρήμα που υπάρχει και δεν δουλεύει για σένα.\n\n**Η συνέπεια είναι πρακτική και άβολη: το φθηνότερο νοίκι μπορεί να βγει το ακριβότερο σπίτι.** Δύο διαμερίσματα με διαφορά πενήντα ευρώ στο νοίκι μπορούν να έχουν τελείως διαφορετικό συνολικό κόστος, αν στο ένα πληρώνει ο ιδιοκτήτης τη συντήρηση και στο άλλο εσύ. Η σύγκριση με ένα νούμερο δεν απαντά στην ερώτηση που έκανες.\n\n**Τι να κάνεις πριν υπογράψεις, και είναι τρεις ερωτήσεις:** ποιος πληρώνει τι, πόση είναι η εγγύηση, και πότε επιστρέφεται. Αν η απάντηση δεν γράφεται πουθενά στο συμβόλαιο, ζήτα να γραφτεί — μετά την υπογραφή η συζήτηση αλλάζει πολύ λίγο προς το καλύτερο.\n\nΔεν δίνω εδώ ποσά, όρια εισοδήματος, προθεσμίες ούτε ποσοστά. Αυτά αλλάζουν και μένουν έξω. Ο μηχανισμός είναι το θέμα, και δεν εξαρτάται από κανένα νούμερο: το κόστος στέγης είναι άθροισμα, και η σύγκριση με ένα μόνο όρο του αθροίσματος δεν είναι σύγκριση.\n\n## COMENTARIO FIXADO\nΤο λιγότερο προφανές: η εγγύηση δεν είναι δαπάνη, είναι δεσμευμένο χρήμα. Πόσο είναι το δικό σου συνολικό κόστος στέγης, με όλα μέσα;\n\n## HASHTAGS\n#οικονομικα #στεγη #νοικι #epomenoepipedo #Shorts\n\n## TAGS\nκοστος στεγης, νοικι, εγγυηση, κοινοχρηστα, συντηρηση, μισθωτηριο, συμβολαιο ενοικιασης, προσωπικα οικονομικα, συγκριση σπιτιων, μηνιαιο κοστος, δεσμευμενο χρημα, αποταμιευση, επομενο επιπεδο, ενοικιαστης, ιδιοκτητης\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Os numeros falados sao \"tessera\"\n(quatro), \"dyo\" (dois), \"pente\" (cinco) e \"treis\" (tres) — e os QUATRO sao\ncontagem dos proprios elementos da peca: os quatro itens da cena 2, os dois\nnumeros do mesmo imovel, os cinco termos da soma e as tres perguntas da cena 8.\nOs valores das barras (55/100 e 90/25) sao ILUSTRACAO da aritmetica e NAO sao\nfalados. Limite de renda, prazo, percentual e o teto de euros do capitulo 50 do\nlongo ficaram FORA pela regra (g), porque mudam por publicacao. A DESCRICAO cita\n\"peninta evro\" como diferenca HIPOTETICA entre dois alugueis, nao como medida do\nmercado, e isso vai dito na propria frase.\n\n## FONTES\nA spec local `epomeno-epipedo-002`, que e o pacote do longo `481Zgd4IhsE` — 100\ncapitulos, 3 shorts anteriores e **79 capitulos nao mencionados** por nenhum\ndeles (medido pelo `segundo_angulo.nao_mencionados`). A familia desta peca sai\ndos capitulos 19 e 20: *\"kai to enoikio den einai olo — koinochrista, thermansi,\nrevma kai ena poso syntirisis prostithentai kathe mina\"* e *\"to pragmatiko kostos\nstegis einai to enoikio syn koinochrista, syn energeia, syn i engyisi pou menei\ndesmevmeni gia chronia\"*. Nenhuma frase desta peca saiu de TITULO de capitulo.\n\n**E A ORIGEM DOMINANTE DO CANAL FICOU DE FORA, com o ALERTA na mao:** o\n`concentracao.py` acusou `nttW9fR8wyY` com **12 de 70** shorts (17%), mais que o\ndobro da segunda (4). Esta origem esta na faixa de MENOR contagem do canal (3\nshorts), com 79 capitulos intocados.\n\n**FAMILIA: O ALUGUEL E UM DE CINCO TERMOS** — e o quinto (a caucao) nem e\ndespesa, e dinheiro PRESO. E familia NOVA no canal e a PRIMEIRA do dia 20/10 na\nfrota; as dez de 19/10 foram o denominador, o alvo em meses, qual despesa medir\nprimeiro, a janela do periodo, a unidade do resultado, os dois erros, a\ncomparacao com numero de fora, tres meses de extrato, quais horas entram no\ndivisor e a meta redonda com a lista de nomes.\n\n## EXPOSICAO\n**ESQUELETO DE DOZE CENAS, e a frota nao tinha NENHUMA:** varridas as 116 formas\nde short do disco, as contagens existentes eram 2, 4, 5, 6, 7, 8, 9, 10, 11 e 40\n— **zero com doze**. A forma\n`titulo-item-lista-item-barras-item-titulo-item-lista-item-barras-cta` e inedita\npela sequencia e pelo TAMANHO, com `barras` DUAS vezes e as duas carregando\nargumento. Todo layout saiu do conjunto SONDADO (`layouts_do_short.desenham()`),\ncom um `assert` no builder.\n\n**E DOZE CENAS SO FOI POSSIVEL PORQUE O TETO DE ONZE ESTAVA ERRADO.** O\n`CLAUDE.md` dizia, desde 11/10, que *\"doze cenas estourariam o teto de 43,1 so em\nsilencio, entao o teto real no alvo atual e onze\"*. **Medido agora pelo\n`ensaio`:** doze cenas nesta voz custam **20,06 s** so de silencio, menos da\nMETADE do teto. Com o piso de caracteres OBSERVADO no disco (21, do\n`labtreinamento-s081`), o teto verdadeiro desta voz e de **QUINZE** cenas, e da\nvoz polonesa **catorze**. Ver a secao do `CLAUDE.md` desta rodada.\n\n**ORCAMENTO: 37 caracteres por cena**, do `mira` invertendo a previsao REAL do\nmundo edge para o piso da faixa. Escrita com media **37,2**: edge **42,16**,\ndentro de 41,5 a 43,0. **A granularidade de UM caractere vale 0,6 s com doze\ncenas**, logo o piso exato (41,5) nao e alcancavel aqui — 36 caracteres dao 41,39\n(abaixo) e 37 dao 42,0. Isso vai dito em vez de eu chamar 42,16 de \"piso\".\n\n**E NENHUM orcamento poe os DOIS mundos dentro da faixa**, em contagem de cena\nnenhuma: o `mira.janela_dos_dois_mundos` devolve `None` de 6 a 13 cenas, porque a\nrazao piper/edge desta voz e 0,886 e o vao vale ~4,7 s contra 1,5 s de faixa. E a\npinca do 740/748 dentro do instrumento, e a decisao segue do dono. O piper sai em\n**37,35 s** — dentro dos 18 a 45 do portao, logo nada quebra; o que nao cabe e a\nfaixa da frota.\n\n**A cadencia e 3,5 s por plano** com doze cenas em 42 s — a mais rapida de\nqualquer peca desta frota fora a de 5 s, e mais perto dos ~3,1 s medidos em\n690/699 do que os 3,8 s de onze cenas.\n"
+}

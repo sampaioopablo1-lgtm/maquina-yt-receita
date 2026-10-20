@@ -59,7 +59,7 @@ SEGUNDOS_CAROS_MEDIDOS = 8.0
 SEGUNDOS_BARATOS_MEDIDOS = 0.65
 
 # Os instrumentos de REDACAO, cada um dono da sua conta. Eles nao reprovam.
-INSTRUMENTOS = ("mira", "acento", "gancho")
+INSTRUMENTOS = ("mira", "acento", "gancho", "paleta_da_spec")
 
 
 def portoes_baratos():

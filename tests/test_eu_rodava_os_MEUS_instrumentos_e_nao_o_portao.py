@@ -120,13 +120,26 @@ def test_CONTRAPROVA_no_outro_sentido_a_peca_REAL_sai_limpa():
     assert not ruins, ruins
 
 
-def test_ele_chama_os_TRES_instrumentos_pelo_relato_deles():
-    """Reimplementar a conta aqui criaria o segundo dono de cada uma."""
-    assert set(AR.INSTRUMENTOS) == {"mira", "acento", "gancho"}, AR.INSTRUMENTOS
+def test_ele_chama_CADA_instrumento_pelo_relato_dele():
+    """RETRATADO em 20/10: a primeira versao cravava o CONJUNTO de tres nomes.
+
+    Quando o `paleta_da_spec` entrou como quarto instrumento, ela reprovou um
+    comportamento CORRETO — identidade onde a afirmacao era propriedade, a
+    classe 743/753/761, num teste que eu escrevi na vespera. A propriedade e
+    outra e e esta: **todo nome de `INSTRUMENTOS` e chamado pelo `relato` DELE**,
+    e a marca de cada um aparece no relato — derivada da constante, nunca
+    listada a mao. Reimplementar a conta aqui criaria o segundo dono de cada uma.
+    """
+    assert len(AR.INSTRUMENTOS) >= 3, AR.INSTRUMENTOS
     caminho, _ = _uma_spec_de_short()
     t = AR.relato(caminho)
-    for marca in ("MIRA de", "ACENTO de", "GANCHO de"):
-        assert marca in t, f"o relato perdeu {marca!r}"
+    for nome in AR.INSTRUMENTOS:
+        mod = __import__(nome)
+        assert callable(getattr(mod, "relato", None)), (
+            f"{nome} nao tem `relato`: o agregador chamaria o que nao existe")
+        # a marca do relato e a PRIMEIRA palavra dele, em maiuscula
+        marca = mod.relato(caminho).split()[0]
+        assert marca in t, f"o relato perdeu {nome!r} (marca {marca!r})"
 
 
 def test_NAO_e_portao_e_DIZ_que_nao_substitui_o_prontidao():
