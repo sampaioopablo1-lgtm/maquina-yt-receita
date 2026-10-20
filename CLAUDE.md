@@ -4856,6 +4856,15 @@ primeira leitura que vale cai perto das **13:00Z**.
 **COTA: QUATRO envios na janela aberta as 07:00Z**, 6.400 unidades, contra o piso
 MEDIDO de **>= 41.600** que a janela anterior fechou.
 
+**A SUITE FECHOU: 25 falhas, 3.289 passam, 1.030 skip em 745 s** — conjunto
+**IDENTICO** a linha de base desta sessao, `comm` vazio nos **dois** sentidos,
+com o `sed 's/ - .*$//' | sort` nos dois lados. **E o tempo vai medido em vez de
+afirmado por habito: 745 s contra 745 s da passada anterior**, isto e, os nove
+testes novos **nao moveram o total**, mesmo custando ~25 s isolados — o arquivo
+chama o `segundo_angulo` sobre as origens de um canal, e essa leitura ja era
+feita por outro arquivo da suite. Dito assim porque *"entraram sem custo"* e
+afirmacao sobre o TOTAL, e o total e que se mede.
+
 ## O 000 TAMBEM E "A RESPOSTA NAO TINHA ONDE SER GRAVADA"
 
 **Medido em 20/10 as 09:3x, na DECIMA PRIMEIRA rodada seguida em que eu escrevi
