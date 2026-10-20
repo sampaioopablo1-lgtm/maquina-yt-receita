@@ -1,0 +1,119 @@
+{
+  "slug": "kolejny-poziom-s076",
+  "pacote": "kolejny-poziom-s076",
+  "idioma": "pl",
+  "voz": "pl-PL-MarekNeural",
+  "trilha": "Wholesome",
+  "longo_existente": "-5aMrDsxlZE",
+  "longo": [],
+  "thumb": {
+    "l1": "Jedna zmiana,",
+    "l2": "nie dwie"
+  },
+  "paleta": {
+    "bg": "#0B0B0C",
+    "ink": "#F2EEE8",
+    "c1": "#E23B3B",
+    "c2": "#D9C7A7",
+    "red": "#FF4D4D",
+    "ok": "#7FB77E",
+    "panel": "#151517",
+    "mut": "#8F877C",
+    "acc": "#E23B3B"
+  },
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Jedna zmiana",
+      "sub": "nie dwie naraz",
+      "nar": "Zmieniaj jedną rzecz naraz."
+    },
+    {
+      "layout": "barras",
+      "kicker": "Dwie zmiany razem",
+      "barras": [
+        {
+          "rotulo": "Zmiana pakietu",
+          "valor": 100
+        },
+        {
+          "rotulo": "Zmiana operatora",
+          "valor": 100
+        }
+      ],
+      "nar": "Pakiet i operator to dwie zmiany."
+    },
+    {
+      "layout": "item",
+      "kicker": "Co wtedy wiesz",
+      "nar": "Rachunek spadnie, nie wiesz czemu."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Kolejność, która uczy",
+      "itens": [
+        "Najpierw mniejszy pakiet",
+        "Potem dopiero operator"
+      ],
+      "nar": "Zacznij od własnego operatora."
+    },
+    {
+      "layout": "item",
+      "kicker": "Dlaczego od swojego",
+      "nar": "Mniejszy pakiet to najprostsza zmiana."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Pytanie z liczbą",
+      "sub": "nie prośba o rabat",
+      "nar": "Zapytaj o konkretną liczbę."
+    },
+    {
+      "layout": "item",
+      "kicker": "O co pytać",
+      "nar": "Ile kosztuje ten sam abonament mniejszy."
+    },
+    {
+      "layout": "barras",
+      "kicker": "Ile niewiadomych",
+      "barras": [
+        {
+          "rotulo": "Jedna zmiana",
+          "valor": 50
+        },
+        {
+          "rotulo": "Dwie zmiany",
+          "valor": 100
+        }
+      ],
+      "nar": "Dwie zmiany to dwie niewiadome."
+    },
+    {
+      "layout": "item",
+      "kicker": "Nie w rozmowie",
+      "nar": "Nie musisz decydować od razu."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Co jeszcze się zmienia",
+      "itens": [
+        "Zasięg",
+        "Roaming",
+        "Priorytet w sieci"
+      ],
+      "nar": "Zapytaj, co zmienia się poza ceną."
+    },
+    {
+      "layout": "item",
+      "kicker": "Wcześniej to szum",
+      "nar": "Sprawdź ponownie po trzech miesiącach."
+    },
+    {
+      "layout": "cta",
+      "kicker": "Zapisz to dziś",
+      "sub": "Kolejny Poziom",
+      "nar": "Zapisz liczbę i datę końca umowy."
+    }
+  ],
+  "copy": "# kolejny-poziom-s076\n\n## TITULO\nZmiana, Która Niczego Nie Uczy: Dlaczego Pakiet I Operatora Zmienia Się Osobno\n\n## TITULO SHORT\nJedna zmiana, nie dwie\n\n## DESCRICAO\nKiedy ktoś w końcu policzy swój rachunek za telefon i zobaczy, że płaci za pakiet, którego nie zużywa, zwykle robi dwie rzeczy jednocześnie: zmienia pakiet **i** zmienia operatora. Decyzja wygląda na odważną i uporządkowaną. **Problem jest w tym, że następny rachunek już nic nie powie.**\n\nJeśli kwota spadnie, nie wiadomo, która zmiana ją obniżyła. Jeśli wzrośnie albo zasięg się pogorszy, nie wiadomo, co za to odpowiada. **Dwie zmiany naraz to dwie niewiadome w jednym pomiarze** — a liczba, po którą się w ogóle sięgnęło, przestaje być porównywalna z poprzednią.\n\nDlatego kolejność ma znaczenie, i jest prostsza niż się wydaje. **Zacznij od własnego operatora: ten sam abonament z mniejszym pakietem jest najprostszą możliwą zmianą** i jedyną, która zostawia wszystko inne nietknięte. Dopiero gdy ta zmiana nie wystarczy, w grę wchodzi zmiana operatora — osobno, jako druga zmiana, a nie równolegle.\n\nW rozmowie z operatorem działa **pytanie z liczbą, a nie prośba o rabat**: ile kosztuje ten sam abonament z mniejszym pakietem. I drugie pytanie, o które mało kto pyta: **co jeszcze zmienia się przy tej opcji poza ceną** — zasięg, roaming, priorytet w sieci. Czasem różnica jest tylko w cenie, a czasem nie, i lepiej wiedzieć to przed podpisem niż po.\n\n**Nie musisz nic decydować w trakcie rozmowy.** Wystarczy mieć przy sobie swoją liczbę i zapisaną datę końca umowy — to dwie rzeczy, które pozwalają wrócić do tematu spokojnie, bez presji.\n\n**I jeszcze jedno o pomiarze:** po zmianie sprawdź ponownie po trzech miesiącach, jeden raz. Wcześniej to jeszcze nie są dane, tylko szum jednego okresu rozliczeniowego. Jeśli po wszystkim zostajesz przy swoim pakiecie, to też jest decyzja — tylko teraz podjęta z liczbą, a nie z przyzwyczajenia.\n\n## COMENTARIO FIXADO\nNajmniej oczywiste: dwie zmiany naraz nie są dwa razy szybsze, tylko dwa razy mniej czytelne. Ty zmieniałeś kiedyś pakiet i operatora w tym samym miesiącu?\n\n## FAMILIA DE ENTRADA ERRADA\nZMIANA, KTÓRA NICZEGO NIE UCZY: zmieniam pakiet I operatora w tym samym momencie, więc następny rachunek nie potrafi przypisać wyniku żadnej z tych zmian. Dwie zmiany naraz to dwie niewiadome w jednym pomiarze, a liczba przestaje być porównywalna z poprzednią. Kolejność, która uczy, jest inna: najpierw mniejszy pakiet u tego samego operatora (najprostsza zmiana, wszystko inne nietknięte), dopiero potem operator — osobno. I pomiar wraca po trzech miesiącach, jeden raz; wcześniej to szum.\nDistincao dos TRES irmaos desta origem, conferida pelo `irmaos_da_origem` e nao\npela minha leitura: o `s005` fala da ESTATISTICA errada sobre a mesma serie\n(media contra maximo); o `s026` fala do pacote que parece dopasowany porque o\nUSUARIO se ajustou a ele, e o custo vai em desconforto; o `s056` fala do caso\nBEZ LIMITU, onde dividir pelo tamanho do pacote nao faz sentido. Os tres falam\ndo NUMERO — qual estatistica, o que ele esconde, quando ele nao existe. **Aqui o\nnumero ja esta na mao e o eixo e o que se FAZ com ele:** quantas coisas mudar de\numa vez para que o rachunek seguinte ainda consiga dizer algo. Eixo novo nesta\norigem e no canal.\n\n## HASHTAGS\n#rachunek #telefon #abonament #kolejnypoziom #Shorts\n\n## TAGS\nabonament telefoniczny, zmiana pakietu, zmiana operatora, przeniesienie numeru, koniec umowy, negocjacje z operatorem, rachunek za telefon, zuzycie danych, zasieg, roaming, finanse osobiste, oszczedzanie\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao: ela NAO fala valor em zloty, preco\nde abonament, tamanho de pacote em gigabytes, percentual de desconto nem prazo\nde contrato. O unico numero falado e **tres meses**, que e a janela de medicao\nque a PROPRIA origem escreve em letra no capitulo `Sprawdz po trzech\nmiesiacach` — *\"wczesniej to jeszcze nie dane, tylko szum\"*.\nAs barras sao ILUSTRACAO e NAO sao faladas, e o que elas mostram vai dito aqui\npara a rodada seguinte nao as ler de volta como dado: o par 100/100 da cena 2\nmostra DUAS coisas movidas ao mesmo tempo, e o par 50/100 da cena 8 e a\nCONTAGEM de niewiadome (uma contra duas) com escala arbitraria — **nao e\ndinheiro, nao e gigabyte e nao e razao medida de nada**.\n\n## FONTES\nA spec local `kolejny-poziom-014`, pacote do longo `-5aMrDsxlZE` — origem de\nMENOR contagem do canal pelo `pauta_do_momento` (3 usos, empatada com doze\noutras) e desempatada pela MAIOR reserva: **76 dos 84 capitulos NAO\nMENCIONADOS** pelo `segundo_angulo`. A familia sai dos capitulos 66 a 74\n(`Co z ta liczba zrobic`, `Nie zaczynaj od zmiany operatora`, `Miej liczbe przy\nsobie`, `Zmieniaj jedno`, `Zapytaj o jedno`, `I zapytaj o drugie`, `Nie musisz\ndecydowac od razu`, `A jesli zostajesz`, `Sprawdz po trzech miesiacach`).\nNenhuma frase saiu de TITULO de capitulo.\nA dominante do canal `GUiq15usizw` ficou de fora, e o `concentracao.py` e quem\nconta. E o `QiaGg03WSR0` saiu da escolha pelo `dono_medido.py`, que registra\ncom PROCEDENCIA que ele e longo do LabTreinamento — a primeira origem NOMEADA\npor aquele mapa nesta rodada.\n\n## EXPOSICAO\n**DOZE CENAS, e a escolha saiu da chave `por_cadencia_servivel`** do\n`contagem_de_cenas`: cabe no teto MEDIDO desta voz (14), nao repete tamanho\nrecente e alcanca o piso da faixa com folga (+11, isto e 32 caracteres contra o\npiso OBSERVADO de 21). As duas recusas NAO foram minhas: **CATORZE**, que e a\nmelhor cadencia (3,02 s) e o teto da voz, caiu pela FOLGA — 22 caracteres por\ncena, a UM do piso —, e **TREZE** caiu por REPETICAO, porque a `s075`, a peca\nanterior deste canal, tem treze.\n**ESQUELETO\n`titulo-barras-item-lista-item-titulo-item-barras-item-lista-item-cta`, inedito\nnas 131 formas da frota** — numero do `esqueleto_entre_canais`, com a propria\npeca FORA da varredura pelo `exceto`. A frota tem TRES formas de doze cenas\n(`epomeno-epipedo-s071`, `-s074` e `kolejny-poziom-s073`) e esta nao e nenhuma\ndelas; `barras` e `lista` entram DUAS vezes cada e as quatro carregam\nargumento. Todo layout saiu do conjunto **SONDADO**\n(`layouts_do_short.desenham()`), com `assert` no builder.\n**A PINCA DO 740/748 ESTA FECHADA AQUI, e a exposicao vai declarada ANTES de\npublicar:** o `mira.janela_dos_dois_mundos` devolve NENHUMA janela para esta voz\nnesta faixa — a razao piper/edge e 0,851 e o vao vale ~6 s contra 1,5 s de\nlargura de faixa —, logo o piper (35,60) sai FORA pelo piso. Mirei perto do PISO\nno mundo `edge` (41,84 contra 41,5), pela regra de redacao do 772, e **NAO\nprometo real dentro**: com a banda em (-1,2; 4,0) o real pode cair em qualquer\nponto de uma faixa de 5,2 s contra 1 s de granularidade, e declarar um lado dela\nnao e previsao (774).\n**E o PISO EXATO nao e alcancavel com doze cenas:** um caractere por cena vale\n~0,63 s aqui, logo 32 caracteres dao 41,32 (ABAIXO da faixa) e 33 dao 41,94.\nNao existe media inteira que caia em 41,5 — dito assim em vez de eu chamar 41,84\nde piso.\n"
+}
