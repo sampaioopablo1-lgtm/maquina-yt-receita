@@ -100,6 +100,41 @@ abaixo do piso observado de caracteres. Esconde-las faria a rodada seguinte
 perguntar por que a lista encurtou — e nomear em vez de filtrar e a disciplina do
 `origens_sem_uso`.
 
+**E ELE NAO SABE O QUE O CANAL ACABOU DE PUBLICAR — medido em 20/10 as 05:2x,
+escrevendo o `labtreinamento-s090`.** Ele deu **SETE** cenas como melhor
+cadencia, e as DUAS pecas anteriores deste canal — a `s088` e a `s089` — tem
+sete cada. Eu recusei o sete **a mao**, como tinha recusado o treze a mao uma
+hora antes no `kolejny`, quando o `s072` daquele canal tinha treze. **Duas
+recusas a mao em duas rodadas e o item 3 da §10 — e ele mora DENTRO do
+instrumento que existe para tirar essa conta da minha cabeca.**
+
+Medido nos tres canais vivos no instante da escolha:
+
+    | canal           | melhor cadencia | ultimas duas do canal | repete? |
+    |---|---|---|---|
+    | labtreinamento  | **7**  | `s089` 7, `s088` 7   | **SIM** |
+    | epomeno-epipedo | **14** | `s072` 14, `s071` 12 | **SIM** |
+    | kolejny-poziom  | **14** | `s073` 12, `s072` 13 | nao     |
+
+**Dois de tres.** E o custo nao e estetico: repetir tamanho no mesmo canal em
+rodadas seguidas e literalmente a reclamacao do dono de 19/10 — *"os videos
+publicados me parecem todos a mesma dinamica, imagens, formas, estilo"* — e o
+portao `variedade` **nao pega**, porque ele conta ESQUELETO repetido e nao
+TAMANHO, e so avisa a partir de seis iguais.
+
+**A RECENCIA SAI DO PARQUE, e isso e forcado: a spec no disco nao tem data.**
+`duracao_a_medir.carrega()` e o dono das pecas publicadas com instante (`em`), o
+`canal.do_pacote` e o dono UNICO da derivacao do canal desde 19/10 as 05:2x — e
+e preciso, porque **57 das 78 linhas do parque nao tem o campo `canal`** — e as
+cenas saem do `esqueleto_entre_canais`. Nenhuma das tres contas se refaz aqui.
+
+**O K E REDACAO DECLARADA, nao medicao, e vai dito:** `RECENTES_K = 2` sai das
+duas recusas acima, nao de uma distribuicao. Por isso ele e **parametro** e o
+instrumento **NOMEIA em vez de filtrar** — a melhor cadencia continua saindo no
+relato, com a colisao ao lado e com a melhor que NAO repete logo embaixo. Filtrar
+esconderia a contagem que a cadencia escolhe, e seria a cegueira que o
+`origens_sem_uso` nasceu para desfazer.
+
 NAO E PORTAO, pelo argumento do `mira.py`: ele reprovaria quase toda spec do
 acervo, que foi escrita antes de a janela dos dois mundos existir. Codigo de
 saida SEMPRE zero.
@@ -111,6 +146,8 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import ensaio   # noqa: E402  — DONO da duracao e do orcamento de caracteres
 import mira     # noqa: E402  — DONO da janela dos dois mundos
 import esqueleto_entre_canais as EC   # noqa: E402  — DONO das contagens da frota
+import duracao_a_medir as DM         # noqa: E402  — DONO do parque de publicadas
+import canal as CA                   # noqa: E402  — DONO da derivacao do canal
 
 # A cadencia MEDIDA do short, em segundos por plano. Ela e de 690/699 — a
 # correcao do dinamismo visual de 09/10, medida com `tblend=difference` e
@@ -127,9 +164,19 @@ CADENCIA_MEDIDA_S = 3.1
 # abaixo do piso OBSERVADO de 21 que o `mira.teto_de_cenas` usa.
 MIN_CENAS, MAX_CENAS = 2, 20
 
+# Quantas pecas publicadas do PROPRIO canal contam como "recente" para efeito de
+# repeticao de TAMANHO.
+#
+# Isto e REDACAO DECLARADA e nao medicao: o 2 sai das duas recusas que eu fiz a
+# mao — o treze no `kolejny` em 20/10 as 04:1x e o sete no `labtreinamento` as
+# 05:2x —, nao de uma distribuicao. Por ser escolha e nao medida, ele e
+# parametro, o instrumento NOMEIA a colisao em vez de filtrar a contagem, e isto
+# nao reprova nada: quem decide e quem escreve a peca.
+RECENTES_K = 2
+
 
 def quadro(canal: str, voz: str, faixa=None, por_contagem=None,
-           exceto: str = "") -> list[dict]:
+           exceto: str = "", recentes=None) -> list[dict]:
     """Por contagem de cena: a janela, a cadencia e se a frota ja a usou.
 
     A janela e DELEGADA a `mira.janela_dos_dois_mundos` e a faixa a
@@ -156,6 +203,11 @@ def quadro(canal: str, voz: str, faixa=None, por_contagem=None,
     # VARREDURA, nao teto de voz — tratar os dois como a mesma coisa foi o
     # defeito de 20/10 as 04:1x.
     teto = teto_da_voz(voz, faixa)
+    # A RECENCIA no PROPRIO canal, que o `variedade` nao ve: ele conta esqueleto
+    # repetido, nao tamanho. Ela NAO filtra contagem nenhuma — entra como coluna.
+    if recentes is None:
+        recentes = recentes_do_canal(canal)
+    rec_cenas = [r["cenas"] for r in recentes if r["cenas"]]
     saida = []
     for n in range(MIN_CENAS, MAX_CENAS + 1):
         j = mira.janela_dos_dois_mundos(voz, n, faixa)
@@ -170,12 +222,15 @@ def quadro(canal: str, voz: str, faixa=None, por_contagem=None,
             "exemplares_na_frota": exemplares,
             "tamanho_inedito": exemplares == 0,
             "cabe_na_voz": n <= teto,
+            "repete_recente": n in rec_cenas,
+            "recentes_com_esse_tamanho": [r["pacote"] for r in recentes
+                                          if r["cenas"] == n],
         })
     return saida
 
 
 def escolha(canal: str, voz: str, faixa=None, por_contagem=None,
-            exceto: str = "") -> dict:
+            exceto: str = "", recentes=None) -> dict:
     """As duas pontas do trade-off, e o que elas custam uma a outra.
 
     Devolve `None` em `por_cadencia` e `por_largura` quando NENHUMA contagem
@@ -186,7 +241,10 @@ def escolha(canal: str, voz: str, faixa=None, por_contagem=None,
     # A faixa e resolvida AQUI tambem porque o teto da voz depende dela, e
     # `faixa=None` chegava crua ao `mira.teto_de_cenas` (pego na 1a execucao).
     faixa = faixa if faixa is not None else ensaio.alvo_short(canal)
-    q = quadro(canal, voz, faixa, por_contagem=por_contagem, exceto=exceto)
+    if recentes is None:
+        recentes = recentes_do_canal(canal)
+    q = quadro(canal, voz, faixa, por_contagem=por_contagem, exceto=exceto,
+               recentes=recentes)
     abertas = [x for x in q if x["janela"]]
     # A CADENCIA e a NOVIDADE nao dependem da janela, logo elas saem SEMPRE.
     # Era deixa-las de fora que fazia o relato calar nos dois canais da pinca.
@@ -200,6 +258,12 @@ def escolha(canal: str, voz: str, faixa=None, por_contagem=None,
                   if x["tamanho_inedito"] and not x["cabe_na_voz"]]
     por_nov = (min(ineditas, key=lambda x: x["distancia_da_cadencia"])
                if ineditas else None)
+    # A melhor cadencia que NAO repete o tamanho das ultimas do canal. Ela entra
+    # AO LADO da melhor cadencia, nunca no lugar dela: substituir seria filtrar,
+    # e o K e redacao declarada, nao medida.
+    sem_rep = [x for x in cabem if not x["repete_recente"]]
+    por_cad_nova = (min(sem_rep, key=lambda x: x["distancia_da_cadencia"])
+                    if sem_rep else None)
     if not abertas:
         return {
             "canal": canal, "abertas": 0, "por_cadencia": None,
@@ -210,6 +274,8 @@ def escolha(canal: str, voz: str, faixa=None, por_contagem=None,
             "teto_da_voz": teto_da_voz(voz, faixa),
             "acima_do_teto": acima_do_teto,
             "ineditas_acima_do_teto": ined_acima,
+            "recentes": recentes,
+            "por_cadencia_sem_repetir": por_cad_nova,
             "motivo": ("NENHUMA contagem de cena de "
                        f"{MIN_CENAS} a {MAX_CENAS} abre janela nos dois mundos "
                        "nesta faixa — a pinca do 740/748. Aqui nao se escolhe "
@@ -231,6 +297,8 @@ def escolha(canal: str, voz: str, faixa=None, por_contagem=None,
         "teto_da_voz": teto_da_voz(voz, faixa),
         "acima_do_teto": acima_do_teto,
         "ineditas_acima_do_teto": ined_acima,
+        "recentes": recentes,
+        "por_cadencia_sem_repetir": por_cad_nova,
         "motivo": "",
     }
 
@@ -245,6 +313,35 @@ def teto_da_voz(voz: str, faixa) -> int:
     """
     t = mira.teto_de_cenas(voz, faixa)
     return int(t["teto"]) if t else MAX_CENAS
+
+
+def recentes_do_canal(canal: str, k: int = RECENTES_K, registros=None,
+                      cenas_por_pacote=None) -> list[dict]:
+    """As `k` ultimas pecas PUBLICADAS deste canal, com a contagem de cenas.
+
+    As tres contas sao DELEGADAS, e nenhuma delas podia ficar aqui:
+
+    * o instante vem de `duracao_a_medir.carrega()`, o dono do parque — a spec
+      no disco **nao tem data**, logo a recencia nao e derivavel da varredura;
+    * o canal vem de `canal.do_pacote`, o dono UNICO desde 19/10 as 05:2x, e nao
+      do campo `canal` do registro, que **falta na maioria das linhas antigas**;
+    * as cenas vem de `esqueleto_entre_canais.varre()`.
+
+    Peca cujo pacote nao esta mais no disco sai com `cenas: None` em vez de
+    sumir — ausencia de spec nao e ausencia de publicacao, e descartar faria a
+    janela de recencia andar para tras em silencio.
+    """
+    regs = DM.carrega() if registros is None else registros
+    if cenas_por_pacote is None:
+        cenas_por_pacote = {p["arquivo"][:-5]: p["cenas"] for p in EC.varre()}
+    meus = [r for r in regs if CA.do_pacote(r.get("pacote", "")) == canal]
+    meus.sort(key=lambda r: r.get("em", ""), reverse=True)
+    saida = []
+    for r in meus[:max(0, int(k))]:
+        pac = r.get("pacote", "")
+        saida.append({"pacote": pac, "em": r.get("em", ""),
+                      "cenas": cenas_por_pacote.get(pac)})
+    return saida
 
 
 def contagens_da_frota(exceto: str = "") -> dict:
@@ -275,6 +372,42 @@ def _linha_do_teto(e: dict) -> str:
               + (f" — destas, nunca usadas pela frota: {ined}; recomenda-las "
                  "seria entregar orcamento abaixo do piso de caracteres (04:1x)"
                  if ined else ""))
+    return s
+
+
+def _linha_da_recencia(e: dict) -> str:
+    """A linha que NOMEIA a repeticao de tamanho no proprio canal.
+
+    UM dono, e ela sai nos DOIS ramos do relato — a frase do teto nasceu
+    duplicada e foi isso que a fez divergir (753).
+    """
+    rec = e.get("recentes") or []
+    if not rec:
+        return ("  RECENCIA no canal: o parque nao tem peca publicada deste "
+                "canal — logo isto NAO ordena nada, e nao e 'nao repete'")
+    desc = ", ".join(f"{r['pacote']} "
+                     + (f"{r['cenas']} cenas" if r["cenas"] else "cenas ?")
+                     for r in rec)
+    s = (f"  RECENCIA no canal (ultimas {len(rec)} publicadas, do parque): "
+         f"{desc}")
+    marcadas = [x for x in (e.get("por_cadencia_geral"),
+                            e.get("por_cadencia"), e.get("por_novidade"))
+                if x and x.get("repete_recente")]
+    if marcadas:
+        quais = sorted({x["cenas"] for x in marcadas})
+        s += (f"\n  >> a escolha por cadencia REPETE o tamanho: {quais}. "
+              "Repetir tamanho no mesmo canal em rodadas seguidas e a "
+              "reclamacao do dono de 19/10, e o portao `variedade` NAO pega "
+              "(ele conta esqueleto, nao tamanho).")
+        nova = e.get("por_cadencia_sem_repetir")
+        if nova:
+            s += (f"\n  melhor cadencia que NAO repete: {nova['cenas']} cenas "
+                  f"(|dif| {nova['distancia_da_cadencia']:.2f})")
+        else:
+            s += ("\n  e NENHUMA contagem que cabe na voz escapa da "
+                  "repeticao — aqui a novidade tem de ser de FORMA.")
+    else:
+        s += "\n  a escolha por cadencia NAO repete tamanho recente."
     return s
 
 
@@ -315,6 +448,7 @@ def relato(canal: str = "labtreinamento", voz: str = None,
                      "acabou, e a de FORMA fica com o `esqueleto_entre_canais`")
         L.append("")
         L.append(_linha_do_teto(e))
+        L.append(_linha_da_recencia(e))
         L.append("  a contagem da frota e do `esqueleto_entre_canais`, e o teto")
         L.append("  da voz e do `mira.teto_de_cenas` — nenhum dos dois e daqui.")
         return "\n".join(L)
@@ -337,6 +471,7 @@ def relato(canal: str = "labtreinamento", voz: str = None,
     L.append(f"  janela mais larga: {e['por_largura']['cenas']} cenas "
              f"({e['por_largura']['largura']} caractere(s))")
     L.append(_linha_do_teto(e))
+    L.append(_linha_da_recencia(e))
     if e["por_novidade"]:
         L.append("  melhor cadencia entre as INEDITAS na frota: "
                  f"{e['por_novidade']['cenas']} cenas "

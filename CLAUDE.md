@@ -4405,6 +4405,117 @@ nada de novo se estabelece hoje; **a 26a peca desta janela e que SUBIRIA o
 piso**, para >= 41.600, e quem acha o teto segue sendo o primeiro `403 quota` de
 rodada normal.
 
+## E ELE NAO SABIA O QUE O CANAL ACABOU DE PUBLICAR — e eu recusei a mao DUAS vezes
+
+**Medido em 20/10 as 05:2x, escrevendo o `labtreinamento-s090`.** O
+`contagem_de_cenas` deu **SETE** cenas como a melhor cadencia, e as **duas**
+pecas anteriores daquele canal — a `s088` e a `s089` — tem sete cada. Eu recusei
+o sete **a mao**, como tinha recusado o treze a mao uma hora antes no `kolejny`,
+onde o `s072` tinha treze. **Duas recusas a mao em duas rodadas e o item 3 da
+§10 — e ele mora DENTRO do instrumento que existe para tirar essa conta da minha
+cabeca.**
+
+| canal | melhor cadencia | ultimas duas do canal | repete? |
+|---|---|---|---|
+| labtreinamento | **7** | `s089` 7, `s088` 7 | **SIM** |
+| epomeno-epipedo | **14** | `s072` 14, `s071` 12 | **SIM** |
+| kolejny-poziom | **14** | `s073` 12, `s072` 13 | nao |
+
+**Dois de tres**, e o custo nao e estetico: repetir tamanho no mesmo canal em
+rodadas seguidas e literalmente a reclamacao do dono de 19/10 — *"os videos
+publicados me parecem todos a mesma dinamica, imagens, formas, estilo. Em todos
+os canais"* —, e o portao `variedade` **NAO pega**, porque ele conta ESQUELETO
+repetido e nao TAMANHO, e so avisa a partir de seis iguais dentro de um canal.
+
+**A RECENCIA SAI DO PARQUE, e isso e forcado: a spec no disco NAO TEM DATA.** As
+tres contas sao delegadas e nenhuma podia ficar no modulo — o instante vem de
+`duracao_a_medir.carrega()`, o canal de `canal.do_pacote` (**57 das 78 linhas do
+parque nao tem o campo `canal`**, logo ler o campo perderia essas pecas em
+silencio) e as cenas do `esqueleto_entre_canais`.
+
+**E o `K` vai DECLARADO como redacao e nao como medida:** `RECENTES_K = 2` sai
+das duas recusas acima, nao de uma distribuicao. Por ser escolha, ele e
+parametro, e o instrumento **NOMEIA em vez de filtrar** — a melhor cadencia
+continua saindo no relato, com a colisao ao lado e a melhor que NAO repete logo
+embaixo. Filtrar esconderia a contagem que a cadencia escolhe, que e a cegueira
+do `origens_sem_uso`.
+
+**E ELE REPRODUZ A ESCOLHA QUE EU FIZ A MAO:** apontado para o parque do
+INSTANTE da decisao, devolve **OITO** como a melhor cadencia que nao repete —
+exactamente a peca desta rodada.
+
+`tests/test_ele_nao_sabia_o_que_o_canal_ACABOU_de_publicar.py`, onze testes: a
+varredura do parque **reprova com menos de tres pecas por canal** (vacuidade), a
+delegacao e por **AST** e `open()` no corpo **reprova** (seria o segundo leitor
+do parque), um exige que registro **SEM** o campo `canal` continue sendo
+atribuido — propriedade e nao identidade —, um exige que os **DOIS** lados
+existam e **falha se TODOS os canais repetirem ou se NENHUM repetir**, a janela
+do `K` e cobrada na **FRONTEIRA** com parque PROPRIO (ancorar no vivo seria
+identidade onde ha propriedade, 743/753/761), um trava que peca **sem spec no
+disco** nao desaparece da janela e que `cenas: None` **nao vira repeticao de
+nada**, e um reproduz o OITO. **Contraprova:** desligada a recencia, **seis dos
+onze** falham.
+
+**E A PRIMEIRA VERSAO DE UM TESTE MEU ESTAVA ERRADA, e o modulo estava certo:**
+eu cobrei `fonte.count("RECENCIA no canal") == 1` e a frase aparece **duas**
+vezes — a normal e o ramo em que o parque nao tem peca daquele canal, as duas
+dentro do MESMO dono. **O dono e a FUNCAO, nao a contagem de string**, e cobrar a
+contagem proibiria justamente o ramo que impede *"nao repete"* de ser dito sem
+dado. Reescrito por AST.
+
+### A PECA DESSA RODADA — OITO cenas, e o sete foi RECUSADO por repeticao
+
+`labtreinamento-s090` = **`XY8RyCzv2co`**, publicado as 05:17:24Z (run
+`39374070329`), **ONZE PORTOES VERDES NA PRIMEIRA TENTATIVA** — e o
+`antes_do_render` rodou os dez baratos mais os quatro instrumentos de redacao em
+**0,65 s**, todos limpos. Provedor **edge MEDIDO** (zero avisos
+`NARRACAO PELO PIPER` no job `118467590478`), som **-13,2** LUFS, LRA 3,0, pico
+-1,2, desvio +0,8, **zero silencios**. Previsao edge **25,0** / piper **20,6**,
+os dois DENTRO da mira medida do canal (20,0 a 26,0).
+
+**A escolha das OITO cenas vai com o motivo, e ele nao e a cadencia:** sete e a
+melhor (3,29 s, |dif| 0,19) e foi **RECUSADA por REPETICAO** — a `s088` e a
+`s089` tem sete cada. Oito e a segunda melhor (2,88 s, |dif| 0,22) e tinha **um**
+exemplar no disco. **E a novidade deste canal passou a ser de FORMA e nao de
+tamanho**, medido: abaixo do teto de **11** desta voz, o unico tamanho livre e
+**TRES**, cuja cadencia fica a 4,57 s dos ~3,1 s de 690/699.
+
+**ESQUELETO `titulo-item-lista-barras-item-titulo-item-cta`, inedito nas 122
+formas da frota** — numero do `esqueleto_entre_canais`, nao de um laco escrito na
+hora. Todo layout saiu do conjunto **SONDADO**, com `assert` no builder.
+
+**PAUTA:** `yrWVyqQtw00` (`labtreinamento-004`), a origem de **MENOR** contagem
+do canal (4 de 89) e, entre as duas empatadas, a de **MAIOR reserva** — 69
+capitulos nao mencionados contra 42 do `POBNoY16wG8`, que rendeu as quatro
+familias das quatro rodadas anteriores. A dominante `FtCtIJPsc_Q` (13 contra 10
+da segunda) ficou de fora **com a contagem na mao e SEM alerta**.
+
+**FAMILIA: ARCO ELETRICO NAO E CHOQUE** (capitulos 30 a 35) — no choque a
+corrente passa pelo corpo; no arco a energia sai no ar como **calor e pressao**,
+dois danos no mesmo instante. Logo o que protege de um **nao cobre** o outro, e a
+protecao deixa de ser sim ou nao e passa a ser **por NIVEL**, que muda de ponto
+para ponto na mesma instalacao. Conferido short por short: nenhuma das quatro
+familias anteriores desta origem toca esses capitulos.
+
+**ZERO numero novo sobre o mundo, e a narracao nao fala numero nenhum.** As
+barras (25/55/90) sao ilustracao qualitativa, nao faladas; categoria de
+vestimenta, prazo de norma, energia incidente e preco de estudo ficaram FORA pela
+regra (g) — e **a propria origem escreve esse motivo** no capitulo 40.
+
+**E NAO EXISTE PONTO DE RESIDUO, pelo modo `sem_egresso` na SETIMA rodada
+seguida:** o host NEUTRO devolveu **000 com zero byte** na MESMA chamada que a
+peca e o controle `OhrGlJvnBoM`. A peca esta PARQUEADA com o provedor MEDIDO (o
+parque tem **sete** sem leitura) e `RESIDUO_N` segue **128**.
+
+**A LEITURA DE INSCRITOS FOI RECUSADA PELA DECIMA QUARTA RODADA SEGUIDA:**
+19,04 h, piso de resolucao 1,26/dia, faltam **7,8 h** para o criterio do 723.
+
+**COTA: VINTE E SEIS envios na janela de 07:00Z, 41.600 unidades — e isto SOBE o
+piso MEDIDO da cota deste projeto**, que estava em >= 40.000 desde a janela de
+18/10 e foi empatado as 04:1x. Nenhum `403 quota`, logo o teto segue desconhecido
+e quem o acha e o primeiro `403` de rodada normal, que nao custa nada porque
+requisicao recusada nao consome cota.
+
 ## O `pgrep -f` CASAVA A PROPRIA LINHA DE COMANDO — e eu disse "VIVO" tres vezes
 
 **Medido em 20/10 as 01:4x, e e o ESPELHO EXATO do defeito de 19/10 as 16:2x,
