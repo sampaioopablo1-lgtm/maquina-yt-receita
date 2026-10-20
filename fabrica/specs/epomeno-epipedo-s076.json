@@ -1,0 +1,125 @@
+{
+  "slug": "epomeno-epipedo-s076",
+  "pacote": "epomeno-epipedo-s076",
+  "idioma": "el",
+  "voz": "el-GR-NestorasNeural",
+  "trilha": "Inspired",
+  "longo_existente": "alZ97hpgqXo",
+  "longo": [],
+  "thumb": {
+    "l1": "Πρώτα διαθεσιμότητα,",
+    "l2": "μετά τιμή"
+  },
+  "paleta": {
+    "bg": "#F4EFE6",
+    "ink": "#1B1A17",
+    "c1": "#C8502A",
+    "c2": "#2B6CB0",
+    "red": "#B83227",
+    "ok": "#2E8B57",
+    "panel": "#FFFFFF",
+    "mut": "#7A7263",
+    "acc": "#C8502A"
+  },
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Η προϋπόθεση",
+      "sub": "πριν το επιτόκιο",
+      "nar": "Το απόθεμα ανάγκης δεν κυνηγά απόδοση."
+    },
+    {
+      "layout": "barras",
+      "kicker": "Δύο υποσχέσεις",
+      "barras": [
+        {
+          "rotulo": "Αν το αφήσεις",
+          "valor": 100
+        },
+        {
+          "rotulo": "Αν το ζητήσεις",
+          "valor": 30
+        }
+      ],
+      "nar": "Δύο γραμμές, δύο υποσχέσεις."
+    },
+    {
+      "layout": "item",
+      "kicker": "Η πρώτη",
+      "nar": "Η μία πληρώνει αν το αφήσεις."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Η σειρά που βάζουμε",
+      "itens": [
+        "Πρώτα το επιτόκιο",
+        "Μετά η διάρκεια",
+        "Τελευταία η ανάγκη"
+      ],
+      "nar": "Βάζουμε πρώτα το επιτόκιο."
+    },
+    {
+      "layout": "item",
+      "kicker": "Εδώ γεννιέται",
+      "nar": "Εκεί γεννιέται το λάθος."
+    },
+    {
+      "layout": "item",
+      "kicker": "Τι είναι",
+      "nar": "Το επιτόκιο δεν είναι ιδιότητα."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Είναι υπόσχεση",
+      "sub": "για τον χρόνο",
+      "nar": "Είναι υπόσχεση που δίνεις για χρόνο."
+    },
+    {
+      "layout": "barras",
+      "kicker": "Τι υπόσχεται το απόθεμα",
+      "barras": [
+        {
+          "rotulo": "Χρόνος",
+          "valor": 15
+        },
+        {
+          "rotulo": "Διαθεσιμότητα",
+          "valor": 100
+        }
+      ],
+      "nar": "Το απόθεμα δεν υπόσχεται χρόνο."
+    },
+    {
+      "layout": "item",
+      "kicker": "Γιατί υπάρχει",
+      "nar": "Υπάρχει για να είναι διαθέσιμο."
+    },
+    {
+      "layout": "lista",
+      "kicker": "Αν το πάρεις νωρίτερα",
+      "itens": [
+        "Η ανάληψη επιτρέπεται",
+        "Ο τόκος κόβεται",
+        "Η απόδοση χάνεται"
+      ],
+      "nar": "Η πρόωρη ανάληψη κόβει τον τόκο."
+    },
+    {
+      "layout": "item",
+      "kicker": "Πότε χάνεται",
+      "nar": "Χάνεται ακριβώς όταν τα χρειαστείς."
+    },
+    {
+      "layout": "item",
+      "kicker": "Η σειρά που στέκει",
+      "nar": "Πρώτα διαθεσιμότητα, μετά τιμή."
+    },
+    {
+      "layout": "cta",
+      "kicker": "Κάνε εγγραφή",
+      "sub": "Επόμενο Επίπεδο",
+      "nar": "Κάνε εγγραφή στο Επόμενο Επίπεδο."
+    }
+  ],
+  "copy": "# epomeno-epipedo-s076\n\n## TITULO\nΤο Απόθεμα Ανάγκης Δεν Πάει Σε Προθεσμιακή: Γιατί Η Διαθεσιμότητα Προηγείται Του Επιτοκίου\n\n## TITULO SHORT\nΠρώτα διαθεσιμότητα, μετά τιμή\n\n## DESCRICAO\nΌταν κάποιος αποφασίζει πού θα βάλει τα χρήματα που κρατάει για τα απρόοπτα, συνήθως ανοίγει τις γραμμές των καταθέσεων και τις βάζει σε σειρά από το μεγαλύτερο επιτόκιο προς το μικρότερο. Έπειτα μεταφέρει το απόθεμα στην πρώτη γραμμή. **Η κίνηση φαίνεται λογική, και όμως η σειρά της είναι ανάποδη.**\n\nΤο επιτόκιο δεν είναι ιδιότητα των χρημάτων. Είναι υπόσχεση που δίνεις εσύ, και η υπόσχεση είναι για χρόνο: αφήνω αυτό το ποσό για ένα διάστημα και δεν το αγγίζω. **Η γραμμή με το ψηλότερο επιτόκιο δεν πληρώνει περισσότερο επειδή είναι καλύτερη, πληρώνει περισσότερο επειδή ζητάει κάτι περισσότερο.** Ζητάει δέσμευση.\n\nΚαι εδώ είναι το σημείο. Το απόθεμα για τα απρόοπτα είναι, εξ ορισμού, τα χρήματα που δεν μπορούν να υποσχεθούν χρόνο. Δεν υπάρχουν για να αποδίδουν, υπάρχουν για να είναι διαθέσιμα τη μέρα που θα τα ζητήσεις — και αυτή η μέρα δεν ανακοινώνεται. **Αν τα πάρεις νωρίτερα, η ανάληψη επιτρέπεται, αλλά ο τόκος κόβεται. Δηλαδή η απόδοση που κυνήγησες χάνεται ακριβώς στην περίπτωση για την οποία υπάρχει το απόθεμα.**\n\nΆρα δεν συγκρίνεις δύο τιμές. Αλλάζεις κριτήριο. **Για το απόθεμα, το πρώτο κριτήριο είναι η διαθεσιμότητα και το τελευταίο η τιμή**, και η γραμμή που διαλέγεις είναι συχνά αυτή με τη χειρότερη απόδοση και με καμία προθεσμία. Για τα χρήματα που περισσεύουν πάνω από το απόθεμα, η συζήτηση για το επιτόκιο αρχίζει κανονικά — εκεί η υπόσχεση του χρόνου είναι αληθινή και μπορείς να τη δώσεις.\n\n**Τι αξίζει να κάνεις σήμερα:** χώρισε στο χαρτί δύο ποσά. Το ένα είναι το απόθεμα και μένει κάπου που φεύγει την ίδια μέρα. Το άλλο είναι ό,τι περισσεύει, και μόνο αυτό μπαίνει σε γραμμή με προθεσμία.\n\n## COMENTARIO FIXADO\nΤο λιγότερο προφανές: το επιτόκιο δεν είναι ιδιότητα των χρημάτων, είναι υπόσχεση για χρόνο — και το απόθεμα ανάγκης δεν μπορεί να τη δώσει. Εσύ τα έχεις χωρίσει στο χαρτί;\n\n## FAMILIA DE ENTRADA ERRADA\nΗ ΠΡΟΫΠΟΘΕΣΗ ΤΟΥ ΕΠΙΤΟΚΙΟΥ: βάζω τις γραμμές σε σειρά κατά απόδοση και μεταφέρω το απόθεμα ανάγκης στην πρώτη, όταν η ψηλή απόδοση υπάρχει ΜΟΝΟ υπό έναν όρο — τον χρόνο — και το απόθεμα είναι εξ ορισμού τα χρήματα που δεν μπορούν να τον υποσχεθούν. Η πρόωρη ανάληψη κόβει τον τόκο, άρα η απόδοση χάνεται ακριβώς στην περίπτωση για την οποία υπάρχει το ποσό. Δεν συγκρίνονται δύο τιμές: αλλάζει το ΚΡΙΤΗΡΙΟ — πρώτα η διαθεσιμότητα, τελευταία η τιμή.\nDistincao dos TRES irmaos desta origem, conferida pelo `irmaos_da_origem` e nao pela minha leitura: o `s013` poe os PROPRIOS juros em ordem (o que rende contra o que cobra) — ali comparar taxas e justamente o acerto; o `s032` e o mesmo plastico com DUAS sumbolaia, e a dose minima que compra tempo; o `s064` e o MESMO homem com duas times, isto e, o produto mudando o preco. Nos tres o eixo e a TAXA. Aqui nenhuma taxa e comparada: o que esta errado e o CRITERIO, e a grandeza que decide e a disponibilidade. Eixo novo nesta origem.\nE e diferente das duas pecas recentes do canal que tambem falam de apothema: o `s069` e a UNIDADE do resultado (euros contra meses) e o `s070` e de ONDE sai o divisor (tres meses de extrato) — as duas medem o TAMANHO do apothema, de outra origem (`pqTc8jBrq0E`). Esta nao mede tamanho nenhum: diz ONDE ele fica, e por que.\n\n## HASHTAGS\n#αποταμίευση #απόθεμαανάγκης #προθεσμιακή #epomenoepipedo #Shorts\n\n## TAGS\nαποθεμα αναγκης, προθεσμιακη καταθεση, ρευστοτητα, διαθεσιμοτητα, προωρη αναληψη, τοκος, επιτοκιο καταθεσεων, ταμειακο αποθεμα, αποταμιευση, οικονομικα νοικοκυριου, λογαριασμος ταμιευτηριου, προσωπικα οικονομικα\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao: ela NAO fala percentual, nem\nmargem, nem valor em euros, nem prazo de nenhuma linha de deposito. Os numeros\npublicados que o longo carrega (a margem oficial, a media das novas linhas, o\nmultiplo da carta sobre a media) ficaram todos FORA pela regra (g) — e a\nprocedencia da recusa esta na PROPRIA origem: o capitulo `Δεν είναι κρυφό` diz\nem letra que estes numeros sao publicados CADA MES, com nome e data, isto e,\nmudam por publicacao.\nAs barras sao ILUSTRACAO QUALITATIVA e NAO sao faladas. Os pares (100/30 e\n15/100) mostram a DIRECAO do argumento — uma linha paga se o dinheiro ficar, a\noutra se ele puder sair; e o apothema nao tem tempo para dar, tem\ndisponibilidade. **Eles NAO sao taxa, nem razao medida de nada**, e isso vai\ndito aqui para a rodada seguinte nao os ler de volta das barras como numero.\n\n## FONTES\nA spec local `epomeno-epipedo-005`, pacote do longo `alZ97hpgqXo` — origem de\nMENOR contagem do canal pelo `pauta_do_momento` (3 usos, empatada com seis\noutras) e desempatada pela MAIOR reserva: **63 dos 83 capitulos NAO\nMENCIONADOS** pelo `segundo_angulo`. A familia sai dos capitulos 62 e 63\n(`Τι ΔΕΝ πάει σε προθεσμιακή` — *\"το αποθεμα για τα απροοπτα δεν παει σε\nπροθεσμιακη... δεν υπαρχουν για να αποδιδουν, υπαρχουν για να ειναι\nδιαθεσιμα\"*; `Η προϋπόθεση` — *\"να μην τα χρειαστεις νωριτερα, γιατι η προωρη\nαναληψη κοβει τον τοκο\"*), com os capitulos 8 a 11 (as linhas de deposito por\nprazo) sustentando a ordenacao que a peca recusa. Nenhuma frase saiu de TITULO\nde capitulo.\nA dominante do canal `nttW9fR8wyY` ficou de fora, e o `concentracao.py` e quem\nconta.\n\n## EXPOSICAO\n**TREZE CENAS, e a escolha saiu da chave `por_cadencia_servivel`** do\n`contagem_de_cenas`: cabe no teto MEDIDO desta voz (15), nao repete tamanho\nrecente (as duas ultimas do canal tem 14 e 12 cenas) e alcanca o piso da faixa\ncom folga (+9, isto e 30 caracteres contra o piso OBSERVADO de 21). **A melhor\ncadencia era CATORZE (3,02 s) e foi RECUSADA por REPETICAO** — a `s075`, a peca\nanterior deste canal, tem catorze. **E o teto da voz (15) saiu NOMEADO e nao\nfiltrado:** ele e INEDITO na frota, logo seria novidade de TAMANHO, e caiu pela\nFOLGA — 22 caracteres por cena, a dois do piso. Nenhuma das tres recusas foi\nminha.\n**ESQUELETO `titulo-barras-item-lista-item-item-titulo-barras-item-lista-item-item-cta`,\ninedito nas 130 formas da frota** — numero do `esqueleto_entre_canais`, com a\npropria peca FORA da varredura pelo `exceto`. A frota tem TRES formas de treze\ncenas (`epomeno-epipedo-s073`, `kolejny-poziom-s072`, `kolejny-poziom-s075`) e\nesta nao e nenhuma delas; `barras` e `lista` entram DUAS vezes cada, e as quatro\ncarregam argumento — as barras opoem as duas uposchesis, as listas mostram a\nordem que a peca recusa e o que acontece quando o dinheiro sai antes. Todo\nlayout saiu do conjunto **SONDADO** (`layouts_do_short.desenham()`), com\n`assert` no builder.\n**A PINCA DO 740/748 ESTA FECHADA AQUI, e a exposicao vai declarada ANTES de\npublicar:** o `mira.janela_dos_dois_mundos` devolve NENHUMA janela para esta voz\nnesta faixa — o vao piper/edge vale ~4,7 s contra 1,5 s de largura de faixa —,\nlogo o piper (36,92) sai FORA pelo piso. Mirei o PISO no mundo `edge` (41,67\ncontra 41,5), pela regra de redacao do 772, e NAO prometo real dentro: com a\nbanda em (-1,2; 4,0) o real pode cair em qualquer ponto de uma faixa de 5,2 s\ncontra 1 s de granularidade, e declarar um lado dela nao e previsao (774).\n**E o PISO EXATO nao e alcancavel com treze cenas, e isso vai dito em vez de eu\nchamar 41,67 de piso:** um caractere por cena vale ~0,66 s aqui, logo 30\ncaracteres dao 40,91 (ABAIXO da faixa) e 31 dao 41,57. Nao existe media inteira\nque caia em 41,5.\n"
+}
