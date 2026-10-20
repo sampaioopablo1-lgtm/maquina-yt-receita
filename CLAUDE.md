@@ -4871,6 +4871,15 @@ consumida, e consumir pauta e o trabalho"* — e a classe 743/753/761 pela
 **Contraprova:** desligado o `exceto` no dono, reprova exatamente o teste que o
 mede.
 
+**A SUITE FECHOU DEPOIS DA RETRATACAO: 25 falhas, 3.318 passam, 1.036 skip em
+751 s** — conjunto **IDENTICO** a linha de base desta sessao, `comm` vazio nos
+**dois** sentidos. A passada que ACUSOU deu **27** (3.316 passam, 803 s), com o
+`comm` nomeando exatamente as duas como novas e **zero desaparecidas**. **E o
+tempo vai medido:** 751 s contra 803 s, isto e, a retratacao **devolveu ~52 s**,
+porque os dois testes retratados deixaram de varrer o disco vivo duas vezes — a
+reproducao agora injeta a frota por `por_contagem`. Dito assim porque *"entrou
+sem custo"* e afirmacao sobre o TOTAL, e o total e que se mede.
+
 **NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica`** — o conserto
 de 11:4x em uso na primeira rodada depois dele: o `touch` passou, os TRES hosts
 voltaram 000 sem arquivo, e o `__agentproxy/status` nomeou
