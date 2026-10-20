@@ -43,8 +43,17 @@ import datetime
 import sys
 
 
-def _secoes(agora: datetime.datetime | None = None, janela_h: float = 24.0):
-    """As tres secoes do passo zero, cada uma pedida ao seu dono."""
+def _secoes(agora: datetime.datetime | None = None, janela_h: float = 24.0,
+            modo_da_rota: str = None):
+    """As tres secoes do passo zero, cada uma pedida ao seu dono.
+
+    `modo_da_rota` e o modo MEDIDO da rota nesta rodada, do
+    `vivacidade_publica.modo_de_fechamento`, e vai REPASSADO ao
+    `leitura_de_inscritos` em vez de conferido aqui. Sem ele o relato DIZ que a
+    rota nao foi sondada — e essa frase existe porque em 20/10 as 13:2x, na
+    primeira rodada em que o criterio do 723 passou por TEMPO, este relato
+    imprimiu tres SIM e calou sobre a rota, que estava `negado_por_politica`.
+    """
     agora = agora or datetime.datetime.now(datetime.timezone.utc)
     import concentracao_frota
     import janela_de_cota
@@ -52,7 +61,8 @@ def _secoes(agora: datetime.datetime | None = None, janela_h: float = 24.0):
 
     escolha = concentracao_frota.escolha_do_momento(janela_h)
     return [
-        ("INSCRITOS", leitura_de_inscritos.relato(agora.isoformat())),
+        ("INSCRITOS", leitura_de_inscritos.relato(
+            agora.isoformat(), modo_da_rota=modo_da_rota)),
         ("CANAL", _linha_do_canal(escolha)),
         ("COTA", janela_de_cota.relato(agora)),
     ]
@@ -72,8 +82,9 @@ def _linha_do_canal(escolha: dict) -> str:
     return "\n".join(linhas)
 
 
-def relato(agora: datetime.datetime | None = None, janela_h: float = 24.0) -> str:
-    blocos = [texto for _, texto in _secoes(agora, janela_h)]
+def relato(agora: datetime.datetime | None = None, janela_h: float = 24.0,
+           modo_da_rota: str = None) -> str:
+    blocos = [texto for _, texto in _secoes(agora, janela_h, modo_da_rota)]
     blocos.append(">> ISTO NAO REPROVA e nao escolhe pauta: ele responde as tres "
                   "perguntas do passo zero com os donos de cada uma. A peca "
                   "ainda passa pelo `antes_do_render.py` e pelo `prontidao`.")
@@ -81,5 +92,6 @@ def relato(agora: datetime.datetime | None = None, janela_h: float = 24.0) -> st
 
 
 if __name__ == "__main__":
-    print(relato())
+    # O primeiro argumento, quando vem, e o modo MEDIDO da rota nesta rodada.
+    print(relato(modo_da_rota=(sys.argv[1] if len(sys.argv) > 1 else None)))
     sys.exit(0)

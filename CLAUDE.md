@@ -4745,6 +4745,160 @@ parque tem **nove** sem leitura) e `RESIDUO_N` segue **128**.
 fechou. O numero sai do `janela_de_cota`, e contado a mao com a data de hoje
 daria o mesmo por acidente de hora, que e o erro de 23:3x.
 
+## A NOTA DA ROTA MORAVA NO RAMO QUE PARA DE DISPARAR QUANDO ELA IMPORTA
+
+**Medido em 20/10 as 13:2x, na PRIMEIRA rodada em que o criterio do 723 passou
+por TEMPO.** O `leitura_de_inscritos` nasceu em 19/10 as 10:0x justamente para
+me impedir de gastar requisicao numa leitura previsivelmente inutil, e em
+**vinte e duas rodadas seguidas** ele recusou. Nesta rodada a janela
+finalmente autorizou — **27,05 h, piso de resolucao 0,89/dia, os TRES SIM** — e
+o relato **calou sobre a rota**, que estava `negado_por_politica`.
+
+**A causa e de RAMO, e a falha e PERMISSIVA:** a nota da rota morava DENTRO do
+`if degrau and not resolve_duas_contagens`. Isto e, ela saiu nas vinte e duas
+rodadas em que nao era necessaria — a leitura ja estava recusada por tempo — e
+desapareceu na unica em que era a unica coisa que ainda impedia a leitura.
+
+| | |
+|---|---|
+| rodadas em que a nota saiu | **22**, todas com a leitura ja recusada por tempo |
+| rodadas em que ela era o que faltava | **1** — esta |
+| nelas ela saiu? | **NAO** |
+
+**E ela era PROSA CRAVADA:** *"gasta requisicao na rota que fechou por LIMITE
+em 19/10 as 06:1x"* — um modo MEDIDO naquele dia reescrito a mao numa string. E
+o **753 em forma de PROCEDENCIA**, e custa porque **o remedio de cada modo e
+diferente**: `limite` pede economizar requisicao, `consentimento` nao responde a
+volume nenhum (cookie, UA e `&hl=en` testados em 16/10), e
+`negado_por_politica` **nao se conserta deste lado** — e a tela de Network
+access, que e do dono.
+
+**Consertado com DELEGACAO, e o conjunto de modos ganhou UM dono:**
+`vivacidade_publica.modos()` DERIVA por AST os modos que o
+`modo_de_fechamento` devolve — a mesma disciplina do
+`layouts_do_short.desenham()`, que SONDA o render em vez de guardar lista —, e o
+`leitura_de_inscritos` confere as chaves do `CONSEQUENCIA_DO_MODO` contra ele
+**nos dois sentidos**: chave a mais e modo inventado como dado, chave a menos
+quer dizer que o dono ganhou um modo e ninguem escreveu o que ele significa
+aqui. **Modo que o dono nao conhece LEVANTA.**
+
+A linha da rota passou a ter **UM dono** (`_linha_da_rota`) e sai nos **DOIS**
+ramos; **sem o modo ela DIZ que a rota nao foi sondada**, do jeito que o
+`porta1` recusa janela curta — porque ausencia de sonda nao e rota aberta. O
+`passo_zero` **REPASSA** o modo medido e nao o confere.
+
+    python3 fabrica/passo_zero.py negado_por_politica
+
+`tests/test_a_nota_da_ROTA_morava_no_ramo_que_CALAVA.py`, onze testes: o parque
+e **PROPRIO** com instante fixo (ancorar no vivo seria identidade onde ha
+propriedade, 743/753/761), um exige que os **DOIS** lados da janela existam na
+fixture (senao o arquivo passa por vacuidade), a linha e cobrada nos dois ramos,
+o conjunto de modos e cobrado **nos dois sentidos** contra o dono com guarda de
+vacuidade (menos de quatro modos quer dizer que a derivacao por AST quebrou), a
+contraprova no outro sentido exige que o aviso das duas portas **NAO** dispare
+com a rota `aberta`, a prosa cravada e proibida na **SAIDA** e nao na fonte (o
+docstring a cita como HISTORIA), o dono da frase e cobrado por **AST**, e um
+cobra o caminho INTEIRO pelo `passo_zero`, porque o defeito era de CHAMADOR.
+**Contraprova:** desligada a linha, **quatro dos onze** falham.
+
+**E A PRIMEIRA VERSAO DE UM TESTE MEU REPROVOU O MODULO CERTO:** eu cobrei
+`"modo_de_fechamento" not in fonte` no `passo_zero`, e o docstring dele **CITA**
+esse nome para dizer de onde o modo vem. Casar prosa pegou a explicacao em vez
+do codigo — a mesma licao do `test_NAO_virou_portao` do acento, e a razao pela
+qual os testes desta semana sao por AST. **Era o teste errado, nao o modulo.**
+
+### E O `do_registro` NAO PARQUEIA — e eu quase relatei parqueado sem estar
+
+**Pego na mesma rodada, lendo o parque.** O nome le como o passo do
+parqueamento e ele apenas **VALIDA**: devolve o dicionario pronto, e quem grava
+e o `parqueia`. Chamado sozinho, ele devolve um **dicionario cheio**, que e
+verdadeiro em `if` e imprime bonito — e eu escrevi `parqueado: True` a partir do
+meu proprio rotulo antes de conferir. **O parque tinha 86 linhas e a peca nao
+estava nele.**
+
+**E a familia e a de 20/10 as 01:4x, na forma mais barata de nao ver:**
+instrumento que devolve CHEIO nao prova presenca. Quem discriminou foi reler o
+parque — `any(r['pacote'] == ...)` — e nao o retorno da funcao. Depois do
+`parqueia`: **87 linhas, 15 sem leitura**, com a `s076` dentro.
+
+### A PECA DESSA RODADA — TREZE cenas, e as TRES recusas sairam do instrumento
+
+`epomeno-epipedo-s076` = **`EvG36Ynqw1Y`**, publicado as 13:22:53Z (run
+`39429855220`), **ONZE PORTOES VERDES NA PRIMEIRA TENTATIVA** (11,3 s) — e o
+`antes_do_render` rodou os dez baratos mais os quatro instrumentos de redacao em
+**1,5 s**, todos limpos. Provedor **edge MEDIDO** (zero avisos
+`NARRACAO PELO PIPER` nos dois jobs do render), som **-14,7** LUFS, LRA 4,5,
+pico -1,7, desvio -0,7, **zero silencios**. Previsao edge **41,67** — 0,17 acima
+do PISO da faixa, pela regra de redacao do 772 — e piper **36,92**.
+
+**A escolha das TREZE cenas saiu da chave `por_cadencia_servivel`, e NENHUMA das
+tres recusas foi minha:**
+
+| cenas | | |
+|---|---|---|
+| 14 | melhor cadencia, 3,02 s | RECUSADA por REPETICAO — a `s075`, a peca anterior do canal |
+| 15 (teto MEDIDO da voz) | **INEDITA** na frota | RECUSADA pela FOLGA: 22 caracteres, a DOIS do piso OBSERVADO de 21 |
+| **13** | 3,25 s, orcamento 30 no piso | escolhida, folga **+9** |
+
+**ESQUELETO
+`titulo-barras-item-lista-item-item-titulo-barras-item-lista-item-item-cta`,
+inedito nas 130 formas da frota** — numero do `esqueleto_entre_canais`, com a
+propria peca FORA da varredura pelo `exceto`. A frota tem TRES formas de treze
+cenas e esta nao e nenhuma delas; `barras` e `lista` entram DUAS vezes cada e as
+quatro carregam argumento. Todo layout saiu do conjunto **SONDADO**, com
+`assert` no builder.
+
+**PAUTA:** `alZ97hpgqXo` (`epomeno-epipedo-005`), 3 usos empatada com seis
+outras e desempatada pela MAIOR reserva — **63 dos 83 capitulos NAO
+MENCIONADOS**. A dominante `nttW9fR8wyY` ficou de fora, e o `concentracao.py` e
+quem conta.
+
+**FAMILIA: A PROPOSICAO DO JURO** (capitulos 62 e 63). Ordenar as linhas de
+deposito por rendimento e mover o apothema de emergencia para a de cima —
+quando o rendimento alto existe **so sob um termo, o tempo**, e o apothema e,
+por definicao, o dinheiro que nao pode prometer tempo. A retirada antecipada
+corta o juro, logo **o rendimento desaparece exactamente no caso para o qual o
+dinheiro existe.** Nao se comparam duas taxas: muda o **CRITERIO** — primeiro a
+disponibilidade, por ultimo o preco.
+
+**E a distincao dos TRES irmaos saiu do `irmaos_da_origem`, nao da minha
+leitura:** no `s013` (juros proprios em ordem), no `s032` (o mesmo plastico com
+duas sumbolaia) e no `s064` (o mesmo homem com duas times) o eixo e a **TAXA**;
+aqui nenhuma taxa e comparada. **E e diferente do `s069` e do `s070`**, que
+tambem falam de apothema: aqueles medem o TAMANHO dele, de outra origem — esta
+diz **ONDE** ele fica.
+
+**ZERO numero novo sobre o mundo, e a procedencia da recusa esta na PROPRIA
+origem:** o capitulo `Δεν είναι κρυφό` diz em letra que os numeros do longo (a
+margem oficial, a media das novas linhas, o multiplo da carta) sao publicados
+**CADA MES, com nome e data** — isto e, mudam por publicacao. As barras sao
+ILUSTRACAO qualitativa e nao sao faladas, e a copy diz isso para a rodada
+seguinte nao as ler de volta como numero.
+
+**A PINCA DO 740/748 ESTA FECHADA AQUI**, com a exposicao declarada ANTES de
+publicar, e **o PISO EXATO nao e alcancavel com treze cenas:** um caractere por
+cena vale ~0,66 s, logo 30 caracteres dao 40,91 (ABAIXO da faixa) e 31 dao
+41,57. Nao existe media inteira que caia em 41,5 — dito assim em vez de eu
+chamar 41,67 de piso.
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica`:** o `touch`
+passou, os TRES hosts (a peca, o controle `OhrGlJvnBoM` e o NEUTRO
+`example.com`) voltaram **000 sem arquivo**, e o `__agentproxy/status` nomeou
+`www.youtube.com:443` **e** `example.com:443` com 403 ao CONNECT as 13:11:2xZ. A
+peca esta PARQUEADA com o provedor MEDIDO (o parque tem **quinze** sem leitura)
+e `RESIDUO_N` segue **128**.
+
+**E A LEITURA DE INSCRITOS PASSOU O CRITERIO DO 723 POR TEMPO — pela primeira
+vez em vinte e duas rodadas — E NAO FOI FEITA.** 27,05 h, piso de resolucao
+0,89/dia, os tres SIM. **O que a impede agora nao e a janela, e a rota**, e o
+remedio e do dono: a tela de Network access. Isto e, **a primeira leitura que
+resolveria o ritmo da frota em oito dias esta fechada por politica de rede**, e
+nao por falta de horas.
+
+**COTA: SETE** envios na janela aberta as 07:00Z, **11.200** unidades, contra o
+piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
+hora.
+
 ## O `dir_specs` ERRADO DEVOLVIA RESPOSTA VAZIA E BEM FORMADA
 
 **Medido em 20/10 as 12:3x, escrevendo o `epomeno-epipedo-s075`.** Eu chamei

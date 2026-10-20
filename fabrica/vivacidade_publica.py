@@ -109,6 +109,41 @@ CONTROLE_17_10 = ("OhrGlJvnBoM", 44)
 SORRY = "google.com/sorry"
 
 
+def modos() -> set:
+    """O CONJUNTO de modos que o `modo_de_fechamento` devolve, DERIVADO dele.
+
+    Existe porque o `leitura_de_inscritos` passou a dizer, ao lado do veredito
+    de janela, qual e o modo MEDIDO da rota — e listar os nomes la seria o
+    SEGUNDO dono deles. Derivar e a mesma disciplina do
+    `layouts_do_short.desenham()`, que SONDA o render em vez de guardar lista:
+    modo novo entra aqui sozinho no instante em que a funcao passa a devolve-lo,
+    e modo inventado do lado de fora nao passa pela conferencia.
+
+    A leitura e por AST sobre a propria funcao, e nao por regex na prosa: o
+    docstring dela CITA os nomes para se explicar, e casar prosa pegaria a
+    explicacao em vez do codigo — a razao pela qual os testes desta semana sao
+    por AST.
+    """
+    import ast
+
+    with open(__file__, encoding="utf-8") as f:
+        arvore = ast.parse(f.read())
+    alvo = [n for n in ast.walk(arvore)
+            if isinstance(n, ast.FunctionDef) and n.name == "modo_de_fechamento"]
+    if not alvo:
+        raise RuntimeError("modo_de_fechamento nao encontrado: o dono mudou de nome")
+    saida = set()
+    # Todo literal de texto dentro de um `return` e um valor devolvido — num
+    # ternario os DOIS ramos sao, e foi exatamente isso que a primeira versao
+    # do teste do AST perdeu em 19/10 as 23:4x.
+    for no in ast.walk(alvo[0]):
+        if isinstance(no, ast.Return) and no.value is not None:
+            for dentro in ast.walk(no.value):
+                if isinstance(dentro, ast.Constant) and isinstance(dentro.value, str):
+                    saida.add(dentro.value)
+    return saida
+
+
 def modo_de_fechamento(corpo: str, location: str = "",
                        neutro_respondeu: bool | None = None,
                        sonda_pode_gravar: bool | None = None,

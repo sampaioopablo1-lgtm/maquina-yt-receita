@@ -27,6 +27,26 @@ Agora elas entram num arquivo, como as duracoes entram no parque do
 
 Passar a primeira **nao** autoriza a segunda, e este modulo recusa dizer que
 autoriza. O que ele faz e nomear qual pergunta a janela responde.
+
+**E A JANELA NAO E A UNICA PORTA — medido em 20/10 as 13:2x, na PRIMEIRA rodada
+em que o criterio do 723 passou por TEMPO.** Em vinte e duas rodadas seguidas
+este modulo recusou a leitura, e nas vinte e duas a recusa saiu do ramo
+`degrau and not resolve_duas_contagens`. **A nota sobre a ROTA morava DENTRO
+desse ramo** — logo, no instante em que o tempo finalmente autorizou (27,05 h,
+piso 0,89/dia), o relato imprimiu tres SIM e **calou sobre a unica coisa que
+ainda impedia a leitura.** Falha PERMISSIVA, e no sentido pior: ela convida a
+gastar requisicao.
+
+E a nota era **PROSA CRAVADA** — *"a rota que fechou por LIMITE em 19/10 as
+06:1x"* —, isto e, um modo MEDIDO naquele dia reescrito a mao numa string,
+quando o modo medido nesta rodada e `negado_por_politica` e o remedio dele e
+OUTRO: a tela de Network access, que e do dono, em vez de esperar volume. E o
+753 em forma de PROCEDENCIA.
+
+**Consertado com DELEGACAO:** o modo da rota entra por fora, MEDIDO pelo dono
+da pergunta (`vivacidade_publica.modo_de_fechamento`), e o relato o nomeia nos
+DOIS ramos. **Sem o modo ele DIZ que a rota nao foi sondada**, do jeito que o
+`porta1` recusa janela curta — porque ausencia de sonda nao e rota aberta.
 """
 
 import json
@@ -39,6 +59,27 @@ ARQ = os.path.join(RAIZ, "docs", "pendente", "inscritos-lidos.jsonl")
 # PREMISSA e nao medida de hoje: o 755 mostrou que ele proprio era UMA contagem.
 # Fica aqui com esse nome para quem chamar saber que esta passando uma suposicao.
 RITMO_SUPOSTO_DA_FROTA = 1.79
+
+# O que cada modo MEDIDO da rota significa para ESTA decisao. As chaves NAO sao
+# lista minha: elas sao conferidas contra `vivacidade_publica.modos()`, que as
+# DERIVA do `modo_de_fechamento`. Nomear modo aqui seria o segundo dono deles —
+# a assinatura que congelou a legenda —, e o que importa e que **o remedio de
+# cada modo e diferente**: um pede economia de requisicao, outro nao responde a
+# volume nenhum, e `negado_por_politica` nao se conserta deste lado.
+CONSEQUENCIA_DO_MODO = {
+    "aberta": "a rota RESPONDEU na sonda, logo ler agora entrega leitura.",
+    "limite": "recusa por VOLUME: leia inscritos e duracao na MESMA passagem e "
+              "gaste menos requisicao por rodada.",
+    "consentimento": "parede do CONSENT: ela NAO responde a volume — cookie, "
+                     "User-Agent e `&hl=en` foram testados em 16/10 e nao "
+                     "resolvem. Nao ha o que economizar.",
+    "sem_egresso": "a sonda nao tem rede: nao ha leitura e nao se conserta "
+                   "deste lado.",
+    "negado_por_politica": "o proxy negou o CONNECT: o remedio e do DONO, na "
+                           "tela de Network access, e NAO e esperar.",
+    "indeterminado": "a sonda nao decidiu: faltou controle. Nao prometa leitura "
+                     "sobre ela.",
+}
 
 
 def _linhas(caminho=None):
@@ -99,7 +140,44 @@ def janela_desde_a_ultima(agora: str, caminho=None) -> float | None:
     return _horas(todas[-1]["em"], agora)
 
 
-def veredito(agora: str, ritmo: float = None, caminho=None) -> dict:
+def _rota(modo_da_rota: str = None) -> dict:
+    """O modo MEDIDO da rota, conferido contra o DONO dos modos.
+
+    Modo que o `vivacidade_publica.modos()` nao conhece **LEVANTA** em vez de
+    passar: foi inventar nome de modo que o teste de 19/10 as 23:4x passou a
+    proibir por AST, e aceitar um aqui reintroduziria isso como dado.
+    """
+    import vivacidade_publica
+
+    if modo_da_rota is None:
+        return {"modo_da_rota": None, "rota_sondada": False}
+    conhecidos = vivacidade_publica.modos()
+    if modo_da_rota not in conhecidos:
+        raise ValueError(
+            "modo de rota %r nao e um dos que o `modo_de_fechamento` devolve "
+            "(%s). Modo inventado como dado e pior que modo ausente."
+            % (modo_da_rota, ", ".join(sorted(conhecidos))))
+    return {"modo_da_rota": modo_da_rota, "rota_sondada": True}
+
+
+def _linha_da_rota(v: dict) -> str:
+    """A frase da rota, com UM dono — ela sai nos DOIS ramos do relato.
+
+    Ter dois donos dela era o defeito: a nota vivia dentro do ramo da recusa,
+    e por isso calou na rodada em que o tempo autorizou a leitura.
+    """
+    if not v.get("rota_sondada"):
+        return ("  ROTA: **NAO SONDADA nesta chamada.** Sonde com os TRES "
+                "controles (host NEUTRO, escrita e `__agentproxy/status`) antes "
+                "de prometer leitura — ausencia de sonda nao e rota aberta.")
+    modo = v["modo_da_rota"]
+    return "  ROTA (modo MEDIDO): %s — %s" % (
+        modo, CONSEQUENCIA_DO_MODO.get(
+            modo, "modo sem consequencia escrita: escreva-a antes de decidir."))
+
+
+def veredito(agora: str, ritmo: float = None, caminho=None,
+             modo_da_rota: str = None) -> dict:
     """O que uma leitura feita AGORA consegue responder.
 
     Devolve as tres portas separadas, porque juntar as duas primeiras foi o
@@ -109,16 +187,19 @@ def veredito(agora: str, ritmo: float = None, caminho=None) -> dict:
     import porta1
 
     ritmo = RITMO_SUPOSTO_DA_FROTA if ritmo is None else ritmo
+    rota = _rota(modo_da_rota)
     h = janela_desde_a_ultima(agora, caminho)
     if h is None:
-        return {"horas": None, "degrau": False, "resolve_ritmo": False,
-                "resolve_duas_contagens": False,
-                "motivo": "nenhuma leitura gravada: a primeira serve de ANCORA "
-                          "e nao responde nada sozinha."}
+        saida = {"horas": None, "degrau": False, "resolve_ritmo": False,
+                 "resolve_duas_contagens": False,
+                 "motivo": "nenhuma leitura gravada: a primeira serve de ANCORA "
+                           "e nao responde nada sozinha."}
+        saida.update(rota)
+        return saida
     piso = porta1.piso_de_resolucao(h) if h > 0 else float("inf")
     precisa_uma = porta1.horas_para_resolver(ritmo)
     precisa_duas = porta1.horas_para_resolver(ritmo, 2)
-    return {
+    saida = {
         "horas": round(h, 2),
         "piso_da_janela": round(piso, 2),
         "degrau": h >= porta1.HORAS_MINIMAS,
@@ -128,12 +209,15 @@ def veredito(agora: str, ritmo: float = None, caminho=None) -> dict:
         "horas_para_duas": round(precisa_duas, 1),
         "faltam_para_duas": round(max(0.0, precisa_duas - h), 1),
     }
+    saida.update(rota)
+    return saida
 
 
-def relato(agora: str, ritmo: float = None, caminho=None) -> str:
-    v = veredito(agora, ritmo, caminho)
+def relato(agora: str, ritmo: float = None, caminho=None,
+           modo_da_rota: str = None) -> str:
+    v = veredito(agora, ritmo, caminho, modo_da_rota)
     if v["horas"] is None:
-        return "LEITURA: " + v["motivo"]
+        return "LEITURA: " + v["motivo"] + "\n" + _linha_da_rota(v)
     r = RITMO_SUPOSTO_DA_FROTA if ritmo is None else ritmo
     linhas = [
         f"LEITURA DE INSCRITOS: {v['horas']} h desde a ultima, piso de "
@@ -150,8 +234,15 @@ def relato(agora: str, ritmo: float = None, caminho=None) -> str:
         linhas.append(
             f"  >> passar a regra H NAO e resolver ritmo: faltam "
             f"{v['faltam_para_duas']} h para o criterio do 723. Ler agora "
-            "devolve `indeterminado` com mais horas, e gasta requisicao na rota "
-            "que fechou por LIMITE em 19/10 as 06:1x."
+            "devolve `indeterminado` com mais horas, e gasta requisicao."
+        )
+    # A linha da ROTA sai nos DOIS ramos, e e por isso que ela tem um dono so:
+    # ela morava DENTRO do ramo acima e calou na rodada em que o tempo passou.
+    linhas.append(_linha_da_rota(v))
+    if v["resolve_duas_contagens"] and v.get("modo_da_rota") not in (None, "aberta"):
+        linhas.append(
+            "  >> a JANELA autoriza e a ROTA nao: as duas portas sao "
+            "independentes, e passar uma nao e passar a outra."
         )
     return "\n".join(linhas)
 
