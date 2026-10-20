@@ -52,6 +52,29 @@ diferenca de unidade existe e NAO move a escolha neste caso**, e eu registro
 isso em vez de inflar. O que sobra e a disciplina: a cadencia que o espectador
 ve e da duracao REAL, e e por ela que este modulo calcula.
 
+**E ELE CALAVA JUSTAMENTE ONDE A PINCA FECHA — medido em 20/10 as 03:2x, na
+primeira rodada depois de ele existir, escrevendo o `epomeno-epipedo-s072`.**
+O `relato` devolvia UMA linha quando nenhuma contagem abre janela e **jogava
+fora o `quadro` que ele acabara de calcular**, inclusive a coluna da cadencia —
+que **nao depende da janela em sentido nenhum**. Medido: **38 dos 57 pares
+(canal, contagem) ficavam sem uma palavra**, isto e DOIS dos tres canais, todas
+as dezenove contagens. Logo o instrumento escrito para tirar a conta da minha
+cabeca ordenava no canal em que eu nao precisava dele e se calava nos dois em
+que eu precisava — e nesta rodada eu escolhi o catorze **a mao outra vez**,
+lendo `contagens_existentes` de um SEGUNDO instrumento.
+
+**E a recusa estava CERTA sobre a janela e ERRADA como silencio**, que e a mesma
+forma do `origens_sem_uso`: nomear em vez de filtrar. A janela nao existe; a
+cadencia existe e ordena.
+
+**E A DIMENSAO QUE FALTAVA E A DO PEDIDO DO DONO.** Palavras dele em 19/10: *"os
+videos publicados me parecem todos a mesma dinamica, imagens, formas, estilo.
+Em todos os canais."* A pergunta *"que contagem de cena a frota nunca usou"* e
+dessa dimensao, e ela morava no `esqueleto_entre_canais` — que este modulo nao
+chamava. Agora chama, e **a contagem da frota e DELEGADA** (
+`esqueleto_entre_canais.quadro()["por_contagem_de_cena"]`): recontar aqui criaria
+o segundo dono da varredura do disco, que e a assinatura que congelou a legenda.
+
 NAO E PORTAO, pelo argumento do `mira.py`: ele reprovaria quase toda spec do
 acervo, que foi escrita antes de a janela dos dois mundos existir. Codigo de
 saida SEMPRE zero.
@@ -62,6 +85,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import ensaio   # noqa: E402  — DONO da duracao e do orcamento de caracteres
 import mira     # noqa: E402  — DONO da janela dos dois mundos
+import esqueleto_entre_canais as EC   # noqa: E402  — DONO das contagens da frota
 
 # A cadencia MEDIDA do short, em segundos por plano. Ela e de 690/699 — a
 # correcao do dinamismo visual de 09/10, medida com `tblend=difference` e
@@ -79,8 +103,9 @@ CADENCIA_MEDIDA_S = 3.1
 MIN_CENAS, MAX_CENAS = 2, 20
 
 
-def quadro(canal: str, voz: str, faixa=None) -> list[dict]:
-    """Para cada contagem de cena: a janela dos dois mundos e a cadencia.
+def quadro(canal: str, voz: str, faixa=None, por_contagem=None,
+           exceto: str = "") -> list[dict]:
+    """Por contagem de cena: a janela, a cadencia e se a frota ja a usou.
 
     A janela e DELEGADA a `mira.janela_dos_dois_mundos` e a faixa a
     `ensaio.alvo_short` — refazer qualquer uma aqui criaria o segundo dono, que
@@ -95,21 +120,31 @@ def quadro(canal: str, voz: str, faixa=None) -> list[dict]:
             "contagem serve' onde o que falta e a faixa"
         )
     alvo_s = (faixa[0] + faixa[1]) / 2.0
+    # As contagens que a frota JA usou saem do dono da varredura do disco.
+    # Recontar aqui seria o segundo dono — e e essa coluna que faltava quando a
+    # janela nao abre, porque ela e a dimensao do pedido do dono ("em todos os
+    # canais").
+    if por_contagem is None:
+        por_contagem = contagens_da_frota(exceto)
     saida = []
     for n in range(MIN_CENAS, MAX_CENAS + 1):
         j = mira.janela_dos_dois_mundos(voz, n, faixa)
         cad = alvo_s / n   # pela duracao REAL, que e a que a mira cobra
+        exemplares = int(por_contagem.get(n, 0) or 0)
         saida.append({
             "cenas": n,
             "janela": j,
             "largura": (j[1] - j[0] + 1) if j else 0,
             "cadencia_s": cad,
             "distancia_da_cadencia": abs(cad - CADENCIA_MEDIDA_S),
+            "exemplares_na_frota": exemplares,
+            "tamanho_inedito": exemplares == 0,
         })
     return saida
 
 
-def escolha(canal: str, voz: str, faixa=None) -> dict:
+def escolha(canal: str, voz: str, faixa=None, por_contagem=None,
+            exceto: str = "") -> dict:
     """As duas pontas do trade-off, e o que elas custam uma a outra.
 
     Devolve `None` em `por_cadencia` e `por_largura` quando NENHUMA contagem
@@ -117,16 +152,26 @@ def escolha(canal: str, voz: str, faixa=None) -> dict:
     escolha ali seria esconder a pinca do 740/748 em vez de a nomear, que e o
     que o `origens_sem_uso` ensina a nao fazer.
     """
-    q = quadro(canal, voz, faixa)
+    q = quadro(canal, voz, faixa, por_contagem=por_contagem, exceto=exceto)
     abertas = [x for x in q if x["janela"]]
+    # A CADENCIA e a NOVIDADE nao dependem da janela, logo elas saem SEMPRE.
+    # Era deixa-las de fora que fazia o relato calar nos dois canais da pinca.
+    por_cad_geral = min(q, key=lambda x: x["distancia_da_cadencia"])
+    ineditas = [x for x in q if x["tamanho_inedito"]]
+    por_nov = (min(ineditas, key=lambda x: x["distancia_da_cadencia"])
+               if ineditas else None)
     if not abertas:
         return {
             "canal": canal, "abertas": 0, "por_cadencia": None,
             "por_largura": None, "coincidem": None,
+            "por_cadencia_geral": por_cad_geral,
+            "por_novidade": por_nov,
+            "ineditas": [x["cenas"] for x in ineditas],
             "motivo": ("NENHUMA contagem de cena de "
                        f"{MIN_CENAS} a {MAX_CENAS} abre janela nos dois mundos "
                        "nesta faixa — a pinca do 740/748. Aqui nao se escolhe "
-                       "contagem, declara-se a EXPOSICAO."),
+                       "contagem pela janela, declara-se a EXPOSICAO; a CADENCIA "
+                       "e a NOVIDADE do tamanho seguem ordenando."),
         }
     por_cad = min(abertas, key=lambda x: x["distancia_da_cadencia"])
     por_lar = max(abertas, key=lambda x: x["largura"])
@@ -137,22 +182,63 @@ def escolha(canal: str, voz: str, faixa=None) -> dict:
         "por_largura": por_lar,
         "coincidem": por_cad["cenas"] == por_lar["cenas"],
         "custo_em_caracteres": por_lar["largura"] - por_cad["largura"],
+        "por_cadencia_geral": por_cad_geral,
+        "por_novidade": por_nov,
+        "ineditas": [x["cenas"] for x in ineditas],
         "motivo": "",
     }
 
 
-def relato(canal: str = "labtreinamento", voz: str = None) -> str:
+def contagens_da_frota(exceto: str = "") -> dict:
+    """`{contagem de cena: quantas pecas}` da frota, DELEGADO ao dono.
+
+    O `exceto` existe pela mesma razao que no irmao: na hora de ESCOLHER, a
+    spec da rodada pode ja estar no disco, e ai "inedita" nunca podia ser
+    verdade. Nenhuma varredura se refaz aqui.
+    """
+    pecas = EC.varre()
+    if exceto:
+        pecas = [p for p in pecas if p["arquivo"] != exceto]
+    return EC.quadro(pecas)["por_contagem_de_cena"]
+
+
+def relato(canal: str = "labtreinamento", voz: str = None,
+           exceto: str = "") -> str:
     voz = voz or ensaio.VOZ_DO_CANAL.get(canal) if hasattr(ensaio, "VOZ_DO_CANAL") else voz
     if not voz:
         voz = {"labtreinamento": "pt-BR-ThalitaMultilingualNeural",
                "epomeno-epipedo": "el-GR-NestorasNeural",
                "kolejny-poziom": "pl-PL-MarekNeural"}.get(canal)
-    e = escolha(canal, voz)
+    por_contagem = contagens_da_frota(exceto)
+    e = escolha(canal, voz, por_contagem=por_contagem)
     L = [f"CONTAGEM DE CENAS de {canal} (voz {voz})"]
     if not e["abertas"]:
         L.append("  " + e["motivo"])
+        L.append("")
+        for x in sorted(quadro(canal, voz, por_contagem=por_contagem),
+                        key=lambda x: x["distancia_da_cadencia"])[:6]:
+            marca = "  << INEDITA na frota" if x["tamanho_inedito"] else \
+                    f"  ({x['exemplares_na_frota']} na frota)"
+            L.append(f"   {x['cenas']:2d} cenas  cadencia "
+                     f"{x['cadencia_s']:.2f} s  "
+                     f"|dif| {x['distancia_da_cadencia']:.2f}{marca}")
+        L.append("")
+        L.append(f"  cadencia MEDIDA (690/699): {CADENCIA_MEDIDA_S} s por plano "
+                 "— nao e alvo, ela ORDENA")
+        L.append(f"  melhor cadencia: {e['por_cadencia_geral']['cenas']} cenas")
+        if e["por_novidade"]:
+            L.append("  melhor cadencia entre as INEDITAS: "
+                     f"{e['por_novidade']['cenas']} cenas "
+                     f"(|dif| {e['por_novidade']['distancia_da_cadencia']:.2f})")
+            L.append(f"  tamanhos que a frota NUNCA usou: {e['ineditas']}")
+        else:
+            L.append("  a frota JA usou todos os tamanhos de "
+                     f"{MIN_CENAS} a {MAX_CENAS} — a novidade de tamanho "
+                     "acabou, e a de FORMA fica com o `esqueleto_entre_canais`")
+        L.append("")
+        L.append("  a contagem da frota e do `esqueleto_entre_canais`, nao daqui.")
         return "\n".join(L)
-    for x in quadro(canal, voz):
+    for x in quadro(canal, voz, por_contagem=por_contagem):
         if not x["janela"]:
             continue
         marca = ""
@@ -170,6 +256,11 @@ def relato(canal: str = "labtreinamento", voz: str = None) -> str:
              f"(janela de {e['por_cadencia']['largura']} caractere(s))")
     L.append(f"  janela mais larga: {e['por_largura']['cenas']} cenas "
              f"({e['por_largura']['largura']} caractere(s))")
+    if e["por_novidade"]:
+        L.append("  melhor cadencia entre as INEDITAS na frota: "
+                 f"{e['por_novidade']['cenas']} cenas "
+                 f"(|dif| {e['por_novidade']['distancia_da_cadencia']:.2f}); "
+                 f"tamanhos nunca usados: {e['ineditas']}")
     if not e["coincidem"]:
         L.append(f"  >> os dois criterios NAO coincidem: escolher a cadencia "
                  f"custa {e['custo_em_caracteres']} caractere(s) de latitude")

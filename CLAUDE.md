@@ -4187,6 +4187,114 @@ arquivo nao renderiza. **E a liveness saiu do `processo_vivo` e nao do
 dele nao se ve no espelho porque a linha de comando cita `processo_vivo.py` e o
 filtro e pelo EXECUTAVEL.
 
+## O INSTRUMENTO DA CONTAGEM DE CENAS CALAVA NOS DOIS CANAIS DA PINCA
+
+**Medido em 20/10 as 03:2x, na PRIMEIRA rodada depois de ele existir.** O
+`contagem_de_cenas.py` nasceu as 02:2x para tirar da minha cabeca a escolha de
+quantas cenas a peca tem. Nesta rodada eu o chamei no `epomeno-epipedo` e ele
+devolveu **UMA linha**:
+
+> *"NENHUMA contagem de cena de 2 a 20 abre janela nos dois mundos nesta faixa —
+> a pinca do 740/748. Aqui nao se escolhe contagem, declara-se a EXPOSICAO."*
+
+**E ai eu escolhi o catorze A MAO outra vez**, somando a cadencia de cabeca e
+lendo `contagens_existentes` de um SEGUNDO instrumento, o
+`esqueleto_entre_canais`. Isto e o item 3 da §10 **dentro do conserto do item 3
+da §10** — a mesma forma do defeito de 19/10 as 11:2x, onde eu reescrevi a mao,
+cinco rodadas seguidas, um contador de canal que eu mesmo havia escrito.
+
+**A CAUSA e que o `relato` RETORNAVA e jogava fora o `quadro` que acabara de
+calcular.** E a cadencia nao depende da janela em sentido nenhum: ela e
+`alvo / n`. Medido o tamanho do silencio:
+
+| | |
+|---|---|
+| pares (canal, contagem) no quadro | **57** (3 canais x 19 contagens) |
+| sobre os quais o relato dizia NADA | **38** |
+| canais em que ele ordenava | **1 de 3** — justamente o de mira larga |
+
+**Logo o instrumento ordenava no canal em que eu nao precisava dele e se calava
+nos dois em que eu precisava.** A recusa estava CERTA sobre a janela e ERRADA
+como silencio — e a saida e a do `origens_sem_uso`: **nomear em vez de
+filtrar.**
+
+**E A DIMENSAO QUE FALTAVA E LITERALMENTE A DO PEDIDO DO DONO.** Palavras dele
+em 19/10: *"os videos publicados me parecem todos a mesma dinamica, imagens,
+formas, estilo. **Em todos os canais.** Ajuste."* A pergunta *"que contagem de
+cena a FROTA nunca usou"* e dessa dimensao, e ela morava no
+`esqueleto_entre_canais` — que este modulo **nao chamava**. Agora chama, e **a
+contagem da frota e DELEGADA** (`contagens_da_frota` -> `EC.quadro()`): recontar
+ali criaria o segundo dono da varredura do disco, a assinatura que congelou a
+legenda.
+
+**E ELE VALIDOU-SE FORA DA AMOSTRA, o que eu nao planejei:** apontado para o
+`epomeno-epipedo` **com a peca desta rodada excluida**, a melhor cadencia entre
+os tamanhos nunca usados e **CATORZE** — exatamente a escolha que eu havia
+feito a mao meia hora antes dele existir. Com a peca dentro ele responde
+**quinze**, que e por que o `exceto` existe aqui pela mesma razao que no irmao:
+na hora de ESCOLHER, a spec da rodada ja pode estar no disco, e ai *"inedita"*
+nunca podia ser verdade.
+
+**NAO E PORTAO**, pelo argumento do `mira.py`, e o codigo de saida segue
+**sempre zero**.
+
+`tests/test_o_instrumento_CALAVA_nos_dois_canais_da_pinca.py`, dez testes: a
+varredura sai do DISCO e **reprova com menos de 200 pecas**, a delegacao e
+cobrada por **AST** (`glob`/`listdir` no corpo reprova), um exige que os **DOIS**
+lados existam e **falha se a pinca ABRIR nos tres canais** — porque ai o
+silencio perde o objeto e esta nota se rele —, um cobra que o relato da pinca
+**ORDENE** em vez de calar, um trava que a escolha POR JANELA siga `None` ali
+(inventar uma esconderia a pinca), o `exceto` e cobrado nos **dois** sentidos,
+um **reproduz a escolha de CATORZE** feita a mao, um **falha se a frota passar a
+usar todos os tamanhos de 2 a 20**, e um cobra que a medida (38 de 57) e o
+pedido do dono continuem escritos no modulo.
+
+### A PECA DESSA RODADA — CATORZE cenas, a primeira da frota
+
+`epomeno-epipedo-s072` = **`rTAh0-JIpHs`**, publicado as 03:17:54Z (run
+`39363523458`), **ONZE PORTOES VERDES NA PRIMEIRA TENTATIVA**. Provedor **edge
+MEDIDO** (zero avisos `NARRACAO PELO PIPER` no job `118434940901`), som
+**-14,7** LUFS, LRA 4,1, pico -2,5, desvio -0,7, **zero silencios**. Previsao
+edge **41,74** (0,24 acima do PISO do `ALVO_SHORT`, pela regra de redacao do
+772) / piper 36,98.
+
+**CATORZE CENAS, e a frota nao tinha NENHUMA:** as contagens existentes eram 2,
+4, 5, 6, 7, 8, 9, 10, 11, 12, 13 e 40 — e catorze era o UNICO numero ausente
+entre 2 e 15, sendo 15 o teto MEDIDO desta voz (`mira.teto_de_cenas`). Esqueleto
+`titulo-item-lista-barras-item-titulo-item-item-lista-barras-item-titulo-item-cta`,
+**inedito nas 120 formas da frota pela sequencia E pelo tamanho**, e todo layout
+saiu do conjunto **SONDADO** com um `assert` no builder. **Cadencia 2,98 s por
+plano**, |dif| 0,08 dos ~3,1 s de 690/699 — a mais proxima de toda a frota.
+
+**ORCAMENTO 26 caracteres por cena** para o piso, escrita com media **26,7** — a
+peca de MENOR media deste canal (a segunda esta em 37,2) e ainda assim 5 acima
+do piso OBSERVADO de 21. **E o `antes_do_render` pegou o unico defeito antes do
+portao:** o `## TAGS` em TRES linhas saiu como *"sem tags"* no portao `copy`.
+
+**PAUTA:** `os51d8fA0sY` (`epomeno-epipedo-006`), 87 capitulos e **80 NAO
+MENCIONADOS** — a maior reserva do canal. A dominante `nttW9fR8wyY` ficou de
+fora **com o ALERTA na mao**: 12 de 71 shorts (17%), mais que o dobro da segunda
+(4). **FAMILIA: A COLUNA DO MAGAZIN** (capitulos 45 a 52 e 62) — sem a terceira
+coluna, no mes seguinte nao se sabe se mudou a tinta ou mudou o caixa: a
+comparacao troca DUAS coisas de uma vez. Quarta familia deste longo, primeira do
+dia na frota. **E a contagem declarada do longo ficou de fora**: ele diz
+*"Tessera lathi"* no capitulo 73 e enumera CINCO.
+
+**E NAO EXISTE PONTO DE RESIDUO, pelo modo `sem_egresso` na QUINTA rodada
+seguida** — e o host NEUTRO devolveu **000 com zero byte** na MESMA chamada que
+a peca e o controle `OhrGlJvnBoM`, logo nao e rota do YouTube. O
+`modo_de_fechamento` confirmou `sem_egresso`. A peca esta PARQUEADA com o
+provedor MEDIDO (o parque tem **cinco** sem leitura agora) e `RESIDUO_N` segue
+**128**. *O proprio sandbox passou a dizer, no stderr, que so alcanca a API do
+Composio e o `/mnt/files` **por politica**; isso e dica de ferramenta e nao
+medicao minha, e vai registrado como tal.*
+
+**A LEITURA DE INSCRITOS FOI RECUSADA PELA DECIMA SEGUNDA RODADA SEGUIDA:**
+17,02 h, piso de resolucao 1,41/dia, faltam **9,8 h** para o criterio do 723.
+**COTA: vinte e quatro** envios na janela de 07:00Z, **38.400** unidades contra
+o piso MEDIDO de **>= 40.000** — do `janela_de_cota`, nao de um laco escrito na
+hora.
+
 ## O `pgrep -f` CASAVA A PROPRIA LINHA DE COMANDO — e eu disse "VIVO" tres vezes
 
 **Medido em 20/10 as 01:4x, e e o ESPELHO EXATO do defeito de 19/10 as 16:2x,
