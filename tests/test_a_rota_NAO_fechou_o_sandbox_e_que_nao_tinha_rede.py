@@ -34,7 +34,22 @@ SORRY = "https://www.google.com/sorry/index?continue=..."
 
 
 def test_corpo_vazio_com_o_neutro_FORA_e_sem_egresso():
-    assert VP.modo_de_fechamento("", "", neutro_respondeu=False) == "sem_egresso"
+    """RETRATADO NO LUGAR em 20/10 as 09:3x: o neutro calado NAO bastava.
+
+    A versao original deste teste cobrava `sem_egresso` com o host neutro como
+    UNICO controle. Medido naquela rodada: a sonda e
+    `curl -s -o ARQ -w '%{http_code}'`, e quando o `-o` nao consegue abrir o
+    arquivo o curl sai em 23 e o `%{http_code}` imprime o MESMO 000 — logo o
+    000 do neutro tambem e "a resposta nao tinha onde ser gravada". O teste
+    estava afirmando a CAUSA com um controle a menos; o modulo agora pede os
+    dois, e a propriedade cobrada aqui passou a ser essa.
+    """
+    assert VP.modo_de_fechamento(
+        "", "", neutro_respondeu=False, sonda_pode_gravar=True) == "sem_egresso"
+    # e o neutro SOZINHO nao conclui mais — ver
+    # tests/test_o_000_tambem_e_a_RESPOSTA_sem_onde_gravar.py
+    assert VP.modo_de_fechamento(
+        "", "", neutro_respondeu=False) == "indeterminado"
 
 
 def test_corpo_vazio_SEM_a_sonda_do_neutro_recusa_em_vez_de_escolher():
@@ -52,6 +67,9 @@ def test_a_PAREDE_continua_sendo_consentimento_e_ela_e_GRANDE():
     assert len(PAREDE) > 1000
     assert VP.modo_de_fechamento(PAREDE) == "consentimento"
     assert VP.modo_de_fechamento(PAREDE, neutro_respondeu=False) == "consentimento"
+    assert VP.modo_de_fechamento(
+        PAREDE, neutro_respondeu=False,
+        sonda_pode_gravar=True) == "consentimento"
 
 
 def test_o_LIMITE_continua_sendo_lido_nos_dois_lugares():

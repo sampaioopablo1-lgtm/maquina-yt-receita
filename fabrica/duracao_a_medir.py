@@ -58,6 +58,44 @@ def carrega(caminho: str = None) -> list[dict]:
     return saida
 
 
+def do_registro(reg_videos: dict, prev_edge: float, prev_piper: float,
+                provedor: str, job: str) -> dict:
+    """O registro do notice vira linha de PARQUE, com UM dono do mapeamento.
+
+    **Medido em 20/10 as 09:3x, e e a segunda rodada seguida em que eu erro o
+    mesmo passo a mao.** Os dois modulos que leem o MESMO
+    `::notice:: PUBLICADO` chamam o instante por nomes diferentes: o
+    `registro_videos.linhas_dos_notices` devolve `publicado_em`, e o
+    `OBRIGATORIOS` daqui pede `em`. Eu montava o dicionario do parque a mao a
+    cada rodada e o `valida` me levantou por `prev_edge`/`prev_piper` numa
+    rodada e por `em` na seguinte.
+
+    **A falha e RUIDOSA e nao permissiva** — o `valida` levanta, pelo 733 — logo
+    ela nunca parqueou peca errada; o que ela custa e uma passada por rodada e a
+    chance de eu desistir do passo no meio, que e exatamente como o corpus
+    atrasou sete rodadas (726). **O conserto e tirar a traducao da minha
+    cabeca:** o mapeamento mora AQUI, uma vez, em vez de ser redigitado.
+
+    As previsoes, o `provedor` e o `job` seguem vindo de fora, e isso e
+    deliberado: elas sao medicao da RODADA (a previsao sai do `ensaio`, o
+    provedor da ANOTACAO do job pelo 733) e nao estao no notice. Inventar um
+    padrao para elas aqui seria o contrario do que o 733 exige.
+    """
+    reg = {
+        "pacote": reg_videos["pacote"],
+        "canal": reg_videos.get("canal"),
+        "youtube_id": reg_videos["youtube_id"],
+        # O UNICO ponto em que os dois nomes do mesmo instante se encontram.
+        "em": reg_videos.get("publicado_em") or reg_videos.get("em"),
+        "cenas": reg_videos.get("cenas"),
+        "prev_edge": prev_edge,
+        "prev_piper": prev_piper,
+        "provedor": provedor,
+        "job": job,
+    }
+    return valida(reg)
+
+
 def parqueia(reg: dict, caminho: str = None) -> bool:
     """Acrescenta UMA peca. Devolve False se o `youtube_id` ja estava la.
 

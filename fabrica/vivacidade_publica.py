@@ -110,7 +110,8 @@ SORRY = "google.com/sorry"
 
 
 def modo_de_fechamento(corpo: str, location: str = "",
-                       neutro_respondeu: bool | None = None) -> str:
+                       neutro_respondeu: bool | None = None,
+                       sonda_pode_gravar: bool | None = None) -> str:
     """Por que a rota da duracao fechou — 'limite', 'consentimento' ou 'aberta'.
 
     Os dois modos pedem coisas DIFERENTES de quem lê, e e por isso que vale
@@ -145,6 +146,28 @@ def modo_de_fechamento(corpo: str, location: str = "",
     (neutro responde e o YouTube nao) eu ainda nao medi; inventa-lo seria
     limiar sem procedencia.
 
+    **E O `neutro_respondeu=False` ERA ELE MESMO INSUFICIENTE — medido em 20/10
+    as 09:3x, na decima primeira rodada seguida em que eu escrevia
+    `sem_egresso`.** A sonda e `curl -s -o ARQ -w '%{http_code}'`, e quando o
+    `-o` nao consegue ABRIR o arquivo o curl sai em 23 e o `%{http_code}`
+    imprime **000** — o MESMO 000 que este ramo le como "a rede nao sai". Na
+    primeira sonda desta rodada o destino era `/tmp/o.html` num sandbox onde
+    aquele caminho nao existe, e os TRES hosts (o neutro inclusive) voltaram
+    000. Isto e: *"a rede nao sai"* e *"a resposta nao tinha onde ser gravada"*
+    sao **indistinguiveis pelo 000 sozinho**.
+
+    **O discriminador e um CONTROLE DE ESCRITA na mesma chamada** — um `touch`
+    no mesmo diretorio —, e ele e tao barato quanto o host neutro. Refeita a
+    sonda com destino gravavel, o `touch` passou e o arquivo da resposta
+    **continuou nao existindo**: logo o curl nunca recebeu resposta, e ai sim
+    `sem_egresso` esta medido. Sem esse controle este ramo devolve
+    `indeterminado`, do jeito que o `porta1` recusa janela curta.
+
+    **O que isto RETRATA, e vai dito:** o rotulo `sem_egresso` que eu escrevi
+    nas rodadas anteriores foi afirmado sem esse controle. **A CONSEQUENCIA
+    daquelas rodadas nao muda** — nao havia leitura, logo nao havia ponto de
+    residuo e a peca foi parqueada —, o que cai e a certeza sobre a CAUSA.
+
     **O que isto NAO muda:** o discriminador do 17/10 continua sendo a peca de
     CONTROLE. Saber o modo nao substitui reler o controle, porque nos modos de
     rota a leitura da peca nova vem vazia do mesmo jeito.
@@ -154,9 +177,14 @@ def modo_de_fechamento(corpo: str, location: str = "",
     if not (corpo or "").strip():
         # NENHUMA pagina voltou. Isto nao e a parede do CONSENT, que vem com
         # 1,2 MB, e nao e recusa do YouTube: pode ser o sandbox sem egresso.
-        if neutro_respondeu is None:
+        if neutro_respondeu is None or neutro_respondeu:
             return "indeterminado"
-        return "sem_egresso" if not neutro_respondeu else "indeterminado"
+        # O neutro calou. Isso SO vira `sem_egresso` com o controle de ESCRITA
+        # da propria sonda: sem ele, 000 tambem e "a resposta nao tinha onde
+        # ser gravada" (medido em 20/10 as 09:3x).
+        if not sonda_pode_gravar:
+            return "indeterminado"
+        return "sem_egresso"
     if duracao_do_html(corpo) is None:
         return "consentimento"
     return "aberta"

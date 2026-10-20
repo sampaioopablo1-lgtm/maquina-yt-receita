@@ -4745,6 +4745,156 @@ parque tem **nove** sem leitura) e `RESIDUO_N` segue **128**.
 fechou. O numero sai do `janela_de_cota`, e contado a mao com a data de hoje
 daria o mesmo por acidente de hora, que e o erro de 23:3x.
 
+## O 000 TAMBEM E "A RESPOSTA NAO TINHA ONDE SER GRAVADA"
+
+**Medido em 20/10 as 09:3x, na DECIMA PRIMEIRA rodada seguida em que eu escrevi
+`sem_egresso`.** A sonda da rota da duracao e
+
+    curl -s -o /tmp/o.html -w '%{http_code}' -m 25 <url>
+
+e os TRES hosts — a peca, o controle `OhrGlJvnBoM` e o NEUTRO `example.com` —
+voltaram **HTTP 000**. Pelo discriminador que eu mesmo escrevi em 19/10 as 23:4x
+isso le `sem_egresso`, e era o que eu ia relatar. **Mas o shell dizia, na mesma
+saida, `/tmp/o.html: No such file or directory`:** naquele sandbox o caminho nao
+existia, e **quando o `-o` nao consegue abrir o arquivo o curl sai em 23 e o
+`%{http_code}` imprime 000** — o MESMO 000.
+
+**Logo o `neutro_respondeu=False` era ELE MESMO insuficiente:** *"a minha rede
+nao sai"* e *"a resposta nao tinha onde ser gravada"* **nao se distinguem pelo
+000 sozinho**, e eu construi um discriminador sobre um sintoma ambiguo.
+
+**O DISCRIMINADOR NOVO E UM CONTROLE DE ESCRITA NA MESMA CHAMADA**, e e tao
+barato quanto o host neutro: um `touch` no mesmo diretorio. Refeita a sonda com
+destino gravavel, o `touch` passou (`escrita OK`) e o arquivo da resposta
+**continuou nao existindo** — logo o curl nunca recebeu resposta, e ai sim
+`sem_egresso` esta medido.
+
+**E a familia e a de 17/10, 19/10 e 20/10 as 01:4x, agora com a quarta forma:**
+
+| | |
+|---|---|
+| 17/10 | instrumento que devolve **VAZIO** nao prova ausencia (o grep dos inscritos) |
+| 19/10 | arquivo que devolve **VAZIO** nao prova morte (o `.norm` a meio de escrever) |
+| 20/10 01:4x | instrumento que devolve **CHEIO** nao prova presenca (o `pgrep` se vendo) |
+| **20/10 09:3x** | **codigo de erro que devolve ZERO nao diz de QUEM e o zero** |
+
+**O que isto RETRATA, e vai dito: o ROTULO `sem_egresso` das rodadas
+anteriores** foi afirmado sem esse controle. **A CONSEQUENCIA daquelas rodadas
+nao muda** — nao havia leitura, logo nao havia ponto de residuo e a peca foi
+parqueada —, o que cai e a certeza sobre a CAUSA. E o modo `indeterminado` passa
+a cobrir esse caso, do jeito que o `porta1` recusa janela curta.
+
+`tests/test_o_000_tambem_e_a_RESPOSTA_sem_onde_gravar.py`, nove testes: o caso
+MEDIDO desta rodada sai `sem_egresso`, a PRIMEIRA sonda dela sai
+`indeterminado`, **as DUAS sondas tem de falar e nenhuma basta** (sem esse par
+bastaria devolver sempre o mesmo valor), os outros tres modos **nao dependem** do
+controle novo, o parametro e cobrado na **ASSINATURA** por AST, o quarto modo que
+eu nao medi continua **proibido** por AST, e um **falha se a retratacao sair do
+modulo**. **E o teste da vespera foi RETRATADO NO LUGAR** — ele cobrava
+`sem_egresso` com o neutro como unico controle. **Contraprova:** desligado o
+controle de escrita, **quatro dos dezoito** falham.
+
+### E O PARQUE E O REGISTRO CHAMAVAM O MESMO INSTANTE POR NOMES DIFERENTES
+
+**Segunda rodada seguida em que eu erro o MESMO passo a mao.** Os dois modulos
+que leem o MESMO `::notice:: PUBLICADO` divergem no nome do instante: o
+`registro_videos.linhas_dos_notices` devolve **`publicado_em`** e o
+`duracao_a_medir.OBRIGATORIOS` pede **`em`**. Eu redigitava o dicionario do
+parque a cada rodada, e o `valida` me levantou por `prev_edge`/`prev_piper` numa
+rodada e por `em` nesta.
+
+**A falha e RUIDOSA e nao permissiva** — o `valida` levanta, pelo 733 —, logo ela
+nunca parqueou peca errada. **O que ela custa e uma passada por rodada e a
+chance de eu soltar o passo no meio**, que e exatamente como o corpus atrasou
+sete rodadas (726): barulho que ninguem ouve e silencio.
+
+`duracao_a_medir.do_registro(reg, prev_edge, prev_piper, provedor, job)` poe o
+mapeamento num **dono so** e **delega** a validacao ao `valida`. **As previsoes,
+o provedor e o job seguem vindo de FORA, e isso e deliberado:** elas sao medicao
+da RODADA — a previsao sai do `ensaio`, o provedor da ANOTACAO do job — e nao
+estao no notice; dar-lhes padrao faria a rodada futura **inferir** o provedor,
+que e o erro que o 733 nomeia.
+
+`tests/test_o_parque_e_o_registro_chamavam_o_instante_por_nomes_DIFERENTES.py`,
+nove testes: um **reconfere que os dois donos de fato DIVERGEM** e reprova se
+eles convergirem (ai a nota se rele em vez de o mapeamento ficar sem objeto), um
+**reproduz o dicionario que eu montei a mao**, os obrigatorios sao cobrados como
+**PROPRIEDADE sobre a constante** e nao por lista minha, a contraprova no outro
+sentido aceita registro que ja use `em`, instante ausente **LEVANTA** em vez de
+parquear calado, o mapeamento tem **UM dono por AST** (`publicado_em` so dentro
+do `do_registro`), e um cobra por **AST** que nenhum desses argumentos tenha
+padrao. **Contraprova:** desligado o mapeamento, **tres dos nove** falham.
+
+### A PECA DESSA RODADA — DOZE cenas, e as tres recusas sairam do instrumento
+
+`epomeno-epipedo-s074` = **`tUE21qPa2S8`**, publicado as 09:19:46Z (run
+`39399834547`), **ONZE PORTOES VERDES NA PRIMEIRA TENTATIVA** — e o
+`antes_do_render` rodou os dez baratos mais os quatro instrumentos de redacao em
+**0,69 s**, todos limpos. Provedor **edge MEDIDO** (zero avisos
+`NARRACAO PELO PIPER` no job `118550315664`), som **-13,5** LUFS, LRA 4,0, pico
+-1,4, desvio +0,5, **zero silencios**. Previsao edge **41,55** — 0,05 acima do
+PISO da faixa, pela regra de redacao do 772 — e piper **36,81**.
+
+**E ESTA E A PRIMEIRA PECA ESCRITA PELO `pauta_do_momento.py`**, o instrumento da
+rodada anterior: ele deu **NOVE** origens empatadas em **3 de 73** shorts e
+desempatou pela reserva — `wUHuwyO2HYo` (`epomeno-epipedo-012`) com **72 de 90
+capitulos NAO MENCIONADOS**, contra 63 e 63 das seguintes. A dominante
+`nttW9fR8wyY` ficou de fora **COM O ALERTA DISPARADO**: 12 de 73 (16%), mais que
+o dobro da segunda.
+
+**E O `irmaos_da_origem` FEZ O TRABALHO NA PRIMEIRA PECA DEPOIS DE SER LIGADO:**
+ele devolveu as **TRES** familias anteriores desta origem em letra — o `s014` e o
+`s022` sobre a UNIDADE do numero (euro contra quilowatt-hora) e o `s039` sobre o
+PRAZO de validade da tarifa de introducao — e **AVISOU que os dois primeiros nao
+tem o campo `## FAMILIA DE ENTRADA ERRADA`**, logo a familia deles vive na PROSA.
+Eu nao li cinco shorts no olho. **Por isso esta peca LEVA o campo.**
+
+**FAMILIA: QUAIS LINHAS entram na pratica, e com que OPERACAO** (capitulos 56 a
+62). O pagio e cobranca FIXA, nao depende dos quilowatts-hora, logo **nao entra
+no multiplicador**: entra como SOMA, depois da pratica, um numero em cada lado. E
+ha um segundo tipo que se comporta ao **CONTRARIO** — os encargos de rede e demais
+regulados sao iguais independentemente do fornecedor, logo **nao precisam entrar**:
+aparecem nos dois lados com o mesmo valor e se eliminam sozinhos na diferenca.
+**Um se soma, o outro nao precisa nem entrar**, e confundi-los e onde a aritmetica
+deixa de descrever a decisao.
+
+**As tres recusas de contagem vao escritas porque nenhuma foi minha:**
+
+| cenas | | |
+|---|---|---|
+| 14 (teto MEDIDO da voz) | melhor cadencia 3,02 s | RECUSADA por REPETICAO — a `s072` |
+| 13 | 3,25 s | RECUSADA por REPETICAO — a `s073`, a peca anterior |
+| 15 (**INEDITA** na frota) | 2,82 s | RECUSADA pela FOLGA: 22 caracteres, a DOIS do piso OBSERVADO de 21 |
+| **12** | **3,52 s** | escolhida, orcamento 36 no piso, folga **+15** |
+
+A chave que decidiu foi a `por_cadencia_servivel`, de 07:4x; a antiga teria
+devolvido o catorze, que repete.
+
+**ESQUELETO `titulo-item-barras-item-item-lista-titulo-barras-item-lista-item-cta`,
+inedito nas 126 formas da frota** — numero do `esqueleto_entre_canais`, nao de um
+laco escrito na hora. As duas unicas pecas de doze cenas que existem
+(`epomeno-epipedo-s071` e `kolejny-poziom-s073`) tem outras sequencias. **Com
+`barras` DUAS vezes e as duas carregando argumento:** a cena 2 mostra que a conta
+tem mais de uma especie de linha, a cena 7 mostra as duas colunas **IGUAIS**, que
+e o argumento inteiro do segundo tipo. Todo layout saiu do conjunto **SONDADO**,
+com `assert` no builder.
+
+**E A PINCA DO 740/748 ESTA FECHADA AQUI, com a exposicao declarada antes de
+publicar:** nenhuma contagem de 2 a 20 poe os dois mundos dentro de 41,5 a 43,0
+nesta voz (razao piper/edge 0,886, vao de ~4,7 s contra 1,5 s de faixa), logo o
+piper sai FORA pelo piso.
+
+**NAO EXISTE PONTO DE RESIDUO, e agora com o controle de escrita na mao:** o
+`touch` passou e os tres hosts calaram, logo `sem_egresso` esta **medido** nesta
+rodada. A peca esta PARQUEADA com o provedor MEDIDO — pelo `do_registro`, nao a
+mao (o parque tem **onze** sem leitura) — e `RESIDUO_N` segue **128**.
+
+**A LEITURA DE INSCRITOS FOI RECUSADA PELA DECIMA OITAVA RODADA SEGUIDA:**
+23,04 h, piso de resolucao 1,04/dia, faltam **3,8 h** para o criterio do 723.
+
+**COTA: TRES envios na janela aberta as 07:00Z**, 4.800 unidades, contra o piso
+MEDIDO de **>= 41.600** que a janela anterior fechou.
+
 ## A PAUTA ERA A QUARTA PERGUNTA DO PASSO ZERO, E NAO TINHA DONO
 
 **Medido em 20/10 as 08:2x, escrevendo o `labtreinamento-s091`.** O
