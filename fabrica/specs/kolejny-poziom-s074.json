@@ -1,0 +1,115 @@
+{
+ "slug": "kolejny-poziom-s074",
+ "pacote": "kolejny-poziom-s074",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "longo_existente": "iqV7m6tKb5A",
+ "longo": [],
+ "thumb": {
+  "l1": "Opłata czeka",
+  "l2": "na koniec"
+ },
+ "paleta": {
+  "bg": "#0B0B0C",
+  "ink": "#F2EEE8",
+  "c1": "#E23B3B",
+  "c2": "#D9C7A7",
+  "red": "#FF4D4D",
+  "ok": "#7FB77E",
+  "panel": "#151517",
+  "mut": "#8F877C",
+  "acc": "#E23B3B"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Stawka ta sama",
+   "sub": "podstawa rośnie co roku",
+   "nar": "Stawka się nie zmienia, a koszt tak."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Od czego ją liczą",
+   "barras": [
+    {
+     "rotulo": "Początek",
+     "valor": 1
+    },
+    {
+     "rotulo": "Koniec",
+     "valor": 8
+    }
+   ],
+   "nar": "Liczą ją od całego kapitału, nie od wpłaty."
+  },
+  {
+   "layout": "item",
+   "kicker": "Nie od zysku",
+   "nar": "Płacisz ją także w roku ze stratą."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Co rośnie razem z nią",
+   "itens": [
+    "Twój kapitał",
+    "Podstawa opłaty",
+    "Jej koszt w złotych"
+   ],
+   "nar": "Rośnie dokładnie tak, jak twój kapitał."
+  },
+  {
+   "layout": "item",
+   "kicker": "W pierwszych latach",
+   "nar": "Na początku jej prawie nie czujesz."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Połowa drogi",
+   "sub": "myli najbardziej",
+   "nar": "W połowie drogi różnica wydaje się mała."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Gdzie narasta koszt",
+   "barras": [
+    {
+     "rotulo": "Pierwsza połowa",
+     "valor": 2
+    },
+    {
+     "rotulo": "Druga połowa",
+     "valor": 9
+    }
+   ],
+   "nar": "Cała reszta narasta w drugiej połowie."
+  },
+  {
+   "layout": "item",
+   "kicker": "Czeka na koniec",
+   "nar": "Przychodzi wtedy, gdy już nie cofniesz."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Trzy wnioski",
+   "itens": [
+    "Rośnie z kapitałem",
+    "Płacisz ją i w stracie",
+    "Sprawdzasz tylko raz"
+   ],
+   "nar": "Sprawdzasz ją raz, a skutki niesiesz lata."
+  },
+  {
+   "layout": "item",
+   "kicker": "Stąd częsty błąd",
+   "nar": "Oceniasz produkt po pierwszych latach."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Policz opłatę",
+   "sub": "dla końca, nie dla startu",
+   "nar": "Policz ją dla końca, a nie dla startu."
+  }
+ ],
+ "copy": "# kolejny-poziom-s074\n\n## TITULO\nDlaczego Oplata Za Zarzadzanie Boli Dopiero W Drugiej Polowie Oszczedzania\n\n## TITULO SHORT\nOpłata czeka na koniec\n\n## DESCRICAO\nOpłata za zarządzanie wygląda na **stałą**, bo stawka naprawdę się nie zmienia.\nZmienia się **podstawa**: opłatę liczą od całego twojego kapitału, a nie od\nwpłaty i nie od zysku. Więc ta sama stawka kosztuje na początku tyle, co nic, a\npod koniec już wielokrotnie więcej — nie dlatego, że ktoś ją podniósł, tylko\ndlatego, że twój kapitał urósł.\n\n**I tu jest sedno, które myli najbardziej: koszt opłaty nie rozkłada się równo w\nczasie.** W połowie drogi różnica między rachunkiem z opłatą a rachunkiem bez\nniej wydaje się do zniesienia. Prawie cała reszta narasta **w drugiej połowie**\n— wtedy, gdy zmiana produktu już nie odwróci tego, co zostało pobrane wcześniej.\nProcent składany działa w obie strony: to, co fundusz zabrał w piątym roku, nie\npracuje dla ciebie przez wszystkie lata, które zostały.\n\n**Stąd bierze się najczęstszy błąd.** Oceniasz produkt po pierwszych latach,\nkiedy opłata jest praktycznie niewidoczna — nie zobaczysz jej na żadnym\nprzelewie, bo jest już odjęta w wycenie jednostki — i zostajesz w nim na\ndziesięciolecia. Sprawdzasz ją **raz**, przy wyborze, a skutki niesiesz przez\ncały okres oszczędzania. Do tego płacisz ją również w latach, w których\nstraciłeś: podatek płacisz od zysku, opłatę płacisz zawsze.\n\n**Co zrobić dzisiaj:** nie pytaj, ile opłata kosztuje cię w tym roku. Policz ją\ndla **końca** — dla kapitału, jaki chcesz mieć na wyjściu. Dopiero ta liczba\nmówi, co ten produkt naprawdę kosztuje, i dopiero wtedy porównanie dwóch ofert\nma sens.\n\nNie podaję tu stawek ani procentów. Ustawowe maksimum było w Polsce obniżane\netapami i zależy od produktu, który wybierzesz, więc jedna liczba byłaby\nnieprawdziwa dla większości słuchających. To, co się nie zmienia, to mechanizm:\nstawka stoi, podstawa rośnie, a koszt czeka na koniec.\n\n## COMENTARIO FIXADO\nNajmniej oczywiste: jeśli sprawdziłeś opłatę na początku i uznałeś ją za małą,\nto sprawdziłeś ją w jedynym momencie, w którym naprawdę jest mała. Policzyłeś\nją już dla końca?\n\n## HASHTAGS\n#finanse #oszczedzanie #inwestowanie #kolejnypoziom #Shorts\n\n## TAGS\noplata za zarzadzanie, koszty funduszu, procent skladany, dlugoterminowe oszczedzanie, finanse osobiste, wycena jednostki, kapital emerytalny, ukryte koszty, porownanie ofert, druga polowa, kolejny poziom, oplata od kapitalu, inwestowanie dlugoterminowe, koszt produktu, domowy budzet\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Os unicos numeros falados sao\n\"trzy wnioski\" (os tres pontos da lista) e as duas METADES do percurso — os dois\nsao contagem do PROPRIO mecanismo, que a spec de origem fixa. **Stawka,\npercentual, valor em zloty, numero de anos e o maximo legal ficaram FORA pela\nregra (g)**, e o motivo esta na PROPRIA origem: o capitulo 9 dela mostra que o\nteto foi mudado por etapas (tres valores diferentes em tres anos) e o capitulo\n12 avisa, em letra, que *\"dwa procent to sufit ustawowy, a nie cena, ktora\nmusisz zaplacic\"*. Numero que a lei move e numero que envelhece na peca. Os\nvalores das barras sao ILUSTRACAO do mecanismo (a base pequena no inicio e\ngrande no fim; o custo quase todo na segunda metade) e NAO sao falados nem\nmedidos de ninguem.\n\n## FONTES\nA spec local `kolejny-poziom-004`, que e o pacote do longo `iqV7m6tKb5A` — 74\ncapitulos e **69 NAO MENCIONADOS** pelos shorts anteriores, medido pelo\n`segundo_angulo.nao_mencionados`: a maior reserva entre as origens de MENOR\ncontagem do canal. A familia desta peca sai dos capitulos 21 a 27:\n*\"procent skladany dziala w obie strony: to, co fundusz zabral w piatym roku,\nnie pracuje przez pozostalych dwadziescia piec lat\"*, *\"stawka sie nie\nzmienila, zmienila sie podstawa\"*, *\"po pietnastu latach roznica wydaje sie do\nzniesienia\"*, *\"cala reszta narasta w drugiej polowie — koszt oplaty nie\nrozklada sie rowno w czasie, czeka na koniec, kiedy juz nie mozesz go cofnac\"* e\n*\"stad bierze sie najczestszy blad: oceniasz produkt po pierwszych latach\"*.\nNenhuma frase desta peca saiu de TITULO de capitulo.\n\n**FAMILIA NOVA NESTA ORIGEM: O CUSTO NAO SE DISTRIBUI IGUALMENTE NO TEMPO.**\nConferido short por short, as duas peças anteriores desta origem falam de outra\ncoisa — o `s014` compara a opcao TAXA contra IMPOSTO e a inversao entre as duas,\ne o `s034` fala do PRAZO que se esquece na condicao. Nenhuma das duas toca os\ncapitulos 21 a 27, e nenhuma fala de QUANDO o custo aparece.\n\n**E A ORIGEM DOMINANTE DO CANAL FICOU DE FORA, com o alerta na mao:** o\n`concentracao.py` acusou `GUiq15usizw` com **12 de 68** shorts (18%), mais que o\ndobro da segunda (4). O portao `similaridade` e de MONETIZACAO, e concentracao\nde origem ataca justamente ele. O `QiaGg03WSR0`, que empata em contagem minima,\ntambem ficou de fora: ele e longo do LabTreinamento declarado por engano em dois\nshorts deste canal, e esta registrado como tal.\n\n## EXPOSICAO\n**ONZE CENAS, e a escolha vai com o motivo porque NENHUM dos tres primeiros\ncandidatos do instrumento serviu.** O `contagem_de_cenas` ordena por cadencia,\nnomeia o teto MEDIDO da voz, a RECENCIA do canal e a FOLGA de caracteres no\npiso — e nesta rodada os tres filtros falaram:\n\n| cenas | orcamento no piso | cadencia | por que |\n|---|---|---|---|\n| 14 (teto medido) | **22** caracteres | 3,02 s | RECUSADO: folga **+1** sobre o piso OBSERVADO de 21 — e no TOPO da faixa ainda sao 24 |\n| 13 | 27 | 3,25 s | RECUSADO por REPETICAO — o `s072` deste canal, de 01:17Z |\n| 12 | 32 | 3,52 s | RECUSADO por REPETICAO — o `s073` deste canal, de 04:13Z |\n| **11** | **38** | **3,84 s** | escolhido |\n\n**Logo a melhor cadencia foi recusada tres vezes, e isso vai dito em vez de\nescorregar.** O 14 e a terceira recusa do teto desta voz pela MESMA conta de\ncaracteres — e a diferenca contra 04:1x e 06:2x e que agora **o instrumento a\nnomeou sozinho** (`folga_no_piso`), em vez de eu a fazer de cabeca. O 13 e o 12\nsao as duas peças anteriores DESTE canal, e repetir tamanho em tres rodadas\nseguidas e exatamente o que o dono reclamou em 19/10.\n\n**E NESTE CANAL A NOVIDADE DEIXOU DE SER DE TAMANHO, medido:** abaixo do teto de\n14 o unico tamanho que a frota nunca usou e **TRES**, cuja cadencia fica a\n10,98 s dos ~3,1 s de 690/699 — inutavel. Logo a novidade aqui e de **FORMA**:\no esqueleto `titulo-barras-item-lista-item-titulo-barras-item-lista-item-cta` e\ninedito nas **OITO** formas de onze cenas da frota (e nas 124 da frota inteira),\ncom `barras` e `lista` DUAS vezes cada, as quatro carregando argumento — a cena\n1 desenha a base pequena no inicio e grande no fim, a cena 6 desenha o custo\nquase todo na segunda metade. **Todo layout saiu do conjunto SONDADO** pelo\n`layouts_do_short.desenham()`, com um `assert` no builder que recusa layout fora\ndele.\n\n**E NENHUM orcamento poe os dois mundos dentro de 41,5 a 43,0** em contagem de\ncena nenhuma de 2 a 20: a razao piper/edge desta voz e 0,851 e o vao vale ~6 s\ncontra 1,5 s de faixa — a pinca do 740/748, que segue na fila do dono. Mirei o\nPISO pela regra de redacao do 772 — a previsao edge saiu em **41,50**, o piso\nEXATO da faixa, com media de 38,3 caracteres por cena contra os 38 do\norcamento — e **declaro a exposicao** em vez de prometer o real dentro: se o edge narrar, a banda observada (−1,2 a +4,0) poe o real entre\n~40,3 e ~45,5 s, logo ele PODE passar do teto de 45 do portao.\n"
+}
