@@ -79,11 +79,20 @@ import sys
 RAIZ = os.path.dirname(__file__)
 
 
-def contagem(canal: str, raiz: str = None) -> dict[str, int]:
-    """{origem: quantos shorts} para um canal, lendo `longo_existente`."""
+def contagem(canal: str, raiz: str = None, exceto: str = "") -> dict[str, int]:
+    """{origem: quantos shorts} para um canal, lendo `longo_existente`.
+
+    `exceto` tira UM pacote da contagem, e existe pela mesma razao que o do
+    `variedade._especs_do_canal`: na hora de ESCOLHER pauta, a spec da rodada ja
+    pode estar no disco, e ai a peca infla a contagem da PROPRIA origem dela.
+    Medido em 20/10 as 08:3x — com a `s091` no disco, a origem dela subia de 4
+    para 5 usos e deixava de ser o minimo unico do canal.
+    """
     base = raiz or os.path.join(RAIZ, "specs")
     c: collections.Counter = collections.Counter()
     for f in glob.glob(os.path.join(base, f"{canal}-s*.json")):
+        if exceto and os.path.basename(f) == "%s.json" % exceto:
+            continue
         with open(f, encoding="utf-8") as fh:
             o = json.load(fh).get("longo_existente")
         if o:

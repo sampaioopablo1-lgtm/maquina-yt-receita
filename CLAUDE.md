@@ -4745,6 +4745,137 @@ parque tem **nove** sem leitura) e `RESIDUO_N` segue **128**.
 fechou. O numero sai do `janela_de_cota`, e contado a mao com a data de hoje
 daria o mesmo por acidente de hora, que e o erro de 23:3x.
 
+## A PAUTA ERA A QUARTA PERGUNTA DO PASSO ZERO, E NAO TINHA DONO
+
+**Medido em 20/10 as 08:2x, escrevendo o `labtreinamento-s091`.** O
+`passo_zero.py` responde TRES perguntas numa chamada — inscritos, canal e cota —
+e **a escolha da ORIGEM ficava fora.** Logo, a cada rodada, eu escrevia na linha
+de comando um laco descartavel sobre `concentracao.contagem` +
+`segundo_angulo.nao_mencionados`, ordenava a lista de cabeca e aplicava o
+desempate no olho. **E o item 3 da §10 na QUARTA dimensao:** canal (19/10 as
+11:2x, cinco rodadas seguidas a mao), cota (19/10 as 23:3x), cenas (20/10 as
+02:2x) e agora PAUTA.
+
+**E O ACHADO MAIOR E OUTRO: o `irmaos_da_origem` EXISTE desde 15/10 e modulo
+nenhum da fabrica o chamava.** Ele nasceu do aprendizado 776 — eu quase repeti a
+familia do `epomeno-epipedo-s023` — e responde **exatamente** a pergunta que eu
+respondia lendo cinco shorts no olho: *"quais familias esta origem ja rendeu"*.
+Varrido o `fabrica/`, o unico chamador dele era o **teste dele**. Rodado sobre a
+origem desta rodada, ele devolve as **QUATRO** familias anteriores em letra,
+porque a geracao antiga as registrava na PROSA das copies dos irmaos — a
+informacao estava escrita e eu a reproduzi a mao. **SEXTA vez da assinatura: nao
+chamar quem ja sabe.**
+
+**A REGRA NAO E NOVA e vai DELEGADA**: o `concentracao.py` manda, em letra,
+*"pegue a origem de MENOR contagem com capitulos intocados"*, e o desempate pela
+MAIOR reserva e o que eu venho aplicando a mao. `fabrica/pauta_do_momento.py` a
+executa com as quatro contas nos donos — `concentracao.contagem`,
+`segundo_angulo.nao_mencionados`, `irmaos_da_origem.relato` e
+`concentracao.origem_de_outro_canal` — e **NOMEIA em vez de filtrar**: origem
+suspeita de ser de outro canal sai na lista com a marca e fora da escolha, e
+**sem mapa de dono MEDIDO ele DIZ que o mapa falta**, porque ausencia de medicao
+nao e ausencia de problema.
+
+### E A PRIMEIRA EXECUCAO ACHOU UM DEFEITO DELE, no lugar em que doi
+
+**A spec da rodada ja esta no disco quando eu pergunto, logo ela INFLA a contagem
+da propria origem dela.** Medido: com a `s091` no disco o `POBNoY16wG8` sobe de
+**4 para 5** usos, deixa de ser o minimo UNICO do canal, cai num empate de DEZ
+origens, e o desempate pela reserva devolve **`KRUERlNPzDw` (81 de 84
+intocados)** — isto e, **o instrumento nao reproduzia a escolha que eu acabara de
+fazer**, e a culpa era dele.
+
+**O `exceto` foi ao DONO** (`concentracao.contagem`), nao reimplementado no
+modulo novo: filtrar o disco ali seria o segundo leitor, a assinatura que
+congelou a legenda. **E a razao e precedente, nao invencao:** o
+`variedade._especs_do_canal` carrega o mesmo parametro pelo mesmo motivo desde
+antes. Com ele, o instrumento devolve **`POBNoY16wG8`, 4 usos, 42 de 64
+intocados** — exatamente a escolha desta rodada.
+
+`tests/test_a_pauta_era_a_QUARTA_pergunta_sem_dono.py`, doze testes: a varredura
+**reprova com menos de 10 origens** (vacuidade), um **reproduz a escolha feita a
+mao**, um cobra o `exceto` nos **DOIS** sentidos e **falha se a escolha parar de
+mudar** sem ele (ai o defeito medido desapareceu e esta nota se rele), a REGRA e
+cobrada como **propriedade sobre o disco** e nao por id cravado (743/753/761), a
+**RECUSA** tem teste proprio (canal fora do disco nao inventa escolha e aponta a
+regra (h)), a suspeita e cobrada **NOMEADA e nao filtrada** com o caso medido do
+`QiaGg03WSR0`, a frase do mapa tem **UM dono** por AST, as quatro delegacoes sao
+cobradas por **AST** com `glob`/`listdir`/`open` **proibidos** no corpo, um exige
+que o `irmaos_da_origem` apareca no RELATO (import sem chamada e a classe dos
+layouts mortos), e um cobra que o motivo continue escrito nos **dois** modulos.
+**Contraprova:** desligado o `exceto` no dono, **dois dos doze** falham.
+
+    python3 fabrica/pauta_do_momento.py <canal> [pacote-da-rodada]
+
+### A PECA DESSA RODADA — SEIS cenas, e os dois mundos CABEM na mira
+
+`labtreinamento-s091` = **`R2pHemUKc0g`**, publicado as 08:13:52Z (run
+`39391872528`), **ONZE PORTOES VERDES NA PRIMEIRA TENTATIVA** — e o
+`antes_do_render` rodou os dez baratos mais os quatro instrumentos de redacao em
+**1,06 s**, todos limpos. Provedor **edge MEDIDO** (zero avisos
+`NARRACAO PELO PIPER` no job `118524197854`), som **-14,3** LUFS, LRA 1,9, pico
+-3,6, desvio -0,3, **zero silencios**. Previsao edge **25,0** / piper **20,5** —
+os **DOIS** dentro da mira medida do canal (20,0 a 26,0).
+
+**E ESTA E A PRIMEIRA PECA ESCRITA DEPOIS DO CONSERTO DAS 07:4x, e ele mudou a
+DECISAO e nao apenas o relato:**
+
+| cenas | cadencia | por que |
+|---|---|---|
+| 7 | **3,29 s** (a melhor) | RECUSADO por REPETICAO — a `s089` tem sete |
+| 8 | 2,88 s | RECUSADO por REPETICAO — a `s090` tem oito |
+| 9, 10, 11 | 2,56 a 2,09 s | RECUSADOS pela FOLGA: o PISO da mira **nao e alcancavel** (19, 15 e 12 caracteres contra o piso OBSERVADO de 21) |
+| **6** | **3,83 s** | escolhido, orcamento 38 no piso, folga **+17** |
+
+A chave ANTIGA devolvia **NOVE** — a contagem cujo piso o proprio modulo declara
+inalcancavel.
+
+**E A PINCA DO 740/748 NAO ESTA FECHADA AQUI, o que e raro:** com seis cenas o
+`mira.janela_dos_dois_mundos` devolve **51 a 55** caracteres por cena, isto e,
+existe orcamento que poe o edge **e** o piper dentro da mira deste canal. Escrita
+com media **52,2**, a peca nao precisou declarar exposicao de mundo nenhum.
+**Nos outros dois canais isso nao existe em contagem alguma**, porque o
+`ALVO_SHORT` da frota tem 1,5 s de largura contra um vao de ~6 s entre os
+provedores.
+
+**ESQUELETO `titulo-lista-item-barras-item-cta`, inedito nas CINCO formas de seis
+cenas da frota** — nenhuma delas usa `lista`. Todo layout saiu do conjunto
+**SONDADO**, com `assert` no builder.
+
+**PAUTA:** `POBNoY16wG8` (`labtreinamento-014`), a origem de **MENOR** contagem
+do canal (4 de 90) com **42 dos 64 capitulos NAO MENCIONADOS**. A dominante
+`FtCtIJPsc_Q` ficou de fora **com a contagem na mao e SEM alerta** — 13 contra 10
+da segunda.
+
+**SEXTA FAMILIA DESTE MESMO LONGO, e a primeira que fala da PROCEDENCIA do
+dado** (capitulos 7, 24 e 26 a 30): o numero **nao se estima**, ele sai de tres
+documentos que ja estao na mesa — a presenca da o de cima, a movimentacao da o de
+baixo (e as datas dela resolvem as quatro situacoes), e a descricao da **FUNCAO**
+diz quem precisava, nao o cargo no organograma. **E o erro que mais infla e
+trocar concluintes por inscritos:** a divisao fecha, o numero sai redondo, e
+aviso nao existe. As cinco familias anteriores falam do que o denominador
+SIGNIFICA, da janela, da comparacao de fora, da meta redonda e da regra trocada
+no meio — **nenhuma diz de ONDE o numero sai**, e quem me deu essa lista foi o
+`irmaos_da_origem`, nao a minha leitura.
+
+**ZERO numero novo sobre o mundo:** o unico falado e "tres", a contagem das
+PROPRIAS fontes, que o capitulo 26 da origem escreve em letra. Prazo de norma,
+percentual de meta e quantidade ficaram FORA pela regra (g); as barras (9 e 6)
+sao ilustracao e **nao** sao faladas.
+
+**E NAO EXISTE PONTO DE RESIDUO, pelo modo `sem_egresso` na DECIMA rodada
+seguida:** o host NEUTRO devolveu **zero byte** na MESMA chamada que a peca e o
+controle `OhrGlJvnBoM`. A peca esta PARQUEADA com o provedor MEDIDO (o parque tem
+**dez** sem leitura) e `RESIDUO_N` segue **128**.
+
+**A LEITURA DE INSCRITOS FOI RECUSADA PELA DECIMA SETIMA RODADA SEGUIDA:**
+22,0 h, piso de resolucao 1,09/dia, faltam **4,8 h** para o criterio do 723 — e
+este e o caso em que a versao antiga de mim leria, porque a regra H passou com
+muita folga.
+
+**COTA: DOIS envios na janela que abriu as 07:00Z**, 3.200 unidades, contra o
+piso MEDIDO de **>= 41.600** que a janela anterior fechou.
+
 ## O `pgrep -f` CASAVA A PROPRIA LINHA DE COMANDO — e eu disse "VIVO" tres vezes
 
 **Medido em 20/10 as 01:4x, e e o ESPELHO EXATO do defeito de 19/10 as 16:2x,
