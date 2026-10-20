@@ -4058,6 +4058,92 @@ de resolucao 2,0/dia, faltam **14,8 h** para o criterio do 723. **COTA:**
 dezenove envios na janela de 07:00Z, **30.400** unidades contra o piso MEDIDO de
 **>= 40.000**.
 
+## O `pgrep -f` CASAVA A PROPRIA LINHA DE COMANDO — e eu disse "VIVO" tres vezes
+
+**Medido em 20/10 as 01:4x, e e o ESPELHO EXATO do defeito de 19/10 as 16:2x,
+cometido DENTRO do conserto dele.**
+
+Ontem eu declarei morta uma suite que estava viva, porque li o arquivo que ela
+ainda nao tinha terminado de escrever, e a regra que eu escrevi aqui foi:
+*"antes de dizer que uma execucao morreu, pergunte ao SISTEMA se o processo
+existe"*, com o discriminador `pgrep -fa pytest`. **Hoje eu perguntei ao
+sistema exactamente assim e ele respondeu com a MINHA PROPRIA PERGUNTA.**
+
+O `-f` casa a linha de comando INTEIRA, e o laco de espera que eu montei era
+
+    until ! pgrep -f "pytest tests" > /dev/null; do sleep 20; done
+
+cuja propria linha de comando contem o texto `pytest tests`. **Logo o laco
+casa a si mesmo e nunca sai**, e cada consulta minha devolvia os PIDs dos
+lacos de espera. Medido: **quatro PIDs, nenhum deles python**, e a suite havia
+terminado havia minutos. **Eu reportei ao dono "VIVO, 54%" e "VIVO, 100%" com
+a execucao encerrada**, e tres monitores ficaram presos num laco infinito.
+
+**O par das tres rodadas e a licao, nao cada uma:**
+
+| | |
+|---|---|
+| 17/10 | instrumento que devolve **VAZIO** nao prova ausencia (o grep dos inscritos) |
+| 19/10 | arquivo que devolve **VAZIO** nao prova morte (o `.norm` a meio de escrever) |
+| **20/10** | **instrumento que devolve CHEIO nao prova presenca** (o `pgrep` se vendo) |
+
+**A terceira e a mais cara de nao ver, porque VAZIO me deixa desconfiado e
+CHEIO me deixa tranquilo.**
+
+**O DISCRIMINADOR e de uma linha: processo de pytest e processo cujo
+EXECUTAVEL e python.** Laco de espera, `pgrep`, `grep` e shell nao sao. Logo a
+pergunta deixa de ser *"existe linha de comando com este texto"* e passa a ser
+*"existe processo cujo `comm` e python E cujos argumentos tem este texto"*, com
+o PID da propria chamada fora por construcao.
+
+### E O TESTE ACHOU UM SEGUNDO DEFEITO, da mesma familia, no conserto do primeiro
+
+**O `ps` TRUNCA a coluna `args` na largura do terminal, e sob pytest nao ha
+tty.** A primeira versao do modulo lia `ps -eo pid=,comm=,args=` e o teste
+reprovou **com o processo VIVO na frente dele**: o corte caiu em **58
+caracteres** e a marca morava depois dele —
+
+    "/usr/local/bin/python3 -c import time; _ = 'MARCA_DBG_SOB_"
+
+Logo *"o padrao nao casou"* nao significava *"o processo nao existe"*,
+significava *"a leitura foi cortada"*. **E o 17/10 outra vez, dentro do
+conserto do 20/10.** O `ps -ww` resolveria o corte; o `/proc/<pid>/cmdline`
+**nao TEM largura**, e e a fonte de onde o proprio `ps` le — e e dela que o
+modulo passou a ler.
+
+**NAO E PORTAO** e nao tem o que reprovar: isto responde uma pergunta sobre o
+SISTEMA, nao sobre uma peca. `fabrica/processo_vivo.py` (`candidatos`,
+`espelhos`, `vivo`, `relato`), e o codigo de saida e **0 se vivo, 1 se nao**,
+porque ele existe para morar dentro de um `until`:
+
+    until python3 fabrica/processo_vivo.py "pytest tests"; do sleep 20; done
+
+E ele **NOMEIA o espelho** em vez de so o descartar (`espelhos`), porque foi
+vendo quatro PIDs de shell que eu descobri o engano — esconde-los faria a
+rodada seguinte repetir o `pgrep`.
+
+`tests/test_o_pgrep_casava_a_PROPRIA_linha_de_comando.py`, onze testes: um
+poe um python de verdade e exige **VIVO**, um poe um **laco de shell que cita
+o padrao na propria linha** e exige **NAO vivo**, um chama o `pgrep` CRU e
+**reprova se ele parar de errar** (sem isso *"o pgrep errava"* seria afirmacao
+minha e nao medida), um exige que a propria chamada saia fora, um mede o
+**TRUNCAMENTO** — a fixture empurra a marca para depois de 60 caracteres de
+proposito, senao o teste passa sem medir nada —, a fonte e cobrada por **AST**
+(e `subprocess.run` dentro do `_tabela` **reprova**, porque o modulo CITA o
+`ps` na prosa que explica o defeito), a lista do que NAO e o processo e cobrada
+como **PROPRIEDADE** (shells e buscas, nunca o nome do que eu espero — 743/
+753/761), e um **falha se o motivo sair do modulo**. **Contraprova nos dois
+sentidos:** voltando ao `ps`, cinco dos onze falham; tirado o filtro do
+executavel, dois falham.
+
+**E A SUITE DAQUELA RODADA FECHOU EM 25 FALHAS, 3.175 passam, 1.003 skip em
+401 s** — conjunto **IDENTICO** a linha de base desta sessao, `comm` vazio nos
+**dois** sentidos. Os treze testes do esqueleto entre canais entraram **sem
+custo de tempo** (401 s contra 411 s da rodada anterior), porque o arquivo nao
+renderiza. **E eu comitei a peca ANTES de ter esse numero, dizendo na mensagem
+que ele estava faltando** em vez de o afirmar — que e o que esta nota torna
+desnecessario na rodada seguinte.
+
 ## O ESQUELETO ATRAVESSA CANAL, E O PORTAO COMPARA DENTRO DE UM
 
 **Medido em 20/10 as 01:3x, e a pergunta que o instrumento responde e
