@@ -4745,6 +4745,114 @@ parque tem **nove** sem leitura) e `RESIDUO_N` segue **128**.
 fechou. O numero sai do `janela_de_cota`, e contado a mao com a data de hoje
 daria o mesmo por acidente de hora, que e o erro de 23:3x.
 
+## O `exceto` TINHA DUAS CONVENCOES, E ERRAR A CONVENCAO CALAVA
+
+**Medido em 20/10 as 11:3x, escrevendo o `labtreinamento-s092`.** Cinco funcoes
+da fabrica aceitam `exceto` — a peca da PROPRIA rodada, que ja esta no disco
+quando eu pergunto — e elas se dividiam em DUAS convencoes incompativeis:
+
+| funcao | queria |
+|---|---|
+| `concentracao.contagem` | **PACOTE**, porque ela montava `"%s.json" % exceto` |
+| `pauta_do_momento.quadro/escolha/relato` | **PACOTE**, por delegar ao de cima |
+| `esqueleto_entre_canais.novidade` | **ARQUIVO** (`...-s092.json`) |
+| `contagem_de_cenas.contagens_da_frota` | **ARQUIVO** |
+| `variedade._especs_do_canal` | **ARQUIVO** — e este e PORTAO |
+
+**E errar falhava em SILENCIO, nos DOIS sentidos — medido com a MESMA string nas
+duas chamadas da MESMA rodada:**
+
+| chamada | `exceto` = PACOTE | `exceto` = ARQUIVO |
+|---|---|---|
+| `EC.novidade` | `forma_inedita: False`, **1 exemplar** | `True`, **0** |
+| `CC.contagem` | origem com **5** usos | **6** |
+
+**Logo a string CERTA para uma e a ERRADA para a outra**, e as duas respondem as
+duas perguntas da MESMA decisao da rodada: qual origem e qual esqueleto. Nenhuma
+levanta — `exceto` que nao casa simplesmente nao filtra nada.
+
+**O CUSTO FOI MEDIDO NESTA RODADA, e ele e de RELATO:** eu passei o PACOTE ao
+`EC.novidade`, ele devolveu `forma_inedita: False` com **1 exemplar** para uma
+forma que a frota NAO tem, e eu ia escrever isso na copy. So peguei porque fui
+conferir a chave `arquivo` por outro motivo. **E a falha e PERMISSIVA no sentido
+pior:** com a spec no disco e o `exceto` errado, `forma_inedita` **nao pode ser
+True nunca** — a unica pergunta que a funcao existe para responder no momento de
+escolher fica respondida com NAO, sempre.
+
+**E a classe e a de sempre com uma cara nova:** o defeito de DOIS DONOS que
+congelou a legenda era a mesma regra escrita em dois lugares; aqui e o **mesmo
+NOME de parametro com dois SIGNIFICADOS** em modulos irmaos, e o irmao certo
+muda de chamada para chamada.
+
+**Consertado com UM dono: `fabrica/nome_da_spec.py`** (`pacote`, `arquivo`,
+`casa`), e os quatro pontos de comparacao passaram a delegar. **Ele NAO migra as
+convencoes para uma so**, de proposito: trocar a do `variedade` mexeria em PORTAO
+por conveniencia de chamada, que e o avesso do trabalho. O que muda e que as duas
+formas passam a ser aceitas pelas cinco.
+
+`tests/test_o_exceto_tinha_DUAS_convencoes_e_errar_calava.py`, onze testes: a
+varredura sai do DISCO e **reprova com menos de 200 pecas**, a peca de prova e
+**DERIVADA** (a unica do disco que e o unico exemplar da propria forma — nomear
+a `s092` seria identidade onde ha propriedade, 743/753/761), um **reprova se um
+dos cinco perder o `exceto`**, a concordancia e cobrada nos **tres** instrumentos
+(esqueleto, contagem de pauta e o PORTAO), a contraprova vai nos **dois**
+sentidos — `exceto` vazio e `exceto` de peca inexistente nao filtram nada, senao
+bastaria `casa` devolver sempre True para tudo "concordar" —, a conversao tem UM
+dono cobrado por **AST** (o modulo CITA a forma antiga na prosa que explica o
+defeito, e casar prosa pegaria a explicacao), e um **falha se o motivo sair do
+modulo**. **Contraprova:** desligada a normalizacao, **dois dos onze** falham.
+
+### A PECA DESSA RODADA — SETE cenas, e os DOIS mundos dentro da mira
+
+`labtreinamento-s092` = **`9HmueHfQ1q0`**, publicado as 11:19:38Z (run
+`39414116788`), **ONZE PORTOES VERDES NA PRIMEIRA TENTATIVA** (7,8 s) — e o
+`antes_do_render` pegou os **dois** defeitos antes do render, em 0,7 s: titulo
+com 106 chars contra o limite de 100, e `## TAGS` quebrado em quatro linhas
+saindo como *"sem tags"* — **o MESMO defeito da rodada do `epomeno-epipedo-s072`,
+agora pego antes de renderizar.** Provedor **edge MEDIDO** (zero avisos
+`NARRACAO PELO PIPER` no job `118597517845`), som **-14,2** LUFS, LRA 1,5, pico
+-4,0, desvio -0,2, **zero silencios**.
+
+**PREVISAO edge 25,63 / piper 21,04 — os DOIS dentro da mira medida do canal**
+(20,0 a 26,0). O orcamento saiu do `mira.janela_dos_dois_mundos`: **41 a 44**
+caracteres por cena, a janela mais larga de todas as contagens deste canal, e a
+peca foi escrita com media **43,7**. **Este canal e o unico da frota em que a
+pinca do 740/748 nao esta fechada** — nos outros dois o `ALVO_SHORT` tem 1,5 s de
+largura contra um vao de ~6 s entre os provedores.
+
+**A CONTAGEM saiu da chave `por_cadencia_servivel`:** cabe no teto MEDIDO da voz
+(11), nao repete tamanho recente (as duas ultimas do canal tem 6 e 8 cenas) e
+alcanca o piso com folga (+9). As contagens **9, 10 e 11** sairam NOMEADAS e nao
+filtradas, porque nelas o PISO da faixa nao e alcancavel com texto legivel.
+**ESQUELETO `titulo-item-barras-lista-item-titulo-cta`, inedito nas 128 formas
+da frota** — a frota tem apenas TRES formas de sete cenas e esta nao e nenhuma
+delas. Todo layout saiu do conjunto **SONDADO**, com `assert` no builder.
+
+**PAUTA:** `KRUERlNPzDw` (`labtreinamento-003`), 5 usos empatados com nove outras
+origens e desempatada pela MAIOR reserva — **81 dos 84 capitulos NAO
+MENCIONADOS**. A dominante `FtCtIJPsc_Q` ficou de fora com a contagem na mao e
+SEM alerta. **FAMILIA: ORDENAR A FILA PELA LACUNA SOZINHA, SEM O MULTIPLICADOR**
+(capitulos 38 a 48) — a lacuna e cinco menos a nota, logo duas linhas de nota
+dois dao lacuna tres e ficam lado a lado na ordenacao, quando uma pede ajuste
+local e a outra pega o sistema inteiro. O que as separa e o PESO, de um a tres
+pelo alcance, e a prioridade e lacuna vezes peso. **E o efeito e o oposto do que
+se espera de uma coluna a mais: a fila ENCOLHE**, porque ordenada pela lacuna
+sozinha toda linha parece urgente. **E a SEXTA familia desta origem**, conferidas
+uma a uma pelo `irmaos_da_origem` e nao pela minha leitura — e **nenhuma das
+cinco anteriores fala de ORDEM**; tres delas nao tem o campo
+`## FAMILIA DE ENTRADA ERRADA`, logo a comparacao foi pela PROSA (776).
+
+**NAO EXISTE PONTO DE RESIDUO, e `sem_egresso` esta MEDIDO com o controle de
+escrita:** o `touch` passou (`escrita OK`) e os tres hosts — a peca, o controle
+`OhrGlJvnBoM` e o NEUTRO — voltaram **000 sem arquivo**. A peca esta PARQUEADA
+pelo `do_registro` (o parque tem **treze** sem leitura) e `RESIDUO_N` segue
+**128**.
+
+**A LEITURA DE INSCRITOS FOI RECUSADA PELA VIGESIMA RODADA SEGUIDA:** 25,05 h,
+piso de resolucao 0,96/dia, **faltam 1,8 h** para o criterio do 723 — isto e, a
+primeira leitura que vale cai perto das **13:00Z**. **COTA: CINCO** envios na
+janela aberta as 07:00Z, 8.000 unidades, contra o piso MEDIDO de **>= 41.600**.
+
 ## O MAPA DE DONO MEDIDO VIVIA SO EM PROSA — e ele DECIDIU a pauta desta rodada
 
 **Medido em 20/10 as 10:1x, e e a primeira vez que um achado destes muda a PECA e

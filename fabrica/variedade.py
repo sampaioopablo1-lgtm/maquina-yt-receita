@@ -84,6 +84,10 @@ import glob
 import json
 import os
 import re
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import nome_da_spec as NS   # noqa: E402  — UM dono do nome da spec
 
 # Fim de frase nas tres linguas da frota. O grego usa `;` como interrogacao e
 # `;` (EROTIMATIKO) existe em texto antigo — ja me enganei uma vez com um
@@ -125,7 +129,7 @@ def _todas(raiz: str) -> list[tuple[str, dict]]:
 
 def _especs_do_canal(raiz: str, slug: str, exceto: str) -> list[dict]:
     return [d for nome, d in _todas(raiz)
-            if nome != exceto and d.get("slug") == slug
+            if not NS.casa(nome, exceto) and d.get("slug") == slug
             and d.get("short") and not d.get("longo")]
 
 

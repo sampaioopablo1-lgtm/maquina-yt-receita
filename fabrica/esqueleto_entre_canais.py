@@ -57,6 +57,7 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import nome_da_spec as NS   # noqa: E402  — UM dono do nome da spec
 import variedade as V  # noqa: E402  — DONO da assinatura do esqueleto
 
 DIR_SPECS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "specs")
@@ -179,7 +180,7 @@ def novidade(esq: str, cenas: int, pecas: list[dict] = None,
     """
     pecas = pecas if pecas is not None else varre()
     if exceto:
-        pecas = [p for p in pecas if p["arquivo"] != exceto]
+        pecas = [p for p in pecas if not NS.casa(p["arquivo"], exceto)]
     q = quadro(pecas)
     iguais = q["contagem_da_forma"].get(esq, 0)
     canais = q["canais_da_forma"].get(esq, [])

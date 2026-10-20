@@ -76,6 +76,9 @@ import json
 import os
 import sys
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import nome_da_spec as NS   # noqa: E402  — UM dono do nome da spec
+
 RAIZ = os.path.dirname(__file__)
 
 
@@ -91,7 +94,7 @@ def contagem(canal: str, raiz: str = None, exceto: str = "") -> dict[str, int]:
     base = raiz or os.path.join(RAIZ, "specs")
     c: collections.Counter = collections.Counter()
     for f in glob.glob(os.path.join(base, f"{canal}-s*.json")):
-        if exceto and os.path.basename(f) == "%s.json" % exceto:
+        if NS.casa(f, exceto):
             continue
         with open(f, encoding="utf-8") as fh:
             o = json.load(fh).get("longo_existente")

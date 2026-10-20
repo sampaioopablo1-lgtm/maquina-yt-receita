@@ -178,7 +178,8 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import ensaio   # noqa: E402  — DONO da duracao e do orcamento de caracteres
 import mira     # noqa: E402  — DONO da janela dos dois mundos
-import esqueleto_entre_canais as EC   # noqa: E402  — DONO das contagens da frota
+import esqueleto_entre_canais as EC
+import nome_da_spec as NS   # noqa: E402  — UM dono do nome da spec
 import duracao_a_medir as DM         # noqa: E402  — DONO do parque de publicadas
 import canal as CA                   # noqa: E402  — DONO da derivacao do canal
 
@@ -424,7 +425,7 @@ def contagens_da_frota(exceto: str = "") -> dict:
     """
     pecas = EC.varre()
     if exceto:
-        pecas = [p for p in pecas if p["arquivo"] != exceto]
+        pecas = [p for p in pecas if not NS.casa(p["arquivo"], exceto)]
     return EC.quadro(pecas)["por_contagem_de_cena"]
 
 
