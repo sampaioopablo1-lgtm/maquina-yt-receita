@@ -1,0 +1,124 @@
+{
+ "slug": "epomeno-epipedo-s074",
+ "pacote": "epomeno-epipedo-s074",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "longo_existente": "wUHuwyO2HYo",
+ "longo": [],
+ "thumb": {
+  "l1": "Το πάγιο",
+  "l2": "δεν πολλαπλασιάζεται"
+ },
+ "paleta": {
+  "bg": "#F4EFE6",
+  "ink": "#1B1A17",
+  "c1": "#C8502A",
+  "c2": "#2B6CB0",
+  "red": "#B83227",
+  "ok": "#2E8B57",
+  "panel": "#FFFFFF",
+  "mut": "#7A7263",
+  "acc": "#C8502A"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Δεν μπαίνουν όλα",
+   "sub": "στον πολλαπλασιασμό",
+   "nar": "Δεν μπαίνουν όλα στον πολλαπλασιασμό."
+  },
+  {
+   "layout": "item",
+   "kicker": "Η πράξη",
+   "nar": "Πολλαπλασιάζεις τιμή επί κιλοβατώρες."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Ο λογαριασμός όμως",
+   "barras": [
+    {
+     "rotulo": "Επί κιλοβατώρες",
+     "valor": 70
+    },
+    {
+     "rotulo": "Σταθερό ποσό",
+     "valor": 15
+    },
+    {
+     "rotulo": "Κοινές χρεώσεις",
+     "valor": 15
+    }
+   ],
+   "nar": "Ο λογαριασμός έχει κι άλλες γραμμές."
+  },
+  {
+   "layout": "item",
+   "kicker": "Το πάγιο",
+   "nar": "Το πάγιο δεν εξαρτάται από αυτές."
+  },
+  {
+   "layout": "item",
+   "kicker": "Άρα",
+   "nar": "Άρα δεν μπαίνει στον πολλαπλασιασμό."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Πώς το χειρίζεσαι",
+   "itens": [
+    "Κάνε πρώτα την πράξη",
+    "Πρόσθεσε το πάγιο μετά",
+    "Ένα νούμερο κάθε πλευρά"
+   ],
+   "nar": "Πρόσθεσέ το χωριστά, μετά την πράξη."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Δύο είδη γραμμών",
+   "sub": "και είναι αντίθετα",
+   "nar": "Οι γραμμές που μένουν έξω είναι δύο ειδών."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Το δεύτερο είδος",
+   "barras": [
+    {
+     "rotulo": "Πάροχος Α",
+     "valor": 60
+    },
+    {
+     "rotulo": "Πάροχος Β",
+     "valor": 60
+    }
+   ],
+   "nar": "Οι ρυθμιζόμενες είναι ίδιες παντού."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ανεξάρτητα από πάροχο",
+   "nar": "Δεν αλλάζουν αν αλλάξεις πάροχο."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Γιατί δεν χαλάνε",
+   "itens": [
+    "Μπαίνουν και στις δύο",
+    "Είναι το ίδιο ποσό",
+    "Φεύγουν μόνες στη διαφορά"
+   ],
+   "nar": "Μπαίνουν και στις δύο πλευρές της πράξης."
+  },
+  {
+   "layout": "item",
+   "kicker": "Άρα το αντίθετο",
+   "nar": "Το ένα το προσθέτεις, το άλλο όχι."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Πιάσε τον λογαριασμό",
+   "sub": "ξεχώρισε τις γραμμές",
+   "nar": "Ξεχώρισε τις γραμμές πριν την πράξη."
+  }
+ ],
+ "copy": "# epomeno-epipedo-s074\n\n## TITULO\nΤο Πάγιο Δεν Πολλαπλασιάζεται: Ποιες Γραμμές Του Λογαριασμού Μένουν Έξω Από Την Πράξη\n\n## TITULO SHORT\nΤο πάγιο δεν πολλαπλασιάζεται\n\n## DESCRICAO\nΗ σύγκριση τιμολογίων ρεύματος ξεκινά με έναν πολλαπλασιασμό: τιμή επί κιλοβατώρες. **Το λάθος που κάνει την πράξη επικίνδυνη δεν είναι ο πολλαπλασιασμός — είναι να μπουν μέσα του γραμμές που δεν ανήκουν εκεί.**\n\nΟ λογαριασμός δεν έχει μία μόνο χρέωση. Έχει τη μεταβλητή χρέωση, που πράγματι εξαρτάται από τις κιλοβατώρες, και έχει γραμμές που δεν εξαρτώνται καθόλου από αυτές. **Η πρώτη τέτοια γραμμή είναι το πάγιο: είναι σταθερό ποσό, άρα δεν πολλαπλασιάζεται.** Το χειρίζεσαι απλά: κάνε πρώτα τον πολλαπλασιασμό, και πρόσθεσε το πάγιο του καθενός μετά, χωριστά. Ένα νούμερο σε κάθε πλευρά.\n\n**Υπάρχει όμως και δεύτερο είδος γραμμής, και συμπεριφέρεται αντίθετα.** Οι χρεώσεις δικτύου και οι λοιπές ρυθμιζόμενες χρεώσεις είναι ίδιες ανεξάρτητα από πάροχο: δεν αλλάζουν αν αλλάξεις τιμολόγιο. Ακριβώς γι' αυτό δεν χαλάνε τη σύγκριση — μπαίνουν και στις δύο πλευρές με το ίδιο ποσό και φεύγουν μόνες τους στη διαφορά. **Το ένα είδος το προσθέτεις, το άλλο δεν χρειάζεται καν να μπει.** Το να τα μπερδέψεις είναι το σημείο όπου η αριθμητική σταματά να περιγράφει την απόφαση.\n\n**Τι αξίζει να κάνεις σήμερα, και δεν κοστίζει τίποτα:** άνοιξε έναν λογαριασμό και ξεχώρισε τις γραμμές σε δύο στήλες πριν κάνεις οποιαδήποτε πράξη — ποιες εξαρτώνται από τις κιλοβατώρες και ποιες όχι. Η πράξη μετά γίνεται μόνη της.\n\nΔεν δίνω εδώ τιμές, ποσά σε ευρώ, ποσοστά ούτε ύψος παγίου. Αυτά αλλάζουν ανά τιμολόγιο και ανά δημοσίευση και μένουν έξω. Η δομή είναι το θέμα, και δεν εξαρτάται από κανένα νούμερο: κάποιες γραμμές πολλαπλασιάζονται, κάποιες προστίθενται, και κάποιες αλληλοεξουδετερώνονται.\n\n## COMENTARIO FIXADO\nΤο λιγότερο προφανές: οι ρυθμιζόμενες χρεώσεις δεν είναι εμπόδιο στη σύγκριση, είναι το μέρος που φεύγει μόνο του. Εσύ ξεχώρισες ποτέ τις γραμμές σε δύο στήλες;\n\n## FAMILIA DE ENTRADA ERRADA\nΒάζω στον ΙΔΙΟ πολλαπλασιασμό γραμμές του λογαριασμού που δεν εξαρτώνται από τις κιλοβατώρες — και φοβάμαι τις ρυθμιζόμενες χρεώσεις σαν να χαλούν τη σύγκριση. Οι δύο γραμμές είναι τυπωμένες και οι δύο είναι σωστές; το σφάλμα είναι ο ΤΡΟΠΟΣ που μπαίνουν στην πράξη: το πάγιο μπαίνει ως ΠΡΟΣΘΕΣΗ και οι κοινές χρεώσεις δεν χρειάζεται να μπουν καθόλου.\nDistincao dos tres irmaos desta origem: o s014 e o s022 sao os dois sobre a UNIDADE do numero (euro contra quilowatt-hora), e o s039 e sobre o PRAZO DE VALIDADE do proprio numero (tarifa de introducao contra tarifa de contrato). Aqui a unidade esta certa e o prazo nao entra: o que difere e QUAIS LINHAS entram na pratica, e com que operacao.\n\n## HASHTAGS\n#ρεύμα #λογαριασμόςρεύματος #πάγιο #epomenoepipedo #Shorts\n\n## TAGS\nπαγιο, λογαριασμος ρευματος, ρυθμιζομενες χρεωσεις, χρεωσεις δικτυου, συγκριση τιμολογιων, κιλοβατωρες, τιμολογιο ρευματος, παροχος ρευματος, οικονομικα, προσωπικα οικονομικα, επομενο επιπεδο, πως διαβαζεται, μεταβλητη χρεωση, αλλαγη παροχου, ενεργεια\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao, e ela nao fala numero nenhum. Os\nvalores das barras sao ILUSTRACAO da ESTRUTURA do documento — a cena 2 mostra que\na conta tem mais de uma especie de linha (70/15/15) e a cena 7 mostra as duas\ncolunas IGUAIS (60/60), que e o argumento inteiro do segundo tipo — e **nao sao\nmedicao de conta nenhuma**; nao sao faladas e os rotulos nao citam norma.\n**Ficaram FORA pela regra (g), e sao QUATRO:** a tarifa por quilowatt-hora, o\nvalor do pagio, as taxas reguladas em euros e qualquer percentual. Os quatro\nmudam por tarifario e por publicacao — e a propria origem escreve o mesmo motivo\nno capitulo 6: *\"nao vou te dizer qual e a melhor, porque depende do teu proprio\nconsumo\"*.\n\n## FONTES\nA spec local `epomeno-epipedo-012`, que e o pacote do longo `wUHuwyO2HYo` deste\ncanal. A familia sai dos capitulos 56 a 62: *\"agora a parte dificil, e digo-a\nporque sem ela a conta fica perigosa\"*, *\"primeiro, o pagio: e uma cobranca fixa\nque nao depende dos quilowatts-hora, logo nao entra no multiplicador\"*,\n*\"trata-se simples: soma o pagio de cada um separadamente, DEPOIS de fazer a\nmultiplicacao — um numero em cada lado\"*, *\"terceiro, ha encargos de rede e\noutros encargos regulados que sao iguais independentemente do fornecedor\"* e\n*\"esses nao estragam a comparacao justamente porque sao comuns: entram nos dois\nlados e eliminam-se sozinhos na diferenca\"*. Nenhuma frase saiu de TITULO de\ncapitulo.\n\n**A ORIGEM E A DE MAIOR RESERVA ENTRE AS DE MENOR CONTAGEM, com os numeros na\nmao:** o `pauta_do_momento.py` — o instrumento escrito na rodada anterior — deu\nNOVE origens empatadas em **3 de 73** shorts, e o\n`segundo_angulo.nao_mencionados` desempatou: `wUHuwyO2HYo` tem **72 capitulos\nnao mencionados de 90**, a maior reserva do canal (as seguintes ficam em 63 e\n63). **E a dominante ficou de fora COM O ALERTA DISPARADO:** `nttW9fR8wyY`\ncarrega **12 de 73** (16%), mais que o dobro da segunda — e concentracao de\norigem ataca justamente o portao `similaridade`, que e de monetizacao.\n\n**E A FAMILIA NAO TOCA NENHUMA DAS TRES DESTA ORIGEM, e a lista saiu do\n`irmaos_da_origem` e nao da minha leitura:** o `s014` e o `s022` sao os dois\nsobre a UNIDADE do numero (euro contra quilowatt-hora) e o `s039` sobre o PRAZO\nde validade da tarifa de introducao. **Os capitulos 56 a 62 — o que a pratica NAO\ncaptura — nunca foram usados.** E os dois irmaos antigos NAO tem o campo\n`## FAMILIA DE ENTRADA ERRADA`: a familia deles saiu da PROSA, que e o aviso que\no instrumento imprime, e e por isso que esta peca leva o campo.\n\n## EXPOSICAO\n**DOZE CENAS, e as tres recusas vao escritas porque nenhuma foi minha.** O\n`contagem_de_cenas.py` ordenou e os tres filtros falaram sozinhos:\n\n    14 (teto medido da voz) -> melhor cadencia 3,02 s, RECUSADA por REPETICAO:\n                               a `s072` deste canal tem catorze\n    13                      -> RECUSADA por REPETICAO: a `s073`, a peca anterior\n    15 (inedita na frota)   -> RECUSADA pela FOLGA: orcamento de 22 caracteres\n                               por cena, a DOIS do piso OBSERVADO de 21\n    12                      -> escolhida, orcamento 36 no piso, folga +15\n\n**A chave que decidiu foi a `por_cadencia_servivel`, de 07:4x**, que aplica os\ntres ao mesmo tempo; a antiga teria devolvido o catorze, que repete.\n\n**ESQUELETO `titulo-item-barras-item-item-lista-titulo-barras-item-lista-item-cta`,\ninedito nas 126 formas da frota** — numero do `esqueleto_entre_canais`, nao de um\nlaco escrito na hora. As duas unicas pecas de doze cenas que existem\n(`epomeno-epipedo-s071` e `kolejny-poziom-s073`) tem outras sequencias. **Com\n`barras` DUAS vezes e as duas carregando argumento**: a cena 2 mostra que a conta\ntem mais de uma especie de linha, a cena 7 mostra as duas colunas IGUAIS, que e o\nargumento do segundo tipo.\n\n**TODO LAYOUT SAIU DO CONJUNTO SONDADO**, com `assert` no builder — o\n`layouts_do_short.desenham()` sonda o proprio render e devolve `barras`, `cta`,\n`item`, `lista` e `titulo`. O `numero`, que pos um cartao em branco no ar as\n18:18Z de 19/10, continua fora.\n\n**O ORCAMENTO SAIU DO INSTRUMENTO E A PINCA VAI DECLARADA:** para doze cenas o\n`mira.chars_no_alvo` pede **36 caracteres por cena** para o PISO da faixa, e a\npeca foi escrita com media **36,2** — previsao edge **41,55**, isto e 0,05 acima\ndo piso, pela regra de redacao do 772. E **NENHUMA** contagem de cena de 2 a 20\npoe os dois mundos dentro de 41,5 a 43,0 nesta voz: a razao piper/edge e 0,886 e\no vao vale ~4,7 s contra 1,5 s de faixa, logo o piper sai em **36,81**, FORA pelo\npiso. Aqui nao se escolhe contagem pela janela — declara-se a exposicao, que e a\npinca do 740/748 e segue na fila do dono.\n\n**E nao digo de que lado o real vai cair:** a banda esta em (−1,2; 4,0), isto e\n5,2 s de largura contra 1 s de granularidade, e declarar um lado de uma banda que\ncobre a faixa inteira nao e previsao (774).\n"
+}
