@@ -28,6 +28,68 @@ que ele declara ter usado. E quando o campo falta, `relato` **DIZ que falta** e
 manda comparar pelo titulo e pela prosa, em vez de devolver vazio — porque vazio
 se le como "nao ha familia", que foi exatamente o erro.
 
+**E EM 20/10 AS 15:3x ELE QUASE ME DEIXOU REPETIR UMA FAMILIA, pelo que ele
+mostrava e NAO pelo que faltava.** Escrevendo o `labtreinamento-s093` eu ia usar
+COMPARAR TRES ORCAMENTOS PELO PRECO QUANDO O ESCOPO DIFERE (capitulos 37 a 41 da
+origem `yrWVyqQtw00`). O relato trouxe os cinco irmaos, acusou que tres nao tem o
+campo, e imprimiu **tres frases de outros irmaos citando o `s010`** — as tres
+dizendo que ele e *"ORDEM DE CONTRATACAO"*, *"a ORDEM do orcamento"*, *"pedir o
+estudo antes do levantamento"*. Lido assim, o meu eixo parecia outro: ordem
+contra comparacao de propostas.
+
+**A narracao do PROPRIO `s010` diz o contrario, em letra:** *"Quem pede orcamento
+sem levantamento recebe o escopo da instalacao inteira"* e *"O preco cai porque o
+escopo encolheu, nao porque alguem negociou"*. Isto e exatamente o eixo
+escopo-contra-preco. **A familia dele estava escrita na peca e ausente de tudo o
+que o modulo me mostrou.**
+
+**A causa e de PROCEDENCIA e nao de ausencia: resumo de TERCEIRO perde o eixo.**
+As frases que o modulo imprimia eram de segunda mao — o irmao B descrevendo o
+irmao A — e compressao feita por outro guarda o que interessava a ELE. O ramo
+*"nenhum irmao CITA outro pelo nome"*, que manda ler a copy inteira, **nao
+disparou justamente porque havia citacoes**: quanto mais os irmaos se citam,
+menos o modulo manda ler a fonte.
+
+**E O RELATO PROMETIA A PROSA E NUNCA A IMPRIMIA — `irmaos()` a calculava e
+`relato()` a jogava fora.** A linha de ATENCAO dizia, em letra, *"leia a PROSA
+abaixo, que e onde a geracao antiga a registrava"*, e abaixo nao havia prosa
+nenhuma: so as citacoes de segunda mao. Medido nas specs de **SHORT SOLTO** com
+copy, que sao a populacao que este modulo serve:
+
+| | |
+|---|---|
+| specs de short solto com copy | **240** |
+| COM o campo da familia | **69** |
+| **SEM** o campo | **171** |
+| dessas, com bloco de prosa | **171 de 171** |
+| para quantas o `relato` imprimia esse bloco | **ZERO** |
+
+E no caso desta rodada o bloco carregava a familia em letra: o
+`AVISO SOBRE OS NUMEROS` do `s010` diz *"a ORDEM de contratacao nao envelhece, e
+e ela que este short carrega"*. A frase prometida existia e nao chegava a saida —
+a mesma forma da nota da rota de 13:2x (calculada e descartada) e do `quadro` que
+o `contagem_de_cenas` jogava fora as 03:2x.
+
+**E A NARRACAO E A FONTE DE PRIMEIRA MAO, e ela acrescenta o que a prosa NAO
+tem:** o `AVISO` do `s010` fala de *ordem*, e a narracao dele fala de
+*"o preco cai porque o escopo encolheu"* — que e o eixo que eu ia repetir. Logo a
+prosa sozinha nao bastava: ela e o resumo que o autor fez da PROPRIA peca, e
+resumo tambem comprime.
+
+**E O NUMERO QUE EU IA RELATAR ESTAVA ERRADO, e quem me pegou foi o teste que eu
+escrevi nesta mesma rodada.** Eu havia medido *"66 de 379 specs em que so o
+titulo sobra"* e ia escrever isso aqui: **as 66 eram PACOTES**, que este modulo
+nem considera irmao (`irmaos()` exige `longo` vazio). Na populacao certa esse
+numero e **ZERO** — nenhum short solto fica so com o titulo, porque todos tem
+bloco de prosa. Era o §3.8 no meu proprio numero: contei outra populacao e ia
+apresenta-la como a do defeito.
+
+**Consertado:** o irmao SEM o campo entrega a `narracao` dele, cena por cena e
+**sem truncar** (truncar por tamanho foi o que quase cortou a frase que salvou o
+`s035`), marcada como PRIMEIRA mao; as citacoes continuam saindo, agora marcadas
+como SEGUNDA. Irmao COM o campo **nao** recebe esse bloco: o campo e o dono
+quando existe, e imprimir as duas coisas criaria o segundo dono da familia.
+
 **O que ele NAO faz:** decidir se duas familias sao a mesma. Isso e leitura, e
 nenhum limiar de similaridade de string distingue "o limiar e relativo" de "o
 indicador mede renda e nao patrimonio" — as duas frases falam do mesmo limiar.
@@ -55,6 +117,21 @@ def _secao(copy: str, nome: str) -> str:
 def _titulo_curto(copy: str) -> str:
     m = re.search(r"^##\s*TITULO SHORT\s*$\n+(.+)$", copy, re.M)
     return m.group(1).strip() if m else ""
+
+
+def _narracao(spec: dict) -> list:
+    """A narracao do short do irmao, cena por cena — a fonte de PRIMEIRA mao.
+
+    Ela e o que foi AO AR, e por isso nao depende de o autor ter escrito campo
+    nem bloco de prosa. Medido em 20/10: 66 das 379 specs de short com copy nao
+    tem campo nem prosa, e as 66 tem narracao.
+    """
+    saida = []
+    for c in (spec.get("short") or []):
+        nar = (c.get("nar") or "").strip()
+        if nar:
+            saida.append(nar)
+    return saida
 
 
 def _capitulos_declarados(copy: str) -> list:
@@ -109,6 +186,9 @@ def irmaos(origem: str, raiz=None) -> list:
             "prosa": {b: _secao(copy, b) for b in BLOCOS_DE_PROSA
                       if _secao(copy, b)},
             "capitulos_declarados": _capitulos_declarados(copy),
+            # PRIMEIRA mao: o que a peca do irmao de fato fala. Sem isto o
+            # irmao de geracao antiga entregava so o titulo (20/10, 15:3x).
+            "narracao": _narracao(d),
             "_copy": copy,
         })
     return saida
@@ -145,7 +225,38 @@ def relato(origem: str, raiz=None, excluir=()) -> str:
             f" `## {CAMPO_FAMILIA}`. **Ausencia de campo NAO e ausencia de"
             " familia** — foi exatamente assim que eu quase repeti a familia do"
             " `epomeno-epipedo-s023` em 15/10 (776). Compare pelo TITULO CURTO e"
-            " leia a PROSA abaixo, que e onde a geracao antiga a registrava.")
+            " leia a PROSA abaixo, que e onde a geracao antiga a registrava."
+            " **E leia a NARRACAO deles, que vai logo abaixo: ela e de PRIMEIRA"
+            " mao.** Frase de irmao citando irmao e resumo de TERCEIRO, e"
+            " compressao feita por outro guarda o eixo que interessava a ELE —"
+            " foi assim que o `s010` apareceu tres vezes como *ordem de"
+            " contratacao* enquanto a propria narracao dele dizia *o preco cai"
+            " porque o escopo encolheu* (20/10, 15:3x).")
+        for i in todos:
+            if i["tem_campo_familia"]:
+                # o campo e o DONO quando existe; imprimir a narracao ao lado
+                # dele criaria o segundo dono da familia.
+                continue
+            if not i["narracao"]:
+                linhas.append(
+                    f"    [{i['pacote']} | PRIMEIRA mao] sem narracao na spec —"
+                    " aqui so o titulo sobra mesmo, e a copy inteira e o"
+                    " caminho.")
+                continue
+            for nome_bloco, texto in sorted(i["prosa"].items()):
+                linhas.append(
+                    f"    [{i['pacote']} | PROSA '{nome_bloco}'] o bloco"
+                    " INTEIRO, que a linha acima promete e que o relato nao"
+                    " imprimia ate 20/10:")
+                for par in texto.split("\n\n"):
+                    par = " ".join(par.split())
+                    if par:
+                        linhas.append(f"      > {par}")
+            linhas.append(
+                f"    [{i['pacote']} | NARRACAO, primeira mao] o que a peca dele"
+                " FALA, cena por cena, sem truncar:")
+            for n in i["narracao"]:
+                linhas.append(f"      . {n}")
         nomes = [i["pacote"] for i in todos]
         achou_mencao = False
         for i in todos:
@@ -153,7 +264,9 @@ def relato(origem: str, raiz=None, excluir=()) -> str:
             outros = [n for n in nomes if n != i["pacote"]]
             for frase in frases_que_citam_irmao(copy_i, outros):
                 achou_mencao = True
-                linhas.append(f"    [{i['pacote']} CITA outro irmao] {frase}")
+                linhas.append(
+                    f"    [{i['pacote']} CITA outro irmao | SEGUNDA mao]"
+                    f" {frase}")
         if not achou_mencao:
             linhas.append(
                 "    nenhum irmao CITA outro pelo nome — entao o titulo curto e"

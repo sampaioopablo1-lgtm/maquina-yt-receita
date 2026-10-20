@@ -7679,3 +7679,155 @@ cai em ~1/10 do declarado.
 e olhe os intervalos. **Conte disparo de `schedule` separado de
 `workflow_dispatch`** — misturar os dois esconde exatamente este defeito, porque
 os meus disparos manuais tapam os buracos do agendador.
+
+## O IRMAO ERA DESCRITO POR TERCEIRO, E O RELATO PROMETIA UMA PROSA QUE NAO IMPRIMIA
+
+**Medido em 20/10 as 15:3x, escrevendo o `labtreinamento-s093`, e e a familia que
+eu ia escrever que estava errada — nao o relato dela.** A primeira familia que eu
+tinha na mao era **COMPARAR TRES ORCAMENTOS PELO PRECO QUANDO O ESCOPO DIFERE**
+(capitulos 37 a 41 da origem `yrWVyqQtw00`, onde o longo manda *"peca pelo menos
+tres orcamentos, e compare o ESCOPO antes do preco"*). **Ja era o eixo do
+`labtreinamento-s010`**, da MESMA origem.
+
+**E o instrumento me mostrou o `s010` TRES VEZES, sempre como outra coisa.** O
+`irmaos_da_origem` acusou que tres dos cinco irmaos nao tem o campo
+`## FAMILIA DE ENTRADA ERRADA` e imprimiu as frases em que os outros irmaos o
+citam — as tres dizendo *"ORDEM DE CONTRATACAO"*, *"a ORDEM do orcamento"*,
+*"pedir o estudo antes do levantamento"*. Lido assim, o meu eixo parecia distinto:
+ordem contra comparacao de propostas.
+
+**A peca dele diz o contrario, em letra, e so a abri por teimosia:**
+*"Quem pede orcamento sem levantamento recebe o escopo da instalacao inteira"* e
+*"O preco cai porque o escopo encolheu, nao porque alguem negociou"*. Isto e
+exatamente escopo-contra-preco. **A familia estava escrita na peca e ausente de
+tudo o que o modulo me mostrou.**
+
+**DOIS DEFEITOS, e o primeiro e o barato:**
+
+1. **O RELATO PROMETIA A PROSA E NUNCA A IMPRIMIA.** A linha de ATENCAO dizia, em
+   letra, *"leia a PROSA abaixo, que e onde a geracao antiga a registrava"* — e
+   abaixo nao havia prosa nenhuma. O `irmaos()` **calculava** o campo `prosa` e o
+   `relato()` **jogava fora**. Medido na populacao que o modulo serve:
+
+| | |
+|---|---|
+| specs de SHORT SOLTO com copy | **240** |
+| COM o campo da familia | **69** |
+| **SEM** o campo | **171** |
+| dessas, com bloco de prosa | **171 de 171** |
+| para quantas o relato imprimia esse bloco | **ZERO** |
+
+   E no caso desta rodada o bloco carregava a familia **e a colisao**: o
+   `AVISO SOBRE OS NUMEROS` do `s010` diz *"a ORDEM de contratacao nao envelhece,
+   e e ela que este short carrega"* e, mais abaixo, *"pedir o estudo ANTES do
+   levantamento faz o escopo virar a instalacao inteira"*. **A frase prometida
+   existia e nao chegava a saida** — a mesma forma da nota da rota de 13:2x
+   (calculada e descartada) e do `quadro` que o `contagem_de_cenas` jogava fora as
+   03:2x;
+
+2. **E O QUE SOBRAVA ERA RESUMO DE TERCEIRO.** Frase de irmao citando irmao e
+   compressao feita por OUTRO, e ela guarda o eixo que interessava a ELE. Pior: o
+   ramo que manda *"ler a copy do irmao inteira"* so dispara quando **nenhum**
+   irmao cita outro — isto e, **quanto mais os irmaos se citam, menos o modulo
+   manda ler a fonte.** Nesta origem havia citacoes, logo ele nao mandou.
+
+**Consertado:** irmao SEM o campo entrega agora o **bloco de prosa INTEIRO** e a
+**NARRACAO dele cena por cena**, as duas **sem truncar** (truncar por tamanho foi
+o que quase cortou a frase que salvou o `s035`, e aqui cortaria a ULTIMA cena, que
+e onde o `s010` escreve o eixo), com a procedencia **ROTULADA** nos dois niveis —
+PRIMEIRA mao contra SEGUNDA. Irmao **COM** o campo nao recebe esses blocos: o
+campo e o dono quando existe, e imprimir os dois criaria o segundo dono da
+familia, a assinatura que congelou a legenda. **E ele continua nao decidindo se
+duas familias sao a mesma** (776): poe o material na mesa.
+
+### E O NUMERO QUE EU IA RELATAR ERA DE OUTRA POPULACAO — quem me pegou foi o TESTE
+
+Eu medi *"66 de 379 specs em que so o TITULO sobra"* e ia escrever isso aqui como
+o tamanho do buraco. **As 66 eram PACOTES**, que este modulo nem considera irmao —
+o `irmaos()` exige `longo` vazio. Na populacao certa o numero e **ZERO**: nenhum
+short solto fica so com o titulo, porque todos tem bloco de prosa. **O defeito nao
+era falta de material, era material calculado e descartado** — e as duas coisas
+pedem consertos diferentes.
+
+**E a ordem dos acontecimentos e o que vale guardar:** o teste que eu escrevi para
+travar o achado **reprovou o meu proprio numero** antes de eu o relatar, porque
+ele recontava a medida contra o disco (753) **e filtrava pela populacao que o
+modulo serve**. Sem esse filtro ele teria passado verde com o numero errado
+dentro. E a §10 nomeia isto: toda conta que eu faco a mao vira um erro meu —
+inclusive a conta que eu faco para medir o tamanho de um defeito.
+
+`tests/test_o_irmao_era_descrito_por_TERCEIRO_e_nao_por_ele.py`, doze testes: a
+varredura sai do DISCO e **reprova por vacuidade** com menos de 150 specs, um
+exige que os **DOIS** lados existam na origem de prova (irmao com campo e irmao
+sem) e **falha se o acervo for uniformizado**, a narracao e a prosa sao cobradas
+**INTEIRAS** no relato, um exige que irmao **COM** o campo **nao** receba os
+blocos (senao o campo deixa de ser dono unico), a procedencia e cobrada nos
+**dois** rotulos, a colisao desta rodada e **REPRODUZIDA** derivando o irmao pela
+PROPRIEDADE (nomear o `s010` no assert seria identidade onde ha propriedade —
+743/753/761) e **reprova dizendo que perdeu a ancora** se nenhum irmao falar do
+eixo, um **mede que as duas populacoes DIVERGEM** para o meu 66 nao voltar, e um
+trava que a narracao sai da SPEC e nao da copy. **Contraprova:** desligado o bloco
+novo, **tres dos doze** falham.
+
+**A REGRA QUE FICA: antes de dizer que a familia de um irmao e X, leia a PECA
+dele.** Campo, prosa e citacao sao tres compressoes em distancias crescentes da
+fonte, e a citacao — que e a mais distante — era a unica que o relato imprimia.
+
+### A PECA DESSA RODADA — OITO cenas, e os DOIS mundos dentro da mira
+
+`labtreinamento-s093` = **`EM1DtvgrP6A`**, publicado as 15:24:15Z (run
+`39448033079`), **ONZE PORTOES VERDES NA PRIMEIRA TENTATIVA** (6,9 s) — e o
+`antes_do_render` rodou os dez baratos mais os quatro instrumentos de redacao em
+**0,87 s**, todos limpos. Provedor **edge MEDIDO** (zero avisos
+`NARRACAO PELO PIPER` no job `118711513577`), som **-13,9** LUFS, LRA 2,5, pico
+-2,8, desvio +0,1, **zero silencios**. Previsao edge **25,27** / piper **20,70** —
+os **DOIS** dentro da mira medida do canal (20,0 a 26,0), que e o unico canal da
+frota em que a pinca do 740/748 nao esta fechada.
+
+**A ESCOLHA DAS OITO CENAS NAO FOI MINHA EM NENHUMA DAS TRES RECUSAS:** o
+`contagem_de_cenas` deu SETE como melhor cadencia (3,29 s) e **acusou sozinho**
+que a `s092` tem sete e a `s091` seis; as contagens **9, 10 e 11** sairam
+**NOMEADAS** porque ali o PISO da faixa nao e alcancavel com texto legivel. Oito e
+a melhor que SERVE pelos tres filtros da chave `por_cadencia_servivel`.
+
+**ESQUELETO `titulo-item-barras-titulo-lista-item-item-cta`, a TERCEIRA forma de
+oito cenas da frota** e **inedita nas 132 formas**, com a propria peca FORA da
+varredura pelo `exceto`. Todo layout saiu do conjunto **SONDADO**, com `assert` no
+construtor, e a paleta foi **LIDA** de `temas_do_dono.paleta_do_canal`.
+
+**ORCAMENTO 34 a 36 caracteres por cena**, do `mira.janela_dos_dois_mundos`, com
+media **35,2**. **A mira verde NAO promete real dentro** (41 de 46 deste canal
+sairam fora), e **eu nao declaro de que lado da banda o real cai**: ela tem 5,2 s
+contra 1 s de granularidade, e declarar um lado nao e previsao (774).
+
+**PAUTA:** `yrWVyqQtw00` (`labtreinamento-004`), 5 usos empatada com oito outras e
+desempatada pela MAIOR reserva — **66 dos 81 capitulos NAO MENCIONADOS**. A
+dominante `FtCtIJPsc_Q` ficou de fora. **FAMILIA: ESPERAR O NUMERO PARA COMECAR A
+PLANEJAR** (capitulos 65 a 70, com apoio do 7 e do 11) — tratar *"nao tenho o
+preco"* como *"nao tenho prazo"*, quando o preco so existe depois do levantamento
+e a data e a unica coisa escrita; e o atalho e pior que a espera, porque palpite
+com voz firme entra na planilha como premissa e ninguem lembra depois que era
+chute.
+
+**ZERO numero novo sobre o mundo e a narracao nao fala numero nenhum** — preco,
+prazo, data de vigencia e momento da fiscalizacao ficaram FORA pela regra (g), e
+**a PROPRIA origem escreve o motivo** nos capitulos 67 e 69. As barras sao
+ilustracao qualitativa e **nao** sao faladas, e a copy diz isso em letra para a
+rodada seguinte nao as ler de volta como dado.
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica`** pela QUARTA
+rodada seguida: o `touch` passou, os TRES hosts — a peca, o controle
+`OhrGlJvnBoM` e o NEUTRO `example.com` — voltaram **000 sem arquivo**, e o
+`__agentproxy/status` nomeou `www.youtube.com:443` **e** `example.com:443` com 403
+ao CONNECT as 15:11:3xZ. A peca esta PARQUEADA com o provedor MEDIDO e o job
+**lido da API** (o parque tem **17** sem leitura) e `RESIDUO_N` segue **128**.
+
+**E A LEITURA DE INSCRITOS PASSOU A JANELA PELA TERCEIRA RODADA E NAO FOI FEITA:**
+29,06 h, piso de resolucao 0,83/dia, os **tres** SIM. **O que a impede e a ROTA, e
+o remedio e do DONO** — a tela de Network access. O instrumento imprimiu a linha
+da rota no ramo em que ela importa, que e o conserto de 13:2x em uso pela segunda
+vez.
+
+**COTA: NOVE envios** na janela aberta as 07:00Z, **14.400** unidades, contra o
+piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
+hora.
