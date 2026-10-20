@@ -1,0 +1,80 @@
+{
+ "slug": "labtreinamento-s092",
+ "pacote": "labtreinamento-s092",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "longo_existente": "KRUERlNPzDw",
+ "longo": [],
+ "thumb": {
+  "l1": "Lacuna igual,",
+  "l2": "peso diferente"
+ },
+ "paleta": {
+  "bg": "#0E1117",
+  "ink": "#EEF1F5",
+  "c1": "#3DDBD9",
+  "c2": "#1E2430",
+  "red": "#FF5A5F",
+  "ok": "#3CCB7F",
+  "panel": "#161B24",
+  "mut": "#8B95A5",
+  "acc": "#3DDBD9"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "A mesma lacuna",
+   "sub": "não pesa igual",
+   "nar": "Duas lacunas iguais não pesam a mesma coisa."
+  },
+  {
+   "layout": "item",
+   "kicker": "A conta base",
+   "nar": "A lacuna é cinco menos a nota daquela linha."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Duas linhas, lacuna três",
+   "barras": [
+    {
+     "rotulo": "Ajuste local",
+     "valor": 3
+    },
+    {
+     "rotulo": "Sistema inteiro",
+     "valor": 9
+    }
+   ],
+   "nar": "Nota dois dá lacuna três nas duas linhas."
+  },
+  {
+   "layout": "lista",
+   "kicker": "O peso, de um a três",
+   "itens": [
+    "Um: ajuste local",
+    "Dois: um processo",
+    "Três: o sistema"
+   ],
+   "nar": "O peso vai de um a três, pelo alcance dela."
+  },
+  {
+   "layout": "item",
+   "kicker": "Prioridade",
+   "nar": "Prioridade é a lacuna multiplicada pelo peso."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Sem o peso",
+   "sub": "a fila sai trocada",
+   "nar": "Sem ele, a fila sai na ordem errada e cheia."
+  },
+  {
+   "layout": "cta",
+   "kicker": "O corte é seu",
+   "sub": "escreva quem definiu",
+   "nar": "O corte da faixa é seu: escreva quem definiu."
+  }
+ ],
+ "copy": "# labtreinamento-s092\n\n## TITULO\nPor Que a Fila de Lacunas Sem a Coluna Peso Poe o Ajuste Local na Frente do Sistema Inteiro\n\n## TITULO SHORT\nLacuna igual, peso diferente\n\n## DESCRICAO\nA aba de lacunas não coleta nada novo. Ela só transforma o diagnóstico em\nprioridade — e é aí que mora a entrada errada mais barata de cometer:\n**ordenar a fila pela lacuna sozinha.**\n\nA conta da lacuna é simples e por isso parece bastar. Ela é cinco menos a nota\ndaquela linha: nota dois dá lacuna três, nota cinco dá lacuna zero e a linha sai\nda fila. O problema aparece quando duas linhas diferentes dão a mesma lacuna.\n**Elas ficam lado a lado na ordenação, e não são o mesmo trabalho.** Uma pede um\najuste local, de uma pessoa e uma tarde. A outra pega o sistema inteiro, e\natravessa áreas que nem sabem que estão no projeto.\n\n**O que separa as duas é um multiplicador, não um número maior de lacuna.** O\npeso vai de um a três pelo alcance: um para ajuste local, dois para o que afeta\num processo, três para o que afeta o sistema inteiro. A prioridade é a lacuna\nmultiplicada pelo peso — e com a multiplicação as duas linhas de lacuna três\ndeixam de empatar.\n\n**E o efeito prático é o oposto do que se espera de uma coluna a mais: a fila\nencolhe.** Ordenada pela lacuna sozinha, a lista inteira parece urgente, porque\nquase toda linha de diagnóstico tem alguma lacuna. Ordenada pela prioridade, o\ntopo fica curto e com nome — e o resto espera sem culpa.\n\n**A parte que precisa ir escrita:** a faixa que vira rótulo (onde começa\n\"alta\", onde termina \"baixa\") é critério da empresa, não da norma. Então o corte\né seu, e a aba precisa dizer quem o definiu e quando. Sem esse registro, seis\nmeses depois ninguém sabe se a linha subiu de faixa porque mudou a realidade ou\nporque alguém mexeu no corte.\n\n**O que fazer com isso hoje:** abra a aba, acrescente a coluna de peso de um a\ntrês e multiplique. Depois olhe quantas linhas ficaram no topo. Se a fila\ninteira continua parecendo urgente, o peso ainda não foi preenchido.\n\nNão dou aqui faixa de prioridade, prazo de norma nem número de linhas\nobrigatório. Isso é critério de cada empresa e fica fora.\n\n## COMENTARIO FIXADO\nO menos óbvio: a coluna que mais encurta o projeto é a que parece burocracia a\nmais. Qual é a primeira linha da sua fila depois de multiplicar?\n\n## HASHTAGS\n#gestao #planilha #prioridade #labtreinamento #Shorts\n\n## TAGS\ncoluna peso, prioridade por peso, lacuna vezes peso, aba de lacunas, diagnostico em prioridade, ordenar fila de acoes, criterio de corte, faixa de prioridade, planilha de diagnostico, plano de acao, gestao de projeto, nota e lacuna, multiplicador de alcance, lab treinamento, priorizacao de acoes\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Os numeros falados sao os da PROPRIA\naritmetica de que a peca fala — \"cinco menos a nota\", \"nota dois\", \"lacuna tres\",\n\"de um a tres\" —, nenhum deles medicao de empresa ou de norma. Os valores das\nbarras (3 e 9) sao ILUSTRACAO do multiplicador e NAO sao falados. Faixa de\nprioridade, prazo de norma e numero de linhas esperado ficaram FORA pela regra\n(g) — e e a propria origem que escreve esse motivo no capitulo 46: *\"esses cortes\nsao criterio da empresa; a norma nao define faixa de prioridade\"*.\n\n## FAMILIA DE ENTRADA ERRADA\nORDENAR A FILA PELA LACUNA SOZINHA, SEM O MULTIPLICADOR: tratar a lacuna (cinco\nmenos a nota) como se ela ja fosse a prioridade, de modo que duas linhas de\nlacuna igual ficam lado a lado na ordenacao quando uma e ajuste local e a outra\npega o sistema inteiro. O erro nao produz numero errado — produz ORDEM errada, e\numa fila em que tudo parece urgente. O que separa as duas linhas e um\nmultiplicador de alcance (o peso, de um a tres), nao uma lacuna maior.\n\n## FONTES\nA spec local `labtreinamento-003`, que e o pacote do longo `KRUERlNPzDw` —\norigem de MENOR contagem do canal pelo `pauta_do_momento` (5 usos, empatada com\nnove outras) e desempatada pela MAIOR reserva: **81 dos 84 capitulos nao\nmencionados** pelo `segundo_angulo`. A familia desta peca sai dos capitulos 38 a\n48: *\"ela nao coleta nada novo; ela transforma o diagnostico em prioridade\"*,\n*\"lacuna e cinco menos a nota\"*, *\"so isso nao basta, porque nem toda lacuna pesa\nigual\"*, *\"entra a coluna Peso, de um a tres\"*, *\"prioridade e lacuna vezes\npeso\"*, *\"esses cortes sao criterio da empresa\"* e *\"o projeto que parecia\ngigante encolhe para meia duzia de frentes\"*. Nenhuma frase desta peca saiu de\nTITULO de capitulo.\n\n**E ELA E A SEXTA FAMILIA DESTA MESMA ORIGEM, conferidas uma a uma pelo\n`irmaos_da_origem` e nao pela minha leitura:** o `s012` usou a data que obriga\nvoce, o `s050` o prazo de TERCEIRO tratado como prazo proprio, o `s052` uma\ncelula com N itens dentro, o `s072` quem fez nao verifica e o `s085` sem registro\nnota zero. **Nenhuma delas fala de ORDEM** — as cinco erram o CONTEUDO de uma\ncoluna ou de QUEM e a responsabilidade; esta erra a ORDENACAO da fila. E tres dos\ncinco irmaos nao tem o campo `## FAMILIA DE ENTRADA ERRADA` (geracao anterior),\nlogo a comparacao foi pela PROSA deles, como o 776 manda.\n\n## EXPOSICAO\n**SETE CENAS, e a escolha saiu da chave `por_cadencia_servivel`** do\n`contagem_de_cenas`, que aplica os tres filtros juntos: cabe no teto MEDIDO desta\nvoz (11), nao repete tamanho recente (as duas ultimas do canal tem 6 e 8 cenas) e\nalcanca o piso da faixa com folga (+9). As contagens 9, 10 e 11 sairam\n**NOMEADAS e nao filtradas**, porque nelas o PISO da mira nao e alcancavel com\ntexto legivel — 19, 15 e 12 caracteres por cena contra o piso OBSERVADO de 21.\n\n**ESQUELETO `titulo-item-barras-lista-item-titulo-cta`, inedito nas 128 formas da\nfrota** — numero do `esqueleto_entre_canais`, nao de um laco escrito na hora. A\nfrota tem apenas TRES formas de sete cenas e esta nao e nenhuma delas. **E todo\nlayout saiu do conjunto SONDADO** (`layouts_do_short.desenham()` devolve `barras`,\n`cta`, `item`, `lista` e `titulo`), com um `assert` no builder que recusa layout\nfora dele — consequencia direta do cartao em branco publicado em 19/10 as 18:18Z.\n\n**O ORCAMENTO SAIU DO INSTRUMENTO, NOS DOIS MUNDOS.** Para SETE cenas na mira\nmedida deste canal (20,0 a 26,0) o `mira.janela_dos_dois_mundos` devolve **41 a\n44 caracteres por cena** — a janela mais larga de todas as contagens deste canal\n(com dez cenas ela cai a 24 a 25). A peca foi escrita com media **43,7**, e o\nresultado e edge **25,63** / piper **21,04**: os DOIS dentro da mira. **Este\ncanal e o unico da frota em que isso e possivel** — nos outros dois o\n`ALVO_SHORT` tem 1,5 s de largura contra um vao de ~6 s entre os provedores, e\nali a pinca do 740/748 esta fechada em toda contagem de cena.\n\n**A mira verde NAO promete real dentro, e a frequencia esta medida:** pelo tally\ndo 744/754/758, quarenta e uma das quarenta e seis pecas deste canal narradas\npelo edge sairam ACIMA do teto de 26,0. Com a banda em (-1,2; 4,0), se o edge\nnarrar o real cai em algum ponto da faixa que o `mira.py` imprime — e eu nao digo\nde que lado, porque a banda tem 5,2 s de largura contra 1 s de granularidade, e\ndeclarar um lado dela nao e previsao (774).\n"
+}
