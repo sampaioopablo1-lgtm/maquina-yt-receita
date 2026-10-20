@@ -1,0 +1,88 @@
+{
+ "slug": "labtreinamento-s090",
+ "pacote": "labtreinamento-s090",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "longo_existente": "yrWVyqQtw00",
+ "longo": [],
+ "thumb": {
+  "l1": "Arco nao",
+  "l2": "e choque"
+ },
+ "paleta": {
+  "bg": "#0E1117",
+  "ink": "#EEF1F5",
+  "c1": "#3DDBD9",
+  "c2": "#1E2430",
+  "red": "#FF5A5F",
+  "ok": "#3CCB7F",
+  "panel": "#161B24",
+  "mut": "#8B95A5",
+  "acc": "#3DDBD9"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Arco nao e choque",
+   "sub": "dois danos",
+   "nar": "Arco elétrico não é choque elétrico."
+  },
+  {
+   "layout": "item",
+   "kicker": "O choque",
+   "nar": "No choque, a corrente passa em você."
+  },
+  {
+   "layout": "lista",
+   "kicker": "No arco, sao dois",
+   "itens": [
+    "Calor que queima",
+    "Pressão que arremessa"
+   ],
+   "nar": "O arco solta calor e pressão juntos."
+  },
+  {
+   "layout": "barras",
+   "kicker": "O nivel por ponto",
+   "barras": [
+    {
+     "rotulo": "Quadro",
+     "valor": 25
+    },
+    {
+     "rotulo": "Painel",
+     "valor": 55
+    },
+    {
+     "rotulo": "Entrada",
+     "valor": 90
+    }
+   ],
+   "nar": "E esse nível muda em cada ponto."
+  },
+  {
+   "layout": "item",
+   "kicker": "Uma nao cobre a outra",
+   "nar": "O que protege de choque não cobre."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Nao e sim ou nao",
+   "sub": "e por nivel",
+   "nar": "Então não é sim ou não: é por nível."
+  },
+  {
+   "layout": "item",
+   "kicker": "O que falta saber",
+   "nar": "Veja onde você não sabe o nível."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Onde falta o nivel",
+   "sub": "escreva aqui",
+   "nar": "Escreva em qual ponto você não sabe."
+  }
+ ],
+ "copy": "# labtreinamento-s090\n\n## TITULO\nArco Elétrico Não É Choque: Por Que a Proteção Deixa de Ser Sim ou Não e Passa a Ser Por Nível\n\n## TITULO SHORT\nArco elétrico não é choque\n\n## DESCRICAO\nMuita gente trata choque e arco elétrico como o mesmo assunto, e eles não são a mesma coisa. **No choque, a corrente passa pelo corpo. No arco, a energia é liberada no ar, em forma de calor e de pressão.** São dois mecanismos de dano diferentes, e eles acontecem no mesmo instante.\n\n**A consequência prática é a que importa: o que protege de um não protege do outro.** Equipamento pensado para o caminho da corrente não responde à queimadura por calor radiante nem ao deslocamento causado pela pressão. Quem confere a proteção de choque e marca o item como resolvido ficou com metade da pergunta respondida.\n\n**E daí sai a parte que muda a rotina: a proteção contra arco não é sim ou não — ela é por nível.** A energia liberada depende do ponto da instalação, e pontos diferentes da mesma empresa, no mesmo dia, pedem níveis diferentes. Vestimenta adequada num ponto pode ser insuficiente em outro, sem nada de errado ter acontecido entre os dois.\n\n**O passo de hoje não é comprar nada e não depende de orçamento aprovado:** percorra a sua instalação e marque em quais pontos você não sabe o nível de energia. Não precisa calcular agora — precisa saber onde falta. Essa lista é o que transforma uma decisão de compra em uma pergunta respondível, e ela é curta de fazer.\n\nNão dou aqui categoria de vestimenta, prazo de norma, valor de energia incidente nem preço de estudo. Isso muda por instalação e por publicação, e fica fora. O mecanismo é o que importa, e ele não depende de número nenhum: são dois danos, e a proteção de um não cobre o outro.\n\n## COMENTARIO FIXADO\nO menos óbvio: dois pontos da mesma empresa, no mesmo dia, podem pedir níveis diferentes. Em qual ponto da sua instalação você não sabe o nível?\n\n## HASHTAGS\n#nr10 #arcoeletrico #seguranca #labtreinamento #Shorts\n\n## TAGS\narco eletrico, choque eletrico, nr 10, energia incidente, epi por categoria, vestimenta antichama, protecao eletrica, seguranca do trabalho, risco eletrico, instalacao eletrica, calor e pressao, queimadura por arco, lab treinamento, nivel de energia, levantamento de instalacao\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao, e ela nao fala numero nenhum. Os\nvalores das barras (25, 55 e 90) sao ILUSTRACAO de uma propriedade qualitativa —\no nivel muda de ponto para ponto na mesma instalacao — e **nao sao medicao de\ninstalacao nenhuma**; eles nao sao falados e os rotulos nao citam norma. Categoria\nde vestimenta, prazo de norma, valor de energia incidente e preco de estudo\nficaram FORA pela regra (g): os quatro mudam por instalacao ou por publicacao. E\na propria origem escreve o mesmo motivo no capitulo 40 — *\"nao vou dizer quanto\ncusta esse estudo… um numero medio aqui enganaria mais do que ajudaria\"*.\n\n## FONTES\nA spec local `labtreinamento-004`, que e o pacote do longo `yrWVyqQtw00` deste\ncanal. A familia desta peca sai dos capitulos 30 a 35: *\"arco eletrico nao e\nchoque; e a liberacao de energia em forma de calor e pressao quando a corrente\nencontra caminho pelo ar\"*, *\"a protecao e outra: o que protege de choque nao\nprotege de queimadura por arco\"*, *\"o arco libera calor suficiente para queimar\natraves de roupa comum, e pressao suficiente para arremessar quem esta perto —\ndois danos diferentes no mesmo instante\"*, *\"por isso a protecao nao e sim ou nao:\ne por nivel\"* e *\"uma vestimenta adequada para um ponto pode ser insuficiente em\noutro, na mesma empresa e no mesmo dia\"*. O passo pratico sai do capitulo 58:\n*\"identifique em quais pontos voce nao sabe o nivel; nao precisa calcular agora —\nprecisa saber onde falta\"*. Nenhuma frase desta peca saiu de TITULO de capitulo.\n\n**A ORIGEM E A DE MENOR CONTAGEM DO CANAL, com a contagem na mao:** o\n`concentracao.py` deu `yrWVyqQtw00` em **4 de 89** shorts, empatada com\n`POBNoY16wG8` e contra **13** da dominante `FtCtIJPsc_Q` — que ficou de fora **sem\nalerta**, porque 13 nao e maior que o dobro de 10 da segunda. Entre as duas\nempatadas eu peguei a que tem a MAIOR reserva: o `segundo_angulo.nao_mencionados`\ndevolve **69 capitulos nao mencionados** aqui contra 42 no `POBNoY16wG8`, que ja\nrendeu as **quatro** familias das ultimas quatro rodadas deste canal.\n\n**E A FAMILIA NAO TOCA NENHUMA DAS QUATRO DESTA ORIGEM**, conferido short por\nshort: o `s010` usou a ORDEM do orcamento (levantar antes de pedir o estudo,\ncapitulos 61 a 64), o `s034` usou TREINADO NAO E AUTORIZADO (capitulos 76 e 77),\no `s041` usou SUBSTITUIU, NAO EMENDOU, e o `s053` usou OS DOIS PAPEIS DO MESMO\nRISCO (capitulos 46 a 50). Os capitulos 30 a 35 nunca foram usados por short\nnenhum do canal.\n\n## EXPOSICAO\n**OITO CENAS, e o motivo da escolha vai escrito porque nao foi a cadencia.** O\n`contagem_de_cenas.py` deu **SETE** como a melhor cadencia abaixo do teto desta\nvoz (3,29 s, |dif| 0,19 dos ~3,1 s de 690/699) — e sete foi **RECUSADO por\nREPETICAO**: as duas ultimas pecas deste canal, a `s088` e a `s089`, tem sete\ncenas cada. Repetir tamanho tres rodadas seguidas no mesmo canal e exatamente o\nque o dono reclamou em 19/10. Oito e a SEGUNDA melhor cadencia (2,88 s, |dif|\n0,22) e tem **um** exemplar no disco.\n\n**ESQUELETO `titulo-item-lista-barras-item-titulo-item-cta`, inedito nas 122\nformas da frota** — e o numero sai do `esqueleto_entre_canais`, nao de um laco\nescrito na hora. A unica forma de oito cenas que existia e a do `s087`, com outra\nsequencia.\n\n**E A NOVIDADE DESTE CANAL PASSOU A SER DE FORMA, nao de tamanho, e isso esta\nMEDIDO:** abaixo do teto de **11** cenas desta voz (`mira.teto_de_cenas`, contra o\npiso OBSERVADO de caracteres), o unico tamanho que a frota nunca usou e **TRES**,\ncuja cadencia fica a 4,57 s dos ~3,1 s medidos — isto e, inutavel. Acima do teto\no instrumento NAO recomenda, porque ali o orcamento cai abaixo do piso de\ncaracteres.\n\n**TODO LAYOUT SAIU DO CONJUNTO SONDADO**, com um `assert` no builder: o\n`layouts_do_short.desenham()` sonda o proprio render e devolve `barras`, `cta`,\n`item`, `lista` e `titulo`. Nada fora desses cinco entrou — e o `numero`, que pos\num cartao em branco no ar as 18:18Z de 19/10, continua fora porque o retrato do\nshort nao o desenha.\n\n**O ORCAMENTO SAIU DO INSTRUMENTO, NOS DOIS MUNDOS.** Para OITO cenas na mira\nmedida deste canal (20,0 a 26,0) o `mira.janela_dos_dois_mundos` devolve **34 a 36\ncaracteres por cena**; o orcamento do MEIO no mundo edge daria 30 e poria o piper\nabaixo do piso de 20,0. A peca foi escrita com media **34,8**.\n\n**A mira verde NAO promete real dentro, e a frequencia esta medida:** pelo tally\ndo 744/754/758, quarenta e uma das quarenta e seis pecas deste canal narradas pelo\nedge sairam ACIMA do teto de 26,0. Com a banda em (−1,2; 4,0) e 5,2 s de largura\ncontra 1 s de granularidade, eu **nao digo de que lado** o real vai cair — declarar\num lado de uma banda que cobre a faixa inteira nao e previsao (774).\n"
+}
