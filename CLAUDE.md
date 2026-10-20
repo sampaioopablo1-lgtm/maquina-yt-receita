@@ -4899,6 +4899,15 @@ nao por falta de horas.
 piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
 hora.
 
+**A SUITE FECHOU: 25 falhas, 3.329 passam, 1.039 skip em 822 s** — conjunto
+**IDENTICO** a linha de base desta sessao, `comm` vazio nos **dois** sentidos,
+com o `sed 's/ - .*$//' | sort` nos dois lados. **E o tempo vai MEDIDO em vez de
+atribuido:** 822 s contra 751 s da passada anterior, e os onze testes novos
+passam isolados em **0,13 s** — logo os 71 s **nao sao deles**, e eu nao sei a
+causa. Dizer que foi o arquivo novo seria comparador escolhido sem medir, o
+efeito (C), que e o mesmo cuidado que a rodada das 11:4x tomou com os 55 s
+daquela passada.
+
 ## O `dir_specs` ERRADO DEVOLVIA RESPOSTA VAZIA E BEM FORMADA
 
 **Medido em 20/10 as 12:3x, escrevendo o `epomeno-epipedo-s075`.** Eu chamei
