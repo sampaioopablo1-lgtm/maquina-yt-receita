@@ -4634,6 +4634,117 @@ parque tem **oito** sem leitura) e `RESIDUO_N` segue **128**.
 piso MEDIDO outra vez**, depois de 41.600 as 05:17Z. A janela vira as 07:00Z, isto
 e dentro de uma hora, e nenhum `403 quota` apareceu em vinte e sete envios.
 
+## A CHAVE DE ESCOLHA DEVOLVIA CONTAGEM QUE A PROPRIA FOLGA RECUSA
+
+**Medido em 20/10 as 07:4x, na PRIMEIRA rodada depois de a coluna da folga
+existir.** O `contagem_de_cenas` passou a calcular `folga_no_piso` as 06:3x e
+`repete_recente` as 05:2x — e a chave que a rodada LE para decidir,
+`por_cadencia_sem_repetir`, filtrava **so pela recencia**. Medido nos TRES
+canais, na mesma chamada:
+
+| canal | a chave devolvia | folga | SERVIVEL |
+|---|---|---|---|
+| kolejny-poziom | 14 | **+1** (rente) | 13 |
+| epomeno-epipedo | 15 | **+1** (rente) | 12 |
+| labtreinamento | 9 | **-2** (PISO INALCANCAVEL) | 6 |
+
+**Tres de tres devolviam contagem que a coluna do PROPRIO modulo recusa**, e no
+`labtreinamento` o conjunto descartado e `[9, 10, 11]` — inclui **DEZ cenas, a
+forma mais usada da frota (149 pecas)**.
+
+**E a QUINTA vez desta familia de instrumentos: nao aplicar o que o modulo ja
+sabe.** E a mesma forma do 06:3x uma camada acima — la o `mira.orcamento` dava
+conselho que a propria `mira.confere` reprovava; aqui a `escolha` devolve uma
+contagem que o proprio `quadro` dela recusa. **O defeito e de CONSELHO e nao de
+peca publicada:** nesta rodada eu recusei o 14 a mao, como em 04:1x e 06:2x — e
+foi a TERCEIRA recusa a mao da mesma aritmetica que mostrou que ela nao podia
+continuar na minha cabeca.
+
+**Consertado:** `por_cadencia_servivel` aplica os **tres** filtros ao mesmo
+tempo (cabe na voz, nao repete tamanho recente, alcanca o piso com folga), entra
+**AO LADO** das outras chaves e nao no lugar delas (a disciplina de 05:2x, porque
+o `FOLGA_RENTE` e redacao declarada e nao medida), **NOMEIA o que descartou** em
+vez de filtrar — como o `origens_sem_uso` nomeia origem inutilizavel — e
+**RECUSA com o motivo** quando nada serve, do jeito que o `porta1` recusa janela
+curta.
+
+**E ELE REPRODUZ A ESCOLHA DESTA RODADA:** apontado para o parque do INSTANTE da
+decisao, devolve **ONZE** — exactamente a contagem que eu escolhi a mao depois de
+recusar 14, 13 e 12 um por um.
+
+`tests/test_a_escolha_devolvia_contagem_que_a_PROPRIA_folga_recusa.py`, treze
+testes: a varredura **reprova com quadro curto** (vacuidade), um mede que a
+chave ANTIGA de fato devolvia contagem recusada — **por PROPRIEDADE e nao pelo
+numero 14, que muda com a recencia** (743/753/761) —, um exige que os **DOIS**
+lados existam e **falha se as tres escolhas convergirem** (ai o defeito acabou e
+esta nota se rele), um distingue o piso INALCANCAVEL do rente e **falha se nao
+houver contagem de folga negativa em canal nenhum**, a **FRONTEIRA** e cobrada
+nos dois lados (folga igual ao limiar NAO serve, um acima serve), a frase tem
+**UM dono** por AST, a folga e cobrada como **LIDA do quadro** — `chars_no_alvo`
+e `teto_de_cenas` dentro da `escolha` **reprovam**, porque seriam o segundo dono
+—, e um **reproduz o ONZE**. **Contraprova:** desligado o filtro da folga,
+**quatro dos treze** falham.
+
+### A PECA DESSA RODADA — ONZE cenas, e a melhor cadencia foi recusada TRES vezes
+
+`kolejny-poziom-s074` = **`7YDEAZcnSjU`**, publicado as 07:22:10Z (run
+`39386019256`), **ONZE PORTOES VERDES NA PRIMEIRA TENTATIVA** — e o
+`antes_do_render` rodou os dez baratos mais os quatro instrumentos de redacao em
+**0,67 s**, todos limpos. Provedor **edge MEDIDO** (zero avisos
+`NARRACAO PELO PIPER` no job `118505061977`), som **-13,8** LUFS, LRA 3,1, pico
+-2,6, desvio +0,2, **zero silencios**. Previsao edge **41,50** — o **PISO EXATO**
+da faixa, pela regra de redacao do 772 — e piper 35,3.
+
+**A escolha das ONZE cenas vai com o motivo, e os tres filtros falaram:**
+
+| cenas | orcamento no piso | cadencia | por que |
+|---|---|---|---|
+| 14 (teto medido) | **22** | 3,02 s | RECUSADO: folga **+1**, e no TOPO da faixa ainda sao 24 |
+| 13 | 27 | 3,25 s | RECUSADO por REPETICAO — o `s072`, de 01:17Z |
+| 12 | 32 | 3,52 s | RECUSADO por REPETICAO — o `s073`, de 04:13Z |
+| **11** | **38** | **3,84 s** | escolhido |
+
+**E NESTE CANAL A NOVIDADE DEIXOU DE SER DE TAMANHO, medido:** abaixo do teto de
+14 o unico tamanho que a frota nunca usou e **TRES**, cuja cadencia fica a
+10,98 s dos ~3,1 s de 690/699. Logo a novidade aqui e de **FORMA** — o esqueleto
+`titulo-barras-item-lista-item-titulo-barras-item-lista-item-cta` e inedito nas
+**OITO** formas de onze cenas da frota e nas 124 da frota inteira, com `barras` e
+`lista` DUAS vezes cada, as quatro carregando argumento. Todo layout saiu do
+conjunto **SONDADO**, com `assert` no builder.
+
+**PAUTA:** `iqV7m6tKb5A` (`kolejny-poziom-004`), 74 capitulos e **69 NAO
+MENCIONADOS** — a maior reserva entre as origens de MENOR contagem (2 usos). A
+dominante `GUiq15usizw` ficou de fora **com o ALERTA DISPARADO**: 12 de 68 (18%),
+mais que o dobro da segunda. O `QiaGg03WSR0`, que empata em contagem minima,
+tambem ficou de fora — e longo do LabTreinamento declarado por engano em dois
+shorts deste canal.
+
+**FAMILIA NOVA NESTA ORIGEM: O CUSTO NAO SE DISTRIBUI IGUALMENTE NO TEMPO**
+(capitulos 21 a 27). A stawka nao muda, a **BASE** cresce — logo a opłata e
+quase invisivel no inicio e maxima no fim, e na metade do caminho a diferenca
+parece suportavel enquanto quase toda ela **espera a segunda metade**, quando
+nao se pode mais desfazer. Conferido short por short: o `s014` compara taxa
+contra imposto e o `s034` fala do prazo esquecido na condicao; nenhuma das duas
+toca esses capitulos nem fala de QUANDO o custo aparece.
+
+**ZERO numero novo sobre o mundo, e o motivo esta na PROPRIA origem:** o
+capitulo 9 mostra o teto legal mudado por etapas (tres valores em tres anos) e o
+12 avisa em letra que o maximo e *sufit ustawowy* e nao preco. Stawka,
+percentual, zloty e numero de anos ficaram FORA pela regra (g).
+
+**E NAO EXISTE PONTO DE RESIDUO, pelo modo `sem_egresso` na NONA rodada
+seguida:** o host NEUTRO devolveu **000 com zero byte** na MESMA chamada que a
+peca e o controle `OhrGlJvnBoM`. A peca esta PARQUEADA com o provedor MEDIDO (o
+parque tem **nove** sem leitura) e `RESIDUO_N` segue **128**.
+
+**A LEITURA DE INSCRITOS FOI RECUSADA PELA DECIMA SEXTA RODADA SEGUIDA:**
+21,08 h, piso de resolucao 1,14/dia, faltam **5,7 h** para o criterio do 723.
+
+**COTA: a janela virou as 07:00Z e esta peca e a PRIMEIRA dela** — um envio,
+1.600 unidades, contra o piso MEDIDO de **>= 41.600** que a janela anterior
+fechou. O numero sai do `janela_de_cota`, e contado a mao com a data de hoje
+daria o mesmo por acidente de hora, que e o erro de 23:3x.
+
 ## O `pgrep -f` CASAVA A PROPRIA LINHA DE COMANDO — e eu disse "VIVO" tres vezes
 
 **Medido em 20/10 as 01:4x, e e o ESPELHO EXATO do defeito de 19/10 as 16:2x,

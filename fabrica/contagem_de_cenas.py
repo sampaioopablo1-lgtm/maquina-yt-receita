@@ -316,6 +316,21 @@ def escolha(canal: str, voz: str, faixa=None, por_contagem=None,
     sem_rep = [x for x in cabem if not x["repete_recente"]]
     por_cad_nova = (min(sem_rep, key=lambda x: x["distancia_da_cadencia"])
                     if sem_rep else None)
+    # E a melhor cadencia que SERVE de fato: cabe na voz, nao repete tamanho
+    # recente E alcanca o PISO da faixa com folga. Era isto que faltava — o
+    # modulo CALCULAVA a `folga_no_piso` desde 06:3x e a chave de escolha
+    # aplicava SO a recencia, logo ela devolvia, em dois canais de tres, uma
+    # contagem que a propria coluna dele recusa: 14 no `kolejny` (folga +1, a
+    # conta que eu recusei a mao em 04:1x, 06:2x e 07:1x) e 9 no
+    # `labtreinamento` (folga -2, isto e PISO INALCANCAVEL). E a quinta vez
+    # desta familia de instrumentos: nao aplicar o que o proprio modulo sabe.
+    serve = [x for x in sem_rep if x["folga_no_piso"] > FOLGA_RENTE]
+    por_cad_serve = (min(serve, key=lambda x: x["distancia_da_cadencia"])
+                     if serve else None)
+    # NOMEADOS e nao filtrados: o que caiu por folga sai no relato, como o
+    # `origens_sem_uso` nomeia origem inutilizavel em vez de a esconder.
+    desc_folga = [x["cenas"] for x in sem_rep
+                  if x["folga_no_piso"] <= FOLGA_RENTE]
     if not abertas:
         return {
             "canal": canal, "abertas": 0, "por_cadencia": None,
@@ -328,6 +343,8 @@ def escolha(canal: str, voz: str, faixa=None, por_contagem=None,
             "ineditas_acima_do_teto": ined_acima,
             "recentes": recentes,
             "por_cadencia_sem_repetir": por_cad_nova,
+            "por_cadencia_servivel": por_cad_serve,
+            "descartados_pela_folga": desc_folga,
             "motivo": ("NENHUMA contagem de cena de "
                        f"{MIN_CENAS} a {MAX_CENAS} abre janela nos dois mundos "
                        "nesta faixa — a pinca do 740/748. Aqui nao se escolhe "
@@ -351,6 +368,8 @@ def escolha(canal: str, voz: str, faixa=None, por_contagem=None,
         "ineditas_acima_do_teto": ined_acima,
         "recentes": recentes,
         "por_cadencia_sem_repetir": por_cad_nova,
+        "por_cadencia_servivel": por_cad_serve,
+        "descartados_pela_folga": desc_folga,
         "motivo": "",
     }
 
@@ -457,6 +476,20 @@ def _linha_da_folga(q: list[dict], e: dict) -> str:
         L.append(f"  a escolha por cadencia ({x['cenas']} cenas) pede "
                  f"{x['chars_no_piso']} caractere(s) por cena no piso "
                  f"(folga {x['folga_no_piso']:+d}).")
+    s = e.get("por_cadencia_servivel")
+    fora = e.get("descartados_pela_folga") or []
+    if s:
+        L.append(f"  >> melhor cadencia que SERVE (cabe na voz, nao repete "
+                 f"tamanho recente e alcanca o piso com folga): "
+                 f"{s['cenas']} cenas, {s['chars_no_piso']} caractere(s) no "
+                 f"piso (folga {s['folga_no_piso']:+d}).")
+    else:
+        L.append("  >> NENHUMA contagem serve aos tres filtros ao mesmo tempo "
+                 "— aqui nao se escolhe contagem, declara-se a EXPOSICAO, do "
+                 "jeito que o `porta1` recusa janela curta.")
+    if fora:
+        L.append(f"  descartadas pela folga, e NOMEADAS em vez de filtradas: "
+                 f"{fora}.")
     return "\n".join(L)
 
 
