@@ -4911,6 +4911,18 @@ que importa: todo modo devolvido tem de estar NOMEADO no docstring da propria
 funcao, que e onde a medicao dele mora — e ela me **reprovou uma vez** antes de
 passar, porque eu havia escrito a medicao sem nomear o modo.
 
+**A SUITE FECHOU DUAS VEZES NESTA RODADA, as duas com o conjunto IDENTICO a
+linha de base desta sessao e `comm` vazio nos DOIS sentidos:** 25 falhas, 3.300
+passam, 1.033 skip em **800 s** com o conserto do `exceto` dentro, e 25 falhas,
+3.309 passam, 1.033 skip em **787 s** com o modo novo. **E o tempo vai medido em
+vez de atribuido:** os 800 s contra os 745 s da rodada anterior pareciam custo da
+delegacao nova, e nao sao — medida, `nome_da_spec.casa` custa **0,343 ms** por
+varredura de 375 specs, logo somar 55 s pediria **160 mil** varreduras, que a
+suite nao faz. A passada seguinte caiu a 787 s com NOVE testes a mais, o que e
+ruido entre passadas. **Eu nao sei a causa dos 55 s, e isso vai dito em vez de
+atribuido ao que mudou na rodada** — atribuir seria comparador escolhido sem
+medir, o efeito (C).
+
 `tests/test_o_sem_egresso_eram_DOIS_modos_e_um_e_POLITICA.py`, nove testes: o
 caso MEDIDO sai `negado_por_politica`, a contraprova no outro sentido exige que
 o MESMO 000 com a politica limpa saia `sem_egresso` (senao o modo novo sairia
