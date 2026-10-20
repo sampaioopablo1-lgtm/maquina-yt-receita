@@ -114,10 +114,12 @@ def quadro(pecas: list[dict] = None, so_vivos: bool = False) -> dict:
     canais = collections.defaultdict(set)
     formas = collections.Counter()
     por_n = collections.Counter()
+    formas_por_n = collections.defaultdict(set)
     for p in pecas:
         formas[p["esqueleto"]] += 1
         canais[p["esqueleto"]].add(p["canal"])
         por_n[p["cenas"]] += 1
+        formas_por_n[p["cenas"]].add(p["esqueleto"])
     atravessam = {e for e, s in canais.items() if len(s) > 1}
     n_atravessadas = sum(formas[e] for e in atravessam)
     return {
@@ -127,6 +129,12 @@ def quadro(pecas: list[dict] = None, so_vivos: bool = False) -> dict:
         "pecas_em_forma_que_atravessa": n_atravessadas,
         "fracao_atravessada": (n_atravessadas / len(pecas)) if pecas else 0.0,
         "por_contagem_de_cena": dict(sorted(por_n.items())),
+        # Quantas FORMAS distintas existem em cada tamanho — nao quantas pecas.
+        # As duas ocupam o MESMO lugar na minha frase e divergem por um fator
+        # de ate 5,5 (34 pecas contra 7 formas em seis cenas, 149 contra 65 em
+        # dez): e o 753 em forma de UNIDADE.
+        "formas_por_contagem_de_cena": {
+            n: sorted(s) for n, s in sorted(formas_por_n.items())},
         "canais_da_forma": {e: sorted(s) for e, s in canais.items()},
         "contagem_da_forma": dict(formas),
     }
@@ -171,6 +179,25 @@ def novidade(esq: str, cenas: int, pecas: list[dict] = None,
     Responde as duas perguntas que eu escrevia a mao em cada rodada, e a
     TERCEIRA que eu nunca escrevia: em quantos CANAIS esta forma ja vive.
 
+    **E EM 20/10 AS 18:4x ENTROU A QUARTA, que eu escrevia a mao em TODA
+    rodada: quantas FORMAS distintas existem neste TAMANHO de cena.** Eu venho
+    escrevendo na copy *"inedito nas SETE formas de onze cenas"*, *"as DUAS
+    formas de sete cenas"*, *"a TERCEIRA forma de oito cenas"* — e o modulo
+    devolvia `exemplares_do_tamanho`, que e o numero de PECAS. As duas
+    grandezas ocupam o MESMO lugar na frase e divergem por um fator de ate
+    **5,5**: em seis cenas sao **34 pecas** e **7 formas**; em dez, **149** e
+    **65**. E o 753 em forma de UNIDADE, como `cadencia` estimada contra real
+    (02:2x) e como `alvo` no orcamento (19/10, 15:2x).
+
+    **E AS CINCO AFIRMACOES DO ACERVO FORAM RECONFERIDAS CONTRA O DISCO, e as
+    CINCO estao CERTAS** — `epomeno-epipedo-s070` (catorze formas de nove),
+    `kolejny-poziom-s071` (sete de onze), `labtreinamento-s089` (duas de sete),
+    `-s091` (cinco de seis) e `-s092` (tres de sete). **Logo isto nao e um
+    numero errado publicado, e vai dito assim em vez de inflado:** e uma conta
+    que eu acertei cinco vezes a mao, com o numero ERRADO para a mesma frase
+    disponivel no campo vizinho. O item 3 da §10 nao fala do acerto, fala da
+    sexta vez.
+
     `exceto` e o nome do arquivo da propria peca, e ele NAO e conveniencia: a
     spec desta rodada ja esta no disco quando eu pergunto, logo sem ele
     "inedito" nunca pode ser verdade e o relato diz "JA EXISTE: 1 exemplar"
@@ -192,6 +219,11 @@ def novidade(esq: str, cenas: int, pecas: list[dict] = None,
         "exemplares_da_forma": iguais,
         "canais_da_forma": canais,
         "exemplares_do_tamanho": q["por_contagem_de_cena"].get(cenas, 0),
+        # PECAS e FORMAS sao duas perguntas, e e a segunda que a copy escreve.
+        "formas_do_tamanho": len(
+            q["formas_por_contagem_de_cena"].get(cenas, [])),
+        "formas_do_tamanho_lista": q["formas_por_contagem_de_cena"].get(
+            cenas, []),
         "tamanho_inedito": q["por_contagem_de_cena"].get(cenas, 0) == 0,
         "contagens_existentes": sorted(q["por_contagem_de_cena"]),
     }
@@ -210,7 +242,9 @@ def _frase_da_novidade(n: dict) -> str:
              f"existentes sao {n['contagens_existentes']}")
     else:
         t = (f"e o tamanho de {n['cenas']} cenas tem "
-             f"{n['exemplares_do_tamanho']} exemplar(es)")
+             f"{n['exemplares_do_tamanho']} PECA(S) em "
+             f"{n['formas_do_tamanho']} FORMA(S) distinta(s) — e e a segunda"
+             " que a copy escreve")
     return f"  {p},\n  {t}."
 
 
