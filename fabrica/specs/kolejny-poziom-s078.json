@@ -1,0 +1,124 @@
+{
+ "slug": "kolejny-poziom-s078",
+ "pacote": "kolejny-poziom-s078",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "longo_existente": "EwUkhdwyuuo",
+ "longo": [],
+ "thumb": {
+  "l1": "Rata ma",
+  "l2": "dwie części"
+ },
+ "paleta": {
+  "bg": "#0B0B0C",
+  "ink": "#F2EEE8",
+  "c1": "#E23B3B",
+  "c2": "#D9C7A7",
+  "red": "#FF4D4D",
+  "ok": "#7FB77E",
+  "panel": "#151517",
+  "mut": "#8F877C",
+  "acc": "#E23B3B"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Wydłużyłeś okres",
+   "sub": "i rata spadła mniej",
+   "nar": "Wydłużyłeś okres kredytu."
+  },
+  {
+   "layout": "item",
+   "kicker": "Mniej, niż liczyłeś",
+   "nar": "Rata spadła mniej, niż liczyłeś."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Nie jest jednym blokiem",
+   "barras": [
+    {
+     "rotulo": "Odsetki",
+     "valor": 100
+    },
+    {
+     "rotulo": "Kwota",
+     "valor": 38
+    }
+   ],
+   "nar": "Rata nie jest jednym blokiem."
+  },
+  {
+   "layout": "item",
+   "kicker": "Dwie części w środku",
+   "nar": "Ma w środku dwie części."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Co jest w racie",
+   "itens": [
+    "Kawałek kwoty",
+    "Odsetki od długu"
+   ],
+   "nar": "Kawałek kwoty i odsetki."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Na początku",
+   "sub": "przeważają odsetki",
+   "nar": "Na początku przeważają odsetki."
+  },
+  {
+   "layout": "item",
+   "kicker": "Najwięcej długu",
+   "nar": "Zostało wtedy najwięcej długu."
+  },
+  {
+   "layout": "item",
+   "kicker": "Pod koniec odwrotnie",
+   "nar": "Pod koniec jest odwrotnie."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Okres wydłuża tę fazę",
+   "barras": [
+    {
+     "rotulo": "Krótszy",
+     "valor": 46
+    },
+    {
+     "rotulo": "Dłuższy",
+     "valor": 100
+    }
+   ],
+   "nar": "Dłuższy okres wydłuża tę fazę."
+  },
+  {
+   "layout": "item",
+   "kicker": "Dłużej w odsetkach",
+   "nar": "Zostajesz dłużej w odsetkach."
+  },
+  {
+   "layout": "item",
+   "kicker": "Rat jeden do jednego",
+   "nar": "A liczba rat rośnie wprost."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Masz to na papierze",
+   "itens": [
+    "Pierwsza rata",
+    "Ostatnia rata",
+    "Udział odsetek"
+   ],
+   "nar": "Otwórz swój harmonogram spłat."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Kolejny Poziom",
+   "sub": "subskrybuj",
+   "nar": "Porównaj pierwszą i ostatnią ratę."
+  }
+ ],
+ "copy": "# kolejny-poziom-s078\n\n## TITULO\nDlaczego Rata Spada Wolniej, Niż Rośnie Okres: Rata Ma Dwie Części\n\n## TITULO SHORT\nRata ma dwie części, nie jedną\n\n## DESCRICAO\nWydłużasz okres kredytu, prosisz o symulację — i rata spada mniej, niż podpowiadała intuicja. Wniosek, który się wtedy nasuwa, jest prosty i błędny: **że coś jest nie tak z ofertą.** Nie jest. Nie tak działa rata.\n\nRata nie jest jednym blokiem. **Składa się z dwóch części:** kawałka pożyczonej kwoty i odsetek od tego, co jeszcze zostało do oddania. Proporcja między nimi nie jest stała — zmienia się przez cały okres kredytu, i to ona odpowiada za cały wynik.\n\n**Na początku przeważają odsetki, bo wtedy zostało do oddania najwięcej.** Pod koniec jest dokładnie odwrotnie: prawie cała rata to już spłata kwoty, bo odsetek prawie nie ma od czego liczyć. To nie jest opinia o banku — to arytmetyka tego, od czego liczy się odsetki.\n\n**I tu wchodzi okres.** Dłuższy okres nie rozcieńcza odsetek równomiernie: on wydłuża tę pierwszą fazę. Zostajesz dłużej w części, w której płacisz głównie odsetki. Odsetki nie znikają, tylko się rozciągają — a liczba rat rośnie wprost proporcjonalnie, jeden do jednego z miesiącami. Jedno działa wolno, drugie działa od razu, i dlatego rata spada wolniej, niż rośnie okres.\n\n**Nie musisz w to wierzyć na słowo — masz to na papierze.** Otwórz harmonogram spłat i porównaj dwie linie: ile z pierwszej raty to odsetki, a ile z ostatniej. Ta różnica jest całym mechanizmem. Zajmuje minutę i jest liczona na twojej umowie, nie na przykładzie z internetu — przy twojej kwocie i twoim oprocentowaniu wyjdzie inaczej niż u kogokolwiek innego.\n\nTo nie jest rada, żeby brać krócej. Krótszy okres też nie jest darmowy: podnosi ratę, a ta rata musi mieścić się w twoim budżecie każdego miesiąca. To jest wyjaśnienie, dlaczego porównanie trzeba policzyć, a nie ocenić na oko.\n\n## COMENTARIO FIXADO\nNajmniej oczywiste: wydłużenie okresu nie rozkłada odsetek równo, bo przesuwa cię w fazę, w której i tak płaciłeś głównie odsetki. Sprawdź u siebie: jaka część twojej PIERWSZEJ raty to odsetki, a jaka część ostatniej?\n\n## HASHTAGS\n#kredyt #rata #harmonogram #kolejnypoziom #Shorts\n\n## TAGS\nrata kredytu, harmonogram splat, odsetki, kapital, czesci raty, okres kredytu, wydluzenie okresu, nadplata, kredyt hipoteczny, oprocentowanie, poczatek kredytu, koniec kredytu, udzial odsetek, kolejny poziom, finanse osobiste\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\n**ZERO numero novo sobre o mundo, e ZERO digito na narracao** — nem taxa, nem\nprazo em anos ou meses, nem valor de rata, de kwota ou de saldo, nem percentual,\nnem prowizja, e nenhum banco nomeado (609). O longo esta cheio de numero de\nexemplo e NADA disso entra.\n\n**UNICO NUMERAL NA NARRACAO: \"dwie czesci\".** Ele e a ESTRUTURA que o proprio\ncapitulo 39 declara — *\"kazda rata sklada sie z dwoch czesci\"* — e nao afirmacao\nsobre o mundo, do mesmo jeito que o `epomeno-epipedo-s016` usou *\"ton dyo\"*.\n**E o `kolejny-poziom-s019`, irmao desta origem, escolheu o CONTRARIO** e evitou\n`dwa` de proposito; a diferenca vai dita em vez de escondida: la o numeral\ncontava EFEITOS que o short deduzia, aqui ele nomeia uma composicao que a origem\nescreve em letra.\n\nAs barras (100/38 na cena 2, 46/100 na cena 8) sao **ILUSTRACAO qualitativa** da\nFORMA do argumento — a proporcao dentro da rata, e a fase que o prazo estica — e\n**NAO sao faladas**. Elas nao medem nenhum cronograma real, e a rodada seguinte\nnao deve le-las de volta como dado.\n\n**E a ressalva do longo entra na peca, como entrou no `s019`:** ele diz\n*\"krotszy okres nie jest darmowy\"* e *\"to nie jest rada, zeby brac krocej\"*. Sem\nessa linha o short viraria conselho financeiro, e o longo se recusa a dar\nconselho.\n\n## FAMILIA DE ENTRADA ERRADA\n**LER A RATA COMO UM BLOCO HOMOGENEO** — tratar a prestacao como um valor so e,\ndai, esperar que esticar o prazo dilua os juros por igual. A rata tem DUAS\npartes cuja proporcao muda ao longo do periodo, e prazo mais longo nao\nredistribui: ele **estende a fase em que quase tudo e juros**. Logo a prestacao\ncai devagar enquanto o numero de prestacoes cresce um para um — e e por isso que\na comparacao nao se faz no olho. **O discriminador esta no papel:** a parte de\njuros da PRIMEIRA rata contra a da ULTIMA, no proprio harmonograma.\n\n## FONTES\nOrigem: `EwUkhdwyuuo` (`kolejny-poziom-013`, 90 capitulos), escolhida pelo\n`pauta_do_momento.py` — 3 usos, empatada com **onze** outras origens e\ndesempatada pela MAIOR reserva, **73 capitulos NAO MENCIONADOS de 90**. A\ndominante do canal (`GUiq15usizw`) ficou de fora, e quem conta e o\n`concentracao.py`. **E o `QiaGg03WSR0` saiu NOMEADO e nao filtrado** pelo mapa de\ndono MEDIDO: ele e longo do LabTreinamento declarado por engano em dois shorts\ndeste canal, logo nao disputa pauta aqui — mesmo tendo a MENOR contagem.\n\nCapitulos desta peca: **39, 40, 41, 42, 44 e 46** (*\"Rata ma dwie czesci\"*,\n*\"Na poczatku\"*, *\"Pod koniec\"*, *\"Co robi dluzszy okres\"*, *\"A liczba rat\"* e\n*\"Sprawdz to na sobie\"*). O 39 diz em letra que *\"kazda rata sklada sie z dwoch\nczesci\"*; o 42 que *\"dluzszy okres wydluza te pierwsza faze\"*; e o 46 manda abrir\no harmonograma e comparar a primeira rata com a ultima.\n\n**E ESTA FAMILIA FOI ENCOMENDADA POR ESCRITO POR UM IRMAO, o que e raro.** O\n`kolejny-poziom-s019` tem, no bloco *\"O QUE EU NAO LEVEI\"*, exatamente esta\nindicacao: *\"Rata ma dwie czesci / Na poczatku — a parcela tem duas partes e no\ncomeco predominam os juros... Outra familia (A PARTE QUE DOMINA NO COMECO) e um\nTERCEIRO angulo. Nao a levei hoje porque ela explica o MESMO resultado por\ndentro\"*. **Isto e a reserva que o conserto de hoje as 17:4x deixou de contar\ncomo consumida** — ate ele, capitulo citado dentro de um bloco de negacao\naparecia no relato como *\"capitulos que ele declara\"*.\n\n**A DISTINCAO DOS TRES IRMAOS VAI ESCRITA, e eles vieram do `irmaos_da_origem`,\nnao da minha leitura** — e **dois dos tres** nao tem o campo da familia:\n\n* `s011` — **o que a nadplata encurta**: prazo ou prestacao, e isso e CLAUSULA da\n  umowa. Fala do efeito de um pagamento extra; esta peca nao fala de nadplata;\n* `s019` — **os DOIS efeitos opostos do prazo**: ele baixa a prestacao E\n  multiplica o numero de prestacoes que carregam juros. **E a vizinha mais\n  perigosa, porque e o MESMO resultado, e a distincao e a que o proprio `s019`\n  escreveu: la o eixo e a ARITMETICA do balanco entre os dois efeitos; aqui e a\n  COMPOSICAO dentro da rata, que explica POR QUE um dos dois anda devagar.**\n  Resultado igual, mecanismo por dentro: foi por isso que ele chamou isto de\n  terceiro angulo;\n* `s038` — **previsao contra comparacao**: a taxa de hoje nao prediz o futuro, e\n  a conta nao foi feita para prever. Outro eixo inteiro, e e o unico dos tres que\n  declara capitulos (49 a 60).\n\n## EXPOSICAO\n**TREZE CENAS, e a recusa nao foi minha.** O `contagem_de_cenas.py` deu catorze\ncomo melhor cadencia e ela saiu **NOMEADA e nao filtrada**: o orcamento ali cai a\n**22** caracteres por cena, a UM do piso OBSERVADO de 21, e foi essa a mesma conta\nque eu recusei a mao em 04:1x e 06:2x. Treze e a melhor que SERVE pelos tres\nfiltros da chave `por_cadencia_servivel`, com folga **+6**, e nao repete tamanho\nrecente (as duas ultimas deste canal tem onze e doze).\n\n**O ORCAMENTO SAIU DA JANELA DO MUNDO, nao do inversor:** para treze cenas nesta\nvoz o `mira.janela_do_mundo` devolve **28 a 29** caracteres por cena, e a peca foi\nescrita com media **28,54** — previsao edge **42,44**, dentro do `ALVO_SHORT`\n(41,5 a 43,0). O piso EXECUTAVEL e 28; perguntado pelo piso, o inversor responde\n27, cuja previsao cai em 41,39 — **abaixo** da faixa (o defeito de 54 em 54 pares,\nmedido as 16:4x).\n\n**E UMA FRASE POR CENA, conferida pelo DONO da contagem** (`narracao.frases`), com\n`assert` no construtor. Isto nao e estilo: `P` e silencio por FRASE e vale\n**1,42 s** nesta voz, a maior da frota — uma frase a mais numa cena tira a peca da\nfaixa com a MESMA media de caracteres, que foi o achado das 19:4x.\n\n**ESQUELETO\n`titulo-item-barras-item-lista-titulo-item-item-barras-item-item-lista-cta`,\ninedito na frota** — numero do `esqueleto_entre_canais`, com a propria peca FORA\nda varredura pelo `exceto`. A frota tem **QUATRO** formas de treze cenas e esta\nnao e nenhuma delas; `barras` e `lista` entram duas vezes cada e as quatro\ncarregam argumento. Todo layout saiu do conjunto **SONDADO**\n(`layouts_do_short.desenham()`), e a paleta foi **LIDA** de\n`temas_do_dono.paleta_do_canal`.\n\n**A PINCA DO 740/748 ESTA FECHADA AQUI, com a exposicao declarada ANTES de\npublicar:** o `mira.janela_dos_dois_mundos` devolve **NENHUMA** janela nesta voz\ncom treze cenas (razao piper/edge 0,851), logo o piper sai em 36,11 — FORA do\n`ALVO_SHORT` pelo piso. O portao `duracao` cobra 18 a 45 s, que os dois mundos\nsatisfazem.\n\n**Com a banda em (−1,2; 4,0) o real cai em algum ponto da faixa que o `mira.py`\nimprime, e eu nao digo de que lado** — ela tem 5,2 s de largura contra 1 s de\ngranularidade, e declarar um lado dela nao e previsao (774).\n"
+}

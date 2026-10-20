@@ -494,8 +494,10 @@ def _linha_das_frases(spec: dict) -> list:
             " com os MESMOS caracteres em uma frase por cena."]
     return [
         "  o orcamento acima SUPOE uma frase por cena, e esta peca cumpre isso"
-        " — cena com duas frases paga 2P, e na frota 213 de 384 specs pagam"
-        " (mediana 3,45 s, maximo 9,23 s, contra 1,5 s de faixa)."]
+        " — cena com duas frases paga 2P, e a MAIORIA das specs da frota paga."
+        " A medida vive no docstring de `custo_das_frases_extra`, que o teste"
+        " recontra contra o disco: repeti-la aqui foi o 753 na primeira versao"
+        " desta linha, e ela ja divergiu do docstring em uma hora."]
 
 
 def _linha_do_orcamento(spec: dict) -> list:

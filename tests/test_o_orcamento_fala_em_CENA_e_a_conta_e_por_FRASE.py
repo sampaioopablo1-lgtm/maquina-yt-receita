@@ -205,6 +205,17 @@ def test_a_ressalva_sai_nos_DOIS_ramos_e_tem_UM_dono():
     l_com = "\n".join(mira._linha_das_frases(com))
     l_sem = "\n".join(mira._linha_das_frases(sem))
     assert "SUPOE uma frase por cena" in l_com and "SUPOE uma frase por cena" in l_sem
+    # e a medida da FROTA nao se repete DENTRO da linha: ela e calculada, e
+    # numero calculado reescrito em string e o 753 — a primeira versao desta
+    # linha citava "213 de 384 ... 3,45 ... 9,23" e divergiu do docstring
+    # corrigido em UMA HORA.
+    corpo_linha = ast.unparse(defs["_linha_das_frases"])
+    for proibido in ("216", "631", "3,53", "8,91", "213", "614", "3,45", "9,23"):
+        assert proibido not in corpo_linha, (
+            "%r dentro de `_linha_das_frases`: a medida da frota tem UM dono (o"
+            " docstring do `custo_das_frases_extra`, reconferido pelo teste), e"
+            " repeti-la aqui e o 753" % proibido)
+
     assert "ATENCAO" in l_com and "ATENCAO" not in l_sem, (
         "os dois ramos ficaram indistinguiveis: o que paga tem de ser o unico"
         " com ATENCAO")
