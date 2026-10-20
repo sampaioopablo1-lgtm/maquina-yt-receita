@@ -1,0 +1,131 @@
+{
+ "slug": "epomeno-epipedo-s075",
+ "pacote": "epomeno-epipedo-s075",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "longo_existente": "9Hg5A3H1Qe4",
+ "longo": [],
+ "thumb": {
+  "l1": "Μήνας",
+  "l2": "κρύβει τη διαφορά"
+ },
+ "paleta": {
+  "bg": "#F4EFE6",
+  "ink": "#1B1A17",
+  "c1": "#C8502A",
+  "c2": "#2B6CB0",
+  "red": "#B83227",
+  "ok": "#2E8B57",
+  "panel": "#FFFFFF",
+  "mut": "#7A7263",
+  "acc": "#C8502A"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Μήνας με μήνα",
+   "sub": "δεν συγκρίνεται",
+   "nar": "Ο μήνας δεν συγκρίνεται."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ίδιο κλάσμα;",
+   "nar": "Δεν είναι ίδιο κλάσμα."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Ο χρόνος, δύο μέρη",
+   "barras": [
+    {
+     "rotulo": "Με έξτρα",
+     "valor": 100
+    },
+    {
+     "rotulo": "Χωρίς",
+     "valor": 72
+    }
+   ],
+   "nar": "Εδώ ο χρόνος έχει έξτρα."
+  },
+  {
+   "layout": "item",
+   "kicker": "Νόμος, όχι χάρη",
+   "nar": "Εκεί ο νόμος δίνει επιπλέον."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Τι μπαίνει έξτρα",
+   "itens": [
+    "Δώρο Χριστουγέννων",
+    "Δώρο Πάσχα",
+    "Επίδομα αδείας"
+   ],
+   "nar": "Δώρα και επίδομα αδείας."
+  },
+  {
+   "layout": "item",
+   "kicker": "Στην άλλη στήλη",
+   "nar": "Στο άλλο μέρος δεν υπάρχουν."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ο μήνας κρύβει",
+   "sub": "τη διαφορά",
+   "nar": "Άρα ο μήνας κρύβει τη διαφορά."
+  },
+  {
+   "layout": "item",
+   "kicker": "Η μονάδα",
+   "nar": "Η σύγκριση θέλει τον χρόνο."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Ο ετήσιος, ίσια",
+   "barras": [
+    {
+     "rotulo": "Με τον μήνα",
+     "valor": 100
+    },
+    {
+     "rotulo": "Με τον χρόνο",
+     "valor": 64
+    }
+   ],
+   "nar": "Ο ετήσιος βάζει τα δύο ίσια."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Τι μπαίνει στη γραμμή",
+   "itens": [
+    "Ώρες συμβολαίου",
+    "Έξτρα του χρόνου",
+    "Καθαρά στο χέρι"
+   ],
+   "nar": "Ώρες, έξτρα και καθαρά."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ο λόγος αλλάζει",
+   "nar": "Και ο λόγος μικραίνει αισθητά."
+  },
+  {
+   "layout": "item",
+   "kicker": "Και η απόφαση",
+   "nar": "Και η απόφαση αλλάζει μαζί."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Μέτρα τον χρόνο",
+   "sub": "όχι τον μήνα",
+   "nar": "Μέτρα τον χρόνο, όχι τον μήνα."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Ο δικός σου ετήσιος",
+   "sub": "γράψ' τον σήμερα",
+   "nar": "Γράψε τον δικό σου ετήσιο."
+  }
+ ],
+ "copy": "# epomeno-epipedo-s075\n\n## TITULO\nΟ Μήνας Δεν Είναι Το Ίδιο Κλάσμα Του Χρόνου: Γιατί Η Σύγκριση Μισθών Θέλει Ετήσιο\n\n## TITULO SHORT\nΟ μήνας κρύβει τη διαφορά\n\n## DESCRICAO\nΗ σύγκριση μισθών μεταξύ δύο χωρών μπαίνει σχεδόν πάντα με τον μηνιαίο: τόσα εδώ, τόσα εκεί. **Το λάθος δεν είναι στα δύο νούμερα — είναι στη ΜΟΝΑΔΑ.** Ο μήνας δεν είναι το ίδιο κλάσμα του χρόνου στις δύο πλευρές.\n\nΣτον ένα ιδιωτικό τομέα ο χρόνος περιλαμβάνει πληρωμές που ο νόμος προβλέπει πέρα από τους μήνες — δώρο Χριστουγέννων, δώρο Πάσχα, επίδομα αδείας. **Δεν είναι χάρη του εργοδότη: είναι νόμος.** Στην άλλη πλευρά τέτοιες γραμμές δεν υπάρχουν. Άρα ο ίδιος μηνιαίος αριθμός κουβαλά διαφορετικό μέρος του χρόνου στα δύο μέρη, και η σύγκριση «μήνας με μήνα» βάζει δίπλα δίπλα δύο πράγματα που δεν μετρούν το ίδιο διάστημα.\n\n**Ο λογαριασμός που συγκρίνει είναι ο ετήσιος**, και η αλλαγή δεν είναι καλλωπιστική: όταν περάσεις στον χρόνο, ο λόγος ανάμεσα στις δύο πλευρές **μικραίνει αισθητά** — και από τον ένα λόγο βγαίνει άλλη απόφαση απ' ό,τι από τον άλλο. Το ίδιο ζευγάρι αριθμών, μετρημένο σε άλλη μονάδα, αλλάζει το συμπέρασμα.\n\n**Και η γραμμή που κουνάει περισσότερο το αποτέλεσμα δεν είναι ο μισθός, είναι οι ώρες** του συμβολαίου — γι' αυτό στον ετήσιο μπαίνουν τρεις στήλες μαζί: ώρες, έξτρα του χρόνου, και τα καθαρά στο χέρι. Όποια από τις τρεις λείπει, η σύγκριση κουτσαίνει.\n\n**Τι αξίζει να κάνεις σήμερα:** γράψε τον δικό σου ετήσιο — όχι μέσο όρο χώρας, τον δικό σου — και ξαναμέτρα μία φορά τον χρόνο, ή όταν αλλάξει κάποιο από τα νούμερα του νόμου. Παίρνει πέντε λεπτά όταν το φύλλο υπάρχει ήδη.\n\nΔεν δίνω εδώ ποσά σε ευρώ, ποσοστά, ωρομίσθια, ούτε πόσες είναι οι επιπλέον πληρωμές του χρόνου. Αυτά αλλάζουν ανά δημοσίευση και μένουν έξω. Η δομή είναι το θέμα, και δεν εξαρτάται από κανένα νούμερο: ο μήνας δεν συγκρίνεται, ο χρόνος συγκρίνεται.\n\n## COMENTARIO FIXADO\nΤο λιγότερο προφανές: η μονάδα αλλάζει το συμπέρασμα χωρίς να αλλάξει κανένας αριθμός. Εσύ έχεις γράψει ποτέ τον δικό σου ετήσιο;\n\n## FAMILIA DE ENTRADA ERRADA\nΗ ΜΟΝΑΔΑ ΤΗΣ ΠΕΡΙΟΔΟΥ: συγκρίνω μηνιαίο με μηνιαίο, όταν ο μήνας δεν είναι το ίδιο κλάσμα του χρόνου στις δύο πλευρές — στη μία ο νόμος προβλέπει πληρωμές πέρα από τους μήνες, στην άλλη όχι. Και τα δύο νούμερα είναι σωστά και τυπωμένα; το σφάλμα είναι το ΔΙΑΣΤΗΜΑ που το καθένα καλύπτει. Η μονάδα που συγκρίνει είναι ο ετήσιος, και ο λόγος μικραίνει όταν περάσεις σε αυτήν.\nDistincao dos TRES irmaos desta origem, conferida pelo `irmaos_da_origem` e nao pela minha leitura: o `s008` fala da COLUNA de custo que falta num lado (uma linha ausente); o `s027` fala de decidir pela EPIGRAFE — o numero correto de OUTRA pessoa, media de um pais — em vez do proprio resto; o `s040` fala do mensal como PRODUTO de horas supostas, isto e, de como UM dos lados foi fabricado. Aqui as duas colunas estao certas, nenhuma esta ausente e nenhuma e produto de suposicao: o que esta errado e o DIASTEMA que o mes cobre em cada lado. Eixo novo nesta origem.\n\n## HASHTAGS\n#μισθός #οικονομικά #σύγκριση #epomenoepipedo #Shorts\n\n## TAGS\nετησιος μισθος, μηνιαιος μισθος, συγκριση μισθων, μοναδα μετρησης, δωρο Χριστουγεννων, δωρο Πασχα, επιδομα αδειας, ωρες συμβολαιου, καθαρα στο χερι, κατωτατος μισθος, συγκριση χωρων, προσφορα εργασιας, οικονομικα προσωπικα, epomeno epipedo, ετησιος λογαριασμος\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao: ela NAO fala valor em euros,\npercentual, ordenado minimo, ordenado-hora, nem QUANTAS sao as pagas extra do\nano. Esse ultimo ficou FORA de proposito, mesmo sendo o coracao da familia —\ne contagem legal que muda por publicacao, e a regra (g) nao abre excecao para\nnumero conveniente. A peca carrega o EIXO sem ele: o mes nao cobre o mesmo\ndiastema nos dois lados.\nAs barras sao ILUSTRACAO QUALITATIVA e NAO sao faladas: os pares (100/72 e\n100/64) mostram a DIRECAO do argumento — um lado carrega mais que doze meses de\npaga, e a razao encolhe quando se passa ao ano. **Eles NAO sao a contagem legal\nnem a razao MEDIDA do longo**, que ficaram as duas fora pela regra (g), e isso\nvai dito aqui para a rodada seguinte nao as ler de volta das barras.\n\n## FONTES\nA spec local `epomeno-epipedo-003`, pacote do longo `9Hg5A3H1Qe4` — origem de\nMENOR contagem do canal pelo `pauta_do_momento` (3 usos, empatada com sete\noutras) e desempatada pela MAIOR reserva: **63 dos 81 capitulos NAO\nMENCIONADOS** pelo `segundo_angulo`. A familia sai dos capitulos 25, 26 e 31\n(`Δώρα και επίδομα`, `Άρα ο τίμιος λογαριασμός`, `Ο ετήσιος, τίμια`), com os\ncapitulos 66 e 67 (`Η γραμμή που κουνά`, `Ξαναμέτρα`) sustentando as tres\ncolunas e o fechamento. Nenhuma frase saiu de TITULO de capitulo.\nA dominante do canal `nttW9fR8wyY` ficou de fora, e o `concentracao.py` e quem\nconta.\n\n## EXPOSICAO\n**CATORZE CENAS, e a escolha saiu da chave `por_cadencia_servivel`** do\n`contagem_de_cenas`: cabe no teto MEDIDO desta voz (15), nao repete tamanho\nrecente (as duas ultimas do canal tem 12 e 13 cenas) e alcanca o piso da faixa\ncom folga (+5). **O teto da voz (15) saiu NOMEADO e nao filtrado**: ele e\nINEDITO na frota, logo seria novidade de TAMANHO, e foi RECUSADO pela folga —\n22 caracteres por cena, a dois do piso OBSERVADO de 21. **Foi a mesma conta que\neu recusei A MAO em 04:1x e 06:2x**, e e por isso que ela deixou de morar na\nminha cabeca.\n**ESQUELETO `titulo-item-barras-item-lista-item-titulo-item-barras-lista-item-item-titulo-cta`,\ninedito nas 129 formas da frota** — numero do `esqueleto_entre_canais`, com a\npropria peca FORA da varredura. A frota tem UMA forma de catorze cenas (o\n`s072`) e esta nao e ela. Todo layout saiu do conjunto **SONDADO**\n(`layouts_do_short.desenham()`), com `assert` no builder.\n**A PINCA DO 740/748 ESTA FECHADA AQUI, e a exposicao vai declarada ANTES de\npublicar:** o `mira.janela_dos_dois_mundos` devolve NENHUMA janela para esta voz\nnesta faixa — o vao piper/edge vale ~4,7 s contra 1,5 s de largura de faixa —,\nlogo o piper sai FORA pelo piso. Mirei o PISO no mundo `edge` (41,59 contra\n41,5), pela regra de redacao do 772, e NAO prometo real dentro: com a banda em\n(-1,2; 4,0) o real pode cair em qualquer ponto de uma faixa de 5,2 s contra 1 s\nde granularidade, e declarar um lado dela nao e previsao (774).\n"
+}
