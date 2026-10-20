@@ -1,0 +1,84 @@
+{
+  "pacote": "labtreinamento-s089",
+  "slug": "labtreinamento-s089",
+  "idioma": "pt-BR",
+  "voz": "pt-BR-ThalitaMultilingualNeural",
+  "trilha": "Inspired",
+  "paleta": {
+    "bg": "#0E1117",
+    "ink": "#EEF1F5",
+    "c1": "#3DDBD9",
+    "c2": "#1E2430",
+    "red": "#FF5A5F",
+    "ok": "#3CCB7F",
+    "panel": "#161B24",
+    "mut": "#8B95A5",
+    "acc": "#3DDBD9"
+  },
+  "thumb": {
+    "l1": "Regra trocada",
+    "l2": "no meio"
+  },
+  "longo": [],
+  "longo_existente": "POBNoY16wG8",
+  "short": [
+    {
+      "layout": "titulo",
+      "kicker": "Subiu sozinho",
+      "sub": "ninguém treinou",
+      "nar": "Seu indicador subiu e ninguém treinou mais."
+    },
+    {
+      "layout": "barras",
+      "kicker": "Três períodos, uma regra trocada",
+      "barras": [
+        {
+          "rotulo": "Período 1",
+          "valor": 58
+        },
+        {
+          "rotulo": "Período 2",
+          "valor": 61
+        },
+        {
+          "rotulo": "Período 3",
+          "valor": 94
+        }
+      ],
+      "nar": "O terceiro período usou outra regra."
+    },
+    {
+      "layout": "item",
+      "kicker": "A regra vem antes da conta",
+      "nar": "A regra do denominador se escreve antes."
+    },
+    {
+      "layout": "lista",
+      "kicker": "O que fica guardado junto",
+      "itens": [
+        "A regra, em uma frase",
+        "A lista de nomes de baixo",
+        "O período que ela cobre"
+      ],
+      "nar": "Guarde três coisas junto com o resultado."
+    },
+    {
+      "layout": "titulo",
+      "kicker": "Se a regra mudar",
+      "sub": "refaça o histórico",
+      "nar": "Mudou a regra? Refaça a série inteira por ela."
+    },
+    {
+      "layout": "item",
+      "kicker": "Compare com você mesmo",
+      "nar": "Compare com o seu período, pela mesma regra."
+    },
+    {
+      "layout": "cta",
+      "kicker": "Qual regra você usou",
+      "sub": "escreva a frase",
+      "nar": "Escreva a regra que você usou lá embaixo."
+    }
+  ],
+  "copy": "# labtreinamento-s089\n\n## TITULO\nPor Que o Seu Percentual de Treinamento Sobe Sem Ninguém Treinar Mais\n\n## TITULO SHORT\nA regra mudou no meio da série\n\n## DESCRICAO\nTem um jeito de o indicador de treinamento subir sem que uma única pessoa a mais tenha treinado: **trocar a regra do denominador no meio da série.** O número de cima fica igual, o de baixo encolhe, e o percentual sobe. Ninguém recebe aviso.\n\n**E o pior é que a troca quase nunca é má-fé.** Num período alguém decide tirar de baixo quem saiu da empresa; no outro, incluir só quem está há mais de três meses. Cada decisão parece razoável sozinha. **Juntas, elas fazem a sua série comparar coisas diferentes e chamar isso de evolução.**\n\n**A correção é de ordem, não de esforço: a regra do denominador se escreve antes de calcular, em uma frase.** Depois dela, três coisas ficam guardadas junto do resultado — a frase da regra, a lista de nomes que entrou embaixo, e o período que ela cobre. É essa lista que responde quando alguém perguntar de onde veio o número, e é a frase que sobrevive à troca de quem faz o relatório.\n\n**E existe uma exceção que vale mais que tudo isso: se a regra mudar de verdade, refaça o histórico pela nova.** Série com duas regras no meio não compara nada — nem com o período anterior, nem com você mesmo. Dá trabalho uma vez e resolve de vez.\n\n**O que fazer hoje:** abra o último cálculo, escreva em uma frase qual foi a regra de baixo, e confira se o período anterior usou a mesma. Se não usou, você não tem uma série: tem dois números soltos com o mesmo nome.\n\nNão cito aqui percentual de referência, meta de mercado nem média de setor. Isso muda e fica fora da gravação. O mecanismo é o que importa: a divisão nunca falha, falha sempre a lista — e a lista tem de ser a mesma dos dois lados da comparação.\n\n## COMENTARIO FIXADO\nO mais difícil de aceitar: um número mais baixo que você sabe defender vale mais que um alto que ninguém consegue explicar. Qual regra você usou no denominador?\n\n## HASHTAGS\n#indicadores #treinamento #rh #labtreinamento #Shorts\n\n## TAGS\nindicador de treinamento, denominador, percentual de treinados, serie historica, regra do denominador, lista de nomes, periodo fechado, comparacao com periodo anterior, media de setor, relatorio de rh, labtreinamento, planilha, metrica, auditoria de indicador\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Os unicos numeros falados sao\n\"tres\" (as coisas que ficam guardadas) e a contagem dos periodos, e os dois sao\ndo proprio procedimento. Os valores das barras (58, 61 e 94) sao ILUSTRACAO da\ntroca de regra — periodo 1 e 2 pela regra antiga, periodo 3 pela nova —, nao\nmedicao de empresa nenhuma, e nao sao falados. Nada de alicota, prazo, piso\nlegal ou percentual de mercado entra aqui: a regra (g) manda tirar numero do\nmundo que MUDA, e meta de setor e exatamente isso.\n\n## FONTES\nOrigem: `POBNoY16wG8` (`labtreinamento-014`), publicado neste canal em 19/10.\nRank 1 da ordem viva e a origem de MENOR contagem do canal (3 shorts contra 13\nda dominante `FtCtIJPsc_Q`), com 43 dos 64 capitulos NAO MENCIONADOS pelos tres\nshorts anteriores — medido pelo `segundo_angulo.nao_mencionados`.\n\nFAMILIA: A REGRA MUDOU NO MEIO DA SERIE (capitulos 57 a 60, mais o 38). E a\nQUINTA familia distinta deste mesmo longo e a primeira que NAO fala do conteudo\ndo denominador: ela fala da SERIE no tempo. As quatro anteriores foram o\nDENOMINADOR (short do pacote), a JANELA do periodo (`s086`), a COMPARACAO COM\nNUMERO DE FORA (`s087`) e a META REDONDA com a LISTA DE NOMES (`s088`).\n\nO capitulo 60 diz em letra: *\"se a regra do denominador mudar, recalcule o\nhistorico pela nova. Serie com duas regras no meio nao compara nada.\"* O 57 da a\nordem (escrever a regra antes de calcular), o 58 as tres coisas guardadas, o 59\no periodo fechado, e o 38 a comparacao com o proprio periodo anterior pela mesma\nregra.\n\nA pauta NAO atravessou canal: esta peca sai do longo deste canal, como as\nanteriores. Repetir o mesmo angulo nos tres canais seria o 762 numa dimensao\nnova, e o portao `similaridade` NAO pegaria, porque compara contra o MESMO\ncanal.\n\n## EXPOSICAO\nSETE cenas, esqueleto `titulo-barras-item-lista-titulo-item-cta` — a frota tem\napenas DUAS formas de sete cenas, e esta nao e nenhuma delas. Todo layout saiu\ndo conjunto SONDADO pelo `layouts_do_short`, com um `assert` no builder que\nrecusa layout fora dele.\n\nORCAMENTO NOS DOIS MUNDOS: para SETE cenas na mira medida deste canal (20,0 a\n26,0) o `mira.janela_dos_dois_mundos` devolve **41 a 44** caracteres por cena —\ne ela foi escrita com media dentro dessa janela, logo o edge E o piper caem\ndentro da mira. Com DEZ cenas a janela cairia a 24 a 25, e com ONZE a 20 a 21,\nque e o piso OBSERVADO de caracteres por cena: seria portugues telegrafico.\n\nCADENCIA: ~3,3 s por plano, a contagem de cena que mais se aproxima dos ~3,1 s\nmedidos em 690/699 dentro desta mira.\n\nA exposicao do 740/748 vai declarada: a banda do residuo e (-1,2; 4,0), logo\nse o edge narrar o real pode passar do teto de 26,0 da mira. Isso e a pinca que\nsegue na fila do dono, e eu NAO prometo real dentro.\n"
+}
