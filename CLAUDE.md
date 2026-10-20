@@ -4295,6 +4295,116 @@ medicao minha, e vai registrado como tal.*
 o piso MEDIDO de **>= 40.000** — do `janela_de_cota`, nao de um laco escrito na
 hora.
 
+## E ELE RECOMENDOU CONTAGEM ACIMA DO TETO MEDIDO DA VOZ
+
+**Medido em 20/10 as 04:1x, na PRIMEIRA rodada depois do conserto das 03:2x.**
+Posto a ordenar nos dois canais da pinca, o `contagem_de_cenas` deu **15 cenas**
+como *"melhor cadencia entre as INEDITAS"* no `kolejny-poziom`. **O teto MEDIDO
+da voz polonesa e 14** (`mira.teto_de_cenas`, contra o piso OBSERVADO de 21
+caracteres por cena). Medido nos tres canais:
+
+| canal | teto MEDIDO | ineditas que ele RECOMENDAVA acima dele |
+|---|---|---|
+| labtreinamento | **11** | 15, 16, 17, 18, 19, 20 |
+| epomeno-epipedo | **15** | 16, 17, 18, 19, 20 |
+| kolejny-poziom | **14** | 15, 16, 17, 18, 19, 20 |
+
+**E e a QUINTA vez da mesma assinatura nesta familia de instrumentos: nao chamar
+quem ja sabe.** O `mira.teto_de_cenas` existe desde 20/10 as 00:3x e este modulo
+nunca o chamou — o `MAX_CENAS = 20` dele e limite de **VARREDURA**, nao teto de
+voz, e eu tratei os dois como a mesma coisa. **O defeito e de CONSELHO, nao de
+peca publicada:** nenhuma peca saiu com 15 cenas, porque eu reconferi contra o
+teto a mao; mas conselho que o proprio parque reprova convida a escrever a peca
+errada, como em 19/10 as 17:2x.
+
+**Consertado com DELEGACAO:** `contagem_de_cenas.teto_da_voz` chama o dono, o
+`quadro` ganhou a coluna `cabe_na_voz`, e a novidade so vale entre as contagens
+que cabem. **E o que ficou acima vai NOMEADO e nao filtrado** — o relato diz
+qual e o teto, de onde ele vem e que acima dele o orcamento cai abaixo do piso
+de caracteres. Esconder faria a rodada seguinte perguntar por que a lista
+encurtou.
+
+### E A PRIMEIRA VERSAO DO MEU TESTE ERA UMA FRASE DE FROTA — e ele me pegou
+
+Eu escrevi, no teste, que *"abaixo do teto o UNICO tamanho que a frota nunca
+usou e TRES"*. **Verdade em dois canais e FALSA no terceiro:** no
+`epomeno-epipedo` o teto e 15 e **quinze segue livre**, com |dif| **0,28** da
+cadencia medida — perfeitamente utavel. **E o 679/698/725 outra vez: a frase do
+canal em que eu estava, vestida de frase da frota** — e pela segunda rodada
+seguida quem pegou foi o teste, antes de eu relatar.
+
+**O que ficou cobrado e a propriedade de DOIS LADOS:** existe canal em que a
+novidade de TAMANHO esgotou (so sobra tamanho de cadencia inutavel) e existe
+canal em que ela nao esgotou. Se um dos dois lados desaparecer, isto se rele —
+e **no `kolejny` e no `labtreinamento` a novidade passa a ser de FORMA
+(esqueleto), nao de tamanho**, o que muda a redacao das rodadas seguintes
+nesses dois canais.
+
+`tests/test_ele_recomendava_contagem_ACIMA_do_teto_da_voz.py`, nove testes: a
+delegacao e cobrada por **AST** e **o literal 21 e PROIBIDO no modulo** (ele
+mora no dono), um exige que os tres tetos **DIVIRJAM** (senao volta a existir
+teto de frota), um cobra que **nenhuma** recomendacao passe do teto nos tres
+canais, um exige que o que ficou acima apareca **NOMEADO** no relato (sem isso
+filtrar e nomear ficam indistinguiveis), a **FRONTEIRA** e cobrada nos dois
+lados (o teto cabe, o teto + 1 nao), a frase do teto tem **UM dono** e sai nos
+**DOIS** ramos do relato, e um cobra que a medida dos tres tetos continue
+escrita no modulo.
+
+### A PECA DESSA RODADA — DOZE cenas, e a cadencia NAO foi o critério
+
+`kolejny-poziom-s073` = **`oXKIgJOxNrY`**, publicado as 04:13:06Z (run
+`39368383483`), **ONZE PORTOES VERDES NA PRIMEIRA TENTATIVA**. Provedor **edge
+MEDIDO** (zero avisos `NARRACAO PELO PIPER` no job `118450348626`), som
+**-13,6** LUFS, LRA 2,7, pico -1,4, desvio +0,4, **zero silencios**. Previsao
+edge **41,52** — o PISO EXATO da faixa, pela regra de redacao do 772 — e piper
+35,34.
+
+**A escolha das DOZE cenas vai com o motivo, e ele nao e a cadencia:**
+
+| cenas | orcamento no piso | cadencia | por que |
+|---|---|---|---|
+| 14 (teto) | **22** caracteres | 3,02 s | RECUSADO: 22 fica a UM do piso OBSERVADO de 21 |
+| 13 | 27 | 3,25 s | RECUSADO por REPETICAO — o `s072` deste canal, de tres horas antes |
+| **12** | **32** | **3,52 s** | escolhido |
+
+**Logo a melhor cadencia foi recusada duas vezes**, e isso vai dito em vez de
+escorregar: repetir tamanho no mesmo canal em duas rodadas seguidas e exatamente
+o que o dono reclamou em 19/10.
+
+**ESQUELETO `titulo-item-barras-item-lista-titulo-item-item-barras-lista-item-cta`**,
+inedito na frota — a unica peca de doze cenas que existia e o
+`epomeno-epipedo-s071`, com outra sequencia. Todo layout saiu do conjunto
+**SONDADO**, com `assert` no builder.
+
+**PAUTA:** `vcJf6WipLtY` (`kolejny-poziom-012`), 80 capitulos e **74 NAO
+MENCIONADOS** — a MAIOR reserva do canal. A dominante `GUiq15usizw` ficou de
+fora **com o ALERTA na mao**: 12 de 67 shorts (18%), mais que o dobro da segunda.
+**FAMILIA NOVA NO CANAL: A SEGUNDA METADE NAO REAGE** (capitulos 15 a 18, 20 e
+62) — a distribuicao nao e pagamento pelo prad, e pela REDE, e boa parte dela
+nao depende do consumo: paga-se mesmo viajando um mes. Logo apagar a luz corta
+UMA metade, e trocar de vendedor nao toca a outra, porque o operador da rede nao
+muda.
+
+**E O ZERO NUMERO NOVO TEM PROCEDENCIA DA PROPRIA ORIGEM, o que e raro:** o
+capitulo 21 dela diz, em letra, que a tarifa de distribuicao depende do operador
+do regiao e que *"nie podam ci tu jednej liczby, bo bylaby nieprawdziwa dla
+wiekszosci sluchajacych"*. Stawka, tarifa e percentual ficaram FORA pela regra
+(g) — e aqui o autor do longo escreveu o mesmo motivo.
+
+**E NAO EXISTE PONTO DE RESIDUO, pelo modo `sem_egresso` na SEXTA rodada
+seguida:** o host NEUTRO devolveu **000 com zero byte** na MESMA chamada que a
+peca e o controle `OhrGlJvnBoM`. A peca esta PARQUEADA com o provedor MEDIDO (o
+parque tem **seis** sem leitura) e `RESIDUO_N` segue **128**.
+
+**A LEITURA DE INSCRITOS FOI RECUSADA PELA DECIMA TERCEIRA RODADA SEGUIDA:**
+17,98 h, piso de resolucao 1,33/dia, faltam **8,8 h** para o criterio do 723.
+
+**COTA: VINTE E CINCO envios na janela de 07:00Z, 40.000 unidades — isto EMPATA
+o piso MEDIDO de >= 40.000** da janela de 18/10, que tambem fechou em 25. Logo
+nada de novo se estabelece hoje; **a 26a peca desta janela e que SUBIRIA o
+piso**, para >= 41.600, e quem acha o teto segue sendo o primeiro `403 quota` de
+rodada normal.
+
 ## O `pgrep -f` CASAVA A PROPRIA LINHA DE COMANDO — e eu disse "VIVO" tres vezes
 
 **Medido em 20/10 as 01:4x, e e o ESPELHO EXATO do defeito de 19/10 as 16:2x,

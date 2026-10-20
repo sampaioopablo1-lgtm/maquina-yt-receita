@@ -75,6 +75,31 @@ chamava. Agora chama, e **a contagem da frota e DELEGADA** (
 `esqueleto_entre_canais.quadro()["por_contagem_de_cena"]`): recontar aqui criaria
 o segundo dono da varredura do disco, que e a assinatura que congelou a legenda.
 
+**E O CONSERTO DAS 03:2x RECOMENDOU, NA PRIMEIRA RODADA SEGUINTE, UMA CONTAGEM
+QUE NAO CABE — medido em 20/10 as 04:1x, no `kolejny-poziom`.** Posto a ordenar
+na pinca, ele deu **15 cenas** como *"melhor cadencia entre as INEDITAS"*. **O
+teto MEDIDO da voz polonesa e 14** (`mira.teto_de_cenas`), logo 15 nao cabe em
+silencio nenhum. Medido nos tres canais, as contagens que ele oferecia acima do
+teto da propria voz:
+
+    | canal           | teto MEDIDO | ineditas RECOMENDADAS acima dele |
+    |---|---|---|
+    | labtreinamento  | **11** | 15, 16, 17, 18, 19, 20 |
+    | epomeno-epipedo | **15** | 16, 17, 18, 19, 20 |
+    | kolejny-poziom  | **14** | 15, 16, 17, 18, 19, 20 |
+
+**E e a QUINTA vez da mesma assinatura na familia destes instrumentos: nao
+chamar quem ja sabe.** O `mira.teto_de_cenas` existe desde 20/10 as 00:3x, com o
+piso de caracteres por cena OBSERVADO (21, a media do `labtreinamento-s081`), e
+este modulo nunca o chamou — o `MAX_CENAS = 20` daqui e um limite de VARREDURA,
+nao o teto da voz, e eu os tratei como a mesma coisa.
+
+**O teto e DELEGADO, e as contagens acima dele vao NOMEADAS e nao filtradas:** o
+relato diz qual e o teto, de onde ele vem e que acima dele o orcamento cai
+abaixo do piso observado de caracteres. Esconde-las faria a rodada seguinte
+perguntar por que a lista encurtou — e nomear em vez de filtrar e a disciplina do
+`origens_sem_uso`.
+
 NAO E PORTAO, pelo argumento do `mira.py`: ele reprovaria quase toda spec do
 acervo, que foi escrita antes de a janela dos dois mundos existir. Codigo de
 saida SEMPRE zero.
@@ -126,6 +151,11 @@ def quadro(canal: str, voz: str, faixa=None, por_contagem=None,
     # canais").
     if por_contagem is None:
         por_contagem = contagens_da_frota(exceto)
+    # O TETO DA VOZ e DELEGADO ao `mira.teto_de_cenas`, que o mede contra o piso
+    # OBSERVADO de caracteres por cena. O `MAX_CENAS` daqui e limite de
+    # VARREDURA, nao teto de voz — tratar os dois como a mesma coisa foi o
+    # defeito de 20/10 as 04:1x.
+    teto = teto_da_voz(voz, faixa)
     saida = []
     for n in range(MIN_CENAS, MAX_CENAS + 1):
         j = mira.janela_dos_dois_mundos(voz, n, faixa)
@@ -139,6 +169,7 @@ def quadro(canal: str, voz: str, faixa=None, por_contagem=None,
             "distancia_da_cadencia": abs(cad - CADENCIA_MEDIDA_S),
             "exemplares_na_frota": exemplares,
             "tamanho_inedito": exemplares == 0,
+            "cabe_na_voz": n <= teto,
         })
     return saida
 
@@ -152,12 +183,21 @@ def escolha(canal: str, voz: str, faixa=None, por_contagem=None,
     escolha ali seria esconder a pinca do 740/748 em vez de a nomear, que e o
     que o `origens_sem_uso` ensina a nao fazer.
     """
+    # A faixa e resolvida AQUI tambem porque o teto da voz depende dela, e
+    # `faixa=None` chegava crua ao `mira.teto_de_cenas` (pego na 1a execucao).
+    faixa = faixa if faixa is not None else ensaio.alvo_short(canal)
     q = quadro(canal, voz, faixa, por_contagem=por_contagem, exceto=exceto)
     abertas = [x for x in q if x["janela"]]
     # A CADENCIA e a NOVIDADE nao dependem da janela, logo elas saem SEMPRE.
     # Era deixa-las de fora que fazia o relato calar nos dois canais da pinca.
-    por_cad_geral = min(q, key=lambda x: x["distancia_da_cadencia"])
-    ineditas = [x for x in q if x["tamanho_inedito"]]
+    cabem = [x for x in q if x["cabe_na_voz"]] or q
+    por_cad_geral = min(cabem, key=lambda x: x["distancia_da_cadencia"])
+    # A NOVIDADE so vale entre as contagens que CABEM na voz: recomendar acima
+    # do teto medido e entregar polones telegrafico (04:1x).
+    ineditas = [x for x in q if x["tamanho_inedito"] and x["cabe_na_voz"]]
+    acima_do_teto = [x["cenas"] for x in q if not x["cabe_na_voz"]]
+    ined_acima = [x["cenas"] for x in q
+                  if x["tamanho_inedito"] and not x["cabe_na_voz"]]
     por_nov = (min(ineditas, key=lambda x: x["distancia_da_cadencia"])
                if ineditas else None)
     if not abertas:
@@ -167,6 +207,9 @@ def escolha(canal: str, voz: str, faixa=None, por_contagem=None,
             "por_cadencia_geral": por_cad_geral,
             "por_novidade": por_nov,
             "ineditas": [x["cenas"] for x in ineditas],
+            "teto_da_voz": teto_da_voz(voz, faixa),
+            "acima_do_teto": acima_do_teto,
+            "ineditas_acima_do_teto": ined_acima,
             "motivo": ("NENHUMA contagem de cena de "
                        f"{MIN_CENAS} a {MAX_CENAS} abre janela nos dois mundos "
                        "nesta faixa — a pinca do 740/748. Aqui nao se escolhe "
@@ -185,8 +228,23 @@ def escolha(canal: str, voz: str, faixa=None, por_contagem=None,
         "por_cadencia_geral": por_cad_geral,
         "por_novidade": por_nov,
         "ineditas": [x["cenas"] for x in ineditas],
+        "teto_da_voz": teto_da_voz(voz, faixa),
+        "acima_do_teto": acima_do_teto,
+        "ineditas_acima_do_teto": ined_acima,
         "motivo": "",
     }
+
+
+def teto_da_voz(voz: str, faixa) -> int:
+    """O teto de cenas desta voz, DELEGADO ao `mira.teto_de_cenas`.
+
+    Ele mede quantas cenas cabem antes de o orcamento por cena cair abaixo do
+    piso OBSERVADO de caracteres (21, a media do `labtreinamento-s081`).
+    Recalcular aqui criaria o segundo dono — e foi por NAO o chamar que este
+    modulo recomendou 15 cenas numa voz cujo teto e 14.
+    """
+    t = mira.teto_de_cenas(voz, faixa)
+    return int(t["teto"]) if t else MAX_CENAS
 
 
 def contagens_da_frota(exceto: str = "") -> dict:
@@ -202,6 +260,24 @@ def contagens_da_frota(exceto: str = "") -> dict:
     return EC.quadro(pecas)["por_contagem_de_cena"]
 
 
+def _linha_do_teto(e: dict) -> str:
+    """A linha que NOMEIA o teto e o que ficou acima dele.
+
+    UM dono: ela nascia duplicada nos dois ramos do relato, que e o 753 em
+    forma de frase (o `mira._linha_do_orcamento` tem a mesma razao).
+    """
+    acima = e.get("acima_do_teto") or []
+    ined = e.get("ineditas_acima_do_teto") or []
+    s = (f"  TETO MEDIDO desta voz: {e['teto_da_voz']} cenas "
+         "(`mira.teto_de_cenas`, contra o piso OBSERVADO de caracteres)")
+    if acima:
+        s += (f"\n  acima dele, FORA da ordenacao: {acima}"
+              + (f" — destas, nunca usadas pela frota: {ined}; recomenda-las "
+                 "seria entregar orcamento abaixo do piso de caracteres (04:1x)"
+                 if ined else ""))
+    return s
+
+
 def relato(canal: str = "labtreinamento", voz: str = None,
            exceto: str = "") -> str:
     voz = voz or ensaio.VOZ_DO_CANAL.get(canal) if hasattr(ensaio, "VOZ_DO_CANAL") else voz
@@ -215,7 +291,9 @@ def relato(canal: str = "labtreinamento", voz: str = None,
     if not e["abertas"]:
         L.append("  " + e["motivo"])
         L.append("")
-        for x in sorted(quadro(canal, voz, por_contagem=por_contagem),
+        cabem = [x for x in quadro(canal, voz, por_contagem=por_contagem)
+                 if x["cabe_na_voz"]]
+        for x in sorted(cabem,
                         key=lambda x: x["distancia_da_cadencia"])[:6]:
             marca = "  << INEDITA na frota" if x["tamanho_inedito"] else \
                     f"  ({x['exemplares_na_frota']} na frota)"
@@ -236,7 +314,9 @@ def relato(canal: str = "labtreinamento", voz: str = None,
                      f"{MIN_CENAS} a {MAX_CENAS} — a novidade de tamanho "
                      "acabou, e a de FORMA fica com o `esqueleto_entre_canais`")
         L.append("")
-        L.append("  a contagem da frota e do `esqueleto_entre_canais`, nao daqui.")
+        L.append(_linha_do_teto(e))
+        L.append("  a contagem da frota e do `esqueleto_entre_canais`, e o teto")
+        L.append("  da voz e do `mira.teto_de_cenas` — nenhum dos dois e daqui.")
         return "\n".join(L)
     for x in quadro(canal, voz, por_contagem=por_contagem):
         if not x["janela"]:
@@ -256,6 +336,7 @@ def relato(canal: str = "labtreinamento", voz: str = None,
              f"(janela de {e['por_cadencia']['largura']} caractere(s))")
     L.append(f"  janela mais larga: {e['por_largura']['cenas']} cenas "
              f"({e['por_largura']['largura']} caractere(s))")
+    L.append(_linha_do_teto(e))
     if e["por_novidade"]:
         L.append("  melhor cadencia entre as INEDITAS na frota: "
                  f"{e['por_novidade']['cenas']} cenas "
