@@ -4745,6 +4745,73 @@ parque tem **nove** sem leitura) e `RESIDUO_N` segue **128**.
 fechou. O numero sai do `janela_de_cota`, e contado a mao com a data de hoje
 daria o mesmo por acidente de hora, que e o erro de 23:3x.
 
+## O `exceto` CHEGAVA A UMA DAS DUAS CONTAS, E A QUE DESEMPATA ERA A OUTRA
+
+**Medido em 20/10 as 14:3x.** Em 08:2x o `pauta_do_momento` ganhou `exceto`
+porque a spec da PROPRIA rodada ja esta no disco quando eu pergunto, e inflava a
+contagem de usos da origem dela. **O parametro foi ao dono da CONTAGEM
+(`concentracao.contagem`) e nunca ao dono da RESERVA
+(`segundo_angulo.nao_mencionados`) — e a reserva e o DESEMPATE da regra
+escrita.**
+
+**E o custo TROCA A ESCOLHA, nao so o relato.** Medido com a peca desta rodada
+no disco:
+
+| | origem escolhida | reserva |
+|---|---|---|
+| sem `exceto` | `42hpD7eaptE` | 73 |
+| COM `exceto`, antes do conserto | `42hpD7eaptE` | 73 |
+| COM `exceto`, depois | **`-5aMrDsxlZE`** | **76** |
+
+A reserva do `-5aMrDsxlZE` caiu de **76 para 71** por causa das mencoes da peca
+que eu acabara de escrever, e com isso ela perdeu um empate de **treze** origens
+que deveria ganhar. **Conserto aplicado a UM de dois donos nao e conserto** — e
+e a mesma forma do 13:2x de ontem, onde a nota da rota estava no ramo errado: o
+remendo certo no lugar incompleto.
+
+**Consertado com DELEGACAO:** `shorts_da_origem` e `nao_mencionados` aceitam
+`exceto`, a normalizacao do nome vai ao `nome_da_spec` (porque as cinco funcoes
+que aceitam `exceto` tinham DUAS convencoes — 11:3x), e o `pauta_do_momento`
+passa o MESMO valor as duas contas. **E ele passou a reproduzir a escolha desta
+rodada** com a peca no disco.
+
+**PONTO CEGO DECLARADO, e ele NAO foi consertado:** a comparacao e por TEXTO do
+kicker, logo kicker REPETIDO no mesmo longo e **uma entrada so** — capitulo cujo
+GEMEO foi citado desaparece da lista de livres. Medido no disco: **71 das 134**
+specs de longo com 20+ cenas tem kicker repetido, cobrindo **585** cenas (a
+origem desta rodada tem `Rachunek` duas vezes). Trocar texto por INDICE mudaria
+a base de toda leitura historica, e isso e desenho e nao conserto de rodada —
+logo vai NOMEADO no modulo.
+
+`tests/test_o_exceto_chegava_a_UMA_das_duas_contas.py`, nove testes: a origem de
+prova e **DERIVADA** do disco (nomear um id seria identidade onde ha
+propriedade, e consumir pauta e o trabalho) e **reprova dizendo que perdeu a
+ancora** se nenhuma servir, o `exceto` e cobrado na ASSINATURA dos **dois**
+donos, as duas convencoes de nome tem de concordar, a contraprova no outro
+sentido exige que `exceto` que nao casa **nao filtre nada**, a fiacao do
+chamador e por **AST** nos dois donos, um **falha se a escolha parar de divergir**
+sem o parametro (ai o defeito desapareceu e esta nota se rele), e o ponto cego do
+kicker e **reconferido contra o disco** em vez de confiado a prosa (753).
+**Contraprova:** desligado o `exceto` no dono da reserva, **dois dos nove**
+falham.
+
+### E EU PARQUEEI COM UM JOB INVENTADO — pego na mesma rodada, lendo a API
+
+**Eu chamei o `do_registro` com `job="118754000000"`, que nao existe.** O job
+real do `produzir` e **`118677260682`**, lido de
+`actions/runs/<run>/jobs`. **E a assinatura exata do defeito de 19/10 as 07:2x**
+— *"procedencia inventada e PIOR que procedencia ausente, porque ela convida a
+conferir no lugar errado: quem abrisse as anotacoes levaria 404 e concluiria que
+o provedor nao foi medido"*.
+
+**Corrigido no parque no mesmo passo**, com `assert` sobre o valor antigo antes
+de gravar, e o `test_o_job_citado_na_serie_bate_com_o_PARQUE` conferido depois.
+**O que isto mostra sobre o instrumento:** o `do_registro` **exige** provedor e
+job (733) e por isso nunca parqueia calado — mas ele **nao pode conferir se o
+job EXISTE**, e eu digitei um numero plausivel. A guarda certa e a do 19/10: todo
+id que entra como procedencia se confere contra quem o gravou primeiro, e aqui
+quem gravou foi a API do GitHub.
+
 ## A NOTA DA ROTA MORAVA NO RAMO QUE PARA DE DISPARAR QUANDO ELA IMPORTA
 
 **Medido em 20/10 as 13:2x, na PRIMEIRA rodada em que o criterio do 723 passou

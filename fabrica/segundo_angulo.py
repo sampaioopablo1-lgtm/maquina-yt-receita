@@ -78,6 +78,9 @@ import sys
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SPECS = os.path.join(RAIZ, "fabrica", "specs")
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import nome_da_spec   # noqa: E402  — UM dono do nome da spec (as duas convencoes)
+
 
 # Cenas de longo abaixo disto: nao e longo, e a resolucao vai MARCADA.
 # OBSERVADO na frota — os longos de verdade medem 56 a 90 capitulos, e os unicos
@@ -195,30 +198,60 @@ def capitulos_do_pacote(pacote: str, dir_specs: str = SPECS) -> list:
             for c in (sp.get("longo") or []) if isinstance(c, dict)]
 
 
-def shorts_da_origem(yid: str, dir_specs: str = SPECS) -> list:
-    """As specs de short que declaram `longo_existente == yid`."""
+def shorts_da_origem(yid: str, dir_specs: str = SPECS, exceto: str = None) -> list:
+    """As specs de short que declaram `longo_existente == yid`.
+
+    `exceto` tira UMA spec da varredura — a peca da PROPRIA rodada, que ja esta
+    no disco quando eu pergunto. **Medido em 20/10 as 14:3x:** sem ele, escrever
+    a spec antes de consultar derruba a RESERVA da origem dela (de 76 para 71
+    capitulos nesta rodada), e a reserva e o DESEMPATE da pauta — logo a origem
+    pode perder um empate que deveria ganhar. O nome e normalizado pelo
+    `nome_da_spec`, porque as cinco funcoes que aceitam `exceto` se dividiam em
+    duas convencoes (11:3x).
+    """
     fora = []
     for p in sorted(glob.glob(os.path.join(dir_specs, "*.json"))):
+        nome = os.path.basename(p)
+        if exceto and nome_da_spec.casa(nome, exceto):
+            continue
         try:
             sp = json.load(open(p, encoding="utf-8"))
         except Exception:                                   # noqa: BLE001
             continue
         if sp.get("longo_existente") == yid:
-            fora.append((os.path.basename(p)[:-5], sp.get("copy") or ""))
+            fora.append((nome[:-5], sp.get("copy") or ""))
     return fora
 
 
-def nao_mencionados(yid: str, dir_specs: str = SPECS) -> dict:
+def nao_mencionados(yid: str, dir_specs: str = SPECS,
+                    exceto: str = None) -> dict:
     """Capitulos cujo kicker NAO aparece na copy de nenhum short desta origem.
 
     "Nao mencionado" e INDICIO de capitulo livre, nao prova: um short pode usar o
     conteudo sem citar o kicker. A saida devolve as duas listas para que quem
     escreve decida olhando, em vez de confiar num rotulo.
+
+    **`exceto` MEDIDO em 20/10 as 14:3x, e e a metade que faltava do conserto de
+    08:2x.** Naquela rodada o `pauta_do_momento` ganhou `exceto` e o passou ao
+    dono da CONTAGEM (`concentracao.contagem`) — e nunca aqui. Como o desempate
+    da pauta e a RESERVA, que sai desta funcao, escrever a spec da rodada antes
+    de consultar derrubava a reserva da origem dela e **trocava a escolha**: com
+    a `kolejny-poziom-s076` no disco a reserva do `-5aMrDsxlZE` caiu de 76 para
+    71 e a escolha virou para o `42hpD7eaptE` (73), mesmo COM o `exceto` ligado.
+    Conserto aplicado a UM de dois donos nao e conserto.
+
+    **PONTO CEGO DECLARADO, e ele NAO foi consertado:** a comparacao e por TEXTO
+    do kicker, logo kicker REPETIDO no mesmo longo e uma entrada so — capitulo
+    cujo GEMEO foi citado desaparece da lista de livres. Medido no disco:
+    **71 das 134** specs de longo com 20+ cenas tem kicker repetido, cobrindo
+    **585** cenas. Consertar isso trocaria a base da comparacao (texto por
+    indice) em todas as leituras historicas, e isso e desenho e nao conserto de
+    rodada.
     """
     _dir_valido(dir_specs)
     pacote = pacote_do_id(yid, dir_specs)
     caps = capitulos_do_pacote(pacote, dir_specs) if pacote else []
-    usados = shorts_da_origem(yid, dir_specs)
+    usados = shorts_da_origem(yid, dir_specs, exceto)
     copys = " ".join(c for _, c in usados).lower()
     men, nao = [], []
     for k in caps:

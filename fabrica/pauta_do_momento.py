@@ -69,6 +69,12 @@ def _resolve_mapa(dono_medido):
 def quadro(canal: str, dono_medido=None, exceto: str = "") -> list[dict]:
     """Uma linha por origem deste canal: usos, reserva e marca de suspeita.
 
+    `exceto` vai as DUAS contas, e isso e o conserto de 20/10 as 14:3x: ate
+    entao ele chegava so a CONTAGEM de usos, e nunca a RESERVA — que e o
+    DESEMPATE. Com a peca da rodada no disco, a reserva da origem dela caia (76
+    para 71 na medicao) e a escolha TROCAVA de origem mesmo com o `exceto`
+    ligado. Conserto aplicado a UM de dois donos nao e conserto.
+
     `exceto` tira um pacote da contagem de irmaos — na hora de ESCOLHER, a spec
     desta rodada ja pode estar no disco, e ai "familia inedita" nunca podia ser
     verdade. E a mesma razao do `exceto` no `esqueleto_entre_canais`.
@@ -82,7 +88,10 @@ def quadro(canal: str, dono_medido=None, exceto: str = "") -> list[dict]:
         fora = CO.origem_de_outro_canal(canal, dono_medido) or {}
     linhas = []
     for oid, n in usos.items():
-        nm = SA.nao_mencionados(oid)
+        # O MESMO `exceto` da contagem, no dono da RESERVA. Sem ele a reserva
+        # da origem da propria rodada vem deflacionada pelas mencoes da peca
+        # que eu acabei de escrever, e e a reserva que desempata.
+        nm = SA.nao_mencionados(oid, exceto=exceto or None)
         reserva = nm.get("nao_mencionados") or []
         linhas.append({
             "origem": oid,
