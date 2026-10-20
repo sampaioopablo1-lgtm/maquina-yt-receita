@@ -1,0 +1,120 @@
+{
+ "slug": "epomeno-epipedo-s073",
+ "pacote": "epomeno-epipedo-s073",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "longo_existente": "TJZcjE-uv8E",
+ "longo": [],
+ "thumb": {
+  "l1": "Γέφυρα,",
+  "l2": "όχι ποινή"
+ },
+ "paleta": {
+  "bg": "#F4EFE6",
+  "ink": "#1B1A17",
+  "c1": "#C8502A",
+  "c2": "#2B6CB0",
+  "red": "#B83227",
+  "ok": "#2E8B57",
+  "panel": "#FFFFFF",
+  "mut": "#7A7263",
+  "acc": "#C8502A"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Δεν είναι τιμωρία",
+   "sub": "είναι γέφυρα",
+   "nar": "Η διαφορά σου δεν είναι τιμωρία."
+  },
+  {
+   "layout": "item",
+   "kicker": "Τι άλλαξε",
+   "nar": "Άλλαξε ο τρόπος του υπολογισμού."
+  },
+  {
+   "layout": "item",
+   "kicker": "Τι έβγαζε",
+   "nar": "Για κάποιους ο νέος έβγαζε λιγότερα."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Τι έκαναν τότε",
+   "itens": [
+    "Δεν μείωσαν τη σύνταξη",
+    "Κράτησαν το παλιό ποσό",
+    "Κατέγραψαν τη διαφορά"
+   ],
+   "nar": "Δεν μείωσαν καμία σύνταξη τότε."
+  },
+  {
+   "layout": "item",
+   "kicker": "Το παλιό ποσό",
+   "nar": "Σε κράτησαν στο παλιό σου ποσό."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Πού κάθεται η διαφορά",
+   "barras": [
+    {
+     "rotulo": "Παλιό ποσό",
+     "valor": 100
+    },
+    {
+     "rotulo": "Νέος τρόπος",
+     "valor": 85
+    },
+    {
+     "rotulo": "Η γέφυρα",
+     "valor": 15
+    }
+   ],
+   "nar": "Η διαφορά είναι αυτό το κομμάτι."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Γέφυρα, όχι ποινή",
+   "sub": "κρατάει το ύψος",
+   "nar": "Η γέφυρα κρατάει το ύψος σου."
+  },
+  {
+   "layout": "item",
+   "kicker": "Άρα τι σημαίνει",
+   "nar": "Σημαίνει ότι σε προστάτεψαν τότε."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Τι δεν σημαίνει",
+   "itens": [
+    "Λάθος υπολογισμό",
+    "Χρέος δικό σου",
+    "Ποινή"
+   ],
+   "nar": "Δεν σημαίνει λάθος στο ταμείο."
+  },
+  {
+   "layout": "item",
+   "kicker": "Η παρεξήγηση",
+   "nar": "Η λέξη διαφορά τρομάζει άδικα."
+  },
+  {
+   "layout": "item",
+   "kicker": "Γιατί ενοχλεί",
+   "nar": "Ενοχλεί γιατί δεν σου εξηγήθηκε."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Διάβασέ το σωστά",
+   "sub": "ως προστασία",
+   "nar": "Διάβασέ τη γραμμή ως προστασία."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Άνοιξε το σημείωμα",
+   "sub": "γράψε τη γραμμή",
+   "nar": "Άνοιξε το σημείωμα και γράψε τη."
+  }
+ ],
+ "copy": "# epomeno-epipedo-s073\n\n## TITULO\nΗ Προσωπική Διαφορά Δεν Είναι Τιμωρία: Γιατί Γεννήθηκε Ως Προστασία Της Σύνταξής Σου\n\n## TITULO SHORT\nΓέφυρα, όχι ποινή\n\n## DESCRICAO\nΠολλοί διαβάζουν τη γραμμή της προσωπικής διαφοράς στο εκκαθαριστικό τους σαν κάτι που τους αφαιρεί κάτι. **Η διαδρομή της λέξης είναι η αντίθετη: η διαφορά γεννήθηκε για να μη πέσει η σύνταξη.**\n\nΌταν άλλαξε ο τρόπος υπολογισμού, για κάποιους συνταξιούχους ο νέος τύπος έβγαζε ποσό μικρότερο από αυτό που ήδη έπαιρναν. **Δεν τους μείωσαν τη σύνταξη. Τους κράτησαν στο παλιό ποσό, και το κομμάτι που κρατούσε αυτό το ύψος καταγράφηκε χωριστά, με δικό του όνομα.** Αυτή είναι η προσωπική διαφορά: μια γέφυρα ανάμεσα σε αυτό που υπολογίζει ο νέος τρόπος και σε αυτό που εισπράττεις.\n\n**Άρα η παρουσία της γραμμής δεν σημαίνει λάθος υπολογισμό, δεν σημαίνει χρέος και δεν σημαίνει ποινή.** Σημαίνει ότι ο μηχανισμός σε κράτησε στο προηγούμενο επίπεδο όταν η αλλαγή του τύπου θα σε κατέβαζε. Η ενόχληση που νιώθει κανείς όταν βλέπει τη λέξη για πρώτη φορά είναι λογική, αλλά έρχεται από το ότι ποτέ δεν του εξηγήθηκε η προέλευσή της — όχι από το ότι κάποιος έκανε κάτι εις βάρος του.\n\n**Τι αξίζει να κάνεις σήμερα, και δεν κοστίζει τίποτα:** άνοιξε το εκκαθαριστικό σου, βρες τη γραμμή και γράψε το ποσό σε ένα χαρτί δικό σου. Όταν την ξαναδείς, θα ξέρεις τι διαβάζεις.\n\nΔεν δίνω εδώ ποσοστό αναπροσαρμογής, ημερομηνίες, πλήθος συνταξιούχων ούτε ποσά σε ευρώ. Αυτά αλλάζουν ανά δημοσίευση και μένουν έξω. Ο μηχανισμός είναι το θέμα, και δεν εξαρτάται από κανένα νούμερο: η διαφορά είναι το κομμάτι που κράτησε το ύψος.\n\n## COMENTARIO FIXADO\nΤο λιγότερο προφανές: η γραμμή δεν εμφανίστηκε για να σου πάρει κάτι, αλλά για να μη σου πάρει τίποτα η αλλαγή του τύπου. Βρήκες τη γραμμή στο δικό σου εκκαθαριστικό;\n\n## HASHTAGS\n#συντάξεις #προσωπικήδιαφορά #εκκαθαριστικό #epomenoepipedo #Shorts\n\n## TAGS\nπροσωπικη διαφορα, συνταξη, εκκαθαριστικο, τροπος υπολογισμου, κυρια συνταξη, αναπροσαρμογη, συνταξιουχος, οικονομικα, προσωπικα οικονομικα, επομενο επιπεδο, συνταξιοδοτηση, ενημερωση συνταξιουχων, πως διαβαζεται, γεφυρα, προστασια\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao, e ela nao fala numero nenhum. Os\nvalores das barras (100, 85 e 15) sao ILUSTRACAO da ARITMETICA da gefyra — o\nvelho montante, o que o novo calculo daria, e a diferenca que cobre o vao — e\n**nao sao medicao de pensao nenhuma**; nao sao falados e os rotulos nao citam\nnorma. **Ficaram FORA pela regra (g), e sao QUATRO:** o percentual de\nreajuste do ano, as datas, o numero de pensionistas com diferenca e qualquer\nvalor em euros. Os quatro mudam por publicacao — e a propria origem escreve o\nmesmo motivo no capitulo 14: *\"nao vou te dizer quantos euros vais receber,\nporque depende da tua propria diferenca\"*.\n\n## FONTES\nA spec local `epomeno-epipedo-007`, que e o pacote do longo `TJZcjE-uv8E` deste\ncanal. A familia sai dos capitulos 17 a 20 e 27: *\"a diferenca pessoal e uma\nPONTE: mantem a pensao no nivel que tinha antes de mudar o modo de calculo\"*,\n*\"surgiu quando o novo modo de calculo dava a alguns um montante MENOR do que o\nque ja recebiam\"*, *\"nao reduziram a pensao: mantiveram no montante antigo, e a\ndiferenca foi registrada separadamente\"*, *\"logo a diferenca nao foi punicao, foi\nPROTECAO, e e assim que ela se le\"* e *\"se tens diferenca, isso nao significa que\nalguem calculou a tua pensao errado\"*. Nenhuma frase saiu de TITULO de capitulo.\n\n**A ORIGEM E A DE MAIOR RESERVA ENTRE AS DE MENOR CONTAGEM, com os numeros na\nmao:** o `concentracao.py` deu doze origens empatadas em **3 de 72** shorts, e o\n`segundo_angulo.nao_mencionados` desempatou — `TJZcjE-uv8E` tem **79 capitulos\nnao mencionados** de 90, a maior reserva do canal (as outras ficam entre 45 e\n72). **E a dominante ficou de fora COM O ALERTA DISPARADO:** `nttW9fR8wyY`\ncarrega **12 de 72** (17%), mais que o dobro da segunda (4) — o `concentracao`\nacusou, e concentracao de origem ataca justamente o portao `similaridade`, que e\nde monetizacao.\n\n**E A FAMILIA NAO TOCA NENHUMA DAS TRES DESTA ORIGEM**, conferido short por\nshort: o `s011` usou ACHAR A LINHA no proprio ekkatharistiko, o `s021` os QUATRO\nERROS DE LEITURA (o percentual nao e o teu montante, o compensado nao se perde,\nabolicao nao e corte, abrir o papel) e o `s037` AKATHARISTO CONTRA KATHARO. Os\ncapitulos 17 a 20 — de ONDE a diferenca veio — nunca foram usados.\n\n## EXPOSICAO\n**TREZE CENAS, e o motivo vai escrito porque a melhor cadencia foi RECUSADA.** O\n`contagem_de_cenas.py` deu **CATORZE** como melhor cadencia (3,02 s, |dif| 0,08)\ne ele mesmo acusou a colisao: **a peca anterior deste canal, a `s072`, tem catorze\ncenas** — e repetir tamanho no mesmo canal em rodadas seguidas e a reclamacao do\ndono de 19/10, que o portao `variedade` NAO pega (ele conta esqueleto, nao\ntamanho). Treze e a melhor que NAO repete (3,25 s, |dif| 0,15).\n\n**E O TETO DA VOZ (quinze) FICOU DE FORA PELO MESMO CRITERIO DE 04:1x:** ele e\nINEDITO na frota, o que seria novidade de tamanho, mas o orcamento ali cai a\n**22 caracteres por cena** — um acima do piso OBSERVADO de 21 — e seria grego\ntelegrafico. Foi exatamente assim que o catorze do `kolejny` foi recusado.\n\n**ESQUELETO `titulo-item-item-lista-item-barras-titulo-item-lista-item-item-titulo-cta`,\ninedito nas 123 formas da frota** — numero do `esqueleto_entre_canais`, nao de um\nlaco escrito na hora. A unica outra peca de treze cenas e o `kolejny-poziom-s072`,\ncom outra sequencia. **Com `lista` DUAS vezes carregando argumento**: a cena 3 e\no que FIZERAM entao, a cena 8 e o que a linha NAO significa.\n\n**TODO LAYOUT SAIU DO CONJUNTO SONDADO**, com `assert` no builder — o\n`layouts_do_short.desenham()` sonda o proprio render e devolve `barras`, `cta`,\n`item`, `lista` e `titulo`. O `numero`, que pos um cartao em branco no ar as\n18:18Z de 19/10, continua fora.\n\n**O ORCAMENTO SAIU DO INSTRUMENTO, e a PINCA vai declarada:** para treze cenas o\norcamento do MEIO da faixa e **32 caracteres por cena** e a peca foi escrita com\nmedia **31,6**. E **NENHUMA** contagem de cena de 2 a 20 poe os dois mundos dentro de\n41,5 a 43,0 nesta voz — a razao piper/edge e 0,886 e o vao vale ~4,7 s contra\n1,5 s de faixa. Logo aqui nao se escolhe contagem pela janela: declara-se a\nexposicao, que e a pinca do 740/748 e segue na fila do dono.\n\n**E O PISO EXATO NAO E ALCANCAVEL AQUI, e isso vai dito em vez de eu chamar 42,0\nde piso:** com treze cenas, UM caractere por cena vale **~0,67 s** de previsao —\n31 caracteres dao 41,6 e 32 dao 42,0 —, logo entre o piso (41,5) e o valor que a\npeca tem nao cabe um passo do instrumento de escrita. A peca saiu em **42,0**,\nmeio segundo acima do piso, mirando o lado BAIXO da faixa pela regra de redacao\ndo 772. **E nao digo de que lado o real vai cair:** a banda esta em (−1,2; 4,0), isto e 5,2 s de largura contra\n1 s de granularidade, e declarar um lado de uma banda que cobre a faixa inteira\nnao e previsao (774).\n"
+}
