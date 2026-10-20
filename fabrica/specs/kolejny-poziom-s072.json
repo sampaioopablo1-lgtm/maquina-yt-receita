@@ -1,0 +1,125 @@
+{
+ "slug": "kolejny-poziom-s072",
+ "pacote": "kolejny-poziom-s072",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "longo_existente": "34SgUG7rf0U",
+ "longo": [],
+ "thumb": {
+  "l1": "Średnia",
+  "l2": "nikogo nie opisuje"
+ },
+ "paleta": {
+  "bg": "#0B0B0C",
+  "ink": "#F2EEE8",
+  "c1": "#E23B3B",
+  "c2": "#D9C7A7",
+  "red": "#FF4D4D",
+  "ok": "#7FB77E",
+  "panel": "#151517",
+  "mut": "#8F877C",
+  "acc": "#E23B3B"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Średnia nikogo nie opisuje",
+   "sub": "mediana dzieli",
+   "nar": "Średnia nie opisuje nikogo."
+  },
+  {
+   "layout": "item",
+   "kicker": "Co ją winduje",
+   "nar": "Windują ją nieliczne pensje."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Trzy różne liczby",
+   "itens": [
+    "Średnia",
+    "Mediana",
+    "Twoja pensja"
+   ],
+   "nar": "Trzy liczby, a nie jedna."
+  },
+  {
+   "layout": "item",
+   "kicker": "Mediana dzieli na pół",
+   "nar": "Mediana dzieli ludzi na pół."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Średnia i mediana",
+   "barras": [
+    {
+     "rotulo": "Srednia",
+     "valor": 100
+    },
+    {
+     "rotulo": "Mediana",
+     "valor": 78
+    }
+   ],
+   "nar": "Te dwie liczby nie są równe."
+  },
+  {
+   "layout": "item",
+   "kicker": "Kto jest typowy",
+   "nar": "Typowego opisuje mediana."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Z czym się porównujesz",
+   "sub": "z rozkładem",
+   "nar": "Porównujesz się z rozkładem."
+  },
+  {
+   "layout": "item",
+   "kicker": "A nie z ludźmi",
+   "nar": "A nie z konkretnymi ludźmi."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Mediana też się zmienia",
+   "itens": [
+    "Wielkość firmy",
+    "Branża",
+    "Region"
+   ],
+   "nar": "Mediana zmienia się z firmą."
+  },
+  {
+   "layout": "item",
+   "kicker": "Jedna mediana nie istnieje",
+   "nar": "Jednej mediany tu nie ma."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Duża i mała firma",
+   "barras": [
+    {
+     "rotulo": "Duza firma",
+     "valor": 100
+    },
+    {
+     "rotulo": "Mala firma",
+     "valor": 62
+    }
+   ],
+   "nar": "Ta sama praca, inna liczba."
+  },
+  {
+   "layout": "item",
+   "kicker": "Co z tym zrobić",
+   "nar": "Szukaj mediany swojej branży."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Twoja liczba",
+   "sub": "napisz ją",
+   "nar": "Napisz, z czym się porównujesz."
+  }
+ ],
+ "copy": "# kolejny-poziom-s072\n\n## TITULO\nDlaczego Porównywanie Pensji do Średniej Krajowej Nic Ci Nie Mówi — i Co Mówi Mediana\n\n## TITULO SHORT\nŚrednia nikogo nie opisuje\n\n## DESCRICAO\nKiedy porównujesz swoją pensję do średniej krajowej, porównujesz się z **rozkładem, a nie z ludźmi**. Średnią windują nieliczne bardzo wysokie wynagrodzenia — wystarczy garść takich pensji, żeby podnieść liczbę, przy której reszta wygląda słabo.\n\n**Mediana robi coś innego: dzieli ludzi na pół.** Połowa zarabia mniej, połowa więcej. Jest odporna na kilka skrajnie wysokich pensji, bo nie sumuje — tylko ustawia ludzi w szeregu i wskazuje środek. Dlatego to mediana, a nie średnia, opisuje typowego pracownika.\n\n**I jest druga rzecz, o której rzadko się mówi: jedna mediana nie istnieje.** Mediana w dużej firmie i mediana w najmniejszej to dwie różne liczby, podobnie jak mediana w różnych branżach i regionach. Ta sama praca, inna liczba — zależnie od tego, gdzie policzono.\n\n**Praktyczny wniosek jest prosty i nie wymaga żadnej kwoty:** zanim uznasz, że zarabiasz mało albo dużo, sprawdź medianę swojej branży i swojej wielkości firmy. Porównanie ze średnią krajową odpowiada na pytanie, którego nie zadałeś.\n\nNie podaję tu kwot, stawek, progów ani procentów. To się zmienia z miesiąca na miesiąc i zostaje poza tym nagraniem. Mechanizm jest tym, co ważne, i nie zależy od żadnej liczby: średnia sumuje i dzieli, mediana ustawia w szeregu i wskazuje środek.\n\n## COMENTARIO FIXADO\nNajmniej oczywiste: mediana też nie jest jedna. W dużej firmie i w najmniejszej to dwie różne liczby. Z czym porównujesz swoją pensję — ze średnią czy z medianą swojej branży?\n\n## HASHTAGS\n#finanse #wynagrodzenia #mediana #kolejnypoziom #Shorts\n\n## TAGS\nmediana wynagrodzen, srednia krajowa, pensja, rozklad wynagrodzen, typowy pracownik, porownanie pensji, brutto netto, finanse osobiste, kolejny poziom, mediana branzy, wielkosc firmy, statystyka pensji, ile zarabiam, rynek pracy, analiza wynagrodzen\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Os unicos numeros falados sao\n\"trzy\" (tres) e \"na pol\" (ao meio) — e os dois descrevem a PROPRIA peca: os tres\nitens da cena 2 e a definicao da mediana. **Os valores do longo ficaram TODOS\nFORA pela regra (g)**: a media de 9.400, a mediana de 7.690, o custo de 11.349,\nos \"mais de vinte por cento\" e a proporcao de sessenta por cento mudam de mes\npara mes — o proprio capitulo 41 da spec de origem retrata um numero que nos\nmesmos publicamos quando a media era 9.233. Os valores das barras (100/78 e\n100/62) sao ILUSTRACAO da forma e NAO sao falados.\n\n## FONTES\nA spec local `kolejny-poziom-005`, que e o pacote do longo `34SgUG7rf0U` — 82\ncapitulos, 2 shorts anteriores e **70 capitulos nao mencionados** por nenhum\ndeles (medido pelo `segundo_angulo.nao_mencionados`). A familia desta peca sai\ndos capitulos 44 a 48: *\"jest jeszcze jedna liczba, wazniejsza od sredniej\"*,\n*\"to mediana, a nie srednia, opisuje typowego pracownika\"*, *\"mediana tez nie\njest jedna — w duzych firmach potrafi siegac dziewieciu tysiecy, a w\nnajmniejszych schodzi do samej placy minimalnej\"*, *\"srednia winduja nieliczne\nbardzo wysokie pensje; mediana jest odporna, bo dzieli ludzi na pol\"* e\n*\"jesli porownujesz swoja pensje do sredniej krajowej, porownujesz sie z\nrozkladem, a nie z ludzmi\"*. Nenhuma frase desta peca saiu de TITULO de capitulo,\ne nenhum VALOR daqueles capitulos entrou.\n\n**E A ORIGEM DOMINANTE DO CANAL FICOU DE FORA, com o ALERTA na mao:** o\n`concentracao.py` acusou `GUiq15usizw` com **12 de 66** shorts (18%), mais que o\ndobro da segunda (4). Esta origem esta na faixa de MENOR contagem do canal (2\nshorts) e tem a maior reserva de capitulos intocados entre as de contagem 2.\n**E o `QiaGg03WSR0` ficou de fora por outro motivo, ja escrito no `CLAUDE.md`:**\nele e longo do LabTreinamento declarado por engano em dois shorts deste canal,\nlogo a contagem dele credita origem que nao e daqui.\n\n**FAMILIA: A MEDIA NAO DESCREVE NINGUEM** — ela SOMA e divide, logo poucas pensoes\naltas a puxam; a mediana poe as pessoas em fila e aponta o meio. E a familia e\nnova no canal e a SEGUNDA do dia 20/10 na frota (a primeira foi o aluguel como um\nde cinco termos, no epomeno).\n\n## EXPOSICAO\n**ESQUELETO DE TREZE CENAS, e a frota nao tinha NENHUMA:** as contagens\nexistentes eram 2, 4, 5, 6, 7, 8, 9, 10, 11, 12 e 40 — a de doze entrou na peca\nanterior desta madrugada, e treze e nova. A forma\n`titulo-item-lista-item-barras-item-titulo-item-lista-item-barras-item-cta` e\ninedita pela sequencia e pelo TAMANHO, com `lista` e `barras` DUAS vezes cada,\ne todo layout saiu do conjunto SONDADO (`layouts_do_short.desenham()`).\n\n**E TREZE CENAS SO E POSSIVEL PORQUE O TETO DE ONZE CAIU HA UMA HORA.** O\n`mira.teto_de_cenas` mede o teto desta voz em **CATORZE** cenas com o piso de\ncaracteres observado (21). **Eu nao escrevi catorze**, e o motivo vai dito: o\norcamento de catorze cenas e de **23 a 24** caracteres, que e o proprio piso\nobservado — frase polonesa de 23 caracteres e telegrafica, e testar isso na cota\ndo dono seria experimento meu. Treze da **28 a 29**, que e escrevivel.\n\n**A CADENCIA E 3,2 s POR PLANO** — a mais perto dos ~3,1 s medidos em 690/699 de\nqualquer peca desta frota: a de doze cenas de 00:2x deu 3,5 e a de onze 3,8.\n\n**ORCAMENTO: 28 caracteres por cena**, do `mira` invertendo a previsao REAL do\nmundo edge; escrita com media **27,4** — previsao edge **41,65**, dentro de 41,5\na 43,0 e a 0,15 s do PISO, que e a regra de redacao do 772 para este canal.\n\n**E NENHUM orcamento poe os DOIS mundos na faixa** em contagem de cena nenhuma\n(11 a 14 testadas): o `janela_dos_dois_mundos` devolve `None`, porque a razao\npiper/edge desta voz e 0,851 e o vao vale ~6 s contra 1,5 s de faixa. O piper sai\nem **35,45 s** — dentro dos 18 a 45 do portao, logo nada quebra; o que nao cabe e\na faixa da frota. E a pinca do 740/748 dentro do instrumento, e a decisao segue do\ndono.\n\n**E A PALETA SAIU DO DONO DA REGRA, nao da minha cabeca** — `temas_do_dono.\npaleta_do_canal('kolejny-poziom')`, que e o conserto de 00:3x: na peca anterior eu\ninventei as nove chaves e os dez portoes baratos passaram LIMPOS com a paleta\nerrada.\n"
+}
