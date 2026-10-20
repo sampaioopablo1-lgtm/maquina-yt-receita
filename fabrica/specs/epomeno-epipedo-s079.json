@@ -1,0 +1,129 @@
+{
+ "slug": "epomeno-epipedo-s079",
+ "pacote": "epomeno-epipedo-s079",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "longo_existente": "jUxJPvmA4Mk",
+ "longo": [],
+ "thumb": {
+  "l1": "Ένας",
+  "l2": "διαιρέτης"
+ },
+ "paleta": {
+  "bg": "#F4EFE6",
+  "ink": "#1B1A17",
+  "c1": "#C8502A",
+  "c2": "#2B6CB0",
+  "red": "#B83227",
+  "ok": "#2E8B57",
+  "panel": "#FFFFFF",
+  "mut": "#7A7263",
+  "acc": "#C8502A"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Έκανες τη διαίρεση",
+   "sub": "και βγήκε λάθος",
+   "nar": "Έκανες τη διαίρεση στην απόδειξη."
+  },
+  {
+   "layout": "item",
+   "kicker": "Λάθος νούμερο",
+   "nar": "Και όμως πήρες λάθος νούμερο."
+  },
+  {
+   "layout": "item",
+   "kicker": "Η πράξη ήταν σωστή",
+   "nar": "Γιατί η διαίρεση ήταν η σωστή."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Ένας διαιρέτης",
+   "barras": [
+    {
+     "rotulo": "Σύνολο",
+     "valor": 100
+    },
+    {
+     "rotulo": "Ένας διαιρέτης",
+     "valor": 100
+    }
+   ],
+   "nar": "Ο διαιρέτης όμως ήταν ένας μόνο."
+  },
+  {
+   "layout": "item",
+   "kicker": "Η απόδειξη όχι",
+   "nar": "Η απόδειξη δεν έχει έναν μόνο."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Ομάδες συντελεστή",
+   "itens": [
+    "Κανονικός",
+    "Μειωμένος",
+    "Υπερμειωμένος"
+   ],
+   "nar": "Δεν υπάρχει ένας μόνο συντελεστής."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Τα είδη χωρίζονται",
+   "sub": "σε ομάδες",
+   "nar": "Τα είδη πάνε σε διαφορετικούς."
+  },
+  {
+   "layout": "item",
+   "kicker": "Όχι όλα μαζί",
+   "nar": "Άρα το σύνολο δεν διαιρείται μαζί."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Πολλές βάσεις μέσα",
+   "barras": [
+    {
+     "rotulo": "Ομάδα Α",
+     "valor": 100
+    },
+    {
+     "rotulo": "Ομάδα Β",
+     "valor": 54
+    },
+    {
+     "rotulo": "Ομάδα Γ",
+     "valor": 25
+    }
+   ],
+   "nar": "Ένα σύνολο κρύβει πολλές βάσεις."
+  },
+  {
+   "layout": "item",
+   "kicker": "Χωρίς κανένα σημάδι",
+   "nar": "Και το λάθος δεν δίνει κανένα σημάδι."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Κάτω στην απόδειξη",
+   "itens": [
+    "Σύνοψη κάτω",
+    "Ποσό ανά ομάδα",
+    "Μία γραμμή η καθεμία"
+   ],
+   "nar": "Η απόδειξη όμως τα χωρίζει κάτω."
+  },
+  {
+   "layout": "item",
+   "kicker": "Χωριστά η καθεμία",
+   "nar": "Διαίρεσε κάθε ομάδα χωριστά."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Επόμενο Επίπεδο",
+   "sub": "κάνε εγγραφή",
+   "nar": "Πρόσθεσε στο τέλος τις διαφορές."
+  }
+ ],
+ "copy": "# epomeno-epipedo-s079\n\n## TITULO\nΓιατί Μία Διαίρεση Δεν Αρκεί για Όλη την Απόδειξη: Οι Ομάδες Συντελεστή\n\n## TITULO SHORT\nΈνας διαιρέτης δεν φτάνει\n\n## DESCRICAO\nΈμαθες τη σωστή πράξη: δεν πολλαπλασιάζεις την τιμή, **διαιρείς**, γιατί η τιμή στο ράφι έχει τον φόρο ήδη μέσα. Την κάνεις, και παίρνεις έναν αριθμό. Και αυτός ο αριθμός μπορεί να είναι λάθος — **όχι γιατί η πράξη είναι λάθος, αλλά γιατί ο διαιρέτης είναι ένας και η απόδειξη δεν έχει έναν.**\n\nΟ συντελεστής δεν είναι ένας για όλα. Τα είδη χωρίζονται σε ομάδες, και η κατηγορία κάθε είδους **δεν αποφασίζεται από το κατάστημα**: ορίζεται από τον νόμο. Άρα μια απόδειξη του σούπερ μάρκετ συνήθως περιέχει είδη από **περισσότερες από μία ομάδες** — και το σύνολο που πλήρωσες είναι το άθροισμα βάσεων που φορολογήθηκαν αλλιώς.\n\n**Αν διαιρέσεις το σύνολο με έναν μόνο διαιρέτη, εφαρμόζεις τον συντελεστή μιας ομάδας σε είδη άλλης.** Το αποτέλεσμα βγαίνει στρωτό, δεν δίνει κανένα σημάδι λάθους, και είναι λάθος: υπερεκτιμά τον φόρο στα είδη της μειωμένης ομάδας και τον υποεκτιμά στα άλλα. Δύο προϊόντα με την ίδια τιμή στο ράφι μπορεί να κρύβουν διαφορετικό ποσό φόρου μέσα τους, και το σύνολο δεν σου λέει ποιο είναι ποιο.\n\n**Η λύση δεν απαιτεί να ξέρεις ποιο είδος πάει πού, και αυτό είναι το πιο χρήσιμο σημείο:** στις περισσότερες αποδείξεις υπάρχει κάτω κάτω μια σύνοψη ανά συντελεστή, με το ποσό κάθε ομάδας σε δική του γραμμή. Η απόδειξη δηλαδή κάνει τον χωρισμό για σένα. Παίρνεις κάθε γραμμή, κάνεις τη διαίρεση **χωριστά** με τον διαιρέτη εκείνης της ομάδας, κρατάς τη διαφορά, και στο τέλος προσθέτεις τις διαφορές.\n\nΤο ίδιο ισχύει όταν αθροίζεις έναν μήνα: αν βάλεις όλα τα σύνολα μαζί και διαιρέσεις μία φορά, το λάθος μεγαλώνει με τον αριθμό των αποδείξεων. **Μία πράξη ανά ομάδα, όχι μία πράξη ανά απόδειξη.**\n\n## COMENTARIO FIXADO\nΤο λιγότερο προφανές: το λάθος του ενός διαιρέτη δεν φαίνεται ποτέ, γιατί βγάζει πάντα ένα εύλογο νούμερο. Κοίτα την τελευταία σου απόδειξη: πόσες γραμμές έχει η σύνοψη ανά συντελεστή στο κάτω μέρος;\n\n## HASHTAGS\n#φπα #αποδειξη #φορος #επόμενοεπίπεδο #Shorts\n\n## TAGS\nσυντελεστης φπα, ομαδες συντελεστη, αποδειξη, συνοψη ανα συντελεστη, διαιρεση, φορος καταναλωσης, καθαρη τιμη, τιμη ραφιου, υπολογισμος φορου, σουπερ μαρκετ, επομενο επιπεδο, φορολογια, καταναλωτης, λιανικη, κατηγορια ειδους\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\n**ZERO numero novo sobre o mundo, e a narracao nao fala numero nenhum** — nem\nnenhum dos tres percentuais, nem o divisor de cada um, nem o percentual da\nreducao das ilhas, nem o limite de populacao, nem data de vigencia, nem numero\nde lei. Conferido cena a cena: nenhum digito cru.\n\n**E A CONTAGEM DAS OMADAS TAMBEM FICOU DE FORA DA NARRACAO, de proposito:** a\npeca diz *\"nao existe um unico synteles\"*, nao *\"sao tres\"*. O numero de grupos e\ndefinido por lei e pode mudar por publicacao, e e exatamente o tipo de numero que\na regra (g) tira — e aqui ele era conveniente, porque \"tres\" fecharia a frase\nmelhor. **A lista da cena 5 traz os NOMES legais das tres ordens** (kanonikos,\nmeiomenos, ypermeiomenos), que sao nomes e nao valores, e **ela NAO e falada**.\n\n**E o longo escreve o mesmo criterio em letra, no capitulo 45:** *\"nao digo o\nnumero arredondado porque nao o encontrei em duas fontes oficiais\"*, e no 65:\n*\"numero que nao bate em duas fontes oficiais nao entra no video\"*. A regra 600 e\na regra (g) sao a mesma coisa vista de dois lados, e aqui o autor da origem as\naplica a si mesmo.\n\nAs barras (100/100 na cena 3 e 100/54/25 na cena 8) sao **ILUSTRACAO qualitativa**\nda FORMA do argumento — um divisor aplicado a tudo, e um total que esconde bases\ndiferentes — e **NAO sao faladas**. Elas nao medem apodeixi nenhuma, e a rodada\nseguinte nao deve le-las de volta como dado.\n\n## FAMILIA DE ENTRADA ERRADA\n**UM DIVISOR PARA A APODEIXI INTEIRA** — fazer a divisao CERTA sobre o total,\nquando o total soma itens de grupos de synteles diferentes. O que torna esta\nentrada errada caracteristica e que ela sobrevive ao conserto anterior: quem\naprendeu a dividir em vez de multiplicar (a familia do `s043`) continua errando\naqui, porque o defeito nao esta na OPERACAO, esta no DIVISOR. **E ela nao da\nsinal nenhum:** o resultado sai estravel e plausivel, superestima o imposto nos\nitens do grupo reduzido e subestima nos outros. **O discriminador esta impresso\nna propria apodeixi** — a sinopse por synteles no pe —, logo a correcao nao exige\nsaber qual item vai onde.\n\n## FONTES\nOrigem: `jUxJPvmA4Mk` (`epomeno-epipedo-011`, 75 capitulos), escolhida pelo\n`pauta_do_momento.py` — 3 usos, empatada com outras origens e desempatada pela\nMAIOR reserva, **61 capitulos NAO MENCIONADOS de 75**. A dominante do canal\n(`nttW9fR8wyY`) ficou de fora, e quem conta e o `concentracao.py`. **E o\n`reservas_escritas.py` disse que esta origem NAO tem reserva escrita por irmao\nnenhum** — ele NOMEIA a ausencia em vez de calar, logo a familia saiu da leitura.\n\nCapitulos desta peca: **2, 3, 13, 15, 16 e 18** (*\"Kai den einai enas\"*,\n*\"Ara dyo proionta\"*, *\"Poio paei pou\"*, *\"Giati yparchoun treis\"*,\n*\"Pou to vlepeis\"* e *\"Afto pou chreiazesai\"*). O 3 diz em letra que *\"dois\nprodutos com a mesma etiqueta podem esconder quantia diferente de imposto\"*; o 16\nque *\"na maioria das apodeixeis existe embaixo uma pequena sinopse por\nsynteles\"*; e o 18 que *\"nao precisa saber: a propria apodeixi diz com qual\nsynteles cada item foi cobrado\"*.\n\n**A DISTINCAO DOS TRES IRMAOS VAI ESCRITA, e eles vieram do `irmaos_da_origem`:**\n\n* `s009` — **uma apodeixi nao e o numero**: a pratica numa nota da pouco, num mes\n  da muito. E sobre a AMOSTRA;\n* `s028` — **o canone de OUTRO PAPEL na cadeia**: a empresa compensa, o\n  consumidor final nao. E sobre QUEM paga;\n* `s043` — **a base nao e o seu preco**: o percentual incide sobre o liquido, logo\n  se DIVIDE em vez de multiplicar. **E a vizinha mais perigosa, porque e a mesma\n  pratica, e a distincao e o que esta peca carrega: la o erro esta na OPERACAO\n  (multiplicar em vez de dividir); aqui a operacao esta certa e o DIVISOR esta\n  errado.** Quem aprendeu a `s043` continua errando esta — e e por isso que ela\n  e um TERCEIRO angulo e nao uma repeticao.\n\nNenhum dos tres toca os capitulos 2, 3, 15, 16 e 18 — conferido short por short.\n\n## EXPOSICAO\n**TREZE CENAS, e a recusa nao foi minha.** O `contagem_de_cenas.py` deu catorze\ncomo melhor cadencia e **acusou sozinho** que a `s078`, a peca anterior deste\ncanal, tem catorze. O TETO MEDIDO desta voz (quinze) saiu **NOMEADO e nao\nfiltrado**, recusado pela FOLGA: o orcamento ali cai a dois caracteres do piso\nOBSERVADO. Treze e a melhor que SERVE pelos tres filtros da chave\n`por_cadencia_servivel`, com folga **+9**, e cadencia **3,24 s** por plano.\n\n**O ORCAMENTO SAIU DA JANELA DO MUNDO:** para treze cenas nesta voz o\n`mira.janela_do_mundo` devolve **31 a 33** caracteres por cena, e a peca foi\nescrita com media **31,77** — previsao edge **42,08**, dentro do `ALVO_SHORT`\n(41,5 a 43,0). **A primeira versao saiu com media 30,62 e previsao 41,31, isto e\nABAIXO da faixa** — o instrumento pegou antes do render, e a peca foi alongada em\ntreze caracteres.\n\n**UMA FRASE POR CENA, conferida pelo DONO da contagem** (`narracao.frases`), com\n`assert` no construtor — o achado de 19:4x.\n\n**ESQUELETO\n`titulo-item-item-barras-item-lista-titulo-item-barras-item-lista-item-cta`,\ninedito na frota** — a frota tem **CINCO** formas de treze cenas e esta nao e\nnenhuma delas, numero do `esqueleto_entre_canais` com a propria peca FORA pelo\n`exceto`. Todo layout saiu do conjunto **SONDADO**, e a paleta foi **LIDA** de\n`temas_do_dono.paleta_do_canal`.\n\n**A PINCA DO 740/748 ESTA FECHADA AQUI, com a exposicao declarada ANTES de\npublicar:** o `mira.janela_dos_dois_mundos` devolve **NENHUMA** janela nesta voz\ncom treze cenas, logo o piper sai em 37,28 — FORA do `ALVO_SHORT` pelo piso. O\nportao `duracao` cobra 18 a 45 s, que os dois mundos satisfazem.\n\n**Com a banda em (−1,2; 4,0) o real cai em algum ponto da faixa que o `mira.py`\nimprime, e eu nao digo de que lado** — ela tem 5,2 s de largura contra 1 s de\ngranularidade (774).\n"
+}
