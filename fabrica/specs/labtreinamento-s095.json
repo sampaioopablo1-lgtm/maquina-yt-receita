@@ -1,0 +1,83 @@
+{
+ "slug": "labtreinamento-s095",
+ "pacote": "labtreinamento-s095",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "longo_existente": "dsoEo103l1o",
+ "longo": [],
+ "thumb": {
+  "l1": "Base",
+  "l2": "é o bruto"
+ },
+ "paleta": {
+  "bg": "#0E1117",
+  "ink": "#EEF1F5",
+  "c1": "#3DDBD9",
+  "c2": "#1E2430",
+  "red": "#FF5A5F",
+  "ok": "#3CCB7F",
+  "panel": "#161B24",
+  "mut": "#8B95A5",
+  "acc": "#3DDBD9"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "A conta não bateu",
+   "sub": "e a base é o motivo",
+   "nar": "Você fez a conta do depósito e não bateu."
+  },
+  {
+   "layout": "item",
+   "kicker": "Não é o que cai na conta",
+   "nar": "A base do cálculo não é o que cai na conta."
+  },
+  {
+   "layout": "item",
+   "kicker": "É o bruto da folha",
+   "nar": "É o bruto, antes de todo desconto da folha."
+  },
+  {
+   "layout": "item",
+   "kicker": "E nem tudo entra",
+   "nar": "Só que nem tudo na folha é remuneração."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Fica fora da base",
+   "itens": [
+    "Reembolso",
+    "Indenização",
+    "Vale devolvido"
+   ],
+   "nar": "Reembolso e indenização ficam fora da base."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Erra para os dois lados",
+   "barras": [
+    {
+     "rotulo": "Líquido",
+     "valor": 72
+    },
+    {
+     "rotulo": "Bruto",
+     "valor": 100
+    },
+    {
+     "rotulo": "Com reembolso",
+     "valor": 118
+    }
+   ],
+   "nar": "Um desses erros abaixa o número, o outro sobe."
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "inscreva-se",
+   "nar": "Some só as linhas que repetem todo mês."
+  }
+ ],
+ "copy": "# labtreinamento-s095\n\n## TITULO\nA Base do Depósito do Fundo Não É o Salário que Cai na Sua Conta\n\n## TITULO SHORT\nA base é o bruto, não o líquido\n\n## DESCRICAO\nVocê separou a folha, abriu o extrato, fez a multiplicação — e os dois valores não bateram. Antes de concluir que falta depósito, vale conferir a metade da conta que quase todo mundo erra: **a base.**\n\nA base não é o salário que cai na sua conta. **É o bruto**, o valor antes de descontar previdência, imposto e qualquer outra coisa que a folha tire. Quem usa o líquido está multiplicando um número menor do que o certo, e por isso o resultado dá menos do que o extrato mostra — a diferença não é falta de depósito, é erro de coluna.\n\n**E existe o erro do outro lado, que é mais silencioso.** Nem tudo que aparece na folha é remuneração. O que a folha chama de indenização ou de reembolso fica fora da base: vale transporte devolvido, reembolso de despesa, verba indenizatória. Somar essas linhas infla o bruto, o seu número sai maior que o devido, e a conclusão fica exatamente invertida — você acha que falta dinheiro quando a conta é que está errada.\n\n**O que entra é o que remunera o trabalho e costuma vir todo mês junto do salário base:** horas extras, adicionais, comissão. Comissão entra mesmo variando muito de um mês para o outro — o que muda é o valor, não a regra. E hora extra que aconteceu só naquele mês entra na base daquele mês.\n\n**O jeito prático é somar linha por linha.** Folha que separa cada parcela numa linha facilita: você soma as que remuneram, deixa de fora as que devolvem ou indenizam, e anota o total. Esse é o número que vale a conferência. Se a folha não separa, o bruto já vem somado nela — e é esse que você usa, nunca o líquido.\n\nDepois disso, a comparação com o extrato passa a significar alguma coisa. **Enquanto a base estiver errada, o resultado não diz nada sobre o depósito** — diz sobre a coluna que você escolheu.\n\n## COMENTARIO FIXADO\nO menos óbvio: os dois erros de base empurram o resultado para lados OPOSTOS — usar o líquido faz faltar, somar reembolso faz sobrar. Então \"não bateu\" não aponta direção nenhuma até a base estar certa. Qual coluna você usou na sua conta?\n\n## HASHTAGS\n#fgts #folhadepagamento #direitostrabalhistas #labtreinamento #Shorts\n\n## TAGS\nbase de calculo, bruto, liquido, folha de pagamento, remuneracao, reembolso, verba indenizatoria, vale transporte, horas extras, adicional, comissao, deposito do fundo, extrato, conferencia, labtreinamento\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\n**ZERO numero novo sobre o mundo, e a narracao nao fala numero nenhum** — nem o\npercentual do deposito, nem o dia do prazo, nem numero de lei, de artigo ou de\nregime, nem valor nenhum em reais. Conferido cena a cena: nenhum digito cru.\n\n**E o percentual ficou de fora de proposito, mesmo sendo o numero mais citado do\nlongo:** ele e o que daria a peca um fecho redondo, e e exatamente o que o\n`labtreinamento-s078` ja carrega como familia (*\"o percentual nao e unico\"*).\nRepetir aqui seria familia repetida E numero conveniente ao mesmo tempo. **A\nregra (g) nao abre excecao para numero conveniente**, e o proprio longo escreve o\nmotivo no capitulo 47: *\"nao dou os percentuais deles porque nao os conferi em\nduas fontes oficiais\"*.\n\nAs barras (72/100/118 na cena 5) sao **ILUSTRACAO qualitativa** dos dois erros em\nsentidos OPOSTOS — liquido abaixo do bruto, bruto com reembolso acima dele — e\n**NAO sao faladas**. Elas nao medem folha nenhuma, e a rodada seguinte nao deve\nle-las de volta como dado.\n\n## FAMILIA DE ENTRADA ERRADA\n**A BASE ERRADA, NOS DOIS SENTIDOS** — usar o LIQUIDO no lugar do bruto, ou somar\nao bruto o que a folha chama de reembolso e indenizacao. O que distingue esta\nfamilia das cinco anteriores desta origem e que ela nao e sobre PERIODO, AMOSTRA\nnem PERCENTUAL: e sobre a **composicao da coluna** que entra na conta. **E o que\na torna cara e a direcao:** os dois erros empurram o resultado para lados\ncontrarios, logo *\"nao bateu\"* nao aponta direcao nenhuma enquanto a base\nestiver errada — a pessoa conclui que falta deposito tanto quando sobra conta\ncomo quando falta.\n\n## FONTES\nOrigem: `dsoEo103l1o` (`labtreinamento-009`, 72 capitulos), escolhida pelo\n`pauta_do_momento.py` — 5 usos, empatada com **seis** outras origens e\ndesempatada pela MAIOR reserva, **61 capitulos NAO MENCIONADOS de 72**. A\ndominante do canal (`FtCtIJPsc_Q`) ficou de fora, e quem conta e o\n`concentracao.py`. **E o `reservas_escritas.py` — o instrumento de 20:4x — disse\nque esta origem NAO tem reserva escrita por irmao nenhum**, logo a familia saiu\nda leitura dos capitulos, como sempre; ele nomeia a ausencia em vez de calar.\n\nCapitulos desta peca: **8, 11, 12, 13, 14, 15 e 16** (*\"A base da conta\"*,\n*\"Em linguagem de folha\"*, *\"Entao some\"*, *\"Comissao conta\"*,\n*\"Hora extra eventual\"*, *\"O que nao e remuneracao\"* e\n*\"Se a folha separa tudo\"*). O 8 diz em letra que *\"a base do calculo nao e o\nsalario que cai na sua conta\"*; o 11 que *\"em linguagem de folha de pagamento,\nisso quer dizer o bruto\"*; e o 15 que *\"o que a folha chama de indenizacao ou de\nreembolso nao e remuneracao\"*.\n\n**A DISTINCAO DOS CINCO IRMAOS VAI ESCRITA, e eles vieram do `irmaos_da_origem`,\nnao da minha leitura** — e **tres dos cinco** nao tem o campo da familia, logo\npara esses a comparacao foi pela PROSA e pela NARRACAO que o conserto de 15:3x\npassou a imprimir:\n\n* `s005` — **PERIODO errado**: conferir um mes como se fosse amostra de padrao;\n* `s031` — **descartar os casos normais antes de concluir**;\n* `s045` — **AMOSTRA DE UM**: um mes nao prova, e mes atipico nao compara com\n  mes comum;\n* `s054` — **dois numeros indexados a PERIODOS diferentes**: a defasagem entre o\n  deposito e a folha que o gerou;\n* `s078` — **o percentual nao e unico**: regimes proprios tem percentual proprio.\n  **E a vizinha mais perigosa, porque tambem fala de um dos tres numeros da\n  conta, e a diferenca vai dita: la o erro esta no MULTIPLICADOR; aqui esta no\n  MULTIPLICANDO.** Os dois sao fatores da mesma multiplicacao e nao sao a mesma\n  entrada errada.\n\nNenhum dos cinco toca os capitulos 8 a 16 — conferido short por short.\n\n## EXPOSICAO\n**SETE CENAS, e nao houve recusa a fazer:** o `contagem_de_cenas.py` deu sete\ncomo melhor cadencia (3,29 s), ela **nao** repete tamanho recente (as duas\nultimas deste canal tem seis e oito) e alcanca o piso com folga **+9**. As\ncontagens **9, 10 e 11** sairam NOMEADAS e nao filtradas, porque nelas o PISO da\nfaixa nao e alcancavel com texto legivel.\n\n**E OS DOIS MUNDOS CABEM AQUI, o que so acontece neste canal:** o\n`mira.janela_dos_dois_mundos` devolve **41 a 44** caracteres por cena com sete\ncenas, e a peca foi escrita com media **42,0** — logo edge **24,91** e piper\n**20,45**, os dois dentro da mira MEDIDA do canal (20,0 a 26,0), e nao ha\nexposicao de mundo a declarar. Nos outros dois canais essa janela nao existe em\ncontagem nenhuma (a pinca do 740/748).\n\n**UMA FRASE POR CENA, conferida pelo DONO da contagem** (`narracao.frases`), com\n`assert` no construtor — o achado de 19:4x: `P` e silencio por FRASE, e uma frase\na mais numa cena tira a peca da faixa com a MESMA media de caracteres.\n\n**ESQUELETO `titulo-item-item-item-lista-barras-cta`, inedito na frota** — a\nfrota tem **QUATRO** formas de sete cenas e esta nao e nenhuma delas, numero do\n`esqueleto_entre_canais` com a propria peca FORA pelo `exceto`. Todo layout saiu\ndo conjunto **SONDADO** (`layouts_do_short.desenham()`), e a paleta foi **LIDA**\nde `temas_do_dono.paleta_do_canal`.\n\n**A mira verde NAO promete real dentro:** 41 das 46 pecas deste canal narradas\npelo edge sairam FORA do teto de 26,0 (o tally do 744/754/758). E **eu nao digo\nde que lado da banda o real cai** — ela tem 5,2 s de largura contra 1 s de\ngranularidade, e declarar um lado dela nao e previsao (774).\n"
+}
