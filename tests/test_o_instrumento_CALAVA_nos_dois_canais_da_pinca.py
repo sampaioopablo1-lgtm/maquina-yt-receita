@@ -32,7 +32,10 @@ VOZES = {
     "epomeno-epipedo": "el-GR-NestorasNeural",
     "kolejny-poziom": "pl-PL-MarekNeural",
 }
-PECA_DA_RODADA = "epomeno-epipedo-s072.json"
+# A peca daquela rodada, guardada como HISTORIA e nao como ancora: os dois
+# testes que a liam no disco vivo foram retratados em 20/10 as 12:5x, porque
+# reprovavam quando o instrumento era USADO (ver `_peca_de_tamanho_UNICO`).
+PECA_DE_03H = "epomeno-epipedo-s072.json"
 
 
 def test_a_varredura_da_frota_sai_do_DISCO_e_nao_e_vazia():
@@ -106,32 +109,64 @@ def test_a_cadencia_e_a_novidade_saem_nos_DOIS_ramos():
     )
 
 
+def _peca_de_tamanho_UNICO():
+    """Uma peca do DISCO cujo tamanho tem UM exemplar so na frota.
+
+    RETRATADO NO LUGAR em 20/10 as 12:5x: a versao anterior NOMEAVA o
+    `epomeno-epipedo-s072` e o numero 14, e reprovou no instante em que a rodada
+    das 12:06 publicou uma SEGUNDA peca de catorze cenas naquele canal — isto e,
+    **reprovou porque o instrumento foi usado e o trabalho foi feito**. E a
+    licao de 18/10 as 09:2x ("teste que ancora no estado VIVO reprova quando a
+    pauta for consumida") e a classe 743/753/761, agora pela DECIMA QUARTA vez.
+    A propriedade e: excluir uma peca cujo tamanho e UNICO devolve esse tamanho
+    a lista de ineditas. Qual peca e qual tamanho nao importa, e muda.
+    """
+    pc = EC.quadro()["por_contagem_de_cena"]
+    unicos = {n for n, k in pc.items() if k == 1 and 2 <= n <= CC.MAX_CENAS}
+    for peca in EC.varre():
+        if peca.get("cenas") in unicos:
+            return peca["arquivo"], peca["cenas"]
+    pytest.fail(
+        "nenhuma peca do disco tem tamanho de UM exemplar dentro da varredura "
+        "(2 a %d): este arquivo perdeu a ancora e nao mede o `exceto`."
+        % CC.MAX_CENAS)
+
+
 def test_o_exceto_vale_nos_DOIS_sentidos():
     """Na hora de escolher, a spec da rodada pode ja estar no disco."""
     voz = VOZES["epomeno-epipedo"]
+    arquivo, cenas = _peca_de_tamanho_UNICO()
     com = CC.escolha("epomeno-epipedo", voz)
-    sem = CC.escolha("epomeno-epipedo", voz, exceto=PECA_DA_RODADA)
-    alvo = os.path.join(FABRICA, "specs", PECA_DA_RODADA)
-    if not os.path.exists(alvo):
-        pytest.skip(f"{PECA_DA_RODADA} saiu do disco")
+    sem = CC.escolha("epomeno-epipedo", voz, exceto=arquivo)
     assert set(sem["ineditas"]) > set(com["ineditas"]), (
-        "excluir a peca da rodada tem de DEVOLVER o tamanho dela a lista de "
-        f"ineditas: com={com['ineditas']} sem={sem['ineditas']}"
+        "excluir %s (tamanho %d, exemplar unico) tem de DEVOLVER o tamanho "
+        "dele a lista de ineditas: com=%s sem=%s"
+        % (arquivo, cenas, com["ineditas"], sem["ineditas"])
     )
-    assert 14 in sem["ineditas"] and 14 not in com["ineditas"]
+    assert cenas in sem["ineditas"] and cenas not in com["ineditas"]
 
 
 def test_ele_REPRODUZ_a_escolha_de_CATORZE_que_eu_fiz_a_mao():
-    """Sem isto a nota nao prova que ele serve a decisao que foi tomada."""
-    alvo = os.path.join(FABRICA, "specs", PECA_DA_RODADA)
-    if not os.path.exists(alvo):
-        pytest.skip(f"{PECA_DA_RODADA} saiu do disco")
+    """Sem isto a nota nao prova que ele serve a decisao que foi tomada.
+
+    RETRATADO NO LUGAR em 20/10 as 12:5x, pelo mesmo motivo do helper acima: a
+    versao anterior lia o DISCO VIVO e exigia que catorze seguisse sendo a
+    melhor cadencia entre as ineditas. A rodada das 12:06 publicou uma segunda
+    peca de catorze cenas e a resposta virou quinze — corretamente. Exigir que
+    o estado de 03:0x persista e **punir o uso do instrumento**.
+    O estado daquela decisao passou a ser INJETADO por `por_contagem`, que e o
+    parametro que o proprio modulo oferece para isso: a frota de 03:0x nao
+    tinha catorze. Assim a reproducao vale para sempre e nao depende do disco.
+    """
+    frota_de_03h = {2: 1, 4: 7, 5: 137, 6: 33, 7: 2, 8: 1, 9: 19, 10: 149,
+                    11: 16, 12: 1, 13: 1, 40: 1}
+    assert 14 not in frota_de_03h, "a frota de 03:0x nao tinha catorze"
     e = CC.escolha("epomeno-epipedo", VOZES["epomeno-epipedo"],
-                   exceto=PECA_DA_RODADA)
+                   por_contagem=frota_de_03h)
     assert e["por_novidade"]["cenas"] == 14, (
-        "a melhor cadencia entre os tamanhos nunca usados deixou de ser 14: "
-        f"deu {e['por_novidade']['cenas']}. Era 14 a escolha de 20/10 as 03:0x, "
-        "feita a mao antes deste conserto"
+        "com a frota de 20/10 as 03:0x injetada, a melhor cadencia entre os "
+        f"tamanhos nunca usados deixou de ser 14: deu {e['por_novidade']['cenas']}. "
+        "Era 14 a escolha feita A MAO naquela rodada, antes deste conserto"
     )
     assert e["por_cadencia_geral"]["cenas"] == 14
 

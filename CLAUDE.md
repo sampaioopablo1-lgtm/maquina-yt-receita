@@ -4840,6 +4840,37 @@ ILUSTRACAO qualitativa, nao faladas, e a copy diz **em letra** que elas NAO sao
 a contagem legal nem a razao MEDIDA do longo — para a rodada seguinte nao as ler
 de volta das barras.
 
+### E A SUITE ACUSOU DUAS FALHAS NOVAS — porque o instrumento FOI USADO
+
+**As duas eram do `test_o_instrumento_CALAVA_nos_dois_canais_da_pinca.py`, que eu
+escrevi as 03:2x de hoje**, e as duas NOMEAVAM o `epomeno-epipedo-s072` e o
+numero **14**: uma exigia que excluir aquela peca devolvesse 14 a lista de
+tamanhos ineditos, a outra que 14 seguisse sendo a melhor cadencia entre eles.
+**A peca desta rodada tem catorze cenas**, logo 14 deixou de ser tamanho de
+exemplar unico e a resposta virou **15** — corretamente.
+
+**Logo os dois reprovaram porque o instrumento FOI USADO e o trabalho foi
+feito**, e exigir que o estado de 03:0x persista e punir o acerto. E a licao de
+18/10 as 09:2x — *"teste que ancora no estado VIVO reprova quando a pauta for
+consumida, e consumir pauta e o trabalho"* — e a classe 743/753/761 pela
+**DECIMA QUARTA** vez. **E e a SEGUNDA vez hoje no mesmo arquivo-irmao:** as
+09:1x foram dois testes da recencia, pela mesma razao.
+
+**RETRATADOS NO LUGAR, e o que ficou cobrado nao envelhece:**
+* o `exceto` passou a usar uma peca **DERIVADA** — a unica do disco cujo tamanho
+  tem UM exemplar dentro da varredura —, e **reprova dizendo que perdeu a
+  ancora** se nenhuma existir, em vez de passar por vacuidade. Qual peca e qual
+  tamanho nao importam, e mudam;
+* a reproducao da escolha de 03:0x passou a **INJETAR** a frota daquela hora por
+  `por_contagem`, que e o parametro que o proprio modulo oferece — a mesma
+  disciplina do parque PROPRIO de 09:1x. Assim a reproducao vale para sempre e
+  nao depende do disco;
+* o id da peca ficou como **HISTORIA** (`PECA_DE_03H`), com o motivo escrito ao
+  lado, para a rodada seguinte nao o readotar como ancora.
+
+**Contraprova:** desligado o `exceto` no dono, reprova exatamente o teste que o
+mede.
+
 **NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica`** — o conserto
 de 11:4x em uso na primeira rodada depois dele: o `touch` passou, os TRES hosts
 voltaram 000 sem arquivo, e o `__agentproxy/status` nomeou
