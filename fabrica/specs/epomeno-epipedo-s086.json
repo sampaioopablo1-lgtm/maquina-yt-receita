@@ -1,0 +1,131 @@
+{
+ "slug": "epomeno-epipedo-s086",
+ "pacote": "epomeno-epipedo-s086",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "longo_existente": "481Zgd4IhsE",
+ "longo": [],
+ "thumb": {
+  "l1": "Λάθος",
+  "l2": "στοιχεία"
+ },
+ "paleta": {
+  "bg": "#F4EFE6",
+  "ink": "#1B1A17",
+  "c1": "#C8502A",
+  "c2": "#2B6CB0",
+  "red": "#B83227",
+  "ok": "#2E8B57",
+  "panel": "#FFFFFF",
+  "mut": "#7A7263",
+  "acc": "#C8502A"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Δεν είναι η γραφειοκρατία",
+   "sub": "το εμπόδιο",
+   "nar": "Δεν είναι η γραφειοκρατία."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Πού είναι το εμπόδιο",
+   "barras": [
+    {
+     "rotulo": "Η γραφειοκρατία",
+     "valor": 22
+    },
+    {
+     "rotulo": "Λάθος στοιχεία",
+     "valor": 100
+    }
+   ],
+   "nar": "Το εμπόδιο είναι αλλού."
+  },
+  {
+   "layout": "item",
+   "kicker": "Το έγγραφο",
+   "nar": "Το μισθωτήριο έχει λάθη."
+  },
+  {
+   "layout": "item",
+   "kicker": "Από την υπογραφή",
+   "nar": "Και κανείς δεν το κοίταξε."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Η προϋπόθεση",
+   "itens": [
+    "Μισθωτήριο δηλωμένο",
+    "Στοιχεία που συμφωνούν",
+    "Πληρωμές που φαίνονται"
+   ],
+   "nar": "Τρία πράγματα χρειάζονται."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Έλεγξε τα στοιχεία",
+   "sub": "γραμμή προς γραμμή",
+   "nar": "Έλεγξε τα στοιχεία πρώτα."
+  },
+  {
+   "layout": "item",
+   "kicker": "Εκεί γίνονται τα λάθη",
+   "nar": "Όνομα και διεύθυνση σωστά."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Η απόδειξη",
+   "barras": [
+    {
+     "rotulo": "Πληρωμή που φαίνεται",
+     "valor": 100
+    },
+    {
+     "rotulo": "Πληρωμή που δεν φαίνεται",
+     "valor": 14
+    }
+   ],
+   "nar": "Οι πληρωμές να φαίνονται."
+  },
+  {
+   "layout": "item",
+   "kicker": "Μέσω τράπεζας",
+   "nar": "Η τράπεζα είναι η απόδειξη."
+  },
+  {
+   "layout": "item",
+   "kicker": "Δύο στο ίδιο σπίτι",
+   "nar": "Με συγκάτοικο, δες τη δήλωση."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Ποιος δικαιούται",
+   "itens": [
+    "Όχι ποιος πλήρωσε",
+    "Αλλά ποιος είναι γραμμένος",
+    "Η δήλωση το ορίζει"
+   ],
+   "nar": "Η δήλωση ορίζει ποιος παίρνει."
+  },
+  {
+   "layout": "item",
+   "kicker": "Δεν συσσωρεύεται",
+   "nar": "Η περσινή χρονιά δεν γυρίζει."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Μην το αφήσεις",
+   "sub": "για του χρόνου",
+   "nar": "Μην το αφήσεις για του χρόνου."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Επόμενο Επίπεδο",
+   "sub": "κάνε εγγραφή",
+   "nar": "Έλεγξε το μισθωτήριο σήμερα."
+  }
+ ],
+ "copy": "# epomeno-epipedo-s086\n\n## TITULO\nΔεν Είναι η Γραφειοκρατία: Το Μισθωτήριο με Λάθος Στοιχεία Κόβει την Επιστροφή\n\n## TITULO SHORT\nΈλεγξε το μισθωτήριο\n\n## DESCRICAO\nΟι περισσότεροι δεν ζητούν την επιστροφή ενοικίου επειδή νομίζουν ότι είναι περίπλοκη διαδικασία. **Το πραγματικό εμπόδιο δεν είναι η γραφειοκρατία.** Είναι ότι το μισθωτήριο έχει λάθος στοιχεία, και κανείς δεν το κοίταξε ποτέ από την ημέρα που υπογράφηκε.\n\nΗ προϋπόθεση είναι απλή και δεν αλλάζει: **το μισθωτήριο δηλωμένο σωστά, τα στοιχεία σου να συμφωνούν, και οι πληρωμές να φαίνονται.** Τρία πράγματα, και τα τρία ελέγχονται σε λίγα λεπτά. Το όνομα, το ΑΦΜ και η διεύθυνση είναι εκεί που γίνονται τα λάθη — μια παλιά διεύθυνση, ένα λάθος γράμμα, ένα στοιχείο που άλλαξε και δεν ενημερώθηκε.\n\n**Η πληρωμή μέσω τράπεζας δεν είναι μόνο υποχρέωση: είναι η απόδειξη που χρειάζεσαι.** Όταν η πληρωμή δεν φαίνεται πουθενά, δεν υπάρχει τρόπος να δείξεις ότι πλήρωσες — και η σωστή δήλωση από μόνη της δεν αρκεί.\n\n**Αν μένεις με συγκάτοικο, το κρίσιμο είναι πώς είναι δηλωμένο το μισθωτήριο.** Η δήλωση ορίζει ποιος δικαιούται τι. Δύο άνθρωποι στο ίδιο σπίτι μπορούν να έχουν τελείως διαφορετική εικόνα, και η διαφορά δεν είναι στο ποιος πλήρωσε: είναι στο ποιος είναι γραμμένος.\n\nΚαι υπάρχει ένα σημείο που δεν συγχωρεί την αναμονή. **Η χρονιά που πέρασε δεν γυρίζει πίσω αναδρομικά.** Αν το αφήσεις για του χρόνου, δεν μεταφέρεται — χάνεται. Γι' αυτό ο έλεγχος δεν είναι εργασία για «κάποια στιγμή»: είναι εργασία για σήμερα, και διαρκεί λιγότερο από το να το σκέφτεσαι.\n\nΤο συμπέρασμα είναι πρακτικό: **άνοιξε το μισθωτήριο, διάβασε τα στοιχεία γραμμή προς γραμμή, και δες αν οι πληρωμές φαίνονται.** Αυτό είναι όλο. Δεν είναι θέμα γραφειοκρατίας — είναι θέμα ενός εγγράφου που κανείς δεν ξανακοίταξε.\n\n## COMENTARIO FIXADO\nΤο λιγότερο προφανές: με συγκάτοικο, το ποιος δικαιούται δεν το ορίζει ποιος πλήρωσε, αλλά πώς είναι δηλωμένο το μισθωτήριο. Έχεις ελέγξει τα στοιχεία στο δικό σου;\n\n## HASHTAGS\n#ενοικιο #μισθωτηριο #οικονομια #epomenoepipedo #Shorts\n\n## TAGS\nμισθωτηριο, επιστροφη ενοικιου, λαθος στοιχεια, δηλωση μισθωτηριου, πληρωμη μεσω τραπεζας, συγκατοικος, ενοικιο, στεγη, προσωπικα οικονομικα, epomeno epipedo, ελεγχος στοιχειων, αφμ\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\n**ZERO numero novo sobre o mundo.** O unico numeral falado e **\"Τρία\"** (tres),\nna cena 5, e e a contagem dos PROPRIOS requisitos que a peca enumera — nao e\nvalor, nao e prazo, nao e percentual.\n\n**FICOU DE FORA pela regra (g), e um dos descartes e o que mais dava gancho:**\no **teto em euros** da devolucao (capitulos 50 e 55 da origem), a **data** em\nque o mecanismo comecou (capitulo 49), os **percentuais** de orcamento\ndomestico (capitulos 12 a 14), os **valores de aluguel** do capitulo 18 e o\n**prazo** do capitulo 58. Os cinco mudam por publicacao, e numero errado no ar\ne pior que numero ausente.\n\n**O QUE A PECA AFIRMA, e e NORMA e nao estatistica:** que a devolucao depende de\no mitshotirio estar declarado corretamente, de os dados conferirem e de os\npagamentos aparecerem; que o pagamento por banco e a prova; que com colega de\ncasa a declaracao define quem tem direito; e que o ano passado nao volta\nretroativamente. Esta no longo `epomeno-epipedo-002` (`481Zgd4IhsE`), capitulos\n52, 53 e 60 a 63, com as fontes. Declarado pela regra de fonte unica que vale\npara norma — a mesma forma do `epomeno-epipedo-s007`, que carregou o mecanismo\nsem o valor.\n\n**As barras das cenas 2 e 8 sao ILUSTRACAO qualitativa e NAO sao faladas.** A da\ncena 2 desenha o tamanho do obstaculo que as pessoas imaginam contra o que de\nfato bloqueia; a da cena 8 desenha pagamento que aparece contra pagamento que\nnao aparece. Elas nao medem mercado nenhum e nao sao contagem de nada — a\nrodada seguinte NAO deve le-las de volta como dado.\n\n## FAMILIA DE ENTRADA ERRADA\n**ATRIBUIR O BLOQUEIO A BUROCRACIA, QUANDO O BLOQUEIO E UM DOCUMENTO COM DADO\nERRADO QUE NINGUEM RELEU** (capitulos 52, 53 e 60 a 63). A entrada errada nao e\naritmetica aqui: e de DIAGNOSTICO. Quem acha que o obstaculo e o processo nao\nabre o documento; quem abre o documento descobre que o obstaculo tem nome,\nlinha e conserto. E o capitulo 61 da propria origem rotula isso em letra —\n*\"o obstaculo mais comum nao e a burocracia\"*.\n\n**E ela tem DOIS desdobramentos que nao sao o mesmo ponto:** com colega de casa,\nquem tem direito e definido pela DECLARACAO e nao por quem pagou; e o ciclo nao\nacumula — o ano que passou nao volta, logo adiar nao e postergar, e perder.\n\nAs QUATRO familias anteriores desta origem vieram do `irmaos_da_origem`, e\n**tres delas nao tem o campo** — logo a comparacao foi pela NARRACAO de primeira\nmao, que o relato imprime inteira desde 20/10:\n\n* `s007` — a **ARITMETICA DO TETO**: ele e valor fixo e nao percentual, logo\n  cobre fatia maior de aluguel barato; compare o ANO, nao o mes;\n* `s020` — o **ALUGUEL COMO PRIMEIRA LINHA** do custo de moradia, nao o custo;\n* `s036` — **ESTOQUE NAO E OFERTA**: ler o conjunto onde decide o subconjunto;\n* `s071` — **COMPARAR UM NUMERO DE CINCO**: os cinco termos da soma e a caucao\n  imobilizada.\n\n**A mais vizinha e a `s007`, e a distincao vai escrita: ela fala do TAMANHO da\ndevolucao (quanto cobre); esta fala da CONDICAO de existir devolucao (se voce a\nrecebe).** Nenhuma das quatro toca declaracao, dado errado, colega de casa nem\nretroatividade.\n\n**E A RESERVA ESCRITA DESTA ORIGEM JA FOI CONSUMIDA, e vai dito porque o\ninstrumento avisa que nao sabe:** o `s020` deixou escrito, para a rodada\nseguinte achar, *\"o capitulo que pergunta por que um pais com tantas casas nao\ntem casas disponiveis\"* — e essa e exatamente a familia do `s036` (ESTOQUE NAO E\nOFERTA), que a consumiu. O `reservas_escritas` diz, em letra, que nao decide se\na reserva segue livre; quem decidiu foi a leitura dos irmaos.\n\n## FONTES\nOrigem: `481Zgd4IhsE` (`epomeno-epipedo-002`, 100 capitulos), escolhida pelo\n`pauta_do_momento.py` — **4 usos**, empatada com **QUATORZE** outras origens e\ndesempatada pela MAIOR reserva: **77 capitulos NAO MENCIONADOS de 100**, contra\n76, 71 e 71 das seguintes. A dominante do canal (`nttW9fR8wyY`) ficou de fora, e\nquem conta e o `concentracao.py`.\n\n**E as duas origens de MENOR contagem (3 usos) ficaram de fora com o motivo do\ninstrumento na mao:** `GwNkPfM9pSY` e `eZ697VNYCPU` **nao tem spec local** (a\nregra h), logo a reserva delas e 0 de 0 — e sem capitulo lido nao se escreve\nsegundo angulo sem inventar conteudo.\n\nCapitulos desta peca: **52, 53 e 60 a 63** — *\"Η προϋπόθεση\"*, *\"Γι αυτό\"*,\n*\"Τι χρειάζεσαι\"*, *\"Το συνηθισμένο λάθος\"*, *\"Αν μένεις με συγκάτοικο\"* e\n*\"Μην το αφήσεις για του χρόνου\"*. O 61 escreve a frase que a peca carrega.\n\n**DEIXADO DE PROPOSITO para a rodada seguinte achar — O QUE EU NAO LEVEI:** o\ncapitulo *\"Φοιτητική στέγη\"* (54), que diz que o aluguel de estudante pago por\num filho **tambem conta** e que muitas familias ignoram isso. **E outra familia\ninteira (QUEM PAGA NAO E QUEM MORA) e da um SEXTO angulo deste mesmo longo**,\nsem precisar de numero nenhum.\n\n**A CONFERENCIA CONTRA OS IRMAOS: DOIS dos quatro declaram capitulo**, logo a\nconferencia mecanica alcanca **50%** deles — o `s020` declara o 19 e o `s071` o\n50, e **nenhum dos dois esta entre os meus**. Os outros dois (`s007` e `s036`)\nforam conferidos por LEITURA da narracao de primeira mao, e **ausencia de\ncapitulo declarado NAO e ausencia de colisao (761)**. Esta peca DECLARA os\ncapitulos dela.\n\n## EXPOSICAO\n**QUATORZE CENAS, e a recusa nao foi minha.** O `contagem_de_cenas.py` deu\n**14** como a melhor cadencia (3,02 s, |dif| 0,08 dos ~3,1 s de 690/699) e\nconfirmou que ela **nao\nrepete** o tamanho recente (a `s085` tem doze e a `s083` treze). O **teto\nMEDIDO desta voz — 15 — e INEDITO na frota**, e seria novidade de TAMANHO: foi\nrecusado pela FOLGA, porque ali o orcamento no piso cai a dois caracteres do\npiso OBSERVADO. **Foi a MESMA conta que eu recusei a mao em 20/10 as 04:1x e\n06:2x**, e e por isso que ela deixou de morar na minha cabeca.\n\n**E A PINCA DO 740/748 ESTA FECHADA AQUI, com a exposicao declarada ANTES de\npublicar:** o `mira.janela_dos_dois_mundos` devolve **NENHUMA** janela de\ncaracteres que ponha os dois provedores dentro de 41,5 a 43,0 nesta voz — a\nrazao piper/edge e ~0,886 e o vao vale ~4,7 s contra 1,5 s de faixa. Mirei o\n**PISO** pela regra de redacao do 772, logo **o piper sai FORA pelo piso**, e\nisso vai dito em vez de escondido. Quem reprova duracao e o portao, que cobra\n18 a 45 s nos dois mundos — e os dois cabem nela.\n\n**O que eu NAO declaro: de que lado da banda o real cai.** Ela tem 5,2 s contra\n1 s de granularidade, e escolher um lado nao e previsao (774).\n\n**ESQUELETO\n`titulo-barras-item-item-lista-titulo-item-barras-item-item-lista-item-titulo-cta`**,\ninedito nas **QUATRO** formas de quatorze cenas da frota e nas **154** da frota\ninteira, com a propria peca FORA da varredura pelo `exceto`. `barras` e `lista`\nentram DUAS vezes cada e as quatro carregam argumento. Todo layout saiu do\nconjunto **SONDADO** (`layouts_do_short.desenham`), com `assert` no construtor,\ne a paleta foi **LIDA** de `temas_do_dono.paleta_do_canal`.\n"
+}
