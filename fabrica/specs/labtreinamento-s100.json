@@ -1,0 +1,76 @@
+{
+ "slug": "labtreinamento-s100",
+ "pacote": "labtreinamento-s100",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "longo_existente": "6BeNHqT2okA",
+ "longo": [],
+ "thumb": {
+  "l1": "Efeito",
+  "l2": "não aparência"
+ },
+ "paleta": {
+  "bg": "#0E1117",
+  "ink": "#EEF1F5",
+  "c1": "#3DDBD9",
+  "c2": "#1E2430",
+  "red": "#FF5A5F",
+  "ok": "#3CCB7F",
+  "panel": "#161B24",
+  "mut": "#8B95A5",
+  "acc": "#3DDBD9"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Voltou no outro dia",
+   "sub": "e o caso foi fechado",
+   "nar": "Voltou a trabalhar no outro dia, e o caso foi fechado."
+  },
+  {
+   "layout": "barras",
+   "kicker": "A definição é mais larga",
+   "barras": [
+    {
+     "rotulo": "A imagem na cabeça",
+     "valor": 38
+    },
+    {
+     "rotulo": "A definição da lei",
+     "valor": 100
+    }
+   ],
+   "nar": "A definição da lei é mais larga do que essa imagem."
+  },
+  {
+   "layout": "item",
+   "kicker": "Perturbação funcional",
+   "nar": "Ela não exige lesão visível nem incapacidade definitiva."
+  },
+  {
+   "layout": "lista",
+   "kicker": "O efeito exigido",
+   "itens": [
+    "Morte",
+    "Perda da capacidade",
+    "Redução da capacidade",
+    "E a redução pode ser temporária"
+   ],
+   "nar": "O que ela pede é um efeito na capacidade de trabalho."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Pergunte pelo efeito",
+   "sub": "não pela aparência",
+   "nar": "Pergunte pelo efeito, e não pela aparência da lesão."
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "inscreva-se",
+   "nar": "A definição inteira está no vídeo aqui embaixo."
+  }
+ ],
+ "copy": "# labtreinamento-s100\n\n## TITULO\nA Definição de Acidente do Trabalho Não Pergunta Pela Lesão: Ela Pergunta Pelo Efeito\n\n## TITULO SHORT\nPergunte pelo efeito\n\n## DESCRICAO\nO caso mais comum de fechamento errado não é de prazo, de formulário nem de assinatura. **É de definição.** A pessoa voltou a trabalhar no dia seguinte, não houve sangue, não houve afastamento longo — e o caso foi encerrado ali, pela aparência.\n\nA definição que a lei usa é **mais larga do que a imagem que vem à cabeça**. Ela fala de lesão corporal **ou de perturbação funcional**, e esse \"ou\" é a metade que quase ninguém lê. Perturbação funcional não precisa de ferimento visível: é a função que deixa de responder como respondia.\n\nE o teste não para aí. A definição exige um **efeito** — e são três possibilidades: a morte, a **perda** ou a **redução** da capacidade para o trabalho. **E a redução pode ser temporária.** Juntas, essas duas palavras — perturbação funcional e redução temporária — desmontam o filtro informal que muita empresa aplica sem perceber: *não teve lesão grave, então não foi acidente*.\n\n**O que muda na prática é a pergunta que se faz primeiro.** Em vez de olhar para a aparência do ferimento, olhe para o efeito sobre a capacidade de trabalhar: houve morte, houve perda, houve redução — mesmo passageira? Se houve, a definição alcança o caso, e o que vem depois (quem comunica, em quanto tempo, para quem) já é outra conversa, que está no vídeo longo.\n\n**E a ordem importa porque ela é barata.** Classificar pela aparência é rápido e erra no caso que mais custa: o leve que reduziu a capacidade por alguns dias. Classificar pelo efeito leva uma pergunta a mais e sobrevive à conferência de fora.\n\nIsto não avalia caso concreto e não decide se houve nexo. Caso concreto é trabalho de profissional.\n\n## COMENTARIO FIXADO\nO ponto menos óbvio: a definição aceita redução TEMPORÁRIA da capacidade — logo o caso leve, de dois dias, pode caber nela. Qual pergunta a sua equipe faz primeiro: a aparência da lesão ou o efeito na capacidade?\n\n## HASHTAGS\n#segurancadotrabalho #sst #acidentedetrabalho #labtreinamento #Shorts\n\n## TAGS\nacidente do trabalho, definicao de acidente, perturbacao funcional, lesao corporal, reducao da capacidade, incapacidade temporaria, caracterizacao, seguranca do trabalho, sst, labtreinamento, cat, efeito na capacidade\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\n**ZERO numero novo sobre o mundo, e ZERO digito na narracao.** Nao nomeia a lei,\nnao cita artigo nem paragrafo, nao diz prazo, nao diz multa e nao diz valor.\n\n**FICOU DE FORA pela regra (g), e um dos descartes e o que mais dava gancho:**\nos **tres paragrafos** do mesmo artigo que a origem le em sequencia (a\nresponsabilidade pelas medidas de protecao, a contravencao penal e o dever de\ninformar os riscos). Numerar paragrafo e citar norma, e citar norma errada num\nshort e pior que nao citar. Tambem ficaram fora o numero do artigo, a data dele,\nqualquer prazo e qualquer consequencia com valor.\n\n**O QUE A PECA AFIRMA, e e NORMA e nao estatistica:** que a definicao fala de\nlesao corporal **ou** perturbacao funcional, e que ela exige um efeito — morte,\nperda ou reducao, permanente ou temporaria — da capacidade para o trabalho.\nEsta no longo `labtreinamento-010` (`6BeNHqT2okA`), capitulos *\"A definicao\"*,\n*\"E o efeito exigido\"* e *\"Perturbacao funcional\"*, com as fontes. Declarado\npela regra de fonte unica que vale para norma.\n\n**As barras da cena 2 sao ILUSTRACAO qualitativa e NAO sao faladas:** elas\ndesenham a imagem que vem a cabeca contra a largura da definicao. Elas nao\nmedem empresa nenhuma e nao sao contagem de nada — a rodada seguinte NAO deve\nle-las de volta como dado.\n\n**E a lista da cena 4 nao e numerada de proposito:** ela mostra os tres efeitos\nsem dizer \"tres\", porque a contagem nao e a tese; a tese e que basta UM deles.\n\n## FAMILIA DE ENTRADA ERRADA\n**CLASSIFICAR O CASO PELA APARENCIA DA LESAO, QUANDO A DEFINICAO PERGUNTA PELO\nEFEITO NA CAPACIDADE** (capitulos 50 a 53). O filtro informal — *nao teve\nsangue, voltou no outro dia, entao nao foi acidente* — responde a uma pergunta\nque a definicao nao faz. Ela fala de **perturbacao funcional** ao lado de lesao\ncorporal, e exige efeito que pode ser **reducao temporaria**: logo o caso leve e\npassageiro cabe nela, e e exatamente o que o filtro pela aparencia descarta\nprimeiro.\n\nAs CINCO familias anteriores desta origem vieram do `irmaos_da_origem`, e\n**nenhuma delas tem o campo `## FAMILIA DE ENTRADA ERRADA`** — logo a comparacao\nfoi pela NARRACAO de primeira mao, que o relato imprime inteira desde 20/10:\n\n* `s007` — **UNIDADE do prazo**: dia util contra dia corrido;\n* `s014` — **SUBSTITUICAO QUE NAO SUBSTITUI**: quem emitiu a ultima;\n* `s015` — **A GUARDA NAO E A ENTREGA**: comprovante contra copia fiel;\n* `s016` — **DUAS OBRIGACOES CONTADAS COMO UMA**: um fluxo, dois destinos;\n* `s077` — **DOIS PRAZOS, NAO UM**: o caso comum e o caso grave.\n\n**As cinco falam do que fazer DEPOIS de o caso ser um acidente — prazo, via,\ndestino, documento. Esta fala de ANTES: se o caso entra na definicao.** E e o\nSEXTO angulo deste mesmo longo.\n\n**E A RESERVA ESCRITA DESTA ORIGEM FICOU DE FORA, com o motivo medido.** O\n`s016` deixou escrito, para a rodada seguinte achar, a familia **PRESUNCAO QUE\nSE INVERTE** (o nexo presumido numa hipotese e que pode ser afastado), nomeando\nquatro capitulos. Conferidos um a um pelo `segundo_angulo`, **tres dos quatro\naparecem como MENCIONADOS** e so *\"A hipotese\"* consta como livre — e a causa\ndisso e o achado desta rodada, nao uma colisao real: **quem os mencionou foi o\nproprio bloco de reserva do `s016`.** Mesmo assim eu nao a levei, porque um\nangulo juridico sobre presuncao de nexo pede afirmacao que a regra (g) nao\nautoriza num short.\n\n## FONTES\nOrigem: `6BeNHqT2okA` (`labtreinamento-010`, 66 capitulos), escolhida pelo\n`pauta_do_momento.py` — **5 usos**, empatada com o `lau1nnOUm1U` e desempatada\npela MAIOR reserva: **39 capitulos NAO MENCIONADOS de 66** contra 35 de 57. A\ndominante do canal (`FtCtIJPsc_Q`) ficou de fora, e quem conta e o\n`concentracao.py`.\n\nCapitulos desta peca: **50 a 53** — *\"E o que e acidente\"*, *\"A definicao\"*,\n*\"E o efeito exigido\"* e *\"Perturbacao funcional\"*. O 53 escreve a frase que a\npeca carrega: *\"note perturbacao funcional e reducao temporaria; nao e preciso\nlesao visivel nem incapacidade definitiva para caber na definicao\"*.\n\n**DEIXADO DE PROPOSITO para a rodada seguinte achar — O QUE EU NAO LEVEI:** o\ncapitulo *\"E nao e so empregado\"*, que diz que o texto alcanca tambem o trabalho\nde segurados de outra categoria, por remissao. **E outra familia inteira (QUEM A\nDEFINICAO ALCANCA, e nao O QUE ela exige) e da um SETIMO angulo deste mesmo\nlongo**, sem precisar de numero nenhum.\n\n**A CONFERENCIA CONTRA OS IRMAOS FOI INTEIRAMENTE POR LEITURA, e isso vai dito\nem vez de escondido: NENHUM dos cinco irmaos declara capitulo.** Logo a\nconferencia mecanica alcanca **ZERO de 5**, e o `irmaos_da_origem` nomeia essa\nausencia em vez de calar. **Ausencia de capitulo declarado NAO e ausencia de\ncolisao (761)** — aqui ela e total, o que torna a leitura da narracao a UNICA\nprova disponivel. Ela foi feita peca por peca, de primeira mao, e nao por irmao\ncitando irmao (a licao de 20/10 as 15:3x). **E esta peca DECLARA os capitulos\ndela**, para que a rodada seguinte tenha conferencia mecanica onde eu tive\nleitura.\n\n## EXPOSICAO\n**SEIS CENAS, e nenhuma das tres recusas foi minha.** O `contagem_de_cenas.py`\ndeu **7** como a melhor cadencia (3,29 s) e **acusou sozinho que a `s098` tem\nsete**; **8** tambem repete (a `s099`); e **9, 10 e 11** sairam NOMEADAS e nao\nfiltradas, porque nelas o PISO da faixa nao e alcancavel com texto legivel.\nSeis e a melhor que SERVE pelos tres filtros da chave `por_cadencia_servivel`,\ncom orcamento de **39** caracteres no piso e folga **+18**.\n\n**E OS DOIS MUNDOS CABEM AQUI, o que so acontece neste canal:** o\n`mira.janela_dos_dois_mundos` devolve **51 a 55** caracteres por cena com seis\ncenas, e a peca foi escrita com media **52,2** — logo os dois provedores caem\ndentro da mira MEDIDA do canal (20,0 a 26,0) e **nao ha exposicao de mundo a\ndeclarar**. Nos outros dois canais essa janela nao existe em contagem nenhuma\n(a pinca do 740/748).\n\n**O que eu NAO declaro: de que lado da banda o real cai.** Ela tem 5,2 s contra\n1 s de granularidade, e escolher um lado nao e previsao (774). O tally deste\ncanal segue dominado pelo lado de FORA do teto da mira, com o `mira.py` verde\nnos dois mundos — a decisao do 740/748 e do dono.\n\n**ESQUELETO `titulo-barras-item-lista-titulo-cta`**, inedito nas **OITO** formas\nde seis cenas da frota e nas **153** da frota inteira, com a propria peca FORA\nda varredura pelo `exceto`. Todo layout saiu do conjunto **SONDADO**\n(`layouts_do_short.desenham`), com `assert` no construtor, e a paleta foi\n**LIDA** de `temas_do_dono.paleta_do_canal`.\n"
+}
