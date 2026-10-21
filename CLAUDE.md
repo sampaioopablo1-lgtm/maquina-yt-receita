@@ -7937,3 +7937,110 @@ de 13:2x em uso pela terceira vez.
 **COTA: DOZE envios** na janela aberta as 07:00Z, **19.200** unidades, contra o
 piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
 hora.
+
+## A FATIA DA LISTA DO PROXY LIA A PONTA VELHA — e ela decide o MODO da rota
+
+**Medido em 21/10 as 19:2x, e o erro aconteceu nesta rodada.** O quinto modo da
+rota (`negado_por_politica`, de 20/10 as 11:4x) depende de o PROXY nomear o
+host, e esse argumento eu vinha passando A MAO: um `curl
+$HTTPS_PROXY/__agentproxy/status` com um `python3 -c` e uma **FATIA escrita na
+hora**.
+
+**A lista `recentRelayFailures` e OLDEST-FIRST e truncada nas 20 ultimas**, logo
+`[:3]` le as **MAIS VELHAS**:
+
+| | |
+|---|---|
+| as 18:20 | a fatia acertou **por sorte** — o buffer estava curto e as tres primeiras eram da propria sonda |
+| as 19:08 | devolveu tres `sb:443` de **18:43**, de outra rodada |
+| o que eu quase relatei | *"o proxy nao nomeou o YouTube nesta rodada"* |
+| o modo que isso daria | `sem_egresso` |
+| o modo MEDIDO | **`negado_por_politica`** |
+
+**Sao DOIS defeitos numa fatia so, e o segundo e pior: ela pega a ponta errada
+da lista, e ela NAO TEM INSTANTE** — negacao de uma rodada anterior conta como
+medicao desta. Os dois pedem remedios diferentes (`sem_egresso` nao se conserta
+deste lado; `negado_por_politica` e a tela de Network access, que e do dono),
+logo errar o modo e errar o que se pede ao dono.
+
+**Consertado: `vivacidade_publica.politica_negou_hosts(hosts, desde)`** le o
+proxy, toma a ponta **NOVA** e exige `desde` **sem padrao** — parametro com
+padrao voltaria a permitir medicao sem instante. **E ausencia de entrada devolve
+`None`, nao `False`:** a lista e truncada, logo nao ter o host nela nao prova que
+a politica deixou passar — a licao de 17/10 —, e o `modo_de_fechamento` ja trata
+`None` como `indeterminado`, do jeito que o `porta1` recusa janela curta.
+**Entrada que nao e recusa de CONNECT tambem nao vira politica**, porque timeout
+de upstream pede outra coisa. E tem **CLI** (`python3
+fabrica/vivacidade_publica.py <desde> [host ...]`), porque sem ele a rodada
+reescreve a fatia — que foi exatamente o defeito.
+
+`tests/test_a_FATIA_da_lista_do_proxy_lia_a_ponta_VELHA.py`, onze testes, com a
+fixture sendo o status **MEDIDO** desta rodada (com entradas de outras rodadas
+antes das desta): um **REPRODUZ** o defeito e reprova se a fixture deixar de o
+reproduzir — sem ele *"eu errei a fatia"* seria afirmacao minha e nao medida —,
+um cobra que negacao de outra rodada **nao conte**, um que lista vazia devolva
+`None` dizendo que ela e truncada, um que falha de LEITURA **nao vire ausencia de
+negacao** (o leitor devolve `None` e nao `{}`), a contraprova no outro sentido
+exige que `upstream_timeout` **nao** vire politica, o `desde` e cobrado na
+ASSINATURA, a fatia pelo comeco e proibida por **AST** (o docstring CITA `[:3]`
+para se explicar, e casar prosa pegaria a explicacao), e um cobra o caminho
+inteiro pelo `modo_de_fechamento`. **Contraprova:** devolvida a fatia do comeco,
+**tres dos onze** falham.
+
+### A PECA DESSA RODADA — DOZE cenas, e a familia saiu da RESERVA ESCRITA
+
+`epomeno-epipedo-s088` = **`Iy2cozeqVBU`**, publicado as 19:17:42Z (run
+`39660308291`), **ONZE PORTOES VERDES NA PRIMEIRA TENTATIVA** (10,9 s) — e o
+`antes_do_render` pegou o unico defeito ANTES do render, em 0,65 s: titulo com
+**133** caracteres contra o limite de 100. Provedor **edge MEDIDO** (zero avisos
+`NARRACAO PELO PIPER` nos DOIS jobs), som **-14,3** LUFS, LRA 4,1, pico **-2,3**
+dBTP com `pico_vs_teto: dentro`, desvio -0,3, **zero silencios**.
+
+**E A FAMILIA SAIU DA RESERVA ESCRITA, nao da minha leitura:** o
+`reservas_escritas` trouxe o bloco que o `epomeno-epipedo-s055` deixou nesta
+origem, que nomeava DUAS familias boas. Esta rodada levou a **SEGUNDA**
+(capitulos 52 e 53) e a PRIMEIRA (47 a 50) segue livre, com a reserva
+**reescrita** na copy para a rodada seguinte achar — mais uma segunda, a FORMA da
+anotacao (56 a 60).
+
+**FAMILIA: O ERRO CARO TEM DOIS LADOS, E OS DOIS SAEM DA MEDIA.** Aceitar muitas
+horas no ponto da chronia em que a hora vale menos — e e tambem onde ela mais se
+pede — e recusar horas que pagavam bem porque o medio mostrava pior. O eixo e o
+**CUSTO DA DECISAO**, nao o calculo do numero, e nenhum dos QUATRO irmaos o toca:
+o `s002` e o mes errado, o `s006` sao dois numeros em vez de um, o `s055` e uma
+medicao nao bastar, o `s059` e comparar com terceiro. **Tres deles nao tem o
+campo da familia**, logo a distincao saiu da PROSA e da NARRACAO de cada um, que
+e de primeira mao — o conserto de 20/10 as 15:3x em uso. E o capitulo 54 ficou de
+fora **de proposito**: e territorio do `s002`.
+
+**DOZE CENAS pela chave `por_cadencia_servivel`:** catorze e a melhor cadencia e
+REPETE a `s086`, treze repete a `s087` (a peca anterior do canal), e **quinze** —
+o teto MEDIDO da voz, e **INEDITO** na frota — saiu NOMEADO e recusado pela
+FOLGA, dois caracteres acima do piso observado. Doze tem folga **+16**.
+
+**ESQUELETO
+`titulo-lista-item-barras-item-item-titulo-barras-item-lista-item-cta`, inedito
+nas 160 formas da frota** e nas DEZ de doze cenas, com `barras` duas vezes e as
+duas carregando argumento. Todo layout saiu do conjunto **SONDADO**, com `assert`
+no construtor, e a paleta foi **LIDA** de `temas_do_dono.paleta_do_canal`.
+
+**A PINCA DO 740/748 ESTA FECHADA AQUI, com a exposicao declarada ANTES de
+publicar:** nenhuma media por cena poe os dois provedores dentro de 41,5 a 43,0
+com doze cenas nesta voz. **Mirei o PISO** (772): edge **41,65**, 0,15 acima do
+piso; o piper sai em **36,9**, FORA pela mira e DENTRO do portao, que cobra 18 a
+45 nos dois mundos. **E o REAL nao esta prometido para lado nenhum** — a banda
+tem 5,2 s contra 1 s de granularidade, e declarar um lado dela nao e previsao
+(774).
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica`** pela
+**dezessete** rodada seguida — agora medido pelo instrumento desta rodada e nao
+por uma fatia escrita na hora. A peca esta PARQUEADA com o provedor MEDIDO e o
+job **lido da API**, e a presenca foi conferida **RELENDO** o parque (**117**
+linhas, **45** sem leitura). `RESIDUO_N` segue **128**.
+
+**E A LEITURA DE INSCRITOS PASSOU AS TRES PORTAS E NAO FOI FEITA, pela setima
+rodada seguida:** 57,0 h, piso de resolucao **0,42/dia**, os tres SIM. O que a
+impede e a ROTA, e o remedio e do DONO.
+
+**COTA: TREZE envios** na janela aberta as 07:00Z, **20.800** unidades, contra o
+piso MEDIDO de **>= 41.600**.

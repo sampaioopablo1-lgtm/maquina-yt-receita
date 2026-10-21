@@ -261,6 +261,94 @@ def modo_de_fechamento(corpo: str, location: str = "",
     return "aberta"
 
 
+def politica_negou_hosts(hosts, desde: str, status: dict | None = None) -> dict:
+    """O `politica_negou` do `modo_de_fechamento` deixa de ser conta minha.
+
+    POR QUE EXISTE (21/10, 19:2x): o quinto modo (`negado_por_politica`, medido
+    em 20/10 as 11:4x) depende de o PROXY nomear o host, e esse argumento eu
+    vinha passando A MAO — um `curl $HTTPS_PROXY/__agentproxy/status` com um
+    `python3 -c` e uma FATIA escrita na hora. **Nesta rodada eu errei a fatia.**
+
+    **A lista `recentRelayFailures` e OLDEST-FIRST e truncada nas 20 ultimas**
+    (medido: 20 entradas, da mais velha as 18:43 a mais nova as 19:07). Logo
+    `[:3]` le as MAIS VELHAS. As 18:20 isso acertou por sorte, porque o buffer
+    estava curto e as tres primeiras eram da minha propria sonda; as 19:08
+    devolveu tres `sb:443` de 18:43 — de outra rodada — e eu quase li isso como
+    *"o proxy nao nomeou o YouTube nesta rodada"*, que daria `sem_egresso` onde
+    o modo e `negado_por_politica`.
+
+    **Sao DOIS erros numa fatia so, e o segundo e pior:** ela pega a ponta
+    errada da lista, e ela nao tem INSTANTE — negacao de uma rodada anterior
+    conta como medicao desta. Por isso `desde` e obrigatorio.
+
+    AUSENCIA DE ENTRADA NAO E PERMISSAO: a lista e truncada, logo nao ter o
+    host nela nao prova que a politica deixou passar. Nesse caso devolve
+    `negou: None`, e o `modo_de_fechamento` ja trata None como `indeterminado`
+    — do jeito que o `porta1` recusa janela curta. Isto e a licao de 17/10:
+    instrumento que devolve vazio nao prova ausencia.
+
+    `status` existe para o teste injetar o JSON; sem ele a funcao le o proxy.
+    """
+    if status is None:
+        status = _status_do_proxy()
+    if not isinstance(status, dict):
+        return {"negou": None, "motivo": "status do proxy ilegivel",
+                "hosts_nomeados": [], "mais_novo": None}
+    falhas = status.get("recentRelayFailures") or []
+    alvo = {str(h).split(":")[0] for h in (hosts or [])}
+    # A lista e oldest-first: a ponta NOVA e o fim dela. Nao se fatia pelo
+    # comeco, e e por isso que esta funcao existe.
+    recentes = [f for f in falhas
+                if str(f.get("ts") or "") >= str(desde)
+                and str(f.get("host") or "").split(":")[0] in alvo]
+    nomeados = sorted({str(f.get("host") or "").split(":")[0]
+                       for f in recentes})
+    mais_novo = max((str(f.get("ts") or "") for f in falhas), default=None)
+    if not recentes:
+        return {"negou": None,
+                "motivo": ("nenhuma falha dos hosts %s depois de %s na lista do "
+                           "proxy — e ela e TRUNCADA nas 20 ultimas, logo isto "
+                           "NAO prova que a politica deixou passar"
+                           % (sorted(alvo), desde)),
+                "hosts_nomeados": [], "mais_novo": mais_novo}
+    rejeitadas = [f for f in recentes
+                  if "connect" in str(f.get("kind") or "").lower()
+                  or "403" in str(f.get("detail") or "")]
+    if not rejeitadas:
+        return {"negou": None,
+                "motivo": ("o proxy nomeou %s depois de %s, mas nenhuma entrada "
+                           "e recusa de CONNECT — a causa e outra"
+                           % (nomeados, desde)),
+                "hosts_nomeados": nomeados, "mais_novo": mais_novo}
+    return {"negou": True,
+            "motivo": ("o proxy negou o CONNECT para %s depois de %s (%d "
+                       "entrada(s))" % (nomeados, desde, len(rejeitadas))),
+            "hosts_nomeados": nomeados, "mais_novo": mais_novo}
+
+
+def _status_do_proxy() -> dict | None:
+    """Le o `__agentproxy/status`. Falha de leitura devolve None, nao {}.
+
+    Dicionario vazio passaria pela funcao acima como "nenhuma falha listada", e
+    ai falha de LEITURA viraria ausencia de NEGACAO — a confusao que o
+    `politica_negou_hosts` existe para desfazer.
+    """
+    import json as _json
+    import os as _os
+    import subprocess as _sub
+    base = _os.environ.get("HTTPS_PROXY") or _os.environ.get("https_proxy")
+    if not base:
+        return None
+    try:
+        r = _sub.run(["curl", "-sS", "%s/__agentproxy/status" % base.rstrip("/")],
+                     capture_output=True, text=True, timeout=20)
+        if r.returncode != 0 or not (r.stdout or "").strip():
+            return None
+        return _json.loads(r.stdout)
+    except Exception:
+        return None
+
+
 def veredito_da_rota(leitura_nova, leitura_controle, valor_conhecido: int):
     """Diz se a rota FECHOU ou se a peca nova e que nao respondeu.
 
@@ -307,3 +395,32 @@ def relato_da_rota(leitura_nova, leitura_controle, valor_conhecido: int,
                 f" {id_novo} veio vazio: aqui o 672/758 se aplica — peca nova"
                 " pode estar indexando. Releia, nao acuse.")
     return f"rota aberta e {id_novo} leu {leitura_nova} s."
+
+
+def main(argv=None) -> int:
+    """`python3 fabrica/vivacidade_publica.py <desde> [host ...]`.
+
+    Existe para a rodada nao reescrever a fatia na linha de comando: foi a fatia
+    escrita a mao que leu a ponta VELHA da lista do proxy em 21/10 as 19:0x.
+    Codigo de saida sempre ZERO: isto informa, nao reprova.
+    """
+    import sys as _sys
+    argv = list(argv if argv is not None else _sys.argv[1:])
+    if not argv:
+        print("uso: vivacidade_publica.py <desde ISO-8601> [host ...]")
+        print("  ex: vivacidade_publica.py 2026-10-21T19:18:00Z"
+              " www.youtube.com example.com")
+        return 0
+    desde = argv[0]
+    hosts = argv[1:] or ["www.youtube.com", "example.com"]
+    r = politica_negou_hosts(hosts, desde)
+    print("POLITICA NEGOU o CONNECT? %s" % r["negou"])
+    print("  %s" % r["motivo"])
+    print("  mais nova entrada na lista do proxy: %s" % r["mais_novo"])
+    print("  a lista e OLDEST-FIRST e truncada nas 20 ultimas — ausencia de"
+          " entrada NAO e permissao (17/10).")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
