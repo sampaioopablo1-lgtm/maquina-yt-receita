@@ -67,7 +67,21 @@ A chamada e UMA por peca, e a forma exata e:
     filters=video==<ID>            # obrigatorio: UM video por chamada
 
 Escopo: `yt-analytics.readonly`, que **ja esta em `fabrica/tokens.py`** desde
-09/10. Falta so o clique de consentimento (pendencia 1).
+09/10.
+
+**E A FRASE QUE ESTAVA AQUI — *"falta so o clique de consentimento (pendencia
+1)"* — FOI FALSIFICADA EM 21/10, por medicao.** O escopo esta CONCEDIDO no
+segredo `YT_TOKEN_JSON`, nos TRES canais (run 39556791145, pelo `sonda_oauth`
+lendo os dois blobs de credencial, que divergem). **O que faltava nao era o
+clique do dono: era a CHAMADA.** O construtor acima ficou escrito desde 16/10 e
+nenhum caminho da fabrica o chamou — a classe dos layouts mortos, com uma
+justificativa que ninguem reconferiu por cinco dias.
+
+Quem chama agora e `fabrica/chama_retencao.py` (+ `sonda-retencao.yml`), e ele
+DELEGA a forma a este modulo em vez de a remontar. **O que ele ainda nao
+provou:** que o dado VEM. Escopo concedido nao e leitura, e as tres respostas
+possiveis — 403, 200 com linhas, 200 SEM linhas — sao distinguidas la, porque
+"sem linhas" NAO e retencao zero (17/10).
 
 **E O QUE O CLIQUE NAO COMPRA, para eu nao prometer:** a metrica de swipe. Na
 pagina oficial de metricas, `swiped` aparece **ZERO** vezes e "chose to view"

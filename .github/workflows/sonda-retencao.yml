@@ -1,0 +1,59 @@
+name: Sonda — a retencao responde?
+
+# A pergunta que decide a unica alavanca do tamanho do problema. O 693 diz que
+# views/peca e cego para efeito menor que o DOBRO (CV 0,66 -> 109 pecas por
+# braco), logo os experimentos sao indecidiveis sem retencao. E o
+# `retencao.query_de_retencao` esta escrito desde 16/10, com a forma lida na
+# fonte primaria, e NUNCA foi chamado — a razao escrita era "falta o clique de
+# consentimento", e em 21/10 isso foi FALSIFICADO: o `yt-analytics.readonly`
+# esta concedido no `YT_TOKEN_JSON`, nos tres canais (run 39556791145).
+#
+# NAO publica, NAO apaga, NAO altera video, e NAO imprime segredo. So metrica e
+# id de canal, que nao e segredo.
+#
+# Sai sempre VERDE de proposito: "a API recusou" e resposta, nao falha de
+# infraestrutura, e vermelho recorrente deixa de ser sinal.
+
+on:
+  workflow_dispatch:
+    inputs:
+      canal:
+        description: "Canal da frota"
+        type: string
+        default: labtreinamento
+      video_id:
+        description: "Video a medir (vazio = a peca mais recente do PARQUE)"
+        type: string
+        default: ""
+      dias:
+        description: "Janela de leitura em dias"
+        type: string
+        default: "90"
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  sondar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - name: Pedir o relatorio de retencao
+        env:
+          # O blob que TEM o escopo, medido em 21/10. Os `YT_TOKEN_<CANAL>`
+          # estao ausentes e o `publicar.token_do_canal` cai neste.
+          YT_TOKEN_JSON: ${{ secrets.YT_TOKEN_JSON }}
+          YT_TOKEN_LABTREINAMENTO: ${{ secrets.YT_TOKEN_LABTREINAMENTO }}
+          YT_TOKEN_EPOMENO_EPIPEDO: ${{ secrets.YT_TOKEN_EPOMENO_EPIPEDO }}
+          YT_TOKEN_KOLEJNY_POZIOM: ${{ secrets.YT_TOKEN_KOLEJNY_POZIOM }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          python3 fabrica/chama_retencao.py \
+            "${{ inputs.canal || 'labtreinamento' }}" \
+            "${{ inputs.video_id }}" \
+            "${{ inputs.dias || '90' }}"
