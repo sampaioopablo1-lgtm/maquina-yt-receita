@@ -1,0 +1,125 @@
+{
+ "slug": "epomeno-epipedo-s088",
+ "pacote": "epomeno-epipedo-s088",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "longo_existente": "h04-UVlVevs",
+ "longo": [],
+ "thumb": {
+  "l1": "Δύο",
+  "l2": "πλευρές"
+ },
+ "paleta": {
+  "bg": "#F4EFE6",
+  "ink": "#1B1A17",
+  "c1": "#C8502A",
+  "c2": "#2B6CB0",
+  "red": "#B83227",
+  "ok": "#2E8B57",
+  "panel": "#FFFFFF",
+  "mut": "#7A7263",
+  "acc": "#C8502A"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Το ακριβό λάθος",
+   "sub": "έχει δύο πλευρές",
+   "nar": "Το ακριβό λάθος έχει πάντα δύο πλευρές."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Οι δύο πλευρές",
+   "itens": [
+    "Δέχεσαι ώρες",
+    "Αρνείσαι ώρες",
+    "Ίδια αιτία"
+   ],
+   "nar": "Δέχεσαι τις ώρες, ή τις αρνείσαι."
+  },
+  {
+   "layout": "item",
+   "kicker": "Η ίδια αιτία",
+   "sub": "ο μέσος όρος στη θέση του οριακού",
+   "nar": "Και οι δύο βγαίνουν από τον μέσο όρο."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Η ώρα δεν αξίζει το ίδιο",
+   "barras": [
+    {
+     "rotulo": "Αρχή της χρονιάς",
+     "valor": 100
+    },
+    {
+     "rotulo": "Τέλος της χρονιάς",
+     "valor": 62
+    }
+   ],
+   "nar": "Η ώρα δεν αξίζει το ίδιο όλη τη χρονιά."
+  },
+  {
+   "layout": "item",
+   "kicker": "Η πρώτη πλευρά",
+   "sub": "πολλές ώρες στο φθηνό σημείο",
+   "nar": "Πολλές ώρες όπου η ώρα αξίζει λιγότερο."
+  },
+  {
+   "layout": "item",
+   "kicker": "Και είναι τότε",
+   "sub": "που ζητούνται οι περισσότερες",
+   "nar": "Και τότε ζητούνται οι πιο πολλές."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Η άλλη πλευρά",
+   "sub": "αρνήσεις που κόστισαν",
+   "nar": "Η άλλη πλευρά είναι οι αρνήσεις σου."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Τι έδειχνε, τι ίσχυε",
+   "barras": [
+    {
+     "rotulo": "Ο μέσος όρος",
+     "valor": 54
+    },
+    {
+     "rotulo": "Η οριακή ώρα",
+     "valor": 100
+    }
+   ],
+   "nar": "Ο μέσος όρος σου έδειχνε χειρότερα."
+  },
+  {
+   "layout": "item",
+   "kicker": "Άρα είπες όχι",
+   "sub": "σε ώρες που πληρώνονταν καλά",
+   "nar": "Άρα αρνήθηκες ώρες που πλήρωναν καλά."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Τι κρατάς",
+   "itens": [
+    "Καθαρό ανά ώρα",
+    "Μέσο ανά ώρα",
+    "Ποιος μήνας"
+   ],
+   "nar": "Κράτα δύο αριθμούς και τον μήνα."
+  },
+  {
+   "layout": "item",
+   "kicker": "Δεν είναι αφέλεια",
+   "sub": "είναι λάθος μέτρησης",
+   "nar": "Δεν είναι αφέλεια, είναι λάθος μέτρησης."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Επόμενο Επίπεδο",
+   "sub": "κάνε εγγραφή",
+   "nar": "Μέτρα και τις δύο πλευρές και γράψου."
+  }
+ ],
+ "copy": "# epomeno-epipedo-s088\n\n## TITULO\nΤο ακριβό λάθος έχει δύο πλευρές: ο μέσος όρος σε κάνει να δεχτείς λάθος ώρες και να αρνηθείς καλές\n\n## TITULO SHORT\nΔύο πλευρές, ίδια αιτία\n\n## DESCRICAO\nΌταν γράψεις το καθαρό ανά ώρα για την υπερωρία, δεν σου λύνει μόνο μία απορία. Σου δείχνει και μία απόφαση που μέχρι τώρα την έπαιρνες στα τυφλά.\n\nΤο ακριβό λάθος έχει δύο πλευρές, και οι δύο βγαίνουν από την ίδια αιτία: τον μέσο όρο στη θέση του οριακού αριθμού. Η πρώτη πλευρά είναι να μαζεύεις πολλές ώρες στο σημείο της χρονιάς όπου η ώρα αξίζει λιγότερο. Και αυτό δεν είναι σύμπτωση: συνήθως εκεί ακριβώς ζητούνται οι πιο πολλές ώρες, γιατί τότε πιέζει η δουλειά.\n\nΗ δεύτερη πλευρά κοστίζει κι αυτή, και φαίνεται λιγότερο. Είναι οι αρνήσεις. Αρνείσαι ώρες που πληρώνονταν καλά, επειδή ο αριθμός που κοιτούσες ήταν ο μέσος και σου έδειχνε κάτι χειρότερο από την πραγματικότητα. Η απόφαση βγήκε σωστή για τον αριθμό που είχες, και λάθος για τον αριθμό που ίσχυε.\n\nΚαμία από τις δύο δεν είναι αφέλεια. Είναι λάθος μέτρησης, και γι' αυτό διορθώνεται με μέτρηση και όχι με συμβουλή. Κρατάς τρία πράγματα και τελειώνει: το καθαρό ανά ώρα, το μέσο ανά ώρα, και ποιος μήνας ήταν. Ο μήνας δεν είναι διακοσμητικός, γιατί είναι το σημείο της χρονιάς, και το σημείο είναι ο μισός λόγος που ο αριθμός βγήκε αυτός.\n\nΓράψε ευρώ ανά ώρα και όχι ποσοστό. Το ποσοστό μοιάζει συγκρίσιμο μεταξύ ανθρώπων χωρίς να είναι. Χαρτί κάνει, σημειώσεις στο κινητό κάνουν.\n\n## COMENTARIO FIXADO\nΠοια πλευρά σου έχει βγει πιο ακριβή μέχρι τώρα: οι ώρες στο λάθος σημείο, ή οι αρνήσεις; Γράψε την μαζί με τον μήνα.\n\n## HASHTAGS\n#υπερωρία #μισθός #εργασία #οικονομικά #ΕπόμενοΕπίπεδο\n\n## TAGS\nυπερωρία, καθαρό ανά ώρα, μέσος όρος, οριακό, μισθοδοσία, εργασιακά, προσωπικά οικονομικά, Ελλάδα\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ncategoryId: 26\ndefaultLanguage: el\ndefaultAudioLanguage: el\nmadeForKids: false\nselfDeclaredMadeForKids: false\n\n## MUSICA / LICENCA\nInspired — Kevin MacLeod (incompetech.com), Creative Commons BY 3.0.\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO. A narracao NAO cita aliquota, NAO cita\npercentual de hora extra, NAO cita valor em euros, NAO cita quantas horas por\nmes e NAO nomeia orgao. Os unicos numeros falados sao \"duas\" (as duas pleuras) e\n\"dois\" (os dois numeros da anotacao), e as duas sao a aritmetica da propria\nconta.\n\nAS BARRAS SAO ILUSTRACAO QUALITATIVA E NAO SAO FALADAS. A cena 3 (100 contra 62)\nmostra que a hora nao vale o mesmo ao longo da chronia, e a cena 7 (54 contra\n100) mostra o mesmo contraste entre o medio e o marginal. **Nenhum dos quatro\nvalores e medida de nada**, e esta linha existe para a rodada seguinte NAO os ler\nde volta como dado — foi para isso que ela passou a ser escrita em 20/10.\n\nO QUE O VIDEO AFIRMA: que o medio e o marginal diferem, que a hora extra se\nconcentra no fim da chronia, e que decisao tomada sobre o medio erra para os dois\nlados. Isso e aritmetica da propria conta e esta no longo `epomeno-epipedo-014`\n(`h04-UVlVevs`), capitulos 45, 47, 51, 52 e 53, com as fontes dele.\n\n## FAMILIA DE ENTRADA ERRADA\nO ERRO CARO TEM DOIS LADOS, E OS DOIS SAEM DA MEDIA — capitulos 52 e 53, com\napoio do 45 (quantas horas se juntam) e do 51 (nao e afelia, e medicao).\n\nO eixo e o CUSTO DA DECISAO, nao o calculo do numero. Aceitar horas no ponto da\nchronia em que a hora vale menos, e recusar horas que pagavam bem porque o medio\nmostrava pior: sao a MESMA aitia vista dos dois lados.\n\nDISTINCAO DOS QUATRO IRMAOS desta origem, conferida pelo `irmaos_da_origem` e\npela NARRACAO de cada um (tres deles nao tem este campo, logo a comparacao foi\npela PROSA e pela fala, que e de primeira mao):\n- `s002` (Λάθος μήνας, λάθος αριθμός) — o MES errado: dadiva e retroativo entram\n  no liquido e a diferenca deixa de medir hora extra;\n- `s006` (Δύο αριθμοί, όχι ένας) — DOIS numeros em vez de um: liquido por hora\n  contra bruto por hora;\n- `s055` (Μία μέτρηση δεν αρκεί) — UMA medicao nao basta: precisa de uma no\n  inicio e uma perto do fim da chronia (capitulos 65 a 74);\n- `s059` (Ο συνάδελφος δεν μετρά) — comparar com TERCEIRO em vez da propria\n  folha (capitulo 44).\nOs quatro falam de COMO achar ou comparar o numero. Este fala do que o numero\nerrado te faz FAZER, e nenhum deles toca os capitulos 52 e 53.\n\nE O CAPITULO 54 FICOU DE FORA DE PROPOSITO: o quarto erro (medir um mes com\nhoras extra contra um mes com dadiva) e o territorio do `s002`, e levar isso aqui\nseria repetir a familia dele.\n\n## RESERVA\nO QUE EU NAO LEVEI, de proposito, e vai escrito para a proxima rodada achar: os\nTRES erros que o numero torna visiveis (capitulos 47 a 50 — multiplicar o salario\npelas horas, concluir de um mes so, parar na linha do bruto). A reserva do\n`epomeno-epipedo-s055` nomeava DUAS familias boas; esta rodada levou a SEGUNDA\n(52 e 53), e a PRIMEIRA segue livre.\n\nE uma segunda, mais fina: a FORMA da anotacao, capitulos 56 a 60 — por que o mes\nnao e decorativo, por que euro por hora e nao percentual, e por que um total no\nfim da chronia nao serve. Ela nao cabe hoje pela regra (f).\n\n## EXPOSICAO\nA PINCA DO 740/748 ESTA FECHADA AQUI, e isto vai declarado ANTES de publicar: o\n`mira.janela_dos_dois_mundos` devolve NENHUMA janela para esta voz nesta faixa\ncom doze cenas — a razao piper/edge e 0,886 e o vao vale ~4,7 s contra 1,5 s de\nfaixa. Logo nao existe media por cena que ponha os dois provedores dentro de 41,5\na 43,0, e a escolha e de qual mundo declarar.\n\nMIREI O PISO, pela regra de redacao do 772: previsao edge **41,65**, isto e 0,15\nacima do piso da faixa. O piper sai em **36,9**, FORA pelo piso — e o portao\n`duracao` cobra 18 a 45 s nos dois mundos, que os dois satisfazem, logo nada\nquebra; o que fica exposto e a MIRA, nao o portao.\n\nE O REAL NAO ESTA PROMETIDO, nem para um lado nem para o outro: a banda do\nresiduo tem 5,2 s de largura contra 1 s de granularidade, e declarar de que lado\ndela o real cai nao e previsao — e o que o 774 nomeia. O que esta escrito e a\nprevisao e a exposicao, nao o resultado.\n"
+}
