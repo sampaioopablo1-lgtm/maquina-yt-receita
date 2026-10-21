@@ -1,0 +1,125 @@
+{
+ "slug": "kolejny-poziom-s087",
+ "pacote": "kolejny-poziom-s087",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "longo_existente": "ef_oZmfmdz4",
+ "longo": [],
+ "thumb": {
+  "l1": "Sufit",
+  "l2": "nie cena"
+ },
+ "paleta": {
+  "bg": "#0B0B0C",
+  "ink": "#F2EEE8",
+  "c1": "#E23B3B",
+  "c2": "#D9C7A7",
+  "red": "#FF4D4D",
+  "ok": "#7FB77E",
+  "panel": "#151517",
+  "mut": "#8F877C",
+  "acc": "#E23B3B"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Sufit, nie cena",
+   "sub": "tak mówi ustawa",
+   "nar": "Maksimum to nie twoja cena."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Co składa się na koszt",
+   "itens": [
+    "Opłata za zarządzanie",
+    "Opłata zmienna za wynik",
+    "Koszty transakcyjne"
+   ],
+   "nar": "Koszt to nie jedna pozycja."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ustawa mówi inaczej",
+   "nar": "Ustawa daje sufit, nie cenę."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Sufit kontra produkt",
+   "barras": [
+    {
+     "rotulo": "Sufit ustawowy",
+     "valor": 100
+    },
+    {
+     "rotulo": "Produkt, który wybierasz",
+     "valor": 34
+    }
+   ],
+   "nar": "Są produkty za znacznie mniej."
+  },
+  {
+   "layout": "item",
+   "kicker": "Wybór jest twój",
+   "nar": "To ty wybierasz produkt."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Nie ma jej na przelewie",
+   "sub": "i to jest problem",
+   "nar": "Nie widać jej na przelewie."
+  },
+  {
+   "layout": "item",
+   "kicker": "W wycenie jednostki",
+   "nar": "Jest już odjęta w wycenie."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Dlatego rachunek zwodzi",
+   "itens": [
+    "Pokazuje kwotę",
+    "Już po opłacie",
+    "Wygląda jak twój stan"
+   ],
+   "nar": "Rachunek wygląda prawdziwie."
+  },
+  {
+   "layout": "item",
+   "kicker": "Koszt, którego nie widać",
+   "nar": "Dlatego nikt jej nie liczy."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Co porównywać",
+   "barras": [
+    {
+     "rotulo": "Jedna pozycja",
+     "valor": 38
+    },
+    {
+     "rotulo": "Suma kosztów rocznych",
+     "valor": 100
+    }
+   ],
+   "nar": "Porównuj sumę, nie pozycję."
+  },
+  {
+   "layout": "item",
+   "kicker": "Czego szukac",
+   "nar": "Szukaj sumy kosztów rocznych."
+  },
+  {
+   "layout": "item",
+   "kicker": "Gdzie to jest",
+   "nar": "Jest w dokumencie informacyjnym."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Kolejny Poziom",
+   "sub": "subskrybuj",
+   "nar": "Sprawdź swój koszt dzisiaj."
+  }
+ ],
+ "copy": "# kolejny-poziom-s087\n\n## TITULO\nMaksimum To Sufit, Nie Cena: Dlaczego Ustawowy Limit Opłaty Nie Jest Twoim Kosztem\n\n## TITULO SHORT\nSufit to nie cena\n\n## DESCRICAO\nUstawowy limit opłaty za zarządzanie bywa czytany jak cennik. **To nie cennik — to sufit.** Państwo powiedziało, ile najwyżej wolno pobrać; nie powiedziało, ile zapłacisz ty. Są produkty znacznie tańsze od tej granicy, a to, który z nich bierzesz, zależy od ciebie.\n\nDruga rzecz, która wypada z rachunku: **sama opłata za zarządzanie to nie cały koszt.** Obok niej stoi opłata zmienna za wynik i koszty transakcyjne funduszu. Dlatego porównywanie jednej pozycji między dwoma produktami nie odpowiada na pytanie, które naprawdę zadajesz — a odpowiada na nie **suma kosztów rocznych**.\n\nI trzecia, najcichsza: **nie zobaczysz tej opłaty na żadnym przelewie.** Jest już odjęta w wycenie jednostki, którą oglądasz. Rachunek pokazuje ci kwotę po opłacie i wygląda dokładnie jak twój prawdziwy stan — więc nie ma momentu, w którym ktoś zapyta „skąd ta różnica?”. Koszt, którego nigdy nie widać, jest kosztem, którego nikt nie liczy.\n\n**Stąd bierze się pomyłka, która nie wygląda na pomyłkę.** Nie polega ona na tym, że ktoś wybrał drogi produkt świadomie. Polega na tym, że porównał to, co było widoczne — jedną pozycję, czasem tylko nazwę — a nie to, co faktycznie wychodzi z kapitału każdego roku.\n\nCo z tym zrobić, bez żadnej prognozy i bez żadnej nazwy produktu: **otwórz dokument z kluczowymi informacjami dla inwestora i znajdź sumę kosztów rocznych**, nie samą opłatę za zarządzanie. Potem zrób to samo dla drugiego produktu, który rozważasz, i porównaj te dwie sumy. To jedno popołudnie pracy przy decyzji, która zostaje z tobą na lata.\n\n**Jedno zdanie na koniec:** limit mówi, czego nie wolno przekroczyć — twój dokument mówi, co płacisz. To dwie różne liczby, i tylko jedna z nich jest twoja.\n\n## COMENTARIO FIXADO\nNajmniej oczywiste: tej opłaty nie ma na żadnym przelewie — jest już odjęta w wycenie jednostki, więc rachunek wygląda jak twój prawdziwy stan. Sprawdziłeś sumę kosztów rocznych w swoim dokumencie?\n\n## HASHTAGS\n#oplaty #inwestowanie #finanse #kolejnypoziom #Shorts\n\n## TAGS\noplata za zarzadzanie, suma kosztow rocznych, limit ustawowy, sufit, koszty transakcyjne, oplata zmienna, dokument informacyjny, wycena jednostki, koszt inwestycji, kolejny poziom, porownanie produktow, finanse osobiste\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\n**ZERO numero novo sobre o mundo e ZERO DIGITO na narracao.** Nenhum numeral e\nfalado — conferido cena por cena.\n\n**FICOU DE FORA pela regra (g), e o descarte e o CORACAO do assunto:** o valor\ndo teto legal da taxa de administracao e as tres etapas em que ele baixou\n(capitulos 9 e 10 da origem), o prazo novo da taxa variavel (capitulo 14), a\naliquota do imposto sobre ganho e os limites anuais das duas contas com\nbeneficio fiscal. **Todos mudam por rozporzadzenie**, e e por isso que a peca\ndiz *\"sufit ustawowy\"* sem dizer quanto ele vale — a tese sobrevive a qualquer\nvalor, e numero errado no ar e pior que numero ausente.\n\n**E a propria origem escreve esse motivo:** o capitulo 12 avisa, em letra, que o\nmaximo e `sufit ustawowy, a nie cena`, e o 70 (`CZEGO TU NIE PADLO`) declara que\no longo nao nomeia produto nenhum. Esta peca tambem nao nomeia — e a disciplina\ndo 609.\n\n**O QUE A PECA AFIRMA, e e NORMA e nao estatistica:** que existe um teto legal e\nque ele e teto e nao preco; que o custo soma a taxa de administracao, a taxa\nvariavel por resultado e os custos de transacao; e que a taxa de administracao\nnao aparece em extrato porque ja esta descontada na cotacao da unidade. Esta no\nlongo `kolejny-poziom-004` (`ef_oZmfmdz4`), capitulos 8, 12, 13 e 68, com as\nfontes. Declarado pela regra de fonte unica que vale para norma.\n\n**As barras das cenas 4 e 10 sao ILUSTRACAO qualitativa e NAO sao faladas.** A\nda cena 4 desenha o teto contra o que um produto de fato cobra; a da cena 10\ndesenha uma posicao contra a soma. **Elas nao sao percentual, nao sao preco e\nnao medem produto nenhum** — a rodada seguinte NAO deve le-las de volta como\ndado.\n\n## FAMILIA DE ENTRADA ERRADA\n**LER O MAXIMO LEGAL COMO SE FOSSE O PRECO, E COMPARAR UMA POSICAO EM VEZ DA\nSOMA** (capitulos 8, 12, 13 e 68). A entrada errada tem duas metades que se\nsustentam: o limite responde *\"quanto nao se pode passar\"* e a pessoa o usa para\nresponder *\"quanto eu pago\"*; e, quando ela vai conferir, confere a posicao que\nesta visivel em vez da soma dos custos anuais. **E a terceira metade e a que\nfecha o circulo: a taxa nao aparece em extrato nenhum**, porque ja esta\ndescontada na cotacao — logo nao existe o momento em que alguem pergunta de onde\nveio a diferenca.\n\nAs TRES familias anteriores desta origem vieram do `irmaos_da_origem`, e **duas\ndelas nao tem o campo** — logo a comparacao foi pela NARRACAO de primeira mao,\nque o relato imprime inteira desde 20/10:\n\n* `s009` — a **ORDEM das contribuicoes no ano**: o ano sem o beneficio nao\n  volta, logo a mesma contribuicao em ordem diferente da outro resultado;\n* `s028` — a **FREQUENCIA e nao a aliquota**: uma cobranca volta todo ano, a\n  outra vem uma vez no fim;\n* `s067` — **trocar de produto E vender**: realiza o ganho e antecipa a data em\n  que o dinheiro sai.\n\n**A mais vizinha e a `s028`, e a distincao vai escrita: ela compara DUAS\ncobrancas pelo ritmo com que incidem; esta nao compara cobranca nenhuma — ela\nfala de ler o TETO como preco e de somar as pecas do custo.** Nenhuma das tres\ntoca o limite legal, a soma dos custos anuais nem a invisibilidade da taxa no\nextrato.\n\n## FONTES\nOrigem: `ef_oZmfmdz4` (`kolejny-poziom-004`, 74 capitulos), escolhida pelo\n`pauta_do_momento.py` — **3 usos**, empatada com **quatro** outras origens e\ndesempatada pela MAIOR reserva: **66 capitulos NAO MENCIONADOS de 74**, contra\n62, 50 e 49 das seguintes. A dominante do canal (`GUiq15usizw`) ficou de fora, e\nquem conta e o `concentracao.py`.\n\n**E as duas origens de MENOR contagem (2 usos) ficaram de fora com o motivo do\ninstrumento na mao:** o `QiaGg03WSR0` sai NOMEADO como **suspeito de ser do\nLabTreinamento** (o mapa de dono MEDIDO do `dono_medido.py`, e sao dois shorts\ndeste canal que o declaram por engano), e o `Xgt32iH8Ft8` **nao tem spec local**\n(a regra h), logo a reserva dele e 0 de 0.\n\n**E esta origem nao tem RESERVA ESCRITA**, e o `reservas_escritas` diz isso em\nletra em vez de calar — nenhum dos tres irmaos deixou indicacao em prosa.\n\nCapitulos desta peca: **8, 12, 13 e 68** — *\"Gdzie ja widzisz\"*,\n*\"UWAGA NA SLOWO MAKSIMUM\"*, *\"Co sklada sie na twoj koszt\"* e\n*\"Gdzie szukac oplaty\"*. O 12 escreve a frase que a peca carrega.\n\n**DEIXADO DE PROPOSITO para a rodada seguinte achar — O QUE EU NAO LEVEI:** os\ncapitulos 6 e 7 (*\"PIERWSZY UBYTEK\"* e *\"Od czego jest liczona\"*), que dizem que\na taxa incide sobre o CAPITAL INTEIRO e nao sobre o ganho — logo ela e cobrada\ntambem no ano em que voce perdeu, ao contrario do imposto. **E outra familia\ninteira (A BASE DE CALCULO, e nao o ritmo nem o tamanho) e da um QUINTO angulo\ndeste mesmo longo**, sem precisar de numero nenhum.\n\n**A CONFERENCIA CONTRA OS IRMAOS: UM dos tres declara capitulo** (o `s028`, os\n37 a 44, e **nenhum deles esta entre os meus**), logo a conferencia mecanica\nalcanca **33%**. Os outros dois foram conferidos por LEITURA da narracao de\nprimeira mao, e **ausencia de capitulo declarado NAO e ausencia de colisao\n(761)**. Esta peca DECLARA os capitulos dela.\n\n## EXPOSICAO\n**TREZE CENAS, e a recusa nao foi minha.** O `contagem_de_cenas.py` deu **14**\ncomo a melhor cadencia e ela e o **TETO MEDIDO desta voz** — recusada pela\nFOLGA, porque ali o orcamento no piso cai a **dois** caracteres do piso\nOBSERVADO. **Foi a MESMA conta que eu recusei a mao em 20/10 as 04:1x e 06:2x.**\nTreze e a melhor que SERVE pelos tres filtros, com orcamento de **28**\ncaracteres no piso e folga **+7**, e **nao repete** o tamanho recente (a `s086`\ntem onze e a `s084` doze).\n\n**E A PINCA DO 740/748 ESTA FECHADA AQUI, com a exposicao declarada ANTES de\npublicar:** o `mira.janela_dos_dois_mundos` devolve **NENHUMA** janela de\ncaracteres que ponha os dois provedores dentro de 41,5 a 43,0 nesta voz — a\nrazao piper/edge e ~0,851 e o vao e de vários segundos contra 1,5 s de faixa.\nMirei o **PISO** pela regra de redacao do 772, logo **o piper sai FORA pelo\npiso**, e isso vai dito em vez de escondido. Quem reprova duracao e o portao,\nque cobra 18 a 45 s nos dois mundos — e os dois cabem nela.\n\n**E O PORTAO `layout` REPROVOU A CENA 00 na primeira passada, por 1,12% de\ntinta na BORDA:** o kicker era a palavra `Maksimum`, larga no corpo do titulo, e\nela encostava. Trocado para `Sufit, nie cena` depois de sondar variante por\nvariante contra o DONO (`prontidao._gate_layout`) — e nao no olho. **A narracao\nnao mudou**: o gancho falado continua sendo *\"Maksimum to nie twoja cena\"*, logo\na troca e de CARTAO e nao de conteudo.\n\n**E A PRIMEIRA VERSAO DELA SAIU SEM OS DIACRITICOS POLONESES, e quem pegou NAO\nfui eu relendo:** o `antes_do_render` acusou nos DOIS instrumentos na mesma\nchamada — o portao `ortografia` reprovou (`0.0% das letras contra 6.8% nas specs\nde pl que acentuam`) e o `acento.py` deu a SUSPEITA com a distribuicao medida do\nidioma ao lado. Em 19/10 esse mesmo defeito passou DUAS rodadas seguidas e quem\no achou fui eu lendo o texto na mao. Corrigido antes de renderizar: **4,01%** de\nletras acentuadas, dentro da faixa do idioma.\n\n**O que eu NAO declaro: de que lado da banda o real cai.** Ela tem 5,2 s contra\n1 s de granularidade, e escolher um lado nao e previsao (774).\n\n**ESQUELETO\n`titulo-lista-item-barras-item-titulo-item-lista-item-barras-item-item-cta`**,\ninedito nas formas de treze cenas da frota e na frota inteira, com a propria\npeca FORA da varredura pelo `exceto` — e e o unico que ABRE com `lista` na cena\n2. `barras` e `lista` entram DUAS vezes cada e as quatro carregam argumento.\nTodo layout saiu do conjunto **SONDADO** (`layouts_do_short.desenham`), com\n`assert` no construtor, e a paleta foi **LIDA** de\n`temas_do_dono.paleta_do_canal`.\n"
+}
