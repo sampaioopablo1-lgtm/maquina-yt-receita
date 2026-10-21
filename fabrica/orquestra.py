@@ -559,7 +559,7 @@ def _falhas_baratas(nome: str, sp: dict) -> list[str]:
     faltas = []
     for fn in (lambda: P._gate_identidade(caminho, sp),
                lambda: P._gate_copy(sp),
-               lambda: P._gate_narracao(caminho),
+               lambda: P._gate_narracao(caminho, sp),
                # `fatos` custa microssegundos: ele so confere se o veredito
                # existe, se aprovou, e se a impressao da narracao ainda bate. A
                # verificacao cara ja aconteceu quando a spec nasceu. Sem ele
