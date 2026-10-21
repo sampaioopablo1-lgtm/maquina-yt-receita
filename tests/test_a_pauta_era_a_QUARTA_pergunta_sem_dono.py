@@ -55,11 +55,19 @@ def test_ele_REPRODUZ_a_escolha_feita_a_mao():
     assert e["escolhida"]["origem"] == ORIGEM_DA_PECA, e["escolhida"]
 
 
-def test_o_exceto_vai_ao_DONO_e_muda_a_escolha():
-    """Contraprova nos DOIS sentidos, e e o defeito medido na 1a execucao.
+def test_o_exceto_vai_ao_DONO_e_SUBTRAI_a_peca_da_rodada():
+    """RETRATADO em 21/10/2026, e a retratacao e a que o proprio teste pedia.
 
-    Com a peca da rodada no disco, a origem dela sobe um uso; sem o `exceto` ela
-    deixa de ser o minimo e a escolha vira outra.
+    Ele cobrava que a escolha MUDASSE sem o `exceto`, e isso reprovou na rodada
+    da `labtreinamento-s098`: com mais um short na origem `bQoujWaY7Hw`, o
+    empate ficou largo o bastante para o vencedor ser o MESMO com e sem o
+    parametro. **A escolha mudar depende de quao apertado esta o empate, que
+    muda a cada peca publicada** — e consumir pauta e o trabalho (a licao de
+    18/10 as 09:2x, e a classe 743/753/761).
+
+    A propriedade que o parametro de fato tem, e que nao envelhece, e a
+    SUBTRACAO: ele tira a peca da rodada da contagem da origem dela, por UM.
+    Que isso chegue a virar o vencedor e consequencia, nao propriedade.
     """
     if not os.path.exists(os.path.join(RAIZ, "fabrica", "specs",
                                        "%s.json" % PECA)):
@@ -67,12 +75,17 @@ def test_o_exceto_vai_ao_DONO_e_muda_a_escolha():
     com = CO.contagem(CANAL, exceto=PECA)
     sem = CO.contagem(CANAL)
     assert sem[ORIGEM_DA_PECA] == com[ORIGEM_DA_PECA] + 1, (sem, com)
-    e_com = PM.escolha(CANAL, exceto=PECA)
-    e_sem = PM.escolha(CANAL)
-    assert e_com["escolhida"]["origem"] != e_sem["escolhida"]["origem"], (
-        "sem o `exceto` a escolha deveria mudar — se ela parou de mudar, o "
-        "defeito medido desapareceu e esta nota tem de ser RELIDA"
-    )
+    # E a contraprova no outro sentido, sem a qual bastaria o `exceto` nao
+    # filtrar nada: ele NAO pode mexer nas outras origens.
+    outras_com = {k: v for k, v in com.items() if k != ORIGEM_DA_PECA}
+    outras_sem = {k: v for k, v in sem.items() if k != ORIGEM_DA_PECA}
+    assert outras_com == outras_sem, (
+        "o `exceto` mexeu em origem que nao e a da peca: %s contra %s"
+        % (outras_com, outras_sem))
+    # E a escolha continua SAINDO (o parametro nao pode cegar o instrumento),
+    # ainda que ela possa ser a mesma com e sem ele.
+    assert PM.escolha(CANAL, exceto=PECA)["escolhida"] is not None
+    assert PM.escolha(CANAL)["escolhida"] is not None
 
 
 def test_a_REGRA_e_menor_contagem_e_depois_MAIOR_reserva():
