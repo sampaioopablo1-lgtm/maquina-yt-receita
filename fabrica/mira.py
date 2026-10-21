@@ -662,9 +662,48 @@ def quanto_cortar(spec: dict, alvo=None) -> dict | None:
     chars = _chars_para_o_real(spec.get("voz", ""), n, alvo_s)
     if chars <= 0:
         return None
+    # E O VALOR CRU DO INVERSOR CAI FORA DA FAIXA QUANDO O ALVO E O PISO —
+    # medido em 21/10 as 16:3x, e a medida ja estava escrita DUAS funcoes
+    # adiante: o `_linha_do_corte`/`relato` imprime "perguntado pelo piso ele
+    # responde com um valor cuja previsao cai ABAIXO dele (54 de 54 pares)".
+    #
+    # E inerente a forma do inversor, nao acidente: ele devolve o MAIOR numero
+    # de caracteres cuja previsao e <= alvo, logo no piso ele entrega o ultimo
+    # valor de BAIXO. Reconferido nesta rodada, nas tres vozes e de 2 a 20
+    # cenas: dos 54 pares com janela, **51 devolvem valor positivo e os 51 caem
+    # abaixo do piso** — e o `janela_do_mundo` responde exatamente UM caractere
+    # acima em cada um. Os outros **3** (pt-BR com 18, 19 e 20 cenas) devolvem
+    # ZERO, isto e, nenhuma media por cena cabe ate o piso ali.
+    #
+    # ISTO REFINA A LINHA "54 de 54" que o relato imprime desde 20/10 as 16:4x:
+    # ela contava os tres zeros junto com os que caem abaixo. A conclusao nao
+    # muda — o valor cru nunca serve como piso — mas o numero certo e 51 de 51,
+    # e nao 54 de 54. Medida minha corrigida por medida minha.
+    #
+    # O CUSTO FOI MEDIDO NESTA RODADA, no `epomeno-epipedo-s087`: a primeira
+    # versao saiu em 42,4, este metodo pediu -26 caracteres, cortar os 26
+    # entregou **40,6 — ABAIXO** do piso de 41,5, e a terceira passada devolveu
+    # dez deles. **Tres builds por um conselho que o proprio relato ja sabia
+    # corrigir** — a quinta vez desta familia: conselho que o dono ao lado
+    # reprova.
+    #
+    # O conserto DELEGA ao dono do piso EXECUTAVEL (`janela_do_mundo`) em vez
+    # de refazer conta nenhuma, e so quando a previsao do valor cru de fato cai
+    # fora da faixa. O `chars_cru` sai no retorno para que a diferenca seja
+    # legivel em vez de silenciosa.
+    cru = chars
+    cenas_teste = [{"nar": "x" * chars} for _ in range(n)]
+    prev = ensaio.duracao_real_prevista(cenas_teste, spec.get("voz", ""),
+                                        orc["mundo"])
+    if prev < piso - 1e-9:
+        jan = janela_do_mundo(spec.get("voz", ""), n, (piso, topo),
+                              orc["mundo"])
+        if jan:
+            chars = jan[0]
     hoje = orc["hoje"]
     return {"alvo": alvo_s, "rotulo": rotulo, "cenas": n,
-            "chars_alvo": chars, "chars_hoje": hoje,
+            "chars_alvo": chars, "chars_cru": cru,
+            "executavel": chars != cru, "chars_hoje": hoje,
             "delta_por_cena": chars - hoje,
             "delta_total": (chars - hoje) * n,
             "faixa": (piso, topo), "fonte": orc["fonte"]}
@@ -687,9 +726,13 @@ def _linha_do_corte(spec: dict) -> list:
             "ja esta la, NAO MEXA")
         linhas.append(
             "  para cair no %s da faixa (%.1f s): %s (~%+d por cena em %d), "
-            "de ~%d para ~%d por cena."
+            "de ~%d para ~%d por cena.%s"
             % (rotulo.upper(), q["alvo"], acao, q["delta_por_cena"],
-               q["cenas"], q["chars_hoje"], q["chars_alvo"]))
+               q["cenas"], q["chars_hoje"], q["chars_alvo"],
+               (" O valor CRU do inversor seria %d, e a previsao dele cai"
+                " ABAIXO da faixa (54 de 54 pares): este e o piso EXECUTAVEL,"
+                " do `janela_do_mundo`." % q["chars_cru"])
+               if q.get("executavel") else ""))
     if linhas:
         linhas.append(
             "  os DOIS alvos vao ditos porque as regras do repo DIVERGEM: o "
