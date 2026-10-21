@@ -188,3 +188,25 @@ def test_o_workflow_PASSA_o_blob_que_TEM_o_escopo():
         "o workflow nao passa o segredo que tem o yt-analytics.readonly")
     assert "chama_retencao.py" in yml
     assert "workflow_dispatch" in yml
+
+
+def test_ARGUMENTO_VAZIO_cai_no_parque_em_vez_de_virar_escolha():
+    """Medido no run 39560637064, na PRIMEIRA execucao em producao.
+
+    O yml passa `"${{ inputs.video_id }}"`, que chega como string VAZIA quando
+    ninguem informa o video. A primeira versao olhava so `len(sys.argv) > 2`,
+    aceitava o vazio e nunca consultava o parque — e o relato saiu dizendo
+    "nenhuma peca no parque" com o parque CHEIO. Acusar ausencia que e de
+    LEITURA e a familia de 17/10, aqui dentro do meu proprio chamador.
+    """
+    arvore = ast.parse((RAIZ / "fabrica" / "chama_retencao.py").read_text(
+        encoding="utf-8"))
+    fn = next(n for n in ast.walk(arvore)
+              if isinstance(n, ast.FunctionDef) and n.name == "main")
+    corpo = ast.unparse(fn)
+    assert "_video_do_parque" in corpo, "o main deixou de consultar o parque"
+    assert "or _video_do_parque" in corpo.replace("\n", " "), (
+        "o parque voltou a ser alternativa do `len(sys.argv)` em vez de do "
+        "valor VAZIO — e ai o argumento vazio vence o parque")
+    assert "39560637064" in (RAIZ / "fabrica" / "chama_retencao.py").read_text(
+        encoding="utf-8"), "saiu a procedencia do defeito medido"

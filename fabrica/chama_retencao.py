@@ -188,7 +188,15 @@ def _video_do_parque(canal: str) -> str | None:
 
 def main() -> int:
     canal = sys.argv[1] if len(sys.argv) > 1 else "labtreinamento"
-    video = sys.argv[2] if len(sys.argv) > 2 else (_video_do_parque(canal) or "")
+    # ARGUMENTO VAZIO E AUSENCIA, e nao escolha — medido no run 39560637064.
+    # O `sonda-retencao.yml` passa `"${{ inputs.video_id }}"`, que chega como
+    # string VAZIA quando ninguem informa o video; a primeira versao olhava so
+    # `len(sys.argv) > 2`, aceitava o vazio e nunca consultava o parque. O
+    # efeito foi o aviso "nenhuma peca no parque" com o parque CHEIO (104
+    # linhas) — instrumento acusando ausencia que era de LEITURA, a familia de
+    # 17/10, agora no meu proprio chamador.
+    informado = sys.argv[2].strip() if len(sys.argv) > 2 else ""
+    video = informado or _video_do_parque(canal) or ""
     dias = int(sys.argv[3]) if len(sys.argv) > 3 else DIAS_PADRAO
     if not video:
         aviso(f"nenhuma peca de {canal} com youtube_id no parque — sem video "
