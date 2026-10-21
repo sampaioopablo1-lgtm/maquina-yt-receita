@@ -1,0 +1,108 @@
+{
+ "slug": "kolejny-poziom-s086",
+ "pacote": "kolejny-poziom-s086",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "longo_existente": "kDkagIf2isA",
+ "longo": [],
+ "thumb": {
+  "l1": "Stawki czy",
+  "l2": "odliczenia?"
+ },
+ "paleta": {
+  "bg": "#0B0B0C",
+  "ink": "#F2EEE8",
+  "c1": "#E23B3B",
+  "c2": "#D9C7A7",
+  "red": "#FF4D4D",
+  "ok": "#7FB77E",
+  "panel": "#151517",
+  "mut": "#8F877C",
+  "acc": "#E23B3B"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Porównujesz stawki",
+   "sub": "a różnica siedzi w odliczeniu",
+   "nar": "Porównujesz stawki, a nie odliczenia."
+  },
+  {
+   "layout": "item",
+   "kicker": "Nie każda forma pozwala",
+   "nar": "Nie każda forma pozwala odliczyć."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Trzy formy, trzy mechanizmy",
+   "itens": [
+    "Skala: nic",
+    "Ryczałt: część",
+    "Liniowy: do limitu"
+   ],
+   "nar": "Trzy formy i trzy różne odliczenia."
+  },
+  {
+   "layout": "item",
+   "kicker": "Na skali",
+   "nar": "Na skali nie odliczysz jej w ogóle."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Trzy drzwi, wszystkie zamknięte",
+   "barras": [
+    {
+     "rotulo": "Od dochodu",
+     "valor": 0
+    },
+    {
+     "rotulo": "Od podatku",
+     "valor": 0
+    },
+    {
+     "rotulo": "W kosztach",
+     "valor": 0
+    }
+   ],
+   "nar": "Ani od dochodu, ani od podatku, ani inaczej."
+  },
+  {
+   "layout": "item",
+   "kicker": "Na ryczałcie",
+   "nar": "Na ryczałcie część składki pomniejsza przychód."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Płynność ma cenę",
+   "sub": "wyższą niż sama stawka",
+   "nar": "Więc płynność kosztuje więcej niż stawka."
+  },
+  {
+   "layout": "item",
+   "kicker": "Przy progu wynik się zmienia",
+   "nar": "Całe porównanie zmienia się przy progu."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Dwa warianty, nie jeden",
+   "itens": [
+    "Rok w środku progu",
+    "Rok tuż nad progiem"
+   ],
+   "nar": "I tam prawie nikt go nie powtarza."
+  },
+  {
+   "layout": "item",
+   "kicker": "Wybierasz w styczniu",
+   "nar": "Formę wybierasz na początku roku."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Kolejny Poziom",
+   "sub": "zasubskrybuj",
+   "nar": "A próg mijasz, gdy decyzja jest już za tobą."
+  }
+ ],
+ "copy": "# kolejny-poziom-s086\n\n## TITULO\nPorównujesz Stawki, A Różnica Siedzi W Odliczeniu — I Formę Wybierasz W Styczniu\n\n## TITULO SHORT\nStawki czy odliczenia?\n\n## DESCRICAO\nPorównanie form opodatkowania prawie zawsze wygląda tak samo: stawka obok stawki. I ta kolumna jest najłatwiejsza do znalezienia, więc na niej decyzja się kończy. **Tylko że obok stawki stoi druga rzecz, o której mówi się najrzadziej: czy składkę zdrowotną w tej formie w ogóle odliczysz.**\n\n**Na skali podatkowej nie odliczysz jej w żaden sposób** — ani od dochodu, ani od podatku, ani w kosztach. Na ryczałcie część zapłaconej składki pomniejsza przychód. Na podatku liniowym odliczysz ją, ale do rocznego limitu, a powyżej limitu składka dalej rośnie i przestaje pomniejszać podstawę. **To są trzy zupełnie różne mechanizmy, i żaden z nich nie widać w kolumnie ze stawką.**\n\nPraktyczny skutek jest jeden i wart powtórzenia: **płynność skali kosztuje więcej, niż wynika z samej stawki.** Skala nie ma progów i nie ma przepaści, co brzmi bezpieczniej — ale cena tego bezpieczeństwa siedzi właśnie w braku odliczenia, a nie w procencie.\n\n**I tu jest część, która zmienia wszystko: formę opodatkowania wybierasz na początku roku, a próg mijasz gdzieś pod koniec.** Czyli w momencie wyboru nie wiesz jeszcze, gdzie wyląduje twój rok — a kiedy już wiesz, decyzja jest nieodwracalna. Dlatego porównanie, które robisz w styczniu, warto zrobić dla dwóch scenariuszy: rok w środku progu i rok tuż nad progiem. **Wynik potrafi się odwrócić, i prawie nikt tego drugiego wariantu nie liczy.**\n\nWniosek nie jest taki, że któraś forma jest zła. Przy stabilnym przychodzie w środku progu ryczałt bywa najtańszą formą, jaka istnieje. Wniosek jest węższy i ważniejszy: **porównanie zmienia wynik w pobliżu progu, a właśnie tam nikt go nie powtarza.**\n\n## COMENTARIO FIXADO\nNajmniej oczywiste: wybierasz formę w styczniu, a gdzie wyląduje rok, wiesz w listopadzie — kiedy już nie cofniesz. Policzyłeś swój wariant „tuż nad progiem\"?\n\n## HASHTAGS\n#ryczalt #skalapodatkowa #skladkazdrowotna #kolejnypoziom #Shorts\n\n## TAGS\nforma opodatkowania, skladka zdrowotna, odliczenie skladki, ryczalt, skala podatkowa, podatek liniowy, prog przychodu, jdg, wybor formy, styczen, plynnosc, kolejny poziom\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\n**ZERO numero novo sobre o mundo.** O unico numeral falado e **\"trzy\"**, que\nconta as tres formas de tributacao — contagem da propria lista da peca, nao fato\nsobre o mundo. Conferido pelo `numerais_falados`, o instrumento da rodada\nanterior: ele lista `trzy` e nada mais, e a copy o cita.\n\n**E AQUI A REGRA (g) RECUSOU MAIS NUMERO QUE EM QUALQUER PECA DESTA SERIE**, e\nvai tudo nomeado porque a origem os diz em letra: o percentual da contribuicao,\no salario minimo do ano (capitulo 54), o valor mensal minimo em zloty e groszy\n(55), o limite anual de deducao no liniowy e o ANO dele (60). **Os cinco vem de\nlei ou de obwieszczenie e mudam de ano para ano** — e o capitulo 60 ja nomeia o\nano dentro do proprio texto, que e a prova de que o numero tem prazo.\n\nAs barras sao **ILUSTRACAO qualitativa e NAO sao faladas**: na cena 5 elas\ndesenham que na skala as tres portas de deducao estao fechadas, enquanto nas\noutras formas alguma se abre. Elas nao medem percentual, nem zloty, nem\nlimite — e a rodada seguinte NAO deve le-las de volta como dado.\n\n## FAMILIA DE ENTRADA ERRADA\n**COMPARAR FORMAS DE TRIBUTACAO PELA STAWKA, QUANDO A DIFERENCA ESTA NA\nDEDUTIBILIDADE — e escolher em JANEIRO o que so se sabe em NOVEMBRO**\n(capitulos 58, 59, 63 e 64). Sao duas metades da mesma familia e a segunda e a\nque machuca: as tres formas tratam a contribuicao de modo **estruturalmente\ndiferente** (na skala nao se deduz de jeito nenhum, no ryczalt parte dela\nreduz a receita, no liniowy deduz-se ate um limite), e **nada disso aparece na\ncoluna da stawka**; e a forma se escolhe no comeco do ano, enquanto o limiar se\ncruza perto do fim, quando a decisao ja e irreversivel.\n\nAs TRES familias anteriores desta origem vieram do `irmaos_da_origem`, e\n**NENHUMA delas tem o campo**, logo a comparacao foi pela NARRACAO de primeira\nmao:\n\n* `s018` — a **FATURA de dezembro muda janeiro**: cruzar o limiar recalcula o\n  ano inteiro para tras;\n* `s024` — o limiar olha a **RECEITA e nao o lucro**, e a pior posicao e\n  logo acima da fronteira;\n* `s061` — vale a **DATA DO PAGAMENTO**, nao o periodo a que a contribuicao se\n  refere.\n\n**As tres falam do limiar: quando ele morde, sobre o que ele incide, e que data\nconta. Nenhuma fala da DEDUTIBILIDADE entre formas, nem do momento em que a\nescolha e feita** — e e esse o eixo desta.\n\n## FONTES\nOrigem: `kDkagIf2isA` (`kolejny-poziom-010`, 86 capitulos), escolhida pelo\n`pauta_do_momento.py` — 3 usos, empatada com outras e desempatada pela MAIOR\nreserva: **67 capitulos NAO MENCIONADOS de 86**. A dominante `GUiq15usizw`\nficou de fora, e o `QiaGg03WSR0` — que tem contagem MENOR — saiu da escolha\npelo **mapa de dono MEDIDO**, porque e longo do LabTreinamento declarado por\nengano em dois shorts deste canal. Ele saiu NOMEADO, nao filtrado.\n\nCapitulos desta peca: **58, 59, 63 e 64** (*\"Na skali\"*, *\"Porownaj z\nryczaltem\"*, *\"Wniosek jest inny\"* e *\"Bo forme wybiera sie w styczniu\"*). O 59\nescreve a frase que a peca carrega: *\"plynnosc skali kosztuje wiecej, niz wynika\nz samej stawki\"*, e o 64 a segunda metade: *\"forme opodatkowania wybiera sie na\npoczatku roku, a prog mija sie gdzies w okolicach listopada, kiedy decyzja jest\njuz nieodwracalna\"*.\n\n**A CONFERENCIA CONTRA OS IRMAOS FOI INTEIRAMENTE POR LEITURA, e vai dito:\nNENHUM dos tres irmaos declara capitulo.** Logo a conferencia mecanica alcanca\n**ZERO de 3**, e o `irmaos_da_origem` nomeia essa ausencia em vez de calar.\n**Ausencia de capitulo declarado NAO e ausencia de colisao (761)** — e aqui ela\ne total, o que torna a leitura da narracao a UNICA prova disponivel. As tres\nfrases acima saem da narracao deles, nao de irmao citando irmao: o relato diz,\nem letra, que **nenhum irmao cita outro pelo nome** nesta origem.\n\n## EXPOSICAO\n**ONZE CENAS, e as recusas nao foram minhas.** O `contagem_de_cenas.py` deu\n**14** como a melhor cadencia — e **ela e o TETO MEDIDO desta voz** — e caiu\npela **FOLGA**, a um caractere do piso OBSERVADO; **12** repete a `s084` (a\npeca das 08:14 deste canal) e **13** repete a `s082`. Onze serve pelos tres\nfiltros, com orcamento de **39** caracteres no piso e folga **+18**.\n\n**A PINCA DO 740/748 ESTA FECHADA AQUI, e a exposicao vai declarada ANTES de\npublicar:** o `mira.janela_dos_dois_mundos` devolve **NENHUMA** janela para a\nvoz polonesa nesta faixa, em contagem alguma de 2 a 20 — o vao piper/edge vale\n~6 s contra 1,5 s de largura do `ALVO_SHORT`. Mirei o **PISO** (regra de\nredacao do 772) e o piper sai FORA pelo piso.\n\n**O que eu NAO declaro: de que lado da banda o real cai.** Ela tem 5,2 s contra\n1 s de granularidade, e escolher um lado nao e previsao (774).\n\n**ESQUELETO `titulo-item-lista-item-barras-item-titulo-item-lista-item-cta`**,\ninedito nas **ONZE** formas de onze cenas da frota e nas **152** da frota\ninteira, com a propria peca FORA da varredura pelo `exceto`. Todo layout saiu do\nconjunto **SONDADO**, as quatro guardas de escrita sairam de\n`spec_minima.exige`, e a paleta e a trilha **Wholesome** sao as deste canal —\ncopiar de outro reprova o portao `identidade` (601).\n"
+}
