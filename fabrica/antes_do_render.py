@@ -73,7 +73,35 @@ SEGUNDOS_BARATOS_MEDIDOS = 0.65
 # "nao chamar quem ja sabe".
 INSTRUMENTOS = ("mira", "acento", "gancho", "paleta_da_spec",
                 "orcamento_da_copy", "esqueleto_entre_canais",
-                "copy_secoes")
+                "copy_secoes", "contagem_declarada", "layouts_do_short")
+
+# E EM 21/10 AS 05:3x A PERGUNTA VIROU VARREDURA, em vez de eu descobrir um
+# instrumento ausente por rodada. Varridos os modulos da fabrica com um
+# `relato` cujo PRIMEIRO argumento e spec ou caminho de spec, **CINCO** estavam
+# fora da passada — e DOIS pertenciam:
+#
+#   `contagem_declarada` ... o detector de "a fonte declara CINCO e enumera
+#                            SEIS" (13/10). Ele achou QUATRO conflitos reais no
+#                            acervo e nunca rodou antes do render;
+#   `layouts_do_short` ..... a SONDA do render (19/10, 19:1x), que pega cartao
+#                            em branco SEM renderizar — isto e, um proxy barato
+#                            do portao `layout`, que fica fora da passada
+#                            justamente por renderizar.
+#
+# Os outros TRES ficam de fora, e o motivo de cada um vai ESCRITO: decisao
+# silenciosa foi o que deixou os dois de cima fora por dias.
+FORA_DA_PASSADA = {
+    "som": "exige a FAIXA DE AUDIO de um mp4 renderizado, nao uma spec — ele "
+           "proprio responde 'DEFEITO: nao tem faixa de audio' quando recebe "
+           "uma. O som se le na anotacao do job, depois do render.",
+    "pauta_local": "nao fala da PECA: ele responde sobre origem livre e ignora "
+                   "o argumento. A pauta se escolhe ANTES de haver spec, pelo "
+                   "`pauta_do_momento`.",
+    "estilo_paint": "e um relato de CUSTO (credito de geracao de imagem) de um "
+                    "estilo opcional que o dono trouxe em 16/10 e que a "
+                    "producao nao usa. Rodar aqui informaria credito em toda "
+                    "peca sem haver decisao a tomar.",
+}
 
 
 def portoes_baratos():
