@@ -1,0 +1,85 @@
+{
+ "slug": "labtreinamento-s102",
+ "pacote": "labtreinamento-s102",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "longo_existente": "KRUERlNPzDw",
+ "longo": [],
+ "thumb": {
+  "l1": "Evidência",
+  "l2": "antes"
+ },
+ "paleta": {
+  "bg": "#0E1117",
+  "ink": "#EEF1F5",
+  "c1": "#3DDBD9",
+  "c2": "#1E2430",
+  "red": "#FF5A5F",
+  "ok": "#3CCB7F",
+  "panel": "#161B24",
+  "mut": "#8B95A5",
+  "acc": "#3DDBD9"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "A evidência veio depois",
+   "sub": "e aí ela deixa de ser prova",
+   "nar": "Você escreveu a evidência depois."
+  },
+  {
+   "layout": "barras",
+   "kicker": "O que cada ordem produz",
+   "barras": [
+    {
+     "rotulo": "Escrita antes",
+     "valor": 100
+    },
+    {
+     "rotulo": "Escrita depois",
+     "valor": 32
+    }
+   ],
+   "nar": "Então procurou o que já existia."
+  },
+  {
+   "layout": "item",
+   "kicker": "E virou prova",
+   "nar": "E chamou aquilo de prova da ação."
+  },
+  {
+   "layout": "lista",
+   "kicker": "A ordem decide",
+   "itens": [
+    "Antes: a ação nasce com o registro",
+    "Depois: você procura o que tem",
+    "A coluna é a mesma"
+   ],
+   "nar": "Escrita antes, a ação nasce com ela."
+  },
+  {
+   "layout": "item",
+   "kicker": "E a verificação",
+   "nar": "A verificação não pergunta se foi feita."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Resolveu?",
+   "sub": "é outra pergunta",
+   "nar": "Ela pergunta se o problema se resolveu."
+  },
+  {
+   "layout": "item",
+   "kicker": "Conclusão não é eficácia",
+   "nar": "Treinamento aplicado é só conclusão."
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "inscreva-se",
+   "nar": "Confira a ordem do seu plano hoje."
+  }
+ ],
+ "copy": "# labtreinamento-s102\n\n## TITULO\nEvidência Escrita Depois da Ação É o Que Já Existia: a Ordem de Preenchimento Decide\n\n## TITULO SHORT\nEvidência vem antes\n\n## DESCRICAO\nToda planilha de plano de ação tem uma coluna de **evidência esperada**. O que quase ninguém nota é que **a ordem em que ela é preenchida muda o que ela significa.**\n\nEscrita **depois** da ação, ela não é um requisito: é um relatório. Você olha o que sobrou — um e-mail, uma lista de presença, um print — e chama aquilo de prova. Nada disso é desonesto; é o caminho natural de quem preenche no fim. Só que a coluna deixa de testar qualquer coisa, porque **qualquer ação passa quando a prova é escolhida depois.**\n\nEscrita **antes**, a mesma coluna faz um trabalho diferente: ela obriga a decidir, na hora de planejar, **o que vai existir quando a ação terminar**. E quando esse registro não é óbvio, a ação muda — porque uma ação que não produz registro nenhum raramente é uma ação, é uma intenção. **A ação nasce com o registro dentro dela.**\n\nE há uma segunda coluna que sofre do mesmo problema de ordem: a **verificação**. Ela não pergunta se a ação foi feita — isso a própria data já responde. Ela pergunta se o problema **se resolveu**, e essas duas coisas se separam com facilidade: treinamento aplicado é **conclusão**; uma amostra de pessoas respondendo certo meses depois é **eficácia**. A segunda é a que sobrevive a uma auditoria, e ela também precisa ser escrita antes, senão vira a mesma caça ao que sobrou.\n\n**O teste prático é de trinta segundos:** abra o seu plano e leia uma linha pronta. Se a evidência esperada daquela linha pudesse ser escrita hoje, sem a ação ter acontecido, então ela está no lugar certo. Se você só consegue preenchê-la olhando para o que já aconteceu, a coluna está medindo o passado em vez de planejar o futuro.\n\n**E não é rigor por rigor.** Uma coluna de evidência preenchida antes é o que permite que outra pessoa execute a linha sem perguntar nada — e é o que faz a diferença entre um plano que alguém segue e um plano que alguém interpreta.\n\n## COMENTARIO FIXADO\nO teste de trinta segundos: se a evidência esperada de uma linha pudesse ser escrita HOJE, sem a ação ter acontecido, ela está no lugar certo. No seu plano, quantas linhas passariam?\n\n## HASHTAGS\n#planodeacao #auditoria #sgi #labtreinamento #Shorts\n\n## TAGS\nplano de acao, evidencia esperada, verificacao, eficacia, conclusao, auditoria, registro, sistema de gestao, ordem de preenchimento, labtreinamento, iso, planejamento\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\n**ZERO numero novo sobre o mundo, e ZERO DIGITO na narracao.** Nenhum numeral e\nfalado — conferido pelo `numerais_falados`.\n\n**FICOU DE FORA pela regra (g):** o tamanho da amostra e o prazo que o capitulo\n56 da origem usa como exemplo de eficacia (*\"cinco pessoas respondendo certo dois\nmeses depois\"*), a DATA do fim da transicao que abre o longo, e o numero de\nlinhas que o capitulo 37 diz esperar na aba. **A data e o prazo mudam por\npublicacao de norma**, e a amostra e ESCOLHA do autor para ilustrar — nao e\nlimite de nada. A peca diz *\"uma amostra de pessoas respondendo certo meses\ndepois\"* na DESCRICAO e **nao fala numero na narracao**.\n\n**E os \"trinta segundos\" do teste pratico vivem so na DESCRICAO e no comentario,\ne nao sao numero sobre o mundo:** e o esforco do passo que a peca pede.\n\n**O QUE A PECA AFIRMA, e e PROPRIEDADE DO METODO e nao estatistica:** que\nevidencia escrita depois da acao e o que ja existia; que escrita antes ela\nobriga a decidir o que vai existir quando a acao terminar; e que verificacao\npergunta se RESOLVEU e nao se foi feito. Esta no longo `labtreinamento-003`\n(`KRUERlNPzDw`), capitulos 54, 55 e 56, com as fontes.\n\n**As barras da cena 2 sao ILUSTRACAO qualitativa e NAO sao faladas:** elas\ndesenham quanto cada ORDEM de preenchimento produz de prova. Elas nao medem\nempresa nenhuma e nao sao contagem de nada.\n\n## FAMILIA DE ENTRADA ERRADA\n**A ORDEM DE PREENCHIMENTO DA COLUNA DE EVIDENCIA: escrita DEPOIS da acao, ela\nvira relatorio do que sobrou** (capitulos 54, 55 e 56). A entrada errada nao e\nde conteudo — a coluna esta lA, com o nome certo e preenchida. **E de TEMPO:** a\nmesma celula testa a acao quando vem antes e descreve o passado quando vem\ndepois, e **nada na planilha distingue as duas**, porque o resultado visivel e\nidentico. Dai o efeito que fecha o circulo: **qualquer acao passa quando a prova\ne escolhida depois.**\n\n**E a verificacao sofre do mesmo problema de ordem, com uma troca a mais:** ela\nnao pergunta se a acao foi feita — a data responde isso — e sim se o problema se\nresolveu. Treinamento aplicado e CONCLUSAO; amostra respondendo certo meses\ndepois e EFICACIA.\n\nAs SEIS familias anteriores desta origem vieram do `irmaos_da_origem`, e **tres\ndelas nao tem o campo** — logo a comparacao foi pela NARRACAO de primeira mao,\nque o relato imprime inteira desde 20/10:\n\n* `s012` — **a data que obriga voce e outra**;\n* `s050` — **PRAZO DE TERCEIRO tratado como proprio**: quem marca a data e o\n  ciclo da certificacao;\n* `s052` — **uma celula com N itens dentro**: um verbo por linha do plano;\n* `s072` — **quem fez nao verifica**;\n* `s085` — **sem registro, nota zero**: percepcao nao sustenta nota;\n* `s092` — **ordenar a fila pela lacuna sem o multiplicador**.\n\n**As duas mais vizinhas pedem distincao escrita, e ela e de EIXO:**\n\n* o `s085` fala do CONTEUDO da evidencia no diagnostico — o que serve e o que\n  nao serve (capitulos 30 a 32). **Esta fala da ORDEM dela no plano**, e a\n  coluna nem e a mesma aba;\n* o `s052` fala da GRANULARIDADE da linha do plano (um verbo por linha) e\n  declara o capitulo **53**. **Os meus sao 54, 55 e 56**, e o eixo e quando a\n  celula e preenchida, nao quantas acoes ela carrega.\n\nE o `s072` (quem verifica) toca a mesma coluna de VERIFICACAO por outro lado: la\ne QUEM, aqui e O QUE ela pergunta. **E o SETIMO angulo deste mesmo longo.**\n\n## FONTES\nOrigem: `KRUERlNPzDw` (`labtreinamento-003`, 84 capitulos), escolhida pelo\n`pauta_do_momento.py` — **6 usos**, empatada com **cinco** outras origens e\ndesempatada pela MAIOR reserva: **79 capitulos NAO MENCIONADOS de 84**, contra\n65, 57, 57, 52 e 47 das seguintes. **E ela e a maior reserva do canal inteiro.**\nA dominante (`FtCtIJPsc_Q`) ficou de fora, e quem conta e o `concentracao.py`.\n\nCapitulos desta peca: **54, 55 e 56** — *\"Por que antes\"*, *\"Coluna\nVerificacao\"* e *\"Exemplo da diferenca\"*. O 54 escreve a frase que a peca\ncarrega: *\"se voce escreve depois, vai procurar o que ja tem e chamar de prova;\nescrevendo antes, a acao nasce com o registro dentro dela\"*.\n\n**DEIXADO DE PROPOSITO para a rodada seguinte achar — O QUE EU NAO LEVEI:** os\ncapitulos **26 e 27** (*\"Coluna Eixo\"* e *\"Por que lista fechada\"*), que dizem\nque o eixo sai de lista FECHADA e que, se cada pessoa escrever com as proprias\npalavras, *\"a planilha vira um caderno e ninguem consegue contar quantas linhas\nestao em cada eixo\"*. **E outra familia inteira (TEXTO LIVRE NA COLUNA QUE SERVE\nPARA AGRUPAR) e da um OITAVO angulo deste mesmo longo**, sem precisar de numero\nnenhum.\n\n**A CONFERENCIA CONTRA OS IRMAOS: DOIS dos seis declaram capitulo** — o `s052` o\n53 e o `s092` os 38 a 48 —, logo a conferencia mecanica alcanca **33%**, e\n**nenhum dos meus (54, 55, 56) esta entre os citados**. Os quatro sem campo\nforam conferidos por LEITURA da narracao de primeira mao, e **ausencia de\ncapitulo declarado NAO e ausencia de colisao (761)**. Esta peca DECLARA os\ncapitulos dela.\n\n## EXPOSICAO\n**OITO CENAS, pela chave `por_cadencia_servivel`:** nao repete o tamanho recente\n(a `s101` tem sete e a `s100` seis) e alcanca o piso com folga **+4**. As\ncontagens **9, 10 e 11** sairam NOMEADAS e nao filtradas, porque nelas o PISO da\nfaixa nao e alcancavel com texto legivel.\n\n**E AQUI EU NAO MIREI O PISO, e o motivo e do instrumento:** o\n`mira.janela_dos_dois_mundos` devolve **34 a 36** caracteres por cena com oito\ncenas, e o orcamento do PISO pede **25** — que poria o piper abaixo de 20,0. A\nregra de redacao do 772 manda mirar o piso *\"quando a voz nao exigir o topo\"*, e\naqui a restricao que aperta e a dos DOIS mundos. Escrita com media **35,4**:\nedge **25,3** / piper **20,8**, os dois dentro da mira MEDIDA do canal (20,0 a\n26,0), logo **nao ha exposicao de mundo a declarar**. Isso so acontece neste\ncanal.\n\n**O que eu NAO declaro: de que lado da banda o real cai.** Ela tem 5,2 s contra\n1 s de granularidade, e escolher um lado nao e previsao (774). O tally deste\ncanal segue dominado pelo lado de FORA do teto da mira, com o `mira.py` verde\nnos dois mundos — a decisao do 740/748 e do dono.\n\n**ESQUELETO `titulo-barras-item-lista-item-titulo-item-cta`**, inedito nas\n**CINCO** formas de oito cenas da frota e nas **159** da frota inteira, com a\npropria peca FORA da varredura pelo `exceto`. Todo layout saiu do conjunto\n**SONDADO** (`layouts_do_short.desenham`), com `assert` no construtor, e a\npaleta foi **LIDA** de `temas_do_dono.paleta_do_canal`.\n"
+}
