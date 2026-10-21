@@ -59,8 +59,20 @@ SEGUNDOS_CAROS_MEDIDOS = 8.0
 SEGUNDOS_BARATOS_MEDIDOS = 0.65
 
 # Os instrumentos de REDACAO, cada um dono da sua conta. Eles nao reprovam.
+# E O SEXTO ENTROU EM 21/10 AS 03:3x, pelo que QUASE passou nesta rodada: o
+# primeiro rascunho da `labtreinamento-s097` usava
+# `titulo-lista-item-barras-item-cta`, que JA EXISTE na frota, e eu so peguei
+# porque listei as formas de seis cenas a mao antes de escrever. NADA antes do
+# render perguntava isso — o portao `variedade` avisa a partir de SEIS iguais
+# DENTRO de um canal, e forma que atravessa canal ele nao ve (33 das 34).
+#
+# E a pergunta e feita em TODA rodada recente: medido no disco, **35 das 252**
+# copies de short solto AFIRMAM novidade de esqueleto e **43** citam a forma.
+# O `esqueleto_entre_canais.relato` ja aceitava o caminho da spec e ja aplicava
+# o `exceto` da propria peca — ele so nao era chamado. SETIMA vez da assinatura
+# "nao chamar quem ja sabe".
 INSTRUMENTOS = ("mira", "acento", "gancho", "paleta_da_spec",
-                "orcamento_da_copy")
+                "orcamento_da_copy", "esqueleto_entre_canais")
 
 
 def portoes_baratos():
