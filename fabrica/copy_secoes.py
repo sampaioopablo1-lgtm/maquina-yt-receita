@@ -110,6 +110,60 @@ def cabecalho_do_comentario(texto: str):
     return None
 
 
+# Os UNICOS sufixos com que um cabecalho legitimo estende outro cabecalho da
+# MESMA copy. MEDIDOS no disco em 21/10 as 04:3x, varrendo as 392 copies: dos
+# **325** pares (base, extensao) existentes, ha **TRES** formas e **DOIS**
+# sufixos — `SHORT` (287 vezes, `TITULO`/`TITULO SHORT` e o `JUDUL` indonesio) e
+# `SOBRE OS NUMEROS` (38, `AVISO`/`AVISO SOBRE OS NUMEROS`). Os dois sao secoes
+# que o `publicar.ler_copy` conhece.
+SUFIXOS_LEGITIMOS = ("SHORT", "SOBRE OS NUMEROS")
+
+
+def prefixo_colidido(texto: str) -> list:
+    """Cabecalho que ESTENDE outro da mesma copy com sufixo nao observado.
+
+    **POR QUE EXISTE (21/10 as 04:3x).** Escrevendo a `epomeno-epipedo-s082` eu
+    deixei um `## COMENTARIO FIXADO FIM` solto na copy. Para o
+    `publicar.ler_copy` isso e uma SECAO, e o comentario fixado e um balde
+    PEGA-TUDO (medido em 20/10 as 20:3x): o bloco errado podia ir ao ar como
+    comentario do video. **Peguei relendo, nao por instrumento.**
+
+    **E ESTE E O UNICO DISCRIMINADOR QUE SOBREVIVEU, de CINCO tentados** — as
+    tres de 20/10 (cabecalho `COMENT*`, que TRADUZ em sete idiomas; chaves do
+    Studio, ausentes por geracao em 183 de 360; forma das linhas, com seis
+    falsos positivos) e as DUAS desta rodada:
+
+      * **prefixo CRU**: 325 acusacoes, e as 325 sao os pares legitimos
+        `TITULO`/`TITULO SHORT` e `AVISO`/`AVISO SOBRE OS NUMEROS`. Detector que
+        inventa achado e pior que nao ter detector (725);
+      * **frequencia** (cabecalho que aparece numa copy so): acusa traducao
+        legitima (`KOMENTARZ PRZYPIETY`, `JUDUL SHORT`) e secao ad-hoc
+        (`MIRA — ...`). Nao serve.
+
+    **O que faz este funcionar e ele comparar a copy COM ELA MESMA**, logo nao
+    depende de idioma nenhum: o par (base, extensao) e interno. E o conjunto de
+    sufixos e **OBSERVADO** no disco, nao escolhido — acusa **ZERO** das 392
+    copies do acervo e pegaria o meu `FIM`.
+
+    **LIMITE DECLARADO:** uma copy que legitimamente tenha `## FONTES` **e**
+    `## FONTES E RESSALVAS` seria acusada. Hoje nao existe nenhuma (as duas
+    nunca aparecem juntas), e e por isso que isto INFORMA e **nao e portao** —
+    quem decide e quem le, e o sufixo novo entra em `SUFIXOS_LEGITIMOS` com a
+    medida ao lado, nunca por conveniencia de uma rodada.
+    """
+    hs = cabecalhos(texto)
+    saida = []
+    for base in hs:
+        for ext in hs:
+            if ext == base or not ext.startswith(base + " "):
+                continue
+            sufixo = ext[len(base) + 1:].strip()
+            if sufixo.upper() in SUFIXOS_LEGITIMOS:
+                continue
+            saida.append({"base": base, "extensao": ext, "sufixo": sufixo})
+    return saida
+
+
 def _sem_placeholder(texto: str) -> str:
     """Enche o que o RENDER preencheria.
 
@@ -199,10 +253,30 @@ def relato(caminho: str) -> str:
     else:
         linhas.append("  sem simulacao: " + v["motivo"])
     linhas.append(
-        "  ISTO NAO ACUSA NINGUEM: as tres tentativas de discriminador "
-        "falharam, e os numeros estao no docstring deste modulo. Sem "
-        "procedencia nao ha portao."
+        "  DA SECAO DO COMENTARIO isto NAO acusa ninguem: CINCO "
+        "discriminadores foram tentados e QUATRO falharam — os numeros estao "
+        "nos docstrings deste modulo e do `prefixo_colidido`. Sem procedencia "
+        "nao ha portao, e o unico que sobreviveu e a colisao de PREFIXO, logo "
+        "e a UNICA coisa que este relato acusa."
     )
+    # A COLISAO DE PREFIXO, que o relato TEM de carregar: instrumento calculado
+    # e descartado pelo chamador e a classe dos layouts mortos (13:2x).
+    col = prefixo_colidido(texto)
+    if col:
+        for x in col:
+            linhas.append(
+                "  >> CABECALHO COLIDIDO: %r ESTENDE %r com o sufixo %r, que"
+                " nao esta entre os OBSERVADOS %s. Para o `ler_copy` isso e uma"
+                " SECAO, e o comentario fixado e um balde PEGA-TUDO (20/10 as"
+                " 20:3x): o bloco errado pode ir ao ar como comentario."
+                % (x["extensao"], x["base"], x["sufixo"],
+                   list(SUFIXOS_LEGITIMOS)))
+    else:
+        linhas.append(
+            "  nenhum cabecalho ESTENDE outro com sufixo nao observado"
+            " (os legitimos sao %s, MEDIDOS no disco)."
+            % list(SUFIXOS_LEGITIMOS))
+
     return "\n".join(linhas)
 
 

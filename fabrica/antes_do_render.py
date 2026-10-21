@@ -72,7 +72,8 @@ SEGUNDOS_BARATOS_MEDIDOS = 0.65
 # o `exceto` da propria peca — ele so nao era chamado. SETIMA vez da assinatura
 # "nao chamar quem ja sabe".
 INSTRUMENTOS = ("mira", "acento", "gancho", "paleta_da_spec",
-                "orcamento_da_copy", "esqueleto_entre_canais")
+                "orcamento_da_copy", "esqueleto_entre_canais",
+                "copy_secoes")
 
 
 def portoes_baratos():
