@@ -1,0 +1,126 @@
+{
+ "slug": "epomeno-epipedo-s082",
+ "pacote": "epomeno-epipedo-s082",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "longo_existente": "jAWKppvjAG8",
+ "longo": [],
+ "thumb": {
+  "l1": "Ίδια χρόνια",
+  "l2": "άλλο ταβάνι"
+ },
+ "paleta": {
+  "bg": "#F4EFE6",
+  "ink": "#1B1A17",
+  "c1": "#C8502A",
+  "c2": "#2B6CB0",
+  "red": "#B83227",
+  "ok": "#2E8B57",
+  "panel": "#FFFFFF",
+  "mut": "#7A7263",
+  "acc": "#C8502A"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Ίδια χρόνια, άλλη χρονιά",
+   "sub": "και δεν φταίει η δουλειά",
+   "nar": "Δύο άνθρωποι, ίδια χρόνια."
+  },
+  {
+   "layout": "item",
+   "kicker": "Βγαίνουν αλλού",
+   "nar": "Και βγαίνουν σε άλλη χρονιά."
+  },
+  {
+   "layout": "item",
+   "kicker": "Όχι η δουλειά",
+   "nar": "Δεν φταίει η δουλειά τους."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Το πού ασφαλίζονται",
+   "barras": [
+    {
+     "rotulo": "Ιδιωτικός",
+     "valor": 58
+    },
+    {
+     "rotulo": "Δημόσιο",
+     "valor": 100
+    }
+   ],
+   "nar": "Φταίει το πού ασφαλίζονται."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Το εργαλείο έχει ταβάνι",
+   "sub": "και δεν είναι ίδιο για όλους",
+   "nar": "Το εργαλείο έχει ένα ταβάνι."
+  },
+  {
+   "layout": "item",
+   "kicker": "Δεν είναι ίδιο",
+   "nar": "Και το ταβάνι δεν είναι ίδιο."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ο ιδιωτικός",
+   "nar": "Ο ιδιωτικός έχει το δικό του."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Δύο ταβάνια",
+   "itens": [
+    "Ιδιωτικός τομέας",
+    "Δημόσιο",
+    "Η διαφορά"
+   ],
+   "nar": "Το Δημόσιο έχει πιο ψηλό."
+  },
+  {
+   "layout": "item",
+   "kicker": "Η διαφορά",
+   "nar": "Η διαφορά μετριέται σε χρόνια."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Χρόνια που κανείς δεν δούλεψε",
+   "barras": [
+    {
+     "rotulo": "Δουλεμένα",
+     "valor": 100
+    },
+    {
+     "rotulo": "Η διαφορά",
+     "valor": 0
+    }
+   ],
+   "nar": "Και δεν τα δούλεψε κανείς."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ούτε κόλπο",
+   "nar": "Δεν είναι κόλπο ούτε κενό."
+  },
+  {
+   "layout": "item",
+   "kicker": "Είναι ο νόμος",
+   "nar": "Είναι γραμμένο στον νόμο."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ρώτα το δικό σου",
+   "sub": "πρώτα το ταβάνι, μετά η τιμή",
+   "nar": "Ρώτα πρώτα το δικό σου ταβάνι."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Επόμενο Επίπεδο",
+   "sub": "κάνε εγγραφή",
+   "nar": "Μετά ρωτάς μόνο την τιμή."
+  }
+ ],
+ "copy": "# epomeno-epipedo-s082\n\n## TITULO\nΊδια Χρόνια, Άλλη Χρονιά Σύνταξης: Το Ταβάνι Δεν Είναι Ίδιο Για Όλους\n\n## TITULO SHORT\nΊδια χρόνια, άλλο ταβάνι\n\n## DESCRICAO\nΔύο άνθρωποι με την **ίδια ηλικία** και τα **ίδια χρόνια δουλειάς** μπορούν να βγουν στη σύνταξη σε διαφορετική χρονιά. Και δεν φταίει η δουλειά τους: **φταίει το πού είναι ασφαλισμένοι.**\n\nΤο εργαλείο που τους χωρίζει είναι η δυνατότητα να αναγνωρίσεις ασφαλιστικό χρόνο που δεν δούλεψες — νόμιμα, με αίτηση και με τιμολόγιο. Και αυτό το εργαλείο **έχει ταβάνι**.\n\n**Το ταβάνι όμως δεν είναι ίδιο για όλους.** Ο ιδιωτικός τομέας έχει το δικό του ανώτατο όριο αναγνώρισης. Για ορισμένες κατηγορίες του Δημοσίου το όριο φτάνει **πιο ψηλά**. Η διαφορά δεν είναι λογιστική λεπτομέρεια: **μετριέται σε χρόνια ασφαλιστικού χρόνου** — και είναι χρόνια που κανείς από τους δύο δεν δούλεψε. Για πολλούς, είναι χρόνια νωρίτερα έξω από τη δουλειά.\n\n**Και να το πούμε καθαρά, για να μην παρεξηγηθεί:** δεν μιλάμε για παρατυπία ούτε για κόλπο ούτε για κενό του νόμου. **Είναι γραμμένο στον νόμο** και ισχύει για όλους όσους ανήκουν σε αυτές τις κατηγορίες. Το ερώτημα δεν είναι αν γίνεται.\n\n**Η σειρά που βγάζει νόημα είναι άλλη από αυτή που κάνουν οι περισσότεροι.** Οι περισσότεροι ξεκινούν από την τιμή: πόσο κοστίζει ένας χρόνος. Αλλά η τιμή δεν σου λέει τίποτα όσο δεν ξέρεις **πόσα χρόνια σου επιτρέπει το δικό σου ταβάνι** — γιατί ένα ταβάνι που δεν σε αφορά, τιμή δεν έχει.\n\nΆρα: **πρώτα ρώτα ποιο είναι το δικό σου ανώτατο όριο**, και μόνο μετά ρώτα την τιμή γι' αυτά που σου λείπουν. Η ίδια κίνηση βγάζει άλλο αποτέλεσμα σε δύο ανθρώπους, και ο λόγος δεν είναι η δουλειά τους.\n\n## COMENTARIO FIXADO\nΤο λιγότερο προφανές: το ταβάνι δεν είναι χαρακτηριστικό ΔΙΚΟ ΣΟΥ — δεν εξαρτάται από το πόσο δούλεψες. Είναι χαρακτηριστικό του ΠΟΥ είσαι ασφαλισμένος. Εσύ ξέρεις ποιο είναι το δικό σου;\n\n## HASHTAGS\n#σύνταξη #πλασματικάέτη #ασφάλιση #epomenoepipedo #Shorts\n\n## TAGS\nπλασματικα ετη, συνταξη, ασφαλιστικος χρονος, αναγνωριση χρονου, ιδιωτικος τομεας, δημοσιο, ανωτατο οριο, εξαγορα, τιμη, επομενο επιπεδο\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\n**ZERO numero novo sobre o mundo, e a narracao nao fala numero nenhum** — nem o\nteto do setor privado, nem o do Dominio publico, nem a diferenca entre os dois,\nnem preco, nem percentual. Conferido cena a cena: nenhum digito cru.\n\n**E OS DOIS NUMEROS CENTRAIS DA FAMILIA FICARAM DE FORA, que e o caso mais duro\nda regra (g) nesta sessao:** os capitulos 2 e 3 escrevem os dois tetos em anos, e\no 4 escreve a diferenca. **Sao TETOS LEGAIS, que mudam por publicacao** — e a\nfamilia inteira e sobre eles. Dizer \"o teto do privado e N e o do publico e M\"\nseria publicar numero de lei sem as duas fontes que a regra 600 exige.\n\n**O que sobrevive sem eles, e e o eixo de verdade: o teto nao e caracteristica\nSUA, e caracteristica de ONDE voce esta segurado.** Essa frase nao tem digito, e\ne ela que a peca carrega. A copy diz \"mais alto\" e \"mede-se em anos\" em vez de\ndar as grandezas.\n\nAs barras sao **ILUSTRACAO qualitativa** e **NAO sao faladas**: na cena 4, dois\ntetos de alturas diferentes; na cena 10, que a diferenca e de anos **nao\ntrabalhados** — a segunda barra em zero e o argumento, nao uma medida. Elas nao\nsaem de estudo nenhum, e a rodada seguinte **nao deve le-las de volta como\ndado**.\n\n## FAMILIA DE ENTRADA ERRADA\n**LER O TETO COMO CARACTERISTICA DA PESSOA E NAO DO REGIME** — supor que quanto\nse pode reconhecer depende de quanto se trabalhou, quando depende de ONDE se\nesta segurado. Dai sai a ORDEM errada da pergunta: quase todos comecam pela\nTIMI (quanto custa um ano), e a timi nao informa nada enquanto o teto proprio\nfor desconhecido, porque **teto que nao te alcanca nao tem preco.**\n\nAs TRES familias anteriores desta origem vieram do `irmaos_da_origem`, e **duas\ndelas nao tem o campo**, logo a comparacao foi pela NARRACAO de primeira mao:\n\n* `s015` — **em quantos anos a compra se paga**: o horizonte de retorno;\n* `s033` — **gratuitos contra comprados**: os de graca contam so para o TEMPO,\n  os pagos contam para o tempo E para o VALOR, logo procure os de graca antes;\n* `s061` — **a aitisi tranca o preco, nao o pagamento**: quem submeteu antes da\n  mudanca mantem a timi antiga.\n\n**As tres falam do PRECO — quanto, quais anos custam, quando o preco tranca.\nNenhuma fala do TETO**, que e o que limita a jogada inteira antes de qualquer\npreco existir. E o `s033` e a vizinha mais perigosa, porque tambem manda inverter\na ORDEM da pergunta: **la a ordem e entre dois TIPOS de ano (de graca antes de\npagos); aqui e entre teto e preco.** Mesmo verbo, outro par.\n\n## FONTES\nOrigem: `jAWKppvjAG8` (`epomeno-epipedo-009`, 61 capitulos), escolhida pelo\n`pauta_do_momento.py` — 3 usos, empatada com **tres** outras origens e\ndesempatada pela MAIOR reserva, **48 capitulos NAO MENCIONADOS de 61**. A\ndominante do canal ficou de fora, e quem conta e o `concentracao.py`. O\n`reservas_escritas.py` disse que esta origem **NAO tem reserva escrita** por\nirmao nenhum — ele nomeia a ausencia em vez de calar.\n\nCapitulos desta peca: **0 a 7** (*\"Idios nomos\"*, *\"To ergaleio\"*,\n*\"Idiotikos tomeas\"*, *\"Dimosio\"*, *\"I diafora\"*, *\"Kai ti simainei afto\"*,\n*\"As to poume kathara\"* e *\"To erotima\"*). O 0 escreve a frase que a peca\ncarrega — *\"dois homens com a mesma idade e os mesmos anos de trabalho podem\nsair na aposentadoria em ano diferente; nao e a culpa do trabalho deles, e de\nonde estao segurados\"* — e o 6 que *\"nao se fala de irregularidade nem de\ntruque: esta escrito na lei\"*.\n\n**E A CONFERENCIA CONTRA OS IRMAOS VAI SEPARADA EM DUAS, com a FORCA de cada\nmetade:**\n\n* **por CAPITULO, mecanica, alcanca 2 dos 3 irmaos.** E aqui a forca DIVERGE\n  entre eles, e isso vai dito: o `s033` declara **17 de 61** capitulos, logo\n  \"nao colidiu com ELE\" e sinal relativamente forte; o `s061` declara **1 de\n  61**, e com ele o mesmo \"nao colidiu\" **prova quase nada** — era quase certo\n  por construcao. Sem o denominador as duas frases pareceriam iguais (o\n  instrumento de 21/10 as 01:3x);\n* **por LEITURA da narracao, o terceiro** (`s015`), que **nao declara capitulo\n  nenhum**.\n\nAusencia de capitulo declarado **nao e** ausencia de colisao (761), e P baixo\n**nao e** conferencia — as duas ressalvas valem aqui, em irmaos diferentes.\n\n## EXPOSICAO\n**CATORZE CENAS, e a escolha saiu da chave `por_cadencia_servivel`:** e a melhor\ncadencia (3,02 s), **nao repete** tamanho recente — as duas ultimas deste canal\ntem doze e treze — e alcanca o piso com folga **+6**. **QUINZE**, que e o teto\nMEDIDO desta voz, saiu recusada pela **FOLGA** (22 caracteres, a UM do piso\nOBSERVADO de 21), e as contagens **2 e 3** sairam como **NAO MEDIDAS** — nao como\ninalcancaveis —, porque a janela delas mora acima do teto de varrimento do\n`mira`. Esse terceiro estado entrou em 21/10 as 02:4x, e e a primeira peca\nescrita com ele na tela.\n\n**O ORCAMENTO SAIU DO PISO EXECUTAVEL, nao do inversor cru:** `janela_do_mundo`\ndevolve **27 a 28** caracteres por cena, e a peca foi escrita com media\n**27,14**. O inversor cru devolveria 26, cuja previsao cai ABAIXO do piso da\nfaixa — ele erra em 54 de 54 pares (21/10, 02:3x), e foi exatamente esse numero\nque me fez reescrever a peca da rodada anterior.\n\n**A PINCA DO 740/748 ESTA FECHADA AQUI, e a exposicao vai declarada ANTES de\npublicar:** o `mira.janela_dos_dois_mundos` devolve **NENHUMA** janela para esta\nvoz nesta faixa, em contagem de cena nenhuma. Mirei o **PISO** pela regra do\n772, logo o edge cai dentro do `ALVO_SHORT` e o **piper sai FORA pelo piso**. O\nprovedor se decide no runner (730/733), e o portao `duracao` cobra 18 a 45 s nos\ndois mundos, que os dois satisfazem.\n\n**O que eu NAO declaro: de que lado da banda o real cai.** Ela tem 5,2 s contra\n1 s de granularidade, e escolher um lado nao e previsao (774).\n\n**ESQUELETO\n`titulo-item-item-barras-titulo-item-item-lista-item-barras-item-item-titulo-cta`**,\ninedito nas **TRES** formas de catorze cenas da frota e nas 145 da frota\ninteira, com a propria peca FORA da varredura pelo `exceto` — e o numero sai do\n`esqueleto_entre_canais`, que desde 21/10 as 03:3x roda DENTRO do\n`antes_do_render`, em vez de eu listar as formas a mao. **`barras` entra DUAS\nvezes e as duas carregam argumento.** Todo layout saiu do conjunto **SONDADO**\n(`layouts_do_short.desenham`), com `assert` no construtor, e a paleta foi **LIDA**\nde `temas_do_dono.paleta_do_canal`.\n"
+}
