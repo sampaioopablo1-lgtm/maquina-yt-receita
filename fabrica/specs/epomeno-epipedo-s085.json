@@ -1,0 +1,115 @@
+{
+ "slug": "epomeno-epipedo-s085",
+ "pacote": "epomeno-epipedo-s085",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "longo_existente": "TJZcjE-uv8E",
+ "longo": [],
+ "thumb": {
+  "l1": "Η γραμμή",
+  "l2": "κινείται"
+ },
+ "paleta": {
+  "bg": "#F4EFE6",
+  "ink": "#1B1A17",
+  "c1": "#C8502A",
+  "c2": "#2B6CB0",
+  "red": "#B83227",
+  "ok": "#2E8B57",
+  "panel": "#FFFFFF",
+  "mut": "#7A7263",
+  "acc": "#C8502A"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Η γραμμή δεν είναι μόνιμη",
+   "sub": "κάθε χρόνο αλλάζει πλευρά",
+   "nar": "Η πλευρά της γραμμής δεν είναι μόνιμη."
+  },
+  {
+   "layout": "item",
+   "kicker": "Κάποιοι αλλάζουν πλευρά",
+   "nar": "Κάθε χρόνο κάποιοι αλλάζουν πλευρά."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Όταν μηδενιστεί",
+   "itens": [
+    "Χωρίς αίτηση",
+    "Χωρίς ανακοίνωση",
+    "Με τον μηχανισμό"
+   ],
+   "nar": "Όταν μηδενιστεί, την παίρνεις ολόκληρη."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Ίδιο ποσοστό, άλλο υπόλοιπο",
+   "barras": [
+    {
+     "rotulo": "Με διαφορά",
+     "valor": 100
+    },
+    {
+     "rotulo": "Χωρίς διαφορά",
+     "valor": 100
+    }
+   ],
+   "nar": "Το ποσοστό της αύξησης δεν αλλάζει."
+  },
+  {
+   "layout": "item",
+   "kicker": "Αλλάζει το υπόλοιπο",
+   "nar": "Αλλάζει πόσο από αυτό μένει σε σένα."
+  },
+  {
+   "layout": "item",
+   "kicker": "Δύο δρόμοι",
+   "nar": "Δύο δρόμοι φτάνουν στην ίδια γραμμή."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Δεν είναι τυχεροί",
+   "sub": "πέρασαν με τον μηχανισμό",
+   "nar": "Όσοι την πέρασαν δεν ήταν τυχεροί."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ο πρώτος δρόμος",
+   "nar": "Είχαν μικρή διαφορά από την αρχή."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Ο δεύτερος δρόμος",
+   "barras": [
+    {
+     "rotulo": "Πριν",
+     "valor": 100
+    },
+    {
+     "rotulo": "Μετά από αυξήσεις",
+     "valor": 35
+    }
+   ],
+   "nar": "Ή τη μηδένισαν οι προηγούμενες αυξήσεις."
+  },
+  {
+   "layout": "item",
+   "kicker": "Μικραίνει, δεν χάνεται",
+   "nar": "Η διαφορά μικραίνει, δεν χάνεται ποτέ."
+  },
+  {
+   "layout": "item",
+   "kicker": "Η θέση σου μετακινείται",
+   "nar": "Γι' αυτό η πλευρά σου αλλάζει μόνη της."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Epomeno Epipedo",
+   "sub": "κάνε εγγραφή",
+   "nar": "Δες τη δική σου γραμμή στο σημείωμα."
+  }
+ ],
+ "copy": "# epomeno-epipedo-s085\n\n## TITULO\nΗ Γραμμή Δεν Είναι Μόνιμη: Κάθε Χρόνο Κάποιοι Αλλάζουν Πλευρά, Και Όχι Από Τύχη\n\n## TITULO SHORT\nΗ γραμμή κινείται\n\n## DESCRICAO\nΥπάρχει μια γραμμή που χωρίζει τους συνταξιούχους σε δύο πλευρές: από τη μία όσοι εισπράττουν ολόκληρη την ετήσια αύξηση, από την άλλη όσοι τη βλέπουν να συμψηφίζεται. Σχεδόν όλη η συζήτηση γίνεται για το **ποιος είναι σε ποια πλευρά**. Εδώ κοιτάμε κάτι άλλο, που αλλάζει τον τρόπο που διαβάζεις το δικό σου χαρτί: **η γραμμή δεν είναι μόνιμη.**\n\n**Όταν η προσωπική διαφορά μηδενιστεί, αρχίζεις να εισπράττεις κάθε επόμενη αύξηση ολόκληρη.** Δεν χρειάζεται αίτηση, δεν χρειάζεται να το ζητήσεις, και δεν θα σου το ανακοινώσει κανείς: η πλευρά σου αλλάζει μόνη της, με τον μηχανισμό. Γι' αυτό κάθε χρόνο κάποιοι περνάνε από τη μία πλευρά στην άλλη.\n\n**Και προσοχή σε αυτό, γιατί εδώ μπερδεύονται τα δύο: δεν αλλάζει το ποσοστό της αύξησης. Αλλάζει μόνο πόσο από αυτό μένει σε εσένα.** Το ποσοστό είναι ίδιο για όλους — η διαφορά βρίσκεται στο τι φτάνει στην τσέπη, όχι στο τι ανακοινώνεται.\n\n**Όσοι εισπράττουν φέτος ολόκληρη την αύξηση δεν είναι τυχεροί.** Οι περισσότεροι ανήκουν σε μία από δύο κατηγορίες: είχαν μικρή διαφορά από την αρχή, ή την είδαν να μηδενίζεται από τις αυξήσεις των προηγούμενων ετών. Δύο δρόμοι, η ίδια γραμμή. Κανένας από τους δύο δεν ήταν επιλογή τους.\n\nΤο πρακτικό συμπέρασμα είναι ένα και αξίζει τον κόπο: **αν φέτος βρήκες γραμμή προσωπικής διαφοράς στο σημείωμά σου, αυτό δεν σημαίνει ότι θα τη βρίσκεις για πάντα.** Κάθε αύξηση που συμψηφίζεται τη μικραίνει, και η διαφορά που μικραίνει δεν χάνεται — μετακινεί τη θέση σου προς τη γραμμή. Άνοιξε το σημείωμα, βρες τη γραμμή, και σημείωσε το ποσό: είναι ο μόνος τρόπος να δεις τη δική σου απόσταση αντί να μαντεύεις από τις ειδήσεις.\n\n## COMENTARIO FIXADO\nΤο λιγότερο προφανές: η πλευρά σου αλλάζει χωρίς αίτηση και χωρίς ανακοίνωση — ο μηχανισμός τη μετακινεί μόνος. Βρήκες γραμμή προσωπικής διαφοράς στο δικό σου σημείωμα;\n\n## HASHTAGS\n#συνταξη #προσωπικηδιαφορα #συνταξεις #epomenoepipedo #Shorts\n\n## TAGS\nπροσωπικη διαφορα, συμψηφισμος, ετησια αυξηση, συνταξη, εκκαθαριστικο συνταξης, αναπροσαρμογη, μηδενισμος διαφορας, συνταξιουχοι, επομενο επιπεδο, προσωπικα οικονομικα, σημειωμα συνταξης, πληρης αυξηση\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\n**ZERO numero novo sobre o mundo, e a narracao nao fala numero nenhum.** O unico\nnumeral e **\"δύο\"**, que conta os dois caminhos que levam a mesma linha — e e a\nestrutura do argumento, nao fato sobre o mundo.\n\n**FICOU DE FORA pela regra (g), e sao TRES numeros que davam gancho forte:** o\npercentual da aumento deste ano (capitulo 29), as **trezentas mil** pessoas que\nrecebem o aumento inteiro (capitulo 52) e o **ano** em que a compensacao acaba\n(capitulo 54). Os tres sao publicados e mudam por publicacao — o percentual sai\nde uma formula anual, a contagem muda com quem cruza a linha, e o ano depende de\nlei. O capitulo 33 da propria origem diz, em letra, que o percentual *\"muda cada\nano\"*, e o 15 e o \"kanonas tou kanaliou\": numero que o longo declara ser do ano\nnao entra num short que fica no ar.\n\nAs barras sao **ILUSTRACAO qualitativa e NAO sao faladas**: na cena 4 elas\ndesenham o MESMO percentual nas duas pessoas (o que muda e o que sobra, nao a\ntaxa), e na cena 9 elas desenham a diferenca encolhendo ano a ano. Elas nao\nmedem euros, nem pessoas, nem percentual de ninguem.\n\n## FAMILIA DE ENTRADA ERRADA\n**A PLEVRA DA LINHA LIDA COMO PERMANENTE, QUANDO A LINHA SE MOVE** (capitulos 49\na 52). Encontrar a linha de diferenca pessoal no proprio papel **nao e um estado\ndefinitivo**: cada aumento que se compensa a encolhe, e quando ela zera o aumento\npassa a chegar inteiro — sem pedido, sem aviso e sem escolha de ninguem. Logo\ncada ano algumas pessoas trocam de lado. **E o segundo erro da mesma familia e\nchamar os do outro lado de sortudos:** eles passaram pelo MECANISMO, por um de\ndois caminhos (diferenca pequena desde o inicio, ou zerada pelos aumentos\nanteriores). O discriminador e que o percentual do aumento NAO muda entre as\nduas pessoas — muda quanto dele fica.\n\nAs QUATRO familias anteriores desta origem vieram do `irmaos_da_origem`, e **tres\ndelas nao tem o campo**, logo a comparacao foi pela NARRACAO de primeira mao:\n\n* `s011` — **ACHAR a linha**: o procedimento, dois meses lado a lado no\n  extrato;\n* `s021` — **o percentual da noticia nao e o seu valor**: quatro erros de\n  leitura;\n* `s037` — **BRUTO com LIQUIDO**: comparar duas grandezas diferentes;\n* `s073` — **a diferenca e uma PONTE, nao punicao**: de onde ela veio.\n\n**As quatro falam de UM instante: como achar a linha, como ler o numero, com que\ngrandeza compara-lo, de onde ele veio. Nenhuma fala do MOVIMENTO dela no\ntempo** — e e esse o eixo desta.\n\n## FONTES\nOrigem: `TJZcjE-uv8E` (`epomeno-epipedo-007`, 90 capitulos), escolhida pelo\n`pauta_do_momento.py` — 4 usos, a MENOR contagem entre as origens com capitulos\nintocados, desempatada pela MAIOR reserva: **79 capitulos NAO MENCIONADOS de\n90**. As duas origens de 3 usos sairam NOMEADAS pela regra (h) — sem spec local\n— em vez de filtradas.\n\nCapitulos desta peca: **49 a 52** (*\"Και όταν μηδενιστεί\"*, *\"Άρα η γραμμή\nκινείται\"*, *\"Ένα ακόμη\"* e *\"Γιατί κάποιοι πέρασαν ήδη\"*). O 50 escreve a frase\nque a peca carrega: *\"η γραμμή δεν είναι μόνιμη. Κάθε χρόνο κάποιοι περνάνε από\nτη μία πλευρά στην άλλη\"*, e o 52 a segunda metade: *\"δεν είναι τυχεροί ...\nπέρασαν τη γραμμή με τον μηχανισμό\"*.\n\n**A CONFERENCIA CONTRA OS IRMAOS FOI INTEIRAMENTE POR LEITURA, e vai dito:\nNENHUM dos quatro irmaos declara capitulo.** Logo a conferencia mecanica alcanca\n**ZERO de 4**, e o `irmaos_da_origem` nomeia essa ausencia em vez de calar.\n**Ausencia de capitulo declarado NAO e ausencia de colisao (761)** — aqui ela e\ntotal, o que torna a leitura da narracao de primeira mao a UNICA prova\ndisponivel. Ela foi feita peca por peca; as quatro frases acima saem da narracao\ndeles, nao de irmao citando irmao (20/10 as 15:3x).\n\n## EXPOSICAO\n**DOZE CENAS, e as duas recusas nao foram minhas.** O `contagem_de_cenas.py` deu\n**14** como a melhor cadencia e **acusou sozinho que a `s082` tem catorze**;\n**15** e o TETO MEDIDO desta voz e e INEDITA na frota, e caiu pela **FOLGA** (a\ndois caracteres do piso OBSERVADO). Doze e a melhor que SERVE pelos tres\nfiltros, com orcamento de **37** caracteres no piso e folga **+16**.\n\n**A PINCA DO 740/748 ESTA FECHADA AQUI, e a exposicao vai declarada ANTES de\npublicar:** o `mira.janela_dos_dois_mundos` devolve **NENHUMA** janela para esta\nvoz nesta faixa, em contagem alguma de 2 a 20 — o vao piper/edge vale ~4,7 s\ncontra 1,5 s de largura do `ALVO_SHORT`. Mirei o **PISO** (regra de redacao do\n772) e o piper sai FORA pelo piso.\n\n**O que eu NAO declaro: de que lado da banda o real cai.** Ela tem 5,2 s contra\n1 s de granularidade, e escolher um lado nao e previsao (774).\n\n**ESQUELETO\n`titulo-item-lista-barras-item-item-titulo-item-barras-item-item-cta`**, inedito\nnas **OITO** formas de doze cenas da frota e nas **151** da frota inteira, com a\npropria peca FORA da varredura pelo `exceto`. Todo layout saiu do conjunto\n**SONDADO**, e as quatro guardas de escrita saem de `spec_minima.exige` — a\ninstrumento de 09:07, na sua segunda peca.\n"
+}
