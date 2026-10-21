@@ -8186,3 +8186,101 @@ leitura, com a presenca conferida RELENDO. `RESIDUO_N` segue **128**.
 piso MEDIDO de **>= 41.600**. E a leitura de inscritos passou as tres portas e NAO
 foi feita pela OITAVA rodada seguida (58,0 h, piso 0,41/dia): o que a impede e a
 ROTA, e o remedio e do DONO.
+
+## A COMPARACAO DA SUITE LIA ARQUIVO DE OUTRA SESSAO — e devolvia "IDENTICO"
+
+**Medido em 21/10 as 21:0x, e o erro foi meu, nesta rodada.** Eu comparo a passada
+contra a linha de base desta sessao com `comm` nos dois sentidos, e o `.norm` e
+escrito **depois** de o pytest sair. Logo *"o arquivo existe"* foi, por semanas, o
+meu discriminador de *"a passada terminou"*.
+
+**Nesta rodada ele mentiu:** havia um `s2007b.norm` de **20/10 as 20:42** — resto
+de uma rodada da sessao ANTERIOR, com o MESMO nome —, a suite estava em **43%**, e
+o `comm` devolveu **"identico a base"**. Eu quase relatei isso ao dono.
+
+**E A FAMILIA GANHOU O SEXTO MEMBRO, no pior lugar dela:**
+
+| | |
+|---|---|
+| 17/10 | instrumento que devolve **VAZIO** nao prova ausencia |
+| 19/10 | arquivo **VAZIO** nao prova morte (o `.norm` a meio de escrever) |
+| 20/10 01:4x | instrumento **CHEIO** nao prova presenca (o `pgrep` se vendo) |
+| 20/10 09:3x | **000** nao diz de QUEM e o zero |
+| 20/10 11:4x | **000 em TODO host** nao separa REDE de POLITICA |
+| **21/10 21:0x** | **arquivo que EXISTE nao prova que e DESTA execucao** |
+
+**Ela e a pior das seis por um motivo:** as outras devolvem silencio ou erro, e
+**esta devolve a resposta CONFORTAVEL** — *"nada mudou"* e exatamente o que eu
+espero ler. **E quem me pegou foi o `processo_vivo`**, respondendo VIVO em
+contradicao com a existencia do arquivo.
+
+**Consertado: `fabrica/passada_da_suite.py`** poe esse par numa chamada e
+**RECUSA comparar** quando a passada nao esta provada, do jeito que o `porta1`
+recusa janela curta. **Sao TRES discriminadores e nenhum basta sozinho:**
+
+| | |
+|---|---|
+| 1 | o log termina com a LINHA DE RESUMO do pytest — era isto que faltava quando eu li 43% como pronto |
+| 2 | o `.norm` e mais NOVO que o log — resto de sessao e mais velho |
+| 3 | a contagem de linhas do `.norm` BATE com as falhas do resumo — senao bastaria TOCAR o arquivo |
+
+O resumo sai do **FIM** do log (a fatia errada me custou a leitura do proxy duas
+horas antes), a liveness e **DELEGADA** ao `processo_vivo`, e **sem a base desta
+sessao ele recusa** — comparar contra o numero escrito na rotina e o que envelhece
+(753).
+
+**E A PRIMEIRA VERSAO DO MEU TESTE REPROVOU O MODULO CERTO:** eu proibi a palavra
+*"identico"* em qualquer caixa no relato, e **a propria frase da RECUSA a cita
+para se explicar**. Casar prosa pegou a explicacao em vez do codigo — a licao do
+`test_NAO_virou_portao` do acento. A propriedade certa e que a **AFIRMACAO** de
+identidade tem UM dono (`conjunto IDENTICO`) e nao aparece numa passada recusada.
+
+`tests/test_a_comparacao_lia_arquivo_de_OUTRA_sessao.py`, doze testes: um
+**REPRODUZ** o caso medido (log em 43% + `.norm` de 20/10) e exige RECUSA, um por
+discriminador, um que **os TRES estao ligados** (cada caso ruim sozinho tem de
+falhar), a contraprova no outro sentido exige que a passada BOA compare e diga
+IDENTICO — senao recusar sempre passaria —, um cobra NOVAS **e** DESAPARECIDAS,
+um exige que o resumo saia do FIM do log quando ha dois, e a liveness e cobrada
+como **DELEGADA** por AST (`/proc/`, `pgrep` e `ps` proibidos no corpo).
+**Contraprova:** desligado o discriminador da idade, **dois dos doze** falham.
+
+### A PECA DESSA RODADA — SEIS cenas, e a pinca ABERTA
+
+`labtreinamento-s103`, **ONZE PORTOES VERDES NA PRIMEIRA TENTATIVA** — e ela foi
+**CONFERIDA COMO RASCUNHO**, antes de existir como arquivo: o conserto da rodada
+anterior na PRIMEIRA vez que serviu em producao, e ele serviu porque **a suite da
+rodada passada ainda estava rodando e eu nao podia tocar na arvore**. Dez portoes
+baratos limpos, mira, acento, gancho, paleta e layout conferidos, e os CINCO
+instrumentos que ainda exigem caminho **DISSERAM** que nao conferiram.
+
+**PAUTA:** `yrWVyqQtw00` (`labtreinamento-004`), 81 capitulos, 6 usos — empate de
+DOZE origens desempatado pela MAIOR reserva, **65 de 81 NAO MENCIONADOS**.
+
+**E A FAMILIA SAIU DA RESERVA ESCRITA PELA TERCEIRA RODADA SEGUIDA:** o
+`labtreinamento-s034` nomeou os capitulos **20 a 27** como nao levados.
+**FAMILIA: A JUSTIFICATIVA SUBENTENDIDA TRATADA COMO JUSTIFICATIVA**, com o
+capitulo 26 no centro. O eixo e o **REGISTRO**, e o custo de nao o ter nao e
+tecnico: a decisao fica **SEM AUTOR**. O irmao mais proximo e o `s034` — ele fala
+de quem PODE executar, esta do que precisa estar ESCRITO: **pessoa contra papel**.
+
+**SEIS CENAS pela chave `por_cadencia_servivel`** (sete repete tamanho recente;
+9, 10 e 11 sairam NOMEADAS por piso inalcancavel), esqueleto
+`titulo-lista-barras-item-titulo-cta`, **inedito nas NOVE formas de seis cenas**.
+
+**A PINCA DO 740/748 ESTA ABERTA AQUI, o que e raro e vai dito:** este e o unico
+canal da frota com mira propria larga o bastante (6 s) para existir media por cena
+que ponha os DOIS provedores dentro dela — o `janela_dos_dois_mundos` devolve **51
+a 55** e a peca saiu com **51,8**: edge **24,84** / piper **20,39**, os dois
+DENTRO. Logo **nao ha exposicao de mundo a declarar**, e eu **NAO mirei o piso de
+proposito**: com os 39 do piso o piper cairia em 19,7, FORA. O REAL nao esta
+prometido (774).
+
+**ZERO numero novo sobre o mundo, e a narracao nao fala numeral NENHUM.** E a
+reserva foi reescrita com tres itens: o capitulo **19** (ONUS DA PROVA) segue
+livre, os 28 e 29 vao NOMEADOS como territorio do `s090`, e o 25 entrou nesta peca
+como o TESTE.
+
+**A SUITE DA RODADA DAS 20:07 FECHOU: 25 falhas, 3.654 passam, 1.132 skip,
+conjunto IDENTICO** a base desta sessao — e **provada pelo instrumento**, nao pelo
+meu olho. O arquivo velho tinha por acaso o MESMO conjunto, o que e sorte e e
+exatamente por isso que a guarda importa.
