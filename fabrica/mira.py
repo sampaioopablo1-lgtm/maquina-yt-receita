@@ -610,6 +610,95 @@ def _faixa_da_peca(spec: dict):
         return ensaio.faixa_do_short(spec)
 
 
+def quanto_cortar(spec: dict, alvo=None) -> dict | None:
+    """Quantos caracteres TIRAR (ou pôr) para a previsao cair num alvo NOMEADO.
+
+    POR QUE ISTO EXISTE (21/10/2026). O `orcamento` da o numero de caracteres
+    por cena para o **MEIO** da faixa, com a razao escrita (mirar a borda e o
+    que o 752/774 mostra que nao sobrevive ao residuo). Mas a **regra de
+    redacao do 772** manda outra coisa: *"mire o PISO do `ALVO_SHORT` quando a
+    voz nao exigir o topo"*. **Duas regras do proprio repo apontam para pontos
+    diferentes da faixa, e o instrumento implementa uma enquanto a redacao
+    segue a outra** — logo cair no piso era aritmetica minha, feita de cabeca.
+
+    E ela custou passadas medidas: o `epomeno-epipedo-s083` levou TRES builds
+    (42,0 -> 41,4 -> 41,6) e o `kolejny-poziom-s086` levou TRES (42,5 -> 42,3
+    -> 41,5), cada um com um corte adivinhado no olho. Item 3 da §10.
+
+    **O QUE ISTO NAO FAZ: nao escolhe o alvo e nao muda o do `orcamento`.** O
+    `alvo` e parametro, o default segue o MEIO (a decisao documentada), e o
+    relato passa a dizer os DOIS com a procedencia de cada um. Resolver a
+    contradicao por mim seria trocar uma regra de redacao do repo por
+    preferencia minha.
+
+    **E A MEDIDA QUE EU *NAO* TENHO VAI DITA:** varridas as 208 specs de short
+    solto cuja previsao cai na faixa, **98 estao mais perto do PISO e 110 do
+    MEIO** — isto e, a producao NAO segue visivelmente nem uma nem outra. E nao
+    poderia: com a faixa da frota em 1,5 s, piso e meio distam **0,75 s**, e um
+    caractere de media ja vale ~0,7 s. **Logo esse 98/110 nao discrimina as
+    duas regras**, e dizer que a producao "mira o piso" seria achado fabricado
+    pelo limite do instrumento (§3.8).
+
+    `alvo` aceita `"piso"`, `"meio"`, `"topo"` ou um numero em segundos.
+    Devolve `None` nos mesmos casos do `orcamento` — sem `R`/`P` medidos a
+    conta nao existe.
+    """
+    orc = orcamento(spec)
+    if not orc or not orc["cabe"]:
+        return None
+    piso, topo = orc["faixa"]
+    nomes = {"piso": piso, "meio": (piso + topo) / 2.0, "topo": topo}
+    if alvo is None:
+        alvo_s, rotulo = nomes["meio"], "meio"
+    elif isinstance(alvo, str):
+        if alvo not in nomes:
+            raise ValueError(
+                "alvo %r desconhecido; use %s ou um numero em segundos"
+                % (alvo, "/".join(sorted(nomes))))
+        alvo_s, rotulo = nomes[alvo], alvo
+    else:
+        alvo_s, rotulo = float(alvo), "%.1f s" % float(alvo)
+    n = orc["cenas"]
+    chars = _chars_para_o_real(spec.get("voz", ""), n, alvo_s)
+    if chars <= 0:
+        return None
+    hoje = orc["hoje"]
+    return {"alvo": alvo_s, "rotulo": rotulo, "cenas": n,
+            "chars_alvo": chars, "chars_hoje": hoje,
+            "delta_por_cena": chars - hoje,
+            "delta_total": (chars - hoje) * n,
+            "faixa": (piso, topo), "fonte": orc["fonte"]}
+
+
+def _linha_do_corte(spec: dict) -> list:
+    """A frase do corte, com UM dono — e ela diz os DOIS alvos.
+
+    Dizer so um esconderia que as duas regras do repo divergem, e foi essa
+    divergencia que me fez calcular o corte a mao em toda rodada.
+    """
+    linhas = []
+    for rotulo in ("piso", "meio"):
+        q = quanto_cortar(spec, rotulo)
+        if not q:
+            continue
+        d = q["delta_total"]
+        acao = ("CORTE %d caractere(s) no total" % -d) if d < 0 else (
+            "ACRESCENTE %d caractere(s) no total" % d) if d > 0 else (
+            "ja esta la, NAO MEXA")
+        linhas.append(
+            "  para cair no %s da faixa (%.1f s): %s (~%+d por cena em %d), "
+            "de ~%d para ~%d por cena."
+            % (rotulo.upper(), q["alvo"], acao, q["delta_por_cena"],
+               q["cenas"], q["chars_hoje"], q["chars_alvo"]))
+    if linhas:
+        linhas.append(
+            "  os DOIS alvos vao ditos porque as regras do repo DIVERGEM: o "
+            "`orcamento` mira o MEIO (752/774, mirar a borda nao sobrevive ao "
+            "residuo) e a regra de redacao do 772 manda mirar o PISO. A escolha "
+            "e de quem escreve; a conta deixou de ser de cabeca.")
+    return linhas
+
+
 def _linha_do_orcamento(spec: dict) -> list:
     """A frase do orcamento, com UM dono.
 
@@ -636,6 +725,7 @@ def _linha_do_orcamento(spec: dict) -> list:
         "`ensaio.duracao_real_prevista` INVERTIDA, nao da estimativa — mirar a "
         "estimativa entregou peca 0,4 s acima do topo da faixa em 19/10 as "
         "15:2x. Estimar isto de cabeca e o item 3 da §10."]
+    linhas.extend(_linha_do_corte(spec))
     jan = orc.get("janela_dos_dois")
     if not orc.get("cabe_nos_dois"):
         if jan:
