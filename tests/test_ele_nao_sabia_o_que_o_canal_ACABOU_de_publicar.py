@@ -110,17 +110,28 @@ def test_as_tres_contas_sao_DELEGADAS_e_nenhuma_le_o_arquivo():
 
 
 def test_o_canal_sai_do_DONO_e_nao_do_campo_do_registro():
-    """A maioria das linhas do parque NAO tem o campo `canal`.
+    """Linhas do parque SEM o campo `canal` continuam sendo atribuidas.
 
-    Logo ler o campo perderia essas pecas em silencio — e a janela de recencia
-    andaria para tras sem ninguem ver. Cobrado como PROPRIEDADE: um registro sem
-    o campo continua sendo atribuido ao canal certo.
+    Ler o campo perderia essas pecas em silencio, e a janela de recencia
+    andaria para tras sem ninguem ver.
+
+    **RETRATADO EM 21/10 as 16:5x:** a versao de 20/10 cobrava que a MAIORIA das
+    linhas estivesse sem o campo (`> len/2`), e isso era a PROPORCAO do parque
+    VIVO — que anda a cada peca publicada, porque o `do_registro` passou a
+    gravar o campo. Ela cruzou a fronteira em 57 de 114, isto e, o teste passou
+    a reprovar porque a producao andou. **Classe 743/753/761: proporcao de
+    estado vivo onde a afirmacao e uma PROPRIEDADE da funcao.**
+
+    O que fica cobrado nao envelhece: existe ao menos uma linha sem o campo (a
+    guarda de vacuidade, senao o caso nao e exercitado) e a funcao atribui o
+    canal a um registro que nao o tem.
     """
     regs = DM.carrega()
     sem_campo = [r for r in regs if "canal" not in r]
-    assert len(sem_campo) > len(regs) / 2, (
-        "so %d de %d linhas do parque estao sem o campo `canal` — se a maioria "
-        "passar a ter, esta nota se rele" % (len(sem_campo), len(regs)))
+    assert sem_campo, (
+        "nenhuma das %d linhas do parque esta sem o campo `canal`: o caso que"
+        " este teste mede deixou de existir no parque, e a propriedade abaixo"
+        " passa a ser exercitada so pela fixture" % len(regs))
     fake = [{"pacote": "labtreinamento-s901", "em": "2026-10-20T06:00:00Z"}]
     r = CC.recentes_do_canal("labtreinamento", k=1, registros=fake,
                              cenas_por_pacote={})

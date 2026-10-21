@@ -672,7 +672,8 @@ def quanto_cortar(spec: dict, alvo=None) -> dict | None:
     # valor de BAIXO. Reconferido nesta rodada, nas tres vozes e de 2 a 20
     # cenas: dos 54 pares com janela, **51 devolvem valor positivo e os 51 caem
     # abaixo do piso** — e o `janela_do_mundo` responde exatamente UM caractere
-    # acima em cada um. Os outros **3** (pt-BR com 18, 19 e 20 cenas) devolvem
+    # acima em cada um. Os outros **3** (pt-BR com dezoito, dezenove e vinte
+    # cenas) devolvem
     # ZERO, isto e, nenhuma media por cena cabe ate o piso ali.
     #
     # ISTO REFINA A LINHA "54 de 54" que o relato imprime desde 20/10 as 16:4x:
