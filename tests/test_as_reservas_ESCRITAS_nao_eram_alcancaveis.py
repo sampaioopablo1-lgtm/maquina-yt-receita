@@ -141,15 +141,45 @@ def test_os_DOIS_ramos_do_relato_existem():
     assert str(len(v)) in geral
 
 
-def test_o_relato_NAO_promete_que_a_reserva_segue_LIVRE():
-    """Reserva escrita em 13/10 pode ter sido consumida sem ninguem riscar a
-    prosa, e dizer que ela esta livre seria afirmacao que o modulo nao mede."""
+def test_o_relato_NAO_AFIRMA_mais_do_que_mede():
+    """RETRATADO EM 21/10 as 14:0x, e ele travava o estado DEFEITUOSO.
+
+    A versao de 20/10 cobrava a FRASE *"NAO diz que a reserva segue livre"* —
+    isto e, exigia que o modulo continuasse sem poder responder. E ele nao podia
+    por um defeito: o proprio bloco de reserva fazia o capitulo contar como
+    MENCIONADO no `segundo_angulo`, e a remissao entre os dois modulos era
+    CIRCULAR (medido em 20/10 as 12:4x, consertado ali). Com o circulo
+    desfeito, o `estado` passou a dar veredito — e este teste reprovou um
+    comportamento CORRETO. **Identidade onde a afirmacao era propriedade, a
+    classe 743/753/761.**
+
+    A propriedade que FICA e mais forte: o relato nao pode afirmar mais do que
+    mede. Logo (a) todo veredito que ele imprime vem do `estado`, (b) a reserva
+    que o instrumento NAO decide sai como RECUSA com o motivo, e (c) a ressalva
+    de que mencao e INDICIO continua escrita.
+    """
     v = _reservas()
-    r = RE.relato(v[0]["origem"])
-    assert "NAO diz que a reserva segue livre" in r, (
-        "a ressalva saiu do relato: sem ela a rodada seguinte le a lista como"
-        " pauta disponivel")
-    assert "concentracao" in r and "segundo_angulo" in r
+    por_origem = {}
+    for r in v:
+        por_origem.setdefault(r["origem"], []).append(r)
+    assert por_origem, "PERDEU A ANCORA: nenhuma reserva com origem"
+    vistos = set()
+    for origem, delas in por_origem.items():
+        r = RE.relato(origem)
+        assert "veredito:" in r, (
+            "o relato de %r nao diz o veredito de nenhuma reserva" % origem)
+        for e in RE.estado(origem):
+            vistos.add(e["veredito"])
+            if e["veredito"] == "indeterminada":
+                assert "INDETERMINADA" in r, (
+                    "reserva que o instrumento NAO decide saiu sem a recusa"
+                    " em %r" % origem)
+        assert "INDICIO" in r.upper(), (
+            "a ressalva de que mencao e indicio e nao prova saiu do relato"
+            " de %r" % origem)
+    assert len(vistos) >= 2, (
+        "o veredito convergiu para um valor so (%r): ele deixou de"
+        " discriminar, e ai dizer 'veredito' nao afirma nada" % vistos)
 
 
 def test_o_CHAMADOR_existe_e_e_a_escolha_de_pauta():
