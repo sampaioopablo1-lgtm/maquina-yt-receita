@@ -223,6 +223,43 @@ def shorts_da_origem(yid: str, dir_specs: str = SPECS, exceto: str = None) -> li
     return fora
 
 
+def _sem_reserva(copy: str) -> str:
+    """A copy do irmao SEM os blocos de reserva que ele deixou escritos.
+
+    **O DEFEITO, medido em 20/10 as 12:4x, escolhendo a pauta desta rodada.** O
+    `labtreinamento-s016` deixou uma reserva nomeando quatro capitulos do
+    `labtreinamento-010` para a rodada seguinte achar — e o `nao_mencionados`
+    devolvia TRES deles como MENCIONADOS. Quem os mencionou foi o proprio bloco
+    de reserva: a comparacao varria a copy INTEIRA, e o bloco existe justamente
+    para dizer que aqueles capitulos NAO foram usados.
+
+    **A promessa virava uso, e a direcao e perversa:** quanto melhor a rodada
+    anterior documentou o que deixou, mais invisivel o capitulo fica como livre.
+    Medido no disco: **2 das 49** origens com short e 20+ capitulos tem capitulo
+    assim, **QUATRO** capitulos em total — pequeno, e e o lado da pauta que a
+    reserva nasceu para abrir.
+
+    **A remissao era CIRCULAR:** o `reservas_escritas` diz, desde que nasceu,
+    que quem decide se a reserva segue livre e esta funcao — e esta funcao era
+    cegada pela propria reserva.
+
+    **E a secao `## FONTES` FICA**, de proposito: ali o irmao nomeia os
+    capitulos que ele de fato usou, e aquilo e mencao legitima. So o bloco de
+    negacao sai.
+
+    A extracao e DELEGADA ao dono (`reservas_escritas.blocos_de_reserva`), e o
+    import e TARDIO porque o grafo tem ciclo: o `irmaos_da_origem` importa este
+    modulo e o `reservas_escritas` importa aquele. Reimplementar a leitura aqui
+    criaria o segundo dono do bloco, que e a assinatura que congelou a legenda.
+    """
+    if not copy:
+        return ""
+    import reservas_escritas as RE   # tardio: ciclo IO -> SA, RE -> IO
+    for bloco in RE.blocos_de_reserva(copy):
+        copy = copy.replace(bloco, " ")
+    return copy
+
+
 def nao_mencionados(yid: str, dir_specs: str = SPECS,
                     exceto: str = None) -> dict:
     """Capitulos cujo kicker NAO aparece na copy de nenhum short desta origem.
@@ -253,15 +290,23 @@ def nao_mencionados(yid: str, dir_specs: str = SPECS,
     caps = capitulos_do_pacote(pacote, dir_specs) if pacote else []
     usados = shorts_da_origem(yid, dir_specs, exceto)
     copys = " ".join(c for _, c in usados).lower()
-    men, nao = [], []
+    limpos = " ".join(_sem_reserva(c) for _, c in usados).lower()
+    men, nao, so_na_reserva = [], [], []
     for k in caps:
         if not k:
             continue
-        (men if k.lower() in copys else nao).append(k)
+        kl = k.lower()
+        if kl in limpos:
+            men.append(k)
+        else:
+            nao.append(k)
+            if kl in copys:
+                so_na_reserva.append(k)
     return {"pacote": pacote, "n_capitulos": len(caps),
             "suspeito": bool(pacote) and 0 < len(caps) < MIN_CAPITULOS_PLAUSIVEL,
             "shorts": [n for n, _ in usados],
-            "mencionados": men, "nao_mencionados": nao}
+            "mencionados": men, "nao_mencionados": nao,
+            "mencionados_so_na_reserva": so_na_reserva}
 
 
 def main() -> int:

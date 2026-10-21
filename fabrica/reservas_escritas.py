@@ -63,6 +63,29 @@ def _blocos(copy: str) -> list:
     return saida
 
 
+def blocos_de_reserva(copy: str) -> list:
+    """A porta PUBLICA do `_blocos` — e ela existe por um defeito medido.
+
+    **20/10 as 12:4x: o bloco de reserva do irmao fazia o `segundo_angulo`
+    contar o capitulo como MENCIONADO.** Aquele instrumento procura o kicker na
+    copy INTEIRA do irmao, e o bloco de reserva NOMEIA, em letra, os capitulos
+    que a rodada anterior deliberadamente NAO levou. Logo a promessa virava uso,
+    e a direcao e perversa: **quanto melhor a rodada anterior documentou o que
+    deixou, mais invisivel o capitulo fica.**
+
+    O docstring deste modulo manda, desde que ele nasceu, perguntar ao
+    `segundo_angulo` se a reserva segue livre — e o `segundo_angulo` nao podia
+    responder, porque a propria reserva o cegava. **A remissao era CIRCULAR.**
+
+    Esta funcao e so o nome publico: o dono da extracao continua sendo o
+    `_blocos` deste modulo, e o dono do marcador continua sendo o
+    `irmaos_da_origem.MARCAS_DE_NEGACAO`. Reimplementar a leitura do bloco no
+    `segundo_angulo` criaria o SEGUNDO dono dela, que e a assinatura que
+    congelou a legenda.
+    """
+    return _blocos(copy)
+
+
 def varre(dir_specs: str = None) -> list:
     """Uma entrada por reserva ESCRITA, com a origem e os capitulos dela."""
     dir_specs = dir_specs or os.path.join(RAIZ, "fabrica", "specs")
