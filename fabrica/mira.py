@@ -847,24 +847,67 @@ def _linha_do_orcamento(spec: dict) -> list:
             f"caracteres por cena.")
     linhas.extend(_linha_das_frases(spec))
     linhas.extend(_linha_do_quanto_falta(spec))
-    # O PISO EXECUTAVEL, porque a regra de redacao do 772 manda mirar o piso e
-    # o inversor nao responde isso: perguntado pelo piso ele devolve um valor
-    # ABAIXO dele, em 54 de 54 pares medidos (20/10, 16:4x). Instrumento que o
-    # relato nao chama e a classe dos layouts mortos, e e por isso que a linha
-    # entra aqui e nao fica so na funcao.
+    linhas.extend(_linha_do_piso(spec))
+    return linhas
+
+
+def _linha_do_piso(spec: dict) -> list:
+    """O piso executavel, e de QUANTOS mundos ele e — com UM dono.
+
+    POR QUE A SEGUNDA METADE EXISTE (21/10, 18:3x): a linha do piso nasceu em
+    20/10 as 16:4x chamando o `janela_do_mundo`, isto e UM mundo, e **sem a
+    ressalva que a linha do MEIO ganhou em 19/10 as 17:2x** — a de que a mira
+    cobra os DOIS (730/733). Logo o mesmo relato imprimia dois numeros, um
+    deles reprovado pela propria `confere`, e **nada marcava qual**. Escrevendo
+    o `labtreinamento-s102` eu reconciliei os dois A MAO: o piso dava 25
+    caracteres por cena e a janela dos dois dava 34 a 36, e eu escrevi a peca
+    em 35 **depois de fazer a conta de cabeca** — item 3 da §10.
+
+    TAMANHO MEDIDO no disco: das **407** specs com orcamento, o piso de UM
+    mundo e reprovado pela janela dos dois em **115**, e em **ZERO** ele cabe
+    nela. O zero nao e acidente do acervo, e ARITMETICA numa direcao: o piper
+    preve MENOS segundos para a mesma media, logo poe-lo acima do piso exige
+    MAIS caracteres que poe o edge acima dele — o piso dos dois e sempre
+    ACIMA do piso de um. As outras **292** tem a pinca do 740/748 FECHADA, e
+    ali o piso de um mundo e a unica coisa que se pode mirar.
+
+    Ele NAO filtra e NAO escolhe: nomeia o piso, diz de quantos mundos ele e,
+    e manda o leitor ao piso que a mira aceita — ou diz que nenhum serve aos
+    dois, que e a pinca e e informacao, nao erro.
+    """
+    orc = orcamento(spec)
+    if not orc or not orc.get("cabe"):
+        return []
+    # Instrumento que o relato nao chama e a classe dos layouts mortos, e e por
+    # isso que a linha existe aqui e nao fica so na funcao.
     um = janela_do_mundo(orc["voz"], orc["cenas"], orc["faixa"], orc["mundo"])
-    if um:
-        linhas.append(
-            f"  PISO EXECUTAVEL da faixa, pela regra de redacao do 772: "
-            f"{um[0]} caracteres por cena ({orc['mundo']}), e nao o que o "
-            f"inversor devolve para o piso — perguntado pelo piso ele responde "
-            f"com um valor cuja previsao cai ABAIXO dele (54 de 54 pares). "
-            f"Acima de {um[1]} a peca sai do topo.")
-    else:
-        linhas.append(
+    if not um:
+        return [
             "  e NAO existe piso executavel: nenhuma media por cena poe nem o "
             f"mundo {orc['mundo']} dentro de {orc['faixa'][0]:.1f} a "
-            f"{orc['faixa'][1]:.1f} com {orc['cenas']} cenas.")
+            f"{orc['faixa'][1]:.1f} com {orc['cenas']} cenas."]
+    linhas = [
+        f"  PISO EXECUTAVEL da faixa, pela regra de redacao do 772: "
+        f"{um[0]} caracteres por cena ({orc['mundo']}), e nao o que o "
+        f"inversor devolve para o piso — perguntado pelo piso ele responde "
+        f"com um valor cuja previsao cai ABAIXO dele (54 de 54 pares). "
+        f"Acima de {um[1]} a peca sai do topo."]
+    jan = orc.get("janela_dos_dois")
+    if jan is None:
+        linhas.append(
+            f"  e este piso e de UM mundo ({orc['mundo']}) — nenhuma media poe "
+            f"os DOIS dentro de {orc['faixa'][0]:.1f} a {orc['faixa'][1]:.1f} "
+            f"com {orc['cenas']} cenas, logo a pinca do 740/748 esta FECHADA e "
+            "mirar o piso aqui e DECLARAR exposicao no outro mundo.")
+    elif not (jan[0] <= um[0] <= jan[1]):
+        linhas.append(
+            f"  e a mira REPROVA este piso, porque ele e de UM mundo "
+            f"({orc['mundo']}): o menor que os DOIS satisfazem e {jan[0]} "
+            f"caracteres por cena. Mirar {um[0]} poe o outro mundo FORA pelo "
+            "piso — foi esta conta que eu fiz de cabeca no `labtreinamento-s102`.")
+    else:
+        linhas.append(
+            f"  e este piso cabe nos DOIS mundos ({jan[0]} a {jan[1]}).")
     return linhas
 
 

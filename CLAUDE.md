@@ -7831,3 +7831,109 @@ vez.
 **COTA: NOVE envios** na janela aberta as 07:00Z, **14.400** unidades, contra o
 piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
 hora.
+
+## A LINHA DO PISO NAO DIZIA DE QUANTOS MUNDOS ELE E
+
+**Medido em 21/10 as 18:3x, escrevendo o `labtreinamento-s102`.** A linha do
+MEIO do `mira.relato` ganhou em 19/10 as 17:2x a ressalva de que a mira cobra os
+DOIS mundos de provedor (730/733). **A linha do PISO nasceu um dia depois — em
+20/10 as 16:4x — chamando o `janela_do_mundo`, isto e UM mundo, e sem ressalva
+nenhuma.** Logo o mesmo relato imprimia dois numeros, um deles reprovado pela
+propria `mira.confere`, e **nada marcava qual**:
+
+| linha | numero | a mira aceita? |
+|---|---|---|
+| ORCAMENTO para o MEIO | 30 por cena | **NAO** — e a linha DIZ isso desde 19/10 |
+| PISO EXECUTAVEL (772) | **25** por cena | **NAO** — e a linha **nao dizia nada** |
+| janela dos DOIS mundos | 34 a 36 | sim |
+
+**Eu reconciliei os tres A MAO e escrevi a peca em 35** — item 3 da §10, a conta
+que o instrumento existe para nao me deixar fazer.
+
+**O TAMANHO VAI MEDIDO, e o zero dele e ARITMETICA e nao acervo:** das **407**
+specs com orcamento, o piso de UM mundo e reprovado pela janela dos dois em
+**115**, e em **ZERO** ele cabe nela. A direcao e necessaria — o piper preve
+MENOS segundos para a mesma media, logo po-lo acima do piso exige MAIS
+caracteres que po-lo o edge, e **o piso dos dois fica sempre ACIMA do piso de
+um**. As outras **292** tem a pinca do 740/748 FECHADA, e ali o piso de um mundo
+e a unica coisa que se pode mirar.
+
+**Consertado com UM dono (`mira._linha_do_piso`), e ele NOMEIA em vez de
+filtrar:** com a janela aberta a linha diz que o piso e de UM mundo, que a mira o
+REPROVA e qual e o menor que os dois satisfazem; com a pinca fechada diz que
+nenhum serve aos dois e que mirar o piso ali e **DECLARAR exposicao**. Esconder
+um dos dois faria a rodada seguinte perguntar por que o conselho encurtou.
+
+`tests/test_a_linha_do_PISO_nao_dizia_de_quantos_MUNDOS_ele_e.py`, dez testes: a
+varredura sai do DISCO e **reprova com menos de 100 specs**, a medida e
+**RECONFERIDA** contra o disco (753) e **falha se alguma spec passar a ter o piso
+DENTRO da janela** — porque ai a aritmetica da direcao caiu e isto se rele —, um
+cobra a direcao em **TODO par**, um exige que os **DOIS** lados existam no disco
+(janela aberta e pinca fechada), os dois ramos da frase sao cobrados
+separadamente e o ramo errado **nao pode disparar** no outro caso, a frase tem
+**UM dono por AST** e o `_linha_do_orcamento` tem de chama-la (import sem chamada
+e a classe dos layouts mortos), a delegacao e por **AST** — `range(`,
+`duracao_real_prevista` e `chars_por_cena` no corpo **reprovam** —, e o codigo de
+saida segue **ZERO**, porque ele informa e nao reprova. **Contraprova:** retirada
+a segunda metade, tres dos dez falham.
+
+### A PECA DESSA RODADA — OITO cenas, e os DOIS mundos dentro da mira
+
+`labtreinamento-s102` = **`5Vdjr1Zu3g8`**, publicado as 18:18:25Z (run
+`39651483783`), **ONZE PORTOES VERDES NA PRIMEIRA TENTATIVA** — e o
+`antes_do_render` rodou os dez baratos mais os quatro instrumentos de redacao,
+todos limpos (acento 6,06%, e o portao `ortografia` tambem nao reprova; as oito
+cenas desenham; zero numerais falados). Provedor **edge MEDIDO** (zero avisos
+`NARRACAO PELO PIPER` nos DOIS jobs do render), som **-14,0** LUFS, LRA 3,0, pico
+**-2,3** dBTP com `pico_vs_teto: dentro`, desvio do alvo **0,0**, **zero
+silencios**.
+
+**A ESCOLHA DAS OITO CENAS NAO FOI MINHA EM NENHUMA DAS TRES RECUSAS:** sete e a
+melhor cadencia e **REPETE a `s101`**, seis repete a `s100`, e **9, 10 e 11**
+sairam NOMEADAS porque ali o PISO da faixa nao e alcancavel com texto legivel.
+Oito tem folga **+4**, pela chave `por_cadencia_servivel`.
+
+**ESQUELETO `titulo-barras-item-lista-item-titulo-item-cta`, inedito nas 159
+formas da frota** — numero do `esqueleto_entre_canais`, com a propria peca FORA
+da varredura pelo `exceto`. Todo layout saiu do conjunto **SONDADO**, com
+`assert` no construtor, e a paleta foi **LIDA** de
+`temas_do_dono.paleta_do_canal`.
+
+**E EU NAO MIREI O PISO AQUI, de proposito e com a conta na mao:** a janela dos
+dois mundos pede **34 a 36** caracteres por cena e o orcamento do piso da **25**,
+que poria o piper em 18,7 — FORA do piso de 20,0. Escrita com media **35,38**, os
+DOIS mundos caem dentro da mira medida do canal (edge **25,3** / piper **20,8**),
+logo **nao ha exposicao de mundo a declarar**. O que NAO esta prometido e o REAL:
+41 de 46 pecas deste canal sairam fora do teto de 26,0 com a mira verde, e a
+banda tem 5,2 s contra 1 s de granularidade.
+
+**PAUTA:** `KRUERlNPzDw` (`labtreinamento-003`), 84 capitulos, 6 usos — empate de
+seis origens desempatado pela MAIOR reserva, **79 de 84 NAO MENCIONADOS**, a
+maior do canal. A dominante `FtCtIJPsc_Q` ficou de fora com a contagem na mao.
+
+**FAMILIA (setima deste longo): A EVIDENCIA ESCRITA DEPOIS E O QUE JA EXISTIA**
+(capitulos 54, 55 e 56) — quem registra no fim vai procurar o que tem e chamar de
+prova; escrita ANTES, a acao nasce com o registro dentro dela. E a verificacao
+pergunta se **RESOLVEU**, nao se foi feito. Distincoes escritas contra os seis
+irmaos (`s012`, `s050`, `s052`, `s072`, `s085`, `s092`) pelo `irmaos_da_origem`,
+com os dois mais proximos nomeados: o `s085` fala do CONTEUDO da evidencia
+(capitulos 30 a 32) e o `s052` declara o capitulo 53.
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica`** pela
+**dezesseis** rodada seguida: o `touch` passou (`escrita OK`), os TRES hosts — a
+peca, o controle `OhrGlJvnBoM` e o NEUTRO `example.com` — voltaram **000 sem
+arquivo**, e o `__agentproxy/status` nomeou `www.youtube.com:443` **e**
+`example.com:443` com `connect_rejected` as 18:20:31Z. A peca esta PARQUEADA pelo
+`do_registro`, com o provedor MEDIDO e o job **lido da API** — e a presenca dela
+foi conferida RELENDO o parque (**116** linhas, **44** sem leitura), nao pelo
+retorno da funcao, que e a licao de 20/10 as 13:2x. `RESIDUO_N` segue **128**.
+
+**E A LEITURA DE INSCRITOS PASSOU AS TRES PORTAS E NAO FOI FEITA, pela sexta
+rodada seguida:** 56,22 h, piso de resolucao **0,43/dia**, os tres SIM. **O que a
+impede e a ROTA, e o remedio e do DONO** — a tela de Network access. O
+instrumento imprimiu a linha da rota no ramo em que ela importa, que e o conserto
+de 13:2x em uso pela terceira vez.
+
+**COTA: DOZE envios** na janela aberta as 07:00Z, **19.200** unidades, contra o
+piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
+hora.
