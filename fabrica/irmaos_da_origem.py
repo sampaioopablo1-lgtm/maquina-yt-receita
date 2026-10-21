@@ -106,6 +106,12 @@ populacao que este modulo serve: **15 de 242** tinham capitulo negado contado
 como declarado, e em duas delas (`kolejny-poziom-s022` e
 `epomeno-epipedo-s022`) era a lista INTEIRA.
 
+**Os 242 sao o RETRATO de 20/10, nao o estado de hoje:** a populacao cresce de
+uma peca por rodada, e o que nao envelhece e a RAZAO — ~6% das specs. O teste
+reconfere a razao contra o disco em vez do denominador, porque a primeira versao
+dele cobrava uma janela ABSOLUTA sobre a populacao e expirou por PRODUCAO em
+21/10 as 19:4x, reprovando com o acervo simplesmente maior (17 de 268 = 6,3%).
+
 **TRES DETECTORES MEUS ERRARAM ANTES DO QUE MEDE, e os tres vao escritos porque
 cada um erra de um jeito diferente:** por LINHA achei **1** caso (a negacao mora
 uma linha acima da citacao); por PARAGRAFO, aceitando co-ocorrencia, achei

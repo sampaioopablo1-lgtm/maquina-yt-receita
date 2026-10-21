@@ -205,18 +205,35 @@ def test_a_MEDIDA_de_15_de_242_e_reconferida_contra_o_disco():
 
     A conta e a do defeito: quantas specs tinham capitulo negado contado como
     declarado ANTES do conserto — isto e, quantas tem negado nao-vazio.
+
+    RETRATADO em 21/10 as 19:4x, pela classe 743/753/761: a primeira versao
+    cobrava `abs(len(pecas) - 242) <= 25`, isto e, uma janela ABSOLUTA sobre o
+    DENOMINADOR. Ele cresce de uma peca por rodada, para sempre — logo o teste
+    tinha prazo de validade de 25 rodadas e reprovou na 26a, com o acervo
+    simplesmente MAIOR. **Teste que expira por producao pune o trabalho**, e e a
+    mesma licao de 18/10 as 09:2x: ancorar no estado vivo reprova quando a
+    maquina faz o que devia.
+
+    A populacao de 242 e HISTORIA, e o que nao envelhece e a RAZAO: o defeito
+    atingia ~6% das specs. Medido em 21/10: 17 de 268 = 6,3%, contra 15 de
+    242 = 6,2%.
     """
     pecas = _shorts_soltos()
     com = [p for p, c in pecas if IO.capitulos_negados(c)]
-    assert abs(len(pecas) - 242) <= 25, (
-        "a populacao foi de 242 para %d specs: a medida do modulo precisa ser"
-        " reconferida" % len(pecas))
-    assert abs(len(com) - 15) <= 5, (
-        "as specs com capitulo negado foram de 15 para %d: a medida escrita no"
-        " modulo envelheceu" % len(com))
+    assert len(pecas) >= 242, (
+        "a populacao ENCOLHEU de 242 para %d specs — spec de short solto saindo"
+        " do disco e outra coisa, e esta nota tem de ser relida" % len(pecas))
+    razao = len(com) / len(pecas)
+    assert abs(razao - 15 / 242) <= 0.03, (
+        "a razao de specs com capitulo negado foi de %.1f%% (15 de 242) para"
+        " %.1f%% (%d de %d): a medida escrita no modulo envelheceu"
+        % (100 * 15 / 242, 100 * razao, len(com), len(pecas)))
     assert "15 de 242" in FONTE, (
         "a medida saiu do modulo — sem ela a rodada seguinte nao sabe o tamanho"
         " do defeito")
+    assert "20/10" in FONTE, (
+        "a medida do modulo precisa ir DATADA: sem a data, '15 de 242' parece"
+        " estado de hoje em vez de o retrato que ela e")
 
 
 def test_o_scanner_de_citacao_tem_UM_dono():
