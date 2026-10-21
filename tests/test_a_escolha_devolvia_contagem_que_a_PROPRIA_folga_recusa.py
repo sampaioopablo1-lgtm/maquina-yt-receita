@@ -138,6 +138,12 @@ def test_a_FRONTEIRA_da_folga_e_cobrada_nos_dois_lados():
     q = CC.quadro(canal, voz)
     cabem = [x for x in q if x["cabe_na_voz"]]
     assert cabem, "quadro sem contagem que cabe na voz"
+    # `folga_no_piso` None e o terceiro estado (NAO MEDIDO, 21/10 as 02:4x):
+    # a janela mora acima do teto de varrimento do `mira`, logo a folga nao foi
+    # medida. Ele NAO serve, e por um motivo diferente de folga rente — e sai
+    # das tres listas desta fronteira, que e sobre o limiar e nao sobre ele.
+    cabem = [x for x in cabem if x["folga_no_piso"] is not None]
+    assert cabem, "todas as contagens que cabem na voz ficaram NAO MEDIDAS"
     na_borda = [x for x in cabem if x["folga_no_piso"] == CC.FOLGA_RENTE]
     acima = [x for x in cabem if x["folga_no_piso"] == CC.FOLGA_RENTE + 1]
     # A borda exata pode nao existir no quadro vivo; o que NAO pode e o

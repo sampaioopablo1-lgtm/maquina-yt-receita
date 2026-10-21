@@ -219,6 +219,38 @@ RECENTES_K = 2
 FOLGA_RENTE = 2
 
 
+def _piso_executavel(voz: str, n: int, faixa) -> int:
+    """Caracteres por cena que de fato ALCANCAM o piso da faixa — DELEGADO.
+
+    O dono e `mira.janela_do_mundo`, que e quem o `mira.orcamento` ja chamava
+    para imprimir o PISO EXECUTAVEL. Aqui so se traduz "sem janela" para zero,
+    porque o `quadro` precisa de um inteiro para a coluna da folga — e zero ali
+    le como "o piso nao e alcancavel", que e a leitura certa.
+
+    NAO refaz a inversao: refazer criaria o quarto dono da mesma conta, depois
+    do inversor cru, do epsilon escrito a mao e do relato do `mira`.
+    """
+    j = mira.janela_do_mundo(voz, n, faixa, "edge")
+    if j:
+        return j[0]
+    # SEM JANELA TEM DUAS CAUSAS, e colapsar as duas em zero foi o defeito que
+    # o meu PROPRIO conserto introduziu em 21/10 as 02:4x, na mesma rodada:
+    # zero le como "o piso NAO e alcancavel", e para duas e tres cenas a janela
+    # EXISTE — ela mora ACIMA do teto de varrimento do dono
+    # (`mira.MAX_CHARS_VARRIDOS`, 240 por escolha documentada). Medido: com tres
+    # cenas no grego a previsao entra em 242 caracteres, e com duas em 380.
+    # Logo e a familia de 17/10 outra vez — instrumento que devolve VAZIO nao
+    # prova ausencia — dentro do conserto de outra coisa.
+    #
+    # O discriminador e barato: se o inversor cru ja responde no teto ou acima
+    # dele, a janela (se existe) esta fora do alcance do laco, e a resposta
+    # honesta e None = NAO MEDIDO, nunca zero.
+    cru = mira.chars_no_alvo(voz, n, faixa[0])
+    if cru and cru >= mira.MAX_CHARS_VARRIDOS:
+        return None
+    return 0
+
+
 def quadro(canal: str, voz: str, faixa=None, por_contagem=None,
            exceto: str = "", recentes=None) -> list[dict]:
     """Por contagem de cena: a janela, a cadencia e se a frota ja a usou.
@@ -259,6 +291,7 @@ def quadro(canal: str, voz: str, faixa=None, por_contagem=None,
         j = mira.janela_dos_dois_mundos(voz, n, faixa)
         cad = alvo_s / n   # pela duracao REAL, que e a que a mira cobra
         exemplares = int(por_contagem.get(n, 0) or 0)
+        _pe = _piso_executavel(voz, n, faixa)
         saida.append({
             "cenas": n,
             "janela": j,
@@ -273,9 +306,22 @@ def quadro(canal: str, voz: str, faixa=None, por_contagem=None,
             # da faixa, e quanto isso sobra do piso OBSERVADO de caracteres.
             # NEGATIVO significa que o piso da faixa NAO e alcancavel com texto
             # legivel — e ai a regra de redacao do 772 nao se aplica.
-            "chars_no_piso": mira.chars_no_alvo(voz, n, faixa[0] + 0.05),
-            "folga_no_piso": mira.chars_no_alvo(voz, n, faixa[0] + 0.05)
-                             - piso_chars,
+            #
+            # E O NUMERO SAI DO `janela_do_mundo`, QUE E O DONO DO PISO
+            # EXECUTAVEL (21/10, 02:3x). Ate aqui ele saia de
+            # `chars_no_alvo(voz, n, faixa[0] + 0.05)` — o inversor CRU com um
+            # epsilon escrito a mao. Medido nas tres vozes de 2 a 20 cenas: o
+            # inversor cru devolve valor cuja previsao cai ABAIXO do piso em
+            # **54 de 54** pares (deficit mediano 0,206 s, maximo 0,870 s), e o
+            # `+ 0.05` conserta **5 desses 54** — isto e, ele PARECE correcao e
+            # nao e. O `janela_do_mundo[0]` acerta 54 de 54, e difere do cru por
+            # exatamente +1 caractere em 51 deles.
+            "chars_no_piso": _pe,
+            # None quer dizer NAO MEDIDO (a janela mora acima do teto de
+            # varrimento), e nao "sem folga": os tres estados sao alcancavel
+            # (inteiro >= 0), inalcancavel (negativo) e nao medido (None).
+            "folga_no_piso": (None if _pe is None else _pe - piso_chars),
+            "piso_nao_medido": _pe is None,
             "recentes_com_esse_tamanho": [r["pacote"] for r in recentes
                                           if r["cenas"] == n],
         })
@@ -325,13 +371,18 @@ def escolha(canal: str, voz: str, faixa=None, por_contagem=None,
     # conta que eu recusei a mao em 04:1x, 06:2x e 07:1x) e 9 no
     # `labtreinamento` (folga -2, isto e PISO INALCANCAVEL). E a quinta vez
     # desta familia de instrumentos: nao aplicar o que o proprio modulo sabe.
-    serve = [x for x in sem_rep if x["folga_no_piso"] > FOLGA_RENTE]
+    # `folga_no_piso` None quer dizer NAO MEDIDO, e nao-medido NAO serve —
+    # mas por um motivo diferente de folga rente, e o relato o separa.
+    serve = [x for x in sem_rep
+             if x["folga_no_piso"] is not None
+             and x["folga_no_piso"] > FOLGA_RENTE]
     por_cad_serve = (min(serve, key=lambda x: x["distancia_da_cadencia"])
                      if serve else None)
     # NOMEADOS e nao filtrados: o que caiu por folga sai no relato, como o
     # `origens_sem_uso` nomeia origem inutilizavel em vez de a esconder.
     desc_folga = [x["cenas"] for x in sem_rep
-                  if x["folga_no_piso"] <= FOLGA_RENTE]
+                  if x["folga_no_piso"] is not None
+                  and x["folga_no_piso"] <= FOLGA_RENTE]
     if not abertas:
         return {
             "canal": canal, "abertas": 0, "por_cadencia": None,
@@ -454,9 +505,12 @@ def _linha_da_folga(q: list[dict], e: dict) -> str:
     duplicada e foi isso que a fez divergir (753).
     """
     cabem = [x for x in q if x["cabe_na_voz"]]
-    inalc = [x["cenas"] for x in cabem if x["folga_no_piso"] < 0]
+    inalc = [x["cenas"] for x in cabem
+             if x["folga_no_piso"] is not None and x["folga_no_piso"] < 0]
+    nao_med = [x["cenas"] for x in cabem if x["folga_no_piso"] is None]
     rente = [x["cenas"] for x in cabem
-             if 0 <= x["folga_no_piso"] <= FOLGA_RENTE]
+             if x["folga_no_piso"] is not None
+             and 0 <= x["folga_no_piso"] <= FOLGA_RENTE]
     L = ["  FOLGA DE CARACTERES no PISO da faixa (piso OBSERVADO do "
          "`mira.teto_de_cenas`):"]
     if inalc:
@@ -465,11 +519,20 @@ def _linha_da_folga(q: list[dict], e: dict) -> str:
                  "aplica nessas contagens, e o `teto_de_cenas` nao contradiz "
                  "isso: ele pergunta se ALGUM numero de caracteres cai DENTRO "
                  "da faixa.")
+    if nao_med:
+        L.append(f"  >> em {nao_med} o piso NAO FOI MEDIDO, e isto nao e o "
+                 "mesmo que inalcancavel: a janela mora ACIMA do teto de "
+                 f"varrimento do dono (`mira.MAX_CHARS_VARRIDOS` = "
+                 f"{mira.MAX_CHARS_VARRIDOS}). Medido: com tres cenas no grego "
+                 "a previsao entra em 242 caracteres e com duas em 380. Elas "
+                 "NAO entram na escolha, e o motivo e falta de medida — nao "
+                 "falta de folga. Vazio de instrumento nao prova ausencia "
+                 "(17/10).")
     if rente:
         L.append(f"  >> em {rente} a folga e de ate {FOLGA_RENTE} caractere(s) "
                  "— foi por essa conta que o teto da voz foi recusado a mao em "
                  "04:1x e 06:2x. O numero e REDACAO declarada, nao medida.")
-    if not inalc and not rente:
+    if not inalc and not rente and not nao_med:
         L.append("  todas as contagens que cabem na voz alcancam o piso com "
                  "folga — nada a nomear aqui.")
     x = e.get("por_cadencia_geral")
