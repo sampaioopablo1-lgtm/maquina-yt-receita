@@ -1,0 +1,131 @@
+{
+ "slug": "kolejny-poziom-s090",
+ "pacote": "kolejny-poziom-s090",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "longo_existente": "SZV9Vk5YFwI",
+ "longo": [],
+ "thumb": {
+  "l1": "Zapis,",
+  "l2": "nie pieniądze"
+ },
+ "paleta": {
+  "bg": "#0B0B0C",
+  "ink": "#F2EEE8",
+  "c1": "#E23B3B",
+  "c2": "#D9C7A7",
+  "red": "#FF4D4D",
+  "ok": "#7FB77E",
+  "panel": "#151517",
+  "mut": "#8F877C",
+  "acc": "#E23B3B"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Nie masz tam pieniędzy",
+   "sub": "masz zapis",
+   "nar": "Patrzysz na konto w ZUS."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Co tam naprawdę leży",
+   "barras": [
+    {
+     "rotulo": "Pieniądze",
+     "valor": 0
+    },
+    {
+     "rotulo": "Zapis",
+     "valor": 100
+    }
+   ],
+   "nar": "Tam nie leżą pieniądze."
+  },
+  {
+   "layout": "item",
+   "kicker": "To zapis księgowy",
+   "sub": "a nie rachunek",
+   "nar": "To zapis, nie rachunek."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Wzór ma dwa elementy",
+   "itens": [
+    "Twój zapis",
+    "Dzielnik",
+    "Nic więcej"
+   ],
+   "nar": "Wzór ma tylko dwa elementy."
+  },
+  {
+   "layout": "item",
+   "kicker": "Zapis rośnie od wpisu",
+   "sub": "każda składka to wpis",
+   "nar": "Zapis rośnie od nowego wpisu."
+  },
+  {
+   "layout": "item",
+   "kicker": "Nie od samego czasu",
+   "sub": "to nie lokata",
+   "nar": "Nie rośnie z czasem."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dlatego przerwa boli",
+   "sub": "inaczej, niż myślisz",
+   "nar": "I dlatego przerwa boli inaczej."
+  },
+  {
+   "layout": "item",
+   "kicker": "To nie postój",
+   "sub": "nic nie czeka na ciebie",
+   "nar": "To nie oszczędność na postoju."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Przerwa to brak wpisu",
+   "barras": [
+    {
+     "rotulo": "Ze składką",
+     "valor": 100
+    },
+    {
+     "rotulo": "Bez składki",
+     "valor": 0
+    }
+   ],
+   "nar": "Bez składki nie ma żadnego wpisu."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Gdzie wpisu nie ma",
+   "itens": [
+    "Przerwa w składkach",
+    "Praca bez składki",
+    "Niska podstawa"
+   ],
+   "nar": "Trzy sytuacje dają zero wpisu."
+  },
+  {
+   "layout": "item",
+   "kicker": "Niska podstawa",
+   "sub": "najmniej na koncie",
+   "nar": "Najmniej płacisz, najmniej masz."
+  },
+  {
+   "layout": "item",
+   "kicker": "Wpisy są twoje",
+   "sub": "i tylko one",
+   "nar": "Wpisy to jedyne, co kontrolujesz."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Kolejny Poziom",
+   "sub": "zasubskrybuj",
+   "nar": "Sprawdź wpisy i zasubskrybuj."
+  }
+ ],
+ "copy": "# kolejny-poziom-s090\n\n## TITULO\nNa twoim koncie w ZUS nie leżą pieniądze: to zapis, a zapis rośnie tylko od wpisu\n\n## TITULO SHORT\nZapis, nie pieniądze\n\n## DESCRICAO\nWiększość rozmów o emeryturze zaczyna się od pytania „ile mam na koncie”. Zanim odpowiesz, warto wiedzieć, czym to konto właściwie jest — bo od tego zależy, co z nim można zrobić, a czego nie.\n\nNa koncie emerytalnym w ZUS nie leżą pieniądze. Twoje składki finansują dzisiejsze emerytury, a ty otrzymujesz zapis księgowy: potwierdzenie, ile państwo ma ci oddać w przyszłości. To obietnica, nie oszczędności. Różnica nie jest akademicka, bo zmienia zachowanie tej liczby.\n\nRachunek oszczędnościowy rośnie sam, z upływem czasu. Zapis nie. Zapis rośnie od WPISU — od każdej zaksięgowanej składki. Dlatego przerwa w opłacaniu składek nie jest „oszczędnością w postoju”, w której coś na ciebie cierpliwie czeka. Przerwa to po prostu brak wpisu, a brak wpisu zostaje w tej liczbie na zawsze.\n\nZ tego wynikają trzy sytuacje, w których wpisu nie ma albo jest minimalny: przerwa w składkach, praca bez składki emerytalnej, i składki liczone od najniższej dopuszczalnej podstawy. W ostatnim przypadku logika jest brutalnie prosta: płacisz najmniej, więc zapisuje się najmniej — niezależnie od tego, ile firma naprawdę zarabia.\n\nTo wideo nie mówi, jaka będzie twoja emerytura, nie podaje procentów ani kwot i nie ocenia systemu. Mówi o jednej rzeczy: czym jest liczba, na którą patrzysz. Wzór ma dwa elementy, dzielnika nie ruszysz, a wpisy są jedyną częścią, która naprawdę zależy od ciebie.\n\n## COMENTARIO FIXADO\nSprawdź w PUE ZUS, czy w twojej historii składek są miesiące bez wpisu — i napisz, czy w ogóle o nich pamiętałeś.\n\n## HASHTAGS\n#emerytura #ZUS #składki #finanseosobiste #KolejnyPoziom\n\n## TAGS\nemerytura, konto w ZUS, składki emerytalne, zapis księgowy, przerwa w składkach, PUE ZUS, finanse osobiste, Polska\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ncategoryId: 26\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\nmadeForKids: false\nselfDeclaredMadeForKids: false\n\n## MUSICA / LICENCA\nWholesome — Kevin MacLeod (incompetech.com), Creative Commons BY 3.0.\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO. A narracao NAO cita percentual de contribuicao,\nNAO cita stopa zastapienia, NAO cita valor em zloty, NAO cita ano nem prazo e\nNAO nomeia instituicao como fonte de numero. Os unicos numerais falados sao\n\"dwa\" (os dois elementos da formula) e \"Trzy\" (as tres situacoes da lista) — os\ndois sao contagem da PROPRIA receita.\n\nA origem traz 19,52%, ~1 900 zl, 43%, 34,4% e 24,5%, com datas. **TODOS ficaram\nfora pela regra (g)**: mudam com a lei, com a tabela do GUS e com o ano.\n\nAS BARRAS SAO ILUSTRACAO QUALITATIVA E NAO SAO FALADAS. A cena 1 (0 contra 100)\nmostra que o que esta no conto e registro e nao dinheiro, e a cena 8 (100 contra\n0) mostra que mes sem składka nao produz lancamento. **Nenhum dos quatro valores\ne medida de nada**, e esta linha existe para a rodada seguinte NAO os ler de\nvolta como dado.\n\nO QUE O VIDEO AFIRMA: que o conto de aposentadoria no ZUS e um registro contabil\ne nao um saldo em dinheiro; que a formula tem dois elementos; e que o registro\ncresce por LANCAMENTO de składka, nao pela passagem do tempo. Esta no longo\n`kolejny-poziom-002` (`SZV9Vk5YFwI`), capitulos 9, 11 e 13, com as fontes dele.\n\n## FAMILIA DE ENTRADA ERRADA\nTRATAR O REGISTRO COMO POUPANCA — capitulos 9, 11 e 13.\n\nO eixo e a NATUREZA do numerador, e dela sai uma consequencia que nao se adivinha\ndo numero: poupanca cresce com o TEMPO, registro cresce com a ENTRADA. Logo\n\"parei de pagar por um ano\" nao e dinheiro em repouso — e um ano sem lancamento,\ne isso fica na conta para sempre. A aritmetica nao reclama: a divisao funciona\nigual, e o resultado simplesmente nasce menor.\n\nDISTINCAO DOS TRES IRMAOS desta origem, conferida pelo `irmaos_da_origem` e pela\nNARRACAO de cada um (um deles nao tem este campo, logo a comparacao foi pela\nPROSA e pela fala, que e de primeira mao):\n- `s059` (Zwłoka nie dzieli się) — a aritmetica da ZWLOKA: dividir a perda pelo\n  tempo adiado, supondo anos permutaveis;\n- `s064` (Dzielnik rośnie, nikt go nie wybrał) — o DIVISOR que cresce sem\n  ninguem o escolher;\n- `s075` (Nie saldo, a warunek) — a vantagem das contas com ulga e CONDICIONAL,\n  e o warunek e a idade de retirada.\nOs tres falam do que acontece com a conta DEPOIS: o divisor, o atraso, a escolha\nde conta. **Este fala do que o numerador E**, e nenhum deles toca os capitulos 9\ne 11.\n\nE O TERCEIRO ITEM DO CAPITULO 13 FICOU DE FORA DE PROPOSITO: a saida antecipada\n(capital menor sobre divisor maior) e territorio declarado do `s064`, e leva-la\naqui seria repetir a familia dele. A peca fica com os DOIS primeiros itens, que\nsao de ausencia de lancamento.\n\n## RESERVA\nO QUE EU NAO LEVEI, de proposito, e vai escrito para a proxima rodada achar:\n\n1. **O capitulo 14 — JDG na skladce minimalnej, como CASO proprio.** Aqui ele\n   entra so como uma linha da lista (\"niska podstawa\"); a peca inteira sobre a\n   decisao de quem tem empresa esta no capitulo 52, que compara subir a base\n   contra pagar o mesmo valor no IKZE. **Ela nao cabe hoje por outro motivo, e\n   vai dito: aquele capitulo carrega numero em zloty, e sem as duas fontes\n   institucionais (as quatro seguem fechadas no proxy) a regra 600 nao deixa.**\n2. **Os capitulos 24 a 28 — a REGULA DE QUATRO POR CENTO e a luka mensal.** E\n   familia nova nesta origem, e tambem depende de valor, logo tem a mesma trava.\n3. **Os capitulos 44 a 48 — o que fazer com 30, 40 ou 50 anos.** Esta NAO\n   depende de numero sobre o mundo: o eixo e que a mesma decisao muda de ordem\n   conforme o horizonte. **Fica como a primeira candidata livre.**\n\n## EXPOSICAO\nA PINCA DO 740/748 ESTA FECHADA AQUI, e isto vai declarado ANTES de publicar:\nnenhuma media por cena poe os dois provedores dentro de 41,5 a 43,0 com treze\ncenas nesta voz (razao piper/edge 0,851). Logo a escolha e de qual mundo\ndeclarar, e afrouxar a mira e parametro de producao (§10).\n\nPREVISAO edge **42,1** / piper **35,8**. O edge cai DENTRO da faixa; o piper sai\nFORA pelo piso da MIRA e DENTRO do portao `duracao`, que cobra 18 a 45 s nos dois\nmundos — logo nada quebra, e o que fica exposto e a mira.\n\nE O PISO EXATO NAO E ALCANCAVEL AQUI, dito assim em vez de eu chamar 42,1 de\npiso: com treze cenas um caractere por cena vale **0,68 s**, logo 28 caracteres\ndao 42,1 e 27 caem ABAIXO da faixa. A peca ficou no MEIO, que e onde o\n`orcamento` mira (752/774), e a regra de redacao do 772 nao tem ponto para onde\napontar nesta contagem.\n\nE O REAL NAO ESTA PROMETIDO, nem para um lado nem para o outro: a banda do\nresiduo tem 5,2 s de largura contra 1 s de granularidade, e declarar de que lado\ndela o real cai nao e previsao — e o que o 774 nomeia.\n"
+}
