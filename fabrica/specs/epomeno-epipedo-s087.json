@@ -1,0 +1,126 @@
+{
+ "slug": "epomeno-epipedo-s087",
+ "pacote": "epomeno-epipedo-s087",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "longo_existente": "os51d8fA0sY",
+ "longo": [],
+ "thumb": {
+  "l1": "Σταθερή",
+  "l2": "λίστα"
+ },
+ "paleta": {
+  "bg": "#F4EFE6",
+  "ink": "#1B1A17",
+  "c1": "#C8502A",
+  "c2": "#2B6CB0",
+  "red": "#B83227",
+  "ok": "#2E8B57",
+  "panel": "#FFFFFF",
+  "mut": "#7A7263",
+  "acc": "#C8502A"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Μετράει τιμές;",
+   "sub": "ο δικός σου δείκτης",
+   "nar": "Ο δείκτης σου μετράει τιμές;"
+  },
+  {
+   "layout": "item",
+   "kicker": "Μόνο με μία συνθήκη",
+   "nar": "Μόνο αν η λίστα μείνει η ίδια."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Τι μετράς στην πραγματικότητα",
+   "barras": [
+    {
+     "rotulo": "Σταθερή λίστα",
+     "valor": 100
+    },
+    {
+     "rotulo": "Λίστα που αλλάζει",
+     "valor": 24
+    }
+   ],
+   "nar": "Αν αλλάζει, μετράς επιλογές."
+  },
+  {
+   "layout": "item",
+   "kicker": "Όχι το ράφι",
+   "nar": "Τότε δεν μετράς καθόλου τιμές."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Τι χωράει σε έναν μήνα",
+   "itens": [
+    "Γιορτές",
+    "Εποχή",
+    "Προσφορές"
+   ],
+   "nar": "Ένας μήνας έχει πολλά πράγματα."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Κατεύθυνση",
+   "sub": "όχι θόρυβος",
+   "nar": "Τρεις μετρήσεις δείχνουν κατεύθυνση."
+  },
+  {
+   "layout": "item",
+   "kicker": "Με μία μέτρηση",
+   "nar": "Με μία μόνο, βλέπεις θόρυβο."
+  },
+  {
+   "layout": "item",
+   "kicker": "Και το τρίτο λάθος",
+   "nar": "Με τι συγκρίνεις το καλάθι σου;"
+  },
+  {
+   "layout": "lista",
+   "kicker": "Ποιος δείκτης",
+   "itens": [
+    "Γενικός: στέγη και καύσιμα",
+    "Τροφίμων: φαγητό",
+    "Το καλάθι σου είναι φαγητό"
+   ],
+   "nar": "Το φαγητό πάει με τα τρόφιμα."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Τι έχουν κοινό",
+   "barras": [
+    {
+     "rotulo": "Καλάθι και τρόφιμα",
+     "valor": 100
+    },
+    {
+     "rotulo": "Καλάθι και γενικός",
+     "valor": 31
+    }
+   ],
+   "nar": "Αλλιώς συγκρίνεις ένα άλλο καλάθι."
+  },
+  {
+   "layout": "item",
+   "kicker": "Η μόνη πειθαρχία",
+   "nar": "Κράτα τη λίστα σου πάντα σταθερή."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Σταθερή λίστα",
+   "sub": "και το ίδιο μαγαζί",
+   "nar": "Σταθερή λίστα, και το ίδιο μαγαζί."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Επόμενο Επίπεδο",
+   "sub": "κάνε εγγραφή",
+   "nar": "Μέτρα ξανά και κάνε εγγραφή εδώ."
+  }
+ ],
+ "copy": "# epomeno-epipedo-s087\n\n## TITULO\nΟ Δικός Σου Δείκτης Μετράει Τιμές Μόνο Αν η Λίστα και το Διάστημα Μείνουν Σταθερά\n\n## TITULO SHORT\nΣταθερή λίστα, αλλιώς τίποτα\n\n## DESCRICAO\nΤο να φτιάξεις τον δικό σου δείκτη τιμών είναι εύκολο. **Το δύσκολο είναι να μετρήσει αυτό που νομίζεις ότι μετράει.** Υπάρχουν τρεις τρόποι να το χαλάσεις, και κανένας τους δεν μοιάζει με λάθος όταν τον κάνεις.\n\n**Ο πρώτος: να αλλάζεις τη λίστα.** Αν τα προϊόντα δεν είναι τα ίδια από μήνα σε μήνα, το νούμερο που βγαίνει δεν είναι τιμή — είναι **η επιλογή σου**. Ένα φθηνότερο άθροισμα μπορεί να σημαίνει απλώς ότι αγόρασες άλλα πράγματα, και αυτό δεν σου λέει τίποτα για το ράφι.\n\n**Ο δεύτερος: να βγάλεις συμπέρασμα από έναν μήνα.** Μέσα σε έναν μήνα χωράνε γιορτές, εποχή και προσφορές — τρία πράγματα που κινούν το άθροισμα χωρίς να κινηθεί καμία τιμή μόνιμα. **Με τρεις μετρήσεις αρχίζει να φαίνεται κατεύθυνση· με μία, βλέπεις θόρυβο.** Και τα φρούτα και τα λαχανικά αλλάζουν τιμή με την εποχή, όχι με την οικονομία: αν μπουν στη λίστα, μπαίνουν σε ξεχωριστή γραμμή.\n\n**Ο τρίτος, και ο λιγότερο προφανής: να το συγκρίνεις με το λάθος νούμερο.** Το καλάθι σου είναι φαγητό, άρα συγκρίνεται με τον δείκτη **τροφίμων** — όχι με τον γενικό. Ο γενικός κουβαλάει μέσα του στέγη, καύσιμα, υπηρεσίες, πράγματα που δεν μπήκαν ποτέ στη λίστα σου. Όταν συγκρίνεις τα δύο, δεν συγκρίνεις τιμές: συγκρίνεις **δύο διαφορετικά καλάθια**, και η διαφορά που βλέπεις είναι η διαφορά των περιεχομένων.\n\n**Το συμπέρασμα είναι διαδικασία, όχι αριθμός:** ίδια προϊόντα, ίδιο μαγαζί, τρεις μετρήσεις, και σύγκριση με τον δείκτη που περιγράφει το ίδιο πράγμα. Αν κρατήσεις αυτά τα τέσσερα σταθερά, το νούμερο που βγάζεις είναι πραγματικά δικό σου — και αυτό είναι το μόνο που είχε νόημα από την αρχή.\n\n**Και κάτι που πρέπει να πούμε καθαρά:** αυτό το φύλλο δεν σου λέει πού να ψωνίσεις ούτε τι να κόψεις. Σου λέει μόνο τι συνέβη, με νούμερα δικά σου.\n\n## COMENTARIO FIXADO\nΤο λιγότερο προφανές από τα τρία: αν συγκρίνεις το καλάθι σου με τον ΓΕΝΙΚΟ πληθωρισμό, δεν συγκρίνεις τιμές — συγκρίνεις δύο διαφορετικά καλάθια. Με ποιον δείκτη το συγκρίνεις εσύ;\n\n## HASHTAGS\n#πληθωρισμος #τιμες #καλαθι #epomenoepipedo #Shorts\n\n## TAGS\nδικος σου δεικτης, πληθωρισμος, δεικτης τροφιμων, γενικος πληθωρισμος, σταθερη λιστα, εποχικα, προσφορες, μετρησεις, καλαθι, τιμες, epomeno epipedo, προσωπικα οικονομικα\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\n**ZERO numero novo sobre o mundo.** O instrumento acha **UM** numeral falado —\n**\"τρεις\"** (tres), na cena 6 — e ele e a aritmetica da PROPRIA peca: quantas\nleituras mostram direcao. **E eu conto um SEGUNDO que ele deixa de fora de\nproposito:** o `μία` de *\"Με μία μόνο, βλέπεις θόρυβο\"*, porque o\n`numerais_falados` exclui `um`/`uma` e equivalentes como ARTIGO — e isso vai\ndito em vez de eu reportar a saida dele como se fosse a contagem inteira.\nNenhum dos dois e percentual, indice, preco nem data.\n\n**FICOU DE FORA pela regra (g), e o descarte inclui o que mais dava gancho:** o\nnumero de produtos que o metodo da origem recomenda (capitulos 45 e 46), e\n**todos** os valores de indice, percentual de inflacao, preco por quilo e mes de\nreferencia que o longo cita. Os valores de indice mudam a cada publicacao do\ninstituto, e numero errado no ar e pior que numero ausente. A peca diz *\"a\nlista\"* em vez de fixar a contagem dela.\n\n**O QUE A PECA AFIRMA, e e PROPRIEDADE DO METODO e nao estatistica:** que lista\nque muda mede escolha e nao preco; que um mes carrega festas, estacao e\npromocoes; que tres leituras mostram direcao e uma mostra ruido; e que cesta de\ncomida se compara com o indice de ALIMENTOS e nao com o geral. Esta no longo\n`epomeno-epipedo-006` (`os51d8fA0sY`), capitulos 75, 78, 79 e 80, com as fontes.\nNenhuma dessas quatro depende de valor — elas sobrevivem a qualquer tabela.\n\n**As barras das cenas 3 e 10 sao ILUSTRACAO qualitativa e NAO sao faladas:** a da\ncena 3 desenha quanto do resultado e PRECO quando a lista fica parada contra\nquando ela muda; a da cena 10 desenha o quanto duas cestas diferentes tem em\ncomum. **Elas nao sao percentual e nao medem mercado nenhum** — a rodada\nseguinte NAO deve le-las de volta como dado.\n\n## FAMILIA DE ENTRADA ERRADA\n**O PROPRIO INDICE MEDINDO OUTRA COISA: lista que se move, janela de um mes, e\ncomparacao com o indice errado** (capitulos 75, 78, 79 e 80). As tres sao a\nmesma falha com tres caras: **o comparador mudou junto com o que se compara.**\nLista que muda troca o objeto da medida (vira escolha); um mes sozinho troca o\nintervalo (vira estacao e promocao); e o indice geral troca a populacao (vira\noutra cesta). Em nenhuma delas o numero sai *errado* — ele sai respondendo\n**outra pergunta**, e e por isso que ninguem percebe.\n\nAs QUATRO familias anteriores desta origem vieram do `irmaos_da_origem`, e **tres\ndelas nao tem o campo** — logo a comparacao foi pela NARRACAO de primeira mao,\nque o relato imprime inteira desde 20/10:\n\n* `s012` — o indice oficial e **PONDERADO pela familia MEDIA**, nao pela sua;\n* `s031` — **mesmo preco, menos gramas**: comparar preco sem fixar a quantidade;\n* `s063` — **desaceleracao nao e queda**: o nivel fica onde chegou;\n* `s072` — **mudou o preco ou a loja?**\n\n**A mais vizinha e a `s012`, e a distincao vai escrita: ela diz que o indice\nOFICIAL nao e o seu. Esta diz que o SEU tambem nao e seu, se a lista, a janela\nou o comparador se mexerem.** E o QUINTO angulo deste mesmo longo. **E o\ncapitulo 76 ficou FORA de proposito**, porque comparar embalagens diferentes e\nexatamente o eixo da `s031`.\n\n## FONTES\nOrigem: `os51d8fA0sY` (`epomeno-epipedo-006`, 87 capitulos), escolhida pelo\n`pauta_do_momento.py` — **4 usos**, empatada com **treze** outras origens e\ndesempatada pela MAIOR reserva: **76 capitulos NAO MENCIONADOS de 87**, contra\n71, 71 e 69 das seguintes. A dominante do canal (`nttW9fR8wyY`) ficou de fora, e\nquem conta e o `concentracao.py`.\n\n**E as duas origens de MENOR contagem (3 usos) ficaram de fora com o motivo do\ninstrumento na mao:** `GwNkPfM9pSY` e `eZ697VNYCPU` **nao tem spec local** (a\nregra h), logo a reserva delas e 0 de 0 — sem capitulo lido nao se escreve\nsegundo angulo sem inventar conteudo.\n\nCapitulos desta peca: **75, 78, 79 e 80** — *\"Δεύτερο λάθος\"* (trocar a lista),\n*\"Τέταρτο λάθος\"* (concluir de um mes), *\"Πέμπτο λάθος\"* (comparar com o geral)\ne *\"Πόσο χρειάζεται\"* (tres leituras). Com apoio do **53** (os sazonais em linha\nseparada) e do **81**, que escreve o limite: *\"este fôlho nao te diz onde\ncomprar nem o que cortar; diz so o que aconteceu, com numeros teus\"*.\n\n**DEIXADO DE PROPOSITO para a rodada seguinte achar — O QUE EU NAO LEVEI:** os\ncapitulos **29 a 39** (*\"Από πού βγαίνουν τα βάρη\"* ate *\"Και τα βάρη σου\nαλλάζουν\"*), que mostram DUAS casas com o mesmo gasto e cestas opostas — uma com\ncarne, outra com azeite — e por que o mesmo indice descreve as duas ao mesmo\ntempo e nenhuma delas. **E outra familia inteira (OS PESOS, e nao a lista) e da\num SEXTO angulo deste mesmo longo**, sem precisar de numero nenhum. **Ela e\nVIZINHA da `s012` e a distincao tera de ser escrita por quem a pegar:** a `s012`\ndiz que o indice descreve a media; aquela mostra POR QUE duas casas reais\ndivergem dela em sentidos opostos.\n\n**A CONFERENCIA CONTRA OS IRMAOS: TRES dos quatro declaram capitulo** — o `s031`\ndeclara 59 a 73, o `s063` 40 a 42 e o `s072` 45 a 73 —, logo a conferencia\nmecanica alcanca **75%** deles, e **nenhum dos meus (75, 78, 79, 80) esta nas\nfaixas citadas**. O `s012` foi conferido por LEITURA da narracao de primeira mao,\ne **ausencia de capitulo declarado NAO e ausencia de colisao (761)**. Esta peca\nDECLARA os capitulos dela.\n\n## EXPOSICAO\n**TREZE CENAS, e a recusa nao foi minha.** O `contagem_de_cenas.py` deu **14**\ncomo a melhor cadencia e **acusou sozinho que a `s086`, a peca anterior deste\ncanal, tem catorze**. O **teto MEDIDO desta voz (15)** saiu NOMEADO e nao\nfiltrado: ele e INEDITO na frota, e foi recusado pela FOLGA — o orcamento no\npiso cai a dois caracteres do piso OBSERVADO. Treze e a melhor que SERVE pelos\ntres filtros da chave `por_cadencia_servivel`, com **31** caracteres no piso e\nfolga **+10**. Escrita com media **31,1**, previsao edge **41,6** — 0,1 acima do\nPISO da faixa, pela regra de redacao do 772.\n\n**E O PISO EXIGIU TRES PASSADAS, com a conta do instrumento e nao da minha\ncabeca:** a primeira versao saiu em 42,4 (dentro da faixa, longe do piso), o\n`mira.quanto_cortar` pediu **-26** caracteres, cortar os 26 derrubou a previsao\na **40,6 — ABAIXO** do piso, e a terceira devolveu 10 deles. **O passo e\ngrosso**: um caractere por cena vale ~0,66 s com treze cenas, logo o piso exato\nnao e alcancavel e o que se escolhe e de que lado dele a peca cai.\n\n**E A PINCA DO 740/748 ESTA FECHADA AQUI, com a exposicao declarada ANTES de\npublicar:** o `mira.janela_dos_dois_mundos` devolve **NENHUMA** janela que ponha\nos dois provedores dentro de 41,5 a 43,0 nesta voz — a razao piper/edge e ~0,886\ne o vao vale ~4,7 s contra 1,5 s de faixa. **O piper sai FORA pelo piso**, e quem\nreprova duracao e o portao, que cobra 18 a 45 s nos dois mundos.\n\n**O que eu NAO declaro: de que lado da banda o real cai.** Ela tem 5,2 s contra\n1 s de granularidade, e escolher um lado nao e previsao (774).\n\n**ESQUELETO\n`titulo-item-barras-item-lista-titulo-item-item-lista-barras-item-titulo-cta`**,\ninedito nas **NOVE** formas de treze cenas da frota e nas **157** da frota\ninteira, com a propria peca FORA da varredura pelo `exceto`. `lista` e `barras`\nentram DUAS vezes cada e as quatro carregam argumento. Todo layout saiu do\nconjunto **SONDADO** (`layouts_do_short.desenham`), com `assert` no construtor, e\na paleta foi **LIDA** de `temas_do_dono.paleta_do_canal`.\n"
+}
