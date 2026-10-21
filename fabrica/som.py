@@ -41,6 +41,22 @@ import sys
 # Não é um limiar novo: é o número que já está no filtro, trazido para cá para
 # que a conferência compare contra ele em vez de contra uma lembrança minha.
 ALVO_LUFS = -14.0
+# O TETO DO TRUE PEAK, e ele tem UM dono desde 21/10 as 13:4x: o
+# `fabrica.AUDIO_ARGS` monta o `loudnorm` LENDO esta constante, em vez de
+# repetir o -1.5 na linha do filtro. Eram dois donos da mesma regra, e o
+# comentario desta secao ja chamava o numero de "teto do nosso filtro" — o
+# filtro morava em outro arquivo.
+#
+# **E NINGUEM COMPARAVA A MEDIDA CONTRA ELE.** O `relato` imprimia o teto ao
+# lado do pico medido e so avisava sobre LUFS. Medido em 21/10 nas anotacoes
+# dos 38 renders mais recentes da frota: **NOVE** ficaram acima de -1.5 (de
+# -1,4 a -1,2) e **UM** passou de ZERO — o `epomeno-epipedo-s086`, com
+# **+0,7 dBFS**, publicado nesta mesma rodada. Acima de zero o true peak
+# estoura a escala e pode distorcer na reproducao ou no transcode do YouTube.
+#
+# Essa medida sai das ANOTACOES DE JOB e **nenhum teste a reconfere**, porque
+# ela nao esta no disco — vai declarada como tal, em vez de parecer medida
+# local.
 TP_MAX_DBTP = -1.5
 
 # Tolerância do RELATO, não de portão. O pipeline alheio reprova acima de 1,0;
@@ -114,6 +130,50 @@ def desvio_do_alvo(lufs: float | None, alvo: float = ALVO_LUFS) -> float | None:
     return None if lufs is None else round(lufs - alvo, 2)
 
 
+def pico_acima_do_teto(pico: float | None) -> dict:
+    """O pico medido contra o teto do PROPRIO filtro — tres estados.
+
+    `clipa` e o unico que nao e questao de margem: acima de zero o true peak
+    estoura a escala. Entre o teto e zero a peca passou do que o filtro pediu,
+    o que e leitura e nao defeito; e `None` nao e zero — ausencia de leitura
+    sai como ausencia (a licao do 17/10).
+    """
+    if pico is None:
+        return {"pico": None, "teto": TP_MAX_DBTP, "estado": "sem_leitura"}
+    if pico > 0:
+        estado = "clipa"
+    elif pico > TP_MAX_DBTP:
+        estado = "acima_do_teto"
+    else:
+        estado = "dentro"
+    return {"pico": pico, "teto": TP_MAX_DBTP, "estado": estado,
+            "folga": round(TP_MAX_DBTP - pico, 2)}
+
+
+def _linha_do_pico(pico: float | None) -> str:
+    """A frase do pico, com UM dono — ela sai em QUALQUER estado.
+
+    Sem o ramo `dentro` a ausencia da frase ficaria indistinguivel de o relato
+    nao ter olhado, que e a falha permissiva de sempre.
+    """
+    d = pico_acima_do_teto(pico)
+    if d["estado"] == "sem_leitura":
+        return (f"  pico: SEM LEITURA (teto do filtro {TP_MAX_DBTP} dBTP)."
+                " Ausencia de leitura nao e zero.")
+    if d["estado"] == "clipa":
+        return (f"  >> PICO ACIMA DE ZERO: {pico} dBFS, contra o teto"
+                f" {TP_MAX_DBTP} que o PROPRIO filtro pede. Acima de zero o"
+                " true peak estoura a escala e pode distorcer na reproducao."
+                " Isto e LEITURA e nao portao — o som se mede depois do render.")
+    if d["estado"] == "acima_do_teto":
+        return (f"  >> pico {pico} dBFS ACIMA do teto {TP_MAX_DBTP} que o"
+                " filtro pede, por"
+                f" {abs(d['folga'])} dB. Nove das 38 leituras recentes da frota"
+                " ficam nesta faixa: e margem, nao distorcao.")
+    return (f"  pico {pico} dBFS dentro do teto {TP_MAX_DBTP}"
+            f" (folga {d['folga']} dB).")
+
+
 def relato(caminho: str, alvo: float = ALVO_LUFS) -> str:
     try:
         lo = loudness(caminho)
@@ -129,6 +189,7 @@ def relato(caminho: str, alvo: float = ALVO_LUFS) -> str:
         linhas.append(f"  >> FORA do alvo por {abs(d)} LU. O `loudnorm` de uma "
                       "passada e dinamico e pode errar; isto e LEITURA, nao "
                       "portao.")
+    linhas.append(_linha_do_pico(lo["pico_dbtp"]))
     if sil:
         linhas.append("  silencios >= 1,0 s: " + ", ".join(
             f"{i}s por {dur}s" for i, dur in sil[:6]))
@@ -153,6 +214,12 @@ def main() -> int:
             return 1
         lo["desvio_do_alvo"] = desvio_do_alvo(lo["lufs"])
         lo["silencios"] = silencios(caminho)
+        # O ESTADO DO PICO VAI NO JSON porque e o `--json` que o `frota.yml`
+        # chama — o `relato` nao e lido por workflow nenhum, e deixar a frase
+        # so nele seria instrumento que ninguem chama (a classe dos layouts
+        # mortos) DENTRO do conserto dela. O valor sai do dono.
+        lo["pico_vs_teto"] = pico_acima_do_teto(lo["pico_dbtp"])["estado"]
+        lo["teto_dbtp"] = TP_MAX_DBTP
         print(json.dumps(lo, ensure_ascii=False))
         return 0
     print(relato(caminho))

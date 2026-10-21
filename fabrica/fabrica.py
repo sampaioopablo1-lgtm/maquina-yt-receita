@@ -737,7 +737,17 @@ def escrever_copy(sp, tempos, d):
 # Sem `-shortest`: o corte era feito pelo audio (a narracao crua), o que comia
 # a folga de 0,5s no fim de cada cena — a fala terminava e a cena virava no
 # mesmo quadro. Quem limita a duracao e o `-t` do clipe, entao a folga volta.
-AUDIO_ARGS = ["-af","loudnorm=I=-14:TP=-1.5:LRA=11","-ac","2","-ar","48000","-c:a","aac","-b:a","192k"]
+# O ALVO e o TETO sao LIDOS do `som`, que e quem MEDE a peca depois — e eles
+# viviam cravados aqui tambem, dois donos da mesma regra (21/10 as 13:4x). O
+# numero NAO muda: `som.ALVO_LUFS` e -14.0 e `som.TP_MAX_DBTP` e -1.5, iguais ao
+# que esta linha dizia. O que muda e haver UM dono, porque o comentario do
+# proprio `som.py` chama o -1.5 de "teto do nosso filtro" e o filtro era aqui.
+import som as _som  # noqa: E402
+
+AUDIO_ARGS = ["-af",
+              "loudnorm=I=%g:TP=%g:LRA=11" % (_som.ALVO_LUFS,
+                                              _som.TP_MAX_DBTP),
+              "-ac","2","-ar","48000","-c:a","aac","-b:a","192k"]
 
 def trilha_ok(f):
     """Um download que falhou vira um .mp3 com HTML dentro. Ele passa no glob,

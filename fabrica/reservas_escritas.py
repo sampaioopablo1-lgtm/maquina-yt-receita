@@ -44,6 +44,7 @@ import os
 import re
 
 import irmaos_da_origem as IO
+import segundo_angulo as SA
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -116,8 +117,118 @@ def varre(dir_specs: str = None) -> list:
     return saida
 
 
+# A convencao do indice de capitulo citado na prosa e MEDIDA, nao suposta:
+# `capitulos 33 a 36` do `labtreinamento-s033` casa com a posicao 33 da lista de
+# cenas do longo contada de ZERO (`Fontes que valem`, e a prosa diz "as FONTES
+# que valem"), e o mesmo vale para o `kolejny-poziom-s022` (52 -> `Cztery
+# dzwignie`, e a prosa diz "as quatro dzwignie") e para o `epomeno-epipedo-s021`
+# (40 -> `Protoi plevra`, e a prosa diz "as DUAS pessoas"). Tres amostras, e o
+# teste RECONFERE isto contra o disco em vez de confiar nesta linha (753).
+BASE_DO_INDICE = 0
+
+
+def estado(origem: str = None, dir_specs: str = None) -> list:
+    """Cada reserva ESCRITA com um veredito: ela segue livre ou foi consumida?
+
+    **POR QUE ISTO SO FOI POSSIVEL AGORA (21/10 as 13:1x).** O docstring deste
+    modulo diz, desde que ele nasceu, que decidir se a reserva segue livre e do
+    `concentracao` e do `segundo_angulo` — e o `segundo_angulo` **nao podia
+    responder**, porque o proprio bloco de reserva fazia o capitulo contar como
+    MENCIONADO (medido em 20/10 as 12:4x). **A remissao era circular, e o
+    conserto daquela rodada e o que destrava esta pergunta.**
+
+    E ela custava uma rodada: nesta, para saber que a reserva do
+    `epomeno-epipedo-s020` ja havia sido consumida pelo `-s036`, eu li os quatro
+    irmaos da origem um por um.
+
+    **O veredito e sobre os capitulos que o DONO extraiu**, e os quatro valores
+    sao:
+
+      * `livre` — nenhum capitulo da reserva aparece na copy de irmao nenhum;
+      * `consumida` — todos aparecem;
+      * `parcial` — alguns. **E `parcial` NAO quer dizer "metade consumida":**
+        o bloco pode nomear capitulo em mais de um papel na mesma frase (o
+        `labtreinamento-s033` cita o que deixou *e* o que um irmao ja levou), e
+        este modulo nao le papel de frase. `parcial` quer dizer **leia a
+        prosa**;
+      * `indeterminada` — a reserva nao nomeia capitulo por indice, ou a origem
+        nao resolve para pacote local (a regra h). **Isto RECUSA em vez de
+        chutar**, do jeito que o `porta1` recusa janela curta — e e o caso da
+        reserva que esta rodada teve de resolver lendo: **9 das 24 do acervo**
+        descrevem o capitulo em prosa, sem indice.
+
+    As duas contas sao **DELEGADAS**: a lista de capitulos do longo e a mencao
+    saem do `segundo_angulo`, que e quem sabe resolver origem para pacote e quem
+    (desde 20/10 as 12:4x) tira o bloco de reserva antes de testar mencao.
+    Reimplementar qualquer uma aqui criaria o segundo dono.
+
+    **E a mencao segue sendo INDICIO e nao prova**, com os dois limites do dono:
+    um short pode usar o capitulo sem citar o kicker, e kicker repetido no longo
+    e uma entrada so.
+    """
+    saida = []
+    for r in (da_origem(origem, dir_specs) if origem
+              else varre(dir_specs)):
+        reg = dict(r)
+        pacote = SA.pacote_do_id(r["origem"], **({"dir_specs": dir_specs}
+                                                 if dir_specs else {}))
+        caps = (SA.capitulos_do_pacote(pacote, **({"dir_specs": dir_specs}
+                                                  if dir_specs else {}))
+                if pacote else [])
+        indices = [i for i in (r["capitulos"] or [])
+                   if BASE_DO_INDICE <= i < len(caps) + BASE_DO_INDICE]
+        kickers = [caps[i - BASE_DO_INDICE] for i in indices]
+        kickers = [k for k in kickers if k]
+        if not kickers:
+            reg.update({"pacote_da_origem": pacote, "kickers": [],
+                        "livres": [], "mencionados": [],
+                        "veredito": "indeterminada"})
+            saida.append(reg)
+            continue
+        d = SA.nao_mencionados(r["origem"], **({"dir_specs": dir_specs}
+                                               if dir_specs else {}))
+        nao = set(d["nao_mencionados"])
+        livres = [k for k in kickers if k in nao]
+        men = [k for k in kickers if k not in nao]
+        reg.update({"pacote_da_origem": pacote, "kickers": kickers,
+                    "livres": livres, "mencionados": men,
+                    "veredito": ("livre" if not men else
+                                 "consumida" if not livres else "parcial")})
+        saida.append(reg)
+    return saida
+
+
 def da_origem(origem: str, dir_specs: str = None) -> list:
     return [r for r in varre(dir_specs) if r["origem"] == origem]
+
+
+def _linha_do_veredito(e: dict) -> str:
+    """A frase do veredito, com UM dono — ela sai nos DOIS ramos do relato.
+
+    Ela nasceu duplicada em outros modulos desta semana e a segunda copia ficou
+    citando conta velha (753). Aqui ela e uma funcao desde o primeiro minuto.
+    """
+    if not e:
+        return ("veredito: INDETERMINADO — o `estado` nao devolveu esta"
+                " reserva.")
+    v = e["veredito"]
+    if v == "indeterminada":
+        return ("veredito: INDETERMINADA — a reserva descreve o capitulo em"
+                " PROSA, sem indice, ou a origem nao tem spec local (regra h)."
+                " Isto RECUSA em vez de chutar: 9 das 24 do acervo sao assim, e"
+                " a desta classe se resolve LENDO os irmaos.")
+    if v == "livre":
+        return ("veredito: LIVRE — nenhum dos %d capitulo(s) dela aparece na"
+                " copy de irmao nenhum." % len(e["kickers"]))
+    if v == "consumida":
+        return ("veredito: CONSUMIDA — os %d capitulo(s) dela ja aparecem em"
+                " irmao. Foi assim que a reserva do `epomeno-epipedo-s020`"
+                " acabou: o `-s036` a levou." % len(e["kickers"]))
+    return ("veredito: PARCIAL — %d livre(s) e %d mencionado(s). Isto NAO quer"
+            " dizer metade consumida: o bloco pode nomear capitulo em mais de"
+            " um papel na mesma frase, e este modulo nao le papel de frase."
+            " PARCIAL quer dizer LEIA A PROSA."
+            % (len(e["livres"]), len(e["mencionados"])))
 
 
 def relato(origem: str = None, dir_specs: str = None) -> str:
@@ -129,15 +240,18 @@ def relato(origem: str = None, dir_specs: str = None) -> str:
                     " origem deixou indicacao em prosa — a pauta sai do"
                     " `segundo_angulo` e da leitura, como sempre.")
         L = [f"RESERVA ESCRITA para {origem}: {len(delas)}."]
+        por_pacote = {e["pacote"]: e for e in estado(origem, dir_specs)}
         for r in delas:
             L.append(f"  deixada por {r['pacote']}"
                      + (f", capitulos {r['capitulos'][0]} a"
                         f" {r['capitulos'][-1]}" if r["capitulos"] else ""))
             L.append(f"    {r['texto'][:600]}")
-        L.append("  isto NAO diz que a reserva segue livre: quem conta uso e o"
-                 " `concentracao`, e quem conta capitulo e o `segundo_angulo`."
-                 " Reserva escrita em 13/10 pode ter sido consumida sem ninguem"
-                 " riscar a prosa.")
+            L.append("    " + _linha_do_veredito(por_pacote.get(r["pacote"])))
+        L.append("  o veredito acima e sobre os capitulos que o dono EXTRAIU, e"
+                 " ele so foi possivel depois de 20/10 as 12:4x, quando o bloco"
+                 " de reserva parou de fazer o proprio capitulo contar como"
+                 " MENCIONADO. Mencao e INDICIO, nao prova: um short pode usar"
+                 " o capitulo sem citar o kicker.")
         return "\n".join(L)
     L = [f"RESERVAS ESCRITAS no acervo: {len(todas)}, em"
          f" {len({r['origem'] for r in todas})} origem(ns)."]
@@ -145,6 +259,14 @@ def relato(origem: str = None, dir_specs: str = None) -> str:
         L.append(f"  {r['pacote']:<24} {r['origem'] or '-'}"
                  + (f"  cap {r['capitulos'][0]}-{r['capitulos'][-1]}"
                     if r["capitulos"] else ""))
+    conta = {}
+    for e in estado(None, dir_specs):
+        conta[e["veredito"]] = conta.get(e["veredito"], 0) + 1
+    L.append("  por veredito: "
+             + ", ".join(f"{k} {v}" for k, v in sorted(conta.items())))
+    L.append("  " + _linha_do_veredito({"veredito": "indeterminada",
+                                        "kickers": [], "livres": [],
+                                        "mencionados": []}))
     L.append("  o marcador tem UM dono (`irmaos_da_origem.MARCAS_DE_NEGACAO`) e"
              " tem de ABRIR paragrafo: das 25 ocorrencias do disco, 24 abrem e"
              " UMA e citacao de uma reserva ja consumida.")
