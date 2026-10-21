@@ -31,7 +31,31 @@ descritivo nao vale o risco de apagar a credencial dos treze canais. A saida
 certa e nao confiar no campo — e e o que este arquivo faz agora, perguntando ao
 Google toda vez em vez de ler o registro.
 
-Uso: python3 fabrica/confere_token.py <canal>
+E EXISTEM DOIS SEGREDOS DE CREDENCIAL COM CONCESSOES DIFERENTES — medido em
+21/10/2026, com os dois instrumentos na mesma hora, e isto nao estava escrito em
+lugar nenhum:
+
+  * este arquivo le pelo `publicar.token_do_canal`, que tenta
+    `YT_TOKEN_<CANAL>` (AUSENTE, 0 chars nos tres) e cai no **`YT_TOKEN_JSON`**.
+    A concessao que voltou para o `labtreinamento` (job 119070898648) foi
+    `youtube` + `youtube.upload` + **`yt-analytics.readonly`**, SEM force-ssl;
+  * o `sonda_oauth.py` le o **`YT_OAUTH_JSON`** (1116 chars, 3 canais), que e o
+    que o `retomar.yml` usa para PUBLICAR, e nos tres canais ele responde
+    `upload=sim, force-ssl=sim, analytics=NAO` (job 119073920894).
+
+Logo os dois blobs divergem nos DOIS escopos que importam, em sentidos opostos.
+Duas respostas para a mesma pergunta, cada uma de um dono — e a leitura errada
+disso seria concluir "o dono reautorizou e perdeu o force-ssl", que e o que eu ia
+escrever com um instrumento so.
+
+**E A CONSEQUENCIA MAIOR E A OUTRA METADE: o `yt-analytics.readonly` existe em
+`YT_TOKEN_JSON`.** Este repo reporta esse escopo como PERDIDO desde o
+aprendizado 689, e a retencao e a unica alavanca do tamanho do problema. Escopo
+concedido NAO e prova de que o dado vem — quem prova e uma chamada a Analytics
+API com essa credencial, e ela nao foi feita ainda. Fica NOMEADO aqui em vez de
+celebrado.
+
+Uso: python3 fabrica/confere_token.py <canal> [spec.json]
 Ambiente: SUPABASE_URL + SUPABASE_SERVICE_ROLE_KEY (ou SB/KEY).
 """
 import json
@@ -94,12 +118,23 @@ def escopos_necessarios(sp=None):
     PARSEADO da copy e nunca postado, logo `commentThreads.insert`, que
     exigiria force-ssl, nao acontece.
 
-    E a consequencia foi ATIVA e nao latente: em 21/10 as 06:1x (run
+    E O TAMANHO VAI MEDIDO EM VEZ DE VENDIDO: este buraco e **LATENTE** para a
+    producao desta frota, e eu o escrevi primeiro como "ATIVO". Medido depois: o
+    passo que chama este portao no `frota.yml` tem `if: inputs.publicar`, e as
+    rodadas renderizam com `publicar=false` e publicam pelo `retomar.yml` — logo
+    o portao nao roda nelas. Quem o fez disparar foi um disparo MEU sem o
+    `publicar=false`, que e o DEFAULT do workflow (true). Entao o que isto fecha
+    e a invocacao PADRAO do `frota.yml`, nao a linha de producao; dizer o
+    contrario seria vender conserto de defeito ativo, o que a nota do
+    `test_duracao_dos_dois_provedores` (13/10) proibe em letra.
+
+    O que o revelou: em 21/10 as 06:1x (run
     39554457072, job 119070898648) a concessao do
     `labtreinamento` perdeu o force-ssl (e ganhou `yt-analytics.readonly`), e
     este portao abortou o render do `labtreinamento-s098` — um short solto — por
     um escopo que a publicacao dele nao usa. Com **256** das 396 specs do disco
-    sendo short solto, isso parava a linha inteira.
+    sendo short solto, isso aborta o render de QUALQUER uma delas na invocacao
+    padrao.
 
     `sp=None` devolve o conjunto ESTRITO de proposito: nao saber que peca e nao
     e licenca para ser permissivo, e e assim que o `diagnostico.yml` chama este

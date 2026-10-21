@@ -12,9 +12,13 @@ A peca nao tem longo e nao envia legenda nenhuma: no `publicar.py` a chamada de
 letra, no docstring do proprio `token_do_canal` deste arquivo, para o outro eixo
 (ler o REST quando o `publicar.py` le o ENV). Mesma forma, segundo eixo.
 
-E a consequencia foi ATIVA, nao latente: com **256** das 396 specs do disco
-sendo short solto, isso parava a linha inteira por um escopo que a publicacao
-delas nao usa.
+E O TAMANHO VAI MEDIDO, porque eu o escrevi primeiro ERRADO: chamei a
+consequencia de ATIVA e ela e **LATENTE** para esta producao. O passo que chama
+o portao no `frota.yml` tem `if: inputs.publicar`, e as rodadas renderizam com
+`publicar=false` e publicam pelo `retomar.yml`. Quem fez o portao disparar foi um
+disparo MEU sem esse argumento — e `publicar` e `true` por DEFAULT. Logo o que se
+fecha aqui e a invocacao PADRAO do workflow, com **256** das 396 specs do disco
+sendo short solto; a linha de producao nunca passou por ele.
 
 O que este arquivo NAO permite e afrouxar: pacote COM longo continua abortando,
 e a contraprova vai nos dois sentidos.
@@ -244,3 +248,49 @@ def test_o_motivo_continua_escrito_nos_DOIS_modulos():
         "a readotar o conjunto estrito 'por seguranca'")
     assert "256" in fp and "140" in fp, (
         "a medida do disco (256 short solto contra 140 pacote) saiu do dono")
+
+
+def test_o_tamanho_fica_LATENTE_e_nao_volta_a_ser_vendido_como_ativo():
+    """A primeira versao desta nota chamou a consequencia de ATIVA.
+
+    Medido depois: o passo tem `if: inputs.publicar`, as rodadas renderizam com
+    `publicar=false` e publicam pelo `retomar.yml`, e `publicar` e `true` por
+    DEFAULT — quem fez o portao disparar foi um disparo sem o argumento. Vender
+    conserto de defeito ativo e o que a nota do `test_duracao_dos_dois_provedores`
+    proibe em letra desde 13/10.
+    """
+    ct = (RAIZ / "fabrica" / "confere_token.py").read_text(encoding="utf-8")
+    assert "LATENTE" in ct, "a retratacao do tamanho saiu do modulo"
+    assert "publicar=false" in ct and "retomar.yml" in ct, (
+        "o modulo deixou de dizer POR QUE e latente — sem isso a rodada "
+        "seguinte reescreve 'parava a linha inteira'")
+    yml = (RAIZ / ".github" / "workflows" / "frota.yml").read_text(
+        encoding="utf-8")
+    assert re.search(r"if:\s*\$\{\{\s*inputs\.publicar\s*\}\}", yml), (
+        "o passo do portao perdeu o `if: inputs.publicar`; se ele passar a "
+        "rodar sempre, a consequencia deixa de ser latente e esta nota se rele")
+
+
+def test_os_DOIS_segredos_de_credencial_ficam_NOMEADOS():
+    """Duas credenciais com concessoes OPOSTAS, cada uma com o seu leitor.
+
+    `confere_token` -> `YT_TOKEN_JSON` (analytics SIM, force-ssl NAO);
+    `sonda_oauth`  -> `YT_OAUTH_JSON` (force-ssl SIM, analytics NAO). Com um
+    instrumento so a leitura seria "o dono reautorizou e perdeu o force-ssl" —
+    que e falso. E o `yt-analytics.readonly`, que este repo reporta como perdido
+    desde o 689, existe em uma delas.
+    """
+    ct = (RAIZ / "fabrica" / "confere_token.py").read_text(encoding="utf-8")
+    for marca in ("YT_TOKEN_JSON", "YT_OAUTH_JSON", "yt-analytics.readonly",
+                  "689"):
+        assert marca in ct, (
+            "a divergencia entre as duas credenciais perdeu %r; sem ela a "
+            "rodada seguinte atribui a um dos dois blobs o que e do outro"
+            % marca)
+    # E a leitura de cada um continua sendo de quem ela e: o portao NAO le o
+    # segredo da publicacao do `retomar.yml`, e dizer o contrario inverteria a
+    # conclusao.
+    pub = (RAIZ / "fabrica" / "publicar.py").read_text(encoding="utf-8")
+    assert "YT_TOKEN_JSON" in pub and "YT_OAUTH_JSON" not in pub, (
+        "o `publicar.py` passou a ler o outro blob — a divergencia medida em "
+        "21/10 muda de lado e esta nota tem de ser relida")
