@@ -1,0 +1,124 @@
+{
+ "slug": "epomeno-epipedo-s080",
+ "pacote": "epomeno-epipedo-s080",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "longo_existente": "uWs-k_Wrn_w",
+ "longo": [],
+ "thumb": {
+  "l1": "Η έκπτωση",
+  "l2": "δεν αποφασίζει"
+ },
+ "paleta": {
+  "bg": "#F4EFE6",
+  "ink": "#1B1A17",
+  "c1": "#C8502A",
+  "c2": "#2B6CB0",
+  "red": "#B83227",
+  "ok": "#2E8B57",
+  "panel": "#FFFFFF",
+  "mut": "#7A7263",
+  "acc": "#C8502A"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Η έκπτωση δεν είναι ο λόγος",
+   "sub": "είναι αυτό που αλλάζει την απάντηση",
+   "nar": "Αγοράζεις ασφάλεια για την έκπτωση;"
+  },
+  {
+   "layout": "lista",
+   "kicker": "Η ωμή σύγκριση",
+   "itens": [
+    "Ασφάλιστρο",
+    "Έκπτωση",
+    "Η διαφορά"
+   ],
+   "nar": "Δες τη σύγκριση χωρίς στολίδια τώρα."
+  },
+  {
+   "layout": "item",
+   "kicker": "Το ασφάλιστρο",
+   "nar": "Το ασφάλιστρο βγαίνει συνήθως ψηλότερα."
+  },
+  {
+   "layout": "item",
+   "kicker": "Σαν παιχνίδι φόρου",
+   "nar": "Σαν παιχνίδι φόρου, βγαίνεις χαμένος."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Η τίμια εικόνα",
+   "barras": [
+    {
+     "rotulo": "Ασφάλιστρο",
+     "valor": 100
+    },
+    {
+     "rotulo": "Έκπτωση",
+     "valor": 54
+    },
+    {
+     "rotulo": "Διαφορά",
+     "valor": 46
+    }
+   ],
+   "nar": "Αυτό είναι το τίμιο συμπέρασμα εδώ."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Τότε γιατί το λέω",
+   "sub": "γιατί αλλάζει την απάντηση",
+   "nar": "Τότε γιατί αξίζει ολόκληρη συζήτηση;"
+  },
+  {
+   "layout": "item",
+   "kicker": "Η σωστή ερώτηση",
+   "nar": "Η σωστή ερώτηση είναι τελείως άλλη."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Αντέχεις τη ζημιά;",
+   "barras": [
+    {
+     "rotulo": "Η ζημιά",
+     "valor": 100
+    },
+    {
+     "rotulo": "Η τσέπη σου",
+     "valor": 28
+    }
+   ],
+   "nar": "Αν γίνει σεισμός, πληρώνεις τη ζημιά;"
+  },
+  {
+   "layout": "lista",
+   "kicker": "Αν η απάντηση είναι όχι",
+   "itens": [
+    "Τη χρειάζεσαι ήδη",
+    "Η έκπτωση ρίχνει το κόστος",
+    "Ο φόρος δεν αποφασίζει"
+   ],
+   "nar": "Αν η απάντηση είναι όχι, τη χρειάζεσαι."
+  },
+  {
+   "layout": "item",
+   "kicker": "Η έκπτωση μετά",
+   "nar": "Η έκπτωση κατεβάζει το κόστος της."
+  },
+  {
+   "layout": "item",
+   "kicker": "Αν η απάντηση είναι ναι",
+   "nar": "Αν είναι ναι, μην το κάνεις για φόρο."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Επόμενο Επίπεδο",
+   "sub": "κάνε εγγραφή",
+   "nar": "Πρώτα έρχεται η ζημιά, μετά η έκπτωση."
+  }
+ ],
+ "copy": "# epomeno-epipedo-s080\n\n## TITULO\nΗ Έκπτωση Δεν Είναι ο Λόγος να Ασφαλιστείς: Είναι Αυτό που Αλλάζει την Απάντηση\n\n## TITULO SHORT\nΗ έκπτωση δεν είναι ο λόγος\n\n## DESCRICAO\nΥπάρχει ένα κεφάλαιο που κανένα βίντεο για εκπτώσεις δεν κάνει, γιατί χαλάει την ιστορία: **πότε αυτή η έκπτωση δεν βγάζει νόημα.**\n\nΗ ωμή σύγκριση είναι απλή. Ένα ασφαλιστήριο κατοικίας με σεισμό, πυρκαγιά και πλημμύρα κοστίζει στις περισσότερες περιπτώσεις **παραπάνω** από όσο σου επιστρέφει η μέση έκπτωση μέσα στον χρόνο. Άρα, αν το βλέπεις μόνο σαν παιχνίδι φόρου, στις περισσότερες περιπτώσεις **βγαίνεις χαμένος** — και αυτό είναι το τίμιο συμπέρασμα, δεν το κρύβουμε.\n\n**Τότε γιατί αξίζει ολόκληρη συζήτηση;** Επειδή η έκπτωση δεν είναι ο λόγος να ασφαλιστείς. Είναι αυτό που αλλάζει την **απάντηση** σε μια ερώτηση που είναι εντελώς άλλη.\n\n**Η σωστή ερώτηση:** αν αύριο γίνει σεισμός ή πλημμύρα, μπορείς να πληρώσεις τη ζημιά από την τσέπη σου;\n\n**Αν η απάντηση είναι όχι**, τότε δεν συζητάς έκπτωση — χρειάζεσαι ήδη την ασφάλεια, και η έκπτωση απλώς κατεβάζει το πραγματικό κόστος αυτού που θα έκανες έτσι κι αλλιώς. Η σειρά μετράει: πρώτα η ανάγκη, μετά το κόστος.\n\n**Αν η απάντηση είναι ναι** — αν δηλαδή αντέχεις τη ζημιά — μην αγοράσεις ασφάλεια για να γλιτώσεις φόρο. Η αριθμητική δεν βγαίνει, και το βίντεο δεν θα σου πει το αντίθετο για να ακουστεί πιο ωραίο.\n\nΑυτό είναι όλο, και είναι λιγότερο εντυπωσιακό από ό,τι υπόσχονται τα περισσότερα βίντεο: **η έκπτωση δεν αποφασίζει. Μετακινεί το κόστος μιας απόφασης που παίρνεις για άλλον λόγο.** Όποιος ξεκινά από τον φόρο, ρωτά πρώτα το λάθος πράγμα.\n\n## COMENTARIO FIXADO\nΤο λιγότερο προφανές: η έκπτωση κάνει τη διαφορά **μόνο** όταν η απάντηση στη σωστή ερώτηση είναι «όχι». Στην άλλη περίπτωση δεν είναι μικρό κέρδος — είναι λάθος αγορά με έκπτωση. Εσύ από πού ξεκίνησες, από τον φόρο ή από τη ζημιά;\n\n## HASHTAGS\n#ασφάλεια #φόρος #οικονομικά #epomenoepipedo #Shorts\n\n## TAGS\nασφαλιστηριο κατοικιας, εκπτωση φορου, σεισμος, πλημμυρα, πυρκαγια, ασφαλιστρο, κοστος, αποφαση, προτεραιοτητα, επομενο επιπεδο\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\n**ZERO numero novo sobre o mundo, e a narracao nao fala numero nenhum** — nem o\nvalor da media da deducao, nem o custo do premio, nem percentual, nem prazo.\nConferido cena a cena: nenhum digito cru.\n\n**E O NUMERO CENTRAL DO CAPITULO FICOU DE FORA DE PROPOSITO, mesmo sendo o que\ndaria a peca um fecho redondo:** o longo diz, nos capitulos 51 e 52, o valor\nmedio da deducao e que o premio custa mais que ele. Os dois mudam por\npublicacao — premio de seguro e media de deducao sao numeros do mundo que se\nmovem a cada ano — logo a regra (g) os tira, **e a familia sobrevive sem eles**:\no que a peca carrega e a COMPARACAO (*\"o premio sai mais alto\"*) e a ORDEM da\ndecisao, nao a grandeza.\n\nAs barras sao **ILUSTRACAO qualitativa** e **NAO sao faladas**: na cena 5 elas\nmostram o premio acima da deducao e a diferenca que sobra; na cena 8, a ordem de\ngrandeza entre a ZAMIA e o bolso. Elas nao medem apolice nenhuma, nao saem de\nestudo nenhum, e a rodada seguinte **nao deve le-las de volta como dado**.\n\n## FAMILIA DE ENTRADA ERRADA\n**A DEDUCAO TRATADA COMO O MOTIVO DA COMPRA** — comecar pelo imposto e decidir o\nseguro pelo tamanho da deducao, quando a comparacao crua diz que, so como jogo\nde imposto, na maioria dos casos ela nao paga o proprio premio. O discriminador\ne de ORDEM e nao de conta: **a deducao nao decide, ela move o custo de uma\ndecisao que se toma por outro motivo** — e a pergunta que decide e *\"se a\nZAMIA acontecer amanha, pago do bolso?\"*\n\nAs TRES familias anteriores desta origem vieram do `irmaos_da_origem` e **duas\ndelas nao tem o campo**, logo a comparacao foi pela NARRACAO de primeira mao que\no conserto de 15:3x passou a imprimir:\n\n* `s017` — **deducao AUTOMATICA contra deducao PEDIDA**: uma entra sozinha, a\n  outra morre sem requerimento no prazo;\n* `s026` — **o KATOFLI nao e um valor**: o minimo e porta de entrada, e quem da\n  o valor e o tempo corrido;\n* `s062` — **meio ano, metade da deducao**: a mesma distincao do `s026` dita\n  pelo lado do tempo.\n\n**As tres falam de COMO a deducao se calcula; esta fala de SE ela devia estar na\nconta.** Nenhuma delas pergunta se o seguro faz sentido sem a deducao, que e o\neixo inteiro desta.\n\n## FONTES\nOrigem: `uWs-k_Wrn_w` (`epomeno-epipedo-008`, 69 capitulos), escolhida pelo\n`pauta_do_momento.py` — 3 usos, empatada com **duas** outras origens e\ndesempatada pela MAIOR reserva, **51 capitulos NAO MENCIONADOS de 69**. A\ndominante do canal (`nttW9fR8wyY`) ficou de fora, e quem conta e o\n`concentracao.py`. O `reservas_escritas.py` disse que esta origem **NAO tem\nreserva escrita** por irmao nenhum — ele nomeia a ausencia em vez de calar.\n\nCapitulos desta peca: **50, 53, 54, 55, 56 e 57** (*\"Πότε ΔΕΝ συμφέρει\"*,\n*\"Η ωμή σύγκριση\"*, *\"Τότε γιατί το λέω\"*, *\"Η σωστή ερώτηση\"*,\n*\"Αν η απάντηση είναι όχι\"* e *\"Αν είναι ναι\"*). O 53 escreve em letra que *\"se\nvoce ve isso so como deducao de imposto, na maioria dos casos voce sai\nperdendo\"*; o 54 que *\"a deducao nao e o motivo para se segurar, e o que muda a\nresposta\"*; e o 57 que *\"nao compre seguro para economizar imposto\"*.\n\n**E A CONFERENCIA CONTRA OS IRMAOS VAI SEPARADA EM DUAS, pelo instrumento de\n23:4x de 20/10:**\n\n* **por CAPITULO, mecanica, alcanca 2 dos 3 irmaos** (`s026` em 47 a 49 e `s062`\n  em 33): **zero sobreposicao** com 50 a 57;\n* **por LEITURA da narracao, o terceiro** (`s017`), que nao declara capitulo\n  nenhum — e a narracao de primeira mao dele fala de deducao automatica contra\n  pedida, nao de ordem de decisao.\n\nAusencia de capitulo declarado **nao e** ausencia de colisao (761), e por isso o\n`s017` vai nomeado aqui em vez de entrar na conta como conferido pela rota\nmecanica.\n\n## EXPOSICAO\n**DOZE CENAS, e as duas recusas nao foram minhas.** O `contagem_de_cenas.py` deu\n**catorze** como melhor cadencia e **acusou sozinho que a `s078`, a antepenultima\ndeste canal, tem catorze**. E **quinze** — que seria novidade de TAMANHO e e o\n**teto MEDIDO desta voz** — foi recusada pela **FOLGA**: o orcamento ali cai a 22\ncaracteres por cena, a UM do piso OBSERVADO de 21. **E a mesma conta que eu\nrecusei A MAO em 04:1x e 06:2x de 20/10**, e e por isso que ela deixou de morar\nna minha cabeca. Doze e a melhor que SERVE pelos tres filtros, com folga **+15**.\n\n**A PINCA DO 740/748 ESTA FECHADA AQUI, e a exposicao vai declarada ANTES de\npublicar:** o `mira.janela_dos_dois_mundos` devolve **NENHUMA** janela para esta\nvoz nesta faixa — em contagem de cena nenhuma de 2 a 20 —, porque o vao entre os\nprovedores vale ~4,7 s contra 1,5 s de faixa. Mirei o **PISO** pela regra de\nredacao do 772: orcamento **36** caracteres por cena para o piso, escrita com media **36,5** —\nlogo a previsao edge sai em **41,70 s**, 0,20 acima do piso da faixa, e o\n**piper sai FORA pelo piso**. O\nprovedor se decide no runner, por cena e por run (730/733), e o portao `duracao`\ncobra 18 a 45 s nos dois mundos — que os dois satisfazem.\n\n**O que eu NAO declaro: de que lado da banda o real cai.** Ela tem 5,2 s contra\n1 s de granularidade, e escolher um lado nao e previsao (774).\n\n**ESQUELETO\n`titulo-lista-item-item-barras-titulo-item-barras-lista-item-item-cta`**, inedito\nnas **142** formas da frota e nas **SEIS** de doze cenas, com a propria peca FORA\nda varredura pelo `exceto`. **`barras` entra DUAS vezes e as duas carregam\nargumento** — a cena 5 desenha o premio acima da deducao, a cena 8 a ZAMIA acima\ndo bolso. Todo layout saiu do conjunto **SONDADO**\n(`layouts_do_short.desenham`), com `assert` no construtor, e a paleta foi **LIDA**\nde `temas_do_dono.paleta_do_canal`.\n"
+}
