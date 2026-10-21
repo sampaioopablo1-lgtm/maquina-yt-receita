@@ -1,0 +1,81 @@
+{
+ "slug": "labtreinamento-s101",
+ "pacote": "labtreinamento-s101",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "longo_existente": "lau1nnOUm1U",
+ "longo": [],
+ "thumb": {
+  "l1": "Uma linha",
+  "l2": "por par"
+ },
+ "paleta": {
+  "bg": "#0E1117",
+  "ink": "#EEF1F5",
+  "c1": "#3DDBD9",
+  "c2": "#1E2430",
+  "red": "#FF5A5F",
+  "ok": "#3CCB7F",
+  "panel": "#161B24",
+  "mut": "#8B95A5",
+  "acc": "#3DDBD9"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Uma linha por pessoa?",
+   "sub": "é aí que ela deixa de responder",
+   "nar": "A sua planilha só tem uma linha por pessoa?"
+  },
+  {
+   "layout": "item",
+   "kicker": "Cada um vence sozinho",
+   "nar": "Cada treinamento vence na própria data."
+  },
+  {
+   "layout": "lista",
+   "kicker": "A unidade da linha",
+   "itens": [
+    "Nome da pessoa",
+    "O treinamento feito",
+    "A data de realização",
+    "E a periodicidade dele"
+   ],
+   "nar": "Quem fez três treinamentos ocupa três linhas."
+  },
+  {
+   "layout": "item",
+   "kicker": "Juntar tudo esconde",
+   "nar": "Juntar numa só linha esconde o vencimento."
+  },
+  {
+   "layout": "barras",
+   "kicker": "O que cada lista revela",
+   "barras": [
+    {
+     "rotulo": "Uma linha por pessoa",
+     "valor": 28
+    },
+    {
+     "rotulo": "Uma linha por par",
+     "valor": 100
+    }
+   ],
+   "nar": "Com as linhas certas, a ordenação funciona."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O topo é a fila",
+   "sub": "e costuma surpreender",
+   "nar": "O topo da lista é a sua fila de trabalho."
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "inscreva-se",
+   "nar": "Veja a sua própria lista e depois inscreva-se."
+  }
+ ],
+ "copy": "# labtreinamento-s101\n\n## TITULO\nUma Linha Por Pessoa Esconde o Vencimento: a Unidade da Lista é Pessoa Vezes Treinamento\n\n## TITULO SHORT\nUma linha por par\n\n## DESCRICAO\nA maior parte das listas de controle de treinamento nasce com **uma linha por pessoa** — e é aí que ela deixa de responder à pergunta que a fez existir. Cada treinamento vence na **sua própria data**. Juntar todos numa linha só obriga a escolher qual data mostrar, e qualquer escolha esconde as outras.\n\n**A unidade da linha não é a pessoa: é pessoa vezes treinamento.** Quem fez três treinamentos ocupa três linhas, e isso não é redundância — é o que permite que a lista seja ordenada. Com uma linha por pessoa, ordenar pelo vencimento não ordena nada: a planilha fica com uma data por pessoa e perde justamente o cruzamento que interessa.\n\n**E o efeito aparece no topo da lista.** Terminada a lista e ordenada pelo vencimento, do mais próximo para o mais distante, o topo costuma surpreender — raramente é quem se imaginava. Memória não ordena datas bem, e é exatamente por isso que a lista existe em vez de uma conversa. Quando a unidade está errada, esse topo nunca aparece: ele fica diluído dentro da linha da pessoa.\n\n**O que isso muda na prática é pequeno e imediato:** em vez de uma aba com uma linha por nome, uma linha para cada par de nome e treinamento, com a data de realização e a periodicidade de cada um. A data de vencimento é a única coluna calculada; as outras são copiadas do certificado.\n\n**E há uma consequência de processo que vale dizer:** com a unidade certa, revisar a lista deixa de ser um projeto e passa a ser uma leitura — o topo diz o que fazer primeiro, e o resto só se observa. Sem ela, toda revisão vira uma reconstrução, porque a informação que decide a ordem não está na planilha: está espalhada nos certificados.\n\n**Guarde a lista num lugar só, e combine com outra pessoa onde ela fica.** Lista que mora na cabeça de uma pessoa some quando essa pessoa sai de férias — e aí a unidade certa não salva nada, porque não há lista.\n\n## COMENTARIO FIXADO\nO menos óbvio: com uma linha por pessoa, ordenar pelo vencimento não ordena nada — e o nome que deveria aparecer no topo fica diluído. Quantas linhas a sua lista tem para quem fez mais de um treinamento?\n\n## HASHTAGS\n#treinamento #sst #planilha #labtreinamento #Shorts\n\n## TAGS\ncontrole de treinamento, vencimento, periodicidade, data de realizacao, planilha de treinamento, uma linha por treinamento, ordenar por vencimento, lista de controle, rh, sst, labtreinamento, gestao de treinamento\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\n**ZERO numero novo sobre o mundo.** O unico numeral falado e **\"tres\"**, na cena\n3, e ele e o EXEMPLO da propria peca — a pessoa que fez tres treinamentos ocupa\ntres linhas. Nao e prazo, nao e periodicidade legal, nao e meta e nao e valor.\n\n**FICOU DE FORA pela regra (g):** qualquer prazo de norma, a periodicidade de\nqualquer treinamento, o numero de dias de antecedencia e o tempo de revisao que o\ncapitulo 31 da origem sugere. Os quatro mudam por publicacao ou por politica, e\nnumero errado no ar e pior que numero ausente. **E a propria origem declara essa\ndisciplina:** o capitulo 54 dela se chama *\"Por que nao dei prazos\"*.\n\n**As barras da cena 5 sao ILUSTRACAO qualitativa e NAO sao faladas:** elas\ndesenham quanto cada forma de lista REVELA quando se ordena pelo vencimento — a\nde uma linha por pessoa contra a de uma linha por par. Elas nao medem empresa\nnenhuma e nao sao contagem de nada.\n\n## FAMILIA DE ENTRADA ERRADA\n**A UNIDADE DA LINHA: uma por PESSOA, quando a unidade e PESSOA VEZES\nTREINAMENTO** (capitulos 26 a 29, com apoio do 25 e do 30). Cada treinamento\nvence na propria data, logo uma linha por pessoa obriga a escolher qual data\nmostrar — e qualquer escolha esconde as outras. **O efeito nao e perder uma\ncoluna: e a ORDENACAO deixar de ordenar.** Com a unidade errada, ordenar pelo\nvencimento devolve uma data por pessoa, e o nome que deveria aparecer no topo\nfica diluido dentro da linha dele.\n\nAs CINCO familias anteriores desta origem vieram do `irmaos_da_origem`, e **tres\ndelas nao tem o campo** — logo a comparacao foi pela NARRACAO de primeira mao,\nque o relato imprime inteira desde 20/10:\n\n* `s008` — a **ANTECEDENCIA nao se arredonda, se mede**;\n* `s032` — decidir pela **POSSIBILIDADE** e nao pela escala de hoje;\n* `s040` — a data de **EMISSAO** no lugar da data de REALIZACAO;\n* `s047` — a **POPULACAO** definida pela escala de hoje;\n* `s075` — a **CARGA HORARIA** nao decide prazo.\n\n**As cinco falam do CONTEUDO de uma celula — qual data, qual pessoa, qual\nnumero. Esta fala da FORMA da tabela: o que e uma linha.** E a distincao com a\nmais vizinha vai escrita: o `s040` erra QUAL das duas datas entra na linha; esta\nerra QUANTAS linhas existem. E o SEXTO angulo deste mesmo longo.\n\n## FONTES\nOrigem: `lau1nnOUm1U` (`labtreinamento-011`, 57 capitulos), escolhida pelo\n`pauta_do_momento.py` — **5 usos**, a MENOR contagem do canal, sem empate (as\nseguintes estao em 6). A dominante do canal (`FtCtIJPsc_Q`) ficou de fora, e quem\nconta e o `concentracao.py`.\n\nCapitulos desta peca: **26 a 29**, com apoio do **25** e do **30** —\n*\"Uma linha por pessoa / e por treinamento\"*, *\"Por que separado / porque vencem\nem datas diferentes\"*, *\"Depois ordene / pelo vencimento, crescente\"* e *\"O que\naparece no topo / costuma surpreender\"*. O 27 escreve a frase que a peca carrega:\n*\"juntar tudo numa linha por pessoa esconde exatamente o que voce quer ver\"*.\n\n**DEIXADO DE PROPOSITO para a rodada seguinte achar — O QUE EU NAO LEVEI:** o\ncapitulo 30 (*\"Guarde num lugar so / e combinado com alguem\"*), que diz que lista\nque mora na cabeca de uma pessoa **some quando ela sai de ferias** — e o 31, que\ntransforma a revisao em rotina curta. **E outra familia inteira (A LISTA QUE TEM\nUM DONO SO) e da um SETIMO angulo deste mesmo longo**, sem precisar de numero\nnenhum. Ela aparece de passagem na DESCRICAO desta peca, e isso vai dito: o\nproximo short dela tem de sustentar o eixo, nao repetir a frase.\n\n**A CONFERENCIA CONTRA OS IRMAOS: DOIS dos cinco declaram capitulo em faixa que\ninclui os meus** — o `s040` declara 19 a 54 (18 citados) e o `s047` declara 40 a\n47. **O cruzamento foi conferido um a um:** os capitulos 26 a 29 **nao estao**\nentre os citados por nenhum dos dois, e o eixo deles e outro (qual data, qual\npopulacao). Os tres sem campo foram conferidos por LEITURA da narracao de\nprimeira mao, e **ausencia de capitulo declarado NAO e ausencia de colisao\n(761)**. Esta peca DECLARA os capitulos dela.\n\n## EXPOSICAO\n**SETE CENAS, pela chave `por_cadencia_servivel`:** e a melhor cadencia\n(3,29 s), **nao repete** o tamanho recente (a `s100` tem seis e a `s099` oito) e\nalcanca o piso com folga **+10** (31 caracteres no piso). As contagens **9, 10 e\n11** sairam NOMEADAS e nao filtradas, porque nelas o PISO da faixa nao e\nalcancavel com texto legivel.\n\n**E OS DOIS MUNDOS CABEM AQUI, o que so acontece neste canal:** o\n`mira.janela_dos_dois_mundos` devolve **41 a 44** caracteres por cena com sete\ncenas, e a peca foi escrita com media **42,7** — logo os dois provedores caem\ndentro da mira MEDIDA do canal (20,0 a 26,0) e **nao ha exposicao de mundo a\ndeclarar**. Nos outros dois canais essa janela nao existe em contagem nenhuma (a\npinca do 740/748).\n\n**E A PRIMEIRA VERSAO DA NARRACAO FOI REPROVADA PELO `ortografia`, com os DOIS\ndonos do acento DISCORDANDO:** o portao reprovou (*\"1,7% das letras contra 4,5%\nnas specs de pt que acentuam\"*) e o `acento.py`, na MESMA chamada, disse\n*\"carrega acento, como as outras deste idioma\"* — porque 1,65% esta acima do\npiso OBSERVADO dele (1,57%). **O instrumento e o lado PERMISSIVO**, e seguir so\nele renderizaria peca que o portao recusa. Corrigido antes do render: **3,70%**,\ncom a reescrita feita por palavra (`só`, `ordenação`, `própria`) e sem mexer na\nmedia de caracteres, que segue em 42,7.\n\n**O que eu NAO declaro: de que lado da banda o real cai.** Ela tem 5,2 s contra\n1 s de granularidade, e escolher um lado nao e previsao (774). O tally deste\ncanal segue dominado pelo lado de FORA do teto da mira, com o `mira.py` verde nos\ndois mundos — a decisao do 740/748 e do dono.\n\n**ESQUELETO `titulo-item-lista-item-barras-titulo-cta`**, inedito nas **SEIS**\nformas de sete cenas da frota e nas **156** da frota inteira, com a propria peca\nFORA da varredura pelo `exceto`. Todo layout saiu do conjunto **SONDADO**\n(`layouts_do_short.desenham`), com `assert` no construtor, e a paleta foi **LIDA**\nde `temas_do_dono.paleta_do_canal`.\n"
+}
