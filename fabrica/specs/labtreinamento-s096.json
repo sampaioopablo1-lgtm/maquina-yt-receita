@@ -1,0 +1,89 @@
+{
+ "slug": "labtreinamento-s096",
+ "pacote": "labtreinamento-s096",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "longo_existente": "XgqPVJuAk3o",
+ "longo": [],
+ "thumb": {
+  "l1": "Palestra",
+  "l2": "não é medida"
+ },
+ "paleta": {
+  "bg": "#0E1117",
+  "ink": "#EEF1F5",
+  "c1": "#3DDBD9",
+  "c2": "#1E2430",
+  "red": "#FF5A5F",
+  "ok": "#3CCB7F",
+  "panel": "#161B24",
+  "mut": "#8B95A5",
+  "acc": "#3DDBD9"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Palestra não é medida",
+   "sub": "quando o risco é da escala",
+   "nar": "Você pôs palestra no plano de ação?"
+  },
+  {
+   "layout": "lista",
+   "kicker": "O trio que sempre aparece",
+   "itens": [
+    "Palestra",
+    "Aplicativo",
+    "Ginástica"
+   ],
+   "nar": "Vem palestra, aplicativo, ginástica."
+  },
+  {
+   "layout": "item",
+   "kicker": "Nenhuma delas é ruim",
+   "nar": "Nenhuma é ruim, e nenhuma responde."
+  },
+  {
+   "layout": "barras",
+   "kicker": "A norma põe uma ordem",
+   "barras": [
+    {
+     "rotulo": "Na fonte",
+     "valor": 100
+    },
+    {
+     "rotulo": "Coletiva",
+     "valor": 62
+    },
+    {
+     "rotulo": "Individual",
+     "valor": 24
+    }
+   ],
+   "nar": "A norma tem uma ordem de prioridade."
+  },
+  {
+   "layout": "item",
+   "kicker": "Primeiro, depois, por último",
+   "nar": "A pessoa vem por último, não antes."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O teste é curto",
+   "sub": "a medida muda a rotina",
+   "nar": "A medida certa muda a rotina posta."
+  },
+  {
+   "layout": "item",
+   "kicker": "Escala avisada em cima da hora",
+   "nar": "Escala curta pede escala com folga."
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "inscreva-se",
+   "nar": "Ensinar a suportar não resolve nada."
+  }
+ ],
+ "copy": "# labtreinamento-s096\n\n## TITULO\nPalestra Não É Medida: A Ordem que a Norma Pede no Plano de Ação\n\n## TITULO SHORT\nPalestra não é medida do plano\n\n## DESCRICAO\nVocê terminou o inventário, classificou as linhas e chegou no plano de ação. Aí vem a parte onde a planilha mais escorrega: **o que escrever na coluna da medida.**\n\nO trio que aparece em quase todo plano é palestra sobre saúde mental, aplicativo de meditação e ginástica laboral. **Nenhuma delas é ruim.** O problema é outro: nenhuma delas responde a um risco que nasceu da organização do trabalho. Se a escala é avisada em cima da hora, nenhuma palestra muda a escala.\n\n**E a norma não deixa isso no gosto de quem monta.** Ela trabalha com ordem de prioridade: primeiro eliminar ou reduzir na fonte, depois a medida coletiva e organizacional, e **só por último** a medida voltada ao indivíduo. Quando o plano começa pela última, ele inverte a ordem inteira — e o auditor lê isso na coluna.\n\n**O teste é curto e cabe numa frase: a medida certa muda a rotina posta.** Se a situação é escala avisada em cima da hora, a medida é avisar com folga — não é ensinar o grupo a lidar com a incerteza. Uma dessas duas muda o que acontece na segunda-feira; a outra pede que a pessoa aguente o que continua igual.\n\n**Duas coisas práticas que vêm junto.** O plano não repete o inventário inteiro: ele puxa só as linhas classificadas como mais pesadas, que são as que exigem ação. E o responsável é **um nome**, nunca uma área — medida de responsabilidade de um setor inteiro é medida de ninguém, e essa não acontece.\n\nEntão a pergunta que vale, antes de escrever qualquer medida: **ela muda a rotina, ou ela ensina alguém a suportar a rotina?** A primeira é medida. A segunda é treinamento, e treinamento é a última da fila.\n\n## COMENTARIO FIXADO\nO menos óbvio: a medida individual não está PROIBIDA — ela está em último lugar. Palestra depois de mexer na escala é complemento; palestra no lugar de mexer na escala é a ordem invertida. Qual é a primeira linha do seu plano hoje?\n\n## HASHTAGS\n#saudeocupacional #planodeacao #riscospsicossociais #labtreinamento #Shorts\n\n## TAGS\nplano de acao, medida de controle, ordem de prioridade, eliminar na fonte, medida coletiva, medida individual, riscos psicossociais, organizacao do trabalho, escala, responsavel, inventario de riscos, auditoria, labtreinamento\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\n**ZERO numero novo sobre o mundo, e a narracao nao fala numero nenhum** — nem\nnumero ou item de norma, nem prazo em dias, nem a faixa de corte do nivel, nem\nquantas medidas o plano deve ter. Conferido cena a cena: nenhum digito cru.\n\n**E O NUMERO MAIS TENTADOR FICOU DE FORA DE PROPOSITO, e ele e o exemplo do\nproprio longo:** o capitulo 57 diz *\"se a situacao e escala publicada com dois\ndias de antecedencia, a medida e publicar com quinze\"*. Os dois valores sao\n**exemplo escolhido pelo autor**, nao exigencia de norma — e repeti-los no short\ntransformaria escolha em regra, que e **exatamente** o erro que o\n`labtreinamento-s011` denuncia nesta mesma origem (a faixa de corte e escolha da\nempresa e nao da norma). A cena 7 diz *\"escala curta pede escala com folga\"*, que\ncarrega a aritmetica sem carregar os numeros dela.\n\nAs barras (100/62/24 na cena 4) sao **ILUSTRACAO qualitativa da ORDEM** — na\nfonte, coletiva, individual, em prioridade decrescente — e **NAO sao faladas**.\nElas nao medem eficacia de medida nenhuma, nao saem de estudo nenhum, e a rodada\nseguinte nao deve le-las de volta como dado.\n\n## FAMILIA DE ENTRADA ERRADA\n**A MEDIDA INDIVIDUAL ESCRITA EM PRIMEIRO LUGAR** — palestra, aplicativo e\nginastica na coluna da medida, quando a norma pede primeiro a fonte, depois o\ncoletivo, e o individuo por ULTIMO. O discriminador e de uma frase: **a medida\ncerta muda a ROTINA; a medida errada ensina a pessoa a suportar a rotina que\ncontinua igual.**\n\n**E a vizinhanca mais perigosa vai NOMEADA em vez de escondida:** o\n`labtreinamento-s033` tambem fala de *trabalho contra pessoa*, e a diferenca e\nde COLUNA. La o erro esta no INVENTARIO — pôr diagnostico ou perfil de pessoa\nonde a norma avalia o trabalho como esta posto. Aqui o erro esta no PLANO — pôr\na pessoa como destino da acao. Mesmo eixo, duas colunas diferentes, e o proprio\nlongo as separa em capitulos distantes (o inventario na primeira metade, a ordem\ndas medidas no capitulo 56). As outras tres familias desta origem nao tocam\nnenhuma das duas: a faixa de corte como escolha (`s011`), conclusao no lugar de\nsituacao (`s038` e `s046`) e soma contra produto (`s083`).\n\n## FONTES\nOrigem: `XgqPVJuAk3o` (`labtreinamento-002`, 87 capitulos), escolhida pelo\n`pauta_do_momento.py` — 5 usos, empatada com **seis** outras origens e\ndesempatada pela MAIOR reserva, **56 capitulos NAO MENCIONADOS de 87**. A\ndominante do canal (`FtCtIJPsc_Q`) ficou de fora, e quem conta e o\n`concentracao.py`.\n\nCapitulos desta peca: **53, 55, 56 e 57** (*\"Puxe so o que pesa\"*,\n*\"A medida individual\"*, *\"A ordem importa\"* e *\"Traduzindo\"*), com apoio do\n**58** (*\"Responsavel\"*). O 55 nomeia as tres medidas individuais e diz que\n*\"nenhuma delas e ruim, e nenhuma delas responde a um risco que nasce da\norganizacao do trabalho\"*; o 56 escreve a ordem de prioridade em letra; o 57 da\no teste da traducao.\n\n**E A CONFERENCIA CONTRA OS IRMAOS VAI SEPARADA EM DUAS, pelo instrumento de\n23:4x — porque \"conferido short por short\" nao e uma coisa so:**\n\n* **por CAPITULO, mecanica, alcanca 2 dos 5 irmaos** (`s033` e `s038`, os unicos\n  que declaram capitulo na copy): **zero sobreposicao** com 53, 55, 56 e 57;\n* **por LEITURA da narracao, os outros tres** (`s011`, `s046`, `s083`), que **nao\n  declaram capitulo nenhum** — e para esses o `irmaos_da_origem` imprimiu a\n  narracao de PRIMEIRA mao, cena por cena: `s011` fala da faixa de corte como\n  escolha da empresa, `s046` de conclusao no lugar de situacao, `s083` de soma\n  contra produto. **Nenhum fala de ORDEM de medida.**\n\nAusencia de capitulo declarado **nao e** ausencia de colisao (761), e por isso os\ntres vao nomeados aqui em vez de entrarem na conta como se tivessem sido\nconferidos pela rota mecanica.\n\n**E a reserva escrita pelo `s033` NAO foi tocada:** ele diz, na copy, que **nao\nlevou os capitulos 33 a 46**, e esta peca vive em 53 a 58 — logo aquela reserva\nsegue de pe para a rodada seguinte, e quem a nomeia e o `reservas_escritas.py`.\n\n## EXPOSICAO\n**OITO CENAS, e a recusa nao foi minha:** o `contagem_de_cenas.py` deu SETE como\nmelhor cadencia (3,29 s) e **acusou sozinho que a `s095`, a peca anterior deste\ncanal, tem sete** — repetir tamanho no mesmo canal em rodadas seguidas e a\nreclamacao do dono de 19/10, e o portao `variedade` **nao pega**, porque conta\nesqueleto e nao tamanho. As contagens **9, 10 e 11** sairam NOMEADAS e nao\nfiltradas, porque nelas o PISO da faixa nao e alcancavel com texto legivel. Oito\ne a melhor que SERVE pelos tres filtros, com folga **+3**.\n\n**E OS DOIS MUNDOS CABEM AQUI, o que so acontece neste canal:** o\n`mira.janela_dos_dois_mundos` devolve **34 a 36** caracteres por cena com oito\ncenas, e a peca foi escrita com media **35,4** — logo os dois provedores caem\ndentro da mira MEDIDA do canal (20,0 a 26,0) e **nao ha exposicao de mundo a\ndeclarar**. Nos outros dois canais essa janela nao existe em contagem nenhuma\n(a pinca do 740/748).\n\n**O que eu NAO declaro: de que lado da banda o real cai.** Ela tem 5,2 s contra\n1 s de granularidade, e escolher um lado nao e previsao (774). O tally deste\ncanal segue em 41 peças FORA do teto da mira contra 5 dentro, com o `mira.py`\nverde nos dois mundos — a decisao do 740/748 e do dono.\n\n**ESQUELETO `titulo-lista-item-barras-item-titulo-item-cta`**, inedito nas TRES\nformas de oito cenas da frota, com a propria peca FORA da varredura pelo\n`exceto`. Todo layout saiu do conjunto **SONDADO** (`layouts_do_short.desenham`),\ncom `assert` no construtor, e a paleta foi **LIDA** de\n`temas_do_dono.paleta_do_canal`.\n"
+}
