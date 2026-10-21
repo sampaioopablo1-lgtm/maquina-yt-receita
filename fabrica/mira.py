@@ -702,11 +702,51 @@ def quanto_cortar(spec: dict, alvo=None) -> dict | None:
         if jan:
             chars = jan[0]
     hoje = orc["hoje"]
+    # E O "NAO MEXA" PODIA ESTAR A 0,8 s DO ALVO — medido em 21/10 as 17:3x, na
+    # peca desta rodada. O `chars_hoje` e a media ARREDONDADA, logo uma peca com
+    # media 33,5 compara igual a um alvo de 33 e o metodo responde "ja esta la,
+    # NAO MEXA" — com a previsao em 42,3 contra um piso de 41,5.
+    #
+    # MEDIDO no disco: das 266 specs com resposta, **58** recebem `delta 0` e
+    # **19 dessas estao a mais de 0,35 s do alvo** (ate 0,69 s). O defeito e de
+    # ARREDONDAMENTO, nao de conta: a distancia verdadeira vive na PREVISAO, que
+    # este metodo tem a mao e nao devolvia.
+    #
+    # O conserto NAO troca o conselho em caracteres — ele e inteiro por
+    # construcao, porque o que se escreve e texto. Ele acrescenta a distancia em
+    # SEGUNDOS, que e a grandeza que a mira e o portao cobram, e o passo de UM
+    # caractere medido pelo DONO (sem constante nova), para que quem le saiba se
+    # o "nao mexa" e exato ou so arredondado.
+    prev_hoje = ensaio.duracao_real_prevista(spec.get("short") or [],
+                                             spec.get("voz", ""), orc["mundo"])
+    cen_mais = [{"nar": "x" * (hoje + 1)} for _ in range(n)]
+    cen_hoje = [{"nar": "x" * hoje} for _ in range(n)]
+    passo = abs(
+        ensaio.duracao_real_prevista(cen_mais, spec.get("voz", ""),
+                                     orc["mundo"])
+        - ensaio.duracao_real_prevista(cen_hoje, spec.get("voz", ""),
+                                       orc["mundo"]))
+    # E A DIRECAO SAI DOS SEGUNDOS, nao dos caracteres — medido no mesmo
+    # instante. O alvo em caracteres supoe cenas UNIFORMES; a peca real nao e
+    # uniforme, e o `P` da voz e por FRASE, logo a media arredondada nao resume
+    # a peca. Consequencia medida no disco: em **49 das 266** specs o conselho
+    # em caracteres manda ACRESCENTAR enquanto a previsao JA ESTA acima do
+    # alvo — isto e, ele aponta para o lado errado, e nao apenas erra o
+    # tamanho. A grandeza que a mira e o portao cobram e o SEGUNDO; o numero de
+    # caracteres fica como ordem de grandeza, com a discordancia NOMEADA.
+    d_s = round(prev_hoje - alvo_s, 2)
+    d_total = (chars - hoje) * n
     return {"alvo": alvo_s, "rotulo": rotulo, "cenas": n,
             "chars_alvo": chars, "chars_cru": cru,
             "executavel": chars != cru, "chars_hoje": hoje,
+            "previsao_hoje": round(prev_hoje, 2),
+            "delta_s": d_s,
+            "direcao": ("cortar" if d_s > 0 else
+                        "acrescentar" if d_s < 0 else "esta no alvo"),
+            "discorda": bool(d_total and d_s and (d_total > 0) == (d_s > 0)),
+            "passo_de_um_char_s": round(passo, 2),
             "delta_por_cena": chars - hoje,
-            "delta_total": (chars - hoje) * n,
+            "delta_total": d_total,
             "faixa": (piso, topo), "fonte": orc["fonte"]}
 
 
@@ -725,14 +765,29 @@ def _linha_do_corte(spec: dict) -> list:
         acao = ("CORTE %d caractere(s) no total" % -d) if d < 0 else (
             "ACRESCENTE %d caractere(s) no total" % d) if d > 0 else (
             "ja esta la, NAO MEXA")
+        if q["discorda"]:
+            acao = ("a previsao esta %+.2f s do alvo (%.2f contra %.1f), logo a"
+                    " DIRECAO e %s — e o conselho em caracteres aponta para o"
+                    " outro lado (%+d no total). Ele supoe cenas UNIFORMES e a"
+                    " peca nao e: em 49 das 266 specs do disco os dois"
+                    " discordam. Siga os SEGUNDOS, que e o que a mira cobra"
+                    % (q["delta_s"], q["previsao_hoje"], q["alvo"],
+                       q["direcao"], q["delta_total"]))
+        elif d == 0 and abs(q["delta_s"]) > q["passo_de_um_char_s"] / 2.0:
+            acao = ("a MEDIA ja esta la, mas a previsao esta %+.2f s do alvo "
+                    "(%.2f contra %.1f): o conselho em caracteres e INTEIRO e a "
+                    "media arredonda — 19 das 58 specs com 'nao mexa' estao a "
+                    "mais de 0,35 s. Um caractere vale ~%.2f s aqui"
+                    % (q["delta_s"], q["previsao_hoje"], q["alvo"],
+                       q["passo_de_um_char_s"]))
         linhas.append(
             "  para cair no %s da faixa (%.1f s): %s (~%+d por cena em %d), "
             "de ~%d para ~%d por cena.%s"
             % (rotulo.upper(), q["alvo"], acao, q["delta_por_cena"],
                q["cenas"], q["chars_hoje"], q["chars_alvo"],
                (" O valor CRU do inversor seria %d, e a previsao dele cai"
-                " ABAIXO da faixa (54 de 54 pares): este e o piso EXECUTAVEL,"
-                " do `janela_do_mundo`." % q["chars_cru"])
+                " ABAIXO da faixa (51 de 51 pares com valor positivo): este e"
+                " o piso EXECUTAVEL, do `janela_do_mundo`." % q["chars_cru"])
                if q.get("executavel") else ""))
     if linhas:
         linhas.append(
