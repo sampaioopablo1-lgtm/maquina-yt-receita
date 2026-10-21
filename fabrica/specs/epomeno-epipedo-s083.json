@@ -1,0 +1,125 @@
+{
+ "slug": "epomeno-epipedo-s083",
+ "pacote": "epomeno-epipedo-s083",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "longo_existente": "pqTc8jBrq0E",
+ "longo": [],
+ "thumb": {
+  "l1": "Δύο δρόμοι",
+  "l2": "όχι ένας"
+ },
+ "paleta": {
+  "bg": "#F4EFE6",
+  "ink": "#1B1A17",
+  "c1": "#C8502A",
+  "c2": "#2B6CB0",
+  "red": "#B83227",
+  "ok": "#2E8B57",
+  "panel": "#FFFFFF",
+  "mut": "#7A7263",
+  "acc": "#C8502A"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Το απόθεμα δεν είναι περιουσία",
+   "sub": "και δεν μεγαλώνει μόνο με έναν τρόπο",
+   "nar": "Το σπίτι δεν πληρώνει τη δόση."
+  },
+  {
+   "layout": "item",
+   "kicker": "Τι μπαίνει πάνω",
+   "nar": "Πάνω μπαίνει ό,τι γίνεται χρήμα."
+  },
+  {
+   "layout": "item",
+   "kicker": "Σε μέρες",
+   "nar": "Σε μέρες, και όχι σε μήνες."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Το ίδιο ποσό, άλλο πάνω νούμερο",
+   "barras": [
+    {
+     "rotulo": "Ρευστό",
+     "valor": 100
+    },
+    {
+     "rotulo": "Δεσμευμένο",
+     "valor": 40
+    }
+   ],
+   "nar": "Το δεσμευμένο μπαίνει με όρους."
+  },
+  {
+   "layout": "item",
+   "kicker": "Με ποινή δεν είναι εφεδρεία",
+   "nar": "Αν πληρώνεις ποινή, δεν μετράει."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Τρία που δεν μπαίνουν πάνω",
+   "itens": [
+    "Το σπίτι",
+    "Το αυτοκίνητο",
+    "Τα κλειδωμένα"
+   ],
+   "nar": "Τρία πράγματα μένουν πάντα έξω."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Στρογγύλεψε προς τα κάτω",
+   "sub": "η εφεδρεία δεν θέλει αισιοδοξία",
+   "nar": "Τρεις και μισός σημαίνει τρεις."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ίδιο απόθεμα, άλλοι μήνες",
+   "nar": "Το ίδιο ποσό δίνει άλλους μήνες."
+  },
+  {
+   "layout": "item",
+   "kicker": "Αλλάζει το κάτω",
+   "nar": "Αλλάζεις μόνο το κάτω νούμερο."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Δύο δρόμοι, όχι ένας",
+   "barras": [
+    {
+     "rotulo": "Μαζεύω πάνω",
+     "valor": 100
+    },
+    {
+     "rotulo": "Κατεβάζω κάτω",
+     "valor": 100
+    }
+   ],
+   "nar": "Οι μήνες μεγαλώνουν με δύο τρόπους."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Ο δεύτερος δρόμος",
+   "itens": [
+    "Λιγότερα πάγια",
+    "Ίδιο απόθεμα",
+    "Περισσότεροι μήνες"
+   ],
+   "nar": "Ή μαζεύεις πάνω, ή κατεβάζεις κάτω."
+  },
+  {
+   "layout": "item",
+   "kicker": "Και είναι ο γρηγορότερος",
+   "nar": "Ο δεύτερος είναι γρηγορότερος."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Epomeno Epipedo",
+   "sub": "κάνε εγγραφή",
+   "nar": "Γράψε τους δικούς σου μήνες."
+  }
+ ],
+ "copy": "# epomeno-epipedo-s083\n\n## TITULO\nΤο Απόθεμα Δεν Είναι Περιουσία: Τι Μπαίνει Πάνω Και Οι Δύο Δρόμοι Να Μεγαλώσει\n\n## TITULO SHORT\nΔύο δρόμοι, όχι ένας\n\n## DESCRICAO\nΗ πράξη για το απόθεμα ασφαλείας έχει δύο νούμερα: ένα πάνω και ένα κάτω. Τα βίντεο μιλούν σχεδόν πάντα για το κάτω — τα πάγια. Εδώ κοιτάμε το **πάνω**, που είναι εκεί που μπαίνει το πιο συχνό λάθος.\n\n**Πάνω μπαίνει μόνο ό,τι γίνεται χρήμα σε μέρες.** Όχι σε μήνες, όχι «αν πουλήσω κάτι». Το σπίτι δεν μπαίνει, γιατί δεν πληρώνει τη δόση του επόμενου μήνα. Το αυτοκίνητο το ίδιο. Και ό,τι είναι δεσμευμένο μπαίνει **με επιφύλαξη**: αν για να το πάρεις χάνεις τόκο ή πληρώνεις ποινή, τότε δεν είναι εφεδρεία — είναι επένδυση που θα κοστίσει τη στιγμή που θα τη χρειαστείς.\n\n**Και υπάρχει ένας δεύτερος κανόνας που δεν είναι διακόσμηση: στρογγύλεψε προς τα κάτω.** Αν η διαίρεση βγάλει τρεις και μισό, γράψε τρεις. Η εφεδρεία δεν είναι μέρος για αισιοδοξία στο δεύτερο δεκαδικό ψηφίο.\n\n**Το κομμάτι που αλλάζει τη συμπεριφορά είναι το τελευταίο.** Κράτα το πάνω νούμερο σταθερό και άλλαξε μόνο το κάτω: οι μήνες αλλάζουν, χωρίς να μαζέψεις ούτε ένα ευρώ. Αυτό σημαίνει ότι το απόθεμα μεγαλώνει με **δύο** τρόπους και όχι με έναν — ή μαζεύεις πάνω, ή κατεβάζεις κάτω. Ο δεύτερος δρόμος είναι συνήθως ο γρηγορότερος, γιατί τα πάγια τα ελέγχεις από αυτόν τον μήνα, ενώ η αποταμίευση θέλει χρόνο. Και είναι ο δρόμος που δεν σου προτείνει σχεδόν κανείς, επειδή δεν πουλάει προϊόν.\n\nΈνα πράγμα που αξίζει να προσέξεις: η μονάδα. Αν το αποτέλεσμα βγαίνει σε ευρώ, κάτι πήγε λάθος στην πράξη — το αποτέλεσμα βγαίνει σε **μήνες**.\n\n## COMENTARIO FIXADO\nΤο λιγότερο προφανές: το ίδιο ποσό δίνει άλλους μήνες σε τρεις διαφορετικούς ανθρώπους, και η διαφορά είναι μόνο στο κάτω νούμερο. Εσύ από ποιον δρόμο θα το μεγαλώσεις πρώτα;\n\n## HASHTAGS\n#αποθεμα #προσωπικαοικονομικα #εφεδρεια #epomenoepipedo #Shorts\n\n## TAGS\nαποθεμα ασφαλειας, εφεδρεια, παγια εξοδα, ρευστοτητα, προσωπικα οικονομικα, μηνες καλυψης, αποταμιευση, διαιρετης, δεσμευμενα, επενδυσεις, προυπολογισμος, epomeno epipedo\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: el\ndefaultAudioLanguage: el\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\n**ZERO numero novo sobre o mundo.** Os unicos numerais falados sao **\"τρεις και\nμισός\"/\"τρεις\"** (o exemplo do arredondamento, que e a estrutura da propria\nregra) e **\"δύο\"** (a contagem dos dois caminhos, que e a tese da peca).\nNenhum deles e taxa, indice, percentual, prazo legal nem valor em euros.\n\n**FICOU DE FORA pela regra (g):** qualquer alvo de meses como recomendacao,\nqualquer percentual de rendimento ou de penalidade da aplicacao desmanchada, e\nqualquer valor em euros. Os dois primeiros mudam por publicacao e o terceiro e\njustamente a unidade que a peca diz estar errada.\n\nAs barras sao **ILUSTRACAO qualitativa e NAO sao faladas**: na cena 4 elas\ndesenham que o dinheiro desmanchavel sem custo vale mais no numerador que o\ndinheiro preso (nao medem rendimento nem penalidade de ninguem), e na cena 10\nelas saem **IGUAIS** de proposito, porque o argumento inteiro e que os dois\ncaminhos chegam ao mesmo lugar. A rodada seguinte NAO deve le-las de volta como\ndado.\n\n## FAMILIA DE ENTRADA ERRADA\n**O NUMERADOR LIDO COMO PATRIMONIO — e a reserva crescendo por UM caminho so**\n(capitulos 18 a 23). Duas coisas na mesma familia, e e a segunda que muda\ncomportamento: o que entra no numerador e so o que vira dinheiro em DIAS (casa\ne carro ficam fora; aplicacao com ponteira ou perda de juro entra com\nreserva), e manter o numerador fixo mexendo no DENOMINADOR aumenta os meses\n**sem guardar um euro** — logo a reserva cresce por DOIS caminhos, e o segundo\ne o mais rapido porque os pagamentos fixos se mexem neste mes, enquanto poupar\npede tempo.\n\nAs QUATRO familias anteriores desta origem vieram do `irmaos_da_origem`, e\n**as tres do disco NAO tem o campo**, logo a comparacao foi pela NARRACAO de\nprimeira mao:\n\n* short do pacote (`BaLtIWzaN84`) — o **DENOMINADOR**: o que conta como fixo;\n* `s068` — o **ALVO em meses**: quantos meses bastam, e quem decide;\n* `s069` — a **UNIDADE** do resultado: euros contra meses;\n* `s070` — o **DIVISOR**: um mes de extrato esconde o pagamento trimestral.\n\n**As quatro falam do numero de BAIXO ou do resultado. Nenhuma fala do numero de\nCIMA**, nem de haver mais de um caminho para aumentar os meses — e e esse o\neixo desta.\n\n## FONTES\nOrigem: `pqTc8jBrq0E` (`epomeno-epipedo-068`, 64 capitulos), escolhida pelo\n`pauta_do_momento.py` — **3 usos, a MENOR contagem do canal**, com **45\ncapitulos NAO MENCIONADOS de 64**. A dominante `nttW9fR8wyY` ficou de fora, e\nquem conta e o `concentracao.py`. O `reservas_escritas.py` disse que esta origem\n**NAO tem reserva escrita** por irmao nenhum — ele nomeia a ausencia em vez de\ncalar.\n\nCapitulos desta peca: **18 a 23** (*\"Απόθεμα δεν είναι περιουσία\"*, *\"Ούτε τα\nδεσμευμένα\"*, a nota da unidade, *\"Στρογγύλεψε κάτω\"*, *\"Το ίδιο απόθεμα\"* e\n*\"Δύο δρόμοι\"*). O 23 escreve a frase que a peca carrega: *\"η εφεδρεία\nμεγαλώνει με δύο τρόπους και όχι με έναν ... και είναι αυτός που κανείς δεν σου\nπροτείνει\"*.\n\n**A CONFERENCIA CONTRA OS IRMAOS, com a FORCA de cada metade:**\n\n* **por CAPITULO alcanca 3 de 3 irmaos** — e isso e 100% deles, o que o\n  instrumento de 01:3x diz que dispensa a ressalva de cobertura. Os tres\n  declaram 8 capitulos cada de 64, nas faixas **48 a 55** (duas vezes) e **24 a\n  31**: **zero sobreposicao** com 18 a 23. **E a forca NAO e alta e vai dita:**\n  com 8 declarados de 64, a chance de uma familia de cinco colidir sob sorteio\n  e **~0,53** em cada irmao — logo \"nao colidiu\" e sinal medio, nao conferencia;\n* **por LEITURA da narracao de primeira mao, os TRES** — e foi ela que decidiu,\n  porque as faixas 48–55 e 24–31 sao de outro assunto e o que separa esta peca\n  delas e o LADO da fracao, nao a posicao no longo.\n\n## EXPOSICAO\n**TREZE CENAS, e nenhuma das duas recusas foi minha.** O\n`contagem_de_cenas.py` deu **14** como a melhor cadencia (3,02 s) e **acusou\nsozinho que a `s082`, a peca anterior deste canal, tem catorze**; **15** e o\nTETO MEDIDO desta voz e e INEDITA na frota, e foi recusada pela **FOLGA** — 22\ncaracteres por cena contra o piso OBSERVADO de 21, a mesma conta que eu recusei\na mao em 04:1x e 06:2x. Treze e a melhor que SERVE pelos tres filtros, com\norcamento de **31** caracteres no piso e folga **+10**.\n\n**A PINCA DO 740/748 ESTA FECHADA AQUI, e a exposicao vai declarada ANTES de\npublicar:** o `mira.janela_dos_dois_mundos` devolve **NENHUMA** janela para\nesta voz nesta faixa — em contagem alguma de 2 a 20 —, porque o vao\npiper/edge vale ~4,7 s contra 1,5 s de largura do `ALVO_SHORT`. Mirei o **PISO**\n(regra de redacao do 772) e o piper sai FORA pelo piso. Nos dois canais sem\nmira propria isso e estrutural, e a decisao e do dono.\n\n**O que eu NAO declaro: de que lado da banda o real cai.** Ela tem 5,2 s contra\n1 s de granularidade, e escolher um lado nao e previsao (774).\n\n**ESQUELETO\n`titulo-item-item-barras-item-lista-titulo-item-item-barras-lista-item-cta`**,\ninedito nas **SETE** formas de treze cenas da frota e nas **148** da frota\ninteira, com a propria peca FORA da varredura pelo `exceto`. `barras` e `lista`\nentram DUAS vezes cada e as quatro carregam argumento. Todo layout saiu do\nconjunto **SONDADO** (`layouts_do_short.desenham`), com `assert` no construtor,\ne a paleta foi **LIDA** de `temas_do_dono.paleta_do_canal`.\n"
+}
