@@ -189,6 +189,64 @@ def veredito(spec: dict, raiz: str = None) -> dict:
     return out
 
 
+def veredito_do_portao(caminho: str, spec: dict) -> list:
+    """O que o PORTAO `ortografia` diz da MESMA narracao — delegado a ele.
+
+    **POR QUE EXISTE (21/10 as 15:3x).** Escrevendo o `labtreinamento-s101` eu
+    recebi, na MESMA chamada do `antes_do_render`, dois vereditos opostos sobre o
+    mesmo texto: o portao REPROVOU (*"1,7% das letras contra 4,5% nas specs de pt
+    que acentuam"*) e este modulo disse *"carrega acento, como as outras deste
+    idioma"*, porque 1,65% esta acima do piso OBSERVADO dele (1,57%).
+
+    **O instrumento era o lado PERMISSIVO**, e conselho que o portao reprova e
+    pior que conselho ausente: ele convida a renderizar a peca errada. E a quarta
+    vez desta familia — a mesma do `mira.orcamento` em 19/10 as 17:2x.
+
+    **E os dois criterios sao DIFERENTES de proposito, nao por descuido:** o
+    portao compara com a mediana das VIZINHAS do mesmo canal que acentuam (e cai
+    na populacao do idioma quando o canal nao serve de referencia); este modulo
+    compara com a distribuicao do IDIOMA inteiro e recusa onde ela nao
+    discrimina. Nenhum dos dois esta errado — o que estava errado era este nao
+    dizer o do outro.
+
+    **MEDIDO no acervo: nas 264 specs de short solto os dois CONCORDAM, 264 de
+    264.** Logo o buraco era LATENTE, e o caso que o revelou e a peca que eu
+    escrevi nesta rodada. Por isso o lugar disto NAO e um portao novo — nao ha o
+    que reprovar no parque —, e sim o relato deixar de tranquilizar.
+
+    O import e TARDIO porque o `prontidao` e caro e este modulo e informativo; e
+    ele vai no sentido permitido do grafo, ja que o `prontidao` NAO importa este
+    (ha teste por AST cobrando isso desde 19/10).
+    """
+    import prontidao
+    return prontidao._gate_ortografia(caminho, spec) or []
+
+
+def _linha_do_portao(caminho: str, spec: dict, suspeita: bool) -> str:
+    """A frase do portao, com UM dono — ela sai nos DOIS vereditos.
+
+    Sem o ramo "o portao tambem nao reprova", a ausencia da frase ficaria
+    indistinguivel de o relato nao ter perguntado, que e a falha permissiva de
+    sempre.
+    """
+    try:
+        problemas = veredito_do_portao(caminho, spec)
+    except Exception as e:                       # noqa: BLE001
+        return ("  PORTAO `ortografia`: NAO CONSULTADO (%s). Ausencia de"
+                " consulta nao e aprovacao." % e.__class__.__name__)
+    if problemas:
+        if not suspeita:
+            return ("  >> O PORTAO `ortografia` REPROVA ISTO e este instrumento"
+                    " NAO suspeitou — o instrumento e o lado PERMISSIVO, e o"
+                    " criterio que vale e o do portao: " + str(problemas[0]))
+        return "  e o PORTAO `ortografia` tambem reprova: " + str(problemas[0])
+    if suspeita:
+        return ("  mas o PORTAO `ortografia` NAO reprova: ele compara com as"
+                " VIZINHAS do mesmo canal que acentuam, e este modulo com a"
+                " distribuicao do idioma. Quem barra render e o portao.")
+    return "  e o PORTAO `ortografia` tambem nao reprova."
+
+
 def relato(caminho: str) -> str:
     with open(caminho, encoding="utf-8") as f:
         spec = json.load(f)
@@ -200,6 +258,9 @@ def relato(caminho: str) -> str:
               f"{v['proporcao']:.2f}% de letras acentuadas na narracao"]
     if not v["discrimina"]:
         linhas.append("  RECUSA: " + v["motivo"])
+        # E AQUI A FRASE DO PORTAO IMPORTA MAIS, nao menos: e justamente onde
+        # este modulo nao tem o que dizer que ele nao pode calar sobre quem tem.
+        linhas.append(_linha_do_portao(caminho, spec, False))
         return "\n".join(linhas)
     linhas.append(f"  distribuicao MEDIDA do idioma: n={v['n']}, mediana "
                   f"{v['mediana']:.2f}%, piso dos acentuados "
@@ -209,6 +270,7 @@ def relato(caminho: str) -> str:
     else:
         linhas.append("  carrega acento, como as outras deste idioma. "
                       "NAO reprova — isto informa, pelo argumento do `mira.py`.")
+    linhas.append(_linha_do_portao(caminho, spec, bool(v["suspeita"])))
     return "\n".join(linhas)
 
 
