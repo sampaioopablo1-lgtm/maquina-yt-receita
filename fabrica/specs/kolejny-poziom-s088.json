@@ -1,0 +1,120 @@
+{
+ "slug": "kolejny-poziom-s088",
+ "pacote": "kolejny-poziom-s088",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "longo_existente": "wb1RGIx7OJI",
+ "longo": [],
+ "thumb": {
+  "l1": "Nie tylko",
+  "l2": "cena"
+ },
+ "paleta": {
+  "bg": "#0B0B0C",
+  "ink": "#F2EEE8",
+  "c1": "#E23B3B",
+  "c2": "#D9C7A7",
+  "red": "#FF4D4D",
+  "ok": "#7FB77E",
+  "panel": "#151517",
+  "mut": "#8F877C",
+  "acc": "#E23B3B"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Tylko kolumna z ceną",
+   "sub": "tak wybierasz polisę?",
+   "nar": "Porównujesz tylko kolumnę z ceną."
+  },
+  {
+   "layout": "item",
+   "kicker": "A polisa to nie cena",
+   "nar": "Cena to nie wszystko w polisie."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Co się naprawdę różni",
+   "itens": [
+    "Czas do oględzin",
+    "Auto zastępcze",
+    "Części oryginalne czy zamienniki"
+   ],
+   "nar": "Różni się sama likwidacja szkody."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Gdzie to widać",
+   "barras": [
+    {
+     "rotulo": "W cenniku",
+     "valor": 12
+    },
+    {
+     "rotulo": "Przy szkodzie",
+     "valor": 100
+    }
+   ],
+   "nar": "Tego nie widać w cenniku nigdzie."
+  },
+  {
+   "layout": "item",
+   "kicker": "Widać przy szkodzie",
+   "nar": "Widać dokładnie wtedy przy szkodzie."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Wiedz, za co płacisz",
+   "sub": "nie płać jak najmniej",
+   "nar": "Wiedz najpierw, za co płacisz."
+  },
+  {
+   "layout": "item",
+   "kicker": "Nie w ciemno",
+   "nar": "Nie tnij wszystkiego w ciemno."
+  },
+  {
+   "layout": "item",
+   "kicker": "Przy jednej awarii",
+   "nar": "Assistance zwraca się przy awarii."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Dane, z których liczą",
+   "itens": [
+    "Roczny przebieg",
+    "Miejsce garażowania",
+    "Kto jeszcze jeździ"
+   ],
+   "nar": "Sprawdź dane, z których ci liczą."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Co kosztuje najwięcej",
+   "barras": [
+    {
+     "rotulo": "Dane aktualne",
+     "valor": 100
+    },
+    {
+     "rotulo": "Dane nieaktualne",
+     "valor": 64
+    }
+   ],
+   "nar": "Nieaktualne dane potrafią kosztować."
+  },
+  {
+   "layout": "item",
+   "kicker": "Twój własny pomiar",
+   "nar": "Zapisz kwotę razem z datą dzisiaj."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Kolejny Poziom",
+   "sub": "subskrybuj",
+   "nar": "Za rok porównasz siebie z sobą."
+  }
+ ],
+ "copy": "# kolejny-poziom-s088\n\n## TITULO\nPorównujesz Polisy Tylko Kolumną z Ceną: To, Co Się Różni, Widać Dopiero Przy Szkodzie\n\n## TITULO SHORT\nNie tylko kolumna z ceną\n\n## DESCRICAO\nWybór polisy prawie zawsze kończy się na jednej kolumnie: **cenie**. I to jest zrozumiałe, bo cena jest jedyną rzeczą, którą porównywarka pokazuje obok siebie. Problem polega na tym, że **to nie cena się najbardziej różni między ofertami.**\n\nRóżni się **sposób, w jaki firma likwiduje szkodę**. Ile dni czeka się na oględziny. Czy w tym czasie dostajesz auto zastępcze. Czy kosztorys liczony jest po częściach oryginalnych, czy po zamiennikach. **Żadna z tych rzeczy nie ma swojej kolumny** — i każda z nich pokazuje się dokładnie wtedy, kiedy polisa zaczyna być potrzebna.\n\nStąd wniosek, który brzmi odwrotnie niż się spodziewasz: **celem nie jest zapłacić jak najmniej. Celem jest wiedzieć, za co płacisz.** Nie znaczy to, że trzeba kupować wszystko — znaczy, że cięcie w ciemno jest tak samo nieuważne jak dopłacanie w ciemno. Assistance, który przy jednej awarii zwraca się z nawiązką, nie jest dodatkiem do wyrzucenia tylko dlatego, że stoi w rubryce „dodatki\".\n\nJest też druga rzecz, którą masz pod ręką i prawie nikt jej nie sprawdza: **dane, na podstawie których liczą ci cenę.** Roczny przebieg. Miejsce garażowania. Kto jeszcze jeździ autem. Te pola nie są formalnością — są wejściem do wyceny, i kiedy są nieaktualne, płacisz za sytuację, w której już nie jesteś.\n\nNa koniec jedna rzecz, która kosztuje trzydzieści sekund i działa dopiero za rok: **zapisz kwotę razem z datą**, choćby w notatkach w telefonie. Za dwanaście miesięcy będziesz miał własny pomiar zamiast wrażenia — i wtedy porównujesz siebie z sobą, a nie ze średnią, która opisuje miliony kierowców i żadnego konkretnie.\n\n**Kolejność, która z tego wychodzi:** najpierw co jest w polisie, potem dane, na końcu cena. Odwrotna kolejność też da wynik — tylko dowiesz się o nim przy szkodzie.\n\n## COMENTARIO FIXADO\nNajmniej oczywiste: to, co najbardziej różni dwie polisy — czas do oględzin, auto zastępcze, oryginały czy zamienniki — nie ma własnej kolumny w żadnej porównywarce. Sprawdzałeś kiedyś te trzy rzeczy przed zakupem?\n\n## HASHTAGS\n#ubezpieczenia #oc #polisa #kolejnypoziom #Shorts\n\n## TAGS\npolisa oc, likwidacja szkody, auto zastepcze, czesci oryginalne, zamienniki, porownywarka, dane do wyceny, roczny przebieg, assistance, ubezpieczenie samochodu, kolejny poziom, finanse osobiste\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\n**ZERO numero novo sobre o mundo e ZERO DIGITO na narracao.** Nenhum numeral e\nfalado — conferido cena por cena pelo `numerais_falados`.\n\n**FICOU DE FORA pela regra (g):** a media do premio e a media do sinistro que o\nlongo cita (capitulos 11 e 22), os percentuais de variacao do capitulo 76, o\nnumero de apolices do mercado, e os *\"kilkadziesiat zlotych\"* que o capitulo 61\nusa como exemplo de preco do assistance. **Todos mudam por publicacao de\nrelatorio**, e numero errado no ar e pior que numero ausente.\n\n**E a DESCRICAO cita \"trzydzieci sekund\" e \"dwanascie miesiecy\", que NAO sao\nnumero sobre o mundo:** o primeiro e o esforco do passo que a peca pede e o\nsegundo e o ciclo anual da propria apolice. Nenhum dos dois vive em relatorio, e\nnenhum e falado na narracao.\n\n**O QUE A PECA AFIRMA, e e PROPRIEDADE DO PRODUTO e nao estatistica:** que o que\nmais difere entre apolices e a liquidacao do sinistro (prazo de vistoria, carro\nde reposicao, pecas originais ou alternativas); que isso nao tem coluna em\ncomparador nenhum; e que os dados da cotacao (quilometragem anual, local de\nguarda, quem mais dirige) entram no preco. Esta no longo `kolejny-poziom-009`\n(`wb1RGIx7OJI`), capitulos 61 a 65, com as fontes.\n\n**As barras das cenas 4 e 10 sao ILUSTRACAO qualitativa e NAO sao faladas:** a da\ncena 4 desenha onde a diferenca entre duas apolices fica VISIVEL — no cartaz de\npreco contra o momento do sinistro; a da cena 10 desenha o que uma cotacao com\ndado velho entrega contra uma com dado certo. **Elas nao sao preco, nao sao\npercentual e nao medem seguradora nenhuma.**\n\n## FAMILIA DE ENTRADA ERRADA\n**COMPARAR APOLICES PELA UNICA COLUNA QUE O COMPARADOR MOSTRA, quando o que\ndifere nao tem coluna** (capitulos 61 a 65). A entrada errada nao e de\naritmetica: e de **DIMENSAO**. O comparador alinha o que e facil alinhar — um\nnumero —, e o que decide o valor da apolice (quanto tempo ate a vistoria, se ha\ncarro de reposicao, se o orcamento usa peca original) nao e alinhavel, logo\ndesaparece da tela. **E some sem deixar falta**, porque uma coluna ausente nao\nparece uma coluna ausente: parece que as apolices sao iguais menos no preco.\n\nE dai sai a inversao que a peca carrega: **o objetivo nao e pagar o minimo, e\nsaber pelo que se paga** — cortar no escuro e tao desatento quanto pagar a mais\nno escuro.\n\nAs TRES familias anteriores desta origem vieram do `irmaos_da_origem`, e **duas\ndelas nao tem o campo** — logo a comparacao foi pela NARRACAO de primeira mao,\nque o relato imprime inteira desde 20/10:\n\n* `s013` — **quanto custa nao fazer nada**: a inercia tem preco;\n* `s031` — **premio menor e JANELA, nao NIVEL**: patamar contra estado\n  transitorio, com o custo andando no sentido oposto;\n* `s062` — **a media do relatorio nao e o seu preco**.\n\n**A mais vizinha e a `s062`, e a distincao vai escrita: ela fala do NUMERO\nerrado (a media, que nao e sua). Esta fala da COLUNA que nao existe — nao e um\nnumero trocado por outro, e uma dimensao que a tela nao tem.** E o QUARTO angulo\ndeste mesmo longo. **E os capitulos 49 a 65 do `s031` encostam nos meus**, logo o\ncruzamento foi conferido um a um: ele cita oito deles e **nenhum e 61, 62, 63 ou\n65**.\n\n## FONTES\nOrigem: `wb1RGIx7OJI` (`kolejny-poziom-009`, 78 capitulos), escolhida pelo\n`pauta_do_momento.py` — **3 usos**, empatada com **tres** outras origens e\ndesempatada pela MAIOR reserva: **62 capitulos NAO MENCIONADOS de 78**, contra\n50, 49 e 46 das seguintes. A dominante do canal ficou de fora, e quem conta e o\n`concentracao.py`.\n\n**E as duas origens de MENOR contagem (2 usos) ficaram de fora com o motivo do\ninstrumento na mao:** o `QiaGg03WSR0` sai NOMEADO como **suspeito de ser do\nLabTreinamento** (mapa de dono MEDIDO do `dono_medido.py`), e o `Xgt32iH8Ft8`\n**nao tem spec local** (a regra h), logo a reserva dele e 0 de 0.\n\nCapitulos desta peca: **61 a 65** — *\"Uwaga\"* (nao corte no escuro), *\"Czwarta\"*\n(confira os dados da cotacao), *\"Czego NIE robic\"* (a armadilha) e *\"Co sie\nrozni\"*, que escreve a frase que a peca carrega: *\"tego nie widac w kolumnie z\ncena, a widac dokladnie wtedy, kiedy polisa zaczyna byc potrzebna\"*.\n\n**DEIXADO DE PROPOSITO para a rodada seguinte achar — O QUE EU NAO LEVEI:** os\ncapitulos **39 a 43** (*\"Co to jest wynik techniczny\"* ate *\"Skoro tak\"*), que\nexplicam que o resultado TECNICO — premio menos sinistro menos custo, **sem** o\nganho de investimento — e o que faz a seguradora reagir, e que a reacao vem em\nDUAS velocidades: o critERIO de aceitacao muda de um dia para o outro e o preco\nmuda devagar. **E outra familia inteira (A VELOCIDADE DESIGUAL DA REACAO) e da\num QUINTO angulo deste mesmo longo.** Ela e VIZINHA da `s031` e a distincao tera\nde ser escrita por quem a pegar: a `s031` fala do CICLO do preco; aquela fala de\no preco e o criterio andarem em ritmos diferentes.\n\n**A CONFERENCIA CONTRA OS IRMAOS: UM dos tres declara capitulo** (o `s031`, oito\ndos 49 a 65), logo a conferencia mecanica alcanca **33%**. Os outros dois foram\nconferidos por LEITURA da narracao de primeira mao, e **ausencia de capitulo\ndeclarado NAO e ausencia de colisao (761)**. Esta peca DECLARA os capitulos dela.\n\n## EXPOSICAO\n**DOZE CENAS, e a recusa nao foi minha.** O `contagem_de_cenas.py` deu **14**\ncomo a melhor cadencia e ela e o **TETO MEDIDO desta voz** — recusada pela\nFOLGA, porque ali o orcamento no piso cai a **dois** caracteres do piso\nOBSERVADO. Treze repetiria o tamanho recente (a `s087` deste canal, de duas\nhoras atras). Doze e a melhor que SERVE pelos tres filtros, com **33**\ncaracteres no piso e folga **+12**.\n\n**E A JANELA EXECUTAVEL DO MUNDO `edge` E ESTREITA AQUI: 33 a 34 caracteres por\ncena** — duas unidades de largura, e um caractere de media vale **~0,7 s** com\ndoze cenas. A peca foi escrita com media **32,8** e previsao edge **41,8**, 0,3\nacima do PISO da faixa, pela regra de redacao do 772.\n\n**E O INSTRUMENTO DIZIA \"ja esta la, NAO MEXA\" com a peca em 42,3**, antes do\najuste: ele compara a MEDIA ARREDONDADA, e 33,5 arredonda para os mesmos 33 do\nalvo. Essa e a correcao desta rodada, e ela esta no §11-bis.\n\n**A PINCA DO 740/748 ESTA FECHADA AQUI, com a exposicao declarada ANTES de\npublicar:** o `mira.janela_dos_dois_mundos` devolve **NENHUMA** janela que ponha\nos dois provedores dentro de 41,5 a 43,0 nesta voz, logo **o piper sai FORA pelo\npiso**. Quem reprova duracao e o portao, que cobra 18 a 45 s nos dois mundos.\n\n**O que eu NAO declaro: de que lado da banda o real cai.** Ela tem 5,2 s contra\n1 s de granularidade, e escolher um lado nao e previsao (774).\n\n**ESQUELETO\n`titulo-item-lista-barras-item-titulo-item-item-lista-barras-item-cta`**, inedito\nnas **NOVE** formas de doze cenas da frota e nas **158** da frota inteira, com a\npropria peca FORA da varredura pelo `exceto`. `lista` e `barras` entram DUAS\nvezes cada e as quatro carregam argumento. Todo layout saiu do conjunto\n**SONDADO** (`layouts_do_short.desenham`), com `assert` no construtor, e a paleta\nfoi **LIDA** de `temas_do_dono.paleta_do_canal`.\n"
+}
