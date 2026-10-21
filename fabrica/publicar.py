@@ -146,8 +146,16 @@ def token_do_canal(slug, sb_url, sb_key):
                 f"aqui falha DEPOIS do render, entao o erro e explicito.")
         # Um `YT_TOKEN_JSON` generico pode ser de outro canal, e publicar no
         # canal errado ja aconteceu uma vez (14/08). Se o token nomeia o canal,
-        # confira; se nao nomeia, siga — o `publicar.py` ainda pergunta a API
-        # de quem e o token antes de subir.
+        # confira; se nao nomeia, siga.
+        #
+        # ATENCAO — ESTE COMENTARIO MENTIA ATE 21/10/2026. Ele dizia que "o
+        # `publicar.py` ainda pergunta a API de quem e o token antes de subir",
+        # e isso NUNCA foi codigo: nenhuma chamada a `channels?mine=true`
+        # existia neste arquivo. Medido no run 39560816227, o `YT_TOKEN_JSON`
+        # desta conta pertence a `UCf4-ZFoZQWKJotZNdi4Yl7w` (Setiap Level, fora
+        # da frota) e NAO declara `canal`, logo a confirmacao acima passa e o
+        # upload iria para o canal errado. Quem confere de verdade agora e o
+        # `confere_token.canal_do_access_token`, que roda ANTES do render.
         dono = tok.get("canal") or tok.get("slug")
         if dono and dono != slug:
             raise SystemExit(

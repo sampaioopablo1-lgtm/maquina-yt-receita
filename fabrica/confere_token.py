@@ -66,6 +66,9 @@ import urllib.request
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import formato_da_peca as FP  # noqa: E402  — UM dono de "esta peca tem longo?"
+from medir import CANAIS  # noqa: E402  — DONO do mapa slug -> id de canal
+
+CANAIS_API = "https://www.googleapis.com/youtube/v3/channels"
 
 
 def _env(*nomes):
@@ -146,6 +149,40 @@ def escopos_necessarios(sp=None):
     return {ESCOPO_ENVIO: ESCOPOS_NECESSARIOS[ESCOPO_ENVIO]}
 
 
+def canal_do_access_token(acc):
+    """De QUEM e este token, perguntado a API. `None` se nao deu para ler.
+
+    POR QUE ISTO EXISTE (21/10/2026, run 39560816227). O `publicar.py` carrega,
+    na linha 150, a frase *"o `publicar.py` ainda pergunta a API de quem e o
+    token antes de subir"* — e **essa frase e uma PROMESSA, nao codigo**: o
+    unico confronto que existia era com o campo `canal`/`slug` DECLARADO dentro
+    do segredo, e o `YT_TOKEN_JSON` nao declara nenhum.
+
+    E a consequencia foi medida, nao suposta: o `chama_retencao` perguntou a API
+    de quem e esse blob e a resposta foi **`UCf4-ZFoZQWKJotZNdi4Yl7w`**, que e o
+    canal **Setiap Level** — um dos dez PARADOS, fora da frota. Logo, com
+    `publicar=true` no `frota.yml`, uma peca da frota seria enviada para OUTRO
+    canal, em silencio. O proprio `publicar.py` diz que isso "ja aconteceu uma
+    vez (14/08)".
+
+    Nas rodadas isso nao ocorreu porque elas publicam pelo `retomar.yml`, que le
+    o `YT_OAUTH_JSON` (mapa POR CANAL). E o que separou um short da frota de uma
+    subida no canal errado, no meu disparo das 06:1x, foram duas falhas sem
+    relacao — o escopo da legenda e o 402 do nome. **Isso e sorte, nao metodo.**
+
+    NUNCA imprime o token: devolve so o id do canal, que e publico.
+    """
+    req = urllib.request.Request(
+        CANAIS_API + "?part=id&mine=true",
+        headers={"Authorization": "Bearer " + acc})
+    try:
+        with urllib.request.urlopen(req, timeout=30) as r:
+            itens = json.load(r).get("items") or []
+    except Exception:                                      # noqa: BLE001
+        return None
+    return (itens[0].get("id") if itens else None)
+
+
 def _spec(caminho):
     """Le a spec quando o chamador a passa; `None` quando nao passa.
 
@@ -212,6 +249,29 @@ def main():
             f"pode levar legenda e publicar mudo para a busca (aprendizado 93), "
             f"e publicacao nao se desfaz."
         )
+    # DE QUEM E O TOKEN — e aqui a severidade e maxima de proposito: publicar
+    # no canal errado nao se desfaz, e a autorizacao de 09/10 nao cobre mover
+    # nem apagar video publicado.
+    esperado = CANAIS.get(canal)
+    real = canal_do_access_token(resposta["access_token"])
+    if esperado and real and real != esperado:
+        sys.exit(
+            f"CANAL ERRADO ({canal}): a credencial que o render usaria pertence "
+            f"ao canal {real}, e {canal} e {esperado}.\n"
+            f"Publicar daqui subiria a peca em OUTRO canal, e publicacao nao se "
+            f"desfaz — o render foi abortado de proposito.\n"
+            f"Os secrets `YT_TOKEN_<CANAL>` estao ausentes, logo o "
+            f"`publicar.token_do_canal` cai no `YT_TOKEN_JSON`, que e um token "
+            f"UNICO e generico. As rodadas publicam pelo `retomar.yml`, que le o "
+            f"`YT_OAUTH_JSON` (mapa POR CANAL) e NAO tem este problema."
+        )
+    if esperado and real is None:
+        print(f"::warning title=Dono do token nao lido::nao deu para perguntar a "
+              f"API de quem e a credencial de {canal} — ausencia de leitura NAO "
+              f"e prova de que o canal esta certo")
+    elif esperado and real == esperado:
+        print(f"canal conferido na API: {real}")
+
     print(f"token de {canal}: vivo, com os {len(preciso)} escopo(s) que ESTA "
           f"peca precisa concedido(s)")
     # NOMEIA em vez de filtrar: o escopo que esta peca nao usa pode ser
