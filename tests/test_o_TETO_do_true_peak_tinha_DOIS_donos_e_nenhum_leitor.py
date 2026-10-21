@@ -131,12 +131,30 @@ def test_o_estado_vai_no_JSON_que_o_workflow_LE():
 
 
 def test_a_medida_e_a_procedencia_continuam_escritas():
+    """RETRATADO EM 21/10 AS 22:4x, e o errado era este teste.
+
+    Ele cobrava que o `som.py` continuasse dizendo *"a medida sai das anotacoes
+    de job e NENHUM TESTE A RECONFERE, porque ela nao esta no disco"* — isto e,
+    **ele travava o estado DEFEITUOSO**, exatamente como o
+    `test_sem_mapa_ele_DIZ_que_o_mapa_falta` em 20/10 as 10:1x. O
+    `som_parqueado` pos a leitura no disco e o teste dele a reconta, logo a
+    frase cobrada virou falsa.
+
+    A propriedade DURAVEL e outra, e e ela que fica: a medida continua com
+    PROCEDENCIA escrita, a peca que produziu o achado continua nomeada, e o
+    modulo aponta para onde a contagem viva se reconfere — em vez de repetir o
+    numero, que e o 753.
+    """
     fonte = _fonte("som.py")
-    assert "38" in fonte and re.search(r"NOVE|nove", fonte), (
-        "a medida (nove de 38 acima do teto) saiu do modulo")
     assert "epomeno-epipedo-s086" in fonte, (
         "a peca que produziu o achado saiu do modulo: sem ela a medida fica"
         " sem caso")
-    assert "anotac" in fonte.lower() or "ANOTAC" in fonte, (
-        "a declaracao de que a medida vem das ANOTACOES de job — e nao do"
-        " disco, logo nenhum teste a reconfere — saiu do modulo")
+    assert "38" in fonte and re.search(r"NOVE|nove", fonte), (
+        "a contagem a mao de 21/10 saiu do modulo — ela fica como HISTORIA,"
+        " porque e ela que explica por que o parque passou a existir")
+    assert re.search(r"HISTORIA|historia", fonte), (
+        "a contagem antiga deixou de ir marcada como historia, e assim ela"
+        " volta a ler como medida viva")
+    assert "som_parqueado" in fonte, (
+        "o modulo deixou de apontar para onde a contagem viva mora — sem isso"
+        " quem le o `som.py` nao sabe que ela e reconferivel")

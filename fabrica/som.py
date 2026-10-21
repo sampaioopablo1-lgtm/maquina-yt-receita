@@ -54,9 +54,21 @@ ALVO_LUFS = -14.0
 # **+0,7 dBFS**, publicado nesta mesma rodada. Acima de zero o true peak
 # estoura a escala e pode distorcer na reproducao ou no transcode do YouTube.
 #
-# Essa medida sai das ANOTACOES DE JOB e **nenhum teste a reconfere**, porque
-# ela nao esta no disco — vai declarada como tal, em vez de parecer medida
-# local.
+# ESSA ULTIMA FRASE CAIU EM 21/10 AS 22:4x, e ela era minha: eu escrevi aqui
+# que a medida *"sai das ANOTACOES DE JOB e nenhum teste a reconfere, porque ela
+# nao esta no disco"*. **Agora esta.** O `som_parqueado` grava uma linha por
+# leitura em `docs/pendente/som-medido.jsonl`, semeada com os 60 `::notice:: SOM`
+# dos 60 runs mais recentes do `frota.yml` (cada linha com o `run` e o `job` que
+# a emitiram), e o teste dele RECONTA a distribuicao contra o parque.
+#
+# O "NOVE de 38" acima fica como HISTORIA — a contagem a mao daquela rodada. A
+# medida viva e do parque e nao se repete aqui, porque numero que um modulo
+# calcula nao se escreve em prosa de outro (753): rode
+# `python3 fabrica/som_parqueado.py`.
+#
+# E o VEREDITO nao e parqueado: o parque guarda `pico_dbtp` e quem julga e o
+# `pico_acima_do_teto` desta casa, logo mexer neste teto rele o parque inteiro em
+# vez de deixar atras classificacao velha.
 TP_MAX_DBTP = -1.5
 
 # Tolerância do RELATO, não de portão. O pipeline alheio reprova acima de 1,0;

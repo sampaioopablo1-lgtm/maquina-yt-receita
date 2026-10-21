@@ -8284,3 +8284,174 @@ como o TESTE.
 conjunto IDENTICO** a base desta sessao — e **provada pelo instrumento**, nao pelo
 meu olho. O arquivo velho tinha por acaso o MESMO conjunto, o que e sorte e e
 exatamente por isso que a guarda importa.
+
+## A LEITURA DE SOM NAO MORAVA EM LUGAR NENHUM — e a conta era de cabeca
+
+**Medido em 21/10 as 22:3x, na peca desta rodada.** Toda rodada eu leio o
+`::notice:: SOM` da anotacao do job — LUFS, pico real, LRA, desvio do alvo,
+silencios —, escrevo os numeros no relato e no commit, **e eles acabam ali**. O
+parque de duracao grava provedor, job e duracao de toda peca publicada; o som,
+nao. Logo *"quantas pecas sairam com o pico acima do nosso proprio teto?"* era
+pergunta para MIM — e a medida de **NOVE dos 38 renders recentes**, escrita no
+docstring do `som.py` em 13:4x de hoje, foi contada a mao na API, com o proprio
+comentario dizendo em letra que *"nenhum teste a reconfere, porque ela nao esta
+no disco"*.
+
+**E a assinatura do 726** — o passo sem instrumento e o passo que eu solto — e o
+item 3 da §10 na SEXTA dimensao: canal (19/10 11:2x), cota (23:3x), cenas (02:2x),
+pauta (08:2x), dono da origem (10:1x) e agora SOM.
+
+**O parque esta semeado com PROCEDENCIA, e a contagem mudou:** os 60
+`::notice:: SOM` dos 60 runs mais recentes do `frota.yml`, lidos da API, cada
+linha com o `run` e o `job` que a emitiram.
+
+| | |
+|---|---|
+| pecas com leitura de som | **60** |
+| dentro do teto (−1,5 dBTP) | **49** |
+| **acima do teto** | **10** |
+| **CLIPA** (acima de zero) | **1** — o `epomeno-epipedo-s086`, +0,7 dBFS |
+| faixa de pico medida | **−4,0 a +0,7** dBTP |
+
+**E O VEREDITO NAO E PARQUEADO, e essa e a decisao que mais importa.** A anotacao
+JA TRAZ o campo `pico_vs_teto` calculado no runner, e gravar o valor dele seria
+congelar um veredito feito com um teto que pode mudar — o segundo dono da mesma
+regra, a assinatura que congelou a legenda. O parque guarda a **MEDIDA**
+(`pico_dbtp`) e quem julga e sempre `som.pico_acima_do_teto`, logo mexer no
+`som.TP_MAX_DBTP` **rele o parque inteiro**. **E isso nao e precaucao teorica:
+51 das 60 linhas NAO tinham o campo**, porque ele nasceu em 21/10 as 13:4x —
+parque que dependesse dele perderia 85% da propria base. O que se grava e o
+FATO de a anotacao te-lo trazido (`tinha_veredito`), nao o valor.
+
+**E A PRIMEIRA EXECUCAO ACHOU UM DEFEITO DA CHAVE, no lugar que doi:** o
+`labtreinamento-014` e um PACOTE e emite **DUAS** anotacoes, `longo.mp4` em
+−3,2 e `short.mp4` em −2,3. Chave por pacote sozinho leu as duas como leitura
+discordante da MESMA peca e **levantou**. **A guarda estava certa e a CHAVE
+estava errada** — e e a mesma forma do defeito do `registro_videos` de 19/10 as
+13:0x, onde o `slug` cravado fazia a linha do longo e a do short colidirem e o
+`on conflict do nothing` descartava uma **em silencio**. Aqui ela levantou, que
+e o sentido ruidoso e portanto o barato.
+
+**E O RELATO MEDIA OUTRA COISA, pego na semeadura:** a frase do campo novo dizia
+*"60 das 60 linhas nao o tinham"* porque o `distribuicao` procurava
+`pico_vs_teto` DENTRO do registro — e ele nunca esta la, justamente porque o
+veredito nao e parqueado. A medida e **51 de 60**. Numero de relato que mede
+outra coisa e o 753 em forma de contagem, e o teste passou a **recontar** contra
+o parque.
+
+**E UMA RESSALVA MINHA FOI DESMENTIDA PELO PROPRIO PARQUE, antes de eu a
+relatar.** Vendo que **oito das onze** acusadas sao do `epomeno-epipedo`, eu
+escrevi no relato que *"os denominadores diferem e ninguem aleatorizou nada"* —
+ressalva de habito, escrita ANTES de olhar. Medidos, os denominadores saem
+**IGUAIS: vinte por canal**, por acidente da rotacao 8/8/8. Logo o contraste se
+le direto — **8 de 20 contra 2 de 20 e 1 de 20** —, e a ressalva que de fato
+vale e outra: **voz e CONTEUDO andam juntos** nos tres canais, e as acusadas sao
+onze. O que esta medido e a contagem.
+
+**NAO E PORTAO** e o codigo de saida e sempre zero, pelo argumento do `mira.py`:
+`acima_do_teto` e **LEITURA e nao defeito** — so `clipa` e defeito, e quem diz
+isso e o `som.pico_acima_do_teto` —, e um portao aqui reprovaria dez pecas de
+acervo que ja estao no ar.
+
+    python3 fabrica/som_parqueado.py
+
+`tests/test_a_leitura_de_SOM_nao_morava_em_lugar_nenhum.py`, onze testes: o
+parque sai do DISCO e **reprova com menos de 20 linhas** (vacuidade), um exige
+que os **TRES** estados existam e **falha se um deles desaparecer**, o teto e
+cobrado por **AST** (redefinir `TP_MAX_DBTP` ou cravar o valor reprova, e o
+canal tem de sair do `canal.do_pacote`), o caso da chave e **DERIVADO do disco**
+e **reprova dizendo que perdeu a ancora** se nenhum pacote tiver duas leituras
+(nomear o `labtreinamento-014` seria identidade onde ha propriedade —
+743/753/761), a contraprova vai nos **dois** sentidos (divergencia LEVANTA,
+leitura identica nao duplica, e o MESMO pacote em outro ARQUIVO entra), os dois
+valores de `tinha_veredito` sao exigidos (sem os dois lados a frase das 51 nao
+tem objeto), a igualdade dos denominadores e **reconferida** e o teste **falha
+se ela cair**, a recusa tem **UM dono** e nao sai com o parque cheio, e a
+semente e cobrada com `run` e `job`. **Contraprova:** chave por pacote so,
+**dois dos onze** falham; veredito parqueado, **um** falha.
+
+**E UM TESTE MEU DE HOJE DE MANHA FOI RETRATADO NO LUGAR, pela DECIMA QUINTA vez
+da classe.** O `test_a_medida_e_a_procedencia_continuam_escritas` cobrava que o
+`som.py` continuasse dizendo *"nenhum teste a reconfere, porque ela nao esta no
+disco"* — isto e, **ele travava o estado DEFEITUOSO**, igual ao
+`test_sem_mapa_ele_DIZ_que_o_mapa_falta` de 20/10 as 10:1x. A propriedade que
+ficou e duravel: a peca do achado segue nomeada, a contagem a mao de 13:4x segue
+escrita **marcada como HISTORIA**, e o modulo **aponta** para onde a contagem
+viva se reconfere em vez de repetir o numero.
+
+### A PECA DESSA RODADA — CATORZE cenas, e o PISO exato nao era alcancavel
+
+`epomeno-epipedo-s089` = **`bS6lQpfenN0`**, publicado as 22:21:22Z (run
+`39685851600`), **ONZE PORTOES VERDES NA PRIMEIRA TENTATIVA** (12,6 s) — e ela
+foi **CONFERIDA COMO RASCUNHO** antes de existir como arquivo, em 1,8 s: dez
+portoes baratos limpos, mira, acento (**14,38%**, e o `ortografia` tambem nao
+reprova), gancho (4 palavras de 12), paleta **LIDA** do dono e as catorze cenas
+desenhando — e os CINCO instrumentos que ainda exigem caminho **DISSERAM** que
+nao conferiram, em vez de calar. Provedor **edge MEDIDO** (zero avisos
+`NARRACAO PELO PIPER` nos TRES jobs, contados pela API). Som **−13,7** LUFS, LRA
+3,8, desvio +0,3, **zero silencios** — e pico **−1,3 dBTP**, isto e
+`acima_do_teto`, que e LEITURA e nao defeito e e o decimo caso do parque desta
+mesma rodada.
+
+**CONTAGEM pela chave `por_cadencia_servivel`:** catorze e a melhor cadencia
+(3,02 s), nao repete os tamanhos recentes do canal (12 e 13) e tem folga **+6**.
+O teto MEDIDO da voz (**15**), que e **INEDITO** na frota, saiu **NOMEADO** e
+recusado pela FOLGA — dois caracteres acima do piso observado, a MESMA conta que
+eu recusei a mao em 04:1x e 06:2x de ontem.
+
+**ESQUELETO
+`titulo-item-lista-item-barras-titulo-item-lista-item-barras-item-item-titulo-cta`,
+inedito nas 163 formas da frota** e nas CINCO de catorze cenas, com `lista` e
+`barras` duas vezes cada e as quatro carregando argumento. Todo layout saiu do
+conjunto **SONDADO**, com `assert` no construtor.
+
+**PAUTA:** `wUHuwyO2HYo` (`epomeno-epipedo-012`), 4 usos — empate de **DOZE**
+origens desempatado pela MAIOR reserva, **71 de 90** capitulos NAO MENCIONADOS.
+A dominante `nttW9fR8wyY` ficou de fora, e quem conta e o `concentracao.py`.
+
+**FAMILIA: DE QUAL CONTA SAI O NUMERO** (capitulos 28 a 33, com apoio do 27) — a
+PROCEDENCIA do numero de consumo, antes de qualquer tarifa, com duas pernas que
+falham por motivos diferentes: a conta pode nao ser **MEDICAO** (o `έναντι` e
+estimativa) e pode nao ser o **SEU ANO** (um mes de ponta nao representa). Nos
+dois casos a aritmetica fecha e o resultado nao descreve nada. Distincoes
+escritas contra os QUATRO irmaos pelo `irmaos_da_origem` — dois deles nao tem o
+campo da familia, logo a comparacao saiu da PROSA e da NARRACAO, de primeira
+mao. Os quatro falam da TARIFA; **este fala da outra entrada**. O capitulo 34
+ficou de fora de proposito: e territorio declarado do `s022`.
+
+**E A RESERVA ESCRITA FOI LIDA E NAO LEVADA, com o motivo repetido.** O
+`reservas_escritas` trouxe a do `epomeno-epipedo-s022` (capitulos 8 a 16, as
+quatro cores do extrato), **8 de 9 livres** — e eu nao a levei **pelo motivo que
+o proprio s022 escreveu**: ela depende de nomear secoes de documento que variam
+por fornecedor, e isso pede conferencia que esta rodada nao tem, com a rota em
+`negado_por_politica` e as quatro fontes institucionais fechadas. Nomear uma
+secao que o extrato do leitor nao tem e afirmar sobre o mundo sem fonte, e a
+regra 600 vale. Fica livre **com o motivo reescrito**, para a rodada que tiver
+rede nao a tomar como consumida.
+
+**E O PISO EXATO NAO ERA ALCANCAVEL, dito assim em vez de eu chamar 42,0 de
+piso:** com catorze cenas um caractere por cena vale **0,71 s**, logo 27
+caracteres dao **42,0** e 26 caem **ABAIXO** da faixa — o proprio inversor diz
+que o valor cru dele para o piso tem previsao fora. A peca ficou no **MEIO** da
+faixa, que e onde o `orcamento` mira (752/774), e a regra de redacao do 772 **nao
+tem ponto para onde apontar nesta contagem**. A pinca do 740/748 esta FECHADA
+(piper **37,3**, FORA pela mira e DENTRO do portao), e a exposicao foi declarada
+ANTES de publicar. O REAL nao esta prometido para lado nenhum (774).
+
+**ZERO numero novo sobre o mundo:** os tres numerais falados (`Τρία`, `Ένας`,
+`δύο`) sao a contagem da PROPRIA receita, conferidos pelo `numerais_falados`, e
+as barras sao ilustracao qualitativa e **nao** sao faladas — a copy diz isso em
+letra para a rodada seguinte nao as ler de volta como dado.
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica` pela VIGESIMA
+rodada seguida** — medido pelo `politica_negou_hosts`, nao por uma fatia escrita
+na hora. A peca esta PARQUEADA com o provedor MEDIDO e o job **lido da API**, e a
+presenca foi conferida **RELENDO** o parque (**120** linhas, **48** sem leitura).
+`RESIDUO_N` segue **128**.
+
+**E A LEITURA DE INSCRITOS PASSOU AS TRES PORTAS E NAO FOI FEITA, pela NONA
+rodada seguida:** 60,05 h, piso de resolucao **0,4/dia**, os tres SIM. **O que a
+impede e a ROTA, e o remedio e do DONO** — a tela de Network access.
+
+**COTA: DEZESSEIS envios** na janela aberta as 07:00Z, **25.600** unidades,
+contra o piso MEDIDO de **>= 41.600** — do `janela_de_cota`.
