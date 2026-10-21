@@ -1,0 +1,76 @@
+{
+ "slug": "labtreinamento-s103",
+ "pacote": "labtreinamento-s103",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "longo_existente": "yrWVyqQtw00",
+ "longo": [],
+ "thumb": {
+  "l1": "Assinada",
+  "l2": "não suposta"
+ },
+ "paleta": {
+  "bg": "#0E1117",
+  "ink": "#EEF1F5",
+  "c1": "#3DDBD9",
+  "c2": "#1E2430",
+  "red": "#FF5A5F",
+  "ok": "#3CCB7F",
+  "panel": "#161B24",
+  "mut": "#8B95A5",
+  "acc": "#3DDBD9"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "A justificativa",
+   "sub": "saiu do subentendido",
+   "nar": "A justificativa saiu do subentendido e virou papel."
+  },
+  {
+   "layout": "lista",
+   "kicker": "A ordem que a norma quer",
+   "itens": [
+    "Desenergizar",
+    "Justificar",
+    "Registrar"
+   ],
+   "nar": "Primeiro desligar; energizado só com justificativa."
+  },
+  {
+   "layout": "barras",
+   "kicker": "O que o papel prova",
+   "barras": [
+    {
+     "rotulo": "Justificativa escrita",
+     "valor": 100
+    },
+    {
+     "rotulo": "Subentendida",
+     "valor": 0
+    }
+   ],
+   "nar": "Subentendida não serve, e esse é exatamente o ponto."
+  },
+  {
+   "layout": "item",
+   "kicker": "E alguém assina",
+   "sub": "a decisão muda de patamar",
+   "nar": "Quando alguém assina o papel, a decisão muda de patamar."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O conflito é de custo",
+   "sub": "não é técnico",
+   "nar": "O conflito não é técnico: parar a linha custa hora."
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "inscreva-se",
+   "nar": "Pergunte hoje por que aquele serviço é energizado."
+  }
+ ],
+ "copy": "# labtreinamento-s103\n\n## TITULO\nA justificativa saiu do subentendido: por que agora alguém assina o trabalho energizado\n\n## TITULO SHORT\nAssinada, não suposta\n\n## DESCRICAO\nTem uma mudança na norma que parece burocrática e não é: a justificativa para trabalhar energizado deixou de poder ser subentendida e passou a precisar estar escrita — e assinada por alguém.\n\nA ordem que a norma quer é simples de dizer e difícil de cumprir: desenergizar primeiro. Só depois, e com justificativa, trabalhar protegido. Quem sente isso primeiro não é a segurança, é a manutenção, porque desligar quase sempre significa parar produção. E aí a conversa sai do campo técnico e entra no campo do custo.\n\nÉ um conflito real, e não adianta fingir que não existe. Parar uma linha custa dinheiro medido em hora. O que mudou não foi o conflito: foi que essa conta passou a precisar estar escrita. Não é proibido trabalhar energizado; é obrigatório registrar por que, naquele caso, desligar não era viável.\n\nE alguém assina esse registro. Quando a justificativa sai do subentendido e vira documento assinado, a decisão muda de patamar — porque passa a ter autor, data e motivo, em vez de virar hábito sem dono.\n\nO trabalho prático é olhar as ordens de serviço que hoje autorizam trabalho energizado e perguntar, uma por uma, se a justificativa está escrita ou se ela está apenas suposta. Subentendida não serve, e esse é exatamente o ponto da mudança.\n\nTem um teste que você pode fazer amanhã, e ele não precisa de documento nenhum: pergunte a quem executa por que aquele serviço é feito energizado. Se a resposta for \"sempre foi assim\", você acabou de encontrar o caso que a norma está mirando.\n\nO detalhamento da mudança, com o texto e as fontes, está no vídeo completo do canal.\n\n## COMENTARIO FIXADO\nFaça o teste e conte aqui: quando você pergunta por que o serviço é energizado, a resposta vem com motivo ou vem com \"sempre foi assim\"?\n\n## HASHTAGS\n#segurancadotrabalho #NR10 #eletricidade #manutencao #LabTreinamento\n\n## TAGS\ntrabalho energizado, justificativa, ordem de serviço, desenergizar, segurança do trabalho, manutenção, treinamento, Brasil\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ncategoryId: 26\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\nmadeForKids: false\nselfDeclaredMadeForKids: false\n\n## MUSICA / LICENCA\nInspired — Kevin MacLeod (incompetech.com), Creative Commons BY 3.0.\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO. A narracao NAO cita artigo de norma, NAO cita\ndata de vigencia, NAO cita prazo, NAO cita valor em reais, NAO cita categoria de\nvestimenta e NAO nomeia orgao. **Ela nao fala numeral nenhum**, nem de estrutura.\n\nAS BARRAS SAO ILUSTRACAO QUALITATIVA E NAO SAO FALADAS. A cena 2 (100 contra 0)\nmostra que justificativa escrita prova e justificativa subentendida nao prova —\ne os dois valores sao a FORMA do argumento, nao medida de coisa nenhuma. Esta\nlinha existe para a rodada seguinte NAO os ler de volta como dado.\n\nO QUE O VIDEO AFIRMA: que a ordem pedida e desenergizar primeiro e so depois\ntrabalhar protegido com justificativa; que o conflito aparece na manutencao,\nporque desligar para producao; e que a justificativa passou a precisar de\nregistro assinado. Isso esta no longo `labtreinamento-004` (`yrWVyqQtw00`),\ncapitulos 20 a 27, com as fontes dele.\n\n## FAMILIA DE ENTRADA ERRADA\nA JUSTIFICATIVA SUBENTENDIDA TRATADA COMO JUSTIFICATIVA — capitulos 20 a 27, com\no 26 no centro: *\"subentendida nao serve, e esse e exatamente o ponto da\nmudanca\"*.\n\nO eixo e o REGISTRO, e o custo de nao o ter nao e tecnico: e que a decisao fica\nsem autor. Enquanto a conta mora no subentendido, ninguem assina e ela vira\nhabito; escrita, ela ganha autor, data e motivo.\n\nDISTINCAO DOS SEIS IRMAOS desta origem, conferida pelo `irmaos_da_origem` e pela\nNARRACAO de cada um (quatro deles nao tem este campo, logo a comparacao foi pela\nPROSA e pela fala, que e de primeira mao):\n- `s010` — a ORDEM de contratacao: pedir o estudo antes do levantamento;\n- `s034` — TREINADO nao e autorizado (capitulos 61 a 78);\n- `s041` — substituicao INTEGRAL tratada como emenda (capitulos 5 a 7);\n- `s053` — DUAS fontes paralelas para um fato so (capitulos 40 a 64);\n- `s090` — arco eletrico nao e choque (capitulos 30 a 64);\n- `s093` — o numero nao vem antes do plano (capitulos 65 a 70).\nNenhum dos seis fala do REGISTRO da justificativa, e nenhum toca os capitulos 20\na 27. O mais proximo e o `s034`, e a distincao vai dita: ele fala de quem PODE\nexecutar (treinado contra autorizado); este fala do que precisa estar ESCRITO\npara que a execucao seja legitima — pessoa contra papel.\n\n## RESERVA\nO QUE EU NAO LEVEI, de proposito, e vai escrito para a proxima rodada achar:\n- o capitulo 19 — por que a mudanca e GRANDE: o documento deixa de provar que\n  havia EPI e passa a precisar provar que a energia foi eliminada. E familia de\n  ONUS DA PROVA, e e boa; nao cabe hoje pela regra (f);\n- os capitulos 28 e 29 abrem a SEGUNDA mudanca (o arco eletrico como exigencia),\n  e eles sao territorio do `s090` — vao NOMEADOS aqui para a rodada seguinte nao\n  os tomar por livres;\n- o capitulo 25 (olhar as ordens de servico uma por uma) entrou nesta peca como\n  o TESTE, logo ele esta consumido; o que segue livre e o 19.\n\n## EXPOSICAO\nA PINCA DO 740/748 ESTA ABERTA AQUI, o que e raro e vai dito: este e o unico\ncanal da frota com mira propria larga o bastante (20,0 a 26,0, seis segundos)\npara que exista media por cena que ponha os DOIS provedores dentro dela. O\n`mira.janela_dos_dois_mundos` devolve **51 a 55** caracteres por cena para seis\ncenas, e a peca saiu com media **51,8**: edge **24,84** e piper **20,39**, os\ndois DENTRO.\n\nLOGO NAO HA EXPOSICAO DE MUNDO A DECLARAR, e eu NAO mirei o piso: o orcamento do\npiso aqui e 39 caracteres, e com 39 o piper cairia em **19,7** — FORA pelo piso.\nMirar o piso neste canal e justamente o que o 740/748 nomeia como impossivel de\ncasar com os dois mundos.\n\nE O REAL NAO ESTA PROMETIDO: 41 das 46 pecas deste canal narradas pelo edge\nsairam FORA do teto de 26,0 **com a mira verde nos dois mundos**, e a banda do\nresiduo tem 5,2 s de largura contra 1 s de granularidade. Declarar de que lado\ndela o real cai nao e previsao (774).\n"
+}
