@@ -1,0 +1,137 @@
+{
+ "slug": "epomeno-epipedo-s089",
+ "pacote": "epomeno-epipedo-s089",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "longo_existente": "wUHuwyO2HYo",
+ "longo": [],
+ "thumb": {
+  "l1": "Ποιον",
+  "l2": "λογαριασμό"
+ },
+ "paleta": {
+  "bg": "#F4EFE6",
+  "ink": "#1B1A17",
+  "c1": "#C8502A",
+  "c2": "#2B6CB0",
+  "red": "#B83227",
+  "ok": "#2E8B57",
+  "panel": "#FFFFFF",
+  "mut": "#7A7263",
+  "acc": "#C8502A"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Η πράξη ήταν σωστή",
+   "sub": "το νούμερο όχι",
+   "nar": "Έκανες την πράξη σωστά."
+  },
+  {
+   "layout": "item",
+   "kicker": "Φταίει η σελίδα",
+   "sub": "απ' όπου πήρες το νούμερο",
+   "nar": "Λάθος ήταν ο λογαριασμός που πήρες."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Τρεις έλεγχοι",
+   "itens": [
+    "Η περίοδος",
+    "Το είδος",
+    "Ο χρόνος"
+   ],
+   "nar": "Τρία πράγματα πρώτα."
+  },
+  {
+   "layout": "item",
+   "kicker": "Πρώτα η περίοδος",
+   "sub": "μήνας ή δίμηνο",
+   "nar": "Πρώτα δες την περίοδο."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Ίδιο διάστημα",
+   "barras": [
+    {
+     "rotulo": "Μήνας",
+     "valor": 50
+    },
+    {
+     "rotulo": "Δίμηνο",
+     "valor": 100
+    }
+   ],
+   "nar": "Η σύγκριση θέλει ίδιο διάστημα."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Μετά το είδος",
+   "sub": "έναντι ή εκκαθαριστικός",
+   "nar": "Μετά, τι είδος είναι."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ο έναντι",
+   "sub": "υπολογισμένος κατ' εκτίμηση",
+   "nar": "Ο έναντι είναι εκτίμηση, όχι μέτρηση."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Ποιον παίρνεις",
+   "itens": [
+    "Εκκαθαριστικό",
+    "Με πραγματική μέτρηση",
+    "Όχι έναντι"
+   ],
+   "nar": "Πάρε τον εκκαθαριστικό."
+  },
+  {
+   "layout": "item",
+   "kicker": "Αλλιώς",
+   "sub": "συγκρίνεις μια εκτίμηση",
+   "nar": "Αλλιώς συγκρίνεις μια εκτίμηση."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Η κατανάλωση έχει εποχή",
+   "barras": [
+    {
+     "rotulo": "Κρύο",
+     "valor": 100
+    },
+    {
+     "rotulo": "Άνοιξη",
+     "valor": 44
+    }
+   ],
+   "nar": "Και η κατανάλωση έχει εποχή."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ένας μήνας",
+   "sub": "δεν σε αντιπροσωπεύει",
+   "nar": "Ένας μήνας δεν σε δείχνει."
+  },
+  {
+   "layout": "item",
+   "kicker": "Πάρε τον χρόνο",
+   "sub": "και βγάλε μέσο όρο",
+   "nar": "Πάρε έναν ολόκληρο χρόνο."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Αν δεν τον έχεις",
+   "sub": "δύο αντίθετοι μήνες",
+   "nar": "Αν δεν τον έχεις, δύο αντίθετους."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Επόμενο Επίπεδο",
+   "sub": "κάνε εγγραφή",
+   "nar": "Σωστή σελίδα, και γράψου."
+  }
+ ],
+ "copy": "# epomeno-epipedo-s089\n\n## TITULO\nΈκανες την πράξη σωστά και το νούμερο βγήκε λάθος: φταίει ο λογαριασμός που πήρες\n\n## TITULO SHORT\nΠοιον λογαριασμό πήρες\n\n## DESCRICAO\nΠριν συγκρίνεις τιμές, υπάρχει ένα βήμα που σχεδόν όλοι το προσπερνούν: από ποια σελίδα πήρες τις κιλοβατώρες. Αν αυτό το νούμερο δεν είναι σωστό, η πράξη σου βγαίνει καθαρή και το συμπέρασμα βγαίνει λάθος, χωρίς να φταίει η αριθμητική σου.\n\nΤρία πράγματα ελέγχονται πρώτα, και κανένα δεν αφορά τιμολόγιο. Πρώτο, η περίοδος. Άλλοι λογαριασμοί καλύπτουν μήνα και άλλοι δίμηνο, και η σύγκριση έχει νόημα μόνο σε ίδιο διάστημα. Δεύτερο, το είδος του λογαριασμού. Ο έναντι υπολογίζεται κατ' εκτίμηση και δεν στηρίζεται σε πραγματική μέτρηση, άρα αν τον πάρεις συγκρίνεις μια εκτίμηση και όχι την κατανάλωσή σου. Για τη σύγκριση θέλεις εκκαθαριστικό λογαριασμό.\n\nΤρίτο, και είναι αυτό που κρύβεται καλύτερα: ο χρόνος. Η κατανάλωση ρεύματος έχει έντονη εποχή, με κορυφές στο κρύο και στη ζέστη, άρα ένας μήνας δεν σε αντιπροσωπεύει ό,τι μήνας και να είναι. Αν έχεις πρόσβαση στους λογαριασμούς ενός ολόκληρου χρόνου, πρόσθεσε τις κιλοβατώρες και βγάλε μέσο όρο. Αν δεν τους έχεις όλους, πάρε τουλάχιστον δύο αντίθετους μήνες, έναν χειμωνιάτικο και έναν καλοκαιρινό, και κάνε την πράξη δύο φορές.\n\nΑυτό το βίντεο δεν σου λέει ποια τιμή είναι καλύτερη, ούτε ποιος πάροχος. Λέει από πού βγαίνει το νούμερο που μπαίνει στην πράξη, γιατί εκεί χάνεται η σύγκριση πριν ακόμα αρχίσει. Το νούμερο της κατανάλωσης είναι δικό σου: δεν αλλάζει επειδή άλλαξες τιμολόγιο.\n\n## COMENTARIO FIXADO\nΟ λογαριασμός που κρατάς τώρα στα χέρια σου είναι έναντι ή εκκαθαριστικός, και τι περίοδο καλύπτει; Κοίτα τη σελίδα με την ανάλυση χρέωσης και γράψε το.\n\n## HASHTAGS\n#ρεύμα #λογαριασμός #κιλοβατώρες #οικονομικά #ΕπόμενοΕπίπεδο\n\n## TAGS\nλογαριασμός ρεύματος, κιλοβατώρες, εκκαθαριστικός, έναντι, ανάλυση χρέωσης, σύγκριση τιμολογίων, προσωπικά οικονομικά, Ελλάδα\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ncategoryId: 26\ndefaultLanguage: el\ndefaultAudioLanguage: el\nmadeForKids: false\nselfDeclaredMadeForKids: false\n\n## MUSICA / LICENCA\nInspired — Kevin MacLeod (incompetech.com), Creative Commons BY 3.0.\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO. A narracao NAO cita tarifa, NAO cita termo fixo,\nNAO cita preco em euros nem em centimos, NAO cita percentual, NAO nomeia\nfornecedor e NAO nomeia autoridade reguladora. Os unicos numerais falados sao\n\"Τρία\" (os tres controles), \"Ένας\" (um mes) e \"δύο\" (dois meses opostos) — os\ntres sao a contagem da PROPRIA receita, nao medida de nada no mundo.\n\nAS BARRAS SAO ILUSTRACAO QUALITATIVA E NAO SAO FALADAS. A cena 4 (50 contra 100)\nmostra que mes e bimestre nao sao o mesmo intervalo, e a cena 9 (100 contra 44)\nmostra que a conta de frio e a de primavera nao se parecem. **Nenhum dos quatro\nvalores e consumo medido de ninguem**, e esta linha existe para a rodada seguinte\nNAO os ler de volta como dado.\n\nO QUE O VIDEO AFIRMA: que a comparacao exige o MESMO intervalo nos dois lados;\nque o `έναντι` e calculado por estimativa e o `εκκαθαριστικός` por medicao real;\ne que o consumo de energia tem estacionalidade, logo um mes nao representa o ano.\nEsta no longo `epomeno-epipedo-012` (`wUHuwyO2HYo`), capitulos 27 a 33, com as\nfontes dele.\n\n## FAMILIA DE ENTRADA ERRADA\nDE QUAL CONTA SAI O NUMERO — capitulos 28 a 33, com apoio do 27.\n\nO eixo e a PROCEDENCIA do numero de consumo, antes de qualquer tarifa, e ele tem\nduas pernas que falham por motivos diferentes: a conta pode nao ser MEDICAO (o\n`έναντι` e estimativa) e pode nao ser o SEU ANO (um mes de ponta nao representa).\nNos dois casos a aritmetica fecha e o resultado nao descreve nada — nao ha aviso\nnenhum, porque a divisao nunca falha.\n\nDISTINCAO DOS QUATRO IRMAOS desta origem, conferida pelo `irmaos_da_origem` e\npela NARRACAO de cada um (dois deles nao tem este campo, logo a comparacao foi\npela PROSA e pela fala, que e de primeira mao):\n- `s014` (Σύγκρινες τιμές; Κοίτα τη μονάδα) — a UNIDADE do preco, euro contra\n  centimo, mais a mesma data e o mesmo consumo nos dois lados;\n- `s022` (Πάρε τις κιλοβατώρες, όχι τα ευρώ) — pegar kilowatt-hora e nao o total\n  em euros, que ja carrega termo fixo e imposto;\n- `s039` (Η τιμή υποδοχής έχει ημερομηνία) — a tarifa de INTRODUCAO lida como se\n  fosse a do contrato;\n- `s074` (Το πάγιο δεν πολλαπλασιάζεται) — o termo fixo entrando no\n  multiplicador, e os regulados temidos sem motivo.\nOs quatro falam da TARIFA e de como ela entra na conta. **Este fala da outra\nentrada — o consumo — e de QUAL PAGINA ele sai.** Nenhum deles toca a periodo, o\n`έναντι` nem a estacionalidade.\n\nE O CAPITULO 34 FICOU DE FORA DE PROPOSITO: \"nao pegue os euros, pegue as\nkilowatt-hora\" e o territorio declarado do `s022`, e leva-lo aqui seria repetir a\nfamilia dele. O 35 (medicao noturna separada) e o 36 (o numero e seu) tambem\nficaram de fora, o segundo so citado na descricao.\n\n## RESERVA\nO QUE EU NAO LEVEI, de proposito, e vai escrito para a proxima rodada achar:\n\n1. **Os capitulos 8 a 16 — as quatro cores do extrato.** Esta era a RESERVA\n   ESCRITA do `epomeno-epipedo-s022`, que o `reservas_escritas` trouxe nesta\n   rodada, e ela segue LIVRE (8 capitulos livres de 9). **Eu nao a levei pelo\n   motivo que o proprio s022 escreveu:** ela depende de nomear secoes de\n   documento que variam por fornecedor, e isso pede conferencia que esta rodada\n   nao tem — a rota esta em `negado_por_politica` e as quatro fontes\n   institucionais tambem. Nomear uma secao que o extrato do leitor nao tem e\n   afirmar sobre o mundo sem fonte, e a regra 600 vale. Fica livre com o motivo\n   repetido, para a rodada que tiver rede nao a tomar como consumida.\n2. **Os capitulos 47 a 55 — o `πράσινο` nao significa mais barato.** Uma\n   ferramenta de comparacao que resolve um problema e NAO ordena preco. Familia\n   nova nesta origem e independente de fornecedor.\n3. **Os capitulos 69 a 75 — do mes para o ano.** A mesma diferenca multiplicada\n   por doze muda a decisao, e o erro tambem se repete todo ano. Ela nao cabe hoje\n   pela regra (f), porque esta peca ja fala de JANELA de tempo e as duas ficariam\n   proximas demais no mesmo canal.\n\n## EXPOSICAO\nA PINCA DO 740/748 ESTA FECHADA AQUI, e isto vai declarado ANTES de publicar: o\n`mira.janela_dos_dois_mundos` devolve NENHUMA janela para esta voz nesta faixa\ncom catorze cenas — nao existe media por cena que ponha os dois provedores dentro\nde 41,5 a 43,0. Logo a escolha e de qual mundo declarar, e nao se afrouxa mira\nsozinho (§10).\n\nPREVISAO edge **42,0** / piper **37,3**. O edge cai DENTRO da faixa; o piper sai\nFORA pelo piso da MIRA e DENTRO do portao `duracao`, que cobra 18 a 45 s nos dois\nmundos — logo nada quebra, e o que fica exposto e a mira.\n\nE O PISO EXATO NAO E ALCANCAVEL AQUI, dito assim em vez de eu chamar 42,0 de\npiso: com catorze cenas um caractere por cena vale **0,71 s**, logo 27 caracteres\ndao 42,0 e 26 caem ABAIXO da faixa — o proprio inversor diz que o valor cru dele\npara o piso tem previsao fora. A peca ficou no MEIO da faixa, que e onde o\n`orcamento` mira (752/774), e a regra de redacao do 772 nao tem ponto para onde\napontar nesta contagem.\n\nE O REAL NAO ESTA PROMETIDO, nem para um lado nem para o outro: a banda do\nresiduo tem 5,2 s de largura contra 1 s de granularidade, e declarar de que lado\ndela o real cai nao e previsao — e o que o 774 nomeia.\n"
+}
