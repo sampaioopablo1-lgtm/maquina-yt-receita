@@ -1,0 +1,120 @@
+{
+ "slug": "kolejny-poziom-s084",
+ "pacote": "kolejny-poziom-s084",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "longo_existente": "iqV7m6tKb5A",
+ "longo": [],
+ "thumb": {
+  "l1": "Zmiana",
+  "l2": "kosztuje podwójnie"
+ },
+ "paleta": {
+  "bg": "#0B0B0C",
+  "ink": "#F2EEE8",
+  "c1": "#E23B3B",
+  "c2": "#D9C7A7",
+  "red": "#FF4D4D",
+  "ok": "#7FB77E",
+  "panel": "#151517",
+  "mut": "#8F877C",
+  "acc": "#E23B3B"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Podatek, którego jeszcze nie ma",
+   "sub": "pracuje dla ciebie",
+   "nar": "Podatku nie ma, póki nie sprzedasz."
+  },
+  {
+   "layout": "item",
+   "kicker": "Do tego czasu",
+   "nar": "Do tego czasu pracuje dla ciebie."
+  },
+  {
+   "layout": "item",
+   "kicker": "Zmiana go uruchamia",
+   "nar": "Każda zmiana produktu go uruchamia."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Ten sam plan, z przerwą w środku",
+   "barras": [
+    {
+     "rotulo": "Bez zmiany",
+     "valor": 100
+    },
+    {
+     "rotulo": "Ze zmianą",
+     "valor": 78
+    }
+   ],
+   "nar": "Realizujesz zysk przed czasem."
+  },
+  {
+   "layout": "item",
+   "kicker": "I jeszcze jedna opłata",
+   "nar": "I wchodzisz w kolejną opłatę."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Dwa koszty jednego ruchu",
+   "itens": [
+    "Podatek wcześniej",
+    "Nowa opłata",
+    "Ten sam zwrot"
+   ],
+   "nar": "Zmiana kosztuje więc podwójnie."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Czego podatek nie dotyka",
+   "sub": "twoich wpłat i zysku bez sprzedaży",
+   "nar": "Twoich wpłat nikt nie opodatkuje."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ani zysku bez sprzedaży",
+   "nar": "Ani zysku, dopóki go nie sprzedasz."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Strata jednego roku",
+   "barras": [
+    {
+     "rotulo": "Rok ze stratą",
+     "valor": 40
+    },
+    {
+     "rotulo": "Lata następne",
+     "valor": 100
+    }
+   ],
+   "nar": "Stratę rozliczysz w kolejnych latach."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Trzy rzeczy nietknięte",
+   "itens": [
+    "Twoje wpłaty",
+    "Zysk bez sprzedaży",
+    "Strata do rozliczenia"
+   ],
+   "nar": "Trzy rzeczy zostają nietknięte."
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlatego częsta zmiana boli",
+   "nar": "Dlatego częsta zmiana boli."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Kolejny Poziom",
+   "sub": "zasubskrybuj",
+   "nar": "Policz, ile razy zmieniałeś produkt."
+  }
+ ],
+ "copy": "# kolejny-poziom-s084\n\n## TITULO\nPodatek, Którego Jeszcze Nie Ma, Pracuje Dla Ciebie: Dlatego Zmiana Kosztuje Podwójnie\n\n## TITULO SHORT\nZmiana kosztuje podwójnie\n\n## DESCRICAO\nDwa koszty zjadają ten sam plan: opłata i podatek. O opłacie mówi się dużo, bo widać ją w dokumencie. Tu chodzi o drugą rzecz, tę mniej oczywistą: **moment**, w którym podatek się pojawia — i kto do tej chwili pracuje na twoim rachunku.\n\n**Dopóki nie sprzedajesz, podatek nie istnieje na twoim rachunku.** Nie jest odroczony „na papierze\": cała kwota, włącznie z częścią, która kiedyś pójdzie na podatek, nadal pracuje i nadal się mnoży. To nie jest sztuczka księgowa, to po prostu pieniądz, który jeszcze u ciebie siedzi.\n\n**I tu pojawia się wniosek, którego nikt nie pisze w reklamie: każde przełożenie pieniędzy z produktu do produktu realizuje zysk i uruchamia podatek, który do tej pory pracował dla ciebie.** Dlatego częsta zmiana funduszu kosztuje dwa razy: płacisz podatek wcześniej, niż musiałeś, i zwykle wchodzisz przy okazji w kolejną opłatę. Porównujesz dwa produkty po kosztach rocznych, decyzja wygląda rozsądnie — a koszt samej **zmiany** nie pojawia się w żadnej z dwóch tabelek.\n\n**Warto też wiedzieć, czego podatek nie dotyka.** Nie dotyka twoich własnych wpłat — nikt nie opodatkowuje ich drugi raz. Nie dotyka zysku, dopóki go nie sprzedasz. A stratę z jednego roku możesz rozliczyć z zyskiem w latach następnych. Trzy rzeczy zostają nietknięte, i żadna z nich nie wymaga trafienia w dobrą spółkę.\n\nPraktycznie: zanim zrobisz kolejny przelew albo kolejną zmianę, policz, ile razy już przekładałeś pieniądze. Każdy taki ruch miał swoją cenę, tylko nie było jej w żadnym zestawieniu.\n\n## COMENTARIO FIXADO\nNajmniej oczywiste: koszt zmiany nie pojawia się w tabelce żadnego z dwóch produktów, które porównujesz. Ile razy już przekładałeś pieniądze?\n\n## HASHTAGS\n#podatek #inwestowanie #oplaty #kolejnypoziom #Shorts\n\n## TAGS\npodatek belki, zysk kapitalowy, oplata roczna, zmiana funduszu, odroczenie podatku, koszty inwestycji, ike, ikze, rozliczenie straty, finanse osobiste, inwestowanie dlugoterminowe, kolejny poziom\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\n**ZERO numero novo sobre o mundo.** O unico numeral falado e **\"trzy\"**, que\nconta as tres coisas que o imposto nao alcanca — contagem do proprio\nmecanismo, nao fato sobre o mundo.\n\n**FICOU DE FORA pela regra (g), e aqui a tentacao era grande:** a aliquota do\nimposto sobre o ganho (o capitulo 28 da origem a diz em letra), os valores em\nzloty da simulacao dos capitulos 31, 32 e 36, a taxa anual em pontos\npercentuais, os limites anuais e as idades de saque. **Os cinco vem de lei ou\nde obwieszczenie e mudam de ano para ano** — e o irmao `s014` desta MESMA\norigem ja descartou os mesmos, pelo mesmo motivo, em letra.\n\nAs barras sao **ILUSTRACAO qualitativa e NAO sao faladas**: na cena 4 elas\ndesenham o mesmo plano com e sem a troca no meio (a troca antecipa o imposto),\ne na cena 9 elas desenham que a perda de um ano encontra o lucro dos anos\nseguintes. Elas nao medem retorno, aliquota nem produto de ninguem, e a rodada\nseguinte NAO deve le-las de volta como dado.\n\n## FAMILIA DE ENTRADA ERRADA\n**O IMPOSTO AINDA NAO PAGO LIDO COMO NEUTRO, QUANDO ELE E DINHEIRO\nTRABALHANDO** (capitulos 30, 33, 34 e 35). Enquanto nao se vende, o imposto nao\nexiste na conta e a quantia INTEIRA — inclusive a parte que um dia sera imposto\n— segue rendendo. Logo **trocar de produto nao e um movimento neutro: ele\nREALIZA o ganho e liga o imposto antes da hora**, e costuma vir com uma segunda\ntaxa por cima. O discriminador e que o custo da TROCA nao aparece em nenhuma\ndas duas tabelas que se comparam: as duas falam de custo anual, e nenhuma fala\ndo momento.\n\nAs TRES familias anteriores desta origem vieram do `irmaos_da_origem`, e **duas\ndelas nao tem o campo**, logo a comparacao foi pela NARRACAO de primeira mao:\n\n* `s014` — **ALIQUOTA contra FREQUENCIA**: a taxa anual tirada do capital custa\n  mais que o imposto de aliquota maior cobrado uma vez;\n* `s034` — **a CONDICAO conta ANOS, nao valores**: o warunek olha em quantos\n  anos houve deposito;\n* `s074` — **o custo nao se distribui no TEMPO**: a mesma taxa pesa quase toda\n  na segunda metade do percurso.\n\n**As tres falam de uma cobranca que JA esta ligada — quanto, quando no percurso,\ne com que frequencia. Nenhuma fala de uma cobranca que AINDA NAO existe e que a\nsua propria decisao liga.** E esse o eixo desta.\n\n## FONTES\nOrigem: `iqV7m6tKb5A` (`kolejny-poziom-004`, 74 capitulos), escolhida pelo\n`pauta_do_momento.py` — 3 usos, empatada com **seis** outras origens e\ndesempatada pela MAIOR reserva: **67 capitulos NAO MENCIONADOS de 74**. A\ndominante `GUiq15usizw` ficou de fora, e quem conta e o `concentracao.py`. O\n`QiaGg03WSR0`, que tem contagem menor, saiu da escolha pelo **mapa de dono\nMEDIDO** — ele e longo do LabTreinamento declarado por engano em dois shorts\ndeste canal — e saiu NOMEADO em vez de filtrado.\n\nCapitulos desta peca: **30, 33, 34 e 35** (*\"Kiedy sie go placi\"*, *\"Czego\npodatek nie zabiera\"*, *\"Praktyczny wniosek\"* e *\"Dlatego czesta zmiana boli\"*).\nO 34 escreve a frase que a peca carrega: *\"kazde przelozenie pieniedzy z\nproduktu do produktu realizuje zysk i uruchamia podatek, ktory do tej pory\npracowal dla ciebie\"*.\n\n**A CONFERENCIA CONTRA OS IRMAOS VAI SEPARADA EM DUAS, com a FORCA de cada\nmetade:**\n\n* **por CAPITULO alcanca 2 de 3 irmaos** (`s034` em 38 a 63, com 19 citados, e\n  `s074` em 9 a 27, com 9): **zero sobreposicao** com 30, 33, 34 e 35. E a\n  forca e DESIGUAL e vai dita: com 19 capitulos declarados de 74, a chance de\n  o `s034` colidir com uma familia de quatro sob sorteio passa de 0,70 — logo\n  \"nao colidiu com ele\" e sinal FORTE; com os 9 do `s074` ela fica perto de\n  0,43, e ali o sinal e medio;\n* **por LEITURA da narracao, o `s014`**, que **nao declara capitulo nenhum**.\n  Ausencia de capitulo declarado NAO e ausencia de colisao (761), e o\n  instrumento diz isso em letra — por isso a comparacao com ele foi pela\n  narracao, e ela e clara: o `s014` compara DUAS cobrancas ligadas, e esta fala\n  de uma que ainda nao existe.\n\n## EXPOSICAO\n**DOZE CENAS, e a recusa nao foi minha.** O `contagem_de_cenas.py` deu **14**\ncomo a melhor cadencia (3,02 s) e **ela e o TETO MEDIDO desta voz** — e caiu\npela **FOLGA**: o orcamento ali fica a um caractere do piso OBSERVADO, a mesma\nconta que eu recusei a mao em 04:1x e 06:2x de ontem. **13** repete a `s082`, a\npeca de ontem deste canal. Doze e a melhor que SERVE pelos tres filtros, com\norcamento de **33** caracteres no piso e folga **+12**.\n\n**A PINCA DO 740/748 ESTA FECHADA AQUI, e a exposicao vai declarada ANTES de\npublicar:** o `mira.janela_dos_dois_mundos` devolve **NENHUMA** janela para a\nvoz polonesa nesta faixa, em contagem alguma de 2 a 20 — o vao piper/edge vale\n~6 s contra 1,5 s de largura do `ALVO_SHORT`. Mirei o **PISO** (regra de\nredacao do 772) e o piper sai FORA pelo piso.\n\n**O que eu NAO declaro: de que lado da banda o real cai.** Ela tem 5,2 s contra\n1 s de granularidade, e escolher um lado nao e previsao (774).\n\n**ESQUELETO\n`titulo-item-item-barras-item-lista-titulo-item-barras-lista-item-cta`**,\ninedito nas **SETE** formas de doze cenas da frota e nas **149** da frota\ninteira, com a propria peca FORA da varredura pelo `exceto`. Todo layout saiu\ndo conjunto **SONDADO** (`layouts_do_short.desenham`), com `assert` no\nconstrutor, e a paleta foi **LIDA** de `temas_do_dono.paleta_do_canal`. Trilha\n**Wholesome**, que e a deste canal — copiar a de outro canal reprova o portao\n`identidade` (601).\n"
+}
