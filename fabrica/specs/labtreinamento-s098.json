@@ -1,0 +1,80 @@
+{
+ "slug": "labtreinamento-s098",
+ "pacote": "labtreinamento-s098",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "longo_existente": "bQoujWaY7Hw",
+ "longo": [],
+ "thumb": {
+  "l1": "Ele sabe",
+  "l2": "sua taxa"
+ },
+ "paleta": {
+  "bg": "#0E1117",
+  "ink": "#EEF1F5",
+  "c1": "#3DDBD9",
+  "c2": "#1E2430",
+  "red": "#FF5A5F",
+  "ok": "#3CCB7F",
+  "panel": "#161B24",
+  "mut": "#8B95A5",
+  "acc": "#3DDBD9"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "A assimetria é de informação",
+   "sub": "não de tamanho nem de poder",
+   "nar": "Por que esse pedido chega sempre tão certeiro?"
+  },
+  {
+   "layout": "item",
+   "kicker": "Do outro lado da mesa",
+   "nar": "Do outro lado, esse número já está calculado."
+  },
+  {
+   "layout": "lista",
+   "kicker": "O que o pedido é, do lado dele",
+   "itens": [
+    "Sem banco",
+    "Sem garantia",
+    "Sem análise"
+   ],
+   "nar": "Para eles, é captar crédito sem banco."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Um lado sabe a taxa",
+   "barras": [
+    {
+     "rotulo": "Quem pede",
+     "valor": 100
+    },
+    {
+     "rotulo": "Quem concede",
+     "valor": 8
+    }
+   ],
+   "nar": "Eles comparam com a taxa interna antes."
+  },
+  {
+   "layout": "item",
+   "kicker": "E o credor é você",
+   "nar": "E o credor da operação é você, não um banco."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Que nunca foi consultado",
+   "sub": "sobre a taxa que vai cobrar",
+   "nar": "Só que ninguém te consultou sobre a taxa."
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "inscreva-se",
+   "nar": "Calcule a sua antes da próxima conversa."
+  }
+ ],
+ "copy": "# labtreinamento-s098\n\n## TITULO\nA Assimetria Não É de Poder: Um Lado Sabe a Taxa e o Outro Não\n\n## TITULO SHORT\nUm lado sabe a taxa\n\n## DESCRICAO\nTem um pedido que chega sempre com a mesma pontaria: **desconto para pagar à vista.** De clientes diferentes, em meses diferentes, com a mesma frase. E a explicação não é sorte nem jeito de negociar — é uma coisa muito mais simples, e ela está do outro lado da mesa.\n\n**Para uma empresa organizada, pedir desconto à vista é captar crédito.** Sem banco, sem garantia e sem análise de risco. O dinheiro que ela deixa de pagar depois é dinheiro que você adiantou para ela — ou seja, **o credor da operação é você.** A diferença é que ninguém te consultou sobre a taxa.\n\n**E do outro lado esse número costuma estar calculado.** Departamento financeiro tem uma taxa interna de referência e compara as duas antes de fazer o pedido: se o seu desconto sai mais barato que o crédito que ela tomaria no banco, o pedido vem. Se sai mais caro, não vem.\n\n**Então a assimetria da negociação não é de tamanho nem de poder: é de informação.** Um lado sabe a taxa e o outro não. E isso não é jogo sujo — é prática normal de gestão de caixa, que funciona justamente porque o prestador raramente faz a conta.\n\nO conserto é pequeno e é só seu: **faça a sua conta antes da conversa.** Divida o desconto pelo que sobra e divida de novo pelos dias que você antecipou de verdade. Com o número na mão, o desconto deixa de ser um favor e volta a ser o que sempre foi — uma troca com preço. E você pode dizer o preço em voz alta.\n\n## COMENTARIO FIXADO\nO menos óbvio: o pedido chegar certeiro não é talento do cliente, é cálculo. Se o seu desconto custa menos que o crédito que ele tomaria no banco, o pedido vem. Você já sabe quanto o seu custa?\n\n## HASHTAGS\n#desconto #fluxodecaixa #negociacao #labtreinamento #Shorts\n\n## TAGS\ndesconto a vista, antecipacao, fluxo de caixa, negociacao, taxa interna, custo do desconto, credito, prazo, margem, gestao financeira, precificacao, labtreinamento\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\n**ZERO numero novo sobre o mundo, e a narracao nao fala numero nenhum** — nem\npercentual de desconto, nem taxa de antecipacao, nem prazo em dias, nem valor.\nConferido cena a cena: nenhum digito cru, nenhum numeral por extenso.\n\n**E O NUMERO QUE FICOU DE FORA ERA O MAIS TENTADOR DA ORIGEM:** o capitulo 36\ndela traz uma frase pronta de negociacao com *\"onze por cento ao mes\"*, que e\nexatamente o tipo de linha que renderia gancho. Ela ficou FORA pelo caso especial\nda regra (g) que o `s079` ja aplicou nesta mesma origem: **numero que o proprio\nlongo declara ser EXEMPLO do calculo nao entra de jeito nenhum** — ele descreve\num caso, nao o mundo, e no short viajaria sem a conta ao lado.\n\nAs barras da cena 3 (100 contra 8) sao **ILUSTRACAO qualitativa da assimetria de\nINFORMACAO** — um lado com o numero calculado, o outro quase sem —, **NAO sao\nfaladas** e nao medem taxa, proporcao nem percentual nenhum. A rodada seguinte\nnao deve le-las de volta como dado.\n\n## FAMILIA DE ENTRADA ERRADA\n**LER A ASSIMETRIA COMO DE PODER, QUANDO ELA E DE INFORMACAO** — tratar o pedido\nde desconto a vista como pressao de um cliente grande, quando o que o faz chegar\ncerteiro e um calculo feito do outro lado da mesa: para a empresa aquilo e captar\ncredito sem banco, sem garantia e sem analise, com voce de credor e sem ter sido\nconsultado sobre a taxa. O discriminador e a DIRECAO do olhar: as outras cinco\npecas desta origem olham para o SEU lado — quanto o desconto custa, quem ele\npaga, como conta-lo. Esta olha para o lado de LA, e e de lá que vem a pontaria.\n\nAs CINCO familias anteriores vieram do `irmaos_da_origem`, e **tres delas nao tem\no campo**, logo a comparacao foi pela NARRACAO de primeira mao, que o relato passou\na imprimir INTEIRA em 20/10:\n\n* `s004` — **o PRAZO que o desconto antecipou**: mesmo desconto, prazo curto, mais caro;\n* `s017` — **a RAZAO e nao o tamanho**: cinco por cento custa mais que dez;\n* `s039` — **o ESCOPO**: o desconto fixo da tabela paga a antecipacao de todos;\n* `s048` — **BASE no lugar do INCREMENTO**: quem pagaria a vista igual recebeu de graca;\n* `s079` — **a CONTAGEM nos proprios papeis**: quantos dos ultimos dez usaram.\n\n**As cinco falam do custo, do escopo ou da medicao do desconto — do lado de\nquem da. Nenhuma fala de quem PEDE**, que e o eixo inteiro desta.\n\n## FONTES\nOrigem: `bQoujWaY7Hw` (`labtreinamento-008`, 58 capitulos), escolhida pelo\n`pauta_do_momento.py` — 5 usos, empatada com **quatro** outras origens e\ndesempatada pela MAIOR reserva, **43 capitulos NAO MENCIONADOS de 58**. A\ndominante do canal ficou de fora, e quem conta e o `concentracao.py`.\n\nCapitulos desta peca: **37 a 40** (*\"O lado do cliente\"*, *\"Para a empresa\"*,\n*\"E o departamento financeiro\"*, *\"Entao a assimetria\"*), com apoio do **42**\n(*\"Nao e jogo sujo\"*). O 40 escreve a frase que a peca carrega: *\"a assimetria da\nnegociacao nao e de tamanho nem de poder. E de informacao: um lado sabe a taxa e\no outro nao\"*.\n\n**A CONFERENCIA CONTRA OS IRMAOS VAI SEPARADA EM DUAS, com a FORCA de cada\nmetade — e aqui a metade mecanica e a FRACA:**\n\n* **por CAPITULO, alcanca 3 dos 5 irmaos** (`s039` em 44 a 50, `s048` em 44 a 49,\n  `s079` em 47 a 49): **zero sobreposicao** com 37 a 40. **E isso prova pouco**,\n  porque os tres declaram 7, 6 e 3 capitulos de 58: sob sorteio, a chance de\n  colidir com uma familia de cinco seria de **0,49, 0,43 e 0,24** — logo \"nao\n  colidiu\" e sinal fraco a medio, nao conferencia;\n* **por LEITURA da narracao de primeira mao, os CINCO** — e foi ela que decidiu.\n  Os tres que declaram capitulo ficam todos na faixa 44 a 50, que e a mesma\n  regiao do longo; o que os separa desta peca nao e a posicao, e a DIRECAO do\n  olhar.\n\nAusencia de capitulo declarado **nao e** ausencia de colisao (761), e P baixo\n**nao e** conferencia. As duas ressalvas valem aqui ao mesmo tempo.\n\n## EXPOSICAO\n**SETE CENAS, e as recusas nao foram minhas.** O `contagem_de_cenas.py` deu SETE\ncomo a melhor cadencia (**3,29 s**, |dif| 0,19 dos ~3,1 s de 690/699) e **nao\nhouve colisao de recencia**: as duas ultimas deste canal tem SEIS (`s097`) e OITO\n(`s096`). As contagens **9, 10 e 11** sairam NOMEADAS e nao filtradas, porque\nnelas o PISO da faixa nao e alcancavel com texto legivel. Folga **+10**.\n\n**E OS DOIS MUNDOS CABEM AQUI, o que so acontece neste canal:** o\n`mira.janela_dos_dois_mundos` devolve **41 a 44** caracteres por cena com sete\ncenas, e a peca foi escrita dentro dessa janela — logo os dois provedores caem na\nmira MEDIDA do canal (20,0 a 26,0) e **nao ha exposicao de mundo a declarar**.\nNos outros dois canais essa janela nao existe em contagem nenhuma (a pinca do\n740/748).\n\n**O que eu NAO declaro: de que lado da banda o real cai.** Ela tem 5,2 s contra\n1 s de granularidade, e escolher um lado nao e previsao (774). O tally deste\ncanal segue dominado pelo lado de FORA do teto da mira, com o `mira.py` verde nos\ndois mundos — a decisao do 740/748 e do dono.\n\n**ESQUELETO `titulo-item-lista-barras-item-titulo-cta`**, inedito nas **CINCO**\nformas de sete cenas da frota e nas **147** da frota inteira, com a propria peca\nFORA da varredura pelo `exceto`. A primeira versao dele\n(`titulo-item-barras-lista-item-titulo-cta`) **JA EXISTIA**, e quem disse foi o\n`esqueleto_entre_canais`: as cenas 2 e 3 trocaram de lugar. Todo layout saiu do\nconjunto **SONDADO** (`layouts_do_short.desenham`), com `assert` no construtor, e\na paleta foi **LIDA** de `temas_do_dono.paleta_do_canal`.\n"
+}
