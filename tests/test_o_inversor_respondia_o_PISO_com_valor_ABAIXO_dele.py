@@ -245,19 +245,47 @@ def test_a_MEDIDA_e_o_MOTIVO_continuam_escritos():
 def test_o_RELATO_chama_a_janela_e_nao_a_deixa_morta():
     """Instrumento que o relato nao chama e a classe dos layouts mortos.
 
-    Por AST na fiacao (o docstring cita os nomes em prosa, e casar prosa pegaria
-    a explicacao), e pela SAIDA numa peca de verdade — sem o segundo, bastaria
-    importar sem usar.
+    RETRATADO em 21/10 as 18:4x, pela classe 743/753/761: a primeira versao
+    exigia que **o `_linha_do_orcamento` em pessoa** chamasse o
+    `janela_do_mundo`. Isso e IDENTIDADE, e a afirmacao era PROPRIEDADE — que o
+    relato ALCANCA a janela. Quando a linha do piso ganhou dono proprio
+    (`_linha_do_piso`, para dizer de quantos mundos o piso e), a chamada desceu
+    uma funcao e o teste **reprovou um conserto correto**, com o instrumento
+    MAIS vivo do que antes.
+
+    Agora a fiacao e cobrada pela CADEIA, por AST (o docstring cita os nomes em
+    prosa, e casar prosa pegaria a explicacao), e pela SAIDA numa peca de
+    verdade — sem a segunda metade, bastaria importar sem usar.
     """
     fonte = open(mira.__file__, encoding="utf-8").read()
     arv = ast.parse(fonte)
-    alvo = [n for n in ast.walk(arv) if isinstance(n, ast.FunctionDef)
-            and n.name == "_linha_do_orcamento"]
-    assert alvo, "`_linha_do_orcamento` desapareceu"
-    chamadas = [ast.unparse(c.func) for c in ast.walk(alvo[0])
+    corpos = {n.name: n for n in ast.walk(arv)
+              if isinstance(n, ast.FunctionDef)}
+    assert "_linha_do_orcamento" in corpos, "`_linha_do_orcamento` desapareceu"
+
+    def _chama(nome):
+        no = corpos.get(nome)
+        if no is None:
+            return []
+        return [ast.unparse(c.func) for c in ast.walk(no)
                 if isinstance(c, ast.Call)]
-    assert any("janela_do_mundo" in c for c in chamadas), (
-        "a linha do orcamento nao chama o `janela_do_mundo`: ele nasceu morto")
+
+    vistos, fila, achou = set(), ["_linha_do_orcamento"], False
+    while fila:
+        atual = fila.pop()
+        if atual in vistos:
+            continue
+        vistos.add(atual)
+        for c in _chama(atual):
+            if "janela_do_mundo" in c:
+                achou = True
+            alvo = c.split(".")[-1]
+            if alvo in corpos:
+                fila.append(alvo)
+    assert achou, (
+        "nenhuma funcao alcancavel do `_linha_do_orcamento` chama o "
+        "`janela_do_mundo`: ele nasceu morto (cadeia vista: %s)"
+        % sorted(vistos))
 
     caminho = os.path.join(RAIZ, "fabrica", "specs", "%s.json" % PECA_DA_RODADA)
     if not os.path.exists(caminho):
