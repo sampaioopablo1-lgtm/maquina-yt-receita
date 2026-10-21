@@ -172,3 +172,44 @@ def test_o_motivo_e_a_medida_continuam_escritos():
         assert marca in fonte, (
             "a procedencia %r saiu do modulo; sem os dois jobs a divergencia "
             "vira afirmacao minha" % marca)
+
+
+def test_o_escopo_do_token_UNICO_nao_se_atribui_aos_TRES_canais():
+    """RETRATACAO de 21/10, e e de algo que eu relatei ao dono.
+
+    A primeira versao punha os escopos do `YT_TOKEN_JSON` em `{canal: escopos}`
+    para os TRES canais e comparava POR CANAL, e eu reportei "o analytics existe
+    nos tres canais". Falso: e um token UNICO de UM canal, MEDIDO como
+    `UCf4-ZFoZQWKJotZNdi4Yl7w` (Setiap Level), FORA da frota — a familia
+    "atribuir o numero ao orgao errado", onde a conta fecha e a origem esta
+    errada.
+
+    A comparacao certa e entre BLOBS, e os lados saem em nome de blob, nunca de
+    canal.
+    """
+    div = SO.divergencia_entre_blobs({c: {UP, FS} for c in SO.FROTA}, {UP, AN})
+    assert div, "a comparacao entre blobs parou de medir"
+    for _, tem, nao in div:
+        for lado in tem + nao:
+            assert lado in ("YT_OAUTH_JSON", "YT_TOKEN_JSON"), (
+                "lado em nome de CANAL: %r — e a atribuicao errada de volta"
+                % lado)
+    fonte = (RAIZ / "fabrica" / "sonda_oauth.py").read_text(encoding="utf-8")
+    assert "UCf4-ZFoZQWKJotZNdi4Yl7w" in fonte and "fora da frota" in fonte, (
+        "saiu a medida de QUE canal e o token unico; sem ela a atribuicao aos "
+        "tres canais volta a parecer razoavel")
+    assert "RETRATACAO" in fonte
+
+
+def test_o_relato_DIZ_que_o_token_unico_e_de_um_canal_so():
+    """Sem essa frase o leitor do log repete a minha conclusao errada."""
+    fonte = (RAIZ / "fabrica" / "sonda_oauth.py").read_text(encoding="utf-8")
+    assert "NAO se atribuem aos tres canais" in fonte, (
+        "o relato deixou de avisar que os escopos do token unico nao valem "
+        "para a frota")
+
+
+def test_token_unico_NAO_lido_e_dito_e_nao_silencio():
+    assert SO.divergencia_entre_blobs({c: {UP, FS} for c in SO.FROTA}, None) == []
+    fonte = (RAIZ / "fabrica" / "sonda_oauth.py").read_text(encoding="utf-8")
+    assert "NAO foi medida nesta passada" in fonte

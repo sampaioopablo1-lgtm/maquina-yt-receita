@@ -182,6 +182,64 @@ def divergencias(quadro: dict) -> list:
     return saida
 
 
+# MEDIDO em 21/10 (run 39560816227): o `YT_TOKEN_JSON` desta conta pertence ao
+# canal `UCf4-ZFoZQWKJotZNdi4Yl7w` (Setiap Level), que NAO e da frota, e nao
+# declara `canal` no proprio JSON.
+CANAL_MEDIDO_DO_TOKEN_JSON = "UCf4-ZFoZQWKJotZNdi4Yl7w"
+
+
+def divergencia_entre_blobs(por_canal: dict, do_token: set | None) -> list:
+    """Compara o blob POR CANAL com o token UNICO, blob contra blob.
+
+    RETRATACAO de 21/10, e e de uma coisa que eu relatei ao dono: a primeira
+    versao punha os escopos do `YT_TOKEN_JSON` em `{canal: escopos}` para os
+    TRES canais da frota e deixava a comparacao por canal — e eu reportei
+    "o analytics existe nos tres canais". **Falso.** O `YT_TOKEN_JSON` e um
+    token UNICO de UM canal (`publicar.py:139` o usa como reserva de qualquer
+    slug), e esse canal foi MEDIDO como estando FORA da frota. Atribuir o escopo
+    dele aos tres canais e a familia "atribuir o numero ao orgao errado": a
+    conta fecha e a origem esta errada.
+
+    Devolve `(rotulo, tem, nao)` com `tem`/`nao` em nomes de BLOB, nunca de
+    canal — e `[]` quando o token unico nao foi lido, porque uma leitura so nao
+    mede divergencia (17/10).
+    """
+    if not do_token:
+        return []
+    saida = []
+    for rotulo, escopo in ESCOPOS_QUE_DECIDEM:
+        no_token = any(escopo in s for s in do_token)
+        # No blob por canal, o escopo vale quando TODO canal lido o tem; canal
+        # sem leitura nao conta como ausencia.
+        lidos = [s for s in por_canal.values() if s]
+        no_oauth = bool(lidos) and all(any(escopo in x for x in s)
+                                       for s in lidos)
+        if no_token != no_oauth:
+            tem = ["YT_TOKEN_JSON"] if no_token else ["YT_OAUTH_JSON"]
+            nao = ["YT_OAUTH_JSON"] if no_token else ["YT_TOKEN_JSON"]
+            saida.append((rotulo, tem, nao))
+    return saida
+
+
+def _relata_entre_blobs(por_canal: dict, do_token: set | None) -> None:
+    if do_token is None:
+        aviso("o YT_TOKEN_JSON nao foi lido, logo a divergencia entre os dois "
+              "segredos NAO foi medida nesta passada — ausencia de leitura nao "
+              "e ausencia de divergencia")
+        return
+    nota(f"o YT_TOKEN_JSON e um token UNICO de UM canal, e o canal dele foi "
+         f"MEDIDO como {CANAL_MEDIDO_DO_TOKEN_JSON} (fora da frota) — logo os "
+         f"escopos dele NAO se atribuem aos tres canais da frota")
+    div = divergencia_entre_blobs(por_canal, do_token)
+    if not div:
+        nota("os dois segredos CONCORDAM nos escopos que decidem")
+        return
+    for rotulo, tem, nao in div:
+        aviso(f"DIVERGENCIA entre os segredos: {rotulo} existe em "
+              f"{', '.join(tem)} e NAO em {', '.join(nao)} — "
+              f"{'; '.join(LEITORES.get(b, b) + ' le ' + b for b in tem + nao)}")
+
+
 def _relata_divergencia(quadro: dict) -> None:
     div = divergencias(quadro)
     if len(quadro) < 2:
@@ -255,6 +313,7 @@ def main() -> int:
     # O SEGUNDO blob, que e o que o `frota.yml` usa — a sonda era cega para ele
     # ate 21/10, e foi essa cegueira que produziu um diagnostico errado.
     quadro = {"YT_OAUTH_JSON": {c: escopos.get(c) for c in FROTA}}
+    do_token = None
     bruto = os.environ.get("YT_TOKEN_JSON") or ""
     nota(f"YT_TOKEN_JSON: {'presente' if bruto else 'AUSENTE'} "
          f"({len(bruto)} chars)")
@@ -278,8 +337,8 @@ def main() -> int:
                      f"upload={tem2('youtube.upload')}, "
                      f"force-ssl={tem2('youtube.force-ssl')}, "
                      f"analytics={tem2('yt-analytics.readonly')}")
-                quadro["YT_TOKEN_JSON"] = {c: esc for c in FROTA}
-    _relata_divergencia(quadro)
+                do_token = esc
+    _relata_entre_blobs(quadro["YT_OAUTH_JSON"], do_token)
 
     if vivos:
         nota(f"PUBLICACAO SEM BANCO possivel em: {', '.join(vivos)}")
