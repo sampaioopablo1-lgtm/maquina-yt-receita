@@ -58,10 +58,38 @@ def corpo_que_cabe(t, n, size, largura):
     que realmente saiu, do mesmo jeito que a `geometria_thumb` ja encolhia o
     titulo em vez de escolher entre dois degraus fixos.
     """
-    maior = max((len(l) for l in wrap(t, n)), default=0)
-    if not maior or largura <= 0:
+    linhas = [l for l in wrap(t, n) if l]
+    if not linhas or largura <= 0 or size <= 0:
         return size
-    return min(size, largura / (maior * LARGURA_GLIFO))
+    # A LARGURA SAI DO MEDIDOR, e nao da media por caractere — 21/10 as 14:3x.
+    #
+    # Ate aqui esta funcao estimava `maior * LARGURA_GLIFO`, isto e, contagem de
+    # CARACTERES vezes uma razao media. O medidor de verdade,
+    # `largura_do_texto`, vive NESTE arquivo trinta linhas abaixo, e o docstring
+    # DELE diz, desde 18/08/2026, que a razao real "varia por um fator de tres".
+    # Dois donos da mesma pergunta — quanto este texto mede —, e o guarda usava
+    # o estimador velho.
+    #
+    # O CUSTO ESTA MEDIDO: **90 das 1.559** cenas `titulo`/`cta` do disco tinham
+    # corpo APROVADO pelo estimador velho e largura MEDIDA acima da zona segura,
+    # e o maior encolhimento que o conserto aplica e de **26%**. O portao
+    # `layout` pegou UM desses casos nesta rodada — o kicker `Maksimum` do
+    # `kolejny-poziom-s087`, com 1,12% de tinta na borda; os outros passam
+    # porque a faixa que o portao mede e mais estreita que a zona segura, logo o
+    # buraco era LATENTE na maioria e ativo na ponta.
+    #
+    # E A MINHA PRIMEIRA MEDIDA DISSO ESTAVA ERRADA, por comparador escolhido
+    # sem olhar (efeito C): eu medi a string INTEIRA numa linha e contei **849**
+    # cenas. O render QUEBRA por espaco (`wrap`) e desenha linha por linha, logo
+    # a largura que importa e a da linha mais larga — e nao a do texto corrido.
+    # Com a quebra, sao 90. O teste RECONFERE os dois numeros contra o disco.
+    #
+    # A largura e LINEAR no corpo, entao uma divisao basta e o resultado e
+    # exato para a fonte medida — sem busca e sem aproximacao nova.
+    maior = max(largura_do_texto(l, size) for l in linhas)
+    if maior <= 0:
+        return size
+    return min(size, size * largura / maior)
 
 
 def texto_na_caixa(t, cx, cy, largura, altura, fill, n=12, corpo_max=None, lh=1.25):
