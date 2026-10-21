@@ -305,7 +305,13 @@ jobs:
           YT_TOKEN_EPOMENO_EPIPEDO: ${{ secrets.YT_TOKEN_EPOMENO_EPIPEDO }}
           YT_TOKEN_KOLEJNY_POZIOM: ${{ secrets.YT_TOKEN_KOLEJNY_POZIOM }}
           YT_TOKEN_JSON: ${{ secrets.YT_TOKEN_JSON }}
-        run: python3 fabrica/confere_token.py "${{ matrix.canal }}"
+        # A spec vai como SEGUNDO argumento desde 21/10: sem ela o portao usa
+        # o conjunto ESTRITO de escopos e aborta o render de um SHORT SOLTO por
+        # causa do escopo da legenda do longo, que a publicacao dele nao usa
+        # (`captions.insert` mora dentro do `if os.path.exists(longo)`). Foi o
+        # que matou o run 39554457072. O `spec.json` ja existe aqui — ele e
+        # escrito no passo "Baixar spec e trilhas", bem antes deste.
+        run: python3 fabrica/confere_token.py "${{ matrix.canal }}" spec.json
 
       # A spec que declara footage e nao acha a chave produz um pacote que
       # NAO e o que ela descreve — o agla-level-004 saiu com 7 cenas de

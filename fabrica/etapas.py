@@ -26,6 +26,7 @@ import sys, os, json, glob, subprocess
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import fabrica as F
+import formato_da_peca as FP
 
 
 def arquivo_valido(caminho, minimo):
@@ -73,7 +74,7 @@ def log(m):
 # O short solto PULA as etapas 1.5 a 7, que sao todas do longo, e vai da etapa
 # 1 direto para a 8. O que ele NAO pula: a etapa 0 (narracao), os portoes, e o
 # teste visual do proprio short.
-SO_SHORT = not sp.get("longo")
+SO_SHORT = FP.so_short(sp)  # UM dono: o `confere_token` le a MESMA funcao
 tempos = []
 if SO_SHORT:
     assert sp.get("short"), (

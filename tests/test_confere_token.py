@@ -78,10 +78,19 @@ def test_token_vivo_sem_force_ssl_e_reprovado(monkeypatch, capsys):
 
 
 def test_token_com_os_dois_escopos_passa(monkeypatch, capsys):
+    """RETRATADO em 21/10/2026: a assercao cravava a FRASE do relato.
+
+    Ela exigia a string "escopos necessarios concedidos", e quando o conjunto
+    exigido passou a depender do FORMATO da peca a frase mudou para falar de
+    "escopo(s) que ESTA peca precisa" — e o teste reprovou um comportamento
+    CERTO. Era identidade onde a afirmacao e propriedade (743/753/761). A
+    propriedade e: codigo zero, e o relato diz que o que era preciso foi
+    concedido.
+    """
     codigo, saida = _roda(monkeypatch, {
         "access_token": "a", "scope": f"{YOUTUBE} {UPLOAD} {FORCE_SSL}"}, capsys)
     assert codigo == 0, f"token completo foi reprovado: {codigo}"
-    assert "escopos necessarios concedidos" in saida
+    assert "vivo" in saida and "concedid" in saida, saida
 
 
 def test_sem_o_campo_scope_nao_inventa_aprovacao(monkeypatch, capsys):

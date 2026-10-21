@@ -40,6 +40,9 @@ import sys
 import urllib.parse
 import urllib.request
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import formato_da_peca as FP  # noqa: E402  — UM dono de "esta peca tem longo?"
+
 
 def _env(*nomes):
     for n in nomes:
@@ -63,19 +66,70 @@ def token_do_canal(canal, sb, sk):
     return publicar.token_do_canal(canal, sb, sk)
 
 
+ESCOPO_LEGENDA = "https://www.googleapis.com/auth/youtube.force-ssl"
+ESCOPO_ENVIO = "https://www.googleapis.com/auth/youtube.upload"
+
 ESCOPOS_NECESSARIOS = {
     # captions.insert do longo. Sem ela o video sobe, e sobe MUDO para a busca.
-    "https://www.googleapis.com/auth/youtube.force-ssl": (
-        "enviar a faixa de legenda do longo"),
+    ESCOPO_LEGENDA: "enviar a faixa de legenda do longo",
     # videos.insert.
-    "https://www.googleapis.com/auth/youtube.upload": ("publicar o video"),
+    ESCOPO_ENVIO: "publicar o video",
 }
+
+
+def escopos_necessarios(sp=None):
+    """O que ESTA peca precisa, nao o que o formato mais exigente precisa.
+
+    Medido em 21/10/2026, e e o defeito que este arquivo ja nomeia uma vez no
+    `token_do_canal`: **portao mais severo que o passo que ele guarda e portao
+    que mente.** Ali a severidade extra era ler o REST quando o `publicar.py`
+    le o ENV; aqui e exigir o escopo da LEGENDA de uma peca que nao tem legenda
+    para enviar.
+
+    A prova esta no `publicar.py`: a chamada de `captions.insert` mora DENTRO
+    do `if os.path.exists(longo)` (linha 1128 dentro do bloco da 1100), logo
+    short solto nunca a alcanca. Todo o resto do caminho do short —
+    `videos.insert`, `thumbnails.set`, `playlistItems.insert`, `videos.update`
+    — se satisfaz com `youtube.upload` e `youtube`. O comentario fixado e
+    PARSEADO da copy e nunca postado, logo `commentThreads.insert`, que
+    exigiria force-ssl, nao acontece.
+
+    E a consequencia foi ATIVA e nao latente: em 21/10 as 06:1x (run
+    39554457072, job 119070898648) a concessao do
+    `labtreinamento` perdeu o force-ssl (e ganhou `yt-analytics.readonly`), e
+    este portao abortou o render do `labtreinamento-s098` — um short solto — por
+    um escopo que a publicacao dele nao usa. Com **256** das 396 specs do disco
+    sendo short solto, isso parava a linha inteira.
+
+    `sp=None` devolve o conjunto ESTRITO de proposito: nao saber que peca e nao
+    e licenca para ser permissivo, e e assim que o `diagnostico.yml` chama este
+    arquivo. Quem afrouxa aqui tem de provar, no `publicar.py`, que a chamada
+    nao acontece — afrouxar portao para a peca passar e o avesso do trabalho.
+    """
+    if sp is None or FP.tem_longo(sp):
+        return dict(ESCOPOS_NECESSARIOS)
+    return {ESCOPO_ENVIO: ESCOPOS_NECESSARIOS[ESCOPO_ENVIO]}
+
+
+def _spec(caminho):
+    """Le a spec quando o chamador a passa; `None` quando nao passa.
+
+    Spec ilegivel NAO vira short solto: ela vira `None`, que e o conjunto
+    estrito. Ler um arquivo torto como "peca sem longo" seria transformar um
+    defeito de leitura em permissao, que e o sentido permissivo.
+    """
+    if not caminho:
+        return None
+    with open(caminho, encoding="utf-8") as f:
+        return json.load(f)
 
 
 def main():
     if len(sys.argv) < 2:
-        sys.exit("uso: python3 fabrica/confere_token.py <canal>")
+        sys.exit("uso: python3 fabrica/confere_token.py <canal> [spec.json]")
     canal = sys.argv[1]
+    sp = _spec(sys.argv[2] if len(sys.argv) > 2 else None)
+    preciso = escopos_necessarios(sp)
     sb = _env("SUPABASE_URL", "SB")
     sk = _env("SUPABASE_SERVICE_ROLE_KEY", "KEY")
     if not (sb and sk):
@@ -110,7 +164,7 @@ def main():
         return 0
 
     concedidos = set(bruto.split())
-    faltando = [d for e, d in ESCOPOS_NECESSARIOS.items() if e not in concedidos]
+    faltando = [d for e, d in preciso.items() if e not in concedidos]
     if faltando:
         sys.exit(
             f"ESCOPO FALTANDO ({canal}): a concessao do Google nao permite "
@@ -123,8 +177,18 @@ def main():
             f"pode levar legenda e publicar mudo para a busca (aprendizado 93), "
             f"e publicacao nao se desfaz."
         )
-    print(f"token de {canal}: vivo, com os {len(ESCOPOS_NECESSARIOS)} escopos "
-          f"necessarios concedidos")
+    print(f"token de {canal}: vivo, com os {len(preciso)} escopo(s) que ESTA "
+          f"peca precisa concedido(s)")
+    # NOMEIA em vez de filtrar: o escopo que esta peca nao usa pode ser
+    # exatamente o que a proxima usa, e descobrir isso por render abortado custa
+    # a rodada. Fica ::warning:: porque o short ESTA certo e o conserto e do
+    # lado do dono.
+    if ESCOPO_LEGENDA not in concedidos:
+        print(f"::warning title=Sem escopo de legenda::a concessao de {canal} "
+              f"NAO tem youtube.force-ssl, logo PACOTE COM LONGO segue "
+              f"abortado neste canal (captions.insert; aprendizado 93). Esta "
+              f"peca passou porque e short solto e nao envia legenda. Concedidos:"
+              f" {' '.join(sorted(concedidos))}")
     return 0
 
 
