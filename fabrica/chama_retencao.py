@@ -44,9 +44,14 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 import publicar as P          # noqa: E402  — DONO do token e do access_token
 import retencao as R          # noqa: E402  — DONO da forma da query
+from medir import CANAIS      # noqa: E402  — DONO do mapa slug -> id de canal
 
 RELATORIO = "https://youtubeanalytics.googleapis.com/v2/reports"
-CANAIS = "https://www.googleapis.com/youtube/v3/channels"
+# NOME: `CANAIS_API` e nao `CANAIS`, porque `medir.CANAIS` e o mapa de canal e
+# as duas constantes colidiram na primeira execucao desta funcao (o mapa virou
+# uma str e o `.get` levantou). Colisao de NOME e a forma mais barata do defeito
+# de dois donos.
+CANAIS_API = "https://www.googleapis.com/youtube/v3/channels"
 
 # Janela padrao de leitura. Nao e limiar de producao: e so quanto passado pedir.
 DIAS_PADRAO = 90
@@ -118,18 +123,54 @@ def resumo(resposta: dict) -> dict:
     return saida
 
 
+def canal_confere(canal: str, canal_do_token) -> bool | None:
+    """A credencial pertence ao canal do pacote? `None` quando nao se sabe.
+
+    POR QUE ISTO EXISTE (21/10/2026, e o defeito e do relato desta MESMA
+    sonda). Na primeira leitura em producao (run 39560816227) ela imprimiu dois
+    avisos soltos — `canal do token: UCf4-ZFoZQWKJotZNdi4Yl7w` e `ZERO linhas`
+    — e **fui EU que liguei os dois**. Separados, o segundo le como "a peca e
+    nova demais ou tem poucas views", que e uma hipotese que eu nao medi; o
+    primeiro explica o segundo INTEIRO: `ids=channel==MINE` resolve para o canal
+    da credencial, e pedir um video de OUTRO canal devolve relatorio vazio por
+    construcao.
+
+    Instrumento que entrega dois fatos e deixa a conclusao para quem le e a
+    mesma falha de "nomear em vez de calar" ao contrario: aqui ele nomeia, e
+    nao conclui.
+
+    O mapa e DELEGADO ao `medir.CANAIS`; recopiar id aqui seria o segundo dono.
+    """
+    esperado = CANAIS.get(canal)
+    if not esperado or not canal_do_token or str(canal_do_token).startswith("("):
+        return None
+    return canal_do_token == esperado
+
+
 def relato(res: dict) -> str:
     """O relato DIZ qual das tres respostas veio. Silencio nao e resposta."""
     if res.get("erro"):
         return ("RETENCAO: %s — isto NAO e 'retencao zero', e falha de LEITURA."
                 % res["erro"])
     r = res["resumo"]
+    if r["vazio"] and res.get("canal_confere") is False:
+        return ("RETENCAO: ZERO linhas, e isso era ESPERADO — a credencial "
+                "pertence ao canal %s e o pacote e de %s (%s). O "
+                "`ids=channel==MINE` resolve para o canal da credencial, logo "
+                "pedir um video de OUTRO canal devolve relatorio vazio por "
+                "construcao. **Esta leitura nao diz NADA sobre a peca**, e nem "
+                "sequer autoriza a hipotese de 'nova demais'."
+                % (res.get("canal_do_token"), res.get("canal"),
+                   CANAIS.get(res.get("canal"))))
     if r["vazio"]:
+        extra = ("" if res.get("canal_confere") else
+                 " E o canal da credencial NAO foi conferido nesta passada, "
+                 "logo nem 'a peca nao tem dado' esta estabelecido.")
         return ("RETENCAO: a API respondeu 200 e devolveu ZERO linhas na janela "
                 "pedida. Isso NAO e retencao zero: e ausencia de LEITURA, e a "
                 "peca pode ser nova demais ou ter poucas views para o "
                 "relatorio. (17/10: instrumento que devolve vazio nao prova "
-                "ausencia.)")
+                "ausencia.)" + extra)
     return ("RETENCAO MEDIDA: %d pontos, retencao media %s, desempenho "
             "relativo medio %s (0 a 1, JA normalizado contra videos de duracao "
             "semelhante — e esse comparador que dispensa a linha de base de 109 "
@@ -154,11 +195,13 @@ def mede(canal: str, video_id: str, dias: int = DIAS_PADRAO) -> dict:
     acc = P.access_token(P.token_do_canal(canal, sb, sk))
     fora: dict = {}
     try:
-        dono = _get(CANAIS + "?part=id&mine=true", acc)
+        dono = _get(CANAIS_API + "?part=id&mine=true", acc)
         ids = [i.get("id") for i in (dono.get("items") or [])]
         fora["canal_do_token"] = ids[0] if ids else None
     except urllib.error.HTTPError as e:
         fora["canal_do_token"] = "(nao lido: %s)" % _erro_legivel(e)
+    fora["canal"] = canal
+    fora["canal_confere"] = canal_confere(canal, fora.get("canal_do_token"))
     inicio, fim = janela(dias)
     fora["janela"] = (inicio, fim)
     try:
@@ -209,6 +252,13 @@ def main() -> int:
         aviso(f"sem credencial para {canal}: {e}")
         return 0
     nota(f"canal do token: {res.get('canal_do_token')}")
+    if res.get("canal_confere") is False:
+        aviso(f"a credencial NAO e do canal do pacote: ela e de "
+              f"{res.get('canal_do_token')} e {canal} e {CANAIS.get(canal)} — "
+              f"qualquer relatorio desta chamada e sobre OUTRO canal")
+    elif res.get("canal_confere") is None:
+        aviso("o canal da credencial nao foi conferido — ausencia de leitura "
+              "nao e prova de que ela e do canal certo")
     nota(f"janela: {res.get('janela')}")
     if res.get("erro"):
         aviso(relato(res))
