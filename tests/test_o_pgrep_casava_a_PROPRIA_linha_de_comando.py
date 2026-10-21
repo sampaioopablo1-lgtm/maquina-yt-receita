@@ -6,6 +6,7 @@ shell NAO conta), o criterio por AST, e um teste que falha se o MOTIVO sair do
 modulo — conserto sem motivo escrito volta calado.
 """
 import ast
+import io
 import os
 import subprocess
 import sys
@@ -190,3 +191,30 @@ def test_o_MOTIVO_continua_escrito_no_modulo():
             f"a frase {frase!r} saiu do modulo; sem ela a rodada seguinte "
             "reescreve o `until ! pgrep -f` que se ve no espelho"
         )
+
+
+def test_o_until_DOCUMENTADO_leva_a_NEGACAO():
+    """A invocacao escrita tem de esperar o FIM, nao o COMECO.
+
+    Medido em 21/10 as 22:3x: a linha publicada no `CLAUDE.md` era
+    `until python3 ... processo_vivo.py "pytest tests"`, SEM o `!`. Com saida
+    0 = vivo, `until` para quando o comando acerta, logo essa forma espera o
+    processo COMECAR — eu a copiei, o laco voltou em um minuto e eu relatei "a
+    execucao saiu" com doze pontos no log.
+
+    E a forma do `2>&1` de 19/10 as 21:1x: conserto no modulo nao protege contra
+    a invocacao. Este teste cobra a invocacao, nos DOIS lugares em que ela vive.
+    """
+    import re
+    raiz = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    for rel in ("CLAUDE.md", os.path.join("fabrica", "processo_vivo.py")):
+        fonte = io.open(os.path.join(raiz, rel), encoding="utf-8").read()
+        usos = re.findall(r"until\s+(!?)\s*python3 fabrica/processo_vivo\.py",
+                          fonte)
+        assert usos, (
+            "%s deixou de carregar a linha de invocacao — sem ela a rodada"
+            " seguinte inventa a dela, e foi assim que a negacao se perdeu"
+            % rel)
+        assert all(u == "!" for u in usos), (
+            "%s tem invocacao SEM a negacao (%r): com saida 0 = vivo, essa"
+            " forma espera o processo COMECAR" % (rel, usos))

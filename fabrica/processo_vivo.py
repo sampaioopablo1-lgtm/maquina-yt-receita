@@ -38,7 +38,16 @@ PID desta propria chamada sai fora por construcao.
 
 NAO E PORTAO e nao tem o que reprovar: isto responde uma pergunta sobre o
 SISTEMA, nao sobre uma peca. Codigo de saida: 0 se o padrao tem processo vivo,
-1 se nao tem — porque este modulo existe para ser usado dentro de `until`.
+1 se nao tem — porque este modulo existe para ser usado dentro de `until`:
+
+    until ! python3 fabrica/processo_vivo.py "pytest tests"; do sleep 20; done
+
+A NEGACAO E OBRIGATORIA e vai escrita aqui porque faltou na linha que o
+`CLAUDE.md` publicava: `until CMD` para quando o comando ACERTA, e 0 e VIVO,
+logo `until` sem `!` espera o processo COMECAR. Em 21/10 as 22:3x eu copiei a
+forma sem a negacao, o laco voltou em um minuto e eu relatei "a execucao saiu"
+com doze pontos no log — o mesmo tipo de erro do `2>&1` de 19/10, em que o
+modulo estava certo e a INVOCACAO desfazia o conserto.
 """
 import os
 import subprocess

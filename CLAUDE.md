@@ -5851,7 +5851,16 @@ SISTEMA, nao sobre uma peca. `fabrica/processo_vivo.py` (`candidatos`,
 `espelhos`, `vivo`, `relato`), e o codigo de saida e **0 se vivo, 1 se nao**,
 porque ele existe para morar dentro de um `until`:
 
-    until python3 fabrica/processo_vivo.py "pytest tests"; do sleep 20; done
+    until ! python3 fabrica/processo_vivo.py "pytest tests"; do sleep 20; done
+
+**E A NEGACAO NAO E DETALHE — ela estava FALTANDO nesta linha ate 21/10 as
+22:3x, e eu a paguei nesta rodada.** Com saida **0 = vivo**, `until CMD` para
+quando o comando ACERTA, logo a forma sem `!` espera o processo **COMECAR** e
+devolve na hora em que a suite esta rodando. Eu copiei a linha daqui, o laco
+voltou em um minuto e eu escrevi *"a execucao saiu"* com **doze pontos** no log.
+A forma do defeito e a do `2>&1` de 19/10 as 21:1x: **conserto no modulo nao
+protege contra a invocacao**, e aqui a invocacao estava escrita por mim, errada,
+no documento que a rodada seguinte copia.
 
 E ele **NOMEIA o espelho** em vez de so o descartar (`espelhos`), porque foi
 vendo quatro PIDs de shell que eu descobri o engano — esconde-los faria a
