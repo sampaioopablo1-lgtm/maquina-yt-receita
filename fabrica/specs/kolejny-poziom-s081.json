@@ -1,0 +1,104 @@
+{
+ "slug": "kolejny-poziom-s081",
+ "pacote": "kolejny-poziom-s081",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "longo_existente": "34SgUG7rf0U",
+ "longo": [],
+ "thumb": {
+  "l1": "Brutto",
+  "l2": "kontra faktura"
+ },
+ "paleta": {
+  "bg": "#0B0B0C",
+  "ink": "#F2EEE8",
+  "c1": "#E23B3B",
+  "c2": "#D9C7A7",
+  "red": "#FF4D4D",
+  "ok": "#7FB77E",
+  "panel": "#151517",
+  "mut": "#8F877C",
+  "acc": "#E23B3B"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Dwa różne poziomy drabiny",
+   "sub": "brutto i faktura nie stoją obok",
+   "nar": "Porównałeś brutto z kwotą z faktury?"
+  },
+  {
+   "layout": "item",
+   "kicker": "To nie ten sam szczebel",
+   "nar": "To dwa różne poziomy tej samej drabiny."
+  },
+  {
+   "layout": "item",
+   "kicker": "Czego brutto nie zawiera",
+   "nar": "Brutto nie zawiera składek pracodawcy."
+  },
+  {
+   "layout": "item",
+   "kicker": "A faktura zawiera",
+   "nar": "Faktura zawiera natomiast już wszystko."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Trzy poziomy, nie dwa",
+   "barras": [
+    {
+     "rotulo": "Brutto",
+     "valor": 82
+    },
+    {
+     "rotulo": "Koszt firmy",
+     "valor": 100
+    },
+    {
+     "rotulo": "Faktura",
+     "valor": 100
+    }
+   ],
+   "nar": "Uczciwe porównanie wygląda tu inaczej."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Koszt do faktury",
+   "sub": "dopiero tu stoją równo",
+   "nar": "Zestaw koszt pracodawcy z kwotą na fakturze."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ten sam szczebel",
+   "nar": "Dopiero te dwie stoją na tym poziomie."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Czego faktura nie pokazuje",
+   "itens": [
+    "Urlop",
+    "Chorobowe",
+    "Księgowość"
+   ],
+   "nar": "Po stronie B2B dochodzi jeszcze więcej."
+  },
+  {
+   "layout": "item",
+   "kicker": "Urlop",
+   "nar": "Urlop płacisz sobie sam, bez dodatku."
+  },
+  {
+   "layout": "item",
+   "kicker": "Chorobowe",
+   "nar": "Chorobowego może tam zupełnie nie być."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Kolejny Poziom",
+   "sub": "subskrybuj",
+   "nar": "Nie gorsze — liczone zupełnie inaczej."
+  }
+ ],
+ "copy": "# kolejny-poziom-s081\n\n## TITULO\nEtat kontra B2B: Dlaczego Brutto i Kwota z Faktury Nie Stoją na Tym Samym Poziomie\n\n## TITULO SHORT\nBrutto i faktura to dwa poziomy\n\n## DESCRICAO\nTo jest najczęstszy błąd w całym temacie, i prawie nikt go nie zauważa: **porównuje się brutto z etatu do kwoty z faktury.** Dwie liczby, jedno zdanie, i wniosek, który nie trzyma się niczego.\n\n**Dlaczego to źle?** Bo to dwa różne poziomy tej samej drabiny. Brutto z etatu **nie zawiera** składek pracodawcy — one istnieją, firma je płaci, ale na twoim pasku wypłaty w ogóle ich nie widać. Kwota z faktury natomiast zawiera wszystko: to pełna cena, jaką druga strona płaci za twoją pracę.\n\n**Uczciwe porównanie jest inne: zestaw koszt pracodawcy z kwotą na fakturze.** Dopiero te dwie liczby stoją na tym samym szczeblu. Wszystko inne porównuje szczebel niższy z wyższym i nazywa to różnicą.\n\n**A po stronie B2B trzeba jeszcze dodać rzeczy, których faktura nie pokazuje.** Urlop, który sam sobie płacisz — każdy dzień wolny to dzień bez faktury. Chorobowe, którego może po prostu nie być. Księgowość, własne ubezpieczenie i czas na formalności: osobno niewielkie, ale **stałe**. I jest różnica, której nie widać przez kilka lat — składki emerytalne z etatu budują kapitał na twoim koncie, a na najniższych składkach z działalności ten kapitał rośnie wolniej.\n\n**Nie twierdzę, że B2B jest gorsze.** Twierdzę, że **liczy się inaczej**, i że większość porównań w internecie porównuje niewłaściwe liczby. Zanim policzysz, odpowiedz sobie na trzy rzeczy: ile dni urlopu bierzesz rocznie, ile razy chorowałeś, i jak stabilny jest ten jeden klient.\n\nPotem porównuj — ale **koszt do faktury**, nie brutto do faktury.\n\n## COMENTARIO FIXADO\nNajmniej oczywiste: ten błąd nie jest mały ani losowy — zawsze przesuwa wynik w JEDNĄ stronę, bo brutto zawsze jest niżej niż koszt pracodawcy. Więc B2B zawsze wygląda lepiej, niż wychodzi. A ty od której liczby zacząłeś?\n\n## HASHTAGS\n#etat #b2b #wynagrodzenie #kolejnypoziom #Shorts\n\n## TAGS\netat, b2b, dzialalnosc gospodarcza, brutto, koszt pracodawcy, faktura, skladki, urlop, chorobowe, ksiegowosc, emerytura, porownanie, kolejny poziom\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\n**ZERO numero novo sobre o mundo, e a narracao nao fala numero nenhum** — nem o\nsalario minimo, nem o custo dele para o empregador, nem stawka, nem percentual,\nnem valor em zloty. Conferido cena a cena: nenhum digito cru.\n\n**E OS DOIS NUMEROS CENTRAIS DO CAPITULO FICARAM DE FORA DE PROPOSITO:** o 55\nescreve o minimo nacional e o custo correspondente do empregador, lado a lado, e\ne justamente o par que daria a peca um fecho concreto. Os dois mudam **todo\nano**, logo a regra (g) os tira — **e a familia sobrevive sem eles**, porque o\nque ela carrega e QUAIS duas colunas se comparam, nao a grandeza delas.\n\nAs barras (82/100/100 na cena 5) sao **ILUSTRACAO qualitativa dos TRES niveis** —\nbrutto abaixo, custo do empregador e fatura no mesmo degrau — e **NAO sao\nfaladas**. Elas nao medem folha nenhuma, nao saem de estudo nenhum, e a rodada\nseguinte nao deve le-las de volta como dado.\n\n## FAMILIA DE ENTRADA ERRADA\n**BRUTTO DO ETAT COMPARADO COM A KWOTA DA FATURA** — dois niveis diferentes da\nmesma escada. O brutto nao carrega as skladki do empregador; a fatura carrega\ntudo. A comparacao honesta e **custo do empregador contra fatura**, e o que\nsobra no lado B2B — urlop, chorobowe, ksiegowosc — a fatura tambem nao mostra.\n\n**E O QUE TORNA ESTA FAMILIA CARA E A DIRECAO DO ERRO, nao o tamanho dele:** o\nbrutto esta SEMPRE abaixo do custo do empregador, logo o erro empurra o\nresultado **sempre para o mesmo lado** — o B2B parece melhor do que a conta\nentrega. Nao e ruido, e vies.\n\n**A VIZINHA MAIS PERIGOSA VAI NOMEADA em vez de escondida:** o\n`kolejny-poziom-s012` tambem fala de *custo do empregador acima do brutto*, e a\ndiferenca e de DECISAO. La o eixo e o PEDIDO DE AUMENTO — qual numero a pessoa\nque aprova esta vendo, e que o pedido chega ampliado. Aqui o eixo e a\nCOMPARACAO ENTRE DOIS REGIMES — quais duas colunas estao no mesmo degrau. O\ningrediente e o mesmo (o custo que o pasko nao mostra), o erro e a decisao nao\nsao. As outras duas familias desta origem nao tocam nenhum dos dois eixos:\n`s027` fala da **unica** rubrica que VARIA por branza, e `s072` da media que\nnao descreve ninguem.\n\n## FONTES\nOrigem: `34SgUG7rf0U` (`kolejny-poziom-005`, 82 capitulos), escolhida pelo\n`pauta_do_momento.py` — 3 usos, empatada com **oito** outras origens e\ndesempatada pela MAIOR reserva, **70 capitulos NAO MENCIONADOS de 82**. A\ndominante do canal (`GUiq15usizw`) ficou de fora, e quem conta e o\n`concentracao.py`. O `reservas_escritas.py` disse que esta origem **NAO tem\nreserva escrita** por irmao nenhum. E o `QiaGg03WSR0`, que tem contagem MENOR,\nficou de fora porque o `dono_medido.py` o NOMEIA como longo do LabTreinamento\ndeclarado por engano em dois shorts deste canal.\n\nCapitulos desta peca: **52, 53, 54, 56, 58 e 59** (*\"Etat i B2B\"*,\n*\"Dlaczego to źle\"*, *\"Właściwe porównanie\"*, *\"Co dochodzi po drugiej\nstronie\"*, *\"I księgowość\"* e *\"Nie mówię, że B2B jest gorsze\"*). O 52 chama\nisso de *\"najczęstszy błąd w całym temacie\"*; o 53 escreve *\"dwa różne poziomy\ntej samej drabiny\"*; e o 59 que *\"większość porównań w internecie porównuje\nniewłaściwe liczby\"*.\n\n**E A CONFERENCIA CONTRA OS IRMAOS VAI SEPARADA EM DUAS, com a FORCA de cada\nmetade — o instrumento de 01:3x:**\n\n* **por CAPITULO, mecanica, alcanca 1 dos 3 irmaos** (`s072`, em 41 a 48):\n  **zero sobreposicao** com 52 a 59 — e aqui vai o denominador, porque sem ele a\n  frase nao se le: ele declara **6 de 82** capitulos, logo sob sorteio a colisao\n  com uma familia de cinco teria **P = 0,33**. Isto e, \"nao colidiu\" e **sinal\n  fraco**, e nao conferencia;\n* **por LEITURA da narracao, os outros dois** (`s012` e `s027`), que **nao\n  declaram capitulo nenhum**. Foi essa leitura — de primeira mao, cena por cena,\n  impressa pelo `irmaos_da_origem` — que separou esta familia da do `s012`, e e\n  ela que de fato conferiu.\n\nAusencia de capitulo declarado **nao e** ausencia de colisao (761), e P baixo\n**nao e** conferencia: as duas ressalvas vao escritas porque as duas valem aqui.\n\n## EXPOSICAO\n**ONZE CENAS, e as TRES recusas nao foram minhas.** O `contagem_de_cenas.py` deu\n**catorze** como melhor cadencia — que e tambem o **teto MEDIDO desta voz** — e a\nrecusou pela **FOLGA**; **doze** e **treze** foram recusadas por **REPETICAO**,\nporque sao as duas ultimas peças publicadas neste canal (`s079` e `s078`). Onze e\na melhor que SERVE pelos tres filtros, com folga **+17**.\n\n**A PINCA DO 740/748 ESTA FECHADA AQUI, e a exposicao vai declarada ANTES de\npublicar:** o `mira.janela_dos_dois_mundos` devolve **NENHUMA** janela para esta\nvoz nesta faixa, em contagem de cena nenhuma de 2 a 20. Mirei o **PISO** pela\nregra de redacao do 772 — orcamento **38** caracteres por cena no piso, escrita com media\n**38,5** depois de o `quanto_falta` pedir +3 no total — logo o edge cai dentro do `ALVO_SHORT` e o **piper sai FORA pelo\npiso**. O provedor se decide no runner, por cena e por run (730/733), e o portao\n`duracao` cobra 18 a 45 s nos dois mundos, que os dois satisfazem.\n\n**O que eu NAO declaro: de que lado da banda o real cai.** Ela tem 5,2 s contra\n1 s de granularidade, e escolher um lado nao e previsao (774).\n\n**ESQUELETO\n`titulo-item-item-item-barras-titulo-item-lista-item-item-cta`**, inedito nas\n**DEZ** formas de onze cenas da frota e nas 142 da frota inteira, com a propria\npeca FORA da varredura pelo `exceto`. Todo layout saiu do conjunto **SONDADO**\n(`layouts_do_short.desenham`), com `assert` no construtor; a paleta foi **LIDA**\nde `temas_do_dono.paleta_do_canal` e a trilha e **Wholesome**, que e a deste\ncanal — colar `Inspired` aqui ja me rendeu reprovacao do portao `identidade` em\n16/10.\n"
+}
