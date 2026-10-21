@@ -1,0 +1,119 @@
+{
+ "slug": "kolejny-poziom-s089",
+ "pacote": "kolejny-poziom-s089",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "longo_existente": "nPyVHJmY2HA",
+ "longo": [],
+ "thumb": {
+  "l1": "Trzy",
+  "l2": "pieniądze"
+ },
+ "paleta": {
+  "bg": "#0B0B0C",
+  "ink": "#F2EEE8",
+  "c1": "#E23B3B",
+  "c2": "#D9C7A7",
+  "red": "#FF4D4D",
+  "ok": "#7FB77E",
+  "panel": "#151517",
+  "mut": "#8F877C",
+  "acc": "#E23B3B"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Saldo PPK",
+   "sub": "to suma trzech pieniędzy",
+   "nar": "Saldo PPK to suma trzech pieniędzy."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Te trzy",
+   "itens": [
+    "Twoja składka",
+    "Składka firmy",
+    "Wpłaty państwa"
+   ],
+   "nar": "Tylko jeden z nich jest twoim kosztem."
+  },
+  {
+   "layout": "item",
+   "kicker": "Pierwszy",
+   "sub": "wychodzi z twojej wypłaty",
+   "nar": "Twoja składka wychodzi z twojej wypłaty."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Co widzisz, co płacisz",
+   "barras": [
+    {
+     "rotulo": "Saldo na koncie",
+     "valor": 100
+    },
+    {
+     "rotulo": "Twój koszt",
+     "valor": 31
+    }
+   ],
+   "nar": "Saldo pokazuje sumę, a nie twój koszt."
+  },
+  {
+   "layout": "item",
+   "kicker": "Drugi",
+   "sub": "nie wychodzi z twojej wypłaty",
+   "nar": "Składka pracodawcy nie wychodzi z niej."
+  },
+  {
+   "layout": "item",
+   "kicker": "Trzeci",
+   "sub": "też nie wychodzi z wypłaty",
+   "nar": "Wpłaty od państwa też nie wychodzą."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dlatego się mieszają",
+   "sub": "konto jest jedno",
+   "nar": "Mieszają się, bo konto jest tylko jedno."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Licz osobno",
+   "itens": [
+    "Koszt",
+    "Korzyść",
+    "Nigdy razem"
+   ],
+   "nar": "Koszt i korzyść liczy się zawsze osobno."
+  },
+  {
+   "layout": "item",
+   "kicker": "Koszt",
+   "sub": "pewny i już się wydarzył",
+   "nar": "Koszt jest pewny i już się wydarzył."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Czym się różnią",
+   "barras": [
+    {
+     "rotulo": "Koszt: pewny",
+     "valor": 100
+    },
+    {
+     "rotulo": "Korzyść: zależna",
+     "valor": 47
+    }
+   ],
+   "nar": "Korzyść zależy od rynku i od wielu lat."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Kolejny Poziom",
+   "sub": "zapisz się",
+   "nar": "Policz dziś swój koszt i zapisz się tutaj."
+  }
+ ],
+ "copy": "# kolejny-poziom-s089\n\n## TITULO\nSaldo PPK to suma trzech pieniędzy: dlaczego tylko jeden z nich jest twoim kosztem\n\n## TITULO SHORT\nTrzy pieniądze, jeden koszt\n\n## DESCRICAO\nPatrzysz na saldo konta PPK i widzisz jedną liczbę. Ta liczba nie mówi ci nic o tym, ile ten program cię kosztuje — i to nie jest twoja wina, bo wszystkie trzy pieniądze lądują na tym samym koncie.\n\nWarto je rozdzielić, bo mieszanie ich jest powodem, dla którego większość ludzi nie wie, ile płaci. Pierwszy to twoja składka: wychodzi z twojej wypłaty i trafia na twoje konto. Drugi to składka pracodawcy: nie wychodzi z twojej wypłaty, trafia na to samo konto, ale podnosi twoją podstawę podatkową. Trzeci to wpłaty od państwa: też nie wychodzą z twojej wypłaty i nie zależą od tego, ile zarabiasz.\n\nTwoim kosztem jest wyłącznie pierwszy z tych trzech — i to jeszcze pomniejszony o podatek, którego nie zapłaciłeś. Pozostałe dwa są twoją korzyścią, razem z tym, co urośnie. Jedno nie odejmuje się od drugiego: koszt i korzyść liczy się osobno, bo inaczej jedno zasłania drugie i zostaje ci saldo, które nie odpowiada na żadne pytanie.\n\nDlaczego liczymy dziś koszt, a nie korzyść? Bo koszt jest pewny i już się wydarzył: wyszedł z twojej wypłaty w konkretnym miesiącu. Korzyść zależy od rynku i od liczby lat, a to znaczy, że dziś można ją tylko szacować. Decyzja podjęta na saldzie jest decyzją podjętą na sumie dwóch rzeczy, których nie płacisz.\n\nCały rachunek — krok po kroku, na twoich własnych paskach wypłaty — jest w filmie.\n\n## COMENTARIO FIXADO\nKtóre z tych trzech masz zapisane osobno, a które widzisz tylko jako jedno saldo? Napisz to w komentarzu.\n\n## HASHTAGS\n#PPK #wypłata #finanseosobiste #oszczędzanie #KolejnyPoziom\n\n## TAGS\nPPK, składka, saldo PPK, koszt PPK, pasek wypłaty, podatek, finanse osobiste, Polska\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ncategoryId: 26\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\nmadeForKids: false\nselfDeclaredMadeForKids: false\n\n## MUSICA / LICENCA\nWholesome — Kevin MacLeod (incompetech.com), Creative Commons BY 3.0.\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO. A narracao NAO cita percentual de contribuicao,\nNAO cita aliquota, NAO cita valor em zlotys, NAO cita limite, NAO cita data de\nreinscricao e NAO nomeia instituicao. Os unicos numerais falados sao **trzech**\n(os tres dinheiros) e **jeden** (que so um deles e o custo), e os dois sao a\naritmetica do proprio procedimento — a mesma forma do `kolejny-poziom-s006`, que\nfalava \"dwa\" e \"jeden\" pelo mesmo motivo.\n\nAS BARRAS SAO ILUSTRACAO QUALITATIVA E NAO SAO FALADAS. A cena 3 (100 contra 31)\nmostra que o saldo e a soma e o custo e uma parte dela, e a cena 9 (100 contra\n47) mostra a diferenca entre o que e CERTO e o que e DEPENDENTE. **Nenhum dos\nquatro valores e medida de nada**, e esta linha existe para a rodada seguinte NAO\nos ler de volta como dado.\n\nO QUE O VIDEO AFIRMA: que os tres dinheiros caem na MESMA conta, que so o\nprimeiro sai da wyplata, e que por isso o saldo nao responde quanto o programa\ncusta. Isso e aritmetica da propria conta e esta no longo `kolejny-poziom-015`\n(`nPyVHJmY2HA`), capitulos 9 a 16, com as fontes dele.\n\nDESCARTADO, e vai escrito: (1) a data do reingresso automatico e o fato de a\nrezygnacja expirar — e afirmacao juridica com DATA, e ela e o assunto do\n`kolejny-poziom-s055`; (2) qualquer percentual, aliquota, valor, limite ou nome\nde instituicao; (3) o TAMANHO do lado do beneficio — ele e real, esta nomeado\ncomo beneficio e o short NAO o estima, porque estimar rendimento e inventar\nnumero sobre o mundo.\n\n## FAMILIA DE ENTRADA ERRADA\nO SALDO E A SOMA DE TRES DINHEIROS, E SO UM E SEU CUSTO — capitulos 9 a 16, com\no 13 no centro: *\"patrzysz na saldo i widzisz sumę, która nie mówi nic o twoim\nkoszcie\"*.\n\nO eixo e a CONTA onde o dinheiro chega, nao a linha do pasko. Tres dinheiros com\norigens diferentes caem no mesmo saldo, logo o saldo soma o que voce paga com o\nque voce recebe — e decisao tomada sobre ele e decisao tomada sobre duas coisas\nque nao sao suas.\n\nDISTINCAO DOS TRES IRMAOS desta origem, conferida pelo `irmaos_da_origem` e pela\nNARRACAO de cada um (dois deles nao tem este campo, logo a comparacao foi pela\nPROSA e pela fala, que e de primeira mao):\n- `s006` (Linia składki to nie twój koszt) — a LINHA do pasko contra o que de\n  fato saiu da wyplata: o eixo e o IMPOSTO que volta, e o lugar e o pasko;\n- `s032` (Procent nie porównuje się z ratą) — comparar em PERCENTUAL o que so se\n  compara em zlotys (capitulos 27 a 49);\n- `s055` (Milczenie to też wybór) — acao por OMISSAO: a renuncia expira e o\n  reingresso volta sozinho (capitulos 36 a 40).\nNenhum dos tres fala da CONTA. O `s006` e o mais proximo e a distincao vai dita:\nele compara DUAS leituras da mesma saida (a linha e a diferenca entre dois\npasks); esta compara TRES ENTRADAS de um saldo. O capitulo 14 e a dobradica que\nos dois usam — *\"twoj koszt to wylacznie pierwsza z tych trzech\"* — e por isso\nele entra aqui como FECHAMENTO da lista dos tres, nao como o argumento.\n\n## RESERVA\nO QUE EU NAO LEVEI, de proposito, e vai escrito para a proxima rodada achar:\n- os capitulos 25 e 26 — ANOTAR AS DUAS LINHAS e nao so o custo (*\"bez linii\n  składki nie będziesz wiedział później, która z dwóch się zmieniła\"*), e o\n  aviso de que custo menor que a composicao NAO e lucro, e so preco diferente do\n  que esta no pasko. E familia de REGISTRO, e nao cabe hoje pela regra (f);\n- os capitulos 17 a 24 ja sao do `s006`, logo NAO sao reserva — vao nomeados\n  aqui para a rodada seguinte nao os tomar por livres;\n- o lado do BENEFICIO (capitulo 15) segue fora de toda peca desta origem, e o\n  motivo nao e regra (f): estimar rendimento e numero novo sobre o mundo, logo\n  ele depende de duas fontes institucionais e NAO de uma rodada livre.\n\n## EXPOSICAO\nA PINCA DO 740/748 ESTA FECHADA AQUI, e isto vai declarado ANTES de publicar: o\n`mira.janela_dos_dois_mundos` devolve NENHUMA janela para esta voz nesta faixa\ncom onze cenas — a razao piper/edge e 0,851 e o vao e de varios segundos contra\n1,5 s de faixa. Logo nao existe media por cena que ponha os dois provedores\ndentro de 41,5 a 43,0, e a escolha e de qual mundo declarar.\n\nMIREI O PISO, pela regra de redacao do 772, e ele saiu EXATO: previsao edge\n**41,50**, isto e o proprio piso da faixa. O piper sai em **35,3**, FORA pela\nmira e DENTRO do portao `duracao`, que cobra 18 a 45 s nos dois mundos — logo\nnada quebra, e o que fica exposto e a MIRA.\n\nE O REAL NAO ESTA PROMETIDO, nem para um lado nem para o outro: a banda do\nresiduo tem 5,2 s de largura contra 1 s de granularidade, e declarar de que lado\ndela o real cai nao e previsao (774). O que esta escrito e a previsao e a\nexposicao, nao o resultado.\n"
+}
