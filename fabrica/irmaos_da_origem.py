@@ -139,11 +139,19 @@ indicador mede renda e nao patrimonio" — as duas frases falam do mesmo limiar.
 Ele poe o material na mesa; quem compara sou eu.
 """
 import glob
+import math
 import json
 import os
 import re
+import sys
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+# O DONO da contagem de capitulo do longo. Recontar aqui criaria o segundo dono
+# do mesmo fato, que e a assinatura que congelou a legenda e parou a mira.
+import segundo_angulo as SA   # noqa: E402
 
 # Cabecalhos onde a familia pode estar escrita, em ordem de forca.
 CAMPO_FAMILIA = "FAMILIA DE ENTRADA ERRADA"
@@ -290,6 +298,59 @@ def irmaos(origem: str, raiz=None) -> list:
     return saida
 
 
+# Quantos capitulos uma familia costuma carregar. OBSERVADO nas copies que
+# declaram capitulo, nao escolhido — e so isso que ele e: o tamanho tipico da
+# aposta, usado para dizer a ORDEM DE GRANDEZA da forca da evidencia.
+FAMILIA_TIPICA = 5
+
+
+def forca_da_ausencia(declarados: int, n_capitulos: int,
+                      familia: int = FAMILIA_TIPICA) -> float | None:
+    """Se os capitulos fossem SORTEADOS, qual a chance de colidir com o irmao?
+
+    **POR QUE EXISTE (21/10 as 01:3x).** O `cobertura_dos_capitulos` nasceu uma
+    rodada antes e diz *"nenhuma sobreposicao entre os declarados e os seus"* —
+    **sem o denominador.** Medido nos 103 irmaos que declaram capitulo em
+    origem de 20+ capitulos, a fracao do longo que um irmao reivindica vai de
+    **1% a 62%** (mediana 9,7%). Logo *"nenhuma sobreposicao"* nao quer dizer a
+    mesma coisa em dois irmaos:
+
+    * irmao que declara **1 de 100**: sob sorteio, a chance de colidir com uma
+      familia de cinco capitulos e **0,05** — "nao colidiu" era quase certo por
+      construcao, e prova quase nada;
+    * irmao que declara **40 de 64**: a chance e **0,99** — ai "nao colidiu" e
+      sinal forte.
+
+    A mediana dos 103 e **0,41**, isto e, a metade dos irmaos esta numa faixa em
+    que o resultado binario nao se interpreta sozinho. **E a primeira linha da
+    disciplina da rotina aplicada ao meu proprio instrumento de um dia:** antes
+    de chamar um achado de achado, pergunte se o instrumento pode produzi-lo.
+
+    **O MODELO VAI DECLARADO COMO MODELO, e ele e FALSO de proposito:** capitulo
+    de familia NAO e sorteado — ele vem em bloco contiguo, como os 50 a 57 desta
+    rodada mostram. Logo este numero e **ordem de grandeza sob uma nula
+    explicita**, nunca probabilidade de coisa nenhuma no mundo. Tratar como
+    probabilidade medida seria o erro inverso do que ele conserta.
+    """
+    if n_capitulos <= 0 or declarados <= 0:
+        return None
+    if n_capitulos - declarados < familia:
+        return 1.0
+    return 1.0 - (math.comb(n_capitulos - declarados, familia)
+                  / float(math.comb(n_capitulos, familia)))
+
+
+def _dir_specs(raiz=None) -> str:
+    """O diretorio das specs, derivado da raiz — UM dono.
+
+    Existe porque `segundo_angulo.nao_mencionados` recebe `dir_specs` e nao
+    `raiz`, e passar um no lugar do outro e exatamente o que a guarda
+    `_dir_valido` de 20/10 as 12:3x pega. Derivar aqui, num lugar so, e o que
+    impede a proxima chamada de errar a posicao outra vez.
+    """
+    return os.path.join(raiz or RAIZ, "fabrica", "specs")
+
+
 def cobertura_dos_capitulos(origem: str, meus=(), raiz=None, excluir=()) -> dict:
     """Em quantos irmaos a conferencia por CAPITULO e mecanica, e em quantos nao.
 
@@ -313,7 +374,20 @@ def cobertura_dos_capitulos(origem: str, meus=(), raiz=None, excluir=()) -> dict
     dado nao e ausencia de colisao, que e o erro que custou o 761.
     """
     meus = set(int(x) for x in (meus or ()))
-    saida = {"conhecidos": [], "desconhecidos": [], "colidem": []}
+    # O tamanho do longo sai do DONO da contagem de capitulo
+    # (`segundo_angulo.nao_mencionados`), nao de uma leitura propria: recontar
+    # aqui criaria o segundo dono, a assinatura que congelou a legenda.
+    #
+    # E O ARGUMENTO DELE E `dir_specs`, NAO `raiz` — eu passei a raiz na
+    # primeira versao disto e envolvi a chamada num `except Exception`, que
+    # ENGOLIU a guarda `_dir_valido` de 20/10 as 12:3x. Aquela guarda nasceu
+    # para LEVANTAR em vez de devolver zero bem formado, e o meu try/except a
+    # transformou de volta em silencio: `n_capitulos` saia 0 e a forca saia
+    # `None` para todo irmao, calada. Guarda engolida por chamador e guarda que
+    # nao existe.
+    n_caps = (SA.nao_mencionados(origem, _dir_specs(raiz)) or {}).get(
+        "n_capitulos") or 0
+    saida = {"conhecidos": [], "desconhecidos": [], "colidem": [], "forca": {}}
     # `excluir` NAO e conveniencia: a spec desta rodada ja esta no disco quando
     # eu pergunto, logo sem ele a peca aparece como irma de si mesma e colide
     # com os PROPRIOS capitulos. E a QUINTA vez desta assinatura — o
@@ -328,6 +402,14 @@ def cobertura_dos_capitulos(origem: str, meus=(), raiz=None, excluir=()) -> dict
             saida["desconhecidos"].append(i["pacote"])
             continue
         saida["conhecidos"].append(i["pacote"])
+        # A FORCA da ausencia, por irmao: "nao colidiu" nao quer dizer a mesma
+        # coisa quando o irmao declara 1 de 100 e quando declara 40 de 64.
+        # Ver `forca_da_ausencia` — 21/10 as 01:3x.
+        saida["forca"][i["pacote"]] = {
+            "declarados": len(caps),
+            "n_capitulos": n_caps,
+            "p_colidiria": forca_da_ausencia(len(caps), n_caps),
+        }
         inter = sorted(caps & meus)
         if inter:
             saida["colidem"].append({"pacote": i["pacote"], "capitulos": inter})
@@ -373,6 +455,46 @@ def _linha_da_cobertura(origem: str, meus=(), raiz=None, excluir=()) -> list:
                  " sobre conjunto vazio.")
     elif c["conhecidos"]:
         L.append("    nenhuma sobreposicao entre os declarados e os seus.")
+        L.extend(_linha_da_forca(c))
+    return L
+
+
+def _linha_da_forca(c: dict) -> list:
+    """Quanto vale o "nenhuma sobreposicao" — UM dono da frase.
+
+    Sem isto o relato devolve um BINARIO cuja forca varia por um fator 20 entre
+    irmaos (P de 0,05 a 0,99, medido nos 103 que declaram capitulo). Ele NAO
+    filtra e NAO decide: nomeia a forca, como o `origens_sem_uso` nomeia origem
+    inutilizavel em vez de a esconder.
+    """
+    fr = c.get("forca") or {}
+    ps = [v["p_colidiria"] for v in fr.values()
+          if v.get("p_colidiria") is not None]
+    if not ps:
+        return ["      (forca da ausencia NAO calculada: o tamanho do longo nao"
+                " foi lido. Ausencia de denominador nao e denominador grande.)"]
+    L = []
+    for pac in sorted(fr):
+        v = fr[pac]
+        pc = v["p_colidiria"]
+        if pc is None:
+            continue
+        L.append("      %s declara %d de %d capitulos, logo sob SORTEIO a"
+                 " colisao com uma familia de %d teria P=%.2f."
+                 % (pac, v["declarados"], v["n_capitulos"],
+                    FAMILIA_TIPICA, pc))
+    pior = max(ps)
+    if pior < 0.25:
+        L.append("      >> ATENCAO: a maior P e %.2f, logo 'nenhuma"
+                 " sobreposicao' era QUASE CERTO por construcao e prova"
+                 " pouco. A conferencia que vale aqui e a LEITURA." % pior)
+    elif pior >= 0.75:
+        L.append("      >> a maior P e %.2f, logo 'nenhuma sobreposicao' e"
+                 " sinal FORTE: sob sorteio ela quase certamente teria"
+                 " ocorrido." % pior)
+    L.append("      (o SORTEIO e nula DECLARADA e FALSA de proposito: capitulo"
+             " de familia vem em bloco contiguo. Isto e ordem de grandeza da"
+             " forca, nunca probabilidade do mundo.)")
     return L
 
 
