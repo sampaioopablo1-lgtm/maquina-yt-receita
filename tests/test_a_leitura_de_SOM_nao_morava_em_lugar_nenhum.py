@@ -186,25 +186,48 @@ def test_o_fato_de_a_anotacao_trazer_o_veredito_tem_os_DOIS_valores():
         "o numero impresso nao e o que o parque diz")
 
 
-def test_os_denominadores_por_canal_e_a_ressalva_que_o_parque_DESMENTIU():
-    """A ressalva saiu antes da medida, e a medida a derrubou.
+def test_os_denominadores_por_canal_sao_COMPARAVEIS_e_a_frase_e_DERIVADA():
+    """RETRATADO EM 21/10 AS 23:2x, e o errado era este teste.
 
-    Eu escrevi "os denominadores diferem" por habito; medidos, eles saem IGUAIS.
-    Este teste cobra a propriedade que de fato existe, e **falha se eles
-    deixarem de ser iguais** — porque ai a frase do relato tem de ser relida em
-    vez de ficar.
+    A primeira versao da frase do relato dizia que os denominadores "diferem",
+    escrita por habito antes de eu olhar; medidos, saiam IGUAIS (vinte por
+    canal, pela rotacao 8/8/8). **E eu travei essa igualdade aqui** — e a peca
+    seguinte, parqueada num canal so, levou um deles a 21 e derrubou o teste.
+    Identidade onde havia propriedade, pela DECIMA SEXTA vez (743/753/761).
+
+    O que sustenta ler o contraste direto nao e a igualdade e sim a
+    COMPARABILIDADE: nenhum denominador abaixo da METADE do maior. Este teste
+    cobra isso e **falha quando eles desequilibram** — que e o caso em que a
+    frase do relato tem de ser relida —, e exige que a frase seja DERIVADA em
+    vez de escrita, com um dono so.
     """
     d = SPQ.distribuicao(_parque())
     pc = d["por_canal"]
     assert len(pc) >= 3, "o parque cobre menos de tres canais: %r" % list(pc)
     ns = {c: v["n"] for c, v in pc.items()}
-    assert len(set(ns.values())) == 1, (
-        "os denominadores por canal deixaram de ser iguais (%r) — a frase do"
-        " relato foi escrita sobre a igualdade e tem de ser RELIDA" % ns)
-    assert "DENOMINADORES saem IGUAIS" in SPQ.relato(), (
-        "a medida saiu do relato")
-    assert "NAO afirma" in SPQ.relato(), (
+    menor, maior = min(ns.values()), max(ns.values())
+    assert menor * 2 >= maior, (
+        "os denominadores por canal DESEQUILIBRARAM (%r): a contagem bruta"
+        " deixa de se comparar e a frase do relato tem de ser RELIDA" % ns)
+    r = SPQ.relato()
+    assert ("COMPARAVEIS" in r) or ("IGUAIS" in r), (
+        "o relato deixou de dizer COMO os denominadores se comparam")
+    assert "NAO afirma" in r, (
         "a ressalva de que voz e conteudo andam juntos saiu do relato")
+    # e a frase e DERIVADA: nenhum denominador escrito a mao no modulo
+    arvore = ast.parse(FONTE)
+    donos = [n.name for n in ast.walk(arvore)
+             if isinstance(n, ast.FunctionDef)
+             and ("IGUAIS" in ast.unparse(n) or "COMPARAVEIS" in ast.unparse(n))]
+    assert donos == ["_linha_dos_denominadores"], (
+        "a frase dos denominadores tem mais de um dono: %r" % donos)
+    # e o numero da rotacao e proibido na SAIDA, nao na fonte: o modulo CITA
+    # "vinte por canal" no docstring e num comentario para contar a HISTORIA das
+    # duas versoes, e casar prosa pegaria a explicacao em vez do codigo — a
+    # licao do `test_NAO_virou_portao` do acento. Era o teste errado outra vez.
+    assert "vinte por canal" not in r, (
+        "o numero da rotacao voltou IMPRESSO no relato (753) — na fonte ele e"
+        " historia, na saida seria medida envelhecida")
 
 
 def test_a_RECUSA_tem_UM_dono_e_sai_so_no_parque_curto():

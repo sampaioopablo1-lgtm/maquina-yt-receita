@@ -58,3 +58,4 @@
 {"arquivo": "short.mp4", "desvio_do_alvo": 0.2, "job": "118112095620", "lra": 2.9, "lufs": -13.8, "pacote": "labtreinamento-014", "pico_dbtp": -2.3, "run": "39267855123", "silencios": [], "tinha_veredito": false}
 {"arquivo": "video.mp4", "desvio_do_alvo": 0.0, "job": "118090146286", "lra": 3.0, "lufs": -14.0, "pacote": "kolejny-poziom-020", "pico_dbtp": -3.4, "run": "39261515753", "silencios": [], "tinha_veredito": false}
 {"arquivo": "short.mp4", "desvio_do_alvo": 0.2, "job": "118090146286", "lra": 2.2, "lufs": -13.8, "pacote": "kolejny-poziom-020", "pico_dbtp": -3.7, "run": "39261515753", "silencios": [], "tinha_veredito": false}
+{"arquivo": "short.mp4", "desvio_do_alvo": 0.7, "job": "119539958227", "lra": 3.2, "lufs": -13.3, "pacote": "kolejny-poziom-s090", "pico_dbtp": -1.4, "run": "39691920632", "silencios": [], "tinha_veredito": true}

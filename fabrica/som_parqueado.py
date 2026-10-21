@@ -230,6 +230,43 @@ def distribuicao(registros: list | None = None) -> dict:
     }
 
 
+def _linha_dos_denominadores(d: dict) -> str:
+    """A frase dos denominadores, DERIVADA — ela nunca escreve o numero à mão.
+
+    A primeira versão dizia que eles "diferem", escrita antes de eu olhar; o
+    parque a desmentiu (saíam vinte por canal). A **segunda** dizia que eles são
+    IGUAIS, e com ela eu travei num teste um acidente da rotação 8/8/8: a
+    primeira peça parqueada depois disso levou um canal a 21 e derrubou o teste
+    — identidade onde havia propriedade (743/753/761).
+
+    O que de fato sustenta ler o contraste direto não é a igualdade, é a
+    COMPARABILIDADE: nenhum denominador abaixo da metade do maior. Acima dessa
+    folga a contagem bruta deixa de se comparar e a frase tem de ser relida, e é
+    isso que esta linha diz em vez de um número.
+    """
+    pc = d["por_canal"]
+    if not pc:
+        return ("  por CANAL: o parque nao tem canal nenhum derivado — sem isso"
+                " a comparacao nao existe.")
+    ns = {c: v["n"] for c, v in pc.items()}
+    maior, menor = max(ns.values()), min(ns.values())
+    corpo = ", ".join("%s %d" % (c, n) for c, n in sorted(ns.items()))
+    if maior == menor:
+        como = ("os denominadores saem IGUAIS (%d por canal), logo o contraste"
+                " se le direto" % maior)
+    elif menor * 2 >= maior:
+        como = ("os denominadores DIFEREM e seguem COMPARAVEIS (%s; o menor e"
+                " %.0f%% do maior), logo o contraste ainda se le direto"
+                % (corpo, 100.0 * menor / maior))
+    else:
+        como = ("os denominadores estao DESEQUILIBRADOS (%s; o menor e %.0f%% do"
+                " maior) — a contagem bruta deixa de se comparar e esta linha"
+                " tem de ser RELIDA" % (corpo, 100.0 * menor / maior))
+    return ("  e %s. **A primeira versao desta linha dizia que eles diferem**,"
+            " escrita antes de eu olhar, e a segunda cravou a IGUALDADE num"
+            " teste — a peca seguinte, num canal so, a derrubou." % como)
+
+
 def _linha_da_recusa(d: dict) -> str:
     """A frase da recusa, com UM dono — ela sai no ramo em que o parque é curto.
 
@@ -267,13 +304,10 @@ def relato(registros: list | None = None) -> str:
               " enquadramento do 679/698/725): %s"
               % " | ".join("%s %d de %d" % (c, v["fora"], v["n"])
                            for c, v in sorted(d["por_canal"].items())))
-    ls.append("  e os DENOMINADORES saem IGUAIS — vinte por canal, por acidente"
-              " da rotacao 8/8/8 —, logo o contraste se le direto. **A primeira"
-              " versao desta linha dizia que eles diferem**, escrita antes de eu"
-              " olhar: era ressalva de habito, e o proprio parque a desmentiu.")
-    ls.append("  o que isto NAO afirma: que a voz grega produza pico mais alto."
-              " Voz e CONTEUDO andam juntos nos tres canais, ninguem aleatorizou"
-              " nada e as acusadas sao onze — o que esta medido e a contagem.")
+    ls.append(_linha_dos_denominadores(d))
+    ls.append("  o que isto NAO afirma: que a voz de um canal produza pico mais"
+              " alto. Voz e CONTEUDO andam juntos nos tres canais e ninguem"
+              " aleatorizou nada — o que esta medido e a contagem.")
     ls.append("  o VEREDITO nao e parqueado: o parque guarda `pico_dbtp` e"
               " quem julga e o `som.pico_acima_do_teto`, logo mexer no teto rele"
               " o parque inteiro em vez de deixar atras classificacao velha.")

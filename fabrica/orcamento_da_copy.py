@@ -100,7 +100,16 @@ def orcamento(sp: dict) -> dict | None:
     return saida
 
 
-def relato(sp_ou_caminho) -> str:
+def relato(caminho=None, spec=None) -> str:
+    """A MESMA convencao dos outros relatos: `(caminho, spec=None)`.
+
+    Ela nascera com UM parametro cujo nome dizia aceitar os dois, e o
+    despachante decide pela ARIDADE — logo a passada declarava "NAO aceita
+    rascunho" sobre um modulo que aceitava (21/10, 23:2x).
+    """
+    if isinstance(caminho, dict):     # compatibilidade: a spec na 1a posicao
+        caminho, spec = None, caminho
+    sp_ou_caminho = spec if spec is not None else caminho
     import json
 
     sp = sp_ou_caminho

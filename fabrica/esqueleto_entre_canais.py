@@ -290,7 +290,24 @@ def _frase_da_novidade(n: dict) -> str:
     return f"  {p},\n  {t}."
 
 
-def relato(spec_ou_caminho=None) -> str:
+def relato(caminho=None, spec=None) -> str:
+    """A MESMA convencao dos outros relatos: `(caminho, spec=None)`.
+
+    Ela nascera como `relato(spec_ou_caminho)` — UM parametro cujo NOME dizia
+    que aceitava os dois. **E o despachante do `antes_do_render` decide pela
+    ARIDADE, nao pelo nome** (a licao de 20/10 as 11:3x, e por isso que o
+    `paleta_da_spec` foi normalizado em 21/10 as 20:3x). Logo a passada de
+    pre-render declarava *"NAO aceita rascunho"* sobre um modulo que ACEITAVA,
+    e isso e silencio permissivo: ela dizia que nao conferiu podendo conferir.
+
+    **Custou uma escolha, em 21/10 as 23:2x:** sem a resposta na passada eu fui
+    conferir a novidade do esqueleto a mao, li uma listagem que o meu proprio
+    `tail -10` havia CORTADO (as 7 ultimas de 10 formas de treze cenas) e
+    escolhi uma forma que JA EXISTIA no `epomeno-epipedo`. E a familia da fatia
+    do proxy de 19/10 as 19:2x, agora com o `tail`.
+    """
+    if isinstance(caminho, dict):     # compatibilidade: a spec na 1a posicao
+        caminho, spec = None, caminho
     pecas = varre()
     q = quadro(pecas)
     qv = quadro(pecas, so_vivos=True)
@@ -307,16 +324,17 @@ def relato(spec_ou_caminho=None) -> str:
     for e, n in topo:
         c = q["canais_da_forma"][e]
         L.append(f"   {n:3d}x em {len(c):2d} canal(is)  {e}")
-    if spec_ou_caminho is not None:
-        d = spec_ou_caminho
-        if isinstance(d, str):
-            d = json.load(open(d, encoding="utf-8"))
+    if caminho is not None or spec is not None:
+        d = spec if spec is not None else json.load(
+            open(caminho, encoding="utf-8"))
         short = d.get("short") or []
         if short:
             L.append("")
             L.append(f"desta peca ({d.get('pacote', '?')}):")
-            exceto = (os.path.basename(spec_ou_caminho)
-                      if isinstance(spec_ou_caminho, str) else "")
+            # o `exceto` sai do NOME do arquivo mesmo no rascunho: a peca pode
+            # nao estar no disco agora e estar na proxima chamada, e sem ele
+            # "inedita" nunca poderia ser verdade (01:3x de 20/10).
+            exceto = os.path.basename(caminho) if caminho else ""
             L.append(_frase_da_novidade(
                 novidade(V.esqueleto(short), len(short), pecas, exceto)))
     c = cegas_para_o_portao(pecas)

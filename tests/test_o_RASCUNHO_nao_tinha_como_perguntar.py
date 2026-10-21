@@ -28,7 +28,26 @@ import prontidao                 # noqa: E402
 import rascunho                  # noqa: E402
 
 SPECS = os.path.join(RAIZ, "fabrica", "specs")
-RELATOS = ("mira", "acento", "gancho", "layouts_do_short", "paleta_da_spec")
+# OS CINCO QUE ACEITAVAM RASCUNHO EM 21/10 AS 20:3x — fica como HISTORIA, porque
+# e ela que explica o arquivo. **Nao se usa para decidir quem aceita:** em 23:2x
+# outros TRES foram normalizados e esta tupla ficou atras, fazendo o teste da
+# frase cobrar "nao conferiu" de quem passou a conferir. Identidade onde havia
+# propriedade (743/753/761), e a propriedade e a ARIDADE — a mesma pela qual o
+# despachante decide.
+RELATOS_EM_20H = ("mira", "acento", "gancho", "layouts_do_short",
+                  "paleta_da_spec")
+
+
+def _aceita_rascunho(nome):
+    """Quem o despachante alcanca: `relato` com DOIS positionals ou mais."""
+    import importlib
+    ps = [p for p in inspect.signature(
+        importlib.import_module(nome).relato).parameters.values()
+        if p.kind in (p.POSITIONAL_ONLY, p.POSITIONAL_OR_KEYWORD)]
+    return len(ps) >= 2
+
+
+RELATOS = tuple(n for n in RELATOS_EM_20H if _aceita_rascunho(n))
 INEXISTENTE = os.path.join(SPECS, "nao-existe-ainda-neste-teste.json")
 
 
@@ -186,7 +205,7 @@ def test_instrumento_que_NAO_aceita_rascunho_DIZ_que_nao_conferiu():
     """Calar seria o sentido permissivo — custou seis pecas da s077 a s082."""
     _c, sp = _uma_spec()
     r = AR.relato(INEXISTENTE, sp)
-    faltam = [n for n in AR.INSTRUMENTOS if n not in RELATOS]
+    faltam = [n for n in AR.INSTRUMENTOS if not _aceita_rascunho(n)]
     assert faltam, (
         "todos os instrumentos aceitam rascunho — esta nota se rele, porque a "
         "linha do 'NAO aceita rascunho' perdeu o objeto")

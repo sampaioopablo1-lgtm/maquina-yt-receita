@@ -8464,3 +8464,142 @@ impede e a ROTA, e o remedio e do DONO** — a tela de Network access.
 
 **COTA: DEZESSEIS envios** na janela aberta as 07:00Z, **25.600** unidades,
 contra o piso MEDIDO de **>= 41.600** — do `janela_de_cota`.
+
+## A PASSADA DIZIA "NAO ACEITA RASCUNHO" SOBRE QUEM ACEITAVA
+
+**Medido em 21/10 as 23:2x, e custou a escolha do esqueleto desta rodada.** Dos
+CINCO instrumentos que o `antes_do_render` declarava nao ter conferido no
+rascunho, **TRES recebiam dicionario desde que nasceram** —
+`orcamento_da_copy(sp_ou_caminho)`, `esqueleto_entre_canais(spec_ou_caminho)` e
+`numerais_falados(caminho_ou_spec)` —, cada um com UM parametro cujo NOME
+anunciava aceitar "a spec OU o caminho".
+
+**E o despachante decide pela ARIDADE, nao pelo nome** — a licao de 20/10 as
+11:3x, e exatamente por isso que o `paleta_da_spec` foi normalizado em 20:3x de
+ontem. **A mesma normalizacao nao chegou a estes tres**, logo a passada afirmava
+nao ter conferido **podendo conferir**: silencio permissivo, a classe da mira que
+parou de avisar por seis pecas — e pior que calar, porque a frase era uma
+afirmacao FALSA sobre capacidade.
+
+| | |
+|---|---|
+| instrumentos na passada | **6** |
+| declarados "NAO aceita rascunho" | **5** |
+| que de fato NAO aceitavam | **2** (`copy_secoes`, `contagem_declarada`) |
+| que aceitavam e eram declarados | **3** |
+
+**O CUSTO FOI MEDIDO E E DESTA RODADA.** Sem a resposta na passada eu fui
+conferir a novidade do esqueleto **a mao**: rodei o quadro, cortei a saida com
+`tail -10`, li as **7 ultimas de 10** formas de treze cenas como se fossem o
+conjunto, e escolhi
+`titulo-barras-item-lista-item-item-titulo-barras-item-lista-item-item-cta` —
+que **JA EXISTE**, com um exemplar no `epomeno-epipedo`. **E a familia da fatia
+do proxy de 19/10 as 19:2x, agora com o `tail`:** ler uma ponta de lista
+truncada como se fosse a lista. Quem pegou foi o `EC.novidade`, chamado direito
+depois — `forma_inedita: False`, `exemplares_da_forma: 1`.
+
+**Consertado:** os tres passaram a `(caminho=None, spec=None)`, a mesma
+convencao dos cinco que ja funcionavam, com a spec na PRIMEIRA posicao ainda
+aceita por compatibilidade. A passada passou a responder **quatro** dos seis no
+rascunho e a linha do "nao conferiu" encurtou de CINCO para DOIS — e ela **segue
+existindo**, porque dois instrumentos ainda exigem o arquivo.
+
+`tests/test_a_passada_DIZIA_que_nao_conferiu_podendo_conferir.py`, nove testes:
+a spec de prova e **DERIVADA** do disco e **reprova dizendo que perdeu a
+ancora**, um exige a convencao `(caminho, spec)` nos tres, a contraprova no
+outro sentido cobra que a resposta pelo dicionario seja **IDENTICA** a do disco
+(senao o rascunho responderia outra coisa), um cobra que a spec na primeira
+posicao **continue servindo**, um trava a **CORRESPONDENCIA** entre a frase e a
+aridade instrumento por instrumento (sem ela a frase volta a poder mentir nos
+dois sentidos), um exige que os **DOIS** lados existam e **falha se TODOS
+passarem a aceitar** — porque ai a linha perde o objeto —, um reproduz a
+pergunta que custou a rodada (a novidade respondida no rascunho), um cobra que o
+`exceto` saia do NOME do arquivo, e um proibe por **AST** que o despachante
+volte a decidir pelo nome do parametro. **Contraprova:** devolvido UM dos tres a
+aridade um, **tres dos nove** falham.
+
+**E DOIS TESTES MEUS DE ONTEM FORAM RETRATADOS NO LUGAR, os dois da mesma
+classe (743/753/761), nesta mesma rodada:**
+
+1. **o `RELATOS` do arquivo das 20:3x era uma TUPLA de cinco nomes**, e dela
+   saia *"quem NAO aceita rascunho"*. Com os tres normalizados ela ficou atras e
+   o teste passou a cobrar a frase de quem **passou a conferir**. Agora a lista
+   e `RELATOS_EM_20H`, marcada como **HISTORIA**, e quem decide e
+   `_aceita_rascunho(nome)` pela **ARIDADE** — a mesma propriedade pela qual o
+   despachante decide, **decima sexta** vez da classe;
+2. **o teste dos denominadores do som cravava que eles sao IGUAIS.** Eles saiam
+   vinte por canal por acidente da rotacao 8/8/8, e **a primeira peca parqueada
+   depois disso levou um canal a 21 e o derrubou.** A propriedade que de fato
+   sustenta ler o contraste direto nao e a igualdade, e a **COMPARABILIDADE**:
+   nenhum denominador abaixo da METADE do maior. A frase do relato passou a ser
+   **DERIVADA** por `_linha_dos_denominadores`, com os tres ramos (iguais,
+   comparaveis, desequilibrados), e o numero da rotacao e proibido **na SAIDA e
+   nao na fonte** — ali ele e historia, e casar prosa pegaria a explicacao (a
+   licao do `test_NAO_virou_portao` do acento, que me reprovou uma vez aqui
+   antes de passar).
+
+### A PECA DESSA RODADA — TREZE cenas, e o esqueleto foi TROCADO antes do render
+
+`kolejny-poziom-s090` = **`iWXYmoTBMy4`**, publicado as 23:15:58Z (run
+`39692254836`), **ONZE PORTOES VERDES NA PRIMEIRA TENTATIVA** (11,5 s) — e ela
+foi **CONFERIDA COMO RASCUNHO** antes de existir como arquivo (0,62 s): dez
+portoes baratos limpos, mira, acento (e o `ortografia` tambem nao reprova),
+gancho (5 palavras de 12), paleta **LIDA** do dono e as treze cenas desenhando.
+Provedor **edge MEDIDO** (zero avisos `NARRACAO PELO PIPER` nos DOIS jobs do
+render). Som **-13,3** LUFS, LRA 3,2, desvio +0,7, **zero silencios** — e pico
+**-1,4 dBTP**, isto e `acima_do_teto`, que e LEITURA e nao defeito e e o
+**DECIMO PRIMEIRO** caso do parque de som, agora com ele parqueado no mesmo
+passo.
+
+**ESQUELETO
+`titulo-barras-item-lista-item-item-titulo-item-barras-lista-item-item-cta`,
+INEDITO nas 164 formas da frota** e a **DECIMA PRIMEIRA** de treze cenas — e ele
+e a SEGUNDA versao: a primeira ja existia, e a troca foi mover o `item` do
+*postoj* para antes das `barras` da interrupcao, o que ate le melhor. As
+previsoes **nao mudaram** (so a ordem mudou), e a copy foi corrigida no mesmo
+passo porque ela NOMEIA a cena de cada grafico.
+
+**PAUTA:** `SZV9Vk5YFwI` (`kolejny-poziom-002`), 3 usos — empate de duas origens
+desempatado pela MAIOR reserva, **49 de 57** capitulos NAO MENCIONADOS. A
+dominante `GUiq15usizw` ficou de fora, e o `QiaGg03WSR0` saiu da escolha pelo
+**mapa de dono MEDIDO** sem sair da lista.
+
+**FAMILIA: TRATAR O REGISTRO COMO POUPANCA** (capitulos 9, 11 e 13) — a NATUREZA
+do numerador. Poupanca cresce com o **TEMPO**; registro cresce com a **ENTRADA**,
+logo *"parei um ano"* nao e dinheiro em repouso, e um ano **sem lancamento** — e
+a aritmetica nao reclama, a divisao funciona igual e o resultado nasce menor.
+Distincoes escritas contra os TRES irmaos pelo `irmaos_da_origem` (um sem o
+campo da familia, logo pela PROSA e pela NARRACAO, de primeira mao): o `s059` e
+a aritmetica da zwloka, o `s064` o divisor que cresce, o `s075` a vantagem
+condicional das contas com ulga. **E o terceiro item do capitulo 13 — a saida
+antecipada, que mexe no DIVISOR — ficou FORA de proposito:** e territorio
+declarado do `s064`.
+
+**CONTAGEM pela chave `por_cadencia_servivel`:** treze cenas, folga **+7**, e
+nao repete os tamanhos recentes do canal (11 e 12). O teto MEDIDO da voz (14),
+que e a melhor cadencia, saiu **NOMEADO** e recusado pela FOLGA — 23 caracteres,
+a dois do piso observado.
+
+**E O PISO EXATO NAO ERA ALCANCAVEL:** com treze cenas um caractere por cena
+vale **0,68 s**, logo 28 dao **42,1** e 27 caem ABAIXO da faixa. A peca ficou no
+**MEIO**, que e onde o `orcamento` mira (752/774). A pinca do 740/748 esta
+FECHADA (piper **35,8**, FORA pela mira e DENTRO do portao), com a exposicao
+declarada ANTES de publicar, e o REAL nao esta prometido para lado nenhum (774).
+
+**ZERO numero novo sobre o mundo:** os dois numerais falados (`dwa`, `trzy`) sao
+contagem da propria receita, conferidos pelo `numerais_falados`, e as barras sao
+ilustracao qualitativa e **nao** sao faladas. A origem traz 19,52%, ~1 900 zl e
+as tres stopy zastapienia com datas — **todos fora pela regra (g)**.
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica` pela VIGESIMA
+PRIMEIRA rodada seguida** — medido pelo `politica_negou_hosts`. A peca esta
+PARQUEADA com o provedor MEDIDO e o job lido da API, e a presenca foi conferida
+**RELENDO** o parque (**121** linhas, **49** sem leitura). `RESIDUO_N` segue
+**128**.
+
+**E A LEITURA DE INSCRITOS PASSOU AS TRES PORTAS E NAO FOI FEITA, pela DECIMA
+rodada seguida:** 60,99 h, piso de resolucao **0,39/dia**, os tres SIM. O que a
+impede e a **ROTA**, e o remedio e do **DONO** — a tela de Network access.
+
+**COTA: DEZESSETE envios** na janela aberta as 07:00Z, **27.200** unidades,
+contra o piso MEDIDO de **>= 41.600** — do `janela_de_cota`.

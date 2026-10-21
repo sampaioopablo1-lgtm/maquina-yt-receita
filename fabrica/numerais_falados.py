@@ -114,7 +114,16 @@ def declaracao_incompleta(sp) -> list:
     return [n for n in d["total"] if n not in copy]
 
 
-def relato(caminho_ou_spec) -> str:
+def relato(caminho=None, spec=None) -> str:
+    """A MESMA convencao dos outros relatos: `(caminho, spec=None)`.
+
+    Ela nascera com UM parametro cujo nome dizia aceitar os dois, e o
+    despachante decide pela ARIDADE — logo a passada declarava "NAO aceita
+    rascunho" sobre um modulo que aceitava (21/10, 23:2x).
+    """
+    if isinstance(caminho, dict):     # compatibilidade: a spec na 1a posicao
+        caminho, spec = None, caminho
+    caminho_ou_spec = spec if spec is not None else caminho
     sp = caminho_ou_spec
     if isinstance(sp, str):
         import json
