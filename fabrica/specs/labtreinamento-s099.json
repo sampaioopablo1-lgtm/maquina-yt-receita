@@ -1,0 +1,86 @@
+{
+ "slug": "labtreinamento-s099",
+ "pacote": "labtreinamento-s099",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "longo_existente": "POBNoY16wG8",
+ "longo": [],
+ "thumb": {
+  "l1": "O de baixo",
+  "l2": "muda"
+ },
+ "paleta": {
+  "bg": "#0E1117",
+  "ink": "#EEF1F5",
+  "c1": "#3DDBD9",
+  "c2": "#1E2430",
+  "red": "#FF5A5F",
+  "ok": "#3CCB7F",
+  "panel": "#161B24",
+  "mut": "#8B95A5",
+  "acc": "#3DDBD9"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "O de baixo parece fixo",
+   "sub": "e se move dentro do período",
+   "nar": "O de baixo não parece, mas muda."
+  },
+  {
+   "layout": "item",
+   "kicker": "As pessoas se movem",
+   "nar": "Pessoas entram e saem no período."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Quatro situações, quatro contas",
+   "itens": [
+    "Ficou o período",
+    "Entrou no meio",
+    "Saiu no meio",
+    "Esteve afastado"
+   ],
+   "nar": "São quatro situações, e não uma."
+  },
+  {
+   "layout": "item",
+   "kicker": "Quem entrou no fim",
+   "nar": "Quem entrou no fim não teve chance."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Mesmo numerador, outro resultado",
+   "barras": [
+    {
+     "rotulo": "Sem ela embaixo",
+     "valor": 100
+    },
+    {
+     "rotulo": "Com ela embaixo",
+     "valor": 72
+    }
+   ],
+   "nar": "Contar essa pessoa derruba o número."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A linha é a oportunidade",
+   "sub": "não a folha de hoje",
+   "nar": "A linha é a oportunidade, não a folha."
+  },
+  {
+   "layout": "item",
+   "kicker": "Quem saiu também conta",
+   "nar": "Quem saiu também conta, se teve tempo."
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "inscreva-se",
+   "nar": "Escreva a regra uma vez, e cumpra."
+  }
+ ],
+ "copy": "# labtreinamento-s099\n\n## TITULO\nO Denominador Parece Fixo E Não É: Quem Entrou, Quem Saiu E Quem Estava Afastado\n\n## TITULO SHORT\nO de baixo não é fixo\n\n## DESCRICAO\nQuase toda discussão sobre indicador de treinamento cai na divisão. E a divisão é a parte fácil. **O difícil é montar o número de baixo** — e ele parece fixo quando não é.\n\nDentro de qualquer período as pessoas se movem, e **quatro situações aparecem sempre**: quem estava do começo ao fim, quem entrou no meio, quem saiu no meio e quem passou o período inteiro afastado. Tratar as quatro igual é exatamente o que produz um indicador que ninguém consegue repetir no mês seguinte.\n\n**Quem entrou faltando duas semanas para o fim não teve chance real de treinar.** Contar essa pessoa embaixo derruba o seu número sem motivo — e não é rigor, é ruído. **E quem saiu no meio conta, se teve tempo de treinar e não treinou.** Tirar essa pessoa é o jeito mais fácil que existe de melhorar o indicador sem fazer absolutamente nada: o número sobe, a divisão fecha, e ninguém treinou a mais.\n\n**A linha que separa não é quem está hoje na folha de pagamento.** É quem teve a oportunidade de treinar dentro do período que você está medindo. Essa é a frase que resolve os quatro casos, e ela não depende do tamanho da empresa nem do sistema que você usa.\n\nQuem passou o período afastado é caso próprio: não tinha como treinar, então sai da conta — **com a regra escrita, não combinada.** E a lista dessas regras se escreve **uma vez**. Ela muda quando muda a política, não quando o resultado do mês ficou abaixo do esperado. No dia em que ela mudar porque o número desagradou, o indicador deixou de medir treinamento e passou a medir vontade.\n\n## COMENTARIO FIXADO\nO menos óbvio: tirar quem saiu no meio melhora o indicador sem ninguém treinar a mais — o número sobe e a conta fecha. Qual era a sua regra para quem entrou nas últimas semanas?\n\n## HASHTAGS\n#treinamento #indicadores #rh #labtreinamento #Shorts\n\n## TAGS\nindicador de treinamento, denominador, quem entrou, quem saiu, afastado, periodo de apuracao, oportunidade de treinar, regra escrita, rh, gestao de treinamento, indicador repetivel, labtreinamento\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\n**ZERO numero novo sobre o mundo.** Os unicos numerais falados sao **\"quatro\"**\n(a contagem das situacoes, que e a tese da peca) e **\"uma vez\"** (a frequencia\ncom que a regra se escreve). Nenhum dos dois e prazo legal, percentual, meta\nnem valor.\n\n**FICOU DE FORA pela regra (g):** as \"duas semanas\" que o capitulo 11 da origem\nusa como exemplo de quem entrou tarde — e esse e o numero que mais dava gancho.\nEle e ESCOLHA do autor para ilustrar, nao limite de norma nem de politica, e a\nregra (g) nao abre excecao para numero conveniente; a peca diz \"no fim do\nperiodo\" em vez de fixar o corte. Tambem ficaram fora qualquer meta de\npercentual, prazo de norma e numero de pessoas.\n\nAs barras sao **ILUSTRACAO qualitativa e NAO sao faladas**: na cena 4 elas\ndesenham o MESMO resultado com e sem a pessoa que entrou no fim — o numerador\nnao mudou e o indicador caiu. Elas nao medem empresa nenhuma, e a rodada\nseguinte NAO deve le-las de volta como dado.\n\n## FAMILIA DE ENTRADA ERRADA\n**O DENOMINADOR TRATADO COMO POPULACAO FIXA, QUANDO ELE SE MOVE DENTRO DO\nPERIODO** (capitulos 8 e 10 a 15). Quatro situacoes aparecem em qualquer\nperiodo — ficou todo o tempo, entrou no meio, saiu no meio, esteve afastado — e\n**tratar as quatro igual produz indicador que ninguem repete no mes seguinte**.\nO discriminador e a LINHA: nao e quem esta hoje na folha, e quem teve\nOPORTUNIDADE de treinar dentro do periodo. E o efeito perverso vai nomeado,\nporque e ele que faz a regra existir: **tirar quem saiu no meio melhora o\nindicador sem ninguem treinar a mais.**\n\nAs CINCO familias anteriores desta origem vieram do `irmaos_da_origem`, e\n**nenhuma delas tem o campo** — logo a comparacao foi pela NARRACAO de primeira\nmao, que o relato imprime inteira desde 20/10:\n\n* `s086` — a **JANELA do periodo**: treinados do historico inteiro divididos\n  pelas pessoas de HOJE;\n* `s087` — a **comparacao com numero de FORA**: percentual de outra area\n  responde a outro denominador;\n* `s088` — a **META REDONDA**: cem por cento com folga pede olhar a lista de\n  nomes;\n* `s089` — a **REGRA TROCADA no meio da serie**: o numero sobe sem ninguem\n  treinar;\n* `s091` — a **PROCEDENCIA do dado**: de onde o numero sai, e nao o que ele\n  significa.\n\n**A mais vizinha e a `s086`, e a distincao vai escrita: ela fala do RECORTE DE\nTEMPO entre numerador e denominador; esta fala da COMPOSICAO de quem esta\nembaixo dentro do MESMO recorte.** E a `s089` fala da regra mudando entre\nperiodos; esta fala de haver regra para os quatro casos DENTRO de um periodo.\n\n## FONTES\nOrigem: `POBNoY16wG8` (`labtreinamento-014`, 64 capitulos), escolhida pelo\n`pauta_do_momento.py` — 5 usos, empatada com **duas** outras origens e\ndesempatada pela MAIOR reserva: **42 capitulos NAO MENCIONADOS de 64**. A\ndominante do canal ficou de fora, e quem conta e o `concentracao.py`.\n\nCapitulos desta peca: **8 e 10 a 15** (*\"Quem entrou\"*, *\"Quatro situacoes,\nquatro contas\"*, *\"Quem entrou depois\"*, a linha que separa, *\"Quem saiu tambem\nconta\"*, *\"Afastado e caso proprio\"* e *\"Uma vez, para valer\"*). O 12 escreve a\nfrase que a peca carrega: *\"a linha que separa nao e quem esta hoje na folha; e\nquem teve a oportunidade de treinar dentro do periodo que voce esta medindo\"*.\n\n**A CONFERENCIA CONTRA OS IRMAOS FOI INTEIRAMENTE POR LEITURA, e isso vai dito\nem vez de escondido: NENHUM dos cinco irmaos declara capitulo.** Logo a\nconferencia mecanica alcanca **ZERO de 5**, e o `irmaos_da_origem` nomeia essa\nausencia em vez de calar. **Ausencia de capitulo declarado NAO e ausencia de\ncolisao (761)** — e aqui ela e total, o que torna a leitura da narracao a UNICA\nprova disponivel. Ela foi feita peca por peca, e as cinco frases acima saem da\nnarracao de primeira mao, nao de irmao citando irmao (a licao de 20/10 as\n15:3x).\n\n## EXPOSICAO\n**OITO CENAS, e a recusa nao foi minha.** O `contagem_de_cenas.py` deu **7**\ncomo a melhor cadencia (3,29 s) e **acusou sozinho que a `s098`, a peca\nanterior deste canal, tem sete**; **9, 10 e 11** sairam NOMEADAS e nao\nfiltradas, porque nelas o PISO da faixa nao e alcancavel com texto legivel.\nOito e a melhor que SERVE pelos tres filtros, com orcamento de **25**\ncaracteres no piso e folga **+4**.\n\n**E OS DOIS MUNDOS CABEM AQUI, o que so acontece neste canal:** o\n`mira.janela_dos_dois_mundos` devolve **34 a 36** caracteres por cena com oito\ncenas, e a peca foi escrita com media **34,75** — logo os dois provedores caem\ndentro da mira MEDIDA do canal (20,0 a 26,0) e **nao ha exposicao de mundo a\ndeclarar**. Nos outros dois canais essa janela nao existe em contagem nenhuma\n(a pinca do 740/748).\n\n**O que eu NAO declaro: de que lado da banda o real cai.** Ela tem 5,2 s contra\n1 s de granularidade, e escolher um lado nao e previsao (774). O tally deste\ncanal segue dominado pelo lado de FORA do teto da mira, com o `mira.py` verde\nnos dois mundos — a decisao do 740/748 e do dono.\n\n**ESQUELETO `titulo-item-lista-item-barras-titulo-item-cta`**, inedito nas\n**QUATRO** formas de oito cenas da frota e nas **150** da frota inteira, com a\npropria peca FORA da varredura pelo `exceto`. Todo layout saiu do conjunto\n**SONDADO** (`layouts_do_short.desenham`), com `assert` no construtor, e a\npaleta foi **LIDA** de `temas_do_dono.paleta_do_canal`.\n"
+}
