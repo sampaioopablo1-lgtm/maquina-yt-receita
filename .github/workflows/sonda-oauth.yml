@@ -34,4 +34,9 @@ jobs:
           YT_TOKEN_LABTREINAMENTO: ${{ secrets.YT_TOKEN_LABTREINAMENTO }}
           YT_TOKEN_EPOMENO_EPIPEDO: ${{ secrets.YT_TOKEN_EPOMENO_EPIPEDO }}
           YT_TOKEN_KOLEJNY_POZIOM: ${{ secrets.YT_TOKEN_KOLEJNY_POZIOM }}
+          # O SEGUNDO blob, desde 21/10. Sem ele a sonda e cega para a
+          # credencial que o `frota.yml` de fato usa (`publicar.py:139` cai
+          # nela), e foi essa cegueira que fez eu ler a divergencia de escopo
+          # como "o dono reautorizou e perdeu o force-ssl".
+          YT_TOKEN_JSON: ${{ secrets.YT_TOKEN_JSON }}
         run: python3 fabrica/sonda_oauth.py

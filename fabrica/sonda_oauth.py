@@ -41,6 +41,22 @@ except ImportError:                         # rodando o arquivo solto no runner
 FROTA = ("labtreinamento", "epomeno-epipedo", "kolejny-poziom")
 TOKEN_URI = "https://oauth2.googleapis.com/token"
 
+# Os escopos que mudam o que a maquina consegue fazer. Nao e lista decorativa:
+# force-ssl decide se o longo sobe com legenda (93) e yt-analytics decide se a
+# retencao volta (689), que e a unica alavanca do tamanho do problema.
+ESCOPOS_QUE_DECIDEM = (
+    ("upload", "youtube.upload"),
+    ("force-ssl", "youtube.force-ssl"),
+    ("analytics", "yt-analytics.readonly"),
+)
+
+# Quem LE cada segredo de credencial. A sonda lia um so, e por isso ela nao
+# podia ver a divergencia de 21/10 — ver `_relata_divergencia`.
+LEITORES = {
+    "YT_OAUTH_JSON": "o `retomar.yml`, que e quem PUBLICA nas rodadas",
+    "YT_TOKEN_JSON": "o `publicar.py`/`confere_token.py` dentro do `frota.yml`",
+}
+
 
 def nota(msg: str) -> None:
     print(f"::notice::{msg}")
@@ -114,6 +130,75 @@ def refresca(cfg: dict) -> tuple[bool, str]:
     return True, r.get("scope", "(sem campo scope)")
 
 
+def escopos_de_um_token(cfg: dict) -> set | None:
+    """Os escopos CONCEDIDOS de uma entrada de credencial, ou None se nao vive.
+
+    So o conjunto de escopos sai daqui — o access token morre no `refresca`.
+    """
+    faltam = [k for k in ("client_id", "client_secret", "refresh_token")
+              if not (cfg or {}).get(k)]
+    if faltam:
+        return None
+    ok, detalhe = refresca(cfg)
+    return set(detalhe.split()) if ok else None
+
+
+def divergencias(quadro: dict) -> list:
+    """Escopo que um blob tem e o outro nao, por canal.
+
+    `quadro` e `{blob: {canal: set(escopos) | None}}`. Devolve tuplas
+    `(canal, rotulo, blob_que_tem, blob_que_nao)`.
+
+    POR QUE ISTO EXISTE (21/10/2026, e o achado e de UMA hora). O
+    `confere_token` abortou o render de um short solto dizendo que faltava
+    `youtube.force-ssl`, e esta sonda, na MESMA hora, respondeu
+    `force-ssl=sim` nos tres canais. As duas estavam certas: elas leem
+    segredos DIFERENTES. O `confere_token` cai no `YT_TOKEN_JSON` (os
+    `YT_TOKEN_<CANAL>` estao ausentes) e o `YT_OAUTH_JSON` e o que o
+    `retomar.yml` usa para publicar — e os dois divergem nos DOIS escopos que
+    decidem, em sentidos OPOSTOS: um tem force-ssl e nao tem analytics, o outro
+    o contrario.
+
+    Os dois jobs que a mediram: **119070898648** (o `confere_token` dentro do
+    render, lendo `YT_TOKEN_JSON`) e **119073920894** (esta sonda, lendo
+    `YT_OAUTH_JSON`). E a metade que vale para a monetizacao e que o
+    `yt-analytics.readonly` — reportado como PERDIDO desde o aprendizado
+    **689** — existe num dos dois; escopo concedido nao e prova de que o dado
+    vem, e a chamada a Analytics API ainda nao foi feita.
+
+    Com um blob so, a leitura disponivel era "o dono reautorizou e perdeu o
+    force-ssl", que e falsa. Comparar os dois era conta MINHA, feita a mao
+    cruzando dois jobs — e o item 3 da §10 diz onde isso termina.
+    """
+    saida = []
+    for canal in FROTA:
+        for rotulo, escopo in ESCOPOS_QUE_DECIDEM:
+            tem = [b for b, m in quadro.items()
+                   if m.get(canal) and any(escopo in s for s in m[canal])]
+            nao = [b for b, m in quadro.items()
+                   if m.get(canal) is not None and b not in tem]
+            if tem and nao:
+                saida.append((canal, rotulo, sorted(tem), sorted(nao)))
+    return saida
+
+
+def _relata_divergencia(quadro: dict) -> None:
+    div = divergencias(quadro)
+    if len(quadro) < 2:
+        aviso("so UM segredo de credencial foi lido, logo a divergencia entre "
+              "eles NAO foi medida nesta passada — ausencia de leitura nao e "
+              "ausencia de divergencia")
+        return
+    if not div:
+        nota("os segredos de credencial lidos CONCORDAM nos escopos que "
+             "decidem (upload, force-ssl, analytics)")
+        return
+    for canal, rotulo, tem, nao in div:
+        aviso(f"DIVERGENCIA em {canal}: {rotulo} existe em {', '.join(tem)} e "
+              f"NAO em {', '.join(nao)} — e quem le cada um e outro passo "
+              f"({'; '.join(LEITORES.get(b, b) + ' le ' + b for b in tem + nao)})")
+
+
 def main() -> int:
     oauth_n = presenca("YT_OAUTH_JSON")
     nota(f"YT_OAUTH_JSON: {'presente' if oauth_n else 'AUSENTE'} "
@@ -142,6 +227,7 @@ def main() -> int:
     nota(f"YT_OAUTH_JSON tem {len(mapa)} canal(is)")
     vivos = []
     projetos: dict[str, str] = {}
+    escopos: dict[str, set] = {}
     for canal in FROTA:
         cfg = mapa.get(canal)
         if not cfg:
@@ -162,8 +248,38 @@ def main() -> int:
         nota(f"{canal}: refresh OK — upload={tem('youtube.upload')}, "
              f"force-ssl={tem('youtube.force-ssl')}, "
              f"analytics={tem('yt-analytics.readonly')}")
+        escopos[canal] = set(detalhe.split())
 
     _relata_cota(projetos)
+
+    # O SEGUNDO blob, que e o que o `frota.yml` usa — a sonda era cega para ele
+    # ate 21/10, e foi essa cegueira que produziu um diagnostico errado.
+    quadro = {"YT_OAUTH_JSON": {c: escopos.get(c) for c in FROTA}}
+    bruto = os.environ.get("YT_TOKEN_JSON") or ""
+    nota(f"YT_TOKEN_JSON: {'presente' if bruto else 'AUSENTE'} "
+         f"({len(bruto)} chars)")
+    if bruto:
+        try:
+            tok = desembrulha(bruto)
+        except ValueError:
+            aviso("YT_TOKEN_JSON nao e JSON valido")
+            tok = None
+        if isinstance(tok, dict) and tok.get("refresh_token"):
+            # Ele e um token UNICO e serve de reserva para QUALQUER canal
+            # (`publicar.py:139`), logo o canal que ele diz ser nao e segredo e
+            # e exatamente o que decide se a reserva publica no canal certo.
+            dono = tok.get("canal") or tok.get("slug") or "(nao declara canal)"
+            esc = escopos_de_um_token(tok)
+            if esc is None:
+                aviso(f"YT_TOKEN_JSON: refresh FALHOU (declara {dono})")
+            else:
+                tem2 = lambda s: "sim" if any(s in x for x in esc) else "NAO"  # noqa: E731
+                nota(f"YT_TOKEN_JSON (declara {dono}): refresh OK — "
+                     f"upload={tem2('youtube.upload')}, "
+                     f"force-ssl={tem2('youtube.force-ssl')}, "
+                     f"analytics={tem2('yt-analytics.readonly')}")
+                quadro["YT_TOKEN_JSON"] = {c: esc for c in FROTA}
+    _relata_divergencia(quadro)
 
     if vivos:
         nota(f"PUBLICACAO SEM BANCO possivel em: {', '.join(vivos)}")
