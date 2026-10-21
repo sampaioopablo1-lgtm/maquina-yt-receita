@@ -1,0 +1,74 @@
+{
+ "slug": "labtreinamento-s097",
+ "pacote": "labtreinamento-s097",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "longo_existente": "3KtwRYxl7_U",
+ "longo": [],
+ "thumb": {
+  "l1": "Dois órgãos",
+  "l2": "não um"
+ },
+ "paleta": {
+  "bg": "#0E1117",
+  "ink": "#EEF1F5",
+  "c1": "#3DDBD9",
+  "c2": "#1E2430",
+  "red": "#FF5A5F",
+  "ok": "#3CCB7F",
+  "panel": "#161B24",
+  "mut": "#8B95A5",
+  "acc": "#3DDBD9"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Dois órgãos, não um",
+   "sub": "e cada um publica uma metade",
+   "nar": "Você viu esse número num portal de dicas e já anotou?"
+  },
+  {
+   "layout": "item",
+   "kicker": "Uma metade na Previdência",
+   "nar": "O multiplicador e as datas ficam na Previdência Social."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Cada um no que é dele",
+   "barras": [
+    {
+     "rotulo": "Previdência",
+     "valor": 100
+    },
+    {
+     "rotulo": "Receita",
+     "valor": 100
+    }
+   ],
+   "nar": "A alíquota que serve de base fica na Receita Federal."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Confira o que é de quem",
+   "itens": [
+    "O multiplicador",
+    "O calendário",
+    "A alíquota-base"
+   ],
+   "nar": "São duas fontes oficiais, e isso não é detalhe algum."
+  },
+  {
+   "layout": "item",
+   "kicker": "Misturar tem custo",
+   "nar": "Misturar as duas atribui o número a quem não publicou."
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "inscreva-se",
+   "nar": "Confira nas duas buscas e guarde de onde cada um veio."
+  }
+ ],
+ "copy": "# labtreinamento-s097\n\n## TITULO\nDe Onde Vem Esse Número: São Dois Órgãos, e Cada Um Publica Uma Metade\n\n## TITULO SHORT\nDois órgãos, não um\n\n## DESCRICAO\nAntes de usar o número numa planilha que vai virar recolhimento, vale uma pergunta que cabe sempre: **de onde ele saiu?** E a resposta aqui tem uma particularidade que quase nenhum material menciona: **não é uma fonte, são duas.**\n\n**Uma metade está no Ministério da Previdência Social.** É de lá que saem o multiplicador, as datas de consulta e de contestação, o rito no conselho e a informação de que a contestação não suspende a cobrança. Tudo o que é calendário e procedimento mora ali.\n\n**A outra metade está na Receita Federal.** É de lá que sai a alíquota que serve de base, e a definição de sobre o que ela incide. O número que entra na primeira multiplicação não é publicado por quem publica o multiplicador.\n\n**E isso não é detalhe.** Misturar as duas é exatamente como um número acaba atribuído a quem nunca o publicou — e quando alguém vai conferir, não encontra, porque está procurando no lugar errado. O jeito de não errar é citar cada um na parte que é dele.\n\n**Você confere sozinho, sem intermediário, com duas buscas:** o fator acidentário no site da Previdência, e o FAP no site da Receita Federal. Duas, não uma. Calculadora de internet e portal de dicas não entram — **número que não está em fonte oficial não entra na conta.**\n\nPor que insistir nisso: em matéria de recolhimento, errar não é curiosidade. **Quem paga a conta é quem seguiu a informação.** Prefira dizer menos e ter conferido — e, quando a consulta abrir, guarde a memória de cálculo em arquivo, porque ela é o ponto de partida de qualquer discussão depois.\n\n## COMENTARIO FIXADO\nO menos óbvio: o erro de fonte não aparece no resultado. A conta fecha, o número sai redondo, e só quebra quando alguém pede a origem e não acha. Você conferiu nos dois sites ou num só?\n\n## HASHTAGS\n#fap #rat #recolhimento #labtreinamento #Shorts\n\n## TAGS\nfap, rat, fator acidentario de prevencao, previdencia social, receita federal, fonte oficial, aliquota, memoria de calculo, contestacao, recolhimento, conferencia, labtreinamento\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\n**ZERO numero novo sobre o mundo, e a narracao nao fala numero nenhum** — nem as\naliquotas, nem a faixa do multiplicador, nem data de consulta ou de contestacao,\nnem valor nenhum. Conferido cena a cena: nenhum digito cru. **O unico numeral\nfalado e \"duas\", que conta as FONTES** — e essa contagem e o proprio assunto da\npeca, escrita em letra no capitulo 54 (*\"repare que sao dois orgaos\ndiferentes\"*).\n\n**E AQUI A REGRA (g) TEM UM MOTIVO EXTRA, que e o assunto da peca se voltando\ncontra ela:** repetir a aliquota ou a faixa no short seria publicar o numero\n**sem a fonte ao lado**, que e exatamente o erro que a peca denuncia. A copy cita\nos dois orgaos pelo nome e nao cita valor nenhum deles — e os valores mudam por\npublicacao.\n\nAs barras (100/100 na cena 3) sao **ILUSTRACAO qualitativa de PARIDADE** — as\nduas fontes com o mesmo peso, cada uma na parte que e dela — e **NAO sao\nfaladas**. Elas nao medem nada, nao comparam orgaos, e a rodada seguinte nao deve\nle-las de volta como dado.\n\n## FAMILIA DE ENTRADA ERRADA\n**ATRIBUIR O NUMERO AO ORGAO ERRADO** — tratar como UMA fonte duas que publicam\nMETADES diferentes: o multiplicador e o calendario na Previdencia, a\naliquota-base na Receita. O discriminador e que **o erro nao aparece no\nresultado**: a conta fecha, o numero sai redondo, e a falha so se revela quando\nalguem pede a origem e nao a encontra, porque esta procurando no lugar errado.\n\nAs CINCO familias anteriores desta origem vieram do `irmaos_da_origem`, e **tres\ndelas nao tem o campo**, logo a comparacao foi pela NARRACAO de primeira mao:\n\n* `s009` — **efeito suspensivo presumido**: contestar nao para a cobranca;\n* `s035` — **a ordem nao muda o total** da multiplicacao;\n* `s042` — **unidade de agregacao**: por estabelecimento, nao por CNPJ;\n* `s057` — **duas datas com trabalhos diferentes**: uma informa, a outra habilita;\n* `s081` — **nunca viu o seu**: onde a consulta mora.\n\n**As cinco falam do que o numero significa, de como ele se calcula ou de quando\nele existe. Nenhuma fala de QUEM o publica**, que e o eixo inteiro desta.\n\n## FONTES\nOrigem: `3KtwRYxl7_U` (`labtreinamento-005`, 67 capitulos), escolhida pelo\n`pauta_do_momento.py` — 5 usos, empatada com **quatro** outras origens e\ndesempatada pela MAIOR reserva, **51 capitulos NAO MENCIONADOS de 67**. A\ndominante do canal ficou de fora, e quem conta e o `concentracao.py`. O\n`reservas_escritas.py` disse que esta origem **NAO tem reserva escrita** por\nirmao nenhum — ele nomeia a ausencia em vez de calar.\n\nCapitulos desta peca: **51 a 58** (*\"De onde vem\"*, *\"Primeira fonte\"*,\n*\"Segunda fonte\"*, *\"Sao dois orgaos\"*, *\"Por isso cito os dois\"*, *\"Como\nconferir sozinho\"*, *\"O que eu nao uso\"* e *\"Por que insisto\"*). O 55 escreve a\nfrase que a peca carrega: *\"misturar as fontes e como um numero acaba atribuido\na quem nunca o publicou\"*.\n\n**E A CONFERENCIA CONTRA OS IRMAOS VAI SEPARADA EM DUAS, com a FORCA de cada\nmetade — o instrumento de 01:3x:**\n\n* **por CAPITULO, mecanica, alcanca 3 dos 5 irmaos** (`s035` em 15 a 50, `s057`\n  em 35 a 40, `s081` em 9 a 15): **zero sobreposicao** com 51 a 58. E aqui o\n  denominador muda a leitura, e vai dito: o `s035` declara **20 de 67**\n  capitulos, logo sob sorteio a colisao com uma familia de cinco teria P alta —\n  \"nao colidiu\" com ELE e sinal FORTE. Com os outros dois, que declaram 6 e 7, e\n  sinal fraco;\n* **por LEITURA da narracao, os outros dois** (`s009` e `s042`), que **nao\n  declaram capitulo nenhum**.\n\nAusencia de capitulo declarado **nao e** ausencia de colisao (761), e P baixo\n**nao e** conferencia — as duas ressalvas valem aqui, em irmaos diferentes.\n\n## EXPOSICAO\n**SEIS CENAS, e as recusas nao foram minhas.** O `contagem_de_cenas.py` deu SETE\ncomo melhor cadencia e **acusou sozinho que a `s095` tem sete**; OITO repete a\n`s096`, a peca anterior; e **9, 10 e 11** sairam NOMEADAS e nao filtradas, porque\nnelas o PISO da faixa nao e alcancavel com texto legivel. Seis e a melhor que\nSERVE pelos tres filtros, com folga **+18**.\n\n**E OS DOIS MUNDOS CABEM AQUI, o que so acontece neste canal:** o\n`mira.janela_dos_dois_mundos` devolve **51 a 55** caracteres por cena com seis\ncenas, e a peca foi escrita com media **53,7** — logo os dois provedores caem\ndentro da mira MEDIDA do canal (20,0 a 26,0) e **nao ha exposicao de mundo a\ndeclarar**. Nos outros dois canais essa janela nao existe em contagem nenhuma\n(a pinca do 740/748).\n\n**O que eu NAO declaro: de que lado da banda o real cai.** Ela tem 5,2 s contra\n1 s de granularidade, e escolher um lado nao e previsao (774). O tally deste\ncanal segue dominado pelo lado de FORA do teto da mira, com o `mira.py` verde\nnos dois mundos — a decisao do 740/748 e do dono.\n\n**ESQUELETO `titulo-item-barras-lista-item-cta`**, inedito nas **SETE** formas de\nseis cenas da frota e nas 144 da frota inteira, com a propria peca FORA da\nvarredura pelo `exceto`. Todo layout saiu do conjunto **SONDADO**\n(`layouts_do_short.desenham`), com `assert` no construtor, e a paleta foi **LIDA**\nde `temas_do_dono.paleta_do_canal`.\n"
+}
