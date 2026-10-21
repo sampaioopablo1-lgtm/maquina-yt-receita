@@ -100,13 +100,24 @@ def distribuicao(dir_specs: str | None = None) -> dict:
             "sem_paleta": sem}
 
 
-def relato(spec) -> str:
-    """Aceita a spec OU o caminho dela.
+def relato(caminho=None, spec=None) -> str:
+    """A MESMA convencao dos outros relatos: `(caminho, spec=None)`.
 
-    O `antes_do_render` chama todo instrumento com o CAMINHO, e e ele o dono
-    dessa convencao — mudar a chamada dele para esta funcao faria o contrario
-    do que a semana inteira mostra: cada regra com um dono so.
+    Ela nasceu como `relato(spec)` aceitando "a spec OU o caminho dela", e isso
+    criou DUAS convencoes para o mesmo nome dentro da mesma passada — o defeito
+    do `exceto` de 20/10 as 11:3x, agora na assinatura do `relato`. Em 21/10 as
+    20:4x isso cobrou: o despachante do rascunho decidia pelo NOME do parametro
+    e chamava `relato(caminho, spec)` aqui, que levantava `takes 1 positional
+    argument`. Nome de parametro nao e convencao; a ASSINATURA e.
+
+    O primeiro posicional segue aceitando a spec inteira, para nao quebrar quem
+    chamava `relato(sp)` — e isso vai dito em vez de suposto.
     """
+    if isinstance(caminho, dict) and spec is None:
+        spec = caminho
+    elif spec is None:
+        import rascunho
+        spec = rascunho.spec_de(caminho, None)
     if isinstance(spec, str):
         spec = json.load(open(spec, encoding="utf-8"))
     v = conflitos(spec)

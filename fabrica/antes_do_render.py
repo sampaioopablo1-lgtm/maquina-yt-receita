@@ -120,10 +120,10 @@ def _aplicaveis(nome, sp):
     return True
 
 
-def portoes(caminho: str) -> dict:
+def portoes(caminho: str, spec: dict | None = None) -> dict:
     """Roda os portoes BARATOS e devolve {portao: [problemas]}."""
-    with open(caminho, encoding="utf-8") as f:
-        sp = json.load(f)
+    import rascunho
+    sp = rascunho.spec_de(caminho, spec)
     fora = {}
     for nome, fn in portoes_baratos():
         if not _aplicaveis(nome, sp):
@@ -139,19 +139,48 @@ def portoes(caminho: str) -> dict:
     return fora
 
 
-def _relato_do_instrumento(nome: str, caminho: str) -> str:
-    """Chama o `relato` do instrumento, que e o dono da conta dele."""
+def _relato_do_instrumento(nome: str, caminho: str,
+                           spec: dict | None = None) -> str:
+    """Chama o `relato` do instrumento, que e o dono da conta dele.
+
+    O `spec` so vai adiante se o relato o ACEITAR: instrumento que ainda nao
+    foi convertido recebe o caminho, e isto sai DITO em vez de o rascunho
+    parecer conferido por inteiro. Sem essa linha, acrescentar um instrumento
+    novo a passada o faria calar no rascunho sem ninguem notar.
+    """
+    import inspect
+
     mod = __import__(nome)
     try:
+        # A decisao sai da ARIDADE e nao do NOME do parametro: o
+        # `paleta_da_spec.relato` nasceu como `relato(spec)` — parametro
+        # chamado "spec" na PRIMEIRA posicao —, e decidir pelo nome fazia a
+        # chamada virar `relato(caminho, spec)` e levantar. Nome nao e
+        # convencao; a assinatura e (medido em 21/10 as 20:4x).
+        _params = list(inspect.signature(mod.relato).parameters.values())
+        _aceita_dois = len([x for x in _params
+                            if x.kind in (x.POSITIONAL_ONLY,
+                                          x.POSITIONAL_OR_KEYWORD)]) >= 2
+        if spec is not None and _aceita_dois:
+            return mod.relato(caminho, spec)
+        if spec is not None:
+            return (f"{nome}: NAO aceita rascunho (o `relato` dele so recebe "
+                    f"caminho), logo ele NAO foi conferido nesta passada.")
         return mod.relato(caminho)
     except Exception as e:
         return f"{nome}: AMBIENTE, nao a spec: {e}"
 
 
-def relato(caminho: str) -> str:
+def relato(caminho: str, spec: dict | None = None) -> str:
+    import rascunho
+
     linhas = []
+    av = rascunho.aviso_do_rascunho(caminho, spec)
+    if av:
+        linhas.append(av)
+        linhas.append("")
     t0 = time.time()
-    p = portoes(caminho)
+    p = portoes(caminho, spec)
     dt = time.time() - t0
     ruins = {k: v for k, v in p.items() if v}
     linhas.append(
@@ -166,7 +195,7 @@ def relato(caminho: str) -> str:
             linhas.append("    - " + str(x)[:160])
     for nome in INSTRUMENTOS:
         linhas.append("")
-        linhas.append(_relato_do_instrumento(nome, caminho))
+        linhas.append(_relato_do_instrumento(nome, caminho, spec))
     linhas.append("")
     linhas.append(
         ">> ISTO NAO REPROVA e NAO substitui o `prontidao`: o portao `layout` "

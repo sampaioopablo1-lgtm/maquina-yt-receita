@@ -247,9 +247,9 @@ def _linha_do_portao(caminho: str, spec: dict, suspeita: bool) -> str:
     return "  e o PORTAO `ortografia` tambem nao reprova."
 
 
-def relato(caminho: str) -> str:
-    with open(caminho, encoding="utf-8") as f:
-        spec = json.load(f)
+def relato(caminho: str, spec: dict | None = None) -> str:
+    import rascunho
+    spec = rascunho.spec_de(caminho, spec)
     v = veredito(spec)
     nome = spec.get("pacote") or os.path.basename(caminho)
     if v["proporcao"] is None:

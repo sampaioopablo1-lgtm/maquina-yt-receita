@@ -984,13 +984,28 @@ def orcamento(spec: dict) -> dict | None:
     return out
 
 
-def relato(caminho: str) -> str:
-    with open(caminho, encoding="utf-8") as f:
-        spec = json.load(f)
+def relato(caminho: str, spec: dict | None = None) -> str:
+    import rascunho
+    spec = rascunho.spec_de(caminho, spec)
+    _av = rascunho.aviso_do_rascunho(caminho, spec)
+
+    def _fim(linhas):
+        """UM ponto de saida para o aviso do rascunho.
+
+        Esta funcao tem DOIS `return`, e o ramo do canal sem mira propria sai
+        ANTES do resto — foi exatamente nele que o orcamento ficou morto em
+        19/10 as 15:2x, e a primeira versao deste aviso repetiu o erro na
+        mesma funcao. Com um ponto de saida ele nao pode ficar atras de um
+        `return` outra vez.
+        """
+        if _av:
+            linhas = list(linhas) + [_av]
+        return "\n".join(linhas)
+
     r = confere(spec)
     nome = spec.get("pacote", caminho)
     if not r["previsoes"]:
-        return f"{nome}: sem short ou voz sem modelo — nada a conferir."
+        return _fim([f"{nome}: sem short ou voz sem modelo — nada a conferir."])
     linhas = [f"MIRA de {nome} ({r['canal']}): " + ", ".join(
         f"{p} {d} s" for p, d in sorted(r["previsoes"].items()))]
     if not r["tem_mira"]:
@@ -1001,7 +1016,7 @@ def relato(caminho: str) -> str:
         # propria seguia sem ver numero nenhum. Instrumento consertado que o
         # chamador nao alcanca e a classe dos layouts mortos.
         linhas.extend(_linha_do_orcamento(spec))
-        return "\n".join(linhas)
+        return _fim(linhas)
     linhas.append(f"  mira medida do canal: {r['mira'][0]} a {r['mira'][1]} s")
     if spec.get("short_alvo_s"):
         import ensaio as _E
@@ -1030,7 +1045,7 @@ def relato(caminho: str) -> str:
             f" (770 — nos de resíduo menor que o passo de 1 s do real, não está),"
             f" por {RESIDUO_OBSERVADO[0]:.1f} a"
             f" {RESIDUO_OBSERVADO[1]:.1f} s. NAO reprova.")
-    return "\n".join(linhas)
+    return _fim(linhas)
 
 
 def main() -> int:

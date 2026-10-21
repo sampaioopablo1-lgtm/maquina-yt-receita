@@ -8044,3 +8044,145 @@ impede e a ROTA, e o remedio e do DONO.
 
 **COTA: TREZE envios** na janela aberta as 07:00Z, **20.800** unidades, contra o
 piso MEDIDO de **>= 41.600**.
+
+## O RASCUNHO NAO TINHA COMO PERGUNTAR — todo relato exigia ARQUIVO
+
+**Medido em 21/10 as 20:3x, escrevendo o `kolejny-poziom-s089`.** A peca se
+escreve num construtor que vive FORA do repo, e o comprimento da narracao se
+acerta por ITERACAO: escreve, mede a previsao, move caracteres, mede outra vez.
+Nessa iteracao a spec existe **so na memoria** — e, varrido o conjunto da passada
+de pre-render, de SEIS relatos apenas UM aceitava dicionario:
+
+| relato | aceitava |
+|---|---|
+| `paleta_da_spec.relato` | **dicionario** |
+| `mira.relato`, `acento.relato`, `gancho.relato` | caminho |
+| `layouts_do_short.relato`, `antes_do_render.relato` | caminho |
+
+**E A CAPACIDADE EXISTIA UMA CAMADA ABAIXO:** `mira.quanto_cortar` e
+`mira.orcamento` recebem dicionario, e **DEZ dos DOZE portoes** do `prontidao`
+nunca abrem o arquivo — eles recebem `sp` do despachante, e o caminho so serve de
+**NOME** (o `identidade` compara `pacote` com o nome do arquivo, o `similaridade`
+e o `variedade` varrem o disco). Logo o rascunho sempre pudera ser conferido, e o
+que impedia era a CAMADA do relato.
+
+**O CUSTO ESTA MEDIDO e foi desta rodada:** eu movi o comprimento da narracao em
+QUATRO builds, calculando *"~0,57 s por caractere"* de cabeca a partir de duas
+medicoes — e **passei do ponto**, com a previsao em **41,19 s contra um piso de
+41,5**. O `mira.quanto_cortar` devolve esse passo e o total a mover, pronto, e eu
+nao o chamei porque chama-lo exigia **gravar a spec no disco primeiro**. Item 3
+da §10.
+
+**Consertado:** `fabrica/rascunho.py` tem UM dono da normalizacao
+(`spec_de(caminho, spec)`), os cinco relatos e o `prontidao.avalia` passaram a
+aceitar `spec=`, e o `_gate_narracao` deixou de **reler o arquivo que o
+despachante acabara de lhe entregar** — era ele o segundo dono. **Spec `{}`
+LEVANTA**, porque dicionario vazio faria toda conferencia passar por vacuidade
+(17/10).
+
+**E O QUE O RASCUNHO NAO ALCANCA VAI NOMEADO:** sem o arquivo no disco, o
+`similaridade` e o `variedade` nao veem esta peca na varredura deles e o
+`identidade` confere o `pacote` contra um nome que ainda nao existe — as tres
+respostas sao validas e INCOMPLETAS, e o relato diz isso. **E instrumento que
+ainda nao aceita rascunho DIZ que nao conferiu** em vez de calar: calar e o
+sentido permissivo, o que custou seis pecas da `s077` a `s082`. Hoje sao CINCO
+nessa situacao, e eles aparecem nomeados na passada.
+
+### E O CONSERTO REPETIU, NA MESMA FUNCAO, O DEFEITO QUE ELA JA CARREGA
+
+A primeira versao do aviso saia **depois** do `return` do ramo *"canal sem mira
+propria"* do `mira.relato` — isto e, nao aparecia nos dois canais da frota que
+nao tem `ALVO_POR_CANAL`. **E o comentario DENTRO desse mesmo ramo descreve esse
+exato defeito**, de 19/10 as 15:2x, quando o orcamento ficou morto ali. Agora a
+funcao tem **UM ponto de saida** (`_fim`), e ha teste que exige o aviso nos DOIS
+ramos.
+
+### E DUAS CONVENCOES DO MESMO NOME `relato`, pagas na hora
+
+O `paleta_da_spec.relato` nasceu como `relato(spec)` *"aceitando a spec OU o
+caminho"* — parametro chamado `spec` na **PRIMEIRA** posicao. O despachante novo
+decidia **pelo NOME** do parametro, logo chamou `relato(caminho, spec)` e levou
+`takes 1 positional argument but 2 were given`. **Nome de parametro nao e
+convencao; a ASSINATURA e** — e isto e o defeito do `exceto` de 20/10 as 11:3x na
+assinatura do relato. A decisao passou a sair da **ARIDADE**, e aquele relato
+seguiu a mesma convencao dos outros sem quebrar quem o chamava com a spec.
+
+### E A CONTRAPROVA ACHOU UM ASSERT MEU QUE PASSAVA COM O DEFEITO RELIGADO
+
+O teste que proibe decidir pelo nome cobrava `'"spec" in' not in codigo` — com
+aspa DUPLA. **O `ast.unparse` normaliza a aspa para simples**, logo o padrao
+nunca casava e o assert passava com o defeito de volta. Pego pela propria
+contraprova, que e para isso que ela existe — e e a familia do `or True` de
+16/10: assert que aprova qualquer coisa.
+
+`tests/test_o_RASCUNHO_nao_tinha_como_perguntar.py`, doze testes: a spec de prova
+e **DERIVADA** do disco, um exige que os CINCO relatos aceitem dicionario, um
+**contraprova no outro sentido** que a resposta pelo dicionario e IDENTICA a do
+disco (senao o rascunho responderia outra coisa), um exige que o aviso **NAO**
+saia com o arquivo no disco (aviso que sempre sai nao avisa), o aviso tem **UM
+dono por AST** e e cobrado nos **DOIS** ramos do `mira`, a medida dos **DEZ de
+DOZE** portoes e **RECONFERIDA contra o codigo** (753) e reprova se um portao
+voltar a reler o arquivo, um cobra a decisao por **ARIDADE**, e um exige que
+instrumento sem rascunho **DIGA** que nao conferiu — e **falha se todos passarem
+a aceitar**, porque ai a linha perde o objeto. **Contraprova:** tirado o aviso do
+ramo sem mira, um falha; religada a decisao pelo nome, outro falha.
+
+### A PECA DESSA RODADA — ONZE cenas, e o piso EXATO
+
+`kolejny-poziom-s089` = **`Gcgyum4o9xw`**, publicado as 20:15:19Z (run
+`39668662399`), **ONZE PORTOES VERDES NA PRIMEIRA TENTATIVA** — e o
+`antes_do_render` rodou os dez baratos mais os quatro instrumentos de redacao em
+**0,60 s**, todos limpos (acento 5,51%, e o portao `ortografia` tambem nao
+reprova). Provedor **edge MEDIDO** (zero avisos `NARRACAO PELO PIPER` nos DOIS
+jobs), som **-13,9** LUFS, LRA 1,6, pico **-3,4** dBTP com `pico_vs_teto:
+dentro`, desvio +0,1, **zero silencios**.
+
+**A PREVISAO SAIU NO PISO EXATO da faixa: edge 41,50** (41,5 a 43,0), pela regra
+de redacao do 772, com o piper em **35,3** — FORA pela mira e DENTRO do portao,
+que cobra 18 a 45 nos dois mundos. **A pinca do 740/748 esta FECHADA aqui**, e a
+exposicao foi declarada ANTES de publicar. O REAL nao esta prometido para lado
+nenhum (774).
+
+**PAUTA:** `nPyVHJmY2HA` (`kolejny-poziom-015`), 71 capitulos, 3 usos — empate de
+tres desempatado pela MAIOR reserva, **50 de 71 NAO MENCIONADOS**. O
+`QiaGg03WSR0` saiu da escolha pelo **mapa de dono MEDIDO** (e longo do
+labtreinamento declarado por engano em dois shorts deste canal) **sem sair da
+lista**.
+
+**E A FAMILIA SAIU DA RESERVA ESCRITA pela SEGUNDA rodada seguida:** o
+`kolejny-poziom-s055` deixou nesta origem um bloco nomeando os capitulos **9 a
+16** como NAO levados, e esta rodada levou exatamente esses. **FAMILIA: O SALDO E
+A SOMA DE TRES DINHEIROS, E SO UM E SEU CUSTO**, com o capitulo 13 no centro —
+*"patrzysz na saldo i widzisz sume, ktora nie mowi nic o twoim koszcie"*. O eixo e
+a CONTA onde o dinheiro chega, nao a linha do pasko.
+
+**A DISTINCAO DO IRMAO MAIS PROXIMO VAI DITA:** o `s006` compara DUAS leituras da
+mesma saida (a linha do pasko e a diferenca entre dois pasks); esta compara TRES
+ENTRADAS de um saldo. O capitulo 14 e a dobradica que os dois usam, e por isso
+entra aqui como FECHAMENTO da lista e nao como o argumento. Dois dos tres irmaos
+nao tem o campo da familia, logo a comparacao saiu da PROSA e da NARRACAO de cada
+um — de primeira mao.
+
+**ONZE CENAS pela chave `por_cadencia_servivel`:** catorze e a melhor cadencia **e
+e o TETO MEDIDO da voz**, e saiu NOMEADA e recusada pela FOLGA (23 caracteres, a
+dois do piso observado). Onze tem folga **+18** e nao repete os tamanhos recentes
+do canal (12 e 13). **ESQUELETO
+`titulo-lista-item-barras-item-item-titulo-lista-item-barras-cta`, inedito nas 160
+formas da frota** e nas DOZE de onze cenas.
+
+**E A RESERVA FOI REESCRITA com TRES itens, um deles uma RECUSA:** os capitulos 25
+e 26 (anotar as DUAS linhas) ficam livres; os 17 a 24 vao **NOMEADOS como ja sendo
+do `s006`**, para a rodada seguinte nao os tomar por livres; e o lado do
+**BENEFICIO** (capitulo 15) segue fora de toda peca desta origem — e o motivo nao
+e a regra (f), e que **estimar rendimento e numero novo sobre o mundo** e depende
+de duas fontes institucionais.
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica`** pela
+**dezoito** rodada seguida — medido pelo instrumento criado na rodada anterior, na
+PRIMEIRA vez que ele serviu em producao. O parque tem **118** linhas e **46** sem
+leitura, com a presenca conferida RELENDO. `RESIDUO_N` segue **128**.
+
+**COTA: CATORZE envios** na janela aberta as 07:00Z, **22.400** unidades, contra o
+piso MEDIDO de **>= 41.600**. E a leitura de inscritos passou as tres portas e NAO
+foi feita pela OITAVA rodada seguida (58,0 h, piso 0,41/dia): o que a impede e a
+ROTA, e o remedio e do DONO.

@@ -187,10 +187,16 @@ def _gate_copy(sp):
     return faltas
 
 
-def _gate_narracao(caminho):
+def _gate_narracao(caminho, sp):
+    """O `sp` vem do despachante, que ja o carregou.
+
+    Ele RELIA o arquivo que acabara de receber — segundo dono do mesmo fato
+    dentro de um portao —, e era isso que impedia o rascunho de ser conferido
+    antes de a spec estar no disco (medido em 21/10 as 20:3x: DEZ dos DOZE
+    portoes nunca abriram o arquivo).
+    """
     import narracao
 
-    sp = json.load(open(caminho, encoding="utf-8"))
     erros, _avisos, _todas = narracao.analisa(sp, narracao.idioma_de(sp, None))
     return erros
 
@@ -1033,7 +1039,7 @@ PORTOES = (
     ("identidade", lambda c, s: _gate_identidade(c, s)),
     ("fatos", lambda c, s: _gate_fatos(s)),
     ("copy", lambda c, s: _gate_copy(s)),
-    ("narracao", lambda c, s: _gate_narracao(c)),
+    ("narracao", lambda c, s: _gate_narracao(c, s)),
     ("idioma", lambda c, s: _gate_idioma(s)),
     ("glifos", lambda c, s: _gate_glifos(s)),
     ("ortografia", lambda c, s: _gate_ortografia(c, s)),
@@ -1053,7 +1059,7 @@ PORTOES = (
 PORTOES_SO_DO_LONGO = {"capitulos"}
 
 
-def avalia(caminho):
+def avalia(caminho, spec: dict | None = None):
     """Roda os portoes. Devolve None so quando a spec nao tem NENHUM formato.
 
     ATE 07/10/2026 a linha era `if not sp.get("longo"): return None`, e isso
@@ -1066,7 +1072,8 @@ def avalia(caminho):
     short de 77,3 s previstos e recusado), e o `capitulos` sai da lista em vez
     de aprovar em silencio.
     """
-    sp = json.load(open(caminho, encoding="utf-8"))
+    import rascunho
+    sp = rascunho.spec_de(caminho, spec)
     tem_longo = bool(sp.get("longo"))
     if not tem_longo and not sp.get("short"):
         return None

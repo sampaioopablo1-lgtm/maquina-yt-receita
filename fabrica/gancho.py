@@ -159,11 +159,9 @@ def custo_do_encurtamento(spec: dict, provedor: str = "edge") -> dict:
     return fora
 
 
-def relato(caminho: str) -> str:
-    import json
-
-    with open(caminho, encoding="utf-8") as f:
-        sp = json.load(f)
+def relato(caminho: str, spec: dict | None = None) -> str:
+    import rascunho
+    sp = rascunho.spec_de(caminho, spec)
     d = custo_do_encurtamento(sp)
     linhas = ["GANCHO de %s:" % sp.get("slug", caminho)]
     linhas.append(

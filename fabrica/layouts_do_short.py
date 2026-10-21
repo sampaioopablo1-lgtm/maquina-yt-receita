@@ -147,9 +147,9 @@ def avisos(sp: dict, raiz: str = None) -> list:
     ]
 
 
-def relato(caminho: str) -> str:
-    with open(caminho, encoding="utf-8") as f:
-        sp = json.load(f)
+def relato(caminho: str, spec: dict | None = None) -> str:
+    import rascunho
+    sp = rascunho.spec_de(caminho, spec)
     nome = sp.get("pacote") or os.path.basename(caminho)
     v = cenas_vazias(sp)
     if not v:
