@@ -1,0 +1,120 @@
+{
+ "slug": "kolejny-poziom-s082",
+ "pacote": "kolejny-poziom-s082",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "longo_existente": "Rj7beZkOeYo",
+ "longo": [],
+ "thumb": {
+  "l1": "Próg",
+  "l2": "patrzy w tył"
+ },
+ "paleta": {
+  "bg": "#0B0B0C",
+  "ink": "#F2EEE8",
+  "c1": "#E23B3B",
+  "c2": "#D9C7A7",
+  "red": "#FF4D4D",
+  "ok": "#7FB77E",
+  "panel": "#151517",
+  "mut": "#8F877C",
+  "acc": "#E23B3B"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Próg patrzy w tył",
+   "sub": "a obligacja patrzy w przód",
+   "nar": "Zapamiętałeś próg na stałe?"
+  },
+  {
+   "layout": "item",
+   "kicker": "Skąd on jest",
+   "nar": "Próg wychodzi z dwóch liczb."
+  },
+  {
+   "layout": "item",
+   "kicker": "Podatek i ceny",
+   "nar": "Z podatku i ze wzrostu cen."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Dwie liczby, jedno dzielenie",
+   "itens": [
+    "Podatek",
+    "Inflacja",
+    "Próg"
+   ],
+   "nar": "Jedno dzielenie i masz wynik."
+  },
+  {
+   "layout": "item",
+   "kicker": "Co on mówi",
+   "nar": "To stawka, przy której masz zero."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ale czego on nie mówi",
+   "sub": "nie jest prognozą",
+   "nar": "Tyle że on patrzy w przeszłość."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Dwa różne okresy",
+   "barras": [
+    {
+     "rotulo": "Inflacja GUS",
+     "valor": 100
+    },
+    {
+     "rotulo": "Twoja obligacja",
+     "valor": 0
+    }
+   ],
+   "nar": "Inflacja opisuje przeszłość."
+  },
+  {
+   "layout": "item",
+   "kicker": "A ty kupujesz przyszłość",
+   "nar": "Obligacja dotyczy przyszłości."
+  },
+  {
+   "layout": "item",
+   "kicker": "Punkt odniesienia",
+   "nar": "Próg to punkt odniesienia."
+  },
+  {
+   "layout": "item",
+   "kicker": "Nie prognoza",
+   "nar": "Prognozą on jednak nie jest."
+  },
+  {
+   "layout": "barras",
+   "kicker": "I nie stoi w miejscu",
+   "barras": [
+    {
+     "rotulo": "Inflacja rośnie",
+     "valor": 100
+    },
+    {
+     "rotulo": "Próg rośnie",
+     "valor": 100
+    }
+   ],
+   "nar": "Rośnie i spada razem z nią."
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlatego go licz",
+   "nar": "Licz go, a nie zapamiętuj."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Kolejny Poziom",
+   "sub": "subskrybuj",
+   "nar": "Przelicz go na dziś, nie kiedyś."
+  }
+ ],
+ "copy": "# kolejny-poziom-s082\n\n## TITULO\nTen Próg Nie Jest Prognozą: Patrzy w Tył, a Twoja Obligacja Patrzy w Przód\n\n## TITULO SHORT\nPróg patrzy w tył\n\n## DESCRICAO\nJest liczba, którą policzysz w dziesięć sekund jednym dzieleniem, i która mówi ci, czy dana oferta w ogóle wychodzi na zero. **Ale prawie każdy używa jej źle — nie bo źle ją liczy, a bo myśli, że to prognoza.**\n\nSkąd ten próg się bierze: z **dwóch** liczb. Pierwsza to podatek, który nie dotyczy kapitału, tylko samych odsetek. Druga to wzrost cen. Dzielisz jedną przez drugą i masz stawkę, **przy której wychodzisz dokładnie na zero** — ani nie zyskujesz, ani nie tracisz. Dlatego to dobry punkt wyjścia do czytania tabelki.\n\n**Teraz to, czego ten próg NIE mówi, i co jest w nim najważniejsze.** Wskaźnik cen opisuje **okres, który już minął** — ostatnie dwanaście miesięcy. A obligacja, którą właśnie kupujesz, dotyczy miesięcy **przyszłych**. To są dwa różne okresy, i liczba z pierwszego nie jest obietnicą dla drugiego.\n\nCzyli: **próg jest punktem odniesienia, nie prognozą.** Mówi ci, jak wyglądałaby ta oferta, gdyby przyszłość była taka jak przeszłość — a to jest założenie, nie wiedza.\n\n**I jest jeszcze jedna rzecz, która wynika z tego samego:** próg nie stoi w miejscu. Rośnie i spada razem ze wzrostem cen. Więc liczba, którą zapamiętałeś kilka miesięcy temu, dziś już nie jest tym samym progiem — a tabelka, którą do niej przykładasz, jest dzisiejsza.\n\nStąd jedyny praktyczny wniosek: **licz go, nie zapamiętuj.** Jedno dzielenie, na dzisiejszej liczbie, za każdym razem gdy porównujesz ofertę. To nie jest więcej pracy — to po prostu nie jest ta sama liczba co ostatnio.\n\n## COMENTARIO FIXADO\nNajmniej oczywiste: ten próg nie jest też oszustwem ani pułapką — jest poprawny. Błąd nie siedzi w liczbie, siedzi w okresie, do którego ją przykładasz. A ty liczyłeś go ostatnio, czy pamiętałeś?\n\n## HASHTAGS\n#obligacje #inflacja #oszczędzanie #kolejnypoziom #Shorts\n\n## TAGS\nobligacje skarbowe, inflacja, podatek od odsetek, prog oplacalnosci, realna stopa, punkt odniesienia, prognoza, oprocentowanie, oszczednosci, kolejny poziom\n\n## CONFIGURACOES DO STUDIO\n# NOTA: `categoryId` aqui e DECLARATIVO e o codigo ignora — publicar.py tem 27\n# fixo. Escrito 27 porque e o que o video realmente recebe. Aprendizado 610.\nprivacyStatus: public\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\ncategoryId: 27\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\n**ZERO numero novo sobre o mundo, e a narracao nao fala numero nenhum** — nem a\naliquota do imposto, nem o fator que sobra dela, nem a inflacao do mes, nem o\nvalor do proprio limiar. Conferido cena a cena: nenhum digito cru. O unico\nnumeral falado e **\"dwóch\"** (duas), que conta as liquidas da conta, e essa\ncontagem e estrutura e nao grandeza.\n\n**E AQUI A REGRA (g) COINCIDE COM O ASSUNTO DA PECA, o que e raro:** o limiar\nmuda com a inflacao — **a propria origem escreve isso no capitulo 50** — logo\npublicar o valor dele seria publicar um numero que a peca diz, na cena seguinte,\nque nao se guarda. A aliquota e o fator tambem mudam por publicacao. **O eixo\nsobrevive sem nenhum deles**, porque ele e sobre QUAL PERIODO cada liquida\ndescreve, nao sobre as grandezas.\n\nAs barras sao **ILUSTRACAO qualitativa** e **NAO sao faladas**: na cena 7, dois\nperiodos que nao se tocam — o que a inflacao mede ja aconteceu, o que a\nobligacao cobre ainda nao —, com a segunda barra em ZERO como argumento; na cena\n11, as duas subindo juntas, que e a propria frase do capitulo 50. Elas nao saem\nde estudo nenhum, e a rodada seguinte **nao deve le-las de volta como dado**.\n\n## FAMILIA DE ENTRADA ERRADA\n**USAR O LIMIAR COMO PROGNOSTICO, quando ele e um RETRATO DO PASSADO** — a\ninflacao que entra na conta descreve os doze meses que ja passaram, e a obligacao\nque se compra cobre os meses que vem. Os dois numeros estao certos e a divisao\nnunca falha; **o erro esta no PERIODO a que se aplica o resultado.** E dai sai o\nsegundo erro, que e o pratico: memorizar o limiar, quando ele sobe e desce com a\ninflacao e a tabelka a que se encosta e sempre a de hoje.\n\nAs TRES familias anteriores desta origem vieram do `irmaos_da_origem`, e **duas\ndelas nao tem o campo**, logo a comparacao foi pela NARRACAO de primeira mao:\n\n* `s008` — **curta contra longa**: a taxa da curta so vale ate o resgate, logo\n  conte quantas renovacoes faltam para chegar ao prazo da longa;\n* `s025` — **escolher pela tabela em vez do proprio horizonte**: a primeira\n  pergunta e QUANDO, nao QUANTO;\n* `s066` — **seis ofertas, duas familias**: ler seis linhas como um ranking\n  quando sao duas promessas diferentes.\n\n**As tres falam de QUAL LINHA escolher na tabela. Nenhuma fala do numero com que\nse LE a tabela**, que e o eixo desta — e e por isso que ela nao colide com\nnenhuma delas, mesmo sendo da mesma origem.\n\n## FONTES\nOrigem: `Rj7beZkOeYo` (`kolejny-poziom-006`, 85 capitulos), escolhida pelo\n`pauta_do_momento.py` — 3 usos, empatada com varias outras e desempatada pela\nMAIOR reserva, **67 capitulos NAO MENCIONADOS de 85**. A dominante do canal\nficou de fora, e quem conta e o `concentracao.py`. E o `QiaGg03WSR0`, que tem\ncontagem MENOR, ficou de fora porque o `dono_medido.py` o NOMEIA como longo do\nLabTreinamento declarado por engano em dois shorts deste canal.\n\nCapitulos desta peca: **41 a 50** (*\"Najpierw Belka\"*, *\"Jak to działa\"*,\n*\"Potem inflacja\"*, *\"Co ona robi\"*, *\"Stąd próg\"*, *\"Co on znaczy\"*,\n*\"Policz to sam\"*, *\"Uwaga na jedną rzecz\"* e *\"Ona się zmienia\"*). O 49 escreve\na frase que a peca carrega — *\"a inflacao do GUS descreve os ultimos doze meses,\ne a tua obligacao diz respeito aos futuros; o limiar e um ponto de referencia,\nnao uma previsao\"* — e o 50 que *\"ele nao e fixo: sobe e desce com a inflacao,\nlogo vale recalcula-lo e nao memoriza-lo\"*.\n\n**E A CONFERENCIA CONTRA OS IRMAOS VAI SEPARADA EM DUAS, com a FORCA de cada\nmetade:**\n\n* **por CAPITULO, mecanica, alcanca 2 dos 3 irmaos** (`s025` em 64 a 68, `s066`\n  em 19 a 22): **zero sobreposicao** com 41 a 50 — e aqui os dois declaram\n  POUCO (5 e 4 capitulos de 85), logo sob sorteio a colisao com uma familia de\n  cinco teria P baixa nos dois casos. **\"Nao colidiu\" era quase certo por\n  construcao e prova pouco**, e e por isso que a conferencia que vale aqui e a\n  LEITURA — feita, e esta escrita acima;\n* **por LEITURA da narracao, o terceiro** (`s008`), que **nao declara capitulo\n  nenhum**.\n\nAusencia de capitulo declarado **nao e** ausencia de colisao (761), e P baixo\n**nao e** conferencia — as duas ressalvas valem aqui, e nesta origem a segunda\nvale para os DOIS irmaos declarantes.\n\n## EXPOSICAO\n**TREZE CENAS, e as TRES recusas nao foram minhas.** O `contagem_de_cenas.py`\ndeu **catorze** como melhor cadencia — que e tambem o **teto MEDIDO desta voz** —\ne a recusou pela **FOLGA**; **onze** e **doze** foram recusadas por **REPETICAO**,\nporque sao as duas ultimas publicadas neste canal (`s081` e `s079`). Treze e a\nmelhor que SERVE pelos tres filtros, com folga **+7**. E a contagem **2** saiu\ncomo **NAO MEDIDA** — nao como inalcancavel —, porque a janela dela mora acima do\nteto de varrimento do `mira`.\n\n**O ORCAMENTO SAIU DO PISO EXECUTAVEL (28 a 29), nao do inversor cru**, que\ndevolveria 27 — valor cuja previsao cai ABAIXO do piso da faixa, em 54 de 54\npares medidos. A peca foi escrita com media **28,62**, e a primeira versao saiu\ncom **31,38** e foi encurtada ANTES do render.\n\n**A PINCA DO 740/748 ESTA FECHADA AQUI, e a exposicao vai declarada ANTES de\npublicar:** o `mira.janela_dos_dois_mundos` devolve **NENHUMA** janela para esta\nvoz nesta faixa, em contagem de cena nenhuma. Mirei o **PISO** pela regra do\n772, logo o edge cai dentro do `ALVO_SHORT` e o **piper sai FORA pelo piso**. O\nprovedor se decide no runner (730/733), e o portao `duracao` cobra 18 a 45 s nos\ndois mundos, que os dois satisfazem.\n\n**O que eu NAO declaro: de que lado da banda o real cai.** Ela tem 5,2 s contra\n1 s de granularidade, e escolher um lado nao e previsao (774).\n\n**ESQUELETO\n`titulo-item-item-lista-item-titulo-barras-item-item-item-barras-item-cta`**,\ninedito nas **SEIS** formas de treze cenas da frota e nas 146 da frota inteira,\ncom a propria peca FORA da varredura pelo `exceto` — numero do\n`esqueleto_entre_canais`, que roda DENTRO do `antes_do_render` desde 21/10 as\n03:3x. **`barras` entra DUAS vezes e as duas carregam argumento.** Todo layout\nsaiu do conjunto **SONDADO** (`layouts_do_short.desenham`), com `assert` no\nconstrutor; a paleta foi **LIDA** de `temas_do_dono.paleta_do_canal` e a trilha e\n**Wholesome**, que e a deste canal.\n"
+}
