@@ -198,6 +198,32 @@ def novidade(esq: str, cenas: int, pecas: list[dict] = None,
     disponivel no campo vizinho. O item 3 da §10 nao fala do acerto, fala da
     sexta vez.
 
+    **E EM 21/10 AS 00:4x ELE ACEITOU OS DOIS ARGUMENTOS TROCADOS e devolveu
+    resposta BEM FORMADA sobre OUTRA pergunta.** Eu chamei
+    `novidade("labtreinamento", "titulo-lista-item-barras-item-titulo-item-cta")`
+    — canal no lugar do esqueleto e esqueleto no lugar da contagem — e ele
+    respondeu `forma_inedita=True`, `tamanho_inedito=True`,
+    `exemplares_do_tamanho=0`. **As duas metades sairam "NOVO", que e a direcao
+    PERMISSIVA**, e eu ia escrever isso na copy: a resposta era sobre um
+    esqueleto chamado *labtreinamento* e um tamanho de cena que e uma string.
+
+    **A CAUSA e que as duas contas comparam por IGUALDADE, e igualdade nunca
+    levanta.** `contagem_da_forma.get(esq, 0)` e a contagem por cenas com tipo
+    errado simplesmente NAO CASAM, e "nao casou" e exatamente a resposta
+    *inedito*. Medido nos oito pares (texto, numero) adjacentes da fabrica que
+    eu consigo chamar sem banco: **SETE LEVANTAM** com os argumentos trocados —
+    `TypeError` na aritmetica do `ensaio` e do `mira`, `KeyError` na tabela de
+    vozes, `AttributeError` no `legenda`, `ValueError` no `contagem_de_cenas` —
+    **e so este CALAVA.** Logo isto nao e defeito de familia e vai dito assim
+    em vez de inflado: aritmetica e busca em tabela se defendem sozinhas,
+    comparacao por IGUALDADE nao.
+
+    **A REGRA QUE FICA: funcao que so compara por IGUALDADE nao se defende
+    sozinha, e precisa conferir o TIPO na porta.** E a guarda e de TIPO e nao de
+    coerencia: os dois argumentos NAO sao redundantes — a frota tem forma
+    inedita com tamanho repetido e o contrario, e ha teste que chama esqueleto
+    inventado com contagem real de proposito.
+
     `exceto` e o nome do arquivo da propria peca, e ele NAO e conveniencia: a
     spec desta rodada ja esta no disco quando eu pergunto, logo sem ele
     "inedito" nunca pode ser verdade e o relato diz "JA EXISTE: 1 exemplar"
@@ -205,6 +231,22 @@ def novidade(esq: str, cenas: int, pecas: list[dict] = None,
     carrega o mesmo parametro pela mesma razao, e foi dele que eu copiei a
     forma depois de a primeira execucao daqui mostrar o defeito.
     """
+    # A guarda e de TIPO porque as duas contas comparam por IGUALDADE, e
+    # igualdade com tipo errado nao levanta: ela devolve "nao casou", que e a
+    # resposta `inedito`. E ela vem ANTES da varredura, para chamada errada nao
+    # pagar a leitura do disco. Ver o docstring — 21/10 as 00:4x.
+    if not isinstance(esq, str):
+        raise TypeError(
+            "`esq` tem de ser o ESQUELETO (texto), e veio %r (%s). Os dois"
+            " primeiros argumentos sao (esqueleto, contagem de cenas) nesta"
+            " ORDEM; trocados, as duas metades saem 'NOVO' sem medir nada."
+            % (esq, type(esq).__name__))
+    if isinstance(cenas, bool) or not isinstance(cenas, int):
+        raise TypeError(
+            "`cenas` tem de ser a CONTAGEM de cenas (inteiro), e veio %r (%s)."
+            " Os dois primeiros argumentos sao (esqueleto, contagem de cenas)"
+            " nesta ORDEM; trocados, as duas metades saem 'NOVO' sem medir"
+            " nada." % (cenas, type(cenas).__name__))
     pecas = pecas if pecas is not None else varre()
     if exceto:
         pecas = [p for p in pecas if not NS.casa(p["arquivo"], exceto)]
