@@ -9184,3 +9184,179 @@ leitura; som em **66**) e `RESIDUO_N` segue **128**.
 
 **COTA: VINTE E DOIS envios** na janela aberta as 07:00Z, **35.200** unidades,
 contra o piso MEDIDO de **>= 41.600**.
+
+## O DONO DO RASCUNHO LEVANTAVA NA FORMA CANONICA DA PERGUNTA
+
+**Medido em 22/10 as 04:4x, escrevendo o `epomeno-epipedo-s091`, e o erro
+aconteceu nesta rodada.** Chamei `mira.relato(None, spec=sp)` para pedir o passo
+em caracteres — que e para isso que o rascunho existe desde 21/10 as 20:3x — e
+levei `TypeError: stat: path should be string, bytes, os.PathLike or integer,
+not NoneType`. A causa esta no DONO: `rascunho.e_rascunho` fazia
+`os.path.exists(caminho)` **sem guarda de `None`**.
+
+**E `caminho=None` E A FORMA CANONICA DA PERGUNTA** — nela nao falta so o
+arquivo, falta o NOME —, porque o conserto de 21/10 as 23:2x normalizou TRES
+relatos para `(caminho=None, spec=None)` enquanto os outros cinco seguiram com
+`caminho` obrigatorio:
+
+| | |
+|---|---|
+| relatos da passada que aceitam `spec` | **8 de 10** |
+| destes, com `caminho=None` na assinatura | **3** |
+| destes, com `caminho` OBRIGATORIO | **5** |
+| que LEVANTAVAM com `caminho=None` | **1** |
+
+**Logo o repo carregava DUAS convencoes para a MESMA chamada — o mesmo nome de
+parametro com dois significados em modulos irmaos.** E a assinatura do `exceto`
+de 20/10 as 11:3x, **criada pelo meu proprio conserto uma rodada depois dele.**
+
+**E a forma do defeito e a de sempre: o UNICO que levantava era o `mira`, e ele
+levantava justamente por ser o unico sub-relato que PERGUNTA ao dono.** Os
+outros quatro respondiam **por nao perguntar** — logo eles tambem nao imprimiam
+o aviso, e isso vai medido em vez de suposto: os chamadores de
+`aviso_do_rascunho` sao **DOIS**, o `mira` e o `antes_do_render`.
+
+**E A PROSA DO DONO DIZIA CINCO.** O docstring dele afirmava que *"os cinco
+relatos a imprimem"* — **falso, medido**. Dois e o numero CERTO, porque a
+passada ja imprime o aviso uma vez no topo e cinco copias nela seriam ruido; o
+que estava errado era so o numero escrito em prosa, **que ninguem reconferia**
+(753). Ele saiu de la, e quem o reconta contra o codigo e o teste.
+
+**Consertado:** `e_rascunho(None, spec)` devolve **True** com o motivo escrito,
+o aviso ganhou a frase do NOME ausente com **UM dono**, e `spec_de(None, None)`
+**LEVANTA com motivo de DADO** em vez de deixar o `open(None)` dar erro de TIPO
+— erro de tipo manda conferir no lugar errado. **Sem `spec` ele segue devolvendo
+False em qualquer forma de caminho**, porque sem dicionario nao ha nada a
+conferir fora do disco.
+
+**E O PORTAO NAO FOI AFROUXADO: `prontidao.avalia(None, spec=...)` RECUSA**, com
+a razao em letra — dez dos doze portoes usam o caminho como **NOME** (o
+`identidade` compara o `pacote` com o nome do arquivo, o `similaridade` e o
+`variedade` varrem o disco com ele). Aceitar `None` ali seria mexer em PORTAO
+por conveniencia de chamada, que e o avesso do trabalho (21/10, 11:3x). A recusa
+diz o que passar no lugar: o caminho **PRETENDIDO**, que e nome e nao arquivo.
+
+`tests/test_o_dono_do_RASCUNHO_levantava_na_forma_canonica.py`, onze testes: a
+spec de prova e **DERIVADA** do disco e **reprova dizendo que perdeu a ancora**,
+o defeito e **REPRODUZIDO** com a guarda antiga, as **DUAS convencoes** sao
+medidas da ASSINATURA e o teste **falha se elas CONVERGIREM** (porque ai o
+defeito perde o objeto e esta nota se rele), a contraprova vai nos **dois**
+sentidos (sem spec nao e rascunho; arquivo que EXISTE nao e rascunho), a frase
+do NOME tem **UM dono por AST** e **nao sai** quando o caminho e dado, os
+chamadores do aviso sao **RECONTADOS** contra o codigo, o portao e cobrado nos
+dois lados (recusa sem caminho, e o `identidade` continua reprovando nome
+diferente), e um cobra o caminho INTEIRO pela passada, porque o defeito era de
+CHAMADOR. **Contraprova:** devolvida a guarda antiga, **quatro dos onze** falham.
+
+**E A PRIMEIRA VERSAO DE DOIS TESTES MEUS REPROVOU O MODULO CERTO, os dois pela
+mesma licao:** um proibia a frase antiga em qualquer lugar da fonte, e o
+docstring **CITA** a frase falsa para explicar a retratacao; o outro casava
+`"forma CANONICA"` com a caixa que eu nao usei. **Casar prosa pegou a EXPLICACAO
+em vez do codigo** — e a licao do `test_NAO_virou_portao` do acento, e e por isso
+que os testes desta semana sao por AST. O primeiro passou a exigir que a citacao
+venha **com a retratacao ao lado**, que e a propriedade que de fato importa.
+
+### A PECA DESSA RODADA — DOZE cenas, e as TRES recusas sairam do instrumento
+
+`epomeno-epipedo-s091` = **`rSNB8afk3uY`**, publicado as 04:21:56Z (run
+`39721937334`), **ONZE PORTOES VERDES NA PRIMEIRA TENTATIVA** — e ela foi
+**CONFERIDA COMO RASCUNHO** antes de existir no disco, pela quinta vez em
+producao (dez portoes baratos limpos em **0,58 s**, mais mira, acento, gancho e
+paleta **LIDA** do dono, e os dois instrumentos que ainda exigem caminho DIZENDO
+que nao conferiram). Provedor **edge MEDIDO** (zero avisos `NARRACAO PELO PIPER`
+nos dois jobs do render, contados pela API), som **−13,6** LUFS, LRA 3,5, pico
+**−1,5** dBTP com `pico_vs_teto: dentro` — isto e, **no teto exato** —, desvio
++0,4, **zero silencios**, parqueado pelo `som_parqueado` no mesmo passo (67
+linhas).
+
+**E O `antes_do_render` PEGOU O UNICO DEFEITO ANTES DO RENDER: thumbnail com
+SEIS palavras** contra o limite de 4 — a **QUARTA** vez do mesmo defeito nesta
+sessao, e a terceira pega pela passada em vez do portao.
+
+**A CONTAGEM saiu da chave `por_cadencia_servivel` e NENHUMA das tres recusas foi
+minha:**
+
+| cenas | | |
+|---|---|---|
+| 14 | melhor cadencia, 3,02 s | RECUSADA por REPETICAO — a `s089` |
+| 13 | 3,25 s | RECUSADA por REPETICAO — a `s090`, a peca anterior do canal |
+| 15 (teto MEDIDO da voz, **INEDITO** na frota) | 2,82 s | RECUSADA pela FOLGA: 22 caracteres, a DOIS do piso OBSERVADO |
+| **12** | **3,52 s** | escolhida, orcamento 37 no piso, folga **+16** |
+
+**ESQUELETO
+`titulo-item-lista-item-barras-titulo-item-barras-item-item-lista-cta`, INEDITO
+nas 169 formas da frota** (zero exemplares) e nenhuma das **DOZE** de doze cenas.
+Todo layout saiu do conjunto **SONDADO**, com `assert` no construtor. **E o
+`formas_livres`, da rodada anterior, respondeu na PRIMEIRA vez em producao:
+7.550 ordens livres destes mesmos layouts de 7.560 possiveis.**
+
+**PAUTA:** `eimuyGaCor8` (`epomeno-epipedo-016`, 87 capitulos), 4 usos — empate
+de **DEZ** origens desempatado pela MAIOR reserva, **68 de 87 NAO MENCIONADOS**.
+A dominante `nttW9fR8wyY` ficou de fora, e quem conta e o `concentracao.py`.
+
+**FAMILIA: AS LINHAS DO NUMERADOR, E A FORMA DELAS** (capitulos 70 a 73, 75 e
+76). O eixo e **O QUE ENTRA no numero de cima, e em que forma**, e a entrada
+errada nao esta em celula nenhuma: esta em tratar *"o que cai na minha conta por
+mes"* como se fosse o numerador. **E a divisao nunca reclama.**
+
+**E o mesmo erro de familia produz erros em SENTIDOS OPOSTOS, que e a parte que
+vale:** contar so o proprio rendimento e esquecer juros, alugueis e beneficios
+empurra o numero para **BAIXO** (sai-se mais pobre do que se e); usar o bruto em
+vez do liquido e multiplicar o mes por doze num rendimento sazonal empurra para
+**CIMA**. **A direcao do terceiro vai dita porque e a PROPRIA origem que a
+escreve**, no capitulo 75.
+
+**Distincoes escritas contra os QUATRO irmaos** pelo `irmaos_da_origem` e pela
+NARRACAO de cada um (TRES deles nao tem o campo da familia, logo pela PROSA e
+pela fala, de primeira mao): os quatro falam do **DIVISOR** (`s001`), do que o
+indicador **NAO mede** (`s023`), de **fluxo contra estoque** (`s035`) ou da
+**DATA** do numero (`s057`). **Nenhum fala de quais LINHAS formam o numero de
+cima.** E o capitulo **74** (o valor da casa propria nao entra) ficou **FORA de
+proposito**: e territorio declarado do `s035`.
+
+**E A RESERVA ESCRITA FOI LIDA E NAO LEVADA, com o motivo repetido:** a do
+`s023` (capitulos 20 a 28, a escala de equivalencia) esta **FECHADA e nao por
+falta de material** — o proprio `s023` escreve que essa familia JA foi usada pelo
+`s001`. Vai repetido na copy para a rodada seguinte nao a reabrir ao ler so o
+bloco da reserva.
+
+**E A RESERVA NOVA LEVA UMA DUVIDA PARA A RODADA SEGUINTE RESOLVER, em vez de um
+numero:** a prosa do `s035` afirma que os capitulos 49 a 58 (media contra
+mediana) sao *"o nucleo do `s001`"*, e a NARRACAO do `s001`, lida de primeira
+mao, **nao fala de media nem de mediana** — ela fala da composicao do domicilio.
+**Uma das duas esta errada, e e citacao de TERCEIRO contra fala do proprio**
+(20/10, 15:3x). A copy manda ler a copy do `s001` inteira **antes** de tomar esse
+bloco por livre ou por consumido.
+
+**ZERO numero novo sobre o mundo:** a linha em euros, os tres pesos do
+coeficiente, a idade de corte, o percentual do limiar, os limiares alternativos e
+a serie da media ficaram **FORA** pela regra (g), com o descarte escrito na copy
+— e **um numero que me convinha tambem ficou fora**, a idade abaixo da qual a
+crianca pesa menos, que o proprio `s001` desta origem ja havia declarado
+descartado pelo mesmo motivo. As barras sao ILUSTRACAO da DIRECAO de cada erro e
+**nao** sao faladas, com isso escrito em letra.
+
+**E O PISO EXATO NAO ERA ALCANCAVEL, dito assim em vez de eu chamar 41,80 de
+piso:** com doze cenas um caractere por cena vale **0,61 s**, logo 36 caracteres
+dao 41,19 (**ABAIXO** da faixa) e 37 dao **41,80**. A primeira versao saiu em
+**40,99**, isto e abaixo do piso, e **quem disse de quanto era o passo foi o
+instrumento** — somar isso de cabeca e o item 3 da §10. A pinca do 740/748 esta
+**FECHADA** (piper **37,04**, FORA pela mira e DENTRO do portao, que cobra 18 a
+45 s nos dois mundos), com a exposicao declarada ANTES de publicar, e **o REAL
+nao esta prometido para lado nenhum** (774).
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica` pela VIGESIMA
+SEXTA rodada seguida** — medido pela `sonda_e_modo`, com os TRES controles no
+MESMO caminho de saida: o `touch` passou, os TRES hosts voltaram **000 sem
+arquivo**, e o proxy nomeou os tres depois de 04:22:26Z. A peca esta PARQUEADA
+com o provedor MEDIDO e o job **lido da API**, e a presenca foi conferida
+**RELENDO** o parque (**127** linhas, **55** sem leitura). `RESIDUO_N` segue
+**128**.
+
+**E A LEITURA DE INSCRITOS PASSOU AS TRES PORTAS E NAO FOI FEITA, pela DECIMA
+QUARTA rodada seguida:** 66,03 h, piso de resolucao **0,36/dia**, os tres SIM.
+**O que a impede e a ROTA, e o remedio e do DONO** — a tela de Network access.
+
+**COTA: VINTE E TRES envios** na janela aberta as 07:00Z de 21/10, **36.800**
+unidades, contra o piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um
+laco escrito na hora.

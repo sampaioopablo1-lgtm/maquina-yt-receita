@@ -1074,6 +1074,14 @@ def avalia(caminho, spec: dict | None = None):
     """
     import rascunho
     sp = rascunho.spec_de(caminho, spec)
+    if caminho is None:
+        raise ValueError(
+            "os DOZE portoes recebem o `caminho` e dez deles o usam como NOME: "
+            "o `identidade` compara o `pacote` com o nome do arquivo e o "
+            "`similaridade` e o `variedade` varrem o disco com ele. Passe o "
+            "caminho PRETENDIDO (que e nome, nao arquivo) junto com a `spec` do "
+            "rascunho, como o `antes_do_render` faz. Afrouxar um PORTAO por "
+            "conveniencia de chamada seria o avesso do trabalho (22/10, 04:4x)")
     tem_longo = bool(sp.get("longo"))
     if not tem_longo and not sp.get("short"):
         return None

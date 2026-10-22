@@ -46,7 +46,7 @@ from __future__ import annotations
 import json
 
 
-def spec_de(caminho: str, spec: dict | None = None) -> dict:
+def spec_de(caminho: str | None = None, spec: dict | None = None) -> dict:
     """O dicionario da spec: o passado por `spec`, ou o lido do arquivo.
 
     `spec` vence o arquivo de proposito — e para isso que o rascunho existe. E
@@ -63,26 +63,66 @@ def spec_de(caminho: str, spec: dict | None = None) -> dict:
                 "spec VAZIA no lugar da do disco: toda conferencia passaria por "
                 "vacuidade, e vazio nao prova ausencia (17/10)")
         return spec
+    if caminho is None:
+        raise ValueError(
+            "sem `caminho` e sem `spec` nao ha spec nenhuma: sem esta guarda o "
+            "`open(None)` levanta `TypeError: stat`, que e erro de TIPO onde a "
+            "pergunta e de DADO (22/10, 04:4x)")
     with open(caminho, encoding="utf-8") as f:
         return json.load(f)
 
 
-def e_rascunho(caminho: str, spec: dict | None = None) -> bool:
-    """O arquivo ainda nao esta no disco, logo a varredura do acervo nao o ve."""
+def e_rascunho(caminho: str | None = None, spec: dict | None = None) -> bool:
+    """O arquivo ainda nao esta no disco, logo a varredura do acervo nao o ve.
+
+    **`caminho=None` E A FORMA CANONICA DA PERGUNTA, e ate 22/10 as 04:4x ela
+    LEVANTAVA aqui** — `os.path.exists(None)` da `TypeError: stat`. Tres dos
+    relatos normalizados em 21/10 as 23:2x declaram `caminho=None` na
+    assinatura, logo o repo carregava DUAS convencoes para a mesma chamada: o
+    mesmo nome de parametro com dois significados em modulos irmaos, que e a
+    assinatura do `exceto` de 20/10 as 11:3x — criada pelo meu proprio conserto
+    uma rodada depois dele.
+
+    E o CUSTO foi pago: chamado `mira.relato(None, spec=sp)` para pedir o passo
+    em caracteres, a resposta foi um `TypeError` — e `mira` levanta justamente
+    porque e o UNICO sub-relato que PERGUNTA a este dono. Os que respondiam,
+    respondiam por nao perguntar.
+
+    Sem `spec` ele devolve False em qualquer forma de caminho, e isso NAO e
+    descuido: sem dicionario nao ha nada a conferir fora do disco.
+    """
     import os
-    return spec is not None and not os.path.exists(caminho)
+    if spec is None:
+        return False
+    return caminho is None or not os.path.exists(caminho)
 
 
-def aviso_do_rascunho(caminho: str, spec: dict | None = None) -> str:
+def aviso_do_rascunho(caminho: str | None = None,
+                      spec: dict | None = None) -> str:
     """A frase que NOMEIA o que o rascunho nao alcanca. Vazia quando nao e um.
 
-    Ela tem UM dono porque os cinco relatos a imprimem, e cinco copias dela
-    seria a assinatura que congelou a legenda.
+    Ela tem UM dono porque copia-la seria a assinatura que congelou a legenda.
+    **A primeira versao desta frase dizia que "os cinco relatos a imprimem", e
+    isso era FALSO:** medidos em 22/10 as 04:4x, os chamadores sao DOIS — o
+    `mira` e o `antes_do_render`. Dois e o numero CERTO, porque a passada ja
+    imprime o aviso uma vez no topo e cinco copias nela seriam ruido. O que
+    estava errado era so o numero escrito em prosa, que ninguem reconferia
+    (753) — e por isso ele saiu daqui: quem o reconta contra o codigo e o teste.
+
+    E `caminho=None` ganha UMA FRASE A MAIS, porque ali nao falta so o arquivo:
+    falta o NOME. O `identidade` compara o `pacote` com o nome do arquivo, logo
+    sem caminho ele nao tem contra o que comparar.
     """
     if not e_rascunho(caminho, spec):
         return ""
-    return ("  RASCUNHO: o arquivo ainda NAO esta no disco. O `similaridade` e o"
+    base = ("  RASCUNHO: o arquivo ainda NAO esta no disco. O `similaridade` e o"
             " `variedade` varrem o acervo e nao veem esta peca, e o"
             " `identidade` confere o `pacote` contra um nome que ainda nao"
             " existe — as tres respostas sao validas e INCOMPLETAS. Grave a"
             " spec e rode o `prontidao` inteiro antes do render.")
+    if caminho is None:
+        base += ("\n  E SEM CAMINHO falta tambem o NOME: o `identidade` compara"
+                 " o `pacote` com o nome do ARQUIVO, logo aqui ele nao tem"
+                 " contra o que comparar. Passe o caminho PRETENDIDO quando"
+                 " quiser essa conferencia — ele e nome, nao arquivo.")
+    return base
