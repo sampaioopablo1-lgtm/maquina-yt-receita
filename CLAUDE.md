@@ -11441,3 +11441,122 @@ impede e a ROTA, e o remedio e do DONO** — a tela de Network access.
 **COTA: ONZE envios** na janela aberta as 07:00Z, **17.600** unidades, contra o
 piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
 hora.
+
+## O DESEMPATE DIZIA *QUE* AS DUAS LEITURAS DIVERGEM, NUNCA *POR QUANTO*
+
+**Medido em 22/10 as 18:0x, na SEGUNDA rodada com o instrumento de 17:3x.** Ele
+acusa a divergencia entre a reserva **CRUA** e a reserva **SEM DECLARACAO** — e a
+decisao de seguir a regra escrita ou a leitura nova depende do **TAMANHO do
+vao**, que ele nao dizia. **Eu o calculei de cabeca nas duas rodadas:**
+
+| rodada | canal | sem declaracao | vao | o que eu fiz |
+|---|---|---|---|---|
+| 17:3x | labtreinamento | 14 contra **37** | **23 capitulos (62%)** | **DESVIEI** da regra |
+| 18:0x | kolejny-poziom | 59 contra **61** | **2 capitulos (3%)** | **SEGUI** a regra |
+
+**E a falta e a mesma do `mira.orcamento` antes de 19/10 as 14:2x:** responder
+*"esta na mira?"* e nunca *"quanto escrever para entrar?"*. Com os dois casos
+lado a lado o criterio aparece em letra: **declaracao em prosa e INDICIO e nao
+veredito**, logo desviar por dois capitulos em sessenta transformaria a
+heuristica em regra — que e exatamente o que o modulo recusa fazer.
+
+**No codigo:** `desempate_vao` no `escolha` (capitulos, fracao do maior dos dois,
+e os DOIS numeros que a frase imprime) e a linha do vao **dentro do dono da
+frase**. Ele **NOMEIA e nao decide** — limiar aqui seria criterio inventado
+(§10) —, e os dois casos vao escritos como **procedencia** em vez de virar
+numero.
+
+`tests/test_a_reserva_que_DESEMPATA_vinha_inflada.py` foi a **doze** testes: o
+vao e cobrado como **positivo** e como a **diferenca entre os DOIS numeros
+impressos** (senao seria um terceiro numero), vao **SEM** divergencia reprova
+(nao tem objeto), a frase tem de imprimir o absoluto **E** a fracao, e um
+**proibe por AST que o vao seja COMPARADO contra qualquer coisa** dentro do
+`escolha` ou do dono da frase — que e o limiar que esta nota proibe.
+**Contraprova:** tirada a linha do vao da frase, reprova exatamente o teste que a
+mede; restaurada, doze passam.
+
+### A PECA DESSA RODADA — ONZE cenas, e a ORIGEM seguiu a regra ESCRITA
+
+`kolejny-poziom-s095` = **`6JsSMpkrUZc`** (*W racie to nic, w sumie to nie*),
+publicado as 18:14:20Z (run `39829549743`), **sem `403 quota`**. **ONZE PORTOES
+VERDES** — e ela foi **CONFERIDA COMO RASCUNHO** antes de existir no disco.
+Provedor **edge MEDIDO** pelo `anotacoes_do_run` (zero avisos
+`NARRACAO PELO PIPER` no job `120000840333`, que e o job que emitiu o SOM). Som
+**-13,7** LUFS, pico **-2,0** dBTP com `pico_vs_teto: dentro`, **zero
+silencios**, parqueado pelo `som_parqueado` sem eu redigitar o JSON (parque em
+**81** linhas, zero sem `run`).
+
+**E O `antes_do_render` PEGOU DOIS DEFEITOS ANTES DO RENDER:** a thumbnail saiu
+com **SEIS** palavras contra o limite de 4 — a **NONA** vez do mesmo defeito
+nesta sessao — e a previsao saiu em **43,12 s**, isto e **ACIMA do topo** da
+faixa, **com a copy dizendo que eu mirava o piso**. O corte saiu do
+`mira.quanto_cortar`, nao da minha cabeca.
+
+**CANAL do `passo_zero`** (9/8/8 na janela de 24 h, empate em 8 desempatado pelo
+que esta ha mais tempo sem publicar). **PAUTA:** `EwUkhdwyuuo`
+(`kolejny-poziom-013`), **a da regra ESCRITA** — e a divergencia vai dita: a
+leitura nova apontava o `-011`, com vao de **DOIS** capitulos, e seguir a regra
+foi a decisao. A dominante `GUiq15usizw` ficou de fora e o `QiaGg03WSR0` saiu da
+escolha pelo **mapa de dono MEDIDO**, sem sair da lista.
+
+**FAMILIA: A UNIDADE EM QUE SE LE O RESULTADO** (capitulos 72 a 78, com 2, 3 e 4
+de apoio). Julgar a decisao pela diferenca **MENSAL**, que e a unidade em que
+todo mundo ja esta olhando — a rata tem de caber no orcamento —, e nela a
+diferenca entre dois periodos e **despreziivel por construcao**. A MESMA decisao
+na soma das prestacoes e outra grandeza, e **nenhuma das duas leituras esta
+errada**: e isso que torna o erro silencioso, porque o calculo fecha e a unidade
+escolhida ja decidiu o que a pessoa sente. A segunda metade e o **ANCORAMENTO**:
+valor sem referencia e abstracao.
+
+Distincoes contra os **QUATRO** irmaos, lidas pela NARRACAO de cada um — **dois**
+deles nao tem o campo da familia, logo de primeira mao: o `s011` (o que a
+nadplata encurta, que e CLAUSULA), o `s019` (os dois efeitos opostos do prazo), o
+`s038` (fotografia contra previsao, e o que a conta NAO captura) e o `s078` (a
+rata tem duas partes). **Nenhum fala da UNIDADE** — e a vizinha mais perigosa e
+de OUTRA origem do mesmo canal: o `s036` tambem fala de escala, mas ali e grosz
+contra zloty dentro de uma fatura (unidade **MONETARIA**); aqui as duas unidades
+sao de **HORIZONTE**.
+
+**E O BLOCO DE RESERVA DO `s019` FOI RETRATADO NA COPY:** ele deixou *"Rata ma
+dwie czesci"* como nao levada e **o `s078` levou exatamente isso** — o titulo
+curto dele e *Rata ma dwie czesci, nie jedna*. O bloco seguia dizendo *"nao
+levei"* e levaria a rodada seguinte a repetir a familia. **Bloco de reserva e
+compressao de TERCEIRO** (20/10, 15:3x), e e a segunda rodada seguida em que ele
+aponta para territorio ja tomado.
+
+**ONZE CENAS pela chave `por_cadencia_servivel`:** folga **+18**, e nao repete os
+tamanhos recentes do canal (13 e 12). O teto MEDIDO da voz (**14**), que e a
+melhor cadencia, saiu **NOMEADO** e recusado pela FOLGA — 23 caracteres, a dois
+do piso OBSERVADO.
+
+**ESQUELETO
+`titulo-item-barras-item-lista-titulo-item-barras-item-item-cta`, INEDITO nas 183
+formas da frota** e nas **CATORZE** de onze cenas, listadas INTEIRAS pelo
+instrumento de 16:3x. Todo layout saiu do conjunto **SONDADO**.
+
+**A PINCA DO 740/748 ESTA FECHADA AQUI**, com a exposicao declarada ANTES de
+publicar, **e o PISO EXATO nao e alcancavel:** um caractere por cena vale
+**0,57 s** nesta contagem, logo 38 caracteres dao **41,80** e 37 caem abaixo da
+faixa. A peca saiu no ponto mais BAIXO alcancavel acima do piso. O piper sai em
+**35,50** — FORA pela mira e DENTRO do portao, que cobra 18 a 45 s nos dois
+mundos. **E o REAL nao esta prometido para lado nenhum** (774).
+
+**ZERO numero novo sobre o mundo e ZERO numeral na narracao**, conferido pelo
+`numerais_falados`. Stawka, oprocentowanie, marza, prazo, valor de prestacao e
+kwota ficaram FORA pela regra (g) — **e a recusa inclui o numero que daria forca
+ao argumento** (quanto a diferenca mensal vale e quanto ela vira na soma), com o
+motivo escrito pela **PROPRIA origem** no capitulo 14: *"o ile rosnie, zalezy od
+twojej kwoty... Dlatego to musi byc twoj rachunek, nie moj"*. As barras das cenas
+2 e 7 sao ilustracao qualitativa e **nao** sao faladas.
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica` pela QUADRAGESIMA
+rodada seguida.** A peca esta PARQUEADA com o provedor MEDIDO e o job **lido da
+API**, com a presenca conferida **RELENDO** o parque (**141** linhas, **69** sem
+leitura). `RESIDUO_N` segue **128**.
+
+**E A LEITURA DE INSCRITOS PASSOU AS TRES PORTAS E NAO FOI FEITA, pela VIGESIMA
+PRIMEIRA rodada seguida:** 80,06 h, piso de resolucao **0,30/dia**, os tres SIM.
+**O que a impede e a ROTA, e o remedio e do DONO** — a tela de Network access.
+
+**COTA: DOZE envios** na janela aberta as 07:00Z, **19.200** unidades, contra o
+piso MEDIDO de **>= 41.600**.
