@@ -1,0 +1,82 @@
+{
+ "slug": "labtreinamento-s104",
+ "pacote": "labtreinamento-s104",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "longo_existente": "StQNFMdpGdk",
+ "thumb": {
+  "l1": "Salvar apaga",
+  "l2": "o antes"
+ },
+ "paleta": {
+  "bg": "#0E1117",
+  "ink": "#EEF1F5",
+  "c1": "#3DDBD9",
+  "c2": "#1E2430",
+  "red": "#FF5A5F",
+  "ok": "#3CCB7F",
+  "panel": "#161B24",
+  "mut": "#8B95A5",
+  "acc": "#3DDBD9"
+ },
+ "copy": "# labtreinamento-s104\n\n## TITULO\nSalvar a planilha de risco apaga o antes — e sem o antes nada prova a eficácia\n\n## TITULO SHORT\nSalvar apaga o antes\n\n## DESCRICAO\nA planilha de riscos psicossociais quase sempre nasce certa e morre de outra coisa: falta de rotina, nunca falta de fórmula. E o jeito mais silencioso de ela morrer é este — você corrige uma linha, a nota cai de faixa, você salva, e o estado anterior simplesmente deixou de existir.\n\nParece progresso, e por um momento é. O problema aparece depois, quando alguém pede a prova de que a medida funcionou. Essa prova não é a linha de hoje: é a diferença entre o antes e o depois. Se o antes foi sobrescrito, não existe diferença nenhuma para mostrar — existe apenas o retrato de agora, que seria o mesmo retrato se nada tivesse sido feito.\n\nÉ por isso que a planilha precisa de uma aba de histórico, e ela é mais simples do que parece: uma linha por mês, com a contagem de quantas linhas estão em cada faixa. Em um ano isso deixa de ser retrato e passa a ser tendência — e tendência é o que responde à pergunta da eficácia, porque mostra movimento em vez de estado.\n\nTem uma condição que vem junto e que custa mais do que parece: a fonte de cada coluna não pode trocar no meio do caminho. Se a origem do dado muda, a comparação morre, e a comparação é a única prova de que a medida funcionou. Duas contagens feitas de jeitos diferentes não são duas medições do mesmo fenômeno — são dois fenômenos.\n\nO trabalho prático é de cinco minutos e cabe hoje: crie a aba, escreva uma linha com a data de hoje e a contagem por faixa, e combine quem escreve a próxima. A primeira linha não serve para nada sozinha. A segunda é a que começa a provar.\n\nA planilha completa, com as quatro abas, o inventário, a matriz e o plano de ação, está no vídeo completo do canal.\n\n## COMENTARIO FIXADO\nSe a sua planilha tem aba de histórico, conta aqui há quantos meses ela está sendo preenchida. É esse número que decide se dá para falar de tendência ou só de retrato.\n\n## HASHTAGS\n#segurancadotrabalho #riscospsicossociais #PGR #planilha #LabTreinamento\n\n## TAGS\nriscos psicossociais, PGR, planilha de riscos, verificação de eficácia, histórico, tendência, segurança do trabalho, treinamento, Brasil\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ncategoryId: 26\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\nmadeForKids: false\nselfDeclaredMadeForKids: false\n\n## MUSICA / LICENCA\nInspired — Kevin MacLeod (incompetech.com), Creative Commons BY 3.0.\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO. A narracao NAO cita intervalo de revisao, NAO\ncita artigo de norma, NAO cita data de vigencia, NAO cita corte de faixa e NAO\ncita valor nenhum. **Ela nao fala numeral nenhum**, nem de estrutura.\n\nE O INTERVALO DE REVISAO FICOU FORA DE PROPOSITO, pela regra (g) e com a\nprocedencia na PROPRIA origem: o capitulo 80 dela diz, em letra, que *\"o\nintervalo esta escrito na propria norma e e la que voce confere\"* — logo e numero\nque muda por publicacao. Os cortes de faixa tambem ficaram fora, pelo mesmo\nmotivo que o `s013` e o `s060` ja registram: o longo diz que eles sao escolha da\nempresa.\n\nAS BARRAS SAO ILUSTRACAO QUALITATIVA E NAO SAO FALADAS. A cena 2 (100 contra 0)\nmostra que depois do salvar existe o estado de hoje e nao existe mais o de antes\n— os dois valores sao a FORMA do argumento, nao medida de coisa nenhuma. Esta\nlinha existe para a rodada seguinte NAO os ler de volta como dado.\n\nA LISTA DA CENA 4 (a medida, o antes, o depois) e a estrutura da coluna de\nverificacao, nao uma contagem.\n\nO QUE O VIDEO AFIRMA: que a planilha morre por falta de rotina e nao de formula;\nque a aba de historico guarda uma linha por mes com a contagem por faixa; que em\num ano isso vira tendencia em vez de retrato; que a fonte de cada coluna nao pode\ntrocar no meio do caminho porque isso destroi a comparacao; e que a comparacao e\na unica prova de que a medida funcionou. Isso esta no longo `labtreinamento-002`\n(`StQNFMdpGdk`), capitulos 76 a 79, com apoio do 61 e do 81, e com as fontes\ndele.\n\n## FAMILIA DE ENTRADA ERRADA\nA PLANILHA SOBRESCREVE O PROPRIO PASSADO — capitulos 76 a 79, com o 77 no centro:\n*\"a aba Historico guarda uma linha por mes, com a contagem de quantas linhas\nestao em cada faixa. Em um ano voce enxerga tendencia em vez de retrato\"*.\n\nO eixo e a SERIE, e a entrada errada nao esta em nenhuma celula: esta no ATO de\nsalvar. Atualizar a linha e o comportamento correto da planilha e, ao mesmo\ntempo, o que apaga o unico dado que responderia pela eficacia. O custo nao\naparece na hora — aparece na conferencia seguinte, quando o que se pede e a\nDIFERENCA e o que existe e so o estado de agora, identico ao que existiria se\nnada tivesse sido feito.\n\nE a condicao que vem junto e do capitulo 76, que vale guardar porque e o lado\ncaro: *\"fonte que troca de origem destroi a comparacao, e comparacao e a unica\nprova de que a medida funcionou\"*. Duas contagens feitas de jeitos diferentes nao\nsao duas medicoes do mesmo fenomeno.\n\nDISTINCAO DOS SEIS IRMAOS desta origem, conferida pelo `irmaos_da_origem` e pela\nNARRACAO de cada um (dois deles — o `s013` e o `s084` — nao tem este campo, logo\na comparacao foi pela PROSA e pela fala, que e de primeira mao):\n- `s013` — o nivel e PRODUTO das duas notas, nao media (aritmetica da coluna);\n- `s049` — NIVEL ERRADO DA HIERARQUIA: medida individual para risco que nasce da\n  organizacao do trabalho;\n- `s051` — CONCLUSAO escrita na coluna da SITUACAO, que pede verbo e frequencia;\n- `s060` — o CORTE de faixa lido como norma quando e escolha de quem avalia;\n- `s084` — prazo \"continuo\" no lugar de uma DATA;\n- `s094` — NOME DE PESSOA na linha, que cega a coleta seguinte.\nNenhum dos seis fala do TEMPO da planilha, e nenhum toca os capitulos 76 a 79.\nOs dois mais proximos vao nomeados: o `s084` cita a verificacao de eficacia, mas\nso na linha de fechamento do \"material completo\", e o eixo dele e a DATA do\nprazo; o `s094` fala de FONTE, e a fonte dele e a coluna de evidencia de uma\nlinha, nao a estabilidade da fonte ao longo dos meses. Coluna contra serie.\n\n## RESERVA\nO QUE EU NAO LEVEI, de proposito, e vai escrito para a proxima rodada achar:\n- o capitulo 79 — *\"planilha de todo mundo e planilha de ninguem\"*: a planilha\n  precisa de um DONO com nome, do mesmo jeito que cada medida precisa. Entrou\n  nesta peca apenas como apoio e NAO como eixo; e familia boa e segue livre;\n- o capitulo 83 — montar o inventario sozinho dentro de uma sala, quando a\n  comissao interna e o time de saude e seguranca ja conhecem metade das\n  situacoes. Familia de QUEM VE ANTES, livre;\n- o capitulo 78 (a formula do historico, CONT.SES cruzando classificacao e\n  status) entrou nesta peca como o instrumento da aba, logo esta consumido;\n- os capitulos 61 e 81 vao NOMEADOS como apoio desta peca e como linha de\n  fechamento do `s084` e do `s049` — para a rodada seguinte nao os tomar por\n  livres nem por intocados.\n\n## EXPOSICAO\nA PINCA DO 740/748 ESTA ABERTA AQUI, e isto vale dito porque e raro: este e o\nunico canal da frota com mira propria larga o bastante (20,0 a 26,0, seis\nsegundos) para existir media por cena que ponha os DOIS provedores dentro dela. O\n`mira.janela_dos_dois_mundos` devolve **41 a 44** caracteres por cena para sete\ncenas, e a peca saiu com media **42,29**: edge **25,03** e piper **20,5**, os\ndois DENTRO.\n\nLOGO NAO HA EXPOSICAO DE MUNDO A DECLARAR, e eu NAO mirei o piso de proposito: o\npiso executavel aqui e 31 caracteres por cena, e com 31 o piper cairia em\n**18,7** — FORA pelo piso. Mirar o piso neste canal e exatamente a conta que eu\nfiz de cabeca no `labtreinamento-s102`, e o instrumento passou a dizer, na\npropria linha do piso, de quantos mundos ele e (21/10 as 18:3x).\n\nE O REAL NAO ESTA PROMETIDO PARA LADO NENHUM: 41 das 46 pecas deste canal\nnarradas pelo edge sairam FORA do teto de 26,0 **com a mira verde nos dois\nmundos**, e a banda do residuo tem 5,2 s de largura contra 1 s de granularidade.\nDeclarar de que lado dela o real cai nao e previsao (774).\n",
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Você corrigiu a linha",
+   "sub": "e salvou a planilha",
+   "nar": "Você corrigiu a linha e salvou a planilha."
+  },
+  {
+   "layout": "item",
+   "kicker": "A nota caiu de faixa",
+   "sub": "e parece progresso",
+   "nar": "A nota caiu de faixa, e parece progresso."
+  },
+  {
+   "layout": "barras",
+   "kicker": "O que o salvar fez",
+   "barras": [
+    {
+     "rotulo": "Estado de hoje",
+     "valor": 100
+    },
+    {
+     "rotulo": "Estado de antes",
+     "valor": 0
+    }
+   ],
+   "nar": "Só que o estado anterior foi sobrescrito."
+  },
+  {
+   "layout": "item",
+   "kicker": "Sem o anterior",
+   "sub": "não há com o que comparar",
+   "nar": "Sem o anterior, não há com o que comparar."
+  },
+  {
+   "layout": "lista",
+   "kicker": "O que se cobra depois",
+   "itens": [
+    "A medida",
+    "O antes",
+    "O depois"
+   ],
+   "nar": "E o que se cobra depois é a eficácia da medida."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Guarde uma linha por mês",
+   "sub": "e por faixa",
+   "nar": "Guarde uma linha por mês e por faixa."
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "inscreva-se",
+   "nar": "Monte a aba histórico antes do próximo salvar."
+  }
+ ],
+ "longo": []
+}
