@@ -1,0 +1,137 @@
+{
+ "slug": "epomeno-epipedo-s095",
+ "pacote": "epomeno-epipedo-s095",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "longo_existente": "P2q6w9y7j88",
+ "thumb": {
+  "l1": "Το νούμερο",
+  "l2": "δεν ελέγχθηκε"
+ },
+ "paleta": {
+  "bg": "#F4EFE6",
+  "ink": "#1B1A17",
+  "c1": "#C8502A",
+  "c2": "#2B6CB0",
+  "red": "#B83227",
+  "ok": "#2E8B57",
+  "panel": "#FFFFFF",
+  "mut": "#7A7263",
+  "acc": "#C8502A"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Βρήκες ποιες γραμμές δεν πέφτουν",
+   "sub": "με λιγότερο ρεύμα",
+   "nar": "Βρήκες ποιες γραμμές δεν πέφτουν."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Ποιες μένουν ίδιες",
+   "itens": [
+    "Δίκτυα",
+    "Ρυθμιζόμενες",
+    "Δημοτικά"
+   ],
+   "nar": "Δίκτυα, ρυθμιζόμενες, δημοτικά."
+  },
+  {
+   "layout": "item",
+   "kicker": "Δεν κρέμονται από την κατανάλωση",
+   "sub": "είναι δεμένες στο ακίνητο",
+   "nar": "Είναι δεμένες στο ακίνητο."
+  },
+  {
+   "layout": "item",
+   "kicker": "Και το νούμερο του ακινήτου;",
+   "sub": "ποιος το έλεγξε",
+   "nar": "Μα ποιος έλεγξε το νούμερο;"
+  },
+  {
+   "layout": "barras",
+   "kicker": "Σταθερή γραμμή, δύο εκδοχές",
+   "barras": [
+    {
+     "rot": "Σωστό",
+     "v": 100
+    },
+    {
+     "rot": "Λάθος",
+     "v": 100
+    }
+   ],
+   "nar": "Σωστό και λάθος φαίνονται ίδια."
+  },
+  {
+   "layout": "item",
+   "kicker": "Η πράξη δεν χαλάει ποτέ",
+   "sub": "το λάθος είναι αλλού",
+   "nar": "Το λάθος δεν είναι στην πράξη."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Το λάθος κάθεται στην αφετηρία",
+   "sub": "στο αποθηκευμένο νούμερο",
+   "nar": "Είναι στην αφετηρία."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Τι προσέχει το μάτι",
+   "barras": [
+    {
+     "rot": "Πηδάει",
+     "v": 100
+    },
+    {
+     "rot": "Σταθερό",
+     "v": 12
+    }
+   ],
+   "nar": "Ό,τι πηδάει το προσέχεις."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ό,τι μένει ίδιο δεν τραβάει μάτι",
+   "sub": "ποτέ",
+   "nar": "Ό,τι μένει σταθερό, ποτέ."
+  },
+  {
+   "layout": "item",
+   "kicker": "Κάθε μήνα ξανά η ίδια πράξη",
+   "sub": "και βγαίνει σωστή",
+   "nar": "Η πράξη βγαίνει σωστή πάντα."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Τρία βήματα, μία φορά",
+   "itens": [
+    "Βρες τα τετραγωνικά",
+    "Σύγκρινε με το συμβόλαιο",
+    "Ζήτα διόρθωση"
+   ],
+   "nar": "Βρες, σύγκρινε, ζήτα διόρθωση."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ένας έλεγχος για όλα τα χρόνια",
+   "sub": "δέκα λεπτά",
+   "nar": "Ένας έλεγχος, μία φορά."
+  },
+  {
+   "layout": "item",
+   "kicker": "Αλλιώς πληρώνεις το ίδιο λάθος",
+   "sub": "κάθε μήνα",
+   "nar": "Αλλιώς πληρώνεις το ίδιο."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Δες τα τετραγωνικά σου σήμερα",
+   "sub": "στη σελίδα των δημοτικών",
+   "nar": "Δες τα τετραγωνικά σήμερα."
+  }
+ ],
+ "copy": "# epomeno-epipedo-s095\n\n## TITULO\nΤα τετραγωνικά στον λογαριασμό: το νούμερο που δεν κουνήθηκε ποτέ και δεν το έλεγξε κανείς\n\n## TITULO SHORT\nΤο νούμερο που δεν ελέγχθηκε\n\n## DESCRICAO\nΌταν μάθεις να χωρίζεις τον λογαριασμό σε οικογένειες χρεώσεων, κάνεις αμέσως το σωστό επόμενο βήμα: βλέπεις ποιες γραμμές κουνιούνται με την κατανάλωση και ποιες όχι. Τα δίκτυα, οι ρυθμιζόμενες χρεώσεις και τα δημοτικά δεν πέφτουν με λιγότερο κλιματιστικό, γιατί δεν κρέμονται από τις κιλοβατώρες σου.\n\nΕκεί σταματάει σχεδόν όλος ο κόσμος, και εκεί μένει ανέλεγκτο ένα πράγμα. Η γραμμή που δεν κουνιέται δεν βγαίνει από το πουθενά: βγαίνει από ένα νούμερο που κάποιος καταχώρησε κάποτε για το ακίνητό σου. Το ερώτημα δεν είναι αν η γραμμή πέφτει. Είναι αν η αφετηρία της είναι σωστή.\n\nΚαι εδώ είναι ο λόγος που το λάθος δεν φωνάζει. Η πράξη βγαίνει σωστή κάθε μήνα — σωστή πράξη πάνω σε λάθος αφετηρία. Όταν ένα ποσό πηδάει, το προσέχεις και το ψάχνεις. Όταν μένει ίδιο, δεν τραβάει ποτέ το μάτι, και μια σταθερή σωστή γραμμή φαίνεται απολύτως ίδια με μια σταθερή λάθος γραμμή. Η ίδια σταθερότητα που σε έκανε να πεις «αυτή δεν τη πειράζω» είναι αυτή που κρύβει το λάθος.\n\nΤο κόστος δεν είναι ενός μήνα. Αν το αποθηκευμένο νούμερο είναι λάθος, πληρώνεις το ίδιο λάθος κάθε μήνα, για χρόνια, χωρίς να το δεις ποτέ. Και ο έλεγχος γίνεται μία φορά και τελειώνει: βρίσκεις τα τετραγωνικά πάνω στα οποία χρεώνεσαι, τα συγκρίνεις με το χαρτί του ακινήτου, και αν δεν συμφωνούν ζητάς διόρθωση.\n\nΗ πλήρης ανάγνωση της σελίδας, με τις τέσσερις οικογένειες χρεώσεων και το φύλλο των τεσσάρων γραμμών, είναι στο μεγάλο βίντεο αυτού του καναλιού.\n\n## FONTES\nΜεγάλο βίντεο αυτού του καναλιού: ο λογαριασμός του ρεύματος γραμμή προς γραμμή — οι τέσσερις οικογένειες χρεώσεων και το φύλλο των τεσσάρων γραμμών.\n\n## FAMILIA DE ENTRADA ERRADA\nO PARAMETRO GUARDADO NO SISTEMA, QUE NINGUEM CONFERE — auditar o COMPORTAMENTO\ndas linhas (qual se move com o consumo e qual nao) e nunca auditar a ENTRADA da\nlinha que nao se move. O eixo e a CORRECAO de um numero armazenado, nao a\noperacao nem a natureza da linha: os metros quadrados sobre os quais os\ndimotika sao cobrados sao um dado que alguem cadastrou uma vez para o imovel, e a\nconta mensal o reaplica.\n\nE a parte que torna esta entrada errada diferente das outras e o MECANISMO do\nsilencio, e ele e o avesso da propria descoberta anterior: a linha nao varia,\nlogo nada na variacao mensal a denuncia. Valor que pula chama atencao e e\ninvestigado; valor constante nunca chama, e uma constante ERRADA e visualmente\nidentica a uma constante CERTA. A estabilidade que fez a pessoa dizer \"nesta eu\nnao mexo\" e exatamente o que esconde o erro. A conta sai correta todo mes —\npratica correta sobre ponto de partida errado —, logo o portao da aritmetica esta\nsempre verde. Capitulos 70 e 71 do longo `P2q6w9y7j88`, com apoio do 69.\n\nE o CUSTO e cumulativo, nao mensal: o capitulo 71 escreve, em letra, que\n\"pagas o erro todo mes, anos, sem nunca o ver\". Logo o remedio e de uma vez e\nvale para tras e para a frente — tres passos, dez minutos, uma unica vez.\n\nDISTINCAO DOS QUATRO IRMAOS desta origem, lida pelo `irmaos_da_origem` e pela\nNARRACAO de cada um (e o `s010` e o `s077` NAO tem o campo da familia, logo a\ncomparacao deles foi pela PROSA e pela narracao, que e de primeira mao — 776, e\no conserto de 20/10 as 15:3x):\n- `epomeno-epipedo-s010`: a BASE de um percentual — o desconto cai na linha da\n  energia e nao no total, logo o mesmo percentual rende diferente em cada\n  fatura. Eixo: a BASE do percentual;\n- `epomeno-epipedo-s029`: FIXO por imovel e por conexao contra VARIAVEL com o\n  consumo — cortar consumo e esperar que a pagina inteira caia. Eixo: o\n  COMPORTAMENTO da linha;\n- `epomeno-epipedo-s042`: a diferenca entre duas faturas tem TRES causas (dias,\n  estacao, decisao), logo nao e efeito da mudanca que se fez. Eixo: o PERIODO\n  comparado;\n- `epomeno-epipedo-s077`: o percentual so conta em fatura de MEDICAO — enanti\n  sai com estimativa e a estimativa nunca viu o medidor. Eixo: QUAL documento\n  esta na mao.\n\n**O `s029` e o irmao mais proximo, e a distincao vai dita porque e fina:** ele\ndiz que aquela linha NAO SE MOVE com o consumo (comportamento); esta diz que a\nENTRADA dela pode estar errada (correcao de um numero guardado). Comportamento\ncontra correcao — e as duas se encaixam em vez de competir: e precisamente a\ninvariancia que o `s029` descreve que torna este erro invisivel. Quem fica no\n`s029` sai sabendo que nao vale cortar consumo para derrubar aquela linha, e\nnao sai sabendo que o numero debaixo dela pode estar errado desde sempre.\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO. A narracao nao diz\ntarifa de dimotika por metro quadrado, nao diz percentual, nao diz euro, nao\ndiz prazo de contestacao e nao nomeia orgao nem fornecedor — e **a recusa\ninclui o numero que me convinha**: quantos metros quadrados de diferenca\nmudariam a conta, que e exatamente o que daria concretude ao argumento e muda\npor municipio e por publicacao (regra g).\n\nE o proprio capitulo 7 da origem escreve a regra que eu sigo aqui: ela manda\n\"numeros com fonte e data, e uma conta que voce refaz sozinho na mesa da\ncozinha\". Esta peca nao traz numero nenhum, logo nao precisa de fonte nenhuma —\nela traz um PASSO DE CONFERENCIA.\n\nAs barras (100/100 na cena 4 e 100/12 na cena 7) sao ILUSTRACAO qualitativa:\nduas colunas de ALTURA IGUAL, que e o argumento inteiro da cena 4 (certo e\nerrado sao visualmente identicos quando a linha e constante), e a diferenca\nentre o que o olho persegue e o que ele ignora. **Elas NAO sao faladas** e nao\nmedem fatura de ninguem: a rodada seguinte NAO as le de volta como dado.\n\n## EXPOSICAO\nA pinca do 740/748 esta FECHADA neste canal: nenhuma media por cena poe os dois\nprovedores dentro de 41,5 a 43,0 com catorze cenas nesta voz, e quem diz isso e\no `mira.janela_dos_dois_mundos`. O PISO EXATO NAO E ALCANCAVEL, e isso vai dito\nem vez de eu chamar 42,05 de piso: um caractere por cena vale 0,71 s, o\n`mira.chars_no_alvo` devolve 26 cru para o piso e 26 caracteres caem ABAIXO da\nfaixa, logo 27 e o ponto mais BAIXO ALCANCAVEL — o `mira.quanto_cortar` devolve\n`delta_total: 0`, isto e, nao ha o que cortar. Mirei esse ponto, que e a regra\nde redacao do 772 aplicada ate onde a granularidade deixa. O piper sai em 37,25:\nFORA pela mira e DENTRO do portao, que cobra 18 a 45 s nos dois mundos.\nO REAL nao esta prometido para lado nenhum — a banda tem 5,2 s contra 1 s de\ngranularidade, e declarar um lado dela nao e previsao (774).\n\nA FORMA, do `esqueleto_entre_canais` com esta peca FORA da varredura: 14 cenas,\nmedia de 27,14 caracteres por cena, esqueleto INEDITO nas 181 formas de short da\nfrota — e o tamanho de catorze tem SETE pecas em SETE formas distintas, todas\ndeste canal. Ordens livres destes mesmos layouts: 23.758 de 23.760.\n\n## RESERVA\nPara a rodada seguinte nesta origem (`P2q6w9y7j88`, 78 capitulos, 55 livres por\nkicker), com o motivo escrito:\n- LIVRE: A PAGINA NAO FOI FEITA PARA SER LIDA, FOI FEITA PARA DOCUMENTAR\n  (capitulo 8) — letras pequenas, abreviaturas, e o UNICO numero em corpo\n  grande e o que se deve pagar. A entrada errada e tomar esse numero grande\n  como se fosse o RESUMO do documento, quando ele e uma escolha de desenho;\n- LIVRE: O EXEMPLO DA PROPAGANDA E SEMPRE CONSTRUIDO PARA FECHAR (capitulos 52\n  e 49) — comparar pelo exemplo que a oferta mostra em vez das SUAS proprias\n  quilowatts-hora. CUIDADO: ela encosta no `s010`, que e sobre a base do\n  percentual; o eixo aqui tem de ser a FONTE dos numeros da comparacao;\n- LIVRE: DUAS FATURAS, UMA DE VERAO E UMA DE INVERNO (capitulo 63) — o\n  percentual muda e a MUDANCA e a informacao. CUIDADO SERIO: ela encosta no\n  `s042` (periodo comparado) e tambem no `epomeno-epipedo-s055` deste canal,\n  que e sobre uma medicao nao bastar; sem um eixo novo, nao levar;\n- NAO LEVAR: capitulos 50, 51 e 53 (oferta de boas-vindas que vale tres ou seis\n  meses, clausula de reajuste, fixo contra variavel). Eles sao uma peca boa e o\n  eixo deles — o PRAZO de validade do preco anunciado — ja e o do\n  `epomeno-epipedo-s039` neste mesmo canal, de outra origem. Repetir familia\n  entre origens do MESMO canal e a regra (f), e o `similaridade` nao pegaria,\n  porque ele compara TITULO;\n- NAO LEVAR: capitulos 23, 24, 28, 32, 34 e 41 (a faixa de quanto da conta nao\n  e energia, os cinco tributos, o percentual do exemplo, o tele de cinco por\n  mil). Sao numeros sobre o mundo que mudam por publicacao, e saem pela regra\n  (g) — e o 32 ja esta DECLARADO pelo `s029`;\n- NAO LEVAR: capitulo 65 (guardar a propria serie em vez da media das\n  noticias). O eixo e o do `kolejny-poziom-s092`, publicado em 22/10 as 09:20Z,\n  isto e ontem em outro canal — e o `similaridade` NAO pegaria, porque ele\n  compara contra o MESMO canal. Fica livre nesta origem e nao nesta semana.\n\n## HASHTAGS\n#λογαριασμος #ρευμα #δημοτικα #οικονομικα #epomenoepipedo\n\n## COMENTARIO FIXADO\nΒρήκες τα τετραγωνικά πάνω στα οποία χρεώνεσαι δημοτικά; Γράψε από κάτω μόνο ένα πράγμα: αν συμφωνούν με το χαρτί του ακινήτου, ναι ή όχι. Χωρίς ποσά και χωρίς διευθύνσεις.\n\n## TAGS\nλογαριασμός ρεύματος, δημοτικά τέλη, τετραγωνικά, ρυθμιζόμενες χρεώσεις, προσωπικά οικονομικά, πάροχος ρεύματος, ανάγνωση λογαριασμού, έλεγχος χρεώσεων\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ncategoryId: 27\ndefaultLanguage: el\nmadeForKids: false\n\n## MUSICA / LICENCA\nTrilha `Inspired` do incompetech (Kevin MacLeod), licença CC BY 3.0.\n"
+}
