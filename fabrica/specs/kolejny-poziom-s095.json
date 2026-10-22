@@ -1,0 +1,111 @@
+{
+ "slug": "kolejny-poziom-s095",
+ "pacote": "kolejny-poziom-s095",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "longo_existente": "EwUkhdwyuuo",
+ "thumb": {
+  "l1": "Rata kontra",
+  "l2": "suma"
+ },
+ "paleta": {
+  "bg": "#0B0B0C",
+  "ink": "#F2EEE8",
+  "c1": "#E23B3B",
+  "c2": "#D9C7A7",
+  "red": "#FF4D4D",
+  "ok": "#7FB77E",
+  "panel": "#151517",
+  "mut": "#8F877C",
+  "acc": "#E23B3B"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Różnica w racie",
+   "sub": "wygląda na prawie nic",
+   "nar": "Różnica w racie wygląda na nic."
+  },
+  {
+   "layout": "item",
+   "kicker": "Bo na nią patrzysz",
+   "sub": "rata musi się zmieścić",
+   "nar": "Patrzysz na ratę: ona musi się zmieścić."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Ta sama decyzja",
+   "barras": [
+    {
+     "Różnica w racie": 8
+    },
+    {
+     "Różnica w sumie rat": 100
+    }
+   ],
+   "nar": "Ta sama decyzja w sumie wygląda inaczej."
+  },
+  {
+   "layout": "item",
+   "kicker": "To jedna liczba",
+   "sub": "w dwóch jednostkach",
+   "nar": "Jedna liczba w dwóch jednostkach."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Porównaj z czymś znanym",
+   "itens": [
+    "Z rocznym dochodem",
+    "Z ceną samochodu",
+    "Z wkładem własnym"
+   ],
+   "nar": "Porównaj tę sumę z czymś, co już znasz."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Bez odniesienia",
+   "sub": "to tylko abstrakcja",
+   "nar": "Kwota bez odniesienia zostaje abstrakcją."
+  },
+  {
+   "layout": "item",
+   "kicker": "Z odniesieniem",
+   "sub": "staje się decyzją",
+   "nar": "Z odniesieniem ta kwota staje się decyzją."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Dlatego to działa",
+   "barras": [
+    {
+     "Kwota sama": 20
+    },
+    {
+     "Kwota z odniesieniem": 100
+    }
+   ],
+   "nar": "Bez porównania nie czujesz tej kwoty."
+  },
+  {
+   "layout": "item",
+   "kicker": "I nie powtarza się",
+   "sub": "okres wybierasz raz",
+   "nar": "Okres wybierasz raz, i to na wiele lat."
+  },
+  {
+   "layout": "item",
+   "kicker": "Więc licz przed",
+   "sub": "nie po pierwszym roku",
+   "nar": "Dlatego licz przed podpisem, a nie po roku."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Policz na swojej umowie",
+   "sub": "i zasubskrybuj",
+   "nar": "Policz to na swojej umowie i zasubskrybuj."
+  }
+ ],
+ "copy": "## TITULO\nCena Okresu w Dwóch Jednostkach: Dlaczego Różnica w Racie Wygląda na Nic, a w Sumie Już Nie\n\n## TITULO SHORT\nW racie to nic, w sumie to nie\n\n## DESCRICAO\nJest liczba, która najczęściej zmienia zdanie, i nie jest to żadna nowa liczba. To ta sama różnica, obejrzana w innej jednostce.\n\nPrzy podpisie patrzysz na ratę, bo rata musi się zmieścić w budżecie. I właśnie dlatego różnica między dwoma okresami wygląda na prawie nic: w jednostce miesięcznej jest to kwota, o której się nie myśli. Ta sama decyzja, zapisana w sumie wszystkich rat, wygląda zupełnie inaczej.\n\nTo nie są dwie różne liczby i żadna z nich nie jest błędna. To jedna liczba, czytana w dwóch jednostkach — a jednostka, w której na nią patrzysz, decyduje o tym, co czujesz. Rachunek może być idealnie policzony i nic cię nie ostrzeże, bo wynik wygląda na wynik.\n\nDrugi krok jest równie prosty: kwota w złotych bez odniesienia zostaje abstrakcją. Porównaj ją z czymś, co już znasz — z rocznym dochodem, z ceną samochodu, z wkładem własnym. Dopiero wtedy przestaje być liczbą i staje się decyzją.\n\nI jest jeszcze powód, dla którego warto to zrobić zawczasu: okres wybierasz raz, na wiele lat. To nie jest decyzja, którą poprawiasz co miesiąc.\n\nTen film nie podaje żadnej stawki, żadnego okresu i żadnej kwoty. Jest o jednostce, w której czytasz własny wynik.\n\n## FONTES\nShort de segundo ângulo do longo já publicado no canal (`EwUkhdwyuuo`, kolejny-poziom-013), capítulos 72 a 78 — *Od miesiąca do całego kredytu*, *Różnica w racie*, *Różnica w sumie*, *Porównaj ją z czymś*, *Dlaczego to działa*, *I to się nie powtarza* e *Dlatego licz przed* —, com os capítulos 2, 3 e 4 como apoio.\n\n## FAMILIA DE ENTRADA ERRADA\nA UNIDADE EM QUE SE LÊ O RESULTADO. O eixo não é como calcular nem o que o cálculo não captura: é em que unidade se olha o número depois de o ter. A entrada errada é julgar a decisão pela diferença MENSAL, que é a unidade em que todo mundo já está olhando (a rata tem de caber no orçamento), e nela a diferença entre dois períodos é desprezível por construção. **A mesma decisão na soma das prestações é outra grandeza** — e nenhuma das duas leituras está errada, o que é o que torna isto silencioso: o cálculo fecha, o resultado sai com cara de resultado, e a unidade escolhida já decidiu o que a pessoa vai sentir.\n\nA segunda metade é o ANCORAMENTO: valor em złoty sem referência é abstração, e é com uma referência conhecida que ele volta a ser decisão.\n\nDistinções escritas contra os QUATRO irmãos, lidas pelo `irmaos_da_origem` e pela NARRAÇÃO de cada um — e DOIS deles (`s011` e `s019`) não têm o campo da família, logo a comparação saiu da prosa e da fala, que é de primeira mão:\n* `s011` — **o que a nadpłata encurta**: prazo ou prestação, e isso é CLÁUSULA da umowa;\n* `s019` — **os DOIS efeitos opostos do prazo**: ele baixa a prestação E multiplica o número de prestações que carregam juros. É sobre a ARITMÉTICA de por que não se decide no olho;\n* `s038` — **fotografia contra previsão**, e o que o cálculo NÃO captura (seguros, comissão, nadpłata). Fala do que fica FORA da conta; esta peça fala da conta já pronta;\n* `s078` — **a rata tem DUAS partes**, e a proporção muda ao longo do período. É a composição da prestação.\n\n**Nenhum dos quatro fala da UNIDADE em que o resultado é lido.** E a vizinha mais perigosa é de OUTRA origem, neste mesmo canal: o `s036` também fala de escala, mas ali é grosz contra złoty dentro de uma fatura — confusão de unidade MONETÁRIA. Aqui as duas unidades são de HORIZONTE: um mês contra o crédito inteiro.\n\n## AVISO SOBRE OS NUMEROS\nZERO NÚMERO NOVO SOBRE O MUNDO, e ZERO DÍGITO na narração. Não cita stawka, oprocentowanie, marża, prazo em anos ou meses, valor de prestação, kwota em złoty nem nome de banco. O longo está cheio de número de exemplo e nada disso entra — a regra desta peça é sobre a UNIDADE, não sobre a magnitude.\n\n**E a recusa inclui o número que tornaria a peça mais fácil:** quanto exatamente a diferença mensal costuma valer, e quanto ela vira na soma. É exatamente o que daria força ao argumento, e é o que a regra (g) não deixa — **e o próprio longo escreve o mesmo motivo** no capítulo 14: *\"o ile rośnie, zależy od twojej kwoty, twojego oprocentowania i twoich dwóch okresów. Dlatego to musi być twój rachunek, nie mój\"*.\n\n**A narração não fala numeral NENHUM**, conferido pelo `numerais_falados` — com a ressalva dele de que ausência de vocabulário não prova ausência. As barras das cenas 2 e 7 são ILUSTRAÇÃO qualitativa da desproporção entre as duas leituras, **não são faladas**, e não são kwota nem percentual — escrito em letra para a rodada seguinte não as ler de volta como dado.\n\n## EXPOSICAO\nA PINÇA DO 740/748 ESTÁ FECHADA AQUI: a `mira.janela_dos_dois_mundos` devolve NENHUMA janela de caracteres para esta voz nesta faixa com onze cenas — a razão piper/edge é 0,851 e o vão entre os provedores é de várias vezes a largura de 1,5 s do `ALVO_SHORT`. Logo não existe orçamento que ponha os dois mundos dentro da faixa, e a exposição vai DECLARADA antes de publicar: mirei o PISO (regra de redação do 772), o piper sai FORA pela mira e DENTRO do portão, que cobra 18 a 45 s nos dois mundos.\n\n**E o PISO EXATO não é alcançável com onze cenas**, dito assim em vez de eu chamar 41,80 de piso: um caractere por cena vale **0,57 s** nesta contagem, logo 38 caracteres dão **41,80** e 37 caem em ~41,2, **abaixo** da faixa. A peça saiu no ponto mais BAIXO alcançável acima do piso.\n\n**MEDIDO, e as linhas foram GERADAS pelo `linhas_medidas_da_copy`, não redigitadas:** previsão edge **41,80 s** / piper **35,50 s**; 11 cenas, média de **38,82** caracteres por cena; esqueleto `titulo-item-barras-item-lista-titulo-item-barras-item-item-cta`, **INÉDITO nas 183 formas** de short da frota; acento **5,16%**, thumbnail com **3** palavras, gancho com **6**.\n\n**E o `antes_do_render` pegou DOIS defeitos antes do render:** a thumbnail saiu com **SEIS** palavras contra o limite de 4 — a **nona** vez do mesmo defeito nesta sessão — e a previsão saiu em **43,12 s**, isto é **ACIMA do topo** da faixa, com a copy dizendo que eu mirava o piso. O corte saiu do `mira.quanto_cortar`, não da minha cabeça.\n\n**E o REAL não está prometido para lado nenhum:** a banda tem 5,2 s de largura contra 1 s de granularidade, e declarar um lado dela não é previsão (774).\n\n## RESERVA\nO QUE EU NÃO LEVEI, escrito para a próxima rodada achar — com o veredito de cada um conferido contra a NARRAÇÃO dos irmãos, não contra o bloco de reserva deles (20/10, 15:3x):\n\n* **CONSUMIDA, e isto corrige o bloco do `s019`:** ele deixou *\"Rata ma dwie części\" / \"Na początku\"* como não levada, e o **`s078` levou exatamente isso** — o título curto dele é *Rata ma dwie części, nie jedną*. O bloco segue dizendo \"não levei\" e levaria a próxima rodada a repetir a família; fica retratado aqui;\n* **LIVRES — uma coisa de cada vez** (capítulos 32, 33, 34 e 37): as duas simulações têm de ser do MESMO dia e com tudo igual exceto o período, senão a diferença deixa de ser o preço do período e passa a ser mistura de várias coisas. **Atenção:** é vizinho do `s038`, que já carrega a consistência de seguros nos dois lados (capítulos 53 e 54) — leia a peça dele antes;\n* **LIVRES — o período mais longo COM nadpłata** (capítulos 62 a 67 e 71): a prestação baixa passa a ser margem de segurança em vez de custo, e isso exige constância por anos; se a nadpłata não acontecer, sobra só o período longo e o custo dele. São TRÊS números em vez de dois. **Atenção:** é vizinho do `s011` (o que a nadpłata encurta) e do capítulo 56, declarado pelo `s038`;\n* **LIVRES — os três passos de hoje** (capítulos 82 a 87): dois documentos que já existem, uma pergunta ao banco por escrito, e papel com calculadora — mais *\"zapisz wynik razem z datą\"*, porque em seis meses a memória não reconstrói as condições da decisão.\n\n## HASHTAGS\n#kredyt #finanse #rata #okres #hipoteka #budzet #pieniadze #decyzje\n\n## COMENTARIO FIXADO\nW jakiej jednostce patrzyłeś na swoją różnicę: w racie czy w sumie? Bez kwot.\n\n## TAGS\nkredyt hipoteczny, okres kredytowania, rata, suma rat, koszt kredytu, finanse osobiste, budzet domowy, decyzje finansowe, nadplata, umowa kredytowa\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ncategoryId: 27\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\nmadeForKids: false\n\n## MUSICA / LICENCA\nWholesome (incompetech, Kevin MacLeod) — CC BY 3.0, a trilha do canal.\n"
+}
