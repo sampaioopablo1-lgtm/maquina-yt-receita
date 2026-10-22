@@ -10009,3 +10009,30 @@ SETIMA rodada seguida:** 70,06 h, piso de resolucao **0,34/dia**, os tres SIM.
 **COTA: DOIS envios** na janela aberta as 07:00Z, **3.200** unidades, contra o
 piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
 hora.
+
+**A SUITE FECHOU: 25 falhas, 3.788 passam, 1.167 skip em 1.481 s** — passada
+**PROVADA** pelo `passada_da_suite`, conjunto **IDENTICO** a linha de base desta
+sessao, `comm` vazio nos **dois** sentidos. Os nove testes novos entraram
+inteiros (3.779 -> 3.788) e **nenhuma falha nova**. **E o tempo vai medido em vez
+de atribuido:** 1.481 s contra 1.506 s da passada anterior, e os nove passam
+isolados em **0,05 s** — a diferenca e para BAIXO, logo nao e deles e eu nao sei
+a causa.
+
+**E O DEFEITO DE 21/10 AS 21:0x APARECEU PELA CAUSA QUE ELE DESCREVE, com uma
+agravante que a nota nao tinha: eu nomeio o arquivo pela HORA, e a hora
+REPETE todo dia.** Havia um `s0807.norm` de **21/10 as 08:33** — resto da rodada
+das 08:07 de ONTEM, com o nome identico. A regra daquela nota e *"nome NOVO a
+cada passada"*, e nomear pela hora **nao e nome novo**: ele colide com o mesmo
+horario do dia anterior, e o resto sobrevive a sessao inteira no scratchpad.
+
+O `passada_da_suite` o teria **RECUSADO** de todo modo (o `.norm` era mais velho
+que o log, que e o segundo dos tres discriminadores dele), logo a guarda de
+21/10 estava no lugar certo. **O que faltava era o nome**, e isso e disciplina de
+quem chama: o resto foi removido antes de qualquer comparacao, e a regra ganha a
+parte que faltava — **nome de passada leva a DATA, nao so a hora.**
+
+**E O LACO DE ESPERA FOI PARADO PELO LIMITE DELE, nao a suite** — duas vezes
+nesta rodada —, e quem separou as duas coisas foi o `processo_vivo`, respondendo
+**VIVO** com o log em 37%. Pelo defeito de 19/10 as 16:2x eu teria lido o
+arquivo incompleto e chamado aquilo de resultado; e a terceira forma da mesma
+familia, agora com o limite da MINHA espera no lugar da morte do processo.
