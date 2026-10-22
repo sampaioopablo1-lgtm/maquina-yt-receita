@@ -9378,3 +9378,139 @@ familia do `2>&1` de 19/10 as 21:1x e do `until !` de 20/10 as 01:4x: conserto n
 modulo nao protege contra a INVOCACAO** — e aqui a recusa do modulo foi
 exactamente o que impediu a leitura errada, em vez de me devolver *"identico a
 base"*, que era a resposta confortavel.
+
+## O JOB QUE DA PROCEDENCIA AO PROVEDOR VINHA DA MINHA DIGITACAO
+
+**Medido em 22/10 as 05:3x, cruzando os dois parques.** O 733 estabeleceu que o
+provedor de cada cena e OBSERVAVEL — um `::warning:: NARRACAO PELO PIPER` por
+cena do Piper, zero se o edge venceu — e desde entao eu venho **digitando** as
+tres leituras da anotacao a cada rodada: conto o aviso com um `--jq` escrito na
+hora, leio o `::notice:: SOM` com os olhos e **REDIGITO o JSON dele** como
+literal Python, e **digito o `job`** a mao dentro do `do_registro`. **E o item 3
+da §10 na OITAVA dimensao** — canal (19/10 as 11:2x), cota (23:3x), cenas (02:2x),
+pauta (08:2x), dono da origem (10:1x), som (21/10 as 22:3x), contrato do render
+(22/10 as 02:5x) e agora as ANOTACOES.
+
+**E o `job` tinha DOIS DONOS, cada um preenchido por uma transcricao minha
+diferente — e eles DIVERGIAM em silencio:**
+
+| | |
+|---|---|
+| pacotes com `job` nos DOIS parques | **65** |
+| **DIVERGENTES** | **QUATRO** |
+| quem divergia | `epomeno-epipedo-s072`, `kolejny-poziom-s073`, `kolejny-poziom-s074`, `labtreinamento-s091` |
+
+**E nos quatro o job do parque de DURACAO e o do `retomar`, nao o do render.**
+Conferido na API: aqueles quatro jobs tem **tres** anotacoes cada — a do Node, a
+do `ubuntu-latest` e o `PUBLICADO` — e **zero** aviso do Piper e **zero** SOM.
+Logo o *"provedor edge MEDIDO (zero avisos no job X)"* que eu escrevi para as
+quatro **contou o aviso do 733 num job que nunca narra: o zero era VACUO**, a
+mesma forma do `or True` de 16/10 e do `except Exception: continue` de 12/10.
+
+**A CONCLUSAO SOBREVIVEU, E ISSO E SORTE E NAO METODO:** contados nos jobs
+`produzir` de verdade (`118434208097`, `118449827173`, `118505061977`,
+`118524197854`), os quatro dao **zero**, logo as quatro pecas foram mesmo
+narradas pelo edge. **O que estava errado era a PROCEDENCIA** — e procedencia
+inventada e pior que procedencia ausente (19/10 as 07:2x), porque convida a
+conferir no lugar errado: quem abrisse aquele job concluiria que o provedor nao
+foi medido.
+
+**O DISCRIMINADOR NAO E O NOME DO JOB, e e por isso que ele e barato: job que
+emitiu `SOM` MEDIU AUDIO, logo narrou; job que emitiu `PUBLICADO` subiu a peca.**
+Contar o aviso do Piper so vale no primeiro, e isso e **PROPRIEDADE da anotacao**
+e nao a string `produzir` na coluna do nome — que e convencao do workflow e pode
+mudar sem ninguem avisar. Era o nome que eu usava **sem dizer**.
+
+**Consertado com UM dono: `fabrica/anotacoes_do_run.py`** le os jobs e as
+anotacoes do run **numa leitura so** e DERIVA o provedor, o job de onde a
+contagem saiu, o SOM e o `PUBLICADO`. **As duas leituras sao DELEGADAS** — o
+`SOM` vira registro pelo `som_parqueado.do_notice` e o `PUBLICADO` pelo
+`registro_videos.linhas_dos_notices` —, porque reparsear aqui criaria o segundo
+dono de cada forma. **Run sem job LEVANTA** e **run em que nenhum job narrou
+RECUSA**, do jeito que o `porta1` recusa janela curta. E as quatro linhas foram
+corrigidas no parque, com `assert` sobre o valor antigo antes de gravar.
+
+    python3 fabrica/anotacoes_do_run.py [run_id] [pacote]
+
+`tests/test_o_job_do_PROVEDOR_vinha_da_minha_digitacao.py`, treze testes: o
+defeito e **REPRODUZIDO** (so o job que publica no run -> RECUSA citando
+vacuidade), a contraprova vai nos **dois** sentidos (job que narrou responde;
+sem ela recusar sempre passaria), o discriminador e cobrado nos **dois**
+sentidos — nome estranho que narrou ENTRA e nome `produzir` sem SOM fica FORA —,
+as delegacoes sao por **AST** com `re.compile`, `json.loads` e `open(`
+**proibidos** nas tres funcoes de leitura, o cruzamento le os parques pelo
+`carrega` de cada um, o disco e cobrado com **piso de vacuidade** (menos de 20
+pacotes em comum e cruzamento que passa por nao medir nada), uma divergencia
+**SEMEADA** tem de sair NOMEADA, a marca do 733 e cobrada **identica a do
+emissor** (se ela divergir, o zero volta a ser vacuo do outro lado), e um
+**falha se a medida (65/QUATRO), o VACUO ou a palavra SORTE sairem do modulo**.
+Os quatro ids antigos ficam como **HISTORIA** (`PAR_DE_05H`), com o motivo ao
+lado, e **nenhum assert depende deles** (743/753/761). **Contraprova:** devolvido
+o discriminador ao NOME do job, reprova exatamente o teste que o mede.
+
+**E A PRIMEIRA VERSAO DE UM TESTE MEU ERA UM PORTAO VERDE FABRICADO:** eu
+escrevi `assert ... if hasattr(AR, "relato_de_teste") else True`, isto e um
+assert que **se desliga** quando o atributo nao existe — e o atributo nao
+existe. E o `or True` de 16/10, **num arquivo escrito para guardar o oposto**.
+Retirado, com o motivo escrito no lugar.
+
+### A PECA DESSA RODADA — SEIS cenas, e os DOIS mundos dentro da mira
+
+`labtreinamento-s106` = **`3r3Dbjtn-Fs`** (*A fonte é um instrumento*),
+publicado as 05:18:30Z (run `39727247801`), **sem `403 quota`**. **ONZE PORTOES
+VERDES NA PRIMEIRA TENTATIVA** — e ela foi **CONFERIDA COMO RASCUNHO** antes de
+existir no disco, pela sexta vez em producao (dez portoes baratos limpos em
+0,67 s, mais mira, acento 2,45%, gancho, paleta **LIDA** do dono e as seis cenas
+desenhando). Provedor **edge MEDIDO** — e **pela primeira vez a contagem saiu do
+INSTRUMENTO e nao de um `--jq` escrito na hora**: zero avisos no job
+`119652921998`, que e o job que emitiu o SOM. Som **−14,1** LUFS, LRA 1,8, pico
+**−3,7** dBTP com `pico_vs_teto: dentro`, desvio −0,1, **zero silencios** — e a
+leitura foi PARQUEADA pelo `som_parqueado` **sem eu redigitar o JSON** (parque em
+68 linhas).
+
+**PAUTA:** `XgqPVJuAk3o` (`labtreinamento-002`), 6 usos — empate de **NOVE**
+origens desempatado pela MAIOR reserva, **52 de 87** capitulos NAO MENCIONADOS.
+A dominante `FtCtIJPsc_Q` ficou de fora, e quem conta e o `concentracao.py`.
+
+**E A FAMILIA SAIU DA RESERVA ESCRITA pela QUINTA rodada seguida:** o
+`labtreinamento-s033` deixou nesta origem um bloco nomeando a coluna da FONTE
+como nao levada. **FAMILIA: A COLUNA DA FONTE GUARDA UM INSTRUMENTO, NAO DADO** —
+ela responde uma pergunta so (*como voce soube disso?*), logo fonte que
+identificou alguem uma vez **nunca mais serve**, e sem a data da coleta a mesma
+medida nao se repete. O eixo e o **INSTRUMENTO**, e nenhum dos irmaos o toca.
+
+**SEIS CENAS pela chave `por_cadencia_servivel`:** sete e a melhor cadencia e
+**REPETE a `s104`**, e **9, 10 e 11** sairam **NOMEADAS** porque ali o PISO da
+faixa nao e alcancavel com texto legivel. **ESQUELETO
+`titulo-item-barras-item-lista-cta`, INEDITO nas 170 formas da frota** — numero
+do `esqueleto_entre_canais`, com a propria peca FORA da varredura pelo `exceto`.
+
+**A PINCA DO 740/748 ESTA ABERTA AQUI**, e este e o unico canal da frota em que
+isso acontece: a `janela_dos_dois_mundos` pede **51 a 55** caracteres por cena e
+a peca saiu com media **51,17** — edge **25,37** e piper **20,83**, os **DOIS**
+dentro da mira medida (20,0 a 26,0). Logo **nao ha exposicao de mundo a
+declarar**, e eu **NAO mirei o piso de proposito** (com os 39 do piso o piper
+cairia abaixo de 20,0). **E o REAL nao esta prometido para lado nenhum** — 41 das
+46 pecas deste canal narradas pelo edge sairam fora do teto de 26,0 com a mira
+verde, e a banda tem 5,2 s contra 1 s de granularidade (774).
+
+**E O STORAGE DEU 402 NO RENDER, com o job em `success`:** a anotacao de nivel
+`failure` diz que a cota do bucket acabou e que *"a publicacao segue mesmo
+assim"*. E o 402 continuo desde 25/08, e o `supabase_url` fica NULO para o que
+nao subiu. **Vai dito porque anotacao `failure` em job `success` e discriminador
+ruim**: quem lesse o NIVEL concluiria que o render falhou.
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica` pela VIGESIMA
+SETIMA rodada seguida** — medido pela `sonda_e_modo`, com os TRES controles no
+MESMO caminho: o `touch` passou, os TRES hosts voltaram **000 sem arquivo**, e o
+proxy nomeou `example.com` e `www.youtube.com` depois de 05:19:24Z. A peca esta
+PARQUEADA com o provedor MEDIDO e o job **lido da API pelo instrumento**, e a
+presenca foi conferida **RELENDO** o parque (**128** linhas, **56** sem leitura).
+`RESIDUO_N` segue **128**.
+
+**E A LEITURA DE INSCRITOS PASSOU AS TRES PORTAS E NAO FOI FEITA, pela DECIMA
+QUINTA rodada seguida:** 67,27 h, piso de resolucao **0,36/dia**, os tres SIM.
+**O que a impede e a ROTA, e o remedio e do DONO** — a tela de Network access.
+
+**COTA: VINTE E QUATRO envios** na janela aberta as 07:00Z de 21/10, **38.400**
+unidades, contra o piso MEDIDO de **>= 41.600** — do `janela_de_cota`.
