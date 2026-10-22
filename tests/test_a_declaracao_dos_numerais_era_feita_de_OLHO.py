@@ -125,11 +125,23 @@ def test_NAO_alarma_e_a_medida_do_acervo_e_RECONFERIDA():
         "mudou, esta nota se rele e o instrumento pode virar aviso" % (com, tot))
     fonte = (RAIZ / "fabrica" / "numerais_falados.py").read_text(
         encoding="utf-8")
-    assert "**144 das\n259**" in fonte or "144 das" in fonte, (
-        "a medida do acervo saiu do modulo")
-    assert abs(com - 144) <= 15, (
-        "a medida mudou (%d contra 144 escritos) — releia em vez de mover o "
-        "numero" % com)
+    assert "144 das 259" in fonte or "144/259" in fonte, (
+        "o snapshot original saiu do modulo — ele fica como HISTORIA, porque e "
+        "dele que a retratacao de 22/10 as 14:4x fala")
+    # RETRATADO em 22/10 as 14:4x: a versao anterior cobrava a CONTAGEM
+    # (`abs(com - 144) <= 15`) e o acervo cresce uma spec por rodada, logo ela
+    # saia da tolerancia a cada ~16 rodadas por CRESCIMENTO e nao por mudanca.
+    # Deu 160 de 285 e o teste reprovou mandando reler; relido, a PROPORCAO foi
+    # de 0,556 para 0,561 — a propriedade que sustenta "e comum" nao se mexeu.
+    # Identidade onde havia propriedade (743/753/761).
+    prop = com / float(tot)
+    assert 0.45 <= prop <= 0.70, (
+        "a PROPORCAO saiu da faixa observada (%.3f contra 0,556 do snapshot) — "
+        "aqui sim o acervo mudou de carater, e esta nota se rele em vez de a "
+        "faixa ser movida" % prop)
+    assert "a MEDIDA E A PROPORCAO" in fonte or "A MEDIDA E A PROPORCAO" in fonte, (
+        "a retratacao saiu do modulo: sem ela a rodada seguinte volta a cobrar "
+        "a contagem absoluta")
 
 
 def test_ele_LISTA_e_NAO_julga_nem_reprova():

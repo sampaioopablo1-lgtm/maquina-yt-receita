@@ -1,0 +1,74 @@
+{
+ "slug": "labtreinamento-s109",
+ "pacote": "labtreinamento-s109",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "longo_existente": "NNgAQLlpEzg",
+ "thumb": {
+  "l1": "Onde a conta",
+  "l2": "começa"
+ },
+ "paleta": {
+  "bg": "#0E1117",
+  "ink": "#EEF1F5",
+  "c1": "#3DDBD9",
+  "c2": "#1E2430",
+  "red": "#FF5A5F",
+  "ok": "#3CCB7F",
+  "panel": "#161B24",
+  "mut": "#8B95A5",
+  "acc": "#3DDBD9"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "A conta fecha",
+   "sub": "e a pergunta mudou",
+   "nar": "A conta do desconto fecha, e ainda assim não basta."
+  },
+  {
+   "layout": "barras",
+   "kicker": "O que ela responde",
+   "barras": [
+    {
+     "Quanto pode ser descontado": 100
+    },
+    {
+     "Se você tem direito": 0
+    }
+   ],
+   "nar": "Quem tem direito, e para quais trajetos, é outra pergunta."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ela já pressupõe",
+   "sub": "o benefício na folha",
+   "nar": "Ela já pressupõe que o benefício está na sua folha."
+  },
+  {
+   "layout": "item",
+   "kicker": "E pressupõe",
+   "sub": "que é vale, não dinheiro",
+   "nar": "E pressupõe também que você recebe vale, e não dinheiro."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Vindo em dinheiro",
+   "itens": [
+    "A pergunta deixa de ser quanto",
+    "Passa a ser o que aquilo é",
+    "E a aritmética fecha igual"
+   ],
+   "nar": "Vindo em dinheiro, a pergunta deixa de ser aritmética."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Veja onde ela começa",
+   "sub": "e deixe a inscrição",
+   "nar": "Veja onde a sua conta começa, e deixe a inscrição."
+  }
+ ],
+ "copy": "# labtreinamento-s109\n\n## TITULO\nA conta do vale-transporte começa depois de uma pergunta que ela não faz\n\n## TITULO SHORT\nA conta não começa no começo\n\n## DESCRICAO\nA conferência do desconto de vale-transporte é objetiva e cabe num minuto: você faz duas contas, o percentual sobre o salário básico sozinho e o seu gasto real do mês, e compara com a linha impressa no holerite. Vale sempre a menor das duas. Essa parte é aritmética, você produz sozinho, e ela resolve bem o que promete resolver.\n\nO ponto deste short é onde essa conta COMEÇA, e não como ela termina. Ela pressupõe duas coisas que ninguém enuncia. A primeira é que o benefício já existe e já aparece na sua folha: quem tem direito, e para quais trajetos, é outra pergunta, respondida antes e em outro lugar. A segunda é mais escorregadia: ela pressupõe que o que você recebe é vale, e não dinheiro.\n\nQuando o pagamento vem em dinheiro em vez de vale, a discussão deixa de ser aritmética e passa a ser de natureza — o que aquela verba é. E esse é o ponto perigoso, porque a conta continua funcionando. As duas contas fecham, a comparação sai, o número aparece. Só que ele agora responde a uma pergunta que não é a que está em jogo. Aritmética que fecha não avisa que o assunto mudou de tipo.\n\nConvenção ou acordo coletivo pode mexer em coisas em volta, como o momento do desconto, e vale ler o que a sua categoria negociou. Isso também fica fora da conta.\n\nLogo a conferência segue valendo exactamente para o que ela é: um número por mês, produzido por você, comparado com uma linha impressa. O que ela não faz é decidir se você tem direito, nem resolver o caso em que a forma do pagamento mudou a pergunta. Saber onde a conta começa é o que impede o resultado dela de ser usado como veredito sobre outra coisa.\n\nA conta inteira, com os dois textos que a sustentam e onde ler cada número no seu papel, está no vídeo do canal.\n\n## COMENTARIO FIXADO\nSe o seu vale-transporte vem em dinheiro em vez de vale ou cartão, escreva aqui só isso: \"vem em dinheiro\". Sem empresa e sem valor. É o caso em que a conferência aritmética não responde a pergunta que importa.\n\n## HASHTAGS\n#valetransporte #holerite #direitostrabalhistas #folhadepagamento #rh #departamentopessoal #trabalho\n\n## TAGS\nvale-transporte, desconto em folha, holerite, salário básico, convenção coletiva, departamento pessoal, direitos trabalhistas, conferência, folha de pagamento, RH\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ncategoryId: 27\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\nmadeForKids: false\n\n## MUSICA / LICENCA\nInspired (Kevin MacLeod, incompetech.com) — Creative Commons: By Attribution 4.0. A trilha e a do canal (601) e NAO atravessa de outro canal.\n\n## FONTES\nlabtreinamento-013 (NNgAQLlpEzg), capitulos 48, 49 e 51, com o 50 e o 52 como apoio. Nenhuma fonte externa: a peca nao introduz numero novo sobre o mundo.\nE ELA SAI DA RESERVA ESCRITA pelo `labtreinamento-s071`, que nomeou os capitulos 48 a 51 como NAO levados, com o motivo: *\"o que a conta NAO decide — direito ao beneficio, convencao coletiva, e o caso de vir em dinheiro. E familia propria e nao cabe hoje pela regra (f)\"*. O `reservas_escritas` conferiu o veredito LIVRE: nenhum dos quatro capitulos aparece na copy de irmao nenhum.\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e aqui a trava e mais apertada do que parece porque a ORIGEM e uma conta: ficaram FORA o percentual sobre o salario basico, qualquer valor em reais, qualquer prazo e o nome dos dois textos legais. **E o percentual e justamente o numero que tornaria a peca mais facil** — dize-lo poria na narracao um numero que muda por norma, e a regra (g) nao abre excecao para numero conveniente.\nAS LINHAS MEDIDAS DESTA SECAO SAO GERADAS pelo `linhas_medidas_da_copy`, e nao escritas a mao: foi redigitar que fez a declaracao de numerais ficar atras da narracao em SEIS rodadas desta sessao, sempre depois do corte de caracteres.\nCOLADAS do instrumento, nesta ordem e sem edicao:\n- NUMERAIS: a narracao nao fala numeral nenhum, conferido pelo `numerais_falados` (com a ressalva dele: ausencia de vocabulario nao prova ausencia).\n- PREVISAO, do `ensaio` pelo `mira.confere`: edge 25.40 s / piper 20.80 s. MIRA do canal (20.0, 26.0); faixa que o PORTAO cobra (18.0, 45.0) — as duas se chamam faixa no repo e nao sao a mesma.\n- FORMA: 6 cenas, media de 53.33 caracteres por cena, esqueleto `titulo-barras-item-item-lista-cta` — INEDITO nas 179 formas de short da frota (do `esqueleto_entre_canais`, com esta peca FORA da varredura).\n- REDACAO: acento 5.49% da narracao, thumbnail com 4 palavra(s), gancho com 10 palavra(s) — os limites sao do portao `variedade`.\nAs BARRAS da cena 3 sao ILUSTRACAO qualitativa (o que a conta responde contra o que ela nao responde) e **NAO** sao faladas. A rodada seguinte nao deve le-las de volta como dado.\n\n## FAMILIA DE ENTRADA ERRADA\nA CONTA COMECA DEPOIS DE UMA PERGUNTA QUE ELA NAO FAZ. O eixo e o PRESSUPOSTO da conta, nao o calculo dela: ela pressupoe que o beneficio JA existe na folha (quem tem direito e para quais trajetos foi respondido antes, em outro lugar) e que o que se recebe e VALE e nao dinheiro. Vindo em dinheiro, a discussao deixa de ser aritmetica e passa a ser de NATUREZA — e a conta continua fechando, respondendo a pergunta que nao esta em jogo. Aritmetica que fecha nao avisa que o assunto mudou de TIPO.\nDistinta dos SEIS irmaos desta origem, conferidos pelo `irmaos_da_origem` e, nos QUATRO sem o campo, pela PROSA e pela NARRACAO de cada um, que e de primeira mao: o `s001` (mora perto? o desconto na folha), o `s036` (a BASE errada, o desconto que muda todo mes), o `s043` (a CONTAGEM da base: dias uteis e embarques), o `s056` (o TETO tratado como piso), o `s071` (fixo e o SINAL do erro) e o `s074` (conte embarques, nao trajetos). **Os seis sao sobre PRODUZIR o numero; este e sobre o que a conta pressupoe antes de comecar.**\nE A DISTINCAO CONTRA A PECA DE OUTRO CANAL DE HOJE VAI DITA, porque o `similaridade` NAO a pegaria (ele compara contra o MESMO canal): o `epomeno-epipedo-s094`, publicado as 13:46Z, e sobre uma LINHA que falta DENTRO da comparacao e sobre o que o resultado autoriza. Aqui nada falta e o resultado esta certo: o que muda e o PONTO DE PARTIDA — a conta comeca depois de uma pergunta que ela nao faz. Entrada ausente contra pressuposto nao enunciado.\n\n## RESERVA\nPara a rodada seguinte, nesta origem (NNgAQLlpEzg), com o motivo escrito:\n- LIVRE: capitulo 53 — *\"faca a conferencia por tres meses seguidos; batendo nos tres, confie na linha; se nao bater, voce tem um padrao\"*. Eixo da SERIE contra a leitura unica. **Adiado de proposito**: o `kolejny-poziom-s093`, de 12:28Z de hoje, fecha com *\"volte depois de tres meses\"* em outro canal, e o `similaridade` nao pegaria. Vale em rodada afastada dessa;\n- LIVRE: capitulo 54 — a conta e POR PESSOA e nao existe desconto unico do time. **Atencao**: o `s056` (teto como piso) ja trata do desconto igual para todo mundo, logo reabrir isto pede angulo de GESTAO (conferir a equipe pessoa por pessoa), nao de teto;\n- LIVRE: capitulo 4 — *\"ninguem confere porque a conta parece ser uma so\"*, e numero impresso nao convida a recalcular. Eixo da FORMA do dado;\n- ATENCAO, medido em 22/10 as 12:3x: **17 dos 44 livres desta origem sao DECLARADOS por um irmao** (16, 18 a 22, 32 a 39, 44, 45, 47) e saem marcados no `relato_dos_livres`. Nao os tome por livres lendo so a contagem;\n- CONSUMIDOS por esta peca: 48, 49 e 51, com o 50 e o 52 de apoio.\n\n## EXPOSICAO\nA PINCA DO 740/748 NAO ESTA FECHADA AQUI, e este e o UNICO canal da frota em que isso acontece: a mira medida dele (20,0 a 26,0) tem 6 s de largura contra ~1,5 s da frota, logo existe orcamento que poe os DOIS provedores dentro dela. O `mira.janela_dos_dois_mundos` devolve **51 a 55** caracteres por cena com seis cenas, e a peca foi escrita dentro dessa janela — logo **nao ha exposicao de mundo a declarar**.\nE eu NAO mirei o piso de proposito: o piso executavel aqui e de 39 caracteres por cena, e com 39 o mundo `piper` cai ABAIXO do piso de 20,0 — isto e, a propria `mira.confere` reprovaria o conselho do piso, que e o defeito medido em 19/10 as 17:2x.\nE o REAL nao esta prometido para lado nenhum (774): 41 das 46 pecas deste canal narradas pelo edge sairam FORA do teto de 26,0 **com a mira verde nos dois mundos**, e a banda do residuo tem 5,2 s de largura contra 1 s de granularidade.\n"
+}

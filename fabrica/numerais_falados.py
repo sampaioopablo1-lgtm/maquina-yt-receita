@@ -20,11 +20,20 @@ contagem dos dois caminhos) ou fato sobre o mundo (uma aliquota) e LEITURA, e
 nenhum vocabulario a faz. O modulo poe os numerais na mesa; a regra (g)
 continua sendo decisao de quem escreve.
 
-**E NAO ALARMA, e o numero vem antes da decisao:** medido no disco, **144 das
-259** specs de short solto (56%) falam algum numeral por extenso, e os mais
-comuns sao `δύο`, `duas`, `dwie`, `dois` e `três` — quase sempre a contagem de
-uma lista da propria peca. Alarme que dispara 144 vezes deixa de avisar, que e
-o argumento pelo qual o `mira.py` tambem nao e portao.
+**E NAO ALARMA, e o numero vem antes da decisao:** medido no disco, **56% das
+specs de short solto** falam algum numeral por extenso, e os mais comuns sao
+`δύο`, `duas`, `dwie`, `dois` e `três` — quase sempre a contagem de uma lista da
+propria peca. Alarme que dispara na maioria das specs deixa de avisar, que e o
+argumento pelo qual o `mira.py` tambem nao e portao.
+
+**A MEDIDA E A PROPORCAO, e nao a contagem — retratado em 22/10 as 14:4x.** O
+snapshot original era **144 das 259** (0,556) e o teste cobrava a contagem com
+tolerancia de 15. **O acervo cresce uma spec por rodada**, logo a contagem sai
+da tolerancia a cada ~16 rodadas por crescimento e nao por mudanca: em 22/10 as
+14:4x ela deu **160 de 285**, e o teste reprovou mandando reler. Relido: a
+proporcao foi de **0,556 para 0,561** — a propriedade que sustenta *"e comum"*
+nao se mexeu. Era identidade onde havia propriedade (743/753/761), e o par
+`144/259` fica como HISTORIA.
 
 **O QUE ELE NAO VE, e por isso relato limpo NAO prova ausencia (17/10):**
 numeral fora do vocabulario (ordinal, fracao escrita de outro jeito, numero em
