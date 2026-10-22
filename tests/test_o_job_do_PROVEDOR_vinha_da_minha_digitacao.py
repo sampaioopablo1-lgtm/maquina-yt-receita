@@ -163,6 +163,34 @@ def test_a_medida_e_o_motivo_continuam_escritos_no_modulo():
         "a conclusao ter sobrevivido foi sorte, e isso vai dito")
 
 
+def test_o_RUN_desce_ao_registro_do_som():
+    """A `leitura` tem o run na mao, e ate 22/10 as 06:2x ele nao descia.
+
+    A primeira peca parqueada por este modulo foi a UNICA de 69 linhas do
+    `som-medido.jsonl` sem o campo `run`. Ele e OPCIONAL no parque, logo nada
+    levantou: procedencia pela metade, em silencio, num modulo escrito para a
+    leitura deixar de ser digitada.
+    """
+    lida = _lida([("7", "produzir (x)", [SOM_OK])])
+    p = AR.provedor(lida)
+    assert p["som"], p
+    assert p["som"][0].get("run") == lida["run"], p["som"][0]
+    # e o run tem de chegar pelo CAMINHO do dono, nao ser remontado aqui
+    assert "run=" in inspect.getsource(AR._som_do_job)
+
+
+def test_o_parque_do_som_do_disco_nao_tem_linha_sem_run():
+    """Contraprova sobre o DISCO: nenhuma linha fica sem procedencia de run.
+
+    Reprova por vacuidade com parque curto, porque com duas linhas 'nenhuma sem
+    run' nao mede nada.
+    """
+    linhas = SP.carrega()
+    assert len(linhas) >= MINIMO_COMUNS, len(linhas)
+    sem = [x.get("pacote") for x in linhas if not x.get("run")]
+    assert sem == [], sem
+
+
 def test_a_marca_do_733_e_a_mesma_do_emissor():
     import voz_piper
     assert AR.MARCA_PIPER in inspect.getsource(voz_piper), (

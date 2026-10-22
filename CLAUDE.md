@@ -9522,3 +9522,114 @@ inteiros (3.754 -> 3.767) e **nenhuma falha nova**. **E o tempo vai medido em ve
 de atribuido:** 1.216 s contra 1.185 s da passada anterior, e os treze passam
 isolados em **0,05 s** — logo os ~31 s nao sao deles, e eu nao sei a causa.
 Atribui-los ao arquivo novo seria comparador escolhido sem medir, o efeito (C).
+
+### E O INSTRUMENTO DAS ANOTACOES DESCARTAVA O `run` QUE TINHA NA MAO
+
+**Medido em 22/10 as 06:2x, na PRIMEIRA peca parqueada pelo
+`anotacoes_do_run.py`** — o modulo que nasceu UMA HORA antes para a leitura da
+anotacao deixar de ser digitada. Das **69** linhas do `som-medido.jsonl`, a dela
+foi a **UNICA sem o campo `run`**.
+
+**A causa e de PASSAGEM:** a `leitura` traz o run no resultado e o `_som_do_job`
+**nao o recebia**, logo o `do_notice` era chamado so com o `job`. E a mesma forma
+do `quadro` que o `contagem_de_cenas` calculava e jogava fora (20/10, 03:2x) e do
+relato que prometia a prosa e nao a imprimia (15:3x): **o dado existia um nivel
+acima e nao descia.**
+
+**E a falha e SILENCIOSA, porque o `run` e OPCIONAL no parque** — os
+obrigatorios sao `pacote`, `arquivo`, `job` e `pico_dbtp`. Nada levantou, e a
+procedencia ficou pela metade justamente no modulo escrito para que ela deixasse
+de depender da minha digitacao. **O custo e de CONFERENCIA:** sem o run, achar a
+anotacao daquela leitura pede varrer os jobs do repo em vez de abrir um run.
+
+**Consertado:** `_som_do_job(job, run=)` e o `jobs_que_narraram` passa
+`lida["run"]`. A linha parqueada foi reparada com `assert` sobre o `job` antes de
+gravar, e o parque voltou a **zero linha sem run**.
+
+`tests/test_o_job_do_PROVEDOR_vinha_da_minha_digitacao.py` foi a **quinze**
+testes: um exige que o run **desca** ao registro e que ele venha pelo CAMINHO do
+dono (por fonte, nao remontado no teste), e um varre o parque do DISCO exigindo
+**zero** linha sem run, com **piso de vacuidade** — com duas linhas *"nenhuma sem
+run"* nao mede nada. **Contraprova:** desligado o repasse, reprova exatamente o
+teste que o mede.
+
+### A PECA DESSA RODADA — TREZE cenas, e a passada pegou TRES defeitos
+
+`kolejny-poziom-s091` = **`RgW4u9uyDaM`** (*Tę stawkę liczysz raz w roku*),
+publicado as 06:19:18Z (run `39733185272`), **sem `403 quota`**. **ONZE PORTOES
+VERDES NA PRIMEIRA TENTATIVA** — e ela foi **CONFERIDA COMO RASCUNHO** antes de
+existir no disco, pela setima vez em producao. **E a passada pegou TRES defeitos
+ANTES do render**, o que e o maior numero de uma rodada so:
+
+| | |
+|---|---|
+| previsao edge | **48,3 s**, FORA da faixa — eu escrevi ~37 caracteres por cena onde o orcamento pede **28** |
+| thumbnail | **CINCO** palavras contra o limite de 4 — a **QUINTA** vez nesta sessao |
+| titulo | **103** caracteres contra 100 |
+
+Depois: edge **41,76** (0,26 acima do PISO, pela regra de redacao do 772) e piper
+**35,5**; thumb 4 de 4, titulo 83, acento **5,42%**, as treze cenas desenham, e o
+unico numeral falado conferido pelo `numerais_falados`. **E o corte saiu do
+instrumento e nao de cabeca:** ele disse *"CORTAR ~102 caracteres no TOTAL, 7,8
+por cena"*, e um caractere vale **0,052 s** nesta voz.
+
+Provedor **edge MEDIDO** — e pela **segunda** vez a contagem saiu do
+`anotacoes_do_run` e nao de um `--jq` escrito na hora: zero avisos no job
+`119672054487`, que e o job que emitiu o SOM. Som **−13,8** LUFS, pico **−1,5
+dBTP** — isto e, **no teto exato** —, zero silencios, parqueado **sem eu
+redigitar o JSON**.
+
+**PAUTA:** `GtmoaQMr_1c` (`kolejny-poziom-020`), 3 usos e **46 de 64** capitulos
+NAO MENCIONADOS. A dominante `GUiq15usizw` ficou de fora, e o `QiaGg03WSR0` saiu
+da escolha pelo **mapa de dono MEDIDO** sem sair da lista. O
+`reservas_escritas` devolveu **NENHUMA**, logo a familia saiu da leitura dos 46
+livres.
+
+**FAMILIA: TRATAR A STAWKA COMO TRABALHO MENSAL, QUANDO ELA DURA UM ANO**
+(capitulos 15, 18, 38, 57, 59 e 60, com apoio do 16). O eixo e a **FREQUENCIA e a
+MANUTENCAO** do numero, nao o conteudo dele: quem acha que a conta volta a cada
+rachunek para de fazer, e quem acha que ela vale para sempre segue usando uma
+stawka que o dojazd novo ja derrubou. **E a assimetria vai dita:** trocar de
+umowa mexe na linha de CIMA e aparece num documento; mudar de horas ou de dojazd
+mexe na de BAIXO e **nao aparece em papel nenhum** — o mesmo przelew dividido por
+mais horas da stawka menor sem nada mudar na conta bancaria.
+
+**Distincoes contra os TRES irmaos** pelo `irmaos_da_origem` e pela NARRACAO de
+cada um (**nenhum** tem o campo da familia, logo a comparacao saiu da prosa e da
+fala, de primeira mao): o `s068` e QUAL despesa medir primeiro, o `s069` sao os
+DOIS ERROS de valor, o `s071` e QUAIS horas entram no divisor. **Nenhum fala de
+QUANDO a conta se refaz.** O `s071` tem uma linha de fechamento —
+*"Policzysz to raz, w pol godziny"* — e ela e sobre o CUSTO de fazer uma vez, nao
+sobre a validade no tempo.
+
+**TREZE CENAS pela chave `por_cadencia_servivel`** (folga **+7**): o teto MEDIDO
+da voz, **catorze**, saiu **NOMEADO** e recusado pela folga de dois caracteres —
+a mesma conta que eu recusei a mao em 04:1x e 06:2x de 20/10. **ESQUELETO
+`titulo-item-barras-item-lista-item-titulo-barras-item-lista-item-item-cta`,
+INEDITO nas 171 formas da frota**, e o `formas_livres` diz **13.851** ordens
+livres desta mistura de 13.860.
+
+**ZERO numero novo sobre o mundo:** os numerais falados sao *raz* e *trzy*, os
+dois contagem do PROPRIO procedimento. Stawka minimalna, valor de przelew e
+percentual de encargo ficaram FORA pela regra (g). As barras (30/100 e 100/72)
+sao ILUSTRACAO qualitativa e **nao** sao faladas, com isso escrito em letra.
+
+**A PINCA DO 740/748 ESTA FECHADA AQUI**, com a exposicao declarada ANTES de
+publicar: o piper sai FORA pela mira e DENTRO do portao, que cobra 18 a 45 s nos
+dois mundos. **E o REAL nao esta prometido para lado nenhum** (774).
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica` pela VIGESIMA
+OITAVA rodada seguida** — medido pela `sonda_e_modo`, com os TRES controles no
+MESMO caminho: o `touch` passou, os TRES hosts voltaram **000 sem arquivo**, e o
+proxy nomeou `example.com` e `www.youtube.com` depois de 06:20:47Z. A peca esta
+PARQUEADA com o provedor MEDIDO e o job lido pelo instrumento, e a presenca foi
+conferida **RELENDO** o parque (**129** linhas, **57** sem leitura). `RESIDUO_N`
+segue **128**.
+
+**E A LEITURA DE INSCRITOS PASSOU AS TRES PORTAS E NAO FOI FEITA, pela DECIMA
+SEXTA rodada seguida:** 68,21 h, piso de resolucao **0,35/dia**, os tres SIM. **O
+que a impede e a ROTA, e o remedio e do DONO** — a tela de Network access.
+
+**COTA: VINTE E CINCO envios** na janela aberta as 07:00Z de 21/10, **40.000**
+unidades, contra o piso MEDIDO de **>= 41.600** — do `janela_de_cota`. A janela
+vira as 07:00Z, isto e dentro de meia hora.

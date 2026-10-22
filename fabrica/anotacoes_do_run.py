@@ -109,8 +109,18 @@ def leitura(run: str | int, api=None) -> dict:
     return {"run": run, "jobs": saida}
 
 
-def _som_do_job(job: dict) -> list:
-    """Os `::notice:: SOM` daquele job, virados em registro pelo DONO deles."""
+def _som_do_job(job: dict, run: str | None = None) -> list:
+    """Os `::notice:: SOM` daquele job, virados em registro pelo DONO deles.
+
+    **O `run` ENTRA, e ele nao entrava.** Medido em 22/10 as 06:2x, na PRIMEIRA
+    peca parqueada por este modulo: das 69 linhas do `som-medido.jsonl` a dela
+    foi a UNICA sem o campo `run`, porque a `leitura` tem o run na mao e o
+    `_som_do_job` nao o recebia. Ele e OPCIONAL no parque, logo a falha e
+    SILENCIOSA — nada levantou —, e a procedencia da leitura ficou pela metade
+    num modulo escrito para que ela deixasse de ser digitada. E a mesma forma do
+    `quadro` que o `contagem_de_cenas` calculava e jogava fora (20/10, 03:2x): o
+    dado existia um nivel acima e nao descia.
+    """
     import som_parqueado as SP
     fora = []
     for m in job["mensagens"]:
@@ -118,7 +128,7 @@ def _som_do_job(job: dict) -> list:
         if not linha.startswith("SOM ") and "::notice::SOM" not in linha:
             continue
         try:
-            fora.append(SP.do_notice(linha, job=job["id"]))
+            fora.append(SP.do_notice(linha, job=job["id"], run=run))
         except Exception:
             # Forma que o DONO nao reconhece nao vira registro: inventar um aqui
             # seria o segundo dono da forma da anotacao.
@@ -136,7 +146,7 @@ def jobs_que_narraram(lida: dict, pacote: str | None = None) -> list:
     """
     fora = []
     for j in lida["jobs"]:
-        sons = _som_do_job(j)
+        sons = _som_do_job(j, run=lida.get("run"))
         if not sons:
             continue
         if pacote and not any(s["pacote"] == pacote for s in sons):
