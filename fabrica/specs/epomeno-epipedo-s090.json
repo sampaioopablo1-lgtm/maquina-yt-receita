@@ -1,0 +1,131 @@
+{
+ "slug": "epomeno-epipedo-s090",
+ "pacote": "epomeno-epipedo-s090",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "longo_existente": "9U2h4HuAzLs",
+ "thumb": {
+  "l1": "Ίδιος μήνας",
+  "l2": "άλλο νούμερο"
+ },
+ "paleta": {
+  "bg": "#F4EFE6",
+  "ink": "#1B1A17",
+  "c1": "#C8502A",
+  "c2": "#2B6CB0",
+  "red": "#B83227",
+  "ok": "#2E8B57",
+  "panel": "#FFFFFF",
+  "mut": "#7A7263",
+  "acc": "#C8502A"
+ },
+ "copy": "# epomeno-epipedo-s090\n\n## TITULO\nΔύο αριθμοί δείκτη για τον ίδιο μήνα: γιατί κανένας δεν είναι λάθος\n\n## TITULO SHORT\nΊδιος μήνας, άλλο νούμερο\n\n## DESCRICAO\nΔιαβάζεις δύο άρθρα για τον ίδιο μήνα και την ίδια χώρα, και γράφουν διαφορετικό αριθμό δείκτη. Η πρώτη σκέψη είναι ότι κάποιο από τα δύο κάνει λάθος. Δεν κάνει. Μετρούν πάνω σε διαφορετική βάση.\n\nΒάση σημαίνει μία πράγμα: ποια χρονιά παίρνει την τιμή της αναφοράς. Κάθε δείκτης δημοσιεύεται με τη δική του, και αυτό το γράφει μέσα στον τίτλο ή στα μεταδεδομένα του. Η βάση δεν αλλάζει πόσο ακρίβυναν τα πράγματα. Αλλάζει κάθε απόλυτο νούμερο δείκτη που θα δεις γραμμένο.\n\nΆρα δύο κείμενα μπορούν να γράψουν άλλο επίπεδο δείκτη για τον ίδιο μήνα χωρίς να διαφωνούν σε τίποτα. Το ένα μέτρησε πάνω στη μία κλίμακα και το άλλο πάνω στην άλλη. Η διαφορά είναι η κλίμακα της μέτρησης, δεν είναι η τιμή των πραγμάτων.\n\nΚαι εδώ είναι το πρακτικό μέρος. Η σύγκριση που δεν χαλάει είναι η ετήσια μεταβολή, γιατί στη διαίρεση η βάση φεύγει και από τις δύο πλευρές. Η σύγκριση που χαλάει είναι επίπεδο με επίπεδο, δείκτης με δείκτη, από δύο διαφορετικές πηγές.\n\nΟ κανόνας που μένει είναι σύντομος: μην συγκρίνεις ποτέ δύο επίπεδα δείκτη από δύο διαφορετικές πηγές, και όταν συγκρίνεις μεταβολές, μείνε πάντα μέσα στην ίδια σειρά. Ένα νούμερο δείκτη μόνο του, χωρίς τη σειρά από την οποία βγήκε, δεν σου λέει τίποτα.\n\nΤο δοκιμαστικό που κάνεις απόψε παίρνει ένα λεπτό: πάρε το άρθρο που διάβασες και ψάξε ποια σειρά αναφέρει. Αν δεν τη γράφει, το νούμερο δεν συγκρίνεται με κανένα άλλο.\n\nΗ πλήρης ανάλυση των δύο δεικτών, με τις πηγές, είναι στο ολόκληρο βίντεο του καναλιού.\n\n## COMENTARIO FIXADO\nΚάνε το δοκιμαστικό και γράψε εδώ: το άρθρο που διάβασες έγραφε από ποια σειρά βγήκε το νούμερο, ή μόνο το νούμερο;\n\n## HASHTAGS\n#πληθωρισμός #οικονομικά #δείκτης #προσωπικάοικονομικά #ΕπόμενοΕπίπεδο\n\n## TAGS\nδείκτης τιμών, βάση δείκτη, ετήσια μεταβολή, πληθωρισμός, οικονομικά, προσωπικά οικονομικά, Ελλάδα, εκπαίδευση\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ncategoryId: 26\ndefaultLanguage: el\ndefaultAudioLanguage: el\nmadeForKids: false\nselfDeclaredMadeForKids: false\n\n## MUSICA / LICENCA\nInspired — Kevin MacLeod (incompetech.com), Creative Commons BY 3.0.\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO. Conferido campo a campo pelo\n`numerais_falados`, que acusou o unico numeral da narracao: **`duo`**, nas cenas\n0 e 2 — a contagem dos PROPRIOS artigos de que a peca fala, isto e, estrutura do\nargumento e nao fato sobre o mundo. A primeira versao desta linha dizia *\"nao\nfala numeral nenhum\"* e era FALSA; quem a derrubou foi o instrumento, antes de\npublicar.\n\nE OS ANOS DE BASE FICARAM FORA DE PROPOSITO, pela regra (g) e com a procedencia\nno PROPRIO irmao: o `epomeno-epipedo-s025` escreveu, na prosa dele, que a regra\n(g) tira deste longo *\"os ANOS DE BASE dos dois indices\"* porque sao numero de\nserie estatistica e envelhecem por revisao. Os capitulos 25 e 26 da origem\ntrazem os dois anos; **nenhum entra**, e a peca diz apenas *\"a chronia tis\nanaforas\"*.\n\nE A REGRA 609 TIRA OS NOMES: a origem cita DOIS orgaos pelo nome nos capitulos\n25, 26 e 33, e nenhum entra. A peca fala de *\"deiktis\"* e de *\"duas fontes\"*,\nque sao os termos e nao as siglas. **E o valor cem tambem ficou fora** — ele e a\nconvencao da base e nao envelhece, mas dize-lo convidaria a rodada seguinte a\nler numero onde o argumento nao precisa de nenhum.\n\nAS BARRAS SAO ILUSTRACAO QUALITATIVA E NAO SAO FALADAS. A cena 3 (100 contra 0)\nmostra que o que muda e a ESCALA e nao a tinha, e a cena 7 que a variacao anual\nresiste e o nivel nao — os quatro valores sao a FORMA do argumento, nao medida de\ncoisa nenhuma. Esta linha existe para a rodada seguinte NAO os ler de volta como\ndado.\n\nA LISTA DA CENA 1 (mesma pais, mesmo mes, outro numero) e a da CENA 8 (divide, a\nbase sai, resta a variacao) sao a estrutura do argumento, nao contagens.\n\nO QUE O VIDEO AFIRMA: que base significa qual ano toma o valor de referencia;\nque cada indice e publicado com a propria base e isso esta escrito no titulo ou\nnos metadados dele; que a base nao muda a variacao e muda todo nivel absoluto;\nque a variacao anual sobrevive porque a base sai na divisao; e que nivel contra\nnivel de duas fontes nao se compara. Isso esta no longo `epomeno-epipedo-015`\n(`9U2h4HuAzLs`), capitulos 24 a 32, com as fontes dele.\n\n## FAMILIA DE ENTRADA ERRADA\nCOMPARAR NIVEL DE INDICE DE DUAS FONTES — capitulos 24 a 32, com o 31 no centro:\n*\"nao compares nunca dois niveis de indice de duas fontes diferentes; compara\nvariacoes, e sempre dentro da mesma serie\"*.\n\nO eixo e a **ESCALA**, e a entrada errada nao esta em celula nenhuma: esta em\ntratar um nivel de indice como se fosse um preco. Os dois numeros estao certos e\npublicados; o que esta errado e a OPERACAO que se faz com eles. E a aritmetica\nnao reclama — subtrair dois niveis de bases diferentes devolve um numero com\ncara de resposta.\n\n**E a PRIMEIRA das tres diferencas que a origem enumera e a unica livre**, o que\ne medicao do `irmaos_da_origem` e nao leitura minha: o capitulo 23 anuncia tres,\no `s053` levou a SEGUNDA (quem o indice mede — territorio contra morador) e o\n`s058` levou a TERCEIRA (o custo que fica fora por falta de metodo). A primeira,\na BASE, estava NOMEADA como nao levada na reserva escrita do `s025`\n(*\"as diferencas de BASE, de populacao coberta e do que fica fora do cesto\"*) e e\nesta peca que a leva.\n\nDISTINCAO DOS QUATRO IRMAOS desta origem, conferida pelo `irmaos_da_origem` e\npela NARRACAO de cada um (TRES deles — `s004`, `s025` e `s053` — nao tem este\ncampo, logo a comparacao foi pela PROSA e pela fala, que e de primeira mao):\n- `s004` — a CESTA propria, tirada das notas fiscais, contra o cesto medio;\n- `s025` — a DATA que decide qual anuncio entra no contrato;\n- `s053` — QUEM o indice mede: territorio contra morador;\n- `s058` — o CUSTO que fica fora do indice por falta de metodo.\nNenhum dos quatro fala da ESCALA, e nenhum toca os capitulos 24 a 32. O mais\nproximo e o `s025`, e a distincao vai dita: ele fala de QUAL dos dois indices\nentra e de QUANDO; esta fala de por que os dois podem imprimir numeros\ndiferentes sem discordar. Qual indice contra qual escala.\n\n## RESERVA\nO QUE EU NAO LEVEI, de proposito, e vai escrito para a proxima rodada achar:\n- os capitulos 33 a 40 — a SEGUNDA diferenca, quem o indice mede — vao\n  **NOMEADOS como territorio do `s053`**, para a rodada seguinte nao os tomar\n  por livres;\n- os capitulos 41 a 51 (o aluguel imputado de quem mora na propria casa) seguem\n  na reserva escrita do `s053` e **nao foram tocados aqui**; o `s058` levou o\n  recorte dos capitulos 57 a 59, logo quem for a esse bloco leia primeiro a copy\n  dos dois;\n- o capitulo 30 (o que NAO quebra: a variacao anual) entrou nesta peca como o\n  argumento, logo esta consumido; o 31 entrou como a regra;\n- e segue livre o capitulo 29 lido pelo outro lado — **por que a escala existe**,\n  isto e, para que serve escolher um ano de referencia. E familia de PARA QUE\n  SERVE A BASE, e nao cabe hoje pela regra (f).\n\n## EXPOSICAO\nA PINCA DO 740/748 ESTA FECHADA AQUI, e a exposicao vai declarada ANTES de\npublicar: o `mira.janela_dos_dois_mundos` devolve **NENHUMA** janela de\ncaracteres por cena que ponha os dois provedores dentro de 41,5 a 43,0 com treze\ncenas nesta voz — o vao piper/edge vale ~4,8 s contra 1,5 s de faixa.\n\n**Mirei o PISO** (regra de redacao do 772): edge **41,72**, isto e 0,22 acima do\npiso, com media de **31,2** caracteres por cena contra os 31 do orcamento. O\npiper sai em **36,96** — FORA pela mira e DENTRO do portao, que cobra 18 a 45 s\nnos dois mundos.\n\n**E O REAL NAO ESTA PROMETIDO PARA LADO NENHUM:** a banda do residuo tem 5,2 s\nde largura contra 1 s de granularidade, e declarar de que lado dela o real cai\nnao e previsao (774).\n",
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Δύο άρθρα",
+   "sub": "ο ίδιος μήνας",
+   "nar": "Δύο άρθρα, ο ίδιος μήνας."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Τι διαβάζεις",
+   "itens": [
+    "Ίδια χώρα",
+    "Ίδιος μήνας",
+    "Άλλο νούμερο"
+   ],
+   "nar": "Και γράφουν άλλο νούμερο δείκτη."
+  },
+  {
+   "layout": "item",
+   "kicker": "Κανένα λάθος",
+   "sub": "και τα δύο σωστά",
+   "nar": "Κανένα από τα δύο δεν είναι λάθος."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Τι αλλάζει",
+   "barras": [
+    {
+     "rotulo": "Κλίμακα",
+     "valor": 100
+    },
+    {
+     "rotulo": "Τιμή",
+     "valor": 0
+    }
+   ],
+   "nar": "Αλλάζει η κλίμακα, όχι η τιμή."
+  },
+  {
+   "layout": "item",
+   "kicker": "Τι είναι βάση",
+   "sub": "η χρονιά αναφοράς",
+   "nar": "Βάση είναι η χρονιά της αναφοράς."
+  },
+  {
+   "layout": "item",
+   "kicker": "Και διαφέρει",
+   "sub": "ανά δείκτη",
+   "nar": "Κάθε δείκτης έχει τη δική του."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Άρα τα επίπεδα",
+   "sub": "δεν συγκρίνονται",
+   "nar": "Άρα τα επίπεδα δεν συγκρίνονται."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Τι αντέχει",
+   "barras": [
+    {
+     "rotulo": "Ετήσια μεταβολή",
+     "valor": 100
+    },
+    {
+     "rotulo": "Επίπεδο δείκτη",
+     "valor": 0
+    }
+   ],
+   "nar": "Η ετήσια μεταβολή όμως αντέχει."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Γιατί αντέχει",
+   "itens": [
+    "Διαιρείς",
+    "Η βάση φεύγει",
+    "Μένει η μεταβολή"
+   ],
+   "nar": "Γιατί η βάση φεύγει στη διαίρεση."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ο κανόνας",
+   "sub": "μεταβολές",
+   "nar": "Σύγκρινε μεταβολές, όχι επίπεδα."
+  },
+  {
+   "layout": "item",
+   "kicker": "Και η σειρά",
+   "sub": "πάντα η ίδια",
+   "nar": "Και πάντα μέσα στην ίδια σειρά."
+  },
+  {
+   "layout": "item",
+   "kicker": "Το νούμερο μόνο",
+   "sub": "δεν λέει τίποτα",
+   "nar": "Το νούμερο μόνο δεν λέει τίποτα."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Επόμενο Επίπεδο",
+   "sub": "κάνε εγγραφή",
+   "nar": "Δες ποια σειρά διαβάζεις απόψε."
+  }
+ ],
+ "longo": []
+}
