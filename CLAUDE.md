@@ -11771,3 +11771,161 @@ SEGUNDA rodada seguida:** 81,62 h, piso de resolucao **0,29/dia**, os tres SIM.
 **COTA: TREZE envios** na janela aberta as 07:00Z, **20.800** unidades, contra
 o piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
 hora.
+
+## AS GUARDAS DO CONSTRUTOR MORAVAM NA MINHA MEMORIA
+
+**Medido em 22/10 as 20:4x, na DECIMA vez que a thumbnail estourou o limite
+nesta sessao.** A peca se escreve num construtor que vive **FORA do repo**, no
+diretorio de rascunho da sessao, e as guardas dele eu **redigito a cada
+rodada**: o `assert layout in SONDADOS` entrou depois do cartao em branco de
+19/10 as 18:18Z e eu o reescrevo de memoria; **a guarda da thumbnail nunca
+existiu**, porque nao havia onde ela morar.
+
+**Logo o conjunto de guardas do construtor era a minha memoria**, e a evidencia
+e a contagem: a thumbnail passou do limite em **dez** rodadas desta sessao — a
+desta inclusa —, e em 18/10 as 08:1x um render inteiro morreu em
+`KeyError: 'longo'` porque a spec de short solto saiu sem a chave. Nos dois
+casos o conserto existia uma camada adiante (a passada, o portao) e o custo era
+uma passada a mais por rodada.
+
+**E NAO E PORTAO, e o numero vem ANTES da decisao:**
+
+| | |
+|---|---|
+| specs com short no disco | **433** |
+| com thumbnail acima do limite | **86** |
+| com layout que o retrato NAO desenha | **1** (o `epomeno-epipedo-s069`, publicado) |
+| sem a chave `longo` | **0** |
+
+Portao aqui reprovaria o acervo, que e o argumento pelo qual o `mira.py` tambem
+nao e portao. **`fabrica/guardas_do_construtor.exige` LEVANTA porque so ve a
+peca que esta sendo escrita AGORA** — nunca o acervo —, e levantar na mesa e
+mais barato que reprovar no portao. O `relato` entrou na passada do
+`antes_do_render` e tem codigo de saida **sempre zero**.
+
+**TODO limite e LIDO do dono:** thumbnail e gancho do `variedade`, o conjunto de
+layouts **SONDADO** no render pelo `layouts_do_short`, a paleta comparada pelo
+`paleta_da_spec` e o canal pelo `canal`. As seis guardas sao `pacote` (igual ao
+`slug`, senao o `identidade` e o `canal.do_pacote` ficam cegos), `longo`
+(**chave presente**, porque ausencia de chave nao e valor vazio), `layouts`,
+`thumb`, `gancho` e `paleta`. O `confere` **NOMEIA todas** e so o `exige` para
+na primeira.
+
+### E O TESTE ME PEGOU SEM O TERCEIRO ESTADO DA PALETA
+
+A primeira versao reportava **`ok`** para canal **PARADO**, que nao tem tema
+atribuido no `temas_do_dono` — isto e, *"compativel"* e *"nao existe paleta do
+dono para comparar"* saiam **iguais**. E o sentido **PERMISSIVO**, a classe da
+mira que parou de avisar por seis pecas.
+
+**Quem me pegou foi a propria fixture**, que deriva a peca de prova do disco e
+caiu num canal parado: a contraprova da paleta nao levantou, porque ali ela nao
+tinha o que comparar. Agora ha o terceiro estado — a guarda **passa** (nao ha
+comparador) e **DIZ que nao conferiu** —, e a fixture exige canal **COM** tema,
+senao ela reprova dizendo que perdeu a ancora.
+
+`tests/test_as_GUARDAS_do_construtor_moravam_na_minha_memoria.py`, quinze
+testes: a peca de prova e **DERIVADA** do disco (nomear um pacote seria
+identidade onde ha propriedade), cada guarda tem **contraprova nos DOIS
+sentidos** — a thumbnail desta rodada LEVANTA e o limite EXATO cabe (FRONTEIRA
+nos dois lados), layout fora do sondado LEVANTA e o conjunto tem de ser o
+SONDADO, chave `longo` ausente LEVANTA e `longo: []` PASSA, uma chave de paleta
+trocada LEVANTA e **SUBCONJUNTO nao** (a licao de 20/10 as 00:3x, quando contar
+com `==` inflou o achado de 252 para 255) —, todo limite e cobrado como
+**LIDO por AST** com literal e hex **proibidos** no modulo, o `prontidao`
+**nao pode importar** isto (senao vira portao e reprova o acervo), a medida das
+86 e **RECONFERIDA como PROPORCAO e nao como contagem** (a licao de 14:4x), e
+um exige que ele esteja na **PASSADA**, senao e layout morto.
+**Contraprova:** cravado o limite da thumbnail em vez de lido do dono, **quatro
+dos quinze** falham.
+
+### A PECA DESSA RODADA — OITO cenas, e a PAUTA DESVIOU da regra escrita
+
+`labtreinamento-s111` = **`OO6Eu1WEVPU`** (*Não é veredito, é preço*),
+publicado as **20:34:40Z** (run `39850023852`), **sem `403 quota`**. **ONZE
+PORTOES VERDES** — e ela foi **CONFERIDA COMO RASCUNHO** antes de existir no
+disco. Provedor **edge MEDIDO** pelo `anotacoes_do_run` (zero avisos
+`NARRACAO PELO PIPER` no job `120070272391`, que e o job que emitiu o SOM). Som
+**-13,9** LUFS, pico **-2,3** dBTP com `pico_vs_teto: dentro`, **zero
+silencios**, parqueado pelo `som_parqueado` **sem eu redigitar o JSON** (parque
+em **83** linhas, zero sem `run`).
+
+**E OS DOIS WORKFLOWS FORAM ESPERADOS PELO INSTRUMENTO DA RODADA ANTERIOR** —
+`anotacoes_do_run.py --termino <run>`, dentro de um `until` —, na PRIMEIRA vez
+que ele serviu em producao. Nas duas leituras os PASSOS e o campo `conclusion`
+concordaram, e o relato diz em letra que eles discordam nos DOIS sentidos.
+
+**CANAL do `passo_zero`** (8/8/8, empate nos TRES desempatado pelo que esta ha
+mais tempo sem publicar).
+
+**E A PAUTA DESVIOU DA REGRA ESCRITA, com o vao MEDIDO pelo instrumento de
+18:0x:** a reserva CRUA escolhia `POBNoY16wG8` (40 livres, so **14** sem
+declaracao de irmao) e a reserva SEM DECLARACAO escolhe `bQoujWaY7Hw`
+(`labtreinamento-008`, 38 livres, **33** sem declaracao). **O vao e de 19
+capitulos, 58%** do maior — perto dos 62% em que a rodada de 17:3x desviou e
+longe dos 3% em que a de 18:0x seguiu a regra. A dominante `FtCtIJPsc_Q` ficou
+de fora. O `reservas_escritas` devolveu **UMA**, com veredito
+**INDETERMINADA** (a reserva descreve o capitulo em PROSA, sem indice), e ela
+se resolveu LENDO os irmaos.
+
+**FAMILIA: O NUMERO LIDO COMO VEREDITO, QUANDO ELE E PRECO** (capitulos 34, 35
+e 43, com o 29 de ressalva e os 21 e 22 de apoio) — usar o juro que saiu da
+conta como sentenca de dar ou nao dar desconto, quando o proprio longo nomeia
+tres situacoes em que se **continua dando**. Nelas a decisao nao muda; o que
+muda e que a cessao deixa de ser **favor sem etiqueta** e passa a ser **troca
+com preco declarado**, dizivel em voz alta. E o custo de nao ter o numero nao e
+dar desconto demais: e responder por intuicao, porque o desconto **nao gera
+fatura, extrato nem linha de despesa financeira** — nao ha nada doendo para
+marcar a hora de olhar.
+
+**Os SEIS irmaos falam de PRODUZIR o numero certo ou de QUEM o tem** — `s004` o
+PRAZO, `s017` a RAZAO, `s039` o ESCOPO, `s048` BASE contra INCREMENTO, `s079` a
+CONTAGEM, `s098` a ASSIMETRIA de informacao — **e nenhum fala do que fazer com
+ele depois de o ter**. A conferencia por CAPITULO alcanca **4 dos 6** com ZERO
+sobreposicao, e nos outros dois foi pela NARRACAO, porque **ausencia de dado nao
+e ausencia de colisao** (761). **E o capitulo 36 ficou FORA de proposito:** e a
+frase-modelo de negociacao, seria o fecho natural desta peca, e esta DECLARADO
+pelo `s098`.
+
+**CONTAGEM pela chave `por_cadencia_servivel`:** oito cenas, folga **+4**. Sete
+e a melhor cadencia e **REPETE a `s110`**, e **9, 10 e 11** sairam **NOMEADAS**
+porque ali o PISO da faixa nao e alcancavel com texto legivel.
+
+**E A FORMA SAIU DO INSTRUMENTO DA RODADA ANTERIOR, nao do olho:** o
+`sugere_forma` respondeu na PRIMEIRA vez em producao — a frota usa **UMA unica**
+mistura em oito cenas (`titulo x2 + item x3 + lista + barras + cta`), com **112
+de 120** ordens livres, e `titulo-barras-item-item-item-lista-titulo-cta` e uma
+delas, **INEDITA nas 185 formas** da frota.
+
+**PREVISAO edge 25,70 / piper 21,10 — os DOIS dentro da mira medida do canal**
+(20,0 a 26,0), que e o unico da frota em que a pinca do 740/748 nao esta
+fechada: a `janela_dos_dois_mundos` pede **34 a 36** caracteres por cena e a
+peca saiu com **34,62**. Logo **nao ha exposicao de mundo a declarar**, e eu
+**NAO mirei o piso de proposito** — o piso executavel (25) e de **UM mundo** e
+poria o piper abaixo de 20,0, que e o defeito medido em 19/10 as 17:2x. **A
+margem contra o teto da mira e de 0,3 s** e vai dita. **E o REAL nao esta
+prometido para lado nenhum** (774).
+
+**ZERO numero novo sobre o mundo e ZERO digito na narracao**, conferido pelo
+`numerais_falados`. **E A RECUSA INCLUI O NUMERO QUE DARIA O GANCHO MAIS
+FACIL** — o juro do exemplo do longo —, pelo **caso especial da regra (g) que o
+`s079` ja aplicou nesta mesma origem**: numero que o proprio longo declara ser
+EXEMPLO do calculo nao entra de jeito nenhum. **E a contagem "tres situacoes"
+NAO e falada**, porque a primeira das tres nao esta entre os capitulos livres e
+eu so tenho duas na mao — o `contagem_declarada` existe porque fonte que declara
+N e enumera outra coisa poe numero errado no ar com portao verde (13/10). As
+barras da cena 1 sao ILUSTRACAO e **nao sao faladas**: elas desenham a decisao
+ANTES e DEPOIS da conta com a MESMA altura, que e o argumento inteiro.
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica` pela
+QUADRAGESIMA SEGUNDA rodada seguida** — medido pela `sonda_e_modo`, com os TRES
+controles no MESMO caminho de saida. A peca esta PARQUEADA com o provedor MEDIDO
+e o job **lido da API**, com a presenca conferida **RELENDO** o parque (**143**
+linhas, **71** sem leitura). `RESIDUO_N` segue **128**.
+
+**E A LEITURA DE INSCRITOS PASSOU AS TRES PORTAS E NAO FOI FEITA, pela VIGESIMA
+TERCEIRA rodada seguida:** 82,27 h, piso de resolucao **0,29/dia**, os tres SIM.
+**O que a impede e a ROTA, e o remedio e do DONO** — a tela de Network access.
+
+**COTA: CATORZE envios** na janela aberta as 07:00Z, **22.400** unidades, contra
+o piso MEDIDO de **>= 41.600** — do `janela_de_cota`.

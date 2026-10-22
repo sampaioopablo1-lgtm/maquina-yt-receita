@@ -74,7 +74,8 @@ SEGUNDOS_BARATOS_MEDIDOS = 0.65
 INSTRUMENTOS = ("mira", "acento", "gancho", "paleta_da_spec",
                 "orcamento_da_copy", "esqueleto_entre_canais",
                 "copy_secoes", "contagem_declarada", "layouts_do_short",
-                "numerais_falados", "linhas_medidas_da_copy")
+                "numerais_falados", "linhas_medidas_da_copy",
+                "guardas_do_construtor")
 
 # E EM 21/10 AS 05:3x A PERGUNTA VIROU VARREDURA, em vez de eu descobrir um
 # instrumento ausente por rodada. Varridos os modulos da fabrica com um
