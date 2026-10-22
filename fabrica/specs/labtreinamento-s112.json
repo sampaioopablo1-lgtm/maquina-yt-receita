@@ -1,0 +1,75 @@
+{
+ "slug": "labtreinamento-s112",
+ "pacote": "labtreinamento-s112",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "longo_existente": "Sr6VhvD_aPE",
+ "thumb": {
+  "l1": "Estimou",
+  "l2": "não compara"
+ },
+ "paleta": {
+  "bg": "#0E1117",
+  "ink": "#EEF1F5",
+  "c1": "#3DDBD9",
+  "c2": "#1E2430",
+  "red": "#FF5A5F",
+  "ok": "#3CCB7F",
+  "panel": "#161B24",
+  "mut": "#8B95A5",
+  "acc": "#3DDBD9"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Somou um valor que você estimou",
+   "sub": "para a conta ficar completa",
+   "nar": "Somou ao orçamento um valor que você mesmo estimou?"
+  },
+  {
+   "layout": "barras",
+   "kicker": "Ela ficou completa e incomparável",
+   "barras": [
+    {
+     "rot": "Completa",
+     "v": 100
+    },
+    {
+     "rot": "Conferível",
+     "v": 100
+    }
+   ],
+   "nar": "Ela ficou mais completa e deixou de ser conferível."
+  },
+  {
+   "layout": "item",
+   "kicker": "Mesmos papéis, números diferentes",
+   "sub": "e os dois parecem certos",
+   "nar": "Com os mesmos papéis, dois colegas dão dois números."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A hora está escrita, a qualidade não",
+   "sub": "por isso uma entra e a outra fica fora",
+   "nar": "A hora fora do posto está escrita, a qualidade não."
+  },
+  {
+   "layout": "lista",
+   "kicker": "O que entra e o que não entra",
+   "itens": [
+    "Entra: o que está no papel",
+    "Fica fora: o que você supõe"
+   ],
+   "nar": "Entra o que está no papel, nunca o que você supõe."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Refaça só com o que está escrito",
+   "sub": "e compare com a sua conta anterior",
+   "nar": "Refaça a conta só com o escrito. Inscreva-se no canal."
+  }
+ ],
+ "copy": "# labtreinamento-s112\n\n## TITULO\nO que você estima não entra na conta do treinamento: ela fica completa e deixa de ser conferível\n\n## TITULO SHORT\nA conta completa que não compara\n\n## DESCRICAO\nA conta do custo por pessoa está no vídeo longo deste canal: você soma ao preço da turma tudo o que está escrito e que você pagaria à parte, e só então divide pelo seu número real de pessoas. Com as horas fora do posto dentro da soma, a cotação mais barata do papel às vezes vira a mais cara da sua lista.\n\nO que este short trata é o passo seguinte, e ele não aparece em cena nenhuma da conta: o que você acrescenta de estimativa para ela ficar mais completa. Um valor para a qualidade do instrutor, um valor para o risco de o certificado não ser aceito, um valor para a hora da chefia que vai acompanhar a turma. Nenhum desses está no orçamento. Todos parecem melhorar a conta.\n\nE o problema não é o tamanho do erro, é outro: a conta deixa de ser conferível. Duas pessoas com os mesmos orçamentos na mão têm de chegar no mesmo número por pessoa, e é isso que permite comparar duas cotações entre si e comparar a sua conta de hoje com a sua conta do semestre passado. Estimativa acrescentada quebra as duas comparações ao mesmo tempo, e não avisa: a divisão continua fechando, o número continua saindo redondo, e ele parece até mais realista do que era antes.\n\nA fronteira é escrito contra estimado, e não dentro contra fora. A hora fora do posto está escrita na sua folha de vencimentos, logo ela entra na soma. A qualidade do instrutor não está escrita em lugar nenhum, logo ela fica fora — e fica fora para a conta continuar conferível, não porque não importe. Ela importa, e é um critério separado, que se decide por outra coisa que não é essa divisão.\n\nEntão refaça a conta só com o que está escrito, guarde a regra junto do resultado, e compare com a sua conta anterior pela mesma regra. O exemplo numérico inteiro está no vídeo longo aqui embaixo.\n\n## COMENTARIO FIXADO\nVocê já tinha somado alguma estimativa nessa conta? Escreve embaixo só uma coisa: qual item você tirou de volta depois de ver isto. Sem valores e sem nome de fornecedor.\n\n## FONTES\nLongo `labtreinamento-012` (`Sr6VhvD_aPE`), capítulos 46, 47 e 50, com o capítulo 53 como contraste. O capítulo 46 diz, em letra, que os itens ficam fora \"para a conta continuar conferível: duas pessoas com os mesmos orçamentos têm de chegar no mesmo número por pessoa\"; o 47 resume a regra como \"some o que está escrito, depois divida pelo seu número, e só com o que está no papel\"; o 50 recusa falar de qualidade de instrutor e de validade de certificado, porque \"depende de coisas que não estão no orçamento\".\n\n## FAMILIA DE ENTRADA ERRADA\nACRESCENTAR ESTIMATIVA PARA A CONTA FICAR \"COMPLETA\" — E COM ISSO ELA DEIXAR DE SER CONFERÍVEL. O eixo é a REPRODUTIBILIDADE da regra, não o valor de nenhum item: a entrada errada é somar à cotação um valor que não está escrito em papel nenhum (qualidade do instrutor, risco de certificado, hora da chefia), e o custo não é o erro de grandeza — é que duas pessoas com os mesmos orçamentos passam a chegar a números diferentes, e você deixa de poder comparar com a sua própria conta do período anterior.\n\nE a fronteira que a peça carrega é ESCRITO contra ESTIMADO, não dentro contra fora — é ela que distingue esta família da do irmão `labtreinamento-s006`, que manda SOMAR as horas fora do posto antes de dividir: aquelas horas estão escritas na folha de vencimentos do próprio espectador, logo entram; a qualidade do instrutor não está escrita em lugar nenhum, logo fica fora. As duas regras não se contradizem, e é justamente a fronteira que as separa.\n\nOs SEIS irmãos desta origem foram lidos antes da escolha, pelo `irmaos_da_origem` e — nos dois que não têm este campo (`s006` e `s073`) — pela PROSA e pela NARRAÇÃO de cada um, que é de primeira mão: o `s006` é somar as horas antes de comparar, o `s037` é o LIMITE tratado como meta (não preencher vaga que sobrou), o `s044` é o custo CONDICIONAL da reposição de quem faltou, o `s055` é usar o MESMO divisor nas duas contas, o `s073` é CAMPO AUSENTE que não se presume, e o `s076` é TETO ALTO lido como vantagem. **Nenhum dos seis fala do que você ACRESCENTA por conta própria** — os seis falam do que está no papel e de como operar com ele. O `s073` é o vizinho mais próximo e a distinção vai dita porque é fina: ele é sobre dado que FALTA no papel e manda perguntar; esta é sobre dado que não existe em papel nenhum e que você preenche com estimativa.\n\nE a distinção contra a peça deste mesmo canal publicada às 20:34Z de hoje (`labtreinamento-s111`) vai escrita porque o `similaridade` **não** a pegaria: lá o número da conta é lido como VEREDITO quando ele é preço — o defeito está no USO do resultado; aqui o defeito está na ENTRADA da conta, antes de haver resultado.\n\n## AVISO SOBRE OS NUMEROS\nZERO NÚMERO NOVO SOBRE O MUNDO. O único numeral falado é \"dois\" (cena 2, dois colegas com os mesmos papéis), e ele é estrutura do argumento — a contagem é do próprio exemplo, não um fato sobre o mundo; conferido pelo `numerais_falados`, não declarado de cabeça.\n\nFICARAM FORA pela regra (g): qualquer preço de treinamento, qualquer carga horária, qualquer tamanho de turma e qualquer valor de hora — são os números DO ESPECTADOR, e o `labtreinamento-s006` desta mesma origem já os havia descartado pelo mesmo motivo. **E a recusa inclui o exemplo numérico que daria a peça mais fácil:** os valores das cotações A e B dos capítulos 33 a 38 ficam fora pelo caso especial da regra (g) — o capítulo 31 da PRÓPRIA origem declara, em letra, que \"eles são inventados por mim\". Número que o longo declara ser exemplo não entra de jeito nenhum.\n\nAs barras da cena 1 são ILUSTRAÇÃO qualitativa e **não** são faladas: elas desenham \"completa\" e \"conferível\" com a MESMA altura, que é o argumento inteiro — a conta com a estimativa dentro parece igualmente boa, e é a conferibilidade que ela perde. A lista da cena 4 também não é falada item por item.\n\n## EXPOSICAO\nPrevisão edge **25.49 s** / piper **20.9 s** — os DOIS dentro da mira medida deste canal (20,0 a 26,0), logo **não há exposição de mundo de provedor a declarar**. A janela dos dois mundos pede 51 a 55 caracteres por cena em 6 cenas e a peça saiu com média **51,5**; o piso executável (39) é de UM mundo e a própria `mira.confere` o reprova, porque com 39 o piper cai abaixo de 20,0 — foi esta conta que eu fiz de cabeça no `labtreinamento-s102`.\n\nE o REAL não está prometido para lado nenhum: 41 das 46 peças deste canal narradas pelo edge saíram FORA do teto de 26,0 **com a mira verde nos dois mundos**, e a banda do resíduo tem 5,2 s de largura contra 1 s de granularidade do real (774). O relato diz que se o edge narrar o real deve cair entre 24,3 e 29,5 s, isto é, pode passar do teto da mira.\n\nA cena 5 (CTA) tem duas frases, e isso custa **0,77 s** que o orçamento não supõe: o termo `P` do `MODELO_VOZ` é silêncio por FRASE e não por cena (11/10). Quem nomeou isso foi o relato, não a minha conta.\n\n## RESERVA\nLIVRES nesta origem, com o motivo: os capítulos 9 (quem NÃO entra na lista real — licença, certificado válido, quem saiu) e 24 (por que o \"até\" engana em equipe pequena) seguem sem peça, **e o 9 vai com um aviso**: o eixo dele é a composição da lista, que é perigosamente perto do cluster do denominador do `labtreinamento-014` (`s091`, `s099`) neste MESMO canal — e o `similaridade` não pegaria, porque compara TÍTULO. Leia os dois antes de o tomar.\n\nOs capítulos 21 e 51 (a VALIDADE da proposta não é operando e decide se a comparação existe) seguem livres e foram **adiados de propósito nesta rodada**: o `labtreinamento-s110`, publicado às 17:28Z de hoje, é sobre a DATA de entrada de uma contagem, e duas peças de eixo temporal no mesmo canal no mesmo dia é a regra (f) sem instrumento que a pegue.\n\nNÃO LEVAR: o capítulo 48 (\"esta conta não diz qual fornecedor contratar\") é território do `labtreinamento-s111`, de hoje às 20:34Z. E os capítulos 46, 47 e 50 passam a ser desta peça.\n\n## HASHTAGS\n#treinamento #cotacao #custoporpessoa #indicadores #labtreinamento\n\n## TAGS\ncusto por pessoa, cotação de treinamento, comparação de orçamentos, indicadores de treinamento, gestão de treinamento, planilha conferível, compras, pequenos negócios\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ncategoryId: 27\ndefaultLanguage: pt-BR\nmadeForKids: false\n\n## MUSICA / LICENCA\nTrilha `Inspired` do incompetech (Kevin MacLeod), licença CC BY 3.0.\n"
+}
