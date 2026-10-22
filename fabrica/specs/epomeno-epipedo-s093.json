@@ -1,0 +1,131 @@
+{
+ "slug": "epomeno-epipedo-s093",
+ "pacote": "epomeno-epipedo-s093",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "longo_existente": "alZ97hpgqXo",
+ "thumb": {
+  "l1": "Ίδια δόση,",
+  "l2": "άλλο κόστος"
+ },
+ "paleta": {
+  "bg": "#F4EFE6",
+  "ink": "#1B1A17",
+  "c1": "#C8502A",
+  "c2": "#2B6CB0",
+  "red": "#B83227",
+  "ok": "#2E8B57",
+  "panel": "#FFFFFF",
+  "mut": "#7A7263",
+  "acc": "#C8502A"
+ },
+ "copy": "# epomeno-epipedo-s093\n\n## TITULO\nΗ δόση δεν είναι η τιμή: γιατί δύο προσφορές με την ίδια δόση κοστίζουν αλλιώς\n\n## TITULO SHORT\nΊδια δόση, άλλο κόστος\n\n## DESCRICAO\nΈχεις δύο προσφορές μπροστά σου και η πρώτη σύγκριση που κάνεις είναι η δόση. Είναι η πιο εύκολη σύγκριση, γιατί είναι ένα νούμερο απέναντι σε ένα νούμερο. Και είναι η σύγκριση που κρύβει το μισό πρόβλημα.\n\nΗ δόση δεν είναι η τιμή. Η δόση είναι η τιμή διαιρεμένη με έναν χρόνο που δεν κοίταξες. Δύο προσφορές μπορούν να γράφουν την ίδια δόση και να έχουν εντελώς διαφορετικό συνολικό κόστος, γιατί η μία απλώνει την πληρωμή σε περισσότερο χρόνο. Και ο τόκος ζει μέσα στον χρόνο: όσο περισσότερος χρόνος, τόσο περισσότερος τόκος, ακόμη και με πιο βολική δόση κάθε μήνα.\n\nΓι' αυτό μικρότερη δόση δεν σημαίνει φθηνότερο δάνειο. Σημαίνει, συνήθως, μεγαλύτερη διάρκεια. Η αριθμητική δεν διαμαρτύρεται πουθενά: η διαίρεση βγαίνει, το νούμερο φαίνεται λογικό, και το σύνολο δεν εμφανίζεται σε καμία οθόνη.\n\nΥπάρχει και ένα δεύτερο κομμάτι, και είναι αυτό που δεν σου λέει κανείς στην αρχή. Αν το επιτόκιο είναι κυμαινόμενο, η δόση δεν είναι ούτε σταθερή. Αλλάζει και προς τις δύο κατευθύνσεις, χωρίς εσύ να υπογράψεις τίποτα καινούριο. Το σταθερό επιτόκιο συνήθως ξεκινάει ακριβότερα και σου πουλάει ησυχία. Το κυμαινόμενο ξεκινάει φθηνότερα και σου αφήνει το ρίσκο.\n\nΆρα η ερώτηση που αντέχει δεν είναι «πόσο είναι η δόση». Είναι τρεις ερωτήσεις μαζί: πόσο είναι η δόση, για πόσον χρόνο, και πόσο βγαίνει το σύνολο. Οι τρεις μαζί είναι η τιμή. Η μία μόνη δεν είναι τίποτα.\n\nΚαι πού τα βρίσκεις; Όχι στη διαφήμιση. Στη σύμβαση και στο εκκαθαριστικό σου. Αυτά τα δύο χαρτιά έχουν και τη διάρκεια και το συνολικό ποσό, και δεν αλλάζουν από μήνα σε μήνα όπως αλλάζουν τα μέσα επιτόκια της αγοράς.\n\nΤο δοκιμαστικό απόψε παίρνει δύο λεπτά: πάρε την προσφορά που σου έδωσαν και βρες πόσον χρόνο λέει. Αν δεν τη γράφει, δεν σου έδωσαν τιμή.\n\nΗ πλήρης ανάλυση, με τις τέσσερις κινήσεις και τις πηγές, είναι στο ολόκληρο βίντεο του καναλιού.\n\n## COMENTARIO FIXADO\nΚάνε το δοκιμαστικό και γράψε εδώ: η προσφορά που έχεις στο χέρι γράφει τη διάρκεια και το σύνολο, ή μόνο τη δόση;\n\n## HASHTAGS\n#δάνειο #δόση #οικονομικά #προσωπικάοικονομικά #ΕπόμενοΕπίπεδο\n\n## TAGS\nδόση, διάρκεια δανείου, συνολικό κόστος, κυμαινόμενο επιτόκιο, σταθερό επιτόκιο, δάνειο, οικονομικά, προσωπικά οικονομικά, Ελλάδα, εκπαίδευση\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ncategoryId: 26\ndefaultLanguage: el\ndefaultAudioLanguage: el\nmadeForKids: false\nselfDeclaredMadeForKids: false\n\n## MUSICA / LICENCA\nInspired — Kevin MacLeod (incompetech.com), Creative Commons BY 3.0.\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Conferido campo a campo pelo\n`numerais_falados`, e os numerais que ele acusa vao DECLARADOS aqui: **`Δύο`**\n(cena 0, as duas propostas de que a peca fala) e **`Τρία`** (cena 4, os tres\ncampos da propria oferta). Os dois sao ESTRUTURA do argumento, nao fato sobre o\nmundo.\n\nE A REGRA (g) TIROU DAQUI OS NUMEROS QUE FARIAM A PECA MAIS FACIL, com a\nprocedencia na PROPRIA origem: o longo traz as onze unidades percentuais entre o\ncartao e o habitacional (capitulo 44), os seis pontos-base de subida num mes\n(48), o juro medio dos pequenos e dos grandes emprestimos (46), a media de todos\nos novos emprestimos (51) e os dois juros do capitulo 58. **NENHUM entra.** Todos\nsao numeros de BOLETIM MENSAL — e o capitulo 78 da propria origem escreve o\nmotivo em letra: *\"estes numeros mudam todo mes, e o boletim sai todo mes; saber\nONDE ele mora e mais util que lembrar os percentuais de hoje\"*. Short com o\nnumero deste mes fica errado no mes seguinte e continua no ar.\n\nE O ARGUMENTO NAO PRECISA DE NENHUM DELES: *\"a dosi e a tiki dividida por um\ntempo que tu nao olhaste\"* e verdadeiro qualquer que seja o percentual, e quem\ndecide e o numero DO ESPECTADOR, que esta na sumbolaia dele. O capitulo 76 da\norigem diz a mesma coisa: *\"tudo isto sao medias do mercado, nao a tua\noferta\"*.\n\nAS BARRAS SAO ILUSTRACAO QUALITATIVA E NAO SAO FALADAS. A cena 2 (duracao contra\ndosi) mostra qual dos dois a comparacao esconde, e a cena 8 (sumbolaia contra\nanuncio) mostra onde o numero mora — os quatro valores sao a FORMA do argumento\ne nao medida de coisa nenhuma. Esta linha existe para a rodada seguinte NAO os\nler de volta como dado.\n\nAS LISTAS TAMBEM: a da cena 4 (dosi, duracao, total) sao os tres campos da\noferta e a da cena 9 (fixo, variavel, outra dosi) e a estrutura da segunda\nperna. Nenhuma das duas e contagem de coisa do mundo.\n\nO QUE O VIDEO AFIRMA: que a dosi esconde a duracao e que e na duracao que o juro\nvive; que dosi menor costuma significar duracao maior, logo custo total maior;\nque o preco e o montante total e que ele esta escrito na sumbolaia e no\nextrato, nao no anuncio; e que num juro variavel a propria dosi muda nos dois\nsentidos sem o cliente assinar nada novo. Isso esta no longo `epomeno-epipedo-005`\n(`alZ97hpgqXo`), capitulos 71, 72 e 50, com apoio dos 48 e 49, e com as fontes\ndele.\n\n## FAMILIA DE ENTRADA ERRADA\nA DOSI NAO E A TIMI: ELA ESCONDE A DURACAO — capitulo 71, no centro:\n*\"o segundo erro e olhar so o valor da dosi; a dosi esconde o tempo, e o tempo e\nonde o juro vive\"*.\n\nO eixo e o **COMPARADOR**, e a entrada errada nao esta em celula nenhuma: esta\nem tomar o numero que PARECE comparavel — um numero contra um numero — como se\nfosse o preco. E a aritmetica nunca reclama: a divisao fecha, a dosi sai num\nvalor confortavel, e o total nao aparece em tela nenhuma.\n\nE A FAMILIA TEM DUAS PERNAS QUE FALHAM POR MOTIVOS DIFERENTES, que e o que a\ntorna uma e nao duas: (1) a dosi esconde a DURACAO, logo duas ofertas com a\nmesma dosi podem ter custo total muito diferente (capitulo 71, com o 50 ao\nlado: o fixo comeca mais caro e vende silencio, o variavel comeca mais barato e\ndeixa o risco); e (2) no variavel a dosi nao e nem ESTAVEL — ela se move nos dois\nsentidos sem ninguem assinar nada (capitulos 72, 48 e 49). Nas duas, a conclusao\ne a mesma: a dosi nao e o preco.\n\nDISTINCAO DOS QUATRO IRMAOS desta origem, conferida pelo `irmaos_da_origem` e\npela NARRACAO de cada um — e **DOIS deles (`s013` e `s064`) nao tem este campo**,\nlogo a comparacao saiu da PROSA e da fala, que e de primeira mao:\n- `s013` — poe os PROPRIOS juros em ordem, do mais caro ao mais barato: e sobre\n  a TAXA de cada produto, nao sobre o comparador entre duas ofertas;\n- `s032` — o mesmo plastico com DUAS sumbolaia, e a dose minima como a opcao\n  mais cara porque o unico efeito dela e comprar TEMPO;\n- `s064` — o MESMO homem com duas timas: o que define o preco e a garantia que\n  esta por tras, nao a pessoa;\n- `s076` — primeiro a disponibilidade, depois o preco: a alta rendibilidade\n  existe so sob um termo, o tempo.\n**O IRMAO MAIS PROXIMO E O `s032` E A DISTINCAO VAI DITA, porque ela e fina:**\nele tambem fala de TEMPO, e ali o tempo e o que a dose minima compra DENTRO de\num contrato que ja existe — uma opcao interna de um produto. Esta peca e sobre o\nnumero com que se comparam DUAS ofertas ANTES de assinar: lá o tempo e o efeito\nda escolha, aqui o tempo e o que o comparador esconde. Opcao dentro de um\ncontrato contra comparador entre dois.\n\nE DUAS FAMILIAS FICARAM DE FORA DE PROPOSITO, porque elas atravessariam CANAL em\nrodadas seguidas — e o portao `similaridade` NAO pegaria, porque ele compara\ncontra o MESMO canal: o capitulo 76 (*\"isto sao medias do mercado, nao a tua\noferta\"*) e o nucleo do `kolejny-poziom-s092`, de 09:20Z de hoje; e o capitulo 78\n(*\"saber onde o numero mora vale mais que lembrar o de hoje\"*) esta adjacente ao\n`kolejny-poziom-s091`, de ontem as 06:19Z. As duas seguem livres NESTA origem, e\no motivo do adiamento vai escrito para a rodada seguinte decidir com ele na mao.\n\n## RESERVA\nO QUE EU NAO LEVEI, de proposito, e vai escrito para a proxima rodada achar:\n- os capitulos **76 e 77** (as medias do mercado nao sao a tua oferta; e nao\n  compares o percentual de um pais com o titulo de outro) seguem LIVRES, com o\n  aviso de que o 76 atravessa a familia do `kolejny-poziom-s092` (09:20Z de hoje)\n  e o 77 a do `epomeno-epipedo-s090` (01:16Z de hoje, nivel de indice de duas\n  fontes). Quem for a eles leia primeiro aquelas duas copies;\n- o capitulo **78** (os numeros mudam todo mes, logo saber ONDE o boletim mora\n  vale mais que lembrar os de hoje) segue LIVRE e e a familia de maior valor\n  nesta reserva, porque ela e a nossa propria regra (g) dita pelo autor do longo.\n  Ela esta adjacente ao `kolejny-poziom-s091` (QUANDO a conta se refaz) e a\n  distincao e: aquele fala de FREQUENCIA, este fala de LUGAR;\n- os capitulos **73 e 74** (o erro mais silencioso: deixar dinheiro anos num\n  deposito de rendimento baixo, e *\"nao existe fatura para o dinheiro que nao\n  ganhaste\"*) seguem LIVRES — o eixo deles e a AUSENCIA DE SINAL, e e preciso\n  distingui-lo do `s076`, que fala do apothema e do termo;\n- o capitulo **75** (o quinto erro, escondido na oferta: ler o zero por cento e\n  nao ler o que acontece quando ele acaba, e que ele acaba numa DATA e nao num\n  valor) segue LIVRE, e e familia nova em todo o canal;\n- o capitulo **71** entrou nesta peca como o argumento e os **72, 48 e 49** como\n  a segunda perna, logo estao consumidos; o **50** entrou como apoio;\n- e os capitulos **54 a 67** (as quatro movimentacoes) vao **NOMEADOS como\n  territorio do `s013`**, para a rodada seguinte nao os tomar por livres.\n\n## EXPOSICAO\nA PINCA DO 740/748 ESTA FECHADA AQUI, e a exposicao vai declarada ANTES de\npublicar: o `mira.janela_dos_dois_mundos` devolve **NENHUMA** janela de\ncaracteres por cena que ponha os dois provedores dentro de 41,5 a 43,0 com treze\ncenas nesta voz — o vao piper/edge vale ~4,8 s contra 1,5 s de faixa.\n\n**Mirei o PISO** (regra de redacao do 772): edge **41,62**, isto e 0,12 acima do\npiso, com media de **31,08** caracteres por cena contra os 31 do piso EXECUTAVEL\nque o `mira` devolve. O piper sai em **36,87** — FORA pela mira e DENTRO do\nportao, que cobra 18 a 45 s nos dois mundos.\n\n**E A PRIMEIRA VERSAO DESTA PECA SAIU EM 41,31 — ABAIXO do piso** —, e quem\ndisse de quanto era o passo foi o instrumento e nao a minha cabeca: *\"acrescentar\n~4 caracteres no TOTAL; um caractere vale 0,051 s nesta voz\"*. Somar isto de\ncabeca e o item 3 da §10, e foi exatamente o que me fez acrescentar quinze onde\nfaltavam quatro em 20/10 as 22:3x.\n\n**E O REAL NAO ESTA PROMETIDO PARA LADO NENHUM:** a banda do residuo tem 5,2 s\nde largura contra 1 s de granularidade, e declarar de que lado dela o real cai\nnao e previsao (774).\n",
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Δύο προσφορές",
+   "sub": "η ίδια δόση",
+   "nar": "Δύο προσφορές, με την ίδια δόση."
+  },
+  {
+   "layout": "item",
+   "kicker": "Και όμως",
+   "sub": "άλλο συνολικό κόστος",
+   "nar": "Και όμως, άλλο συνολικό κόστος."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Τι κρύβει",
+   "barras": [
+    {
+     "rotulo": "Διάρκεια",
+     "valor": 100
+    },
+    {
+     "rotulo": "Δόση",
+     "valor": 0
+    }
+   ],
+   "nar": "Η δόση κρύβει τη διάρκεια."
+  },
+  {
+   "layout": "item",
+   "kicker": "Πού ζει ο τόκος",
+   "sub": "μέσα στον χρόνο",
+   "nar": "Και ο τόκος ζει μέσα στον χρόνο."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Τι σου δίνουν",
+   "itens": [
+    "Δόση",
+    "Διάρκεια",
+    "Σύνολο"
+   ],
+   "nar": "Τρία νούμερα, και κοιτάς μόνο ένα."
+  },
+  {
+   "layout": "item",
+   "kicker": "Η μικρή δόση",
+   "sub": "θέλει περισσότερο χρόνο",
+   "nar": "Μικρότερη δόση, περισσότερος χρόνος."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Άρα η δόση",
+   "sub": "δεν είναι η τιμή",
+   "nar": "Άρα η δόση δεν είναι η τιμή."
+  },
+  {
+   "layout": "item",
+   "kicker": "Η τιμή",
+   "sub": "το συνολικό ποσό",
+   "nar": "Η τιμή είναι το συνολικό ποσό."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Πού γράφεται",
+   "barras": [
+    {
+     "rotulo": "Σύμβαση",
+     "valor": 100
+    },
+    {
+     "rotulo": "Διαφήμιση",
+     "valor": 0
+    }
+   ],
+   "nar": "Και γράφεται μέσα στη σύμβαση."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Και κάτι ακόμη",
+   "itens": [
+    "Σταθερό",
+    "Κυμαινόμενο",
+    "Άλλη δόση"
+   ],
+   "nar": "Και κάτι ακόμη για τη δόση σου."
+  },
+  {
+   "layout": "item",
+   "kicker": "Στο κυμαινόμενο",
+   "sub": "αλλάζει μόνη της",
+   "nar": "Στο κυμαινόμενο αλλάζει μόνη της."
+  },
+  {
+   "layout": "item",
+   "kicker": "Χωρίς υπογραφή",
+   "sub": "τίποτα καινούριο",
+   "nar": "Χωρίς να υπογράψεις κάτι νέο."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Επόμενο Επίπεδο",
+   "sub": "κάνε εγγραφή",
+   "nar": "Κάνε εγγραφή και ρώτα το σύνολο."
+  }
+ ],
+ "longo": []
+}
