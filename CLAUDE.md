@@ -10901,3 +10901,132 @@ SÉTIMA rodada seguida:** 75,05 h, piso de resolução **0,32/dia**, os três SI
 
 **COTA: SETE envios** na janela aberta às 07:00Z, **11.200** unidades, contra o
 piso MEDIDO de **≥ 41.600** — do `janela_de_cota`.
+
+## A GUARDA COBRAVA A CONTAGEM E O ACERVO CRESCE UMA SPEC POR RODADA
+
+**Medido em 22/10 às 14:4x, pela suíte da rodada anterior, e é a DÉCIMA OITAVA
+vez da classe 743/753/761 — agora numa guarda que eu escrevi para impedir
+exactamente isto.** O `test_NAO_alarma_e_a_medida_do_acervo_e_RECONFERIDA`
+travava a medida do `numerais_falados` por **contagem**:
+
+    assert abs(com - 144) <= 15   # "releia em vez de mover o numero"
+
+e ela deu **160**. A instrução dele estava certa — reler — e ao reler:
+
+| | snapshot | hoje |
+|---|---|---|
+| specs de short solto com vocabulário | 259 | **285** |
+| que falam algum numeral | 144 | **160** |
+| **proporção** | **0,556** | **0,561** |
+
+**A propriedade que sustenta a frase *"é comum"* não se mexeu; o que mexeu foi o
+tamanho do acervo.** E o acervo cresce **uma spec por rodada**, logo uma
+tolerância de 15 sobre contagem absoluta sai do limite a cada **~16 rodadas por
+CRESCIMENTO**, não por mudança de carácter — e a rodada que a encontrasse
+"consertaria" movendo o número, que é o que a própria mensagem proíbe.
+
+**Retratado no lugar:** o módulo declara a medida como **PROPORÇÃO**, com o par
+`144/259` marcado como **HISTÓRIA** e a retratação escrita ao lado; o teste
+passou a cobrar a faixa observada da proporção (0,45 a 0,70) **e** a presença da
+retratação no módulo — porque sem ela a rodada seguinte volta a cobrar a
+contagem.
+
+**A regra que fica, e ela é mais fina que a do 753: número RECONFERIDO contra o
+disco tem de ser reconferido na grandeza que NÃO depende do tamanho do disco.**
+Contagem absoluta sobre população que cresce é identidade disfarçada de medida.
+
+### E A OUTRA FALHA NOVA ERA O INSTRUMENTO DA RODADA ANTERIOR, ÓRFÃO
+
+O `test_TODO_relato_de_spec_esta_na_passada_ou_DECLARADO` acusou o
+`linhas_medidas_da_copy`: ele tem `relato` de spec e **não estava nem em
+`INSTRUMENTOS` nem em `FORA_DA_PASSADA`**. Esse teste existe porque o
+`contagem_declarada` e o `layouts_do_short` ficaram fora da passada por dias —
+e ele pegou o meu instrumento **na primeira suíte depois de ele nascer**.
+
+Decidido e ligado: **entra em `INSTRUMENTOS`**, porque a passada corre no
+RASCUNHO e é aí que a copy se escreve. Instrumento que gera linha para colar não
+serve de nada se a passada não o chama no momento em que eu escrevo.
+
+### A PEÇA DESSA RODADA — SEIS cenas, e os DOIS mundos dentro da mira
+
+`labtreinamento-s109` = **`u0jv8DVDAaA`**, publicado às 14:37:51Z (run `39797299288`),
+**sem `403 quota`**. **ONZE PORTÕES VERDES** — e ela foi **CONFERIDA COMO
+RASCUNHO** antes de existir no disco, e precisou ser: a suíte da rodada anterior
+ainda varria `fabrica/specs`.
+
+Provedor **edge MEDIDO** pelo `anotacoes_do_run` (zero avisos
+`NARRACAO PELO PIPER` no job `119879885957`, que é o job que emitiu o SOM). Som
+**−14,0** LUFS, pico **−3,6** dBTP com `pico_vs_teto: dentro`, **zero
+silêncios**.
+
+**E os DOIS workflows foram esperados pelos JOBS e não pelo RUN**, que é o
+conserto de 13:4x em uso na primeira rodada depois dele.
+
+**CANAL do `passo_zero`** (8/8/9 na janela de 24 h, empate em 8 desempatado pelo
+que está há mais tempo sem publicar). **PAUTA:** `NNgAQLlpEzg`
+(`labtreinamento-013`, 56 capítulos), 6 usos — empate de **SEIS** origens
+desempatado pela MAIOR reserva (44 de 56). A dominante `FtCtIJPsc_Q` ficou de
+fora.
+
+**E A FAMÍLIA SAIU DA RESERVA ESCRITA pelo `labtreinamento-s071`**, que nomeou
+os capítulos 48 a 51 como NÃO levados com o motivo em letra — *"o que a conta
+NÃO decide… é família própria e não cabe hoje pela regra (f)"* — e o
+`reservas_escritas` conferiu o veredito **LIVRE**: nenhum dos quatro aparece na
+copy de irmão nenhum. **Sexta rodada em que a família sai de reserva escrita.**
+
+**FAMÍLIA: A CONTA COMEÇA DEPOIS DE UMA PERGUNTA QUE ELA NÃO FAZ.** O eixo é o
+**PRESSUPOSTO**, não o cálculo: ela pressupõe que o benefício JÁ está na folha
+(quem tem direito, e para quais trajectos, foi respondido antes e noutro lugar)
+e que o que se recebe é **vale** e não dinheiro. Vindo em dinheiro, a discussão
+deixa de ser aritmética e passa a ser de **NATUREZA** — e a conta continua
+fechando, respondendo à pergunta que não está em jogo. **Aritmética que fecha
+não avisa que o assunto mudou de TIPO.**
+
+Os **SEIS** irmãos desta origem são todos sobre **PRODUZIR** o número (base,
+contagem, tecto, embarques); este é sobre o que a conta pressupõe **antes de
+começar**. Conferidos pelo `irmaos_da_origem` e, nos **QUATRO** sem o campo da
+família, pela PROSA e pela NARRAÇÃO de cada um — primeira mão.
+
+**E A DISTINÇÃO CONTRA A PEÇA DE OUTRO CANAL DE HOJE VAI ESCRITA NA COPY**,
+porque o `similaridade` **não** a pegaria: o `epomeno-epipedo-s094` (13:46Z) é
+sobre uma **LINHA que FALTA** dentro da comparação e sobre o que o resultado
+autoriza; aqui **nada falta e o resultado está certo** — o que muda é o PONTO DE
+PARTIDA. Entrada ausente contra pressuposto não enunciado.
+
+**SEIS CENAS pela chave `por_cadencia_servivel`:** sete é a melhor cadência e
+**REPETE** a `s107`, e **9, 10 e 11** saíram **NOMEADAS** porque ali o PISO da
+faixa não é alcançável com texto legível. **ESQUELETO
+`titulo-barras-item-item-lista-cta`, INÉDITO nas 179 formas da frota.**
+
+**TRÊS CORREÇÕES ANTES DO RENDER, as três do instrumento:** a thumbnail saiu com
+**SEIS** palavras contra o limite de 4 (a **oitava** vez nesta sessão); a
+narração saiu **CURTA** para a janela dos dois mundos (45 caracteres por cena
+onde a `janela_dos_dois_mundos` pede **51 a 55**); e **o ESQUELETO que eu montei
+JÁ EXISTIA** — quem acusou foi o `esqueleto_entre_canais`, não os meus olhos.
+
+**E O INSTRUMENTO DA RODADA ANTERIOR ENTROU EM PRODUÇÃO NA PRIMEIRA RODADA
+DEPOIS DELE:** as linhas medidas da copy foram **GERADAS** pelo
+`linhas_medidas_da_copy` e **COLADAS**, não redigitadas.
+
+**A PINÇA DO 740/748 NÃO ESTÁ FECHADA AQUI, e este é o ÚNICO canal da frota em
+que isso acontece:** previsão edge **25,38** / piper **20,80**, os **DOIS**
+dentro da mira medida (20,0 a 26,0), logo **não há exposição de mundo a
+declarar**. E eu **NÃO mirei o piso de propósito**: o piso executável de 39
+caracteres poria o piper **abaixo** de 20,0, isto é, a própria `mira.confere`
+reprovaria o conselho do piso — o defeito medido em 19/10 às 17:2x. **E o REAL
+não está prometido para lado nenhum** (774).
+
+**ZERO número novo sobre o mundo, e a narração não fala numeral NENHUM**
+(conferido pelo `numerais_falados`). **O percentual sobre o salário básico — que
+é o número que tornaria a peça mais fácil — ficou FORA pela regra (g)**, e isso
+vai escrito na copy.
+
+**NÃO EXISTE PONTO DE RESÍDUO, e o modo é `negado_por_politica` pela TRIGÉSIMA
+SEXTA rodada seguida.** `RESIDUO_N` segue **128**.
+
+**E A LEITURA DE INSCRITOS PASSOU AS TRÊS PORTAS E NÃO FOI FEITA, pela DÉCIMA
+OITAVA rodada seguida:** 76,0 h, piso de resolução **0,32/dia**, os três SIM.
+**O que a impede é a ROTA, e o remédio é do DONO** — a tela de Network access.
+
+**COTA: OITO envios** na janela aberta às 07:00Z, **12.800** unidades, contra o
+piso MEDIDO de **≥ 41.600**.
