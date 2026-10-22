@@ -1,0 +1,127 @@
+{
+ "slug": "kolejny-poziom-s094",
+ "pacote": "kolejny-poziom-s094",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "longo_existente": "42hpD7eaptE",
+ "thumb": {
+  "l1": "Rozrzut nie jest",
+  "l2": "błędem"
+ },
+ "paleta": {
+  "bg": "#0B0B0C",
+  "ink": "#F2EEE8",
+  "c1": "#E23B3B",
+  "c2": "#D9C7A7",
+  "red": "#FF4D4D",
+  "ok": "#7FB77E",
+  "panel": "#151517",
+  "mut": "#8F877C",
+  "acc": "#E23B3B"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Dwa banki",
+   "sub": "dwie różne kwoty",
+   "nar": "Dwa banki, dwie różne kwoty."
+  },
+  {
+   "layout": "lista",
+   "kicker": "A po twojej stronie",
+   "itens": [
+    "Ten sam dochód",
+    "Ten sam miesiąc",
+    "Ten sam wniosek"
+   ],
+   "nar": "Ta sama osoba i dochód."
+  },
+  {
+   "layout": "item",
+   "kicker": "To nie pomyłka",
+   "sub": "żadnego z nich",
+   "nar": "To nie pomyłka żadnego z nich."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Ten sam wniosek",
+   "barras": [
+    {
+     "Bank pierwszy": 100
+    },
+    {
+     "Bank drugi": 70
+    }
+   ],
+   "nar": "Każdy liczy własnymi zasadami."
+  },
+  {
+   "layout": "item",
+   "kicker": "Koszty utrzymania",
+   "sub": "ma we własnej tabeli",
+   "nar": "Koszty ma z własnej tabeli."
+  },
+  {
+   "layout": "item",
+   "kicker": "Przy ryczałcie",
+   "sub": "własny procent dochodu",
+   "nar": "Przy ryczałcie własny procent."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "I własny bufor",
+   "sub": "na przyszłą ratę",
+   "nar": "I własny bufor na ratę."
+  },
+  {
+   "layout": "item",
+   "kicker": "Te trzy zasady",
+   "sub": "są wewnętrzne",
+   "nar": "Te trzy zasady są wewnętrzne."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Gdzie się rozjeżdża",
+   "itens": [
+    "Tabela kosztów",
+    "Procent ryczałtu",
+    "Wysokość bufora"
+   ],
+   "nar": "Więc rozrzut nie jest błędem."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Czym jest rozrzut",
+   "barras": [
+    {
+     "Błąd jednego banku": 0
+    },
+    {
+     "Część definicji": 100
+    }
+   ],
+   "nar": "Jest częścią definicji."
+  },
+  {
+   "layout": "item",
+   "kicker": "Twoja kwota",
+   "sub": "nie jest twoją cechą",
+   "nar": "Ta kwota nie jest twoją cechą."
+  },
+  {
+   "layout": "item",
+   "kicker": "Jest wynikiem",
+   "sub": "ciebie i tego banku",
+   "nar": "Jest wynikiem ciebie i banku."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Sprawdź w kilku",
+   "sub": "i zostaw subskrypcję",
+   "nar": "Sprawdź w kilku i zapisz się."
+  }
+ ],
+ "copy": "# kolejny-poziom-s094\n\n## TITULO\nZdolność kredytowa nie jest twoją cechą: jest wynikiem ciebie i konkretnego banku\n\n## TITULO SHORT\nRozrzut nie jest błędem banku\n\n## DESCRICAO\nTa sama osoba, ten sam dochód, ten sam miesiąc, ten sam wniosek — i dwie zupełnie różne kwoty w dwóch bankach. Pierwsza reakcja jest zawsze taka sama: któryś z nich się myli, albo któryś jest dla mnie lepszy. Ten short jest o tym, że ani jedno, ani drugie nie opisuje tego, co się stało.\n\nRozrzut nie jest błędem jednego z banków. Jest konsekwencją tego, jak zdolność się liczy. Bank odejmuje od twojego dochodu netto koszty utrzymania, ale nie pyta, ile wydajesz — przyjmuje własną kwotę na osobę w gospodarstwie, z własnej tabeli. Przy ryczałcie część banków przyjmuje ustalony procent przychodu jako dochód, i ten procent jest inny w różnych bankach. A ratę testuje przy stawce wyższej niż dzisiejsza, i wysokość tego buforu też bywa różna.\n\nTrzy zasady, trzy miejsca, w których wyniki się rozjeżdżają — i wszystkie trzy są wewnętrznymi zasadami każdego banku, nie cechami twojego budżetu.\n\nStąd wniosek, który zmienia sposób planowania: liczba, którą dostajesz, nie jest twoją właściwością. Jest wynikiem pary — ciebie i tego konkretnego banku. Mówić \"moja zdolność to X\" po jednej rozmowie to brać wynik jednego zestawu założeń za pomiar.\n\nI dlatego jedno sprawdzenie nie jest pomiarem. Rozrzut widać dopiero na własnym przypadku, w kilku bankach — i to jest różnica, która bywa większa niż wszystko, co da się ugrać negocjując marżę. Jedna zasada przy porównywaniu: pytaj wszędzie o ten sam okres i ten sam wkład własny, bo inaczej porównujesz dwie różne sprawy.\n\nCały mechanizm, z buforem, rejestrem i dźwigniami, jest w filmie na kanale.\n\n## COMENTARIO FIXADO\nJeśli sprawdzałeś zdolność w więcej niż jednym banku, napisz pod spodem jedną rzecz: czy różnica była mniejsza czy większa, niż się spodziewałeś. Bez nazw banków i bez kwot — ciekawi mnie sam rozrzut.\n\n## HASHTAGS\n#zdolnoscredytowa #kredythipoteczny #finanseosobiste #bank #mieszkanie #budzet #kredyt\n\n## TAGS\nzdolność kredytowa, kredyt hipoteczny, bufor, koszty utrzymania, ryczałt, wkład własny, finanse osobiste, bank, rata, budżet domowy\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ncategoryId: 27\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\nmadeForKids: false\n\n## MUSICA / LICENCA\nWholesome (Kevin MacLeod, incompetech.com) — Creative Commons: By Attribution 4.0. A trilha e a do canal (601) e NAO atravessa de outro canal.\n\n## FONTES\nkolejny-poziom-008 (42hpD7eaptE), capitulos 17, 24 e 33 como MECANISMO, com o 71 e o 78 como consequencia. Nenhuma fonte externa: a peca nao introduz numero novo sobre o mundo.\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e aqui a trava e a mais apertada de todas as rodadas desta sessao porque a ORIGEM e um longo de taxas com fonte e data: ficaram FORA a stopa referencyjna do NBP, o WIBOR trzymiesieczny, o POLSTR e a data em que ele substitui o WIBOR, a altura do bufor, qualquer kwota, qualquer procent de ryczalt e qualquer prazo. **Nenhum deles aparece na narracao nem na descricao** — e eles mudam por publicacao, que e exatamente o que a regra (g) tira.\nAS LINHAS MEDIDAS DESTA SECAO SAO GERADAS pelo `linhas_medidas_da_copy`, e nao escritas a mao. COLADAS do instrumento, sem edicao:\n- NUMERAIS falados pela narracao, do `numerais_falados`: \"dwa\", \"dwie\", \"trzy\". Se eles sao estrutura do argumento ou fato sobre o mundo, decide a regra (g) — e ela e leitura.\n- PREVISAO, do `ensaio` pelo `mira.confere`: edge 41.90 s / piper 35.60 s. MIRA do canal (41.5, 43.0); faixa que o PORTAO cobra (18.0, 45.0) — as duas se chamam faixa no repo e nao sao a mesma.\n- FORMA: 13 cenas, media de 27.69 caracteres por cena, esqueleto `titulo-lista-item-barras-item-item-titulo-item-lista-barras-item-item-cta` — INEDITO nas 180 formas de short da frota (do `esqueleto_entre_canais`, com esta peca FORA da varredura).\n- REDACAO: acento 5.76% da narracao, thumbnail com 4 palavra(s), gancho com 5 palavra(s) — os limites sao do portao `variedade`.\nE OS TRES NUMERAIS FALADOS SAO ESTRUTURA DO ARGUMENTO, nao fato sobre o mundo: \"dwa\" (os dois bancos do mesmo pedido), \"dwie\" (as duas kwotas que saem dele) e \"trzy\" (os tres lugares em que a regra interna difere — tabela, procent e bufor). Nenhum deles e taxa, prazo nem valor.\nAs BARRAS das cenas 4 e 10 sao ILUSTRACAO qualitativa (dois resultados do mesmo pedido; erro contra definicao) e **NAO** sao faladas. A rodada seguinte nao deve le-las de volta como dado.\n\n## FAMILIA DE ENTRADA ERRADA\nA ZDOLNOSC NAO E UMA CARACTERISTICA TUA: ela e o resultado de um PAR — tu e aquele banco. A entrada errada e tomar a kwota do primeiro banco como *\"a minha zdolnosc\"*, e dai decorrem as duas leituras erradas do rozrzut: *\"um deles errou\"* ou *\"um deles e melhor para mim\"*.\nE o MECANISMO esta medido pelo proprio longo, em TRES lugares, e os tres sao regra INTERNA de cada banco: a tabela de custos de manutencao por pessoa (capitulo 17), o percentual do ryczalt aceito como rendimento (24) e a altura do bufor com que a rata e testada (33). Logo o rozrzut **nao e ruido nem erro: e parte da definicao** — e so se ve no proprio caso, em mais de um banco (71, 78).\nDistinta dos QUATRO irmaos desta origem, conferidos pelo `irmaos_da_origem` e, como NENHUM deles tem o campo da familia, pela PROSA e pela NARRACAO de cada um, que e de primeira mao:\n- `kolejny-poziom-s010` — FECHAR O LIMITE age como aumento. Eixo de ALAVANCA: o que fazer para mover o numero;\n- `kolejny-poziom-s022` — o aumento um mes antes do pedido nao deu nada. Eixo de TEMPO da alavanca;\n- `kolejny-poziom-s063` — o banco calcula a rata MAIOR que a verdadeira. Eixo do CALCULO dentro de UM banco, e e o vizinho mais perto: ele explica o bufor como mecanismo, **esta peca usa a VARIACAO do bufor entre bancos como um dos tres lugares do rozrzut**. Mecanismo contra dispersao;\n- `kolejny-poziom-s077` — a zdolnosc MAXIMA e limite e nao objetivo. Eixo do USO do numero depois de o ter.\n**Nenhum dos quatro diz que o numero nao e teu.**\n\n## RESERVA\nPara a rodada seguinte, nesta origem (42hpD7eaptE), com o motivo escrito:\n- LIVRE: capitulos 20 a 24 — a FORMA de emprego, e que faturamento alto nao e zdolnosc alta (o banco olha dochod, nao przychod). Eixo forte. **ATENCAO ao atravessar canal**: o `epomeno-epipedo-s091` (22/10, 04:21Z) e *\"as linhas do numerador\"* em outro canal, e o `similaridade` NAO pegaria. Vale em rodada afastada dessa;\n- LIVRE: capitulos 44, 81 e 82 — o REGISTO tem atraso, logo arrumar as obrigacoes DEPOIS de submeter nao conta, e o denominador comum dos quatro erros do longo e a PRESSA. **Atencao**: o `s010` e o `s022` ja tratam da alavanca e do tempo dela, logo isto pede o angulo do REGISTO (latencia entre agir e o registo mostrar), nao o da alavanca;\n- PARCIAL, e o `reservas_escritas` manda LER A PROSA: a reserva deixada pelo `kolejny-poziom-s022` nomeia os capitulos 52 a 61 (as quatro dzwignie que FUNCIONAM) com 6 livres e 4 mencionados, e o motivo de nao as levar ja esta escrito nela — o `s010` levou uma delas;\n- CONSUMIDOS por esta peca: 17, 24 e 33, com o 71 e o 78 de apoio.\n\n## EXPOSICAO\nA PINCA DO 740/748 ESTA FECHADA NESTE CANAL, e a exposicao vai declarada ANTES de publicar: o `mira.janela_dos_dois_mundos` devolve NENHUMA janela de caracteres por cena que ponha os dois provedores dentro de 41,5 a 43,0 nesta voz, em contagem de cena nenhuma de 2 a 20 — a razao piper/edge e 0,851 e o vao vale ~6 s contra 1,5 s de faixa.\nO mundo `piper` sai FORA pela mira e DENTRO do portao, que cobra 18 a 45 s nos DOIS mundos.\nE o REAL nao esta prometido para lado nenhum (774): a banda do residuo tem 5,2 s de largura contra 1 s de granularidade do instrumento.\n"
+}
