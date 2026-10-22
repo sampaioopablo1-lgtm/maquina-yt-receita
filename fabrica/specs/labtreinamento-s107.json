@@ -1,0 +1,82 @@
+{
+ "slug": "labtreinamento-s107",
+ "pacote": "labtreinamento-s107",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "longo_existente": "4OYBkCHFTV8",
+ "thumb": {
+  "l1": "Parece desconto,",
+  "l2": "é troca"
+ },
+ "paleta": {
+  "bg": "#0E1117",
+  "ink": "#EEF1F5",
+  "c1": "#3DDBD9",
+  "c2": "#1E2430",
+  "red": "#FF5A5F",
+  "ok": "#3CCB7F",
+  "panel": "#161B24",
+  "mut": "#8B95A5",
+  "acc": "#3DDBD9"
+ },
+ "copy": "# labtreinamento-s107\n\n## TITULO\nA alíquota menor não é desconto: é uma troca, e o preço dela depende de quando você decide\n\n## TITULO SHORT\nParece desconto, é troca\n\n## DESCRICAO\nQuem emite nota como autônomo escolhe um código de pagamento no começo, quase sempre sem perceber que está escolhendo. O código menor entra na vida da pessoa com a cara de um desconto: a guia do mês fica mais baixa, o dinheiro sobra, e nada no documento avisa que existe um segundo lado.\n\nSó que não é desconto, é troca. Você paga menos agora e abre mão de uma coisa depois. E a diferença entre desconto e troca não é vocabulário: desconto tem um lado, troca tem dois, e o segundo lado desta troca não aparece em lugar nenhum na hora de pagar. É isso que faz ela ser feita sem decisão — não há nada doendo para chamar atenção.\n\nO ponto desta peça é o momento, não a aritmética. A escolha do código é a mesma decisão em dois instantes muito diferentes. No começo, quando você ainda vai emitir a primeira nota, ela custa zero: basta marcar o código certo. Anos depois, a decisão é literalmente a mesma, e aí ela tem preço — a diferença de cada mês já pago, mês por mês, com o acerto que cada um carrega.\n\nTrocas não são erradas por si. Erradas são as que a gente faz sem saber que está fazendo, e essa é feita assim todo mês, no Brasil inteiro. O trabalho de hoje é curto e não depende de ninguém: pegue a sua guia e confira o código. Em dois minutos você sai sabendo em qual das duas portas você está — e, se estiver começando agora, essa é a hora em que arrumar não custa nada.\n\nA comparação completa entre as duas alíquotas, o que cada uma dá e tira, como se faz o acerto e quando ele não vale a pena está no vídeo completo do canal, com as fontes.\n\n## COMENTARIO FIXADO\nSe você já emite nota, conta aqui há quanto tempo paga pelo código que está na sua guia — sem o valor, só o tempo. É esse tempo que decide se a conversa é sobre escolher ou sobre consertar.\n\n## HASHTAGS\n#autonomo #contribuicao #aposentadoria #notafiscal #LabTreinamento\n\n## TAGS\ncontribuição individual, alíquota, código de pagamento, guia, aposentadoria por tempo de contribuição, autônomo, MEI, LabTreinamento, Brasil\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ncategoryId: 27\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\nmadeForKids: false\nselfDeclaredMadeForKids: false\n\n## MUSICA / LICENCA\nInspired — Kevin MacLeod (incompetech.com), Creative Commons BY 3.0.\n\n## FONTES\nLongo `4OYBkCHFTV8` (pacote `labtreinamento-006`), capítulos 54 a 58, com apoio\ndo 8 — e as fontes estão nele.\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO. A narração NÃO cita alíquota, NÃO cita\npercentual, NÃO cita taxa de juros, NÃO cita idade de aposentadoria, NÃO cita\nprazo e NÃO cita valor nenhum. Os dois primeiros estão na lista LITERAL da regra\n(g), e a taxa de juros tem um motivo MAIS FORTE para ficar fora: o próprio longo\nse recusa a dar um número para ela, dizendo que ela muda conforme o período —\nlogo não é só a minha regra, é o autor da fonte declarando que o número não se\nfixa. A idade de aposentadoria é limite legal e muda por reforma.\n\nE OS TRES PASSOS DA CONTA (capítulos 29 a 31) FICARAM FORA DE PROPOSITO, embora\ndessem uma peça fácil: eles são dividir por onze e multiplicar por nove, isto é,\nas duas alíquotas em forma de operação. Levá-los seria pôr a alíquota na\nnarração por uma porta lateral.\n\nOS NUMERAIS QUE A NARRACAO FALA SAO DOIS: \"dois\" na cena 1 e \"zero\" na cena 3 —\ne os dois são ESTRUTURA do argumento, não fato sobre o mundo. O \"dois\" é a\ncontagem dos lados da própria troca; o \"zero\" é o preço do momento certo, que é o\neixo inteiro da peça.\n\nE A PRIMEIRA VERSAO DESTA LINHA DIZIA \"o numeral que a narração fala é ZERO\", no\nsingular, esquecendo o \"dois\" — **falso**, e quem me pegou foi o\n`numerais_falados` antes de publicar, pela QUARTA vez nesta sessão. A versão\nerrada fica registrada aqui em vez de apagada.\n\nAS BARRAS SAO ILUSTRACAO QUALITATIVA E NAO SAO FALADAS. A cena 3 (acertar no\ncomeço em zero, consertar depois em cheio) mostra a FORMA do argumento — que um\ndos dois momentos não tem preço — e não mede coisa nenhuma. Esta linha existe\npara a rodada seguinte NÃO as ler de volta como dado.\n\nA LISTA DA CENA 1 (o que você paga, o que você entrega, só um vem escrito na\nguia) é a estrutura da troca, não uma contagem.\n\nO QUE O VIDEO AFIRMA: que a alíquota menor não é desconto e sim uma troca; que o\nlado entregue por ela não aparece na guia na hora de pagar; que a escolha do\nprimeiro código é a mais barata de acertar; e que consertar anos depois é a\nmesma decisão com preço. Isso está no longo `4OYBkCHFTV8` (pacote\n`labtreinamento-006`), capítulos 54 a 58, com apoio do 8, e com as fontes dele.\n\n## FAMILIA DE ENTRADA ERRADA\nO PRECO DA MESMA DECISAO DEPENDE DE QUANDO — capítulos 54 a 58, com o 57 e o 58\nno centro: *\"acertar no começo custa zero; consertar dez anos depois custa a\ndiferença de cada mês, com o acerto de cada mês\"* e *\"é literalmente a mesma\ndecisão, tomada em dois momentos, com preços completamente diferentes\"*.\n\nO eixo é o MOMENTO, não a aritmética. A entrada errada não está em conta nenhuma:\nestá em tratar a escolha do código como coisa a resolver quando der, quando ela é\na única das duas versões da mesma decisão cuja correção custa zero. E o motivo de\nela ser adiada vem do capítulo 8: o lado que a troca entrega *\"não aparece em\nlugar nenhum na hora de pagar\"*, logo não há nada doendo para marcar a hora.\n\nDISTINCAO DOS SEIS IRMAOS desta origem, conferida pelo `irmaos_da_origem` e pela\nNARRACAO de cada um — e os SEIS não têm este campo, logo a comparação foi pela\nPROSA e pela fala, que é de primeira mão:\n- `s003` — a ORDEM de pagamento das guias (do mês mais novo para o mais velho);\n- `s018` — o conserto é DIVISIVEL, não é tudo ou nada;\n- `s019` — qual das duas portas CHEGA ANTES (comparação de datas);\n- `s020` — o meio-termo tem DONO, e a variável que decide é prazo;\n- `s024` — quem já sabe a sua resposta está VENDENDO (procedência da conta);\n- `s080` — sobre a diferença incidem JUROS, e o mês antigo é o mais caro.\nNenhum dos seis fala do MOMENTO da escolha original, e nenhum toca os capítulos\n54 a 58.\n\nE O IRMAO MAIS PROXIMO VAI NOMEADO, porque a distinção é fina: o `s080` também\nfala de tempo — *\"adiar encarece o conserto\"* — e ele vive INTEIRO dentro do\nconserto, comparando mês com mês depois de o problema existir. Esta peça está\nANTES disso: ela compara o instante em que não há nada a consertar com o instante\nem que há. Um mede qual mês custa mais; a outra diz que existe um momento em que\nnão há mês nenhum para pagar.\n\n## RESERVA\nO QUE EU NAO LEVEI, de propósito, e vai escrito para a próxima rodada achar:\n- os capítulos 8, 9, 11 e 14 — *\"o que a reduzida tira é uma coisa só, mas é\n  grande\"*, *\"o dinheiro que você pagou não some; o que some é a outra porta\"*.\n  A família é O QUE A TROCA TIRA NAO E DINHEIRO, E E UMA PORTA, e ela segue\n  LIVRE. O capítulo 8 entrou nesta peça apenas como APOIO (o lado que não\n  aparece na guia) e não como eixo;\n- os capítulos 27, 28, 29, 30 e 31 — ler as TRES coisas da guia e qual delas\n  decide: o CODIGO, e não o valor. Família de QUAL CAMPO RESPONDE A PERGUNTA,\n  livre — mas os capítulos 29 a 31 carregam as duas alíquotas em forma de\n  operação, logo quem a levar escreve sem eles;\n- os capítulos 54 a 58 ficam CONSUMIDOS por esta peça, e o 57 e o 58 vão\n  nomeados como o centro dela, para a rodada seguinte não os tomar por livres.\n\n## EXPOSICAO\nA PINCA DO 740/748 ESTA ABERTA AQUI, e vale dito porque é o único canal da frota\nem que isso acontece: a mira própria dele (20,0 a 26,0) tem seis segundos de\nlargura, e por isso existe média por cena que põe os DOIS provedores dentro dela.\nO `mira.janela_dos_dois_mundos` devolve **41 a 44** caracteres por cena para sete\ncenas, e a peça saiu com média **42,43**: edge **25,15** e piper **20,63**, os\ndois DENTRO.\n\nLOGO NAO HA EXPOSICAO DE MUNDO A DECLARAR, e eu NAO mirei o piso de propósito: o\npiso executável aqui é 31 caracteres por cena, e com 31 o piper cairia em\n**18,7** — FORA pelo piso. A linha do piso passou a dizer, desde 21/10 às 18:3x,\nde quantos MUNDOS ele é, e aqui ela diz que a própria mira o reprova.\n\nE O REAL NAO ESTA PROMETIDO PARA LADO NENHUM: 41 das 46 peças deste canal\nnarradas pelo edge saíram FORA do teto de 26,0 **com a mira verde nos dois\nmundos**, e a banda do resíduo tem 5,2 s de largura contra 1 s de granularidade.\nDeclarar de que lado dela o real cai não é previsão (774).\n",
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "A alíquota menor",
+   "sub": "parece só um desconto",
+   "nar": "A alíquota menor parece só um desconto."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Toda troca tem dois lados",
+   "itens": [
+    "O que você paga",
+    "O que você entrega",
+    "Só um vem escrito na guia"
+   ],
+   "nar": "Mas ela é uma troca, e a troca tem dois lados."
+  },
+  {
+   "layout": "item",
+   "kicker": "O lado que você entrega",
+   "sub": "não aparece na guia",
+   "nar": "O lado que você entrega não aparece na guia."
+  },
+  {
+   "layout": "barras",
+   "kicker": "A mesma escolha, dois preços",
+   "barras": [
+    {
+     "rotulo": "Acertar no começo",
+     "valor": 0
+    },
+    {
+     "rotulo": "Consertar depois",
+     "valor": 100
+    }
+   ],
+   "nar": "E é só no começo que essa escolha custa zero."
+  },
+  {
+   "layout": "item",
+   "kicker": "No começo",
+   "sub": "nada parece estar doendo",
+   "nar": "Mas no começo nada parece estar doendo."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Anos depois",
+   "sub": "é a mesma decisão, com preço",
+   "nar": "Anos depois é a mesma decisão, com preço."
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "inscreva-se",
+   "nar": "Confira o código da sua guia e se inscreva."
+  }
+ ],
+ "longo": []
+}
