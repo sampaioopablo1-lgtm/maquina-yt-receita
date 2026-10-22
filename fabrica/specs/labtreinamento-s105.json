@@ -1,0 +1,97 @@
+{
+ "slug": "labtreinamento-s105",
+ "pacote": "labtreinamento-s105",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "longo_existente": "dsoEo103l1o",
+ "thumb": {
+  "l1": "Mês estranho",
+  "l2": "por último"
+ },
+ "copy": "# A ordem da conferência: o mês que te incomoda é o último\n\n## TITULO\nA Ordem da Conferência: o Mês que te Incomoda é o Último a Conferir\n\n## TITULO SHORT\nO mês estranho é o último\n\n## DESCRICAO\nQuase todo mundo começa a conferir pelo mês que incomoda. É o mês em que o valor pareceu baixo, ou em que entrou algo diferente, e por isso ele é o primeiro a ser aberto. O problema é que, conferido sozinho, ele não responde nada: qualquer diferença que apareça ali pode ser uma base errada que se repete todos os meses, ou pode ser simplesmente o que aconteceu de diferente naquele mês. As duas causas produzem a mesma linha na tela, e elas pedem coisas opostas.\n\nA ordem que funciona é a inversa. Comece pelos meses em que nada fora do normal aconteceu — sem hora extra, sem falta, sem bônus, sem reajuste no meio. Monte doze linhas num papel, uma para cada mês, e confira esses primeiro. Eles são chatos de propósito: é justamente por não terem nada de especial que servem de régua.\n\nCom a régua montada, o padrão responde sozinho. Se a diferença aparece nos meses fáceis também, ela se repete — e o que está errado é a base do cálculo, não o mês. Se ela aparece só no mês estranho, então o que mudou foi aquele mês, e a pergunta passa a ser o que entrou nele.\n\nSó depois disso o mês estranho vale a pena ser aberto. Aí ele deixa de ser uma linha solta e passa a ser uma linha comparada — e é a comparação, não o valor, que diz qual das duas coisas aconteceu.\n\nNão há nenhum número meu neste vídeo. Não cito percentual, não cito valor, não cito data e não cito prazo. Os únicos números falados são doze — a quantidade de meses de um ano — e dois, a quantidade de casos que o padrão separa. Os dois são a estrutura da conta, não um dado sobre o mundo.\n\nEscreva aqui embaixo qual mês você conferiu primeiro. Sem valores.\n\n## COMENTARIO FIXADO\nEscreva aqui embaixo qual mês você conferiu primeiro — só o mês, sem valores e sem nome de empresa. Quero ver quantas pessoas começaram pelo mês que incomodava, porque se for a maioria então não é desatenção de ninguém: é a ordem natural de quem está preocupado, e é exatamente ela que esconde a resposta.\n\n## HASHTAGS\n#Conferência #FGTS #LabTreinamento\n\n## TAGS\nconferencia, folha de pagamento, deposito mensal, base de calculo, erro que repete, padrao mensal, doze meses, mes atipico, hora extra, conferir sozinho, planilha de conferencia, diferenca que repete, metodo de conferencia, ordem da conferencia\n\n## CONFIGURACOES DO STUDIO\n- Idioma: Portugues do Brasil (pt-BR) | Categoria: Educacao (27)\n- Nao feito para criancas\n- Divulgacao de conteudo sintetico: SIM (voz gerada por IA)\n- Localizacao: Brasil | Licenca: Licenca padrao do YouTube\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## AVISO SOBRE OS NUMEROS\nZERO numero meu sobre o mundo. Nao cita percentual do deposito, nao cita valor, nao cita data, nao cita prazo legal, nao nomeia lei, orgao nem aplicativo. Os DOIS numerais falados sao \"doze\" (cena 3) e \"dois\" (cena 6), e os dois sao ESTRUTURA do argumento e nao fato sobre o mundo: doze e a quantidade de meses de um ano, e dois e a quantidade de CASOS que o padrao separa. Quem os listou foi o `numerais_falados` — a primeira versao desta linha declarava so o \"doze\" e ele pegou o outro ANTES de publicar, que e a terceira vez nesta sessao que esse instrumento derruba uma afirmacao minha da copy. A declaracao fica aqui porque a regra (g) e leitura e nao contagem automatica. As BARRAS (9 contra 2) sao ilustracao QUALITATIVA e NAO sao faladas: elas mostram que uma diferenca que repete e outra que aparece uma vez sao dois casos distintos, e NAO devem ser lidas de volta como dado em rodada nenhuma. O QUE FOI DELIBERADAMENTE DEIXADO DE FORA: o percentual do deposito e a data do mes (estao no longo, com fonte); qualquer prazo para reclamar diferenca (afirmacao juridica com numero, nao reconferida hoje em duas fontes, e as quatro fontes institucionais estao fechadas por politica de rede); e o que fazer quando a diferenca e real, que depende do caso.\n\n## FAMILIA DE ENTRADA ERRADA\nA ORDEM DA CONFERENCIA: abrir PRIMEIRO o mes que incomoda, isolado. Sem os meses faceis nao existe regua, logo a diferenca encontrada nao se separa entre \"a base esta errada e repete\" e \"este mes teve algo diferente\" — as duas produzem a mesma linha e pedem coisas opostas. O eixo e a ORDEM, nao o calculo: nenhum numero muda, e o que muda e o que o resultado consegue dizer.\n\nE as SEIS familias irmas desta origem foram lidas antes da escolha, pelo `irmaos_da_origem` e pela NARRACAO de cada uma — tres delas (`s005`, `s031`, `s078`) nao tem este campo, logo a comparacao saiu da prosa e da fala, que e de primeira mao. O `s005` e a AMOSTRA DE UM mes, o `s045` a mesma amostra com outro angulo, o `s054` sao dois numeros de PERIODOS diferentes, o `s078` o percentual que nao e unico, o `s095` a BASE errada nos dois sentidos, e o `s031` a contagem declarada. NENHUMA fala de ORDEM — todas tomam a conferencia como um ato unico, e esta diz em que SEQUENCIA ela se faz.\n\n## RESERVA\nCapitulos de `dsoEo103l1o` que esta peca NAO levou e que seguem livres, para a rodada seguinte nao os tomar por consumidos:\n- \"Onde conferir sozinho\", \"A mesma lei, outra fonte\", \"Desconfie de numero solto\", \"Inclusive este\", \"Guarde o link da lei\": a familia da PROCEDENCIA do numero — numero sem segunda fonte independente nao esta conferido, inclusive um numero que saiu daqui. NAO levada porque a conferencia em duas fontes institucionais e justamente o que esta fechado nesta sessao, e escrever sobre conferir em segunda fonte sem poder conferir seria o §3.8;\n- \"Anote a data da conferencia\", \"Guarde os dois valores\", \"Anote esse numero\": a familia do REGISTRO da conferencia. NAO levada porque ela fica a um passo do `labtreinamento-s104` (a planilha que sobrescreve o proprio passado), que e de OUTRA origem mas do mesmo eixo — e o portao `similaridade` compara contra o MESMO canal, logo ele pegaria;\n- \"Nao trato de rescisao\", \"Nao falo de saque\", \"Por que insisto no limite\": sao as RECUSAS do proprio longo, nao pauta.\n\n## EXPOSICAO\nA PINCA do 740/748 esta ABERTA neste canal, e ele e o unico da frota em que isso acontece: a mira medida (20,0 a 26,0) tem 6 s de largura contra um vao de ~4,5 s entre os provedores, logo existe media por cena que poe os DOIS mundos dentro dela. A `mira.janela_dos_dois_mundos` devolve 34 a 36 caracteres por cena com oito cenas, e a peca foi escrita nessa janela — logo NAO ha exposicao de mundo a declarar, e eu NAO mirei o piso de proposito: com o piso executavel (25) o piper cairia abaixo de 20,0.\nO que NAO esta prometido e o REAL: 41 das 46 pecas deste canal narradas pelo edge sairam FORA do teto de 26,0 com a mira verde, e a banda do residuo tem 5,2 s de largura contra 1 s de granularidade. Declarar de que LADO dela o real cai nao e previsao (774).\n",
+ "paleta": {
+  "bg": "#0E1117",
+  "ink": "#EEF1F5",
+  "c1": "#3DDBD9",
+  "c2": "#1E2430",
+  "red": "#FF5A5F",
+  "ok": "#3CCB7F",
+  "panel": "#161B24",
+  "mut": "#8B95A5",
+  "acc": "#3DDBD9"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "O mês estranho",
+   "sub": "é o último a conferir",
+   "cap": "Ordem da conferência",
+   "nar": "Não comece pelo mês que te incomoda."
+  },
+  {
+   "layout": "item",
+   "kicker": "Sozinho não diz nada",
+   "preco": "falta com o que comparar",
+   "sem_cap": true,
+   "nar": "Sozinho ele não tem com que comparar."
+  },
+  {
+   "layout": "item",
+   "kicker": "Doze linhas num papel",
+   "preco": "uma para cada mês",
+   "sem_cap": true,
+   "nar": "Monte doze linhas, uma por mês."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Comece pelos fáceis",
+   "itens": [
+    "Mês sem hora extra",
+    "Mês sem falta",
+    "Mês sem bônus",
+    "Mês sem reajuste"
+   ],
+   "sem_cap": true,
+   "nar": "Comece pelos meses sem nada fora."
+  },
+  {
+   "layout": "barras",
+   "kicker": "O padrão separa",
+   "barras": [
+    {
+     "rotulo": "Repete nos doze",
+     "valor": 9
+    },
+    {
+     "rotulo": "Só no estranho",
+     "valor": 2
+    }
+   ],
+   "sem_cap": true,
+   "nar": "O padrão separa um caso do outro."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Só então o estranho",
+   "sub": "e ele já se explica",
+   "cap": "O mês estranho",
+   "nar": "Só depois confira o mês estranho."
+  },
+  {
+   "layout": "item",
+   "kicker": "Repete nos doze: é a base",
+   "preco": "só nele: é o que mudou",
+   "sem_cap": true,
+   "nar": "O padrão é que diz qual dos dois."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Qual mês você conferiu",
+   "sub": "escreva aqui embaixo",
+   "sem_cap": true,
+   "nar": "Escreva qual mês você conferiu primeiro."
+  }
+ ]
+}
