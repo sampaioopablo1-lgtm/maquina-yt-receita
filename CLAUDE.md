@@ -11110,3 +11110,179 @@ tela de Network access.
 
 **COTA: NOVE envios** na janela aberta as 07:00Z, **14.400** unidades, contra o
 piso MEDIDO de **>= 41.600**.
+
+## AS FORMAS JA USADAS NUM TAMANHO SAIAM DE UM LACO ESCRITO NA HORA
+
+**Medido em 22/10 as 16:3x, escrevendo o `epomeno-epipedo-s095`.** O
+`esqueleto_entre_canais` responde duas perguntas e nao a terceira: o `novidade`
+da o VEREDITO sobre uma forma e uma CONTAGEM do tamanho, e o `formas_livres` da
+ordens que ninguem usou. **A LISTA das usadas, que e a que se le para escolher
+esqueleto quando a primeira forma colide, nao tem funcao** — logo eu escrevia um
+laco sobre `varre()` na linha de comando. Terceira vez nesta sessao, e e o item 3
+da §10.
+
+**E A FALTA JA PRODUZIU UM DEFEITO MEDIDO, COM CUSTO:** em 21/10 as 23:2x eu
+precisei exatamente desta lista, escrevi o laco e cortei a saida com `tail -10`
+sobre um tamanho que tinha DEZ formas — li as sete ultimas como se fossem o
+conjunto e escolhi um esqueleto que **JA EXISTIA**. E a familia da fatia do proxy
+(19/10 as 19:2x) e da fatia dos capitulos livres (22/10 as 10:3x): **ler uma
+ponta de lista como se fosse a lista.**
+
+**E a fatia nao e caso de borda — o tamanho do risco vai MEDIDO:**
+
+| | |
+|---|---|
+| tamanhos de cena que a frota usa | **13** |
+| deles com OITO formas ou mais, onde um `tail -10` corta | **10** |
+| o pior, e e o mais usado da frota | **10 cenas: 65 formas em 149 pecas** |
+| o que a fatia descartaria ali | **55 de 65** |
+
+**Consertado: `esqueleto_entre_canais.formas_usadas_do_tamanho(cenas)`** devolve
+as formas com os ARQUIVOS e os CANAIS de cada uma, e **a CONTAGEM vem primeiro na
+frase, com a lista INTEIRA embaixo** — a disciplina do
+`segundo_angulo.relato_dos_livres`, porque com a contagem na frente um corte na
+leitura fica VISIVEL em vez de silencioso. A varredura e **DELEGADA** ao `varre` e
+o filtro da propria peca ao `sem`, que e o dono das duas convencoes de nome
+(20/10 as 11:3x). **Tamanho que a frota nunca usou devolve lista VAZIA e nao
+levanta**, porque ali o vazio e o valor CERTO e e justamente a resposta que a
+rodada quer — e o campo `usado` o diz em letra, para nao se confundir com
+varredura que falhou (17/10). Ligado ao `relato`, logo ele sai na passada do
+`antes_do_render` sem ninguem pedir.
+
+`tests/test_as_FORMAS_do_tamanho_sairam_de_um_LACO_na_hora.py`, dez testes: a
+varredura sai do DISCO e **reprova com menos de 200 pecas**, a medida e
+**RECONFERIDA contra o disco por PROPRIEDADE e nao pelo numero** (753) — ela
+**falha se nenhum tamanho tiver oito formas** (ai a fatia nao corta nada e esta
+nota se rele) **ou se TODOS tiverem** (sem o lado contrario nao distingue nada)
+—, a lista e cobrada **INTEIRA** (uma linha por forma, e truncar reprova), a
+contagem e cobrada **ANTES de qualquer esqueleto** na frase, os **DOIS** lados
+existem e o tamanho inedito **DIZ** em vez de calar, o `exceto` vai nos **dois**
+sentidos com ancora **DERIVADA** do disco (e **reprova dizendo que perdeu a
+ancora**), a delegacao e por **AST** (`glob`, `open`, `casa` e `arquivo` no corpo
+reprovam), o `relato` tem de **CHAMAR** a linha (import sem chamada e a classe
+dos layouts mortos) e os CANAIS de cada forma sao cobrados contra o `quadro`,
+porque e a dimensao do pedido do dono. **Contraprova nos dois sentidos:**
+truncada a lista, UM falha; desligada a delegacao do `sem`, **TRES** falham.
+
+**E A PRIMEIRA VERSAO DE UM TESTE MEU REPROVOU O MODULO CERTO, pela mesma licao
+de 20/10 as 05:2x:** eu cobrei `fonte.count("FORMAS USADAS em") == 1` e a marca
+aparece **duas** vezes — nos DOIS ramos da MESMA funcao (tamanho usado e tamanho
+inedito), que e exatamente o que se quer. **O dono e a FUNCAO, nao a contagem de
+string**, e cobrar a contagem proibiria o ramo que impede a frase de ser dita sem
+dado. Reescrito por AST: a marca so pode aparecer dentro do dono.
+
+### A PECA DESSA RODADA — CATORZE cenas, e o PISO EXATO nao era alcancavel
+
+`epomeno-epipedo-s095` = **`qEg0FsMSxl0`** (*Το νούμερο που δεν ελέγχθηκε*),
+publicado as 16:27:32Z (run `39814212676`), **sem `403 quota`**. **ONZE PORTOES
+VERDES NA PRIMEIRA TENTATIVA** — e ela foi **CONFERIDA COMO RASCUNHO** antes de
+existir no disco, pela oitava vez em producao: dez portoes baratos limpos em
+**0,75 s**, mais mira, acento **13,78%** (e o portao `ortografia` tambem nao
+reprova), gancho de 5 palavras de 12, paleta **LIDA** de
+`temas_do_dono.paleta_do_canal`, as catorze cenas desenhando e **zero numerais
+falados** — com os dois instrumentos que ainda exigem caminho **DIZENDO** que nao
+conferiram.
+
+Provedor **edge MEDIDO** pelo `anotacoes_do_run` (zero avisos
+`NARRACAO PELO PIPER` no job `119944474730`, que e o job que emitiu o SOM). Som
+**-13,7** LUFS, LRA 4,5, pico **-1,5** dBTP — isto e, **no teto exato** do
+`som.TP_MAX_DBTP`, logo `acima_do_teto` False por fronteira —, desvio +0,3,
+**zero silencios**, parqueado pelo `som_parqueado` **sem eu redigitar o JSON**
+(parque em **79** linhas).
+
+**E OS DOIS WORKFLOWS FORAM ESPERADOS PELOS JOBS E NAO PELO RUN**, que e o
+conserto de 22/10 as 13:4x em uso pela segunda rodada.
+
+**CANAL do `passo_zero`** (8/8/9 na janela de 24 h, empate em 8 desempatado pelo
+que esta ha mais tempo sem publicar). **PAUTA do `pauta_do_momento`:**
+`P2q6w9y7j88` (`epomeno-epipedo-004`, 78 capitulos), 4 usos — empate de **SEIS**
+origens desempatado pela MAIOR reserva, **56 de 78** capitulos NAO MENCIONADOS. A
+dominante `nttW9fR8wyY` ficou de fora, e quem conta e o `concentracao.py`. O
+`reservas_escritas` devolveu **NENHUMA**, logo a familia saiu da leitura dos 55
+livres — com o texto **INTEIRO**, pelo conserto de 10:3x, e com **UM** deles
+saindo **MARCADO** como DECLARADO pelo `s029`, pelo conserto de 12:3x.
+
+**FAMILIA: O PARAMETRO GUARDADO NO SISTEMA, QUE NINGUEM CONFERE** (capitulos 70 e
+71, com apoio do 69) — auditar o COMPORTAMENTO das linhas (qual se move com o
+consumo e qual nao) e nunca auditar a **ENTRADA** da linha que nao se move. O
+eixo e a CORRECAO de um numero armazenado.
+
+**E O MECANISMO DO SILENCIO E O AVESSO DA PROPRIA DESCOBERTA ANTERIOR:** a linha
+nao varia, logo **nada na variacao mensal a denuncia**. Valor que pula chama
+atencao e e investigado; valor constante nunca chama, e uma constante **ERRADA**
+e visualmente identica a uma constante **CERTA**. A estabilidade que fez a pessoa
+dizer *"nesta eu nao mexo"* e exatamente o que esconde o erro — e a conta sai
+correta todo mes, sobre ponto de partida errado, logo o portao da aritmetica esta
+sempre verde. O CUSTO e cumulativo e nao mensal, e o capitulo 71 o escreve em
+letra: *"pagas o erro todo mes, anos, sem nunca o ver"*.
+
+Distincoes contra os QUATRO irmaos escritas na copy, lidas pelo
+`irmaos_da_origem` e pela NARRACAO de cada um — e o `s010` e o `s077` **nao tem**
+o campo da familia, logo a comparacao deles foi pela PROSA e pela fala, que e de
+primeira mao (776). **O `s029` e o mais proximo e a distincao vai dita porque e
+fina:** ele diz que aquela linha NAO SE MOVE (comportamento), esta diz que a
+ENTRADA dela pode estar errada (correcao) — **e as duas se encaixam em vez de
+competir**, porque e precisamente a invariancia que ele descreve que torna este
+erro invisivel.
+
+**CONTAGEM pela chave `por_cadencia_servivel`:** catorze cenas, cadencia 3,02 s
+(|dif| 0,08 dos ~3,1 s de 690/699), folga **+6**, e nao repete os tamanhos
+recentes do canal (a `s094` tem 12 e a `s093` tem 13). O teto MEDIDO da voz
+(**15**), que e **INEDITO** na frota, saiu **NOMEADO** e recusado pela FOLGA —
+dois caracteres acima do piso OBSERVADO de 21, a MESMA conta que eu recusei a mao
+em 04:1x e 06:2x de 20/10.
+
+**ESQUELETO
+`titulo-lista-item-item-barras-item-titulo-barras-item-item-lista-item-item-cta`,
+INEDITO nas 181 formas da frota** e nenhuma das **SETE** de catorze cenas — e o
+numero sai do `esqueleto_entre_canais` com a propria peca FORA da varredura pelo
+`exceto`, nao de um laco escrito na hora. Ordens livres destes mesmos layouts:
+**23.758 de 23.760**. Todo layout saiu do conjunto **SONDADO**, com `assert` no
+construtor.
+
+**E O PISO EXATO NAO E ALCANCAVEL, dito assim em vez de eu chamar 42,05 de
+piso:** com catorze cenas um caractere por cena vale **0,71 s**, o
+`mira.chars_no_alvo` devolve **26** cru para o piso e 26 caracteres caem **ABAIXO
+da faixa**; o `mira.quanto_cortar` devolve **`delta_total: 0`**, isto e, **nao ha
+o que cortar** — 27 e o ponto mais BAIXO ALCANCAVEL, e e a regra de redacao do
+772 aplicada ate onde a granularidade deixa. Previsao edge **42,05** / piper
+**37,25**. A **PINCA DO 740/748 ESTA FECHADA** aqui (nenhuma media poe os dois
+provedores dentro de 41,5 a 43,0 com catorze cenas nesta voz) e a exposicao vai
+declarada na copy ANTES de publicar: o piper sai FORA pela mira e DENTRO do
+portao, que cobra 18 a 45 s nos dois mundos. **E o REAL nao esta prometido para
+lado nenhum** (774).
+
+**ZERO numero novo sobre o mundo e ZERO digito na narracao** — conferido pelo
+`numerais_falados`, com a ressalva dele de que ausencia de vocabulario nao prova
+ausencia. A regra (g) tirou tarifa de dimotika por metro quadrado, percentual,
+euro, prazo de contestacao e nome de orgao, **e a recusa inclui o numero que me
+convinha**: quantos metros quadrados de diferenca mudariam a conta, que e
+exatamente o que daria concretude ao argumento. **E o capitulo 7 da PROPRIA
+origem escreve a regra que eu sigo aqui** — ela manda *"numeros com fonte e data,
+e uma conta que voce refaz sozinho na mesa da cozinha"*. As barras sao
+ILUSTRACAO qualitativa: a cena 4 desenha as **DUAS colunas com ALTURA IGUAL**, que
+e o argumento inteiro (certo e errado sao visualmente identicos quando a linha e
+constante), e **nao sao faladas**.
+
+**E A RESERVA FOI ESCRITA COM SEIS ITENS, tres LIVRES e tres NAO LEVAR, cada um
+com o motivo** — entre os NAO LEVAR, os capitulos 50, 51 e 53 porque o eixo deles
+(o PRAZO de validade do preco anunciado) ja e o do `epomeno-epipedo-s039` **neste
+mesmo canal**, de outra origem, que e a regra (f) e o `similaridade` **nao
+pegaria** porque ele compara TITULO; e o capitulo 65 porque o eixo e o do
+`kolejny-poziom-s092`, de outro canal, publicado hoje as 09:20Z.
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica` pela TRIGESIMA
+OITAVA rodada seguida** — medido pela `sonda_e_modo`, com os TRES controles no
+MESMO caminho de saida e os alvos na forma de URL: o `touch` passou, os DOIS
+hosts voltaram **000 sem arquivo**, e o proxy nomeou `example.com` e
+`www.youtube.com` depois de 16:12:13Z. A peca esta PARQUEADA com o provedor
+MEDIDO e o job **lido da API**, e a presenca foi conferida **RELENDO** o parque
+(**139** linhas, **67** sem leitura). `RESIDUO_N` segue **128**.
+
+**E A LEITURA DE INSCRITOS PASSOU AS TRES PORTAS E NAO FOI FEITA, pela DECIMA
+NONA rodada seguida:** 78,07 h, piso de resolucao **0,31/dia**, os tres SIM. **O
+que a impede e a ROTA, e o remedio e do DONO** — a tela de Network access.
+
+**COTA: DEZ envios** na janela aberta as 07:00Z, **16.000** unidades, contra o
+piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
+hora.

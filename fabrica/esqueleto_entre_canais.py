@@ -501,6 +501,80 @@ def _frase_da_novidade(n: dict) -> str:
     return f"  {p},\n  {t}.\n{livres}"
 
 
+def formas_usadas_do_tamanho(cenas: int, pecas: list[dict] = None,
+                             exceto: str = "") -> dict:
+    """As formas que a frota JA USOU num tamanho de cena, com os ARQUIVOS.
+
+    **Medido em 22/10 as 16:3x, escrevendo o `epomeno-epipedo-s095`.** O
+    `novidade` devolve um VEREDITO sobre uma forma e uma CONTAGEM do tamanho
+    (`formas_do_tamanho`), e o `formas_livres` devolve ordens que ninguem usou
+    — e nenhum dos dois devolve a LISTA das usadas. Logo, para escolher
+    esqueleto, eu venho escrevendo um laco sobre `varre()` na linha de comando,
+    a cada rodada em que a primeira forma colide. Terceira vez nesta sessao, e
+    e o item 3 da §10.
+
+    **E a falta JA PRODUZIU um defeito medido, com custo:** em 21/10 as 23:2x
+    eu precisei exatamente desta lista, escrevi o laco e cortei a saida com
+    `tail -10` sobre um tamanho que tinha DEZ formas — li as sete ultimas como
+    se fossem o conjunto e escolhi um esqueleto que JA EXISTIA. E a familia da
+    fatia do proxy (19/10 as 19:2x) e da fatia dos capitulos livres (22/10 as
+    10:3x): ler uma ponta de lista como se fosse a lista.
+
+    **O tamanho do risco vai MEDIDO, e a fatia nao e caso de borda:** dos
+    **13** tamanhos de cena que a frota usa, **DEZ tem oito formas ou mais**,
+    isto e, um `tail -10` corta a lista em dez de treze. E o pior deles e o
+    mais usado: **dez cenas tem 65 formas em 149 pecas**, onde a fatia
+    descarta 55 de 65.
+
+    Por isso a CONTAGEM vem primeiro na frase e a lista sai INTEIRA, que e a
+    disciplina do `segundo_angulo.relato_dos_livres` — com a contagem na
+    frente, um corte na leitura fica visivel em vez de silencioso.
+
+    A varredura e DELEGADA ao `varre` e o filtro da propria peca ao `sem`, que
+    e o dono das duas convencoes de nome. **Tamanho que a frota nunca usou
+    devolve lista VAZIA e nao levanta**, porque ali o vazio e o valor CERTO e
+    e justamente a resposta que a rodada quer — e o campo `usado` o diz em
+    letra, para nao se confundir com varredura que falhou (17/10).
+    """
+    cenas = _CS.exige(cenas, "esqueleto_entre_canais.formas_usadas_do_tamanho")
+    pecas = sem(varre() if pecas is None else pecas, exceto)
+    por, canais = {}, {}
+    for x in pecas:
+        if x.get("cenas") != cenas or not x.get("esqueleto"):
+            continue
+        por.setdefault(x["esqueleto"], []).append(x["arquivo"])
+        canais.setdefault(x["esqueleto"], set()).add(x.get("canal"))
+    formas = [{"esqueleto": e, "arquivos": sorted(a), "n": len(a),
+               "canais": sorted(c for c in canais[e] if c)}
+              for e, a in por.items()]
+    formas.sort(key=lambda f: (-f["n"], f["esqueleto"]))
+    return {
+        "cenas": cenas,
+        "usado": bool(formas),
+        "n_formas": len(formas),
+        "n_pecas": sum(f["n"] for f in formas),
+        "formas": formas,
+        "canais": sorted({c for f in formas for c in f["canais"]}),
+    }
+
+
+def _linha_das_formas_usadas(cenas: int, pecas=None, exceto: str = "") -> str:
+    """UM dono da frase, e ela sai nos DOIS ramos: com o tamanho usado ela
+    lista tudo, e com o tamanho inedito ela DIZ isso em vez de calar."""
+    u = formas_usadas_do_tamanho(cenas, pecas=pecas, exceto=exceto)
+    if not u["usado"]:
+        return ("  FORMAS USADAS em %d cenas: NENHUMA — a frota nunca usou "
+                "este tamanho, logo toda ordem e nova." % cenas)
+    L = ["  FORMAS USADAS em %d cenas: %d forma(s) em %d peca(s) — a contagem "
+         "vem PRIMEIRO de proposito, para um corte na leitura ficar visivel "
+         "(21/10 as 23:2x, quando um `tail -10` sobre dez formas me fez "
+         "escolher uma que ja existia). A lista sai INTEIRA:"
+         % (cenas, u["n_formas"], u["n_pecas"])]
+    for f in u["formas"]:
+        L.append("   %2dx  %s" % (f["n"], f["esqueleto"]))
+    return "\n".join(L)
+
+
 def relato(caminho=None, spec=None) -> str:
     """A MESMA convencao dos outros relatos: `(caminho, spec=None)`.
 
@@ -559,6 +633,7 @@ def relato(caminho=None, spec=None) -> str:
         L.append(f"desta peca ({d.get('pacote', '?')}):")
         L.append(_frase_da_novidade(
             novidade(V.esqueleto(short), len(short), pecas, exceto)))
+        L.append(_linha_das_formas_usadas(len(short), pecas, exceto))
     c = cegas_para_o_portao(pecas)
     L.append("")
     L.append(
