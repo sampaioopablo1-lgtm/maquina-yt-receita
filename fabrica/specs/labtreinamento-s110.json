@@ -1,0 +1,80 @@
+{
+ "slug": "labtreinamento-s110",
+ "pacote": "labtreinamento-s110",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "longo_existente": "6BeNHqT2okA",
+ "thumb": {
+  "l1": "Contou certo",
+  "l2": "começou errado"
+ },
+ "paleta": {
+  "bg": "#0E1117",
+  "ink": "#EEF1F5",
+  "c1": "#3DDBD9",
+  "c2": "#1E2430",
+  "red": "#FF5A5F",
+  "ok": "#3CCB7F",
+  "panel": "#161B24",
+  "mut": "#8B95A5",
+  "acc": "#3DDBD9"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Contou certo",
+   "sub": "e começou errado",
+   "nar": "Você contou certo e começou no dia errado."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Três datas candidatas",
+   "itens": [
+    "O dia em que a incapacidade começou",
+    "O dia do afastamento imposto",
+    "O dia que o laudo carrega"
+   ],
+   "nar": "Sem fato com hora, há três datas possíveis."
+  },
+  {
+   "layout": "barras",
+   "kicker": "A mesma contagem",
+   "barras": [
+    {
+     "Contada da data certa": 100
+    },
+    {
+     "Contada de outra data": 60
+    }
+   ],
+   "nar": "A mesma contagem, em duas datas, não bate."
+  },
+  {
+   "layout": "item",
+   "kicker": "Quando há hora",
+   "sub": "a data é o próprio fato",
+   "nar": "Com hora marcada, a data é o próprio fato."
+  },
+  {
+   "layout": "item",
+   "kicker": "Nenhuma vem de você",
+   "sub": "as três já estão escritas",
+   "nar": "As três estão em papel que você já tem hoje."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Escreva qual entrou",
+   "sub": "antes de contar",
+   "nar": "Escreva qual data entrou, antes de contar."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Veja qual começa a sua",
+   "sub": "e deixe a inscrição",
+   "nar": "Veja qual data começa a sua, e se inscreva."
+  }
+ ],
+ "copy": "## TITULO\nA Data de Entrada da Contagem: Qual Dia Começa o Prazo Quando Não Houve um Fato com Hora\n\n## TITULO SHORT\nContou certo, começou errado\n\n## DESCRICAO\nTem um erro que não aparece em conta nenhuma: a contagem está perfeita e começou no dia errado.\n\nQuando houve um fato com hora, a data de entrada é o próprio fato e não há o que escolher. Quando não houve — quando o caso se formou ao longo do tempo — não existe um instante único, e aí aparecem três datas candidatas: o dia em que a incapacidade para a atividade habitual começou, o dia do afastamento imposto, e o dia que o documento carrega.\n\nAs três são datas. As três cabem na mesma casa da planilha. E a contagem a partir de qualquer uma delas fecha do mesmo jeito, porque contar dias não verifica de onde você partiu. É por isso que esse erro não dá aviso: o resultado sai com cara de resultado.\n\nNenhuma das três vem de estimativa. Todas estão em documento que já existe — o registro da ocorrência, o atestado e o prontuário. O trabalho não é descobrir a data: é escolher qual delas entrou e escrever isso ao lado do resultado, antes de contar.\n\nEste vídeo não diz prazo, não cita artigo e não dá valor de multa. Ele é sobre qual data entra na conta.\n\n## FONTES\nShort de segundo ângulo do longo já publicado no canal (`6BeNHqT2okA`, labtreinamento-010), capítulos 4, 5, 9, 10, 11, 14 e 15 — a data da ocorrência quando não houve um fato com hora, as três candidatas, e o limite do caso típico.\n\n## FAMILIA DE ENTRADA ERRADA\nA DATA DE ENTRADA DA CONTAGEM, QUANDO NÃO HOUVE UM FATO COM HORA. O eixo é de ONDE a contagem parte, não de como ela anda. A entrada errada é tratar \"a data\" como se fosse uma só quando o caso se formou ao longo do tempo: ali existem três datas candidatas, as três legítimas, e a contagem a partir de qualquer uma delas fecha igual. **Contar dias não verifica o ponto de partida**, logo o prazo certo contado da data errada é um prazo errado e nada avisa.\n\nDistinções escritas contra os SEIS irmãos, lidas pelo `irmaos_da_origem` e pela NARRAÇÃO de cada um — e os seis não têm o campo da família, logo a comparação saiu da prosa e da fala, que é de primeira mão:\n* `s007` — **o irmão mais próximo, e ele defere este eixo em letra**: a primeira fala dele é *\"Você já descobriu qual data começa o prazo. Agora falta a parte em que quase todo mundo erra\"*, e dali ele trata de COMO contar (dias úteis, fim de semana, feriado). Ele conta; esta peça diz de onde se parte;\n* `s014` — comunicada por OUTRO não é obrigação cumprida;\n* `s015` — guardar não é entregar: o que fecha é o comprovante;\n* `s016` — DUAS obrigações com destinos diferentes tratadas como uma;\n* `s077` — a lei tem DOIS prazos, não um (caso comum e morte);\n* `s100` — classificar pela APARÊNCIA da lesão quando a definição pergunta pelo efeito.\n\nNenhum dos seis fala da data de ENTRADA. O capítulo 7 (dia útil não é vinte e quatro horas) ficou FORA de propósito: é território declarado do `s007`.\n\n## AVISO SOBRE OS NUMEROS\nZERO NÚMERO NOVO SOBRE O MUNDO. Esta origem é um longo jurídico, e a regra (g) tirou daqui quase tudo o que ele carrega: o prazo em dia útil, o número do artigo e dos parágrafos, a faixa da multa, o piso e o teto do salário de contribuição, a data das leis que deram a redação, e o nome do nexo técnico. Os seis mudam por publicação.\n\n**E a recusa inclui o número que tornaria a peça mais fácil:** o prazo. Dizer \"você tem um dia útil\" é o que daria urgência concreta ao argumento, e é exatamente o que a regra (g) não deixa — e o `s077` e o `s007` já carregam esse lado com a fonte deles.\n\nOs numerais falados são **\"três\"** e **\"duas\"**, e os dois são estrutura do argumento: três é a contagem das próprias candidatas, e duas são as que a cena 2 põe lado a lado para mostrar que a contagem não verifica de onde partiu. **A primeira versão desta linha declarava só \"três\" e ficou atrás da narração**, e quem a pegou foi o `numerais_falados` antes de publicar — a SÉTIMA vez nesta sessão, e fica registrada aqui em vez de apagada. As barras da cena 2 (100 contra 60) são ILUSTRAÇÃO qualitativa de que a mesma contagem a partir de outra data cai noutro lugar, **não são faladas**, e não são prazo nem percentual — escrito aqui em letra para a rodada seguinte não as ler de volta como dado.\n\n## EXPOSICAO\nA PINÇA DO 740/748 NÃO ESTÁ FECHADA AQUI, e este é o único canal da frota em que isso acontece: a `mira.janela_dos_dois_mundos` devolve **41 a 44** caracteres por cena com sete cenas, logo existe orçamento que põe os DOIS provedores dentro da mira medida do canal (20,0 a 26,0). A peça foi escrita dentro dessa janela, logo **não há exposição de mundo a declarar**.\n\nE eu **não mirei o piso de propósito**: o piso executável aqui é de 31 caracteres por cena e ele é de UM mundo — com 31 o piper cai abaixo de 20,0 e a própria `mira.confere` reprova o conselho do piso (o defeito medido em 19/10 às 17:2x e a linha corrigida em 21/10 às 18:3x).\n\n**O REAL não está prometido para lado nenhum:** 41 das 46 peças deste canal narradas pelo edge saíram FORA do teto de 26,0 com a mira verde nos dois mundos, e a banda tem 5,2 s de largura contra 1 s de granularidade (774). Declarar um lado dela não é previsão.\n\n## RESERVA\nO QUE EU NÃO LEVEI, escrito para a próxima rodada achar — e com o veredito de cada um conferido contra a NARRAÇÃO dos irmãos, não contra o bloco de reserva deles, porque bloco de reserva é compressão de terceiro (20/10, 15:3x):\n\n* **LIVRES — o nexo PRESUMIDO** (capítulos 42, 43, 44, com 46 e 47 ao lado): a perícia caracteriza a natureza acidentária quando constata a ligação entre a atividade da empresa e a doença, e daí sai que *reconhecimento do caráter acidentário e multa por não comunicar são coisas distintas, e uma pode existir sem a outra*. É o eixo que o bloco de reserva do `s016` chamou de PRESUNÇÃO QUE SE INVERTE, e a narração dele (duas obrigações, destinos diferentes) confirma que ele NÃO o levou. **Atenção ao escrever:** o nome do nexo e o número dos artigos ficam fora pela regra (g);\n* **NÃO LEVAR — a cópia fiel e o comprovante** (capítulos 32, 39, 40): o bloco de reserva do `s014` os aponta como livres e **a narração do `s015` desmente**: ela diz, em primeira mão, *\"guardar não é entregar\"* e *\"o que fecha é o comprovante da entrega\"*. O eixo está tomado, e isto fica escrito porque foi o bloco de reserva que quase me levou lá nesta rodada;\n* **NÃO LEVAR — as duas vias** (o que o bloco do `s015` deixou): a narração do `s016` e a do `s077` carregam as duas obrigações e os dois prazos. Tomado;\n* **LIVRES — cinco podem formalizar, e o prazo não prevalece** (capítulos 24, 25, 26, 28, 31): mas **leia o `s014` antes** — a narração dele é *\"comunicada por outro, segue descumprida\"*, logo o lado de que a comunicação por outra via não encerra a obrigação está tomado. O que pode sobrar é QUEM são os cinco e o que a via alternativa abre para o lado do trabalhador, e isso é leitura, não veredito;\n* **LIVRES — o que não concluir** (capítulos 63 e 64): prazo que passou não é motivo para não registrar, porque descumprimento e existência do registro são coisas separadas.\n\n## HASHTAGS\n#seguranca #trabalho #indicadores #gestao #rh #processos #sst #prazo\n\n## COMENTARIO FIXADO\nQual data você usou como entrada na última? Sem nome e sem número — só diga qual das três.\n\n## TAGS\nseguranca do trabalho, data da ocorrencia, prazo, indicadores, gestao de pessoas, sst, rh, processos, auditoria, registro\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ncategoryId: 27\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\nmadeForKids: false\n\n## MUSICA / LICENCA\nInspired (incompetech, Kevin MacLeod) — CC BY 3.0, a trilha do canal.\n"
+}
