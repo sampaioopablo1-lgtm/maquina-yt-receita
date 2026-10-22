@@ -8963,3 +8963,90 @@ TODO campo do disco, em vez dos seis que eu havia listado a mao.
 **A REGRA QUE FICA: o que se entrega a uma sonda tambem e contrato, e contrato
 escrito a mao e segundo dono.** A sonda existia justamente para nao haver lista
 de layouts escrita — e a ENTRADA dela era uma lista de campos escrita.
+
+### A PECA DESSA RODADA — o PRIMEIRO longo em quase tres dias
+
+`kolejny-poziom-021`: **longo `5xrKmI6G0CA`** (*Stały Koszt Miesięczny: Policz
+Go z Wyciągu, a Nie z Pamięci*) e **short `buKW_NRxbwU`** (*Lista z pamięci jest
+za krótka*), publicados as 02:45:55Z no mesmo run (`39713135742`), **sem
+`403 quota`**. **DOZE PORTOES VERDES NA PRIMEIRA TENTATIVA** — e a peca foi
+**CONFERIDA COMO RASCUNHO** antes de existir no disco, pela quarta vez em
+producao. Provedor **edge MEDIDO** (zero avisos `NARRACAO PELO PIPER` no job
+`119604530732`).
+
+**E ELE FECHA O BURACO QUE EU VINHA RELATANDO: a frota estava com ZERO longos
+desde 19/10**, contra o pedido do dono de *"ao menos DOIS por canal por dia — um
+LONGO e um CURTO"*. O canal saiu do contador (8/8/8 na janela de 24 h, empate nos
+tres, desempatado pelo que estava ha mais tempo sem publicar).
+
+| | previsao edge | real |
+|---|---|---|
+| longo | **653,5 s** | sem leitura (rota) |
+| short | **41,94 s** | sem leitura (rota) |
+
+**Pelos TRES pontos de longo que existem, a previsao do longo e LIMITE
+SUPERIOR** (−1,8%, −2,7% e −5,1%), logo o real deve cair entre ~10:20 e ~10:42 —
+com FOLGA grande sobre os 8 min do mid-roll, que e a regra de 19/10 as 13:5x. E
+**o REAL nao esta prometido para lado nenhum**: tres pontos de tres canais nao
+sao banda.
+
+**SOM parqueado nos dois:** longo **−14,0** LUFS, LRA 3,0, pico **−3,2** dBTP
+(`dentro`), desvio **0,0**, e **um silencio de 1,09 s** em 378,7 s; short −14,3,
+LRA 2,6, pico −3,3, desvio −0,3, **zero silencios**. Parque de som em **65**
+linhas.
+
+**O LONGO TEM 64 CENAS E SETE CAPITULOS DERIVADOS** pelo
+`trilho.aplica_no_longo` — eu nao escrevi o campo `trilho` em cena nenhuma. O
+portao `layout`, que RENDERIZA, passou limpo nas 64: nenhum cartao em branco e
+nenhuma tinta na borda, logo o trilho e os cinco layouts cabem na janela do
+`area_segura`.
+
+**O SHORT TEM 12 CENAS pela chave `por_cadencia_servivel`**, e nenhuma das tres
+recusas foi minha: o teto MEDIDO desta voz (**14**, a melhor cadencia) saiu
+**NOMEADO** e recusado pela FOLGA (23 caracteres por cena, a dois do piso
+observado), e **13 e 11 repetem** os tamanhos das duas ultimas pecas do canal.
+Esqueleto `titulo-item-lista-barras-item-item-titulo-lista-item-barras-item-cta`,
+**INEDITO nas 167 formas da frota**. Previsao mirando o **PISO** (772); a pinca
+do 740/748 esta **FECHADA** e a exposicao foi declarada ANTES de publicar.
+
+**FAMILIA: A FONTE DA LISTA** — fazer o censo dos custos fixos a partir da
+MEMORIA e de UM mes de extrato, quando a memoria so guarda as pozycoes grandes e
+um mes e uma AMOSTRA em que as anuais nao cairam. A aritmetica fecha nos dois
+casos e o resultado sai com cara de resposta — e sai baixo. **E a PRIMEIRA
+familia desta origem porque a origem nasce aqui: o longo E a origem.**
+
+**CLASSE PROCEDIMENTO, logo a trava 600 nao se aplica: ZERO numero meu sobre o
+mundo.** Os numerais falados sao os do PROPRIO procedimento (doze meses, duas
+colunas) e vao declarados na copy; as barras sao ilustracao qualitativa e **NAO**
+sao faladas, com isso escrito em letra para a rodada seguinte nao as ler de volta
+como dado. A paleta foi **LIDA** de `temas_do_dono.paleta_do_canal` e a trilha e
+`Wholesome`, a do canal (601).
+
+**E O SHORT SUBIU COM O TITULO PROPRIO** — 29 caracteres, contra os 62 do longo
+que os tres pacotes de 19/10 herdaram por eu nao ter escrito a secao. A copy leva
+`## TITULO SHORT`, pela regra de redacao de 14:4x.
+
+**E O SHORT DO PACOTE FOI REGISTRADO COM `origem_id` NULO, e isso vai MEDIDO em
+vez de escondido:** o `registro_videos` avisou, e varrido o pendente os
+**QUATRO** shorts de pacote da frota — os tres de 19/10 incluidos — estao assim.
+A causa e de ORDEM: a origem do short do pacote e o longo do MESMO pacote, e o id
+do longo so existe DEPOIS de publicar, logo a spec nao pode carrega-lo. **O custo
+e a cegueira do 670** — o longo aparece como origem de ZERO usos quando ja tem um
+short. O conserto e barato (o registro tem os dois ids na mao no mesmo instante) e
+**nao foi feito nesta rodada**, para nao entrar sem suite; fica com a medida
+pronta.
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica` pela VIGESIMA
+QUARTA rodada seguida** — medido pela `sonda_e_modo`, com os TRES controles no
+MESMO caminho de saida: o `touch` passou, e os QUATRO hosts (as duas pecas, o
+controle `OhrGlJvnBoM` e o NEUTRO `example.com`) voltaram **000 sem arquivo**,
+com o proxy nomeando `example.com` e `www.youtube.com` depois de 02:41:25Z. As
+duas pecas estao PARQUEADAS com o provedor MEDIDO e o job **lido da API** —
+parque em **125** linhas, **53** sem leitura. `RESIDUO_N` segue **128**.
+
+**E A LEITURA DE INSCRITOS PASSOU AS TRES PORTAS E NAO FOI FEITA, pela DECIMA
+TERCEIRA rodada seguida:** 64,8 h, piso de resolucao **0,37/dia**, os tres SIM. O
+que a impede e a **ROTA**, e o remedio e do **DONO** — a tela de Network access.
+
+**COTA: VINTE E UM envios** na janela aberta as 07:00Z, **33.600** unidades,
+contra o piso MEDIDO de **>= 41.600** — do `janela_de_cota`.
