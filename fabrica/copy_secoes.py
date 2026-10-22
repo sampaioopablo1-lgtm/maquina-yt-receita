@@ -199,6 +199,69 @@ def comentario_de(spec: dict, workdir: str = ".") -> str:
     return (_ler(spec, texto, workdir).get("comentario") or "").strip()
 
 
+def secao_do_balde(spec: dict, workdir: str = ".") -> dict:
+    """QUAL secao da copy o balde PEGA-TUDO de fato pegou — nomeada.
+
+    **Medido em 22/10 as 21:5x, e e a conferencia que faltava a este modulo.**
+    Em 20/10 as 20:3x eu reproduzi o vazamento e tentei TRES conferencias, as
+    tres caidas: o cabecalho TRADUZ (32 de 360 copies), as chaves do Studio
+    faltam por GERACAO (183 de 360) e a forma das linhas da SEIS falsos
+    positivos. A conclusao daquela rodada foi *"nao ha portao"*, e ela
+    continua valendo.
+
+    **O que faltava era mais barato que um portao: NOMEAR.** O balde pega a
+    PRIMEIRA secao que nao casou com licenca, capitulos, hashtags nem tags, e
+    isso e DETERMINISTICO — logo da para dizer qual secao venceu, sem precisar
+    saber qual delas o autor QUERIA. Quem le a passada ve `FONTES` no lugar de
+    `COMENTARIO FIXADO` e corrige a ORDEM, que e redacao e nao formato.
+
+    **O TAMANHO VAI MEDIDO:** das 417 copies com secao de comentario fixado,
+    o `ler_copy` consegue ler 90 (as outras tem placeholder de render), e
+    nessas o balde pegou a secao ERRADA em **DEZESSETE**.
+
+    **E O DEFEITO E LATENTE, nao de fora:** o `comentario` e PARSEADO e NUNCA
+    POSTADO — o `confere_token` diz isso em letra, e o `commentThreads.insert`
+    nao e chamado em lugar nenhum. Logo nenhum texto errado chegou ao YouTube.
+    O que ele custa e a conferencia do portao `copy`, que pergunta
+    `if not cp.get("comentario")` e e sempre satisfeita pelo pega-tudo. Dizer
+    que isto vazou para fora seria inflar o achado.
+    """
+    texto = spec.get("copy")
+    if not isinstance(texto, str) or not texto.strip():
+        return {"possivel": False, "motivo": "spec sem copy em texto"}
+    try:
+        com = comentario_de(spec, workdir)
+    except BaseException as e:      # `ler_copy` levanta SystemExit no placeholder
+        return {"possivel": False, "motivo": "a copy nao e legivel aqui (%s)" % e}
+    if not com:
+        return {"possivel": False, "motivo": "o balde ficou vazio"}
+    venceu = None
+    for cab in cabecalhos(texto):
+        corpo = _secao_bruta(texto, cab)
+        if corpo and corpo[:50] == com[:50]:
+            venceu = cab
+            break
+    declarado = cabecalho_do_comentario(texto)
+    return {
+        "possivel": True,
+        "balde": venceu,
+        "declarado": declarado,
+        "bate": bool(venceu) and bool(declarado) and venceu == declarado,
+        "motivo": None if (venceu and declarado and venceu == declarado) else (
+            "o balde PEGA-TUDO pegou %r e a secao do comentario declarada e "
+            "%r — ele enche com a PRIMEIRA secao que nao casou com licenca, "
+            "capitulos, hashtags nem tags, logo a ORDEM decide. Ponha a secao "
+            "do comentario como a primeira dessas. Isto NAO vazou para fora: "
+            "o comentario e parseado e nunca postado" % (venceu, declarado)),
+    }
+
+
+def _secao_bruta(texto: str, cab: str) -> str:
+    m = re.search(r"^##\s*" + re.escape(cab) + r"\s*$\n(.*?)(?=^##\s|\Z)",
+                  texto, re.M | re.S)
+    return (m.group(1).strip() if m else "")
+
+
 def vazamento_simulado(spec: dict, workdir: str = ".") -> dict:
     """REPRODUZ o defeito: tira a secao do comentario e ve o que sobe no lugar.
 
@@ -234,6 +297,18 @@ def vazamento_simulado(spec: dict, workdir: str = ".") -> dict:
     }
 
 
+def _linha_do_balde(spec: dict, workdir: str = ".") -> str:
+    """UM dono da frase, e ela sai nos DOIS ramos — bate e nao bate."""
+    q = secao_do_balde(spec, workdir)
+    if not q.get("possivel"):
+        return ("  SECAO DO BALDE: nao deu para medir — %s"
+                % q.get("motivo"))
+    if q.get("bate"):
+        return ("  SECAO DO BALDE: %r, que e a declarada — a ORDEM esta certa "
+                "nesta copy." % q.get("balde"))
+    return "  SECAO DO BALDE: %s" % q.get("motivo")
+
+
 def relato(caminho: str) -> str:
     import json
 
@@ -252,6 +327,9 @@ def relato(caminho: str) -> str:
             linhas.append("    iria ao ar: " + repr(v["depois"][:90]))
     else:
         linhas.append("  sem simulacao: " + v["motivo"])
+    # QUAL secao o balde pegou — NOMEADA, nao gated (21:5x). Instrumento
+    # calculado e descartado pelo chamador e a classe dos layouts mortos.
+    linhas.append(_linha_do_balde(sp))
     linhas.append(
         "  DA SECAO DO COMENTARIO isto NAO acusa ninguem: CINCO "
         "discriminadores foram tentados e QUATRO falharam — os numeros estao "

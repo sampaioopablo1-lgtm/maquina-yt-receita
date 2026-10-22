@@ -202,15 +202,57 @@ def _narracao(spec: dict) -> list:
     return saida
 
 
+# A PALAVRA "CAPITULO" EM CADA LINGUA DA FROTA, e ela entrou medida.
+#
+# Medido em 22/10 as 21:4x: das 293 copies de short solto, **181 citam
+# capitulo** em alguma lingua e o padrao antigo pegava **136**. Dos 45
+# perdidos, **UM** era de LINGUA (o `kolejny-poziom-s096`, cuja FONTES diz
+# `rozdzialy 30, 31 i 32`) e **QUARENTA E QUATRO** eram de FORMA — a
+# ENUMERACAO `capitulos 30, 31 e 32`, que nao e faixa nem capitulo unico.
+#
+# **Eu fui procurar o 725 (vocabulario de uma lingua lido como cobertura da
+# frota) e encontrei outro defeito, maior.** O de lingua e a minoria; o de
+# forma e 44 de 45, e vai dito nessa ordem.
+PALAVRA_CAPITULO = r"(?:cap[ií]tulos?|rozdzia[lł](?:y|ow|ów|u)?|κεφ[αά]λαι[οα])"
+
+# Quantos numeros uma enumeracao pode encadear. O limite existe contra o 725:
+# sem ele, "capitulos 30, 31 e 32" seguido de uma frase cheia de numeros
+# engoliria a frase inteira. Oito e o maior encadeamento OBSERVADO no acervo.
+MAX_ENCADEADOS = 8
+
+
 def _citados(trecho: str) -> set:
-    """Todo capitulo que um trecho de prosa cita — sem julgar o sinal."""
+    """Todo capitulo que um trecho de prosa cita — sem julgar o sinal.
+
+    TRES formas, e as tres medidas no acervo: a FAIXA (`N a M`), o capitulo
+    UNICO (`capitulo N`) e a ENUMERACAO (`capitulos N, M e K`). A terceira
+    entrou em 22/10 as 21:4x e e a que mais faltava — 44 dos 45 casos
+    perdidos.
+
+    **A enumeracao PARA no primeiro token que nao liga, e o `MAX_ENCADEADOS`
+    existe contra o 725:** sem a parada, uma frase cheia de numeros depois da
+    lista seria engolida inteira, e detector que inventa achado e pior que nao
+    ter detector. Numero NU, sem a palavra antes, nao entra de jeito nenhum.
+    """
     achados = set()
-    for m in re.finditer(r"capitulos?\s+(\d{1,3})\s*a\s*(\d{1,3})", trecho, re.I):
+    for m in re.finditer(PALAVRA_CAPITULO + r"\s+(\d{1,3})\s*a\s*(\d{1,3})",
+                         trecho, re.I):
         a, b = int(m.group(1)), int(m.group(2))
         if a <= b and b - a < 60:
             achados.update(range(a, b + 1))
-    for m in re.finditer(r"[Cc]apitulo\s+(\d{1,3})\b", trecho):
+    for m in re.finditer(PALAVRA_CAPITULO + r"\s+(\d{1,3})\b", trecho, re.I):
         achados.add(int(m.group(1)))
+        # A ENUMERACAO continua do numero casado: so digitos ligados por
+        # virgula ou pela conjuncao da lingua entram, e ela PARA no primeiro
+        # token que nao e nenhum dos dois. Encadear sem parar seria o 725.
+        resto = trecho[m.end():]
+        for _ in range(MAX_ENCADEADOS):
+            liga = re.match(r"\s*(?:,|;|\be\b|\bi\b|\band\b|\bκαι\b)"
+                            r"\s*(\d{1,3})\b", resto, re.I)
+            if not liga:
+                break
+            achados.add(int(liga.group(1)))
+            resto = resto[liga.end():]
     return achados
 
 
@@ -243,14 +285,36 @@ def capitulos_negados(copy: str) -> list:
     return sorted(negados)
 
 
+def _sem_reserva(copy: str) -> str:
+    """A copy sem a secao `## RESERVA`, porque ali capitulo citado e o AVESSO.
+
+    **Medido em 22/10 as 21:4x, e e um falso positivo que ja existia:** das 26
+    copies com secao `## RESERVA`, **DEZESSEIS** tinham capitulos dela contados
+    como DECLARADOS — e a reserva diz, em letra, `LIVRES os capitulos N e M`,
+    isto e o oposto de usado. Contar aquilo faria a rodada seguinte PULAR
+    justamente o que o irmao deixou livre.
+
+    A secao INTEIRA sai, em vez de se subtrair o conjunto dela: capitulo pode
+    aparecer legitimamente nas FONTES **e** na reserva (como *"NAO LEVAR, e
+    territorio do sNNN"*), e subtrair o conjunto apagaria o uso legitimo.
+
+    E o conteudo da reserva NAO e reparseado aqui: o dono dele e o
+    `reservas_escritas`, e refazer a leitura criaria o segundo dono.
+    """
+    m = re.search(r"^##\s*RESERVA\s*$.*?(?=^##\s|\Z)", copy, re.M | re.S)
+    return (copy[:m.start()] + copy[m.end():]) if m else copy
+
+
 def _capitulos_declarados(copy: str) -> list:
     """Numeros que a copy diz ter USADO — a geracao antiga os escreve em prosa.
 
     Capitulo citado dentro de um bloco de negacao **nao entra**: ate 20/10 as
     17:4x entrava, e o relato dizia *"capitulos que ele declara: 52 a 61"* de um
-    bloco cuja frase e *"o que eu NAO levei"*.
+    bloco cuja frase e *"o que eu NAO levei"*. E desde 22/10 as 21:4x a secao
+    `## RESERVA` inteira tambem fica fora, pelo `_sem_reserva`.
     """
-    return sorted(_citados(copy) - set(capitulos_negados(copy)))
+    corpo = _sem_reserva(copy)
+    return sorted(_citados(corpo) - set(capitulos_negados(corpo)))
 
 
 def frases_que_citam_irmao(copy: str, pacotes: list) -> list:

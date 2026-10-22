@@ -11929,3 +11929,183 @@ TERCEIRA rodada seguida:** 82,27 h, piso de resolucao **0,29/dia**, os tres SIM.
 
 **COTA: CATORZE envios** na janela aberta as 07:00Z, **22.400** unidades, contra
 o piso MEDIDO de **>= 41.600** — do `janela_de_cota`.
+
+## A DECLARACAO DE CAPITULO ERA LIDA NUMA FORMA SO — e eu fui procurar outro defeito
+
+**Medido em 22/10 as 21:4x, na peca desta rodada.** O `_citados` do
+`irmaos_da_origem` casava **FAIXA** (`capitulos N a M`) e **capitulo UNICO**
+(`capitulo N`), e so em portugues. A FONTES da peca que eu acabara de escrever
+diz `rozdzialy 30, 31 i 32` — e `capitulos_declarados` voltou **vazio**, isto e,
+a rodada seguinte veria esses capitulos como **LIVRES** e poderia repetir a
+familia. E o defeito de 12/10 as 12:3x pelo outro lado, e aquele me custou duas
+cenas do `kolejny-poziom-s093`.
+
+**EU FUI PROCURAR O 725 E ENCONTREI OUTRO DEFEITO, MAIOR — e a ordem vai
+dita:**
+
+| | |
+|---|---|
+| copies de short solto com copy | **293** |
+| que CITAM capitulo em alguma lingua | **181** |
+| que o padrao antigo pegava | **136** |
+| perdidos por **FORMA** (a ENUMERACAO `capitulos 30, 31 e 32`) | **44** |
+| perdidos por **LINGUA** | **1** |
+| depois do conserto | **181 de 181** |
+
+A hipotese era lingua — vocabulario de um idioma lido como cobertura da frota,
+que e o 725. **Ela era a minoria: 1 de 45.** O que faltava era a terceira FORMA
+de citar, que nao e faixa nem capitulo unico.
+
+**A enumeracao PARA no primeiro token que nao liga**, e o `MAX_ENCADEADOS`
+existe contra o 725: sem a parada, uma frase cheia de numeros depois da lista
+seria engolida inteira. **Numero NU, sem a palavra antes, nao entra de jeito
+nenhum.**
+
+### E O CONSERTO REVELOU UM FALSO POSITIVO QUE JA EXISTIA
+
+Com o padrao mais largo, a peca desta rodada passou a declarar
+**dezenove** capitulos — e os que sobravam vinham da secao **`## RESERVA`**, que
+diz em letra `LIVRES os capitulos 49 e 50`. **Isto e o OPOSTO de usado**, e
+contar aquilo faria a rodada seguinte PULAR justamente o que o irmao deixou
+livre: detector inventando achado (725).
+
+**Medido: das 26 copies com secao `## RESERVA`, DEZESSEIS tinham capitulos dela
+contados como DECLARADOS** — e o defeito ja existia pela forma de FAIXA, antes
+do meu alargamento. `_sem_reserva` tira a secao INTEIRA (em vez de subtrair o
+conjunto dela, porque capitulo pode aparecer legitimamente nas FONTES **e** na
+reserva como *"NAO LEVAR, e territorio do sNNN"*), e **o conteudo da reserva
+nao e reparseado ali** — o dono dele e o `reservas_escritas`.
+
+**E o capitulo 73 ficou de fora da MINHA declaracao, e o errado era a minha
+redacao:** eu escrevi `ze wsparciem 27 i 73` sem a palavra antes do 73.
+Alargar para numero nu seria o 725; o conserto foi escrever `rozdzial 73` na
+FONTES. **A copy no disco foi corrigida e a descricao publicada nao muda** — a
+FONTES e secao interna.
+
+`tests/test_a_declaracao_de_capitulo_era_lida_numa_FORMA_so.py`, treze testes:
+as **TRES formas** sao cobradas uma a uma e nas tres linguas, a **FRONTEIRA** do
+encadeamento e cobrada (ele para no primeiro token que nao liga, e `9 por
+cento` nao entra), **numero NU nao entra** (contraprova no outro sentido), a
+secao `## RESERVA` e cobrada FORA com contraprova (sem a secao, os mesmos
+numeros ENTRAM), o bloco de NEGACAO continua fora, a nao-reparseacao e por
+**AST**, a cobertura e **RECONFERIDA contra o disco** com piso de vacuidade e
+**falha se cair abaixo de 0,95**, e um exige que **nenhuma** copy do disco ainda
+vaze a reserva. **Contraprova:** devolvido o parser antigo, **nove dos treze**
+falham.
+
+## QUAL SECAO O BALDE PEGA-TUDO PEGOU — nomeada, 21:5x
+
+Na mesma rodada, conferindo a copy pelo DONO (`publicar.ler_copy`), o
+`comentario` que sairia desta peca era a secao **`## FONTES`**, nao a
+`## COMENTARIO FIXADO`. E o defeito de 20/10 as 20:3x, agora **medido no
+acervo**:
+
+| | |
+|---|---|
+| copies com secao de comentario fixado | **417** |
+| que o `ler_copy` consegue ler (as outras tem placeholder de render) | **90** |
+| em que o balde pegou a secao **ERRADA** | **DEZESSETE** |
+
+**E O DEFEITO E LATENTE, nao de fora, e isso vai dito em vez de inflado:** o
+`comentario` e **parseado e NUNCA POSTADO** — o `confere_token` diz isso em
+letra e o `commentThreads.insert` nao e chamado em lugar nenhum. **Nenhum texto
+errado chegou ao YouTube.** O que ele custa e a conferencia do portao `copy`,
+que pergunta `if not cp.get("comentario")` e e sempre satisfeita pelo pega-tudo
+— que e exatamente o que aquela rodada ja havia estabelecido.
+
+**O que faltava era mais barato que um portao: NOMEAR.** Aquela rodada tentou
+TRES conferencias e as tres cairam (o cabecalho TRADUZ, as chaves do Studio
+faltam por GERACAO, a forma das linhas da seis falsos positivos) e concluiu
+*"nao ha portao"* — e isso **continua valendo**. Mas o balde pega a **PRIMEIRA**
+secao que nao casou com licenca, capitulos, hashtags nem tags, e isso e
+**DETERMINISTICO**: da para dizer qual secao venceu sem saber qual o autor
+queria. `copy_secoes.secao_do_balde` + `_linha_do_balde`, ligada ao `relato`.
+
+**E a saida e de REDACAO e nao de formato: ponha `## COMENTARIO FIXADO` como a
+PRIMEIRA secao que nao casa com as quatro.** Aplicado na peca desta rodada, o
+instrumento sai limpo. **O acervo NAO foi reordenado** — sao dezessete copies
+publicadas, e editar spec em massa e o que a trava da rodada de construcao
+proibe.
+
+### A PECA DESSA RODADA — DOZE cenas, e a pauta SEGUIU a regra escrita
+
+`kolejny-poziom-s096` = **`j7yMG4-3Duk`** (*Baza nie jest brutto*), publicado as
+**21:27:28Z** (run `39857374333`), **sem `403 quota`**. **ONZE PORTOES VERDES**,
+com os **dez portoes baratos limpos na PRIMEIRA passada**, e a peca foi
+**CONFERIDA COMO RASCUNHO** antes de existir no disco. **E as GUARDAS DO
+CONSTRUTOR da rodada anterior rodaram DENTRO do construtor pela primeira vez em
+producao** — `GC.exige(sp)` antes de gravar.
+
+Provedor **edge MEDIDO** pelo `anotacoes_do_run` (zero avisos
+`NARRACAO PELO PIPER` no job `120095952634`, que e o job que emitiu o SOM). Som
+**-13,3** LUFS, pico **-1,3** dBTP — isto e `acima_do_teto`, que e LEITURA e nao
+defeito —, **zero silencios**, parqueado pelo `som_parqueado` (parque em **84**
+linhas, zero sem `run`). **E os dois workflows foram esperados pelo
+`--termino`**, segunda rodada seguida.
+
+**CANAL do `passo_zero`** (8/8/8, empate nos TRES desempatado pelo que esta ha
+mais tempo sem publicar). **PAUTA:** `34SgUG7rf0U` (`kolejny-poziom-005`, 82
+capitulos), 4 usos — empate de **DOZE** origens desempatado pela reserva, 65
+livres e 59 sem declaracao.
+
+**E A PAUTA SEGUIU A REGRA ESCRITA, com o vao MEDIDO:** a reserva SEM
+DECLARACAO apontava o `kolejny-poziom-011`, mas **o vao e de DOIS capitulos
+(3%)** — e desviar por dois transformaria a heuristica em regra. **E a mesma
+leitura da rodada das 18:0x e o oposto da das 20:07**, onde o vao era de 58% e a
+rodada desviou. A dominante `GUiq15usizw` ficou de fora e o `QiaGg03WSR0` saiu
+da escolha pelo **mapa de dono MEDIDO**, sem sair da lista.
+
+**FAMILIA: A ORDEM DAS SUBTRACOES, E NAO O VALOR DE CADA UMA** (capitulos 30, 31
+e 32, com o 27 e o 73 de apoio) — tratar os descontos como fatias **PARALELAS**
+da mesma kwota de cima, quando eles sao **SEQUENCIAIS** e cada um reposiciona a
+base do seguinte. A zdrowotna nao sai do brutto: sai do brutto **menos as
+sociais**, e o podatek sai do que restou das duas. **E o erro tem UM sentido:**
+potrai-se de mais, logo o netto estimado sai mais BAIXO que o real — nao salta
+ao acaso, mente sempre para o mesmo lado, o que o torna mais dificil de notar.
+
+**Os QUATRO irmaos** falam do custo do empregador (`s012`), de QUAL valor entra
+numa linha (`s027`), de com que numero se comparar (`s072`) e de dois NIVEIS da
+escada (`s081`) — **nenhum fala da ORDEM nem da BASE**. O `s027` e o mais
+proximo e a distincao vai dita: ali o defeito e pegar o valor TIPICO de uma
+linha que varia; aqui **todos os valores podem estar certos e o resultado sai
+errado pela ORDEM**. A conferencia por capitulo alcanca **1 dos 4** com ZERO
+sobreposicao, e nos outros tres foi pela NARRACAO (761).
+
+**CONTAGEM pela chave `por_cadencia_servivel`:** doze cenas, folga **+12**. O
+teto MEDIDO da voz (**14**), que e a melhor cadencia, saiu **NOMEADO** e
+recusado pela FOLGA — 23 caracteres, a dois do piso OBSERVADO.
+
+**E A FORMA SAIU DO `sugere_forma`:** a frota usa DUAS misturas em doze cenas, e
+a de maior folga tem **7.547 de 7.560** ordens livres.
+`titulo-item-lista-item-item-item-titulo-lista-barras-item-barras-cta`,
+**INEDITO nas 186 formas** da frota.
+
+**MIREI O PISO** (772): edge **41,70** — 0,20 acima dele — e piper **35,50**. **A
+PRIMEIRA versao saiu em 45,67, isto e ACIMA do teto do PORTAO (45,0)**, e o
+corte saiu do `mira.quanto_cortar` em DUAS passadas, nao da minha cabeca. **E eu
+segui os SEGUNDOS e nao os caracteres**, porque com uma cena de duas frases o
+conselho em caracteres aponta para o outro lado (o `P` do `MODELO_VOZ` e
+silencio por FRASE — 11/10). A pinca do 740/748 esta **FECHADA** e a exposicao
+vai declarada; **o REAL nao esta prometido para lado nenhum** (774).
+
+**ZERO numero novo sobre o mundo e ZERO digito na narracao**, e **a recusa e a
+maior desta sessao** porque a origem e um longo feito de percentuais com fonte e
+data: ficaram FORA as aliquotas das sociais dos dois lados, a da zdrowotna, a
+faixa da stawka wypadkowa, o Fundusz Pracy, o FGSP, o PPK, a kwota wolna mensal,
+o minimo e o medio de 2026, a mediana, o teto anual da base e qualquer valor em
+zloty. **Inclusive a aliquota da zdrowotna, que seria o gancho mais facil** — a
+peca diz a DIRECAO do erro sem o tamanho dele. **E o capitulo 10 da propria
+origem escreve a regra que eu sigo:** *"Liczby ze zrodlem i data, a czego nie da
+sie zmierzyc, tego nie mowimy."*
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica` pela
+QUADRAGESIMA TERCEIRA rodada seguida**. A peca esta PARQUEADA com o provedor
+MEDIDO e o job lido da API, com a presenca conferida **RELENDO** o parque
+(**144** linhas, **72** sem leitura). `RESIDUO_N` segue **128**.
+
+**E A LEITURA DE INSCRITOS PASSOU AS TRES PORTAS E NAO FOI FEITA, pela VIGESIMA
+QUARTA rodada seguida:** 83,33 h, piso de resolucao **0,29/dia**, os tres SIM.
+**O que a impede e a ROTA, e o remedio e do DONO** — a tela de Network access.
+
+**COTA: QUINZE envios** na janela aberta as 07:00Z, **24.000** unidades, contra
+o piso MEDIDO de **>= 41.600**.
