@@ -9633,3 +9633,30 @@ que a impede e a ROTA, e o remedio e do DONO** — a tela de Network access.
 **COTA: VINTE E CINCO envios** na janela aberta as 07:00Z de 21/10, **40.000**
 unidades, contra o piso MEDIDO de **>= 41.600** — do `janela_de_cota`. A janela
 vira as 07:00Z, isto e dentro de meia hora.
+
+### E A SUITE ACUSOU DUAS FALHAS NOVAS, as duas MINHAS — e o detector estava certo
+
+**Medido na passada desta rodada: 27 falhas contra a base de 25, e as duas novas
+sao do `test_o_cabecalho_que_ESTENDE_outro_cai_no_pega_tudo.py`**, que varre as
+copies do acervo. Causa: eu inventei a secao `## TITULO LONGO DE ORIGEM` na copy
+desta peca, e ela **ESTENDE `## TITULO` por prefixo** — exatamente a classe de
+defeito que aquele arquivo existe para pegar.
+
+**E ela e UNICA em 380 copies**, medido no disco: nenhuma outra spec usa esse
+cabecalho. Logo nao era secao legitima nova, era invencao minha — e a convencao
+que ja e dona dessa informacao e `## FONTES`, com **216** usos. O teste diz em
+letra o que fazer nos dois casos: *"ou e erro de digitacao numa copy, ou e secao
+legitima nova — e nos dois casos alguem tem de OLHAR, nao mover o numero"*, e
+**afrouxar o `SUFIXOS_LEGITIMOS` para a minha copy caber seria o avesso do
+trabalho**, igual a afrouxar o `MARGEM_VISUAL` para a peca passar (19/10, 12:3x).
+
+**O CUSTO MEDIDO E ZERO NA PECA PUBLICADA, e vai dito assim em vez de inflado:**
+conferido pelo DONO (`publicar.ler_copy`), o `titulo` e o `short_titulo` sairam
+os dois certos antes e depois do conserto, e o notice confirma
+`titulo=Tę stawkę liczysz raz w roku`. O buraco era **LATENTE** — a colisao de
+prefixo nao contaminou nada aqui —, e quem o nomeou foi a suite, nao eu relendo.
+
+**Consertado renomeando a secao para `## FONTES`** na spec e no construtor, com
+`assert` de contagem antes de gravar. O arquivo do cabecalho volta a **oito de
+oito**, o `prontidao` segue com **zero falhas**, e **nenhuma constante foi
+tocada**.
