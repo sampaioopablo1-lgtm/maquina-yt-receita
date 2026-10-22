@@ -342,6 +342,14 @@ def declarados_pelos_irmaos(yid: str, dir_specs: str = SPECS,
     no topo, logo importa-lo aqui no topo seria circular. Delegar continua sendo
     um dono so.
 
+    **E o `dir_specs` vai por NOME e nao por posicao:** o `irmaos` recebe `raiz`
+    na segunda posicao, e a primeira versao desta funcao passou o `dir_specs`
+    ali. O `glob` varreu `<dir_specs>/fabrica/specs`, que nao existe, e devolveu
+    **`n = 0`, lista VAZIA e bem formada** — a familia de 20/10 as 12:3x. A
+    segunda versao derivou a raiz por convencao e **quebrou o chamador que passa
+    diretorio arbitrario** (parque proprio de teste): 26 falhas contra 25, pego
+    pela suite. A terceira passa o diretorio pelo argumento proprio dele.
+
     **Ele NOMEIA e NAO FILTRA**, pela disciplina do `origens_sem_uso`: o
     `nao_mencionados` segue devolvendo a mesma lista de `nao_mencionados` que
     sempre devolveu, e esta funcao diz quais daqueles indices um irmao declara.
@@ -362,7 +370,7 @@ def declarados_pelos_irmaos(yid: str, dir_specs: str = SPECS,
     livres = set(d["nao_mencionados"])
     cenas = _cenas_do_longo(d["pacote"], dir_specs)
     por_indice = {}
-    for ir in IO.irmaos(yid, IO.raiz_do_dir_specs(dir_specs)):
+    for ir in IO.irmaos(yid, dir_specs=dir_specs):
         if exceto and nome_da_spec.casa(ir.get("arquivo") or
                                         nome_da_spec.arquivo(ir["pacote"]),
                                         exceto):

@@ -272,38 +272,27 @@ def frases_que_citam_irmao(copy: str, pacotes: list) -> list:
     return saida
 
 
-def raiz_do_dir_specs(dir_specs: str) -> str:
-    """A RAIZ que `_dir_specs` devolveria esse diretorio — o inverso, UM dono.
-
-    **MEDIDO em 22/10 as 12:4x, dentro do conserto de 12:3x.** O
-    `segundo_angulo` recebe `dir_specs` e o `irmaos` recebe `raiz`: passar um na
-    posicao do outro faz o `glob` varrer `<dir_specs>/fabrica/specs`, que nao
-    existe, e devolver **lista VAZIA e bem formada** — indistinguivel de origem
-    sem irmao nenhum. Eu cometi isso na primeira versao do
-    `declarados_pelos_irmaos`, e a saida vazia parecia a resposta.
-    """
-    alvo = os.path.join("fabrica", "specs")
-    d = os.path.normpath(dir_specs)
-    if d.endswith(alvo):
-        return d[:-len(alvo)].rstrip(os.sep) or os.sep
-    raise ValueError(
-        "dir_specs fora da convencao: %r. A raiz nao se deriva dele, e "
-        "adivinhar devolveria varredura vazia e bem formada — o defeito de "
-        "20/10 as 12:3x." % dir_specs)
-
-
-def irmaos(origem: str, raiz=None) -> list:
+def irmaos(origem: str, raiz=None, dir_specs=None) -> list:
     """Um dict por spec de short que declara `longo_existente == origem`.
 
     **A guarda de vacuidade e DELEGADA ao `segundo_angulo._dir_valido`**, que e
-    o dono dela desde 20/10 as 12:3x: sem ela, raiz errada devolve lista VAZIA
-    e bem formada. Medido em 22/10 as 12:4x, quando eu passei `dir_specs` nesta
-    posicao e a resposta vazia passou por "origem sem irmaos".
+    o dono dela desde 20/10 as 12:3x: sem ela, diretorio errado devolve lista
+    VAZIA e bem formada. Medido em 22/10 as 12:4x, quando eu passei `dir_specs`
+    na posicao de `raiz` e a resposta vazia (`n = 0`) passou por "origem sem
+    irmaos" — e e por isso que ela LEVANTA em vez de responder zero.
+
+    **E `dir_specs` entrou como argomento PROPRIO na mesma rodada, e o motivo e
+    uma regressao minha:** a primeira versao do conserto derivava a raiz do
+    `dir_specs` por convencao, e o `segundo_angulo` passa diretorio ARBITRARIO
+    (parque proprio de teste, `tmp_path`). Exigir a convencao `fabrica/specs`
+    quebrou o `texto_dos_livres` para todo chamador que nao a cumpre — pego pela
+    suite, 26 falhas contra 25. Quando ele vem, ele VENCE a raiz; a derivacao
+    pela raiz fica para quem chama sem ele.
     """
-    raiz = raiz or RAIZ
-    SA._dir_valido(os.path.join(raiz, "fabrica", "specs"))
+    specs = dir_specs or os.path.join(raiz or RAIZ, "fabrica", "specs")
+    SA._dir_valido(specs)
     saida = []
-    for f in sorted(glob.glob(os.path.join(raiz, "fabrica", "specs", "*.json"))):
+    for f in sorted(glob.glob(os.path.join(specs, "*.json"))):
         try:
             d = json.load(open(f, encoding="utf-8"))
         except Exception:

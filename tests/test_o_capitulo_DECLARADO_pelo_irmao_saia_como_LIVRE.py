@@ -224,22 +224,49 @@ def test_a_declaracao_e_DELEGADA_por_AST():
             % proibido)
 
 
-def test_o_inverso_da_raiz_vai_nos_DOIS_sentidos():
-    d = IO._dir_specs(RAIZ)
-    assert IO.raiz_do_dir_specs(d) == RAIZ
-    assert IO._dir_specs(IO.raiz_do_dir_specs(d)) == d
-    with pytest.raises(ValueError):
-        IO.raiz_do_dir_specs("/tmp/qualquer-coisa")
-
-
 def test_a_guarda_de_vacuidade_LEVANTA_em_vez_de_devolver_vazio():
-    """Raiz errada e o defeito de 20/10 as 12:3x: vazio bem formado."""
+    """`dir_specs` na posicao de `raiz` e o defeito de 20/10 as 12:3x."""
     with pytest.raises(Exception):
-        IO.irmaos("-5aMrDsxlZE", SPECS)   # `dir_specs` na posicao de `raiz`
+        IO.irmaos("-5aMrDsxlZE", SPECS)   # posicao de `raiz`: caminho nao existe
     # contraprova: a raiz CERTA continua respondendo
     assert IO.irmaos(PAR_DE_12H[0], RAIZ), (
         "a guarda calou a chamada certa — ela tem de levantar so no caminho "
         "inexistente")
+
+
+def test_o_dir_specs_ARBITRARIO_continua_servindo():
+    """A regressao que a suite pegou: 26 falhas contra 25.
+
+    A segunda versao do conserto derivava a raiz do `dir_specs` por convencao, e
+    o `texto_dos_livres` e chamado com diretorio ARBITRARIO (parque proprio de
+    teste). Exigir `fabrica/specs` no caminho quebrou todo chamador que nao a
+    cumpre — e o certo era o TESTE dele, nao o meu conserto.
+    """
+    import tempfile
+    with tempfile.TemporaryDirectory() as d:
+        # diretorio que EXISTE e esta fora da convencao: nao levanta e nao
+        # inventa irmao nenhum
+        assert IO.irmaos("qualquer-origem", dir_specs=d) == []
+        assert SA.texto_dos_livres("qualquer-origem", d)["pacote"] is None
+    # e o `dir_specs` VENCE a raiz quando os dois vem
+    assert IO.irmaos(PAR_DE_12H[0], "/caminho/que/nao/existe",
+                     dir_specs=SPECS), (
+        "o `dir_specs` nao venceu a raiz — se perder, o chamador que o passa "
+        "volta a depender da convencao que esta regressao mostrou nao valer")
+
+
+def test_a_passagem_e_por_NOME_e_nao_por_POSICAO():
+    """Por AST: o defeito original era o `dir_specs` na segunda posicao."""
+    corpo = _fonte(SA.declarados_pelos_irmaos)
+    for n in ast.walk(corpo):
+        if isinstance(n, ast.Call) and ast.unparse(n.func).endswith("irmaos"):
+            assert len(n.args) <= 1, (
+                "`IO.irmaos` chamado com segundo argumento POSICIONAL: ali mora "
+                "a `raiz`, e foi exatamente esse engano que devolveu n = 0")
+            assert any(k.arg == "dir_specs" for k in n.keywords), (
+                "o diretorio nao vai pelo argumento proprio dele")
+            return
+    raise AssertionError("nao achei a chamada a `IO.irmaos`")
 
 
 def test_a_DECLARACAO_tambem_e_indicio_e_a_medida_e_RECONFERIDA():
