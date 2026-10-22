@@ -349,6 +349,169 @@ def _status_do_proxy() -> dict | None:
         return None
 
 
+def caminho_de_saida() -> dict:
+    """Quem e o caminho de saida desta chamada — sem tocar a rede.
+
+    POR QUE EXISTE (22/10, 00:3x): o `modo_de_fechamento` recebe TRES controles
+    como booleanos independentes e **nao tem nocao de ONDE cada um foi medido**.
+    Nesta rodada eu medi o 000 dos tres hosts no sandbox do Composio e li a
+    negacao de politica NESTE container — e os dois tem caminho de saida
+    DIFERENTE: medido, o sandbox nao tem `HTTPS_PROXY` nenhum (variavel VAZIA) e
+    este container tem (`http://127.0.0.1:<porta>`). Os dois devolveram 000 nos
+    dois hosts, com o controle de escrita passando.
+
+    **Logo o 000 do sandbox nao e atribuivel a politica que este container le**,
+    e juntar os dois e comparador escolhido sem medir — o efeito (C). Sonda e
+    leitura de politica saem do MESMO caminho ou nao se combinam.
+
+    E a consequencia nao e teorica: a sonda do sandbox daria `indeterminado`
+    (sem proxy a quem perguntar) e a deste container deu
+    `negado_por_politica`. Nas vinte e uma rodadas anteriores eu reportei o
+    segundo tendo sondado no primeiro, e acertei pelo acordo acidental dos dois.
+    """
+    import os as _os
+    import socket as _socket
+    base = _os.environ.get("HTTPS_PROXY") or _os.environ.get("https_proxy") or ""
+    try:
+        maquina = _socket.gethostname()
+    except Exception:
+        maquina = ""
+    return {"proxy": base or None, "maquina": maquina,
+            "tem_proxy": bool(base)}
+
+
+def sonda_e_modo(hosts=None, dir_sonda: str | None = None,
+                 desde: str | None = None,
+                 status: dict | None = None) -> dict:
+    """Sonda os hosts, le a politica e devolve o modo — tudo no MESMO processo.
+
+    Ele existe para os tres controles do `modo_de_fechamento` nao poderem mais
+    vir de lugares diferentes: quem junta e esta funcao, e o caminho de saida
+    vai NOMEADO no resultado. Ver o `caminho_de_saida`.
+
+    `status` existe para o teste injetar o JSON do proxy, e **nao e um dos tres
+    CONTROLES**: ele e a materia-prima de um deles, do mesmo jeito que no
+    `politica_negou_hosts`. Os tres controles sao DERIVADOS aqui e nao podem ser
+    passados — e e isso que o teste cobra na assinatura.
+
+    O CONTROLE DE ESCRITA e o de 20/10 as 09:3x (codigo de erro que devolve ZERO
+    nao diz de QUEM e o zero) e o host NEUTRO e o de 19/10 as 23:4x. Os dois
+    seguem obrigatorios, e aqui eles sao medidos e nao passados.
+
+    **SEM PROXY no caminho o quinto modo NAO E ESTABELECIVEL**, e isso sai dito
+    em vez de virar `sem_egresso`: ausencia de proxy a quem perguntar nao e
+    politica que deixou passar. E a licao de 17/10 aplicada ao discriminador do
+    proprio discriminador.
+
+    E O TAMANHO DESSE RAMO VAI MEDIDO em vez de inflado: desligado ele, o modo
+    deste caso **nao muda** — status ilegivel ja devolve None, logo ja da
+    `indeterminado`, e so UM dos onze testes reprova. O que ele muda e o
+    MOTIVO, e o motivo e o que escolhe o remedio: *nao ha proxy neste caminho*
+    e estrutural (o quinto modo nunca se estabelece ali, e a sonda tem de mudar
+    de caminho), enquanto *status ilegivel* e transitorio e vale reconferir.
+    """
+    import datetime as _dt
+    import io as _io
+    import os as _os
+    import subprocess as _sub
+    import tempfile as _tempfile
+
+    hosts = list(hosts or ["www.youtube.com", "example.com"])
+    caminho = caminho_de_saida()
+    if desde is None:
+        desde = _dt.datetime.now(_dt.timezone.utc).strftime(
+            "%Y-%m-%dT%H:%M:%S")
+    base = dir_sonda or _tempfile.mkdtemp(prefix="sonda-rota-")
+    try:
+        _os.makedirs(base, exist_ok=True)
+    except Exception:
+        pass
+
+    marca = _os.path.join(base, "_escrita")
+    try:
+        with _io.open(marca, "w", encoding="utf-8") as f:
+            f.write("ok")
+        pode_gravar = _os.path.exists(marca)
+    except Exception:
+        pode_gravar = False
+
+    leituras = {}
+    for h in hosts:
+        destino = _os.path.join(base, "r-%s.html" % h.replace("/", "_"))
+        if _os.path.exists(destino):
+            try:
+                _os.remove(destino)
+            except Exception:
+                pass
+        url = h if "://" in h else "https://%s/" % h
+        try:
+            r = _sub.run(["curl", "-s", "-o", destino, "-w", "%{http_code}",
+                          "-m", "25", url],
+                         capture_output=True, text=True, timeout=40)
+            codigo = (r.stdout or "").strip()
+        except Exception:
+            codigo = ""
+        existe = _os.path.exists(destino)
+        leituras[h] = {"codigo": codigo,
+                       "bytes": (_os.path.getsize(destino) if existe else None)}
+
+    neutros = [h for h in hosts if "youtube" not in h]
+    neutro_respondeu = None
+    if neutros:
+        neutro_respondeu = any(
+            (leituras[h]["bytes"] or 0) > 0 for h in neutros)
+
+    pol = politica_negou_hosts(hosts, desde, status)
+    if not caminho["tem_proxy"]:
+        pol = {"negou": None,
+               "motivo": ("NAO HA PROXY neste caminho de saida (%s): o quinto "
+                          "modo nao e estabelecivel aqui, e ausencia de proxy "
+                          "a quem perguntar NAO e politica que deixou passar"
+                          % caminho["maquina"]),
+               "hosts_nomeados": [], "mais_novo": None}
+
+    corpo = ""
+    for h in hosts:
+        if "youtube" in h and leituras[h]["bytes"]:
+            try:
+                corpo = _io.open(
+                    _os.path.join(base, "r-%s.html" % h.replace("/", "_")),
+                    encoding="utf-8", errors="replace").read()
+            except Exception:
+                corpo = ""
+    modo = modo_de_fechamento(corpo, "",
+                              neutro_respondeu=neutro_respondeu,
+                              sonda_pode_gravar=pode_gravar,
+                              politica_negou=pol["negou"])
+    return {"modo": modo, "caminho": caminho, "desde": desde,
+            "leituras": leituras, "politica": pol,
+            "controles": {"neutro_respondeu": neutro_respondeu,
+                          "sonda_pode_gravar": pode_gravar,
+                          "politica_negou": pol["negou"]}}
+
+
+def relato_do_modo(r: dict) -> str:
+    """Uma frase por controle, com o CAMINHO nomeado. Nao reprova."""
+    L = []
+    c = r["caminho"]
+    L.append("MODO DA ROTA: **%s**" % r["modo"])
+    L.append("  caminho de saida: maquina %s, proxy %s"
+             % (c["maquina"] or "?",
+                "AUSENTE" if not c["tem_proxy"] else "presente"))
+    for h, v in sorted(r["leituras"].items()):
+        L.append("  %s -> HTTP %s, bytes %s"
+                 % (h, v["codigo"] or "(sem codigo)",
+                    v["bytes"] if v["bytes"] is not None else "SEM ARQUIVO"))
+    L.append("  controle de ESCRITA: %s"
+             % ("passou" if r["controles"]["sonda_pode_gravar"] else "FALHOU"))
+    L.append("  host NEUTRO respondeu? %s" % r["controles"]["neutro_respondeu"])
+    L.append("  politica: %s" % r["politica"]["motivo"])
+    L.append("  os TRES controles sairam DESTE caminho, no mesmo processo — foi"
+             " medi-los em caminhos diferentes que produziu a nota de 22/10 as"
+             " 00:3x. Codigo de saida sempre zero.")
+    return "\n".join(L)
+
+
 def veredito_da_rota(leitura_nova, leitura_controle, valor_conhecido: int):
     """Diz se a rota FECHOU ou se a peca nova e que nao respondeu.
 

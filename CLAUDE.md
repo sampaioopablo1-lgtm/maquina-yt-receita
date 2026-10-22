@@ -8603,3 +8603,158 @@ impede e a **ROTA**, e o remedio e do **DONO** — a tela de Network access.
 
 **COTA: DEZESSETE envios** na janela aberta as 07:00Z, **27.200** unidades,
 contra o piso MEDIDO de **>= 41.600** — do `janela_de_cota`.
+
+## A SONDA E A LEITURA DA POLITICA SAIAM DE CAMINHOS DE SAIDA DIFERENTES
+
+**Medido em 22/10 as 00:3x, e o erro aconteceu nesta rodada.** O quinto modo da
+rota (`negado_por_politica`, de 20/10 as 11:4x) depende de o PROXY nomear o
+host, e o `modo_de_fechamento` recebe os TRES controles como booleanos
+independentes — **sem nocao nenhuma de ONDE cada um foi medido.** Nesta rodada eu
+sondei os hosts no sandbox do Composio e li a negacao de politica NESTE
+container.
+
+| | sandbox do Composio | ESTE container |
+|---|---|---|
+| `HTTPS_PROXY` | **VAZIO** (medido) | `http://127.0.0.1:<porta>` |
+| controle de escrita | passou | passou |
+| peca de controle + host NEUTRO | 000, sem arquivo | 000, sem arquivo |
+| `__agentproxy/status` | nao ha proxy a quem perguntar | nomeia os dois hosts com recusa de CONNECT |
+| modo pelo instrumento | **`indeterminado`** | **`negado_por_politica`** |
+
+**Logo o 000 do sandbox NAO e atribuivel a politica que este container le** — sao
+dois caminhos de saida, e juntar os dois e comparador escolhido sem medir, o
+efeito (C). **Nas vinte e uma rodadas anteriores eu reportei
+`negado_por_politica` tendo sondado no sandbox**, e acertei pelo acordo
+ACIDENTAL dos dois caminhos: os dois fecham, por motivos que eu nao separei.
+
+**E e a familia de 20/10 as 11:4x uma camada acima.** Lá o 000 em todo host nao
+separava REDE de POLITICA; aqui o discriminador que faz essa separacao **foi
+lido num caminho diferente do que produziu o 000**. O discriminador do
+discriminador tambem precisa de procedencia.
+
+**Consertado com UM dono: `vivacidade_publica.sonda_e_modo`** faz o controle de
+escrita, a sonda dos hosts e a leitura da politica **no MESMO processo**, logo
+no mesmo caminho, e `caminho_de_saida()` **NOMEIA** esse caminho no resultado e
+no relato. Os TRES controles passaram a ser DERIVADOS ali e **nao podem ser
+passados** — ha teste que reprova se qualquer um deles virar parametro, porque
+parametro aqui refaria a mistura. O `status` do proxy segue injetavel: ele e a
+materia-prima de um controle, nao o controle, do mesmo jeito que no
+`politica_negou_hosts`.
+
+**SEM PROXY no caminho o quinto modo NAO E ESTABELECIVEL, e isso sai dito** em
+vez de virar `sem_egresso` — ausencia de proxy a quem perguntar nao e politica
+que deixou passar, que e a licao de 17/10 aplicada aqui.
+
+**E O TAMANHO DESSE RAMO VAI MEDIDO EM VEZ DE INFLADO:** desligado ele, o modo
+daquele caso **nao muda** (status ilegivel ja devolve `None`, logo ja da
+`indeterminado`) e **so UM dos onze testes reprova**. O que ele muda e o
+MOTIVO — e o motivo e o que escolhe o remedio: *nao ha proxy neste caminho* e
+estrutural e manda a sonda trocar de caminho, enquanto *status ilegivel* e
+transitorio e vale reconferir. Dito assim porque vender isto como conserto de
+veredito seria o avesso da medicao.
+
+**O QUE NAO CAI:** o modo desta rodada, medido com a sonda e o status no MESMO
+caminho, e `negado_por_politica` — a **vigesima segunda** rodada seguida —, e o
+remedio segue sendo do DONO, a tela de Network access.
+
+`tests/test_a_sonda_e_a_POLITICA_sairam_de_caminhos_diferentes.py`, onze testes:
+o `caminho_de_saida` e proibido por **AST** de tocar a rede (se custasse rede,
+ninguem o chamaria), a identidade do caminho tem de **MUDAR** quando o proxy
+muda (sem isso a mistura nao e detectavel por ninguem), os **TRES** controles
+sao proibidos na ASSINATURA, um **REPRODUZ** o caso medido do sandbox, a
+contraprova vai nos **dois** sentidos (proxy que negou -> politica; entrada que
+nao e recusa de CONNECT -> nao e politica), o controle de escrita e cobrado como
+**MEDIDO** (diretorio sem como gravar nao pode sair `sem_egresso`), o veredito e
+cobrado como **DELEGADO** ao `modo_de_fechamento` com todo modo proibido como
+literal dentro da sonda, a lista PADRAO tem de ter os **dois** lados (sem um
+host neutro e um do YouTube o modo nunca se estabelece), e um **falha se a
+medida dos dois caminhos sair do modulo**.
+
+**E A MINHA FIXTURE REPROVOU O MODULO CERTO, na primeira execucao:** ela cravava
+`"gateway answered 403 to CONNECT"` como `detail` de TODA entrada, inclusive na
+de `upstream_timeout` — e o dono reconhece `403` no detail como recusa, com
+razao. A contraprova do outro sentido falhou porque **a fixture descrevia um
+estado que o proxy nao produz**. Era o teste errado, nao o modulo, e o `detail`
+passou a acompanhar o `kind`.
+
+### A PECA DESSA RODADA — SETE cenas, e os DOIS mundos dentro da mira
+
+`labtreinamento-s104` = **`OdWGJ3GN7Go`**, publicado as 00:36:08Z (run
+`39700645146`), **ONZE PORTOES VERDES NA PRIMEIRA TENTATIVA** — e ela foi
+**CONFERIDA COMO RASCUNHO** antes de existir como arquivo, pela segunda vez em
+producao: dez portoes baratos limpos em 0,64 s, mira, acento **3,83%** (e o
+portao `ortografia` tambem nao reprova), gancho de 8 palavras de 12, paleta
+**LIDA** do dono e as sete cenas desenhando — com os dois instrumentos que ainda
+exigem caminho DIZENDO que nao conferiram. Provedor **edge MEDIDO** (zero avisos
+`NARRACAO PELO PIPER` nos dois jobs do render, contados pela API), som **-14,3**
+LUFS, LRA 3,2, pico **-3,5** dBTP com `pico_vs_teto: dentro`, desvio -0,3,
+**zero silencios** — e a leitura foi PARQUEADA pelo `som_parqueado` no mesmo
+passo (62 linhas; os denominadores por canal viraram 20/21/21 e o ramo
+COMPARAVEIS da frase derivada entrou em uso na primeira peca depois dele).
+
+**A CONTAGEM saiu da chave `por_cadencia_servivel` e as recusas nao foram
+minhas:** sete e a melhor cadencia (3,29 s, |dif| 0,19 dos ~3,1 s de 690/699),
+cabe no teto MEDIDO da voz (11), **nao repete** os tamanhos recentes do canal (a
+`s103` tem 6 e a `s102` tem 8) e alcanca o piso com folga **+10**. As contagens
+**9, 10 e 11** sairam **NOMEADAS** e nao filtradas, porque nelas o PISO da faixa
+nao e alcancavel com texto legivel.
+
+**ESQUELETO `titulo-item-barras-item-lista-titulo-cta`, INEDITO nas 165 formas
+da frota** — numero do `esqueleto_entre_canais`, com a propria peca FORA da
+varredura pelo `exceto`. A frota tem SETE formas de sete cenas e esta nao e
+nenhuma delas. Todo layout saiu do conjunto **SONDADO**, com `assert` no
+construtor.
+
+**PAUTA:** `StQNFMdpGdk` (`labtreinamento-002`), 6 usos — empate de **ONZE**
+origens desempatado pela MAIOR reserva, **57 de 87** capitulos NAO MENCIONADOS.
+A dominante `FtCtIJPsc_Q` ficou de fora, e quem conta e o `concentracao.py`.
+
+**FAMILIA: A PLANILHA SOBRESCREVE O PROPRIO PASSADO** (capitulos 76 a 79, com o
+77 no centro e apoio do 61 e do 81). O eixo e a **SERIE**, e a entrada errada
+nao esta em celula nenhuma: esta no **ATO de salvar**. Atualizar a linha e o
+comportamento correto da planilha e, ao mesmo tempo, o que apaga o unico dado
+que responderia pela eficacia — o custo aparece na conferencia seguinte, quando
+o que se pede e a DIFERENCA e o que existe e so o estado de agora, identico ao
+que existiria se nada tivesse sido feito. E a condicao que vem junto e do
+capitulo 76: *"fonte que troca de origem destroi a comparacao, e comparacao e a
+unica prova de que a medida funcionou"*.
+
+**Distincoes escritas contra os SEIS irmaos** pelo `irmaos_da_origem` e pela
+NARRACAO de cada um (dois deles — o `s013` e o `s084` — nao tem o campo da
+familia, logo a comparacao saiu da PROSA e da fala, que e de primeira mao).
+Nenhum dos seis fala do TEMPO da planilha nem toca os capitulos 76 a 79, e os
+dois mais proximos vao nomeados: o `s084` cita a verificacao de eficacia **so na
+linha de fechamento** e o eixo dele e a DATA do prazo; o `s094` fala de FONTE,
+mas da coluna de evidencia de UMA linha, nao da estabilidade da fonte ao longo
+dos meses — coluna contra serie.
+
+**ZERO numero novo sobre o mundo, e a narracao nao fala numeral nenhum.** O
+intervalo de revisao ficou FORA pela regra (g) **com a procedencia na PROPRIA
+origem**: o capitulo 80 dela diz, em letra, que *"o intervalo esta escrito na
+propria norma e e la que voce confere"*. Os cortes de faixa tambem, pelo motivo
+que o `s013` e o `s060` ja registram. As barras (100 contra 0) e a lista da cena
+4 sao ilustracao e **nao** sao faladas, e a copy diz isso para a rodada seguinte
+nao as ler de volta como dado.
+
+**A PINCA DO 740/748 ESTA ABERTA AQUI**, e este e o unico canal da frota onde
+isso acontece: a `janela_dos_dois_mundos` devolve **41 a 44** caracteres por cena
+e a peca saiu com media **42,29** — edge **25,03** e piper **20,55**, os DOIS
+dentro da mira medida do canal (20,0 a 26,0). **Logo nao ha exposicao de mundo a
+declarar**, e eu **NAO mirei o piso de proposito**: o piso executavel aqui e 31
+caracteres e com 31 o piper cairia em **18,7**, FORA pelo piso. **E o REAL nao
+esta prometido para lado nenhum** — 41 das 46 pecas deste canal narradas pelo
+edge sairam fora do teto de 26,0 com a mira verde, e a banda tem 5,2 s de
+largura contra 1 s de granularidade (774).
+
+**NAO EXISTE PONTO DE RESIDUO**, pelo modo `negado_por_politica` na vigesima
+segunda rodada seguida — agora medido com a sonda e o status no MESMO caminho. A
+peca esta PARQUEADA com o provedor MEDIDO e o job **lido da API**, e a presenca
+foi conferida **RELENDO** o parque (**122** linhas, **50** sem leitura).
+`RESIDUO_N` segue **128**.
+
+**E A LEITURA DE INSCRITOS PASSOU AS TRES PORTAS E NAO FOI FEITA, pela DECIMA
+PRIMEIRA rodada seguida:** 62,49 h, piso de resolucao **0,38/dia**, os tres SIM.
+**O que a impede e a ROTA, e o remedio e do DONO** — a tela de Network access.
+
+**COTA: DEZOITO envios** na janela aberta as 07:00Z, **28.800** unidades, contra
+o piso MEDIDO de **>= 41.600** — do `janela_de_cota`.
