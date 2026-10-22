@@ -158,6 +158,55 @@ def jobs_que_narraram(lida: dict, pacote: str | None = None) -> list:
     return fora
 
 
+def som_do_run(lida: dict, pacote: str | None = None) -> list:
+    """A lista FLAT dos registros de SOM do run — com UM dono e com RECUSA.
+
+    **POR QUE ELA EXISTE (22/10, 08:3x): ela morava DENTRO do `provedor` e eu a
+    procurei no `leitura`.** A `leitura` devolve exatamente DUAS chaves — `run`
+    e `jobs` — e `som` nunca foi uma delas; eu escrevi
+    `for s in leitura(run).get("som", []):` e o laco **nao rodou nenhuma vez**.
+    Nada levantou, nada foi parqueado, e a chamada imprimiu o `run` como se
+    tivesse funcionado: o unico discriminador foi RELER o parque, que respondeu
+    `s107 presente: False` (a disciplina de 20/10 as 13:2x).
+
+    **E a FAMILIA ganha o oitavo membro, na forma mais confortavel dela:**
+
+    | | |
+    |---|---|
+    | 17/10 | instrumento que devolve VAZIO nao prova ausencia |
+    | 19/10 | arquivo VAZIO nao prova morte |
+    | 20/10 01:4x | instrumento CHEIO nao prova presenca (o `pgrep` se vendo) |
+    | 20/10 09:3x | 000 nao diz de QUEM e o zero |
+    | 20/10 11:4x | 000 em TODO host nao separa REDE de POLITICA |
+    | 20/10 12:3x | vazio CAMUFLADO por um estado legitimo do instrumento |
+    | 21/10 21:0x | arquivo que EXISTE nao prova que e DESTA execucao |
+    | **22/10 08:3x** | **`.get(chave, default)` sobre a resposta ERRADA e vazio BEM FORMADO** |
+
+    O `.get` com default e pior que o `glob` de 20/10 as 12:3x porque ele nao
+    depende de erro de caminho nenhum: a chave simplesmente **nunca existiu**
+    naquela resposta, e o default a faz parecer uma lista legitimamente vazia.
+
+    **E o dado estava VISIVEL:** o `relato` imprime a linha do SOM, logo a
+    rodada ve o som e nao tem funcao nenhuma que o entregue com esse nome — a
+    lista flat so existia como `provedor(...)["som"]`, dentro de uma funcao cujo
+    NOME e sobre o provedor. E a forma do `quadro` que o `contagem_de_cenas`
+    calculava e jogava fora (20/10, 03:2x), um nivel acima.
+
+    RECUSA quando nenhum job do run narrou, do jeito que o `porta1` recusa
+    janela curta — e devolver `[]` ali seria refazer o defeito que esta funcao
+    conserta. A leitura e DELEGADA ao `jobs_que_narraram`: reparsear a anotacao
+    aqui criaria o segundo dono da forma dela.
+    """
+    narraram = jobs_que_narraram(lida, pacote)
+    if not narraram:
+        raise SemProcedencia(
+            "nenhum job do run %s emitiu `SOM`%s: devolver lista vazia aqui"
+            " seria o vazio BEM FORMADO que esta funcao conserta (22/10 as"
+            " 08:3x), e e indistinguivel de run cujo som ninguem leu"
+            % (lida["run"], " para %s" % pacote if pacote else ""))
+    return [s for j in narraram for s in j["som"]]
+
+
 def provedor(lida: dict, pacote: str | None = None) -> dict:
     """`edge` ou `piper` pela CONTAGEM (733), com o job de onde ela saiu.
 
@@ -179,7 +228,9 @@ def provedor(lida: dict, pacote: str | None = None) -> dict:
         "avisos_piper": total,
         "job": narraram[0]["id"],
         "jobs": [j["id"] for j in narraram],
-        "som": [s for j in narraram for s in j["som"]],
+        # A lista flat tem UM dono, e e o `som_do_run` — remonta-la aqui era o
+        # que a escondia atras de um nome sobre o provedor (22/10, 08:3x).
+        "som": som_do_run(lida, pacote),
     }
 
 

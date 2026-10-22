@@ -9832,3 +9832,180 @@ anterior, e os dez testes novos passam isolados em **0,07 s** — logo os ~290 s
 **nao sao deles**, e eu nao sei a causa. A passada correu junto com o restart do
 worker, o que e candidato obvio e nao e medicao; atribuir seria comparador
 escolhido sem medir, o efeito (C).
+
+## O SOM DO RUN MORAVA DENTRO DO `provedor`, E EU O PROCUREI NO `leitura`
+
+**Medido em 22/10 as 08:3x, parqueando a peca da propria rodada — uma hora
+depois de o `anotacoes_do_run` existir.** Eu escrevi
+`for s in leitura(run).get("som", []): SP.parqueia(s)` e **o laco nao rodou
+nenhuma vez.** A `leitura` devolve exatamente DUAS chaves — `run` e `jobs` — e
+`som` nunca foi uma delas; o `.get` com default a fez parecer uma lista
+legitimamente vazia. **Nada levantou, nada foi parqueado, e a chamada imprimiu
+o `run` como se tivesse funcionado.**
+
+**O UNICO DISCRIMINADOR FOI RELER O PARQUE**, que respondeu
+`s107 presente: False` — a disciplina de 20/10 as 13:2x, quando o `do_registro`
+me devolveu um dicionario cheio e eu escrevi `parqueado: True` a partir do meu
+proprio rotulo.
+
+**E A FAMILIA GANHA O OITAVO MEMBRO, na forma mais CONFORTAVEL dela:**
+
+| | |
+|---|---|
+| 17/10 | instrumento que devolve **VAZIO** nao prova ausencia (o grep dos inscritos) |
+| 19/10 | arquivo **VAZIO** nao prova morte (o `.norm` a meio de escrever) |
+| 20/10 01:4x | instrumento **CHEIO** nao prova presenca (o `pgrep` se vendo) |
+| 20/10 09:3x | **000** nao diz de QUEM e o zero |
+| 20/10 11:4x | **000 em TODO host** nao separa REDE de POLITICA |
+| 20/10 12:3x | vazio **CAMUFLADO** por um estado legitimo do instrumento |
+| 21/10 21:0x | arquivo que **EXISTE** nao prova que e DESTA execucao |
+| **22/10 08:3x** | **`.get(chave, default)` sobre a resposta ERRADA e vazio BEM FORMADO** |
+
+**E este e pior que o `glob` de 20/10 as 12:3x porque nao depende de erro de
+caminho nenhum:** a chave simplesmente **nunca existiu** naquela resposta, e o
+default a faz parecer lista vazia legitima. Vazio me deixa desconfiado quando
+vem de uma leitura que podia ter falhado; vindo de um `.get` que eu mesmo
+escrevi, ele parece a resposta.
+
+**E O DADO ESTAVA VISIVEL:** o `relato` do proprio modulo **IMPRIME** a linha do
+SOM. A lista flat existia, e existia so como `provedor(...)["som"]` — dentro de
+uma funcao cujo NOME e sobre o provedor, onde eu nunca iria procurar som. **E a
+forma do `quadro` que o `contagem_de_cenas` calculava e jogava fora** (20/10,
+03:2x) e da nota da rota que morava no ramo que calava (13:2x), um nivel acima:
+o dado existe, e nenhuma funcao o entrega com o nome pelo qual a rodada
+pergunta.
+
+**Consertado com UM dono: `anotacoes_do_run.som_do_run(lida, pacote=None)`**
+devolve a lista FLAT, **DELEGA** ao `jobs_que_narraram` (reparsear ali criaria o
+segundo dono da forma da anotacao) e **RECUSA** quando nenhum job do run narrou,
+do jeito que o `porta1` recusa janela curta — devolver `[]` ali seria refazer o
+defeito que ela conserta. O `provedor` passou a **chamar** o dono em vez de
+remontar a lista.
+
+`tests/test_o_SOM_do_run_morava_dentro_de_provedor.py`, nove testes: a fixture
+tem de ter os **DOIS** lados (um job que narrou e um que so publicou — sem eles,
+recusar sempre passaria), um **REPRODUZ** o defeito e **reprova se a `leitura`
+passar a trazer a chave `som`** (porque ai ele perde o objeto e esta nota se
+rele), a recusa e cobrada com motivo, o filtro por pacote vai nos **dois**
+sentidos, as duas contas da mesma coisa tem de **CONCORDAR**, a nao-reparseacao
+e a delegacao sao por **AST** (`do_notice`, `startswith` e `loads` proibidos no
+corpo; compreensao sobre `j["som"]` dentro do `provedor` reprova), e um cobra
+que a familia e a medida continuem escritas. **Contraprova nos dois sentidos:**
+desligada a delegacao, um falha; desligada a recusa, dois falham.
+
+**E A PRIMEIRA VERSAO DO MEU HELPER DE AST ESTAVA ERRADA, e o errado era o
+TESTE:** eu usei `inspect.cleandoc` na fonte da funcao, que desindenta a linha
+do `def` e deixa o corpo torto — `IndentationError` em dois testes. O
+`textwrap.dedent` e o certo, e o motivo ficou escrito no helper.
+
+**A REGRA QUE FICA: `.get` com default sobre dicionario que voce nao escreveu e
+vazio sem procedencia — pergunte as CHAVES antes, ou chame a funcao que entrega
+o que voce quer com esse nome.** E depois de gravar em parque, **releia o
+parque**: o retorno da funcao nao prova presenca.
+
+### A PECA DESSA RODADA — SETE cenas, e os DOIS mundos dentro da mira
+
+`labtreinamento-s107` = **`0DHQwyvqJnE`** (*Parece desconto, é troca*),
+publicado as 08:21:38Z (run `39747113859`), **sem `403 quota`**. **ONZE PORTOES
+VERDES NA PRIMEIRA TENTATIVA** (8,2 s) — e ela foi **CONFERIDA COMO RASCUNHO**
+antes de existir no disco, pela oitava vez em producao: dez portoes baratos
+limpos em **0,62 s**, mais mira, acento **5,56%**, gancho de 7 palavras de 12,
+paleta **LIDA** do dono e as sete cenas desenhando, com os dois instrumentos que
+ainda exigem caminho **DIZENDO** que nao conferiram.
+
+Provedor **edge MEDIDO** pelo `anotacoes_do_run` (zero avisos
+`NARRACAO PELO PIPER` no job `119716961370`, que e o job que emitiu o SOM). Som
+**-13,6** LUFS, LRA 2,6, pico **-1,4** dBTP — isto e `acima_do_teto`, que e
+LEITURA e nao defeito —, desvio +0,4, **zero silencios**, parqueado pelo
+`som_parqueado` **sem eu redigitar o JSON** (parque em **71** linhas, zero sem
+`run`).
+
+**CANAL do `passo_zero`** (8/8/9 na janela de 24 h, empate em 8 desempatado pelo
+que esta ha mais tempo sem publicar). **PAUTA do `pauta_do_momento`:**
+`4OYBkCHFTV8` (`labtreinamento-006`), 6 usos — empate de **OITO** origens
+desempatado pela MAIOR reserva, **47 de 62** capitulos NAO MENCIONADOS. A
+dominante `FtCtIJPsc_Q` ficou de fora, e quem conta e o `concentracao.py`. O
+`reservas_escritas` devolveu **NENHUMA**, logo a familia saiu da leitura dos 47
+livres.
+
+**FAMILIA: O PRECO DA MESMA DECISAO DEPENDE DE QUANDO** (capitulos 54 a 58, com
+o 57 e o 58 no centro e apoio do 8). O eixo e o **MOMENTO**, nao a aritmetica: a
+escolha do codigo de pagamento custa **zero** no comeco e tem preco anos depois,
+e e *"literalmente a mesma decisao, tomada em dois momentos, com precos
+completamente diferentes"*. E o motivo de ela ser adiada vem do capitulo 8 — o
+lado que a troca entrega *"nao aparece em lugar nenhum na hora de pagar"*, logo
+nao ha nada doendo para marcar a hora.
+
+**Distincoes escritas contra os SEIS irmaos** pelo `irmaos_da_origem` e pela
+NARRACAO de cada um — e os **SEIS** nao tem o campo da familia, logo a
+comparacao saiu da PROSA e da fala, que e de primeira mao: o `s003` e a ORDEM de
+pagamento das guias, o `s018` a DIVISIBILIDADE do conserto, o `s019` qual porta
+CHEGA ANTES, o `s020` o meio-termo com DONO, o `s024` quem ja sabe esta
+VENDENDO, o `s080` os JUROS sobre a diferenca. **E o irmao mais proximo vai
+NOMEADO, porque a distincao e fina:** o `s080` tambem fala de tempo — *"adiar
+encarece o conserto"* — e vive INTEIRO dentro do conserto, comparando mes com
+mes depois de o problema existir; esta peca compara o instante em que **nao ha
+nada a consertar** com o instante em que ha.
+
+**CONTAGEM pela chave `por_cadencia_servivel`:** sete cenas, cadencia **3,29 s**
+(|dif| 0,19 dos ~3,1 s de 690/699), folga **+10**, e nao repete os tamanhos
+recentes do canal (a `s106` tem 6 e a `s105` tem 8). As contagens **9, 10 e 11**
+sairam **NOMEADAS** e nao filtradas, porque nelas o PISO da faixa nao e
+alcancavel com texto legivel.
+
+**ESQUELETO `titulo-lista-item-barras-item-titulo-cta`, INEDITO nas 173 formas
+da frota** — e a **PRIMEIRA forma que eu montei JA EXISTIA** (um exemplar, neste
+mesmo canal), e quem acusou foi o `esqueleto_entre_canais` e nao eu relendo. O
+`formas_livres` diz **54 de 60** ordens livres desta mistura. Todo layout saiu
+do conjunto **SONDADO**, e a paleta foi **LIDA** de
+`temas_do_dono.paleta_do_canal`.
+
+**A PINCA DO 740/748 ESTA ABERTA AQUI**, e e o unico canal da frota em que isso
+acontece: a `janela_dos_dois_mundos` pede **41 a 44** caracteres por cena com
+sete cenas e a peca saiu com media **42,43** — edge **25,09** e piper **20,60**,
+os **DOIS** dentro da mira medida do canal (20,0 a 26,0). Logo **nao ha exposicao
+de mundo a declarar**, e eu **NAO mirei o piso de proposito**: o piso executavel
+aqui e 31 caracteres por cena e com 31 o piper cairia em **18,7**, FORA pelo
+piso — a conta que eu fiz de cabeca no `labtreinamento-s102`. **E o REAL nao
+esta prometido para lado nenhum:** 41 das 46 pecas deste canal narradas pelo
+edge sairam FORA do teto de 26,0 **com a mira verde nos dois mundos**, e a banda
+tem 5,2 s de largura contra 1 s de granularidade (774).
+
+**E O `numerais_falados` DERRUBOU UMA AFIRMACAO DA COPY ANTES DE PUBLICAR, pela
+QUARTA vez nesta sessao:** eu declarei que o unico numeral falado era *"zero"* e
+ele achou *"dois"* na cena 1. Os dois sao **estrutura do argumento** — os lados
+da propria troca e o preco do momento certo — e a copy passou a declarar os
+DOIS, **com a versao errada registrada nela** em vez de apagada.
+
+**ZERO numero novo sobre o mundo:** aliquota, percentual, taxa de juros, idade de
+aposentadoria e prazo ficaram **FORA** pela regra (g), e a taxa tem motivo mais
+forte — **o proprio longo se recusa a dar um numero para ela**, dizendo que muda
+conforme o periodo. **E os capitulos 29 a 31 ficaram fora de proposito, embora
+dessem uma peca facil:** eles sao dividir por onze e multiplicar por nove, isto
+e, as duas aliquotas em forma de OPERACAO — leva-los seria por a aliquota na
+narracao por uma porta lateral. As barras sao ILUSTRACAO qualitativa e **nao**
+sao faladas, com isso escrito em letra.
+
+**E A RESERVA FOI ESCRITA com tres itens**, para a rodada seguinte achar: os
+capitulos 8, 9, 11 e 14 (**o que a troca tira nao e dinheiro, e uma PORTA**)
+seguem LIVRES, com o 8 nomeado como apoio desta peca; os capitulos 27 a 31
+(**qual campo da guia responde a pergunta — o CODIGO, nao o valor**) seguem
+livres, com o aviso de que 29 a 31 carregam as aliquotas em forma de operacao; e
+os 54 a 58 vao NOMEADOS como consumidos por esta peca.
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica` pela TRIGESIMA
+rodada seguida** — medido pela `sonda_e_modo`, com os TRES controles no MESMO
+caminho de saida e com os alvos na forma certa (URL do `watch`, nao id de peca):
+o `touch` passou, os DOIS hosts voltaram **000 sem arquivo**, e o proxy nomeou
+`example.com` e `www.youtube.com` depois de 08:11:16Z. A peca esta PARQUEADA com
+o provedor MEDIDO e o job **lido da API**, e a presenca foi conferida
+**RELENDO** o parque (**131** linhas, **59** sem leitura). `RESIDUO_N` segue
+**128**.
+
+**E A LEITURA DE INSCRITOS PASSOU AS TRES PORTAS E NAO FOI FEITA, pela DECIMA
+SETIMA rodada seguida:** 70,06 h, piso de resolucao **0,34/dia**, os tres SIM.
+**O que a impede e a ROTA, e o remedio e do DONO** — a tela de Network access.
+
+**COTA: DOIS envios** na janela aberta as 07:00Z, **3.200** unidades, contra o
+piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
+hora.
