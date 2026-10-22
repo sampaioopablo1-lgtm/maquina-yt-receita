@@ -1,0 +1,125 @@
+{
+ "slug": "epomeno-epipedo-s091",
+ "pacote": "epomeno-epipedo-s091",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "longo_existente": "eimuyGaCor8",
+ "thumb": {
+  "l1": "Σωστή διαίρεση",
+  "l2": "λάθος αριθμητής"
+ },
+ "paleta": {
+  "bg": "#F4EFE6",
+  "ink": "#1B1A17",
+  "c1": "#C8502A",
+  "c2": "#2B6CB0",
+  "red": "#B83227",
+  "ok": "#2E8B57",
+  "panel": "#FFFFFF",
+  "mut": "#7A7263",
+  "acc": "#C8502A"
+ },
+ "copy": "# epomeno-epipedo-s091\n\n## TITULO\nΟ αριθμητής του υπολογισμού: ποιες γραμμές μπαίνουν, στο καθαρό και στον χρόνο\n\n## TITULO SHORT\nΗ διαίρεση βγαίνει, ο αριθμητής όχι\n\n## DESCRICAO\nΟ υπολογισμός του ισοδύναμου εισοδήματος είναι μία διαίρεση, και η διαίρεση βγαίνει πάντα. Αυτό είναι το πρόβλημα: όποιο ποσό και να βάλεις πάνω, το αποτέλεσμα έρχεται στρογγυλό και με όψη απάντησης. Κανένα βήμα δεν σκάει για να σου πει ότι ο αριθμητής ήταν λάθος.\n\nΚαι ο αριθμητής δεν είναι ένα νούμερο που το ξέρεις απ' έξω. Είναι ένα ποσό που το ΧΤΙΖΕΙΣ, και χτίζεται με τρεις όρους μαζί: αφορά όλους όσοι ζουν στο σπίτι και συνεισφέρουν, μπαίνει στο καθαρό του ποσό και όχι στο μικτό, και είναι ετήσιο και όχι μηνιαίο. Αν χαλάσει ένας από τους τρεις, η διαίρεση δεν το καταλαβαίνει.\n\nΤο πρώτο λάθος είναι να μετρήσεις μόνο τον δικό σου μισθό. Τότε το ποσό πέφτει, και βγαίνεις φτωχότερος από ό,τι είσαι. Στην ίδια κατηγορία μπαίνουν και οι γραμμές που κανείς δεν θυμάται: τόκοι, μερίσματα, ενοίκια που εισπράττεις, και τα επιδόματα σε χρήμα.\n\nΤο δεύτερο λάθος πάει αντίστροφα. Το μικτό αντί του καθαρού σε ανεβάζει ψεύτικα, γιατί περιλαμβάνει τον φόρο και τις ασφαλιστικές εισφορές που δεν μπήκαν ποτέ στον λογαριασμό. Και το τρίτο λάθος πάει κι αυτό προς τα πάνω: το μηνιαίο επί δώδεκα, όταν το εισόδημα είναι εποχικό ή μεταβλητό, δίνει εικόνα ψηλότερη από την πραγματική.\n\nΝα το κρατήσεις έτσι: ένα ποσό, όλου του σπιτιού, στο καθαρό, για έναν ολόκληρο χρόνο. Αυτός είναι ο αριθμητής, και μόνο αυτός συγκρίνεται.\n\nΤο δοκιμαστικό που κάνεις απόψε παίρνει δύο λεπτά: γράψε το ποσό που θα έβαζες αυθόρμητα, και μετά ξαναγράψ' το με τους τρεις όρους μαζί. Η απόσταση ανάμεσα στα δύο είναι όλη η ιστορία.\n\nΟ πλήρης υπολογισμός, με τον συντελεστή και τη γραμμή, είναι στο ολόκληρο βίντεο του καναλιού.\n\n## COMENTARIO FIXADO\nΚάνε το δοκιμαστικό και γράψε εδώ: ποιος από τους τρεις όρους σου έλειπε, το σπίτι, το καθαρό ή ο χρόνος; Χωρίς ποσά.\n\n## HASHTAGS\n#εισόδημα #οικονομικά #νοικοκυριό #προσωπικάοικονομικά #ΕπόμενοΕπίπεδο\n\n## TAGS\nισοδύναμο εισόδημα, καθαρό εισόδημα, νοικοκυριό, ετήσιο εισόδημα, οικονομικά, προσωπικά οικονομικά, Ελλάδα, εκπαίδευση\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ncategoryId: 26\ndefaultLanguage: el\ndefaultAudioLanguage: el\nmadeForKids: false\nselfDeclaredMadeForKids: false\n\n## MUSICA / LICENCA\nInspired — Kevin MacLeod (incompetech.com), Creative Commons BY 3.0.\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao, conferido pelo `numerais_falados` e\nnao pelo meu olho. Os numerais falados sao **ordinais** (primeiro, segundo,\nterceiro) — a estrutura da PROPRIA lista de erros desta peca — e **dozе**, que e\no numero de meses do ano, isto e, aritmetica e nao fato sobre o mundo.\n\nA REGRA (g) TIROU, deste longo, TUDO o que envelhece por revisao: a linha em\neuros por ano (capitulos 41 a 43 e 82), os tres pesos do coeficiente e a idade de\ncorte da escala (capitulos 21 a 26 e 80), o percentual que define o limiar\n(capitulo 33), os limiares alternativos (capitulo 35), e a serie da media com os\nvalores dela (capitulos 49 a 58). **Nenhum entra.** E a regra 609 tira o nome de\norgao: a origem nao nomeia nenhum, e esta peca tampouco.\n\nE UM NUMERO QUE ME CONVINHA FICOU FORA: a idade abaixo da qual a crianca pesa\nmenos. Ela e o detalhe que mais muda entre publicadores — o proprio\n`epomeno-epipedo-s001` desta mesma origem o declarou descartado pelo mesmo\nmotivo —, e ela nao pertence a esta familia: aqui o assunto e o ARIMITIS, nao o\ndivisor.\n\nAS BARRAS SAO ILUSTRACAO QUALITATIVA E NAO SAO FALADAS. A cena 4 (45 contra 100)\nmostra a DIRECAO do primeiro erro, para baixo, e a cena 7 (100 contra 70) a\ndirecao do segundo, para cima — os quatro valores sao a FORMA do argumento e nao\nmedida de coisa nenhuma. Esta linha existe para a rodada seguinte NAO os ler de\nvolta como dado.\n\nAS DUAS LISTAS sao tambem estrutura: a da cena 2 nomeia as ESPECIES de linha que\nentram (ordenados e pensoes; juros e alugueis; beneficios em dinheiro) e a da\ncena 10 os TRES termos da regra. Nenhuma delas e contagem.\n\nO QUE O VIDEO AFIRMA: que o numerador e o rendimento liquido anual de todos os\nque vivem na casa e contribuem; que liquido quer dizer depois do imposto e das\ncontribuicoes; que juros, dividendos, alugueis recebidos e beneficios em dinheiro\nentram; e que mensal vezes doze da imagem errada quando o rendimento e sazonal,\ngeralmente para cima. Isso esta no longo `epomeno-epipedo-016` (`eimuyGaCor8`),\ncapitulos 69 a 76, com as fontes dele.\n\n## FAMILIA DE ENTRADA ERRADA\nAS LINHAS DO NUMERADOR, E A FORMA DELAS — capitulos 70 a 73, 75 e 76, com o 72 e\no 75 no centro.\n\nO eixo e **O QUE ENTRA no numerador, e em que forma**, e a entrada errada nao\nesta em celula nenhuma: esta em tratar *\"o que cai na minha conta por mes\"* como\nse fosse o numero de cima. **E a divisao nunca reclama** — qualquer ponto que\nentre ali devolve um resultado redondo, com cara de resposta.\n\n**E o mesmo erro de familia produz erros em SENTIDOS OPOSTOS, que e a parte que\nvale:** contar so o proprio rendimento e esquecer juros, alugueis e beneficios\nempurra o numero para BAIXO (sai-se mais pobre do que se e); usar o bruto em vez\ndo liquido e multiplicar o mes por doze num rendimento sazonal empurra para CIMA.\n**A direcao do terceiro vai dita porque e a PROPRIA origem que a escreve** — o\ncapitulo 75 diz, em letra, que mensal vezes doze da *\"eikona lanthasmeni, synithos\npros ta pano\"*.\n\nDISTINCAO DOS QUATRO IRMAOS desta origem, conferida pelo `irmaos_da_origem` e\npela NARRACAO de cada um (TRES deles — `s001`, `s023` e `s057` — nao tem este\ncampo, logo a comparacao foi pela PROSA e pela fala, que e de primeira mao):\n- `s001` — a COMPOSICAO do domicilio mudou e a linha mudou com ela: um para o\n  primeiro adulto, meio para cada outro, menos para a crianca pequena;\n- `s023` — o que o limite NAO mede: ele e relativo, mede distancia dentro do\n  pais e nao se da para viver, e nao e criterio de beneficio nenhum;\n- `s035` — FLUXO lido como ESTOQUE: o indicador olha rendimento e nao\n  patrimonio, logo aposentacao, imovel e divida ficam inteiros fora;\n- `s057` — a DATA do numero: limite relativo lido como fixo, comparando o\n  rendimento deste ano com a linha de outro.\n**Os quatro falam do DIVISOR, do que o indicador nao mede, ou de QUANDO o numero\nvale. Nenhum fala de quais LINHAS formam o numero de cima**, e nenhum toca os\ncapitulos 70 a 76.\n\n**E O MAIS PROXIMO E O `s035`, com a distincao dita e um capitulo deixado FORA de\nproposito:** o capitulo 74 (o valor da casa propria nao entra) **nao entra nesta\npeca**, porque ele e o territorio declarado dele — ali o eixo e fluxo contra\nestoque. Aqui o assunto sao as linhas que ENTRAM, nao a que fica fora por ser\npatrimonio.\n\n## RESERVA\nO QUE EU NAO LEVEI, de proposito, e vai escrito para a proxima rodada achar:\n- os capitulos **44 a 48** seguem LIVRES, e sao uma familia inteira: o longo\n  manda o espectador DIVIDIR os tres limiares publicados um pelo outro e achar o\n  proprio coeficiente — *\"nao precisas de acreditar em mim\"*. E a familia do\n  CONTROLE DE CONSISTENCIA DENTRO DO MESMO DADO, e o capitulo 47 avisa, em letra,\n  que isso **nao e segunda fonte**. Nao caiu hoje pela regra (f);\n- os capitulos **49 a 58** (a serie da MEDIA contra a da MEDIANA, e os mais de\n  mil euros de diferenca para a mesma pergunta) vao **NOMEADOS com uma duvida\n  que a rodada seguinte tem de resolver antes de os usar**: a prosa do\n  `epomeno-epipedo-s035` afirma que esse bloco e *\"o nucleo do `s001`\"*, e a\n  NARRACAO do `s001`, lida de primeira mao, **nao fala de media nem de mediana** —\n  ela fala da composicao do domicilio. Uma das duas esta errada, e e citacao de\n  TERCEIRO contra fala do proprio (20/10, 15:3x). **Leia a copy do `s001` inteira\n  antes de tomar esse bloco por livre ou por consumido;**\n- os capitulos **78 a 84** (os quatro passos, e o re-calculo quando a crianca faz\n  anos) ficam fora: os pesos e a idade sao exactamente o que a regra (g) tira, e o\n  re-calculo e territorio do `s001`;\n- a reserva escrita do `s023` (capitulos **20 a 28**, a escala de equivalencia)\n  segue **FECHADA e nao por falta de material**: o proprio `s023` escreve que essa\n  familia JA foi usada pelo `s001`. Vai repetido aqui para a rodada seguinte nao a\n  reabrir ao ler so o bloco da reserva;\n- e o capitulo **74** fica livre **como territorio do `s035`**, nao como pauta.\n\n## EXPOSICAO\nA PINCA DO 740/748 ESTA FECHADA AQUI, e a exposicao vai declarada ANTES de\npublicar: o `mira.janela_dos_dois_mundos` devolve **NENHUMA** janela de\ncaracteres por cena que ponha os dois provedores dentro de 41,5 a 43,0 com doze\ncenas nesta voz — e o `contagem_de_cenas` diz que isso vale para TODA contagem de\n2 a 20, nao so para esta.\n\n**Mirei o PISO** (regra de redacao do 772): edge **41,80**, isto e 0,30 acima do\npiso, com media de **36,67** caracteres por cena contra os 37 do piso\nEXECUTAVEL. O piper sai em **37,04** — FORA pela mira e DENTRO do portao, que\ncobra 18 a 45 s nos dois mundos.\n\n**E O PISO EXATO NAO E ALCANCAVEL, dito assim em vez de eu chamar 41,80 de\npiso:** com doze cenas um caractere por cena vale **0,61 s**, logo 36 caracteres\ndao 41,19 (ABAIXO da faixa) e 37 dao 41,80. Nao existe media inteira que caia em\n41,5 — e a primeira versao desta peca saiu em 40,99, isto e ABAIXO do piso, e foi\no instrumento que disse de quanto era o passo.\n\n**E O REAL NAO ESTA PROMETIDO PARA LADO NENHUM:** a banda do residuo tem 5,2 s de\nlargura contra 1 s de granularidade, e declarar de que lado dela o real cai nao e\nprevisao (774).\n",
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Η διαίρεση",
+   "sub": "βγαίνει πάντα",
+   "nar": "Η διαίρεση βγαίνει πάντα σωστή."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ο αριθμητής",
+   "sub": "εκεί κρύβεται",
+   "nar": "Το λάθος κρύβεται στον αριθμητή πάνω."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Ποιες γραμμές",
+   "itens": [
+    "Μισθοί, συντάξεις",
+    "Τόκοι, ενοίκια",
+    "Επιδόματα σε χρήμα"
+   ],
+   "nar": "Μπαίνουν τόκοι, ενοίκια, επιδόματα."
+  },
+  {
+   "layout": "item",
+   "kicker": "Πρώτο λάθος",
+   "sub": "μόνο ο δικός σου",
+   "nar": "Πρώτο: μετράς μόνο τον δικό σου."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Προς τα κάτω",
+   "barras": [
+    {
+     "rotulo": "Μόνο εσύ",
+     "valor": 45
+    },
+    {
+     "rotulo": "Όλο το σπίτι",
+     "valor": 100
+    }
+   ],
+   "nar": "Έτσι βγαίνεις φτωχότερος απ' ό,τι είσαι."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Δεύτερο λάθος",
+   "sub": "πάει αντίστροφα",
+   "nar": "Το δεύτερο λάθος πάει αντίστροφα."
+  },
+  {
+   "layout": "item",
+   "kicker": "Καθαρό",
+   "sub": "μετά φόρο και εισφορές",
+   "nar": "Καθαρό είναι μετά φόρο και εισφορές."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Προς τα πάνω",
+   "barras": [
+    {
+     "rotulo": "Μικτό",
+     "valor": 100
+    },
+    {
+     "rotulo": "Καθαρό",
+     "valor": 70
+    }
+   ],
+   "nar": "Το μικτό σε ανεβάζει ψεύτικα ψηλά."
+  },
+  {
+   "layout": "item",
+   "kicker": "Τρίτο λάθος",
+   "sub": "μηνιαίο επί δώδεκα",
+   "nar": "Τρίτο λάθος: το μηνιαίο επί δώδεκα."
+  },
+  {
+   "layout": "item",
+   "kicker": "Εποχικό",
+   "sub": "εικόνα προς τα πάνω",
+   "nar": "Με εποχικό εισόδημα η εικόνα βγαίνει ψηλή."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Ο κανόνας",
+   "itens": [
+    "Όλου του σπιτιού",
+    "Στο καθαρό",
+    "Ετήσιο"
+   ],
+   "nar": "Ένα ποσό: όλου του σπιτιού, καθαρό, ετήσιο."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Μάζεψε",
+   "sub": "και κάνε εγγραφή",
+   "nar": "Μάζεψε σωστά τις γραμμές και κάνε εγγραφή."
+  }
+ ]
+}
