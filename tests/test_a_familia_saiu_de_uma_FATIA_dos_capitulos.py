@@ -208,7 +208,11 @@ def test_o_kicker_REPETIDO_devolve_as_DUAS_cenas():
 def test_cena_livre_SEM_narracao_sai_NOMEADA(tmp_path):
     """Parque PROPRIO: o disco pode nao ter o caso, e ancorar no vivo seria
     identidade onde ha propriedade (743/753/761)."""
-    d = str(tmp_path)
+    # Raiz com a convencao `<raiz>/fabrica/specs`: desde 22/10 as 12:4x o
+    # `texto_dos_livres` deriva a raiz via `raiz_do_dir_specs`, que LEVANTA em
+    # diretorio fora dela — o parque PROPRIO tem de seguir a convencao.
+    os.makedirs(os.path.join(str(tmp_path), "fabrica", "specs"))
+    d = os.path.join(str(tmp_path), "fabrica", "specs")
     # O `slug` do longo e o CANAL e nao o pacote: o `nomes_de_spec` tira do
     # vocabulario todo nome que e slug de alguma spec (o falso positivo de
     # 12/10), logo `slug: "canalx-001"` tornaria a origem irresolvivel. A
