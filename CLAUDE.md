@@ -9812,3 +9812,23 @@ remedio e do DONO** — a tela de Network access.
 **COTA: UM envio** na janela que abriu as 07:00Z, **1.600** unidades, contra o
 piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
 hora.
+
+**A SUITE FECHOU: 25 falhas, 3.779 passam, 1.164 skip em 1.506 s** — passada
+**PROVADA** pelo `passada_da_suite`, conjunto **IDENTICO** a linha de base desta
+sessao, `comm` vazio nos **dois** sentidos. Os dez testes novos entraram
+inteiros (3.767 -> 3.779, com os dois do run da rodada anterior) e **nenhuma
+falha nova**.
+
+**E A PRIMEIRA PASSADA DESTA RODADA FOI MORTA PELO RESTART DO WORKER, nao pela
+suite** — o log parou em **17%** sem linha de resumo, e **quem separou as duas
+coisas foi o `processo_vivo`**, respondendo NAO vivo. Pelo defeito de 19/10 as
+16:2x eu teria lido o arquivo incompleto e chamado aquilo de resultado; pelo de
+21/10 as 21:0x, se eu tivesse reusado o NOME do arquivo, o `.norm` da passada
+morta teria sobrevivido para a comparacao seguinte. Relancei com nome NOVO, que
+e a disciplina daquela nota.
+
+**E o tempo vai MEDIDO em vez de atribuido:** 1.506 s contra 1.216 s da passada
+anterior, e os dez testes novos passam isolados em **0,07 s** — logo os ~290 s
+**nao sao deles**, e eu nao sei a causa. A passada correu junto com o restart do
+worker, o que e candidato obvio e nao e medicao; atribuir seria comparador
+escolhido sem medir, o efeito (C).
