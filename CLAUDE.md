@@ -9514,3 +9514,11 @@ QUINTA rodada seguida:** 67,27 h, piso de resolucao **0,36/dia**, os tres SIM.
 
 **COTA: VINTE E QUATRO envios** na janela aberta as 07:00Z de 21/10, **38.400**
 unidades, contra o piso MEDIDO de **>= 41.600** — do `janela_de_cota`.
+
+**A SUITE FECHOU: 25 falhas, 3.767 passam, 1.158 skip em 1.216 s** — passada
+**PROVADA** pelo `passada_da_suite`, conjunto **IDENTICO** a linha de base desta
+sessao, `comm` vazio nos **dois** sentidos. Os treze testes novos entraram
+inteiros (3.754 -> 3.767) e **nenhuma falha nova**. **E o tempo vai medido em vez
+de atribuido:** 1.216 s contra 1.185 s da passada anterior, e os treze passam
+isolados em **0,05 s** — logo os ~31 s nao sao deles, e eu nao sei a causa.
+Atribui-los ao arquivo novo seria comparador escolhido sem medir, o efeito (C).
