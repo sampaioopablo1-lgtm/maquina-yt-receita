@@ -94,12 +94,21 @@ def quadro(canal: str, dono_medido=None, exceto: str = "") -> list[dict]:
         # que eu acabei de escrever, e e a reserva que desempata.
         nm = SA.nao_mencionados(oid, exceto=exceto or None)
         reserva = nm.get("nao_mencionados") or []
+        # A RESERVA SEM DECLARACAO, e ela e DELEGADA: quem casa capitulo livre
+        # com a faixa que o irmao declara e o `texto_dos_livres`, dono dessa
+        # juncao desde 22/10 as 12:3x. Refazer a juncao aqui seria o segundo
+        # dono dela — a assinatura que congelou a legenda.
+        sem_decl = None
+        if nm.get("pacote"):
+            tl = SA.texto_dos_livres(oid, exceto=exceto or None)
+            sem_decl = len(reserva) - len(tl.get("declarados_por_irmao") or [])
         linhas.append({
             "origem": oid,
             "usos": int(n),
             "pacote": nm.get("pacote"),
             "n_capitulos": int(nm.get("n_capitulos") or 0),
             "reserva": len(reserva),
+            "reserva_sem_declaracao": sem_decl,
             "suspeito_de_outro_canal": oid in fora,
             "dono_medido": fora.get(oid),
             "sem_spec_local": not nm.get("pacote"),
@@ -122,10 +131,24 @@ def escolha(canal: str, dono_medido=None, exceto: str = "") -> dict:
               if not x["suspeito_de_outro_canal"] and x["reserva"] > 0]
     esc = servem[0] if servem else None
     empatados = [x for x in servem if esc and x["usos"] == esc["usos"]]
+    # O MESMO empate, desempatado pela reserva SEM DECLARACAO. Ela NAO troca a
+    # `escolhida` — a regra escrita e do `concentracao.py` e nao e minha de
+    # mudar —, ela vai NOMEADA ao lado, do jeito que o `origens_sem_uso` nomeia
+    # origem inutilizavel em vez de a esconder. Medido em 22/10 as 17:3x: no
+    # `labtreinamento` as duas DIVERGEM e a inversao e maxima (14 contra 37
+    # capitulos sem declaracao), e nos outros dois canais elas concordam.
+    por_sem = None
+    cand = [x for x in empatados if x.get("reserva_sem_declaracao") is not None]
+    if cand:
+        por_sem = max(cand, key=lambda x: (x["reserva_sem_declaracao"],
+                                           -x["usos"], x["origem"]))
     return {
         "canal": canal,
         "quadro": q,
         "escolhida": esc,
+        "escolhida_por_reserva_sem_declaracao": por_sem,
+        "desempate_diverge": bool(esc and por_sem
+                                  and esc["origem"] != por_sem["origem"]),
         "empatados_na_contagem": [x["origem"] for x in empatados],
         "nomeados_como_suspeitos": [x["origem"] for x in q
                                     if x["suspeito_de_outro_canal"]],
@@ -152,6 +175,57 @@ def _linha_do_mapa(e: dict) -> str:
             % (len(DM.MEDIDOS), len(e["nomeados_como_suspeitos"])))
 
 
+_PRE = "  DESEMPATE pela reserva SEM DECLARACAO: "
+
+
+def _linha_do_desempate(e: dict) -> str:
+    """UM dono da frase do desempate, e ela sai nos TRES ramos.
+
+    Os tres compartilham o PREFIXO `DESEMPATE pela reserva SEM DECLARACAO`, e e
+    ele que tem dono: marca mais curta casaria com a prosa que explica o defeito
+    no `quadro`, e casar prosa pega a explicacao em vez do codigo — a licao do
+    `test_NAO_virou_portao` do acento.
+
+    Medido em 22/10 as 17:3x, escrevendo o `labtreinamento-s110`: o desempate
+    escrito le a reserva CRUA, e desde 22/10 as 12:3x esta medido que capitulo
+    que o irmao DECLARA sai como livre, porque o `nao_mencionados` casa o TEXTO
+    do kicker e a copy declara FAIXA em digitos. Logo a reserva que DESEMPATA
+    vem inflada. Nos cinco empatados em 6 usos daquele canal o raw escolhe a
+    origem de **40** livres, dos quais so **14** estao sem declaracao, contra
+    uma de **38** livres com **37** sem declaracao — a inversao e maxima. Nos
+    outros dois canais as duas concordam, e e por isso que a divergencia vai
+    NOMEADA em vez de a `escolhida` trocar: declaracao em prosa NAO e veredito
+    nos dois sentidos (a faixa cobre capitulo que o irmao nao tocou, e a maior
+    parte das specs de short solto nao declara nada).
+    """
+    if len(e.get("empatados_na_contagem") or []) < 2:
+        return (_PRE + "nao houve empate de usos, logo a reserva nao "
+                "desempatou nada nesta rodada — e a divergencia medida em "
+                "22/10 as 17:3x nao tem objeto aqui.")
+    s = e.get("escolhida_por_reserva_sem_declaracao")
+    if not s:
+        return (_PRE + "nao ha como medir — nenhum dos empatados tem spec "
+                "local, logo a reserva nao se separa entre declarada e livre.")
+    if not e.get("desempate_diverge"):
+        return (_PRE + "a MESMA origem (%s, %d de %d livres sem declaracao "
+                "de irmao). As duas leituras CONCORDAM aqui — e nao concordam "
+                "sempre."
+                % (s["pacote"] or s["origem"], s["reserva_sem_declaracao"],
+                   s["reserva"]))
+    esc = e["escolhida"]
+    return (_PRE + "as duas DIVERGEM. A reserva CRUA escolhe %s (%d livres, "
+            "mas so %s sem declaracao de irmao) e a reserva SEM DECLARACAO "
+            "escolhe "
+            "%s (%d livres, %d sem declaracao). A regra escrita e do "
+            "`concentracao.py` e a `escolhida` segue dela; isto vai NOMEADO e "
+            "nao filtra ninguem, porque declaracao em prosa nao e veredito nos "
+            "dois sentidos. LEIA as duas antes de escrever."
+            % (esc["pacote"] or esc["origem"], esc["reserva"],
+               esc.get("reserva_sem_declaracao"),
+               s["pacote"] or s["origem"], s["reserva"],
+               s["reserva_sem_declaracao"]))
+
+
 def relato(canal: str, dono_medido=None, exceto: str = "") -> str:
     e = escolha(canal, dono_medido=_resolve_mapa(dono_medido), exceto=exceto)
     q = e["quadro"]
@@ -164,9 +238,12 @@ def relato(canal: str, dono_medido=None, exceto: str = "") -> str:
             marca += "  << sem spec local (regra h)"
         if e["escolhida"] and x["origem"] == e["escolhida"]["origem"]:
             marca += "  << ESCOLHIDA"
-        L.append("  %-12s usos %2d  reserva %3d de %3d  %s%s"
+        sd = x.get("reserva_sem_declaracao")
+        L.append("  %-12s usos %2d  reserva %3d de %3d  (sem declaracao %s)  "
+                 "%s%s"
                  % (x["origem"], x["usos"], x["reserva"], x["n_capitulos"],
-                    x["pacote"] or "-", marca))
+                    "-" if sd is None else "%3d" % sd, x["pacote"] or "-",
+                    marca))
     if e["escolhida"]:
         L.append("  regra ESCRITA (do `concentracao.py`): MENOR contagem com "
                  "capitulos intocados, desempate pela MAIOR reserva.")
@@ -174,6 +251,7 @@ def relato(canal: str, dono_medido=None, exceto: str = "") -> str:
             L.append("  empate em %d usos entre %s — desempatado pela reserva."
                      % (e["escolhida"]["usos"],
                         ", ".join(e["empatados_na_contagem"])))
+        L.append(_linha_do_desempate(e))
         L.append("  dominante do canal: %s (ela NAO foi escolhida; o alerta de "
                  "concentracao sai do `concentracao.py`)." % e["dominante"])
     else:
