@@ -1,0 +1,87 @@
+{
+ "slug": "labtreinamento-s111",
+ "pacote": "labtreinamento-s111",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "longo_existente": "bQoujWaY7Hw",
+ "thumb": {
+  "l1": "Não decide",
+  "l2": "precifica"
+ },
+ "paleta": {
+  "bg": "#0E1117",
+  "ink": "#EEF1F5",
+  "c1": "#3DDBD9",
+  "c2": "#1E2430",
+  "red": "#FF5A5F",
+  "ok": "#3CCB7F",
+  "panel": "#161B24",
+  "mut": "#8B95A5",
+  "acc": "#3DDBD9"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Você fez a conta para dizer não",
+   "sub": "e a conta não serve para isso",
+   "nar": "Você fez a conta para dizer não."
+  },
+  {
+   "layout": "barras",
+   "kicker": "A decisão pode não mudar",
+   "barras": [
+    {
+     "rot": "Antes",
+     "v": 100
+    },
+    {
+     "rot": "Depois",
+     "v": 100
+    }
+   ],
+   "nar": "E a decisão pode nem mudar com ela."
+  },
+  {
+   "layout": "item",
+   "kicker": "Há casos em que você dá mesmo",
+   "sub": "caixa curto, contrato maior",
+   "nar": "Há casos em que você dá o desconto."
+  },
+  {
+   "layout": "item",
+   "kicker": "O número não decide por você",
+   "sub": "ele não é um veredito",
+   "nar": "O número não decide isso por você."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ele põe preço na troca",
+   "sub": "que sempre teve preço",
+   "nar": "Ele põe um preço nessa troca sua."
+  },
+  {
+   "layout": "lista",
+   "kicker": "O que muda é o nome dela",
+   "itens": [
+    "Favor sem preço",
+    "Troca com preço"
+   ],
+   "nar": "Deixa de ser favor e vira troca."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E o número vai em voz alta",
+   "sub": "na mesa da negociação",
+   "nar": "E aí o número vai dito em voz alta."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Faça a conta antes de responder",
+   "sub": "e diga quanto ela custa",
+   "nar": "Faça a conta e diga o preço. Inscreva-se."
+  }
+ ],
+ "copy": "# labtreinamento-s111\n\n## TITULO\nA conta do desconto à vista não é um veredito: ela põe preço numa troca que sempre teve preço\n\n## TITULO SHORT\nNão é veredito, é preço\n\n## DESCRICAO\nVocê já sabe fazer a conta. Pega o desconto que deu, divide pelo que sobrou dos cem por cento, ajusta pelos dias que antecipou de verdade, e sai um juro ao mês que você cobrou de si mesmo. Essa conta está no vídeo longo deste canal, com os três passos.\n\nO que quase todo mundo faz com o resultado é usá-lo como sentença: se o número ficou alto, parar de dar desconto. E aí a conta vira uma ferramenta de dizer não — que é exatamente o uso em que ela serve menos.\n\nO próprio vídeo nomeia três situações em que o desconto continua sendo a melhor decisão disponível, e nas três você segue dando. Logo o número não está ali para decidir. Ele está ali para fazer uma coisa que a decisão sozinha não faz: dar **preço** à troca.\n\nE isso muda a conversa, não a resposta. Sem o número, o desconto é um favor sem etiqueta: o cliente pede, você cede, e os dois saem da mesa sem saber quanto aquilo custou a você. Com o número, a mesma cessão passa a ser uma troca com preço declarado — que é o que ela sempre foi, só sem ninguém ter escrito o valor. Dá para dizer em voz alta quanto aquele desconto equivale, e pedir algo do outro lado.\n\nRepare na assimetria do silêncio. O desconto à vista não gera fatura, não gera extrato e não aparece em nenhuma linha da contabilidade como despesa financeira. Não existe nada doendo para marcar a hora de olhar. Por isso o erro mais comum não é dar desconto demais: é dar desconto sem nada do outro lado da comparação.\n\nE vale a ressalva honesta que o longo faz: a proporção é uma aproximação. A conta exata usa juro composto e dá um número um pouco maior. Para decidir se vale, a proporção já resolve — e para **dizer o preço na mesa**, ela resolve ainda melhor, porque é a mesma conta que a pessoa do outro lado faz em dez segundos.\n\nQuem responde por comparação negocia melhor mesmo quando termina aceitando o pedido. É isso que o número compra.\n\n## FONTES\nVídeo longo deste canal (`labtreinamento-008`), capítulos 34, 35 e 43, com o 29 como ressalva e os 21 e 22 como apoio. O 34 diz que nas três situações você continua dando o desconto e que a diferença é saber quanto ele custa; o 35 que isso deixa de ser um favor e passa a ser uma troca com preço, \"que é o que ela sempre foi\"; o 43 que se para de responder por intuição e passa a responder por comparação, \"mesmo quando termina aceitando o pedido\"; o 29 traz a ressalva do juro composto; e o 21 e o 22 dizem que o erro comum é não ter o outro lado da comparação, e que ele é fácil porque o desconto não gera fatura nem linha de despesa.\n\n## FAMILIA DE ENTRADA ERRADA\nO NUMERO LIDO COMO VEREDITO, QUANDO ELE E PRECO — usar o juro que saiu da conta como sentença de dar ou não dar desconto, quando o próprio longo nomeia três situações em que se continua dando. Nelas a decisão não muda; o que muda é que a cessão deixa de ser favor sem etiqueta e passa a ser troca com preço declarado, dizível em voz alta na mesa. E o custo de não ter o número não é dar desconto demais: é responder por intuição, porque o desconto não gera fatura, extrato nem linha de despesa financeira — não há nada doendo para marcar a hora de olhar.\n\nA DISTINCAO DOS SEIS IRMAOS VAI ESCRITA, e eles vieram do `irmaos_da_origem` — e TRES deles não têm o campo da família, logo para esses a comparação saiu da PROSA e da NARRACAO de cada um, que é de primeira mão (o conserto de 20/10 às 15:3x):\n* `s004` — o PRAZO que o desconto antecipou: mesmo desconto, prazo curto, mais caro;\n* `s017` — a RAZAO e não o tamanho: cinco por cento custa mais que dez;\n* `s039` — o ESCOPO: o desconto fixo da tabela paga a antecipação de todos;\n* `s048` — BASE no lugar do INCREMENTO: quem pagaria à vista igual recebeu de graça;\n* `s079` — a CONTAGEM nos próprios papéis: quantos dos últimos dez usaram;\n* `s098` — a ASSIMETRIA de INFORMACAO: quem pede acertou porque fez a conta do outro lado.\n\n**Os seis falam de PRODUZIR o número certo ou de QUEM o tem. Nenhum fala do que fazer com ele depois de o ter** — e a distinção contra o mais próximo vai dita: o `s098` diz que o outro lado já sabe a taxa (quem tem a informação); esta peça diz o que o número faz na sua mão quando você passa a tê-la, e que não é decidir.\n\n**E a conferência por CAPITULO alcança 4 dos 6**, com ZERO sobreposição: os declarados são 36 (s098), 44 a 50 (s039 e s048) e 47 a 49 (s079), e esta peça usa 34, 35, 43, 29, 21 e 22. Os outros dois não declaram capítulo, e **ausência de dado não é ausência de colisão** (761) — para esses a conferência foi pela narração.\n\n**E o capítulo 36 ficou FORA de propósito:** ele é a frase-modelo de negociação e está DECLARADO pelo `s098`. Ele seria o fecho natural desta peça, e carrega o percentual do exemplo.\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e **ZERO DIGITO na narração** — conferido pelo `numerais_falados`, não à mão.\n\n**E A RECUSA INCLUI O NUMERO QUE DARIA A PECA MAIS FACIL:** o juro do exemplo do longo (o \"x por cento ao mês\" dos capítulos 16, 32 e 36) ficaria perfeito no gancho, e fica FORA pelo **caso especial da regra (g) que o `s079` já aplicou nesta mesma origem** — número que o próprio longo declara ser EXEMPLO do cálculo não entra de jeito nenhum, porque descreve um caso e não o mundo, e no short viajaria sem a conta ao lado. Também ficaram fora: percentual de desconto, prazo em dias, taxa de antecipação de recebíveis e qualquer valor.\n\n**E a contagem \"três situações\" do capítulo 30 NAO é falada**, por dois motivos: a primeira das três não está entre os capítulos livres, logo eu só tenho duas na mão, e o `contagem_declarada` existe porque fonte que declara N e enumera outra coisa põe número errado no ar com portão verde (13/10). A narração diz \"há casos\", sem contar.\n\nAs BARRAS da cena 1 são ILUSTRACAO qualitativa e **não são faladas**: elas desenham a decisão ANTES e DEPOIS da conta com a MESMA altura, que é o argumento inteiro — o número não move a decisão. Isto vai escrito para a rodada seguinte não as ler de volta como dado.\n\n## EXPOSICAO\n**MEDIDO, e as linhas foram GERADAS pelo `linhas_medidas_da_copy`, não redigitadas:** previsão edge **25,70 s** / piper **21,10 s**; 8 cenas, média de **34,62** caracteres por cena; esqueleto `titulo-barras-item-item-item-lista-titulo-cta`, **INEDITO nas 185 formas** de short da frota; acento **7,01%**, thumbnail com **3** palavras, gancho com **7**. A narração **não fala numeral nenhum**, com a ressalva do próprio instrumento: ausência de vocabulário não prova ausência.\n\n**A PINCA DO 740/748 NAO ESTA FECHADA AQUI, e este é o único canal da frota em que isso acontece:** o `mira.janela_dos_dois_mundos` devolve **34 a 36** caracteres por cena com oito cenas, e a peça saiu com **34,62** — logo os DOIS mundos caem dentro da mira medida do canal (20,0 a 26,0) e **não há exposição de mundo a declarar**.\n\n**E eu NAO mirei o piso, de propósito:** o piso executável aqui é 25 caracteres por cena e ele é de **UM mundo** — com 25 o piper cai abaixo de 20,0 e a própria `mira.confere` reprova o conselho do piso, que é o defeito medido em 19/10 às 17:2x. A margem contra o teto da mira é de **0,3 s** e vai dita em vez de escondida.\n\n**E o REAL não está prometido para lado nenhum:** 41 das 46 peças deste canal narradas pelo edge saíram FORA do teto de 26,0 **com a mira verde nos dois mundos**, e a banda do resíduo tem 5,2 s de largura contra 1 s de granularidade (774).\n\n**E o `antes_do_render` pegou o único defeito ANTES do render:** a thumbnail saiu com **CINCO** palavras contra o limite de 4 — a **DECIMA** vez do mesmo defeito nesta sessão, e a terceira seguida pega pela passada em vez do portão.\n\n**E A FORMA SAIU DO INSTRUMENTO DA RODADA ANTERIOR, não do olho:** o `esqueleto_entre_canais.sugere_forma` respondeu na PRIMEIRA vez em produção — a frota usa **uma única** mistura em oito cenas (`titulo x2 + item x3 + lista + barras + cta`), com **112 de 120** ordens livres, e a forma desta peça é uma delas.\n\n## RESERVA\nPara a rodada seguinte, com o motivo de cada um:\n* **LIVRES** os capítulos 17 a 20 — a REFERENCIA do comparador: a taxa que serve é a do SEU banco, com o seu nome e o seu histórico, e os dois resultados (maior ou menor) são úteis. **ATENCAO: o eixo fica perto do `kolejny-poziom-s092`**, publicado em 22/10 às 09:20Z em outro canal (média nacional não é o seu número), e o `similaridade` **não pegaria**, porque compara contra o MESMO canal. Quem levar tem de ler aquela peça antes;\n* **LIVRES** os capítulos 51 a 55 — os TRES PASSOS na própria proposta, mais o 55 (guardar o número junto da tabela de preços). É família própria, de PROCEDIMENTO, e não cabe hoje pela regra (f);\n* **LIVRE** o capítulo 56 — nenhum número do vídeo veio de lei, pesquisa ou banco: os três são do próprio espectador. É sobre a PROCEDENCIA do dado;\n* **NAO LEVAR** o capítulo 36: está DECLARADO pelo `s098` e carrega o percentual do exemplo;\n* **NAO LEVAR** os capítulos 44, 46, 47 e 50: são território declarado do `s039`, do `s048` e do `s079`.\n\n## HASHTAGS\n#desconto #negociacao #precificacao #financas #labtreinamento\n\n## COMENTARIO FIXADO\nVocê já tinha feito essa conta? Escreve embaixo só uma coisa: depois de saber o número, você passou a dizer ele em voz alta na negociação, sim ou não. Sem valores e sem nome de cliente.\n\n## TAGS\ndesconto à vista, negociação de preço, precificação, fluxo de caixa, antecipação de recebíveis, gestão financeira, pequenos negócios, tabela de preços\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ncategoryId: 27\ndefaultLanguage: pt-BR\nmadeForKids: false\n\n## MUSICA / LICENCA\nTrilha `Inspired` do incompetech (Kevin MacLeod), licença CC BY 3.0.\n"
+}
