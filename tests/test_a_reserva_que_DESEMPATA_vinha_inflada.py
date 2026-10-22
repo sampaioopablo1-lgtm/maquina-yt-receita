@@ -300,9 +300,69 @@ def test_o_exceto_chega_a_CONTA_NOVA_tambem(quadros):
         % (linha["reserva_sem_declaracao"], alvo["reserva_sem_declaracao"]))
 
 
+def test_o_VAO_da_divergencia_e_MEDIDO_e_nao_decide(escolhas):
+    """Medido em 22/10 as 18:0x, na SEGUNDA rodada com o instrumento.
+
+    Ele dizia QUE as duas leituras divergem e nunca POR QUANTO, e a decisao de
+    seguir a regra escrita ou a leitura nova depende do tamanho do vao — eu a
+    tomei de cabeca nas duas rodadas (23 capitulos, 62%, desviei; 2 capitulos,
+    3%, segui a regra). E a falta do `mira.orcamento` antes de 19/10 as 14:2x:
+    responder *"esta na mira?"* e nunca *"quanto escrever para entrar?"*.
+
+    E o vao NAO decide: limiar aqui seria criterio inventado (§10).
+    """
+    houve = 0
+    for canal, e in escolhas.items():
+        v = e.get("desempate_vao")
+        if not e["desempate_diverge"]:
+            assert v is None, (
+                "%s: nao diverge e ainda assim trouxe vao %r — vao sem "
+                "divergencia nao tem objeto" % (canal, v))
+            continue
+        houve += 1
+        assert isinstance(v, dict), "%s: diverge e nao trouxe o vao" % canal
+        assert v["capitulos"] > 0, (
+            "%s: o vao tem de ser POSITIVO, porque a leitura nova escolhe quem "
+            "tem MAIS capitulo sem declaracao" % canal)
+        assert v["da_leitura_nova"] - v["da_regra"] == v["capitulos"], (
+            "%s: o vao tem de ser a diferenca entre os DOIS numeros que a "
+            "frase imprime, senao ele e um terceiro numero" % canal)
+        assert 0 < v["fracao"] <= 1
+    assert houve, ("nenhum canal divergiu nesta leitura — ja coberto pelo teste "
+                   "dos dois lados, e sem divergencia o vao nao tem objeto")
+
+
+def test_o_vao_SAI_na_frase_e_nao_vira_LIMIAR():
+    base = {"escolhida": {"origem": "A", "pacote": "pa", "reserva": 69,
+                          "reserva_sem_declaracao": 59},
+            "escolhida_por_reserva_sem_declaracao":
+                {"origem": "B", "pacote": "pb", "reserva": 65,
+                 "reserva_sem_declaracao": 61},
+            "empatados_na_contagem": ["A", "B"], "desempate_diverge": True,
+            "desempate_vao": {"capitulos": 2, "fracao": 2 / 61.0,
+                              "da_regra": 59, "da_leitura_nova": 61}}
+    t = PM._linha_do_desempate(base)
+    assert "VAO e de 2 capitulo(s)" in t, (
+        "a frase da divergencia tem de imprimir o vao: dizer QUE divergem sem "
+        "dizer POR QUANTO deixa a decisao na cabeca de quem le")
+    assert "3%" in t, "a fracao tem de sair ao lado do numero absoluto"
+    assert "NOMEIA o vao e nao decide" in t, (
+        "a frase tem de dizer que NAO decide: limiar aqui seria criterio "
+        "inventado (§10)")
+    # e o vao NAO pode virar comparacao dentro do codigo
+    fonte = _fonte(PM._linha_do_desempate) + _fonte(PM.escolha)
+    arv = ast.parse(textwrap.dedent(fonte))
+    for n in ast.walk(arv):
+        if isinstance(n, ast.Compare):
+            alvo = ast.dump(n)
+            assert "capitulos" not in alvo and "fracao" not in alvo, (
+                "o vao esta sendo COMPARADO contra algo: isso e o limiar que "
+                "esta nota proibe — ele NOMEIA e nao decide")
+
+
 def test_a_medida_e_o_MOTIVO_continuam_escritos():
     fonte = io.open(PM.__file__, encoding="utf-8").read()
-    for pedaco in ("17:3x", "12:3x", "14:3x", "sem declaracao"):
+    for pedaco in ("17:3x", "18:0x", "12:3x", "14:3x", "sem declaracao"):
         assert pedaco in fonte, (
             "o modulo perdeu %r: conserto sem motivo escrito volta calado"
             % pedaco)

@@ -142,7 +142,23 @@ def escolha(canal: str, dono_medido=None, exceto: str = "") -> dict:
     if cand:
         por_sem = max(cand, key=lambda x: (x["reserva_sem_declaracao"],
                                            -x["usos"], x["origem"]))
+    # O VAO da divergencia, em capitulos e em fracao do maior dos dois. Ele
+    # existe porque a decisao de seguir a regra escrita ou a leitura nova
+    # depende do TAMANHO do vao, e eu a tomei DE CABECA em duas rodadas:
+    # em 22/10 as 17:3x o vao era 14 contra 37 (23 capitulos, 62%) e eu desviei;
+    # as 18:0x era 59 contra 61 (2 capitulos, 3%) e eu segui a regra. Ele NOMEIA
+    # o vao e NAO decide por ele: limiar aqui seria criterio inventado (§10),
+    # e declaracao em prosa e INDICIO, nao veredito.
+    vao = None
+    if esc and por_sem and esc["origem"] != por_sem["origem"]:
+        a_ = esc.get("reserva_sem_declaracao") or 0
+        b_ = por_sem.get("reserva_sem_declaracao") or 0
+        maior = max(a_, b_)
+        vao = {"capitulos": b_ - a_,
+               "fracao": (b_ - a_) / maior if maior else None,
+               "da_regra": a_, "da_leitura_nova": b_}
     return {
+        "desempate_vao": vao,
         "canal": canal,
         "quadro": q,
         "escolhida": esc,
@@ -213,6 +229,19 @@ def _linha_do_desempate(e: dict) -> str:
                 % (s["pacote"] or s["origem"], s["reserva_sem_declaracao"],
                    s["reserva"]))
     esc = e["escolhida"]
+    v = e.get("desempate_vao") or {}
+    frac = v.get("fracao")
+    vao_txt = ("  O VAO e de %d capitulo(s), %s do maior dos dois — e a decisao "
+               "de seguir a regra escrita ou a leitura nova depende DELE, nao "
+               "do fato de divergirem: em 22/10 as 17:3x o vao foi de 23 (62%%) "
+               "e a rodada desviou; as 18:0x foi de 2 (3%%) e ela seguiu a "
+               "regra, porque declaracao em prosa e INDICIO e desviar por dois "
+               "capitulos transformaria a heuristica em regra. **Isto NOMEIA o "
+               "vao e nao decide por ele** — limiar aqui seria criterio "
+               "inventado (§10)."
+               % (v.get("capitulos", 0),
+                  "%.0f%%" % (100 * frac) if frac is not None else "fracao "
+                  "indefinida"))
     return (_PRE + "as duas DIVERGEM. A reserva CRUA escolhe %s (%d livres, "
             "mas so %s sem declaracao de irmao) e a reserva SEM DECLARACAO "
             "escolhe "
@@ -223,7 +252,7 @@ def _linha_do_desempate(e: dict) -> str:
             % (esc["pacote"] or esc["origem"], esc["reserva"],
                esc.get("reserva_sem_declaracao"),
                s["pacote"] or s["origem"], s["reserva"],
-               s["reserva_sem_declaracao"]))
+               s["reserva_sem_declaracao"]) + "\n" + vao_txt)
 
 
 def relato(canal: str, dono_medido=None, exceto: str = "") -> str:
