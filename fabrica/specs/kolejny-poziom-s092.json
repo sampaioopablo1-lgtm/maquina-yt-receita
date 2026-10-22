@@ -1,0 +1,111 @@
+{
+ "slug": "kolejny-poziom-s092",
+ "pacote": "kolejny-poziom-s092",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "longo_existente": "vcJf6WipLtY",
+ "thumb": {
+  "l1": "Średnia nie jest",
+  "l2": "twoja"
+ },
+ "paleta": {
+  "bg": "#0B0B0C",
+  "ink": "#F2EEE8",
+  "c1": "#E23B3B",
+  "c2": "#D9C7A7",
+  "red": "#FF4D4D",
+  "ok": "#7FB77E",
+  "panel": "#151517",
+  "mut": "#8F877C",
+  "acc": "#E23B3B"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Średnia krajowa",
+   "sub": "to nie twoja liczba",
+   "nar": "Średnia krajowa nie jest twoją liczbą."
+  },
+  {
+   "layout": "item",
+   "kicker": "To liczba o zbiorze",
+   "sub": "nie o tobie",
+   "nar": "To jest liczba o zbiorze, a nie o tobie."
+  },
+  {
+   "layout": "item",
+   "kicker": "Każda średnia",
+   "sub": "ma dwie strony",
+   "nar": "Każda średnia ma dwie strony, górę i dół."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Po której stronie jesteś",
+   "barras": [
+    {
+     "Powyżej średniej": 100
+    },
+    {
+     "Poniżej średniej": 100
+    }
+   ],
+   "nar": "Nagłówek nie mówi, po której jesteś ty."
+  },
+  {
+   "layout": "lista",
+   "kicker": "O twojej stronie decyduje",
+   "itens": [
+    "Operator w twoim regionie",
+    "Opłaty stałe z faktury",
+    "Twoje własne zużycie"
+   ],
+   "nar": "O twojej stronie decydują trzy rzeczy."
+  },
+  {
+   "layout": "item",
+   "kicker": "Średnia ich nie zna",
+   "sub": "żadnej z trzech",
+   "nar": "Średnia o żadnej z nich nie wie."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Twoja liczba",
+   "sub": "wychodzi z działania",
+   "nar": "Twoja liczba wychodzi z działania."
+  },
+  {
+   "layout": "item",
+   "kicker": "Jedno dzielenie",
+   "sub": "kwota przez zużycie",
+   "nar": "Dzielisz kwotę z faktury przez swoje zużycie."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Co się starzeje",
+   "barras": [
+    {
+     "Liczba z nagłówka": 100
+    },
+    {
+     "To dzielenie": 0
+    }
+   ],
+   "nar": "Liczba z nagłówka starzeje się w miesiące."
+  },
+  {
+   "layout": "item",
+   "kicker": "Działanie zostaje",
+   "sub": "przy każdej fakturze",
+   "nar": "To dzielenie nie starzeje się wcale."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Policz swoją",
+   "sub": "z własnej faktury",
+   "nar": "Policz swoją dzisiaj i zostaw subskrypcję."
+  }
+ ],
+ "copy": "# kolejny-poziom-s092\n\n## TITULO\nŚrednia krajowa nie jest twoją liczbą: twoja wychodzi z dzielenia na własnej fakturze\n\n## TITULO SHORT\nŚrednia nie jest twoją liczbą\n\n## DESCRICAO\nZatwierdzona średnia cena energii jest liczbą prawdziwą i opublikowaną. Problem jest w tym, czego ona dotyczy: to liczba o zbiorze gospodarstw, a nie o twoim rachunku. Usłyszana w wiadomościach brzmi jak odpowiedź na pytanie \"ile płacę za prąd\", a odpowiada na zupełnie inne pytanie — ile płaci przeciętny odbiorca, policzony razem z wszystkimi innymi.\n\nI tu jest rzecz, którą łatwo przeoczyć: każda średnia ma dwie strony. Część ludzi płaci powyżej niej, część poniżej, i nic w nagłówku nie mówi, po której stronie jesteś ty. Twoja strona zależy od rzeczy, których średnia o tobie nie wie: od operatora sieci w twoim regionie, od opłat stałych, które masz na swojej fakturze, i od twojego własnego zużycia. Żadna z tych trzech nie jest średnią niczego — wszystkie trzy są twoje.\n\nDlatego porównywanie własnego rachunku ze średnią nie daje odpowiedzi, tylko wrażenie odpowiedzi. Liczba, która dotyczy dokładnie ciebie, nie jest do przeczytania — jest do wyliczenia, i wychodzi z jednego działania na dokumencie, który masz w domu: dzielisz kwotę z faktury przez zużycie w kilowatogodzinach.\n\nNa koniec różnica, która decyduje, dlaczego warto to umieć, a nie tylko raz usłyszeć: liczba z nagłówka starzeje się w kilka miesięcy, bo zmienia ją decyzja regulatora, inflacja i nowa taryfa. To dzielenie nie starzeje się wcale. Zadziała przy tej fakturze, przy następnej i przy każdej taryfie, którą jeszcze zobaczysz — i to jest jedyny powód, żeby zapamiętać działanie, a nie liczbę.\n\nPełne wyliczenie, krok po kroku, jest w długim nagraniu na tym kanale.\n\n## FONTES\nCena Prądu Spadła, a Rachunek Rośnie: Dwie Połowy Twojej Faktury\n\n## FAMILIA DE ENTRADA ERRADA\nJULGAR O PRÓPRIO RACHUNEK PELA MÉDIA NACIONAL — tomar um número sobre um\nCONJUNTO como se fosse número sobre VOCÊ. O eixo é a POPULAÇÃO a que o número se\nrefere, não o conteúdo dele nem a unidade: a média está certa, publicada e\nirrelevante para a sua fatura. Capítulos 6, 12, 13, 45, 74, 76, 77 e 78 do longo\n`vcJf6WipLtY`.\n\nE o que a torna silenciosa é a SIMETRIA: média tem dois lados, e nada no\ncabeçalho diz de qual você está. Quem paga acima dela acha que está normal, e\nquem paga abaixo também — a comparação devolve a mesma sensação de resposta nos\ndois casos, e nos dois casos ela não respondeu nada. O que decide o seu lado são\ntrês coisas que a média não conhece: o operador da sua região, as taxas fixas da\nsua fatura e o seu consumo. O capítulo 12 diz em letra *\"zwróć uwagę na jedno\nsłowo: średnia\"*, e o 13 completa *\"twoja może być inna, i to w obie strony\"*.\n\nE a segunda metade do argumento é a DURABILIDADE, do capítulo 45: a liberdade de\nesquecer o número e guardar a operação. O número do cabeçalho envelhece em meses\n— decisão do regulador, inflação, taryfa nova —, e a divisão da kwota pelo\nzużycie não envelhece em nada. O capítulo 77 escolhe entre os dois sem rodeio:\n*\"a jeżeli masz zapamiętać dokładnie jedną rzecz, niech to nie będzie\nczterysta dziewięćdziesiąt pięć złotych. Niech to będzie dzielenie kwoty przez\nzużycie\"*.\n\nDISTINÇÃO DOS QUATRO IRMÃOS desta origem, lida pelo `irmaos_da_origem` e pela\nNARRAÇÃO de cada um — e DOIS deles (`s016` e `s073`) não têm o campo da família,\nlogo a comparação saiu da PROSA e da fala, que é de primeira mão:\n- `kolejny-poziom-s016`: taryfa contra OFERTA (capítulos 32 a 39). Eixo: por que\n  a baixa do cabeçalho não alcança você — e o motivo é CONTRATUAL, o papel que\n  você assinou. Aqui o motivo é ESTATÍSTICO: mesmo na taryfa, média de um\n  conjunto não é o número de ninguém em particular;\n- `kolejny-poziom-s030`: upust aplicado ao rachunek inteiro quando a decisão\n  alcança metade dele, mais a taxa fixa. Eixo: o ESCOPO da decisão;\n- `kolejny-poziom-s036`: grosz por kWh contra złoty por ano. Eixo: a ESCALA em\n  que se julga a magnitude — e ali os dois números são seus;\n- `kolejny-poziom-s073`: as duas metades, e a segunda não reage (capítulos 15 a\n  21). Eixo: a COMPOSIÇÃO da fatura.\nNenhum dos quatro fala de QUEM é o número. **E a vizinhança mais próxima vai\nNOMEADA, porque a distinção é fina:** o `s030` fecha com a linha *\"licz zawsze z\nwłasnej faktury\"* — ela é CTA de fechamento dele, e o eixo daquela peça é o\nescopo do upust; aqui \"a sua fatura contra a média\" é o argumento inteiro, com a\nsimetria dos dois lados e a durabilidade da operação, que aquela linha não toca.\n\n## AVISO SOBRE OS NUMEROS\nZERO NÚMERO NOVO SOBRE O MUNDO na narração, e ZERO dígito. Os únicos numerais\nfalados são **\"dwie\"** (as duas strony da média, cena 2) e **\"trzy\"** (as três\ncoisas que decidem o seu lado, cena 4) — os dois são contagem da PRÓPRIA\nestrutura do argumento, não fato sobre o mundo, e o `numerais_falados` os\nconfere.\n\nE a regra (g) tirou daqui justamente o número que daria a peça mais fácil: a\n**média aprovada em złoty por megawatt-hora** (capítulo 8), o **percentual de\naumento do rachunek médio** (capítulo 10 e 14) e a **taryfa de distribuição**\n(capítulo 21). Os três mudam por publicação, e **a própria origem escreve esse\nmotivo duas vezes**: o capítulo 21 diz *\"nie podam ci tu jednej liczby, bo\nbyłaby nieprawdziwa dla większości słuchających\"* e o 45 diz *\"liczba z nagłówka\nstarzeje się w kilka miesięcy\"*. Citar a média para dizer que ela não serve\nseria pôr pela porta lateral o número que a peça recusa.\n\nAs barras são ILUSTRAÇÃO qualitativa e **não** são faladas: a cena 3 desenha os\ndois lados da média com a MESMA altura, que é o argumento da simetria, e a cena\n8 desenha o que envelhece contra o que não envelhece. As alturas (100/100 e\n100/0) não são medida de ninguém e não têm unidade de dinheiro — a rodada\nseguinte NÃO as lê de volta como dado.\n\n## EXPOSICAO\nA pinça do 740/748 está FECHADA neste canal: nenhuma média por cena põe os dois\nprovedores dentro de 41,5 a 43,0 com onze cenas nesta voz (razão piper/edge\n0,851, vão de ~6 s contra 1,5 s de faixa), e quem diz isso é o\n`mira.janela_dos_dois_mundos`, não a minha conta. **Mirei o PISO** (772): edge\n**41,76**, 0,26 acima dele, com média de 38,8 caracteres por cena contra os 39\ndo piso EXECUTÁVEL. O piper sai em **35,5** — FORA pela mira e DENTRO do portão,\nque cobra 18 a 45 s nos dois mundos —, e isso vai declarado ANTES de publicar.\n\nE o REAL não está prometido para lado nenhum: a banda tem 5,2 s contra 1 s de\ngranularidade, e declarar um lado dela não é previsão (774).\n\n## RESERVA\nPara a rodada seguinte nesta origem (`vcJf6WipLtY`), com o motivo escrito:\n- LIVRE: a **PROGNOZA não é ODCZYT** (capítulos 29, 30 e 31) — contar a partir de\n  uma fatura de previsão em vez da de liquidação dá *\"cenę wymyśloną, a nie\n  zapłaconą\"*, e a armadilha irmã é a fatura que cobre dois meses. Eixo: o TIPO\n  de documento. **Conferir antes de escrever** se isso não repete o eixo de\n  FONTE que o longo `kolejny-poziom-021` (`5xrKmI6G0CA`) usou em 22/10 — é outro\n  longo, mas o mesmo canal e a mesma semana;\n- LIVRE: a **ÚNICA linha sobre a qual você tem influência** (capítulos 47, 48,\n  49, 50 e 53) — preço, umowa e distribuição estão fora do seu alcance, sobra o\n  zużycie; e sem o stan licznika de hoje e de daqui a uma semana não existe ponto\n  de referência, logo *\"oszczędzasz na wyczucie\"*. Há visual pronto no 52 (o que\n  esquenta e esfria, não o que ilumina);\n- LIVRE: **o que eu NÃO sei vai dito** (capítulos 40 a 44) — o longo declara que\n  não confirmou o mecanismo de congelamento em fonte institucional e que\n  *\"wniosek to nie jest źródło\"*. É família sobre a PROCEDÊNCIA da afirmação, e\n  ela se escreve sem citar valor nenhum;\n- CONSUMIDOS por esta peça: 6, 12, 13, 45, 74, 76, 77 e 78;\n- NÃO LEVAR como família: os capítulos 22 a 28 (as três liczby e as duas\n  operações). Eles são o MÉTODO e aparecem como apoio em quase toda peça desta\n  origem; usá-los como eixo repetiria o fechamento do `s030` e a metade prática\n  desta peça.\n\n## HASHTAGS\n#rachunekzaprad #sredniakrajowa #finanseosobiste #faktura #kolejnypoziom\n\n## COMENTARIO FIXADO\nPoliczyłeś swoją cenę końcową z faktury? Napisz pod spodem tylko jedno: czy wyszła wyżej, czy niżej, niż się spodziewałeś. Bez kwot.\n\n## TAGS\nrachunek za prąd, średnia krajowa, cena energii, faktura za prąd, finanse osobiste, dystrybucja energii, taryfa, kolejny poziom\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ncategoryId: 27\ndefaultLanguage: pl\nmadeForKids: false\n\n## LICENCA\nTrilha `Wholesome` do incompetech (Kevin MacLeod), licença CC BY 3.0.\n"
+}
