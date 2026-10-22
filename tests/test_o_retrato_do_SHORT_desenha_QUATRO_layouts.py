@@ -155,12 +155,25 @@ def test_o_conjunto_NAO_e_lista_escrita_a_mao():
 
 
 def test_a_sonda_entrega_TODOS_os_campos():
-    """Senao ela confunde "nao desenha" com "faltou o campo"."""
-    campos = set(LS.CENA_DE_SONDA)
-    for exigido in ("kicker", "sub", "preco", "itens", "barras", "nar"):
-        assert exigido in campos, (
-            f"a cena de sonda perdeu o campo {exigido!r}: um layout que dependa "
-            "dele passaria a contar como 'nao desenha'")
+    """Senao ela confunde "nao desenha" com "faltou o campo".
+
+    RETRATADO em 22/10 as 02:5x, no lugar. Ele cobrava os campos de
+    `LS.CENA_DE_SONDA`, que desde aquela hora e HISTORIA e nao a cena da sonda —
+    isto e, ele viajava uma constante morta, que e a classe 743/753/761. A
+    propriedade e a mesma e agora e cobrada de quem a sonda de fato usa: a cena
+    DERIVADA do disco carrega todo campo que o layout consome, para cada
+    candidato, e nao apenas os seis que eu listei a mao.
+    """
+    import cena_de_sonda as CS
+    vis = CS.campos_do_disco(RAIZ)
+    assert len(vis) >= 8, len(vis)
+    for lay in LS.candidatos(RAIZ):
+        c = CS.cena(lay, RAIZ)
+        for exigido in (vis.get(lay) or {}):
+            assert exigido in c, (
+                f"a cena de sonda de {lay!r} perdeu o campo {exigido!r}: um "
+                "layout que dependa dele passaria a contar como 'nao desenha'")
+        assert c.get("nar"), lay
 
 
 def test_o_MOTIVO_continua_escrito_nos_DOIS_lugares():

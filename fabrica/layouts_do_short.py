@@ -27,6 +27,13 @@ isto NAO e buraco do acervo, e e por isso que aqui o lugar certo e o PORTAO e na
 a suite: o argumento do `mira.py` (*"aviso que reprova 105 specs deixa de
 avisar"*) nao se aplica a um aviso que reprova exatamente a peca quebrada.
 
+**E A CENA DA SONDA TAMBEM DEIXOU DE SER ESCRITA A MAO — 22/10, 02:5x.** Ela
+era um SEGUNDO dono de *"que campos cada layout consome"*, divergia do render em
+catorze lugares e **levantava** no `comparar`, onde o `except` da sonda engolia o
+erro e o layout saia reportado como *"nao desenha"*. O dono e o
+`cena_de_sonda`, que a DERIVA do disco; o veredito de hoje nao mudou, e isso vai
+MEDIDO em vez de afirmado.
+
 **O CONJUNTO NAO E ESCRITO A MAO, e isso e deliberado:** `desenham()` SONDA o
 proprio render — monta uma cena com todos os campos e pergunta se saiu `<text>`.
 Lista de layouts cravada aqui seria um SEGUNDO dono do despacho, que e a
@@ -40,8 +47,17 @@ import os
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# Uma cena com TODOS os campos que os layouts conhecidos consomem, para que a
-# sonda nao confunda "o layout nao desenha" com "faltou o campo".
+# HISTORIA, e nao mais a cena da sonda. Ela era ESCRITA A MAO, isto e um
+# SEGUNDO dono de "que campos cada layout consome" — e divergia do render em
+# catorze lugares: dois campos inventados (`erro`, `partes`, que nao existem em
+# cena nenhuma do disco) e doze campos do disco que faltavam. A divergencia
+# LEVANTAVA: com `esq`/`dir` como string, `comparar` no 16:9 morre em
+# `AttributeError`, e o `except` da sonda engolia isso — o layout seria
+# reportado como NAO desenhando e o portao chamaria CARTAO EM BRANCO uma cena
+# que desenha dezenove `<text>`. Medido em 22/10 as 02:5x; o dono e agora o
+# `cena_de_sonda`, que DERIVA a cena do disco. Fica aqui porque os testes de
+# 19/10 a usam para montar cena de exemplo, e porque e ela que o
+# `cena_de_sonda.divergencia` reconfere.
 CENA_DE_SONDA = {
     "kicker": "Kicker", "sub": "Sub", "preco": "Preco",
     "nar": "Narracao de sonda.",
@@ -102,6 +118,7 @@ def desenham(raiz: str = None) -> set:
     `<text>` porque o ramo final devolve so o retangulo do fundo — medido: 146
     bytes e zero `<text>`, contra 600 a 1.500 bytes e 2 a 5 nos que desenham.
     """
+    import cena_de_sonda as CS
     import fabrica as F
 
     chave = raiz or RAIZ
@@ -109,8 +126,9 @@ def desenham(raiz: str = None) -> set:
         return set(_CACHE_DESENHAM[chave])
     ok = set()
     for lay in candidatos(raiz):
-        cena = dict(CENA_DE_SONDA)
-        cena["layout"] = lay
+        # A cena sai do DONO, que a deriva do disco. Montar aqui foi o segundo
+        # dono do contrato do render, e ele divergia (22/10, 02:5x).
+        cena = CS.cena(lay, raiz or RAIZ)
         try:
             svg = F.svg_cena_retrato(cena, PALETA_DE_SONDA, 1080, 1920)
         except Exception:

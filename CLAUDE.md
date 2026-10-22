@@ -8881,3 +8881,85 @@ SEGUNDA rodada seguida:** 62,99 h, piso de resolucao **0,38/dia**, os tres SIM.
 
 **COTA: DEZENOVE envios** na janela aberta as 07:00Z, **30.400** unidades, contra
 o piso MEDIDO de **>= 41.600** — do `janela_de_cota`.
+
+## A CENA DE SONDA ERA UM SEGUNDO DONO DO CONTRATO DO RENDER
+
+**Medido em 22/10 as 02:5x, escrevendo o `kolejny-poziom-021`.** Para montar as
+cenas de `formula`, `erro`, `divisor`, `numero` e `comparar` eu li os NOMES dos
+campos de cada layout **a mao**, abrindo o `kolejny-poziom-020` — item 3 da §10,
+na SETIMA dimensao (canal, cota, cenas, pauta, dono da origem, som, e agora o
+CONTRATO do render). Fui procurar instrumento para isso e encontrei o defeito no
+que existia.
+
+**O `layouts_do_short.desenham()` SONDA o render para saber que layouts
+desenham — e a cena que ele entregava a sonda era um dicionario ESCRITO A MAO.**
+Logo *"que campos cada layout consome"* tinha **DOIS donos**: o render, e aquele
+dicionario. E eles ja divergiam:
+
+| | |
+|---|---|
+| campos no disco que a cena de sonda NAO tinha | **12** |
+| campos na cena que NAO existem em cena nenhuma do disco | **2** (`erro`, `partes`) |
+| campos distintos que as cenas do disco carregam | **21** |
+
+**E A DIVERGENCIA NAO ERA COSMETICA — ELA LEVANTA.** Com a cena antiga, o
+`comparar` no 16:9 morre em `AttributeError: 'str' object has no attribute
+'get'`, porque ali `esq`/`dir` eram **strings** e o layout le **dicionario**. O
+`desenham()` envolve a sonda em `except Exception: continue`, logo o layout
+**seria reportado como NAO desenhando** — e o portao `layout` chamaria **CARTAO
+EM BRANCO uma cena que desenha dezenove `<text>`**.
+
+**E e a promessa do proprio modulo que o quebra:** o docstring dele diz que
+*"quando alguem ensinar o retrato a desenhar `numero`, este modulo passa a
+aceitar `numero` sem ninguem editar nada"*. No dia em que o retrato aprender
+`comparar`, a sonda levanta e o portao reprova a peca CERTA.
+
+**Medido no 16:9, que ja desenha os cinco:** com a cena antiga, `erro`, `formula`
+e `numero` saem com **UM** `<text>` em vez de quatro, seis e quatro — isto e,
+*"desenha o fundo e esquece a cena"*, que e o defeito de 19/10 as 04:2x
+acontecendo **dentro do instrumento escrito para o pegar.**
+
+**Consertado com UM dono: `fabrica/cena_de_sonda.py` DERIVA a cena do DISCO** —
+valores de cenas reais e a uniao dos campos —, logo campo inventado a mao nao
+sobrevive, porque nao existe em cena nenhuma. **Varredura vazia LEVANTA** em vez
+de devolver cena pobre, do jeito que o `porta1` recusa janela curta: cena pobre
+faz a sonda confundir *"o layout nao desenha"* com *"faltou o campo"*, que e
+exactamente o que o docstring do `layouts_do_short` manda evitar. Os campos de
+COMPORTAMENTO (`sem_cap`) e os de REDE (`broll_url`) ficam fora, com o efeito
+MEDIDO ao lado.
+
+**E O CONSERTO NAO MUDOU O VEREDITO DE HOJE, e isso vai MEDIDO em vez de
+afirmado:** o conjunto que o retrato desenha e **identico** com a cena derivada
+(`barras`, `cta`, `item`, `lista`, `titulo`). **O buraco era LATENTE** — e dizer
+que ele era ativo seria vender conserto de defeito que nao ocorreu.
+
+**O QUE A MEDICAO NAO ACHOU, e vai dito em vez de inflado:** eu fui procurar
+cartao em branco no **LONGO** e **nao existe**. Varridas as **134** specs de
+longo do disco, **9.538 cenas**, **ZERO** com layout que o `svg_cena` nao
+desenhe e **ZERO** sem um campo de conteudo que o render consuma — o unico
+ausente no acervo e o `trilho`, em 9.346 cenas da geracao anterior a 19/10, e ele
+e mobiliario e nao conteudo. Logo **nao nasceu portao novo nenhum**, e o
+resultado NEGATIVO ficou travado em teste para a rodada seguinte nao o recacar.
+
+`tests/test_a_cena_de_sonda_era_um_SEGUNDO_dono.py`, doze testes: a varredura sai
+do DISCO e **reprova por vacuidade**, um **mede que a cena ANTIGA de fato
+LEVANTAVA** — sem ele *"eu errei a cena"* seria afirmacao minha e nao medida — e
+**reprova se ela parar de levantar**, a contraprova no outro sentido exige que o
+veredito do retrato **NAO mude**, a divergencia e **RECONFERIDA** contra o disco
+por PROPRIEDADE e nao por numero (753) e **reprova se ela zerar**, a **FORMA** dos
+valores e cobrada (`esq` dicionario, que e o que fazia levantar), a exclusao de
+comportamento e de rede vai com o efeito medido, a fiacao e por **AST nos DOIS
+sentidos** (o `desenham` CHAMA o dono e **nao pode** remontar a cena), e um trava
+o resultado negativo do longo com piso de 50 specs.
+
+**E UM TESTE MEU DE 19/10 FOI RETRATADO NO LUGAR, pela DECIMA SETIMA vez da
+classe 743/753/761:** o `test_a_sonda_entrega_TODOS_os_campos` cobrava os campos
+de `LS.CENA_DE_SONDA`, que desde esta hora e **HISTORIA** e nao a cena da sonda —
+isto e, **ele viajava uma constante morta**, a mesma forma do
+`test_sem_mapa_ele_DIZ_que_o_mapa_falta` de 20/10 as 10:1x. A propriedade e a
+mesma e passou a ser cobrada de quem a sonda de fato usa, para TODO candidato e
+TODO campo do disco, em vez dos seis que eu havia listado a mao.
+
+**A REGRA QUE FICA: o que se entrega a uma sonda tambem e contrato, e contrato
+escrito a mao e segundo dono.** A sonda existia justamente para nao haver lista
+de layouts escrita — e a ENTRADA dela era uma lista de campos escrita.
