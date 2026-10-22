@@ -10595,6 +10595,33 @@ RESERVA` e **RECONFERIDA contra o disco** e reprova se virar maioria (753). O
 par que custou as duas cenas fica como **HISTORIA**, e nenhum assert depende
 dele (743/753/761).
 
+### E A SUITE PEGOU UMA REGRESSAO DO MEU PROPRIO CONSERTO — 26 falhas contra 25
+
+**A segunda versao do conserto derivava a RAIZ do `dir_specs` por convencao**
+(`raiz_do_dir_specs`, o inverso de `_dir_specs`) e **levantava** em caminho fora
+dela. O `texto_dos_livres` e chamado com diretorio **ARBITRARIO** — parque
+proprio de teste, `tmp_path` —, logo ele passou a estourar `ValueError` para todo
+chamador que nao cumpre `.../fabrica/specs`. **Uma falha nova, e o `comm`
+nomeou exatamente ela**, com zero desaparecidas.
+
+**E o que estava errado era o meu conserto, nao o teste** — ele usa parque
+proprio justamente pela disciplina de 743/753/761, e exigir a convencao do repo
+num argumento que sempre aceitou qualquer diretorio foi eu apertar o contrato
+alheio para encurtar o meu.
+
+**Consertado na TERCEIRA versao: `dir_specs` virou argumento PROPRIO do
+`irmaos`**, passado por NOME e nao por posicao, e vence a raiz quando os dois
+vem. O inverso `raiz_do_dir_specs` **saiu**, porque sem chamador ele seria a
+classe dos layouts mortos. **O que FICA e a guarda de vacuidade**, que e a
+protecao de verdade: diretorio inexistente **LEVANTA** em vez de devolver lista
+vazia e bem formada, e e ela que torna o engano original ruidoso.
+
+Dois testes meus foram **retratados no lugar** — eles cobravam o inverso que
+deixou de existir — e entraram tres: um exige que `dir_specs` **arbitrario**
+continue servindo (a regressao medida), um que ele **vence** a raiz, e um por
+**AST** que a passagem seja por NOME e **nao por POSICAO**, que e onde o defeito
+original morava. Onze testes, e a **contraprova derruba CINCO**.
+
 ### A PECA DESSA RODADA — DOZE cenas, e as TRES recusas sairam do instrumento
 
 `kolejny-poziom-s093` = **`-2w0Vcy0Uqc`** (*Zapisz datę, nie liczbę z pamięci*),
