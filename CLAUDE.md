@@ -11030,3 +11030,83 @@ OITAVA rodada seguida:** 76,0 h, piso de resolução **0,32/dia**, os três SIM.
 
 **COTA: OITO envios** na janela aberta às 07:00Z, **12.800** unidades, contra o
 piso MEDIDO de **≥ 41.600**.
+
+### A PECA DAS 15:06 — TREZE cenas, e a trava dos numeros foi a mais apertada da sessao
+
+`kolejny-poziom-s094` = **`pHtrgljQJTc`** (*Rozrzut nie jest błędem banku*), publicado
+as **15:22:24Z** (run `39804163520`), **sem `403 quota`**. **ONZE PORTOES
+VERDES** — e ela foi **CONFERIDA COMO RASCUNHO** antes de existir no disco, pela
+quarta rodada seguida.
+
+Provedor **edge MEDIDO** pelo `anotacoes_do_run` (zero avisos
+`NARRACAO PELO PIPER` no job `119907779920`, que e o job que emitiu o SOM). Som
+**-13,8** LUFS, pico **-1,5** dBTP — isto e, **no teto exato** do
+`som.TP_MAX_DBTP`, logo `acima_do_teto: False` por fronteira —, **zero
+silencios**. **E os DOIS workflows foram esperados pelos JOBS e nao pelo RUN**,
+que e o conserto de 13:4x.
+
+**CANAL do `passo_zero`** (9/8/8 na janela de 24 h, empate em 8 desempatado pelo
+que esta ha mais tempo sem publicar). **PAUTA:** `42hpD7eaptE`
+(`kolejny-poziom-008`, 89 capitulos), 4 usos — empate de **CATORZE** origens
+desempatado pela MAIOR reserva (69 de 89). A dominante `GUiq15usizw` ficou de
+fora e o `QiaGg03WSR0` saiu da escolha pelo **mapa de dono MEDIDO**, sem sair da
+lista.
+
+**FAMILIA: A ZDOLNOSC NAO E UMA CARACTERISTICA TUA** — ela e o resultado de um
+**PAR**, tu e aquele banco. A entrada errada e tomar a kwota do primeiro banco
+como *"a minha zdolnosc"*, e dai decorrem as DUAS leituras erradas do rozrzut:
+*"um deles errou"* ou *"um deles e melhor para mim"*.
+
+**E O MECANISMO ESTA MEDIDO PELO PROPRIO LONGO, em TRES lugares, e os tres sao
+regra INTERNA de cada banco:** a tabela de custos de manutencao por pessoa
+(capitulo 17), o percentual do ryczalt aceito como rendimento (24) e a altura do
+bufor com que a rata e testada (33). Logo **o rozrzut nao e ruido nem erro: e
+parte da DEFINICAO** — e so se ve no proprio caso, em mais de um banco (71, 78).
+
+Distincoes contra os QUATRO irmaos, e como **NENHUM** deles tem o campo da
+familia, a comparacao saiu da PROSA e da NARRACAO de cada um, que e de primeira
+mao: o `s010` e a ALAVANCA (fechar o limite age como aumento), o `s022` o TEMPO
+dela, o `s077` o USO do numero depois de o ter, e o `s063` — **o vizinho mais
+perto** — e o CALCULO dentro de UM banco: ele explica o bufor como mecanismo, e
+esta peca usa a **VARIACAO** do bufor entre bancos como um dos tres lugares do
+rozrzut. **Mecanismo contra dispersao.** Nenhum dos quatro diz que o numero nao
+e teu.
+
+**TREZE CENAS pela chave `por_cadencia_servivel`:** catorze e a melhor cadencia
+**e** e o teto MEDIDO da voz, e saiu **NOMEADA** e recusada pela FOLGA (23
+caracteres, a dois do piso OBSERVADO); treze tem folga **+7** e nao repete os
+tamanhos recentes do canal (12 e 11). **ESQUELETO
+`titulo-lista-item-barras-item-item-titulo-item-lista-barras-item-item-cta`,
+INEDITO nas 180 formas da frota** e nas CATORZE de treze cenas.
+
+**E A PASSADA ACUSOU A PREVISAO EM 43,20 — ACIMA do topo da faixa (43,0).** O
+corte saiu do instrumento: cinco caracteres para entrar na faixa, e eu cortei
+**trinta e um** para mirar o PISO (772), com um caractere valendo 0,052 s nesta
+voz. Depois: edge **41,86** / piper **35,60**. Terceira rodada seguida em que a
+passada pega algo antes do portao.
+
+**ZERO numero novo sobre o mundo, e aqui a trava e a MAIS APERTADA desta sessao
+porque a origem e um longo de taxas com fonte e data:** ficaram FORA a stopa
+referencyjna do NBP, o WIBOR trzymiesieczny, o POLSTR e a data em que ele
+substitui o WIBOR, a altura do bufor, qualquer kwota, qualquer procent de
+ryczalt e qualquer prazo. **Nenhum deles aparece na narracao nem na descricao.**
+Os TRES numerais falados (`dwa`, `dwie`, `trzy`) sao estrutura do argumento —
+dois bancos, duas kwotas, tres lugares de divergencia — e vao declarados na
+copy, conferidos pelo `numerais_falados`.
+
+**E AS LINHAS MEDIDAS DA COPY FORAM GERADAS E COLADAS** pelo
+`linhas_medidas_da_copy`, segunda rodada seguida — e nesta ele entrou tambem na
+passada do `antes_do_render`, pelo conserto do orfao de 14:4x.
+
+**A PINCA DO 740/748 ESTA FECHADA AQUI**, com a exposicao declarada ANTES de
+publicar, e **o REAL nao esta prometido para lado nenhum** (774).
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica` pela TRIGESIMA
+SETIMA rodada seguida.** `RESIDUO_N` segue **128**.
+
+**E A LEITURA DE INSCRITOS PASSOU AS TRES PORTAS E NAO FOI FEITA, pela DECIMA
+NONA rodada seguida.** **O que a impede e a ROTA, e o remedio e do DONO** — a
+tela de Network access.
+
+**COTA: NOVE envios** na janela aberta as 07:00Z, **14.400** unidades, contra o
+piso MEDIDO de **>= 41.600**.
