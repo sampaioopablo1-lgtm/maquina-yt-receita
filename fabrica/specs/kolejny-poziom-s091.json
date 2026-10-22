@@ -1,0 +1,131 @@
+{
+ "slug": "kolejny-poziom-s091",
+ "pacote": "kolejny-poziom-s091",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "longo_existente": "GtmoaQMr_1c",
+ "thumb": {
+  "l1": "Raz,",
+  "l2": "nie co miesiąc"
+ },
+ "paleta": {
+  "bg": "#0B0B0C",
+  "ink": "#F2EEE8",
+  "c1": "#E23B3B",
+  "c2": "#D9C7A7",
+  "red": "#FF4D4D",
+  "ok": "#7FB77E",
+  "panel": "#151517",
+  "mut": "#8F877C",
+  "acc": "#E23B3B"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "To nie jest praca na miesiąc",
+   "sub": "liczysz raz",
+   "nar": "Nie liczysz jej co miesiąc."
+  },
+  {
+   "layout": "item",
+   "kicker": "Raz, a nie co miesiąc",
+   "sub": "potem tylko dzielisz",
+   "nar": "Liczysz ją raz w roku."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Tyle kosztuje policzenie",
+   "barras": [
+    {
+     "rot": "Raz w roku",
+     "v": 30
+    },
+    {
+     "rot": "Co miesiąc",
+     "v": 100
+    }
+   ],
+   "nar": "Co miesiąc to praca bez zysku."
+  },
+  {
+   "layout": "item",
+   "kicker": "Druga liczba jest szybka",
+   "sub": "kilka sekund",
+   "nar": "Potem dzielisz to w głowie."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Tylko to ją unieważnia",
+   "itens": [
+    "Nowa umowa",
+    "Inne godziny",
+    "Dłuższy dojazd"
+   ],
+   "nar": "Trzy rzeczy psują tę liczbę."
+  },
+  {
+   "layout": "item",
+   "kicker": "Nowa umowa, nowa stawka",
+   "sub": "góra się zmienia",
+   "nar": "Nowa umowa rusza górę."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dojazd to ten przypadek",
+   "sub": "o którym się zapomina",
+   "nar": "Najczęściej zmienia się dojazd."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Ten sam przelew, inne godziny",
+   "barras": [
+    {
+     "rot": "Przedtem",
+     "v": 100
+    },
+    {
+     "rot": "Po zmianie",
+     "v": 72
+    }
+   ],
+   "nar": "Więcej godzin, mniejsza stawka."
+  },
+  {
+   "layout": "item",
+   "kicker": "Wtedy licz od razu",
+   "sub": "nie czekaj na rok",
+   "nar": "Wtedy przelicz od razu."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Zapisz to w dwóch miejscach",
+   "itens": [
+    "Stawka za godzinę",
+    "Oddane godziny",
+    "Data wyliczenia"
+   ],
+   "nar": "Zapisz stawkę i te godziny."
+  },
+  {
+   "layout": "item",
+   "kicker": "Bez zapisu nie wiesz",
+   "sub": "co policzyłeś",
+   "nar": "Bez zapisu zapomnisz, skąd jest."
+  },
+  {
+   "layout": "item",
+   "kicker": "Wolne zmiany, rzadki pomiar",
+   "sub": "to nie arkusz",
+   "nar": "Wolne zmiany mierzysz rzadko."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Zapisz dzisiejszą stawkę",
+   "sub": "i datę obok",
+   "nar": "Zapisz stawkę i datę dzisiaj."
+  }
+ ],
+ "copy": "# kolejny-poziom-s091\n\n## TITULO\nStawkę za godzinę liczysz raz w roku: psuje ją nowa umowa, inne godziny albo dojazd\n\n## TITULO SHORT\nTę stawkę liczysz raz w roku\n\n## DESCRICAO\nPoliczenie stawki netto za godzinę wygląda na pracę, którą trzeba powtarzać co miesiąc razem z rachunkami. Nie trzeba. Mianownik — ile zostaje ci w kieszeni za jedną oddaną godzinę — zmienia się wolno, więc liczysz go jeden raz, a potem każdą kwotę dzielisz przez tę samą liczbę w kilka sekund.\n\nTo nie jest zachęta do zaniedbania. Są dokładnie trzy rzeczy, które tę stawkę unieważniają: nowa umowa, inna liczba godzin i dłuższy dojazd. Pierwsza rusza górną liczbę. Dwie kolejne ruszają dolną, i dlatego bolą bardziej: ten sam przelew podzielony przez więcej oddanych godzin daje mniejszą stawkę, choć na koncie nic się nie zmieniło.\n\nNajczęściej zmienia się właśnie dojazd, i to jest przypadek, o którym się zapomina — bo nie widać go w żadnym dokumencie. Jeśli się zmieni, przeliczasz od razu, a nie czekasz do końca roku: zmienił się mianownik, więc zmieniła się odpowiedź.\n\nI ostatnia rzecz, ta najprostsza: zapisz stawkę tam, gdzie ją jeszcze zobaczysz, a obok niej liczbę oddanych godzin i datę wyliczenia. Bez tego po trzech miesiącach masz liczbę, o której nie wiesz, skąd wyszła, i musisz liczyć wszystko od nowa.\n\nPełne wyliczenie jest w długim nagraniu na tym kanale.\n\n## TITULO LONGO DE ORIGEM\nStały Koszt Miesięczny: Policz Go z Wyciągu, a Nie z Pamięci\n\n## FAMILIA DE ENTRADA ERRADA\nTRATAR A STAWKA COMO TRABALHO MENSAL, QUANDO ELA DURA UM ANO — e nao reconhecer\no UNICO caso que a invalida de imediato. O eixo e a FREQUENCIA e a MANUTENCAO do\nnumero, nao o conteudo dele: quem acha que a conta volta a cada rachunek\nsimplesmente para de fazer, e quem acha que ela vale para sempre segue usando\numa stawka que o dojazd novo ja derrubou. Capitulos 15, 18, 38, 57, 59 e 60 do\nlongo `GtmoaQMr_1c`, com apoio do 16.\n\nE a assimetria vai dita: mudar de umowa mexe na linha de CIMA e e visivel num\ndocumento; mudar de horas ou de dojazd mexe na de BAIXO e nao aparece em papel\nnenhum — o mesmo przelew dividido por mais horas oferecidas da stawka menor sem\nnada mudar na conta bancaria.\n\nDISTINCAO DOS TRES IRMAOS desta origem, lida pelo `irmaos_da_origem` e pela\nNARRACAO de cada um (os tres NAO tem o campo da familia, logo a comparacao saiu\nda PROSA e da fala, que e de primeira mao):\n- `kolejny-poziom-s068` (`8ZvPC95UDNI`): QUAL despesa medir primeiro — a pequena\n  e mensal, que multiplica por doze. Eixo: a escolha do rachunek;\n- `kolejny-poziom-s069` (`y6x88wc3-QQ`): os DOIS ERROS que deixam a conta mais\n  bonita — brutto em cima, horas da umowa embaixo (capitulos 32 a 39). Eixo: o\n  valor errado em cada linha;\n- `kolejny-poziom-s071` (`dtghRo9LOi4`): QUAIS horas entram no divisor — grafik\n  e dojazd, nao umowa (capitulos 27 a 31). Eixo: a composicao do divisor.\nNenhum dos tres fala de QUANDO a conta se refaz nem de quanto ela dura. O `s071`\ntem uma linha de fechamento — *\"Policzysz to raz, w pol godziny\"* — e ela e\nsobre o CUSTO de fazer uma vez, nao sobre a validade no tempo; aqui a vida do\nnumero e o argumento inteiro.\n\nE o capitulo 15 do longo diz em letra *\"Te stawke liczysz raz. Zmienia sie tylko\nwtedy, gdy zmieni sie umowa albo liczba godzin\"* — a terceira causa (dojazd) sai\ndo 60, e e por isso que ela entra como o caso ESQUECIDO e nao como item igual\naos outros dois.\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. Os unicos numerais falados sao\n\"raz\" (uma vez, nas cenas 1 e 12) e \"trzy\" (as tres causas, na cena 4) — os dois\nsao contagem do PROPRIO procedimento, nao fato sobre o mundo. Stawka minimalna, valor de przelew, percentual de encargo e\nqualquer media por setor ficaram FORA pela regra (g), porque mudam por\npublicacao e o longo tambem nao os cita.\n\nAs barras sao ILUSTRACAO qualitativa e NAO sao faladas: a cena 2 desenha o\nesforco de contar uma vez por ano contra contar todo mes, e a cena 7 desenha o\nMESMO przelew dividido por mais horas. As alturas (30/100 e 100/72) nao sao\nmedida de ninguem e nao tem unidade de dinheiro — a rodada seguinte NAO as le de\nvolta como dado.\n\n## EXPOSICAO\nA pinca do 740/748 esta FECHADA neste canal: nenhuma media por cena poe os dois\nprovedores dentro de 41,5 a 43,0 com treze cenas nesta voz (razao piper/edge\n0,851, vao de ~6 s contra 1,5 s de faixa). Mirei o PISO (772). O piper sai FORA\npela mira e DENTRO do portao, que cobra 18 a 45 s nos dois mundos, e isso vai\ndeclarado ANTES de publicar. E o REAL nao esta prometido para lado nenhum: a\nbanda tem 5,2 s contra 1 s de granularidade, e declarar um lado dela nao e\nprevisao (774).\n\n## RESERVA\nPara a rodada seguinte nesta origem (`GtmoaQMr_1c`), com o motivo escrito:\n- LIVRE: o resultado NAO SE EMPRESTA (capitulos 2, 40, 42, 44, 45, 46 e 47) —\n  a mesma kwota nao significa o mesmo para duas pessoas, logo numero ouvido de\n  outro responde a stawka DELE, e media nacional e kwota sem mianownik. Ha\n  visual pronto no capitulo 46 (tres pessoas, um rachunek, tres respostas);\n- LIVRE: a ORDEM — contar primeiro, decidir depois (capitulos 50, 54 e 55), com\n  o retorno decrescente da decima hora no 54;\n- LIVRE: o resultado NAO E VEREDITO (capitulos 23, 61 e 62) — numero grande que\n  se conhece vale mais que pequeno imaginado;\n- NAO LEVAR como familia: os capitulos 7, 24, 26, 28, 29 e 30 (as TRES FONTES:\n  pasek, grafik, rachunki). Eles sao a procedencia do dado e aparecem como apoio\n  em quase toda peca desta origem; usa-los como eixo repetiria o `s071`, que ja\n  fala de onde as horas vem.\n\n## HASHTAGS\n#stawkagodzinowa #budzetdomowy #finanseosobiste #oszczedzanie #kolejnypoziom\n\n## COMENTARIO FIXADO\nPoliczyłeś stawkę i zapisałeś ją z datą? Napisz pod spodem tylko jedno: ile godzin wyszło na największy rachunek. Bez kwot i bez nazw.\n\n## TAGS\nstawka godzinowa, budżet domowy, finanse osobiste, koszt w godzinach, oszczędzanie, mianownik, dojazd do pracy, wypłata netto\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ncategoryId: 27\ndefaultLanguage: pl\nmadeForKids: false\n\n## LICENCA\nTrilha `Wholesome` do incompetech (Kevin MacLeod), licença CC BY 3.0.\n"
+}
