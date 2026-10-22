@@ -52,6 +52,8 @@ por seis pecas e pos job inventado na serie. Ha teste por AST cobrando isso.
 """
 import collections
 import glob
+import math
+import random
 import json
 import os
 import sys
@@ -268,7 +270,183 @@ def novidade(esq: str, cenas: int, pecas: list[dict] = None,
             cenas, []),
         "tamanho_inedito": q["por_contagem_de_cena"].get(cenas, 0) == 0,
         "contagens_existentes": sorted(q["por_contagem_de_cena"]),
+        # O `exceto` VIAJA no resultado porque a frase das ordens livres
+        # precisa dele: sem isso ela contaria a propria peca entre as tomadas,
+        # que e o mesmo defeito que o `exceto` existe para corrigir.
+        "exceto": exceto or "",
     }
+
+
+# A convencao das PONTAS e MEDIDA e nao suposta: das 169 formas do disco, 156
+# (92,3%) comecam em `titulo` e terminam em `cta`, e por PECA sao 385 de 416
+# (92,5%). Ela NAO e universal — treze formas fogem dela —, logo entra como
+# PARAMETRO declarado e o relato diz o que supos. Cravar a convencao sem a
+# medida seria limiar sem procedencia (§10).
+PONTAS_MEDIDAS = ("titulo", "cta")
+
+# Acima disto o modulo NAO enumera: a contagem exata sai do multinomial e os
+# exemplos saem de sorteio com semente fixa. Doze cenas ja dao 7.560
+# ordenacoes e quarenta dariam um numero sem uso nenhum na tela.
+MAX_ENUMERADAS = 5000
+
+
+def _separador() -> str:
+    """O separador da assinatura, PERGUNTADO ao dono em vez de cravado.
+
+    `variedade.esqueleto` e o dono da assinatura do esqueleto. Em vez de
+    repetir o literal dele aqui — o que faria o segundo dono —, pergunta-se a
+    ele como ele une DUAS cenas conhecidas e tira-se o separador do meio. Se o
+    dono trocar de separador, isto acompanha sem ninguem editar nada.
+    """
+    a, z = PONTAS_MEDIDAS
+    s = V.esqueleto([{"layout": a}, {"layout": z}])
+    assert s.startswith(a) and s.endswith(z), (
+        "o dono da assinatura mudou de forma: %r nao e %r + separador + %r"
+        % (s, a, z))
+    return s[len(a):len(s) - len(z)]
+
+
+def _mult(itens) -> tuple:
+    return tuple(sorted(collections.Counter(itens).items()))
+
+
+def _multinomial(itens) -> int:
+    n = math.factorial(len(itens))
+    for k in collections.Counter(itens).values():
+        n //= math.factorial(k)
+    return n
+
+
+def formas_livres(cenas: int, layouts, pecas: list[dict] = None,
+                  exceto: str = "", pontas: bool = True,
+                  limite: int = 6, semente: int = 0) -> dict:
+    """Quais ORDENS destes mesmos layouts a frota nunca usou.
+
+    MEDIDO em 22/10 as 03:3x, escrevendo o `labtreinamento-s105`. O `novidade`
+    respondia *"esta forma e nova?"* e nunca *"qual forma usar"* — e quando ele
+    disse `forma_inedita: False` eu fui buscar as formas do tamanho numa
+    SEGUNDA chamada e escolhi uma nova A MAO, no olho. E a mesma falta do
+    `mira.orcamento` antes de 19/10 as 14:2x (*"esta na mira?"* sem *"quanto
+    escrever para entrar?"*) e do `contagem_de_cenas` antes de 20/10 as 03:2x,
+    que recusava sem ordenar.
+
+    **E a colisao e recorrente, nao acidente:** a primeira forma que eu escrevi
+    ja existia TAMBEM no `kolejny-poziom-s090` (21/10, 23:2x), e nas duas vezes
+    quem pegou foi a segunda chamada. Duas em poucas rodadas e o item 3 da §10.
+
+    **A contagem e EXATA e nao amostrada:** `possiveis` sai do multinomial do
+    multiconjunto e `livres` subtrai as que a frota ja usou COM a mesma mistura
+    (e, com `pontas`, com as mesmas extremidades). Os `exemplos` e que saem de
+    sorteio com semente fixa, para o instrumento ser reproduzivel.
+
+    **E LIVRES ZERO nao devolve lista vazia: ele RECUSA dizendo que o
+    multiconjunto esta ESGOTADO**, do jeito que o `porta1` recusa janela curta.
+    Medido no disco, SEIS multiconjuntos estao nesse estado — entre eles
+    `titulo x3 + cta` e `titulo + item x4 + cta` —, e neles a novidade de FORMA
+    e impossivel: ela tem de vir de trocar a MISTURA de layouts, nao a ordem.
+    Devolver lista vazia faria a rodada seguinte procurar o que nao existe.
+    """
+    if isinstance(layouts, str):
+        layouts = [x for x in layouts.split("-") if x]
+    layouts = list(layouts or [])
+    if len(layouts) != int(cenas):
+        raise ValueError(
+            "formas_livres: %d layout(s) para %r cenas — os dois argumentos "
+            "descrevem a MESMA peca, e aceitar a divergencia seria responder "
+            "bem formado sobre outra pergunta (a licao de 21/10 as 00:4x)"
+            % (len(layouts), cenas))
+    mult = _mult(layouts)
+    pecas = varre() if pecas is None else pecas
+    alvo = NS.arquivo(exceto) if exceto else ""
+    usadas = {p["esqueleto"] for p in pecas
+              if p.get("esqueleto") and p.get("cenas") == cenas
+              and p.get("arquivo") != alvo}
+
+    meio = list(layouts)
+    if pontas:
+        a, z = PONTAS_MEDIDAS
+        if a not in meio or z not in meio:
+            return {"cenas": cenas, "mult": mult, "pontas": pontas,
+                    "possiveis": 0, "tomadas": 0, "livres": 0, "exemplos": [],
+                    "esgotado": True,
+                    "motivo": ("a convencao das pontas pede %r na frente e %r "
+                               "no fim, e esta mistura nao tem os dois — chame "
+                               "com `pontas=False` para contar sem ela"
+                               % (a, z))}
+        meio.remove(a)
+        meio.remove(z)
+
+    sep = _separador()
+
+    def monta(perm):
+        # O SEPARADOR e PERGUNTADO ao dono (`_separador`), nunca cravado aqui:
+        # remontar a assinatura com um literal criaria o SEGUNDO dono da regra,
+        # e o teste irmao de 20/10 as 01:3x reprova por AST exatamente isso —
+        # foi ele que me pegou na primeira versao desta funcao.
+        #
+        # E a pergunta e feita UMA vez, nao por permutacao: chamar o dono
+        # dentro do laco custou 47 s -> 228 s nos dois arquivos de teste
+        # (medido), porque sao ate 5.000 permutacoes por chamada. Um dono e
+        # uma pergunta, nao uma chamada por item.
+        nomes = list(perm) if not pontas else (
+            [PONTAS_MEDIDAS[0]] + list(perm) + [PONTAS_MEDIDAS[1]])
+        return sep.join(nomes)
+
+    possiveis = _multinomial(meio)
+    tomadas = {e for e in usadas if _mult(e.split("-")) == mult
+               and (not pontas or (e.split("-")[0] == PONTAS_MEDIDAS[0]
+                                   and e.split("-")[-1] == PONTAS_MEDIDAS[1]))}
+    livres = possiveis - len(tomadas)
+
+    exemplos = []
+    if livres > 0:
+        if possiveis <= MAX_ENUMERADAS:
+            import itertools
+            todas = sorted({monta(p) for p in itertools.permutations(meio)})
+            exemplos = [e for e in todas if e not in tomadas][:limite]
+        else:
+            r = random.Random(semente)
+            tentativas = 0
+            vistos = set()
+            while len(exemplos) < limite and tentativas < 20000:
+                tentativas += 1
+                p = list(meio)
+                r.shuffle(p)
+                e = monta(p)
+                if e in tomadas or e in vistos:
+                    continue
+                vistos.add(e)
+                exemplos.append(e)
+    motivo = ""
+    if livres == 0:
+        motivo = (
+            "multiconjunto ESGOTADO: a frota ja usou as %d ordenacao(oes) que "
+            "existem para esta mistura de layouts. A novidade de FORMA e "
+            "impossivel aqui, e ela tem de vir de trocar a MISTURA, nao a "
+            "ordem." % possiveis)
+    return {"cenas": cenas, "mult": mult, "pontas": pontas,
+            "possiveis": possiveis, "tomadas": len(tomadas), "livres": livres,
+            "exemplos": exemplos, "esgotado": livres == 0, "motivo": motivo}
+
+
+def _linha_das_livres(cenas: int, esq: str, pecas=None, exceto: str = "") -> str:
+    """UM dono da frase. Ela sai nos DOIS ramos da novidade: com a forma nova
+    ela diz quanto AINDA resta, e com a forma repetida ela diz o que usar."""
+    try:
+        f = formas_livres(cenas, esq, pecas=pecas, exceto=exceto)
+    except ValueError as e:
+        return "  ORDENS LIVRES: %s" % e
+    if f["esgotado"]:
+        return "  >> ORDENS LIVRES: NENHUMA — %s" % f["motivo"]
+    linha = ("  ORDENS LIVRES destes mesmos layouts: %d de %d possiveis "
+             "(%d usada(s) pela frota)" % (f["livres"], f["possiveis"],
+                                           f["tomadas"]))
+    if f["exemplos"]:
+        linha += "\n  exemplos: " + ", ".join(f["exemplos"][:3])
+    linha += ("\n  supondo %r na frente e %r no fim, que e a convencao MEDIDA "
+              "em 92,3%% das formas do disco e NAO e universal."
+              % PONTAS_MEDIDAS)
+    return linha
 
 
 def _frase_da_novidade(n: dict) -> str:
@@ -287,7 +465,9 @@ def _frase_da_novidade(n: dict) -> str:
              f"{n['exemplares_do_tamanho']} PECA(S) em "
              f"{n['formas_do_tamanho']} FORMA(S) distinta(s) — e e a segunda"
              " que a copy escreve")
-    return f"  {p},\n  {t}."
+    livres = _linha_das_livres(n["cenas"], n["esqueleto"],
+                               exceto=n.get("exceto") or "")
+    return f"  {p},\n  {t}.\n{livres}"
 
 
 def relato(caminho=None, spec=None) -> str:
@@ -334,7 +514,16 @@ def relato(caminho=None, spec=None) -> str:
             # o `exceto` sai do NOME do arquivo mesmo no rascunho: a peca pode
             # nao estar no disco agora e estar na proxima chamada, e sem ele
             # "inedita" nunca poderia ser verdade (01:3x de 20/10).
-            exceto = os.path.basename(caminho) if caminho else ""
+            #
+            # E SEM CAMINHO ELE CAIA PARA VAZIO, e a peca se contava a si
+            # mesma — medido em 22/10 as 03:4x, chamando `relato(spec=sp)` com
+            # o arquivo JA no disco: a forma saiu "JA EXISTE: 1 exemplar" e o
+            # exemplar era ela. A falha e RESTRITIVA e nao permissiva (contar a
+            # si mesmo so ADICIONA, logo nunca diz "nova" o que nao e), e custa
+            # trabalho jogado fora: eu reescreveria uma forma que ja era
+            # inedita. O nome sai do `pacote` da propria spec, pelo dono unico.
+            exceto = (os.path.basename(caminho) if caminho
+                      else NS.arquivo(d.get("pacote") or ""))
             L.append(_frase_da_novidade(
                 novidade(V.esqueleto(short), len(short), pecas, exceto)))
     c = cegas_para_o_portao(pecas)

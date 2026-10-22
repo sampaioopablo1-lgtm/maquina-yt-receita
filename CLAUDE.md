@@ -9050,3 +9050,137 @@ que a impede e a **ROTA**, e o remedio e do **DONO** — a tela de Network acces
 
 **COTA: VINTE E UM envios** na janela aberta as 07:00Z, **33.600** unidades,
 contra o piso MEDIDO de **>= 41.600** — do `janela_de_cota`.
+
+## O INSTRUMENTO DIZIA SE A FORMA ERA NOVA, NUNCA QUAL USAR
+
+**Medido em 22/10 as 03:3x, escrevendo o `labtreinamento-s105`.** O
+`esqueleto_entre_canais.novidade` respondeu `forma_inedita: False` com um
+exemplar — e para achar uma forma nova eu fui buscar as formas do TAMANHO numa
+**SEGUNDA chamada** e escolhi A MAO, no olho. **E a mesma falta do
+`mira.orcamento` antes de 19/10 as 14:2x** (*"esta na mira?"* sem *"quanto
+escrever para entrar?"*) **e do `contagem_de_cenas` antes de 20/10 as 03:2x**,
+que recusava sem ordenar.
+
+**E a colisao e recorrente, nao acidente:** a primeira forma do
+`kolejny-poziom-s090` (21/10, 23:2x) tambem ja existia, e nas duas vezes quem
+pegou foi a segunda chamada. Duas em poucas rodadas e o item 3 da §10.
+
+**E A MEDICAO ACHOU UM FATO QUE NENHUM DOCUMENTO NOSSO TINHA: oito cenas tem
+SETE formas e UM UNICO multiconjunto de layouts.** Todas as pecas de oito cenas
+da frota usam exatamente `titulo x2 + item x3 + lista + barras + cta`, e o que
+varia entre elas e so a ORDEM. Dai a conta:
+
+| | |
+|---|---|
+| ordenacoes possiveis dessa mistura (com `titulo` na frente e `cta` no fim) | **120** |
+| usadas pela frota | **6** |
+| **LIVRES** | **114** |
+| ordenacoes possiveis somadas, em todos os tamanhos ate catorze | **226.243** |
+| livres | **226.088** |
+
+**E SEIS MULTICONJUNTOS ESTAO ESGOTADOS** — entre eles `titulo x3 + cta` (uma
+ordenacao, uma usada) e `titulo + item x4 + cta`. Neles a novidade de FORMA e
+**impossivel**: ela tem de vir de trocar a MISTURA de layouts, nao a ordem. O
+instrumento **RECUSA dizendo isso**, do jeito que o `porta1` recusa janela
+curta — devolver lista vazia faria a rodada seguinte procurar o que nao existe.
+
+`formas_livres(cenas, layouts, …)` e `_linha_das_livres` (UM dono da frase, nos
+DOIS ramos da novidade). **A contagem e EXATA e nao amostrada:** `possiveis` sai
+do multinomial e `livres` subtrai as que a frota ja usou com a MESMA mistura; so
+os `exemplos` saem de sorteio, com semente fixa, para o instrumento ser
+reproduzivel.
+
+**E A CONVENCAO DAS PONTAS E MEDIDA, nao suposta:** das **169** formas do disco,
+**156 (92,3%)** comecam em `titulo` e terminam em `cta`, e por PECA sao **385 de
+416 (92,5%)**. Ela **nao e universal** — treze formas fogem dela —, logo entra
+como PARAMETRO declarado e o relato **diz o que supos**.
+
+### E O `exceto` DO RASCUNHO CAIA PARA VAZIO, e a peca se contava a si mesma
+
+**Pego na mesma rodada.** O `relato` deriva o `exceto` do NOME do arquivo
+(`os.path.basename(caminho)`), e **sem caminho — que e o caminho do RASCUNHO —
+ele caia para vazio.** Chamado com `relato(spec=sp)` e o arquivo ja no disco, a
+forma saiu *"JA EXISTE: 1 exemplar"* **e o exemplar era ela**.
+
+**A falha e RESTRITIVA e nao permissiva** (contar a si mesmo so ADICIONA, logo
+nunca diz *"nova"* o que nao e) **e custa trabalho jogado fora**: eu reescreveria
+uma forma que ja era inedita. O nome passou a sair do `pacote` da propria spec,
+pelo dono unico (`nome_da_spec`).
+
+### E O TESTE IRMAO ME PEGOU CRIANDO O SEGUNDO DONO DA ASSINATURA
+
+A primeira versao montava a forma com `"-".join(...)`, e o
+`test_a_assinatura_e_DELEGADA_ao_variedade_por_AST` — de 20/10 as 01:3x —
+**reprovou por AST exatamente isso**, porque remontar a assinatura cria o
+segundo dono da regra. **Consertado duas vezes, e a segunda por MEDIDA:** chamar
+`variedade.esqueleto` dentro do laco das permutacoes passou os dois arquivos de
+teste de **47 s para 228 s**, porque sao ate 5.000 permutacoes por chamada.
+Agora o **SEPARADOR e PERGUNTADO ao dono UMA vez** (`_separador`, que une duas
+cenas conhecidas e tira o separador do meio) e o custo voltou a **48 s**. **Um
+dono e uma PERGUNTA, nao uma chamada por item** — e ha teste que troca o
+separador do dono e exige que isto o acompanhe, para ele nao voltar a ser
+cravado escondido num helper.
+
+`tests/test_o_instrumento_dizia_se_a_forma_era_nova_nunca_QUAL_usar.py`, catorze
+testes: a varredura sai do DISCO e **reprova por vacuidade**, a contagem e
+**RECOMPUTADA** contra o multinomial em mais de cinquenta misturas, um exige que
+os **DOIS** lados existam e **falha se nenhuma mistura estiver ESGOTADA** (ai a
+recusa perde o objeto) **ou se nenhuma tiver ordem livre**, a recusa e cobrada
+com motivo e lista vazia, todo exemplo devolvido e conferido como **de fato
+livre**, a **FRONTEIRA** e cobrada nos dois sentidos (gravado um exemplo, ele
+deixa de ser livre e a contagem cai em UM), a convencao das pontas e
+**RECONFERIDA** contra o disco e reprova se sair da faixa medida (753) **ou se
+virar universal**, os dois ramos de `pontas` tem de divergir, argumento
+divergente **LEVANTA** (21/10, 00:4x), o `exceto` do rascunho e cobrado com
+ancora **DERIVADA** do disco, e a frase tem **UM dono por AST**.
+**Contraprova:** religados os dois consertos ao defeito, **dois dos catorze**
+falham.
+
+### A PECA DESSA RODADA — OITO cenas, e os DOIS mundos dentro da mira
+
+`labtreinamento-s105` = **`Be359VyzMxU`** (*O mês estranho é o último*),
+publicado as 03:30:59Z (run `39717235685`), **sem `403 quota`**. **ONZE PORTOES
+VERDES NA PRIMEIRA TENTATIVA**, e a peca foi **CONFERIDA COMO RASCUNHO** antes
+de existir no disco. Provedor **edge MEDIDO** (zero avisos `NARRACAO PELO PIPER`
+no job `119618647577`), som **−14,2** LUFS, LRA 4,2, pico **−2,3** dBTP
+(`dentro`), desvio −0,2, **zero silencios**.
+
+**PAUTA:** `dsoEo103l1o` (labtreinamento-009), 6 usos — empate de **DEZ**
+origens desempatado pela MAIOR reserva, **57 de 72** capitulos NAO MENCIONADOS.
+O `reservas_escritas` devolveu **NENHUMA**, logo a familia saiu da leitura dos 57
+livres.
+
+**FAMILIA NOVA NESTA ORIGEM: A ORDEM DA CONFERENCIA** — abrir PRIMEIRO o mes que
+incomoda, isolado. Sem os meses faceis nao existe regua, logo a diferenca
+encontrada **nao se separa** entre *"a base esta errada e repete"* e *"este mes
+teve algo diferente"*, e as duas pedem coisas opostas. O eixo e a **ORDEM**, nao
+o calculo: nenhum numero muda, e o que muda e o que o resultado consegue dizer.
+**As SEIS familias irmas foram lidas antes da escolha** pelo `irmaos_da_origem` e
+pela NARRACAO de cada uma (tres nao tem o campo, logo pela prosa e pela fala, de
+primeira mao) — **nenhuma fala de ORDEM**.
+
+**ESQUELETO `titulo-item-item-lista-barras-titulo-item-cta`, INEDITO nas 168
+formas da frota** — e a PRIMEIRA versao JA EXISTIA: foi o
+`esqueleto_entre_canais` que acusou, e a troca foi mover o item das doze linhas
+para antes da lista, o que ate le melhor.
+
+**A PINCA DO 740/748 ESTA ABERTA AQUI**, e este e o unico canal da frota em que
+isso acontece: a `janela_dos_dois_mundos` pede **34 a 36** caracteres por cena
+com oito cenas, e a peca saiu com media **34,5** — edge **24,91** e piper
+**20,45**, os **DOIS** dentro da mira medida (20,0 a 26,0). Logo **nao ha
+exposicao de mundo a declarar**, e eu **NAO mirei o piso de proposito**: com o
+piso executavel (25) o piper cairia abaixo de 20,0.
+
+**E O `numerais_falados` DERRUBOU UMA AFIRMACAO DA MINHA COPY ANTES DE PUBLICAR,
+pela terceira vez nesta sessao:** eu declarei que o unico numeral falado era
+*"doze"* e ele achou *"dois"* na cena 6. Os dois sao estrutura do argumento —
+doze meses do ano, dois casos que o padrao separa — e a copy passou a declarar os
+DOIS, **com a versao errada registrada nela**.
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica` pela VIGESIMA
+QUINTA rodada seguida** — medido pela `sonda_e_modo`, com os TRES controles no
+MESMO caminho. A peca esta PARQUEADA (duracao em **126** linhas, **54** sem
+leitura; som em **66**) e `RESIDUO_N` segue **128**.
+
+**COTA: VINTE E DOIS envios** na janela aberta as 07:00Z, **35.200** unidades,
+contra o piso MEDIDO de **>= 41.600**.
