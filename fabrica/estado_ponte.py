@@ -152,19 +152,44 @@ def adiciona(caminho_spec: str, caminho_corpus: str = CORPUS) -> list[str]:
     return entrou
 
 
+def b64(caminho: str = CORPUS) -> str:
+    """O estado da ponte em base64, pronto para o input `estado_b64`.
+
+    POR QUE ELE E FUNCAO E NAO VIVE SO NO `main`: ate 22/10 as 23:5x a
+    codificacao morava dentro do `main`, logo quem precisava do valor em
+    Python — o `despacho_da_rodada`, que monta o input do `retomar.yml` —
+    tinha de reescrever o `b64encode`, e isso criaria o SEGUNDO dono da
+    codificacao. E o `estado_b64` montado a mao ja matou tres runs (718,
+    729, e o `2>&1` de 13/10 as 15:1x, que colou a nota legivel no fim do
+    payload). Aqui ele tem UM dono, e o `main` passou a chama-lo.
+
+    E ele RECUSA em vez de devolver payload invalido: o `confere` cobra o
+    `titulos_no_ar_n` contra o tamanho da lista, e lista truncada LEVANTA —
+    e exatamente isso que o runner recusa do outro lado.
+    """
+    est = monta(caminho)
+    ruins = confere(est)
+    if ruins:
+        raise ValueError(
+            "estado invalido, e ele NAO vai como payload: %s" % "; ".join(ruins))
+    return base64.b64encode(
+        json.dumps(est, ensure_ascii=False).encode()).decode()
+
+
 def main() -> int:
     if len(sys.argv) > 2 and sys.argv[1] == "adiciona":
         entrou = adiciona(sys.argv[2])
         print(f"entraram no corpus: {entrou or 'nada (ja estavam)'}",
               file=sys.stderr)
         return 0
-    est = monta(sys.argv[1] if len(sys.argv) > 1 else CORPUS)
+    caminho = sys.argv[1] if len(sys.argv) > 1 else CORPUS
+    est = monta(caminho)
     ruins = confere(est)
     if ruins:
         for r in ruins:
             print(f"::error::estado invalido: {r}", file=sys.stderr)
         return 2
-    b = base64.b64encode(json.dumps(est, ensure_ascii=False).encode()).decode()
+    b = b64(caminho)
     print(b)
     print(f"estado: {est['titulos_no_ar_n']} titulos | {len(b)} chars b64",
           file=sys.stderr)

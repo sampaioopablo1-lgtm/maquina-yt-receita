@@ -12249,3 +12249,194 @@ QUINTA rodada seguida:** 84,82 h, piso de resolucao **0,28/dia**, os tres SIM.
 
 **COTA: DEZESSEIS envios** na janela aberta as 07:00Z, **25.600** unidades,
 contra o piso MEDIDO de **>= 41.600**.
+
+## EU DIGITEI `publicar=true` E O PORTAO DO TOKEN MATOU O RENDER
+
+**Medido em 22/10 as 23:5x, e o erro aconteceu nesta rodada.** A rota de
+producao sao DUAS chamadas — o `frota.yml` RENDERIZA e o `retomar.yml` PUBLICA
+do artefato daquele run — e eu as digito a cada rodada. Com elas eu digito a
+unica coisa que nao e obvia: **o `publicar` do `frota.yml` tem de ir FALSE**.
+Nesta rodada eu passei `true`.
+
+**O passo `Conferir token do canal` REPROVOU e o render inteiro foi pulado** (run
+`39874112465`, passo 10 de 17 em `failure`, e os passos 11 a 16 `skipped`). Medido
+na API, nos 30 dispatches anteriores do `frota.yml`:
+
+| | |
+|---|---|
+| passo do token **SKIPPED** | **28 de 28** que rodaram |
+| passo **RODOU** | **1** — esta rodada |
+| e nela ele | **REPROVOU** |
+| default do input `publicar` no `frota.yml` | **true** |
+
+**Logo a rota em uso e a NAO-padrao, e ela vivia na minha memoria.**
+
+### E O PORTAO QUE ME REPROVOU LE O SEGREDO QUE A PUBLICACAO NAO USA
+
+A `sonda-oauth` (run `39874361957`) mediu a divergencia, e ela e por ESCOPO:
+
+| escopo | existe em | NAO existe em |
+|---|---|---|
+| `force-ssl` | **YT_OAUTH_JSON** | YT_TOKEN_JSON |
+| `analytics` | YT_TOKEN_JSON | YT_OAUTH_JSON |
+
+O `confere_token.py` dentro do `frota.yml` le **YT_TOKEN_JSON**; quem PUBLICA
+nas rodadas — o `retomar.yml` — le **YT_OAUTH_JSON**, e a sonda diz que ali o
+refresh dos **tres** canais esta vivo com `upload` e `force-ssl`. Logo o portao
+reprova, com o segredo A, um canal que a rota em uso publica com o segredo B —
+e foi exatamente o que aconteceu: redespachado com `publicar=false`, o render
+passou e o `retomar.yml` publicou.
+
+**E O CONSERTO NAO TROCA QUAL SEGREDO O PORTAO LE, de proposito:** dentro do
+`frota.yml` o portao e o passo de publicar leem o MESMO segredo, logo **ali ele
+nao mente** — e o comentario do proprio passo cobra isso em letra (*"portao mais
+severo que o passo que ele guarda e portao que mente"*). Trocar o segredo do
+portao faria ele discordar do passo que ele guarda, e reconciliar os dois
+segredos e **colagem do DONO** (pendencia 3 da rotina). O que entrou nao deixa a
+rodada cair nesse ramo por digitacao.
+
+**`fabrica/despacho_da_rodada.py`** monta e VALIDA os dois payloads e imprime os
+dois comandos prontos. **Ele NAO dispara nada e nao toca a rede**, de proposito:
+se custasse requisicao, ninguem o chamaria antes de cada despacho. `publicar=True`
+**LEVANTA** com o motivo medido, do jeito que o `porta1` recusa janela curta, e
+spec que nao esta no disco tambem — o runner faz `checkout`, logo despachar antes
+de comitar renderiza NADA e a anotacao que volta e `No files were found`, **a
+MESMA** que o `KeyError: 'longo'` de 18/10 as 08:1x produziu, logo ela nao
+distingue as duas causas.
+
+**E as duas formas que ja mataram run vao cobradas:** `pacotes` e lista de
+**OBJETOS** (o run `38476203962` morreu com `matrix.pacote` vazio e zero anotacao
+util porque eu mandei uma lista de strings — 738), e o `estado_b64` sai do DONO.
+
+### E O `estado_b64` NAO TINHA DONO — a codificacao morava no `main`
+
+O `estado_ponte` tinha `monta` e `confere` como funcoes e o `b64encode` **dentro
+do `main`**, logo quem precisava do valor em Python teria de reescrever a
+codificacao — o segundo dono da mesma regra, a assinatura que congelou a legenda.
+E **`estado_b64` montado a mao ja matou tres runs** (718, 729, e o `2>&1` de
+13/10 as 15:1x, que colou a nota legivel no fim do payload). Agora e
+`estado_ponte.b64()`, o `main` o CHAMA, e ele **RECUSA** estado invalido em vez de
+devolver payload que o runner rejeita do outro lado.
+
+`tests/test_o_despacho_da_rodada_morava_na_minha_memoria.py`, dezessete testes: a
+peca de prova e **DERIVADA** do disco (nomear um pacote seria identidade onde ha
+propriedade — 743/753/761) e **reprova com menos de cinco specs**, o ramo medido e
+cobrado com o motivo (`YT_TOKEN_JSON`, `YT_OAUTH_JSON` e `force-ssl` na mensagem),
+a medida dos 28 e **LIDA da constante** e proibida como literal dentro da propria
+frase (753), a frase tem **UM dono** e sai nos **DOIS** ramos do relato, a
+delegacao do canal e por **AST** (`split`/`rsplit` no corpo reprovam), o
+`access_token` e proibido no payload do `retomar` (a trava de nao mandar token
+OAuth por input), o `b64` e cobrado como **UNICO** dono no `estado_ponte` **e** o
+`main` tem de o chamar, a recusa dele vai nos **dois** sentidos, a ausencia de
+rede e cobrada por **AST**, e um **REPRODUZ o despacho desta rodada**.
+**Contraprova nos dois sentidos:** ligado `publicar=True`, **quatro dos
+dezessete** falham; remontado o b64 aqui, **um** falha.
+
+**A REGRA QUE FICA: a rota do despacho sai do `despacho_da_rodada`, nunca de um
+`gh api` escrito na hora** — e o input que a rodada mais precisa acertar e
+justamente aquele cujo DEFAULT esta errado para ela.
+
+### A PECA DESSA RODADA — SEIS cenas, e a PAUTA DESVIOU da regra escrita
+
+`labtreinamento-s112` = **`6J6co4jeo6A`** (*A conta completa que não compara*),
+publicado as **23:53:47Z** (run `39874711179`), **sem `403 quota`**. **ONZE
+PORTOES VERDES** — e ela foi **CONFERIDA COMO RASCUNHO** antes de existir no
+disco, e a passada pegou os **DOIS** defeitos: a previsao saiu em **26.10**, isto
+e **0,10 ACIMA do teto da mira**, e o esqueleto que eu montei **JA EXISTIA**.
+Provedor **edge MEDIDO** pelo `anotacoes_do_run` (zero avisos `NARRACAO PELO
+PIPER` no job `120156632040`, que e o job que emitiu o SOM). Som **-14,1** LUFS,
+LRA 1,8, pico **-3,5** dBTP com `pico_vs_teto: dentro`, desvio -0,1, **zero
+silencios**, parqueado pelo `som_parqueado` (parque em **86** linhas, zero sem
+`run`).
+
+**CANAL do `passo_zero`** (8/8/8, empate nos TRES desempatado pelo que esta ha
+mais tempo sem publicar).
+
+**E A PAUTA DESVIOU DA REGRA ESCRITA, com o vao MEDIDO pelo instrumento de
+18:0x:** a reserva CRUA escolhia `POBNoY16wG8` (40 livres, so **13** sem
+declaracao de irmao) e a reserva SEM DECLARACAO escolhe `Sr6VhvD_aPE`
+(`labtreinamento-012`, 39 livres, **28** sem declaracao) — **vao de 15 capitulos,
+54%** do maior, perto dos 62% em que a rodada de 17:3x desviou e longe dos 3% em
+que a de 18:0x seguiu a regra. E o motivo substantivo vai dito: os **SEIS** irmaos
+da origem descartada declaram faixas que cobrem quase todo o denominador (`s086`
+0 a 23, `s087` 0 a 47, `s088` 0 a 55), que e onde o risco da regra (f) e maior.
+
+**FAMILIA: ACRESCENTAR ESTIMATIVA PARA A CONTA FICAR "COMPLETA" — E COM ISSO ELA
+DEIXAR DE SER CONFERIVEL** (capitulos 46, 47 e 50, com o 53 como contraste). O
+eixo e a **REPRODUTIBILIDADE** da regra, nao o valor de nenhum item: somar a
+cotacao um valor que nao esta escrito em papel nenhum (qualidade do instrutor,
+risco de certificado, hora da chefia) nao custa o erro de grandeza — custa que
+**duas pessoas com os mesmos orcamentos passam a chegar a numeros diferentes**, e
+a comparacao com a propria conta anterior se quebra. O capitulo 46 diz isso em
+letra: os itens ficam fora *"para a conta continuar conferivel"*.
+
+**E a fronteira que a peca carrega e ESCRITO contra ESTIMADO**, nao dentro contra
+fora — e e ela que distingue esta familia da do irmao `labtreinamento-s006`, que
+manda **SOMAR** as horas fora do posto antes de dividir: aquelas estao escritas na
+folha de vencimentos do proprio espectador, logo entram; a qualidade do instrutor
+nao esta escrita em lugar nenhum, logo fica fora. **As duas regras nao se
+contradizem, e e a fronteira que as separa.** Os seis irmaos foram lidos pelo
+`irmaos_da_origem` e — nos **dois** sem o campo (`s006` e `s073`) — pela PROSA e
+pela NARRACAO de cada um, que e de primeira mao; o `s073` e o vizinho mais proximo
+e a distincao e fina: ele e dado que **FALTA** no papel e manda perguntar, esta e
+dado que nao existe em papel nenhum e que voce preenche com estimativa.
+
+**E A DISTINCAO CONTRA A PECA DESTE MESMO CANAL DE HOJE VAI ESCRITA, porque o
+`similaridade` nao a pegaria** (ele compara TITULO): no `labtreinamento-s111`
+(20:34Z) o numero da conta e lido como VEREDITO quando ele e preco — o defeito
+esta no **USO** do resultado; aqui esta na **ENTRADA** da conta, antes de haver
+resultado.
+
+**SEIS CENAS pela chave `por_cadencia_servivel`:** sete e a melhor cadencia e
+**REPETE** a `s110`, oito repete a `s111`, e **9, 10 e 11** sairam **NOMEADAS**
+porque ali o PISO da faixa nao e alcancavel com texto legivel.
+
+**E O ESQUELETO SAIU DO `sugere_forma`, nao do olho:** a primeira forma que eu
+montei (`titulo-barras-item-lista-titulo-cta`) **JA EXISTIA**, e quem acusou foi o
+`esqueleto_entre_canais`. A publicada — `titulo-barras-item-titulo-lista-cta` — e
+**INEDITA nas 188 formas** da frota, com **22 de 24** ordens livres nesta mistura,
+e ela ate le melhor: a distincao (hora escrita contra qualidade) vem antes da
+lista que a formaliza. Todo layout saiu do conjunto **SONDADO**, com `assert` no
+construtor, e as **GUARDAS DO CONSTRUTOR** rodaram dentro dele — seis limpas.
+
+**A PINCA DO 740/748 ESTA ABERTA AQUI**, e este e o unico canal da frota em que
+isso acontece: a `janela_dos_dois_mundos` pede **51 a 55** caracteres por cena em
+6 cenas e a peca saiu com media **51,5** — edge **25,49** e piper **20,9**, os
+**DOIS** dentro da mira medida (20,0 a 26,0). Logo **nao ha exposicao de mundo a
+declarar**, e eu **NAO mirei o piso de proposito**: o piso executavel (39) e de UM
+mundo e a propria `mira.confere` o reprova, porque com 39 o piper cai abaixo de
+20,0 — a conta que eu fiz de cabeca no `s102`. **E o REAL nao esta prometido para
+lado nenhum** (774).
+
+**E A CENA DO CTA TEM DUAS FRASES, e isso custa 0,77 s que o orcamento nao
+supoe:** o termo `P` do `MODELO_VOZ` e silencio por **FRASE** e nao por cena
+(11/10) — com os mesmos caracteres em uma frase por cena a previsao seria 24,72 s.
+Quem nomeou isso foi o relato, nao a minha conta.
+
+**ZERO numero novo sobre o mundo.** O unico numeral falado e **"dois"**, estrutura
+do argumento, conferido pelo `numerais_falados` — e a recusa inclui o exemplo
+numerico que daria a peca mais facil: os valores das cotacoes A e B dos capitulos
+33 a 38 ficam fora pelo caso especial da regra (g), porque **o capitulo 31 da
+PROPRIA origem declara que "eles sao inventados por mim"**. As barras da cena 1
+sao ILUSTRACAO e **nao** sao faladas — elas desenham "completa" e "conferivel" com
+a MESMA altura, que e o argumento inteiro.
+
+**E AS LINHAS MEDIDAS DA COPY FORAM GERADAS E COLADAS** pelo
+`linhas_medidas_da_copy`, quarta rodada seguida.
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica` pela QUADRAGESIMA
+QUINTA rodada seguida** — medido pela `sonda_e_modo`, com os TRES controles no
+MESMO caminho de saida: o `touch` passou, os DOIS hosts voltaram **000 sem
+arquivo**, e o proxy nomeou `example.com` e `www.youtube.com` depois de
+23:40:43Z. A peca esta PARQUEADA com o provedor MEDIDO e o job **lido da API**, e
+a presenca foi conferida **RELENDO** o parque (**146** linhas, **74** sem
+leitura). `RESIDUO_N` segue **128**.
+
+**E A LEITURA DE INSCRITOS PASSOU AS TRES PORTAS E NAO FOI FEITA, pela VIGESIMA
+SEXTA rodada seguida:** 85,54 h, piso de resolucao **0,28/dia**, os tres SIM. **O
+que a impede e a ROTA, e o remedio e do DONO** — a tela de Network access.
+
+**COTA: DEZESSETE envios** na janela aberta as 07:00Z, **27.200** unidades, contra
+o piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
+hora. **E o run que morreu no portao NAO gastou cota**, porque ele nunca chegou ao
+`videos.insert`.
