@@ -1,0 +1,76 @@
+{
+ "slug": "labtreinamento-s106",
+ "pacote": "labtreinamento-s106",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "longo_existente": "XgqPVJuAk3o",
+ "thumb": {
+  "l1": "A fonte",
+  "l2": "queima"
+ },
+ "paleta": {
+  "bg": "#0E1117",
+  "ink": "#EEF1F5",
+  "c1": "#3DDBD9",
+  "c2": "#1E2430",
+  "red": "#FF5A5F",
+  "ok": "#3CCB7F",
+  "panel": "#161B24",
+  "mut": "#8B95A5",
+  "acc": "#3DDBD9"
+ },
+ "copy": "# labtreinamento-s106\n\n## TITULO\nA coluna da fonte no inventário de riscos psicossociais: por que ela queima\n\n## TITULO SHORT\nA fonte é um instrumento\n\n## DESCRICAO\nA coluna que pergunta de onde veio o número é tratada como se fosse mais um campo de texto. Ela não é. Ela guarda um INSTRUMENTO, e instrumento quebra — a diferença é que o seu quebra de uma vez e sem aviso.\n\nA primeira metade da regra é sobre QUEM a fonte descreve. Pesquisa anônima, escuta por grupo, absenteísmo, registro de horas extras, canal de denúncia, ata da comissão interna: nenhuma delas é individual. Todas descrevem GRUPO. É exatamente isso que mantém o inventário útil sem que ele vire prontuário de ninguém — e é a diferença entre um documento que descreve condições de trabalho e uma pasta com informação de saúde de pessoa identificada.\n\nA segunda metade é o que ninguém conta: a pesquisa anônima só produz dado verdadeiro enquanto for anônima DE VERDADE. Basta uma vez identificar quem respondeu para ela nunca mais servir. Não é uma coleta perdida — é o instrumento perdido, e ele não volta pedindo desculpa. Quem respondeu uma vez identificado responde diferente para sempre.\n\nE a terceira parte é a mais barata de fazer e a mais esquecida: guarde a DATA da coleta junto da fonte. Daqui a um ano ninguém lembra se aquele número veio de março ou de novembro — e sem a data você não consegue repetir a mesma medida para comparar. Fonte sem data é número que não se verifica.\n\nO teste que você faz hoje leva dois minutos: abra a sua planilha, vá na coluna que diz de onde veio o número, e para cada linha pergunte três coisas. Ela descreve grupo? Ela tem data? Eu conseguiria repetir essa coleta do mesmo jeito no ano que vem? Se alguma resposta for não, essa linha ainda não tem fonte.\n\nO inventário completo, coluna por coluna, com o plano de ação e a verificação, está no vídeo inteiro do canal.\n\n## COMENTARIO FIXADO\nFaça o teste e escreva aqui: na sua planilha, a coluna da fonte descreve grupo ou tem nome de pessoa? Sem citar nomes.\n\n## HASHTAGS\n#riscospsicossociais #segurancadotrabalho #gestaodepessoas #inventarioderiscos #LabTreinamento\n\n## TAGS\nriscos psicossociais, inventário de riscos, fonte de evidência, pesquisa anônima, segurança do trabalho, gestão de pessoas, planilha, treinamento\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ncategoryId: 26\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\nmadeForKids: false\nselfDeclaredMadeForKids: false\n\n## MUSICA / LICENCA\nInspired — Kevin MacLeod (incompetech.com), Creative Commons BY 3.0.\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao, e a conferencia foi do\n`numerais_falados` e nao do meu olho. Os unicos numerais falados sao **`uma`**\n(artigo, que o instrumento deixa de fora de proposito) e **`uma vez`**, que e a\ncontagem do PROPRIO argumento — uma identificacao basta.\n\nE O NUMERO QUE EU IA FALAR FICOU FORA, de proposito: a origem chama essa coluna\nde **\"a quinta\"**, e a contagem de colunas e exatamente o que a regra (g) tira —\no proprio `labtreinamento-s033`, irmao desta origem, declarou \"CINCO colunas\"\ndescartado pelo aprendizado 725, porque contagem de coluna muda por revisao de\nnorma. A peca diz **\"a coluna da fonte\"**, que e o que ela E e nao onde ela\nesta.\n\nTAMBEM FORA pela regra (g): o numero e o item da norma, a data de vigencia, o\nprazo em dias, a escala das notas e as faixas de corte do nivel. E a regra 609\ntira as SIGLAS — a origem nomeia um documento por sigla e ela nao entra nem no\ntitulo nem na narracao.\n\nAS BARRAS SAO ILUSTRACAO QUALITATIVA E NAO SAO FALADAS. A cena 2 (100 contra 0)\nmostra que a fonte descreve GRUPO e nao pessoa — os dois valores sao a FORMA do\nargumento e nao medida de coisa nenhuma. Esta linha existe para a rodada\nseguinte NAO os ler de volta como dado. A lista da cena 4 e a regra em tres\ntermos, nao uma contagem.\n\nO QUE O VIDEO AFIRMA: que a coluna da fonte responde \"como voce soube disso\";\nque as fontes que valem descrevem grupo e nao individuo, e e isso que impede o\ninventario de virar prontuario; que a pesquisa anonima so produz dado verdadeiro\nenquanto for anonima de verdade, e uma identificacao a encerra; e que a data da\ncoleta vai junto da fonte, porque sem ela nao se repete a medida. Isso esta no\nlongo `labtreinamento-002` (`XgqPVJuAk3o`), capitulos 32, 34, 35 e 36, com as\nfontes dele.\n\n## FAMILIA DE ENTRADA ERRADA\nA FONTE E UM INSTRUMENTO, E ELE QUEIMA DE UMA VEZ — capitulos 32, 34, 35 e 36,\ncom o 35 no centro.\n\nO eixo e a **DURABILIDADE da fonte**, e a entrada errada nao esta em celula\nnenhuma: esta em tratar a coluna da evidencia como campo de TEXTO, quando ela\nguarda um instrumento que pode ser destruido. **E o inventario nao reclama** — a\nlinha fica preenchida, o documento fica com cara de defensavel, e o que se\nperdeu nao aparece ali: aparece na coleta seguinte, que ja nao produz dado\nverdadeiro.\n\nE O ERRO TEM DOIS LADOS QUE SE PARECEM E NAO SAO O MESMO: escrever fonte\nINDIVIDUAL (o relato de uma pessoa, o atestado de alguem) transforma o\ninventario em prontuario — e isso se corrige reescrevendo a linha; **identificar\nquem respondeu a pesquisa anonima NAO se corrige**, porque o instrumento nao\nvolta. O primeiro e um erro de redacao, o segundo e irreversivel, e e por isso\nque o segundo e o centro desta peca.\n\nDISTINCAO DOS SEIS IRMAOS desta origem, conferida pelo `irmaos_da_origem` e pela\nNARRACAO de cada um (TRES deles — `s011`, `s046` e `s083` — nao tem este campo,\nlogo a comparacao foi pela PROSA e pela fala, que e de primeira mao):\n- `s011` — a FAIXA DE CORTE que separa alto de medio e escolha da empresa, nao\n  da norma;\n- `s033` — o OBJETO da avaliacao e o trabalho e nao o trabalhador;\n- `s038` e `s046` — CONCLUSAO no lugar da SITUACAO: \"estresse elevado\" onde a\n  coluna pede verbo e frequencia;\n- `s083` — soma empata e PRODUTO separa, na aritmetica do nivel;\n- `s096` — a medida INDIVIDUAL escrita em primeiro lugar na coluna da medida.\n\n**E O MAIS PROXIMO E O `s033`, com a distincao dita porque as duas frases tem a\npalavra \"pessoa\" dentro:** ele fala do que se AVALIA — o trabalho, nao o\ntrabalhador —, e vive na coluna da SITUACAO; esta fala de onde o numero VEIO, e\nvive na coluna da FONTE. **E a prova de que sao dois eixos e um caso que existe:**\numa fonte individual pode descrever perfeitamente um risco COLETIVO, isto e,\npassar pelo criterio do `s033` e reprovar neste. O inverso tambem — situacao bem\nescrita com fonte queimada.\n\nE o `s096` fala de COLUNA DA MEDIDA (o que se faz), nao da coluna da EVIDENCIA\n(de onde se soube). Nenhum dos seis toca os capitulos 32, 34, 35 ou 36.\n\n## RESERVA\nO QUE EU NAO LEVEI, de proposito, e vai escrito para a proxima rodada achar:\n- os capitulos **61 e 62** (a VERIFICACAO da eficacia: a ultima coluna, que\n  pergunta se a medida funcionou, com que evidencia e em que data) seguem\n  **LIVRES**, e eram a outra metade da reserva que o `labtreinamento-s033`\n  deixou escrita. **E vai com um aviso:** o `labtreinamento-s102`, de OUTRA\n  origem (`KRUERlNPzDw`), carrega *\"a evidencia escrita depois e o que ja\n  existia\"* e o `s084` cita a verificacao de eficacia na linha de fechamento —\n  logo quem for a 61 e 62 **leia a copy dos dois primeiro** e escolha um eixo\n  que nao seja o REGISTRO nem a DATA do prazo. O que sobra livre ali, e e forte,\n  e o capitulo 62: **verificar com a MESMA fonte que gerou o achado**;\n- o capitulo **36** entrou nesta peca **so pela metade**: a DATA da coleta esta\n  na cena 4 como termo da regra, e o motivo dela — *\"daqui a um ano ninguem\n  lembra se aquele numero veio de marco ou de novembro\"* — nao foi dito. Ele\n  nao e familia propria, e cabe como apoio de quem for a 61 e 62;\n- os capitulos **58 a 60** (responsavel e um NOME e nunca uma area; prazo e uma\n  DATA e nao \"continuo\"; e a coluna que compara o prazo com HOJE) seguem livres\n  e sao familia INTEIRA, de QUEM e QUANDO. Nao caiu hoje pela regra (f);\n- e a reserva do `s033` fica **PARCIALMENTE FECHADA** por esta peca: ele nomeou\n  \"as FONTES que valem como evidencia (capitulos 33 a 36)\" e \"a verificacao da\n  eficacia (61 a 62)\", e esta peca leva a PRIMEIRA. A segunda segue de pe.\n\n## EXPOSICAO\nA PINCA DO 740/748 ESTA ABERTA AQUI, e este e o UNICO canal da frota em que isso\nacontece: a mira medida dele tem 6,0 s de largura (20,0 a 26,0) contra 1,5 s do\n`ALVO_SHORT` da frota, logo existe media por cena que poe os DOIS provedores\ndentro dela. O `mira.janela_dos_dois_mundos` devolve **51 a 55** caracteres por\ncena com seis cenas, e a peca foi escrita dentro dessa janela — **logo nao ha\nexposicao de mundo a declarar.**\n\n**E EU NAO MIREI O PISO, de proposito e com a conta na mao:** o piso executavel\ncom seis cenas e de **39** caracteres por cena, e ele e de UM mundo so — com 39\no piper cai abaixo do piso de 20,0 s, isto e, a propria `mira.confere` reprovaria\no conselho. A regra de redacao do 772 nao se aplica a esta contagem, e quem diz\nisso e a linha do PISO do relato, que desde 21/10 as 18:3x declara de quantos\nmundos ele e.\n\n**E O INSTRUMENTO NOMEOU UMA CENA DE DUAS FRASES, e ela fica:** a cena 3\n(*\"Identificou alguem uma vez? Ela nunca mais serve.\"*) paga **2P**, porque o\ntermo `P` do `MODELO_VOZ` e silencio por FRASE e nao por cena (11/10) — custa\n**0,77 s** a mais do que o orcamento de uma frase por cena supoe. Ela fica\nporque a pergunta e a resposta juntas SAO o argumento da irreversibilidade, e a\nprevisao de 25,37 s ja a contem: o aviso e para o numero nao ser lido como se\nfosse de uma frase por cena.\n\n**E O REAL NAO ESTA PROMETIDO PARA LADO NENHUM:** 41 das 46 pecas deste canal\nnarradas pelo edge sairam FORA do teto de 26,0 com o `mira.py` verde nos dois\nmundos, e a banda do residuo tem 5,2 s de largura contra 1 s de granularidade.\nDeclarar de que lado dela o real cai nao e previsao (774).\n",
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "A coluna da fonte",
+   "sub": "um instrumento",
+   "nar": "A coluna da fonte guarda um instrumento, não dado."
+  },
+  {
+   "layout": "item",
+   "kicker": "A pergunta",
+   "sub": "como você soube disso?",
+   "nar": "Ela responde uma pergunta só: como você soube disso?"
+  },
+  {
+   "layout": "barras",
+   "kicker": "Quem ela descreve",
+   "barras": [
+    {
+     "rotulo": "Grupo",
+     "valor": 100
+    },
+    {
+     "rotulo": "Pessoa",
+     "valor": 0
+    }
+   ],
+   "nar": "Toda fonte que vale descreve o grupo, nunca a pessoa."
+  },
+  {
+   "layout": "item",
+   "kicker": "E ela queima",
+   "sub": "uma vez basta",
+   "nar": "Identificou alguém uma vez? Ela nunca mais serve."
+  },
+  {
+   "layout": "lista",
+   "kicker": "O que a fonte precisa",
+   "itens": [
+    "Descrever grupo",
+    "Levar a data",
+    "Poder repetir"
+   ],
+   "nar": "Sem a data da coleta você não repete a mesma medida."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Confira hoje",
+   "sub": "a coluna da fonte",
+   "nar": "Abra a sua planilha e leia a coluna da fonte agora."
+  }
+ ]
+}
