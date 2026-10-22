@@ -12150,3 +12150,102 @@ original.
 linha de base desta sessao.** A passada que ACUSOU deu 28 (3.935 passam, 1.206
 skip, 2.035 s), com o `comm` nomeando exatamente as tres como novas e **zero
 desaparecidas** — logo as tres eram minhas e nenhuma outra se mexeu.
+
+## A REGRA DO BALDE QUE EU ESCREVI AS 21:5x ESTAVA INCOMPLETA — e quem me pegou foi o PORTAO
+
+**Medido em 22/10 as 22:5x, uma hora depois de eu escrever a regra.** Ela dizia
+*"ponha `## COMENTARIO FIXADO` como a PRIMEIRA secao que nao casa com licenca,
+capitulos, hashtags nem tags"* — e eu a segui ao pe da letra na peca desta
+rodada, pondo a secao **antes da DESCRICAO**.
+
+**O portao `copy` reprovou com `descricao com 42 palavras (minimo 200)`.** A
+causa esta em letra no `publicar.ler_copy`: **`titulo = secoes[0]` e
+`descricao = secoes[1]` saem da POSICAO, nao do cabecalho.** Logo secao posta
+antes da descricao **VIRA** a descricao, e a descricao de verdade cai no balde.
+
+**A regra certa, e ela e mais estreita: DEPOIS da descricao e ANTES de qualquer
+outra secao nao casada.** A peca da rodada anterior (`kolejny-poziom-s096`) ja
+estava assim por acidente — eu a pus antes de `## FONTES`, que e depois da
+descricao —, e por isso saiu limpa.
+
+**E a retratacao foi para DENTRO do instrumento que eu escrevi as 21:5x**, no
+`motivo` que ele imprime: ele mandava fazer o que quebra a descricao. Agora ele
+diz a posicao **e o motivo** (que o titulo e a descricao saem da posicao), que e
+o que impede a rodada seguinte de repetir.
+
+`tests/test_a_declaracao_de_capitulo_era_lida_numa_FORMA_so.py` foi a **quinze**
+testes: um prova a POSICIONALIDADE chamando o DONO (`publicar.ler_copy`) com a
+secao antes e depois da descricao — **nos dois sentidos**, porque so o par mostra
+que a ordem decide — e um cobra que o `motivo` do instrumento carregue a regra
+CORRIGIDA e o porque dela.
+
+**O que isto NAO muda:** o defeito do balde segue **LATENTE** (o comentario e
+parseado e nunca postado), e as 17 copies do acervo seguem como estao.
+
+### A PECA DESSA RODADA — DOZE cenas, e o PORTAO pegou a regra errada
+
+`epomeno-epipedo-s097` = **`K82Z_87z5YY`** (*Δύο νούμερα, όχι ένα*), publicado
+as **22:56:36Z** (run `39868454501`), **sem `403 quota`**. **ONZE PORTOES
+VERDES** depois da correcao da ordem, e a peca foi **CONFERIDA COMO RASCUNHO**
+antes de existir no disco, com as **guardas do construtor** rodando dentro do
+construtor. Provedor **edge MEDIDO** (zero avisos `NARRACAO PELO PIPER` no job
+`120135707471`, o que emitiu o SOM). Som **-14,4** LUFS, pico **-1,9** dBTP com
+`pico_vs_teto: dentro`, **zero silencios**, parqueado pelo `som_parqueado`
+(parque em **85** linhas, zero sem `run`). Os dois workflows foram esperados
+pelo `--termino`, terceira rodada seguida.
+
+**CANAL do `passo_zero`** (8/7/9, **sem empate**). **PAUTA:** `opFSah50OWo`
+(`epomeno-epipedo-013`, 66 capitulos), 4 usos — empate de QUATRO origens
+desempatado pela reserva, **54 livres e 48 sem declaracao**, e as duas leituras
+do desempate **CONCORDAM** aqui. A dominante `nttW9fR8wyY` ficou de fora.
+
+**FAMILIA: UM QUOCIENTE TOMADO COMO A RESPOSTA INTEIRA, QUANDO UMA PARTE DELE
+PEDE OUTRO DIVISOR** (capitulos 63 e 64, com o 2 e o 52 de apoio) — o custo por
+quilometro esta certo e e so metade: dentro do que foi somado ha uma parcela que
+**nao e funcao dos quilometros** (seguro e taxas pagam-se iguais com o carro
+parado), logo dividi-la por quilometros responde a uma pergunta a que ela nao
+pertence. **O divisor dela e o TEMPO.** E o erro e silencioso porque a divisao
+funciona nos dois casos, e **engana nos DOIS sentidos**: em ano de poucos
+quilometros o valor por quilometro incha, em ano de muitos esvazia, e a parcela
+fixa nunca mudou.
+
+**Os QUATRO irmaos:** a JANELA de doze meses (`s003`), a parcela AUSENTE sem
+comprovante (`s030`), a INTERPRETACAO do quilometro caro (`s056`) e a ESCALA no
+tempo (`s067`). **O vizinho mais proximo e o `s056` e a distincao vai dita:** ele
+guarda UM numero e explica por que ele sai alto; **esta diz que UM numero nao
+basta** e nomeia o segundo COM o divisor dele. **TRES deles nao tem o campo da
+familia**, logo a comparacao saiu da PROSA e da NARRACAO, de primeira mao.
+
+**E OS CAPITULOS 40, 43, 44 e 46 FICARAM FORA DE PROPOSITO:** sao exatamente
+onde o longo fala dos fixos e da disponibilidade — o caminho facil para esta
+peca — e estao **DECLARADOS** pelo `s030`.
+
+**CONTAGEM pela chave `por_cadencia_servivel`:** doze cenas, folga **+16**. O
+teto MEDIDO da voz (**15**), que e **INEDITO** na frota, saiu **NOMEADO** e
+recusado pela FOLGA. **E a forma saiu do `sugere_forma`** — 7.546 de 7.560
+ordens livres —, `titulo-item-titulo-lista-barras-barras-item-item-lista-item-item-cta`,
+**INEDITA nas 187 formas** da frota.
+
+**MIREI O PISO** (772): edge **41,60** — 0,10 acima dele — e piper **36,80**. A
+primeira versao saiu em **42,02** e o corte saiu do `mira.quanto_cortar`,
+**seguindo os SEGUNDOS e nao os caracteres**. A pinca do 740/748 esta FECHADA e
+a exposicao vai declarada; **o REAL nao esta prometido para lado nenhum** (774).
+
+**ZERO numero novo sobre o mundo**, e **o `dodeka` do capitulo 63 NAO e
+falado**: a narracao diz *"os meses do ano"*, porque o que importa e o divisor
+ser TEMPO e nao a contagem. As barras sao ILUSTRACAO e **nao sao faladas** — a
+cena 4 desenha o mesmo valor andando e parado (altura IGUAL, que e o argumento)
+e a cena 5 os dois divisores lado a lado, e **a altura menor dos quilometros NAO
+e proporcao medida**.
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica` pela
+QUADRAGESIMA QUARTA rodada seguida.** A peca esta PARQUEADA com o provedor
+MEDIDO e o job lido da API, com a presenca conferida **RELENDO** o parque
+(**145** linhas, **73** sem leitura). `RESIDUO_N` segue **128**.
+
+**E A LEITURA DE INSCRITOS PASSOU AS TRES PORTAS E NAO FOI FEITA, pela VIGESIMA
+QUINTA rodada seguida:** 84,82 h, piso de resolucao **0,28/dia**, os tres SIM.
+**O que a impede e a ROTA, e o remedio e do DONO** — a tela de Network access.
+
+**COTA: DEZESSEIS envios** na janela aberta as 07:00Z, **25.600** unidades,
+contra o piso MEDIDO de **>= 41.600**.

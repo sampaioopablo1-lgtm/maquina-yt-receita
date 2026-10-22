@@ -225,3 +225,57 @@ def test_a_secao_do_BALDE_sai_NOMEADA_nos_dois_ramos():
     assert "_linha_do_balde" in _tw.dedent(inspect.getsource(CS.relato)), (
         "o relato tem de CHAMAR a linha — calculado e descartado e a classe "
         "dos layouts mortos")
+
+
+def test_o_titulo_e_a_descricao_saem_da_POSICAO_nao_do_cabecalho():
+    """Medido em 22/10 as 22:5x, e e a CORRECAO da regra de 21:5x.
+
+    A regra dizia *"ponha a secao do comentario como a PRIMEIRA que nao casa"*,
+    e segui-la ao pe da letra poe a secao antes da descricao — que o
+    `publicar.ler_copy` le pela POSICAO (`secoes[1]`). O portao `copy` reprovou
+    com *"descricao com 42 palavras"*, e foi ele que me pegou.
+    """
+    import publicar
+    base = ("## TITULO\nT longo\n\n%s\n\n## HASHTAGS\n#a\n\n"
+            "## TAGS\na, b, c, d\n\n## MUSICA / LICENCA\n"
+            "Trilha X, Kevin MacLeod.\n")
+    corpo_desc = "## DESCRICAO\n" + ("palavra " * 210)
+    comentario = "## COMENTARIO FIXADO\nPergunta curta ao leitor."
+    sp = {"pacote": "x-001", "slug": "x-001", "idioma": "pt-BR",
+          "short": [{"layout": "titulo", "nar": "a"}], "longo": []}
+
+    # ANTES da descricao: a secao do comentario VIRA a descricao.
+    antes = base % (comentario + "\n\n" + corpo_desc)
+    cp = publicar.ler_copy(dict(sp, copy=antes), ".")
+    assert len(cp["descricao"].split()) < 20, (
+        "a secao posta antes da DESCRICAO tinha de virar a descricao — e isso "
+        "que torna a regra de 21:5x perigosa; saiu com %d palavras"
+        % len(cp["descricao"].split()))
+
+    # DEPOIS da descricao: tudo no lugar.
+    depois = base % (corpo_desc + "\n\n" + comentario)
+    cp2 = publicar.ler_copy(dict(sp, copy=depois), ".")
+    assert len(cp2["descricao"].split()) >= 200, (
+        "com a ordem certa a descricao tem de voltar inteira: %d palavras"
+        % len(cp2["descricao"].split()))
+    assert cp2["comentario"].startswith("Pergunta curta"), (
+        "e o balde tem de pegar a secao do comentario: %r" % cp2["comentario"])
+
+
+def test_a_regra_CORRIGIDA_esta_no_motivo_e_a_antiga_nao():
+    import copy_secoes as CS
+    sp = {"pacote": "x-001", "slug": "x-001", "idioma": "pt-BR",
+          "short": [{"layout": "titulo", "nar": "a"}], "longo": [],
+          "copy": ("## TITULO\nT\n\n## DESCRICAO\n" + ("palavra " * 210)
+                   + "\n\n## FONTES\nO longo.\n\n"
+                   "## COMENTARIO FIXADO\nPergunta.\n\n## HASHTAGS\n#a\n\n"
+                   "## TAGS\na, b, c, d\n\n## MUSICA / LICENCA\n"
+                   "Trilha X, Kevin MacLeod.\n")}
+    q = CS.secao_do_balde(sp, ".")
+    assert q["possivel"] and q["bate"] is False and q["balde"] == "FONTES"
+    motivo = q["motivo"] or ""
+    assert "DEPOIS da descricao" in motivo, (
+        "o motivo tem de mandar por a secao DEPOIS da descricao — a regra de "
+        "21:5x, ao pe da letra, quebrava a descricao")
+    assert "POSICAO" in motivo, (
+        "e tem de dizer POR QUE: o titulo e a descricao saem da posicao")

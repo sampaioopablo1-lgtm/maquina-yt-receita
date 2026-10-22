@@ -215,6 +215,15 @@ def secao_do_balde(spec: dict, workdir: str = ".") -> dict:
     saber qual delas o autor QUERIA. Quem le a passada ve `FONTES` no lugar de
     `COMENTARIO FIXADO` e corrige a ORDEM, que e redacao e nao formato.
 
+    **E A REGRA QUE EU ESCREVI AS 21:5x ESTAVA INCOMPLETA — corrigida as 22:5x,
+    e quem me pegou foi o PORTAO.** Ela dizia *"ponha a secao do comentario
+    como a PRIMEIRA que nao casa com as quatro"*, e seguir isso ao pe da letra
+    poe a secao antes da descricao. **O `titulo` e a `descricao` do
+    `publicar.ler_copy` saem da POSICAO — `secoes[0]` e `secoes[1]` —, nao do
+    cabecalho**, logo a secao do comentario virou a DESCRICAO e o portao `copy`
+    reprovou com *"descricao com 42 palavras (minimo 200)"*. A regra certa:
+    **DEPOIS da descricao e ANTES de qualquer outra nao casada.**
+
     **O TAMANHO VAI MEDIDO:** das 417 copies com secao de comentario fixado,
     o `ler_copy` consegue ler 90 (as outras tem placeholder de render), e
     nessas o balde pegou a secao ERRADA em **DEZESSETE**.
@@ -250,9 +259,13 @@ def secao_do_balde(spec: dict, workdir: str = ".") -> dict:
         "motivo": None if (venceu and declarado and venceu == declarado) else (
             "o balde PEGA-TUDO pegou %r e a secao do comentario declarada e "
             "%r — ele enche com a PRIMEIRA secao que nao casou com licenca, "
-            "capitulos, hashtags nem tags, logo a ORDEM decide. Ponha a secao "
-            "do comentario como a primeira dessas. Isto NAO vazou para fora: "
-            "o comentario e parseado e nunca postado" % (venceu, declarado)),
+            "capitulos, hashtags nem tags, logo a ORDEM decide. **Ponha a "
+            "secao do comentario DEPOIS da descricao e ANTES de qualquer outra "
+            "nao casada** — nao como a primeira secao da copy: o `titulo` e a "
+            "`descricao` saem da POSICAO (`secoes[0]` e `secoes[1]`), nao do "
+            "cabecalho, logo secao posta antes da descricao VIRA a descricao. "
+            "Isto NAO vazou para fora: o comentario e parseado e nunca postado"
+            % (venceu, declarado)),
     }
 
 
