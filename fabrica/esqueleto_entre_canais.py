@@ -575,6 +575,146 @@ def _linha_das_formas_usadas(cenas: int, pecas=None, exceto: str = "") -> str:
     return "\n".join(L)
 
 
+def misturas_do_tamanho(cenas: int, pecas: list[dict] = None,
+                        exceto: str = "", pontas: bool = True) -> dict:
+    """Quais MISTURAS de layout a frota usa num tamanho, e quanta ordem sobra.
+
+    **Medido em 22/10 as 19:3x, escrevendo o `epomeno-epipedo-s096`.** O
+    `formas_livres` responde *"quantas ordens DESTES layouts sobram"* — e
+    **recebe a mistura como argumento**. Logo a pergunta anterior, *"qual
+    mistura escolher"*, continuava sem dono: eu listava as formas usadas do
+    tamanho (`formas_usadas_do_tamanho`, de 22/10 as 16:3x) e compunha uma
+    mistura **no olho**, contando layouts com os dedos.
+
+    **E o passo no olho ja errou DUAS vezes, com custo medido:** em 21/10 as
+    23:2x e em 22/10 as 14:4x a primeira forma que eu compus **JA EXISTIA**, e
+    nas duas quem pegou foi uma segunda chamada ao `novidade`. **Nesta rodada
+    ele acertou por sorte** — a forma saiu inedita —, e isso vai dito em vez de
+    inflado: aqui o defeito era LATENTE.
+
+    **O TAMANHO VAI MEDIDO:** a frota usa **54** misturas distintas em treze
+    tamanhos de cena, e **NOVE delas estao ESGOTADAS** (toda ordem com aquelas
+    pontas ja foi usada). Nelas a novidade de FORMA e impossivel e tem de vir
+    de trocar a MISTURA — que e exatamente a pergunta que nao tinha dono.
+
+    **E a escolha no olho NAO converge com a medida.** Em treze cenas a frota
+    usa quatro misturas, com **41.579 / 13.859 / 13.848 / 3.959** ordens
+    livres; a que eu escolhi a mao nesta rodada foi a de **13.848**, isto e a
+    terceira. Acertar *"inedita"* nao e o mesmo que escolher onde ha espaco.
+
+    **A contagem e DELEGADA ao `formas_livres`** — recontar o multinomial aqui
+    criaria o segundo dono da conta, a assinatura que congelou a legenda —, e a
+    varredura ao `varre` com o filtro do `sem`.
+
+    **E tamanho que a frota nunca usou RECUSA em vez de inventar mistura**, do
+    jeito que o `porta1` recusa janela curta: sem peca naquele tamanho nao ha
+    de onde DERIVAR a mistura, e escolher uma seria limiar sem procedencia
+    (§10). O campo `usado` o diz em letra.
+    """
+    cenas = _CS.exige(cenas, "esqueleto_entre_canais.misturas_do_tamanho")
+    pecas = sem(varre() if pecas is None else pecas, exceto)
+    u = formas_usadas_do_tamanho(cenas, pecas=pecas)
+    vistas, ordem = {}, []
+    for f in u["formas"]:
+        lay = [x for x in f["esqueleto"].split(_separador()) if x]
+        chave = _mult(lay)
+        if chave not in vistas:
+            vistas[chave] = {"mult": chave, "layouts": lay,
+                             "n_pecas": 0, "formas": 0}
+            ordem.append(chave)
+        vistas[chave]["n_pecas"] += f["n"]
+        vistas[chave]["formas"] += 1
+    saida = []
+    for chave in ordem:
+        m = vistas[chave]
+        # A CONTA E DO `formas_livres`, dono dela desde 22/10 as 03:3x.
+        r = formas_livres(cenas, m["layouts"], pecas=pecas,
+                          pontas=pontas)
+        m = dict(m)
+        m["possiveis"] = r.get("possiveis", 0)
+        m["livres"] = r.get("livres", 0)
+        m["esgotado"] = bool(r.get("esgotado")) or not r.get("livres")
+        m["motivo"] = r.get("motivo")
+        saida.append(m)
+    saida.sort(key=lambda m: (-m["livres"], -m["n_pecas"], m["mult"]))
+    esg = [m for m in saida if m["esgotado"]]
+    return {
+        "cenas": cenas,
+        "usado": bool(saida),
+        "n_misturas": len(saida),
+        "misturas": saida,
+        "n_esgotadas": len(esg),
+        "esgotadas": esg,
+        "motivo": None if saida else (
+            "a frota nunca usou %d cenas, logo nao existe mistura de onde "
+            "DERIVAR a resposta — inventar uma seria limiar sem procedencia "
+            "(§10). Escolha a mistura a partir de um tamanho vizinho e conte "
+            "com o `formas_livres`." % cenas),
+    }
+
+
+def sugere_forma(cenas: int, pecas: list[dict] = None, exceto: str = "",
+                 pontas: bool = True, semente: int = 0) -> dict:
+    """Uma forma LIVRE no tamanho pedido, da mistura onde mais ordem sobra.
+
+    Fecha o passo que faltava: o `formas_livres` conta ordens de uma mistura
+    DADA, e esta escolhe a mistura — a maior de `livres` — e devolve um exemplo
+    que a frota nao usou. **Os exemplos sao do `formas_livres`** (sorteio com
+    semente fixa, para ser reproduzivel); aqui nao se monta assinatura nenhuma,
+    porque o dono dela e o `variedade.esqueleto`.
+
+    **E as ESGOTADAS saem NOMEADAS e nao filtradas**, pela disciplina do
+    `origens_sem_uso`: esconde-las faria a rodada seguinte perguntar por que a
+    lista encurtou, quando a resposta e que naquela mistura a novidade de forma
+    e impossivel.
+    """
+    q = misturas_do_tamanho(cenas, pecas=pecas, exceto=exceto, pontas=pontas)
+    vivas = [m for m in q["misturas"] if not m["esgotado"]]
+    if not vivas:
+        q["sugerida"] = None
+        q["mistura"] = None
+        q["motivo"] = q.get("motivo") or (
+            "as %d mistura(s) que a frota usa em %d cenas estao TODAS "
+            "ESGOTADAS: a novidade de forma ali e impossivel e tem de vir de "
+            "trocar a MISTURA de layouts, nao a ordem."
+            % (q["n_misturas"], cenas))
+        return q
+    m = vivas[0]
+    r = formas_livres(cenas, m["layouts"], pecas=sem(
+        varre() if pecas is None else pecas, exceto),
+        pontas=pontas, semente=semente)
+    ex = list(r.get("exemplos") or [])
+    q["mistura"] = m
+    q["sugerida"] = ex[0] if ex else None
+    q["alternativas"] = ex[1:]
+    return q
+
+
+def _linha_das_misturas(cenas: int, pecas=None, exceto: str = "") -> str:
+    """UM dono da frase, e ela sai nos DOIS ramos — tamanho usado e inedito."""
+    s = sugere_forma(cenas, pecas=pecas, exceto=exceto)
+    if not s["usado"]:
+        return ("  MISTURA em %d cenas: a frota nunca usou este tamanho, logo "
+                "nao ha de onde DERIVAR a mistura — %s" % (cenas, s["motivo"]))
+    L = ["  MISTURA em %d cenas: %d que a frota usa, %d ESGOTADA(S) — a "
+         "escolha da mistura deixou de ser no olho (22/10 as 19:3x, depois de "
+         "a forma composta a mao JA EXISTIR duas vezes)."
+         % (cenas, s["n_misturas"], s["n_esgotadas"])]
+    for m in s["misturas"]:
+        rot = " ESGOTADA" if m["esgotado"] else ""
+        L.append("   %6d livres de %6d  %s%s"
+                 % (m["livres"], m["possiveis"],
+                    " + ".join("%s x%d" % (k, v) for k, v in m["mult"]), rot))
+    if s.get("sugerida"):
+        L.append("   >> onde mais sobra ordem: %s"
+                 % " + ".join("%s x%d" % (k, v) for k, v in
+                              s["mistura"]["mult"]))
+        L.append("   >> forma LIVRE sugerida: %s" % s["sugerida"])
+    else:
+        L.append("   >> %s" % s["motivo"])
+    return "\n".join(L)
+
+
 def relato(caminho=None, spec=None) -> str:
     """A MESMA convencao dos outros relatos: `(caminho, spec=None)`.
 
@@ -634,6 +774,7 @@ def relato(caminho=None, spec=None) -> str:
         L.append(_frase_da_novidade(
             novidade(V.esqueleto(short), len(short), pecas, exceto)))
         L.append(_linha_das_formas_usadas(len(short), pecas, exceto))
+        L.append(_linha_das_misturas(len(short), pecas, exceto))
     c = cegas_para_o_portao(pecas)
     L.append("")
     L.append(

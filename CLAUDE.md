@@ -11560,3 +11560,214 @@ PRIMEIRA rodada seguida:** 80,06 h, piso de resolucao **0,30/dia**, os tres SIM.
 
 **COTA: DOZE envios** na janela aberta as 07:00Z, **19.200** unidades, contra o
 piso MEDIDO de **>= 41.600**.
+
+## A MISTURA DE LAYOUTS ERA ESCOLHIDA NO OLHO
+
+**Medido em 22/10 as 19:3x, escrevendo o `epomeno-epipedo-s096`.** O
+`formas_livres` (22/10, 03:3x) conta as ordens livres de uma mistura **DADA** e
+o `formas_usadas_do_tamanho` (16:3x) lista as formas usadas de um tamanho.
+Entre os dois faltava a pergunta que a rodada faz PRIMEIRO — **qual MISTURA de
+layouts escolher** —, e eu a respondia contando layouts com os dedos.
+
+**E o passo no olho ja errou DUAS vezes, com custo medido:** em 21/10 as 23:2x
+e em 22/10 as 14:4x a primeira forma que eu compus **JA EXISTIA**, e nas duas
+quem pegou foi uma segunda chamada ao `novidade`. **Nesta rodada ele acertou
+por sorte** — a forma saiu inedita — e isso vai dito em vez de inflado: aqui o
+defeito era **LATENTE**.
+
+**O TAMANHO VAI MEDIDO:**
+
+| | |
+|---|---|
+| misturas distintas que a frota usa | **54**, em treze tamanhos |
+| delas **ESGOTADAS** (toda ordem com aquelas pontas ja usada) | **NOVE** |
+| tamanhos com 2+ misturas em que a mais RICA nao e a mais USADA | **7 de 10** |
+
+**E A ESCOLHA NO OLHO NAO CONVERGE COM A MEDIDA.** Em treze cenas a frota usa
+quatro misturas, com **41.579 / 13.859 / 13.848 / 3.959** ordens livres — e a
+que eu escolhi a mao nesta rodada foi a de **13.848**, a terceira. Acertar
+*"inedita"* nao e o mesmo que escolher onde ha espaco.
+
+`esqueleto_entre_canais.misturas_do_tamanho` e `sugere_forma`, com a contagem
+**DELEGADA** ao `formas_livres` (recontar o multinomial ali criaria o segundo
+dono da conta) e a varredura ao `varre` com o filtro do `sem`. **As esgotadas
+saem NOMEADAS e nao filtradas**, pela disciplina do `origens_sem_uso`, e
+**tamanho que a frota nunca usou RECUSA** em vez de inventar mistura, do jeito
+que o `porta1` recusa janela curta — sem peca naquele tamanho nao ha de onde
+DERIVAR, e escolher seria limiar sem procedencia (§10).
+
+`tests/test_a_MISTURA_de_layouts_era_escolhida_no_OLHO.py`, doze testes: a
+varredura sai do DISCO e **reprova com menos de 200 pecas**, toda mistura
+devolvida e cobrada como **DERIVADA** do disco, as **DUAS contas da mesma
+coisa** tem de concordar com o dono, a delegacao e por **AST** nos dois
+sentidos (`_multinomial`, `factorial`, `permutations`, `glob`, `open`
+**proibidos** no corpo), os **DOIS lados** tem de existir e o arquivo **falha
+se TODAS ou se NENHUMA mistura estiver esgotada**, a fracao de esgotadas e
+**RECONFERIDA como PROPORCAO e nao como contagem** (a licao de 14:4x: contagem
+absoluta sobre populacao que cresce e identidade disfarcada de medida), a
+divergencia rica-contra-usada e cobrada nos **dois** lados, a forma sugerida e
+conferida como **de fato LIVRE** com as pontas MEDIDAS, a **FRONTEIRA** e
+cobrada (gravada a forma sugerida, ela deixa de ser sugerida e a contagem
+daquela mistura cai em **UM**), o `exceto` vai nos dois sentidos com ancora
+**DERIVADA**, e a frase tem **UM dono** saindo nos DOIS ramos.
+**Contraprova:** ordenada a lista pela mais USADA em vez da mais RICA, **dois
+dos doze** falham.
+
+**E UM TESTE MEU REPROVOU O MODULO CERTO na primeira execucao:** eu li
+`alvo["pacote"]` e o registro do `varre` traz **`arquivo`**, nao `pacote`. **Era
+o teste errado, nao o modulo** — e as duas formas servem, porque o `exceto` e
+normalizado pelo `nome_da_spec`, dono das duas convencoes desde 20/10 as 11:3x.
+
+## O ENDPOINT DOS JOBS MENTIU NO OUTRO SENTIDO — e isso RETRATA a regra de 13:4x
+
+**Medido em 22/10 as 19:4x, e custou 25 minutos de espera.** As 13:4x eu media
+o contrario — o RUN dizia `completed/success` com o job `produzir` ainda
+`in_progress` — e a regra que eu escrevi foi *"espere pelos JOBS, nao pelo
+RUN"*. **Nesta rodada foi o endpoint dos JOBS que mentiu:**
+
+| | |
+|---|---|
+| `::notice:: PUBLICADO` no log | **19:20:07Z** |
+| `/actions/runs/<id>` | **completed / success**, artefato do registro no lugar |
+| `/actions/runs/<id>/jobs` | **in_progress / conclusion: null**, por **25 min** |
+| `/check-runs/<id>/annotations` | **vazio**, porque o check-run tambem estava preso |
+| os `steps` DENTRO do mesmo payload dos jobs | **15 de 15 completed/success** |
+
+**Logo os dois endpoints DISCORDAM nos DOIS sentidos, e nenhum campo de status
+e autoridade sozinho.** A regra de 13:4x fica **RETRATADA na parte que elegia
+um deles**; o que sobrevive e o aviso de que o status do RUN nao prova que o
+trabalho acabou.
+
+**E o discriminador estava DENTRO do payload que eu ja lia:** o `/jobs` traz
+`steps` por job, e eu lia o campo errado do dicionario certo — a familia do
+`.get(chave, default)` sobre a resposta errada (08:3x), agora com a chave certa
+e o campo errado. **E o que me desbloqueou de fato foi o LOG pelo MCP**, que e
+a terceira rota para ler job, ao lado das anotacoes e do proprio endpoint.
+
+`anotacoes_do_run.terminou` / `relato_do_termino`: **job cujos PASSOS acabaram
+todos esta terminado**, mesmo com `conclusion` nulo, e a divergencia sai
+**NOMEADA**. **Passo NENHUM visivel nao decide** e devolve `terminado: None`,
+porque job que nao comecou tambem nao tem passo concluido e chamar isso de
+terminado seria ler vazio como ausencia (17/10). Ele **nao toca a rede** — se
+custasse requisicao ninguem o chamaria dentro de um laco de espera — e tem
+**CLI**, senao seria a classe dos layouts mortos:
+
+    python3 fabrica/anotacoes_do_run.py --termino <run>
+
+`tests/test_o_endpoint_dos_JOBS_mentiu_no_outro_sentido.py`, dez testes: o caso
+MEDIDO e **REPRODUZIDO** (o id vai como HISTORIA e nenhum assert depende dele),
+a **contraprova no outro sentido** exige que job com 4 de 10 passos saia
+PENDENTE (senao bastaria devolver sempre terminado), lista VAZIA **nao** diz
+que todos terminaram, o payload do endpoint e a lista nua tem de dar o MESMO
+veredito, a ausencia de rede e cobrada por **AST**, a frase tem **UM dono** e
+no ramo sem divergencia ela **diz que os dois campos discordam nos DOIS
+sentidos**, o CLI e cobrado como CHAMADOR, e um **falha se a retratacao sair do
+modulo**. **Contraprova:** desligado o ramo dos passos, reprova exatamente o
+teste que o mede.
+
+**A REGRA QUE FICA: o veredito de que um job acabou sai dos PASSOS, nao de
+campo de status nenhum — e quando os dois discordam, quem decide e o produto
+(a anotacao, o artefato, o log).**
+
+### A PECA DESSA RODADA — TREZE cenas, e o PISO com o corte do instrumento
+
+`epomeno-epipedo-s096` = **`wUk87zIcUXw`** (*Δύο πίνακες, μία ημερομηνία*),
+publicado as **19:20:07Z** (run `39839123417`), **sem `403 quota`**. **ONZE
+PORTOES VERDES NA PRIMEIRA TENTATIVA** — e ela foi **CONFERIDA COMO RASCUNHO**
+antes de existir no disco: dez portoes baratos limpos em **0,68 s**, mais mira,
+acento **13,61%** (e o portao `ortografia` tambem nao reprova), gancho de 6
+palavras de 12, paleta **LIDA** de `temas_do_dono.paleta_do_canal` e as treze
+cenas desenhando — com os dois instrumentos que ainda exigem caminho
+**DIZENDO** que nao conferiram.
+
+Provedor **edge MEDIDO** pelo `anotacoes_do_run` (zero avisos
+`NARRACAO PELO PIPER` no job `120033976766`, que e o job que emitiu o SOM). Som
+**-13,2** LUFS, pico **-1,4** dBTP — isto e `acima_do_teto`, que e **LEITURA e
+nao defeito** —, **zero silencios**, parqueado pelo `som_parqueado` **sem eu
+redigitar o JSON** (parque em **82** linhas, zero sem `run`).
+
+**CANAL do `passo_zero`** (8/8/9 na janela de 24 h, empate em 8 desempatado
+pelo que esta ha mais tempo sem publicar). **PAUTA do `pauta_do_momento`:**
+`h66MCKjwAJ8` (`epomeno-epipedo-010`, 73 capitulos), 4 usos — empate de
+**CINCO** origens desempatado pela MAIOR reserva, **56 de 73** livres e **53
+sem declaracao de irmao**. As duas leituras do desempate **CONCORDAM** aqui, e
+o vao foi medido pelo instrumento da rodada anterior. A dominante
+`nttW9fR8wyY` ficou de fora. O `reservas_escritas` devolveu **NENHUMA**, logo a
+familia saiu da leitura dos livres — com o texto **INTEIRO** e com **TRES**
+deles (3, 24, 58) saindo **MARCADOS** como declarados pelo `s078`.
+
+**FAMILIA: DUAS TABELAS, E O DISCRIMINADOR E UMA DATA** (capitulos 14, 15, 37,
+42 e 45) — escolher a tabela pela aparencia do carro (idade, tamanho, *"parece
+antigo"*) quando quem decide e a **data de PRIMEIRA TAXINOMIA** comparada com
+uma tomi escrita na lei. Duas coisas tornam o erro silencioso: as duas tabelas
+medem **GRANDEZAS DIFERENTES** (emissao por quilometro contra cilindrada), logo
+nao existe conversao nem como cruzar uma contra a outra para conferir; e o
+discriminador e um **fato do PAPEL e nao do carro**, logo dois carros
+identicos caem em lados opostos e um carro que parece velho pode pertencer a
+tabela nova. **Pratica certa sobre tabela errada devolve um numero que nao se
+distingue do certo.**
+
+Distincoes contra os **QUATRO** irmaos escritas na copy, lidas pelo
+`irmaos_da_origem` e, nos **DOIS** sem o campo da familia, pela PROSA e pela
+NARRACAO de cada um — de primeira mao. **O vizinho mais proximo e o `s016` e a
+distincao e fina:** a narracao dele cita a adeia do carro em UMA linha, como a
+**FONTE** do numero; esta peca comeca onde ele termina, com o numero ja na mao,
+e diz em QUAL tabela ele entra. Os outros tres sao a **OPERACAO** (`s041`,
+max contra soma), o **CONJUNTO** medido (`s060`, domicilio contra individuo) e
+a **ISENCAO** (`s078`).
+
+**CONTAGEM pela chave `por_cadencia_servivel`:** treze cenas, folga **+10**. O
+teto MEDIDO da voz (**15**), que e **INEDITO** na frota, saiu **NOMEADO** e
+recusado pela FOLGA (dois caracteres acima do piso OBSERVADO de 21), e catorze
+— a melhor cadencia — **REPETE a `s095`**.
+
+**ESQUELETO
+`titulo-lista-item-item-barras-item-titulo-barras-item-lista-item-item-cta`,
+INEDITO nas 184 formas da frota** e nenhuma das **QUINZE** de treze cenas. Todo
+layout saiu do conjunto **SONDADO**, com `assert` no construtor.
+
+**MIREI O PISO** (regra de redacao do 772): edge **41,70** — **0,20 acima**
+dele — e piper **36,90**. **O piso EXATO nao e alcancavel:** um caractere vale
+**0,051 s** nesta voz. A primeira versao saiu em **42,04** e **o corte saiu do
+`mira.quanto_cortar`**, nao da minha cabeca. **A PINCA DO 740/748 ESTA FECHADA**
+e a exposicao vai declarada ANTES de publicar: o piper sai FORA pela mira e
+DENTRO do portao, que cobra 18 a 45 s nos dois mundos. **E o REAL nao esta
+prometido para lado nenhum** (774).
+
+**E UMA CENA TEM DUAS FRASES — o CTA —, e isso custa 1,33 s que o orcamento nao
+supoe:** o termo `P` do `MODELO_VOZ` e silencio por **FRASE** e nao por cena
+(11/10). Com os mesmos caracteres em uma frase por cena a previsao seria
+**40,35 s**, isto e ABAIXO da faixa. Quem o nomeou foi o relato, nao a minha
+conta.
+
+**ZERO numero novo sobre o mundo, e aqui a regra (g) morde mais que o normal
+porque a origem e um longo feito INTEIRAMENTE de numeros que acabaram de
+mudar** — o proprio longo diz *"pérsi era"* em cada linha da tabela. **E A
+RECUSA INCLUI A DATA DA TOMI, que e justamente o numero que tornaria a peca
+mais concreta:** a peca diz que existe uma tomi escrita na lei e que a data do
+leitor esta na adeia dele, em vez de a citar — e o `s016` desta mesma origem ja
+a havia descartado pelo mesmo motivo, o que vai dito para a rodada seguinte nao
+a readotar como nova. O unico numeral falado e **"δύο"**, nas cenas 1, 4 e 11,
+conferido pelo `numerais_falados`. As barras das cenas 4 e 7 sao **ILUSTRACAO**
+qualitativa e **nao sao faladas** — as duas desenham alturas IGUAIS, que e o
+argumento inteiro.
+
+**E AS LINHAS MEDIDAS DA COPY FORAM GERADAS E COLADAS** pelo
+`linhas_medidas_da_copy`, terceira rodada seguida.
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica` pela
+QUADRAGESIMA PRIMEIRA rodada seguida** — medido pela `sonda_e_modo`, com os
+TRES controles no MESMO caminho de saida e os alvos na forma de URL: o `touch`
+passou, os DOIS hosts voltaram **000 sem arquivo**, e o proxy nomeou
+`example.com` e `www.youtube.com` depois de 19:09:56Z. A peca esta PARQUEADA
+com o provedor MEDIDO e o job **lido da API**, e a presenca foi conferida
+**RELENDO** o parque (**142** linhas, **70** sem leitura). `RESIDUO_N` segue
+**128**.
+
+**E A LEITURA DE INSCRITOS PASSOU AS TRES PORTAS E NAO FOI FEITA, pela VIGESIMA
+SEGUNDA rodada seguida:** 81,62 h, piso de resolucao **0,29/dia**, os tres SIM.
+**O que a impede e a ROTA, e o remedio e do DONO** — a tela de Network access.
+
+**COTA: TREZE envios** na janela aberta as 07:00Z, **20.800** unidades, contra
+o piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
+hora.

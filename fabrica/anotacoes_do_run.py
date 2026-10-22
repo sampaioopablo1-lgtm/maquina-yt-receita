@@ -109,6 +109,97 @@ def leitura(run: str | int, api=None) -> dict:
     return {"run": run, "jobs": saida}
 
 
+def terminou(jobs: list | dict) -> dict:
+    """Aquele job acabou? E a resposta NAO sai do campo `conclusion`.
+
+    **Medido em 22/10 as 19:4x, e custou 25 minutos de espera.** Em 13:4x eu
+    media o contrario — o RUN dizia `completed/success` com o job `produzir`
+    ainda `in_progress` — e a regra que eu escrevi foi *"espere pelos JOBS, nao
+    pelo RUN"*. **Nesta rodada foi o endpoint dos JOBS que mentiu:** o
+    `retomar` publicou as 19:20:07 (`::notice:: PUBLICADO ... youtube_id=...`),
+    o run voltou `completed/success`, o artefato do registro existia — e
+    `/actions/runs/<id>/jobs` seguiu devolvendo `status: in_progress,
+    conclusion: null` por vinte e cinco minutos, com as anotacoes vazias
+    porque o check-run tambem estava preso.
+
+    **Logo os dois endpoints DISCORDAM nos DOIS sentidos, e nenhum dos dois
+    campos de status e autoridade.** A regra de 13:4x fica RETRATADA na parte
+    que elegia um deles; o que sobrevive dela e o aviso de que o campo de
+    status do RUN nao prova que o trabalho acabou.
+
+    **E o discriminador estava DENTRO do mesmo payload que eu ja lia:** o
+    `/jobs` traz `steps` por job, e nesta medicao os **quinze** passos estavam
+    `completed/success` enquanto o job dizia `in_progress`. Eu lia o campo
+    errado do dicionario certo — a familia do `.get(chave, default)` sobre a
+    resposta errada (08:3x), agora com a chave certa e o campo errado.
+
+    A regra: **job cujos PASSOS acabaram todos esta terminado**, mesmo com
+    `conclusion` nulo, e a divergencia sai NOMEADA em vez de escondida — quem
+    a esconder faz a rodada seguinte esperar o campo que nao vem.
+
+    **Passo NENHUM visivel nao decide**, e devolve `terminado: None`: um job
+    que ainda nao comecou tambem nao tem passo concluido, e chamar isso de
+    terminado seria o vazio de instrumento lido como ausencia (17/10).
+    """
+    if isinstance(jobs, dict):
+        jobs = jobs.get("jobs") if "jobs" in jobs else [jobs]
+    saida, pend, div = [], 0, 0
+    for j in jobs or []:
+        passos = list(j.get("steps") or [])
+        feitos = [s for s in passos if s.get("conclusion") is not None]
+        por_passo = bool(passos) and len(feitos) == len(passos)
+        por_campo = j.get("conclusion") is not None
+        if not passos:
+            terminado = None
+        else:
+            terminado = por_campo or por_passo
+        if terminado is not True:
+            pend += 1
+        if por_passo and not por_campo:
+            div += 1
+        saida.append({
+            "id": str(j.get("id")),
+            "nome": j.get("name"),
+            "conclusao": j.get("conclusion"),
+            "status": j.get("status"),
+            "passos": len(passos),
+            "passos_concluidos": len(feitos),
+            "por_campo": por_campo,
+            "por_passo": por_passo,
+            "terminado": terminado,
+        })
+    return {
+        "jobs": saida,
+        "n": len(saida),
+        "pendentes": pend,
+        "todos_terminaram": bool(saida) and pend == 0,
+        "divergem": div,
+        "motivo": None if not div else (
+            "%d job(s) com TODOS os passos concluidos e `conclusion` ainda "
+            "nulo: o campo de status esta atrasado e os PASSOS sao a medida. "
+            "Medido em 22/10 as 19:4x, quando esperar o campo custou 25 "
+            "minutos com a peca ja publicada." % div),
+    }
+
+
+def relato_do_termino(jobs: list | dict) -> str:
+    """UM dono da frase, e ela sai nos DOIS ramos — com e sem divergencia."""
+    q = terminou(jobs)
+    L = ["TERMINO DO RUN: %d job(s), %d pendente(s)." % (q["n"], q["pendentes"])]
+    for j in q["jobs"]:
+        L.append("  %s %s — conclusion=%r, passos %d/%d, terminado=%r"
+                 % (j["id"], (j["nome"] or "?")[:46], j["conclusao"],
+                    j["passos_concluidos"], j["passos"], j["terminado"]))
+    if q["divergem"]:
+        L.append("  >> %s" % q["motivo"])
+    else:
+        L.append("  >> os PASSOS e o campo `conclusion` concordam nesta "
+                 "leitura — e eles discordam nos DOIS sentidos (13:4x o RUN "
+                 "adiantou, 19:4x o JOB atrasou), logo nenhum campo de status "
+                 "e autoridade sozinho.")
+    return "\n".join(L)
+
+
 def _som_do_job(job: dict, run: str | None = None) -> list:
     """Os `::notice:: SOM` daquele job, virados em registro pelo DONO deles.
 
@@ -303,6 +394,15 @@ def relato(run: str | int | None = None, pacote: str | None = None,
 
 def main(argv: list | None = None) -> int:
     argv = sys.argv[1:] if argv is None else argv
+    # `--termino <run>`: a pergunta do laco de espera, e ela NAO passa pelo
+    # `leitura` porque o que ela precisa sao os `steps`, que o endpoint dos
+    # jobs traz e o `leitura` nao guarda. Sem este chamador o `terminou` seria
+    # a classe dos layouts mortos: codigo escrito que ninguem chama.
+    if argv and argv[0] == "--termino":
+        run = argv[1] if len(argv) > 1 else None
+        bruto = _api("repos/%s/actions/runs/%s/jobs" % (REPO, run)) or {}
+        print(relato_do_termino(bruto))
+        return 0
     run = argv[0] if argv else None
     pacote = argv[1] if len(argv) > 1 else None
     print(relato(run, pacote))
