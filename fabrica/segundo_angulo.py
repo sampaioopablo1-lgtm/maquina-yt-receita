@@ -320,6 +320,62 @@ def nao_mencionados(yid: str, dir_specs: str = SPECS,
             "mencionados_so_na_reserva": so_na_reserva}
 
 
+def declarados_pelos_irmaos(yid: str, dir_specs: str = SPECS,
+                            exceto: str = None) -> dict:
+    """Capitulos que a copy de um IRMAO declara ter usado, por INDICE da cena.
+
+    **MEDIDO em 22/10 as 12:3x, escrevendo o `kolejny-poziom-s093`, e custou
+    duas cenas daquela peca.** O `nao_mencionados` casa o TEXTO do kicker contra
+    a copy do irmao — e a copy declara FAIXA em digitos (*"Capitulos 66 a 74 do
+    longo"*). Logo capitulo DECLARADO continua saindo como livre, e a lista de
+    livres o oferece como pauta.
+
+    Na origem daquela rodada (`-5aMrDsxlZE`) eram **15 capitulos** declarados
+    dentro dos 70 livres, e um deles era o 74: o `kolejny-poziom-s076` declara
+    66 a 74 **e a narracao dele diz, em letra, "Sprawdz ponownie po trzech
+    miesiacach"** — a mesma frase que a minha cena 11. **Nenhum portao pegaria
+    isso:** o `similaridade` compara TITULO, nao cena.
+
+    Eram DOIS donos do mesmo fato, e eles discordavam: a faixa e lida pelo
+    `irmaos_da_origem._capitulos_declarados`, e e DELE que esta funcao a pede.
+    **O import e tardio de proposito** — o `irmaos_da_origem` importa este modulo
+    no topo, logo importa-lo aqui no topo seria circular. Delegar continua sendo
+    um dono so.
+
+    **Ele NOMEIA e NAO FILTRA**, pela disciplina do `origens_sem_uso`: o
+    `nao_mencionados` segue devolvendo a mesma lista de `nao_mencionados` que
+    sempre devolveu, e esta funcao diz quais daqueles indices um irmao declara.
+    Tirar o capitulo da lista escondia o conflito em vez de o mostrar, e mudava
+    a base de comparacao de toda leitura historica.
+
+    **O que ele NAO prova, nos dois sentidos:** declaracao em prosa nao e
+    verdade sobre a peca (a faixa `66 a 74` pode cobrir capitulo que o irmao nao
+    tocou), e ausencia de declaracao nao e ausencia de uso — **146 das specs de
+    short solto do disco nao declaram capitulo nenhum** (medida do
+    `cobertura_dos_capitulos`). Ele devolve MOTIVO PARA LER a peca do irmao,
+    nunca veredito: capitulo livre nao e familia livre (776).
+    """
+    import irmaos_da_origem as IO   # tardio: IO importa este modulo no topo
+    d = nao_mencionados(yid, dir_specs, exceto)
+    if not d["pacote"]:
+        return {"pacote": None, "por_indice": {}, "n": 0}
+    livres = set(d["nao_mencionados"])
+    cenas = _cenas_do_longo(d["pacote"], dir_specs)
+    por_indice = {}
+    for ir in IO.irmaos(yid, IO.raiz_do_dir_specs(dir_specs)):
+        if exceto and nome_da_spec.casa(ir.get("arquivo") or
+                                        nome_da_spec.arquivo(ir["pacote"]),
+                                        exceto):
+            continue
+        for i in (ir.get("capitulos_declarados") or []):
+            if 0 <= i < len(cenas):
+                k = (cenas[i].get("kicker") or "").strip()
+                if k and k in livres:
+                    por_indice.setdefault(i, []).append(ir["pacote"])
+    return {"pacote": d["pacote"],
+            "por_indice": {i: sorted(set(v)) for i, v in por_indice.items()},
+            "n": len(por_indice)}
+
 def texto_dos_livres(yid: str, dir_specs: str = SPECS,
                      exceto: str = None) -> dict:
     """Os capitulos LIVRES daquela origem **com a narracao de cada um**, inteira.
@@ -363,6 +419,7 @@ def texto_dos_livres(yid: str, dir_specs: str = SPECS,
         k = (c.get("kicker") or "").strip()
         if k:
             quantas[k] = quantas.get(k, 0) + 1
+    decl = declarados_pelos_irmaos(yid, dir_specs, exceto)["por_indice"]
     fora = []
     for i, c in enumerate(cenas):
         k = (c.get("kicker") or "").strip()
@@ -371,13 +428,36 @@ def texto_dos_livres(yid: str, dir_specs: str = SPECS,
         nar = (c.get("nar") or "").strip()
         fora.append({"indice": i, "kicker": k, "nar": nar,
                      "sem_narracao": not nar,
+                     "declarado_por": decl.get(i, []),
                      "cenas_do_kicker": quantas.get(k, 1)})
     return {"pacote": d["pacote"], "n_capitulos": d["n_capitulos"],
             "n_livres": len(livres), "shorts": d["shorts"], "livres": fora,
             "sem_narracao": [x["indice"] for x in fora if x["sem_narracao"]],
+            "declarados_por_irmao": sorted(decl),
             "kickers_repetidos": sorted(k for k in livres
                                         if quantas.get(k, 0) > 1)}
 
+
+def _linha_dos_declarados(d: dict) -> str:
+    """UM dono da frase do conflito, e ela sai nos DOIS ramos.
+
+    Sem conflito ela DIZ isso em vez de calar: ausencia de linha e
+    indistinguivel de linha que nao foi escrita, e foi a ausencia dela que me
+    levou ao capitulo 74 em 22/10 as 12:3x.
+    """
+    ns = d.get("declarados_por_irmao") or []
+    if not ns:
+        return ("  nenhum dos livres e DECLARADO por irmao — e isto e dito em "
+                "vez de omitido. Declaracao ausente tambem nao prova ausencia "
+                "de uso: a maioria das specs de short solto nao declara "
+                "capitulo nenhum.")
+    return ("  %d livre(s) sao DECLARADOS por irmao e vao MARCADOS abaixo, nao "
+            "filtrados: %s. O `nao_mencionados` casa o TEXTO do kicker e a copy "
+            "declara FAIXA em digitos, logo eles saiam como livres — medido em "
+            "22/10 as 12:3x, quando isso me custou duas cenas do "
+            "`kolejny-poziom-s093`. LEIA a peca do irmao antes de tomar um "
+            "deles: declaracao em prosa NAO e veredito nos dois sentidos."
+            % (len(ns), ns))
 
 def relato_dos_livres(yid: str, dir_specs: str = SPECS,
                       exceto: str = None) -> str:
@@ -403,9 +483,12 @@ def relato_dos_livres(yid: str, dir_specs: str = SPECS,
     if d["sem_narracao"]:
         L.append("  cena(s) LIVRE(S) sem narracao, NOMEADAS em vez de omitidas: "
                  "%s" % d["sem_narracao"])
+    L.append(_linha_dos_declarados(d))
     for x in d["livres"]:
-        L.append("  %3d | %s | %s" % (x["indice"], x["kicker"],
-                                      x["nar"] or "(sem narracao)"))
+        L.append("  %3d | %s | %s%s" % (
+            x["indice"], x["kicker"], x["nar"] or "(sem narracao)",
+            ("   << DECLARADO por %s" % ", ".join(x["declarado_por"]))
+            if x["declarado_por"] else ""))
     L.append("  isto NAO escolhe familia: poe o texto na mesa. Capitulo livre "
              "NAO e familia livre (776), e a comparacao com os irmaos e do "
              "`irmaos_da_origem`.")

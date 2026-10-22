@@ -10516,3 +10516,165 @@ que a impede e a ROTA, e o remedio e do DONO** — a tela de Network access.
 **COTA: CINCO envios** na janela aberta as 07:00Z, **8.000** unidades, contra o
 piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
 hora.
+
+## O CAPITULO QUE O IRMAO DECLARA SAIA COMO LIVRE — e me custou DUAS cenas
+
+**Medido em 22/10 as 12:3x, escrevendo o `kolejny-poziom-s093`, e e a primeira
+vez que um achado destes corrige a PECA e nao o relato.** O
+`segundo_angulo.nao_mencionados` casa o **TEXTO do kicker** contra a copy do
+irmao — e a copy declara **FAIXA em digitos** (*"Capitulos 66 a 74 do longo"*).
+Logo capitulo DECLARADO continuava saindo na lista de livres, e e dessa lista
+que a rodada escolhe familia.
+
+**Eram DOIS donos do mesmo fato, e eles discordavam em letra, no MESMO relato da
+pauta:** o `irmaos_da_origem` imprime *"capitulos que ele declara: 66 a 74"* e o
+`nao_mencionados` devolve 74 como livre, duas linhas abaixo.
+
+| | |
+|---|---|
+| capitulos do longo desta rodada | **84** |
+| livres pelo `nao_mencionados` | **70** |
+| destes, DECLARADOS por um irmao | **12** |
+| origens com spec local na frota | **49** |
+| com ao menos um livre declarado | **48** |
+| pares (capitulo livre, irmao que o declara) | **753** |
+
+**O CUSTO NAO E TEORICO E FOI DESTA PECA.** As duas cenas finais da primeira
+versao repetiam o fechamento do `kolejny-poziom-s076`: ele declara 66 a 74 e a
+narracao dele diz, em letra, *"Sprawdz ponownie po trzech miesiacach"* — a MESMA
+frase da minha cena 11 (*"Wroc po trzech miesiacach, raz"*). **Nenhum portao
+pegaria isso: o `similaridade` compara TITULO, nao cena.** E a reserva que
+DESEMPATOU a pauta desta rodada (71 de 84) esta inflada pelo mesmo defeito.
+
+**Consertado na PECA antes de publicar** — cena 10 passou a *"Zapisz dzis date,
+nie liczbe"* (o eixo) e a 11 a *"To ta sama liczba, tylko pozniej"*, que e a
+propriedade do capitulo 32 e e desta peca; o capitulo 74 saiu das FONTES e
+entrou na RESERVA como **territorio declarado do `s076`**. O render da versao
+anterior foi **CANCELADO** em vez de publicado.
+
+**Consertado no INSTRUMENTO com DELEGACAO:**
+`segundo_angulo.declarados_pelos_irmaos` pede a faixa ao dono dela
+(`irmaos_da_origem._capitulos_declarados`) e **NOMEIA em vez de filtrar**, pela
+disciplina do `origens_sem_uso`: o `nao_mencionados` segue devolvendo a MESMA
+lista, e cada livre declarado sai com `<< DECLARADO por <pacote>` no
+`relato_dos_livres`. Tirar o capitulo da lista esconderia o conflito e mudaria a
+base de comparacao de toda leitura historica.
+
+**E A DECLARACAO TAMBEM E INDICIO, nos dois sentidos, e vai dito:** a faixa
+`66 a 74` pode cobrir capitulo que o irmao nao tocou, e **a maioria das specs de
+short solto nao declara capitulo nenhum**. Dos 753 pares, **10 (1,3%)** tem o
+numero so dentro de uma secao `## RESERVA` do irmao — isto e, territorio alheio
+e nao uso. Ele devolve **MOTIVO PARA LER** a peca do irmao, nunca veredito:
+capitulo livre nao e familia livre (776).
+
+### E O CONSERTO CAIU NO DEFEITO QUE CONSERTA, uma camada abaixo
+
+A primeira versao chamou `IO.irmaos(yid, dir_specs)` — e o `irmaos` recebe
+**`raiz`**, nao `dir_specs`. O `glob` varreu `<dir_specs>/fabrica/specs`, que
+nao existe, e devolveu **`n = 0`, lista VAZIA e bem formada**, indistinguivel de
+origem sem irmao nenhum. **E a familia de 20/10 as 12:3x**, e o `_dir_specs` do
+proprio `irmaos_da_origem` **descreve esse erro no docstring** desde que nasceu —
+eu li a licao e a cometi na chamada seguinte.
+
+Consertado com os dois lados: `irmaos` ganhou a guarda de vacuidade **DELEGADA**
+ao dono dela (`segundo_angulo._dir_valido`), logo raiz errada **LEVANTA**; e
+nasceu `irmaos_da_origem.raiz_do_dir_specs`, o inverso de `_dir_specs`, que
+**LEVANTA** em caminho fora da convencao em vez de adivinhar.
+
+`tests/test_o_capitulo_DECLARADO_pelo_irmao_saia_como_LIVRE.py`, dez testes: a
+varredura sai do DISCO e **reprova com menos de 20 origens**, um **REPRODUZ** o
+defeito e **falha se ele deixar de ocorrer** (ai esta nota se rele), um cobra que
+o capitulo declarado **CONTINUE** em `nao_mencionados` e venha MARCADO (filtrar
+reprova), a contraprova no outro sentido exige que **nem todo** livre seja
+declarado — senao a marca nao distingue nada e deixa de avisar —, a frase tem
+**UM dono por AST** e sai nos **DOIS** ramos, o `exceto` e cobrado nos dois
+sentidos, a delegacao e por **AST** (`_citados`, `capitulos_negados` e `re.` no
+corpo reprovam), o inverso da raiz e cobrado nos dois sentidos, a guarda LEVANTA
+com a raiz errada e a chamada certa continua respondendo, e a medida do `##
+RESERVA` e **RECONFERIDA contra o disco** e reprova se virar maioria (753). O
+par que custou as duas cenas fica como **HISTORIA**, e nenhum assert depende
+dele (743/753/761).
+
+### A PECA DESSA RODADA — DOZE cenas, e as TRES recusas sairam do instrumento
+
+`kolejny-poziom-s093` = **`-2w0Vcy0Uqc`** (*Zapisz datę, nie liczbę z pamięci*),
+publicado as 12:28:27Z (run `39778585293`), **sem `403 quota`**. **ONZE PORTOES
+VERDES** — e ela foi **CONFERIDA COMO RASCUNHO** antes de existir no disco, e a
+passada **REPROVOU** a primeira versao: o portao `duracao` acusou **43,5 s**
+previstos contra o teto de 43,1. O corte saiu do instrumento e nao da minha
+cabeca (24 caracteres no total; um caractere vale 0,052 s nesta voz).
+
+Provedor **edge MEDIDO** pelo `anotacoes_do_run` (zero avisos
+`NARRACAO PELO PIPER` no job `119821875291`, que e o job que emitiu o SOM). Som
+**-13,8** LUFS, pico **-3,1** dBTP com `pico_vs_teto: dentro`, **zero
+silencios**, parqueado pelo `som_parqueado` sem eu redigitar o JSON.
+
+**CANAL do `passo_zero`** (9/8/8 na janela de 24 h, empate em 8 desempatado pelo
+que esta ha mais tempo sem publicar). **PAUTA do `pauta_do_momento`:**
+`-5aMrDsxlZE` (`kolejny-poziom-014`), 4 usos — empate de **QUINZE** origens
+desempatado pela MAIOR reserva. A dominante `GUiq15usizw` ficou de fora e o
+`QiaGg03WSR0` saiu da escolha pelo **mapa de dono MEDIDO**, sem sair da lista. O
+`reservas_escritas` devolveu **NENHUMA**, logo a familia saiu da leitura dos
+livres com o texto **INTEIRO**, sem fatia.
+
+**FAMILIA: O DENOMINADOR QUE AINDA NAO EXISTE, PREENCHIDO COM A MEMORIA**
+(capitulos 32, 13 e 63). O eixo e a **EXISTENCIA do dado no tempo**: depois de
+trocar de telefone a historia de transmissao desaparece, a conta pede tres meses
+medidos e existem **zero**. Ali a segunda liczba vem da cabeca e entra na
+divisao com a MESMA cara de pomiar. **E ela nao move o resultado para um lado
+aleatorio:** nadwyzka e `pakiet menos zuzycie`, logo zuzycie abaixo do real
+devolve nadwyzka maior — a estimativa empurra justamente para a conclusao de
+**trocar**. A saida nao e estimar melhor: e datar o comeco.
+
+Distincoes contra os QUATRO irmaos, e nos **DOIS** sem o campo da familia pela
+PROSA e pela NARRACAO de cada um, que e de primeira mao: o `s005` e a
+ESTATISTICA sobre a mesma serie (e la os tres meses EXISTEM), o `s026` e a
+causalidade invertida, o `s056` e o caso BEZ LIMITU (falta o numero de CIMA), o
+`s076` sao DUAS mudancas numa medicao.
+
+**DOZE CENAS pela chave `por_cadencia_servivel`, e nenhuma das tres recusas foi
+minha:** 14 e a melhor cadencia **e** o teto MEDIDO da voz, e saiu **NOMEADA** e
+recusada pela FOLGA (23 caracteres, a dois do piso OBSERVADO); 13 repete a
+`s091` e 11 repete a `s092`. Doze tem folga **+12**. **ESQUELETO
+`titulo-item-barras-item-lista-item-titulo-barras-item-lista-item-cta`, INEDITO
+nas 177 formas da frota** — a frota tem 13 pecas de doze cenas em 13 formas
+distintas e esta nao e nenhuma delas; o `formas_livres` diz **7.549 de 7.560**
+ordens livres desta mistura. Todo layout saiu do conjunto **SONDADO**, com
+`assert` no construtor, e a paleta foi **LIDA** de
+`temas_do_dono.paleta_do_canal`.
+
+**E O `numerais_falados` DERRUBOU UMA AFIRMACAO DA COPY ANTES DE PUBLICAR, pela
+QUINTA vez nesta sessao:** ela declarava *"pierwszy"* como numeral falado, e o
+corte de caracteres havia tirado *"dzien pierwszy"* da narracao. O unico falado
+e **"trzy"**, a janela que o proprio procedimento do longo pede. Corrigida com a
+versao falsa **registrada na propria copy**.
+
+**ZERO numero novo sobre o mundo**, e a copy escreve DOIS descartes que seriam
+convenientes: a afirmacao do capitulo 13 sobre em que DIRECAO as pessoas erram o
+proprio consumo (o raciocinio que a fonte da ao lado nao se sustenta sozinho, e
+carrega-lo seria carregar a confusao dela) e o conselho do capitulo 33, porque
+pela aritmetica desta peca essa direcao **AUMENTA** a nadwyzka — isto e, nao e o
+lado conservador contra a conclusao, e a fonte o apresenta como se fosse. As
+barras das cenas 3 e 8 sao ILUSTRACAO qualitativa e **nao** sao faladas.
+
+**A PINCA DO 740/748 ESTA FECHADA AQUI**, com a exposicao declarada ANTES de
+publicar, e **o PISO EXATO nao e alcancavel:** 41,63 e 0,13 acima dele, dito
+assim em vez de eu chamar 41,63 de piso. O piper sai em 35,4 — FORA pela mira e
+DENTRO do portao, que cobra 18 a 45 s nos dois mundos. **E o REAL nao esta
+prometido para lado nenhum** (774).
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica` pela TRIGESIMA
+QUARTA rodada seguida** — medido pela `sonda_e_modo`, com os TRES controles no
+MESMO caminho de saida e os alvos na forma de URL: o `touch` passou, os DOIS
+hosts voltaram **000 sem arquivo**, e o proxy nomeou `example.com` e
+`www.youtube.com` depois de 12:12:16Z. A peca esta PARQUEADA com o provedor
+MEDIDO e o job **lido da API**, e a presenca foi conferida **RELENDO** o parque
+(**135** linhas, **63** sem leitura). `RESIDUO_N` segue **128**.
+
+**E A LEITURA DE INSCRITOS PASSOU AS TRES PORTAS E NAO FOI FEITA, pela DECIMA
+SEXTA rodada seguida:** 74,07 h, piso de resolucao **0,32/dia**, os tres SIM.
+**O que a impede e a ROTA, e o remedio e do DONO** — a tela de Network access.
+
+**COTA: SEIS envios** na janela aberta as 07:00Z, **9.600** unidades, contra o
+piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
+hora.
