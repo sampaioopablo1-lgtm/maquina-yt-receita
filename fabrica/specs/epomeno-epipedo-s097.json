@@ -1,0 +1,123 @@
+{
+ "slug": "epomeno-epipedo-s097",
+ "pacote": "epomeno-epipedo-s097",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "longo_existente": "opFSah50OWo",
+ "thumb": {
+  "l1": "Δύο νούμερα",
+  "l2": "όχι ένα"
+ },
+ "paleta": {
+  "bg": "#F4EFE6",
+  "ink": "#1B1A17",
+  "c1": "#C8502A",
+  "c2": "#2B6CB0",
+  "red": "#B83227",
+  "ok": "#2E8B57",
+  "panel": "#FFFFFF",
+  "mut": "#7A7263",
+  "acc": "#C8502A"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Έβγαλες το κόστος ανά χιλιόμετρο",
+   "sub": "και το πήρες για απάντηση",
+   "nar": "Έβγαλες το κόστος ανά χιλιόμετρο."
+  },
+  {
+   "layout": "item",
+   "kicker": "Είναι σωστό, αλλά είναι ένα",
+   "sub": "και η πράξη θέλει δύο",
+   "nar": "Είναι σωστό, όμως είναι μόνο ένα."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ένα μέρος δεν εξαρτάται από χιλιόμετρα",
+   "sub": "το πληρώνεις ακίνητος",
+   "nar": "Ένα μέρος δεν εξαρτάται από χιλιόμετρα."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Αυτά πληρώνονται ίδια",
+   "itens": [
+    "Η ασφάλεια",
+    "Τα τέλη κυκλοφορίας"
+   ],
+   "nar": "Ασφάλεια και τέλη πληρώνονται ίδια."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Μηδέν χιλιόμετρα, ίδιο ποσό",
+   "barras": [
+    {
+     "rot": "Οδηγείς",
+     "v": 100
+    },
+    {
+     "rot": "Ακίνητο",
+     "v": 100
+    }
+   ],
+   "nar": "Μηδέν χιλιόμετρα, το ίδιο ποσό."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Άρα θέλουν άλλον διαιρέτη",
+   "barras": [
+    {
+     "rot": "Χιλιόμετρα",
+     "v": 40
+    },
+    {
+     "rot": "Μήνες",
+     "v": 100
+    }
+   ],
+   "nar": "Άρα αυτά θέλουν άλλον διαιρέτη."
+  },
+  {
+   "layout": "item",
+   "kicker": "Διαίρεσέ τα με τους μήνες",
+   "sub": "όχι με τα χιλιόμετρα",
+   "nar": "Διαίρεσέ τα με τους μήνες του χρόνου."
+  },
+  {
+   "layout": "item",
+   "kicker": "Αυτό πληρώνεις για να το έχεις",
+   "sub": "πριν κινηθεί καθόλου",
+   "nar": "Αυτό πληρώνεις μόνο για να το έχεις."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Δύο νούμερα, δύο ερωτήσεις",
+   "itens": [
+    "Τι κοστίζει η χρήση",
+    "Τι κοστίζει η κατοχή"
+   ],
+   "nar": "Δύο νούμερα απαντούν δύο ερωτήσεις."
+  },
+  {
+   "layout": "item",
+   "kicker": "Το ένα χωρίς το άλλο παραπλανά",
+   "sub": "και η διαίρεση δεν διαμαρτύρεται",
+   "nar": "Το ένα χωρίς το άλλο σε παραπλανά."
+  },
+  {
+   "layout": "item",
+   "kicker": "Η πράξη βγαίνει και στις δύο",
+   "sub": "αλλά απαντά σε άλλο ερώτημα",
+   "nar": "Η πράξη βγαίνει σωστή στις δύο."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Κάνε και τη δεύτερη διαίρεση",
+   "sub": "με τους μήνες, μία φορά",
+   "nar": "Κάνε και τη δεύτερη. Κάνε εγγραφή."
+  }
+ ],
+ "copy": "# epomeno-epipedo-s097\n\n## TITULO\nΤο κόστος ανά χιλιόμετρο δεν είναι όλη η απάντηση: το σταθερό μέρος θέλει άλλον διαιρέτη\n\n## TITULO SHORT\nΔύο νούμερα, όχι ένα\n\n## DESCRICAO\nΈκανες την πράξη του μεγάλου βίντεο: πρόσθεσες όλα όσα πλήρωσες σε δώδεκα μήνες, βρήκες τα χιλιόμετρα της ίδιας περιόδου, διαίρεσες. Βγήκε ένα νούμερο σε ευρώ ανά χιλιόμετρο, και είναι σωστό.\n\nΕίναι όμως **ένα** νούμερο, και η ιστορία έχει δύο. Μέσα σε αυτό που πρόσθεσες υπάρχει ένα μέρος που **δεν εξαρτάται καθόλου από τα χιλιόμετρα**: η ασφάλεια και τα τέλη κυκλοφορίας πληρώνονται ακριβώς τα ίδια είτε κάνεις δύο χιλιάδες χιλιόμετρα είτε είκοσι, είτε δεν βγάλεις καθόλου το αυτοκίνητο από τη θέση του.\n\nΚαι εδώ είναι το σημείο: αν αυτό το μέρος δεν είναι συνάρτηση των χιλιομέτρων, τότε **διαιρώντας το με χιλιόμετρα απαντάς σε ερώτημα στο οποίο δεν ανήκει**. Ο διαιρέτης του είναι ο χρόνος, όχι η χρήση — οι **μήνες**, όχι τα χιλιόμετρα.\n\nΗ δεύτερη πράξη είναι μικρότερη από την πρώτη: πρόσθεσε μόνο τα σταθερά και διαίρεσέ τα με τους μήνες του χρόνου. Αυτό που βγαίνει είναι το ποσό που πληρώνεις **για να το έχεις**, πριν κινηθεί καθόλου.\n\nΓιατί δεν φωνάζει το λάθος: επειδή η διαίρεση δουλεύει και στις δύο περιπτώσεις. Βάζεις σταθερά κόστη πάνω από χιλιόμετρα και βγαίνει νούμερο — καθαρό, σε ευρώ ανά χιλιόμετρο, με όλη την όψη της απάντησης. Δεν υπάρχει προειδοποίηση, γιατί η αριθμητική δεν ξέρει σε ποιο ερώτημα απαντάει.\n\nΤα δύο νούμερα μαζί λένε ολόκληρη την ιστορία: **τι κοστίζει η χρήση και τι κοστίζει απλώς η κατοχή**. Το ένα χωρίς το άλλο σε παραπλανά — και σε παραπλανά προς τα δύο: σε χρονιά με λίγα χιλιόμετρα το ανά χιλιόμετρο φουσκώνει, σε χρονιά με πολλά ξεφουσκώνει, και το σταθερό μέρος δεν άλλαξε ποτέ.\n\nΤι δεν λέει αυτό το βίντεο: δεν δίνει κανένα ποσό, κανένα τέλος και καμία τιμή ασφάλειας. Αυτά αλλάζουν και είναι δικά σου. Αυτό που δεν αλλάζει είναι ο διαιρέτης του καθενός.\n\n## COMENTARIO FIXADO\nΈκανες και τη δεύτερη διαίρεση; Γράψε από κάτω μόνο ένα πράγμα: αν το σταθερό μέρος σου βγήκε μεγαλύτερο ή μικρότερο απ' όσο περίμενες. Χωρίς ποσά και χωρίς μάρκα.\n\n## FONTES\nΜεγάλο βίντεο του καναλιού (`epomeno-epipedo-013`), κεφάλαιο 63 και κεφάλαιο 64, με το κεφάλαιο 2 και το κεφάλαιο 52 ως υποστήριξη. Το κεφάλαιο 63 δίνει τη δεύτερη πράξη (\"πρόσθεσε μόνο τα σταθερά — ασφάλεια και τέλη — και διαίρεσέ τα με δώδεκα: αυτό πληρώνεις κάθε μήνα ακόμη κι αν δεν βγάλεις το αυτοκίνητο από τη θέση του\"), το κεφάλαιο 64 λέει ότι \"τα δύο νούμερα μαζί λένε ολόκληρη την ιστορία\", και τα κεφάλαια 2 και 52 θυμίζουν ότι τα τέλη και η ασφάλεια επιστρέφουν σε ημερομηνία.\n\n## FAMILIA DE ENTRADA ERRADA\nUM QUOCIENTE TOMADO COMO A RESPOSTA INTEIRA, QUANDO UMA PARTE DELE PEDE OUTRO DIVISOR — o custo por quilometro esta certo e e so metade: dentro do que foi somado ha uma parcela que **nao e funcao dos quilometros** (seguro e taxas pagam-se iguais, mesmo com o carro parado), logo dividi-la por quilometros responde a uma pergunta a que ela nao pertence. O divisor dela e o TEMPO — os meses —, nao o uso.\n\n**E o erro e silencioso porque a divisao funciona nos dois casos:** poe-se custo fixo sobre quilometros e sai um numero limpo, em euros por quilometro, com toda a cara de resposta. Nao ha aviso, porque a aritmetica nao sabe a que pergunta esta a responder. **E ele engana nos DOIS sentidos:** em ano de poucos quilometros o valor por quilometro incha, em ano de muitos esvazia, e a parcela fixa nunca mudou.\n\nA DISTINCAO DOS QUATRO IRMAOS VAI ESCRITA, e eles vieram do `irmaos_da_origem` — e **TRES deles nao tem o campo da familia**, logo para esses a comparacao saiu da PROSA e da NARRACAO de cada um, que e de primeira mao (o conserto de 20/10 as 15:3x):\n* `s003` — A JANELA dos doze meses tem de conter um CICLO FECHADO (pneus, revisao grande). O eixo e o PERIODO somado;\n* `s030` — medir so o que tem COMPROVANTE: a perda de valor nao passa por caixa e por isso falta da soma. O eixo e uma PARCELA AUSENTE;\n* `s056` — poucos quilometros dao quilometro caro, e **isso nao significa erro teu: pagas sobretudo pela DISPONIBILIDADE**. O eixo e a INTERPRETACAO do numero alto;\n* `s067` — um ano julgado sozinho: multiplica pelos anos que tens o carro. O eixo e a ESCALA no tempo.\n\n**O vizinho mais proximo e o `s056` e a distincao vai dita porque e fina:** ele guarda UM numero e explica por que ele sai alto (os fixos espalhados por pouco uso), e conclui que a despesa e legitima. **Esta peca diz que UM numero nao basta** e nomeia o segundo **com o divisor dele** — meses, nao quilometros. **Interpretar o quociente contra trocar o divisor de uma parcela dele.**\n\n**E a conferencia por CAPITULO alcanca 1 dos 4:** so o `s030` declara faixa (33 a 46), e esta peca usa 63, 64, 2 e 52 — **ZERO sobreposicao**. Os outros tres nao declaram capitulo, e **ausencia de dado nao e ausencia de colisao** (761): para esses a conferencia foi pela NARRACAO.\n\n**E os capitulos 40, 43, 44 e 46 ficaram FORA de proposito:** os quatro estao DECLARADOS pelo `s030` e sao exatamente onde o longo fala dos fixos e da disponibilidade — seriam o caminho facil para esta peca, e sao territorio de irmao.\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO. Nao entra nenhum valor de seguro, de taxa de circulacao, de combustivel, de revisao nem de quilometragem — e **nenhum deles aparece no longo como dado nosso tampouco**: o longo manda o espectador usar os PROPRIOS numeros, e esta peca manda o mesmo.\n\n**NUMERAIS FALADOS: \"ένα\", \"δύο\" e \"μήνες\" em contagem** — e os dois primeiros sao estrutura do argumento (um numero contra dois), conferidos pelo `numerais_falados`. **O \"δώδεκα\" do capitulo 63 NAO e falado**: a narracao diz \"os meses do ano\" em vez de doze, porque o que importa e o DIVISOR ser tempo e nao a contagem.\n\nAs BARRAS sao ILUSTRACAO qualitativa e **nao sao faladas**: a cena 4 desenha o mesmo valor com o carro andando e parado (altura IGUAL, que e o argumento), e a cena 5 desenha os dois divisores lado a lado. **A altura menor da barra dos quilometros NAO e uma proporcao medida** — ela so mostra que o divisor e outro. Isto vai escrito para a rodada seguinte nao as ler de volta como dado.\n\n## EXPOSICAO\n**MEDIDO, e as linhas foram GERADAS pelo `linhas_medidas_da_copy`, nao redigitadas:** previsao edge **41,60 s** / piper **36,80 s**; 12 cenas, media de **34,08** caracteres por cena; esqueleto `titulo-item-titulo-lista-barras-barras-item-item-lista-item-item-cta`, **INEDITO nas 187 formas** de short da frota.\n\n**MIREI O PISO** da faixa (41,5 a 43,0), pela regra de redacao do 772: 41,60 esta **0,10 acima** dele. A primeira versao saiu em **42,02** e o corte saiu do `mira.quanto_cortar`, seguindo os SEGUNDOS e nao os caracteres — com uma cena de duas frases (o CTA) o conselho em caracteres aponta para o outro lado, porque o `P` do `MODELO_VOZ` e silencio por FRASE (11/10).\n\n**A PINCA DO 740/748 ESTA FECHADA AQUI**, e a exposicao vai declarada ANTES de publicar: nenhuma media por cena poe os dois provedores dentro de 41,5 a 43,0 nesta voz com doze cenas. O piper sai FORA pela mira e DENTRO do portao, que cobra 18 a 45 s nos dois mundos (730/733).\n\n**E o REAL nao esta prometido para lado nenhum:** a banda do residuo tem 5,2 s de largura contra 1 s de granularidade, e declarar um lado dela nao e previsao (774).\n\n## RESERVA\nPara a rodada seguinte, com o motivo de cada um:\n* **LIVRE** o capitulo 47 — o SEGUNDO CARRO da casa: faz menos quilometros e paga os mesmos fixos, logo tira o quilometro mais caro de longe. E familia propria e forte, **mas fica perto do `s056`** (poucos quilometros dao quilometro caro) — quem levar tem de ler a copy dele INTEIRA antes;\n* **LIVRES** os capitulos 25 a 31 — de ONDE se reconstroi o historico quando ninguem guardou arquivo (cartao, seguro, oficina), mais o 30 (sem leitura antiga: anota a de hoje e releia em tres meses). E familia de PROCEDENCIA do dado, propria;\n* **LIVRES** os capitulos 55 e 56 — multiplicar pelo trajeto SEMANAL vezes as semanas do ano, porque esse numero fala mais alto que o total anual: ele e de um HABITO e nao da vida inteira. Fica perto do `s067` (a escala no tempo), e a distincao e habito contra anos de posse;\n* **LIVRE** o capitulo 39 — fazer a conta em DUAS chonias e ler a diferenca como medida de quao desigual sao as despesas. Fica perto do `s003`;\n* **NAO LEVAR** os capitulos 36, 38, 40, 43, 44 e 46: territorio declarado do `s030`.\n\n## HASHTAGS\n#αυτοκινητο #κοστος #οικονομικα #epomenoepipedo\n\n## TAGS\nκόστος αυτοκινήτου, κόστος ανά χιλιόμετρο, σταθερά έξοδα, ασφάλεια αυτοκινήτου, τέλη κυκλοφορίας, προσωπικά οικονομικά, υπολογισμός κόστους, κατοχή αυτοκινήτου\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ncategoryId: 27\ndefaultLanguage: el\nmadeForKids: false\n\n## MUSICA / LICENCA\nTrilha `Inspired` do incompetech (Kevin MacLeod), licença CC BY 3.0.\n"
+}
