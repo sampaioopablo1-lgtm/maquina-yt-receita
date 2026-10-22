@@ -8758,3 +8758,126 @@ PRIMEIRA rodada seguida:** 62,49 h, piso de resolucao **0,38/dia**, os tres SIM.
 
 **COTA: DEZOITO envios** na janela aberta as 07:00Z, **28.800** unidades, contra
 o piso MEDIDO de **>= 41.600** — do `janela_de_cota`.
+
+## A SONDA E A POLITICA DISCORDAVAM DO QUE E UM HOST
+
+**Medido em 22/10 as 01:1x, e o erro aconteceu nesta rodada — dentro do conserto
+de UMA HORA antes.** A `sonda_e_modo` nasceu as 00:3x para que os TRES controles
+do `modo_de_fechamento` saissem do MESMO caminho de saida. Ela aceita host OU URL
+para a SONDA (monta `https://%s/` quando nao ha esquema) e passava as MESMAS
+strings ao `politica_negou_hosts`, cujo casamento era `split(":")[0]` — **tira a
+PORTA e NAO tira o CAMINHO.**
+
+| forma | casava? |
+|---|---|
+| `www.youtube.com` | **SIM** |
+| `www.youtube.com:443` | **SIM** |
+| `www.youtube.com/watch?v=X` | **NAO** |
+| `https://www.youtube.com/watch?v=X` | **NAO** |
+
+**Logo as duas metades da MESMA chamada discordavam sobre o que e um host**,
+dentro da funcao de dono unico criada para impedir exatamente esse tipo de
+mistura.
+
+**E O CUSTO E DE VEREDITO, nao de relato.** O proxy nomeou
+`www.youtube.com:443` as 01:07:24; eu passei a URL do `watch` e a politica saiu
+nomeando **so o `example.com`**. O modo final saiu CERTO
+(`negado_por_politica`) **porque o host NEUTRO tambem foi negado** — acidente, da
+mesma forma do acordo acidental dos dois caminhos de saida que a nota de 00:3x
+descreve. Com so o host do YouTube na forma natural, o modo cai para
+`indeterminado`, e o **remedio e OUTRO**: `negado_por_politica` aponta a tela de
+Network access do dono, `indeterminado` nao aponta nada.
+
+**Consertado com UM dono: `vivacidade_publica.host_de(h)`** extrai o host das
+quatro formas, e o `politica_negou_hosts` passou a chama-lo nos TRES pontos onde
+fatiava por conta propria. A medida das quatro formas e o custo ficam escritos no
+docstring do dono.
+
+`tests/test_a_sonda_e_a_politica_discordavam_do_que_e_um_HOST.py`, dez testes: as
+quatro formas tem de dar o MESMO host e CASAR na politica, um **REPRODUZ** o
+custo de veredito passando pelo `modo_de_fechamento` (que e o dono do modo), um
+**MEDE o acidente** que salvou a rodada aplicando o casamento ANTIGO ao par e ao
+YouTube sozinho — sem ele *"o acerto foi acidental"* seria afirmacao minha —, a
+extracao tem **UM dono por AST** (`split(':')` em qualquer outra funcao reprova),
+a politica tem de **CHAMAR** o dono, a contraprova no outro sentido exige que
+host NAO negado siga sem politica nas quatro formas, entrada vazia **nao casa com
+tudo**, um cobra o caminho INTEIRO pela `sonda_e_modo`, e um **falha se a medida
+sair do dono**. **Contraprova:** religado o casamento antigo, **quatro dos dez**
+falham.
+
+### A PECA DESSA RODADA — TREZE cenas, e o instrumento derrubou uma frase da copy
+
+`epomeno-epipedo-s090` = **`4I6wzTtT1pg`**, publicado as 01:16:37Z (run
+`39704713722`), **ONZE PORTOES VERDES NA PRIMEIRA TENTATIVA** — e ela foi
+**CONFERIDA COMO RASCUNHO** antes de existir como arquivo, pela terceira vez em
+producao: dez portoes baratos limpos em **0,60 s**, mira, acento, gancho, paleta
+**LIDA** do dono e as treze cenas desenhando. Provedor **edge MEDIDO** (zero
+avisos `NARRACAO PELO PIPER` nos dois jobs do render), som **−13,9** LUFS, LRA
+4,4, pico **−1,8** dBTP com `pico_vs_teto: dentro`, desvio +0,1, **zero
+silencios** — e a leitura foi PARQUEADA pelo `som_parqueado` no mesmo passo (63
+linhas).
+
+**E O `numerais_falados` DERRUBOU UMA AFIRMACAO DA MINHA COPY ANTES DE
+PUBLICAR:** eu escrevi *"a narracao nao fala numeral nenhum"* e ela fala
+**`duo`**, nas cenas 0 e 2 — a contagem dos PROPRIOS artigos de que a peca fala,
+isto e, estrutura do argumento e nao fato sobre o mundo. A linha foi corrigida
+para dizer o numeral e por que ele e estrutura, e **a versao falsa fica
+registrada na propria copy** em vez de apagada.
+
+**A CONTAGEM saiu da chave `por_cadencia_servivel` e as recusas nao foram
+minhas:** catorze e a melhor cadencia e **REPETE a `s089`**, a peca anterior do
+canal; **quinze** — o teto MEDIDO da voz, e **INEDITO** na frota — saiu
+**NOMEADO** e recusado pela FOLGA (dois caracteres acima do piso observado).
+Treze tem folga **+10** e |dif| **0,15** dos ~3,1 s de 690/699.
+
+**ESQUELETO
+`titulo-lista-item-barras-item-item-titulo-barras-lista-item-item-item-cta`,
+INEDITO nas 166 formas da frota** e nenhuma das ONZE de treze cenas, com `barras`
+e `lista` duas vezes cada e as quatro carregando argumento. Todo layout saiu do
+conjunto **SONDADO**, com `assert` no construtor.
+
+**PAUTA:** `9U2h4HuAzLs` (`epomeno-epipedo-015`), 4 usos — empate de **ONZE**
+origens desempatado pela MAIOR reserva, **69 de 81** capitulos NAO MENCIONADOS.
+A dominante `nttW9fR8wyY` ficou de fora.
+
+**FAMILIA: COMPARAR NIVEL DE INDICE DE DUAS FONTES** (capitulos 24 a 32, com o 31
+no centro). O eixo e a **ESCALA**: os dois numeros estao certos e publicados, e o
+que esta errado e a **OPERACAO** — subtrair dois niveis de bases diferentes
+devolve um numero com cara de resposta. A variacao anual sobrevive porque a base
+sai na divisao; o nivel nao.
+
+**E E A PRIMEIRA das tres diferencas que a origem enumera, a unica livre** —
+medicao do `irmaos_da_origem` e nao leitura minha: o capitulo 23 anuncia tres, o
+`s053` levou a SEGUNDA (quem o indice mede) e o `s058` a TERCEIRA (custo fora por
+falta de metodo). **A BASE estava NOMEADA como nao levada na RESERVA ESCRITA do
+`s025`**, e e esta peca que a leva — **quarta rodada seguida** em que a familia
+sai de reserva escrita. Distincoes contra os QUATRO irmaos escritas na copy; TRES
+deles nao tem o campo da familia, logo a comparacao saiu da PROSA e da NARRACAO
+de cada um, que e de primeira mao.
+
+**ZERO numero novo sobre o mundo:** os ANOS DE BASE dos dois indices ficaram FORA
+pela regra (g), **com a procedencia no PROPRIO irmao** — a prosa do `s025`
+escreve que a regra (g) tira deste longo *"os ANOS DE BASE dos dois indices"*. Os
+nomes dos dois orgaos ficaram fora pela 609, e **o valor cem tambem**, com o
+motivo escrito. As barras e as duas listas sao ilustracao e **nao** sao faladas.
+
+**A PINCA DO 740/748 ESTA FECHADA AQUI**, com a exposicao declarada ANTES de
+publicar: nenhuma media por cena poe os dois provedores dentro de 41,5 a 43,0 com
+treze cenas nesta voz. **Mirei o PISO** (772) — edge **41,72**, 0,22 acima dele,
+com media **31,2** contra os 31 do orcamento; o piper sai em **36,96**, FORA pela
+mira e DENTRO do portao, que cobra 18 a 45 s nos dois mundos. **E o REAL nao esta
+prometido para lado nenhum** (774).
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica` pela VIGESIMA
+TERCEIRA rodada seguida** — medido pela `sonda_e_modo`, na PRIMEIRA vez que ela
+serviu em producao, com os tres controles no mesmo caminho. A peca esta PARQUEADA
+com o provedor MEDIDO e o job **lido da API**, e a presenca foi conferida
+**RELENDO** o parque (**123** linhas, **51** sem leitura). `RESIDUO_N` segue
+**128**.
+
+**E A LEITURA DE INSCRITOS PASSOU AS TRES PORTAS E NAO FOI FEITA, pela DECIMA
+SEGUNDA rodada seguida:** 62,99 h, piso de resolucao **0,38/dia**, os tres SIM.
+**O que a impede e a ROTA, e o remedio e do DONO** — a tela de Network access.
+
+**COTA: DEZENOVE envios** na janela aberta as 07:00Z, **30.400** unidades, contra
+o piso MEDIDO de **>= 41.600** — do `janela_de_cota`.
