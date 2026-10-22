@@ -261,6 +261,40 @@ def modo_de_fechamento(corpo: str, location: str = "",
     return "aberta"
 
 
+def host_de(h) -> str:
+    """O HOST de uma entrada, seja ela host, host:porta ou URL com caminho.
+
+    POR QUE EXISTE (22/10, 01:1x): a `sonda_e_modo` aceita host OU URL para a
+    SONDA (ela monta `https://%s/` quando nao ha esquema) e passava as MESMAS
+    strings ao `politica_negou_hosts`, cujo casamento era `split(":")[0]` — que
+    tira a PORTA e **nao tira o CAMINHO**. Logo as duas metades da mesma chamada
+    discordavam sobre o que e um host, DENTRO da funcao de dono unico criada em
+    00:3x para impedir exatamente esse tipo de mistura.
+
+    MEDIDO na rodada em que apareceu, com o status do proxy na mao:
+
+        forma                                 casava?
+        www.youtube.com                       SIM
+        www.youtube.com:443                   SIM
+        www.youtube.com/watch?v=X             NAO
+        https://www.youtube.com/watch?v=X     NAO
+
+    E o custo e de VEREDITO: o proxy nomeou `www.youtube.com:443` naquela
+    rodada, a minha chamada passou a URL do `watch` e a politica saiu nomeando
+    so o `example.com`. O modo final ficou certo porque o neutro TAMBEM foi
+    negado — acidente, da mesma forma do acordo acidental dos dois caminhos de
+    saida que a nota de 00:3x descreve. Com so o host do YouTube, o modo cairia
+    para `indeterminado`, cujo remedio e OUTRO: `negado_por_politica` aponta a
+    tela de Network access do dono, e `indeterminado` nao aponta nada.
+    """
+    s = str(h or "").strip()
+    if "://" in s:
+        s = s.split("://", 1)[1]
+    s = s.split("/", 1)[0]
+    s = s.split("?", 1)[0]
+    return s.split(":", 1)[0]
+
+
 def politica_negou_hosts(hosts, desde: str, status: dict | None = None) -> dict:
     """O `politica_negou` do `modo_de_fechamento` deixa de ser conta minha.
 
@@ -295,14 +329,13 @@ def politica_negou_hosts(hosts, desde: str, status: dict | None = None) -> dict:
         return {"negou": None, "motivo": "status do proxy ilegivel",
                 "hosts_nomeados": [], "mais_novo": None}
     falhas = status.get("recentRelayFailures") or []
-    alvo = {str(h).split(":")[0] for h in (hosts or [])}
+    alvo = {host_de(h) for h in (hosts or [])}
     # A lista e oldest-first: a ponta NOVA e o fim dela. Nao se fatia pelo
     # comeco, e e por isso que esta funcao existe.
     recentes = [f for f in falhas
                 if str(f.get("ts") or "") >= str(desde)
-                and str(f.get("host") or "").split(":")[0] in alvo]
-    nomeados = sorted({str(f.get("host") or "").split(":")[0]
-                       for f in recentes})
+                and host_de(f.get("host")) in alvo]
+    nomeados = sorted({host_de(f.get("host")) for f in recentes})
     mais_novo = max((str(f.get("ts") or "") for f in falhas), default=None)
     if not recentes:
         return {"negou": None,
@@ -443,7 +476,7 @@ def sonda_e_modo(hosts=None, dir_sonda: str | None = None,
                 _os.remove(destino)
             except Exception:
                 pass
-        url = h if "://" in h else "https://%s/" % h
+        url = h if "://" in h else "https://%s/" % h  # host_de e o dono do HOST
         try:
             r = _sub.run(["curl", "-s", "-o", destino, "-w", "%{http_code}",
                           "-m", "25", url],
