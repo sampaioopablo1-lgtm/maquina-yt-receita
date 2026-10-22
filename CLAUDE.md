@@ -10589,11 +10589,12 @@ reprova), a contraprova no outro sentido exige que **nem todo** livre seja
 declarado — senao a marca nao distingue nada e deixa de avisar —, a frase tem
 **UM dono por AST** e sai nos **DOIS** ramos, o `exceto` e cobrado nos dois
 sentidos, a delegacao e por **AST** (`_citados`, `capitulos_negados` e `re.` no
-corpo reprovam), o inverso da raiz e cobrado nos dois sentidos, a guarda LEVANTA
-com a raiz errada e a chamada certa continua respondendo, e a medida do `##
-RESERVA` e **RECONFERIDA contra o disco** e reprova se virar maioria (753). O
-par que custou as duas cenas fica como **HISTORIA**, e nenhum assert depende
-dele (743/753/761).
+corpo reprovam), a guarda de vacuidade **LEVANTA** com o diretorio errado e a
+chamada certa continua respondendo, a passagem do diretorio e cobrada por
+**AST** como sendo por NOME e **nao por posicao**, e a medida do `## RESERVA` e
+**RECONFERIDA contra o disco** e reprova se virar maioria (753). O par que
+custou as duas cenas fica como **HISTORIA**, e nenhum assert depende dele
+(743/753/761). **Onze testes, e a contraprova derruba CINCO.**
 
 ### E A SUITE PEGOU UMA REGRESSAO DO MEU PROPRIO CONSERTO — 26 falhas contra 25
 
