@@ -74,18 +74,38 @@ def test_o_caso_MEDIDO_sai_do_declarado_e_entra_no_negado():
     conserto tem de produzir ao menos um caso em que TODA citacao de capitulo
     mora dentro do bloco de negacao.
     """
-    vazias = [(p, c) for p, c in _shorts_soltos()
-              if IO.capitulos_negados(c) and not IO._capitulos_declarados(c)]
-    assert vazias, (
-        "nenhuma spec tem TODA citacao de capitulo dentro do bloco de negacao —"
-        " perdi a ancora do defeito, e sem ela este arquivo nao mede o caso que"
-        " o produziu (`kolejny-poziom-s022`, 10 de 10)")
-    for p, c in vazias:
-        negados = IO.capitulos_negados(c)
-        assert negados, p
-        # e o conjunto negado tem de ser exatamente o que a copy cita
-        assert set(negados) == IO._citados(c), (
-            "%s: o negado deixou de cobrir todas as citacoes da copy" % p)
+    # RETRATADO em 22/10 as 21:4x: a ancora do DISCO desapareceu porque o
+    # parser MELHOROU. Com a ENUMERACAO e as outras linguas lidas, nenhuma spec
+    # tem mais TODA citacao dentro do bloco de negacao — ela passou a ter
+    # citacao tambem nas FONTES. Exigir que o defeito continue aparecendo e
+    # punir o acerto (a classe 743/753/761), logo a propriedade passou a ser
+    # cobrada numa copy PROPRIA, e o disco responde pela propriedade mais
+    # fraca e verdadeira: negado NUNCA entra no declarado.
+    copy_propria = (
+        "## FONTES\nO longo deste canal.\n\n"
+        "O QUE EU NAO LEVEI: os capitulos 52 a 61, porque carregam valor.\n")
+    assert IO.capitulos_negados(copy_propria) == list(range(52, 62))
+    assert IO._capitulos_declarados(copy_propria) == [], (
+        "citacao que mora SO dentro do bloco de negacao nao pode entrar no "
+        "declarado — era isso que o relato dizia como `capitulos que ele "
+        "declara: 52 a 61`")
+    # E A COMPARACAO E FORA DA RESERVA, e o motivo e um achado desta rodada:
+    # o `epomeno-epipedo-s088` cita o capitulo 47 nas FONTES (usado) E dentro
+    # de um bloco de negacao que mora na secao `## RESERVA` (nao levado). As
+    # duas coisas sao da COPY, nao do parser, e exigir que nunca se cruzem
+    # reprovaria uma copy do acervo por inconsistencia do autor — que e outro
+    # assunto. O que o parser deve garantir e o caso original: negacao FORA da
+    # reserva nao entra no declarado.
+    com_negacao = [(p, c) for p, c in _shorts_soltos()
+                   if IO.capitulos_negados(IO._sem_reserva(c))]
+    assert com_negacao, ("nenhuma spec do disco tem bloco de negacao fora da "
+                         "reserva: perdi a ancora e este arquivo nao mede nada")
+    for p, c in com_negacao:
+        corpo = IO._sem_reserva(c)
+        vazou = set(IO.capitulos_negados(corpo)) & set(IO._capitulos_declarados(c))
+        assert not vazou, (
+            "%s: os capitulos %r estao no bloco de negacao E no declarado"
+            % (p, sorted(vazou)))
 
 
 def test_o_relato_DIZ_que_o_declarado_ficou_vazio_em_vez_de_calar():
@@ -249,10 +269,18 @@ def test_o_scanner_de_citacao_tem_UM_dono():
         if not isinstance(n, ast.FunctionDef):
             continue
         corpo = ast.unparse(n)
-        if "capitulos?" in corpo or "[Cc]apitulo" in corpo:
+        if "PALAVRA_CAPITULO" in corpo or "capitulos?" in corpo \
+                or "[Cc]apitulo" in corpo:
             donos.append(n.name)
+    # RETRATADO em 22/10 as 21:4x: a regex saiu para a constante
+    # `PALAVRA_CAPITULO` (tres linguas), logo nenhuma FUNCAO carrega mais o
+    # literal e a deteccao antiga devolvia lista VAZIA — isto e, o teste
+    # passaria a aprovar qualquer coisa. A propriedade e a mesma: UM dono.
     assert donos == ["_citados"], (
         "a regex de capitulo aparece em %r: ela tem de ter UM dono" % (donos,))
+    assert "PALAVRA_CAPITULO" in FONTE, (
+        "a constante das tres linguas desapareceu: sem ela a ENUMERACAO e as "
+        "linguas que nao sao o portugues voltam a ficar invisiveis")
 
     # e as duas portas publicas delegam a ele
     defs = {n.name: n for n in ast.walk(arv) if isinstance(n, ast.FunctionDef)}

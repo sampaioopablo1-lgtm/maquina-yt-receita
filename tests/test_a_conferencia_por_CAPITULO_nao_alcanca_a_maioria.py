@@ -16,6 +16,7 @@ import ast
 import glob
 import json
 import os
+import re
 import sys
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -79,16 +80,41 @@ def test_a_varredura_nao_passa_por_VACUIDADE():
         % (len(specs), PISO_SPECS))
 
 
-def test_a_rota_mecanica_esta_em_BRANCO_para_a_maioria():
-    """A medida que torna o achado grave, RECONFERIDA contra o disco (753)."""
+def test_a_rota_mecanica_DEIXOU_de_estar_em_branco_para_a_maioria():
+    """RETRATADO em 22/10 as 21:4x, e a propria mensagem antiga mandava reler.
+
+    Este teste cobrava `frac > 0.5` — *"a rota mecanica esta em BRANCO para a
+    maioria"* — e dizia, em letra: *"se a maioria passou a declarar, esta nota
+    tem de ser RELIDA, nao o numero movido"*. **Ela passou.** O `_citados` so
+    lia FAIXA e capitulo UNICO, e so em portugues; com a ENUMERACAO e as outras
+    linguas a cobertura foi de **136 para 181 de 181** das copies que citam
+    capitulo, e a fracao sem declaracao caiu de mais de metade para **38%**
+    (112 de 293).
+
+    **E a causa da brancura era o PARSER, nao os autores** — e e isso que a nota
+    antiga atribuia errado. A propriedade que fica e mais forte: **spec sem
+    capitulo declarado e spec que nao CITA capitulo nenhum**, e o resto da
+    conferencia (a leitura da narracao) segue necessario porque 38% nao citam.
+    """
     specs = _shorts_soltos()
     sem = [d for d in specs if not IO._capitulos_declarados(d.get("copy") or "")]
+    assert sem, ("TODA spec declara capitulo: ai a rota mecanica alcanca tudo e "
+                 "esta nota se rele outra vez")
     frac = len(sem) / float(len(specs))
-    assert frac > 0.5, (
-        "so %d de %d specs (%.0f%%) ficaram sem capitulo declarado. Se a "
-        "maioria passou a declarar, a rota mecanica deixou de estar em branco "
-        "e esta nota tem de ser RELIDA, nao o numero movido"
-        % (len(sem), len(specs), 100 * frac))
+    assert 0.15 <= frac <= 0.60, (
+        "%d de %d specs (%.0f%%) sem capitulo declarado, fora da faixa "
+        "OBSERVADA depois do conserto de 21:4x — RELEIA em vez de mover o "
+        "numero" % (len(sem), len(specs), 100 * frac))
+    # E O QUE DE FATO SUSTENTA A NOTA: quem fica sem declaracao nao CITA.
+    citam_sem_declarar = [
+        d for d in sem
+        if re.search(IO.PALAVRA_CAPITULO + r"\s+\d{1,3}",
+                     IO._sem_reserva(d.get("copy") or ""), re.I)]
+    assert not citam_sem_declarar, (
+        "%d spec(s) CITAM capitulo e seguem sem declaracao: alguma FORMA de "
+        "citacao voltou a ficar invisivel, e capitulo declarado saindo como "
+        "LIVRE e o defeito de 12/10 as 12:3x"
+        % len(citam_sem_declarar))
 
 
 def test_os_DOIS_lados_existem_no_disco():

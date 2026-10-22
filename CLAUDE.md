@@ -12109,3 +12109,44 @@ QUARTA rodada seguida:** 83,33 h, piso de resolucao **0,29/dia**, os tres SIM.
 
 **COTA: QUINZE envios** na janela aberta as 07:00Z, **24.000** unidades, contra
 o piso MEDIDO de **>= 41.600**.
+
+### E A SUITE ACUSOU TRES FALHAS NOVAS — as tres eram testes MEUS, e o conserto estava CERTO
+
+**28 contra a base de 25, e o `comm` nomeou as tres.** As tres sao da classe
+743/753/761 — **o teste ancorado num estado que a melhoria removeu** — e nos
+tres casos quem estava errado era o teste:
+
+1. **`test_a_rota_mecanica_esta_em_BRANCO_para_a_maioria`** cobrava
+   `frac > 0.5` e **a propria mensagem dele mandava reler**: *"se a maioria
+   passou a declarar, esta nota tem de ser RELIDA, nao o numero movido"*. Ela
+   passou: a fracao sem declaracao caiu de mais de metade para **38%** (112 de
+   293). **E a causa da brancura era o PARSER, nao os autores** — era isso que
+   a nota atribuia errado. A propriedade que ficou e mais forte: **spec sem
+   capitulo declarado e spec que nao CITA capitulo nenhum**, cobrada no disco, e
+   o resto da conferencia (a leitura da NARRACAO) segue necessario porque 38%
+   nao citam;
+2. **`test_o_caso_MEDIDO_sai_do_declarado_e_entra_no_negado`** exigia uma spec
+   do disco com TODA citacao dentro do bloco de negacao — e **nenhuma tem
+   mais**, porque com a enumeracao lida elas passaram a ter citacao tambem nas
+   FONTES. A propriedade passou a ser cobrada numa copy **PROPRIA** (o caso
+   `52 a 61`, que e o que produziu o defeito) e o disco responde pela
+   propriedade mais fraca e verdadeira: **negado nao entra no declarado**;
+3. **`test_o_scanner_de_citacao_tem_UM_dono`** casava o literal `capitulos?`
+   dentro das FUNCOES — e a regex saiu para a constante `PALAVRA_CAPITULO`,
+   logo a lista de donos voltou **VAZIA** e o assert reprovava por achar
+   NADA. **Teste que detecta por literal aprova qualquer coisa quando o literal
+   se move**: a deteccao passou a incluir o nome da constante, e a propriedade
+   (UM dono) e a mesma.
+
+**E O MEU PROPRIO CONSERTO ACHOU UMA INCONSISTENCIA DE COPY, que vai dita e NAO
+foi tratada como defeito do parser:** o `epomeno-epipedo-s088` cita o capitulo
+**47** nas FONTES (usado) **e** dentro de um bloco de negacao que mora na secao
+`## RESERVA` (nao levado). As duas coisas sao da COPY; exigir que nunca se
+cruzem reprovaria uma peca do acervo por inconsistencia do autor, que e outro
+assunto. O teste passou a comparar a negacao **FORA da reserva**, que e o caso
+original.
+
+**A SUITE FECHOU DEPOIS DAS TRES RETRATACOES: 25 falhas, conjunto IDENTICO a
+linha de base desta sessao.** A passada que ACUSOU deu 28 (3.935 passam, 1.206
+skip, 2.035 s), com o `comm` nomeando exatamente as tres como novas e **zero
+desaparecidas** — logo as tres eram minhas e nenhuma outra se mexeu.
