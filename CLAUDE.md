@@ -11286,3 +11286,158 @@ que a impede e a ROTA, e o remedio e do DONO** — a tela de Network access.
 **COTA: DEZ envios** na janela aberta as 07:00Z, **16.000** unidades, contra o
 piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
 hora.
+
+## A RESERVA QUE DESEMPATA VINHA INFLADA PELO CAPITULO QUE O IRMAO DECLARA
+
+**Medido em 22/10 as 17:3x, escolhendo a pauta, e e a PRIMEIRA vez que um achado
+destes troca a ORIGEM e nao o relato.** A regra escrita no `concentracao.py` e
+*"MENOR contagem com capitulos INTOCADOS, desempate pela MAIOR reserva"*, e o
+`pauta_do_momento` lia a reserva **CRUA** do `nao_mencionados`. Desde 22/10 as
+12:3x esta MEDIDO que capitulo que o irmao **DECLARA** sai como livre — o
+`nao_mencionados` casa o TEXTO do kicker e a copy declara **FAIXA em digitos**.
+
+**Logo a reserva que DESEMPATA vinha inflada**, e o conserto de 12:3x chegou ao
+**RELATO** (ele marca os declarados um por um) e **nao chegou ao DESEMPATE**. E a
+classe de 20/10 as 14:3x: *conserto aplicado a UM de dois donos nao e conserto.*
+
+**E A INVERSAO E MAXIMA**, medida nos cinco empatados em 6 usos do
+`labtreinamento`:
+
+| leitura | escolhe | livres | **sem declaracao** |
+|---|---|---|---|
+| reserva **CRUA** | `labtreinamento-014` | 40 | **14** |
+| reserva **SEM DECLARACAO** | `labtreinamento-010` | 38 | **37** |
+
+Isto e, o desempate escrito escolhia **a pior das cinco pela medida que
+importa** — e aquela origem ja tinha **SEIS** irmaos, todos sobre o mesmo
+denominador, onde o risco da regra (f) e maior e o `similaridade` **nao pega**,
+porque compara TITULO.
+
+**E NOS OUTROS DOIS CANAIS AS DUAS LEITURAS CONCORDAM** (empate em 4 usos no
+epomeno, sem empate no kolejny), e e por isso que a divergencia vai **NOMEADA** e
+a `escolhida` **NAO troca**: declaracao em prosa **nao e veredito nos dois
+sentidos** — a faixa cobre capitulo que o irmao nao tocou, e a maior parte das
+specs de short solto nao declara nada.
+
+**No codigo:** `reserva_sem_declaracao` em cada linha do `quadro`, com a juncao
+**DELEGADA** ao `texto_dos_livres` (dono dela desde 12:3x; refaze-la ali seria o
+segundo dono), mais `escolhida_por_reserva_sem_declaracao` e
+`desempate_diverge`. A frase tem **UM dono** com **UM prefixo para os TRES
+ramos**, e o `relato` a chama **FORA do ramo do empate** — dentro dele ela sairia
+so quando ha empate, que e a nota no ramo que cala (20/10, 13:2x). Custo medido:
+**6,5 s** por quadro de 15 origens.
+
+`tests/test_a_reserva_que_DESEMPATA_vinha_inflada.py`, dez testes: a varredura
+sai do DISCO e **reprova com quadro abaixo de 8 origens**, a divergencia e
+cobrada como **PROPRIEDADE nos DOIS lados** e **falha se TODOS ou se NENHUM canal
+divergir**, a inversao e **RECONFERIDA** (a outra tem de ter MAIS capitulo sem
+declaracao), origem sem spec local devolve **None e nao 0** (vazio nao e zero
+medido — 17/10), a `escolhida` e cobrada como seguindo a regra **ESCRITA** —
+contraprova no outro sentido, senao NOMEAR teria virado FILTRAR —, os TRES ramos
+da frase tem de **DIVERGIR**, o `relato` e cobrado por **AST** como a chamando
+fora do ramo do empate, e o `exceto` e cobrado na conta **NOVA** tambem (a licao
+de 14:3x aplicada a terceira conta). **Contraprova:** devolvida a reserva crua ao
+campo novo, **TRES dos dez** falham.
+
+**E TRES DOS MEUS TESTES REPROVARAM O MODULO CERTO na primeira execucao, os tres
+pela mesma licao:** a marca curta `DESEMPATE` casava com a **PROSA** que explica
+o defeito no docstring do `quadro` (consertado dando um prefixo longo aos tres
+ramos); o `shorts_da_origem` devolve **tuplas** e eu supus dicionario; e o
+docstring quebra a frase em duas linhas e escreve `NAO` em caixa alta, logo o
+casamento era por **caixa e por quebra**, nao por propriedade.
+
+### A PECA DESSA RODADA — SETE cenas, e a origem saiu da reserva SEM DECLARACAO
+
+`labtreinamento-s110` = **`6OibJ919t04`** (*Contou certo, começou errado*),
+publicado as 17:28:02Z (run `39822895739`), **sem `403 quota`**. **ONZE PORTOES
+VERDES NA PRIMEIRA TENTATIVA** — e ela foi **CONFERIDA COMO RASCUNHO** antes de
+existir no disco: dez portoes baratos limpos em **0,75 s**, mais mira, acento
+**5,58%** (e o portao `ortografia` tambem nao reprova), gancho de 8 palavras de
+12, paleta **LIDA** de `temas_do_dono.paleta_do_canal` e as sete cenas
+desenhando — com os dois instrumentos que ainda exigem caminho **DIZENDO** que
+nao conferiram.
+
+Provedor **edge MEDIDO** pelo `anotacoes_do_run` (zero avisos
+`NARRACAO PELO PIPER` no job `119975251520`, que e o job que emitiu o SOM). Som
+**-13,8** LUFS, pico **-1,4** dBTP — isto e `acima_do_teto`, que e LEITURA e nao
+defeito —, **zero silencios**, parqueado pelo `som_parqueado` **sem eu redigitar
+o JSON** (parque em **80** linhas, zero sem `run`).
+
+**E O INSTRUMENTO DAS ANOTACOES RECUSOU estabelecer o provedor pelo job do
+`retomar`**, dizendo em letra que ali o zero sairia por **VACUIDADE** — o
+conserto de 05:3x fazendo o trabalho outra vez.
+
+**CANAL do `passo_zero`** (8/8/9 na janela de 24 h, empate em 8 desempatado pelo
+que esta ha mais tempo sem publicar). **PAUTA:** `6BeNHqT2okA`
+(`labtreinamento-010`), **a escolhida pela reserva SEM DECLARACAO** — 38 livres
+com **37** sem declaracao de irmao, contra os 14 de 40 da que a reserva crua
+indicava. A dominante `FtCtIJPsc_Q` ficou de fora.
+
+**FAMILIA: A DATA DE ENTRADA DA CONTAGEM, QUANDO NAO HOUVE UM FATO COM HORA**
+(capitulos 4, 5, 9, 10, 11, 14 e 15). O eixo e de **ONDE** a contagem parte, nao
+de como ela anda: quando o caso se formou ao longo do tempo existem **TRES**
+datas candidatas, as tres legitimas, e **contar dias nao verifica o ponto de
+partida** — logo o prazo certo contado da data errada e um prazo errado, e nada
+avisa, porque o resultado sai com cara de resultado.
+
+**E O IRMAO MAIS PROXIMO DEFERE ESTE EIXO EM LETRA**, o que e raro: a primeira
+fala do `s007` e *"Voce ja descobriu qual data comeca o prazo. Agora falta a
+parte em que quase todo mundo erra"*, e dali ele trata de **COMO** contar (dias
+uteis, fim de semana, feriado). Ele conta; esta peca diz de onde se parte. As
+distincoes contra os **SEIS** irmaos foram lidas pelo `irmaos_da_origem` e pela
+**NARRACAO** de cada um — **nenhum dos seis tem o campo da familia**, logo a
+comparacao saiu da prosa e da fala, que e de primeira mao.
+
+**E O BLOCO DE RESERVA DE UM IRMAO QUASE ME LEVOU A UMA FAMILIA JA TOMADA:** o
+do `s014` aponta *a copia fiel* como nao levada, e a **NARRACAO do `s015`**
+desmente em primeira mao — ela diz *"guardar nao e entregar"* e *"o que fecha e
+o comprovante da entrega"*. **Bloco de reserva e compressao de TERCEIRO** (20/10,
+15:3x), e fica escrito na reserva desta peca para a rodada seguinte nao repetir.
+
+**SETE CENAS pela chave `por_cadencia_servivel`:** cadencia 3,29 s (|dif| 0,19
+dos ~3,1 s de 690/699), folga **+10**, e nao repete os tamanhos recentes do canal
+(a `s109` tem 6 e a `s108` tem 8). As contagens **9, 10 e 11** sairam
+**NOMEADAS** porque ali o PISO da faixa nao e alcancavel com texto legivel.
+
+**ESQUELETO `titulo-lista-barras-item-item-titulo-cta`, INEDITO nas 182 formas da
+frota** — e a frota tem **NOVE** formas de sete cenas, listadas **INTEIRAS** pelo
+instrumento da rodada anterior, e esta nao e nenhuma delas. Ordens livres destes
+mesmos layouts: **53 de 60**. Todo layout saiu do conjunto **SONDADO**, com
+`assert` no construtor.
+
+**A PINCA DO 740/748 NAO ESTA FECHADA AQUI**, e este e o unico canal da frota em
+que isso acontece: a `janela_dos_dois_mundos` pede **41 a 44** caracteres por
+cena com sete cenas e a peca saiu com media **42,57** — edge **25,10** e piper
+**20,60**, os **DOIS** dentro da mira medida (20,0 a 26,0). Logo **nao ha
+exposicao de mundo a declarar**, e eu **NAO mirei o piso de proposito**: o piso
+executavel e de 31 caracteres e e de **UM mundo**, e com 31 o piper cai abaixo de
+20,0 — a conta que eu fiz de cabeca no `s102`. **E o REAL nao esta prometido para
+lado nenhum**: 41 das 46 pecas deste canal narradas pelo edge sairam FORA do teto
+de 26,0 **com a mira verde**, e a banda tem 5,2 s contra 1 s de granularidade
+(774).
+
+**ZERO numero novo sobre o mundo, e aqui a trava e das mais apertadas porque a
+origem e um longo JURIDICO:** ficaram FORA o prazo em dia util, o numero do
+artigo e dos paragrafos, a faixa da multa, o piso e o teto do salario de
+contribuicao, as datas das leis e o nome do nexo tecnico — os seis mudam por
+publicacao. **E a recusa inclui o numero que tornaria a peca mais facil:** o
+PRAZO, que e exatamente o que daria urgencia concreta, e que o `s007` e o `s077`
+ja carregam com a fonte deles. Os numerais falados sao **"tres"** e **"duas"**,
+os dois estrutura do argumento — e **a primeira versao da linha declarava so
+"tres"**, com quem a pegou sendo o `numerais_falados` antes de publicar, a
+**SETIMA** vez nesta sessao. As barras da cena 2 sao ILUSTRACAO qualitativa e
+**nao** sao faladas, com isso escrito em letra.
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica` pela TRIGESIMA
+NONA rodada seguida** — medido pela `sonda_e_modo`, com os TRES controles no
+MESMO caminho de saida e os alvos na forma de URL. A peca esta PARQUEADA com o
+provedor MEDIDO e o job **lido da API**, e a presenca foi conferida **RELENDO** o
+parque (**140** linhas, **68** sem leitura). `RESIDUO_N` segue **128**.
+
+**E A LEITURA DE INSCRITOS PASSOU AS TRES PORTAS E NAO FOI FEITA, pela VIGESIMA
+rodada seguida:** 79,06 h, piso de resolucao **0,30/dia**, os tres SIM. **O que a
+impede e a ROTA, e o remedio e do DONO** — a tela de Network access.
+
+**COTA: ONZE envios** na janela aberta as 07:00Z, **17.600** unidades, contra o
+piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
+hora.
