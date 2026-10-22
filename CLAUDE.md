@@ -9660,3 +9660,12 @@ prefixo nao contaminou nada aqui —, e quem o nomeou foi a suite, nao eu relend
 `assert` de contagem antes de gravar. O arquivo do cabecalho volta a **oito de
 oito**, o `prontidao` segue com **zero falhas**, e **nenhuma constante foi
 tocada**.
+
+**A SUITE FECHOU DEPOIS DO CONSERTO: 25 falhas, 3.769 passam, 1.161 skip em
+1.338 s** — passada **PROVADA** pelo `passada_da_suite`, conjunto **IDENTICO** a
+linha de base desta sessao, `comm` vazio nos **dois** sentidos. A passada que
+ACUSOU deu **27** (3.767 passam, 1.335 s), com o `comm` nomeando exatamente as
+duas como novas e **zero desaparecidas** — logo as duas eram minhas e nenhuma
+outra se mexeu. **E o tempo vai medido em vez de atribuido:** 1.338 s contra
+1.335 s, isto e, o conserto do cabecalho **nao mexeu no total**, e os dois testes
+novos do `run` passam isolados em **0,08 s**.
