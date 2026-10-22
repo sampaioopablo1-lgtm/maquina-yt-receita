@@ -9669,3 +9669,146 @@ duas como novas e **zero desaparecidas** — logo as duas eram minhas e nenhuma
 outra se mexeu. **E o tempo vai medido em vez de atribuido:** 1.338 s contra
 1.335 s, isto e, o conserto do cabecalho **nao mexeu no total**, e os dois testes
 novos do `run` passam isolados em **0,08 s**.
+
+## A SONDA ACEITAVA O ID DA PECA COMO HOST — e respondia como se tivesse sondado
+
+**Medido em 22/10 as 07:2x, e o erro aconteceu nesta rodada.** A
+`sonda_e_modo` aceita host OU URL e monta `https://%s/` para o que nao tem
+esquema. **Eu lhe passei os IDS das pecas** — `-ZjnZjLVXss`, `OhrGlJvnBoM` —,
+ela montou `https://-ZjnZjLVXss/`, levou **HTTP 000** e o relato imprimiu a
+linha como se a peca tivesse sido sondada. *"Sondei a peca"* e *"sondei nada"*
+ficaram **indistinguiveis pela saida**.
+
+**E A FAMILIA GANHOU O SETIMO MEMBRO, agora na ENTRADA do instrumento:**
+
+| | |
+|---|---|
+| 17/10 | instrumento que devolve **VAZIO** nao prova ausencia |
+| 19/10 | arquivo **VAZIO** nao prova morte |
+| 20/10 01:4x | instrumento **CHEIO** nao prova presenca (o `pgrep` se vendo) |
+| 20/10 09:3x | **000** nao diz de QUEM e o zero |
+| 20/10 11:4x | **000 em TODO host** nao separa REDE de POLITICA |
+| 20/10 12:3x | vazio **CAMUFLADO** por um estado legitimo do instrumento |
+| **22/10 07:2x** | **alvo MALFORMADO responde como alvo sondado** |
+
+**E O CUSTO E DOS DOIS DISCRIMINADORES, medido na propria chamada:**
+
+| | |
+|---|---|
+| o que eu passei | `-ZjnZjLVXss`, `OhrGlJvnBoM`, `example.com` |
+| classificados **NEUTROS** | **3 de 3** — o certo e 1 |
+| alvos cujo **CORPO** seria lido | **0 de 3** — o certo e 2 |
+
+Logo o **host NEUTRO do 19/10 as 23:4x foi derivado de TRES hosts que nao
+existem**, e o ramo da parede do `CONSENT` (corpo GRANDE) ficou
+**INALCANCAVEL**: a peca poderia ter devolvido 1,2 MB de parede e o instrumento
+nunca olharia. **O veredito saiu certo por ACIDENTE** — a politica negou o
+CONNECT para tudo, os hosts inventados inclusive —, o mesmo acidente das notas
+de 00:3x e 01:1x, **as tres na mesma funcao e nas mesmas vinte e quatro
+horas**.
+
+**Consertado com UM dono: `vivacidade_publica.alvo_de_sonda(h)`** devolve a
+URL, o HOST e se o alvo e do YouTube, e **LEVANTA** quando o alvo nao tem
+esquema nem ponto — do jeito que o `porta1` recusa janela curta. A sonda passou
+a derivar dele as **duas** classificacoes (o neutro e o corpo), que antes saiam
+de um `"youtube" in h` sobre a string **CRUA** — a terceira ideia de host
+dentro da mesma funcao. **O limite vai declarado:** host sem ponto
+(`localhost`, nome de rede interna) tambem e recusado, porque distinguir id de
+peca de nome de maquina e conta que eu nao medi.
+
+`tests/test_a_sonda_aceitava_o_ID_da_peca_como_HOST.py`, dez testes: o id
+LEVANTA por **PROPRIEDADE** e nao pelo id (743/753/761 — os ids mudam toda
+rodada), a contraprova no outro sentido exige que host e URL **continuem
+passando** (senao bastaria levantar sempre), o custo dos dois discriminadores e
+**MEDIDO** aplicando a regra CRUA a chamada real e reprova se ela parar de
+errar, o "e do YouTube?" e cobrado pelo **HOST** nos dois sentidos (URL com
+`youtube` no CAMINHO nao e do YouTube), a sonda **RECUSA antes de tocar a
+rede**, a decisao e cobrada por **AST** (a string `"youtube"` dentro da sonda
+reprova, e ela tem de CHAMAR o dono), e a montagem da URL e proibida em
+**qualquer outra funcao** do modulo. **Contraprova:** religada a regra crua,
+**tres dos dez** falham.
+
+### A PECA DESSA RODADA — CATORZE cenas, e o PISO EXATO nao era alcancavel
+
+`epomeno-epipedo-s092` = **`-ZjnZjLVXss`** (*Η κίνηση δεν χωρίζεται*),
+publicado as 07:23:14Z (run `39740103730`), **sem `403 quota`**. **ONZE PORTOES
+VERDES NA PRIMEIRA TENTATIVA** (12,3 s) — e ela foi **CONFERIDA COMO RASCUNHO**
+antes de existir no disco, pela setima vez em producao: dez portoes baratos
+limpos em **0,60 s**, mira, acento **16,01%**, gancho de 4 palavras de 12,
+paleta **LIDA** do dono, as catorze cenas desenhando e zero numerais falados —
+com os dois instrumentos que ainda exigem caminho **DIZENDO** que nao
+conferiram. Provedor **edge MEDIDO** pelo `anotacoes_do_run` (zero avisos
+`NARRACAO PELO PIPER` no job `119693855980`, que e o job que emitiu o SOM). Som
+**-14,0** LUFS, LRA 3,4, pico **-1,5** dBTP com `pico_vs_teto: dentro` — isto
+e, **no teto exato** —, desvio **0,0**, **zero silencios**, parqueado pelo
+`som_parqueado` sem eu redigitar o JSON (parque em **70** linhas, zero sem
+`run`).
+
+**E O INSTRUMENTO DAS ANOTACOES RECUSOU estabelecer o provedor pelo job do
+`retomar`**, dizendo em letra que ali o zero sairia por **VACUIDADE** — o
+conserto de 05:3x na primeira rodada em que teve o que recusar.
+
+**E O PISO EXATO NAO E ALCANCAVEL com catorze cenas, dito assim em vez de eu
+chamar 41,84 de piso:** um caractere por cena vale **0,71 s**, o
+`mira.chars_no_alvo` devolve **26** para o piso e 26 caracteres caem em
+**41,23**, **ABAIXO** da faixa. **A PRIMEIRA versao desta peca saiu em edge
+42,81 — perto do TOPO — e a copy dizia *"Mirei o PISO"*:** corrigida ANTES de
+publicar para o ponto mais BAIXO ALCANCAVEL (edge **41,84** / piper **37,07**,
+media 26,86), com a versao falsa **registrada na propria copy** em vez de
+apagada. **Quem disse de quanto era o passo foi o `mira.quanto_cortar`, nao a
+minha cabeca** (item 3 da §10).
+
+**CONTAGEM pela chave `por_cadencia_servivel`:** catorze cenas, folga **+6**, e
+nao repete os tamanhos recentes do canal (12 e 13). O teto MEDIDO da voz
+(**15**), que e **INEDITO** na frota, saiu **NOMEADO** e recusado pela FOLGA —
+dois caracteres acima do piso OBSERVADO de 21, a MESMA conta que eu recusei a
+mao em 04:1x e 06:2x de 20/10.
+
+**ESQUELETO
+`titulo-item-lista-item-barras-item-titulo-item-barras-item-lista-item-item-cta`,
+INEDITO nas 172 formas da frota**, com `lista` e `barras` duas vezes cada. A
+frota tem **SEIS** pecas de catorze cenas em seis formas distintas e esta nao e
+nenhuma delas; o `formas_livres` diz **23.759 de 23.760** ordens livres desta
+mistura. Todo layout saiu do conjunto **SONDADO**, com `assert` no construtor.
+
+**PAUTA:** `jUxJPvmA4Mk` (`epomeno-epipedo-011`), 4 usos — empate de **NOVE**
+origens desempatado pela MAIOR reserva, **60 de 75** capitulos NAO MENCIONADOS.
+O `reservas_escritas` devolveu **NENHUMA** nesta origem.
+
+**FAMILIA: A FONTE DO DADO DECIDE SE A CONTA E POSSIVEL** (capitulos 16, 30 e
+34, com apoio do 18) — tomar a **kinisi** do cartao como se fosse a
+**apodeixi**. O eixo e o **DOCUMENTO**, nao a operacao: com a kinisi como fonte
+a separacao por grupo e **INALCANCAVEL**, logo o erro do `s079` deixa de ser
+evitavel. Distincoes escritas contra os QUATRO irmaos, lidas pelo
+`irmaos_da_origem` e pela NARRACAO de cada um — tres deles nao tem o campo da
+familia, logo pela PROSA e pela fala, de primeira mao: o `s009` (uma apodeixi
+nao e o numero — a soma do mes e), o `s028` (aplicar o papel de outro na
+cadeia), o `s043` (a BASE ja contem o imposto) e o `s079` (UM divisor para um
+total misturado). **Nenhum deles fala de QUAL documento serve de fonte.**
+
+**ZERO numero novo sobre o mundo, e a narracao nao fala numeral nenhum** — o
+`numerais_falados` confirma, com a ressalva dele de que ausencia de vocabulario
+nao prova ausencia. As barras sao ILUSTRACAO da perda de informacao e **nao**
+sao faladas, com isso escrito em letra na copy para a rodada seguinte nao as
+ler de volta como dado.
+
+**A PINCA DO 740/748 ESTA FECHADA AQUI**, com a exposicao declarada ANTES de
+publicar: nenhuma media por cena poe os dois provedores dentro de 41,5 a 43,0
+nesta voz com catorze cenas (razao piper/edge 0,886). O piper sai FORA pela
+mira e DENTRO do portao, que cobra 18 a 45 s nos dois mundos. **E o REAL nao
+esta prometido para lado nenhum** (774).
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica` pela VIGESIMA
+NONA rodada seguida** — medido pela `sonda_e_modo`, com os TRES controles no
+MESMO caminho de saida **e com os alvos na forma certa**, que e o conserto
+desta rodada. A peca esta PARQUEADA com o provedor MEDIDO e o job **lido da
+API**, e a presenca foi conferida **RELENDO** o parque (**130** linhas, **58**
+sem leitura). `RESIDUO_N` segue **128**.
+
+**E A LEITURA DE INSCRITOS PASSOU AS TRES PORTAS E NAO FOI FEITA, pela DECIMA
+SEXTA rodada seguida:** 69,05 h, os tres SIM. **O que a impede e a ROTA, e o
+remedio e do DONO** — a tela de Network access.
+
+**COTA: UM envio** na janela que abriu as 07:00Z, **1.600** unidades, contra o
+piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
+hora.

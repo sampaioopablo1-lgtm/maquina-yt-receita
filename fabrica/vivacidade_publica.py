@@ -295,6 +295,60 @@ def host_de(h) -> str:
     return s.split(":", 1)[0]
 
 
+class AlvoSemHost(Exception):
+    """O alvo da sonda nao carrega host nenhum — ver `alvo_de_sonda`."""
+
+
+def alvo_de_sonda(h) -> dict:
+    """A URL, o HOST e se o alvo e do YouTube — com UM dono e com RECUSA.
+
+    POR QUE EXISTE (22/10, 07:2x): a `sonda_e_modo` aceita host OU URL e monta
+    `https://%s/` para o que nao tem esquema. **Nesta rodada eu lhe passei os
+    IDS das pecas** (`-ZjnZjLVXss`, `OhrGlJvnBoM`), que nao sao host: ela
+    montou `https://-ZjnZjLVXss/`, levou HTTP 000, e o relato imprimiu a linha
+    como se a peca tivesse sido sondada. **"sondei a peca" e "sondei nada"
+    ficaram indistinguiveis pela saida** — a familia do 17/10 (vazio nao prova
+    ausencia), do 20/10 as 01:4x (cheio nao prova presenca) e do 09:3x (zero
+    nao diz de QUEM e o zero), agora na ENTRADA do instrumento.
+
+    E O CUSTO E DOS DOIS DISCRIMINADORES, medido naquela chamada:
+
+        o que eu passei                 -ZjnZjLVXss, OhrGlJvnBoM, example.com
+        classificados NEUTROS           3 de 3   (o certo e 1)
+        alvos cujo CORPO seria lido     0 de 3   (o certo e 2)
+
+    Logo o host NEUTRO do 19/10 as 23:4x foi derivado de TRES hosts que nao
+    existem, e o ramo da parede do `CONSENT` (corpo GRANDE) ficou
+    INALCANCAVEL: a peca poderia ter devolvido 1,2 MB de parede e o
+    instrumento nunca olharia. O veredito saiu certo por ACIDENTE — a politica
+    negou o CONNECT para tudo, inclusive para os hosts inventados —, que e o
+    mesmo acidente das notas de 00:3x e 01:1x.
+
+    O CRITERIO e estreito de proposito: alvo com esquema e URL, alvo com PONTO
+    e host, e o resto **LEVANTA** com o motivo, do jeito que o `porta1` recusa
+    janela curta. **O limite vai declarado:** host sem ponto (`localhost`, um
+    nome de rede interna) tambem seria recusado — a sonda nunca sondou nenhum,
+    e aceitar um exigiria distinguir id de peca de nome de maquina, que e
+    conta que eu nao medi.
+    """
+    s = str(h or "").strip()
+    if not s:
+        raise AlvoSemHost(
+            "alvo de sonda VAZIO: nao da para sondar o que nao foi nomeado")
+    if "://" not in s and "." not in s.split("/", 1)[0]:
+        raise AlvoSemHost(
+            "o alvo %r nao e host nem URL (sem esquema e sem ponto): a sonda "
+            "montaria `https://%s/` e devolveria 000 como se a peca tivesse "
+            "sido sondada. Se este e o id de uma peca, passe a URL do `watch` "
+            "— ver `alvo_de_sonda` (22/10, 07:2x)" % (s, s))
+    host = host_de(s)
+    if not host:
+        raise AlvoSemHost("nao achei host em %r" % s)
+    return {"url": s if "://" in s else "https://%s/" % s,
+            "host": host,
+            "e_youtube": "youtube" in host}
+
+
 def politica_negou_hosts(hosts, desde: str, status: dict | None = None) -> dict:
     """O `politica_negou` do `modo_de_fechamento` deixa de ser conta minha.
 
@@ -468,6 +522,8 @@ def sonda_e_modo(hosts=None, dir_sonda: str | None = None,
     except Exception:
         pode_gravar = False
 
+    alvos = {h: alvo_de_sonda(h) for h in hosts}
+
     leituras = {}
     for h in hosts:
         destino = _os.path.join(base, "r-%s.html" % h.replace("/", "_"))
@@ -476,7 +532,7 @@ def sonda_e_modo(hosts=None, dir_sonda: str | None = None,
                 _os.remove(destino)
             except Exception:
                 pass
-        url = h if "://" in h else "https://%s/" % h  # host_de e o dono do HOST
+        url = alvos[h]["url"]  # `alvo_de_sonda` e o dono do ALVO
         try:
             r = _sub.run(["curl", "-s", "-o", destino, "-w", "%{http_code}",
                           "-m", "25", url],
@@ -488,7 +544,7 @@ def sonda_e_modo(hosts=None, dir_sonda: str | None = None,
         leituras[h] = {"codigo": codigo,
                        "bytes": (_os.path.getsize(destino) if existe else None)}
 
-    neutros = [h for h in hosts if "youtube" not in h]
+    neutros = [h for h in hosts if not alvos[h]["e_youtube"]]
     neutro_respondeu = None
     if neutros:
         neutro_respondeu = any(
@@ -505,7 +561,7 @@ def sonda_e_modo(hosts=None, dir_sonda: str | None = None,
 
     corpo = ""
     for h in hosts:
-        if "youtube" in h and leituras[h]["bytes"]:
+        if alvos[h]["e_youtube"] and leituras[h]["bytes"]:
             try:
                 corpo = _io.open(
                     _os.path.join(base, "r-%s.html" % h.replace("/", "_")),
