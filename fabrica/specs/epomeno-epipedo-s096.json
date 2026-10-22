@@ -1,0 +1,129 @@
+{
+ "slug": "epomeno-epipedo-s096",
+ "pacote": "epomeno-epipedo-s096",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "longo_existente": "h66MCKjwAJ8",
+ "thumb": {
+  "l1": "Δύο πίνακες",
+  "l2": "μία ημερομηνία"
+ },
+ "paleta": {
+  "bg": "#F4EFE6",
+  "ink": "#1B1A17",
+  "c1": "#C8502A",
+  "c2": "#2B6CB0",
+  "red": "#B83227",
+  "ok": "#2E8B57",
+  "panel": "#FFFFFF",
+  "mut": "#7A7263",
+  "acc": "#C8502A"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Πήρες τον αριθμό από την άδεια",
+   "sub": "και τον έβαλες στον πίνακα",
+   "nar": "Πήρες τον αριθμό από την άδεια."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Οι πίνακες όμως είναι δύο",
+   "itens": [
+    "Νέα ταξινόμηση",
+    "Παλιά ταξινόμηση"
+   ],
+   "nar": "Αλλά οι πίνακες είναι δύο."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ο ένας μετρά εκπομπές",
+   "sub": "γραμμάρια ανά χιλιόμετρο",
+   "nar": "Ο ένας μετρά εκπομπές."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ο άλλος μετρά τον κυβισμό",
+   "sub": "το μέγεθος του κινητήρα",
+   "nar": "Ο άλλος μετρά τον κυβισμό."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Δύο διαφορετικά μεγέθη",
+   "barras": [
+    {
+     "rot": "Εκπομπές",
+     "v": 100
+    },
+    {
+     "rot": "Κυβισμός",
+     "v": 100
+    }
+   ],
+   "nar": "Δύο διαφορετικά μεγέθη."
+  },
+  {
+   "layout": "item",
+   "kicker": "Δεν μετατρέπεται ο ένας",
+   "sub": "δεν υπάρχει αντιστοιχία",
+   "nar": "Δεν μετατρέπεται σε κυβικά."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Άρα λάθος πίνακας βγάζει νούμερο",
+   "sub": "και μοιάζει σωστό",
+   "nar": "Άρα λάθος πίνακας βγάζει νούμερο."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Η πράξη δεν διαμαρτύρεται",
+   "barras": [
+    {
+     "rot": "Σωστός",
+     "v": 100
+    },
+    {
+     "rot": "Λάθος",
+     "v": 100
+    }
+   ],
+   "nar": "Και η πράξη δεν διαμαρτύρεται."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ποιος ισχύει το κρίνει μία",
+   "sub": "ημερομηνία, όχι το αυτοκίνητο",
+   "nar": "Ποιος ισχύει το κρίνει ημερομηνία."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Πού είναι γραμμένη",
+   "itens": [
+    "Στον νόμο η τομή",
+    "Στην άδεια η δική σου"
+   ],
+   "nar": "Η ημερομηνία πρώτης ταξινόμησης."
+  },
+  {
+   "layout": "item",
+   "kicker": "Όχι η ηλικία του αυτοκινήτου",
+   "sub": "ούτε το πόσο παλιό δείχνει",
+   "nar": "Όχι η ηλικία του αυτοκινήτου."
+  },
+  {
+   "layout": "item",
+   "kicker": "Δύο ίδια, άλλη πλευρά",
+   "sub": "αν η ταξινόμηση διαφέρει",
+   "nar": "Δύο ίδια πέφτουν σε άλλη πλευρά."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Δες πρώτα την ημερομηνία",
+   "sub": "στην άδεια κυκλοφορίας",
+   "nar": "Δες την ημερομηνία πρώτα. Εγγραφή."
+  }
+ ],
+ "copy": "# epomeno-epipedo-s096\n\n## TITULO\nΔύο πίνακες για το αυτοκίνητο: ποιος ισχύει το κρίνει μία ημερομηνία, όχι η ηλικία\n\n## TITULO SHORT\nΔύο πίνακες, μία ημερομηνία\n\n## DESCRICAO\nΞέρεις ήδη ότι το τεκμαρτό εισόδημα δεν ρωτάει πόσα έβγαλες, και ξέρεις ότι το νούμερο του αυτοκινήτου είναι γραμμένο στην άδεια κυκλοφορίας. Παίρνεις λοιπόν τον αριθμό από το χαρτί και τον περνάς από τον πίνακα. Εκεί σταματάει σχεδόν όλος ο κόσμος, και εκεί κρύβεται ένα βήμα που δεν φαίνεται.\n\nΟ πίνακας δεν είναι ένας. Είναι δύο, και δεν διαφέρουν μόνο στα ποσά τους: μετρούν διαφορετικό μέγεθος. Ο ένας μετρά εκπομπές διοξειδίου του άνθρακα ανά χιλιόμετρο. Ο άλλος μετρά τον κυβισμό του κινητήρα. Αυτά τα δύο δεν είναι η ίδια ποσότητα σε άλλη μονάδα, και δεν υπάρχει καμία αντιστοιχία που να μετατρέπει το ένα στο άλλο.\n\nΚαι εδώ είναι ο λόγος που το λάθος δεν φωνάζει. Αν βάλεις τον αριθμό σου στον λανθασμένο πίνακα, η πράξη δεν σταματά και δεν διαμαρτύρεται: βρίσκει μια γραμμή, βγάζει ένα ποσό, και το ποσό μοιάζει απόλυτα σωστό. Δεν υπάρχει δεύτερος τρόπος να το ελέγξεις, γιατί δεν μπορείς να το σταυρώσεις με τον άλλο πίνακα — μετρούν άλλο πράγμα. Σωστή πράξη πάνω σε λάθος πίνακα δίνει αποτέλεσμα που δεν ξεχωρίζει από το σωστό.\n\nΠοιος από τους δύο ισχύει δεν το κρίνει ούτε η ηλικία του αυτοκινήτου, ούτε το πόσο παλιό δείχνει, ούτε το μέγεθός του. Το κρίνει μία ημερομηνία: η ημερομηνία πρώτης ταξινόμησης, συγκρινόμενη με μια τομή που είναι γραμμένη στον νόμο. Είναι γεγονός του χαρτιού και όχι του αυτοκινήτου, και αυτό έχει μια συνέπεια που εκπλήσσει: δύο ολόιδια αυτοκίνητα μπορούν να πέσουν σε διαφορετική πλευρά της τομής, και ένα αυτοκίνητο που σου φαίνεται παλιό μπορεί να ανήκει στον νεότερο πίνακα.\n\nΗ ανάκτηση είναι φθηνή και δεν θέλει ούτε εφαρμογή ούτε λογιστή: και η ημερομηνία και ο αριθμός είναι γραμμένα στην ίδια την άδεια κυκλοφορίας. Κανένα από τα δύο δεν μαντεύεται. Άνοιξε πρώτα την ημερομηνία, διάλεξε τον πίνακα, και μόνο μετά περάσε τον αριθμό.\n\nΑυτό που δεν καλύπτει αυτό το βίντεο είναι τα ποσά, οι κλίμακες, τα κατώφλια και η τομή. Αλλάζουν με τον νόμο, και άλλαξαν και σε αυτόν τον κύκλο. Ό,τι λέγεται εδώ είναι η δομή της επιλογής, που δεν αλλάζει όταν αλλάζουν τα νούμερα.\n\n## FONTES\nΜεγάλο βίντεο του καναλιού, κεφάλαια 14, 15, 37, 42 και 45. Το κεφάλαιο 14 λέει ότι για τα αυτοκίνητα που ταξινομήθηκαν μετά την τομή ο κυβισμός δεν μετράει πια καθόλου, το 15 ότι μετράει αποκλειστικά η εκπομπή ανά χιλιόμετρο, το 37 ότι εκεί αρχίζει ο νέος πίνακας, το 45 ότι για τα παλαιότερα ο πίνακας παραμένει στα κυβικά, και το 42 ότι ο αριθμός των ρύπων δεν μαντεύεται — είναι γραμμένος στην άδεια κυκλοφορίας.\n\n## FAMILIA DE ENTRADA ERRADA\nDUAS TABELAS, E O DISCRIMINADOR E UMA DATA — escolher a tabela pela aparencia do carro (idade, tamanho, \"parece antigo\") quando quem decide e a data de PRIMEIRA TAXINOMIA comparada com uma tomi escrita na lei. Duas coisas tornam o erro silencioso: as duas tabelas medem GRANDEZAS DIFERENTES (uma a emissao por quilometro, a outra a cilindrada), logo nao existe conversao entre elas e nao ha como cruzar uma contra a outra para conferir; e o discriminador e um fato do PAPEL e nao do carro, logo dois carros identicos podem cair em lados opostos e um carro que parece velho pode pertencer a tabela nova. Pratica certa sobre tabela errada devolve um numero que nao se distingue do certo.\n\nA DISTINCAO DOS QUATRO IRMAOS VAI ESCRITA, e eles vieram do `irmaos_da_origem` — e DOIS deles nao tem o campo da familia, logo para esses a comparacao foi pela PROSA e pela NARRACAO que o conserto de 20/10 as 15:3x passou a imprimir, que e de primeira mao:\n* `s016` — O SEGUNDO NUMERO EXISTE: o tekmarto nao pergunta quanto voce ganhou, pergunta onde mora e o que dirige. **E o vizinho mais proximo, e a distincao e fina:** a narracao dele cita a adeia do carro em UMA linha, como a FONTE do numero (\"Και από τον αριθμό στην άδεια του αυτοκινήτου\"). Esta peca comeca onde ele termina: com o numero ja na mao, ela diz em QUAL tabela ele entra e que uma data decide isso. Fonte do numero contra escolha da tabela.\n* `s041` — NAO SE SOMAM, SE COMPARAM: a base e `max(declarado, presumido)` e nao a soma. O eixo dele e a OPERACAO entre dois numeros que ja existem.\n* `s060` — TEKMIRIO CALCULADO SO PARA SI: a pratica certa sobre o SUJEITO errado, medindo o individuo onde a lei soma o domicilio. O eixo dele e o CONJUNTO medido.\n* `s078` — A EXCECAO REMOVE A PARCELA, NAO A OBRIGACAO: ler um direito de isencao como se ele zerasse o calculo inteiro. O eixo dele e a ISENCAO.\n\n**Nenhum dos quatro fala de QUAL TABELA se aplica**, e nenhum deles toca os capitulos 14, 15, 37, 42 ou 45 — conferido um a um. O `s078` declara a faixa 3 a 60, e os tres capitulos que ele cita dentro dela (3, 24, 58) sairam MARCADOS no `relato_dos_livres`; os cinco desta peca nao estao entre eles, e a narracao dele nao fala de tabela nem de taxinomia.\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e aqui a regra (g) morde mais que o normal: **a origem e um longo feito inteiramente de numeros que ACABARAM DE MUDAR** — o proprio longo diz \"pérsi era\" em cada linha da tabela. Nao entra na narracao nem na descricao: valor por metro quadrado, faixa de metragem, percentual de reducao, grama de emissao, cilindrada, piso minimo, numero de lei, de FEK ou de artigo, ano fiscal, numero de contribuintes.\n\n**E A RECUSA INCLUI A DATA DA TOMI, que e justamente o numero que tornaria a peca mais concreta** — a peca diz que existe uma tomi escrita na lei e que a data do leitor esta na adeia dele, em vez de a citar. O `s016` desta mesma origem ja havia descartado essa data pelo mesmo motivo, e vai dito aqui para a rodada seguinte nao a readotar como se fosse nova.\n\nNUMERAIS NA NARRACAO: **\"δύο\" nas cenas 1, 4 e 11** — a contagem das PROPRIAS tabelas e dos dois carros identicos do argumento, isto e estrutura e nao fato sobre o mundo. Conferido pelo `numerais_falados`, nao a mao.\n\nAs BARRAS das cenas 4 e 7 sao ILUSTRACAO qualitativa e **nao sao faladas**: a cena 4 desenha as duas grandezas com a MESMA altura (elas nao se comparam) e a cena 7 desenha o resultado certo e o errado com a MESMA altura, que e o argumento inteiro. Nenhuma das duas e dado, e isto vai escrito para a rodada seguinte nao as ler de volta como numero.\n\n## EXPOSICAO\n**MEDIDO, e as linhas foram GERADAS pelo `linhas_medidas_da_copy`, nao redigitadas:** previsao edge **41.70 s** / piper **36.90 s**; 13 cenas, media de **29.15** caracteres por cena; esqueleto `titulo-lista-item-item-barras-item-titulo-barras-item-lista-item-item-cta`, **INEDITO nas 184 formas** de short da frota; acento **13.61%**, thumbnail com **4** palavras, gancho com **6**. Redigitar isto e o que fez a declaracao de numerais ficar atras da narracao em SEIS rodadas desta sessao.\n\nMirei o PISO da faixa (41.5 a 43.0) pela regra de redacao do 772: 41.70 esta **0.20 acima** dele, e **o piso EXATO nao e alcancavel** — um caractere vale **0.051 s** nesta voz, logo o passo nao cai em cima de 41.5. A primeira versao saiu em **42.04** e o corte saiu do `mira.quanto_cortar`, nao da minha cabeca.\n\n**A PINCA DO 740/748 ESTA FECHADA AQUI, e a exposicao vai declarada ANTES de publicar:** o `mira.janela_dos_dois_mundos` diz que NENHUMA media por cena poe os dois provedores dentro de 41.5 a 43.0 com treze cenas nesta voz. O piper sai FORA pela mira e DENTRO do portao, que cobra 18 a 45 s nos dois mundos (730/733: o provedor se decide no runner, por cena e por run).\n\n**E uma cena tem DUAS frases — o CTA —, e isso custa 1.33 s que o orcamento nao supoe:** o termo `P` do `MODELO_VOZ` e silencio por FRASE e nao por cena (11/10). Com os mesmos caracteres em uma frase por cena a previsao seria 40.35 s, isto e ABAIXO da faixa. Vai dito porque o orcamento nao o inclui e quem o nomeou foi o relato, nao a minha conta.\n\n**E o REAL nao esta prometido para lado nenhum:** a banda do residuo tem 5.2 s de largura contra 1 s de granularidade do instrumento, e declarar um lado dela nao e previsao (774).\n\n## RESERVA\nPara a rodada seguinte, com o motivo de cada um:\n* **LIVRES** os capitulos 61 a 66 — os TRES PASSOS da pratica (metragem pela escala, gramas pela tabela, somar e comparar). E familia propria: o eixo seria a ORDEM e a completude do procedimento, e nao cabe hoje pela regra (f);\n* **LIVRE** o capitulo 70 — o que a pratica NAO cobre (as excecoes e os comprovativos do artigo 34, onde e preciso contabilista). **ATENCAO: ele fica perto do `s078`**, cujo eixo e a isencao; quem o levar tem de ler a copy do `s078` INTEIRA antes, porque bloco de reserva e compressao de TERCEIRO (20/10, 15:3x);\n* **LIVRE** o capitulo 42 pela metade — esta peca usa dele apenas que o numero esta na adeia; o lado de que e **o MESMO numero dos impostos de circulacao** nao foi levado;\n* **NAO LEVAR** os capitulos 19 a 30, 32, 33, 37 a 54: sao as TABELAS. Toda familia que saia deles carrega valor, e a regra (g) os barra;\n* **NAO LEVAR** os capitulos 68 e 69 — o resultado do ano passado ter expirado. O eixo e proximo do `kolejny-poziom-s091`, publicado hoje as 06:19Z em outro canal, e o `similaridade` **nao pegaria**, porque compara contra o MESMO canal.\n\n## HASHTAGS\n#τεκμαρτο #φορος #αυτοκινητο #οικονομικα #epomenoepipedo\n\n## COMENTARIO FIXADO\nΆνοιξες την άδεια και είδες την ημερομηνία πρώτης ταξινόμησης; Γράψε από κάτω μόνο ένα πράγμα: αν ο πίνακας που νόμιζες ότι ισχύει για σένα ήταν ο σωστός, ναι ή όχι. Χωρίς πινακίδες και χωρίς ποσά.\n\n## TAGS\nτεκμαρτό εισόδημα, τεκμήρια διαβίωσης, άδεια κυκλοφορίας, εκπομπές ρύπων, κυβισμός, φορολογική δήλωση, προσωπικά οικονομικά, υπολογισμός φόρου\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ncategoryId: 27\ndefaultLanguage: el\nmadeForKids: false\n\n## MUSICA / LICENCA\nTrilha `Inspired` do incompetech (Kevin MacLeod), licença CC BY 3.0.\n"
+}
