@@ -10706,3 +10706,198 @@ SEXTA rodada seguida:** 74,07 h, piso de resolucao **0,32/dia**, os tres SIM.
 **COTA: SEIS envios** na janela aberta as 07:00Z, **9.600** unidades, contra o
 piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
 hora.
+
+## O RUN DIZIA `completed/success` COM O JOB DO RENDER AINDA `in_progress`
+
+**Medido em 22/10 às 13:4x, e é a forma mais confortável da família.** O meu
+laço de espera pergunta ao RUN — `actions/runs/<id> --jq .status` — e ele voltou
+`completed` com `conclusion: success` enquanto o job
+`produzir (epomeno-epipedo, epomeno-epipedo-s094, el)` estava **`in_progress`**,
+`conclusion: null`, sem `completed_at`.
+
+| | |
+|---|---|
+| run 39788914600, `status` | **completed** |
+| run, `conclusion` | **success** |
+| job `preparar` | completed / success |
+| job `produzir` | **in_progress / null** |
+
+**Logo o estado do RUN não é o estado dos JOBS**, e quem termina são os jobs, um
+por um. Pelo laço antigo eu teria ido publicar uma peça que o render ainda não
+havia terminado.
+
+**E QUEM ME SALVOU FOI A GUARDA DE 05:3x, no primeiro caso real dela:** o
+`anotacoes_do_run` **RECUSOU** estabelecer o provedor, dizendo em letra que
+nenhum job daquele run emitiu `SOM` para o pacote, logo contar o aviso do 733
+ali devolveria **zero por VACUIDADE** — exactamente o defeito que pôs job
+inventado na série. Sem ela eu escreveria *"provedor edge MEDIDO, zero avisos"*
+a partir de um zero que não media nada.
+
+**É o OITAVO membro da família desta sessão, e o pior:**
+
+| | |
+|---|---|
+| 17/10 | instrumento que devolve **VAZIO** não prova ausência |
+| 19/10 | arquivo **VAZIO** não prova morte |
+| 20/10 01:4x | instrumento **CHEIO** não prova presença (o `pgrep` a ver-se) |
+| 20/10 09:3x | **000** não diz de QUEM é o zero |
+| 20/10 11:4x | **000 em TODO host** não separa REDE de POLÍTICA |
+| 20/10 12:3x | vazio **CAMUFLADO** por estado legítimo do instrumento |
+| 21/10 21:0x | arquivo que **EXISTE** não prova que é DESTA execução |
+| 22/10 08:3x | `.get(chave, default)` sobre a resposta ERRADA |
+| **22/10 13:4x** | **`success` do RUN não prova que os JOBS terminaram** |
+
+As outras devolvem silêncio ou erro; **esta devolve a palavra `success`**, que é
+a resposta que eu quero ler.
+
+**A REGRA QUE FICA: espere pelos JOBS, não pelo RUN.** O discriminador é
+`actions/runs/<id>/jobs` com `select(.conclusion==null)` — vazio quer dizer que
+todos concluíram. **E vale para os dois workflows**, render e publicação.
+
+### E A SEXTA DECLARAÇÃO FALSA DA COPY VIROU INSTRUMENTO — §11-bis da rodada
+
+A copy afirma coisas sobre a PRÓPRIA peça — quais numerais a narração fala, a
+previsão em cada mundo, a média de caracteres, se o esqueleto é inédito — e eu
+as escrevia **a mão, antes de a narração estar final**. O corte de caracteres
+entra quase sempre (a previsão tem de cair na faixa), logo a afirmação fica
+atrás. **Nesta sessão o `numerais_falados` derrubou a declaração em SEIS
+rodadas**, e numa delas eu reconferi o valor da previsão **duas vezes**.
+
+`fabrica/linhas_medidas_da_copy.py` **GERA** as linhas para colar, com toda
+medida **DELEGADA** ao dono dela (`numerais_falados`, `mira`, `ensaio`,
+`acento`, `variedade`, `esqueleto_entre_canais`). Aceita **RASCUNHO**, porque é
+antes de a spec ir ao disco que a afirmação a mão envelhece. Não é portão e o
+código de saída é sempre zero.
+
+**E A CONFERÊNCIA NO OUTRO SENTIDO NÃO É VIÁVEL, medido ANTES de ligar.** O
+`declaracao_incompleta` cobre um ramo só — numeral que a narração FALA e a copy
+não cita. O ramo que falta é o meu defeito, e o único sinal mecânico para ele é
+numeral do idioma **entre aspas** na copy:
+
+| | |
+|---|---|
+| specs de short solto varridas | **285** |
+| acusadas pela regra crua | 12 |
+| **só o ACENTO diferia** (`tres` contra `três`) | **8** |
+| acusadas depois de dobrar o acento | **5** |
+| **FALSOS POSITIVOS** | **4** |
+| REAIS | **1** |
+
+Os quatro falsos têm a MESMA forma e ela é inevitável: a copy cita o numeral
+entre aspas **para dizer que ele está AUSENTE**, ou para falar da peça de um
+IRMÃO — *"sem dizer 'tres', porque a contagem nao e a tese"*, *"'cinco' seria
+numeral"*, *"nao e 'media', nao e 'três'"*, *"falava 'dwa' e 'jeden' pelo mesmo
+motivo"*. **Quatro de cinco achados seriam inventados**, e o 725 é explícito.
+A acusação fica **NÃO FEITA e dita como não feita**; o que fecha o defeito é a
+GERAÇÃO, porque linha gerada não pode discordar da peça.
+
+**E A PRIMEIRA EXECUÇÃO ACHOU QUATRO DEFEITOS DELE, os quatro de FORMA do
+retorno alheio:** `acento.proporcao` recebe CENAS e eu passei TEXTO
+(`AttributeError` numa linha do OUTRO módulo); as previsões moram em
+`confere()["previsoes"]`, logo a linha da previsão **não saía**; a chave é
+`formas_na_frota` e imprimia `None`; e o `acento.proporcao` **já devolve
+percentual**, logo multiplicar por 100 imprimiu **1361%** — o 753 em forma de
+UNIDADE. **E DUAS faixas se chamam "faixa" no repo** (a do PORTÃO, 18 a 45, e a
+MIRA, 41,5 a 43,0): a linha passou a NOMEAR as duas em vez de imprimir uma sem
+dizer qual.
+
+`tests/test_as_linhas_MEDIDAS_da_copy_eram_escritas_a_mao.py`, dez testes: a
+varredura sai do DISCO e **reprova com menos de 150 specs**, a delegação é por
+**AST** nos cinco donos (recalcular `P + 0,300`, a assinatura ou varrer o disco
+reprovam), o rascunho tem de responder **IDÊNTICO** ao disco, a frase dos
+numerais tem **UM dono** e os **TRÊS** ramos têm de divergir (idioma sem
+vocabulário DIZ que não sabe ler), as duas faixas são cobradas como
+**DIVERGENTES e NOMEADAS**, o acento é cobrado em 0 a 100, a medida dos falsos
+positivos é **RECONFERIDA contra o disco** e **falha se eles deixarem de ser a
+MAIORIA** — porque aí o ramo passa a ser viável e esta nota se relê —, e um
+proíbe por **AST** que o módulo volte a casar padrão na copy.
+
+**E UM TESTE MEU ESTAVA ERRADO, não o módulo:** eu chamei `main()` sem pôr o
+`sys.argv`, e o `main` leu o argv do **pytest** — `JSONDecodeError`. Corrigido
+pondo o argv nos dois casos, e guardando o original.
+
+### A PECA DESSA RODADA — DOZE cenas, e o PISO com o corte do instrumento
+
+`epomeno-epipedo-s094` = **`CO1zZ9lQzUI`** (*Λείπει η γραμμή της επιστροφής*),
+publicado às 13:46:20Z (run `39789774019`), **sem `403 quota`**. **ONZE PORTÕES
+VERDES** — e ela foi **CONFERIDA COMO RASCUNHO** antes de existir no disco, e
+**precisou ser**: a suíte da rodada anterior ainda varria `fabrica/specs`, e
+acrescentar spec no meio dela contaminaria os testes que varrem o disco.
+
+Provedor **edge MEDIDO** pelo `anotacoes_do_run` (zero avisos
+`NARRACAO PELO PIPER` no job `119859428446`, que é o job que emitiu o SOM). Som
+**−13,9** LUFS, pico **−2,7** dBTP com `pico_vs_teto: dentro`, **zero
+silêncios**, parqueado pelo `som_parqueado` sem eu redigitar o JSON.
+
+**CANAL do `passo_zero`** (8/8/9 na janela de 24 h, empate em 8 desempatado pelo
+que está há mais tempo sem publicar). **PAUTA do `pauta_do_momento`:**
+`9Hg5A3H1Qe4` (`epomeno-epipedo-003`, 81 capítulos), 4 usos — empate de **SETE**
+origens desempatado pela MAIOR reserva (57 de 81). A dominante `nttW9fR8wyY`
+ficou de fora.
+
+**E O CONSERTO DE 12:3x FEZ O TRABALHO NA PRIMEIRA RODADA DEPOIS DELE:** o
+`relato_dos_livres` avisou que **19 dos 53 livres** desta origem são
+**DECLARADOS** por um irmão (9 a 12, 14, 16 a 19, 53, 54, 57, 60 a 63, 65, 68,
+69) e marcou-os um por um. Sem ele eu escolheria dentro de uma lista em que mais
+de um terço já está tomado — que é exactamente como eu caí no capítulo 74 uma
+hora antes.
+
+**FAMÍLIA: A LINHA QUE FALTA É O CUSTO DE VOLTAR** (capítulo 75, com o 7 de
+apoio). Comparar as duas colunas como se a decisão fosse **monódroma**. A
+comparação pode estar perfeita e ainda assim não descrever a decisão, porque a
+decisão **gira** — e desfazê-la tem preço que não é despesa de vida em lado
+nenhum, logo a aritmética não o pede em lugar nenhum. **E a ausência custa nos
+DOIS sentidos**, que é o que a torna invisível: sem a linha a fuga parece
+grátis e a permanência parece derrota, e nenhuma das duas é ainda um número. O
+que ela **não** muda é qual coluna é maior; muda o que o resultado **autoriza**
+a fazer.
+
+Distinções contra os QUATRO irmãos, pelo `irmaos_da_origem` e, nos **DOIS** sem
+o campo da família, pela PROSA e pela NARRAÇÃO de cada um — primeira mão. E a do
+mais próximo vai dita porque é fina: o `s008` acrescenta linha para a
+**COMPARAÇÃO** fechar (dividir pelo custo da mesma cesta); esta acrescenta linha
+para a **DECISÃO** fechar. O `s027` é QUEM é o número, o `s040` a PROCEDÊNCIA
+dele, o `s075` a ESCALA do período.
+
+**DOZE CENAS pela chave `por_cadencia_servivel`:** quinze é a melhor cadência
+**e** é INÉDITA na frota, e saiu **NOMEADA** e recusada pela FOLGA (a dois
+caracteres do piso OBSERVADO); catorze repete a `s092`. Doze tem folga **+16**.
+**ESQUELETO
+`titulo-lista-item-barras-item-titulo-item-lista-barras-item-item-cta`, INÉDITO
+nas 178 formas da frota** (7.548 de 7.560 ordens livres desta mistura). Todo
+layout saiu do conjunto **SONDADO**, com `assert` no construtor, e a paleta foi
+**LIDA** de `temas_do_dono.paleta_do_canal`.
+
+**DUAS CORREÇÕES ANTES DE PUBLICAR, as duas do instrumento:** a thumbnail saiu
+com **CINCO** palavras contra o limite de 4 (a sétima vez nesta sessão), e a
+previsão saiu em **42,82** — a 0,18 do TOPO — com a copy a dizer que eu mirava o
+PISO. O `mira.quanto_cortar` disse o corte (um caractere vale 0,051 s nesta voz)
+e a peça ficou em **41,60**, 0,10 acima do piso. E o `numerais_falados`
+derrubou a declaração da copy pela **SEXTA** vez: ela declarava DOIS numerais
+distintos e o único falado é **"δύο"**.
+
+**ZERO número novo sobre o mundo, e aqui a trava é mais apertada que de costume
+porque a ORIGEM é cheia de números com dono e data:** ficaram FORA o salário
+mínimo dos dois países, o líquido, o número de salários por ano, as horas de
+contrato, o euro por metro quadrado, as duas variações anuais, o percentual da
+Eurostat e a posição na União. As barras das cenas 4 e 9 são ILUSTRAÇÃO
+qualitativa e **não** são faladas.
+
+**A PINÇA DO 740/748 ESTÁ FECHADA AQUI**, com a exposição declarada ANTES de
+publicar: o piper sai em 36,9 — FORA pela mira e DENTRO do portão, que cobra 18
+a 45 s nos dois mundos. **E o REAL não está prometido para lado nenhum** (774).
+
+**NÃO EXISTE PONTO DE RESÍDUO, e o modo é `negado_por_politica` pela TRIGÉSIMA
+QUINTA rodada seguida** — medido pela `sonda_e_modo`, com os TRÊS controles no
+MESMO caminho de saída: o `touch` passou, os TRÊS hosts voltaram **000 sem
+arquivo**, e o proxy nomeou `example.com` e `www.youtube.com` depois de
+13:11:07Z. A peça está PARQUEADA com o provedor MEDIDO e o job **lido da API**,
+e a presença foi conferida **RELENDO** o parque (**136** linhas, **64** sem
+leitura). `RESIDUO_N` segue **128**.
+
+**E A LEITURA DE INSCRITOS PASSOU AS TRÊS PORTAS E NÃO FOI FEITA, pela DÉCIMA
+SÉTIMA rodada seguida:** 75,05 h, piso de resolução **0,32/dia**, os três SIM.
+**O que a impede é a ROTA, e o remédio é do DONO** — a tela de Network access.
+
+**COTA: SETE envios** na janela aberta às 07:00Z, **11.200** unidades, contra o
+piso MEDIDO de **≥ 41.600** — do `janela_de_cota`.
