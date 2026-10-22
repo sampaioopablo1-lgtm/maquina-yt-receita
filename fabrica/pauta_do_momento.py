@@ -191,6 +191,12 @@ def relato(canal: str, dono_medido=None, exceto: str = "") -> str:
         # a peca de 20/10 as 20:1x achou a dela por ACIDENTE (20:4x).
         L.append("")
         L.append(RE.relato(e["escolhida"]["origem"]))
+        # E O TEXTO DOS LIVRES entra aqui pelo mesmo motivo que a reserva: ele
+        # existia so como um laco que eu escrevia na hora, e em 22/10 as 10:3x
+        # eu o cortei com uma fatia e escolhi a familia de 31 de 59 livres.
+        # Instrumento que a rodada nao chama e a classe dos layouts mortos.
+        L.append("")
+        L.append(SA.relato_dos_livres(e["escolhida"]["origem"], exceto=exceto))
     L.append("")
     L.append("  isto NAO decide FAMILIA: capitulo livre nao e familia livre "
              "(776). As quatro contas sao dos donos — `concentracao`, "

@@ -10206,3 +10206,161 @@ TERCEIRA rodada seguida:** 71,04 h, piso de resolucao **0,34/dia**, os tres SIM.
 **COTA: TRES envios** na janela aberta as 07:00Z, **4.800** unidades, contra o
 piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
 hora.
+
+## A FAMILIA DESTA RODADA SAIU DE UMA FATIA DOS CAPITULOS LIVRES
+
+**Medido em 22/10 as 10:3x, escrevendo o `epomeno-epipedo-s093`.** O
+`segundo_angulo.nao_mencionados` devolve o KICKER de cada capitulo livre, e
+kicker e **TITULO** — escrever a partir de titulo e exatamente o que a regra (h)
+chama de inventar conteudo. Logo escolher familia obriga a ler o TEXTO, e **nao
+havia instrumento**: eu escrevia um laco `python3 -c` na hora e cortava a saida
+com `sed -n '45,90p'`.
+
+**O corte e o defeito, e o tamanho dele vai medido:**
+
+| | |
+|---|---|
+| capitulos do longo | **83** |
+| livres pelo `nao_mencionados` | **59** |
+| livres cujo texto caiu DENTRO da minha fatia | 31 |
+| **livres cujo texto eu NUNCA li** | **28 (47%)** |
+
+**E A FAMILIA SAIU DAS 31.** E a assinatura da fatia do proxy (19/10 as 19:2x,
+que lia a ponta VELHA de uma lista truncada) e do `tail -10` das formas de treze
+cenas (21/10 as 23:2x, que me fez escolher um esqueleto que JA EXISTIA): **ler
+uma ponta de uma lista como se fosse a lista.** Terceira vez em tres dias, agora
+no lugar onde ela decide o CONTEUDO da peca e nao o relato.
+
+**Consertado: `segundo_angulo.texto_dos_livres` / `relato_dos_livres`** devolvem
+os livres **com a narracao de cada um, inteira e sem fatia** — e o relato
+imprime a contagem na **PRIMEIRA linha**, para que um corte na leitura fique
+visivel em vez de silencioso. O conjunto livre e **DELEGADO** ao
+`nao_mencionados` (recomputa-lo criaria o segundo dono do indicio de capitulo
+livre), e a leitura do longo ganhou **UM dono** (`_cenas_do_longo`), porque o
+`capitulos_do_pacote` abria a mesma spec por conta propria.
+
+**E O PONTO CEGO DO KICKER REPETIDO REAPARECE UMA CAMADA ABAIXO, e vai NOMEADO
+em vez de filtrado:** o livre e UM texto de kicker e o longo pode ter DUAS cenas
+com ele. As duas voltam, com o indice de cada uma, e `cenas_do_kicker` diz
+quantas sao — **medido: 17 das 49 origens com spec local tem kicker repetido
+entre os livres.** Filtrar para uma esconderia metade do texto justamente onde o
+`nao_mencionados` ja e cego. E **cena livre com narracao VAZIA sai NOMEADA**,
+porque vazio de instrumento nao prova ausencia (17/10).
+
+**E ELE ENTROU NO `pauta_do_momento`, que e quem a rodada chama** — import sem
+chamada e a classe dos layouts mortos, e o `irmaos_da_origem` passou cinco dias
+sem chamador nenhum fora do teste dele por exatamente isso (20/10 as 08:2x).
+
+`tests/test_a_familia_saiu_de_uma_FATIA_dos_capitulos.py`, quinze testes: a
+origem de prova e **DERIVADA** do disco e **reprova dizendo que perdeu a
+ancora**, a fatia e **RECONFERIDA contra o disco** por PROPRIEDADE e nao pelo
+numero (753) — hoje ela perde 40% dos livres em 49 de 49 origens com 10+ livres,
+e o teste **reprova se isso deixar de valer** —, a fatia e proibida por **AST**
+dentro das duas funcoes novas, a delegacao e por AST nos dois sentidos
+(`shorts_da_origem` e `_sem_reserva` **proibidos**, `json.load` e `open`
+**proibidos** nas duas leituras), o kicker repetido sai de uma ancora derivada,
+a cena sem narracao usa **parque PROPRIO** (ancorar no vivo seria identidade
+onde ha propriedade), a contraprova vai nos **dois** sentidos — origem **sem**
+spec local segue no ramo LEGITIMO da regra (h), que nao e defeito —, e dois
+cobram que a PAUTA de fato chame e IMPRIMA. **Contraprova:** religada a fatia,
+**dois dos quinze** falham.
+
+**E A PRIMEIRA VERSAO DE UM TESTE MEU REPROVOU O MODULO CERTO:** a fixture dava
+ao longo `slug: "canalx-001"`, e o `nomes_de_spec` tira do vocabulario todo nome
+que e **slug** de alguma spec (o falso positivo de 12/10), logo a origem ficava
+irresolvivel. **Era o teste errado, nao o modulo** — e o motivo ficou escrito ao
+lado da fixture.
+
+### A PECA DESSA RODADA — TREZE cenas, e as duas recusas sairam do instrumento
+
+`epomeno-epipedo-s093` = **`7PA_wzlMW3o`** (*Ίδια δόση, άλλο κόστος*), publicado
+as 10:22:14Z (run `39762545148`), **sem `403 quota`**. **ONZE PORTOES VERDES NA
+PRIMEIRA TENTATIVA** (13,9 s) — e ela foi **CONFERIDA COMO RASCUNHO** antes de
+existir no disco, pela quinta vez em producao: dez portoes baratos limpos em
+**0,72 s**, mais mira, acento **14,72%** (e o portao `ortografia` tambem nao
+reprova), gancho de 6 palavras de 12, paleta **LIDA** de
+`temas_do_dono.paleta_do_canal` e as treze cenas desenhando — com os dois
+instrumentos que ainda exigem caminho **DIZENDO** que nao conferiram.
+
+Provedor **edge MEDIDO** pelo `anotacoes_do_run` (zero avisos
+`NARRACAO PELO PIPER` no job `119768700357`, que e o job que emitiu o SOM). Som
+**-14,7** LUFS, pico **-2,9** dBTP com `pico_vs_teto: dentro`, **zero
+silencios**, parqueado pelo `som_parqueado` **sem eu redigitar o JSON** (parque
+em **73** linhas, zero sem `run`).
+
+**CANAL do `passo_zero`** (8/8/9 na janela de 24 h, empate em 8 desempatado pelo
+que esta ha mais tempo sem publicar). **PAUTA do `pauta_do_momento`:**
+`alZ97hpgqXo` (`epomeno-epipedo-005`), 4 usos — empate de **OITO** origens
+desempatado pela MAIOR reserva, **59 de 83** capitulos NAO MENCIONADOS. A
+dominante `nttW9fR8wyY` ficou de fora, e quem conta e o `concentracao.py`. O
+`reservas_escritas` devolveu **NENHUMA** nesta origem.
+
+**FAMILIA: A DOSI NAO E A TIMI — ELA ESCONDE A DURACAO** (capitulo 71 no centro,
+com o 50 ao lado e os 72, 48 e 49 na segunda perna). O eixo e o **COMPARADOR**:
+tomar o numero que PARECE comparavel — um contra um — como se fosse o preco. A
+dosi e a tiki **dividida por um tempo que nao se olhou**, e a aritmetica nunca
+reclama: a divisao fecha, a dosi sai confortavel e o total nao aparece em tela
+nenhuma. **Duas pernas que falham por motivos diferentes:** a dosi esconde a
+DURACAO, e no juro variavel ela nao e nem ESTAVEL — move-se nos dois sentidos
+sem ninguem assinar nada.
+
+**Distincoes escritas contra os QUATRO irmaos**, lidas pelo `irmaos_da_origem` e
+pela NARRACAO de cada um — e **DOIS deles (`s013` e `s064`) nao tem o campo da
+familia**, logo a comparacao saiu da PROSA e da fala, que e de primeira mao. **O
+irmao mais proximo e o `s032` e a distincao vai dita porque e fina:** ele tambem
+fala de TEMPO, e ali o tempo e o que a dose minima compra DENTRO de um contrato
+que ja existe; esta peca e sobre o numero com que se comparam DUAS ofertas ANTES
+de assinar. **Opcao dentro de um contrato contra comparador entre dois.**
+
+**E DUAS FAMILIAS FICARAM DE FORA DE PROPOSITO, porque elas ATRAVESSARIAM CANAL
+em rodadas seguidas** — e o `similaridade` **nao pegaria**, porque compara contra
+o MESMO canal: o capitulo 76 (*"isto sao medias do mercado, nao a tua oferta"*)
+e o nucleo do `kolejny-poziom-s092`, de 09:20Z de hoje; e o capitulo 78 (*"saber
+onde o numero mora vale mais que lembrar o de hoje"*) esta adjacente ao
+`kolejny-poziom-s091`, de ontem. As duas seguem **livres nesta origem**, com o
+motivo do adiamento escrito na reserva.
+
+**CONTAGEM pela chave `por_cadencia_servivel`, e nenhuma das duas recusas foi
+minha:** catorze e a melhor cadencia e **REPETE a `s092`**; **quinze** — o teto
+MEDIDO da voz, e **INEDITO** na frota — saiu **NOMEADO** e recusado pela FOLGA,
+dois caracteres acima do piso OBSERVADO de 21. Treze tem folga **+10**.
+
+**ESQUELETO
+`titulo-item-barras-item-lista-item-titulo-item-barras-lista-item-item-cta`,
+INEDITO nas 175 formas da frota** e nenhuma das TREZE de treze cenas — o
+`formas_livres` diz **13.850 de 13.860** ordens livres desta mistura. Todo
+layout saiu do conjunto **SONDADO**, com `assert` no construtor.
+
+**MIREI O PISO** (regra de redacao do 772): edge **41,62**, 0,12 acima dele, com
+media **31,08** caracteres por cena contra os 31 do piso EXECUTAVEL. O piper sai
+em **36,87** — FORA pela mira e DENTRO do portao, que cobra 18 a 45 s nos dois
+mundos. **A PINCA DO 740/748 ESTA FECHADA AQUI** e a exposicao vai declarada na
+copy ANTES de publicar. **E a primeira versao saiu em 41,31 — ABAIXO do piso —,
+e quem disse de quanto era o passo foi o instrumento** (*"acrescentar ~4
+caracteres no TOTAL; um caractere vale 0,051 s nesta voz"*), nao a minha cabeca.
+**E o REAL nao esta prometido para lado nenhum** (774).
+
+**ZERO numero novo sobre o mundo:** os dois numerais falados (*δύο*, *τρία*) sao
+ESTRUTURA do argumento e vao declarados, conferidos pelo `numerais_falados`. A
+regra (g) tirou as onze unidades percentuais do capitulo 44, os seis pontos-base
+do 48, as medias por tamanho de emprestimo do 46, a media de todos os novos
+emprestimos do 51 e os dois juros do 58 — **e o capitulo 78 da PROPRIA origem
+escreve o motivo em letra**: *"estes numeros mudam todo mes, e o boletim sai todo
+mes"*. As barras sao ILUSTRACAO qualitativa e **nao** sao faladas, com isso
+escrito na copy para a rodada seguinte nao as ler de volta como dado.
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica` pela TRIGESIMA
+SEGUNDA rodada seguida** — medido pela `sonda_e_modo`, com os TRES controles no
+MESMO caminho de saida e os alvos na forma de URL: o `touch` passou, os TRES
+hosts voltaram **000 sem arquivo**, e o proxy nomeou `example.com` e
+`www.youtube.com` depois de 10:12:06Z. A peca esta PARQUEADA com o provedor
+MEDIDO e o job **lido da API**, e a presenca foi conferida **RELENDO** o parque
+(**133** linhas, **61** sem leitura). `RESIDUO_N` segue **128**.
+
+**E A LEITURA DE INSCRITOS PASSOU AS TRES PORTAS E NAO FOI FEITA, pela DECIMA
+QUARTA rodada seguida:** 72,07 h, piso de resolucao **0,33/dia**, os tres SIM.
+**O que a impede e a ROTA, e o remedio e do DONO** — a tela de Network access.
+
+**COTA: QUATRO envios** na janela aberta as 07:00Z, **6.400** unidades, contra o
+piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
+hora.

@@ -185,8 +185,14 @@ def pacote_do_id(yid: str, dir_specs: str = SPECS) -> str | None:
     return None
 
 
-def capitulos_do_pacote(pacote: str, dir_specs: str = SPECS) -> list:
-    """Os kickers das cenas do LONGO daquele pacote. Lista vazia se nao houver."""
+def _cenas_do_longo(pacote: str, dir_specs: str = SPECS) -> list:
+    """As cenas do LONGO daquele pacote, como estao no disco. UM dono da leitura.
+
+    Ele existe porque o `capitulos_do_pacote` devolve KICKER e o
+    `texto_dos_livres` precisa da NARRACAO da mesma cena: duas leituras do mesmo
+    arquivo seriam dois donos da forma da spec, que e a assinatura que congelou a
+    legenda.
+    """
     p = os.path.join(dir_specs, f"{pacote}.json")
     if not os.path.exists(p):
         return []
@@ -194,8 +200,13 @@ def capitulos_do_pacote(pacote: str, dir_specs: str = SPECS) -> list:
         sp = json.load(open(p, encoding="utf-8"))
     except Exception:                                       # noqa: BLE001
         return []
+    return [c for c in (sp.get("longo") or []) if isinstance(c, dict)]
+
+
+def capitulos_do_pacote(pacote: str, dir_specs: str = SPECS) -> list:
+    """Os kickers das cenas do LONGO daquele pacote. Lista vazia se nao houver."""
     return [(c.get("kicker") or "").strip()
-            for c in (sp.get("longo") or []) if isinstance(c, dict)]
+            for c in _cenas_do_longo(pacote, dir_specs)]
 
 
 def shorts_da_origem(yid: str, dir_specs: str = SPECS, exceto: str = None) -> list:
@@ -307,6 +318,98 @@ def nao_mencionados(yid: str, dir_specs: str = SPECS,
             "shorts": [n for n, _ in usados],
             "mencionados": men, "nao_mencionados": nao,
             "mencionados_so_na_reserva": so_na_reserva}
+
+
+def texto_dos_livres(yid: str, dir_specs: str = SPECS,
+                     exceto: str = None) -> dict:
+    """Os capitulos LIVRES daquela origem **com a narracao de cada um**, inteira.
+
+    **Medido em 22/10 as 10:3x, escolhendo a familia do `epomeno-epipedo-s093`.**
+    O `nao_mencionados` devolve KICKER, e kicker e TITULO — escrever a partir de
+    titulo e inventar conteudo, que e literalmente o que a regra (h) proibe. Logo
+    a rodada tem de ler o TEXTO, e nao havia instrumento: eu escrevia um laco
+    `python3 -c` na hora e **cortava a saida com `sed -n '45,90p'`**.
+
+    O corte e o defeito. Das **59** origens livres daquela leitura, o texto de
+    **28 (47%)** caiu FORA da fatia e eu nunca o li — e escolhi a familia das 31
+    que sobraram. E a mesma assinatura da fatia do proxy (19/10 as 19:2x, que
+    lia a ponta VELHA da lista) e do `tail -10` das formas de treze cenas (21/10
+    as 23:2x, que me fez escolher um esqueleto que ja existia): **ler uma ponta
+    de uma lista como se fosse a lista.**
+
+    Por isso ele devolve TUDO e nunca fatia, e o `relato` imprime a contagem na
+    PRIMEIRA linha: assim um corte na leitura fica visivel em vez de silencioso.
+
+    **E o conjunto livre e DELEGADO** ao `nao_mencionados` — recomputa-lo aqui
+    criaria o segundo dono do indicio de capitulo livre, com o ponto cego do
+    kicker repetido divergindo entre os dois.
+
+    **E O PONTO CEGO DO KICKER REPETIDO REAPARECE UMA CAMADA ABAIXO, e vai
+    NOMEADO:** o livre e UM texto de kicker, e o longo pode ter DUAS cenas com
+    ele. As duas voltam, cada uma com o proprio indice, e `cenas_do_kicker` diz
+    quantas sao — filtrar para uma esconderia metade do texto justamente onde o
+    `nao_mencionados` ja e cego.
+
+    **Cena com narracao VAZIA sai NOMEADA** (`nar` em branco e `sem_narracao`
+    True) em vez de desaparecer: instrumento que devolve vazio nao prova
+    ausencia (17/10). E origem sem spec local devolve lista vazia com
+    `pacote: None`, que e a regra (h) e nao e defeito — o ramo legitimo fica.
+    """
+    d = nao_mencionados(yid, dir_specs, exceto)
+    livres = set(d["nao_mencionados"])
+    cenas = _cenas_do_longo(d["pacote"], dir_specs) if d["pacote"] else []
+    quantas = {}
+    for c in cenas:
+        k = (c.get("kicker") or "").strip()
+        if k:
+            quantas[k] = quantas.get(k, 0) + 1
+    fora = []
+    for i, c in enumerate(cenas):
+        k = (c.get("kicker") or "").strip()
+        if k not in livres:
+            continue
+        nar = (c.get("nar") or "").strip()
+        fora.append({"indice": i, "kicker": k, "nar": nar,
+                     "sem_narracao": not nar,
+                     "cenas_do_kicker": quantas.get(k, 1)})
+    return {"pacote": d["pacote"], "n_capitulos": d["n_capitulos"],
+            "n_livres": len(livres), "shorts": d["shorts"], "livres": fora,
+            "sem_narracao": [x["indice"] for x in fora if x["sem_narracao"]],
+            "kickers_repetidos": sorted(k for k in livres
+                                        if quantas.get(k, 0) > 1)}
+
+
+def relato_dos_livres(yid: str, dir_specs: str = SPECS,
+                      exceto: str = None) -> str:
+    """O texto dos livres, INTEIRO e sem fatia. Codigo de saida sempre zero."""
+    d = texto_dos_livres(yid, dir_specs, exceto)
+    L = []
+    if not d["pacote"]:
+        L.append("TEXTO DOS LIVRES de %s: sem spec local (regra h) — os "
+                 "capitulos saem da descricao publicada e o texto da faixa de "
+                 "legenda. Isto NAO e defeito." % yid)
+        return "\n".join(L)
+    L.append("TEXTO DOS LIVRES de %s (%s): %d cena(s) de %d capitulo(s), "
+             "%d livre(s) por kicker." % (yid, d["pacote"], len(d["livres"]),
+                                          d["n_capitulos"], d["n_livres"]))
+    L.append("  a contagem vem PRIMEIRO de proposito: foi cortar esta saida com "
+             "uma fatia que me fez escolher a familia de 31 de 59 livres em "
+             "22/10 as 10:3x. Leia TODAS; o conjunto livre e do "
+             "`nao_mencionados`, nao daqui.")
+    if d["kickers_repetidos"]:
+        L.append("  kicker(s) REPETIDO(S) no longo, logo mais de uma cena por "
+                 "entrada livre: %s — o `nao_mencionados` conta uma, aqui vem "
+                 "as duas." % ", ".join(d["kickers_repetidos"]))
+    if d["sem_narracao"]:
+        L.append("  cena(s) LIVRE(S) sem narracao, NOMEADAS em vez de omitidas: "
+                 "%s" % d["sem_narracao"])
+    for x in d["livres"]:
+        L.append("  %3d | %s | %s" % (x["indice"], x["kicker"],
+                                      x["nar"] or "(sem narracao)"))
+    L.append("  isto NAO escolhe familia: poe o texto na mesa. Capitulo livre "
+             "NAO e familia livre (776), e a comparacao com os irmaos e do "
+             "`irmaos_da_origem`.")
+    return "\n".join(L)
 
 
 def main() -> int:
