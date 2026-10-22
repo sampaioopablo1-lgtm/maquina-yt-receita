@@ -9360,3 +9360,21 @@ QUARTA rodada seguida:** 66,03 h, piso de resolucao **0,36/dia**, os tres SIM.
 **COTA: VINTE E TRES envios** na janela aberta as 07:00Z de 21/10, **36.800**
 unidades, contra o piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um
 laco escrito na hora.
+
+**A SUITE FECHOU: 25 falhas, 3.754 passam, 1.155 skip em 1.185 s** — passada
+**PROVADA** pelo `passada_da_suite`, conjunto **IDENTICO** a linha de base desta
+sessao, `comm` vazio nos **dois** sentidos. Os onze testes novos entraram
+inteiros (3.743 -> 3.754) e **nenhuma falha nova**. **E o tempo vai medido em vez
+de atribuido:** 1.185 s contra 1.170 s da passada anterior, e os onze passam
+isolados em **9,6 s** — logo os ~15 s de diferenca sao da ordem do ruido entre
+passadas e eu nao os atribuo ao arquivo novo, que seria comparador escolhido sem
+medir.
+
+**E EU CHAMEI O INSTRUMENTO DA SUITE COM OS ARGUMENTOS NA ORDEM ERRADA**, e ele
+RECUSOU comparar — corretamente, porque o que eu lhe entreguei como log era o
+`.norm`, e `.norm` nao tem linha de resumo do pytest. A ordem e
+`<base.norm> <passada.log> <passada.norm>` e eu passei o log primeiro. **E a
+familia do `2>&1` de 19/10 as 21:1x e do `until !` de 20/10 as 01:4x: conserto no
+modulo nao protege contra a INVOCACAO** — e aqui a recusa do modulo foi
+exactamente o que impediu a leitura errada, em vez de me devolver *"identico a
+base"*, que era a resposta confortavel.
