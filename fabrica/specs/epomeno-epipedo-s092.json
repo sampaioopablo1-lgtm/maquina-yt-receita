@@ -1,0 +1,137 @@
+{
+ "slug": "epomeno-epipedo-s092",
+ "pacote": "epomeno-epipedo-s092",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "longo_existente": "jUxJPvmA4Mk",
+ "thumb": {
+  "l1": "Μία γραμμή,",
+  "l2": "όχι σύνοψη"
+ },
+ "paleta": {
+  "bg": "#F4EFE6",
+  "ink": "#1B1A17",
+  "c1": "#C8502A",
+  "c2": "#2B6CB0",
+  "red": "#B83227",
+  "ok": "#2E8B57",
+  "panel": "#FFFFFF",
+  "mut": "#7A7263",
+  "acc": "#C8502A"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Η πράξη θέλει το σωστό χαρτί",
+   "sub": "όχι την κίνηση",
+   "nar": "Θέλει το σωστό χαρτί."
+  },
+  {
+   "layout": "item",
+   "kicker": "Η απόδειξη έχει σύνοψη",
+   "sub": "κάτω κάτω",
+   "nar": "Η απόδειξη έχει κάτω σύνοψη."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Τι λέει η σύνοψη",
+   "itens": [
+    "Ομάδα",
+    "Ποσό ανά ομάδα",
+    "Σύνολο"
+   ],
+   "nar": "Ομάδα, ποσό και σύνολο."
+  },
+  {
+   "layout": "item",
+   "kicker": "Η κάρτα δείχνει μία γραμμή",
+   "sub": "το σύνολο",
+   "nar": "Η κίνηση δείχνει μία γραμμή."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Τι φτάνει σε εσένα",
+   "barras": [
+    {
+     "rot": "Απόδειξη",
+     "v": 100
+    },
+    {
+     "rot": "Κίνηση",
+     "v": 28
+    }
+   ],
+   "nar": "Ίδιο ποσό, λιγότερη πληροφορία."
+  },
+  {
+   "layout": "item",
+   "kicker": "Το σύνολο δεν χωρίζεται",
+   "sub": "από μόνο του",
+   "nar": "Χωρίς σύνοψη δεν χωρίζεις."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Τότε μπαίνει ένας διαιρέτης",
+   "sub": "για όλα μαζί",
+   "nar": "Τότε βάζεις έναν διαιρέτη."
+  },
+  {
+   "layout": "item",
+   "kicker": "Η διαίρεση δεν χαλάει",
+   "sub": "το ποσό χαλάει",
+   "nar": "Η πράξη βγαίνει, το ποσό όχι."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Με σύνοψη και χωρίς",
+   "barras": [
+    {
+     "rot": "Με σύνοψη",
+     "v": 100
+    },
+    {
+     "rot": "Χωρίς",
+     "v": 78
+    }
+   ],
+   "nar": "Με σύνοψη βγαίνει άλλο ποσό."
+  },
+  {
+   "layout": "item",
+   "kicker": "Και κανείς δεν σου το λέει",
+   "sub": "η πράξη κλείνει",
+   "nar": "Κανείς δεν σου το λέει."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Τι κρατάς τελικά",
+   "itens": [
+    "Το χαρτί",
+    "Τη σύνοψη",
+    "Το σύνολο του μήνα"
+   ],
+   "nar": "Κράτα το χαρτί, όχι την κίνηση."
+  },
+  {
+   "layout": "item",
+   "kicker": "Η κίνηση έχει μία δουλειά",
+   "sub": "το σύνολο του μήνα",
+   "nar": "Η κίνηση δίνει μόνο σύνολο."
+  },
+  {
+   "layout": "item",
+   "kicker": "Για χωρισμό θέλεις χαρτί",
+   "sub": "πάντα",
+   "nar": "Για χωρισμό θέλεις απόδειξη."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Δες μία απόδειξη σήμερα",
+   "sub": "κάτω κάτω",
+   "nar": "Πάρε απόδειξη και δες κάτω."
+  }
+ ],
+ "copy": "# epomeno-epipedo-s092\n\n## TITULO\nΗ κίνηση της κάρτας δείχνει μόνο το σύνολο: η σύνοψη ανά ομάδα είναι πάνω στην απόδειξη\n\n## TITULO SHORT\nΗ κίνηση δεν χωρίζεται\n\n## DESCRICAO\nΗ πράξη για να βρεις πόσο φόρο πλήρωσες είναι μια διαίρεση, και είναι απλή. Το σημείο που δεν συζητιέται είναι άλλο: από ποιο χαρτί παίρνεις τα νούμερα. Γιατί η ίδια αγορά αφήνει δύο ίχνη, και τα δύο δεν λένε τα ίδια πράγματα.\n\nΗ απόδειξη έχει, στο κάτω μέρος, μια μικρή σύνοψη: ποιες ομάδες χρεώθηκαν και πόσο αντιστοιχεί σε καθεμία. Η κίνηση της κάρτας έχει μία γραμμή και ένα ποσό, το σύνολο. Το ποσό που πλήρωσες είναι ίδιο στα δύο. Η πληροφορία δεν είναι.\n\nΚαι εδώ είναι η συνέπεια που δεν φαίνεται: αν η πηγή σου είναι η κίνηση, ο χωρισμός ανά ομάδα δεν σου λείπει κατά λάθος — είναι αδύνατος. Δεν έχεις τι να χωρίσεις. Οπότε καταλήγεις να βάζεις έναν διαιρέτη για όλο το σύνολο, η διαίρεση βγαίνει κανονικά, και το νούμερο που κρατάς δεν αντιστοιχεί σε αυτό που πλήρωσες. Κανείς δεν σου το λέει, επειδή η πράξη κλείνει.\n\nΗ κίνηση δεν είναι άχρηστη. Έχει μία δουλειά, και την κάνει καλά: σου δίνει το σύνολο του μήνα, όταν δεν κρατάς κάθε χαρτί. Για τον χωρισμό ανά ομάδα, όμως, χρειάζεσαι την ίδια την απόδειξη, και μόνο αυτήν.\n\nΠάρε μία απόδειξη από την τσέπη σου και κοίτα το κάτω μέρος της. Η πλήρης μέθοδος, με τους συντελεστές και τη μείωση των νησιών, είναι στο μεγάλο βίντεο αυτού του καναλιού.\n\n## FONTES\nΜεγάλο βίντεο αυτού του καναλιού: ΦΠΑ — η γραμμή που δεν διαβάζεις στην απόδειξη.\n\n## FAMILIA DE ENTRADA ERRADA\nA FONTE DO DADO DECIDE SE A CONTA E POSSIVEL — tomar a KINISI do cartao como se\nela fosse a apodeixi. O eixo e o DOCUMENTO, nao a operacao: a apodeixi carrega,\nno pe, a synopsi por grupo (que grupo foi cobrado e quanto corresponde a cada\num); a kinisi carrega UMA linha e um valor, o total. O valor pago e o mesmo nos\ndois; a informacao nao.\n\nE a consequencia e o que torna esta entrada errada diferente das outras: com a\nkinisi como fonte, o chao da conta certa nao esta faltando por descuido — ele e\nINALCANCAVEL. Nao ha o que separar. Logo a pessoa termina pondo um divisor sobre\no total inteiro, a divisao sai normal, e o numero nao corresponde ao que ela\npagou. Capitulos 16, 30 e 34 do longo `jUxJPvmA4Mk`, com apoio do 18.\n\nDISTINCAO DOS QUATRO IRMAOS desta origem, lida pelo `irmaos_da_origem` e pela\nNARRACAO de cada um:\n- `epomeno-epipedo-s009`: uma apodeixi NAO e o numero — o que conta e a soma de\n  um mes. Eixo: o TAMANHO da amostra;\n- `epomeno-epipedo-s028`: aplicar a si o CANONE DE OUTRO PAPEL na cadeia — a\n  empresa compensa, o consumidor final nao. Eixo: o PAPEL de quem paga;\n- `epomeno-epipedo-s043`: a BASE nao e o seu preco — a aliquota incide sobre o\n  liquido e a etiqueta ja contem o imposto (capitulos 24 a 27). Eixo: a BASE;\n- `epomeno-epipedo-s079`: UM DIVISOR para a apodeixi inteira, quando o total soma\n  itens de grupos diferentes. Eixo: a OPERACAO sobre um total misto.\n\n**O `s079` e o irmao mais proximo, e a distincao vai dita porque ela e fina:**\nele fala do ERRO de usar um divisor so, e esta peca fala de POR QUE esse erro\nfica inevitavel — quando a fonte e a kinisi, a quebra nao existe em lugar nenhum\ne nao ha escolha a fazer. Um e sobre a conta; o outro e sobre o papel de onde os\nnumeros saem. E o `s009` tambem fala de kinisi numa linha (o capitulo 30 oferece\na kinisi como alternativa a guardar todo papel), mas ali ela serve ao SOMATORIO\ndo mes, que e justamente a unica coisa que ela faz bem — e esta peca diz isso em\nletra em vez de a declarar inutil.\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO na narracao. **E a recusa inclui o numero que me\nconvinha:** a narracao NAO diz quantos sao os synteles, nem quais sao, nem o\npercentual da meiosi dos nisia, nem o limite de populacao — o longo cita esses\nnumeros e todos eles mudam por publicacao, logo saem pela regra (g). O proprio\nlongo recusa um deles pelo mesmo motivo, em letra: no capitulo 45 ele diz que nao\nda o percentual arredondado depois da meiosi porque nao o achou em duas fontes\noficiais.\n\nOs unicos numerais falados sao \"mia\" (uma linha, uma apodeixi) — contagem do\nproprio procedimento. As barras (100/28 e 100/78) sao ILUSTRACAO qualitativa da\nPERDA de informacao e da diferenca de resultado, NAO sao faladas, e nao medem\nnada de ninguem: a rodada seguinte NAO as le de volta como dado.\n\n## EXPOSICAO\nA pinca do 740/748 esta FECHADA neste canal: nenhuma media por cena poe os dois\nprovedores dentro de 41,5 a 43,0 com catorze cenas nesta voz (razao piper/edge\n0,886). O PISO EXATO NAO E ALCANCAVEL com catorze cenas, e isso vai dito em vez\nde eu chamar 41,84 de piso: um caractere por cena vale 0,71 s, logo o\n`mira.chars_no_alvo` devolve 26 para o piso e 26 caracteres caem em 41,23,\nABAIXO da faixa. Mirei o ponto mais BAIXO ALCANCAVEL (edge 41,84, media 26,86),\nque e a regra de redacao do 772 aplicada ate onde a granularidade deixa. A\nprimeira versao desta peca saiu em 42,81 — perto do TOPO — e a copy dizia\n\"Mirei o PISO\": corrigida ANTES de publicar, e quem disse de quanto era o passo\nfoi o instrumento, nao a minha cabeca (item 3 da §10). O piper sai FORA pela\nmira e DENTRO do portao, que cobra 18 a 45 s nos dois mundos. O REAL nao esta\nprometido para lado nenhum: a banda tem 5,2 s contra 1 s de granularidade\n(774).\n\n## RESERVA\nPara a rodada seguinte nesta origem (`jUxJPvmA4Mk`), com o motivo escrito:\n- LIVRE: A ALIQUOTA E PROPRIEDADE DO ITEM, NAO DA COMPRA (capitulos 13, 14, 17 e\n  18) — ela nao muda com a quantidade, nem com a loja, nem com o seu rendimento,\n  e a loja nao a escolhe; e a propria apodeixi diz com qual grupo cada item foi\n  cobrado, logo nao e preciso decorar os anexos da lei;\n- LIVRE: UMA SEMANA VEZES QUATRO (capitulos 35 e 36) — nao e preciso precisao,\n  porque o que surpreende e a ORDEM DE GRANDEZA. CUIDADO: ela encosta no `s009`,\n  que e sobre o tamanho da amostra; o eixo aqui tem de ser a PRECISAO\n  desnecessaria, nao o mes;\n- LIVRE: GUARDAR O NUMERO PARA COMPARAR DEPOIS (capitulos 70 e 73);\n- NAO LEVAR: tudo o que depende da meiosi dos nisia (39 a 47, 71). Sao numeros\n  sobre o mundo que mudam por publicacao — percentual, regioes, limite de\n  populacao e datas — e o proprio longo recusa o mais importante deles por falta\n  de duas fontes oficiais. Sem rede nesta sessao, uma peca ali seria afirmacao\n  sem fonte, e a regra 600 vale.\n\n## HASHTAGS\n#φπα #αποδειξη #οικονομικα #φοροι #epomenoepipedo\n\n## COMENTARIO FIXADO\nΚοίταξες το κάτω μέρος μιας απόδειξης; Γράψε από κάτω μόνο ένα πράγμα: πόσες ομάδες βρήκες στη σύνοψη. Χωρίς ποσά και χωρίς ονόματα καταστημάτων.\n\n## TAGS\nΦΠΑ, απόδειξη, φόροι, οικονομικά, κίνηση κάρτας, συντελεστής, προσωπικά οικονομικά, υπολογισμός φόρου\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ncategoryId: 27\ndefaultLanguage: el\nmadeForKids: false\n\n## MUSICA / LICENCA\nTrilha `Inspired` do incompetech (Kevin MacLeod), licença CC BY 3.0.\n"
+}
