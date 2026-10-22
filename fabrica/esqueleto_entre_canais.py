@@ -59,6 +59,8 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+import cenas_da_spec as _CS
 import nome_da_spec as NS   # noqa: E402  — UM dono do nome da spec
 import variedade as V  # noqa: E402  — DONO da assinatura do esqueleto
 
@@ -346,6 +348,7 @@ def formas_livres(cenas: int, layouts, pecas: list[dict] = None,
     e impossivel: ela tem de vir de trocar a MISTURA de layouts, nao a ordem.
     Devolver lista vazia faria a rodada seguinte procurar o que nao existe.
     """
+    cenas = _CS.exige(cenas, "esqueleto_entre_canais.formas_livres")
     if isinstance(layouts, str):
         layouts = [x for x in layouts.split("-") if x]
     layouts = list(layouts or [])

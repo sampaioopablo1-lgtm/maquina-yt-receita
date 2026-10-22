@@ -213,6 +213,7 @@ def capitulos_do_longo(cenas) -> list:
     Kicker repetido NAO entra: ele e separador, nao capitulo (medido no
     `labtreinamento-002`, seis cenas "Ponte"). Kicker vazio tambem nao.
     """
+    cenas = __import__("cenas_da_spec").exige(cenas, "trilho.capitulos_do_longo")
     pela_ordem = [(i, (c.get("kicker") or "").strip())
                   for i, c in enumerate(cenas)
                   if c.get("layout") == "titulo"]

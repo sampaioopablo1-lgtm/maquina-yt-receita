@@ -10036,3 +10036,173 @@ nesta rodada —, e quem separou as duas coisas foi o `processo_vivo`, responden
 **VIVO** com o log em 37%. Pelo defeito de 19/10 as 16:2x eu teria lido o
 arquivo incompleto e chamado aquilo de resultado; e a terceira forma da mesma
 familia, agora com o limite da MINHA espera no lugar da morte do processo.
+
+## A SPEC PASSADA ONDE SE ESPERA CENAS DAVA ERRO DE TIPO, NUMA LINHA ALHEIA
+
+**Medido em 22/10 as 09:3x, e o erro aconteceu nesta rodada.** Eu chamei
+`ensaio.duracao_real_prevista(sp, voz, 'edge')` com a **SPEC** na posicao de
+`cenas` e levei `AttributeError: 'str' object has no attribute 'get'` apontando
+**`ensaio.py:234`** — uma linha de um modulo que a minha chamada nunca tocou. E
+o que a nota de 22/10 as 04:4x nomeia: *"LEVANTA com motivo de DADO em vez de
+deixar o `open(None)` dar erro de TIPO — erro de tipo manda conferir no lugar
+errado"*.
+
+**E A DIVERGENCIA QUE TORNA O ENGANO FACIL ESTA MEDIDA**, varridas por AST as
+funcoes publicas da fabrica:
+
+| primeiro argumento | funcoes |
+|---|---|
+| `spec` / `sp` | **55** |
+| `cenas` | **14** |
+
+E entre as catorze estao **as tres de duracao** (`duracao_estimada`,
+`duracao_estimada_short`, `duracao_real_prevista`) que a mira, o portao e todo
+instrumento de redacao leem, mais `variedade.esqueleto`, `acento.proporcao`,
+`autor.chars`, `cadencia_longo.*`, `trilho.*` e
+`esqueleto_entre_canais.formas_livres`. **Logo a forma COMUM da fabrica e passar
+a spec, e as de duracao sao a minoria** — por isso a mao vai nelas com a spec.
+
+**A FALHA E RUIDOSA, e isso vai medido em vez de inflado: as DOZE formas de
+chamada LEVANTAM hoje, nenhuma e permissiva.** O que o guarda conserta nao e o
+veredito, e o **ENDERECO** do motivo: quem le `ensaio.py:234` vai conferir o
+`ensaio`, quando o engano esta na propria chamada. Dizer que isto consertou um
+defeito ativo seria vender conserto que nao houve.
+
+**E O RAMO PERMISSIVO EXISTE E QUASE ME ENGANOU:** funcao que so fizesse
+`len(cenas)` contaria as **CHAVES** da spec — e na peca desta rodada
+`len(spec)` e `len(spec["short"])` valem **os dois 11**. Concordancia por
+ACIDENTE, da familia de 22/10 as 01:1x, e ela teria passado calada. Nenhuma das
+catorze faz isso hoje; o guarda fecha a porta antes de alguma fazer.
+
+**Consertado com UM dono: `fabrica/cenas_da_spec.py`**, e ele **NAO aceita as
+duas formas, de proposito.** Extrair `spec["short"]` ali daria ao argumento
+`cenas` um **SEGUNDO significado**, que e a assinatura do `exceto` de 20/10 as
+11:3x — o mesmo nome com duas convencoes em modulos irmaos, falhando em silencio
+nos dois sentidos. Ele **RECUSA com o motivo e diz qual campo passar**, do jeito
+que o `porta1` recusa janela curta, e o discriminador e o **TIPO** e nao a
+presenca do campo: dicionario sem `short` nem `longo` recusa com **outro**
+motivo, porque as duas conferencias sao diferentes.
+
+**As SEIS portas diretas chamam o dono**, e as outras seis o alcancam por dentro
+— o `duracao_estimada` e o chokepoint de cinco delas —, logo ali o motivo nomeia
+o chokepoint, que e **nosso codigo** e nao uma linha de implementacao.
+
+`tests/test_a_SPEC_passada_onde_se_espera_CENAS.py`, **trinta e um** testes: a
+spec de prova e **DERIVADA** do disco e **reprova dizendo que perdeu a ancora**,
+as doze formas sao cobradas uma a uma, a **contraprova** vai nas doze (a forma
+CERTA continua respondendo, senao bastaria levantar sempre), a divergencia 55/14
+e **RECONFERIDA por AST** e **falha se a frota convergir** (ai o guarda perde o
+objeto e esta nota se rele), o ramo permissivo e cobrado como **ACIDENTE
+reproduzivel no disco**, os dois motivos tem de **DIVERGIR**, a fiacao das seis
+portas e por **AST** (import sem chamada e a classe dos layouts mortos), e o
+guarda e proibido por **AST** de indexar a ENTRADA. **Contraprova:** desligado o
+guarda, **catorze dos trinta e um** falham.
+
+### E TRES DOS MEUS TESTES ESTAVAM ERRADOS, nao o modulo
+
+Os tres na primeira execucao, e a licao e a mesma nas tres:
+1. **a contraproba passava a LISTA a quem quer a CONTAGEM.** O
+   `formas_livres` recebe `cenas: int` e exige que os layouts descrevam a MESMA
+   peca (guarda dele, de 21/10 as 00:4x) — a forma CERTA e por FUNCAO e nao
+   uniforme, e supor uniformidade foi meu;
+2. **eu cobrei o nome do chamador em todas as doze**, quando as seis indiretas
+   alcancam o guarda pelo chokepoint e o motivo nomeia **ele**. A propriedade
+   certa e mais fraca e verdadeira: o motivo nomeia FUNCAO da fabrica, e nomeia
+   a propria **nas seis portas diretas**;
+3. **o meu AST proibia QUALQUER `Subscript`** no guarda, e `tem[0]` e um deles.
+   A propriedade e nao indexar a **ENTRADA** (`cenas[...]`), nao a ausencia de
+   indexacao — foi o mesmo erro de alvo do `test_NAO_virou_portao` do acento,
+   agora em AST em vez de prosa.
+
+### A PECA DESSA RODADA — ONZE cenas, e as tres recusas sairam do instrumento
+
+`kolejny-poziom-s092` = **`N2GesdRPWEI`** (*Średnia nie jest twoją liczbą*),
+publicado as 09:20:55Z (run `39754683676`), **sem `403 quota`**. **ONZE PORTOES
+VERDES NA PRIMEIRA TENTATIVA** — e ela foi **CONFERIDA COMO RASCUNHO** antes de
+existir no disco, pela nona vez em producao: dez portoes baratos limpos em
+**0,71 s**, mais mira, acento **6,57%** (e o portao `ortografia` tambem nao
+reprova), gancho de 6 palavras de 12, paleta **LIDA** de
+`temas_do_dono.paleta_do_canal` e as onze cenas desenhando — com os dois
+instrumentos que ainda exigem caminho **DIZENDO** que nao conferiram.
+
+Provedor **edge MEDIDO** pelo `anotacoes_do_run` (zero avisos
+`NARRACAO PELO PIPER` no job `119742059631`, que e o job que emitiu o SOM). Som
+**-14,0** LUFS, pico **-3,0** dBTP com `pico_vs_teto: dentro`, **zero
+silencios**, parqueado pelo `som_parqueado` **sem eu redigitar o JSON** (parque
+em **72** linhas, zero sem `run`).
+
+**CANAL do `passo_zero`** (9/8/8 na janela de 24 h, empate em 8 desempatado pelo
+que esta ha mais tempo sem publicar). **PAUTA do `pauta_do_momento`:**
+`vcJf6WipLtY` (`kolejny-poziom-012`), 4 usos — empate de **DEZESSEIS** origens
+desempatado pela MAIOR reserva, **72 de 80** capitulos NAO MENCIONADOS. A
+dominante `GUiq15usizw` ficou de fora e o `QiaGg03WSR0` saiu da escolha pelo
+**mapa de dono MEDIDO** sem sair da lista. O `reservas_escritas` devolveu
+**NENHUMA**.
+
+**CONTAGEM pela chave `por_cadencia_servivel`, e nenhuma das tres recusas foi
+minha:**
+
+| cenas | | |
+|---|---|---|
+| 14 (teto MEDIDO da voz) | melhor cadencia, 3,02 s | RECUSADA pela FOLGA: 23 caracteres, a DOIS do piso OBSERVADO |
+| 13 | 3,25 s | RECUSADA por REPETICAO — a `s091` |
+| 12 | 3,52 s | RECUSADA por REPETICAO — o pacote `kolejny-poziom-021` |
+| **11** | **3,84 s** | escolhida, 39 no piso, folga **+18** |
+
+**ESQUELETO `titulo-item-item-barras-lista-item-titulo-item-barras-item-cta`,
+INEDITO nas 174 formas da frota** — e o tamanho de onze tem 20 pecas em 13
+formas distintas. O `formas_livres` diz **1510 de 1512** ordens livres destes
+mesmos layouts. Todo layout saiu do conjunto **SONDADO**.
+
+**FAMILIA: JULGAR O PROPRIO RACHUNEK PELA MEDIA NACIONAL** (capitulos 6, 12, 13,
+45, 74, 76, 77 e 78) — numero sobre um **CONJUNTO** tomado como numero sobre
+**VOCE**. A media esta certa, publicada e irrelevante para a sua fatura, e o que
+a torna silenciosa e a **SIMETRIA**: ela tem dois lados e nada no cabecalho diz
+de qual voce esta; quem paga acima acha que esta normal e quem paga abaixo
+tambem. O que decide o seu lado sao tres coisas que a media nao conhece — o
+operador da sua regiao, as taxas fixas da sua fatura e o seu consumo. E a
+segunda metade do argumento e a **DURABILIDADE**, do capitulo 45: o numero do
+cabecalho envelhece em meses e a divisao da kwota pelo zuzycie nao envelhece.
+
+**Distincoes escritas contra os QUATRO irmaos** pelo `irmaos_da_origem` e pela
+NARRACAO de cada um — e **DOIS** deles (`s016` e `s073`) nao tem o campo da
+familia, logo a comparacao saiu da PROSA e da fala, de primeira mao. O `s016` e
+**taryfa contra OFERTA** e o motivo dele e **CONTRATUAL** (o papel que voce
+assinou); aqui e **ESTATISTICO** — mesmo na taryfa, media de um conjunto nao e o
+numero de ninguem. O `s030` e o ESCOPO do upust, o `s036` a ESCALA (grosz contra
+zloty) e o `s073` a COMPOSICAO da fatura. **E a vizinhanca mais proxima vai
+NOMEADA, porque a distincao e fina:** o `s030` fecha com *"licz zawsze z wlasnej
+faktury"*, que e **CTA de fechamento** dele.
+
+**ZERO numero novo sobre o mundo e ZERO digito na narracao.** Os dois numerais
+falados (*dwie*, *trzy*) sao estrutura do argumento, conferidos pelo
+`numerais_falados`. **E a regra (g) tirou daqui o numero que daria a peca mais
+facil** — a media aprovada em zloty por megawatt-hora (capitulo 8), o percentual
+de aumento (10 e 14) e a taryfa de distribuicao (21) —, e **a PROPRIA origem
+escreve o motivo duas vezes**: o capitulo 21 diz *"nie podam ci tu jednej
+liczby, bo bylaby nieprawdziwa dla wiekszosci sluchajacych"* e o 45 diz
+*"liczba z naglowka starzeje sie w kilka miesiecy"*. Citar a media para dizer
+que ela nao serve seria por pela porta lateral o numero que a peca recusa. As
+barras sao ILUSTRACAO qualitativa e **nao** sao faladas — a cena 3 desenha os
+dois lados com a MESMA altura, que e o argumento da simetria.
+
+**A PINCA DO 740/748 ESTA FECHADA AQUI**, com a exposicao declarada ANTES de
+publicar: nenhuma media por cena poe os dois provedores dentro de 41,5 a 43,0
+com onze cenas nesta voz, e quem diz isso e o `mira.janela_dos_dois_mundos`.
+**Mirei o PISO** (772): edge **41,76**, 0,26 acima dele; o piper sai em
+**35,54**, FORA pela mira e DENTRO do portao, que cobra 18 a 45 s nos dois
+mundos. **E o REAL nao esta prometido para lado nenhum** (774).
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica` pela TRIGESIMA
+PRIMEIRA rodada seguida** — medido pela `sonda_e_modo`, com os TRES controles no
+MESMO caminho de saida. A peca esta PARQUEADA com o provedor MEDIDO e o job
+**lido da API**, e a presenca foi conferida **RELENDO** o parque (**132** linhas,
+**60** sem leitura). `RESIDUO_N` segue **128**.
+
+**E A LEITURA DE INSCRITOS PASSOU AS TRES PORTAS E NAO FOI FEITA, pela DECIMA
+TERCEIRA rodada seguida:** 71,04 h, piso de resolucao **0,34/dia**, os tres SIM.
+**O que a impede e a ROTA, e o remedio e do DONO** — a tela de Network access.
+
+**COTA: TRES envios** na janela aberta as 07:00Z, **4.800** unidades, contra o
+piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
+hora.

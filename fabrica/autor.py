@@ -46,6 +46,7 @@ Uso:
     python3 fabrica/autor.py contexto <slug>
 """
 from __future__ import annotations
+import cenas_da_spec as _CS
 
 import argparse
 import json
@@ -324,6 +325,7 @@ def medir_short(cenas: list[dict], voz: str) -> float:
 
 
 def chars(cenas: list[dict]) -> int:
+    cenas = _CS.exige(cenas, "autor.chars")
     return sum(len((c or {}).get("nar") or "") for c in cenas)
 
 

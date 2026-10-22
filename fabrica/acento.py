@@ -77,6 +77,7 @@ disco nao tem acento.
 **NAO E PORTAO**, e o motivo e o do `mira.py`: ele reprovaria essas sete, que sao
 acervo e nao producao. O lugar dele e o relato da rodada e a suite.
 """
+import cenas_da_spec as _CS
 import glob
 import json
 import os
@@ -96,6 +97,7 @@ def proporcao(cenas) -> float | None:
     None quando nao ha letra nenhuma — ausencia nao e zero, que e a regra do
     `duracao_a_medir.residuos`.
     """
+    cenas = _CS.exige(cenas, "acento.proporcao")
     texto = "".join(((c or {}).get("nar") or "") for c in (cenas or []))
     letras = [ch for ch in texto if ch.isalpha()]
     if not letras:

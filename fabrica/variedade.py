@@ -80,6 +80,7 @@ Estado medido em 09/10/2026, para que o conserto nao pareca regressao:
 
 Os portoes rodam em spec NOVA, entao nada disso reprova peca publicada.
 """
+import cenas_da_spec as _CS
 import glob
 import json
 import os
@@ -101,6 +102,7 @@ ESQUELETO_AVISA_EM = 6     # meu, e por isso so avisa
 
 def esqueleto(cenas: list[dict]) -> str:
     """A assinatura estrutural de uma peca: a sequencia de layouts."""
+    cenas = _CS.exige(cenas, "variedade.esqueleto")
     return "-".join(c.get("layout", "?") for c in cenas)
 
 

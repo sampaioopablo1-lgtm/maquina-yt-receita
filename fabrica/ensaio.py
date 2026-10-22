@@ -53,6 +53,7 @@ Uso:
     python3 fabrica/ensaio.py <spec.json> [<spec.json> ...]
 """
 from __future__ import annotations
+import cenas_da_spec as _CS
 
 import glob
 import json
@@ -231,6 +232,7 @@ def chars_por_cena(voz: str, n_cenas: int, total_s: float) -> int:
 
 def duracao_estimada(cenas, voz: str) -> float:
     """Duracao do video montado: a fala de cada cena mais os intervalos."""
+    cenas = _CS.exige(cenas, "ensaio.duracao_estimada")
     return (sum(duracao_cena(c.get("nar", ""), voz) for c in cenas)
             + GAP_CENA_S * max(len(cenas) - 1, 0))
 
