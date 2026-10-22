@@ -71,3 +71,4 @@
 {"arquivo": "short.mp4", "desvio_do_alvo": 0.4, "job": "119716961370", "lra": 2.6, "lufs": -13.6, "pacote": "labtreinamento-s107", "pico_dbtp": -1.4, "run": "39746729706", "silencios": [], "tinha_veredito": true}
 {"arquivo": "short.mp4", "desvio_do_alvo": 0.0, "job": "119742059631", "lra": 4.0, "lufs": -14.0, "pacote": "kolejny-poziom-s092", "pico_dbtp": -3.0, "run": "39754212045", "silencios": [], "tinha_veredito": true}
 {"arquivo": "short.mp4", "desvio_do_alvo": -0.7, "job": "119768700357", "lra": 4.0, "lufs": -14.7, "pacote": "epomeno-epipedo-s093", "pico_dbtp": -2.9, "run": "39762140476", "silencios": [], "tinha_veredito": true}
+{"arquivo": "short.mp4", "desvio_do_alvo": -0.5, "job": "119795468896", "lra": 2.8, "lufs": -14.5, "pacote": "labtreinamento-s108", "pico_dbtp": -2.3, "run": "39770174064", "silencios": [], "tinha_veredito": true}

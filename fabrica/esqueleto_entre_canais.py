@@ -176,6 +176,35 @@ def cegas_para_o_portao(pecas: list[dict] = None) -> dict:
     }
 
 
+def sem(pecas: list[dict], exceto: str) -> list[dict]:
+    """A populacao SEM a peca que esta sendo perguntada. UM dono do filtro.
+
+    **Medido em 22/10 as 11:4x, no relato desta rodada: a linha do ACERVO e a
+    da NOVIDADE, no MESMO relato, discordavam sobre quantas formas a frota
+    tem.** Com a spec no disco, o relato imprimia `acervo: 424 pecas, 177
+    formas` e, duas linhas abaixo, `esqueleto INEDITO nas 176 formas de short
+    da frota` — porque so a frase da novidade filtrava a propria peca, e as
+    outras tres contas leiam `varre()` cru. E o **753 dentro de um relato**, a
+    mesma forma da banda cravada no texto do `mira` e da linha do piso que nao
+    dizia de quantos mundos ela era.
+
+    **E a divergencia aparece justamente quando a rodada ACERTA:** as duas
+    linhas so discordam na contagem de FORMAS quando a peca e o UNICO exemplar
+    da propria forma, que e o alvo de toda rodada. Medido no disco, **137 de
+    424 pecas (32,3%)** estao nesse caso — e a linha de PECAS discorda
+    SEMPRE, em 424 de 424, porque a peca perguntada esta sempre dentro do
+    `varre()`.
+
+    O `exceto` e o nome do arquivo e o casamento e DELEGADO ao
+    `nome_da_spec.casa`, que e o dono das duas convencoes de nome (20/10 as
+    11:3x). Sem `exceto` a lista volta como veio: ausencia de nome nao e
+    ausencia de peca.
+    """
+    if not exceto:
+        return pecas
+    return [p for p in pecas if not NS.casa(p["arquivo"], exceto)]
+
+
 def novidade(esq: str, cenas: int, pecas: list[dict] = None,
              exceto: str = "") -> dict:
     """Esta forma e nova? E este TAMANHO? — a frase do relato, derivada.
@@ -252,8 +281,7 @@ def novidade(esq: str, cenas: int, pecas: list[dict] = None,
             " nesta ORDEM; trocados, as duas metades saem 'NOVO' sem medir"
             " nada." % (cenas, type(cenas).__name__))
     pecas = pecas if pecas is not None else varre()
-    if exceto:
-        pecas = [p for p in pecas if not NS.casa(p["arquivo"], exceto)]
+    pecas = sem(pecas, exceto)
     q = quadro(pecas)
     iguais = q["contagem_da_forma"].get(esq, 0)
     canais = q["canais_da_forma"].get(esq, [])
@@ -491,7 +519,26 @@ def relato(caminho=None, spec=None) -> str:
     """
     if isinstance(caminho, dict):     # compatibilidade: a spec na 1a posicao
         caminho, spec = None, caminho
-    pecas = varre()
+    # A PECA PERGUNTADA SAI DA POPULACAO UMA VEZ, aqui, e as QUATRO contas do
+    # relato leem a MESMA lista. Ate 22/10 as 11:4x so a frase da novidade era
+    # filtrada, e o MESMO relato imprimia "acervo: 424 pecas, 177 formas" com
+    # "INEDITO nas 176 formas da frota" duas linhas abaixo. Ver o `sem`.
+    #
+    # E o `exceto` sai do NOME do arquivo mesmo no rascunho: a peca pode nao
+    # estar no disco agora e estar na proxima chamada, e sem ele "inedita"
+    # nunca poderia ser verdade (01:3x de 20/10). SEM CAMINHO ele caia para
+    # vazio e a peca se contava a si mesma (22/10 as 03:4x) — o nome sai do
+    # `pacote` da propria spec, pelo dono unico do `nome_da_spec`.
+    d = None
+    if caminho is not None or spec is not None:
+        d = spec if spec is not None else json.load(
+            open(caminho, encoding="utf-8"))
+    short = (d.get("short") or []) if d else []
+    exceto = ""
+    if short:
+        exceto = (os.path.basename(caminho) if caminho
+                  else NS.arquivo(d.get("pacote") or ""))
+    pecas = sem(varre(), exceto)
     q = quadro(pecas)
     qv = quadro(pecas, so_vivos=True)
     L = ["ESQUELETO ENTRE CANAIS — o que o portao `variedade` nao ve"]
@@ -507,28 +554,11 @@ def relato(caminho=None, spec=None) -> str:
     for e, n in topo:
         c = q["canais_da_forma"][e]
         L.append(f"   {n:3d}x em {len(c):2d} canal(is)  {e}")
-    if caminho is not None or spec is not None:
-        d = spec if spec is not None else json.load(
-            open(caminho, encoding="utf-8"))
-        short = d.get("short") or []
-        if short:
-            L.append("")
-            L.append(f"desta peca ({d.get('pacote', '?')}):")
-            # o `exceto` sai do NOME do arquivo mesmo no rascunho: a peca pode
-            # nao estar no disco agora e estar na proxima chamada, e sem ele
-            # "inedita" nunca poderia ser verdade (01:3x de 20/10).
-            #
-            # E SEM CAMINHO ELE CAIA PARA VAZIO, e a peca se contava a si
-            # mesma — medido em 22/10 as 03:4x, chamando `relato(spec=sp)` com
-            # o arquivo JA no disco: a forma saiu "JA EXISTE: 1 exemplar" e o
-            # exemplar era ela. A falha e RESTRITIVA e nao permissiva (contar a
-            # si mesmo so ADICIONA, logo nunca diz "nova" o que nao e), e custa
-            # trabalho jogado fora: eu reescreveria uma forma que ja era
-            # inedita. O nome sai do `pacote` da propria spec, pelo dono unico.
-            exceto = (os.path.basename(caminho) if caminho
-                      else NS.arquivo(d.get("pacote") or ""))
-            L.append(_frase_da_novidade(
-                novidade(V.esqueleto(short), len(short), pecas, exceto)))
+    if short:
+        L.append("")
+        L.append(f"desta peca ({d.get('pacote', '?')}):")
+        L.append(_frase_da_novidade(
+            novidade(V.esqueleto(short), len(short), pecas, exceto)))
     c = cegas_para_o_portao(pecas)
     L.append("")
     L.append(

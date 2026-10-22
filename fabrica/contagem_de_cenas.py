@@ -475,8 +475,9 @@ def contagens_da_frota(exceto: str = "") -> dict:
     verdade. Nenhuma varredura se refaz aqui.
     """
     pecas = EC.varre()
-    if exceto:
-        pecas = [p for p in pecas if not NS.casa(p["arquivo"], exceto)]
+    # o filtro e DELEGADO ao `EC.sem`, que e o dono dele desde 22/10 as 11:4x
+    # — recopiar a compreensao aqui era o segundo dono do mesmo fato.
+    pecas = EC.sem(pecas, exceto)
     return EC.quadro(pecas)["por_contagem_de_cena"]
 
 

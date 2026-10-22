@@ -10364,3 +10364,155 @@ QUARTA rodada seguida:** 72,07 h, piso de resolucao **0,33/dia**, os tres SIM.
 **COTA: QUATRO envios** na janela aberta as 07:00Z, **6.400** unidades, contra o
 piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
 hora.
+
+## A LINHA DO ACERVO CONTAVA A PROPRIA PECA PERGUNTADA
+
+**Medido em 22/10 as 11:4x, no relato da peca desta rodada.** Com a spec ja no
+disco, o `esqueleto_entre_canais.relato` imprimiu, em linhas vizinhas:
+
+| linha do relato | formas |
+|---|---|
+| `acervo: 424 pecas, 177 formas` | **177** |
+| `esqueleto INEDITO nas 176 formas de short da frota` | **176** |
+
+**Dois numeros para o MESMO fato no MESMO relato**, porque so a frase da
+novidade filtrava a propria peca pelo `exceto` e as outras tres contas leiam
+`varre()` cru. E o **753 dentro de um relato** — a mesma forma da banda cravada
+no texto do `mira` e da linha do piso que nao dizia de quantos mundos ela era
+(21/10 as 18:3x) — com o `exceto` chegando a UMA das contas, que e a familia de
+20/10 as 14:3x.
+
+**E A DIVERGENCIA APARECE JUSTAMENTE QUANDO A RODADA ACERTA:** as duas linhas so
+discordam na contagem de FORMAS quando a peca e o **UNICO exemplar da propria
+forma**, que e o alvo declarado de toda rodada. Medido no disco: **137 de 424
+pecas (32,3%)** estao nesse caso. **E a linha de PECAS discorda SEMPRE** — 424 de
+424 —, porque a peca perguntada esta sempre dentro do `varre()`.
+
+**O CUSTO E DE LEITURA E NAO DE VEREDITO, e vai dito assim em vez de inflado:** o
+`forma_inedita` sempre saiu filtrado, logo nenhuma peca foi publicada com a forma
+errada. O que o relato convidava a fazer era **citar o numero da linha do acervo
+na copy** — e ai a peca se contaria contra si mesma. Eu venho escrevendo *"inedito
+nas N formas da frota"* em cada copy, e o N certo e o da novidade.
+
+**Consertado com UM dono: `esqueleto_entre_canais.sem(pecas, exceto)`**, chamado
+pelo `relato`, pelo `novidade` e pelo `contagem_de_cenas.contagens_da_frota` — que
+recopiava a compreensao e era o segundo dono do mesmo fato. O casamento do nome
+segue **DELEGADO** ao `nome_da_spec.casa`, dono das duas convencoes desde 20/10 as
+11:3x, e **sem `exceto` a lista volta como veio**, porque ausencia de nome nao e
+ausencia de peca (17/10). Depois do conserto o relato diz **423 pecas, 176
+formas** com *"INEDITO nas 176"*, e sem peca perguntada volta a dizer a frota
+INTEIRA (424/177).
+
+`tests/test_a_linha_do_ACERVO_contava_a_propria_peca.py`, onze testes: a
+varredura sai do DISCO e **reprova com menos de 200 pecas**, a peca de prova e
+**DERIVADA** (exemplar unico da propria forma — nomear um pacote seria identidade
+onde ha propriedade, 743/753/761) e **reprova dizendo que perdeu a ancora**, um
+**REPRODUZ** o defeito com a populacao crua e reprova se ele parar de ocorrer, a
+contraprova no outro sentido exige que **sem peca perguntada o acervo seja a
+frota inteira** (senao filtrar sempre passaria), a medida e **RECONFERIDA contra
+o disco** e **falha se nenhuma ou se TODAS as pecas forem exemplar unico**, o
+filtro tem **UM dono por AST** nos dois modulos (`NS.casa` fora do `sem`
+reprova), o `relato` e cobrado por AST como filtrando UMA vez, e a conta irma do
+`contagem_de_cenas` e cobrada pela delegacao **e** pelo efeito. **Contraprova:**
+religado o `varre()` cru, **dois dos onze** falham.
+
+### A PECA DESSA RODADA — OITO cenas, e os DOIS mundos dentro da mira
+
+`labtreinamento-s108` = **`HB66Xe-YvQc`** (*Índice anotado não contesta*),
+publicado as 11:27:13Z (run `39770647744`), **sem `403 quota`**. **ONZE PORTOES
+VERDES NA PRIMEIRA TENTATIVA** — e ela foi **CONFERIDA COMO RASCUNHO** antes de
+existir no disco, pela sexta vez em producao: dez portoes baratos limpos em
+**0,66 s**, mais mira, acento **4,69%** (e o portao `ortografia` tambem nao
+reprova), gancho de 8 palavras de 12, paleta **LIDA** de
+`temas_do_dono.paleta_do_canal` e as oito cenas desenhando — com os dois
+instrumentos que ainda exigem caminho **DIZENDO** que nao conferiram.
+
+Provedor **edge MEDIDO** pelo `anotacoes_do_run` (zero avisos
+`NARRACAO PELO PIPER` no job `119795468896`, que e o job que emitiu o SOM). Som
+**-14,5** LUFS, pico **-2,3** dBTP com `pico_vs_teto: dentro`, **zero
+silencios**, parqueado pelo `som_parqueado` **sem eu redigitar o JSON** (parque
+em **74** linhas, zero sem `run`).
+
+**E O `antes_do_render` PEGOU DOIS DEFEITOS ANTES DO RENDER:** a thumbnail saiu
+com **SEIS** palavras contra o limite de 4 — a **SEXTA** vez do mesmo defeito
+nesta sessao — e o titulo saiu em **100 caracteres**, isto e, no limite exato.
+Corrigidos para 4 de 4 e 84 de 100.
+
+**CANAL do `passo_zero`** (8/8/9 na janela de 24 h, empate em 8 desempatado pelo
+que esta ha mais tempo sem publicar). **PAUTA do `pauta_do_momento`:**
+`3KtwRYxl7_U` (`labtreinamento-005`), 6 usos — empate de **SETE** origens
+desempatado pela MAIOR reserva, **45 de 67** capitulos NAO MENCIONADOS. A
+dominante `FtCtIJPsc_Q` ficou de fora, e quem conta e o `concentracao.py`. O
+`reservas_escritas` devolveu **NENHUMA**, logo a familia saiu da leitura dos 43
+livres — e o texto deles veio **INTEIRO**, pelo conserto de 10:3x, nao de uma
+fatia.
+
+**FAMILIA: GUARDAR O RESULTADO EM VEZ DA MEMORIA** (capitulos 12, 63 e 64, com
+apoio do 10 e do 14). O eixo e **O QUE SE LEVA DA CONSULTA**: sair com o indice
+anotado, que e a conclusao, e sem os dados que a produziram, que e o unico
+material com que se discute. **E a entrada errada NAO DOI**, que e o que a torna
+comum: o indice anotado responde a pergunta que levou a pessoa a consulta, logo a
+tarefa PARECE concluida. **E o segundo lado e a DATA:** o indice reaparece sozinho
+no valor recolhido (capitulo 14), logo anota-lo adianta pouco; a memoria nao
+reaparece, e e com ela que se compara o calculo do ano seguinte (63).
+
+**Distincoes escritas contra os SEIS irmaos** pelo `irmaos_da_origem` e pela
+NARRACAO de cada um — e **TRES** deles (`s009`, `s035`, `s081`) nao tem o campo
+da familia, logo a comparacao saiu da PROSA e da fala, de primeira mao. **E o
+irmao mais proximo vai NOMEADO, porque a distincao e fina:** o `s081` tambem fala
+da consulta, e o eixo dele e que o numero **ja existe** e onde ele mora — o
+motivo para ir; esta peca comeca depois, com a pessoa ja la. **Motivo para abrir
+contra o que levar ao fechar.**
+
+**OITO CENAS pela chave `por_cadencia_servivel`:** sete e a melhor cadencia e
+**REPETE a `s107`**, e **9, 10 e 11** sairam **NOMEADAS** porque ali o PISO da
+faixa nao e alcancavel com texto legivel. **ESQUELETO
+`titulo-item-barras-item-lista-item-titulo-cta`, INEDITO nas 176 formas da
+frota** — a frota tem SETE formas de oito cenas e esta nao e nenhuma delas, e o
+`formas_livres` diz **113 de 120** ordens livres desta mistura. Todo layout saiu
+do conjunto **SONDADO**, com `assert` no construtor.
+
+**A PINCA DO 740/748 ESTA ABERTA AQUI**, e e o unico canal da frota em que isso
+acontece: a `janela_dos_dois_mundos` pede **34 a 36** caracteres por cena com oito
+cenas e a peca saiu com media **34,0** — edge **25,44** e piper **20,89**, os
+**DOIS** dentro da mira medida do canal (20,0 a 26,0). Logo **nao ha exposicao de
+mundo a declarar**, e eu **NAO mirei o piso de proposito**: o piso executavel aqui
+e 25 caracteres e a propria `mira.confere` o REPROVA, porque ele e de UM mundo.
+**E o REAL nao esta prometido para lado nenhum** (774).
+
+**E A PRIMEIRA VERSAO SAIU EM EDGE 25,92 — a 0,08 s do teto da mira**, que e a
+fronteira em que a primeira versao da `s083` foi reprovada por 0,1 s. Cortei oito
+caracteres de UMA cena, e **quem disse de quanto era o passo foi o instrumento**
+(*"um caractere vale 0,060 s nesta voz"*), nao a minha cabeca — item 3 da §10.
+
+**E O RELATO DA MIRA ACHOU UMA COISA QUE EU NAO TINHA OLHADO:** a peca tem UMA
+cena com duas frases (a 7, o CTA, que sempre tem), e o termo `P` do `MODELO_VOZ` e
+silencio por **FRASE** e nao por cena (11/10). Isso custa **0,77 s** acima do que
+o orcamento supoe — previsao 25,92 contra 25,15 com os mesmos caracteres em uma
+frase por cena. Vai dito porque o orcamento nao o inclui e eu o descobri lendo o
+relato, nao calculando.
+
+**ZERO numero novo sobre o mundo e ZERO digito na narracao** — conferido pelo
+`numerais_falados`, com a ressalva dele de que ausencia de vocabulario nao prova
+ausencia. A regra (g) tirou o calendario das duas datas, as tres aliquotas por
+grau de risco, o exemplo em reais e a lei do rito; **e os dois numeros que dariam
+a peca mais facil ficaram fora de proposito** — a data de abertura da consulta e o
+prazo de contestacao, que sao exatamente o que torna a urgencia concreta e
+envelhece em dias. As barras sao ILUSTRACAO qualitativa e **nao** sao faladas, com
+isso escrito em letra na copy.
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica` pela TRIGESIMA
+TERCEIRA rodada seguida** — medido pela `sonda_e_modo`, com os TRES controles no
+MESMO caminho de saida e os alvos na forma de URL: o `touch` passou, os TRES hosts
+voltaram **000 sem arquivo**, e o proxy nomeou `example.com` e `www.youtube.com`
+depois de 11:28:58Z. A peca esta PARQUEADA com o provedor MEDIDO e o job **lido da
+API**, e a presenca foi conferida **RELENDO** o parque (**134** linhas, **62** sem
+leitura). `RESIDUO_N` segue **128**.
+
+**E A LEITURA DE INSCRITOS PASSOU AS TRES PORTAS E NAO FOI FEITA, pela DECIMA
+QUINTA rodada seguida:** 73,13 h, piso de resolucao **0,33/dia**, os tres SIM. **O
+que a impede e a ROTA, e o remedio e do DONO** — a tela de Network access.
+
+**COTA: CINCO envios** na janela aberta as 07:00Z, **8.000** unidades, contra o
+piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
+hora.
