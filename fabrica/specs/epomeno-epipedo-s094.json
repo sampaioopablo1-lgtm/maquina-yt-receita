@@ -1,0 +1,121 @@
+{
+ "slug": "epomeno-epipedo-s094",
+ "pacote": "epomeno-epipedo-s094",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "longo_existente": "9Hg5A3H1Qe4",
+ "thumb": {
+  "l1": "Λείπει η γραμμή",
+  "l2": "επιστροφής"
+ },
+ "paleta": {
+  "bg": "#F4EFE6",
+  "ink": "#1B1A17",
+  "c1": "#C8502A",
+  "c2": "#2B6CB0",
+  "red": "#B83227",
+  "ok": "#2E8B57",
+  "panel": "#FFFFFF",
+  "mut": "#7A7263",
+  "acc": "#C8502A"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Δύο στήλες",
+   "sub": "και μια γραμμή λείπει",
+   "nar": "Σύγκρινες τις δύο στήλες και αποφάσισες;"
+  },
+  {
+   "layout": "lista",
+   "kicker": "Οι γραμμές που έβαλες",
+   "itens": [
+    "Καθαρός μισθός",
+    "Ενοίκιο",
+    "Σταθερά έξοδα"
+   ],
+   "nar": "Στη σύγκριση λείπει μια γραμμή."
+  },
+  {
+   "layout": "item",
+   "kicker": "Δεν είναι έξοδο",
+   "sub": "της ζωής εκεί",
+   "nar": "Δεν είναι έξοδο της ζωής εκεί πέρα."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Τι κοστίζει",
+   "barras": [
+    {
+     "Η μετακίνηση εκεί": 100
+    },
+    {
+     "Η επιστροφή πίσω": 0
+    }
+   ],
+   "nar": "Είναι το κόστος να γυρίσεις πίσω."
+  },
+  {
+   "layout": "item",
+   "kicker": "Χωρίς αυτήν",
+   "sub": "η φυγή μοιάζει δωρεάν",
+   "nar": "Χωρίς αυτήν, η φυγή μοιάζει δωρεάν."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Και η παραμονή",
+   "sub": "μοιάζει ήττα",
+   "nar": "Και η παραμονή μοιάζει ήττα."
+  },
+  {
+   "layout": "item",
+   "kicker": "Καμία από τις δύο",
+   "sub": "δεν είναι νούμερο",
+   "nar": "Καμία από τις δύο δεν είναι νούμερο."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Γράψε τι κοστίζει η επιστροφή",
+   "itens": [
+    "Μετακόμιση και εγγύηση",
+    "Εισιτήρια",
+    "Μήνες χωρίς εισόδημα"
+   ],
+   "nar": "Γράψε λοιπόν τι κοστίζει η επιστροφή."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Πόσοι δρόμοι",
+   "barras": [
+    {
+     "Απόφαση μονόδρομη": 100
+    },
+    {
+     "Απόφαση που γυρίζει": 200
+    }
+   ],
+   "nar": "Μια απόφαση που γυρίζει έχει δύο δρόμους."
+  },
+  {
+   "layout": "item",
+   "kicker": "Δεν αλλάζει",
+   "sub": "ποια στήλη είναι μεγαλύτερη",
+   "nar": "Η γραμμή δεν αλλάζει ποια στήλη κερδίζει."
+  },
+  {
+   "layout": "item",
+   "kicker": "Αλλάζει",
+   "sub": "τι σου επιτρέπει",
+   "nar": "Αλλάζει τι σου επιτρέπει το αποτέλεσμα."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Πρόσθεσε τη γραμμή",
+   "sub": "και κάνε εγγραφή",
+   "nar": "Πρόσθεσε τη γραμμή σου και κάνε εγγραφή."
+  }
+ ],
+ "copy": "# epomeno-epipedo-s094\n\n## TITULO\nΗ γραμμή που λείπει από κάθε σύγκριση: πόσο κοστίζει να γυρίσεις πίσω\n\n## TITULO SHORT\nΛείπει η γραμμή της επιστροφής\n\n## DESCRICAO\nΗ σύγκριση δύο χωρών γίνεται με δύο στήλες: καθαρός μισθός, ενοίκιο, σταθερά έξοδα, και όσες γραμμές χρειάζεται για να μιλούν οι δύο πλευρές την ίδια γλώσσα. Αυτή η δουλειά είναι σωστή και χρειάζεται. Το σημείο αυτού του σορτ είναι άλλο: ακόμα και όταν οι δύο στήλες είναι άψογα γεμισμένες, η σύγκριση μπορεί να μην περιγράφει την απόφαση.\n\nΟ λόγος είναι ότι η απόφαση γυρίζει. Δεν είναι μονόδρομη. Και το να την αναιρέσεις έχει τιμή που δεν εμφανίζεται σε καμία από τις δύο στήλες: η μετακόμιση και η εγγύηση, τα εισιτήρια, οι μήνες χωρίς εισόδημα μέχρι να στηθεί ξανά κάτι εκεί ή εδώ. Καμία από αυτές τις γραμμές δεν είναι έξοδο της ζωής στη μία ή στην άλλη χώρα. Είναι το κόστος της αλλαγής, και η αριθμητική της σύγκρισης δεν το ζητάει πουθενά.\n\nΤο κόστος αυτής της απουσίας έχει δύο κατευθύνσεις, και γι' αυτό περνάει απαρατήρητο. Χωρίς τη γραμμή, η φυγή μοιάζει δωρεάν: βλέπεις μόνο τη διαφορά των δύο στηλών και την παίρνεις ολόκληρη. Και η παραμονή μοιάζει ήττα: σαν να αφήνεις πάνω στο τραπέζι εκείνη τη διαφορά, όταν στην πραγματικότητα δεν την άφησες, γιατί δεν την είχες καθαρή.\n\nΑυτό που αλλάζει η γραμμή δεν είναι ποια στήλη βγαίνει μεγαλύτερη. Αυτό συνήθως μένει ίδιο. Αλλάζει το τι σου επιτρέπει το αποτέλεσμα: πόσο μεγάλη πρέπει να είναι η διαφορά για να αξίζει μια κίνηση που, αν δεν πετύχει, πληρώνεται δύο φορές.\n\nΚαι όπως λέει και το βίντεο, κανένα από τα δύο δεν είναι ακόμα νούμερο. Γίνεται νούμερο όταν το γράψεις με τα δικά σου δεδομένα. Ο πλήρης λογαριασμός, με τις πηγές και τις ημερομηνίες του, είναι στο βίντεο του καναλιού.\n\n## COMENTARIO FIXADO\nΓράψε κάτω μία μόνο γραμμή: τι θα κόστιζε σε εσένα η επιστροφή, σε κατηγορίες και όχι σε ποσά — μετακόμιση, εισιτήρια, μήνες χωρίς εισόδημα. Χωρίς χώρα και χωρίς μισθό.\n\n## HASHTAGS\n#μετανάστευση #οικονομικά #μισθός #κοστοςζωης #αποφάσεις #προσωπικαοικονομικα #ελλαδα\n\n## TAGS\nσύγκριση μισθών, κόστος ζωής, μετανάστευση, καθαρός μισθός, ενοίκιο, κόστος επιστροφής, προσωπικά οικονομικά, απόφαση, Ελλάδα, Ολλανδία\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ncategoryId: 27\ndefaultLanguage: el\ndefaultAudioLanguage: el\nmadeForKids: false\n\n## MUSICA / LICENCA\nInspired (Kevin MacLeod, incompetech.com) — Creative Commons: By Attribution 4.0. A trilha e a do canal (601) e NAO atravessa de outro canal.\n\n## FONTES\nepomeno-epipedo-003 (9Hg5A3H1Qe4), capitulo 75, com o 7 como apoio. Nenhuma fonte externa: a peca nao introduz numero novo sobre o mundo.\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, e aqui a trava e mais apertada que de costume porque a ORIGEM e cheia de numeros com dono e data. Ficaram FORA, pela regra (g), TODOS eles: o salario minimo dos dois paises, o liquido, o numero de salarios por ano, as horas de contrato, o euro por metro quadrado do centro, a variacao anual do aluguel e do salario, o percentual da Eurostat e a posicao na Uniao. Nenhum aparece na narracao nem na descricao.\nO UNICO numeral falado e \"duo\" — e ele aparece duas vezes, nas duas colunas da comparacao e nos dois caminhos da decisao que volta, isto e, ESTRUTURA do argumento e nao fato sobre o mundo. Conferido pelo `numerais_falados`, e a primeira versao desta linha declarava DOIS numerais distintos: o instrumento mostrou que e um so. Corrigida ANTES de publicar.\nE O QUE A PECA AFIRMA e estrutura de decisao, nao medicao: que desfazer a mudanca tem preco, e que esse preco nao esta em nenhuma das duas colunas. A PROPRIA origem escreve isso no capitulo 75, em letra — *\"a linha do custo de retorno. Sem ela, a fuga parece gratis e a permanencia parece derrota. Nenhuma das duas e ainda um numero\"* — e o capitulo 7 escreve o limite: o video NAO diz para ir nem para ficar.\nAs BARRAS das cenas 4 e 9 sao ILUSTRACAO qualitativa (o caminho de ida contra o de volta; um caminho contra dois) e **NAO** sao faladas. A rodada seguinte nao deve le-las de volta como dado.\n\n## FAMILIA DE ENTRADA ERRADA\nA LINHA QUE FALTA E O CUSTO DE VOLTAR: comparar as duas colunas como se a decisao fosse MONODROMA. A comparacao pode estar perfeita e ainda assim nao descrever a decisao, porque a decisao GIRA — e desfaze-la tem preco que nao e despesa de vida em lado nenhum, logo a aritmetica da comparacao nao o pede em lugar nenhum.\nE o custo da ausencia tem DUAS direcoes, que e o que a torna invisivel: sem a linha a fuga parece gratis (toma-se a diferenca inteira) e a permanencia parece derrota (como se a diferenca estivesse sendo deixada na mesa, quando ela nunca esteve limpa).\nDistinta dos QUATRO irmaos desta origem, conferidos pelo `irmaos_da_origem` e, nos dois sem o campo, pela PROSA e pela NARRACAO de cada um, que e de primeira mao:\n- `epomeno-epipedo-s008` (sem campo) — a COLUNA DE CUSTO que falta num lado. **E a distincao e fina e vai dita:** ele acrescenta linha para a COMPARACAO fechar (dividir o salario pelo custo da mesma cesta, para os dois lados falarem a mesma lingua); esta acrescenta linha para a DECISAO fechar, e ela **nao muda qual coluna e maior** — muda o que o resultado autoriza a fazer;\n- `epomeno-epipedo-s027` — decidir pela EPIGRAFE, isto e, pelo numero correto de OUTRA pessoa (media de um pais) em vez do proprio resto. Eixo de QUEM e o numero;\n- `epomeno-epipedo-s040` — o mensal como PRODUTO de horas SUPOSTAS: como UM dos lados foi fabricado. Eixo de procedencia do numero;\n- `epomeno-epipedo-s075` (sem campo) — a UNIDADE do periodo: mensal contra mensal quando o mes nao e a mesma fracao do ano nos dois lados. Eixo de ESCALA.\nNenhum dos quatro fala da REVERSIBILIDADE da decisao, e nenhum toca o capitulo 75.\n\n## RESERVA\nPara a rodada seguinte, nesta origem (9Hg5A3H1Qe4), com o motivo escrito:\n- LIVRE: capitulo 77 — *\"se fizeres uma coisa so, acha a linha das HORAS\"*. **Adiado de proposito**: a linha das horas e o eixo declarado do `epomeno-epipedo-s040` (o mensal como produto de horas supostas), logo levar isso pediria um angulo que o irmao ja tem. Reabrir so com angulo que nao seja o produto;\n- LIVRE: capitulo 7 — *\"nao te direi para ir nem para ficar; mostro quais numeros entram na decisao, porque a maioria decide com metade\"*. Eixo de DECIDIR COM METADE DOS NUMEROS. Entrou aqui como APOIO e nao como nucleo, logo segue utilizavel como nucleo numa rodada afastada desta;\n- ATENCAO, medido em 22/10 as 12:3x: **19 dos 53 livres desta origem sao DECLARADOS por um irmao** (9 a 12, 14, 16 a 19, 53, 54, 57, 60 a 63, 65, 68, 69) e saem marcados no `relato_dos_livres`. Nao os tome por livres lendo so a contagem;\n- CONSUMIDOS por esta peca: 75, e o 7 como apoio.\n\n## EXPOSICAO\nA PINCA DO 740/748 ESTA FECHADA NESTE CANAL, e a exposicao vai declarada ANTES de publicar: o `mira.janela_dos_dois_mundos` devolve NENHUMA janela de caracteres por cena que ponha os dois provedores dentro de 41,5 a 43,0 nesta voz, em contagem de cena nenhuma de 2 a 20 — a razao piper/edge e 0,886 e o vao vale ~4,7 s contra 1,5 s de faixa.\nMirei o PISO da faixa (regra de redacao do 772): previsao edge 41,60 s, isto e\n0,10 acima do piso de 41,5. A primeira versao saiu em 42,82 — a 0,18 do TOPO, e a\ncopy dizia que eu mirava o piso; **quem disse de quanto era o corte foi o\n`mira.quanto_cortar` e nao a minha cabeca** (um caractere vale 0,051 s nesta voz).\nO mundo `piper` sai em 36,9: FORA pela mira e DENTRO do portao, que cobra 18 a 45 s\nnos DOIS mundos.\nE o REAL nao esta prometido para lado nenhum (774): a banda do residuo tem 5,2 s de largura contra 1 s de granularidade do instrumento, logo declarar de que lado dela o real cai nao seria previsao.\n"
+}
