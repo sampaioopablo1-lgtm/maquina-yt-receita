@@ -109,7 +109,7 @@ def leitura(run: str | int, api=None) -> dict:
     return {"run": run, "jobs": saida}
 
 
-def terminou(jobs: list | dict) -> dict:
+def terminou(jobs: list | dict, status_do_run: str | None = None) -> dict:
     """Aquele job acabou? E a resposta NAO sai do campo `conclusion`.
 
     **Medido em 22/10 as 19:4x, e custou 25 minutos de espera.** Em 13:4x eu
@@ -140,6 +140,26 @@ def terminou(jobs: list | dict) -> dict:
     **Passo NENHUM visivel nao decide**, e devolve `terminado: None`: um job
     que ainda nao comecou tambem nao tem passo concluido, e chamar isso de
     terminado seria o vazio de instrumento lido como ausencia (17/10).
+
+    E O `todos_terminaram` TAMBEM PRECISA DO STATUS DO RUN — medido em 23/10
+    as 00:1x, e custou uma espera que saiu na hora errada. O laco de espera
+    perguntou pelo run `39876950273` antes de a matriz existir: havia UM job
+    (`preparar`, concluido), logo `pendentes` era zero e `todos_terminaram`
+    saiu **True** com o `produzir` ainda por criar. O que me salvou foi a
+    guarda de 22/10 as 05:3x, que RECUSOU estabelecer o provedor por
+    vacuidade — nao este campo.
+
+    **A lista de jobs de um run em andamento ainda esta sendo POVOADA**, logo
+    zero pendente sobre ela e o vazio de instrumento outra vez. Com
+    `status_do_run` diferente de `completed` o campo vira **None**, nao False:
+    nao se sabe se terminou, e isso e diferente de saber que nao terminou. Sem
+    o argumento ele se comporta como antes, porque o payload dos jobs nao traz
+    o status do run — e inventar um padrao faria a recusa depender de quem
+    chamou lembrar de passa-lo.
+
+    **Os dois campos continuam nao sendo autoridade sozinhos:** o run pode
+    dizer `completed` com job em andamento (19:4x) e pode dizer `in_progress`
+    com todos os jobs ja criados e feitos. O veredito pede os DOIS.
     """
     if isinstance(jobs, dict):
         jobs = jobs.get("jobs") if "jobs" in jobs else [jobs]
@@ -168,11 +188,18 @@ def terminou(jobs: list | dict) -> dict:
             "por_passo": por_passo,
             "terminado": terminado,
         })
+    todos = bool(saida) and pend == 0
+    run_aberto = (status_do_run is not None
+                  and str(status_do_run) != "completed")
+    if todos and run_aberto:
+        todos = None
     return {
         "jobs": saida,
         "n": len(saida),
         "pendentes": pend,
-        "todos_terminaram": bool(saida) and pend == 0,
+        "todos_terminaram": todos,
+        "status_do_run": status_do_run,
+        "run_aberto": run_aberto,
         "divergem": div,
         "motivo": None if not div else (
             "%d job(s) com TODOS os passos concluidos e `conclusion` ainda "
@@ -182,14 +209,31 @@ def terminou(jobs: list | dict) -> dict:
     }
 
 
-def relato_do_termino(jobs: list | dict) -> str:
-    """UM dono da frase, e ela sai nos DOIS ramos — com e sem divergencia."""
-    q = terminou(jobs)
-    L = ["TERMINO DO RUN: %d job(s), %d pendente(s)." % (q["n"], q["pendentes"])]
+def relato_do_termino(jobs: list | dict,
+                      status_do_run: str | None = None) -> str:
+    """UM dono da frase, e ela sai nos DOIS ramos — com e sem divergencia.
+
+    E A PRIMEIRA LINHA CARREGA O VEREDITO, nao a contagem de pendentes:
+    medido em 23/10 as 00:1x, o laco de espera grepava `0 pendente` e com a
+    matriz ainda por criar essa contagem E zero. Quem le a contagem le a
+    coisa errada; o campo que decide e o `todos_terminaram`, e agora ele sai
+    em letra. **Grepe `TERMINOU: SIM`.**
+    """
+    q = terminou(jobs, status_do_run)
+    rotulo = {True: "SIM", False: "NAO", None: "INDETERMINADO"}[
+        q["todos_terminaram"]]
+    L = ["TERMINO DO RUN: %d job(s), %d pendente(s). TERMINOU: %s"
+         % (q["n"], q["pendentes"], rotulo)]
     for j in q["jobs"]:
         L.append("  %s %s — conclusion=%r, passos %d/%d, terminado=%r"
                  % (j["id"], (j["nome"] or "?")[:46], j["conclusao"],
                     j["passos_concluidos"], j["passos"], j["terminado"]))
+    if q["run_aberto"] and q["pendentes"] == 0:
+        L.append("  >> o RUN ainda esta %r: a lista de jobs de um run em "
+                 "andamento ainda esta sendo POVOADA, logo zero pendente "
+                 "sobre ela e vazio de instrumento. Medido em 23/10 as 00:1x, "
+                 "quando havia so o `preparar` e o `produzir` nem existia."
+                 % str(q["status_do_run"]))
     if q["divergem"]:
         L.append("  >> %s" % q["motivo"])
     else:
@@ -401,7 +445,11 @@ def main(argv: list | None = None) -> int:
     if argv and argv[0] == "--termino":
         run = argv[1] if len(argv) > 1 else None
         bruto = _api("repos/%s/actions/runs/%s/jobs" % (REPO, run)) or {}
-        print(relato_do_termino(bruto))
+        # o status do RUN vem de uma SEGUNDA chamada de proposito: o payload
+        # dos jobs nao o traz, e sem ele o `todos_terminaram` sai True sobre
+        # uma lista que ainda esta sendo povoada (23/10 as 00:1x).
+        cab = _api("repos/%s/actions/runs/%s" % (REPO, run)) or {}
+        print(relato_do_termino(bruto, (cab or {}).get("status")))
         return 0
     run = argv[0] if argv else None
     pacote = argv[1] if len(argv) > 1 else None

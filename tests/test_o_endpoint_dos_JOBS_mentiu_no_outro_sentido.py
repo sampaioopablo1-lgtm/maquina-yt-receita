@@ -167,3 +167,94 @@ def test_o_CLI_chama_a_frase_senao_ela_e_layout_morto():
     assert "relato_do_termino" in nomes, (
         "o `main` nao chama a frase do termino: codigo que ninguem chama "
         "PARECE pronto e nao esta no ar")
+
+
+# --------------------------------------------------------------------------
+# E O `todos_terminaram` SAIA TRUE SOBRE UMA LISTA AINDA SENDO POVOADA.
+#
+# MEDIDO em 23/10 as 00:1x: o laco de espera perguntou pelo run 39876950273
+# antes de a matriz existir. Havia UM job (`preparar`, concluido), logo
+# `pendentes` era zero e `todos_terminaram` saiu True com o `produzir` ainda
+# por criar. O que me salvou foi a guarda de 22/10 as 05:3x, que RECUSOU
+# estabelecer o provedor por vacuidade — nao este campo.
+# --------------------------------------------------------------------------
+
+JOB_FEITO = {"id": 1, "name": "preparar", "status": "completed",
+             "conclusion": "success",
+             "steps": [{"name": "a", "conclusion": "success"}]}
+JOB_ANDANDO = {"id": 2, "name": "produzir (x)", "status": "in_progress",
+               "conclusion": None,
+               "steps": [{"name": "a", "conclusion": "success"},
+                         {"name": "b", "conclusion": None}]}
+
+
+def test_o_caso_MEDIDO_sai_INDETERMINADO_e_nao_True():
+    """A lista com um job feito, e o RUN ainda em andamento."""
+    q = AR.terminou([JOB_FEITO], status_do_run="in_progress")
+    assert q["pendentes"] == 0
+    assert q["todos_terminaram"] is None, q["todos_terminaram"]
+    assert q["run_aberto"] is True
+
+
+def test_contraprova_com_o_RUN_completed_ele_decide():
+    """Sem este par bastaria devolver sempre None."""
+    q = AR.terminou([JOB_FEITO], status_do_run="completed")
+    assert q["todos_terminaram"] is True
+    q2 = AR.terminou([JOB_FEITO, JOB_ANDANDO], status_do_run="completed")
+    assert q2["todos_terminaram"] is False, (
+        "run `completed` com job em andamento e o caso de 19/4x: os passos "
+        "mandam, e aqui eles dizem que falta")
+
+
+def test_sem_o_argumento_ele_se_comporta_como_antes():
+    """O payload dos jobs nao traz o status do run, e inventar um padrao faria
+    a recusa depender de quem chamou lembrar de passa-lo."""
+    q = AR.terminou([JOB_FEITO])
+    assert q["todos_terminaram"] is True
+    assert q["run_aberto"] is False
+    assert q["status_do_run"] is None
+
+
+def test_os_DOIS_campos_sao_necessarios_e_nenhum_basta():
+    """O run pode adiantar (13:4x) e o job pode atrasar (19:4x)."""
+    # job com TODOS os passos feitos e `conclusion` nulo, run completed
+    atrasado = dict(JOB_ANDANDO)
+    atrasado["steps"] = [{"name": "a", "conclusion": "success"},
+                         {"name": "b", "conclusion": "success"}]
+    q = AR.terminou([atrasado], status_do_run="completed")
+    assert q["todos_terminaram"] is True and q["divergem"] == 1
+    # os mesmos passos feitos, mas o run ainda aberto: INDETERMINADO
+    q2 = AR.terminou([atrasado], status_do_run="queued")
+    assert q2["todos_terminaram"] is None
+
+
+def test_a_PRIMEIRA_linha_do_relato_carrega_o_VEREDITO():
+    """O laco de espera grepava `0 pendente`, e essa contagem E zero no caso
+    medido. O campo que decide tem de sair em letra."""
+    r = AR.relato_do_termino([JOB_FEITO], "in_progress")
+    primeira = r.splitlines()[0]
+    assert "TERMINOU: INDETERMINADO" in primeira, primeira
+    assert "0 pendente" in primeira, (
+        "a contagem continua saindo — o que muda e que ela nao decide")
+    assert "POVOADA" in r, r
+    ok = AR.relato_do_termino([JOB_FEITO], "completed")
+    assert "TERMINOU: SIM" in ok.splitlines()[0]
+    assert "POVOADA" not in ok, (
+        "o aviso da lista sendo povoada nao pode sair quando o run fechou")
+
+
+def test_o_CLI_passa_o_status_do_run_por_AST():
+    """Conserto no modulo nao protege contra a INVOCACAO: sem o chamador
+    passar o status, o campo volta a ser o de antes."""
+    import ast
+    import inspect
+    import textwrap
+    fonte = textwrap.dedent(inspect.getsource(AR.main))
+    arv = ast.parse(fonte)
+    chamadas = [n for n in ast.walk(arv)
+                if isinstance(n, ast.Call)
+                and ast.unparse(n.func) == "relato_do_termino"]
+    assert chamadas, "o CLI deixou de chamar o relato do termino"
+    assert all(len(c.args) >= 2 for c in chamadas), (
+        "o `relato_do_termino` esta sendo chamado sem o status do run")
+    assert "actions/runs/%s" % "" in fonte or "actions/runs/" in fonte
