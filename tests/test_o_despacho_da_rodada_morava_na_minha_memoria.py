@@ -218,19 +218,69 @@ def test_o_b64_RECUSA_estado_invalido(tmp_path):
 
 # ------------------------------------------------- o modulo nao toca a rede
 
-def test_ele_NAO_toca_a_rede():
-    """Se custasse requisicao, ninguem o chamaria antes de cada despacho."""
+def _arvore_do_despacho():
     inteiro = open(os.path.join(FABRICA, "despacho_da_rodada.py"),
                    encoding="utf-8").read()
-    arv = ast.parse(inteiro)
+    return ast.parse(inteiro)
+
+
+def test_ele_NAO_toca_a_rede():
+    """Se custasse requisicao, ninguem o chamaria antes de cada despacho.
+
+    RETRATADO em 23/10 as 11:3x, e a retratacao e deste assert: ele proibia
+    o IMPORT de `subprocess` como PROXY de "toca a rede", e em 23/10 as 10:2x
+    o modulo passou a ler o CHECKOUT com `git rev-parse`/`hash-object`, que
+    sao leituras LOCAIS. Era IDENTIDADE (o nome do import) onde a afirmacao
+    era PROPRIEDADE (nao faz requisicao) — a classe 743/753/761.
+
+    A propriedade ficou cobrada em DUAS metades que nao se repetem: aqui, que
+    todo `subprocess` do modulo roda `git` e mais nada; e no arquivo do guarda
+    do checkout, que nenhum SUBCOMANDO de rede (`fetch`, `pull`, `ls-remote`,
+    `remote`, `clone`, `push`) aparece. Juntas elas dizem o que o import
+    sozinho nunca disse.
+    """
+    arv = _arvore_do_despacho()
     importados = set()
     for n in ast.walk(arv):
         if isinstance(n, ast.Import):
             importados |= {a.name.split(".")[0] for a in n.names}
         if isinstance(n, ast.ImportFrom):
             importados.add((n.module or "").split(".")[0])
-    for proibido in ("subprocess", "urllib", "requests", "http", "socket"):
+    # Estas quatro NAO tem uso local nenhum neste modulo: so servem para falar
+    # com a rede, logo o import delas continua sendo prova bastante.
+    for proibido in ("urllib", "requests", "http", "socket"):
         assert proibido not in importados, proibido
+
+
+def test_todo_subprocess_do_despacho_roda_GIT_e_mais_nada():
+    """A metade da propriedade que o import de `subprocess` escondia.
+
+    Sem este assert, o modulo poderia chamar `curl` por `subprocess` e o
+    arquivo passaria verde — que e o buraco que a retratacao acima abriria se
+    ficasse so na lista de imports.
+    """
+    arv = _arvore_do_despacho()
+    chamadas = []
+    for n in ast.walk(arv):
+        if not isinstance(n, ast.Call):
+            continue
+        alvo = ast.unparse(n.func)
+        if not alvo.startswith("subprocess."):
+            continue
+        assert n.args, alvo
+        prog = n.args[0]
+        # A forma que o modulo usa e `["git"] + args`: o programa e o PRIMEIRO
+        # literal da lista da esquerda, e e ele que se cobra.
+        if isinstance(prog, ast.BinOp) and isinstance(prog.op, ast.Add):
+            prog = prog.left
+        assert isinstance(prog, ast.List) and prog.elts, ast.unparse(n)
+        p0 = prog.elts[0]
+        assert isinstance(p0, ast.Constant) and p0.value == "git", ast.unparse(n)
+        chamadas.append(alvo)
+    # Contraprova de vacuidade: se nao houver chamada nenhuma, o assert acima
+    # nao mediu nada — e foi justamente uma chamada nova que derrubou o teste
+    # anterior.
+    assert chamadas, "nenhuma chamada de subprocess: este teste nao mediu nada"
 
 
 def test_o_codigo_de_saida_e_sempre_zero():

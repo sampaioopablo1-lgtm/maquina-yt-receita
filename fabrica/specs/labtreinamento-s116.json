@@ -1,0 +1,82 @@
+{
+ "slug": "labtreinamento-s116",
+ "pacote": "labtreinamento-s116",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "longo_existente": "yrWVyqQtw00",
+ "longo": [],
+ "thumb": {
+  "l1": "Curso não é",
+  "l2": "levantamento"
+ },
+ "paleta": {
+  "bg": "#0E1117",
+  "ink": "#EEF1F5",
+  "c1": "#3DDBD9",
+  "c2": "#1E2430",
+  "red": "#FF5A5F",
+  "ok": "#3CCB7F",
+  "panel": "#161B24",
+  "mut": "#8B95A5",
+  "acc": "#3DDBD9"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Não é curso",
+   "sub": "e o prazo já está correndo",
+   "nar": "Essa atualização não se resolve com curso."
+  },
+  {
+   "layout": "barras",
+   "kicker": "O tamanho do serviço",
+   "barras": [
+    {
+     "rot": "Marcar o curso",
+     "v": 20
+    },
+    {
+     "rot": "O que a norma pede",
+     "v": 100
+    }
+   ],
+   "nar": "Marcar o curso é a menor parte do serviço."
+  },
+  {
+   "layout": "item",
+   "kicker": "Campo e projeto",
+   "sub": "não é sala de aula",
+   "nar": "Boa parte do que mudou pede campo e projeto."
+  },
+  {
+   "layout": "item",
+   "kicker": "Leva meses",
+   "sub": "levantar, revisar, calcular",
+   "nar": "Levantar e calcular leva meses, não dias."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O prazo é coletivo",
+   "sub": "vale igual para todos",
+   "nar": "E esse prazo corre igual para todo mundo."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Os três disputam fila",
+   "itens": [
+    "Levantamento em campo",
+    "Revisão de projeto",
+    "Estudo de engenharia"
+   ],
+   "nar": "Quem faz esse estudo vai ter fila no fim."
+  },
+  {
+   "layout": "cta",
+   "kicker": "LabTreinamento",
+   "sub": "inscreva-se",
+   "nar": "Comece pelo levantamento, não pelo curso."
+  }
+ ],
+ "copy": "# labtreinamento-s116\n\n## TITULO\nVocê marcou o curso e achou que resolveu: o prazo da atualização pede campo, não sala\n\n## TITULO SHORT\nCurso não é levantamento\n\n## DESCRICAO\nSaiu atualização de norma, e o reflexo é quase sempre o mesmo: marcar treinamento, tirar a lista de presença e considerar o assunto encerrado. O reflexo não é bobagem — ele funcionou em outras atualizações, e é por isso que ninguém desconfia dele. O problema é que ele responde a uma pergunta que não está em jogo aqui.\n\nParte do que mudou não se resolve em sala. Pede levantamento da instalação como ela está hoje, revisão de projeto e, em alguns pontos, cálculo de engenharia sobre a planta real. Isso é campo e escritório técnico, não aula. E a diferença não é de tamanho: é de espécie. Dois trabalhos diferentes, com equipes diferentes, prazos diferentes e fornecedores diferentes — e só um deles cabe numa agenda de curso.\n\nA segunda parte é a que quase ninguém coloca na conta, e ela não depende de você. O prazo é o mesmo para todo mundo. Quem presta esse serviço técnico atende várias empresas, e a procura não se distribui ao longo do prazo: ela se concentra no fim, exatamente quando você também vai precisar. Fila não se resolve com urgência, e não existe pagar mais caro para o levantamento de três empresas acontecer na mesma semana.\n\nEntão o que decide se você chega no prazo não é a data do curso. É quando você começa a parte que não é curso. E essa parte começa pelo levantamento: saber onde falta informação é mais rápido e mais barato do que contratar estudo sem saber o escopo.\n\nAqui não tem número: nem prazo, nem data, nem preço. Tem o tipo de trabalho e a ordem dele.\n\n## COMENTARIO FIXADO\nTeste de uma hora: liste os trabalhos que dependem de levantamento ou de cálculo, e não de curso. Se a lista existe, você já tem o cronograma. Se não existe, você acabou de descobrir por onde começar.\n\n## FONTES\nLongo de origem: `labtreinamento-004` (yrWVyqQtw00), capítulos 9, 10, 11, 12 e 13, com o capítulo 8 de apoio. Os seis estão LIVRES e nenhum deles é DECLARADO por irmão — medido pelo `relato_dos_livres`, não pela minha leitura.\n- 9 — o engano: *\"muita gente lê atualização de norma e pensa em reciclagem de treinamento. Marca o curso, tira a lista de presença e considera resolvido.\"*\n- 10 — por que não resolve: *\"parte do que mudou exige levantamento em campo, revisão de projeto e, em alguns casos, estudo de engenharia.\"*\n- 11 — a conta do calendário: *\"levantamento, projeto e estudo não são coisas de duas semanas.\"*\n- 12 — a fila: *\"o prazo é o mesmo para todo mundo... e fila não se resolve com urgência.\"*\n- 13 — quando a demanda aparece: *\"ela se concentra no fim, e é justamente quando você vai precisar.\"*\n- 8 — apoio: é a parte que decide se dá para chegar no prazo.\n\n## FAMILIA DE ENTRADA ERRADA\nATUALIZAÇÃO DE NORMA LIDA COMO RECICLAGEM DE TREINAMENTO — e a segunda perna é a FILA. O eixo é o **TIPO de trabalho** que o prazo exige, não a ordem do seu próprio trabalho: curso é agenda, e levantamento com projeto e cálculo é obra técnica. O engano é silencioso porque o reflexo do curso **entrega um comprovante** — a lista de presença existe, está assinada e arquivada —, logo a tarefa parece concluída e nada dói.\n\nE a segunda metade não está dentro da empresa: o prazo é coletivo, a procura por quem faz o serviço técnico se concentra no fim, e **fila não responde a urgência**. Isso muda o que significa começar tarde: não comprime só o seu trabalho, põe você atrás de todos os outros que também deixaram para o fim.\n\nDistinções contra os SETE irmãos desta origem, lidas pelo `irmaos_da_origem` e — nos QUATRO sem o campo (`s010`, `s034`, `s090`, `s093`) — pela PROSA e pela NARRAÇÃO de cada um, que é de primeira mão:\n- `s010` (*\"Você pediu o estudo antes de levantar\"*) e `s093` (*\"O número não vem antes do plano\"*) são os vizinhos mais próximos, e a distinção vai dita porque é fina: os dois falam da **SEQUÊNCIA do seu próprio trabalho** com um número que você ainda não tem. Esta peça fala de **que espécie de trabalho é** e de uma escassez que você divide com todo mundo. Sequência própria contra fila compartilhada.\n- `s034` (autorização formal), `s041` (substituição integral contra emenda), `s053` (duas fontes paralelas), `s090` (arco contra choque) e `s103` (justificativa subentendida) tratam de OUTROS eixos, e nenhum toca os capítulos 9 a 13.\n\n## AVISO SOBRE OS NUMEROS\nZERO número novo sobre o mundo, e **a narração não fala numeral nenhum** — conferido pelo `numerais_falados`, com a ressalva dele de que ausência de vocabulário não prova ausência.\n\nFicaram FORA pela regra (g): o prazo em meses, a data de vigência, o número da portaria e qualquer preço — os quatro mudam por publicação. **E a recusa inclui o número que daria o gancho mais forte**, que é justamente o prazo: dizer quantos meses faltam é o que criaria urgência concreta, e é o número que envelhece primeiro. **A norma também não é NOMEADA**, porque o nome dela carrega um numeral — o mesmo descarte que o `s010` desta origem já havia aplicado.\n\nAs barras da cena 1 (20 contra 100) são **ILUSTRAÇÃO qualitativa do tamanho do serviço e NÃO são faladas**: elas não são proporção medida de nada, e a rodada seguinte não deve lê-las de volta como dado. O *\"três\"* do kicker da cena 5 é a contagem dos itens da PRÓPRIA lista da peça, texto queimado e não narração.\n\n## EXPOSICAO\nA PINÇA do 740/748 está **ABERTA** aqui, e este é o único canal da frota em que isso acontece: a `janela_dos_dois_mundos` pede **41 a 44** caracteres por cena com 7 cenas, e a peça saiu com média **41,71** — edge **24,80 s** e piper **20,30 s**, os DOIS dentro da mira medida do canal (20,0 a 26,0). Logo **não há exposição de mundo a declarar**.\n\nE eu **NÃO mirei o piso de propósito**: o piso executável é de 31 caracteres por cena e é de **UM mundo** (edge) — com 31 o piper cai em 18,7 s, FORA pelo piso, e a própria `mira.confere` reprova esse conselho. Foi essa conta que eu fiz de cabeça no `labtreinamento-s102`.\n\n**O REAL não está prometido para lado nenhum:** 41 das 46 peças deste canal narradas pelo edge saíram FORA do teto de 26,0 **com a mira verde**, e a banda tem 5,2 s de largura contra 1 s de granularidade (774).\n\n## RESERVA\nPara a rodada seguinte achar, com o motivo de cada item:\n- **LIVRES**: capítulos 17, 18 e 19 (a primeira mudança — a pergunta deixa de ser qual EPI e passa a ser se dava para desligar). **Cuidado**: os capítulos 21 a 27, que são a continuação natural desse bloco, estão DECLARADOS pelo `s103`, logo o que sobra ali é a inversão da pergunta, não o conflito com a produção.\n- **LIVRE**: capítulo 79 (conferir se a lista de autorizados existe, está atualizada e corresponde a quem executa). O eixo da AUTORIZAÇÃO é do `s034`; o que está livre aqui é a CONFERÊNCIA da lista, que é outra coisa.\n- **LIVRES**: capítulos 1 a 4 (qual norma, o que aprovou, quando foi publicada, quando passa a valer) — e eles são de PROCEDÊNCIA pura. Levá-los exige citar número de portaria e data, que a regra (g) tira; o ângulo possível é *onde se lê a fonte*, sem os valores.\n- **NÃO LEVAR**: capítulos 9 a 13, consumidos por esta peça.\n\n## HASHTAGS\n#nr10 #segurancadotrabalho #arcoeletrico #prazo #labtreinamento\n\n## TAGS\natualizacao de norma, levantamento de instalacao, estudo de engenharia, prazo de adequacao, seguranca do trabalho, risco eletrico, treinamento, planejamento\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ncategoryId: 27\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\nmadeForKids: false\n\n## MUSICA / LICENCA\nInspired — Kevin MacLeod (incompetech.com), Creative Commons: By Attribution 4.0\n"
+}
