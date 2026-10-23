@@ -1,0 +1,129 @@
+{
+ "slug": "epomeno-epipedo-s099",
+ "pacote": "epomeno-epipedo-s099",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "longo_existente": "jAWKppvjAG8",
+ "thumb": {
+  "l1": "Πληρώνεις",
+  "l2": "και μένεις"
+ },
+ "paleta": {
+  "bg": "#F4EFE6",
+  "ink": "#1B1A17",
+  "c1": "#C8502A",
+  "c2": "#2B6CB0",
+  "red": "#B83227",
+  "ok": "#2E8B57",
+  "panel": "#FFFFFF",
+  "mut": "#7A7263",
+  "acc": "#C8502A"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Ρωτάς πρώτα πόσο κοστίζουν",
+   "sub": "και η τιμή δεν είναι η πρώτη πράξη",
+   "nar": "Ρωτάς πόσο κοστίζουν τα πλασματικά;"
+  },
+  {
+   "layout": "item",
+   "kicker": "Η τιμή δεν είναι η πρώτη πράξη",
+   "sub": "είναι η τελευταία",
+   "nar": "Η τιμή δεν είναι η πρώτη πράξη."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Πρώτα πόσα έτη σου λείπουν",
+   "sub": "αυτό το νούμερο κρίνει τα υπόλοιπα",
+   "nar": "Πρώτα: πόσα έτη σου λείπουν."
+  },
+  {
+   "layout": "item",
+   "kicker": "Από αυτό αλλάζει τι αγοράζεις",
+   "sub": "με την ίδια εξαγορά",
+   "nar": "Από αυτό αλλάζει τι αγοράζεις."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Λίγα λείπουν",
+   "barras": [
+    {
+     "rot": "Χρόνος",
+     "v": 100
+    },
+    {
+     "rot": "Ποσό",
+     "v": 25
+    }
+   ],
+   "nar": "Λίγα λείπουν: αγοράζεις χρόνο."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Τι σου δίνει εκεί",
+   "itens": [
+    "Βγαίνεις νωρίτερα",
+    "Το ποσό αλλάζει λίγο"
+   ],
+   "nar": "Βγαίνεις νωρίτερα, όχι ακριβότερα."
+  },
+  {
+   "layout": "item",
+   "kicker": "Βγαίνεις ούτως ή άλλως",
+   "sub": "τότε αγοράζεις ποσό",
+   "nar": "Βγαίνεις ούτως ή άλλως: ποσό."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Πολλά λείπουν",
+   "sub": "και εδώ είναι η παρεξήγηση",
+   "nar": "Πολλά λείπουν: δεν βγαίνεις."
+  },
+  {
+   "layout": "item",
+   "kicker": "Πληρώνεις και η χρονιά μένει",
+   "sub": "η πράξη δεν διαμαρτύρεται",
+   "nar": "Πληρώνεις και η χρονιά μένει."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Ίδια εξαγορά, άλλο αποτέλεσμα",
+   "barras": [
+    {
+     "rot": "Λίγα λείπουν",
+     "v": 100
+    },
+    {
+     "rot": "Πολλά λείπουν",
+     "v": 0
+    }
+   ],
+   "nar": "Ίδια εξαγορά, άλλο αποτέλεσμα."
+  },
+  {
+   "layout": "item",
+   "kicker": "Η πράξη βγαίνει πάντα",
+   "sub": "και δεν σε προειδοποιεί",
+   "nar": "Η πράξη βγαίνει σε κάθε περίπτωση."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Με ποια σειρά",
+   "itens": [
+    "Πρώτα τα έτη που λείπουν",
+    "Μετά η τιμή"
+   ],
+   "nar": "Μέτρα πρώτα τα έτη που λείπουν."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Δες τα δικά σου έτη",
+   "sub": "και κάνε εγγραφή στο κανάλι",
+   "nar": "Δες τα δικά σου έτη και κάνε εγγραφή."
+  }
+ ],
+ "copy": "# epomeno-epipedo-s099\n\n## TITULO\nΠλασματικά Έτη: Τι Αγοράζεις Εξαρτάται από το Πόσα Σου Λείπουν\n\n## TITULO SHORT\nΠληρώνεις και μένεις\n\n## DESCRICAO\nΗ πρώτη ερώτηση που κάνουν σχεδόν όλοι για τα πλασματικά έτη είναι **πόσο\nκοστίζουν**. Είναι λογική ερώτηση και είναι η τελευταία πράξη, όχι η πρώτη.\nΓιατί η ίδια εξαγορά, με το ίδιο ακριβώς κόστος, **δεν αγοράζει το ίδιο πράγμα\nγια δύο ανθρώπους** — και αυτό που αλλάζει δεν είναι η τιμή, είναι το πόσα έτη\nλείπουν σε εκείνον που πληρώνει.\n\nΟ ασφαλιστικός χρόνος που αγοράζεις κάνει **δύο δουλειές ταυτόχρονα**: σε\nβγάζει νωρίτερα και ανεβάζει το μηνιαίο ποσό. Το ζήτημα είναι ότι, ανάλογα με\nτο πόσα σου λείπουν, κάθε φορά ενεργοποιείται άλλη δουλειά — ή καμία.\n\n**Όταν σου λείπουν λίγα**, η εξαγορά αγοράζει κυρίως χρόνο ζωής: κλειδώνεις\nέξοδο νωρίτερα, και το ποσό μετακινείται λιγότερο. **Όταν βγαίνεις ούτως ή\nάλλως**, η εξαγορά δεν αλλάζει χρονιά εξόδου και ό,τι πληρώνεις πηγαίνει στο\nποσό. Και υπάρχει η περίπτωση που δεν συζητείται: **όταν σου λείπουν πολλά**,\nτα έτη που μπορείς να αναγνωρίσεις δεν φτάνουν για να βγεις — πληρώνεις, και η\nχρονιά εξόδου μένει εκεί που ήταν.\n\n**Αυτό που κάνει το λάθος αθόρυβο είναι ότι η αριθμητική δουλεύει σε κάθε\nπερίπτωση.** Πολλαπλασιάζεις τους μήνες, βγάζεις ένα σύνολο, το σύνολο είναι\nσωστό — και κανένα βήμα της πράξης δεν σου λέει σε ποια από τις τρεις\nπεριπτώσεις βρίσκεσαι. Η πράξη δεν διαμαρτύρεται ποτέ. Το ξεκαθαρίζει μόνο ένας\nαριθμός που δεν βρίσκεται στον τιμοκατάλογο: **πόσα έτη σου λείπουν για την\nέξοδο**.\n\nΓι' αυτό η σειρά είναι αυτή και όχι η αντίστροφη: πρώτα μετράς τα έτη που σου\nλείπουν, και μόνο μετά ρωτάς την τιμή. Πριν από αυτόν τον αριθμό η ερώτηση\n«συμφέρει;» δεν έχει μία απάντηση — δεν έχει καμία, γιατί δεν ξέρεις ακόμη τι\nαγοράζεις.\n\nΔεν αντικαθιστά ασφαλιστικό σύμβουλο: ένα λάθος εδώ δεν κοστίζει ευρώ,\nκοστίζει χρόνια.\n\n## COMENTARIO FIXADO\nΞέρεις πόσα έτη σου λείπουν για την έξοδο, ή ξέρεις μόνο την τιμή της εξαγοράς;\nΓράψε «έτη» ή «τιμή», χωρίς αριθμούς.\n\n## FONTES\nOrigem: `jAWKppvjAG8` (`epomeno-epipedo-009`), 61 capítulos e **43 NÃO\nMENCIONADOS** pelos quatro shorts anteriores, medido pelo\n`segundo_angulo.nao_mencionados`.\n\n**E ela é a `escolhida` da regra escrita, com as DUAS leituras do desempate\nCONCORDANDO** — empate em 4 usos com o `pqTc8jBrq0E`, desempatado pela maior\nreserva, e a reserva SEM DECLARAÇÃO aponta a mesma origem (30 de 43 contra 24\nde 41). **E o instrumento de 23/10 às 03:3x disse, em letra, que nenhum pacote\ndeste canal tem mais de uma origem**, logo aqui a contagem por id e a contagem\npor TEXTO coincidem — o que não é sempre verdade: no `kolejny-poziom-004` elas\ndavam 4 e 8.\n\nA família desta peça sai dos capítulos **14, 40, 42, 43, 53 e 54** da origem:\n*\"η απάντηση στο ερώτημα αν συμφέρει δεν μπορεί να είναι ίδια για όλους —\nεξαρτάται από το τι σου λείπει\"*, *\"τα επτά έτη δεν σε βγάζουν, και πληρώνεις\nγια κάτι που δεν αλλάζει τη χρονιά εξόδου\"* e *\"μόνο αφού έχεις αυτούς τους\nτρεις αριθμούς, η ερώτηση πόσο κοστίζει αποκτά νόημα\"*. Nenhuma frase desta\npeça saiu de TÍTULO de capítulo.\n\nA origem dominante do canal, `nttW9fR8wyY`, ficou de fora — quem conta é o\n`concentracao.py`.\n\n## FAMILIA DE ENTRADA ERRADA\n**O QUE A EXAGORÁ ENTREGA DEPENDE DE QUANTOS ANOS FALTAM — E NUM DOS CASOS ELA\nNÃO ENTREGA NADA DO QUE SE QUERIA** (capítulos 14, 40, 42, 43, 53 e 54). O eixo\né a **POSIÇÃO DE QUEM COMPRA**, não o preço nem o tipo de ano: a mesma compra,\npelo mesmo custo, entrega tempo de vida a um, valor a outro, e **nada** a um\nterceiro — e o que decide é um número que não está no orçamento.\n\n**E o que torna o erro silencioso é a aritmética funcionar em todos os casos:**\nmultiplicam-se os meses, sai um total, o total está certo, e nenhum passo da\nconta diz em que caso o comprador está. O portão da aritmética está sempre\nverde.\n\n**Distinções contra os QUATRO irmãos desta origem, lidas pelo\n`irmaos_da_origem` e — nos DOIS sem o campo (`s015`, `s061`) — pela NARRAÇÃO de\ncada um, que é de primeira mão (776):**\n* `epomeno-epipedo-s015` (*Ρώτα σε πόσα χρόνια γυρίζει*) — **é o vizinho mais\n  próximo e a distinção é fina:** ele dá a OPERAÇÃO do retorno (divide o custo\n  pelo aumento mensal, e a resposta sai em meses). Essa operação **pressupõe\n  que o que se compra é um aumento**, isto é, pressupõe o caso em que a pessoa\n  sai de qualquer forma. Esta peça é a camada ACIMA dela: em qual caso estás,\n  antes de a divisão fazer sentido. **Operação contra posição**;\n* `epomeno-epipedo-s033` (*Ψάξε πρώτα τα δωρεάν χρόνια*) — ele também critica\n  perguntar o preço primeiro, **e por outro motivo**: há anos que se somam de\n  graça e contam só para o tempo, logo a ORDEM da busca muda a conta. O objeto\n  dele são os TIPOS de ano; o desta peça é a posição do comprador. Os dois\n  dizem «o preço não é a primeira pergunta» e apontam para números diferentes;\n* `epomeno-epipedo-s061` (*Κλειδώνει η αίτηση, όχι η πληρωμή*) — a DATA que\n  tranca o preço. Nada a ver com o que a compra entrega;\n* `epomeno-epipedo-s082` (*Ίδια χρόνια, άλλο ταβάνι*) — o TETO do que se pode\n  reconhecer é do REGIME e não da pessoa. A forma do erro é parecida («X não é\n  propriedade de quem tu pensas»), **e a direção é oposta**: lá o limite vem de\n  fora da pessoa, aqui o resultado depende de algo que é da pessoa (quantos\n  anos lhe faltam). Vai dito porque é a confusão mais fácil de fazer entre as\n  duas.\n\n## AVISO SOBRE OS NUMEROS\n**ZERO número novo sobre o mundo**, e a narração não fala numeral nenhum —\nconferido pelo `numerais_falados`, com a ressalva dele de que ausência de\nvocabulário não prova ausência.\n\n**A recusa é grande porque a origem é um longo feito de valores com fonte e\ndata:** ficaram FORA o salário mínimo, o percentual sobre ele, o custo por ano,\no custo dos anos somados, o total do exemplo, os anos mínimos de cada categoria\ne a diferença entre elas. **Inclusive o número que daria o gancho mais forte** —\no total em euros dos anos do exemplo, que é a abertura do próprio longo. E\ntambém ficou fora a CONTAGEM dos casos, que seria fácil de dizer: a narração usa\n*«σε κάθε περίπτωση»* em vez de contar, porque contagem de categorias é leitura\ndo efeito da lei e não estrutura da própria peça, e o `contagem_declarada`\nexiste porque fonte que declara N e enumera outra coisa põe número errado no ar\ncom portão verde (13/10).\n\nAs barras das cenas 5 e 10 são **ILUSTRAÇÃO qualitativa** — a primeira desenha\ntempo contra valor no caso em que faltam poucos anos, a segunda desenha o mesmo\npagamento com e sem efeito na data de saída — e **não são faladas**. A rodada\nseguinte não deve lê-las de volta como dado.\n\n## EXPOSICAO\n**A PINÇA DO 740/748 ESTÁ FECHADA AQUI**, com a exposição declarada ANTES de\npublicar: o `mira.janela_dos_dois_mundos` devolve **NENHUMA** janela de\ncaracteres que ponha os dois provedores dentro de 41,5 a 43,0 com treze cenas\nnesta voz. **Mirei o PISO** (772): edge **41,7**, 0,2 acima dele, com o piper em\n**37,0** — FORA pela mira e DENTRO do portão, que cobra 18 a 45 s nos dois\nmundos.\n\n**O REAL não está prometido para lado nenhum:** a banda do resíduo tem 5,2 s de\nlargura contra 1 s de granularidade, e declarar um lado dela não é previsão\n(774).\n\n## RESERVA\nPara a rodada seguinte, nesta origem (`jAWKppvjAG8`), com o motivo de cada item:\n* **LIVRES** os capítulos 46 e 13 — o AUMENTO mensal não é propriedade do ano\n  comprado: depende do salário e dos anos TOTAIS, não só dos comprados. É a\n  segunda metade natural do `s015`, que usa esse aumento como denominador da\n  divisão **sem dizer que ele não é um valor de tabela**. Família forte e ainda\n  livre;\n* **LIVRES** os capítulos 50, 53 e 54 — os passos que se podem dar sozinho e de\n  graça ANTES de perguntar o preço. **Cuidado:** o 53 e o 54 são apoio desta\n  peça, logo o que sobra livre ali é a LISTA dos passos, não a ordem;\n* **LIVRES** os capítulos 56, 57 e 58 — a comparação entre categorias é\n  DESENHO público e não falha do sistema, e quem a faz a tempo ganha o tempo de\n  se preparar. Vizinho do `s082`: leia a peça dele inteira antes de tomar;\n* **NÃO LEVAR** os capítulos 9, 10, 11 e 12: o que se compra é tempo de seguro e\n  ele faz duas coisas — é apoio desta peça e do `s015`;\n* **NÃO LEVAR** nenhum valor (capítulos 15, 16, 30, 32, 33, 34, 35, 39): regra\n  (g), em peça nenhuma desta origem;\n* **CONSUMIDOS por esta peça** os capítulos 14, 40, 42 e 43.\n\n## HASHTAGS\n#πλασματικαετη #συνταξη #εξαγορα #ασφαλιστικος #epomenoepipedo\n\n## TAGS\nπλασματικα ετη, εξαγορα πλασματικων, ασφαλιστικος χρονος, συνταξη, ετη για συνταξη, αναγνωριση ετων, ποσο κοστιζει η εξαγορα\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ncategoryId: 27\ndefaultLanguage: el\ndefaultAudioLanguage: el\nmadeForKids: false\n\n## MUSICA / LICENCA\nInspired — Kevin MacLeod (incompetech.com), Creative Commons: By Attribution 4.0\n"
+}
