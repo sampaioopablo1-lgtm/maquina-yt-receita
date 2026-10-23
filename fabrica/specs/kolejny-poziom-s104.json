@@ -1,0 +1,117 @@
+{
+ "slug": "kolejny-poziom-s104",
+ "pacote": "kolejny-poziom-s104",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "longo_existente": "IuBLU-P4Aj8",
+ "thumb": {
+  "l1": "Sufit",
+  "l2": "to nie stawka"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Liczba z ustawy",
+   "sub": "to nie twoja stawka",
+   "nar": "Liczba z ustawy to nie twoja stawka."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Czym ona jest",
+   "barras": [
+    {
+     "rotulo": "Sufit z ustawy",
+     "valor": 10
+    },
+    {
+     "rotulo": "Twoja stawka",
+     "valor": 6
+    }
+   ],
+   "nar": "To sufit, najwyższa dopuszczalna granica."
+  },
+  {
+   "layout": "item",
+   "kicker": "Kto wybrał twoją",
+   "preco": "rada twojej gminy",
+   "nar": "Twoją liczbę wybrała rada twojej gminy."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Zrobiła to uchwałą",
+   "itens": [
+    "Mogła wybrać inną",
+    "Niżej albo wyżej"
+   ],
+   "nar": "Zrobiła to uchwałą i mogła wybrać inną."
+  },
+  {
+   "layout": "item",
+   "kicker": "A kto nie",
+   "preco": "minister ani skarbówka",
+   "nar": "Nie minister i nie urząd skarbowy."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dlatego to ciche",
+   "sub": "sufit ci nie zaprzeczy",
+   "nar": "Dlatego sufit nigdy ci nie zaprzeczy."
+  },
+  {
+   "layout": "item",
+   "kicker": "Twoja kwota",
+   "preco": "zawsze siedzi pod nim",
+   "nar": "Twoja kwota zawsze siedzi pod nim."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Te same metry",
+   "barras": [
+    {
+     "rotulo": "Gmina A",
+     "valor": 5
+    },
+    {
+     "rotulo": "Gmina B",
+     "valor": 8
+    }
+   ],
+   "nar": "Te same metry, dwie gminy, inna stawka."
+  },
+  {
+   "layout": "item",
+   "kicker": "Skutek",
+   "preco": "szukasz w złym dokumencie",
+   "nar": "Więc szukasz w niewłaściwym dokumencie."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Gdzie jest twoja",
+   "itens": [
+    "W uchwale rady gminy",
+    "Jest publikowana"
+   ],
+   "nar": "Twoja jest w uchwale rady twojej gminy."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Jest publiczna",
+   "sub": "przeczytaj swoją",
+   "nar": "Przeczytaj uchwałę swojej gminy i zasubskrybuj."
+  }
+ ],
+ "copy": "# kolejny-poziom-s104 — short solto\n\n## TITULO\nStawka podatku od nieruchomości: liczba z ustawy to sufit, a twoją wybrała rada twojej gminy\n\n## TITULO SHORT\nLiczba z ustawy to sufit\n\n## DESCRICAO\nRaz w roku przychodzi decyzja o podatku od nieruchomości, a w niej stawka. Jeśli\nktoś zaczyna szukać, skąd ta stawka się wzięła, trafia najpierw na liczbę z\nustawy: jest ogólnokrajowa, jest publiczna i łatwo ją znaleźć. Problem w tym, że\nnie jest to twoja stawka. Jest to sufit, czyli górna granica, której gmina nie\nmoże przekroczyć. Twoją liczbę wybrała rada twojej gminy, uchwałą, i mogła\nspokojnie wybrać inną.\n\nTen błąd jest cichy z jednego powodu i warto go nazwać: sufit nigdy ci nie\nzaprzeczy. Twoja kwota zawsze siedzi pod nim, bo taka jest jego definicja. Nie\nma więc żadnego momentu, w którym rachunek się nie zgadza, nic nie przychodzi\npocztą i nic nie każe ci podejrzewać, że patrzysz na liczbę odpowiadającą na\ninne pytanie. Liczba jest prawdziwa, źródło jest właściwe, a mimo to nie opisuje\nciebie.\n\nDrugi skutek widać dopiero wtedy, gdy porówna się dwa adresy. Te same metry\nkwadratowe, ten sam rodzaj nieruchomości, dwie różne gminy — i stawka może być\ninna, bo decydowały o niej dwie różne rady. Kto wierzy w jedną liczbę\nogólnokrajową, nie ma gdzie szukać własnej, i zwykle kończy na szukaniu w\nniewłaściwym dokumencie.\n\nTwoja stawka jest w uchwale rady twojej gminy w sprawie stawek podatku od\nnieruchomości. Ta uchwała jest publikowana i jest publiczna, więc możesz ją\nprzeczytać sam. Cały rachunek — jak sprawdzić swoją stawkę dzieleniem i co\nzrobić, gdy wynik się nie zgadza — jest w filmie z opisu.\n\nTen short nie podaje żadnej stawki i nie podaje sufitu. Powód jest ten sam, który\npodaje sam film: twoja stawka zależy od gminy, w której leży nieruchomość, i\nzmienia się co roku. Liczba podana tutaj byłaby nieprawdziwa dla większości\nsłuchających.\n\n## COMENTARIO FIXADO\nLiczba, której szukasz, nie jest w ustawie — jest w uchwale rady twojej gminy w\nsprawie stawek podatku od nieruchomości. Jest publiczna.\n\n## FONTES\nLongo de origem: kolejny-poziom-016 (IuBLU-P4Aj8), rozdzialy 0, 1, 2 e 4, com o\n8 e o 12 para a acao pratica. Os quatro primeiros sao LIVRES e nenhum deles\naparece na lista de declarados por irmao, medida pelo `relato_dos_livres`.\n\nO rozdzial 3 (o numero do artigo da ustawa) ficou FORA pela regra (g). O bloco 16\na 24 — quem move o sufit, o obwieszczenie, o arredondamento — esta DECLARADO pelo\n`kolejny-poziom-s029` e nao foi tocado. O rozdzial 62 (nao comparar com alguem de\noutra gmina) esta DECLARADO pelo `kolejny-poziom-s037`: a cena 7 desta peca fala\nque a stawka DIFERE entre gminas como propriedade do sistema, e nao da a\ninstrucao de nao comparar, que e dele.\n\n## FAMILIA DE ENTRADA ERRADA\nTRAKTOWAĆ LICZBĘ Z USTAWY JAK WŁASNĄ STAWKĘ, KIEDY ONA JEST SUFITEM — procurar a\npropria stawka no documento nacional quando quem a escolheu foi outro orgao,\nnoutro documento. O eixo e **QUEM FIXOU o numero**, e nao o valor dele, nao a\noperacao e nao o conjunto que ele mede: o numero da ustawa existe, e publico, e\nda fonte certa e esta correto — ele responde outra pergunta, qual e o maximo que\nQUALQUER gmina pode cobrar.\n\nE O MECANISMO DO SILENCIO E DEFINICIONAL, nao de oportunidade: **o sufit nunca te\ndesmente.** A tua kwota cabe debaixo dele sempre, porque e isso que um teto e —\nlogo nao existe rachunek que nao feche, nao vem carta, e nada marca a hora de\ndesconfiar. Numero errado e desmentido pela conta; numero que responde a outra\npergunta nao e desmentido por nada.\n\nA segunda perna e a CONSEQUENCIA PRATICA e e a que faz perder tempo: quem acredita\nna liczba ogolnokrajowa nao tem onde procurar a propria, e vai ao documento\nerrado. A resposta esta na uchwala da rada da tua gmina, que e publica — um\ndocumento diferente, de um orgao diferente.\n\nDISTINCOES CONTRA OS QUATRO IRMAOS desta origem, lidas pelo `irmaos_da_origem` e,\nnos DOIS sem o campo (`s002`, `s060`), pela PROSA e pela NARRACAO de cada um, que\ne de primeira mao (776): o `s002` e a kwota que NAO mudou de um ano para o outro\n(brak uchwaly nao e erro na decyzji), o `s029` e o FIM do dever que tambem se\ndeclara, o `s037` e a kwota como PRODUTO de dois fatores (dividir por metros\nantes de culpar a stawka) e o `s060` sao as QUATRO raty lidas como UMA data.\nNenhum dos quatro fala de QUEM fixa a stawka nem de o numero da ustawa ser um\nteto; os quatro comecam com a tua stawka ja na mao.\n\nE A DISTINCAO MAIS FINA E CONTRA PECA DE OUTRA ORIGEM DO MESMO CANAL, e vai dita\nporque o portao `similaridade` compara TITULO e nao pegaria o eixo: o\n`kolejny-poziom-s092` (23/10, 09:20Z) diz que a MEDIA NACIONAL nao e o teu\nnumero, e ali o eixo e ESTATISTICO — media de um conjunto, com dois lados, e o\nque te separa dela e dispersao. Aqui o numero nao e media, e **TETO LEGAL**: nao\ntem dois lados, ninguem esta acima dele, e o que te separa dele e uma SEGUNDA\nDECISAO de outro orgao. Media contra teto. E a acao difere: la, divide pela tua\npropria fatura; aqui, le outro DOCUMENTO.\nE contra o `kolejny-poziom-s098` (de outra origem): lá o defeito e decorar o\nVALOR em vez da fonte, porque ele envelhece sozinho; aqui o problema nao e a\nidade do numero, e o orgao que o fixou.\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO. A narracao nao diz stawka, nao diz sufit, nao diz\npercentual, nao diz data, nao diz prazo e nao nomeia artigo nem publicacao\noficial.\n\nE A RECUSA INCLUI O NUMERO QUE DARIA A PECA MAIS FACIL — o proprio sufit em zloty\npor metro quadrado, que e exatamente o que tornaria a comparacao concreta numa\nfrase. **E a procedencia da recusa esta no PROPRIO longo**, rozdzial 5: *\"Ten film\nnie podaje żadnej stawki. Nie mógłby — twoja zależy od gminy, w której leży\nnieruchomość, i zmienia się co roku.\"* Citar o sufit para dizer que ele nao serve\nseria por pela porta lateral o numero que a peca recusa.\n\nOs numerais falados sao **dwie** (cena 7, duas gminas) e **te same** nao e\nnumeral. Eles descrevem a ESTRUTURA do argumento, nao um valor do mundo, e vao\nconferidos pelo `numerais_falados`.\n\nAS BARRAS SAO ILUSTRACAO QUALITATIVA E NAO SAO FALADAS. A cena 1 desenha o sufit\nacima e a stawka abaixo dele, que e a definicao de teto; a cena 7 desenha duas\ngminas com alturas DIFERENTES, que e o argumento da segunda perna. **Nenhuma das\nduas e proporcao medida** — nao ha razao nossa nem do longo entre sufit e stawka\n—, e isto vai escrito para a rodada seguinte nao as ler de volta como dado.\n\n## EXPOSICAO\nLINHAS MEDIDAS, GERADAS pelo `linhas_medidas_da_copy` e coladas — nao redigitadas:\n- NUMERAIS falados pela narracao, do `numerais_falados`: \"dwie\" (cena 7). Se eles\n  sao estrutura do argumento ou fato sobre o mundo, decide a regra (g).\n- PREVISAO, do `ensaio` pelo `mira.confere`: edge **41,60 s** / piper **35,40 s**.\n  MIRA do canal (41,5 a 43,0); faixa que o PORTAO cobra (18,0 a 45,0) — as duas se\n  chamam faixa no repo e nao sao a mesma.\n- FORMA: 11 cenas, media de **38,55** caracteres por cena, esqueleto\n  `titulo-barras-item-lista-item-titulo-item-barras-item-lista-cta` — **INEDITO**\n  nas 209 formas de short da frota, com esta peca FORA da varredura.\n- REDACAO: acento **2,83%** da narracao (acima do piso OBSERVADO de 2,59% do\n  idioma e abaixo da mediana de 5,34%, n=113), thumbnail com 4 palavras de 4 — no\n  LIMITE exato —, gancho com 7 de 12.\n\nA PINCA DO 740/748 ESTA FECHADA NESTE CANAL: o `mira.janela_dos_dois_mundos` diz\nque NENHUMA media por cena poe os dois provedores dentro de 41,5 a 43,0 com onze\ncenas nesta voz. Mirei o PISO (regra de redacao do 772) com a previsao edge, e o\npiper sai FORA pela mira e DENTRO do portao, que cobra 18 a 45 s nos dois mundos.\n\nE O REAL NAO ESTA PROMETIDO PARA LADO NENHUM (774): a banda tem 5,2 s de largura\ncontra 1 s de granularidade, logo declarar um lado dela nao e previsao. E nesta\nrodada nao havera leitura: o modo da rota e `negado_por_politica`.\n\n## RESERVA\nLIVRES nesta origem, com o motivo de nao terem sido levados hoje:\n- rozdzialy 25 a 31 — a CADEIA do indicador: o GUS publica o wskaznik e o\n  ministro o usa para mover o sufit, com o rozdzial 31 avisando que **nao e a\n  inflacao anual** de que falam as noticias (outro periodo, outro numero). E\n  familia propria, de PERIODO, e nao cabia hoje pela regra (f). **ATENCAO:** o\n  bloco 16 a 24, que e a parte do ministro, esta DECLARADO pelo `s029` — quem\n  levar o 25 a 31 confira capitulo por capitulo onde comeca o territorio dele.\n- rozdzial 7 — o ESCOPO do que e tributado (nao so budynki: tambem grunty, e\n  budowle quando ligadas a atividade economica). Familia de escopo do objeto,\n  livre e intocada pelos quatro irmaos.\n- rozdzialy 13, 14 e 61 — o que fazer quando a divisao NAO bate com a uchwala (a\n  decyzja descreve outra powierzchnia ou outro rodzaj), e QUANDO ligar para a\n  gmina. E a continuacao natural do `s037`, que e dono da divisao: quem levar isto\n  leia a peca dele antes.\n- rozdzial 55 — wspolwlasnosc solidaria. **NAO LEVAR: e o `kolejny-poziom-s103`**,\n  publicado as 19:24Z de 23/10, neste mesmo canal.\n- rozdzial 15 — dividir posicao por posicao, nunca a soma pela soma. **NAO LEVAR:**\n  o eixo (quociente agregado que esconde heterogeneidade) e o do\n  `epomeno-epipedo-s097`, de 22/10, em OUTRO canal, e foi recusado por isso em\n  19:2x de 23/10.\n\nCONSUMIDOS POR ESTA PECA: rozdzialy 0, 1, 2 e 4, com o 8 e o 12 de apoio.\n\n## HASHTAGS\n#podatekodnieruchomosci #stawka #gmina #uchwala #finansedomowe\n\n## TAGS\npodatek od nieruchomości, stawka podatku, rada gminy, uchwała, sufit stawki, ustawa o podatkach i opłatach lokalnych, decyzja podatkowa, finanse osobiste\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ncategoryId: 27\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\n\n## MUSICA / LICENCA\n{TRILHA}\n",
+ "paleta": {
+  "bg": "#0B0B0C",
+  "ink": "#F2EEE8",
+  "c1": "#E23B3B",
+  "c2": "#D9C7A7",
+  "red": "#FF4D4D",
+  "ok": "#7FB77E",
+  "panel": "#151517",
+  "mut": "#8F877C",
+  "acc": "#E23B3B"
+ }
+}
