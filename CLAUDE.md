@@ -12937,3 +12937,161 @@ isolados em **43 s** — eles varrem os quadros dos tres canais (~9 s cada) mais
 mediana do disco, logo parte da diferenca e deles e **os ~58 s restantes eu nao
 sei explicar**. Atribui-los ao arquivo novo seria comparador escolhido sem medir,
 o efeito (C).
+
+## AS DUAS UNIDADES DO MESMO OBJETO, CRUZADAS, DAO UM NO-OP SILENCIOSO
+
+**Medido em 23/10 as 06:4x, escolhendo a familia do `kolejny-poziom-s099`.** O
+`segundo_angulo` expoe o MESMO objeto — o capitulo livre — em **DUAS unidades**:
+`nao_mencionados` devolve **KICKER** (`str`) e `declarados_por_irmao` devolve
+**INDICE** (`int`). Logo `set(livres) - set(declarados)` **nao remove nada**: a
+intersecao crua e sempre vazia e a subtracao devolve **o conjunto inteiro**, bem
+formado e com cara de resposta.
+
+**Eu fiz essa conta a mao nesta rodada e ela me devolveu "53 estritamente
+livres" onde a leitura certa da 32.** E o **decimo primeiro** membro da familia
+desta sessao, e o **pior tipo** dela: o no-op devolve a resposta **CONFORTAVEL**
+— *"esta tudo livre"* —, como o `success` do RUN (22/10 as 13:4x) e o
+`.get(chave, default)` sobre a resposta errada (08:3x). **E os dois donos sao
+MEUS e moram no MESMO modulo.**
+
+**E O FATO QUE O INSTRUMENTO DE 03:3x NOMEIA UM NIVEL ACIMA:** quando dois ids
+resolvem para o MESMO pacote, cada um ve so os irmaos que **o** declaram, logo a
+leitura POR ID **subconta** o que ja foi usado. Medido nos tres canais:
+
+| | |
+|---|---|
+| pacotes com spec local | **47** |
+| **COMPARTILHADOS por dois ids** | **2** |
+| `labtreinamento-002` | por id 6 e 20, **UNIAO 24** |
+| `kolejny-poziom-004` | por id 30 e 6, **UNIAO 33** |
+
+**Nos DOIS a uniao e maior que qualquer das duas leituras.** Na origem desta
+rodada a diferenca e de 34 livres por id contra **32** pela uniao; no outro id do
+mesmo pacote, 52 contra **29**.
+
+**Consertado com duas portas que devolvem a forma CRUZAVEL** (indice **E**
+kicker), as duas **DELEGADAS** ao `texto_dos_livres`, que e quem ja junta as
+duas unidades: `livres_sem_declaracao` e `livres_sem_declaracao_do_pacote`. A
+frase das duas unidades tem **UM dono**, sai nos **DOIS** ramos e o
+`relato_dos_livres` a chama **FORA de ramo condicional** — conta a mao se faz nas
+rodadas em que nada chama atencao (20/10, 13:2x).
+
+**E O QUE NAO ESTAVA QUEBRADO VAI MEDIDO EM VEZ DE SUPOSTO:** a aritmetica do
+`pauta_do_momento.quadro` (`len(reserva) - len(declarados)`) esta **CERTA** — nas
+**49 de 49** origens com spec local do disco todo indice declarado esta DENTRO
+dos livres, e **zero** reserva sem declaracao e negativa. Ela compara CONTAGENS
+de duas populacoes que coincidem; o que nao se pode e cruzar os **CONJUNTOS**.
+Vender conserto de defeito que nao ocorreu seria o avesso da medicao.
+
+**E A PRIMEIRA VERSAO FICOU LENTA O BASTANTE PARA NINGUEM A CHAMAR:** a resolucao
+id -> pacote e por convencao de NOME e nao tem indice inverso, logo resolver
+todos custava **7,6 s por chamada** — e o `relato_dos_livres` passa por ali.
+**Isso e a classe dos layouts mortos**, e foi o que obrigou a sonda do
+`layouts_do_short` a ganhar cache em 19/10 as 19:1x. O `_mapa_id_pacote` ganhou
+**MEMORIA chaveada pela LISTA de arquivos** — nao pelo diretorio —, logo spec
+nova no mesmo diretorio a invalida sozinha: 7,7 s na primeira chamada, **0,00 s**
+depois, e o `do_pacote` caiu de 8,6 s para **1,1 s**.
+
+`tests/test_as_DUAS_unidades_do_mesmo_objeto_cruzadas_dao_NO_OP.py`, **onze**
+testes: o no-op e **REPRODUZIDO** e o arquivo **reprova se as unidades
+CONVERGIREM** (ai ele perde o objeto e isto se rele); os **DOIS lados** tem de
+existir no disco e ele **reprova se NENHUM pacote for compartilhado ou se TODOS
+forem**; a **FRONTEIRA** vai nos dois lados com a ancora **DERIVADA** do disco e
+**reprova dizendo que perdeu a ancora**; a aritmetica do desempate e
+**RECONFERIDA** com resultado NEGATIVO; a memoria e cobrada nos **dois** sentidos
+(ela existe **e** se invalida); e a delegacao e por **AST** nos tres sentidos.
+**Contraprova:** religada a uniao a leitura por id, **tres das onze** caem.
+
+### E EU MATEI O MEU PROPRIO SHELL COM `pkill -f`
+
+**No meio de uma edicao, que por isso nao foi aplicada** (exit 144). O padrao
+`"pytest tests/test_as_DUAS"` estava na linha de comando do proprio `pkill`,
+logo ele casou a si mesmo. **E o gemeo do `pgrep -f` de 20/10 as 01:4x do lado do
+KILL** — e o repo ja tem o instrumento do lado da LEITURA (`processo_vivo`, que
+filtra pelo EXECUTAVEL e NOMEIA os espelhos).
+
+**A regra que fica: `pkill -f` nunca com padrao que a propria linha contem.**
+Para parar tarefa em segundo plano, use o `TaskStop` do harness, que mata pelo
+id e nao por padrao.
+
+### E TRES ERROS DE TESTE, OS TRES MEUS E NENHUM DO MODULO
+
+1. **A FIXTURE MONTADA A MAO NAO CUMPRIA A CONVENCAO DE NOME.** Quem resolve
+   id -> pacote e o `pacote_do_id`, **por convencao de NOME**, e as duas specs
+   que eu montei a mao nao a cumprem: o mapa voltou **VAZIO** e eu quase chamei
+   isso de defeito do modulo. E a mesma licao de 22/10 as 10:3x — o
+   `nomes_de_spec` tira do vocabulario todo nome que e **slug** de alguma spec.
+   Reescrita para sair do **DISCO REAL copiado**, com a ancora DERIVADA;
+2. **O ASSERT DA DELEGACAO COBRAVA O LUGAR, NAO A PROPRIEDADE.** Ele exigia
+   `pacote_do_id` dentro do `_ids_do_pacote` e reprovou quando a memoria entrou
+   — a resolucao passou a morar no `_mapa_id_pacote`. **Era o TESTE errado**, e a
+   propriedade (a DELEGACAO) ficou cobrada nos tres sentidos. Classe
+   743/753/761, agora num assert de AST;
+3. **A VARREDURA DA FIXTURE ESTOUROU `JSONDecodeError`:** o diretorio das specs
+   tem **624 entradas e so 444 `.json`** — o resto sao os `.build.py` — e eu dei
+   `json.load` em tudo.
+
+### A PECA DESSA RODADA — DOZE cenas, e o PISO
+
+`kolejny-poziom-s099` = **`KUZFaS7ApM4`** (*Ten sam zwrot, inny wynik*),
+publicado as **06:21:10Z** (run `39910925932`), **sem `403 quota`**. **DOZE
+PORTOES VERDES NA PRIMEIRA TENTATIVA** — e ela foi **CONFERIDA COMO RASCUNHO**
+antes de existir no disco. Provedor **edge MEDIDO** pelo `anotacoes_do_run` (zero
+avisos `NARRACAO PELO PIPER` no job `120272752431`, que e o job que emitiu o
+SOM), som **-14,0** LUFS, pico **-3,4** dBTP com `pico_vs_teto: dentro`, **zero
+silencios**. Os **quatro parques** pelo `registro_da_rodada`, os quatro
+**RELIDOS**.
+
+**E A GUARDA DA THUMBNAIL LEVANTOU NO CONSTRUTOR, antes de a spec existir:**
+cinco palavras contra o limite de 4, LIDO do `variedade`. E a **DECIMA PRIMEIRA**
+vez do mesmo defeito nesta sessao e a **PRIMEIRA em que ele morre na mesa**, em
+vez de na passada de pre-render ou no portao — o instrumento e da rodada das
+20:07 de 22/10.
+
+**CANAL do `passo_zero`** (8/8/8, empate nos TRES desempatado pelo que esta ha
+mais tempo sem publicar). **PAUTA:** `iqV7m6tKb5A` (`kolejny-poziom-004`), a
+`escolhida` da regra escrita num empate de **NOVE** origens em 4 usos. **E o
+desempate DIVERGIU com vao de 17 capitulos (33%)**, entre os dois precedentes
+medidos (62% desviei, 3% segui) — **e aqui ele NAO TEM OBJETO PRATICO**, porque
+os dois ids resolvem para o MESMO pacote: escolher um ou outro le a MESMA spec, e
+o que vale e a **INTERSECCAO dos livres (53 de 74)**. **A uniao das declaracoes
+dos OITO irmaos dos dois ids e de 42 de 74.**
+
+**FAMILIA: A VARIAVEL QUE MOVEU O RESULTADO NAO FOI O MERCADO** (capitulo 64, com
+o 11, o 45, o 52 e o 69 ao redor). O eixo e a **ATRIBUICAO**: a diferenca final e
+lida como prova de que alguem investiu melhor, quando a taxa de retorno foi **a
+mesma nos tres cenarios** e o que mudou foram o custo anual e o tipo de conta. **E
+o mecanismo do silencio e que a taxa de retorno e a UNICA coisa de que se fala e
+a unica que aqui nao variou.** Os OITO irmaos falam do CUSTO — quanto, quando,
+com que frequencia, sobre o que —; **nenhum fala de a quem se atribui a
+diferenca**.
+
+**CONTAGEM pela chave `por_cadencia_servivel`:** doze cenas, folga **+12**. O
+teto MEDIDO da voz (**14**), que e tambem a melhor cadencia, saiu **NOMEADO** e
+recusado pela FOLGA (23 caracteres, a dois do piso OBSERVADO); 13 e 11 repetem os
+tamanhos recentes do canal. **ESQUELETO
+`titulo-item-barras-item-item-lista-item-barras-lista-item-titulo-cta`, INEDITO
+nas 195 formas da frota**, com a mistura saida do `sugere_forma` (7.545 de 7.560
+ordens livres).
+
+**MIREI O PISO** (772): edge **41,70**, 0,20 acima dele, com o corte saido do
+`mira.quanto_cortar` (um caractere vale 0,052 s nesta voz). **A PINCA DO 740/748
+ESTA FECHADA** e a exposicao vai declarada: o piper sai em **35,5**, FORA pela
+mira e DENTRO do portao. **O REAL nao esta prometido para lado nenhum** (774).
+
+**ZERO numero novo sobre o mundo**, e a recusa inclui **o numero que daria o
+gancho mais facil** — a diferenca entre o pior e o melhor cenario. Os numerais
+falados sao **"trzy"** e **"dwie"**, os dois estrutura do argumento, conferidos
+pelo `numerais_falados`. As barras das cenas 3 e 8 sao **ILUSTRACAO** e **nao sao
+faladas**: a cena 3 desenha os tres cenarios com **altura IGUAL**, que e o
+argumento inteiro.
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica` pela
+QUINQUAGESIMA TERCEIRA rodada seguida.** `RESIDUO_N` segue **128**.
+
+**E A LEITURA DE INSCRITOS PASSOU AS TRES PORTAS E NAO FOI FEITA, pela VIGESIMA
+PRIMEIRA rodada seguida:** 92,03 h, piso de resolucao **0,26/dia**, os tres SIM.
+**O que a impede e a ROTA, e o remedio e do DONO** — a tela de Network access.
+
+**COTA: VINTE E QUATRO envios** na janela que fechou as 07:00Z, **38.400**
+unidades, contra o piso MEDIDO de **>= 41.600** — do `janela_de_cota`.
