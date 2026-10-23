@@ -58,12 +58,19 @@ def _secoes(agora: datetime.datetime | None = None, janela_h: float = 24.0,
     import concentracao_frota
     import janela_de_cota
     import leitura_de_inscritos
+    import longo_por_canal
 
     escolha = concentracao_frota.escolha_do_momento(janela_h)
     return [
         ("INSCRITOS", leitura_de_inscritos.relato(
             agora.isoformat(), modo_da_rota=modo_da_rota)),
         ("CANAL", _linha_do_canal(escolha)),
+        # A SEGUNDA METADE do pedido do dono — *"1 video longo e outro curto"*
+        # por canal por dia (16/10) —, que o `concentracao_frota` nao pode
+        # responder: ele conta PEÇA e nao distingue formato. A conta e
+        # DELEGADA ao `longo_por_canal`, e ela so passou a ser possivel em
+        # 23/10 as 21:3x, quando o parque passou a carregar o `formato`.
+        ("LONGO", longo_por_canal.relato(janela_h=janela_h)),
         ("COTA", janela_de_cota.relato(agora)),
     ]
 
@@ -85,7 +92,7 @@ def _linha_do_canal(escolha: dict) -> str:
 def relato(agora: datetime.datetime | None = None, janela_h: float = 24.0,
            modo_da_rota: str = None) -> str:
     blocos = [texto for _, texto in _secoes(agora, janela_h, modo_da_rota)]
-    blocos.append(">> ISTO NAO REPROVA e nao escolhe pauta: ele responde as tres "
+    blocos.append(">> ISTO NAO REPROVA e nao escolhe pauta: ele responde as "
                   "perguntas do passo zero com os donos de cada uma. A peca "
                   "ainda passa pelo `antes_do_render.py` e pelo `prontidao`.")
     return "\n\n".join(blocos)

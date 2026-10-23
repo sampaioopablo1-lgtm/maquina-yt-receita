@@ -15088,3 +15088,180 @@ independentes, e passar uma nao e passar a outra.
 **COTA: ONZE envios** na janela aberta as 07:00Z, **17.600** unidades, contra o
 piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
 hora.
+
+## O PARQUE NAO CARREGAVA O FORMATO, E METADE DO PEDIDO DO DONO NAO TINHA DONO
+
+**Medido em 23/10 as 21:3x.** O dono pediu, em 16/10, *"pelo menos 2 videos por
+dia por canal, 1 video longo e outro curto"*. Essa frase tem DUAS metades e so
+uma tinha instrumento: o `concentracao_frota.escolha_do_momento` conta **PEÇA**
+na janela de 24 h e **nao distingue longo de short**, logo ele responde *"qual
+canal produziu menos"* e nunca *"qual canal esta sem LONGO"*.
+
+**E em 23/10 as 18:4x eu escolhi o canal do pacote por essa segunda metade, com
+um laco Python escrito na linha de comando** — item 3 da §10, na **DECIMA
+PRIMEIRA** dimensao (canal, cota, cenas, pauta, dono da origem, som, contrato do
+render, anotacoes, esgotamento, familia entre canais, e agora FORMATO).
+
+**A CAUSA ESTAVA UMA CAMADA ABAIXO: o `do_registro` jogava fora o `formato`.** O
+`::notice:: PUBLICADO` do pacote traz DUAS linhas com o formato em letra
+(`shorts` e `longo`), o `registro_videos.linhas_dos_notices` as devolve com
+`formato` e `slug` distintos — e o mapeamento para o parque copiava `pacote`,
+`canal`, `youtube_id`, `em` e `cenas` **e descartava os dois campos que
+distinguem as peças de um pacote.** E a forma desta casa: o dado existe um nivel
+acima e nao desce (o `run` do `_som_do_job` em 22/10 as 06:2x, a prosa do
+`irmaos_da_origem` em 20/10 as 15:3x, o `quadro` do `contagem_de_cenas` em 20/10
+as 03:2x).
+
+**E O `pacote` NAO SERVE DE CHAVE, medido no proprio arquivo:**
+
+| | |
+|---|---|
+| linhas do parque | **169** |
+| derivaveis como short solto (`-sNNN`) | 157 |
+| derivaveis como `-longo` (os tres pacotes de 19/10, montados por mim a mao) | 3 |
+| **INDETERMINADAS** | **9** — as peças dos pacotes de 22/10 em diante |
+
+Nos de 22/10 em diante o **MESMO `pacote` aparece duas vezes**, distinguido so
+pela previsao (653,51 contra 41,94). **Duas convencoes no mesmo arquivo, as duas
+minhas, e nenhuma e a do dono.**
+
+**Consertado:** o `do_registro` DESCE `formato` e `slug`; `duracao_a_medir.formato`
+devolve o campo, ou DERIVA do sufixo para linha antiga, e **RECUSA (None)** quando
+nao sabe — **e e proibido por teste inferir pelo `cenas` ou pela previsao**, que e
+o erro que o 733 nomeia e que me custou tres rodadas inferindo provedor. As nove
+indeterminadas foram reparadas com o valor **LIDO do dono** (a coluna `formato` do
+`videos-a-inserir.sql`), com `assert` antes de gravar: o parque fechou em **163
+`shorts` e 6 `longo`**, zero indeterminadas.
+
+**`fabrica/longo_por_canal.py` responde a pergunta, e ja disse algo acionavel na
+primeira execucao:** o `kolejny-poziom` estava **42,8 h sem longo** e com **0L/8S**
+na janela de 24 h, contra 1L em cada um dos outros dois. Ele esta LIGADO ao
+`passo_zero` — import sem chamada e a classe dos layouts mortos, e foi assim que o
+`irmaos_da_origem` passou cinco dias sem chamador nenhum fora do teste dele.
+
+### E A MEDICAO QUE EU IA RELATAR ERA FALSA — dois instrumentos meus, o mesmo erro
+
+Procurando a causa, eu contei o SQL pendente com `grep -c 'insert into videos'` e
+com um regex que lia a **PRIMEIRA tupla de cada linha**. Os dois disseram
+**"205 shorts, ZERO longos"**, e eu ia relatar ao dono que o registro de `videos`
+perde a linha do LONGO.
+
+**FALSO.** O `sql_insert` escreve **UM `insert` com uma tupla por peça**, logo
+contar por LINHA e contar pela primeira tupla erram pelo MESMO motivo — e os dois
+instrumentos, sendo meus e tendo o mesmo defeito de granularidade, **se
+confirmavam um ao outro**. Contadas as TUPLAS: **211, com 205 `shorts` e 6
+`longo`** — os seis pacotes publicados, **nenhum perdido**.
+
+**E a assinatura e a de 23/10 as 13:5x**, quando o meu detector de divergencia de
+titulo acusou a maquina de um defeito que ela nao cometeu: *antes de chamar um
+achado de achado, pergunte se o instrumento pode produzi-lo.* O que torna este
+caso pior e a **CONCORDANCIA**: dois instrumentos escritos na hora, com o mesmo
+viés, parecem confirmacao independente.
+
+`tests/test_o_PARQUE_nao_carregava_o_FORMATO_da_peca.py`, **vinte** testes: o
+parque sai do DISCO e **reprova com menos de 100 linhas** (vacuidade), os **DOIS**
+formatos tem de existir e o arquivo **falha se um deles desaparecer**, as **duas
+convencoes de pacote** sao cobradas e ele **falha se elas CONVERGIREM** (ai o
+defeito perdeu o objeto e esta nota se rele), a divergencia entre contar por LINHA
+e por TUPLA e **RECONFERIDA contra o SQL** como propriedade e nao como numero (a
+licao de 22/10 as 14:4x: contagem absoluta sobre populacao que cresce e identidade
+disfarcada de medida), a recusa vai nos tres casos com **AST proibindo `cenas` e
+`prev_*`** dentro do `formato`, o canal e cobrado como saindo do **dono** (57 das
+169 linhas nao tem o campo `canal`, logo ler o campo perderia essas peças em
+silencio), a janela tem **limite de CIMA**, e a frase do vao tem **UM dono** cobrado
+por AST nos **TRES** ramos — em **DUAS fixturas**, porque canal sem longo nenhum
+VENCE qualquer vao finito e os tres ramos nao coexistem num parque so.
+**Contraprova nos TRES sentidos:** devolvido o descarte do formato, **dois** dos
+vinte falham; religada a inferencia por cenas, **dois**; lido o campo `canal` em
+vez de derivado, **seis**.
+
+**E TRES ASSERTS MEUS ESTAVAM ERRADOS, nao o modulo** — os tres na primeira
+execucao: a ancora do caminho inteiro usava um pacote INVENTADO e o dono do notice
+**ABRE a spec**, logo ele devolvia lista vazia e o teste passaria por vacuidade
+(reescrito para DERIVAR o pacote do disco, com `pytest.fail` dizendo que perdeu a
+ancora); eu cobrei os tres ramos da frase numa fixture so, quando eles **nao podem
+coexistir**; e eu cobrei a palavra `FALSO` em caixa alta quando o modulo a escreve
+como `Falso` — a licao do `test_NAO_virou_portao` do acento pela enesima vez,
+**cobre a propriedade, nao a caixa em que eu a grafei.**
+
+### A PECA DESSA RODADA — ONZE cenas, e a passada pegou os DOIS defeitos
+
+`kolejny-poziom-s104` = **`uVeB4T-cXmI`** (*Liczba z ustawy to sufit*), publicado
+as **21:26:05Z** (render `40026377191`, publicacao `40026704758`), **sem
+`403 quota`**. **ONZE PORTOES VERDES NA PRIMEIRA TENTATIVA** — e onze porque e
+short solto: o `capitulos` sai de fora em vez de aprovar em silencio, e o numero
+sai de `len(prontidao.avalia(...))`. Conferida como **RASCUNHO** antes de existir
+no disco: dez portoes baratos limpos em **0,61 s**, mais mira, acento, gancho,
+paleta **LIDA** do dono e as **seis guardas do construtor**.
+
+Provedor **edge MEDIDO** pelo `anotacoes_do_run` (zero avisos `NARRACAO PELO
+PIPER` no job `120663539080`, que e o job que emitiu o SOM) — e ele **RECUSOU**
+estabelecer o provedor pelo job do `retomar`, dizendo que ali o zero sairia por
+**VACUIDADE**. Som **-14,0** LUFS, pico **-3,0** dBTP com `pico_vs_teto: dentro`,
+**zero silencios**. A linha do PUBLICADO imprimiu os **DOIS** titulos e eles
+**CONCORDAM**, logo o corpus recebeu o que o YouTube recebeu (773). Os quatro
+parques pelo `registro_da_rodada`, os quatro **RELIDOS** (duracao **169** linhas,
+97 sem leitura; som **109**; SQL **205** linhas com ZERO prosa; corpus pelo dono).
+
+**CANAL do `passo_zero`** (9/9/8 na janela de 24 h, `kolejny-poziom` o MINIMO
+UNICO) — **e o instrumento desta rodada confirmou a escolha pela outra metade**:
+42,8 h sem longo e 0L/8S na janela, o MAIOR vao da frota.
+
+**PAUTA do `pauta_do_momento`:** `IuBLU-P4Aj8` (`kolejny-poziom-016`, 64
+capitulos), 4 usos — empate de **CINCO** origens desempatado pela MAIOR reserva,
+52 livres e **41 sem declaracao de irmao**; as duas leituras **CONCORDAM** aqui.
+O `relato_dos_livres` trouxe o texto **INTEIRO** dos 52 e **MARCOU os 11**
+declarados por irmao, nenhum dos quais foi tocado.
+
+**E A PASSADA PEGOU OS DOIS DEFEITOS ANTES DO RENDER:** a previsao saiu em
+**40,60**, ABAIXO do piso da faixa, e o acrescimo saiu do `mira.quanto_cortar`
+(um caractere na media vale **0,57 s** nesta voz), nao de cabeca; e o **ESQUELETO
+que eu montei JA EXISTIA**, acusado pelo `esqueleto_entre_canais`. A mistura saiu
+do `sugere_forma` (3.776 de 3.780 ordens livres) e a ordem publicada,
+`titulo-barras-item-lista-item-titulo-item-barras-item-lista-cta`, e **INEDITA nas
+209 formas** — e ate le melhor, porque a uchwala vem logo depois de quem a votou.
+
+**FAMILIA: TRAKTOWAC LICZBE Z USTAWY JAK WLASNA STAWKE, quando ela e um SUFIT**
+(rozdzialy 0, 1, 2 e 4, com o 8 e o 12 para a acao). O eixo e **QUEM FIXOU** o
+numero: o da ustawa esta certo, e publico e e da fonte certa — ele responde outra
+pergunta, qual e o maximo que QUALQUER gmina pode cobrar. **E o mecanismo do
+silencio e DEFINICIONAL e nao de oportunidade: o sufit nunca te desmente**, porque
+a tua kwota cabe debaixo dele sempre. Numero errado e desmentido pela conta;
+numero que responde a outra pergunta nao e desmentido por nada.
+
+Distincoes contra os QUATRO irmaos escritas na copy, e nos **DOIS** sem o campo
+(`s002`, `s060`) pela PROSA e pela NARRACAO de cada um, que e de primeira mao
+(776). **E a mais fina vai contra peca de OUTRA origem do mesmo canal**, que o
+portao `similaridade` nao pegaria porque compara TITULO: no `s092` o numero e uma
+**MEDIA** (eixo estatistico, dois lados, dispersao); aqui e um **TETO LEGAL** —
+ninguem esta acima dele, e o que te separa dele e uma SEGUNDA DECISAO de outro
+orgao. E contra o `s098`, de outra origem: la o defeito e decorar o VALOR porque
+ele envelhece; aqui nao e a idade do numero, e o orgao que o fixou.
+
+**ZERO numero novo sobre o mundo**, e a recusa inclui o que daria a peca mais
+facil — o proprio sufit em zloty por metro. **A procedencia da recusa esta no
+PROPRIO longo**, rozdzial 5: *"Ten film nie podaje żadnej stawki. Nie mógłby —
+twoja zależy od gminy... i zmienia się co roku."* O unico numeral falado e
+**"dwie"** (cena 7), conferido pelo `numerais_falados`, e as barras sao
+**ILUSTRACAO** qualitativa e **nao sao faladas** — nao ha razao nossa nem do longo
+entre sufit e stawka, e isto vai escrito para a rodada seguinte nao as ler de
+volta como dado.
+
+**A PINCA DO 740/748 ESTA FECHADA** neste canal e a exposicao vai declarada ANTES
+de publicar: o piper sai FORA pela mira e DENTRO do portao, que cobra 18 a 45 s
+nos dois mundos. **E o REAL nao esta prometido para lado nenhum** (774).
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica` pela SEXAGESIMA
+PRIMEIRA rodada seguida** — medido pela `sonda_e_modo`, com os TRES controles no
+MESMO caminho de saida: o `touch` passou, os DOIS hosts voltaram **000 sem
+arquivo**, e o proxy nomeou `example.com` e `www.youtube.com` depois de
+21:14:37Z. `RESIDUO_N` segue **128**.
+
+**E A LEITURA DE INSCRITOS PASSOU AS TRES PORTAS DE TEMPO E NAO FOI FEITA:**
+107,1 h, piso de resolucao **0,22/dia**, os tres SIM. **O que a impede e a ROTA, e
+o remedio e do DONO** — a tela de Network access. As duas portas sao
+independentes, e passar uma nao e passar a outra.
+
+**COTA: DEZESSEIS envios** na janela aberta as 07:00Z, **25.600** unidades, contra
+o piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
+hora.

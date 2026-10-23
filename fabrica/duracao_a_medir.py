@@ -22,10 +22,13 @@ Formato: uma linha JSON por peca em `docs/pendente/duracoes-a-medir.jsonl`.
 from __future__ import annotations
 
 import json
+import re
 import os
 
 CAMINHO = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
                        "docs", "pendente", "duracoes-a-medir.jsonl")
+
+_SHORT_SOLTO = re.compile(r"-s[0-9]+$")
 
 OBRIGATORIOS = ("pacote", "youtube_id", "prev_edge", "prev_piper",
                 "provedor", "job", "em")
@@ -88,6 +91,19 @@ def do_registro(reg_videos: dict, prev_edge: float, prev_piper: float,
         # O UNICO ponto em que os dois nomes do mesmo instante se encontram.
         "em": reg_videos.get("publicado_em") or reg_videos.get("em"),
         "cenas": reg_videos.get("cenas"),
+        # O FORMATO e o SLUG DESCEM do dono, e eles sao a unica coisa no
+        # registro que distingue o LONGO do SHORT de um pacote. **Medido em
+        # 23/10 as 21:3x:** o `pacote` deixou de identificar a peca — os tres
+        # pacotes de 19/10 tem `<pacote>-longo` (que eu montei a mao, antes
+        # deste mapeamento existir) e os de 22/10 em diante tem o MESMO
+        # `pacote` duas vezes, distinguidas so pela previsao. Inferir o formato
+        # por ela, ou pelo numero de cenas, e exatamente o erro que o 733
+        # nomeia — e o `formato` ja vinha no `::notice:: PUBLICADO`: este
+        # dicionario o jogava fora. E a forma desta casa, o dado existe um
+        # nivel acima e nao desce (o `run` do `_som_do_job` em 22/10 as 06:2x,
+        # a prosa do `irmaos_da_origem` em 20/10 as 15:3x).
+        "formato": reg_videos.get("formato"),
+        "slug": reg_videos.get("slug"),
         "prev_edge": prev_edge,
         "prev_piper": prev_piper,
         "provedor": provedor,
@@ -95,6 +111,37 @@ def do_registro(reg_videos: dict, prev_edge: float, prev_piper: float,
     }
     return valida(reg)
 
+
+FORMATOS = ("longo", "shorts")
+
+
+def formato(reg: dict) -> str | None:
+    """O formato da peca parqueada: `longo`, `shorts`, ou **None quando nao se
+    sabe** — e `None` aqui e recusa, nunca palpite.
+
+    A ordem e: o CAMPO que o `do_registro` desce do dono; e, so para linha
+    ANTIGA que nao o tem, a DERIVACAO do sufixo do `pacote`, que e a unica
+    convencao escrita no arquivo. Medido em 23/10 as 21:3x, antes de o campo
+    existir: 157 linhas derivaveis como short solto (`-sNNN`), 3 como
+    `-longo`, e **NOVE indeterminadas** — as pecas dos seis pacotes, que e
+    justamente onde a pergunta do dono ("ao menos um LONGO e um CURTO por
+    canal por dia") importa.
+
+    **E PROIBIDO inferir pelo `cenas` ou pela previsao**, e o motivo e o 733:
+    inferir o provedor pela distancia entre previsao e real me custou tres
+    rodadas, e um limiar de cenas aqui seria limiar sem procedencia (§10).
+    Quem tem a resposta e o `::notice:: PUBLICADO`, que carrega o `formato`
+    em letra.
+    """
+    f = (reg.get("formato") or "").strip()
+    if f in FORMATOS:
+        return f
+    pac = (reg.get("pacote") or "").strip()
+    if pac.endswith("-longo"):
+        return "longo"
+    if _SHORT_SOLTO.search(pac):
+        return "shorts"
+    return None
 
 def parqueia(reg: dict, caminho: str = None) -> bool:
     """Acrescenta UMA peca. Devolve False se o `youtube_id` ja estava la.

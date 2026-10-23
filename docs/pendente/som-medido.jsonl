@@ -106,3 +106,4 @@
 {"arquivo": "short.mp4", "desvio_do_alvo": 0.4, "job": "120585785805", "lra": 2.0, "lufs": -13.6, "pacote": "labtreinamento-015", "pico_dbtp": -1.5, "run": "40003593388", "silencios": [], "tinha_veredito": true}
 {"arquivo": "short.mp4", "desvio_do_alvo": 0.0, "job": "120610309069", "lra": 3.1, "lufs": -14.0, "pacote": "kolejny-poziom-s103", "pico_dbtp": -2.7, "run": "40010768173", "silencios": [], "tinha_veredito": true}
 {"arquivo": "short.mp4", "desvio_do_alvo": 0.3, "job": "120633726166", "lra": 4.4, "lufs": -13.7, "pacote": "epomeno-epipedo-s103", "pico_dbtp": -1.4, "run": "40017630067", "silencios": [], "tinha_veredito": true}
+{"arquivo": "short.mp4", "desvio_do_alvo": 0.0, "job": "120663539080", "lra": 2.7, "lufs": -14.0, "pacote": "kolejny-poziom-s104", "pico_dbtp": -3.0, "run": "40026377191", "silencios": [], "tinha_veredito": true}
