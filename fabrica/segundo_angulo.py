@@ -446,6 +446,166 @@ def texto_dos_livres(yid: str, dir_specs: str = SPECS,
                                         if quantas.get(k, 0) > 1)}
 
 
+def livres_sem_declaracao(yid: str, dir_specs: str = SPECS,
+                          exceto: str = None) -> dict:
+    """Os livres que NENHUM irmao declara, numa forma CRUZAVEL — indice E kicker.
+
+    **Medido em 23/10 as 06:4x, escolhendo a familia do `kolejny-poziom-s099`.**
+    Este modulo expoe o MESMO objeto — o capitulo livre — em DUAS unidades:
+    `nao_mencionados` devolve **KICKER** (`str`) e `declarados_por_irmao`
+    devolve **INDICE** (`int`). Logo `set(livres) - set(declarados)` **nao
+    remove nada**: a intersecao crua das duas e sempre vazia, e a subtracao
+    devolve o conjunto inteiro, bem formado e com cara de resposta.
+
+    **Eu fiz essa conta a mao nesta rodada e ela me devolveu "53 estritamente
+    livres" onde a leitura certa da 32.** E o decimo primeiro membro da familia
+    desta sessao — e o pior tipo dela, porque o no-op devolve a resposta
+    CONFORTAVEL (*"esta tudo livre"*), do mesmo jeito que o `success` do RUN
+    (22/10 as 13:4x) e o `.get(chave, default)` sobre a resposta errada (08:3x).
+    **E os dois donos sao MEUS e moram no MESMO modulo.**
+
+    A conta e **DELEGADA** ao `texto_dos_livres`, que e quem ja junta as duas
+    unidades (cada livre dele carrega `indice` e `kicker`): recomputa-la aqui
+    criaria o terceiro dono do indicio de capitulo livre.
+
+    **O que isto NAO conserta, e vai dito:** a aritmetica do
+    `pauta_do_momento.quadro` (`len(reserva) - len(declarados)`) esta **CERTA**,
+    e isso foi MEDIDO em vez de suposto — nas 49 origens com spec local do
+    disco, **49 de 49** tem todo indice declarado DENTRO dos livres e **zero**
+    reserva sem declaracao negativa. Ela compara CONTAGENS de duas populacoes
+    que coincidem; o que nao se pode fazer e cruzar os CONJUNTOS.
+    """
+    tl = texto_dos_livres(yid, dir_specs, exceto)
+    fora = [x for x in tl["livres"] if not x.get("declarado_por")]
+    return {"pacote": tl["pacote"], "n_capitulos": tl["n_capitulos"],
+            "n_livres": tl["n_livres"],
+            "livres_sem_declaracao": fora,
+            "indices": sorted(x["indice"] for x in fora),
+            "kickers": [x["kicker"] for x in fora],
+            "declarados": sorted(tl["declarados_por_irmao"])}
+
+
+def livres_sem_declaracao_do_pacote(yid: str, dir_specs: str = SPECS,
+                                    exceto: str = None) -> dict:
+    """O mesmo, com a UNIAO das declaracoes de TODOS os ids do mesmo pacote.
+
+    **Medido na mesma rodada, e e o fato que o instrumento de 23/10 as 03:3x
+    nomeia um nivel acima:** quando dois ids resolvem para o MESMO pacote, cada
+    um ve so os irmaos que o declaram, logo a leitura POR ID **subconta** o que
+    ja foi usado. Varridos os tres canais, **2 dos 47** pacotes com spec local
+    sao compartilhados por dois ids, e nos DOIS a uniao e maior que qualquer das
+    duas leituras:
+
+    | pacote | por id | UNIAO |
+    |---|---|---|
+    | `labtreinamento-002` | 6 e 20 | **24** |
+    | `kolejny-poziom-004` | 30 e 6 | **33** |
+
+    **A escolha de pauta NAO muda por isto** — a regra escrita e do
+    `concentracao.py` e desempata pela reserva CRUA. O que muda e o conjunto do
+    qual a rodada LE para escrever, e por isso este e o numero que vale quando o
+    pacote e compartilhado.
+
+    Pacote nao compartilhado devolve o MESMO que `livres_sem_declaracao`, e isso
+    vai no campo `compartilhado` em vez de ficar implicito.
+    """
+    tl = texto_dos_livres(yid, dir_specs, exceto)
+    pac = tl["pacote"]
+    if not pac:
+        d = livres_sem_declaracao(yid, dir_specs, exceto)
+        d["ids"], d["compartilhado"] = [], False
+        return d
+    ids = [y for y in _ids_do_pacote(pac, dir_specs) ]
+    uni = set()
+    for y in ids:
+        uni |= set(texto_dos_livres(y, dir_specs, exceto)["declarados_por_irmao"])
+    fora = [x for x in tl["livres"] if x["indice"] not in uni]
+    return {"pacote": pac, "n_capitulos": tl["n_capitulos"],
+            "n_livres": tl["n_livres"], "ids": sorted(ids),
+            "compartilhado": len(ids) > 1,
+            "livres_sem_declaracao": fora,
+            "indices": sorted(x["indice"] for x in fora),
+            "kickers": [x["kicker"] for x in fora],
+            "declarados": sorted(uni)}
+
+
+_CACHE_ID_PACOTE: dict = {}
+
+
+def _mapa_id_pacote(dir_specs: str = SPECS) -> dict:
+    """{longo_existente: pacote} do disco inteiro, com MEMORIA.
+
+    A resolucao id -> pacote e o `pacote_do_id`, por convencao de NOME e sem
+    indice inverso: resolver um id custa uma varredura, logo resolver todos sem
+    memoria custa uma varredura por id. **Medido: 7,6 s por chamada**, e o
+    `relato_dos_livres` passa por aqui — instrumento lento o bastante para
+    ninguem o chamar e a classe dos layouts mortos, que foi o que obrigou a
+    sonda do `layouts_do_short` a ganhar cache em 19/10 as 19:1x.
+
+    A chave e a LISTA de arquivos, nao o diretorio: spec nova no mesmo
+    diretorio invalida a memoria sozinha, e sem isso um teste que grava num
+    `tmp_path` reusado leria o mapa velho.
+    """
+    arquivos = tuple(sorted(glob.glob(os.path.join(dir_specs, "*.json"))))
+    chave = (dir_specs, arquivos)
+    if chave in _CACHE_ID_PACOTE:
+        return _CACHE_ID_PACOTE[chave]
+    _dir_valido(dir_specs)
+    vistos = set()
+    for f in arquivos:
+        try:
+            sp = json.load(open(f, encoding="utf-8"))
+        except Exception:
+            continue
+        if not isinstance(sp, dict):
+            continue
+        y = sp.get("longo_existente")
+        if y:
+            vistos.add(y)
+    mapa = {}
+    for y in sorted(vistos):
+        pac = pacote_do_id(y, dir_specs)
+        if pac:
+            mapa[y] = pac
+    _CACHE_ID_PACOTE[chave] = mapa
+    return mapa
+
+
+def _ids_do_pacote(pacote: str, dir_specs: str = SPECS) -> list:
+    """Todo `longo_existente` do disco que resolve para este pacote.
+
+    A resolucao e DELEGADA ao `pacote_do_id` pelo `_mapa_id_pacote`: refazer a
+    convencao de nome aqui seria o segundo dono dela.
+    """
+    return sorted(y for y, p in _mapa_id_pacote(dir_specs).items()
+                  if p == pacote)
+
+
+_PRE_UNID = "  AS DUAS UNIDADES DO MESMO OBJETO: "
+
+
+def _linha_das_unidades(d: dict) -> str:
+    """UM dono da frase, e ela sai nos DOIS ramos — compartilhado e nao.
+
+    A frase existe porque a conta a mao e o defeito: sem ela a rodada seguinte
+    refaz `set(kickers) - set(indices)` e leva o conjunto inteiro de volta.
+    """
+    base = (_PRE_UNID + "`nao_mencionados` devolve KICKER (str) e "
+            "`declarados_por_irmao` devolve INDICE (int) — cruzar os dois e um "
+            "no-op SILENCIOSO que devolve o conjunto inteiro. Use os campos "
+            "`indices`/`kickers` daqui, nunca uma subtracao escrita na hora.")
+    if d.get("compartilhado"):
+        return (base + "\n    E ESTE PACOTE E COMPARTILHADO por %d ids (%s): a "
+                "leitura POR ID subconta o que ja foi usado, e os %d indice(s) "
+                "acima saem da UNIAO das declaracoes dos irmaos de todos eles."
+                % (len(d.get("ids") or ()), ", ".join(d.get("ids") or ()),
+                   len(d.get("declarados") or ())))
+    return (base + "\n    e este pacote NAO e compartilhado, logo a uniao "
+            "coincide com a leitura por id — o que nao vale sempre: 2 dos 47 "
+            "pacotes com spec local do disco sao compartilhados, e nos dois a "
+            "uniao e maior que qualquer das duas leituras.")
+
+
 def _linha_dos_declarados(d: dict) -> str:
     """UM dono da frase do conflito, e ela sai nos DOIS ramos.
 
@@ -492,6 +652,11 @@ def relato_dos_livres(yid: str, dir_specs: str = SPECS,
         L.append("  cena(s) LIVRE(S) sem narracao, NOMEADAS em vez de omitidas: "
                  "%s" % d["sem_narracao"])
     L.append(_linha_dos_declarados(d))
+    # A frase das DUAS UNIDADES, e ela sai FORA de qualquer ramo condicional:
+    # ela existe para impedir a conta a mao, e conta a mao se faz justamente
+    # nas rodadas em que nada chama atencao (20/10, 13:2x).
+    L.append(_linha_das_unidades(livres_sem_declaracao_do_pacote(
+        yid, dir_specs, exceto)))
     for x in d["livres"]:
         L.append("  %3d | %s | %s%s" % (
             x["indice"], x["kicker"], x["nar"] or "(sem narracao)",
