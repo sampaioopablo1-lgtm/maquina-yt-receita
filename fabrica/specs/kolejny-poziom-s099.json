@@ -1,0 +1,127 @@
+{
+ "pacote": "kolejny-poziom-s099",
+ "slug": "kolejny-poziom-s099",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "bg": "#0B0B0C",
+  "ink": "#F2EEE8",
+  "c1": "#E23B3B",
+  "c2": "#D9C7A7",
+  "red": "#FF4D4D",
+  "ok": "#7FB77E",
+  "panel": "#151517",
+  "mut": "#8F877C",
+  "acc": "#E23B3B"
+ },
+ "longo": [],
+ "longo_existente": "iqV7m6tKb5A",
+ "thumb": {
+  "l1": "Ten sam zwrot",
+  "l2": "inny"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Ten sam zwrot, inny wynik",
+   "sub": "a różnica nie z rynku",
+   "nar": "Ten sam zwrot, a wynik inny."
+  },
+  {
+   "layout": "item",
+   "kicker": "Trzy warianty",
+   "sub": "ta sama stopa zwrotu",
+   "nar": "Trzy warianty z tą samą stopą zwrotu."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Rynek w każdym z nich",
+   "barras": [
+    {
+     "rot": "Pierwszy",
+     "v": 100
+    },
+    {
+     "rot": "Drugi",
+     "v": 100
+    },
+    {
+     "rot": "Trzeci",
+     "v": 100
+    }
+   ],
+   "nar": "Rynek zachował się w nich tak samo."
+  },
+  {
+   "layout": "item",
+   "kicker": "A kwoty na końcu",
+   "sub": "nie są równe",
+   "nar": "A końcowe kwoty się różnią."
+  },
+  {
+   "layout": "item",
+   "kicker": "Skąd ta różnica",
+   "sub": "nie z rynku",
+   "nar": "Więc różnica nie przyszła z rynku."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Czego w niej nie ma",
+   "itens": [
+    "Trafionej spółki",
+    "Przewidzianego kryzysu"
+   ],
+   "nar": "Nie ma w niej trafionej spółki."
+  },
+  {
+   "layout": "item",
+   "kicker": "Co się zmieniło",
+   "sub": "roczny koszt",
+   "nar": "Zmienił się roczny koszt produktu."
+  },
+  {
+   "layout": "barras",
+   "kicker": "I samo konto",
+   "barras": [
+    {
+     "rot": "Zwykłe",
+     "v": 100
+    },
+    {
+     "rot": "Z ulgą",
+     "v": 55
+    }
+   ],
+   "nar": "I konto, na którym pieniądze leżą."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Dwie decyzje",
+   "itens": [
+    "Koszt roczny",
+    "Rodzaj konta"
+   ],
+   "nar": "Dwie decyzje, żadnej prognozy."
+  },
+  {
+   "layout": "item",
+   "kicker": "Gdzie idzie uwaga",
+   "sub": "w to, co stałe",
+   "nar": "A uwaga idzie w to, co stałe."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Najpierw koszt i konto",
+   "sub": "potem rynek",
+   "nar": "Najpierw koszt i konto, potem rynek."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Sprawdź roczny koszt",
+   "sub": "i zasubskrybuj kanał",
+   "nar": "Sprawdź roczny koszt i zasubskrybuj."
+  }
+ ],
+ "copy": "# kolejny-poziom-s099\n\n## TITULO\nTen Sam Zwrot, Inny Wynik: Różnica Nie Przyszła z Rynku\n\n## TITULO SHORT\nTen sam zwrot, inny wynik\n\n## DESCRICAO\nGdy dwa rachunki emerytalne kończą się różnymi kwotami, pierwsze wyjaśnienie,\nktóre przychodzi do głowy, brzmi: **ktoś lepiej zainwestował**. Trafił spółkę,\nwyszedł przed spadkiem, wybrał lepszy fundusz. I to wyjaśnienie jest wygodne,\nbo przenosi całą sprawę na teren, na którym nikt nic nie kontroluje.\n\nTymczasem w porównaniu, o którym mówi ten materiał, **stopa zwrotu była\nidentyczna we wszystkich wariantach**. Rynek zachował się w nich tak samo. Nie\nbyło trafionej spółki ani przewidzianego kryzysu. A końcowe kwoty i tak się\nróżnią — i to wyraźnie.\n\n**Zmieniły się dwie rzeczy, i obie są administracyjne:** roczny koszt produktu\noraz rodzaj konta, na którym te same pieniądze leżą. Żadna z nich nie wymaga\nprognozowania czegokolwiek. Obie są do sprawdzenia w dokumentach, które już\nmasz.\n\n**I stąd bierze się cisza wokół tego błędu: stopa zwrotu jest jedyną rzeczą,\no której się rozmawia, i jedyną, która się tu nie zmieniła.** Uwaga idzie w\nzmienną trzymaną na stałe, a wynik rozstrzyga się na dwóch, o których się nie\nmówi, bo brzmią jak formalność.\n\nPraktyczny wniosek nie jest rekomendacją produktu i nie jest prognozą. Jest\nkolejnością patrzenia: **najpierw roczny koszt i rodzaj konta, potem rynek**.\nPierwsze dwie rzeczy zależą od ciebie i są policzalne dzisiaj. Trzecia nie\nzależy od nikogo.\n\n## COMENTARIO FIXADO\nGdy ostatnio porównywałeś dwa produkty, patrzyłeś najpierw na stopę zwrotu czy\nna roczny koszt? Odpowiedz jednym słowem: zwrot albo koszt.\n\n## FONTES\nOrigem: `iqV7m6tKb5A` (`kolejny-poziom-004`), 74 capítulos — a `escolhida` da\nregra escrita (do `concentracao.py`) num empate de **NOVE** origens em 4 usos,\ndesempatado pela MAIOR reserva.\n\n**E O DESEMPATE DIVERGIU, com o vão MEDIDO pelo instrumento de 22/10 às 18:0x:**\na reserva CRUA escolhe esta (64 livres, 35 sem declaração) e a reserva SEM\nDECLARAÇÃO escolhe `ef_oZmfmdz4` (58 livres, 52 sem declaração) — vão de **17\ncapítulos, 33%**, entre os dois precedentes medidos (62% desviei, 3% segui).\n**E aqui a divergência NÃO TEM OBJETO PRÁTICO, e isso é novo:** o instrumento de\n23/10 às 03:3x diz que os DOIS ids resolvem para o MESMO pacote\n(`kolejny-poziom-004`, 8 usos por TEXTO), logo escolher um ou outro lê a MESMA\nspec. O que vale é a **INTERSEÇÃO dos livres: 53 de 74**, e foi dela que esta\npeça saiu.\n\n**E A UNIÃO DAS DECLARAÇÕES DOS OITO IRMÃOS DOS DOIS IDS É DE 42 CAPÍTULOS** —\nmais do que qualquer leitura por id mostra. Os livres de verdade são os 32 fora\ndela, e os capítulos **64, 52, 45, 69 e 11** estão entre eles. **Os capítulos 60\na 63 NÃO foram usados**, porque entram na FAIXA que o `kolejny-poziom-s034`\ndeclara (38 a 63) — li a peça dele, a família dela é o *warunek* dos anos\ncalendário, e mesmo assim não me apoiei neles: declaração em prosa não é\nveredito nos dois sentidos, e o argumento desta peça não precisa dos números.\n\nA dominante do canal (`GUiq15usizw`) ficou de fora, e quem conta é o\n`concentracao.py`. O `QiaGg03WSR0` saiu da escolha pelo **mapa de dono MEDIDO**\n(é longo do LabTreinamento declarado por engano em dois shorts deste canal), sem\nsair da lista.\n\n## FAMILIA DE ENTRADA ERRADA\n**A VARIÁVEL QUE MOVEU O RESULTADO NÃO FOI O MERCADO** (capítulo 64, com o 11, o\n45, o 52 e o 69 ao redor). O eixo é a **ATRIBUIÇÃO** do resultado, e não nenhum\ndos valores dele: a diferença final é lida como prova de que alguém investiu\nmelhor, quando a taxa de retorno foi **a mesma nos três cenários** e o que mudou\nforam o custo anual e o tipo de conta.\n\n**E o mecanismo do silêncio é o que torna este erro diferente dos outros desta\norigem: a taxa de retorno é a ÚNICA coisa de que se fala e a única que aqui não\nvariou.** Logo a atenção inteira vai para a variável mantida constante, e o\nresultado se decide em duas que parecem formalidade. Nenhum aviso aparece,\nporque nada na conta está errado — ela só responde a uma pergunta que não é a\nque decide.\n\n**Distinções contra os OITO irmãos dos dois ids**, lidas pelo\n`irmaos_da_origem` e — nos **QUATRO** sem o campo `## FAMILIA DE ENTRADA\nERRADA` — pela PROSA e pela NARRAÇÃO de cada um, que é de primeira mão (776):\n* `kolejny-poziom-s009` (*Ta sama wpłata, inna kolejność*) — a **ORDEM** em que\n  taxa e imposto são pagos;\n* `kolejny-poziom-s014` (*Co kosztuje więcej: podatek czy opłata?*) — **qual dos\n  dois tira mais**, isto é o resultado da comparação;\n* `kolejny-poziom-s028` (*Co roku kontra raz na końcu*) — a **FREQUÊNCIA**:\n  todo ano contra uma vez só;\n* `kolejny-poziom-s034` (*Warunek liczy lata, nie złote*) — o **warunek** conta\n  anos calendário, não quantias;\n* `kolejny-poziom-s067` (*Zmiana to sprzedaż*) — trocar de fundo **É** vender;\n* `kolejny-poziom-s074` (*Opłata czeka na koniec*) — **QUANDO** o custo aparece\n  no tempo;\n* `kolejny-poziom-s084` (*Zmiana kosztuje podwójnie*) — o imposto ainda não pago\n  lido como neutro;\n* `kolejny-poziom-s087` (*Sufit to nie cena*) — o **TETO** legal da taxa lido\n  como preço.\n**Os oito falam do CUSTO — quanto, quando, com que frequência, sobre o quê.\nNenhum fala de A QUEM se atribui a diferença final**, e é esse o eixo aqui. O\nvizinho mais próximo é o `s014`: ele compara as duas fontes de custo entre si;\nesta peça compara o **custo** contra o **mercado**, e diz qual dos dois moveu o\nnúmero.\n\n## AVISO SOBRE OS NUMEROS\n**ZERO número novo sobre o mundo, e aqui a trava morde mais do que de costume\nporque a origem é um longo feito de quantias calculadas.** Ficaram FORA: a\nquantia mensal do exemplo, o prazo em anos, a taxa real de retorno suposta, o\nteto legal da taxa de gestão, a alíquota do imposto sobre o lucro, os limites\nanuais do IKE e do IKZE, as duas alíquotas de IRPF, o ryczałt da retirada e\n**todas as quantias dos três cenários** — e estas últimas pelo caso especial da\nregra (g) que o `kolejny-poziom-s079` já aplicou: número que o próprio longo\ndeclara ser EXEMPLO do cálculo não entra de jeito nenhum.\n\n**E a recusa inclui o número que daria o gancho mais fácil** — a diferença entre\no pior e o melhor cenário, que é exatamente o que tornaria o argumento\nconcreto. A peça diz que a diferença existe e de onde ela vem, sem a dizer.\n\nOs numerais falados são **\"trzy\"** (os três cenários) e **\"dwie\"** (as duas\ndecisões), os dois **estrutura do argumento** e não fato sobre o mundo — eles\ncontam o que a própria peça enumera. Conferidos pelo `numerais_falados`, com a\nressalva dele de que ausência de vocabulário não prova ausência.\n\nAs barras das cenas 3 e 8 são **ILUSTRAÇÃO qualitativa e NÃO são faladas**: a\ncena 3 desenha os três cenários com **altura IGUAL**, que é o argumento inteiro,\ne a cena 8 desenha dois invólucros diferentes sem nenhuma proporção medida. A\nrodada seguinte não deve lê-las de volta como dado.\n\n## EXPOSICAO\n**A PINÇA DO 740/748 ESTÁ FECHADA AQUI**, e isso vai declarado ANTES de\npublicar: o `mira.janela_dos_dois_mundos` não devolve janela nenhuma para a voz\npolonesa nesta faixa com doze cenas, porque o vão entre os provedores é de ~6 s\ncontra 1,5 s de largura do `ALVO_SHORT`.\n\n**MIREI O PISO** (regra de redação do 772), e o piper sai **FORA pela mira e\nDENTRO do portão**, que cobra 18 a 45 s nos dois mundos.\n\n**O REAL não está prometido para lado nenhum:** a banda do resíduo tem 5,2 s de\nlargura contra 1 s de granularidade, e declarar um lado dela não é previsão\n(774).\n\n## RESERVA\nPara a rodada seguinte, nesta origem (`kolejny-poziom-004`, os dois ids), com o\nmotivo de cada item.\n* **LIVRES** os capítulos 45, 46, 47, 48, 49, 50 e 52 — o bloco do IKE/IKZE.\n  **E vai com um AVISO, não como convite:** o `kolejny-poziom-s075`, de OUTRA\n  origem deste mesmo canal, já carrega a mecânica das duas contas (dedução agora\n  contra isenção no fim, e o *warunek* da idade), e o `s034` desta origem já\n  carrega o *warunek* dos cinco anos calendário. Sobra o capítulo **52** — o\n  teto de depósito não é requisito de entrada —, e esse ângulo é PRÓPRIO;\n* **LIVRE** o capítulo 29 — a base do imposto é o LUCRO, não o capital inteiro.\n  **Com ressalva:** o `kolejny-poziom-s096`, deste canal, já tem a família da\n  BASE da percentagem (as subtrações sequenciais do holerite), logo quem pegar\n  este tem de distinguir as duas em letra ou escolher outra;\n* **LIVRES** os capítulos 19 e 20 — o custo medido em MESES DE TRANSFERÊNCIA.\n  **Com ressalva:** o `kolejny-poziom-s095`, deste canal, já tem a família da\n  UNIDADE em que se lê o resultado, e o 19/20 carregam quantias que a regra (g)\n  tira;\n* **LIVRE** o capítulo 15 — a mudança de regra que foi A SEU FAVOR e que ninguém\n  lhe contou, porque não lhe cobra nada. **Sozinho não é família**, e o capítulo\n  14 (a mudança em si) é território declarado do `s087`;\n* **NÃO LEVAR** os capítulos 60 a 63: entram na FAIXA que o `s034` declara (38 a\n  63). A família dele é outra, logo eles podem estar de fato livres — mas quem\n  os quiser tem de LER a peça dele antes, porque declaração em prosa não é\n  veredito nos dois sentidos (22/10, 12:3x);\n* **CONSUMIDO por esta peça** o capítulo 64, com o 11, o 45, o 52 e o 69 ao\n  redor;\n* **E a conta do esgotamento desta origem sai do instrumento de 23/10 às 05:4x**,\n  não desta prosa: `pauta_do_momento.esgotamento`.\n\n## HASHTAGS\n#inwestowanie #ike #ikze #kosztyfunduszy #kolejnypoziom\n\n## TAGS\nkoszt roczny funduszu, stopa zwrotu, ike ikze, rodzaj konta, koszt zamiast rynku, oszczedzanie dlugoterminowe, oplata za zarzadzanie\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ncategoryId: 27\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\nmadeForKids: false\n\n## MUSICA / LICENCA\nWholesome — Kevin MacLeod (incompetech.com), Creative Commons: By Attribution 4.0\n"
+}
