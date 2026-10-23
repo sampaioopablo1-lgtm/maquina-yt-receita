@@ -1,0 +1,124 @@
+{
+ "slug": "kolejny-poziom-s102",
+ "pacote": "kolejny-poziom-s102",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "longo_existente": "wb1RGIx7OJI",
+ "longo": [],
+ "thumb": {
+  "l1": "Minus nie znaczy",
+  "l2": "upadek"
+ },
+ "paleta": {
+  "bg": "#0B0B0C",
+  "ink": "#F2EEE8",
+  "c1": "#E23B3B",
+  "c2": "#D9C7A7",
+  "red": "#FF4D4D",
+  "ok": "#7FB77E",
+  "panel": "#151517",
+  "mut": "#8F877C",
+  "acc": "#E23B3B"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Ta linia zeszła pod zero",
+   "sub": "to nie wiadomość o firmie",
+   "nar": "Ta linia zeszła pod zero."
+  },
+  {
+   "layout": "item",
+   "kicker": "Bo to rachunek samych polis",
+   "sub": "osobne konto, nie cała firma",
+   "nar": "To rachunek samych polis."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Trzy pozycje i koniec",
+   "itens": [
+    "Składki",
+    "Szkody",
+    "Koszty"
+   ],
+   "nar": "Wchodzą składki, szkody i koszty."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Czego w nim nie ma",
+   "barras": [
+    {
+     "rot": "To konto",
+     "v": 100
+    },
+    {
+     "rot": "Zyski z lokat",
+     "v": 0
+    }
+   ],
+   "nar": "Zysków z lokat w nim nie ma."
+  },
+  {
+   "layout": "item",
+   "kicker": "A tam zwykle nadrabia",
+   "sub": "stratę z rachunku polis",
+   "nar": "A tam firma zwykle nadrabia stratę."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ale nie znaczy też",
+   "sub": "że nic się nie zmienia",
+   "nar": "Minus tu nie znaczy upadku firmy."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Więc minus to nie upadek",
+   "sub": "osobne konto, osobny sens",
+   "nar": "Ale nie znaczy też, że nic nie zmienia."
+  },
+  {
+   "layout": "item",
+   "kicker": "Pierwsza czyta to jako groźbę",
+   "sub": "firma mi nie wypłaci",
+   "nar": "Pierwsza lektura: nie wypłacą mi."
+  },
+  {
+   "layout": "item",
+   "kicker": "Druga jako nic",
+   "sub": "przecież nadrobią gdzie indziej",
+   "nar": "Druga: nadrobią, więc nic."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Obie mylą to samo",
+   "itens": [
+    "Konto polis",
+    "Wynik firmy"
+   ],
+   "nar": "Obie mylą jedno konto z całą firmą."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Oba równie mylne",
+   "barras": [
+    {
+     "rot": "Groźba",
+     "v": 100
+    },
+    {
+     "rot": "Nic",
+     "v": 100
+    }
+   ],
+   "nar": "A to mówi o cenie polisy, nie o firmie."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Kolejny Poziom",
+   "sub": "subskrybuj",
+   "nar": "Sprawdź datę wznowienia i subskrybuj."
+  }
+ ],
+ "copy": "# kolejny-poziom-s102 — short solto\n\n## TITULO\nMinus na tej linii nie znaczy, że firma upada — mówi o cenie twojej polisy\n\n## TITULO SHORT\nMinus nie znaczy upadek\n\n## DESCRICAO\nW raportach nadzoru pojawia się zdanie, które brzmi groźnie: wynik techniczny w\nobowiązkowym OC zmienił znak i zszedł pod zero. Z tego jednego zdania ludzie\nwyciągają dwa przeciwne wnioski, i oba są błędne — bo oba czytają je jako\nwiadomość o firmie, a to nie jest wiadomość o firmie.\n\nWynik techniczny to osobne konto. Wchodzą do niego trzy pozycje: składki, szkody\ni koszty. I to wszystko. Nie ma w nim tego, co ubezpieczyciel zarabia, inwestując\npieniądze klientów — a właśnie tam zwykle nadrabia. Dlatego minus na tej linii nie\njest zapowiedzią upadku ani sygnałem, że ktoś ci nie wypłaci odszkodowania.\n\nAle nie jest też niczym. Pierwsza błędna lektura to panika: ta firma ma stratę,\nwięc mi nie wypłaci. Druga jest cichsza i dlatego częstsza: przecież nadrobią na\nlokatach, więc nic się nie dzieje. Obie mylą to samo — jedno konto z całą firmą.\nI obie prowadzą do przeciwnych ruchów, z czego żaden nie jest tym właściwym.\n\nCo to zdanie naprawdę mówi, mówi tylko o jednym: sama cena polis przestała\npokrywać ryzyko. A kiedy cena przestaje pokrywać ryzyko, firmy robią jedną z\ndwóch rzeczy — podnoszą składkę albo zaostrzają kryteria. Zwykle obie naraz, tylko\nw innym tempie: kryteria zmienia się z dnia na dzień, cennik wolniej.\n\nDlatego to jest sygnał o twojej przyszłej składce, nie o kondycji\nubezpieczyciela. I dlatego praktyczny wniosek nie dotyczy firmy, a kalendarza:\nsprawdź, kiedy kończy się twoja polisa, i zapisz tę datę. Pełne wyliczenie, z\nliczbami i źródłami, jest w długim filmie na tym kanale.\n\n## COMENTARIO FIXADO\nZnasz datę końca swojej polisy bez szukania w dokumentach?\n\n## FONTES\nLongo `kolejny-poziom-009` (`wb1RGIx7OJI`, 78 capitulos). A familia sai dos\nrozdzialy **40, 41 e 42** — o 40 define a conta em letra (*\"Wynik techniczny to\nsam rachunek ubezpieczeniowy: skladki minus szkody minus koszty. Nie obejmuje\ntego, co firma zarobi, inwestujac pieniadze klientow\"*), o 41 diz o que o sinal\nsignifica e o que NAO significa (*\"Ubezpieczyciel ze strata techniczna nie\nbankrutuje — zwykle nadrabia to na inwestycjach. Ale to jest sygnal, ze sama cena\npolis przestala pokrywac ryzyko\"*) e o 42 da as duas reacoes das firmas —, com\napoio dos **45 a 48**, que explicam por que a cena ainda nao subiu.\n\nEscolhidos pelo `segundo_angulo.texto_dos_livres`, que devolveu os 57 livres com o\ntexto INTEIRO e MARCOU os que um irmao declara. **Quinze sairam MARCADOS e\nficaram de fora de proposito** (11, 14, 15, 17, 22, 49 a 54, 57, 59, 63 e 76,\ndeclarados pelo `s031`, pelo `s062` e pelo `s088`). Este pacote **NAO** e\ncompartilhado, logo a leitura por id coincide com a uniao.\n\n## FAMILIA DE ENTRADA ERRADA\n**O SINAL MORA NUMA CONTA SEPARADA: o `wynik techniczny` lido como o RESULTADO DA\nEMPRESA** (rozdzialy 40, 41 e 42, com os 45 a 48 de apoio). O eixo e **DE QUE\nCONTA o numero fala**, e nao o valor dele: aquela linha e `skladki minus szkody\nminus koszty` e mais nada — ela **nao inclui** o que a seguradora ganha\ninvestindo o dinheiro dos clientes, que e justamente onde ela costuma recuperar.\nLogo um sinal negativo ali nao e uma afirmacao sobre a SOLVENCIA da empresa; e\numa afirmacao sobre o PRECO do produto.\n\n**E o erro tem DUAS leituras, com acoes OPOSTAS — e e isso que o torna comum.**\nA primeira e o panico: *a firma esta no vermelho, logo nao vai me pagar*. A\nsegunda e mais silenciosa e por isso mais frequente: *eles nadrobia nas\ninversoes, logo nada aconteceu*. **As duas confundem o mesmo par** — uma conta com\na empresa inteira — e nenhuma das duas leva ao movimento certo, que nao e sobre a\nfirma: e sobre a data da propria renovacao.\n\n**E o mecanismo do silencio e de VOCABULARIO, nao de aritmetica.** A expressao\ncarrega a palavra *wynik*, que em qualquer outro contexto significa o resultado da\nempresa, e a conta que ela nomeia **fecha certo** — conferi-la nunca acusa nada.\nQuem a le nao esta errando um calculo: esta aplicando ao numero certo a pergunta\nerrada, e nada no relatorio avisa que o escopo da conta e menor que o nome dela.\n\n**DISTINCOES contra os QUATRO irmaos desta origem**, lidas pelo\n`irmaos_da_origem` e, nos **DOIS** sem o campo (`s013` e `s062`), pela PROSA e\npela NARRACAO de cada um, que e de primeira mao (776):\n\n* `s013` *Ile kosztuje cie nierobienie niczego?* — o **BEZWLAD**: a polisa renova\n  sozinha, e a diferenca entre a melhor oferta de hoje e a proposta de renovacao\n  e o custo de nao agir. Receita de tres numeros, nenhuma palavra sobre sinal;\n* `s031` *Nizsza skladka to okno, nie poziom* — o **TEMPO**: ler preco baixo como\n  patamar quando ele e estado transitorio (rozdzialy 49 a 65);\n* `s062` *Srednia z raportu to nie twoja cena* — **DE QUEM** e o numero: a media\n  do portfolio inteiro contra a oferta de hoje (rozdzialy 14 a 17);\n* `s088` *Nie tylko kolumna z cena* — a **DIMENSAO**: comparar apolices pela unica\n  coluna que o comparador mostra (rozdzialy 11 a 76).\n\n**Os quatro falam de PRECO** — de quanto custa nao agir, de por quanto tempo o\npreco fica baixo, de qual preco e o seu, de o que o preco nao captura. **Nenhum\nfala da conta de onde sai o SINAL**, nem de confundir o escopo de uma conta com o\nda empresa. E o mais vizinho e o `s031`, com a distincao fina: ele diz que o\npreco baixo e uma JANELA e usa o custo subindo como a razao de ela fechar; esta\npeca fica no numero que mede esse custo e diz **de que conta ele fala** — e as\nduas se encaixam em vez de competir, porque e justamente a leitura errada do\nsinal que faz a pessoa tratar a janela como patamar.\n\n## AVISO SOBRE OS NUMEROS\n**ZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO.** O eixo desta peca\ne o SIGNIFICADO de um sinal, nao o valor de coisa nenhuma — citar qualquer um\nseria carregar exatamente o que ela recusa. Conferido pelo `numerais_falados`,\ncom a ressalva dele: ausencia de vocabulario nao prova ausencia.\n\nFicaram FORA pela regra (g), um por um: a skladka media, a szkoda media, os\npercentuais de variacao dos dois, o numero de polisas em vigor, o crescimento da\ncarteira, o przypis skladki, o aumento das wyplaty, a razao entre uma szkoda e N\npolisas, e o numero do grupo em que o obowiazkowe OC e contabilizado. **Todos sao\nestatistica de UM trimestre**, e o rozdzial 8 da propria origem escreve a regra\nque eu sigo aqui: *\"Srednia rynkowa to nie jest twoja cena\"*.\n\n**E A RECUSA INCLUI O NUMERO QUE DARIA A PECA MAIS FACIL:** o par do rozdzial 76\n(*\"skladka spadla o siedem dziesiatych procenta, a szkoda urosla o szesc i cztery\ndziesiate\"*), que e literalmente o resumo que o longo manda guardar. Ele esta\n**DECLARADO** pelo `s088`, e e numero de trimestre — duas razoes, cada uma\nbastante.\n\n**E AS BARRAS SAO ILUSTRACAO QUALITATIVA E NAO SAO FALADAS.** A cena 4 desenha a\nconta das polisas contra os zyski z lokat com o segundo em ZERO, porque o\nargumento e que aquela linha **nao contem** o segundo — e nao que ele seja zero no\nmundo. A cena 11 desenha as duas leituras erradas com altura **IGUAL de\nproposito**, porque o argumento e que as duas sao igualmente erradas. **Nenhuma\ndas duas e proporcao medida**, e isto vai escrito para a rodada seguinte nao as\nler de volta como dado.\n\n## EXPOSICAO\n**A PINCA DO 740/748 ESTA FECHADA AQUI, e a exposicao vai declarada ANTES de\npublicar:** o `mira.janela_dos_dois_mundos` diz que NENHUMA media por cena poe os\ndois provedores dentro de 41,5 a 43,0 com doze cenas nesta voz. Mirei o **PISO**\n(regra de redacao do 772): previsao edge **41,52 s**, 0,02 acima dele — o piso\nEXATO alcancavel nesta contagem; o piper sai em **35,30 s**, FORA pela mira e\nDENTRO do portao `duracao`, que cobra 18 a 45 s nos DOIS mundos. O provedor se\ndecide no runner, por cena e por run (730/733).\n\n**E o REAL nao esta prometido para lado nenhum:** a banda do residuo tem 5,2 s de\nlargura contra 1 s de granularidade, e declarar um lado dela nao e previsao (774).\n\n**E os caracteres sairam do instrumento, nao da minha cabeca:** a primeira versao\nprevia **48,78 s** — acima do teto do PORTAO — e o `mira.quanto_cortar` disse\n*\"cortar ~111 caracteres no TOTAL, 9,2 por cena; um caractere vale 0,052 s nesta\nvoz\"*. Duas passadas de corte depois, a media ficou em **32,33** caracteres por\ncena contra os 33 do piso executavel.\n\n## RESERVA\nO que fica LIVRE nesta origem, para a rodada seguinte achar — e o conjunto sai do\n`texto_dos_livres`, nao da minha leitura:\n\n* **rozdzialy 24, 25 e 26** (por que a szkoda encarece: pecas, mao de obra e\n  eletronica; e que **mais szkodas vezes szkoda mais cara se MULTIPLICAM, nao se\n  somam**) — LIVRES e fortes, **com ressalva escrita**: o eixo da OPERACAO entre\n  dois fatores e adjacente ao do `epomeno-epipedo-s074` (23/10, 09:1x), que fala\n  de qual linha entra como SOMA e qual no multiplicador. **Esta em OUTRO canal**,\n  logo o `similaridade` nao pegaria — quem levar isto tem de ler o `s074` antes;\n* **rozdzialy 45 a 48** (como se ganha cliente em OC: o ambito e legal e\n  identico, logo a competicao inteira vai para o preco, e as porownywarki\n  amplificam isso) — LIVRES. Usados aqui apenas como APOIO, nao como eixo;\n* **rozdzialy 66 e 68 a 75** (a tabela de cinco linhas, e o que ela faz um ano\n  depois: compara voce com voce, nao com a media do pais) — LIVRES, **com\n  ressalva**: a receita das tres linhas ja e do `s013`, e a quinta linha (a data\n  menos trinta dias) e o fecho desta peca. O que sobra e o **rozdzial 74**, que e\n  familia propria de COMPARADOR;\n* **rozdzialy 18 a 20** (a media e calculada sobre o parque INTEIRO, contado peca\n  por peca, e ele cresce) — LIVRES, com o 15 e o 17 NOMEADOS como do `s062`;\n* **rozdzialy 40 a 42** vao NOMEADOS como consumidos por ESTA peca, e os **45 a\n  48** como APOIO dela.\n\n## HASHTAGS\n#ubezpieczenia #oc #finanse\n\n## TAGS\noc, ubezpieczenie komunikacyjne, wynik techniczny, skladka, szkoda, polisa, wznowienie, nadzor, rynek ubezpieczen, finanse osobiste\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ncategoryId: 26\ndefaultLanguage: pl\nmadeForKids: false\n\n## MUSICA / LICENCA\nWholesome (Kevin MacLeod, incompetech.com), CC BY 3.0.\n"
+}
