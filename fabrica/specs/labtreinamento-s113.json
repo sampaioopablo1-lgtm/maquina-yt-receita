@@ -1,0 +1,81 @@
+{
+ "slug": "labtreinamento-s113",
+ "pacote": "labtreinamento-s113",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "longo_existente": "lau1nnOUm1U",
+ "thumb": {
+  "l1": "Vencimento",
+  "l2": "não é campo"
+ },
+ "paleta": {
+  "bg": "#0E1117",
+  "ink": "#EEF1F5",
+  "c1": "#3DDBD9",
+  "c2": "#1E2430",
+  "red": "#FF5A5F",
+  "ok": "#3CCB7F",
+  "panel": "#161B24",
+  "mut": "#8B95A5",
+  "acc": "#3DDBD9"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Procurou o vencimento no certificado",
+   "sub": "e ele não está escrito lá",
+   "nar": "Você procurou o vencimento no certificado?"
+  },
+  {
+   "layout": "barras",
+   "kicker": "O papel guarda a outra data",
+   "barras": [
+    {
+     "rot": "Realização",
+     "v": 100
+    },
+    {
+     "rot": "Vencimento",
+     "v": 0
+    }
+   ],
+   "nar": "O papel guarda a data em que ele aconteceu."
+  },
+  {
+   "layout": "item",
+   "kicker": "Nenhum campo traz o vencimento",
+   "sub": "nem no frente, nem no verso",
+   "nar": "O vencimento não aparece em campo nenhum."
+  },
+  {
+   "layout": "item",
+   "kicker": "Não é dado, é resultado",
+   "sub": "ele sai de uma conta sua",
+   "nar": "Ele não é um dado: é resultado de uma conta."
+  },
+  {
+   "layout": "lista",
+   "kicker": "O que entra na conta",
+   "itens": [
+    "A data da realização",
+    "A periodicidade do treinamento"
+   ],
+   "nar": "A conta usa a realização e a periodicidade."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A periodicidade se confere",
+   "sub": "memória não é fonte",
+   "nar": "E a periodicidade você confere, não lembra."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Confira no seu próprio papel",
+   "sub": "e escreva a sua lista",
+   "nar": "Confira no seu papel e se inscreva no canal."
+  }
+ ],
+ "copy": "# labtreinamento-s113\n\n## TITULO\nA Data de Vencimento Não Está no Certificado: Ela é Resultado de Uma Conta\n\n## TITULO SHORT\nVencimento não é campo\n\n## DESCRICAO\nQuem monta a lista de vencimentos de treinamento quase sempre começa do mesmo\njeito: pega o certificado e procura, nele, a data em que aquele treinamento\ndeixa de valer. **E essa data não está escrita no certificado.** O que o papel\nguarda é a data em que o treinamento aconteceu — a data de realização. O\nvencimento não aparece em campo nenhum, nem na frente nem no verso, porque ele\nnão é um dado do documento: é o **resultado** de uma conta que você faz, uma\npessoa de cada vez.\n\nA conta é curta e tem duas entradas: a data da realização, que está no papel, e\na periodicidade daquele treinamento, que diz de quanto em quanto tempo ele se\nrepete. Dessas duas sai o vencimento, e é essa data — e não a da realização —\nque ordena a sua fila de trabalho.\n\n**E aqui está a entrada errada que não dá aviso nenhum.** Das duas entradas, a\nperiodicidade é a única que muita gente não tem à mão no momento de montar a\nlista — e é justamente ela que se preenche de cabeça, porque quase todo mundo\n\"sabe mais ou menos\" de quanto em quanto tempo cada treinamento se repete. A\nsubtração aceita esse palpite sem reclamar: ela devolve uma data com cara de\ndata, redonda, que entra na planilha e ordena a lista. Ninguém recebe aviso de\nque o número de baixo era lembrança.\n\nO custo não é uma data errada isolada: é a **ordem** da lista. Periodicidade\nlembrada curta demais empurra o vencimento para a frente e põe no topo quem\nainda tem folga; lembrada longa demais joga para trás justamente quem está\nperto de vencer. Nos dois casos a conta fechou, a planilha ordenou, e o topo da\nlista deixou de ser a sua fila de trabalho.\n\nA saída é de procedimento e não de ferramenta: trate o vencimento como coluna\ncalculada, nunca como coluna copiada, e trate a periodicidade como um dado que\nvocê **confere** no seu próprio papel ou no procedimento da sua empresa, não\ncomo um dado que você lembra. Memória não é fonte. Quando a periodicidade não\nestiver escrita em lugar nenhum, a linha fica com o campo em branco e visível —\nlinha em branco se resolve, data inventada não.\n\nEste vídeo faz parte de uma série sobre controle de treinamentos com papel e\ncaneta: nada de sistema, nada de consultoria, e nenhuma entrada que você precise\nestimar.\n\n## COMENTARIO FIXADO\nQual das duas entradas da conta você tinha à mão quando montou a sua lista: a\ndata da realização, a periodicidade, ou nenhuma das duas? Responda só isso, sem\nnomes e sem números.\n\n## FONTES\nOrigem: `lau1nnOUm1U` (`labtreinamento-011`), que tem 57 capítulos e **32 NÃO\nMENCIONADOS** pelos shorts anteriores, medido pelo\n`segundo_angulo.nao_mencionados`. Ela foi escolhida com DESVIO da regra escrita\ndo `concentracao.py`, e o motivo vai medido em vez de afirmado: ela empata em 6\nusos com o `POBNoY16wG8` (`labtreinamento-014`), que a reserva CRUA escolheria\npor ter 40 livres contra 32 — mas das 40 só **NOVE** não são declaradas por um\ndos seis irmãos dele, contra **17** aqui. O vão é de 8 capítulos, **47% do\nmaior**, e o `pauta_do_momento` o imprime: em 22/10 às 17:3x o vão foi de 62% e\na rodada desviou; às 18:0x foi de 3% e ela seguiu a regra.\n\n**E esses nove só apareceram porque o parser de citação foi consertado nesta\nrodada:** antes dele eram treze, porque a cadeia `capitulos 7, 24 e 26 a 30`\ndo `labtreinamento-s091` largava o `a 30` e os capítulos 27 a 30 contavam como\nlivres. Eu ia escrever a família de lá.\n\nA família desta peça sai dos capítulos 1, 2, 7, 10, 11, 25 e 55 da origem:\n*\"o certificado guarda a data de quando o treinamento aconteceu, não a data em\nque ele deixa de valer\"*, *\"a data que interessa, a do vencimento, não está\nescrita em lugar nenhum — ela precisa ser calculada\"*, *\"as quatro primeiras\nvocê copia do certificado; a quinta é a única calculada\"* e *\"eu sei de cabeça\nvárias dessas periodicidades, mas memória não é fonte\"*. Nenhuma frase desta\npeça saiu de TÍTULO de capítulo.\n\nA origem dominante do canal, `FtCtIJPsc_Q`, ficou de fora com a contagem na\nmão — quem conta é o `concentracao.py`.\n\n## FAMILIA DE ENTRADA ERRADA\n**O VENCIMENTO PROCURADO COMO CAMPO, QUANDO ELE É RESULTADO — e a entrada que\nfalta preenchida de MEMÓRIA** (capítulos 1, 2, 7, 10, 11, 25 e 55). O eixo é a\nNATUREZA da coluna: o vencimento não é um dado que se copia, é a saída de uma\nsubtração; e das duas entradas dela a periodicidade é a que muita gente não tem\nà mão, logo é a que se preenche de cabeça. A conta aceita o palpite sem\nreclamar e devolve data com cara de data. **O custo é a ORDEM da lista, não uma\ndata isolada:** periodicidade lembrada curta põe no topo quem tem folga,\nlembrada longa esconde quem está perto de vencer — e nos dois casos o portão da\naritmética está verde.\n\n**Distinções contra os SEIS irmãos desta origem, lidas pelo\n`irmaos_da_origem` e — nos TRÊS sem o campo (`s008`, `s032`, `s075`) — pela\nPROSA e pela NARRAÇÃO de cada um, que é de primeira mão (776):**\n* `labtreinamento-s008` (*Antecedência se mede, não se estima*) — o objeto dele\n  é a ANTECEDÊNCIA: com quantos dias avisar, medida no próprio histórico em vez\n  de um número redondo. Aqui o objeto é o VENCIMENTO: quando vence. **Aviso\n  contra vencimento**, e o dele já pressupõe a lista montada — a narração dele\n  abre com *\"você montou a lista de vencimentos, ela está ordenada\"*;\n* `labtreinamento-s040` (*Emissão não é realização*) — **é o irmão mais próximo\n  e a distinção é fina:** ele escolhe entre DUAS datas que estão as duas\n  impressas no certificado. Esta peça é sobre uma data que **não está impressa\n  em lugar nenhum**. Escolha entre dois dados presentes contra ausência do\n  dado;\n* `labtreinamento-s075` (*Carga horária não decide prazo*) — qual CAMPO dá o\n  prazo (periodicidade, não carga horária). Aqui o campo já está escolhido: o\n  que se pergunta é de ONDE vem o valor dele;\n* `labtreinamento-s032` e `-s047` — os dois são POPULAÇÃO: quem entra na lista.\n  Nenhum fala da coluna de data;\n* `labtreinamento-s101` (*Uma linha por par*) — a UNIDADE da linha, pessoa\n  vezes treinamento. Também não fala de onde a data sai.\n\n## AVISO SOBRE OS NUMEROS\n**ZERO número novo sobre o mundo, e a narração não fala numeral NENHUM** —\nconferido pelo `numerais_falados`, com a ressalva dele de que ausência de\nvocabulário não prova ausência. **Nenhuma periodicidade é dita**, e esse é\njustamente o número que tornaria a peça concreta: ele muda por norma e por\ntreinamento, e **o capítulo 7 da PRÓPRIA origem escreve o mesmo motivo** — *\"eu\nnão vou dizer de quanto em quanto tempo cada treinamento se repete; esse número\nvem do seu certificado\"*. O exemplo numérico dos capítulos 12 e 13 (uma data de\nrealização, uma periodicidade e os meses que faltam) ficou FORA pelo caso\nespecial da regra (g) que o `labtreinamento-s079` já aplicou: número que o\npróprio longo declara ser EXEMPLO do cálculo não entra. As barras da cena 1 são\n**ILUSTRAÇÃO qualitativa** do que está e do que não está escrito no papel, e\n**não são faladas** — a rodada seguinte não deve lê-las de volta como dado.\n\n## EXPOSICAO\n**A PINÇA DO 740/748 NÃO ESTÁ FECHADA AQUI**, e este é o único canal da frota em\nque isso acontece: o `mira.janela_dos_dois_mundos` devolve **41 a 44**\ncaracteres por cena com sete cenas, e a peça saiu com média **42,86** — logo o\nedge e o piper caem os DOIS dentro da mira medida do canal (20,0 a 26,0) e\n**não há exposição de mundo a declarar**. **E eu NÃO mirei o piso de propósito:**\no piso executável aqui é de 31 caracteres e ele é de UM mundo — a própria\n`mira.confere` o reprova, porque com 31 o piper cai abaixo de 20,0 (o defeito\nmedido em 19/10 às 17:2x). **O REAL não está prometido para lado nenhum:** 41\ndas 46 peças deste canal narradas pelo edge saíram FORA do teto de 26,0 **com a\nmira verde nos dois mundos**, e a banda tem 5,2 s de largura contra 1 s de\ngranularidade (774).\n\n## RESERVA\nPara a rodada seguinte, nesta origem (`lau1nnOUm1U`), com o motivo de cada item:\n* **LIVRES** os capítulos 3 e 30 — *a lista SOME de vista quando alguém entra,\n  muda de função ou volta de afastamento* e *lista que mora na cabeça de uma\n  pessoa some quando ela sai de férias*. O eixo é a MANUTENÇÃO da lista no\n  tempo, e nenhum dos seis irmãos o toca;\n* **LIVRES** os capítulos 17 e 53 — o nome escrito igual ao do cadastro (a\n  mesma pessoa em duas linhas) e a linha em branco para quem falta certificado.\n  O eixo é a IDENTIDADE da linha, vizinho do `s101` mas não ele: lá a unidade é\n  pessoa × treinamento, aqui é a grafia do nome;\n* **NÃO LEVAR** os capítulos 12 e 13: são o exemplo numérico, e pela regra (g)\n  eles não entram em peça nenhuma desta origem;\n* **CONSUMIDOS por esta peça** os capítulos 1, 2, 7, 10, 11, 25 e 55.\n\n## HASHTAGS\n#treinamento #vencimento #periodicidade #controle #labtreinamento\n\n## TAGS\ncontrole de treinamento, data de vencimento, periodicidade de treinamento, certificado de treinamento, lista de vencimentos, gestao de treinamento, planilha de treinamento\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ncategoryId: 27\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\nmadeForKids: false\n\n## MUSICA / LICENCA\nInspired — Kevin MacLeod (incompetech.com), Creative Commons: By Attribution 4.0\n"
+}

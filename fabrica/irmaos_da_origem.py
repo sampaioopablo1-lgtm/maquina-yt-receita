@@ -220,39 +220,81 @@ PALAVRA_CAPITULO = r"(?:cap[ií]tulos?|rozdzia[lł](?:y|ow|ów|u)?|κεφ[αά]�
 # engoliria a frase inteira. Oito e o maior encadeamento OBSERVADO no acervo.
 MAX_ENCADEADOS = 8
 
+# O vocabulario da FAIXA, e ele e MEDIDO e nao suposto: varrido o disco, o elo
+# `a` aparece 232 vezes em 123 specs e o grego `έως` 2 vezes em 1 — e `do` e `az`,
+# que eu ia escrever de cabeca, dao ZERO. Vocabulario sem ocorrencia e o 725:
+# detector que inventa achado e pior que nao ter detector. Ele tem UM dono
+# porque a forma 1 (faixa solta) e a cadeia MISTA tem de concordar — se a
+# cadeia soubesse uma palavra que a faixa nao sabe, `κεφάλαια 47 έως 49`
+# sairia lido num caminho e perdido no outro.
+FAIXA_ATE = r"(?:a|έως)"
+
 
 def _citados(trecho: str) -> set:
     """Todo capitulo que um trecho de prosa cita — sem julgar o sinal.
 
-    TRES formas, e as tres medidas no acervo: a FAIXA (`N a M`), o capitulo
-    UNICO (`capitulo N`) e a ENUMERACAO (`capitulos N, M e K`). A terceira
-    entrou em 22/10 as 21:4x e e a que mais faltava — 44 dos 45 casos
-    perdidos.
+    QUATRO formas, e as quatro medidas no acervo: a FAIXA (`N a M`), o capitulo
+    UNICO (`capitulo N`), a ENUMERACAO (`capitulos N, M e K`) e a cadeia MISTA,
+    que troca de forma no meio (`capitulos 7, 24 e 26 a 30`). A terceira entrou
+    em 22/10 as 21:4x e era a que mais faltava — 44 dos 45 casos perdidos.
 
-    **A enumeracao PARA no primeiro token que nao liga, e o `MAX_ENCADEADOS`
+    **A QUARTA entrou em 23/10 as 02:4x, e o custo foi medido na rodada em que
+    ela apareceu.** A cadeia parava no primeiro elo que nao fosse virgula ou
+    conjuncao, logo um `a N` no fim dela era largado: de `capitulos 7, 24 e
+    26 a 30` saiam 7, 24 e 26, e os capitulos 27 a 30 contavam como LIVRES. O
+    inverso tambem se perdia (`N a M e K` entregava a faixa e largava o K).
+    E a faixa GREGA caia no mesmo buraco por outro lado: a forma 1 so conhecia o
+    `a`, logo `κεφάλαια 47 έως 49` entregava 47 e largava 48 e 49 — e o
+    vocabulario da faixa passou a ter UM dono (`FAIXA_ATE`) para a forma 1 e a
+    cadeia nao poderem discordar. Varrido o disco contra a leitura corrigida:
+    **80 capitulos perdidos em 21 specs, zero regressoes** — e nessa rodada QUATRO deles
+    (`labtreinamento-s091`, capitulos 27 a 30) estavam na minha lista de
+    candidatos a familia, isto e, eu ia escrever de territorio declarado. E a
+    mesma assinatura de 22/10 as 12:3x, que me custou duas cenas do
+    `kolejny-poziom-s093`.
+
+    **A cadeia aceita os DOIS tipos de elo e a faixa parte do ULTIMO numero
+    casado**, nunca do primeiro: em `capitulos 7, 24 e 26 a 30` a faixa e
+    26-30 e nao 7-30.
+
+    **A cadeia PARA no primeiro token que nao liga, e o `MAX_ENCADEADOS`
     existe contra o 725:** sem a parada, uma frase cheia de numeros depois da
     lista seria engolida inteira, e detector que inventa achado e pior que nao
     ter detector. Numero NU, sem a palavra antes, nao entra de jeito nenhum.
     """
     achados = set()
-    for m in re.finditer(PALAVRA_CAPITULO + r"\s+(\d{1,3})\s*a\s*(\d{1,3})",
+    for m in re.finditer(PALAVRA_CAPITULO + r"\s+(\d{1,3})\s*"
+                         + FAIXA_ATE + r"\s*(\d{1,3})",
                          trecho, re.I):
         a, b = int(m.group(1)), int(m.group(2))
         if a <= b and b - a < 60:
             achados.update(range(a, b + 1))
     for m in re.finditer(PALAVRA_CAPITULO + r"\s+(\d{1,3})\b", trecho, re.I):
-        achados.add(int(m.group(1)))
-        # A ENUMERACAO continua do numero casado: so digitos ligados por
-        # virgula ou pela conjuncao da lingua entram, e ela PARA no primeiro
-        # token que nao e nenhum dos dois. Encadear sem parar seria o 725.
+        ultimo = int(m.group(1))
+        achados.add(ultimo)
+        # A CADEIA continua do ULTIMO numero casado, e ela tem DOIS tipos de
+        # elo: digito ligado por virgula ou pela conjuncao da lingua, e faixa
+        # `a N`, que expande do ultimo. Ela PARA no primeiro token que nao e
+        # nenhum dos dois — encadear sem parar seria o 725.
         resto = trecho[m.end():]
         for _ in range(MAX_ENCADEADOS):
             liga = re.match(r"\s*(?:,|;|\be\b|\bi\b|\band\b|\bκαι\b)"
                             r"\s*(\d{1,3})\b", resto, re.I)
-            if not liga:
-                break
-            achados.add(int(liga.group(1)))
-            resto = resto[liga.end():]
+            if liga:
+                ultimo = int(liga.group(1))
+                achados.add(ultimo)
+                resto = resto[liga.end():]
+                continue
+            faixa = re.match(r"\s*" + FAIXA_ATE + r"\s*(\d{1,3})\b",
+                             resto, re.I)
+            if faixa:
+                b = int(faixa.group(1))
+                if ultimo <= b and b - ultimo < 60:
+                    achados.update(range(ultimo, b + 1))
+                ultimo = b
+                resto = resto[faixa.end():]
+                continue
+            break
     return achados
 
 
