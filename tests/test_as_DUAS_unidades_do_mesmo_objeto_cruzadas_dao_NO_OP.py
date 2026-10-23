@@ -231,42 +231,69 @@ def test_a_conta_e_DELEGADA_por_AST():
             assert proibido not in ch, (
                 "%s nao pode %s: a juncao das duas unidades tem UM dono"
                 % (f.__name__, proibido))
-    # e o dono da resolucao id -> pacote e o `pacote_do_id`
-    assert "pacote_do_id" in _chamados(SA._ids_do_pacote)
+    # e o dono da resolucao id -> pacote e o `pacote_do_id`, chamado de DENTRO
+    # do mapa com memoria — e o `_ids_do_pacote` delega a ele. A primeira versao
+    # deste assert cobrava `pacote_do_id` no `_ids_do_pacote` e reprovou quando a
+    # memoria entrou: era o TESTE errado, nao o modulo, e a propriedade e a
+    # delegacao e nao o lugar dela.
+    assert "pacote_do_id" in _chamados(SA._mapa_id_pacote)
+    assert "_mapa_id_pacote" in _chamados(SA._ids_do_pacote)
+    assert "pacote_do_id" not in _chamados(SA._ids_do_pacote)
 
 
 def test_o_mapa_id_pacote_tem_MEMORIA_e_ela_se_invalida(tmp_path):
     """Sem memoria ele custa 7,6 s por chamada e ninguem o chama (classe dos
-    layouts mortos); com memoria presa ao DIRETORIO ele leria o mapa velho."""
+    layouts mortos); com memoria presa ao DIRETORIO ele leria o mapa velho.
+
+    O corpus sai do DISCO REAL copiado, e nao de uma fixture a mao: quem resolve
+    id -> pacote e a CONVENCAO DE NOME (`pacote_do_id`), e a primeira versao
+    deste teste montou duas specs a mao que nao a cumprem — o mapa voltou vazio
+    e eu quase chamei isso de defeito do modulo. Era a fixture, e e a mesma
+    licao de 22/10 as 10:3x (o `nomes_de_spec` tira do vocabulario todo nome que
+    e slug de alguma spec).
+    """
     import json as _json
+    import shutil as _shutil
     import time as _time
     d = tmp_path / "specs"
-    d.mkdir()
-    (d / "canalx-001.json").write_text(_json.dumps(
-        {"pacote": "canalx-001", "slug": "canalx-001",
-         "longo": [{"kicker": "A", "nar": "a"}], "copy": "# canalx-001"}),
-        encoding="utf-8")
-    (d / "canalx-s001.json").write_text(_json.dumps(
-        {"pacote": "canalx-s001", "slug": "canalx-s001", "longo": [],
-         "longo_existente": "AAAAAAAAAAA",
-         "copy": "# canalx-s001\n\n## FONTES\nOrigem canalx-001."}),
-        encoding="utf-8")
+    _shutil.copytree(os.path.join(RAIZ, "fabrica", "specs"), str(d))
     t0 = _time.time()
     m1 = SA._mapa_id_pacote(str(d))
     frio = _time.time() - t0
     t0 = _time.time()
     m2 = SA._mapa_id_pacote(str(d))
     quente = _time.time() - t0
-    assert m1 == m2 == {"AAAAAAAAAAA": "canalx-001"}, m1
-    assert quente <= frio, (frio, quente)
-    # a memoria se INVALIDA com spec nova no MESMO diretorio
-    (d / "canalx-s002.json").write_text(_json.dumps(
-        {"pacote": "canalx-s002", "slug": "canalx-s002", "longo": [],
-         "longo_existente": "BBBBBBBBBBB",
-         "copy": "# canalx-s002\n\n## FONTES\nOrigem canalx-001."}),
-        encoding="utf-8")
+    assert m1 and m1 == m2, len(m1)
+    assert quente < max(frio / 2.0, 0.05), (frio, quente)
+    # e a memoria se INVALIDA com spec nova no MESMO diretorio: copio um short
+    # REAL (que cumpre a convencao) e troco so o id da origem.
+    base = None
+    for f in sorted(os.listdir(str(d))):
+        # so `.json`, e com guarda: o diretorio tem 624 entradas e 444 `.json`
+        # (o resto sao os `.build.py`), e foi um deles que fez a primeira versao
+        # deste teste estourar `JSONDecodeError`
+        if not f.endswith(".json"):
+            continue
+        try:
+            sp = _json.load(open(os.path.join(str(d), f), encoding="utf-8"))
+        except Exception:
+            continue
+        if isinstance(sp, dict) and not sp.get("longo") \
+                and sp.get("longo_existente") in m1:
+            base = (f, sp)
+            break
+    assert base, ("perdeu a ancora: nenhum short do disco declara origem que "
+                  "resolve para pacote — sem ele este teste nao mede a "
+                  "invalidacao")
+    f, sp = base
+    sp["longo_existente"] = "ZZZZZZZZZZZ"
+    novo_nome = f.replace(".json", "-copia.json")
+    sp["pacote"] = sp["slug"] = novo_nome[:-5]
+    _json.dump(sp, open(os.path.join(str(d), novo_nome), "w",
+                        encoding="utf-8"), ensure_ascii=False)
     m3 = SA._mapa_id_pacote(str(d))
-    assert set(m3) == {"AAAAAAAAAAA", "BBBBBBBBBBB"}, m3
+    assert "ZZZZZZZZZZZ" in m3, sorted(set(m3) - set(m1))
+    assert set(m3) == set(m1) | {"ZZZZZZZZZZZ"}
 
 
 def test_o_motivo_e_a_medida_continuam_escritos():
