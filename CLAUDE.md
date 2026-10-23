@@ -13489,3 +13489,10 @@ no sentido que CONCORDA**. Os dois arquivos juntos dao **38 testes passando**.
 **A regra que fica: fixture que devolve forma que o DONO nunca devolve nao mede
 o dono — ela mede o stub.** E o jeito de descobrir isso e o mesmo de sempre:
 alguem passa a ler um campo que o dono sempre teve.
+
+**A SUITE FECHOU: 25 falhas, 4.080 passam, 1.242 skip em 2.721 s** — passada
+**PROVADA** pelo `passada_da_suite`, conjunto **IDENTICO** a linha de base desta
+sessao, `comm` vazio nos **dois** sentidos. A passada que ACUSOU deu **33**
+(4.072 passam, 1.239 skip), com as OITO novas todas do arquivo do registro e
+**ZERO desaparecidas** — logo a fixture era o unico defeito e nada mais se
+mexeu.
