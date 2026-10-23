@@ -1,0 +1,123 @@
+{
+ "pacote": "epomeno-epipedo-s100",
+ "slug": "epomeno-epipedo-s100",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "bg": "#F4EFE6",
+  "ink": "#1B1A17",
+  "c1": "#C8502A",
+  "c2": "#2B6CB0",
+  "red": "#B83227",
+  "ok": "#2E8B57",
+  "panel": "#FFFFFF",
+  "mut": "#7A7263",
+  "acc": "#C8502A"
+ },
+ "longo": [],
+ "longo_existente": "pqTc8jBrq0E",
+ "thumb": {
+  "l1": "Το κάτω νούμερο",
+  "l2": "αλλάζει"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Το κάτω νούμερο",
+   "sub": "δεν είναι τα έξοδά σου",
+   "nar": "Το κάτω νούμερο δεν είναι έξοδα."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Έξοδα και υποχρεώσεις",
+   "barras": [
+    {
+     "rot": "Έξοδα",
+     "v": 100
+    },
+    {
+     "rot": "Υποχρεώσεις",
+     "v": 62
+    }
+   ],
+   "nar": "Είναι ό,τι πληρώνεις όπως κι αν έρθει."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Αυτά μένουν",
+   "itens": [
+    "Νοίκι ή δόση",
+    "Λογαριασμοί με ημερομηνία"
+   ],
+   "nar": "Αυτές οι γραμμές δεν ρωτάνε αν δουλεύεις."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Αυτά φεύγουν",
+   "itens": [
+    "Ό,τι κόβεται",
+    "Ό,τι περιμένει"
+   ],
+   "nar": "Ό,τι μπορεί να σταματήσει μένει έξω."
+  },
+  {
+   "layout": "item",
+   "kicker": "Μία ερώτηση",
+   "sub": "και τίποτα άλλο",
+   "nar": "Η δοκιμή είναι μία ερώτηση, όχι λίστα."
+  },
+  {
+   "layout": "item",
+   "kicker": "Μπορώ να το κόψω",
+   "sub": "τον επόμενο μήνα",
+   "nar": "Μπορώ να το κόψω τον επόμενο μήνα;"
+  },
+  {
+   "layout": "item",
+   "kicker": "Αν ναι, μένει έξω",
+   "sub": "χωρίς συζήτηση",
+   "nar": "Αν ναι, δεν μπαίνει στο κάτω νούμερο."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Κριτήριο η υποχρέωση",
+   "sub": "όχι η συνήθεια",
+   "nar": "Κριτήριο η υποχρέωση, όχι η συνήθεια."
+  },
+  {
+   "layout": "item",
+   "kicker": "Το φαγητό μπαίνει",
+   "sub": "στο προσεγμένο ποσό",
+   "nar": "Το φαγητό μπαίνει στο προσεγμένο ποσό."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Και τα δύο βγάζουν νούμερο",
+   "barras": [
+    {
+     "rot": "Σωστό",
+     "v": 100
+    },
+    {
+     "rot": "Λάθος",
+     "v": 100
+    }
+   ],
+   "nar": "Και η λάθος λίστα βγάζει νούμερο."
+  },
+  {
+   "layout": "item",
+   "kicker": "Κανείς δεν σου λέει",
+   "sub": "ότι η λίστα ήταν λάθος",
+   "nar": "Κανείς δεν σου λέει ότι έφταιγε αυτό."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Γράψε το κάτω νούμερο",
+   "sub": "και κάνε εγγραφή",
+   "nar": "Γράψε το κάτω νούμερο, κάνε εγγραφή."
+  }
+ ],
+ "copy": "# epomeno-epipedo-s100\n\n## TITULO\nΤο Κάτω Νούμερο Δεν Είναι Τα Έξοδά Σου: Κριτήριο Είναι η Υποχρέωση\n\n## TITULO SHORT\nΤο κάτω νούμερο αλλάζει\n\n## DESCRICAO\nΗ πράξη είναι απλή: παίρνεις ό,τι έχεις στην άκρη και το διαιρείς με το ποσό\nπου φεύγει κάθε μήνα. Το πάνω νούμερο το ξέρεις — το δείχνει η τράπεζα. Το κάτω\nτο φτιάχνεις εσύ, και εκεί γίνεται το λάθος.\n\nΟι περισσότεροι βάζουν κάτω **τα έξοδα του περασμένου μήνα**, όπως τα βρίσκουν\nστην κίνηση του λογαριασμού. Είναι λογικό και είναι λάθος: η κίνηση δείχνει τι\n**ξόδεψες**, ενώ η πράξη ρωτάει τι θα **πληρώσεις** αν σταματήσει το εισόδημα.\nΔύο διαφορετικά ερωτήματα, που τυχαίνει να μοιάζουν.\n\n**Το κριτήριο δεν είναι η συνήθεια, είναι η υποχρέωση.** Υπάρχουν γραμμές που\nδεν ρωτάνε αν δουλεύεις: έρχονται με ημερομηνία και περιμένουν πληρωμή το ίδιο.\nΚαι υπάρχουν γραμμές που, αν χρειαστεί, σταματούν τον επόμενο μήνα. Οι πρώτες\nμπαίνουν στο κάτω νούμερο. Οι δεύτερες μένουν έξω.\n\n**Η δοκιμή είναι μία ερώτηση και τίποτα άλλο: μπορώ να το κόψω τον επόμενο\nμήνα;** Αν η απάντηση είναι ναι, δεν ανήκει στο κάτω νούμερο. Το φαγητό είναι η\nεξαίρεση που δείχνει τον κανόνα: μπαίνει, αλλά όχι στο ποσό που ξοδεύεις τώρα —\nμπαίνει στο ποσό που θα ξόδευες αν πρόσεχες κάθε ευρώ.\n\n**Και εδώ είναι γιατί το λάθος δεν φαίνεται ποτέ: η διαίρεση βγάζει κανονικό\nαποτέλεσμα και με τη σωστή και με τη λάθος λίστα.** Δεν υπάρχει μήνυμα, δεν\nυπάρχει κόκκινο κελί, κανείς δεν σου λέει ότι το κάτω νούμερο έφταιγε. Το\nαποτέλεσμα βγαίνει στρογγυλό και το πιστεύεις.\n\nΈνας δεύτερος έλεγχος, πιο απλός από τον πρώτο: **αν σταματούσε σήμερα το\nεισόδημα, θα πλήρωνα όλα αυτά και μόνο αυτά;** Αν η απάντηση είναι ναι, η λίστα\nστέκει. Αν όχι, δεν λείπει πράξη — λείπει ή περισσεύει γραμμή.\n\n## COMENTARIO FIXADO\nΌταν έκανες τελευταία φορά αυτήν την πράξη, τι έβαλες κάτω: τα έξοδα του μήνα ή\nμόνο τις υποχρεώσεις? Απάντησε με μία λέξη: έξοδα ή υποχρεώσεις.\n\n## FONTES\nOrigem: `pqTc8jBrq0E` (`epomeno-epipedo-068`), 64 capítulos — a `escolhida` da\nregra escrita (do `concentracao.py`) como **MÍNIMO ÚNICO** do canal em 4 usos,\n**sem empate**, logo a reserva não desempatou nada e a divergência medida em\n22/10 às 17:3x não tem objeto aqui.\n\n**A reserva SEM DECLARAÇÃO é de 24 de 41 livres**, e o instrumento de 23/10 às\n05:4x diz que ela **cabe outra peça** (mediana medida de 7 capítulos declarados\npor peça). O pacote **não** é compartilhado, logo a leitura por id coincide com a\nunião — e isso vai dito porque em 23/10 às 06:4x ficou medido que nos dois\npacotes compartilhados da frota ela **não** coincide.\n\nA dominante do canal (`nttW9fR8wyY`) ficou de fora, e quem conta é o\n`concentracao.py`.\n\n**E O BLOCO MAIS FÁCIL DESTA ORIGEM FICOU DE FORA DE PROPÓSITO, com o motivo\nescrito:** os capítulos 32, 34, 35 e 39 formam a família *\"a divisão nunca falha,\nfalha sempre a lista\"* — e **isso é literalmente a família do\n`labtreinamento-s114`**, que eu publiquei às 05:19Z de hoje, em OUTRO canal.\nLevá-la aqui seria o 762 numa dimensão nova, e o portão `similaridade` **não\npegaria**, porque ele compara contra o MESMO canal. O capítulo **35** entrou\nisolado, e só como mecanismo do silêncio desta família (a conta fecha nos dois\ncasos); o **39**, que é a frase da outra peça, ficou **fora**.\n\n## FAMILIA DE ENTRADA ERRADA\n**O CRITÉRIO DE ENTRADA NO DIVISOR É A OBRIGAÇÃO, NÃO O HÁBITO DE GASTO**\n(capítulos 8, 10, 11, 13 e 37, com o 35 como mecanismo). O eixo é a **REGRA DE\nINCLUSÃO** de cada linha no número de baixo, e não o conteúdo dele nem a janela\nde onde ele sai: a movimentação da conta responde *\"quanto gastei\"*, e a conta\npergunta *\"quanto pagarei se a renda parar\"*. São duas perguntas diferentes que\nse parecem, e a segunda não está escrita em documento nenhum.\n\n**E o mecanismo do silêncio é o do capítulo 35: a divisão devolve resultado\nnormal com a lista certa E com a lista errada.** Não há aviso, não há célula\nvermelha, e o número sai redondo nos dois casos — logo nada marca a hora de\nolhar. A operação que distingue é uma **pergunta**, não um cálculo: *posso cortar\nisto no mês que vem?*\n\n**E a comida é a exceção que mostra a regra:** ela entra, porque não se corta —\nmas entra no valor que você gastaria se cuidasse de cada euro, não no que gasta\nhoje. Logo a mesma linha pode estar dentro com um valor diferente, o que nenhuma\nregra de \"cortar ou não cortar\" sozinha resolve.\n\n**Distinções contra os QUATRO irmãos desta origem**, lidas pelo\n`irmaos_da_origem` e — nos **TRÊS** sem o campo `## FAMILIA DE ENTRADA ERRADA` —\npela PROSA e pela NARRAÇÃO de cada um, que é de primeira mão (776):\n* `epomeno-epipedo-s068` (*Ο στόχος δεν δανείζεται*) — o **ALVO** em meses, e que\n  ele não se empresta de ninguém. Ele fala do número que se persegue; esta peça\n  fala do divisor com que se mede onde você está;\n* `epomeno-epipedo-s069` (*Ίδιο ποσό, άλλοι μήνες*) — a **UNIDADE** do resultado:\n  euros comparam com gente que você não conhece, meses comparam com o seu mês.\n  Ele diz em que unidade ler a resposta; esta diz quais linhas entram na conta;\n* `epomeno-epipedo-s070` (*Ένας μήνας, λάθος διαιρέτης*) — **é o vizinho mais\n  próximo e a distinção é fina:** ele fala da JANELA de onde o divisor sai (um\n  mês esconde o trimestral e o anual), e manda três meses de extrato. Esta peça\n  fala do **CRITÉRIO** de inclusão, que vale qualquer que seja a janela: com três\n  meses perfeitos e a regra errada, o número de baixo continua errado. **Janela\n  contra critério**, e as duas se encaixam em vez de competir. O capítulo 14 (as\n  linhas anuais divididas por doze) é território dele e ficou **fora**;\n* `epomeno-epipedo-s083` (*Δύο δρόμοι, όχι ένας*) — o **NUMERADOR**: o que entra\n  nele é só o que vira dinheiro, e a reserva cresce por dois caminhos. Ele é o\n  número de cima; esta é o de baixo.\n\n## AVISO SOBRE OS NUMEROS\n**ZERO número novo sobre o mundo, e a narração não fala numeral NENHUM** —\nconferido pelo `numerais_falados`, com a ressalva dele de que ausência de\nvocabulário não prova ausência.\n\nFicaram **FORA** pela regra (g): qualquer alvo em meses como recomendação,\nqualquer percentual, qualquer valor em euros, prazo médio de recolocação por\nsetor e qualquer média de mercado. **E a recusa inclui o número que daria o\ngancho mais fácil** — quantos meses \"bastam\" —, que é exatamente o que o próprio\n`s068` desta origem já declarou descartado pelo mesmo motivo.\n\n**Classe PROCEDIMENTO:** a trava de duas fontes institucionais (600) vale para\nnúmero sobre o MUNDO que muda, e aqui não existe nenhum — a peça carrega uma\nREGRA DE INCLUSÃO, que não envelhece.\n\nAs barras das cenas 2 e 10 são **ILUSTRAÇÃO qualitativa e NÃO são faladas**: a\ncena 2 desenha gasto contra obrigação (duas alturas diferentes, sem unidade de\ndinheiro) e a cena 10 desenha as duas listas com **altura IGUAL**, que é o\nargumento inteiro do silêncio. A rodada seguinte não deve lê-las de volta como\ndado.\n\n## EXPOSICAO\n**A PINÇA DO 740/748 ESTÁ FECHADA AQUI**, e vai declarado ANTES de publicar: o\n`mira.janela_dos_dois_mundos` não devolve janela nenhuma para a voz grega nesta\nfaixa com doze cenas, porque o vão entre os provedores é de ~5 s contra 1,5 s de\nlargura do `ALVO_SHORT`.\n\n**MIREI O PISO** (regra de redação do 772) — edge **41,65**, 0,15 acima dele — e\no piper sai **FORA pela mira e DENTRO do portão**, que cobra 18 a 45 s nos dois\nmundos.\n\n**O REAL não está prometido para lado nenhum:** a banda do resíduo tem 5,2 s de\nlargura contra 1 s de granularidade, e declarar um lado dela não é previsão\n(774).\n\n## RESERVA\nPara a rodada seguinte, nesta origem (`epomeno-epipedo-068`), com o motivo de\ncada item.\n* **NÃO LEVAR** os capítulos 32, 34 e 39 — eles são a família *\"a divisão nunca\n  falha, falha a lista\"*, que é a do `labtreinamento-s114` (05:19Z de hoje, outro\n  canal). O `similaridade` não pega repetição entre canais, e levá-la aqui seria\n  o 762 numa dimensão nova. **O 35 foi consumido** por esta peça, só como\n  mecanismo do silêncio;\n* **LIVRES** os capítulos 0, 1, 4, 6 e 7 — *a reserva compra TEMPO, não coisas; e\n  o saldo sozinho não responde porque falta o segundo número, que ninguém\n  converte para você porque o divisor é SEU*. **Com ressalva:** o `s069` já\n  carrega a família da UNIDADE, e quem pegar este tem de distinguir *\"falta o\n  divisor\"* de *\"a unidade do resultado\"* em letra;\n* **LIVRES** os capítulos 15, 58 e 59 — *a lista se escreve UMA vez e só se\n  refaz quando algo real muda* (prestação, aluguel, conta), e refazer a conta\n  toda semana mede o que não se move. É família de MANUTENÇÃO e nenhum dos\n  quatro irmãos a toca;\n* **LIVRES** os capítulos 60, 61 e 62 — *o número não é uma nota*, e um número\n  pequeno que se conhece vale mais que um grande imaginado. É família de\n  POSTURA, e ela fecha a origem;\n* **CONSUMIDOS por esta peça** os capítulos 8, 10, 11, 13 e 37, com o 35 como\n  mecanismo;\n* **E a conta do esgotamento desta origem sai do instrumento de 23/10 às\n  05:4x**, não desta prosa: `pauta_do_momento.esgotamento`.\n\n## HASHTAGS\n#αποταμιευση #εφεδρεια #προυπολογισμος #παγιαεξοδα #epomenoepipedo\n\n## TAGS\nκατω νουμερο, παγια εξοδα, εφεδρεια σε μηνες, διαιρετης, υποχρεωσεις, προυπολογισμος, ποσους μηνες αντεχω\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ncategoryId: 27\ndefaultLanguage: el\ndefaultAudioLanguage: el\nmadeForKids: false\n\n## MUSICA / LICENCA\nInspired — Kevin MacLeod (incompetech.com), Creative Commons: By Attribution 4.0\n"
+}
