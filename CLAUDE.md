@@ -12796,3 +12796,134 @@ que a impede e a ROTA, e o remedio e do DONO** — a tela de Network access.
 **COTA: DEZENOVE envios** na janela aberta as 07:00Z de 22/10, **30.400**
 unidades, contra o piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um
 laco escrito na hora.
+
+## A ORIGEM PERTO DE ESGOTAR MORAVA SO NA MINHA PROSA
+
+**Medido em 23/10 as 05:4x, na peca que eu acabei de escrever.** A rodada
+consome a reserva **SEM DECLARACAO** — nao a crua, pelo conserto de 22/10 as
+17:3x — e na origem desta rodada ela estava em **NOVE de 40 livres**. Eu li as
+nove uma a uma, tomei quatro, e escrevi na copy, **em PROSA**, *"esta origem
+esta perto de esgotar"* e *"quando as duas acima sairem, esta origem acabou"*.
+
+**O fato morava so ali, e a decisao saiu de cabeca DUAS vezes:** as 02:07 eu
+**desviei** desta origem por esse mesmo numero, e as 05:07 eu **segui** porque
+nao havia empate para onde desviar. Item 3 da §10.
+
+**E O DENOMINADOR DA PERGUNTA E MEDIDO, nao escolhido:** a reserva sem
+declaracao encolhe por exatamente o que a peca seguinte **DECLARA**, logo quem
+responde *"ainda cabe outra peca aqui?"* e a mediana do declarado por peca —
+`irmaos_da_origem.mediana_declarada`, varrida do disco com a conta **DELEGADA**
+ao `_capitulos_declarados` (dono do parse) e varredura curta **LEVANTANDO**.
+
+| | |
+|---|---|
+| specs de short solto que declaram capitulo | **189** |
+| mediana | **7** |
+| faixa | **1 a 60** |
+| quartis | 3 / 7 / 11 |
+
+**E A RESSALVA DECIDE A FORMA DO VEREDITO: a FAIXA infla.** `capitulos 66 a 74`
+conta NOVE mesmo que a peca use tres, logo a mediana e um **TETO** do consumo e
+nao a media dele. Por isso `cabe_outra_peca` e **booleano** e nunca uma contagem
+de rodadas: dividir uma reserva por uma mediana cuja faixa vai de 1 a 60 seria
+falsa precisao, e e o mesmo cuidado que impediu o quociente no 734 (percentual
+nao se distingue de offset com n=4).
+
+**O QUE ELE DISSE NA PRIMEIRA EXECUCAO, e e o fato que eu tinha em prosa:** no
+`labtreinamento`, `POBNoY16wG8` com **4** capitulos sem declaracao — **NAO CABE
+outra peca inteira**. A rodada seguinte le isso em vez de o descobrir lendo os
+livres um por um.
+
+**E O BURACO DO FILTRO VAI MEDIDO E E LATENTE:** o `servem` do `escolha` admite
+origem por `reserva > 0` — a **CRUA** —, logo origem com reserva crua positiva e
+**ZERO** capitulo sem declaracao seria escolhida, e a rodada leria os livres para
+achar todos ja declarados. Varridos os tres canais, **ZERO origens estao nesse
+estado**, e ha teste que **reprova quando deixar de ser zero**. **Eu NAO mudei o
+filtro:** a regra escrita e do `concentracao.py` e desempata pela reserva crua, e
+trocar a regra por conveniencia de uma rodada nao e meu — ele **NOMEIA**, como o
+resto deste modulo.
+
+`tests/test_a_ORIGEM_perto_de_esgotar_morava_na_minha_prosa.py`, quinze testes: a
+mediana e **RECONFERIDA contra o disco chamando o DONO do parse**, e o que se
+cobra e a **FAIXA** dela e o piso de `n` — nunca a contagem absoluta, que e
+identidade disfarcada de medida numa populacao que cresce uma spec por rodada (a
+licao de 22/10 as 14:4x); os **DOIS lados** tem de existir no disco e o arquivo
+**reprova se TODAS couberem ou se NENHUMA couber**; a **FRONTEIRA** vai nos dois
+lados (a mediana exata cabe, um abaixo nao); origem **sem spec local nao e
+esgotada** (ramo legitimo da regra (h)), com contraprova; um **falha se a faixa
+do declarado encolher** (ai o quociente passa a informar e isto se rele); a frase
+tem **UM dono**, sai nos **DOIS** ramos, e o `relato` a chama **FORA do ramo da
+`escolhida`** — cobrado por AST, porque sem origem escolhida o esgotamento e
+justamente o que importa (o defeito de 20/10 as 13:2x); e a delegacao e por AST
+nos dois sentidos. **Contraprova:** devolvido o veredito a reserva CRUA, **dois
+dos quinze** falham.
+
+**E A PRIMEIRA EXECUCAO DO TESTE ACHOU DOIS DEFEITOS, um meu e um do modulo:**
+1. **DUAS FORMAS PARA O MESMO FATO.** `esgotamento` guardava `mediana_declarada`
+   como o dicionario do dono **ou** como o escalar que o chamador passou, e a
+   frase fazia `.get` nos dois — `AttributeError` no `int`. Consertado com **UMA
+   forma a jusante**: escalar vira o MESMO dicionario, com os campos nao
+   informados em `None`;
+2. **O MEU TESTE CASAVA A CAIXA DA PROSA.** Ele cobrava `"infla"` e o docstring
+   escreve `INFLA`. **Era o teste errado, nao o modulo** — e e a licao do
+   `test_NAO_virou_portao` do acento pela enesima vez: o que se cobra e o MOTIVO
+   estar escrito, nao como eu o grafei.
+
+### A PECA DESSA RODADA — OITO cenas, e os DOIS mundos dentro da mira
+
+`labtreinamento-s114` = **`sf6Ot-GSuGg`** (*Lista, não divisão*), publicado as
+**05:19:15Z** (run `39905070980`), **sem `403 quota`**. **DOZE PORTOES VERDES** —
+e ela foi **CONFERIDA COMO RASCUNHO** antes de existir no disco. Provedor **edge
+MEDIDO** pelo `anotacoes_do_run` (zero avisos `NARRACAO PELO PIPER` no job
+`120252929398`, que e o job que emitiu o SOM), som **-14,7** LUFS, pico **-2,7**
+dBTP com `pico_vs_teto: dentro`, **zero silencios**.
+
+**E O REGISTRO DOS QUATRO PARQUES SAIU DO DONO, na PRIMEIRA vez em producao** —
+`registro_da_rodada`, escrito na rodada anterior: duracao (**152** linhas, 80 sem
+leitura), som (**92**), SQL pendente (**189** linhas, ZERO prosa, reconferido
+INTEIRO) e corpus, com os quatro **RELIDOS** depois de escrever, porque retorno
+de funcao nao prova presenca (20/10, 13:2x). E ele **RECUSOU** o job do
+`retomar` como procedencia do provedor, dizendo que ali o zero sairia por
+**VACUIDADE**.
+
+**CANAL do `passo_zero`** (8/8/8, empate nos TRES desempatado pelo que esta ha
+mais tempo sem publicar). **PAUTA:** `POBNoY16wG8` (`labtreinamento-014`), **a
+`escolhida` da regra escrita SEM empate** — 6 usos contra 7 de todas as outras —,
+logo a reserva nao desempatou nada.
+
+**FAMILIA: CONFERIR A CONTA EM VEZ DE CONFERIR A LISTA** (capitulos 37, 39 e 35,
+com o 34 de apoio). O eixo e **ONDE SE OLHA** quando o resultado nao convence: a
+divisao e a unica parte que nao pode falhar e e a parte que todo mundo revisa. **E
+o mecanismo do silencio e a SIMETRIA dos dois erros** — tirar do denominador quem
+saiu e contar inscrito no lugar de concluinte produzem, os dois, uma divisao que
+funciona e um numero redondo. **O portao da conta esta sempre verde.** Os SEIS
+irmaos dizem O QUE esta errado no denominador; esta diz ONDE OLHAR, e o vizinho
+mais proximo (`s088`) da o **SINAL** de que algo esta errado — sinal contra
+lugar, e os dois se encaixam.
+
+**ESQUELETO `titulo-barras-item-item-item-titulo-lista-cta`, INEDITO nas 194
+formas da frota**, com a mistura saida do `sugere_forma`. **A PINCA DO 740/748
+NAO ESTA FECHADA AQUI** e este e o unico canal da frota em que isso acontece: a
+`janela_dos_dois_mundos` pede **34 a 36** caracteres por cena e a peca saiu com
+media **35,75** — edge **25,5** e piper **20,9**, os DOIS dentro da mira medida
+(20,0 a 26,0), logo **nao ha exposicao de mundo a declarar**. **E eu NAO mirei o
+piso de proposito:** o piso executavel (25) e de **UM mundo** e a propria
+`mira.confere` o reprova. **O REAL nao esta prometido para lado nenhum** (774).
+
+**E o `numerais_falados` derrubou a declaracao da copy pela SETIMA vez nesta
+sessao:** ela dizia *"numeral NENHUM"* e a narracao fala **"dois"** nas cenas 2 e
+3 — os dois erros simetricos que a peca nomeia, estrutura do argumento. Corrigida
+antes de publicar, com a versao falsa registrada na propria copy.
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica` pela
+QUINQUAGESIMA SEGUNDA rodada seguida** — medido pela `sonda_e_modo`, com os TRES
+controles no MESMO caminho de saida: o `touch` passou, os TRES hosts voltaram
+**000 sem arquivo**, e o proxy nomeou `example.com` e `www.youtube.com` depois de
+05:20:10Z. `RESIDUO_N` segue **128**.
+
+**E A LEITURA DE INSCRITOS PASSOU AS TRES PORTAS E NAO FOI FEITA, pela VIGESIMA
+rodada seguida:** 91,2 h, piso de resolucao **0,26/dia**, os tres SIM. **O que a
+impede e a ROTA, e o remedio e do DONO** — a tela de Network access.
+
+**COTA: VINTE E TRES envios** na janela aberta as 07:00Z de 22/10, **36.800**
+unidades, contra o piso MEDIDO de **>= 41.600** — do `janela_de_cota`.

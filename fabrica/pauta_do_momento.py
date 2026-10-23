@@ -117,6 +117,72 @@ def quadro(canal: str, dono_medido=None, exceto: str = "") -> list[dict]:
     return linhas
 
 
+def esgotamento(quadro_: list, mediana=None) -> dict:
+    """Em QUAIS origens deste canal ainda cabe outra peca, e em quais nao.
+
+    **Medido em 23/10 as 05:4x, na peca que eu acabei de escrever.** A rodada
+    consome a reserva SEM DECLARACAO (22/10 as 17:3x) e nao a crua, e na origem
+    desta rodada ela estava em **NOVE de 40 livres** — eu li as nove uma a uma,
+    tomei quatro, e escrevi na copy, em PROSA, *"esta origem esta perto de
+    esgotar"* e *"quando as duas acima sairem, esta origem acabou"*. **O fato
+    morava so na minha prosa**, e a decisao de desviar dela saiu de cabeca duas
+    vezes: as 02:07 eu desviei por esse numero, as 05:07 eu segui porque nao
+    havia empate para onde desviar. Item 3 da §10.
+
+    O denominador e MEDIDO e vem do dono (`irmaos_da_origem.mediana_declarada`),
+    nunca de um limiar meu — e por isso o veredito e GROSSO: `cabe_outra_peca` e
+    `sem_decl >= mediana`, e nao uma contagem de rodadas. A ressalva da faixa
+    que infla vai no dono.
+
+    **E ele NOMEIA em vez de filtrar**, como o resto deste modulo: a regra
+    escrita e do `concentracao.py` e ela desempata pela reserva CRUA; trocar o
+    filtro por conveniencia de uma rodada seria mexer na regra, que nao e minha.
+
+    **O BURACO DO FILTRO VAI MEDIDO E ELE E LATENTE HOJE:** o `servem` do
+    `escolha` admite origem por `reserva > 0` — a CRUA —, logo uma origem com
+    reserva crua positiva e ZERO capitulo sem declaracao seria escolhida, e a
+    rodada leria os livres um por um para achar todos ja declarados. Varridos os
+    tres canais, **ZERO origens estao nesse estado**; `admitidas_sem_nada` conta
+    quantas estao, e ha teste que reprova quando ela deixar de ser zero —
+    porque ai isto se rele em vez de o numero ser movido.
+
+    Origem SEM spec local (`reserva_sem_declaracao is None`) **nao e esgotada**:
+    ali nao se sabe, e isso e o ramo LEGITIMO da regra (h), nao defeito.
+    """
+    med = IO.mediana_declarada() if mediana is None else mediana
+    # UMA forma a jusante: mediana passada como escalar vira o MESMO dicionario
+    # do dono, com os campos que ele nao informou em None. Duas formas para o
+    # mesmo fato e o que fez a frase quebrar na primeira execucao do teste.
+    if not isinstance(med, dict):
+        med = {"mediana": med, "n": None, "minimo": None, "maximo": None}
+    m = med["mediana"]
+    linhas = []
+    for x in quadro_:
+        sd = x.get("reserva_sem_declaracao")
+        linhas.append({
+            "origem": x["origem"],
+            "usos": x["usos"],
+            "reserva": x["reserva"],
+            "reserva_sem_declaracao": sd,
+            "esgotada": sd == 0 if sd is not None else None,
+            "cabe_outra_peca": (sd >= m) if sd is not None else None,
+        })
+    return {
+        "mediana_declarada": med,
+        "linhas": linhas,
+        "esgotadas": [x["origem"] for x in linhas if x["esgotada"]],
+        "nao_cabe_outra": [x["origem"] for x in linhas
+                           if x["cabe_outra_peca"] is False
+                           and not x["esgotada"]],
+        "sem_saber": [x["origem"] for x in linhas
+                      if x["cabe_outra_peca"] is None],
+        # O buraco do filtro, contado: origem que o `servem` admite (reserva
+        # crua > 0) e em que nao sobra capitulo sem declaracao nenhum.
+        "admitidas_sem_nada": [x["origem"] for x in linhas
+                               if x["reserva"] > 0 and x["esgotada"]],
+    }
+
+
 def escolha(canal: str, dono_medido=None, exceto: str = "") -> dict:
     """A regra ESCRITA: menor contagem, desempate pela MAIOR reserva.
 
@@ -173,6 +239,7 @@ def escolha(canal: str, dono_medido=None, exceto: str = "") -> dict:
                "fracao": (b_ - a_) / maior if maior else None,
                "da_regra": a_, "da_leitura_nova": b_}
     return {
+        "esgotamento": esgotamento(q),
         "compartilhados": comp,
         "usos_por_pacote": usos_pac,
         "reserva_na_interseccao": inter_pac,
@@ -371,6 +438,50 @@ def _linha_do_desempate(e: dict) -> str:
                s["reserva_sem_declaracao"]) + "\n" + vao_txt)
 
 
+_PRE_ESG = "  ESGOTAMENTO (reserva SEM DECLARACAO contra a mediana MEDIDA): "
+
+
+def _linha_do_esgotamento(e: dict) -> str:
+    """UM dono da frase, e ela sai nos DOIS ramos — ha e nao ha esgotada.
+
+    E ela sai FORA do ramo da `escolhida`, de proposito: sem origem escolhida o
+    esgotamento e justamente o que importa, e frase que mora no ramo errado e o
+    defeito medido em 20/10 as 13:2x (a nota da rota saiu nas 22 rodadas em que
+    nao era necessaria e calou na unica em que era).
+    """
+    g = e.get("esgotamento") or {}
+    med = g.get("mediana_declarada") or {}
+    m = med.get("mediana") if isinstance(med, dict) else med
+    cab = "mediana %s capitulo(s) declarado(s) por peca (n=%s, faixa %s a %s)" % (
+        m, med.get("n"), med.get("minimo"), med.get("maximo"))
+    nao = g.get("nao_cabe_outra") or []
+    esg = g.get("esgotadas") or []
+    adm = g.get("admitidas_sem_nada") or []
+    partes = [_PRE_ESG + cab + "."]
+    if esg:
+        partes.append("    ESGOTADAS (zero capitulo sem declaracao): %s."
+                      % ", ".join(esg))
+    if nao:
+        detalhe = []
+        for x in g.get("linhas") or []:
+            if x["origem"] in nao:
+                detalhe.append("%s (%d sem declaracao)"
+                               % (x["origem"], x["reserva_sem_declaracao"]))
+        partes.append("    NAO CABE outra peca inteira: %s — a rodada que a "
+                      "pegar le os livres e acha quase tudo declarado."
+                      % ", ".join(detalhe))
+    if not esg and not nao:
+        partes.append("    nenhuma origem deste canal esta esgotada nem abaixo "
+                      "da mediana: aqui o esgotamento nao ordena nada, e isso "
+                      "e estado e nao propriedade.")
+    partes.append("    e o buraco do filtro vai MEDIDO: o `servem` admite por "
+                  "reserva CRUA, logo origem com crua > 0 e ZERO sem "
+                  "declaracao entraria — sao %d hoje, logo ele e LATENTE. "
+                  "Isto NOMEIA e nao filtra: a regra escrita e do "
+                  "`concentracao.py`." % len(adm))
+    return "\n".join(partes)
+
+
 def relato(canal: str, dono_medido=None, exceto: str = "") -> str:
     e = escolha(canal, dono_medido=_resolve_mapa(dono_medido), exceto=exceto)
     q = e["quadro"]
@@ -405,6 +516,7 @@ def relato(canal: str, dono_medido=None, exceto: str = "") -> str:
                  "aqui nao se escolhe pauta local, e a rota e a regra (h) "
                  "(legenda do longo), do jeito que o `porta1` recusa janela "
                  "curta.")
+    L.append(_linha_do_esgotamento(e))
     L.append(_linha_do_mapa(e))
     if e["escolhida"]:
         L.append("")

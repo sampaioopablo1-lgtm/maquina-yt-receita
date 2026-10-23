@@ -359,6 +359,57 @@ def _capitulos_declarados(copy: str) -> list:
     return sorted(_citados(corpo) - set(capitulos_negados(corpo)))
 
 
+PISO_DE_VACUIDADE = 50
+
+
+def mediana_declarada(raiz=None, dir_specs=None) -> dict:
+    """Quantos capitulos uma peca de short solto DECLARA, medido no disco.
+
+    Existe para responder, em capitulos, a pergunta que eu vinha respondendo de
+    cabeca: *"ainda cabe outra peca nesta origem?"*. A reserva que a rodada de
+    fato consome e a SEM DECLARACAO (22/10 as 17:3x), e ela encolhe por
+    exatamente o que a peca seguinte declara — logo o denominador da pergunta e
+    este numero, e ele e MEDIDO e nao escolhido.
+
+    A conta e DELEGADA ao `_capitulos_declarados`, dono do parse desde que ele
+    existe: recontar aqui seria o segundo dono da mesma regra, a assinatura que
+    congelou a legenda.
+
+    **A RESSALVA VAI JUNTO porque ela e grande: a faixa INFLA.** A copy declara
+    `capitulos 66 a 74` e isso conta NOVE, mesmo que a peca use tres — logo este
+    numero e um TETO do que se consome, nao a media do consumo, e o veredito que
+    sai dele e grosso (cabe / nao cabe) e nunca uma contagem de rodadas. Dividir
+    uma reserva por uma mediana cuja faixa vai de 1 a 60 seria falsa precisao.
+
+    Varredura vazia ou curta **LEVANTA**, do jeito que o `porta1` recusa janela
+    curta: mediana de tres specs nao e mediana de nada.
+    """
+    d = dir_specs or _dir_specs(raiz)
+    ns = []
+    for f in sorted(glob.glob(os.path.join(d, "*.json"))):
+        try:
+            sp = json.load(open(f, encoding="utf-8"))
+        except Exception:
+            continue
+        if not isinstance(sp, dict) or sp.get("longo"):
+            continue
+        cp = sp.get("copy") or ""
+        if not cp:
+            continue
+        n = len(_capitulos_declarados(cp))
+        if n:
+            ns.append(n)
+    if len(ns) < PISO_DE_VACUIDADE:
+        raise ValueError(
+            "mediana declarada sobre %d spec(s) de short solto em %r: abaixo do "
+            "piso de %d, logo ela nao mede nada — e vazio de instrumento nao "
+            "prova ausencia (17/10)" % (len(ns), d, PISO_DE_VACUIDADE))
+    ns.sort()
+    m = ns[len(ns) // 2] if len(ns) % 2 else (ns[len(ns) // 2 - 1]
+                                             + ns[len(ns) // 2]) / 2
+    return {"n": len(ns), "mediana": m, "minimo": ns[0], "maximo": ns[-1]}
+
+
 def frases_que_citam_irmao(copy: str, pacotes: list) -> list:
     """As frases da copy que NOMEIAM outro pacote de short.
 
