@@ -59,6 +59,7 @@ from __future__ import annotations
 
 import json
 import os
+import subprocess
 import sys
 
 import canal
@@ -78,6 +79,121 @@ DISPATCHES_MEDIDOS = 28       # com o passo do token SKIPPED
 DISPATCHES_COM_O_PORTAO = 1   # esta rodada, e ele reprovou
 
 
+REMOTO = "origin"
+
+# O que o checkout do runner pode trazer, e os tres estados sao MEDIDOS.
+NO_CHECKOUT = ("igual", "divergente", "ausente", "sem_git")
+
+
+def _git(args: list, raiz: str = ".") -> tuple:
+    """O git como LEITURA, e ele nunca toca a rede.
+
+    Nada aqui faz `fetch`: se custasse requisicao ninguem chamaria isto
+    antes de cada despacho, que e a mesma razao pela qual o
+    `caminho_de_saida` e o `terminou` tambem nao tocam a rede. O limite vai
+    declarado: o que se le e o ref de RASTREIO (`origin/<branch>`), que um
+    `fetch` de outro lugar atualiza — e ele NUNCA passa errado para o NOSSO
+    conteudo, porque o nosso `push` atualiza esse ref no mesmo passo.
+    """
+    try:
+        p = subprocess.run(["git"] + args, cwd=raiz,
+                           capture_output=True, text=True)
+    except OSError as e:          # git ausente
+        return None, str(e)
+    if p.returncode != 0:
+        return None, (p.stderr or p.stdout or "").strip()
+    return p.stdout.strip(), ""
+
+
+def no_checkout(pacote: str, dir_specs: str = SPECS, ref: str = BRANCH,
+                remoto: str = REMOTO, raiz: str = ".") -> dict:
+    """A spec existe no CHECKOUT que este dispatch vai mandar o runner fazer?
+
+    O `_spec` conferia `os.path.exists` — isto e, o DISCO desta sessao — e
+    o docstring dele ja dizia, em letra, que *"spec que nao foi comitada nao
+    existe para ele"*. **O guarda media uma coisa e a frase falava de
+    outra**, e em 23/10 as 10:2x isso me custou um render: eu escrevi a spec,
+    rodei os doze portoes, chamei este modulo (que passou) e despachei sem
+    comitar. O passo `Baixar spec e trilhas` do `frota.yml` roda com
+    `set -euo pipefail` e cai no ramo ELSE quando `fabrica/specs/<pacote>.json`
+    nao esta no checkout — ali ele busca a spec no Storage, que esta em **402
+    continuo desde 25/08**, o `curl --fail` saiu em 22 e o render inteiro
+    morreu antes de comecar.
+
+    E A ANOTACAO QUE VOLTA NAO DISTINGUE A CAUSA: `No files were found` e a
+    MESMA de tres defeitos diferentes — este, o `KeyError: 'longo'` de 18/10
+    as 08:1x, e qualquer render que nao produza arquivo. Quem para no nivel
+    da anotacao ve o 402 e culpa o Storage, que **nao era a causa**: o 402 e
+    continuo e o render passa por cima dele em toda rodada normal, porque a
+    spec vem do repo. A causa e o ramo ELSE ter sido tomado.
+
+    TRES ESTADOS MEDIDOS, e cada um pede outro remedio:
+
+        ausente      a spec nao esta no ref -> comite e empurre
+        divergente   esta, com OUTRO conteudo -> o runner renderiza a
+                     versao ANTIGA, com sucesso e em silencio, que e o
+                     sentido PERMISSIVO e o pior dos tres
+        igual        o checkout traz o que esta no disco
+
+    Sem git (ou fora de um repo) devolve `sem_git` e NAO afirma ausencia:
+    vazio de instrumento nao prova ausencia (17/10), e aqui quem nao sabe
+    diz que nao sabe, do jeito que o `porta1` recusa janela curta.
+    """
+    caminho = os.path.join(dir_specs, "%s.json" % pacote)
+    alvo = "%s/%s" % (remoto, ref)
+    fora = {"pacote": pacote, "caminho": caminho, "ref": alvo,
+            "no_disco": os.path.exists(caminho), "estado": "sem_git",
+            "motivo": "", "blob_no_ref": None, "blob_no_disco": None}
+    raiz_git, err = _git(["rev-parse", "--show-toplevel"], raiz)
+    if not raiz_git:
+        fora["motivo"] = "o git nao respondeu (%s)" % (err or "sem motivo")
+        return fora
+    rel = os.path.relpath(os.path.abspath(caminho), raiz_git)
+    blob, err = _git(["rev-parse", "%s:%s" % (alvo, rel)], raiz_git)
+    if blob is None:
+        existe_ref, _e2 = _git(["rev-parse", "--verify", alvo], raiz_git)
+        if not existe_ref:
+            fora["motivo"] = ("o ref %r nao existe aqui (%s)"
+                              % (alvo, err or "sem motivo"))
+            return fora
+        fora["estado"] = "ausente"
+        fora["motivo"] = ("%r nao esta em %s" % (rel, alvo))
+        return fora
+    fora["blob_no_ref"] = blob
+    if not fora["no_disco"]:
+        fora["estado"] = "divergente"
+        fora["motivo"] = ("%r esta em %s e NAO esta no disco desta sessao"
+                          % (rel, alvo))
+        return fora
+    local, err = _git(["hash-object", caminho], raiz_git)
+    if local is None:
+        fora["motivo"] = "o git nao deu o hash do arquivo (%s)" % err
+        return fora
+    fora["blob_no_disco"] = local
+    fora["estado"] = "igual" if local == blob else "divergente"
+    if fora["estado"] == "divergente":
+        fora["motivo"] = ("%r esta em %s com OUTRO conteudo: o runner "
+                          "renderiza a versao do ref, nao a do disco" % (rel, alvo))
+    return fora
+
+
+def _linha_do_checkout(c: dict) -> str:
+    """UM dono da frase do checkout, e ela sai nos TRES ramos do relato."""
+    base = ("CHECKOUT (%s): a spec no ref que o dispatch manda o runner "
+            "clonar — o guarda antigo media o DISCO desta sessao e a frase "
+            "dele falava do checkout. " % c["ref"])
+    if c["estado"] == "igual":
+        return base + "estado **igual**: o checkout traz o que esta no disco."
+    if c["estado"] == "sem_git":
+        return (base + "estado **sem_git**: nao foi possivel conferir (%s), "
+                "logo isto NAO afirma ausencia — vazio de instrumento nao "
+                "prova ausencia (17/10)." % c["motivo"])
+    return (base + "estado **%s** — %s. O passo `Baixar spec e trilhas` cai "
+            "no ramo do Storage, que esta em 402 continuo desde 25/08, e a "
+            "anotacao que volta e `No files were found`, a MESMA de tres "
+            "causas diferentes." % (c["estado"], c["motivo"]))
+
+
 def _spec(pacote: str, dir_specs: str = SPECS) -> dict:
     """A spec NO DISCO, e ela LEVANTA quando nao esta la.
 
@@ -93,6 +209,14 @@ def _spec(pacote: str, dir_specs: str = SPECS) -> dict:
             "logo despachar antes de comitar renderiza NADA e a anotacao que "
             "volta e `No files were found`, que nao distingue a causa"
             % (pacote, caminho))
+    c = no_checkout(pacote, dir_specs)
+    if c["estado"] in ("ausente", "divergente"):
+        raise ValueError(
+            "a spec %r esta no disco e o CHECKOUT do runner nao a traz igual "
+            "(%s): %s. Comite e empurre antes de despachar — em 23/10 as 10:2x "
+            "isto custou um render inteiro, com a anotacao `No files were "
+            "found` e um 402 do Storage que NAO era a causa"
+            % (pacote, c["estado"], c["motivo"]))
     with open(caminho, encoding="utf-8") as f:
         return json.load(f)
 
@@ -175,6 +299,7 @@ def _linha_da_rota() -> str:
 
 def relato(pacote: str, run_id=None, dir_specs: str = SPECS) -> str:
     linhas = ["DESPACHO DA RODADA para %s:" % pacote, "  " + _linha_da_rota()]
+    linhas.append("  " + _linha_do_checkout(no_checkout(pacote, dir_specs)))
     try:
         cs = comandos(pacote, run_id, dir_specs)
     except ValueError as e:

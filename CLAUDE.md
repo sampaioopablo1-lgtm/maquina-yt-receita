@@ -13496,3 +13496,161 @@ sessao, `comm` vazio nos **dois** sentidos. A passada que ACUSOU deu **33**
 (4.072 passam, 1.239 skip), com as OITO novas todas do arquivo do registro e
 **ZERO desaparecidas** — logo a fixture era o unico defeito e nada mais se
 mexeu.
+
+## O GUARDA MEDIA O DISCO E A FRASE DELE FALAVA DO CHECKOUT
+
+**Medido em 23/10 as 10:2x, e o erro aconteceu nesta rodada.** Eu escrevi a
+spec, rodei os doze portoes, chamei o `despacho_da_rodada` — que **passou** — e
+despachei o render **sem comitar**. O run `39938649668` morreu em **27
+segundos**, e o caminho da culpa e o que vale guardar:
+
+| | |
+|---|---|
+| anotacao que voltou | `No files were found` + `exit code 22` |
+| o que o LOG dizia | `curl: (22) The requested URL returned error: 402` |
+| o que eu ia culpar | o **402 do Storage**, continuo desde 25/08 |
+| a causa REAL | a spec nao estava no **checkout**, logo o passo caiu no ramo ELSE |
+
+O passo `Baixar spec e trilhas` do `frota.yml` roda com `set -euo pipefail` e
+tem dois ramos: se `fabrica/specs/<pacote>.json` existe no checkout ele COPIA do
+repo; se nao existe, ele busca no Storage com `curl --fail`. **O 402 e continuo
+e toda rodada normal passa por cima dele**, porque a spec vem do repo — ele so
+aparece quando o ramo errado e tomado. Culpar o 402 seria consertar o que nao
+estava quebrado.
+
+**E A ANOTACAO NAO DISTINGUE A CAUSA: `No files were found` e a MESMA de tres
+defeitos diferentes** — este, o `KeyError: 'longo'` de 18/10 as 08:1x, e
+qualquer render que nao produza arquivo. Para separa-los foi preciso o LOG pelo
+MCP, que e a terceira rota para ler job.
+
+**E O DOCSTRING DO GUARDA JA DIZIA A COISA CERTA, em letra, desde 22/10:**
+*"spec que nao foi comitada nao existe para ele [o runner], e o render sai com
+`No files were found`"*. **O guarda media `os.path.exists` — o disco DESTA
+sessao — e a frase dele falava do CHECKOUT.** E a forma do defeito de 21/10 as
+20:3x (o relato que prometia a prosa e nao a imprimia) na ENTRADA do portao: o
+conhecimento estava escrito e a conferencia era de outra coisa.
+
+**Consertado: `despacho_da_rodada.no_checkout`**, e os **TRES** estados sao
+medidos porque **cada um pede outro remedio**:
+
+| estado | o que e | remedio |
+|---|---|---|
+| `ausente` | nao esta no ref (nunca comitada, ou comitada e nao empurrada) | comite e empurre |
+| `divergente` | esta no ref com OUTRO conteudo | o runner renderiza a versao ANTIGA, **com sucesso e em silencio** |
+| `igual` | o checkout traz o que esta no disco | — |
+
+**O `divergente` e o PERMISSIVO e o pior dos tres**, e e ele que so um repo de
+prova produz: nele nada falha, a peca sai, e o que foi ao ar nao e o que esta no
+disco. **E sem git ele devolve `sem_git` e NAO afirma ausencia** (17/10), do
+jeito que o `porta1` recusa janela curta — logo a recusa vai nos dois estados
+MEDIDOS e nao no indeterminado.
+
+**E ELE NAO TOCA A REDE, de proposito:** nada de `fetch`, porque instrumento que
+custa requisicao antes de cada despacho ninguem chama — a mesma razao do
+`caminho_de_saida` e do `terminou`. O limite vai declarado: o que se le e o ref
+de RASTREIO (`origin/<branch>`), e ele **nunca passa errado para o NOSSO
+conteudo**, porque o nosso proprio `push` o atualiza no mesmo passo.
+
+`tests/test_o_guarda_media_o_DISCO_e_a_frase_falava_do_CHECKOUT.py`, dezoito
+testes: o repo de prova e **CONSTRUIDO** (git de verdade com um `origin` bare —
+sem o bare nao existe ref de rastreio e **tudo sairia `sem_git`**, isto e, o
+arquivo passaria por vacuidade), um **REPRODUZ** o defeito desta rodada e um
+**mede que o guarda ANTIGO de fato PASSAVA nele** (sem isso *"eu errei"* seria
+afirmacao minha e nao medida), os **TRES** estados tem de DIVERGIR, a recusa vai
+nos dois medidos **com contraprova no outro sentido** (`igual` NAO recusa, e
+`sem_git` tambem nao — senao recusar sempre passaria), todo estado devolvido e
+cobrado por **AST nos dois sentidos** contra a constante, a rede e proibida por
+AST, a frase tem **UM dono** e e cobrada nos **TRES** ramos **com textos
+DIVERGENTES** (frase igual para estado diferente nao avisa), o `relato` a chama
+**FORA de ramo condicional** (o defeito da nota da rota de 20/10 as 13:2x), e um
+**falha se as tres causas da mesma anotacao sairem do modulo**. **Contraprova
+nos dois sentidos:** desligada a recusa, **um** dos dezoito falha; feita a
+medicao devolver sempre `igual`, **dez** falham.
+
+**E o ramo de prova e o do MODULO de proposito:** o `_spec` nao recebe `ref`,
+logo so com o ramo real o caminho que de fato roda em producao e exercitado — e
+foi essa a PRIMEIRA falha do meu proprio teste, que com outro nome de ramo via
+`sem_git` em tudo e passava sem medir nada.
+
+### A PECA DESSA RODADA — CATORZE cenas, e a familia e sobre o que se GUARDA
+
+`epomeno-epipedo-s101` = **`9GSoLDpyGNM`** (*Η σειρά δεν λήγει*), publicado as
+**10:31:10Z** (render `39938895037`, publicacao `39939654842`), **sem
+`403 quota`**. **ONZE PORTOES VERDES NA PRIMEIRA TENTATIVA** — e ela foi
+**CONFERIDA COMO RASCUNHO** antes de existir no disco (dez portoes baratos
+limpos em 0,67 s, mais mira, acento **14,29%**, gancho de 4 palavras de 12,
+paleta **LIDA** de `temas_do_dono.paleta_do_canal`, as catorze cenas desenhando
+e as seis guardas do construtor). Provedor **edge MEDIDO** pelo
+`anotacoes_do_run` (zero avisos `NARRACAO PELO PIPER` no job `120365198797`, que
+e o job que emitiu o SOM). Som **-13,8** LUFS, LRA 4,9, pico **-1,7** dBTP com
+`pico_vs_teto: dentro` (folga 0,2), desvio +0,2, **zero silencios**, parqueado
+pelo `som_parqueado` sem eu redigitar o JSON.
+
+**CANAL do `passo_zero`** (8/8/8 na janela de 24 h, empate nos TRES desempatado
+pelo que esta ha mais tempo sem publicar). **PAUTA do `pauta_do_momento`:**
+`TJZcjE-uv8E` (`epomeno-epipedo-007`, 90 capitulos), 5 usos — empate de
+**DEZESSEIS** origens desempatado pela MAIOR reserva, **74 livres e 58 sem
+declaracao de irmao**, e as duas leituras do desempate **CONCORDAM** aqui.
+
+**FAMILIA: GUARDAR O NUMERO EM VEZ DA ORDEM — e o do ano seguinte ainda e
+ESTIMATIVA** (capitulos 84, 85, 62 e 63, com o 36 de apoio). O eixo e **o que se
+retem**: o percentual e a unica parte do procedimento com data de validade, e a
+ordem das operacoes — percentual, compensacao, o que resta — nao envelhece.
+**O mecanismo do silencio e de ATENCAO e nao de aritmetica:** o numero e a unica
+parte que tem manchete, logo e a unica que chega a memoria, e no ano seguinte a
+conta nao falha — ela simplesmente nao comeca. A segunda perna e o **ESTADO** do
+numero: antes de fechar, um percentual circula como estimativa, e no ouvido
+estimativa e definitivo sao indistinguiveis.
+
+**Distincoes escritas contra os CINCO irmaos**, lidas pelo `irmaos_da_origem` e
+— nos **TRES** sem o campo da familia (`s011`, `s021`, `s073`) — pela PROSA e
+pela NARRACAO de cada um, que e de primeira mao (776). **O vizinho mais proximo
+e o `s085` e a distincao vai dita porque e fina:** ali o que muda e a SUA
+POSICAO na linha; aqui o que muda e o STATUS DO NUMERO, e o que sobrevive e a
+ordem. **E o capitulo 33 ficou FORA de proposito:** esta DECLARADO pelo `s037` e
+pelo `s085`, e quem o nomeou foi o `relato_dos_livres`, nao a minha leitura.
+
+**ESQUELETO
+`titulo-item-lista-item-titulo-item-item-lista-titulo-item-barras-item-barras-cta`,
+INEDITO nas 199 formas da frota** e nenhuma das NOVE de catorze cenas — e a
+**MISTURA saiu do `sugere_forma`**, a de maior folga (83.155 de 83.160 ordens
+livres), nao do olho.
+
+**CONTAGEM pela chave `por_cadencia_servivel`:** catorze cenas, a melhor cadencia
+desta voz (3,02 s, |dif| **0,08** dos ~3,1 s de 690/699), folga **+6**, e nao
+repete os tamanhos recentes do canal (a `s100` tem 12 e a `s099` tem 13). O teto
+MEDIDO da voz (**15**), que e **INEDITO** na frota, saiu **NOMEADO** e recusado
+pela FOLGA — dois caracteres acima do piso OBSERVADO de 21.
+
+**MIREI O MEIO, e o motivo e aritmetico:** com catorze cenas um caractere por
+cena vale **0,71 s**, logo 27 caracteres dao **42,10** e 26 caem **ABAIXO** da
+faixa — o PISO EXATO nao e alcancavel, e o proprio inversor diz que o valor cru
+dele para o piso tem previsao fora em 54 de 54 pares. A **PINCA do 740/748 esta
+FECHADA** (piper **37,30**, FORA pela mira e DENTRO do portao, que cobra 18 a 45
+s nos dois mundos), com a exposicao declarada na copy ANTES de publicar. **E o
+REAL nao esta prometido para lado nenhum** (774).
+
+**ZERO numero novo sobre o mundo, e aqui a trava e da PROPRIA FAMILIA:** a peca
+existe para dizer que o numero expira, logo cita-lo seria carregar justamente o
+que ela recusa. A narracao **nao fala numeral nenhum** (conferido pelo
+`numerais_falados`), e **a recusa inclui o numero que daria o gancho mais facil**
+— a estimativa do ano seguinte, que e literalmente o assunto da segunda metade.
+As barras das cenas 11 e 13 sao **ILUSTRACAO** e **nao sao faladas**: a 11
+desenha "estimativa" e "definitivo" com a MESMA altura, que e o argumento
+inteiro.
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica` pela
+QUINQUAGESIMA SEXTA rodada seguida** — medido pela `sonda_e_modo`, com os TRES
+controles no MESMO caminho de saida: o `touch` passou, os TRES hosts voltaram
+**000 sem arquivo**, e o proxy nomeou `example.com` e `www.youtube.com` depois
+de 10:14:56Z. Os quatro parques foram escritos pelo `registro_da_rodada` e os
+quatro **RELIDOS** (duracao **157** linhas, 85 sem leitura; som **97**; SQL
+**194** linhas com ZERO prosa; corpus pelo dono). `RESIDUO_N` segue **128**.
+
+**E A LEITURA DE INSCRITOS PASSOU AS TRES PORTAS E NAO FOI FEITA, pela VIGESIMA
+SEGUNDA rodada seguida:** 96,12 h, piso de resolucao **0,25/dia**, os tres SIM.
+**O que a impede e a ROTA, e o remedio e do DONO** — a tela de Network access.
+
+**COTA: QUATRO envios** na janela aberta as 07:00Z, **6.400** unidades, contra o
+piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
+hora.
