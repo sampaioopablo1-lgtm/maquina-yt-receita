@@ -100,6 +100,22 @@ def registra(run_render, run_pub, pacote, prev_edge, prev_piper,
     `titulo` e opcional porque o notice ja o carrega: passa-lo serve para a
     rodada conferir que o titulo que ela escreveu e o que subiu. Divergir
     LEVANTA, em vez de gravar no corpus um titulo que o YouTube nao recebeu.
+
+    **RETRATACAO DE 23/10 AS 08:4x, e e desta frase.** Ela dizia que a
+    conferencia alcanca *"o que subiu"*, e **nao alcancava**: a linha de
+    `videos` monta, para short, `titulo = titulo_short(spec) or titulo_do_notice`
+    — logo a SPEC vence e o notice e IGNORADO, e os dois lados da comparacao
+    eram NOSSOS. Reproduzido: um notice com `titulo=UM TITULO QUE A SPEC NAO
+    TEM` devolvia a linha com o titulo da spec, calado. Medido no disco: das 445
+    specs com short, **338 trazem** a secao (a spec vence) e **107 nao** (a
+    linha cai no notice).
+
+    E o custo e do corpus, que a trava de titulo duplicado do `prontidao` le
+    (773): em 19/10 as 14:4x TRES pacotes subiram o short com o titulo do LONGO,
+    isto e, o que subiu divergiu do que a gente quis — e o notice e a unica
+    testemunha disso. Agora a divergencia entre os DOIS donos LEVANTA aqui,
+    pelo cruzamento do `anotacoes_do_run.divergencia_de_titulo`, e a frase acima
+    passa a ser verdadeira.
     """
     if not run_render or not run_pub:
         raise ValueError(
@@ -125,6 +141,20 @@ def registra(run_render, run_pub, pacote, prev_edge, prev_piper,
             "o titulo que a rodada escreveu (%r) NAO e o que subiu (%r). "
             "Gravar o meu no corpus poria no anti-duplicata um titulo que o "
             "YouTube nao recebeu." % (titulo, tit_no_ar))
+
+    # E a conferencia que de fato alcanca "o que subiu": a TESTEMUNHA e o
+    # notice, e a linha pode te-lo ignorado em favor da spec. Delegado ao
+    # cruzamento dos dois donos — refazer o parse aqui seria o terceiro.
+    dt = AR.divergencia_de_titulo(lida_p)
+    do_pacote = [x for x in dt["divergentes"] if x["pacote"] == pacote]
+    if do_pacote:
+        x = do_pacote[0]
+        raise ValueError(
+            "o titulo que SUBIU (%r, do notice) NAO e o da linha de `videos` "
+            "(%r, da nossa spec), e e o da linha que iria ao corpus: a trava de "
+            "titulo duplicado do `prontidao` (773) ficaria cega nesta peca. "
+            "Foi assim que TRES pacotes subiram com o titulo do LONGO em 19/10."
+            % (x["do_notice"], x["da_linha"]))
 
     prov = AR.provedor(lida_r, pacote)
     if not prov.get("provedor") or not prov.get("job"):

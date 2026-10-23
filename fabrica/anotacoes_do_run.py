@@ -376,6 +376,138 @@ def publicado(lida: dict) -> list:
     return RV.linhas_dos_notices(texto)
 
 
+def fatia_de_job(lida: dict, pacote: str | None = None) -> dict:
+    """O que `jobs[0]` e, e se ele e o job de onde a PROCEDENCIA sai.
+
+    **POR QUE ISTO EXISTE, e a medicao e de 23/10 as 08:4x, nesta rodada.** Eu
+    fui ler o `::notice:: PUBLICADO` a mao, com
+    `gh api .../jobs --jq '.jobs[0].id'` e depois
+    `check-runs/<job>/annotations` — quando este modulo ja responde isso. E o
+    `[0]` e uma FATIA: a ponta de uma lista lida como se fosse a lista, que e a
+    familia do `[:3]` da lista do proxy (19/10 as 19:2x), do `tail -10` das
+    formas (21/10 as 23:2x) e do `sed -n '45,90p'` dos capitulos livres (22/10
+    as 10:3x).
+
+    **Medido nos dois runs desta rodada:** no run do RENDER (`39923653381`)
+    `jobs[0]` e o **`preparar`** (`120314658279`) e quem narrou e o
+    **`produzir`** (`120314685498`); no run do `retomar` (`39924132717`) ha UM
+    job, logo a fatia acerta. Isto e, **a rota a mao esta errada em todo run de
+    render e acertou aqui por ACIDENTE** — a mesma forma do acordo acidental
+    dos dois caminhos de saida (22/10 as 00:3x) e do casamento de host (01:1x).
+
+    E o custo nao e cosmetico: contar o aviso do 733 no `preparar` devolve zero
+    por **VACUIDADE**, que e o defeito que pos job inventado na procedencia de
+    quatro pecas. O `provedor` RECUSA ali; a fatia nao recusa nada.
+
+    **Isto NOMEIA e nao decide:** o veredito do provedor continua saindo do
+    `provedor`, pelo discriminador MEDIDO (job que emitiu `SOM` narrou), nunca
+    do indice nem do NOME do job.
+    """
+    jobs = lida["jobs"]
+    primeiro = jobs[0]["id"] if jobs else None
+    try:
+        dono = provedor(lida, pacote)["job"]
+    except SemProcedencia:
+        dono = None
+    return {"primeiro": primeiro, "n_jobs": len(jobs),
+            "job_do_provedor": dono,
+            "fatia_acerta": None if dono is None else primeiro == dono}
+
+
+def divergencia_de_titulo(lida: dict) -> dict:
+    """O titulo tem DOIS donos, e eles nao medem a mesma coisa.
+
+    **MEDIDO em 23/10 as 08:4x, e isto RETRATA o que o `registro_da_rodada`
+    afirma de si.** O docstring dele diz que passar o titulo *"serve para a
+    rodada conferir que o titulo que a rodada escreveu e o que subiu"*.
+    **Falso.** A linha de `videos` do `registro_videos` monta, para short,
+    `titulo = titulo_short(spec) or titulo_do_notice` — isto e, **a SPEC vence e
+    o notice e ignorado**. Logo a conferencia compara a minha digitacao contra a
+    NOSSA propria spec: os dois lados sao nossos, e o que o YouTube de fato
+    recebeu nao entra na conta.
+
+    Reproduzido: um notice dizendo `titulo=UM TITULO QUE A SPEC NAO TEM` devolve
+    a linha com o titulo da spec, sem ninguem dizer nada.
+
+    **E o custo nao e teorico.** Em 19/10 as 14:4x TRES pacotes subiram o short
+    com o titulo do LONGO, porque a copy nao trazia `## TITULO SHORT` — isto e,
+    o que subiu diverge do que a gente quis, e o **notice e a unica testemunha
+    disso**. E o corpus, que a trava de titulo duplicado do `prontidao` le
+    (773), e alimentado com o titulo da LINHA: titulo nosso no corpus poe no
+    anti-duplicata um titulo que o YouTube nunca recebeu, e a trava fica cega
+    naquela peca — em silencio e no sentido PERMISSIVO.
+
+    **Medido no disco:** das 445 specs com short, **338 trazem** a secao (ali a
+    spec vence e o notice e ignorado) e **107 nao** (ali a linha CAI no titulo
+    do notice). Os dois lados existem, logo o cruzamento nao passa por
+    vacuidade.
+
+    **Isto NOMEIA; quem RECUSA e o `registro_da_rodada`**, porque e ele que
+    grava no corpus. E as duas leituras sao DELEGADAS aos donos — reparsear o
+    notice aqui criaria o terceiro dono da forma dele.
+    """
+    import corpus_atrasado as CA
+    texto = "\n".join(m for j in lida["jobs"] for m in j["mensagens"])
+    do_notice = {p: tit for p, _y, tit in CA.titulos_dos_notices(texto)}
+    pares, div = [], []
+    for ln in publicado(lida):
+        pac = ln.get("pacote")
+        if pac not in do_notice:
+            continue
+        nosso, testemunha = ln.get("titulo"), do_notice[pac]
+        pares.append(pac)
+        if (nosso or "").strip() != (testemunha or "").strip():
+            div.append({"pacote": pac, "da_linha": nosso,
+                        "do_notice": testemunha})
+    return {"pares": len(pares), "divergentes": div,
+            "do_notice": do_notice}
+
+
+_PRE_PUB = "  PUBLICADO: "
+
+
+def _linha_do_publicado(lida: dict) -> list:
+    """UM dono das linhas do PUBLICADO, e elas saem nos DOIS ramos.
+
+    **O TITULO ia junto e era jogado fora — medido em 23/10 as 08:4x.** A linha
+    de `videos` que o `publicado` devolve carrega `titulo`, `publicado_em`,
+    `canal` e `origem_id`, e o relato imprimia so o par pacote -> id. Logo a
+    unica forma de ver o titulo que de fato subiu era eu reler o notice a mao —
+    e o titulo e exatamente o valor que o `registro_da_rodada` CONFERE e que o
+    faz LEVANTAR quando divergir, porque o corpus guarda o titulo CURTO e a
+    trava de titulo duplicado do `prontidao` compara contra ele (773). Titulo
+    meu no corpus poe no anti-duplicata um titulo que o YouTube nao recebeu, e
+    a trava fica cega naquela peca, em silencio e no sentido PERMISSIVO.
+
+    E a forma do defeito e a desta casa: dado que existe um nivel acima e nao
+    desce — o `quadro` que o `contagem_de_cenas` calculava e descartava (20/10,
+    03:2x), a prosa que o `irmaos_da_origem` prometia e nao imprimia (15:3x), a
+    nota da rota no ramo que calava (13:2x) e o `run` que o `_som_do_job` nao
+    recebia (22/10, 06:2x).
+    """
+    linhas = []
+    d = divergencia_de_titulo(lida)
+    for ln in publicado(lida):
+        pac = ln.get("pacote")
+        test = d["do_notice"].get(pac)
+        linhas.append(_PRE_PUB + "%s -> %s  em=%s\n    titulo que SUBIU (do "
+                      "notice, a testemunha): %r\n    titulo da LINHA (da "
+                      "nossa spec, o que vai ao corpus): %r%s"
+                      % (pac, ln.get("youtube_id"), ln.get("publicado_em"),
+                         test, ln.get("titulo"),
+                         "" if test is None or
+                         (test or "").strip() == (ln.get("titulo") or "").strip()
+                         else "  << DIVERGEM: o corpus receberia um titulo que o"
+                              " YouTube nao recebeu, e a trava do 773 ficaria"
+                              " cega nesta peca"))
+    if not linhas:
+        linhas.append(_PRE_PUB + "nenhum `::notice:: PUBLICADO` neste run — o "
+                      "que e o normal no run do RENDER, que publica nada. "
+                      "Ausencia de notice NAO e peca sem publicar: quem diz "
+                      "isso e o run do `retomar`.")
+    return linhas
+
+
 def divergencias_de_job(duracao: list | None = None,
                         som: list | None = None) -> dict:
     """O `job` tem DOIS donos; isto cruza os dois e nomeia quem discorda.
@@ -430,9 +562,13 @@ def relato(run: str | int | None = None, pacote: str | None = None,
                              s["pico_dbtp"], len(s["silencios"] or [])))
     except SemProcedencia as e:
         linhas.append("  PROVEDOR nao estabelecido: %s" % e)
-    for ln in publicado(lida):
-        linhas.append("  PUBLICADO %s -> %s" % (ln.get("pacote"),
-                                                ln.get("youtube_id")))
+    linhas.extend(_linha_do_publicado(lida))
+    f = fatia_de_job(lida, pacote)
+    if f["n_jobs"] > 1 and f["fatia_acerta"] is False:
+        linhas.append("  FATIA: `jobs[0]` deste run e o %s e NAO e o job de "
+                      "onde a procedencia sai (%s) — contar o aviso do 733 ali "
+                      "devolve zero por VACUIDADE. Medido em 23/10 as 08:4x."
+                      % (f["primeiro"], f["job_do_provedor"]))
     return "\n".join(linhas)
 
 

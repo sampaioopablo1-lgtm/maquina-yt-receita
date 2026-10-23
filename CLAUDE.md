@@ -13231,3 +13231,165 @@ medida do §11-bis acumulado:** canal, cota, pauta, esgotamento, contagem de
 cenas, mistura de layouts, orcamento de caracteres, corte em segundos, provedor,
 job e as quatro linhas de parque sairam todos de dono. O que eu fiz a mao foi
 LER os capitulos livres e ESCOLHER a familia — e recusar a mais facil.
+
+## O TITULO QUE SUBIU E O DA LINHA ERAM DOIS DONOS, E A CONFERENCIA LIA O NOSSO
+
+**Medido em 23/10 as 08:4x, fechando a rodada da `labtreinamento-s115`.** Eu fui
+ler o `::notice:: PUBLICADO` A MAO — `gh api .../runs/<run>/jobs --jq
+'.jobs[0].id'` e depois `check-runs/<job>/annotations` — quando o
+`anotacoes_do_run` ja responde isso. **E a rota a mao tinha DOIS defeitos**, e
+procurando o primeiro eu achei um terceiro, que e o que custa.
+
+**1) O TITULO ERA JOGADO FORA.** A linha de `videos` que o `publicado` devolve
+carrega `titulo`, `publicado_em`, `canal`, `origem_id` e `cenas`, e o relato
+imprimia **so o par `pacote -> youtube_id`**. Logo a unica leitura do titulo que
+subiu era a minha vista sobre o notice. **E a forma do defeito e a desta casa:**
+o `quadro` que o `contagem_de_cenas` calculava e descartava (20/10, 03:2x), a
+prosa que o `irmaos_da_origem` prometia e nao imprimia (15:3x), a nota da rota no
+ramo que calava (13:2x) e o `run` que o `_som_do_job` nao recebia (22/10,
+06:2x) — **o dado existe um nivel acima e nao desce.**
+
+**2) O `[0]` E UMA FATIA**, e esta errada em todo run de render. Medido nos dois
+runs desta rodada:
+
+| run | `jobs[0]` | quem NARROU |
+|---|---|---|
+| RENDER `39923653381` | **`preparar`** `120314658279` | `produzir` `120314685498` |
+| `retomar` `39924132717` | `retomar` `120316257870` | — (nenhum narra ali) |
+
+Contar o aviso do 733 no `preparar` devolve **zero por VACUIDADE** — o defeito
+que pos job inventado na procedencia de quatro pecas (22/10, 05:3x). O
+`provedor` **RECUSA** ali; a fatia nao recusa nada. **Acertou nesta rodada por
+ACIDENTE**, porque o run do `retomar` tem UM job — a mesma forma do acordo
+acidental dos dois caminhos de saida (22/10, 00:3x) e do casamento de host
+(01:1x). E e a familia do `[:3]` da lista do proxy (19/10, 19:2x), do `tail -10`
+das formas (21/10, 23:2x) e do `sed -n '45,90p'` dos capitulos livres (22/10,
+10:3x): **a ponta de uma lista lida como se fosse a lista.**
+
+### E O TERCEIRO E O QUE CUSTA: A CONFERENCIA DO TITULO LIA OS DOIS LADOS NOSSOS
+
+**O docstring do `registro_da_rodada` afirma de si** que passar o titulo *"serve
+para a rodada conferir que o titulo que ela escreveu e o que subiu"*. **Falso,
+e isto fica RETRATADO no proprio lugar.** A linha de `videos` monta, para short,
+`titulo = titulo_short(spec) or titulo_do_notice` — **a SPEC vence e o notice e
+IGNORADO**. Reproduzido: um notice dizendo `titulo=UM TITULO QUE A SPEC NAO TEM`
+devolve a linha com o titulo da spec, **calado**. Logo a comparacao era a minha
+digitacao contra a NOSSA propria spec: os dois lados nossos, e **o que o YouTube
+de fato recebeu nao entrava na conta.**
+
+**E o custo e do CORPUS, que a trava de titulo duplicado do `prontidao` le
+(773):** em 19/10 as 14:4x **TRES pacotes subiram o short com o titulo do
+LONGO**, porque a copy nao trazia `## TITULO SHORT` — isto e, o que subiu
+divergiu do que a gente quis, e **o notice e a unica testemunha disso**. Titulo
+nosso no corpus poe no anti-duplicata um titulo que o YouTube nunca recebeu, e a
+trava fica cega naquela peca, em silencio e no sentido PERMISSIVO.
+
+**MEDIDO NO DISCO, e os dois lados existem:** das **445** specs com short,
+**338 trazem** a secao (ali a spec vence e o notice e ignorado) e **107 nao**
+(ali a linha CAI no titulo do notice). Logo o cruzamento nao passa por
+vacuidade.
+
+**Consertado com delegacao e com os papeis separados:**
+`anotacoes_do_run.divergencia_de_titulo` cruza os **dois donos** —
+`registro_videos.linhas_dos_notices` (o nosso) e
+`corpus_atrasado.titulos_dos_notices` (a testemunha) — e **NOMEIA**; a linha do
+relato passou a imprimir os **DOIS** titulos dizendo qual e qual, com a marca
+`<< DIVERGEM` e o 773 ao lado. **Quem RECUSA e quem GRAVA:** o
+`registro_da_rodada` LEVANTA antes de tocar o corpus, e com isso a frase do
+docstring dele passa a ser verdadeira. Reparsear o notice em qualquer um dos
+dois seria o **terceiro** dono da forma dele.
+
+`tests/test_o_TITULO_publicado_era_relido_a_MAO.py`, **vinte e um** testes: a
+ancora e **DERIVADA do disco** (o dono do notice ABRE a spec, logo pacote
+inventado nao resolve — e nomear um seria identidade onde ha propriedade,
+743/753/761) e **reprova dizendo que perdeu a ancora**; a medida dos 338/107 e
+**RECONFERIDA como PROPORCAO e nao como contagem** (a licao de 22/10 as 14:4x:
+contagem absoluta sobre populacao que cresce e identidade disfarcada de medida);
+a fatia e cobrada nos **tres** estados (erra, acerta, e **INDETERMINADA** quando
+ninguem narrou — `None` e nao `False`, do jeito que o `porta1` recusa janela
+curta); a contraprova vai nos **dois** sentidos em cada metade (sem notice a
+linha **DIZ** que nao ha e nao inventa id; sem divergencia ela **nao acusa**,
+senao acusaria toda rodada e, pelo argumento do `mira.py`, deixaria de avisar);
+a fatia e proibida por **AST** de decidir o provedor, e o discriminador segue
+sendo o SOM e nao o NOME do job; a frase tem **UM dono** cobrado por AST pelo
+NOME da constante, com o literal **proibido** em qualquer outra funcao; e um
+**falha se a retratacao sair do modulo**. **Contraprova nos tres sentidos:**
+devolvida a linha crua, **nove dos vinte e um** falham; cega a fatia, **tres**;
+retirada a recusa do dono que grava, **dois**.
+
+### E O MEU CANDIDATO A §11-bis JA ESTAVA INSTRUMENTADO — eu nao li a linha
+
+Eu havia anotado, escolhendo a pauta, que o `labtreinamento-002` aparece como
+**DUAS origens de 7 usos** enquanto por TEXTO ele tem **14** — o mais usado do
+canal, acima do `FtCtIJPsc_Q` (13) que o relato chamava de dominante. **Isso ja
+esta medido e escrito desde 23/10 as 03:3x**, no `_compartilhados` do
+`pauta_do_momento`, com esses numeros em letra — **e a linha SAIU no relato
+desta rodada.** Eu a tinha na mao e nao a li.
+
+**E o que salvou a escolha desta rodada foi o desempate pela reserva, nao
+metodo:** os dois ids do pacote compartilhado estavam **DENTRO do empate de
+treze** de que a regra escrita escolhe pela MENOR contagem, logo a regra podia
+ter apontado o pacote mais usado do canal. O desempate levou o `KRUERlNPzDw`, e
+isso e **acidente** — a mesma forma de todos os acidentes desta semana.
+
+### A PECA DESSA RODADA — SEIS cenas, e os DOIS mundos dentro da mira
+
+`labtreinamento-s115` = **`ydD3c_o6C70`** (*Faixa não é prazo*), publicado as
+**08:22:19Z** (run `39924132717`), **sem `403 quota`**. **DOZE PORTOES VERDES**
+— e ela foi **CONFERIDA COMO RASCUNHO** antes de existir no disco, porque a
+suite da rodada anterior ainda varria `fabrica/specs` e acrescentar spec no meio
+dela contaminaria os testes que leem o disco (a trava de 09/10: nunca duas
+tarefas na mesma arvore).
+
+Provedor **edge MEDIDO** pelo `anotacoes_do_run` (zero avisos
+`NARRACAO PELO PIPER` no job `120314685498`, que e o job que emitiu o SOM). Som
+**-14,1** LUFS, LRA 1,4, pico **-3,6** dBTP com `pico_vs_teto: dentro`, desvio
+-0,1, **zero silencios**, parqueado pelo `som_parqueado` sem eu redigitar o
+JSON. **E os dois runs foram esperados pelo `espera_do_run`**, que le os PASSOS.
+
+**CANAL do `passo_zero`** (8/8/8, empate nos TRES desempatado pelo que esta ha
+mais tempo sem publicar). **PAUTA do `pauta_do_momento`:** `KRUERlNPzDw`
+(`labtreinamento-003`, 84 capitulos), 7 usos — empate de **TREZE** origens
+desempatado pela MAIOR reserva, **75 livres e 61 sem declaracao**, a maior do
+canal; **as duas leituras do desempate CONCORDAM aqui**, e o instrumento diz em
+letra que elas nao concordam sempre (a retratacao de 07:4x em producao).
+
+**FAMILIA: FAIXA NAO E PRAZO — PRAZO E DATA COM DIA** (capitulo 59, com o 58 e o
+60). O eixo e a **FORMA do dado**, nao o valor: anotar *"primeiro trimestre"* no
+lugar da data e o mecanismo do silencio e **mecanico** — sem o dia, a
+formatacao condicional nao tem o que comparar, logo a unica regra que pegaria o
+atraso **nao pode ser escrita**. Os SETE irmaos foram lidos pelo
+`irmaos_da_origem` e, nos dois mais proximos (`s012`, `s050`), pela **NARRACAO**
+de cada um, de primeira mao: os dois falam da data da CERTIFICACAO (de quem e,
+qual e), nao da forma em que ela e anotada.
+
+**SEIS CENAS pela chave `por_cadencia_servivel`:** sete repete a `s113`, oito
+repete a `s114`, e **9, 10 e 11** sairam **NOMEADAS** porque ali o PISO da faixa
+nao e alcancavel com texto legivel. **ESQUELETO
+`titulo-barras-lista-item-titulo-cta`, INEDITO nas 197 formas da frota.**
+
+**A PINCA DO 740/748 ESTA ABERTA AQUI**, e este e o unico canal da frota em que
+isso acontece: a `janela_dos_dois_mundos` pede **51 a 55** caracteres por cena e
+a peca saiu com media **51,67** — edge **25,6** e piper **21,0**, os **DOIS**
+dentro da mira medida (20,0 a 26,0). Logo **nao ha exposicao de mundo a
+declarar**, com **0,4 s** de margem contra o teto da mira. **E o REAL nao esta
+prometido para lado nenhum** (774).
+
+**E O `numerais_falados` DEU ZERO E EU DECLARO DOIS**, que e o inverso das seis
+rodadas anteriores: *"uma"* e *"segunda"* sao numerais que o vocabulario dele
+nao le, e a ressalva dele — ausencia de vocabulario nao prova ausencia — vai
+citada na copy. Os dois sao estrutura do argumento.
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica` pela
+QUINQUAGESIMA QUINTA rodada seguida** — medido pela `sonda_e_modo`, com os TRES
+controles no MESMO caminho de saida. A peca esta PARQUEADA com o provedor MEDIDO
+e o job **lido da API**, e a presenca foi conferida **RELENDO** os quatro
+parques (duracao **155** linhas, **83** sem leitura; som **95**; SQL **192**
+linhas com ZERO prosa). `RESIDUO_N` segue **128**.
+
+**E A LEITURA DE INSCRITOS PASSOU AS TRES PORTAS E NAO FOI FEITA.** **O que a
+impede e a ROTA, e o remedio e do DONO** — a tela de Network access.
+
+**COTA: DOIS envios** na janela aberta as 07:00Z, **3.200** unidades, contra o
+piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
+hora.
