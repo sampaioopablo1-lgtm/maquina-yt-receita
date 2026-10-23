@@ -1,0 +1,139 @@
+{
+ "slug": "epomeno-epipedo-s102",
+ "pacote": "epomeno-epipedo-s102",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "longo_existente": "os51d8fA0sY",
+ "longo": [],
+ "thumb": {
+  "l1": "Μία γραμμή",
+  "l2": "από πολλές"
+ },
+ "paleta": {
+  "bg": "#F4EFE6",
+  "ink": "#1B1A17",
+  "c1": "#C8502A",
+  "c2": "#2B6CB0",
+  "red": "#B83227",
+  "ok": "#2E8B57",
+  "panel": "#FFFFFF",
+  "mut": "#7A7263",
+  "acc": "#C8502A"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Ο τίτλος είναι μία γραμμή",
+   "sub": "ενός δελτίου με πολλές",
+   "nar": "Ο τίτλος είναι μία γραμμή."
+  },
+  {
+   "layout": "item",
+   "kicker": "Και είναι σωστή",
+   "sub": "κανείς δεν λέει ψέματα",
+   "nar": "Και είναι σωστή γραμμή."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Δύο γραμμές, ένα δελτίο",
+   "barras": [
+    {
+     "rot": "Ο τίτλος",
+     "v": 100
+    },
+    {
+     "rot": "Η λίστα",
+     "v": 100
+    }
+   ],
+   "nar": "Το δελτίο έχει και άλλες."
+  },
+  {
+   "layout": "item",
+   "kicker": "Λίγες γραμμές πιο κάτω",
+   "sub": "στο ίδιο κείμενο",
+   "nar": "Η λίστα είναι πιο κάτω."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Τι κάνει το καθένα",
+   "itens": [
+    "Ο τίτλος συνοψίζει",
+    "Η λίστα ονομάζει"
+   ],
+   "nar": "Αυτός συνοψίζει, αυτή ονομάζει."
+  },
+  {
+   "layout": "item",
+   "kicker": "Η σύνοψη δεν ψεύδεται",
+   "sub": "δεν κρύβει τίποτα",
+   "nar": "Η σύνοψη δεν ψεύδεται ποτέ."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Αλλά πετάει κάτι",
+   "sub": "κάθε σύνοψη πετάει",
+   "nar": "Κάθε σύνοψη όμως πετάει κάτι."
+  },
+  {
+   "layout": "item",
+   "kicker": "Και είναι τυπωμένο",
+   "sub": "με όνομα προϊόντος δίπλα",
+   "nar": "Το πεταμένο είναι τυπωμένο."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Δύο στήλες",
+   "itens": [
+    "Τι ανέβηκε",
+    "Τι κατέβηκε"
+   ],
+   "nar": "Έχει στήλη πάνω και κάτω."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Και ο τίτλος ανάμεσα",
+   "barras": [
+    {
+     "rot": "Η πάνω στήλη",
+     "v": 100
+    },
+    {
+     "rot": "Ο τίτλος",
+     "v": 50
+    },
+    {
+     "rot": "Η κάτω στήλη",
+     "v": 0
+    }
+   ],
+   "nar": "Και ο τίτλος είναι ανάμεσα."
+  },
+  {
+   "layout": "item",
+   "kicker": "Κανείς δεν μένει εκεί",
+   "sub": "κάθε τραπέζι ζει σε μία στήλη",
+   "nar": "Κανένα τραπέζι δεν ζει εκεί."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Δεν θέλεις άλλη πηγή",
+   "sub": "θέλεις να κατεβάσεις το βλέμμα",
+   "nar": "Δεν χρειάζεσαι άλλη πηγή."
+  },
+  {
+   "layout": "item",
+   "kicker": "Άνοιξε το ίδιο δελτίο",
+   "sub": "και κατέβα λίγες γραμμές",
+   "nar": "Άνοιξε το δελτίο, πιο κάτω."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Επόμενο Επίπεδο",
+   "sub": "κάνε εγγραφή",
+   "nar": "Διάβασε τη στήλη, κάνε εγγραφή."
+  }
+ ],
+ "copy": "## TITULO\nΟ Τίτλος Είναι Μία Γραμμή: Η Λίστα Που Σε Περιγράφει Είναι Λίγες Γραμμές Πιο Κάτω\n\n## TITULO SHORT\nΟ τίτλος είναι μία γραμμή\n\n## DESCRICAO\nΑκούς έναν τίτλο για τις τιμές, τον συγκρίνεις με το καλάθι σου, και τα δύο δεν ταιριάζουν. Η πρώτη σκέψη είναι ότι κάποιος λέει ψέματα. Δεν λέει.\n\nΟ τίτλος είναι σωστός, και προέρχεται από μία γραμμή ενός δελτίου. Το ίδιο δελτίο, λίγες γραμμές πιο κάτω, έχει και τη λίστα ανά προϊόν. Δεν είναι άλλη πηγή, δεν είναι κρυμμένη, και δεν χρειάζεσαι τίποτα για να τη δεις. Απλώς δεν σταμάτησε κανείς να τη διαβάσει, γιατί ο τίτλος απάντησε κάτι και η ανάγνωση τελείωσε εκεί.\n\nΣε αυτό το βίντεο δεν λέμε κανένα νούμερο, και υπάρχει λόγος. Κάθε δείκτης και κάθε ποσοστό αλλάζει με το επόμενο δελτίο, και ένα βίντεο με το νούμερο του προηγούμενου μήνα μένει στον αέρα λάθος. Αυτό που δεν αλλάζει είναι η κίνηση: ποια γραμμή παρήγαγε τον τίτλο, και πού κάθεται η λίστα που μιλάει για το δικό σου τραπέζι.\n\nΗ σύνοψη δεν κρύβει τίποτα. Συνοψίζει, και κάθε σύνοψη πετάει κάτι. Η διαφορά εδώ είναι ότι το πεταμένο κομμάτι είναι τυπωμένο, στο ίδιο κείμενο, με όνομα προϊόντος δίπλα. Υπάρχει στήλη για ό,τι ανέβηκε και στήλη για ό,τι κατέβηκε, και ο τίτλος κάθεται ανάμεσά τους. Κανένα τραπέζι δεν βρίσκεται ανάμεσα: κάθε σπίτι ζει σε μία από τις δύο στήλες, ανάλογα με το τι βάζει στο καρότσι.\n\nΚαι αυτό αλλάζει μία απόφαση σήμερα, χωρίς να περιμένεις δύο μήνες. Ξέρεις σε ποια προϊόντα αξίζει να ψάξεις αλλού, και σε ποια δεν αξίζει ο κόπος.\n\nΕπόμενο Επίπεδο: με αριθμούς και πηγές, όχι με εντυπώσεις.\n\n## COMENTARIO FIXADO\nΜία κίνηση, όχι άλλη πηγή: άνοιξε το ίδιο δελτίο και κατέβα λίγες γραμμές, στη λίστα ανά προϊόν. Εκεί είναι τα ονόματα.\n\n## FONTES\nLongo de origem: `os51d8fA0sY` (`epomeno-epipedo-006`). Κεφάλαια 18, 20, 25, 26 και 27, με τα 0, 3 και 5 ως υποστήριξη.\n\nΤο κεφάλαιο 18 λέει ότι ΑΥΤΗ η γραμμή παρήγαγε τον τίτλο. Το 20 λέει ότι η λίστα είναι μέσα στο ίδιο κείμενο, λίγες γραμμές πιο κάτω. Το 25 βάζει τις δύο στήλες μαζί με τον δείκτη ανάμεσά τους. Το 26 λέει ότι ο δείκτης δεν ψεύδεται, συνοψίζει, και κάθε σύνοψη πετάει κάτι. Το 27 ρωτάει τι ακριβώς χάνεται στη μέση.\n\n## FAMILIA DE ENTRADA ERRADA\n**O TITULO E UMA LINHA DO MESMO BOLETIM, E A LINHA QUE TE DESCREVE ESTA ALGUMAS\nLINHAS ABAIXO.** O eixo e a PROCEDENCIA do numero que se ouviu DENTRO do\ndocumento, nao o valor dele e nao o conjunto que ele mede.\n\n**E o mecanismo do silencio e o melhor desta origem: o titulo esta CERTO, a\nfonte e a MESMA, e nao ha nada de que desconfiar.** Nao e numero errado, nao e\noutra pesquisa, nao e dado escondido. E uma linha legitima de um texto que\ncontem as outras — e por isso nao existe evento nenhum que mande continuar\nlendo: o titulo respondeu algo, a leitura fechou, e nada doi.\n\n**E a saida nao e uma fonte melhor, e uma CONTINUACAO:** descer algumas linhas\nno mesmo documento. Isso vale HOJE, sem esperar dois meses de planilha.\n\n**Distincoes contra os CINCO irmaos**, lidos pelo `irmaos_da_origem` e — nos\nTRES sem o campo da familia (`s012`, `s063`, `s072`) — pela PROSA e pela\nNARRACAO de cada um, que e de primeira mao (776):\n\n* `s012` — o indice oficial e **PONDERADO pela familia MEDIA**, nao pela sua. E\n  o mais vizinho, e a distincao vai escrita: **ele manda SAIR do documento** e\n  construir a sua propria cesta, o que leva dois meses; **esta peca manda FICAR\n  dentro dele** e descer a vista. As duas se encaixam em vez de competir;\n* `s031` — **mesmo preco, menos gramas**: comparar preco sem fixar a quantidade;\n* `s063` — **desaceleracao nao e queda**: o nivel fica onde chegou;\n* `s072` — **mudou o preco ou a loja?**: a coluna do estabelecimento;\n* `s087` — a sua PROPRIA planilha medindo outra coisa: lista que se move, janela\n  de um mes, e comparacao com o indice errado. **O terceiro item dele e o que\n  mais se aproxima e NAO e isto:** ele fala de com QUE indice comparar o numero\n  que voce JA construiu; aqui nao existe numero seu nenhum ainda — a peca fica\n  antes de qualquer planilha, no instante em que se ouve o titulo.\n\n**E os capitulos 40 a 42, 45 a 51, 59 a 71, 76 e 77 ficaram FORA porque estao\nDECLARADOS** pelos irmaos `s063`, `s072`, `s087` e `s031` — e quem os nomeou um\npor um foi o `relato_dos_livres`, nao a minha leitura.\n\n**E o capitulo 15 ficou FORA de proposito**, embora fosse a peca mais facil\ndesta origem: *\"o indice geral nao e indice de supermercado — dentro dele estao\no aluguel, os combustiveis, a energia e os servicos\"*. Esse e o ESCOPO, e o\n`s087` ja o leva no terceiro item dele (capitulo 80). **E o capitulo 19** (a\ndesaceleracao veio APESAR dos combustiveis, nao gracas a eles) **tambem ficou\nfora**, porque o eixo dele e ATRIBUICAO — e e o eixo do `kolejny-poziom-s099`,\npublicado HOJE em outro canal: levar o mesmo angulo nos dois seria o 762 numa\ndimensao nova, e o portao `similaridade` **nao pegaria**, porque compara contra\no MESMO canal.\n\n## AVISO SOBRE OS NUMEROS\n**ZERO numero novo sobre o mundo.** Nenhum indice, nenhum percentual, nenhum\npreco, nenhum nome de produto, nenhum mes, nenhum orgao e nenhuma data aparecem\nna narracao nem na descricao.\n\n**E A RECUSA INCLUI OS NUMEROS QUE DARIAM A PECA MAIS FORTE**, porque e\nexatamente deles que esta origem e feita: o indice geral, o indice de alimentos,\no valor do produto no topo da coluna que subiu e o do que mais desceu. Com eles\na peca fica concreta em uma frase; sem eles ela sobrevive ao boletim seguinte. A\nregra (g) nao abre excecao para numero conveniente, e **o capitulo 10 da PROPRIA\norigem escreve a mesma regra**: *\"νούμερα με πηγή και ημερομηνία, και ό,τι δεν\nμετριέται δεν λέγεται\"*.\n\n**O NUMERAL FALADO E `μία`** (cena 0, *\"μία γραμμή\"*), que e a contagem de\nlinhas do PROPRIO documento e nao afirmacao sobre o mundo.\n\n**E O INSTRUMENTO NAO O VE, e isso vai dito em vez de escondido:** o\n`numerais_falados` devolve *\"nenhum numeral do vocabulario\"* nesta peca, porque\nele deixa ARTIGO de fora de proposito — e em grego `μία` e as duas coisas, o\nartigo indefinido e o numeral um. Logo aqui **a declaracao e MAIS larga que a\nleitura dele**, e a ressalva escrita no proprio modulo e a que vale: ausencia de\nvocabulario nao prova ausencia. Nenhum outro numeral e falado, e isso ele\nconfere.\n\n**AS BARRAS SAO ILUSTRACAO QUALITATIVA E NAO SAO FALADAS.** A cena 2 desenha o\ntitulo e a lista com ALTURA IGUAL, porque o argumento e que as duas sao linhas\ndo mesmo documento e nenhuma e mais fonte que a outra. A cena 9 desenha a coluna\nde cima, o titulo no meio e a coluna de baixo — **e o valor do meio NAO e medida\nde nada**: ele e a posicao de uma sintese entre dois extremos, desenhada para se\nver que ninguem mora ali. A rodada seguinte nao deve ler nenhum desses valores\nde volta como dado.\n\n## EXPOSICAO\n**A PINCA DO 740/748 ESTA FECHADA AQUI**, e isso vai declarado ANTES de\npublicar: com catorze cenas nesta voz nenhuma media de caracteres poe os DOIS\nmundos de provedor dentro de 41,5 a 43,0 s — a razao piper/edge desta voz e\n0,886 e o vao vale ~4,7 s contra 1,5 s de faixa. O `piper` sai FORA pela mira e\nDENTRO do portao, que cobra 18 a 45 s nos dois mundos (730/733: o provedor se\ndecide no runner, por cena e por run).\n\n**E o PISO EXATO da faixa nao e alcancavel com catorze cenas:** um caractere por\ncena vale ~0,71 s, logo o ponto mais BAIXO ALCANCAVEL fica acima do piso. A\nregra de redacao do 772 foi aplicada ate onde a granularidade deixa.\n\n**E O REAL NAO ESTA PROMETIDO PARA LADO NENHUM** (774): a banda do residuo tem\n5,2 s de largura contra 1 s de granularidade, logo declarar um lado dela nao e\nprevisao.\n\n## RESERVA\nPara a rodada seguinte, com o motivo de cada um:\n\n* **LIVRES e nao levados:** os capitulos 53 (os sazonais mudam de preco com a\n  ESTACAO e nao com a economia, logo pedem linha SEPARADA na planilha — eixo da\n  CAUSA do movimento de um item, e nenhum irmao o toca), 81 e 82 (o que a\n  planilha NAO diz: ela nao manda onde comprar nem o que cortar) e 7 mais 38 (a\n  distancia ao medio nao e aleatoria — ela cresce com a fracao da renda gasta em\n  comida; **atencao: isto e afirmacao sobre o mundo e pede a regra 600**);\n* **NAO LEVAR, com o motivo:** o capitulo 15 (ESCOPO do indice) e territorio\n  declarado do `s087`; o 19 (atribuicao) atravessaria canal com o\n  `kolejny-poziom-s099` de hoje; os 30 a 37 (o exemplo de dois produtos e os\n  pesos) sao o nucleo do `s012`;\n* **CONSUMIDOS por esta peca:** os capitulos 18, 20, 25, 26 e 27.\n\n## HASHTAGS\n#ΕπόμενοΕπίπεδο #τιμές #πληθωρισμός #καλάθι #οικονομικάσπιτιού #αριθμοί\n\n## TAGS\nπληθωρισμός, τιμές, καλάθι, δελτίο τιμών, οικονομικά σπιτιού, προσωπικά οικονομικά, αριθμοί, Επόμενο Επίπεδο, ελληνικά, μέσος όρος, στατιστική, σύνοψη\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ncategoryId: 27\ndefaultLanguage: el\ndefaultAudioLanguage: el\nmadeForKids: false\nselfDeclaredMadeForKids: false\n\n## MUSICA / LICENCA\nTrilha `Inspired` (Kevin MacLeod, incompetech.com), licenca Creative Commons\nAttribution 4.0. A trilha e a do canal, lida de `config/canais/epomeno-epipedo.yaml`\npelo portao `identidade` — nunca copiada de outro canal (601).\n"
+}
