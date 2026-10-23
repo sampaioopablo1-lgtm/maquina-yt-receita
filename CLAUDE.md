@@ -13393,3 +13393,99 @@ impede e a ROTA, e o remedio e do DONO** — a tela de Network access.
 **COTA: DOIS envios** na janela aberta as 07:00Z, **3.200** unidades, contra o
 piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
 hora.
+
+### E A SEGUNDA PECA DA MESMA RODADA — o PISO da faixa e o ACENTO nao cabem juntos
+
+`kolejny-poziom-s100` = **`a5zzbbKqCFU`** (*Kwota wraca, wartość nie*),
+publicado as **09:26:23Z** (run `39931836272`), **sem `403 quota`**. **ONZE
+PORTOES VERDES NA PRIMEIRA TENTATIVA**, e ela foi **CONFERIDA COMO RASCUNHO**
+antes de existir no disco, porque a suite anterior ainda varria `fabrica/specs`
+— a trava de 09/10 proibe duas tarefas na mesma arvore. Provedor **edge
+MEDIDO** (zero avisos `NARRACAO PELO PIPER` no job `120340791604`, que e o que
+emitiu o SOM). Som **-13,6** LUFS, pico **-1,5** dBTP, isto e **no teto exato**
+do `som.TP_MAX_DBTP`, **zero silencios**.
+
+**E O INSTRUMENTO DESTA RODADA FEZ O TRABALHO NAS DUAS METADES, na primeira
+peca depois de existir:** a linha do PUBLICADO imprimiu os **DOIS** titulos
+(*"que SUBIU, do notice"* e *"da LINHA, da nossa spec"*) e eles **CONCORDAM**,
+logo o corpus recebeu o que o YouTube recebeu; e a linha da **FATIA** disparou
+no run do render, dizendo que `jobs[0]` e o `120340759715` e **nao** e o job de
+onde a procedencia sai.
+
+**A PAUTA DESVIOU DA REGRA ESCRITA, com o vao MEDIDO.** A regra aponta
+`ef_oZmfmdz4` (52 sem declaracao) — e esse id e de **PACOTE COMPARTILHADO**: o
+`kolejny-poziom-004` tem **NOVE usos por TEXTO**, mais que o **DOBRO** dos 4 de
+todos os outros do empate, enquanto cada id mostra 4 ou 5 e por isso empata no
+MINIMO. Desviar custou **UM** capitulo de reserva (51 contra 52) e evitou a
+segunda origem mais usada do canal. O instrumento **NOMEIA e nao decide**
+(03:3x); a decisao e desta rodada e vai escrita.
+
+**FAMILIA: MYLENIE BEZPIECZENSTWA KAPITALU Z OCHRONA WARTOSCI** (rozdzialy 78 e
+79, com apoio do 83) — o **quarto** erro, que o proprio longo chama de
+*"najczestszy w tym temacie"*. O eixo e a **GARANTIA**: o papel garante o
+**NUMERO** que volta e nao o que esse numero compra. **E o mecanismo do silencio
+e o melhor desta origem: a obietnica dada E CUMPRIDA** — a kwota volta, a umowa
+e executada, nao ha atraso nem reclamacao, logo **nao existe evento nenhum para
+marcar a hora de olhar**, e o que ubywa do outro lado nunca esteve escrito no
+documento. Segunda perna, do rozdzial 83: **nao e cecha do produto, e cecha do
+PYTANIE** — a mesma distincao vale para a lokata e para a conta
+oszczednosciowa. Distincoes escritas contra os QUATRO irmaos, e nos **DOIS** sem
+o campo (`s008`, `s066`) pela PROSA e pela NARRACAO de cada um, de primeira mao.
+
+**TREZE CENAS pela chave `por_cadencia_servivel`:** o teto MEDIDO da voz
+(**14**), que e tambem a melhor cadencia, saiu **NOMEADO** e recusado pela FOLGA
+(23 caracteres, a dois do piso OBSERVADO); 12 e 11 repetem as duas ultimas do
+canal. **ESQUELETO
+`titulo-item-barras-item-item-lista-titulo-item-barras-lista-item-titulo-cta`,
+INEDITO nas 198 formas da frota**, da mistura que o `sugere_forma` deu.
+
+**E EU MIREI O MEIO E NAO O PISO, com a razao MEDIDA — e ela e nova.** As duas
+regras do repo divergem aqui e o instrumento diz isso em letra: o `orcamento`
+mira o MEIO (752/774, mirar a borda nao sobrevive ao residuo) e a regra de
+redacao do 772 manda mirar o PISO. **Medido nesta peca:**
+
+| | |
+|---|---|
+| cortada ate o piso EXECUTAVEL | 27 caracteres por cena, edge **41,71** |
+| acento da narracao ali | **2,45%** |
+| piso OBSERVADO dos shorts acentuados em `pl` | **2,59%** (n=109, mediana 5,38%) |
+| com 28,54 por cena | acento **4,00%**, edge **42,40** — o MEIO |
+
+**Logo o PISO da faixa e o ACENTO da voz nao cabem juntos nesta peca:** encurtar
+em polones tira justamente as palavras com ogonek e kreska, e o piso da faixa
+empurra a narracao para **abaixo de toda spec acentuada do idioma**. **O que eu
+NAO afirmo:** que isso valha para a frota — e uma peca, e o 679/698/725 nomeia
+esse enquadramento. O que esta medido e a tensao nesta, e a escolha vai
+declarada na copy. **Nenhum parametro foi tocado (§10).**
+
+**ZERO numero novo sobre o mundo, e a procedencia da recusa esta na PROPRIA
+origem:** o rozdzial 80 dela diz, em letra, que a oferta e de agosto e que o
+Ministerio anuncia outra **a cada mes**. Ficaram FORA as seis taxas, o imposto
+sobre os juros, a inflacao, o limiar, o preco por titulo, o limite de compra e
+as datas — **e a recusa inclui o numero que daria a peca mais facil**, o *"sto
+zlotych"* do rozdzial 79, que a narracao troca por *"ta kwota"*. As barras das
+cenas 2 e 8 sao **ILUSTRACAO** e **nao** sao faladas: as duas desenham alturas
+**IGUAIS** de proposito, porque o argumento e que a garantia do numero esta
+cumprida nos dois lados.
+
+**COTA: TRES envios** na janela aberta as 07:00Z, **4.800** unidades, contra o
+piso MEDIDO de **>= 41.600**.
+
+### E A FIXTURE DO TESTE DO REGISTRO PASSAVA POR STUB — as OITO falhas novas
+
+**Medido pela passada desta rodada: 33 falhas contra a base de 25, e as OITO
+novas eram TODAS do `test_o_REGISTRO_depois_de_publicar_nao_tinha_dono.py`**,
+com `comm` nomeando-as e **ZERO desaparecidas**. A causa e o cruzamento do
+titulo desta rodada, que le o notice pela TESTEMUNHA e portanto alcanca
+`lida["jobs"]` — e a fixture injetava a lida como **`{"run": run}`**, uma forma
+que o `leitura` **NUNCA devolve** (o docstring dele diz
+`{run, jobs: [{id, nome, conclusao, mensagens}]}`).
+
+**Logo o arquivo passava por STUB, e o conserto desta rodada so revelou isso.**
+A fixture ficou **faithful** — a lida vai com `jobs` e `mensagens` carregando o
+notice —, o que e mais forte e nao mais fraco: agora ela **exercita o cruzamento
+no sentido que CONCORDA**. Os dois arquivos juntos dao **38 testes passando**.
+
+**A regra que fica: fixture que devolve forma que o DONO nunca devolve nao mede
+o dono — ela mede o stub.** E o jeito de descobrir isso e o mesmo de sempre:
+alguem passa a ler um campo que o dono sempre teve.
