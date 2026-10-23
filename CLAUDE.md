@@ -12625,3 +12625,174 @@ tela de Network access.
 **COTA: DEZOITO envios** na janela aberta as 07:00Z, **28.800** unidades, contra
 o piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
 hora.
+
+## O LACO DE ESPERA DO RUN NAO TINHA DONO — e ele falhou TRES vezes por INVOCACAO
+
+**Medido em 23/10 as 01:3x, e a terceira falha foi na rodada ANTERIOR.** O
+`anotacoes_do_run.terminou` da o veredito de que um run acabou — e desde 00:1x
+ele devolve `None` quando o run esta ABERTO com zero pendente, porque a lista
+de jobs ainda esta sendo POVOADA. **O que nao tinha dono era o LACO que
+pergunta a ele**, e eu o redigitava na linha de comando a cada rodada. As tres
+falhas estao medidas:
+
+| | |
+|---|---|
+| 20/10 01:4x | `until ! pgrep -f "pytest tests"` — a propria linha casava o padrao, e o laco nunca saia. O conserto entrou no MODULO e o laco **continuou** a ser digitado |
+| 20/10 | a linha documentada aqui saiu **sem o `!`**, e com saida 0 = vivo o `until` para quando o comando ACERTA: ela esperava o processo COMECAR |
+| 23/10 00:07 | `until ... \| grep -q '0 pendente'` saiu com o job da matriz **ainda por criar**, porque naquele instante a contagem de pendentes ERA zero — e na mesma rodada eu escrevi o `until` **sem `sleep`**, deixando dois lacos OCUPADOS girando |
+
+**E a terceira viola uma regra ESCRITA deste repo:** *"codigo de saida,
+contagem e veredito saem do ESTADO, nunca do texto que o modulo imprime"*
+(19/10 as 17:2x, quando o `main` do `mira` decidia por um grep na propria
+prosa). **Laco que faz `grep` na saida do relato e esse defeito uma camada
+acima** — e eu o digitei em 00:07 e outra vez nesta rodada, as 01:1x, antes de
+o conserto existir.
+
+**`fabrica/espera_do_run.py` poe o laco num dono so**, e cada garantia dele e
+uma das falhas acima: o veredito sai de `terminou(...)["todos_terminaram"] is
+True` e **o relato nao entra na decisao** (teste por AST); **INDETERMINADO nao
+encerra a espera**; existe TETO e ele e respeitado; e ele **DORME** entre as
+consultas, com intervalo zero LEVANTANDO. O teto e o intervalo vao
+**DECLARADOS como REDACAO e nao como medida** — quem precisar de outro passa o
+argumento.
+
+    until python3 fabrica/espera_do_run.py <run>; do :; done   # NAO: ele JA espera
+    python3 fabrica/espera_do_run.py <run>                     # SIM: saida 0 = terminou
+
+### E O TETO NAO PODIA DEPENDER DO RELOGIO SOZINHO — a contraproba mostrou
+
+**Retirada a dormida, o teste nao REPROVOU: ele GIROU PARA SEMPRE** (a suite
+levou `Terminated` no limite do comando). A causa e fina e vale guardar: com o
+relogio injetado, **quem fazia o tempo andar era a propria dormida** — logo um
+teto medido so em segundos e **refem da dormida que ele deveria tornar
+desnecessaria**, e o teste nem chegava a falhar. E vazio de instrumento nao
+prova ausencia (17/10) na forma mais incomoda: o teste que nao termina nao diz
+nada.
+
+Agora o teto conta **TEMPO e CONSULTAS**, derivadas do par (teto, intervalo).
+**Contraprova nos dois sentidos:** sem a dormida **dois dos dezesseis**
+reprovam em vez de girar; desligado o teto por consultas, a suite **volta a
+pendurar** — e e esse par que mostra qual dos dois o segura.
+
+`tests/test_o_LACO_de_espera_do_run_nao_tinha_dono.py`, dezesseis testes: a
+decisao e cobrada como saindo do **ESTADO por AST** (`relato_do_termino`,
+`relato` e casamento de texto dentro do `espera` **reprovam**), INDETERMINADO
+**nao** encerra com contraproba no outro sentido (SIM encerra na PRIMEIRA
+consulta — sem ela bastaria nunca parar), um prova pelo **DONO** que o estado
+atravessado e de fato INDETERMINADO, a **FRONTEIRA** do teto vai nos dois
+lados, a dormida e cobrada como CHAMADA entre consultas, o veredito e
+**DELEGADO** (`steps` proibido no modulo inteiro), os **DOIS** campos tem de
+chegar ao dono (sem o status do run ele mente no sentido do 00:1x), e o codigo
+de saida sai do veredito nos TRES estados.
+
+### E EU QUASE DESTRUI O CORPUS A MAO, na mesma rodada
+
+Fui acrescentar o titulo publicado ao `fabrica/corpus_publicados.json` com um
+`c.append(t)` e levei `AttributeError: 'dict' object has no attribute
+'append'`: **o corpus e `{"titulos": [...]}` e nao uma lista**, e o `len(c)`
+que eu imprimi antes disso devolveu **1** — a contagem das CHAVES, nao dos
+titulos. **O dono existe desde 13/10 e chama-se `corpus_atrasado.aplicar`**, e
+e ele que sabe a forma.
+
+**A falha foi RUIDOSA, e e por isso que custou uma chamada e nao o arquivo** —
+mas o `len(c) == 1` passou por mim sem me acender nada, e e ele o sinal de que
+eu estava lendo outra coisa. Aplicado pelo dono: **494 -> 495 titulos**.
+
+### A PECA DESSA RODADA — CATORZE cenas, e o PISO EXATO nao era alcancavel
+
+`epomeno-epipedo-s098` = **`lJcK8A8-XiY`** (*Ανά ακίνητο, όχι ανά άτομο*),
+publicado as 01:27:52Z (run `39884106930`), **sem `403 quota`**. **ONZE PORTOES
+VERDES NA PRIMEIRA TENTATIVA** — e ela foi **CONFERIDA COMO RASCUNHO** antes de
+existir no disco: dez portoes baratos limpos em **0,55 s**, mais mira, acento
+**14,92%** (e o portao `ortografia` tambem nao reprova), gancho de 6 palavras de
+12, paleta **LIDA** de `temas_do_dono.paleta_do_canal`, as catorze cenas
+desenhando e as **seis guardas do construtor** limpas — com os dois
+instrumentos que ainda exigem caminho **DIZENDO** que nao conferiram.
+
+Provedor **edge MEDIDO** pelo `anotacoes_do_run` (zero avisos `NARRACAO PELO
+PIPER` no job `120185613284`, que e o job que emitiu o SOM) — e o instrumento
+**RECUSOU** estabelecer o provedor pelo job do `retomar`, dizendo que ali o zero
+sairia por **VACUIDADE**. Som **-14,2** LUFS, pico **-1,4** dBTP, isto e
+`acima_do_teto`, que e **LEITURA e nao defeito**, **zero silencios**, parqueado
+pelo `som_parqueado` (**88** linhas, zero sem `run`).
+
+**CANAL do `passo_zero`** (8/8/9 na janela de 24 h, empate em 8 desempatado pelo
+que esta ha mais tempo sem publicar). **PAUTA do `pauta_do_momento`:**
+`uWs-k_Wrn_w` (`epomeno-epipedo-008`), 4 usos — empate de TRES origens
+desempatado pela MAIOR reserva, **44 de 69** capitulos NAO MENCIONADOS e **40**
+deles sem declaracao de irmao; **as duas leituras do desempate CONCORDAM aqui**.
+A dominante `nttW9fR8wyY` ficou de fora. O `reservas_escritas` devolveu
+**NENHUMA**, logo a familia saiu da leitura dos 44 livres — com o texto
+**INTEIRO** e com **QUATRO** deles (47, 48, 49, 52) saindo **MARCADOS** como
+declarados pelos irmaos `s026` e `s080`.
+
+**FAMILIA: A MONADA DO DIREITO — ana AKINITO, nao ana ANTHROPO** (capitulos 20,
+21 e 22, com apoio do 31 e do 34). A ekptosi nao se conta por pessoa: conta-se
+por imovel que cumpre os termos, e **cada um e julgado a parte**. O erro e
+silencioso porque **nada o acusa**: o ekkatharistiko mostra um TOTAL e nunca diz
+*"declaraste um e deixaste o outro fora"*, e a aritmetica nao reclama — o valor
+que saiu esta CERTO e e menor do que o devido. E o sinal de que a unidade e o
+imovel esta no proprio anuncio: os rights registados foram **MAIS** que os
+beneficiarios, o que so faz sentido se varios declararam mais de um imovel.
+
+**Distincoes contra os QUATRO irmaos**, lidas pelo `irmaos_da_origem` e — nos
+**DOIS** sem o campo da familia (`s017`, `s062`) — pela PROSA e pela NARRACAO de
+cada um, que e de primeira mao: o `s017` e QUAL reducao falta (eixo: a AITISI),
+o `s026` o kathofli que nao e POSO, o `s062` meio ano dando meia ekptosi e o
+`s080` se a deducao COMPENSA. **Nenhum fala da UNIDADE em que o direito se
+conta**, e o mais proximo e o `s017`: la falta um PEDIDO para outra reducao;
+aqui o pedido foi feito e pegou — **pegou para um imovel entre varios**.
+
+**CONTAGEM pela chave `por_cadencia_servivel`:** catorze cenas, melhor cadencia
+da voz (3,02 s, |dif| **0,08** dos ~3,1 s de 690/699), folga **+6**, e nao
+repete os tamanhos recentes do canal (a `s097` tem 12 e a `s096` tem 13). O teto
+MEDIDO da voz (**15**), que e **INEDITO** na frota, saiu **NOMEADO** e recusado
+pela FOLGA — dois caracteres acima do piso OBSERVADO de 21.
+
+**ESQUELETO
+`titulo-item-barras-item-lista-item-titulo-item-barras-item-lista-item-titulo-cta`,
+INEDITO nas 190 formas da frota** e nenhuma das OITO de catorze cenas — e a
+**MISTURA saiu do `sugere_forma`**, a de maior folga (**83.156 de 83.160** ordens
+livres), nao do olho.
+
+**E O PISO EXATO NAO E ALCANCAVEL com catorze cenas**, dito assim em vez de eu
+chamar 42,30 de piso: um caractere por cena vale **0,71 s**, logo 27 caracteres
+dao 42,25 e **26 caem ABAIXO da faixa**. A primeira versao saiu em **43,11** —
+ACIMA do topo — e **o corte saiu do `mira.quanto_cortar`** (um caractere vale
+0,051 s nesta voz), nao da minha cabeca. A **PINCA do 740/748 esta FECHADA**
+(piper **37,40**, FORA pela mira e DENTRO do portao, que cobra 18 a 45 s nos
+dois mundos), com a exposicao declarada na copy ANTES de publicar. **E o REAL
+nao esta prometido para lado nenhum** (774).
+
+**ZERO numero novo sobre o mundo e ZERO numeral na narracao**, conferido pelo
+`numerais_falados`. A regra (g) tirou o ENFIA medio, o total arrecadado, o
+numero de contribuintes, a percentagem, a razao "um em catorze", o minimo de
+dias, a data limite, o minimo por metro quadrado e o premio medio — **e a recusa
+INCLUI o numero que daria a peca mais facil:** a diferenca medida entre rights e
+beneficiarios, que e justamente o SINAL da unidade. A peca diz que os rights
+foram MAIS que os beneficiarios **sem dizer quantos**. E ordinal de contagem
+tambem ficou fora, **pelo precedente do `s017` nesta mesma origem** — *"άλλο
+ακίνητο"* no lugar de *"δεύτερο"*, porque ordinal de contagem ja e quantidade.
+As barras sao ILUSTRACAO qualitativa e **nao** sao faladas.
+
+**E O BALDE PEGA-TUDO FOI CONFERIDO PELO DONO** (`publicar.ler_copy`): o
+`comentario` sai da secao CERTA, porque a `## COMENTARIO FIXADO` esta **DEPOIS**
+da descricao — a regra corrigida em 22/10 as 22:5x, ja que o titulo e a
+descricao saem da POSICAO e secao posta antes dela VIRA a descricao.
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica` pela
+QUADRAGESIMA SETIMA rodada seguida** — medido pela `sonda_e_modo`, com os TRES
+controles no MESMO caminho de saida e os alvos na forma de URL: o `touch`
+passou, os TRES hosts voltaram **000 sem arquivo**, e o proxy nomeou
+`example.com` e `www.youtube.com` depois de 01:29:25Z. A peca esta PARQUEADA com
+o provedor MEDIDO e o job **lido da API**, e a presenca foi conferida
+**RELENDO** o parque (**148** linhas, **76** sem leitura). `RESIDUO_N` segue
+**128**.
+
+**E A LEITURA DE INSCRITOS PASSOU AS TRES PORTAS E NAO FOI FEITA, pela DECIMA
+NONA rodada seguida:** 87,05 h, piso de resolucao **0,28/dia**, os tres SIM. **O
+que a impede e a ROTA, e o remedio e do DONO** — a tela de Network access.
+
+**COTA: DEZENOVE envios** na janela aberta as 07:00Z de 22/10, **30.400**
+unidades, contra o piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um
+laco escrito na hora.
