@@ -50,6 +50,7 @@ import sys
 
 import concentracao as CO
 import dono_medido as DM
+import familia_entre_canais as FC
 import irmaos_da_origem as IO
 import reservas_escritas as RE
 import segundo_angulo as SA
@@ -650,11 +651,18 @@ def relato(canal: str, dono_medido=None, exceto: str = "") -> str:
         # Instrumento que a rodada nao chama e a classe dos layouts mortos.
         L.append("")
         L.append(SA.relato_dos_livres(e["escolhida"]["origem"], exceto=exceto))
+    # E A FAMILIA DOS OUTROS CANAIS entra aqui, FORA do ramo da `escolhida`:
+    # ela e sobre o que NAO escrever, logo ela importa mesmo quando nao ha
+    # origem escolhida. Em 23/10 as 17:0x eu descartei uma familia por lembrar
+    # de cabeca que ela era o eixo de uma peca publicada HOJE em outro canal.
+    L.append("")
+    L.extend(FC._linha_das_familias(FC.recentes_de_outros(canal,
+                                                          exceto=exceto)))
     L.append("")
     L.append("  isto NAO decide FAMILIA: capitulo livre nao e familia livre "
-             "(776). As quatro contas sao dos donos — `concentracao`, "
-             "`segundo_angulo`, `irmaos_da_origem`, `reservas_escritas` — "
-             "e nenhuma e daqui.")
+             "(776). As cinco contas sao dos donos — `concentracao`, "
+             "`segundo_angulo`, `irmaos_da_origem`, `reservas_escritas` e "
+             "`familia_entre_canais` — e nenhuma e daqui.")
     return "\n".join(L)
 
 

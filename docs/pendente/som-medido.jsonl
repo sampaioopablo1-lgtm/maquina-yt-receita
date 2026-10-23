@@ -101,3 +101,4 @@
 {"arquivo": "short.mp4", "desvio_do_alvo": 0.5, "job": "120442743302", "lra": 3.9, "lufs": -13.5, "pacote": "epomeno-epipedo-069", "pico_dbtp": -1.3, "run": "39962189291", "silencios": [], "tinha_veredito": true}
 {"arquivo": "short.mp4", "desvio_do_alvo": 0.6, "job": "120467303966", "lra": 2.9, "lufs": -13.4, "pacote": "labtreinamento-s117", "pico_dbtp": -1.5, "run": "39969259518", "silencios": [], "tinha_veredito": true}
 {"arquivo": "short.mp4", "desvio_do_alvo": 0.7, "job": "120505893843", "lra": 2.3, "lufs": -13.3, "pacote": "kolejny-poziom-s102", "pico_dbtp": -1.3, "run": "39980384948", "silencios": [], "tinha_veredito": true}
+{"arquivo": "short.mp4", "desvio_do_alvo": 0.3, "job": "120538641439", "lra": 3.6, "lufs": -13.7, "pacote": "epomeno-epipedo-s102", "pico_dbtp": -1.5, "run": "39989877448", "silencios": [], "tinha_veredito": true}

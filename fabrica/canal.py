@@ -45,10 +45,22 @@ import re
 # `kolejny-poziom-s017` — resolve certo. Ha teste cobrando os dois casos.
 _SUFIXO = re.compile(r"-s?\d+$")
 
+# E A QUINTA FORMA SAI DO PARQUE, nao do disco — medida em 23/10 as 17:0x, pelo
+# `familia_entre_canais`. Quando a peca e de PACOTE, o `registro_videos` grava
+# `slug = pacote + "-short"` e o parque de duracao grava `<pacote>-longo`, logo
+# existem nomes que o disco NAO tem: as TRES linhas de longo de 19/10 (3 de 163)
+# resolviam para si mesmas e viravam canal FANTASMA. Medido antes de mexer:
+# **zero** dos 454 nomes de spec do disco termina nestes dois sufixos e nenhum
+# dos catorze prefixos de canal termina assim, logo cortar e seguro. O corte e
+# ANTES do grupo de digitos, e o grupo de digitos segue sendo cortado UMA vez:
+# iterar os dois mudaria `kp-plan-9233-20260811` de `kp-plan-9233` para
+# `kp-plan`, que e comportamento que ja tem teste desde 19/10.
+_PAPEL = re.compile(r"-(?:longo|short)$")
+
 
 def do_pacote(pacote: str) -> str:
-    """`labtreinamento-s083` e `epomeno-epipedo-068` -> o canal; canal -> igual."""
-    return _SUFIXO.sub("", str(pacote or ""))
+    """`labtreinamento-s083`, `epomeno-epipedo-068` e `...-068-longo` -> o canal."""
+    return _SUFIXO.sub("", _PAPEL.sub("", str(pacote or "")))
 
 
 def da_spec(spec: dict) -> str:

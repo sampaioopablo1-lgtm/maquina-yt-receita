@@ -14494,3 +14494,232 @@ QUARTA rodada seguida:** 101,42 h, piso de resolucao **0,24/dia**, os tres SIM.
 **COTA: DEZ envios** na janela aberta as 07:00Z, **16.000** unidades, contra o
 piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
 hora.
+
+## A FAMILIA ATRAVESSA CANAL, E A CONFERENCIA ERA A MINHA MEMORIA
+
+**Medido em 23/10 as 17:0x, escolhendo a familia do `epomeno-epipedo-s102`, e e
+a segunda vez nesta sessao que a decisao de uma peca saiu de cabeca.** Eu tinha
+QUATRO candidatas na mao e descartei uma — a **ATRIBUICAO** do movimento de um
+agregado ao componente que empurrou para o outro lado (capitulo 19 daquele
+longo) — **porque ela e o eixo do `kolejny-poziom-s099`, publicado HOJE as
+06:21Z em OUTRO canal.** E eu sabia disso **de memoria**.
+
+**As tres comparacoes que o repo tem param antes desta:**
+
+| instrumento | o que compara |
+|---|---|
+| `irmaos_da_origem` | familia DENTRO da mesma origem |
+| portao `similaridade` | **titulo** contra o MESMO canal (o `_especs_do_canal` filtra pelo slug) |
+| `esqueleto_entre_canais` | **FORMA** atravessando canal |
+
+**Logo a FORMA atravessando canal tem instrumento desde 20/10 as 01:3x e a
+FAMILIA nao tinha nenhum** — e e a familia que carrega o conteudo. **Eu venho
+escrevendo em cada copy desta semana, em letra, que *"o `similaridade` nao
+pegaria repeticao entre canais, porque compara contra o MESMO canal"*:** a frase
+estava certa e a conferencia era a minha cabeca, que e o item 3 da §10 na
+**DECIMA** dimensao — canal, cota, cenas, pauta, dono da origem, som, contrato
+do render, anotacoes, esgotamento, e agora FAMILIA ENTRE CANAIS.
+
+**E a pergunta e literalmente a do DONO.** Palavras dele em 19/10: *"os videos
+publicados me parecem todos a mesma dinamica, imagens, formas, estilo. **Em
+todos os canais.** Ajuste."* O `esqueleto_entre_canais` respondeu a metade da
+FORMA; esta e a metade do CONTEUDO.
+
+`fabrica/familia_entre_canais.py` devolve, para cada canal que NAO e este, as
+`RECENTES_K` ultimas pecas com o que elas dizem da familia — e **a leitura e
+sempre do dono**: o instante sai do parque (`duracao_a_medir`), o canal do
+`canal.do_pacote` (**57 das 163 linhas nao tem o campo `canal`**, logo ler o
+campo perderia essas pecas em silencio), e o campo, a prosa e a narracao do
+`irmaos_da_origem`. **Peca sem o campo entrega a PROSA e a NARRACAO inteiras,
+com a procedencia ROTULADA** — citacao de irmao e compressao de TERCEIRO (20/10,
+15:3x) — e os dois lados existem no disco: **138 de 311 specs de short solto com
+copy tem o campo (0,444) e 173 nao**, logo nenhum dos ramos passa por vacuidade.
+
+**ELE NAO DECIDE SE DUAS FAMILIAS SAO A MESMA (776):** poe o material na mesa.
+Decidir por semelhanca de texto seria detector que inventa achado (725), e **o
+caso desta rodada mostra por que:** *atribuicao de um agregado a um componente*
+e *atribuicao de um resultado a uma variavel que nao variou* **nao compartilham
+uma palavra** e sao o mesmo eixo para quem le. Nao e portao, e o codigo de saida
+e sempre zero.
+
+### E A QUINTA FORMA DE SLUG SAIU DELE, na primeira execucao
+
+O parque grava **`<pacote>-longo`** para a peca de pacote (e o `registro_videos`
+grava `slug = pacote + "-short"`), e o `canal.do_pacote` — o dono UNICO criado
+em 19/10 as 05:2x — **nao conhecia essa forma**: as TRES linhas de longo de
+19/10 resolviam para si mesmas e viravam **canal FANTASMA**. Medido, **3 de 163
+linhas** do parque de duracao e **0 de 103** do parque de som.
+
+**A medida que autorizou o corte vai antes dele:** **ZERO** dos 454 nomes de
+spec do disco termina em `-longo` ou `-short`, e nenhum dos catorze prefixos de
+canal termina assim.
+
+**E A PRIMEIRA VERSAO DO CONSERTO ERA UMA REGRESSAO, pega pela minha propria
+tabela de casos:** eu pus um `while` iterando os dois cortes, e isso mudava
+`kp-plan-9233-20260811` de `kp-plan-9233` para `kp-plan` — comportamento que tem
+teste desde 19/10. O corte do grupo de digitos segue sendo **UMA vez**.
+
+`tests/test_a_FAMILIA_atravessa_canal_e_ninguem_olhava_para_FORA.py`, vinte e
+dois testes: o parque **reprova com menos de 20 linhas ou com peca de um canal
+so** (vacuidade), os **DOIS** lados do campo tem de existir no disco e a fracao
+e **RECONFERIDA como PROPORCAO e nao como contagem** (a licao de 22/10 as 14:4x:
+contagem absoluta sobre populacao que cresce e identidade disfarcada de medida),
+o `K` e cobrado na **FRONTEIRA** e **pela ponta NOVA** da lista (ler a ponta
+velha e a familia da fatia do proxy), registro **SEM** o campo `canal` tem de
+continuar atribuido, spec ausente sai **NOMEADA com `tem_campo` None e nao
+False**, peca COM o campo **nao** recebe prosa (senao o campo deixa de ser dono
+unico), a recusa vai com motivo e tem **contraproba no outro sentido**, a
+semelhanca e proibida por **AST** (`difflib`, `SequenceMatcher`, `ratio(`), o
+nome da secao e proibido como literal, as formas ANTIGAS do slug sao cobradas
+uma a uma **contra a regressao do `while`**, e um **falha se o parque deixar de
+ter a forma `-longo`** — porque ai o defeito perdeu o objeto e esta nota se rele.
+
+**E A CONTRAPROVA PEGOU UM ASSERT MEU QUE APROVAVA QUALQUER COISA.** O teste da
+fiacao pedia um statement de nivel de cima que **CONTIVESSE** `"FC."` — e um
+`if` de nivel de cima contem o corpo dele, logo ele **passava com o defeito
+religado**. E a familia do `or True` de 16/10, num arquivo escrito para guardar
+o oposto. A propriedade certa e que o `FC.` **nao mora dentro de controle de
+fluxo**, e com ela a contraproba reprova. **Contraprova nos dois sentidos:**
+desligada a quinta forma, dois dos vinte e dois falham; posta a chamada dentro
+do `if`, um falha.
+
+### E O MEU LACO DE ESPERA SAIU NO PRIMEIRO `NAO` — quarta forma da assinatura
+
+Eu montei um monitor com `grep -E 'TERMINOU: (SIM|NAO)'` e **ele saiu na
+PRIMEIRA consulta**, porque `NAO` casa o padrao: o render tinha acabado de
+comecar. **O dono do laco existe e chama-se `espera_do_run`** (23/10, 01:3x), e
+ele le o veredito do ESTADO e dorme entre as consultas — eu escrevi o laco a mao
+outra vez. **E a assinatura e a de 20/10 as 01:4x e de 19/10 as 21:1x: conserto
+no modulo nao protege contra a INVOCACAO.** Rodado pelo dono, o render saiu em
+**8 consultas e 183,4 s**.
+
+### A PECA DESSA RODADA — CATORZE cenas, e a familia ficou DENTRO do documento
+
+`epomeno-epipedo-s102` = **`Bmc2WYqrg3A`** (*Ο τίτλος είναι μία γραμμή*),
+publicado as **16:55:33Z** (render `39989877448`, publicacao `39990775240`),
+**sem `403 quota`**. **ONZE PORTOES VERDES NA PRIMEIRA TENTATIVA** — e ela foi
+**CONFERIDA COMO RASCUNHO** antes de existir no disco.
+
+**E O NUMERO DE PORTOES QUE EU REPORTO VINHA DA MINHA CABECA — corrigido aqui,
+e a mensagem do commit `d9a3526` ja saiu errada.** O `prontidao.PORTOES` tem
+**DOZE** e o `capitulos` **sai de fora no short solto**, em vez de aprovar em
+silencio, logo a peca de short solto passa por **ONZE** — e `len(avalia(spec))`
+devolve exatamente isso, numa linha.
+
+**E A VARREDURA DO PROPRIO `CLAUDE.md` DIZ O TAMANHO, em vez de eu supor:** a
+frase *"DOZE PORTOES VERDES"* aparece **OITO** vezes e *"ONZE"* **vinte e
+oito**. Das oito, **DUAS estao CERTAS** — o `kolejny-poziom-021` e o
+`epomeno-epipedo-069` sao PACOTES, e ali o `capitulos` roda — e **SEIS estao
+erradas por um**, todas de short solto: `epomeno-epipedo-s071`,
+`labtreinamento-s114`, `labtreinamento-s115`, `kolejny-poziom-s101`,
+`labtreinamento-s117` e `kolejny-poziom-s102`. **E eu ia escrever que eram
+quatro**, de cabeca; a varredura deu seis.
+
+**O que NAO muda e o veredito** — os onze sairam com zero problema cada, e e
+isso que o portao diz. O que muda e o numero que vai no relato ao dono, e ele
+passa a sair de `len(prontidao.avalia(spec))`.
+
+Provedor **edge MEDIDO** pelo `anotacoes_do_run` (zero avisos `NARRACAO PELO
+PIPER` no job `120538641439`, que e o job que emitiu o SOM) — e o instrumento
+**RECUSOU** estabelecer o provedor pelo job do `retomar`, dizendo que ali o zero
+sairia por **VACUIDADE**. Som **-13,7** LUFS, pico **-1,5** dBTP, isto e **no
+teto exato** do `som.TP_MAX_DBTP` (logo `acima_do_teto` False por fronteira),
+**zero silencios**. **E a linha do PUBLICADO imprimiu os DOIS titulos e eles
+CONCORDAM**, logo o corpus recebeu o que o YouTube recebeu (773). Os quatro
+parques pelo `registro_da_rodada`, os quatro **RELIDOS**.
+
+**CANAL do `passo_zero`** (9/8/8 na janela de 24 h, empate em 8 desempatado pelo
+que esta ha mais tempo sem publicar). **PAUTA do `pauta_do_momento`:**
+`os51d8fA0sY` (`epomeno-epipedo-006`, 87 capitulos), 5 usos — empate de
+**QUINZE** origens desempatado pela reserva, **71 livres e 46 sem declaracao de
+irmao**. **As duas leituras DIVERGEM com vao de 12 capitulos (21%) e a rodada
+SEGUIU a regra escrita** do `concentracao.py`: 21% esta longe dos 62% em que a
+rodada de 22/10 as 17:3x desviou, e **nenhuma das duas cai no maximo do canal
+por TEXTO**. O `reservas_escritas` devolveu **NENHUMA**.
+
+**FAMILIA: O TITULO E UMA LINHA DO MESMO BOLETIM, E A LINHA QUE TE DESCREVE
+ESTA ALGUMAS LINHAS ABAIXO** (capitulos 18, 20, 25, 26 e 27, com 0, 3 e 5 de
+apoio). O eixo e a **PROCEDENCIA do numero que se ouviu DENTRO do documento**,
+nao o valor dele e nao o conjunto que ele mede.
+
+**E o mecanismo do silencio e o melhor desta origem: o titulo esta CERTO, a
+fonte e a MESMA, e nao ha nada de que desconfiar.** Nao e numero errado, nao e
+outra pesquisa, nao e dado escondido — e **uma linha legitima de um texto que
+contem as outras**, logo nao existe evento nenhum que mande continuar lendo: o
+titulo respondeu algo, a leitura fechou, e nada doi. **E a saida nao e uma fonte
+melhor, e uma CONTINUACAO** — descer algumas linhas no mesmo documento, o que
+vale HOJE em vez de depois de dois meses de planilha.
+
+**Distincoes escritas contra os CINCO irmaos**, lidos pelo `irmaos_da_origem` e,
+nos **TRES** sem o campo da familia (`s012`, `s063`, `s072`), pela PROSA e pela
+NARRACAO de cada um, que e de primeira mao. **O mais vizinho e o `s012` e a
+distincao vai dita:** ele manda **SAIR** do documento e construir a propria
+cesta; esta peca manda **FICAR** dentro dele. **E o `s087` e o que mais se
+aproxima e NAO e isto:** o terceiro item dele e com QUE indice comparar o numero
+que voce **JA** construiu — aqui nao existe numero seu nenhum ainda.
+
+**E DUAS FAMILIAS FICARAM FORA DE PROPOSITO, as duas com o motivo escrito:** o
+capitulo 15 (o indice geral nao e indice de supermercado — dentro dele estao
+aluguel, combustiveis, energia e servicos) e o ESCOPO, territorio declarado do
+`s087`; e o capitulo 19 (a desaceleracao veio APESAR dos combustiveis) e
+**ATRIBUICAO**, o eixo do `kolejny-poziom-s099` publicado hoje em OUTRO canal —
+e e esta a recusa que o instrumento desta rodada passa a sustentar com dado em
+vez de memoria.
+
+**CONTAGEM pela chave `por_cadencia_servivel`:** catorze cenas, a **melhor
+cadencia** desta voz (3,02 s, |dif| **0,08** dos ~3,1 s de 690/699), folga
+**+6**, e nao repete o tamanho recente do canal. O teto MEDIDO da voz (**15**),
+que e **INEDITO** na frota, saiu **NOMEADO** e recusado pela FOLGA — dois
+caracteres acima do piso OBSERVADO de 21.
+
+**MISTURA do `sugere_forma`** (83.154 de 83.160 ordens livres). **ESQUELETO
+`titulo-item-barras-item-lista-item-titulo-item-lista-barras-item-titulo-item-cta`,
+INEDITO nas 205 formas da frota.** Todo layout saiu do conjunto **SONDADO**,
+paleta **LIDA** de `temas_do_dono.paleta_do_canal`, trilha `Inspired` do proprio
+canal (601).
+
+**E A GUARDA DA THUMBNAIL LEVANTOU NO CONSTRUTOR, antes de a spec existir:**
+cinco palavras contra o limite de 4, LIDO do `variedade`. E a **DECIMA SEGUNDA**
+vez do mesmo defeito nesta sessao e a **SEGUNDA** em que ele morre na mesa.
+
+**MIREI O PISO** (772): edge **41,74** — 0,24 acima dele — e piper **37,00**. O
+corte saiu do `mira.quanto_cortar` (um caractere vale **0,051 s** nesta voz) e
+**eu segui os SEGUNDOS**, porque com cenas nao uniformes o conselho em
+caracteres aponta para o outro lado — e o instrumento diz isso em letra (49 de
+266 specs do disco discordam). **A PINCA DO 740/748 ESTA FECHADA** aqui, com a
+exposicao declarada na copy ANTES de publicar: o piper sai FORA pela mira e
+DENTRO do portao, que cobra 18 a 45 s nos dois mundos. **E o REAL nao esta
+prometido para lado nenhum** (774).
+
+**ZERO numero novo sobre o mundo, e a recusa inclui os numeros que dariam a peca
+mais forte** — porque e exatamente deles que esta origem e feita: o indice
+geral, o de alimentos e os valores dos dois extremos da lista. Com eles a peca
+fica concreta numa frase; sem eles ela sobrevive ao boletim seguinte, e **o
+capitulo 10 da PROPRIA origem escreve a mesma regra**.
+
+**E O NUMERAL FALADO E `μία`, QUE O INSTRUMENTO NAO VE — e isso vai dito em vez
+de escondido:** o `numerais_falados` devolve *"nenhum numeral do vocabulario"*,
+porque ele deixa ARTIGO de fora de proposito e **em grego `μία` e as duas
+coisas**. Logo aqui **a declaracao da copy e MAIS larga que a leitura dele**, e
+a ressalva escrita no proprio modulo e a que vale: ausencia de vocabulario nao
+prova ausencia. As barras sao ILUSTRACAO e **nao sao faladas** — a cena 2
+desenha o titulo e a lista com ALTURA IGUAL, porque o argumento e que nenhuma
+das duas e mais fonte que a outra.
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica` pela
+QUINQUAGESIMA OITAVA rodada seguida** — medido pela `sonda_e_modo`, com os TRES
+controles no MESMO caminho de saida: o `touch` passou, os TRES hosts voltaram
+**000 sem arquivo**, e o proxy nomeou `example.com` e `www.youtube.com` depois
+de 16:56:47Z. A peca esta PARQUEADA com o provedor MEDIDO e o job **lido da
+API**, com a presenca conferida **RELENDO** os quatro parques (duracao **164**
+linhas, **92** sem leitura; som **104**; SQL **201** linhas com ZERO prosa;
+corpus pelo dono). `RESIDUO_N` segue **128**.
+
+**E A LEITURA DE INSCRITOS PASSOU AS TRES PORTAS E NAO FOI FEITA:** 102,52 h,
+piso de resolucao **0,23/dia**, os tres SIM. **O que a impede e a ROTA, e o
+remedio e do DONO** — a tela de Network access. As duas portas sao
+independentes, e passar uma nao e passar a outra.
+
+**COTA: ONZE envios** na janela aberta as 07:00Z, **17.600** unidades, contra o
+piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
+hora.
