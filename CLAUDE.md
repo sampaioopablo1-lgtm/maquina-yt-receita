@@ -12440,3 +12440,188 @@ que a impede e a ROTA, e o remedio e do DONO** — a tela de Network access.
 o piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
 hora. **E o run que morreu no portao NAO gastou cota**, porque ele nunca chegou ao
 `videos.insert`.
+
+## O `todos_terminaram` SAIA **True** SOBRE UMA LISTA AINDA SENDO POVOADA
+
+**Medido em 23/10 as 00:1x, e o erro aconteceu nesta rodada.** O laco de espera
+do render perguntou ao `anotacoes_do_run --termino` pelo run `39876950273`
+**antes de a matriz existir**: havia UM job (`preparar`, concluido), logo
+`pendentes` era **zero** e `todos_terminaram` saiu **True** com o `produzir`
+ainda por criar. O laco saiu na hora errada.
+
+| | |
+|---|---|
+| jobs no run naquele instante | **1** (`preparar`) |
+| pendentes | **0** |
+| `todos_terminaram` | **True** |
+| jobs de verdade, um minuto depois | **2**, com o `produzir` em `3/19` passos |
+
+**E quem me salvou NAO foi este campo:** foi a guarda de 22/10 as 05:3x, que
+**RECUSOU** estabelecer o provedor dizendo que nenhum job daquele run emitiu
+`SOM`, logo contar o aviso do 733 ali devolveria **zero por VACUIDADE**. Sem
+ela eu teria escrito "provedor edge MEDIDO" a partir de um zero que nao media
+nada — exatamente o defeito das quatro pecas com o job do `retomar` como
+procedencia.
+
+**A lista de jobs de um run em andamento ainda esta sendo POVOADA**, logo zero
+pendente sobre ela e o vazio de instrumento outra vez — o **nono** membro da
+familia desta sessao. E ele e da classe mais confortavel, como o `success` do
+RUN de 22/10 as 13:4x: os outros devolvem silencio ou erro, **este devolve a
+palavra que eu quero ler**.
+
+**Consertado, e os DOIS campos passam a ser necessarios sem nenhum bastar:** com
+`status_do_run` diferente de `completed` o `todos_terminaram` vira **None** — nao
+False —, porque *nao se sabe se terminou* e isso e diferente de *saber que nao
+terminou*, do jeito que o `porta1` recusa janela curta. **E o run pode mentir no
+outro sentido** (19:4x: `completed` com job em andamento), logo o veredito segue
+pedindo os passos: a frase do modulo diz isso em letra.
+
+**E A PRIMEIRA LINHA DO RELATO PASSOU A CARREGAR O VEREDITO, porque era ela que
+o laco lia.** Eu grepava `0 pendente` — e **no caso medido essa contagem E
+zero**. Agora sai `TERMINOU: SIM | NAO | INDETERMINADO`, e a contagem continua
+ao lado sem decidir nada. **Grepe `TERMINOU: SIM`.** O CLI passa o status do run
+numa SEGUNDA chamada de proposito: o payload dos jobs nao o traz, e isto vai
+cobrado por **AST** — conserto no modulo nao protege contra a invocacao, e foi a
+invocacao que errou duas vezes nesta sessao (o `2>&1`, o `until` sem `!`).
+
+`tests/test_o_endpoint_dos_JOBS_mentiu_no_outro_sentido.py` foi a **dezesseis**
+testes: o caso MEDIDO sai `INDETERMINADO`, a contraprova no outro sentido exige
+que com o run `completed` ele DECIDA (senao bastaria devolver sempre `None`), um
+cobra que **sem** o argumento ele se comporte como antes — inventar padrao faria
+a recusa depender de quem chamou lembrar de passa-lo —, um cobra que **nenhum
+dos dois campos basta** (run aberto com todos os passos feitos sai
+`INDETERMINADO`; run fechado com passo faltando sai `NAO`), um cobra a primeira
+linha nos **dois** ramos e que o aviso da lista povoada **nao** saia com o run
+fechado, e um cobra o CLI por **AST**. **Contraprova:** retirada a recusa pelo
+run aberto, **tres dos dezesseis** falham.
+
+### E O `processo_vivo` SE VIA NO ESPELHO QUANDO O ESPELHO ERA ELE MESMO
+
+**Medido em 23/10 as 00:0x, na mesma rodada.** O modulo nasceu em 20/10 as 01:4x
+porque o `pgrep -f` casava a propria linha de comando do laco de espera. Ele
+tirava de fora o PID da chamada e o do pai dela — e uma **SEGUNDA copia
+concorrente** do modulo tem outro PID, executavel `python3` e os argumentos com o
+padrao dentro, logo passava **todos** os filtros e era contada como o PROCESSO.
+
+Medido no proprio relato: as 00:00, com a suite rodando, ele disse **`VIVO: 2
+processo(s)`** — o pytest (pid 3548) e o observador do laco de espera (pid 4364),
+que era ele mesmo. **O numero estava errado por um.** A falha e **PERMISSIVA** no
+sentido pior: dois observadores concorrentes veem um ao outro e os dois dizem
+VIVO para sempre, que e exatamente o laco infinito do `pgrep` que o arquivo foi
+escrito para consertar.
+
+**E o `NAO_SAO_O_PROCESSO` nao podia pega-la:** ele casa o **EXECUTAVEL**
+(`comm`), e o `comm` de uma copia deste modulo e `python3`. O discriminador tem
+de ser o **ARGUMENTO** que nomeia este arquivo — e ele agora tem UM dono,
+`processo_vivo.sou_eu`, com o nome saindo do `__file__` e nao de uma string
+cravada (753). **O espelho vai NOMEADO** no relato (*"OUTRA copia deste
+modulo"*), porque foi vendo os PIDs que eu descobri o engano as duas vezes.
+
+`tests/test_o_instrumento_se_via_no_espelho_quando_o_espelho_era_ELE.py`, cinco
+testes: o caso e **REPRODUZIDO** por um processo python cujos ARGUMENTOS nomeiam
+este modulo — a propriedade cobrada e essa, e nao a CLI dele dormir, que ela nao
+faz —, a contraprova no outro sentido exige que um python **de verdade** com o
+padrao continue saindo VIVO, e o dono e cobrado por **AST** com o nome do proprio
+arquivo proibido fora dele. **Contraprova:** retirado o `sou_eu` do `candidatos`,
+**dois dos cinco** falham.
+
+### E EU ESCREVI O `until` SEM `sleep`, E ELE E UM LACO OCUPADO
+
+A linha que este arquivo documenta desde 20/10 traz `sleep 20`; eu a escrevi sem.
+Dois lacos ocupados ficaram girando durante a passada da suite. **E eu NAO
+atribuo a lentidao dela a isso:** parado o laco, a taxa nao melhorou (medida nos
+dois casos), e dizer que foi ele seria comparador escolhido sem medir — o efeito
+(C). O que esta medido e que a linha estava errada e que a passada daquela rodada
+foi **INTERROMPIDA por mim**, nao por falha: 0,85 caractere/s contra ~3,4 das
+passadas anteriores, projetando ~100 min, o que nao cabia na janela.
+
+### A PECA DESSA RODADA — TREZE cenas, e o portao `duracao` REPROVOU a primeira
+
+`kolejny-poziom-s097` = **`xH2sUI4nGiU`** (*Dwie pozycje, jeden pasek*),
+publicado as **00:20:54Z** (run `39877553318`), **sem `403 quota`**.
+**ONZE PORTOES VERDES** — e ela foi **CONFERIDA COMO RASCUNHO** antes de existir
+no disco. Provedor **edge MEDIDO** pelo `anotacoes_do_run` (zero avisos
+`NARRACAO PELO PIPER` no job `120164786613`, que e o job que emitiu o SOM).
+Som ****-13,5** LUFS, pico **-1,5** dBTP — isto e, NO TETO exato do
+`som.TP_MAX_DBTP`, logo `acima_do_teto` False por fronteira —, **zero silencios**,
+parqueado pelo `som_parqueado` (parque em **87** linhas, zero sem `run`)**.
+
+**CANAL do `passo_zero`** (9/8/8, empate entre epomeno e kolejny desempatado pelo
+que esta ha mais tempo sem publicar). **PAUTA do `pauta_do_momento`:**
+`SP7Vz8qHdRY` (`kolejny-poziom-011`, 77 capitulos), 4 usos — empate de **ONZE**
+origens desempatado pela reserva, **65 livres e 61 sem declaracao**, e as duas
+leituras do desempate **CONCORDAM** aqui. A dominante `GUiq15usizw` ficou de fora,
+e o `QiaGg03WSR0` saiu da escolha pelo **mapa de dono MEDIDO** sem sair da lista.
+
+**FAMILIA: O ZAKRES DO RACHUNEK — comparar o resultado CERTO do wzor com a
+liczba do pasek, que contem outra rubrica** (capitulos 55, 59 e 60). O eixo e a
+**PERGUNTA a que o wzor responde**, e nao nenhum dos componentes dele: o rachunek
+pode estar perfeito e ainda assim nao descrever o que se ve na wyplata, porque o
+podatek e UMA rubrica e a **skladka zdrowotna** e outra, separada e fora do wzor.
+O capitulo 59 diz isso em letra: *"chociaz na twojej wyplacie widzisz obie
+naraz"*.
+
+**E o erro anda nos DOIS sentidos, que e a parte que importa:** quem procura
+pomylka no rachunek nao a acha e perde a confianca na propria liczba; quem toma o
+wzor pelo todo planeja uma wyplata que nao vai receber. Nos dois casos a divisao
+fecha e nada avisa. A segunda perna e o **REZIM** — o wzor supoe a *skala*, e
+quem esta no liniowy ou no ryczalt *"tego progu u siebie nie zobaczy"* (capitulo
+60).
+
+Os **QUATRO** irmaos foram lidos pelo `irmaos_da_origem` e, nos **TRES** sem o
+campo da familia, pela PROSA e pela NARRACAO de cada um, que e de primeira mao: o
+`s015` e a MECANICA das camadas, o `s041` a VIGENCIA (*zapowiedz* nao e
+*przepis*), o `s057` o ATO do contribuinte (sem o zgloszenie perde-se o PRAZO,
+nao a kwota) e o `s079` qual BASE se compara. **Nenhum dos quatro fala do ZAKRES
+do rachunek** — os quatro falam de como calcular a MESMA rubrica, nao de haver
+mais de uma. E o capitulo 48 ficou **FORA de proposito**: e territorio declarado
+do `s057`.
+
+**TREZE CENAS pela chave `por_cadencia_servivel`:** o teto MEDIDO desta voz
+(**14**), que e tambem a melhor cadencia, saiu **NOMEADO** e recusado pela FOLGA
+— 23 caracteres por cena, a **dois** do piso OBSERVADO, a mesma conta que eu
+recusei a mao em 04:1x e 06:2x de 20/10. Treze tem folga **+7**.
+
+**E O ESQUELETO SAIU DO `sugere_forma`:**
+`titulo-barras-item-barras-item-item-lista-lista-titulo-item-titulo-item-cta`,
+**INEDITO nas 189 formas** da frota, da mistura com **41.579 de 41.580** ordens
+livres. Todo layout saiu do conjunto **SONDADO**, com `assert` no construtor, e a
+paleta foi **LIDA** de `temas_do_dono.paleta_do_canal`.
+
+**E O PORTAO `duracao` REPROVOU A PRIMEIRA VERSAO: 43,7 s previstos contra o teto
+de 43,1.** O corte saiu do `mira.quanto_cortar` e nao da minha cabeca — e foi ele
+que mostrou a causa: a cena do **CTA tinha DUAS frases**, e o termo `P` do
+`MODELO_VOZ` e silencio por **FRASE** e nao por cena (11/10), logo ela custava
+**1,49 s** que o orcamento nao supoe. Juntadas em uma frase e encurtada uma cena,
+a previsao foi a **41,9 s** — 0,4 acima do PISO da faixa, pela regra de redacao do
+772.
+
+**A PINCA DO 740/748 ESTA FECHADA AQUI**, com a exposicao declarada ANTES de
+publicar: nenhuma media por cena poe os dois provedores dentro de 41,5 a 43,0 com
+treze cenas nesta voz, logo o piper sai **FORA pela mira e DENTRO do portao**, que
+cobra 18 a 45 s nos dois mundos. **E o REAL nao esta prometido para lado nenhum**
+(774).
+
+**ZERO numero novo sobre o mundo, e aqui a regra (g) morde mais que de costume
+porque a origem e feita das liczbas que estao MUDANDO:** ficaram fora o prog, as
+duas stawki, a kwota zmniejszajaca, a media nacional, a proposta de tres progos e
+qualquer data. **O capitulo 20 da PROPRIA origem escreve o motivo** — *"to jest
+projekt i zapowiedz, nie jest to jeszcze obowiazujace prawo"* — e citar qualquer
+uma delas seria publicar peca que erra na primeira publicacao, **que e exatamente
+a familia do irmao `s041`**. O unico numeral falado e **"dwie"** (duas rubricas),
+estrutura do argumento, conferido pelo `numerais_falados`. As barras das cenas 2 e
+4 sao **ILUSTRACAO** e nao sao faladas: as duas desenham alturas **IGUAIS**, que e
+o argumento inteiro.
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica` pela
+QUADRAGESIMA SEXTA rodada seguida.** A peca esta PARQUEADA com o provedor MEDIDO
+e o job lido da API, com a presenca conferida **RELENDO** cada parque.
+`RESIDUO_N` segue **128**.
+
+**E A LEITURA DE INSCRITOS PASSOU AS TRES PORTAS E NAO FOI FEITA, pela VIGESIMA
+SETIMA rodada seguida.** **O que a impede e a ROTA, e o remedio e do DONO** — a
+tela de Network access.
+
+**COTA: DEZOITO envios** na janela aberta as 07:00Z, **28.800** unidades, contra
+o piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
+hora.
