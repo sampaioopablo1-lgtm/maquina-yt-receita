@@ -116,6 +116,33 @@ def _tabela() -> list[tuple[int, str, str]]:
     return linhas
 
 
+EU = os.path.basename(os.path.abspath(__file__))
+
+
+def sou_eu(args: str) -> bool:
+    """Este modulo, rodando em OUTRO processo — e ele NAO e o processo.
+
+    MEDIDO em 23/10 as 00:0x, e e o defeito que este arquivo foi escrito
+    para consertar, uma camada acima. O `candidatos` tirava de fora o PID
+    da propria chamada e o do pai dela; uma SEGUNDA copia concorrente do
+    modulo tem outro PID, o executavel dela e python e os argumentos dela
+    contem o padrao procurado — logo ela passava todos os filtros e era
+    contada como o PROCESSO.
+
+    Medido no proprio relato: as 00:00, com a suite rodando, ele disse
+    `VIVO: 2 processo(s)` — o pytest (pid 3548) e o observador do laco de
+    espera (pid 4364), que era este modulo. O numero estava errado por um.
+    E a falha e PERMISSIVA no sentido pior: dois observadores concorrentes
+    veem um ao outro e os dois dizem VIVO para sempre, que e exatamente o
+    laco infinito do `pgrep` de 20/10 as 01:4x.
+
+    O `NAO_SAO_O_PROCESSO` nao podia pegar isto: ele casa o EXECUTAVEL
+    (`comm`), e o `comm` de uma copia deste modulo e `python3`. O
+    discriminador tem de ser o ARGUMENTO que nomeia este arquivo.
+    """
+    return EU in (args or "")
+
+
 def candidatos(padrao: str, executavel: str = "python") -> list[dict]:
     """Processos cujo EXECUTAVEL casa e cujos argumentos contem `padrao`.
 
@@ -130,6 +157,8 @@ def candidatos(padrao: str, executavel: str = "python") -> list[dict]:
         if executavel not in comm:
             continue
         if any(comm.startswith(n) for n in NAO_SAO_O_PROCESSO):
+            continue
+        if sou_eu(args):
             continue
         if padrao not in args:
             continue
@@ -149,7 +178,10 @@ def espelhos(padrao: str) -> list[dict]:
         if pid in reais or pid in {os.getpid(), os.getppid()}:
             continue
         if padrao in args:
-            saida.append({"pid": pid, "comm": comm, "args": args[:120]})
+            d = {"pid": pid, "comm": comm, "args": args[:120]}
+            if sou_eu(args):
+                d["comm"] = "%s (OUTRA copia deste modulo)" % comm
+            saida.append(d)
     return saida
 
 

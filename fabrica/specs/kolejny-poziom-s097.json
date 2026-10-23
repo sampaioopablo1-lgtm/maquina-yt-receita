@@ -1,0 +1,129 @@
+{
+ "slug": "kolejny-poziom-s097",
+ "pacote": "kolejny-poziom-s097",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "longo_existente": "SP7Vz8qHdRY",
+ "thumb": {
+  "l1": "Dwie pozycje",
+  "l2": "jeden pasek"
+ },
+ "paleta": {
+  "bg": "#0B0B0C",
+  "ink": "#F2EEE8",
+  "c1": "#E23B3B",
+  "c2": "#D9C7A7",
+  "red": "#FF4D4D",
+  "ok": "#7FB77E",
+  "panel": "#151517",
+  "mut": "#8F877C",
+  "acc": "#E23B3B"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Policzyłeś podatek dobrze",
+   "sub": "a pasek pokazuje inną liczbę",
+   "nar": "Policzyłeś podatek dobrze."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Pasek pokazuje coś innego",
+   "barras": [
+    {
+     "rot": "Twój wzór",
+     "v": 100
+    },
+    {
+     "rot": "Pasek",
+     "v": 100
+    }
+   ],
+   "nar": "Pasek pokazuje coś innego."
+  },
+  {
+   "layout": "item",
+   "kicker": "To nie pomyłka w rachunku",
+   "sub": "wzór zrobił swoją robotę",
+   "nar": "To nie pomyłka w rachunku."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Na pasku są dwie pozycje",
+   "barras": [
+    {
+     "rot": "Podatek",
+     "v": 100
+    },
+    {
+     "rot": "Zdrowotna",
+     "v": 100
+    }
+   ],
+   "nar": "Twój pasek ma dwie pozycje."
+  },
+  {
+   "layout": "item",
+   "kicker": "Podatek to jedna z nich",
+   "sub": "ta, którą policzyłeś",
+   "nar": "Podatek to jedna z nich."
+  },
+  {
+   "layout": "item",
+   "kicker": "Zdrowotna to druga",
+   "sub": "osobna rubryka, osobne zasady",
+   "nar": "Zdrowotna to druga, osobna."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Co wchodzi do wzoru",
+   "itens": [
+    "Wchodzi: podatek",
+    "Nie wchodzi: zdrowotna"
+   ],
+   "nar": "Jedna wchodzi do wzoru."
+  },
+  {
+   "layout": "lista",
+   "kicker": "A co nie wchodzi wcale",
+   "itens": [
+    "Osobna pozycja",
+    "Osobny rachunek"
+   ],
+   "nar": "Druga nie wchodzi wcale."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Razem, na jednym pasku",
+   "sub": "dlatego wyglądają jak jedno",
+   "nar": "Razem widzisz je na jednym pasku."
+  },
+  {
+   "layout": "item",
+   "kicker": "Różnica nie jest błędem",
+   "sub": "jest drugą pozycją",
+   "nar": "Różnica nie jest błędem."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Wzór zakłada jeszcze jedno",
+   "sub": "i tego nie mówi wprost",
+   "nar": "I wzór zakłada jeszcze jedno."
+  },
+  {
+   "layout": "item",
+   "kicker": "Że rozliczasz się na skali",
+   "sub": "liniowy i ryczałt mają swoje",
+   "nar": "Że rozliczasz się na skali."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Sprawdź, którą pozycję liczysz",
+   "sub": "i czy jesteś na skali",
+   "nar": "Sprawdź, którą pozycję liczysz, i zapisz się."
+  }
+ ],
+ "copy": "# kolejny-poziom-s097\n\n## TITULO\nPoliczyłeś podatek dobrze, a pasek pokazuje inną liczbę: wzór liczy jedną pozycję\n\n## TITULO SHORT\nDwie pozycje, jeden pasek\n\n## DESCRICAO\nRachunek ze skali podatkowej jest w długim filmie na tym kanale: bierzesz brutto, mnożysz przez miesiące, odejmujesz składki społeczne i porównujesz podstawę z progiem. Wzór działa i zamyka się sam. Problem pojawia się wtedy, gdy porównujesz jego wynik z tym, co widzisz na pasku wypłaty — i liczby się nie zgadzają.\n\nPierwszy odruch jest zawsze ten sam: szukać błędu w rachunku. Tam go nie ma. Ten wzór odpowiada na pytanie o jedną pozycję, a pasek pokazuje ich kilka naraz. Składka zdrowotna jest osobną rubryką, z własnymi zasadami, i do tego wzoru po prostu nie wchodzi. Obie pozycje widzisz obok siebie w tym samym miejscu, w tym samym miesiącu, i dlatego wyglądają jak jedna rzecz. Różnica między twoim wynikiem a paskiem nie jest wtedy pomyłką — jest tą drugą pozycją.\n\nTo kosztuje w obie strony. Kto szuka błędu w rachunku, nie znajdzie go i przestanie ufać własnej liczbie. Kto uzna, że wzór pokazuje całość, policzy sobie wypłatę, której nigdy nie dostanie. W żadnym z tych dwóch przypadków nic nie krzyczy: dzielenie się zamyka, wynik wychodzi okrągły i wygląda na odpowiedź.\n\nJest jeszcze drugie założenie, którego wzór nie mówi wprost: że rozliczasz się według skali. Kto jest na podatku liniowym albo na ryczałcie, ma inne zasady i tego progu u siebie nie zobaczy. Czyli zanim porównasz wynik z paskiem, warto wiedzieć dwie rzeczy: którą pozycję liczysz, i czy ta skala w ogóle jest twoja.\n\nPraktycznie: weź pasek i zaznacz na nim, która linia to podatek, a która to zdrowotna. Potem sprawdź, według jakich zasad się rozliczasz. Cały rachunek, krok po kroku, jest w długim filmie poniżej.\n\n## COMENTARIO FIXADO\nZaznaczyłeś już te dwie pozycje na swoim pasku? Napisz pod spodem tylko jedno: czy po ich rozdzieleniu twój własny rachunek zaczął się zgadzać. Bez kwot i bez nazwy pracodawcy.\n\n## FONTES\nDługi film `kolejny-poziom-011` (`SP7Vz8qHdRY`), rozdziały 55, 59 i 60. Rozdział 59 mówi wprost, że ten rachunek dotyczy wyłącznie podatku dochodowego, że składka zdrowotna jest osobną pozycją i nie wchodzi do wzoru, \"chociaż na twojej wypłacie widzisz obie naraz\"; rozdział 60 mówi, że film dotyczy skali, a kto rozlicza się liniowo albo ryczałtem \"tego progu u siebie nie zobaczy\"; rozdział 55 otwiera tę część jako \"czego ta prosta wersja nie obejmuje\".\n\n## FAMILIA DE ENTRADA ERRADA\nZAKRES RACHUNKU: porównywać poprawny wynik wzoru z liczbą z paska, która zawiera inną pozycję. Osią jest PYTANIE, na które wzór odpowiada, a nie żaden z jego składników — rachunek może być zrobiony idealnie i nadal nie opisywać tego, co widzisz na wypłacie, bo podatek to jedna rubryka, a składka zdrowotna to druga, osobna i poza wzorem.\n\nI błąd działa w DWIE strony, co jest tu najważniejsze: jedna osoba szuka pomyłki w rachunku i traci zaufanie do własnej liczby, druga uznaje wzór za całość i planuje wypłatę, której nie dostanie. W obu przypadkach dzielenie się zamyka i nic nie ostrzega. Druga noga tej samej rodziny to założenie o REŻIMIE — wzór zakłada skalę i nie mówi tego wprost.\n\nCzterech braci tej origin przeczytano przed wyborem, przez `irmaos_da_origem`, a u TRZECH z nich pole rodziny nie istnieje — więc porównanie szło przez PROZĘ i przez ich NARRACJĘ, która jest z pierwszej ręki: `s015` to MECHANIKA warstw (wyższa stawka tylko od nadwyżki), `s041` to WAŻNOŚĆ (zapowiedź to nie przepis), `s057` to AKT podatnika (bez zgłoszenia tracisz termin, nie kwotę), `s079` to która BAZA się porównuje (połowa łącznych dochodów przy rozliczeniu wspólnym). **Żaden z czterech nie mówi o ZAKRESIE rachunku** — wszystkie mówią o tym, jak policzyć tę samą pozycję, nie o tym, że pozycji jest więcej niż jedna.\n\nI rozdział 48 (bez PIT-2 zaliczka idzie pełną kwotą) został POMINIĘTY świadomie: to terytorium `s057`, zadeklarowane w jego copy.\n\n## AVISO SOBRE OS NUMEROS\nZERO NOWYCH LICZB O ŚWIECIE, i ZERO CYFR W NARRACJI. Nie pada próg, nie pada żadna stawka, nie pada kwota zmniejszająca podatek, nie pada średnia krajowa i nie pada żadna data. Reguła (g) wycina je wszystkie — a tutaj wycina więcej niż zwykle, bo **ta origin jest zbudowana z liczb, które właśnie się zmieniają**: jej własny rozdział 20 mówi wprost, że nowa skala \"to projekt i zapowiedź, nie obowiązujące prawo\", a rozdział 23 pokazuje ten sam próg niezmieniony przez kilkanaście lat. Cytowanie którejkolwiek z nich to opublikowanie materiału, który myli się przy pierwszej publikacji — i jest to dokładnie rodzina brata `s041`.\n\nJedyny liczebnik w narracji to **\"dwie\"** (dwie pozycje na pasku) — jest strukturą samego argumentu, nie faktem o świecie; sprawdzone przez `numerais_falados`, nie zadeklarowane z pamięci.\n\nSłupki w scenach 2 i 4 są ILUSTRACJĄ i **nie** są czytane na głos: oba rysują RÓWNE wysokości, bo to jest cały argument — wynik wzoru i liczba z paska wyglądają na to samo. Listy w scenach 7 i 8 też nie są czytane pozycja po pozycji.\n\n## EXPOSICAO\nPrzewidywanie edge **41.9 s** (0,4 s nad PODŁOGĄ pasma 41,5 do 43,0, zgodnie z regułą redakcyjną 772) i piper **35.7 s**. **ZACISK 740/748 JEST TU ZAMKNIĘTY**: żadna średnia znaków na scenę nie wkłada obu dostawców do 41,5–43,0 przy 13 scenach w tym głosie, więc piper wychodzi POZA pasmo przy mirze i MIEŚCI SIĘ w bramce `duracao`, która liczy 18 do 45 s w obu światach. Ekspozycja zadeklarowana PRZED publikacją.\n\n**I REAL NIE JEST OBIECANY w żadną stronę** — pasmo reszty ma 5,2 s szerokości przy 1 s ziarnistości realu (774).\n\nPierwsza wersja wyszła na **43.7 s**, czyli bramka `duracao` ją ODRZUCIŁA (powyżej 43,1). Cięcie wyszło z `mira.quanto_cortar`, nie z mojej głowy — i to ono pokazało, że scena CTA miała DWA zdania: termin `P` w `MODELO_VOZ` to cisza po ZDANIU, nie po scenie (11/10), więc kosztowała 1,49 s, których budżet nie zakłada. Po złączeniu jej w jedno zdanie i skróceniu jednej sceny: 41.9 s.\n\n## RESERVA\nWOLNE w tej origin, z powodem: rozdziały 25 i 28 (PEŁZANIE progów — próg stoi, pensje rosną nominalnie, i coraz więcej osób wpada wyżej, choć w ustawie nikt nic nie zmienił) są mocną, własną rodziną o MECHANIZMIE BEZ DECYZJI i zostają bez peça. Rozdziały 50 i 51 (podział kwoty zmniejszającej między kilku płatników, i stawka zaliczki miesiąc po miesiącu) też są wolne — **ale 51 i 53 idą z ostrzeżeniem**: ich oś (ta sama skala widziana miesiąc po miesiącu) jest blisko MECHANIKI brata `s015`, a bramka `similaridade` tego nie wyłapie, bo porównuje TYTUŁ. Przeczytaj `s015` przed wzięciem ich.\n\nNIE BRAĆ: rozdział 48 to terytorium `s057`; rozdziały 20, 40, 43 i 45 są zadeklarowane przez `s079`; rozdziały 59, 60 i 55 od teraz należą do tej peça.\n\n## HASHTAGS\n#podatki #pasekwyplaty #skalapodatkowa #finanseosobiste #kolejnypoziom\n\n## TAGS\npasek wypłaty, składka zdrowotna, skala podatkowa, podatek dochodowy, podatek liniowy, ryczałt, finanse osobiste, wynagrodzenie netto\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ncategoryId: 27\ndefaultLanguage: pl\nmadeForKids: false\n\n## MUSICA / LICENCA\nTrilha `Wholesome` do incompetech (Kevin MacLeod), licença CC BY 3.0.\n"
+}
