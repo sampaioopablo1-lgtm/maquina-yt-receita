@@ -14152,6 +14152,19 @@ DOIS titulos). `RESIDUO_N` segue **128**.
 **E A LEITURA DE INSCRITOS PASSOU AS TRES PORTAS E NAO FOI FEITA:** o que a
 impede e a **ROTA**, e o remedio e do **DONO** — a tela de Network access.
 
-**COTA: NOVE envios** na janela aberta as 07:00Z, **14.400** unidades, contra o
-piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
-hora.
+**COTA: OITO envios** na janela aberta as 07:00Z, **12.800** unidades, contra o
+piso MEDIDO de **>= 41.600**.
+
+**E ESTA LINHA SAIU ERRADA NA PRIMEIRA ESCRITA, com a frase do instrumento ao
+lado:** eu escrevi *"NOVE envios, 14.400 unidades — do `janela_de_cota`, nao de
+um laco escrito na hora"* **somando de cabeca** o pacote a contagem da rodada
+anterior. Rodado, o `janela_de_cota` lista as OITO por id DISTINTO
+(`epomeno-epipedo-s100` as 07:31 ate as DUAS pecas do pacote as 13:46) e da
+**12.800**. **Citar o dono nao e chamar o dono** — e o item 3 da §10 na forma
+mais barata de evitar, e ela me pegou dentro da frase que afirma o contrario.
+
+**E o `assert` do `replace` pegou um SEGUNDO defeito no mesmo passo:** este
+paragrafo aparecia **DUAS** vezes identico no arquivo, porque outra rodada
+tambem fechou em nove envios com a mesma redacao — logo o conserto, sem ele,
+teria reescrito a linha da rodada ERRADA. E a trava de 13/10: todo `replace`
+em documento leva `assert` antes de gravar, e aqui ele valeu por dois.
