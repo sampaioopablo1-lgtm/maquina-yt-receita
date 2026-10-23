@@ -1,0 +1,136 @@
+{
+ "slug": "epomeno-epipedo-s101",
+ "pacote": "epomeno-epipedo-s101",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "longo_existente": "TJZcjE-uv8E",
+ "longo": [],
+ "thumb": {
+  "l1": "Η σειρά",
+  "l2": "δεν λήγει"
+ },
+ "paleta": {
+  "bg": "#F4EFE6",
+  "ink": "#1B1A17",
+  "c1": "#C8502A",
+  "c2": "#2B6CB0",
+  "red": "#B83227",
+  "ok": "#2E8B57",
+  "panel": "#FFFFFF",
+  "mut": "#7A7263",
+  "acc": "#C8502A"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Ο λογαριασμός",
+   "sub": "δεν αποστηθίζεται",
+   "nar": "Ο λογαριασμός δεν αποστηθίζεται."
+  },
+  {
+   "layout": "item",
+   "kicker": "Επαναλαμβάνεται",
+   "sub": "με νέα στοιχεία κάθε φορά",
+   "nar": "Επαναλαμβάνεται με νέα στοιχεία."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Τι κρατάς",
+   "itens": [
+    "Το νούμερο",
+    "Τη σειρά"
+   ],
+   "nar": "Κρατάς νούμερο ή σειρά;"
+  },
+  {
+   "layout": "item",
+   "kicker": "Το νούμερο λήγει",
+   "sub": "κλειδώνει για μία χρονιά",
+   "nar": "Το νούμερο έχει λήξη."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Η σειρά μένει",
+   "sub": "ίδια κάθε χρονιά",
+   "nar": "Η σειρά μένει ίδια."
+  },
+  {
+   "layout": "item",
+   "kicker": "Πρώτα το ποσοστό",
+   "sub": "ανακοινώνεται για όλους",
+   "nar": "Πρώτα έρχεται το ποσοστό."
+  },
+  {
+   "layout": "item",
+   "kicker": "Μετά ο συμψηφισμός",
+   "sub": "πάνω στη διαφορά σου",
+   "nar": "Μετά περνάει ο συμψηφισμός."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Η σειρά",
+   "itens": [
+    "Ποσοστό",
+    "Συμψηφισμός",
+    "Ό,τι μένει"
+   ],
+   "nar": "Τέλος, ό,τι μένει σε σένα."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Για του χρόνου",
+   "sub": "κυκλοφορεί εκτίμηση",
+   "nar": "Για του χρόνου έχουμε εκτίμηση."
+  },
+  {
+   "layout": "item",
+   "kicker": "Εκτίμηση σημαίνει",
+   "sub": "μπορεί να βγει αλλιώς",
+   "nar": "Εκτίμηση σημαίνει: μπορεί αλλιώς."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Στο αυτί μοιάζουν ίδια",
+   "barras": [
+    {
+     "rot": "Εκτίμηση",
+     "v": 100
+    },
+    {
+     "rot": "Οριστικό",
+     "v": 100
+    }
+   ],
+   "nar": "Στο αυτί μοιάζουν ίδια."
+  },
+  {
+   "layout": "item",
+   "kicker": "Κλειδώνει στο τέλος",
+   "sub": "με τα στοιχεία της χρονιάς",
+   "nar": "Κλειδώνει στο τέλος της χρονιάς."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Τι κρατάει αξία",
+   "barras": [
+    {
+     "rot": "Νούμερο",
+     "v": 25
+    },
+    {
+     "rot": "Σειρά",
+     "v": 100
+    }
+   ],
+   "nar": "Γράψε τη σειρά, όχι το νούμερο."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Επόμενο Επίπεδο",
+   "sub": "κάνε εγγραφή",
+   "nar": "Κράτα τη σειρά και γράψου."
+  }
+ ],
+ "copy": "# epomeno-epipedo-s101\n\n## TITULO\nΚρατάς το ποσοστό και κάθε χρόνο ξαναρχίζεις: αυτό που δεν λήγει είναι η σειρά\n\n## TITULO SHORT\nΗ σειρά δεν λήγει\n\n## DESCRICAO\nΚάθε χρόνο η ίδια σκηνή επαναλαμβάνεται. Ανακοινώνεται ένα ποσοστό, το σημειώνεις κάπου, και τον επόμενο Ιανουάριο το νούμερο που κράτησες δεν σου λέει πια τίποτα. Δεν φταίει η μνήμη σου. Φταίει ότι κράτησες το μέρος του λογαριασμού που λήγει.\n\nΟ λογαριασμός της αύξησης έχει δύο μέρη, και μόνο το ένα αντέχει στον χρόνο. Το πρώτο είναι το ποσοστό: κλειδώνει με τα στοιχεία της χρονιάς, ισχύει για μία χρονιά, και την επόμενη ξαναγράφεται από την αρχή. Το δεύτερο είναι η σειρά με την οποία γίνονται οι πράξεις, και αυτή δεν αλλάζει: πρώτα ανακοινώνεται το ποσοστό, μετά περνάει ο συμψηφισμός πάνω στη διαφορά, και στο τέλος μένει αυτό που φτάνει σε εσένα. Αν κρατήσεις τη σειρά, ξανακάνεις τον λογαριασμό μόνος σου όποτε βγει καινούριο ποσοστό. Αν κρατήσεις μόνο το νούμερο, κάθε χρόνο περιμένεις να σου το πει κάποιος άλλος.\n\nΥπάρχει και μια δεύτερη παγίδα, πιο λεπτή. Πριν κλειδώσει επίσημα ένα ποσοστό, κυκλοφορεί ως εκτίμηση. Στο αυτί η εκτίμηση και το οριστικό ακούγονται ίδια: και τα δύο είναι ένας αριθμός, και τα δύο αναφέρονται στη σωστή χρονιά. Μόνο που το ένα μπορεί να βγει αλλιώς. Το οριστικό κλειδώνει στο τέλος της χρονιάς, με τα στοιχεία που θα υπάρχουν τότε — και αυτό δεν είναι λεπτομέρεια, γιατί πάνω στο νούμερο φτιάχνεις προϋπολογισμό.\n\nΓι' αυτό εδώ δεν θα ακούσεις αριθμό. Θα ακούσεις τη σειρά, και πού βρίσκεις τον δικό σου αριθμό στο δικό σου χαρτί. Ο λογαριασμός επαναλαμβάνεται· δεν αποστηθίζεται.\n\n## COMENTARIO FIXADO\nΗ σειρά είναι τρεις λέξεις: ποσοστό, συμψηφισμός, ό,τι μένει. Γράψε την κάπου και κάθε Ιανουάριο κάνε τον λογαριασμό μόνος σου.\n\n## FONTES\nLongo de origem: `epomeno-epipedo-007` (TJZcjE-uv8E), capítulos 84, 85, 62 e 63, com o capítulo 36 de apoio.\n- 84 — a ressalva honesta: os percentuais fecham cada ano com dados novos, logo *\"ο λογαριασμός επαναλαμβάνεται, δεν αποστηθίζεται\"*, e o que se lê hoje sobre o ano seguinte é previsão.\n- 85 — o que não muda é a ORDEM: percentual, depois compensação, depois o que resta para você.\n- 62 e 63 — para o ano seguinte circula uma ESTIMATIVA, e o definitivo fecha com os dados do fim do ano.\n- 36 — apoio: o percentual é um e o mesmo para todos (*\"κρατήστε το\"*).\n\nO capítulo 33 (*\"γι' αυτό το ποσοστό αλλάζει κάθε χρόνο\"*) ficou FORA de propósito: ele está DECLARADO pelo `s037` e pelo `s085`, e quem o nomeou foi o `relato_dos_livres`, não a minha leitura. A peça ancora na ressalva do 84, que é livre, e não naquele capítulo.\n\n## FAMILIA DE ENTRADA ERRADA\n**GUARDAR O NÚMERO EM VEZ DA ORDEM — e o do ano seguinte ainda é ESTIMATIVA.**\n\nO eixo é **o que se retém**, não o cálculo. O percentual é a única parte do procedimento com data de validade: fecha com os dados de uma chronia, vale uma chronia, e no ano seguinte é reescrito do zero. A ordem das operações — percentual, compensação, o que resta — não mudou e não envelhece. Quem guarda o número tem de esperar que alguém lhe diga o novo; quem guarda a ordem refaz a conta sozinho.\n\n**O mecanismo do silêncio é de atenção e não de aritmética:** o número é a única parte que é anunciada, repetida e tem manchete, logo é a única que chega à memória. A ordem nunca está no título da notícia. Então a pessoa guarda exatamente a metade que expira, e no ano seguinte a conta não falha — ela simplesmente não começa.\n\n**E a segunda perna é o ESTADO do número:** antes de fechar, um percentual circula como estimativa, e no ouvido estimativa e definitivo são indistinguíveis — os dois são um número e os dois se referem ao ano certo. O custo não é estético: é orçamento feito sobre um número que pode sair diferente.\n\n**Distinções contra os CINCO irmãos desta origem**, lidas pelo `irmaos_da_origem` e — nos TRÊS que não têm o campo (`s011`, `s021`, `s073`) — pela PROSA e pela NARRAÇÃO de cada um, que é de primeira mão (776):\n- `s011` — **ACHAR a linha**: o procedimento de abrir o extrato e pôr dois meses lado a lado. Ele diz ONDE olhar; esta peça diz O QUE GUARDAR depois de olhar.\n- `s021` — **os quatro erros de leitura** do percentual anunciado (não é o seu valor; o compensado não se perde; abolição não é corte; abrir o papel). Os quatro são sobre ler o número do ANO CORRENTE; nenhum é sobre o número do ano seguinte ainda não estar fechado, nem sobre a durabilidade da ordem.\n- `s037` — **bruto com líquido**: comparar duas grandezas diferentes.\n- `s073` — **a diferença é uma PONTE, não punição**: de onde ela veio.\n- `s085` — **a plevra da linha lida como permanente**: o LADO em que você está se move a cada ano. É o vizinho mais próximo e a distinção vai dita: ali o que muda é a SUA POSIÇÃO; aqui o que muda é o STATUS DO NÚMERO (estimativa contra fechado) e o que sobrevive é a ordem. Posição contra procedência, e as duas se encaixam em vez de competir.\n\n## AVISO SOBRE OS NUMEROS\n**ZERO número novo sobre o mundo, e aqui a trava é da própria família:** a peça existe para dizer que o número expira, logo citá-lo seria carregar justamente o que ela recusa. Ficaram FORA pela regra (g): o percentual de aumento do ano, a estimativa que circula para o ano seguinte, as datas dos dois passos do mecanismo, quantos aposentados estão em cada lado da linha e qualquer valor em euros. **E a recusa inclui o número que daria o gancho mais fácil** — a estimativa do ano seguinte, que é literalmente o assunto da segunda metade.\n\nAs **barras** das cenas 11 e 13 são ILUSTRAÇÃO qualitativa e **não são faladas**: a cena 11 desenha \"estimativa\" e \"definitivo\" com a MESMA altura, que é o argumento inteiro (no ouvido são indistinguíveis), e a cena 13 desenha o que guarda valor. Os rótulos não citam norma nem órgão (609).\n\nA **ordem** falada (percentual, compensação, o que resta) é ESTRUTURA do procedimento e não afirmação sobre o mundo — ela está escrita no capítulo 85 da própria origem. **E eu NÃO declaro \"três passos\" dentro do short**, embora a lista os enumere: declarar contagem num short que enumera é o buraco que o `contagem_declarada.py` existe para achar.\n\n## EXPOSICAO\n**A PINÇA DO 740/748 ESTÁ FECHADA AQUI**, e isso vai declarado ANTES de publicar: o `mira.janela_dos_dois_mundos` diz que NENHUMA média por cena põe os dois provedores dentro de 41,5 a 43,0 com catorze cenas nesta voz. Previsão edge **42,1 s** — o MEIO da faixa, que é onde o `orcamento` mira (752/774) — e piper **37,3 s**, FORA pela mira e DENTRO do portão, que cobra 18 a 45 s nos dois mundos.\n\n**E o PISO EXATO não é alcançável com catorze cenas:** um caractere por cena vale ~0,71 s, logo 27 caracteres dão 42,1 e 26 caem ABAIXO da faixa. O próprio inversor diz que o valor cru dele para o piso tem previsão fora, em 54 de 54 pares. Dito assim em vez de eu chamar 42,1 de piso.\n\n**O REAL não está prometido para lado nenhum** (774): a banda tem 5,2 s de largura contra 1 s de granularidade, e declarar um lado dela não é previsão.\n\n## RESERVA\nPara a rodada seguinte achar, com o motivo de cada item:\n\n- **LIVRES: capítulos 57, 58, 59, 60 e 61** — a abolição em DOIS passos e o que acontece com a própria diferença depois dela: ela não é cortada, continua a ser paga como prestação separada, e apenas deixa de crescer. É família própria e boa. **O aviso vai junto:** o terceiro erro do `s021` é *\"ouvir abolição e entender corte\"*, logo quem a levar tem de ler a narração dele inteira antes, e o eixo tem de ser o CONGELAMENTO (o que acontece com a parcela), não a palavra \"abolição\".\n- **LIVRES: capítulos 66, 68, 69, 70, 71 e 72** — o procedimento de comparar dezembro com janeiro e ver as duas linhas a moverem-se juntas. **NÃO LEVAR como família nova:** é território declarado do `s011`, que é literalmente ACHAR a linha com dois meses lado a lado.\n- **LIVRES: capítulos 34 e 35** — a base sobre a qual o percentual incide e as retenções que continuam no novo montante. **NÃO LEVAR:** o 34 termina em *\"o líquido sobe sempre menos que o bruto\"*, que é o eixo do `s037`.\n- **A reserva que o `s021` deixou (capítulos 40 a 53, as duas pessoas que recebem valores diferentes da mesma alta)** segue com veredito PARCIAL — 10 livres e 4 mencionados —, e o motivo de eu não a ter levado hoje vai escrito: a aritmética dela (metade chega, metade encolhe a diferença) está em DOIS irmãos ao mesmo tempo, no `s021` (*\"o compensado não se perde\"*) e no `s085` (*\"cada aumento compensado encolhe a linha\"*). Quem a levar precisa de um eixo que nenhum dos dois tenha, e não de reabrir o bloco por ele estar escrito.\n- **CONSUMIDOS por esta peça: 84, 85, 62, 63 e 36.**\n\n## HASHTAGS\n#συντάξεις #προσωπικήδιαφορά #αύξηση #εκκαθαριστικό #επόμενοεπίπεδο\n\n## TAGS\nσειρά πράξεων, προσωπική διαφορά, συμψηφισμός, αύξηση σύνταξης, εκτίμηση, εκκαθαριστικό σημείωμα, ποσοστό\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ncategoryId: 27\ndefaultLanguage: el\ndefaultAudioLanguage: el\nmadeForKids: false\n\n## MUSICA / LICENCA\nInspired — Kevin MacLeod (incompetech.com), Creative Commons: By Attribution 4.0\n"
+}
