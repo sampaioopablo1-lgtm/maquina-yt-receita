@@ -1,0 +1,122 @@
+{
+ "slug": "epomeno-epipedo-s103",
+ "pacote": "epomeno-epipedo-s103",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "thumb": {
+  "l1": "Δεν σβήνει",
+  "l2": "το ρεύμα"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Η αλλαγή τιμολογίου",
+   "sub": "δεν σβήνει το ρεύμα",
+   "nar": "Η αλλαγή δεν σβήνει το ρεύμα."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Το δίκτυο",
+   "sub": "μένει το ίδιο",
+   "nar": "Το δίκτυο που σε τροφοδοτεί μένει το ίδιο."
+  },
+  {
+   "layout": "item",
+   "kicker": "Αλλάζει ο αποστολέας",
+   "preco": "του λογαριασμού",
+   "nar": "Αλλάζει ποιος στέλνει τον λογαριασμό."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Και τι άλλο αλλάζει",
+   "itens": [
+    "Ο κανόνας της χρέωσης",
+    "Τίποτα τεχνικό"
+   ],
+   "nar": "Και αλλάζει ο κανόνας της χρέωσης."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Τι αγγίζεται",
+   "barras": [
+    {
+     "rotulo": "Στο χαρτί",
+     "valor": 9
+    },
+    {
+     "rotulo": "Στο καλώδιο",
+     "valor": 0
+    }
+   ],
+   "nar": "Το καλώδιο και η παροχή δεν αγγίζονται."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ούτε μία ώρα",
+   "preco": "χωρίς ρεύμα",
+   "nar": "Δεν μένεις ούτε μία ώρα χωρίς ρεύμα."
+  },
+  {
+   "layout": "item",
+   "kicker": "Άρα η σύγκριση",
+   "preco": "δεν κρύβει ρίσκο",
+   "nar": "Άρα η σύγκριση δεν κρύβει ρίσκο."
+  },
+  {
+   "layout": "item",
+   "kicker": "Το ρίσκο είναι άλλο",
+   "preco": "να μην την κάνεις",
+   "nar": "Το ρίσκο είναι να μην την κάνεις ποτέ."
+  },
+  {
+   "layout": "item",
+   "kicker": "Και δεν σε ειδοποιεί",
+   "preco": "κανείς γι' αυτό",
+   "nar": "Και κανείς δεν σε ειδοποιεί."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Τι ισχύει στο μεταξύ",
+   "itens": [
+    "Η επιλογή που άφησες",
+    "Κάθε μήνα, μόνη της"
+   ],
+   "nar": "Η επιλογή που άφησες ισχύει κάθε μήνα."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Και κάθε χρόνο",
+   "barras": [
+    {
+     "rotulo": "Φέτος",
+     "valor": 7
+    },
+    {
+     "rotulo": "Και πέρσι",
+     "valor": 7
+    }
+   ],
+   "nar": "Και ξανά κάθε χρόνο, χωρίς να κάνεις τίποτα."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Πότε λήγει;",
+   "sub": "δες τη σύμβασή σου",
+   "nar": "Δες την ημερομηνία λήξης στη σύμβασή σου."
+  }
+ ],
+ "copy": "# epomeno-epipedo-s103 — short solto\n\n## TITULO\nΑλλαγή τιμολογίου ρεύματος: τι αλλάζει στον λογαριασμό και τι δεν αλλάζει στο δίκτυο\n\n## TITULO SHORT\nΗ αλλαγή δεν σβήνει το ρεύμα\n\n## DESCRICAO\nΗ σύγκριση δύο τιμολογίων ρεύματος είναι μία αφαίρεση: ίδιες κιλοβατώρες, δύο\nτιμές, και η διαφορά σε ευρώ. Παίρνει δύο λεπτά με τον λογαριασμό μπροστά σου.\nΚαι όμως οι περισσότεροι δεν την κάνουν ποτέ — όχι επειδή η πράξη είναι δύσκολη,\nαλλά επειδή φοβούνται αυτό που νομίζουν ότι ακολουθεί: μια διακοπή, μια\nμετεγκατάσταση, κάτι τεχνικό που θα πάει λάθος.\n\nΔεν ακολουθεί τίποτα τεχνικό. Το δίκτυο που φέρνει το ρεύμα στο σπίτι σου είναι\nτο ίδιο, ανεξάρτητα από το τιμολόγιο ή τον πάροχο που έχεις υπογράψει. Το καλώδιο\nδεν αλλάζει, η παροχή δεν αγγίζεται, και δεν μένεις ούτε μία ώρα χωρίς ρεύμα.\nΑυτό που αλλάζει είναι δύο πράγματα, και τα δύο είναι χάρτινα: ποιος σου στέλνει\nτον λογαριασμό, και με ποιον κανόνα υπολογίζεται η τιμή σου.\n\nΓι' αυτό η σύγκριση δεν κρύβει ρίσκο. Το ρίσκο είναι να μην την κάνεις — και\nείναι ρίσκο σιωπηλό, γιατί κανείς δεν σου στέλνει ειδοποίηση που να λέει ότι\nπλήρωσες παραπάνω απ' όσο χρειαζόταν. Η επιλογή που άφησες όπως ήταν ισχύει τον\nεπόμενο μήνα, και τον επόμενο, και ξανά τη χρονιά μετά, χωρίς να κάνεις τίποτα.\nΤο ίδιο ισχύει και αντίστροφα: μια καλή επιλογή μετράει κάθε χρόνο με την ίδια\nευκολία.\n\nΟπότε η πράξη δεν είναι εφάπαξ απόφαση, είναι έλεγχος ρουτίνας. Και έχει μια\nφυσική ημερομηνία: τη λήξη της περιόδου του τιμολογίου σου, που είναι γραμμένη\nστη σύμβαση. Εκεί ξαναγίνεται η ίδια αφαίρεση, με τα νούμερα εκείνης της ημέρας.\n\nΑυτό το βίντεο δεν δίνει καμία τιμή, κανένα τιμολόγιο και κανέναν πάροχο. Η τιμή\nσου είναι στη σύμβασή σου και οι κιλοβατώρες σου στον λογαριασμό σου — τα μόνα\nδύο χαρτιά που μιλούν για εσένα.\n\n## COMENTARIO FIXADO\nΔεν προτείνω πάροχο ούτε χρώμα τιμολογίου, και δεν δίνω τιμή: εξαρτώνται από τη\nσύμβασή σου. Η ερώτηση είναι μία — ξέρεις πότε λήγει η περίοδος του τιμολογίου\nσου;\n\n## FONTES\nΚεφάλαια 77, 78 και 79 του πηγαίου μεγάλου βίντεο (epomeno-epipedo-012): η αλλαγή\nτιμολογίου ή παρόχου δεν αφήνει το σπίτι χωρίς ρεύμα ούτε μία ώρα, γιατί το\nδίκτυο είναι το ίδιο· αλλάζει ποιος στέλνει τον λογαριασμό και με ποιον κανόνα·\nκαι η πράξη ξαναγίνεται στη λήξη της περιόδου, άρα είναι έλεγχος ρουτίνας και όχι\nεφάπαξ απόφαση. Με στήριξη των κεφαλαίων 74, 75 (η επιλογή επαναλαμβάνεται κάθε\nχρόνο και προς τις δύο κατευθύνσεις) και 87 (η υπενθύμιση στην ημερομηνία λήξης).\n\n## FAMILIA DE ENTRADA ERRADA\nCONFUNDIR QUEM FATURA COM DE ONDE VEM A ELECTRICIDADE — e por isso nao fazer a\nconta nenhuma vez. O eixo nao e o valor de nenhum numero nem a operacao: e o que\na pessoa acredita que ACONTECE depois da conta. Ela imagina um passo tecnico —\ncorte, religacao, equipe na rua — e o unico passo que existe e de papel: muda\nquem emite a fatura e muda a regra de calculo. O cabo e a paroche nao se tocam.\n\nE O MECANISMO DO SILENCIO E DUPLO, e e por isso que esta familia dura anos:\nprimeiro, a crenca NUNCA e testada, porque ninguem troca para descobrir que nao\nha corte; segundo, a inacao nao emite nada — nao existe fatura, aviso ou linha de\nextrato dizendo \"pagaste acima do necessario\". A escolha que ficou como estava\nvale no mes seguinte, e no seguinte, e outra vez no ano depois, sem ninguem\nassinar nada. E vale nos DOIS sentidos: a escolha boa tambem se repete sozinha.\n\nDai sai a reformulacao que a peca carrega: a conta nao e uma decisao de uma vez,\ne um controle de ROTINA — e tem data natural, a do fim da periodo do tarifario,\nque esta escrita na propria sumbasi.\n\nDISTINCAO DOS CINCO IRMAOS DESTA ORIGEM, conferida pelo `irmaos_da_origem` e, nos\nDOIS que nao tem o campo, pela PROSA e pela NARRACAO de cada um, que e de\nprimeira mao (776): o `s014` e a UNIDADE da tiki, o `s022` tomar os EUROS em vez\ndas kilovatores, o `s039` a tarifa de INTRODUCAO ter data, o `s074` por no MESMO\nmultiplicador linhas que nao dependem do consumo, o `s089` de QUAL conta sai o\nnumero. **Os cinco falam de como fazer a conta direito. Nenhum fala do que a\npessoa acredita que acontece DEPOIS dela** — nem de ela nunca comecar.\n\nE A DISTINCAO CONTRA AS OUTRAS PECAS DE HOJE VAI ESCRITA, porque o portao\n`similaridade` compara TITULO e contra o MESMO canal e nao pegaria nenhuma: o\n`kolejny-poziom-s103` (19:24Z) e a NATUREZA da obrigacao, o `labtreinamento-015`\n(18:47Z) e a UNIDADE da tabela, e o `epomeno-epipedo-s102` (16:55Z) e a\nPROCEDENCIA do numero dentro do documento. Aqui nao ha numero nenhum em jogo: o\nque esta errado e uma crenca sobre o mundo fisico.\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO. Nao cita tiki por kilovatora, nao cita pagio, nao\ncita percentual, nao cita nome de parocho nem de chroma de tarifario, e nao cita\ndata nenhuma. O unico numeral falado e \"μία\" — e ele e ILUSTRACAO do proprio\nargumento (\"nem uma hora sem luz\"), nao afirmacao sobre o mundo.\n\nE AQUI O INSTRUMENTO TEM PONTO CEGO DECLARADO: o `numerais_falados` deixa ARTIGO\nde fora de proposito, e em grego \"μία\" e as duas coisas, logo ele devolve \"nenhum\nnumeral do vocabulario\" para esta narracao. A declaracao desta copy e MAIS LARGA\nque a leitura dele, e a ressalva que vale e a escrita no proprio modulo: ausencia\nde vocabulario nao prova ausencia (medido em 23/10 as 17:0x, no `s102`).\n\nAs barras das cenas 4 e 10 sao ILUSTRACAO qualitativa e NAO sao faladas: a cena 4\ndesenha o que muda contra o que nao muda, e a cena 10 desenha o mesmo valor\nrepetindo-se nos anos — nenhuma das duas e proporcao medida.\n\n## EXPOSICAO\nA PINCA DO 740/748 ESTA FECHADA AQUI, e isto vai declarado ANTES de publicar:\nnenhuma media de caracteres por cena poe os DOIS provedores dentro de 41,5 a 43,0\ncom doze cenas nesta voz, logo o piper sai FORA pela mira e DENTRO do portao, que\ncobra 18 a 45 s nos dois mundos. Mirei o PISO da faixa, pela regra de redacao do\n772, e o REAL nao esta prometido para lado nenhum: a banda tem 5,2 s de largura\ncontra 1 s de granularidade (774).\n\n## RESERVA\nLIVRES nesta origem, com o motivo de cada uma:\n- kefalaia 47 a 52 (o tarifario VERDE nao e mais barato: e COMPARAVEL — estrutura\n  comum em todos os parochos, feita para poder conferir). LIVRE, e o eixo e a\n  GARANTIA que um padrao da; conferir antes contra o `s014`, que trata a UNIDADE.\n- kefalaia 43 e 44 (o dinamico nao tem UMA tiki para por na conta, logo a conta\n  simples nao o alcanca — e o que se faz nesse caso). LIVRE e sem vizinho.\n- kefalaio 45 (euro por kilovatora contra lepta por kilovatora, cem vezes de\n  diferenca, com a conta feita nas DUAS versoes como discriminador). LIVRE, mas\n  o eixo e a UNIDADE e e o do `s014` — leia a peca dele antes.\n- kefalaia 39 e 40 (as tiki dos outros vem do instrumento oficial, nao de\n  publicidade, porque publicidade mostra o melhor caso sob condicoes). LIVRE.\nNAO LEVAR:\n- kefalaia 73 a 76: o eixo e a UNIDADE DO PERIODO (mensal contra anual) e e o do\n  `epomeno-epipedo-s075`, NESTE canal — a regra (f).\n- kefalaia 6, 26, 28, 30 a 36, 58, 60, 62: DECLARADOS pelos irmaos `s022`, `s074`\n  e `s089`.\n\n## HASHTAGS\n#ρεύμα #λογαριασμοί #τιμολόγιο #οικονομικά #Ελλάδα\n\n## TAGS\nτιμολόγιο ρεύματος, αλλαγή παρόχου, λογαριασμός ρεύματος, σύγκριση τιμολογίων, κιλοβατώρες, δίκτυο ηλεκτρισμού, οικονομικά νοικοκυριού, ενέργεια, πάροχος ρεύματος, προσωπικά οικονομικά\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ncategoryId: 27\ndefaultLanguage: el\ndefaultAudioLanguage: el\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n",
+ "paleta": {
+  "bg": "#F4EFE6",
+  "ink": "#1B1A17",
+  "c1": "#C8502A",
+  "c2": "#2B6CB0",
+  "red": "#B83227",
+  "ok": "#2E8B57",
+  "panel": "#FFFFFF",
+  "mut": "#7A7263",
+  "acc": "#C8502A"
+ }
+}

@@ -14421,9 +14421,24 @@ QUINQUAGESIMA NONA rodada seguida.** `RESIDUO_N` segue **128**. **COTA: CATORZE
 envios** na janela de 07:00Z, **22.400** unidades, contra o piso MEDIDO de
 **>= 41.600**.
 
+**A SUITE FECHOU: 25 falhas, 4.214 passam, 1.267 skip em 2.719 s** — passada
+**PROVADA** pelo `passada_da_suite`, conjunto **IDENTICO** a linha de base desta
+sessao, `comm` vazio nos **DOIS** sentidos. Ela cobre os TRES commits desta
+sessao (o conserto do `similaridade`, o pacote e este short), e os testes novos
+entraram **sem falha nova**.
+
 **E EU INTERROMPI A PASSADA DA SUITE DA RODADA ANTERIOR A 41%, e o motivo vai
-dito em vez de escondido:** ela mediria um estado que esta rodada ja mudou, e
-duas passadas de ~70 min nao cabem na janela de uma hora. A passada que vale
+dito em vez de escondido:** ela mediria um estado que esta rodada ja mudou.
+
+**E A SEGUNDA METADE DESSE MOTIVO ERA UM NUMERO MEU E ESTAVA ERRADA.** Eu escrevi
+*"duas passadas de ~70 min nao cabem na janela"*, e a passada que valeu fechou em
+**45:19 (2.719 s)** — contra **2.666 s** da anterior, isto e, a mesma coisa. O
+*"~70 min"* saiu de eu projetar 41% em 29 minutos, e os 29 minutos sairam de eu
+ler o `stat -c %y` do log como se fosse a hora de CRIACAO, quando ele e a da
+ultima ESCRITA. **A lentidao que eu suspeitei nao existe**, e o conserto do
+`similaridade` nao custou tempo de suite. O primeiro motivo da interrupcao segue
+de pe sozinho; o segundo era a familia do 14/10 as 15:1x — a idade se mede pelo
+relogio da MESMA chamada, nao pela minha nocao de quanto tempo passou. A passada que vale
 cobre os **DOIS** commits. **Quem separou "interrompida" de "morta" foi o
 `processo_vivo`**, nao o arquivo a meio de escrever (19/10, 16:2x) — e eu a matei
 **por PID**, nao com `pkill -f` de um padrao que a propria linha contem, que e o
