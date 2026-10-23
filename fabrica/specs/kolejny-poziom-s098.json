@@ -1,0 +1,117 @@
+{
+ "slug": "kolejny-poziom-s098",
+ "pacote": "kolejny-poziom-s098",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "longo_existente": "kDkagIf2isA",
+ "thumb": {
+  "l1": "Rosną same",
+  "l2": "bez ciebie"
+ },
+ "paleta": {
+  "bg": "#0B0B0C",
+  "ink": "#F2EEE8",
+  "c1": "#E23B3B",
+  "c2": "#D9C7A7",
+  "red": "#FF4D4D",
+  "ok": "#7FB77E",
+  "panel": "#151517",
+  "mut": "#8F877C",
+  "acc": "#E23B3B"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Uczysz się kwot progów na pamięć",
+   "sub": "a one nie są ustalane",
+   "nar": "Uczysz się kwot tych progów na pamięć?"
+  },
+  {
+   "layout": "barras",
+   "kicker": "Ustalane czy wyliczane",
+   "barras": [
+    {
+     "rot": "Ustalane",
+     "v": 0
+    },
+    {
+     "rot": "Wyliczane",
+     "v": 100
+    }
+   ],
+   "nar": "Nikt tych kwot nie ustala co roku."
+  },
+  {
+   "layout": "item",
+   "kicker": "To procent liczby z zewnątrz",
+   "sub": "nie decyzja o twojej branży",
+   "nar": "To procent liczby ustalanej gdzie indziej."
+  },
+  {
+   "layout": "item",
+   "kicker": "Liczby ze statystyki płac",
+   "sub": "ogłaszanej przez urząd statystyczny",
+   "nar": "Liczby ogłaszanej ze statystyki płac."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Czego w niej nie ma",
+   "itens": [
+    "Twojej branży",
+    "Twojej firmy"
+   ],
+   "nar": "Nie z twojej branży ani z twojej firmy."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dlatego rosną same",
+   "sub": "rok po roku, bez niczyjej decyzji",
+   "nar": "Dlatego rosną same, co rok, bez decyzji."
+  },
+  {
+   "layout": "item",
+   "kicker": "Także w słabym roku",
+   "sub": "statystyka nie patrzy na ciebie",
+   "nar": "Rosną też wtedy, gdy twój rok jest słaby."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Dwie linie idą w przeciwne strony",
+   "barras": [
+    {
+     "rot": "Twój przychód",
+     "v": 40
+    },
+    {
+     "rot": "Próg",
+     "v": 100
+    }
+   ],
+   "nar": "Przychód spada, a próg i tak idzie w górę."
+  },
+  {
+   "layout": "item",
+   "kicker": "Zapamiętana tabela się starzeje",
+   "sub": "i to szybko",
+   "nar": "Zapamiętana tabela starzeje się w rok."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Co warto zapamiętać zamiast kwot",
+   "itens": [
+    "Skąd te kwoty się biorą",
+    "Gdzie je sprawdzić"
+   ],
+   "nar": "Zapamiętaj raczej, skąd się biorą."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Sprawdzaj źródło, nie kwotę",
+   "sub": "i zasubskrybuj kanał",
+   "nar": "Sprawdzaj źródło, a nie kwotę, i zasubskrybuj."
+  }
+ ],
+ "copy": "# kolejny-poziom-s098\n\n## TITULO\nKwot Progow Nikt Nie Ustala: Sa Procentem Liczby, Ktorej Nie Kontrolujesz\n\n## TITULO SHORT\nRosną same, bez ciebie\n\n## DESCRICAO\nPrawie każdy, kto pierwszy raz czyta o progach składki zdrowotnej na ryczałcie,\nrobi to samo: **uczy się kwot na pamięć**. Trzy liczby, jedna tabela, i poczucie,\nże sprawa jest ogarnięta do końca roku. I właśnie w tym momencie powstaje\npomyłka, która nie daje żadnego ostrzeżenia — bo tych kwot **nikt nie ustala\nosobno co roku**.\n\nKażda z nich jest procentem jednej liczby ogłaszanej gdzie indziej: przeciętnego\nwynagrodzenia ze statystyki. To zmienia sposób patrzenia na całą tabelę. Kwoty\nnie są decyzją o twojej branży, nie są wynikiem negocjacji i nie są czymś, co\nktoś co roku rozważa od nowa. **One jadą w górę razem ze statystyką płac** —\nniezależnie od tego, jak idzie twojej firmie.\n\n**Dlatego kierunek jest jednostronny i to jest sedno.** Twój przychód może w\ndanym roku spaść, a próg i tak pójdzie w górę, bo podstawa, z której się liczy,\nnie patrzy na ciebie. Dwie linie idą w przeciwne strony, a zapamiętana tabela\nstarzeje się w rok — nie dlatego, że przepis się zmienił, tylko dlatego, że\nzmieniła się liczba, od której wszystko się liczy.\n\nKoszt tej pomyłki nie jest arytmetyczny: rachunek z zapamiętanych kwot wychodzi\nrówno i wygląda poprawnie. Koszt jest w **planowaniu**. Kto planuje rok na\nliczbach z pamięci, planuje przeciwko szeregowi, który go nie zna — a ten szereg\njest publikowany i można go sprawdzić w tej samej minucie, w której sprawdza się\nkwotę.\n\nWniosek jest prosty i trochę nieoczekiwany: **zapamiętanie kwoty jest mniej\nwarte niż zapamiętanie, skąd się ona bierze.** Źródło nie starzeje się wcale,\na kwota starzeje się co roku. Dlatego w tym filmie nie podaję ani jednej z tych\nkwot — podaję mechanizm, bo to on zostaje.\n\n## COMENTARIO FIXADO\nSprawdziłeś kiedyś, od jakiej liczby liczą się twoje progi — albo znasz tylko\nsame kwoty? Odpowiedz samym \"źródło\" albo \"kwoty\", bez liczb.\n\n## FONTES\nOrigem: `kDkagIf2isA` (`kolejny-poziom-010`), 86 capítulos e **62 NÃO\nMENCIONADOS** pelos quatro shorts anteriores, medido pelo\n`segundo_angulo.nao_mencionados`.\n\n**E ela NÃO é a `escolhida` da regra escrita — o desvio vai com o motivo\nMEDIDO, e o motivo nasceu de um conserto desta rodada.** A regra do\n`concentracao.py` escolhia `iqV7m6tKb5A` (`kolejny-poziom-004`), empatada em 4\nusos com dez outras origens e com a maior reserva crua (64 de 74). Medido nesta\nrodada: aquele pacote tem **DUAS** origens (`iqV7m6tKb5A` e `ef_oZmfmdz4`), e\ncontado por **TEXTO** ele tem **8 usos** — o SEGUNDO mais usado do canal, o\ndobro do empate. O `nao_mencionados` lê os capítulos de UMA spec para os dois\nids, logo o livre de verdade daquele pacote é a INTERSECÇÃO dos dois conjuntos:\n**53 de 74**, não 64 nem 58, e o pacote já tem OITO shorts.\n\n**A escolha aqui não aposta em qual leitura está certa:** entre as dez\nempatadas em 4 usos por id, esta é a de maior reserva sem declaração (50 de 62)\n**entre as que NÃO estão em pacote compartilhado** — isto é, ela é a mesma sob\nas duas contagens, e a pergunta não se levanta. Unir por pacote é unir por uma\nresolução em prosa, que erra nos dois sentidos (o `QiaGg03WSR0` é o caso\nmedido), logo o instrumento NOMEIA e não decide.\n\nA família desta peça sai dos capítulos **6 e 9** da origem, com a estrutura dos\ncapítulos 4 e 5 ao fundo e sem nenhuma das kwotas: *\"wszystkie trzy są\nprocentem jednej liczby ogłaszanej przez Główny Urząd Statystyczny\"* e *\"tych\nkwot nikt nie ustala osobno co roku — one same jadą w górę razem ze statystyką\npłac, niezależnie od tego, jak idzie twojej firmie\"*. Nenhuma frase desta peça\nsaiu de TÍTULO de capítulo.\n\nA origem dominante do canal, `GUiq15usizw`, ficou de fora — quem conta é o\n`concentracao.py`.\n\n## FAMILIA DE ENTRADA ERRADA\n**TRATAR A KWOTA DO PROGO COMO NÚMERO DECIDIDO, QUANDO ELA É DERIVADA DE UMA\nESTATÍSTICA ALHEIA** (capítulos 6 e 9). O eixo é a **PROCEDÊNCIA** do número, e\nnão o valor dele: quem decora a tabela trata as kwotas como decisão — algo que\nalguém pondera cada ano e que portanto pode ficar parado — quando cada uma é\npercentual de uma média de salários publicada por um órgão de estatística.\n\n**E a consequência é de DIREÇÃO, que é o que a torna silenciosa:** o número não\noscila ao acaso, ele sobe com a série de salários. Logo o seu ano pode ser pior\ne o progo subir no mesmo ano, porque a base não olha para você. A aritmética de\nquem usa a tabela decorada fecha e sai redonda — o erro não está na conta, está\nno **PLANEJAMENTO** feito sobre um número que envelhece em um ano.\n\n**Distinções contra os QUATRO irmãos desta origem, lidas pelo\n`irmaos_da_origem` e — nos TRÊS sem o campo (`s018`, `s024`, `s061`) — pela\nNARRAÇÃO de cada um, que é de primeira mão (776):**\n* `kolejny-poziom-s018` (*Dlaczego grudzień zmienia styczeń?*) — o eixo dele é a\n  **RETROATIVIDADE**: passar o progo no fim do ano faz recalcular os meses já\n  pagos. Ele é sobre o que acontece quando você CRUZA a linha; esta peça é sobre\n  de onde a linha vem;\n* `kolejny-poziom-s024` (*Próg liczy przychód, nie zysk*) — a **BASE** sobre a\n  qual o progo é medido (receita, não lucro). Também é \"qual número\", mas do\n  lado de DENTRO da sua conta; aqui o número é o da própria linha, e ele vem de\n  fora;\n* `kolejny-poziom-s061` (*Liczy się data przelewu*) — a **DATA** que decide o\n  ano da dedução. Nada a ver com a origem das kwotas;\n* `kolejny-poziom-s086` (*Stawki czy odliczenia?*) — comparar formas de\n  tributação pela stawka quando a diferença está na **DEDUTIBILIDADE**. É sobre\n  escolher entre formas; esta não compara forma nenhuma.\n\n**Nenhum dos quatro fala de ONDE as kwotas se originam**, e nenhum deles toca os\ncapítulos 6 e 9.\n\n## AVISO SOBRE OS NUMEROS\n**ZERO número novo sobre o mundo, e a narração não fala numeral NENHUM** —\nconferido pelo `numerais_falados`, com a ressalva dele de que ausência de\nvocabulário não prova ausência.\n\n**E a recusa aqui é a maior desta sessão, porque a origem é um longo feito de\nkwotas com fonte e data:** ficaram FORA as três kwotas mensais dos progos, os\ndois limites de receita que os separam, o percentual de que cada uma deriva, o\nnome do indicador, a kwota mínima da escala, o limite de dedutibilidade, os\ntotais anuais e as diferenças por mês. **Inclusive o número que daria o gancho\nmais forte** — a diferença em zloty que um złoty de receita acima do progo\ncusta, que é a abertura do próprio longo. Todos mudam por publicação, e **o\ncapítulo 9 da PRÓPRIA origem escreve o motivo**: as kwotas *\"same jadą w górę\nrazem ze statystyką płac\"*. Citá-las para dizer que elas envelhecem seria pôr\npela porta lateral justamente o número que a peça recusa.\n\nTambém ficou fora a CONTAGEM dos progos, que seria fácil: contagem legal muda\npor publicação, e o `contagem_declarada` existe porque fonte que declara N e\nenumera outra coisa põe número errado no ar com portão verde (13/10).\n\nAs barras das cenas 1 e 7 são **ILUSTRAÇÃO qualitativa** — a primeira desenha\n\"decidido\" contra \"calculado\", a segunda desenha as duas linhas em sentidos\nopostos — e **não são faladas**. A rodada seguinte não deve lê-las de volta\ncomo dado.\n\n## EXPOSICAO\n**A PINÇA DO 740/748 ESTÁ FECHADA AQUI**, e a exposição vai declarada ANTES de\npublicar: o `mira.janela_dos_dois_mundos` devolve **NENHUMA** janela de\ncaracteres que ponha os dois provedores dentro de 41,5 a 43,0 com onze cenas\nnesta voz (razão piper/edge 0,851, vão de ~6 s contra 1,5 s de faixa). **Mirei o\nPISO** (772): edge **42,0**, com o piper em **35,7** — FORA pela mira e DENTRO\ndo portão, que cobra 18 a 45 s nos dois mundos.\n\n**E o PISO EXATO não é alcançável:** com onze cenas um caractere por cena vale\n**0,57 s**, logo 38 caracteres de média dão 41,4 (ABAIXO da faixa) e 39 dão\n42,0. Este é o ponto mais baixo alcançável acima do piso, e quem disse o passo\nfoi o `mira.quanto_cortar`, não a minha cabeça.\n\n**O REAL não está prometido para lado nenhum:** a banda do resíduo tem 5,2 s de\nlargura contra 1 s de granularidade, e declarar um lado dela não é previsão\n(774).\n\n## RESERVA\nPara a rodada seguinte, nesta origem (`kDkagIf2isA`), com o motivo de cada item:\n* **LIVRES** os capítulos 55, 56 e 61 — o **PISO** da escala: paga-se o mínimo\n  mesmo em mês sem lucro, e acima de um limite a składka continua crescendo e\n  deixa de reduzir a base. O eixo é o custo que NÃO acompanha o resultado.\n  **Vizinho do `s086`**, que fecha com *\"płynność kosztuje więcej niż stawka\"* —\n  leia a narração dele inteira antes de tomar este bloco;\n* **LIVRES** os capítulos 66, 68, 69, 71 e 74 — o que a conta do longo **NÃO\n  cobre** (a stawka depende da atividade, ulgi deslocam tudo, e isto não\n  substitui o contador). O eixo é a fronteira do que é certo contra o que\n  depende de você;\n* **NÃO LEVAR** os capítulos 37 a 41: a zona de não-monotonia (o resultado\n  líquido cai com a receita subindo) está adjacente ao *\"najgorsze miejsce to\n  tuż nad granicą\"* do `s024` — leia a peça dele antes de a tomar por livre;\n* **NÃO LEVAR** o capítulo 49: as três coisas sob o seu controle são o\n  território declarado do `s061`;\n* **NÃO LEVAR** nenhuma das kwotas (capítulos 4, 5, 10 a 15, 26 a 36): regra\n  (g), em peça nenhuma desta origem;\n* **CONSUMIDOS por esta peça** os capítulos 6 e 9.\n\n## HASHTAGS\n#ryczalt #skladkazdrowotna #progi #jdg #kolejnypoziom\n\n## TAGS\nskladka zdrowotna ryczalt, progi skladki zdrowotnej, przecietne wynagrodzenie, jednoosobowa dzialalnosc, podstawa skladki, ryczalt od przychodow, planowanie roku\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ncategoryId: 27\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\nmadeForKids: false\n\n## MUSICA / LICENCA\nWholesome — Kevin MacLeod (incompetech.com), Creative Commons: By Attribution 4.0\n"
+}

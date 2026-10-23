@@ -125,6 +125,21 @@ def escolha(canal: str, dono_medido=None, exceto: str = "") -> dict:
     """
     dono_medido = _resolve_mapa(dono_medido)
     q = quadro(canal, dono_medido=dono_medido, exceto=exceto)
+    # As tres contas por PACOTE, para o caso em que ele nao e unico por origem
+    # (23/10 as 03:3x). Elas vao NOMEADAS e NAO entram na escolha: ver o
+    # docstring de `_compartilhados`.
+    comp = _compartilhados(q)
+    usos_pac, inter_pac = {}, {}
+    for p, ids in comp.items():
+        usos_pac[p] = sum(x["usos"] for x in q if x["origem"] in ids)
+        livres = None
+        ncap = 0
+        for oid in ids:
+            nm = SA.nao_mencionados(oid, exceto=exceto or None)
+            s = set(nm.get("nao_mencionados") or [])
+            ncap = max(ncap, int(nm.get("n_capitulos") or 0))
+            livres = s if livres is None else (livres & s)
+        inter_pac[p] = (len(livres or ()), ncap)
     # A suspeita de outro canal EXCLUI da escolha e NAO da lista: ela so entra
     # aqui porque foi MEDIDA (o mapa de dono), nunca por palpite.
     servem = [x for x in q
@@ -158,6 +173,9 @@ def escolha(canal: str, dono_medido=None, exceto: str = "") -> dict:
                "fracao": (b_ - a_) / maior if maior else None,
                "da_regra": a_, "da_leitura_nova": b_}
     return {
+        "compartilhados": comp,
+        "usos_por_pacote": usos_pac,
+        "reserva_na_interseccao": inter_pac,
         "desempate_vao": vao,
         "canal": canal,
         "quadro": q,
@@ -191,7 +209,105 @@ def _linha_do_mapa(e: dict) -> str:
             % (len(DM.MEDIDOS), len(e["nomeados_como_suspeitos"])))
 
 
+def _compartilhados(linhas: list) -> dict:
+    """{pacote: [origens]} para todo pacote com MAIS DE UMA origem no quadro.
+
+    **Medido em 23/10 as 03:3x, na rodada em que isto trocou a leitura da
+    pauta.** Pacote nao e unico por origem: das 54 origens dos tres canais,
+    QUATRO estao em pacote compartilhado. E o `nao_mencionados` le os capitulos
+    de UMA spec para os dois ids, logo — para tudo o que este instrumento
+    responde — os dois sao o MESMO texto, e as duas contas saem infladas:
+
+    * **USOS**: o `kolejny-poziom-004` aparece como DUAS origens de 4 usos, e
+      por texto ele tem **8** — o SEGUNDO mais usado do canal, enquanto por id
+      ele empatava no MINIMO. No `labtreinamento` e pior: o
+      `labtreinamento-002` tem **14** por texto e e o mais usado do canal,
+      acima do `FtCtIJPsc_Q` (13) que o relato vinha chamando de dominante.
+      Isto e o efeito (C-2) que a rotina nomeia desde o 658 — contar por id
+      premia duplicata —, e o `origens_sem_uso` ganhou guarda contra ele em
+      18/10 as 03:1x. A contagem de usos nao ganhou;
+    * **RESERVA**: os livres de um id ignoram os shorts que declaram o IRMAO,
+      que consomem capitulos do mesmo texto. No caso medido o pacote tem OITO
+      shorts somando os dois ids, e o livre de verdade e a INTERSECCAO: **53 de
+      74**, nao 64 nem 58.
+
+    **Isto NOMEIA e NAO decide**, e o motivo e o mesmo da reserva sem
+    declaracao: unir por pacote e unir por uma RESOLUCAO em prosa, e ela erra
+    nos dois sentidos — o `QiaGg03WSR0` e um longo do labtreinamento declarado
+    por engano em dois shorts do kolejny, isto e, resolucao de id e falivel.
+    Trocar a `escolhida` por ela transformaria heuristica em regra.
+
+    **E o que eu NAO consigo conferir vai declarado:** se os dois videos sao o
+    mesmo conteudo de verdade. Isso se le na pagina de cada um, e a rota esta
+    em `negado_por_politica`.
+    """
+    porpac = {}
+    for x in linhas:
+        p = x.get("pacote")
+        if p:
+            porpac.setdefault(p, []).append(x["origem"])
+    return {p: sorted(v) for p, v in porpac.items() if len(v) > 1}
+
+
+_PRE_COMP = "  PACOTE COMPARTILHADO: "
+
+
+def _linha_dos_compartilhados(e: dict) -> str:
+    """UM dono da frase, e ela sai nos DOIS ramos — ha e nao ha."""
+    comp = e.get("compartilhados") or {}
+    if not comp:
+        return (_PRE_COMP + "nenhum pacote deste canal tem mais de uma origem, "
+                "logo a contagem por id e a contagem por TEXTO coincidem aqui. "
+                "Elas NAO coincidem sempre: em 23/10 as 03:3x o "
+                "`kolejny-poziom-004` tinha 4 usos por id e 8 por texto.")
+    partes = []
+    for p, ids in sorted(comp.items()):
+        u = e.get("usos_por_pacote", {}).get(p)
+        inter = e.get("reserva_na_interseccao", {}).get(p)
+        partes.append("%s <- %d origens %s: %s usos por TEXTO (cada id mostra "
+                      "menos), e o livre de verdade e a INTERSECCAO dos livres "
+                      "(%s)"
+                      % (p, len(ids), ids,
+                         "?" if u is None else u,
+                         "?" if inter is None else "%d de %d" % inter))
+    return (_PRE_COMP + "; ".join(partes) + ". **Isto NOMEIA e nao decide** — "
+            "unir por pacote e unir por uma RESOLUCAO em prosa, que erra nos "
+            "dois sentidos, e trocar a `escolhida` por ela viraria heuristica "
+            "em regra. Conferir se os dois videos sao o mesmo conteudo pede a "
+            "PAGINA de cada um, e a rota pode estar fechada.")
+
+
 _PRE = "  DESEMPATE pela reserva SEM DECLARACAO: "
+
+
+def _nome_da_origem(x: dict) -> str:
+    """UM dono do nome de uma origem no relato: a ORIGEM, com o pacote ao lado.
+
+    **Medido em 23/10 as 03:2x, na rodada em que a ambiguidade apareceu.** A
+    frase do desempate escrevia `pacote or origem` em TRES lugares, isto e, o
+    pacote vencia e o youtube_id era so o reserva. E pacote NAO e unico por
+    origem: varridas as 54 origens dos tres canais, **QUATRO estao em pacote
+    COMPARTILHADO**, em dois pacotes e em dois canais —
+    `kolejny-poziom-004` <- {`iqV7m6tKb5A`, `ef_oZmfmdz4`} e
+    `labtreinamento-002` <- {`StQNFMdpGdk`, `XgqPVJuAk3o`}.
+
+    Logo quando as duas leituras do desempate escolhiam DUAS origens do mesmo
+    pacote, a linha imprimia o MESMO nome nos dois lados e lia-se como
+    CONCORDANCIA — enquanto o vao que ela mesma imprime na linha seguinte era
+    de 17 capitulos. E a frase manda `LEIA as duas antes de escrever`: ler "as
+    duas" quando as duas tem o mesmo nome e ler UMA.
+
+    **A falha e de RELATO e nao de veredito** — a `escolhida` sempre saiu da
+    regra escrita do `concentracao.py`, que trabalha com o youtube_id. O que
+    ela custa e a leitura: foi so por desconfiar do nome repetido que eu fui
+    conferir os ids desta rodada.
+
+    A linha da TABELA do `relato` nao usa isto de proposito: ali a origem e o
+    pacote ja tem COLUNA cada um, logo o nome nao e ambiguo.
+    """
+    o = x.get("origem") or "?"
+    p = x.get("pacote")
+    return "%s (%s)" % (o, p) if p else o
 
 
 def _linha_do_desempate(e: dict) -> str:
@@ -226,7 +342,7 @@ def _linha_do_desempate(e: dict) -> str:
         return (_PRE + "a MESMA origem (%s, %d de %d livres sem declaracao "
                 "de irmao). As duas leituras CONCORDAM aqui — e nao concordam "
                 "sempre."
-                % (s["pacote"] or s["origem"], s["reserva_sem_declaracao"],
+                % (_nome_da_origem(s), s["reserva_sem_declaracao"],
                    s["reserva"]))
     esc = e["escolhida"]
     v = e.get("desempate_vao") or {}
@@ -249,9 +365,9 @@ def _linha_do_desempate(e: dict) -> str:
             "`concentracao.py` e a `escolhida` segue dela; isto vai NOMEADO e "
             "nao filtra ninguem, porque declaracao em prosa nao e veredito nos "
             "dois sentidos. LEIA as duas antes de escrever."
-            % (esc["pacote"] or esc["origem"], esc["reserva"],
+            % (_nome_da_origem(esc), esc["reserva"],
                esc.get("reserva_sem_declaracao"),
-               s["pacote"] or s["origem"], s["reserva"],
+               _nome_da_origem(s), s["reserva"],
                s["reserva_sem_declaracao"]) + "\n" + vao_txt)
 
 
@@ -281,6 +397,7 @@ def relato(canal: str, dono_medido=None, exceto: str = "") -> str:
                      % (e["escolhida"]["usos"],
                         ", ".join(e["empatados_na_contagem"])))
         L.append(_linha_do_desempate(e))
+        L.append(_linha_dos_compartilhados(e))
         L.append("  dominante do canal: %s (ela NAO foi escolhida; o alerta de "
                  "concentracao sai do `concentracao.py`)." % e["dominante"])
     else:
