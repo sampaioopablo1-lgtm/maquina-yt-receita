@@ -477,6 +477,98 @@ def irmaos(origem: str, raiz=None, dir_specs=None) -> list:
     return saida
 
 
+def irmaos_do_pacote(origem: str, raiz=None, dir_specs=None) -> dict:
+    """Os irmaos de TODOS os ids que resolvem para o MESMO pacote da `origem`.
+
+    **O defeito que isto conserta foi medido em 23/10 as 12:5x, escolhendo a
+    pauta, e ele e de METADE: o `segundo_angulo` ja UNIA as declaracoes de
+    capitulo dos ids do pacote compartilhado desde 23/10 as 06:4x, e a lista de
+    FAMILIAS seguia sendo de UM id.** Logo as duas metades da mesma pergunta
+    discordavam: a contagem de capitulos conhecia nove irmaos e a comparacao de
+    familia — que e onde a regra (f) se sustenta — conhecia quatro.
+
+    **E o custo foi desta rodada, nao teorico.** A minha primeira candidata de
+    familia no `kolejny-poziom-004` era o warunek dos cinco anos calendario
+    (rozdzialy 51 e 67), e essa e EXATAMENTE a familia do `kolejny-poziom-s034`
+    — irmao do OUTRO id do mesmo pacote, que o `irmaos(origem)` nao mostra. Eu
+    so a vi porque li o outro id A MAO, e e o item 3 da §10: toda conta que eu
+    faco a mao vira um erro meu.
+
+    **O tamanho vai MEDIDO e os DOIS lados existem:** dos 47 pacotes com spec
+    local, **2 sao compartilhados** (`kolejny-poziom-004` por dois ids, com 4 e
+    5 irmaos contra uma UNIAO de 9; `labtreinamento-002` por dois ids, com 7 e 7
+    contra 14) e **4 ids subcontam**. Nos outros 45 as duas leituras coincidem,
+    logo isto NOMEIA e nao muda nada onde nao ha o que unir.
+
+    A resolucao id -> pacote e **DELEGADA** ao `segundo_angulo`, que e o dono
+    dela (e tem MEMORIA desde 23/10 as 06:4x): refaze-la aqui criaria o segundo
+    dono da convencao de nome, a assinatura que congelou a legenda.
+
+    **E a uniao e por PACOTE de irmao, nao por id:** o mesmo short declara UM
+    `longo_existente`, logo cada irmao aparece uma vez, com o campo `_de_ids`
+    dizendo de qual id ele veio. Pacote irresolvivel (regra h) devolve a leitura
+    do proprio id, sem inventar uniao.
+    """
+    pac = SA.pacote_do_id(origem, dir_specs or _dir_specs(raiz))
+    if pac:
+        ids = SA._ids_do_pacote(pac, dir_specs or _dir_specs(raiz))
+    else:
+        ids = []
+    if origem not in ids:
+        ids = list(ids) + [origem]
+    por_id, uniao = {}, {}
+    for y in sorted(ids):
+        irs = irmaos(y, raiz, dir_specs)
+        por_id[y] = len(irs)
+        for i in irs:
+            alvo = uniao.setdefault(i["pacote"], dict(i, _de_ids=[]))
+            if y not in alvo["_de_ids"]:
+                alvo["_de_ids"].append(y)
+    ordenados = [uniao[k] for k in sorted(uniao)]
+    return {
+        "origem": origem,
+        "pacote": pac,
+        "compartilhado": len(ids) > 1,
+        "ids": sorted(ids),
+        "por_id": por_id,
+        "irmaos": ordenados,
+        "n": len(ordenados),
+        "so_do_id": por_id.get(origem, 0),
+        "subconta": por_id.get(origem, 0) < len(ordenados),
+    }
+
+
+def _linha_do_pacote_compartilhado(u: dict) -> list:
+    """UM dono da frase, e ela sai nos DOIS ramos.
+
+    Sem o ramo do nao-compartilhado a ausencia da linha ficaria
+    indistinguivel de "ninguem conferiu" — e foi assim que a nota da rota
+    morou no ramo que calava (20/10, 13:2x).
+    """
+    if not u["compartilhado"]:
+        return ["  PACOTE NAO COMPARTILHADO: os irmaos acima sao todos os do"
+                f" pacote {u['pacote'] or '(irresolvivel, regra h)'} — a lista"
+                " de FAMILIAS e a contagem de CAPITULOS olham o mesmo"
+                " conjunto."]
+        # ^ ramo que prova que a uniao nao inventa irmao onde nao ha o que unir.
+    outros = [y for y in u["ids"] if y != u["origem"]]
+    extras = [i["pacote"] for i in u["irmaos"] if u["origem"] not in i["_de_ids"]]
+    l = ["  PACOTE COMPARTILHADO por {} ids ({}): a lista acima e a UNIAO,"
+         " e ler por UM id subconta a FAMILIA."
+         .format(len(u["ids"]), ", ".join(u["ids"]))]
+    l.append("    por id: " + ", ".join(f"{y} {n}" for y, n in
+                                        sorted(u["por_id"].items()))
+             + f" | UNIAO {u['n']}")
+    if extras:
+        l.append("    so vem(em) pelo(s) outro(s) id(s) " + ", ".join(outros)
+                 + ": " + ", ".join(extras)
+                 + " — **medido em 23/10 as 12:5x, quando a minha primeira"
+                 " candidata de familia era a do `kolejny-poziom-s034`, irmao do"
+                 " OUTRO id. O `segundo_angulo` ja unia os CAPITULOS desde"
+                 " 06:4x e a FAMILIA seguia por um id so.**")
+    return l
+
+
 # Quantos capitulos uma familia costuma carregar. OBSERVADO nas copies que
 # declaram capitulo, nao escolhido — e so isso que ele e: o tamanho tipico da
 # aposta, usado para dizer a ORDEM DE GRANDEZA da forca da evidencia.
@@ -705,15 +797,20 @@ def _linha_dos_capitulos(i: dict) -> str:
 
 
 def relato(origem: str, raiz=None, excluir=(), meus=()) -> str:
-    todos = [i for i in irmaos(origem, raiz) if i["pacote"] not in excluir]
+    uni = irmaos_do_pacote(origem, raiz)
+    todos = [i for i in uni["irmaos"] if i["pacote"] not in excluir]
     if not todos:
         return (f"IRMAOS de {origem}: NENHUM. Origem virgem — a regra (f) nao tem"
                 " contra o que comparar nesta origem, mas o CANAL tem: confira as"
                 " familias das outras pecas do canal do mesmo dia.")
     linhas = [f"IRMAOS de {origem}: {len(todos)}."]
+    linhas.extend(_linha_do_pacote_compartilhado(uni))
     faltam = []
     for i in todos:
-        linhas.append(f"  {i['pacote']} — titulo curto: {i['titulo_curto']!r}")
+        de = ("" if origem in i.get("_de_ids", [origem])
+              else "  << pelo id " + ", ".join(i["_de_ids"]))
+        linhas.append(f"  {i['pacote']} — titulo curto: {i['titulo_curto']!r}"
+                      + de)
         if i["tem_campo_familia"]:
             linhas.append("    familia (campo): "
                           + " ".join(i["familia"].split())[:220])

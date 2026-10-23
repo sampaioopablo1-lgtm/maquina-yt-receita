@@ -1,0 +1,117 @@
+{
+ "pacote": "kolejny-poziom-s101",
+ "slug": "kolejny-poziom-s101",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "bg": "#0B0B0C",
+  "ink": "#F2EEE8",
+  "c1": "#E23B3B",
+  "c2": "#D9C7A7",
+  "red": "#FF4D4D",
+  "ok": "#7FB77E",
+  "panel": "#151517",
+  "mut": "#8F877C",
+  "acc": "#E23B3B"
+ },
+ "longo": [],
+ "longo_existente": "ef_oZmfmdz4",
+ "thumb": {
+  "l1": "Wykres brutto",
+  "l2": "kieszeń netto"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Wykres z umowy",
+   "sub": "niczego nie odejmuje",
+   "nar": "Wykres z umowy niczego nie odejmuje."
+  },
+  {
+   "layout": "item",
+   "kicker": "Co on pokazuje",
+   "sub": "same wpłaty i sam wzrost",
+   "nar": "Pokazuje tylko twoje wpłaty i sam ich wzrost."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Część planu nie jest narysowana",
+   "barras": [
+    {
+     "rot": "W wykresie",
+     "v": 100
+    },
+    {
+     "rot": "Poza wykresem",
+     "v": 100
+    }
+   ],
+   "nar": "Część tego planu nie jest narysowana."
+  },
+  {
+   "layout": "item",
+   "kicker": "Co zostało poza nim",
+   "sub": "dwie stałe pozycje umowy",
+   "nar": "Poza nim zostały dwie stałe pozycje."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Obie są w twojej umowie",
+   "itens": [
+    "Roczna opłata",
+    "Podatek od zysku"
+   ],
+   "nar": "To roczna opłata i podatek od zysku."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Pobierane",
+   "sub": "automatycznie, bez twojego ruchu",
+   "nar": "Obie pobierane są automatycznie."
+  },
+  {
+   "layout": "item",
+   "kicker": "Bez faktury",
+   "sub": "i bez pytania o zgodę",
+   "nar": "Nie przyjdzie faktura ani pytanie o zgodę."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Dwa różne pytania",
+   "barras": [
+    {
+     "rot": "Pytanie wykresu",
+     "v": 100
+    },
+    {
+     "rot": "Twoje pytanie",
+     "v": 100
+    }
+   ],
+   "nar": "Pytanie wykresu to nie twoje pytanie."
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlatego się mylisz",
+   "sub": "brutto czytasz jak netto",
+   "nar": "I dlatego czytasz brutto jak własne netto."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Poproś o dwie wersje",
+   "itens": [
+    "Wersja brutto",
+    "Wersja po kosztach"
+   ],
+   "nar": "Poproś o drugą wersję tego samego wykresu."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Sprawdź swoją umowę",
+   "sub": "i zasubskrybuj kanał",
+   "nar": "Sprawdź swoją umowę i zasubskrybuj kanał."
+  }
+ ],
+ "copy": "# kolejny-poziom-s101 — short solto\n\n## TITULO\nWykres z umowy jest brutto, a twoje pytanie jest netto\n\n## TITULO SHORT\nWykres brutto, kieszeń netto\n\n## DESCRICAO\nPrzy podpisywaniu umowy pokazują ci wykres. Rośnie, kończy się dużą liczbą i jest\npoliczony poprawnie — wszystko, co w nim jest, jest prawdą. Problem jest w tym,\nczego w nim nie ma. Ten wykres bierze twoje wpłaty i sam wzrost kapitału, i nie\nodejmuje od nich niczego. Nie ma w nim rocznej opłaty za zarządzanie i nie ma\npodatku od zysku. Obie pozycje istnieją, obie są zapisane w umowie, i obie\npobiera się automatycznie.\n\nTen short jest o jednej rzeczy: wykres z umowy odpowiada na inne pytanie niż\ntwoje. On mówi, ile urośnie suma wpłat przy założonej stopie zwrotu. Ty pytasz,\nile z tego zostanie w kieszeni. Oba pytania są sensowne, oba mają odpowiedź, i\ntylko jedno z nich jest narysowane na kartce, którą masz przed sobą.\n\nMechanizm, który sprawia, że to przechodzi niezauważone, nie jest skomplikowany:\nnie ma faktury. Za opłatę za zarządzanie nie przychodzi do ciebie żaden dokument,\nnikt nie pyta cię o zgodę i nic nie pojawia się na liście wydatków. Nie istnieje\nwięc żadne zdarzenie, które wyznaczałoby moment, żeby sprawdzić. Rachunek przez\ncały czas zgadza się sam ze sobą — tylko liczy coś innego, niż myślisz, a liczba\nna dole jest mniejsza nie dlatego, że ktoś się pomylił.\n\nPraktyczny wniosek jest jednozdaniowy i nie wymaga kalkulatora: poproś o ten sam\nwykres po kosztach. Nie o inny produkt i nie o inną stopę zwrotu — o tę samą\nprojekcję z odjętą opłatą i odjętym podatkiem. Dopiero dwie wersje obok siebie\npokazują, o czym właściwie decydujesz.\n\nPełne wyliczenie, ze wszystkimi liczbami i źródłami, jest w długim filmie na tym\nkanale.\n\n## COMENTARIO FIXADO\nMasz u siebie wykres po kosztach, czy tylko ten z podpisania umowy?\n\n## FONTES\nLongo `kolejny-poziom-004` (`ef_oZmfmdz4`, 74 capitulos). A familia sai dos\nrozdzialy **1, 2 e 3** — o 2 diz em letra *\"Tak wyglada wykres, ktory pokazuja ci\nprzy podpisywaniu umowy\"* e o 3 *\"ten wykres nic nie odejmuje. Nie ma w nim\noplaty za zarzadzanie ani podatku od zysku. Oba istnieja i oba pobiera sie\nautomatycznie\"* —, com apoio do rozdzial **0**, que e a premissa da peca inteira.\n\nEscolhidos pelo `segundo_angulo.texto_dos_livres`, que devolve os 58 livres com o\ntexto INTEIRO e MARCA os que um irmao declara. **Os rozdzialy 9, 10, 14, 41, 43 e\n44 sairam MARCADOS e ficaram de fora de proposito** (declarados pelo `s087` e\npelo `s028`).\n\n**E ESTE PACOTE E COMPARTILHADO por dois ids** (`ef_oZmfmdz4` e `iqV7m6tKb5A`),\nlogo a leitura por UM id subconta o que ja foi usado: os NOVE irmaos dos dois\ndeclaram 9, 12, 21 a 27, 28, 30 a 44, 51, 53 a 64. **Nenhum dos meus (0 a 3) esta\nnessa uniao**, e foi ela que eu li antes de escolher — nao a lista de um id so.\n\n## FAMILIA DE ENTRADA ERRADA\n**O WYKRES DA UMOWA E BRUTO, E A PERGUNTA DO ESPECTADOR E LIQUIDA** (rozdzialy 1,\n2 e 3, com o 0 de apoio). O eixo e a **DEFINICAO do numero que te mostraram**, e\nnao nenhum dos valores dele: o grafico toma as wplaty e o crescimento e **nao\nsubtrai nada**, logo ele responde *\"quanto cresce a soma das contribuicoes\"*\nenquanto a pergunta de quem assina e *\"quanto fica na minha mao\"*. As duas\nperguntas tem resposta; so uma esta desenhada na folha.\n\n**E o mecanismo do silencio e ARITMETICO, nao de ma-fe: o grafico esta CERTO.**\nTudo o que ele contem e verdade, e por isso conferi-lo nunca acusa nada — nao se\ntrata de uma conta que fecha errado, e sim de uma conta que fecha **certo\nrespondendo a outra pergunta**. Isso e o oposto do caso em que algum valor esta\ninflado: aqui todos os valores presentes podem estar corretos e o resultado\ncontinua nao descrevendo a decisao.\n\n**Segunda perna, e ela e o que torna o erro durAvel: NAO HA FATURA.** As duas\nsubtracoes sao automaticas — nao chega documento, ninguem pede autorizacao e nada\naparece numa lista de despesas. Logo **nao existe evento nenhum para marcar a\nhora de olhar**, e a pessoa confere o produto UMA vez, na assinatura, com o unico\ngrafico que lhe deram.\n\n**DISTINCOES contra os NOVE irmaos dos dois ids deste pacote**, lidas pelo\n`irmaos_da_origem` e, nos **QUATRO** sem o campo (`s009`, `s067`, `s014`, `s074`),\npela PROSA e pela NARRACAO de cada um, que e de primeira mao (776):\n\n* `s009` *Ta sama wplata, inna kolejnosc* — a **ORDEM** das contribuicoes dentro\n  do ano, porque o ano sem o beneficio nao volta;\n* `s028` *Co roku kontra raz na koncu* — a **FREQUENCIA** com que cada cobranca\n  incide, nao a aliquota (rozdzialy 37 a 44);\n* `s067` *Zmiana to sprzedaz* — trocar de produto **E** vender: realiza o ganho e\n  antecipa a data em que o dinheiro sai;\n* `s087` *Sufit to nie cena* — ler o **TETO LEGAL** como se fosse o preco;\n* `s014` *Co kosztuje wiecej: podatek czy oplata?* — qual das duas custa mais;\n* `s034` *Warunek liczy lata, nie zlote* — a **UNIDADE da condicao**: contam-se\n  anos calendario, nao kwoty (rozdzialy 51 e 53 a 63);\n* `s074` *Oplata czeka na koniec* — a **DISTRIBUICAO NO TEMPO** do custo: a\n  stawka nao muda, a base cresce (rozdzialy 21 a 27);\n* `s084` *Zmiana kosztuje podwojnie* — o imposto ainda nao pago lido como\n  **NEUTRO**, quando ele e dinheiro trabalhando (rozdzialy 28 e 30 a 36);\n* `s099` *Ten sam zwrot, inny wynik* — a **ATRIBUICAO** do resultado: a taxa de\n  retorno era a mesma nos tres cenarios (rozdzialy 60 a 64).\n\n**Os NOVE falam de mecanismos DENTRO do plano** — quanto custa cada subtracao,\nquando ela incide, sobre que base, em que ordem, com que condicao. **Nenhum fala\ndo DOCUMENTO que te mostraram antes de tudo isso.** E o mais vizinho e o `s074`,\ncom a distincao fina: ele diz que o custo da oplata **espera o fim**, isto e, fala\nde um custo que ESTA na conta e aparece tarde; esta peca fala de um custo que\n**nao esta no papel** — e os dois se encaixam em vez de competir, porque e\njustamente o grafico bruto que faz a pessoa avaliar o produto pelos primeiros\nanos.\n\n## AVISO SOBRE OS NUMEROS\n**ZERO NUMERO NOVO SOBRE O MUNDO.** O unico numeral falado e **\"dwie\"** (cena 3,\n*\"Poza nim zostaly dwie stale pozycje\"*) e ele e ESTRUTURA do argumento — a\ncontagem das duas subtracoes de que a propria peca fala —, conferido pelo\n`numerais_falados`.\n\nFicaram FORA pela regra (g), um por um: o teto legal da oplata e as tres etapas\nem que ele baixou, a aliquota do imposto sobre o ganho, a stopa zwrotu suposta, o\nprazo de trinta anos, a wplata mensal, os limites anuais de IKE e IKZE, o zwrot\ndo PIT, o ryczalt da retirada e **qualquer kwota em zloty**. Os seis primeiros\nmudam por rozporzadzenie ou por obwieszczenie, e o rozdzial 10 da propria origem\nescreve a procedencia deles.\n\n**E A RECUSA INCLUI OS DOIS NUMEROS QUE DARIAM A PECA MAIS FACIL:** o par do\nrozdzial 32 (*\"Zostaje ci okolo stu osmiu tysiecy. Zaczynalismy od stu\nszescdziesieciu czterech na wykresie sprzedawcy\"*) e a diferenca entre os dois.\nEles sao exatamente o que tornaria o argumento visivel de imediato, **e sao\nEXEMPLO do proprio longo** — o rozdzial 5 dele diz *\"Pokaze konkretne liczby i\nzrodla, a decyzje podejmiesz sam\"* —, logo entram no caso especial da regra (g),\no mesmo que o `s079` aplicou em outra origem deste canal. A peca diz que o\ngrafico nao subtrai **sem dizer quanto**.\n\n**E AS BARRAS SAO ILUSTRACAO QUALITATIVA E NAO SAO FALADAS.** As duas cenas de\n`barras` desenham alturas **IGUAIS de proposito**: na cena 2 porque o argumento e\nque as duas partes do plano existem e so uma esta desenhada, e na cena 7 porque as\nduas perguntas sao igualmente legitimas. **Elas NAO sao a razao medida de seis\npara um entre oplata e podatek** (isso e territorio do `s028`) **nem a razao entre\nos dois numeros do rozdzial 32** — e isto vai escrito para a rodada seguinte nao\nas ler de volta como dado.\n\n## EXPOSICAO\n**A PINCA DO 740/748 ESTA FECHADA AQUI, e a exposicao vai declarada ANTES de\npublicar:** o `mira.janela_dos_dois_mundos` diz que NENHUMA media por cena poe os\ndois provedores dentro de 41,5 a 43,0 com onze cenas nesta voz. Mirei o **PISO**\n(regra de redacao do 772): previsao edge **41,70 s**, 0,20 acima dele; o piper sai\nem **35,50 s**, FORA pela mira e DENTRO do portao `duracao`, que cobra 18 a 45 s\nnos DOIS mundos. O provedor se decide no runner, por cena e por run (730/733).\n\n**E o REAL nao esta prometido para lado nenhum:** a banda do residuo tem 5,2 s de\nlargura contra 1 s de granularidade, e declarar um lado dela nao e previsao (774).\n\n**E os caracteres sairam do instrumento, nao da minha cabeca:** a primeira versao\nprevia **41,13 s**, ABAIXO da faixa, e o `mira.quanto_cortar` disse *\"acrescentar\n~8 caracteres no TOTAL, 0,7 por cena; um caractere vale 0,052 s nesta voz\"*.\n\n## RESERVA\nO que fica LIVRE nesta origem, para a rodada seguinte achar — e o conjunto sai do\n`texto_dos_livres`, nao da minha leitura:\n\n* **rozdzialy 15 a 20** (o que dois por cento fazem em trinta anos, e a diferenca\n  expressa em MESES de wplata em vez de zlote) — LIVRES. O 20 e uma familia de\n  UNIDADE do resultado e nao de valor;\n* **rozdzial 29** (a base do imposto e o ZYSK, nao o capital inteiro) — LIVRE,\n  **com ressalva escrita**: o eixo dele e adjacente ao do `s028`, que compara as\n  duas cobrancas. Quem o levar tem de ler a peca do `s028` antes;\n* **rozdzialy 45 a 50** (IKE e IKZE: o limite, a isencao no fim, o abatimento\n  agora, o ryczalt depois) — LIVRES, **e o 51 e os 53 a 63 NAO**, porque sao\n  declarados pelo `s034`. E o eixo *\"a vantagem e CONDICIONAL\"* ja e o do `s075`\n  DESTE canal, de outra origem: nao repetir;\n* **rozdzialy 65 a 67, 69 e 71** (as quatro liczbas para conferir no proprio\n  produto, e que isso leva uma tarde) — LIVRES;\n* **rozdzialy 0 a 3** vao NOMEADOS como consumidos por ESTA peca.\n\n## HASHTAGS\n#finanse #oszczedzanie #inwestowanie\n\n## TAGS\noplata za zarzadzanie, podatek od zysku, wykres, umowa, netto, brutto, inwestowanie, oszczedzanie, fundusz, koszty\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ncategoryId: 26\ndefaultLanguage: pl\nmadeForKids: false\n\n## MUSICA / LICENCA\nWholesome (Kevin MacLeod, incompetech.com), CC BY 3.0.\n"
+}
