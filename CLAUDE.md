@@ -14342,6 +14342,94 @@ independentes, e passar uma nao e passar a outra.
 piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
 hora.
 
+## A FAMILIA MAIS OBVIA DA ORIGEM FICOU DE FORA, pelo instrumento de 17:0x
+
+**A PECA DAS 19:07 — `kolejny-poziom-s103` = `BOx7-CRk3ss`** (*Twoja czesc to nie
+limit*), publicado as **19:24:45Z** (render `40010768173`, publicacao
+`40011170583`), **sem `403 quota`**. **ONZE PORTOES VERDES** — e ela foi
+**CONFERIDA COMO RASCUNHO** antes de existir no disco, pelo motivo exato que o
+conserto de 21/10 as 20:3x tem: a passada da suite da rodada anterior ainda
+varria `fabrica/specs`, e spec nova no meio dela fabrica regressao falsa (22/10,
+14:4x).
+
+Provedor **edge MEDIDO** (zero avisos `NARRACAO PELO PIPER` no job
+`120610309069`, que e o que emitiu o SOM), som **-14,0** LUFS, pico **-2,7** dBTP
+com `pico_vs_teto: dentro`, **zero silencios**. Os quatro parques pelo
+`registro_da_rodada`, os quatro **RELIDOS** (duracao **167** linhas, 95 sem
+leitura; som **107**; SQL **203** com ZERO prosa; corpus pelo dono). **E a linha
+do PUBLICADO imprimiu os DOIS titulos e eles CONCORDAM** (773).
+
+**CANAL do `passo_zero`** (10/9/7 na janela de 24 h, `kolejny-poziom` o MINIMO
+UNICO). **PAUTA:** `IuBLU-P4Aj8` (`kolejny-poziom-016`), 4 usos — empate de CINCO
+desempatado pela MAIOR reserva, **52 livres de 64 e 41 SEM declaracao de irmao**,
+as duas leituras CONCORDANDO. O texto dos 52 veio **INTEIRO**, sem fatia, com
+**ONZE** deles MARCADOS como declarados por irmao.
+
+**FAMILIA: DIVIDIR O OBRIGACAO SOLIDARIO PELO NUMERO DE CO-PROPRIETARIOS e
+tratar o proprio uplamek como "o que eu devo"** (rozdzial 55, com o 41 de apoio).
+O eixo e a **NATUREZA** da obrigacao — divisivel contra solidaria —, nao o valor
+de nenhuma parcela: a divisao por N funciona, fecha com o total da decisao e
+devolve um numero que PARECE a resposta, e o que ela nao descreve e o que cada um
+deve perante a gmina, que e o **TODO**. **E o mecanismo do silencio e de
+OPORTUNIDADE:** enquanto os tres pagam em dia o rateio descreve a realidade ao
+zloty e nao ha carta, nem juro, nem diferenca — o custo aparece num unico dia, o
+dia em que UM nao paga, e nesse dia ele **nao se divide por tres**: cai inteiro em
+quem a gmina alcancar primeiro, e cai em alguem que pagou a propria parte.
+
+### E A FAMILIA MAIS OBVIA FICOU DE FORA DE PROPOSITO, com o motivo medido
+
+Os **rozdzialy 8 a 15** desta origem sao a peca facil e estao LIVRES: a stawka
+nao esta escrita na decisao, obtem-se **DIVIDINDO** a kwota pela powierzchnia, e
+o rozdzial 15 avisa para dividir **POSICAO por POSICAO**, nunca a soma pela soma.
+**Nao levei**, e o motivo saiu do instrumento de 17:0x e nao da minha memoria: o
+eixo dela — **quociente agregado que esconde heterogeneidade** — e o do
+`epomeno-epipedo-s097`, de 22/10, em **OUTRO canal**. Conferido lendo o campo da
+familia DELE, nao a minha lembranca: *"um quociente tomado como a resposta
+inteira, quando uma parte dele pede OUTRO divisor"*.
+
+**Repetir eixo atravessando canal e o 762 numa dimensao que o `similaridade` nao
+ve** — ele compara TITULO e contra o MESMO canal. A recusa vai escrita na RESERVA
+com o motivo, e e a **primeira vez nesta sessao que o instrumento daquela hora
+muda a FAMILIA da peca** em vez de so o relato.
+
+**CONTAGEM pela chave `por_cadencia_servivel`:** catorze e a melhor cadencia e
+saiu **NOMEADA**, recusada pela FOLGA (23 caracteres, a DOIS do piso OBSERVADO);
+doze e onze **repetem** os tamanhos das duas ultimas do canal. Treze tem folga
+**+7**. **FORMA do `sugere_forma`**, nao do olho: a mistura de MAIOR folga em
+treze cenas (**41.575 de 41.580** ordens livres), e o esqueleto
+`titulo-lista-item-item-lista-barras-item-titulo-barras-item-item-titulo-cta` e
+**INEDITO nas 207 formas** da frota.
+
+**MIREI O PISO (772) E O PISO EXATO NAO E ALCANCAVEL, e as tres passadas vao
+ditas:** 28,77 caracteres por cena previam **42,59**; 27,08 previam **41,4**,
+ABAIXO da faixa; 27,69 previam **41,86**, que e o ponto mais baixo alcancavel
+acima do piso de 41,5. **Um caractere vale 0,052 s nesta voz e o ajuste saiu do
+`mira.quanto_cortar` nas tres**, porque o conselho em caracteres e INTEIRO e a
+media arredonda — e o instrumento diz isso em letra. A **PINCA do 740/748 esta
+FECHADA** (piper **35,63**, FORA pela mira e DENTRO do portao, que cobra 18 a
+45 s nos dois mundos), com a exposicao declarada ANTES de publicar, e **o REAL
+nao esta prometido para lado nenhum** (774).
+
+**ZERO numero novo sobre o mundo:** nao cita stawka, kwota, prazo, numero de
+artigo nem o sufit da ustawa. O unico numeral falado e **"trzy"**, ilustracao do
+proprio argumento, conferido pelo `numerais_falados`. **E a recusa inclui o
+numero que daria a peca mais forte** — quanto a gmina pode exigir de cada um —,
+com o motivo escrito pela **PROPRIA origem** no rozdzial 5.
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica` pela
+QUINQUAGESIMA NONA rodada seguida.** `RESIDUO_N` segue **128**. **COTA: CATORZE
+envios** na janela de 07:00Z, **22.400** unidades, contra o piso MEDIDO de
+**>= 41.600**.
+
+**E EU INTERROMPI A PASSADA DA SUITE DA RODADA ANTERIOR A 41%, e o motivo vai
+dito em vez de escondido:** ela mediria um estado que esta rodada ja mudou, e
+duas passadas de ~70 min nao cabem na janela de uma hora. A passada que vale
+cobre os **DOIS** commits. **Quem separou "interrompida" de "morta" foi o
+`processo_vivo`**, nao o arquivo a meio de escrever (19/10, 16:2x) — e eu a matei
+**por PID**, nao com `pkill -f` de um padrao que a propria linha contem, que e o
+gemeo do `pgrep` de 20/10 as 01:4x e que em 23/10 as 06:4x matou o meu proprio
+shell.
+
 ## O `similaridade` PAROU DE COMPARAR CONTRA O CANAL — e o varredor nao pegava
 
 **Medido em 23/10 as 18:4x, e e o vao que o conserto de 15:3x do MESMO dia nao
