@@ -13654,3 +13654,197 @@ SEGUNDA rodada seguida:** 96,12 h, piso de resolucao **0,25/dia**, os tres SIM.
 **COTA: QUATRO envios** na janela aberta as 07:00Z, **6.400** unidades, contra o
 piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
 hora.
+
+## OS USOS POR TEXTO EXISTIAM E NAO CRUZAVAM COM A ESCOLHA DA PAUTA
+
+**Medido em 23/10 as 11:3x, escolhendo a pauta, e e a segunda vez que um achado
+destes muda a PECA e nao o relato.** O `_compartilhados` agrupa as origens por
+pacote desde 23/10 as 03:3x e o `escolha` **ja soma** os usos em
+`usos_por_pacote` — e nenhuma das duas leituras do desempate era cruzada contra
+essa soma. **Eu escrevi o laco na linha de comando** para decidir se desviava da
+regra escrita: item 3 da §10, na nona dimensao.
+
+**E A CONTA DECIDIU A RODADA.** O vao da divergencia estava em **64%**, acima do
+precedente de 62% em que a rodada de 22/10 as 17:3x desviou — logo o precedente
+mandava desviar. Medido nos TRES canais:
+
+| canal | regra ESCRITA | leitura SEM DECLARACAO |
+|---|---|---|
+| labtreinamento | 7 por texto | **14**, e e o MAXIMO do canal |
+| epomeno-epipedo | 5 | 5 — nenhuma das duas e compartilhada |
+| kolejny-poziom | **9**, compartilhada | o MESMO id |
+
+**No `labtreinamento` a leitura nova aponta um pacote COMPARTILHADO com 14 usos
+por TEXTO, que e o maximo do canal** — isto e, desviar levaria a origem MAIS
+USADA do canal, o contrario do que o `concentracao.py` existe para evitar. A
+rodada **seguiu a regra escrita**, com o motivo medido em vez de intuido.
+
+**E o defeito atinge as DUAS leituras, em canais diferentes:** no
+`kolejny-poziom` e a **propria regra escrita** que cai num compartilhado de 9
+usos por texto. Logo isto nao e um reparo da leitura nova: e uma coluna que
+faltava as duas.
+
+**No codigo:** `pauta_do_momento.usos_por_texto` (soma **LIDA** de
+`usos_por_pacote` — refaze-la seria o segundo dono dela),
+`concentracao_da_escolha` e `_linha_da_concentracao`, chamada pelo `relato`
+**FORA do ramo da `escolhida`**, porque sem escolha o cruzamento e justamente o
+que importa (20/10, 13:2x). **Ele NOMEIA e NAO decide:** trocar a `escolhida`
+por esta leitura transformaria heuristica em regra, e a resolucao id -> pacote e
+em prosa e erra nos dois sentidos — o `QiaGg03WSR0` e um longo do labtreinamento
+declarado por engano em dois shorts do kolejny.
+
+`tests/test_os_USOS_por_texto_nao_cruzavam_com_a_escolha.py`, catorze testes: a
+varredura sai do DISCO e **reprova com quadro abaixo de 8 origens**, o maximo e
+cobrado como **PROPRIEDADE** (nao e menor que nenhum uso por id) e nao por
+numero, a contraprova vai nos **dois** sentidos — origem FORA de compartilhado
+conta IGUAL (com piso de 20 casos, senao a contraprova nao mede nada) e origem
+DENTRO conta a SOMA e **estritamente mais** que o id —, as duas contas da mesma
+coisa tem de **CONCORDAR com o dono**, origem fora do quadro devolve **None** em
+vez de inventar contagem, os **DOIS lados** tem de existir no disco e o arquivo
+**falha se TODOS os canais cairem no maximo OU se NENHUM cair**, um exige que em
+algum canal seja a **PROPRIA regra escrita** a cair em compartilhado (senao o
+achado vira so da leitura nova e esta nota se rele), a frase tem **UM dono**, sai
+nos **DOIS** ramos com o ramo errado **proibido** no outro caso, sem escolha ela
+**DIZ** que nao cruzou em vez de calar, a delegacao e por **AST**, e o `relato`
+e cobrado por AST como a chamando **fora de ramo condicional**.
+**Contraprova nos dois sentidos:** desligado o cruzamento, **tres dos catorze**
+falham; posta a frase dentro do ramo da escolhida, **um** falha.
+
+**A medida de 11:3x vai como HISTORIA e nenhum assert depende dela** — contagem
+absoluta sobre populacao que cresce uma spec por rodada e identidade disfarcada
+de medida (a licao de 22/10 as 14:4x).
+
+### E DOIS ASSERTS MEUS ESTAVAM ERRADOS, nao o modulo
+
+Os dois na primeira execucao, e os dois sao a mesma licao:
+1. **o dono da frase era detectado pelo LITERAL**, e ele mora na constante
+   `_PRE_CONC` — a lista de donos voltou **VAZIA** e o assert reprovava por achar
+   **NADA**. E o `test_o_scanner_de_citacao_tem_UM_dono` de 22/10 as 21:4x
+   outra vez: **teste que detecta por literal aprova qualquer coisa quando o
+   literal se move.** A deteccao passou a incluir o NOME da constante;
+2. **o AST da delegacao casava o DOCSTRING**, que CITA `_compartilhados` para
+   explicar o defeito. Casar prosa pegou a explicacao em vez do codigo — a licao
+   do `test_NAO_virou_portao` do acento. O assert passou a tirar o docstring
+   antes de ler o corpo.
+
+## O TESTE DA REDE PROIBIA O IMPORT, E A AFIRMACAO ERA SOBRE REQUISICAO
+
+**Medido em 23/10 as 11:2x, pela passada da rodada anterior: 26 falhas contra a
+base de 25, UMA nova e ZERO desaparecidas** — e ela era minha. O
+`test_ele_NAO_toca_a_rede` proibia o import de `subprocess` no
+`despacho_da_rodada` como **PROXY** de *"toca a rede"*, e em 23/10 as 10:2x o
+modulo passou a ler o CHECKOUT com `git rev-parse` e `git hash-object`, que sao
+leituras **LOCAIS**.
+
+**Era IDENTIDADE (o nome do import) onde a afirmacao era PROPRIEDADE (nao faz
+requisicao)** — a classe 743/753/761, pela decima nona vez, agora num assert
+que eu escrevi para guardar a disciplina oposta.
+
+**Retratado NO LUGAR, e a propriedade ficou cobrada em DUAS metades que nao se
+repetem:** no arquivo do despacho, que **todo `subprocess` do modulo roda `git`
+e mais nada** — com contraprova de VACUIDADE, porque sem nenhuma chamada o
+assert nao mediria nada —, e no arquivo do guarda do checkout, que **nenhum
+SUBCOMANDO de rede** (`fetch`, `pull`, `ls-remote`, `remote`, `clone`, `push`)
+aparece. **Juntas elas dizem o que o import sozinho nunca disse:** `subprocess`
+podia rodar `curl` e o arquivo passaria verde.
+
+**E o que FICA proibido pelo import** sao `urllib`, `requests`, `http` e
+`socket`, porque essas quatro nao tem uso local nenhum neste modulo — ali o
+import ainda e prova bastante, e isso vai escrito para a rodada seguinte nao
+afrouxar o resto.
+
+**Contraprova nos dois sentidos:** `subprocess.run(["curl", ...])` reprova
+exatamente o assert novo; `_git(["fetch"])` reprova o do outro arquivo.
+
+### A PECA DESSA RODADA — SETE cenas, e os DOIS mundos dentro da mira
+
+`labtreinamento-s116` = **`X5uQhfD-Oqg`** (*Curso não é levantamento*),
+publicado as **11:35:13Z** (run `39947087988`), **sem `403 quota`**. **DOZE
+PORTOES VERDES NA PRIMEIRA TENTATIVA** — e ela foi **CONFERIDA COMO RASCUNHO**
+antes de existir no disco: dez portoes baratos limpos em 0,55 s, mais mira,
+acento **2,98%**, gancho de 7 palavras de 12, paleta **LIDA** de
+`temas_do_dono.paleta_do_canal`, as sete cenas desenhando, zero numerais
+falados e as **seis guardas do construtor** limpas.
+
+Provedor **edge MEDIDO** pelo `anotacoes_do_run` (zero avisos
+`NARRACAO PELO PIPER` no job `120390509059`, que e o job que emitiu o SOM) — e o
+instrumento **RECUSOU** estabelecer o provedor pelo job do `retomar`, dizendo
+que ali o zero sairia por **VACUIDADE**. Som **-14,3** LUFS, pico **-2,7** dBTP
+com `pico_vs_teto: dentro`, **zero silencios**. **E a linha do PUBLICADO imprimiu
+os DOIS titulos e eles CONCORDAM**, logo o corpus recebeu o que o YouTube
+recebeu (773).
+
+**CANAL do `passo_zero`** (8/8/8, empate nos TRES desempatado pelo que esta ha
+mais tempo sem publicar). **PAUTA:** `yrWVyqQtw00` (`labtreinamento-004`, 81
+capitulos), 7 usos — empate de **DOZE** origens, e a `escolhida` da regra
+ESCRITA. **O desempate DIVERGIU com vao de 32 capitulos (64%) e a rodada SEGUIU
+a regra**, pelo motivo medido na secao acima.
+
+**FAMILIA: ATUALIZACAO DE NORMA LIDA COMO RECICLAGEM DE TREINAMENTO, com a FILA
+como segunda perna** (capitulos 9 a 13, com o 8 de apoio — os seis LIVRES e
+**nenhum DECLARADO** por irmao, medido pelo `relato_dos_livres`). O eixo e o
+**TIPO de trabalho** que o prazo exige: curso e agenda, levantamento com projeto
+e calculo e obra tecnica. **E o engano e silencioso porque o reflexo do curso
+ENTREGA UM COMPROVANTE** — a lista de presenca existe, esta assinada e
+arquivada —, logo a tarefa parece concluida e nada doi.
+
+**A segunda metade nao esta dentro da empresa:** o prazo e coletivo, a procura
+por quem faz o servico tecnico se concentra no fim, e **fila nao responde a
+urgencia**. Comecar tarde nao comprime so o seu trabalho: poe voce atras de
+todos os outros que tambem deixaram para o fim.
+
+Distincoes escritas contra os **SETE** irmaos, lidas pelo `irmaos_da_origem` e —
+nos **QUATRO** sem o campo (`s010`, `s034`, `s090`, `s093`) — pela PROSA e pela
+NARRACAO de cada um, que e de primeira mao. **Os dois vizinhos mais proximos vao
+NOMEADOS porque a distincao e fina:** o `s010` (*"Voce pediu o estudo antes de
+levantar"*) e o `s093` (*"O numero nao vem antes do plano"*) falam da
+**SEQUENCIA do seu proprio trabalho** com um numero que voce ainda nao tem; esta
+peca fala de **que especie de trabalho e** e de uma escassez que voce divide com
+todo mundo. **Sequencia propria contra fila compartilhada.**
+
+**SETE CENAS pela chave `por_cadencia_servivel`:** e a melhor cadencia (3,29 s,
+|dif| 0,19 dos ~3,1 s de 690/699), cabe no teto MEDIDO da voz (11), nao repete
+os tamanhos recentes do canal (a `s115` tem 6 e a `s114` tem 8) e alcanca o piso
+com folga **+10**. As contagens **9, 10 e 11** sairam **NOMEADAS** porque ali o
+PISO da faixa nao e alcancavel com texto legivel.
+
+**ESQUELETO `titulo-barras-item-item-titulo-lista-cta`, INEDITO nas 200 formas
+da frota** — e a **MISTURA saiu do `sugere_forma`** (51 de 60 ordens livres), nao
+do olho. Todo layout saiu do conjunto **SONDADO**, com `assert` no construtor.
+
+**A PINCA DO 740/748 ESTA ABERTA AQUI**, e este e o unico canal da frota em que
+isso acontece: a `janela_dos_dois_mundos` pede **41 a 44** caracteres por cena
+com sete cenas e a peca saiu com media **41,71** — edge **24,80** e piper
+**20,30**, os **DOIS** dentro da mira medida do canal (20,0 a 26,0). Logo **nao
+ha exposicao de mundo a declarar**, e eu **NAO mirei o piso de proposito**: o
+piso executavel e de 31 caracteres e e de **UM mundo** (com 31 o piper cai em
+18,7, FORA pelo piso, e a propria `mira.confere` reprova esse conselho — a conta
+que eu fiz de cabeca no `s102`). **E o REAL nao esta prometido para lado
+nenhum**: 41 das 46 pecas deste canal narradas pelo edge sairam FORA do teto de
+26,0 **com a mira verde**, e a banda tem 5,2 s contra 1 s de granularidade (774).
+
+**ZERO numero novo sobre o mundo e ZERO numeral na narracao**, conferido pelo
+`numerais_falados`. A regra (g) tirou o prazo em meses, a data de vigencia, o
+numero da portaria e qualquer preco — **e a recusa INCLUI o numero que daria o
+gancho mais forte, que e o prazo**: dizer quantos meses faltam e o que criaria
+urgencia concreta, e e o numero que envelhece primeiro. **A norma tambem nao e
+NOMEADA**, porque o nome dela carrega um numeral, e esse descarte o `s010` desta
+mesma origem ja havia aplicado. As barras da cena 1 (20 contra 100) sao
+**ILUSTRACAO qualitativa e nao sao faladas**, e o *"tres"* do kicker da cena 5 e
+a contagem dos itens da PROPRIA lista — texto queimado, nao narracao.
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica` pela
+QUINQUAGESIMA SEXTA rodada seguida** — medido pela `sonda_e_modo`, com os TRES
+controles no MESMO caminho de saida. A peca esta PARQUEADA pelo
+`registro_da_rodada` nos QUATRO parques, os quatro **RELIDOS** (duracao **158**
+linhas, 86 sem leitura; som **98**; SQL **195** linhas com ZERO prosa; corpus
+aplicado pelo dono). `RESIDUO_N` segue **128**.
+
+**E A LEITURA DE INSCRITOS PASSOU AS TRES PORTAS E NAO FOI FEITA:** 97,47 h,
+piso de resolucao **0,25/dia**, os tres SIM. **O que a impede e a ROTA, e o
+remedio e do DONO** — a tela de Network access. As duas portas sao
+independentes, e passar uma nao e passar a outra.
+
+**COTA: CINCO envios** na janela aberta as 07:00Z, **8.000** unidades, contra o
+piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
+hora.

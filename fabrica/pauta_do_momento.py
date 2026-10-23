@@ -344,6 +344,122 @@ def _linha_dos_compartilhados(e: dict) -> str:
             "PAGINA de cada um, e a rota pode estar fechada.")
 
 
+def usos_por_texto(e: dict, origem: str):
+    """Os usos de uma origem contados por TEXTO, nao por id.
+
+    **E a conta que eu fiz A MAO em 23/10 as 11:3x, escolhendo a pauta.** O
+    `_compartilhados` agrupa e o `escolha` ja soma em `usos_por_pacote` desde
+    23/10 as 03:3x — o que nao existia era CRUZAR as duas leituras do
+    desempate contra essa soma, e e esse cruzamento que decide se desviar da
+    regra escrita CONCENTRA em vez de espalhar.
+
+    A soma e **LIDA** de `usos_por_pacote`: refaze-la aqui seria o segundo
+    dono dela, a assinatura que congelou a legenda. Origem fora de pacote
+    compartilhado devolve os proprios usos, e e isso que faz as duas contas
+    coincidirem onde nao ha pacote com duas origens.
+    """
+    linha = None
+    for x in (e.get("quadro") or []):
+        if x["origem"] == origem:
+            linha = x
+            break
+    if linha is None:
+        return None
+    pac = linha.get("pacote")
+    soma = (e.get("usos_por_pacote") or {}).get(pac)
+    if soma is None:
+        return int(linha["usos"])
+    return int(soma)
+
+
+def concentracao_da_escolha(e: dict) -> dict:
+    """As DUAS leituras do desempate contra os usos por TEXTO do canal.
+
+    **Medido em 23/10 as 11:3x, nos tres canais, e os dois lados existem:**
+
+    | canal | regra ESCRITA | leitura SEM DECLARACAO |
+    |---|---|---|
+    | labtreinamento | 7 por texto | **14**, e e o MAXIMO do canal |
+    | epomeno-epipedo | 5 | 5 — nenhuma das duas e compartilhada |
+    | kolejny-poziom | **9**, compartilhada | o MESMO id |
+
+    Logo o defeito atinge as **DUAS** leituras, em canais diferentes: no
+    `labtreinamento` desviar levaria a origem mais usada do canal por texto, e
+    no `kolejny-poziom` e a propria regra escrita que cai num compartilhado.
+
+    **Isto NOMEIA e NAO decide.** Nem a escolha muda nem nasce limiar: trocar
+    a `escolhida` por esta leitura seria transformar heuristica em regra, que e
+    o motivo escrito no `_compartilhados` — a resolucao id -> pacote e em
+    prosa e erra nos dois sentidos (o `QiaGg03WSR0` e um longo do
+    labtreinamento declarado por engano em dois shorts do kolejny).
+    """
+    q = e.get("quadro") or []
+    maximo = 0
+    for x in q:
+        v = usos_por_texto(e, x["origem"])
+        if v is not None and v > maximo:
+            maximo = v
+    comp = e.get("compartilhados") or {}
+    saida = {"maximo_por_texto": maximo, "leituras": {}}
+    for rot, ch in (("regra_escrita", "escolhida"),
+                    ("sem_declaracao",
+                     "escolhida_por_reserva_sem_declaracao")):
+        x = e.get(ch)
+        if not x:
+            saida["leituras"][rot] = None
+            continue
+        oid = x["origem"]
+        vt = usos_por_texto(e, oid)
+        saida["leituras"][rot] = {
+            "origem": oid,
+            "pacote": x.get("pacote"),
+            "usos_id": int(x["usos"]),
+            "usos_por_texto": vt,
+            "compartilhado": bool(x.get("pacote") in comp),
+            "e_o_maximo_do_canal": bool(maximo and vt == maximo),
+        }
+    return saida
+
+
+_PRE_CONC = "  USOS POR TEXTO das duas leituras: "
+
+
+def _linha_da_concentracao(e: dict) -> str:
+    """UM dono da frase, e ela sai nos DOIS ramos — concentra e nao concentra."""
+    c = concentracao_da_escolha(e)
+    ls = c["leituras"]
+    partes = []
+    for rot, nome in (("regra_escrita", "regra ESCRITA"),
+                      ("sem_declaracao", "leitura SEM DECLARACAO")):
+        x = ls.get(rot)
+        if not x:
+            continue
+        partes.append("%s -> %s: %d por id, **%s por TEXTO**%s%s"
+                      % (nome, x["origem"], x["usos_id"],
+                         x["usos_por_texto"],
+                         " (pacote COMPARTILHADO)" if x["compartilhado"] else "",
+                         " — e e o MAXIMO do canal"
+                         if x["e_o_maximo_do_canal"] else ""))
+    if not partes:
+        return (_PRE_CONC + "nao ha escolha para cruzar (nenhuma origem com "
+                "reserva), logo nao se diz se ela concentra — ausencia de "
+                "cruzamento nao e ausencia de concentracao.")
+    cab = _PRE_CONC + "; ".join(partes) + "."
+    alguma = any(x and x["e_o_maximo_do_canal"] for x in ls.values())
+    if alguma:
+        cab += (" >> SEGUIR essa leitura levaria a origem MAIS USADA do canal "
+                "por TEXTO, que e o contrario do que o `concentracao.py` "
+                "existe para evitar — e foi esta conta que eu fiz A MAO em "
+                "23/10 as 11:3x para decidir nao desviar com o vao em 64%, "
+                "acima do precedente de 62% em que a rodada desviou.")
+    else:
+        cab += (" >> nenhuma das duas cai no maximo do canal por texto, logo o "
+                "vao decide sozinho. Ele NAO decide sempre: em 23/10 as 11:3x "
+                "a leitura nova caia no maximo (14 de 14) no labtreinamento.")
+    return cab + (" Isto NOMEIA e NAO decide: limiar aqui seria criterio "
+                  "inventado (§10), e a soma e LIDA de `usos_por_pacote`.")
+
+
 _PRE = "  DESEMPATE pela reserva SEM DECLARACAO: "
 
 
@@ -516,6 +632,7 @@ def relato(canal: str, dono_medido=None, exceto: str = "") -> str:
                  "aqui nao se escolhe pauta local, e a rota e a regra (h) "
                  "(legenda do longo), do jeito que o `porta1` recusa janela "
                  "curta.")
+    L.append(_linha_da_concentracao(e))
     L.append(_linha_do_esgotamento(e))
     L.append(_linha_do_mapa(e))
     if e["escolhida"]:
