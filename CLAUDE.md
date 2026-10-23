@@ -13848,3 +13848,166 @@ independentes, e passar uma nao e passar a outra.
 **COTA: CINCO envios** na janela aberta as 07:00Z, **8.000** unidades, contra o
 piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
 hora.
+
+## A FAMILIA ERA LIDA POR UM ID DO PACOTE COMPARTILHADO
+
+**Medido em 23/10 as 12:5x, escolhendo a pauta, e o custo foi desta rodada.** O
+`segundo_angulo` une as declaracoes de **CAPITULO** de todos os ids que resolvem
+para o MESMO pacote desde 23/10 as 06:4x; o `irmaos_da_origem.irmaos(origem)`
+seguia devolvendo os irmaos de **UM** id. Logo as duas metades da MESMA pergunta
+discordavam — e a metade atrasada era justamente a que sustenta a regra (f): a
+comparacao de **FAMILIA**.
+
+**E O CUSTO NAO E TEORICO.** A minha primeira candidata de familia no
+`kolejny-poziom-004` era o **warunek dos cinco anos calendario** (rozdzialy 51 e
+67), e essa e **EXATAMENTE** a familia do `kolejny-poziom-s034` — irmao do
+**OUTRO** id do mesmo pacote, que o relato nao mostrava. Eu so a vi porque li o
+outro id **A MAO**, e e o item 3 da §10.
+
+**O tamanho vai MEDIDO e os DOIS lados existem:**
+
+| | |
+|---|---|
+| pacotes com spec local | **47** |
+| **COMPARTILHADOS** por dois ids | **2** |
+| `kolejny-poziom-004` | 4 e 5 irmaos por id, **UNIAO 9** |
+| `labtreinamento-002` | 7 e 7 por id, **UNIAO 14** |
+| ids que **SUBCONTAM** | **4** |
+
+Nos outros 45 as duas leituras coincidem, logo isto **NOMEIA** e nao muda nada
+onde nao ha o que unir. **E o `labtreinamento-002` e o mesmo pacote em que o
+defeito dos usos por TEXTO apareceu em 11:3x** — ali a lista de familias
+subcontava pela METADE.
+
+**Consertado com DELEGACAO:** `irmaos_do_pacote` resolve id -> pacote pelo
+`segundo_angulo` (dono do mapa, com MEMORIA desde 06:4x) e une **por PACOTE de
+irmao**, com `_de_ids` dizendo de qual id cada um veio. A frase tem **UM dono** e
+sai nos **DOIS** ramos; o relato **MARCA** o irmao que so vem pelo outro id,
+porque NOMEAR e o que distingue isto de filtrar. Pacote irresolvivel (regra h)
+devolve a leitura do proprio id, **sem inventar uniao**.
+
+### E UMA CONTRAPROVA MINHA NAO REPROVOU — e foi ela que produziu o teste que faltava
+
+Eu fatiei a lista de ids no primeiro (`[:1]`) e os **treze** testes passaram,
+porque a ancora **DERIVADA** achou o outro id, para o qual a uniao seguia
+completa. **Uniao quebrada pela metade e indistinguivel de uniao certa quando se
+olha UM lado** — e e a familia da fatia do proxy (19/10 as 19:2x) **dentro do
+conserto da uniao**. Entrou `test_a_uniao_e_SIMETRICA_em_todo_id_do_pacote`, que
+exige que ler por QUALQUER id do pacote devolva a MESMA uniao, e com ele a
+contraprova reprova.
+
+`tests/test_a_familia_era_lida_por_UM_id_do_pacote_compartilhado.py`, **catorze**
+testes: a ancora e **DERIVADA** do disco e **reprova dizendo que perdeu a
+ancora** (nomear um id seria identidade onde ha propriedade — 743/753/761, e os
+ids mudam a cada rodada), os **DOIS** lados tem de existir e o arquivo **falha se
+TODOS ou se NENHUM pacote for compartilhado**, a medida vai como **PROPORCAO** e
+nao como contagem (a licao de 22/10 as 14:4x), a contraprova no outro sentido
+exige que pacote **NAO** compartilhado leia **IGUAL**, origem irresolvivel usa
+**parque PROPRIO**, a delegacao e por **AST** com `glob`/`listdir`/`open`/
+`json.load` **PROIBIDOS** no corpo, a frase tem UM dono por AST e sai nos dois
+ramos com textos **DIVERGENTES**, e as DUAS metades sao cobradas como olhando o
+**MESMO** conjunto de ids. **Contraprova nos dois sentidos:** devolvido o relato
+a leitura por um id, **um** dos catorze falha; fatiada a uniao, **outro** falha.
+
+### E EU INTERROMPI A PASSADA DE 11:06 A 61%, e vai dito porque NAO foi falha
+
+A passada varre `fabrica/specs` e esta rodada **acrescenta uma spec** — e spec
+nova no meio da passada e o que fabrica regressao falsa (foi exatamente isso em
+22/10 as 14:4x, quando o acervo crescendo por um derrubou um assert de
+contagem). A trava de 09/10 proibe duas tarefas na MESMA arvore, e a passada
+estava obsoleta de todo modo: ela nao continha o arquivo novo desta rodada. Eu a
+matei **por PID**, nao por `pkill -f` com padrao que a propria linha contem — o
+gemeo do `pgrep` de 20/10 as 01:4x do lado do KILL, que em 23/10 as 06:4x matou
+o meu proprio shell.
+
+### A PECA DESSA RODADA — ONZE cenas, e o PISO com o corte do instrumento
+
+`kolejny-poziom-s101` = **`hJ2gMIOqzOo`** (*Wykres brutto, kieszeń netto*),
+publicado as **12:33:45Z** (render `39953876739`, publicacao `39954217610`),
+**sem `403 quota`**. **DOZE PORTOES VERDES NA PRIMEIRA TENTATIVA** — e ela foi
+**CONFERIDA COMO RASCUNHO** antes de existir no disco: dez portoes baratos limpos
+em **0,72 s**, mais mira, acento **3,09%**, gancho de 6 palavras de 12, paleta
+**LIDA** de `temas_do_dono.paleta_do_canal`, orcamento da copy (thumb 4 de 4,
+descricao 272 palavras contra o piso de 200) e as **seis guardas do
+construtor**.
+
+Provedor **edge MEDIDO** pelo `anotacoes_do_run` (zero avisos `NARRACAO PELO
+PIPER` no job `120414801709`, que e o job que emitiu o SOM) — e ele **RECUSOU**
+estabelecer o provedor pelo job do `retomar`, dizendo que ali o zero sairia por
+**VACUIDADE**. Som **-13,9** LUFS, pico **-3,4** dBTP com `pico_vs_teto: dentro`,
+**zero silencios**. **E a linha do PUBLICADO imprimiu os DOIS titulos e eles
+CONCORDAM**, logo o corpus recebeu o que o YouTube recebeu (773). Os quatro
+parques pelo `registro_da_rodada`, os quatro **RELIDOS**.
+
+**CANAL do `passo_zero`** (8/8/8 na janela de 24 h, empate nos TRES desempatado
+pelo que esta ha mais tempo sem publicar). **PAUTA do `pauta_do_momento`:**
+`ef_oZmfmdz4` (`kolejny-poziom-004`, 74 capitulos), 4 usos — empate de **SETE**
+origens desempatado pela MAIOR reserva, **58 livres e 52 sem declaracao**, e as
+duas leituras do desempate **CONCORDAM** aqui. A dominante `GUiq15usizw` ficou de
+fora, e o `QiaGg03WSR0` saiu da escolha pelo **mapa de dono MEDIDO** sem sair da
+lista.
+
+**FAMILIA: O WYKRES DA UMOWA E BRUTO, E A PERGUNTA DO ESPECTADOR E LIQUIDA**
+(rozdzialy 1, 2 e 3, com o 0 de apoio). O eixo e a **DEFINICAO do numero que te
+mostraram**: o grafico toma as wplaty e o crescimento e **nao subtrai nada**,
+logo responde *"quanto cresce a soma das contribuicoes"* enquanto a pergunta de
+quem assina e *"quanto fica na minha mao"*. **E o mecanismo do silencio e
+ARITMETICO e nao de ma-fe: o grafico esta CERTO** — conferi-lo nunca acusa nada,
+porque nao e uma conta que fecha errado, e uma conta que fecha **certo
+respondendo a outra pergunta**. Segunda perna: **NAO HA FATURA** — as duas
+subtracoes sao automaticas, ninguem pede autorizacao e nada aparece numa lista de
+despesas, logo **nao existe evento nenhum para marcar a hora de olhar**.
+
+**Os NOVE irmaos dos dois ids falam de mecanismos DENTRO do plano** — quanto
+custa cada subtracao (`s014`), quando ela incide (`s028`, `s074`), sobre que base
+(`s084`), em que ordem (`s009`), com que condicao (`s034`), com que teto
+(`s087`), a quem se atribui (`s099`) e o que a troca realiza (`s067`). **Nenhum
+fala do DOCUMENTO que te mostraram antes de tudo isso**, e o mais vizinho e o
+`s074`: ele diz que o custo **espera o fim**, isto e, fala de um custo que ESTA
+na conta e aparece tarde; esta peca fala de um custo que **nao esta no papel** —
+e os dois se encaixam, porque e justamente o grafico bruto que faz a pessoa
+avaliar o produto pelos primeiros anos.
+
+**ONZE CENAS pela chave `por_cadencia_servivel`:** o teto MEDIDO da voz (**14**),
+que e tambem a melhor cadencia, saiu **NOMEADO** e recusado pela FOLGA (23
+caracteres, a dois do piso OBSERVADO); 13 e 12 repetem os tamanhos das duas
+ultimas do canal. **ESQUELETO
+`titulo-item-barras-item-lista-titulo-item-barras-item-lista-cta`, INEDITO nas
+201 formas da frota**, da mistura que o `sugere_forma` deu (**3777 de 3780**
+ordens livres). Todo layout saiu do conjunto **SONDADO**, com `assert` no
+construtor.
+
+**MIREI O PISO** (772): edge **41,70** — 0,20 acima dele — e piper **35,50**. **A
+primeira versao previa 41,13, ABAIXO da faixa, e o corte saiu do
+`mira.quanto_cortar`** (*"acrescentar ~8 caracteres no TOTAL, 0,7 por cena; um
+caractere vale 0,052 s nesta voz"*), nao da minha cabeca. A **PINCA do 740/748
+esta FECHADA** e a exposicao vai declarada ANTES de publicar: o piper sai FORA
+pela mira e DENTRO do portao, que cobra 18 a 45 s nos dois mundos. **E o REAL nao
+esta prometido para lado nenhum** (774).
+
+**ZERO numero novo sobre o mundo.** O unico numeral falado e **"dwie"** (cena 3),
+estrutura do argumento, conferido pelo `numerais_falados`. A regra (g) tirou o
+teto legal da oplata e as tres etapas, a aliquota do imposto, a stopa zwrotu, o
+prazo de trinta anos, a wplata mensal, os limites de IKE e IKZE, o zwrot do PIT e
+o ryczalt — **e A RECUSA INCLUI OS DOIS NUMEROS QUE DARIAM A PECA MAIS FACIL**, o
+par do rozdzial 32 e a diferenca entre eles, porque sao **EXEMPLO do proprio
+longo** (o rozdzial 5 dele diz *"Pokaze konkretne liczby i zrodla"*), o caso
+especial da regra (g). **E as barras sao ILUSTRACAO com alturas IGUAIS de
+proposito** — na cena 2 porque as duas partes do plano existem e so uma esta
+desenhada, na cena 7 porque as duas perguntas sao igualmente legitimas — **nao
+sao faladas, e NAO sao a razao medida de seis para um** entre oplata e podatek,
+que e territorio do `s028`.
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica` pela
+QUADRAGESIMA SETIMA rodada seguida** — medido pela `sonda_e_modo`, com os TRES
+controles no MESMO caminho de saida: o `touch` passou, os DOIS hosts voltaram
+**000 sem arquivo**, e o proxy nomeou `example.com` e `www.youtube.com` depois de
+12:14:47Z. `RESIDUO_N` segue **128**.
+
+**E A LEITURA DE INSCRITOS PASSOU AS TRES PORTAS E NAO FOI FEITA, pela VIGESIMA
+TERCEIRA rodada seguida:** 98,11 h, piso de resolucao **0,24/dia**, os tres SIM.
+**O que a impede e a ROTA, e o remedio e do DONO** — a tela de Network access.
+
+**COTA: SEIS envios** na janela aberta as 07:00Z, **9.600** unidades, contra o
+piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
+hora.
