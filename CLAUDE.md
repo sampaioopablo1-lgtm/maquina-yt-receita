@@ -14341,3 +14341,156 @@ independentes, e passar uma nao e passar a outra.
 **COTA: NOVE envios** na janela aberta as 07:00Z, **14.400** unidades, contra o
 piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
 hora.
+
+## O PORTAO DA IDENTIDADE PAROU DE CONFERIR, E O SLUG VIROU O PACOTE
+
+**Medido em 23/10 as 15:3x, pela suite, e e a QUINTA forma do mesmo defeito.** A
+passada acusou **UMA** falha nova contra as 25 da linha de base desta sessao, e
+ela era o `test_idioma_da_spec_bate_com_o_do_canal` no `epomeno-epipedo-069` — o
+primeiro pacote cujo `slug` nao e mais o canal. **O teste estava errado e foi
+retratado no lugar; consertando-o apareceu o defeito de verdade, e ele e num
+PORTAO:**
+
+    do_canal        = idioma_do_canal(sp["slug"])
+    do_canal_trilha = trilha_do_canal_config(sp["slug"])
+
+Desde 19/10 as 05:2x o `slug` e o **PACOTE**, logo as duas leituras devolviam
+`""` — e as duas conferencias de baixo estao guardadas por `do_canal and`. **O
+portao parou de conferir e nao reprovou nada.** E a falha PERMISSIVA da mira
+daquele dia, agora num PORTAO: **o da mira INFORMA, este AUTORIZA.**
+
+| | |
+|---|---|
+| specs de video no disco | **451** |
+| com `slug` != canal | **120** |
+| nelas, o portao cego no IDIOMA | **120** |
+| nelas, o portao cego na TRILHA | **120** |
+
+**REPRODUZIDO antes do conserto, no `epomeno-epipedo-069`:** a spec com a trilha
+do **KOLEJNY** e a spec declarando **`pl` num canal grego** passavam as duas
+**LIMPAS**, lista de faltas vazia. E a trilha e justamente o portao que existe
+porque o `kolejny-poziom-005` foi ao ar com `Deliberate_Thought` num canal
+`Wholesome` — *"o equivalente sonoro de trocar de logo"*, diz o comentario dele.
+
+**E O VARREDOR POR AST DO ARQUIVO DA MIRA NAO PODIA PEGAR ISTO, e esse e o vao
+que o teste novo fecha:** ele procura quem **DERIVA** o canal errado
+(`rsplit("-s")`), e aqui ninguem deriva — **le-se o slug cru, como se ele ja
+fosse o canal.** Sao duas formas do mesmo defeito e so uma estava coberta.
+
+**A CONTA QUE AUTORIZOU O CONSERTO VAI ANTES DELE:** com o canal saindo do
+`canal.da_spec`, o portao reprova **ZERO** specs do acervo e **nao sobra canal
+sem yaml**. E a mesma aritmetica que pos o grego no `DIACRITICOS` e o cartao em
+branco no portao `layout` — reprova a peca quebrada e nenhuma do parque, logo o
+lugar disto e o PORTAO e nao a suite.
+
+**Consertado com DELEGACAO** ao `canal.da_spec`, conferido nos dois sentidos e
+nas DUAS convencoes de slug: a spec certa passa, e a trilha de outro canal e o
+idioma de outro canal sao **ACUSADOS**.
+
+`tests/test_o_PORTAO_da_identidade_parou_de_conferir.py`, dez testes: a ancora e
+**DERIVADA** do disco e **reprova dizendo que perdeu a ancora**, um **mede que a
+leitura ANTIGA de fato CEGAVA** e reprova se ela deixar de errar (sem ele *"o
+portao parou de conferir"* seria afirmacao minha), os **DOIS** lados da convencao
+de slug tem de existir no disco, a fracao cegada e **RECONFERIDA como PROPORCAO
+e nao como contagem** (a licao de 22/10 as 14:4x: contagem absoluta sobre
+populacao que cresce uma spec por rodada e identidade disfarcada de medida), um
+reconfere que o conserto **NAO reprova o acervo**, a delegacao e por **AST pela
+FORMA do argumento**, e um varre a fabrica INTEIRA proibindo quem leia o `slug`
+como se fosse o canal. **Contraprova:** devolvida a leitura antiga, **quatro dos
+dez** falham.
+
+**E A PRIMEIRA VERSAO DO ASSERT DE AST REPROVAVA O CODIGO CERTO**, pela licao de
+sempre: ela proibia a *substring* `"slug"` no argumento, e a variavel que carrega
+o canal derivado chama-se `do_canal_slug`. **Era o teste errado, nao o modulo** —
+a propriedade e de FORMA (o argumento nao pode ser um `sp["slug"]`, isto e um
+`Subscript` com a chave `slug`), e nao a ausencia de uma palavra. E a mesma
+licao do `test_NAO_virou_portao` do acento e do `'"spec" in'` de 21/10, agora
+**dentro de um assert de AST**.
+
+### A PECA DESSA RODADA — DOZE cenas, e o PISO EXATO alcancavel
+
+`kolejny-poziom-s102` = **`PWdFJaJfrGY`** (*Minus nie znaczy upadek*), publicado
+as **15:43:45Z** (render `39980384948`, publicacao `39980715232`), **sem
+`403 quota`**. **DOZE PORTOES VERDES NA PRIMEIRA TENTATIVA** — e ela foi
+**CONFERIDA COMO RASCUNHO** antes de existir no disco, com as **seis guardas do
+construtor** limpas. Provedor **edge MEDIDO** pelo `anotacoes_do_run` (zero
+avisos `NARRACAO PELO PIPER` no job `120505893843`, que e o job que emitiu o
+SOM) — e ele **RECUSOU** estabelecer o provedor pelo job do `retomar`, dizendo
+que ali o zero sairia por **VACUIDADE**. Som **-13,3** LUFS, pico **-1,3** dBTP
+(`acima_do_teto`, que e LEITURA e nao defeito), **zero silencios**. **A linha do
+PUBLICADO imprimiu os DOIS titulos e eles CONCORDAM**, logo o corpus recebeu o
+que o YouTube recebeu (773). Os quatro parques pelo `registro_da_rodada`, os
+quatro **RELIDOS**.
+
+**CANAL do `passo_zero`** (9/9/7 na janela de 24 h, `kolejny-poziom` o minimo
+UNICO). **PAUTA do `pauta_do_momento`:** `wb1RGIx7OJI` (`kolejny-poziom-009`, 78
+capitulos), 4 usos — empate de **SEIS** origens desempatado pela MAIOR reserva,
+**57 livres e 42 sem declaracao**, e as duas leituras do desempate **CONCORDAM**
+aqui. A dominante `GUiq15usizw` ficou de fora e o `QiaGg03WSR0` saiu da escolha
+pelo **mapa de dono MEDIDO**, sem sair da lista.
+
+**FAMILIA: O SINAL MORA NUMA CONTA SEPARADA — o `wynik techniczny` lido como o
+RESULTADO DA EMPRESA** (rozdzialy 40, 41 e 42, com os 45 a 48 de apoio). O eixo
+e **DE QUE CONTA o numero fala**: a linha e `skladki menos szkody menos koszty`
+e mais nada — ela **nao inclui** o que a seguradora ganha investindo, que e onde
+ela costuma recuperar. Logo o sinal negativo nao fala de **SOLVENCIA**, fala do
+**PRECO do produto**.
+
+**E o erro tem DUAS leituras com acoes OPOSTAS, e e isso que o torna comum:** o
+panico (*a firma esta no vermelho, nao vai me pagar*) e a indiferenca (*nadrobia
+nas inversoes, nada aconteceu*). **As duas confundem o mesmo par** — uma conta
+com a empresa inteira — e nenhuma leva ao movimento certo, que nao e sobre a
+firma: e a data da propria renovacao. **E o mecanismo do silencio e de
+VOCABULARIO e nao de aritmetica:** a palavra `wynik` em qualquer outro contexto e
+o resultado da empresa, e a conta que ela nomeia **fecha certo** — conferi-la
+nunca acusa nada.
+
+Distincoes contra os **QUATRO** irmaos, lidas pelo `irmaos_da_origem` e, nos
+**DOIS** sem o campo (`s013`, `s062`), pela PROSA e pela NARRACAO de cada um, que
+e de primeira mao: `s013` o **BEZWLAD**, `s031` o **TEMPO** (preco baixo como
+janela), `s062` **DE QUEM** e o numero, `s088` a **DIMENSAO**. **Os quatro falam
+de PRECO; nenhum fala da conta de onde sai o SINAL.** O vizinho mais proximo e o
+`s031`, e os dois se encaixam em vez de competir: e justamente a leitura errada
+do sinal que faz a pessoa tratar a janela como patamar.
+
+**CONTAGEM pela chave `por_cadencia_servivel`:** o teto MEDIDO da voz (**14**),
+que e tambem a melhor cadencia, saiu **NOMEADO** e recusado pela FOLGA (23
+caracteres, a dois do piso OBSERVADO); **13 e 11 repetem** os tamanhos das duas
+ultimas do canal. Doze tem folga **+12**. **ESQUELETO
+`titulo-item-lista-barras-item-item-titulo-item-item-lista-barras-cta`, INEDITO
+nas 204 formas da frota** e nenhuma das **19** de doze cenas — e a **MISTURA**
+saiu do `sugere_forma`. Todo layout saiu do conjunto **SONDADO**, com `assert` no
+construtor, e a paleta foi **LIDA** de `temas_do_dono.paleta_do_canal`.
+
+**MIREI O PISO** (772): edge **41,52 s**, **0,02 acima dele** — o piso EXATO
+alcancavel nesta contagem — e piper **35,30 s**, FORA pela mira e DENTRO do
+portao, que cobra 18 a 45 s nos dois mundos. **A PINCA DO 740/748 ESTA FECHADA**
+e a exposicao vai declarada ANTES de publicar. **E a primeira versao previa
+48,78 s — acima do teto do PORTAO** — com o corte saindo do `mira.quanto_cortar`
+em DUAS passadas (*"cortar ~111 caracteres no TOTAL, 9,2 por cena; um caractere
+vale 0,052 s nesta voz"*). **O REAL nao esta prometido para lado nenhum** (774).
+
+**ZERO numero novo sobre o mundo e ZERO digito na narracao**, conferido pelo
+`numerais_falados`. A regra (g) tirou a skladka media, a szkoda media, os
+percentuais dos dois, o numero de polisas, o crescimento da carteira, o przypis,
+o aumento das wyplaty e o numero do grupo — **e a recusa inclui o numero que
+daria a peca mais facil**, o par do rozdzial 76, que e literalmente o resumo que
+o longo manda guardar **e esta DECLARADO pelo `s088`**. As barras sao
+**ILUSTRACAO**: a cena 4 desenha o segundo valor em ZERO porque o argumento e que
+aquela linha **nao o contem**, e a cena 11 desenha as duas leituras erradas com
+altura **IGUAL de proposito** — **nenhuma das duas e proporcao medida**, e isto
+vai escrito para a rodada seguinte nao as ler de volta como dado.
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica` pela
+QUINQUAGESIMA SETIMA rodada seguida** — medido pela `sonda_e_modo`, com os TRES
+controles no MESMO caminho de saida: o `touch` passou, os TRES hosts voltaram
+**000 sem arquivo**, e o proxy nomeou `example.com` e `www.youtube.com` depois de
+15:33:14Z. `RESIDUO_N` segue **128**.
+
+**E A LEITURA DE INSCRITOS PASSOU AS TRES PORTAS E NAO FOI FEITA, pela VIGESIMA
+QUARTA rodada seguida:** 101,42 h, piso de resolucao **0,24/dia**, os tres SIM.
+**O que a impede e a ROTA, e o remedio e do DONO** — a tela de Network access.
+
+**COTA: DEZ envios** na janela aberta as 07:00Z, **16.000** unidades, contra o
+piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
+hora.
