@@ -1,0 +1,75 @@
+{
+ "pacote": "labtreinamento-s115",
+ "slug": "labtreinamento-s115",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "paleta": {
+  "bg": "#0E1117",
+  "ink": "#EEF1F5",
+  "c1": "#3DDBD9",
+  "c2": "#1E2430",
+  "red": "#FF5A5F",
+  "ok": "#3CCB7F",
+  "panel": "#161B24",
+  "mut": "#8B95A5",
+  "acc": "#3DDBD9"
+ },
+ "longo": [],
+ "longo_existente": "KRUERlNPzDw",
+ "thumb": {
+  "l1": "Faixa não",
+  "l2": "é prazo"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Segundo trimestre",
+   "sub": "não é prazo, é faixa",
+   "nar": "Segundo trimestre não é prazo nenhum. É uma faixa larga."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Faixa e data",
+   "barras": [
+    {
+     "rot": "Faixa",
+     "v": 100
+    },
+    {
+     "rot": "Data",
+     "v": 18
+    }
+   ],
+   "nar": "Numa faixa ninguém está atrasado até o último dia."
+  },
+  {
+   "layout": "lista",
+   "kicker": "O que faz dela um prazo",
+   "itens": [
+    "Um dia marcado",
+    "A verificação ao lado"
+   ],
+   "nar": "Prazo é data com dia, e com a verificação ao lado."
+  },
+  {
+   "layout": "item",
+   "kicker": "Se estourar",
+   "sub": "reprograme uma vez",
+   "nar": "Se estourar, reprograme uma vez, com motivo escrito."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Na segunda vez",
+   "sub": "o problema não é a data",
+   "nar": "Na segunda reprogramação o problema não é a data."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Troque faixa por dia",
+   "sub": "e se inscreva no canal",
+   "nar": "Troque cada faixa por um dia, e se inscreva no canal."
+  }
+ ],
+ "copy": "# labtreinamento-s115\n\n## TITULO\nSegundo Trimestre Não É Prazo: a Faixa Não Cobra Nada Até o Último Dia\n\n## TITULO SHORT\nFaixa não é prazo\n\n## DESCRICAO\nNa coluna de prazo do plano de ação, \"segundo trimestre\" parece uma data. Está\nescrito, tem compromisso e ninguém reclama na reunião. Só que ele não é um\nprazo: é uma **faixa**, e dentro de uma faixa não existe atraso. Enquanto o\núltimo dia dela não chega, a ação está em dia por definição — e quando ele\nchega, já não há tempo de corrigir nada.\n\n**O que transforma uma data em prazo é o dia.** Dia e mês escritos, numa célula\nque o filtro pega e que a formatação condicional consegue comparar com hoje.\nSem o dia, nenhuma regra automática funciona: não há como pintar de vermelho o\nque passou, porque não existe um \"passou\". E o acompanhamento volta a depender\nde alguém lembrar.\n\n**E o dia sozinho ainda não basta — ele precisa da verificação do lado.** Prazo\ncumprido sem verificação é entrega declarada, não eficácia comprovada. A dupla\nque funciona é curta: a data em que a ação fecha, e a linha que diz como se\nconfere que ela resolveu.\n\n**Quando o prazo estoura, a regra que segura o plano é uma só: reprograme UMA\nvez, com data nova e motivo escrito.** O motivo é o que torna a reprogramação\ninformação em vez de desculpa. E se a mesma linha precisar de uma segunda\nreprogramação, o diagnóstico mudou de lugar: **o problema deixou de ser a data e\npassou a ser a ação, o dono ou o recurso.** Trocar a data de novo esconde\nexatamente isso.\n\nA troca é mecânica e cabe numa tarde: abra a coluna de prazo, encontre toda\ncélula escrita como faixa — trimestre, semestre, \"até o fim do ano\" — e\nsubstitua por um dia. Nenhuma delas vai parecer mais confortável depois da\ntroca, e é esse o ponto.\n\n## COMENTARIO FIXADO\nAbra o seu plano de ação agora: quantas linhas da coluna de prazo têm faixa em\nvez de dia? Responda só com o número.\n\n## FONTES\nOrigem: `KRUERlNPzDw` (`labtreinamento-003`), 84 capítulos — a `escolhida` da\nregra escrita (do `concentracao.py`) num empate de **TREZE** origens em 7 usos,\ndesempatado pela MAIOR reserva: **75 livres, 61 sem declaração de irmão**, a\nmaior do canal.\n\n**E as DUAS leituras do desempate CONCORDAM aqui** — a crua e a sem declaração\napontam a mesma origem —, o que o instrumento diz em letra junto com a ressalva\nde que elas *não concordam sempre*. É o conserto de 23/10 às 07:4x em uso: a\ndivergência é **estado da pauta**, não propriedade do instrumento.\n\nA dominante do canal (`FtCtIJPsc_Q`) ficou de fora. E o `labtreinamento-002`\naparece como DUAS origens, com **14 usos por TEXTO** — o instrumento de 23/10 às\n03:3x nomeando o pacote compartilhado —, o que não muda a escolha mas mostra que\na contagem por id dele mostra menos do que ele tem.\n\n## FAMILIA DE ENTRADA ERRADA\n**FAIXA NÃO É PRAZO: PRAZO É DATA COM DIA** (capítulo 59, com o 58 e o 60 ao\nredor). O eixo é a **FORMA** da data na célula, e não de quem ela é nem qual\ndelas conta: dentro de uma faixa não existe atraso até o último dia, logo a\ncoluna parece preenchida e não cobra nada de ninguém.\n\n**E o mecanismo do silêncio é mecânico, não humano:** sem um dia, a formatação\ncondicional não tem com o que comparar — não existe \"a data passou\" —, logo a\núnica regra que pegaria o atraso não pode ser escrita. O acompanhamento volta a\ndepender de memória, e memória não dispara alerta.\n\n**A segunda metade é a regra da reprogramação:** uma vez, com data nova e motivo\nescrito. Na segunda, **o problema deixou de ser a data** e passou a ser a ação,\no dono ou o recurso — e trocar a data outra vez é justamente o que esconde isso.\n\n**Distinções contra os SETE irmãos desta origem**, lidas pelo `irmaos_da_origem`\ne — nos **QUATRO** sem o campo `## FAMILIA DE ENTRADA ERRADA` — pela PROSA e\npela NARRAÇÃO de cada um, que é de primeira mão (776):\n* `labtreinamento-s012` (*A data que obriga você é outra*) e\n  `labtreinamento-s050` (*O prazo não é seu*) — **são os dois vizinhos mais\n  próximos e a distinção é a mesma para os dois:** eles falam do prazo da\n  CERTIFICAÇÃO — de QUEM é a data (o organismo certificador marca a auditoria) e\n  QUAL data conta (a sua auditoria, não o calendário público). Esta peça não fala\n  de certificação nenhuma: ela fala da célula de prazo **dentro do seu plano**, e\n  de que forma ela precisa ter para funcionar. **Dono e escolha da data contra\n  FORMA da data**, e as três se encaixam;\n* `labtreinamento-s052` (*Um verbo por linha do plano*) — a granularidade da\n  coluna de AÇÃO: uma célula com três verbos tem um prazo para três coisas. Ele é\n  a coluna ao lado, e é o mais próximo em assunto; o eixo dele é quantas ações\n  cabem numa linha, o desta é que forma a data precisa ter;\n* `labtreinamento-s072` (*Quem fez não verifica*) — QUEM assina a verificação;\n* `labtreinamento-s085` (*Sem registro, nota zero*) — a evidência que sustenta a\n  nota do diagnóstico;\n* `labtreinamento-s092` (*Lacuna igual, peso diferente*) — a ORDEM da fila, pela\n  lacuna vezes o peso;\n* `labtreinamento-s102` (*Evidência vem antes*) — a ORDEM de preenchimento da\n  coluna de evidência.\n**Os sete falam de QUEM, de QUAL, de QUANTAS e de EM QUE ORDEM. Nenhum fala da\nFORMA da data**, e é esse o eixo aqui.\n\n## AVISO SOBRE OS NUMEROS\n**ZERO número novo sobre o mundo, e aqui a trava morde mais que de costume\nporque a origem é um longo feito de datas e prazos reais:** ficaram **FORA** a\ndata de publicação da nova edição da norma, o prazo de transição em anos, o ano\nem que ele fecha, o número de páginas do anexo, a escala de nota do diagnóstico\ne a contagem de colunas de cada aba. **Os seis mudam por publicação**, e o\ncapítulo 22 da própria origem escreve o motivo em letra: *\"o texto final só\nexiste\"* na data de publicação, e quem recita número de cláusula antes dela está\ncitando rascunho.\n\n**E a recusa inclui o número que daria o gancho mais fácil** — quantos anos a\ntransição dá —, que é exatamente o que tornaria a urgência concreta, e que o\n`labtreinamento-s050` desta mesma origem já havia descartado pelo mesmo motivo.\n\n**E AQUI A DECLARAÇÃO VAI AO CONTRÁRIO DAS SEIS VEZES ANTERIORES: o\n`numerais_falados` reporta ZERO numeral falado, e eu declaro DOIS.** A narração\ndiz **\"uma\"** (a reprogramação) e **\"segunda\"**, e o vocabulário dele não os\npega — é exatamente a ressalva que o próprio instrumento imprime, *ausência de\nvocabulário não prova ausência*. Os dois são estrutura da própria regra e não\nfato sobre o mundo. **E \"segundo trimestre\" é a FORMA que a peça critica**, não\numa data que ela afirma.\n\nAs barras da cena 2 são **ILUSTRAÇÃO qualitativa e NÃO são faladas**: elas\ndesenham a largura de uma faixa contra a de um dia, sem unidade de tempo medida\nde ninguém. A rodada seguinte não deve lê-las de volta como dado.\n\n## EXPOSICAO\n**A PINÇA DO 740/748 NÃO ESTÁ FECHADA AQUI**, e este é o único canal da frota em\nque isso acontece: o `mira.janela_dos_dois_mundos` devolve **51 a 55**\ncaracteres por cena com seis cenas, e a peça saiu com média **51,67** — logo o\nedge (**25,6**) e o piper (**21,0**) caem os DOIS dentro da mira medida do canal\n(20,0 a 26,0), e **não há exposição de mundo a declarar**.\n\n**E eu NÃO mirei o piso de propósito:** o piso executável aqui é de 39\ncaracteres por cena e ele é de **UM mundo** — a própria `mira.confere` o\nreprova, porque com 39 o piper cai abaixo de 20,0 (o defeito medido em 19/10 às\n17:2x).\n\n**O REAL não está prometido para lado nenhum:** 41 das 46 peças deste canal\nnarradas pelo edge saíram FORA do teto de 26,0 **com a mira verde nos dois\nmundos**, e a banda do resíduo tem 5,2 s de largura contra 1 s de granularidade\n(774). **E a margem contra o teto da mira é de 0,4 s**, o que vai dito em vez de\nescondido.\n\n## RESERVA\nPara a rodada seguinte, nesta origem (`labtreinamento-003`), com o motivo de\ncada item. **A reserva é a MAIOR do canal — 61 capítulos sem declaração de 75\nlivres — e o instrumento de 23/10 às 05:4x diz que ela cabe muitas peças.**\n* **LIVRES** os capítulos 28 e 29 — *a coluna de situação atual escrita sem\n  ADJETIVO*: \"a liderança participa pouco\" é avaliação e não se verifica; \"a\n  análise crítica ocorre por semestre e a direção participou de uma das duas\n  últimas\" é fato e se compara seis meses depois. É família própria e nenhum dos\n  sete irmãos a toca;\n* **LIVRES** os capítulos 33 e 34 — *a regra da escala escrita DENTRO da aba*:\n  nota sem critério visível muda de significado conforme quem preenche.\n  **Com ressalva:** o `s085` já carrega a família da evidência que sustenta a\n  nota, e quem pegar este tem de distinguir *\"o critério da escala\"* de *\"a\n  evidência da nota\"* em letra;\n* **LIVRE** o capítulo 35 — *responsável é nome de PESSOA; área não responde\n  e-mail nem cumpre prazo*. **Sozinho é curto**, mas é família de ATRIBUIÇÃO e\n  casa com o 36 (a linha inteira de exemplo);\n* **LIVRES** os capítulos 10 a 21 — o que muda de verdade na norma nova (os\n  cinco eixos e o anexo). **Com ressalva GRANDE:** esse bloco é o mais cheio de\n  número que muda por publicação, e o capítulo 22 da própria origem manda não\n  recitar cláusula antes do texto final sair. Quem pegar tem de carregar o eixo\n  sem nenhum dos números;\n* **NÃO LEVAR** os capítulos 4, 5 e 6 — são o prazo da certificação, território\n  declarado do `s012` e do `s050`;\n* **CONSUMIDOS por esta peça** os capítulos 58, 59 e 60.\n\n## HASHTAGS\n#iso9001 #planodeacao #qualidade #prazo #labtreinamento\n\n## TAGS\nplano de acao, coluna de prazo, data com dia, reprogramacao de prazo, formatacao condicional, iso 9001, acompanhamento de acao\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ncategoryId: 27\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\nmadeForKids: false\n\n## MUSICA / LICENCA\nInspired — Kevin MacLeod (incompetech.com), Creative Commons: By Attribution 4.0\n"
+}
