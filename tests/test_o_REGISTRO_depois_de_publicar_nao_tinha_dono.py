@@ -91,7 +91,18 @@ def leituras(monkeypatch):
            "titulo": TIT, "youtube_id": YID, "canal": "canalx",
            "pacote": PAC, "origem_id": "orig123", "cenas": 7,
            "publicado_em": "2026-10-23T04:40:00Z"}
-    monkeypatch.setattr(AR, "leitura", lambda run, **k: {"run": run})
+    # A lida vai na FORMA que o `leitura` de fato devolve — `{run, jobs: [...]}`
+    # com as `mensagens` de cada job. Ela era `{"run": run}` so, isto e uma
+    # forma que o dono NUNCA devolve, e por isso o teste passava por stub: em
+    # 23/10 as 09:4x o cruzamento do titulo (que le o notice pela TESTEMUNHA)
+    # levou `KeyError: 'jobs'` nos oito testes daqui. Fixture faithful e mais
+    # forte, nao mais fraca — ela exercita o cruzamento no sentido que CONCORDA.
+    _notice = ("PUBLICADO %s shorts youtube_id=%s titulo=%s "
+               "em=2026-10-23T04:40:00Z" % (PAC, YID, TIT))
+    monkeypatch.setattr(AR, "leitura", lambda run, **k: {
+        "run": run,
+        "jobs": [{"id": "900001", "nome": "job", "conclusao": "success",
+                  "mensagens": [_notice] if run == PUB else []}]})
     monkeypatch.setattr(AR, "publicado",
                         lambda lida: [reg] if lida.get("run") == PUB else [])
     monkeypatch.setattr(AR, "provedor", lambda lida, pacote=None: (

@@ -1,0 +1,129 @@
+{
+ "pacote": "kolejny-poziom-s100",
+ "slug": "kolejny-poziom-s100",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "paleta": {
+  "bg": "#0B0B0C",
+  "ink": "#F2EEE8",
+  "c1": "#E23B3B",
+  "c2": "#D9C7A7",
+  "red": "#FF4D4D",
+  "ok": "#7FB77E",
+  "panel": "#151517",
+  "mut": "#8F877C",
+  "acc": "#E23B3B"
+ },
+ "longo": [],
+ "longo_existente": "Rj7beZkOeYo",
+ "thumb": {
+  "l1": "Kwota wraca",
+  "l2": "wartość nie"
+ },
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Bezpieczny kapitał",
+   "sub": "to nie zachowana wartość",
+   "nar": "Bezpieczne to nie wartość."
+  },
+  {
+   "layout": "item",
+   "kicker": "Papier obiecuje jedno",
+   "sub": "zwrot kwoty",
+   "nar": "Papier obiecuje zwrot pieniędzy."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Kwota wraca",
+   "barras": [
+    {
+     "rot": "Wpłata",
+     "v": 100
+    },
+    {
+     "rot": "Zwrot",
+     "v": 100
+    }
+   ],
+   "nar": "Kwota wraca, co do złotówki."
+  },
+  {
+   "layout": "item",
+   "kicker": "Druga obietnica",
+   "sub": "nie jest w papierze",
+   "nar": "Drugiej obietnicy tam nie ma."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ile wtedy kupi",
+   "sub": "to inne pytanie",
+   "nar": "Ile kupią, to już inne pytanie."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Dwie różne gwarancje",
+   "itens": [
+    "Kwota wraca",
+    "Siła nabywcza"
+   ],
+   "nar": "To dwie różne gwarancje."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Dlaczego nic nie ostrzega",
+   "sub": "bo obietnica jest dotrzymana",
+   "nar": "Nic nie ostrzega: spełniona."
+  },
+  {
+   "layout": "item",
+   "kicker": "Nic nie zawodzi",
+   "sub": "umowa wykonana",
+   "nar": "Nic nie zawiodło w umowie."
+  },
+  {
+   "layout": "barras",
+   "kicker": "A to, co ubywa",
+   "barras": [
+    {
+     "rot": "Kwota",
+     "v": 100
+    },
+    {
+     "rot": "Co kupi",
+     "v": 100
+    }
+   ],
+   "nar": "Co ubywa, nie stoi w umowie."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Gdzie to samo działa",
+   "itens": [
+    "Lokata",
+    "Konto oszczędnościowe"
+   ],
+   "nar": "To samo na lokacie i rachunku."
+  },
+  {
+   "layout": "item",
+   "kicker": "Więc to nie cecha produktu",
+   "sub": "to cecha pytania",
+   "nar": "Nie produkt, a twoje pytanie."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Pytaj o obie",
+   "sub": "nie o jedną",
+   "nar": "Pytaj o obie, nie o jedną."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Sprawdź, którą masz",
+   "sub": "i zasubskrybuj kanał",
+   "nar": "Sprawdź którą masz i zasubskrybuj."
+  }
+ ],
+ "copy": "# kolejny-poziom-s100 — short solto\n\n## TITULO\nBezpieczny kapitał a zachowana wartość: to dwie różne obietnice\n\n## TITULO SHORT\nKwota wraca, wartość nie\n\n## DESCRICAO\nJest zdanie, które brzmi jak jedna obietnica, a są w nim dwie. Mówimy\n„bezpieczne\", mając na myśli, że pieniądze wrócą — i to jest prawda, którą papier\nrzeczywiście obiecuje. Ale obok niej stoi druga obietnica, której w tym papierze\nnie ma: że ta sama kwota kupi wtedy tyle samo, ile kupuje dzisiaj. Pierwsza\ndotyczy liczby. Druga dotyczy tego, co ta liczba jest warta.\n\nTen short pokazuje, dlaczego pomylenie tych dwóch rzeczy jest najczęstszym\nbłędem w całym temacie i dlaczego nic cię przed nim nie ostrzega. Mechanizm jest\nprosty i dlatego tak skuteczny: obietnica, która została dana, jest dotrzymana.\nKwota wraca. Umowa zostaje wykonana. Nie ma reklamacji, nie ma spóźnienia, nie\nma żadnego sygnału, że coś poszło nie tak — bo z punktu widzenia dokumentu nic\nnie poszło nie tak. To, co ubywa po drugiej stronie, nigdy nie było w tym\ndokumencie zapisane, więc jego brak nie może się w nim pojawić jako błąd.\n\nI jest jeszcze druga rzecz, którą warto zauważyć: to nie jest cecha jednego\nproduktu. Dokładnie ta sama różnica działa na lokacie, na koncie\noszczędnościowym i wszędzie tam, gdzie ktoś obiecuje ci procent. Czyli nie\nchodzi o to, co kupujesz — chodzi o to, o co pytasz. Jedno pytanie brzmi: czy\ndostanę swoje pieniądze z powrotem. Drugie brzmi: ile one będą wtedy warte. Oba\nsą sensowne, oba mają odpowiedź, i tylko jedno z nich jest zapisane w umowie.\n\nDlatego praktyczny wniosek z tego materiału jest jednozdaniowy: pytaj o obie\ngwarancje osobno, zamiast czytać jedno słowo jako odpowiedź na dwa pytania. To\nnie wymaga kalkulatora ani rozmowy z doradcą — wymaga tylko rozdzielenia dwóch\nzdań, które przywykliśmy mówić razem.\n\nPełne omówienie, razem z całą tabelką ofert i źródłami, jest w długim filmie na\ntym kanale.\n\n## COMENTARIO FIXADO\nKtóre z dwóch pytań zadajesz najczęściej: „czy wrócą\" albo „ile będą warte\"?\n\n## FONTES\nLongo `kolejny-poziom-006` (`Rj7beZkOeYo`, 85 capitulos). A familia sai dos\nrozdzialy **78 e 79** — o QUARTO erro, que o proprio longo chama de *\"najczęstszy\nw tym temacie\"* —, com apoio do rozdzial **83**, que diz que a mesma conta vale\npara a lokata e para a conta poupanca.\n\nEscolhidos pelo `segundo_angulo.texto_dos_livres`, que devolve os livres com o\ntexto INTEIRO e marca os que um irmao DECLARA. Os rozdzialy 78, 79 e 83 estao\nLIVRES e nao marcados; o 77 (kupowanie na dluzej niz mozesz czekac) esta\n**DECLARADO** pelo `s025` e ficou de fora de proposito.\n\n## FAMILIA DE ENTRADA ERRADA\n**MYLENIE BEZPIECZEŃSTWA KAPITAŁU Z OCHRONĄ WARTOŚCI** — ler UMA palavra\n(\"bezpieczne\") como resposta a DUAS perguntas. O eixo e a **GARANTIA**, nao a\ntaxa, nem o prazo, nem a oferta: o papel garante o NUMERO que volta, e nao o que\nesse numero compra.\n\n**E o mecanismo do silencio e o melhor que eu vi nesta origem: a obietnica que\nfoi dada E CUMPRIDA.** A kwota volta, a umowa e executada, nao ha atraso nem\nreclamacao — logo nao existe evento nenhum para marcar a hora de olhar. O que\nubywa do outro lado **nunca esteve escrito no documento**, e por isso a falta\ndele nao pode aparecer nele como erro. Nao e o caso de uma conta que fecha\nerrado: e o caso de uma conta que fecha **certo** respondendo a outra pergunta.\n\n**Segunda perna, do rozdzial 83: nao e cecha do produto, e cecha do PYTANIE.**\nA mesma distincao vale para a lokata e para a conta oszczednosciowa — para tudo\no que promete procent. Logo trocar de produto nao resolve, porque o que estava\nerrado era ler uma palavra como as duas garantias.\n\n**DISTINCOES contra os QUATRO irmaos**, lidas pelo `irmaos_da_origem` e, nos\n**DOIS** sem o campo (`s008` e `s066`), pela PROSA e pela NARRACAO de cada um,\nque e de primeira mao (776):\n\n* `s008` *Krótka czy długa? Policz odnowienia* — contar as RENOVACOES do curto\n  contra o prazo do longo. Eixo: **dois PRAZOS**;\n* `s025` *Wybierasz tabelką czy własnym terminem?* — escolher o prazo pela\n  tabela em vez do proprio horizonte. Eixo: **HORIZONTE** (rozdzialy 64 a 77);\n* `s066` *Sześć ofert, dwie rodziny* — seis linhas sao DUAS familias (fixo\n  contra indexado), e primeiro se escolhe a familia. Eixo: **a OFERTA**;\n* `s082` *Próg patrzy w tył* — usar o limiar como prognostico quando ele e\n  retrato do passado. Eixo: **a JANELA do numero** (rozdzial 50).\n\n**Nenhum dos quatro fala da GARANTIA.** E o mais proximo e o `s082`, com a\ndistincao fina: ele fala do numero que entra na comparacao (um retrato do\npassado comparado com meses que vem); esta peca nao compara numero nenhum —\nela diz que a palavra \"bezpieczne\" responde uma pergunta e nao a outra.\n\n## AVISO SOBRE OS NUMEROS\n**ZERO NUMERO NOVO SOBRE O MUNDO, e ZERO DIGITO NA NARRACAO.** Ficaram FORA, um\npor um: as seis taxas de oferta, o imposto sobre os juros, a inflacao do mes, o\nlimiar (inflacao dividida por zero oitenta e um), o preco por titulo, o limite\nde compra, as datas e qualquer valor em zloty.\n\n**E a procedencia da recusa esta na PROPRIA origem:** o rozdzial 80 dela diz, em\nletra, *\"Ta oferta dotyczy sierpnia. Ministerstwo ogłasza nową co miesiąc, więc\nliczby sprawdzaj u źródła\"* — isto e, os numeros deste longo mudam por emissao.\nCitar qualquer um deles seria publicar peca que erra na primeira publicacao\nseguinte, que e exatamente a familia do irmao `s082`.\n\n**E A RECUSA INCLUI O NUMERO QUE DARIA A PECA MAIS FACIL:** o rozdzial 79 do\nlongo diz *\"Twoje sto złotych wróci\"*, e cem e uma quantia redonda e concreta\nque tornaria o argumento visivel de imediato. A narracao diz **\"ta kwota\"**, sem\nnumero. As barras das cenas 2 e 8 sao **ILUSTRACAO qualitativa e NAO sao\nfaladas** — as duas desenham alturas IGUAIS de proposito, porque o argumento e\nque a garantia do numero esta cumprida nos dois lados; elas nao sao proporcao\nmedida de nada, e isto vai escrito para a rodada seguinte nao as ler de volta\ncomo dado.\n\n**LINHAS MEDIDAS, GERADAS pelo `linhas_medidas_da_copy` e coladas, nao\nredigitadas:** numerais falados pela narracao, do `numerais_falados`:\n**\"dwie\"**. Eu declaro tambem **\"drugiej\"**, **\"jedną\"** e **\"obie\"**, que o\nvocabulario dele nao le — e os quatro sao ESTRUTURA do argumento (sao duas\ngarantias e duas perguntas), nao fato sobre o mundo. A ressalva do proprio\ninstrumento vai junto: ausencia de vocabulario nao prova ausencia.\n\nPrevisao, do `ensaio` pelo `mira.confere`: edge **42,40 s** / piper **36,10 s**.\nForma: 13 cenas, media de **28,54** caracteres por cena, esqueleto\n`titulo-item-barras-item-item-lista-titulo-item-barras-lista-item-titulo-cta`,\n**INEDITO nas 198 formas** de short da frota. Redacao: acento **4,00%** da\nnarracao, thumbnail com 4 palavras, gancho com 4 — os limites sao do portao\n`variedade`.\n\n## EXPOSICAO\n**A PINCA DO 740/748 ESTA FECHADA AQUI**, e vai declarada ANTES de publicar:\nnenhuma media de caracteres por cena poe os dois provedores dentro de 41,5 a\n43,0 nesta voz com treze cenas — a razao piper/edge medida e 0,851 e o vao vale\n~6 s contra 1,5 s de faixa. **Mirei o PISO** (regra de redacao do 772): o piper\nsai FORA pela mira e DENTRO do portao, que cobra 18 a 45 s nos dois mundos.\n\n**E o REAL nao esta prometido para lado nenhum** (774): a banda tem 5,2 s de\nlargura contra 1 s de granularidade, logo declarar um lado dela nao e previsao.\n\n**E EU MIREI O MEIO E NAO O PISO, com a razao MEDIDA — as duas regras do repo\ndivergem aqui e o instrumento diz isso em letra.** O `orcamento` mira o MEIO\n(752/774: mirar a borda nao sobrevive ao residuo) e a regra de redacao do 772\nmanda mirar o PISO. **Medido nesta peca: cortada ate o piso EXECUTAVEL (27\ncaracteres por cena, edge 41,71) a narracao caiu a 2,45% de letras acentuadas —\nABAIXO do piso OBSERVADO dos shorts acentuados deste idioma, que e 2,59% em\nn=109.** Isto e, o piso da faixa e o acento da voz **nao cabem juntos** nesta\npeca: encurtar em polones tira justamente as palavras com ogonek e kreska. Com\n28,54 caracteres por cena o acento volta a **4,00%** e a previsao fica em 42,40,\nisto e no MEIO. **A escolha e de quem escreve e vai declarada**; nenhum\nparametro foi tocado (§10).\n\n## RESERVA\nPara a rodada seguinte achar, com o motivo de cada item:\n\n* **LIVRES** os rozdzialy **16, 17 e 18** — o devedor nao e o banco, o limite de\n  compra, e a saida antecipada com desconto. **AVISO:** o eixo do 16 exige\n  nomear o emissor, e a convencao desta origem e NAO o nomear (o `s008` escreve\n  *\"nao nomeia emissor nem orgao\"* na prosa dele). Quem levar isso precisa\n  resolver essa tensao primeiro;\n* **LIVRES** os rozdzialy **69 a 74** — os cinco passos do plano, com o 72\n  (rozlozyc a kwota em prazos diferentes) como o unico que fala de nao adivinhar.\n  Nenhum irmao os declara;\n* **LIVRE** o rozdzial **75** — o primeiro erro, comparar o bruto com a\n  inflacao. **AVISO:** o eixo dele (tirar o imposto ANTES de comparar) e\n  adjacente ao do `kolejny-poziom-s096`, de 22/10 as 21:2x, que e a ORDEM das\n  subtracoes num pasek — e o `similaridade` **nao pegaria**, porque compara\n  TITULO contra o mesmo canal. Conferir antes de levar;\n* **LIVRE** o rozdzial **76** — a taxa do primeiro ano lida como taxa do periodo\n  inteiro nas indexadas. **AVISO:** adjacente ao `s008` (a taxa do curto vale so\n  ate o wykup) e ao `s066` (as duas familias). Ler os dois antes;\n* **NAO LEVAR** o rozdzial **77**: esta DECLARADO pelo `s025`;\n* **CONSUMIDOS por esta peca** os rozdzialy **78 e 79**, com apoio do **83**.\n\n## HASHTAGS\n#obligacje #oszczedzanie #inflacja #lokata #kolejnypoziom\n\n## TAGS\nbezpieczny kapital, ochrona wartosci, sila nabywcza, obligacje skarbowe, lokata, konto oszczednosciowe, dwie gwarancje\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ncategoryId: 27\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\nmadeForKids: false\n\n## MUSICA / LICENCA\nWholesome — Kevin MacLeod (incompetech.com), Creative Commons: By Attribution 4.0\n"
+}
