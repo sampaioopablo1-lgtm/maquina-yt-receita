@@ -13095,3 +13095,139 @@ PRIMEIRA rodada seguida:** 92,03 h, piso de resolucao **0,26/dia**, os tres SIM.
 
 **COTA: VINTE E QUATRO envios** na janela que fechou as 07:00Z, **38.400**
 unidades, contra o piso MEDIDO de **>= 41.600** — do `janela_de_cota`.
+
+## A DIVERGENCIA DO DESEMPATE E ESTADO DA PAUTA, NAO PROPRIEDADE DO INSTRUMENTO
+
+**Medido em 23/10 as 07:4x, pela suite da rodada anterior: 28 falhas contra a
+base de 25 desta sessao, TRES NOVAS e ZERO desaparecidas** — as tres do
+`test_a_reserva_que_DESEMPATA_vinha_inflada.py`, de 22/10 as 17:3x, e as tres
+**minhas**.
+
+**A CAUSA E A MINHA PROPRIA PRODUCAO.** Aquele arquivo lia o **DISCO VIVO** e
+exigia que a divergencia entre as duas leituras da reserva **existisse em algum
+canal e NAO em todos**. Medido agora:
+
+| canal | origens empatadas | diverge? |
+|---|---|---|
+| labtreinamento | 13 | **nao** |
+| epomeno-epipedo | 16 | **nao** |
+| kolejny-poziom | 8 | **nao** |
+
+Os tres **tem** empate e **nenhum** diverge mais: as duas leituras escolhem a
+MESMA origem em todos. As pecas desta sessao mudaram quem empata e quem declara
+o que.
+
+**E A PROPRIA MENSAGEM DO TESTE MANDAVA O QUE EU FIZ:** *"reprova se TODOS
+divergirem ou se NENHUM divergir, porque nos dois casos a nota tem de ser RELIDA
+em vez de o numero ser movido"*.
+
+**RELENDO: a divergencia da ESCOLHA e um ESTADO da pauta e nao propriedade do
+instrumento** — ela depende de quais origens empatam e de que faixa os irmaos
+declaram, e as duas se movem a cada publicacao. **E a licao de 18/10 as 09:2x** —
+*teste que ancora no estado VIVO reprova quando a pauta for consumida, e consumir
+pauta e o trabalho* —, classe 743/753/761.
+
+**RETRATADOS NO LUGAR, e o que ficou cobrado nao envelhece:**
+* os **DOIS ramos** passam a ser exercitados por **quadro INJETADO** (diverge e
+  nao diverge, por construcao), com o motivo escrito no helper;
+* o **DISCO VIVO** responde pela propriedade **ESTRUTURAL** que vale sempre: a
+  reserva sem declaracao **nunca** e maior que a crua, porque capitulo declarado
+  por irmao e capitulo que a primeira conta e a segunda nao. Com piso de
+  vacuidade;
+* a **INVERSAO** e o **VAO** vao por injecao, nos dois sentidos — com divergencia
+  o vao e positivo e e a diferenca dos dois numeros que a frase imprime; sem
+  divergencia ele e `None`;
+* o caso REAL de 22/10 fica como **HISTORIA** em `MEDIDA_DE_17H`, e **nenhum
+  assert depende dele**.
+
+**Treze testes, treze passam em 76 s — e MAIS RAPIDO que antes**, porque os tres
+por injecao nao varrem o disco.
+
+**O QUE ISTO NAO RETRATA:** o conserto de 22/10 as 17:3x segue certo e em uso —
+a `reserva_sem_declaracao` continua no quadro, o desempate continua NOMEADO ao
+lado e o vao continua medido. O que caiu foi a afirmacao de que a divergencia
+**existe**, que era um retrato do disco daquele instante.
+
+### A PECA DESSA RODADA — DOZE cenas, e ela foi escrita INTEIRA como RASCUNHO
+
+`epomeno-epipedo-s100` = **`7KEOVLgtedo`** (*Το κάτω νούμερο αλλάζει*),
+publicado as **08:0x** (run `39918353991`), **sem `403 quota`**. **DOZE PORTOES
+VERDES NA PRIMEIRA TENTATIVA.** Provedor **edge MEDIDO** pelo `anotacoes_do_run`
+(zero avisos `NARRACAO PELO PIPER` no job `120294817108`, que e o job que emitiu
+o SOM), som **-13,9** LUFS, pico **-1,5** dBTP — **no teto exato** do
+`som.TP_MAX_DBTP` —, **zero silencios**. Os quatro parques pelo
+`registro_da_rodada`, os quatro **RELIDOS**.
+
+**E ELA FOI ESCRITA E CONFERIDA COMO RASCUNHO DO COMECO AO FIM**, porque a suite
+da rodada anterior varria `fabrica/specs` e a trava de 09/10 proibe duas tarefas
+na mesma arvore — **o conserto de 21/10 as 20:3x em uso pela razao exata que o
+criou**. Dez portoes baratos, mira, acento (15,01%), gancho, paleta LIDA do dono
+e as seis guardas do construtor, todos limpos; os tres que apareceram com
+problema saem rotulados **`AMBIENTE, nao a spec`**, porque usam o caminho como
+NOME.
+
+**CANAL do `passo_zero`** (8/8/8, empate nos TRES). **PAUTA:** `pqTc8jBrq0E`
+(`epomeno-epipedo-068`), **MINIMO UNICO em 4 usos, sem empate** — logo a reserva
+nao desempatou nada. 41 livres, **24 SEM DECLARACAO**, e o instrumento de 05:4x
+diz que **CABE outra peca**. O pacote **nao** e compartilhado, logo a leitura por
+id coincide com a uniao (06:4x).
+
+**E A DECISAO QUE MAIS VALE NESTA RODADA FOI UMA RECUSA:** o bloco mais facil e
+mais livre desta origem (capitulos 32, 34, 35 e 39) e a familia *"a divisao nunca
+falha, falha sempre a lista"* — **que e literalmente a familia do
+`labtreinamento-s114`**, publicado por mim as 05:19Z de hoje em **OUTRO canal**.
+Leva-la seria o **762 numa dimensao nova**, e o portao `similaridade` **nao
+pegaria**, porque compara contra o MESMO canal. Ficou fora com o motivo escrito
+na reserva; so o capitulo **35** entrou, isolado, como mecanismo do silencio
+desta familia.
+
+**FAMILIA: O CRITERIO DE ENTRADA NO DIVISOR E A OBRIGACAO, NAO O HABITO DE
+GASTO** (capitulos 8, 10, 11, 13 e 37). A movimentacao da conta responde *"quanto
+gastei"* e a conta pergunta *"quanto pagarei se a renda parar"* — duas perguntas
+diferentes que se parecem, e a segunda nao esta escrita em documento nenhum. **A
+operacao que distingue e uma PERGUNTA e nao um calculo:** posso cortar isto no
+mes que vem? **E a comida e a excecao que mostra a regra** — ela entra, mas no
+valor que voce gastaria se cuidasse de cada euro.
+
+**A distincao do vizinho mais proximo vai dita porque e fina:** o `s070` fala da
+**JANELA** de onde o divisor sai (um mes esconde o trimestral) e manda tres meses
+de extrato; esta fala do **CRITERIO** de inclusao, que vale qualquer que seja a
+janela — com tres meses perfeitos e a regra errada, o numero de baixo continua
+errado. **Janela contra critério**, e as duas se encaixam.
+
+**CONTAGEM pela chave `por_cadencia_servivel`:** doze cenas, folga **+16**. O
+teto MEDIDO da voz (**15**), que e tambem a **melhor cadencia que NAO repete**,
+saiu **NOMEADO** e recusado pela FOLGA; 14 e 13 repetem os tamanhos das duas
+ultimas pecas do canal. **ESQUELETO
+`titulo-barras-lista-lista-item-item-item-titulo-item-barras-item-cta`, INEDITO
+nas 196 formas da frota** — a mistura saiu do `sugere_forma` (7.544 de 7.560
+ordens livres).
+
+**MIREI O PISO** (772): edge **41,65**, 0,15 acima dele, com o corte saido do
+`mira.quanto_cortar` em **DUAS** passadas — a primeira versao dava **45,7**,
+acima do teto do PORTAO — e seguindo os **SEGUNDOS**, nao os caracteres. **A
+PINCA DO 740/748 ESTA FECHADA** e a exposicao vai declarada: o piper sai em
+**36,9**, FORA pela mira e DENTRO do portao. **O REAL nao esta prometido para
+lado nenhum** (774).
+
+**ZERO numero novo sobre o mundo e ZERO numeral na narracao**, conferido pelo
+`numerais_falados`. **Classe PROCEDIMENTO:** a peca carrega uma REGRA DE
+INCLUSAO, que nao envelhece. **E a recusa inclui o numero que daria o gancho mais
+facil** — quantos meses *"bastam"* —, que o proprio `s068` desta origem ja havia
+declarado descartado pelo mesmo motivo.
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica` pela
+QUINQUAGESIMA QUARTA rodada seguida.** `RESIDUO_N` segue **128**.
+
+**E A LEITURA DE INSCRITOS PASSOU AS TRES PORTAS E NAO FOI FEITA, pela VIGESIMA
+SEGUNDA rodada seguida:** 93,03 h, piso de resolucao **0,26/dia**, os tres SIM.
+**O que a impede e a ROTA, e o remedio e do DONO** — a tela de Network access.
+
+**COTA: PRIMEIRO envio da janela aberta as 07:00Z**, 1.600 unidades, contra o
+piso MEDIDO de **>= 41.600**.
+
+**E NENHUMA CONTA DESTA RODADA SAIU DA MINHA CABECA, e isso vai dito porque e a
+medida do §11-bis acumulado:** canal, cota, pauta, esgotamento, contagem de
+cenas, mistura de layouts, orcamento de caracteres, corte em segundos, provedor,
+job e as quatro linhas de parque sairam todos de dono. O que eu fiz a mao foi
+LER os capitulos livres e ESCOLHER a familia — e recusar a mais facil.
