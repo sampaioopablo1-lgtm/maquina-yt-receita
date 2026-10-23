@@ -1,0 +1,1213 @@
+{
+ "slug": "labtreinamento",
+ "pacote": "labtreinamento-015",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "thumb": {
+  "l1": "Pessoa",
+  "l2": "ou posto?"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "A linha em branco",
+   "sub": "o contratado de ontem",
+   "cap": "A linha em branco",
+   "nar": "Entrou alguém novo na equipe ontem. Você abre a matriz de treinamento, e a linha dessa pessoa está em branco.",
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 0
+  },
+  {
+   "layout": "item",
+   "kicker": "E a pergunta aparece",
+   "preco": "o que ele precisa?",
+   "nar": "A pergunta que vem em seguida é simples de fazer e difícil de responder: o que essa pessoa precisa ter feito?",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 0
+  },
+  {
+   "layout": "item",
+   "kicker": "Você olha a matriz",
+   "preco": "e ela não responde",
+   "nar": "Você procura na própria matriz, e ela não diz. Ela guarda o que cada pessoa fez, e não o que cada pessoa deveria fazer.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 0
+  },
+  {
+   "layout": "item",
+   "kicker": "Então você pergunta",
+   "preco": "para alguém",
+   "nar": "Aí você pergunta para o encarregado, ou copia a linha de um colega parecido. As duas saídas funcionam e nenhuma fica escrita.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 0
+  },
+  {
+   "layout": "erro",
+   "codigo": "#N/D",
+   "causa": "Pessoa sem exigência cadastrada",
+   "saida": "A exigência não é da pessoa",
+   "nar": "Se você tenta procurar a exigência pelo nome de quem chegou, não encontra nada. E o erro não é da fórmula.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 0
+  },
+  {
+   "layout": "item",
+   "kicker": "Porque a matriz",
+   "preco": "tem a unidade errada",
+   "nar": "A matriz foi montada tendo a pessoa como unidade. Quem chega depois não tem passado, então não tem linha.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 0
+  },
+  {
+   "layout": "item",
+   "kicker": "E isso não aparece",
+   "preco": "enquanto ninguém entra",
+   "nar": "Numa equipe que não muda, essa escolha nunca incomoda. Ela aparece no dia da contratação, da transferência e da saída.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 0
+  },
+  {
+   "layout": "numero",
+   "valor": "?",
+   "legenda": "o que ele precisa ter feito",
+   "nota": "a resposta existe antes da pessoa chegar",
+   "escala": 1.0,
+   "nar": "O vídeo é sobre essa pergunta. E a parte importante é que ela tem resposta antes de a pessoa existir na empresa.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 0
+  },
+  {
+   "layout": "item",
+   "kicker": "Os dados são seus",
+   "preco": "e já estão aí",
+   "nar": "Você não vai precisar de nada que não tenha. A descrição das funções de um lado e os registros de quem fez o quê do outro.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 0
+  },
+  {
+   "layout": "titulo",
+   "kicker": "A unidade",
+   "sub": "cargo, não pessoa",
+   "cap": "A unidade da matriz",
+   "nar": "A exigência não nasce da pessoa. Ela nasce do que a pessoa faz, e isso é anterior a quem está fazendo.",
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 1
+  },
+  {
+   "layout": "divisor",
+   "parte": "1",
+   "titulo": "Trocar a unidade",
+   "nar": "Primeira parte: trocar a unidade da matriz. É ela que decide tudo o que vem depois.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 1
+  },
+  {
+   "layout": "item",
+   "kicker": "Duas pessoas no mesmo posto",
+   "preco": "mesma exigência",
+   "nar": "Duas pessoas que fazem a mesma coisa, no mesmo lugar, precisam das mesmas coisas. A exigência não distingue uma da outra.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 1
+  },
+  {
+   "layout": "item",
+   "kicker": "A mesma pessoa em dois postos",
+   "preco": "duas exigências",
+   "nar": "E a mesma pessoa, se muda de posto, passa a precisar de outra lista. O que mudou não foi ela: foi a atividade.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 1
+  },
+  {
+   "layout": "comparar",
+   "esq": {
+    "titulo": "Matriz pela pessoa",
+    "itens": [
+     "Quem chega não tem linha",
+     "Transferência não se expressa",
+     "Quem sai leva a regra",
+     "Cada caso é um caso"
+    ]
+   },
+   "dir": {
+    "titulo": "Matriz pelo cargo",
+    "itens": [
+     "A linha já existe",
+     "Trocar de cargo troca a lista",
+     "A regra fica",
+     "O caso novo já tem resposta"
+    ]
+   },
+   "nar": "Os dois lados guardam a mesma informação. Só um dos dois responde o que você precisa no dia em que alguém entra.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 1
+  },
+  {
+   "layout": "item",
+   "kicker": "E não é sobre o nome",
+   "preco": "é sobre a atividade",
+   "nar": "Cargo aqui não quer dizer o nome no contrato. Quer dizer o conjunto de atividades, que é o que gera a exigência.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 1
+  },
+  {
+   "layout": "item",
+   "kicker": "Dois nomes, um posto",
+   "preco": "junte",
+   "nar": "Se dois nomes de cargo fazem exatamente a mesma coisa, eles são um posto só na matriz. Separar vira trabalho dobrado.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 1
+  },
+  {
+   "layout": "item",
+   "kicker": "Um nome, dois postos",
+   "preco": "separe",
+   "nar": "E se o mesmo nome de cargo faz coisas diferentes em áreas diferentes, são dois postos. O nome engana nos dois sentidos.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 1
+  },
+  {
+   "layout": "item",
+   "kicker": "Quem decide isso",
+   "preco": "é a atividade descrita",
+   "nar": "O que separa um posto do outro é a descrição da atividade, não a hierarquia e não o departamento.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 1
+  },
+  {
+   "layout": "titulo",
+   "kicker": "As duas tabelas",
+   "sub": "e a ponte entre elas",
+   "cap": "As duas tabelas",
+   "nar": "Com a unidade trocada, a matriz deixa de ser uma tabela e passa a ser duas, ligadas por uma coluna.",
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 2
+  },
+  {
+   "layout": "lista",
+   "kicker": "Duas tabelas, um vínculo",
+   "itens": [
+    "Posto e exigência",
+    "Pessoa e posto",
+    "A conta sai do cruzamento"
+   ],
+   "nar": "Uma tabela diz o que cada posto exige. A outra diz em que posto cada pessoa está. A conta sai do cruzamento das duas.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 2
+  },
+  {
+   "layout": "item",
+   "kicker": "A primeira é curta",
+   "preco": "e quase não muda",
+   "nar": "A tabela de postos tem poucas linhas e muda raramente. Ela é a parte que você pensa uma vez e revisa de vez em quando.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 2
+  },
+  {
+   "layout": "item",
+   "kicker": "A segunda muda sempre",
+   "preco": "e é só isso",
+   "nar": "A tabela de pessoas muda toda semana, e cada mudança é uma célula: o posto de alguém. Nada mais.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 2
+  },
+  {
+   "layout": "formula",
+   "formula": "exigência da pessoa = exigência do posto dela",
+   "notas": [
+    "a pessoa não tem exigência própria",
+    "ela herda a do posto em que está",
+    "trocar o posto troca a lista inteira"
+   ],
+   "nar": "A exigência de uma pessoa deixa de ser digitada e passa a ser herdada. Você escreve o posto, e a lista vem com ele.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 2
+  },
+  {
+   "layout": "item",
+   "kicker": "E o registro do que foi feito",
+   "preco": "continua por pessoa",
+   "nar": "O que foi feito continua sendo da pessoa, com data. Isso é histórico e pertence a ela, não ao posto.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 2
+  },
+  {
+   "layout": "item",
+   "kicker": "São coisas diferentes",
+   "preco": "e ficam separadas",
+   "nar": "A exigência é do posto. A realização é da pessoa. Misturar as duas na mesma tabela é como a matriz estava antes.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 2
+  },
+  {
+   "layout": "item",
+   "kicker": "A terceira coluna",
+   "preco": "a data",
+   "nar": "No registro do que foi feito, a data não é enfeite. Sem ela você sabe que houve, e não sabe se ainda vale.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 2
+  },
+  {
+   "layout": "item",
+   "kicker": "Sem nome de pessoa",
+   "preco": "na tabela de postos",
+   "nar": "E a tabela de postos não leva nome de ninguém. No dia em que ela levar, você voltou para o começo do vídeo.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 2
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Mudou de função",
+   "sub": "o caso que não se expressa",
+   "cap": "Quem mudou de função",
+   "nar": "Agora o caso que a matriz antiga não conseguia escrever de jeito nenhum: alguém que troca de posto.",
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 3
+  },
+  {
+   "layout": "item",
+   "kicker": "Na matriz pela pessoa",
+   "preco": "você edita a linha",
+   "nar": "Na matriz antiga você abria a linha da pessoa e trocava as exigências uma por uma, de cabeça.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 3
+  },
+  {
+   "layout": "item",
+   "kicker": "E perdia duas coisas",
+   "preco": "de uma vez",
+   "nar": "Nessa edição duas informações desaparecem: o que ela deixou de precisar, e o que ela passou a precisar.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 3
+  },
+  {
+   "layout": "lista",
+   "kicker": "Na troca de posto",
+   "itens": [
+    "O que já tem e continua valendo",
+    "O que já tem e não serve mais",
+    "O que falta e é novo"
+   ],
+   "nar": "Toda troca de posto gera três grupos. O primeiro não dá trabalho, o segundo não dá trabalho, e o terceiro é a sua lista.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 3
+  },
+  {
+   "layout": "item",
+   "kicker": "O grupo do meio",
+   "preco": "não se apaga",
+   "nar": "O que ela fez e não serve mais no posto novo continua registrado. Ninguém desfez aquilo, e se ela voltar, serve outra vez.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 3
+  },
+  {
+   "layout": "item",
+   "kicker": "Com as duas tabelas",
+   "preco": "é uma célula",
+   "nar": "Com as duas tabelas, a transferência é editar uma célula: o posto. Os três grupos aparecem sozinhos no cruzamento.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 3
+  },
+  {
+   "layout": "erro",
+   "codigo": "#REF!",
+   "causa": "A linha antiga foi apagada",
+   "saida": "Troque o posto, não apague a linha",
+   "nar": "O erro mais caro dessa hora é apagar a linha e criar outra. Quem faz isso perde o histórico de uma pessoa que continua na empresa.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 3
+  },
+  {
+   "layout": "item",
+   "kicker": "Promoção é o mesmo caso",
+   "preco": "com outro nome",
+   "nar": "Promoção, remanejamento e mudança de turno são o mesmo caso: a atividade mudou, então a lista mudou.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 3
+  },
+  {
+   "layout": "item",
+   "kicker": "E a cobertura temporária",
+   "preco": "também",
+   "nar": "Quem cobre um posto por um período está fazendo aquela atividade. A exigência vem junto, mesmo que o contrato não mude.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 3
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Quem saiu",
+   "sub": "e a regra que fica",
+   "cap": "Quem saiu",
+   "nar": "O terceiro caso é a saída. E aqui a diferença entre as duas matrizes é a mais fácil de ver.",
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 4
+  },
+  {
+   "layout": "item",
+   "kicker": "Na matriz pela pessoa",
+   "preco": "a regra sai com ela",
+   "nar": "Quando a matriz é pela pessoa, a exigência daquele posto morava na linha de quem ocupava. A pessoa sai, e a regra sai com ela.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 4
+  },
+  {
+   "layout": "item",
+   "kicker": "E quem entrar no lugar",
+   "preco": "começa do zero",
+   "nar": "Quem entrar naquele posto depois recomeça a descoberta inteira. A empresa já sabia, e esqueceu junto com a saída.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 4
+  },
+  {
+   "layout": "item",
+   "kicker": "Com o posto como unidade",
+   "preco": "a regra não sai",
+   "nar": "Com o posto como unidade, a linha de exigência fica. O que sai é o vínculo de uma pessoa com aquele posto.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 4
+  },
+  {
+   "layout": "divisor",
+   "parte": "2",
+   "titulo": "O que a matriz passa a responder",
+   "nar": "Segunda parte: o que você consegue perguntar depois que a unidade está certa.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 4
+  },
+  {
+   "layout": "item",
+   "kicker": "E o registro de quem saiu",
+   "preco": "não se apaga",
+   "nar": "O registro de quem saiu continua guardado. Ele não entra mais na conta de hoje, e continua sendo prova do que aconteceu.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 4
+  },
+  {
+   "layout": "item",
+   "kicker": "Uma coluna resolve",
+   "preco": "ativo ou não",
+   "nar": "Uma coluna de situação na tabela de pessoas resolve isso. Quem não está ativo sai da conta sem sair do arquivo.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 4
+  },
+  {
+   "layout": "item",
+   "kicker": "Apagar parece limpeza",
+   "preco": "e é perda",
+   "nar": "Apagar a linha de quem saiu parece organização. É a única das operações do vídeo que não tem como desfazer.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 4
+  },
+  {
+   "layout": "item",
+   "kicker": "Posto vazio",
+   "preco": "continua na tabela",
+   "nar": "E posto sem ninguém continua na tabela de postos. Ele volta a ser ocupado, e a exigência dele estava esperando.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 4
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Quem está sem",
+   "sub": "a pergunta que vale",
+   "cap": "Quem está sem o quê",
+   "nar": "Com as duas tabelas no lugar, aparece uma pergunta que a matriz antiga não conseguia responder.",
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 5
+  },
+  {
+   "layout": "item",
+   "kicker": "Antes",
+   "preco": "quem fez o quê",
+   "nar": "A matriz antiga respondia uma coisa: quem fez o quê. É uma lista de presença organizada, e ela não aponta trabalho nenhum.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 5
+  },
+  {
+   "layout": "item",
+   "kicker": "Agora",
+   "preco": "quem está sem o quê",
+   "nar": "A matriz pelo posto responde outra: quem está em um posto que exige algo que essa pessoa não tem registrado.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 5
+  },
+  {
+   "layout": "formula",
+   "formula": "falta = exigido pelo posto − registrado pela pessoa",
+   "notas": [
+    "o exigido vem da tabela curta",
+    "o registrado vem do histórico",
+    "o que sobra é a sua lista de trabalho"
+   ],
+   "nar": "A conta é uma subtração entre as duas tabelas. O que sobra não é um indicador: é uma lista de nomes com o que falta em cada um.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 5
+  },
+  {
+   "layout": "item",
+   "kicker": "E ela nasce ordenada",
+   "preco": "pelo posto",
+   "nar": "Essa lista já vem agrupada por posto, que é como o trabalho é feito. Você não convoca uma pessoa: convoca um posto.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 5
+  },
+  {
+   "layout": "item",
+   "kicker": "O contratado de ontem",
+   "preco": "aparece no primeiro dia",
+   "nar": "E a pessoa que entrou ontem aparece nessa lista no mesmo dia, sem ninguém se lembrar dela. O posto dela já tinha a resposta.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 5
+  },
+  {
+   "layout": "barras",
+   "kicker": "O que cada matriz responde",
+   "barras": [
+    {
+     "rotulo": "Quem fez",
+     "valor": 9
+    },
+    {
+     "rotulo": "Quem está sem",
+     "valor": 9
+    }
+   ],
+   "nar": "As duas perguntas valem o mesmo e não são a mesma. A primeira você já tinha. A segunda é a que gera convocação.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 5
+  },
+  {
+   "layout": "item",
+   "kicker": "Sem meta nenhuma",
+   "preco": "e sem percentual",
+   "nar": "Repare que até aqui não apareceu percentual nem meta. A lista de quem está sem algo não precisa de nota para virar tarefa.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 5
+  },
+  {
+   "layout": "item",
+   "kicker": "E o percentual",
+   "preco": "sai depois, se você quiser",
+   "nar": "Se você quiser o percentual, ele sai disso. Mas ele é resumo, e quem trabalha trabalha com a lista.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 5
+  },
+  {
+   "layout": "titulo",
+   "kicker": "O registro",
+   "sub": "o que fica escrito",
+   "cap": "O que fica escrito",
+   "nar": "Falta a última parte, que é a mais chata e a que faz a matriz sobreviver a você.",
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 6
+  },
+  {
+   "layout": "item",
+   "kicker": "A tabela de postos",
+   "preco": "precisa de dono e data",
+   "nar": "A tabela que diz o que cada posto exige é uma decisão. Toda decisão precisa de quem decidiu e de quando.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 6
+  },
+  {
+   "layout": "item",
+   "kicker": "Sem isso",
+   "preco": "ela vira folclore",
+   "nar": "Sem quem e quando, a lista de exigências de um posto se torna uma coisa que todo mundo repete e ninguém sabe de onde veio.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 6
+  },
+  {
+   "layout": "lista",
+   "kicker": "Três colunas na decisão",
+   "itens": [
+    "O que o posto exige",
+    "Quem definiu",
+    "Desde quando"
+   ],
+   "nar": "São três colunas, uma vez por posto. É o trecho mais curto da matriz, e é o único que responde por ela.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 6
+  },
+  {
+   "layout": "item",
+   "kicker": "Quando a exigência muda",
+   "preco": "não sobrescreva",
+   "nar": "E quando a exigência de um posto mudar, não apague a antiga. A pessoa que cumpriu a regra de antes cumpriu a regra que valia.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 6
+  },
+  {
+   "layout": "item",
+   "kicker": "Uma linha nova",
+   "preco": "com a data nova",
+   "nar": "A mudança é uma linha nova com a data nova. Assim você consegue olhar para trás e entender por que a conta de então dava aquilo.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 6
+  },
+  {
+   "layout": "item",
+   "kicker": "E o resto é manutenção",
+   "preco": "uma célula por vez",
+   "nar": "Depois disso a manutenção é pequena: quando alguém entra, sai ou muda, você edita uma célula. A matriz se recalcula.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 6
+  },
+  {
+   "layout": "item",
+   "kicker": "Comece pelo posto",
+   "preco": "que mais troca de gente",
+   "nar": "Se você for montar hoje, comece pelo posto onde entra e sai mais gente. É ali que a unidade errada custa mais.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 6
+  },
+  {
+   "layout": "cta",
+   "kicker": "Qual é a unidade da sua matriz",
+   "sub": "escreva aí embaixo",
+   "nar": "Abra a sua matriz e veja uma coisa só: a primeira coluna é nome de pessoa ou nome de posto? Escreve aqui embaixo.",
+   "sem_cap": true,
+   "trilho": [
+    "A linha em branco",
+    "A unidade",
+    "As duas tabelas",
+    "Mudou de função",
+    "Quem saiu",
+    "Quem está sem",
+    "O registro"
+   ],
+   "trilho_atual": 6
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Entrou alguém ontem",
+   "sub": "a linha está em branco",
+   "nar": "A linha do novato está vazia."
+  },
+  {
+   "layout": "item",
+   "kicker": "E a matriz não diz",
+   "preco": "o que ele precisa",
+   "nar": "A matriz não diz o que falta."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Onde mora a exigência",
+   "barras": [
+    {
+     "rotulo": "Pessoa",
+     "valor": 2
+    },
+    {
+     "rotulo": "Posto",
+     "valor": 9
+    }
+   ],
+   "nar": "A exigência é do posto, não dela."
+  },
+  {
+   "layout": "item",
+   "kicker": "Quem chega",
+   "preco": "herda a lista",
+   "nar": "Quem chega herda a lista dele."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Duas tabelas",
+   "itens": [
+    "Posto e exigência",
+    "Pessoa e posto"
+   ],
+   "nar": "São duas tabelas e uma coluna."
+  },
+  {
+   "layout": "item",
+   "kicker": "Trocar de função",
+   "preco": "é uma célula",
+   "nar": "Trocar de função vira célula."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "E a pergunta muda",
+   "sub": "de quem fez para quem está sem",
+   "nar": "A pergunta não é mais quem fez."
+  },
+  {
+   "layout": "item",
+   "kicker": "Vira quem está sem",
+   "preco": "com nome e posto",
+   "nar": "É quem está sem, com o posto."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Pessoa ou posto?",
+   "sub": "veja a primeira coluna",
+   "nar": "Olhe a primeira coluna da sua."
+  }
+ ],
+ "copy": "# Matriz de treinamento: a primeira coluna é nome de pessoa ou nome de posto?\n\n## TITULO\nMatriz de Treinamento: a Primeira Coluna é Nome de Pessoa ou Nome de Posto?\n\n## TITULO SHORT\nA linha do novato está em branco\n\n## DESCRICAO\nEntrou alguém novo na equipe, você abre a matriz de treinamento e a linha dessa pessoa está em branco. A pergunta seguinte parece simples e quase nunca tem resposta escrita: o que essa pessoa precisa ter feito? Você acaba perguntando para o encarregado, ou copiando a linha de um colega parecido. As duas saídas funcionam, e nenhuma das duas fica registrada em lugar nenhum.\n\nEste vídeo é sobre a causa disso, que não está em nenhuma célula: está na unidade da matriz. Quando ela é montada tendo a pessoa como unidade, ela guarda o que cada um fez e não o que cada um deveria fazer, logo quem chega depois não tem passado e não tem linha. Numa equipe que não muda, essa escolha nunca incomoda. Ela aparece exatamente em três dias: no da contratação, no da transferência e no da saída.\n\nA troca é por posto de trabalho, entendido como conjunto de atividades e não como nome no contrato. Com ela, a matriz deixa de ser uma tabela e passa a ser duas, ligadas por uma coluna: uma diz o que cada posto exige, a outra diz em que posto cada pessoa está. A exigência de uma pessoa para de ser digitada e passa a ser herdada do posto. Transferência vira editar uma célula. Quem sai deixa de levar a regra com ele. E aparece uma pergunta que a matriz antiga não conseguia responder: não quem fez o quê, mas quem está em um posto que exige algo que essa pessoa não tem registrado — com nome, posto e o que falta em cada um.\n\nNo fim, as três colunas que fazem a matriz sobreviver a quem a montou: o que o posto exige, quem definiu e desde quando. Sem percentual, sem meta e sem nenhum número meu: os dados são a sua descrição de funções e os seus registros de quem fez o quê.\n\n## CAPITULOS\n{CAPITULOS}\n\n## COMENTARIO FIXADO\nAbra a sua matriz e olhe uma coisa só: a primeira coluna é nome de pessoa ou nome de posto? Se for nome de pessoa, o teste é o do vídeo — veja o que ela responde no dia em que alguém é contratado. Conta aqui qual é a sua.\n\n## HASHTAGS\n#MatrizDeTreinamento #GestaoDeTreinamento #LabTreinamento\n\n## TAGS\nmatriz de treinamento, matriz de capacitacao, treinamento por cargo, descricao de funcoes, planilha de treinamento, controle de treinamento, admissao, transferencia de funcao, rotatividade, rh, seguranca do trabalho, gestao de pessoas, treinamento obrigatorio, monte voce mesmo\n\n## CONFIGURACOES DO STUDIO\n- Idioma: Portugues do Brasil (pt-BR) | Categoria: Educacao (27)\n- Nao feito para criancas\n- Divulgacao de conteudo sintetico: SIM (voz gerada por IA)\n- Localizacao: Brasil | Licenca: Licenca padrao do YouTube\n- Anuncios mid-roll: ativados (duracao acima de 8 minutos)\n\n## MUSICA / LICENCA\n{TRILHA}\n\n## FAMILIA DE ENTRADA ERRADA\nA UNIDADE DA MATRIZ: montar o controle de treinamento tendo a PESSOA como unidade, quando a exigencia nasce da ATIVIDADE e portanto do POSTO. O eixo e a unidade da tabela, nao o valor de nenhuma celula e nao a conta. A entrada errada nao esta em lugar nenhum da planilha: ela esta na escolha da primeira coluna, feita antes de qualquer dado entrar.\n\nE O MECANISMO DO SILENCIO E DE OPORTUNIDADE: numa equipe que nao muda, a matriz pela pessoa funciona perfeitamente e nunca reclama. Ela so falha nos tres dias em que alguem entra, muda de funcao ou sai — e nesses dias ela nao da erro, ela apenas nao responde, e quem precisa da resposta pergunta para uma pessoa em vez de ler a tabela. Logo a informacao existe na empresa e nao esta escrita, e some junto com quem sabia.\n\nA ORIGEM NASCE AQUI: este longo E a origem, logo nao ha irmao a comparar. O que foi conferido e o contrario — que o eixo nao repete nenhum dos treze longos deste canal. O `-011` conta QUEM ESTA VENCENDO (prazo), o `-012` o CUSTO por pessoa de turma fechada, o `-014` o DENOMINADOR do percentual de treinados. Os tres pressupoem a matriz ja montada e falam da CONTA; este fala da FORMA da tabela, antes de qualquer conta existir.\n\n## FONTES\nNenhuma. Este video e da classe PROCEDIMENTO e nao carrega numero sobre o mundo: ele descreve uma forma de tabela e as operacoes de manutencao dela. Os dados de que ele depende sao da propria empresa de quem assiste — a descricao de funcoes e o registro de quem fez o que.\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO. Nao cita numero de norma regulamentadora, nao cita periodicidade de reciclagem, nao cita prazo, nao cita percentual de meta, nao cita media de mercado e nao cita valor nenhum em dinheiro. OS NUMERAIS FALADOS SAO A CONTAGEM DAS PROPRIAS PARTES DO PROCEDIMENTO: \"duas tabelas\" (cenas 21, 23), \"tres grupos\" na troca de posto (cena 36) e \"tres colunas\" na decisao (cena 59). Nenhum deles e afirmacao sobre o mundo — os tres se conferem relendo o proprio video.\n\nO QUE FICOU DELIBERADAMENTE DE FORA, embora facilitasse a peca: qualquer periodicidade de reciclagem (depende da norma aplicavel e muda por publicacao), qualquer prazo de validade de treinamento (idem) e qualquer percentual de cobertura. O terceiro ficou fora por um segundo motivo, escrito no capitulo 6 do proprio video: a lista de quem esta sem algo nao precisa de nota para virar tarefa, e o percentual e resumo — citar meta transformaria a peca em cobranca em vez de medida.\n\nAS BARRAS SAO ILUSTRACAO QUALITATIVA E NAO SAO FALADAS. Na cena 55 as duas colunas tem ALTURA IGUAL de proposito, porque o argumento e que as duas perguntas valem o mesmo e nao sao a mesma. No short, a cena 2 desenha \"Pessoa\" baixa e \"Posto\" alta — isso e a DIRECAO do argumento e nao proporcao medida, e vai dito aqui para a rodada seguinte nao ler isso de volta como dado.\n\n## RESERVA\nLIVRES para a rodada seguinte, com o motivo:\n- a COBERTURA TEMPORARIA (cena 42) entrou nesta peca como UMA frase e da familia propria: quem cobre um posto por um periodo tem a exigencia do posto sem ter o contrato dele, e isso e um caso de VINCULO e nao de transferencia. Nao levei por caber na regra (f) hoje.\n- o POSTO VAZIO (cena 50) tambem entrou como uma frase: posto sem ninguem continua na tabela e a exigencia dele fica esperando. O eixo proprio seria o que a matriz diz sobre uma vaga ABERTA, que esta peca nao toca.\n- a MUDANCA DA EXIGENCIA no tempo (cenas 60 e 61) esta aqui como regra de registro (linha nova com data nova, nunca sobrescrever). O eixo proprio seria a SERIE — comparar a cobertura de hoje com a de antes quando a regra mudou no meio —, e ele e vizinho do `labtreinamento-s089` e do `-s104`, que falam da serie da planilha. Ler as duas copies antes de tomar este bloco por livre.\n\nNAO LEVAR, porque e territorio declarado:\n- o DENOMINADOR do percentual de treinados: e o `labtreinamento-014` inteiro.\n- QUEM ESTA VENCENDO por prazo: e o `labtreinamento-011`.\n",
+ "paleta": {
+  "bg": "#0E1117",
+  "ink": "#EEF1F5",
+  "c1": "#3DDBD9",
+  "c2": "#1E2430",
+  "red": "#FF5A5F",
+  "ok": "#3CCB7F",
+  "panel": "#161B24",
+  "mut": "#8B95A5",
+  "acc": "#3DDBD9"
+ }
+}

@@ -89,6 +89,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import nome_da_spec as NS   # noqa: E402  — UM dono do nome da spec
+import canal as CA          # noqa: E402  — UM dono do CANAL da spec
 
 # Fim de frase nas tres linguas da frota. O grego usa `;` como interrogacao e
 # `;` (EROTIMATIKO) existe em texto antigo — ja me enganei uma vez com um
@@ -129,9 +130,23 @@ def _todas(raiz: str) -> list[tuple[str, dict]]:
     return _CACHE[raiz]
 
 
-def _especs_do_canal(raiz: str, slug: str, exceto: str) -> list[dict]:
+def _especs_do_canal(raiz: str, canal: str, exceto: str) -> list[dict]:
+    """As irmas do CANAL, e o canal sai do `canal.da_spec` — nunca do `slug`.
+
+    MEDIDO em 23/10 as 18:4x. Este filtro comparava `d.get("slug")` com o
+    `slug` CRU da spec, e desde 19/10 as 05:2x o slug e o PACOTE: das 364 specs
+    da frota com short, **122 viam ZERO irmas** e as outras viam uma lista
+    INCOMPLETA, porque spec de slug novo ficava invisivel como irma para todo
+    mundo. O `analisa` entao nunca podia avisar que o esqueleto repete — e esse
+    aviso e a metade da pergunta do dono de 19/10 (*"todos a mesma dinamica,
+    formas, estilo, em TODOS os canais"*) que mora dentro do canal.
+
+    E o varredor por AST do arquivo da mira nao pegava isto: ele procura quem
+    DERIVA o canal errado (`rsplit("-s")`), e aqui ninguem derivava — le-se o
+    slug cru como se ele ja fosse o canal. Sao duas formas do mesmo defeito.
+    """
     return [d for nome, d in _todas(raiz)
-            if not NS.casa(nome, exceto) and d.get("slug") == slug
+            if not NS.casa(nome, exceto) and CA.da_spec(d) == canal
             and d.get("short") and not d.get("longo")]
 
 
@@ -169,7 +184,7 @@ def analisa(spec: dict, raiz: str = ".", arquivo: str = "") -> tuple[list[str], 
     # ---- (a) ESQUELETO, so avisa. Politica de conteudo inautentico. --------
     if short and not spec.get("longo"):
         meu = esqueleto(short)
-        irmas = _especs_do_canal(raiz, spec.get("slug", ""), arquivo)
+        irmas = _especs_do_canal(raiz, CA.da_spec(spec), arquivo)
         iguais = sum(1 for d in irmas if esqueleto(d["short"]) == meu)
         total = len(irmas)
         if total and iguais + 1 >= ESQUELETO_AVISA_EM:

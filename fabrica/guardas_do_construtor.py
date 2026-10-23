@@ -110,14 +110,38 @@ def confere(spec: dict) -> dict:
 
     # O `identidade` compara o `pacote` com o NOME DO ARQUIVO, e o rascunho
     # ainda nao tem nome — logo a unica conferencia possivel aqui e interna.
-    mesmo = spec.get("pacote") == spec.get("slug")
+    #
+    # RETRATADO em 23/10 as 18:4x, e a guarda era o defeito. Ela cobrava
+    # `pacote == slug`, que e IDENTIDADE onde a afirmacao e PROPRIEDADE
+    # (743/753/761) — e identidade FALSA para pacote: MEDIDO no disco, das 143
+    # specs com longo **142 usam `slug == CANAL`** e so uma usa `slug ==
+    # pacote`, e essa uma e o `epomeno-epipedo-069`, que ficou fora da
+    # convencao porque esta guarda me empurrou para la. No short solto as duas
+    # convencoes convivem: 190 com `slug == canal` e 121 com `slug == pacote`.
+    #
+    # A propriedade que de fato importa e que o CANAL DERIVE e que o slug siga
+    # UMA das duas convencoes MEDIDAS — e nisso o disco e unanime: **455 de 455
+    # specs** passam, e `canal.da_spec` concorda com `canal.do_pacote` em todas.
+    # Cobrar a identidade cegava a guarda justamente no formato de PACOTE, que
+    # e o que a rodada escreve quando produz longo.
+    pac = spec.get("pacote")
+    slug = spec.get("slug")
+    try:
+        cn = CA.da_spec(spec)
+    except Exception:
+        cn = ""
+    convencao = "canal" if slug == cn else ("pacote" if slug == pac else "")
+    ok_pac = bool(cn) and bool(convencao)
     out["pacote"] = {
-        "ok": mesmo, "pacote": spec.get("pacote"), "slug": spec.get("slug"),
-        "motivo": None if mesmo else (
-            "`pacote` %r e `slug` %r divergem: o portao `identidade` compara o "
-            "`pacote` com o nome do ARQUIVO, e o `canal.do_pacote` deriva o "
-            "canal do pacote — divergir aqui cega os dois"
-            % (spec.get("pacote"), spec.get("slug"))),
+        "ok": ok_pac, "pacote": pac, "slug": slug,
+        "canal": cn or None, "convencao": convencao or None,
+        "motivo": None if ok_pac else (
+            "`slug` %r nao segue NENHUMA das duas convencoes medidas (`slug` "
+            "igual ao CANAL %r, como em 142 das 143 specs de pacote, ou `slug` "
+            "igual ao `pacote` %r, como em 121 das 311 de short solto) — fora "
+            "delas o canal nao deriva e o `identidade`, o `similaridade` e o "
+            "`variedade` ficam cegos"
+            % (slug, cn or "(nao derivou)", pac)),
     }
 
     try:

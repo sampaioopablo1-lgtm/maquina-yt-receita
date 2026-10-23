@@ -459,7 +459,14 @@ def _gate_ortografia(caminho, sp):
     if all(d is None for _, d, _ in blocos):
         return []
 
-    slug = sp.get("slug") or ""
+    # O prefixo do glob e o CANAL, nao o `slug` cru (23/10 as 18:4x). Aqui a
+    # cegueira NAO calava o portao: sem vizinhas a referencia cai abaixo do
+    # piso e ele troca para a populacao do IDIOMA, que e o fallback escrito
+    # abaixo. MEDIDO: nas 122 specs de slug novo o veredito sai IDENTICO nos
+    # dois caminhos, 122 de 122 — logo isto e UM DONO, nao conserto de defeito
+    # ativo, e vai dito assim em vez de vendido como conserto.
+    import canal as _canal
+    slug = _canal.da_spec(sp)
     eu = os.path.basename(caminho)
     vizinhas = []
     for outro in sorted(glob.glob(os.path.join(RAIZ, "fabrica/specs", f"{slug}-*.json"))):
@@ -906,7 +913,7 @@ def _titulos_do_corpus(raiz: str) -> list[str]:
     return [x for x in (t or []) if isinstance(x, str) and x.strip()]
 
 
-def _titulos_do_canal(raiz: str, slug: str, corpus: set[str]) -> list[str]:
+def _titulos_do_canal(raiz: str, canal: str, corpus: set[str]) -> list[str]:
     """Titulos JA no ar deste canal, montados das specs do disco.
 
     O `autor.titulos_publicados` resolveria isto numa consulta, mas ele fala
@@ -922,7 +929,10 @@ def _titulos_do_canal(raiz: str, slug: str, corpus: set[str]) -> list[str]:
                 outra = json.load(f)
         except (OSError, ValueError):
             continue
-        if outra.get("slug") != slug:
+        # O CANAL sai do `canal.da_spec` nos DOIS lados. Ver o conserto de
+        # 23/10 as 18:4x no `_gate_similaridade`.
+        import canal as _canal
+        if _canal.da_spec(outra) != canal:
             continue
         t = next((x for x in _titulos_do_copy(outra) if x in corpus), "")
         if t:
@@ -1017,7 +1027,14 @@ def _gate_similaridade(caminho, sp):
                     f"spec {outra!r}. Nao e similaridade alta, e o mesmo pacote "
                     f"indo ao ar de novo."]
 
-    do_canal = _titulos_do_canal(raiz, sp.get("slug") or "", jogo)
+    # O CANAL sai do `canal.da_spec`, nunca do `slug` CRU — MEDIDO em 23/10 as
+    # 18:4x. Com o slug cru, 122 das 364 specs da frota com short recebiam
+    # `do_canal` VAZIO e a conferencia abaixo, guardada por `if do_canal`,
+    # simplesmente NAO RODAVA: o portao parava de comparar contra o proprio
+    # canal e nao reprovava nada. Falha PERMISSIVA, a mesma classe do
+    # `identidade` de 15:3x — e aqui tambem num PORTAO.
+    import canal as _canal
+    do_canal = _titulos_do_canal(raiz, _canal.da_spec(sp), jogo)
     if do_canal:
         passa, pior, contra = A.inedita(titulo, do_canal)
         if not passa:
