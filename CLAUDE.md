@@ -14168,3 +14168,176 @@ paragrafo aparecia **DUAS** vezes identico no arquivo, porque outra rodada
 tambem fechou em nove envios com a mesma redacao — logo o conserto, sem ele,
 teria reescrito a linha da rodada ERRADA. E a trava de 13/10: todo `replace`
 em documento leva `assert` antes de gravar, e aqui ele valeu por dois.
+
+## O CONSERTO DA CHAVE CHEGOU AO VEREDITO E NAO A LINHA QUE ALGUEM LE
+
+**Medido em 23/10 as 14:4x, lendo o relato da peca que eu acabara de
+publicar.** A linha do `PUBLICADO` imprimiu:
+
+    titulo que SUBIU (do notice, a testemunha): None
+    titulo da LINHA (da nossa spec, o que vai ao corpus): 'O codigo nao e numero'
+
+**E o notice CRU, lido na API, traz o titulo:**
+`titulo=O codigo nao e numero`. Conferido chamando o dono
+(`corpus_atrasado.titulos_dos_notices`), ele devolve o titulo certo, e o
+VEREDITO sai certo tambem — `divergentes: []`, `do_notice:
+{'Rp3tOdBGt4k': 'O codigo nao e numero'}`.
+
+**A causa e de UMA LINHA, e ela e a assinatura de 20/10 as 14:3x: conserto
+aplicado a UM de dois donos nao e conserto.** O conserto de 13:5x — de poucas
+horas antes, no PRIMEIRO pacote desde que o cruzamento nasceu — trocou a chave
+do `do_notice` de PACOTE para `youtube_id` dentro do `divergencia_de_titulo`,
+que e o **VEREDITO**. A **LINHA** (`_linha_do_publicado`) seguiu fazendo
+`d["do_notice"].get(pac)`.
+
+**E as duas metades falham em SENTIDOS OPOSTOS, que e o que torna isto pior
+que o defeito que o antecedeu:**
+
+| | |
+|---|---|
+| o veredito, antes de 13:5x | acusava **DE MAIS** — falso positivo, comparava o short contra o titulo do longo |
+| a linha, depois de 13:5x | acusa **DE MENOS**: `test` e sempre `None`, logo o `<< DIVERGEM` dela, guardado por `test is None`, **nao podia disparar nunca** |
+
+O segundo e o sentido **PERMISSIVO**, que e o da mira que parou de conferir por
+seis pecas. **E `None` ali nao se distingue de "o notice nao trouxe titulo"**,
+que e um estado LEGITIMO — a familia do vazio CAMUFLADO por um estado legitimo
+do proprio instrumento (20/10, 12:3x).
+
+**O CUSTO MEDIDO E DE RELATO E NAO DE PECA, e vai dito assim em vez de
+inflado:** o `registro_da_rodada` LEVANTA na divergencia e ele le o VEREDITO,
+que esta certo, logo nenhum titulo errado entrou no corpus. O que estava errado
+era a **unica coisa que um humano le** — e numa rodada em que o titulo DIVERGISSE
+de verdade, a linha imprimiria `None` do lado da testemunha e nao acusaria.
+
+**Consertado:** `test = d["do_notice"].get(ln.get("youtube_id"))`, com o motivo
+escrito ao lado. Conferido nos **dois** sentidos: com o notice real as duas
+linhas saem iguais e **sem** a marca; com a divergencia semeada a marca
+**DISPARA**.
+
+`tests/test_a_divergencia_de_titulo_chaveava_por_PACOTE.py` foi a **dezesseis**
+testes: um **MEDE que a chave ANTIGA de fato erra na linha** — e **reprova se
+ela deixar de errar**, porque ai as duas chaves coincidiram e esta nota se rele
+—, um le o que a linha IMPRIME (nao o estado) e exige que nao seja `None`, um
+cobra que a marca **possa** disparar da linha e que ela **nao** dispare com os
+dois titulos iguais (marca que sempre sai nao avisa), um cobra que o **VEREDITO
+e a LINHA CONCORDEM** nos quatro casos — porque foi o conserto chegar a UMA
+delas que produziu o defeito, logo o que se cobra e a concordancia e nao o valor
+de nenhuma —, um exige que o PACOTE imprima as **DUAS** pecas com a testemunha
+de CADA uma (se a linha procurasse por pacote as duas receberiam a do ULTIMO
+notice), e a chave e cobrada por **AST** nos dois sentidos com `publicado` e o
+reparse do notice **PROIBIDOS** no corpo. **Contraprova:** devolvida a chave
+antiga, **seis dos dezesseis** falham.
+
+**A REGRA QUE FICA: quando um conserto troca a CHAVE de um dicionario, varra
+quem mais o LE.** O veredito e a frase que o explica sao dois donos do mesmo
+fato, e aqui o segundo ficou atras em horas.
+
+### A PECA DESSA RODADA — OITO cenas, e a PAUTA DESVIOU com a medida na mao
+
+`labtreinamento-s117` = **`Rp3tOdBGt4k`** (*O codigo nao e numero*), publicado
+as **14:30:27Z** (render `39969259518`, publicacao `39970167418`), **sem
+`403 quota`**. **DOZE PORTOES VERDES NA PRIMEIRA TENTATIVA** — e ela foi
+**CONFERIDA COMO RASCUNHO** antes de existir no disco, e a spec foi **comitada e
+empurrada ANTES do despacho**, com o `despacho_da_rodada` confirmando o checkout
+em **`igual`** (a licao de 23/10 as 10:2x). Provedor **edge MEDIDO** pelo
+`anotacoes_do_run` (zero avisos `NARRACAO PELO PIPER` no job `120467303966`, que
+e o job que emitiu o SOM), som **-13,4** LUFS, pico **-1,5** dBTP — isto e, **no
+teto exato** do `som.TP_MAX_DBTP`, logo `acima_do_teto` False por fronteira —,
+**zero silencios**. Os quatro parques pelo `registro_da_rodada`, os quatro
+**RELIDOS** (duracao **162** linhas, 90 sem leitura; som **102**; SQL **199**
+linhas com ZERO prosa; corpus pelo dono).
+
+**CANAL do `passo_zero`** (8/9/8 na janela de 24 h, empate entre kolejny e
+labtreinamento desempatado pelo que esta ha mais tempo sem publicar).
+
+**E A PAUTA DESVIOU DA REGRA ESCRITA, e o motivo e MEDIDO e novo.** As duas
+leituras do desempate **CONCORDAM** em `StQNFMdpGdk` (56 crua / 50 sem
+declaracao) — e esse id resolve para um **PACOTE COMPARTILHADO**,
+`labtreinamento-002`, com **catorze usos por TEXTO**, o **MAXIMO do canal**
+(acima dos 13 da dominante). A regra escrita conta por **ID**, e por id ele
+mostra **7**, empatado com **DEZ** outras origens: o empate e dele por acidente
+da contagem, e o desempate pela reserva o escolheria. **Em 23/10 as 11:3x isto
+ja estava medido com a leitura DIVERGENTE apontando o compartilhado; aqui e a
+PROPRIA regra escrita que cai nele**, que e o caso que o instrumento daquela
+hora nomeia como possivel.
+
+Desviei para **`4OYBkCHFTV8`** (`labtreinamento-006`), a MAIOR reserva sem
+declaracao entre as **NAO compartilhadas** do empate: 43 crua / **37** sem
+declaracao, **7** usos por texto. **O custo vai medido: treze capitulos de
+reserva, 26% do maior.** E o ganho tambem: a superficie de colisao da regra (f)
+cai de **catorze** irmaos para **SETE** — e foi ler por UM id de um pacote
+compartilhado que em 22/10 as 12:5x quase me fez repetir a familia de um irmao
+que o relato nao mostrava.
+
+**O que isto NAO afirma:** que o alerta do `concentracao` disparou. **Ele nao
+disparou** — 14 nao e maior que o dobro de 13, e e a mesma fronteira do caso
+10-contra-5 de 13/10 —, e a resolucao id -> pacote e por **convencao de NOME**,
+que erra nos dois sentidos. Conferir se os dois videos sao o mesmo conteudo pede
+a PAGINA de cada um, e a rota esta em `negado_por_politica`. **A decisao e desta
+rodada e vai escrita; nao virou regra.**
+
+**FAMILIA: TRES COISAS DA GUIA, E SO DUAS SAO NUMEROS** (capitulos 26, 27 e 28,
+com o 1 e o 59 de apoio — os tres levados **LIVRES**, e nenhum na lista de
+declarados por irmao, medida pelo `relato_dos_livres`). O eixo e a **NATUREZA
+das tres entradas** e nao o calculo: o codigo de pagamento e **CLASSIFICACAO** e
+nao quantidade, e e ele que decide se a conta se aplica ao caso de quem a faz.
+
+**E o mecanismo do silencio e especifico desta familia:** as duas quantidades
+sao justamente as que a pessoa **sabe de cor** — quanto paga e desde quando —,
+logo ela as preenche de memoria, e o unico dos tres que exige **abrir o
+documento** e o que **nao e numero**. A conta sai completa com dois dados de
+memoria e uma suposicao, e sai **redonda**.
+
+Distincoes escritas contra os **SETE** irmaos, lidas pelo `irmaos_da_origem` e —
+nos **SEIS** sem o campo da familia — pela PROSA e pela NARRACAO de cada um, que
+e de primeira mao (776). **O vizinho mais proximo e o `s107` e a distincao vai
+dita porque e fina:** ele e dono dos **TRES PASSOS** da conta (capitulos 29, 30
+e 31); esta peca fica **ANTES do primeiro passo**, na pre-condicao que decide se
+os passos se aplicam. **Passo contra pre-condicao.** E a distincao contra as
+pecas de HOJE deste canal tambem vai escrita, porque o `similaridade` compara
+TITULO e nao pegaria: o `s114` e **ONDE OLHAR** depois de haver resultado, e o
+`s112` **ACRESCENTA** estimativa a uma conta completa — aqui uma das tres
+entradas e **SUBSTITUIDA** por suposicao.
+
+**OITO CENAS pela chave `por_cadencia_servivel`:** sete e a melhor cadencia e
+**REPETE a `s116`**; **9, 10 e 11** sairam **NOMEADAS** porque ali o PISO da
+faixa nao e alcancavel com texto legivel. Oito cabe no teto MEDIDO da voz (11),
+nao repete os tamanhos recentes (s116 7, s115 6) e tem folga **+4**.
+
+**ESQUELETO `titulo-barras-item-item-lista-item-titulo-cta`, INEDITO nas 203
+formas da frota** — e a **MISTURA saiu do `sugere_forma`** (110 de 120 ordens
+livres), nao do olho. Todo layout saiu do conjunto **SONDADO**, com `assert` no
+construtor, e as **seis guardas do construtor** passaram limpas.
+
+**A PINCA DO 740/748 NAO ESTA FECHADA AQUI**, e este e o unico canal da frota em
+que isso acontece: a `janela_dos_dois_mundos` pede **34 a 36** caracteres por
+cena com oito cenas e a peca saiu com media **34,50** — edge **24,90** e piper
+**20,50**, os **DOIS** dentro da mira medida (20,0 a 26,0). Logo **nao ha
+exposicao de mundo a declarar**, e eu **NAO mirei o piso de proposito**: o piso
+executavel (25) e de **UM mundo** e a propria `mira.confere` o reprova. **E o
+REAL nao esta prometido para lado nenhum** (774).
+
+**ZERO numero novo sobre o mundo.** Os numerais falados sao **duas** e **tres**,
+a contagem das PROPRIAS entradas da conta, conferidos pelo `numerais_falados` —
+**e a recusa inclui o numero que daria a peca mais facil: os dois digitos do
+codigo**, que e exatamente o que muda por norma e o que a pessoa tem impresso na
+mao. Aliquota em percentual, taxa de juros, idade de aposentadoria e tempo
+minimo ficaram FORA pela regra (g), e **o capitulo 25 da PROPRIA origem escreve
+o motivo da taxa**. As barras da cena 1 sao ILUSTRACAO com alturas **IGUAIS** de
+proposito — o argumento e que as tres entradas parecem do mesmo tipo — e **nao
+sao faladas**.
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica` pela
+QUINQUAGESIMA SETIMA rodada seguida** — medido pela `sonda_e_modo`, com os TRES
+controles no MESMO caminho de saida: o `touch` passou, os DOIS hosts voltaram
+**000 sem arquivo**, e o proxy nomeou `example.com` e `www.youtube.com` depois
+de 14:13:49Z. `RESIDUO_N` segue **128**.
+
+**E A LEITURA DE INSCRITOS PASSOU AS TRES PORTAS E NAO FOI FEITA:** 100,1 h,
+piso de resolucao **0,24/dia**, os tres SIM. **O que a impede e a ROTA, e o
+remedio e do DONO** — a tela de Network access. As duas portas sao
+independentes, e passar uma nao e passar a outra.
+
+**COTA: NOVE envios** na janela aberta as 07:00Z, **14.400** unidades, contra o
+piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
+hora.

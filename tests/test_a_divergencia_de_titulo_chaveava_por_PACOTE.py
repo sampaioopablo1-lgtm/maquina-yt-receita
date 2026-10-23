@@ -251,3 +251,137 @@ def test_o_motivo_e_o_725_continuam_escritos():
             " calado" % pedaco)
     assert CASO_DE_13H["pacote"] in fonte, (
         "o caso medido saiu do modulo — ele e a procedencia do conserto")
+
+
+# ---------------------------------------------------------------------------
+# E O CONSERTO DA CHAVE CHEGOU AO VEREDITO E NAO A LINHA — 23/10 as 14:4x
+#
+# O conserto de 13:5x trocou a chave do `do_notice` de PACOTE para `youtube_id`
+# dentro do `divergencia_de_titulo`, que e o VEREDITO. A LINHA que alguem LE —
+# `_linha_do_publicado` — seguiu procurando por `pac`, logo ela imprimia
+# `None` do lado da testemunha em TODA rodada depois daquele conserto, e o
+# `<< DIVERGEM` dela, guardado por `test is None`, nao podia disparar nunca.
+#
+# E as duas metades falham em sentidos diferentes: o veredito acusava DE MAIS
+# (falso positivo de 13:5x) e a linha acusa DE MENOS, que e o sentido
+# PERMISSIVO. `None` ali tambem nao se distingue de *"o notice nao trouxe
+# titulo"*, que e um estado legitimo — a familia do vazio CAMUFLADO (20/10,
+# 12:3x).
+#
+# E a forma e a de 20/10 as 14:3x: conserto aplicado a UM de dois donos nao e
+# conserto.
+# ---------------------------------------------------------------------------
+
+
+def _marca(linhas):
+    return any("<< DIVERGEM" in l for l in linhas)
+
+
+def _testemunha_impressa(linhas):
+    """O que a LINHA diz do lado da testemunha, lido da propria saida."""
+    alvo = "titulo que SUBIU (do notice, a testemunha): "
+    for l in linhas:
+        for pedaco in l.split("\n"):
+            p = pedaco.strip()
+            if p.startswith(alvo):
+                return p[len(alvo):]
+    pytest.fail("a linha da testemunha desapareceu do relato do PUBLICADO")
+
+
+def test_a_LINHA_imprime_a_testemunha_e_nao_None():
+    linhas = AR._linha_do_publicado(_solto())
+    assert len(linhas) == 1, linhas
+    vist = _testemunha_impressa(linhas)
+    assert vist != "None", (
+        "a linha imprime None do lado da testemunha: ela procura o `do_notice`"
+        " pelo PACOTE e o dicionario e chaveado por `youtube_id` desde 13:5x")
+    _pac, ts = _ancora_solto()
+    assert ts in vist, (vist, ts)
+
+
+def test_a_chave_ANTIGA_de_fato_ERRAVA_na_linha():
+    """Sem isto, *"eu errei a chave"* seria afirmacao minha e nao medida.
+
+    E ele **reprova se a chave antiga deixar de errar**: ai as duas chaves
+    passaram a coincidir, o defeito perdeu o objeto e esta nota se rele.
+    """
+    lida = _solto()
+    d = AR.divergencia_de_titulo(lida)
+    linhas = AR._linha_do_publicado(lida)
+    pacs = [ln.get("pacote") for ln in AR.publicado(lida)]
+    assert pacs and all(p is not None for p in pacs), pacs
+    antiga = [d["do_notice"].get(p) for p in pacs]
+    assert antiga == [None] * len(pacs), (
+        "a chave por PACOTE voltou a achar algo no `do_notice`: as duas chaves"
+        " coincidiram e esta nota tem de ser RELIDA, nao o assert movido")
+    assert _testemunha_impressa(linhas) != "None", (
+        "a linha nao pode herdar o erro da chave antiga")
+
+
+def test_a_marca_de_DIVERGEM_pode_disparar_da_LINHA():
+    """O guarda `test is None` tornava o `<< DIVERGEM` inalcancavel."""
+    assert not _marca(AR._linha_do_publicado(_solto())), (
+        "a marca disparou com os dois titulos IGUAIS: marca que sempre sai nao"
+        " avisa, que e o argumento pelo qual o `mira.py` nao e portao")
+    assert _marca(AR._linha_do_publicado(_solto(titulo="OUTRO TITULO"))), (
+        "a marca NAO disparou com divergencia semeada: ela segue inalcancavel"
+        " a partir da linha, e e a linha que alguem LE")
+
+
+def test_o_VEREDITO_e_a_LINHA_concordam():
+    """As duas metades do mesmo fato tem de dizer a mesma coisa.
+
+    Foi o conserto chegar a UMA delas que produziu o defeito, logo o que se
+    cobra e a CONCORDANCIA e nao o valor de nenhuma das duas.
+    """
+    for lida in (_solto(), _solto(titulo="OUTRO TITULO"),
+                 _pacote(), _pacote(t_short="OUTRO TITULO")):
+        d = AR.divergencia_de_titulo(lida)
+        linhas = AR._linha_do_publicado(lida)
+        assert bool(d["divergentes"]) == _marca(linhas), (
+            "veredito e linha discordam: %r contra %r"
+            % (d["divergentes"], linhas))
+
+
+def test_o_PACOTE_imprime_as_DUAS_pecas_com_a_testemunha_de_CADA_uma():
+    """O caso que criou a chave por id, agora cobrado na LINHA.
+
+    Um pacote emite dois notices com o MESMO `pacote`; se a linha procurasse
+    por pacote, as duas pecas receberiam a MESMA testemunha — e seria a do
+    ULTIMO notice.
+    """
+    lida = _pacote()
+    linhas = AR._linha_do_publicado(lida)
+    assert len(linhas) == 2, linhas
+    vistos = [_testemunha_impressa([l]) for l in linhas]
+    assert "None" not in vistos, vistos
+    assert vistos[0] != vistos[1], (
+        "as duas pecas do pacote receberam a MESMA testemunha: a linha voltou a"
+        " procurar por PACOTE, e um pacote emite dois notices")
+    assert not _marca(linhas), linhas
+
+
+def test_a_chave_da_LINHA_e_o_youtube_id_por_AST():
+    corpo = _corpo_sem_docstring(AR._linha_do_publicado)
+    fonte = ast.unparse(corpo)
+    assert "do_notice'].get(ln.get('youtube_id'" in fonte or (
+        "do_notice\"].get(ln.get(\"youtube_id\"" in fonte), fonte
+    assert "do_notice'].get(pac" not in fonte, (
+        "a linha voltou a procurar o `do_notice` pelo PACOTE")
+    chamadas = {ast.unparse(n.func) for n in ast.walk(corpo)
+                if isinstance(n, ast.Call)}
+    assert "divergencia_de_titulo" in chamadas, (
+        "a linha tem de pedir o veredito ao DONO dele, nao recompor a conta")
+    proibidos = {"re.findall", "re.search", "re.compile", "open",
+                 "CA.titulos_dos_notices"}
+    assert not (chamadas & proibidos), (
+        "a linha reparseia o notice (%s): seria o terceiro dono da forma dele"
+        % sorted(chamadas & proibidos))
+
+
+def test_o_motivo_da_LINHA_continua_escrito():
+    fonte = _fonte(AR._linha_do_publicado)
+    for pedaco in ("13:5x", "14:4x", "youtube_id", "VEREDITO"):
+        assert pedaco in fonte, (
+            "o motivo saiu da funcao (%r): conserto sem motivo escrito volta"
+            " calado" % pedaco)

@@ -509,7 +509,15 @@ def _linha_do_publicado(lida: dict) -> list:
     d = divergencia_de_titulo(lida)
     for ln in publicado(lida):
         pac = ln.get("pacote")
-        test = d["do_notice"].get(pac)
+        # A chave do `do_notice` e o `youtube_id` desde 23/10 as 13:5x, e esta
+        # LINHA seguiu procurando por PACOTE ate 23/10 as 14:4x — logo ela
+        # imprimia `None` do lado da testemunha em TODA rodada depois daquele
+        # conserto, e o `<< DIVERGEM` dela, guardado por `test is None`, nao
+        # podia disparar nunca. O VEREDITO estava certo (`divergentes` sai do
+        # `divergencia_de_titulo`); errada era a linha que alguem LE, e `None`
+        # ali nao se distingue de *"o notice nao trouxe titulo"*. E a forma do
+        # 20/10 as 14:3x: conserto aplicado a UM de dois donos nao e conserto.
+        test = d["do_notice"].get(ln.get("youtube_id"))
         linhas.append(_PRE_PUB + "%s -> %s  em=%s\n    titulo que SUBIU (do "
                       "notice, a testemunha): %r\n    titulo da LINHA (da "
                       "nossa spec, o que vai ao corpus): %r%s"
