@@ -1,0 +1,128 @@
+{
+ "slug": "kolejny-poziom-s103",
+ "pacote": "kolejny-poziom-s103",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "thumb": {
+  "l1": "Jeden podatek",
+  "l2": "trzy osoby"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Trzy osoby",
+   "sub": "jeden podatek",
+   "nar": "Trzy osoby, jeden podatek."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Co robi każdy",
+   "itens": [
+    "Dzieli kwotę na trzy",
+    "Płaci swoją część"
+   ],
+   "nar": "Każdy dzieli kwotę na trzy."
+  },
+  {
+   "layout": "item",
+   "kicker": "I to się zgadza",
+   "preco": "co do złotówki",
+   "nar": "Suma zgadza się z decyzją."
+  },
+  {
+   "layout": "item",
+   "kicker": "Nikt nie dostaje pisma",
+   "preco": "więc nic nie boli",
+   "nar": "Nikt nie dostaje pisma z gminy."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Ale ustawa mówi inaczej",
+   "itens": [
+    "Nie po równo",
+    "Solidarnie"
+   ],
+   "nar": "Ustawa mówi tu jedno słowo."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Ile może żądać gmina",
+   "barras": [
+    {
+     "rotulo": "Twoja część",
+     "valor": 3
+    },
+    {
+     "rotulo": "Może żądać",
+     "valor": 9
+    }
+   ],
+   "nar": "Solidarnie, czyli całość."
+  },
+  {
+   "layout": "item",
+   "kicker": "Od każdego z was",
+   "preco": "osobno",
+   "nar": "Od każdego z was osobno."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Twoja część",
+   "sub": "to umowa między wami",
+   "nar": "Twoja część to wasza umowa."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Czy to limit dla gminy",
+   "barras": [
+    {
+     "rotulo": "Wobec siebie",
+     "valor": 8
+    },
+    {
+     "rotulo": "Wobec gminy",
+     "valor": 8
+    }
+   ],
+   "nar": "Dla gminy nie jest limitem."
+  },
+  {
+   "layout": "item",
+   "kicker": "Dopóki wszyscy płacą",
+   "preco": "podział opisuje wszystko",
+   "nar": "Gdy wszyscy płacą, nic nie boli."
+  },
+  {
+   "layout": "item",
+   "kicker": "Koszt wraca w jednym dniu",
+   "preco": "i nie dzieli się",
+   "nar": "Jeden nie zapłaci i wraca całość."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Trafia w tego",
+   "sub": "kogo gmina sięgnie pierwsza",
+   "nar": "Trafia w tego, kto zapłacił."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Czyje nazwiska?",
+   "sub": "sprawdź swoją decyzję",
+   "nar": "Sprawdź nazwiska w decyzji."
+  }
+ ],
+ "copy": "# kolejny-poziom-s103 — short solto\n\n## TITULO\nWspółwłasność i podatek od nieruchomości: twoja część to umowa między wami, nie limit dla gminy\n\n## TITULO SHORT\nTwoja część to nie limit\n\n## DESCRICAO\nMieszkanie należy do trzech osób, decyzja o podatku od nieruchomości przychodzi\njedna, więc każdy robi to samo: dzieli kwotę na trzy i płaci swoją część. To\ndzielenie działa bez zarzutu. Liczby się zgadzają, suma wychodzi dokładnie taka,\njak w decyzji, i nikt nigdy nie dostaje pisma z urzędu. A mimo to ta jedna\ntrzecia nie jest tym, co każde z was wobec gminy ma.\n\nUstawa o podatkach i opłatach lokalnych mówi, że przy kilku współwłaścicielach\nobowiązek podatkowy ciąży na nich solidarnie. Solidarnie nie znaczy \"po równo\".\nZnaczy, że gmina może dochodzić całej kwoty od każdego z was osobno, do pełnej\nwysokości, i nie musi najpierw pytać pozostałych. Twoja jedna trzecia jest\nustaleniem między współwłaścicielami. Dla gminy limitem nie jest.\n\nDlatego ten błąd nie boli tak długo, jak wszyscy płacą. Dopóki trzy przelewy\nwychodzą w terminie, podział opisuje rzeczywistość co do złotówki i nie ma czego\nsprawdzać. Koszt pojawia się dopiero w dniu, w którym jedna osoba nie zapłaci —\ni wtedy nie dzieli się na trzy. Trafia w całości w tego, do kogo gmina sięgnie\npierwsza, i trafia w kogoś, kto swoją część zapłacił.\n\nZ tego wynika jedna rzecz do zrobienia, i nie jest nią przeliczenie podatku.\nZobacz, czyje nazwiska stoją w twojej decyzji, bo to one wyznaczają krąg osób, od\nktórych gmina może żądać całości. Jeśli pomiędzy wami jest ustalenie o częściach,\nto jest umowa między wami — przydatna wobec siebie, bez znaczenia wobec urzędu. I\njeśli ktoś z kręgu przestaje płacić, nie jest to dla ciebie wiadomość o jego\nsprawach: jest to wiadomość o twojej.\n\nTen film nie podaje żadnej stawki, żadnej kwoty i żadnego terminu. Twoja stawka\nzależy od uchwały twojej gminy, a terminy znajdziesz w swojej decyzji — to jedyne\ndwa dokumenty, które mówią o tobie.\n\n## COMENTARIO FIXADO\nNie dzielę tu podatku na trzy ani nie podaję stawki: oba te numery zależą od\ntwojej decyzji i od uchwały twojej gminy. Pytanie jest inne i jest jedno — czyje\nnazwiska stoją w decyzji, którą dostałeś?\n\n## FONTES\nUstawa o podatkach i opłatach lokalnych, przepis o współwłasności: obowiązek\npodatkowy przy kilku współwłaścicielach ciąży na nich solidarnie. Rozdział 55\nźródłowego długiego materiału (kolejny-poziom-016), ze wsparciem rozdziału 41 —\npodatek dla osoby fizycznej ustala organ podatkowy w drodze decyzji, więc\ndokument, o którym tu mowa, każdy już ma w domu.\n\n## FAMILIA DE ENTRADA ERRADA\nDZIELIĆ OBOWIĄZEK SOLIDARNY PRZEZ LICZBĘ WSPÓŁWŁAŚCICIELI I TRAKTOWAĆ WŁASNY\nUŁAMEK JAK TO, CO SIĘ WINNO. O eixo e a NATUREZA do obrigacao — divisivel contra\nsolidaria —, nao o valor de nenhuma parcela e nao a conta. A divisao por N\nfunciona, fecha com o total da decisao e devolve um numero que PARECE a resposta;\no que ela nao descreve e o que cada um deve perante a gmina, que e o TODO.\n\nE O MECANISMO DO SILENCIO E DE OPORTUNIDADE, nao de aritmetica: enquanto os tres\npagam em dia, o rateio descreve a realidade ao zloty e nao ha nada de que\ndesconfiar — nao ha carta do urzad, nao ha juro, nao ha diferenca. O custo\naparece num unico dia, o dia em que UM nao paga, e nesse dia ele nao se divide\npor tres: cai inteiro em quem a gmina alcancar primeiro, e cai em alguem que\npagou a propria parte.\n\nDISTINCAO DOS QUATRO IRMAOS DESTA ORIGEM, conferida pelo `irmaos_da_origem` e,\nnos que nao tem o campo, pela PROSA e pela NARRACAO de cada um, que e de primeira\nmao (776): o `s002` trata o valor IGUAL ao do ano anterior nao ser erro; o `s029`\nsupor que o FIM de uma obrigacao se comunica sozinho; o `s037` atribuir a UM\nfator o aumento de um produto de dois; o `s060` haver QUATRO prazos e nao um.\nOs quatro falam do VALOR ou do PRAZO do imposto. Nenhum fala de QUEM o deve, nem\nde a obrigacao nao ser divisivel.\n\nE A DISTINCAO CONTRA OUTRO CANAL VAI ESCRITA, porque o portao `similaridade`\ncompara contra o MESMO canal e nao pegaria: o `epomeno-epipedo-s097` (22/10) e um\nQUOCIENTE cuja parcela pede outro divisor, e o `labtreinamento-015` (hoje) e a\nUNIDADE da tabela escolhida antes de qualquer dado. Aqui o quociente esta certo e\na unidade esta certa — o que nao existe e a DIVISIBILIDADE do que se dividiu.\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO. Nao cita stawka, nao cita kwota, nao cita prazo,\nnao cita numero de artigo e nao cita o sufit da ustawa. O unico numeral falado e\n\"trzy\", e ele e a ILUSTRACAO do proprio argumento (tres co-proprietarios do\nexemplo), nao afirmacao sobre o mundo — conferido pelo `numerais_falados`. As\nbarras das cenas 5 e 8 sao ILUSTRACAO qualitativa e NAO sao faladas: a cena 5\ndesenha a parcela de cada um contra o todo que a gmina pode exigir, e a 8 desenha\nas duas leituras com ALTURA IGUAL, porque o argumento e que a divisao fecha nos\ndois casos.\n\nE A RECUSA INCLUI O NUMERO QUE DARIA A PECA MAIS FORTE: quanto a gmina pode\nexigir de cada um em zlotych, que e exatamente o que tornaria o risco concreto.\nEle depende da decisao de quem ouve, e a propria origem escreve esse motivo no\nrozdzial 5 — *\"Ten film nie podaje zadnej stawki. Nie moglby — twoja zalezy od\ngminy.\"*\n\n## EXPOSICAO\nA PINCA DO 740/748 ESTA FECHADA AQUI, e isto vai declarado ANTES de publicar:\nnenhuma media de caracteres por cena poe os DOIS provedores dentro de 41,5 a 43,0\ncom treze cenas nesta voz, logo o piper sai FORA pela mira e DENTRO do portao,\nque cobra 18 a 45 s nos dois mundos. Mirei o PISO da faixa, pela regra de redacao\ndo 772. E o REAL nao esta prometido para lado nenhum: a banda tem 5,2 s de\nlargura contra 1 s de granularidade, e declarar um lado dela nao e previsao (774).\n\n## RESERVA\nLIVRES nesta origem, com o motivo de cada uma:\n- rozdzialy 8 a 15 (a stawka nao esta escrita na decisao; obtem-se DIVIDINDO a\n  kwota pela powierzchnia, e o rozdzial 15 avisa para dividir POSICAO por\n  POSICAO, nunca a soma pela soma). NAO foi levada hoje de proposito: o eixo\n  dela — quociente agregado que esconde heterogeneidade — e o do\n  `epomeno-epipedo-s097`, de 22/10, em OUTRO canal, e repetir eixo atravessando\n  canal e o 762 numa dimensao que o `similaridade` nao ve.\n- rozdzialy 25 a 31 (o indicador que move o sufit NAO e a inflacao anual do\n  noticiario: e o indice do primeiro semestre contra o mesmo semestre do ano\n  anterior). LIVRE, e o eixo e o PERIODO — conferir antes contra o\n  `epomeno-epipedo-s075`, que trata a UNIDADE DO PERIODO em outro canal.\n- rozdzial 54 (o formulario da pessoa fisica entrega-se no urzad da gmina em cujo\n  territorio esta o imovel, nao onde voce mora). LIVRE e sem vizinho proximo.\nNAO LEVAR:\n- rozdzialy 16 a 24, 33, 51 e 62 vao DECLARADOS por irmao (`s029`, `s060`,\n  `s037`): sao a cadeia do sufit, a falta de uchwala e a comparacao entre gminas.\n- rozdzialy 40 a 46 e 48 a 50: sao os PRAZOS, territorio do `s060`.\n- rozdzialy 35, 36 e 39: o valor igual ao do ano anterior, territorio do `s002`.\n\n## HASHTAGS\n#podatki #nieruchomosci #wspolwlasnosc #finanseosobiste #polska\n\n## TAGS\npodatek od nieruchomosci, wspolwlasnosc, solidarnie, obowiazek podatkowy, decyzja podatkowa, gmina, finanse osobiste, podatki lokalne, wspolwlasciciele, prawo podatkowe\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ncategoryId: 27\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\nmadeForKids: false\n\n## MUSICA / LICENCA\n{TRILHA}\n",
+ "paleta": {
+  "bg": "#0B0B0C",
+  "ink": "#F2EEE8",
+  "c1": "#E23B3B",
+  "c2": "#D9C7A7",
+  "red": "#FF4D4D",
+  "ok": "#7FB77E",
+  "panel": "#151517",
+  "mut": "#8F877C",
+  "acc": "#E23B3B"
+ }
+}
