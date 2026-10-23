@@ -94,6 +94,47 @@ def escolhas():
     return {c: PM.escolha(c) for c in CANAIS}
 
 
+def _quadro_que(diverge: bool) -> list:
+    """Quadro SINTETICO com empate de usos, que DIVERGE ou NAO, por construcao.
+
+    Os tres testes abaixo liam o DISCO VIVO para saber se as duas leituras
+    divergem — e em 23/10 as 07:4x os tres reprovaram porque **a divergencia
+    desapareceu da frota inteira**: os tres canais passaram a escolher a MESMA
+    origem pelas duas leituras. A causa foi a producao, nao o instrumento (as
+    pecas desta sessao mudaram quem empata e quem declara o que), e a propria
+    mensagem deste arquivo mandava **RELER em vez de mover o numero**.
+
+    Relendo: a divergencia da ESCOLHA e um **ESTADO da pauta**, nao propriedade
+    do instrumento — ela depende de quais origens empatam e de que faixa os
+    irmaos declaram, e as duas se movem a cada publicacao. E a licao de 18/10 as
+    09:2x: *teste que ancora no estado VIVO reprova quando a pauta for
+    consumida, e consumir pauta e o trabalho*.
+
+    Logo os DOIS ramos passam a ser exercitados por quadro INJETADO, e o disco
+    vivo responde pela propriedade ESTRUTURAL (a reserva sem declaracao nunca e
+    maior que a crua) mais o ESTADO, que vai DITO e nao reprovado.
+    """
+    def linha(oid, usos, reserva, sem):
+        return {"origem": oid, "usos": usos, "pacote": "p-%s" % oid,
+                "n_capitulos": 99, "reserva": reserva,
+                "reserva_sem_declaracao": sem,
+                "suspeito_de_outro_canal": False, "dono_medido": None,
+                "sem_spec_local": False}
+    if diverge:
+        # a crua ganha (reserva 60 > 50) e a outra tem MAIS sem declaracao
+        return [linha("aaa", 4, 60, 20), linha("bbb", 4, 50, 45),
+                linha("ccc", 9, 70, 70)]
+    # as duas apontam a MESMA origem
+    return [linha("aaa", 4, 60, 50), linha("bbb", 4, 50, 20),
+            linha("ccc", 9, 70, 70)]
+
+
+def _escolha_injetada(monkeypatch, diverge: bool) -> dict:
+    monkeypatch.setattr(PM, "quadro",
+                        lambda *a, **k: _quadro_que(diverge))
+    return PM.escolha("canal-de-teste")
+
+
 def test_o_quadro_traz_a_reserva_SEM_DECLARACAO(quadros):
     for canal, linhas in quadros.items():
         com = [x for x in linhas if x["pacote"]]
@@ -123,46 +164,58 @@ def test_origem_SEM_spec_local_devolve_None_e_nao_zero(quadros):
                     "passa por vacuidade e a distincao None/0 nao e medida")
 
 
-def test_a_divergencia_EXISTE_e_nao_e_universal(escolhas):
-    """Os DOIS lados, e reprova se todos ou nenhum divergirem."""
-    com_empate = {c: e for c, e in escolhas.items()
-                  if len(e["empatados_na_contagem"]) > 1}
-    assert len(com_empate) >= PISO_CANAIS_COM_EMPATE, (
-        "nenhum canal tem empate de usos: sem empate o desempate nao decide "
-        "nada e este arquivo nao mede o defeito que o produziu")
-    div = [c for c, e in com_empate.items() if e["desempate_diverge"]]
-    igual = [c for c, e in com_empate.items() if not e["desempate_diverge"]]
-    assert div or igual
-    if not div:
-        pytest.fail(
-            "nenhum canal com empate DIVERGE mais (%s) — o defeito medido em "
-            "22/10 as 17:3x desapareceu, e esta nota tem de ser RELIDA em vez "
-            "de o numero ser movido" % ", ".join(sorted(com_empate)))
-    if not igual and len(com_empate) > 1:
-        pytest.fail(
-            "TODOS os canais com empate divergem (%s) — sem o lado contrario a "
-            "divergencia nao distingue nada, e a nota se rele"
-            % ", ".join(sorted(div)))
+def test_os_DOIS_ramos_da_divergencia_sao_EXERCITADOS(monkeypatch):
+    """Por INJECAO, nao pelo disco: a divergencia e ESTADO da pauta.
+
+    A versao anterior lia os tres canais e reprovava quando nenhum divergia —
+    e em 23/10 as 07:4x nenhum divergia mais, por producao minha. Retratado no
+    lugar: o que se cobra e que os DOIS ramos existam e funcionem.
+    """
+    com = _escolha_injetada(monkeypatch, True)
+    assert com["desempate_diverge"] is True
+    assert com["escolhida"]["origem"] == "aaa"
+    assert com["escolhida_por_reserva_sem_declaracao"]["origem"] == "bbb"
+    sem = _escolha_injetada(monkeypatch, False)
+    assert sem["desempate_diverge"] is False
+    assert sem["escolhida"]["origem"] == "aaa"
+    assert sem["escolhida_por_reserva_sem_declaracao"]["origem"] == "aaa"
 
 
-def test_onde_DIVERGE_a_crua_escolhe_a_de_MENOS_capitulo_livre(escolhas):
-    """A inversao e o que torna o achado grave, e ela e RECONFERIDA."""
-    houve = 0
-    for canal, e in escolhas.items():
-        if not e["desempate_diverge"]:
-            continue
-        houve += 1
-        crua = e["escolhida"]
-        sem = e["escolhida_por_reserva_sem_declaracao"]
-        assert crua["reserva"] >= sem["reserva"], (
-            "%s: a crua tem de ganhar pela reserva CRUA, senao ela nao a "
-            "escolheu" % canal)
-        assert sem["reserva_sem_declaracao"] > crua["reserva_sem_declaracao"], (
-            "%s: a divergencia so e divergencia se a outra tiver MAIS capitulo "
-            "sem declaracao (%d contra %d)"
-            % (canal, sem["reserva_sem_declaracao"],
-               crua["reserva_sem_declaracao"]))
-    assert houve, "nenhum canal divergiu — ja coberto pelo teste dos dois lados"
+def test_no_DISCO_a_propriedade_ESTRUTURAL_vale_sempre(quadros):
+    """A reserva SEM DECLARACAO nunca e maior que a crua — isto nao e estado.
+
+    Capitulo declarado por irmao e capitulo que a crua conta e a outra nao,
+    logo a segunda leitura e sempre <= a primeira. Esta e a propriedade que
+    sobrevive a qualquer estado da pauta, e e ela que o disco responde.
+    """
+    conferidas = 0
+    for canal, linhas in quadros.items():
+        for x in linhas:
+            sd = x.get("reserva_sem_declaracao")
+            if sd is None:
+                continue
+            conferidas += 1
+            assert 0 <= sd <= x["reserva"], (canal, x["origem"], sd,
+                                             x["reserva"])
+    assert conferidas >= PISO_ORIGENS, (
+        "so %d origem(ns) com spec local nos tres canais: a varredura nao mede "
+        "nada" % conferidas)
+
+
+def test_onde_DIVERGE_a_crua_escolhe_a_de_MENOS_capitulo_livre(monkeypatch):
+    """A inversao e o que torna o achado grave, e ela e cobrada por INJECAO.
+
+    O caso REAL que a produziu fica como HISTORIA em `MEDIDA_DE_17H`, e nenhum
+    assert depende dele: os ids e os numeros mudam com a pauta.
+    """
+    e = _escolha_injetada(monkeypatch, True)
+    crua = e["escolhida"]
+    sem = e["escolhida_por_reserva_sem_declaracao"]
+    assert crua["reserva"] >= sem["reserva"], (
+        "a crua tem de ganhar pela reserva CRUA, senao ela nao a escolheu")
+    assert sem["reserva_sem_declaracao"] > crua["reserva_sem_declaracao"], (
+        "a divergencia so e divergencia se a outra tiver MAIS capitulo sem "
+        "declaracao")
 
 
 def test_a_juncao_e_DELEGADA_ao_texto_dos_livres(quadros):
@@ -300,7 +353,7 @@ def test_o_exceto_chega_a_CONTA_NOVA_tambem(quadros):
         % (linha["reserva_sem_declaracao"], alvo["reserva_sem_declaracao"]))
 
 
-def test_o_VAO_da_divergencia_e_MEDIDO_e_nao_decide(escolhas):
+def test_o_VAO_da_divergencia_e_MEDIDO_e_nao_decide(monkeypatch):
     """Medido em 22/10 as 18:0x, na SEGUNDA rodada com o instrumento.
 
     Ele dizia QUE as duas leituras divergem e nunca POR QUANTO, e a decisao de
@@ -310,26 +363,23 @@ def test_o_VAO_da_divergencia_e_MEDIDO_e_nao_decide(escolhas):
     responder *"esta na mira?"* e nunca *"quanto escrever para entrar?"*.
 
     E o vao NAO decide: limiar aqui seria criterio inventado (§10).
+
+    Cobrado por INJECAO desde 23/10 as 07:4x, porque a divergencia e ESTADO da
+    pauta e nao propriedade do instrumento.
     """
-    houve = 0
-    for canal, e in escolhas.items():
-        v = e.get("desempate_vao")
-        if not e["desempate_diverge"]:
-            assert v is None, (
-                "%s: nao diverge e ainda assim trouxe vao %r — vao sem "
-                "divergencia nao tem objeto" % (canal, v))
-            continue
-        houve += 1
-        assert isinstance(v, dict), "%s: diverge e nao trouxe o vao" % canal
-        assert v["capitulos"] > 0, (
-            "%s: o vao tem de ser POSITIVO, porque a leitura nova escolhe quem "
-            "tem MAIS capitulo sem declaracao" % canal)
-        assert v["da_leitura_nova"] - v["da_regra"] == v["capitulos"], (
-            "%s: o vao tem de ser a diferenca entre os DOIS numeros que a "
-            "frase imprime, senao ele e um terceiro numero" % canal)
-        assert 0 < v["fracao"] <= 1
-    assert houve, ("nenhum canal divergiu nesta leitura — ja coberto pelo teste "
-                   "dos dois lados, e sem divergencia o vao nao tem objeto")
+    com = _escolha_injetada(monkeypatch, True)
+    v = com["desempate_vao"]
+    assert isinstance(v, dict), "diverge e nao trouxe o vao"
+    assert v["capitulos"] > 0, (
+        "o vao tem de ser POSITIVO, porque a leitura nova escolhe quem tem "
+        "MAIS capitulo sem declaracao")
+    assert v["da_leitura_nova"] - v["da_regra"] == v["capitulos"], (
+        "o vao tem de ser a diferenca entre os DOIS numeros que a frase "
+        "imprime, senao ele e um terceiro numero")
+    assert 0 < v["fracao"] <= 1
+    sem = _escolha_injetada(monkeypatch, False)
+    assert sem["desempate_vao"] is None, (
+        "vao sem divergencia nao tem objeto")
 
 
 def test_o_vao_SAI_na_frase_e_nao_vira_LIMIAR():
