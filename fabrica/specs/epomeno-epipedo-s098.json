@@ -1,0 +1,134 @@
+{
+ "slug": "epomeno-epipedo-s098",
+ "pacote": "epomeno-epipedo-s098",
+ "idioma": "el",
+ "voz": "el-GR-NestorasNeural",
+ "trilha": "Inspired",
+ "longo_existente": "uWs-k_Wrn_w",
+ "thumb": {
+  "l1": "Ανά ακίνητο",
+  "l2": "όχι άτομο"
+ },
+ "paleta": {
+  "bg": "#F4EFE6",
+  "ink": "#1B1A17",
+  "c1": "#C8502A",
+  "c2": "#2B6CB0",
+  "red": "#B83227",
+  "ok": "#2E8B57",
+  "panel": "#FFFFFF",
+  "mut": "#7A7263",
+  "acc": "#C8502A"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Η έκπτωση δεν είναι ανά άτομο",
+   "sub": "μετριέται αλλιώς",
+   "nar": "Η έκπτωση δεν είναι ανά άτομο."
+  },
+  {
+   "layout": "item",
+   "kicker": "Μία ζήτησες, μία πήρες",
+   "sub": "και θεώρησες πως τελείωσε",
+   "nar": "Μία ζήτησες, μία πήρες."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Ένας κάτοχος, πολλά ακίνητα",
+   "barras": [
+    {
+     "rot": "Ανά άτομο",
+     "v": 40
+    },
+    {
+     "rot": "Ανά ακίνητο",
+     "v": 100
+    }
+   ],
+   "nar": "Ένας κάτοχος, πολλά ακίνητα."
+  },
+  {
+   "layout": "item",
+   "kicker": "Η μονάδα είναι το ακίνητο",
+   "sub": "όχι ο κάτοχός του",
+   "nar": "Η μονάδα είναι το ακίνητο."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Καθένα κρίνεται χωριστά",
+   "itens": [
+    "Οι όροι του",
+    "Η κάλυψή του"
+   ],
+   "nar": "Καθένα κρίνεται χωριστά."
+  },
+  {
+   "layout": "item",
+   "kicker": "Όχι ο ιδιοκτήτης, το ακίνητο",
+   "sub": "αυτό μετράει",
+   "nar": "Όχι ο ιδιοκτήτης, το ακίνητο."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Τίποτα δεν σου το λέει",
+   "sub": "και γι αυτό περνάει",
+   "nar": "Τίποτα δεν σου το λέει."
+  },
+  {
+   "layout": "item",
+   "kicker": "Το χαρτί δείχνει μόνο σύνολο",
+   "sub": "όχι τι δήλωσες",
+   "nar": "Το χαρτί δείχνει μόνο σύνολο."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Δικαιώματα πάνω από δικαιούχους",
+   "barras": [
+    {
+     "rot": "Δικαιούχοι",
+     "v": 70
+    },
+    {
+     "rot": "Δικαιώματα",
+     "v": 100
+    }
+   ],
+   "nar": "Δικαιώματα πάνω από δικαιούχους."
+  },
+  {
+   "layout": "item",
+   "kicker": "Η πράξη δεν διαμαρτύρεται",
+   "sub": "βγαίνει σωστή και λίγη",
+   "nar": "Η πράξη δεν διαμαρτύρεται."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Δες ποια ακίνητα ασφαλίζεις",
+   "itens": [
+    "Πού είναι ασφαλισμένα",
+    "Τι καλύπτει καθένα"
+   ],
+   "nar": "Δες ποια ακίνητα ασφαλίζεις."
+  },
+  {
+   "layout": "item",
+   "kicker": "Ρώτα ανά ακίνητο, όχι ανά εσένα",
+   "sub": "η απάντηση αλλάζει",
+   "nar": "Ρώτα ανά ακίνητο, όχι ανά εσένα."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Ένα δικαίωμα για καθένα",
+   "sub": "που πληροί τους όρους",
+   "nar": "Ένα δικαίωμα για καθένα."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Δες τα ακίνητά σου και γράψου",
+   "nar": "Δες τα ακίνητά σου και γράψου."
+  }
+ ],
+ "copy": "# epomeno-epipedo-s098\n\n## TITULO\nΗ έκπτωση μετριέται ανά ακίνητο, όχι ανά άνθρωπο: γιατί το άλλο σου ακίνητο μετράει χωριστά\n\n## TITULO SHORT\nΑνά ακίνητο, όχι ανά άτομο\n\n## DESCRICAO\nΖήτησες την έκπτωση μία φορά, την πήρες μία φορά, και θεώρησες πως η δουλειά τέλειωσε. Είναι η πιο λογική σκέψη του κόσμου, και είναι ακριβώς εκεί που χάνεται κάτι — επειδή η μονάδα που μετράει δεν είσαι εσύ.\n\nΗ έκπτωση δεν δίνεται ανά άνθρωπο. Δίνεται ανά ακίνητο που πληροί τους όρους, και καθένα κρίνεται χωριστά: τους όρους του, την κάλυψή του, τη διάρκειά του. Δύο ακίνητα σωστά ασφαλισμένα δεν είναι μία περίπτωση με δύο διευθύνσεις· είναι δύο περιπτώσεις, και η κάθε μία ζητά το δικό της.\n\nΤο χειρότερο κομμάτι είναι η σιωπή. Το εκκαθαριστικό σου δείχνει ένα σύνολο· δεν σου λέει πουθενά «δήλωσες το ένα και το άλλο το άφησες έξω». Η αριθμητική δεν διαμαρτύρεται ποτέ: η έκπτωση που πήρες είναι σωστή, υπολογισμένη σωστά, μόνο που είναι μικρότερη από αυτή που σου αναλογούσε. Δεν υπάρχει λάθος να βρεις, δεν υπάρχει κόκκινη γραμμή να ψάξεις. Υπάρχει μόνο ένα ποσό που φαίνεται λογικό.\n\nΚαι στο ίδιο κείμενο όπου ανακοινώνεται η έκπτωση υπάρχει ένα σημάδι αυτής της λογικής: τα δικαιώματα που καταγράφηκαν ήταν περισσότερα από τους ανθρώπους που τα πήραν. Αυτό βγάζει νόημα με έναν μόνο τρόπο — ότι αρκετοί δήλωσαν παραπάνω από ένα ασφαλισμένο ακίνητο, άρα η μέτρηση γίνεται στο ακίνητο.\n\nΓι' αυτό η σωστή ερώτηση δεν είναι «την πήρα την έκπτωση;» αλλά «την πήρα για καθένα;». Άνοιξε τη λίστα των ακινήτων σου, δες ποια είναι ασφαλισμένα και τι καλύπτει το καθένα, και ρώτα ανά ακίνητο. Η απάντηση αλλάζει.\n\nΤο μεγάλο βίντεο έχει τους όρους έναν προς έναν, τις προθεσμίες και τα ποσά — εδώ μένει ο κανόνας που δεν παλιώνει: ένα δικαίωμα για καθένα που πληροί τους όρους.\n\n## COMENTARIO FIXADO\nΗ ερώτηση που αλλάζει την απάντηση δεν είναι «πήρα την έκπτωση;» — είναι «την πήρα για καθένα;». Οι όροι, οι προθεσμίες και τα ποσά είναι στο μεγάλο βίντεο του καναλιού, με πηγή και ημερομηνία. Εδώ μένει μόνο η μονάδα: το ακίνητο.\n\n## FONTES\nΜεγάλο βίντεο `uWs-k_Wrn_w` (epomeno-epipedo-008), κεφάλαια 20, 21 και 22, με στήριξη από τα κεφάλαια 31 και 34.\n\n## FAMILIA DE ENTRADA ERRADA\nΗ ΜΟΝΑΔΑ του δικαιώματος: η έκπτωση μετρημένη ανά ΑΝΘΡΩΠΟ όταν μετριέται ανά ΑΚΙΝΗΤΟ. Ο άξονας είναι η μονάδα της μέτρησης, όχι η τιμή κανενός όρου — όλοι οι όροι μπορεί να είναι σωστοί και το αποτέλεσμα να βγει μικρότερο, επειδή το δεύτερο ασφαλισμένο ακίνητο δεν δηλώθηκε ποτέ. Και δεν υπάρχει σήμα: το εκκαθαριστικό δείχνει σύνολο και η διαίρεση δεν διαμαρτύρεται.\n\nΔιακρίσεις από τους ΤΕΣΣΕΡΙΣ αδελφούς αυτής της πηγής, διαβασμένες με τον `irmaos_da_origem` και — στους δύο που δεν έχουν το πεδίο της οικογένειας — από την ΠΡΟΖΑ και την ΑΦΗΓΗΣΗ του καθενός, που είναι πρώτο χέρι:\n- `s017` ΠΟΙΑ μείωση λείπει (δύο μειώσεις, η μία αυτόματη, η άλλη με αίτηση). Άξονας: η ΑΙΤΗΣΗ.\n- `s026` το κατώφλι δεν είναι ΠΟΣΟ (κεφάλαια 47 έως 49). Άξονας: δικαίωμα εναντίον ύψους.\n- `s062` μισός χρόνος, περίπου μισή έκπτωση (κεφάλαιο 33). Άξονας: η ΔΙΑΡΚΕΙΑ ορίζει το ποσό.\n- `s080` η έκπτωση δεν είναι ο λόγος της αγοράς (κεφάλαια 51 έως 52). Άξονας: αν ΣΥΜΦΕΡΕΙ.\nΚανένας από τους τέσσερις δεν μιλά για τη ΜΟΝΑΔΑ στην οποία μετριέται το δικαίωμα. Ο πιο κοντινός είναι ο `s017`: εκεί λείπει μια ΑΙΤΗΣΗ για μια άλλη μείωση· εδώ η αίτηση έγινε και έπιασε — μόνο που έπιασε για ένα ακίνητο από περισσότερα.\n\n## AVISO SOBRE OS NUMEROS\nZERO numero novo sobre o mundo, e este longo e um campo minado para a regra (g) — a mesma ressalva que o irmao `s017` escreveu nesta origem. Ficaram FORA: o ENFIA medio, o total arrecadado, o numero de contribuintes, a percentagem da deducao, quantos a receberam, o valor medio dela, a razao \"um em catorze\", o numero de rights registados, o minimo de dias de seguro, a data limite calculada, o minimo por metro quadrado, a percentagem da outra reducao e o custo medio do premio. Todos mudam por ato do orgao ou por lei.\n\nE a RECUSA inclui o numero que daria a peca mais facil: a diferenca medida entre rights e beneficiarios, que e justamente o SINAL de que a unidade e o imovel. A peca diz que os rights foram MAIS que os beneficiarios sem dizer quantos, porque a contagem muda por publicacao e a implicacao nao.\n\nNUMERAIS: a narracao nao fala numeral nenhum, conferido pelo `numerais_falados` (com a ressalva dele: ausencia de vocabulario nao prova ausencia). E ordinal de contagem tambem ficou fora, pelo precedente do `s017` nesta origem: \"άλλο ακίνητο\" no lugar de \"δεύτερο\", porque ordinal de contagem ja e quantidade.\n\nAs BARRAS sao ILUSTRACAO qualitativa e **nao** sao faladas: a cena 2 desenha \"ανά άτομο\" mais baixo que \"ανά ακίνητο\" e a cena 8 desenha os rights acima dos beneficiarios. Nenhuma das duas e proporcao medida, e isto vai escrito para a rodada seguinte nao as ler de volta como dado.\n\n## EXPOSICAO\nA PINCA do 740/748 esta FECHADA aqui, e vai declarada ANTES de publicar: nenhuma media de caracteres por cena poe os DOIS provedores dentro de 41,5 a 43,0 com catorze cenas nesta voz. Previsao edge 42,30 s (DENTRO da mira) e piper 37,40 s (FORA pela mira, DENTRO do portao, que cobra 18 a 45 s nos dois mundos).\n\nE o PISO EXATO da faixa NAO e alcancavel com catorze cenas, dito assim em vez de eu chamar 42,30 de piso: um caractere por cena vale 0,71 s, logo 27 caracteres dao 42,25 e 26 caem ABAIXO da faixa. O `mira.quanto_cortar` devolve \"esta no alvo\" com delta zero — este e o ponto mais baixo ALCANCAVEL acima do piso, e e onde o `orcamento` mira (o MEIO, 752/774).\n\nE o REAL nao esta prometido para lado nenhum: a banda do residuo tem 5,2 s de largura contra 1 s de granularidade, e declarar um lado dela nao e previsao (774).\n\n## RESERVA\nLIVRES nesta origem, com o motivo:\n- capitulos 10, 11 e 12 — o DENOMINADOR: os atos emitidos sao mais que os contribuintes cobrados, e dividir pelo numero grande deixa a media artificialmente baixa. O capitulo 12 escreve a licao em letra. **Nao levei nesta rodada** porque o eixo do denominador ja e o do `epomeno-epipedo-s001`, de outra origem deste canal, e a regra (f) vale entre origens.\n- capitulos 23, 24 e 25 — por que treze em catorze nao a pegam: a maioria simplesmente nao tem o imovel segurado, e quem tem muitas vezes nao tem as coberturas que a lei pede.\n- capitulo 27 com 30, 31, 32 e 34 — quatro condicoes que valem TODAS JUNTAS: faltando uma, a reducao nao e menor, ela nao existe. **Atencao ao `contagem_declarada`:** o capitulo 27 declara QUATRO e a enumeracao visivel nos livres sao os capitulos 30, 31 e duas \"λεπτομέρειες\" (32, 34) — leia o longo antes de carregar a contagem.\n- capitulo 61 — o CAMINHO dentro da plataforma, e o 63, que diz que cobertura dos tres riscos pode significar direito nunca pedido.\n\nNAO LEVAR, e o motivo:\n- capitulos 47, 48 e 49 — DECLARADOS pelo `s026` (o kicker casa por texto e a copy dele declara a faixa em digitos; medido em 22/10 as 12:3x).\n- capitulo 52 — DECLARADO pelo `s080`.\n- capitulo 33 — eixo do `s062`.\n- capitulos 36, 37 e os de \"Η διαφορά\" / \"Γιατί το ξεχωρίζω\" — eixo do `s017`.\n- capitulos 40 a 46 e 65, 66 — eles sao a DATA limite e o alvo do ano seguinte, isto e prazo, e prazo muda por lei: a regra (g) os tira.\n- capitulos 20, 21 e 22 — consumidos por ESTA peca.\n\n## HASHTAGS\n#ακίνητα #έκπτωση #ασφάλεια #epomenoepipedo\n\n## TAGS\nακίνητα, έκπτωση, ασφάλιση κατοικίας, φόρος ακινήτων, εκκαθαριστικό, οικονομικά, Ελλάδα, επόμενο επίπεδο\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ncategoryId: 27\ndefaultLanguage: el\ndefaultAudioLanguage: el\nmadeForKids: false\n\n## MUSICA / LICENCA\nInspired — Kevin MacLeod (incompetech.com). Licensed under Creative Commons: By Attribution 4.0.\n"
+}
