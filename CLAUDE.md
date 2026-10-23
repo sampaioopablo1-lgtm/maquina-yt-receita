@@ -14342,6 +14342,197 @@ independentes, e passar uma nao e passar a outra.
 piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
 hora.
 
+## O `similaridade` PAROU DE COMPARAR CONTRA O CANAL — e o varredor nao pegava
+
+**Medido em 23/10 as 18:4x, e e o vao que o conserto de 15:3x do MESMO dia nao
+cobriu.** Aquele consertou o `_gate_identidade`; **TRES leitores ficaram**, e os
+tres leem o `slug` CRU como se ele ja fosse o canal:
+
+| onde | o que o slug decidia |
+|---|---|
+| `variedade.py:172` | quem sao as IRMAS do canal (o aviso de esqueleto repetido) |
+| `prontidao.py:1020` | os titulos do canal, no portao `similaridade` |
+| `prontidao.py:462` | o prefixo do glob das vizinhas, no portao `ortografia` |
+
+**E a atribuicao por slug cru falha dos DOIS lados**, porque desde 19/10 as
+05:2x o slug e o PACOTE em 121 das 311 specs de short solto: a spec de slug novo
+nao se reconhece **e tambem fica invisivel como IRMA** para quem usa a convencao
+antiga. Medido: **das 364 specs da frota com short, 122 viam ZERO irmas** e as
+outras viam lista INCOMPLETA.
+
+**A falha e PERMISSIVA, que e o pior sentido:** com `do_canal` vazio a
+conferencia do `_gate_similaridade`, guardada por `if do_canal`, **simplesmente
+NAO RODAVA** — o portao parava de comparar contra o proprio canal e nao
+reprovava nada. E o varredor por AST de 15:3x **nao podia pegar**: ele procura
+quem DERIVA o canal errado (`rsplit("-s")`), e aqui ninguem deriva. Sao duas
+formas do mesmo defeito e so uma estava coberta.
+
+### A CONTA QUE AUTORIZOU, e ela NAO e "zero reprovacoes no acervo"
+
+Lido o canal do `canal.da_spec`, o portao passa a reprovar **15 das 455 specs
+(3,3%)** — e as 15 sao **VERDADEIRAS**, em **SETE grupos de colisao DENTRO do
+mesmo canal**, de 0,65 a 0,86 contra o teto de 0,65:
+
+| | |
+|---|---|
+| `Το ενοίκιο δεν είναι το κόστος στέγης` x `Το νοίκι δεν είναι το κόστος` | **0,86** |
+| `Δύο αριθμοί, όχι ένας` x `Δύο δρόμοι, όχι ένας` x `Δύο νούμερα, όχι ένα` | **0,82** |
+| `O percentual nao e unico` x `O percentual de fora nao e seu` | **0,70** |
+| `Wykres brutto, kieszen netto` x `Nie brutto i nie netto` | **0,69** |
+
+**Isto NAO e o caso do `mira.py`** (um instrumento que dispararia 44 de 100 e
+por isso deixaria de avisar): sao 3,3%, sao achados reais, e **spec de acervo
+nao e republicada** — reprovar o acervo aqui nao tem custo operacional nenhum.
+O que o conserto muda de verdade e que **a peca da proxima rodada passa a ser
+comparada contra as irmas REAIS do canal dela**. O `kolejny-poziom-s101`,
+publicado hoje as 12:33Z, colide a **0,69** com o `s054` e foi ao ar com o
+portao verde.
+
+**E O ACHADO DE CONTEUDO, que a cegueira escondia: o TITULO e um molde nos TRES
+canais.** E a pergunta do dono de 19/10 — *"todos a mesma dinamica, formas,
+estilo, em TODOS os canais"* — numa dimensao que ninguem media: o ESQUELETO tem
+instrumento desde 20/10 as 01:3x, o TITULO nao tinha. A licao de redacao que sai
+disso e variar a FORMA do titulo, nao so o conteudo.
+
+**O QUE O CONSERTO NAO CONSERTA, medido em vez de vendido:** no
+`_gate_ortografia` o veredito sai **IDENTICO nos 122**, porque ali existe
+FALLBACK — canal abaixo do piso troca para a populacao do IDIOMA. Ali a
+delegacao e **UM DONO**, nao conserto de defeito ativo, e vai dito assim. **E o
+AUDIO nunca esteve em risco:** o `aplicar_trilha` recebe o slug, mas o
+`sp["trilha"]` **VENCE o hash** e a suite cobra que toda spec de video o
+declare — logo o slug nao decide faixa nenhuma.
+
+### E A GUARDA DO CONSTRUTOR ERA O DEFEITO, nao o acervo
+
+Ela cobrava `pacote == slug` — **IDENTIDADE onde a afirmacao e PROPRIEDADE**
+(743/753/761, **vigesima primeira** vez) — e identidade **FALSA para pacote**:
+das 143 specs com longo, **142 usam `slug == CANAL`**. A unica fora da convencao
+e o `epomeno-epipedo-069`, **que ficou assim porque esta guarda me empurrou para
+la**. A propriedade que importa e que o canal **DERIVE** e que o slug siga UMA
+das duas convencoes MEDIDAS, e nisso o disco e unanime: **455 de 455**, com
+`canal.da_spec` concordando com `canal.do_pacote` em todas.
+
+`tests/test_o_SIMILARIDADE_parou_de_comparar_contra_o_canal.py`, catorze testes:
+a varredura sai do DISCO e **reprova com menos de 200 specs**, a conta
+autorizadora e cobrada como **PROPORCAO e nao como contagem** (a licao de 22/10
+as 14:4x — contagem absoluta sobre populacao que cresce uma spec por rodada e
+identidade disfarcada de medida), um exige que as duas leituras **DIVIRJAM** e
+**falha se convergirem**, as acusadas sao cobradas como **VERDADEIRAS e do MESMO
+canal** (725), a contagem de irmas e **EXATA** de proposito, a guarda e cobrada
+na **FRONTEIRA** nos dois lados, e um varredor por **AST proibe comparar slug
+CRU contra slug CRU** em toda a fabrica — que e a forma que faltava ao varredor
+de 15:3x.
+
+**E A MINHA PRIMEIRA CONTRAPROVA NAO REPROVOU, e foi ela que produziu o teste
+que faltava.** Desligado o conserto, **treze dos catorze passavam**: os testes
+de comportamento **refaziam a atribuicao em memoria**, logo nao exercitavam o
+modulo — **o segundo dono DENTRO do meu proprio teste**, e a performance foi a
+desculpa. Entrou o `test_quem_ACUSA_e_o_DONO_e_nao_a_conta_deste_arquivo`, e a
+tolerancia da contagem de irmas virou **igualdade exata**. **Contraprova nos TRES
+sentidos:** 2 dos 14 falham em cada.
+
+### A PECA DESSA RODADA — o LONGO que faltava ao `labtreinamento` havia QUATRO dias
+
+`labtreinamento-015`: **longo `3hOsVz7rsIs`** (*Matriz de Treinamento: a
+Primeira Coluna e Nome de Pessoa ou Nome de Posto?*) e **short `2MoHrp3fwOA`**
+(*A linha do novato esta em branco*), publicados as **18:47:27Z** (render
+`40003593388`, publicacao `40006148851`), **sem `403 quota`**. **DOZE PORTOES
+VERDES NA PRIMEIRA TENTATIVA** — e DOZE porque e PACOTE: em short solto o
+`capitulos` sai de fora e sao onze, e o numero sai de
+`len(prontidao.avalia(spec))`, nao da minha cabeca.
+
+Provedor **edge MEDIDO** pelo `anotacoes_do_run` (zero avisos `NARRACAO PELO
+PIPER` no job `120585785805`, que e o job que emitiu o SOM) — e ele **RECUSOU**
+estabelecer o provedor pelo job do `retomar`, dizendo que ali o zero sairia por
+**VACUIDADE**. Som: longo **-14,0** LUFS, pico **-3,0** dBTP com
+`pico_vs_teto: dentro`, **zero silencios**; short **-13,6**, pico **-1,5** —
+isto e, **no teto exato** do `som.TP_MAX_DBTP`. Os QUATRO parques pelo
+`registro_da_rodada`, os quatro **RELIDOS**, e as **DUAS** pecas em cada um, com
+previsao POR PECA (o conserto de 13:5x em uso): duracao **166** linhas (94 sem
+leitura), som **106**, SQL **202** linhas com ZERO prosa, corpus 511 -> **513**.
+**E a linha do PUBLICADO imprimiu os DOIS titulos em cada peca e os quatro
+CONCORDAM**, logo o corpus recebeu o que o YouTube recebeu (773).
+
+**O CANAL SAIU DO VAO DO LONGO, nao do contador de pecas** — e isso vai dito
+porque os dois discordam. Medido no parque: hoje o `epomeno-epipedo` publicou
+pacote (13:46Z) e o `kolejny-poziom` e o `labtreinamento` estavam com **ZERO
+longos**, com o ultimo do `labtreinamento` em **19/10 as 14:37Z, QUATRO dias
+atras**. O `concentracao_frota` dava o `kolejny-poziom` como minimo (7 contra 8
+e 9), e ele **conta PECA e nao distingue longo de short**. **A classificacao
+longo/short que eu usei e MINHA, de um laco escrito na hora** — e ela e
+candidata a §11-bis de uma rodada futura, nao desta: uma §11-bis por rodada.
+
+**E O PISO DA PREVISAO DO LONGO E O MAIS APERTADO DOS SEIS, e vai dito em vez de
+escondido:** edge **526,52 s** (8:47), a MENOR previsao de longo que esta
+maquina ja escreveu. Pelos TRES pontos que existem a previsao do longo e
+**LIMITE SUPERIOR** (-1,8%, -2,7% e -5,1%), logo o real deve cair entre **8:19 e
+8:37** — acima dos 8 min do mid-roll, mas por **19 s** no pior dos tres. A regra
+de 19/10 as 13:5x manda *"mirar com FOLGA sobre os 8 min, nunca em cima deles"*,
+e **dezenove segundos nao e folga**: com tres pontos nao existe banda de longo, e
+o quarto ponto pode ser pior que -5,1%. Fica registrado como exposicao declarada
+ANTES de haver leitura, e a rodada seguinte que escrever longo neste canal mira
+mais alto.
+
+**O SHORT tem os DOIS mundos dentro da mira:** edge **25,64** / piper **21,05**,
+contra a mira medida do canal (20,0 a 26,0) — logo **nao ha exposicao de mundo a
+declarar**. A `janela_dos_dois_mundos` pede **28 a 30** caracteres por cena em
+nove cenas e ele saiu com **30,0**; a primeira versao tinha **41** por cena e
+previa **31,6**, FORA da mira, e **o corte saiu do `mira.quanto_cortar`** (um
+caractere vale 0,060 s nesta voz), nao da minha cabeca. **E o REAL nao esta
+prometido para lado nenhum** (774).
+
+**ESQUELETO do short `titulo-item-barras-item-lista-item-titulo-item-cta`,
+INEDITO nas 206 formas da frota** (zero exemplares, com a propria peca FORA da
+varredura pelo `exceto`). O longo tem **63 cenas e SETE capitulos DERIVADOS**
+pelo `trilho.aplica_no_longo` — eu nao escrevi o campo `trilho` em cena nenhuma
+—, e o portao `layout`, que RENDERIZA, passou limpo nas 63: nenhum cartao em
+branco e nenhuma tinta na borda. A paleta foi **LIDA** de
+`temas_do_dono.paleta_do_canal` e as **seis guardas do construtor** sairam
+limpas, com a do `pacote` passando pela convencao `canal` — que e o conserto
+desta rodada.
+
+**FAMILIA: A UNIDADE DA MATRIZ — o CARGO, nao a PESSOA.** A exigencia de
+treinamento nao e da pessoa: e do POSTO, logo quem chega herda a lista dele e
+trocar de funcao passa a ser uma celula em vez de uma linha nova. **E o
+mecanismo do silencio e de OPORTUNIDADE:** numa equipe que nao muda, a matriz
+pela pessoa funciona perfeitamente e nunca reclama — o custo so aparece na
+entrada, na saida e na troca de funcao, que sao justamente os momentos em que
+ninguem esta olhando a planilha. **A origem nasce aqui: o longo E a origem**,
+logo nao ha irmao a comparar.
+
+**CLASSE PROCEDIMENTO, logo a trava 600 nao se aplica: ZERO numero meu sobre o
+mundo.** Os numerais falados sao a contagem das PROPRIAS partes do procedimento
+(duas tabelas, tres grupos na troca, tres colunas na decisao), conferidos pelo
+`numerais_falados`, e as barras sao ILUSTRACAO qualitativa e **nao** sao
+faladas. Periodicidade de reciclagem, numero de norma, prazo e percentual de
+meta ficaram FORA pela regra (g).
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica` pela
+QUINQUAGESIMA OITAVA rodada seguida** — medido pela `sonda_e_modo`, com os TRES
+controles no MESMO caminho de saida. As duas pecas estao PARQUEADAS com o
+provedor MEDIDO e o job **lido da API**, com a presenca conferida **RELENDO**
+cada parque. `RESIDUO_N` segue **128**.
+
+**E A LEITURA DE INSCRITOS PASSOU AS TRES PORTAS E NAO FOI FEITA:** 104,39 h,
+piso de resolucao **0,23/dia**, os tres SIM. **O que a impede e a ROTA, e o
+remedio e do DONO** — a tela de Network access.
+
+**COTA: TREZE envios** na janela aberta as 07:00Z, **20.800** unidades, contra o
+piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
+hora.
+
+**E EU LI "COMPLETED, EXIT 0" DE DUAS ESPERAS EM SEGUNDO PLANO COMO SE FOSSEM O
+RENDER PRONTO, e elas sao o decimo membro da familia.** As duas voltaram com
+saida ZERO e arquivo VAZIO, e o run estava `in_progress` numa leitura direta —
+**tarefa de espera que reporta "completed" nao prova que a coisa esperada
+aconteceu**, do mesmo jeito que `success` do RUN nao prova que os JOBS
+terminaram (13:4x). E na mesma espera eu calculei **31 minutos** de render
+subtraindo de cabeca, quando o `date -u` dizia 18:46 e o render levou **18** —
+e a idade se mede pelo relogio da MESMA chamada, nao pela minha nocao de quanto
+tempo passou (14/10, 15:1x). **E o LOG nao serve de rota no meio do run:** o
+`get_job_logs` devolve **404** enquanto o job esta em andamento, logo so as
+ANOTACOES e o endpoint dos passos respondem ali.
+
 ## O PORTAO DA IDENTIDADE PAROU DE CONFERIR, E O SLUG VIROU O PACOTE
 
 **Medido em 23/10 as 15:3x, pela suite, e e a QUINTA forma do mesmo defeito.** A
