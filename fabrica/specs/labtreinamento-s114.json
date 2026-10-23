@@ -1,0 +1,87 @@
+{
+ "slug": "labtreinamento-s114",
+ "pacote": "labtreinamento-s114",
+ "idioma": "pt-BR",
+ "voz": "pt-BR-ThalitaMultilingualNeural",
+ "trilha": "Inspired",
+ "longo_existente": "POBNoY16wG8",
+ "thumb": {
+  "l1": "Lista",
+  "l2": "não divisão"
+ },
+ "paleta": {
+  "bg": "#0E1117",
+  "ink": "#EEF1F5",
+  "c1": "#3DDBD9",
+  "c2": "#1E2430",
+  "red": "#FF5A5F",
+  "ok": "#3CCB7F",
+  "panel": "#161B24",
+  "mut": "#8B95A5",
+  "acc": "#3DDBD9"
+ },
+ "longo": [],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "O número parece errado",
+   "sub": "e você foi refazer a conta",
+   "nar": "O número parece errado: refez a conta?"
+  },
+  {
+   "layout": "barras",
+   "kicker": "A divisão nunca falha",
+   "barras": [
+    {
+     "rot": "Divisão",
+     "v": 0
+    },
+    {
+     "rot": "Lista",
+     "v": 100
+    }
+   ],
+   "nar": "A divisão nunca falha; a lista falha."
+  },
+  {
+   "layout": "item",
+   "kicker": "Os dois erros fecham igual",
+   "sub": "quem saiu fora, inscrito no lugar de presente",
+   "nar": "Os dois erros fecham a conta igual."
+  },
+  {
+   "layout": "item",
+   "kicker": "E o número sai redondo",
+   "sub": "nos dois casos",
+   "nar": "E o número sai redondo nos dois."
+  },
+  {
+   "layout": "item",
+   "kicker": "Nada avisa",
+   "sub": "o de baixo mudou e a conta não reclama",
+   "nar": "Nada avisa que o de baixo mudou."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Confira a lista, não a conta",
+   "sub": "é lá que o erro mora",
+   "nar": "Então confira a lista, não a conta."
+  },
+  {
+   "layout": "lista",
+   "kicker": "A conferência que funciona",
+   "itens": [
+    "Entregue os nomes do de baixo",
+    "Pergunte se alguém discorda"
+   ],
+   "nar": "Entregue os nomes e pergunte a alguém."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Confira a sua lista",
+   "sub": "e se inscreva no canal",
+   "nar": "Confira a sua lista e se inscreva aqui."
+  }
+ ],
+ "copy": "# labtreinamento-s114\n\n## TITULO\nO Indicador Parece Errado: a Divisão Nunca Falha, a Lista Sim\n\n## TITULO SHORT\nLista, não divisão\n\n## DESCRICAO\nQuando o percentual de treinamento sai estranho — alto demais, baixo demais, ou\ndiferente do mês passado sem motivo —, quase todo mundo faz a mesma coisa:\n**volta e refaz a conta**. Confere a divisão, confere o arredondamento, confere\na fórmula da planilha. E encontra tudo certo, porque **a divisão não é o lugar\nonde o erro mora**.\n\nA conta tem duas entradas e uma operação. A operação é uma divisão simples, e\nela não erra: dados dois números, ela devolve sempre o mesmo resultado. O que\npode estar errado são as **listas** que produziram esses dois números — quem\nentrou no de cima, quem entrou no de baixo, e com que regra.\n\n**E é isso que torna o erro silencioso: a conta fecha igual nos dois casos.**\nSe alguém tirou do denominador quem saiu da empresa, a divisão funciona e o\nnúmero sai redondo. Se alguém contou inscritos no lugar de concluintes, a\ndivisão funciona e o número sai redondo. Em nenhum dos dois casos aparece um\naviso, uma célula vermelha ou uma mensagem de erro — porque, do ponto de vista\nda aritmética, **nada aconteceu de errado**.\n\nDaí sai uma troca de hábito que não custa nada: quando o número não convence,\n**pare de reconferir a conta e vá conferir a lista**. E a conferência que de\nfato funciona não é aritmética — é social, e é de uma pergunta só: **entregue a\nlista de nomes do denominador a outra pessoa e pergunte se ela discordaria de\nalgum deles.** Se alguém discorda de um nome, você achou o erro. Se ninguém\ndiscorda, o número é defensável mesmo que não seja bonito.\n\nÉ o passo mais barato de toda esta série, e é o único que olha para o lugar\ncerto.\n\n## COMENTARIO FIXADO\nQuando o seu indicador saiu estranho pela última vez, você refez a conta ou\nconferiu a lista de nomes? Responda só \"conta\" ou \"lista\".\n\n## FONTES\nOrigem: `POBNoY16wG8` (`labtreinamento-014`), 64 capítulos e **40 NÃO\nMENCIONADOS** pelos seis shorts anteriores, medido pelo\n`segundo_angulo.nao_mencionados`.\n\n**E ela é a `escolhida` da regra escrita SEM empate nesta rodada** — 6 usos\ncontra 7 de todas as outras —, logo a reserva não desempatou nada e a\ndivergência medida em 22/10 às 17:3x não tem objeto aqui. **O instrumento de\n23/10 às 03:3x falou neste canal:** o `labtreinamento-002` aparece como duas\norigens e tem **14 usos por TEXTO**, com o livre de verdade na interseção (38 de\n87) — a dominante por texto do canal, e ela não foi escolhida.\n\n**E vai dito o que me fez hesitar:** das 40 livres desta origem, só **NOVE** não\nsão declaradas por um dos seis irmãos, e foi por esse mesmo número que a rodada\ndas 02:07 desviou dela. Aqui não havia empate para onde desviar, e as nove foram\nLIDAS uma a uma: três são fechamento e CTA (61, 62, 63), uma é o custo do\ntrabalho (31), uma é a comparação externa que o `s087` e o `s088` já carregam\npor conteúdo (38), e **quatro formam uma família que nenhum dos seis toca** —\n35, 37, 39, com o 34 como apoio.\n\nA família desta peça sai dos capítulos **37, 39 e 35**: *\"em tudo isso a divisão\nnunca falha — falha sempre a lista, e é ela a única coisa que vale revisar de\nnovo\"*, *\"se eu entregasse a lista de nomes do denominador, alguém discordaria\nde algum deles?\"* e *\"nos dois casos a conta fecha e o número sai redondo\"*.\nNenhuma frase desta peça saiu de TÍTULO de capítulo.\n\nA dominante por id, `FtCtIJPsc_Q`, ficou de fora — quem conta é o\n`concentracao.py`.\n\n## FAMILIA DE ENTRADA ERRADA\n**CONFERIR A CONTA EM VEZ DE CONFERIR A LISTA** (capítulos 37, 39 e 35, com o 34\nde apoio). O eixo é **ONDE SE OLHA** quando o resultado não convence, e não o\nque está errado nele: a divisão é a única parte que não pode falhar, e é a parte\nque todo mundo revisa. As listas que a alimentam são as que falham, e **a\nconferência que as pega não é aritmética** — é entregar os nomes a outra pessoa\ne perguntar se ela discordaria de algum.\n\n**E o mecanismo do silêncio é a simetria dos dois erros:** tirar do denominador\nquem saiu e contar inscrito no lugar de concluinte produzem, os dois, uma\ndivisão que funciona e um número redondo. Não há célula vermelha, não há aviso,\ne do ponto de vista da aritmética nada aconteceu. **O portão da conta está\nsempre verde.**\n\n**Distinções contra os SEIS irmãos desta origem, lidas pelo `irmaos_da_origem`\ne — nos CINCO sem o campo — pela NARRAÇÃO de cada um, que é de primeira mão\n(776). Os seis dizem O QUE está errado no denominador; esta diz ONDE OLHAR:**\n* `labtreinamento-s086` (*Duas janelas, um número falso*) — a JANELA da conta;\n* `labtreinamento-s087` (*O percentual de fora não é seu*) — o percentual de\n  OUTRO não serve, porque responde a outro denominador;\n* `labtreinamento-s088` (*Cem por cento com folga é suspeito*) — **é o vizinho\n  mais próximo e a distinção é fina:** ele dá o SINAL de que algo está errado\n  (um resultado folgado demais pede uma olhada). Esta peça começa depois do\n  sinal: já desconfiaste, e agora onde procuras. **Sinal contra lugar**, e os\n  dois se encaixam em vez de competir;\n* `labtreinamento-s089` (*A regra mudou no meio da série*) — a REGRA trocada\n  entre períodos;\n* `labtreinamento-s091` (*Inscrito não é presente*) — as FONTES de onde os dois\n  números saem. Ele diz de onde vem a lista; esta diz que é a lista que se\n  confere;\n* `labtreinamento-s099` (*O de baixo não é fixo*) — a população que se MOVE\n  dentro do período.\n\n## AVISO SOBRE OS NUMEROS\n**ZERO número novo sobre o mundo.** O único numeral falado é **\"dois\"**, nas\ncenas 2 e 3 — conferido pelo `numerais_falados`, com a ressalva dele de que\nausência de vocabulário não prova ausência.\n\n**E a primeira versão desta linha declarava \"numeral NENHUM\", o que era falso** —\nquem a derrubou antes de publicar foi o `numerais_falados`, pela sétima vez\nnesta sessão. Fica registrado em vez de apagado.\n\n**O \"dois\" é estrutura do argumento e não fato sobre o mundo:** são os dois\nerros simétricos que a própria peça nomeia (tirar quem saiu, e contar inscrito\nno lugar de concluinte), e a peça não enumera nenhum terceiro. O\npercentual de exemplo, o prazo da norma e o intervalo de revisão ficaram FORA\npela regra (g), e **o capítulo 80 da própria origem escreve o motivo** do\núltimo: *\"o intervalo está escrito na própria norma e é lá que você confere\"*.\n\nAs barras da cena 1 são **ILUSTRAÇÃO qualitativa** — a divisão com zero de\nchance de erro contra a lista com toda ela — e **não são faladas**. A rodada\nseguinte não deve lê-las de volta como dado.\n\n## EXPOSICAO\n**A PINÇA DO 740/748 NÃO ESTÁ FECHADA AQUI**, e este é o único canal da frota em\nque isso acontece: o `mira.janela_dos_dois_mundos` devolve **34 a 36**\ncaracteres por cena com oito cenas, e a peça saiu com média **35,75** — logo o\nedge (**25,5**) e o piper (**20,9**) caem os DOIS dentro da mira medida do canal\n(20,0 a 26,0), e **não há exposição de mundo a declarar**.\n\n**E eu NÃO mirei o piso de propósito:** o piso executável aqui é de 25\ncaracteres por cena e ele é de **UM mundo** — a própria `mira.confere` o\nreprova, porque com 25 o piper cai abaixo de 20,0 (o defeito medido em 19/10 às\n17:2x).\n\n**O REAL não está prometido para lado nenhum:** 41 das 46 peças deste canal\nnarradas pelo edge saíram FORA do teto de 26,0 **com a mira verde nos dois\nmundos**, e a banda do resíduo tem 5,2 s de largura contra 1 s de granularidade\n(774).\n\n## RESERVA\nPara a rodada seguinte, nesta origem (`POBNoY16wG8`), com o motivo de cada item.\n**Esta origem está perto de esgotar, e isso vai dito em vez de descoberto na\npróxima rodada:** das 40 livres, só nove não são território declarado, e esta\npeça leva quatro delas.\n* **LIVRES** os capítulos 61 e 62 — o número não é uma nota sobre o teu\n  trabalho, e um número baixo que se sabe defender vale mais que um alto que\n  ninguém explica. É família de POSTURA e não de conta, e nenhum dos irmãos a\n  toca. É a última família inteira que sobra aqui;\n* **LIVRE** o capítulo 31 — o trabalho leva cerca de uma hora e se faz uma vez.\n  **Sozinho não é família**: serve de fechamento para outra peça;\n* **NÃO LEVAR** o capítulo 38: comparar com média de setor é o eixo declarado do\n  `s087` e do `s088`, mesmo não estando na faixa que eles citam;\n* **NÃO LEVAR** o capítulo 34 isolado: tirar quem saiu do denominador é o\n  conteúdo do capítulo 13, que o `s086`, o `s087` e o `s088` declaram. Aqui ele\n  entrou só como APOIO, como um dos dois erros simétricos;\n* **E quando as duas acima saírem, esta origem acabou** — a rodada que a pegar\n  deve preferir uma de 7 usos com reserva sem declaração alta (`KRUERlNPzDw`\n  tem 61 de 75, a maior do canal);\n* **CONSUMIDOS por esta peça** os capítulos 35, 37 e 39, com o 34 de apoio.\n\n## HASHTAGS\n#treinamento #indicadores #denominador #conferencia #labtreinamento\n\n## TAGS\nindicador de treinamento, denominador, conferir indicador, lista de nomes, percentual de treinamento, auditoria de indicador, planilha de treinamento\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ncategoryId: 27\ndefaultLanguage: pt-BR\ndefaultAudioLanguage: pt-BR\nmadeForKids: false\n\n## MUSICA / LICENCA\nInspired — Kevin MacLeod (incompetech.com), Creative Commons: By Attribution 4.0\n"
+}
