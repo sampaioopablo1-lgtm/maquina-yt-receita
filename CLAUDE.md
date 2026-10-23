@@ -12927,3 +12927,13 @@ impede e a ROTA, e o remedio e do DONO** — a tela de Network access.
 
 **COTA: VINTE E TRES envios** na janela aberta as 07:00Z de 22/10, **36.800**
 unidades, contra o piso MEDIDO de **>= 41.600** — do `janela_de_cota`.
+
+**A SUITE FECHOU: 25 falhas, 4.047 passam, 1.230 skip em 2.217 s** — passada
+**PROVADA** pelo `passada_da_suite`, conjunto **IDENTICO** a linha de base desta
+sessao, `comm` vazio nos **dois** sentidos. Os quinze testes novos entraram
+inteiros (4.032 -> 4.047) e **nenhuma falha nova**. **E o tempo vai MEDIDO em vez
+de atribuido:** 2.217 s contra 2.115 s da passada anterior, e os quinze passam
+isolados em **43 s** — eles varrem os quadros dos tres canais (~9 s cada) mais a
+mediana do disco, logo parte da diferenca e deles e **os ~58 s restantes eu nao
+sei explicar**. Atribui-los ao arquivo novo seria comparador escolhido sem medir,
+o efeito (C).
