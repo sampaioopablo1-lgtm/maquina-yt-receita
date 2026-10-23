@@ -50,20 +50,52 @@ def test_os_DOIS_donos_de_fato_DIVERGEM_no_nome():
     assert "publicado_em" not in DM.OBRIGATORIOS, DM.OBRIGATORIOS
 
 
+# Os NOVE campos que eu redigitava a cada rodada, e cujos valores o
+# `do_registro` tem de reproduzir. Campo NOVO que o dono passe a descer NAO entra
+# aqui: ele e conserto, nao regressao.
+MONTADOS_A_MAO = {
+    "pacote": "epomeno-epipedo-s074",
+    "canal": "epomeno-epipedo",
+    "youtube_id": "tUE21qPa2S8",
+    "em": "2026-10-20T09:19:46Z",
+    "cenas": 12,
+    "prev_edge": 41.55,
+    "prev_piper": 36.81,
+    "provedor": "edge",
+    "job": "118550315664",
+}
+
+
 def test_ele_REPRODUZ_o_dicionario_que_eu_montei_a_mao():
-    """Sem isto a nota nao prova que o instrumento serve a decisao tomada."""
+    """Sem isto a nota nao prova que o instrumento serve a decisao tomada.
+
+    RETRATADO em 23/10 as 22:2x, pela VIGESIMA SEGUNDA vez da classe
+    743/753/761: a primeira versao cobrava `reg == {...}` — IDENTIDADE do
+    dicionario inteiro — e reprovou quando o `do_registro` passou a DESCER
+    `formato` e `slug` do dono, que e o conserto de 21:3x daquele dia e nao uma
+    regressao. A afirmacao deste arquivo e que os campos que eu redigitava saem
+    com o valor CERTO; ela nao e, e nunca foi, que o dicionario nao pode crescer.
+    """
     reg = DM.do_registro(_reg(), 41.55, 36.81, "edge", "118550315664")
-    assert reg == {
-        "pacote": "epomeno-epipedo-s074",
-        "canal": "epomeno-epipedo",
-        "youtube_id": "tUE21qPa2S8",
-        "em": "2026-10-20T09:19:46Z",
-        "cenas": 12,
-        "prev_edge": 41.55,
-        "prev_piper": 36.81,
-        "provedor": "edge",
-        "job": "118550315664",
-    }, reg
+    for campo, valor in MONTADOS_A_MAO.items():
+        assert reg.get(campo) == valor, (campo, reg.get(campo), valor)
+
+
+def test_campo_que_o_dicionario_GANHOU_vem_do_DONO():
+    """A contraprova do teste acima: ele deixou de cobrar identidade, logo algo
+    tem de impedir que o `do_registro` INVENTE campo. O criterio e a
+    procedencia — todo campo a mais sai do registro do notice."""
+    fonte = _reg()
+    reg = DM.do_registro(fonte, 41.55, 36.81, "edge", "118550315664")
+    extras = set(reg) - set(MONTADOS_A_MAO)
+    assert extras, (
+        "o dicionario nao ganhou campo nenhum: se o conserto de 21:3x saiu, esta "
+        "contraprova perdeu o objeto e as duas notas se releem")
+    for campo in sorted(extras):
+        assert campo in fonte, (
+            "o `do_registro` inventou o campo %r: ele nao esta no registro do "
+            "dono (`registro_videos.linhas_dos_notices`)" % campo)
+        assert reg[campo] == fonte[campo], (campo, reg[campo], fonte[campo])
 
 
 def test_todo_campo_OBRIGATORIO_sai_preenchido():

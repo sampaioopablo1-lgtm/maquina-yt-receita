@@ -1,0 +1,1366 @@
+{
+ "slug": "kolejny-poziom",
+ "pacote": "kolejny-poziom-022",
+ "idioma": "pl",
+ "voz": "pl-PL-MarekNeural",
+ "trilha": "Wholesome",
+ "thumb": {
+  "l1": "Trzy kolumny",
+  "l2": "trzy operacje"
+ },
+ "longo": [
+  {
+   "layout": "titulo",
+   "kicker": "Dwie oferty",
+   "sub": "jedna kartka",
+   "cap": "Dwie oferty",
+   "nar": "Masz przed sobą dwie oferty na to samo: prąd, telefon, internet albo ubezpieczenie. Obie wyglądają na policzalne i obie mają w środku liczby, które da się dodać.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 0
+  },
+  {
+   "layout": "item",
+   "kicker": "To nagranie nie wybiera za ciebie",
+   "preco": "pokazuje, jak ułożyć kartkę",
+   "sem_cap": true,
+   "nar": "To nagranie nie powie ci, która oferta jest lepsza, bo tego nie wiem. Pokaże jedno: jak rozłożyć obie na trzy kolumny, żeby twoja własna liczba wyszła taka sama za każdym razem.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 0
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlaczego kolumny",
+   "preco": "bo każda linijka pyta o inną operację",
+   "sem_cap": true,
+   "nar": "Powód jest prosty i nie ma nic wspólnego z ceną. Linijki w ofercie nie są tego samego rodzaju: jedne się dodaje, drugie mnoży, a trzecich nie wpisuje się do rachunku wcale.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 0
+  },
+  {
+   "layout": "lista",
+   "kicker": "Trzy kolumny",
+   "itens": [
+    "Stałe: dodajesz",
+    "Od zużycia: mnożysz",
+    "Warunkowe: zapisujesz datę"
+   ],
+   "sem_cap": true,
+   "nar": "Trzy kolumny i trzy operacje. Stałe dodajesz, zależne od zużycia mnożysz przez swoją liczbę, a warunkowe nie wchodzą do wyniku — trafiają do kalendarza.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 0
+  },
+  {
+   "layout": "item",
+   "kicker": "Co dostajesz na końcu",
+   "preco": "jedną liczbę na miesiąc, dla każdej oferty",
+   "sem_cap": true,
+   "nar": "Na końcu masz dwie liczby i jedną datę. Dwie liczby porównujesz, a data mówi ci, kiedy ten rachunek przestaje być prawdziwy.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 0
+  },
+  {
+   "layout": "erro",
+   "codigo": "#MIX!",
+   "causa": "Wszystkie linijki w jednej kolumnie",
+   "saida": "Rozdziel linijki po rodzaju, zanim cokolwiek dodasz",
+   "sem_cap": true,
+   "nar": "Najczęstszy błąd jest właśnie taki: wszystko ląduje w jednym worku, dodaje się po kolei, wynik wychodzi i wygląda na odpowiedź. Rachunek się zgadza, tylko opisuje coś innego niż myślisz.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 0
+  },
+  {
+   "layout": "divisor",
+   "parte": "1",
+   "titulo": "Co jest stałe",
+   "sem_cap": true,
+   "nar": "Zacznijmy od kolumny, która jest najłatwiejsza i dlatego najczęściej wypełniana źle.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 0
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Co jest stałe",
+   "sub": "płacisz, nawet nie używając",
+   "cap": "Co jest stałe",
+   "nar": "Stała linijka to taka, którą zapłacisz nawet wtedy, gdy przez cały miesiąc nie zużyjesz niczego. Nie zależy od licznika, od minut ani od gigabajtów.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 1
+  },
+  {
+   "layout": "item",
+   "kicker": "Test jednej minuty",
+   "preco": "wyjeżdżam na miesiąc — co i tak zapłacę?",
+   "sem_cap": true,
+   "nar": "Test jest jednozdaniowy: wyobraź sobie, że wyjeżdżasz na cały miesiąc i nie włączasz niczego. To, co i tak przyjdzie do zapłaty, jest stałe.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 1
+  },
+  {
+   "layout": "lista",
+   "kicker": "Gdzie siedzą stałe",
+   "itens": [
+    "Opłata abonamentowa",
+    "Opłata handlowa",
+    "Opłata za licznik",
+    "Opłata za konto albo kartę"
+   ],
+   "sem_cap": true,
+   "nar": "W fakturach te linijki mają swoje nazwy i rzadko są duże. Opłata abonamentowa, opłata handlowa, opłata za układ pomiarowy, opłata za prowadzenie konta.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 1
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlaczego je się pomija",
+   "preco": "są małe i nie zmieniają się",
+   "sem_cap": true,
+   "nar": "Pomija się je z dwóch powodów naraz: są małe i nigdy nie drgają. Oko szuka tego, co się rusza, a stała linijka się nie rusza.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 1
+  },
+  {
+   "layout": "numero",
+   "valor": "12",
+   "legenda": "razy w roku, każda z nich",
+   "nota": "mała linijka razy dwanaście przestaje być mała",
+   "escala": 1.0,
+   "sem_cap": true,
+   "nar": "Tylko że każda z nich wraca dwanaście razy w roku. Mała linijka pomnożona przez dwanaście przestaje być mała, a w porównaniu dwóch ofert to często ta część, która decyduje.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 1
+  },
+  {
+   "layout": "item",
+   "kicker": "Jak je wpisać",
+   "preco": "suma, bez mnożenia przez zużycie",
+   "sem_cap": true,
+   "nar": "Do kolumny pierwszej wpisujesz je po prostu zsumowane, w ujęciu miesięcznym. Żadnego mnożenia przez zużycie: one o twoim zużyciu nic nie wiedzą.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 1
+  },
+  {
+   "layout": "item",
+   "kicker": "Jedna pułapka",
+   "preco": "część stałych jest roczna",
+   "sem_cap": true,
+   "nar": "Jedna pułapka: niektóre stałe przychodzą raz w roku, nie raz w miesiącu. Te dzielisz przez dwanaście, zanim wpiszesz, żeby obie oferty były w tej samej jednostce.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 1
+  },
+  {
+   "layout": "formula",
+   "formula": "kolumna stałych = suma miesięcznych + suma rocznych ÷ 12",
+   "notas": [
+    "miesięczne: wracają w każdym rachunku",
+    "roczne: wracają raz, więc dzielisz",
+    "wynik: ile płacisz, nic nie zużywając"
+   ],
+   "sem_cap": true,
+   "nar": "Kolumna pierwsza to suma linijek miesięcznych plus suma linijek rocznych podzielona przez dwanaście. To twoja podłoga: tyle płacisz, nie zużywając niczego.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 1
+  },
+  {
+   "layout": "erro",
+   "codigo": "#BRAK!",
+   "causa": "Oferta pokazuje tylko cenę za jednostkę",
+   "saida": "Poproś o rozbicie na stałe i zmienne — to część oferty, nie tajemnica",
+   "sem_cap": true,
+   "nar": "Jeśli oferta pokazuje tylko cenę za jednostkę i ani słowa o opłatach stałych, to nie jest oferta kompletna. Rozbicie na stałe i zmienne jest częścią warunków, nie tajemnicą handlową.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 1
+  },
+  {
+   "layout": "item",
+   "kicker": "Po co ta kolumna",
+   "preco": "bo tylko ona jest wspólna",
+   "sem_cap": true,
+   "nar": "Ta kolumna ma jeszcze jedną wartość: jest jedyną, której nie trzeba szacować. Tu nie ma twojego zużycia, więc nie ma miejsca na zgadywanie.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 1
+  },
+  {
+   "layout": "divisor",
+   "parte": "2",
+   "titulo": "Co od zużycia",
+   "sem_cap": true,
+   "nar": "Druga kolumna jest ta, w której wchodzi twoja własna liczba — i to ona zmienia wynik najmocniej.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 1
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Co od zużycia",
+   "sub": "cena razy twoja liczba",
+   "cap": "Co od zużycia",
+   "nar": "Druga kolumna to linijki, które zależą od tego, ile zużywasz. Cena za jednostkę razy liczba jednostek — i ta liczba musi być twoja, nie przykładowa.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 2
+  },
+  {
+   "layout": "item",
+   "kicker": "Skąd bierzesz swoją liczbę",
+   "preco": "z własnych rachunków, nie z pamięci",
+   "sem_cap": true,
+   "nar": "Swoją liczbę bierzesz z własnych rachunków za ostatni rok, nie z pamięci i nie z przykładu w ofercie. Przykład w ofercie opisuje kogoś, kogo nie znasz.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 2
+  },
+  {
+   "layout": "item",
+   "kicker": "Ile rachunków",
+   "preco": "dwanaście, jeśli masz",
+   "sem_cap": true,
+   "nar": "Najlepiej dwanaście rachunków, bo zużycie bywa sezonowe. Jeśli masz mniej, policz z tego, co jest, i dopisz na kartce, z ilu miesięcy to wyszło.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 2
+  },
+  {
+   "layout": "barras",
+   "kicker": "Jeden miesiąc czy dwanaście",
+   "barras": [
+    {
+     "rotulo": "Jeden miesiąc",
+     "valor": 3
+    },
+    {
+     "rotulo": "Pół roku",
+     "valor": 6
+    },
+    {
+     "rotulo": "Cały rok",
+     "valor": 10
+    }
+   ],
+   "sem_cap": true,
+   "nar": "Im więcej miesięcy, tym mniej przypadku w twojej liczbie. Jeden miesiąc to zdjęcie jednej pory roku, a nie twój rok.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 2
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlaczego nie średnia z internetu",
+   "preco": "bo liczy zbiór, a nie ciebie",
+   "sem_cap": true,
+   "nar": "Średnie zużycie podane w artykule opisuje zbiór ludzi. Twoja faktura opisuje ciebie, a to są dwie różne liczby i tylko jedna z nich wchodzi do twojego rachunku.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 2
+  },
+  {
+   "layout": "formula",
+   "formula": "kolumna zużycia = cena za jednostkę × twoje jednostki w miesiącu",
+   "notas": [
+    "cena: z oferty",
+    "jednostki: z twoich rachunków",
+    "ta sama liczba jednostek po obu stronach"
+   ],
+   "sem_cap": true,
+   "nar": "Kolumna druga to cena za jednostkę razy twoje jednostki. I uwaga na rzecz, która łatwo ucieka: po obu stronach wstawiasz tę samą liczbę jednostek, bo porównujesz oferty, nie dwa różne życia.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 2
+  },
+  {
+   "layout": "erro",
+   "codigo": "#DWA!",
+   "causa": "Dwa różne zużycia w dwóch kolumnach",
+   "saida": "Jedna liczba jednostek, obie oferty",
+   "sem_cap": true,
+   "nar": "Jeśli w jednej kolumnie wpiszesz zużycie z zimy, a w drugiej z lata, wynik pokaże różnicę pór roku, nie różnicę ofert. To ten sam błąd, co ważenie się na dwóch różnych wagach.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 2
+  },
+  {
+   "layout": "item",
+   "kicker": "Gdy oferta ma progi",
+   "preco": "policz swoje miesiące osobno",
+   "sem_cap": true,
+   "nar": "Jeśli cena ma progi albo pakiet z nadwyżką, nie wstawiaj średniej. Policz osobno miesiące, w których jesteś pod progiem, i te, w których go przekraczasz.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 2
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlaczego nie średnia",
+   "preco": "średnia nie trafia w żaden twój miesiąc",
+   "sem_cap": true,
+   "nar": "Przy progach średnia daje wynik, którego nie produkuje żaden twój miesiąc. Rachunek wychodzi gładki, a żadna twoja faktura tak nie wygląda.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 2
+  },
+  {
+   "layout": "item",
+   "kicker": "Jednostki muszą się zgadzać",
+   "preco": "kilowatogodziny, gigabajty, minuty",
+   "sem_cap": true,
+   "nar": "Sprawdź jeszcze, czy jednostki są te same. Cena za kilowatogodzinę i cena za megawatogodzinę różnią się o tysiąc, a wyglądają podobnie na papierze.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 2
+  },
+  {
+   "layout": "divisor",
+   "parte": "3",
+   "titulo": "Co warunkowe",
+   "sem_cap": true,
+   "nar": "Trzecia kolumna jest najkrótsza i jedyna, która nie wchodzi do wyniku.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 2
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Co warunkowe",
+   "sub": "obowiązuje, dopóki coś jest spełnione",
+   "cap": "Co warunkowe",
+   "nar": "Trzecia kolumna to linijki, które obowiązują tylko pod warunkiem. Rabat na dwanaście miesięcy, cena przy zgodzie na e-fakturę, zniżka za płatność automatyczną, upust przy umowie na czas.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 3
+  },
+  {
+   "layout": "item",
+   "kicker": "Co je łączy",
+   "preco": "każda ma warunek i każda ma datę",
+   "sem_cap": true,
+   "nar": "Łączy je jedno: każda ma warunek, a warunek ma koniec. Czasem koniec jest datą, czasem zdarzeniem, ale zawsze istnieje.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 3
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlaczego nie wchodzą do wyniku",
+   "preco": "bo wynik miałby datę ważności",
+   "sem_cap": true,
+   "nar": "Nie wpisujesz ich do wyniku, bo wtedy twoja jedna liczba przestaje być jedną liczbą: staje się liczbą ważną do pewnego dnia, bez tego dnia zapisanego nigdzie.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 3
+  },
+  {
+   "layout": "comparar",
+   "esq": {
+    "titulo": "Do rachunku",
+    "itens": [
+     "Opłaty stałe",
+     "Cena za jednostkę"
+    ]
+   },
+   "dir": {
+    "titulo": "Do kalendarza",
+    "itens": [
+     "Rabat na czas",
+     "Zniżka za warunek"
+    ]
+   },
+   "sem_cap": true,
+   "nar": "Pierwsze dwie kolumny idą do rachunku. Trzecia idzie do kalendarza, i to nie jest ucieczka od liczenia: to miejsce, w którym ta informacja faktycznie działa.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 3
+  },
+  {
+   "layout": "item",
+   "kicker": "Jak to zapisać",
+   "preco": "data i co się stanie, gdy minie",
+   "sem_cap": true,
+   "nar": "Zapisujesz dwie rzeczy: datę, w której warunek się kończy, i to, co wtedy wraca. Zwykle wraca cena podstawowa, która w ofercie też jest podana.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 3
+  },
+  {
+   "layout": "numero",
+   "valor": "2",
+   "legenda": "liczby na kartce, jedna data obok",
+   "nota": "data nie jest kosztem, jest terminem ponownego liczenia",
+   "escala": 1.0,
+   "sem_cap": true,
+   "nar": "Na kartce masz więc dwie liczby i co najmniej jedną datę. Data nie jest kosztem. Jest terminem, w którym ten rachunek trzeba zrobić jeszcze raz.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 3
+  },
+  {
+   "layout": "item",
+   "kicker": "Druga oferta też ją ma",
+   "preco": "porównaj daty, nie tylko kwoty",
+   "sem_cap": true,
+   "nar": "Druga oferta zwykle ma własny warunek i własną datę. Porównanie dat bywa ważniejsze niż porównanie kwot, bo krótszy warunek znaczy, że wrócisz do tej kartki szybciej.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 3
+  },
+  {
+   "layout": "erro",
+   "codigo": "#WARUNEK!",
+   "causa": "Rabat czasowy policzony jak cena stała",
+   "saida": "Przenieś go do trzeciej kolumny i dopisz datę",
+   "sem_cap": true,
+   "nar": "Policzenie rabatu czasowego jak ceny stałej to najkosztowniejszy z tych błędów, bo on nie boli od razu. Boli w miesiącu, w którym warunek wygasa, a wtedy nikt już nie pamięta, skąd była ta liczba.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 3
+  },
+  {
+   "layout": "item",
+   "kicker": "Co jeszcze tu trafia",
+   "preco": "kaucje i opłaty za wyjście",
+   "sem_cap": true,
+   "nar": "Do tej kolumny trafiają też kaucje i opłaty za wcześniejsze zakończenie. Nie są kosztem miesięcznym, ale są warunkiem, pod którym twoja liczba jest prawdziwa.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 3
+  },
+  {
+   "layout": "divisor",
+   "parte": "4",
+   "titulo": "Którą parę",
+   "sem_cap": true,
+   "nar": "Teraz najważniejsza część, i ona nie dotyczy żadnej kolumny. Dotyczy tego, co z czym zestawiasz.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 3
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Którą parę",
+   "sub": "porównujesz z czym",
+   "cap": "Którą parę",
+   "nar": "Masz ułożone kolumny i możesz liczyć. Zostaje pytanie, które decyduje o wyniku bardziej niż którakolwiek linijka: którą parę właściwie porównujesz?",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 4
+  },
+  {
+   "layout": "item",
+   "kicker": "Co zwykle robi człowiek",
+   "preco": "nową ofertę kontra własny rachunek",
+   "sem_cap": true,
+   "nar": "Odruch jest jeden: bierzesz nową ofertę, którą ktoś ci pokazał, i stawiasz ją obok swojego ostatniego rachunku. Dwie liczby, jedna większa, decyzja wydaje się zrobiona.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 4
+  },
+  {
+   "layout": "comparar",
+   "esq": {
+    "titulo": "Nowa oferta",
+    "itens": [
+     "Cena dla nowego klienta",
+     "Rabat na start"
+    ]
+   },
+   "dir": {
+    "titulo": "Twój rachunek",
+    "itens": [
+     "Cena po rabacie, który minął",
+     "Bez żadnej zniżki"
+    ]
+   },
+   "sem_cap": true,
+   "nar": "Tylko że te dwie liczby nie są z tej samej półki. Po jednej stronie masz cenę przygotowaną dla kogoś, kto jeszcze nie jest klientem. Po drugiej swoją, z której rabat już dawno zniknął.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 4
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlaczego to nie jest para",
+   "preco": "jedna jest najlepsza, druga najgorsza",
+   "sem_cap": true,
+   "nar": "To nie jest porównanie dwóch ofert. To porównanie najlepszej ceny, jaką ktoś daje na wejściu, z najgorszą, jaką masz po wygaśnięciu warunku. Wynik jest przewidywalny, zanim cokolwiek policzysz.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 4
+  },
+  {
+   "layout": "numero",
+   "valor": "3",
+   "legenda": "liczby istnieją, a porównujesz dwie",
+   "nota": "trzecia to oferta dla ciebie jako klienta, który zostaje",
+   "escala": 1.0,
+   "sem_cap": true,
+   "nar": "Liczb jest trzy, nie dwie. Cena dla nowego, twoja obecna, i cena dla ciebie jako kogoś, kto zostaje. Tej trzeciej nie ma na żadnym papierze, który dostałeś — dlatego nie wchodzi do porównania.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 4
+  },
+  {
+   "layout": "item",
+   "kicker": "Skąd ją wziąć",
+   "preco": "pytasz u siebie, zanim porównasz",
+   "sem_cap": true,
+   "nar": "Trzecią liczbę zdobywa się jednym pytaniem u swojego dostawcy, zanim zrobisz porównanie. Pytasz o aktualną ofertę dla obecnego klienta i o to, czy twoja taryfa ma wersję, której nie masz.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 4
+  },
+  {
+   "layout": "item",
+   "kicker": "Co to zmienia w kartce",
+   "preco": "trzecia kolumna liczb, ten sam szablon",
+   "sem_cap": true,
+   "nar": "W kartce nic się nie psuje: dokładasz trzecią kolumnę liczb i liczysz ją tym samym szablonem. Stałe dodane, zużycie pomnożone, warunki z datą obok.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 4
+  },
+  {
+   "layout": "erro",
+   "codigo": "#PARA!",
+   "causa": "Oferta dla nowego kontra twój rachunek po wygaśnięciu",
+   "saida": "Zdobądź trzecią liczbę i porównaj trzy, nie dwie",
+   "sem_cap": true,
+   "nar": "Jeśli porównujesz tylko dwie, wynik mówi ci, że trzeba zmienić dostawcę — i może to prawda, a może nie. Z trzema liczbami widzisz, czy zmiana jest potrzebna, czy wystarczy prośba.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 4
+  },
+  {
+   "layout": "item",
+   "kicker": "Jeszcze jedna para, której unikaj",
+   "preco": "twoja kwota kontra kwota sąsiada",
+   "sem_cap": true,
+   "nar": "I jeszcze jedna para, która nie daje nic: twoja kwota obok kwoty kogoś innego. Inne zużycie, inna umowa, inna taryfa. Z takiego zestawienia nie wynika żadna decyzja.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 4
+  },
+  {
+   "layout": "divisor",
+   "parte": "5",
+   "titulo": "To samo okno",
+   "sem_cap": true,
+   "nar": "Przed podsumowaniem jedna rzecz techniczna, która psuje poprawnie zrobione rachunki.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 4
+  },
+  {
+   "layout": "titulo",
+   "kicker": "To samo okno",
+   "sub": "miesiąc do miesiąca, rok do roku",
+   "cap": "To samo okno",
+   "nar": "Obie liczby muszą dotyczyć tego samego okna czasu. Miesiąc do miesiąca albo rok do roku, nigdy jedno z drugim.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 5
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlaczego to łatwo pomylić",
+   "preco": "oferty podają różne okresy",
+   "sem_cap": true,
+   "nar": "Mylisz się łatwo, bo oferty same podają różne okresy. Jedna mówi o cenie miesięcznej, druga o rocznej, trzecia o cenie za okres rozliczeniowy, który nie jest ani jednym, ani drugim.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 5
+  },
+  {
+   "layout": "item",
+   "kicker": "Okres rozliczeniowy",
+   "preco": "sprawdź, ile ma miesięcy",
+   "sem_cap": true,
+   "nar": "Sprawdź, ile miesięcy ma twój okres rozliczeniowy. Jeśli rozliczasz się co dwa miesiące, kwota z faktury nie jest kwotą miesięczną i nie wolno jej porównać z ceną miesięczną.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 5
+  },
+  {
+   "layout": "formula",
+   "formula": "okno roczne = kwota miesięczna × 12",
+   "notas": [
+    "albo: kwota dwumiesięczna × 6",
+    "roczne stałe wchodzą bez dzielenia",
+    "jedno okno po obu stronach"
+   ],
+   "sem_cap": true,
+   "nar": "Najprościej policzyć wszystko w oknie rocznym: kwotę miesięczną razy dwanaście, a pozycje roczne wpisać bez dzielenia. W oknie rocznym nic się nie dzieli i nic nie ucieka.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 5
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlaczego rok jest wygodniejszy",
+   "preco": "bo sezony i roczne opłaty same wchodzą",
+   "sem_cap": true,
+   "nar": "Rok jest wygodniejszy z dwóch powodów: sezonowe zużycie mieści się w nim całe, a opłaty roczne nie wymagają dzielenia. Mniej dzieleń to mniej miejsc na pomyłkę.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 5
+  },
+  {
+   "layout": "erro",
+   "codigo": "#OKNO!",
+   "causa": "Cena miesięczna obok kwoty z faktury za dwa miesiące",
+   "saida": "Doprowadź obie do jednego okna, zanim porównasz",
+   "sem_cap": true,
+   "nar": "Zestawienie ceny miesięcznej z kwotą za okres dwumiesięczny daje różnicę rzędu dwóch, która nie ma nic wspólnego z ofertą. I nic w rachunku tego nie zgłasza.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 5
+  },
+  {
+   "layout": "item",
+   "kicker": "Na koniec sprawdzenie",
+   "preco": "podstaw swój ostatni rachunek",
+   "sem_cap": true,
+   "nar": "Jest proste sprawdzenie całej kartki: podstaw do kolumny swojej obecnej taryfy liczby z ostatniego rachunku. Jeśli wynik nie zgadza się z kwotą na fakturze, gdzieś brakuje linijki.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 5
+  },
+  {
+   "layout": "item",
+   "kicker": "Co wtedy",
+   "preco": "najczęściej brakuje opłaty stałej",
+   "sem_cap": true,
+   "nar": "Najczęściej brakuje właśnie opłaty stałej, bo była mała. Wtedy wracasz do pierwszej kolumny i czytasz fakturę linijka po linijce.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 5
+  },
+  {
+   "layout": "divisor",
+   "parte": "6",
+   "titulo": "Twoja kartka",
+   "sem_cap": true,
+   "nar": "Zbierzmy to w jedną rzecz do zrobienia, bo cała ta kartka prowadzi do dwóch liczb i jednej daty.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 5
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Twoja kartka",
+   "sub": "dwie liczby i data",
+   "cap": "Twoja kartka",
+   "nar": "Weź jedną kartkę i podziel ją na trzy kolumny w poprzek i tyle wierszy, ile masz ofert do porównania. Nic więcej nie jest potrzebne.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 6
+  },
+  {
+   "layout": "lista",
+   "kicker": "Co wpisujesz w wiersz",
+   "itens": [
+    "Suma stałych w oknie",
+    "Cena × twoje zużycie",
+    "Warunek i jego data"
+   ],
+   "sem_cap": true,
+   "nar": "W każdym wierszu trzy pola: suma stałych w wybranym oknie, cena razy twoje zużycie w tym samym oknie, i warunek z datą.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 6
+  },
+  {
+   "layout": "item",
+   "kicker": "Twoje zużycie wpisz raz",
+   "preco": "ta sama liczba we wszystkich wierszach",
+   "sem_cap": true,
+   "nar": "Twoje zużycie wpisujesz raz, na górze kartki, i używasz tej samej liczby we wszystkich wierszach. To ono trzyma porównanie uczciwym.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 6
+  },
+  {
+   "layout": "item",
+   "kicker": "Wierszy jest trzy, nie dwa",
+   "preco": "nowa, obecna, i dla pozostających",
+   "sem_cap": true,
+   "nar": "Wierszy jest trzy: nowa oferta, twoja obecna taryfa i oferta dla obecnego klienta. Trzeciego nie wpiszesz, póki o niego nie zapytasz.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 6
+  },
+  {
+   "layout": "barras",
+   "kicker": "Co decyduje w porównaniu",
+   "barras": [
+    {
+     "rotulo": "Cena za jednostkę",
+     "valor": 7
+    },
+    {
+     "rotulo": "Opłaty stałe",
+     "valor": 7
+    },
+    {
+     "rotulo": "Warunek i data",
+     "valor": 7
+    }
+   ],
+   "sem_cap": true,
+   "nar": "Nie da się z góry powiedzieć, która kolumna zdecyduje. Przy małym zużyciu decydują opłaty stałe, przy dużym cena jednostki, a przy krótkim warunku decyduje data.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 6
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlatego nie ma jednej odpowiedzi",
+   "preco": "liczba jest twoja, nie moja",
+   "sem_cap": true,
+   "nar": "Dlatego nie podaję tu żadnej ceny i nie mówię, co wybrać. Odpowiedź zależy od twojego zużycia i twojego okna, a oba masz w dokumentach, które już są w domu.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 6
+  },
+  {
+   "layout": "item",
+   "kicker": "Ile to zajmuje",
+   "preco": "jeden wieczór, raz",
+   "sem_cap": true,
+   "nar": "Cała kartka to jeden wieczór przy stole, raz. Potem wracasz do niej tylko w dacie z trzeciej kolumny, i wtedy zmieniasz jedną liczbę.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 6
+  },
+  {
+   "layout": "item",
+   "kicker": "Co zyskujesz",
+   "preco": "porównanie, które powtórzysz",
+   "sem_cap": true,
+   "nar": "Zyskujesz porównanie, które wychodzi tak samo za rok i które umiesz powtórzyć. Liczba z internetu nie ma tej własności.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 6
+  },
+  {
+   "layout": "item",
+   "kicker": "Jedna rzecz na dziś",
+   "preco": "znajdź opłatę stałą na swojej fakturze",
+   "sem_cap": true,
+   "nar": "Jeśli masz zrobić dziś jedną rzecz, zrób tę: znajdź na swojej fakturze linijkę, która nie zależy od zużycia, i zapisz jej kwotę. To pierwsze pole pierwszej kolumny.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 6
+  },
+  {
+   "layout": "cta",
+   "kicker": "Trzy kolumny, trzy operacje",
+   "sub": "zrób swoją kartkę i zasubskrybuj",
+   "nar": "Trzy kolumny i trzy operacje: dodać, pomnożyć, zapisać datę. Zrób swoją kartkę i zasubskrybuj, jeśli chcesz kolejne takie rachunki.",
+   "trilho": [
+    "Dwie oferty",
+    "Co jest stałe",
+    "Co od zużycia",
+    "Co warunkowe",
+    "Którą parę",
+    "To samo okno",
+    "Twoja kartka"
+   ],
+   "trilho_atual": 6
+  }
+ ],
+ "short": [
+  {
+   "layout": "titulo",
+   "kicker": "Dwie liczby",
+   "sub": "z dwóch różnych półek",
+   "nar": "Dwie liczby z dwóch półek."
+  },
+  {
+   "layout": "item",
+   "kicker": "Nowa oferta",
+   "preco": "cena dla nowego",
+   "nar": "Nowa oferta: cena dla nowego."
+  },
+  {
+   "layout": "item",
+   "kicker": "Twój rachunek",
+   "preco": "rabat już minął",
+   "nar": "Twój rachunek: rabat już minął."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Co z czym zestawiasz",
+   "barras": [
+    {
+     "rotulo": "Ich najlepsza",
+     "valor": 4
+    },
+    {
+     "rotulo": "Twoja najgorsza",
+     "valor": 9
+    }
+   ],
+   "nar": "Ich najlepsza obok twojej najgorszej."
+  },
+  {
+   "layout": "titulo",
+   "kicker": "Wynik znasz",
+   "sub": "zanim cokolwiek policzysz",
+   "nar": "Wynik znasz, zanim policzysz."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Ile liczb istnieje",
+   "itens": [
+    "Cena dla nowego",
+    "Twoja obecna",
+    "Dla pozostających"
+   ],
+   "nar": "A liczb jest trzy, nie dwie."
+  },
+  {
+   "layout": "item",
+   "kicker": "Trzecia",
+   "preco": "cena dla pozostających",
+   "nar": "Trzecia to cena dla pozostających."
+  },
+  {
+   "layout": "barras",
+   "kicker": "Gdzie ona jest",
+   "barras": [
+    {
+     "rotulo": "Na twoim papierze",
+     "valor": 0
+    },
+    {
+     "rotulo": "U dostawcy",
+     "valor": 8
+    }
+   ],
+   "nar": "Nie ma jej na papierze, który masz."
+  },
+  {
+   "layout": "item",
+   "kicker": "Dlatego",
+   "preco": "nie wchodzi do porównania",
+   "nar": "Dlatego nie wchodzi do porównania."
+  },
+  {
+   "layout": "item",
+   "kicker": "Jak ją zdobyć",
+   "preco": "jedno pytanie u siebie",
+   "nar": "Zdobywasz ją jednym pytaniem."
+  },
+  {
+   "layout": "lista",
+   "kicker": "Wtedy kartka ma",
+   "itens": [
+    "Trzy wiersze",
+    "Jedno twoje zużycie"
+   ],
+   "nar": "Wtedy liczysz trzy wiersze, nie dwa."
+  },
+  {
+   "layout": "cta",
+   "kicker": "Zapytaj o swoją",
+   "sub": "cenę dla obecnych",
+   "nar": "Zapytaj o cenę dla obecnych i zasubskrybuj."
+  }
+ ],
+ "copy": "# kolejny-poziom-022 — PACOTE (longo + short)\n\n## TITULO\nDwie Oferty, Trzy Kolumny: Co Dodajesz, Co Mnożysz, a Co Trafia do Kalendarza\n\n## TITULO SHORT\nLiczb jest trzy, nie dwie\n\n## DESCRICAO\nDwie oferty na to samo — prąd, telefon, internet albo ubezpieczenie — wyglądają\nna policzalne, bo obie mają w środku liczby. Problem jest w tym, że te liczby\nnie są tego samego rodzaju, a różne rodzaje wymagają różnych operacji. Opłata,\nktórą zapłacisz nawet nic nie zużywając, dodaje się. Cena za jednostkę mnoży się\nprzez twoją liczbę jednostek. A rabat, który obowiązuje pod warunkiem, nie\nwchodzi do rachunku wcale: trafia do kalendarza, razem z datą, w której wygasa.\n\nTo nagranie nie mówi, którą ofertę wybrać, i nie podaje żadnej ceny. Pokazuje,\njak rozłożyć obie na trzy kolumny i policzyć własną liczbę tak, żeby wyszła taka\nsama za każdym razem. Potrzebujesz jednej kartki i swoich własnych rachunków za\nostatni rok.\n\nPo drodze omawiamy sześć miejsc, w których poprawnie zrobiony rachunek i tak\nopisuje coś innego, niż się myśli: wszystkie linijki wrzucone do jednej kolumny,\ndwa różne zużycia w dwóch kolumnach, średnia podstawiona pod taryfę z progami,\nrabat czasowy policzony jak cena stała, cena miesięczna zestawiona z kwotą za\nokres dwumiesięczny — i ten najdroższy, który nie dotyczy żadnej kolumny:\nporównanie najlepszej ceny dla nowego klienta z własnym rachunkiem, z którego\nrabat już dawno zniknął. Liczb w tej sytuacji istnieją trzy, nie dwie, a trzeciej\n— ceny dla klienta, który zostaje — nie ma na żadnym papierze, który dostałeś.\n\nNa końcu kartka ma trzy wiersze, jedno twoje zużycie wpisane raz na górze i co\nnajmniej jedną datę. Dwie liczby porównujesz, a data mówi, kiedy ten rachunek\nprzestaje być prawdziwy i trzeba go zrobić jeszcze raz.\n\nJedna rzecz do zrobienia dziś: znajdź na swojej fakturze linijkę, która nie\nzależy od zużycia, i zapisz jej kwotę.\n\n## COMENTARIO FIXADO\nTrzy kolumny, trzy operacje: stałe dodajesz, zużycie mnożysz przez swoją liczbę,\na warunkowe zapisujesz z datą. Jedno twoje zużycie na górze kartki trzyma\nporównanie uczciwym.\n\n## CAPITULOS\nDwie oferty\nCo jest stałe\nCo od zużycia\nCo warunkowe\nKtórą parę\nTo samo okno\nTwoja kartka\n\n## FONTES\nA ORIGEM NASCE AQUI: o longo E a origem, logo nao ha irmao a comparar e o\n`irmaos_da_origem` nao tem o que dizer nesta peca. O short leva UMA familia do\nlongo, o capitulo 5 (`Którą parę`).\n\nCLASSE PROCEDIMENTO: o espectador faz a conta com os PROPRIOS documentos (as\nfaturas do ultimo ano e as duas ofertas), logo a trava 600 — numero sobre o mundo\nexige duas fontes institucionais — nao se aplica, porque nao ha numero sobre o\nmundo nenhum.\n\n## FAMILIA DE ENTRADA ERRADA\nDo SHORT: **PORÓWNUJESZ ICH NAJLEPSZĄ CENĘ Z TWOJĄ NAJGORSZĄ, I BRAKUJE TRZECIEJ\nLICZBY.** O eixo e **QUAL PAR se compara**, e nao o valor de nenhuma linha, nao a\noperacao e nao a janela: as duas liczbas podem estar certas, a conta pode fechar,\ne o par escolhido ja decidiu o resultado antes de qualquer aritmetica. De um lado\nesta o preco preparado para quem AINDA NAO e cliente; do outro o teu, de que o\nrabat ja desapareceu.\n\n**E o mecanismo do silencio e de AUSENCIA e nao de erro:** a terceira liczba — o\npreco para quem FICA — **nao esta em papel nenhum que te deram**. Ela nao foi\nescondida numa letra pequena: ela simplesmente nao existe como documento, logo\nnao ha nada para ler com mais atencao, nada que o rachunek contradiga e nada que\nte mande desconfiar. Quem compara duas chega a uma conclusao coerente e\npossivelmente errada.\n\n**A distincao contra a peca deste canal de ha duas horas vai escrita**, porque o\nportao `similaridade` compara TITULO e nao pegaria o eixo: no `kolejny-poziom-s104`\n(21:26Z) o numero da ustawa esta CERTO e e um TETO — o eixo e QUEM o fixou; aqui\nas duas liczbas estao certas e o eixo e QUE PAR delas se escolhe. Teto contra par.\n\n**E contra o `labtreinamento-s117` (14:30Z, outro canal):** ali as TRES entradas\nda conta estao todas na mesma guia e o defeito e tratar uma CLASSIFICACAO como\nquantidade — eixo de NATUREZA. Aqui o rodzaj de cada linha e materia do LONGO (as\ntres colunas), e o eixo do SHORT e outro: o par comparado. Natureza contra par.\nConferido pelo `familia_entre_canais`, que le o campo das tres ultimas pecas de\ncada outro canal — e nao a minha memoria (23/10, 17:0x).\n\n## AVISO SOBRE OS NUMEROS\nZERO NUMERO NOVO SOBRE O MUNDO, no longo e no short. Nenhuma cena diz preco,\nstawka, percentual, kwota, prazo em dias nem data de calendario, e nenhuma nomeia\npublicacao oficial ou fornecedor.\n\nOs numerais falados sao a ESTRUTURA do proprio procedimento: tres kolumny, tres\noperacoes, dwanaście miesiecy (o divisor das linhas anuais e o tamanho da janela),\ndwie oferty, trzy wiersze. Nenhum deles e fato sobre o mundo — vao conferidos pelo\n`numerais_falados`.\n\n**E A RECUSA INCLUI O QUE DARIA A PECA MAIS FACIL:** um exemplo numerico das duas\nofertas lado a lado. Ele tornaria tudo concreto em uma frase e e exatamente o que\no `kolejny-poziom-s104` ja recusou nesta mesma semana pelo caso especial da regra\n(g) — numero que o proprio video inventa como exemplo nao entra, porque o\nespectador o leva como se fosse medida.\n\nAS BARRAS SAO ILUSTRACAO QUALITATIVA E NAO SAO FALADAS, nas duas pecas. No short,\na cena 3 desenha \"a melhor deles\" mais baixa que \"a pior tua\" — e a diferenca de\naltura **nao e razao medida de nada**, e so a direcao do argumento; e a cena 7\ndesenha ZERO no lado \"no teu papel\", que e a ausencia de que a peca fala. No\nlongo, a cena das tres kolumny desenha as TRES com a MESMA altura de proposito,\nporque o argumento e que nao se sabe de antemao qual decide.\n\n## EXPOSICAO\nLINHAS MEDIDAS, GERADAS pelo `linhas_medidas_da_copy` e pelo `ensaio` — coladas,\nnao redigitadas:\n- NUMERAIS falados pela narracao do SHORT, do `numerais_falados`: \"dwa\", \"dwie\",\n  \"trzy\" (cenas 0, 5 e 10). Se eles sao estrutura do argumento ou fato sobre o\n  mundo, decide a regra (g).\n- PREVISAO do SHORT, do `ensaio` pelo `mira.confere`: edge **41,70 s** / piper\n  **35,50 s** — 0,20 acima do PISO da faixa, pela regra de redacao do 772. A\n  primeira versao saiu em 42,70, perto do TOPO, e o corte saiu do\n  `mira.quanto_cortar` (doze caracteres no total), nao de cabeca.\n- PREVISAO do LONGO: edge **750,70 s** (12:31) / piper **638,80 s**. Pelos tres\n  pontos de residuo de longo a previsao e LIMITE SUPERIOR, logo o real deve cair\n  entre ~712 e ~737 s — **margem de MINUTOS sobre os 480 s do mid-roll**, nao de\n  segundos.\n- FORMA do SHORT: 12 cenas, media de **32,58** caracteres por cena, esqueleto\n  `titulo-item-item-barras-titulo-lista-item-barras-item-item-lista-cta` —\n  **INEDITO** nas 210 formas de short da frota, com esta peca FORA da varredura.\n- LONGO: **68 cenas** e **SETE** capitulos DERIVADOS pelo `trilho.aplica_no_longo`\n  — eu nao escrevo o campo `trilho` em cena nenhuma, e ele RECUSA quando o trilho\n  nao cabe na largura em vez de encolher a fonte.\n- REDACAO do SHORT: acento **3,56%** (acima do piso OBSERVADO de 2,59% do idioma\n  e abaixo da mediana de 5,34%, n=114), thumbnail com 4 palavras de 4 — no LIMITE\n  exato —, gancho com 6 de 12.\n\n**O LONGO MIRA COM FOLGA SOBRE OS 8 MINUTOS, e isto e regra de 19/10 as 13:5x:**\nnos TRES pontos de residuo de longo que existem a previsao e LIMITE SUPERIOR\n(-1,8%, -2,7% e -5,1%), logo peca mirada em cima dos 480 s pode sair ABAIXO deles\n— e abaixo de oito minutos o YouTube nao da mid-roll, que e a unica receita que o\nformato longo acrescenta. Em 23/10 as 18:4x eu publiquei um longo com **19 s** de\nmargem no pior dos tres casos e declarei que dezenove segundos nao e folga; esta\npeca corrige isso com margem de minutos.\n\n**A PINCA DO 740/748 ESTA FECHADA neste canal** e a exposicao do short vai\ndeclarada ANTES de publicar: nenhuma media por cena poe os dois provedores dentro\nde 41,5 a 43,0 nesta voz, logo o piper sai FORA pela mira e DENTRO do portao, que\ncobra 18 a 45 s nos dois mundos. **E o REAL nao esta prometido para lado nenhum**\n(774) — a banda tem 5,2 s de largura contra 1 s de granularidade.\n\n**E NAO HAVERA LEITURA DE DURACAO:** o modo da rota e `negado_por_politica`,\nmedido pela `sonda_e_modo` com os TRES controles no MESMO caminho de saida. As\nduas peças vao PARQUEADAS com o provedor MEDIDO e a previsao POR PECA — o\nconserto de 23/10 as 13:5x, depois de o registro ter parqueado `regs[0]` e so.\n\n## RESERVA\nO longo nasce como origem, logo a reserva aqui e a lista das familias que ele\nCONTEM e que o short NAO levou — cada uma e peca propria para as rodadas\nseguintes, e nenhuma esta consumida:\n- **capitulo 2** (`Co jest stałe`): a linha que se paga sem consumir nada, e o\n  teste de um minuto que a identifica. Inclui o erro `#BRAK!` — oferta que mostra\n  so o preco por unidade nao e oferta completa.\n- **capitulo 3** (`Co od zużycia`): a media dos PROPRIOS meses substituida sob\n  uma tarifa com degraus. **ATENCAO ao escrever:** o eixo media-contra-distribuicao\n  e vizinho do `kolejny-poziom-s092` (media NACIONAL), que e de conjunto de\n  pessoas; aqui seria dos proprios meses. Leia a peca dele antes.\n- **capitulo 4** (`Co warunkowe`): o rabat com prazo tratado como preco estavel.\n  **ATENCAO:** o PRAZO de validade da tarifa de introducao e territorio declarado\n  do `epomeno-epipedo-s039`, em outro canal; o que esta livre aqui e a OPERACAO —\n  que a linha condicional nao entra em conta nenhuma, entra no calendario.\n- **capitulo 6** (`To samo okno`): a cena miesieczna zestawiona com a kwota de um\n  okres de dois meses, e o okno anual como forma de nao dividir nada.\n- **capitulo 7** (`Twoja kartka`): o proprio zuzycie escrito UMA vez no topo, que\n  e o que mantem a comparacao honesta.\n- CONSUMIDO por esta peca: o **capitulo 5** (`Którą parę`).\n\n## HASHTAGS\n#rachunki #oferta #finansedomowe #taryfa #porownanie\n\n## TAGS\nporównanie ofert, opłata stała, cena za jednostkę, rabat czasowy, taryfa, okres rozliczeniowy, oferta dla obecnych klientów, finanse osobiste, rachunki domowe\n\n## CONFIGURACOES DO STUDIO\nprivacyStatus: public\ncategoryId: 27\ndefaultLanguage: pl\ndefaultAudioLanguage: pl\n\n## MUSICA / LICENCA\n{TRILHA}\n",
+ "paleta": {
+  "bg": "#0B0B0C",
+  "ink": "#F2EEE8",
+  "c1": "#E23B3B",
+  "c2": "#D9C7A7",
+  "red": "#FF4D4D",
+  "ok": "#7FB77E",
+  "panel": "#151517",
+  "mut": "#8F877C",
+  "acc": "#E23B3B"
+ }
+}
