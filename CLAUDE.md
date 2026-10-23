@@ -14342,6 +14342,77 @@ independentes, e passar uma nao e passar a outra.
 piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
 hora.
 
+## A PECA DAS 20:07 — a familia nao e sobre numero nenhum, e sobre uma CRENCA
+
+`epomeno-epipedo-s103` = **`oqroN2HIleI`** (*Η αλλαγή δεν σβήνει το ρεύμα*),
+publicado as **20:16:50Z** (render `40017630067`, publicacao `40017953767`),
+**sem `403 quota`**. **ONZE PORTOES VERDES NA PRIMEIRA TENTATIVA.** Provedor
+**edge MEDIDO** (zero avisos `NARRACAO PELO PIPER` no job `120633726166`, que e o
+que emitiu o SOM), som **-13,7** LUFS, pico **-1,4** dBTP — isto e
+`acima_do_teto`, que e **LEITURA e nao defeito** —, **zero silencios**. Os quatro
+parques pelo `registro_da_rodada`, os quatro **RELIDOS** (duracao **168** linhas,
+96 sem leitura; som **108**; SQL **204** com ZERO prosa; corpus pelo dono), e a
+linha do PUBLICADO imprimiu os DOIS titulos CONCORDANDO (773).
+
+**CANAL do `passo_zero`** (10/8/8, empate desempatado pelo que esta ha mais tempo
+sem publicar). **PAUTA:** `wUHuwyO2HYo` (`epomeno-epipedo-012`), 5 usos — empate
+de **CATORZE** origens desempatado pela MAIOR reserva (69 livres de 90, **57 sem
+declaracao**). **AS DUAS LEITURAS DIVERGEM e a rodada SEGUIU A REGRA ESCRITA, com
+o vao MEDIDO em UM capitulo (2%)** — longe dos 62% em que a rodada de 22/10 as
+17:3x desviou e igual ao caso de 3% em que ela seguiu, porque declaracao em prosa
+e INDICIO e desviar por um capitulo transformaria a heuristica em regra.
+
+**FAMILIA: CONFUNDIR QUEM FATURA COM DE ONDE VEM A ELECTRICIDADE — e por isso nao
+fazer a conta nenhuma vez** (kefalaia 77 a 79, com apoio dos 74, 75 e 87). **O
+eixo nao e o valor de nenhum numero nem a operacao: e o que a pessoa acredita que
+ACONTECE depois da conta.** Ela imagina um passo tecnico — corte, religacao,
+equipe na rua — e o unico passo que existe e **de papel**: muda quem emite a
+fatura e muda a regra de calculo. O cabo e a paroche nao se tocam.
+
+**E O MECANISMO DO SILENCIO E DUPLO, e e por isso que esta familia dura anos:** a
+crenca **NUNCA e testada**, porque ninguem troca para descobrir que nao ha corte;
+e a inacao **nao emite nada** — nao existe fatura, aviso ou linha de extrato
+dizendo *"pagaste acima do necessario"*. A escolha que ficou como estava vale no
+mes seguinte e outra vez no ano depois, sem ninguem assinar nada, e vale nos DOIS
+sentidos.
+
+**Os CINCO irmaos desta origem falam de como fazer a conta DIREITO** — a unidade
+da tiki (`s014`), euros em vez de kilovatores (`s022`), a tarifa de introducao ter
+data (`s039`), linhas que nao dependem do consumo no mesmo multiplicador
+(`s074`), de qual conta sai o numero (`s089`). **Nenhum fala do que a pessoa
+acredita que acontece DEPOIS dela, nem de ela nunca comecar.** Dois deles nao tem
+o campo da familia, logo a comparacao saiu da PROSA e da NARRACAO, de primeira
+mao (776).
+
+**E OS KEFALAIA 73 A 76 FICARAM FORA DE PROPOSITO:** o eixo deles e a UNIDADE DO
+PERIODO (mensal contra anual) e e o do `epomeno-epipedo-s075`, **neste mesmo
+canal** — a regra (f). Vai escrito na RESERVA com o motivo, junto com quatro
+blocos LIVRES.
+
+**CONTAGEM pela chave `por_cadencia_servivel`** (12 cenas, folga **+16**); o teto
+MEDIDO da voz (**15**) saiu **NOMEADO**, recusado pela FOLGA de dois caracteres.
+**FORMA do `sugere_forma`:** a mistura de maior folga em doze cenas (**7.542 de
+7.560** ordens livres), e o esqueleto
+`titulo-titulo-item-lista-barras-item-item-item-item-lista-barras-cta` e **INEDITO
+nas 208 formas** da frota.
+
+**MIREI O PISO (772):** a primeira versao previa **43,38** — ACIMA do topo de
+43,0 — e o corte saiu do `mira.quanto_cortar`, nao da minha cabeca. Ficou em edge
+**41,70** / piper **36,90**. A **PINCA do 740/748 esta FECHADA** e a exposicao vai
+declarada ANTES de publicar; **o REAL nao esta prometido para lado nenhum** (774).
+
+**E O `numerais_falados` TEM PONTO CEGO DECLARADO AQUI, e a copy e MAIS LARGA que
+ele:** o unico numeral falado e **"μία"** (*"nem uma hora sem luz"*), ilustracao
+do argumento — e o instrumento deixa **ARTIGO** de fora de proposito, e em grego
+`μία` e as duas coisas, logo ele devolve *"nenhum numeral do vocabulario"*. A
+ressalva que vale e a escrita no proprio modulo: **ausencia de vocabulario nao
+prova ausencia** (medido em 23/10 as 17:0x, no `s102`). As barras das cenas 4 e 10
+sao ILUSTRACAO e **nao** sao faladas.
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica` pela SEXAGESIMA
+rodada seguida.** `RESIDUO_N` segue **128**. **COTA: QUINZE envios** na janela de
+07:00Z, **24.000** unidades, contra o piso MEDIDO de **>= 41.600**.
+
 ## A FAMILIA MAIS OBVIA DA ORIGEM FICOU DE FORA, pelo instrumento de 17:0x
 
 **A PECA DAS 19:07 — `kolejny-poziom-s103` = `BOx7-CRk3ss`** (*Twoja czesc to nie
