@@ -43,9 +43,29 @@ MIN_PALAVRAS_DESCRICAO = 200
 
 
 def _gate_identidade(caminho, sp):
+    # O CANAL sai do `canal.da_spec`, nunca de `sp["slug"]`. Medido em 23/10 as
+    # 15:3x, na suite: este portao lia o `slug` CRU como se fosse o canal, e
+    # desde 19/10 as 05:2x o slug e o PACOTE — logo `idioma_do_canal` e
+    # `trilha_do_canal_config` devolviam "" e as DUAS conferencias de baixo,
+    # guardadas por `do_canal and`, deixavam de rodar. **O portao parou de
+    # conferir e nao reprovou nada**, que e a falha PERMISSIVA da mira de
+    # 19/10 — aqui num PORTAO, que e pior, porque o da mira informa e este
+    # autoriza. Medido no disco: 120 das 451 specs de video cegavam as duas.
+    #
+    # Reproduzido antes do conserto no `epomeno-epipedo-069`: a spec com a
+    # trilha do KOLEJNY e a spec declarando `pl` num canal grego passavam as
+    # duas LIMPAS. E a trilha e justamente o portao que existe porque o
+    # `kolejny-poziom-005` foi ao ar com `Deliberate_Thought` num canal
+    # `Wholesome`.
+    #
+    # O varredor por AST do arquivo da mira nao podia pegar isto: ele procura
+    # quem DERIVA o canal errado (`rsplit("-s")`), e aqui ninguem deriva — le-se
+    # o slug cru. O teste novo fecha esse vao.
+    import canal as canal_mod
     from publicar import idioma_do_canal, trilha_do_canal_config
 
     faltas = []
+    do_canal_slug = canal_mod.da_spec(sp)
     nome = os.path.basename(caminho)[:-5]
     # O `frota.yml` copia a spec para `spec.json` antes de rodar os portoes, de
     # proposito — e o nome que todos os passos do runner esperam. Comparar o
@@ -57,7 +77,7 @@ def _gate_identidade(caminho, sp):
     # A comparacao vale no DISCO, onde o arquivo tem o nome do pacote.
     if nome not in ("spec", "spec.json") and sp.get("pacote") != nome:
         faltas.append(f"pacote={sp.get('pacote')!r} != {nome!r}")
-    do_canal = idioma_do_canal(sp["slug"])
+    do_canal = idioma_do_canal(do_canal_slug)
     if sp.get("idioma"):
         if do_canal and sp["idioma"] != do_canal:
             faltas.append(f"idioma={sp['idioma']!r} mas canal e {do_canal!r}")
@@ -73,10 +93,11 @@ def _gate_identidade(caminho, sp):
     # portoes passaram — nenhum lia a trilha do canal, que so existia no
     # banco. O unico que pegou foi um teste de repositorio, e ele so podia
     # pegar DEPOIS de uma segunda spec divergir da primeira.
-    do_canal_trilha = trilha_do_canal_config(sp["slug"])
+    do_canal_trilha = trilha_do_canal_config(do_canal_slug)
     if do_canal_trilha and sp.get("trilha") and sp["trilha"] != do_canal_trilha:
         faltas.append(f"trilha={sp['trilha']!r} mas a identidade do canal e "
-                      f"{do_canal_trilha!r} (config/canais/{sp['slug']}.yaml)")
+                      f"{do_canal_trilha!r} "
+                      f"(config/canais/{do_canal_slug}.yaml)")
     return faltas
 
 

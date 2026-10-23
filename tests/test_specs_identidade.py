@@ -70,19 +70,32 @@ def test_idioma_da_spec_bate_com_o_do_canal(spec):
 
     A spec vence o config em `publicar.py` — entao uma spec com idioma errado
     nao seria corrigida por ninguem.
+
+    RETRATADO em 23/10 as 15:3x, e o errado era ESTE teste: ele passava
+    `s["slug"]` a `idioma_do_canal` como se o slug fosse o canal, e desde 19/10
+    as 05:2x o slug e o PACOTE. Ele reprovou o `epomeno-epipedo-069` — o
+    primeiro pacote cujo slug nao e mais o canal — dizendo `canal
+    epomeno-epipedo-069 sem idioma em config/canais/`, o que e verdade e nao e
+    defeito da spec. O canal sai do `canal.da_spec`, que e o dono dele desde
+    19/10. **E ao consertar isto apareceu o defeito de verdade, no PORTAO**, que
+    lia o slug do mesmo jeito e por isso deixou de conferir idioma e trilha em
+    120 das 451 specs: `tests/test_o_PORTAO_da_identidade_parou_de_conferir.py`.
     """
     import sys
 
     sys.path.insert(0, str(RAIZ / "fabrica"))
+    import canal as canal_mod
     from publicar import idioma_do_canal
 
     s = _carrega(spec)
-    do_canal = idioma_do_canal(s["slug"])
-    assert do_canal, f"canal {s['slug']} sem idioma em config/canais/"
+    do_canal_slug = canal_mod.da_spec(s)
+    do_canal = idioma_do_canal(do_canal_slug)
+    assert do_canal, f"canal {do_canal_slug} sem idioma em config/canais/"
     if s.get("idioma"):
         assert s["idioma"] == do_canal, (
-            f"{spec.name} declara idioma={s['idioma']!r} mas o canal {s['slug']} "
-            f"e {do_canal!r}; a spec vence o config, entao isto publicaria errado"
+            f"{spec.name} declara idioma={s['idioma']!r} mas o canal "
+            f"{do_canal_slug} e {do_canal!r}; a spec vence o config, entao isto "
+            f"publicaria errado"
         )
 
 
