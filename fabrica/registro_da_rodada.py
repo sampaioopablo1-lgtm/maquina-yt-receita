@@ -54,8 +54,8 @@ RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SQL_PENDENTE = os.path.join(RAIZ, "docs", "pendente", "videos-a-inserir.sql")
 
 
-def _notice_do_pacote(lida_pub: dict, pacote: str) -> dict:
-    """O registro do `::notice:: PUBLICADO` deste pacote, ou LEVANTA.
+def _notices_do_pacote(lida_pub: dict, pacote: str) -> list:
+    """Os registros do `::notice:: PUBLICADO` deste pacote, ou LEVANTA.
 
     Devolver `None` aqui faria o resto do passo rodar com um dicionario vazio e
     parquear peca sem youtube_id, do jeito que o 000 do curl parecia resposta.
@@ -67,7 +67,12 @@ def _notice_do_pacote(lida_pub: dict, pacote: str) -> dict:
             "nenhum `::notice:: PUBLICADO` para %r neste run. Sem o notice nao "
             "ha youtube_id, e parquear sem ele poe linha cega nos quatro "
             "parques — ausencia de notice NAO e peca publicada." % pacote)
-    return meus[0]
+    return meus
+
+
+def _notice_do_pacote(lida_pub: dict, pacote: str) -> dict:
+    """O PRIMEIRO notice do pacote. Mantido para quem quer uma peca so."""
+    return _notices_do_pacote(lida_pub, pacote)[0]
 
 
 def _apende_sql(sql: str, caminho: str) -> int:
@@ -94,6 +99,7 @@ def _apende_sql(sql: str, caminho: str) -> int:
 
 
 def registra(run_render, run_pub, pacote, prev_edge, prev_piper,
+             prev_longo=None,
              titulo=None, sql_pendente=None, api=None):
     """As quatro escritas, na ordem, cada uma pelo dono — e cada parque RELIDO.
 
@@ -134,7 +140,8 @@ def registra(run_render, run_pub, pacote, prev_edge, prev_piper,
     lida_p = AR.leitura(run_pub, api=api) if "api" in \
         AR.leitura.__code__.co_varnames else AR.leitura(run_pub)
 
-    reg = _notice_do_pacote(lida_p, pacote)
+    regs = _notices_do_pacote(lida_p, pacote)
+    reg = regs[0]
     tit_no_ar = (reg.get("titulo") or "").strip()
     if titulo is not None and titulo.strip() != tit_no_ar:
         raise ValueError(
@@ -166,15 +173,41 @@ def registra(run_render, run_pub, pacote, prev_edge, prev_piper,
             "provedor": prov["provedor"], "job": prov["job"],
             "titulo": tit_no_ar}
 
-    # 1) DURACAO — o `do_registro` exige provedor e job (733) e mapeia o
-    # instante do notice, que os dois donos chamam por nomes diferentes.
-    DM.parqueia(DM.do_registro(reg, prev_edge, prev_piper,
-                               prov["provedor"], prov["job"]))
-    linhas = DM.carrega()
-    if not any(r.get("pacote") == pacote for r in linhas):
+    # 1) DURACAO — uma linha por PECA, e o `do_registro` exige provedor e job
+    # (733) e mapeia o instante do notice, que os dois donos chamam por nomes
+    # diferentes.
+    #
+    # **MEDIDO em 23/10 as 14:1x, no PRIMEIRO pacote desde que este modulo
+    # nasceu:** ele parqueava `regs[0]` e so, logo o LONGO do
+    # `epomeno-epipedo-069` ficou FORA do parque de duracao e do corpus — a
+    # mesma classe do `slug` cravado que em 19/10 as 13:0x fazia as duas linhas
+    # de `videos` colidirem. O SQL ja saia certo (o `sql_insert` recebe a lista
+    # inteira), o que torna a falha PARCIAL e por isso mais facil de nao ver.
+    #
+    # E a previsao e POR PECA: um longo de ~620 s e um short de ~42 s nao
+    # compartilham numero. Pacote com longo SEM `prev_longo` LEVANTA, em vez de
+    # parquear o longo com a previsao do short — ponto de residuo errado no
+    # parque e procedencia inventada, que e o que o 733 nomeia.
+    tem_longo = [r for r in regs if (r.get("formato") or "") == "longo"]
+    if tem_longo and not prev_longo:
         raise ValueError(
-            "a peca NAO esta no parque de duracao depois de gravar. Retorno de "
-            "funcao nao prova presenca (20/10, 13:2x).")
+            "o pacote %r publicou um LONGO (%s) e `prev_longo` nao veio. "
+            "Parquear o longo com a previsao do short poria no parque um ponto "
+            "de residuo que nenhuma peca produziu — passe prev_longo=(edge, "
+            "piper)." % (pacote, tem_longo[0].get("youtube_id")))
+    for r in regs:
+        par = (prev_longo if (r.get("formato") or "") == "longo"
+               else (prev_edge, prev_piper))
+        DM.parqueia(DM.do_registro(r, par[0], par[1],
+                                   prov["provedor"], prov["job"]))
+    linhas = DM.carrega()
+    gravados = {r.get("youtube_id") for r in linhas}
+    faltam = [r.get("youtube_id") for r in regs
+              if r.get("youtube_id") not in gravados]
+    if faltam:
+        raise ValueError(
+            "peca(s) %s NAO estao no parque de duracao depois de gravar. "
+            "Retorno de funcao nao prova presenca (20/10, 13:2x)." % faltam)
     fora["duracao_linhas"] = len(linhas)
     fora["duracao_sem_leitura"] = sum(1 for r in linhas if not r.get("real"))
 
@@ -194,7 +227,10 @@ def registra(run_render, run_pub, pacote, prev_edge, prev_piper,
 
     # 4) CORPUS — o dono sabe a forma do arquivo (`{"titulos": [...]}`), e foi
     # por nao saber que eu levei `AttributeError` em 23/10 as 01:3x.
-    CA.aplicar([tit_no_ar])
+    # Um titulo por PECA: o do longo e o que a trava de titulo duplicado do
+    # `prontidao` (773) le quando a peca seguinte for um longo.
+    CA.aplicar([(r.get("titulo") or "").strip() for r in regs
+                if (r.get("titulo") or "").strip()])
     fora["corpus_titulos"] = CA.titulos_do_corpus() \
         if hasattr(CA, "titulos_do_corpus") else None
     return fora
@@ -224,10 +260,14 @@ def main(argv=None) -> int:
     a = list(sys.argv[1:] if argv is None else argv)
     if len(a) < 5:
         print("uso: python3 fabrica/registro_da_rodada.py "
-              "<run_render> <run_pub> <pacote> <prev_edge> <prev_piper> [titulo]")
+              "<run_render> <run_pub> <pacote> <prev_edge> <prev_piper> "
+              "[prev_longo_edge prev_longo_piper]")
         return 0
-    print(relato(a[0], a[1], a[2], float(a[3]), float(a[4]),
-                 titulo=(a[5] if len(a) > 5 else None)))
+    # O `prev_longo` entra pelo CLI porque e assim que a rodada chama: sem ele,
+    # pacote com longo LEVANTA em vez de parquear o longo com a previsao do
+    # short (23/10, 14:1x).
+    pl = ((float(a[5]), float(a[6])) if len(a) > 6 else None)
+    print(relato(a[0], a[1], a[2], float(a[3]), float(a[4]), prev_longo=pl))
     return 0
 
 

@@ -268,8 +268,14 @@ def test_a_RELEITURA_pega_escrita_que_falha_em_SILENCIO(parques, leituras,
     with pytest.raises(ValueError) as e:
         RR.registra(RENDER, PUB, PAC, 25.0, 20.5,
                     sql_pendente=str(parques["sql"]))
-    assert "NAO esta no parque de duracao" in str(e.value)
-    assert "13:2x" in str(e.value), (
+    # A frase era cobrada por IDENTIDADE (`"NAO esta no parque"`, no singular) e
+    # o conserto do PACOTE de 23/10 as 14:1x a pluralizou, porque a recusa passou
+    # a NOMEAR quais pecas faltam. Era o teste que estava atras, nao o modulo —
+    # 743/753/761. A propriedade e: ela nomeia o parque, nomeia a peca que falta,
+    # e carrega a procedencia.
+    m = str(e.value)
+    assert "parque de duracao" in m and YID in m, m
+    assert "13:2x" in m, (
         "a recusa perdeu a procedencia: retorno de funcao nao prova presenca")
 
 
@@ -292,3 +298,130 @@ def test_a_RELEITURA_do_PENDENTE_tambem_pega(parques, leituras, monkeypatch):
         RR.registra(RENDER, PUB, PAC, 25.0, 20.5,
                     sql_pendente=str(parques["sql"]))
     assert "NAO esta no pendente" in str(e.value)
+
+
+# ------------------------------------------------------- o PACOTE (14:1x)
+# **MEDIDO em 23/10 as 14:1x, no PRIMEIRO pacote desde que o modulo nasceu:**
+# ele parqueava `regs[0]` e so, logo o LONGO do `epomeno-epipedo-069` ficou FORA
+# do parque de duracao e do corpus. O SQL ja saia certo (o `sql_insert` recebe a
+# lista inteira), e e isso que torna a falha PARCIAL e mais facil de nao ver.
+# Estes testes cobram as DUAS pecas e a previsao POR PECA, com contraprova no
+# outro sentido — o short solto continua parqueando UMA linha e sem exigir nada.
+
+PAC_P = "canalx-001"
+YID_L, TIT_L = "LONGid00001", "O titulo do longo"
+YID_S, TIT_S = "SHORTid0001", "O titulo do short"
+PREV_L = (619.4, 548.8)
+
+
+@pytest.fixture
+def leituras_pacote(monkeypatch):
+    """Um PACOTE: dois notices do mesmo pacote, o short PRIMEIRO.
+
+    A ordem espelha o incidente — no `epomeno-epipedo-069` o `regs[0]` era o
+    short, e foi o LONGO que ficou fora. Ela nao decide nada: parquear so o
+    primeiro deixa uma peca de fora em qualquer ordem.
+    """
+    import anotacoes_do_run as AR
+    base = {"status": "publicado", "canal": "canalx", "pacote": PAC_P,
+            "publicado_em": "2026-10-23T13:46:00Z"}
+    curto = dict(base, slug=PAC_P + "-short", formato="shorts", titulo=TIT_S,
+                 youtube_id=YID_S, origem_id=YID_L, cenas=13)
+    longo = dict(base, slug=PAC_P, formato="longo", titulo=TIT_L,
+                 youtube_id=YID_L, origem_id=None, cenas=62)
+    regs = [curto, longo]
+    notices = ["PUBLICADO %s %s youtube_id=%s titulo=%s em=%s"
+               % (PAC_P, r["formato"], r["youtube_id"], r["titulo"],
+                  r["publicado_em"]) for r in regs]
+    monkeypatch.setattr(AR, "leitura", lambda run, **k: {
+        "run": run,
+        "jobs": [{"id": "900001", "nome": "job", "conclusao": "success",
+                  "mensagens": notices if run == PUB else []}]})
+    monkeypatch.setattr(AR, "publicado",
+                        lambda lida: list(regs) if lida.get("run") == PUB else [])
+    monkeypatch.setattr(AR, "provedor", lambda lida, pacote=None: (
+        {"provedor": "edge", "job": "900001"} if lida.get("run") == RENDER
+        else {"provedor": None, "job": None, "motivo": "nenhum job emitiu SOM"}))
+    monkeypatch.setattr(AR, "som_do_run", lambda lida, pacote=None: (
+        [{"pacote": PAC_P, "arquivo": a, "job": "900001", "run": RENDER,
+          "pico_dbtp": p, "lufs": -14.0}
+         for a, p in (("longo.mp4", -3.2), ("short.mp4", -2.7))]
+        if lida.get("run") == RENDER else []))
+    return regs
+
+
+def test_o_PACOTE_parqueia_as_DUAS_pecas(parques, leituras_pacote):
+    d = RR.registra(RENDER, PUB, PAC_P, 41.6, 36.9, prev_longo=PREV_L,
+                    sql_pendente=str(parques["sql"]))
+    assert d["duracao_linhas"] == 2, "o pacote parqueou %s peca(s)" % \
+        d["duracao_linhas"]
+    texto = parques["dur"].read_text(encoding="utf-8")
+    for yid in (YID_S, YID_L):
+        assert yid in texto, "%s ficou FORA do parque de duracao" % yid
+
+
+def test_a_previsao_e_POR_PECA_e_nao_compartilhada(parques, leituras_pacote):
+    RR.registra(RENDER, PUB, PAC_P, 41.6, 36.9, prev_longo=PREV_L,
+                sql_pendente=str(parques["sql"]))
+    por = {r["youtube_id"]: r for r in (
+        json.loads(l) for l in
+        parques["dur"].read_text(encoding="utf-8").splitlines() if l.strip())}
+    assert por[YID_L]["prev_edge"] == PREV_L[0]
+    assert por[YID_S]["prev_edge"] == 41.6
+    # sem esta guarda o teste passaria com as duas previsoes iguais, que e
+    # exatamente o defeito: um longo de ~620 s com o numero de um short de ~42 s
+    assert por[YID_L]["prev_edge"] != por[YID_S]["prev_edge"]
+    assert por[YID_L]["prev_piper"] != por[YID_S]["prev_piper"]
+
+
+def test_o_PACOTE_sem_prev_longo_LEVANTA(parques, leituras_pacote):
+    with pytest.raises(ValueError) as e:
+        RR.registra(RENDER, PUB, PAC_P, 41.6, 36.9,
+                    sql_pendente=str(parques["sql"]))
+    m = str(e.value)
+    assert "prev_longo" in m and YID_L in m, m
+    assert parques["dur"].read_text(encoding="utf-8").strip() == "", (
+        "ele parqueou antes de recusar: a recusa tem de vir ANTES da escrita")
+
+
+def test_o_defeito_MEDIDO_e_PARCIAL_e_o_regs_0_deixa_peca_FORA(leituras_pacote):
+    """O que o modulo fazia: `regs[0]` e so. Sem isto, 'eu errei' seria minha."""
+    import anotacoes_do_run as AR
+    regs = RR._notices_do_pacote(AR.leitura(PUB), PAC_P)
+    assert len(regs) >= 2, (
+        "a fixture deixou de ter pacote com DUAS pecas — sem os dois lados "
+        "este arquivo nao mede o defeito de 14:1x")
+    so_o_primeiro = {regs[0]["youtube_id"]}
+    todos = {r["youtube_id"] for r in regs}
+    assert todos - so_o_primeiro, "parquear regs[0] nao deixaria peca de fora"
+    # e o SQL saia CERTO no mesmo passo, que e o que torna a falha parcial
+    import registro_videos as RV
+    sql = RV.sql_insert(AR.publicado(AR.leitura(PUB)))
+    for yid in todos:
+        assert yid in sql
+
+
+def test_o_PACOTE_poe_os_DOIS_titulos_no_corpus(parques, leituras_pacote):
+    RR.registra(RENDER, PUB, PAC_P, 41.6, 36.9, prev_longo=PREV_L,
+                sql_pendente=str(parques["sql"]))
+    cor = parques["cor"].read_text(encoding="utf-8")
+    for tit in (TIT_S, TIT_L):
+        assert tit in cor, (
+            "%r nao entrou no corpus: a trava de titulo duplicado do "
+            "`prontidao` (773) fica cega nessa peca" % tit)
+
+
+def test_o_SOM_do_pacote_parqueia_as_DUAS_leituras(parques, leituras_pacote):
+    d = RR.registra(RENDER, PUB, PAC_P, 41.6, 36.9, prev_longo=PREV_L,
+                    sql_pendente=str(parques["sql"]))
+    assert d["som_linhas"] == 2
+    som = parques["som"].read_text(encoding="utf-8")
+    for arq in ("longo.mp4", "short.mp4"):
+        assert arq in som
+
+
+def test_o_short_SOLTO_nao_exige_prev_longo_e_parqueia_UMA(parques, leituras):
+    """Contraprova no outro sentido: sem ela, exigir sempre passaria."""
+    d = RR.registra(RENDER, PUB, PAC, 25.0, 20.5,
+                    sql_pendente=str(parques["sql"]))
+    assert d["duracao_linhas"] == 1

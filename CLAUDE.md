@@ -14011,3 +14011,147 @@ TERCEIRA rodada seguida:** 98,11 h, piso de resolucao **0,24/dia**, os tres SIM.
 **COTA: SEIS envios** na janela aberta as 07:00Z, **9.600** unidades, contra o
 piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
 hora.
+
+## O MEU DETECTOR DE DIVERGENCIA DE TITULO ACUSOU A MAQUINA DE UM DEFEITO QUE ELA NAO COMETEU
+
+**Medido em 23/10 as 13:5x, no PRIMEIRO pacote desde que o detector nasceu** —
+e ele nasceu as 08:4x do MESMO dia, visto so em short solto. O
+`anotacoes_do_run.divergencia_de_titulo` cruza os DOIS donos do titulo (a linha
+de `videos`, que e NOSSA, e o `::notice:: PUBLICADO`, que e a TESTEMUNHA do que
+o YouTube recebeu) e **chaveava por PACOTE**. Um pacote emite **DOIS** notices
+com o MESMO `pacote` — o longo e o short —, logo o dicionario guardava o
+**ULTIMO** e comparava a linha do SHORT contra o titulo do LONGO.
+
+**Ele acusou o `epomeno-epipedo-069` de ter subido o short com o titulo do
+longo, e os notices crus dizem o contrario:**
+
+| | |
+|---|---|
+| notice do short | `youtube_id=D07pVhb6Qrc titulo=Ένα χαρτί, μία ερώτηση` |
+| notice do longo | `youtube_id=e_irNzHj1jc titulo=Ο Φάκελος των Έξι Ερωτήσεων…` |
+| o que o detector disse | *"o titulo que SUBIU nao e o da linha"* |
+| o que de fato subiu | **o certo, nos dois** |
+
+**E o custo foi de RODADA e nao de peca:** quem RECUSA e o
+`registro_da_rodada`, logo o `ValueError` do detector parou as **quatro**
+escritas — duracao, som, SQL e corpus ficaram sem gravar — e eu quase relatei
+ao dono um defeito da maquina que era meu. **Detector que inventa achado e pior
+que nao ter detector (725)**, e aqui ele tinha dentes.
+
+**A chave certa e o `youtube_id`**, que e unico por peca e e por ele que as duas
+leituras falam da MESMA peca. **E o lado do LONGO e VACUO, e isso vai dito:** a
+linha dele COPIA o titulo do proprio notice (`registro_videos`), logo os dois
+lados sao o mesmo valor e o cruzamento so tem dentes no SHORT — que e
+exatamente onde o incidente de 19/10 as 14:4x ocorreu, com TRES pacotes subindo
+o short com o titulo do longo.
+
+`tests/test_a_divergencia_de_titulo_chaveava_por_PACOTE.py`, nove testes: as
+ancoras sao **DERIVADAS do disco** (o dono do notice ABRE a spec, logo pacote
+inventado nao resolve — e nomear um seria identidade onde ha propriedade,
+743/753/761) e **reprovam dizendo que perderam a ancora**, um **MEDE que a chave
+antiga de fato ACUSAVA e a nova nao** (sem ele *"eu errei a chave"* seria
+afirmacao minha e nao medida), e um **falha se o lado do LONGO deixar de ser
+VACUO** — porque ai o cruzamento ganhou dentes de outro lado e esta nota se
+rele. **E um assert MEU foi retratado no lugar:** eu cobrava que um longo
+divergente fosse acusado, e ele **nao pode ser**, pela vacuidade acima.
+
+### E O REGISTRO PARQUEAVA `regs[0]` E SO — o LONGO ficou de fora de DOIS parques
+
+**Medido na mesma rodada, no mesmo pacote, e e o PRIMEIRO desde que o
+`registro_da_rodada` nasceu (23/10 as 04:4x).** Ele chamava
+`_notice_do_pacote`, que devolve o PRIMEIRO notice, logo:
+
+| parque | o que recebeu |
+|---|---|
+| duracao | **so o short** — o longo ficou FORA |
+| corpus | **so o titulo do short** |
+| SQL pendente | **as DUAS pecas** (o `sql_insert` recebe a lista inteira) |
+| som | as duas (a lista do dono e FLAT desde 22/10) |
+
+**A falha e PARCIAL, e e isso que a torna dificil de ver:** dois dos quatro
+parques estavam certos no mesmo passo. E o custo e do **773** — titulo de peca
+publicada fora do corpus deixa a trava de titulo duplicado do `prontidao` cega
+naquela peca, em silencio e no sentido PERMISSIVO.
+
+**E A PREVISAO E POR PECA, que e a parte que nao se resolve com um laco:** um
+longo de ~620 s e um short de ~42 s nao compartilham numero. Pacote com longo
+**SEM `prev_longo` LEVANTA**, em vez de parquear o longo com a previsao do
+short — isso poria no parque um ponto de residuo que **nenhuma peca produziu**,
+que e procedencia inventada e e o que o 733 nomeia. **E a recusa e de DADO e nao
+de TIPO:** sem a guarda o que sai e `TypeError` numa linha de indexacao, que
+manda conferir no lugar errado (a licao de 22/10 as 04:4x).
+
+**E EU PAGUEI O DEFEITO DUAS VEZES NA MESMA RODADA, porque o conserto veio
+depois da primeira chamada:** a primeira passada parqueou o SHORT com a previsao
+do LONGO (619,4/548,8), e eu reparei as duas linhas a mao, com `assert` sobre o
+valor antigo antes de gravar, e retirei a linha de SQL duplicada (198 -> 197).
+
+`tests/test_o_REGISTRO_depois_de_publicar_nao_tinha_dono.py` foi a **vinte e
+quatro** testes: os parques sao **PROPRIOS** (ancorar no vivo seria identidade
+onde ha propriedade), a fixture do pacote poe o short PRIMEIRO **espelhando o
+incidente**, um **REPRODUZ** que `regs[0]` deixa peca de fora **e reprova por
+vacuidade** se a fixture perder o segundo lado, a previsao e cobrada **POR
+PECA** com guarda explicita contra as duas serem iguais (sem ela o teste passaria
+com o defeito dentro), a recusa do `prev_longo` e cobrada **ANTES da escrita** (o
+parque tem de ficar vazio), e a **contraprova vai no outro sentido** — o short
+SOLTO segue parqueando UMA linha e sem exigir nada. **Contraprova nos dois
+sentidos:** devolvido o `regs[0]`, **quatro dos vinte e quatro** falham;
+desligada a guarda do `prev_longo`, **um** falha.
+
+**E UM TESTE MEU DE HOJE FOI RETRATADO NO LUGAR, pela VIGESIMA vez da classe
+743/753/761:** o `test_a_RELEITURA_pega_escrita_que_falha_em_SILENCIO` cobrava a
+frase `"NAO esta no parque de duracao"` no **singular**, e o conserto do pacote a
+pluralizou porque a recusa passou a **NOMEAR quais pecas faltam**. Era o teste
+que estava atras, nao o modulo: a propriedade e que a recusa nomeia o parque,
+nomeia a peca que falta e carrega a procedencia (20/10, 13:2x).
+
+### A PECA DESSA RODADA — o LONGO que faltava, e ele e a ORIGEM
+
+`epomeno-epipedo-069`: **longo `e_irNzHj1jc`** (*Ο Φάκελος των Έξι Ερωτήσεων*) e
+**short `D07pVhb6Qrc`** (*Ένα χαρτί, μία ερώτηση*), publicados as **13:46:14Z**
+no mesmo run, **sem `403 quota`**. **DOZE PORTOES VERDES**, e a peca foi
+**CONFERIDA COMO RASCUNHO** antes de existir no disco. Provedor **edge MEDIDO**
+pelo `anotacoes_do_run` (zero avisos `NARRACAO PELO PIPER` no job
+`120442743302`, que e o job que emitiu o SOM). Som: longo **-14,0** LUFS, pico
+**-2,4** dBTP com `pico_vs_teto: dentro`, **tres silencios** de ~1,0 s; short
+**-13,5**, pico **-1,3** (`acima_do_teto`, que e LEITURA e nao defeito), zero
+silencios.
+
+**E ELE FECHA O BURACO QUE EU VINHA RELATANDO: a frota estava com ZERO longos
+desde 02:45Z**, isto e, **onze horas** — contra o pedido do dono de *"ao menos
+DOIS por canal por dia, um LONGO e um CURTO"*.
+
+**62 CENAS e SETE capitulos DERIVADOS** pelo `trilho.aplica_no_longo` — eu nao
+escrevi o campo `trilho` em cena nenhuma —, e o portao `layout`, que
+RENDERIZA, passou limpo nas 62: nenhum cartao em branco e nenhuma tinta na
+borda.
+
+**A NARRACAO SAIU EM GREGO TRANSLITERADO NA PRIMEIRA VERSAO, e o portao
+`idioma` reprovou 62 de 62** — ele e o portao que o 725 nomeia, e aqui ele pegou
+exatamente o que nenhum instrumento meu olha: eu escrevi as 62 falas em letra
+latina. Reescritas em grego de verdade, acento **13,80%**.
+
+**E A PREVISAO DO LONGO E LIMITE SUPERIOR** (os tres pontos que existem dao
+-1,8%, -2,7% e -5,1%), logo edge **619,4 s** (10:19) deve sair entre ~9:48 e
+~10:08 — **com FOLGA grande sobre os 8 min do mid-roll**, que e a regra de 19/10
+as 13:5x. **O REAL nao esta prometido**, e nao ha leitura: o modo da rota e
+`negado_por_politica`.
+
+**CLASSE PROCEDIMENTO, logo a trava 600 nao se aplica: ZERO numero meu sobre o
+mundo.** O longo e o **FAKELOS das seis perguntas** — qual papel responde o que,
+e para quando — e o short leva a primeira delas. **A origem nasce aqui: o longo
+E a origem**, logo nao ha irmao a comparar.
+
+**NAO EXISTE PONTO DE RESIDUO, e o modo e `negado_por_politica`** — medido pela
+`sonda_e_modo`, com os TRES controles no MESMO caminho de saida. As DUAS pecas
+estao PARQUEADAS com o provedor MEDIDO e o job **lido da API**, e a presenca foi
+conferida **RELENDO** os quatro parques (duracao **161** linhas, **89** sem
+leitura; som **101**; SQL **197** linhas com ZERO prosa; corpus pelo dono, com os
+DOIS titulos). `RESIDUO_N` segue **128**.
+
+**E A LEITURA DE INSCRITOS PASSOU AS TRES PORTAS E NAO FOI FEITA:** o que a
+impede e a **ROTA**, e o remedio e do **DONO** — a tela de Network access.
+
+**COTA: NOVE envios** na janela aberta as 07:00Z, **14.400** unidades, contra o
+piso MEDIDO de **>= 41.600** — do `janela_de_cota`, nao de um laco escrito na
+hora.

@@ -448,17 +448,37 @@ def divergencia_de_titulo(lida: dict) -> dict:
     """
     import corpus_atrasado as CA
     texto = "\n".join(m for j in lida["jobs"] for m in j["mensagens"])
-    do_notice = {p: tit for p, _y, tit in CA.titulos_dos_notices(texto)}
+    # A chave e o `youtube_id` e NAO o `pacote`, e isto e o conserto de um FALSO
+    # POSITIVO MEDIDO em 23/10 as 13:5x, no PRIMEIRO pacote desde que esta
+    # funcao nasceu (08:4x do mesmo dia, vista so em short solto): um pacote
+    # emite DOIS notices com o MESMO `pacote` — o longo e o short —, logo um
+    # dicionario chaveado por pacote guarda so o ULTIMO e compara a linha do
+    # SHORT contra o titulo do LONGO. Ele acusou o `epomeno-epipedo-069` de ter
+    # subido o short com o titulo do longo quando os notices crus dizem o
+    # contrario:
+    #   PUBLICADO ... shorts youtube_id=D07pVhb6Qrc titulo=Ena charti...
+    #   PUBLICADO ... longo  youtube_id=e_irNzHj1jc titulo=O Fakelos...
+    # **Detector que inventa achado e pior que nao ter detector (725)** — e aqui
+    # ele fez o `registro_da_rodada` LEVANTAR, os quatro parques ficaram sem
+    # escrever e a rodada quase relatou ao dono um defeito que a maquina nao
+    # cometeu. O `youtube_id` e unico por peca, e e por ele que as duas leituras
+    # falam da MESMA peca.
+    #
+    # E o lado do LONGO e VACUO, e isso vai dito: a linha dele COPIA o titulo do
+    # proprio notice (`registro_videos`), logo os dois lados sao o mesmo valor e
+    # o cruzamento so tem dentes no SHORT — que e onde o incidente de 19/10 as
+    # 14:4x ocorreu.
+    do_notice = {y: tit for _p, y, tit in CA.titulos_dos_notices(texto)}
     pares, div = [], []
     for ln in publicado(lida):
-        pac = ln.get("pacote")
-        if pac not in do_notice:
+        yid = ln.get("youtube_id")
+        if yid not in do_notice:
             continue
-        nosso, testemunha = ln.get("titulo"), do_notice[pac]
-        pares.append(pac)
+        nosso, testemunha = ln.get("titulo"), do_notice[yid]
+        pares.append(yid)
         if (nosso or "").strip() != (testemunha or "").strip():
-            div.append({"pacote": pac, "da_linha": nosso,
-                        "do_notice": testemunha})
+            div.append({"pacote": ln.get("pacote"), "youtube_id": yid,
+                        "da_linha": nosso, "do_notice": testemunha})
     return {"pares": len(pares), "divergentes": div,
             "do_notice": do_notice}
 
