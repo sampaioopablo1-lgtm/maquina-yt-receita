@@ -56,6 +56,18 @@ como lendo o segredo e nunca o recebendo por input, e a skill cobrada como
 apontando para os donos sem numero decimal dentro. O modulo esta em
 `FORA_DA_PASSADA` com o motivo: ele fala do mp4 renderizado, nao da spec.
 
+**A SUITE FECHOU: 25 falhas, 4.263 passam, 1.275 skip em 2.466 s** — passada
+**PROVADA** pelo `passada_da_suite`, conjunto **IDENTICO** a linha de base
+desta sessao (25 falhas, 4.244 passam, medida em worktree separado, 2.513 s),
+`comm` vazio nos **dois** sentidos. Os dezoito testes novos entraram inteiros
+e **nenhuma falha nova**. O commit `1725bd2` saiu ANTES deste numero, dizendo
+na mensagem que ele faltava, em vez de o afirmar — a licao de 20/10 as 01:4x.
+
+**E O BRANCH DE TRABALHO E O BRANCH PADRAO DO REPO**, logo nao ha base contra a
+qual abrir PR: o push ao `claude/youtube-publication-next-steps-v7o4el` e a
+entrega. Isto vai dito porque a instrucao de sessao manda abrir PR depois do
+push, e aqui ela nao tem objeto.
+
 ## A LEGENDA DO SHORT SOLTO ESTAVA CONGELADA — e é o caminho de TODA peça
 
 **Pedido do dono em 19/10:** *"os vídeos publicados, me parecem todos a mesma
