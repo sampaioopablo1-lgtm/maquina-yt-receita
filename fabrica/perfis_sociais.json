@@ -1,0 +1,33 @@
+{
+  "_o_que_e": "Mapa CANAL -> perfil do Upload-Post, link da bio e redes. E DADO, nao prosa, para que `fabrica/distribuicao.py` leia em vez de a rodada adivinhar. `perfil` NULO significa que o dono ainda nao criou o perfil no painel do Upload-Post: o instrumento RECUSA distribuir e diz o que falta, em vez de inventar nome de perfil.",
+  "_procedencia": "Pedido do dono em 29/10/2026: o mesmo video publicado automaticamente no Instagram, no TikTok, no YouTube e nas outras redes, para levar gente ao perfil e ao link da bio. YouTube NAO entra aqui: ele ja sai pelo retomar.yml. Os nomes de plataforma sao os do `platform[]` da API do Upload-Post (.claude/skills/upload-post/references/platforms.md).",
+  "_o_que_o_dono_preenche": [
+    "perfil: o NOME DO PERFIL criado no painel do Upload-Post (nao o usuario), com as contas daquele canal conectadas nele",
+    "link_da_bio: o link que esta na bio dos perfis daquele canal (curso ou aplicativo). Instagram e TikTok NAO deixam link clicavel na legenda, logo o CTA diz 'link na bio' e o link em si vai no primeiro comentario onde a rede aceita",
+    "plataformas: quais redes deste canal recebem o short. Comece pelas duas que o dono nomeou",
+    "o segredo UPLOAD_POST_API_KEY no GitHub (Settings > Secrets and variables > Actions). O proxy desta sessao bloqueia a API de secrets, logo e colagem do dono"
+  ],
+  "canais": {
+    "labtreinamento": {
+      "idioma": "pt-BR",
+      "perfil": null,
+      "link_da_bio": null,
+      "plataformas": ["instagram", "tiktok"],
+      "cta": "O link do curso está na bio."
+    },
+    "epomeno-epipedo": {
+      "idioma": "el",
+      "perfil": null,
+      "link_da_bio": null,
+      "plataformas": ["instagram", "tiktok"],
+      "cta": "Ο σύνδεσμος είναι στο bio."
+    },
+    "kolejny-poziom": {
+      "idioma": "pl",
+      "perfil": null,
+      "link_da_bio": null,
+      "plataformas": ["instagram", "tiktok"],
+      "cta": "Link jest w bio."
+    }
+  }
+}

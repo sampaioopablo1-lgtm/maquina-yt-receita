@@ -5,6 +5,57 @@ porque número dentro de prompt envelhece e já me fez errar quatro vezes
 (652/655, 658, 682, 685). Aqui não entra contagem de estoque, nem de views, nem
 de inscritos. Entra onde olhar.
 
+## A DISTRIBUICAO PARA AS OUTRAS REDES NAO TINHA DONO — 29/10
+
+**Pedido do dono em 29/10, por voz:** *"preciso ter uma skill que produza o
+video [...] e esse mesmo video ele possa ser publicado automaticamente no
+Instagram, no TikTok, no YouTube, em outras redes sociais disponiveis [...] para
+que gere trafego e assim as pessoas elas acessem o perfil e o link da bio para
+comprar o meu curso ou o meu aplicativo. Faca uma pesquisa."*
+
+**MEDIDO ANTES DE ESCREVER** (`docs/distribuicao-multi-rede.md`): das rotas que
+existem nesta maquina so UMA e automatica — a API do Upload-Post, cuja skill
+**ja estava no repo** (`.claude/skills/upload-post/SKILL.md`) sem nenhum codigo a
+chama-la: a classe dos layouts mortos, numa skill. O TikTok pela Higgsfield
+exige o dono num widget a cada peca; a Composio nunca publica; o Facebook MCP
+desta sessao e de anuncios. A documentacao viva do Upload-Post deu **403 ao
+CONNECT** (politica — nao retestar); os limites por rede sairam da referencia
+da skill, e o short da frota (41 a 45 s) cabe em todas; o longo nao cabe no
+Reels, no X, no Threads nem no Bluesky.
+
+**O que entrou, com UM dono por coisa:** `fabrica/perfis_sociais.json` (canal
+-> perfil do Upload-Post, link da bio, redes, CTA na lingua do canal — **perfil
+nulo = RECUSA**, nunca nome inventado), `fabrica/distribuicao.py` (payload
+pela `publicar.ler_copy` e pelo `canal.da_spec`; duracao MEDIDA por ffprobe
+contra o teto de cada rede, com as que nao cabem NOMEADAS; chave em arquivo
+0600 lido por `curl -K`, nunca em argv nem stdout; parque
+`docs/pendente/distribuicoes.jsonl` que recusa repetir peca na mesma rede;
+**YouTube RECUSADO — o dono dele e o `retomar.yml`**),
+`.github/workflows/distribuir.yml` (baixa o MESMO artefato do render pelo
+nome, para no primeiro passo se o segredo `UPLOAD_POST_API_KEY` estiver vazio),
+e a skill `.claude/skills/produzir-e-distribuir/SKILL.md` — a rodada inteira em
+onze passos, **so ponteiros**, porque numero em skill envelhece.
+
+**LINK NA BIO:** Instagram e TikTok nao tornam clicavel um link na legenda. A
+legenda leva titulo curto + CTA *"o link esta na bio"* + hashtags; o link em si
+vai no PRIMEIRO COMENTARIO onde a rede aceita. Clique na bio nao e medido aqui.
+
+**O QUE E DO DONO, e sem isso nada e distribuido:** conta no Upload-Post com as
+contas de cada canal CONECTADAS (abrir presenca em rede nova e decisao dele — a
+autorizacao de 09/10 cobre os tres canais do YouTube), um perfil por canal com
+o nome escrito no JSON, o link da bio de cada canal, e a chave colada como
+segredo no GitHub (o proxy bloqueia a API de secrets). O numero de uploads/mes
+do plano dele nao esta medido aqui.
+
+`tests/test_a_distribuicao_nao_tinha_dono.py`, dezoito testes: spec de prova
+DERIVADA do disco, tetos cobrados na FRONTEIRA nos dois lados em toda rede, a
+recusa do perfil com contraprova, o texto cobrado como vindo do DONO da copy
+por AST, a chave cobrada AUSENTE de argv e do relato com sentinela, o parque
+cobrado nos dois sentidos (repete recusa; rede nova entra), o workflow cobrado
+como lendo o segredo e nunca o recebendo por input, e a skill cobrada como
+apontando para os donos sem numero decimal dentro. O modulo esta em
+`FORA_DA_PASSADA` com o motivo: ele fala do mp4 renderizado, nao da spec.
+
 ## A LEGENDA DO SHORT SOLTO ESTAVA CONGELADA — e é o caminho de TODA peça
 
 **Pedido do dono em 19/10:** *"os vídeos publicados, me parecem todos a mesma

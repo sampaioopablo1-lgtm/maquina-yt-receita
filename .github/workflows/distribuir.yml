@@ -1,0 +1,154 @@
+name: Distribuir — o short ja publicado vai para as outras redes
+
+# POR QUE ISTO EXISTE (29/10/2026).
+#
+# Pedido do dono: *"esse mesmo video ele possa ser publicado automaticamente no
+# Instagram, no TikTok, no YouTube, em outras redes sociais disponiveis [...]
+# para que gere trafego e assim as pessoas elas acessem o perfil e o link da
+# bio"*. O YouTube ja sai pelo retomar.yml; este workflow pega o MESMO short.mp4
+# — o artefato do render, pelo NOME `pacote-<pacote>`, exatamente como o
+# retomar faz — e o manda para as redes do perfil do canal pela API do
+# Upload-Post, que e a unica rota automatica medida (docs/distribuicao-multi-
+# rede.md). Quem monta o payload, confere a duracao contra o teto de cada rede
+# e parqueia o resultado e `fabrica/distribuicao.py`, o dono unico disto.
+#
+# O QUE ELE NAO FAZ: nao conecta conta nenhuma (isso e no painel do Upload-Post,
+# pelo dono), nao publica no YouTube, e nao recebe a chave por input — ela e o
+# segredo UPLOAD_POST_API_KEY, que o dono cola em Settings > Secrets, porque o
+# proxy da sessao bloqueia a API de secrets. Sem o segredo ele PARA no primeiro
+# passo com a mensagem certa, em vez de baixar artefato para nada.
+
+on:
+  workflow_dispatch:
+    inputs:
+      pacote:
+        description: "Nome do pacote (ex.: kolejny-poziom-s104)"
+        type: string
+        required: true
+      run_id:
+        description: "Run do frota.yml que guarda o artefato do render"
+        type: string
+        required: true
+      youtube_id:
+        description: "Id do video JA publicado no YouTube (chave do parque; sem ele o passo recusa)"
+        type: string
+        required: true
+      plataformas:
+        description: "Redes separadas por virgula. Vazio = as do perfil do canal em fabrica/perfis_sociais.json. YouTube e RECUSADO aqui."
+        type: string
+        required: false
+        default: ""
+      arquivo:
+        description: "Qual arquivo do artefato: short.mp4 (padrao) ou video.mp4 (o longo — nao cabe no Reels nem no X, e o instrumento diz)"
+        type: string
+        required: false
+        default: "short.mp4"
+
+permissions:
+  contents: read
+  actions: read          # para baixar o artefato do run do render
+
+jobs:
+  distribuir:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Conferir o segredo ANTES de gastar qualquer coisa
+        env:
+          CHAVE: ${{ secrets.UPLOAD_POST_API_KEY }}
+        run: |
+          set -euo pipefail
+          if [ -z "${CHAVE:-}" ]; then
+            echo "::error::UPLOAD_POST_API_KEY esta VAZIO. E segredo do GitHub (Settings > Secrets and variables > Actions) e so o dono cola — o proxy da sessao bloqueia a API de secrets. Nada foi distribuido."
+            exit 1
+          fi
+          echo "chave presente: $(printf %s "$CHAVE" | wc -c) chars"
+
+      - name: Conferir spec e perfil do canal (sem rede)
+        run: |
+          set -euo pipefail
+          test -f "fabrica/specs/${{ inputs.pacote }}.json" \
+            || { echo "::error::spec fabrica/specs/${{ inputs.pacote }}.json nao existe no checkout"; exit 1; }
+          python3 - <<'PY'
+          import json, os, sys
+          sys.path.insert(0, "fabrica")
+          import canal as CA, distribuicao as D
+          sp = json.load(open("fabrica/specs/${{ inputs.pacote }}.json", encoding="utf-8"))
+          try:
+              D.perfil_do_canal(CA.da_spec(sp))
+          except ValueError as e:
+              print("::error::" + str(e)); sys.exit(1)
+          print("perfil do canal", CA.da_spec(sp), "esta preenchido")
+          PY
+
+      - name: Instalar ffprobe
+        run: |
+          set -euo pipefail
+          # A duracao REAL do arquivo decide se a peca cabe no Reels (90 s);
+          # previsao nao serve. O apt tem teto porque ja pendurou o frota.yml.
+          sudo timeout 180 apt-get install -y --no-install-recommends ffmpeg \
+            || { echo "::error::apt nao entregou o ffmpeg em 180 s"; exit 1; }
+          ffprobe -version | head -1
+
+      - name: Baixar o pacote renderizado
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          D="/tmp/f/${{ inputs.pacote }}"
+          mkdir -p "$D"
+          # Pelo NOME, como no retomar.yml: errar de artefato distribuiria o
+          # video de outro canal com a copy deste.
+          ID=$(curl -sS -H "Authorization: Bearer $GH_TOKEN" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ inputs.run_id }}/artifacts" \
+            | python3 -c "
+          import json,sys
+          alvo = 'pacote-${{ inputs.pacote }}'
+          for a in json.load(sys.stdin)['artifacts']:
+              if a['name'] == alvo and not a['expired']:
+                  print(a['id']); break
+          else:
+              sys.exit('sem artefato vivo chamado ' + alvo)
+          ")
+          echo "artefato: $ID"
+          curl -sS -L -o /tmp/pac.zip -H "Authorization: Bearer $GH_TOKEN" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/artifacts/$ID/zip"
+          unzip -o /tmp/pac.zip -d "$D"
+          ls -la "$D"
+          test -f "$D/${{ inputs.arquivo }}" \
+            || { echo "::error::o artefato nao traz ${{ inputs.arquivo }}"; exit 1; }
+          test -f "$D/copy.md" \
+            || { echo "::error::o artefato nao traz copy.md — sem ele a legenda sairia com placeholder"; exit 1; }
+
+      - name: Distribuir
+        env:
+          UPLOAD_POST_API_KEY: ${{ secrets.UPLOAD_POST_API_KEY }}
+        run: |
+          set -euo pipefail
+          D="/tmp/f/${{ inputs.pacote }}"
+          PL="${{ inputs.plataformas }}"
+          ARGS=()
+          if [ -n "$PL" ]; then ARGS+=(--plataformas "$PL"); fi
+          # A chave vai pelo ambiente e o modulo a escreve num arquivo 0600
+          # lido com `curl -K`: nunca em argv nem em stdout. O parque desta
+          # rodada sai em arquivo proprio e sobe como artefato, como o registro
+          # do retomar — o registro no repo e passo da rodada, depois.
+          python3 fabrica/distribuicao.py "fabrica/specs/${{ inputs.pacote }}.json" \
+            "$D/${{ inputs.arquivo }}" \
+            --youtube-id "${{ inputs.youtube_id }}" \
+            --run "${{ github.run_id }}" --job "${{ github.job }}" \
+            --parque /tmp/distribuicao-${{ inputs.pacote }}.jsonl \
+            --publicar "${ARGS[@]}" | tee /tmp/distribuicao.out
+          L=$(grep '^DISTRIBUIDO:' /tmp/distribuicao.out || true)
+          if [ -n "$L" ]; then echo "::notice::$L pacote=${{ inputs.pacote }} youtube_id=${{ inputs.youtube_id }}"; fi
+
+      - name: Guardar o parque desta rodada
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: distribuicao-${{ inputs.pacote }}
+          path: /tmp/distribuicao-${{ inputs.pacote }}.jsonl
+          if-no-files-found: ignore
+          retention-days: 30

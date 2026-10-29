@@ -103,6 +103,11 @@ FORA_DA_PASSADA = {
                     "estilo opcional que o dono trouxe em 16/10 e que a "
                     "producao nao usa. Rodar aqui informaria credito em toda "
                     "peca sem haver decisao a tomar.",
+    "distribuicao": "fala do mp4 RENDERIZADO e ja publicado no YouTube, nao da "
+                    "spec: ele exige a duracao MEDIDA do arquivo para saber se "
+                    "cabe no Reels, e o perfil do Upload-Post do canal. Vem "
+                    "DEPOIS do retomar.yml, na etapa de distribuir para as "
+                    "outras redes (29/10), e sem o video ele LEVANTA.",
 }
 
 

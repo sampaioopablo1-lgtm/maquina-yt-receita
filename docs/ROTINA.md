@@ -804,6 +804,19 @@ levanta quando alguem tenta medir** — barulho que ninguem ouve e silencio.
 E **NAO monte o `estado_b64` a mao nem redirecione stderr para dentro dele**
 (718/729): `python3 fabrica/estado_ponte.py 2>/dev/null | head -1`.
 
+**9-bis. DISTRIBUIÇÃO PARA AS OUTRAS REDES — pedido do dono em 29/10/2026.** O
+mesmo short que o `retomar.yml` publicou vai para Instagram, TikTok e as redes
+do perfil do canal pelo `distribuir.yml`, que chama `fabrica/distribuicao.py`
+(dono único: legenda pela copy, CTA "link na bio" na língua do canal, duração
+MEDIDA contra o teto de cada rede, chave só pelo segredo `UPLOAD_POST_API_KEY`).
+Depois do run, a linha do artefato `distribuicao-<pacote>` entra em
+`docs/pendente/distribuicoes.jsonl` por `distribuicao.parqueia`, que recusa
+repetir a mesma peça na mesma rede. **Enquanto o dono não preencher o perfil em
+`fabrica/perfis_sociais.json` e colar o segredo, o passo RECUSA e diz o que
+falta — não inventa perfil.** YouTube NUNCA sai por aqui. A pesquisa e a lista
+do dono estão em `docs/distribuicao-multi-rede.md`; a ordem da rodada inteira,
+com um dono por passo, em `.claude/skills/produzir-e-distribuir/SKILL.md`.
+
 =====================================================================
 10. QUANDO O BANCO ESTÁ FORA, A RODADA É DE CONSTRUÇÃO
 =====================================================================
