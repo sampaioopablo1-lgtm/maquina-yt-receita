@@ -63,3 +63,54 @@ e **reprova listando os que não existem** — em vez de abrir um caminho cravad
 Os dois casos conhecidos entram numa lista de **exceções DECLARADAS** que aponta
 para este documento, e o teste **reprova se a lista crescer** sem que a exceção
 seja escrita aqui.
+
+## 30/10 — o pacote VOLTOU (v2.6.0) e a transcricao foi CONFERIDA, mas ele continua FORA do repo
+
+O dono mandou `pipeline_canal_dark_v2.6.0.zip`. Ele traz `motor/config.py` e
+`motor/scenes.html`, e as duas transcricoes foram conferidas contra eles:
+
+| o que | resultado |
+|---|---|
+| cores dos 4 temas (`noite`, `misterio`, `papel`, `neon`), 13 chaves cada | **identicas, 52 de 52** |
+| fontes de titulo e texto dos 4 temas | **identicas** |
+| `comparar`: x=130/990, top=170, 800x760, borda 8 | **identico** |
+| `numero`: valor 300px, top 210/330, legenda 54px top 590, nota 30px top 760 | **identico** |
+
+Logo as coordenadas de `comparar` e `numero` deixaram de ter apoio unico na
+transcricao: hoje elas tem a fonte conferida. Os tres layouts derivados
+(`formula`, `erro`, `divisor`) seguem declarados como derivacao NOSSA.
+
+**E A OPCAO 2 DESTE DOCUMENTO ("comitar o pacote") NAO ESTA DISPONIVEL**, por
+dois fatos medidos no mesmo dia: o repo `sampaioopablo1-lgtm/maquina-yt-receita`
+e **PUBLICO**, e a clausula 3 do `LICENCA_DE_USO.md` do produto proibe
+*"revender, redistribuir, compartilhar, publicar ou sublicenciar o produto
+(codigo, skills, documentos), no todo ou em parte"*. Comitar `motor/` aqui seria
+publica-lo. Por isso as duas excecoes do `test_todo_caminho_CITADO_existe.py`
+**continuam** — e o que mudou e que a citacao foi conferida, nao que o arquivo
+passou a existir.
+
+**Risco que ja existe e e decisao do DONO, nao minha:** o
+`fabrica/temas_do_dono.py` carrega os 52 hex e as descricoes dos temas copiados
+do produto, num repo publico. Tornar o repo privado resolve isso e as duas
+excecoes de uma vez.
+
+### O que a 2.6 trouxe de novo, e por que quase nada atravessa
+
+A novidade e o **molde** (`documentario`, `animacao_2d`, `ia_no_facil`): tema,
+regras de roteiro e um pacote de cenas proprio. A regra central dos tres e o
+**limite de telas de texto seguidas** (`max_texto_seguido` = 1 no documentario
+e na animacao) e, no documentario, **ao menos 70% dos blocos com midia**
+(imagem ou clipe). Pela definicao do proprio produto, conta como tela de texto
+toda cena que nao e `imagem`, `clipe`, `vinheta`, `inscreva`, `tela_final` ou
+`material`.
+
+Medido nas 40 specs de short mais recentes da frota: **279 cenas, 100% tela de
+texto** (`item` 92, `titulo` 90, `cta` 38, `lista` 32, `barras` 27), **zero**
+imagem ou clipe. Logo a regra do molde **dispararia em toda peca** — e aviso
+que dispara sempre deixa de avisar (o argumento do `mira.py`). Ela NAO entrou.
+
+**A distancia real nao e de regra, e de CAPACIDADE:** a resposta da 2.6 a
+*"todos parecem iguais"* e MIDIA (foto, clipe, personagem 2D), e o retrato do
+nosso short desenha cinco layouts, todos cartao de texto, com b-roll zero por
+decisao. Fechar isso e decisao do dono: fonte de imagem (banco com licenca,
+Higgsfield com credito) e um layout `imagem` no retrato.
