@@ -5,6 +5,17 @@ porque número dentro de prompt envelhece e já me fez errar quatro vezes
 (652/655, 658, 682, 685). Aqui não entra contagem de estoque, nem de views, nem
 de inscritos. Entra onde olhar.
 
+## O PACOTE v2.6 DO DONO CONFERIU A TRANSCRICAO — e NAO pode entrar no repo (30/10)
+
+O `pipeline_canal_dark_v2.6.0.zip` traz `motor/config.py` e `motor/scenes.html`.
+Conferido: as cores e fontes dos 4 temas batem **52 de 52**, e as coordenadas de
+`comparar` e `numero` batem exatas. **O repo e PUBLICO e a clausula 3 da licenca
+do produto proibe publica-lo "no todo ou em parte"** — logo nada de `motor/` se
+comita aqui, e tornar o repo privado e decisao do dono. A novidade da 2.6 (os
+MOLDES) responde a *"todos parecem iguais"* com MIDIA, e as 40 ultimas pecas
+nossas sao **100% tela de texto**: a regra `max_texto_seguido` dispararia
+sempre, logo nao entrou. Tudo em `docs/pacote-do-dono-NAO-esta-no-repo.md`.
+
 ## A DISTRIBUICAO PARA AS OUTRAS REDES NAO TINHA DONO — 29/10
 
 **Pedido do dono em 29/10, por voz:** *"preciso ter uma skill que produza o
