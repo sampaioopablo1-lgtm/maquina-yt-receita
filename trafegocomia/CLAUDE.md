@@ -26,7 +26,7 @@ ferramenta e compra demonstração. O mercado paga por isso (ver §4).
 - Conversa com IA nos criativos é **ilustração** e vai marcada como tal.
 - **Não usar marca alheia** (logo, arte, fonte de Netflix, GTA, Rockstar, Anthropic). Citar nome em notícia ou comparação é ok.
 - Número sobre o mundo (preço de terceiro, data) só com fonte e data na peça.
-- FAQ diz em letra que **a IA tem custo à parte**.
+- FAQ diz em letra que **a IA tem custo à parte**, e toda peça que compara preço (Netflix, GTA) também diz "plano da IA cobrado à parte".
 - Comparação com a Netflix: **só contra o plano Padrão** (R$ 51,90). O plano com anúncios (R$ 25,90) é MAIS barato que o clube.
 - Promessa "em 1 minuto" é do dono, não medida: preferir "em minutos".
 - Nunca commit de chave, senha ou licença.
@@ -37,7 +37,7 @@ ferramenta e compra demonstração. O mercado paga por isso (ver §4).
 2. **Gravação real da tela** com a IA operando uma conta (30 a 60 s) → montar o vídeo principal sobre ela.
 3. Checkout publicado na Kiwify → link `pay.kiwify.com.br/...` (o dono roda `saida/gestores/PROMPT-CHECKOUT.md`).
 4. Conta de anúncios "Tráfego com IA" (BRL, America/Sao_Paulo) + Página + Instagram vinculados + pixel com token da API de Conversões na Kiwify.
-5. Campanha criada pausada (`saida/gestores/PROMPT-CAMPANHA.md`), revisada e ativada pelo dono.
+5. Campanha criada pausada (`saida/gestores/PROMPT-CAMPANHA.md`, 6 anúncios da seção "No ar no teste" do `COPY.md`), revisada e ativada pelo dono. A reserva (g4, gta-11, gta-12) entra no lugar dos 2 piores depois de 3 a 4 dias. **GTA perde força em 2 a 3 semanas a partir de 19/11/2026.**
 6. Instagram @trafegocom.ia ainda não conectado ao Composio (link de conexão expira; gerar outro quando pedir).
 
 ## 4. Pesquisa (fatos com fonte)
@@ -55,13 +55,16 @@ ferramenta e compra demonstração. O mercado paga por isso (ver §4).
 ## 5. Onde está cada coisa
 | o quê | arquivo | como regerar |
 |---|---|---|
+| **COPY de todos os anúncios (fonte única)** | `saida/gestores/COPY.md` | editar o .md |
 | **Criativos para gestor** (g1 a g4, feed/stories) | `saida/gestores/criativos/` | `FONTES_DIR=… node trafegocomia/anuncios/gera-gestor.js saida/gestores/criativos` |
+| **GTA 6 para gestor** (gta-11, 12, 13) | `saida/gestores/criativos/gta-*` | `node trafegocomia/anuncios/gera-gta-gestor.js saida/gestores/criativos` |
+| **Vídeo Netflix para gestor** (43 s, preto e vermelho) | `saida/gestores/criativos/netflix-gestor.mp4` | `python3 trafegocomia/v2/produz.py trafegocomia/v2/menos-que-netflix-gestor.json …` |
 | **Checkout para gestor** (topo, como funciona, pop-up, página inteira e 7 partes) | `saida/gestores/checkout/` | `node trafegocomia/checkout/gera-gestor.js …` e `landing-gestor.js …` |
 | Prompts para o terminal local | `saida/gestores/PROMPT-CHECKOUT.md`, `PROMPT-CAMPANHA.md` | editar o .md |
 | Vídeo "Claude no Gerenciador" (serve ao gestor) | `saida/anuncios-2026-11-23/video/09-claude-no-gerenciador.mp4` | `python3 trafegocomia/v2/produz.py trafegocomia/v2/claude-gerenciador.json …` |
 | Logo (quadrado, ícone, horizontal; escuro, claro, transparente) | `saida/marca/` | `node trafegocomia/marca/logo.js saida/marca` |
 | Roteiro de montagem do checkout + tabela de tamanhos | `saida/checkout-kiwify/ROTEIRO.md` | — |
-| *(antigo, dono de negócio)* criativos 01 a 13, checkout | `saida/anuncios-2026-11-23/`, `saida/checkout-kiwify/` | só referência |
+| *(FORA DE USO, eram para dono de negócio)* criativos 01 a 13 (menos o vídeo 09), Netflix 10, GTA 11 a 13 antigos, checkout | `saida/anuncios-2026-11-23/`, `saida/checkout-kiwify/` | só referência |
 | Motor de vídeo v2 (HTML animado + edge-tts + ffmpeg; campos `chat`, `list`, `vs`, `tema`) | `trafegocomia/v2/` | `produz.py roteiro.json saida.mp4 capa.png` |
 
 `FONTES_DIR` = pasta com `montserrat-latin-900-normal.woff2` e `-800-` (`npm i @fontsource/montserrat`, pasta `files/`).

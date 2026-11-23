@@ -44,7 +44,7 @@ const S = [
       <div class="br"><div class="r">Netflix Padrão</div><div class="tr"><div class="f" style="width:100%;background:#3f3f46">R$ 51,90</div></div></div>
       <div class="br"><div class="r">Clube Tráfego com IA</div><div class="tr"><div class="f" style="width:58%;background:#1D4ED8">R$ 29,90</div></div></div></div>
     <p class="sub">É <b>menos de R$ 1 por dia</b> pra tirar o operacional da sua agenda.</p>
-    <p class="nota">Netflix Padrão sem anúncios, preço de out/2026</p>`),
+    <p class="nota">Netflix Padrão sem anúncios, out/2026 · plano da IA cobrado à parte</p>`),
   sec(cfg.recebe.length ? '' : 'alt', `<span class="emoji">🛡️</span>
     <h2>7 dias pra <span class="k">testar</span></h2>
     <p class="sub">Entrou e não é pra você? Peça o reembolso em até 7 dias e recebe tudo de volta. Depois, cancela quando quiser, sem multa.</p>`),

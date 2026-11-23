@@ -24,6 +24,12 @@ const B = [
       <div class="ps"><span class="n">1</span><span class="t" style="font-size:48px">Conecte a IA à conta, uma vez</span></div>
       <div class="ps"><span class="n">2</span><span class="t" style="font-size:48px">Peça em português</span></div>
       <div class="ps"><span class="n">3</span><span class="t" style="font-size:48px">Revise e publique: nada roda sem você</span></div></div>`],
+  ['04-preco', 1080, 1080, '86px', `<h1>Menos que a <span class="k">Netflix</span></h1>
+    <div class="barras">
+      <div class="br"><div class="r" style="font-size:46px">Netflix Padrão</div><div class="tr"><div class="f" style="width:100%;background:#3f3f46">R$ 51,90</div></div></div>
+      <div class="br"><div class="r" style="font-size:46px">Clube Tráfego com IA</div><div class="tr"><div class="f" style="width:58%;background:#1D4ED8">R$ 29,90</div></div></div></div>
+    <div class="sub">Uma você assiste. A outra tira o operacional da sua agenda.</div>
+    <div class="price" style="font-size:40px;opacity:.7">Netflix Padrão, out/2026 · plano da IA à parte</div>`],
   ['06-exit-popup', 1080, 1080, '104px', `<span class="tag" style="font-size:44px">ESPERA</span>
     <h1>É <span class="k">menos de R$ 1</span> por dia</h1>
     <div class="sub">R$ 29,90 por mês pra tirar o operacional da sua agenda. Cancele quando quiser.</div>
