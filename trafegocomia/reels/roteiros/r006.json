@@ -1,0 +1,36 @@
+{
+ "slug": "r006-publico-pequeno-e-melhor",
+ "cenas": [
+  {
+   "nar": "Mito ou verdade: público pequeno sempre converte melhor.",
+   "head": "MITO OU [VERDADE]?",
+   "emoji": "🤔",
+   "tag": "MITO OU VERDADE"
+  },
+  {
+   "nar": "Mito, na maioria dos casos.",
+   "head": "[MITO]",
+   "emoji": "❌"
+  },
+  {
+   "nar": "Público muito pequeno deixa o algoritmo com pouco espaço pra achar quem compra.",
+   "head": "POUCO [ESPAÇO]",
+   "emoji": "📦"
+  },
+  {
+   "nar": "E costuma encarecer o alcance.",
+   "head": "ALCANCE [MAIS CARO]",
+   "emoji": "💸"
+  },
+  {
+   "nar": "Teste um público mais aberto e deixe o criativo fazer a segmentação.",
+   "head": "O CRIATIVO [SEGMENTA]",
+   "emoji": "🎯"
+  },
+  {
+   "nar": "Segue pra mais mito ou verdade do tráfego.",
+   "head": "SEGUE PRA [MAIS]",
+   "emoji": "👉"
+  }
+ ]
+}

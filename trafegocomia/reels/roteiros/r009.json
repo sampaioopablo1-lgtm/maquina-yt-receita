@@ -1,0 +1,41 @@
+{
+ "slug": "r009-clube",
+ "cenas": [
+  {
+   "nar": "Quanto tempo você gasta por semana só no operacional?",
+   "head": "QUANTO [TEMPO]?",
+   "emoji": "⌛",
+   "tag": "GESTOR DE TRÁFEGO"
+  },
+  {
+   "nar": "Relatório, variação de anúncio e campanha montada na mão.",
+   "head": "NA [MÃO]",
+   "list": [
+    "Relatório",
+    "Variações",
+    "Campanhas"
+   ]
+  },
+  {
+   "nar": "Com a IA ligada ao Gerenciador, você pede isso em português.",
+   "head": "PEDE EM [PORTUGUÊS]",
+   "emoji": "🤖"
+  },
+  {
+   "nar": "Ela monta tudo em pausa, e você revisa antes de publicar.",
+   "head": "TUDO EM [PAUSA]",
+   "emoji": "⏸️"
+  },
+  {
+   "nar": "No Clube Tráfego com IA você aprende a montar isso, por vinte e nove e noventa por mês.",
+   "head": "CLUBE [R$ 29,90/MÊS]",
+   "emoji": "🎓",
+   "nota": "Plano da IA cobrado à parte"
+  },
+  {
+   "nar": "O link está na bio.",
+   "head": "LINK NA [BIO]",
+   "emoji": "👆"
+  }
+ ]
+}

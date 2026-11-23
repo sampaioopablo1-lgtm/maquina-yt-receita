@@ -1,0 +1,40 @@
+{
+ "slug": "r013-formato-que-repete",
+ "cenas": [
+  {
+   "nar": "Um jeito rápido de descobrir o formato que funciona no nicho do seu cliente.",
+   "head": "O FORMATO QUE [FUNCIONA]",
+   "emoji": "🧩",
+   "tag": "BIBLIOTECA DE ANÚNCIOS"
+  },
+  {
+   "nar": "Busca três concorrentes na Biblioteca de Anúncios.",
+   "head": "3 [CONCORRENTES]",
+   "emoji": "🔎"
+  },
+  {
+   "nar": "Separa só os anúncios ativos há mais tempo.",
+   "head": "OS MAIS [ANTIGOS]",
+   "emoji": "📅"
+  },
+  {
+   "nar": "Repara qual formato se repete: vídeo, carrossel ou imagem.",
+   "head": "O QUE [SE REPETE]?",
+   "list": [
+    "Vídeo",
+    "Carrossel",
+    "Imagem"
+   ]
+  },
+  {
+   "nar": "O formato que se repete nos três é seu ponto de partida.",
+   "head": "PONTO DE [PARTIDA]",
+   "emoji": "🚩"
+  },
+  {
+   "nar": "Segue pra mais pesquisa de tráfego.",
+   "head": "SEGUE PRA [MAIS]",
+   "emoji": "👉"
+  }
+ ]
+}

@@ -5,7 +5,7 @@ com auto-aprendizado para escolher os próximos temas e ganhar seguidores.
 Volume: **12 por dia, decisão do dono em 23/11** ("ao menos 12 por dia"). Eu recomendei 3, porque
 num perfil só o excesso pode derrubar o alcance por peça; o aprendizado mede isso: se a mediana de
 views por Reel cair semana a semana, diga ao dono com o número. Cada execução da tarefa agendada
-(de hora em hora, 08:39 a 19:39 de Brasília) faz **1 Reel**.
+(a cada 2 horas: 07:00, 09:00 ... 05:00 de Brasília, a partir de 24/11; em 23/11 saiu o lote r001 a r013 de uma vez, a pedido do dono) faz **1 Reel**.
 
 Leia antes `trafegocomia/CLAUDE.md` (público, regras, identidade). Branch: `ccr-193f026c-cfpyom`.
 
