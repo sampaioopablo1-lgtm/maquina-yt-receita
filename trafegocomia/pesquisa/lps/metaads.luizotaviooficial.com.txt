@@ -1,0 +1,346 @@
+Usamos cookies para medir e melhorar seus anúncios e sua experiência. Ao clicar em um botão de compra, você concorda com o uso dos seus dados conforme a Política de Privacidade.
+
+Meta Ads com IA
+
+PLUGIN + 14 AULAS · ACESSO IMEDIATO
+
+Gestor de Tráfego de Bolso: seu plugin treinado no Andrômeda pra sua gestão de tráfego no automático.
+
+Com o Meta Ads com IA você recebe o nosso plugin copiloto whitelabel + o curso completo: 14 aulas atualizadíssimas, validadas na nossa metodologia real. Sem fidelidade, sem mensalidade.
+
+QUERO ACESSO IMEDIATO
+Ver o que você recebe
+
+De R$ 497 por 12x de R$ 13,13 ou R$ 127 à vista · 7 dias de garantia · Hotmart
+
+Plugin whitelabel
+Com a sua marca
+14 aulas
+Do zero à automação
+Acesso imediato
+Sem fidelidade
+Metodologia real
+Validada em clientes
+O PLUGIN · GESTOR DE TRÁFEGO DE BOLSO
+Seu copiloto de tráfego, dentro do próprio Gerenciador da Meta.
+
+Ele lê as suas campanhas na tela e responde o que importa: onde escalar, o que cortar e qual criativo está com fadiga. Você conecta a sua chave de IA e ele trabalha do seu lado.
+
+Analisa as campanhas na tela
+Aponta onde escalar e o que cortar
+Whitelabel: a sua marca no plugin
+Você ainda pode editar o nosso
+QUERO O GESTOR DE BOLSO POR R$ 127,00
+business.facebook.com · Gerenciador de Anúncios
+Você ainda não entendeu o novo motor Andrômeda da Meta? Ou nem subiu seu primeiro anúncio — e bateu o medo?
+
+Estas 14 aulas te ensinam o algoritmo Andrômeda de 2026 do jeito certo.
+
+PRIMEIRO
+
+01
+
+Tudo MANUAL. Você entende cada passo antes de deixar a IA decidir por você.
+
+DEPOIS
+
+02
+
+Automatiza com o Claude Code e o seu gestor de tráfego de bolso.
+
+O PROBLEMA
+Ainda tem muito mar pra nadar no Meta Ads. Mas do jeito certo.
+
+Não saber trackear por API via N8N, não saber o que são UTMs e como controlá-las, não saber aproveitar os cashbacks em dólar pra reduzir o custo do anúncio, ou usar plugins focados na nova estratégia do Andrômeda… isso vai te deixar na mão.
+
+Aí não adianta dizer que “tá difícil”, que o “CPM subiu” ou que o lead tá caro. Você não sentou a bunda na cadeira com quem entende do algoritmo pra te entregar os fundamentos.
+
+Pra piorar: talvez você esteja aqui querendo só a IA pra subir tudo pra você. E sabe o que vai acontecer?
+
+Você não vai ter resultado. Sim, não vai ter.
+
+E não adianta culpar o nosso gestor de tráfego de bolso, tá? O seu processo, com o seu funil, é só você quem vai montar. Por isso, ao longo das aulas, a gente cria tudo manual, passo a passo: os prompts, as telas, os processos, subindo um site com IA, criando e traqueando ele, mandando pro CRM — tudo conectado e linkado via N8N com Claude Code.
+
+No fim, você vai estar PRONTO pra automatizar — porque passou a DOMINAR o processo. E aí não vira refém de ninguém.
+
+Chega de achar que a Meta tá doida. Doido está você em não pegar logo o seu Gestor de Tráfego de Bolso.
+
+A VIRADA
+O que muda quando você aprende de verdade
+
+ANTES
+
+Pixel cego: sem CAPI, sem os eventos do site nem do CRM
+Trackear no olho, sem API de Conversão nem N8N
+Sem UTM: você não sabe qual anúncio gerou a venda
+Subir tudo na mão e depender de agência a R$ 3 mil/mês
+Achar que é só "pedir pra IA subir tudo"
+Culpar a Meta toda vez que o CPM sobe
+
+DEPOIS DESTE CURSO
+
+Trackear pela API de Conversão (CAPI) via N8N, com o access token da Meta
+Enviar as conversões do site E do CRM pro Pixel, passo a passo no Claude Code
+Usar UTM e configurar tudo no GA4
+Conectar o Claude Code direto no Meta Ads
+Editar e ter seu próprio Gestor de Tráfego de Bolso, com a sua marca
+Automatizar só depois de DOMINAR o processo, sem virar refém de ninguém
+O MÉTODO
+Os 7 pilares que tiram você do escuro no tráfego
+7
+PILARES
+FUNDAMENTO
+ESTRUTURA
+TRAQUEAMENTO
+CRM
+CRIATIVO
+IA GESTORA
+LEITURA
+01
+FUNDAMENTO
+
+O que você compra é atenção. O conceito de mídia que serve pra qualquer plataforma.
+
+02
+ESTRUTURA
+
+BM, campanha, conjunto, anúncio e pixel, cada um no lugar certo.
+
+03
+TRAQUEAMENTO
+
+Pixel, GA4, CAPI e N8N: o dado circulando entre site, CRM e Meta com o access token.
+
+04
+CRM
+
+A inteligência volta pro seu Kommo ou GHL, não fica presa na Meta.
+
+05
+CRIATIVO
+
+A IA gera os criativos por prompt, com UTM, e sobe sozinha.
+
+06
+IA GESTORA
+
+O MCP conecta a IA à sua conta e te manda o relatório no WhatsApp.
+
+07
+LEITURA
+
+CPM, CTR e CPA como diagnóstico, não como relatório.
+
+A JORNADA
+14 aulas. Do zero absoluto à campanha rodando com inteligência artificial.
+
+Cada aula desbloqueia a próxima. Você não pula etapas: sobe de nível no processo inteiro, na ordem certa.
+
+INÍCIO · VOCÊ NO ESCURO
+
+01
+O Conceito de Mídia
+
+Antes de gastar o primeiro real, entenda o que você compra: atenção. Do panfleto ao CPM, o fundamento que serve pra qualquer plataforma, inclusive Google Ads.
+
+02
+Inteligência dos Motores
+
+A mudança de 2022 que quebrou o remarketing de todo mundo. Por que os dados ficaram presos na Meta e por que a inteligência precisa voltar pro SEU CRM.
+
+03
+Hierarquia da Conta: BM, Campanha, Conjunto, Anúncio e Pixel
+
+Mão na massa no Gerenciador. Estruture sua BM, entenda ABO x CBO, a matemática do orçamento e por que o pixel fica FORA da conta de anúncio.
+
+04
+Pixel, GA4, GTM e Webhooks: Montando o Traqueamento
+
+A espinha dorsal de dados: pixel, Analytics, Tag Manager, funil de eventos e as 4 webhooks que fazem a informação circular entre site, CRM e Meta.
+
+05
+Subindo o Domínio: do registro ao ar em minutos
+
+Coloque o site no ar de verdade: domínio na Cloudflare e deploy direto pelo Claude Code via API. Rápido e sem enrolação.
+
+06
+Traqueamento + API de Conversão (CAPI) via N8N
+
+A aula que vale ouro: configurar a API de Conversão (CAPI) via N8N com o access token da Meta, enviando os eventos do site E do CRM (Kommo e GHL) pro Pixel — passo a passo no Claude Code. Mais o prompt secreto do traqueamento e a regra dos 50 eventos que quase ninguém explica.
+
+07
+Andrômeda: A Nova Lógica de Segmentação
+
+Esqueça empilhar interesses. Conjunto aberto, menos criativos e melhores, e a segmentação que agora acontece DENTRO do criativo. O fim da caça ao 'público secreto'.
+
+08
+O Manual das Métricas: CPM, CTR e CPA
+
+Leia sua conta como diagnóstico, não como relatório. Quando o problema é o público, o criativo ou a oferta — antes de deixar qualquer IA decidir por você.
+
+09
+Por Que NÃO Fazer Campanha pra WhatsApp
+
+A aula polêmica: por que o 'lead barato' de WhatsApp é armadilha, o que a Meta escondeu e por que formulário gera venda com custo por conversão menor.
+
+10
+Search Console + GA4: Rastreamento Orgânico
+
+Conecte a peça que faltava pra acompanhar também o orgânico do seu site — e o aviso essencial sobre SEO com IA (spoiler: blog à toa = bloqueio).
+
+11
+UTMs + GA4: Rastreando Cada Clique, do Panfleto à Campanha
+
+Saiba exatamente qual anúncio, campanha ou até panfleto gerou cada venda. UTMs manuais e dinâmicas e como configurá-las no GA4 — a diferença entre 'achar' e 'saber'.
+
+12
+A Primeira Campanha Completa: Criativos com IA e Publicação
+
+Do zero ao publicado: oferta, página criada com IA, criativos por prompt, copy, conjuntos e UTMs. Mais o mega prompt de criativos e 200 headlines poderosas.
+
+13
+Instalando o MCP do Meta Ads: Sua IA Gerenciando Campanhas
+
+O encontro que dá nome ao curso: conecte a IA à sua conta e faça ela criar criativos, subir anúncios e mandar o relatório diário no seu WhatsApp — automático.
+
+14
+Gestor de Tráfego de Bolso: instale, use e deixe com a sua marca
+
+A ferramenta que fecha o curso. Instale o copiloto no Chrome, conecte a sua chave de IA e tenha a análise das campanhas na própria tela — whitelabel, adaptável ao seu negócio e pronto pra você editar.
+
+CHEGADA · GERINDO TRÁFEGO COM IA NO AUTOMÁTICO
+
+INCLUSO · E É SEU PRA EDITAR
+Um plugin whitelabel. Com a sua marca.
+
+Não é só um curso: você sai com uma ferramenta na mão — e pode deixá-la com a sua cara.
+
+Você escolhe o provedor de IA, cola a sua chave (fica salva só no seu navegador) e usa. E como você recebe o nosso, dá pra editar e personalizar do jeito que quiser: nome, marca e as análises.
+
+Analisa as campanhas e aponta a melhor
+Identifica fadiga de criativo e escala
+Sua chave de IA (BYOK): nada passa por servidor nosso
+Personalizável: produto, ticket, CPA, público
+PRA QUEM É
+Esse curso é pra você?
+É pra você se…
+Você faz (ou quer fazer) tráfego pago e cansou de gastar sem saber o resultado
+Você é dono de negócio, empresário de serviços ou gestor de tráfego
+Você quer usar IA no tráfego, mas do jeito certo, com fundamento
+Você trabalha com imóveis, serviços, clínicas, e-commerce ou infoprodutos
+Você entende que processo vale mais que 'hack' e quer construir algo que dure
+Não é pra você se…
+Você quer uma fórmula mágica de enriquecer da noite pro dia
+Você não está disposto a colocar a mão na massa e aplicar
+Você acha que é só 'pedir pra IA fazer' sem entender nada
+
+Luiz Otávio
+
+FUNDADOR · COMUNIDADE KOMMO BRASIL
+
+QUEM TE ENSINA
+Não é teoria de guru. É o processo que ele roda todo dia.
+
+Luiz Otávio é fundador da Comunidade Kommo Brasil e vive de tráfego pago e CRM na prática, com campanhas e automações rodando em clientes reais.
+
+É o mesmo método que ele usa pra rastrear cada real investido, do clique até a venda no CRM, e colocar a IA pra trabalhar do lado certo. Neste curso ele te entrega esse processo inteiro, sem atalho e sem enrolação.
+
+Meta Ads & Tráfego Pago
+Kommo + GoHighLevel
+Automação com IA
+Comunidade Kommo Brasil
+A OFERTA · 6 ITENS
+Tudo que está incluído por R$ 127,00
+
+As 14 aulas, o Plugin Andrômeda e os prompts prontos, tudo por uma única inscrição. Sem mensalidade, sem pegadinha.
+
+01
+14 aulas completas
+
+Do fundamento à automação com IA. Acesso vitalício.
+
+02
+Prompt de traqueamento
+
+O prompt secreto que configura Kommo e GHL por você.
+
+03
+Mega prompt de criativos
+
+Criativos por IA e 200 headlines poderosas.
+
+04
+Gestor de Tráfego de Bolso
+
+O plugin copiloto whitelabel: com a sua marca, e você ainda pode editar o nosso.
+
+05
+Metodologia validada
+
+O mesmo processo aplicado em clientes reais.
+
+06
+Acesso imediato
+
+Libera na hora que o Pix cai.
+
+Um pagamento único. Acesso pra sempre.
+
+Uma agência cobra a partir de R$ 3.000 por mês só pra gerir seu tráfego. Um único lead mal rastreado já custa mais caro que este curso inteiro.
+
+De R$ 497 por apenas
+
+R$ 127,00
+
+ou 12x de R$ 13,13 no cartão
+
+Pix à vista ou cartão parcelado, pela Hotmart · acesso imediato
+
+7 dias de garantia incondicional
+
+Não curtiu? Devolvemos 100% do seu dinheiro. Sem perguntas.
+
+QUERO ACESSO IMEDIATO AGORA
+
+Pagamento 100% seguro pela Hotmart · Acesso automático · Sem mensalidade
+
+Perguntas que talvez você esteja se fazendo
+Nunca fiz tráfego pago. Vou conseguir acompanhar?
++
+Preciso saber programar ou usar IA?
++
+E se eu não gostar?
++
+Como funciona o pagamento? É seguro?
++
+Serve pro meu nicho?
++
+E quando a Meta mudar o algoritmo de novo?
++
+É pagamento único ou assinatura?
++
+O tráfego pago não vai esperar você entender.
+
+Cada dia rodando campanha no escuro é dinheiro que não volta. Você pode continuar no achismo, ou dominar o processo inteiro por menos do que custa um almoço.
+
+14 aulas + o Gestor de Tráfego de Bolso (plugin whitelabel). Acesso imediato. R$ 127,00 pela Hotmart.
+
+QUERO ACESSO IMEDIATO POR R$ 127,00
+
+7 dias de garantia incondicional · Pagamento seguro pela Hotmart · Liberação na hora
+
+Meta Ads com IA · Gestor de Tráfego de Bolso
+
+Digital Performance Consulting & Editora Ltda
+
+CNPJ 47.411.101/0001-19
+
+© 2026 Todos os direitos reservados.
+
+Desenvolvido por Engenharia Luiz Otávio
+
+R$ 497
+
+R$ 127,00
+
+COMPRAR AGORA
