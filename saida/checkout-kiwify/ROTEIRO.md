@@ -74,3 +74,16 @@ Deixe só o que a Kiwify exige. Cada campo a mais é gente que desiste.
 | custo por visualização da página de destino | Gerenciador | até R$ 1,60 empata com conversão de 2% (LTV ~R$ 81) |
 | taxa de checkout → compra | Kiwify (vendas / visitas do checkout) | abaixo de 1% com clique barato = problema no checkout, não no anúncio |
 | abandono | Kiwify → carrinhos abandonados | mande mensagem no WhatsApp para quem deixou o telefone |
+
+## Opção "página inteira numa imagem" (landing dentro do checkout)
+- `landing-inteira.jpg` (1080 × 12.385, 1,3 MB): a página de vendas inteira. Vai como **um componente de
+  imagem na coluna principal, ACIMA do formulário**. O formulário (Pix ou cartão) fica logo abaixo dela.
+- Se a Kiwify recusar a altura ou o peso, suba `landing-parte-1.jpg` … `landing-parte-7.jpg` em sequência,
+  na mesma coluna: juntas, elas formam a mesma imagem.
+- Menor texto da imagem: 44 px → ~16 px no celular e ~27 px no computador (mesma régua medida acima).
+- Ordem: promessa e preço → erro do impulsionar → a IA da Meta já decide quem vê → como funciona (3 passos)
+  → exemplo de conversa → pra quem é e pra quem não é → preço vs Netflix → garantia → perguntas → "↓ Preencha".
+- **A seção "O que você recebe" está DESLIGADA** até você escrever a lista em `trafegocomia/checkout/landing.json`
+  (campo `recebe`). Com a lista preenchida, rode de novo `node trafegocomia/checkout/landing.js saida/checkout-kiwify`.
+- Custo de colocar tudo antes do formulário: quem já decidiu tem de rolar ~12 telas no celular. A seta no fim
+  resolve parte; a Kiwify também deixa ligar o botão flutuante de compra, se o seu plano tiver.
