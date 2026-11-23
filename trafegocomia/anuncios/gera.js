@@ -33,6 +33,39 @@ const C = {
     <div class="sub">E você ainda cria no improviso? Aprenda a usar IA do seu lado.</div>
     ${cta}${preco}`,
 };
+// Modelados nos estaticos validados da Biblioteca (trafegocomia/pesquisa/analise-2026-11-23.md):
+// 05 carrossel = estrutura Tintim/Pai do Low Ticket (carrossel 7-10 cards, 174-243 dias), gancho Hotmart
+//    ("nao parou de funcionar, mas nao funciona como antes: a IA decide quem ve");
+// 06 carrossel = estrutura Pablo Sehn (273 dias): "a IA nao substitui, acelera" + lista do que ela faz;
+// 07 imagem = LM (173 dias): contraponto "nao e mais diferencial, e essencial";
+// 08 imagem = Clube DeliveryAds / Anuncios para Corretores (173 e 110 dias): fala com UM tipo de negocio.
+C['07-essencial'] = `${top}<span class="tag">2026</span>
+    <h1>Anunciar não é mais diferencial. <span class="k">É essencial.</span></h1>
+    <div class="sub">A diferença é saber anunciar do jeito certo, com IA do seu lado.</div>
+    ${cta}${preco}`;
+C['08-negocio-local'] = `${top}<span class="emoji">🍕✂️🦷</span>
+    <h1>Pizzaria, salão, clínica: <span class="k">anúncio com IA</span> pro seu bairro</h1>
+    <div class="sub">Clientes chamando no seu WhatsApp, sem depender de agência.</div>
+    ${cta}${preco}`;
+const SW = '<span class="swipe">Arraste →</span>';
+const CAR = {
+  '05-carrossel-mudou': [
+    `${top}<span class="tag">ATENÇÃO</span><h1>O tráfego pago não parou de funcionar.</h1><div class="big">Ele <span style="color:#3B82F6">mudou.</span></div>${SW}`,
+    `<span class="emoji">🤖</span><h1>Hoje a IA da Meta decide <span class="k">quem vê</span> seu anúncio</h1><div class="sub">Quando, onde e pra quem. Bem menos botão pra você apertar.</div>${SW}`,
+    `<span class="emoji">🎨</span><h1>O que sobrou pra você é o <span class="k">criativo</span></h1><div class="sub">A imagem e o texto viraram a principal alavanca.</div>${SW}`,
+    `<span class="tag">ERRO COMUM</span><h1>Subir <span class="k">1 anúncio</span> e torcer</h1><div class="sub">Sem comparação, você não sabe se o problema é o texto, a imagem ou a oferta.</div>${SW}`,
+    `<span class="emoji">⚡</span><h1>Com IA você cria <span class="k">3 versões</span> em minutos</h1><div class="sub">Sobe as três e deixa o resultado escolher a melhor.</div>${SW}`,
+    `${top}<h1>Aprenda a anunciar <span class="k">com IA</span> do seu lado</h1><div class="sub">Clube Tráfego com IA, pra dono de negócio.</div>${cta}${preco}`,
+  ],
+  '06-carrossel-acelera': [
+    `${top}<h1>A IA não faz seu anúncio <span class="k">sozinha.</span></h1><div class="big">Ela <span style="color:#3B82F6">acelera</span> você.</div>${SW}`,
+    `<span class="emoji">✍️</span><h1>Escreve o <span class="k">texto</span></h1><div class="sub">Você descreve o negócio, ela devolve várias versões.</div>${SW}`,
+    `<span class="emoji">🧪</span><h1>Cria <span class="k">variações</span> pra testar</h1><div class="sub">Gancho de problema, de resultado, de pergunta.</div>${SW}`,
+    `<span class="emoji">📊</span><h1>Ajuda a <span class="k">ler o resultado</span></h1><div class="sub">Você cola os números e pergunta o que cortar e o que manter.</div>${SW}`,
+    `<span class="tag">O SEGREDO</span><h1>Não é usar IA. É <span class="k">saber usar.</span></h1>${SW}`,
+    `${top}<h1>Aprenda no <span class="k">Clube Tráfego com IA</span></h1><div class="sub">Anúncios com IA pra trazer clientes pro WhatsApp.</div>${cta}${preco}`,
+  ],
+};
 (async () => {
   const b = await chromium.launch(); const base = fs.readFileSync(path.join(__dirname, 'criativo.html'), 'utf8');
   for (const [nome, html] of Object.entries(C)) {
@@ -48,6 +81,20 @@ const C = {
       if (over) console.log('ATENCAO transbordou:', nome, fmt, await p.evaluate(() => document.getElementById('wrap').scrollHeight));
       await p.screenshot({ path: path.join(out, `${nome}-${fmt}.png`) }); await p.close();
       fs.unlinkSync(tmp);
+    }
+  }
+  for (const [nome, slides] of Object.entries(CAR)) {
+    for (let i = 0; i < slides.length; i++) {
+      const page = base.replace('FONT900', 'file://' + F + '/montserrat-latin-900-normal.woff2')
+        .replace('FONT800', 'file://' + F + '/montserrat-latin-800-normal.woff2')
+        .replace('HPX', '1350px').replace('HSIZE', '96px').replace('GLOWTOP', (i % 2 ? '500px' : '150px'))
+        .replace('CONTEUDO', `<span class="num">${i + 1}/${slides.length}</span>` + slides[i]);
+      const tmp = path.join(out, '_tmp.html'); fs.writeFileSync(tmp, page);
+      const p = await b.newPage({ viewport: { width: 1080, height: 1350 } });
+      await p.goto('file://' + tmp); await p.evaluate(() => document.fonts.ready);
+      const over = await p.evaluate(() => document.getElementById('wrap').scrollHeight > window.innerHeight);
+      if (over) console.log('ATENCAO transbordou:', nome, i + 1);
+      await p.screenshot({ path: path.join(out, `${nome}-${i + 1}.png`) }); await p.close(); fs.unlinkSync(tmp);
     }
   }
   await b.close();
