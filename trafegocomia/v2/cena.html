@@ -64,7 +64,7 @@ function build(i){
   // keywords spanning multiple words: mark between [ and ]
   let inK=false; [...$("head").children].forEach((el,j)=>{
      const raw=s.head.split(" ")[j]; if(raw.startsWith("[")) inK=true; if(inK) el.classList.add("k"); if(raw.includes("]")) inK=false; });
-  $("pill").innerHTML = s.pill?`<span>${s.pill}</span>`:"";
+  $("pill").innerHTML = s.pill?`<span style="font-size:${s.pill.length>10?66:120}px">${s.pill}</span>`:"";
   $("list").innerHTML = (s.list||[]).map(x=>`<div class="it"><span class="ck">✓</span>${x}</div>`).join("");
   $("emoji").style.top = s.list? "-999px" : (s.tag? "400px":"380px");
   $("head").style.top = s.list? "520px" : "690px";

@@ -1,0 +1,62 @@
+{
+  "semana": "2026-11-23",
+  "videos": [
+    {"slug": "pare-de-impulsionar-post", "cenas": [
+      {"nar": "Impulsionar post é o jeito mais caro de anunciar.", "head": "IMPULSIONAR É [CARO]", "emoji": "💸", "tag": "ERRO Nº 1"},
+      {"nar": "O botão azul decide tudo por você.", "head": "O BOTÃO [DECIDE] POR VOCÊ", "emoji": "🤖"},
+      {"nar": "Público, objetivo e posicionamento no automático.", "head": "TUDO NO [AUTOMÁTICO]", "list": ["Público", "Objetivo", "Posicionamento"]},
+      {"nar": "No Gerenciador, você sobe três anúncios diferentes.", "head": "[3] ANÚNCIOS DIFERENTES", "emoji": "🧪"},
+      {"nar": "Em poucos dias, o número mostra o vencedor.", "head": "O [NÚMERO] DECIDE", "emoji": "📊"},
+      {"nar": "Corta o pior e põe a verba no melhor.", "head": "CORTA O PIOR. [ESCALA] O MELHOR.", "emoji": "✂️"},
+      {"nar": "Comenta ANÚNCIO aqui embaixo.", "head": "COMENTA", "pill": "ANÚNCIO", "emoji": "👇"}
+    ]},
+    {"slug": "tres-criativos-nao-um", "cenas": [
+      {"nar": "Um anúncio só é chute no escuro.", "head": "UM ANÚNCIO SÓ É [CHUTE]", "emoji": "🎲", "tag": "PARE COM ISSO"},
+      {"nar": "Se não vende, você não sabe se foi a imagem, o texto ou a oferta.", "head": "ONDE ESTÁ O [ERRO]?", "list": ["Imagem", "Texto", "Oferta"]},
+      {"nar": "Faz três ganchos para a mesma oferta.", "head": "[3] GANCHOS, 1 OFERTA", "emoji": "🪝"},
+      {"nar": "Um mostra o problema, outro o resultado, outro a prova.", "head": "PROBLEMA. RESULTADO. [PROVA].", "list": ["Problema", "Resultado", "Prova"]},
+      {"nar": "O mais barato por resultado fica no ar.", "head": "O MAIS [BARATO] FICA", "emoji": "🏆"},
+      {"nar": "Link na bio: Club Tráfego com IA.", "head": "LINK NA BIO", "pill": "CLUB TRÁFEGO COM IA", "emoji": "🔗"}
+    ]},
+    {"slug": "a-ia-escreve-voce-testa", "cenas": [
+      {"nar": "A IA não sabe qual anúncio vai vender.", "head": "A IA [NÃO SABE]", "emoji": "🤖", "tag": "VERDADE"},
+      {"nar": "Mas ela escreve dez versões em um minuto.", "head": "[10] VERSÕES EM 1 MINUTO", "emoji": "⚡"},
+      {"nar": "Pede versão curta, longa e em pergunta.", "head": "VARIE O [FORMATO]", "list": ["Curta", "Longa", "Pergunta"]},
+      {"nar": "Escolhe as três mais diferentes, não as mais bonitas.", "head": "AS MAIS [DIFERENTES]", "emoji": "🎯"},
+      {"nar": "Quem decide é o resultado, não você nem a IA.", "head": "QUEM DECIDE É O [RESULTADO]", "emoji": "📈"},
+      {"nar": "Comenta ANÚNCIO aqui embaixo.", "head": "COMENTA", "pill": "ANÚNCIO", "emoji": "👇"}
+    ]},
+    {"slug": "antes-de-culpar-o-publico", "cenas": [
+      {"nar": "Seu anúncio não vende? O problema pode não ser o público.", "head": "NÃO É O [PÚBLICO]", "emoji": "🙅", "tag": "ANTES DE MEXER"},
+      {"nar": "Ninguém assiste? O problema é o gancho.", "head": "NINGUÉM ASSISTE? [GANCHO]", "emoji": "🪝"},
+      {"nar": "Assiste e não clica? O problema é a oferta.", "head": "NÃO CLICA? [OFERTA]", "emoji": "🏷️"},
+      {"nar": "Clica e não compra? O problema é a página.", "head": "NÃO COMPRA? [PÁGINA]", "emoji": "📄"},
+      {"nar": "Ache onde a pessoa desiste e mexa só ali.", "head": "MEXA SÓ [ALI]", "emoji": "🔍"},
+      {"nar": "Link na bio: Club Tráfego com IA.", "head": "LINK NA BIO", "pill": "CLUB TRÁFEGO COM IA", "emoji": "🔗"}
+    ]},
+    {"slug": "nao-mexa-todo-dia", "cenas": [
+      {"nar": "Mexer no anúncio todo dia piora o resultado.", "head": "PARE DE [MEXER]", "emoji": "🛑", "tag": "ERRO CARO"},
+      {"nar": "Cada edição grande reinicia o aprendizado.", "head": "O APRENDIZADO [REINICIA]", "emoji": "🔄"},
+      {"nar": "E você paga o teste de novo.", "head": "VOCÊ PAGA [DE NOVO]", "emoji": "💸"},
+      {"nar": "Mude uma coisa por vez: criativo, público ou verba.", "head": "UMA COISA [POR VEZ]", "list": ["Criativo", "Público", "Verba"]},
+      {"nar": "E anote o que mudou e quando.", "head": "[ANOTE] TUDO", "emoji": "📝"},
+      {"nar": "Comenta ANÚNCIO aqui embaixo.", "head": "COMENTA", "pill": "ANÚNCIO", "emoji": "👇"}
+    ]},
+    {"slug": "objetivo-certo-cliente-certo", "cenas": [
+      {"nar": "O objetivo da campanha escolhe quem vê seu anúncio.", "head": "O OBJETIVO [ESCOLHE] O CLIENTE", "emoji": "🎯", "tag": "POUCOS SABEM"},
+      {"nar": "Alcance acha quem só olha.", "head": "ALCANCE: [SÓ OLHA]", "emoji": "👀"},
+      {"nar": "Mensagem acha quem conversa.", "head": "MENSAGEM: [CONVERSA]", "emoji": "💬"},
+      {"nar": "Venda acha quem compra.", "head": "VENDA: [COMPRA]", "emoji": "🛒"},
+      {"nar": "Objetivo errado é pagar pelo público errado.", "head": "OBJETIVO ERRADO = [PREJUÍZO]", "emoji": "❌"},
+      {"nar": "Link na bio: Club Tráfego com IA.", "head": "LINK NA BIO", "pill": "CLUB TRÁFEGO COM IA", "emoji": "🔗"}
+    ]},
+    {"slug": "o-numero-que-importa", "cenas": [
+      {"nar": "Curtida não paga boleto.", "head": "CURTIDA NÃO PAGA [BOLETO]", "emoji": "🧾", "tag": "REALIDADE"},
+      {"nar": "O que importa é quanto custa cada cliente.", "head": "CUSTO POR [CLIENTE]", "emoji": "💰"},
+      {"nar": "Soma o gasto da semana e divide pelas vendas.", "head": "GASTO ÷ [VENDAS]", "emoji": "🧮"},
+      {"nar": "Se for menor que seu lucro por venda, aumenta a verba.", "head": "MENOR? [ESCALA]", "emoji": "🚀"},
+      {"nar": "Se for maior, volta no criativo antes de gastar mais.", "head": "MAIOR? [CRIATIVO]", "emoji": "🎨"},
+      {"nar": "Comenta ANÚNCIO aqui embaixo.", "head": "COMENTA", "pill": "ANÚNCIO", "emoji": "👇"}
+    ]}
+  ]
+}
