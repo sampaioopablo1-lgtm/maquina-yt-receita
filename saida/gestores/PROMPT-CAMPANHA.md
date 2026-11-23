@@ -21,7 +21,14 @@ CONJUNTO (só 1): "BR | 22-50 | Gestores | LPV"
   Tráfego pago, Social media. Me diga quais existiam.
 - Posicionamentos Advantage+, sem o Audience Network. Atribuição padrão.
 
-ANÚNCIOS (6): textos, títulos e arquivos em saida/gestores/COPY.md. Botão "Saiba mais".
+ANÚNCIOS (6): textos e títulos em saida/gestores/COPY.md. Botão "Saiba mais". Arquivos:
+1. "G1 | Operacional"     saida/gestores/criativos/g1-operacional-feed.png + -stories.png
+2. "G2 | Conversa"        saida/gestores/criativos/g2-conversa-feed.png + -stories.png
+3. "G3 | Mais clientes"   saida/gestores/criativos/g3-mais-clientes-feed.png + -stories.png
+4. "V09 | Claude no Gerenciador"  saida/anuncios-2026-11-23/video/09-claude-no-gerenciador.mp4
+5. "V | Netflix gestor"   saida/gestores/criativos/netflix-gestor.mp4 (capa: netflix-gestor-capa.png)
+6. "GTA | 15 meses"       saida/gestores/criativos/gta-13-15-meses-feed.png + -stories.png
+Use esses nomes como nome do anúncio (eles viram o utm_content).
 Nas imagens, personalize por posicionamento: -feed no feed, -stories em Stories/Reels.
 Vídeos (9:16) servem nos dois.
 
