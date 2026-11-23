@@ -1,0 +1,83 @@
+name: trafegocomia — render da semana
+
+# Renderiza os videos da semana do @trafegocomia e comita saida/semana-*/ no
+# MESMO branch. Roda no runner porque o ambiente de sessao bloqueia os dois
+# servicos de voz (speech.platform.bing.com e huggingface.co, 403 no proxy).
+#
+# NAO publica nada: nao chama publicar.py, retomar.yml nem rede social.
+
+on:
+  push:
+    paths:
+      - "trafegocomia/semana-*.json"
+      - "trafegocomia/render_semana.py"
+      - ".github/workflows/trafegocomia-semana.yml"
+  workflow_dispatch:
+    inputs:
+      semana:
+        description: "arquivo da semana, ex.: trafegocomia/semana-2026-11-23.json"
+        required: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: trafegocomia-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar ffmpeg
+        timeout-minutes: 10
+        run: |
+          set -uo pipefail
+          if ! (timeout 60 sudo apt-get update -qq && timeout 180 sudo apt-get install -y -qq ffmpeg fonts-dejavu-core); then
+            echo "::warning::apt falhou — binario estatico"
+            URL=https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-linux64-gpl.tar.xz
+            curl -sSL --fail --max-time 180 "$URL" -o /tmp/ff.tar.xz
+            mkdir -p /tmp/ffbin && tar -xJf /tmp/ff.tar.xz -C /tmp/ffbin --strip-components=2
+            sudo install -m 755 /tmp/ffbin/ffmpeg /usr/local/bin/ffmpeg
+            sudo install -m 755 /tmp/ffbin/ffprobe /usr/local/bin/ffprobe
+          fi
+          ffmpeg -version | head -1
+
+      - name: Dependencias Python
+        run: pip install -q edge-tts cairosvg pydantic pillow piper-tts
+
+      - name: Escolher a semana
+        id: sem
+        run: |
+          S="${{ github.event.inputs.semana }}"
+          [ -n "$S" ] || S=$(ls trafegocomia/semana-*.json | sort | tail -1)
+          echo "arquivo=$S" >> "$GITHUB_OUTPUT"
+          echo "semana: $S"
+
+      - name: Renderizar
+        run: python3 trafegocomia/render_semana.py "${{ steps.sem.outputs.arquivo }}"
+
+      - name: Comitar a pasta da semana
+        if: always()
+        run: |
+          set -euo pipefail
+          git config user.name "trafegocomia-render"
+          git config user.email "actions@users.noreply.github.com"
+          git add saida/semana-*/
+          if git diff --cached --quiet; then
+            echo "::warning::nada para comitar"
+            exit 0
+          fi
+          git commit -m "trafegocomia: render da semana ($(basename '${{ steps.sem.outputs.arquivo }}' .json))"
+          for t in 1 2 3 4; do
+            git pull --rebase -q origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}" && exit 0
+            sleep $((t*5))
+          done
+          echo "::error::push falhou"; exit 1
