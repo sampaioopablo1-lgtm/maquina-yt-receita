@@ -1,0 +1,36 @@
+name: trafegocomia — captura das paginas de destino
+
+# Abre as paginas de destino dos anuncios validados (lps.json) como celular,
+# grava print, texto e checkout. Nao preenche formulario nem compra nada.
+on:
+  push:
+    paths:
+      - "trafegocomia/pesquisa/lps.json"
+      - "trafegocomia/pesquisa/captura_lps.js"
+      - ".github/workflows/trafegocomia-lps.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  captura:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: npm i playwright@1 && npx playwright install --with-deps chromium
+      - run: node trafegocomia/pesquisa/captura_lps.js
+      - name: Comitar
+        if: always()
+        run: |
+          git config user.name "trafegocomia-lps"
+          git config user.email "actions@users.noreply.github.com"
+          git add trafegocomia/pesquisa/lps
+          git diff --cached --quiet && { echo "nada"; exit 0; }
+          git commit -m "trafegocomia: captura das paginas de destino"
+          for t in 1 2 3 4; do git pull --rebase -q origin "$GITHUB_REF_NAME" && git push origin "HEAD:$GITHUB_REF_NAME" && exit 0; sleep $((t*5)); done
+          exit 1
