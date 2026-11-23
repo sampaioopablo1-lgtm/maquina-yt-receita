@@ -47,6 +47,13 @@ C['08-negocio-local'] = `${top}<span class="emoji">🍕✂️🦷</span>
     <h1>Pizzaria, salão, clínica: <span class="k">anúncio com IA</span> pro seu bairro</h1>
     <div class="sub">Clientes chamando no seu WhatsApp, sem depender de agência.</div>
     ${cta}${preco}`;
+C['09-claude-gerenciador'] = `${top}<span class="tag">CLAUDE + META ADS</span>
+    <h1>Conecte o Claude ao seu <span class="k">Gerenciador</span></h1>
+    <div class="card">
+      <div class="bub me"><div class="lab">Você</div>Cria uma campanha de mensagens pra minha pizzaria. R$ 10 por dia, até 3 km daqui.</div>
+      <div class="bub ai"><div class="lab">Claude</div>Pronto: campanha, público e 3 anúncios criados. Tudo em pausa para você revisar. ✓</div>
+    </div>
+    ${cta}${preco}`;
 const SW = '<span class="swipe">Arraste →</span>';
 const CAR = {
   '05-carrossel-mudou': [

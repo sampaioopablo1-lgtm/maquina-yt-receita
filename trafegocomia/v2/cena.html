@@ -35,13 +35,18 @@ html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#111827
   font:800 72px/1.25 M;color:#fff;text-transform:uppercase;}
 #cap .c{display:inline-block;margin:6px 10px;padding:4px 16px;border-radius:14px;opacity:.55;}
 #cap .c.on{opacity:1;background:#1D4ED8;}
+#chat{position:absolute;top:960px;left:70px;right:70px;}
+.bub{border-radius:34px;padding:26px 34px;font:800 48px/1.3 M;margin:0 0 30px;max-width:86%;}
+.bub .lab{font:800 30px M;opacity:.7;margin-bottom:8px;}
+.bub.me{background:#1D4ED8;color:#fff;margin-left:auto;}
+.bub.ai{background:#F3F4F6;color:#111827;}
 #flash{position:absolute;inset:0;background:#fff;opacity:0;}
 </style></head>
 <body>
 <div id="bg"><div id="grid"></div><div id="glow"></div></div>
 <div id="stage">
   <div id="tag"></div><div id="emoji"></div><div id="head"></div>
-  <div id="pill"></div><div id="list"></div><div id="cap"></div>
+  <div id="pill"></div><div id="list"></div><div id="chat"></div><div id="cap"></div>
 </div>
 <div id="top"><span class="brand">📢 IA</span><span class="handle">@trafegocom.ia</span></div>
 <div id="barbg"></div><div id="bar"></div>
@@ -66,8 +71,10 @@ function build(i){
      const raw=s.head.split(" ")[j]; if(raw.startsWith("[")) inK=true; if(inK) el.classList.add("k"); if(raw.includes("]")) inK=false; });
   $("pill").innerHTML = s.pill?`<span style="font-size:${s.pill.length>10?66:120}px">${s.pill}</span>`:"";
   $("list").innerHTML = (s.list||[]).map(x=>`<div class="it"><span class="ck">✓</span>${x}</div>`).join("");
-  $("emoji").style.top = s.list? "-999px" : (s.tag? "400px":"380px");
-  $("head").style.top = s.list? "520px" : "690px";
+  $("chat").innerHTML = (s.chat||[]).map(m=>`<div class="bub ${m.de==="voce"?"me":"ai"}"><div class="lab">${m.de==="voce"?"Você":"Claude"}</div>${m.txt}</div>`).join("");
+  const alto = s.list||s.chat;
+  $("emoji").style.top = alto? "-999px" : (s.tag? "400px":"380px");
+  $("head").style.top = s.chat? "430px" : (s.list? "520px" : "690px");
   built=i;
 }
 window.render = function(t){
@@ -101,10 +108,14 @@ window.render = function(t){
      const v=easeOut((t-tj+0.05)/0.25);
      el.style.opacity=v; el.style.transform=`translateX(${(1-v)*-160}px)`;
   });
+  [...$("chat").children].forEach((el,j)=>{
+     const v=easeOut((dt-0.25-j*1.3)/0.3);
+     el.style.opacity=v; el.style.transform=`translateY(${(1-v)*60}px)`;
+  });
   // legenda karaoke: grupo de 4 palavras em torno da corrente
   const W=T.palavras; let cur=-1;
   for(let k=0;k<W.length;k++){ if(W[k].t<=t+0.02) cur=k; }
-  if(!s.list && cur>=0 && t < W[cur].t+W[cur].d+0.6){
+  if(!s.list && !s.chat && cur>=0 && t < W[cur].t+W[cur].d+0.6){
      const g=Math.floor(cur/3)*3; const grp=W.slice(g,g+3);
      $("cap").innerHTML=grp.map((w,j)=>`<span class="c${g+j===cur?" on":""}">${w.w}</span>`).join("");
   } else { $("cap").innerHTML=""; }
