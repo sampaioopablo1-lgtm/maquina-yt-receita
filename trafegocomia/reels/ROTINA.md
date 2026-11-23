@@ -32,8 +32,11 @@ Leia antes `trafegocomia/CLAUDE.md` (público, regras, identidade). Branch: `ccr
    media_type `REELS`, video_url, cover_url = capa, caption, share_to_feed true) e depois
    `INSTAGRAM_POST_IG_USER_MEDIA_PUBLISH` (max_wait_seconds 300). Pegue o permalink.
    No máximo 2 tentativas; se falhar, registre o erro e pare (não marque como publicado).
+   **Depois, o mesmo vídeo como Story** (pedido do dono em 23/11): `INSTAGRAM_POST_IG_USER_MEDIA` com
+   media_type `STORIES` e o mesmo video_url, e `INSTAGRAM_POST_IG_USER_MEDIA_PUBLISH`. Se a chamada passar do
+   tempo, confira com `INSTAGRAM_GET_IG_USER_STORIES` antes de repetir (Story duplicado é pior que faltando).
 8. **Registrar:** acrescente em `trafegocomia/reels/publicados.jsonl` uma linha
-   `{"n":"rNNN","ig_id":"...","permalink":"...","em":"<UTC>","familia":"...","tema":"...","gancho":"..."}`,
+   `{"n":"rNNN","ig_id":"...","story_id":"...","permalink":"...","em":"<UTC>","familia":"...","tema":"...","gancho":"..."}`,
    commit `Reel rNNN publicado` e push.
 9. **Responder** em uma linha: Reel publicado (link), família, seguidores agora, família líder do ranking.
 
