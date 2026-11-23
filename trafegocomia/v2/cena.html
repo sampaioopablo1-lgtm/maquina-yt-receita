@@ -1,0 +1,113 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:M;font-weight:900;src:url("FONT900") format("woff2");}
+@font-face{font-family:M;font-weight:800;src:url("FONT800") format("woff2");}
+html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#111827;}
+*{box-sizing:border-box;}
+#bg{position:absolute;inset:0;overflow:hidden;}
+#glow{position:absolute;width:1400px;height:1400px;border-radius:50%;
+  background:radial-gradient(circle,rgba(29,78,216,.55) 0%,rgba(29,78,216,0) 65%);}
+#grid{position:absolute;inset:-200px;opacity:.10;
+  background-image:linear-gradient(#ffffff 2px,transparent 2px),linear-gradient(90deg,#ffffff 2px,transparent 2px);
+  background-size:120px 120px;}
+#stage{position:absolute;inset:0;}
+#top{position:absolute;top:96px;left:0;right:0;display:flex;justify-content:center;gap:18px;align-items:center;}
+.brand{background:#1D4ED8;color:#fff;font:900 40px M;padding:14px 30px;border-radius:18px;letter-spacing:1px;}
+.handle{color:#fff;opacity:.75;font:800 34px M;}
+#bar{position:absolute;top:0;left:0;height:14px;background:#1D4ED8;}
+#barbg{position:absolute;top:0;left:0;right:0;height:14px;background:rgba(255,255,255,.08);}
+#tag{position:absolute;top:300px;left:0;right:0;text-align:center;}
+#tag span{display:inline-block;background:#22C55E;color:#0b1220;font:900 40px M;padding:12px 30px;border-radius:999px;}
+#emoji{position:absolute;top:380px;left:0;right:0;text-align:center;font-size:230px;line-height:1;
+  font-family:"Noto Color Emoji";}
+#head{position:absolute;top:690px;left:70px;right:70px;text-align:center;color:#fff;
+  font:900 118px/1.08 M;text-transform:uppercase;letter-spacing:-1px;}
+#head .w{display:inline-block;margin:0 14px;}
+#head .k{background:#1D4ED8;color:#fff;padding:0 22px;border-radius:22px;}
+#pill{position:absolute;top:1080px;left:0;right:0;text-align:center;}
+#pill span{display:inline-block;background:#22C55E;color:#0b1220;font:900 120px M;padding:20px 60px;border-radius:40px;}
+#list{position:absolute;top:1040px;left:150px;right:150px;}
+.it{display:flex;align-items:center;gap:30px;color:#fff;font:900 70px M;margin:0 0 34px;
+  background:rgba(255,255,255,.06);border:3px solid rgba(255,255,255,.12);border-radius:26px;padding:22px 34px;}
+.it .ck{width:62px;height:62px;border-radius:50%;background:#1D4ED8;display:flex;align-items:center;justify-content:center;font-size:40px;}
+#cap{position:absolute;top:1290px;left:60px;right:60px;text-align:center;
+  font:800 72px/1.25 M;color:#fff;text-transform:uppercase;}
+#cap .c{display:inline-block;margin:6px 10px;padding:4px 16px;border-radius:14px;opacity:.55;}
+#cap .c.on{opacity:1;background:#1D4ED8;}
+#flash{position:absolute;inset:0;background:#fff;opacity:0;}
+</style></head>
+<body>
+<div id="bg"><div id="grid"></div><div id="glow"></div></div>
+<div id="stage">
+  <div id="tag"></div><div id="emoji"></div><div id="head"></div>
+  <div id="pill"></div><div id="list"></div><div id="cap"></div>
+</div>
+<div id="top"><span class="brand">📢 IA</span><span class="handle">@trafegocom.ia</span></div>
+<div id="barbg"></div><div id="bar"></div>
+<div id="flash"></div>
+<script>
+const T = TIMELINE;
+const $ = id => document.getElementById(id);
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const easeOut=x=>1-Math.pow(1-clamp(x),3);
+// pop: 0 -> overshoot 1.08 -> 1
+function pop(x){x=clamp(x); if(x<.6) return easeOut(x/.6)*1.08; return 1.08-(x-.6)/.4*.08;}
+let built=-1;
+function build(i){
+  const s=T.cenas[i];
+  $("tag").innerHTML = s.tag?`<span>${s.tag}</span>`:"";
+  $("emoji").textContent = s.emoji||"";
+  $("head").innerHTML = s.head.split(" ").map(w=>{
+     return `<span class="w">${w.replace(/[\[\]]/g,"")}</span>`;
+  }).join(" ");
+  // keywords spanning multiple words: mark between [ and ]
+  let inK=false; [...$("head").children].forEach((el,j)=>{
+     const raw=s.head.split(" ")[j]; if(raw.startsWith("[")) inK=true; if(inK) el.classList.add("k"); if(raw.includes("]")) inK=false; });
+  $("pill").innerHTML = s.pill?`<span>${s.pill}</span>`:"";
+  $("list").innerHTML = (s.list||[]).map(x=>`<div class="it"><span class="ck">✓</span>${x}</div>`).join("");
+  $("emoji").style.top = s.list? "-999px" : (s.tag? "400px":"380px");
+  $("head").style.top = s.list? "520px" : "690px";
+  built=i;
+}
+window.render = function(t){
+  // cena corrente
+  let i=0; for(let k=0;k<T.cenas.length;k++){ if(t>=T.cenas[k].t0) i=k; }
+  if(i!==built) build(i);
+  const s=T.cenas[i], dt=t-s.t0;
+  // fundo vivo
+  $("glow").style.left=(-160+Math.sin(t*.35)*180)+"px";
+  $("glow").style.top=(260+Math.cos(t*.27)*220)+"px";
+  $("grid").style.transform=`translate(${(t*18)%120}px,${(t*10)%120}px)`;
+  // punch de entrada da cena
+  const p=easeOut(dt/0.28);
+  const sc=(i===0? 1.0 : 1.12-0.12*p) * (1+0.015*Math.sin(t*1.3));
+  $("stage").style.transform=`scale(${sc})`;
+  $("stage").style.filter = i===0? "none" : `blur(${(1-p)*10}px)`;
+  $("flash").style.opacity = i===0? 0 : Math.max(0,.18-dt*.9);
+  // palavras da manchete: no gancho aparecem ja no quadro 0
+  [...$("head").children].forEach((el,j)=>{
+     const d = i===0 ? 0 : 0.06+j*0.07;
+     const v = i===0 ? 1 : pop((dt-d)/0.32);
+     el.style.transform=`scale(${v})`; el.style.opacity= v>0.02?1:0;
+  });
+  const e=$("emoji"); const ev=i===0?1:pop((dt-0.05)/0.4);
+  e.style.transform=`translateY(${Math.sin(t*2.2)*14}px) scale(${ev}) rotate(${Math.sin(t*1.6)*5}deg)`;
+  const tg=$("tag").firstChild; if(tg){tg.style.transform=`scale(${i===0?1:pop((dt-.1)/.3)})`;}
+  const pl=$("pill").firstChild; if(pl){const v=pop((dt-.25)/.35); pl.style.transform=`scale(${v*(1+0.05*Math.sin(t*6))})`;}
+  // itens da lista entram quando a palavra e dita
+  [...$("list").children].forEach((el,j)=>{
+     const tj=(s.list_t&&s.list_t[j]!=null)? s.list_t[j] : s.t0+0.3+j*0.5;
+     const v=easeOut((t-tj+0.05)/0.25);
+     el.style.opacity=v; el.style.transform=`translateX(${(1-v)*-160}px)`;
+  });
+  // legenda karaoke: grupo de 4 palavras em torno da corrente
+  const W=T.palavras; let cur=-1;
+  for(let k=0;k<W.length;k++){ if(W[k].t<=t+0.02) cur=k; }
+  if(!s.list && cur>=0 && t < W[cur].t+W[cur].d+0.6){
+     const g=Math.floor(cur/3)*3; const grp=W.slice(g,g+3);
+     $("cap").innerHTML=grp.map((w,j)=>`<span class="c${g+j===cur?" on":""}">${w.w}</span>`).join("");
+  } else { $("cap").innerHTML=""; }
+  $("bar").style.width=(1080*clamp(t/T.total))+"px";
+};
+</script></body></html>

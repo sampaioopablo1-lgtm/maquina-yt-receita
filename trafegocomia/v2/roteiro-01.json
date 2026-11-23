@@ -1,0 +1,15 @@
+{
+  "slug": "pare-de-impulsionar-post",
+  "cta": "comenta",
+  "cenas": [
+    {"nar": "Impulsionar post é o jeito mais caro de anunciar.", "head": "IMPULSIONAR É [CARO]", "emoji": "💸", "tag": "ERRO Nº 1"},
+    {"nar": "O botão azul escolhe quase tudo por você, sem perguntar.", "head": "O BOTÃO [DECIDE] POR VOCÊ", "emoji": "🤖"},
+    {"nar": "Público, objetivo e posicionamento ficam no automático.", "head": "TUDO NO [AUTOMÁTICO]", "list": ["Público", "Objetivo", "Posicionamento"]},
+    {"nar": "No Gerenciador de Anúncios, quem decide é você.", "head": "GERENCIADOR: [VOCÊ] DECIDE", "emoji": "🎯"},
+    {"nar": "Primeiro você escolhe o objetivo: mensagem, venda ou cadastro.", "head": "ESCOLHA O [OBJETIVO]", "list": ["Mensagem", "Venda", "Cadastro"]},
+    {"nar": "Depois monta três anúncios diferentes dentro do mesmo conjunto.", "head": "[3] ANÚNCIOS DIFERENTES", "emoji": "🧪"},
+    {"nar": "Em alguns dias, o número mostra qual deles funciona de verdade.", "head": "O [NÚMERO] DECIDE", "emoji": "📊"},
+    {"nar": "Você corta o pior e coloca a verba no melhor.", "head": "CORTA O PIOR. [ESCALA] O MELHOR.", "emoji": "✂️"},
+    {"nar": "Comenta ANÚNCIO aqui embaixo.", "head": "COMENTA", "pill": "ANÚNCIO", "emoji": "👇"}
+  ]
+}
