@@ -25,8 +25,8 @@ Anúncio → checkout da Kiwify → pago. Sem página no meio: um clique e um ca
 
 ## Montagem no editor (aba Checkout)
 Ordem de cima para baixo, **acima do formulário**:
-1. **Cabeçalho (desktop):** `02-banner-desktop.png` (2000x590).
-2. **Imagem:** `01-topo-celular.png` (1080x1350) — é o que o celular vê primeiro.
+1. **Cabeçalho:** `02-cabecalho.png` (2000x590).
+2. **Imagem (coluna principal):** `01-topo.png` (1080x756).
 3. **Texto curto** (abaixo):
 
    > **Para dono de negócio que quer anunciar sem depender de agência.**
@@ -34,7 +34,7 @@ Ordem de cima para baixo, **acima do formulário**:
 
 4. Formulário (o da Kiwify).
 
-Abaixo do formulário / coluna lateral:
+Abaixo do formulário, **na coluna principal** (nunca na lateral, ver tamanhos):
 5. **Imagem:** `03-como-funciona.png`
 6. **Texto — o que você recebe:** ⚠️ **ESCREVA AQUI O QUE O CLUBE ENTREGA DE FATO** (aulas, prompts, encontros, comunidade, frequência). Eu não sei e não inventei.
 7. **Imagem:** `04-preco.png`
@@ -43,6 +43,22 @@ Abaixo do formulário / coluna lateral:
 10. **Exit popup** (Componentes extra → Exit pop-up): `06-exit-popup.png`.
 
 **Cronômetro:** não use. Ele reinicia a cada visita, a pessoa percebe, e a oferta não acaba de verdade. Escassez falsa custa confiança e pode virar reclamação.
+
+## Tamanhos — medidos no checkout real da Kiwify
+Medido no runner em 1280, 1440 e 1920 px (`trafegocomia/pesquisa/lps/desktop/medidas.json`): no computador o
+checkout tem **984 px**; o cabeçalho ocupa 984, a **coluna principal ~670** e a **lateral ~284**. No celular tudo ~390.
+
+| imagem | celular | computador | menor texto na tela |
+|---|---|---|---|
+| `02-cabecalho` 2000x590 | 390 × 115 | 984 × 290 | ~16 px no celular, ~40 px no computador |
+| `01-topo` e as de 1080 | 390 de largura | 670 de largura | ~16 px no celular, ~27 px no computador |
+| qualquer imagem de 1080 **na coluna lateral** | — | 284 de largura | **~11 px: ilegível** |
+
+**Coluna lateral: só componente de TEXTO da Kiwify**, nunca imagem com texto. Sugestão de 4 caixas:
+"✓ Acesso imediato após o pagamento", "✓ Pix ou cartão", "✓ 7 dias de garantia", "✓ Cancele quando quiser".
+
+Simulação com essas medidas: `simulacao-computador-1440.png` e `simulacao-celular-390.png`. Confira no
+botão de pré-visualização da própria Kiwify (computador e celular) antes de ligar o anúncio.
 
 ## Campos
 Deixe só o que a Kiwify exige. Cada campo a mais é gente que desiste.
