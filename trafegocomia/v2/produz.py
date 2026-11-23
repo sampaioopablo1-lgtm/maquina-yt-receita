@@ -77,11 +77,20 @@ def main():
                 hit = next((w for w in ws if norm(w["w"]).startswith(alvo[:5])), None)
                 lt.append(round(t + hit["t"] - 0.05, 3) if hit else None)
             c2["list_t"] = lt
+        if c.get("vs"):
+            vt, desde = [], 0
+            for it in c["vs"]:
+                alvo = norm(it["r"].split()[0])
+                k = next((k for k in range(desde, len(ws)) if norm(ws[k]["w"]).startswith(alvo[:5])), None)
+                vt.append(round(t + ws[k]["t"], 3) if k is not None else None)
+                if k is not None:
+                    desde = k + 1
+            c2["vs_t"] = vt
         cenas.append(c2)
         partes.append((mp3, d))
         t += d + GAP
     total = round(t + 0.6, 3)
-    tl = {"cenas": cenas, "palavras": todas, "total": total}
+    tl = {"cenas": cenas, "palavras": todas, "total": total, "tema": R.get("tema")}
     json.dump(tl, open(f"{tmp}/timeline.json", "w"), ensure_ascii=False)
 
     # voz em uma faixa, com o mesmo espacamento da linha do tempo

@@ -3,56 +3,66 @@
 <style>
 @font-face{font-family:M;font-weight:900;src:url("FONT900") format("woff2");}
 @font-face{font-family:M;font-weight:800;src:url("FONT800") format("woff2");}
-html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:#111827;}
+html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:var(--bg);}
+:root{--bg:#111827;--ac:#1D4ED8;--glow:rgba(29,78,216,.55);--tag:#22C55E;--tagtx:#0b1220;}
 *{box-sizing:border-box;}
+#vs{position:absolute;top:900px;left:80px;right:80px;}
+.vr{margin:0 0 44px;color:#fff;}
+.vr .rot{font:800 46px M;margin-bottom:14px;opacity:.9;}
+.vr .trilho{height:110px;background:rgba(255,255,255,.07);border-radius:20px;position:relative;overflow:hidden;}
+.vr .barra{position:absolute;left:0;top:0;bottom:0;border-radius:20px;display:flex;align-items:center;justify-content:flex-end;padding:0 28px;font:900 60px M;white-space:nowrap;}
+.vr.a .barra{background:#3f3f46;}
+.vr.b .barra{background:var(--ac);}
+#nota{position:absolute;top:1520px;left:0;right:0;text-align:center;color:#fff;opacity:.55;font:800 30px M;}
 #bg{position:absolute;inset:0;overflow:hidden;}
 #glow{position:absolute;width:1400px;height:1400px;border-radius:50%;
-  background:radial-gradient(circle,rgba(29,78,216,.55) 0%,rgba(29,78,216,0) 65%);}
+  background:radial-gradient(circle,var(--glow) 0%,rgba(29,78,216,0) 65%);}
 #grid{position:absolute;inset:-200px;opacity:.10;
   background-image:linear-gradient(#ffffff 2px,transparent 2px),linear-gradient(90deg,#ffffff 2px,transparent 2px);
   background-size:120px 120px;}
 #stage{position:absolute;inset:0;}
 #top{position:absolute;top:96px;left:0;right:0;display:flex;justify-content:center;gap:18px;align-items:center;}
-.brand{background:#1D4ED8;color:#fff;font:900 40px M;padding:14px 30px;border-radius:18px;letter-spacing:1px;}
+.brand{background:var(--ac);color:#fff;font:900 40px M;padding:14px 30px;border-radius:18px;letter-spacing:1px;}
 .handle{color:#fff;opacity:.75;font:800 34px M;}
-#bar{position:absolute;top:0;left:0;height:14px;background:#1D4ED8;}
+#bar{position:absolute;top:0;left:0;height:14px;background:var(--ac);}
 #barbg{position:absolute;top:0;left:0;right:0;height:14px;background:rgba(255,255,255,.08);}
 #tag{position:absolute;top:300px;left:0;right:0;text-align:center;}
-#tag span{display:inline-block;background:#22C55E;color:#0b1220;font:900 40px M;padding:12px 30px;border-radius:999px;}
+#tag span{display:inline-block;background:var(--tag);color:var(--tagtx);font:900 40px M;padding:12px 30px;border-radius:999px;}
 #emoji{position:absolute;top:380px;left:0;right:0;text-align:center;font-size:230px;line-height:1;
   font-family:"Noto Color Emoji";}
 #head{position:absolute;top:690px;left:70px;right:70px;text-align:center;color:#fff;
   font:900 118px/1.08 M;text-transform:uppercase;letter-spacing:-1px;}
 #head .w{display:inline-block;margin:0 14px;}
-#head .k{background:#1D4ED8;color:#fff;padding:0 22px;border-radius:22px;}
+#head .k{background:var(--ac);color:#fff;padding:0 22px;border-radius:22px;}
 #pill{position:absolute;top:1080px;left:0;right:0;text-align:center;}
-#pill span{display:inline-block;background:#22C55E;color:#0b1220;font:900 120px M;padding:20px 60px;border-radius:40px;}
+#pill span{display:inline-block;background:var(--tag);color:var(--tagtx);font:900 120px M;padding:20px 60px;border-radius:40px;}
 #list{position:absolute;top:1040px;left:150px;right:150px;}
 .it{display:flex;align-items:center;gap:30px;color:#fff;font:900 70px M;margin:0 0 34px;
   background:rgba(255,255,255,.06);border:3px solid rgba(255,255,255,.12);border-radius:26px;padding:22px 34px;}
-.it .ck{width:62px;height:62px;border-radius:50%;background:#1D4ED8;display:flex;align-items:center;justify-content:center;font-size:40px;}
+.it .ck{width:62px;height:62px;border-radius:50%;background:var(--ac);display:flex;align-items:center;justify-content:center;font-size:40px;}
 #cap{position:absolute;top:1290px;left:60px;right:60px;text-align:center;
   font:800 72px/1.25 M;color:#fff;text-transform:uppercase;}
 #cap .c{display:inline-block;margin:6px 10px;padding:4px 16px;border-radius:14px;opacity:.55;}
-#cap .c.on{opacity:1;background:#1D4ED8;}
+#cap .c.on{opacity:1;background:var(--ac);}
 #chat{position:absolute;top:960px;left:70px;right:70px;}
 .bub{border-radius:34px;padding:26px 34px;font:800 48px/1.3 M;margin:0 0 30px;max-width:86%;}
 .bub .lab{font:800 30px M;opacity:.7;margin-bottom:8px;}
-.bub.me{background:#1D4ED8;color:#fff;margin-left:auto;}
-.bub.ai{background:#F3F4F6;color:#111827;}
+.bub.me{background:var(--ac);color:#fff;margin-left:auto;}
+.bub.ai{background:#F3F4F6;color:var(--bg);}
 #flash{position:absolute;inset:0;background:#fff;opacity:0;}
 </style></head>
 <body>
 <div id="bg"><div id="grid"></div><div id="glow"></div></div>
 <div id="stage">
   <div id="tag"></div><div id="emoji"></div><div id="head"></div>
-  <div id="pill"></div><div id="list"></div><div id="chat"></div><div id="cap"></div>
+  <div id="pill"></div><div id="list"></div><div id="chat"></div><div id="vs"></div><div id="nota"></div><div id="cap"></div>
 </div>
 <div id="top"><span class="brand">📢 IA</span><span class="handle">@trafegocom.ia</span></div>
 <div id="barbg"></div><div id="bar"></div>
 <div id="flash"></div>
 <script>
 const T = TIMELINE;
+if(T.tema) for(const k in T.tema) document.documentElement.style.setProperty("--"+k, T.tema[k]);
 const $ = id => document.getElementById(id);
 const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
 const easeOut=x=>1-Math.pow(1-clamp(x),3);
@@ -72,9 +82,12 @@ function build(i){
   $("pill").innerHTML = s.pill?`<span style="font-size:${s.pill.length>10?66:120}px">${s.pill}</span>`:"";
   $("list").innerHTML = (s.list||[]).map(x=>`<div class="it"><span class="ck">✓</span>${x}</div>`).join("");
   $("chat").innerHTML = (s.chat||[]).map(m=>`<div class="bub ${m.de==="voce"?"me":"ai"}"><div class="lab">${m.de==="voce"?"Você":"Claude"}</div>${m.txt}</div>`).join("");
-  const alto = s.list||s.chat;
+  const mx=Math.max(1,...(s.vs||[]).map(x=>x.v));
+  $("vs").innerHTML=(s.vs||[]).map((x,j)=>`<div class="vr ${j?"b":"a"}"><div class="rot">${x.r}</div><div class="trilho"><div class="barra" data-w="${x.v/mx}">${x.txt}</div></div></div>`).join("");
+  $("nota").textContent=s.nota||"";
+  const alto = s.list||s.chat||s.vs;
   $("emoji").style.top = alto? "-999px" : (s.tag? "400px":"380px");
-  $("head").style.top = s.chat? "430px" : (s.list? "520px" : "690px");
+  $("head").style.top = s.vs? "470px" : s.chat? "430px" : (s.list? "520px" : "690px");
   built=i;
 }
 window.render = function(t){
@@ -112,10 +125,14 @@ window.render = function(t){
      const v=easeOut((dt-0.25-j*1.3)/0.3);
      el.style.opacity=v; el.style.transform=`translateY(${(1-v)*60}px)`;
   });
+  [...$("vs").children].forEach((el,j)=>{
+     const b=el.querySelector(".barra"); const tj=(s.vs_t&&s.vs_t[j]!=null)? s.vs_t[j]-s.t0 : 0.3+j*1.6; const v=easeOut((dt-tj)/0.6);
+     b.style.width=(Math.max(0.0001,v)*parseFloat(b.dataset.w)*100)+"%"; el.style.opacity=v>0.01?1:0; b.style.color=`rgba(255,255,255,${clamp((v-0.7)/0.3)})`;
+  });
   // legenda karaoke: grupo de 4 palavras em torno da corrente
   const W=T.palavras; let cur=-1;
   for(let k=0;k<W.length;k++){ if(W[k].t<=t+0.02) cur=k; }
-  if(!s.list && !s.chat && cur>=0 && t < W[cur].t+W[cur].d+0.6){
+  if(!s.list && !s.chat && !s.vs && cur>=0 && t < W[cur].t+W[cur].d+0.6){
      const g=Math.floor(cur/3)*3; const grp=W.slice(g,g+3);
      $("cap").innerHTML=grp.map((w,j)=>`<span class="c${g+j===cur?" on":""}">${w.w}</span>`).join("");
   } else { $("cap").innerHTML=""; }
