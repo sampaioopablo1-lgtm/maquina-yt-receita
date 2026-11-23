@@ -7,6 +7,7 @@ on:
     paths:
       - "trafegocomia/pesquisa/lps.json"
       - "trafegocomia/pesquisa/captura_lps.js"
+      - "trafegocomia/pesquisa/captura_ck_desktop.js"
       - ".github/workflows/trafegocomia-lps.yml"
   workflow_dispatch:
 
@@ -24,6 +25,9 @@ jobs:
           node-version: "22"
       - run: npm i playwright@1 && npx playwright install --with-deps chromium
       - run: node trafegocomia/pesquisa/captura_lps.js
+        if: ${{ !contains(github.event.head_commit.message, '[desktop]') }}
+      - run: node trafegocomia/pesquisa/captura_ck_desktop.js
+        if: ${{ contains(github.event.head_commit.message, '[desktop]') }}
       - name: Comitar
         if: always()
         run: |
