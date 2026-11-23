@@ -134,7 +134,7 @@ def main():
        "-ar", "48000", "-ac", "2", f"{tmp}/audio.wav")
 
     env = dict(os.environ, FONTES_DIR=os.environ.get("FONTES_DIR",
-               os.path.join(AQUI, "node_modules/@fontsource/montserrat/files")))
+               os.path.join(AQUI, "..", "fontes")))  # Montserrat no repo (OFL): sessao nova nao tem node_modules
     subprocess.run(["node", os.path.join(AQUI, "render.js"), f"{tmp}/timeline.json",
                     f"{tmp}/mudo.mp4"], check=True, env=env)
     sh("ffmpeg", "-y", "-v", "error", "-i", f"{tmp}/mudo.mp4", "-i", f"{tmp}/audio.wav",

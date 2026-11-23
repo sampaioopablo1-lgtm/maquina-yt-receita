@@ -13,7 +13,7 @@ Branch de trabalho: `ccr-193f026c-cfpyom` (repo `sampaioopablo1-lgtm/maquina-yt-
 | **Produto** | Clube Tráfego com IA, **assinatura mensal R$ 29,90**, cartão + Pix Automático, 7 dias de garantia, cancela quando quiser. Teste futuro: R$ 47 a 67. | 23/11/2026 |
 | **Funil** | Anúncio → **checkout da Kiwify usado como página de vendas** (sem página no meio) → compra. | 23/11/2026 |
 | **Verba** | R$ 6/dia: 1 campanha Vendas, 1 conjunto, 4 a 6 anúncios, otimizar **visualização da página de destino**; passar para Compra com ~50 compras/semana. | 23/11/2026 |
-| **Vídeos orgânicos** | **PAUSADOS** por ordem do dono. Não produzir sem ele pedir. | antes de 23/11 |
+| **Reels orgânicos** | **ATIVOS: 12 por dia** no @trafegocom.ia, tarefa agendada de hora em hora (08:39 a 19:39 BRT), 1 Reel por execução, com aprendizado. Procedimento: `trafegocomia/reels/ROTINA.md`. | 23/11/2026 |
 | **Aprovação** | "Tudo aprovado, não precisa me pedir outras aprovações", **exceto** ações irreversíveis ou com dinheiro: publicar campanha, ativar vendas, mudar preço, pagamento. Essas ficam PAUSADAS para ele. | — |
 
 Por que gestor e não dono de negócio: "Claude ligado ao Gerenciador" é técnico demais para o dono e tem
@@ -38,7 +38,7 @@ ferramenta e compra demonstração. O mercado paga por isso (ver §4).
 3. Checkout publicado na Kiwify → link `pay.kiwify.com.br/...` (o dono roda `saida/gestores/PROMPT-CHECKOUT.md`).
 4. Conta de anúncios "Tráfego com IA" (BRL, America/Sao_Paulo) + Página + Instagram vinculados + pixel com token da API de Conversões na Kiwify.
 5. Campanha criada pausada (`saida/gestores/PROMPT-CAMPANHA.md`, 6 anúncios da seção "No ar no teste" do `COPY.md`), revisada e ativada pelo dono. A reserva (g4, gta-11, gta-12) entra no lugar dos 2 piores depois de 3 a 4 dias. **GTA perde força em 2 a 3 semanas a partir de 19/11/2026.**
-6. Instagram @trafegocom.ia ainda não conectado ao Composio (link de conexão expira; gerar outro quando pedir).
+6. ~~Instagram no Composio~~ conectado em 23/11 (conta `trafegocom-ia`, id `instagram_ceps-waily`). Linha de base: 0 seguidores, 5 posts, alcance de 1 a 6 por Reel.
 
 ## 4. Pesquisa (fatos com fonte)
 - `pesquisa/analise-2026-11-23.md`: 242 anúncios do nicho na Biblioteca de Anúncios; os validados (174 a 676 dias) usam carrossel, dica concreta, gancho de notícia de IA, "comente palavra → DM".
