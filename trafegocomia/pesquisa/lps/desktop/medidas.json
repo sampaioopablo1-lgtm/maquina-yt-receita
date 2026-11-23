@@ -1,0 +1,296 @@
+[
+ {
+  "url": "https://pay.kiwify.com.br/6D9z3sn",
+  "vw": 1440,
+  "vh": 900,
+  "imgs": [
+   {
+    "src": "https://aws-assets.kiwify.com.br/cdn-cgi/image/fit=scale-down,width=128/Pxmg6dnKIte5q4o/2_",
+    "nat": [
+     128,
+     106
+    ],
+    "x": 250,
+    "y": 118,
+    "w": 128,
+    "h": 106
+   }
+  ],
+  "form": [
+   {
+    "x": 259,
+    "y": 281,
+    "w": 622,
+    "h": 48
+   },
+   {
+    "x": 259,
+    "y": 341,
+    "w": 622,
+    "h": 48
+   },
+   {
+    "x": 353,
+    "y": 410,
+    "w": 212,
+    "h": 30
+   }
+  ],
+  "btn": [],
+  "altura": 1601
+ },
+ {
+  "url": "https://pay.kiwify.com.br/3gOJi2z",
+  "vw": 1440,
+  "vh": 900,
+  "imgs": [
+   {
+    "src": "https://aws-assets.kiwify.com.br/cdn-cgi/image/fit=scale-down,width=1000/OkWT7wU4sBAFEiM/i",
+    "nat": [
+     1000,
+     295
+    ],
+    "x": 228,
+    "y": 16,
+    "w": 984,
+    "h": 290
+   },
+   {
+    "src": "https://aws-assets.kiwify.com.br/cdn-cgi/image/fit=scale-down,width=300/OkWT7wU4sBAFEiM/im",
+    "nat": [
+     300,
+     253
+    ],
+    "x": 928,
+    "y": 1384,
+    "w": 284,
+    "h": 240
+   }
+  ],
+  "form": [
+   {
+    "x": 259,
+    "y": 724,
+    "w": 622,
+    "h": 48
+   },
+   {
+    "x": 259,
+    "y": 784,
+    "w": 622,
+    "h": 48
+   },
+   {
+    "x": 344,
+    "y": 853,
+    "w": 221,
+    "h": 30
+   }
+  ],
+  "btn": [
+   {
+    "x": 370,
+    "y": 612,
+    "w": 400,
+    "h": 47
+   }
+  ],
+  "altura": 3108
+ },
+ {
+  "url": "https://pay.kiwify.com.br/6D9z3sn",
+  "vw": 1280,
+  "vh": 720,
+  "imgs": [
+   {
+    "src": "https://aws-assets.kiwify.com.br/cdn-cgi/image/fit=scale-down,width=128/Pxmg6dnKIte5q4o/2_",
+    "nat": [
+     128,
+     106
+    ],
+    "x": 170,
+    "y": 118,
+    "w": 128,
+    "h": 106
+   }
+  ],
+  "form": [
+   {
+    "x": 179,
+    "y": 281,
+    "w": 622,
+    "h": 48
+   },
+   {
+    "x": 179,
+    "y": 341,
+    "w": 622,
+    "h": 48
+   },
+   {
+    "x": 273,
+    "y": 410,
+    "w": 212,
+    "h": 30
+   }
+  ],
+  "btn": [],
+  "altura": 1601
+ },
+ {
+  "url": "https://pay.kiwify.com.br/3gOJi2z",
+  "vw": 1280,
+  "vh": 720,
+  "imgs": [
+   {
+    "src": "https://aws-assets.kiwify.com.br/cdn-cgi/image/fit=scale-down,width=1000/OkWT7wU4sBAFEiM/i",
+    "nat": [
+     1000,
+     295
+    ],
+    "x": 148,
+    "y": 16,
+    "w": 984,
+    "h": 290
+   },
+   {
+    "src": "https://aws-assets.kiwify.com.br/cdn-cgi/image/fit=scale-down,width=300/OkWT7wU4sBAFEiM/im",
+    "nat": [
+     300,
+     253
+    ],
+    "x": 848,
+    "y": 1384,
+    "w": 284,
+    "h": 240
+   }
+  ],
+  "form": [
+   {
+    "x": 179,
+    "y": 724,
+    "w": 622,
+    "h": 48
+   },
+   {
+    "x": 179,
+    "y": 784,
+    "w": 622,
+    "h": 48
+   },
+   {
+    "x": 264,
+    "y": 853,
+    "w": 221,
+    "h": 30
+   }
+  ],
+  "btn": [
+   {
+    "x": 290,
+    "y": 612,
+    "w": 400,
+    "h": 47
+   }
+  ],
+  "altura": 3108
+ },
+ {
+  "url": "https://pay.kiwify.com.br/6D9z3sn",
+  "vw": 1920,
+  "vh": 1080,
+  "imgs": [
+   {
+    "src": "https://aws-assets.kiwify.com.br/cdn-cgi/image/fit=scale-down,width=128/Pxmg6dnKIte5q4o/2_",
+    "nat": [
+     128,
+     106
+    ],
+    "x": 490,
+    "y": 118,
+    "w": 128,
+    "h": 106
+   }
+  ],
+  "form": [
+   {
+    "x": 499,
+    "y": 281,
+    "w": 622,
+    "h": 48
+   },
+   {
+    "x": 499,
+    "y": 341,
+    "w": 622,
+    "h": 48
+   },
+   {
+    "x": 593,
+    "y": 410,
+    "w": 212,
+    "h": 30
+   }
+  ],
+  "btn": [],
+  "altura": 1601
+ },
+ {
+  "url": "https://pay.kiwify.com.br/3gOJi2z",
+  "vw": 1920,
+  "vh": 1080,
+  "imgs": [
+   {
+    "src": "https://aws-assets.kiwify.com.br/cdn-cgi/image/fit=scale-down,width=1000/OkWT7wU4sBAFEiM/i",
+    "nat": [
+     1000,
+     295
+    ],
+    "x": 468,
+    "y": 16,
+    "w": 984,
+    "h": 290
+   },
+   {
+    "src": "https://aws-assets.kiwify.com.br/cdn-cgi/image/fit=scale-down,width=300/OkWT7wU4sBAFEiM/im",
+    "nat": [
+     300,
+     253
+    ],
+    "x": 1168,
+    "y": 1384,
+    "w": 284,
+    "h": 240
+   }
+  ],
+  "form": [
+   {
+    "x": 499,
+    "y": 724,
+    "w": 622,
+    "h": 48
+   },
+   {
+    "x": 499,
+    "y": 784,
+    "w": 622,
+    "h": 48
+   },
+   {
+    "x": 584,
+    "y": 853,
+    "w": 221,
+    "h": 30
+   }
+  ],
+  "btn": [
+   {
+    "x": 610,
+    "y": 612,
+    "w": 400,
+    "h": 47
+   }
+  ],
+  "altura": 3108
+ }
+]
