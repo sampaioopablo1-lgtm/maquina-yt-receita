@@ -1,0 +1,403 @@
+{
+  "backend": "browser",
+  "count": 19,
+  "total_available": 53,
+  "has_more": true,
+  "cursor": "AQHTzq8QVzyS4wkQyd1fzI0rwGneXlXTnvll4pnJ22FFDEUMhrH7WvCWalEPaDe2xBdJ",
+  "url": "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=BR&media_type=all&search_type=keyword_unordered&q=GTA+6+neg%C3%B3cio",
+  "note": "Meta reports 53 matching ads. Raise `limit` for more.",
+  "ads": [
+    {
+      "library_id": "1447394827603509",
+      "advertiser": "MM Automóveis Itumbiara",
+      "page_id": "101294386392278",
+      "active": true,
+      "started": "2026-11-19",
+      "stopped": "2026-11-22",
+      "days_active": 4,
+      "platforms": [
+        "Facebook",
+        "Instagram",
+        "Audience Network",
+        "Whatsapp",
+        "Threads"
+      ],
+      "format": "VIDEO",
+      "cta": "Send WhatsApp message",
+      "landing_domain": "api.whatsapp.com",
+      "body": "🎮 Enquanto o GTA 6 não chega, seu carro novo pode chegar primeiro!\n\nA Black Friday da MM Automóveis acontece de 23 a 27 de novembro, com condições especiais:\n\n🚗 Preços reduzidos\n💰 60 dias de carência na primeira parcela\n📉Taxas a partir de 1.29%\n📲 Financiamento em até 60x\n💳 Entrada facilitada em até 24x no cartão\n🔑 Bônus no usado na troca\n⛽ Tanque cheio!\n\nSão apenas 5 dias para aproveitar! Chame a MM Automóveis e garanta seu próximo carro!",
+      "creatives": 1,
+      "videos": 1,
+      "variants_using_creative": 1,
+      "details": "https://www.facebook.com/ads/library/?id=1447394827603509"
+    },
+    {
+      "library_id": "1528604439094603",
+      "advertiser": "l9.gabriel",
+      "page_id": "1410956325432005",
+      "active": true,
+      "started": "2026-11-19",
+      "stopped": "2026-11-23",
+      "days_active": 4,
+      "platforms": [
+        "Instagram"
+      ],
+      "format": "VIDEO",
+      "cta": "Visit Instagram profile",
+      "landing_domain": "instagram.com",
+      "body": "O GTA 6 acabou de provar uma coisa sobre o SEU conteúdo. 🎮\n\nO recado é simples: não é produção em massa que faz você ser mais visto, mais falado e vender mais.\n\nEntao, a dica é: faz menos e faz melhor:\n🎯 gancho forte\n🧠 gatilhos mentais\n🎬 storytelling e uma edição que prende\n🎵 trilha que conduz\n\nFaça valer cada post.\n\n#gta6 #marketingdigital #criadordeconteudo #estrategiadeconteudo #socialmedia reels edicaodevideo",
+      "creatives": 1,
+      "videos": 1,
+      "variants_using_creative": 1,
+      "details": "https://www.facebook.com/ads/library/?id=1528604439094603"
+    },
+    {
+      "library_id": "2380976526034387",
+      "advertiser": "Nathan Ribeiro Imóveis",
+      "page_id": "116053273589883",
+      "active": true,
+      "started": "2026-11-19",
+      "stopped": "2026-11-23",
+      "days_active": 4,
+      "platforms": [
+        "Instagram"
+      ],
+      "format": "VIDEO",
+      "cta": "Visit Instagram profile",
+      "landing_domain": "instagram.com",
+      "body": "E se comprar o seu imóvel te rendesse um presente que o mundo inteiro estava esperando? 🎮🔥\n\nAté 10 de dezembro, quem fecha negócio com o nosso time leva de presente o GTA 6.\n\nO jogo mais aguardado do planeta. Na sua mão. Junto com a chave do seu novo lar.\n\nAqui o alto padrão não é só o imóvel. É você. 🏙️\n\n⏳ A missão começa agora.\n\n📩 Me chame no direct e garante o seu.\n\n@nathanribeiroimoveis\n\n#gta6 #nathanribeiroimóveis #altopadrão #imóveis #presente",
+      "creatives": 1,
+      "videos": 1,
+      "variants_using_creative": 2,
+      "details": "https://www.facebook.com/ads/library/?id=2380976526034387"
+    },
+    {
+      "library_id": "1872652943727458",
+      "advertiser": "CAP Contabilidade Digital",
+      "page_id": "105130171966235",
+      "active": true,
+      "started": "2026-11-19",
+      "stopped": "2026-11-23",
+      "days_active": 4,
+      "platforms": [
+        "Facebook",
+        "Instagram"
+      ],
+      "format": "IMAGE",
+      "cta": "Visit Instagram profile",
+      "landing_domain": "instagram.com",
+      "body": "O GTA 6 chegou e tem gente pronta para passar horas cumprindo missões!\n\nMas atenção: na vida real, a missão mais importante é manter sua empresa no caminho certo.\n\nDeixe a parte dos desafios com o GTA. Da contabilidade, deixa com a CAP!\n\nCAP Contabilidade. Cuidando do seu negócio para você jogar no time dos vencedores.",
+      "creatives": 1,
+      "variants_using_creative": 1,
+      "details": "https://www.facebook.com/ads/library/?id=1872652943727458"
+    },
+    {
+      "library_id": "1158946769996502",
+      "advertiser": "Larrubia.João",
+      "page_id": "693405133865547",
+      "active": true,
+      "started": "2026-11-19",
+      "stopped": "2026-11-23",
+      "days_active": 4,
+      "platforms": [
+        "Facebook",
+        "Instagram"
+      ],
+      "format": "VIDEO",
+      "cta": "Visit Instagram profile",
+      "landing_domain": "instagram.com",
+      "body": "Saiu o GTA6, qual é a lição que você mais gostou? \nComenta abaixo 👇🏻\n\n#marketingdigital #trafegopagoads #marketingmedico",
+      "creatives": 1,
+      "videos": 1,
+      "variants_using_creative": 1,
+      "details": "https://www.facebook.com/ads/library/?id=1158946769996502"
+    },
+    {
+      "library_id": "1695442355583354",
+      "advertiser": "Excalibur Evolver",
+      "page_id": "702679326254340",
+      "active": true,
+      "started": "2026-11-19",
+      "stopped": "2026-11-22",
+      "days_active": 4,
+      "platforms": [
+        "Facebook",
+        "Instagram",
+        "Audience Network",
+        "Whatsapp",
+        "Threads"
+      ],
+      "format": "MULTI_IMAGES",
+      "cta": "See details",
+      "landing_domain": "wa.me",
+      "body": "Seu negócio merece uma próxima fase. E ela pode começar ainda em 2026. 🎮\n\nO segundo trailer de GTA 6 ultrapassou 475 milhões de visualizações em 24 horas.* Essa atenção mostra a força de uma marca que construiu reconhecimento e expectativa.\n\nO que sua empresa pode aprender com isso?\n\nDar ao cliente um motivo para prestar atenção, confiar e escolher você.\n\nUma identidade consistente ajuda sua marca a ser lembrada. Uma oferta clara facilita a decisão. O tráfego pago amplia a distribuição e permite testar mensagens. A IA pode apoiar a criação e a análise, com direção e revisão humana.\n\nQuando e…",
+      "creatives": 9,
+      "variants_using_creative": 2,
+      "details": "https://www.facebook.com/ads/library/?id=1695442355583354"
+    },
+    {
+      "library_id": "2645700502559750",
+      "advertiser": "Excalibur Evolver",
+      "page_id": "702679326254340",
+      "active": true,
+      "started": "2026-11-19",
+      "stopped": "2026-11-23",
+      "days_active": 4,
+      "platforms": [
+        "Facebook",
+        "Instagram",
+        "Audience Network",
+        "Whatsapp",
+        "Threads"
+      ],
+      "format": "MULTI_IMAGES",
+      "cta": "See details",
+      "landing_domain": "wa.me",
+      "body": "Seu negócio merece uma próxima fase. E ela pode começar ainda em 2026. 🎮\n\nO segundo trailer de GTA 6 ultrapassou 475 milhões de visualizações em 24 horas.* Essa atenção mostra a força de uma marca que construiu reconhecimento e expectativa.\n\nO que sua empresa pode aprender com isso?\n\nDar ao cliente um motivo para prestar atenção, confiar e escolher você.\n\nUma identidade consistente ajuda sua marca a ser lembrada. Uma oferta clara facilita a decisão. O tráfego pago amplia a distribuição e permite testar mensagens. A IA pode apoiar a criação e a análise, com direção e revisão humana.\n\nQuando e…",
+      "creatives": 9,
+      "variants_using_creative": 1,
+      "details": "https://www.facebook.com/ads/library/?id=2645700502559750"
+    },
+    {
+      "library_id": "2322764548300425",
+      "advertiser": "Decade Advisory",
+      "page_id": "1055284507664176",
+      "active": true,
+      "started": "2026-11-22",
+      "stopped": "2026-11-23",
+      "days_active": 0,
+      "platforms": [
+        "Instagram"
+      ],
+      "format": "VIDEO",
+      "cta": "Visit Instagram profile",
+      "landing_domain": "instagram.com",
+      "body": "Uma empresa brasileira liberou todos os funcionários para jogar GTA 6. Mas o sucesso do jogo significa que vale a pena investir na empresa dona da franquia?\n\nO @falecomrian foi descobrir isso com a Decade, que une inteligência artificial e especialistas humanos para analisar investimentos, identificar riscos e ajudar você a construir seu patrimônio.\n\nInvestir bem é tomar decisões com critério, diversificar e pensar no longo prazo.",
+      "creatives": 1,
+      "videos": 1,
+      "variants_using_creative": 1,
+      "details": "https://www.facebook.com/ads/library/?id=2322764548300425"
+    },
+    {
+      "library_id": "1497815352493204",
+      "advertiser": "4 Rodas Veículos Araras",
+      "page_id": "742525488955094",
+      "active": true,
+      "started": "2026-11-19",
+      "stopped": "2026-11-23",
+      "days_active": 4,
+      "platforms": [
+        "Instagram"
+      ],
+      "format": "IMAGE",
+      "cta": "Visit Instagram profile",
+      "landing_domain": "instagram.com",
+      "body": "🌴 O GTA 6 tá chegando… mas a oportunidade de trocar de carro é AGORA🔥\nAproveite a nossa BLACK FRIDAY e venha desbloquear uma oferta de respeito 💚\n💥 Descontos de até R$ 3.000,00 para você sair de carro novo!\n\n📍 Passe na 4 Rodas Veículos e aproveite essa missão especial!\nAqui o próximo nível é de carro novo 🏁",
+      "creatives": 1,
+      "variants_using_creative": 1,
+      "details": "https://www.facebook.com/ads/library/?id=1497815352493204"
+    },
+    {
+      "library_id": "1165542115928305",
+      "advertiser": "Eleven11",
+      "page_id": "1428335820366325",
+      "active": true,
+      "started": "2026-11-20",
+      "stopped": "2026-11-23",
+      "days_active": 3,
+      "platforms": [
+        "Instagram"
+      ],
+      "format": "VIDEO",
+      "cta": "Visit Instagram profile",
+      "landing_domain": "instagram.com",
+      "body": "O GTA 6 saiu hoje. E o seu site? @eleven11.tec\n\nDo pixel visto de cima ao cinema em tempo real: em quase 30 anos o GTA evoluiu tudo. Muito site ainda parece de 2005, com \"site em construção\", 0 visitas e 0 contatos.\n\nA Eleven11 faz sites cinematográficos, feitos pro celular, encontrados por IA e feitos pra vender. 14 projetos, nenhum igual.\n\nNo último post, como fazer seu site trabalhar por você; antes, o Rafa tentou abrir a empresa no GTA 6 sem ajuda. Estão no perfil.\n\nSeu negócio também merece evoluir → chama a Eleven pelo link na bio.\n\n#GTA6 #GTAVI #RockstarGames #empreendedorismo #criacao…",
+      "creatives": 1,
+      "videos": 1,
+      "variants_using_creative": 2,
+      "details": "https://www.facebook.com/ads/library/?id=1165542115928305"
+    },
+    {
+      "library_id": "1461395892131834",
+      "advertiser": "ManClub",
+      "page_id": "101832735934413",
+      "active": true,
+      "started": "2026-11-18",
+      "stopped": "2026-11-23",
+      "days_active": 5,
+      "platforms": [
+        "Facebook",
+        "Instagram",
+        "Audience Network",
+        "Whatsapp",
+        "Threads"
+      ],
+      "format": "VIDEO",
+      "cta": "Shop now",
+      "landing_domain": "manclub.com.br",
+      "body": "A ferramenta certa para aparar o matagal 👇\n\n✅ Tecnologia anticortes: lâmina de cerâmica que não machuca\n✅ Totalmente à prova d'água\n✅ Nova Lâmina Shaver para um acabamento lisinho\n✅ Bateria com autonomia de 90 min\n✅ Parcelamento em 6x sem juros\n💸 30 dias de garantia de satisfação\n\n👉 Use o CUPOM 12BATATA e GANHE 12% de desconto + Frete Grátis e Entrega Rápida!",
+      "creatives": 1,
+      "videos": 1,
+      "variants_using_creative": 1,
+      "details": "https://www.facebook.com/ads/library/?id=1461395892131834"
+    },
+    {
+      "library_id": "1615424366467232",
+      "advertiser": "Trivale Engenharia",
+      "page_id": "104377529281650",
+      "active": true,
+      "started": "2026-11-20",
+      "stopped": "2026-11-23",
+      "days_active": 3,
+      "platforms": [
+        "Instagram"
+      ],
+      "format": "VIDEO",
+      "cta": "Visit Instagram profile",
+      "landing_domain": "instagram.com",
+      "body": "O que GTA 6 tem a ensinar para quem vive de engenharia? 🎮🏗️\n\nMuito mais do que parece. Neste vídeo, trouxe 5 lições para aplicar na sua empresa:\n\n1️⃣ Seja lembrado antes de o cliente precisar de você.\n2️⃣ Mostre o valor do seu serviço para sair da disputa por preço.\n3️⃣ Invista em inovação e na experiência do cliente.\n4️⃣ Continue fazendo marketing mesmo com a agenda cheia.\n5️⃣ Construa um processo comercial que vá da atração ao acompanhamento.\n\nUma empresa que cresce precisa de mais do que competência técnica: precisa saber comunicar, vender e entregar valor.\n\nSalva esse vídeo para revisar…",
+      "creatives": 1,
+      "videos": 1,
+      "variants_using_creative": 1,
+      "details": "https://www.facebook.com/ads/library/?id=1615424366467232"
+    },
+    {
+      "library_id": "1167800069018070",
+      "advertiser": "Ricardo Quik",
+      "page_id": "1167739096432532",
+      "active": true,
+      "started": "2026-11-14",
+      "stopped": "2026-11-23",
+      "days_active": 9,
+      "platforms": [
+        "Facebook",
+        "Instagram",
+        "Audience Network",
+        "Whatsapp"
+      ],
+      "format": "VIDEO",
+      "cta": "Learn more",
+      "landing_domain": "page.ricardoquik.page",
+      "body": "GTA6 tá chegando e junto a live que mais dá prêmios pra você! Além da gameplay, você participa de eventos todos os dias que podem mudar o seu mês. Já entra no grupo que tem 2 PS5 esperando o dono 🎁",
+      "creatives": 1,
+      "videos": 1,
+      "variants_using_creative": 1,
+      "details": "https://www.facebook.com/ads/library/?id=1167800069018070"
+    },
+    {
+      "library_id": "1719037976457559",
+      "advertiser": "José Ricardo Freitas",
+      "page_id": "644645618739796",
+      "active": true,
+      "started": "2026-11-20",
+      "stopped": "2026-11-23",
+      "days_active": 3,
+      "platforms": [
+        "Instagram"
+      ],
+      "format": "CAROUSEL",
+      "cta": "Visit Instagram profile",
+      "landing_domain": "instagram.com",
+      "body": "O GTA VI chegou. E junto com ele, o oitavo logo da franquia em quase 30 anos.\n\nNike tirou o nome. Starbucks tirou o “coffee”. Instagram largou a câmera. Nenhuma delas perdeu força, porque a mudança acompanhou o negócio sem trair a essência.\n\nRebranding não é trocar o logo porque enjoou. É ajustar a forma para continuar relevante sem perder o que o cliente reconhece.\n\nSua marca precisa mudar ou só está cansada de se ver? 👇\n\n#branding #rebranding #gta6 #marketing #goias",
+      "creatives": 7,
+      "variants_using_creative": 1,
+      "details": "https://www.facebook.com/ads/library/?id=1719037976457559"
+    },
+    {
+      "library_id": "4244807449154133",
+      "advertiser": "Samy Dana",
+      "page_id": "498293560218945",
+      "active": true,
+      "started": "2026-11-21",
+      "stopped": "2026-11-23",
+      "days_active": 2,
+      "platforms": [
+        "Instagram"
+      ],
+      "format": "VIDEO",
+      "cta": "Visit Instagram profile",
+      "landing_domain": "instagram.com",
+      "body": "Se não me acharem esse fim de semana já sabem onde eu vou estar 🫢🎮\n\nO GTA 6 já virou um fenômeno antes mesmo de chegar às lojas. E não é só um jogo: estamos falando de um negócio bilionário, com uma expectativa gigantesca e um impacto econômico que vai muito além do universo dos games.\n\nQuando um lançamento consegue movimentar tanto dinheiro, atenção e expectativa, vale olhar para ele também com os olhos da economia.\n\nAfinal, o que explica tanto sucesso? Em 50 horas eu descubro! \n\n#gta6 #videogame",
+      "creatives": 1,
+      "videos": 1,
+      "variants_using_creative": 1,
+      "details": "https://www.facebook.com/ads/library/?id=4244807449154133"
+    },
+    {
+      "library_id": "1607915467683591",
+      "advertiser": "VCELL Jataí",
+      "page_id": "109583978542830",
+      "active": true,
+      "started": "2026-09-22",
+      "stopped": "2026-11-23",
+      "days_active": 62,
+      "platforms": [
+        "Facebook",
+        "Instagram",
+        "Whatsapp"
+      ],
+      "format": "VIDEO",
+      "cta": "Send WhatsApp message",
+      "landing_domain": "api.whatsapp.com",
+      "body": "Tá doido para jogar o GTA 6, mas o console ainda falta? Aqui na VCell, a inflação não tem vez! \n\nTemos o PlayStation 5, tanto novo quanto seminovo, com os melhores preços da cidade para você não ficar de fora da nova geração. E o melhor é que a forma de pagamento não será um problema, pois nós facilitamos tudo para você:   \n\n✅ Fazemos no boleto\n✅ Parcelamos no cartão de crédito\n✅ Aceitamos o seu aparelho antigo na base de troca\n✅ Condições exclusivas para pagamento à vista\n\n👉 Não deixe essa oportunidade passar. Clique aqui no botão e venha fechar negócio com a gente!",
+      "creatives": 1,
+      "videos": 1,
+      "variants_using_creative": 1,
+      "details": "https://www.facebook.com/ads/library/?id=1607915467683591"
+    },
+    {
+      "library_id": "1524222512862931",
+      "advertiser": "Kloudezign",
+      "page_id": "696926593497005",
+      "active": true,
+      "started": "2026-11-20",
+      "stopped": "2026-11-23",
+      "days_active": 3,
+      "platforms": [
+        "Instagram"
+      ],
+      "format": "CAROUSEL",
+      "cta": "See details",
+      "landing_domain": "instagram.com",
+      "body": "Na Copa eu testei isso no meu próprio perfil 🎮\n\nFiz a Seleção no modo Blue Lock e ele virou um dos posts com mais interação da conta. Não foi sorte. Entrei no assunto que todo mundo tava falando, só que do meu jeito.\n\nCom o GTA 6 é a mesma lógica, só que maior. E isso eu conheço de dentro.\n\nChamei o Richter pra mostrar que serve pra empresa e pra canal também.\n\nA janela é curta. Daqui a duas semanas ninguém mais tá falando disso 👀\n\nQuer ver como teu negócio ou teu canal entra nessa? Manda GTA 6 no nosso WhatsApp 📲\n\n#gta6 #marketingdigital #empreendedorismo #branding #marketingdeoportunidade",
+      "creatives": 7,
+      "variants_using_creative": 1,
+      "details": "https://www.facebook.com/ads/library/?id=1524222512862931"
+    },
+    {
+      "library_id": "2099477154040191",
+      "advertiser": "João Pichau",
+      "page_id": "806310752571364",
+      "active": true,
+      "started": "2026-11-20",
+      "stopped": "2026-11-23",
+      "days_active": 3,
+      "platforms": [
+        "Instagram"
+      ],
+      "format": "VIDEO",
+      "body": "Sera que esse hotel está no gta 6",
+      "creatives": 1,
+      "videos": 1,
+      "details": "https://www.facebook.com/ads/library/?id=2099477154040191"
+    },
+    {
+      "library_id": "2634086927420882",
+      "advertiser": "João Pichau",
+      "page_id": "806310752571364",
+      "active": true,
+      "started": "2026-11-20",
+      "stopped": "2026-11-23",
+      "days_active": 3,
+      "platforms": [
+        "Instagram"
+      ],
+      "format": "VIDEO",
+      "body": "Sera que esse hotel está no gta 6",
+      "creatives": 1,
+      "videos": 1,
+      "variants_using_creative": 2,
+      "details": "https://www.facebook.com/ads/library/?id=2634086927420882"
+    }
+  ]
+}
