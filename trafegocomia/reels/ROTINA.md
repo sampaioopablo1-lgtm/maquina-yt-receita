@@ -24,6 +24,22 @@ Leia antes `trafegocomia/CLAUDE.md` (público, regras, identidade). Branch: `ccr
    formato do motor v2 (ver `trafegocomia/v2/menos-que-netflix-gestor.json`): 6 a 9 cenas,
    **25 a 45 s**, gancho nos 2 primeiros segundos, uma ideia só, fala natural, CTA no fim.
    `slug` = `rNNN-<tema-curto>`. Use o tema visual da marca (sem `tema` = padrão azul).
+   **Método de roteiro (prompts do dono, 24/11), aplicados por você antes de escrever:**
+   a) *Ideias:* liste 5 ideias curtas e compartilháveis para gestor de tráfego dentro da família escolhida.
+      O prompt original pede "as 10 tendências virais do Instagram": esta sessão NÃO lê tendências do
+      Instagram, então a base é o ranking do `aprende.py` + no máximo 1 busca na web por novidade real
+      de Meta Ads/IA (com fonte). Nunca invente tendência.
+   b) *Dor → gancho:* das ideias, tire a dor do gestor e escreva o gancho em até 10 palavras, direto e
+      provocador, sem clichê. Ele vira a 1ª cena (2 primeiros segundos).
+   c) *Estrutura de 30 s:* gancho irresistível → história curta (situação do gestor, com uma virada) →
+      CTA para comentar ou salvar. Frases curtas, nenhuma enrolação.
+   d) *Salvamento:* quando a família for `checklist`, `prompt-pronto` ou `metrica-em-30s`, entregue dicas de
+      até 12 palavras, fáceis de aplicar (é o que faz salvar).
+   e) *CTA:* escreva 3 CTAs com curiosidade e ação imediata ("comenta X", "salva pra segunda") e use o
+      melhor; não repita o CTA do Reel anterior.
+   f) *Prova social:* SÓ com resultado real e documentado. Hoje não existe nenhum: não use.
+   g) *Reaproveitar:* o roteiro de 7 s, carrossel de 5 slides e post estático ficam para quando o motor
+      gerar esses formatos; por enquanto a peça é o Reel (+ o mesmo vídeo no Story).
 5. **Renderizar:** `python3 trafegocomia/v2/produz.py trafegocomia/reels/roteiros/rNNN.json
    saida/reels/rNNN.mp4 saida/reels/rNNN-capa.png`. Confira duração (ffprobe) e olhe 2 quadros.
 6. **Subir o arquivo:** commit do roteiro + mp4 + capa, `git push origin ccr-193f026c-cfpyom`.
