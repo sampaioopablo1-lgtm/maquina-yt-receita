@@ -1,0 +1,12 @@
+{
+ "slug": "r017-fechar-a-semana",
+ "cenas": [
+  {"nar": "Sexta à noite e você ainda respondendo cliente? Falta fechar a semana.", "head": "FALTA [FECHAR A SEMANA]", "emoji": "🌙", "tag": "ROTINA DO GESTOR"},
+  {"nar": "Sem um fechamento, tudo que ficou pendente vira urgência na segunda.", "head": "PENDÊNCIA VIRA [URGÊNCIA]", "emoji": "⚠️"},
+  {"nar": "Reserve um horário fixo no fim da semana, sempre o mesmo.", "head": "HORÁRIO [FIXO]", "emoji": "📅"},
+  {"nar": "Nele você passa por cada cliente com as mesmas perguntas.", "head": "AS MESMAS [PERGUNTAS]", "list": ["O que mudou na semana?", "O que ficou pendente?", "Qual o primeiro passo de segunda?"]},
+  {"nar": "A IA ajuda a transformar suas anotações numa lista organizada por cliente.", "head": "A IA [ORGANIZA]", "chat": [{"de": "voce", "txt": "Organize estas anotações por cliente, com o primeiro passo de segunda."}, {"de": "ia", "txt": "Lista pronta, um bloco por cliente."}], "nota": "ilustração"},
+  {"nar": "Na segunda, você abre a lista e começa, sem tentar lembrar onde parou.", "head": "SEGUNDA JÁ [COMEÇA]", "emoji": "🚀"},
+  {"nar": "Comenta SEMANA se você já tem um horário pra fechar a sua.", "head": "COMENTA [SEMANA]", "pill": "COMENTA", "emoji": "💬"}
+ ]
+}
