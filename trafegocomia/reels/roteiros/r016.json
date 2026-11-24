@@ -1,0 +1,12 @@
+{
+ "slug": "r016-status-do-cliente",
+ "cenas": [
+  {"nar": "O cliente manda: e aí, como tá a campanha? E lá se vai meia manhã.", "head": "E AÍ, COMO [TÁ?]", "emoji": "📱", "tag": "OPERACIONAL VS IA"},
+  {"nar": "Na mão: abrir o Gerenciador, copiar número, montar texto, revisar.", "head": "NA [MÃO]", "list": ["Abrir o Gerenciador", "Copiar os números", "Montar o texto", "Revisar"]},
+  {"nar": "E repetir isso pra cada cliente, toda semana.", "head": "TODO CLIENTE, [TODA SEMANA]", "emoji": "🔁"},
+  {"nar": "Com a IA, você cola os números da semana e pede o resumo.", "head": "COM A [IA]", "chat": [{"de": "voce", "txt": "Resuma a semana desta campanha pro cliente, em linguagem simples, com o próximo passo."}, {"de": "ia", "txt": "Rascunho pronto: o que aconteceu, o que muda e o próximo passo."}], "nota": "ilustração"},
+  {"nar": "Ela traduz métrica em português de cliente e já sugere o próximo passo.", "head": "MÉTRICA EM [PORTUGUÊS]", "emoji": "🗣️"},
+  {"nar": "Você só confere, ajusta o tom e envia. A decisão continua sua.", "head": "A DECISÃO É [SUA]", "emoji": "✅"},
+  {"nar": "Segue pra ver mais tarefas que a IA tira da sua mão.", "head": "SEGUE PRA [MAIS]", "pill": "SEGUE", "emoji": "👉"}
+ ]
+}
