@@ -13,7 +13,7 @@ Branch de trabalho: `ccr-193f026c-cfpyom` (repo `sampaioopablo1-lgtm/maquina-yt-
 | **Produto** | Clube Tráfego com IA, **assinatura mensal R$ 29,90**, cartão + Pix Automático, 7 dias de garantia, cancela quando quiser. Teste futuro: R$ 47 a 67. | 23/11/2026 |
 | **Funil** | Anúncio → **checkout da Kiwify usado como página de vendas** (sem página no meio) → compra. | 23/11/2026 |
 | **Verba** | R$ 6/dia: 1 campanha Vendas, 1 conjunto, 4 a 6 anúncios, otimizar **visualização da página de destino**; passar para Compra com ~50 compras/semana. | 23/11/2026 |
-| **Reels orgânicos** | **ATIVOS: 12 por dia** no @trafegocom.ia, tarefa agendada a cada 2 h desde as 07:00 BRT (id `trig_01BaLJBTzv5h7vXqzG3yuTus, roda NESTA sessão porque sessão nova não tem push`), 1 Reel por execução, com aprendizado. Procedimento: `trafegocomia/reels/ROTINA.md`. | 23/11/2026 |
+| **Reels orgânicos** | **ATIVOS, volume decidido diariamente pela rotina com base nos dados** (dono delegou em 24/11; começou em 3/dia: 11:43, 17:43, 20:43 BRT; decisões em `trafegocomia/reels/decisoes.jsonl`) (id `trig_01BaLJBTzv5h7vXqzG3yuTus, roda NESTA sessão porque sessão nova não tem push`), 1 Reel por execução, com aprendizado. Procedimento: `trafegocomia/reels/ROTINA.md`. | 23/11/2026 |
 | **Aprovação** | "Tudo aprovado, não precisa me pedir outras aprovações", **exceto** ações irreversíveis ou com dinheiro: publicar campanha, ativar vendas, mudar preço, pagamento. Essas ficam PAUSADAS para ele. | — |
 
 Por que gestor e não dono de negócio: "Claude ligado ao Gerenciador" é técnico demais para o dono e tem

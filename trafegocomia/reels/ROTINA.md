@@ -1,11 +1,23 @@
-# Rotina dos Reels do @trafegocom.ia (3 por dia, com aprendizado)
+# Rotina dos Reels do @trafegocom.ia (volume decidido por dados)
 
 Pedido do dono em 23/11/2026: criar e publicar Reels no Instagram **@trafegocom.ia** sem PC ligado,
 com auto-aprendizado para escolher os próximos temas e ganhar seguidores.
-Volume: **12 por dia, decisão do dono em 23/11** ("ao menos 12 por dia"). Eu recomendei 3, porque
-num perfil só o excesso pode derrubar o alcance por peça; o aprendizado mede isso: se a mediana de
-views por Reel cair semana a semana, diga ao dono com o número. Cada execução da tarefa agendada
-(a cada 2 horas: 07:00, 09:00 ... 05:00 de Brasília, a partir de 24/11; em 23/11 saiu o lote r001 a r013 de uma vez, a pedido do dono) faz **1 Reel**.
+**Volume e formato são decisão diária da rotina, com base nos dados** (delegado pelo dono em 24/11:
+"aumentar ou diminuir ou até mesmo troca de formatos, fique em sua decisão diária com base nos dados").
+Histórico: 23/11 lote de 13 de uma vez; 24/11 cai para **3 por dia** porque os 13 tiveram alcance 0 em 14 h.
+Cada execução da tarefa agendada faz **1 Reel + o mesmo vídeo no Story**.
+
+## Decisão diária (só na PRIMEIRA execução do dia, antes de produzir)
+Leia `decisoes.jsonl` (última linha = decisão em vigor) e as medições. Decida e registre uma linha nova
+`{"dia":"AAAA-MM-DD","volume":N,"horarios":[...],"formato":"...","porque":"<números>"}`:
+- **Diminuir** (mínimo 1/dia) se a mediana de alcance por Reel das últimas 24 h for 0 ou caiu contra a de antes.
+- **Manter** se estável.
+- **Aumentar** (máximo 12/dia, +1 ou +2 por vez) só se a mediana de alcance por Reel subiu 2 dias seguidos.
+- **Formato**: se Reels seguirem com alcance 0 por 3 dias, teste outro (ex.: carrossel de imagens com o motor
+  de `trafegocomia/anuncios/`, ou Reel mais curto de 7 a 15 s). Troque UMA coisa por vez e meça.
+- Aplique o volume mudando o horário da tarefa agendada `trig_01BaLJBTzv5h7vXqzG3yuTus` com `update_trigger`
+  (só `cron_expression`, fuso America/Sao_Paulo, minutos quebrados como :43). Nunca crie outra tarefa.
+- Diga a decisão e os números no relatório da rodada.
 
 Leia antes `trafegocomia/CLAUDE.md` (público, regras, identidade). Branch: `ccr-193f026c-cfpyom`.
 
