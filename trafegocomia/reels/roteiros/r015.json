@@ -1,0 +1,13 @@
+{
+ "slug": "r015-antes-de-escalar",
+ "cenas": [
+  {"nar": "Escalou a campanha e o custo explodiu? Faltou conferir antes.", "head": "ESCALOU E O CUSTO [EXPLODIU]", "emoji": "📈", "tag": "CHECKLIST"},
+  {"nar": "O cliente pede pra dobrar a verba porque a semana foi boa.", "head": "SEMANA BOA, [DOBRA?]", "emoji": "🤔"},
+  {"nar": "Só que uma semana boa pode ser sorte. Antes de mexer, confere três coisas.", "head": "CONFERE [TRÊS COISAS]", "emoji": "✅"},
+  {"nar": "Um: o resultado se repete há vários dias, não só num pico.", "head": "1. [VÁRIOS DIAS]", "emoji": "📅"},
+  {"nar": "Dois: a frequência ainda está baixa, o público não cansou.", "head": "2. FREQUÊNCIA [BAIXA]", "emoji": "👀"},
+  {"nar": "Três: o criativo campeão tem um reserva pronto pra entrar.", "head": "3. CRIATIVO [RESERVA]", "emoji": "🎬"},
+  {"nar": "E aumente aos poucos, pra não jogar a campanha de volta no aprendizado.", "head": "AUMENTE [AOS POUCOS]", "list": ["Resultado repetido", "Frequência baixa", "Criativo reserva", "Aumento gradual"]},
+  {"nar": "Salva esse checklist pra conferir antes da próxima escala.", "head": "SALVA PRA [PRÓXIMA ESCALA]", "pill": "SALVA", "emoji": "🔖"}
+ ]
+}
