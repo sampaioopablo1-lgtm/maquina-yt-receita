@@ -1,0 +1,12 @@
+{
+ "slug": "r019-cpa-em-30s",
+ "cenas": [
+  {"nar": "CPA em trinta segundos, pra você nunca mais travar quando o cliente perguntar.", "head": "CPA EM [30 SEGUNDOS]", "emoji": "⏱️", "tag": "MÉTRICA EM 30S"},
+  {"nar": "CPA é quanto custa cada resultado: uma venda, um lead, um cadastro.", "head": "CUSTO POR [RESULTADO]", "emoji": "🎯"},
+  {"nar": "A conta é simples: o que você gastou dividido pelos resultados.", "head": "GASTO ÷ [RESULTADOS]", "emoji": "➗"},
+  {"nar": "Exemplo: cem reais de verba e dez vendas dão dez reais por venda.", "head": "EXEMPLO", "list": ["R$ 100 de verba", "10 vendas", "CPA = R$ 10"], "nota": "exemplo ilustrativo"},
+  {"nar": "Agora o que importa: esse número só faz sentido comparado com quanto a venda deixa de lucro.", "head": "COMPARE COM O [LUCRO]", "emoji": "💰"},
+  {"nar": "Se cada venda deixa menos do que custa, CPA baixo ainda é prejuízo.", "head": "CPA BAIXO PODE SER [PREJUÍZO]", "emoji": "⚠️"},
+  {"nar": "Salva pra explicar CPA pro próximo cliente.", "head": "SALVA PRA [EXPLICAR]", "pill": "SALVA", "emoji": "🔖"}
+ ]
+}
