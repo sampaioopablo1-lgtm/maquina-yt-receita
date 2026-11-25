@@ -1,0 +1,12 @@
+{
+ "slug": "r020-objecoes-viram-angulos",
+ "cenas": [
+  {"nar": "Sem ideia de ângulo novo pro anúncio do cliente? Comece pelas objeções.", "head": "SEM [ÂNGULO NOVO?]", "emoji": "💡", "tag": "PROMPT PRONTO"},
+  {"nar": "Toda objeção do público é um anúncio esperando pra ser escrito.", "head": "OBJEÇÃO VIRA [ANÚNCIO]", "emoji": "🔄"},
+  {"nar": "Cola isso na IA, com o produto e o público do cliente.", "head": "O PROMPT", "chat": [{"de": "voce", "txt": "Liste as 5 objeções mais comuns de [público] antes de comprar [produto]. Para cada uma, escreva um gancho de anúncio que responda a objeção."}, {"de": "ia", "txt": "Objeção 1, gancho 1… objeção 5, gancho 5."}], "nota": "ilustração"},
+  {"nar": "Ela devolve a objeção e um gancho que responde a cada uma.", "head": "OBJEÇÃO + [GANCHO]", "emoji": "🎯"},
+  {"nar": "Agora você confere: quais objeções você já ouviu do cliente de verdade?", "head": "CONFERE COM O [REAL]", "emoji": "✅"},
+  {"nar": "Fica com as que batem e testa como criativos novos.", "head": "TESTA AS QUE [BATEM]", "list": ["Objeção real", "Gancho que responde", "Criativo novo"]},
+  {"nar": "Comenta OBJEÇÃO se esse prompt vai pra sua próxima campanha.", "head": "COMENTA [OBJEÇÃO]", "pill": "COMENTA", "emoji": "💬"}
+ ]
+}
