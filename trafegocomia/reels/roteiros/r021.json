@@ -1,0 +1,12 @@
+{
+ "slug": "r021-bonito-ou-claro",
+ "cenas": [
+  {"nar": "Mito ou verdade: o criativo precisa ser bonito pra vender?", "head": "PRECISA SER [BONITO?]", "emoji": "🎨", "tag": "MITO OU VERDADE"},
+  {"nar": "Meio mito. Bonito ajuda, mas o que segura a pessoa é entender rápido.", "head": "MEIO [MITO]", "emoji": "⚖️"},
+  {"nar": "Na rolagem, ninguém para pra decifrar arte. Para quem se reconhece na primeira frase.", "head": "SE [RECONHECE]", "emoji": "👀"},
+  {"nar": "Antes de subir, confere três coisas no criativo.", "head": "CONFERE ANTES", "list": ["Dá pra entender sem som?", "A dor aparece no começo?", "Fica claro o que fazer?"]},
+  {"nar": "Se uma delas falhar, arte mais caprichada não resolve.", "head": "ARTE NÃO [RESOLVE]", "emoji": "🚫"},
+  {"nar": "Primeiro claro, depois bonito.", "head": "CLARO, DEPOIS [BONITO]", "emoji": "✅"},
+  {"nar": "Comenta CLARO se você vai revisar seus criativos com essas perguntas.", "head": "COMENTA [CLARO]", "pill": "COMENTA", "emoji": "💬"}
+ ]
+}

@@ -1,0 +1,487 @@
+🔥 BLACK FRIDAY · DE R$97 POR R$17
+◆
+ENCERRA EM 23:59:56
+ZXLAB
+|
+AUTOMATIZAR ▸
+BLACK FRIDAY ZX LAB
+SETUP DE CLAUDE CODE E CODEX · RODA NA SUA MÁQUINA
+AUTOMATIZE SUA AGÊNCIA DE TRÁFEGO PAGO E ESCALE SEU FATURAMENTO COM IA
+
+Conecte seu gerenciador de anúncios à IA em 15 minutos. Ela cria campanhas, conjuntos e anúncios, lê as métricas e otimiza no piloto automático — você cuida só do direcionamento estratégico.
+
+PREÇO DE BLACK FRIDAY
+R$97
+R$17
+PAGAMENTO ÚNICO · VITALÍCIO · 7 DIAS DE GARANTIA
+QUERO AUTOMATIZAR MEU TRÁFEGO ▸
+Roda em cima da conta que você já opera. Nada na nuvem.
+CLAUDE CODE · SETUP-META-ADS
+quanto gastei essa semana e qual o CPA por campanha?
+lendo insights de 3 contas · janela 7d…
+✓ R$ 4.812 · CPA médio R$ 41,20 · 2 campanhas acima do seu teto
+monta uma campanha de conversão pro cliente X, R$80/dia
+✓ campanha + 3 conjuntos criados — em PAUSED, pra você revisar
+tudo no dashboard. 🎯
+01
+
+Seu gerenciador conectado à IA em 15 minutos — MCP oficial da Meta, via OAuth
+
+02
+
+Mais de 5 habilidades instaladas — criam, gerenciam e otimizam suas campanhas no piloto automático
+
+03
+
+Rastreamento por API + dashboard automático — métricas coletadas 3× ao dia, com drill-down até o anúncio
+
+⚙️ MCP OFICIAL DA META
+🎯 META ADS + GOOGLE ADS
+🎨 CRIATIVOS COM IA
+🔒 RODA LOCAL — SEM NUVEM
+⏱️ CONECTA EM 15 MIN
+♾️ VITALÍCIO
+🛡️ 7 DIAS DE GARANTIA
+COMO AUTOMATIZAR TRÁFEGO PAGO COM CLAUDE CODE E CODEX?
+
+O Tráfego Pago Automatizado conecta o Claude Code ou o Codex (o agente do ChatGPT) à sua conta Meta Ads pelo MCP oficial da Meta e instala 6 skills de operação, CAPI configurado e um dashboard que atualiza sozinho 3 vezes por dia. Toda campanha criada nasce pausada: quem revisa e publica é você. Roda na sua máquina, sem mensalidade e com acesso vitalício.
+
+[ O QUE ESTÁ EM JOGO ]
+O RELATÓRIO QUE VOCÊ FAZ NA MÃO É O MESMO QUE ELE ENTREGA EM 40 SEGUNDOS
+
+Você abre o Gerenciador, exporta, monta a planilha, escreve o resumo do cliente. Duas, três horas do seu sábado. Do outro lado da cidade, alguém pede o mesmo relatório em português pra uma IA conectada na conta e manda no WhatsApp antes de você terminar o café.
+
+Não é sobre ele ser melhor gestor. É que enquanto você faz o operacional, ele está no telefone com o seu cliente — dizendo que consegue entregar mais rápido pelo mesmo preço.
+
+O TRÁFEGO PAGO NÃO VAI DEIXAR DE EXISTIR. O GESTOR QUE SÓ SABE OPERAR NO BRAÇO É QUE VAI.
+
+QUERO AUTOMATIZAR MEU TRÁFEGO ▸
+[ O CONTRASTE ]
+MESMA CONTA. DUAS FORMAS DE OPERAR.
+COMO VOCÊ OPERA HOJE
+
+✕
+Exporta CSV e monta relatório à mão, cliente por cliente
+
+✕
+Abre 6 abas do Gerenciador pra comparar conjunto
+
+✕
+Decide escalar ou matar no feeling, sem limiar escrito
+
+✕
+Adia o CAPI há meses — e perde evento pra iOS e bloqueador
+
+✕
+Cada cliente novo custa mais horas suas; a agenda trava o crescimento
+
+COM O TRÁFEGO AUTOMATIZADO
+
+✓
+Pergunta em português e recebe o número da conta na hora
+
+✓
+Dashboard com semáforo e drill-down até o anúncio, atualizado sozinho
+
+✓
+Veredito SCALE / KILL / KEEP pelos
+seus
+limiares, com amostra mínima
+
+✓
+CAPI configurado e validado — evento server-side chegando
+
+✓
+Atende mais cliente sem contratar: o operacional deixa de ser seu gargalo
+
+[ FILTRO HONESTO ]
+ISSO É PRA VOCÊ?
+✓ É PRA VOCÊ SE…
+
+Você já roda tráfego no Meta — pra você ou pra cliente
+
+Sabe o que é CPA, ROAS, conjunto e criativo (não vamos explicar o básico)
+
+Atende clientes e quer atender mais sem contratar gente
+
+Topa rodar um setup técnico de ~40 minutos, uma vez, com a IA te conduzindo
+
+✕ NÃO É PRA VOCÊ SE…
+
+Nunca rodou uma campanha — o setup assume que você lê uma conta de anúncio
+
+Quer que a IA decida sozinha e mexa na conta sem você aprovar
+
+Procura ROAS garantido ou promessa de faturamento — aqui não tem
+
+Não tem conta ativa com histórico: sem dado, não há o que a IA leia
+
+Não quer instalar nada na própria máquina (não é SaaS, não tem painel na nuvem)
+
+[ ETAPA 1 · CONEXÃO ]
+O QUE O SETUP INSTALA NA SUA MÁQUINA
+
+Não é curso, não é PDF. É um setup que você roda uma vez e deixa a sua conta de anúncio acessível ao Claude Code e ao Codex.
+
+MCP oficial da Meta
+
+Conexão OAuth entre o Claude Code ou o Codex e sua conta de anúncio — com caminho alternativo (System User Token) para contas que ainda não têm o MCP liberado.
+
+CAPI + API de Conversões
+
+Rastreamento server-side configurado: token, deduplicação de eventos Pixel × CAPI e validação no Gerenciador de Eventos. A parte que trava a maioria — resolvida junto com você.
+
+agente-trafego-pago
+
+O orquestrador: um menu que entende o que você pediu e roteia para a skill certa.
+
+meta-campaign-launcher
+
+Cria campanha + conjunto + anúncio a partir de uma frase em português — sempre em PAUSED, pra você revisar antes.
+
+meta-metrics-fetcher
+
+Puxa insights da API e alimenta o dashboard sem você abrir nada.
+
+meta-performance-analyzer
+
+Aplica os seus limiares e devolve veredito SCALE / KILL / KEEP por entidade.
+
+meta-budget-optimizer
+
+Propõe realocação de verba entre campanhas com base no que está performando.
+
+meta-creative-brief
+
+Gera briefing de criativo por ângulo — hook de copy, hook visual e CTA.
+
+Google Ads
+
+Cria campanha de pesquisa em PAUSED, puxa as métricas e dá o veredito, do mesmo jeito que no Meta.
+
+Criativos com IA
+
+Gera arte e vídeo de anúncio a partir da sua oferta, no formato do feed e dos stories.
+
+Coleta automática
+
+Dois agendamentos que rodam sozinhos: coleta de métricas 3× ao dia e o servidor do dashboard sempre no ar.
+
+Perfil de decisão
+
+Seus objetivos, KPIs, metas numéricas e limiares de escalar/matar — o critério passa a ser o seu, não um genérico.
+
+Criativos que a IA criou pra anunciar este produto
+
+QUERO AUTOMATIZAR MEU TRÁFEGO ▸
+[ ETAPA 2 · AUTOMAÇÃO ]
+O QUE PASSA A ACONTECER SEM VOCÊ
+01
+
+Coleta de métricas da sua conta de anúncio 3× por dia — você não abre nada
+
+02
+
+CPL, CPA, ROAS, CPM, CTR, CPC e frequência calculados nas janelas de 4, 7, 14 e 30 dias
+
+03
+
+Consolidação dos tipos de conversão (lead, compra, mensagem, instalação) — o trabalho chato de casar a nomenclatura da API
+
+04
+
+Cada campanha classificada contra a sua meta: verde, amarelo ou vermelho
+
+05
+
+Veredito de escalar, matar ou manter — com amostra mínima, pra não decidir em cima de ruído
+
+06
+
+Dashboard regenerado e publicado sozinho, sem você pedir
+
+07
+
+Eventos de conversão chegando pelo CAPI, sem depender do navegador do usuário
+
+[ ETAPA 3 · LEITURA ]
+O DASHBOARD QUE PASSA A EXISTIR NA SUA MÁQUINA
+
+Abre no navegador, roda local. Sem login, sem nuvem, sem mandar dado de cliente pra terceiro.
+
+SEMÁFORO
+KPI vs. a sua meta
+
+Cards com semáforo verde, amarelo e vermelho comparando o resultado real com a meta que você definiu — não com um benchmark de mercado qualquer.
+
+4 · 7 · 14 · 30 DIAS
+Quatro janelas
+
+Abas de 4, 7, 14 e 30 dias. Você vê a tendência sem montar planilha pra comparar período.
+
+NAVEGAÇÃO
+Drill-down clicável
+
+Conta → campanha → conjunto → anúncio. Desce até achar quem está queimando verba.
+
+DECISÃO
+Veredito por entidade
+
+Cada campanha e conjunto marcado como escalar, matar ou manter — com o motivo escrito.
+
+[ NA PRÁTICA ]
+O QUE VOCÊ PASSA A PEDIR EM PORTUGUÊS
+
+›
+"Quanto gastei essa semana e qual o CPA por campanha?"
+
+›
+"Monta uma campanha de conversão pro cliente X, R$80/dia, público de interesse em [nicho], e deixa pausada."
+
+›
+"Quais conjuntos estão acima do meu CPA teto há 3 dias?"
+
+›
+"Me dá 4 ângulos de criativo pra essa oferta — dor, prova, economia e curiosidade."
+
+›
+"Cria 3 artes de anúncio pra essa oferta, no formato do feed e dos stories."
+
+›
+"Sobe uma campanha de pesquisa no Google Ads pro cliente X e deixa pausada."
+
+›
+"Onde eu deveria realocar verba essa semana?"
+
+›
+"Gera o relatório dos últimos 7 dias pro meu cliente."
+
+⚠️ Nada é publicado sem você. O sistema monta e entrega pronto — quem aprova e aperta "publicar" é você.
+
+QUERO AUTOMATIZAR MEU TRÁFEGO ▸
+[ CONTROLE ]
+ELE TRABALHA. VOCÊ DECIDE.
+
+O sistema faz o trabalho pesado. As decisões que mexem no seu dinheiro continuam com você.
+
+Nasce pausada
+
+Campanha, conjunto e anúncio são criados em PAUSED. Nada vai ao ar até você mandar ativar, pelo próprio chat.
+
+Mexe na verba só com seu OK
+
+3 vezes por dia ele lê os números e diz o que escalar, pausar ou realocar, com o motivo. Você aprova no chat e ele aplica pelo MCP da Meta.
+
+Um projeto por cliente
+
+Cada cliente ganha a própria conta de anúncio, dashboard e coleta. Você troca de projeto com um comando, sem comprar de novo.
+
+Roda no seu computador
+
+Windows, Mac ou Linux, com Claude Code ou Codex. Sem VPS, sem servidor nosso, sem mensalidade.
+
+QUERO AUTOMATIZAR MEU TRÁFEGO ▸
+[ O MECANISMO ]
+O CICLO DE 3 TEMPOS QUE RODA SEM VOCÊ
+
+Não é "a IA cuida do tráfego". É um ciclo fechado, com você no comando das decisões: coleta → julga → recomenda. Roda 3× ao dia, e você só entra na hora de aprovar.
+
+TEMPO 1 · COLETA
+PUXA OS NÚMEROS
+
+Insights da conta de cada cliente pela API oficial, organizados em 7 métricas e 4 janelas. Sem exportar CSV, sem abrir aba.
+
+TEMPO 2 · JULGA
+APLICA O SEU CRITÉRIO
+
+Cada campanha, conjunto e anúncio comparado com os seus limiares — não com um benchmark genérico — e só com amostra mínima.
+
+TEMPO 3 · RECOMENDA
+DIZ O QUE FAZER
+
+Escalar, matar ou manter, com o motivo escrito. E para onde levar a verba. Quem executa é você.
+
+ATÉ ONDE VOCÊ PODE LEVAR
+
+O setup te coloca operando no nível 2 já no primeiro dia. Os níveis existem pra você saber o teto — e decidir até onde quer ir.
+
+NÍVEL 1 · CONVERSA
+
+Você pergunta em português e a IA lê a conta: métricas, comparações, relatório pro cliente. Já resolve o operacional de leitura.
+
+NÍVEL 2 · AUTOMÁTICO ✅
+
+Onde este setup te coloca. Coleta agendada 3× ao dia, dashboard que se atualiza sozinho, veredito por entidade e campanha montada em PAUSED pra você revisar.
+
+NÍVEL 3 · ESTRUTURA 🔒
+
+Servidor, banco e painel seus, com agentes rodando 24/7 em máquina dedicada. É o passo seguinte — e exige infra que não cabe num produto de entrada. Não está incluso aqui.
+
+Somos honestos sobre o limite: o nível 3 não faz parte desta oferta.
+
+QUERO AUTOMATIZAR MEU TRÁFEGO ▸
+[ A DIFERENÇA ]
+ISSO NÃO É CURSO, NEM IMERSÃO, NEM GRAVAÇÃO
+
+Aula ao vivo você assiste, anota e depois trava na hora de implementar sozinho. Imersão tem data — você compra hoje e espera a turma começar.
+
+Aqui não tem aula pra assistir nem data pra esperar: você clona, roda o setup e termina o dia com a conta conectada. O Claude Code ou o Codex faz a instalação conduzindo você, passo a passo.
+
+ACESSO
+IMEDIATO
+
+Comprou, recebeu. Sem turma, sem calendário, sem "começa dia tal".
+
+FORMATO
+INSTALÁVEL
+
+Não é conteúdo pra consumir — é setup que fica rodando na sua máquina depois.
+
+TEMPO
+15 MINUTOS
+
+É o que leva pra conectar sua conta. Depois disso o ciclo roda sozinho 3× ao dia.
+
+[ A OFERTA DE BLACK FRIDAY ]
+TUDO QUE VOCÊ LEVA POR R$17
+
+São 12 entregas, uma por uma — nada de "kit completo" sem dizer o que tem dentro.
+
+01
+⭐ Conexão MCP oficial da Meta
+O Claude Code ou o Codex passa a enxergar sua conta de anúncio via OAuth oficial — com caminho alternativo (System User Token) para contas que ainda não têm o MCP liberado.
+02
+Setup do CAPI + API de Conversões
+Rastreamento server-side: token, deduplicação de eventos Pixel × CAPI e validação no Gerenciador de Eventos. A configuração que a maioria adia há meses — feita com você.
+03
+Skill agente-trafego-pago — o orquestrador
+Entende o que você pediu em português, lê seu perfil e o último dashboard, e aciona a skill certa. É por onde tudo começa.
+04
+Skill meta-campaign-launcher — cria a campanha
+De uma frase ("campanha de conversão pro cliente X, R$80/dia, interesse em Y") para campanha + conjuntos + anúncios montados. Sempre em PAUSED, pra você revisar antes de publicar.
+05
+Skill meta-metrics-fetcher — coleta as métricas
+Puxa insights da conta de anúncio de cada projeto pela API e organiza CPL, CPA, ROAS, CPM, CTR, CPC e frequência em 4, 7, 14 e 30 dias — sem você abrir o Gerenciador.
+06
+Skill meta-performance-analyzer — dá o veredito
+Aplica os
+seus
+limiares em cada campanha, conjunto e anúncio e devolve ESCALAR / MATAR / MANTER, com amostra mínima pra não decidir em cima de ruído.
+07
+Skill meta-budget-optimizer — realoca a verba
+Aponta de onde tirar e pra onde levar o orçamento com base no que está performando, em vez de você redistribuir no feeling toda segunda.
+08
+Skill meta-creative-brief — briefing de criativo
+Gera ângulos prontos de anúncio (dor, prova, economia, curiosidade) com hook de copy, hook visual e CTA — dentro das políticas da Meta.
+09
+Dashboard local de tráfego
+Abre no seu navegador com KPI vs. a sua meta em semáforo, abas de 4/7/14/30 dias e drill-down conta → campanha → conjunto → anúncio. Atualiza sozinho 3× ao dia.
+10
+Perfil de decisão decide()
+Seu CPA teto, seu ROAS piso e sua amostra mínima viram o critério que todas as skills usam. O julgamento passa a ser o seu, não um genérico de mercado.
+11
+Google Ads no Claude Code ou no Codex
+Campanha de pesquisa criada em PAUSED, métricas e veredito no Google Ads, como no Meta.
+12
+Criativos com IA
+Arte e vídeo de anúncio gerados a partir da sua oferta, prontos pro feed e pros stories (geração cobrada por uso na sua chave do Gemini).
+DE R$97 POR
+R$17
+QUERO AUTOMATIZAR MEU TRÁFEGO ▸
+PAGAMENTO ÚNICO · ACESSO VITALÍCIO · PIX OU CARTÃO
+🛡️
+GARANTIA DE 7 DIAS, INCONDICIONAL
+
+Instale, rode, veja o dashboard subir. Se em 7 dias você sentir que não é pra você, devolvemos 100%, sem perguntas e sem letra miúda.
+
+A garantia cobre sua satisfação com o setup. Resultado de campanha depende da sua oferta, do seu criativo e do seu mercado — como em qualquer conta de tráfego.
+
+[ PROVA SOCIAL ]
+ALUNOS ZX LAB AUTOMATIZANDO DE VERDADE
+
+Depoimentos reais de alunos dos programas Agência IA 50K, ZX Control e Formação Cientista da IA — o mesmo método de automação com Claude Code e Codex que roda por trás deste setup.
+
+IL
+Israel L.
+ZX LAB
+
+“E acabamos fechando a parceria e desenvolvemos aí 10: oito assistentes e mais dois agentes de atendimento e um outro projeto.”
+
+10 agentes
+de IA em 30 dias, em implementação numa empresa de ~950 funcionários
+ED
+Eduardo
+AGÊNCIA IA 50K
+
+“Eu fechei com uma indústria de Cachoeirinha aqui… que eles precisavam automatizar o PCP, que a gente já tá em fase de implantação. Só esse contrato foi 16.000.”
+
+R$ 16.000
+em contrato de automação industrial, em implantação
+IS
+Isac
+ZX CONTROL
+
+“Tenho um agente que atende quem vem pelo site. Pelo anúncio no Facebook. E prospecta sozinho o nicho que eu escolho.”
+
+Agente no ar
+atendendo o site e o anúncio, e prospectando sozinho
+Resultados individuais — não são garantia de resultado.
+VER TODOS OS DEPOIMENTOS ▸
+[ DÚVIDAS ]
+PERGUNTAS FREQUENTES
+Preciso saber programar?
+▾
+
+Não. Você precisa saber rodar tráfego — o resto é conduzido. O Claude Code ou o Codex explica cada passo antes de executar, e a conexão leva cerca de 15 minutos.
+
+Funciona com o Codex do ChatGPT ou só com o Claude Code?
+▾
+Funciona com quantas contas de anúncio?
+▾
+Por que R$17? O que tem de errado?
+▾
+A IA vai mexer na minha conta sem eu ver?
+▾
+Consigo pausar campanha e mudar orçamento por ele?
+▾
+Ainda vou precisar abrir o Gerenciador de Anúncios?
+▾
+Preciso ter plano pago do Claude ou do ChatGPT?
+▾
+Funciona no Windows? Dá para usar pelo celular ou numa VPS?
+▾
+Tem aula em vídeo? Como é a entrega?
+▾
+E se a Meta mudar as regras ou a API?
+▾
+Funciona para o meu nicho (delivery, loja, serviço local)?
+▾
+Isso garante que meu ROAS vai melhorar?
+▾
+Preciso pagar mensalidade ou API?
+▾
+Qual o custo de infraestrutura pra rodar isso?
+▾
+Funciona com múltiplos clientes?
+▾
+Meus dados de cliente vão pra algum lugar?
+▾
+E se não for pra mim?
+▾
+DAQUI A 30 DIAS VOCÊ VAI ESTAR NUM DOS DOIS LUGARES
+
+No mesmo sábado montando relatório à mão, torcendo pro cliente não perguntar por que o concorrente entrega mais rápido. Ou com a conta conectada, o dashboard atualizando sozinho e a sua agenda livre pra vender.
+
+A DIFERENÇA ENTRE OS DOIS CUSTA R$17 E UMA TARDE.
+
+QUERO AUTOMATIZAR MEU TRÁFEGO ▸
+BLACK FRIDAY · GARANTIA DE 7 DIAS · ACESSO VITALÍCIO · DE R$97 POR R$17
+Tráfego Pago Automatizado com Claude Code e Codex · ZX LAB
+
+Entrega: a capacidade de conectar, automatizar e ler sua operação de tráfego. Não é promessa de faturamento nem de ROAS. Valores de referência de mercado são ancoragem, não promessa de resultado. · Blog
+
+Termos de Uso · Política de Privacidade
+
+R$97R$17
+QUERO AUTOMATIZAR MEU TRÁFEGO ▸
+Conteúdo de Rafael Castro, fundador da ZX LAB · ZX LAB LTDA · CNPJ 19.973.695/0001-16 · Atualizado em 03/10/2026

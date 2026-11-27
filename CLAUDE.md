@@ -1,5 +1,9 @@
 # Máquina de vídeos — o que nunca deve envelhecer
 
+> **Trabalho do @trafegocom.ia (Tráfego com IA, Kiwify, anúncios Meta):** leia `trafegocomia/CLAUDE.md` primeiro.
+> Tudo abaixo é da máquina de vídeos do YouTube e NÃO se aplica a ele.
+
+
 A rotina horária carrega o procedimento. Este arquivo carrega só os **ponteiros**,
 porque número dentro de prompt envelhece e já me fez errar quatro vezes
 (652/655, 658, 682, 685). Aqui não entra contagem de estoque, nem de views, nem

@@ -1,0 +1,50 @@
+{
+ "slug": "r002-3-variacoes-do-anuncio-vencedo",
+ "cenas": [
+  {
+   "nar": "Seu anúncio vencedor está cansando e você precisa de variação hoje.",
+   "head": "ANÚNCIO [CANSANDO]",
+   "emoji": "📉",
+   "tag": "GESTOR DE TRÁFEGO"
+  },
+  {
+   "nar": "Copia esse pedido e cola na IA.",
+   "head": "COPIA [ESSE PEDIDO]",
+   "emoji": "📋"
+  },
+  {
+   "nar": "Esse é o anúncio que mais vendeu. Crie três variações mudando só o gancho: uma de dor, uma de curiosidade e uma de prova.",
+   "head": "O [PEDIDO]",
+   "chat": [
+    {
+     "de": "voce",
+     "txt": "Crie 3 variações deste anúncio mudando só o gancho: dor, curiosidade e prova"
+    },
+    {
+     "de": "ia",
+     "txt": "Variação 1, dor. Variação 2, curiosidade. Variação 3, prova."
+    }
+   ],
+   "nota": "Conversa ilustrativa"
+  },
+  {
+   "nar": "Mudar só o gancho mantém o que já funciona.",
+   "head": "SÓ O [GANCHO]",
+   "emoji": "🎯"
+  },
+  {
+   "nar": "Você sobe as três e deixa o número escolher.",
+   "head": "O NÚMERO [ESCOLHE]",
+   "list": [
+    "Dor",
+    "Curiosidade",
+    "Prova"
+   ]
+  },
+  {
+   "nar": "Salva esse post pra usar na próxima segunda.",
+   "head": "SALVA [PRA SEGUNDA]",
+   "emoji": "🔖"
+  }
+ ]
+}

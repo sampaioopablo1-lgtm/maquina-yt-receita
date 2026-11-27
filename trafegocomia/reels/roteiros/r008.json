@@ -1,0 +1,40 @@
+{
+ "slug": "r008-bloco-de-operacional",
+ "cenas": [
+  {
+   "nar": "Cinco clientes e nenhuma hora livre? O problema pode ser a ordem.",
+   "head": "O PROBLEMA É A [ORDEM]",
+   "emoji": "🗓️",
+   "tag": "ROTINA DO GESTOR"
+  },
+  {
+   "nar": "Junte o operacional de todos os clientes num bloco só.",
+   "head": "UM [BLOCO SÓ]",
+   "emoji": "🧱"
+  },
+  {
+   "nar": "Relatórios, ajustes e variações no mesmo horário.",
+   "head": "MESMO [HORÁRIO]",
+   "emoji": "⏰"
+  },
+  {
+   "nar": "Trocar de cliente a cada tarefa custa foco.",
+   "head": "TROCAR CUSTA [FOCO]",
+   "emoji": "🧠"
+  },
+  {
+   "nar": "Manhã pra estratégia, tarde pro operacional, e a IA faz a parte repetitiva.",
+   "head": "A SEMANA",
+   "list": [
+    "Manhã: estratégia",
+    "Tarde: operacional",
+    "IA: o repetitivo"
+   ]
+  },
+  {
+   "nar": "Segue pra organizar sua semana de gestor.",
+   "head": "SEGUE PRA [ORGANIZAR]",
+   "emoji": "👉"
+  }
+ ]
+}

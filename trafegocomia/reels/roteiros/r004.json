@@ -1,0 +1,40 @@
+{
+ "slug": "r004-anuncio-mais-antigo-do-concorr",
+ "cenas": [
+  {
+   "nar": "Quer saber qual anúncio do concorrente dá resultado? Ele mesmo te conta.",
+   "head": "O CONCORRENTE [TE CONTA]",
+   "emoji": "👀",
+   "tag": "BIBLIOTECA DE ANÚNCIOS"
+  },
+  {
+   "nar": "Abre a Biblioteca de Anúncios da Meta e busca o nome dele.",
+   "head": "BIBLIOTECA DE [ANÚNCIOS]",
+   "emoji": "🔎"
+  },
+  {
+   "nar": "Olha a data de início de cada anúncio.",
+   "head": "OLHA A [DATA]",
+   "emoji": "📅"
+  },
+  {
+   "nar": "Anúncio que roda há meses é anúncio que está pagando a conta.",
+   "head": "RODA HÁ MESES = [FUNCIONA]",
+   "emoji": "💰"
+  },
+  {
+   "nar": "Anota o gancho, o formato e a oferta dele.",
+   "head": "ANOTA [3 COISAS]",
+   "list": [
+    "Gancho",
+    "Formato",
+    "Oferta"
+   ]
+  },
+  {
+   "nar": "Inspiração, nunca cópia. Segue pra mais pesquisa de tráfego.",
+   "head": "INSPIRAÇÃO, [NÃO CÓPIA]",
+   "emoji": "✅"
+  }
+ ]
+}

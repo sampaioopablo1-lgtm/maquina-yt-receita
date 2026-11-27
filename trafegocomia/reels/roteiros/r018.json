@@ -1,0 +1,13 @@
+{
+ "slug": "r018-mudou-e-nao-anotou",
+ "cenas": [
+  {"nar": "O resultado caiu e você não sabe por quê? Talvez você mesmo mudou algo.", "head": "CAIU E [NINGUÉM SABE]", "emoji": "📉", "tag": "ERRO QUE CUSTA"},
+  {"nar": "Trocou o criativo na terça, mexeu no público na quinta, ajustou a verba no sábado.", "head": "TERÇA, QUINTA, [SÁBADO]", "emoji": "🔧"},
+  {"nar": "Uma semana depois, o cliente pergunta o que aconteceu. E ninguém lembra a ordem.", "head": "NINGUÉM LEMBRA A [ORDEM]", "emoji": "🤷"},
+  {"nar": "O conserto é simples: um registro de mudanças por cliente.", "head": "REGISTRO DE [MUDANÇAS]", "emoji": "📝"},
+  {"nar": "Cada linha com data, o que mudou e por quê.", "head": "CADA LINHA", "list": ["Data", "O que mudou", "Por quê"]},
+  {"nar": "Aí, quando o número muda, você cruza com o registro e acha a causa.", "head": "CRUZA E ACHA A [CAUSA]", "emoji": "🔍"},
+  {"nar": "E no relatório você explica o resultado em vez de adivinhar.", "head": "EXPLICA, NÃO [ADIVINHA]", "emoji": "✅"},
+  {"nar": "Salva pra começar o seu registro hoje.", "head": "SALVA PRA [COMEÇAR HOJE]", "pill": "SALVA", "emoji": "🔖"}
+ ]
+}

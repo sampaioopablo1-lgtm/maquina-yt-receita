@@ -1,0 +1,91 @@
+{
+  "perfil": "@trafegocomia",
+  "semana": "2026-11-23",
+  "nota": "Roteiros escritos pelo assistente porque a mensagem chegou com o marcador '[cole aqui os 7 roteiros]' vazio, duas vezes. Substitua pelos seus e rode de novo.",
+  "videos": [
+    {"slug": "pare-de-impulsionar-post", "capa": "Pare de impulsionar post", "cta": "comenta",
+     "cenas": [
+      {"layout": "titulo", "kicker": "Impulsionar é caro", "sub": "e você nem escolhe nada", "nar": "Impulsionar post é o jeito mais caro de anunciar."},
+      {"layout": "item", "kicker": "Botão azul", "sub": "decide quase tudo por você", "nar": "O botão azul escolhe quase tudo por você, sem perguntar."},
+      {"layout": "lista", "kicker": "Fica no automático", "itens": ["Público", "Objetivo", "Posicionamento"], "nar": "Público, objetivo e posicionamento ficam no automático."},
+      {"layout": "titulo", "kicker": "Gerenciador", "sub": "quem decide é você", "nar": "No Gerenciador de Anúncios, quem decide é você."},
+      {"layout": "lista", "kicker": "Escolha o objetivo", "itens": ["Mensagem", "Venda", "Cadastro"], "nar": "Primeiro você escolhe o objetivo: mensagem, venda ou cadastro."},
+      {"layout": "item", "kicker": "Três anúncios", "sub": "no mesmo conjunto", "nar": "Depois monta três anúncios diferentes dentro do mesmo conjunto."},
+      {"layout": "item", "kicker": "O número decide", "sub": "não a sua opinião", "nar": "Em alguns dias, o número mostra qual deles funciona de verdade."},
+      {"layout": "titulo", "kicker": "Corta o pior", "sub": "verba no melhor", "nar": "Você corta o pior e coloca a verba no melhor."},
+      {"layout": "titulo", "kicker": "Comenta ANÚNCIO", "sub": "@trafegocomia", "nar": "Comenta ANÚNCIO aqui embaixo."}
+     ]},
+    {"slug": "tres-criativos-nao-um", "capa": "Três criativos, não um", "cta": "bio",
+     "cenas": [
+      {"layout": "titulo", "kicker": "Um anúncio só", "sub": "é um chute", "nar": "Um anúncio só é um chute no escuro."},
+      {"layout": "lista", "kicker": "Onde está o erro?", "itens": ["Imagem", "Texto", "Oferta"], "nar": "Se ele falha, você não sabe se o problema é a imagem, o texto ou a oferta."},
+      {"layout": "titulo", "kicker": "Três criativos", "sub": "a pergunta muda", "nar": "Com três criativos, a pergunta muda de figura."},
+      {"layout": "item", "kicker": "Mesma oferta", "sub": "três ganchos diferentes", "nar": "Mesma oferta, com três ganchos diferentes nos primeiros segundos."},
+      {"layout": "lista", "kicker": "Três ganchos", "itens": ["O problema", "O resultado", "A prova"], "nar": "Um mostra o problema, outro o resultado, outro a prova."},
+      {"layout": "item", "kicker": "Mesma verba", "sub": "mesmo público", "nar": "Deixa os três rodarem com a mesma verba e o mesmo público."},
+      {"layout": "item", "kicker": "O mais barato fica", "sub": "por resultado", "nar": "O que trouxer resultado mais barato fica no ar."},
+      {"layout": "titulo", "kicker": "Troca os outros", "sub": "por variações do vencedor", "nar": "Os outros dois você troca por variações do vencedor."},
+      {"layout": "titulo", "kicker": "Link na bio", "sub": "Club Tráfego com IA", "nar": "Link na bio: Club Tráfego com IA."}
+     ]},
+    {"slug": "a-ia-escreve-voce-testa", "capa": "A IA escreve, você testa", "cta": "comenta",
+     "cenas": [
+      {"layout": "titulo", "kicker": "A IA não sabe", "sub": "qual anúncio vai vender", "nar": "A IA não sabe qual anúncio vai vender."},
+      {"layout": "item", "kicker": "Dez versões", "sub": "em um minuto", "nar": "Mas ela escreve dez versões do seu anúncio em um minuto."},
+      {"layout": "item", "kicker": "Ganchos diferentes", "sub": "para a mesma oferta", "nar": "Peça ganchos bem diferentes para a mesma oferta."},
+      {"layout": "lista", "kicker": "Varie o formato", "itens": ["Curto", "Longo", "Pergunta"], "nar": "Peça também versões curtas, longas e em formato de pergunta."},
+      {"layout": "titulo", "kicker": "Os mais distintos", "sub": "não os mais bonitos", "nar": "Escolha os três mais diferentes entre si, não os mais bonitos."},
+      {"layout": "item", "kicker": "Sobe os três", "sub": "no Gerenciador", "nar": "Sobe os três no Gerenciador de Anúncios, no mesmo conjunto."},
+      {"layout": "titulo", "kicker": "Quem decide", "sub": "é o resultado", "nar": "Quem decide é o resultado, não a sua opinião nem a da IA."},
+      {"layout": "item", "kicker": "Toda semana", "sub": "o vencedor vira a base", "nar": "Toda semana, o vencedor vira a base da próxima rodada."},
+      {"layout": "titulo", "kicker": "Comenta ANÚNCIO", "sub": "@trafegocomia", "nar": "Comenta ANÚNCIO aqui embaixo."}
+     ]},
+    {"slug": "antes-de-culpar-o-publico", "capa": "Não culpe o público", "cta": "bio",
+     "cenas": [
+      {"layout": "titulo", "kicker": "Não vende?", "sub": "talvez não seja o público", "nar": "Seu anúncio não vende? Talvez o público não seja o problema."},
+      {"layout": "item", "kicker": "Param no vídeo?", "sub": "olhe isso primeiro", "nar": "Olhe primeiro se as pessoas param para assistir o vídeo."},
+      {"layout": "item", "kicker": "Ninguém assiste", "sub": "o problema é o gancho", "nar": "Se ninguém passa dos primeiros segundos, o problema é o gancho."},
+      {"layout": "item", "kicker": "Assiste e não clica", "sub": "o problema é a oferta", "nar": "Se assistem e não clicam, o problema é a oferta."},
+      {"layout": "item", "kicker": "Clica e não compra", "sub": "o problema é a página", "nar": "Se clicam e não compram, o problema é a página."},
+      {"layout": "titulo", "kicker": "Cada etapa", "sub": "tem um número", "nar": "Cada uma dessas etapas tem um número no Gerenciador."},
+      {"layout": "titulo", "kicker": "Mexa só ali", "sub": "onde a pessoa desiste", "nar": "Ache onde a pessoa desiste e mexa só ali."},
+      {"layout": "item", "kicker": "Trocar tudo", "sub": "esconde o que funcionou", "nar": "Trocar tudo de uma vez esconde o que estava funcionando."},
+      {"layout": "titulo", "kicker": "Link na bio", "sub": "Club Tráfego com IA", "nar": "Link na bio: Club Tráfego com IA."}
+     ]},
+    {"slug": "nao-mexa-todo-dia", "capa": "Não mexa todo dia", "cta": "comenta",
+     "cenas": [
+      {"layout": "titulo", "kicker": "Mexeu de novo?", "sub": "isso atrapalha", "nar": "Mexer no anúncio todo dia atrapalha o resultado."},
+      {"layout": "item", "kicker": "Edição grande", "sub": "reinicia o aprendizado", "nar": "Cada edição grande reinicia o aprendizado da campanha."},
+      {"layout": "item", "kicker": "Teste do zero", "sub": "e você paga de novo", "nar": "O sistema volta a testar do zero, e você paga por esse teste de novo."},
+      {"layout": "titulo", "kicker": "Dê alguns dias", "sub": "antes de concluir", "nar": "Dê alguns dias à campanha antes de tirar conclusão."},
+      {"layout": "lista", "kicker": "Uma coisa por vez", "itens": ["Criativo", "Público", "Verba"], "nar": "Mude uma coisa por vez: o criativo, o público ou a verba."},
+      {"layout": "item", "kicker": "Anote", "sub": "o que mudou e quando", "nar": "Anote o que você mudou e em que dia mudou."},
+      {"layout": "titulo", "kicker": "Causa e efeito", "sub": "fica visível", "nar": "Assim você sabe exatamente o que causou a melhora."},
+      {"layout": "item", "kicker": "Paciência paga", "sub": "pressa custa", "nar": "Paciência com método sai mais barato que pressa sem anotação."},
+      {"layout": "titulo", "kicker": "Comenta ANÚNCIO", "sub": "@trafegocomia", "nar": "Comenta ANÚNCIO aqui embaixo."}
+     ]},
+    {"slug": "objetivo-certo-cliente-certo", "capa": "O objetivo escolhe o cliente", "cta": "bio",
+     "cenas": [
+      {"layout": "titulo", "kicker": "O objetivo", "sub": "decide quem te vê", "nar": "O objetivo da campanha decide quem vê o seu anúncio."},
+      {"layout": "item", "kicker": "Alcance", "sub": "acha quem só olha", "nar": "Se você escolhe alcance, o sistema procura quem só olha."},
+      {"layout": "item", "kicker": "Mensagem", "sub": "acha quem conversa", "nar": "Se escolhe mensagem, ele procura quem costuma conversar."},
+      {"layout": "item", "kicker": "Venda", "sub": "acha quem compra", "nar": "Se escolhe venda, ele procura quem costuma comprar."},
+      {"layout": "titulo", "kicker": "Objetivo errado", "sub": "público errado", "nar": "Escolher o objetivo errado é pagar pelo público errado."},
+      {"layout": "item", "kicker": "Uma pergunta", "sub": "o que a pessoa deve fazer?", "nar": "Pergunte o que você quer que a pessoa faça depois de ver."},
+      {"layout": "titulo", "kicker": "Essa é a resposta", "sub": "e só ela", "nar": "A resposta é o seu objetivo, e só ela."},
+      {"layout": "item", "kicker": "O resto vem depois", "sub": "dessa escolha", "nar": "O resto da campanha vem depois dessa escolha."},
+      {"layout": "titulo", "kicker": "Link na bio", "sub": "Club Tráfego com IA", "nar": "Link na bio: Club Tráfego com IA."}
+     ]},
+    {"slug": "o-numero-que-importa", "capa": "Curtida não paga boleto", "cta": "comenta",
+     "cenas": [
+      {"layout": "titulo", "kicker": "Curtida", "sub": "não paga boleto", "nar": "Curtida não paga boleto."},
+      {"layout": "item", "kicker": "Custo por cliente", "sub": "o número que importa", "nar": "O número que importa é quanto custa cada cliente que chega."},
+      {"layout": "item", "kicker": "Some o gasto", "sub": "da semana", "nar": "Some quanto você gastou em anúncio na semana."},
+      {"layout": "item", "kicker": "Divida", "sub": "pelos resultados", "nar": "Divida pelo número de vendas ou de contatos que vieram dele."},
+      {"layout": "titulo", "kicker": "Custo por resultado", "sub": "esse é o seu", "nar": "Esse é o seu custo por resultado."},
+      {"layout": "item", "kicker": "Compare", "sub": "com o que ganha por venda", "nar": "Compare com quanto você ganha em cada venda."},
+      {"layout": "item", "kicker": "Menor?", "sub": "aumente aos poucos", "nar": "Se o custo for menor, aumente a verba aos poucos."},
+      {"layout": "item", "kicker": "Maior?", "sub": "volte ao criativo", "nar": "Se for maior, volte ao criativo antes de gastar mais."},
+      {"layout": "titulo", "kicker": "Comenta ANÚNCIO", "sub": "@trafegocomia", "nar": "Comenta ANÚNCIO aqui embaixo."}
+     ]}
+  ]
+}

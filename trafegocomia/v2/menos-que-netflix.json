@@ -1,0 +1,13 @@
+{"slug":"menos-que-netflix",
+ "tema":{"bg":"#0A0A0A","ac":"#E11D2A","glow":"rgba(225,29,42,.45)","tag":"#FFFFFF","tagtx":"#0A0A0A"},
+ "cenas":[
+ {"nar":"Você paga streaming todo mês pra assistir série.","head":"VOCÊ PAGA [TODO MÊS]","emoji":"📺","tag":"PERGUNTA RÁPIDA"},
+ {"nar":"E quanto você paga pra aprender a vender mais?","head":"E PRA [VENDER MAIS]?","emoji":"🤔"},
+ {"nar":"O plano padrão da Netflix custa cinquenta e um e noventa por mês. O Clube Tráfego com IA, vinte e nove e noventa.","head":"QUEM CUSTA [MENOS]?","vs":[{"r":"Netflix, plano Padrão","v":51.9,"txt":"R$ 51,90"},{"r":"Clube Tráfego com IA","v":29.9,"txt":"R$ 29,90"}],"nota":"Netflix Padrão sem anúncios, preço de outubro/2026"},
+ {"nar":"Por menos que a Netflix, você aprende a anunciar com IA.","head":"ANÚNCIO [COM IA]","emoji":"🤖"},
+ {"nar":"A IA escreve o anúncio, cria as versões e lê o resultado com você.","head":"A IA [TRABALHA]","list":["Escreve","Cria versões","Lê o resultado"]},
+ {"nar":"E o anúncio leva o cliente direto pro seu WhatsApp.","head":"CLIENTE NO [WHATSAPP]","emoji":"💬"},
+ {"nar":"A série acaba no fim de semana. O que você aprende fica no seu negócio.","head":"A SÉRIE ACABA. [ISSO FICA.]","emoji":"🍿"},
+ {"nar":"E você cancela quando quiser.","head":"CANCELE QUANDO [QUISER]","emoji":"✅"},
+ {"nar":"Toca em saiba mais e entra no Clube Tráfego com IA.","head":"TOCA EM","pill":"SAIBA MAIS","emoji":"👉"}
+]}

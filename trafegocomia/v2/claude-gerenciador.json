@@ -1,0 +1,12 @@
+{"slug":"claude-no-gerenciador","cenas":[
+ {"nar":"Criei um anúncio em menos de um minuto, só conversando com o Claude.","head":"ANÚNCIO EM [1 MINUTO]","emoji":"🤖","tag":"CLAUDE + META ADS"},
+ {"nar":"Primeiro, você conecta o Claude ao seu Gerenciador de Anúncios.","head":"CONECTE AO [GERENCIADOR]","emoji":"🔌"},
+ {"nar":"Isso é feito uma vez só, por um conector, sem escrever código.","head":"UMA VEZ. [SEM CÓDIGO].","emoji":"⚙️"},
+ {"nar":"Aí você pede, do seu jeito, como pediria para uma pessoa.","head":"VOCÊ [PEDE]","chat":[{"de":"voce","txt":"Cria uma campanha de mensagens pra minha pizzaria. R$ 10 por dia, até 3 km daqui."}]},
+ {"nar":"Ele monta a campanha, o público e três versões do anúncio.","head":"ELE [MONTA]","list":["Campanha","Público","Três anúncios"]},
+ {"nar":"E deixa tudo em pausa, pra você revisar antes de gastar um real.","head":"TUDO [EM PAUSA]","chat":[{"de":"claude","txt":"Pronto: campanha, público e 3 anúncios criados. Tudo em pausa para você revisar."}]},
+ {"nar":"Você confere e ativa.","head":"CONFERE E [ATIVA]","emoji":"✅"},
+ {"nar":"Depois, pergunta o resultado em português, sem abrir planilha.","head":"RESULTADO EM [PORTUGUÊS]","chat":[{"de":"voce","txt":"Qual anúncio está com o clique mais barato?"},{"de":"claude","txt":"O anúncio 2. Sugiro manter ele e pausar o 3."}]},
+ {"nar":"Quer aprender a fazer isso no seu negócio?","head":"QUER [APRENDER]?","emoji":"👇"},
+ {"nar":"Toca em saiba mais e entra no Clube Tráfego com IA.","head":"TOCA EM","pill":"SAIBA MAIS","emoji":"👉"}
+]}

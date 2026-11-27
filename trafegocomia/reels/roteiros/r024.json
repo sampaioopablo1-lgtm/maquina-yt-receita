@@ -1,0 +1,11 @@
+{
+ "slug": "r024-antes-do-relatorio",
+ "cenas": [
+  {"nar": "Mandou o relatório e o cliente achou um número errado? Confere três coisas antes de enviar.", "head": "ANTES DE [ENVIAR]", "emoji": "📊", "tag": "CHECKLIST"},
+  {"nar": "Um: o período do relatório é o mesmo que o cliente combinou com você.", "head": "1. MESMO [PERÍODO]", "emoji": "📅"},
+  {"nar": "Dois: o resultado é o que o cliente chama de resultado. Venda, lead ou mensagem.", "head": "2. RESULTADO [DELE]", "emoji": "🎯"},
+  {"nar": "Três: cada número que mudou muito tem uma frase explicando o porquê.", "head": "3. NÚMERO COM [PORQUÊ]", "emoji": "💬"},
+  {"nar": "Período, resultado certo e explicação. Leva dois minutos e evita a ligação desconfiada.", "head": "DOIS MINUTOS", "list": ["Período combinado", "Resultado do cliente", "Explicação curta"]},
+  {"nar": "Salva pra conferir antes do próximo relatório.", "head": "SALVA PRO [PRÓXIMO]", "pill": "SALVA", "emoji": "🔖"}
+ ]
+}

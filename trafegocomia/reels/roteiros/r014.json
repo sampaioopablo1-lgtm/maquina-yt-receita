@@ -1,0 +1,9 @@
+{"slug":"r014-ia-substitui-gestor",
+ "cenas":[
+ {"nar":"A IA vai substituir o gestor de tráfego?","head":"A IA VAI TE [SUBSTITUIR]?","emoji":"🤖","tag":"MITO OU VERDADE"},
+ {"nar":"Mito. Ela substitui o operacional, não o gestor.","head":"[MITO]","emoji":"❌"},
+ {"nar":"Pede dez variações sem critério e ela entrega dez anúncios iguais.","head":"SEM CRITÉRIO = [TUDO IGUAL]","emoji":"🔁"},
+ {"nar":"Quem decide a oferta, o público e o que testar ainda é você.","head":"QUEM DECIDE","list":["A oferta","O público","O que testar"]},
+ {"nar":"A IA executa rápido. O critério continua sendo o seu diferencial.","head":"O CRITÉRIO É [SEU]","emoji":"🧠"},
+ {"nar":"Comenta IA se você quer ver como ligar ela ao Gerenciador.","head":"COMENTA [IA]","pill":"COMENTA","emoji":"💬"}
+]}

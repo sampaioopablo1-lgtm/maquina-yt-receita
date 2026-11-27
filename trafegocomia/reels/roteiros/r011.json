@@ -1,0 +1,36 @@
+{
+ "slug": "r011-julgar-pelo-ctr",
+ "cenas": [
+  {
+   "nar": "Anúncio com clique barato e zero venda. Conhece?",
+   "head": "CLIQUE BARATO, [ZERO VENDA]",
+   "emoji": "🤨",
+   "tag": "ERRO QUE CUSTA"
+  },
+  {
+   "nar": "O erro é julgar o anúncio só pelo clique.",
+   "head": "SÓ PELO [CLIQUE]",
+   "emoji": "🖱️"
+  },
+  {
+   "nar": "Gancho curioso atrai clique de quem não vai comprar.",
+   "head": "CLIQUE DE QUEM [NÃO COMPRA]",
+   "emoji": "🎣"
+  },
+  {
+   "nar": "Olhe o custo por resultado, não só o custo por clique.",
+   "head": "CUSTO POR [RESULTADO]",
+   "emoji": "🎯"
+  },
+  {
+   "nar": "O anúncio bom é o que traz o resultado do cliente.",
+   "head": "RESULTADO DO [CLIENTE]",
+   "emoji": "✅"
+  },
+  {
+   "nar": "Segue pra mais erros que custam verba.",
+   "head": "SEGUE PRA [MAIS]",
+   "emoji": "👉"
+  }
+ ]
+}

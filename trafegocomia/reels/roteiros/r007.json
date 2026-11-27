@@ -1,0 +1,40 @@
+{
+ "slug": "r007-antes-de-subir-campanha",
+ "cenas": [
+  {
+   "nar": "Três coisas pra conferir antes de subir qualquer campanha.",
+   "head": "ANTES DE [SUBIR]",
+   "emoji": "✅",
+   "tag": "CHECKLIST"
+  },
+  {
+   "nar": "Um: o pixel está disparando o evento certo?",
+   "head": "1. [PIXEL]",
+   "emoji": "📡"
+  },
+  {
+   "nar": "Dois: o link abre rápido no celular?",
+   "head": "2. [LINK NO CELULAR]",
+   "emoji": "📱"
+  },
+  {
+   "nar": "Três: os parâmetros de URL estão no anúncio pra você saber de onde veio a venda?",
+   "head": "3. [PARÂMETROS]",
+   "emoji": "🔗"
+  },
+  {
+   "nar": "Pixel, link e parâmetros. Dois minutos que salvam a semana.",
+   "head": "2 MINUTOS",
+   "list": [
+    "Pixel",
+    "Link no celular",
+    "Parâmetros"
+   ]
+  },
+  {
+   "nar": "Salva e confere na próxima campanha.",
+   "head": "SALVA [ESSE CHECKLIST]",
+   "emoji": "🔖"
+  }
+ ]
+}

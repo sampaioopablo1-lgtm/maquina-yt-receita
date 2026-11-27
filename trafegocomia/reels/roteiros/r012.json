@@ -1,0 +1,36 @@
+{
+ "slug": "r012-cpm",
+ "cenas": [
+  {
+   "nar": "CPM em trinta segundos.",
+   "head": "CPM EM [30 SEGUNDOS]",
+   "emoji": "⏱️",
+   "tag": "MÉTRICA"
+  },
+  {
+   "nar": "É quanto você paga por mil exibições do anúncio.",
+   "head": "POR MIL [EXIBIÇÕES]",
+   "emoji": "💵"
+  },
+  {
+   "nar": "CPM alto não é sempre problema: público disputado custa mais.",
+   "head": "ALTO NEM SEMPRE É [RUIM]",
+   "emoji": "⚖️"
+  },
+  {
+   "nar": "O que importa é se o resultado sai no custo que o cliente aceita.",
+   "head": "O QUE [IMPORTA]",
+   "emoji": "🎯"
+  },
+  {
+   "nar": "Compare o CPM sempre com o custo por resultado.",
+   "head": "COMPARE [OS DOIS]",
+   "emoji": "🔗"
+  },
+  {
+   "nar": "Segue pra próxima métrica em trinta segundos.",
+   "head": "SEGUE PRA [PRÓXIMA]",
+   "emoji": "👉"
+  }
+ ]
+}

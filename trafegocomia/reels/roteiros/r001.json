@@ -1,0 +1,56 @@
+{
+ "slug": "r001-relatorio-em-minutos",
+ "cenas": [
+  {
+   "nar": "Segunda-feira, cinco clientes, cinco relatórios pra montar.",
+   "head": "SEGUNDA, [5 RELATÓRIOS]",
+   "emoji": "😮‍💨",
+   "tag": "GESTOR DE TRÁFEGO"
+  },
+  {
+   "nar": "Você abre o Gerenciador e copia número por número.",
+   "head": "COPIA E [COLA]",
+   "emoji": "📋"
+  },
+  {
+   "nar": "Agora imagina pedir isso em português pra uma IA ligada à conta.",
+   "head": "PEDE EM [PORTUGUÊS]",
+   "emoji": "🤖"
+  },
+  {
+   "nar": "Compare os conjuntos da última semana, aponte o que está acima do custo por resultado e escreva o resumo pro cliente.",
+   "head": "O PEDIDO",
+   "chat": [
+    {
+     "de": "voce",
+     "txt": "Compare os conjuntos da semana e resuma pro cliente"
+    },
+    {
+     "de": "ia",
+     "txt": "3 conjuntos acima do CPA. Resumo pronto pra enviar."
+    }
+   ],
+   "nota": "Conversa ilustrativa"
+  },
+  {
+   "nar": "Ela lê os números, compara e entrega o texto.",
+   "head": "A IA [LÊ E RESUME]",
+   "list": [
+    "Lê os números",
+    "Compara conjuntos",
+    "Escreve o resumo"
+   ]
+  },
+  {
+   "nar": "Você confere e manda. A análise continua sendo sua.",
+   "head": "A ANÁLISE É [SUA]",
+   "emoji": "✅"
+  },
+  {
+   "nar": "Segue o perfil pra ver como ligar a IA ao Gerenciador.",
+   "head": "SEGUE PRA [VER COMO]",
+   "pill": "SEGUIR",
+   "emoji": "👉"
+  }
+ ]
+}

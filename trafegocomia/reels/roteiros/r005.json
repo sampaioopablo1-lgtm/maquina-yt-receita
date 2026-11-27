@@ -1,0 +1,40 @@
+{
+ "slug": "r005-frequencia",
+ "cenas": [
+  {
+   "nar": "Frequência em trinta segundos.",
+   "head": "FREQUÊNCIA EM [30 SEGUNDOS]",
+   "emoji": "⏱️",
+   "tag": "MÉTRICA"
+  },
+  {
+   "nar": "É quantas vezes, em média, a mesma pessoa viu seu anúncio.",
+   "head": "QUANTAS [VEZES]",
+   "emoji": "👁️"
+  },
+  {
+   "nar": "Frequência subindo e cliques caindo é sinal de cansaço.",
+   "head": "SOBE E CAI = [CANSAÇO]",
+   "emoji": "😴"
+  },
+  {
+   "nar": "O que fazer: criativo novo, público maior, ou pausar.",
+   "head": "O QUE [FAZER]",
+   "list": [
+    "Criativo novo",
+    "Público maior",
+    "Pausar"
+   ]
+  },
+  {
+   "nar": "Olhe a frequência junto com os cliques, nunca sozinha.",
+   "head": "NUNCA [SOZINHA]",
+   "emoji": "🔗"
+  },
+  {
+   "nar": "Segue pra próxima métrica em trinta segundos.",
+   "head": "SEGUE PRA [PRÓXIMA]",
+   "emoji": "👉"
+  }
+ ]
+}

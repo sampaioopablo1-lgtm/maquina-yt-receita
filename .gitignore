@@ -16,3 +16,5 @@ data/
 
 # dados locais e segredos (tokens, log de eventos do CRM)
 **/.local/
+saida/reels/*_trab/
+saida/reels/_cena.html

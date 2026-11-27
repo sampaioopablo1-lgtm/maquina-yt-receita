@@ -1,0 +1,40 @@
+{
+ "slug": "r003-mexer-na-campanha-todo-dia",
+ "cenas": [
+  {
+   "nar": "O erro que mais queima verba de cliente: mexer na campanha todo dia.",
+   "head": "MEXER [TODO DIA]",
+   "emoji": "🔥",
+   "tag": "ERRO QUE CUSTA"
+  },
+  {
+   "nar": "Cada edição grande joga o conjunto de volta pro aprendizado.",
+   "head": "VOLTA PRO [APRENDIZADO]",
+   "emoji": "🔄"
+  },
+  {
+   "nar": "E no aprendizado o custo oscila mais.",
+   "head": "CUSTO [OSCILA]",
+   "emoji": "📈"
+  },
+  {
+   "nar": "O conserto: defina antes quando vai olhar, o que vai olhar e o que te faz desligar.",
+   "head": "DEFINA [ANTES]",
+   "list": [
+    "Quando olhar",
+    "O que olhar",
+    "Quando desligar"
+   ]
+  },
+  {
+   "nar": "Deixe a campanha rodar alguns dias antes de julgar.",
+   "head": "DEIXE [RODAR]",
+   "emoji": "⏳"
+  },
+  {
+   "nar": "Segue pra mais erros que custam verba.",
+   "head": "SEGUE PRA [MAIS]",
+   "emoji": "👉"
+  }
+ ]
+}

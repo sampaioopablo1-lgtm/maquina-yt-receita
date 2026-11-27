@@ -1,0 +1,12 @@
+{
+ "slug": "r022-banco-de-ganchos",
+ "cenas": [
+  {"nar": "Toda vez que vai escrever anúncio, você começa do zero? Monte um banco de ganchos.", "head": "BANCO DE [GANCHOS]", "emoji": "🗂️", "tag": "BIBLIOTECA DE ANÚNCIOS"},
+  {"nar": "Abra a Biblioteca de Anúncios e busque os concorrentes do seu cliente.", "head": "ABRA A [BIBLIOTECA]", "emoji": "🔎"},
+  {"nar": "Leia só a primeira frase de cada anúncio. É ela que segura a pessoa.", "head": "SÓ A [PRIMEIRA FRASE]", "emoji": "👆"},
+  {"nar": "Anote a estrutura, não o texto: pergunta, número, erro comum, antes e depois.", "head": "ANOTE A [ESTRUTURA]", "list": ["Pergunta", "Erro comum", "Antes e depois", "Promessa direta"]},
+  {"nar": "Copiar o texto do outro não serve. A estrutura você adapta pro seu cliente.", "head": "ADAPTA, NÃO [COPIA]", "emoji": "✍️"},
+  {"nar": "Com o banco pronto, cada criativo novo começa com cinco opções na mesa.", "head": "OPÇÕES NA [MESA]", "emoji": "✅"},
+  {"nar": "Segue pra mais jeitos de usar a Biblioteca de Anúncios a seu favor.", "head": "SEGUE PRA [MAIS]", "pill": "SEGUE", "emoji": "👉"}
+ ]
+}

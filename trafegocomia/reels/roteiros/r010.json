@@ -1,0 +1,41 @@
+{
+ "slug": "r010-analise-de-conjunto",
+ "cenas": [
+  {
+   "nar": "Um pedido pra IA achar o conjunto que está drenando verba.",
+   "head": "O CONJUNTO QUE [DRENA]",
+   "emoji": "🕳️",
+   "tag": "PROMPT PRONTO"
+  },
+  {
+   "nar": "Liste os conjuntos dos últimos sete dias, ordene pelo custo por resultado e marque os que gastaram sem converter.",
+   "head": "O [PEDIDO]",
+   "chat": [
+    {
+     "de": "voce",
+     "txt": "Ordene os conjuntos dos últimos 7 dias pelo custo por resultado e marque quem gastou sem converter"
+    },
+    {
+     "de": "ia",
+     "txt": "Lista pronta. 2 conjuntos gastaram sem converter."
+    }
+   ],
+   "nota": "Conversa ilustrativa"
+  },
+  {
+   "nar": "Em vez de abrir conjunto por conjunto, você recebe a lista pronta.",
+   "head": "LISTA [PRONTA]",
+   "emoji": "📋"
+  },
+  {
+   "nar": "A decisão de pausar continua sendo sua.",
+   "head": "A DECISÃO É [SUA]",
+   "emoji": "🧑‍💼"
+  },
+  {
+   "nar": "Salva o pedido e testa na próxima conta.",
+   "head": "SALVA [O PEDIDO]",
+   "emoji": "🔖"
+  }
+ ]
+}

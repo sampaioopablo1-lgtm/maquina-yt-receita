@@ -1,0 +1,12 @@
+{
+ "slug": "r023-mais-verba-mais-resultado",
+ "cenas": [
+  {"nar": "Mito ou verdade: dobrou a verba, dobra o resultado?", "head": "DOBROU A VERBA, [DOBRA?]", "emoji": "💸", "tag": "MITO OU VERDADE"},
+  {"nar": "Mito. Mais verba compra mais entrega, não mais gente interessada na mesma proporção.", "head": "É [MITO]", "emoji": "❌"},
+  {"nar": "Quando a verba sobe, o anúncio começa a chegar em quem estava mais longe de comprar.", "head": "CHEGA EM QUEM ESTÁ [LONGE]", "emoji": "🎯"},
+  {"nar": "Por isso o custo por resultado costuma subir junto com a verba.", "head": "O CUSTO [SOBE JUNTO]", "emoji": "📈"},
+  {"nar": "Antes de prometer resultado em dobro pro cliente, combine o que vai medir.", "head": "COMBINE COM O [CLIENTE]", "list": ["Custo por resultado", "Volume de resultados", "Até onde vale subir"]},
+  {"nar": "Escalar é achar o ponto em que o resultado extra ainda vale o custo extra.", "head": "ACHAR O [PONTO]", "emoji": "⚖️"},
+  {"nar": "Comenta VERBA se você já ouviu essa promessa de cliente.", "head": "COMENTA [VERBA]", "pill": "COMENTA", "emoji": "💬"}
+ ]
+}
